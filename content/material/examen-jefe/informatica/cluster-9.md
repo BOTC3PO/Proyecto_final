@@ -1,942 +1,8 @@
 # Examen jefe — [PENDIENTE #824]
 
-> Logro #824. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
+> Logro #824. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: relaciones-y-claves-foraneas (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones-y-claves-foraneas"
-  nivel: "basico"
-  tags: ["bases-de-datos", "sql"]
-
-respuesta: "clave_primaria"
-tipo: completar
-respuestas_validas:
-  - "clave_primaria"
-  - "primary_key"
-
-enunciado: "El campo único que identifica de forma inequívoca a cada registro en una tabla se denomina ___."
-
-explicacion: |
-  La clave primaria (Primary Key) garantiza la integridad de la entidad, asegurando que no haya dos filas idénticas y que el identificador no sea nulo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones-y-claves-foraneas"
-  nivel: "basico"
-  tags: ["bases-de-datos", "relaciones"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Una clave foránea (Foreign Key) debe referenciar necesariamente a una clave primaria en la tabla de origen?"
-
-explicacion: |
-  Falso. Una clave foránea debe referenciar a una clave única (Unique Key) en la tabla de destino, no estrictamente a una clave primaria, aunque es la práctica más común.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones-y-claves-foraneas"
-  nivel: "intermedio"
-  tags: ["modelado", "cardinalidad"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Un Cliente y sus Pedidos", "uno_a_muchos"], ["Un Estudiante y sus Materias (en un modelo N:M)", "muchos_a_muchos"]]
-
-respuesta: escenarios[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["uno_a_uno", "uno_a_muchos", "muchos_a_muchos"]
-
-enunciado: "En el escenario '{escenarios[escenario_idx][0]}', el tipo de relación predominante es:"
-
-explicacion: |
-  En el primer caso, un cliente puede tener múltiples pedidos (1:N). En el segundo caso, un estudiante tiene muchas materias y una materia tiene muchos estudiantes (N:M).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones-y-claves-foraneas"
-  nivel: "intermedio"
-  tags: ["integridad", "sql"]
-
-respuesta: "Integridad Referencial"
-tipo: completar
-respuestas_validas:
-  - "Integridad Referencial"
-  - "Integridad de Entidad"
-
-enunciado: "La regla que asegura que los valores de una clave foránea existan previamente en la tabla referenciada se conoce como ___."
-
-explicacion: |
-  La integridad referencial garantiza que las relaciones entre tablas permanezcan consistentes, evitando "registros huérfanos".
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones-y-claves-foraneas"
-  nivel: "avanzado"
-  tags: ["sql", "ddl"]
-
-respuesta_orden: ["Tabla_Padre", "Tabla_Hija"]
-tipo: ordenar
-opciones_explicitas: ["Tabla_Hija", "Tabla_Padre"]
-
-enunciado: "Para evitar errores de restricción al ejecutar un script SQL de creación de base de datos, ¿en qué orden deben crearse las tablas si la Tabla_Hija tiene una clave foránea que apunta a la Tabla_Padre?"
-
-explicacion: |
-  Primero se debe crear la tabla que contiene la clave primaria (Padre) para que, cuando se cree la tabla que la referencia (Hija), la clave ya exista en el sistema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "basico"
-  tags: ["sql", "dbms", "relaciones"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Clientes", "Pedidos", "cliente_id"], ["Autores", "Libros", "autor_id"]]
-
-enunciado: "En un modelo relacional, si tenemos una tabla de {datos[idx][0]} y una tabla de {datos[idx][1]}, la columna que permite vincular ambas tablas y hace referencia a la clave primaria de la primera tabla es la clave foránea, cuyo nombre en la tabla secundaria es ___."
-
-respuestas_validas:
-  - "cliente_id"
-  - "autor_id"
-respuesta: datos[idx][2]
-tipo: completar
-
-explicacion: |
-  La clave foránea (Foreign Key) es un campo en una tabla que identifica un registro único en otra tabla, estableciendo así la relación entre ambas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "intermedio"
-  tags: ["integridad", "sql", "conceptos"]
-
-enunciado: "Si intentamos eliminar un registro de la tabla 'Clientes' que tiene un ID asociado a registros existentes en la tabla 'Pedidos', y la restricción de integridad referencial está activa, la base de datos impedirá la acción para evitar datos huérfanos."
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  La integridad referencial garantiza que no existan registros en una tabla hija que apunten a registros inexistentes en la tabla padre. Por lo tanto, la operación de borrado se bloquea o se aplica una acción en cascada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "basico"
-  tags: ["relaciones", "cardinalidad"]
-
-enunciado: "Considerando un sistema de gestión de una biblioteca: Un 'Libro' pertenece a un único 'Autor', pero un 'Autor' puede haber escrito muchos 'Libros'. ¿Qué tipo de relación predomina desde la perspectiva de la tabla 'Libros' hacia la tabla 'Autores'?"
-
-opciones_explicitas: ["Uno a Uno", "Uno a Muchos", "Muchos a Muchos"]
-respuesta: "Uno a Muchos"
-tipo: mc
-
-explicacion: |
-  En una relación de uno a muchos (1:N), la clave foránea se coloca en la tabla del lado "muchos" (Libros) para apuntar al lado "uno" (Autores).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "avanzado"
-  tags: ["diseño", "pasos", "normalizacion"]
-
-enunciado: "Para diseñar correctamente un esquema relacional desde un modelo conceptual, se deben seguir estos pasos en orden lógico:"
-
-opciones_explicitas: ["Identificar entidades", "Definir claves primarias", "Establecer relaciones mediante claves foráneas"]
-respuesta_orden: ["Identificar entidades", "Definir claves primarias", "Establecer relaciones mediante claves foráneas"]
-tipo: ordenar
-
-explicacion: |
-  Primero se definen los objetos del mundo real (entidades), luego cómo se identifican unívocamente (claves primarias) y finalmente cómo se conectan entre sí (claves foráneas).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "intermedio"
-  tags: ["diseño", "dbms"]
-
-variables:
-  datos: [["Estudiantes", "Cursos", 10, 5], ["Usuarios", "Roles", 100, 5]]
-  idx: uno_de([0, 1])
-
-enunciado: "En un sistema donde cada {datos[idx][0]} puede inscribirse en múltiples {datos[idx][1]}, y cada {datos[idx][1]} puede tener múltiples {datos[idx][0]}, se requiere una tabla intermedia para resolver la relación. Si tenemos {datos[idx][2]} registros de origen y {datos[idx][3]} de destino, la tabla intermedia gestionará la relación de tipo ___."
-
-respuestas_validas:
-  - "Muchos a Muchos"
-respuesta: "Muchos a Muchos"
-tipo: completar
-
-explicacion: |
-  Las relaciones de muchos a muchos (N:M) no se pueden implementar directamente con una sola clave foránea; requieren una tabla de unión (junction table) que contenga las claves primarias de ambas tablas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "basico"
-  tags: ["sql", "bases_de_datos", "teoria"]
-
-respuesta: "integridad referencial"
-tipo: completar
-respuestas_validas:
-  - "integridad referencial"
-  - "integridad de datos"
-  - "integridad referencial"
-
-enunciado: "La restricción de clave foránea (Foreign Key) tiene como objetivo principal garantizar la ___ entre las tablas de una base de datos relacional."
-
-explicacion: |
-  La integridad referencial asegura que un valor en una columna de una tabla (la clave foránea) debe coincidir con un valor existente en la clave primaria de otra tabla, evitando datos huérfanos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "intermedio"
-  tags: ["sql", "conceptos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es posible que una clave foránea (Foreign Key) contenga valores que no existen en la tabla de referencia (la tabla a la que apunta)?"
-
-explicacion: |
-  Falso. Por definición, la restricción de clave foránea impide la inserción de valores que no existan en la clave primaria de la tabla relacionada, manteniendo la coherencia de los datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "intermedio"
-  tags: ["sql", "cascada", "errores"]
-
-variables:
-  escenario: uno_de(["Se borra un registro en la tabla 'Clientes' que tiene pedidos asociados", "Se intenta insertar un 'Pedido' con un 'Cliente_ID' que no existe", "Se intenta borrar un 'Producto' que está siendo referenciado por una 'Venta'"])
-
-respuesta: "error"
-tipo: completar
-respuestas_validas:
-  - "error"
-
-enunciado: "Si una base de datos tiene activada la restricción de integridad referencial estándar (sin ON DELETE CASCADE), ¿qué sucede en el caso: {escenario}? (responde con una palabra: error o éxito)"
-
-explicacion: |
-  El sistema de gestión de base de datos (DBMS) bloqueará la operación y lanzará un error para evitar que queden registros de 'Pedidos' sin un 'Cliente' asociado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "intermedio"
-  tags: ["sql", "orden_ddl"]
-
-respuesta_orden: ["Clientes", "Pedidos", "Detalles_Pedido"]
-tipo: ordenar
-
-opciones_explicitas: ["Pedidos", "Clientes", "Detalles_Pedido"]
-
-enunciado: "Para evitar errores de 'objeto no encontrado' al ejecutar un script SQL de creación de tablas con claves foráneas, ¿cuál es el orden correcto de creación?"
-
-explicacion: |
-  Primero se deben crear las tablas que no dependen de nadie (tablas maestras o de referencia), luego las que dependen de ellas, y finalmente las tablas de detalle que dependen de las relaciones intermedias.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "avanzado"
-  tags: ["sql", "nulls"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Puede una clave foránea contener valores NULL si la columna no tiene una restricción NOT NULL?"
-
-explicacion: |
-  Verdadero. Un valor NULL en una clave foránea significa que la relación es opcional; es decir, el registro existe pero no está vinculado actualmente a ningún registro de la tabla de referencia.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "basico"
-  tags: ["sql", "bases_de_datos"]
-
-respuesta: "clave_foranea"
-tipo: "mc"
-opciones_explicitas: ["clave_primaria", "clave_foranea", "índice_único", "clave_compuesta"]
-
-enunciado: "Mientras que la clave primaria identifica de forma única un registro en su propia tabla, la ___ se utiliza para establecer un vínculo con una clave primaria de otra tabla."
-
-explicacion: |
-  La clave primaria (Primary Key) garantiza la unicidad en la tabla origen, mientras que la clave foránea (Foreign Key) permite la integridad referencial conectando tablas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "intermedio"
-  tags: ["integridad", "sql"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "La restricción de integridad referencial asegura que un valor en una columna de clave foránea debe existir previamente en la columna de clave primaria de la tabla relacionada."
-
-explicacion: |
-  Verdadero. Si se intentara insertar un valor en la clave foránea que no existe en la tabla padre, el sistema de gestión de bases de datos (RDBMS) lanzaría un error para mantener la consistencia.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "avanzado"
-  tags: ["sql", "integridad"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["RESTRICT", "Impide la eliminación del registro padre si tiene hijos"], ["CASCADE", "Elimina automáticamente los registros hijos al eliminar el padre"]]
-
-respuesta: escenarios[escenario_idx][0]
-tipo: "mc"
-opciones_explicitas: ["RESTRICT", "CASCADE", "SET NULL", "NO ACTION"]
-
-enunciado: "Si el comportamiento deseado ante el borrado del registro padre es: '{escenarios[escenario_idx][1]}', la acción de configuración adecuada es: ___"
-
-explicacion: |
-  La opción elegida define cómo reacciona la base de datos ante la pérdida de un registro padre. {escenarios[escenario_idx][0]} es el comportamiento específico seleccionado para este caso.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "basico"
-  tags: ["diseño", "modelado"]
-
-respuesta_orden: ["Definir entidades", "Establecer atributos", "Identificar claves primarias", "Establecer claves foráneas"]
-tipo: "ordenar"
-opciones_explicitas: ["Definir entidades", "Establecer atributos", "Identificar claves primarias", "Establecer claves foráneas"]
-
-enunciado: "Ordena los pasos lógicos para diseñar un modelo relacional que incluya relaciones entre tablas:"
-
-explicacion: |
-  Primero se definen los objetos (entidades), luego sus propiedades (atributos), después cómo se identifican (PK) y finalmente cómo se conectan (FK).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "intermedio"
-  tags: ["sql", "constraints"]
-
-respuesta: "nulo"
-tipo: "completar"
-respuestas_validas:
-  - "nulo"
-  - "NULL"
-
-enunciado: "A diferencia de una clave primaria que nunca puede contener valores ___, una clave foránea puede permitir valores ___ si la relación es opcional."
-
-explicacion: |
-  La clave primaria (PK) tiene una restricción de 'NOT NULL' implícita para garantizar la identidad, mientras que la clave foránea (FK) puede ser nula si la relación es opcional (por ejemplo, un empleado que aún no tiene asignado un departamento).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "basico"
-  tags: ["dbms", "sql", "relaciones"]
-
-variables:
-  escenario: uno_de([["Tabla_Clientes(id_cliente, nombre) y Tabla_Pedidos(id_pedido, id_cliente)", "id_cliente"], ["Tabla_Autores(id_autor, nombre) y Tabla_Libros(id_libro, id_autor)", "id_autor"], ["Tabla_Estudiantes(id_estudiante, nombre) y Tabla_Inscripciones(id_inscripcion, id_estudiante)", "id_estudiante"]])
-
-enunciado: "En el escenario de {escenario[0]}, ¿cuál es el nombre del campo que actúa como clave foránea en la segunda tabla para establecer la relación?"
-
-opciones_explicitas: ["id_pedido", "id_cliente", "nombre", "id_autor", "id_estudiante"]
-respuesta: escenario[1]
-tipo: mc
-
-explicacion: |
-  La clave foránea es el campo en una tabla que hace referencia a la clave primaria de otra tabla, permitiendo la relación entre ambas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "intermedio"
-  tags: ["integridad", "dbms"]
-
-enunciado: "Si intentamos eliminar un registro de una tabla 'Padre' que posee una clave primaria siendo referenciada por una clave foránea en una tabla 'Hija', y la restricción de integridad está activa, la operación será rechazada para evitar datos huérfanos."
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  Correcto. La integridad referencial impide la eliminación de registros que dejarían a las filas de la tabla hija con una referencia inválida.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "intermedio"
-  tags: ["sql", "conceptos"]
-
-variables:
-  contexto: uno_de([["Un sistema de ventas donde un Cliente realiza muchos Pedidos", "uno a muchos"], ["Un sistema de gestión donde un Estudiante se inscribe en muchas Materias y una Materia tiene muchos Estudiantes", "muchos a muchos"], ["Un sistema de países donde un Continente tiene muchos Países y un País pertenece a un solo Continente", "uno a muchos"]])
-
-enunciado: "En el contexto de {contexto}, el tipo de relación predominante es ___."
-
-respuestas_validas:
-  - "uno a muchos"
-  - "muchos a muchos"
-  - "uno a uno"
-respuesta: contexto[1]
-tipo: completar
-
-explicacion: |
-  El tipo de relación se define por la cardinalidad entre las entidades involucradas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "avanzado"
-  tags: ["diseño", "dbms"]
-
-opciones_explicitas: ["Identificar entidades", "Definir atributos", "Establecer relaciones y claves", "Normalizar tablas"]
-respuesta_orden: ["Identificar entidades", "Definir atributos", "Establecer relaciones y claves", "Normalizar tablas"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos para el diseño de un modelo relacional de base de datos:"
-
-explicacion: |
-  El diseño comienza con la identificación de las entidades del mundo real, luego sus propiedades, la conexión entre ellas mediante claves y finalmente el proceso de normalización.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "relaciones_y_claves_foraneas"
-  nivel: "intermedio"
-  tags: ["lógica", "dbms"]
-
-variables:
-  caso: uno_de([["Una tabla 'Departamentos' y una tabla 'Empleados' (cada empleado pertenece a un departamento)", "1"], ["Una tabla 'Libros' y una tabla 'Autores' (cada libro tiene un único autor)", "1"]])
-
-enunciado: "Considerando el caso: {caso[0]}. Si aplicamos una restricción de integridad donde cada registro de la tabla dependiente debe tener exactamente ___ registro relacionado en la tabla principal, estamos ante una relación 1:1 o 1:N dependiendo del sentido."
-
-respuestas_validas:
-  - "1"
-respuesta: "1"
-tipo: completar
-
-explicacion: |
-  La clave foránea asegura que el valor en la tabla hija exista en la tabla padre, garantizando la existencia del registro relacionado.
-```
-
-## Sección: procesos-tecnicos-artesanales-e-industriales (22 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "un conjunto de pasos organizados para transformar materias primas en algo útil"
-tipo: mc
-opciones_explicitas: ["un conjunto de pasos organizados para transformar materias primas en algo útil", "sólo el resultado final de una fábrica", "un tipo de máquina específica"]
-
-enunciado: "Un proceso técnico es, en esencia..."
-
-explicacion: |
-  Tanto el proceso artesanal como el industrial son formas organizadas
-  de transformar materias primas en algo útil, aunque de maneras
-  distintas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["proceso artesanal"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "la habilidad manual y el conocimiento del oficio"
-tipo: mc
-opciones_explicitas: ["la habilidad manual y el conocimiento del oficio", "la velocidad de una máquina automatizada", "la estandarización de protocolos"]
-
-enunciado: "En el proceso artesanal, el motor principal de la producción es..."
-
-explicacion: |
-  La intervención directa y constante del trabajador, con su habilidad
-  y conocimiento específico, es lo que define al proceso artesanal.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["limite artesanal"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El proceso artesanal tiene como límite natural el tiempo humano, ya que cada pieza requiere trabajo manual delicado."
-
-explicacion: |
-  No es posible producir miles de unidades idénticas en un día si cada
-  una necesita horas de trabajo manual individual.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["proceso industrial"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "eficiencia, estandarización y producción en masa"
-tipo: mc
-opciones_explicitas: ["eficiencia, estandarización y producción en masa", "personalización única de cada pieza", "dependencia exclusiva del trabajo manual"]
-
-enunciado: "El proceso industrial prioriza..."
-
-explicacion: |
-  Usa maquinaria y algoritmos para repetir operaciones con precisión y
-  velocidad, reduciendo el costo unitario a costa de la unicidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["estandarizacion digital"]
-
-variables:
-  elemento: uno_de(["protocolos", "formatos de archivo", "lenguajes de programación universales"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el mundo digital, la estandarización se manifiesta en \"{elemento}\", permitiendo que un archivo creado en una ciudad se abra en otra sin problemas."
-
-explicacion: |
-  Así como antes las piezas mecánicas eran intercambiables, hoy los
-  protocolos y formatos digitales cumplen esa misma función de
-  compatibilidad universal.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["ejemplo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "el correo electrónico"
-tipo: mc
-opciones_explicitas: ["redactar mil cartas a mano", "el correo electrónico", "ninguno de los dos métodos"]
-
-enunciado: "Para enviar un mensaje a mil personas de forma eficiente (lógica industrial), conviene usar..."
-
-explicacion: |
-  Redactar mil cartas a mano sería el enfoque artesanal, mucho menos
-  eficiente para esa escala; el correo electrónico es la solución
-  industrial/escalable.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "avanzado"
-  tags: ["desafios"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "la pérdida de la \"huella humana\" y la dependencia de sistemas rígidos"
-tipo: mc
-opciones_explicitas: ["la pérdida de la \"huella humana\" y la dependencia de sistemas rígidos", "el aumento del costo unitario de producción", "la imposibilidad de automatizar tareas"]
-
-enunciado: "La industrialización extrema de la informática (automatización con scripts y algoritmos) plantea como desafío..."
-
-explicacion: |
-  Democratiza el acceso a la información, pero también implica perder
-  unicidad y depender de sistemas que fallan si no se entienden sus
-  reglas internas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["ejemplo argentino"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "artesanal"
-tipo: mc
-opciones_explicitas: ["artesanal", "industrial"]
-
-enunciado: "La panadería tradicional donde el panadero amasa cada pieza a mano, ajustando el agua según la humedad del día, es un ejemplo de proceso..."
-
-explicacion: |
-  Es flexible, depende del experto y tiene variaciones naturales en cada
-  producto: características típicas del proceso artesanal.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["ejemplo argentino"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "industrial"
-tipo: mc
-opciones_explicitas: ["artesanal", "industrial"]
-
-enunciado: "La fábrica de galletitas donde robots y cintas transportadoras aseguran que cada galletita pese exactamente lo mismo es un ejemplo de proceso..."
-
-explicacion: |
-  La estandarización extrema (mismo peso y sabor en millones de
-  unidades) es característica del proceso industrial.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["ejemplo informatico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "artesanal/prototipo"
-tipo: mc
-opciones_explicitas: ["artesanal/prototipo", "industrial", "ninguno de los dos"]
-
-enunciado: "Escribir código personalizado para resolver un problema específico de una empresa es, en la lógica de esta teoría, un proceso..."
-
-explicacion: |
-  Es único y adaptable a esa empresa en particular, a diferencia de un
-  sistema estandarizado y masivo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["ejemplo informatico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "rígido, estandarizado y obligatorio para millones de usuarios"
-tipo: mc
-opciones_explicitas: ["rígido, estandarizado y obligatorio para millones de usuarios", "único y personalizable para cada empresa", "opcional y sin ninguna regla fija"]
-
-enunciado: "El sistema de facturación electrónica que exige la AFIP es, según la teoría, un ejemplo de software..."
-
-explicacion: |
-  Es un sistema de software masivo: rígido, estandarizado y obligatorio,
-  a diferencia de una solución artesanal/personalizada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["medios tecnicos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Tanto el proceso artesanal como el industrial son considerados \"medios técnicos\" que extienden las capacidades humanas."
-
-explicacion: |
-  Ambos son formas de extender lo que el ser humano puede producir, sólo
-  que gestionan tiempo, calidad y escala de manera diferente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "avanzado"
-  tags: ["diferencia clave"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "en cómo se gestiona el tiempo, la calidad y la escala de producción"
-tipo: mc
-opciones_explicitas: ["en el resultado final obtenido", "en cómo se gestiona el tiempo, la calidad y la escala de producción", "en el país donde se fabrica el producto"]
-
-enunciado: "Según la teoría, la diferencia clave entre proceso artesanal e industrial no está en el resultado final, sino..."
-
-explicacion: |
-  Ambos pueden llegar a un producto similar; lo que cambia es la forma
-  de gestionar tiempo, calidad y escala durante la producción.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["personalizacion vs escala"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El proceso industrial permite el mismo grado de personalización pieza por pieza que el proceso artesanal."
-
-explicacion: |
-  El proceso industrial gana en escala y costo unitario, pero sacrifica
-  la unicidad y personalización propia de lo artesanal.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["estandarizacion pre-digital"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "las piezas mecánicas eran intercambiables"
-tipo: mc
-opciones_explicitas: ["las piezas mecánicas eran intercambiables", "cada máquina tenía piezas únicas", "no existía ningún tipo de estándar"]
-
-enunciado: "En la era pre-digital, la estandarización industrial significaba principalmente que..."
-
-explicacion: |
-  La intercambiabilidad de piezas mecánicas fue la base de la
-  estandarización industrial antes de la era digital.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["decision"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "equilibrar eficiencia con calidad y adaptabilidad"
-tipo: mc
-opciones_explicitas: ["equilibrar eficiencia con calidad y adaptabilidad", "elegir siempre el proceso industrial sin excepción", "elegir siempre el proceso artesanal sin excepción"]
-
-enunciado: "Comprender la dualidad artesanal/industrial ayuda, según la teoría, a..."
-
-explicacion: |
-  No se trata de que uno sea siempre mejor: la clave es decidir cuándo
-  personalizar y cuándo adoptar un estándar industrial, equilibrando
-  eficiencia, calidad y adaptabilidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["costo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El proceso industrial reduce el costo unitario de producción respecto al proceso artesanal."
-
-explicacion: |
-  Al producir en masa con maquinaria y algoritmos, el costo por unidad
-  baja, aunque se pierda la unicidad de cada objeto.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "avanzado"
-  tags: ["automatizacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "scripts y algoritmos"
-tipo: completar
-
-enunciado: "En informática, lo que antes era un trabajo intelectual único hoy se automatiza mediante ___."
-
-respuestas_validas:
-  - "scripts y algoritmos"
-  - "algoritmos y scripts"
-
-explicacion: |
-  Esta automatización democratiza el acceso a la información, pero
-  también plantea el desafío de la pérdida de "huella humana" en la
-  creación de contenido.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["software y hardware"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En informática, el software y el hardware siguen lógicas similares a la distinción entre proceso artesanal e industrial."
-
-explicacion: |
-  Un código personalizado (artesanal) y un sistema masivo estandarizado
-  (industrial) reflejan la misma dualidad vista en la producción física.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["escalabilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "su capacidad de escalar"
-tipo: mc
-opciones_explicitas: ["su capacidad de escalar", "su bajo nivel de estandarización", "su dependencia exclusiva del trabajo manual"]
-
-enunciado: "La principal ventaja del modelo industrial, según la teoría, es..."
-
-explicacion: |
-  Puede repetir operaciones con precisión y velocidad para producir a
-  gran escala, algo que el proceso artesanal no logra por su límite de
-  tiempo humano.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "avanzado"
-  tags: ["democratizacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La automatización informática democratiza el acceso a la información, pero también plantea desafíos sobre la pérdida de la \"huella humana\" en la creación de contenido."
-
-explicacion: |
-  Es una tensión real señalada en la teoría: más acceso y eficiencia,
-  pero menos marca personal en lo producido.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["conceptos clave"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "artesanal e industrial"
-tipo: mc
-opciones_explicitas: ["artesanal e industrial", "digital y analógico", "público y privado"]
-
-enunciado: "Las dos formas fundamentales de producir objetos o servicios que compara la teoría son el proceso..."
-
-explicacion: |
-  Artesanal e industrial son los dos "medios técnicos" cuya diferencia
-  central se explica en toda la teoría.
-```
 
 ## Sección: requisitos-funcionales-no-funcionales (25 preguntas)
 
@@ -1414,492 +480,926 @@ explicacion: |
   El proceso estándar comienza con el levantamiento de necesidades, seguido de la especificación de qué hará el sistema (funcionales) y cómo lo hará (no funcionales), para terminar con la validación de que lo documentado es correcto.
 ```
 
-## Sección: revolucion-informatica (25 preguntas)
+## Sección: normalizacion-bases-datos (25 preguntas)
 
 ```
 metadata:
   materia: "informatica"
-  tema: "revolucion_informatica"
+  tema: "normalizacion_bases_datos"
   nivel: "basico"
-  tags: ["historia", "computadoras"]
+  tags: ["teoria", "redundancia"]
 
-respuesta: "ENIAC"
+respuesta: "redundancia"
 tipo: completar
 respuestas_validas:
-  - "ENIAC"
+  - "redundancia"
+  - "duplicación"
+  - "repetir"
 
-enunciado: "La primera computadora electrónica de propósito general, utilizada para cálculos balísticos durante la Segunda Guerra Mundial, fue la ___."
+enunciado: "Cuando la misma información se almacena en múltiples lugares de una base de datos, se produce un fenómeno llamado ___."
 
 explicacion: |
-  La ENIAC (Electronic Numerical Integrator and Computer) fue una de las primeras computadoras electrónicas de gran escala, marcando el inicio de la era de la computación moderna.
+  La redundancia de datos ocurre cuando un mismo dato se repite innecesariamente en diferentes tablas o registros, lo que aumenta el riesgo de inconsistencias.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "revolucion_informatica"
-  nivel: "intermedio"
-  tags: ["hardware", "transistores"]
-
-variables:
-  tecnologia_actual: "transistores"
-
-respuesta: "transistores"
-tipo: mc
-opciones_explicitas: ["tubos de vacío", "transistores", "microprocesadores"]
-
-enunciado: "La transición de la primera a la segunda generación de computadoras se caracterizó por el reemplazo de los tubos de vacío por una tecnología más pequeña y eficiente."
-
-explicacion: |
-  La primera generación usaba tubos de vacío (grandes y calientes), mientras que la segunda generación introdujo el transistor, permitiendo miniaturización y mayor fiabilidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "revolucion_informatica"
+  tema: "normalizacion_bases_datos"
   nivel: "basico"
-  tags: ["pc", "historia"]
+  tags: ["anomalia", "integridad"]
 
-respuesta: "Apple II"
+opciones_explicitas: ["Anomalía de inserción", "Anomalía de borrado", "Anomalía de actualización", "Todas las anteriores"]
+respuesta: "Anomalía de actualización"
 tipo: mc
-opciones_explicitas: ["ENIAC", "Altair 8800", "Apple II", "IBM PC"]
 
-enunciado: "¿Cuál de estos dispositivos fue uno de los primeros en popularizar la computación personal masiva a finales de los años 70 y principios de los 80?"
+enunciado: "Si un dato está duplicado y se cambia en un registro pero no en el otro, estamos ante una anomalía de tipo:"
 
 explicacion: |
-  El Apple II fue uno de los primeros computadores personales con gráficos a color y capacidad de uso doméstico, impulsando la revolución de la informática personal.
+  La redundancia causa anomalías de actualización, ya que la integridad de la información se pierde al no estar sincronizada en todos los puntos de almacenamiento.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "revolucion_informatica"
-  nivel: "intermedio"
-  tags: ["cronologia", "hitos"]
-
-respuesta_orden: ["Tubos de vacío", "Transistores", "Circuitos Integrados", "Microprocesadores"]
-tipo: ordenar
-opciones_explicitas: ["Tubos de vacío", "Transistores", "Circuitos Integrados", "Microprocesadores"]
-
-enunciado: "Ordena cronológicamente las tecnologías que permitieron la miniaturización de las computadoras:"
-
-explicacion: |
-  La evolución siguió este orden: Tubos de vacío (1ra gen) -> Transistores (2da gen) -> Circuitos Integrados (3ra gen) -> Microprocesadores (4ta gen).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "revolucion_informatica"
-  nivel: "avanzado"
-  tags: ["ley_de_moore", "teoria"]
-
-variables:
-  valor_doble: 2
-
-respuesta: "exponencial"
-tipo: mc
-opciones_explicitas: ["lineal", "exponencial", "decreciente", "constante"]
-
-enunciado: "La revolución informática se vio acelerada por la Ley de Moore, la cual predice que el número de transistores en un chip se duplica aproximadamente cada {valor_doble} años, lo que implica un crecimiento de tipo ___."
-
-explicacion: |
-  La Ley de Moore describe un crecimiento exponencial de la capacidad de procesamiento, lo que permitió pasar de máquinas que ocupaban habitaciones a dispositivos que caben en un bolsillo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "revolucion_informatica"
+  tema: "normalizacion_bases_datos"
   nivel: "basico"
-  tags: ["hardware", "historia"]
-
-respuesta: "válvulas"
-tipo: "mc"
-
-opciones_explicitas: ["válvulas", "transistores", "circuitos integrados", "microprocesadores"]
-
-enunciado: "Las primeras computadoras de gran escala, como la ENIAC, utilizaban principalmente ________ de vacío para realizar sus operaciones lógicas."
-
-explicacion: |
-  Las válvulas de vacío (o tubos de vacío) fueron los componentes fundamentales de la primera generación de computadoras, antes de la invención del transistor.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "revolucion_informatica"
-  nivel: "intermedio"
-  tags: ["hardware", "historia"]
-
-respuesta: "Transistor"
-tipo: "mc"
-
-opciones_explicitas: ["Transistor", "Circuito Integrado", "Microprocesador", "CPU"]
-
-enunciado: "La invención del ___ permitió reemplazar las válvulas de vacío, reduciendo drásticamente el tamaño y el calor de las máquinas."
-
-explicacion: |
-  El transistor permitió la segunda generación de computadoras, permitiendo que fueran más pequeñas y confiables que las de válvulas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "revolucion_informatica"
-  nivel: "avanzado"
-  tags: ["hardware", "historia"]
-
-respuesta: "1971"
-tipo: "completar"
-
-respuestas_validas:
-  - "1971"
-  - "1972"
-
-enunciado: "El primer microprocesador comercial, el Intel 4004, fue lanzado en el año ___."
-
-explicacion: |
-  El Intel 4004 marcó el inicio de la era de la integración a gran escala, permitiendo que toda la unidad de procesamiento residiera en un solo chip.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "revolucion_informatica"
-  nivel: "intermedio"
-  tags: ["historia", "ordenar"]
-
-tipo: ordenar
-
-opciones_explicitas: ["Válvula de vacío", "Transistor", "Circuito Integrado", "Microprocesador"]
-
-respuesta_orden: ["Válvula de vacío", "Transistor", "Circuito Integrado", "Microprocesador"]
-
-enunciado: "Ordena cronológicamente los hitos tecnológicos que permitieron la evolución del hardware de computación:"
-
-explicacion: |
-  La evolución siguió este orden: Válvulas (1ra gen), Transistores (2da gen), Circuitos Integrados (3ra gen) y Microprocesadores (4ta gen).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "revolucion_informatica"
-  nivel: "basico"
-  tags: ["usuario", "historia"]
+  tags: ["objetivo", "diseño"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿La llegada de la computadora personal (PC) a los hogares en los años 70 y 80 fue posible gracias a la integración masiva de microprocesadores?"
+enunciado: "¿El objetivo principal de la normalización es minimizar la redundancia de datos y evitar anomalías de inserción, actualización y borrado?"
 
 explicacion: |
-  Correcto. La capacidad de integrar la CPU en un solo chip permitió que las computadoras pasaran de ocupar habitaciones enteras a ser dispositivos de escritorio accesibles.
+  Correcto. La normalización es un proceso de diseño que busca organizar las columnas y tablas de una base de datos para minimizar la duplicación de datos.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "revolucion_informatica"
-  nivel: "basico"
-  tags: ["historia", "hardware"]
-
-tipo: mc
-opciones_explicitas: ["La velocidad de procesamiento", "La capacidad de almacenamiento", "La densidad de transistores en un chip", "El costo de los componentes electrónicos"]
-
-enunciado: "La Ley de Moore es una observación histórica que predice el aumento de la densidad de ___ en un circuito integrado cada dos años aproximadamente."
-
-respuesta: "La densidad de transistores en un chip"
-
-explicacion: |
-  Gordon Moore, cofundador de Intel, observó que el número de transistores en un microchip se duplicaba aproximadamente cada dos años, lo que impulsó la miniaturización de la tecnología.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "revolucion_informatica"
+  tema: "normalizacion_bases_datos"
   nivel: "intermedio"
-  tags: ["calculo", "hardware"]
+  tags: ["pasos", "proceso"]
+
+opciones_explicitas: ["Identificar dependencias funcionales", "Definir la clave primaria", "Crear tablas relacionadas", "Aplicar reglas de formas normales"]
+respuesta_orden: ["Identificar dependencias funcionales", "Definir la clave primaria", "Aplicar reglas de formas normales", "Crear tablas relacionadas"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para diseñar una base de datos normalizada:"
+
+explicacion: |
+  Primero se deben entender cómo se relacionan los datos (dependencias funcionales), luego definir la estructura básica (clave primaria) y finalmente aplicar las reglas de las Formas Normales para crear las tablas relacionadas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_bases_datos"
+  nivel: "basico"
+  tags: ["integridad", "consecuencia"]
 
 variables:
-  idx: uno_de([0, 1])
-  datos: [["1000", "2000"], ["500", "1000"]]
-  base: datos[idx][0]
-  doble: datos[idx][1]
+  escenario: uno_de([["Alta redundancia", "baja"], ["Normalización óptima", "alta"]])
 
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si un chip tiene {base} transistores hoy, siguiendo la Ley de Moore, ¿cuántos transistores tendrá aproximadamente en el próximo ciclo de dos años?"
-
-respuesta: doble
-
-pasos:
-  - "Identificar la cantidad actual de transistores."
-  - "Aplicar el factor de duplicación (x2) según la ley."
-
-explicacion: |
-  La Ley de Moore establece que la cantidad de transistores se duplica. Por lo tanto, {base} * 2 = {doble}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "revolucion_informatica"
-  nivel: "basico"
-  tags: ["historia", "procesadores"]
-
-tipo: ordenar
-opciones_explicitas: ["Aumento de transistores", "Reducción del tamaño de los componentes", "Aumento de la potencia de cómputo", "Reducción de costos por transistor"]
-
-enunciado: "Ordena los efectos causados por la aplicación de la Ley de Moore en la tecnología, desde la causa técnica hasta el efecto en el consumidor final:"
-
-respuesta_orden: ["Aumento de transistores", "Reducción del tamaño de los componentes", "Aumento de la potencia de cómputo", "Reducción de costos por transistor"]
-
-explicacion: |
-  La Ley de Moore describe un ciclo: más transistores en menos espacio permiten chips más potentes y, con la escala de producción, más económicos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "revolucion_informatica"
-  nivel: "intermedio"
-  tags: ["teoria", "hardware"]
-
-tipo: completar
-respuestas_validas:
-  - "potencia"
-  - "capacidad"
-
-enunciado: "Debido al aumento exponencial de transistores, la ___ de procesamiento de los ordenadores ha crecido de forma similar a lo largo de las últimas décadas."
-
-respuesta: "potencia"
-
-explicacion: |
-  Al integrar más transistores en un mismo espacio, el procesador puede realizar más operaciones por segundo, aumentando su potencia.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "revolucion_informatica"
-  nivel: "basico"
-  tags: ["conceptos"]
-
+respuesta: escenario[1]
 tipo: mc
-opciones_explicitas: ["Verdadero", "Falso"]
+opciones_explicitas: ["baja", "alta"]
 
-enunciado: "La Ley de Moore es una ley física inmutable de la naturaleza, similar a la Ley de la Gravedad."
-
-respuesta: "Falso"
+enunciado: "En un esquema de base de datos con una normalización óptima, la integridad de los datos suele ser ___."
 
 explicacion: |
-  No es una ley física, sino una observación empírica y una meta industrial que ha guiado la planificación de la industria de los semiconductores.
+  Al reducir la redundancia mediante la normalización, se garantiza que un dato solo se almacene en un lugar, elevando la integridad del sistema.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "revolucion_informatica"
+  tema: "normalizacion_bases_de_datos"
   nivel: "basico"
-  tags: ["internet", "economia"]
+  tags: ["redundancia", "anomalia"]
 
-tipo: mc
-opciones_explicitas: ["Descentralización de la información", "Aumento de la burocracia física", "Reducción de la velocidad de comunicación", "Eliminación del comercio electrónico"]
-respuesta: "Descentralización de la información"
+enunciado: "En una tabla de 'Ventas' donde se repite el nombre y la dirección del cliente por cada producto comprado, si el cliente cambia de dirección y solo actualizamos una fila, ¿qué problema de integridad de datos estamos enfrentando?"
 
-enunciado: "La combinación de la revolución informática y el internet ha permitido la ________ de la información, permitiendo el acceso global a datos en tiempo real."
+opciones_explicitas: ["Anomalia de actualización", "Anomalia de inserción", "Anomalia de borrado", "Redundancia de clave"]
+
+respuesta: "Anomalia de actualización"
+tipo: "mc"
 
 explicacion: |
-  La digitalización ha democratizado el acceso a la información, rompiendo las barreras geográficas y temporales que existían antes de la era de internet.
+  La redundancia de datos (repetir la dirección en cada venta) provoca anomalías de actualización: si no se actualizan todos los registros de un mismo cliente, la base de datos queda con información inconsistente.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "revolucion_informatica"
+  tema: "normalizacion_bases_de_datos"
   nivel: "intermedio"
-  tags: ["economia_digital", "e-commerce"]
+  tags: ["dependencia_funcional", "normalizacion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["comercio_electronico", "servicios_streaming"], ["ventas_retail_fisico", "suscripciones_digitales"]]
+enunciado: "Considerando una tabla de estudiantes con los campos ID_Estudiante, Nombre, Email, Curso y Aula, si queremos eliminar la redundancia de la información del 'Curso' y su 'Aula' asociada, ¿cuál debería ser la clave primaria para una tabla separada que gestione la ubicación de los cursos?"
 
-tipo: completar
+opciones_explicitas: ["ID_Estudiante", "Nombre", "Email", "Curso"]
+
+respuesta: "Curso"
+tipo: "mc"
+
+explicacion: |
+  Para normalizar, debemos mover los atributos que dependen de un concepto distinto (el curso) a una tabla propia, donde 'Curso' actúe como clave para evitar repetir la 'Aula' en cada estudiante.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_bases_de_datos"
+  nivel: "basico"
+  tags: ["definicion"]
+
+enunciado: "El proceso de organizar los datos en una base de datos relacional para minimizar la redundancia y evitar anomalías se denomina ___."
+
 respuestas_validas:
-  - "servicios_streaming"
-  - "suscripciones_digitales"
-respuesta: escenarios[escenario_idx][1]
+  - "normalización"
+  - "normalizacion"
 
-enunciado: "Un ejemplo clave de la transformación económica es el paso de modelos basados en el ________ hacia modelos basados en las ________."
+respuesta: "normalización"
+tipo: "completar"
 
 explicacion: |
-  La economía ha migrado de la propiedad física y el comercio en locales hacia el consumo de servicios bajo demanda y plataformas digitales.
+  La normalización es el proceso de estructurar una base de datos para que cada dato se almacene en un solo lugar, evitando duplicados.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "revolucion_informatica"
+  tema: "normalizacion_bases_de_datos"
   nivel: "basico"
-  tags: ["comunicacion", "impacto_social"]
+  tags: ["almacenamiento"]
 
-tipo: completar
-tolerancia_abs: 0
+enunciado: "Tener una base de datos altamente normalizada siempre implica un ahorro de espacio en disco debido a la eliminación de datos repetidos."
 
-enunciado: "Si en la era industrial la comunicación se basaba en el telégrafo y el correo físico, en la era informática la comunicación es instantánea. Si comparamos la velocidad de un mensaje de texto con un correo físico que tarda 3 días, y el mensaje tarda 0 segundos, ¿cuántos segundos de ahorro representa el mensaje digital frente al correo?"
-
-pasos:
-  - "Convertir 3 días a segundos: 3 * 24 * 60 * 60 = 259200"
-  - "Restar el tiempo del mensaje digital (0) al tiempo del correo (259200)"
-
-respuesta: 259200
+respuesta: falso
+tipo: "vf"
 
 explicacion: |
-  La inmediatez es una de las características fundamentales de la revolución informática, permitiendo la globalización de los mercados en tiempo real.
+  Aunque la normalización reduce la redundancia de datos descriptivos, puede aumentar el uso de espacio debido a la necesidad de crear más tablas y gestionar múltiples claves foráneas (índices) para realizar las uniones (JOINs).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "revolucion_informatica"
-  nivel: "intermedio"
-  tags: ["hardware", "historia"]
-
-tipo: ordenar
-opciones_explicitas: ["Mainframes gigantescos", "Computadoras personales (PC)", "Dispositivos móviles y smartphones"]
-
-enunciado: "Ordena cronológicamente los hitos tecnológicos que permitieron la integración de la informática en la vida cotidiana:"
-
-respuesta_orden: ["Mainframes gigantescos", "Computadoras personales (PC)", "Dispositivos móviles y smartphones"]
-
-explicacion: |
-  La computación comenzó en grandes centros de datos corporativos, pasó a los escritorios de los hogares con la PC y finalmente se volvió ubicua con los smartphones.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "revolucion_informatica"
+  tema: "normalizacion_bases_de_datos"
   nivel: "avanzado"
-  tags: ["trabajo", "automatizacion"]
+  tags: ["proceso", "pasos"]
 
-tipo: mc
-opciones_explicitas: ["Automatización de tareas repetitivas", "Desaparición total del trabajo humano", "Aumento de la necesidad de archivos físicos", "Reducción de la conectividad global"]
-respuesta: "Automatización de tareas repetitivas"
+enunciado: "Ordena los pasos lógicos para llevar una tabla desnormalizada hacia un modelo normalizado eficiente:"
 
-enunciado: "Un efecto crítico de la revolución informática en la economía laboral es la ________, lo que obliga a la fuerza de trabajo a especializarse en tareas de mayor valor cognitivo."
+opciones_explicitas: ["Identificar dependencias funcionales", "Eliminar dependencias parciales (1FN)", "Eliminar dependencias transitivas (2FN/3FN)", "Verificar integridad referencial"]
+
+respuesta_orden: ["Identificar dependencias funcionales", "Eliminar dependencias parciales (1FN)", "Eliminar dependencias transitivas (2FN/3FN)", "Verificar integridad referencial"]
+tipo: ordenar
 
 explicacion: |
-  La automatización impulsada por software y algoritmos ha transformado la estructura del empleo, eliminando tareas mecánicas pero creando nuevas demandas tecnológicas.
+  El proceso comienza analizando cómo se relacionan los datos (dependencias), luego se separan los datos que no dependen de la clave completa (1FN/2FN) y finalmente se eliminan las dependencias indirectas (3FN).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "revolucion_informatica"
+  tema: "normalizacion_de_bases_de_datos"
+  nivel: "intermedio"
+  tags: ["redundancia", "anomalias"]
+
+enunciado: "Si al cambiar el número de teléfono de un cliente debemos buscar todas sus filas repetidas para actualizar cada una de ellas, estamos ante una anomalía de tipo ___ causada por la redundancia."
+
+respuesta: "Anomalía de actualización"
+tipo: mc
+opciones_explicitas: ["Anomalía de actualización", "Anomalía de inserción", "Anomalía de borrado"]
+
+explicacion: |
+  La redundancia de datos provoca anomalías. Si un dato (como un teléfono) se repite en múltiples registros, el sistema corre el riesgo de que no todos se actualicen, dejando la base de datos en un estado inconsistente.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_de_bases_de_datos"
   nivel: "basico"
-  tags: ["historia", "ordenar"]
+  tags: ["objetivos", "diseño"]
+
+enunciado: "La normalización de bases de datos tiene como objetivo principal minimizar la redundancia de datos para evitar las anomalías de inserción, actualización y ___."
+
+respuesta: "borrado"
+respuestas_validas:
+  - "borrado"
+tipo: completar
+
+explicacion: |
+  La normalización busca estructurar las tablas de modo que cada dato se almacene en un único lugar, evitando que al borrar un registro se pierda información que no debería ser eliminada (anomalía de borrado).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_de_bases_de_datos"
+  nivel: "avanzado"
+  tags: ["desnormalizacion", "rendimiento"]
+
+enunciado: "En sistemas de Big Data o Data Warehousing, a veces se aplica la 'desnormalización' intencionalmente para mejorar la velocidad de lectura, a pesar de aumentar la redundancia."
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  Es correcto. Aunque la normalización es vital para la integridad (OLTP), en sistemas de análisis (OLAP) se prefiere la desnormalización para evitar JOINs costosos y acelerar las consultas de lectura.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_de_bases_de_datos"
+  nivel: "intermedio"
+  tags: ["metodologia"]
+
+variables:
+  pasos_correctos: ["Identificar dependencias funcionales", "Aplicar Primera Forma Normal", "Aplicar Segunda Forma Normal", "Aplicar Tercera Forma Normal"]
+
+enunciado: "Para asegurar una base de datos bien estructurada, se debe seguir un proceso lógico de normalización. Ordena los pasos:"
+
+respuesta_orden: ["Identificar dependencias funcionales", "Aplicar Primera Forma Normal", "Aplicar Segunda Forma Normal", "Aplicar Tercera Forma Normal"]
+tipo: ordenar
+opciones_explicitas: ["Aplicar Tercera Forma Normal", "Identificar dependencias funcionales", "Aplicar Segunda Forma Normal", "Aplicar Primera Forma Normal"]
+
+explicacion: |
+  La normalización es un proceso iterativo y progresivo. No se puede aplicar la 2FN sin haber cumplido la 1FN, y para la 2FN es indispensable haber identificado las dependencias funcionales.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_de_bases_de_datos"
+  nivel: "avanzado"
+  tags: ["dependencia_funcional", "2fn"]
+
+enunciado: "En la Segunda Forma Normal (2FN), es fundamental que todos los atributos que no forman parte de la clave primaria dependan de la clave completa y no solo de una parte de ella. A esto se le llama evitar la dependencia ___."
+
+respuesta: "parcial"
+respuestas_validas:
+  - "parcial"
+tipo: completar
+
+explicacion: |
+  La dependencia parcial ocurre cuando un atributo depende de solo una parte de una clave compuesta. La 2FN exige que todos los atributos no clave dependan de la clave primaria completa.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_bases_datos"
+  nivel: "basico"
+  tags: ["redundancia", "integridad"]
+
+respuesta: "anomalias"
+tipo: "completar"
+respuestas_validas:
+  - "anomalias"
+  - "anomalia"
+
+enunciado: "La redundancia de datos en una base de datos no normalizada puede provocar errores de consistencia conocidos como ___ de actualización o de borrado."
+
+explicacion: |
+  La redundancia es la duplicación innecesaria de datos. Cuando un dato se repite en varios lugares, si se actualiza en uno y no en el otro, se producen anomalías que rompen la integridad de la información.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_bases_datos"
+  nivel: "intermedio"
+  tags: ["desnormalizacion", "rendimiento"]
+
+respuesta: "La normalización prioriza la integridad mediante la reducción de redundancia."
+tipo: "mc"
+opciones_explicitas: ["La normalización prioriza la integridad mediante la reducción de redundancia.", "La desnormalización prioriza la integridad mediante la reducción de redundancia.", "Ambas buscan lo mismo pero con diferentes nombres.", "Ninguna de las anteriores."]
+
+enunciado: "Considerando el objetivo principal de cada proceso, ¿cuál de las siguientes afirmaciones es correcta?"
+
+pasos:
+  - "Analizar si el objetivo es evitar duplicados (normalizar) o acelerar lecturas (desnormalizar)."
+
+explicacion: |
+  La normalización busca eliminar la redundancia para asegurar la integridad. La desnormalización, por el contrario, introduce redundancia deliberadamente para mejorar el rendimiento de las consultas de lectura.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_bases_datos"
+  nivel: "avanzado"
+  tags: ["dependencia_funcional", "3nf"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "En el contexto de la Tercera Forma Normal (3NF), una dependencia transitiva ocurre cuando un atributo no clave depende de otro atributo que tampoco es una clave primaria, lo cual es distinto a una dependencia funcional directa sobre la clave."
+
+explicacion: |
+  Correcto. La 3NF exige que todos los atributos no clave dependan directamente de la clave primaria y no de otros atributos no clave (eliminando así la dependencia transitiva).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_bases_datos"
+  nivel: "basico"
+  tags: ["proceso", "orden"]
 
 tipo: ordenar
-opciones_explicitas: ["ENIAC", "Transistor", "PC"]
-respuesta_orden: ["ENIAC", "Transistor", "PC"]
+opciones_explicitas: ["1NF", "2NF", "3NF"]
+respuesta_orden: ["1NF", "2NF", "3NF"]
 
-enunciado: "Ordena cronológicamente los siguientes hitos tecnológicos: ENIAC, Transistor y PC."
+enunciado: "Ordene los pasos lógicos de las formas normales para asegurar una base de datos sin redundancias excesivas:"
 
 explicacion: |
-  El orden cronológico correcto es:
-  1. ENIAC (1945) -> 2. Transistor (1947) -> 3. PC (años 70/80).
+  El proceso estándar es asegurar primero la atomicidad (1NF), luego la dependencia funcional completa sobre la clave (2NF) y finalmente eliminar dependencias transitivas (3NF).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "revolucion_informatica"
+  tema: "normalizacion_bases_datos"
   nivel: "intermedio"
-  tags: ["lenguajes", "historia"]
+  tags: ["redundancia", "duplicacion"]
 
-respuesta: "Ada Lovelace"
-tipo: mc
+respuesta: falso
+tipo: vf
 
-opciones_explicitas: ["Ada Lovelace", "Grace Hopper", "John Backus", "Alan Turing"]
-
-enunciado: "Identifica a la figura histórica reconocida por escribir los primeros algoritmos destinados a ser procesados por la Máquina Analítica de Charles Babbage."
+enunciado: "Si un dato se repite en una tabla simplemente porque es necesario para realizar un JOIN eficiente en un modelo OLAP (Data Warehouse), ¿se considera una redundancia problemática que debe evitarse estrictamente como en el modelo OLTP?"
 
 explicacion: |
-  Ada Lovelace es reconocida históricamente por haber escrito el primer algoritmo destinado a ser procesado por una máquina.
+  En sistemas OLAP, la redundancia controlada es una estrategia de diseño para el rendimiento. En sistemas OLTP (transaccionales), la redundancia es un error que causa inconsistencias.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "revolucion_informatica"
+  tema: "normalizacion_de_bases_de_datos"
   nivel: "basico"
-  tags: ["hardware", "almacenamiento"]
+  tags: ["redundancia", "integridad"]
+
+respuesta: "Anomalía de actualización"
+tipo: mc
+opciones_explicitas: ["Inconsistencia", "Anomalía de actualización", "Anomalía de inserción", "Pérdida de integridad"]
+
+enunciado: "Si en una tabla de ventas repetimos el Nombre y la Dirección del Cliente para cada producto vendido, y el cliente cambia de domicilio pero solo actualizamos una fila, generamos una anomalía de tipo: ___"
+
+explicacion: |
+  La redundancia de datos provoca que la información se repita innecesariamente, lo que deriva en anomalías de actualización cuando los datos no se mantienen sincronizados en todos los registros.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_de_bases_de_datos"
+  nivel: "basico"
+  tags: ["objetivo", "teoria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El objetivo principal de la normalización es minimizar la redundancia de datos para evitar anomalías de inserción, actualización y borrado."
+
+explicacion: |
+  Correcto. La normalización busca estructurar las tablas para que cada dato se almacene en un único lugar, garantizando la integridad de la información.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_de_bases_de_datos"
+  nivel: "intermedio"
+  tags: ["anomalia", "insercion"]
+
+respuesta: "No podemos registrar un nuevo curso si no hay alumnos inscritos"
+tipo: completar
+respuestas_validas:
+  - "No podemos registrar un nuevo curso si no hay alumnos inscritos"
+
+enunciado: "En una tabla desnormalizada que combina 'Estudiantes' y 'Cursos', si intentamos agregar un curso que aún no tiene alumnos inscritos y la clave primaria depende de ambos, nos enfrentamos a una: ___"
+
+explicacion: |
+  Esto se conoce como anomalía de inserción: la imposibilidad de añadir información porque falta un dato que forma parte de la clave primaria.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_de_bases_de_datos"
+  nivel: "intermedio"
+  tags: ["proceso", "orden"]
+
+respuesta_orden: ["1FN", "2FN", "3FN"]
+tipo: ordenar
+opciones_explicitas: ["3FN", "1FN", "2FN"]
+
+enunciado: "Ordena los pasos lógicos para alcanzar la Tercera Forma Normal (3FN) partiendo de una tabla no normalizada:"
+
+explicacion: |
+  El proceso de normalización es iterativo y jerárquico: primero se asegura la atomicidad (1FN), luego la dependencia funcional completa (2FN) y finalmente se eliminan las dependencias transitivas (3FN).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "normalizacion_de_bases_de_datos"
+  nivel: "avanzado"
+  tags: ["dependencia", "funcional"]
 
 variables:
-  casos: [["Disquete", "CD-ROM", "USB"], ["Cassette", "Disco Duro", "SSD"]]
-  idx: uno_de([0,1])
-  respuesta_correcta: casos[idx][0]
+  ejemplo_idx: uno_de([0, 1])
+  ejemplos: [["ID_Empleado -> Nombre_Empleado", "ID_Producto -> Fecha_Venta"], ["ID_Cliente -> Dirección_Cliente", "ID_Pedido -> ID_Cliente"]]
+
+respuesta: ejemplos[ejemplo_idx][0]
+tipo: mc
+opciones_explicitas: ["ID_Empleado -> Nombre_Empleado", "ID_Producto -> Fecha_Venta", "ID_Cliente -> Dirección_Cliente", "ID_Pedido -> ID_Cliente"]
+
+enunciado: "Para cumplir con la Segunda Forma Normal (2FN), debemos asegurar que todos los atributos no clave dependan de la clave primaria completa. Un ejemplo de una dependencia funcional válida es: ___"
+
+explicacion: |
+  En la 2FN, cada atributo que no es parte de la clave debe depender de toda la clave primaria, no solo de una parte de ella (evitando dependencias parciales).
+```
+
+## Sección: diseno-y-arquitectura-de-software (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "basico"
+  tags: ["conceptos", "definicion"]
+
+tipo: mc
+opciones_explicitas: ["El diseño detallado de algoritmos y estructuras de datos", "La estructura fundamental de un sistema y sus componentes", "La escritura de código siguiendo un estándar de estilo", "La gestión de los servidores donde se aloja la aplicación"]
+respuesta: "La estructura fundamental de un sistema y sus componentes"
+enunciado: "La arquitectura de software se define principalmente como ___."
+
+explicacion: |
+  La arquitectura de software se refiere a la estructura de alto nivel de un sistema, incluyendo sus componentes, las relaciones entre ellos y los principios que rigen su diseño y evolución.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "basico"
+  tags: ["calidad", "requerimientos"]
+
+tipo: vf
+
+respuesta: verdadero
+
+enunciado: "Los atributos de calidad (como la escalabilidad, la seguridad y la disponibilidad) forman parte de los requerimientos no funcionales del sistema. ¿Es esto verdadero?"
+
+explicacion: |
+  Correcto. Mientras que los requerimientos funcionales describen qué hace el sistema, los no funcionales (atributos de calidad) describen cómo se comporta el sistema bajo ciertas condiciones.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "intermedio"
+  tags: ["ciclo_de_vida", "procesos"]
+
+tipo: ordenar
+opciones_explicitas: ["Análisis de requisitos", "Diseño de arquitectura", "Implementación", "Pruebas y despliegue"]
+
+enunciado: "Ordene las etapas del ciclo de vida de desarrollo de software en un orden lógico secuencial, desde la concepción hasta la entrega."
+
+explicacion: |
+  Un flujo estándar comienza con entender qué se necesita (Análisis), diseñar cómo se construirá (Arquitectura/Diseño), escribir el código (Implementación) y verificar que funcione (Pruebas/Despliegue).
+respuesta_orden: ["Análisis de requisitos", "Diseño de arquitectura", "Implementación", "Pruebas y despliegue"]
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "intermedio"
+  tags: ["patrones", "arquitectura"]
+
+variables:
+  escenario: [[ "Monolítica", "Un solo bloque de código donde todo está interconectado" ], [ "Microservicios", "Un conjunto de servicios pequeños e independientes" ]]
+  idx: uno_de([0, 1])
 
 tipo: completar
-respuesta: respuesta_correcta
+
+enunciado: "Si elegimos una arquitectura de tipo {escenario[idx][0]}, el sistema se caracteriza por ser {escenario[idx][1]}."
+
 respuestas_validas:
-  - "Disquete"
-  - "CD-ROM"
-  - "USB"
-  - "Disco Duro"
-  - "Cassette"
-  - "SSD"
-
-enunciado: "En la evolución del almacenamiento magnético y óptico, el dispositivo que precede al siguiente es: ___."
+  - "Un solo bloque de código donde todo está interconectado"
+  - "Un conjunto de servicios pequeños e independientes"
+respuesta: escenario[idx][1]
 
 explicacion: |
-  El orden de evolución tecnológica en el escenario seleccionado es: {casos[idx][0]} -> {casos[idx][1]} -> {casos[idx][2]}.
+  La arquitectura Monolítica centraliza toda la lógica en una única unidad, mientras que los Microservicios descomponen la aplicación en servicios autónomos que se comunican entre sí.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "revolucion_informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "avanzado"
+  tags: ["principios", "calidad_codigo"]
+
+tipo: vf
+
+respuesta: falso
+
+enunciado: "En un buen diseño de arquitectura de software, se busca que los componentes tengan un alto acoplamiento y una baja cohesión. ¿Es esto correcto?"
+
+explicacion: |
+  Falso. Un buen diseño busca **bajo acoplamiento** (que los componentes dependan poco entre sí) y **alta cohesión** (que cada componente tenga una responsabilidad única y bien definida).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
   nivel: "intermedio"
-  tags: ["internet", "web"]
-
-respuesta: "Tim Berners-Lee"
-tipo: mc
-
-opciones_explicitas: ["Tim Berners-Lee", "Vint Cerf", "Marc Andreessen", "Steve Jobs"]
-
-enunciado: "¿Quién es el creador de la World Wide Web (WWW) según el contexto de la revolución digital?"
-
-explicacion: |
-  Tim Berners-Lee inventó la WWW en el CERN, permitiendo la democratización de la información en la red.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "revolucion_informatica"
-  nivel: "basico"
-  tags: ["movilidad", "hardware"]
+  tags: ["patrones_de_diseño", "observer"]
 
 variables:
-  tecnologias: [["Teléfono Fijo", "Teléfono Móvil", "Smartphone"], ["Radio", "Walkman", "iPod"]]
-  idx: uno_de([0,1])
+  escenario: uno_de([["Sistema de Clima", "Sensor de Temperatura"], ["App de Bolsa", "Widget de Cotizaciones"], ["Videojuego", "Sistema de Logros"]])
 
-respuesta: tecnologias[idx][2]
+enunciado: "En un sistema de {escenario[0]}, el {escenario[1]} actúa como el 'Subject'. Cuando su estado cambia, debe notificar a todos los observadores registrados. Si un observador no está suscrito, no recibirá la actualización."
+
+opciones_explicitas: ["El Subject mantiene una lista de suscriptores", "El Observer decide cuándo notificar al Subject", "El Subject debe conocer la implementación interna de cada Observer"]
+
+respuesta: "El Subject mantiene una lista de suscriptores"
 tipo: mc
 
-opciones_explicitas: ["Teléfono Fijo", "Teléfono Móvil", "Smartphone", "Radio", "Walkman", "iPod"]
+explicacion: |
+  El patrón Observer define una relación de uno a muchos. El 'Subject' mantiene una lista de suscriptados y, ante un cambio de estado, recorre dicha lista llamando al método de actualización de cada uno.
+```
 
-enunciado: "Identifica el dispositivo que representa la etapa final de la evolución de la comunicación/reproducción en este escenario: ___."
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "avanzado"
+  tags: ["arquitectura_hexagonal", "dependencias"]
+
+variables:
+  capa_externa: uno_de(["Base de Datos", "Interfaz de Usuario", "Servicio de Email"])
+  capa_core: "Dominio (Lógica de Negocio)"
+
+enunciado: "Siguiendo los principios de la Arquitectura Hexagonal (Ports and Adapters), la dependencia debe fluir hacia el centro. Si tenemos un componente de {capa_externa}, este debe depender de una interfaz definida en el {capa_core}, pero el {capa_core} NUNCA debe depender de {capa_externa}."
+
+opciones_explicitas: [verdadero, falso]
+
+respuesta: verdadero
+tipo: vf
 
 explicacion: |
-  La evolución tecnológica sigue una línea de miniaturización y conectividad: {tecnologias[idx][0]} -> {tecnologias[idx][1]} -> {tecnologias[idx][2]}.
+  La regla de oro de la arquitectura hexagonal es la inversión de dependencias. El núcleo (Core) es independiente de los detalles de infraestructura (DB, UI, etc.).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "basico"
+  tags: ["metodologias", "sdlc"]
+
+tipo: ordenar
+opciones_explicitas: ["Requerimientos", "Diseño", "Implementación", "Pruebas", "Mantenimiento"]
+respuesta_orden: ["Requerimientos", "Diseño", "Implementación", "Pruebas", "Mantenimiento"]
+
+enunciado: "En el modelo de Cascada (Waterfall), las fases deben completarse de forma secuencial. Ordena las etapas correctamente:"
+
+explicacion: |
+  El modelo en Cascada (Waterfall) es lineal y rígido: no se puede pasar a la fase de implementación sin haber finalizado el diseño y los requerimientos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "intermedio"
+  tags: ["principios_solid", "cohesion"]
+
+variables:
+  modulo: uno_de(["Modulo_Pagos", "Modulo_Usuarios", "Modulo_Inventario"])
+
+enunciado: "Estamos diseñando un sistema para una tienda online. Si el {modulo} contiene funciones para procesar pagos, generar facturas PDF y también para enviar emails de bienvenida, el módulo tiene una ___ baja."
+
+respuestas_validas:
+  - "cohesión"
+
+respuesta: "cohesión"
+tipo: completar
+
+explicacion: |
+  Una baja cohesión ocurre cuando un módulo realiza demasiadas tareas distintas que no están relacionadas entre sí. Un buen diseño busca que cada módulo tenga una responsabilidad única (Single Responsibility Principle).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_of_software"
+  nivel: "intermedio"
+  tags: ["microservicios", "monolito"]
+
+variables:
+  escenario_carga: uno_de(["El módulo de pagos recibe 1000 peticiones por segundo, pero el resto del sistema no.", "El módulo de catálogo es muy pesado en memoria, pero el resto es ligero.", "El módulo de búsqueda requiere escalar su CPU constantemente por la alta demanda."])
+
+enunciado: "En un escenario donde {escenario_carga}, una arquitectura de microservicios permite escalar solo el componente afectado, mientras que en un monolito se debe escalar toda la aplicación. ¿Cuál es la principal ventaja de microservicios en este caso?"
+
+opciones_explicitas: ["Escalabilidad selectiva", "Simplicidad de despliegue", "Menor latencia de red"]
+
+respuesta: "Escalabilidad selectiva"
+tipo: mc
+
+explicacion: |
+  Los microservicios permiten el "Scaling out" dirigido. Si solo un componente tiene carga, solo pagamos por más recursos para ese componente, optimizando costos y recursos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "intermedio"
+  tags: ["principios_diseno", "mantenibilidad"]
+
+tipo: mc
+opciones_explicitas: ["alta cohesión y bajo acoplamiento", "baja cohesión y alto acoplamiento", "alta cohesión y alto acoplamiento", "baja cohesión y bajo acoplamiento"]
+respuesta: "alta cohesión y bajo acoplamiento"
+
+enunciado: "En el diseño de software, para facilitar el mantenimiento buscamos que los módulos tengan:"
+
+explicacion: |
+  Una alta cohesión significa que el módulo está enfocado en una sola responsabilidad. Un bajo acoplamiento significa que los módulos están poco interconectados, lo que permite cambiarlos sin afectar al resto del sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "avanzado"
+  tags: ["arquitectura", "microservicios"]
+
+enunciado: "¿Es siempre preferible una arquitectura de microservicios sobre una arquitectura monolítica para cualquier proyecto de software?"
+
+respuesta: falso
+tipo: vf
+
+explicacion: |
+  No siempre. Los microservicios añaden una complejidad operativa significativa (red, latencia, consistencia de datos). Para proyectos pequeños o equipos reducidos, un monolito bien estructurado suele ser más eficiente y menos costoso.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "basico"
+  tags: ["metodologias", "sdlc"]
+
+enunciado: "Ordena las fases típicas del ciclo de vida de desarrollo de software (SDLC) desde la concepción hasta el cierre:"
+
+opciones_explicitas: ["Requerimientos", "Diseño", "Implementación", "Pruebas", "Mantenimiento"]
+
+respuesta_orden: ["Requerimientos", "Diseño", "Implementación", "Pruebas", "Mantenimiento"]
+tipo: ordenar
+
+explicacion: |
+  El flujo lógico comienza entendiendo qué se necesita (Requerimientos), cómo se estructurará (Diseño), escribiendo el código (Implementación), verificando que funcione (Pruebas) y asegurando su vida útil (Mantenimiento).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "intermedio"
+  tags: ["patrones_de_diseno", "creacionales"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  ejemplo: [["gestión de una conexión a una base de datos única", "Singleton"], ["crear diferentes tipos de botones en una interfaz", "Factory"]]
+
+enunciado: "Si un programador necesita asegurar que una clase tenga una única instancia en todo el sistema, está intentando implementar el patrón ___."
+
+respuestas_validas:
+  - "Singleton"
+  - "Factory"
+
+respuesta: ejemplo[caso_idx][1]
+tipo: completar
+
+explicacion: |
+  El patrón Singleton garantiza que una clase tenga una única instancia y proporciona un punto de acceso global a ella, evitando conflictos de recursos como conexiones a bases de datos o archivos de configuración.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "avanzado"
+  tags: ["acoplamiento", "diseño_estructural"]
+
+enunciado: "Cuando un módulo A le pasa un objeto a un módulo B, pero además le indica a B qué método debe llamar y en qué orden, estamos ante un acoplamiento de ___."
+
+opciones_explicitas: ["control", "datos"]
+
+respuesta: "control"
+tipo: mc
+
+explicacion: |
+  El acoplamiento de control es peligroso porque el módulo emisor debe conocer la lógica interna del receptor. El objetivo es evolucionar hacia un acoplamiento de datos, donde solo se intercambie la información necesaria.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "basico"
+  tags: ["arquitectura", "diseno", "conceptos"]
+
+respuesta: "arquitectura"
+tipo: "mc"
+opciones_explicitas: ["diseño", "arquitectura", "codificación", "testing"]
+
+enunciado: "Mientras que el diseño de software se enfoca en los detalles de algoritmos y estructuras de datos internas, la ___ se ocupa de la estructura global y las decisiones de alto nivel del sistema."
+
+explicacion: |
+  La arquitectura define la estructura macro (componentes, interacciones y patrones), mientras que el diseño se encarga de la micro-estructura (lógica interna de los componentes).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "intermedio"
+  tags: ["acoplamiento", "cohesion"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "En un sistema con buen diseño, buscamos que el acoplamiento sea bajo y la cohesión sea alta."
+
+explicacion: |
+  Un bajo acoplamiento minimiza la dependencia entre módulos, facilitando cambios. Una alta cohesión asegura que cada módulo tenga una responsabilidad única y clara.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "intermedio"
+  tags: ["monolito", "microservicios", "despliegue"]
+
+respuesta: "microservicios"
+tipo: "completar"
+respuestas_validas:
+  - "microservicios"
+
+enunciado: "A diferencia de una arquitectura monolítica, donde todos los componentes están en un único paquete desplegable, la arquitectura de ___ divide la aplicación en servicios independientes que se comunican por red."
+
+explicacion: |
+  Los microservicios permiten escalar partes específicas del sistema de forma independiente, algo que en un monolito requiere escalar toda la aplicación.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "avanzado"
+  tags: ["capas", "arquitectura", "orden"]
+
+respuesta_orden: ["Presentación", "Lógica de Negocio", "Acceso a Datos"]
+tipo: "ordenar"
+opciones_explicitas: ["Acceso a Datos", "Lógica de Negocio", "Presentación"]
+
+enunciado: "Ordene las capas de una arquitectura clásica en capas (N-Tier) desde la más cercana al usuario hasta la más cercana a la base de datos:"
+
+explicacion: |
+  La capa de Presentación maneja la interfaz, la de Lógica de Negocio procesa las reglas y la de Acceso a Datos gestiona la persistencia.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "intermedio"
+  tags: ["atributos", "calidad", "mantenibilidad"]
+
+respuesta: "mantenibilidad"
+tipo: "mc"
+opciones_explicitas: ["rendimiento", "mantenibilidad", "usabilidad", "seguridad"]
+
+enunciado: "Un sistema puede ser muy rápido (alto rendimiento), pero si su arquitectura es desordenada y difícil de modificar, carece de buena ___."
+
+explicacion: |
+  La mantenibilidad es la facilidad con la que un sistema puede ser modificado para corregir errores, mejorar el rendimiento o adaptarse a nuevos requisitos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "intermedio"
+  tags: ["arquitectura", "patrones"]
+
+variables:
+  escenario: uno_de([["Se requiere un sistema donde la interfaz de usuario y la lógica de negocio estén totalmente desacopladas para permitir múltiples vistas (web, móvil, CLI) usando el mismo núcleo.", "MVC"], ["Se requiere un sistema donde las componentes se comuniquen mediante eventos asíncronos para garantizar un desacoplamiento máximo entre productores y consumidores.", "Event-Driven"], ["Se requiere un sistema basado en servicios independientes que se comunican por red, permitiendo escalar cada componente de forma autónoma.", "Microservicios"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["MVC", "Event-Driven", "Microservicios", "Monolito"]
+
+enunciado: "Un arquitecto de software debe elegir la estructura para un proyecto con las siguientes características: {escenario[0]}"
+
+explicacion: |
+  El patrón seleccionado es {escenario[1]}. Cada patrón responde a necesidades específicas de escalabilidad, desacoplamiento o complejidad de interfaz.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "basico"
+  tags: ["principios_solid", "refactorizacion"]
+
+variables:
+  textos: ["Una clase 'Factura' que calcula el total, guarda en la base de datos y genera un PDF.", "Una clase 'Usuario' que contiene solo los atributos de datos y métodos de acceso."]
+  valores: [falso, verdadero]
+  idx: uno_de([0, 1])
+
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Analice el siguiente caso: {textos[idx]}. ¿Cumple esta clase con el Principio de Responsabilidad Única (SRP)?"
+
+explicacion: |
+  El SRP establece que una clase debe tener una, y solo una, razón para cambiar. Una clase que mezcla cálculo, persistencia y generación de PDF viola ese principio; una clase que solo agrupa datos y su acceso lo cumple.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "intermedio"
+  tags: ["capas", "arquitectura_n_capas"]
+
+tipo: ordenar
+
+opciones_explicitas: ["Presentación", "Negocio", "Acceso a Datos", "Base de Datos"]
+respuesta_orden: ["Presentación", "Negocio", "Acceso a Datos", "Base de Datos"]
+
+enunciado: "Ordene las capas de un sistema de software estándar desde la capa más externa (usuario) hasta la más interna (almacenamiento):"
+
+explicacion: |
+  El orden correcto es: Presentación, Negocio, Acceso a Datos y Base de Datos. La arquitectura en capas busca separar la lógica de presentación de la lógica de negocio y el acceso a datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "intermedio"
+  tags: ["calidad_codigo", "acoplamiento", "cohesion"]
+
+variables:
+  caso_estudio: uno_de([["Un módulo que tiene funciones muy relacionadas entre sí pero que depende fuertemente de variables globales de otros módulos.", "Baja Cohesion, Alto Acoplamiento"], ["Un módulo con funciones diversas que no tienen relación entre sí, pero que son independientes de otros sistemas.", "Alta Cohesion, Bajo Acoplamiento"]])
+
+respuesta: caso_estudio[1]
+tipo: completar
+respuestas_validas:
+  - "Baja Cohesion, Alto Acoplamiento"
+  - "Alta Cohesion, Bajo Acoplamiento"
+
+enunciado: "En el diseño de software, el caso descrito es: ___"
+
+explicacion: |
+  El diagnóstico es {caso_estudio[1]}. Un buen diseño busca Maximizar la Cohesión y Minimizar el Acoplamiento.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "diseno_y_arquitectura_de_software"
+  nivel: "avanzado"
+  tags: ["mantenibilidad", "deuda_tecnica"]
+
+variables:
+  textos: ["Se decide omitir la creación de tests unitarios y la documentación de la arquitectura para cumplir con una fecha de entrega inmediata.", "Se implementa un patrón de diseño robusto y se realiza una revisión de arquitectura antes de cada sprint."]
+  valores: [verdadero, falso]
+  idx: uno_de([0, 1])
+
+respuesta: valores[idx]
+tipo: vf
+enunciado: "¿Es cierto que el siguiente escenario representa la acumulación de deuda técnica?: {textos[idx]}"
+
+explicacion: |
+  La deuda técnica surge cuando se prioriza la rapidez sobre la calidad del diseño y la estructura del código, como al omitir tests y documentación por una fecha límite. Una revisión de arquitectura regular con buenos patrones, en cambio, reduce la deuda técnica.
 ```
 
 ## Sección: segmentacion (23 preguntas)
@@ -2270,5 +1770,489 @@ enunciado: "Entender la segmentación ayuda a comprender por qué ocurren errore
 
 explicacion: |
   Verdadero. Conocer cómo se organiza y protege la memoria por segmentos explica directamente por qué ciertos errores de programación (punteros inválidos, desbordes de array) terminan en ese tipo de falla."
+```
+
+## Sección: control-de-versiones (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "basico"
+  tags: ["git", "conceptos", "software"]
+
+respuesta: "un software que registra los cambios realizados en un archivo o conjunto de archivos a lo largo del tiempo"
+tipo: mc
+opciones_explicitas: ["un software que registra los cambios realizados en un archivo o conjunto de archivos a lo largo del tiempo", "un editor de texto avanzado para programadores", "un sistema operativo para gestionar archivos en la nube", "una herramienta de compilación de código fuente"]
+
+enunciado: "En el desarrollo de software, un sistema de control de versiones es ___."
+
+explicacion: |
+  Un sistema de control de versiones permite rastrear la evolución de un proyecto, permitiendo volver a estados anteriores y gestionar cambios realizados por múltiples personas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "basico"
+  tags: ["git", "workflow"]
+
+respuesta: "snapshot"
+tipo: completar
+respuestas_validas:
+  - "snapshot"
+  - "instantánea"
+  - "foto"
+
+enunciado: "En Git, un 'commit' puede entenderse como una ___ del estado actual de los archivos en el repositorio."
+
+explicacion: |
+  A diferencia de otros sistemas que guardan solo las diferencias (deltas), Git piensa en términos de snapshots (instantáneas) de la estructura de archivos en ese momento preciso.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "basico"
+  tags: ["git", "arquitectura"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "¿Git es considerado un sistema de control de versiones distribuido, donde cada desarrollador tiene una copia completa del historial en su máquina local?"
+
+explicacion: |
+  Correcto. A diferencia de los sistemas centralizados (como SVN), en Git cada clon es un repositorio completo con todo el historial, lo que permite trabajar sin conexión y ofrece mayor seguridad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "intermedio"
+  tags: ["git", "workflow", "ordenar"]
+
+respuesta_orden: ["git add", "git commit", "git push"]
+tipo: ordenar
+opciones_explicitas: ["git add", "git commit", "git push"]
+
+enunciado: "Ordena los siguientes comandos según el flujo lógico estándar para enviar cambios locales a un repositorio remoto:"
+
+pasos:
+  - "1. Preparar los archivos en el área de stage (index)."
+  - "2. Confirmar los cambios en el repositorio local con un mensaje."
+  - "3. Subir los cambios confirmados al servidor remoto."
+
+explicacion: |
+  Primero se seleccionan los cambios con 'add', luego se crean la versión con 'commit' y finalmente se envían al servidor con 'push'.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "basico"
+  tags: ["colaboracion", "git"]
+
+tipo: mc
+opciones_explicitas: ["Permite que varios desarrolladores trabajen en el mismo archivo simultáneamente sin sobrescribir el trabajo de otros", "Obliga a que un solo programador trabaje a la vez para evitar errores", "Sirve únicamente para guardar copias de seguridad en la nube", "Es una herramienta que reemplaza la necesidad de realizar pruebas de software"]
+respuesta: "Permite que varios desarrolladores trabajen en el mismo archivo simultáneamente sin sobrescribir el trabajo de otros"
+
+enunciado: "Una de las razones principales por las que el control de versiones es esencial para el trabajo en equipo es que ___."
+
+explicacion: |
+  Los sistemas de control de versiones permiten la ramificación (branching) y la fusión (merging), facilitando que múltiples personas colaboren en la misma base de código de forma organizada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "basico"
+  tags: ["git", "conceptos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Git es un sistema de control de versiones distribuido que permite rastrear cambios en los archivos de un proyecto de software a lo largo del tiempo."
+
+explicacion: |
+  Efectivamente, Git permite que cada desarrollador tenga una copia completa del historial, facilitando el trabajo colaborativo y la recuperación de versiones anteriores.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "basico"
+  tags: ["git", "conceptos"]
+
+variables:
+  escenario: uno_de([["El desarrollador modificó el archivo main.py", "modificación"], ["El desarrollador borró el archivo README.md", "eliminación"], ["El desarrollador creó un nuevo archivo utils.py", "creación"]])
+
+respuesta: escenario[1]
+tipo: mc
+
+opciones_explicitas: ["modificación", "eliminación", "creación"]
+
+enunciado: "En un proyecto de software, si un colaborador ejecuta un comando para registrar que ha borrado un archivo, ¿qué tipo de cambio está realizando en el historial?"
+
+explicacion: |
+  El cambio registrado es una {escenario[0]}. En el control de versiones, cada acción (crear, modificar, borrar) genera un nuevo estado en el historial.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "intermedio"
+  tags: ["git", "workflow"]
+
+respuesta_orden: ["git add", "git commit", "git push"]
+tipo: ordenar
+
+opciones_explicitas: ["git add", "git commit", "git push"]
+
+enunciado: "Un desarrollador desea enviar sus cambios locales a un repositorio remoto (como GitHub). Ordene los comandos necesarios para realizar este proceso de forma secuencial:"
+
+pasos:
+  - "1. Preparar los archivos en el área de preparación (staging area)."
+  - "2. Crear un punto de control en el historial local con un mensaje descriptivo."
+  - "3. Subir los commits locales al servidor remoto."
+
+explicacion: |
+  El flujo estándar es: primero se seleccionan los archivos (add), luego se empaquetan con un mensaje (commit) y finalmente se envían al servidor (push).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "intermedio"
+  tags: ["git", "conceptos"]
+
+respuesta: "mensaje"
+tipo: completar
+respuestas_validas:
+  - "mensaje"
+
+enunciado: "Para que un commit sea útil en un equipo de trabajo, es fundamental incluir un ___ descriptivo que explique qué cambios se realizaron."
+
+explicacion: |
+  Un commit sin un mensaje claro dificulta la comprensión del historial para otros miembros del equipo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "avanzado"
+  tags: ["git", "conflictos"]
+
+variables:
+  escenarios: [["Dos personas editaron la misma línea del archivo index.html", "conflicto"], ["Una persona editó el archivo A y otra el archivo B", "sin_problema"], ["Una persona borró un archivo que otra persona estaba usando", "conflicto"]]
+  idx: uno_de([0, 1, 2])
+  escenario_actual: escenarios[idx]
+  descripcion: escenario_actual[0]
+  respuesta_correcta: escenario_actual[1]
+
+respuesta: respuesta_correcta
+tipo: mc
+
+opciones_explicitas: ["conflicto", "sin_problema"]
+
+enunciado: "Analiza el siguiente escenario: {descripcion}. ¿Qué situación se presenta al intentar fusionar (merge) los cambios?"
+
+explicacion: |
+  Cuando dos cambios incompatibles ocurren en la misma parte de un archivo, Git no puede decidir automáticamente qué versión mantener y genera un conflicto.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "basico"
+  tags: ["git", "conceptos"]
+
+tipo: mc
+opciones_explicitas: ["Una copia de seguridad en la nube para no perder archivos", "Un sistema para rastrear cambios y permitir la colaboración", "Un editor de texto avanzado para programadores", "Un sistema de mensajería para equipos de desarrollo"]
+respuesta: "Un sistema para rastrear cambios y permitir la colaboración"
+enunciado: "Un sistema de control de versiones como Git es esencial principalmente porque permite ___."
+explicacion: |
+  El control de versiones no es solo una copia de seguridad; su función principal es registrar la historia de cambios para que múltiples personas puedan trabajar en el mismo proyecto sin sobrescribir el trabajo de otros.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "basico"
+  tags: ["git", "conceptos"]
+
+tipo: vf
+
+enunciado: "Si realizo cambios en un archivo y presiono 'Guardar' (Ctrl+S) en mi editor de código, estos cambios quedan registrados automáticamente en el historial de commits de Git."
+
+respuesta: falso
+
+explicacion: |
+  Falso. 'Guardar' solo escribe los cambios en el disco local. Para que Git registre un cambio en su historial, es necesario realizar un 'commit' tras haber añadido los archivos al área de preparación (staging area).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "intermedio"
+  tags: ["git", "flujo_de_trabajo"]
+
+tipo: completar
+respuestas_validas:
+  - "no es visible para mis compañeros"
+respuesta: "no es visible para mis compañeros"
+
+enunciado: "Si un desarrollador realiza un commit en su repositorio local, la situación es: ___."
+
+pasos:
+  - "Realizar cambios en el código"
+  - "Ejecutar 'git add' para preparar los cambios"
+  - "Ejecutar 'git commit' para crear la versión local"
+
+explicacion: |
+  El repositorio local es privado a la máquina del desarrollador. Para que otros vean los cambios, se debe realizar un 'push' hacia un repositorio remoto (como GitHub o GitLab).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "intermedio"
+  tags: ["git", "flujo_de_trabajo"]
+
+tipo: ordenar
+opciones_explicitas: ["modificar archivos", "git add", "git commit", "git push"]
+
+enunciado: "Ordena los pasos lógicos para subir un cambio desde tu máquina local hasta que esté disponible para el equipo en el servidor remoto:"
+
+explicacion: |
+  Primero modificas el contenido, luego preparas los archivos con 'add', creas la versión con 'commit' y finalmente la envías al servidor con 'push'.
+respuesta_orden: ["modificar archivos", "git add", "git commit", "git push"]
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "avanzado"
+  tags: ["git", "flujo_de_trabajo"]
+
+tipo: mc
+opciones_explicitas: ["trabajar directamente en la rama 'main'", "crear una rama nueva para una función", "hacer un merge de una rama con conflictos"]
+
+enunciado: "En un entorno de equipo, ¿cuál de las siguientes prácticas es la de mayor riesgo, ya que suele causar errores en la versión estable?"
+
+respuesta: "trabajar directamente en la rama 'main'"
+
+explicacion: |
+  Trabajar directamente en la rama principal (main/master) es peligroso porque cualquier error cometido durante el desarrollo se integra inmediatamente a la versión que se supone es funcional y estable. Se recomienda usar 'feature branches'.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "basico"
+  tags: ["git", "conceptos_basicos"]
+
+tipo: mc
+opciones_explicitas: ["Un sistema de gestión de archivos en la nube", "Un sistema de control de versiones distribuido", "Un editor de texto para programadores", "Un lenguaje de programación"]
+
+respuesta: "Un sistema de control de versiones distribuido"
+
+enunciado: "A diferencia de un simple respaldo de archivos en la nube, Git es un ___."
+
+explicacion: |
+  Git es un sistema de control de versiones distribuido que permite rastrear cambios en el código y trabajar de forma colaborativa sin depender de un único servidor centralizado para todo el historial.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "basico"
+  tags: ["git", "backup"]
+
+tipo: vf
+
+enunciado: "Un sistema de control de versiones como Git es lo mismo que realizar copias de seguridad (backups) manuales de una carpeta de proyecto."
+
+respuesta: falso
+
+explicacion: |
+  Aunque Git ayuda a no perder trabajo, su propósito principal es el seguimiento de la evolución de los cambios (historial, ramas, merges) y la colaboración, no es simplemente una copia de seguridad de archivos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "intermedio"
+  tags: ["colaboracion", "flujo_trabajo"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["desarrollador_A", "desarrollador_B"], ["usuario_X", "usuario_Y"]]
+
+tipo: completar
+respuestas_validas:
+  - "merge"
+respuesta: "merge"
+
+enunciado: "Cuando dos personas trabajan en la misma línea de un archivo, al intentar integrar sus cambios, el sistema de control de versiones debe realizar un ___ para unir las historias."
+
+explicacion: |
+  El proceso de integrar cambios de una rama a otra se llama 'merge'. Si los cambios chocan en la misma línea, surge un 'conflicto' que debe ser resuelto manualmente.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "intermedio"
+  tags: ["flujo_git", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["modificar_archivo", "hacer_commit", "hacer_push"]
+respuesta_orden: ["modificar_archivo", "hacer_commit", "hacer_push"]
+
+enunciado: "Ordena los pasos lógicos para enviar tus cambios locales a un repositorio remoto:"
+
+explicacion: |
+  Primero debes realizar los cambios en el archivo, luego registrar esos cambios en tu historial local con un 'commit', y finalmente enviarlos al servidor remoto con un 'push'.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "avanzado"
+  tags: ["commit", "metadatos"]
+
+variables:
+  datos: [["mensaje descriptivo", verdadero], ["solo un espacio", falso]]
+
+tipo: mc
+opciones_explicitas: ["Es obligatorio incluir un mensaje descriptivo", "El mensaje es opcional pero recomendado", "El mensaje solo lo pone el administrador", "No se puede hacer commit sin internet"]
+
+respuesta: "Es obligatorio incluir un mensaje descriptivo"
+
+enunciado: "En un flujo de trabajo profesional, un commit se distingue de un simple guardado de archivo porque requiere un {datos[0][0]} que explique el cambio."
+
+explicacion: |
+  Aunque técnicamente se puede hacer un commit con mensajes vacíos en algunas configuraciones, en el desarrollo profesional es una regla fundamental para mantener la trazabilidad del proyecto.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "basico"
+  tags: ["git", "conceptos"]
+
+variables:
+  idx: uno_de([0,1,2])
+  datos: [["un equipo de 5 programadores trabajando en el mismo archivo", "Permite trabajar en paralelo sin sobrescribir el trabajo de otros"], ["un solo programador trabajando solo en su PC", "Hace que el código sea más rápido de ejecutar"], ["un equipo que no usa herramientas de control", "Evita que los programadores tengan que escribir código"]]
+
+enunciado: "En el escenario de {datos[idx][0]}, ¿cuál es la principal ventaja de utilizar un sistema de control de versiones como Git?"
+
+opciones_explicitas: ["Permite trabajar en paralelo sin sobrescribir el trabajo de otros", "Hace que el código sea más rápido de ejecutar", "Evita que los programadores tengan que escribir código"]
+
+respuesta: datos[idx][1]
+
+tipo: mc
+
+explicacion: |
+  El control de versiones permite que múltiples personas trabajen en la misma base de código simultáneamente, gestionando las integraciones y evitando que los cambios de uno borren los del otro.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "basico"
+  tags: ["git", "workflow"]
+
+enunciado: "En Git, realizar un 'commit' equivale a ___."
+
+respuestas_validas:
+  - "guardar un cambio con un mensaje descriptivo"
+
+respuesta: "guardar un cambio con un mensaje descriptivo"
+
+tipo: completar
+
+explicacion: |
+  Un commit es una captura (snapshot) de los cambios realizados en los archivos, acompañada de un mensaje que explica qué se hizo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "intermedio"
+  tags: ["git", "arquitectura"]
+
+enunciado: "Git es un sistema de control de versiones de tipo distribuido, lo que significa que cada desarrollador tiene una copia completa del historial en su máquina local. ¿Es esto verdadero?"
+
+respuesta: verdadero
+
+tipo: vf
+explicacion: |
+  A diferencia de los sistemas centralizados, en Git cada clon es un repositorio completo con todo su historial, lo que permite trabajar sin conexión y ofrece mayor seguridad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "intermedio"
+  tags: ["git", "workflow"]
+
+opciones_explicitas: ["Modificar archivos", "Realizar un commit", "Enviar cambios al servidor remoto (push)"]
+
+respuesta_orden: ["Modificar archivos", "Realizar un commit", "Enviar cambios al servidor remoto (push)"]
+
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para subir un cambio local a un repositorio remoto (como GitHub):"
+
+explicacion: |
+  Primero modificas el contenido, luego creas un punto de control local (commit) y finalmente subes esa historia al servidor (push).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "control_de_versiones"
+  nivel: "avanzado"
+  tags: ["git", "conflictos"]
+
+variables:
+  idx: uno_de([0,1,2])
+  datos: [["dos personas modificaron la misma línea de un archivo", "Se produce un conflicto de fusión (merge conflict)"], ["una persona modificó un archivo y otra borró el mismo archivo", "Se produce un conflicto de fusión (merge conflict)"], ["una persona añadió una función nueva en un archivo distinto", "Git lo resuelve automáticamente sin avisar"]]
+
+enunciado: "Si ocurre la situación: {datos[idx][0]}, ¿qué sucede en Git?"
+
+opciones_explicitas: ["Se produce un conflicto de fusión (merge conflict)", "Git lo resuelve automáticamente sin avisar", "El repositorio se bloquea permanentemente"]
+
+respuesta: datos[idx][1]
+
+tipo: mc
+
+explicacion: |
+  Cuando los cambios son en líneas distintas o archivos distintos, Git puede fusionar automáticamente. Si los cambios chocan en la misma línea, el usuario debe resolver el conflicto manualmente.
 ```
 

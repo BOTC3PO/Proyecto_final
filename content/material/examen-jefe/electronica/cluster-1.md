@@ -1,556 +1,8 @@
-# Examen jefe — Maestro del Circuito y Lógica
+# Examen jefe — [PENDIENTE #942]
 
-> Logro #210. Completaste el examen dominando desde las leyes de Kirchhoff hasta la programación de microcontroladores. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **126 preguntas totales** en 5/5 secciones.
+> Logro #942. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: circuitos-y-leyes-de-kirchhoff (25 preguntas)
-
-```
-metadata:
-  materia: "electronica"
-  tema: "circuitos_y_leyes_de_kirchhoff"
-  nivel: "basico"
-  tags: ["nodos", "definiciones", "conceptos"]
-
-respuesta: "nodo"
-tipo: completar
-respuestas_validas: ["nodo"]
-
-enunciado: "En un circuito eléctrico, un punto de conexión donde se encuentran dos o más conductores se denomina ___."
-
-explicacion: |
-  Un nodo es el punto de unión de dos o más elementos en un circuito. Si se encuentran tres o más, se denomina nodo principal.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "circuitos_y_leyes_de_kirchhoff"
-  nivel: "basico"
-  tags: ["kcl", "corrientes", "nodos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La Ley de Corrientes de Kirchhoff (KCL) establece que la suma de las corrientes que entran a un nodo es igual a la suma de las corrientes que salen de dicho nodo."
-
-explicacion: |
-  Verdadero. La KCL se basa en el principio de conservación de la carga eléctrica: la carga no se acumula en un nodo ideal.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "circuitos_y_leyes_de_kirchhoff"
-  nivel: "basico"
-  tags: ["kvl", "tensiones", "mallas"]
-
-respuesta: "malla"
-tipo: mc
-opciones_explicitas: ["malla", "nodo", "rama", "lazo"]
-
-enunciado: "La Ley de Tensiones de Kirchhoff (KVL) se aplica a una ___ cerrada, indicando que la suma algebraica de todas las tensiones en un lazo es igual a cero."
-
-explicacion: |
-  Una malla es un lazo que no contiene otros lazos en su interior. La KVL se basa en la conservación de la energía.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "circuitos_y_leyes_de_kirchhoff"
-  nivel: "basico"
-  tags: ["terminologia", "rama", "lazo"]
-
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1
-tipo: mc
-opciones_explicitas: ["rama", "nodo", "lazo", "fuente"]
-
-enunciado: "En el análisis de circuitos, un elemento que conecta dos nodos se denomina ___."
-pasos:
-  - "Identificar los puntos de conexión"
-  - "Determinar la trayectoria entre ellos"
-
-explicacion: |
-  La respuesta correcta es {datos[idx][0]}. Un elemento o segmento de circuito entre dos nodos se llama rama.
-  
-variables:
-  datos: [["rama", "rama"], ["lazo", "lazo"]]
-  idx: uno_de([0, 1])
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "circuitos_y_leyes_de_kirchhoff"
-  nivel: "intermedio"
-  tags: ["metodologia", "pasos", "analisis"]
-
-respuesta: ["identificar_mallas", "asignar_corrientes", "aplicar_kvl", "resolver_sistema"]
-tipo: ordenar
-opciones_explicitas: ["aplicar_kvl", "identificar_mallas", "resolver_sistema", "asignar_corrientes"]
-
-enunciado: "Ordene los pasos lógicos para resolver un circuito mediante el método de mallas:"
-
-explicacion: |
-  El orden correcto es: 1. Identificar las mallas, 2. Asignar corrientes de malla, 3. Aplicar la ley de tensiones (KVL) en cada una y 4. Resolver el sistema de ecuaciones resultante.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "basico"
-  tags: ["nodos", "corriente", "kirchhoff"]
-
-variables:
-  datos: [[["10A", "2A", "8A"], "10A"], [["5A", "1A", "4A"], "5A"], [["20A", "5A", "15A"], "20A"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "En un nodo de un circuito, entran {datos[idx][0][0]} de corriente a través de una rama. Si por otra rama salen {datos[idx][0][1]} y por una tercera rama salen {datos[idx][0][2]}, la corriente que entra por la primera rama debe ser igual a la suma de las que salen. Según la Ley de Corrientes de Kirchhoff, la corriente total que sale del nodo es de ___ A."
-
-respuestas_validas: ["10A", "5A", "20A"]
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  La Ley de Corrientes de Kirchhoff (LCC) establece que la suma de las corrientes que entran a un nodo es igual a la suma de las corrientes que salen de él. En este caso, la corriente de entrada es {datos[idx][0][0]} y la suma de las salidas es {datos[idx][0][1]} + {datos[idx][0][2]} = {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "intermedio"
-  tags: ["mallas", "tension", "kirchhoff"]
-
-variables:
-  datos: [[12, 4, 24], [5, 2, 3], [10, 5, 5]]
-  idx: uno_de([0, 1, 2])
-  fuente: datos[idx][0]
-  resistencia_total: datos[idx][1]
-
-enunciado: "En una malla simple con una fuente de tensión de {fuente} V y dos resistencias en serie que suman {resistencia_total} $\Omega$, la suma de las caídas de tensión en las resistencias debe ser igual a la tensión de la fuente según la Ley de Tensiones de Kirchhoff (LVK). ¿La suma de las caídas de tensión en las resistencias es igual a la tensión de la fuente?"
-
-opciones_explicitas: ["verdadero", "falso"]
-respuestas_validas: ["verdadero"]
-respuesta: "verdadero"
-tipo: completar
-explicacion: |
-  La LVK establece que la suma algebraica de las tensiones alrededor de cualquier lazo cerrado es igual a cero. En términos de magnitudes, la suma de las caídas de tensión en las resistencias es igual a la tensión suministrada por la fuente.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "intermedio"
-  tags: ["mallas", "ohm", "calculo"]
-
-variables:
-  v_fuente: uno_de([
-    [12, 2, 6],
-    [24, 4, 8],
-    [6, 1, 3]
-  ])
-  r_total: uno_de([
-    [4, 2, 3],
-    [6, 3, 2],
-    [2, 2, 1]
-  ])
-
-enunciado: "Para resolver una malla con una fuente de {v_fuente[0]} V y una resistencia total de {r_total[0]} $\Omega$, debemos aplicar la Ley de Ohm ($I = V / R$). ¿Cuál es el valor de la corriente que circula por la malla?"
-
-opciones_explicitas: ["3A", "6A", "1A", "4A"]
-respuesta: v_fuente[0] / r_total[0]
-tipo: mc
-
-explicacion: |
-  Aplicando la Ley de Ohm: $I = \frac{V_{fuente}}{R_{total}}$. 
-  Para este caso: $I = \frac{{v_fuente[0]}}{{{r_total[0]}}} = \text{resultado}$.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "avanzado"
-  tags: ["metodologia", "nodos"]
-
-enunciado: "Para resolver un circuito mediante el método de tensiones de nodo, se deben seguir estos pasos en orden correcto:"
-
-opciones_explicitas: [
-  "Escribir las ecuaciones de LCC para cada nodo",
-  "Asignar un nodo de referencia (tierra)",
-  "Identificar todos los nodos del circuito",
-  "Resolver el sistema de ecuaciones resultante"
-]
-respuesta: ["Asignar un nodo de referencia (tierra)", "Identificar todos los nodos del circuito", "Escribir las ecuaciones de LCC para cada nodo", "Resolver el sistema de ecuaciones resultante"]
-tipo: ordenar
-
-explicacion: |
-  El procedimiento estándar es: 1. Elegir la referencia (tierra), 2. Identificar nodos, 3. Plantear ecuaciones de Kirchhoff en cada nodo (sumatoria de corrientes = 0) y 4. Resolver el sistema matemático.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "intermedio"
-  tags: ["nodos", "corriente", "divisor"]
-
-variables:
-  i_entrada: uno_de([
-    [10, 2, 5],
-    [5, 1, 2.5],
-    [20, 4, 10]
-  ])
-  r_paralelo: uno_de([
-    [5, 2, 5],
-    [10, 5, 5],
-    [4, 2, 2]
-  ])
-  r_rama: uno_de([
-    [5, 2, 5],
-    [5, 5, 5],
-    [2, 1, 1]
-  ])
-
-enunciado: "En un nodo de entrada con una corriente de {i_entrada[0]} A, la corriente se divide en dos ramas en paralelo. Si la resistencia de la rama de interés es {r_rama[0]} $\Omega$ y la resistencia de la otra rama es {r_paralelo[0]} $\Omega$, la corriente en la rama de interés es de ___ A."
-
-pasos:
-  - "Calcular la resistencia equivalente de las dos ramas: $R_{eq} = (R_1 \cdot R_2) / (R_1 + R_2)$"
-  - "Calcular la resistencia equivalente: $R_{eq} = ({r_rama[0]} \cdot {r_paralelo[0]}) / ({r_rama[0]} + {r_paralelo[0]})$"
-  - "Calcular la corriente total usando la resistencia equivalente: $I_{total} = V / R_{eq}$ (o usar divisor de corriente)"
-  - "La corriente en la rama de interés es $I_{rama} = I_{entrada} \cdot (R_{paralelo} / (R_{rama} + R_{paralelo}))$"
-
-respuestas_validas: ["4A", "2A", "5A", "2.5A"]
-respuesta: i_entrada[0] * (r_paralelo[0] / (r_rama[0] + r_paralelo[0]))
-tipo: completar
-
-explicacion: |
-  Usando la fórmula del divisor de corriente: $I_{rama} = I_{entrada} \cdot \frac{R_{paralelo}}{R_{rama} + R_{paralelo}}$.
-  Sustituyendo: $I_{rama} = {i_entrada[0]} \cdot \frac{{r_paralelo[0]}}{{{r_rama[0]} + {r_paralelo[0]}}} = \text{resultado}$.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "basico"
-  tags: ["nodos", "corriente", "ley_de_kirchhoff"]
-
-respuesta: "0"
-tipo: "input"
-tolerancia_abs: 0.001
-
-enunciado: "En un nodo de un circuito, entran dos corrientes de 5A y 3A, y salen una corriente de 4A y otra de $I_{salida}$. Según la Ley de Corrientes de Kirchhoff (LCC), ¿cuál es el valor de $I_{salida}$ en Amperios?"
-
-pasos:
-  - "Calcular la suma de las corrientes que entran al nodo: 5 + 3 = 8A."
-  - "Aplicar la LCC: Suma de corrientes entrantes = Suma de corrientes salientes."
-  - "8 = 4 + $I_{salida}$."
-  - "Despejar $I_{salida}$."
-
-explicacion: |
-  La Ley de Corrientes de Kirchhoff establece que la suma algebraica de todas las corrientes en un nodo es igual a cero. En términos prácticos, la suma de las corrientes que entran es igual a la suma de las que salen.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "intermedio"
-  tags: ["mallas", "tension", "ley_de_tensiones"]
-
-variables:
-  escenario: uno_de([[true, "positivo"], [false, "negativo"]])
-
-respuesta: escenario[0][1
-tipo: "mc"
-opciones_explicitas: ["positivo", "negativo"]
-
-enunciado: "Al aplicar la Ley de Tensiones de Kirchhoff (LTK) en una malla, si recorremos una resistencia en el mismo sentido que la corriente, la caída de tensión se considera con signo ___ respecto al potencial del nodo anterior."
-
-explicacion: |
-  Al recorrer una resistencia en la dirección de la corriente, el potencial disminuye (caída de tensión), por lo tanto, se suele representar con signo negativo en la ecuación de la malla para reflejar la pérdida de energía.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "basico"
-  tags: ["conceptos", "nodos", "mallas"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "La Ley de Tensiones de Kirchhoff (LTK) se aplica a un nodo para asegurar que la suma de las corrientes que entran y salen sea igual a cero."
-
-explicacion: |
-  Falso. La Ley de Corrientes de Kirchhoff (LCC) es la que se aplica a los nodos. La Ley de Tensiones (LTK) se aplica a las mallas (lazos cerrados).
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "intermedio"
-  tags: ["metodologia", "analisis_mallas"]
-
-opciones_explicitas: ["Identificar mallas", "Asignar corrientes de malla", "Escribir ecuaciones de LTK", "Resolver sistema de ecuaciones"]
-respuesta: ["Identificar mallas", "Asignar corrientes de malla", "Escribir ecuaciones de LTK", "Resolver sistema de ecuaciones"]
-tipo: "ordenar"
-
-enunciado: "Ordena los pasos lógicos para realizar el análisis de mallas en un circuito complejo:"
-
-explicacion: |
-  El análisis de mallas requiere primero definir las corrientes de malla para cada lazo, luego aplicar la LTK en cada una para obtener un sistema de ecuaciones lineales, y finalmente resolver dicho sistema.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "intermedio"
-  tags: ["mallas", "tension", "ley_de_tensiones"]
-
-variables:
-  datos: uno_de([[12, 2, 10], [24, 5, 19], [9, 3, 6]])
-
-respuesta: datos[idx][2
-tipo: "completar"
-opciones_explicitas: ["12", "2", "10", "24", "5", "19", "9", "3", "6"]
-
-enunciado: "En una malla cerrada, existen tres fuentes/caídas de tensión: una de {datos[idx][0]}V, una de {datos[idx][1]}V y una tercera de $V_{desconocida}$V. Si la suma algebraica de las tensiones en el lazo cerrado es cero, el valor de $V_{desconocida}$ debe ser ___ V (asumiendo que las dos primeras son caídas de tensión)."
-
-pasos:
-  - "La suma de caídas debe ser igual a la suma de elevaciones (o la suma algebraica es 0)."
-  - "12 + 2 + $V_{desconocida}$ = 0 (siendo las tensiones de fuente positivas, el planteamiento varía, pero el ejercicio pide el valor para que la suma sea cero según los datos)."
-  - "Para este ejercicio, se busca el valor que completa la suma de los componentes dados para llegar al equilibrio."
-
-explicacion: |
-  En un lazo cerrado, la suma de todas las caídas de tensión es igual a la suma de todas las elevaciones de tensión.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "basico"
-  tags: ["nodos", "mallas", "fundamentos"]
-
-respuesta: "nodos"
-tipo: completar
-respuestas_validas: ["nodos", "mallas"]
-
-enunciado: "Mientras que la Ley de Tensiones de Kirchhoff (LVK) se aplica a lazos cerrados para analizar caídas de potencial, la Ley de Corrientes de Kirchhoff (LKK) se aplica a los ___ para analizar la conservación de la carga."
-
-explicacion: |
-  La LKK establece que la suma de corrientes que entran a un nodo es igual a la suma de las que salen, basándose en la conservación de la carga eléctrica.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "basico"
-  tags: ["conceptos", "fisica"]
-
-variables:
-  es_conservacion: uno_de([verdadero, falso])
-
-respuesta: es_conservacion
-tipo: completar
-enunciado: "La Ley de Corrientes de Kirchhoff es, en esencia, una aplicación directa del principio de conservación de la carga eléctrica en un punto de unión."
-
-explicacion: |
-  Es verdadero. Debido a que la carga no se acumula ni se destruye en un nodo ideal, la corriente que entra debe ser igual a la que sale.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "intermedio"
-  tags: ["metodologia", "análisis"]
-
-variables:
-  escenario: uno_de([0, 1])
-
-respuesta: escenario_res[escenario][1
-tipo: mc
-opciones_explicitas: ["Análisis de Nodos", "Análisis de Mallas", "Análisis de Componentes"]
-
-enunciado: "Si el objetivo principal es determinar las tensiones en cada rama de un circuito complejo utilizando las corrientes como incógnitas, ¿qué método de análisis se está aplicando?"
-
-pasos:
-  - "Identificar las mallas o lazos cerrados en el circuito."
-  - "Asignar una variable de corriente a cada malla."
-  - "Aplicar la LVK en cada malla para plantear las ecuaciones."
-
-explicacion: |
-  El análisis de mallas se basa en la Ley de Tensiones de Kirchhoff y utiliza las corrientes de malla como variables principales para resolver el sistema.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "intermedio"
-  tags: ["relacion", "variables"]
-
-variables:
-  par: uno_de([[0, 1], [1, 0]])
-
-respuesta: par[par[0]][1
-tipo: completar
-respuestas_validas: ["corriente", "tensión"]
-
-enunciado: "En el análisis de mallas, la variable principal que se busca determinar mediante la aplicación de la LVK es la ___, mientras que en el análisis de nodos la variable principal es la ___."
-
-explicacion: |
-  En mallas trabajamos con corrientes de lazo (LVK) y en nodos con potenciales o tensiones (LKK).
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "leyes_de_kirchhoff"
-  nivel: "avanzado"
-  tags: ["procedimiento", "análisis"]
-
-respuesta: ["Identificar nodos y mallas", "Asignar corrientes/tensiones", "Plantear ecuaciones de Kirchhoff", "Resolver el sistema de ecuaciones"]
-tipo: ordenar
-opciones_explicitas: ["Identificar nodos y mallas", "Asignar corrientes/tensiones", "Plantear ecuaciones de Kirchhoff", "Resolver el sistema de ecuaciones"]
-
-enunciado: "Ordene los pasos lógicos para realizar un análisis de circuitos combinando ambas leyes de Kirchhoff:"
-
-explicacion: |
-  Para resolver un circuito complejo, primero se debe entender la topología (nodos/mallas), luego asignar las variables, plantear las ecuaciones basadas en las leyes de Kirchhoff y finalmente resolver el sistema resultante.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "circuitos_y_leyes_de_kirchhoff"
-  nivel: "basico"
-  tags: ["nodos", "kirchhoff", "corriente"]
-
-variables:
-  datos: [[10.0, 5.0, 5.0], [12.0, 7.0, 5.0], [8.0, 4.0, 4.0]]
-  idx: uno_de([0, 1, 2])
-  i_entrada: datos[idx][0]
-  i_salida_1: datos[idx][1]
-  i_salida_2: datos[idx][2]
-
-respuestas_validas: [i_entrada - i_salida_1 - i_salida_2]
-respuesta: i_entrada - i_salida_1 - i_salida_2
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "En un nodo de un circuito, una corriente de entrada de {i_entrada} A se divide en dos ramas. Si la rama 1 tiene una corriente de {i_salida_1} A, ¿cuál es el valor de la corriente en la rama 2 en Amperios?"
-
-pasos:
-  - "Identificar la corriente total que entra al nodo: {i_entrada} A."
-  - "Aplicar la Ley de Corrientes de Kirchhoff: Suma de corrientes que entran = Suma de corrientes que salen."
-  - "Calcular: i_salida_2 = i_entrada - i_salida_1."
-
-explicacion: |
-  Según la Ley de Corrientes de Kirchhoff (LCC), la suma algebraica de las corrientes en un nodo es cero. Por lo tanto, la corriente que entra debe ser igual a la suma de las que salen: {i_entrada} = {i_salida_1} + {i_salida_2}.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "circuitos_y_leyes_de_kirchhoff"
-  nivel: "intermedio"
-  tags: ["mallas", "kirchhoff", "tension"]
-
-variables:
-  datos: [[12.0, 4.0, 8.0], [24.0, 10.0, 14.0], [5.0, 2.0, 3.0]]
-  idx: uno_de([0, 1, 2])
-  v_fuente: datos[idx][0]
-  v_r1: datos[idx][1]
-  v_r2: datos[idx][2]
-
-respuestas_validas: [v_fuente - v_r1 - v_r2]
-respuesta: v_fuente - v_r1 - v_r2
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "En una malla simple con una fuente de tensión de {v_fuente} V y dos resistencias en serie que presentan caídas de tensión de {v_r1} V y {v_r2} V respectivamente, ¿cuál es la tensión residual en el componente restante para que se cumpla la Ley de Tensiones de Kirchhoff?"
-
-pasos:
-  - "La suma de tensiones en una malla cerrada debe ser cero."
-  - "V_fuente - V_r1 - V_r2 - V_restante = 0."
-
-explicacion: |
-  La Ley de Tensiones de Kirchhoff (LTK) establece que la suma de todas las caídas y subidas de potencial en un lazo cerrado es igual a cero. En este caso: {v_fuente} - {v_r1} - {v_r2} = 0.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "circuitos_y_leyes_de_kirchhoff"
-  nivel: "basico"
-  tags: ["teoria", "nodos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si en un nodo entran 5A por una rama y salen 3A por otra, la Ley de Corrientes de Kirchhoff dicta que debe salir 2A por una tercera rama para mantener el equilibrio."
-
-explicacion: |
-  Verdadero. La suma de corrientes entrantes (5A) debe ser igual a la suma de las salientes (3A + 2A = 5A).
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "circuitos_y_leyes_de_kirchhoff"
-  nivel: "intermedio"
-  tags: ["mc", "nodos"]
-
-variables:
-  datos: [[5.0, 2.0], [10.0, 3.0], [15.0, 7.0]]
-  idx: uno_de([0, 1, 2])
-  i_total: datos[idx][0]
-  i_conocida: datos[idx][1]
-
-respuesta: i_total - i_conocida
-tipo: mc
-
-opciones_explicitas: ["5.0 A", "7.0 A", "10.0 A", "12.0 A"]
-
-enunciado: "Un nodo recibe una corriente total de {i_total} A. Si una de las ramas de salida tiene una corriente de {i_conocida} A, ¿cuál es el valor de la corriente en la otra rama de salida?"
-
-explicacion: |
-  Aplicando la LCC: I_total = I_salida_1 + I_salida_2. Por lo tanto, I_salida_2 = {i_total} - {i_conocida}.
-```
-
-```
-metadata:
-  materia: "electronica"
-  tema: "circuitos_y_leyes_de_kirchhoff"
-  nivel: "avanzado"
-  tags: ["ordenar", "metodo"]
-
-opciones_explicitas: ["1. Identificar las mallas del circuito", "2. Asignar corrientes de malla a cada lazo", "3. Aplicar la LTK en cada malla", "4. Resolver el sistema de ecuaciones resultante"]
-
-respuesta: ["1. Identificar las mallas del circuito", "2. Asignar corrientes de malla a cada lazo", "3. Aplicar la LTK en cada malla", "4. Resolver el sistema de ecuaciones resultante"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos para resolver un circuito complejo utilizando el método de mallas (Ley de Tensiones de Kirchhoff):"
-
-explicacion: |
-  El método de mallas requiere primero definir las mallas, luego asignar variables (corrientes), aplicar la ley de tensiones para obtener ecuaciones y finalmente resolver el sistema matemático.
-```
 
 ## Sección: componentes-resistencia-capacitor-diodo-transistor (25 preguntas)
 
@@ -619,11 +71,13 @@ variables:
   datos: [["amplificar una señal", "controlar el flujo de corriente"], ["actuar como interruptor", "conmutar estados"]]
 
 tipo: completar
-respuestas_validas: ["amplificar una señal", "actuar como interruptor"]
+respuestas_validas:
+  - "amplificar una señal"
+  - "actuar como interruptor"
 
-enunciado: "Dependiendo de cómo se polarice, un transistor puede utilizarse para ___ o para ___."
+enunciado: "Dependiendo de cómo se polarice, un transistor puede utilizarse para ___."
 
-respuesta: datos[escenario_idx][0
+respuesta: datos[escenario_idx][0]
 
 explicacion: |
   El transistor es el componente fundamental de la electrónica moderna; puede funcionar en la región activa (amplificación) o en la región de saturación/corte (como interruptor).
@@ -641,7 +95,7 @@ opciones_explicitas: ["Resistencia", "Capacitor", "Diodo", "Transistor"]
 
 enunciado: "Ordena los siguientes componentes según su función principal de 'limitación', 'almacenamiento', 'rectificación' y 'conmutación' respectivamente:"
 
-respuesta: ["Resistencia", "Capacitor", "Diodo", "Transistor"]
+respuesta_orden: ["Resistencia", "Capacitor", "Diodo", "Transistor"]
 
 explicacion: |
   La secuencia correcta es: Resistencia (limita), Capacitor (almacena), Diodo (rectifica/direcciona) y Transistor (conmutación/amplificación).
@@ -656,7 +110,9 @@ metadata:
 
 enunciado: "Un capacitor (condensador) actúa como un dispositivo que almacena energía en forma de ___."
 
-respuestas_validas: ["campo eléctrico", "campo magnético"]
+respuestas_validas:
+  - "campo eléctrico"
+  - "campo magnético"
 
 respuesta: "campo eléctrico"
 tipo: completar
@@ -672,10 +128,7 @@ metadata:
   nivel: "basico"
   tags: ["componentes", "simbolos"]
 
-variables:
-  opciones: [["resistencia", "capacitor", "diodo", "transistor"]]
-
-enunciado: "Si observamos un componente cuyo símbolo es una línea en zigzag (o un rectángulo) y su función es limitar el paso de la corriente, estamos ante una: {opciones[uno_de([0,1,2,3])]}"
+enunciado: "Si observamos un componente cuyo símbolo es una línea en zigzag (o un rectángulo) y su función es limitar el paso de la corriente, estamos ante una: ___"
 
 opciones_explicitas: ["resistencia", "capacitor", "diodo", "transistor"]
 
@@ -711,9 +164,9 @@ metadata:
 
 enunciado: "Para que un transistor NPN funcione como un interruptor en estado de corte, se deben seguir estos pasos en orden:"
 
-opciones_explicitas: ["Aplicar voltaje en la base", "Corriente en la base es cero", "El transistor no conduce"]
+opciones_explicitas: ["No aplicar corriente en la base", "La corriente en la base permanece en cero", "El transistor no conduce"]
 
-respuesta: ["Aplicar voltaje en la base", "Corriente en la base es cero", "El transistor no conduce"]
+respuesta_orden: ["No aplicar corriente en la base", "La corriente en la base permanece en cero", "El transistor no conduce"]
 tipo: ordenar
 
 explicacion: |
@@ -733,7 +186,7 @@ variables:
 
 enunciado: "Si tenemos una resistencia de {escenario[idx][0]} Ω conectada a una fuente de voltaje de {escenario[idx][1]} V, la corriente que circula es de ___ A."
 
-respuesta: "resultado"
+respuesta: escenario[idx][1] / escenario[idx][0]
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -754,7 +207,10 @@ metadata:
 
 respuesta: "almacenar_energia"
 tipo: completar
-respuestas_validas: ["almacenar_energia", "almacenar_carga", "almacenar_energia_electrica"]
+respuestas_validas:
+  - "almacenar_energia"
+  - "almacenar_carga"
+  - "almacenar_energia_electrica"
 
 enunciado: "A diferencia de una resistencia que disipa energía en forma de calor, un capacitor tiene la función principal de ___."
 
@@ -786,12 +242,9 @@ metadata:
   nivel: "intermedio"
   tags: ["diodo", "polarizacion"]
 
-variables:
-  es_polarizado_directo: uno_de([true, false])
-
-respuesta: es_polarizado_directo
-tipo: completar
-enunciado: "Si un diodo se encuentra en condiciones de polarización directa, la corriente puede fluir a través de él. El enunciado es: {es_polarizado_directo}."
+respuesta: verdadero
+tipo: vf
+enunciado: "Si un diodo se encuentra en condiciones de polarización directa, la corriente puede fluir a través de él."
 
 explicacion: |
   Un diodo actúa como una válvula de una sola vía. En polarización directa (ánodo positivo, cátodo negativo), permite el paso de corriente; en inversa, actúa como un aislante.
@@ -822,7 +275,7 @@ metadata:
   tags: ["circuito_serie", "ordenar"]
 
 opciones_explicitas: ["Resistencia", "Capacitor", "Diodo"]
-respuesta: ["Resistencia", "Capacitor", "Diodo"]
+respuesta_orden: ["Resistencia", "Capacitor", "Diodo"]
 tipo: ordenar
 
 enunciado: "Ordena los siguientes componentes según el orden en que se encuentran en un circuito serie hipotético (de entrada a salida):"
@@ -878,19 +331,14 @@ metadata:
   nivel: "intermedio"
   tags: ["transistor", "control", "resistencia"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [
-    ["resistencia", "limita"],
-    ["transistor", "controla"]
-  ]
-
 tipo: completar
-respuestas_validas: ["limita", "controla"]
+respuestas_validas:
+  - "controlar"
+  - "controla"
 
-enunciado: "Mientras que una resistencia se utiliza para ___ la corriente de manera pasiva, un transistor permite ___ la corriente mediante una señal externa en su terminal de base."
+enunciado: "Mientras que una resistencia se utiliza para limitar la corriente de manera pasiva, un transistor permite ___ la corriente mediante una señal externa en su terminal de base."
 
-respuesta: escenario[idx][1
+respuesta: "controlar"
 
 explicacion: |
   La resistencia es un componente pasivo que ofrece oposición al flujo; el transistor es un dispositivo activo que puede actuar como interruptor o amplificador según la corriente de control.
@@ -924,7 +372,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Fuente de tensión", "Resistencia", "Diodo", "Carga"]
 
-respuesta: ["Fuente de tensión", "Resistencia", "Diodo", "Carga"]
+respuesta_orden: ["Fuente de tensión", "Resistencia", "Diodo", "Carga"]
 
 enunciado: "En un circuito de protección simple donde queremos limitar la corriente antes de que llegue a un diodo que protege una carga, el orden lógico de los componentes desde el polo positivo es:"
 
@@ -942,12 +390,12 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1, 2])
   datos: [["resistencia", "limita la corriente"], ["capacitor", "almacena energía"], ["diodo", "permite flujo en un sentido"]]
-  respuesta_texto: datos[escenario_idx][1]
 
+respuesta: datos[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["limita la corriente", "almacena energía", "permite flujo en un sentido", "amplifica señal"]
 
-enunciado: "Si tenemos un componente cuya función principal es {datos[escenario_idx][0]}, ¿cuál es su función en el circuito?"
+enunciado: "Si tenemos un componente llamado {datos[escenario_idx][0]}, ¿cuál es su función en el circuito?"
 
 explicacion: |
   El componente seleccionado es un/a {datos[escenario_idx][0]}, cuya función es {datos[escenario_idx][1]}.
@@ -980,16 +428,15 @@ metadata:
 variables:
   caso_idx: uno_de([0, 1])
   casos: [["directa", "conduce"], ["inversa", "bloquea"]]
-  tipo_polar: ["directa", "inversa"]
-  resultado: ["conduce", "bloquea"]
 
 tipo: completar
 
-enunciado: "Si un diodo se encuentra en polarización ___, la corriente será ___."
+enunciado: "Si un diodo se encuentra en polarización {casos[caso_idx][0]}, la corriente ___."
 
-respuestas_validas: ["directa", "inversa", "conduce", "bloquea"]
+respuestas_validas:
+  - casos[caso_idx][1]
 
-respuesta: "si tipo_polar == 'directa' entonces 'conduce' sino 'bloquea'"
+respuesta: casos[caso_idx][1]
 
 explicacion: |
   En polarización directa, el diodo permite el paso de corriente. En polarización inversa, actúa como un aislante (bloquea).
@@ -1022,12 +469,525 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Fuente de alimentación", "Resistencia", "LED", "Tierra/GND"]
-respuesta: ["Fuente de alimentación", "Resistencia", "LED", "Tierra/GND"]
+respuesta_orden: ["Fuente de alimentación", "Resistencia", "LED", "Tierra/GND"]
 
 enunciado: "Ordena los componentes para crear un circuito de protección simple para un LED (de positivo a negativo):"
 
 explicacion: |
   El orden lógico es: primero la fuente, luego la resistencia para limitar corriente, el LED para emitir luz y finalmente el retorno a tierra.
+```
+
+## Sección: circuitos-y-leyes-de-kirchhoff (25 preguntas)
+
+```
+metadata:
+  materia: "electronica"
+  tema: "circuitos_y_leyes_de_kirchhoff"
+  nivel: "basico"
+  tags: ["nodos", "definiciones", "conceptos"]
+
+respuesta: "nodo"
+tipo: completar
+respuestas_validas:
+  - "nodo"
+
+enunciado: "En un circuito eléctrico, un punto de conexión donde se encuentran dos o más conductores se denomina ___."
+
+explicacion: |
+  Un nodo es el punto de unión de dos o más elementos en un circuito. Si se encuentran tres o más, se denomina nodo principal.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "circuitos_y_leyes_de_kirchhoff"
+  nivel: "basico"
+  tags: ["kcl", "corrientes", "nodos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Ley de Corrientes de Kirchhoff (KCL) establece que la suma de las corrientes que entran a un nodo es igual a la suma de las corrientes que salen de dicho nodo."
+
+explicacion: |
+  Verdadero. La KCL se basa en el principio de conservación de la carga eléctrica: la carga no se acumula en un nodo ideal.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "circuitos_y_leyes_de_kirchhoff"
+  nivel: "basico"
+  tags: ["kvl", "tensiones", "mallas"]
+
+respuesta: "malla"
+tipo: mc
+opciones_explicitas: ["malla", "nodo", "rama", "lazo"]
+
+enunciado: "La Ley de Tensiones de Kirchhoff (KVL) se aplica a una ___ cerrada, indicando que la suma algebraica de todas las tensiones en un lazo es igual a cero."
+
+explicacion: |
+  Una malla es un lazo que no contiene otros lazos en su interior. La KVL se basa en la conservación de la energía.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "circuitos_y_leyes_de_kirchhoff"
+  nivel: "basico"
+  tags: ["terminologia", "rama", "lazo"]
+
+respuesta: "rama"
+tipo: mc
+opciones_explicitas: ["rama", "nodo", "lazo", "fuente"]
+
+enunciado: "En el análisis de circuitos, un elemento que conecta dos nodos se denomina ___."
+pasos:
+  - "Identificar los puntos de conexión"
+  - "Determinar la trayectoria entre ellos"
+
+explicacion: |
+  Un elemento o segmento de circuito entre dos nodos se llama rama.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "circuitos_y_leyes_de_kirchhoff"
+  nivel: "intermedio"
+  tags: ["metodologia", "pasos", "analisis"]
+
+respuesta_orden: ["identificar_mallas", "asignar_corrientes", "aplicar_kvl", "resolver_sistema"]
+tipo: ordenar
+opciones_explicitas: ["aplicar_kvl", "identificar_mallas", "resolver_sistema", "asignar_corrientes"]
+
+enunciado: "Ordene los pasos lógicos para resolver un circuito mediante el método de mallas:"
+
+explicacion: |
+  El orden correcto es: 1. Identificar las mallas, 2. Asignar corrientes de malla, 3. Aplicar la ley de tensiones (KVL) en cada una y 4. Resolver el sistema de ecuaciones resultante.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "basico"
+  tags: ["nodos", "corriente", "kirchhoff"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  entrada: ["10A", "5A", "20A"]
+  salida1: ["2A", "1A", "5A"]
+  salida2: ["8A", "4A", "15A"]
+
+enunciado: "En un nodo de un circuito, entran {entrada[idx]} de corriente a través de una rama. Si por otra rama salen {salida1[idx]} y por una tercera rama salen {salida2[idx]}, la corriente que entra por la primera rama debe ser igual a la suma de las que salen. Según la Ley de Corrientes de Kirchhoff, la corriente total que sale del nodo es de ___ A."
+
+respuestas_validas:
+  - "10A"
+  - "5A"
+  - "20A"
+respuesta: entrada[idx]
+tipo: completar
+
+explicacion: |
+  La Ley de Corrientes de Kirchhoff (LCC) establece que la suma de las corrientes que entran a un nodo es igual a la suma de las corrientes que salen de él.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "intermedio"
+  tags: ["mallas", "tension", "kirchhoff"]
+
+variables:
+  datos: [[12, 4, 24], [5, 2, 3], [10, 5, 5]]
+  idx: uno_de([0, 1, 2])
+  fuente: datos[idx][0]
+  resistencia_total: datos[idx][1]
+
+enunciado: "En una malla simple con una fuente de tensión de {fuente} V y dos resistencias en serie que suman {resistencia_total} $\\Omega$, la suma de las caídas de tensión en las resistencias debe ser igual a la tensión de la fuente según la Ley de Tensiones de Kirchhoff (LVK). ¿La suma de las caídas de tensión en las resistencias es igual a la tensión de la fuente?"
+
+respuesta: verdadero
+tipo: vf
+explicacion: |
+  La LVK establece que la suma algebraica de las tensiones alrededor de cualquier lazo cerrado es igual a cero. En términos de magnitudes, la suma de las caídas de tensión en las resistencias es igual a la tensión suministrada por la fuente.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "intermedio"
+  tags: ["mallas", "ohm", "calculo"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  voltajes: [12, 24, 6]
+  resistencias: [4, 6, 2]
+  corrientes_texto: ["3A", "4A", "3A"]
+
+enunciado: "Para resolver una malla con una fuente de {voltajes[idx]} V y una resistencia total de {resistencias[idx]} ohm, debemos aplicar la Ley de Ohm (I = V / R). ¿Cuál es el valor de la corriente que circula por la malla?"
+
+opciones_explicitas: ["3A", "6A", "1A", "4A"]
+respuesta: corrientes_texto[idx]
+tipo: mc
+
+explicacion: |
+  Aplicando la Ley de Ohm: I = V / R. La corriente se obtiene dividiendo la tensión de la fuente por la resistencia total de la malla.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "avanzado"
+  tags: ["metodologia", "nodos"]
+
+enunciado: "Para resolver un circuito mediante el método de tensiones de nodo, se deben seguir estos pasos en orden correcto:"
+
+opciones_explicitas: ["Escribir las ecuaciones de LCC para cada nodo", "Asignar un nodo de referencia (tierra)", "Identificar todos los nodos del circuito", "Resolver el sistema de ecuaciones resultante"]
+respuesta_orden: ["Asignar un nodo de referencia (tierra)", "Identificar todos los nodos del circuito", "Escribir las ecuaciones de LCC para cada nodo", "Resolver el sistema de ecuaciones resultante"]
+tipo: ordenar
+
+explicacion: |
+  El procedimiento estándar es: 1. Elegir la referencia (tierra), 2. Identificar nodos, 3. Plantear ecuaciones de Kirchhoff en cada nodo (sumatoria de corrientes = 0) y 4. Resolver el sistema matemático.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "intermedio"
+  tags: ["nodos", "corriente", "divisor"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  i_entrada: [10, 5, 20]
+  r_rama: [5, 5, 2]
+  r_paralelo: [5, 5, 2]
+
+enunciado: "En un nodo de entrada con una corriente de {i_entrada[idx]} A, la corriente se divide en dos ramas en paralelo. Si la resistencia de la rama de interés es {r_rama[idx]} ohm y la resistencia de la otra rama es {r_paralelo[idx]} ohm, la corriente en la rama de interés es de ___ A."
+
+pasos:
+  - "Calcular la resistencia equivalente de las dos ramas."
+  - "Aplicar la fórmula del divisor de corriente: I_rama = I_entrada * (R_paralelo / (R_rama + R_paralelo))."
+
+respuesta: i_entrada[idx] * (r_paralelo[idx] / (r_rama[idx] + r_paralelo[idx]))
+tipo: completar
+tolerancia_abs: 0.01
+
+explicacion: |
+  Usando la fórmula del divisor de corriente: I_rama = I_entrada * R_paralelo / (R_rama + R_paralelo).
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "basico"
+  tags: ["nodos", "corriente", "ley_de_kirchhoff"]
+
+respuesta: 4
+tipo: completar
+tolerancia_abs: 0.001
+
+enunciado: "En un nodo de un circuito, entran dos corrientes de 5A y 3A, y salen una corriente de 4A y otra de I_salida. Según la Ley de Corrientes de Kirchhoff (LCC), ¿cuál es el valor de I_salida en Amperios?"
+
+pasos:
+  - "Calcular la suma de las corrientes que entran al nodo: 5 + 3 = 8A."
+  - "Aplicar la LCC: Suma de corrientes entrantes = Suma de corrientes salientes."
+  - "8 = 4 + I_salida."
+  - "Despejar I_salida."
+
+explicacion: |
+  La Ley de Corrientes de Kirchhoff establece que la suma algebraica de todas las corrientes en un nodo es igual a cero. En términos prácticos, la suma de las corrientes que entran es igual a la suma de las que salen.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "intermedio"
+  tags: ["mallas", "tension", "ley_de_tensiones"]
+
+respuesta: "negativo"
+tipo: "mc"
+opciones_explicitas: ["positivo", "negativo"]
+
+enunciado: "Al aplicar la Ley de Tensiones de Kirchhoff (LTK) en una malla, si recorremos una resistencia en el mismo sentido que la corriente, la caída de tensión se considera con signo ___ respecto al potencial del nodo anterior."
+
+explicacion: |
+  Al recorrer una resistencia en la dirección de la corriente, el potencial disminuye (caída de tensión), por lo tanto, se suele representar con signo negativo en la ecuación de la malla para reflejar la pérdida de energía.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "basico"
+  tags: ["conceptos", "nodos", "mallas"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "La Ley de Tensiones de Kirchhoff (LTK) se aplica a un nodo para asegurar que la suma de las corrientes que entran y salen sea igual a cero."
+
+explicacion: |
+  Falso. La Ley de Corrientes de Kirchhoff (LCC) es la que se aplica a los nodos. La Ley de Tensiones (LTK) se aplica a las mallas (lazos cerrados).
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "intermedio"
+  tags: ["metodologia", "analisis_mallas"]
+
+opciones_explicitas: ["Identificar mallas", "Asignar corrientes de malla", "Escribir ecuaciones de LTK", "Resolver sistema de ecuaciones"]
+respuesta_orden: ["Identificar mallas", "Asignar corrientes de malla", "Escribir ecuaciones de LTK", "Resolver sistema de ecuaciones"]
+tipo: "ordenar"
+
+enunciado: "Ordena los pasos lógicos para realizar el análisis de mallas en un circuito complejo:"
+
+explicacion: |
+  El análisis de mallas requiere primero definir las corrientes de malla para cada lazo, luego aplicar la LTK en cada una para obtener un sistema de ecuaciones lineales, y finalmente resolver dicho sistema.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "intermedio"
+  tags: ["mallas", "tension", "ley_de_tensiones"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  v1: [12, 24, 9]
+  v2: [2, 5, 3]
+  v_desconocida: [10, 19, 6]
+
+respuesta: v_desconocida[idx]
+tipo: "completar"
+tolerancia_abs: 0
+
+enunciado: "En una malla cerrada, existen tres fuentes/caídas de tensión: una de {v1[idx]}V, una de {v2[idx]}V y una tercera desconocida. Si la suma algebraica de las tensiones en el lazo cerrado es cero, ¿cuál debe ser el valor de la tensión desconocida (en V)?"
+
+pasos:
+  - "La suma algebraica de todas las tensiones en el lazo cerrado debe ser cero."
+  - "Despejar la tensión desconocida a partir de las dos tensiones conocidas."
+
+explicacion: |
+  En un lazo cerrado, la suma de todas las caídas de tensión es igual a la suma de todas las elevaciones de tensión.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "basico"
+  tags: ["nodos", "mallas", "fundamentos"]
+
+respuesta: "nodos"
+tipo: completar
+respuestas_validas:
+  - "nodos"
+
+enunciado: "Mientras que la Ley de Tensiones de Kirchhoff (LVK) se aplica a lazos cerrados para analizar caídas de potencial, la Ley de Corrientes de Kirchhoff (LKK) se aplica a los ___ para analizar la conservación de la carga."
+
+explicacion: |
+  La LKK establece que la suma de corrientes que entran a un nodo es igual a la suma de las que salen, basándose en la conservación de la carga eléctrica.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "basico"
+  tags: ["conceptos", "fisica"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "La Ley de Corrientes de Kirchhoff es, en esencia, una aplicación directa del principio de conservación de la carga eléctrica en un punto de unión."
+
+explicacion: |
+  Es verdadero. Debido a que la carga no se acumula ni se destruye en un nodo ideal, la corriente que entra debe ser igual a la que sale.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "intermedio"
+  tags: ["metodologia", "análisis"]
+
+respuesta: "Análisis de Mallas"
+tipo: mc
+opciones_explicitas: ["Análisis de Nodos", "Análisis de Mallas", "Análisis de Componentes"]
+
+enunciado: "Si el objetivo principal es determinar las tensiones en cada rama de un circuito complejo utilizando las corrientes como incógnitas, ¿qué método de análisis se está aplicando?"
+
+pasos:
+  - "Identificar las mallas o lazos cerrados en el circuito."
+  - "Asignar una variable de corriente a cada malla."
+  - "Aplicar la LVK en cada malla para plantear las ecuaciones."
+
+explicacion: |
+  El análisis de mallas se basa en la Ley de Tensiones de Kirchhoff y utiliza las corrientes de malla como variables principales para resolver el sistema.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "intermedio"
+  tags: ["relacion", "variables"]
+
+respuesta: "corriente"
+tipo: completar
+respuestas_validas:
+  - "corriente"
+
+enunciado: "En el análisis de mallas, la variable principal que se busca determinar mediante la aplicación de la LVK es la ___ (mientras que en el análisis de nodos la variable principal es la tensión)."
+
+explicacion: |
+  En mallas trabajamos con corrientes de lazo (LVK) y en nodos con potenciales o tensiones (LKK).
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "leyes_de_kirchhoff"
+  nivel: "avanzado"
+  tags: ["procedimiento", "análisis"]
+
+respuesta_orden: ["Identificar nodos y mallas", "Asignar corrientes/tensiones", "Plantear ecuaciones de Kirchhoff", "Resolver el sistema de ecuaciones"]
+tipo: ordenar
+opciones_explicitas: ["Identificar nodos y mallas", "Asignar corrientes/tensiones", "Plantear ecuaciones de Kirchhoff", "Resolver el sistema de ecuaciones"]
+
+enunciado: "Ordene los pasos lógicos para realizar un análisis de circuitos combinando ambas leyes de Kirchhoff:"
+
+explicacion: |
+  Para resolver un circuito complejo, primero se debe entender la topología (nodos/mallas), luego asignar las variables, plantear las ecuaciones basadas en las leyes de Kirchhoff y finalmente resolver el sistema resultante.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "circuitos_y_leyes_de_kirchhoff"
+  nivel: "basico"
+  tags: ["nodos", "kirchhoff", "corriente"]
+
+variables:
+  datos: [[10.0, 5.0, 5.0], [12.0, 7.0, 5.0], [8.0, 4.0, 4.0]]
+  idx: uno_de([0, 1, 2])
+  i_entrada: datos[idx][0]
+  i_salida_1: datos[idx][1]
+  i_salida_2: datos[idx][2]
+
+respuestas_validas:
+  - i_entrada - i_salida_1 - i_salida_2
+respuesta: i_entrada - i_salida_1 - i_salida_2
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "En un nodo de un circuito, una corriente de entrada de {i_entrada} A se divide en dos ramas. Si la rama 1 tiene una corriente de {i_salida_1} A, ¿cuál es el valor de la corriente en la rama 2 en Amperios?"
+
+pasos:
+  - "Identificar la corriente total que entra al nodo: {i_entrada} A."
+  - "Aplicar la Ley de Corrientes de Kirchhoff: Suma de corrientes que entran = Suma de corrientes que salen."
+  - "Calcular: i_salida_2 = i_entrada - i_salida_1."
+
+explicacion: |
+  Según la Ley de Corrientes de Kirchhoff (LCC), la suma algebraica de las corrientes en un nodo es cero. Por lo tanto, la corriente que entra debe ser igual a la suma de las que salen: {i_entrada} = {i_salida_1} + {i_salida_2}.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "circuitos_y_leyes_de_kirchhoff"
+  nivel: "intermedio"
+  tags: ["mallas", "kirchhoff", "tension"]
+
+variables:
+  datos: [[12.0, 4.0, 8.0], [24.0, 10.0, 14.0], [5.0, 2.0, 3.0]]
+  idx: uno_de([0, 1, 2])
+  v_fuente: datos[idx][0]
+  v_r1: datos[idx][1]
+  v_r2: datos[idx][2]
+
+respuestas_validas:
+  - v_fuente - v_r1 - v_r2
+respuesta: v_fuente - v_r1 - v_r2
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "En una malla simple con una fuente de tensión de {v_fuente} V y dos resistencias en serie que presentan caídas de tensión de {v_r1} V y {v_r2} V respectivamente, ¿cuál es la tensión residual en el componente restante para que se cumpla la Ley de Tensiones de Kirchhoff?"
+
+pasos:
+  - "La suma de tensiones en una malla cerrada debe ser cero."
+  - "V_fuente - V_r1 - V_r2 - V_restante = 0."
+
+explicacion: |
+  La Ley de Tensiones de Kirchhoff (LTK) establece que la suma de todas las caídas y subidas de potencial en un lazo cerrado es igual a cero. En este caso: {v_fuente} - {v_r1} - {v_r2} = 0.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "circuitos_y_leyes_de_kirchhoff"
+  nivel: "basico"
+  tags: ["teoria", "nodos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si en un nodo entran 5A por una rama y salen 3A por otra, la Ley de Corrientes de Kirchhoff dicta que debe salir 2A por una tercera rama para mantener el equilibrio."
+
+explicacion: |
+  Verdadero. La suma de corrientes entrantes (5A) debe ser igual a la suma de las salientes (3A + 2A = 5A).
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "circuitos_y_leyes_de_kirchhoff"
+  nivel: "intermedio"
+  tags: ["mc", "nodos"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  i_total: [12.0, 17.0, 22.0]
+  i_conocida: [7.0, 10.0, 10.0]
+  diferencias_texto: ["5.0 A", "7.0 A", "12.0 A"]
+
+respuesta: diferencias_texto[idx]
+tipo: mc
+
+opciones_explicitas: ["5.0 A", "7.0 A", "10.0 A", "12.0 A"]
+
+enunciado: "Un nodo recibe una corriente total de {i_total[idx]} A. Si una de las ramas de salida tiene una corriente de {i_conocida[idx]} A, ¿cuál es el valor de la corriente en la otra rama de salida?"
+
+explicacion: |
+  Aplicando la LCC: I_total = I_salida_1 + I_salida_2. Por lo tanto, la corriente de la otra rama es la diferencia entre la corriente total y la conocida.
+```
+
+```
+metadata:
+  materia: "electronica"
+  tema: "circuitos_y_leyes_de_kirchhoff"
+  nivel: "avanzado"
+  tags: ["ordenar", "metodo"]
+
+opciones_explicitas: ["1. Identificar las mallas del circuito", "2. Asignar corrientes de malla a cada lazo", "3. Aplicar la LTK en cada malla", "4. Resolver el sistema de ecuaciones resultante"]
+
+respuesta_orden: ["1. Identificar las mallas del circuito", "2. Asignar corrientes de malla a cada lazo", "3. Aplicar la LTK en cada malla", "4. Resolver el sistema de ecuaciones resultante"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para resolver un circuito complejo utilizando el método de mallas (Ley de Tensiones de Kirchhoff):"
+
+explicacion: |
+  El método de mallas requiere primero definir las mallas, luego asignar variables (corrientes), aplicar la ley de tensiones para obtener ecuaciones y finalmente resolver el sistema matemático.
 ```
 
 ## Sección: logica-digital-puertas-and-or-not (26 preguntas)
@@ -1058,16 +1018,16 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1])
   datos: [[0, 1], [1, 1]]
-  resultados: [[0, 1], [1, 1]]
+  resultados_texto: ["0", "1"]
 
-respuesta: datos[escenario_idx][1
+respuesta: resultados_texto[escenario_idx]
 tipo: mc
 opciones_explicitas: ["0", "1"]
 
 enunciado: "Considera una puerta lógica AND con las siguientes entradas: A = {datos[escenario_idx][0]} y B = {datos[escenario_idx][1]}. ¿Cuál es el valor de la salida?"
 
 explicacion: |
-  La puerta AND solo devuelve 1 (verdadero) cuando todas sus entradas son 1. En el caso seleccionado, la salida es {resultados[escenario_idx][0]}.
+  La puerta AND solo devuelve 1 (verdadero) cuando todas sus entradas son 1.
 ```
 
 ```
@@ -1079,7 +1039,8 @@ metadata:
 
 respuesta: "1"
 tipo: completar
-respuestas_validas: ["1"]
+respuestas_validas:
+  - "1"
 
 enunciado: "La puerta lógica OR devuelve un valor de ___ si al menos una de sus entradas es 1."
 
@@ -1094,7 +1055,7 @@ metadata:
   nivel: "basico"
   tags: ["logica", "and", "tabla_verdad"]
 
-respuesta: ["0", "0", "0", "1"]
+respuesta_orden: ["0", "0", "0", "1"]
 tipo: ordenar
 
 opciones_explicitas: ["0", "0", "0", "1"]
@@ -1114,7 +1075,8 @@ metadata:
 
 respuesta: "inversor"
 tipo: completar
-respuestas_validas: ["inversor"]
+respuestas_validas:
+  - "inversor"
 
 enunciado: "A la puerta lógica NOT se le conoce comúnmente como ___."
 
@@ -1131,7 +1093,9 @@ metadata:
 
 enunciado: "La puerta lógica NOT es un inversor. Si la entrada de la puerta es 1, la salida será ___."
 
-respuestas_validas: ["0", "1"]
+respuestas_validas:
+  - "0"
+  - "1"
 respuesta: "0"
 tipo: completar
 
@@ -1148,17 +1112,17 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [[1, 0], [1, 1]]
-  esperado: [0, 1]
+  entradas: [[1, 0], [1, 1]]
+  resultado: [0, 1]
 
-enunciado: "Considera una puerta AND con las entradas A y B. Si las entradas son A={datos[escenario_idx][0]} y B={datos[escenario_idx][1]}, el resultado de la operación lógica es ___."
+enunciado: "Considera una puerta AND con las entradas A y B. Si las entradas son A={entradas[escenario_idx][0]} y B={entradas[escenario_idx][1]}, el resultado de la operación lógica es ___."
 
-respuesta: "esperado[escenario_idx]"
+respuesta: resultado[escenario_idx]
 tipo: mc
-opciones_explicitas: ["0", "1"]
+opciones_explicitas: [0, 1]
 
 explicacion: |
-  La puerta AND solo devuelve un '1' si TODAS sus entradas son '1'. En el caso {datos[escenario_idx][0]} y {datos[escenario_idx][1]}, el resultado es {esperado[escenario_idx]}.
+  La puerta AND solo devuelve un '1' si TODAS sus entradas son '1'. En el caso {entradas[escenario_idx][0]} y {entradas[escenario_idx][1]}, el resultado es {resultado[escenario_idx]}.
 ```
 
 ```
@@ -1216,7 +1180,9 @@ tipo: completar
 tolerancia_abs: 0
 
 explicacion: |
-  Paso 1: AND(1, 0) = 0. \nPaso 2: NOT(0) = 1. \nLa salida final es 1.
+  Paso 1: AND(1, 0) = 0.
+  Paso 2: NOT(0) = 1.
+  La salida final es 1.
 ```
 
 ```
@@ -1243,18 +1209,16 @@ metadata:
   tags: ["logica", "or"]
 
 variables:
-  escenario: uno_de([[0, 0], [0, 1], [1, 0], [1, 1]])
+  idx: uno_de([0, 1, 2, 3])
+  a_vals: [0, 0, 1, 1]
+  b_vals: [0, 1, 0, 1]
+  resultados_texto: ["0", "1", "1", "1"]
 
-respuesta: tabla[escenario][1
+respuesta: resultados_texto[idx]
 tipo: mc
 opciones_explicitas: ["0", "1", "2", "3"]
-tablas:
-  - [0, 0, 0]
-  - [0, 1, 1]
-  - [1, 0, 1]
-  - [1, 1, 1]
 
-enunciado: "En una puerta lógica OR, si las entradas son {escenario[0]} y {escenario[1]}, la salida es ___."
+enunciado: "En una puerta lógica OR, si las entradas son {a_vals[idx]} y {b_vals[idx]}, la salida es ___."
 
 explicacion: |
   La puerta OR devuelve '1' si al menos una de sus entradas es '1'. El error común es pensar que la salida puede ser '2' (como en una suma aritmética), pero en lógica digital los valores están limitados a {0, 1}.
@@ -1267,9 +1231,10 @@ metadata:
   nivel: "basico"
   tags: ["logica", "and"]
 
-respuesta: "0"
+respuesta: "1"
 tipo: completar
-respuestas_validas: ["0", "1"]
+respuestas_validas:
+  - "1"
 
 enunciado: "Para que una puerta AND entregue una salida de '1', todas sus entradas deben ser ___."
 
@@ -1284,7 +1249,7 @@ metadata:
   nivel: "intermedio"
   tags: ["ordenar", "logica"]
 
-respuesta: ["NOT(A)", "AND(B, C)", "OR(D, E)"]
+respuesta_orden: ["NOT(A)", "AND(B, C)", "OR(D, E)"]
 tipo: ordenar
 opciones_explicitas: ["OR(D, E)", "NOT(A)", "AND(B, C)"]
 
@@ -1306,9 +1271,6 @@ metadata:
   nivel: "basico"
   tags: ["logica", "and"]
 
-variables:
-  caso: uno_de([[0, 1], [1, 0], [0, 0]])
-
 respuesta: 0
 tipo: completar
 enunciado: "Si una puerta AND tiene una entrada en '1' y la otra en '0', el resultado es 0."
@@ -1326,7 +1288,10 @@ metadata:
 
 respuesta: "inversor"
 tipo: completar
-respuestas_validas: ["inversor", "inversión", "cambio"]
+respuestas_validas:
+  - "inversor"
+  - "inversión"
+  - "cambio"
 
 enunciado: "A diferencia de las puertas AND u OR que procesan múltiples entradas para determinar una salida, la puerta NOT se caracteriza por ser un ___ que invierte el estado de una única entrada."
 
@@ -1342,13 +1307,9 @@ metadata:
   tags: ["puerta_and", "logica"]
 
 variables:
-  escenario: uno_de([
-    [1, 1, 1],
-    [1, 0, 0],
-    [0, 1, 0]
-  ])
+  escenario: uno_de([["1", "1", "1"], ["1", "0", "0"], ["0", "1", "0"]])
 
-respuesta: uno_de(escenario)[2]
+respuesta: escenario[2]
 tipo: mc
 opciones_explicitas: ["1", "0"]
 
@@ -1365,16 +1326,13 @@ metadata:
   nivel: "basico"
   tags: ["puerta_or", "logica"]
 
-respuesta: falso
+respuesta: verdadero
 
 tipo: vf
 enunciado: "Si una puerta OR tiene una entrada en estado 0, la salida dependerá exclusivamente del valor de la otra entrada."
 
 explicacion: |
-  Es verdadero que la salida depende de la otra entrada, pero la afirmación de que 'la salida dependerá de la otra entrada' es una propiedad de la puerta OR cuando una entrada es 0. Sin embargo, si la pregunta se plantea como: 'La puerta OR solo da 1 si ambas son 1', eso sería falso. Reevaluando la lógica: Si una entrada es 0, la salida es igual a la otra entrada. Por lo tanto, la afirmación es verdadera. Corrijo el tipo a vf con respuesta verdadera para el ejemplo:
-  (Nota: El usuario pidió VF con booleano real).
-  
-  Re-generando para evitar ambigüedad:
+  Verdadero. Como 0 OR X = X, cuando una entrada es 0 la salida queda determinada enteramente por el valor de la otra entrada.
 ```
 
 ```
@@ -1401,13 +1359,9 @@ metadata:
   tags: ["and_vs_or"]
 
 variables:
-  caso: uno_de([
-    [1, 1, 1],
-    [1, 0, 1],
-    [0, 1, 1]
-  ])
+  caso: uno_de([["1", "1", "1"], ["1", "0", "1"], ["0", "1", "1"]])
 
-respuesta: uno_de(caso)[2]
+respuesta: caso[2]
 tipo: mc
 opciones_explicitas: ["0", "1"]
 
@@ -1424,9 +1378,9 @@ metadata:
   nivel: "basico"
   tags: ["secuencia", "logica"]
 
-opciones_explicitas: ["Entrada -> NOT -> Salida", "Entrada -> AND -> Salida", "Entrada -> OR -> Salida"]
-respuesta: "Entrada -> NOT -> Salida"
 tipo: ordenar
+opciones_explicitas: ["Entrada", "NOT", "Salida"]
+respuesta_orden: ["Entrada", "NOT", "Salida"]
 enunciado: "Ordene los pasos de un circuito simple donde una señal de entrada debe ser invertida antes de ser procesada por una puerta lógica (considere el flujo de señal):"
 
 explicacion: |
@@ -1446,7 +1400,9 @@ variables:
 
 enunciado: "Si aplicamos una señal de entrada de valor {datos[idx][0]} a una puerta lógica NOT, la salida obtenida será ___."
 
-respuestas_validas: ["0", "1"]
+respuestas_validas:
+  - "0"
+  - "1"
 respuesta: datos[idx][1]
 tipo: completar
 
@@ -1464,11 +1420,12 @@ metadata:
 variables:
   datos: [["0", "0"], ["0", "1"], ["1", "0"], ["1", "1"]]
   idx: uno_de([0, 1, 2, 3])
+  resultados_texto: ["0", "0", "0", "1"]
 
 enunciado: "Dadas las entradas de una puerta AND representadas por el par {datos[idx][0]} y {datos[idx][1]}, ¿cuál es el valor de la salida?"
 
 opciones_explicitas: ["0", "1"]
-respuesta: if(datos[idx][0] == "1" && datos[idx][1] == "1", "1", "0")
+respuesta: resultados_texto[idx]
 tipo: mc
 
 explicacion: |
@@ -1503,15 +1460,17 @@ metadata:
   tags: ["combinacional", "logica_digital"]
 
 variables:
-  entrada_a: uno_de(["0", "1"])
-  entrada_b: uno_de(["0", "1"])
-  idx_a: uno_de([0, 1])
-  idx_b: uno_de([0, 1])
+  idx: uno_de([0, 1, 2, 3])
+  entrada_a: ["0", "0", "1", "1"]
+  entrada_b: ["0", "1", "0", "1"]
+  resultados_texto: ["0", "0", "1", "0"]
 
-enunciado: "Se tiene un circuito compuesto por una puerta AND cuyas entradas son A y B, pero la entrada B pasa primero por una puerta NOT. Si A es {entrada_a} y B es {entrada_b}, el valor de la salida es ___."
+enunciado: "Se tiene un circuito compuesto por una puerta AND cuyas entradas son A y B, pero la entrada B pasa primero por una puerta NOT. Si A es {entrada_a[idx]} y B es {entrada_b[idx]}, el valor de la salida es ___."
 
-respuestas_validas: ["0", "1"]
-respuesta: if(entrada_a == "1" && entrada_b == "0", "1", "0")
+respuestas_validas:
+  - "0"
+  - "1"
+respuesta: resultados_texto[idx]
 tipo: completar
 
 explicacion: |
@@ -1526,10 +1485,10 @@ metadata:
   tags: ["secuencia", "logica_digital"]
 
 opciones_explicitas: ["00", "01", "10", "11"]
-respuesta: ["00", "01", "10", "11"]
+respuesta_orden: ["00", "01", "10", "11"]
 tipo: ordenar
 
-enunciado: "Ordene las posibles combinaciones de salida de una puerta AND de dos entradas, empezando desde el valor binario más bajo hasta el más alto."
+enunciado: "Ordene las posibles combinaciones de entrada (A, B) de una puerta AND de dos bits, empezando desde el valor binario más bajo hasta el más alto."
 
 explicacion: |
   El orden correcto de las combinaciones binarias de dos bits es 00, 01, 10 y 11.
@@ -1546,7 +1505,8 @@ metadata:
 
 respuesta: "microcontrolador"
 tipo: completar
-respuestas_validas: ["microcontrolador"]
+respuestas_validas:
+  - "microcontrolador"
 
 enunciado: "Un dispositivo que integra en un solo chip la CPU, memoria RAM, memoria ROM y periféricos de entrada/salida se denomina ___."
 
@@ -1563,16 +1523,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["controlar el ciclo de lavado de una lavadora", "procesar un videojuego de alta resolución"],
-    ["gestionar el sistema de frenado ABS de un auto", "ejecutar un sistema operativo complejo en una PC"]
-  ]
+  escenarios: [["controlar el ciclo de lavado de una lavadora", "microcontrolador"], ["procesar un videojuego de alta resolución en una PC", "microprocesador"]]
 
-respuesta: uno_de(escenarios[escenario_idx][0])
 tipo: mc
-opciones_explicitas: ["uno_de(escenarios[escenario_idx][0])", "uno_de(escenarios[escenario_idx][1])"]
+opciones_explicitas: ["microcontrolador", "microprocesador"]
+respuesta: escenarios[escenario_idx][1]
 
-enunciado: "Considerando el uso de un {escenarios[escenario_idx][0]}, ¿qué tipo de procesador es el más adecuado?"
+enunciado: "Considerando el uso de {escenarios[escenario_idx][0]}, ¿qué tipo de procesador es el más adecuado?"
 
 pasos:
   - "Identificar si la tarea requiere procesamiento de datos masivos o control de periféricos."
@@ -1605,7 +1562,7 @@ metadata:
   nivel: "basico"
   tags: ["arquitectura", "componentes"]
 
-respuesta: ["CPU", "Memoria", "Periféricos"]
+respuesta_orden: ["CPU", "Memoria", "Periféricos"]
 tipo: ordenar
 opciones_explicitas: ["CPU", "Memoria", "Periféricos"]
 
@@ -1622,16 +1579,9 @@ metadata:
   nivel: "intermedio"
   tags: ["diseño", "propósito"]
 
-variables:
-  tipo_chip: uno_de(["A", "B"])
-  datos: [
-    ["Propósito General", "Microprocesador"],
-    ["Propósito Específico", "Microcontrolador"]
-  ]
-
-respuesta: datos[tipo_chip][1
+respuesta: "Propósito Específico"
 tipo: mc
-opciones_explicitas: ["datos[tipo_chip][1]", "datos[tipo_chip][0]"]
+opciones_explicitas: ["Propósito General", "Propósito Específico"]
 
 enunciado: "Si buscamos un chip diseñado para una función única y dedicada, el tipo de chip es de ___."
 
@@ -1648,7 +1598,8 @@ metadata:
 
 respuesta: "microcontrolador"
 tipo: "completar"
-respuestas_validas: ["microcontrolador"]
+respuestas_validas:
+  - "microcontrolador"
 
 enunciado: "Un dispositivo que integra en un solo chip la CPU, la memoria RAM, la memoria de programa y los periféricos de entrada/salida para controlar una tarea específica (como el control de un lavarropas) se denomina ___."
 
@@ -1698,13 +1649,10 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Controlar la temperatura de un horno mediante un sensor y un relé", "microcontrolador"],
-    ["Ejecutar un sistema operativo complejo como Windows o Linux", "microprocesador"]
-  ]
+  escenarios: [["Controlar la temperatura de un horno mediante un sensor y un relé", "microcontrolador"], ["Ejecutar un sistema operativo complejo como Windows o Linux", "microprocesador"]]
 
-respuesta: "escenarios[escenario_idx][1]"
-tipo: "mc"
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
 opciones_explicitas: ["microcontrolador", "microprocesador"]
 
 enunciado: "Para el escenario: '{escenarios[escenario_idx][0]}', el componente ideal es un:"
@@ -1720,16 +1668,11 @@ metadata:
   nivel: "intermedio"
   tags: ["arquitectura", "ordenar"]
 
-respuesta: ["microprocesador", "memoria RAM", "unidades de almacenamiento"]
+respuesta_orden: ["microprocesador", "memoria RAM", "unidades de almacenamiento"]
 tipo: "ordenar"
 opciones_explicitas: ["microprocesador", "memoria RAM", "unidades de almacenamiento"]
 
 enunciado: "En una arquitectura basada en microprocesador (como una PC), ordene los componentes desde el núcleo de procesamiento hacia el almacenamiento de datos masivos:"
-
-pasos:
-  - "El procesador solicita datos."
-  - "Los datos se cargan temporalmente para su uso inmediato."
-  - "Los datos se guardan permanentemente para uso futuro."
 
 explicacion: |
   En un sistema basado en microprocesador, el flujo lógico es: CPU (procesamiento) -> RAM (memoria volátil de trabajo) -> Disco/SSD (almacenamiento masivo).
@@ -1744,7 +1687,8 @@ metadata:
 
 respuesta: "microprocesador"
 tipo: completar
-respuestas_validas: ["microprocesador"]
+respuestas_validas:
+  - "microprocesador"
 
 enunciado: "A diferencia de un microcontrolador, que integra memoria y periféricos en un solo chip, un ___ requiere componentes externos (RAM, Flash, I/O) para funcionar como un sistema completo."
 
@@ -1761,12 +1705,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Un sistema diseñado para lavar ropa (lavarropas) de forma dedicada.", "microcontrolador"],
-    ["Una computadora de escritorio para edición de video y juegos.", "microprocesador"]
-  ]
+  escenarios: [["Un sistema diseñado para lavar ropa (lavarropas) de forma dedicada.", "microcontrolador"], ["Una computadora de escritorio para edición de video y juegos.", "microprocesador"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["microcontrolador", "microprocesador"]
 
@@ -1799,7 +1740,7 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso", "diseño"]
 
-respuesta: ["Seleccionar el procesador", "Conectar memoria RAM externa", "Conectar almacenamiento", "Diseñar la placa de circuito"]
+respuesta_orden: ["Seleccionar el procesador", "Conectar memoria RAM externa", "Conectar almacenamiento", "Diseñar la placa de circuito"]
 tipo: ordenar
 opciones_explicitas: ["Seleccionar el procesador", "Conectar memoria RAM externa", "Conectar almacenamiento", "Diseñar la placa de circuito"]
 
@@ -1818,7 +1759,8 @@ metadata:
 
 respuesta: "microprocesador"
 tipo: completar
-respuestas_validas: ["microprocesador"]
+respuestas_validas:
+  - "microprocesador"
 
 enunciado: "Si un proyecto requiere realizar cálculos matemáticos extremadamente complejos y gestionar múltiples procesos simultáneos (multitarea pesada), se debe optar por un ___ en lugar de un microcontrolador."
 
@@ -1836,11 +1778,10 @@ metadata:
 tipo: mc
 opciones_explicitas: ["El microprocesador integra memoria RAM y almacenamiento en un solo chip", "El microcontrolador integra CPU, memoria y periféricos en un solo chip", "El microprocesador es más lento que un microcontrolador", "No existe diferencia real entre ambos"]
 
-enunciado: "La principal diferencia arquitectónica es que un {uno_de(['microcontrolador', 'microprocesador'])}"
+enunciado: "La principal diferencia arquitectónica es que un {tipo_comp}"
 
 variables:
-  idx: uno_de([0, 1])
-  tipo_comp: uno_de(['microcontrolador', 'microprocesador'])
+  tipo_comp: uno_de(["microcontrolador", "microprocesador"])
 
 respuesta: "El microcontrolador integra CPU, memoria y periféricos en un solo chip"
 
@@ -1872,9 +1813,10 @@ metadata:
   tags: ["memoria", "perifericos"]
 
 tipo: completar
-respuestas_validas: ["RAM", "ROM", "Periféricos"]
+respuestas_validas:
+  - "RAM"
 
-enunciado: "En un microcontrolador, la memoria ___ y los ___ (como GPIO o ADC) están integrados en el mismo encapsulado que la CPU, a diferencia de un microprocesador que requiere chips adicionales."
+enunciado: "En un microcontrolador, la memoria ___ (junto con la ROM y los periféricos como GPIO o ADC) está integrada en el mismo encapsulado que la CPU, a diferencia de un microprocesador que requiere chips adicionales."
 
 pasos:
   - "Identificar qué tipo de memoria volátil se integra."
@@ -1895,10 +1837,9 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Microprocesador", "Microcontrolador", "Sistema embebido completo"]
+respuesta_orden: ["Microprocesador", "Microcontrolador", "Sistema embebido completo"]
 
 enunciado: "Ordene los elementos desde el componente de mayor capacidad de cómputo/complejidad hasta el sistema que lo integra para una función específica."
-
-respuesta: ["Microprocesador", "Microcontrolador", "Sistema embeido completo"]
 
 explicacion: |
   El microprocesador es el núcleo de cómputo más complejo, el microcontrolador es un sistema de control integrado, y el sistema embebido es la aplicación final que utiliza estos componentes.
@@ -1914,10 +1855,7 @@ metadata:
 tipo: mc
 opciones_explicitas: ["El microcontrolador consume menos energía", "El microprocesador consume menos energía", "Ambos consumen lo mismo", "El consumo depende solo del voltaje"]
 
-enunciado: "En un dispositivo alimentado por batería, como un sensor inalámbrico, se prefiere el uso de un {uno_de(['microcontrolador', 'microprocesador'])} debido a que su diseño está optimizado para un ___ consumo de energía."
-
-variables:
-  idx: uno_de([0, 1])
+enunciado: "En un dispositivo alimentado por batería, como un sensor inalámbrico, se prefiere el uso de un microcontrolador debido a que su diseño está optimizado para un bajo consumo de energía."
 
 respuesta: "El microcontrolador consume menos energía"
 
@@ -1969,18 +1907,14 @@ metadata:
   nivel: "intermedio"
   tags: ["hardware", "perifericos"]
 
-variables:
-  componentes: [["CPU", "Memoria RAM", "Controlador de E/S", "Unidad de Control"], ["Memoria RAM", "Unidad de Control", "CPU", "Controlador de E/S"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Ordena los componentes que se conectan externamente a un microprocesador para que este pueda funcionar como un sistema completo:"
+enunciado: "Ordena los siguientes componentes EXTERNOS que deben conectarse a un microprocesador para que funcione como un sistema completo, agregando primero la memoria de trabajo y dejando para el final los periféricos de entrada/salida:"
 
 pasos:
   - "Identificar los elementos que el microprocesador no tiene integrados por defecto."
 
-respuesta: componentes[idx
+respuesta_orden: ["Memoria RAM", "Memoria ROM/Flash", "Controlador de E/S"]
 tipo: ordenar
-opciones_explicitas: ["Memoria RAM", "Unidad de Control", "CPU", "Controlador de E/S"]
+opciones_explicitas: ["Memoria RAM", "Memoria ROM/Flash", "Controlador de E/S"]
 
 explicacion: |
   El microprocesador es solo el núcleo de procesamiento; necesita que el usuario o el diseñador añada la memoria y los controladores de E/S para ser útil.
@@ -1993,15 +1927,13 @@ metadata:
   nivel: "basico"
   tags: ["aplicacion", "uso"]
 
-variables:
-  caso: uno_de([["Un sistema de frenos ABS", "especifico"], ["Una estación de trabajo de edición de video", "general"]])
+enunciado: "El uso de un microprocesador está orientado a tareas de propósito general, mientras que un microcontrolador se usa para tareas de propósito ___."
 
-enunciado: "El uso de un microprocesador está orientado a tareas de propósito ___________, mientras que un microcontrolador se usa para tareas de propósito ___________."
-
-respuesta: tabla[idx][1
+respuesta: "especifico"
 tipo: completar
-tabla: [["especifico", "general"], ["general", "especifico"]]
-respuestas_validas: ["especifico", "general"]
+respuestas_validas:
+  - "especifico"
+  - "específico"
 
 explicacion: |
   Los microprocesadores son versátiles (general), mientras que los microcontroladores están optimizados para una función dedicada (específico).
@@ -2014,13 +1946,9 @@ metadata:
   nivel: "intermedio"
   tags: ["consumo", "energia"]
 
-variables:
-  datos: [["bajo", "alto"], ["alto", "bajo"]]
-  idx: uno_de([0, 1])
+enunciado: "En comparación con un microprocesador, un microcontrolador suele tener un consumo de energía de tipo bajo y un rendimiento de tipo ___."
 
-enunciado: "En comparación con un microprocesador, un microcontrolador suele tener un consumo de energía de tipo {datos[idx][0]} y un rendimiento de tipo {datos[idx][1]}."
-
-respuesta: datos[idx][1
+respuesta: "bajo"
 tipo: mc
 opciones_explicitas: ["bajo", "alto"]
 
@@ -2042,6 +1970,9 @@ opciones_explicitas: ["Un dispositivo que convierte una magnitud física en una 
 respuesta: "Un dispositivo que convierte una magnitud física en una señal eléctrica"
 
 enunciado: "Un sensor se define fundamentalmente como ___."
+
+explicacion: |
+  Un sensor detecta una magnitud física del entorno (temperatura, luz, presión, etc.) y la transforma en una señal eléctrica que puede procesar un sistema electrónico.
 ```
 
 ```
@@ -2055,6 +1986,9 @@ tipo: vf
 respuesta: falso
 
 enunciado: "Los actuadores tienen la función principal de captar información del entorno para procesarla en un controlador."
+
+explicacion: |
+  Falso. Captar información del entorno es la función del sensor. El actuador recibe una señal ya procesada y la convierte en una acción física.
 ```
 
 ```
@@ -2064,13 +1998,9 @@ metadata:
   nivel: "intermedio"
   tags: ["flujo_de_trabajo", "sistemas_combinados"]
 
-variables:
-  flujo: [["Sensor", "Controlador", "Actuador"], ["Actuador", "Controlador", "Sensor"], ["Sensor", "Actuador", "Controlador"]]
-  idx: uno_de([0,1,2])
-
 tipo: ordenar
 opciones_explicitas: ["Sensor", "Controlador", "Actuador"]
-respuesta: ["Sensor", "Controlador", "Actuador"]
+respuesta_orden: ["Sensor", "Controlador", "Actuador"]
 
 enunciado: "En un sistema automatizado típico, ordene los componentes según el flujo de información desde la captura hasta la acción física."
 
@@ -2091,7 +2021,9 @@ metadata:
   tags: ["señales", "salida"]
 
 tipo: completar
-respuestas_validas: ["analógica", "digital"]
+respuestas_validas:
+  - "analógica"
+  - "digital"
 
 enunciado: "Si un sensor entrega una señal que varía continuamente en el tiempo, se dice que es una señal ___; por el contrario, si solo puede tomar valores discretos, es una señal ___."
 
@@ -2163,7 +2095,7 @@ metadata:
   nivel: "intermedio"
   tags: ["flujo_de_control"]
 
-respuesta: ["detectar movimiento", "procesar señal", "activar sirena"]
+respuesta_orden: ["detectar movimiento", "procesar señal", "activar sirena"]
 tipo: ordenar
 opciones_explicitas: ["activar sirena", "detectar movimiento", "procesar señal"]
 
@@ -2186,8 +2118,9 @@ variables:
   temp_actual: 28
   temp_objetivo: 22
 
-respuesta: ["resistencia", "ventilador"]
-respuestas_validas: ["resistencia", "ventilador"]
+respuesta: "ventilador"
+respuestas_validas:
+  - "ventilador"
 
 enunciado: "En un sistema de climatización, si la temperatura actual es de {temp_actual}°C y el objetivo es de {temp_objetivo}°C, el sensor de temperatura detecta un exceso de calor. Para enfriar la habitación, el controlador debe activar el ___."
 
@@ -2208,11 +2141,10 @@ metadata:
   tags: ["sensores", "calculo"]
 
 variables:
-  idx: uno_de([0, 1])
   sensor_val: uno_de([2.5, 4.8])
   voltaje_max: 5.0
 
-respuesta: 2.5
+respuesta: sensor_val / voltaje_max * 5
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -2224,7 +2156,7 @@ pasos:
   - "Multiplicar por el rango de la escala: (resultado) * 5"
 
 explicacion: |
-  Si el valor es 2.5V y el máximo es 5.0V, la proporción es 0.5. En una escala de 0 a 5, el valor es 0.5 * 5 = 2.5.
+  Se divide el voltaje actual por el voltaje máximo y se multiplica por el rango de la escala (5). Por ejemplo, si el valor es 2.5V y el máximo es 5.0V, la proporción es 0.5, y en una escala de 0 a 5 eso equivale a 0.5 * 5 = 2.5.
 ```
 
 ```
@@ -2268,17 +2200,14 @@ metadata:
   tags: ["flujo_de_datos", "control"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [
-    ["sensor de luz", "microcontrolador", "LED"],
-    ["sensor de humedad", "PLC", "bomba de agua"]
-  ]
+  datos: ["sensor de luz", "microcontrolador", "LED"]
 
-respuesta: datos[escenario_idx][2
+respuesta: datos[2]
 tipo: completar
-respuestas_validas: [datos[0][2], datos[1][2]]
+respuestas_validas:
+  - "LED"
 
-enunciado: "En un sistema automatizado, el flujo de información sigue un orden lógico. Si el sistema busca regular la iluminación de una habitación, el orden de los componentes es: {datos[escenario_idx][0]} -> {datos[escenario_idx][1]} -> ___."
+enunciado: "En un sistema automatizado, el flujo de información sigue un orden lógico. Si el sistema busca regular la iluminación de una habitación, el orden de los componentes es: {datos[0]} -> {datos[1]} -> ___."
 
 explicacion: |
   El flujo correcto es: Sensor (captación) -> Procesador (decisión) -> Actuador (acción).
@@ -2308,7 +2237,7 @@ metadata:
   nivel: "intermedio"
   tags: ["lógica_de_control", "secuencia"]
 
-respuesta: ["captar", "procesar", "actuar"]
+respuesta_orden: ["captar", "procesar", "actuar"]
 tipo: ordenar
 opciones_explicitas: ["procesar", "actuar", "captar"]
 
@@ -2330,6 +2259,8 @@ opciones_explicitas: ["Un sensor convierte una magnitud física en una señal el
 
 enunciado: "En un sistema de control, la principal distinción entre un sensor y un actuador radica en la dirección de la conversión de energía. ¿Cuál es la diferencia correcta?"
 
+respuesta: "Un sensor convierte una magnitud física en una señal eléctrica, mientras que un actuador convierte una señal eléctrica en una acción física."
+
 explicacion: |
   Los sensores son dispositivos de entrada que transforman una propiedad física (temperatura, presión, luz) en una señal eléctrica para ser procesada. Los actuadores son dispositivos de salida que reciben una señal eléctrica para generar un efecto físico (movimiento, calor, sonido).
 ```
@@ -2346,8 +2277,9 @@ variables:
   idx: uno_de([0, 1, 2, 3])
 
 tipo: completar
-respuestas_validas: ["LDR", "Motor DC", "Buzzer", "Potenciómetro"]
-respuesta: datos[idx][0]
+respuestas_validas:
+  - datos[idx][1]
+respuesta: datos[idx][1]
 
 enunciado: "Si tenemos un dispositivo como un {datos[idx][0]}, su función principal en el sistema es actuar como un ___."
 
@@ -2363,7 +2295,6 @@ metadata:
   tags: ["lógica_de_control"]
 
 tipo: vf
-respuestas_validas: [verdadero, falso]
 respuesta: falso
 
 enunciado: "¿Es correcto afirmar que un actuador es el encargado de captar cambios en el entorno para enviarlos a un microcontrolador?"
@@ -2381,7 +2312,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Captación de estímulo físico", "Procesamiento de señal eléctrica", "Ejecución de acción física"]
-respuesta: ["Captación de estímulo físico", "Procesamiento de señal eléctrica", "Ejecución de acción física"]
+respuesta_orden: ["Captación de estímulo físico", "Procesamiento de señal eléctrica", "Ejecución de acción física"]
 
 enunciado: "Ordene las etapas de un sistema automatizado desde la interacción con el entorno hasta la respuesta física:"
 
@@ -2400,8 +2331,8 @@ variables:
   item: uno_de([["Relé", "actuador"], ["Sensor Ultrasónico", "sensor"], ["Servomotor", "actuador"], ["LDR", "sensor"]])
 
 tipo: mc
-opciones_explicitas: ["Sensor", "Actuador"]
-respuesta: item[1
+opciones_explicitas: ["sensor", "actuador"]
+respuesta: item[1]
 
 enunciado: "Un {item[0]} se clasifica técnicamente como un/a ___."
 
@@ -2417,12 +2348,12 @@ metadata:
   tags: ["conceptos_basicos", "identificacion"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
   escenarios: [["un termómetro digital", "un motor de un ventilador"], ["un sensor de luz (LDR)", "una lámpara LED"]]
-  componente_sensor: escenario_idx == 0 ? escenarios[0][0] : escenarios[1][0]
-  componente_actuador: escenario_idx == 0 ? escenarios[0][1] : escenarios[1][1]
+  idx: uno_de([0, 1])
+  componente_sensor: escenarios[idx][0]
+  componente_actuador: escenarios[idx][1]
 
-enunciado: "En un sistema de control de temperatura, el {componente_sensor} detecta el calor y el {componente_actuador} realiza la acción física. ¿Cuál de los dos es el actuador?"
+enunciado: "En el siguiente sistema, el {componente_sensor} detecta una variable del entorno y el {componente_actuador} realiza la acción física. ¿Cuál de los dos es el actuador?"
 
 opciones_explicitas: ["el sensor", "el actuador"]
 respuesta: "el actuador"
@@ -2455,14 +2386,11 @@ metadata:
   nivel: "intermedio"
   tags: ["completar", "flujo"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["un sensor de humedad en un riego", "un sensor de proximidad en un robot"], ["una bomba de agua", "una rueda motriz"]]
-
 enunciado: "En un sistema de riego automático, el sensor de humedad detecta que la tierra está seca, el controlador activa la ___ para regar."
 
-respuestas_validas: ["bomba de agua", "rueda motriz"]
-respuesta: casos[caso_idx][1
+respuestas_validas:
+  - "bomba de agua"
+respuesta: "bomba de agua"
 tipo: completar
 
 explicacion: |
@@ -2477,8 +2405,10 @@ metadata:
   tags: ["secuencia", "proceso"]
 
 opciones_explicitas: ["Captar estímulo ambiental", "Procesar señal eléctrica", "Ejecutar acción física"]
-respuesta: ["Captar estímulo ambiental", "Procesar señal eléctrica", "Ejecutar acción física"]
+respuesta_orden: ["Captar estímulo ambiental", "Procesar señal eléctrica", "Ejecutar acción física"]
 tipo: ordenar
+
+enunciado: "Ordena las etapas de un proceso de automatización, desde el sensor hasta el actuador:"
 
 explicacion: |
   El proceso lógico siempre comienza con la captura (sensor), sigue con el procesamiento (controlador) y termina con la acción (actuador).
@@ -2504,3 +2434,4 @@ tolerancia_abs: 0
 explicacion: |
   Multiplicamos la temperatura medida por la constante de escala para obtener el valor de voltaje correspondiente.
 ```
+

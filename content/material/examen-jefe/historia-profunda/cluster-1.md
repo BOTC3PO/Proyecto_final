@@ -4,2200 +4,2326 @@
 
 ---
 
-## Sección: absolutismo-europeo (25 preguntas)
+## Sección: escalas-de-tiempo-profundo (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["inglaterra", "estuardo", "parlamento"]
-tipo: mc
-enunciado: "Durante el siglo XVII, el conflicto entre la corona y el parlamento en Inglaterra culminó con la Gloriosa Revolución de 1688, estableciendo un precedente crucial para el sistema político británico. ¿Qué documento legal fue impuesto a Guillermo III y María II para limitar los poderes reales y consolidar la supremacía parlamentaria?"
-opciones_explicitas:
-  - "La Declaración de Derechos (Bill of Rights)"
-  - "La Carta Magna"
-  - "El Acta de Supremacía"
-  - "El Edicto de Nantes"
-respuesta: "La Declaración de Derechos (Bill of Rights)"
-explicacion: "La Bill of Rights de 1689 estableció que el monarca no podía suspender leyes ni cobrar impuestos sin el consentimiento del Parlamento, marcando el fin del absolutismo divino en Inglaterra y el inicio del constitucionalismo."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["jacobitismo", "teoria", "monarquia"]
-tipo: completar
-enunciado: "En Francia, los monarcas absolutos sustentaban su poder en la doctrina del derecho divino de los reyes, sosteniendo que su autoridad provenía directamente de Dios y no de ningún cuerpo secular como el parlamento o la nobleza. Según esta teoría, el rey es responsable únicamente ante ___, lo que le otorga la capacidad de legislar sin restricciones humanas."
-respuesta: "Dios"
-respuestas_validas:
-  - "Dios"
-  - "dios"
-  - "Dios."
-  - "dios."
-explicacion: "La justificación teológica del absolutismo francés afirmaba que el rey era el 'vicario de Dios' en la tierra, por lo que resistir al rey equivalía a resistir a la voluntad divina."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["henri iv", "edicto", "protestantes"]
-tipo: vf
-enunciado: "El Edicto de Nantes, promulgado por Enrique IV de Francia en 1598, fue un acto de tolerancia religiosa que otorgaba derechos civiles y libertad de culto a los hugonotes (protestantes franceses)."
-respuesta: verdadero
-explicacion: "El Edicto de Nantes fue un hito de tolerancia que puso fin a las guerras de religión en Francia. Fue revocado posteriormente por Luis XIV con el Edicto de Fontainebleau en 1685."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["luis xiv", "versalles", "nobleza"]
-tipo: mc
-enunciado: "Luis XIV transformó el pequeño pabellón de caza de Versalles en una inmensa residencia real. ¿Cuál fue la principal función política de este palacio en el contexto del absolutismo francés?"
-opciones_explicitas:
-  - "Centralizar el poder nobiliario bajo la vigilancia directa del rey"
-  - "Servir como refugio militar contra invasiones extranjeras"
-  - "Ser el sede permanente del Parlamento de París"
-  - "Almacenar los impuestos recaudados de las colonias"
-respuesta: "Centralizar el poder nobiliario bajo la vigilancia directa del rey"
-explicacion: "Al obligar a la alta nobleza a residir en Versalles, Luis XIV la despojó de su poder político regional y la convirtió en competidora por los favores cortesanos, asegurando su lealtad y control."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["guerra de los treinta años", "soberania", "europa"]
-tipo: vf
-enunciado: "La Paz de Westfalia de 1648 consolidó el principio de soberanía estatal y sentó las bases del sistema internacional moderno, debilitando la autoridad universal del Sacro Imperio Romano Germánico y del Papa."
-respuesta: verdadero
-explicacion: "Las Paz de Westfalia pusieron fin a la Guerra de los Treinta Años y establecieron el concepto de que cada soberano tiene derecho a determinar la religión de su estado (cuius regio, eius religio), marcando el declive del poder imperial y papal."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["economia", "colbert", "mercantilismo"]
-tipo: completar
-enunciado: "Jean-Baptiste Colbert, ministro de finanzas de Luis XIV, implementó una política económica nacionalista conocida como ___, que buscaba aumentar la riqueza del estado mediante la exportación masiva y la restricción de importaciones."
-respuesta: "mercantilismo"
-respuestas_validas:
-  - "mercantilismo"
-  - "Mercantilismo"
-  - "mercantilismo."
-  - "Mercantilismo."
-explicacion: "El mercantilismo fue la doctrina económica predominante en la época del absolutismo, donde la potencia del estado se medía por su acumulación de metales preciosos y el saldo comercial positivo."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["burbon", "espana", "sucesion"]
-tipo: mc
-enunciado: "La muerte sin descendencia de Carlos II, el último rey de la dinastía de los Austrias en España, desencadenó una guerra europea por la sucesión. ¿Qué dinastía francesa ascendió al trono español tras la Guerra de Sucesión Española?"
-opciones_explicitas:
-  - "La dinastía Borbón"
-  - "La dinastía Habsburgo"
-  - "La dinastía Trastámara"
-  - "La dinastía Plantagenet"
-respuesta: "La dinastía Borbón"
-explicacion: "Felipe de Anjou, nieto de Luis XIV, fue nombrado rey como Felipe V, introduciendo en España las estructuras administrativas y el modelo de estado centralizado propio del absolutismo francés."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["inglaterra", "jacobos", "constitucionalismo"]
-tipo: vf
-enunciado: "La Revolución Gloriosa de 1688 en Inglaterra fue un intento exitoso de Jaime II de restaurar el absolutismo católico y eliminar el poder del Parlamento."
-respuesta: falso
-explicacion: "La Revolución Gloriosa fue el fracaso de Jaime II para imponer su voluntad absoluta y católica. Resultó en su destitución y la ascensión de Guillermo de Orange, reforzando el poder parlamentario y protestante."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["rusia", "modernizacion", "occidentalizacion"]
-tipo: mc
-enunciado: "Pedro I el Grande de Rusia implementó un programa de occidentalización radical para modernizar su imperio. ¿Cuál fue su principal logro territorial que le permitió a Rusia proyectar su poder absolutista hacia el oeste?"
-opciones_explicitas:
-  - "La conquista de la salida al Mar Báltico"
-  - "La anexión de Siberia hasta el Pacífico"
-  - "La toma de Constantinopla"
-  - "La expansión hacia el Cáucaso"
-respuesta: "La conquista de la salida al Mar Báltico"
-explicacion: "Tras ganar la Gran Guerra del Norte, Rusia obtuvo territorios en la costa del Báltico, fundando San Petersburgo como 'ventana a Europa' y consolidando su estatus como potencia europea absolutista."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["rusia", "pugachev", "campesinos"]
-tipo: vf
-enunciado: "La rebelión de Yemelyan Pugachev (1773-1775) fue un gran levantamiento de campesinos y cosacos contra la aristocracia y la monarquía absolutista de Catalina la Grande en Rusia."
-respuesta: verdadero
-explicacion: "Pugachev se hizo pasar por el difunto Pedro III y lideró la mayor rebelión popular de la Rusia imperial, lo que llevó a Catalina la Grande a fortalecer el control estatal y la burocracia para prevenir futuros levantamientos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["luis xiv", "hugonotes", "tolerancia"]
-tipo: completar
-enunciado: "En 1685, Luis XIV promulgó el Edicto de ___, que revocó el Edicto de Nantes y prohibió el culto protestante en Francia, forzando a cientos de miles de hugonotes al exilio."
-respuesta: "Fontainebleau"
-respuestas_validas:
-  - "Fontainebleau"
-  - "fontainebleau"
-  - "Fontainebleau."
-  - "fontainebleau."
-explicacion: "La revocación del Edicto de Nantes fue un error económico y social grave que empobreció a Francia al perder mano de obra cualificada y alienó a las potencias protestantes europeas."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["carlos v", "sacro imperio", "protestantismo"]
-tipo: vf
-enunciado: "Carlos V, emperador del Sacro Imperio Romano Germánico, logró imponer el absolutismo centralizado en todos los estados alemanes antes del inicio de la Reforma Protestante."
-respuesta: falso
-explicacion: "Carlos V luchó constantemente contra la fragmentación política del Sacro Imperio y no pudo imponer su autoridad absoluta sobre los príncipes alemanes, especialmente tras la difusión del luteranismo."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["richelieu", "cardenal", "fortalezas"]
-tipo: mc
-enunciado: "El cardenal Richelieu, primer ministro de Luis XIII, trabajó para debilitar el poder de la nobleza y de las minorías religiosas que desafían a la corona. ¿Qué medida militar tomó contra los hugonotes tras el sitio de La Rochelle (1628)?"
-opciones_explicitas:
-  - "Abolir sus privilegios políticos y militares, manteniendo la libertad de culto"
-  - "Exiliar a toda la población hugonote a América"
-  - "Permitir la creación de un estado hugonote independiente"
-  - "Ejecutar públicamente a todos los líderes protestantes"
-respuesta: "Abolir sus privilegios políticos y militares, manteniendo la libertad de culto"
-explicacion: "Richelieu entendía que la tolerancia religiosa era necesaria por paz, pero que las 'ciudades de seguridad' hugonotes eran un estado dentro del estado que debía ser eliminado políticamente."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["colonias", "espana", "administracion"]
-tipo: vf
-enunciado: "Las Leyes de Indias fueron un cuerpo legal promulgado por la corona española para organizar la administración de sus colonias en América, reflejando la idea de que la soberanía absoluta residía en el monarca."
-respuesta: verdadero
-explicacion: "Las Leyes de Indias sistematizaron el gobierno colonial, estableciendo virreinatos y audiencias que respondían directamente al rey, demostrando la extensión del absolutismo monárquico más allá de Europa."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["prusia", "ilustracion", "despotismo"]
-tipo: mc
-enunciado: "Federico II de Prusia es conocido por aplicar el concepto de 'despotismo ilustrado'. ¿Cuál de las siguientes acciones mejor ejemplifica esta fusión entre absolutismo y ideas de la Ilustración?"
-opciones_explicitas:
-  - "Abolir la tortura y promover la tolerancia religiosa mientras fortalecía el ejército"
-  - "Convocar una asamblea democrática para aprobar nuevos impuestos"
-  - "Delegar el poder judicial en los campesinos locales"
-  - "Renunciar al trono en favor de un consejo regente"
-respuesta: "Abolir la tortura y promover la tolerancia religiosa mientras fortalecía el ejército"
-explicacion: "El despotismo ilustrado mantuvo la estructura autoritaria del estado pero utilizó la razón y la reforma administrativa para modernizar el país, siendo Federico II un ejemplo clave de este modelo en Prusia."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["holanda", "independencia", "espana"]
-tipo: vf
-enunciado: "La Guerra de los Ochenta Años fue el conflicto armado entre las Provincias Unidas de los Países Bajos y España que resultó en la independencia de una república mercantil, contraria al modelo absolutista español."
-respuesta: verdadero
-explicacion: "La independencia de las Provincias Unidas estableció una república oligárquica y protestante, ofreciendo un contraste directo con el absolutismo católico y centralizado de la monarquía hispánica."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["francia", "guerras de religion", "regencia"]
-tipo: completar
-enunciado: "Catalina de Médici, reina madre y regente de Francia durante las guerras de religión, intentó mantener la unidad del reino mediante la tolerancia temporal. Sin embargo, su mandato se vio marcado por la masacre de la ___, un punto de inflexión en la violencia religiosa."
-respuesta: "noche de san bartolome"
-respuestas_validas:
-  - "noche de san bartolome"
-  - "Noche de San Bartolome"
-  - "noche de san bartolome."
-  - "Noche de San Bartolome."
-explicacion: "La Masacre de la Noche de San Bartolomé (1572) fue un intento de eliminar a los líderes hugonotes, pero exacerbó el odio religioso y prolongó los conflictos internos que debilitaron la corona francesa antes del ascenso de Enrique IV."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["austria", "ilustracion", "reformas"]
-tipo: mc
-enunciado: "José II, emperador del Sacro Imperio Romano Germánico, fue un monarca absolutista con ambiciones reformistas radicales. ¿Qué medida provocó la oposición feroz de la nobleza húngara y austríaca?"
-opciones_explicitas:
-  - "El Edicto de Tolerancia y la secularización de bienes eclesiásticos"
-  - "La creación de una armada naval poderosa"
-  - "La abolición total de la burocracia imperial"
-  - "La declaración de guerra contra el Imperio Otomano"
-respuesta: "El Edicto de Tolerancia y la secularización de bienes eclesiásticos"
-explicacion: "José II intentó imponer reformas ilustradas desde arriba, incluyendo la libertad religiosa y la reducción del poder de la Iglesia, lo que generó resistencia porque se percibía como una intrusión en las tradiciones locales y el poder noble."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["sucesion", "equilibrio", "inglaterra"]
-tipo: vf
-enunciado: "El Tratado de Utrecht (1713) puso fin a la Guerra de Sucesión Española y estableció el principio de equilibrio de poder en Europa, impidiendo que Francia y España se unieran bajo un solo monarca absolutista."
-respuesta: verdadero
-explicacion: "Las potencias europeas temían la hegemonía de los Borbones. Utrecht impuso condiciones que separaban las coronas francesa y española, consolidando a Inglaterra como la nueva potencia naval y comercial predominante."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["mazarino", "fronda", "parlamento"]
-tipo: mc
-enunciado: "Durante la minoría de edad de Luis XIV, Francia sufrió una serie de guerras civiles conocidas como la Fronda. ¿Cuál fue la consecuencia política principal de este conflicto para el futuro absolutismo?"
-opciones_explicitas:
-  - "Luis XIV juró nunca nombrar a un primer ministro poderoso y centralizó el poder"
-  - "El Parlamento de París obtuvo la soberanía nacional"
-  - "La nobleza recuperó sus feudales derechos de guerra"
-  - "Francia se dividió en estados independientes"
-respuesta: "Luis XIV juró nunca nombrar a un primer ministro poderoso y centralizó el poder"
-explicacion: "La experiencia traumática de la Fronda convenció a Luis XIV de que la autoridad real debía ser incontestable y que la nobleza debía ser controlada, no confiada con poder militar o político."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["sucesion", "francia", "mujeres"]
-tipo: vf
-enunciado: "La Ley Sálica, aplicada en Francia, prohibía a las mujeres heredar el trono y transmitirla a través de la línea femenina, lo que fue utilizado para justificar la exclusión de pretendientes rivales y asegurar la sucesión absoluta masculina."
-respuesta: verdadero
-explicacion: "La interpretación estricta de la Ley Sálica fue crucial para la legitimidad de la dinastía de los Borbones en Francia y también jugó un papel en las disputas de sucesión en otros reinos europeos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["inglaterra", "guillermo", "maria"]
-tipo: completar
-enunciado: "Invitado por el Parlamento inglés, Guillermo de Orange, estatúder de las Provincias Unidas, invadió Inglaterra en 1688. Junto a su esposa María II, aceptó el trono bajo la condición de firmar la ___, que limitaba sus poderes."
-respuesta: "declaracion de derechos"
-respuestas_validas:
-  - "declaracion de derechos"
-  - "Declaracion de Derechos"
-  - "declaracion de derechos."
-  - "Declaracion de Derechos."
-explicacion: "La Declaración de Derechos (Bill of Rights) de 1689 estableció que el monarca no podía suspender leyes ni cobrar impuestos sin el consentimiento del Parlamento, marcando el fin del absolutismo divino en Inglaterra."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["rusia", "costumbre", "occidentalizacion"]
-tipo: vf
-enunciado: "Pedro I de Rusia impuso reformas culturales radicales, incluyendo la obligación de que la nobleza rusa se afeitara la barba y vistiera ropa occidental, como parte de su política de modernización forzada del estado absolutista."
-respuesta: verdadero
-explicacion: "Estas reformas no eran solo estéticas, sino políticas: buscaban romper con el aislamiento tradicional de Rusia y forzar a la nobleza a adoptar las costumbres y la disciplina de las cortes europeas modernas."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["henri iv", "espana", "paz"]
-tipo: mc
-enunciado: "Enrique IV, el primer rey Borbón de Francia, puso fin a las guerras de religión y consolidó la autoridad real. ¿Qué tratado firmó con España en 1598 que también reconocía su legitimidad internacional?"
-opciones_explicitas:
-  - "La Paz de Vervins"
-  - "La Paz de Westfalia"
-  - "El Tratado de Utrecht"
-  - "La Paz de los Pirineos"
-respuesta: "La Paz de Vervins"
-explicacion: "La Paz de Vervins restableció la paz entre Francia y España, confirmando los términos anteriores y permitiendo a Enrique IV enfocarse en reconstruir Francia internamente y fortalecer la monarquía absoluta."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "absolutismo-europeo"
-  nivel: "intermedio"
-  tags: ["carlos iii", "bosques", "jesuitas"]
-tipo: vf
-enunciado: "Carlos III de España implementó reformas borbónicas inspiradas por el despotismo ilustrado, incluyendo la expulsión de la Compañía de Jesús y la modernización de la administración colonial, sin cuestionar la autoridad absoluta del monarca."
-respuesta: verdadero
-explicacion: "Las reformas de Carlos III buscaban modernizar el estado y la economía desde arriba, aumentando la eficiencia fiscal y militar, pero manteniendo intacta la estructura política absolutista y la supremacía de la corona."
-```
-
-## Sección: agujeros-negros (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "agujeros_negros"
+  tema: "escalas_de_tiempo_profundo"
   nivel: "basico"
-  tags: ["estrellas", "supernova", "gravedad"]
+  tags: ["universo", "edad_del_universo"]
 
-respuesta: "supernova"
+respuesta: "13800"
 tipo: completar
 respuestas_validas:
-  - "supernova"
+  - "13800"
 
-enunciado: "Un agujero negro se forma cuando una estrella muy masiva colapsa gravitacionalmente tras agotar su combustible nuclear y explotar como una ___."
+enunciado: "Según los modelos cosmológicos actuales basados en la radiación de fondo de microondas, la edad estimada del universo es de aproximadamente ___ millones de años."
 
 explicacion: |
-  Cuando las estrellas masivas agotan su combustible, la presión hacia afuera cesa y la gravedad gana la batalla, provocando una explosión catastrófica llamada supernova.
+  La edad del universo es de aproximadamente 13.800 millones de años. Esta escala es tan vasta que resulta imposible de imaginar para el cerebro humano, que evolucionó para entender ciclos diarios o estacionales.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "intermedio"
-  tags: ["gravedad", "fuerza", "colapso"]
-
-respuesta: "gravedad"
-tipo: mc
-opciones_explicitas: ["gravedad", "electromagnetismo", "fuerza nuclear fuerte"]
-
-enunciado: "Durante el colapso de una estrella masiva que da origen a un agujero negro, ¿qué fuerza es la responsable de vencer la presión de la fusión nuclear y comprimir la materia?"
-
-explicacion: |
-  La gravedad es la fuerza fundamental que, al no encontrar resistencia por la falta de fusión nuclear, colapsa el núcleo de la estrella hacia un punto de densidad infinita.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "intermedio"
-  tags: ["ciclo_estelar", "combustible"]
-
-respuesta: "agotado"
-tipo: completar
-respuestas_validas:
-  - "agotado"
-
-enunciado: "El proceso de formación de un agujero negro comienza cuando el combustible nuclear de la estrella se ha ___."
-
-explicacion: |
-  Sin la energía de la fusión nuclear que empuja hacia afuera, la estrella pierde su equilibrio hidrostático y colapsa.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "agujeros_negros"
+  tema: "escalas_de_tiempo_profundo"
   nivel: "basico"
-  tags: ["secuencia", "supernova", "colapso"]
+  tags: ["tierra", "formacion_planetaria"]
 
-respuesta_orden: ["colapso gravitacional", "supernova", "agujero negro"]
-tipo: ordenar
-opciones_explicitas: ["colapso gravitacional", "supernova", "agujero negro"]
+respuesta: "4600 millones de años"
+tipo: completar
+respuestas_validas:
+  - "4600 millones de años"
 
-enunciado: "Ordena cronológicamente los eventos que llevan a la formación de un agujero negro a partir de una estrella masiva:"
+enunciado: "La formación de la Tierra ocurrió hace aproximadamente ___."
 
 explicacion: |
-  Primero ocurre el colapso del núcleo, seguido de la explosión de la capa externa (supernova) y finalmente la formación del remanente denso (agujero negro).
+  La Tierra se formó hace unos 4.600 millones de años, mucho después del Big Bang, pero mucho antes de la aparición de la vida compleja.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "agujeros_negros"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["psicologia", "intuicion"]
+
+respuesta: "evolucionado"
+tipo: completar
+respuestas_validas:
+  - "evolucionado"
+
+enunciado: "Nuestra intuición no está calibrada para las escalas de tiempo profundo porque nuestro cerebro ha ___ para sobrevivir en entornos de corto plazo."
+
+explicacion: |
+  La evolución humana priorizó la percepción de eventos inmediatos (depredadores, estaciones, ciclos de comida) sobre la comprensión de procesos geológicos o cósmicos que tardan eones en ocurrir.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["comparacion", "tiempo"]
+
+respuesta: "4600"
+tipo: completar
+respuestas_validas:
+  - "4600"
+
+enunciado: "Si el universo tiene 13.800 millones de años, la Tierra tiene aproximadamente ___ millones de años."
+
+explicacion: |
+  La Tierra es significativamente más joven que el universo; se formó cuando el universo ya tenía casi 9.000 millones de años de existencia.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
   nivel: "avanzado"
-  tags: ["masa", "estrellas", "supernova"]
+  tags: ["antropoceno", "escala_humana"]
+
+respuesta: "insignificante"
+tipo: completar
+respuestas_validas:
+  - "insignificante"
+
+enunciado: "En comparación con la escala de tiempo de la formación de la corteza terrestre, la duración de la civilización humana es prácticamente ___."
+
+explicacion: |
+  La historia de la humanidad es un parpadeo en la escala del tiempo profundo. Mientras la Tierra tarda millones de años en cambiar sus continentes, la humanidad apenas lleva unos pocos milenios de historia escrita.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["notacion_cientifica", "escala_longitud"]
+
+respuesta: "10^12"
+tipo: mc
+opciones_explicitas: ["10^6", "10^9", "10^12", "10^15"]
+
+enunciado: "En español (escala larga), cuando hablamos de un 'billón', nos referimos a una cantidad equivalente a un ___."
+
+explicacion: |
+  En español, el sistema de escala larga define el billón como un millón de millones, es decir, 10^12.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["notacion_cientifica", "traduccion"]
+
+respuesta: "10^9"
+tipo: mc
+opciones_explicitas: ["10^6", "10^9", "10^12", "10^15"]
+
+enunciado: "Si leés un texto de geología en inglés que menciona un 'billion' de años, ¿a qué potencia de 10 te referís en nuestra escala numérica?"
+
+explicacion: |
+  En inglés (escala corta), un 'billion' equivale a mil millones, es decir, 10^9.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "comparacion"]
+
+respuesta: "mil millones"
+tipo: completar
+respuestas_validas:
+  - "mil millones"
+
+enunciado: "El valor de un 'billion' en inglés es equivalente, en español, a ___."
+
+explicacion: |
+  El término 'billion' en inglés representa 10^9, lo cual en español llamamos 'mil millones'.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "geologia"]
+
+respuesta: "4.5 x 10^9"
+tipo: completar
+respuestas_validas:
+  - "4.5 x 10^9"
+  - "4.5x10^9"
+
+enunciado: "La edad estimada de la Tierra es de aproximadamente 4,5 mil millones de años. Expresá este número en notación científica (formato N x 10^x)."
+
+explicacion: |
+  4,5 mil millones se escribe como 4.500.000.000, lo que equivale a 4,5 x 10^9.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "avanzado"
+  tags: ["notacion_cientifica", "logica"]
+
+respuesta: "10^3"
+tipo: mc
+opciones_explicitas: ["10^2", "10^3", "10^6", "10^9"]
+
+enunciado: "Si dividimos un billón (español, 10^12) por un billion (inglés, 10^9), el resultado es una magnitud de ___."
+
+explicacion: |
+  10^12 / 10^9 = 10^(12-9) = 10^3. El resultado es mil.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["calendario_cosmico", "big_bang"]
+
+enunciado: "Si comprimiéramos los 13.800 millones de años de la historia del universo en un solo año calendario, el evento del Big Bang ocurriría el día ___ de enero."
+
+respuestas_validas:
+  - "1"
+respuesta: "1"
+tipo: completar
+
+explicacion: |
+  En el calendario cósmico, el 1 de enero marca el inicio del tiempo y el espacio con el Big Bang.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["tierra", "vida"]
+
+respuesta: "septiembre"
+tipo: completar
+respuestas_validas:
+  - "septiembre"
+
+enunciado: "Si el Big Bang es el 1 de enero, la formación de la Tierra ocurriría aproximadamente el 1° de ___."
+
+explicacion: |
+  La Tierra se formó hace unos 4.500 millones de años, lo que en nuestra escala corresponde a principios de septiembre.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["dinosaurios", "extincion"]
+
+respuesta: "24 de diciembre"
+tipo: completar
+respuestas_validas:
+  - "24 de diciembre"
+
+enunciado: "La era de los dinosaurios (que terminó hace unos 66 millones de años) se ubicaría en el calendario cósmico alrededor del ___."
+
+explicacion: |
+  Los dinosaurios dominaron la Tierra durante gran parte del último mes del año cósmico, desapareciendo hacia la Navidad.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "avanzado"
+  tags: ["historia_humana", "tiempo_corto"]
+
+enunciado: "La historia de la humanidad escrita (desde la invención de la escritura) ocupa apenas unos segundos del día ___ de diciembre."
+
+respuestas_validas:
+  - "31"
+respuesta: "31"
+tipo: completar
+
+explicacion: |
+  A pesar de nuestra importancia cultural, la historia humana es un parpadeo insignificante comparado con la escala cósmica, ocurriendo en los últimos instantes del 31 de diciembre.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["percepcion_temporal", "escala"]
+
+opciones_explicitas: ["Septiembre", "Diciembre", "Enero", "Julio"]
+respuesta: "Septiembre"
+tipo: mc
+
+enunciado: "Si el universo tiene 13.800 millones de años y la Tierra tiene aproximadamente 4.500 millones de años, ¿en qué mes del calendario cósmico se ubica la aparición de la Tierra?"
+
+explicacion: |
+  La Tierra se formó hace 4.500 millones de años, lo que sitúa su aparición en el mes de septiembre dentro de la escala de un año.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["escala_temporal", "historia", "geologia"]
+
+enunciado: "Si comparamos la edad de la Tierra (aprox. 4500 millones de años) con la duración de la historia escrita (aprox. 5000 años), la historia escrita representa una fracción de tiempo que es:"
+
+opciones_explicitas: ["Una parte significativa", "Una fracción minúscula", "La mitad del tiempo terrestre", "Un tiempo equivalente"]
+
+respuesta: "Una fracción minúscula"
+tipo: mc
+
+explicacion: |
+  5.000 años frente a 4.500 millones de años es una proporción prácticamente nula — la historia escrita es apenas un instante en la escala geológica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["homo_sapiens", "evolucion"]
+
+enunciado: "Considerando que el Homo sapiens moderno tiene aproximadamente 300.000 años de existencia, ¿cuál de las siguientes afirmaciones es correcta respecto a la escala geológica?"
+
+opciones_explicitas: ["Es casi tanto tiempo como la edad de la Tierra", "Es un parpadeo insignificante frente a la edad de la Tierra", "Es el tiempo que tardó la Tierra en formarse", "Es un tiempo extremadamente largo en términos geológicos"]
+
+respuesta: "Es un parpadeo insignificante frente a la edad de la Tierra"
+tipo: mc
+
+explicacion: |
+  300.000 años representan apenas una fracción de un 0,01% de los 4.600 millones de años de historia de la Tierra.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["comparacion", "escala"]
+
+opciones_explicitas: ["Historia escrita", "Homo sapiens", "Edad de la Tierra"]
+respuesta_orden: ["Historia escrita", "Homo sapiens", "Edad de la Tierra"]
+tipo: ordenar
+
+enunciado: "Ordená de MENOR a MAYOR duración estos 3 lapsos de tiempo:"
+
+explicacion: |
+  La historia escrita (~5.000 años) es la más corta, seguida por la existencia del Homo sapiens (~300.000 años), y por último la edad de la Tierra (~4.600 millones de años), la más larga por lejos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+enunciado: "Para entender la 'Historia Profunda', debemos entender que la actividad humana es una escala de tiempo ___ en comparación con los procesos geológicos."
+
+respuestas_validas:
+  - "minúscula"
+  - "insignificante"
+  - "pequeña"
+
+respuesta: "minúscula"
+tipo: completar
+
+explicacion: |
+  Los procesos geológicos se miden en millones de años; la actividad humana, en siglos — una diferencia de varios órdenes de magnitud.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "avanzado"
+  tags: ["proporciones", "geologia"]
+
+enunciado: "Si la historia de la humanidad (desde la escritura) fuera un día de 24 horas, la edad de la Tierra equivaldría aproximadamente a:"
+
+opciones_explicitas: ["Unos pocos minutos", "Casi 24 horas", "Unos 10 años", "Un siglo"]
+
+respuesta: "Casi 24 horas"
+tipo: mc
+
+explicacion: |
+  Al invertir la comparación (poniendo lo corto como referencia de 24 horas), la escala geológica completa se estira a una duración enorme comparada con esa unidad — el punto es que la relación de magnitudes es abismal en cualquier dirección que se la mire.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["geologia", "notacion_cientifica"]
+
+enunciado: "La edad estimada de la Tierra es de aproximadamente 4.540.000.000 años. ¿Cuál es la forma correcta de expresar este número en notación científica?"
+
+opciones_explicitas: ["4.54e9", "4.54e7", "45.4e8", "0.454e10"]
+respuesta: "4.54e9"
+tipo: mc
+
+explicacion: |
+  4.540.000.000 equivale a 4,54 × 10⁹ en notación científica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["calendario_cosmico", "eventos"]
 
 variables:
-  es_masiva: uno_de([verdadero, falso])
+  idx: uno_de([0, 1, 2])
+  escenario: [["1° de septiembre", "La formación del Sistema Solar"], ["finales de septiembre", "La aparición de la vida"], ["30 de diciembre", "La extinción de los dinosaurios"]]
 
-respuesta: verdadero
+enunciado: "En el calendario cósmico, {escenario[idx][0]} corresponde aproximadamente a ___."
 
-tipo: vf
-
-enunciado: "Para que una estrella termine su vida como un agujero negro tras una supernova, ¿es necesario que su masa sea muy grande (masiva)?"
-
-explicacion: |
-  Solo las estrellas con una masa lo suficientemente grande pueden generar la presión gravitatoria necesaria para colapsar en un agujero negro; las estrellas pequeñas terminan como enanas blancas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "basico"
-  tags: ["astronomia", "gravedad"]
-
-respuesta: "horizonte de eventos"
-tipo: completar
-respuestas_validas:
-  - "horizonte de eventos"
-
-enunciado: "El límite esférico alrededor de un agujero negro más allá del cual la velocidad de escape es mayor que la velocidad de la luz se denomina ___."
-
-explicacion: |
-  El horizonte de eventos marca la frontera física donde la gravedad es tan intensa que nada, ni siquiera la radiación electromagnética (luz), puede escapar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "intermedio"
-  tags: ["fisica", "luz"]
-
-opciones_explicitas: ["menor que la velocidad de la luz", "igual a la velocidad de la luz", "mayor que la velocidad de la luz"]
-
-respuesta: "mayor que la velocidad de la luz"
+opciones_explicitas: ["La formación del Sistema Solar", "La aparición de la vida", "La extinción de los dinosaurios"]
+respuesta: escenario[idx][1]
 tipo: mc
 
-enunciado: "Para que un objeto pueda escapar de un agujero negro tras cruzar su horizonte de eventos, su velocidad debería ser..."
-
 explicacion: |
-  Por definición, el horizonte de eventos es la región donde la velocidad de escape necesaria supera la velocidad de la luz ($c$), haciendo que el escape sea físicamente imposible.
+  El calendario cósmico es una escala que comprime el tiempo universal en un año para facilitar su comprensión.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "agujeros_negros"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "cosmologia"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  valor: [[13800000000, "1.38e10"], [138000000000, "1.38e11"], [1380000000, "1.38e9"]]
+
+enunciado: "Un valor de {valor[idx][0]} años, ¿cómo se expresa correctamente en notación científica?"
+
+opciones_explicitas: ["1.38e10", "1.38e11", "1.38e9", "13.8e9"]
+respuesta: valor[idx][1]
+tipo: mc
+
+explicacion: |
+  Para pasar a notación científica se cuenta cuántos lugares hay que mover la coma decimal hacia la izquierda hasta dejar un solo dígito antes del punto.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
   nivel: "avanzado"
-  tags: ["estructura", "singularidad"]
+  tags: ["geologia", "completar"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  eon_datos: [[1500000000, "1.5e9"], [2000000000, "2.0e9"], [2500000000, "2.5e9"]]
+
+enunciado: "Un eón es una unidad de tiempo geológico muy larga. Si un período geológico duró {eon_datos[idx][0]} años, su valor en notación científica es ___ años."
+
+respuestas_validas:
+  - "1.5e9"
+  - "2.0e9"
+  - "2.5e9"
+respuesta: eon_datos[idx][1]
+tipo: completar
+
+explicacion: |
+  Cada valor se expresa como N x 10⁹, manteniendo un solo dígito significativo antes del punto decimal.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["comparacion", "notacion"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  comparacion: [[1000000000, "1e9"], [100000000, "1e8"], [1000000, "1e6"]]
+
+enunciado: "Si un evento ocurrió hace {comparacion[idx][0]} años, la forma abreviada en notación científica es ___."
+
+respuestas_validas:
+  - "1e9"
+  - "1e8"
+  - "1e6"
+respuesta: comparacion[idx][1]
+tipo: completar
+
+explicacion: |
+  La notación científica permite manejar grandes escalas de tiempo de forma eficiente, expresando el número como una potencia de 10.
+```
+
+## Sección: origen-del-universo (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["conceptos_clave", "espacio_tiempo"]
+
+tipo: completar
+
+enunciado: "Una idea errónea común es que el Big Bang fue una explosión de materia en un espacio vacío preexistente. Sin embargo, la teoría científica actual establece que el Big Bang fue la expansión del propio ___."
+
+respuestas_validas:
+  - "espacio-tiempo"
+  - "espacio y tiempo"
+
+respuesta: "espacio-tiempo"
+
+explicacion: |
+  El Big Bang no fue una explosión de materia en un lugar, sino el estiramiento del tejido mismo del espacio y el tiempo. No hubo un "punto" en el espacio que explotara, sino que el espacio mismo comenzó a expandirse.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["geometria_universo", "expansion"]
+
+tipo: completar
+
+enunciado: "Dado que el Big Bang fue una expansión del espacio-tiempo en todos los puntos simultáneamente, el universo ___ tiene un centro único o un punto de origen espacial."
+
+respuestas_validas:
+  - "no"
+  - "no posee"
+
+respuesta: "no"
+
+explicacion: |
+  Como el espacio se expande en todas direcciones al mismo tiempo, no hay un punto central desde donde todo se aleja. Cualquier punto en el universo puede considerarse un centro de expansión, pero no existe un "centro absoluto".
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "avanzado"
+  tags: ["cosmologia", "dimensiones"]
+
+tipo: completar
+
+enunciado: "Si el Big Bang creó el espacio-tiempo, esto implica que el universo no se está expandiendo hacia un espacio vacío que ya existía, por lo tanto, no existe un ___ que el universo esté ocupando."
+
+respuestas_validas:
+  - "afuera"
+  - "exterior"
+
+respuesta: "afuera"
+
+explicacion: |
+  Al ser el espacio-tiempo algo que surge y se expande, no hay un "contenedor" externo. El concepto de "afuera" requiere una dimensión espacial preexistente que la teoría del Big Bang no contempla.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["analogias", "expansion"]
+
+tipo: completar
+
+enunciado: "Para entender que el espacio se estira, se suele usar la analogía de la superficie de un globo que se infla. En este modelo, las galaxias se alejan entre sí porque el ___ entre ellas aumenta, no porque se desplacen por un espacio vacío."
+
+respuestas_validas:
+  - "espacio"
+  - "distancia"
+
+respuesta: "espacio"
+
+explicacion: |
+  En la analogía del globo, la superficie representa el espacio-tiempo. Al inflar el globo, la superficie se estira, aumentando la distancia entre puntos, tal como sucede con el universo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["tiempo", "causalidad"]
+
+tipo: completar
+
+enunciado: "Si el Big Bang marca el inicio del espacio-tiempo, esto significa que el ___ no existía antes de este evento, invalidando la idea de un 'antes' en términos temporales clásicos."
+
+respuestas_validas:
+  - "tiempo"
+
+respuesta: "tiempo"
+
+explicacion: |
+  Si el tiempo es una dimensión que surgió con el Big Bang, preguntar qué hubo "antes" es como preguntar qué hay al norte del Polo Norte; la pregunta carece de sentido físico porque la dimensión temporal no existía.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["big_bang", "expansion"]
+
+tipo: mc
+opciones_explicitas: ["Una contracción inmediata", "Una expansión extremadamente rápida", "Un estado estático sin cambios", "Un enfriamiento instantáneo sin movimiento"]
+respuesta: "Una expansión extremadamente rápida"
+
+enunciado: "Inmediatamente después del Big Bang, el universo experimentó un proceso conocido como inflación, que consistió en una ___."
+
+explicacion: |
+  La inflación es el período de expansión exponencial que ocurrió en las fracciones de segundo iniciales, permitiendo que el universo se volviera homogéneo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["particulas", "temperatura"]
+
+tipo: completar
+respuestas_validas:
+  - "enfriamiento"
+respuesta: "enfriamiento"
+
+enunciado: "A medida que el universo se expandía tras el Big Bang, la temperatura descendía, permitiendo el ___ del cosmos y la formación de estructuras."
+
+explicacion: |
+  La expansión del espacio provoca que la densidad de energía disminuya, lo que se traduce en un descenso de la temperatura cósmica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["particulas", "subatomicas"]
+
+tipo: mc
+opciones_explicitas: ["Átomos de carbono", "Partículas subatómicas como protones y neutrones", "Moléculas de agua", "Planetas rocosos"]
+respuesta: "Partículas subatómicas como protones y neutrones"
+
+enunciado: "Antes de que existieran los átomos, el universo estaba compuesto por un plasma de partículas elementales. ¿Cuál de estas apareció tras el enfriamiento inicial?"
+
+explicacion: |
+  Antes de la formación de átomos neutros, el universo era una "sopa" de partículas subatómicas como protones, neutrones y electrones.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["elementos", "hidrogeno"]
+
+tipo: mc
+opciones_explicitas: ["Sólo Helio", "Sólo Oxígeno", "Hidrógeno y Helio", "Hierro y Carbono"]
+respuesta: "Hidrógeno y Helio"
+
+enunciado: "Durante los primeros minutos del universo, la nucleosíntesis primordial permitió la formación de los primeros elementos químicos. ¿Cuáles fueron los principales?"
+
+explicacion: |
+  La abundancia de elementos en el universo temprano estaba compuesta mayoritariamente por hidrógeno (aprox. 75%) y helio (aprox. 25%).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["estrellas", "galaxias"]
+
+tipo: completar
+respuestas_validas:
+  - "estrellas"
+respuesta: "estrellas"
+
+enunciado: "Mucho tiempo después de la formación de los primeros átomos, la gravedad agrupó las nubes de gas para dar origen a las primeras ___."
+
+explicacion: |
+  La gravedad actuó sobre las densidades de gas (hidrógeno y helio) para colapsar las nubes y encender la fusión nuclear, creando las primeras estrellas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["big_bang", "expansión", "redshift"]
+
+respuesta: "corrimiento al rojo"
+tipo: completar
+respuestas_validas:
+  - "corrimiento al rojo"
+
+enunciado: "El fenómeno observado en la luz de galaxias lejanas que indica que el universo se está expandiendo se conoce como ___."
+
+explicacion: |
+  El corrimiento al rojo (redshift) ocurre cuando la luz de un objeto se desplaza hacia longitudes de onda más largas (el rojo) debido a que el espacio entre nosotros y la fuente se está expandiendo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["cmb", "radiación_fondo", "evidencia"]
+
+respuesta: "380000"
+tipo: completar
+respuestas_validas:
+  - "380000"
+  - "380.000"
+
+enunciado: "La Radiación Cósmica de Fondo de Microondas (CMB) se originó aproximadamente ___ años después del Big Bang, cuando el universo se volvió transparente."
+
+explicacion: |
+  Antes de este momento, el universo era un plasma opaco. Al enfriarse hasta los 380.000 años, los electrones y protones formaron átomos neutros, permitiendo que los fotones viajaran libremente.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["elementos", "hidrógeno", "helio"]
+
+respuesta: "hidrógeno"
+tipo: completar
+respuestas_validas:
+  - "hidrógeno"
+  - "hidrogeno"
+
+enunciado: "Según el modelo del Big Bang, el elemento más abundante creado en las primeras etapas del universo (junto con el helio) fue el ___."
+
+explicacion: |
+  La nucleosíntesis primordial predice una abundancia de aproximadamente 75% de hidrógeno y 25% de helio, lo cual coincide con las observaciones astronómicas actuales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["redshift", "luz"]
+
+respuesta: "rojo"
+tipo: completar
+respuestas_validas:
+  - "rojo"
+
+enunciado: "Cuando una galaxia se aleja de un observador, la luz que emite se desplaza hacia el extremo ___ del espectro electromagnético."
+
+explicacion: |
+  Este desplazamiento hacia longitudes de onda mayores es la base para medir la velocidad de recesión de las galaxias y confirmar la expansión cósmica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "avanzado"
+  tags: ["cmb", "evidencia", "microondas"]
+
+respuesta: "radiación cósmica de fondo de microondas"
+tipo: completar
+respuestas_validas:
+  - "radiación cósmica de fondo de microondas"
+  - "radiación de fondo"
+
+enunciado: "La evidencia que consiste en un resplandor térmico que llena todo el universo y es un 'eco' del Big Bang se denomina ___."
+
+explicacion: |
+  La radiación cósmica de fondo de microondas es la prueba más sólida del estado caliente y denso que tuvo el universo en sus inicios.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["fred_hoyle", "terminologia"]
+
+opciones_explicitas: ["Un término descriptivo científico", "Un término despectivo usado para burlarse", "Un nombre propuesto por Einstein", "Un nombre acuñado por la NASA"]
+
+respuesta: "Un término despectivo usado para burlarse"
+tipo: mc
+
+enunciado: "El término 'Big Bang' no fue acuñado para describir el evento de forma neutral, sino que fue propuesto por el astrónomo Fred Hoyle con una intención de burlarse de la teoría de la expansión. ¿Cuál era la intención de la expresión?"
+
+explicacion: |
+  Fred Hoyle, defensor de la teoría del Estado Estacionario, utilizó el término 'Big Bang' durante una transmisión de radio en 1949 para ridiculizar la idea de una singularidad inicial, considerándola poco científica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["acustica", "vacio"]
+
+opciones_explicitas: ["Sí, fue una explosión sonora masiva", "No, porque en el vacío no se propaga el sonido", "Sí, debido a la liberación de energía", "No, porque el universo era demasiado grande"]
+
+respuesta: "No, porque en el vacío no se propaga el sonido"
+tipo: mc
+
+enunciado: "Desde un punto de vista físico, el nombre 'Big Bang' es engañoso respecto a la acústica del evento. ¿Por qué no hubo un sonido como el de una explosión convencional?"
+
+explicacion: |
+  El sonido requiere un medio material (como aire o agua) para propagarse a través de ondas de presión. La idea de una "explosión" implica una onda expansiva en un medio preexistente, algo que no aplica al origen del espacio-tiempo mismo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "avanzado"
+  tags: ["expansion", "explosion"]
+
+opciones_explicitas: ["Una explosión de materia en un espacio vacío", "Una expansión acelerada del propio espacio-tiempo", "Una detonación química de gases", "Un choque de galaxias"]
+
+respuesta: "Una expansión acelerada del propio espacio-tiempo"
+tipo: mc
+
+enunciado: "El concepto de 'explosión' sugiere que algo explota 'dentro' de un espacio ya existente. Sin embargo, la cosmología moderna describe el Big Bang como una ___ del espacio mismo."
+
+explicacion: |
+  A diferencia de una bomba que expande materia en un lugar vacío, el Big Bang fue la expansión del tejido mismo del espacio-tiempo, creando el espacio y el tiempo a medida que se expandía.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["luz", "radiacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Es correcto afirmar que el Big Bang fue un evento visible como una explosión de luz brillante que iluminó el universo instantáneamente."
+
+explicacion: |
+  Falso. Durante los primeros instantes, el universo era un plasma opaco para la luz. La luz no pudo viajar libremente hasta que ocurrió la "recombinación" (unos 380.000 años después), liberando la radiación de fondo de microondas que detectamos hoy.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["terminologia", "historia_ciencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Se considera que el nombre 'Big Bang' es semánticamente engañoso para describir el proceso de expansión del universo."
+
+explicacion: |
+  Verdadero. El término sugiere un evento puntual y violento de materia en un espacio vacío, mientras que la realidad física es una expansión métrica del espacio-tiempo que no requiere un centro ni un medio de propagación para el sonido.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["astronomia", "evidencia"]
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [["un agujero negro de masa estelar", "se forma por el colapso de una estrella masiva"], ["un agujero negro supermasivo", "reside en el centro de las galaxias"]]
+  escenarios: [["Observamos que la luz de las galaxias lejanas se desplaza hacia longitudes de onda más largas (rojas).", "corrimiento al rojo"], ["Observamos que las galaxias se alejan de nosotros a velocidades proporcionales a su distancia.", "corrimiento al rojo"]]
 
-respuesta: escenario[idx][1]
+opciones_explicitas: ["corrimiento al rojo", "corrimiento al azul", "estacionarismo galáctico"]
+
+respuesta: escenarios[idx][1]
 tipo: mc
-opciones_explicitas: ["se forma por el colapso de una estrella masiva", "reside en el centro de las galaxias"]
 
-enunciado: "Si estamos analizando {escenario[idx][0]}, es correcto afirmar que este {escenario[idx][1]}."
+enunciado: "Si un astrónomo detecta que {escenarios[idx][0]}, ¿a qué fenómeno se refiere este hallazgo?"
 
 explicacion: |
-  El horizonte de eventos es una propiedad geométrica del espacio-tiempo que depende de la masa del objeto, ya sea que provenga del colapso estelar o de procesos galácticos.
+  El corrimiento al rojo (redshift) es la evidencia fundamental de que el universo se está expandiendo, tal como predijo la Relatividad General y observó Hubble.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "basico"
-  tags: ["luz", "gravedad"]
-
-respuesta: "falso"
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "¿Es posible que un fotón (partícula de luz) escape de la atracción gravitatoria una vez que ha cruzado el horizonte de eventos?"
-
-explicacion: |
-  No. La luz es la entidad más rápida del universo y, aun así, queda atrapada por la curvatura extrema del espacio-tiempo en el horizonte de eventos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "agujeros_negros"
+  tema: "origen_del_universo"
   nivel: "intermedio"
-  tags: ["proceso", "caida"]
-
-opciones_explicitas: ["Aproximación orbital", "Cruzar el horizonte de eventos", "Colapso hacia la singularidad"]
-
-respuesta_orden: ["Aproximación orbital", "Cruzar el horizonte de eventos", "Colapso hacia la singularidad"]
-tipo: ordenar
-
-enunciado: "Ordena cronológicamente los eventos que experimentaría una partícula que cae hacia un agujero negro:"
-
-pasos:
-  - "La partícula se acerca siguiendo una trayectoria curva."
-  - "La partícula atraviesa la frontera de no retorno."
-  - "La partícula es comprimida hacia el centro matemático de densidad infinita."
-
-explicacion: |
-  Primero la partícula orbita o se acerca, luego cruza el horizonte de eventos (sin que un observador externo vea el paso instantáneo, pero para la partícula es un límite real) y finalmente cae hacia la singularidad.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "basico"
-  tags: ["estrellas", "evolucion_estelar"]
+  tags: ["cosmologia", "radiacion"]
 
 variables:
-  escenario: uno_de([["una estrella de baja masa", "enana blanca"], ["una estrella masiva", "estrella de neutrones"], ["una estrella supermasiva", "agujero negro"]])
+  idx: uno_de([0, 1])
+  evidencias: [["un resplandor de microondas que llena todo el cielo de forma casi uniforme", "radiación de fondo de microondas"], ["una temperatura residual de aproximadamente 2.7 Kelvin presente en todo el espacio", "radiación de fondo de microondas"]]
 
-enunciado: "Dependiendo de su masa inicial, el destino de una estrella varía. Una {escenario[0]} puede evolucionar hacia una {escenario[1]}."
+opciones_explicitas: ["radiación de fondo de microondas", "luz visible de estrellas", "nebulosas de gas"]
 
-respuesta: escenario[1]
+respuesta: evidencias[idx][1]
 tipo: mc
-opciones_explicitas: ["enana blanca", "estrella de neutrones", "agujero negro"]
+
+enunciado: "La detección de {evidencias[idx][0]} es considerada la 'prueba reina' de que el universo tuvo un inicio caliente y denso. ¿Cómo se llama este fenómeno?"
 
 explicacion: |
-  Las estrellas pequeñas como nuestro Sol terminan su vida como enanas blancas. Solo las estrellas con masas extremadamente altas pueden colapsar hasta formar objetos más densos.
+  La Radiación Cósmica de Fondo de Microondas (CMB) es la luz remanente del Big Bang, liberada cuando el universo se volvió transparente.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "intermedio"
-  tags: ["masa", "colapso"]
+  tema: "origen_del_universo"
+  nivel: "avanzado"
+  tags: ["nucleosintesis", "elementos"]
 
-enunciado: "Si el núcleo remanente de una supernova supera el límite de Tolman-Oppenheimer-Volkoff, el colapso gravitatorio no se detiene y se forma un/a ___."
+variables:
+  idx: uno_de([0, 1])
+  datos: [["la proporción observada de helio y deuterio en el universo temprano", "nucleosíntesis primordial"], ["la cantidad de helio-4 presente en las nubes de gas más antiguas", "nucleosíntesis primordial"]]
 
-respuesta: "agujero negro"
+opciones_explicitas: ["nucleosíntesis estelar", "nucleosíntesis primordial", "fusión de agujeros negros"]
+
+respuesta: datos[idx][1]
+tipo: mc
+
+enunciado: "El hecho de que los niveles de {datos[idx][0]} coincidan con los modelos teóricos apoya la teoría del Big Bang. ¿Qué proceso explica esto?"
+
+explicacion: |
+  La nucleosíntesis primordial ocurrió en los primeros minutos del universo, creando los núcleos de los elementos más ligeros antes de que existieran las estrellas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["expansion", "espacio"]
+
+respuesta: "expansión"
 tipo: completar
 respuestas_validas:
-  - "agujero negro"
+  - "expansión"
+  - "expansion"
+
+enunciado: "Según la evidencia del corrimiento al rojo, el universo no es estático, sino que se encuentra en un proceso de ___ constante."
 
 explicacion: |
-  Cuando la presión de degeneración de neutrones no puede contrarrestar la gravedad, el objeto colapsa indefinidamente hacia una singularidad, formando un agujero negro.
+  La expansión del espacio-tiempo implica que las galaxias se separan entre sí, aumentando el volumen del universo observable.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "agujeros_negros"
+  tema: "origen_del_universo"
   nivel: "intermedio"
-  tags: ["secuencia", "evolucion"]
+  tags: ["big_bang", "singularidad"]
 
-enunciado: "Ordena el proceso de evolución de una estrella masiva que termina en un agujero negro:"
+respuesta: "singularidad"
+tipo: completar
+respuestas_validas:
+  - "singularidad"
 
-pasos:
-  - "Secuencia principal (fusión de hidrógeno)"
-  - "Supernova (colapso del núcleo)"
-  - "Agujero negro (singularidad)"
-
-opciones_explicitas: ["Secuencia principal (fusión de hidrógeno)", "Supernova (colapso del núcleo)", "Agujero negro (singularidad)"]
-
-respuesta_orden: ["Secuencia principal (fusión de hidrógeno)", "Supernova (colapso del núcleo)", "Agujero negro (singularidad)"]
-tipo: ordenar
+enunciado: "La teoría del Big Bang postula que el universo comenzó a partir de un estado de densidad y temperatura infinitas llamado ___."
 
 explicacion: |
-  La evolución sigue un orden lógico: la fusión mantiene el equilibrio, la supernova es el evento explosivo de muerte y el agujero negro es el remanente final.
+  La singularidad es el punto teórico donde las leyes de la física actual no pueden describir el estado del universo en el tiempo t=0.
+```
+
+## Sección: formacion-de-estrellas (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["nebulosa", "gas"]
+
+enunciado: "Las estrellas nacen a partir de gigantescas nubes de gas y polvo interestelar conocidas como ___."
+
+respuestas_validas:
+  - "nebulosas"
+
+respuesta: "nebulosas"
+tipo: completar
+
+explicacion: |
+  Una nebulosa es una nube de gas y polvo en el espacio interestelar, la materia prima a partir de la cual se forman las estrellas.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "basico"
-  tags: ["remanentes"]
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["gravedad", "colapso"]
 
-enunciado: "Si una estrella tiene una masa inicial moderada (menor que el límite para una supernova masiva), el remanente final será una ___."
+enunciado: "La fuerza principal que provoca que una nebulosa comience a contraerse y colapsar sobre sí misma es la ___."
+
+respuestas_validas:
+  - "gravedad"
+
+respuesta: "gravedad"
+tipo: completar
+
+explicacion: |
+  La gravedad atrae el gas hacia las zonas más densas de la nube, iniciando el colapso que eventualmente formará una estrella.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "avanzado"
+  tags: ["momento_angular", "giro"]
+
+enunciado: "A medida que la nube colapsa, su velocidad de rotación aumenta para conservar el ___."
+
+respuestas_validas:
+  - "momento angular"
+
+respuesta: "momento angular"
+tipo: completar
+
+explicacion: |
+  Es el mismo principio que un patinador que gira más rápido al cerrar los brazos: al reducirse el radio de la nube, la velocidad de giro aumenta para conservar el momento angular.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["temperatura", "energia"]
+
+enunciado: "Durante el colapso, la energía potencial gravitatoria se transforma en ___ en el núcleo de la protoestrella."
+
+respuestas_validas:
+  - "energía térmica"
+  - "energia termica"
+
+respuesta: "energía térmica"
+tipo: completar
+
+explicacion: |
+  A medida que el gas cae hacia el centro por gravedad, esa energía de movimiento se convierte en calor, elevando la temperatura del núcleo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "avanzado"
+  tags: ["disco", "acrecion"]
+
+respuesta: "disco de acreción"
+tipo: completar
+respuestas_validas:
+  - "disco de acreción"
+  - "disco protoplanetario"
+  - "disco de acrecion"
+
+enunciado: "Cuando la materia gira rápidamente alrededor del centro, se aplana formando un ___."
+
+explicacion: |
+  El aumento de la velocidad de rotación por la conservación del momento angular aplana la nube en un disco.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["fusion", "hidrogeno"]
+
+tipo: mc
+opciones_explicitas: ["Fusión de helio en hidrógeno", "Fusión de hidrógeno en helio", "Fisión de núcleos de hierro", "Combustión de oxígeno"]
+respuesta: "Fusión de hidrógeno en helio"
+
+enunciado: "Durante la formación de una estrella, el 'encendido' ocurre cuando la temperatura y presión son tan altas que se inicia un proceso de ___."
+
+explicacion: |
+  El proceso fundamental que define la vida de una estrella es la fusión nuclear, donde núcleos de hidrógeno se unen para formar helio, liberando una enorme cantidad de energía.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["equilibrio", "gravedad", "presion"]
+
+tipo: completar
+respuestas_validas:
+  - "equilibrio hidrostático"
+  - "equilibrio hidrostatico"
+respuesta: "equilibrio hidrostático"
+
+enunciado: "Para que una estrella sea estable y no colapse ni se expanda descontroladamente, debe existir un ___ entre la gravedad (que empuja hacia adentro) y la presión de la fusión (que empuja hacia afuera)."
+
+explicacion: |
+  Este estado se conoce como equilibrio hidrostático. La gravedad intenta comprimir la estrella, mientras que la energía de la fusión nuclear genera una presión hacia afuera que compensa esa fuerza.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["gravedad", "presion"]
+
+tipo: mc
+opciones_explicitas: ["La gravedad gana y la estrella colapsa", "La presión de fusión gana y la estrella se expande", "Ambas fuerzas se anulan y la estrella es estable", "La gravedad desaparece"]
+respuesta: "Ambas fuerzas se anulan y la estrella es estable"
+
+enunciado: "Si una estrella ha alcanzado un estado de estabilidad donde la fuerza de gravedad hacia el centro es compensada exactamente por la presión de la fusión hacia el exterior, podemos decir que:"
+
+explicacion: |
+  La estabilidad estelar depende de que la fuerza de gravedad (atracción) y la presión de radiación/térmica (repulsión) estén en un equilibrio dinámico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["temperatura", "presion", "nucleos"]
+
+tipo: completar
+respuestas_validas:
+  - "Fusión de hidrógeno"
+  - "fusión de hidrógeno"
+respuesta: "Fusión de hidrógeno"
+
+enunciado: "El primer paso crucial en el ciclo de vida de una estrella es la ___."
+
+explicacion: |
+  Antes de que una estrella pueda quemar elementos más pesados, debe superar la barrera de repulsión eléctrica entre protones para iniciar la fusión de hidrógeno.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "avanzado"
+  tags: ["gravedad", "fusión"]
+
+tipo: mc
+opciones_explicitas: ["La gravedad es mayor que la presión", "La presión es mayor que la gravedad", "La gravedad y la presión son iguales", "No hay fuerzas actuando"]
+respuesta: "La gravedad es mayor que la presión"
+
+enunciado: "Si una estrella agota su combustible de hidrógeno en el núcleo y la producción de energía disminuye, ¿qué sucede con el equilibrio de fuerzas?"
+
+explicacion: |
+  Al disminuir la presión hacia afuera causada por la fusión, la gravedad toma ventaja, provocando que el núcleo se contraiga nuevamente hasta alcanzar nuevas temperaturas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["estrellas", "sol", "enana_blanca"]
 
 respuesta: "enana blanca"
 tipo: completar
 respuestas_validas:
   - "enana blanca"
 
+enunciado: "Una estrella de masa media, similar a nuestro Sol, tras agotar su combustible de hidrógeno y helio, termina su ciclo de vida convirtiéndose en una ___."
+
 explicacion: |
-  Las estrellas de masa baja o media expulsan sus capas externas y dejan un núcleo denso llamado enana blanca.
+  Las estrellas de masa media como el Sol no tienen suficiente masa para colapsar en objetos ultra densos; en su lugar, expulsan sus capas externas y dejan un núcleo remanente llamado enana blanca.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "agujeros_negros"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["estrellas_masivas", "supernova"]
+
+respuesta: "supernova"
+tipo: completar
+respuestas_validas:
+  - "supernova"
+
+enunciado: "Las estrellas con una masa muy superior a la del Sol tienen un destino violento: terminan su vida en una explosión masiva conocida como ___."
+
+explicacion: |
+  Debido a su enorme gravedad, las estrellas masivas procesan su combustible muy rápido y colapsan sobre sí mismas, provocando una explosión de supernova que puede iluminar galaxias enteras.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["masa", "tiempo_vida"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [["baja/media", "miles de millones"], ["muy masiva", "millones"]]
+
+respuesta: escenario[idx][1]
+tipo: completar
+respuestas_validas:
+  - "miles de millones"
+  - "millones"
+
+enunciado: "El tiempo de vida de una estrella depende de su masa. Una estrella de masa {escenario[idx][0]} vivirá durante aproximadamente ___ de años."
+
+explicacion: |
+  Existe una relación inversa: a mayor masa, mayor presión y temperatura en el núcleo, lo que hace que el combustible se queme mucho más rápido, resultando en una vida más corta.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
   nivel: "avanzado"
-  tags: ["clasificacion", "densidad"]
+  tags: ["agujero_negro", "colapso"]
+
+respuesta: "agujero negro"
+tipo: completar
+respuestas_validas:
+  - "agujero negro"
+
+enunciado: "Cuando una estrella extremadamente masiva colapsa tras una supernova y su remanente es lo suficientemente denso como para que ni la luz pueda escapar de su gravedad, se forma un ___."
+
+explicacion: |
+  El agujero negro es el destino final de las estrellas más masivas del universo, donde la densidad es tal que la curvatura del espacio-tiempo es extrema.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["remanentes", "masa"]
+
+variables:
+  idx: uno_de([0, 1])
+  caso: [["enana blanca", "baja/media"], ["agujero negro", "muy masiva"]]
+
+respuesta: caso[idx][0]
+tipo: completar
+respuestas_validas:
+  - "enana blanca"
+  - "agujero negro"
+
+enunciado: "Si analizamos el remanente final de una estrella de masa {caso[idx][1]}, el objeto resultante será una/un ___."
+
+explicacion: |
+  El destino final está determinado principalmente por la masa remanente del núcleo tras la muerte de la estrella.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["nucleosintesis", "elementos"]
+
+tipo: mc
+opciones_explicitas: ["Carbono, Oxígeno y Hierro", "Sólo Hidrógeno y Helio", "Sólo Fotones y Neutrinos", "Plutonio y Uranio solamente"]
+respuesta: "Sólo Hidrógeno y Helio"
+
+enunciado: "Si las estrellas no hubieran existido, el universo estaría compuesto casi exclusivamente por ___."
+
+explicacion: |
+  Sin la fusión nuclear que ocurre dentro de las estrellas, el universo se habría quedado con los elementos livianos formados en el Big Bang: hidrógeno y helio, casi sin nada más.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["fusion", "nucleosintesis"]
+
+tipo: completar
+respuestas_validas:
+  - "fusión nuclear"
+  - "fusion nuclear"
+respuesta: "fusión nuclear"
+
+enunciado: "El proceso físico que ocurre en el núcleo de una estrella y permite la creación de elementos más pesados que el helio se denomina ___."
+
+explicacion: |
+  La fusión nuclear en el interior estelar es el único proceso natural capaz de fabricar elementos más pesados que el hidrógeno y el helio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["quimica_cosmica", "elementos_pesados"]
+
+tipo: mc
+opciones_explicitas: ["Las estrellas son fábricas de elementos pesados", "Las estrellas sólo sirven para iluminar planetas", "Las estrellas destruyen la materia existente", "Las estrellas son sólo bolas de gas sin importancia química"]
+respuesta: "Las estrellas son fábricas de elementos pesados"
+
+enunciado: "¿Cuál es la función química fundamental de las estrellas en la evolución del universo?"
+
+explicacion: |
+  Las estrellas fabrican, mediante fusión nuclear, todos los elementos más pesados que el hidrógeno y el helio que existen en el universo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["nucleosintesis", "evolucion"]
+
+tipo: completar
+respuestas_validas:
+  - "helio"
+respuesta: "helio"
+
+enunciado: "Antes de que las estrellas comenzaran a fusionar elementos más pesados, el universo era una mezcla primordial de hidrógeno y ___."
+
+explicacion: |
+  El Big Bang dejó al universo con principalmente hidrógeno y algo de helio — todo lo demás lo fabricaron las estrellas después.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "avanzado"
+  tags: ["nucleosintesis", "evolucion_estelar"]
+
+tipo: mc
+opciones_explicitas: ["Sin estrellas, no habría átomos complejos para formar planetas o vida", "Sin estrellas, el universo sería más oscuro pero igual de complejo", "Sin estrellas, el hidrógeno se habría agotado más rápido", "Sin estrellas, la gravedad no existiría"]
+respuesta: "Sin estrellas, no habría átomos complejos para formar planetas o vida"
+
+enunciado: "¿Qué consecuencia directa tiene la ausencia de procesos estelares para la formación de la materia compleja?"
+
+explicacion: |
+  Los elementos que forman planetas rocosos y organismos vivos (carbono, oxígeno, hierro, etc.) se fabricaron dentro de estrellas — sin ellas, no existirían.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["evolucion_estelar", "masa"]
+
+respuesta: "enana blanca"
+tipo: completar
+respuestas_validas:
+  - "enana blanca"
+
+enunciado: "Una estrella con una masa similar a la del Sol llegará al final de su vida convirtiéndose en una ___."
+
+explicacion: |
+  Las estrellas de masa baja o media, como nuestro Sol, no tienen suficiente masa para colapsar en un agujero negro. Tras agotar su combustible, expulsan sus capas externas y dejan un núcleo denso llamado enana blanca.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["supernova", "masa_alta"]
+
+respuesta: "supernova"
+tipo: mc
+opciones_explicitas: ["enana blanca", "supernova", "nebulosa planetaria", "protoestrella"]
+
+enunciado: "Cuando una estrella masiva (más de 8 masas solares) agota su combustible de fusión, experimenta un colapso catastrófico conocido como ___."
+
+explicacion: |
+  Las estrellas masivas terminan su vida en una explosión violenta llamada supernova, que puede dejar atrás una estrella de neutrones o un agujero negro.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_de_estrellas"
+  nivel: "avanzado"
+  tags: ["agujero_negro", "densidad"]
 
 respuesta: "agujero negro"
 tipo: mc
-opciones_explicitas: ["enana blanca", "estrella de neutrones", "agujero negro"]
+opciones_explicitas: ["agujero negro", "estrella de neutrones", "enana blanca", "pulsar"]
 
-enunciado: "El objeto con la mayor densidad teórica, donde la gravedad impide incluso la salida de la luz, es el/la ___."
+enunciado: "Si el remanente de una supernova es lo suficientemente masivo, la gravedad es tan fuerte que nada puede escapar de él, formando un ___."
 
 explicacion: |
-  El agujero negro representa el límite extremo de la densidad, donde la curvatura del espacio-tiempo es infinita en la singularidad.
+  Un agujero negro es una región del espacio-tiempo donde la gravedad es tan intensa que ni siquiera la luz puede escapar de su horizonte de sucesos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "basico"
-  tags: ["galaxias", "centro_galactico"]
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["estrellas_de_neutrones", "masa"]
 
-respuesta: "supermasivo"
+respuesta: "estrella de neutrones"
 tipo: completar
 respuestas_validas:
-  - "supermasivo"
+  - "estrella de neutrones"
 
-enunciado: "A diferencia de los agujeros negros estelares, aquellos que residen en el centro de la mayoría de las galaxias, incluida la nuestra, se denominan agujeros negros ___."
+enunciado: "Tras una supernova, si el objeto restante tiene una masa intermedia (entre 1,4 y 3 masas solares), se convierte en una ___."
 
 explicacion: |
-  Los agujeros negros supermasivos se encuentran en el núcleo de casi todas las galaxias grandes y poseen masas de millones o miles de millones de soles.
+  Las estrellas de neutrones son objetos extremadamente densos que resultan del colapso de núcleos estelares masivos que no alcanzan a formar un agujero negro.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "intermedio"
-  tags: ["masa", "comparacion"]
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["enana_blanca", "sol"]
 
-variables:
-  escenario: uno_de([["estelar", "pequeño"], ["supermasivo", "gigante"]])
-
-respuesta: escenario[1]
+respuesta: "enana blanca"
 tipo: mc
-opciones_explicitas: ["pequeño", "gigante"]
+opciones_explicitas: ["agujero negro", "enana blanca", "estrella de neutrones", "nebulosa"]
 
-enunciado: "Considerando la escala de masa, si comparamos un agujero negro estelar con uno situado en el centro de una galaxia, el segundo es un objeto de tamaño ___."
+enunciado: "El destino final de una estrella como el Sol es convertirse en una:"
 
 explicacion: |
-  Los agujeros negros supermasivos son órdenes de magnitud más masivos que sus contrapartes estelares.
+  Las estrellas de baja masa como el Sol no tienen la masa necesaria para producir explosiones de supernova; su destino es enfriarse lentamente como enanas blancas.
+```
+
+## Sección: galaxias-tipos-escala (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["definicion", "astronomia"]
+
+tipo: mc
+opciones_explicitas: ["Un conjunto de planetas que orbitan una estrella", "Un sistema masivo de estrellas, gas, polvo y materia oscura unidos por la gravedad", "Un cúmulo de agujeros negros en el centro del universo", "Una nube de gas que colapsa para formar una estrella"]
+respuesta: "Un sistema masivo de estrellas, gas, polvo y materia oscura unidos por la gravedad"
+enunciado: "En términos astronómicos, ¿qué constituye fundamentalmente una galaxia?"
+explicacion: |
+  Una galaxia es un sistema masivo que contiene estrellas, gas, polvo y una gran cantidad de materia oscura, todo mantenido unido por la fuerza de la gravedad.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "agujeros_negros"
+  tema: "galaxias_tipos_escala"
   nivel: "basico"
   tags: ["via_lactea", "ubicacion"]
 
-respuesta: "Sagitario A*"
-tipo: mc
-opciones_explicitas: ["Sagitario A*", "Sirio", "Betelgeuse", "Polaris"]
+tipo: completar
+respuestas_validas:
+  - "Vía Láctea"
+  - "Andrómeda"
+  - "Sagitario"
 
-enunciado: "¿Cómo se denomina al agujero negro supermasivo situado en el centro de nuestra galaxia, la Vía Láctea?"
+enunciado: "El nombre de nuestra galaxia, el sistema donde se encuentra el Sistema Solar, es la ___."
 
 explicacion: |
-  El objeto masivo en el centro de la Vía Láctea es conocido como Sagitario A*.
+  Nosotros habitamos la Vía Láctea, una galaxia de tipo espiral.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "avanzado"
-  tags: ["evolucion", "masa"]
+  tema: "galaxias_tipos_escala"
+  nivel: "intermedio"
+  tags: ["componentes", "gravedad"]
 
-respuesta: 1000000
+variables:
+  componentes: ["estrellas", "gas", "polvo", "materia oscura"]
+
+tipo: mc
+opciones_explicitas: ["Solo estrellas y planetas", "Estrellas, gas, polvo y materia oscura", "Solo materia oscura y agujeros negros", "Solo gas y polvo estelar"]
+respuesta: "Estrellas, gas, polvo y materia oscura"
+
+enunciado: "Considerando los componentes de una galaxia: {componentes[0]}, {componentes[1]}, {componentes[2]}, ¿cuál es el cuarto elemento esencial que aporta la mayor parte de la masa?"
+
+explicacion: |
+  La materia oscura es un componente fundamental que no emite luz pero ejerce la gravedad necesaria para mantener la estructura galáctica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "avanzado"
+  tags: ["orden", "jerarquia"]
+
+tipo: ordenar
+opciones_explicitas: ["Planeta", "Sistema Solar", "Galaxia", "Universo"]
+
+enunciado: "Ordena los siguientes objetos astronómicos de menor a mayor escala jerárquica:"
+
+explicacion: |
+  La jerarquía correcta va desde el cuerpo celeste individual (planeta), pasando por su sistema de órbitas, el conjunto de sistemas (galaxia), hasta la totalidad del cosmos (universo).
+respuesta_orden: ["Planeta", "Sistema Solar", "Galaxia", "Universo"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["gravedad", "fuerzas"]
+
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si un agujero negro estelar típico tiene una masa de aproximadamente 10 veces la masa solar, un agujero negro supermasivo promedio en una galaxia espiral puede tener aproximadamente ___ masas solares. Escribe el valor numérico (sin unidades)."
-
-explicacion: |
-  Los agujeros negros supermasivos superan con creces las escalas estelares, alcanzando millones de masas solares.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "intermedio"
-  tags: ["clasificacion", "origen"]
-
-respuesta: "supermasivo"
-tipo: mc
-opciones_explicitas: ["estelar", "supermasivo", "primordial"]
-
-enunciado: "Los agujeros negros que se forman por el colapso de estrellas masivas se conocen como estelares. ¿Cuál es la clasificación de aquellos que habitan en el centro de las galaxias y poseen masas extremas?"
-
-explicacion: |
-  La distinción principal radica en su masa y su ubicación en el núcleo galáctico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "intermedio"
-  tags: ["astronomia", "estrellas"]
-
-variables:
-  escenario: uno_de([["8 masas solares", "enana blanca"], ["15 masas solares", "estrella de neutrones"], ["40 masas solares", "agujero negro"]])
-  masa_inicial: escenario[0]
-  resultado_final: escenario[1]
-
-tipo: mc
-opciones_explicitas: ["enana blanca", "estrella de neutrones", "agujero negro"]
-respuesta: resultado_final
-
-enunciado: "Una estrella con una masa inicial de {masa_inicial} evolucionará, tras agotar su combustible, convirtiéndose en un/a ___."
-
-explicacion: |
-  El destino de una estrella depende de su masa remanente. Una estrella de {masa_inicial} terminará como un/a {resultado_final}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "avanzado"
-  tags: ["fisica_estelar"]
-
-variables:
-  caso: uno_de([["1.4", "enana blanca"], ["2.5", "estrella de neutrones"], ["5.0", "agujero negro"]])
-  valor: caso[0]
-  destino: caso[1]
-
-tipo: completar
-respuestas_validas:
-  - destino
-
-enunciado: "Si el núcleo remanente de una estrella tiene una masa de {valor} masas solares, el objeto resultante será una ___."
-
-explicacion: |
-  El límite de Chandrasekhar (~1.4 M☉) determina si un remanente se convierte en enana blanca o colapsa más allá. En este caso, con {valor} M☉, el destino es {destino}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "intermedio"
-  tags: ["evolucion_estelar"]
-
-tipo: ordenar
-opciones_explicitas: ["Secuencia principal", "Supernova", "Remanente compacto"]
-respuesta_orden: ["Secuencia principal", "Supernova", "Remanente compacto"]
-
-enunciado: "Ordena las etapas evolutivas de una estrella masiva que culminará en un agujero negro:"
-
-explicacion: |
-  Las estrellas masivas pasan por la secuencia principal, explotan como supernova y dejan un remanente (agujero negro si la masa es suficiente).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "basico"
-  tags: ["astronomia"]
-
-variables:
-  datos: [["enana blanca", "presión de degeneración electrónica"], ["estrella de neutrones", "presión de degeneración de neutrones"], ["agujero negro", "colapso gravitatorio total"]]
-  idx: uno_de([0, 1, 2])
-  objeto: datos[idx][0]
-  causa: datos[idx][1]
-  respuesta_correcta: datos[idx][1]
-
-tipo: mc
-opciones_explicitas: ["presión de degeneración electrónica", "presión de degeneración de neutrones", "colapso gravitatorio total"]
-respuesta: respuesta_correcta
-
-enunciado: "Un/a {objeto} se mantiene estable gracias a la {causa}."
-
-explicacion: |
-  El mecanismo de soporte depende de la masa: la {causa} es lo que define al/a {objeto}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "agujeros_negros"
-  nivel: "avanzado"
-  tags: ["densidad", "gravedad"]
-
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "El límite de Tolman-Oppenheimer-Volkoff, la masa máxima que puede sostener la presión de degeneración de neutrones antes de colapsar en un agujero negro, es de aproximadamente ___ masas solares."
+enunciado: "La fuerza fundamental que mantiene unidos a los componentes de una galaxia (estrellas, gas, polvo) es la ___."
 
 pasos:
-  - "Recordar el rango aceptado para el límite de Tolman-Oppenheimer-Volkoff (aprox 2-3 M☉)"
-
-respuesta: 3
+  - "Identificar la fuerza que actúa a escala macroscópica en el espacio."
 
 explicacion: |
-  Al superar el límite crítico de ~3 M☉, la presión de degeneración de neutrones ya no puede contrarrestar la gravedad, y el objeto colapsa en un agujero negro.
-```
+  La gravedad es la fuerza de atracción que permite que la materia se agrupe en estructuras masivas como las galaxias.
 
-## Sección: ampliacion-democratica-ley-saenz-pena (25 preguntas)
+respuesta: "gravedad"
+```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  tema: "galaxias_tipos_escala"
   nivel: "basico"
-  tags: ["argentina", "democracia", "ley_saenz_pena"]
+  tags: ["astronomia", "galaxias"]
 
-opciones_explicitas:
-  - "Voto secreto, universal (masculino) y obligatorio"
-  - "Voto cantado, restringido y facultativo"
-  - "Voto secreto, restringido y obligatorio"
-  - "Voto cantado, universal y facultativo"
-
-respuesta: "Voto secreto, universal (masculino) y obligatorio"
+respuesta: "espiral"
 tipo: mc
+opciones_explicitas: ["elíptica", "espiral", "irregular"]
 
-enunciado: "La Ley Sáenz Peña, sancionada en 1912, introdujo un cambio fundamental en el sistema electoral argentino al establecer el voto ___."
+enunciado: "Las galaxias que presentan una estructura de disco con brazos que se curvan desde un núcleo central se denominan galaxias ___."
 
 explicacion: |
-  La Ley 8.871, conocida como Ley Sáenz Peña, transformó la vida política argentina al garantizar el voto secreto, universal (para varones) y obligatorio, terminando con el fraude electoral de la época.
+  Las galaxias espirales, como la Vía Láctea, se caracterizan por tener un núcleo brillante y brazos espirales donde se forman nuevas estrellas.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["astronomia", "galaxias"]
+
+respuesta: "elíptica"
+tipo: mc
+opciones_explicitas: ["espiral", "elíptica", "irregular"]
+
+enunciado: "Las galaxias que tienen una forma ovalada o esférica y carecen de una estructura de brazos definida se conocen como galaxias ___."
+
+explicacion: |
+  Las galaxias elípticas suelen contener poblaciones de estrellas viejas y tienen poco gas o polvo para formar nuevas estrellas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["astronomia", "galaxias"]
+
+respuesta: "irregular"
+tipo: mc
+opciones_explicitas: ["espiral", "elíptica", "irregular"]
+
+enunciado: "Aquellas galaxias que no poseen una forma geométrica definida ni un núcleo central claro se clasifican como galaxias ___."
+
+explicacion: |
+  Las galaxias irregulares suelen ser el resultado de interacciones gravitatorias entre otras galaxias o son galaxias pequeñas en formación.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
   nivel: "intermedio"
-  tags: ["fraude", "sistema_electoral", "cambio_politico"]
-
-opciones_explicitas:
-  - "El sistema de voto cantado"
-  - "El sistema de voto secreto"
-  - "El sistema de voto obligatorio"
-  - "El sistema de voto universal"
-
-respuesta: "El sistema de voto cantado"
-tipo: mc
-
-enunciado: "Antes de la reforma de 1912, el sistema predominante que facilitaba el fraude y la coacción era el voto ___."
-
-explicacion: |
-  El voto cantado permitía que el elector manifestara su elección en voz alta frente a la autoridad de mesa, lo que facilitaba la intimidación y el control de los votos por parte de los sectores dominantes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
-  nivel: "basico"
-  tags: ["participacion", "sufragio"]
+  tags: ["astronomia", "galaxias"]
 
 variables:
-  genero: uno_de(["masculino", "femenino"])
+  idx: uno_de([0, 1, 2])
+  escenario: [["espiral", "brazos"], ["elíptica", "forma ovalada"], ["irregular", "sin forma definida"]]
 
-respuesta: genero
+respuesta: escenario[idx][0]
+tipo: mc
+opciones_explicitas: ["espiral", "elíptica", "irregular"]
+
+enunciado: "Se observa una galaxia con una estructura de {escenario[idx][1]}, ¿qué tipo de galaxia es?"
+
+explicacion: |
+  Una galaxia con esa característica es de tipo {escenario[idx][0]}. La propia Vía Láctea, en particular, es de tipo espiral.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "intermedio"
+  tags: ["astronomia", "galaxias"]
+
+respuesta: "espiral, elíptica, irregular"
 tipo: completar
 respuestas_validas:
-  - "masculino"
-  - "femenino"
+  - "espiral, elíptica, irregular"
+  - "espiral, irregular, elíptica"
 
-enunciado: "En el contexto de 1912, la universalidad del sufragio establecida por la ley se refería únicamente al sexo {genero}."
+enunciado: "El orden de los tres principales tipos de galaxias según su morfología es: 1) ___, 2) ___ y 3) ___."
 
 explicacion: |
-  Aunque la ley fue un avance democrático enorme, la universalidad estaba limitada al género masculino. El sufragio femenino en Argentina se lograría recién en 1947.
+  La clasificación morfológica clásica divide a las galaxias principalmente en espirales, elípticas e irregulares.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["astronomia", "unidades"]
+
+tipo: mc
+opciones_explicitas: ["Año luz", "Kilómetro", "Milla náutica", "Unidad Astronómica"]
+respuesta: "Año luz"
+
+enunciado: "Debido a que las distancias entre las galaxias son inmensas, los kilómetros resultan inmanejables. ¿Cuál es la unidad de medida que representa la distancia que recorre la luz en un año?"
+
+explicacion: |
+  El año luz es la unidad estándar para medir distancias interestelares e intergalácticas, ya que un kilómetro es una medida demasiado pequeña para escalas cósmicas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "intermedio"
+  tags: ["calculo", "luz"]
+
+variables:
+  velocidad_luz_km_s: 299792
+  segundos_en_un_dia: 86400
+  dias_en_un_anio: 365.25
+  distancia_anio_luz_km: 9460730472580.8
+
+tipo: completar
+tolerancia_abs: 1000000000000
+
+enunciado: "Si la luz viaja a aproximadamente {velocidad_luz_km_s} km/s, ¿cuántos kilómetros recorre aproximadamente en un año (considerando {dias_en_un_anio} días)? (Calcula el valor aproximado en km)"
+
+pasos:
+  - "Multiplica la velocidad de la luz por los segundos en un día."
+  - "Multiplica el resultado por la cantidad de días en un año."
+
+respuesta: distancia_anio_luz_km
+
+explicacion: |
+  La distancia es: 299792 * 86400 * 365.25 ≈ 9.46 * 10^12 km.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+tipo: completar
+respuestas_validas:
+  - "inmanejables"
+  - "imposibles"
+  - "infinitas"
+
+enunciado: "El uso de unidades como el año luz es necesario porque las distancias en kilómetros son ________ para el estudio de la escala galáctica."
+
+explicacion: |
+  En astronomía, las escalas humanas (como el km) pierden utilidad práctica cuando se trata de distancias entre sistemas estelares.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "intermedio"
+  tags: ["comparacion"]
+
+tipo: mc
+opciones_explicitas: ["distancia corta", "distancia larga"]
+
+enunciado: "Dependiendo de la escala, la distancia a la Luna se mide en kilómetros, mientras que la distancia a Andrómeda se mide en ________."
+
+respuesta: "distancia larga"
+
+explicacion: |
+  La Luna está a unos 384,400 km (escala local), mientras que la Galaxia de Andrómeda está a millones de años luz (escala galáctica).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
   nivel: "avanzado"
-  tags: ["orden", "proceso_historico"]
+  tags: ["orden", "jerarquia"]
 
-opciones_explicitas:
-  - "Fraude electoral"
-  - "Voto cantado"
-  - "Ley Sáenz Peña"
-  - "Democracia representativa"
+tipo: ordenar
+opciones_explicitas: ["Sistema Solar", "Galaxia", "Universo Observable"]
 
-respuesta_orden: ["Fraude electoral", "Voto cantado", "Ley Sáenz Peña", "Democracia representativa"]
+enunciado: "Ordena las siguientes estructuras de la escala más pequeña a la más grande:"
+
+explicacion: |
+  El orden correcto es: primero el Sistema Solar, luego la Galaxia (que contiene miles de millones de estrellas) y finalmente el Universo Observable.
+respuesta_orden: ["Sistema Solar", "Galaxia", "Universo Observable"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["vía_láctea", "estrellas"]
+
+respuesta: "cientos de miles de millones"
+tipo: completar
+respuestas_validas:
+  - "cientos de miles de millones"
+
+enunciado: "Se estima que nuestra galaxia, la Vía Láctea, contiene ___ de estrellas."
+
+explicacion: |
+  La Vía Láctea es una galaxia espiral que alberga una cantidad masiva de astros, estimándose en cientos de miles de millones de estrellas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["universo", "galaxias"]
+
+respuesta: "cientos de miles de millones"
+tipo: mc
+opciones_explicitas: ["cientos de miles de millones", "pocos miles", "un millón"]
+
+enunciado: "En el universo observable se estima que existen ___ de galaxias."
+
+explicacion: |
+  La escala del universo es inmensa; la cantidad de galaxias es comparable en orden de magnitud a la cantidad de estrellas en nuestra propia galaxia.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "intermedio"
+  tags: ["comparacion", "magnitud"]
+
+respuesta: "mayor"
+tipo: mc
+opciones_explicitas: ["mayor", "menor", "igual"]
+
+enunciado: "Si comparamos la cantidad de estrellas en la Vía Láctea con la cantidad de galaxias en el universo observable, la cantidad de estrellas es ___ que la de galaxias."
+
+explicacion: |
+  Aunque ambas cifras son de "cientos de miles de millones", la escala de estrellas en una sola galaxia es comparable a la escala de galaxias en el universo, pero matemáticamente la cantidad de estrellas es órdenes de magnitud superior a la de galaxias.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "avanzado"
+  tags: ["jerarquia", "escala"]
+
+respuesta_orden: ["Estrellas", "Galaxias", "Universo"]
 tipo: ordenar
 
-enunciado: "Ordene cronológicamente los procesos o elementos que definieron la transición hacia la democracia moderna en Argentina:"
+opciones_explicitas: ["Estrellas", "Galaxias", "Universo"]
+
+enunciado: "Ordena estos conceptos de menor a mayor escala de agrupación de materia:"
+
+pasos:
+  - "Identifica la unidad básica en este contexto"
+  - "Identifica el conjunto que contiene a las estrellas"
+  - "Identifica el todo que contiene a las galaxias"
 
 explicacion: |
-  La secuencia lógica muestra la crisis del sistema de fraude y voto cantado, que llevó a la sanción de la Ley Sáenz Peña y, finalmente, a la consolidación de un sistema de representación más democrático.
+  La jerarquía estructural comienza con las estrellas, las cuales se agrupan en galaxias, y estas forman parte de la estructura del universo.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
-  nivel: "intermedio"
-  tags: ["consecuencias", "radicalismo", "poder"]
-
-variables:
-  escenario: uno_de([["1916", "La llegada de la UCR al poder"], ["1916", "La continuidad del régimen conservador"]])
-
-respuesta: escenario[0]
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Gracias a la implementación de la Ley Sáenz Peña, el año {escenario[0]} marcó {escenario[1]}."
-
-explicacion: |
-  La aplicación de la nueva ley permitió que en las elecciones de 1916 la Unión Cívica Radical (UCR) llegara a la presidencia con Hipólito Yrigoyen, rompiendo el monopolio del régimen conservador.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  tema: "galaxias_tipos_escala"
   nivel: "basico"
-  tags: ["electoral", "fraude", "argentina"]
+  tags: ["verdadero_falso"]
 
-respuesta: "voto cantado"
-tipo: mc
-opciones_explicitas: ["voto secreto", "voto cantado", "voto digital", "voto por sorteo"]
+tipo: vf
+respuesta: verdadero
 
-enunciado: "Antes de la sanción de la Ley Sáenz Peña en 1912, el sistema electoral en Argentina se caracterizaba por ser un ___ , lo que facilitaba la presión de los caudillos locales sobre los votantes."
+enunciado: "Es correcto afirmar que el universo observable contiene cientos de miles de millones de galaxias."
 
 explicacion: |
-  El sistema de "voto cantado" obligaba al ciudadano a declarar su elección en voz alta frente a la autoridad de mesa, lo que permitía identificar el voto y aplicar represalias o incentivos, facilitando el fraude sistemático.
+  Las estimaciones astronómicas actuales sitúan la cantidad de galaxias en el universo observable en el orden de cientos de miles de millones.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
-  nivel: "intermedio"
-  tags: ["fraude", "oligarquia", "control"]
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["astronomia", "galaxias"]
 
 variables:
-  escenario: uno_de([["voto cantado", "manipulación"], ["voto secreto", "transparencia"]])
+  escenario: [[ "Una galaxia con un núcleo brillante y brazos curvos llenos de gas y polvo.", "Espiral" ], [ "Una galaxia con forma de disco pero sin brazos definidos.", "Lenticular" ], [ "Una galaxia con forma de esfera sin estructura de brazos.", "Elíptica" ]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["Espiral", "Lenticular", "Elíptica"]
+
+enunciado: "Se observa una estructura galáctica con las siguientes características: {escenario[idx][0]}"
+
+explicacion: |
+  La morfología de una galaxia se determina por su estructura visual. En este caso, la presencia de brazos y gas es característica de la tipo {escenario[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["astronomia", "galaxias"]
+
+respuesta: "Elíptica"
+tipo: mc
+opciones_explicitas: ["Espiral", "Elíptica"]
+
+enunciado: "Si una galaxia presenta una forma ovoide, carece de brazos espirales y tiene una cantidad mínima de gas interestelar, ¿qué tipo de galaxia es?"
+
+explicacion: |
+  Las galaxias elípticas se caracterizan por su falta de estructura de brazos y su forma redondeada u ovoide.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "intermedio"
+  tags: ["astronomia", "galaxias"]
+
+variables:
+  escenario: uno_de([["Presenta un disco prominente pero carece de brazos espirales.", "Lenticular"], ["Presenta brazos espirales muy marcados.", "Espiral"]])
 
 respuesta: escenario[1]
-tipo: completar
-respuestas_validas:
-  - "manipulación"
-  - "transparencia"
+tipo: mc
+opciones_explicitas: ["Lenticular", "Espiral"]
 
-enunciado: "En el régimen de la Generación del '80, la combinación del voto no secreto y la falta de padrones confiables permitía la ___ de los resultados electorales por parte del oficialismo de turno."
+enunciado: "Al analizar la morfología de la galaxia {escenario[0]}, ¿qué tipo de galaxia estamos observando?"
 
 explicacion: |
-  La falta de secreto en el sufragio permitía que el poder político controlara el comportamiento del elector, asegurando la continuidad de la hegemonía de la oligarquía mediante la manipulación de los resultados.
+  Las galaxias lenticulares son un caso intermedio: tienen la forma de un disco como las espirales, pero no poseen los brazos característicos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
-  nivel: "basico"
-  tags: ["ley_saenz_pena", "reforma", "democracia"]
-
-respuesta: "universal, secreto y obligatorio"
-tipo: completar
-respuestas_validas:
-  - "universal, secreto y obligatorio"
-  - "opcional, secreto y universal"
-
-enunciado: "La reforma introducida por la Ley Sáenz Peña estableció que el sufragio debía ser ___."
-
-explicacion: |
-  La Ley 8.871 transformó el sistema electoral argentino al establecer tres pilares: el voto debe ser universal (para varones), secreto (para evitar coacciones) y obligatorio (para asegurar la participación masiva).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  tema: "galaxias_tipos_escala"
   nivel: "intermedio"
-  tags: ["proceso", "ley", "reforma"]
+  tags: ["astronomia", "galaxias"]
 
-respuesta_orden: ["Crisis del régimen oligárquico", "Presión de la Unión Cívica Radical", "Sanción de la Ley Sáenz Peña"]
+variables:
+  escenario: [[ "Espiral", "brazos curvos" ], [ "Elíptica", "forma esférica" ], [ "Lenticular", "disco sin brazos" ]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: escenario[idx][1]
+tipo: completar
+respuestas_validas:
+  - escenario[idx][1]
+
+enunciado: "Una galaxia de tipo {escenario[idx][0]} se caracteriza principalmente por tener ___."
+
+explicacion: |
+  La descripción de la galaxia {escenario[idx][0]} corresponde a la característica de {escenario[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "galaxias_tipos_escala"
+  nivel: "avanzado"
+  tags: ["astronomia", "galaxias"]
+
+variables:
+  orden_correcto: ["Elíptica", "Lenticular", "Espiral"]
+
+respuesta_orden: orden_correcto
 tipo: ordenar
-opciones_explicitas: ["Crisis del régimen oligárquico", "Presión de la Unión Cívica Radical", "Sanción de la Ley Sáenz Peña"]
+opciones_explicitas: ["Elíptica", "Lenticular", "Espiral"]
 
-enunciado: "Ordene cronológicamente los eventos que llevaron a la democratización del sistema electoral en Argentina:"
+enunciado: "Ordene los siguientes tipos de galaxias de menor a mayor complejidad estructural (desde la más simple/esférica a la más compleja/con brazos):"
 
 explicacion: |
-  La crisis del modelo oligárquico y la presión constante de la oposición (especialmente la UCR) forzaron al gobierno de Roque Sáenz Peña a sancionar la ley para legitimar el sistema y evitar una revolución.
+  La secuencia correcta es {orden_correcto}, partiendo de la forma más simple (elíptica) hasta la más estructurada (espiral).
+```
+
+## Sección: nucleosintesis (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["big_bang", "hidrogeno"]
+
+enunciado: "Durante la nucleosíntesis primordial, el elemento más abundante tras el Big Bang fue el ___."
+
+respuestas_validas:
+  - "hidrógeno"
+  - "hidrogeno"
+respuesta: "hidrógeno"
+tipo: completar
+
+explicacion: |
+  El hidrógeno es el elemento más simple y abundante, representando aproximadamente el 75% de la masa de la materia bariónica inicial.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
-  nivel: "avanzado"
-  tags: ["consecuencia", "radicalismo", "voto"]
-
-variables:
-  caso: uno_de([["1916", "triunfo de Hipólito Yrigoyen"], ["1916", "triunfo del conservadurismo"]])
-
-respuesta: caso[1]
-tipo: mc
-opciones_explicitas: ["triunfo de Hipólito Yrigoyen", "triunfo del conservadurismo"]
-
-enunciado: "Como consecuencia directa de la implementación de la nueva ley, en las elecciones de {caso[0]} se produjo el ___."
-
-explicacion: |
-  La implementación del voto secreto permitió que la Unión Cívica Radical, liderada por Hipólito Yrigoyen, lograra su primera victoria presidencial, rompiendo el monopolio de los partidos conservadores.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  tema: "nucleosintesis"
   nivel: "basico"
-  tags: ["argentina", "democracia", "irrigoyen"]
+  tags: ["helio", "big_bang"]
 
-tipo: mc
-opciones_explicitas: ["Unión Cívica Radical", "Partido Demócrata", "Partido Conservador", "Partido Socialista"]
+enunciado: "La abundancia de helio-4 resultante de los primeros minutos del universo es de aproximadamente un ___ %."
 
-enunciado: "En las elecciones presidenciales de 1916, tras la implementación de la Ley Sáenz Peña, el partido ganador fue la ___."
-
-respuesta: "Unión Cívica Radical"
+respuestas_validas:
+  - "25"
+respuesta: "25"
+tipo: completar
 
 explicacion: |
-  La Ley Sáenz Peña (1912) estableció el voto universal, secreto y obligatorio. Esto permitió que la Unión Cívica Radical, liderada por Hipólito Yrigoyen, llegara a la presidencia en 1916, rompiendo el hegemonismo del régimen conservador.
+  La nucleosíntesis primordial produjo aproximadamente un 25% de helio en masa, junto con trazas de otros elementos livianos.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
   nivel: "intermedio"
-  tags: ["ley_saenz_pena", "voto_secreto"]
+  tags: ["litio", "elementos_livianos"]
 
-variables:
-  escenario: uno_de([["el voto era abierto y fraudulento", "el régimen conservador"], ["el voto era secreto y obligatorio", "la democracia representativa"]])
+enunciado: "Además de hidrógeno y helio, la nucleosíntesis primordial dejó trazas de un tercer elemento liviano llamado ___."
 
-tipo: mc
-opciones_explicitas: ["el régimen conservador", "la democracia representativa"]
-
-enunciado: "Antes de la reforma de 1912, el sistema electoral se caracterizaba por {escenario[0]}. Esto permitía que {escenario[1]} fuera controlada por la oligarquía."
-
-respuesta: "el régimen conservador"
+respuestas_validas:
+  - "litio"
+respuesta: "litio"
+tipo: completar
 
 explicacion: |
-  El sistema anterior permitía el fraude mediante el voto cantado, lo que facilitaba la manipulación de resultados por parte de los sectores dominantes.
+  El litio es el tercer elemento más ligero producido en este proceso, aunque en cantidades mucho menores que el hidrógeno y el helio.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
   nivel: "intermedio"
-  tags: ["caracteristicas", "voto"]
+  tags: ["proceso", "tiempo"]
+
+enunciado: "La nucleosíntesis primordial ocurrió durante los primeros ___ minutos después del Big Bang."
+
+respuestas_validas:
+  - "20"
+respuesta: "20"
+tipo: completar
+
+explicacion: |
+  El proceso de nucleosíntesis fue muy breve, ocurriendo aproximadamente entre los 3 y los 20 minutos tras la expansión inicial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
+  nivel: "avanzado"
+  tags: ["abundancia", "proporciones"]
+
+enunciado: "Si el hidrógeno representa el 75% de la masa, el helio representa el ___%."
+
+respuestas_validas:
+  - "25"
+respuesta: "25"
+tipo: completar
+
+explicacion: |
+  En el modelo estándar de la nucleosíntesis primordial, la masa se distribuye aproximadamente en un 75% de hidrógeno y un 25% de helio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["fusion", "hidrogeno", "estrellas"]
+
+tipo: mc
+opciones_explicitas: ["Fusión de helio", "Fusión de hidrógeno", "Fisión de uranio", "Fusión de carbono"]
+respuesta: "Fusión de hidrógeno"
+
+enunciado: "¿Cuál es el proceso de nucleosíntesis que sostiene a una estrella en la secuencia principal durante la mayor parte de su vida?"
+
+explicacion: |
+  La fusión de hidrógeno en helio es el proceso fundamental que libera la energía que permite a una estrella brillar.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["hierro", "energia", "limite"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "La fusión de elementos más pesados que el hierro (Fe) es un proceso que libera energía neta para la estrella, permitiéndole seguir brillando por más tiempo."
+
+explicacion: |
+  Falso. El hierro es el límite de la nucleosíntesis estelar porque la fusión de elementos más pesados que el hierro consume energía en lugar de liberarla, lo que lleva al colapso del núcleo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
+  nivel: "avanzado"
+  tags: ["secuencia", "elementos", "estelar"]
 
 tipo: ordenar
-opciones_explicitas: ["Voto Cantado", "Voto Secreto", "Voto Universal", "Voto Obligatorio"]
+opciones_explicitas: ["Hidrógeno", "Helio", "Carbono", "Hierro"]
+respuesta_orden: ["Hidrógeno", "Helio", "Carbono", "Hierro"]
 
-enunciado: "Ordene cronológicamente la evolución del sistema de votación en Argentina, desde el modelo previo a la Ley Sáenz Peña hasta el modelo implementado por esta ley."
-
-respuesta_orden: ["Voto Cantado", "Voto Secreto", "Voto Universal", "Voto Obligatorio"]
+enunciado: "Ordená cronológicamente los elementos que se forman mediante la fusión en el interior de una estrella masiva, desde su fase de secuencia principal hasta el final de su vida estelar:"
 
 explicacion: |
-  La Ley Sáenz Peña transformó el sistema de un modelo de voto cantado (abierto) a uno basado en la universalidad (masculina), la obligatoriedad y, fundamentalmente, el secreto para evitar el fraude.
+  Las estrellas masivas queman sucesivamente elementos más pesados a medida que su núcleo se contrae y calienta: hidrógeno → helio → carbono → ... hasta llegar al hierro.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
   nivel: "basico"
-  tags: ["irrigoyen", "presidencia"]
+  tags: ["helio", "carbono", "procesos"]
 
-tipo: completar
-respuestas_validas:
-  - "Hipólito Yrigoyen"
+tipo: mc
+opciones_explicitas: ["Oxígeno", "Carbono", "Neón", "Magnesio"]
+respuesta: "Carbono"
 
-enunciado: "El primer presidente elegido bajo el nuevo sistema de sufragio universal, secreto y obligatorio fue ___."
-
-respuesta: "Hipólito Yrigoyen"
+enunciado: "Cuando una estrella agota su hidrógeno, comienza la fusión de helio en su núcleo, produciendo principalmente el elemento ___."
 
 explicacion: |
-  Hipólito Yrigoyen asumió la presidencia en 1916, representando el triunfo de las fuerzas populares y el fin del control exclusivo de la oligarquía sobre el Poder Ejecutivo.
+  El proceso triple alfa permite la fusión de tres núcleos de helio para formar un núcleo de carbono.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["hierro", "energia", "colapso"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "El hierro es considerado el 'límite de la nucleosíntesis' porque su núcleo es extremadamente estable y la fusión de elementos más pesados que él requiere un aporte de energía en lugar de liberarla."
+
+explicacion: |
+  Verdadero. Debido a la alta estabilidad del núcleo de hierro, la fusión subsiguiente no puede sostener la presión térmica necesaria para contrarrestar la gravedad, provocando el colapso estelar.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["estrellas", "hierro"]
+
+enunciado: "En el ciclo de vida de una estrella masiva, la fusión nuclear es un proceso que libera energía hasta que se llega a un elemento que no puede fusionarse para liberar más energía. Este elemento es el ___."
+
+respuestas_validas:
+  - "hierro"
+respuesta: "hierro"
+tipo: completar
+
+explicacion: |
+  El hierro-56 es el elemento más estable; fusionar elementos más pesados que el hierro requiere energía en lugar de liberarla, lo que marca el fin de la fusión estelar normal.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["supernova", "oro"]
+
+enunciado: "Los elementos más pesados que el hierro, como el oro, no se forman en la fusión estelar cotidiana, sino en eventos catastróficos. Uno de estos eventos es la explosión de una ___."
+
+respuestas_validas:
+  - "supernova"
+respuesta: "supernova"
+tipo: completar
+
+explicacion: |
+  Las supernovas proporcionan el flujo masivo de neutrones necesario para que los núcleos capturen partículas y crezcan más allá del hierro.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
   nivel: "avanzado"
-  tags: ["consecuencias", "politica"]
+  tags: ["estrellas_de_neutrones", "uranio"]
 
-variables:
-  caso: uno_de([[1, "fin del régimen conservador"], [2, "fortalecimiento de la oligarquía"]])
+enunciado: "La síntesis de elementos extremadamente pesados como el uranio ocurre principalmente durante la ___."
 
-tipo: mc
-opciones_explicitas: ["fin del régimen conservador", "fortalecimiento de la oligarquía"]
-
-enunciado: "La implementación de la Ley Sáenz Peña tuvo como consecuencia principal el {caso[0]} en Argentina."
-
-respuesta: caso[1]
-
-explicacion: |
-  La apertura democrática permitió que sectores que habían estado excluidos del poder político, como la Unión Cívica Radical, pudieran competir y ganar mediante el voto popular.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
-  nivel: "basico"
-  tags: ["sufragio", "argentina", "ley_saenz_pena"]
-
-respuesta: "varones"
-tipo: mc
-opciones_explicitas: ["mujeres", "varones", "todos los ciudadanos", "extranjeros"]
-
-enunciado: "Aunque la Ley Sáenz Peña de 1912 introdujo el voto universal, secreto y obligatorio, en la práctica este derecho estaba limitado exclusivamente a los ___."
-
-explicacion: |
-  La Ley Sáenz Peña garantizó el voto para los varones mayores de 18 años, pero excluyó sistemáticamente a las mujeres del proceso electoral.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
-  nivel: "intermedio"
-  tags: ["sufragio_femenino", "evita", "derechos"]
-
-variables:
-  escenario: uno_de([["1947", "Ley de Sufragio Femenino"], ["1912", "Ley Sáenz Peña"]])
-  año: escenario[0]
-  evento: escenario[1]
-
-respuesta: escenario[0]
-tipo: completar
 respuestas_validas:
-  - "1947"
-  - "1912"
-
-enunciado: "Si bien la reforma de 1912 fue un paso hacia la democracia, las mujeres en Argentina no pudieron ejercer el voto hasta el año ___."
+  - "colisión de estrellas de neutrones"
+  - "colision de estrellas de neutrones"
+respuesta: "colisión de estrellas de neutrones"
+tipo: completar
 
 explicacion: |
-  Fue mediante la sanción de la Ley 13.010, impulsada por el voto femenino, que las mujeres argentinas obtuvieron el derecho político pleno en 1947.
+  Las colisiones de estrellas de neutrones (kilonovas) son sitios ideales para el proceso r (captura rápida de neutrones), creando elementos como el uranio.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  tema: "nucleosintesis"
   nivel: "intermedio"
-  tags: ["cronologia", "historia_argentina"]
+  tags: ["proceso_r", "neutrones"]
 
-respuesta_orden: ["Ley Sáenz Peña", "Ley de Sufragio Femenino", "Ley de Ciudadanía Argentina"]
-tipo: ordenar
-opciones_explicitas: ["Ley Sáenz Peña", "Ley de Sufragio Femenino", "Ley de Ciudadanía Argentina"]
+enunciado: "Para que un núcleo atómico crezca y se convierta en un elemento pesado como el uranio, debe capturar rápidamente una gran cantidad de ___."
 
-enunciado: "Ordena cronológicamente los hitos que ampliaron la base electoral en Argentina:"
+respuestas_validas:
+  - "neutrones"
+respuesta: "neutrones"
+tipo: completar
 
 explicacion: |
-  La secuencia correcta marca la transición desde un voto masculino (1912), pasando por la inclusión de la mujer (1947), hasta la plena ciudadanía para inmigrantes (1972).
+  El proceso r (rápido) implica que los núcleos capturan neutrones más rápido de lo que pueden decaer, permitiendo la creación de elementos muy pesados.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  tema: "nucleosintesis"
   nivel: "basico"
-  tags: ["caracteristicas", "voto"]
+  tags: ["elementos", "pesados"]
 
-respuesta: "secreto"
-tipo: mc
-opciones_explicitas: ["público", "secreto", "opcional", "electivo"]
+enunciado: "Si un elemento tiene un número atómico mayor al del hierro, su origen probable es un evento de nucleosíntesis ___."
 
-enunciado: "Uno de los pilares de la Ley Sáenz Peña para evitar el fraude mediante el control de la voluntad del votante fue el voto ___."
+respuestas_validas:
+  - "explosiva"
+respuesta: "explosiva"
+tipo: completar
 
 explicacion: |
-  El voto secreto fue fundamental para terminar con el sistema de "voto cantado" que permitía la coacción de los patrones sobre los trabajadores.
+  La nucleosíntesis explosiva ocurre durante eventos de alta energía como supernovas o colisiones de objetos compactos, permitiendo superar la barrera de estabilidad del hierro.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["estrellas", "hierro", "origen"]
+
+tipo: mc
+opciones_explicitas: ["Fusión de hidrógeno", "Fusión de helio", "Fusión de elementos pesados en núcleos estelares", "Espacio vacío"]
+
+respuesta: "Fusión de elementos pesados en núcleos estelares"
+
+enunciado: "El hierro presente en nuestra sangre (hemoglobina) no se creó en el Sistema Solar, sino en estrellas masivas mucho antes de que existiera el Sol. ¿Cuál es el proceso principal responsable de su formación?"
+
+explicacion: |
+  Los elementos más pesados que el hierro se forman en explosiones de supernovas, mientras que el hierro se produce en las etapas finales de la vida de estrellas masivas mediante la fusión nuclear.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["tabla_periodica", "elementos", "historia"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "Si la tabla periódica es un inventario de los elementos que componen la materia, la mayoría de los elementos más pesados que el litio se formaron en el interior de las estrellas."
+
+explicacion: |
+  Verdadero. El Big Bang sólo produjo hidrógeno, helio y trazas de litio. Todos los demás elementos (carbono, oxígeno, calcio, etc.) requieren procesos estelares para su formación.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["supernova", "elementos", "polvo"]
+
+tipo: mc
+opciones_explicitas: ["La formación de un planeta", "La explosión de una supernova", "La formación de una nebulosa", "El enfriamiento del Sol"]
+
+respuesta: "La explosión de una supernova"
+
+enunciado: "Para que los elementos pesados fabricados en el núcleo de una estrella puedan dispersarse por el universo y formar nuevos sistemas solares como el nuestro, ¿qué evento astronómico es necesario?"
+
+explicacion: |
+  Las supernovas actúan como mecanismos de dispersión, lanzando los elementos sintetizados al medio interestelar, donde eventualmente se condensan en planetas y vida.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["calcio", "biologia_estelar", "origen"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "Considerando que el calcio es un elemento esencial para la estructura ósea humana, cada átomo de calcio en nuestro cuerpo fue creado en una estrella que existió antes que el Sol."
+
+explicacion: |
+  Es cierto. El calcio es un elemento pesado que requiere procesos de nucleosíntesis estelar (como la captura de partículas alfa) para existir.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
   nivel: "avanzado"
-  tags: ["democracia", "exclusiones"]
-
-variables:
-  caso: uno_de(["se incluyeron", "se excluyeron"])
-
-respuesta: "se excluyeron"
+  tags: ["tiempo_cosmico", "elementos", "genealogia"]
 
 tipo: mc
-opciones_explicitas: ["se incluyeron", "se excluyeron"]
+opciones_explicitas: ["Los elementos se crean simultáneamente al Sol", "Los elementos pesados se crean después de la Tierra", "Los elementos pesados se crearon en generaciones estelares previas", "Los elementos no cambian con el tiempo"]
 
-enunciado: "Considerando la composición de la población argentina en 1912, ¿qué ocurrió con el género femenino en la implementación de la Ley Sáenz Peña? Las mujeres {caso} del derecho al voto."
+respuesta: "Los elementos pesados se crearon en generaciones estelares previas"
+
+enunciado: "Desde una perspectiva de 'historia profunda', la composición química de la Tierra es un registro de eventos astronómicos pasados. ¿Cuál es la relación correcta entre la creación de elementos pesados y nuestro sistema solar?"
 
 explicacion: |
-  A pesar de la modernización del sistema, la exclusión de la mitad de la población (las mujeres) demuestra que la "universalidad" de la época era solo para el género masculino.
+  La materia que nos compone es el resultado de ciclos de vida y muerte estelar previos. El sistema solar se formó a partir de nubes de gas y polvo que ya contenían los elementos fabricados por estrellas anteriores.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  tema: "nucleosintesis"
   nivel: "basico"
-  tags: ["voto_cantado", "sistema_oligarquico"]
+  tags: ["big_bang", "hidrogeno"]
 
-variables:
-  datos: [["El voto era realizado de forma ___", "abierto"], ["El voto era realizado de forma ___", "secreto"], ["El voto era realizado de forma ___", "obligatorio"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+opciones_explicitas: ["Big Bang", "Fusión estelar", "Supernova"]
+respuesta: "Big Bang"
 tipo: mc
-opciones_explicitas: ["abierto", "secreto", "obligatorio"]
 
-enunciado: "Antes de la sanción de la Ley Sáenz Peña, el sistema electoral se caracterizaba porque el voto era ___."
+enunciado: "El hidrógeno es el elemento más abundante del universo. ¿Cuál fue el proceso responsable de su formación?"
 
 explicacion: |
-  Antes de 1912, el sistema era el "voto cantado", lo que permitía el fraude y la presión de los caudillos locales, ya que no había secreto.
+  El hidrógeno es el elemento más simple y abundante, formado durante la nucleosíntesis primordial en los primeros minutos tras el Big Bang.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
-  nivel: "basico"
-  tags: ["caracteristicas_ley"]
-
-variables:
-  datos: [["voto universal", "masivo"], ["voto secreto", "anónimo"], ["voto obligatorio", "deber_ciudadano"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "masivo"
-  - "anónimo"
-  - "deber_ciudadano"
-
-enunciado: "Con la implementación de la Ley Sáenz Peña, el voto pasó a ser ___."
-
-explicacion: |
-  La ley estableció tres pilares: el voto era universal (para varones), secreto y obligatorio, rompiendo el control de la oligarquía.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  tema: "nucleosintesis"
   nivel: "intermedio"
-  tags: ["comparativa", "fraude"]
+  tags: ["estrellas", "carbono"]
 
-variables:
-  datos: [["Antes de 1912 el voto era ___ y después era ___", ["cantado", "secreto"]], ["Antes de 1912 el voto era ___ y después era ___", ["opcional", "obligatorio"]], ["Antes de 1912 el voto era ___ y después era ___", ["fraudulento", "transparente"]]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-
-tipo: completar
-respuestas_validas:
-  - "cantado"
-  - "secreto"
-  - "opcional"
-  - "obligatorio"
-  - "fraudulento"
-  - "transparente"
-
-enunciado: "{datos[idx][0]}"
-
-explicacion: |
-  La transición buscaba pasar de un sistema controlado y abierto a uno donde la voluntad popular fuera respetada mediante el secreto y la obligatoriedad.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
-  nivel: "basico"
-  tags: ["obligatoriedad"]
-
-variables:
-  datos: [["En el sistema anterior, votar era ___", "un privilegio"], ["En el sistema anterior, votar era ___", "un derecho"], ["En el sistema anterior, votar era ___", "una carga"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+opciones_explicitas: ["Fusión estelar (proceso triple alfa)", "Big Bang", "Supernova"]
+respuesta: "Fusión estelar (proceso triple alfa)"
 tipo: mc
-opciones_explicitas: ["un privilegio", "un derecho", "una carga"]
 
-enunciado: "Antes de la reforma, el sufragio no era un derecho para todos, sino ___ para una élite restringida."
+enunciado: "Para la formación del carbono, ¿cuál es el mecanismo principal?"
 
 explicacion: |
-  El sistema previo era restrictivo y estaba diseñado para que solo ciertos sectores sociales (la oligarquía) pudieran participar.
+  El carbono se forma en el núcleo de estrellas de la secuencia principal mediante el proceso de triple alfa (fusión de tres núcleos de helio).
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ampliacion_democratica_ley_saenz_pena"
+  tema: "nucleosintesis"
   nivel: "avanzado"
-  tags: ["consecuencias_politicas"]
+  tags: ["oro", "supernova"]
 
-variables:
-  datos: [["La ley permitió el ascenso de ___", "la UCR"], ["La ley permitió el ascenso de ___", "el radicalismo"], ["La ley permitió el ascenso de ___", "el triunfo de Hipólito Yrigoyen"]]
-  idx: uno_de([0, 1, 2])
+opciones_explicitas: ["Fusión estelar", "Big Bang", "Colisión de estrellas de neutrones o supernova"]
+respuesta: "Colisión de estrellas de neutrones o supernova"
+tipo: mc
 
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "la UCR"
-  - "el radicalismo"
-  - "el triunfo de Hipólito Yrigoyen"
-
-enunciado: "La democratización del voto fue el factor clave que permitió el ascenso político de ___ en Argentina."
+enunciado: "Si buscamos identificar el origen del oro, ¿hacia qué tipo de evento debemos mirar?"
 
 explicacion: |
-  La Ley Sáenz Peña permitió que las fuerzas de masas, como la Unión Cívica Radical, pudieran ganar elecciones de manera legítima.
-```
-
-## Sección: antigua-grecia (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["guerra", "atenas", "esparta"]
-tipo: mc
-enunciado: "El conflicto que marcó el declive de la hegemonía ateniense y reconfiguró el mapa político griego en el siglo V a.C. fue causado principalmente por el temor de los estados del Peloponeso a:"
-opciones_explicitas:
-  - "El crecimiento económico de Corinto"
-  - "El poder naval y político de Atenas"
-  - "La invasión persa de 480 a.C."
-  - "La alianza de Tebas con Esparta"
-respuesta: "El poder naval y político de Atenas"
-explicacion: "La Guerra del Peloponeso (431-404 a.C.) estalló debido al miedo de Esparta y sus aliados al creciente poder de Atenas, especialmente después de la formación de la Liga de Delos."
+  Elementos más pesados que el hierro, como el oro, requieren eventos cataclísmicos como supernovas o la fusión de estrellas de neutrones para su formación.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "antigua-grecia"
+  tema: "nucleosintesis"
   nivel: "intermedio"
-  tags: ["batalla", "naval", "salamina"]
-tipo: vf
-enunciado: "La Batalla de Salamina (480 a.C.) fue una victoria decisiva de la flota griega unida sobre la armada persa, evitando la conquista de Grecia continental por Jerjes I."
-respuesta: verdadero
-explicacion: "La batalla de Salamina frenó el avance persa y permitió a los griegos consolidar su resistencia, siendo un punto de inflexión crucial en las Guerras Médicas."
-```
+  tags: ["helio", "fusión"]
 
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["esparta", "agoge", "sociedad"]
+enunciado: "En una estrella de la secuencia principal, el paso del hidrógeno al helio ocurre mediante el proceso de ___."
+
+respuestas_validas:
+  - "fusión nuclear"
+  - "fusion nuclear"
+respuesta: "fusión nuclear"
 tipo: completar
-enunciado: "En Esparta, el sistema educativo y militar obligatorio para los varones ciudadanos desde los 7 años se denominaba __________."
-respuesta: "agoge"
+
+explicacion: |
+  Las estrellas fusionan núcleos de hidrógeno para crear helio, liberando la energía que las hace brillar.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["hierro", "nucleosintesis"]
+
+enunciado: "En el ciclo de vida de una estrella masiva, la formación de hierro marca el límite de la ___ antes de la explosión."
+
 respuestas_validas:
-  - "Agoge"
-  - "agoge"
-  - "AGOGE"
-explicacion: "El Agoge era el programa de entrenamiento físico y moral diseñado para crear soldados disciplinados y leales al estado espartano."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["filosofia", "socrates", "etica"]
-tipo: mc
-enunciado: "¿Qué filósofo ateniense es conocido por su método de interrogatorio dialéctico (mayéutica) y su ejecución por impiedad en 399 a.C.?"
-opciones_explicitas:
-  - "Platón"
-  - "Aristóteles"
-  - "Sócrates"
-  - "Diógenes"
-respuesta: "Sócrates"
-explicacion: "Sócrates no escribió obras propias; su pensamiento se conoce a través de sus discípulos, principalmente Platón. Fue condenado a beber cicuta."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["sociedad", "atenas", "mujeres"]
+  - "fusión estelar"
+  - "fusion estelar"
+respuesta: "fusión estelar"
 tipo: completar
-enunciado: "En la democracia ateniense clásica, las mujeres, los esclavos y los metecos (extranjeros residentes) estaban __________ del proceso político directo."
-respuesta: "excluidos"
-respuestas_validas:
-  - "excluidos"
-  - "Excluidos"
-  - "EXCLUIDOS"
-explicacion: "Solo los varones adultos hijos de padres atenienses tenían derechos políticos plenos, a pesar de que Atenas es considerada la cuna de la democracia."
-```
 
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["arte", "partenon", "pericles"]
-tipo: mc
-enunciado: "Durante el gobierno de Pericles, ¿qué arquitecto supervisó la construcción del Partenón en la Acrópolis de Atenas?"
-opciones_explicitas:
-  - "Fidias"
-  - "Ictino"
-  - "Calícrates"
-  - "Praxíteles"
-respuesta: "Ictino"
-explicacion: "Ictino, junto con Calícrates, diseñó el Partenón, mientras que Fidias supervisó las esculturas y la estatua crisoelefantina de Atenea."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["mitologia", "troya", "homero"]
-tipo: vf
-enunciado: "La Ilíada de Homero narra principalmente los últimos días de la guerra de Troya, centrada en la cólera del héroe Aquiles, no toda la guerra."
-respuesta: verdadero
-explicacion: "La Ilíada se concentra en la \"cólera de Aquiles\" durante un breve periodo al final de la guerra, dejando otros eventos fuera de su narrativa inmediata."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["termopilas", "leonidas", "persas"]
-tipo: completar
-enunciado: "El rey __________ de Esparta lideró a un pequeño grupo de hoplitas y aliados en la defensa del Paso de las Termópilas contra el ejército persa de Jerjes."
-respuesta: "leonidas"
-respuestas_validas:
-  - "Leonidas"
-  - "leonidas"
-  - "LEONIDAS"
-explicacion: "Leonidas I murió junto con sus 300 espartanos (y otros aliados) en 480 a.C., simbolizando la resistencia heroica contra la invasión persa."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["filosofia", "aristoteles", "logica"]
-tipo: mc
-enunciado: "¿Quién fue el fundador del Liceo y sistematizó la lógica formal, siendo discípulo de Platón?"
-opciones_explicitas:
-  - "Sócrates"
-  - "Aristóteles"
-  - "Epicuro"
-  - "Zenón de Citio"
-respuesta: "Aristóteles"
-explicacion: "Aristóteles amplió el conocimiento en biología, física, metafísica y ética, estableciendo las bases del pensamiento lógico occidental."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["democracia", "eklesia", "atenas"]
-tipo: completar
-enunciado: "La asamblea popular ateniense, donde los ciudadanos votaban directamente las leyes y decisiones de estado, se llamaba __________."
-respuesta: "ekklesia"
-respuestas_validas:
-  - "ekklesia"
-  - "Ekklesia"
-  - "EKKELESIA"
-explicacion: "La Ekklesia era el órgano soberano de la democracia ateniense, reunida regularmente en la Pnice para deliberar."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["guerra", "derrota", "atenas"]
-tipo: vf
-enunciado: "Atenas perdió la Guerra del Peloponeso en 404 a.C. debido al bloqueo naval espartano liderado por Lisandro, que cortó su suministro de grano de Hellesponto."
-respuesta: verdadero
-explicacion: "La flota ateniense fue destruida en la batalla de Egospótamos, lo que llevó al asedio y rendición de Atenas, poniendo fin a la guerra."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["politica", "demagogos", "atenas"]
-tipo: mc
-enunciado: "¿Qué político ateniense fue considerado un demagogo influyente que promovió el empoderamiento de la Asamblea sobre el Areópago?"
-opciones_explicitas:
-  - "Címon"
-  - "Mirónides"
-  - "Efialtes"
-  - "Temístocles"
-respuesta: "Efialtes"
-explicacion: "Efialtes, junto con Pericles, redujo el poder del Areópago (aristocracia) y fortaleció la democracia radical en Atenas."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["arte", "escultura", "mirón"]
-tipo: completar
-enunciado: "La escultura __________, que representa a un atleta lanzando un disco, es una obra maestra del periodo clásico de Mirón, conocida por su contrapposto inicial."
-respuesta: "discóbolo"
-respuestas_validas:
-  - "discóbolo"
-  - "Discóbolo"
-  - "DISCOBOLO"
-explicacion: "El Discóbolo de Mirón captura el momento de máxima tensión antes del lanzamiento, mostrando movimiento y equilibrio."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["filosofia", "estoicismo", "zenon"]
-tipo: mc
-enunciado: "¿Quién fundó la escuela estoica en Atenas, enseñando que la virtud es el único bien y que se debe vivir conforme a la naturaleza?"
-opciones_explicitas:
-  - "Epicuro"
-  - "Zenón de Citio"
-  - "Pitágoras"
-  - "Heráclito"
-respuesta: "Zenón de Citio"
-explicacion: "Zenón de Citio estableció el estoicismo en el Pórtico Pintado (Stoa Poikile) de Atenas tras el 300 a.C. aproximadamente."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["batalla", "maraton", "miltiades"]
-tipo: completar
-enunciado: "La primera invasión persa de Grecia fue detenida por los atenienses en la Batalla de __________ en 490 a.C., bajo el mando de Miltíades."
-respuesta: "maratón"
-respuestas_validas:
-  - "maratón"
-  - "Maraton"
-  - "MARATON"
-explicacion: "La victoria en Maratón demostró que los persas podían ser derrotados y consolidó la confianza de Atenas en su poder naval."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["teatro", "tragedia", "esquilo"]
-tipo: mc
-enunciado: "¿Qué dramaturgo es considerado el padre de la tragedia griega y escribió la obra \"Los persas\", la única tragedia que sobrevive con tema contemporáneo a su autor?"
-opciones_explicitas:
-  - "Sófocles"
-  - "Eurípides"
-  - "Esquilo"
-  - "Aristófanes"
-respuesta: "Esquilo"
-explicacion: "Esquilo introdujo el segundo actor, permitiendo el diálogo dramático. \"Los persas\" se basa en la batalla de Salamina."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["alianza", "delos", "tesoro"]
-tipo: completar
-enunciado: "La __________ de Delos era una alianza militar de ciudades griegas liderada por Atenas, cuyo tesoro estaba originalmente en la isla de Delos."
-respuesta: "liga"
-respuestas_validas:
-  - "liga"
-  - "Liga"
-  - "LIGA"
-explicacion: "La Liga de Delos evolucionó hacia el primer imperio ateniense, con el tesoro trasladado a Atenas y los fondos usados para construir el Partenón."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["filosofia", "pitagoras", "matematica"]
-tipo: mc
-enunciado: "¿Qué filósofo y matemático fundó una escuela en Crotona que combinaba matemáticas, música y misticismo, y es famoso por el teorema que lleva su nombre?"
-opciones_explicitas:
-  - "Tales de Mileto"
-  - "Pitágoras"
-  - "Anaximandro"
-  - "Parménides"
-respuesta: "Pitágoras"
-explicacion: "Pitágoras y su secta creían que la realidad es fundamentalmente matemática y practicaban la metempsicosis (reencarnación)."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["batalla", "filipo", "macedonia"]
-tipo: vf
-enunciado: "La Batalla de Queronea (338 a.C.) puso fin a la independencia de las polis griegas y estableció la hegemonía de Filipo II de Macedonia."
-respuesta: verdadero
-explicacion: "La victoria macedonia en Queronea obligó a las ciudades griegas a unirse en la Liga de Corinto bajo liderazgo macedonio."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["historiografia", "herodoto", "persas"]
-tipo: completar
-enunciado: "__________, conocido como el padre de la Historia, escribió \"Historias\" detallando las Guerras Médicas y describiendo las costumbres de los pueblos conocidos."
-respuesta: "Herodoto"
-respuestas_validas:
-  - "Herodoto"
-  - "herodoto"
-  - "HERODOTO"
-explicacion: "Herodoto recopiló relatos orales y observaciones para documentar el conflicto entre Grecia y Persia, aunque a veces incluía mitos."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["filosofia", "talos", "agua"]
-tipo: mc
-enunciado: "¿Qué filósofo de Mileto fue considerado el primer pensador occidental al proponer que el agua es el arjé (principio) de todas las cosas?"
-opciones_explicitas:
-  - "Anaxímenes"
-  - "Tales de Mileto"
-  - "Anaximandro"
-  - "Heráclito"
-respuesta: "Tales de Mileto"
-explicacion: "Tales buscó una explicación natural y material para el origen del universo, alejándose de las explicaciones mitológicas."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["batalla", "temistocles", "estrategia"]
-tipo: completar
-enunciado: "El almirante ateniense __________ persuadió a los griegos de luchar en las estrechas aguas de Salamina, neutralizando la ventaja numérica persa."
-respuesta: "temistocles"
-respuestas_validas:
-  - "temistocles"
-  - "Temistocles"
-  - "TEMISTOCLES"
-explicacion: "Temístocles, creador de la flota ateniense, argumentó que el estrecho canal impediría la maniobra de la flota persa más grande."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["filosofia", "epicuro", "placer"]
-tipo: mc
-enunciado: "¿Qué filósofo fundó una escuela en su jardín en Atenas, enseñando que el fin último de la vida es la búsqueda del placer (aponía) y la ausencia de dolor?"
-opciones_explicitas:
-  - "Zenón"
-  - "Epicuro"
-  - "Aristóteles"
-  - "Platón"
-respuesta: "Epicuro"
-explicacion: "Epicuro promovía una vida sencilla y tranquila, evitando el miedo a los dioses y a la muerte, definiendo el placer como la ausencia de sufrimiento."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["guerra", "inicio", "431"]
-tipo: completar
-enunciado: "La Guerra del Peloponeso comenzó oficialmente en el año __________ a.C., tras una serie de incidentes diplomáticos y la disputa por Corcira y Potidea."
-respuesta: 431
-respuestas_validas:
-  - 431
-  - "431 a.C."
-  - "431 AC"
-explicacion: "El año 431 a.C. marca el inicio formal del conflicto, aunque las tensiones habían crecido durante décadas."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "antigua-grecia"
-  nivel: "intermedio"
-  tags: ["filosofia", "heraclito", "cambio"]
-tipo: mc
-enunciado: "¿Qué filósofo de Éfeso es famoso por su doctrina de que \"todo fluye\" y que \"no te puedes bañar dos veces en el mismo río\"?"
-opciones_explicitas:
-  - "Parménides"
-  - "Heráclito"
-  - "Demócrito"
-  - "Empédocles"
-respuesta: "Heráclito"
-explicacion: "Heráclito enfatizaba el cambio constante y el conflicto como la fuente de toda realidad, opuesto a la estática de Parménides."
-```
-
-## Sección: antigua-roma (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["fundacion", "mito"]
-tipo: "vf"
-enunciado: "Según la tradición romana, los hermanos gemelos que fundaron la ciudad de Roma fueron Rómulo y Remo."
-respuesta: verdadero
-explicacion: "La leyenda narra que Rómulo y Remo, descendientes de Eneas y hijos de Rea Silvia y el dios Marte, fueron abandonados y amamantados por una loba antes de que Rómulo fundara Roma en el 753 a.C."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["monarquia", "reyes"]
-tipo: "completar"
-enunciado: "El último rey de Roma, conocido por su tiranía y expulsado en el 509 a.C., fue __________."
-respuesta: "Tarquino el Soberbio"
-respuestas_validas:
-  - "Tarquino el Soberbio"
-  - "tarquino el soberbio"
-  - "Tarquino soberbio"
-  - "tarquino soberbio"
-explicacion: "Lucio Tarquinio el Soberbio fue el séptimo y último rey. Su expulsión marcó el fin de la Monarquía y el inicio de la República Romana."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["republica", "sistema"]
-tipo: "completar"
-enunciado: "El período político que siguió a la caída de la monarquía en el 509 a.C. y caracterizado por el gobierno de magistrados elegidos se llama __________."
-respuesta: "república"
-respuestas_validas:
-  - "república"
-  - "republica"
-  - "la republica"
-  - "la república"
-explicacion: "La República Romana se estableció tras la expulsión de los reyes, basándose en la separación de poderes y la elección de cónsules anuales."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["magistraturas", "consules"]
-tipo: "completar"
-enunciado: "Los dos máximos magistrados anuales de la República Romana, con poder de veto entre sí, eran los __________."
-respuesta: "cónsules"
-respuestas_validas:
-  - "cónsules"
-  - "consules"
-  - "los cónsules"
-  - "los consules"
-explicacion: "El consulado era la magistratura más alta. Se elegían dos para evitar la concentración de poder, y cada uno podía vetar las decisiones del otro."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["conflictos", "plebeyos"]
-tipo: "completar"
-enunciado: "En el siglo V a.C., los plebeyos realizaron una __________ al retirse al Monte Sagrado para exigir derechos políticos y la creación del tribuno de la plebe."
-respuesta: "secesión"
-respuestas_validas:
-  - "secesión"
-  - "secesion"
-  - "la secesion"
-  - "la secesión"
-explicacion: "Las secesiones plebeyas fueron huelgas políticas masivas que obligaron al Senado a reconocer a los tribunos de la plebe como protectores de los ciudadanos comunes."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["guerras", "cartago", "anibal"]
-tipo: "mc"
-enunciado: "¿Con qué potencia mediterránea libró Roma las Guerras Púnicas, que culminaron con su destrucción total?"
-opciones_explicitas:
-  - "Cartago"
-  - "Corinto"
-  - "Tiro"
-  - "Siracusa"
-respuesta: "Cartago"
-explicacion: "Las tres Guerras Púnicas (264-146 a.C.) fueron el conflicto decisivo contra Cartago. Roma ganó la última destruyendo la ciudad y anexionando su territorio."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["anibal", "segunda-guerra-punica"]
-tipo: "completar"
-enunciado: "El general cartaginés que cruzó los Alpes con elefantes de guerra durante la Segunda Guerra Púnica fue __________."
-respuesta: "Aníbal"
-respuestas_validas:
-  - "Aníbal"
-  - "anibal"
-  - "Anibal Barca"
-  - "anibal barca"
-explicacion: "Aníbal Barca lideró una audaz invasión de Italia desde la Península Ibérica, logrando victorias clave como la de Cannas, aunque finalmente fue derrotado en Zama."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["escipion", "zama"]
-tipo: "completar"
-enunciado: "El general romano conocido como 'el Africano' que derrotó a Aníbal en la batalla de Zama fue __________."
-respuesta: "Escipión"
-respuestas_validas:
-  - "Escipión"
-  - "escipion"
-  - "Publio Cornelio Escipión"
-  - "publio cornelio escipion"
-explicacion: "Publio Cornelio Escipión Africano invadió África para obligar a Aníbal a regresar de Italia, derrotándolo en Zama en el 202 a.C. y poniendo fin a la guerra."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["senado", "instituciones"]
-tipo: "completar"
-enunciado: "La institución política romana compuesta por ancianos (senadores) que asesoraba a los magistrados y controlaba las finanzas era el __________."
-respuesta: "senado"
-respuestas_validas:
-  - "senado"
-  - "el senado"
-  - "Senado"
-  - "El Senado"
-explicacion: "El Senado era el órgano de mayor influencia y prestigio en la República, manejando la política exterior, la tesorería y las decisiones de emergencia (senatus consultum ultimum)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["leyes", "derecho"]
-tipo: "completar"
-enunciado: "El primer código escrito de leyes romanas, elaborado para proteger a los plebeyos de la arbitrariedad patricia, se conoce como la Ley de las __________ Tablas."
-respuesta: "XII"
-respuestas_validas:
-  - "XII"
-  - "12"
-  - "doce"
-  - "12 Tablas"
-  - "XII Tablas"
-explicacion: "Redactada alrededor del 450 a.C., la Ley de las XII Tablas fue la base del derecho romano, estableciendo que las leyes debían ser públicas y aplicables a todos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["caesar", "guerras-galia"]
-tipo: "completar"
-enunciado: "El general romano que conquistó la Galia y cruzó el Rubicón, desencadenando la guerra civil contra Pompeyo, fue __________."
-respuesta: "Julio César"
-respuestas_validas:
-  - "Julio César"
-  - "julio cesar"
-  - "Cayo Julio César"
-  - "cayo julio cesar"
-explicacion: "Julio César, tras ganar las Guerras de las Galias, desafió al Senado y cruzó el Rubicón en el 49 a.C., iniciando una serie de conflictos que terminaron con la caída de la República."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["pompaeo", "guerra-civil"]
-tipo: "completar"
-enunciado: "El rival político y militar de Julio César, parte del Primer Triunvirato y derrotado en Farsalia, fue __________."
-respuesta: "Pompeyo"
-respuestas_validas:
-  - "Pompeyo"
-  - "pompeyo"
-  - "Gneo Pompeyo Magno"
-  - "gneo pompeyo magno"
-explicacion: "Gneo Pompeyo Magno fue uno de los generales más exitosos de la República y formó el Primer Triunvirato con César y Craso, pero luego se enfrentó a César en la guerra civil."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["triunvirato", "alianzas"]
-tipo: "completar"
-enunciado: "El tercer miembro del Primer Triunvirato, junto a Julio César y Pompeyo, conocido por su inmensa riqueza y fallecido en Carras, fue __________."
-respuesta: "Craso"
-respuestas_validas:
-  - "Craso"
-  - "craso"
-  - "Marco Licinio Craso"
-  - "marco licinio craso"
-explicacion: "Marco Licinio Craso, el hombre más rico de Roma, financió gran parte del ascenso de César. Su muerte en la batalla de Carras contra los partos debilitó la alianza."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["idus-marzo", "asesinato"]
-tipo: "completar"
-enunciado: "Julio César fue asesinado por un grupo de senadores conspiradores en el __________ de marzo del 44 a.C."
-respuesta: "idus-marzo"
-respuestas_validas:
-  - "idus-marzo"
-  - "idus marzo"
-  - "15 de marzo"
-  - "15 marzo"
-  - "15"
-  - "XV"
-explicacion: "El 15 de marzo del 44 a.C., César fue apuñalado en el Teatro de Pompeyo por senadores que temían que quisiera convertirse en rey (rex)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["triunvirato", "augusto"]
-tipo: "completar"
-enunciado: "El sucesor político y nieto adoptivo de Julio César, que fundó el Imperio Romano, fue __________."
-respuesta: "Augusto"
-respuestas_validas:
-  - "Augusto"
-  - "augusto"
-  - "Cayo Octavio Augusto"
-  - "cayo octavio augusto"
-  - "Octavio"
-  - "octavio"
-explicacion: "Octavio, tras derrotar a Marco Antonio y Cleopatra, se convirtió en el primer emperador romano, asumiendo el título de Augusto en el 27 a.C."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["actium", "batalla-naval"]
-tipo: "completar"
-enunciado: "La batalla naval decisiva del 31 a.C. donde Augusto derrotó a Marco Antonio y Cleopatra tuvo lugar en __________."
-respuesta: "Actium"
-respuestas_validas:
-  - "Actium"
-  - "actium"
-  - "el golfo de Actium"
-  - "Golfo de Actium"
-explicacion: "La victoria en Actium permitió a Octavio consolidar su poder absoluto sobre el mundo romano, eliminando a sus últimos rivales políticos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["pax-romana", "periodo"]
-tipo: "completar"
-enunciado: "El largo período de relativa paz y estabilidad interna en el Imperio Romano, iniciado con el reinado de Augusto, se conoce como __________."
-respuesta: "Pax Romana"
-respuestas_validas:
-  - "Pax Romana"
-  - "pax romana"
-  - "La Pax Romana"
-  - "la pax romana"
-explicacion: "La Pax Romana duró aproximadamente dos siglos (desde el 27 a.C. hasta el 180 d.C.), facilitando el comercio, la cultura y la administración imperial."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["trajano", "expansion"]
-tipo: "completar"
-enunciado: "El emperador bajo cuyo gobierno el Imperio Romano alcanzó su máxima extensión territorial fue __________."
-respuesta: "Trajano"
-respuestas_validas:
-  - "Trajano"
-  - "trajano"
-  - "Marco Ulpio Trajano"
-  - "marco ulpio trajano"
-explicacion: "Trajano expandió el imperio conquistando Dacia (Rumania) y partes de Mesopotamia (Irak), llevando la frontera del Éufrates al punto más lejano de Roma."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["adriano", "muro"]
-tipo: "completar"
-enunciado: "El emperador que construyó el famoso muro en la provincia de Britania para defenderla de los pictos fue __________."
-respuesta: "Adriano"
-respuestas_validas:
-  - "Adriano"
-  - "adriano"
-  - "Publio Elio Adriano"
-  - "publio elio adriano"
-explicacion: "Publio Elio Adriano abandonó las expansiones de Trajano y consolidó las fronteras, construyendo el Muro de Adriano en Britania alrededor del 122 d.C."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["constantino", "cristianismo"]
-tipo: "completar"
-enunciado: "El primer emperador romano en legalizar y promover el cristianismo mediante el Edicto de Milán fue __________."
-respuesta: "Constantino"
-respuestas_validas:
-  - "Constantino"
-  - "constantino"
-  - "Constantino el Grande"
-  - "constantino el grande"
-explicacion: "Constantino I legalizó el cristianismo en el 313 d.C. y se convirtió en el patrón del Imperio, trasladando la capital a Constantinopla."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["milan", "religion"]
-tipo: "completar"
-enunciado: "El documento promulgado en el año 313 d.C. que establecía la tolerancia religiosa en el Imperio Romano, especialmente para el cristianismo, fue el __________."
-respuesta: "Edicto de Milán"
-respuestas_validas:
-  - "Edicto de Milán"
-  - "edicto de milan"
-  - "El Edicto de Milán"
-  - "el edicto de milan"
-explicacion: "El Edicto de Milán, emitido por Constantino y Licinio, puso fin a las persecuciones contra los cristianos y garantizó la libertad de culto."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["division", "teodosio"]
-tipo: "completar"
-enunciado: "El último emperador que gobernó unificado el Imperio Romano, dividiéndolo definitivamente entre sus hijos al morir en el 395 d.C., fue __________."
-respuesta: "Teodosio"
-respuestas_validas:
-  - "Teodosio"
-  - "teodosio"
-  - "Teodosio I"
-  - "teodosio i"
-  - "Flavio Teodosio"
-  - "flavio teodosio"
-explicacion: "Teodosio I estableció el cristianismo como religión oficial y, al morir, dividió el imperio entre sus hijos Arcadio (Oriente) y Honorio (Occidente)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["sack", "visigodos"]
-tipo: "completar"
-enunciado: "Los __________ saquearon Roma en el año 410 d.C., un evento simbólico que sacudió al mundo antiguo."
-respuesta: "visigodos"
-respuestas_validas:
-  - "visigodos"
-  - "visigodos"
-  - "los visigodos"
-  - "Los visigodos"
-  - "Alarico"
-  - "alarico"
-explicacion: "El saqueo de Roma por los visigodos liderados por Alarico en el 410 d.C. fue el primero en siglos y mostró la vulnerabilidad de la capital imperial."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["caida", "476"]
-tipo: "completar"
-enunciado: "El año tradicionalmente señalado como el fin del Imperio Romano de Occidente, cuando el último emperador Rómulo Augústulo fue depuesto, es el __________."
-respuesta: "476"
-respuestas_validas:
-  - "476"
-  - "476 d.C."
-  - "476 DC"
-  - "el 476"
-  - "año 476"
-explicacion: "En el 476 d.C., Odoacro, líder de los hérulos, depuso a Rómulo Augústulo, poniendo fin formalmente al Imperio Romano de Occidente."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antigua-roma"
-  nivel: "intermedio"
-  tags: ["derecho", "legado"]
-tipo: "completar"
-enunciado: "El cuerpo de leyes y principios jurídicos desarrollado por Roma que sirve de base para los sistemas legales de muchos países modernos se llama __________."
-respuesta: "Derecho Romano"
-respuestas_validas:
-  - "Derecho Romano"
-  - "derecho romano"
-  - "El Derecho Romano"
-  - "el derecho romano"
-explicacion: "El Derecho Romano es uno de los legados más duraderos de la antigua Roma, influyendo en las constituciones y códigos civiles de Europa y América."
+explicacion: |
+  El hierro es el elemento más estable; una vez que el núcleo estelar se convierte en hierro, la fusión que libera energía cesa y la estrella colapsa.
 ```
 

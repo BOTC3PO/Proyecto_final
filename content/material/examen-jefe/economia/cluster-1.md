@@ -1,415 +1,8 @@
 # Examen jefe — [PENDIENTE #766]
 
-> Logro #766. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
+> Logro #766. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **116 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: balanza-comercial (21 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Qué mide la balanza comercial de un país?"
-tipo: mc
-opciones_explicitas:
-  - "La diferencia entre lo que exporta y lo que importa"
-  - "El total de dinero que tiene el banco central"
-  - "El PBI total del país"
-respuesta: "La diferencia entre lo que exporta y lo que importa"
-
-explicacion: |
-  Balanza comercial = Exportaciones - Importaciones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Qué es una exportación?"
-tipo: mc
-opciones_explicitas:
-  - "Un bien o servicio producido dentro del país, vendido a compradores de otros países"
-  - "Un bien producido en otro país, comprado por residentes locales"
-  - "Cualquier producto que se vende dentro del propio país"
-respuesta: "Un bien o servicio producido dentro del país, vendido a compradores de otros países"
-
-explicacion: |
-  Se produce adentro, se vende afuera.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Qué es una importación?"
-tipo: mc
-opciones_explicitas:
-  - "Un bien o servicio producido en otro país, comprado por residentes del propio país"
-  - "Un bien producido dentro del país, vendido afuera"
-  - "Cualquier producto fabricado por una empresa extranjera, sin importar dónde se vende"
-respuesta: "Un bien o servicio producido en otro país, comprado por residentes del propio país"
-
-explicacion: |
-  Se produce afuera, se compra adentro.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Cuándo un país tiene superávit comercial?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando sus exportaciones son mayores que sus importaciones"
-  - "Cuando sus importaciones son mayores que sus exportaciones"
-  - "Cuando su PBI crece más del 3% anual"
-respuesta: "Cuando sus exportaciones son mayores que sus importaciones"
-
-explicacion: |
-  La balanza da un resultado positivo cuando exporta más de lo que
-  importa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Cuándo un país tiene déficit comercial?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando sus importaciones son mayores que sus exportaciones"
-  - "Cuando sus exportaciones son mayores que sus importaciones"
-  - "Cuando su moneda se devalúa"
-respuesta: "Cuando sus importaciones son mayores que sus exportaciones"
-
-explicacion: |
-  La balanza da un resultado negativo cuando importa más de lo que
-  exporta.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "calculo"]
-
-variables:
-  exportaciones: random(300, 800) * 1000
-  importaciones: random(100, 250) * 1000
-
-respuesta: exportaciones - importaciones
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un país exportó ${exportaciones} millones y le importó ${importaciones} millones en un año. ¿Cuál fue su balanza comercial de ese período?"
-
-explicacion: |
-  Balanza = Exportaciones - Importaciones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "calculo"]
-
-variables:
-  exportaciones: random(100, 300) * 1000
-  importaciones: random(300, 600) * 1000
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un país exportó ${exportaciones} millones e importó ${importaciones} millones en un año. ¿Es correcto decir que tuvo superávit comercial?"
-
-explicacion: |
-  Como importó más de lo que exportó, tuvo déficit, no superávit.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un país puede tener déficit comercial por estar importando maquinaria para invertir en su propia producción futura — el número solo, sin contexto, no alcanza para juzgar si es \"bueno\" o \"malo\"."
-
-explicacion: |
-  Es la aclaración central del tema: el signo del resultado no dice
-  todo por sí solo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un país puede tener superávit comercial simplemente porque atraviesa una recesión que hace caer fuerte sus importaciones — no necesariamente porque su economía esté fuerte."
-
-explicacion: |
-  Es el mismo principio de la pregunta anterior, visto desde el otro
-  signo: superávit tampoco es automáticamente una buena noticia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "problema"]
-
-enunciado: "Un país sube los aranceles a los productos importados, para que sea más caro comprarlos desde afuera. ¿Qué busca lograr con esto, en términos de balanza comercial?"
-tipo: mc
-opciones_explicitas:
-  - "Reducir sus importaciones, para mejorar (o achicar el déficit de) su balanza comercial"
-  - "Aumentar sus importaciones, para mejorar su balanza comercial"
-  - "No tiene ninguna relación con la balanza comercial"
-respuesta: "Reducir sus importaciones, para mejorar (o achicar el déficit de) su balanza comercial"
-
-explicacion: |
-  Encarecer lo importado busca, justamente, que se compre menos desde
-  afuera.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Cuál es la relación entre la balanza comercial y la balanza de pagos?"
-tipo: mc
-opciones_explicitas:
-  - "La balanza comercial es sólo una parte (bienes y servicios) de un cuadro más amplio, la balanza de pagos, que también incluye inversiones y préstamos"
-  - "Son exactamente lo mismo, dos nombres para un mismo concepto"
-  - "La balanza de pagos sólo existe para países sin moneda propia"
-respuesta: "La balanza comercial es sólo una parte (bienes y servicios) de un cuadro más amplio, la balanza de pagos, que también incluye inversiones y préstamos"
-
-explicacion: |
-  La balanza comercial es la pieza más citada, pero no es todo el
-  cuadro de las relaciones económicas de un país con el resto del
-  mundo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un país que depende de exportar mayormente un solo producto tiene una balanza comercial muy sensible al precio internacional de ese producto puntual."
-
-explicacion: |
-  Si ese precio cae, las exportaciones caen con él, afectando directo
-  el resultado de la balanza.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Cuándo se dice que la balanza comercial de un país está \"equilibrada\"?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando exportaciones e importaciones son iguales"
-  - "Cuando las exportaciones son el doble de las importaciones"
-  - "Cuando no hay ningún comercio internacional"
-respuesta: "Cuando exportaciones e importaciones son iguales"
-
-explicacion: |
-  Es el caso intermedio entre superávit y déficit.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "calculo"]
-
-variables:
-  exportaciones: random(300, 800) * 1000
-  balanza: random(-100, 100) * 1000
-
-respuesta: exportaciones - balanza
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un país exportó ${exportaciones} millones en un año, y su balanza comercial de ese período fue de ${balanza} millones. ¿Cuánto importó?"
-
-pasos:
-  - "Balanza = Exportaciones - Importaciones"
-  - "Importaciones = Exportaciones - Balanza = {exportaciones} - ({balanza})"
-
-explicacion: |
-  Se despeja Importaciones de la fórmula de la balanza comercial.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando una noticia dice \"récord de exportaciones\" o \"el déficit comercial se amplió\", está hablando directamente del resultado de la balanza comercial."
-
-explicacion: |
-  Es el mismo concepto de este tema, en el lenguaje habitual de las
-  noticias económicas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "problema"]
-
-enunciado: "Una empresa local le vende software a clientes de otro país. ¿Cómo se registra esa venta en la balanza comercial del país donde está la empresa?"
-tipo: mc
-opciones_explicitas:
-  - "Como una exportación"
-  - "Como una importación"
-  - "No se registra: los servicios no cuentan en la balanza comercial"
-respuesta: "Como una exportación"
-
-explicacion: |
-  Se produjo dentro del país y se vendió a un comprador de otro país:
-  es exactamente la definición de exportación (y los servicios sí
-  cuentan, no sólo bienes físicos).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La balanza comercial se mide durante un período determinado (normalmente un año), no como una foto de un instante puntual."
-
-explicacion: |
-  Es una medida de flujo (a lo largo de un tiempo), no de stock (en un
-  momento puntual).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená esta secuencia de razonamiento sobre un arancel a productos importados."
-opciones_explicitas:
-  - "Baja la cantidad importada de ese producto"
-  - "La balanza comercial mejora (o su déficit se achica), sólo por ese efecto puntual"
-  - "El gobierno sube el arancel a un producto importado"
-  - "Ese producto se vuelve más caro para los consumidores locales"
-respuesta_orden: ["El gobierno sube el arancel a un producto importado", "Ese producto se vuelve más caro para los consumidores locales", "Baja la cantidad importada de ese producto", "La balanza comercial mejora (o su déficit se achica), sólo por ese efecto puntual"]
-
-explicacion: |
-  Cada paso es consecuencia del anterior: el arancel encarece, el
-  precio más alto reduce la cantidad comprada, y eso mejora el
-  resultado de la balanza.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La balanza comercial es la pieza más mencionada en el debate público, pero es sólo una parte del cuadro completo de las relaciones económicas de un país con el resto del mundo (la balanza de pagos)."
-
-explicacion: |
-  Es la aclaración de alcance del tema: no se confunde con el cuadro
-  completo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "basico"
-  tags: ["comercio_internacional"]
-
-variables:
-  exportaciones: random(300, 800) * 1000
-  importaciones: random(100, 250) * 1000
-  balanza: exportaciones - importaciones
-
-tipo: completar
-enunciado: "Completá: Balanza comercial = {exportaciones} - {importaciones} = ___ (balanza, en millones)."
-respuestas_validas:
-  - balanza
-
-explicacion: |
-  Es la aplicación directa de la fórmula de la balanza comercial.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "balanza_comercial"
-  nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La balanza comercial mide la diferencia entre exportaciones e importaciones de un país, y ni el superávit ni el déficit son, por sí solos, automáticamente buenos o malos."
-
-explicacion: |
-  Es la idea central de todo el tema.
-```
 
 ## Sección: blockchain-claves-wallet (22 preguntas)
 
@@ -825,475 +418,6 @@ enunciado: "Una blockchain usa hashes encadenados para hacer difícil alterar el
 
 explicacion: |
   Es la idea central de todo el tema.
-```
-
-## Sección: business-model-canvas (25 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "basico"
-  tags: ["gestion", "estrategia"]
-
-tipo: mc
-opciones_explicitas: ["Un esquema para analizar la viabilidad financiera de una empresa", "Una herramienta visual para describir y diseñar modelos de negocio", "Un software para la gestión de inventarios", "Un método para la contratación de personal"]
-respuesta: "Una herramienta visual para describir y diseñar modelos de negocio"
-
-enunciado: "El Business Model Canvas es ___."
-
-explicacion: |
-  El Business Model Canvas es una herramienta estratégica que permite visualizar los nueve módulos de un modelo de negocio en un solo lienzo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "basico"
-  tags: ["clientes", "segmentacion"]
-
-tipo: vf
-respuesta: falso
-
-enunciado: "¿El bloque 'Segmentos de Clientes' se refiere exclusivamente a la lista de nombres de las personas que compran el producto?"
-
-explicacion: |
-  Falso. El bloque define los grupos de personas u organizaciones que una empresa pretende alcanzar y servir, caracterizándolos por sus necesidades, comportamientos o atributos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "intermedio"
-  tags: ["propuesta_de_valor", "clientes"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Software de gestión para contadores", "Optimizar el tiempo de cierre contable"], ["Cafetería de especialidad", "Ofrecer un espacio de coworking con café premium"]]
-
-tipo: completar
-respuestas_validas:
-  - "Optimizar el tiempo de cierre contable"
-  - "Ofrecer un espacio de coworking con café premium"
-respuesta: escenarios[escenario_idx][1]
-
-enunciado: "Si el segmento de cliente es {escenarios[escenario_idx][0]}, una propuesta de valor coherente sería: ___."
-
-explicacion: |
-  La propuesta de valor debe resolver un problema o satisfacer una necesidad específica del segmento de cliente elegido.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "basico"
-  tags: ["vocabulario"]
-
-tipo: mc
-opciones_explicitas: ["Canales", "Presupuesto", "Organigrama", "Plan de Marketing"]
-respuesta: "Organigrama"
-
-enunciado: "¿Cuál de los siguientes NO es uno de los 9 bloques fundamentales del Business Model Canvas?"
-
-explicacion: |
-  Los 9 bloques son: Segmentos de clientes, Propuesta de valor, Canales, Relación con clientes, Flujos de ingresos, Recursos clave, Actividades clave, Alianzas clave y Estructura de costos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "intermedio"
-  tags: ["metodologia"]
-
-tipo: ordenar
-opciones_explicitas: ["Definir Segmentos de Clientes", "Definir Propuesta de Valor", "Definir Canales de Distribución", "Definir Fuentes de Ingresos"]
-respuesta_orden: ["Definir Segmentos de Clientes", "Definir Propuesta de Valor", "Definir Canales de Distribución", "Definir Fuentes de Ingresos"]
-
-enunciado: "Para construir un modelo de negocio coherente, se recomienda seguir un orden lógico de pensamiento. Ordena estos pasos desde el más fundamental al siguiente:"
-
-explicacion: |
-  Aunque el proceso puede ser iterativo, la lógica fundamental dicta que primero debes saber a quién le vendes (Segmentos), qué problema les resuelves (Propuesta de Valor), cómo les llegas (Canales) y cómo obtienes dinero (Ingresos).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "basico"
-  tags: ["modelo_de_negocio", "propuesta_de_valor"]
-
-variables:
-  caso: uno_de([["Netflix", "Suscripción de streaming de películas y series"], ["Tesla", "Vehículos eléctricos de alto rendimiento y energía sostenible"]])
-
-respuesta: "Propuesta de Valor"
-tipo: mc
-opciones_explicitas: ["Propuesta de Valor", "Segmentos de Clientes", "Canales", "Relación con Clientes"]
-
-enunciado: "En el modelo de negocio de {caso[0]}, el elemento que describe el beneficio principal que se ofrece al cliente (en este caso, {caso[1]}) corresponde al bloque de: ___"
-
-explicacion: |
-  La Propuesta de Valor es el bloque que describe el conjunto de productos y servicios que crean valor para un segmento de clientes específico. En el caso de {caso[0]}, es {caso[1]}.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "basico"
-  tags: ["segmentos", "clientes"]
-
-respuesta: "B2C"
-tipo: mc
-opciones_explicitas: ["B2B", "B2C", "C2C", "B2G"]
-
-enunciado: "Si una empresa de software vende sus licencias directamente a consumidores finales a través de una tienda online, ¿qué tipo de segmento de cliente está atacando principalmente?"
-
-explicacion: |
-  B2C (Business to Consumer) se refiere a la venta de productos o servicios de una empresa directamente al consumidor final.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "intermedio"
-  tags: ["canales", "distribucion"]
-
-respuesta: "Enviar al cliente"
-tipo: completar
-respuestas_validas:
-  - "Enviar al cliente"
-pasos:
-  - "Paso 1: Crear el producto"
-  - "Paso 2: Almacenar stock"
-  - "Paso 3: ___"
-
-enunciado: "Para un modelo de negocio basado en productos físicos, el proceso de entrega sigue este orden lógico:"
-
-explicacion: |
-  El tercer paso en la cadena de valor de distribución física es el envío o entrega al cliente final.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "intermedio"
-  tags: ["costos", "ingresos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En el Business Model Canvas, el bloque de 'Estructura de Costos' se refiere exclusivamente a los gastos de marketing y publicidad de la empresa."
-
-explicacion: |
-  Falso. La estructura de costos incluye todos los costos incurridos para operar el modelo de negocio, incluyendo costos fijos, variables, economías de escala y costos de adquisición.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "avanzado"
-  tags: ["ingresos", "flujos"]
-
-tipo: mc
-opciones_explicitas: ["Venta de activos", "Tarifa de uso", "Licencia", "Alquiler"]
-
-respuesta: "Tarifa de uso"
-
-enunciado: "Si una empresa de software cobra por cada hora de uso de su plataforma, el flujo de ingresos se clasifica como: ___"
-
-explicacion: |
-  El modelo de 'Tarifa de uso' se basa en el consumo o tiempo de uso del servicio, a diferencia de la 'Venta de activos' donde la propiedad se transfiere permanentemente.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "basico"
-  tags: ["propuesta_de_valor", "errores_comunes"]
-
-respuesta: "propuesta de valor"
-tipo: "completar"
-respuestas_validas:
-  - "propuesta de valor"
-
-enunciado: "Un error común es confundir el producto o servicio físico con la ___ , la cual debe centrarse en la solución de un problema o la satisfacción de una necesidad del cliente."
-
-explicacion: |
-  La propuesta de valor no es el objeto en sí, sino el beneficio o valor que el cliente recibe al usarlo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "intermedio"
-  tags: ["segmentos_de_clientes", "errores_comunes"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "Si una empresa intenta dirigirse a 'todo el mundo' sin definir características específicas, está cometiendo el error de no definir correctamente sus segmentos de clientes."
-
-explicacion: |
-  Intentar ser todo para todos suele diluir la propuesta de valor. La segmentación permite enfocar recursos y mensajes.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "basico"
-  tags: ["canales", "comunicacion"]
-
-opciones_explicitas: ["Canales", "Relación con clientes"]
-
-respuesta: "Canales"
-tipo: "mc"
-
-enunciado: "Muchos emprendedores confunden la comunicación (cómo se enteran de la existencia de la marca) con los ___ (cómo se entrega el producto o servicio al cliente)."
-
-explicacion: |
-  Los canales incluyen la distribución, la logística y los puntos de venta, no solo la publicidad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "intermedio"
-  tags: ["flujos_de_ingresos", "errores_comunes"]
-
-respuesta: "monetización"
-tipo: "completar"
-respuestas_validas:
-  - "monetización"
-
-enunciado: "Tener un producto exitoso no garantiza un modelo de negocio viable si no se define claramente la estrategia de ___."
-
-explicacion: |
-  El Business Model Canvas requiere entender cómo el valor se transforma en ingresos (suscripción, venta única, freemium, etc.).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "avanzado"
-  tags: ["estructura_de_costos", "escalabilidad"]
-
-enunciado: "En el modelo de consultoría tradicional, la estructura de costos suele ser variable y ligada al volumen (horas trabajadas), mientras que en el modelo de software SaaS, la estructura suele ser mayormente fija y escalable."
-
-respuesta: verdadero
-tipo: "vf"
-
-explicacion: |
-  En el modelo SaaS (Software as a Service), los costos marginales son muy bajos y la estructura es altamente escalable. En la consultoría, el costo principal es el tiempo humano (costo variable/escalabilidad limitada).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "basico"
-  tags: ["estrategia", "gestion"]
-
-respuesta: "Plan de Negocios"
-tipo: completar
-respuestas_validas:
-  - "Plan de Negocios"
-
-enunciado: "A diferencia del Business Model Canvas, que es una herramienta visual y dinámica para modelar hipótesis, el ___ es un documento detallado y extenso que describe la estrategia operativa y financiera a largo plazo."
-
-explicacion: |
-  El Business Model Canvas es una herramienta de síntesis visual (canvas), mientras que el Plan de Negocios es un documento formal y exhaustivo utilizado para buscar financiación o guiar la ejecución detallada.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "intermedio"
-  tags: ["propuesta_de_valor", "segmentos"]
-
-variables:
-  escenario: uno_de([["Un software de gestión de turnos para peluquerías", "Propuesta de Valor"], ["Un servicio de entrega de comida a domicilio", "Propuesta de Valor"], ["Un gimnasio con entrenamiento personalizado", "Propuesta de Valor"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["Segmentos de Cliente", "Propuesta de Valor", "Canales", "Relación con el Cliente"]
-
-enunciado: "En el escenario de '{escenario[0]}', el elemento central que describe el beneficio o solución que se ofrece para resolver un problema específico del cliente es la: ___"
-
-explicacion: |
-  La Propuesta de Valor es el conjunto de productos y servicios que crean valor para un segmento de mercado específico, diferenciándose de los Segmentos de Cliente (quiénes son) o los Canales (cómo llegan).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "basico"
-  tags: ["enfoque", "cliente"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "El Business Model Canvas se centra primordialmente en la estructura de costos y la logística de producción, dejando el análisis de los segmentos de cliente para una etapa posterior del desarrollo del negocio."
-
-explicacion: |
-  Falso. El Canvas es una herramienta centrada en el cliente; los segmentos de clientes y la propuesta de valor son los pilares fundamentales sobre los que se construye el resto del modelo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "intermedio"
-  tags: ["estructura", "componentes"]
-
-respuesta_orden: ["Segmentos de Cliente", "Propuesta de Valor", "Canales", "Relación con el Cliente", "Fuentes de Ingresos", "Recursos Clave", "Actividades Clave", "Asociaciones Clave", "Estructura de Costos"]
-tipo: ordenar
-
-opciones_explicitas: ["Segmentos de Cliente", "Propuesta de Valor", "Canales", "Relación con el Cliente", "Fuentes de Ingresos", "Recursos Clave", "Actividades Clave", "Asociaciones Clave", "Estructura de Costos"]
-
-enunciado: "Ordene los siguientes elementos siguiendo el flujo lógico de generación de valor (desde el cliente hacia la infraestructura interna):"
-
-explicacion: |
-  El flujo lógico comienza con el mercado (Clientes, Propuesta, Canales, Relación, Ingresos) y termina con la base operativa (Recursos, Actividades, Socios y Costos).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "intermedio"
-  tags: ["canales", "relacion"]
-
-respuesta: "Canales"
-tipo: mc
-opciones_explicitas: ["Canales", "Relación con el Cliente", "Segmentos de Cliente", "Actividades Clave"]
-
-enunciado: "Si una empresa se pregunta '¿Cómo entrego mi propuesta de valor al cliente?', está analizando sus: ___"
-
-explicacion: |
-  Los Canales se refieren a los puntos de contacto y medios de distribución para entregar el valor. La Relación con el Cliente se refiere al tipo de vínculo que se establece (asistencia personal, autoservicio, etc.).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "basico"
-  tags: ["segmentos", "clientes"]
-
-variables:
-  datos: [["App de paseo de perros para dueños ocupados", "Dueños de mascotas"], ["Software de contabilidad para freelancers", "Profesionales independientes"], ["Cafetería gourmet para estudiantes universitarios", "Estudiantes universitarios"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Dueños de mascotas", "Profesionales independientes", "Estudiantes universitarios", "Empresas de tecnología"]
-
-enunciado: "En el modelo de negocio de una {datos[idx][0]}, ¿cuál es el segmento de clientes principal?"
-
-explicacion: |
-  El segmento de clientes define quiénes son los individuos o empresas que la empresa busca alcanzar y servir. En el caso de {datos[idx][0]}, el foco está en {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "intermedio"
-  tags: ["propuesta_de_valor", "beneficios"]
-
-variables:
-  datos: [["Entrega de comida en 10 minutos", "Rapidez y conveniencia"], ["Consultoría financiera personalizada", "Confianza y experto asesoramiento"], ["Suscripción de streaming sin anuncios", "Entretenimiento sin interrupciones"]]
-  idx: uno_de([0, 1, 2])
-
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "Si el modelo de negocio se basa en {datos[idx][0]}, la propuesta de valor principal es ___."
-
-explicacion: |
-  La propuesta de valor es el conjunto de productos y servicios que crean valor para un segmento de clientes específico.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "basico"
-  tags: ["canales", "comunicacion"]
-
-variables:
-  datos: [["Tienda de ropa online", "Redes sociales y web"], ["Taller mecánico físico", "Ubicación presencial"], ["Software SaaS", "Descarga digital"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "Redes sociales y web"
-  - "Ubicación presencial"
-  - "Descarga digital"
-
-enunciado: "Para una {datos[idx][0]}, el canal de comunicación y venta principal es ___."
-
-explicacion: |
-  Los canales describen cómo la empresa se comunica con sus clientes y cómo entrega su propuesta de valor.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "intermedio"
-  tags: ["costos", "estructura"]
-
-variables:
-  datos: [["Fábrica de muebles", "Materia prima y mano de obra"], ["Consultora de marketing", "Salarios de especialistas"], ["Plataforma de streaming", "Servidores y licencias"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Materia prima y mano de obra", "Salarios de especialistas", "Servidores y licencias", "Alquiler de locales"]
-
-enunciado: "Para una {datos[idx][0]}, el costo principal suele ser ___."
-
-explicacion: |
-  La estructura de costos describe todos los costos en los que se incurre para operar un modelo de negocio.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "business_model_canvas"
-  nivel: "avanzado"
-  tags: ["ingresos", "monetizacion"]
-
-variables:
-  datos: [["Gimnasio con membresía mensual", "Cuota recurrente"], ["Venta de un libro físico", "Transacción única"], ["Software con modelo freemium", "Combinación de modelos"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Cuota recurrente", "Transacción única", "Combinación de modelos"]
-
-enunciado: "Según el modelo de {datos[idx][0]}, ¿qué tipo de flujo de ingresos corresponde?"
-
-explicacion: |
-  El flujo de ingresos representa el efectivo que la empresa genera de cada segmento de clientes.
 ```
 
 ## Sección: capitalismo-industrial-trabajo-asalariado (25 preguntas)
@@ -1803,401 +927,1360 @@ explicacion: |
   Según el escenario, la característica del esclavo es la {comparacion[idx][1]}.
 ```
 
-## Sección: comercio-internacional-ventaja-comparativa (21 preguntas)
+## Sección: contratos-inteligentes (21 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
+  tema: "contratos_inteligentes"
   nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
+  tags: ["defi", "vocabulario"]
 
-enunciado: "¿Qué explica la teoría de la ventaja comparativa?"
+enunciado: "¿Qué es un contrato inteligente (smart contract)?"
 tipo: mc
 opciones_explicitas:
-  - "Por qué un país se especializa en producir ciertos bienes y comercia con otros países, en vez de producir todo por su cuenta"
-  - "Cómo se calcula el tipo de cambio de una moneda"
-  - "Cómo funciona el banco central de un país"
-respuesta: "Por qué un país se especializa en producir ciertos bienes y comercia con otros países, en vez de producir todo por su cuenta"
+  - "Un programa que corre sobre una blockchain, con reglas \"si pasa X, entonces hacé Y\", que se ejecuta automáticamente"
+  - "Un documento en PDF firmado digitalmente"
+  - "Un tipo especial de wallet"
+respuesta: "Un programa que corre sobre una blockchain, con reglas \"si pasa X, entonces hacé Y\", que se ejecuta automáticamente"
 
 explicacion: |
-  Es la pregunta central que responde este tema.
+  Es la definición central del tema.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Quién formuló la teoría de la ventaja comparativa, en 1817?"
-tipo: mc
-opciones_explicitas:
-  - "David Ricardo"
-  - "Adam Smith"
-  - "John Maynard Keynes"
-respuesta: "David Ricardo"
-
-explicacion: |
-  Es el economista que formuló esta teoría específica.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
+  tema: "contratos_inteligentes"
   nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
+  tags: ["defi", "vocabulario"]
 
-enunciado: "¿Qué es tener \"ventaja absoluta\" en la producción de un bien?"
+enunciado: "¿Cuál es la diferencia principal entre un contrato tradicional en papel y un contrato inteligente?"
 tipo: mc
 opciones_explicitas:
-  - "Producirlo con menos horas de trabajo que otro país, en términos absolutos"
-  - "Tener menor costo de oportunidad al producirlo, sin importar las horas totales"
-  - "Ser el único país que produce ese bien en el mundo"
-respuesta: "Producirlo con menos horas de trabajo que otro país, en términos absolutos"
+  - "El tradicional necesita que un tercero (juez, tribunal) lo haga cumplir; el inteligente se ejecuta solo, automáticamente"
+  - "El contrato inteligente no tiene ninguna condición \"si-entonces\""
+  - "No hay ninguna diferencia real entre los dos"
+respuesta: "El tradicional necesita que un tercero (juez, tribunal) lo haga cumplir; el inteligente se ejecuta solo, automáticamente"
 
 explicacion: |
-  Es la idea intuitiva (y limitada) que la ventaja comparativa viene a
-  superar.
+  Es la ventaja central: elimina la necesidad de reclamar activamente
+  el cumplimiento.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
+  tema: "contratos_inteligentes"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si un país fuera mejor que otro produciendo TODOS los bienes en términos absolutos, la lógica de la ventaja absoluta sugeriría, incorrectamente, que no le conviene comerciar con nadie."
+enunciado: "Un contrato inteligente usa la misma lógica \"si-entonces\" (condicional) que existe en cualquier lenguaje de programación, sólo que corre distribuido en la blockchain."
 
 explicacion: |
-  Es justamente el problema que Ricardo resolvió con el concepto de
-  costo de oportunidad.
+  No hay ninguna lógica nueva: es un condicional de programación
+  común, ejecutado en un lugar distinto.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
+  tema: "contratos_inteligentes"
   nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
+  tags: ["defi", "problema"]
 
-enunciado: "En el contexto de la ventaja comparativa, ¿qué es el costo de oportunidad de producir un bien?"
+enunciado: "Un comprador deposita dinero en un contrato inteligente, que lo libera al vendedor recién cuando el comprador confirma haber recibido el producto. ¿Quién tiene el control de liberar ese dinero antes de tiempo?"
 tipo: mc
 opciones_explicitas:
-  - "Cuánto hay que dejar de producir de otro bien para producir una unidad más del primero"
-  - "El precio en dólares de ese bien"
-  - "El impuesto que paga ese bien al exportarse"
-respuesta: "Cuánto hay que dejar de producir de otro bien para producir una unidad más del primero"
+  - "Ninguno de los dos: sólo el código del contrato puede liberarlo, y sólo cuando se cumple la condición"
+  - "El vendedor, en cualquier momento"
+  - "El comprador, en cualquier momento"
+respuesta: "Ninguno de los dos: sólo el código del contrato puede liberarlo, y sólo cuando se cumple la condición"
 
 explicacion: |
-  Es el concepto central que reemplaza a la comparación absoluta de
-  horas.
+  Es justamente el punto: ninguna de las partes controla la ejecución,
+  sólo la condición programada la dispara.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
+  tema: "contratos_inteligentes"
   nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
+  tags: ["defi", "vocabulario"]
 
-enunciado: "¿Cuándo tiene un país \"ventaja comparativa\" en un bien?"
+enunciado: "¿Qué información puede ver un contrato inteligente, por su cuenta, sin ninguna ayuda externa?"
 tipo: mc
 opciones_explicitas:
-  - "Cuando su costo de oportunidad de producir ese bien es MENOR que el de otro país"
-  - "Cuando produce ese bien con menos horas en términos absolutos que otro país"
-  - "Cuando es el único país que exporta ese bien"
-respuesta: "Cuando su costo de oportunidad de producir ese bien es MENOR que el de otro país"
+  - "Sólo información que ya está dentro de la blockchain"
+  - "Cualquier información del mundo real, sin restricciones"
+  - "Sólo el saldo de la wallet de su creador"
+respuesta: "Sólo información que ya está dentro de la blockchain"
 
 explicacion: |
-  Es la definición central del tema: comparar costos de oportunidad,
-  no horas absolutas.
+  No tiene forma nativa de saber qué pasa fuera de la blockchain.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "En el ejemplo clásico de Ricardo (Inglaterra y Portugal, tela y vino), ¿qué característica tiene Portugal en términos absolutos?"
-tipo: mc
-opciones_explicitas:
-  - "Es absolutamente mejor produciendo las dos cosas (tela y vino), necesita menos horas para ambas"
-  - "Es absolutamente peor produciendo las dos cosas"
-  - "Sólo puede producir vino, no tela"
-respuesta: "Es absolutamente mejor produciendo las dos cosas (tela y vino), necesita menos horas para ambas"
-
-explicacion: |
-  Es el punto de partida del ejemplo: Portugal gana en términos
-  absolutos en ambos bienes.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
+  tema: "contratos_inteligentes"
   nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
+  tags: ["defi", "vocabulario"]
 
-enunciado: "En el ejemplo clásico de Ricardo, aunque Portugal sea absolutamente mejor en todo, ¿quién termina teniendo ventaja comparativa en tela?"
+enunciado: "¿Qué es un \"oráculo\", en el contexto de los contratos inteligentes?"
 tipo: mc
 opciones_explicitas:
-  - "Inglaterra, porque su costo de oportunidad de producir tela (en términos de vino) es menor que el de Portugal"
-  - "Portugal, porque produce tela con menos horas en términos absolutos"
-  - "Ninguno de los dos: la ventaja comparativa no aplica en este ejemplo"
-respuesta: "Inglaterra, porque su costo de oportunidad de producir tela (en términos de vino) es menor que el de Portugal"
+  - "Un servicio externo que trae un dato del mundo real y lo inyecta en la blockchain para que un contrato lo pueda usar"
+  - "Otro nombre para la clave privada de una wallet"
+  - "El nombre técnico del creador de un contrato inteligente"
+respuesta: "Un servicio externo que trae un dato del mundo real y lo inyecta en la blockchain para que un contrato lo pueda usar"
 
 explicacion: |
-  Es el resultado central y contraintuitivo del ejemplo: la ventaja
-  comparativa no depende de quién es mejor en términos absolutos.
+  Es el puente entre el mundo real (fuera de la blockchain) y el
+  contrato inteligente (que sólo ve datos dentro de ella).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
+  tema: "contratos_inteligentes"
   nivel: "avanzado"
-  tags: ["comercio_internacional", "calculo"]
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un oráculo informa mal un dato del mundo real, el contrato inteligente ejecuta la acción igual, aunque el dato real haya sido otro."
+
+explicacion: |
+  El contrato confía ciegamente en lo que le informa el oráculo: es su
+  punto más débil.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "intermedio"
+  tags: ["defi", "problema"]
+
+enunciado: "Un seguro de vuelo automático paga a un pasajero apenas se confirma que su vuelo se retrasó más de 3 horas. ¿Qué necesita el contrato inteligente para saber que el vuelo se retrasó?"
+tipo: mc
+opciones_explicitas:
+  - "Un oráculo que le informe ese dato del mundo real"
+  - "Nada especial: lo sabe automáticamente sin ayuda externa"
+  - "Que el propio pasajero le escriba el código de la aerolínea"
+respuesta: "Un oráculo que le informe ese dato del mundo real"
+
+explicacion: |
+  El retraso de un vuelo es un dato del mundo real, fuera de la
+  blockchain, así que hace falta un oráculo para traerlo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Qué significa que un contrato inteligente sea, en general, \"inmutable\" una vez publicado?"
+tipo: mc
+opciones_explicitas:
+  - "Que su código no se puede modificar después, ni siquiera por quien lo creó"
+  - "Que nunca puede tener errores de programación"
+  - "Que sólo lo puede usar una persona a la vez"
+respuesta: "Que su código no se puede modificar después, ni siquiera por quien lo creó"
+
+explicacion: |
+  Es lo que garantiza que ninguna parte lo altere a su favor después
+  de acordado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "avanzado"
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un contrato inteligente tiene un error de programación, ese error también queda fijo para siempre y se ejecuta igual que si fuera la regla correcta."
+
+explicacion: |
+  Es la contracara de la inmutabilidad: protege de manipulación
+  externa, pero no corrige errores propios.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "basico"
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un contrato inteligente elimina la necesidad de un intermediario que obligue a cumplir el acuerdo, porque el cumplimiento está en el propio código."
+
+explicacion: |
+  Es la ventaja central del mecanismo: el código reemplaza al tercero
+  que hace cumplir un contrato tradicional.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "intermedio"
+  tags: ["defi", "problema"]
+
+enunciado: "En un contrato de vesting que libera tokens automáticamente cada mes sin que nadie apriete un botón, ¿cuál es la \"condición\" (el \"si\") de la regla?"
+tipo: mc
+opciones_explicitas:
+  - "Que haya pasado un mes desde la última liberación"
+  - "Que el dueño de los tokens los pida expresamente"
+  - "Que el precio del token suba"
+respuesta: "Que haya pasado un mes desde la última liberación"
+
+explicacion: |
+  El paso del tiempo es la condición programada; la liberación
+  automática es la acción que dispara.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "avanzado"
+  tags: ["defi", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos pasos del flujo de un contrato inteligente de depósito en garantía (escrow)."
+opciones_explicitas:
+  - "El contrato libera automáticamente el dinero al vendedor"
+  - "El contrato verifica que se cumplió la condición programada"
+  - "El comprador deposita el dinero en el contrato"
+  - "El comprador confirma que recibió el producto"
+respuesta_orden: ["El comprador deposita el dinero en el contrato", "El comprador confirma que recibió el producto", "El contrato verifica que se cumplió la condición programada", "El contrato libera automáticamente el dinero al vendedor"]
+
+explicacion: |
+  Cada paso habilita al siguiente: sin depósito no hay nada que
+  liberar, sin confirmación no se cumple la condición.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al correr sobre una blockchain pública, el código de un contrato inteligente puede ser revisado por cualquiera antes de interactuar con él."
+
+explicacion: |
+  Es una consecuencia directa de correr sobre una red pública y
+  transparente.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "avanzado"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "Un contrato inteligente elimina la necesidad de confiar en un juez o tribunal para hacerlo cumplir. ¿En qué SÍ hay que confiar igual, cuando el contrato depende de un dato del mundo real?"
+tipo: mc
+opciones_explicitas:
+  - "En que el oráculo que le informa ese dato sea confiable"
+  - "En nada: un contrato inteligente nunca depende de confiar en nadie"
+  - "En el banco central del país donde vive el comprador"
+respuesta: "En que el oráculo que le informa ese dato sea confiable"
+
+explicacion: |
+  El oráculo reintroduce un punto de confianza que el resto del
+  sistema había eliminado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "avanzado"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Cuál es la relación entre un contrato inteligente y una blockchain?"
+tipo: mc
+opciones_explicitas:
+  - "El contrato inteligente es un programa que corre SOBRE una blockchain, usando su misma infraestructura descentralizada"
+  - "Son exactamente lo mismo, dos nombres para una sola cosa"
+  - "La blockchain es un tipo de contrato inteligente"
+respuesta: "El contrato inteligente es un programa que corre SOBRE una blockchain, usando su misma infraestructura descentralizada"
+
+explicacion: |
+  La blockchain es la base; el contrato inteligente es una aplicación
+  que se construye encima de ella.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un contrato inteligente puede funcionar entre dos partes que no se conocen ni confían entre sí, porque la confianza está puesta en el código, no en la otra persona."
+
+explicacion: |
+  Es una de las ventajas centrales: reemplaza la confianza personal
+  por confianza en un código verificable.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "basico"
+  tags: ["defi"]
+
+tipo: completar
+enunciado: "Completá: un contrato inteligente ejecuta la regla \"si ___ (se cumple la condición), entonces ocurre la acción\", de forma automática."
+respuestas_validas:
+  - "pasa x"
+  - "se cumple x"
+  - "se cumple la condición"
+
+explicacion: |
+  Es la estructura básica de cualquier contrato inteligente.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "intermedio"
+  tags: ["defi", "problema"]
+
+enunciado: "En el seguro de vuelo automático, ¿el pasajero tiene que reclamar activamente para cobrar, como en un seguro tradicional?"
+tipo: mc
+opciones_explicitas:
+  - "No: el contrato paga automáticamente en cuanto el oráculo confirma el retraso"
+  - "Sí: siempre hay que llenar un formulario de reclamo"
+  - "Sí, pero sólo si el retraso fue de más de 24 horas"
+respuesta: "No: el contrato paga automáticamente en cuanto el oráculo confirma el retraso"
+
+explicacion: |
+  Es la diferencia central frente a un seguro tradicional: se ejecuta
+  solo, sin reclamo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un token que se libera de a poco con el paso del tiempo (vesting) es un ejemplo de contrato inteligente que se ejecuta sin que nadie tenga que intervenir manualmente cada vez."
+
+explicacion: |
+  El paso del tiempo es la condición; la liberación periódica es la
+  acción automática.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contratos_inteligentes"
+  nivel: "basico"
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un contrato inteligente es una regla \"si-entonces\" escrita en código, que corre sobre una blockchain y se ejecuta sola, sin intermediario — con el límite de que sólo ve datos del mundo real a través de un oráculo."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+## Sección: costo-marginal (26 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["evaluar"]
 
 variables:
-  horas_vino: random(2, 8)
-  multiplicador: uno_de([2, 3, 4])
-  horas_tela: horas_vino * multiplicador
+  a: random(1, 6)
+  b: random(5, 30)
+  costo_fijo: random(100, 1000)
+  q: random(1, 30)
 
-respuesta: horas_tela / horas_vino
+respuesta: 2 * a * q + b
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "En un país, producir una unidad de tela lleva {horas_tela} horas, y producir una unidad de vino lleva {horas_vino} horas. ¿Cuántas unidades de vino se sacrifican (costo de oportunidad) por producir una unidad de tela?"
+enunciado: "C(q) = {a}q² + {b}q + {costo_fijo}. ¿Cuál es el costo marginal en q={q}?"
+
+pasos:
+  - "Cmg(q) = C'(q) = {2 * a}q + {b}"
+  - "Cmg({q}) = {2 * a}×{q} + {b} = {2 * a * q + b}"
 
 explicacion: |
-  Costo de oportunidad de la tela (en vino) = horas de tela / horas de
-  vino.
+  El costo fijo ({costo_fijo}) desaparece al derivar — el costo marginal
+  sólo refleja la parte variable.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "calculo"]
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["evaluar"]
 
 variables:
-  horas_tela_pais1: random(50, 150)
-  horas_vino_pais1: random(50, 150)
-  horas_tela_pais2: random(50, 150)
-  horas_vino_pais2: random(50, 150)
+  a: random(1, 5)
+  b: random(5, 20)
+  costo_fijo: random(200, 800)
+  q: random(1, 20)
 
-respuesta: (horas_tela_pais1 / horas_vino_pais1 < horas_tela_pais2 / horas_vino_pais2)
-tipo: vf
+respuesta: 2 * a * q + b
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "País 1: {horas_tela_pais1} horas por tela, {horas_vino_pais1} horas por vino. País 2: {horas_tela_pais2} horas por tela, {horas_vino_pais2} horas por vino. ¿Tiene el País 1 ventaja comparativa en tela (menor costo de oportunidad de tela que el País 2)?"
+enunciado: "C(q) = {a}q² + {b}q + {costo_fijo}. ¿Cuál es el costo marginal en q={q}?"
 
 explicacion: |
-  Se compara el costo de oportunidad de tela (horas de tela / horas de
-  vino) de cada país; el menor tiene la ventaja comparativa en tela.
+  Cmg(q) = {2 * a}q + {b}, evaluado en q={q}.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+variables:
+  costo_fijo_1: random(100, 500)
+  costo_fijo_2: random(501, 1000)
+  a: random(1, 5)
+  b: random(5, 20)
+  q: random(1, 20)
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Según la teoría de la ventaja comparativa, si cada país se especializa en el bien donde tiene ventaja comparativa y comercian entre sí, los dos pueden terminar con más de ambos bienes que si cada uno hubiera intentado producir todo por su cuenta."
+enunciado: "Dos empresas tienen la misma parte variable de costo ({a}q² + {b}q), pero costos fijos distintos ({costo_fijo_1} y {costo_fijo_2}). ¿Tienen el mismo costo marginal en q={q}?"
 
 explicacion: |
-  Es la conclusión central de la teoría: la especialización y el
-  comercio generan una ganancia conjunta.
+  El costo fijo se anula al derivar — sólo importa la parte variable
+  para el costo marginal.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "basico"
+  tags: ["evaluar"]
+
+variables:
+  b: random(10, 50)
+  costo_fijo: random(100, 500)
+
+respuesta: b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "C(q) = {b}q + {costo_fijo} (costo variable lineal). ¿Cuál es el costo marginal, para cualquier q?"
+
+explicacion: |
+  Cmg(q) = {b}, constante — no depende de q cuando el costo variable es
+  lineal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+variables:
+  a: random(1, 8)
+  b: random(5, 20)
+  costo_fijo: random(100, 500)
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un país muy desarrollado, con salarios altos, puede seguir teniendo ventaja comparativa en ciertos productos frente a un país con salarios mucho más bajos, porque lo que importa es el costo de oportunidad relativo, no el nivel absoluto de desarrollo."
+enunciado: "C(q) = {a}q² + {b}q + {costo_fijo} (con a>0). ¿Es creciente el costo marginal a medida que aumenta q?"
 
 explicacion: |
-  Es una consecuencia directa de que la ventaja comparativa se define
-  en términos relativos dentro de cada país, no en comparación
-  absoluta de niveles de desarrollo.
+  Cmg(q)={2 * a}q+{b} es una función lineal creciente en q, porque el
+  coeficiente {2 * a} es positivo.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
+  materia: "matematicas"
+  tema: "costo_marginal"
   nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
+  tags: ["verdadero_falso"]
 
-enunciado: "¿Qué tipo de razonamiento comparte la ventaja comparativa con el \"punto de equilibrio\" de Administración?"
+variables:
+  a: random(1, 6)
+  b: random(5, 20)
+  q1: random(1, 10)
+  q2: random(11, 30)
+
+respuesta: ((2 * a * q2 + b) > (2 * a * q1 + b))
+tipo: vf
+
+enunciado: "C(q) = {a}q² + {b}q + costo fijo. ¿Es mayor el costo marginal en q={q2} que en q={q1}?"
+
+explicacion: |
+  Con a positivo, el costo marginal crece con q — producir más caro cada
+  vez la unidad siguiente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El costo marginal es, aproximadamente, cuánto cuesta producir una unidad adicional."
+
+explicacion: |
+  Es la definición central del tema.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cmg(q) = C'(q), la derivada de la función de costo total."
+
+explicacion: |
+  Es la definición formal, ya usada en las cuentas anteriores.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "El costo marginal (Cmg=C') y el costo promedio (Cme=C/q) son exactamente el mismo cálculo."
+
+explicacion: |
+  Son cálculos distintos: el marginal mira la próxima unidad; el
+  promedio reparte el costo total entre todas las unidades.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["costo_promedio"]
+
+variables:
+  q: random(2, 10)
+  m: random(5, 20)
+  k: random(1, 20)
+  costo_fijo: m * q
+  costo_variable_total: k * q
+
+respuesta: m + k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Producir {q} unidades cuesta un total de {costo_fijo + costo_variable_total} (fijo {costo_fijo} + variable {costo_variable_total}). ¿Cuál es el costo PROMEDIO por unidad?"
+
+explicacion: |
+  Cme = C(q)/q — reparte el costo total entre todas las unidades, algo
+  distinto del costo marginal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "El costo marginal incluye una parte proporcional de los costos fijos de la empresa."
+
+explicacion: |
+  No — el costo marginal sólo refleja el costo variable, porque la
+  derivada de una constante (el costo fijo) es 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cmg(q)=C'(q) es una aproximación de C(q+1)−C(q) (el costo real y exacto de producir una unidad más) — para funciones suaves, se parecen mucho, pero no son matemáticamente idénticos."
+
+explicacion: |
+  La derivada es un límite; C(q+1)−C(q) es una diferencia discreta —
+  ideas relacionadas, no la misma cuenta exacta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+variables:
+  a: random(1, 5)
+  b: random(5, 15)
+  q: random(5, 20)
+
+respuesta: a * (2 * q + 1) + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "C(q) = {a}q² + {b}q (sin costo fijo). ¿Cuánto vale C({q}+1) − C({q}) (el costo exacto de la unidad {q}+1)?"
+
+pasos:
+  - "C(q+1)−C(q) = {a}(2q+1) + {b}, evaluado en q={q}"
+
+explicacion: |
+  Esta es la diferencia EXACTA, distinta (aunque parecida) al costo
+  marginal Cmg({q}) = {2 * a * q + b}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el costo marginal decrece con la cantidad producida, significa que cada unidad adicional cuesta menos que la anterior (economías de escala)."
+
+explicacion: |
+  Es lo opuesto a los rendimientos decrecientes — producir más se vuelve
+  más eficiente por unidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(1, 6)
+  b: random(5, 30)
+  costo_fijo: random(100, 1000)
+  q: random(1, 30)
+  real: 2 * a * q + b
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "C(q) = {a}q² + {b}q + {costo_fijo}. ¿Es correcto que el costo marginal en q={q} sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es Cmg({q}) = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["aplicacion", "verdadero_falso"]
+
+variables:
+  a: random(1, 5)
+  b: random(10, 30)
+  q: random(1, 20)
+  precio_venta: random(50, 200)
+
+respuesta: ((2 * a * q + b) < precio_venta)
+tipo: vf
+
+enunciado: "C(q) = {a}q² + {b}q + costo fijo. El precio de venta de cada unidad es {precio_venta}. En q={q}, ¿conviene producir una unidad más (el costo marginal es menor que el precio de venta)?"
+
+explicacion: |
+  Mientras el costo marginal sea menor que el precio de venta, producir
+  una unidad más aumenta la ganancia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el costo marginal supera al precio de venta, producir una unidad más reduce la ganancia total de la empresa, en vez de aumentarla."
+
+explicacion: |
+  Esa unidad cuesta más de lo que se puede vender — es un cálculo que
+  conecta con `../../matematica/optimizacion/`: el punto óptimo de
+  producción es donde Cmg se iguala al precio (o al ingreso marginal).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["evaluar"]
+
+variables:
+  b: random(10, 50)
+  costo_fijo: random(100, 500)
+
+respuesta: b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "C(q) = 3q² + {b}q + {costo_fijo}. ¿Cuál es el costo marginal en q=0?"
+
+explicacion: |
+  Cmg(0) = 6×0+{b} = {b}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El costo marginal se mide en unidades de moneda por unidad producida (por ejemplo, pesos por unidad), no en pesos totales."
+
+explicacion: |
+  Es una TASA de cambio del costo respecto a la cantidad, no un costo
+  total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["evaluar"]
+
+variables:
+  a: random(1, 3)
+  b: random(1, 5)
+  c: random(5, 20)
+  q: random(1, 10)
+
+respuesta: 3 * a * q ^ 2 + 2 * b * q + c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "C(q) = {a}q³ + {b}q² + {c}q (costo con rendimientos que cambian). ¿Cuál es el costo marginal en q={q}?"
+
+pasos:
+  - "Cmg(q) = {3 * a}q² + {2 * b}q + {c}"
+
+explicacion: |
+  Con un término cúbico en el costo, el costo marginal mismo ya no es
+  lineal — cambia de forma más compleja con q.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la mayoría de los modelos económicos razonables, el costo marginal es positivo — producir más siempre agrega algo de costo (aunque sea poco)."
+
+explicacion: |
+  Sería inusual (aunque matemáticamente posible en un modelo mal
+  planteado) que producir más redujera el costo total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Así como el costo marginal es la derivada del costo total, el 'ingreso marginal' (no cubierto en este módulo) sería la derivada del ingreso total — la misma idea aplicada al otro lado de la cuenta de una empresa."
+
+explicacion: |
+  Es el mismo patrón de "razón de cambio" aplicado a otra magnitud
+  económica — la comparación de Cmg con el precio de venta ya adelantó
+  esta idea.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  a: random(2, 6)
+  b: random(10, 30)
+  q: random(50, 100)
+
+respuesta: 2 * a * q + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una fábrica cerca de su capacidad máxima tiene C(q) = {a}q² + {b}q + costo fijo (el término cuadrático refleja que cuesta cada vez más producir cerca del límite). ¿Cuál es el costo marginal al producir la unidad {q}?"
+
+explicacion: |
+  Es un ejemplo real de por qué el costo marginal creciente es común
+  cerca de la capacidad instalada de una planta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El costo marginal en un punto es, geométricamente, la pendiente de la recta tangente al gráfico de C(q) en ese punto."
+
+explicacion: |
+  Es la misma interpretación geométrica de la derivada ya vista en
+  `../../matematica/derivada/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "basico"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  b: random(10, 50)
+  costo_fijo: random(100, 500)
+  propuesto: uno_de([0, 1]) * costo_fijo + b
+
+respuesta: (propuesto == b)
+tipo: vf
+
+enunciado: "C(q) = {b}q + {costo_fijo}. ¿Es correcto que el costo marginal sea {propuesto}?"
+
+explicacion: |
+  El costo marginal correcto es {b} — si el número propuesto incluye el
+  costo fijo, está mal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El costo marginal es un ejemplo de cómo la derivada, entendida como 'razón de cambio', se aplica directamente a decisiones económicas reales de producción."
+
+explicacion: |
+  Es el mismo concepto matemático de `../../matematica/derivada/`,
+  ahora con significado económico.
+```
+
+## Sección: debe-haber-balance (22 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Qué es el activo de una empresa?"
 tipo: mc
 opciones_explicitas:
-  - "El de \"por qué esta decisión y no otra\", comparando costos relativos en vez de valores absolutos"
-  - "Los dos calculan exactamente la misma fórmula matemática"
-  - "No comparten ningún tipo de razonamiento"
-respuesta: "El de \"por qué esta decisión y no otra\", comparando costos relativos en vez de valores absolutos"
+  - "Todo lo que la empresa posee: bienes y derechos"
+  - "Todo lo que la empresa debe a terceros"
+  - "La ganancia del último mes"
+respuesta: "Todo lo que la empresa posee: bienes y derechos"
 
 explicacion: |
-  Es la analogía que hace la teoría del MAPA para explicar por qué
-  esta idea cruza con Administración.
+  Incluye dinero en caja, mercadería, inmuebles, y créditos a favor.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "problema"]
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
 
-enunciado: "Un país con mucha tierra fértil pero poca industria pesada exporta productos agrícolas e importa maquinaria, en vez de fabricar su propia maquinaria con mucho esfuerzo relativo. ¿Qué principio explica mejor esta decisión?"
+enunciado: "¿Qué es el pasivo de una empresa?"
 tipo: mc
 opciones_explicitas:
-  - "Ventaja comparativa: le conviene especializarse donde su costo de oportunidad es menor"
-  - "Devaluación de su moneda"
-  - "Déficit de su balanza comercial"
-respuesta: "Ventaja comparativa: le conviene especializarse donde su costo de oportunidad es menor"
+  - "Todo lo que la empresa debe a terceros: obligaciones y deudas"
+  - "Todo lo que la empresa posee"
+  - "El total de ventas del período"
+respuesta: "Todo lo que la empresa debe a terceros: obligaciones y deudas"
 
 explicacion: |
-  Es una aplicación directa del concepto central del tema.
+  Incluye préstamos, deudas con proveedores, sueldos por pagar.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Qué es el patrimonio neto de una empresa?"
+tipo: mc
+opciones_explicitas:
+  - "Lo que le queda al dueño después de descontar todas las deudas (Activo - Pasivo)"
+  - "El total de dinero en efectivo en caja"
+  - "El total de mercadería en stock"
+respuesta: "Lo que le queda al dueño después de descontar todas las deudas (Activo - Pasivo)"
+
+explicacion: |
+  Es la parte del activo que efectivamente le pertenece al dueño, libre
+  de deudas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cuando se argumenta a favor del libre comercio diciendo que \"cada país debería producir lo que sabe hacer mejor, en términos relativos\", se está citando, en esencia, la ventaja comparativa."
+enunciado: "La ecuación contable fundamental es: Activo = Pasivo + Patrimonio Neto."
 
 explicacion: |
-  Es la aplicación más habitual de esta teoría en el debate de
-  política comercial.
+  Siempre tiene que estar en equilibrio, sin importar cuántos
+  movimientos haya.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  activo: random(500, 5000) * 1000
+  pasivo: random(100, 2000) * 1000
+
+respuesta: activo - pasivo
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una empresa tiene un activo de ${activo} y un pasivo de ${pasivo}. ¿Cuál es su patrimonio neto?"
+
+explicacion: |
+  Patrimonio Neto = Activo - Pasivo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  pasivo: random(100, 2000) * 1000
+  patrimonio_neto: random(500, 3000) * 1000
+
+respuesta: pasivo + patrimonio_neto
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una empresa tiene un pasivo de ${pasivo} y un patrimonio neto de ${patrimonio_neto}. ¿Cuál es su activo?"
+
+explicacion: |
+  Se despeja de la ecuación contable: Activo = Pasivo + Patrimonio Neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  activo: random(500, 5000) * 1000
+  patrimonio_neto: random(300, 3000) * 1000
+
+respuesta: activo - patrimonio_neto
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una empresa tiene un activo de ${activo} y un patrimonio neto de ${patrimonio_neto}. ¿Cuál es su pasivo?"
+
+explicacion: |
+  Se despeja: Pasivo = Activo - Patrimonio Neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "En una cuenta contable, ¿qué es el \"Debe\"?"
+tipo: mc
+opciones_explicitas:
+  - "La columna de la izquierda"
+  - "La columna de la derecha"
+  - "El resultado final de la cuenta"
+respuesta: "La columna de la izquierda"
+
+explicacion: |
+  Es una convención de nomenclatura, no significa literalmente \"lo que
+  se debe\".
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "En una cuenta contable, ¿qué es el \"Haber\"?"
+tipo: mc
+opciones_explicitas:
+  - "La columna de la derecha"
+  - "La columna de la izquierda"
+  - "El total de gastos del mes"
+respuesta: "La columna de la derecha"
+
+explicacion: |
+  Es la columna opuesta al Debe.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"Debe\" y \"Haber\" son nombres técnicos de dos columnas contables, no significan literalmente \"lo que se debe\" y \"lo que se tiene\"."
+
+explicacion: |
+  Es una convención histórica del lenguaje contable.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las cuentas de Activo aumentan cuando se anota un importe en su Debe."
+
+explicacion: |
+  Es la convención básica para las cuentas de Activo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las cuentas de Activo disminuyen cuando se anota un importe en su Haber."
+
+explicacion: |
+  Es la contraparte de que el Activo aumente por el Debe.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las cuentas de Pasivo aumentan cuando se anota un importe en su Haber — al revés que el Activo."
+
+explicacion: |
+  Es esta regla \"opuesta\" entre Activo y Pasivo la que mantiene la
+  ecuación contable equilibrada.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las cuentas de Patrimonio Neto aumentan cuando se anota un importe en su Haber, igual que las de Pasivo."
+
+explicacion: |
+  Pasivo y Patrimonio Neto siguen la misma convención, opuesta a la del
+  Activo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
   nivel: "avanzado"
-  tags: ["comercio_internacional", "orden"]
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  total_debe: random(500, 3000) * 1000
+  total_haber: random(100, 2000) * 1000
+
+respuesta: total_debe - total_haber
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La cuenta \"Caja\" (de Activo) tiene un total de ${total_debe} en el Debe y ${total_haber} en el Haber. ¿Cuál es su saldo?"
+
+explicacion: |
+  En una cuenta de Activo, el saldo es Debe menos Haber.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "avanzado"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  total_haber: random(500, 3000) * 1000
+  total_debe: random(100, 2000) * 1000
+
+respuesta: total_haber - total_debe
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La cuenta \"Préstamos a pagar\" (de Pasivo) tiene un total de ${total_haber} en el Haber y ${total_debe} en el Debe. ¿Cuál es su saldo?"
+
+explicacion: |
+  En una cuenta de Pasivo, el saldo es Haber menos Debe — al revés que
+  en una cuenta de Activo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "avanzado"
+  tags: ["contabilidad", "comparacion"]
+
+variables:
+  activo_a: random(1000, 3000) * 1000
+  pasivo_a: random(500, 900) * 1000
+  activo_b: random(1000, 3000) * 1000
+  pasivo_b: random(1500, 2900) * 1000
+
+respuesta: ((activo_a - pasivo_a) > (activo_b - pasivo_b))
+tipo: vf
+
+enunciado: "Empresa A: activo ${activo_a}, pasivo ${pasivo_a}. Empresa B: activo ${activo_b}, pasivo ${pasivo_b}. ¿La empresa A tiene mayor patrimonio neto que la B?"
+
+explicacion: |
+  Hay que calcular el patrimonio neto de cada una (activo menos pasivo)
+  antes de comparar — el activo solo no alcanza.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ecuación Activo = Pasivo + Patrimonio Neto tiene que estar en equilibrio siempre, después de cada movimiento contable."
+
+explicacion: |
+  Si no se cumple, hay un error en el registro contable.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "orden"]
 
 tipo: ordenar
-enunciado: "Ordená esta secuencia de razonamiento sobre la ventaja comparativa entre dos países."
+enunciado: "Ordená estas empresas de menor a mayor patrimonio neto."
 opciones_explicitas:
-  - "Los países comercian entre sí, terminando con más de ambos bienes que produciendo todo por su cuenta"
-  - "Cada país se especializa en producir ese bien"
-  - "Se calcula el costo de oportunidad de cada bien en cada país"
-  - "Se identifica en qué bien tiene cada país el menor costo de oportunidad"
-respuesta_orden: ["Se calcula el costo de oportunidad de cada bien en cada país", "Se identifica en qué bien tiene cada país el menor costo de oportunidad", "Cada país se especializa en producir ese bien", "Los países comercian entre sí, terminando con más de ambos bienes que produciendo todo por su cuenta"]
+  - "Activo $2.000.000, Pasivo $1.800.000"
+  - "Activo $2.000.000, Pasivo $500.000"
+  - "Activo $2.000.000, Pasivo $1.200.000"
+respuesta_orden: ["Activo $2.000.000, Pasivo $1.800.000", "Activo $2.000.000, Pasivo $1.200.000", "Activo $2.000.000, Pasivo $500.000"]
 
 explicacion: |
-  Es el proceso completo de razonamiento detrás de la teoría de la
-  ventaja comparativa.
+  A igual activo, menor pasivo significa mayor patrimonio neto.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia central entre \"ventaja absoluta\" y \"ventaja comparativa\"?"
-tipo: mc
-opciones_explicitas:
-  - "La absoluta compara horas totales por unidad; la comparativa compara el costo de oportunidad relativo entre bienes"
-  - "Son exactamente lo mismo, con nombres distintos"
-  - "La comparativa sólo aplica quiénes tienen tipo de cambio fijo"
-respuesta: "La absoluta compara horas totales por unidad; la comparativa compara el costo de oportunidad relativo entre bienes"
-
-explicacion: |
-  Es la distinción central de todo el tema.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
+  tema: "debe_haber_balance"
   nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
+  tags: ["contabilidad", "verificacion"]
 
-respuesta: verdadero
+variables:
+  activo: random(500, 5000) * 1000
+  pasivo: random(100, 2000) * 1000
+  correcto: activo - pasivo
+  error: uno_de([0, 0, 0, 100000, -100000])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 1000)
 tipo: vf
 
-enunciado: "En el ejemplo clásico de Ricardo, Portugal termina con ventaja comparativa en vino, aunque sea absolutamente mejor que Inglaterra en ambos bienes."
+enunciado: "¿Está bien calculado esto? Activo ${activo}, pasivo ${pasivo}, patrimonio neto informado: ${mostrado}."
 
 explicacion: |
-  Es el resultado complementario al de la tela (que quedaba en manos
-  de Inglaterra).
+  Se vuelve a restar el pasivo del activo y se compara con el valor
+  informado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
+  tema: "debe_haber_balance"
   nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
+  tags: ["contabilidad"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aunque la teoría de la ventaja comparativa se formuló en 1817, sigue siendo el argumento central que se usa hoy para explicar por qué los países se especializan y comercian entre sí."
-
-explicacion: |
-  Es una teoría económica clásica que sigue vigente en el debate
-  actual sobre comercio internacional.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "basico"
-  tags: ["comercio_internacional"]
+variables:
+  activo: random(500, 5000) * 1000
+  patrimonio_neto: random(300, 3000) * 1000
+  pasivo: activo - patrimonio_neto
 
 tipo: completar
-enunciado: "Completá: un país tiene ventaja comparativa en un bien cuando su costo de ___ (lo que sacrifica de otro bien) de producirlo es menor que el de otro país."
+enunciado: "Una empresa tiene un activo de ${activo} y un patrimonio neto de ${patrimonio_neto}. Completá: ___ (pasivo) = {activo} - {patrimonio_neto}."
 respuestas_validas:
-  - "oportunidad"
+  - pasivo
 
 explicacion: |
-  Es el concepto central de todo el tema.
+  Se despeja el pasivo de la ecuación contable fundamental.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
+  tema: "debe_haber_balance"
   nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
+  tags: ["contabilidad", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La ventaja comparativa explica por qué a un país le conviene especializarse y comerciar según su costo de oportunidad relativo, incluso si otro país es absolutamente mejor produciendo todo."
+enunciado: "Activo = Pasivo + Patrimonio Neto es la ecuación que siempre debe cumplirse; Debe y Haber son las dos columnas técnicas de una cuenta, con reglas de aumento opuestas entre Activo y Pasivo/Patrimonio Neto."
 
 explicacion: |
   Es la idea central de todo el tema.

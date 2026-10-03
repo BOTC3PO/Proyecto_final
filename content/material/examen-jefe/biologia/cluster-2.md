@@ -1,144 +1,152 @@
 # Examen jefe — [PENDIENTE #862]
 
-> Logro #862. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **115 preguntas totales** en 5/5 secciones.
+> Logro #862. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: ciclos-biogeoquimicos (24 preguntas)
+## Sección: necesidades-basicas-seres-vivos (20 preguntas)
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
+  tema: "necesidades_basicas_seres_vivos"
   nivel: "basico"
-  tags: ["conceptos"]
+  tags: ["conceptos_fundamentales", "supervivencia"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un ciclo biogeoquímico describe cómo un elemento se mueve entre los seres vivos y el ambiente físico no vivo."
+enunciado: "Una necesidad básica es algo que un ser vivo tiene que conseguir del ambiente para poder seguir vivo."
 
 explicacion: |
-  Correcto, permite el reciclaje de elementos esenciales para la vida.
+  Correcto. Las necesidades básicas son esenciales para mantener la vida.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
+  tema: "necesidades_basicas_seres_vivos"
   nivel: "basico"
-  tags: ["ley_conservacion"]
+  tags: ["conceptos_fundamentales"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "En un ciclo biogeoquímico, el elemento se pierde para siempre después de usarse una vez."
+enunciado: "Las necesidades básicas son opcionales, como un 'gusto' que no afecta la supervivencia."
 
 explicacion: |
-  Falso, cambia de forma y lugar pero permanece circulando en el sistema.
+  Falso. Si es "básica", su ausencia pone en riesgo la vida del ser vivo.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
+  tema: "necesidades_basicas_seres_vivos"
   nivel: "basico"
-  tags: ["etimologia"]
+  tags: ["elementos_vitales"]
 
-respuesta: "vivos"
-tipo: completar
-respuestas_validas:
-  - "vivos"
-
-enunciado: "El prefijo 'bio' en biogeoquímico se refiere a los seres ___."
-
-explicacion: |
-  Del griego "bios" (vida).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
-  nivel: "basico"
-  tags: ["etimologia"]
-
-respuesta: "fisico"
-tipo: completar
-respuestas_validas:
-  - "fisico"
-  - "no vivo"
-
-enunciado: "El prefijo 'geo' en biogeoquímico se refiere al ambiente ___."
-
-explicacion: |
-  Del griego "geo" (tierra): suelo, aire, agua.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
-  nivel: "intermedio"
-  tags: ["ciclo_del_agua"]
-
-variables:
-  etapas: [["evaporacion", "agua liquida se convierte en vapor"], ["condensacion", "vapor de agua forma nubes"], ["precipitacion", "nubes liberan lluvia o nieve"], ["escorrentia", "el agua vuelve a rios y mares o se filtra al subsuelo"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: etapas[idx][1]
+respuesta: "agua, aire y alimento"
 tipo: mc
-opciones_explicitas: ["agua liquida se convierte en vapor", "vapor de agua forma nubes", "nubes liberan lluvia o nieve", "el agua vuelve a rios y mares o se filtra al subsuelo"]
+opciones_explicitas: ["agua, aire y alimento", "luz, temperatura y espacio", "dinero, tecnología y ropa", "solo el alimento"]
 
-enunciado: "¿Cuál es la descripción de la etapa de {etapas[idx][0]}?"
+enunciado: "¿Cuáles son las tres necesidades básicas universales de los seres vivos?"
 
 explicacion: |
-  {etapas[idx][0]}: {etapas[idx][1]}.
+  Agua, aire y alimento son las 3 necesidades universales, sin excepción.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
+  tema: "necesidades_basicas_seres_vivos"
   nivel: "basico"
-  tags: ["transpiracion"]
+  tags: ["supervivencia"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Las plantas también liberan vapor de agua a la atmósfera mediante la transpiración."
+enunciado: "Si a un ser vivo le falta agua, aire o alimento por mucho tiempo, muere."
 
 explicacion: |
-  Correcto, a través de los estomas de las hojas.
+  Correcto. Sin ellas no se pueden sostener los procesos vitales.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
+  tema: "necesidades_basicas_seres_vivos"
   nivel: "basico"
-  tags: ["condensacion"]
+  tags: ["agua", "composicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El cuerpo humano está compuesto mayormente de agua (aproximadamente 60%)."
+
+explicacion: |
+  Correcto. El agua es el componente principal de células y fluidos corporales.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "necesidades_basicas_seres_vivos"
+  nivel: "basico"
+  tags: ["agua"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El agua es el medio donde ocurren las reacciones químicas internas del cuerpo."
+
+explicacion: |
+  Correcto. El agua actúa como solvente donde ocurren los procesos metabólicos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "necesidades_basicas_seres_vivos"
+  nivel: "basico"
+  tags: ["agua", "supervivencia"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La condensación es el proceso mediante el cual el agua líquida se convierte en vapor."
+enunciado: "Un ser humano puede sobrevivir meses sin tomar agua."
 
 explicacion: |
-  Falso, eso es evaporación. Condensación es vapor pasando a líquido (nubes).
+  Falso. La deshidratación severa puede ser mortal en pocos días.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
+  tema: "necesidades_basicas_seres_vivos"
   nivel: "basico"
-  tags: ["carbono"]
+  tags: ["agua", "funciones"]
+
+respuesta: "medio para reacciones químicas, transporte y regulación de temperatura"
+tipo: mc
+opciones_explicitas: ["medio para reacciones químicas, transporte y regulación de temperatura", "solo dar sabor a las comidas", "solo limpiar la piel", "ninguna función vital"]
+
+enunciado: "El agua cumple funciones de..."
+
+explicacion: |
+  Es medio de reacciones químicas, transporta nutrientes y regula la temperatura corporal.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "necesidades_basicas_seres_vivos"
+  nivel: "basico"
+  tags: ["oxigeno", "respiracion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Los productores fijan carbono del CO2 atmosférico en glucosa mediante la fotosíntesis."
+enunciado: "La mayoría de los seres vivos necesitan oxígeno del aire para la respiración celular."
 
 explicacion: |
   Correcto — ver ../fotosintesis-respiracion-celular/.
@@ -147,268 +155,846 @@ explicacion: |
 ```
 metadata:
   materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
+  tema: "necesidades_basicas_seres_vivos"
   nivel: "basico"
-  tags: ["carbono"]
+  tags: ["aire", "supervivencia"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La respiración celular devuelve CO2 a la atmósfera."
+enunciado: "La falta de aire es la más urgente de las 3 necesidades básicas: se sobrevive apenas unos minutos sin ella."
 
 explicacion: |
-  Correcto, cierra parte del ciclo.
+  Correcto, mucho más urgente que la falta de agua o alimento.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
-  nivel: "intermedio"
-  tags: ["combustibles_fosiles"]
+  tema: "necesidades_basicas_seres_vivos"
+  nivel: "basico"
+  tags: ["alimento", "energia"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Los combustibles fósiles son carbono atrapado de organismos muertos hace millones de años."
+enunciado: "El alimento aporta materia para crecer y energía para que el organismo funcione."
 
 explicacion: |
-  Correcto, carbono orgánico transformado bajo presión geológica.
+  Correcto, esas son las dos funciones principales del alimento.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
-  nivel: "intermedio"
-  tags: ["combustibles_fosiles"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Quemar combustibles fósiles libera ese carbono a la atmósfera mucho más lento de lo que se acumuló originalmente."
-
-explicacion: |
-  Falso, es mucho más rápido: millones de años de acumulación se liberan en décadas/siglos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
+  tema: "necesidades_basicas_seres_vivos"
   nivel: "basico"
-  tags: ["nitrogeno"]
+  tags: ["supervivencia"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El nitrógeno (N2) constituye aproximadamente el 78% del aire."
+enunciado: "Se puede sobrevivir sin comer más tiempo que sin tomar agua."
 
 explicacion: |
-  Correcto, es el gas más abundante de la atmósfera.
+  Correcto: semanas sin comida vs. sólo pocos días sin agua.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
+  tema: "necesidades_basicas_seres_vivos"
   nivel: "basico"
-  tags: ["nitrogeno"]
+  tags: ["respiracion", "energia"]
 
-respuesta: falso
-tipo: vf
-
-enunciado: "La mayoría de los seres vivos puede usar el N2 atmosférico directamente, sin necesidad de fijarlo."
-
-explicacion: |
-  Falso, casi ninguno puede usarlo directo; hace falta fijarlo primero.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
-  nivel: "intermedio"
-  tags: ["nitrogeno", "bacterias"]
-
-respuesta: "fijacion"
+respuesta: "celular"
 tipo: completar
 respuestas_validas:
-  - "fijacion"
-  - "fijación"
+  - "celular"
 
-enunciado: "El proceso por el cual bacterias especializadas convierten el N2 atmosférico en formas utilizables se llama ___."
+enunciado: "El proceso que usa el oxígeno del aire para liberar la energía guardada en el alimento se llama respiración ___."
 
 explicacion: |
-  Fijación de nitrógeno.
+  La respiración celular transforma la energía química de los nutrientes en energía usable.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
+  tema: "necesidades_basicas_seres_vivos"
   nivel: "intermedio"
-  tags: ["nitrogeno", "leguminosas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Algunas bacterias fijadoras de nitrógeno viven en simbiosis en las raíces de leguminosas, como el poroto."
-
-explicacion: |
-  Correcto, las Rhizobium forman nódulos en esas raíces.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
-  nivel: "avanzado"
-  tags: ["nitrogeno", "bacterias"]
-
-respuesta: "desnitrificacion"
-tipo: completar
-respuestas_validas:
-  - "desnitrificacion"
-  - "desnitrificación"
-
-enunciado: "El proceso por el cual bacterias convierten formas fijadas de nitrógeno de vuelta a N2 gaseoso se llama ___."
-
-explicacion: |
-  Desnitrificación, cierra el ciclo del nitrógeno.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
-  nivel: "basico"
-  tags: ["nitrogeno", "nutricion_vegetal"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las plantas absorben las formas fijadas de nitrógeno y las incorporan en la síntesis de proteínas."
-
-explicacion: |
-  Correcto, absorben nitratos y amonio del suelo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
-  nivel: "basico"
-  tags: ["nitrogeno", "cadena_alimentaria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los animales obtienen el nitrógeno que necesitan comiendo plantas u otros animales."
-
-explicacion: |
-  Correcto, no pueden fijar nitrógeno del aire.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
-  nivel: "basico"
-  tags: ["nitrogeno", "descomposicion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al morir un organismo, los descomponedores liberan el nitrógeno de sus tejidos de vuelta al suelo."
-
-explicacion: |
-  Correcto, transforman nitrógeno orgánico en formas inorgánicas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
-  nivel: "basico"
-  tags: ["nitrogeno", "bacterias"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El ciclo del nitrógeno no tiene ninguna relación con las bacterias, opera únicamente a través de las plantas."
-
-explicacion: |
-  Falso, las bacterias son clave en la fijación y la desnitrificación.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
-  nivel: "basico"
-  tags: ["materia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los ciclos biogeoquímicos son la prueba concreta de que la materia siempre vuelve a estar disponible en algún punto del ciclo."
-
-explicacion: |
-  Correcto — ver ../flujo-materia-energia/.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
-  nivel: "basico"
-  tags: ["energia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia de la materia, la energía se disipa y necesita reposición constante desde el sol."
-
-explicacion: |
-  Correcto, la energía no se recicla como la materia.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
-  nivel: "intermedio"
-  tags: ["identificacion"]
+  tags: ["supervivencia", "repaso"]
 
 variables:
-  escenarios: [["ciclo del agua", "H2O"], ["ciclo del carbono", "carbono/CO2"], ["ciclo del nitrogeno", "nitrogeno/N2"]]
+  escenario: [["aire", "pocos minutos"], ["agua", "pocos días"], ["alimento", "semanas"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: escenarios[idx][1]
+respuesta: escenario[idx][1]
 tipo: mc
-opciones_explicitas: ["H2O", "carbono/CO2", "nitrogeno/N2"]
+opciones_explicitas: ["pocos minutos", "pocos días", "semanas", "meses"]
 
-enunciado: "¿Cuál es el elemento principal del {escenarios[idx][0]}?"
+enunciado: "Si un ser vivo carece de {escenario[idx][0]}, ¿cuánto tiempo puede sobrevivir aproximadamente?"
 
 explicacion: |
-  El elemento principal del {escenarios[idx][0]} es {escenarios[idx][1]}.
+  Sin {escenario[idx][0]}, la vida se compromete en {escenario[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ciclos_biogeoquimicos"
+  tema: "necesidades_basicas_seres_vivos"
   nivel: "basico"
-  tags: ["materia"]
+  tags: ["factores_ambientales"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Los tres ciclos (agua, carbono, nitrógeno) son ejemplos de cómo la materia circula sin perderse."
+enunciado: "Además de agua, aire y alimento, hay otras cosas que un ser vivo necesita, como luz y un rango de temperatura tolerable."
 
 explicacion: |
-  Correcto, los átomos se reorganizan pero permanecen en el sistema.
+  Correcto, aunque esas 3 son las únicas verdaderamente universales.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "necesidades_basicas_seres_vivos"
+  nivel: "basico"
+  tags: ["caracteristicas_vida"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Agua, aire y alimento se consideran necesidades universales porque todo ser vivo conocido las requiere de alguna forma."
+
+explicacion: |
+  Correcto, desde bacterias hasta animales complejos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "necesidades_basicas_seres_vivos"
+  nivel: "basico"
+  tags: ["conceptos_fundamentales"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las necesidades básicas son la base para definir qué elementos hacen falta para que algo sea considerado 'vivo'."
+
+explicacion: |
+  Correcto — ver ../ser-vivo-caracteristicas/.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "necesidades_basicas_seres_vivos"
+  nivel: "intermedio"
+  tags: ["adaptacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Todos los seres vivos consiguen sus necesidades básicas exactamente de la misma manera (ej. todos comen lo mismo, todos respiran de la misma forma)."
+
+explicacion: |
+  Falso. La NECESIDAD es universal, pero la FORMA de conseguirla varía mucho según el ser vivo y su hábitat — ver ../habitats-adaptacion/.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "necesidades_basicas_seres_vivos"
+  nivel: "intermedio"
+  tags: ["supervivencia", "aplicacion"]
+
+respuesta: "el aire, porque es la necesidad más urgente"
+tipo: mc
+opciones_explicitas: ["el aire, porque es la necesidad más urgente", "el alimento, porque da más energía", "el agua, porque pesa más", "cualquiera, no importa el orden"]
+
+enunciado: "Si una persona quedara sin acceso a agua, aire y alimento al mismo tiempo, ¿cuál sería la carencia más urgente de resolver?"
+
+explicacion: |
+  El aire es la más urgente: sin él, la supervivencia se mide en minutos, no días ni semanas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "necesidades_basicas_seres_vivos"
+  nivel: "intermedio"
+  tags: ["plantas", "aplicacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las plantas también necesitan agua, aire (CO2 y O2) y \"alimento\" (que ellas mismas fabrican por fotosíntesis), aunque no coman como los animales."
+
+explicacion: |
+  Correcto. Las 3 necesidades son universales, aunque cada tipo de ser vivo las consiga de forma distinta — las plantas fabrican su propio alimento en vez de buscarlo.
+```
+
+## Sección: ser-vivo-caracteristicas (20 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "basico"
+  tags: ["caracteristicas", "vida"]
+
+variables:
+  tabla: [["organizacion", "esta formado por una o mas celulas"], ["nutricion", "obtiene y procesa materia y energia"], ["reproduccion", "genera nuevos individuos de su misma especie"], ["homeostasis", "mantiene su ambiente interno estable"]]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: tabla[idx][1]
+tipo: mc
+opciones_explicitas: ["esta formado por una o mas celulas", "obtiene y procesa materia y energia", "genera nuevos individuos de su misma especie", "mantiene su ambiente interno estable"]
+
+enunciado: "¿Qué significa la característica {tabla[idx][0]}?"
+
+explicacion: |
+  {tabla[idx][0]} significa: {tabla[idx][1]}.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "basico"
+  tags: ["irritabilidad", "estimulos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La irritabilidad es la capacidad de reaccionar a cambios del ambiente, como luz, calor o contacto."
+
+explicacion: |
+  Correcto. Permite responder a estímulos para sobrevivir.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "basico"
+  tags: ["crecimiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El crecimiento significa aumentar de tamaño o cantidad de células a lo largo del tiempo."
+
+explicacion: |
+  Correcto, ocurre por aumento de tamaño celular o por división celular.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "basico"
+  tags: ["metabolismo", "respiracion"]
+
+respuesta: "respiracion"
+tipo: completar
+respuestas_validas:
+  - "respiracion"
+
+enunciado: "Liberar la energía guardada en el alimento se llama ___."
+
+explicacion: |
+  La respiración celular transforma la energía de los nutrientes en energía utilizable.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "basico"
+  tags: ["evolucion", "adaptacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La adaptación es que la especie cambia con el tiempo para ajustarse mejor al ambiente."
+
+explicacion: |
+  Correcto — ver ../seleccion-natural/.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "basico"
+  tags: ["reproduccion", "mula"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La mula (cruza de caballo y burro) es considerada un ser vivo, aunque no pueda reproducirse."
+
+explicacion: |
+  Cumple el resto de las funciones vitales — la esterilidad no la excluye de ser un ser vivo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "intermedio"
+  tags: ["definicion", "excepciones"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si un individuo no cumple una característica general (como reproducirse), deja de ser considerado ser vivo automáticamente."
+
+explicacion: |
+  Falso. La lista describe el patrón general, no una regla sin excepción para cada individuo — hay híbridos estériles que igual son seres vivos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "basico"
+  tags: ["reproduccion", "genetica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aunque la mula sea estéril, sus especies de origen (caballo y burro) sí pueden reproducirse."
+
+explicacion: |
+  Correcto. La esterilidad es del híbrido, no de las especies parentales.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "basico"
+  tags: ["virus", "celula"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los virus carecen de organización celular propia (no tienen membrana, citoplasma ni organelos)."
+
+explicacion: |
+  Correcto. Son agentes acelulares, no células.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "basico"
+  tags: ["virus", "metabolismo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los virus se alimentan por sí mismos, con procesos metabólicos independientes, como una célula normal."
+
+explicacion: |
+  Falso. No tienen metabolismo propio.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "intermedio"
+  tags: ["virus", "reproduccion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los virus sólo pueden reproducirse usando la maquinaria de una célula que infectan."
+
+explicacion: |
+  Correcto — ver ../microbiologia-virus-inmunitario/.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "intermedio"
+  tags: ["virus", "debate"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Existe debate científico sobre si los virus deben clasificarse como seres vivos o no."
+
+explicacion: |
+  Correcto, por su falta de metabolismo y reproducción autónoma.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "basico"
+  tags: ["conceptos_basicos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para ser considerado ser vivo, un organismo debe cumplir un conjunto de características (nutrición, reproducción, respuesta a estímulos, etc.)."
+
+explicacion: |
+  Correcto, esa es la base de la definición biológica de vida.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "basico"
+  tags: ["caracteristicas"]
+
+respuesta: "Tener siempre color verde"
+tipo: mc
+opciones_explicitas: ["Nutrición", "Reproducción", "Tener siempre color verde", "Crecimiento"]
+
+enunciado: "¿Cuál de estas NO es una característica esencial de todos los seres vivos?"
+
+explicacion: |
+  El color verde no es universal (sólo aparece en organismos fotosintéticos con clorofila); nutrición, reproducción y crecimiento sí lo son.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "basico"
+  tags: ["ejemplos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las plantas, la célula y los ciclos de vida son ejemplos concretos que ilustran estas mismas características generales."
+
+explicacion: |
+  Correcto, son "instancias" de las características de todo ser vivo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "basico"
+  tags: ["comparacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un objeto inerte, como una piedra, puede realizar procesos de nutrición y reproducción."
+
+explicacion: |
+  Falso, esos procesos son exclusivos de los sistemas biológicos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "intermedio"
+  tags: ["homeostasis"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La homeostasis permite que el ambiente interno de un ser vivo se mantenga relativamente estable, aunque el ambiente externo cambie mucho."
+
+explicacion: |
+  Correcto, por ejemplo mantener la temperatura corporal aunque haga frío o calor afuera.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "avanzado"
+  tags: ["conceptos", "casos_limite"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El fuego, que crece, se reproduce (propaga) y consume 'alimento' (combustible), es considerado un ser vivo porque cumple algunas de estas características."
+
+explicacion: |
+  Falso. Aunque comparte alguna característica superficial, el fuego no tiene organización celular, no responde a estímulos de forma coordinada ni tiene material genético — cumplir una o dos características sueltas no alcanza para ser considerado ser vivo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "intermedio"
+  tags: ["organizacion", "celula"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Todo ser vivo conocido (con la excepción discutida de los virus) está formado por al menos una célula."
+
+explicacion: |
+  Correcto — desde organismos unicelulares (una sola célula) hasta pluricelulares (muchas), la célula es la unidad básica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ser_vivo_caracteristicas"
+  nivel: "avanzado"
+  tags: ["conceptos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Todas las características de los seres vivos tienen la misma importancia y ninguna depende de las otras."
+
+explicacion: |
+  Falso. Por ejemplo, sin nutrición (obtener energía) no hay crecimiento posible, y sin organización celular no hay ninguna de las demás funciones — hay dependencias entre ellas, no son totalmente independientes.
+```
+
+## Sección: celula-organelas (20 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["celula", "teoria_celular"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La célula es la unidad básica de la vida."
+
+explicacion: |
+  La teoría celular establece que la célula es la unidad estructural, funcional y de origen de todos los seres vivos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["unicelular", "clasificacion"]
+
+respuesta: "unicelular"
+tipo: mc
+opciones_explicitas: ["unicelular", "pluricelular", "multicelular", "acelular"]
+
+enunciado: "Un organismo formado por una sola célula se llama..."
+
+explicacion: |
+  Se llama unicelular (bacterias, protozoos).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["pluricelular"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las plantas y los animales son organismos pluricelulares."
+
+explicacion: |
+  Correcto, están compuestos por múltiples células especializadas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["bacterias"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Las bacterias son organismos pluricelulares complejos."
+
+explicacion: |
+  Falso. Son unicelulares procariotas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["procariota", "nucleo"]
+
+respuesta: "no tener nucleo definido"
+tipo: mc
+opciones_explicitas: ["no tener nucleo definido", "tener nucleo definido", "no tener membrana", "no tener citoplasma"]
+
+enunciado: "La célula procariota se caracteriza por..."
+
+explicacion: |
+  Su material genético está disperso en el citoplasma, sin membrana propia.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["eucariota", "nucleo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La célula eucariota tiene el material genético encerrado en una membrana propia (el núcleo)."
+
+explicacion: |
+  Correcto, es la característica principal que la diferencia de la procariota.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["bacterias", "procariota"]
+
+respuesta: "procariotas"
+tipo: mc
+opciones_explicitas: ["procariotas", "eucariotas", "ninguna de las dos", "ambas a la vez"]
+
+enunciado: "Las bacterias son células..."
+
+explicacion: |
+  Son procariotas: estructura simple, sin núcleo definido.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["eucariota"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Las células de plantas y animales son procariotas."
+
+explicacion: |
+  Falso, son eucariotas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "intermedio"
+  tags: ["organelas"]
+
+variables:
+  datos: [["nucleo", "guarda el ADN y controla la actividad de la celula"], ["mitocondria", "produce energia"], ["ribosoma", "fabrica proteinas"], ["cloroplasto", "hace la fotosintesis"]]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["guarda el ADN y controla la actividad de la celula", "produce energia", "fabrica proteinas", "hace la fotosintesis"]
+
+enunciado: "¿Cuál es la función de {datos[idx][0]}?"
+
+explicacion: |
+  La función de {datos[idx][0]} es: {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["golgi"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El aparato de Golgi empaqueta y distribuye proteínas."
+
+explicacion: |
+  Correcto, procesa, empaqueta y distribuye proteínas y lípidos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["reticulo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El retículo endoplasmático transporta sustancias dentro de la célula."
+
+explicacion: |
+  Correcto, funciona como sistema de transporte y síntesis.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["vacuola"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La vacuola es más grande en las células animales que en las vegetales."
+
+explicacion: |
+  Falso. Es mucho más grande en las vegetales.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["pared_celular"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La célula vegetal posee pared celular, mientras que la célula animal no la tiene."
+
+explicacion: |
+  Correcto, es una diferencia clave entre ambas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["cloroplastos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los cloroplastos están presentes tanto en células animales como vegetales."
+
+explicacion: |
+  Falso, son exclusivos de células vegetales y algas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["pared_celular"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La pared celular da rigidez extra y protección, y está presente en plantas, hongos y bacterias, pero no en animales."
+
+explicacion: |
+  Correcto.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "intermedio"
+  tags: ["sistema_celular"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Cada organela funciona de forma totalmente aislada, sin relación con las demás."
+
+explicacion: |
+  Falso. Trabajan como sistema integrado (ej: retículo→Golgi para las proteínas).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["ribosomas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El ribosoma fabrica proteínas utilizando la información del ADN."
+
+explicacion: |
+  Correcto — ver ../adn-gen-proteina/.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "basico"
+  tags: ["membrana"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La membrana celular envuelve la célula y controla qué entra y sale de ella."
+
+explicacion: |
+  Correcto, es selectivamente permeable.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "intermedio"
+  tags: ["mitocondria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La mitocondria se conoce como la 'central de energía' de la célula porque produce la energía necesaria para sus procesos."
+
+explicacion: |
+  Correcto, mediante la respiración celular.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "celula_organelas"
+  nivel: "avanzado"
+  tags: ["comparacion"]
+
+respuesta: "pared celular, cloroplastos y vacuola grande central"
+tipo: mc
+opciones_explicitas: ["pared celular, cloroplastos y vacuola grande central", "núcleo y mitocondria", "membrana celular y ribosomas", "citoplasma y retículo endoplasmático"]
+
+enunciado: "¿Cuáles son las 3 estructuras que tiene la célula vegetal y que la célula animal NO tiene?"
+
+explicacion: |
+  Núcleo, mitocondria, membrana, citoplasma, ribosomas y retículo están en ambas — lo exclusivo de la vegetal es pared celular, cloroplastos y la vacuola grande central.
 ```
 
 ## Sección: ciclos-vida-metamorfosis (20 preguntas)
@@ -1083,982 +1669,5 @@ enunciado: "¿Cuántas partes tiene el nombre científico de una especie según 
 
 explicacion: |
   Dos: género y epíteto específico.
-```
-
-## Sección: conservacion-areas-protegidas (25 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "basico"
-  tags: ["biodiversidad", "habitat"]
-
-enunciado: "La construcción de una carretera que divide un bosque en dos partes menores se conoce como ___ de hábitat."
-
-respuestas_validas:
-  - "fragmentación"
-  - "fragmentacion"
-respuesta: "fragmentación"
-tipo: completar
-
-explicacion: |
-  La fragmentación ocurre cuando un hábitat continuo es dividido en parches más pequeños, dificultando el movimiento de las especies y aumentando el efecto de borde.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "basico"
-  tags: ["especies_invasoras", "biodiversidad"]
-
-enunciado: "Cuando una especie introducida en un ecosistema se reproduce sin control y desplaza a las especies nativas, se dice que es una especie ___."
-
-respuestas_validas:
-  - "invasora"
-respuesta: "invasora"
-tipo: completar
-
-explicacion: |
-  Las especies invasoras pueden alterar los ciclos de nutrientes, competir por alimento y depredar a las especies locales, reduciendo la biodiversidad.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "intermedio"
-  tags: ["recursos", "sobreexplotacion"]
-
-enunciado: "Si la tasa de captura de una especie de pez es mayor que su tasa de reproducción natural, estamos ante un caso de ___."
-
-respuestas_validas:
-  - "sobreexplotación"
-  - "sobreexplotacion"
-respuesta: "sobreexplotación"
-tipo: completar
-
-explicacion: |
-  La sobreexplotación ocurre cuando el ser humano extrae recursos naturales de una población a un ritmo más rápido de lo que la población puede recuperarse.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "basico"
-  tags: ["contaminacion", "ecosistemas"]
-
-enunciado: "La introducción de sustancias químicas, plásticos o exceso de nutrientes en un ecosistema que altera su equilibrio se denomina ___."
-
-respuestas_validas:
-  - "contaminación"
-  - "contaminacion"
-respuesta: "contaminación"
-tipo: completar
-
-explicacion: |
-  La contaminación puede ser química, física o biológica, y afecta la supervivencia de los organismos en diversos niveles tróficos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "intermedio"
-  tags: ["clima", "biodiversidad"]
-
-enunciado: "El aumento global de la temperatura media de la atmósfera y los océanos, causado principalmente por el efecto invernadero, es el ___."
-
-respuestas_validas:
-  - "cambio climático"
-  - "cambio climatico"
-respuesta: "cambio climático"
-tipo: completar
-
-explicacion: |
-  El cambio climático altera los ciclos fenológicos (como las épocas de floración) y los rangos de distribución de las especies, forzándolas a migrar o enfrentar la extinción.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "basico"
-  tags: ["conservacion", "biodiversidad"]
-
-tipo: mc
-opciones_explicitas: ["Un espacio geográfico con límites definidos legalmente para proteger la biodiversidad y sus procesos naturales.", "Un terreno privado donde el dueño decide qué especies cuidar.", "Un parque recreativo diseñado exclusivamente para el turismo masivo.", "Una zona de producción agrícola intensiva con control de plagas."]
-
-respuesta: "Un espacio geográfico con límites definidos legalmente para proteger la biodiversidad y sus procesos naturales."
-
-enunciado: "¿Cuál es la definición técnica de un área protegida?"
-
-explicacion: |
-  Un área protegida es un espacio geográfico claramente definido, reconocido y gestionado, mediante medios legales u otros medios eficaces, para lograr la conservación a largo plazo de la naturaleza y sus servicios ecosistémicos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "intermedio"
-  tags: ["parque_nacional", "proteccion_estricta"]
-
-tipo: completar
-respuestas_validas:
-  - "Parque Nacional"
-  - "parque nacional"
-respuesta: "Parque Nacional"
-
-enunciado: "Un área de protección estricta, donde las actividades humanas están limitadas casi exclusivamente a la investigación científica y el turismo de bajo impacto, se denomina generalmente: ___"
-
-explicacion: |
-  En los Parques Nacionales, el objetivo principal es la preservación de los ecosistemas en su estado natural, restringiendo actividades extractivas o de asentamiento humano permanente.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "intermedio"
-  tags: ["uso_sostenible", "reserva"]
-
-tipo: mc
-opciones_explicitas: ["Permite la extracción de recursos de manera controlada para satisfacer necesidades de comunidades locales.", "Prohíbe totalmente cualquier tipo de presencia humana.", "Sólo permite la actividad minera a cielo abierto.", "Es un área sin límites legales donde prima la explotación comercial."]
-
-respuesta: "Permite la extracción de recursos de manera controlada para satisfacer necesidades de comunidades locales."
-
-enunciado: "Una reserva de uso sostenible se diferencia de un área de protección estricta porque:"
-
-explicacion: |
-  Las áreas de uso sostenible permiten la interacción humana y el aprovechamiento de recursos naturales, siempre que se haga de forma que no comprometa la integridad del ecosistema a largo plazo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "basico"
-  tags: ["objetivos", "biodiversidad"]
-
-tipo: completar
-respuestas_validas:
-  - "conservar"
-respuesta: "conservar"
-
-enunciado: "El objetivo principal de establecer áreas protegidas es ___ la biodiversidad y los servicios ecosistémicos."
-
-explicacion: |
-  La conservación busca proteger la diversidad biológica y asegurar que los procesos naturales (como el ciclo del agua o la polinización) continúen funcionando.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "avanzado"
-  tags: ["gestion", "impacto_humano"]
-
-tipo: mc
-opciones_explicitas: ["Protección estricta: impacto humano mínimo / Uso sostenible: impacto humano controlado.", "Protección estricta: impacto humano máximo / Uso sostenible: sin impacto humano.", "Protección estricta: sólo agricultura / Uso sostenible: sólo minería.", "Protección estricta: no hay leyes / Uso sostenible: leyes muy severas."]
-
-respuesta: "Protección estricta: impacto humano mínimo / Uso sostenible: impacto humano controlado."
-
-enunciado: "Al comparar los niveles de restricción, ¿cuál es la diferencia fundamental en la gestión del impacto humano?"
-
-explicacion: |
-  La diferencia radica en la intensidad de la intervención permitida: mientras que en la protección estricta se busca la mínima huella humana, en el uso sostenible se permite la presencia de comunidades que interactúan con el entorno de forma regulada.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "basico"
-  tags: ["ecologia", "conservacion"]
-
-respuesta: "flujo génico"
-tipo: completar
-respuestas_validas:
-  - "flujo génico"
-  - "flujo genico"
-
-enunciado: "Los corredores biológicos permiten el movimiento de individuos entre fragmentos de hábitat, lo que facilita el ___ entre las poblaciones."
-
-explicacion: |
-  El flujo génico es el intercambio de genes entre poblaciones, lo cual es vital para mantener la diversidad genética y evitar la endogamia en áreas protegidas aisladas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "intermedio"
-  tags: ["fragmentacion", "islas"]
-
-respuesta: "islas"
-tipo: completar
-respuestas_validas:
-  - "islas"
-
-enunciado: "Cuando un hábitat es fragmentado por actividades humanas (como carreteras o agricultura), las áreas protegidas pueden quedar funcionando como ___ biológicas, donde las poblaciones quedan aisladas."
-
-explicacion: |
-  El término "islas biológicas" se usa para describir fragmentos de ecosistemas rodeados de un "mar" de entornos degradados que impiden el movimiento de las especies.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "intermedio"
-  tags: ["conectividad", "biodiversidad"]
-
-respuesta: "conectar"
-tipo: completar
-respuestas_validas:
-  - "conectar"
-
-enunciado: "Los corredores biológicos tienen como objetivo principal ___ áreas protegidas que de otro modo quedarían aisladas entre sí."
-
-explicacion: |
-  La conectividad estructural y funcional es la base de los corredores para asegurar que las especies puedan migrar, alimentarse y reproducirse en diferentes parches de vegetación.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "avanzado"
-  tags: ["genetica", "extincion"]
-
-respuesta: "endogamia"
-tipo: completar
-respuestas_validas:
-  - "endogamia"
-
-enunciado: "Si una población queda totalmente aislada en un fragmento pequeño sin corredores, aumenta el riesgo de ___ debido al apareamiento entre individuos estrechamente emparentados."
-
-explicacion: |
-  La endogamia reduce la aptitud biológica de una población y puede llevar a la extinción local al aumentar la expresión de genes recesivos perjudiciales.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "intermedio"
-  tags: ["paisaje", "ecologia"]
-
-respuesta: "matriz"
-tipo: completar
-respuestas_validas:
-  - "matriz"
-
-enunciado: "El área de terreno que rodea a los parches de hábitat y que un corredor debe atravesar de forma permeable para funcionar bien se llama ___."
-
-explicacion: |
-  La matriz es el área que rodea a los parches de hábitat; si la matriz es permeable (por ejemplo, un bosque secundario en lugar de un cultivo intensivo), el corredor funciona mejor.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "intermedio"
-  tags: ["genetica", "poblaciones"]
-
-tipo: mc
-opciones_explicitas: ["Aumento de la diversidad genética", "Pérdida de alelos por azar", "Aumento del flujo génico", "Reducción de la tasa de mutación"]
-respuesta: "Pérdida de alelos por azar"
-
-enunciado: "En una población pequeña y aislada, la deriva genética tiene un impacto mayor porque..."
-
-explicacion: |
-  Con pocos individuos, un evento aleatorio (quién sobrevive, quién se reproduce) pesa mucho más sobre las frecuencias génicas — el mismo mecanismo visto en `deriva-genetica-flujo-genico/`, ahora aplicado a un área protegida chica.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "intermedio"
-  tags: ["conectividad", "flujo_genico"]
-
-tipo: completar
-respuestas_validas:
-  - "flujo génico"
-  - "flujo genico"
-respuesta: "flujo génico"
-
-enunciado: "Cuando dos áreas protegidas están separadas por una matriz hostil (como una ciudad), se impide el ___ entre las poblaciones, lo que aumenta el riesgo de endogamia."
-
-explicacion: |
-  El flujo génico es el movimiento de genes entre poblaciones. Si las áreas están aisladas, las poblaciones no pueden intercambiar individuos, lo que reduce la variabilidad genética.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "avanzado"
-  tags: ["fragmentacion", "extincion"]
-
-tipo: mc
-opciones_explicitas: ["Aumenta la resiliencia ante cambios ambientales", "Disminuye la probabilidad de extinción", "Aumenta el riesgo de extinción por eventos estocásticos", "Favorece la selección natural"]
-respuesta: "Aumenta el riesgo de extinción por eventos estocásticos"
-
-enunciado: "Una población pequeña contenida en un área protegida muy pequeña es más vulnerable a la extinción debido a eventos aleatorios (como un incendio o una enfermedad) porque..."
-
-explicacion: |
-  Cuantos menos individuos hay, más fácil es que un solo evento catastrófico elimine a una parte suficientemente grande de la población como para comprometer su viabilidad futura.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "intermedio"
-  tags: ["endogamia", "fitness"]
-
-tipo: completar
-respuestas_validas:
-  - "depresión por endogamia"
-  - "depresion por endogamia"
-respuesta: "depresión por endogamia"
-
-enunciado: "El apareamiento entre individuos estrechamente emparentados en poblaciones pequeñas y aisladas suele provocar la ___ debido a la expresión de alelos recesivos deletéreos."
-
-explicacion: |
-  La endogamia aumenta la homocigosis, lo que suele reducir la aptitud biológica (fitness) de la población.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "avanzado"
-  tags: ["corredores", "diseño_ecologico"]
-
-tipo: mc
-opciones_explicitas: ["Aumentar el tamaño de la población efectiva", "Reducir la tasa de reproducción", "Aislar más las especies", "Eliminar la competencia intraespecífica"]
-respuesta: "Aumentar el tamaño de la población efectiva"
-
-enunciado: "Para mitigar los efectos de la fragmentación, los biólogos proponen la creación de corredores biológicos con el fin de..."
-
-explicacion: |
-  Al conectar poblaciones antes aisladas, un corredor efectivamente aumenta el número de individuos que pueden cruzarse entre sí, reduciendo la deriva genética y la endogamia.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "basico"
-  tags: ["biodiversidad", "deforestacion"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["se talaron bosques nativos para plantar soja", "la expansión de la frontera agrícola avanzó sobre un bosque nativo"]]
-
-enunciado: "En un ecosistema donde {escenarios[0][escenario_idx]}, la causa principal de la pérdida de biodiversidad es la ___."
-
-opciones_explicitas: ["deforestación", "especies exóticas", "cambio climático", "contaminación"]
-respuesta: "deforestación"
-tipo: mc
-
-explicacion: |
-  La eliminación de la cubierta vegetal para actividades productivas como la agricultura reduce el espacio disponible para las especies nativas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "intermedio"
-  tags: ["especies_exoticas", "ecosistema"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["se introdujo un pez depredador en un lago sin depredadores naturales", "un felino no nativo fue liberado en una isla"]]
-
-enunciado: "Cuando {escenarios[0][escenario_idx]}, el factor que altera el equilibrio ecológico es la presencia de una ___."
-
-respuestas_validas:
-  - "especie invasora"
-respuesta: "especie invasora"
-tipo: completar
-
-explicacion: |
-  Las especies introducidas en nuevos ambientes pueden actuar como invasoras si no tienen controles naturales, desplazando a las especies autóctonas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "basico"
-  tags: ["recursos_naturales", "pesca"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["se capturaron ejemplares de una especie por debajo de su edad reproductiva", "se extrajeron individuos de una población de peces de forma masiva"]]
-
-enunciado: "En el escenario donde {escenarios[0][escenario_idx]}, el proceso que pone en riesgo la supervivencia de la especie es la ___."
-
-respuestas_validas:
-  - "sobrepesca"
-respuesta: "sobrepesca"
-tipo: completar
-
-explicacion: |
-  La extracción de individuos a un ritmo superior al de su reproducción natural agota las poblaciones de peces.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "intermedio"
-  tags: ["fragmentacion", "corredores_biologicos"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["una carretera divide un bosque en dos sectores aislados", "una red eléctrica atraviesa una reserva natural dividiéndola en dos"]]
-
-enunciado: "Si {escenarios[0][escenario_idx]}, el efecto directo sobre la biodiversidad es la ___."
-
-opciones_explicitas: ["fragmentación de hábitat", "contaminación del suelo", "erosión", "especie invasora"]
-respuesta: "fragmentación de hábitat"
-tipo: mc
-
-explicacion: |
-  La fragmentación impide el flujo génico entre poblaciones al crear barreras físicas que los animales no pueden cruzar.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "conservacion_areas_protegidas"
-  nivel: "intermedio"
-  tags: ["contaminacion", "agroquimicos"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["se utilizan pesticidas en campos vecinos a una reserva", "se filtran fertilizantes hacia un arroyo cercano a una reserva"]]
-
-enunciado: "Ante el escenario donde {escenarios[0][escenario_idx]}, la causa del declive de la fauna local es la ___."
-
-respuestas_validas:
-  - "contaminación por agroquímicos"
-  - "contaminacion por agroquimicos"
-respuesta: "contaminación por agroquímicos"
-tipo: completar
-
-explicacion: |
-  El uso de sustancias químicas en la agricultura puede llegar a ecosistemas protegidos mediante el escurrimiento de agua o el viento.
-```
-
-## Sección: crecimiento-poblacional (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "basico"
-  tags: ["modelo_exponencial"]
-
-variables:
-  p0: random(50, 500)
-  t: random(1, 6)
-
-respuesta: p0 * 2 ^ t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un cultivo de bacterias empieza con {p0} y se duplica cada hora. ¿Cuántas hay después de {t} horas?"
-
-explicacion: |
-  P(t) = {p0}×2^{t} = {p0 * 2 ^ t}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "basico"
-  tags: ["modelo_exponencial"]
-
-variables:
-  p0: random(10, 100)
-  t: random(1, 5)
-
-respuesta: p0 * 3 ^ t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una población de insectos empieza con {p0} y se triplica cada generación. ¿Cuántos hay después de {t} generaciones?"
-
-explicacion: |
-  P(t) = {p0}×3^{t} = {p0 * 3 ^ t}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "intermedio"
-  tags: ["duplicacion"]
-
-variables:
-  p0: random(10, 50)
-  n: random(1, 5)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una población de {p0} se duplica cada período. ¿Cuántos períodos tardan en llegar a {p0 * (2 ^ n)}?"
-
-pasos:
-  - "{p0}×2^t = {p0 * (2 ^ n)} → 2^t = {2 ^ n} → t = {n}"
-
-explicacion: |
-  Se reconoce el factor de duplicación acumulado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "basico"
-  tags: ["tasa_neta"]
-
-variables:
-  natalidad: random(20, 50)
-  mortalidad: random(5, 19)
-
-respuesta: natalidad - mortalidad
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una población, la tasa de natalidad es {natalidad} por mil, y la de mortalidad es {mortalidad} por mil. ¿Cuál es la tasa neta de crecimiento (por mil)?"
-
-explicacion: |
-  Tasa neta = natalidad − mortalidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "intermedio"
-  tags: ["tasa_neta", "verdadero_falso"]
-
-variables:
-  natalidad: random(5, 15)
-  mortalidad: random(16, 30)
-
-respuesta: ((natalidad - mortalidad) < 0)
-tipo: vf
-
-enunciado: "Natalidad {natalidad} por mil, mortalidad {mortalidad} por mil. ¿Está esta población en declive (tasa neta negativa)?"
-
-explicacion: |
-  Con mortalidad mayor que natalidad, la tasa neta da negativa — la
-  población decrece.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "intermedio"
-  tags: ["tasa_vs_cantidad"]
-
-variables:
-  poblacion: random(10, 100) * 1000
-  tasa_por_mil: random(5, 40)
-
-respuesta: (poblacion * tasa_por_mil) / 1000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una población de {poblacion} crece a una tasa de {tasa_por_mil} por mil. ¿Cuántos individuos se suman?"
-
-explicacion: |
-  {poblacion}×{tasa_por_mil}/1000 = {(poblacion * tasa_por_mil) / 1000}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos poblaciones con la misma tasa de crecimiento (el mismo porcentaje) pueden sumar una cantidad de individuos muy distinta, si su tamaño de partida es distinto."
-
-explicacion: |
-  Una población de 1.000.000 con 2% suma 20.000; una de 100 con el mismo
-  2% suma sólo 2 — misma tasa, cantidades muy distintas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El modelo exponencial simple (P=P₀rᵗ) predice un crecimiento sin ningún límite, sin importar cuánto tiempo pase."
-
-explicacion: |
-  Es justamente su limitación: en la realidad, ningún ambiente sostiene
-  eso para siempre.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La capacidad de carga (K) es la cantidad máxima de individuos que un ambiente puede sostener de forma estable."
-
-explicacion: |
-  Es el límite real que el modelo exponencial simple no tiene en
-  cuenta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El gráfico del crecimiento logístico tiene forma de 'S': crece casi como una exponencial al principio, y se aplana al acercarse a la capacidad de carga."
-
-explicacion: |
-  Es la versión más realista del crecimiento poblacional, a diferencia
-  del modelo exponencial puro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando una población está muy por debajo de la capacidad de carga, su crecimiento se parece mucho al modelo exponencial simple."
-
-explicacion: |
-  El freno por escasez de recursos recién se nota cuando la población
-  ya está cerca del límite K.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "basico"
-  tags: ["concepto", "opcion_multiple"]
-
-respuesta: "Escasez de alimento o espacio, depredación, enfermedad"
-tipo: mc
-opciones_explicitas:
-  - "Escasez de alimento o espacio, depredación, enfermedad"
-  - "La cantidad de individuos que nacieron el año pasado"
-  - "El color de la especie"
-
-enunciado: "¿Cuáles son ejemplos típicos de factores limitantes del crecimiento poblacional?"
-
-explicacion: |
-  Son las causas reales por las que una población deja de crecer
-  exponencialmente cerca de su capacidad de carga.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Además de nacimientos y muertes, la migración (entrada y salida de individuos) también afecta la tasa neta de crecimiento de una población."
-
-explicacion: |
-  Tasa neta = natalidad − mortalidad ± migración.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  p0: random(50, 500)
-  t: random(1, 5)
-  real: p0 * 2 ^ t
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "Un cultivo de {p0} bacterias se duplica cada hora. ¿Es correcto que después de {t} horas haya {propuesto}?"
-
-explicacion: |
-  El valor correcto es {p0}×2^{t} = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "avanzado"
-  tags: ["modelo_exponencial"]
-
-variables:
-  p0: random(20, 100)
-  r: random(2, 4)
-
-respuesta: r
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una población pasa de {p0} a {p0 * r} en un solo período. ¿Cuál es el factor de crecimiento r?"
-
-explicacion: |
-  r = población nueva / población anterior = {p0 * r}/{p0} = {r}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el factor de crecimiento r=1, la población se mantiene estable (ni crece ni decrece)."
-
-explicacion: |
-  P(t)=P₀×1ᵗ=P₀ para cualquier t — no cambia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el factor de crecimiento r está entre 0 y 1 (por ejemplo, r=0.9), la población decrece con el tiempo."
-
-explicacion: |
-  Es el mismo caso de decaimiento exponencial ya visto en
-  `../../matematica/familias-exponencial-logaritmica/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "avanzado"
-  tags: ["modelo_exponencial", "problema"]
-
-variables:
-  p0: random(100, 1000)
-  t: random(1, 3)
-
-respuesta: p0 * 2 ^ t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una colonia de {p0} individuos crece un 100% cada período (o sea, se duplica). ¿Cuántos hay después de {t} períodos?"
-
-explicacion: |
-  Crecer 100% es lo mismo que duplicarse: r=2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la naturaleza, el crecimiento estrictamente exponencial de una población suele ser sólo una fase temporal (por ejemplo, al colonizar un ambiente nuevo con recursos abundantes), no algo que dure para siempre."
-
-explicacion: |
-  Tarde o temprano, los factores limitantes empiezan a actuar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "avanzado"
-  tags: ["verdadero_falso"]
-
-variables:
-  p0: random(50, 200)
-  t: random(2, 5)
-  r1: 2
-  r2: 3
-
-respuesta: ((p0 * r2 ^ t) > (p0 * r1 ^ t))
-tipo: vf
-
-enunciado: "Dos poblaciones parten de {p0}: una con r=2 (se duplica) y otra con r=3 (se triplica) cada período. ¿Es mayor la de r=3 después de {t} períodos?"
-
-explicacion: |
-  Un factor de crecimiento mayor siempre termina superando a uno menor,
-  a igualdad de punto de partida.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La capacidad de carga de un ambiente no es un número fijo para siempre — puede cambiar si cambian los recursos disponibles (por ejemplo, una sequía la reduce)."
-
-explicacion: |
-  K depende de las condiciones reales del ambiente, no es una constante
-  universal de la especie.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El modelo exponencial de crecimiento poblacional es la misma solución de la ecuación diferencial dP/dt=kP ya vista en `../../matematica/ecuaciones-diferenciales/`, aplicada a una población en vez de un capital o una muestra radiactiva."
-
-explicacion: |
-  Distintos fenómenos, misma estructura matemática de fondo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "intermedio"
-  tags: ["duplicacion"]
-
-variables:
-  p0: random(10, 50)
-  n: random(1, 4)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una población de {p0} se triplica cada período. ¿Cuántos períodos tardan en llegar a {p0 * (3 ^ n)}?"
-
-explicacion: |
-  Se reconoce el factor 3^{n} acumulado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Distintas especies tienen distintas tasas de crecimiento — las bacterias se duplican en minutos u horas, mientras que poblaciones de mamíferos grandes tardan años en duplicarse."
-
-explicacion: |
-  El modelo matemático es el mismo, pero r y la escala de tiempo cambian
-  muchísimo según la especie.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  natalidad: random(20, 50)
-  mortalidad: random(5, 19)
-  real: natalidad - mortalidad
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "Natalidad {natalidad} por mil, mortalidad {mortalidad} por mil. ¿Es correcto que la tasa neta sea {propuesto} por mil?"
-
-explicacion: |
-  La tasa neta correcta es natalidad − mortalidad = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "crecimiento_poblacional"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El modelo exponencial simple sirve para predicciones de corto plazo o poblaciones lejos de su capacidad de carga; para el largo plazo (o cerca de K), el modelo logístico da una descripción más realista."
-
-explicacion: |
-  Es el resumen central del tema: ningún modelo es "el correcto"
-  siempre — depende de la escala y el contexto.
 ```
 

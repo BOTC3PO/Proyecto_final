@@ -4,1445 +4,1629 @@
 
 ---
 
-## Sección: metalurgia-cobre-hierro (25 preguntas)
+## Sección: ciencia-revolucion-cientifica (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "basico"
-  tags: ["tecnologia", "prehistoria"]
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["astronomia", "copernico", "helio"]
+tipo: vf
+enunciado: "En su obra \"De revolutionibus orbium coelestium\", Nicolás Copérnico propuso que el Sol, y no la Tierra, se encontraba en el centro del universo."
+respuesta: verdadero
+explicacion: "Copérnico formuló la teoría heliocéntrica que desplazó a la Tierra del centro del cosmos, un cambio paradigmático fundamental en el siglo XVI."
+```
 
-respuesta: "metalurgia"
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["kepler", "planetas", "orbitas"]
+tipo: completar
+enunciado: "Johannes Kepler formuló tres leyes que describen el movimiento de los planetas, demostrando que las órbitas no son círculos perfectos sino ______."
+respuesta: "elipses"
+respuestas_validas:
+  - "elipses"
+  - "elipse"
+  - "ELIPSES"
+explicacion: "Kepler demostró que los planetas se mueven en órbitas elípticas con el Sol en uno de los focos, corrigiendo la idea anterior de órbitas circulares."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["bacon", "empirismo", "metodo"]
+tipo: mc
+enunciado: "¿Qué filósofo inglés es considerado el padre del empirismo y defendió el método inductivo como base del conocimiento científico?"
+opciones_explicitas:
+  - "René Descartes"
+  - "Francis Bacon"
+  - "Galileo Galilei"
+  - "Isaac Newton"
+respuesta: "Francis Bacon"
+explicacion: "Bacon promovió la observación y la experimentación sistemática (método inductivo) frente al razonamiento puramente deductivo escolástico."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["newton", "luz", "prisma"]
+tipo: vf
+enunciado: "Isaac Newton demostró que la luz blanca es una mezcla de colores al hacer pasar la luz solar a través de un prisma de vidrio."
+respuesta: verdadero
+explicacion: "Los experimentos de Newton con prismas en la década de 1660 demostraron que la luz blanca se descompone en el espectro visible, estableciendo las bases de la óptica moderna."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["newton", "calcula", "leibniz"]
+tipo: completar
+enunciado: "Para formular sus leyes del movimiento y la gravitación, Isaac Newton desarrolló una nueva rama de las matemáticas llamada ______."
+respuesta: "calculo"
+respuestas_validas:
+  - "calculo"
+  - "cálculo"
+  - "CALCULO"
+  - "CÁLCULO"
+explicacion: "Newton desarrolló el cálculo infinitesimal (independientemente de Leibniz) para poder describir matemáticamente el cambio continuo y el movimiento."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["newton", "gravedad", "principia"]
+tipo: mc
+enunciado: "¿En qué obra maestra de 1687 Newton expuso sus leyes del movimiento y la ley de la gravitación universal?"
+opciones_explicitas:
+  - "Principia Mathematica"
+  - "Diálogo sobre los dos máximos sistemas del mundo"
+  - "Discurso del método"
+  - "Ensayo sobre el entendimiento humano"
+respuesta: "Principia Mathematica"
+explicacion: "Los \"Philosophiæ Naturalis Principia Mathematica\" son considerados uno de los libros más importantes de la historia de la ciencia, unificando la física terrestre y celeste."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["vesalio", "anatomia", "disseccion"]
+tipo: vf
+enunciado: "Andrés Vesalio revolucionó la medicina al realizar disecciones públicas directas del cuerpo humano, corrigiendo los errores anatómicos de Galeno."
+respuesta: verdadero
+explicacion: "Su obra \"De humani corporis fabrica\" (1543) estableció la anatomía humana basada en la observación empírica directa, rompiendo con la autoridad clásica de Galeno."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["harvey", "sangre", "corazon"]
+tipo: completar
+enunciado: "William Harvey demostró que la sangre es bombeada por el corazón y circula en un sistema cerrado, refutando la idea antigua de que la sangre se consumía en los tejidos."
+respuesta: "William Harvey"
+explicacion: "Harvey publicó en 1628 \"De motu cordis\", estableciendo la circulación sanguínea como un proceso mecánico continuo, no como un flujo y reflujo consumible."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["galileo", "telescopio", "jupiter"]
+tipo: mc
+enunciado: "¿Qué descubrimiento de Galileo Galilei en 1610 proporcionó evidencia observacional directa de que no todo orbita la Tierra?"
+opciones_explicitas:
+  - "Las manchas solares"
+  - "Las lunas de Júpiter"
+  - "La fase de Venus"
+  - "Los anillos de Saturno"
+respuesta: "Las lunas de Júpiter"
+explicacion: "Al descubrir cuatro satélites orbitando Júpiter, Galileo mostró que existían centros de movimiento distintos a la Tierra, debilitando el modelo geocéntrico."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["descartes", "mecanismo", "dualismo"]
+tipo: vf
+enunciado: "René Descartes propuso que el cuerpo humano funciona como una máquina compleja, separando la mente (res cogitans) de la materia extensa (res extensa)."
+respuesta: verdadero
+explicacion: "El dualismo cartesiano y su visión del cuerpo como máquina influyeron profundamente en cómo la ciencia posterior abordaba la fisiología y la biología."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["royal-society", "ciencia", "institucion"]
+tipo: completar
+enunciado: "Fundada en 1660 en Londres, la ______ fue una de las primeras instituciones dedicadas a promover la investigación científica y el experimento colectivo."
+respuesta: "royal society"
+respuestas_validas:
+  - "royal society"
+  - "Royal Society"
+  - "LA ROYAL SOCIETY"
+explicacion: "La Royal Society, con miembros como Newton y Hooke, institucionalizó la práctica científica y la publicación de resultados en la Inglaterra del siglo XVII."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["newton", "inercia", "leyes"]
+tipo: mc
+enunciado: "Según la primera ley de Newton, un objeto en reposo permanece en reposo y un objeto en movimiento permanece en movimiento a menos que:"
+opciones_explicitas:
+  - "Actúe sobre él una fuerza externa neta."
+  - "Se enfríe hasta detenerse."
+  - "Cambie su masa."
+  - "Entre en la atmósfera."
+respuesta: "Actúe sobre él una fuerza externa neta."
+explicacion: "Esta ley, también conocida como ley de la inercia, describe la tendencia de los cuerpos a mantener su estado de movimiento frente a la ausencia de fuerzas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["leeuwenhoek", "microscopio", "bacterias"]
+tipo: vf
+enunciado: "Antonie van Leeuwenhoek fue el primero en observar y describir microorganismos (a los que llamó \"animalículos\") usando lentes de su propio diseño."
+respuesta: verdadero
+explicacion: "Sus observaciones detalladas de la gota de agua y otros materiales abrieron el campo de la microbiología y mostraron un mundo invisible previamente desconocido."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["paracelso", "alquimia", "medicina"]
+tipo: completar
+enunciado: "Paracelso desafió la medicina galénica al argumentar que la enfermedad se debía a desequilibrios químicos en el cuerpo, no a ______."
+respuesta: "humores"
+respuestas_validas:
+  - "humores"
+  - "LOS HUMORES"
+  - "los humores"
+explicacion: "Paracelso introdujo la idea de que los remedios debían ser químicos (iatroquímica) y rechazó la teoría clásica de los cuatro humores (sangre, flema, bilis negra, bilis amarilla)."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["nostradamus", "prediccion", "astrologia"]
+tipo: mc
+enunciado: "¿Qué figura histórica, aunque asociada a la astrología, fue médico y astrónomo oficial del rey Enrique II de Francia?"
+opciones_explicitas:
+  - "Nostradamus"
+  - "John Dee"
+  - "Giordano Bruno"
+  - "Tycho Brahe"
+respuesta: "Nostradamus"
+explicacion: "César de Nostre Dame (Nostradamus) ejerció como médico y astrólogo, reflejando la transición entre la astrología tradicional y la astronomía científica en el Renacimiento."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["tycho", "observacion", "precision"]
+tipo: vf
+enunciado: "Tycho Brahe construyó observatorios antes de la invención del telescopio y recopiló datos astronómicos de una precisión sin precedentes."
+respuesta: verdadero
+explicacion: "Sus mediciones visuales extremadamente precisas de la posición de los planetas fueron cruciales para que Kepler luego dedujera sus leyes del movimiento planetario."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["redi", "generacion", "moscas"]
+tipo: completar
+enunciado: "Francesco Redi demostró que las moscas no surgen de la carne en putrefacción, sino que ponen huevos en ella, refutando así la ______."
+respuesta: "generacion espontanea"
+respuestas_validas:
+  - "generacion espontanea"
+  - "generación espontanea"
+  - "GENERACION ESPONTANEA"
+  - "GENERACIÓN ESPONTÁNEA"
+explicacion: "El experimento de Redi con tarros tapados y destapados fue uno de los primeros golpes fatales a la idea aristotélica de que la vida podía surgir de materia inerte."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["descartes", "mente", "cuerpo"]
+tipo: mc
+enunciado: "¿Dónde creía René Descartes que residía la interacción entre la mente inmortal y el cuerpo físico?"
+opciones_explicitas:
+  - "La glándula pineal"
+  - "El corazón"
+  - "El cerebro entero"
+  - "La médula espinal"
+respuesta: "La glándula pineal"
+explicacion: "Descartes propuso la glándula pineal como el punto de contacto entre el alma (res cogitans) y el cuerpo mecánico (res extensa), aunque esta teoría fue luego descartada."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["newton", "manzana", "lenda"]
+tipo: vf
+enunciado: "Existe evidencia documental concluyente de que una manzana cayó literalmente sobre la cabeza de Newton, inspirando la ley de la gravitación."
+respuesta: falso
+explicacion: "La historia de la manzana es una anécdota popularizada por William Stukeley basada en relatos de Newton en su vejez; no hay prueba de que le cayera encima, sino que la observó caer."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["tycho", "sistema", "geo-heliocentrico"]
+tipo: completar
+enunciado: "Tycho Brahe propuso un modelo híbrido donde la Tierra está en el centro, el Sol orbita a la Tierra, pero los demás planetas orbitan al ______."
+respuesta: "sol"
+respuestas_validas:
+  - "sol"
+  - "SOL"
+  - "el sol"
+  - "EL SOL"
+explicacion: "El sistema ticonico fue un intento de reconciliar las observaciones astronómicas con la creencia religiosa de que la Tierra no podía moverse."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["hobbes", "materialismo", "leyes"]
+tipo: mc
+enunciado: "Thomas Hobbes aplicó el método geométrico y el materialismo mecánico a la política y la naturaleza humana en su obra:"
+opciones_explicitas:
+  - "Leviatán"
+  - "El Príncipe"
+  - "La República"
+  - "El Contrato Social"
+respuesta: "Leviatán"
+explicacion: "Hobbes utilizó un enfoque deductivo y materialista similar al de Newton para describir la sociedad y la naturaleza humana, viendo a los hombres como máquinas en movimiento."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["priestley", "oxigeno", "quimica"]
+tipo: vf
+enunciado: "Joseph Priestley aisló el gas que llamó \"aire desflogisticado\" en 1774, un momento clave en la Revolución Química posterior a la Revolución Científica clásica."
+respuesta: verdadero
+explicacion: "Priestley descubrió el oxígeno, aunque interpretó su descubrimiento dentro de la teoría del flogisto, siendo Lavoisier quien luego reinterpretó el hallazgo correctamente."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["newton", "huygens", "luz"]
+tipo: completar
+enunciado: "Mientras Huygens propuso que la luz era una onda, Newton defendió que estaba compuesta por ______."
+respuesta: "corpusculos"
+respuestas_validas:
+  - "corpusculos"
+  - "corpúsculos"
+  - "CORPUSCULOS"
+  - "CORPÚSCULOS"
+explicacion: "La teoría corpuscular de Newton dominó la óptica durante más de un siglo hasta que los experimentos de Young y Fresno respaldaron la teoría ondulatoria."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["imprenta", "divulgacion", "gutenberg"]
+tipo: mc
+enunciado: "¿Qué tecnología fue fundamental para la rápida difusión de las ideas de la Revolución Científica en Europa?"
+opciones_explicitas:
+  - "La imprenta de tipos móviles"
+  - "El telescopio"
+  - "La brújula"
+  - "El reloj mecánico"
+respuesta: "La imprenta de tipos móviles"
+explicacion: "La imprenta permitió que los textos científicos de Copérnico, Galileo y Newton se distribuyeran masivamente, estandarizando el conocimiento y facilitando la crítica pública."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciencia-revolucion-cientifica"
+  nivel: "intermedio"
+  tags: ["galileo", "pendulo", "isocronismo"]
+tipo: vf
+enunciado: "Galileo descubrió el principio de isocronismo del péndulo observando el balanceo de una lámpara en la catedral de Pisa."
+respuesta: verdadero
+explicacion: "Este descubrimiento fue crucial para el desarrollo de los relojes de péndulo precisos y para la medición del tiempo en la física newtoniana posterior."
+```
+
+## Sección: imprenta (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["invención", "gutenberg", "siglo_xv"]
+tipo: mc
+enunciado: "¿En qué siglo se desarrolló y popularizó la imprenta de tipos móviles en Europa, marcando un hito en la difusión del conocimiento?"
+opciones_explicitas:
+  - "Siglo XIII"
+  - "Siglo XIV"
+  - "Siglo XV"
+  - "Siglo XVI"
+respuesta: "Siglo XV"
+explicacion: "Johannes Gutenberg perfeccionó la técnica de la imprenta de tipos móviles hacia 1450, situando su invención clave en el siglo XV."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["primera_impresa", "gutenberg", "biblia"]
+tipo: mc
+enunciado: "La primera gran obra impresa con la técnica de Gutenberg, conocida por su calidad tipográfica, lleva el nombre de:"
+opciones_explicitas:
+  - "El Libro de las 42 Líneas"
+  - "La Biblia de los Pobres"
+  - "El Códice de Maguncia"
+  - "El Evangelio de Gutenberg"
+respuesta: "El Libro de las 42 Líneas"
+explicacion: "Este texto, impreso hacia 1455, es famoso por tener aproximadamente 42 líneas por página en sus ediciones más conocidas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["tecnologia", "aleacion", "gutenberg"]
+tipo: completar
+enunciado: "Gutenberg utilizó una aleación de plomo, estaño y ____ para fundir los tipos móviles, ya que debía tener un punto de fusión bajo y ser resistente."
+respuesta: "antimonio"
+respuestas_validas:
+  - "antimonio"
+  - "Antimonio"
+explicacion: "El antimonio era crucial en la aleación para endurecer el plomo y permitir que los tipos resistieran la presión de la prensa sin deformarse."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["biblia", "soporte", "papel"]
+tipo: vf
+enunciado: "La Biblia de Gutenberg fue impresa originalmente sobre pergamino debido a la escasez de papel en Europa en ese momento."
+respuesta: falso
+explicacion: "Aunque algunas copias se encuadernaron con pergaminos o se iluminaron posteriormente, la impresión masiva se realizó sobre papel, que era más económico y permitía la difusión rápida."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["expansion", "roma", "siglo_xv"]
+tipo: mc
+enunciado: "¿Cuál fue la primera ciudad italiana en recibir una imprenta, consolidándose como un centro clave de la humanística impresa?"
+opciones_explicitas:
+  - "Venecia"
+  - "Roma"
+  - "Milán"
+  - "Nápoles"
+respuesta: "Roma"
+explicacion: "La imprenta llegó a Roma en 1467, siendo seguida poco después por Venecia (1469), que se convertiría en el mayor centro editorial."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["venecia", "comercio", "humanismo"]
+tipo: mc
+enunciado: "En el siglo XV, ¿qué ciudad italiana se convirtió en el principal centro de producción y exportación de libros impresos en Europa?"
+opciones_explicitas:
+  - "Florencia"
+  - "Venecia"
+  - "Bolonia"
+  - "Génova"
+respuesta: "Venecia"
+explicacion: "Gracias a su red comercial y libertad relativa, Venecia se convirtió en la \"capital del libro\" europeo, con editoriales como la de Aldo Manucio."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["aldo_manucio", "tipografia", "humanismo"]
+tipo: completar
+enunciado: "Aldo Manucio, el gran impresor veneciano, popularizó el uso de la tipografía ____ para hacer los libros más pequeños y baratos."
+respuesta: "itálica"
+respuestas_validas:
+  - "itálica"
+  - "italica"
+  - "Itálica"
+  - "Italica"
+explicacion: "Manucio contrató a Francesco Griffo para diseñar una letra itálica que imitaba la escritura humanística, permitiendo textos más compactos."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["espana", "sevilla", "colon"]
+tipo: mc
+enunciado: "¿Qué ciudad española fue el primer gran centro impresor fuera de Italia, crucial para la difusión de noticias sobre el Nuevo Mundo?"
+opciones_explicitas:
+  - "Madrid"
+  - "Barcelona"
+  - "Sevilla"
+  - "Valencia"
+respuesta: "Sevilla"
+explicacion: "Sevilla, al controlar el comercio con las Indias, se convirtió en el principal puerto de entrada y salida de libros e impresos en la Corona de Castilla."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["iglesia", "control", "siglo_xv"]
+tipo: vf
+enunciado: "La Iglesia Católica rechazó inicialmente la imprenta y prohibió su uso en todo el territorio papal hasta el siglo XVI."
+respuesta: falso
+explicacion: "La Iglesia adoptó rápidamente la imprenta para la difusión de bulas, indulgencias y textos litúrgicos; aunque luego reguló la censura, no hubo una prohibición inicial total."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["reforma", "martin_luter", "difusion"]
+tipo: mc
+enunciado: "¿Qué formato de impresión se utilizó masivamente para distribuir las 95 tesis y otros escritos de Martín Lutero?"
+opciones_explicitas:
+  - "Manuscritos iluminados"
+  - "Folletos y panfletos"
+  - "Códices de lujo"
+  - "Grabados en madera"
+respuesta: "Folletos y panfletos"
+explicacion: "La imprenta permitió la producción rápida y barata de folletos en alemán y latín, facilitando la propagación inmediata de las ideas luteranas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["reforma", "biblia", "traduccion"]
+tipo: completar
+enunciado: "Martín Lutero tradujo el Nuevo Testamento al alemán e imprimió su famosa ____ en el castillo de Wartburg."
+respuesta: "biblia"
+respuestas_validas:
+  - "biblia"
+  - "Biblia"
+explicacion: "La traducción de la Biblia de Lutero estandarizó el alemán moderno y fue posible gracias a la tecnología de impresión masiva."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["censura", "indice", "inquisicion"]
+tipo: mc
+enunciado: "¿Qué institución creó el \"Índice de Libros Prohibidos\" para controlar la difusión de obras consideradas heréticas por la imprenta?"
+opciones_explicitas:
+  - "El Concilio de Trento"
+  - "La Inquisición Española"
+  - "La Congregación del Índice"
+  - "La Sorbona"
+respuesta: "La Congregación del Índice"
+explicacion: "Establecida en 1542, la Congregación del Índice se encargó de revisar y prohibir libros impresos que contradicieran la doctrina católica."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["otomano", "islam", "retraso"]
+tipo: vf
+enunciado: "La imprenta de tipos móviles para el árabe fue establecida por musulmanes en Constantinopla durante el siglo XV."
+respuesta: falso
+explicacion: "La imprenta para textos árabes fue introducida por europeos (como Ibrahim Müteferrika, apoyado por el sultán, pero con gran retraso) en el siglo XVIII; los musulmanes rechazaron inicialmente la imprenta por razones religiosas y técnicas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["islam", "caligrafia", "resistencia"]
+tipo: mc
+enunciado: "¿Cuál fue la principal causa del retraso en la adopción de la imprenta en el mundo islámico?"
+opciones_explicitas:
+  - "La falta de papel"
+  - "La tradición de la caligrafía sagrada"
+  - "La ausencia de tinta"
+  - "El clima húmedo"
+respuesta: "La tradición de la caligrafía sagrada"
+explicacion: "Se consideraba que la caligrafía era un acto sagrado y que la mecanización de la palabra de Dios era una profanación, además de las dificultades técnicas con los caracteres árabes."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["china", "bi sheng", "tipos_movedizos"]
+tipo: completar
+enunciado: "En el siglo XI, el artesano chino ____ inventó los primeros tipos móviles de cerámica en China."
+respuesta: "bi sheng"
+respuestas_validas:
+  - "bi sheng"
+  - "Bi Sheng"
+  - "Bi sheng"
+explicacion: "Bi Sheng desarrolló esta tecnología mucho antes que Gutenberg, aunque su impacto fue limitado por la complejidad del sistema de escritura chino."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["corea", "jikji", "hierro"]
+tipo: mc
+enunciado: "¿Qué país desarrolló la imprenta de tipos móviles de metal (hierro) antes que Europa, produciendo el libro impreso más antiguo conocido?"
+opciones_explicitas:
+  - "Japón"
+  - "Corea"
+  - "Vietnam"
+  - "Tibet"
+respuesta: "Corea"
+explicacion: "El Jikji, impreso en 1377, es el libro de metal más antiguo superviviente, demostrando el avance tecnológico coreano en este campo."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["japon", "jesuitas", "xavier"]
+tipo: mc
+enunciado: "¿Qué grupo religioso introdujo la imprenta occidental en Japón en el siglo XVI?"
+opciones_explicitas:
+  - "Los budistas Zen"
+  - "Los jesuitas"
+  - "Los samuráis"
+  - "Los mercaderes holandeses"
+respuesta: "Los jesuitas"
+explicacion: "Los jesuitas, liderados por figuras como Francisco Javier y posteriormente impresores como los de Amakusa, trajeron prensas para imprimir catecismos."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["america", "mexico", "primera_impresa"]
+tipo: completar
+enunciado: "La primera imprenta del continente americano se estableció en la Ciudad de México alrededor del año ____."
+respuesta: "1539"
+respuestas_validas:
+  - "1539"
+  - "1540"
+explicacion: "Aunque hay debate sobre la fecha exacta (1539 o 1540), se considera que la primera imprenta en América fue instalada por frailes franciscanos en México."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["brasil", "colonizacion", "portugal"]
+tipo: vf
+enunciado: "Brasil fue uno de los primeros países de América en adoptar la imprenta, en el siglo XVI."
+respuesta: falso
+explicacion: "Brasil adoptó la imprenta muy tarde, a finales del siglo XVIII (1763), debido a las políticas restrictivas de la Corona portuguesa."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["rusia", "ivan_fedorov", "ortodoxa"]
+tipo: mc
+enunciado: "¿Quién es considerado el primer impresor ruso, fundador de la primera imprenta en Moscú?"
+opciones_explicitas:
+  - "Iván Fedórov"
+  - "Piotr Yéršov"
+  - "Mijaíl Románov"
+  - "Serguéi Witte"
+respuesta: "Iván Fedórov"
+explicacion: "Iván Fedórov estableció la primera imprenta en Moscú en 1553, imprimiendo el Libro de la Hora."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["inglaterra", "caxton", "westminster"]
+tipo: completar
+enunciado: "____ estableció la primera imprenta en Inglaterra en la Abadía de Westminster en 1476."
+respuesta: "william caxton"
+respuestas_validas:
+  - "william caxton"
+  - "William Caxton"
+  - "William Caxton"
+explicacion: "William Caxton, un comerciante y diplomático, trajo la tecnología de Flandes a Inglaterra, imprimiendo obras como \"Las fábulas de Esopo\"."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["francia", "paris", "rey"]
+tipo: mc
+enunciado: "¿Qué rey francés estableció la Imprenta Real para controlar la producción de libros y estandarizar la tipografía?"
+opciones_explicitas:
+  - "Francisco I"
+  - "Luis XI"
+  - "Henri II"
+  - "Carlos VII"
+respuesta: "Francisco I"
+explicacion: "Francisco I fundó la Imprenta Real en 1537 para imprimir textos en griego y latín, centralizando el poder editorial en la monarquía."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["holanda", "amberes", "comercio"]
+tipo: mc
+enunciado: "¿Qué ciudad de los Países Bajos se convirtió en un importante centro de impresión de mapas y atlas en el siglo XVI?"
+opciones_explicitas:
+  - "Brujas"
+  - "Amberes"
+  - "Gante"
+  - "Utrecht"
+respuesta: "Amberes"
+explicacion: "Amberes, gracias a su prosperidad comercial, se convirtió en un hub clave para la impresión de mapas, ciencias y libros ilustrados."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["polonia", "cracovia", "copernico"]
+tipo: vf
+enunciado: "La primera imprenta en Polonia se estableció en Cracovia, donde se imprimieron obras importantes para la universidad local."
+respuesta: verdadero
+explicacion: "La imprenta llegó a Cracovia en 1473, poco después de la fundación de la universidad, facilitando la difusión del humanismo polaco."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imprenta"
+  nivel: "intermedio"
+  tags: ["portugal", "lisboa", "manuelino"]
+tipo: completar
+enunciado: "La primera imprenta en Portugal se estableció en ____ en 1487."
+respuesta: "lisboa"
+respuestas_validas:
+  - "lisboa"
+  - "Lisboa"
+explicacion: "Lisboa fue el primer lugar en Portugal en recibir una imprenta, impulsada por la reina Leonor y el contexto de los descubrimientos."
+```
+
+## Sección: navegacion (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["era_de_descubrimientos", "circunnavegacion"]
+variables:
+  lider: uno_de(["Fernando de Magallanes", "Juan Sebastián Elcano"])
+tipo: vf
+enunciado: "La expedición liderada por {lider} fue la primera en completar exitosamente una circunnavegación del globo terráqueo, demostrando la esféricidad del planeta y la unidad de los océanos."
+respuesta: verdadero
+explicacion: "Aunque Magallanes murió en Filipinas, la expedición continuó bajo Elcano y completó el viaje, regresando a España en 1522."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["colonizacion", "diplomacia"]
+tipo: completar
+enunciado: "El Tratado de Tordesillas (1494) estableció una línea de demarcación a ___ al oeste de las islas de Cabo Verde, dividiendo las zonas de influencia entre Castilla y Portugal."
+respuesta: "370 leguas"
+respuestas_validas:
+  - "370 leguas"
+  - "370 leguas al oeste"
+  - "370 leguas hacia el oeste"
+  - "370 leguas oeste"
+explicacion: "Esta línea otorgó a Portugal las rutas hacia Asia y África, y a Castilla las tierras al oeste, incluyendo América."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["colon", "tecnologia_naval"]
+tipo: mc
+enunciado: "¿Cuáles fueron las tres naves que Cristóbal Colón utilizó en su primer viaje de 1492?"
+opciones_explicitas:
+  - "Santa Maria, Pinta y Niña"
+  - "Victoria, Trinidad y Concepción"
+  - "San Felipe y Santiago"
+  - "Endeavour y Resolution"
+respuesta: "Santa Maria, Pinta y Niña"
+explicacion: "Estas fueron las tres naves utilizadas en el primer viaje de Cristóbal Colón en 1492. La Santa María era la nao capitana, y la Pinta y la Niña eran carabelas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["portugal", "asia"]
+tipo: completar
+enunciado: "El navegante ___ logró abrir la ruta marítima directa hacia la India en 1498, rodeando el Cabo de Buena Esperanza y evitando el control árabe y veneciano del comercio de especias."
+respuesta: "Vasco da Gama"
+respuestas_validas:
+  - "Vasco da Gama"
+  - "vasco da gama"
+explicacion: "Este logro rompió el monopolio comercial de las rutas terrestres y otorgó a Portugal una ventaja económica crucial."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["magallanes", "oceano_pacifico"]
+tipo: completar
+enunciado: "___ fue quien bautizó como \"Pacífico\" al vasto océano que cruzó en 1521, debido a la calma de sus aguas en comparación con el Atlántico tormentoso."
+respuesta: "Magallanes"
+respuestas_validas:
+  - "Fernando de Magallanes"
+  - "Fernando de Magalhães"
+  - "Magallanes"
+  - "el capitán Magallanes"
+explicacion: "El nombre es irónico, ya que la travesía posterior fue extremadamente dura por la falta de provisiones."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["instrumentos", "astronomia"]
+tipo: mc
+enunciado: "¿Qué combinación de instrumentos era típica de la navegación de altura en los siglos XV y XVI, para mantener el rumbo y estimar la latitud a partir de la altura de los astros?"
+opciones_explicitas:
+  - "Astrolabio y sextante"
+  - "Brújula y cuadrante"
+  - "Cronómetro y teodolito"
+  - "Ballestilla y astrolabio"
+respuesta: "Brújula y cuadrante"
+explicacion: "La brújula permitía mantener la dirección cardinal y el cuadrante (o astrolabio marino) medía la altura de los astros para estimar la latitud. El sextante y cronómetro son posteriores."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia_naval", "portugal"]
+tipo: vf
+enunciado: "La carabela fue un diseño naval desarrollado principalmente por los portugueses, caracterizado por su velocidad, maniobrabilidad y capacidad para navegar a la contra del viento (bolina), ideal para la exploración costera."
+respuesta: verdadero
+explicacion: "Su estructura ligera y velamen latino/cuadrado la hacía superior a las naos para la exploración en aguas poco profundas y vientos cambiantes."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["portugal", "rutas_africanas"]
+tipo: vf
+enunciado: "El descubrimiento del archipiélago de Cabo Verde por Diogo Gomes en 1456 fue crucial para establecer una escala estratégica en la ruta de circunnavegación de África hacia la India."
+respuesta: verdadero
+explicacion: "Estas islas sirvieron como punto de referencia y abastecimiento vital para las expediciones portuguesas que descendían por la costa africana."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["comercio", "portugal"]
+tipo: mc
+enunciado: "¿Quién fue el navegante portugués cuyo primer objetivo comercial en Calicut (1498) era establecer contacto directo con los mercaderes de especias locales, rompiendo la cadena de intermediarios otomanos y venecianos?"
+opciones_explicitas:
+  - "Vasco da Gama"
+  - "Pedro Álvares Cabral"
+  - "Alfonso de Albuquerque"
+  - "Bartolomeu Dias"
+respuesta: "Vasco da Gama"
+explicacion: "Aunque el encuentro inicial fue hostil, el viaje sentó las bases del Estado da Índia portugués."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia", "china"]
+tipo: completar
+enunciado: "La brújula magnética, fundamental para la navegación de altura, fue introducida en Europa desde ___ durante la Edad Media, revolucionando la capacidad de los navegantes para orientarse en mar abierto."
+respuesta: "China"
+respuestas_validas:
+  - "China"
+  - "china"
+explicacion: "Aunque los chinos la usaban para adivinación y geomancia, fue la adaptación náutica europea lo que permitió la expansión marítima."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["portugal", "cabo_buena_esperanza"]
+tipo: completar
+enunciado: "___ fue el primer europeo en doblar el Cabo de Buena Esperanza en 1488, demostrando que el Océano Atlántico y el Índico estaban conectados."
+respuesta: "Bartolomeu Dias"
+respuestas_validas:
+  - "Bartolomeu Dias"
+  - "Bartolomeu Diaz"
+  - "Bartolomeu"
+explicacion: "Inicialmente lo llamó \"Cabo das Tormentas\", pero el rey Juan II de Portugal lo renombró \"Cabo da Boa Esperança\"."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["colon", "naufragio"]
+tipo: vf
+enunciado: "La nao capitana de Cristóbal Colón, la Santa María, se encalló y naufragó en la costa de Haití en 1502, obligando a los supervivientes a construir el Fuerte Navidad con sus restos."
+respuesta: verdadero
+explicacion: "Este evento marcó el primer asentamiento europeo permanente en las Américas, aunque efímero."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["magallanes", "estrecho"]
+tipo: completar
+enunciado: "La expedición de Magallanes encontró la ruta hacia el Pacífico a través de un laberinto de canales y montañas en el extremo sur de Sudamérica, conocido como el ___."
+respuesta: "estrecho de Magallanes"
+respuestas_validas:
+  - "estrecho de Magallanes"
+  - "Estrecho de Magallanes"
+  - "Estrecho de Magalhães"
+  - "estrecho de Magalhães"
+explicacion: "Este paso natural permitió a la flota pasar del Atlántico al Pacífico sin tener que rodear completamente el continente."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia_naval", "castilla"]
+tipo: vf
+enunciado: "Las naos, a diferencia de las carabelas, eran barcos más pequeños, rápidos y maniobrables, diseñados específicamente para la exploración costera y la navegación a la contra del viento."
+respuesta: falso
+explicacion: "Las naos eran más grandes, lentas y de mayor capacidad de carga, utilizadas para el transporte de mercancías y tropas, no tanto para la exploración ágil."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["colonizacion", "asia"]
+tipo: completar
+enunciado: "El Tratado de Zaragoza, firmado en ___, estableció la línea de demarcación opuesta a la de Tordesillas para resolver los conflictos en las Molucas y el Pacífico entre España y Portugal."
+respuesta: "1529"
+respuestas_validas:
+  - "1529"
+  - "mil quinientos veintinueve"
+explicacion: "Este tratado dividió el mundo en dos hemisferios de influencia, aunque su aplicación práctica fue limitada."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["espana", "comercio"]
+tipo: completar
+enunciado: "El sistema de flotas español para el transporte de plata y mercancías entre América y Europa tenía como principales puertos de salida en el Nuevo Mundo a ___ y Portobelo (Panamá)."
+respuesta: "Veracruz y Cartagena"
+respuestas_validas:
+  - "Veracruz y Cartagena"
+  - "Veracruz y Portobelo"
+  - "Veracruz y Cartagena de Indias"
+  - "Veracruz y Santa Marta"
+explicacion: "Veracruz era el puerto principal de la Nueva España y Cartagena de Indias el de la Nueva Granada, conectados por caminos terrestres a los puertos del Caribe."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["brasil", "portugal"]
+tipo: completar
+enunciado: "En 1500, Pedro Álvares Cabral, mientras buscaba la ruta a la India, llegó a la costa de ___, afirmando la posesión de este territorio para Portugal."
+respuesta: "Brasil"
+respuestas_validas:
+  - "Brasil"
+  - "brasil"
+explicacion: "El descubrimiento fue probablemente accidental debido a la desviación hacia el oeste en el Atlántico Sur."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia", "estrategia"]
+tipo: vf
+enunciado: "Durante los primeros siglos de la era de los descubrimientos, la navegación de cabotaje (siguiendo la costa) era la técnica predominante porque permitía el avituallamiento constante y la orientación segura."
+respuesta: verdadero
+explicacion: "La navegación de altura, que se alejaba de la costa, se desarrolló posteriormente gracias a mejores instrumentos y conocimiento de los vientos y corrientes."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia", "longitud"]
+tipo: mc
+enunciado: "¿Quién inventó el cronómetro marino (el H4) que resolvió el problema de determinar la longitud en el mar durante el siglo XVIII?"
+opciones_explicitas:
+  - "John Harrison"
+  - "Isaac Newton"
+  - "Galileo Galilei"
+  - "Tycho Brahe"
+respuesta: "John Harrison"
+explicacion: "Harrison inventó el cronómetro marino H4, resolviendo el problema de la determinación de la longitud en el mar, un avance crucial para la navegación segura en el siglo XVIII."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["europa_norte", "comercio"]
+tipo: vf
+enunciado: "Antes de la era de los descubrimientos oceánicos, la Liga Hanseática dominó el comercio y la navegación en el Mar Báltico y el Mar del Norte, estableciendo una red comercial que precedió a las potencias atlánticas."
+respuesta: verdadero
+explicacion: "Esta liga de ciudades comerciales controlaba las rutas de la madera, el grano y las especias en el norte de Europa."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["geografia", "explotacion"]
+tipo: completar
+enunciado: "El primer paso registrado por el estrecho que lleva su nombre fue realizado por la expedición de ___ en 1520, tras una difícil navegación por canales y tormentas."
+respuesta: "Magallanes"
+respuestas_validas:
+  - "Fernando de Magallanes"
+  - "Magallanes"
+  - "Elcano"
+  - "Juan Sebastián Elcano"
+explicacion: "Aunque Magallanes lideraba la expedición, fue Elcano quien completó la circunnavegación, pero el estrecho fue descubierto y cruzado por la flota magallánica."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia_naval", "castilla"]
+tipo: vf
+enunciado: "Las carabelas de redonda eran naves más grandes y pesadas que las carabelas de vela latina, diseñadas para la guerra y el transporte de carga pesada en lugar de la exploración rápida."
+respuesta: falso
+explicacion: "El término \"carabela de redonda\" es confuso; generalmente se distinguían entre carabelas (ligeras) y naos (grandes). Las carabelas no eran \"redondas\"."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["expansion", "asia"]
+tipo: completar
+enunciado: "Aunque el primer contacto europeo con Japón en 1543 se debió a comerciantes portugueses varados en Tanegashima, la primera misión jesuita sostenida en Japón, a partir de 1549, fue liderada por ___."
+respuesta: "Francisco Xavier"
+respuestas_validas:
+  - "Francisco Xavier"
+  - "Francisco Javier"
+explicacion: "El primer contacto en 1543 en Tanegashima fue accidental, protagonizado por mercaderes portugueses. Fue Francisco Javier quien, a partir de 1549, estableció la primera misión jesuita sostenida en Japón, iniciando la evangelización del país."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia", "vela"]
+tipo: completar
+enunciado: "Las naos utilizaban principalmente velas ___ en el trinquete y la mayor, lo que las hacía eficientes con el viento de popa pero difíciles de manejar contra el viento."
+respuesta: "cuadradas"
+respuestas_validas:
+  - "cuadradas"
+  - "cuadrada"
+explicacion: "La combinación de velas cuadradas (para velocidad con viento de popa) y latinas (para maniobrabilidad) fue común en las naos posteriores."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["colonizacion", "brasil"]
+tipo: vf
+enunciado: "El Tratado de Tordesillas de 1494 asignó inmediatamente la totalidad del territorio que hoy es Brasil a España, ya que la línea de demarcación pasaba al este de la costa americana."
+respuesta: falso
+explicacion: "La línea pasaba a 370 leguas de Cabo Verde, lo que dejaba la proyección oriental de Sudamérica (Brasil) en la zona portuguesa, aunque esto no fue claro hasta el descubrimiento de Cabral en 1500."
+```
+
+## Sección: conquista-colonizacion-america (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_colonizacion_america"
+  nivel: "basico"
+  tags: ["encuentro", "columbus", "europa"]
+
+tipo: mc
+opciones_explicitas: ["América", "Asia", "África", "Oceanía"]
+respuesta: "Asia"
+
+enunciado: "En el año 1492, el viaje de Cristóbal Colón buscaba una ruta comercial hacia ___."
+
+explicacion: |
+  Colón buscaba una ruta hacia las Indias (Asia) navegando hacia el oeste, pero se encontró con un continente desconocido para los europeos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_colonizacion_america"
+  nivel: "intermedio"
+  tags: ["aztecas", "conquista", "mexico"]
+
+variables:
+  escenario: uno_de([["Hernán Cortés", "Tenochtitlán", "Mexicas"], ["Francisco Pizarro", "Cuzco", "Incas"]])
+
 tipo: completar
 respuestas_validas:
-  - "metalurgia"
+  - "Hernán Cortés"
+  - "Tenochtitlán"
+  - "Mexicas"
 
-enunciado: "El proceso de extracción y transformación de minerales para obtener metales se denomina ___."
-
-explicacion: |
-  La metalurgia permitió la creación de herramientas más duraderas y precisas que las de piedra, marcando el inicio de nuevas eras tecnológicas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "intermedio"
-  tags: ["cobre", "propiedades"]
-
-respuesta: "cobre"
-tipo: mc
-opciones_explicitas: ["cobre", "hierro", "bronce"]
-
-enunciado: "Un material blando y de color rojizo, ampliamente usado antes de alearse con estaño, es el ___."
-
-explicacion: |
-  El cobre fue uno de los primeros metales utilizados debido a su relativa abundancia y su capacidad para ser moldeado en frío o mediante fundición.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "avanzado"
-  tags: ["fundicion", "tecnologia"]
-
-respuesta: 1850
-tipo: completar
-tolerancia_abs: 1
-
-enunciado: "Si un fundidor necesita alcanzar una temperatura de 1000 grados para el cobre y requiere un incremento adicional de 850 grados para alcanzar el punto de fusión de una aleación específica, ¿a qué temperatura total debe llegar el horno?"
+enunciado: "El conquistador español que lideró la caída del imperio de los {escenario[2]} fue {escenario[0]}, tomando como centro la ciudad de {escenario[1]}."
 
 pasos:
-  - "Identificar la temperatura inicial: 1000 grados."
-  - "Sumar el incremento necesario: 850 grados."
-  - "Calcular el total: 1000 + 850."
+  - "Identificar al líder de la expedición."
+  - "Identificar el nombre de la capital del imperio conquistado."
+  - "Identificar el nombre del pueblo originario."
 
 explicacion: |
-  El control de la temperatura fue el desafío técnico más crítico para los antiguos metalúrgicos, requiriendo hornos cada vez más sofisticados.
+  {escenario[0]} lideró la expedición que sometió al imperio de los {escenario[2]} en el territorio que hoy es México.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "intermedio"
-  tags: ["cronologia", "edades"]
-
-respuesta_orden: ["cobre", "bronce", "hierro"]
-tipo: ordenar
-opciones_explicitas: ["cobre", "bronce", "hierro"]
-
-enunciado: "Ordena cronológicamente las etapas de la Edad de los Metales según su uso predominante en la tecnología de transformación:"
-
-explicacion: |
-  La evolución tecnológica fue: primero metales nativos (cobre), luego aleaciones (bronce) y finalmente metales con mayor punto de fusión y dureza (hierro).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "intermedio"
-  tags: ["hierro", "impacto"]
-
-respuesta: "más resistente"
-tipo: mc
-opciones_explicitas: ["más resistente", "más blando", "más caro"]
-
-enunciado: "Debido a que el hierro es ___ que el cobre, su uso permitió un mayor alcance de conquista."
-
-explicacion: |
-  La disponibilidad y dureza del hierro permitieron una producción masiva de herramientas y armas, transformando la agricultura y la guerra.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "basico"
-  tags: ["Edad_del_Cobre", "metalurgia"]
-
-enunciado: "Durante la Edad del Cobre, los seres humanos comenzaron a utilizar este metal para fabricar objetos, siendo el cobre puro un material más ___ que el hierro."
-
-respuestas_validas:
-  - "blando"
-tipo: completar
-
-explicacion: |
-  El cobre es un metal relativamente blando en comparación con el hierro, lo que limitaba su uso para herramientas de corte duraderas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "intermedio"
-  tags: ["Edad_del_Bronce", "aleaciones"]
-
-enunciado: "La Edad del Bronce se caracteriza por el uso de una aleación. ¿Cuál es la composición principal de este material?"
-
-opciones_explicitas: ["Cobre y Hierro", "Cobre y Estaño", "Hierro y Carbono", "Estaño y Plomo"]
-respuesta: "Cobre y Estaño"
-tipo: mc
-
-explicacion: |
-  El bronce es una aleación de cobre y estaño que resultó ser mucho más resistente y dura que el cobre puro.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "basico"
-  tags: ["Edad_del_Bronce", "tecnologia"]
-
-enunciado: "El paso de la Edad del Cobre a la Edad del Bronce supuso una mejora tecnológica debido a la ___ de las herramientas y armas."
-
-respuestas_validas:
-  - "resistencia"
-tipo: completar
-
-explicacion: |
-  Al añadir estaño al cobre, se obtenía bronce, un material con una dureza superior, ideal para la guerra y la agricultura.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "intermedio"
-  tags: ["secuencia_temporal"]
-
-opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
-respuesta_orden: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
-tipo: ordenar
-
-enunciado: "Ordena cronológicamente las edades de la metalurgia según la evolución de la complejidad de los materiales utilizados:"
-
-explicacion: |
-  La secuencia lógica es primero el uso de metales nativos (Cobre), luego aleaciones (Bronce) y finalmente metales más duros (Hierro).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
+  materia: "historia"
+  tema: "conquista_colonizacion_america"
   nivel: "avanzado"
-  tags: ["propiedades_materiales"]
+  tags: ["tratado", "espana", "portugal"]
 
-enunciado: "Si comparamos el cobre puro con el bronce, el cobre es notablemente más ___."
-
-respuesta: "Blando"
-respuestas_validas:
-  - "Blando"
-tipo: completar
-
-explicacion: |
-  El cobre puro es más blando que el bronce, que gana dureza gracias a la aleación con estaño.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "basico"
-  tags: ["metalurgia", "temperatura", "edad_del_hierro"]
-
-enunciado: "A diferencia del bronce, el hierro requiere temperaturas de fundición mucho más ___ que el cobre para ser procesado."
-
-opciones_explicitas: ["bajas", "altas", "moderadas"]
-
-respuesta: "altas"
 tipo: mc
+opciones_explicitas: ["España", "Portugal", "Inglaterra", "Francia"]
+respuesta: "Portugal"
+
+enunciado: "El Tratado de Tordesillas (1494) dividió las zonas de exploración y conquista entre España y ___."
 
 explicacion: |
-  El hierro tiene un punto de fusión mucho más elevado que el cobre y el estaño, lo que exigió un desarrollo tecnológico mayor en los hornos de fundición para alcanzar las temperaturas necesarias.
+  El tratado estableció una línea de demarcación que otorgaba a Portugal las tierras al este de la línea (lo que luego sería Brasil) y a España las tierras al oeste.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "basico"
-  tags: ["recursos", "abundancia"]
-
-variables:
-  dato_enunciado: uno_de(["el hierro es más abundante que el bronce", "el hierro, aunque más difícil de fundir, resulta mucho más duro que el bronce una vez trabajado"])
-
-enunciado: "En la Edad del Hierro, la ventaja principal sobre la Edad del Bronce es que {dato_enunciado} y, una vez dominada la técnica, produce herramientas más resistentes."
-
-respuesta: "produce herramientas más resistentes"
-tipo: mc
-opciones_explicitas: ["produce herramientas más resistentes", "produce herramientas más frágiles", "es menos duradero"]
-
-explicacion: |
-  Aunque el hierro es más difícil de fundir, su abundancia en la corteza terrestre permitió una democratización de las herramientas, y su dureza revolucionó la agricultura y la guerra.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
+  materia: "historia"
+  tema: "conquista_colonizacion_america"
   nivel: "intermedio"
-  tags: ["resistencia", "herramientas"]
+  tags: ["biologia", "enfermedades", "demografia"]
 
-enunciado: "Si comparamos la durabilidad de las herramientas de la Edad del Bronce con las de la Edad del Hierro, las de hierro son notablemente más ___."
-
-respuestas_validas:
-  - "resistentes"
-
-respuesta: "resistentes"
-tipo: completar
-
-explicacion: |
-  La capacidad de las herramientas de hierro para mantener el filo y resistir el impacto permitió una expansión de las actividades productivas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "intermedio"
-  tags: ["orden", "tecnologia"]
-
-enunciado: "Ordena los procesos tecnológicos según su complejidad térmica creciente (de menor a mayor temperatura de fundición):"
-
-opciones_explicitas: ["Cobre", "Bronce", "Hierro"]
-
-respuesta_orden: ["Cobre", "Bronce", "Hierro"]
-tipo: ordenar
-
-explicacion: |
-  El cobre tiene el punto de fusión más bajo, seguido por la aleación de bronce, y finalmente el hierro, que requiere los hornos más avanzados.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "avanzado"
-  tags: ["economía", "recursos"]
-
-enunciado: "La transición a la Edad del Hierro se vio favorecida porque el hierro es más abundante que los componentes del bronce."
-
-respuesta: "más abundante"
-tipo: mc
-opciones_explicitas: ["más abundante", "menos abundante", "igual de escaso"]
-
-explicacion: |
-  La disponibilidad casi universal de los minerales de hierro permitió que las sociedades no dependieran tanto de las rutas comerciales de estaño, que eran muy limitadas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "basico"
-  tags: ["prehistoria", "metales"]
-
-respuesta: "Cobre"
-tipo: completar
-respuestas_validas:
-  - "Cobre"
-
-enunciado: "La primera etapa de la Edad de los Metales, caracterizada por el uso de metales nativos y la posterior fundición de aleaciones simples, es la Edad del ___."
-
-explicacion: |
-  La Edad del Cobre (Calcolítico) precede a la Edad del Bronce.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "intermedio"
-  tags: ["metalurgia", "aleaciones"]
-
-opciones_explicitas: ["Estaño", "Zinc", "Níquel", "Plomo"]
-respuesta: "Estaño"
-tipo: mc
-
-enunciado: "El bronce es una aleación metálica compuesta principalmente por cobre y un segundo elemento clave, que es el ___."
-
-explicacion: |
-  El bronce se obtiene al fundir cobre con estaño, lo que permite obtener un metal más duro y resistente.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "basico"
-  tags: ["cronologia", "edades"]
-
-opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
-respuesta_orden: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
-tipo: ordenar
-
-enunciado: "Ordena cronológicamente las edades de los metales, desde la más antigua hasta la más reciente."
-
-explicacion: |
-  El orden correcto es Cobre (Calcolítico), Bronce (Aleación) e Hierro (Metal más duro y abundante).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "intermedio"
-  tags: ["tecnologia", "hierro"]
-
-respuesta: "Edad del Hierro"
-tipo: mc
-opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
-
-enunciado: "La etapa que se caracteriza por la aparición de herramientas y armas mucho más resistentes y duraderas debido a la alta temperatura necesaria para su fundición es la ___."
-
-explicacion: |
-  El hierro requiere temperaturas de fundición mucho más elevadas que el cobre o el bronce, marcando un salto tecnológico importante.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "basico"
-  tags: ["metalurgia"]
-
-respuesta: "Bronce"
-tipo: mc
-opciones_explicitas: ["Cobre puro", "Bronce", "Acero"]
-
-enunciado: "Si mezclamos (aleamos) cobre y estaño, ¿qué material obtenemos, el que da nombre a la edad tecnológica posterior a la del cobre?"
-
-explicacion: |
-  La aleación de cobre y estaño define la Edad del Bronce.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "basico"
-  tags: ["prehistoria", "metalurgia"]
-
-variables:
-  datos: [["El descubrimiento de la fundición de cobre permitió la creación de las primeras herramientas duraderas.", "Edad del Cobre"], ["El uso de aleaciones de cobre con estaño dio origen a objetos más resistentes.", "Edad del Bronce"], ["La metalurgia de este metal permitió la creación de armas y herramientas de gran dureza.", "Edad del Hierro"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
-
-enunciado: "Un arqueólogo encuentra una pieza cuya característica principal es: {datos[idx][0]}"
-
-explicacion: |
-  La respuesta correcta es {datos[idx][1]}. La transición entre edades se define por el metal predominante en la tecnología de la época.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "intermedio"
-  tags: ["transicion", "tecnologia"]
-
-variables:
-  datos: [["Cobre", "Edad del Cobre"], ["Bronce", "Edad del Bronce"], ["Hierro", "Edad del Hierro"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "Edad del Cobre"
-  - "Edad del Bronce"
-  - "Edad del Hierro"
-
-enunciado: "Si un yacimiento presenta una abundancia de herramientas hechas de {datos[idx][0]}, estamos ante la ___."
-
-explicacion: |
-  El uso de {datos[idx][0]} es el indicador clave de la {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "basico"
-  tags: ["cronologia", "edades"]
-
-variables:
-  orden_correcto: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
-
-respuesta_orden: orden_correcto
-tipo: ordenar
-opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
-
-enunciado: "Ordena cronológicamente las edades de los metales, desde la más antigua a la más reciente:"
-
-explicacion: |
-  El orden correcto es: {orden_correcto}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "avanzado"
-  tags: ["propiedades", "quimica_antigua"]
-
-variables:
-  datos: [["La baja temperatura de fusión del cobre facilitó su primer uso.", "Cobre"], ["La necesidad de alear estaño con cobre para obtener mayor dureza.", "Bronce"], ["La abundancia de este metal y su gran dureza tras la fundición.", "Hierro"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Cobre", "Bronce", "Hierro"]
-
-enunciado: "Identifica el metal asociado al siguiente proceso: {datos[idx][0]}"
-
-explicacion: |
-  El proceso descrito corresponde al uso de {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "metalurgia_cobre_hierro"
-  nivel: "intermedio"
-  tags: ["impacto_social", "hierro"]
-
-variables:
-  datos: [["La democratización de las herramientas debido a la abundancia del metal.", "Edad del Hierro"], ["El auge del comercio de estaño para la aleación.", "Edad del Bronce"], ["El inicio de la metalurgia con metales nativos.", "Edad del Cobre"]]
-  idx: uno_de([0, 1, 2])
-
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "El fenómeno de {datos[idx][0]} es característico de la ___."
+enunciado: "Además de las guerras, un factor determinante en la caída de la población indígena fue la llegada de enfermedades como la viruela. ¿El efecto demográfico fue de aumento o disminución? (Escribe 'aumento' o 'disminución')"
 
-explicacion: |
-  La descripción corresponde a la {datos[idx][1]}.
-```
-
-## Sección: minerales-estructura-cristalina (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "basico"
-  tags: ["definicion", "geologia"]
-
-tipo: mc
-opciones_explicitas: ["Una sustancia sólida, inorgánica, de origen natural, con composición química definida y estructura cristalina ordenada.", "Una sustancia sólida, orgánica, de origen volcánico, con composición variable y estructura amorfa.", "Un compuesto químico formado exclusivamente por elementos metálicos en estado sólido.", "Cualquier material sólido encontrado en la corteza terrestre."]
-respuesta: "Una sustancia sólida, inorgánica, de origen natural, con composición química definida y estructura cristalina ordenada."
-enunciado: "Según la mineralogía clásica, ¿cuál es la definición científica de un mineral?"
-explicacion: |
-  Un mineral debe cumplir cinco condiciones: ser sólido, inorgánico, de origen natural, tener una fórmula química definida y una estructura atómica interna ordenada (cristalina).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "basico"
-  tags: ["propiedades", "inorganico"]
-
-variables:
-  escenario: uno_de([["El carbón (formado por restos vegetales)", "falso"], ["El cuarzo (formado por silicatos de silicio y oxígeno)", "verdadero"]])
-
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "Considerando que un mineral debe ser inorgánico, ¿es la afirmación '{escenario[0]}' verdadera o falsa para la definición de mineral?"
-
-respuesta: escenario[1]
-
-explicacion: |
-  Los materiales de origen orgánico (como el carbón derivado de plantas) no se consideran minerales, aunque sean sólidos y naturales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "intermedio"
-  tags: ["estructura", "cristalografia"]
-
-tipo: completar
+respuesta: "disminución"
 respuestas_validas:
-  - "cristalina"
-
-enunciado: "Para que una sustancia sea considerada mineral, sus átomos deben estar dispuestos en una estructura ___."
-
-respuesta: "cristalina"
+  - "disminución"
 
 explicacion: |
-  La estructura cristalina es el ordenamiento tridimensional repetitivo de los átomos, lo que diferencia a un mineral de un vidrio (sólido amorfo).
+  La introducción de patógenos europeos causó una catástrofe demográfica en las poblaciones originarias.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
+  materia: "historia"
+  tema: "conquista_colonizacion_america"
   nivel: "intermedio"
-  tags: ["quimica", "composicion"]
-
-variables:
-  caso: uno_de([["El diamante (C)", "C"], ["La sal común (NaCl)", "NaCl"], ["La calcita (CaCO3)", "CaCO3"]])
-
-tipo: completar
-respuestas_validas:
-  - "C"
-  - "NaCl"
-  - "CaCO3"
-
-enunciado: "Un mineral debe tener una composición química definida. Si tomamos el caso de {caso[0]}, su fórmula química es ___."
-
-respuesta: caso[1]
-
-explicacion: |
-  Cada mineral tiene una proporción fija de elementos que determina su identidad química.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "avanzado"
-  tags: ["conceptos", "ordenamiento"]
+  tags: ["cronologia", "procesos"]
 
 tipo: ordenar
-opciones_explicitas: ["Origen natural", "Sólido", "Estructura cristalina", "Composición química definida", "Inorgánico"]
+opciones_explicitas: ["Llegada de Colón", "Caída de Tenochtitlán", "Establecimiento del Virreinato del Perú"]
 
-enunciado: "Ordena los criterios fundamentales que definen a un mineral, desde el origen hasta su organización interna:"
-
-respuesta_orden: ["Origen natural", "Sólido", "Inorgánico", "Composición química definida", "Estructura cristalina"]
+enunciado: "Ordena cronológicamente los siguientes hitos de la conquista española en América:"
 
 explicacion: |
-  La definición integral requiere la suma de estas cinco características esenciales para distinguir un mineral de otros materiales terrestres.
+  Primero ocurrió el viaje de Colón (1492), luego la conquista del Imperio Azteca (1521) y finalmente la organización administrativa de los territorios en virreinatos.
+respuesta_orden: ["Llegada de Colón", "Caída de Tenochtitlán", "Establecimiento del Virreinato del Perú"]
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
+  tema: "conquista_colonizacion_america"
   nivel: "basico"
-  tags: ["cristalografía", "átomos"]
+  tags: ["demografia", "enfermedades"]
 
-respuesta: "arreglo geométrico repetitivo y ordenado de átomos/iones"
+respuesta: "viruela"
 tipo: completar
 respuestas_validas:
-  - "arreglo geométrico repetitivo y ordenado de átomos/iones"
-  - "un desorden total de partículas"
-  - "una estructura sin simetría"
+  - "viruela"
+  - "viruela"
+  - "sarampión"
+  - "sarampión"
 
-enunciado: "Una estructura cristalina se define como un ___."
+enunciado: "Uno de los factores biológicos más devastadores durante la conquista fue la propagación de la ___, enfermedad que causó una mortalidad masiva en las poblaciones indígenas debido a la falta de inmunidad previa."
 
 explicacion: |
-  Los cristales se caracterizan por tener un ordenamiento espacial de sus componentes (átomos, iones o moléculas) que se repite de forma periódica en las tres dimensiones del espacio.
+  La viruela fue una de las principales causas del colapso demográfico, ya que los sistemas inmunológicos de los pueblos originarios no estaban preparados para virus provenientes de Eurasia y África.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "basico"
-  tags: ["amorfo", "cristalino"]
-
-variables:
-  escenario: uno_de([["vidrio", "amorfo"], ["cuarzo", "cristalino"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["cristalino", "amorfo"]
-
-enunciado: "Si un material como el {escenario[0]} carece de un ordenamiento de largo alcance en su estructura, se clasifica como un sólido ___."
-
-explicacion: |
-  Los sólidos amorfos, como el vidrio, carecen de la periodicidad característica de los cristales, presentando un desorden estructural a escala atómica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
+  tema: "conquista_colonizacion_america"
   nivel: "intermedio"
-  tags: ["átomos", "red_cristalina"]
+  tags: ["causas", "colapso"]
 
-respuesta: "átomos, iones o moléculas"
-tipo: completar
-respuestas_validas:
-  - "átomos, iones o moléculas"
-
-enunciado: "La unidad básica que se repite para formar la red de un cristal está compuesta por ___."
-
-explicacion: |
-  Dependiendo de la naturaleza del mineral, los puntos de la red pueden ser átomos elementales, iones en compuestos iónicos o moléculas en sólidos moleculares.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "intermedio"
-  tags: ["orden", "desorden"]
-
-respuesta: "orden"
+opciones_explicitas: ["Enfermedades", "Guerras de conquista", "Sistemas de explotación", "Todas las anteriores"]
+respuesta: "Todas las anteriores"
 tipo: mc
-opciones_explicitas: ["orden", "desorden", "densidad", "color"]
 
-enunciado: "La diferencia fundamental entre un cristal y un sólido amorfo radica en la presencia de:"
+enunciado: "¿Cuáles fueron los factores principales que contribuyeron al descenso drástico de la población indígena durante el proceso de colonización?"
 
 explicacion: |
-  El orden es la clave: los cristales tienen un patrón repetitivo (orden), mientras que los amorfos tienen un desorden estructural.
+  El colapso fue multicausal: la introducción de patógenos (viruela, sarampión), la violencia directa de las campañas militares y la explotación laboral (como la mita o la encomienda) actuaron de forma sinérgica.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
+  tema: "conquista_colonizacion_america"
   nivel: "avanzado"
-  tags: ["clasificación", "estructura"]
+  tags: ["proceso", "causas"]
 
-variables:
-  ejemplo: uno_de([["diamante", "cristalino"], ["plástico", "amorfo"]])
+opciones_explicitas: ["Llegada de patógenos", "Desestructuración social", "Colapso demográfico masivo"]
+respuesta_orden: ["Llegada de patógenos", "Desestructuración social", "Colapso demográfico masivo"]
+tipo: ordenar
 
-respuesta: ejemplo[1]
-tipo: mc
-opciones_explicitas: ["cristalino", "amorfo"]
-
-enunciado: "Considerando el caso del {ejemplo[0]}, su estructura interna es de tipo ___."
+enunciado: "Ordene cronológicamente los procesos que explican la catástrofe demográfica en el continente americano:"
 
 explicacion: |
-  El diamante es el ejemplo clásico de un sólido con una estructura cristalina altamente ordenada de átomos de carbono.
+  Primero llegaron los agentes biológicos que causaron epidemias rápidas; esto desarticuló la organización social y familiar (desestructuración), lo que finalmente derivó en una caída demográfica sin precedentes.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "basico"
-  tags: ["definiciones", "geologia"]
+  tema: "conquista_colonizacion_america"
+  nivel: "intermedio"
+  tags: ["biologia", "historia"]
 
-tipo: mc
-opciones_explicitas: ["Un agregado de varios minerales", "Una sustancia pura con estructura cristalina definida", "Una mezcla de materia orgánica e inorgánica", "Un fragmento de corteza terrestre sin estructura"]
-respuesta: "Una sustancia pura con estructura cristalina definida"
-enunciado: "Desde una perspectiva geológica, ¿cuál es la definición fundamental de un mineral?"
-
-explicacion: |
-  Un mineral es una sustancia sólida, inorgánica, con una composición química definida y una estructura atómica ordenada (cristalina).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "basico"
-  tags: ["clasificacion", "rocas"]
-
-variables:
-  escenario: uno_de([["Granito", "cuarzo", "feldespato", "mica"], ["Basalto", "olivino", "piroxeno", "plagioclasa"], ["Caliza", "calcita", "dolomita", "aragonito"]])
-
-tipo: completar
-respuesta: escenario[3]
-
-enunciado: "Si observamos una muestra de {escenario[0]}, estamos ante una roca compuesta por varios minerales, entre ellos {escenario[1]} y {escenario[2]}. Otro mineral típico de esta roca es ___."
+enunciado: "En el escenario epidémico posterior a la conquista, la falta de memoria inmunológica de los pueblos originarios ante virus como el sarampión fue un factor determinante para la mortalidad."
 
 pasos:
-  - "Identifica si el material es una sustancia única o un agregado."
-  - "Observa los componentes individuales que forman el conjunto."
+  - "Analizar la interacción entre patógeno y sistema inmune."
+  - "Relacionar la falta de inmunidad con la velocidad de propagación."
 
-explicacion: |
-  El {escenario[0]} es una roca porque es un agregado de los minerales listados.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "intermedio"
-  tags: ["relaciones", "estructuras"]
-
+respuesta: "sarampión"
 tipo: completar
 respuestas_validas:
-  - "mineral"
-  - "roca"
-
-enunciado: "Un ejemplar de cuarzo puro se clasifica como un ________, mientras que una masa de granito se clasifica como una ________."
+  - "sarampión"
+  - "sarampión"
 
 explicacion: |
-  El cuarzo es una sustancia individual (mineral), mientras que el granito es un agregado de varios minerales (roca).
+  Al ser virus nuevos para estas poblaciones, no existían anticuerpos previos, lo que permitía que la enfermedad se propagara de forma explosiva entre comunidades enteras.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "intermedio"
-  tags: ["ordenar", "jerarquia"]
-
-tipo: ordenar
-opciones_explicitas: ["Átomos", "Cristales (Minerales)", "Rocas"]
-
-enunciado: "Ordena los siguientes elementos de menor a mayor complejidad estructural en la formación de la corteza terrestre:"
-
-explicacion: |
-  Los átomos se organizan en redes cristalinas para formar minerales, y los minerales se agrupan para formar rocas.
-respuesta_orden: ["Átomos", "Cristales (Minerales)", "Rocas"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "avanzado"
-  tags: ["analisis", "composicion"]
-
-variables:
-  caso: uno_de([["feldespato", "mineral"], ["granito", "roca"]])
-
-tipo: mc
-opciones_explicitas: ["mineral", "roca"]
-respuesta: caso[1]
-
-enunciado: "Considerando el elemento {caso[0]}, su clasificación técnica es: ________."
-
-explicacion: |
-  Según el caso seleccionado, {caso[0]} es un/a {caso[1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
+  tema: "conquista_colonizacion_america"
   nivel: "basico"
-  tags: ["dureza", "mohs"]
+  tags: ["explotacion", "demografia"]
 
-variables:
-  mineral_datos: [["talco", "1"], ["yeso", "2"], ["calcita", "3"], ["fluorita", "4"], ["apatita", "5"]]
-  idx: uno_de([0,1,2,3,4])
+opciones_explicitas: ["Aumento de la natalidad", "Reducción de la población", "Migración masiva a Europa"]
+respuesta: "Reducción de la población"
+tipo: mc
 
-enunciado: "Si tenemos un mineral cuya dureza es la que corresponde al elemento {mineral_datos[idx][0]}, su valor en la escala de Mohs es ___."
-
-respuestas_validas:
-  - "1"
-  - "2"
-  - "3"
-  - "4"
-  - "5"
-respuesta: mineral_datos[idx][1]
-tipo: completar
+enunciado: "La combinación de enfermedades y los sistemas de trabajo forzado (como la encomienda) provocó principalmente una:"
 
 explicacion: |
-  La escala de Mohs es una escala de dureza relativa. El {mineral_datos[idx][0]} tiene un valor de {mineral_datos[idx][1]}.
+  La explotación extrema reducía la capacidad de recuperación de las poblaciones, agravando el impacto de las epidemias y llevando a una reducción poblacional constante.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
+  tema: "conquista_colonizacion_america"
   nivel: "basico"
-  tags: ["brillo"]
+  tags: ["encomienda", "mano_de_obra", "colonizacion"]
 
-enunciado: "¿Cómo se denomina a la propiedad que describe la forma en que la luz se refleja en la superficie de un mineral?"
-
-opciones_explicitas: ["Transparencia", "Brillo", "Clivaje", "Dureza"]
-respuesta: "Brillo"
-tipo: mc
-
-explicacion: |
-  El brillo es la propiedad que indica la calidad de la reflexión de la luz en la superficie del mineral.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "intermedio"
-  tags: ["raya", "color"]
-
-variables:
-  escenario: [["Hematita", "Rojo"], ["Pirita", "Negro"], ["Calcopirita", "Negro verdoso"], ["Malaquita", "Verde"]]
-  idx: uno_de([0, 1, 2, 3])
-
-enunciado: "Al realizar la prueba de la raya sobre una placa de porcelana sin esmaltar con el mineral {escenario[idx][0]}, el color resultante es ___."
-
-respuestas_validas:
-  - "Rojo"
-  - "Negro"
-  - "Negro verdoso"
-  - "Verde"
-respuesta: escenario[idx][1]
-tipo: completar
-
-explicacion: |
-  La raya es el color del polvo del mineral y es una propiedad más constante que el color externo del espécimen.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "avanzado"
-  tags: ["fractura", "clivaje"]
-
-enunciado: "Un mineral que se rompe siguiendo planos de debilidad cristalográfica bien definidos presenta ___."
-
-opciones_explicitas: ["Fractura concoidea", "Clivaje", "Dureza", "Brillo metálico"]
-respuesta: "Clivaje"
-tipo: mc
-
-explicacion: |
-  El clivaje ocurre cuando el mineral se rompe a lo largo de planos de debilidad en su estructura atómica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "intermedio"
-  tags: ["mohs", "ordenar"]
-
-enunciado: "Ordene los siguientes minerales de menor a mayor dureza según la escala de Mohs:"
-
-opciones_explicitas: ["Talco", "Calcita", "Cuarzo", "Diamante"]
-respuesta_orden: ["Talco", "Calcita", "Cuarzo", "Diamante"]
-tipo: ordenar
-
-explicacion: |
-  La secuencia correcta es: Talco (1), Calcita (3), Cuarzo (7) y Diamante (10).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "basico"
-  tags: ["dureza", "mohs"]
-
-variables:
-  escenario: [[4, "Fluorita"], [7, "Cuarzo"], [10, "Diamante"]]
-  idx: uno_de([0, 1, 2])
-  dureza_dada: escenario[idx][0]
-  nombre_mineral: escenario[idx][1]
-
-tipo: mc
-opciones_explicitas: ["Fluorita", "Cuarzo", "Diamante", "Talco"]
-
-enunciado: "Un geólogo encuentra un mineral cuya dureza en la escala de Mohs es de {dureza_dada}. ¿Qué mineral es?"
-
-respuesta: nombre_mineral
-
-explicacion: |
-  El mineral identificado es el {nombre_mineral}, que tiene una dureza de {dureza_dada} en la escala de Mohs.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "intermedio"
-  tags: ["color", "espectro"]
-
-variables:
-  escenario: [["rojo", "Rubí"], ["azul", "Lapislázuli"], ["amarillo", "Azufre"]]
-  idx: uno_de([0, 1, 2])
-  color_descrito: escenario[idx][0]
-  mineral_nombre: escenario[idx][1]
-
-tipo: completar
-respuestas_validas:
-  - "Rubí"
-  - "Lapislázuli"
-  - "Azufre"
-
-enunciado: "Se observa un cristal de color ___ que presenta una estructura hexagonal característica."
-
-pasos:
-  - "Identificar el color mencionado en el registro."
-  - "Asociar el color con el mineral correspondiente."
-
-respuesta: mineral_nombre
-
-explicacion: |
-  El color {color_descrito} corresponde al mineral {mineral_nombre}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "basico"
-  tags: ["brillo", "propiedades"]
-
-variables:
-  escenario: uno_de([["metálico", "Pirita"], ["vítreo", "Cuarzo"], ["nacarado", "Mica"]])
-  tipo_brillo: escenario[0]
-  mineral_id: escenario[1]
-
-tipo: mc
-opciones_explicitas: ["Pirita", "Cuarzo", "Mica", "Feldespato"]
-
-enunciado: "Un espécimen presenta un brillo de tipo {tipo_brillo}. ¿Cuál de estos minerales es el más probable?"
-
-respuesta: mineral_id
-
-explicacion: |
-  El brillo {tipo_brillo} es característico de la {mineral_id}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "avanzado"
-  tags: ["cristalización", "geología"]
-
-tipo: ordenar
-opciones_explicitas: ["Nucleación", "Crecimiento", "Terminación"]
-
-enunciado: "Ordene las etapas típicas de la formación de un cristal perfecto en una solución saturada:"
-
-respuesta_orden: ["Nucleación", "Crecimiento", "Terminación"]
-
-explicacion: |
-  El proceso de cristalización requiere primero la nucleación, luego el crecimiento de la red y finalmente la terminación de los bordes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "minerales_estructura_cristalina"
-  nivel: "intermedio"
-  tags: ["densidad", "propiedades_fisicas"]
-
-variables:
-  escenario: [[5.0, "Hematita"], [2.6, "Cuarzo"], [7.5, "Galena"]]
-  idx: uno_de([0, 1, 2])
-  valor_densidad: escenario[idx][0]
-  mineral_ref: escenario[idx][1]
-
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Un mineral tiene una densidad relativa de {valor_densidad}. ¿Cuál es su valor numérico exacto?"
-
-respuesta: valor_densidad
-
-explicacion: |
-  La densidad es una propiedad intrínseca; en este caso, el valor es {valor_densidad} g/cm³.
-```
-
-## Sección: modelo-agroexportador-inmigracion (25 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "modelo_agroexportador"
-  nivel: "basico"
-  tags: ["economia", "exportacion"]
-
-tipo: mc
-opciones_explicitas: ["Manufacturas industriales", "Materias primas agropecuarias", "Productos tecnológicos", "Servicios financieros"]
-respuesta: "Materias primas agropecuarias"
-
-enunciado: "El modelo agroexportador argentino, consolidado a fines del siglo XIX, se basaba fundamentalmente en la exportación de ___."
-
-explicacion: |
-  El modelo agroexportador consistía en la exportación de productos de la naturaleza (carne, cereales, lana) e importación de productos manufacturados de Europa.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "modelo_agroexportador"
-  nivel: "intermedio"
-  tags: ["capital", "infraestructura"]
-
-variables:
-  inversion_tipo: uno_de(["Inversión extranjera en infraestructura", "Inversión nacional en industria"])
-
-tipo: mc
-opciones_explicitas: ["Inversión extranjera en infraestructura", "Inversión nacional en industria", "Préstamos de organismos internacionales", "Donaciones estatales"]
-respuesta: "Inversión extranjera en infraestructura"
-
-enunciado: "Para sostener el modelo agroexportador, fue fundamental la llegada de Inversión extranjera en infraestructura."
-
-explicacion: |
-  La gran inversión extranjera (principalmente británica) se destinó a la construcción de ferrocarriles y puertos para facilitar la salida de productos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "inmigracion_masiva"
-  nivel: "basico"
-  tags: ["demografia", "inmigracion"]
-
-tipo: completar
-respuestas_validas:
-  - "Europa"
-
-enunciado: "Durante el periodo agroexportador, la mayoría de la corriente migratoria hacia la Argentina provenía de ___."
-
-explicacion: |
-  El flujo migratorio masivo de finales del siglo XIX y principios del XX estuvo compuesto mayoritariamente por inmigrantes europeos (italianos y españoles principalmente).
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "modelo_agroexportador"
-  nivel: "intermedio"
-  tags: ["causalidad", "procesos"]
-
-tipo: ordenar
-opciones_explicitas: ["Expansión de la frontera agrícola", "Llegada de ferrocarriles", "Aumento de la demanda europea", "Consolidación del modelo agroexportador"]
-
-enunciado: "Ordene cronológicamente los procesos que permitieron la consolidación del modelo agroexportador:"
-
-explicacion: |
-  Primero se expandió la frontera (con la conquista del desierto), luego se conectó con trenes, lo que permitió responder a la demanda europea y consolidar el modelo.
-respuesta_orden: ["Expansión de la frontera agrícola", "Llegada de ferrocarriles", "Aumento de la demanda europea", "Consolidación del modelo agroexportador"]
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "modelo_agroexportador"
-  nivel: "avanzado"
-  tags: ["estado", "politica"]
-
-tipo: mc
-opciones_explicitas: ["Un proceso de autosuficiencia", "Un motor de dependencia externa", "Un sistema de comercio cerrado", "Una economía de subsistencia"]
-
-enunciado: "En el contexto del modelo agroexportador, la dinámica comercial argentina con Europa se caracterizó fundamentalmente por ser:"
-
-explicacion: |
-  El modelo generó una fuerte dependencia de los mercados externos (Europa) y de la tecnología/capital extranjero, integrando a Argentina al mercado mundial como proveedor de materias primas.
-
-respuesta: "Un motor de dependencia externa"
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "basico"
-  tags: ["inmigracion", "economia", "modelo_agroexportador"]
-
-respuesta: "modelo agroexportador"
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "La expansión del _______ fue el principal factor que impulsó la llegada masiva de inmigrantes europeos a la Argentina durante las últimas décadas del siglo XIX."
-
-explicacion: |
-  El modelo agroexportador, basado en la exportación de materias primas (carnes y cereales) hacia Europa, demandó una gran cantidad de mano de obra que fue provista por la inmigración masiva.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "basico"
-  tags: ["nacionalidades", "europa"]
-
-respuesta: "italianos"
-tipo: mc
-opciones_explicitas: ["italianos", "españoles", "alemanes", "franceses"]
-
-enunciado: "Si bien hubo diversas corrientes migratorias, el grupo de nacionalidad más numeroso en la inmigración masiva a la Argentina (por delante de los españoles) fue el de los _______."
-
-explicacion: |
-  La gran mayoría de los inmigrantes que llegaron entre 1880 y 1914 provenían de Italia y España, aunque también hubo presencia de otras nacionalidades europeas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "intermedio"
-  tags: ["causas", "europa"]
-
-respuesta: "crisis económica y demográfica"
-tipo: completar
-respuestas_validas:
-  - "crisis económica y demográfica"
-
-enunciado: "Los inmigrantes europeos huían de Europa debido a la _______ que afectaba sus países de origen."
-
-explicacion: |
-  Las crisis económicas, las guerras de unificación y el crecimiento demográfico en Europa generaron un excedente de población que buscaba nuevas oportunidades en el continente americano.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "intermedio"
-  tags: ["politica_migratoria", "leyes"]
-
-respuesta: "Ley Avellaneda"
-tipo: mc
-opciones_explicitas: ["Ley Avellaneda", "Ley de Residencia", "Constitución de 1853", "Ley de Educación"]
-
-enunciado: "Para fomentar la llegada de trabajadores, el Estado argentino sancionó un marco legal conocido como la _______."
-
-explicacion: |
-  La Ley Avellaneda (1876) facilitó el ingreso de inmigrantes, garantizando sus derechos y promoviendo su asentamiento en el territorio nacional.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "avanzado"
-  tags: ["causalidad", "procesos"]
-
-respuesta_orden: ["Demanda de mano de obra", "Expansión de la frontera agrícola", "Llegada masiva de inmigrantes"]
-tipo: ordenar
-opciones_explicitas: ["Demanda de mano de obra", "Expansión de la frontera agrícola", "Llegada masiva de inmigrantes"]
-
-enunciado: "Ordene cronológicamente la lógica de causalidad que permitió el proceso migratorio:"
-
-pasos:
-  - "El modelo agroexportador requiere más trabajadores."
-  - "Se expanden las tierras para la agricultura y ganadería."
-  - "Se produce el flujo migratorio masivo hacia el país."
-
-explicacion: |
-  La lógica fue circular: la demanda de trabajo impulsó la expansión de la frontera, lo que a su vez atrajo a la población europea que buscaba empleo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "basico"
-  tags: ["economia", "demanda"]
-
-opciones_explicitas: ["Europa", "Asia", "Estados Unidos", "África"]
-
-respuesta: "Europa"
-tipo: "mc"
-
-enunciado: "El modelo agroexportador argentino se consolidó gracias a la creciente demanda de materias primas y alimentos provenientes de ________."
-
-explicacion: |
-  La Revolución Industrial en Europa generó una necesidad masiva de alimentos (carne, cereales) que Argentina satisfizo mediante su modelo exportador.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "intermedio"
-  tags: ["transporte", "ferrocarriles"]
-
-opciones_explicitas: ["Navegación a vapor", "Ferrocarriles", "Carretas", "Ferrocarriles de montaña"]
-
-respuesta: "Ferrocarriles"
-tipo: "mc"
-
-enunciado: "Para conectar las zonas de producción con los puertos de exportación, se realizó una gran inversión en la construcción de ________."
-
-explicacion: |
-  El ferrocarril fue la columna vertebral del modelo, permitiendo el traslado rápido y masivo de granos y carne hacia el puerto de Buenos Aires.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "avanzado"
-  tags: ["frontera", "territorio"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["Conquista del Desierto", "expansión de la frontera agrícola"], ["Guerra de la Triple Alianza", "consolidación de fronteras norteñas"]]
-
-respuesta: datos[escenario_idx][1]
+respuesta: "tributo"
 tipo: "completar"
 respuestas_validas:
-  - "expansión de la frontera agrícola"
-  - "consolidación de fronteras norteñas"
+  - "tributo"
 
-enunciado: "La denominada {datos[escenario_idx][0]} permitió la {datos[escenario_idx][1]} para el modelo agroexportador."
+enunciado: "En el sistema de la encomienda, la Corona española otorgaba a un encomendero el derecho de recibir ___ en forma de trabajo o productos por parte de los indígenas a cambio de su evangelización."
 
 explicacion: |
-  La ocupación de territorios indígenas fue fundamental para incorporar nuevas tierras al circuito productivo de exportación.
+  La encomienda era una institución donde se asignaba un grupo de indígenas a un español (encomendero) para que este los protegiera y evangelizara, a cambio de tributos o trabajo.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
+  tema: "conquista_colonizacion_america"
   nivel: "intermedio"
-  tags: ["inversion", "britania"]
-
-opciones_explicitas: ["Francia", "Alemania", "Reino Unido", "España"]
-
-respuesta: "Reino Unido"
-tipo: "mc"
-
-enunciado: "La mayor parte de la inversión extranjera destinada a infraestructura y servicios en este periodo fue de origen ________."
-
-explicacion: |
-  El capital británico fue el principal motor de la inversión en ferrocarriles, bancos y servicios públicos durante la segunda mitad del siglo XIX y principios del XX.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "avanzado"
-  tags: ["logica", "procesos"]
-
-opciones_explicitas: ["Demanda europea", "Expansión de frontera", "Ferrocarriles", "Inversión británica"]
-
-respuesta_orden: ["Demanda europea", "Expansión de frontera", "Inversión británica", "Ferrocarriles"]
-tipo: "ordenar"
-
-enunciado: "Ordene cronológicamente los factores que permitieron la consolidación del modelo (desde el estímulo externo hasta la infraestructura de transporte):"
-
-explicacion: |
-  El proceso comenzó con la necesidad de alimentos en Europa, seguida por la ocupación de tierras, la llegada de capitales para infraestructura y finalmente la red ferroviaria que integró el sistema.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "intermedio"
-  tags: ["demografia", "inmigracion"]
-
-respuesta: "el flujo masivo de inmigrantes europeos"
-tipo: mc
-opciones_explicitas: ["el flujo masivo de inmigrantes europeos", "la llegada de colonias agrícolas", "el crecimiento de la población nativa", "la migración interna desde el interior"]
-
-enunciado: "Durante el modelo agroexportador, la principal causa de la transformación demográfica en el litoral argentino fue el flujo masivo de inmigrantes europeos."
-
-explicacion: |
-  La gran escala de la inmigración europea (principalmente italianos y españoles) alteró radicalmente la proporción de población extranjera en las zonas portuarias y de exportación.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "basico"
-  tags: ["cultura", "lenguaje"]
-
-respuesta: "lunfardo"
-tipo: completar
-respuestas_validas:
-  - "lunfardo"
-
-enunciado: "La convivencia de diversas lenguas y modismos de los inmigrantes en los conventillos de Buenos Aires dio origen a un léxico popular conocido como ___."
-
-explicacion: |
-  El lunfardo surgió como una mezcla de términos de varios idiomas (italiano, español, francés, etc.) que los inmigrantes utilizaban en el ámbito urbano.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "intermedio"
-  tags: ["urbanismo", "geografia"]
-
-respuesta_orden: ["Buenos Aires", "Rosario", "Santa Fe"]
-tipo: ordenar
-opciones_explicitas: ["Buenos Aires", "Rosario", "Santa Fe"]
-
-enunciado: "Ordene de mayor a menor importancia en términos de volumen de asentamiento inmigrante y actividad portuaria durante el auge agroexportador:"
-
-explicacion: |
-  El eje Buenos Aires-Rosario-Santa Fe concentró la mayor densidad demográfica debido a su conexión directa con el comercio mundial de granos y carnes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "avanzado"
-  tags: ["clases_sociales", "urbanismo"]
+  tags: ["mita", "mineria", "potosi"]
 
 variables:
-  perfil: uno_de(["la clase media urbana", "la oligarquía terrateniente"])
+  escenario_idx: uno_de([0,1])
+  escenarios: [["Potosí", "Plata"], ["Huancavelica", "Mercurio"]]
 
-respuesta: "la clase media urbana"
-tipo: mc
-opciones_explicitas: ["la clase media urbana", "la oligarquía terrateniente", "el campesinado indígena", "la aristocracia colonial"]
+respuesta: escenarios[escenario_idx][1]
+tipo: "mc"
+opciones_explicitas: ["Plata", "Mercurio", "Oro", "Azogue"]
 
-enunciado: "A diferencia de la estructura de la oligarquía, la inmigración masiva favoreció el surgimiento de {perfil} en los centros urbanos."
+enunciado: "Durante la colonia, la mita fue un sistema de trabajo obligatorio para los indígenas. En el caso de la mita de {escenarios[escenario_idx][0]}, el recurso principal extraído era el/la {escenarios[escenario_idx][1]}."
 
 explicacion: |
-  La llegada de inmigrantes con oficios diversos permitió la consolidación de una clase media compuesta por pequeños comerciantes, empleados y profesionales.
+  La mita minera fue una adaptación de la mita incaica utilizada por los españoles para asegurar mano de obra en las minas de plata de Potosí y de mercurio en Huancavelica.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
+  tema: "conquista_colonizacion_america"
   nivel: "basico"
-  tags: ["vivienda", "cultura"]
+  tags: ["mercantilismo", "metales_preciosos"]
 
-respuesta: 100
-tipo: completar
-tolerancia_abs: 0
+respuesta: "metrópolis"
+tipo: "mc"
+opciones_explicitas: ["metrópolis", "colonias", "comunidades", "indígenas"]
 
-enunciado: "En el contexto de la inmigración, si un conventillo tiene 4 habitaciones y cada una alberga a 25 personas, ¿cuántas personas viven en total en el conventillo?"
+enunciado: "El sistema extractivo colonial estaba diseñado para que la riqueza obtenida en América fluyera hacia la ___ europea."
+
+explicacion: |
+  El modelo económico era mercantilista y extractivista, cuyo objetivo principal era el enriquecimiento de las potencias coloniales (metrópolis) mediante la acumulación de metales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_colonizacion_america"
+  nivel: "avanzado"
+  tags: ["orden", "procesos_coloniales"]
+
+respuesta_orden: ["Conquista", "Encomienda", "Mita"]
+tipo: "ordenar"
+opciones_explicitas: ["Mita", "Conquista", "Encomienda"]
+
+enunciado: "Ordene cronológicamente las etapas de la organización del trabajo y control de población en el continente americano:"
+
+explicacion: |
+  Primero se produjo la Conquista militar, seguida por la Encomienda (control de tributo/evangelización) y finalmente la consolidación de sistemas de trabajo forzado como la Mita para la minería intensiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_colonizacion_america"
+  nivel: "intermedio"
+  tags: ["demografia", "explotacion"]
+
+respuesta: -15000000
+tipo: "input"
+tolerancia_abs: 5000000
+
+enunciado: "Debido a las enfermedades y las duras condiciones en los sistemas de trabajo como la mita, se estima que la población indígena sufrió una caída drástica. Si una población inicial era de 25.000.000 y tras la explotación quedó en 10.000.000, ¿cuántos millones de personas se perdieron aproximadamente? (Ingrese el número entero)"
 
 pasos:
-  - "Multiplicar el número de habitaciones por la cantidad de personas por habitación."
+  - "Calcular la diferencia: 25.000.000 - 10.000.000"
 
 explicacion: |
-  Los conventillos eran viviendas colectivas con alta densidad poblacional, típicas de los barrios de inmigrantes en Buenos Aires.
+  El colapso demográfico fue uno de los efectos más devastadores de la colonización, causado por la combinación de epidemias y la sobreexplotación laboral en minas y haciendas.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
+  tema: "conquista_colonizacion_america"
   nivel: "basico"
-  tags: ["economia", "exportacion"]
+  tags: ["intercambio_colombino", "biologia", "historia"]
 
 variables:
-  datos: [["trigo", "cereales"], ["carne", "ganadería"], ["lana", "ovinos"]]
-  idx: uno_de([0, 1, 2])
-  producto: datos[idx][0]
+  escenario_idx: uno_de([0, 1, 2])
+  datos: [["maíz", "América", "Europa"], ["caballo", "Europa", "América"], ["viruela", "Europa", "América"]]
 
-respuesta: datos[idx][1]
+enunciado: "Tras el contacto de 1492, el intercambio colombino permitió que el {datos[escenario_idx][0]} fuera llevado desde {datos[escenario_idx][1]} hacia {datos[escenario_idx][2]}."
+
+respuesta: datos[escenario_idx][2]
 tipo: mc
-opciones_explicitas: ["cereales", "ganadería", "ovinos"]
-
-enunciado: "Durante el modelo agroexportador, la economía argentina se centró en la exportación de productos primarios. El {producto} pertenece al rubro de la ___."
+opciones_explicitas: ["América", "Europa", "África", "Asia"]
 
 explicacion: |
-  El modelo agroexportador se basó en la exportación de materias primas hacia Europa, siendo el {producto} uno de los pilares fundamentales.
+  El intercambio colombino fue el flujo masivo de plantas, animales y patógenos entre el Viejo y el Nuevo Mundo que transformó la ecología y la demografía global.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "basico"
-  tags: ["inmigracion", "demografia"]
-
-variables:
-  datos_migratorios: [["italianos", "Europa"], ["españoles", "Europa"], ["alemanes", "Europa"]]
-  idx: uno_de([0, 1, 2])
-  nacionalidad: datos_migratorios[idx][0]
-
-respuesta: datos_migratorios[idx][1]
-tipo: mc
-opciones_explicitas: ["Europa", "Asia", "América", "África"]
-
-enunciado: "La gran inmigración fue clave para la mano de obra en el campo. El grupo de los {nacionalidad} llegó a la Argentina proveniente del continente: ___"
-
-explicacion: |
-  La llegada masiva de inmigrantes de Europa (principalmente italianos y españoles) fue esencial para la expansión de la frontera agrícola.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
+  tema: "conquista_colonizacion_america"
   nivel: "intermedio"
-  tags: ["transporte", "infraestructura"]
+  tags: ["demografia", "enfermedades", "impacto"]
 
-respuesta: "ferrocarril"
+variables:
+  enfermedad_idx: uno_de([0, 1])
+  enfermedades: [["viruela", "catastrófico"], ["sarampión", "catastrófico"]]
+
+enunciado: "La llegada de la {enfermedades[enfermedad_idx][0]} a América tuvo un impacto ___ en la población indígena."
+
+respuesta: enfermedades[enfermedad_idx][1]
 tipo: completar
 respuestas_validas:
-  - "ferrocarril"
-
-enunciado: "Para integrar los centros de producción con los puertos, se construyó una red de ___ fundamental para el modelo."
+  - "catastrófico"
 
 explicacion: |
-  El ferrocarril permitió el traslado masivo de cargas desde el interior hacia los puertos de exportación de manera eficiente.
+  Las poblaciones indígenas de América no tenían inmunidad contra enfermedades euroasiáticas como la viruela o el sarampión, lo que causó un colapso demográfico masivo.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
+  tema: "conquista_colonizacion_america"
   nivel: "intermedio"
-  tags: ["puertos", "comercio"]
+  tags: ["agricultura", "europa", "papa"]
 
-respuesta: "Buenos Aires"
+respuesta: "papa"
 tipo: mc
-opciones_explicitas: ["Buenos Aires", "Rosario", "Bahía Blanca", "Córdoba"]
+opciones_explicitas: ["trigo", "papa", "arroz", "cebada"]
 
-enunciado: "El sistema agroexportador dependía de la salida hacia el mundo a través de puertos específicos. ¿Cuál fue el principal puerto de salida de la producción agroexportadora argentina?"
+enunciado: "Un cultivo fundamental proveniente de América que revolucionó la dieta europea y permitió un crecimiento poblacional en los siglos posteriores fue la ___."
 
 explicacion: |
-  Los puertos eran el punto de conexión vital entre la producción interna y el mercado mundial.
+  La papa (Solanum tuberosum) proporcionó una densidad calórica alta que fue clave para evitar hambrunas en Europa.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "modelo_agroexportador_inmigracion"
-  nivel: "avanzado"
-  tags: ["proceso", "logistica"]
+  tema: "conquista_colonizacion_america"
+  nivel: "basico"
+  tags: ["animales", "transporte"]
 
-respuesta_orden: ["Producción", "Transporte", "Exportación"]
-tipo: ordenar
-opciones_explicitas: ["Producción", "Transporte", "Exportación"]
+respuesta: "caballo"
+tipo: mc
+opciones_explicitas: ["vaca", "caballo", "oveja", "cerdo"]
 
-enunciado: "Ordene el proceso lógico de una mercancía en el modelo agroexportador: desde la cosecha hasta la salida del país."
+enunciado: "La introducción de este animal transformó la cultura de las tribus de las llanuras en América, facilitando el transporte y la caza: el ___."
 
 explicacion: |
-  El ciclo comenzaba con la producción en el campo, seguía con el transporte ferroviario y terminaba con la exportación en el puerto.
+  El caballo fue introducido por los españoles y cambió radicalmente la movilidad y las tácticas de guerra de los pueblos nativos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_colonizacion_america"
+  nivel: "avanzado"
+  tags: ["procesos", "historia"]
+
+enunciado: "Ordená cronológicamente el proceso del intercambio colombino:"
+respuesta_orden: ["Llegada de Colón", "Introducción de especies", "Transformación ecológica"]
+tipo: ordenar
+opciones_explicitas: ["Introducción de especies", "Llegada de Colón", "Transformación ecológica"]
+
+explicacion: |
+  El proceso comenzó con el contacto inicial, seguido por la transferencia biológica de especies y culminó en una transformación ecológica y cultural permanente de ambos hemisferios.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_colonizacion_america"
+  nivel: "basico"
+  tags: ["intercambio_colombino", "botanica"]
+
+variables:
+  escenario: [[ "maíz", "América" ], [ "trigo", "Eurasia" ], [ "papa", "América" ], [ "arroz", "Eurasia" ]]
+  idx: uno_de([0,1,2,3])
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["América", "Eurasia", "África", "Oceanía"]
+
+enunciado: "El {escenario[idx][0]} fue un producto fundamental que llegó al Viejo Mundo proveniente de _______."
+
+explicacion: |
+  El intercambio colombino permitió que productos como el {escenario[idx][0]} transformaran la dieta en Europa y Asia.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_colonizacion_america"
+  nivel: "basico"
+  tags: ["intercambio_colombino", "animales"]
+
+variables:
+  escenario: [[ "caballo", "Eurasia" ], [ "pavo", "América" ], [ "cerdo", "Eurasia" ], [ "tomate", "América" ]]
+  idx: uno_de([0,1,2,3])
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["América", "Eurasia", "Oceanía", "África"]
+
+enunciado: "En el proceso de colonización, el {escenario[idx][0]} fue un elemento que llegó a América desde _______."
+
+explicacion: |
+  Los animales domésticos como el {escenario[idx][0]} fueron introducidos por los europeos y cambiaron el paisaje americano.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_colonizacion_america"
+  nivel: "intermedio"
+  tags: ["intercambio_colombino", "logica"]
+
+variables:
+  escenario: [[ "Cacao", "América" ], [ "Café", "Eurasia" ], [ "Azúcar", "Eurasia" ], [ "Tabaco", "América" ]]
+  idx: uno_de([0,1,2,3])
+
+respuesta: escenario[idx][1]
+tipo: completar
+respuestas_validas:
+  - "América"
+  - "Eurasia"
+
+enunciado: "El producto {escenario[idx][0]} es originario de _______."
+
+explicacion: |
+  El intercambio fue bidireccional: el {escenario[idx][0]} fluyó de un continente al otro.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_colonizacion_america"
+  nivel: "avanzado"
+  tags: ["intercambio_colombino", "orden"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [["Maíz, Trigo, Caballo", "América, Eurasia, Eurasia"], ["Papa, Trigo, Cerdo", "América, Eurasia, Eurasia"]]
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["América, Eurasia, Eurasia", "Eurasia, América, América", "Eurasia, Eurasia, América"]
+
+enunciado: "Para los siguientes productos: {escenario[idx][0]}, ¿cuál es la secuencia correcta de su continente de origen?"
+
+explicacion: |
+  La secuencia correcta refleja qué productos venían de América y cuáles de Eurasia.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_colonizacion_america"
+  nivel: "intermedio"
+  tags: ["intercambio_colombino", "impacto"]
+
+variables:
+  escenario: [[ "Cebolla", "Eurasia" ], [ "Cacao", "América" ], [ "Girasol", "América" ], [ "Cabra", "Eurasia" ]]
+  idx: uno_de([0,1,2,3])
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["América", "Eurasia"]
+
+enunciado: "El {escenario[idx][0]} es un ejemplo de producto que se originó en _______."
+
+explicacion: |
+  El intercambio biológico alteró la demografía y la economía global.
 ```
 
 ## Sección: modernidad-imprenta-navegacion-ciencia (25 preguntas)
@@ -1906,481 +2090,5 @@ enunciado: "El perfeccionamiento del telescopio por parte de Galileo Galilei fue
 
 explicacion: |
   Al observar las fases de Venus y los satélites de Júpiter, Galileo aportó evidencia empírica al modelo heliocéntrico.
-```
-
-## Sección: movimiento-aparente-constelaciones (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "basico"
-  tags: ["astronomia", "rotacion_terrestre"]
-
-respuesta: "rotación terrestre"
-tipo: completar
-respuestas_validas:
-  - "rotación terrestre"
-
-enunciado: "El movimiento aparente de las estrellas durante la noche, donde parecen desplazarse de este a oeste, es causado en realidad por la ___ de la Tierra."
-
-explicacion: |
-  Aunque parece que el cielo gira alrededor de nosotros, es la Tierra la que gira sobre su propio eje de oeste a este, lo que genera la ilusión de movimiento estelar en sentido contrario.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "basico"
-  tags: ["observacion", "astronomia"]
-
-respuesta: "Este-Oeste"
-tipo: mc
-opciones_explicitas: ["Este-Oeste", "Oeste-Este", "Norte-Sur", "Sur-Norte"]
-
-enunciado: "Debido a la rotación terrestre, ¿en qué dirección aparente vemos que se desplazan las estrellas durante la noche?"
-
-explicacion: |
-  Como la Tierra rota hacia el Este, los objetos celestes parecen moverse hacia el Oeste.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "intermedio"
-  tags: ["geocentrismo", "heliocentrismo"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es el movimiento de las constelaciones causado por el desplazamiento físico de las estrellas alrededor de la Tierra?"
-
-explicacion: |
-  Falso. Las estrellas tienen sus propios movimientos propios (muy lentos), pero el movimiento diario que vemos es un efecto óptico de nuestra rotación.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "avanzado"
-  tags: ["eje_terrestre", "estrellas_fijas"]
-
-respuesta: "Polo Norte Celeste"
-tipo: mc
-opciones_explicitas: ["Polo Norte Celeste", "Ecuador Celeste", "Polo Sur Celeste"]
-
-enunciado: "En el hemisferio norte, las estrellas parecen girar alrededor de un punto fijo en el cielo llamado ___."
-
-explicacion: |
-  El eje de rotación de la Tierra apunta hacia las estrellas que parecen estar en el centro del movimiento circular, como la Estrella Polar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "intermedio"
-  tags: ["observacion", "secuencia"]
-
-respuesta_orden: ["Aparición por el Este", "Paso por el Meridiano", "Ocultación por el Oeste"]
-tipo: ordenar
-opciones_explicitas: ["Aparición por el Este", "Paso por el Meridiano", "Ocultación por el Oeste"]
-
-enunciado: "Ordena el ciclo de movimiento aparente de una estrella desde que sale hasta que se pone:"
-
-pasos:
-  - "La estrella aparece en el horizonte."
-  - "La estrella alcanza su punto más alto."
-  - "La estrella desaparece bajo el horizonte."
-
-explicacion: |
-  Debido a la rotación de la Tierra, el ciclo sigue siempre este orden: sale por el este, cruza el cielo (meridiano) y se pone por el oeste.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "basico"
-  tags: ["astronomia", "tierra", "sol"]
-
-respuesta: "traslación"
-tipo: completar
-respuestas_validas:
-  - "traslación"
-  - "traslación de la Tierra"
-
-enunciado: "El cambio en las constelaciones visibles a lo largo de los meses ocurre debido al movimiento de ___ de la Tierra alrededor del Sol."
-
-explicacion: |
-  La Tierra se desplaza en su órbita alrededor del Sol. Esto hace que, según nuestra posición en la órbita, la parte del cielo que queda en la oscuridad (noche) cambie, permitiéndonos ver diferentes estrellas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "intermedio"
-  tags: ["estaciones", "cielo_nocturno"]
-
-variables:
-  escenario: uno_de([["Orión", "invierno"], ["Escorpio", "verano"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["invierno", "verano", "primavera", "otoño"]
-
-enunciado: "Si en una fecha determinada observamos con claridad la constelación de {escenario[0]}, esto indica que estamos en la estación de {escenario[1]}."
-
-explicacion: |
-  Las constelaciones estacionales dependen de la posición de la Tierra respecto al Sol. Por ejemplo, la constelación de Orión es típica del cielo de invierno en el hemisferio norte.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "basico"
-  tags: ["perspectiva", "sol"]
-
-respuesta: "Sol"
-tipo: completar
-respuestas_validas:
-  - "Sol"
-  - "Sol"
-
-enunciado: "Las constelaciones que vemos en el cielo nocturno cambian porque, al movernos en nuestra órbita, el ___ queda situado entre la Tierra y las estrellas que antes veíamos, ocultándolas durante la noche."
-
-explicacion: |
-  Durante el día, el Sol "tapa" la luz de las estrellas que se encuentran en la misma dirección. Al cambiar nuestra posición orbital, las estrellas que antes eran visibles de noche ahora están en la dirección del Sol.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "avanzado"
-  tags: ["orden", "ciclo_anual"]
-
-respuesta_orden: ["Eje terrestre", "Traslación", "Cambio de constelaciones"]
-tipo: ordenar
-opciones_explicitas: ["Eje terrestre", "Traslación", "Cambio de constelaciones"]
-
-enunciado: "Ordena la secuencia lógica de causas que explica por qué vemos diferentes estrellas cada mes:"
-
-pasos:
-  - "La Tierra tiene un eje de rotación."
-  - "La Tierra realiza un movimiento de traslación alrededor del Sol."
-  - "La perspectiva de las estrellas cambia, mostrando nuevas constelaciones."
-
-explicacion: |
-  El ciclo es una consecuencia directa del movimiento orbital de la Tierra alrededor del Sol.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es el movimiento de rotación (sobre su propio eje) la causa principal por la que las constelaciones cambian de una estación a otra?"
-
-explicacion: |
-  Falso. La rotación causa el ciclo día/noche, pero es la traslación la que causa el cambio de las constelaciones visibles a lo largo de los meses.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "basico"
-  tags: ["astronomia", "orientacion"]
-
-respuesta: "eje de rotación"
-tipo: completar
-respuestas_validas:
-  - "eje de rotación"
-
-enunciado: "La estrella Polaris parece permanecer casi fija en el cielo debido a que se encuentra alineada con el ___ de la Tierra."
-
-explicacion: |
-  Debido a que la Tierra gira alrededor de su eje, las estrellas parecen moverse en círculos. Como Polaris está casi sobre el eje, su movimiento aparente es mínimo, manteniéndola como punto de referencia constante.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "basico"
-  tags: ["orientacion", "navegacion"]
-
-opciones_explicitas: ["Determinar la hora exacta", "Orientarse en el hemisferio norte", "Predecir eclipses lunares", "Calcular la distancia a la Luna"]
-
-respuesta: "Orientarse en el hemisferio norte"
-tipo: mc
-
-enunciado: "¿Cuál es la principal utilidad histórica de la estrella Polar para los navegantes?"
-
-explicacion: |
-  Al estar situada cerca del polo norte celeste, su posición permite identificar rápidamente el norte geográfico, siendo vital para la navegación en el hemisferio norte.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "intermedio"
-  tags: ["movimiento_aparente", "rotacion"]
-
-variables:
-  respuesta_correcta: "se mueven en arcos circulares"
-
-tipo: mc
-opciones_explicitas: ["se mueven en líneas rectas", "se mueven en arcos circulares"]
-respuesta: respuesta_correcta
-
-enunciado: "Debido a la rotación terrestre, las estrellas que no son Polaris parecen moverse en el cielo siguiendo un patrón de ___."
-
-explicacion: |
-  La rotación de la Tierra sobre su eje provoca que las estrellas tracen trayectorias curvas o arcos en la bóveda celeste durante la noche.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "intermedio"
-  tags: ["geometria_celeste"]
-
-respuesta: "norte"
-tipo: completar
-respuestas_validas:
-  - "norte"
-
-enunciado: "Si observamos el cielo nocturno en el hemisferio norte, la estrella que marca el punto cardinal ___ es la Polaris."
-
-explicacion: |
-  Polaris es la estrella que indica la dirección del norte celeste, sirviendo como brújula natural.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "avanzado"
-  tags: ["observacion", "secuencia"]
-
-opciones_explicitas: ["Localizar la Osa Mayor", "Identificar la estrella Polaris", "Determinar el Norte"]
-
-respuesta_orden: ["Localizar la Osa Mayor", "Identificar la estrella Polaris", "Determinar el Norte"]
-tipo: ordenar
-
-enunciado: "Un navegante antiguo sigue este proceso para orientarse usando las estrellas. Ordena los pasos correctamente:"
-
-explicacion: |
-  Para encontrar el norte de forma fiable, primero se busca una constelación conocida (como la Osa Mayor), luego se localiza la estrella guía (Polaris) y finalmente se establece el punto cardinal.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "basico"
-  tags: ["astronomia", "conceptos_basicos"]
-
-respuesta: "patrón aparente"
-tipo: completar
-respuestas_validas:
-  - "patrón aparente"
-
-enunciado: "Una constelación no es un grupo de estrellas unidas físicamente, sino un ___ formado por estrellas que parecen estar juntas desde nuestra perspectiva."
-
-explicacion: |
-  Las estrellas de una constelación pueden estar a cientos o miles de años luz de distancia unas de otras; solo parecen estar cerca debido a nuestra perspectiva desde la Tierra.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "basico"
-  tags: ["distancia", "perspectiva"]
-
-opciones_explicitas: ["Están físicamente unidas por la gravedad", "Están a distancias muy distintas de la Tierra", "Tienen la misma edad y composición", "Se mueven siempre en la misma dirección"]
-
-respuesta: "Están a distancias muy distintas de la Tierra"
-tipo: mc
-
-enunciado: "Sobre la distancia real de las estrellas que forman una constelación, es correcto afirmar que:"
-
-explicacion: |
-  Aunque en el cielo nocturno parezcan formar un dibujo coherente, la mayoría de las veces las estrellas de una constelación no tienen ninguna relación física de distancia entre sí.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "intermedio"
-  tags: ["perspectiva", "geometria_espacial"]
-
-tipo: mc
-enunciado: "Las estrellas de una constelación suelen estar a distancias radicalmente distintas de la Tierra, algunas mucho más cerca que otras. Sin embargo, las vemos formando una figura plana en el cielo. ¿Cuál es la explicación de este efecto?"
-opciones_explicitas:
-  - "La perspectiva visual proyecta estrellas a distancias muy distintas sobre un mismo plano aparente"
-  - "Las estrellas de una constelación están realmente cerca unas de otras en el espacio"
-  - "Todas las estrellas se encuentran exactamente a la misma distancia de la Tierra"
-  - "Las constelaciones son figuras físicas dibujadas en el espacio interestelar"
-respuesta: "La perspectiva visual proyecta estrellas a distancias muy distintas sobre un mismo plano aparente"
-
-explicacion: |
-  Lo que vemos es una proyección: la línea de visión aplana la profundidad real del espacio, así que estrellas separadas por años luz de distancia entre sí pueden parecer vecinas cuando en realidad no lo están.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "basico"
-  tags: ["estrellas", "patrones"]
-
-respuesta: "no están relacionadas físicamente entre sí"
-tipo: completar
-respuestas_validas:
-  - "no están relacionadas físicamente entre sí"
-
-enunciado: "A diferencia de un sistema estelar como el Sol y sus planetas, las estrellas que componen una constelación ___."
-
-explicacion: |
-  La agrupación es una ilusión óptica causada por la línea de visión. Físicamente, son objetos independientes que navegan por el espacio en direcciones distintas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "intermedio"
-  tags: ["orden_logico", "perspectiva"]
-
-opciones_explicitas: ["Luz de la estrella", "Distancia real de la estrella", "Posición aparente en el cielo", "Formación de la constelación"]
-
-respuesta_orden: ["Luz de la estrella", "Distancia real de la estrella", "Posición aparente en el cielo", "Formación de la constelación"]
-tipo: ordenar
-
-enunciado: "Ordena los conceptos según el proceso que explica la creación de una constelación (desde el origen físico hasta la percepción humana):"
-
-explicacion: |
-  Primero la luz viaja desde la estrella (1), la estrella tiene una distancia real (2), esa luz llega con una posición específica (3) y el ojo humano percibe el patrón (4).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "basico"
-  tags: ["astronomia", "estaciones"]
-
-respuesta: "Leo"
-tipo: mc
-opciones_explicitas: ["Leo", "Tauro", "Cáncer", "Orión"]
-
-enunciado: "Durante la primavera en el hemisferio norte, ¿cuál de las siguientes constelaciones se encuentra en su punto más alto (culminación) en el cielo nocturno?"
-
-explicacion: |
-  Debido al movimiento de traslación de la Tierra, diferentes constelaciones son visibles en diferentes épocas del año. Leo es la constelación clásica de las noches de primavera, mientras que Tauro y Orión son constelaciones invernales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "intermedio"
-  tags: ["zodiaco", "estaciones"]
-
-variables:
-  datos: [["verano", "Escorpio"], ["invierno", "Géminis"], ["otoño", "Libra"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "Escorpio"
-  - "Géminis"
-  - "Libra"
-
-enunciado: "Si estamos en la estación de {datos[idx][0]}, la constelación del zodiaco que es más visible hacia el mediodía es ___."
-
-explicacion: |
-  La posición del Sol en el zodiaco determina qué constelaciones son visibles durante el día y cuáles durante la noche en una estación específica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "basico"
-  tags: ["estrellas", "noche"]
-
-variables:
-  estrellas: [["Sirio", "Canis Mayor"], ["Betelgeuse", "Orión"], ["Arcturus", "Boote"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: estrellas[idx][1]
-tipo: mc
-opciones_explicitas: ["Canis Mayor", "Orión", "Boote"]
-
-enunciado: "La estrella {estrellas[idx][0]} es la estrella principal de la constelación de ___."
-
-explicacion: |
-  {estrellas[idx][0]} es una de las estrellas más brillantes y es el componente central de la constelación de {estrellas[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "avanzado"
-  tags: ["secuencia", "ecliptic"]
-
-variables:
-  grupos: [["Aries", "Tauro", "Géminis"], ["Cáncer", "Leo", "Virgo"], ["Libra", "Escorpio", "Sagitario"]]
-  grupo_seleccionado: uno_de(grupos)
-
-respuesta_orden: grupo_seleccionado
-tipo: ordenar
-opciones_explicitas: grupo_seleccionado
-
-enunciado: "Ordene las siguientes constelaciones según su orden de aparición en el zodíaco (eclíptica) para el grupo seleccionado:"
-
-explicacion: |
-  El orden de las constelaciones zodiacales sigue la trayectoria aparente del Sol a través del cielo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_aparente_constelaciones"
-  nivel: "intermedio"
-  tags: ["sol", "ecliptic"]
-
-variables:
-  par: [["Géminis", "Sagitario"], ["Sagitario", "Géminis"], ["Virgo", "Piscis"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: par[idx][1]
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si el Sol se encuentra en la constelación de {par[idx][0]}, la constelación opuesta en el cielo nocturno será ___."
-
-explicacion: |
-  Cuando el Sol está en una constelación, esa constelación es invisible de noche. La constelación opuesta es la que se observa en su punto más alto durante la medianoche.
 ```
 

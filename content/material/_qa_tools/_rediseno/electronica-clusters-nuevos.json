@@ -1,0 +1,14 @@
+[
+ {
+  "id": 942,
+  "cluster": 1,
+  "temas": [
+   "componentes-resistencia-capacitor-diodo-transistor",
+   "circuitos-y-leyes-de-kirchhoff",
+   "logica-digital-puertas-and-or-not",
+   "microcontroladores-y-microprocesadores",
+   "sensores-y-actuadores"
+  ],
+  "preguntas": 126
+ }
+]

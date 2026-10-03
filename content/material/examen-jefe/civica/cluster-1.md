@@ -1,690 +1,8 @@
 # Examen jefe — [PENDIENTE #879]
 
-> Logro #879. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #879. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: constitucion-nacional-jerarquia-normativa (35 preguntas)
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["supremacia", "articulo_31"]
-
-respuesta: "Constitución Nacional"
-tipo: completar
-
-enunciado: "Según el artículo 31 de la Constitución Argentina, la ___ es la norma suprema del país."
-
-explicacion: |
-  El artículo 31 establece la supremacía de la Constitución Nacional sobre cualquier otra ley o tratado.
-```
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["tratados", "derechos_humanos", "articulo_75"]
-
-respuesta: "constitucional"
-tipo: completar
-
-enunciado: "Los tratados internacionales sobre derechos humanos tienen jerarquía ___ en la Constitución de 1994."
-
-explicacion: |
-  El inciso 22 del artículo 75 otorga a los tratados de derechos humanos jerarquía constitucional.
-```
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["piramide", "jerarquia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En la pirámide normativa argentina, las leyes nacionales están por encima de la Constitución."
-
-explicacion: |
-  Falso. La Constitución es la cúspide; las leyes nacionales están por debajo de ella.
-```
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["control_constitucionalidad", "difuso"]
-
-respuesta: "un caso concreto"
-tipo: completar
-
-enunciado: "En Argentina, el control de constitucionalidad es difuso y a posteriori: cualquier juez puede declarar la inconstitucionalidad de una norma, pero sólo al aplicarla a ___."
-
-explicacion: |
-  A diferencia de países con un tribunal especializado que revisa leyes en abstracto antes de que entren en vigor, en Argentina cualquier juez ejerce el control, pero únicamente sobre un caso concreto que esté juzgando.
-```
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["control_constitucionalidad", "concreto"]
-
-respuesta: "caso específico"
-tipo: completar
-
-enunciado: "El control de constitucionalidad concreto se ejerce al evaluar si una norma aplica a un ___."
-
-explicacion: |
-  El control concreto surge en el contexto de un litigio o caso judicial particular.
-```
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["leyes_provinciales", "competencia"]
-
-respuesta: "inferior"
-tipo: input
-
-enunciado: "Las leyes provinciales tienen jerarquía ___ a las leyes nacionales en materias de competencia federal."
-
-explicacion: |
-  En caso de conflicto en materias nacionales, la ley nacional prevalece sobre la provincial.
-```
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["decretos", "reglamentos", "poder_ejecutivo"]
-
-respuesta: "inferior"
-tipo: input
-
-enunciado: "Los decretos y reglamentos tienen jerarquía ___ a las leyes nacionales."
-
-explicacion: |
-  Los decretos son normas reglamentarias que derivan su validez de la ley que reglamentan.
-```
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["incompatibilidad", "inconstitucionalidad"]
-
-respuesta: "anularla"
-tipo: completar
-
-enunciado: "Si una norma de menor rango contradice a una superior, el juez puede ___ por inconstitucionalidad."
-
-explicacion: |
-  La inconstitucionalidad implica la nulidad o anulación de la norma inferior.
-```
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["poder_legislativo", "leyes"]
-
-respuesta: "Congreso"
-tipo: input
-
-enunciado: "Las leyes nacionales son aprobadas por el Poder Legislativo, compuesto por la Cámara de Diputados y el ___."
-
-explicacion: |
-  El Congreso de la Nación es el órgano legislativo bicameral.
-```
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["tratados", "derechos_humanos"]
-
-respuesta: "constitucional"
-tipo: completar
-
-enunciado: "Desde la reforma de 1994, los tratados de derechos humanos tienen jerarquía ___."
-
-explicacion: |
-  El inciso 22 del artículo 75 elevó estos tratados al nivel constitucional.
-```
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["incompatibilidad", "validadez"]
-
-respuesta: "validez"
-tipo: completar
-
-enunciado: "Si una norma de menor rango choca con la Constitución, pierde su ___."
-
-explicacion: |
-  La incompatibilidad con la norma suprema conlleva la pérdida de validez jurídica.
-```
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["piramide", "base"]
-
-respuesta: "Constitución Nacional"
-tipo: completar
-
-enunciado: "La base de toda la normativa argentina es la ___."
-
-explicacion: |
-  La Constitución Nacional define los derechos y el funcionamiento del Estado.
-```
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["leyes_nacionales", "leyes_provinciales"]
-
-respuesta: "superior"
-tipo: completar
-
-enunciado: "Las leyes nacionales tienen jerarquía ___ a las leyes provinciales en materias federales."
-
-explicacion: |
-  En materias de competencia nacional, la ley federal prevalece sobre la provincial.
-```
-
-```
-metadata:
-  materia: "Cívica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["articulo_31", "supremacia"]
-
-respuesta: "31"
-tipo: input
-
-enunciado: "El principio de supremacía constitucional está establecido en el artículo ___ de la CN."
-
-explicacion: |
-  El artículo 31 es la clave de la jerarquía normativa.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["supremacia", "articulo_31"]
-
-variables:
-  art: random(31, 31)
-
-respuesta: "Constitución Nacional"
-tipo: completar
-
-enunciado: "Según el artículo {art}, ¿cuál es la norma suprema del país?"
-
-explicacion: |
-  El artículo 31 de la Constitución Nacional establece que esta ley es la suprema de la nación.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["jerarquia", "piramide"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En la jerarquía normativa, una ley provincial puede contradecir una ley nacional si es de su interés."
-
-explicacion: |
-  Falso. Las normas de menor rango no pueden contradecir a las de mayor rango. La ley nacional prevalece sobre la provincial en materias de competencia nacional.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["decretos", "jerarquia"]
-
-variables:
-  correcto: "Decretos y reglamentos"
-  distractor1: "Leyes nacionales"
-  distractor2: "Tratados internacionales"
-  distractor3: "Constitución Nacional"
-
-respuesta: "Decretos y reglamentos"
-tipo: mc
-
-enunciado: "¿Cuál de las siguientes normas tiene la jerarquía más baja en la pirámide normativa?"
-
-opciones_explicitas:
-  - "Leyes nacionales"
-  - "Tratados internacionales"
-  - "Decretos y reglamentos"
-  - "Constitución Nacional"
-
-explicacion: |
-  Los decretos y reglamentos son disposiciones emitidas por el Poder Ejecutivo para aplicar normas superiores, teniendo menor jerarquía que las leyes.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["reforma_1994", "tratados"]
-
-variables:
-  anio: 1994
-
-respuesta: 1994
-tipo: input
-
-enunciado: "¿En qué año los tratados internacionales adquirieron jerarquía constitucional en Argentina?"
-
-explicacion: |
-  La reforma constitucional de 1994 modificó el artículo 75, inciso 22, otorgando jerarquía constitucional a ciertos tratados.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["incompatibilidad", "anulacion"]
-
-variables:
-  valido: verdadero
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si una ley provincial limita derechos laborales más allá de lo establecido en la Constitución, dicha ley sigue siendo válida."
-
-explicacion: |
-  Falso. Una norma de menor rango que contradice a una superior (como la Constitución) pierde validez y puede ser anulada.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["validez", "deriva"]
-
-variables:
-  correcto: "Constitución Nacional"
-  distractor1: "El Presidente"
-  distractor2: "Las provincias"
-  distractor3: "Los jueces locales"
-
-respuesta: "Constitución Nacional"
-tipo: mc
-
-enunciado: "¿De qué norma deriva su validez toda la normativa en Argentina?"
-
-opciones_explicitas:
-  - "Constitución Nacional"
-  - "El Presidente"
-  - "Las provincias"
-  - "Los jueces locales"
-
-explicacion: |
-  La Constitución Nacional es la base de toda la normativa. Todas las demás normas derivan su validez de ella.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["articulo_31", "memoria"]
-
-variables:
-  num: 31
-
-respuesta: 31
-tipo: input
-
-enunciado: "¿Cuál es el número del artículo que establece la supremacía de la Constitución?"
-
-explicacion: |
-  El artículo 31 es el que consagra la supremacía constitucional, indicando que la Constitución es la ley suprema de la nación.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["tratados", "jerarquia"]
-
-variables:
-  valido: verdadero
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Todos los tratados internacionales ratificados por Argentina tienen automáticamente jerarquía constitucional."
-
-explicacion: |
-  Falso. Solo los tratados sobre derechos humanos y aquellos que afectan la organización estatal tienen jerarquía constitucional. Otros tratados tienen jerarquía de ley ordinaria.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["poder_legislativo", "leyes"]
-
-variables:
-  correcto: "Congreso"
-  distractor1: "Poder Judicial"
-  distractor2: "Poder Ejecutivo"
-  distractor3: "Gobernadores"
-
-respuesta: "Congreso"
-tipo: mc
-
-enunciado: "¿Qué órgano aprueba las leyes nacionales?"
-
-opciones_explicitas:
-  - "Congreso"
-  - "Poder Judicial"
-  - "Poder Ejecutivo"
-  - "Gobernadores"
-
-explicacion: |
-  Las leyes nacionales son aprobadas por el Poder Legislativo, compuesto por el Congreso de la Nación.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["tratados", "dh"]
-
-respuesta: "constitucional"
-tipo: completar
-
-enunciado: "Los tratados de derechos humanos tienen jerarquía ___ según la Constitución de 1994."
-
-explicacion: |
-  El art. 75 inc. 22 otorga a los tratados de derechos humanos jerarquía constitucional, situándolos por encima de las leyes ordinarias.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["leyes_provinciales", "validez"]
-
-variables:
-  valido: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las leyes provinciales tienen validez dentro del territorio de cada provincia, siempre que no violen la Constitución nacional."
-
-explicacion: |
-  Verdadero. Las provincias tienen autonomía pero su legislación debe respetar la Constitución Nacional y las leyes federales en materias de competencia nacional.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["tribunal", "anulacion"]
-
-variables:
-  correcto: "El Poder Judicial"
-  distractor1: "El Presidente"
-  distractor2: "El Congreso"
-  distractor3: "Los gobernadores"
-
-respuesta: "El Poder Judicial"
-tipo: mc
-
-enunciado: "¿Qué autoridad puede declarar inconstitucional una ley provincial?"
-
-opciones_explicitas:
-  - "El Poder Judicial"
-  - "El Presidente"
-  - "El Congreso"
-  - "Los gobernadores"
-
-explicacion: |
-  En Argentina, cualquier juez puede declarar la inconstitucionalidad de una norma al aplicarla a un caso concreto (control difuso) — no es una facultad exclusiva de la Corte Suprema de Justicia de la Nación, aunque sus fallos suelen sentar precedente para el resto de los tribunales.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["articulo_75", "inciso_22"]
-
-variables:
-  num: 22
-
-respuesta: 22
-tipo: input
-
-enunciado: "¿Cuál es el inciso del artículo 75 que regula la jerarquía de los tratados de derechos humanos?"
-
-explicacion: |
-  El inciso 22 del artículo 75 es el que otorga jerarquía constitucional a los tratados de derechos humanos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["decretos", "poder_ejecutivo"]
-
-variables:
-  valido: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los decretos son disposiciones emitidas por el Poder Ejecutivo para aplicar normas superiores."
-
-explicacion: |
-  Verdadero. Los decretos tienen rango inferior y sirven para reglamentar o ejecutar leyes y normas de mayor jerarquía.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["tratados", "ley_ordinaria"]
-
-variables:
-  correcto: "Ley ordinaria"
-  distractor1: "Constitucional"
-  distractor2: "Supremo"
-  distractor3: "Inferior a los decretos"
-
-respuesta: "Ley ordinaria"
-tipo: mc
-
-enunciado: "Los tratados internacionales que NO son de derechos humanos tienen jerarquía de:"
-
-opciones_explicitas:
-  - "Ley ordinaria"
-  - "Constitucional"
-  - "Supremo"
-  - "Inferior a los decretos"
-
-explicacion: |
-  Solo los tratados de derechos humanos y los de organización estatal tienen jerarquía constitucional. El resto tiene jerarquía de ley ordinaria.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["reforma", "historia"]
-
-variables:
-  anio: 1994
-
-respuesta: 1994
-tipo: input
-
-enunciado: "¿En qué año se realizó la última reforma constitucional que modificó la jerarquía de los tratados?"
-
-explicacion: |
-  La reforma de 1994 introdujo cambios significativos, incluyendo la jerarquía constitucional para tratados de derechos humanos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["supremacia", "practica"]
-
-variables:
-  valido: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La supremacía constitucional se aplica en la práctica a través del control de constitucionalidad."
-
-explicacion: |
-  Verdadero. No es solo un principio teórico; los jueces y tribunales aplican el control de constitucionalidad para garantizar el cumplimiento.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["leyes_nacionales", "competencia"]
-
-variables:
-  correcto: "Leyes nacionales"
-  distractor1: "Tratados de comercio"
-  distractor2: "Reglamentos municipales"
-  distractor3: "Decretos presidenciales"
-
-respuesta: "Leyes nacionales"
-tipo: mc
-
-enunciado: "¿Qué norma tiene fuerza sobre las leyes provinciales en materias de competencia nacional?"
-
-opciones_explicitas:
-  - "Leyes nacionales"
-  - "Tratados de comercio"
-  - "Reglamentos municipales"
-  - "Decretos presidenciales"
-
-explicacion: |
-  Las leyes nacionales aprobadas por el Congreso tienen prevalencia sobre las leyes provinciales en materias de competencia nacional.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["articulo_31", "supremacia"]
-
-variables:
-  num: 31
-
-respuesta: 31
-tipo: input
-
-enunciado: "¿Qué artículo establece que la Constitución es la ley suprema de la nación?"
-
-explicacion: |
-  El artículo 31 es la clave que consagra la supremacía constitucional en el ordenamiento jurídico argentino.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["derechos_laborales", "provincias"]
-
-variables:
-  valido: verdadero
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una provincia puede aprobar una ley que limite los derechos laborales más allá de lo establecido en la Constitución."
-
-explicacion: |
-  Falso. Ninguna norma, ni siquiera provincial, puede limitar derechos garantizados por la Constitución. Si lo hace, puede ser anulada.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "constitucion_nacional_jerarquia_normativa"
-  nivel: "basico"
-  tags: ["jerarquia", "suprema"]
-
-variables:
-  correcto: "Suprema"
-  distractor1: "Inferior"
-  distractor2: "Igual a los tratados"
-  distractor3: "Igual a las leyes"
-
-respuesta: "Suprema"
-tipo: mc
-
-enunciado: "La Constitución Nacional tiene jerarquía:"
-
-opciones_explicitas:
-  - "Suprema"
-  - "Inferior"
-  - "Igual a los tratados"
-  - "Igual a las leyes"
-
-explicacion: |
-  La Constitución es la norma suprema, es decir, la de mayor jerarquía en el ordenamiento jurídico argentino.
-```
 
 ## Sección: derechos-nino (20 preguntas)
 
@@ -1047,6 +365,777 @@ opciones_explicitas:
   - "Sólo un conjunto de recomendaciones sin ninguna fuerza legal"
   - "Un marco creado exclusivamente por el Patronato de Menores"
 respuesta: "Convención de 1989 + Ley 26.061, con el niño como sujeto de derecho, no objeto de tutela"
+
+explicacion: |
+  Cierre del marco normativo desarrollado en la teoría.
+```
+
+## Sección: encuesta-electoral (20 preguntas)
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "basico"
+  tags: ["encuesta", "vocabulario"]
+
+enunciado: "¿Qué es una encuesta electoral, en términos de muestreo?"
+tipo: mc
+opciones_explicitas:
+  - "Preguntarle a una MUESTRA de votantes y generalizar el resultado a todo el electorado, en vez de preguntarle a todo el padrón"
+  - "Contar los votos reales de una elección ya realizada"
+  - "Un censo completo de todos los votantes habilitados"
+respuesta: "Preguntarle a una MUESTRA de votantes y generalizar el resultado a todo el electorado, en vez de preguntarle a todo el padrón"
+
+explicacion: |
+  Es la misma lógica de `../../matematica/muestreo-y-sesgo/`, aplicada
+  a intención de voto.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "intermedio"
+  tags: ["margen_error", "vocabulario"]
+
+enunciado: "¿Qué significa que una encuesta reporte 'candidato A: 42% ± 3 puntos'?"
+tipo: mc
+opciones_explicitas:
+  - "Que el resultado real de la población probablemente está entre 39% y 45%, no exactamente en 42%"
+  - "Que el candidato A tiene exactamente 42% de los votos, sin ningún margen de duda"
+  - "Que 3 de cada 100 encuestados no respondieron la pregunta"
+respuesta: "Que el resultado real de la población probablemente está entre 39% y 45%, no exactamente en 42%"
+
+explicacion: |
+  Es la misma idea del intervalo de confianza aplicada a una encuesta
+  electoral.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "avanzado"
+  tags: ["margen_error", "problema"]
+
+variables:
+  candidato_a: uno_de([41, 43])
+  candidato_b: uno_de([39, 40])
+  margen_error: 3
+
+respuesta: abs(candidato_a - candidato_b) < margen_error
+tipo: vf
+
+enunciado: "Candidato A: {candidato_a}%; Candidato B: {candidato_b}%, con un margen de error de ±{margen_error} puntos. ¿Es esto un 'empate técnico' (la diferencia es menor que el margen de error)?"
+
+explicacion: |
+  Si la diferencia real es menor que el margen de error, no se puede
+  afirmar con confianza quién va primero.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "intermedio"
+  tags: ["margen_error"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si la diferencia entre dos candidatos en una encuesta es menor que el margen de error combinado, se lo llama 'empate técnico', aunque los números muestren a uno numéricamente arriba del otro."
+
+explicacion: |
+  El margen de error dice que el orden real podría estar invertido.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "basico"
+  tags: ["indecisos", "vocabulario"]
+
+enunciado: "¿Qué son los 'indecisos' o 'no sabe / no contesta' en una encuesta electoral?"
+tipo: mc
+opciones_explicitas:
+  - "Encuestados que todavía no decidieron su voto, o que no quieren revelar su intención"
+  - "Encuestados que no fueron contactados por la encuestadora"
+  - "Votantes que no están habilitados legalmente para votar"
+respuesta: "Encuestados que todavía no decidieron su voto, o que no quieren revelar su intención"
+
+explicacion: |
+  Cómo se los trata en el cálculo de porcentajes cambia la lectura de
+  los resultados.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "avanzado"
+  tags: ["indecisos", "problema"]
+
+variables:
+  candidato_a: 35
+  candidato_b: 30
+  indecisos: 35
+
+respuesta: redondear(candidato_a / (candidato_a + candidato_b) * 100, 1)
+tipo: input
+tolerancia_abs: 0.1
+unidad: "%"
+
+enunciado: "Sobre el total de encuestados: Candidato A={candidato_a}%, Candidato B={candidato_b}%, indecisos={indecisos}%. ¿Cuál es el porcentaje del Candidato A si se recalcula SOLO sobre quienes sí respondieron (descontando indecisos)?"
+
+pasos:
+  - "Total que respondió = {candidato_a}+{candidato_b} = {candidato_a + candidato_b}"
+  - "% de A sobre respondidos = {candidato_a}/{candidato_a + candidato_b} × 100 = {redondear(candidato_a / (candidato_a + candidato_b) * 100, 1)}%"
+
+explicacion: |
+  El número sube respecto del {candidato_a}% original — ambas formas
+  de calcular son válidas, pero dan números distintos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "intermedio"
+  tags: ["boca_de_urna", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia entre una encuesta electoral y una boca de urna (exit poll)?"
+tipo: mc
+opciones_explicitas:
+  - "La encuesta se hace antes de la elección preguntando intención de voto (que puede cambiar); la boca de urna se hace el día de la votación preguntando a quienes ya votaron qué eligieron"
+  - "Son exactamente lo mismo, sólo cambia el nombre"
+  - "La boca de urna siempre se hace varias semanas antes de la elección"
+respuesta: "La encuesta se hace antes de la elección preguntando intención de voto (que puede cambiar); la boca de urna se hace el día de la votación preguntando a quienes ya votaron qué eligieron"
+
+explicacion: |
+  La boca de urna suele ser más precisa porque mide un voto ya
+  emitido, no una intención futura.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "intermedio"
+  tags: ["fecha"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una encuesta hecha dos semanas antes de una elección puede no reflejar la intención de voto del día de la votación, especialmente si ocurrió algún evento relevante en el medio."
+
+explicacion: |
+  La intención de voto no es estática — cambia con el tiempo y con
+  los acontecimientos de la campaña.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "basico"
+  tags: ["fecha", "aplicacion"]
+
+enunciado: "Al comparar dos encuestas del mismo candidato, una de hace un mes y otra de esta semana, ¿qué conviene tener en cuenta?"
+tipo: mc
+opciones_explicitas:
+  - "Que la más reciente es probablemente más representativa de la situación actual, y que la diferencia entre ambas podría reflejar un cambio real de opinión, no un error de medición"
+  - "Que ambas encuestas miden exactamente lo mismo, sin importar la fecha"
+  - "Que sólo la encuesta más vieja es confiable"
+respuesta: "Que la más reciente es probablemente más representativa de la situación actual, y que la diferencia entre ambas podría reflejar un cambio real de opinión, no un error de medición"
+
+explicacion: |
+  Comparar encuestas de fechas muy distintas como si midieran lo mismo
+  es un error común de lectura.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "intermedio"
+  tags: ["voto_oculto", "vocabulario"]
+
+enunciado: "¿Qué es el fenómeno del 'voto oculto' en encuestas electorales?"
+tipo: mc
+opciones_explicitas:
+  - "Parte del electorado no revela su verdadera intención de voto por miedo al juicio social, torciendo el resultado de la encuesta respecto del voto real"
+  - "Votantes que legalmente no pueden revelar su voto"
+  - "Un error de cálculo en el conteo de votos"
+respuesta: "Parte del electorado no revela su verdadera intención de voto por miedo al juicio social, torciendo el resultado de la encuesta respecto del voto real"
+
+explicacion: |
+  Es un tipo de sesgo de no respuesta específico del contexto
+  político.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "avanzado"
+  tags: ["sesgo", "metodologia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La metodología de una encuesta (telefónica, presencial, online) puede introducir sesgo de selección, porque cada método de contacto excluye sistemáticamente a cierto tipo de personas (quien no tiene teléfono registrado, quien no usa internet, etc.)."
+
+explicacion: |
+  Es la aplicación directa del sesgo de selección de
+  `../../matematica/muestreo-y-sesgo/`.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué es relevante saber quién encargó o financió una encuesta electoral?"
+tipo: mc
+opciones_explicitas:
+  - "Porque puede indicar un posible conflicto de interés — no invalida el resultado por sí solo, pero es un dato más a considerar al evaluar la fuente"
+  - "Porque una encuesta financiada por un partido político siempre es matemáticamente incorrecta"
+  - "No es relevante en absoluto, el financiamiento nunca afecta la metodología"
+respuesta: "Porque puede indicar un posible conflicto de interés — no invalida el resultado por sí solo, pero es un dato más a considerar al evaluar la fuente"
+
+explicacion: |
+  Es uno de los cinco chequeos de lectura crítica de este módulo, no
+  una descalificación automática.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "avanzado"
+  tags: ["margen_error", "problema"]
+
+variables:
+  n_chica: 400
+  n_grande: 1600
+  sigma_aprox: 25
+
+respuesta: redondear(sigma_aprox / sqrt(n_chica), 2) > redondear(sigma_aprox / sqrt(n_grande), 2)
+tipo: vf
+
+enunciado: "Encuesta A tiene n={n_chica} encuestados; Encuesta B tiene n={n_grande}. Con el mismo desvío aproximado, ¿el margen de error de la Encuesta A es MAYOR que el de la Encuesta B?"
+
+explicacion: |
+  Es la misma relación de `../../matematica/teorema-central-del-limite/`:
+  a menor tamaño de muestra, mayor error estándar y mayor margen de
+  error.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+enunciado: "¿Qué relación tiene la lectura crítica de una encuesta electoral con `../../matematica/muestreo-y-sesgo/`?"
+tipo: mc
+opciones_explicitas:
+  - "Es una aplicación directa: metodología de contacto, representatividad de la muestra y tipos de sesgo son exactamente los mismos conceptos, aplicados a intención de voto"
+  - "No tiene ninguna relación real"
+  - "Las encuestas electorales no usan ningún método de muestreo, preguntan a toda la población"
+respuesta: "Es una aplicación directa: metodología de contacto, representatividad de la muestra y tipos de sesgo son exactamente los mismos conceptos, aplicados a intención de voto"
+
+explicacion: |
+  Es el prerrequisito formal de este módulo, según `troncos.md`.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "avanzado"
+  tags: ["margen_error", "problema"]
+
+variables:
+  candidato_a: 52
+  candidato_b: 38
+  margen_error: 3
+
+respuesta: abs(candidato_a - candidato_b) > margen_error
+tipo: vf
+
+enunciado: "Candidato A: {candidato_a}%; Candidato B: {candidato_b}%, margen de error ±{margen_error} puntos. ¿La diferencia entre ambos SUPERA el margen de error (no es un empate técnico)?"
+
+explicacion: |
+  Con una diferencia tan grande respecto del margen de error, sí se
+  puede afirmar con más confianza quién va adelante.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "avanzado"
+  tags: ["indecisos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Reportar los porcentajes de una encuesta sobre el total de encuestados o sólo sobre quienes respondieron son dos formas igualmente válidas — el problema aparece cuando no se aclara cuál de las dos se está usando."
+
+explicacion: |
+  El error no está en el método elegido, sino en la falta de
+  transparencia sobre cuál se usó.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "Antes de confiar en el resultado de una encuesta electoral citada en una noticia, ¿qué conviene revisar?"
+tipo: mc
+opciones_explicitas:
+  - "El margen de error, si los porcentajes incluyen o no a los indecisos, la metodología usada, la fecha de realización, y quién la encargó o financió"
+  - "Sólo el nombre de la empresa encuestadora, nada más"
+  - "No hace falta revisar nada, cualquier encuesta publicada es igual de confiable"
+respuesta: "El margen de error, si los porcentajes incluyen o no a los indecisos, la metodología usada, la fecha de realización, y quién la encargó o financió"
+
+explicacion: |
+  Son los cinco chequeos completos descritos en `teoria.md`.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "avanzado"
+  tags: ["boca_de_urna", "problema"]
+
+enunciado: "Una encuesta de dos semanas antes daba 45% al Candidato A; la boca de urna del día de la elección da 48%. ¿Cuál de las dos mediciones es, en principio, más confiable para saber el resultado real de esa elección?"
+tipo: mc
+opciones_explicitas:
+  - "La boca de urna, porque mide votos ya emitidos el mismo día, sin depender de una intención de voto que todavía podía cambiar"
+  - "La encuesta de dos semanas antes, porque siempre es más precisa que una boca de urna"
+respuesta: "La boca de urna, porque mide votos ya emitidos el mismo día, sin depender de una intención de voto que todavía podía cambiar"
+
+explicacion: |
+  No mide lo mismo: intención futura vs. voto ya realizado.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "avanzado"
+  tags: ["margen_error"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ninguna encuesta con una muestra (por más grande que sea) tiene un margen de error exactamente igual a cero — sólo un censo completo de todo el electorado lo tendría."
+
+explicacion: |
+  Es la misma idea de `../../matematica/intervalo-de-confianza/`: más
+  muestra reduce el margen de error, pero nunca lo elimina del todo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "encuesta_electoral"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve saber leer una encuesta electoral con criterio?"
+tipo: mc
+opciones_explicitas:
+  - "Para interpretar correctamente una cifra de intención de voto, sin tratarla como un resultado exacto ni descartarla por sistema, evaluando margen de error, metodología, fecha y fuente"
+  - "Para poder predecir con certeza absoluta el resultado de cualquier elección"
+  - "Sólo sirve para trabajar en una empresa encuestadora"
+respuesta: "Para interpretar correctamente una cifra de intención de voto, sin tratarla como un resultado exacto ni descartarla por sistema, evaluando margen de error, metodología, fecha y fuente"
+
+explicacion: |
+  Es la aplicación cívica directa de
+  `../../matematica/muestreo-y-sesgo/` al contexto donde más se citan
+  encuestas en público.
+```
+
+## Sección: derechos-indigenas (20 preguntas)
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "basico"
+  tags: ["marco_normativo"]
+
+enunciado: "¿Qué inciso del art. 92 de la Ley 26.206 corresponde a los derechos de los pueblos indígenas?"
+tipo: mc
+opciones_explicitas:
+  - "Inciso e)"
+  - "Inciso d)"
+  - "Inciso f)"
+respuesta: "Inciso e)"
+
+explicacion: |
+  El inciso d) corresponde a derechos del niño y el f) a igualdad de
+  género.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "intermedio"
+  tags: ["marco_normativo"]
+
+enunciado: "¿Qué artículo de la Constitución Nacional es la base de los derechos indígenas en Argentina?"
+tipo: mc
+opciones_explicitas:
+  - "Art. 75 inciso 17"
+  - "Art. 14 bis"
+  - "Art. 92"
+respuesta: "Art. 75 inciso 17"
+
+explicacion: |
+  Incorporado en la reforma constitucional de 1994.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "intermedio"
+  tags: ["historia"]
+
+enunciado: "¿En qué reforma constitucional se incorporó el art. 75 inciso 17?"
+tipo: input
+respuesta: 1994
+
+explicacion: |
+  Reforma constitucional de 1994.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "basico"
+  tags: ["concepto_central"]
+
+enunciado: "¿Qué reconoce el concepto de 'preexistencia étnica y cultural' de los pueblos indígenas?"
+tipo: mc
+opciones_explicitas:
+  - "Que estas comunidades existían y tenían organización propia antes de la formación del Estado argentino"
+  - "Que el Estado les concede derechos como una dádiva reciente"
+  - "Que no existían comunidades indígenas antes de 1994"
+respuesta: "Que estas comunidades existían y tenían organización propia antes de la formación del Estado argentino"
+
+explicacion: |
+  Es la base conceptual que distingue "reconocer" de "conceder" un
+  derecho.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "intermedio"
+  tags: ["derechos_reconocidos"]
+
+enunciado: "¿Qué reconoce el art. 75 inc. 17 sobre la organización de las comunidades indígenas?"
+tipo: mc
+opciones_explicitas:
+  - "Su personería jurídica"
+  - "Su representación automática en el Congreso Nacional"
+  - "Ningún reconocimiento organizativo"
+respuesta: "Su personería jurídica"
+
+explicacion: |
+  Reconoce a las comunidades como sujetos jurídicos propios.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "basico"
+  tags: ["derechos_reconocidos"]
+
+enunciado: "¿Qué tipo de propiedad de la tierra reconoce el art. 75 inc. 17 a los pueblos indígenas sobre las tierras que tradicionalmente ocupan?"
+tipo: mc
+opciones_explicitas:
+  - "Posesión y propiedad comunitaria"
+  - "Propiedad privada individual regulada por el Código Civil"
+  - "Ningún tipo de propiedad, sólo un permiso de uso temporal"
+respuesta: "Posesión y propiedad comunitaria"
+
+explicacion: |
+  Es un derecho de la comunidad como sujeto colectivo, no de cada
+  individuo por separado.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "avanzado"
+  tags: ["derechos_reconocidos"]
+
+enunciado: "¿Verdadero o falso? Las tierras de propiedad comunitaria indígena reconocidas por el art. 75 inc. 17 pueden venderse o embargarse libremente."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  El artículo establece que no son enajenables, transmisibles ni
+  susceptibles de gravámenes o embargos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "intermedio"
+  tags: ["derechos_reconocidos"]
+
+enunciado: "¿Qué otro derecho reconoce el art. 75 inc. 17 además de la propiedad comunitaria de la tierra?"
+tipo: mc
+opciones_explicitas:
+  - "Participación en la gestión referida a sus recursos naturales y demás intereses que los afecten"
+  - "Exención total de impuestos nacionales"
+  - "Un cupo fijo de bancas en el Senado"
+respuesta: "Participación en la gestión referida a sus recursos naturales y demás intereses que los afecten"
+
+explicacion: |
+  Es otro de los derechos explícitos del artículo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "basico"
+  tags: ["derechos_reconocidos"]
+
+enunciado: "¿Qué garantiza el art. 54 de la Ley 26.206 a las comunidades indígenas, según cita el art. 92 inciso e?"
+tipo: mc
+opciones_explicitas:
+  - "Acceso a una educación intercultural bilingüe"
+  - "Exención total de asistir a la escuela"
+  - "Educación exclusivamente en la lengua propia, sin castellano"
+respuesta: "Acceso a una educación intercultural bilingüe"
+
+explicacion: |
+  Enseñanza en la lengua propia junto con el castellano, respetando la
+  identidad cultural.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "avanzado"
+  tags: ["distincion"]
+
+enunciado: "¿En qué se diferencia este tema del concepto de 'diversidad cultural' visto en Antropología?"
+tipo: mc
+opciones_explicitas:
+  - "Acá el foco es normativo/jurídico: qué derechos concretos reconoce la ley, no el concepto general de por qué existen culturas distintas"
+  - "Son exactamente el mismo contenido, sin ninguna diferencia"
+  - "Este tema no tiene ninguna relación con la diversidad cultural"
+respuesta: "Acá el foco es normativo/jurídico: qué derechos concretos reconoce la ley, no el concepto general de por qué existen culturas distintas"
+
+explicacion: |
+  Ver `../../antropologia/diversidad-cultural/` para el concepto
+  general.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "avanzado"
+  tags: ["concepto_central"]
+
+enunciado: "¿Por qué la propiedad comunitaria indígena se describe como un derecho 'de la comunidad', distinto del derecho de propiedad individual del Código Civil?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el sujeto del derecho es la comunidad como tal, no cada persona por separado"
+  - "Porque no existe ninguna diferencia real entre ambos regímenes"
+  - "Porque el Código Civil regula exclusivamente la propiedad indígena"
+respuesta: "Porque el sujeto del derecho es la comunidad como tal, no cada persona por separado"
+
+explicacion: |
+  Es la nota distintiva de este derecho frente al régimen general de
+  propiedad privada.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "intermedio"
+  tags: ["concepto_central"]
+
+enunciado: "¿Verdadero o falso? El art. 75 inc. 17 'concede' derechos nuevos a los pueblos indígenas, como si no hubieran existido antes del Estado argentino."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  El artículo reconoce una preexistencia, no crea un derecho desde
+  cero — la distinción entre "reconocer" y "conceder" es clave.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "avanzado"
+  tags: ["derechos_reconocidos"]
+
+enunciado: "Además de las tierras que ya ocupan tradicionalmente, ¿qué otra obligación establece el art. 75 inc. 17 sobre tierras?"
+tipo: mc
+opciones_explicitas:
+  - "Regular la entrega de otras tierras aptas y suficientes para el desarrollo humano"
+  - "Prohibir cualquier entrega adicional de tierras"
+  - "Expropiar tierras privadas sin ningún criterio"
+respuesta: "Regular la entrega de otras tierras aptas y suficientes para el desarrollo humano"
+
+explicacion: |
+  Es parte del mismo inciso constitucional.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "intermedio"
+  tags: ["repaso"]
+
+enunciado: "¿Cuántos derechos principales del art. 75 inc. 17 se listaron en la teoría (personería jurídica, propiedad comunitaria, participación en gestión, educación bilingüe)?"
+tipo: input
+respuesta: 4
+
+explicacion: |
+  4 derechos reconocidos explícitamente.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "basico"
+  tags: ["derechos_reconocidos"]
+
+enunciado: "¿Verdadero o falso? La educación intercultural bilingüe busca enseñar en la lengua propia de la comunidad junto con el castellano."
+tipo: vf
+respuesta: verdadero
+
+explicacion: |
+  Es la definición de educación intercultural bilingüe según la
+  teoría.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "intermedio"
+  tags: ["prerrequisito"]
+
+enunciado: "¿Qué relación tiene este tema con `../derechos-nino/` en la cadena de esta materia?"
+tipo: mc
+opciones_explicitas:
+  - "Es el hermano siguiente en la secuencia: ambos son especificaciones del marco general de derechos y garantías"
+  - "No tienen ninguna relación entre sí"
+  - "Los derechos indígenas reemplazan por completo a los derechos del niño"
+respuesta: "Es el hermano siguiente en la secuencia: ambos son especificaciones del marco general de derechos y garantías"
+
+explicacion: |
+  Ambos cuelgan del mismo nodo padre en el MAPA (`T7`) y comparten el
+  mismo tipo de marco normativo específico.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "intermedio"
+  tags: ["derechos_reconocidos"]
+
+enunciado: "¿Sobre qué tipo de intereses tienen derecho de participación en la gestión las comunidades indígenas?"
+tipo: mc
+opciones_explicitas:
+  - "Sus recursos naturales y demás intereses que los afecten"
+  - "Únicamente los recursos minerales del subsuelo nacional"
+  - "Ningún tipo de recurso, sólo cuestiones educativas"
+respuesta: "Sus recursos naturales y demás intereses que los afecten"
+
+explicacion: |
+  Incluye recursos naturales y cualquier interés relevante para la
+  comunidad.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "intermedio"
+  tags: ["derechos_reconocidos"]
+
+enunciado: "¿Qué busca respetar la educación intercultural bilingüe, además de enseñar dos lenguas?"
+tipo: mc
+opciones_explicitas:
+  - "La identidad cultural de la comunidad"
+  - "Únicamente el calendario escolar nacional"
+  - "Ningún aspecto cultural específico"
+respuesta: "La identidad cultural de la comunidad"
+
+explicacion: |
+  Es parte integral del enfoque intercultural, no sólo lingüístico.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+enunciado: "¿Para qué sirve, según la teoría, entender este marco normativo específico?"
+tipo: mc
+opciones_explicitas:
+  - "Para leer con criterio conflictos de tierras y reclamos territoriales que aparecen en la actualidad"
+  - "Para memorizar únicamente el número del artículo, sin aplicación práctica"
+  - "Para reemplazar el estudio del Código Civil en su totalidad"
+respuesta: "Para leer con criterio conflictos de tierras y reclamos territoriales que aparecen en la actualidad"
+
+explicacion: |
+  Es el cierre práctico de la teoría.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_indigenas"
+  nivel: "intermedio"
+  tags: ["sintesis"]
+
+enunciado: "¿Cuál resume mejor el marco de derechos indígenas visto en este tema?"
+tipo: mc
+opciones_explicitas:
+  - "Art. 75 inc. 17 (preexistencia étnica, propiedad comunitaria, participación) + educación intercultural bilingüe de la Ley 26.206"
+  - "Un conjunto de recomendaciones sin ninguna base constitucional"
+  - "Un régimen idéntico al de la propiedad privada individual"
+respuesta: "Art. 75 inc. 17 (preexistencia étnica, propiedad comunitaria, participación) + educación intercultural bilingüe de la Ley 26.206"
 
 explicacion: |
   Cierre del marco normativo desarrollado en la teoría.
@@ -1561,355 +1650,350 @@ explicacion: |
   Sí, la promoción y difusión son pilares de su labor educativa y preventiva.
 ```
 
-## Sección: derechos-indigenas (20 preguntas)
+## Sección: derechos-genero (20 preguntas)
 
 ```
 metadata:
   materia: "civica"
-  tema: "derechos_indigenas"
+  tema: "derechos_genero"
   nivel: "basico"
   tags: ["marco_normativo"]
 
-enunciado: "¿Qué inciso del art. 92 de la Ley 26.206 corresponde a los derechos de los pueblos indígenas?"
+enunciado: "¿Qué inciso del art. 92 de la Ley 26.206 corresponde a la igualdad entre los sexos?"
 tipo: mc
 opciones_explicitas:
-  - "Inciso e)"
-  - "Inciso d)"
   - "Inciso f)"
-respuesta: "Inciso e)"
+  - "Inciso d)"
+  - "Inciso e)"
+respuesta: "Inciso f)"
 
 explicacion: |
-  El inciso d) corresponde a derechos del niño y el f) a igualdad de
-  género.
+  El inciso d) corresponde a derechos del niño y el e) a derechos
+  indígenas.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "intermedio"
+  tema: "derechos_genero"
+  nivel: "basico"
   tags: ["marco_normativo"]
 
-enunciado: "¿Qué artículo de la Constitución Nacional es la base de los derechos indígenas en Argentina?"
+enunciado: "¿Qué tratado internacional cita el art. 92 inciso f como base de la igualdad entre los sexos?"
 tipo: mc
 opciones_explicitas:
-  - "Art. 75 inciso 17"
-  - "Art. 14 bis"
-  - "Art. 92"
-respuesta: "Art. 75 inciso 17"
+  - "La Convención sobre la Eliminación de Todas las Formas de Discriminación contra la Mujer (CEDAW)"
+  - "La Convención sobre los Derechos del Niño"
+  - "El Tratado de Libre Comercio"
+respuesta: "La Convención sobre la Eliminación de Todas las Formas de Discriminación contra la Mujer (CEDAW)"
 
 explicacion: |
-  Incorporado en la reforma constitucional de 1994.
+  Tratado de la ONU adoptado en 1979.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "derechos_indigenas"
+  tema: "derechos_genero"
   nivel: "intermedio"
   tags: ["historia"]
 
-enunciado: "¿En qué reforma constitucional se incorporó el art. 75 inciso 17?"
+enunciado: "¿En qué año fue adoptada la CEDAW por la ONU?"
+tipo: input
+respuesta: 1979
+
+explicacion: |
+  Adoptada en 1979, ratificada después por Argentina.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_genero"
+  nivel: "intermedio"
+  tags: ["marco_normativo"]
+
+enunciado: "¿Desde qué reforma tiene la CEDAW jerarquía constitucional en Argentina?"
 tipo: input
 respuesta: 1994
 
 explicacion: |
-  Reforma constitucional de 1994.
+  Art. 75 inc. 22 de la Constitución Nacional, reforma de 1994.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "derechos_indigenas"
+  tema: "derechos_genero"
   nivel: "basico"
-  tags: ["concepto_central"]
+  tags: ["marco_normativo"]
 
-enunciado: "¿Qué reconoce el concepto de 'preexistencia étnica y cultural' de los pueblos indígenas?"
+enunciado: "¿Qué exige la CEDAW a los Estados que la ratifican?"
 tipo: mc
 opciones_explicitas:
-  - "Que estas comunidades existían y tenían organización propia antes de la formación del Estado argentino"
-  - "Que el Estado les concede derechos como una dádiva reciente"
-  - "Que no existían comunidades indígenas antes de 1994"
-respuesta: "Que estas comunidades existían y tenían organización propia antes de la formación del Estado argentino"
+  - "Eliminar la discriminación contra la mujer en la vida política, social, económica y cultural"
+  - "Prohibir la participación política de las mujeres"
+  - "Ninguna obligación concreta, es sólo una declaración simbólica"
+respuesta: "Eliminar la discriminación contra la mujer en la vida política, social, económica y cultural"
 
 explicacion: |
-  Es la base conceptual que distingue "reconocer" de "conceder" un
-  derecho.
+  Es la obligación central del tratado.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "intermedio"
-  tags: ["derechos_reconocidos"]
-
-enunciado: "¿Qué reconoce el art. 75 inc. 17 sobre la organización de las comunidades indígenas?"
-tipo: mc
-opciones_explicitas:
-  - "Su personería jurídica"
-  - "Su representación automática en el Congreso Nacional"
-  - "Ningún reconocimiento organizativo"
-respuesta: "Su personería jurídica"
-
-explicacion: |
-  Reconoce a las comunidades como sujetos jurídicos propios.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "basico"
-  tags: ["derechos_reconocidos"]
-
-enunciado: "¿Qué tipo de propiedad de la tierra reconoce el art. 75 inc. 17 a los pueblos indígenas sobre las tierras que tradicionalmente ocupan?"
-tipo: mc
-opciones_explicitas:
-  - "Posesión y propiedad comunitaria"
-  - "Propiedad privada individual regulada por el Código Civil"
-  - "Ningún tipo de propiedad, sólo un permiso de uso temporal"
-respuesta: "Posesión y propiedad comunitaria"
-
-explicacion: |
-  Es un derecho de la comunidad como sujeto colectivo, no de cada
-  individuo por separado.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_indigenas"
+  tema: "derechos_genero"
   nivel: "avanzado"
-  tags: ["derechos_reconocidos"]
+  tags: ["marco_normativo"]
 
-enunciado: "¿Verdadero o falso? Las tierras de propiedad comunitaria indígena reconocidas por el art. 75 inc. 17 pueden venderse o embargarse libremente."
-tipo: vf
-respuesta: falso
+enunciado: "¿Qué exige la CEDAW respecto de los 'patrones socioculturales'?"
+tipo: mc
+opciones_explicitas:
+  - "Modificar los que sostengan la idea de inferioridad o superioridad de un sexo sobre otro"
+  - "Prohibir su estudio en las escuelas"
+  - "Mantenerlos intactos, sin ninguna modificación"
+respuesta: "Modificar los que sostengan la idea de inferioridad o superioridad de un sexo sobre otro"
 
 explicacion: |
-  El artículo establece que no son enajenables, transmisibles ni
-  susceptibles de gravámenes o embargos.
+  Apunta a los estereotipos culturales de fondo, no sólo a conductas
+  puntuales.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "derechos_indigenas"
+  tema: "derechos_genero"
   nivel: "intermedio"
-  tags: ["derechos_reconocidos"]
+  tags: ["leyes_argentinas"]
 
-enunciado: "¿Qué otro derecho reconoce el art. 75 inc. 17 además de la propiedad comunitaria de la tierra?"
+enunciado: "¿Qué ley argentina se sancionó en 2009 para prevenir, sancionar y erradicar la violencia contra las mujeres?"
 tipo: mc
 opciones_explicitas:
-  - "Participación en la gestión referida a sus recursos naturales y demás intereses que los afecten"
-  - "Exención total de impuestos nacionales"
-  - "Un cupo fijo de bancas en el Senado"
-respuesta: "Participación en la gestión referida a sus recursos naturales y demás intereses que los afecten"
+  - "Ley 26.485"
+  - "Ley 26.618"
+  - "Ley 26.743"
+respuesta: "Ley 26.485"
 
 explicacion: |
-  Es otro de los derechos explícitos del artículo.
+  Ley de Protección Integral para Prevenir, Sancionar y Erradicar la
+  Violencia contra las Mujeres.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "basico"
-  tags: ["derechos_reconocidos"]
-
-enunciado: "¿Qué garantiza el art. 54 de la Ley 26.206 a las comunidades indígenas, según cita el art. 92 inciso e?"
-tipo: mc
-opciones_explicitas:
-  - "Acceso a una educación intercultural bilingüe"
-  - "Exención total de asistir a la escuela"
-  - "Educación exclusivamente en la lengua propia, sin castellano"
-respuesta: "Acceso a una educación intercultural bilingüe"
-
-explicacion: |
-  Enseñanza en la lengua propia junto con el castellano, respetando la
-  identidad cultural.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "avanzado"
-  tags: ["distincion"]
-
-enunciado: "¿En qué se diferencia este tema del concepto de 'diversidad cultural' visto en Antropología?"
-tipo: mc
-opciones_explicitas:
-  - "Acá el foco es normativo/jurídico: qué derechos concretos reconoce la ley, no el concepto general de por qué existen culturas distintas"
-  - "Son exactamente el mismo contenido, sin ninguna diferencia"
-  - "Este tema no tiene ninguna relación con la diversidad cultural"
-respuesta: "Acá el foco es normativo/jurídico: qué derechos concretos reconoce la ley, no el concepto general de por qué existen culturas distintas"
-
-explicacion: |
-  Ver `../../antropologia/diversidad-cultural/` para el concepto
-  general.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "avanzado"
-  tags: ["concepto_central"]
-
-enunciado: "¿Por qué la propiedad comunitaria indígena se describe como un derecho 'de la comunidad', distinto del derecho de propiedad individual del Código Civil?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el sujeto del derecho es la comunidad como tal, no cada persona por separado"
-  - "Porque no existe ninguna diferencia real entre ambos regímenes"
-  - "Porque el Código Civil regula exclusivamente la propiedad indígena"
-respuesta: "Porque el sujeto del derecho es la comunidad como tal, no cada persona por separado"
-
-explicacion: |
-  Es la nota distintiva de este derecho frente al régimen general de
-  propiedad privada.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_indigenas"
+  tema: "derechos_genero"
   nivel: "intermedio"
-  tags: ["concepto_central"]
+  tags: ["historia"]
 
-enunciado: "¿Verdadero o falso? El art. 75 inc. 17 'concede' derechos nuevos a los pueblos indígenas, como si no hubieran existido antes del Estado argentino."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  El artículo reconoce una preexistencia, no crea un derecho desde
-  cero — la distinción entre "reconocer" y "conceder" es clave.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "avanzado"
-  tags: ["derechos_reconocidos"]
-
-enunciado: "Además de las tierras que ya ocupan tradicionalmente, ¿qué otra obligación establece el art. 75 inc. 17 sobre tierras?"
-tipo: mc
-opciones_explicitas:
-  - "Regular la entrega de otras tierras aptas y suficientes para el desarrollo humano"
-  - "Prohibir cualquier entrega adicional de tierras"
-  - "Expropiar tierras privadas sin ningún criterio"
-respuesta: "Regular la entrega de otras tierras aptas y suficientes para el desarrollo humano"
-
-explicacion: |
-  Es parte del mismo inciso constitucional.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "intermedio"
-  tags: ["repaso"]
-
-enunciado: "¿Cuántos derechos principales del art. 75 inc. 17 se listaron en la teoría (personería jurídica, propiedad comunitaria, participación en gestión, educación bilingüe)?"
+enunciado: "¿En qué año se sancionó la Ley 26.485 en Argentina?"
 tipo: input
-respuesta: 4
+respuesta: 2009
 
 explicacion: |
-  4 derechos reconocidos explícitamente.
+  Ley de Protección Integral contra la Violencia hacia las Mujeres.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "basico"
-  tags: ["derechos_reconocidos"]
+  tema: "derechos_genero"
+  nivel: "intermedio"
+  tags: ["leyes_argentinas"]
 
-enunciado: "¿Verdadero o falso? La educación intercultural bilingüe busca enseñar en la lengua propia de la comunidad junto con el castellano."
+enunciado: "¿Qué ley argentina estableció el matrimonio igualitario, y en qué año?"
+tipo: mc
+opciones_explicitas:
+  - "Ley 26.618, en 2010"
+  - "Ley 26.485, en 2009"
+  - "Ley 26.743, en 2012"
+respuesta: "Ley 26.618, en 2010"
+
+explicacion: |
+  Ley de matrimonio igualitario, sancionada en 2010.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_genero"
+  nivel: "intermedio"
+  tags: ["leyes_argentinas"]
+
+enunciado: "¿Qué ley argentina reconoce el derecho a la identidad de género, y en qué año?"
+tipo: mc
+opciones_explicitas:
+  - "Ley 26.743, en 2012"
+  - "Ley 26.618, en 2010"
+  - "Ley 26.485, en 2009"
+respuesta: "Ley 26.743, en 2012"
+
+explicacion: |
+  Ley de identidad de género, sancionada en 2012.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_genero"
+  nivel: "avanzado"
+  tags: ["leyes_argentinas"]
+
+enunciado: "Ordená cronológicamente estas 3 leyes argentinas: Identidad de género (26.743), Violencia contra las mujeres (26.485), Matrimonio igualitario (26.618)."
+tipo: ordenar
+opciones_explicitas: ["Violencia contra las mujeres (26.485)", "Matrimonio igualitario (26.618)", "Identidad de género (26.743)"]
+respuesta_orden: ["Violencia contra las mujeres (26.485)", "Matrimonio igualitario (26.618)", "Identidad de género (26.743)"]
+
+explicacion: |
+  Orden real: 2009 (26.485) → 2010 (26.618) → 2012 (26.743).
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_genero"
+  nivel: "intermedio"
+  tags: ["neutralidad"]
+
+enunciado: "¿A qué ángulo específico se limita este tema, según lo establece explícitamente el art. 92 inciso f?"
+tipo: mc
+opciones_explicitas:
+  - "Igualdad, solidaridad y respeto entre los sexos"
+  - "Corrientes filosóficas feministas en general, sin límite de alcance"
+  - "Ningún ángulo específico, cubre cualquier debate de género posible"
+respuesta: "Igualdad, solidaridad y respeto entre los sexos"
+
+explicacion: |
+  Es el límite explícito que fija el propio artículo, y el mismo
+  criterio de neutralidad ya aplicado en otros temas de corrientes de
+  pensamiento del proyecto.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_genero"
+  nivel: "avanzado"
+  tags: ["neutralidad"]
+
+enunciado: "¿Por qué la teoría de este tema no desarrolla corrientes de pensamiento feminista más amplias ni debates filosóficos sobre género?"
+tipo: mc
+opciones_explicitas:
+  - "Porque exceden el contenido curricular específico que cita la ley (CEDAW + normativa argentina concreta)"
+  - "Porque esos debates no existen en la actualidad"
+  - "Porque la ley los prohíbe expresamente"
+respuesta: "Porque exceden el contenido curricular específico que cita la ley (CEDAW + normativa argentina concreta)"
+
+explicacion: |
+  El tema se limita al marco normativo confirmado, no a debates
+  filosóficos abiertos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_genero"
+  nivel: "intermedio"
+  tags: ["marco_normativo"]
+
+enunciado: "¿En qué ámbitos exige la CEDAW garantizar igualdad de derechos entre hombres y mujeres?"
+tipo: mc
+opciones_explicitas:
+  - "Educación, empleo, salud y participación política"
+  - "Únicamente en el ámbito deportivo"
+  - "Únicamente en el ámbito religioso"
+respuesta: "Educación, empleo, salud y participación política"
+
+explicacion: |
+  Son los ámbitos explícitos que menciona la teoría.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_genero"
+  nivel: "intermedio"
+  tags: ["prerrequisito"]
+
+enunciado: "¿Qué relación tiene este tema con `../derechos-indigenas/` en la cadena de esta materia?"
+tipo: mc
+opciones_explicitas:
+  - "Es el último hermano de la secuencia: los 3 (niño, indígenas, género) son especificaciones distintas del art. 92"
+  - "No tienen ninguna relación entre sí"
+  - "Los derechos de género reemplazan a los derechos indígenas"
+respuesta: "Es el último hermano de la secuencia: los 3 (niño, indígenas, género) son especificaciones distintas del art. 92"
+
+explicacion: |
+  Cierra la subrama de 3 hermanos del nodo `T7` del MAPA.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_genero"
+  nivel: "avanzado"
+  tags: ["marco_normativo"]
+
+enunciado: "¿Verdadero o falso? La CEDAW sólo exige eliminar leyes discriminatorias, sin ocuparse de patrones culturales o sociales."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  También exige modificar patrones socioculturales que sostengan
+  desigualdad, no sólo normas legales explícitas.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_genero"
+  nivel: "basico"
+  tags: ["marco_normativo"]
+
+enunciado: "¿A qué ley pertenece el art. 92 que cita el marco normativo de este tema?"
+tipo: mc
+opciones_explicitas:
+  - "Ley de Educación Nacional 26.206"
+  - "Ley 26.061"
+  - "Constitución Nacional"
+respuesta: "Ley de Educación Nacional 26.206"
+
+explicacion: |
+  Mismo artículo 92 que ya usaron `../derechos-nino/` (inciso d),
+  `../derechos-indigenas/` (inciso e) y
+  `../../geografia/ambiente-y-recursos/` (inciso g).
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "derechos_genero"
+  nivel: "intermedio"
+  tags: ["marco_normativo"]
+
+enunciado: "¿Verdadero o falso? Argentina ratificó la CEDAW, dándole jerarquía constitucional desde la reforma de 1994."
 tipo: vf
 respuesta: verdadero
 
 explicacion: |
-  Es la definición de educación intercultural bilingüe según la
-  teoría.
+  Confirmado con la reforma constitucional de 1994 (art. 75 inc. 22).
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "intermedio"
-  tags: ["prerrequisito"]
-
-enunciado: "¿Qué relación tiene este tema con `../derechos-nino/` en la cadena de esta materia?"
-tipo: mc
-opciones_explicitas:
-  - "Es el hermano siguiente en la secuencia: ambos son especificaciones del marco general de derechos y garantías"
-  - "No tienen ninguna relación entre sí"
-  - "Los derechos indígenas reemplazan por completo a los derechos del niño"
-respuesta: "Es el hermano siguiente en la secuencia: ambos son especificaciones del marco general de derechos y garantías"
-
-explicacion: |
-  Ambos cuelgan del mismo nodo padre en el MAPA (`T7`) y comparten el
-  mismo tipo de marco normativo específico.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "intermedio"
-  tags: ["derechos_reconocidos"]
-
-enunciado: "¿Sobre qué tipo de intereses tienen derecho de participación en la gestión las comunidades indígenas?"
-tipo: mc
-opciones_explicitas:
-  - "Sus recursos naturales y demás intereses que los afecten"
-  - "Únicamente los recursos minerales del subsuelo nacional"
-  - "Ningún tipo de recurso, sólo cuestiones educativas"
-respuesta: "Sus recursos naturales y demás intereses que los afecten"
-
-explicacion: |
-  Incluye recursos naturales y cualquier interés relevante para la
-  comunidad.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "intermedio"
-  tags: ["derechos_reconocidos"]
-
-enunciado: "¿Qué busca respetar la educación intercultural bilingüe, además de enseñar dos lenguas?"
-tipo: mc
-opciones_explicitas:
-  - "La identidad cultural de la comunidad"
-  - "Únicamente el calendario escolar nacional"
-  - "Ningún aspecto cultural específico"
-respuesta: "La identidad cultural de la comunidad"
-
-explicacion: |
-  Es parte integral del enfoque intercultural, no sólo lingüístico.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_indigenas"
+  tema: "derechos_genero"
   nivel: "avanzado"
   tags: ["aplicacion"]
 
-enunciado: "¿Para qué sirve, según la teoría, entender este marco normativo específico?"
+enunciado: "¿Para qué sirve, según la teoría, distinguir lo que la ley argentina ya reconoce explícitamente de lo que es debate social en curso?"
 tipo: mc
 opciones_explicitas:
-  - "Para leer con criterio conflictos de tierras y reclamos territoriales que aparecen en la actualidad"
-  - "Para memorizar únicamente el número del artículo, sin aplicación práctica"
-  - "Para reemplazar el estudio del Código Civil en su totalidad"
-respuesta: "Para leer con criterio conflictos de tierras y reclamos territoriales que aparecen en la actualidad"
+  - "Para leer con criterio noticias sobre legislación de género, sin confundir norma vigente con debate abierto"
+  - "Para descartar por completo cualquier debate social sobre género"
+  - "Para reemplazar el estudio de las leyes por opiniones personales"
+respuesta: "Para leer con criterio noticias sobre legislación de género, sin confundir norma vigente con debate abierto"
 
 explicacion: |
   Es el cierre práctico de la teoría.
@@ -1918,417 +2002,19 @@ explicacion: |
 ```
 metadata:
   materia: "civica"
-  tema: "derechos_indigenas"
+  tema: "derechos_genero"
   nivel: "intermedio"
   tags: ["sintesis"]
 
-enunciado: "¿Cuál resume mejor el marco de derechos indígenas visto en este tema?"
+enunciado: "¿Cuál resume mejor el marco de derechos de género visto en este tema?"
 tipo: mc
 opciones_explicitas:
-  - "Art. 75 inc. 17 (preexistencia étnica, propiedad comunitaria, participación) + educación intercultural bilingüe de la Ley 26.206"
-  - "Un conjunto de recomendaciones sin ninguna base constitucional"
-  - "Un régimen idéntico al de la propiedad privada individual"
-respuesta: "Art. 75 inc. 17 (preexistencia étnica, propiedad comunitaria, participación) + educación intercultural bilingüe de la Ley 26.206"
+  - "CEDAW (1979, jerarquía constitucional desde 1994) + leyes argentinas concretas (26.485, 26.618, 26.743), limitado al ángulo de igualdad entre los sexos"
+  - "Un conjunto de debates filosóficos sin ninguna base normativa"
+  - "Un marco idéntico al de los derechos del niño, sin ninguna diferencia"
+respuesta: "CEDAW (1979, jerarquía constitucional desde 1994) + leyes argentinas concretas (26.485, 26.618, 26.743), limitado al ángulo de igualdad entre los sexos"
 
 explicacion: |
   Cierre del marco normativo desarrollado en la teoría.
-```
-
-## Sección: encuesta-electoral (20 preguntas)
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "basico"
-  tags: ["encuesta", "vocabulario"]
-
-enunciado: "¿Qué es una encuesta electoral, en términos de muestreo?"
-tipo: mc
-opciones_explicitas:
-  - "Preguntarle a una MUESTRA de votantes y generalizar el resultado a todo el electorado, en vez de preguntarle a todo el padrón"
-  - "Contar los votos reales de una elección ya realizada"
-  - "Un censo completo de todos los votantes habilitados"
-respuesta: "Preguntarle a una MUESTRA de votantes y generalizar el resultado a todo el electorado, en vez de preguntarle a todo el padrón"
-
-explicacion: |
-  Es la misma lógica de `../../matematica/muestreo-y-sesgo/`, aplicada
-  a intención de voto.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "intermedio"
-  tags: ["margen_error", "vocabulario"]
-
-enunciado: "¿Qué significa que una encuesta reporte 'candidato A: 42% ± 3 puntos'?"
-tipo: mc
-opciones_explicitas:
-  - "Que el resultado real de la población probablemente está entre 39% y 45%, no exactamente en 42%"
-  - "Que el candidato A tiene exactamente 42% de los votos, sin ningún margen de duda"
-  - "Que 3 de cada 100 encuestados no respondieron la pregunta"
-respuesta: "Que el resultado real de la población probablemente está entre 39% y 45%, no exactamente en 42%"
-
-explicacion: |
-  Es la misma idea del intervalo de confianza aplicada a una encuesta
-  electoral.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "avanzado"
-  tags: ["margen_error", "problema"]
-
-variables:
-  candidato_a: uno_de([41, 43])
-  candidato_b: uno_de([39, 40])
-  margen_error: 3
-
-respuesta: abs(candidato_a - candidato_b) < margen_error
-tipo: vf
-
-enunciado: "Candidato A: {candidato_a}%; Candidato B: {candidato_b}%, con un margen de error de ±{margen_error} puntos. ¿Es esto un 'empate técnico' (la diferencia es menor que el margen de error)?"
-
-explicacion: |
-  Si la diferencia real es menor que el margen de error, no se puede
-  afirmar con confianza quién va primero.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "intermedio"
-  tags: ["margen_error"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si la diferencia entre dos candidatos en una encuesta es menor que el margen de error combinado, se lo llama 'empate técnico', aunque los números muestren a uno numéricamente arriba del otro."
-
-explicacion: |
-  El margen de error dice que el orden real podría estar invertido.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "basico"
-  tags: ["indecisos", "vocabulario"]
-
-enunciado: "¿Qué son los 'indecisos' o 'no sabe / no contesta' en una encuesta electoral?"
-tipo: mc
-opciones_explicitas:
-  - "Encuestados que todavía no decidieron su voto, o que no quieren revelar su intención"
-  - "Encuestados que no fueron contactados por la encuestadora"
-  - "Votantes que no están habilitados legalmente para votar"
-respuesta: "Encuestados que todavía no decidieron su voto, o que no quieren revelar su intención"
-
-explicacion: |
-  Cómo se los trata en el cálculo de porcentajes cambia la lectura de
-  los resultados.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "avanzado"
-  tags: ["indecisos", "problema"]
-
-variables:
-  candidato_a: 35
-  candidato_b: 30
-  indecisos: 35
-
-respuesta: redondear(candidato_a / (candidato_a + candidato_b) * 100, 1)
-tipo: input
-tolerancia_abs: 0.1
-unidad: "%"
-
-enunciado: "Sobre el total de encuestados: Candidato A={candidato_a}%, Candidato B={candidato_b}%, indecisos={indecisos}%. ¿Cuál es el porcentaje del Candidato A si se recalcula SOLO sobre quienes sí respondieron (descontando indecisos)?"
-
-pasos:
-  - "Total que respondió = {candidato_a}+{candidato_b} = {candidato_a + candidato_b}"
-  - "% de A sobre respondidos = {candidato_a}/{candidato_a + candidato_b} × 100 = {redondear(candidato_a / (candidato_a + candidato_b) * 100, 1)}%"
-
-explicacion: |
-  El número sube respecto del {candidato_a}% original — ambas formas
-  de calcular son válidas, pero dan números distintos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "intermedio"
-  tags: ["boca_de_urna", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia entre una encuesta electoral y una boca de urna (exit poll)?"
-tipo: mc
-opciones_explicitas:
-  - "La encuesta se hace antes de la elección preguntando intención de voto (que puede cambiar); la boca de urna se hace el día de la votación preguntando a quienes ya votaron qué eligieron"
-  - "Son exactamente lo mismo, sólo cambia el nombre"
-  - "La boca de urna siempre se hace varias semanas antes de la elección"
-respuesta: "La encuesta se hace antes de la elección preguntando intención de voto (que puede cambiar); la boca de urna se hace el día de la votación preguntando a quienes ya votaron qué eligieron"
-
-explicacion: |
-  La boca de urna suele ser más precisa porque mide un voto ya
-  emitido, no una intención futura.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "intermedio"
-  tags: ["fecha"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una encuesta hecha dos semanas antes de una elección puede no reflejar la intención de voto del día de la votación, especialmente si ocurrió algún evento relevante en el medio."
-
-explicacion: |
-  La intención de voto no es estática — cambia con el tiempo y con
-  los acontecimientos de la campaña.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "basico"
-  tags: ["fecha", "aplicacion"]
-
-enunciado: "Al comparar dos encuestas del mismo candidato, una de hace un mes y otra de esta semana, ¿qué conviene tener en cuenta?"
-tipo: mc
-opciones_explicitas:
-  - "Que la más reciente es probablemente más representativa de la situación actual, y que la diferencia entre ambas podría reflejar un cambio real de opinión, no un error de medición"
-  - "Que ambas encuestas miden exactamente lo mismo, sin importar la fecha"
-  - "Que sólo la encuesta más vieja es confiable"
-respuesta: "Que la más reciente es probablemente más representativa de la situación actual, y que la diferencia entre ambas podría reflejar un cambio real de opinión, no un error de medición"
-
-explicacion: |
-  Comparar encuestas de fechas muy distintas como si midieran lo mismo
-  es un error común de lectura.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "intermedio"
-  tags: ["voto_oculto", "vocabulario"]
-
-enunciado: "¿Qué es el fenómeno del 'voto oculto' en encuestas electorales?"
-tipo: mc
-opciones_explicitas:
-  - "Parte del electorado no revela su verdadera intención de voto por miedo al juicio social, torciendo el resultado de la encuesta respecto del voto real"
-  - "Votantes que legalmente no pueden revelar su voto"
-  - "Un error de cálculo en el conteo de votos"
-respuesta: "Parte del electorado no revela su verdadera intención de voto por miedo al juicio social, torciendo el resultado de la encuesta respecto del voto real"
-
-explicacion: |
-  Es un tipo de sesgo de no respuesta específico del contexto
-  político.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "avanzado"
-  tags: ["sesgo", "metodologia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La metodología de una encuesta (telefónica, presencial, online) puede introducir sesgo de selección, porque cada método de contacto excluye sistemáticamente a cierto tipo de personas (quien no tiene teléfono registrado, quien no usa internet, etc.)."
-
-explicacion: |
-  Es la aplicación directa del sesgo de selección de
-  `../../matematica/muestreo-y-sesgo/`.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué es relevante saber quién encargó o financió una encuesta electoral?"
-tipo: mc
-opciones_explicitas:
-  - "Porque puede indicar un posible conflicto de interés — no invalida el resultado por sí solo, pero es un dato más a considerar al evaluar la fuente"
-  - "Porque una encuesta financiada por un partido político siempre es matemáticamente incorrecta"
-  - "No es relevante en absoluto, el financiamiento nunca afecta la metodología"
-respuesta: "Porque puede indicar un posible conflicto de interés — no invalida el resultado por sí solo, pero es un dato más a considerar al evaluar la fuente"
-
-explicacion: |
-  Es uno de los cinco chequeos de lectura crítica de este módulo, no
-  una descalificación automática.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "avanzado"
-  tags: ["margen_error", "problema"]
-
-variables:
-  n_chica: 400
-  n_grande: 1600
-  sigma_aprox: 25
-
-respuesta: redondear(sigma_aprox / sqrt(n_chica), 2) > redondear(sigma_aprox / sqrt(n_grande), 2)
-tipo: vf
-
-enunciado: "Encuesta A tiene n={n_chica} encuestados; Encuesta B tiene n={n_grande}. Con el mismo desvío aproximado, ¿el margen de error de la Encuesta A es MAYOR que el de la Encuesta B?"
-
-explicacion: |
-  Es la misma relación de `../../matematica/teorema-central-del-limite/`:
-  a menor tamaño de muestra, mayor error estándar y mayor margen de
-  error.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-enunciado: "¿Qué relación tiene la lectura crítica de una encuesta electoral con `../../matematica/muestreo-y-sesgo/`?"
-tipo: mc
-opciones_explicitas:
-  - "Es una aplicación directa: metodología de contacto, representatividad de la muestra y tipos de sesgo son exactamente los mismos conceptos, aplicados a intención de voto"
-  - "No tiene ninguna relación real"
-  - "Las encuestas electorales no usan ningún método de muestreo, preguntan a toda la población"
-respuesta: "Es una aplicación directa: metodología de contacto, representatividad de la muestra y tipos de sesgo son exactamente los mismos conceptos, aplicados a intención de voto"
-
-explicacion: |
-  Es el prerrequisito formal de este módulo, según `troncos.md`.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "avanzado"
-  tags: ["margen_error", "problema"]
-
-variables:
-  candidato_a: 52
-  candidato_b: 38
-  margen_error: 3
-
-respuesta: abs(candidato_a - candidato_b) > margen_error
-tipo: vf
-
-enunciado: "Candidato A: {candidato_a}%; Candidato B: {candidato_b}%, margen de error ±{margen_error} puntos. ¿La diferencia entre ambos SUPERA el margen de error (no es un empate técnico)?"
-
-explicacion: |
-  Con una diferencia tan grande respecto del margen de error, sí se
-  puede afirmar con más confianza quién va adelante.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "avanzado"
-  tags: ["indecisos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Reportar los porcentajes de una encuesta sobre el total de encuestados o sólo sobre quienes respondieron son dos formas igualmente válidas — el problema aparece cuando no se aclara cuál de las dos se está usando."
-
-explicacion: |
-  El error no está en el método elegido, sino en la falta de
-  transparencia sobre cuál se usó.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "Antes de confiar en el resultado de una encuesta electoral citada en una noticia, ¿qué conviene revisar?"
-tipo: mc
-opciones_explicitas:
-  - "El margen de error, si los porcentajes incluyen o no a los indecisos, la metodología usada, la fecha de realización, y quién la encargó o financió"
-  - "Sólo el nombre de la empresa encuestadora, nada más"
-  - "No hace falta revisar nada, cualquier encuesta publicada es igual de confiable"
-respuesta: "El margen de error, si los porcentajes incluyen o no a los indecisos, la metodología usada, la fecha de realización, y quién la encargó o financió"
-
-explicacion: |
-  Son los cinco chequeos completos descritos en `teoria.md`.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "avanzado"
-  tags: ["boca_de_urna", "problema"]
-
-enunciado: "Una encuesta de dos semanas antes daba 45% al Candidato A; la boca de urna del día de la elección da 48%. ¿Cuál de las dos mediciones es, en principio, más confiable para saber el resultado real de esa elección?"
-tipo: mc
-opciones_explicitas:
-  - "La boca de urna, porque mide votos ya emitidos el mismo día, sin depender de una intención de voto que todavía podía cambiar"
-  - "La encuesta de dos semanas antes, porque siempre es más precisa que una boca de urna"
-respuesta: "La boca de urna, porque mide votos ya emitidos el mismo día, sin depender de una intención de voto que todavía podía cambiar"
-
-explicacion: |
-  No mide lo mismo: intención futura vs. voto ya realizado.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "avanzado"
-  tags: ["margen_error"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ninguna encuesta con una muestra (por más grande que sea) tiene un margen de error exactamente igual a cero — sólo un censo completo de todo el electorado lo tendría."
-
-explicacion: |
-  Es la misma idea de `../../matematica/intervalo-de-confianza/`: más
-  muestra reduce el margen de error, pero nunca lo elimina del todo.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "encuesta_electoral"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve saber leer una encuesta electoral con criterio?"
-tipo: mc
-opciones_explicitas:
-  - "Para interpretar correctamente una cifra de intención de voto, sin tratarla como un resultado exacto ni descartarla por sistema, evaluando margen de error, metodología, fecha y fuente"
-  - "Para poder predecir con certeza absoluta el resultado de cualquier elección"
-  - "Sólo sirve para trabajar en una empresa encuestadora"
-respuesta: "Para interpretar correctamente una cifra de intención de voto, sin tratarla como un resultado exacto ni descartarla por sistema, evaluando margen de error, metodología, fecha y fuente"
-
-explicacion: |
-  Es la aplicación cívica directa de
-  `../../matematica/muestreo-y-sesgo/` al contexto donde más se citan
-  encuestas en público.
 ```
 

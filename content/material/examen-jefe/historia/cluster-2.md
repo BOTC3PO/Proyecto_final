@@ -4,1851 +4,520 @@
 
 ---
 
-## Sección: linea-de-tiempo-y-antes-despues (20 preguntas)
+## Sección: semana-tragica-1919 (27 preguntas)
 
 ```
 metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
+  materia: "Historia"
+  tema: "semana_tragica_1919"
   nivel: "basico"
-  tags: ["linea_de_tiempo", "definicion"]
+  tags: ["semana_tragica", "contexto", "primera_guerra"]
 
 variables:
-  n: uno_de([1, 1])
+  anio_fin_guerra: 1918
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una línea de tiempo es una representación gráfica donde los hechos se ordenan según el momento en que ocurrieron."
-
-pasos:
-  - "El eje representa el paso del tiempo, y cada hecho se ubica en el punto que le corresponde."
-
-explicacion: |
-  Verdadero: es la definición central de línea de tiempo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "basico"
-  tags: ["antes_despues"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Se puede afirmar que \"la Revolución de Mayo fue antes que la Declaración de la Independencia\" sin necesitar saber el año exacto de ninguno de los dos hechos."
-
-pasos:
-  - "El orden temporal (antes/después) es una habilidad más básica que fechar con precisión."
-
-explicacion: |
-  Verdadero: es la habilidad más elemental del pensamiento histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "basico"
-  tags: ["antes_despues", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "la Revolución de Mayo"
-tipo: mc
-opciones_explicitas: ["la Revolución de Mayo", "la Declaración de la Independencia"]
-
-enunciado: "Entre \"la Revolución de Mayo\" (1810) y \"la Declaración de la Independencia\" (1816), ¿cuál ocurrió antes?"
-
-pasos:
-  - "Comparar los años para determinar el orden temporal."
-
-explicacion: |
-  1810 es anterior a 1816, por lo tanto la Revolución de Mayo ocurrió
-  antes.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["simultaneidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos hechos pueden ser simultáneos (ocurrir en el mismo período), incluso en lugares muy distintos del mundo."
-
-pasos:
-  - "Reconocer la simultaneidad ayuda a entender que la historia no es una sola línea de sucesos."
-
-explicacion: |
-  Verdadero: es la definición central de simultaneidad en historia.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["simultaneidad", "multiples_procesos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Reconocer la simultaneidad ayuda a entender que la historia es muchos procesos ocurriendo en paralelo en distintas regiones, no una sola línea de sucesos."
-
-pasos:
-  - "Es la conclusión central de por qué la simultaneidad es un concepto importante."
-
-explicacion: |
-  Verdadero: es la razón por la que la simultaneidad enriquece la
-  comprensión histórica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["duracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Además de indicar qué pasó antes y después, una línea de tiempo permite ver cuánto tiempo (la duración) separa a dos hechos."
-
-pasos:
-  - "Un intervalo corto se ve distinto en la línea que uno largo, aunque ambos sean técnicamente \"antes y después\"."
-
-explicacion: |
-  Verdadero: la duración es otra dimensión que aporta una línea de
-  tiempo, además del orden.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["duracion", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos hechos separados por 5 años se representan más cerca entre sí en una línea de tiempo que dos hechos separados por 300 años."
-
-pasos:
-  - "La distancia visual en la línea refleja la duración real del intervalo temporal."
-
-explicacion: |
-  Verdadero: es la aplicación práctica de cómo se representa la
-  duración en una línea de tiempo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["linea_de_tiempo", "utilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ordenar hechos visualmente en una línea de tiempo hace evidentes relaciones que un listado de fechas sueltas no muestra, como qué hechos son cercanos entre sí."
-
-pasos:
-  - "Es la razón central de por qué la línea de tiempo es una herramienta útil, más allá de memorizar fechas."
-
-explicacion: |
-  Verdadero: es la conclusión central sobre la utilidad de este
-  recurso visual.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["linea_de_tiempo", "vacios"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una línea de tiempo puede mostrar dónde hay \"vacíos\" en el registro histórico disponible, es decir, períodos sin hechos documentados."
-
-pasos:
-  - "Es otra utilidad de la representación visual sobre un simple listado de fechas."
-
-explicacion: |
-  Verdadero: los vacíos temporales son otra información que revela
-  la línea de tiempo, más allá del orden y la duración.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "basico"
-  tags: ["linea_de_tiempo", "estructura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una línea de tiempo, el eje horizontal (o vertical) representa el paso del tiempo, no otra magnitud."
-
-pasos:
-  - "Cada hecho se ubica en el punto del eje que corresponde a su momento de ocurrencia."
-
-explicacion: |
-  Verdadero: es la estructura básica de cualquier línea de tiempo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["antes_despues", "practica"]
-
-enunciado: "Ordená estos tres hechos de más antiguo a más reciente: Independencia Argentina (1816), llegada de Colón a América (1492), Segunda Guerra Mundial (1939-1945)."
-tipo: ordenar
-opciones_explicitas:
-  - "Llegada de Colón a América (1492)"
-  - "Independencia Argentina (1816)"
-  - "Segunda Guerra Mundial (1939-1945)"
-respuesta_orden: ["Llegada de Colón a América (1492)", "Independencia Argentina (1816)", "Segunda Guerra Mundial (1939-1945)"]
-explicacion: |
-  El orden sigue estrictamente la cronología de los años en que
-  ocurrió cada hecho.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["simultaneidad", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Mientras en América ocurrían las guerras de independencia a principios del siglo XIX, en Europa se desarrollaban procesos históricos propios de esa misma época: son hechos simultáneos en regiones distintas."
-
-pasos:
-  - "Es un ejemplo concreto de simultaneidad entre procesos históricos en distintas regiones del mundo."
-
-explicacion: |
-  Verdadero: es la aplicación práctica del concepto de simultaneidad
-  a un caso histórico real.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["antes_despues"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Para poder decir que un hecho ocurrió \"antes\" que otro, es imprescindible conocer el año exacto de ambos hechos."
-
-pasos:
-  - "Se puede establecer el orden relativo (antes/después) con información parcial, sin necesitar fechas exactas."
-
-explicacion: |
-  Falso: el orden relativo antes/después es una habilidad más básica
-  que no siempre requiere fechas precisas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["duracion", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "el intervalo entre 1810 y 1816"
-tipo: mc
-opciones_explicitas: ["el intervalo entre 1810 y 1816", "el intervalo entre 1500 y 1800"]
-
-enunciado: "¿Cuál de estos dos intervalos de tiempo es más corto?"
-
-pasos:
-  - "1810 a 1816 son 6 años; 1500 a 1800 son 300 años."
-
-explicacion: |
-  Comparar la duración de distintos intervalos es una aplicación
-  directa de este concepto.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin poder ordenar hechos en el tiempo, no se puede avanzar hacia unidades más precisas como década, siglo o milenio."
-
-pasos:
-  - "Ver `../decada-siglo-milenio/`: es el tema siguiente de la cadena de pensamiento histórico."
-
-explicacion: |
-  Verdadero: por eso este tema es el prerrequisito directo del
-  siguiente en la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["causa_y_consecuencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Saber qué pasó antes y qué pasó después es una condición necesaria (aunque no suficiente) para poder analizar relaciones de causa y consecuencia entre hechos históricos."
-
-pasos:
-  - "Una causa siempre tiene que ocurrir antes que su consecuencia en el tiempo."
-
-explicacion: |
-  Verdadero: el orden temporal es la base sobre la que se construyen
-  herramientas de análisis histórico más complejas, más adelante en
-  la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["antes_despues", "distincion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si un hecho A ocurrió antes que un hecho B, eso significa automáticamente que A causó B."
-
-pasos:
-  - "El orden temporal (antes/después) es necesario pero no suficiente para afirmar una relación de causa: dos hechos pueden ser antes/después sin que uno cause al otro."
-
-explicacion: |
-  Falso: el orden temporal es la base, pero establecer causalidad
-  requiere un análisis adicional, que es el tema de más adelante en
-  la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "basico"
-  tags: ["linea_de_tiempo", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una línea de tiempo horizontal, un hecho ubicado más a la derecha ocurrió después que un hecho ubicado más a la izquierda (siguiendo la convención habitual de izquierda=pasado, derecha=presente)."
-
-pasos:
-  - "Es la convención estándar de lectura de una línea de tiempo horizontal."
-
-explicacion: |
-  Verdadero: es la convención de lectura habitual de una línea de
-  tiempo horizontal.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["linea_de_tiempo", "metodo"]
-
-enunciado: "Ordená los pasos para construir una línea de tiempo con varios hechos históricos."
-tipo: ordenar
-opciones_explicitas:
-  - "Reunir los hechos que se quieren representar"
-  - "Determinar el orden relativo (antes/después) entre todos ellos"
-  - "Ubicar cada hecho en el eje según su momento, respetando la duración de los intervalos"
-  - "Revisar si hay hechos simultáneos que deban marcarse en el mismo punto del eje"
-respuesta_orden: ["Reunir los hechos que se quieren representar", "Determinar el orden relativo (antes/después) entre todos ellos", "Ubicar cada hecho en el eje según su momento, respetando la duración de los intervalos", "Revisar si hay hechos simultáneos que deban marcarse en el mismo punto del eje"]
-explicacion: |
-  El proceso va de reunir los hechos a ordenarlos y ubicarlos
-  correctamente en el eje temporal.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["linea_de_tiempo", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Antes de estudiar un período histórico complejo, puede ayudar armar primero una línea de tiempo simple con los hechos principales, para tener claro el orden y la duración antes de profundizar en las causas."
-
-pasos:
-  - "Es la aplicación práctica directa de este tema como estrategia de estudio."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema como herramienta
-  de estudio de cualquier período histórico.
-```
-
-## Sección: reforma-universitaria-1918 (22 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "contexto_social"]
-
-variables:
-  anio_fundacion_unc: 1613
-
-respuesta: "1613"
+respuesta: "1918"
 tipo: input
 
-enunciado: "La Universidad Nacional de Córdoba, epicentro de la Reforma de 1918, fue fundada por la orden jesuita en el año {anio_fundacion_unc}. ¿En qué año se fundó?"
+enunciado: "La Primera Guerra Mundial concluyó en el año {anio_fin_guerra}, momento en que los precios de los alimentos comenzaron a caer drásticamente, afectando la economía argentina."
 
 explicacion: |
-  La Universidad Nacional de Córdoba, fundada en 1613, es la más antigua del país. Su estructura permaneció rígida, elitista y bajo fuerte influencia clerical hasta la reforma de 1918.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "manifiesto"]
-
-variables:
-  significado: "abrir una nueva etapa"
-
-respuesta: "abrir una nueva etapa"
-tipo: completar
-
-enunciado: "El término 'liminar' en el Manifiesto Liminar se refiere a su función de {significado}."
-
-explicacion: |
-  "Liminar" proviene del latín *limen* (umbral). El documento buscaba abrir un umbral hacia una nueva etapa en la educación superior, rompiendo con el pasado.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "derechos"]
-
-variables:
-  principio: "gratuidad"
-
-respuesta: "gratuidad"
-tipo: completar
-
-enunciado: "El Manifiesto defendía la {principio} de la educación como un derecho humano y social, para que nadie fuera excluido por falta de recursos."
-
-explicacion: |
-  La gratuidad aseguraba que la universidad fuera un bien público accesible para todos, independientemente de su clase social, rompiendo con el elitismo anterior.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "cogobierno"]
-
-variables:
-  participacion: "voz y voto"
-
-respuesta: "voz y voto"
-tipo: completar
-
-enunciado: "Bajo el principio de cogobierno, los estudiantes ganaron derecho a {participacion} en los órganos de gobierno de la universidad."
-
-explicacion: |
-  El cogobierno integró a docentes, graduados y estudiantes. Por primera vez, los estudiantes tenían poder real de decisión, no solo opinión.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "geografia"]
-
-variables:
-  ciudad: "Córdoba"
-
-respuesta: "Córdoba"
-tipo: completar
-
-enunciado: "En abril de 1918, la protesta estudiantil estalló en la ciudad de {ciudad}, extendiéndose luego a todo el país."
-
-explicacion: |
-  La Universidad Nacional de Córdoba fue el epicentro. Desde allí, el movimiento se irradió a otras universidades argentinas y latinoamericanas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "pedagogia"]
-
-variables:
-  metodo: "memorística"
-
-respuesta: "memorística"
-tipo: completar
-
-enunciado: "Antes de la reforma, la enseñanza en la Universidad Nacional de Córdoba era predominantemente {metodo}, basada en la repetición y exámenes arbitrarios."
-
-explicacion: |
-  El modelo antiguo se basaba en la transmisión pasiva del conocimiento. La reforma exigió clases dinámicas y una renovación pedagógica profunda.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "sociedad"]
-
-variables:
-  clase_social: "clase media"
-
-respuesta: "clase media"
-tipo: completar
-
-enunciado: "La llegada de inmigrantes generó una {clase_social} urbana más numerosa y exigente de cambios sociales y educativos."
-
-explicacion: |
-  El crecimiento de la clase media urbana fue clave. Estos sectores, aunque no siempre podían acceder a la universidad, exigían democratización y meritocracia.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "avanzado"
-  tags: ["reforma_universitaria_1918", "impacto"]
-
-variables:
-  tipo_movimiento: "revolución cultural y política"
-
-respuesta: "revolución cultural y política"
-tipo: completar
-
-enunciado: "Este movimiento no fue solo una huelga escolar, sino una {tipo_movimiento} que cuestionaba quién tiene derecho a conocer."
-
-explicacion: |
-  Fue trascendente porque cuestionaba las estructuras de poder y saber, influyendo en la educación superior de toda América Latina.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "evaluacion"]
-
-variables:
-  caracteristica: "arbitrarios"
-
-respuesta: "arbitrarios"
-tipo: completar
-
-enunciado: "Los exámenes en la Universidad Nacional de Córdoba, pre-reforma, eran considerados {caracteristica}, sin criterios claros ni participación estudiantil."
-
-explicacion: |
-  La arbitrariedad era una fuente de frustración. La reforma buscaba objetividad y transparencia en la evaluación del conocimiento.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "alcance"]
-
-variables:
-  alcance: "América Latina"
-
-respuesta: "América Latina"
-tipo: completar
-
-enunciado: "La protesta de 1918 se extendió a otras universidades de Argentina y de {alcance}."
-
-explicacion: |
-  El modelo de reforma se convirtió en un referente para movimientos estudiantiles en países como Chile, Perú, México y Cuba.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "definiciones"]
-
-variables:
-  definicion: "comunidad integrada"
-
-respuesta: "comunidad integrada"
-tipo: completar
-
-enunciado: "El cogobierno establece que la universidad es una {definicion} por docentes, graduados y estudiantes."
-
-explicacion: |
-  Esta visión rompe con la jerarquía rígida. La universidad se entiende como un espacio democrático donde todos los estamentos tienen peso.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "cronologia"]
-
-variables:
-  mes: "abril"
-
-respuesta: "abril"
-tipo: completar
-
-enunciado: "En el mes de {mes} de 1918, estalló la protesta en Córdoba."
-
-explicacion: |
-  Las protestas clave ocurrieron en abril de 1918, marcando el inicio oficial del proceso reformista.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "filosofia"]
-
-variables:
-  bien: "público"
-
-respuesta: "público"
-tipo: completar
-
-enunciado: "Si la universidad era un bien {bien}, nadie debía ser excluido por falta de recursos."
-
-explicacion: |
-  Este principio justificaba la gratuidad. La educación superior no era un privilegio de mercado, sino un derecho de la ciudadanía.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "metodos"]
-
-variables:
-  tipo_clase: "dinámicas"
-
-respuesta: "dinámicas"
-tipo: completar
-
-enunciado: "Se exigía la renovación pedagógica: clases más {tipo_clase} y cátedras libres."
-
-explicacion: |
-  Se pasaba de la lección magistral pasiva a un aprendizaje activo, crítico y participativo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "avanzado"
-  tags: ["reforma_universitaria_1918", "estructura_academica"]
-
-variables:
-  concepto: "cátedras libres"
-
-respuesta: "cátedras libres"
-tipo: completar
-
-enunciado: "El sistema de {concepto} permitía enseñar a quienes no podían asistir regularmente o enseñar materias no oficiales."
-
-explicacion: |
-  Las cátedras libres democratizaban el acceso al conocimiento, permitiendo la enseñanza de corrientes de pensamiento diversas y críticas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "simbolismo"]
-
-variables:
-  rol: "carta fundacional"
-
-respuesta: "carta fundacional"
-tipo: completar
-
-enunciado: "El Manifiesto Liminar es considerado la {rol} de la Reforma Universitaria."
-
-explicacion: |
-  Es el documento base que definió los principios éticos y políticos que rigen a muchas universidades públicas hoy.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "academico"]
-
-variables:
-  contenido: "planes de estudio"
-
-respuesta: "planes de estudio"
-tipo: completar
-
-enunciado: "La universidad podía definir libremente sus {contenido}."
-
-explicacion: |
-  Esto permitía actualizar los currículos, eliminar materias obsoletas y adaptar la formación a las necesidades sociales y científicas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "sociedad"]
-
-variables:
-  caracteristica: "elitista"
-
-respuesta: "elitista"
-tipo: completar
-
-enunciado: "La Universidad Nacional de Córdoba, pre-reforma, era un espacio {caracteristica}, cerrado y controlado por una minoría."
-
-explicacion: |
-  Solo las élites tradicionales podían acceder y permanecer. La reforma buscó abrir las puertas a la clase trabajadora y media.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "economia"]
-
-variables:
-  motor: "exportación"
-
-respuesta: "exportación"
-tipo: completar
-
-enunciado: "La economía crecía gracias a la {motor} de productos agropecuarios."
-
-explicacion: |
-  Este boom económico generó riqueza, pero también desigualdad y una clase media que exigía participación política y cultural.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "historia_institucional"]
-
-variables:
-  estructura: "colonial"
-
-respuesta: "colonial"
-tipo: completar
-
-enunciado: "La Universidad Nacional de Córdoba seguía funcionando con estructuras {estructura} y rígidas."
-
-explicacion: |
-  Se refería a un modelo heredado de la época virreinal, con jerarquías rígidas y falta de modernidad académica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "democracia"]
-
-variables:
-  participacion: "no había"
-
-respuesta: "no había"
-tipo: completar
-
-enunciado: "Antes de 1918, {participacion} participación de los estudiantes en las decisiones académicas."
-
-explicacion: |
-  Los estudiantes eran meros receptores pasivos. La reforma los convirtió en sujetos políticos dentro de la universidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "avanzado"
-  tags: ["reforma_universitaria_1918", "impacto_historico"]
-
-variables:
-  legado: "democratizar"
-
-respuesta: "democratizar"
-tipo: completar
-
-enunciado: "No querían solo mejorar las aulas; querían {legado} la institución."
-
-explicacion: |
-  El objetivo final era la democratización del saber y del poder académico, un legado que perdura en la educación pública latinoamericana.
-```
-
-## Sección: decada-siglo-milenio (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "basico"
-  tags: ["decada"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "10"
-tipo: completar
-
-enunciado: "Una década tiene cuántos años?"
-
-pasos:
-  - "Es la unidad de agrupación temporal más chica de las tres estudiadas."
-
-explicacion: |
-  Una década equivale a 10 años.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "basico"
-  tags: ["siglo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "100"
-tipo: completar
-
-enunciado: "Un siglo tiene cuántos años?"
-
-pasos:
-  - "Equivale a 10 décadas."
-
-explicacion: |
-  Un siglo equivale a 100 años.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "basico"
-  tags: ["milenio"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "1000"
-tipo: completar
-
-enunciado: "Un milenio tiene cuántos años?"
-
-pasos:
-  - "Equivale a 10 siglos."
-
-explicacion: |
-  Un milenio equivale a 1000 años.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "intermedio"
-  tags: ["calculo_de_siglo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "XIX"
-tipo: mc
-opciones_explicitas: ["XVIII", "XIX", "XX"]
-
-enunciado: "El año 1850 pertenece al siglo..."
-
-pasos:
-  - "1850/100 = 18,5 → se redondea hacia arriba → siglo 19."
-
-explicacion: |
-  El año 1850, al dividir por 100 y redondear hacia arriba, cae en el
-  siglo XIX, no en el XVIII como intuitivamente podría pensarse.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "avanzado"
-  tags: ["calculo_de_siglo", "caso_limite"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "XIX"
-tipo: mc
-opciones_explicitas: ["XIX", "XX"]
-
-enunciado: "El año 1900 (exactamente 19×100) pertenece al siglo..."
-
-pasos:
-  - "Un año que termina exactamente en 00 pertenece al siglo anterior, no al siguiente."
-
-explicacion: |
-  1900 pertenece al siglo XIX; el siglo XX recién empieza en 1901.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "avanzado"
-  tags: ["calculo_de_siglo", "caso_limite"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "XX"
-tipo: mc
-opciones_explicitas: ["XX", "XXI"]
-
-enunciado: "El año 2000 (exactamente 20×100) pertenece al siglo..."
-
-pasos:
-  - "Mismo caso que 1900: un año que termina exactamente en 00 pertenece al siglo anterior."
-
-explicacion: |
-  2000 pertenece al siglo XX; el siglo XXI recién empieza en 2001.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "intermedio"
-  tags: ["calculo_de_siglo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "XXI"
-tipo: mc
-opciones_explicitas: ["XX", "XXI"]
-
-enunciado: "El año 2001 pertenece al siglo..."
-
-pasos:
-  - "El nuevo siglo/milenio empieza en el año que termina en 1, no en 00."
-
-explicacion: |
-  2001 es el primer año del siglo XXI.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "avanzado"
-  tags: ["calculo_de_siglo", "regla"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para saber a qué siglo pertenece un año, hay que dividirlo por 100 y sumar 1, salvo que el año termine exactamente en 00 (que pertenece al siglo indicado por esa división, sin sumar)."
-
-pasos:
-  - "Es la regla general descrita en la teoría, con su excepción para años terminados en 00."
-
-explicacion: |
-  Verdadero: es la regla completa para calcular el siglo a partir de
-  cualquier año.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "basico"
-  tags: ["notacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Por convención, los siglos se escriben en números romanos: siglo XV, siglo XX, siglo XXI."
-
-pasos:
-  - "Es la notación estándar en libros de historia."
-
-explicacion: |
-  Verdadero: es la convención de notación descrita en la teoría.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "intermedio"
-  tags: ["decada", "nomenclatura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una década suele nombrarse por su primer año: \"los años 80\" se refiere a la década de 1980 a 1989."
-
-pasos:
-  - "Es la convención de nomenclatura de décadas descrita en la teoría."
-
-explicacion: |
-  Verdadero: es la convención habitual para nombrar décadas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "intermedio"
-  tags: ["escalas_de_tiempo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para analizar hechos puntuales conviene usar el año; para procesos, la década o el siglo; para grandes etapas de la humanidad, el milenio."
-
-pasos:
-  - "Es el principio de \"escala apropiada\" descrito en la teoría."
-
-explicacion: |
-  Verdadero: elegir la unidad de tiempo adecuada según lo que se
-  analiza es una habilidad central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "basico"
-  tags: ["siglo", "decada"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un siglo equivale exactamente a 10 décadas."
-
-pasos:
-  - "100 años / 10 años por década = 10 décadas."
-
-explicacion: |
-  Verdadero: es la relación numérica entre estas dos unidades.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "basico"
-  tags: ["milenio", "siglo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un milenio equivale exactamente a 10 siglos."
-
-pasos:
-  - "1000 años / 100 años por siglo = 10 siglos."
-
-explicacion: |
-  Verdadero: es la relación numérica entre estas dos unidades.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "intermedio"
-  tags: ["calculo_de_siglo", "practica"]
-
-variables:
-  anios: [1750, 1215, 1969]
-  siglos: ["XVIII", "XIII", "XX"]
-  idx: uno_de([0, 1, 2])
-
-respuesta: siglos[idx]
-tipo: mc
-opciones_explicitas: ["XII", "XIII", "XVII", "XVIII", "XIX", "XX"]
-
-enunciado: "El año {anios[idx]} pertenece al siglo..."
-
-pasos:
-  - "Dividir el año por 100 y redondear hacia arriba (salvo terminación exacta en 00)."
-
-explicacion: |
-  Aplicar la regla de cálculo de siglo a distintos años concretos es
-  la práctica central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "intermedio"
-  tags: ["milenio", "siglo", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un milenio y un siglo son la misma unidad de tiempo, sólo con nombres distintos."
-
-pasos:
-  - "Un milenio (1000 años) es diez veces más largo que un siglo (100 años)."
-
-explicacion: |
-  Falso: son unidades de magnitud muy distinta, un milenio equivale a
-  10 siglos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "avanzado"
-  tags: ["decada", "ambiguedad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Existe cierta ambigüedad técnica sobre si \"los años 80\" empiezan en 1980 o en 1981 (mismo problema que el cálculo de siglos), pero en el uso cotidiano se acepta la convención más simple de 1980-1989."
-
-pasos:
-  - "Es el mismo tipo de discusión técnica que la del inicio exacto de un siglo, mencionada como matiz en la teoría."
-
-explicacion: |
-  Verdadero: es un matiz técnico mencionado, aunque el uso cotidiano
-  simplifica esta ambigüedad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "intermedio"
-  tags: ["utilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Hablar de \"la Revolución Industrial, siglo XVIII-XIX\" es mucho más manejable mentalmente que enumerar cada año del proceso."
-
-pasos:
-  - "Es la razón central de por qué existen estas unidades de agrupación temporal."
-
-explicacion: |
-  Verdadero: es la utilidad práctica central de década/siglo/milenio
-  como unidades de agrupación.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "intermedio"
-  tags: ["calculo_de_siglo", "metodo"]
-
-enunciado: "Ordená los pasos para calcular a qué siglo pertenece un año dado."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si el año termina exactamente en 00"
-  - "Si termina en 00, dividir por 100 sin sumar nada más"
-  - "Si no termina en 00, dividir por 100 y redondear hacia arriba (sumar 1 al resultado entero)"
-  - "Expresar el resultado en números romanos, según la convención estándar"
-respuesta_orden: ["Revisar si el año termina exactamente en 00", "Si termina en 00, dividir por 100 sin sumar nada más", "Si no termina en 00, dividir por 100 y redondear hacia arriba (sumar 1 al resultado entero)", "Expresar el resultado en números romanos, según la convención estándar"]
-explicacion: |
-  El proceso distingue el caso especial de años terminados en 00 del
-  caso general, y cierra con la notación romana estándar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dominar década, siglo y milenio es el prerrequisito directo de calcular intervalos que cruzan el año 0 (antes y después de Cristo)."
-
-pasos:
-  - "Ver `../antes-y-despues-de-cristo/`: antes de agregar la dificultad extra de la numeración que decrece hacia atrás, hace falta manejar bien estas unidades."
-
-explicacion: |
-  Verdadero: por eso este tema es prerrequisito directo del
-  siguiente en la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "avanzado"
-  tags: ["calculo_de_siglo", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer que un evento ocurrió \"a mediados del siglo XIX\", conviene poder traducir eso mentalmente a un rango aproximado de años (alrededor de 1850), en vez de sólo memorizar el número del siglo sin poder ubicarlo en años concretos."
-
-pasos:
-  - "Es la aplicación práctica de poder ir y venir entre años y siglos con soltura."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema para leer e
-  interpretar textos históricos con fluidez.
-```
-
-## Sección: revolucion-mexicana-1910-1920 (27 preguntas)
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["porfiriato", "causas", "madero"]
-
-variables:
-  anio_postulacion: random(1908, 1910)
-
-respuesta: "re-election"
-tipo: completar
-
-enunciado: "Durante el Porfiriato, el líder {anio_postulacion} anunció su intención de volver a postularse, rompiendo la promesa de no reelección. ¿Qué concepto central buscaba defender Francisco I. Madero con su lema 'Sufragio efectivo, no ___'?"
-
-explicacion: |
-  El lema de Madero era "Sufragio efectivo, no reelección". La reelección perpetua era el símbolo del autoritarismo porfirista.
+  El fin de la Primera Guerra Mundial en 1918 provocó un colapso en la demanda de productos agropecuarios, lo que llevó a los empresarios a recortar salarios para mantener sus ganancias.
 ```
 
 ```
 metadata:
   materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
+  tema: "semana_tragica_1919"
   nivel: "intermedio"
-  tags: ["zapata", "plan_de_ayala", "tierra"]
+  tags: ["huelga", "fora", "vasena"]
 
 variables:
-  lider: uno_de(["Emiliano Zapata", "Pancho Villa"])
+  lugar_huelga: "los Talleres Metalúrgicos Vasena"
 
-respuesta: "La tierra es de quien la trabaja"
-tipo: completar
-
-enunciado: "Si el líder revolucionario es {lider}, ¿cuál fue su principal consigna agraria plasmada en el Plan de Ayala?"
-
-explicacion: |
-  Emiliano Zapata redactó el Plan de Ayala. Su consigna principal era que la tierra pertenecía a quien la trabajaba, exigiendo la devolución de tierras comunales.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["villa", "division_del_norte", "ejercito"]
-
-variables:
-  caudillo: uno_de(["Francisco Villa", "Francisco I. Madero"])
-
-respuesta: "División del Norte"
-tipo: completar
-
-enunciado: "El general {caudillo} comandaba una fuerza militar masiva conocida como la _______________."
-
-explicacion: |
-  Pancho Villa lideraba la División del Norte, un ejército popular con gran capacidad de movilización en el norte de México.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["porfiriato", "modernizacion", "ferrocarriles"]
-
-variables:
-  sector: uno_de(["ferrocarriles", "minas", "puertos"])
-
-respuesta: "ferrocarriles"
-tipo: completar
-
-enunciado: "Durante el Porfiriato, el gobierno invirtió fuertemente en la expansión de los _______________ para conectar las regiones productivas con los puertos de exportación."
-
-explicacion: |
-  La construcción de ferrocarriles fue clave para la modernización económica, aunque benefició principalmente a las élites y a inversionistas extranjeros.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["madero", "diaz", "caida"]
-
-variables:
-  dictador: "Porfirio Díaz"
-
-respuesta: "democracia"
-tipo: completar
-
-enunciado: "Francisco I. Madero buscaba instaurar la _______________ como respuesta al largo régimen dictatorial de {dictador}."
-
-explicacion: |
-  Madero representaba la clase media liberal que exigía el fin de la dictadura y el establecimiento de un régimen democrático.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["alianzas", "traicion", "madero"]
-
-variables:
-  evento: "Traición de la Decena Trágica"
-
-respuesta: "frágil"
-tipo: completar
-
-enunciado: "El gobierno de Madero fue breve y _______________ porque antiguos aliados, como Victoriano Huerta, terminaron traicionándolo."
-
-explicacion: |
-  La coalición anti-díaz se desintegró rápidamente. Madero no pudo controlar a los caudillos revolucionarios ni a los conservadores, llevando a su asesinato.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "avanzado"
-  tags: ["zapata", "plan_de_ayala", "fechas"]
-
-variables:
-  mes: uno_de(["febrero", "marzo", "abril"])
-  dia: random(28, 30)
-
-respuesta: "1911"
+respuesta: "los Talleres Metalúrgicos Vasena"
 tipo: input
 
-enunciado: "El Plan de Ayala fue proclamado en {mes} de {dia}. ¿En qué año se emitió este documento?"
+enunciado: "El conflicto tuvo como detonante inicial una huelga en {lugar_huelga}, en el barrio de Nueva Pompeya."
 
 explicacion: |
-  El Plan de Ayala se proclamó en marzo de 1911, cuando Zapata rompió con Madero al no cumplirse la reforma agraria prometida.
+  La huelga comenzó en los Talleres Metalúrgicos Vasena; la represión policial al piquete y el entierro de las víctimas escalaron hacia una huelga general convocada por la FORA en Buenos Aires.
 ```
 
 ```
 metadata:
   materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["tierra", "ejidos", "comunidades"]
-
-variables:
-  grupo: uno_de(["campesinos", "indígenas", "trabajadores"])
-
-respuesta: "comunales"
-tipo: completar
-
-enunciado: "Bajo el Porfiriato, las tierras {grupo} fueron despojadas y concentradas en latifundios. La revolución buscaba restituirlas como _______________."
-
-explicacion: |
-  La demanda central era la recuperación de las tierras comunales que habían sido expropiadas ilegalmente durante el Porfiriato.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
+  tema: "semana_tragica_1919"
   nivel: "basico"
-  tags: ["villa", "origen", "norte"]
+  tags: ["liga_patriota", "extrema_derecha"]
 
 variables:
-  region: "norte"
+  tipo_organizacion: "extrema derecha"
 
-respuesta: "norte"
-tipo: completar
-
-enunciado: "Francisco Villa era originario de la región del _______________, lo que definió el perfil social y militar de su ejército."
-
-explicacion: |
-  Villa representaba los intereses de los campesinos y trabajadores del norte, con un carácter más popular y menos ideológico que Zapata.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["zapata", "origen", "sur"]
-
-variables:
-  estado: "Morelos"
-
-respuesta: "Morelos"
-tipo: completar
-
-enunciado: "Emiliano Zapata lideró la revolución desde el estado de _______________, donde la presión de las compañías azucareras era mayor."
-
-explicacion: |
-  Morelos era un estado altamente industrializado para la época (azúcar), lo que generaba un conflicto intenso entre campesinos y terratenientes.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["madero", "elecciones", "democracia"]
-
-variables:
-  concepto: "Sufragio efectivo"
-
-respuesta: "no reelección"
-tipo: completar
-
-enunciado: "El lema de Madero incluía 'Sufragio efectivo' y la promesa de _______________."
-
-explicacion: |
-  La no reelección era la propuesta concreta para evitar la perpetuidad en el poder que caracterizó al Porfiriato.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["naturaleza", "guerra_civil", "conflicto"]
-
-variables:
-  tipo_conflicto: "guerra civil"
-
-respuesta: "guerra civil"
-tipo: completar
-
-enunciado: "La Revolución Mexicana evolucionó de un levantamiento político a una _______________ entre diversos caudillos y facciones."
-
-explicacion: |
-  Al fracasar Madero en mediar entre las demandas, el conflicto se tornó en una guerra civil por el control del Estado y la tierra.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["porfiriato", "elite", "desigualdad"]
-
-variables:
-  grupo_beneficiado: "élite terrateniente"
-
-respuesta: "extranjeros"
-tipo: completar
-
-enunciado: "El crecimiento económico del Porfiriato benefició a la élite local y a inversionistas _______________."
-
-explicacion: |
-  La economía porfirista dependía mucho del capital extranjero, especialmente de EE.UU. y Europa, para explotar recursos naturales.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "avanzado"
-  tags: ["madero", "plan_san_luis", "levantamiento"]
-
-variables:
-  lider: "Madero"
-
-respuesta: "20 de noviembre"
-tipo: completar
-
-enunciado: "Francisco I. Madero firmó el Plan de San Luis para iniciar el levantamiento armado el _______________ de 1910."
-
-explicacion: |
-  El Plan de San Luis llamaba a las armas el 20 de noviembre de 1910, fecha que luego se convirtió en la fiesta patria de México.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["huerta", "traicion", "decena_tragica"]
-
-variables:
-  traidor: "Victoriano Huerta"
-
-respuesta: "asesinato"
-tipo: completar
-
-enunciado: "El general {traidor} fue responsable del _______________ de Madero durante la Decena Trágica."
-
-explicacion: |
-  Huerta, leal a Díaz, traicionó a Madero y lo obligó a renunciar y morir, instaurando una dictadura militar.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "avanzado"
-  tags: ["constitucion", "articulo_27", "tierra"]
-
-variables:
-  articulo: 27
-
-respuesta: "tierra"
-tipo: completar
-
-enunciado: "El artículo {articulo} de la Constitución de 1917 establecía que la propiedad originaria de la _______________ correspondía a la Nación."
-
-explicacion: |
-  El Art. 27 permitía al Estado redistribuir la tierra y expropiarlatifundios, cumpliendo una de las principales demandas zapatistas.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["villa", "batalla", "celaya"]
-
-variables:
-  batalla: "Celaya"
-
-respuesta: "derrota"
-tipo: completar
-
-enunciado: "En la batalla de {batalla}, las fuerzas de Villa sufrieron una crucial _______________ frente a las tropas de Álvaro Obregón."
-
-explicacion: |
-  La derrota en Celaya (1915) marcó el declive militar de Villa y consolidó el poder de Obregón y Carranza.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["obregon", "general", "victoria"]
-
-variables:
-  general: "Álvaro Obregón"
-
-respuesta: "Obregón"
-tipo: completar
-
-enunciado: "El general _______________ fue clave para derrotar a Villa y luego se convirtió en presidente."
-
-explicacion: |
-  Obregón fue el estratega militar más exitoso de la fase final de la revolución y luego presidente de México.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["zapata", "plan_de_ayala", "lema"]
-
-variables:
-  lema: "La tierra es de quien la trabaja"
-
-respuesta: "Zapata"
-tipo: completar
-
-enunciado: "El lema '{lema}' fue promovido por _______________."
-
-explicacion: |
-  Este lema resumía la filosofía agraria de Zapata: la legitimidad de la posesión viene del trabajo directo sobre la tierra.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["porfiriato", "estabilidad", "autoritarismo"]
-
-variables:
-  periodo: "Porfiriato"
-
-respuesta: "autoritaria"
-tipo: completar
-
-enunciado: "El {periodo} se caracterizó por una estabilidad _______________ pero marcada por la desigualdad social."
-
-explicacion: |
-  La estabilidad se lograba mediante la represión política y la exclusión de la participación democrática real.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["madero", "clase_media", "politico"]
-
-variables:
-  clase: "clase media"
-
-respuesta: "liberal"
-tipo: completar
-
-enunciado: "Madero representaba a la _______________ mexicana que quería modernizar el país sin destruir la estructura social existente."
-
-explicacion: |
-  Madero era un político liberal de clase media, preocupado por la democracia pero menos radical en la reforma social que Zapata o Villa.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["fin", "1920", "constitucion"]
-
-variables:
-  anio_fin: 1920
-
-respuesta: "1920"
+respuesta: "extrema derecha"
 tipo: input
 
-enunciado: "Aunque la violencia continuó, se considera que la fase principal de la Revolución Mexicana concluyó alrededor del año _______________."
+enunciado: "La Liga Patriótica Argentina fue una organización de {tipo_organizacion} compuesta por sectores conservadores, nacionalistas y militares."
 
 explicacion: |
-  Con la muerte de Zapata (1919) y la caída y asesinato de Carranza (1920, tras el Plan de Agua Prieta), se cierra la fase armada principal, ya bajo la Constitución de 1917 vigente.
+  La Liga Patriótica actuó como una milicia privada de extrema derecha para defender los intereses de las clases dominantes contra el movimiento obrero.
 ```
 
 ```
 metadata:
   materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "avanzado"
-  tags: ["zapata", "muerte", "1919"]
-
-variables:
-  lider: "Emiliano Zapata"
-
-respuesta: "emboscada"
-tipo: completar
-
-enunciado: "Emiliano Zapata fue asesinado en una _______________ organizada por las fuerzas gubernamentales."
-
-explicacion: |
-  La muerte de Zapata fue un golpe duro para el movimiento agrarista, aunque sus ideales perduraron en la constitución.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
+  tema: "semana_tragica_1919"
   nivel: "intermedio"
-  tags: ["villa", "exilio", "fin"]
+  tags: ["yrigoyen", "partido_radical", "intervencion"]
 
 variables:
-  lider: "Pancho Villa"
+  presidente: "Hipólito Yrigoyen"
 
-respuesta: "exilio"
-tipo: completar
+respuesta: "Hipólito Yrigoyen"
+tipo: input
 
-enunciado: "Tras su derrota militar, Villa aceptó un acuerdo y se retiró al _______________ antes de volver brevemente a la política."
+enunciado: "El presidente de la Nación durante la Semana Trágica, {presidente}, del Partido Radical, intervino militarmente para restablecer el orden."
 
 explicacion: |
-  Villa fue pacificado inicialmente, recibiendo una hacienda, pero su poder militar fue desmantelado.
+  Aunque Yrigoyen tenía apoyo popular, su gobierno se alió con las fuerzas conservadoras para reprimir la huelga, priorizando la estabilidad sobre los derechos laborales.
 ```
 
 ```
 metadata:
   materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "avanzado"
-  tags: ["constitucion", "articulo_123", "trabajo"]
-
-variables:
-  articulo: 123
-
-respuesta: "trabajo"
-tipo: completar
-
-enunciado: "El artículo {articulo} de la Constitución de 1917 estableció los derechos de los _______________."
-
-explicacion: |
-  El Art. 123 fue pionero en derechos laborales: jornada máxima, salario mínimo, derecho de huelga y descanso dominical.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
+  tema: "semana_tragica_1919"
   nivel: "basico"
-  tags: ["madero", "lema", "sufragio"]
+  tags: ["ideologias", "anarquismo", "socialismo"]
 
 variables:
-  parte1: "Sufragio efectivo"
+  ideas_influyentes: "anarquistas y socialistas"
 
-respuesta: "no reelección"
-tipo: completar
+respuesta: "anarquistas y socialistas"
+tipo: input
 
-enunciado: "Completa el lema: '{parte1}', _______________."
+enunciado: "El movimiento obrero argentino en 1919 estaba influenciado principalmente por las ideas {ideas_influyentes}."
 
 explicacion: |
-  El lema completo era "Sufragio efectivo, no reelección", enfocándose en la democracia política.
+  La FORA y otros grupos obreros estaban fuertemente influenciados por corrientes anarquistas y socialistas que buscaban la justicia social.
 ```
 
 ```
 metadata:
   materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "avanzado"
-  tags: ["internacional", "eeuu", "intervencion"]
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["liga_patriota", "objetivo"]
 
 variables:
-  pais: "Estados Unidos"
+  objetivo_liga: "defender la civilización"
 
-respuesta: "intervencion"
-tipo: completar
+respuesta: "defender la civilización"
+tipo: input
 
-enunciado: "La relación con {pais} fue complicada, ya que este país temía una _______________ extranjera en sus intereses económicos."
+enunciado: "La Liga Patriótica justificaba sus acciones violentas como una necesidad para {objetivo_liga} contra el 'peligro rojo'."
 
 explicacion: |
-  EE.UU. tuvo una postura ambigua, a veces apoyando a Madero o a Huerta según sus intereses, pero temiendo la inestabilidad en su frontera.
+  La retórica de la Liga se basaba en la defensa de la 'civilización' occidental contra lo que percibían como una amenaza bolchevique o roja.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["cronologia", "fechas"]
+
+variables:
+  inicio: 7
+  fin: 13
+
+respuesta: "7 y 13"
+tipo: input
+
+enunciado: "La Semana Trágica ocurrió entre el día {inicio} y el día {fin} de enero de 1919."
+
+explicacion: |
+  El conflicto violento se extendió durante una semana, específicamente del 7 al 13 de enero de 1919.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["liga_patriota", "milicia"]
+
+variables:
+  caracterizacion: "milicia privada"
+
+respuesta: "milicia privada"
+tipo: input
+
+enunciado: "La Liga Patriótica actuaba efectivamente como una {caracterizacion} encargada de atacar a huelguistas e inmigrantes."
+
+explicacion: |
+  No era un cuerpo oficial del estado, sino una organización civil de extrema derecha que operaba como una milicia paramilitar.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["clases_sociales", "trabajadores"]
+
+variables:
+  sector: "trabajadores"
+
+respuesta: "trabajadores"
+tipo: input
+
+enunciado: "Los recortes salariales y el aumento de la jornada laboral afectaron directamente a los {sector}."
+
+explicacion: |
+  La crisis económica post-guerra llevó a los empresarios a trasladar la carga a los trabajadores mediante peores condiciones laborales.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["burguesia", "socialismo"]
+
+variables:
+  amenaza_percebida: "socialismo"
+
+respuesta: "socialismo"
+tipo: input
+
+enunciado: "La burguesía conservadora temía principalmente la expansión del {amenaza_percebida} durante este período."
+
+explicacion: |
+  El auge del movimiento obrero organizado era visto por las élites como una amenaza directa al orden capitalista y social establecido.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["huelga", "conflicto"]
+
+variables:
+  tipo_conflicto: "disputa económica"
+
+respuesta: "disputa económica"
+tipo: input
+
+enunciado: "Inicialmente, la huelga en los Talleres Vasena fue una {tipo_conflicto}, pero pronto se transformó en un choque político más amplio."
+
+explicacion: |
+  El conflicto comenzó por demandas salariales y de condiciones laborales, escalando a una crisis política nacional.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["liga_patriota", "violencia", "inmigrantes"]
+
+variables:
+  grupo_objetivo: "inmigrantes"
+
+respuesta: "inmigrantes"
+tipo: input
+
+enunciado: "Los grupos de choque de la Liga Patriótica atacaban no solo a huelguistas, sino también a {grupo_objetivo} y sospechosos de izquierda."
+
+explicacion: |
+  La xenofobia fue un componente clave de la Liga, que asociaba a los inmigrantes europeos con el anarquismo y el bolchevismo.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["represión", "ejecuciones"]
+
+variables:
+  metodo: "ejecuciones extrajudiciales"
+
+respuesta: "ejecuciones extrajudiciales"
+tipo: input
+
+enunciado: "La violencia de la Liga Patriótica incluyó detenciones arbitrarias, torturas y {metodo} contra los trabajadores."
+
+explicacion: |
+  La represión fue brutal y muchas víctimas fueron asesinadas sin proceso legal alguno por parte de los grupos de choque.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["migración", "boom_económico"]
+
+variables:
+  causa_migracion: "boom económico"
+
+respuesta: "boom económico"
+tipo: input
+
+enunciado: "Durante la Primera Guerra Mundial, la demanda de productos argentinos generó un {causa_migracion} que atrajo a miles de personas a las ciudades."
+
+explicacion: |
+  La guerra creó una coyuntura económica favorable para Argentina, impulsando la urbanización y el crecimiento de la clase obrera.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["fora", "organización"]
+
+variables:
+  rol_fora: "organizar"
+
+respuesta: "organizar"
+tipo: input
+
+enunciado: "La FORA tuvo un rol central en {rol_fora} la huelga general que desencadenó la Semana Trágica."
+
+explicacion: |
+  La Federación Obrera Regional Argentina fue la principal entidad que coordinó la acción obrera durante este período.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["gobierno", "justificación"]
+
+variables:
+  justificacion: "restablecer el orden"
+
+respuesta: "restablecer el orden"
+tipo: input
+
+enunciado: "El gobierno de Yrigoyen justificó la intervención militar como necesaria para {justificacion} en la capital."
+
+explicacion: |
+  La narrativa oficial presentaba la represión como una medida de emergencia para proteger la seguridad pública.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["economía", "precios"]
+
+variables:
+  tendencia_precios: "cayeron drásticamente"
+
+respuesta: "cayeron drásticamente"
+tipo: input
+
+enunciado: "Al terminar la guerra, los precios de los alimentos {tendencia_precios}, desestabilizando la economía."
+
+explicacion: |
+  El fin de la demanda bélica provocó una caída abrupta en los ingresos del sector agroexportador, clave para la economía argentina.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["liga_patriota", "composición"]
+
+variables:
+  miembros: "conservadores, nacionalistas y militares"
+
+respuesta: "conservadores, nacionalistas y militares"
+tipo: input
+
+enunciado: "La Liga Patriótica estaba compuesta por {miembros} que buscaban proteger sus privilegios."
+
+explicacion: |
+  Fue una coalición heterogénea de élites que unieron sus fuerzas contra el movimiento obrero.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["burguesía", "objetivo"]
+
+variables:
+  objetivo_burguesia: "mantener sus ganancias"
+
+respuesta: "mantener sus ganancias"
+tipo: input
+
+enunciado: "Los empresarios recortaron salarios para {objetivo_burguesia} frente a la caída de los precios de exportación."
+
+explicacion: |
+  La lógica empresarial priorizó la rentabilidad sobre las condiciones de vida de los trabajadores.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "avanzado"
+  tags: ["conflicto", "visión_sociedad"]
+
+variables:
+  naturaleza: "choque frontal"
+
+respuesta: "choque frontal"
+tipo: input
+
+enunciado: "La huelga general representó un {naturaleza} entre dos visiones de sociedad: la burguesía y el proletariado."
+
+explicacion: |
+  Fue más que una disputa laboral; fue un enfrentamiento ideológico y político por la dirección del país.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["liga_patriota", "víctimas"]
+
+variables:
+  victimas: "huelguistas"
+
+respuesta: "huelguistas"
+tipo: input
+
+enunciado: "Los grupos de choque de la Liga Patriótica recorrían las calles atacando principalmente a {victimas}."
+
+explicacion: |
+  Los huelguistas eran el blanco principal de la violencia paramilitar organizada por la Liga.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["derechos", "consecuencias"]
+
+variables:
+  resultado_derechos: "restringidos"
+
+respuesta: "restringidos"
+tipo: input
+
+enunciado: "Como consecuencia de la Semana Trágica, los derechos laborales fueron fuertemente {resultado_derechos} por la represión estatal y paramilitar."
+
+explicacion: |
+  La victoria de la Liga y la intervención militar marcaron un retroceso significativo para la organización obrera.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["cronologia", "huelga"]
+
+variables:
+  mes: "enero"
+
+respuesta: "enero"
+tipo: input
+
+enunciado: "La huelga general que derivó en la Semana Trágica ocurrió en el mes de {mes} de 1919."
+
+explicacion: |
+  Los eventos centrales ocurrieron en la primera quincena de enero de 1919.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["ideología", "anticomunismo"]
+
+variables:
+  concepto: "peligro rojo"
+
+respuesta: "peligro rojo"
+tipo: input
+
+enunciado: "La Liga Patriótica utilizaba el concepto del {concepto} para justificar su violencia contra la izquierda."
+
+explicacion: |
+  El "peligro rojo" era una retórica que asociaba cualquier protesta social con el comunismo bolchevique ruso.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["geografía", "buenos_aires"]
+
+variables:
+  ciudad: "Buenos Aires"
+
+respuesta: "Buenos Aires"
+tipo: input
+
+enunciado: "La violencia de la Semana Trágica se concentró principalmente en la ciudad de {ciudad}."
+
+explicacion: |
+  Aunque hubo ecos en otras ciudades, el epicentro del conflicto fue la capital federal.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "avanzado"
+  tags: ["yrigoyen", "legado", "partido_radical"]
+
+variables:
+  ruptura: "ruptura con la base popular"
+
+respuesta: "ruptura con la base popular"
+tipo: input
+
+enunciado: "La represión de la Semana Trágica marcó una {ruptura} para el gobierno de Yrigoyen, alienando a sus antiguos aliados obreros."
+
+explicacion: |
+  Este evento es visto como un punto de inflexión donde el radicalismo se alejó de sus orígenes más progresistas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["contexto", "primera_guerra_mundial"]
+
+variables:
+  guerra_previa: "Primera Guerra Mundial"
+
+respuesta: "Primera Guerra Mundial"
+tipo: input
+
+enunciado: "El contexto inmediato previo a la crisis de 1919 fue el fin de la {guerra_previa} (1914-1918)."
+
+explicacion: |
+  La Primera Guerra Mundial fue el catalizador económico y social que llevó a la crisis de 1919.
 ```
 
 ## Sección: antes-y-despues-de-cristo (20 preguntas)
@@ -2317,5 +986,1400 @@ pasos:
 explicacion: |
   Verdadero: es la aplicación concreta de este tema en el análisis
   de procesos históricos reales que cruzan el cambio de era.
+```
+
+## Sección: industrializacion-por-sustitucion-de-importaciones-isi (22 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "basico"
+  tags: ["definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "producir localmente lo que antes se importaba"
+tipo: mc
+opciones_explicitas: ["exportar más materias primas", "producir localmente lo que antes se importaba", "abrir la economía sin aranceles"]
+
+enunciado: "La ISI (Industrialización por Sustitución de Importaciones) buscaba principalmente..."
+
+explicacion: |
+  La idea central era fabricar dentro del país los bienes manufacturados
+  que antes se compraban al exterior, para generar empleo y reducir la
+  dependencia económica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "basico"
+  tags: ["cronologia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ISI alcanzó su mayor impulso en Argentina durante el primer gobierno de Juan Domingo Perón (1946-1955)."
+
+explicacion: |
+  Aunque el proceso empezó a cobrar relevancia desde la década de 1930,
+  fue durante el primer peronismo cuando alcanzó su mayor impulso.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "intermedio"
+  tags: ["contexto"]
+
+variables:
+  evento: uno_de(["la crisis mundial de 1929", "la Segunda Guerra Mundial"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{evento}\" fue uno de los eventos que impulsó el surgimiento de la ISI, al interrumpir el comercio internacional."
+
+explicacion: |
+  Ambos eventos cortaron el acceso de los países latinoamericanos a
+  productos industriales importados, empujando a producir localmente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "intermedio"
+  tags: ["politica economica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "aranceles altos a la importación"
+tipo: mc
+opciones_explicitas: ["aranceles altos a la importación", "subsidios a productos importados", "eliminación de impuestos al comercio exterior"]
+
+enunciado: "Para proteger a las fábricas nacientes, el Estado argentino implementó principalmente..."
+
+explicacion: |
+  Los aranceles altos encarecían los productos extranjeros, incentivando
+  a comprar lo producido localmente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "basico"
+  tags: ["organismos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "IAPI"
+tipo: completar
+
+enunciado: "El organismo estatal creado para controlar la compra de materias primas agrarias y su venta al exterior fue el ___ (Instituto Argentino de Promoción del Intercambio)."
+
+respuestas_validas:
+  - "IAPI"
+
+explicacion: |
+  El IAPI centralizaba el comercio exterior agrario, usando ese margen
+  para financiar la industrialización.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "intermedio"
+  tags: ["nacionalizaciones"]
+
+variables:
+  servicio: uno_de(["los ferrocarriles", "las empresas de gas"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Durante la ISI, {servicio} fueron nacionalizados por el Estado argentino."
+
+explicacion: |
+  El Estado nacionalizó servicios públicos clave para fortalecer su
+  control sobre la infraestructura económica del país.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "basico"
+  tags: ["estructura productiva"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "agroexportadora a una con base industrial"
+tipo: mc
+opciones_explicitas: ["industrial a agroexportadora", "agroexportadora a una con base industrial", "minera a financiera"]
+
+enunciado: "Con la ISI, Argentina pasó de ser una nación principalmente..."
+
+explicacion: |
+  El país desarrolló sectores como el alimenticio, textil, químico y
+  automotor, sumando una base industrial a su perfil agroexportador previo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "intermedio"
+  tags: ["efectos sociales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El crecimiento del empleo industrial durante la ISI se acompañó de un movimiento sindical más fuerte, con mayor poder de negociación para los trabajadores."
+
+explicacion: |
+  El auge industrial fortaleció al movimiento obrero organizado, que ganó
+  poder de negociación frente a las patronales.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "avanzado"
+  tags: ["debilidades estructurales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "se volvían ineficientes al depender de la protección estatal"
+tipo: mc
+opciones_explicitas: ["se volvían ineficientes al depender de la protección estatal", "se volvían más competitivas que las extranjeras", "dejaban de necesitar maquinaria importada"]
+
+enunciado: "Una debilidad estructural clave del modelo ISI era que las industrias protegidas..."
+
+explicacion: |
+  Al no competir en mercados abiertos, muchas industrias locales se
+  volvían costosas e ineficientes, incapaces de competir sin protección.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "avanzado"
+  tags: ["restriccion externa"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "de la exportación de productos primarios"
+tipo: mc
+opciones_explicitas: ["de la exportación de productos primarios", "de préstamos internacionales exclusivamente", "de impuestos internos únicamente"]
+
+enunciado: "Para conseguir los dólares necesarios para importar maquinaria industrial, la economía argentina seguía dependiendo principalmente..."
+
+explicacion: |
+  El país seguía necesitando exportar carne, trigo y maíz para conseguir
+  las divisas con las que importar equipos y tecnología.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "avanzado"
+  tags: ["restriccion externa"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una caída en los precios internacionales de la soja o la carne podía afectar directamente la capacidad argentina de importar insumos industriales durante la ISI."
+
+explicacion: |
+  Como los dólares venían de exportar productos primarios, una baja en
+  sus precios reducía la capacidad de importar lo que la industria
+  necesitaba, generando inflación y desabastecimiento.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "intermedio"
+  tags: ["declive"]
+
+variables:
+  factor: uno_de(["la ineficiencia industrial", "la deuda externa", "la hiperinflación"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{factor}\" fue uno de los factores que hicieron insostenible el modelo ISI en las décadas de 1970 y 1980."
+
+explicacion: |
+  Los tres factores combinados (ineficiencia, deuda, hiperinflación)
+  llevaron al declive del modelo hacia fines del siglo XX.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "basico"
+  tags: ["alcance regional"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ISI se extendió por gran parte de América Latina en el siglo XX, y Argentina fue uno de sus ejemplos más tempranos."
+
+explicacion: |
+  No fue un fenómeno exclusivamente argentino: varios países
+  latinoamericanos aplicaron modelos similares, aunque Argentina estuvo
+  entre los pioneros.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "intermedio"
+  tags: ["industria automotriz"]
+
+variables:
+  marca: uno_de(["Ford", "Volkswagen"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La llegada de la marca \"{marca}\" a Argentina es un ejemplo del desarrollo de la industria automotriz durante la ISI."
+
+explicacion: |
+  La instalación de terminales automotrices extranjeras en el país fue
+  uno de los hitos que muestran el esfuerzo por generar producción
+  industrial interna.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "basico"
+  tags: ["industria siderurgica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "SOMISA"
+tipo: completar
+
+enunciado: "La empresa estatal que ejemplifica el desarrollo de la industria siderúrgica argentina durante este período es ___."
+
+respuestas_validas:
+  - "SOMISA"
+
+explicacion: |
+  SOMISA (Sociedad Mixta Siderúrgica Argentina, fundada en 1947) es el
+  hito mencionado como ejemplo del desarrollo de la industria del acero
+  nacional en esa etapa (Siderar, en cambio, nace recién en 1993 de la
+  privatización de SOMISA — es posterior a la era ISI, no un ejemplo de ella).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "intermedio"
+  tags: ["propaganda"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La propaganda de la época de la ISI solía promover el consumo de productos nacionales como un acto patriótico."
+
+explicacion: |
+  Comprar lo producido en el país se presentaba como una forma de apoyar
+  el desarrollo nacional, reforzando el discurso oficial.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "avanzado"
+  tags: ["legado"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "la estructura urbana y la distribución de la riqueza"
+tipo: mc
+opciones_explicitas: ["la estructura urbana y la distribución de la riqueza", "el sistema electoral vigente hoy", "el idioma oficial del país"]
+
+enunciado: "El legado de la ISI en la Argentina contemporánea se nota especialmente en..."
+
+explicacion: |
+  La estructura urbana, la distribución de la riqueza y la identidad
+  nacional están profundamente marcadas por ese período de
+  industrialización.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "intermedio"
+  tags: ["sectores industriales"]
+
+variables:
+  sector: uno_de(["alimenticio", "textil", "químico", "automotor"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sector \"{sector}\" fue uno de los que se desarrolló con fuerza durante la ISI en Argentina."
+
+explicacion: |
+  Estos cuatro sectores están mencionados explícitamente como los que
+  ganaron peso en la nueva estructura industrial del país.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "basico"
+  tags: ["debates actuales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "protección industrial, comercio exterior y desarrollo tecnológico"
+tipo: mc
+opciones_explicitas: ["protección industrial, comercio exterior y desarrollo tecnológico", "el sistema previsional exclusivamente", "la política exterior con Europa"]
+
+enunciado: "Muchas discusiones actuales sobre... tienen sus raíces en los debates y experiencias de la era ISI."
+
+explicacion: |
+  Los debates de hoy sobre proteccionismo, apertura comercial y
+  tecnología nacional se conectan directamente con lo vivido durante
+  la ISI.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "intermedio"
+  tags: ["consumo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ISI permitió que las clases medias y populares se insertaran en el consumo de bienes duraderos, mejorando temporalmente su nivel de vida."
+
+explicacion: |
+  El crecimiento industrial amplió el acceso de amplios sectores sociales
+  a bienes de consumo antes reservados a minorías, aunque el efecto fue
+  temporal.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "basico"
+  tags: ["sigla"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Industrialización por Sustitución de Importaciones"
+tipo: completar
+
+enunciado: "La sigla ISI significa ___."
+
+respuestas_validas:
+  - "Industrialización por Sustitución de Importaciones"
+
+explicacion: |
+  ISI es la sigla de Industrialización por Sustitución de Importaciones,
+  el modelo económico que buscaba producir localmente lo antes importado.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "industrializacion_por_sustitucion_de_importaciones_isi"
+  nivel: "avanzado"
+  tags: ["ciclo economico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "inflación y desabastecimiento"
+tipo: mc
+opciones_explicitas: ["inflación y desabastecimiento", "deflación sostenida", "superávit comercial permanente"]
+
+enunciado: "La combinación de dependencia de divisas agrarias y necesidad de importar tecnología generaba, según el modelo ISI, ciclos de..."
+
+explicacion: |
+  Cuando caían los precios de las exportaciones primarias, escaseaban
+  los dólares para importar insumos, lo que derivaba en inflación y
+  desabastecimiento.
+```
+
+## Sección: periodizacion-historica (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "basico"
+  tags: ["periodizacion", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Periodizar es dividir el tiempo histórico en bloques delimitados por hechos que se consideran lo suficientemente importantes como para marcar un antes y un después."
+
+pasos:
+  - "Es una herramienta de análisis que los historiadores construyen, no una división natural del tiempo."
+
+explicacion: |
+  Verdadero: es la definición central de periodización.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "basico"
+  tags: ["prehistoria"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Prehistoria"
+tipo: mc
+opciones_explicitas: ["Prehistoria", "Edad Antigua", "Edad Media"]
+
+enunciado: "El período que va desde el origen de la humanidad hasta la invención de la escritura se llama..."
+
+pasos:
+  - "Es el primer período de la periodización clásica occidental."
+
+explicacion: |
+  La Prehistoria es el período anterior a la invención de la
+  escritura.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "basico"
+  tags: ["edad_antigua"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Edad Antigua"
+tipo: mc
+opciones_explicitas: ["Prehistoria", "Edad Antigua", "Edad Media"]
+
+enunciado: "El período que va desde la invención de la escritura hasta la caída del Imperio Romano de Occidente (476 d.C.) se llama..."
+
+pasos:
+  - "Es el segundo período de la periodización clásica occidental."
+
+explicacion: |
+  La Edad Antigua va desde la escritura hasta la caída de Roma.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "basico"
+  tags: ["edad_media"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Edad Media"
+tipo: mc
+opciones_explicitas: ["Edad Antigua", "Edad Media", "Edad Moderna"]
+
+enunciado: "El período que va desde el 476 d.C. hasta 1453 o 1492 (según el criterio usado) se llama..."
+
+pasos:
+  - "Es el tercer período de la periodización clásica occidental."
+
+explicacion: |
+  La Edad Media va desde la caída de Roma hasta la caída de
+  Constantinopla o el descubrimiento de América.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "basico"
+  tags: ["edad_moderna"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Edad Moderna"
+tipo: mc
+opciones_explicitas: ["Edad Media", "Edad Moderna", "Edad Contemporánea"]
+
+enunciado: "El período que va desde fines del siglo XV hasta la Revolución Francesa (1789) se llama..."
+
+pasos:
+  - "Es el cuarto período de la periodización clásica occidental."
+
+explicacion: |
+  La Edad Moderna va desde fines del s. XV hasta 1789.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "basico"
+  tags: ["edad_contemporanea"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Edad Contemporánea"
+tipo: mc
+opciones_explicitas: ["Edad Moderna", "Edad Contemporánea", "Edad Media"]
+
+enunciado: "El período que va desde 1789 hasta la actualidad se llama..."
+
+pasos:
+  - "Es el quinto y último período de la periodización clásica occidental."
+
+explicacion: |
+  La Edad Contemporánea va desde la Revolución Francesa hasta hoy.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["periodizacion", "orden"]
+
+enunciado: "Ordená cronológicamente los cinco períodos de la periodización clásica occidental."
+tipo: ordenar
+opciones_explicitas:
+  - "Prehistoria"
+  - "Edad Antigua"
+  - "Edad Media"
+  - "Edad Moderna"
+  - "Edad Contemporánea"
+respuesta_orden: ["Prehistoria", "Edad Antigua", "Edad Media", "Edad Moderna", "Edad Contemporánea"]
+explicacion: |
+  El orden sigue la secuencia cronológica estándar de la
+  periodización clásica occidental.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "avanzado"
+  tags: ["limites_convencionales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Decir que \"la Edad Media terminó en 1492\" es una convención útil para organizar el estudio, no un hecho que ocurrió literalmente ese día para todas las sociedades del planeta."
+
+pasos:
+  - "Ningún cambio histórico ocurre de un día para el otro en todo el mundo a la vez."
+
+explicacion: |
+  Verdadero: los límites de los períodos son convencionales, no
+  hechos absolutos y simultáneos en todas partes.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["limites_convencionales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Distintos historiadores pueden proponer límites algo distintos para un mismo período, según qué criterio prioricen."
+
+pasos:
+  - "Por ejemplo, la Edad Media puede terminar en 1453 o en 1492, según el criterio elegido."
+
+explicacion: |
+  Verdadero: es un matiz importante sobre la flexibilidad de los
+  límites de período según el criterio historiográfico usado.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "avanzado"
+  tags: ["periodizacion_occidental"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La periodización clásica (Prehistoria/Antigua/Media/Moderna/Contemporánea) está construida desde la historia europea, y aplicarla sin más a otras regiones puede ser engañoso."
+
+pasos:
+  - "Los hitos que la organizan (caída de Roma, Revolución Francesa) no tienen el mismo peso o sentido en otras historias regionales."
+
+explicacion: |
+  Verdadero: es un matiz importante sobre las limitaciones de esta
+  periodización fuera del contexto europeo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "avanzado"
+  tags: ["periodizacion_occidental", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aplicar directamente el rótulo \"Edad Media\" a la historia de los pueblos originarios de América antes de 1492 puede ser engañoso, porque ese período fue definido a partir de hitos europeos que no aplican de la misma forma a esas sociedades."
+
+pasos:
+  - "Es el ejemplo concreto mencionado en la teoría sobre las limitaciones de esta periodización."
+
+explicacion: |
+  Verdadero: es la aplicación práctica de por qué esta periodización
+  es una herramienta útil pero no neutral.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["utilidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dividir la historia en períodos permite comparar etapas entre sí, como preguntar qué caracterizaba a la Edad Media que ya no estaba en la Edad Moderna."
+
+pasos:
+  - "Es una de las utilidades centrales de periodizar."
+
+explicacion: |
+  Verdadero: la comparación entre períodos es una de las razones
+  principales por las que periodizar ayuda a pensar históricamente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["utilidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin periodizar, la historia sería una lista interminable de hechos sueltos sin ningún marco organizador."
+
+pasos:
+  - "Es la razón central de por qué periodizar es una herramienta valiosa, más allá de memorizar fechas de corte."
+
+explicacion: |
+  Verdadero: es la conclusión central sobre por qué periodizar ayuda
+  a pensar, no sólo a clasificar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["periodizacion", "conceptual"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El tiempo histórico en sí es continuo; la división en períodos es una construcción de los historiadores, no una propiedad del tiempo mismo."
+
+pasos:
+  - "Es la aclaración conceptual central de por qué periodizar es una \"herramienta\" y no una \"división natural\"."
+
+explicacion: |
+  Verdadero: es el punto de partida conceptual de todo este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["edad_antigua", "edad_media"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "476"
+tipo: completar
+
+enunciado: "El año que marca convencionalmente el límite entre la Edad Antigua y la Edad Media (caída del Imperio Romano de Occidente) es el..."
+
+pasos:
+  - "Es uno de los hitos clásicos de la periodización occidental."
+
+explicacion: |
+  El 476 d.C. es el año convencional de la caída de Roma que marca el
+  inicio de la Edad Media.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["edad_moderna", "edad_contemporanea"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "1789"
+tipo: completar
+
+enunciado: "El año que marca convencionalmente el límite entre la Edad Moderna y la Edad Contemporánea (Revolución Francesa) es el..."
+
+pasos:
+  - "Es otro de los hitos clásicos de la periodización occidental."
+
+explicacion: |
+  1789 es el año convencional de la Revolución Francesa que marca el
+  inicio de la Edad Contemporánea.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["periodizacion", "practica"]
+
+variables:
+  anios: [1200, 1700, 1900]
+  periodos: ["Edad Media", "Edad Moderna", "Edad Contemporánea"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: periodos[idx]
+tipo: mc
+opciones_explicitas: ["Edad Antigua", "Edad Media", "Edad Moderna", "Edad Contemporánea"]
+
+enunciado: "El año {anios[idx]} corresponde a la..."
+
+pasos:
+  - "Ubicar cada año dentro del rango de fechas de cada período de la periodización clásica."
+
+explicacion: |
+  Aplicar los límites de cada período para ubicar años concretos es
+  la práctica central de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["periodizacion", "metodo"]
+
+enunciado: "Ordená los pasos para periodizar un tema histórico específico."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar el rango temporal total del tema a estudiar"
+  - "Buscar hechos suficientemente importantes que marquen posibles cortes de período"
+  - "Dividir el rango en bloques delimitados por esos hechos"
+  - "Verificar que la periodización elegida tenga sentido para el criterio que se quiere analizar"
+respuesta_orden: ["Identificar el rango temporal total del tema a estudiar", "Buscar hechos suficientemente importantes que marquen posibles cortes de período", "Dividir el rango en bloques delimitados por esos hechos", "Verificar que la periodización elegida tenga sentido para el criterio que se quiere analizar"]
+explicacion: |
+  El proceso va de delimitar el rango total a construir la división
+  en bloques según hitos relevantes.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "avanzado"
+  tags: ["prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Periodizar con precisión es el prerrequisito directo de analizar causa y consecuencia: antes de estudiar por qué ocurrió algo, hace falta un marco temporal claro donde ubicar esas causas y consecuencias."
+
+pasos:
+  - "Ver `../causa-y-consecuencia/`: es el tema siguiente de la cadena de pensamiento histórico."
+
+explicacion: |
+  Verdadero: por eso este tema es prerrequisito directo del
+  siguiente en la cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "avanzado"
+  tags: ["periodizacion", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al estudiar un hecho histórico, ubicarlo primero dentro de la periodización general (qué edad, qué siglo) ayuda a comparar rápidamente con otros procesos conocidos de esa misma etapa."
+
+pasos:
+  - "Es la aplicación práctica directa de este tema como estrategia de estudio."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema al estudiar
+  cualquier hecho histórico nuevo.
+```
+
+## Sección: causa-y-consecuencia (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "basico"
+  tags: ["causa", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una causa es una condición o hecho que contribuye a producir otro hecho (la consecuencia)."
+
+pasos:
+  - "En historia, rara vez una causa \"obliga\" mecánicamente a la consecuencia, como en física."
+
+explicacion: |
+  Verdadero: es la definición central de causa en el análisis
+  histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["causa", "probabilidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En historia, una causa hace que la consecuencia sea más probable o posible, dentro de decisiones humanas que podrían haber sido distintas."
+
+pasos:
+  - "A diferencia de una relación mecánica como en física, hay margen de decisión humana involucrado."
+
+explicacion: |
+  Verdadero: es un matiz importante sobre cómo funciona la
+  causalidad en el análisis histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["causas_inmediatas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "causa inmediata"
+tipo: mc
+opciones_explicitas: ["causa inmediata", "causa profunda"]
+
+enunciado: "El asesinato del archiduque Francisco Fernando, como el hecho puntual que \"disparó\" directamente la Primera Guerra Mundial, es un ejemplo de..."
+
+pasos:
+  - "Es el hecho puntual que desencadena directamente el acontecimiento."
+
+explicacion: |
+  La causa inmediata es el hecho puntual que dispara directamente un
+  acontecimiento.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["causas_profundas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "causa profunda"
+tipo: mc
+opciones_explicitas: ["causa inmediata", "causa profunda"]
+
+enunciado: "Las tensiones entre potencias europeas, las alianzas militares y el nacionalismo, que ya existían antes del asesinato de Francisco Fernando, son ejemplos de..."
+
+pasos:
+  - "Son condiciones de fondo que venían gestándose desde antes del hecho puntual."
+
+explicacion: |
+  Las causas profundas (o estructurales) son condiciones de fondo que
+  explican por qué la causa inmediata tuvo el efecto que tuvo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["causas_inmediatas", "causas_profundas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin las causas profundas, la causa inmediata (el asesinato del archiduque) no habría tenido el mismo efecto: explica por qué ese hecho puntual desató una guerra mundial y no un conflicto menor."
+
+pasos:
+  - "Es la razón por la que ambos tipos de causa se analizan juntos, no por separado."
+
+explicacion: |
+  Verdadero: es la relación central entre causa inmediata y causa
+  profunda en el análisis histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["correlacion_vs_causalidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Que dos hechos ocurran cerca en el tiempo no significa que uno haya causado al otro: puede ser coincidencia, o ambos pueden ser consecuencia de una tercera causa común."
+
+pasos:
+  - "Es el error más común al analizar relaciones causales en historia."
+
+explicacion: |
+  Verdadero: es el principio central para no confundir cercanía
+  temporal con causalidad real.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["correlacion_vs_causalidad", "evidencia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Establecer una relación de causa-consecuencia requiere evidencia de un mecanismo real que conecte ambos hechos, no sólo cercanía temporal."
+
+pasos:
+  - "Es el criterio central para validar una relación causal, más allá de que los hechos ocurran cerca en el tiempo."
+
+explicacion: |
+  Verdadero: es el requisito central para afirmar una relación
+  causal de forma rigurosa.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["correlacion_vs_causalidad", "detectar_falacias"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Confundir correlación con causalidad en historia es el mismo tipo de error de razonamiento que la generalización apresurada ya vista en `../../lengua/detectar-falacias/`, aplicado ahora al análisis histórico."
+
+pasos:
+  - "Ver `../../lengua/detectar-falacias/`: es la conexión directa entre este tema y esa falacia ya estudiada."
+
+explicacion: |
+  Verdadero: es la relación entre este error histórico y su
+  equivalente ya conocido en Lengua.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["consecuencias_corto_plazo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una consecuencia a corto plazo es un efecto que se ve poco después del hecho causante."
+
+pasos:
+  - "Es una de las dos categorías de consecuencia según el tiempo que tardan en manifestarse."
+
+explicacion: |
+  Verdadero: es la definición de consecuencia a corto plazo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["consecuencias_largo_plazo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una consecuencia a largo plazo se manifiesta años o décadas después, y a veces es más importante que los efectos inmediatos, aunque menos evidente en el momento."
+
+pasos:
+  - "Es la otra categoría de consecuencia según el tiempo que tardan en manifestarse."
+
+explicacion: |
+  Verdadero: es la definición de consecuencia a largo plazo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["cadenas_causales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las cadenas causales no terminan en un solo eslabón: la consecuencia de un hecho puede convertirse en la causa de otro hecho posterior."
+
+pasos:
+  - "Analizar historia a menudo implica seguir estas cadenas varios pasos hacia adelante o hacia atrás."
+
+explicacion: |
+  Verdadero: es el concepto de cadena causal, más allá de una
+  relación causa-consecuencia aislada.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["causas_inmediatas", "causas_profundas", "practica"]
+
+variables:
+  ejemplos: ["la firma de un tratado que desencadenó directamente una guerra", "décadas de crisis económica y descontento social que venían acumulándose antes de una revolución"]
+  tipos: ["causa inmediata", "causa profunda"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["causa inmediata", "causa profunda"]
+
+enunciado: "\"{ejemplos[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "El hecho puntual que dispara directamente es inmediata; las condiciones de fondo acumuladas son profundas."
+
+explicacion: |
+  Distinguir causa inmediata de causa profunda en un ejemplo concreto
+  es la aplicación central de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["causas_profundas", "matiz"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un mismo hecho histórico puede tener varias causas profundas al mismo tiempo (económicas, sociales, políticas), no sólo una."
+
+pasos:
+  - "Es un anticipo del concepto de multicausalidad, tema más adelante en la cadena."
+
+explicacion: |
+  Verdadero: es coherente con la idea de que rara vez hay una única
+  causa detrás de un hecho histórico importante.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["consecuencias_corto_plazo", "consecuencias_largo_plazo", "practica"]
+
+variables:
+  consecuencias: ["la caída inmediata de un gobierno tras un golpe de Estado", "un cambio profundo en las instituciones políticas de un país, visible recién décadas después"]
+  tipos: ["consecuencia a corto plazo", "consecuencia a largo plazo"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["consecuencia a corto plazo", "consecuencia a largo plazo"]
+
+enunciado: "\"{consecuencias[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "El efecto inmediato es corto plazo; el efecto que tarda décadas en verse es largo plazo."
+
+explicacion: |
+  Distinguir consecuencias según su horizonte temporal es una
+  aplicación práctica central de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["correlacion_vs_causalidad", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si dos hechos ocurrieron el mismo año en distintas partes del mundo sin ninguna relación demostrable entre ellos, se puede afirmar con seguridad que uno causó al otro."
+
+pasos:
+  - "Sin evidencia de un mecanismo real que los conecte, la simultaneidad no es suficiente para afirmar causalidad."
+
+explicacion: |
+  Falso: la coincidencia temporal sola no es evidencia suficiente de
+  causalidad, hace falta un mecanismo demostrable.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Analizar causas y consecuencias requiere un marco temporal claro (periodización), para poder ubicar en qué momento ocurrió cada hecho relacionado."
+
+pasos:
+  - "Ver `../periodizacion-historica/`: es el prerrequisito directo de este tema."
+
+explicacion: |
+  Verdadero: es la conexión central entre este tema y su
+  prerrequisito de la cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["big_six"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Causa y consecuencia es uno de los 6 conceptos del marco \"Big Six\" (Seixas & Morton) de pensamiento histórico, una referencia internacional en didáctica de la Historia."
+
+pasos:
+  - "Es el contexto académico de este tema, mencionado en la teoría."
+
+explicacion: |
+  Verdadero: es el marco teórico de referencia que organiza este
+  tema y varios de los siguientes en la cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["causa_y_consecuencia", "metodo"]
+
+enunciado: "Ordená los pasos para analizar las causas de un hecho histórico."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar la causa inmediata (el hecho puntual que disparó el acontecimiento)"
+  - "Buscar las causas profundas o estructurales que venían gestándose desde antes"
+  - "Revisar si hay evidencia real de conexión entre esas causas y la consecuencia, no sólo cercanía temporal"
+  - "Distinguir consecuencias a corto y largo plazo del hecho analizado"
+respuesta_orden: ["Identificar la causa inmediata (el hecho puntual que disparó el acontecimiento)", "Buscar las causas profundas o estructurales que venían gestándose desde antes", "Revisar si hay evidencia real de conexión entre esas causas y la consecuencia, no sólo cercanía temporal", "Distinguir consecuencias a corto y largo plazo del hecho analizado"]
+explicacion: |
+  El proceso va de la causa más visible (inmediata) a las más
+  profundas, verificando evidencia real y considerando el horizonte
+  temporal de las consecuencias.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Comparar qué cambió y qué se mantuvo en el tiempo (cambio y continuidad) presupone ya poder identificar qué causó cada cambio."
+
+pasos:
+  - "Ver `../cambio-y-continuidad/`: es el tema siguiente de la cadena de pensamiento histórico."
+
+explicacion: |
+  Verdadero: por eso este tema es prerrequisito directo del
+  siguiente en la cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["causa_y_consecuencia", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al analizar cualquier hecho histórico o actual, conviene distinguir la causa inmediata de las causas profundas, y evitar afirmar una relación causal sin evidencia de un mecanismo real, sólo por cercanía temporal."
+
+pasos:
+  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema al análisis de
+  cualquier hecho histórico, pasado o presente.
 ```
 

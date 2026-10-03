@@ -1,454 +1,8 @@
 # Examen jefe — [PENDIENTE #802]
 
-> Logro #802. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #802. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **128 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: indicadores-sociales-de-argentina (23 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["hacinamiento", "calculos", "critico"]
-
-variables:
-  habitantes: 12
-  dormitorios: 3
-
-respuesta: "si"
-tipo: input
-
-enunciado: "En un hogar con {habitantes} habitantes y {dormitorios} dormitorios, ¿hay hacinamiento? (escribe 'si' o 'no')."
-
-explicacion: |
-  El ratio es 12 / 3 = 4. Como 4 es mayor que 2, hay hacinamiento.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["NBI", "definicion", "carencias"]
-
-variables:
-  condicion1: falso
-  condicion2: falso
-  condicion3: falso
-
-respuesta: "al menos una"
-tipo: completar
-
-enunciado: "Un hogar se considera con Necesidad Básica Insatisfecha (NBI) si cumple {condicion1} una de las condiciones de carencia (vivienda precaria, hacinamiento o niños sin escolaridad)."
-
-explicacion: |
-  El NBI es un indicador compuesto. No basta con tener un solo problema; la definición clásica establece que si el hogar presenta AL MENOS UNA de las carencias estructurales (vivienda precaria, hacinamiento o falta de escolaridad infantil), se clasifica como NBI.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["hacinamiento", "calculo", "densidad"]
-
-variables:
-  habitantes: random(5, 15)
-  dormitorios: random(1, 4)
-
-respuesta: "{redondear(habitantes / dormitorios, 1)}"
-tipo: input
-
-enunciado: "Si un hogar tiene {habitantes} habitantes y {dormitorios} dormitorios, ¿cuál es la relación de personas por dormitorio? (Redondear a 1 decimal)."
-
-explicacion: |
-  El hacinamiento se mide dividiendo el número de habitantes entre el número de dormitorios. Si esta relación es mayor a 2, se considera hacinamiento severo. En este caso, la relación es {redondear(habitantes / dormitorios, 1)}.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["pobreza", "ingreso", "canasta"]
-
-variables:
-  tipo_pobreza: uno_de(["indigente", "general"])
-
-respuesta: tipo_pobreza
-tipo: completar
-
-enunciado: "Cuando los ingresos de un hogar no alcanzan para cubrir la canasta básica de ALIMENTOS, se denomina pobreza {tipo_pobreza}."
-
-explicacion: |
-  La pobreza indigente se define específicamente por la incapacidad de cubrir la canasta básica de alimentos. La pobreza general abarca la canasta básica total (alimentos + bienes y servicios no alimentarios).
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["hacinamiento", "umbral", "regla"]
-
-variables:
-  valor: 2
-
-respuesta: "2"
-tipo: input
-
-enunciado: "Según los estándares utilizados en Argentina, se considera que hay hacinamiento cuando la relación habitantes/dormitorios es mayor a {valor}."
-
-explicacion: |
-  El umbral clásico para detectar hacinamiento es una relación superior a 2 personas por dormitorio. Esto indica que el espacio físico es insuficiente para garantizar la privacidad y el descanso adecuado.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["desigualdad", "territorio", "pobreza"]
-
-variables:
-  region: uno_de(["norte", "centro", "sur"])
-
-respuesta: region
-tipo: completar
-
-enunciado: "En Argentina, las provincias de la región {region} suelen presentar tasas más altas de pobreza e indicadores de carencia estructural en comparación con otras zonas del país."
-
-explicacion: |
-  Históricamente, las provincias del norte argentino presentan mayores índices de pobreza y NBI debido a factores estructurales, menos industrialización y menor acceso a servicios públicos comparado con el centro del país.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["vivienda", "NBI", "materiales"]
-
-variables:
-  material: uno_de(["ladrillo", "quincha", "madera"])
-
-respuesta: material
-tipo: completar
-
-enunciado: "Para ser considerada vivienda precaria en el cálculo del NBI, el techo o las paredes deben estar construidos con materiales como {material} o similares no dignos, en lugar de ladrillo o bloques sólidos."
-
-explicacion: |
-  La condición de vivienda precaria se refiere a la falta de materiales de construcción dignos. Materiales como quincha, cartón o madera en mal estado suelen ser indicadores de esta carencia en las encuestas.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "avanzado"
-  tags: ["migracion", "urbanizacion", "hacinamiento"]
-
-variables:
-  causa: "crecimiento_urbano_desordenado"
-
-respuesta: causa
-tipo: completar
-
-enunciado: "El fenómeno de migración interna y el {causa} generan asentamientos periféricos donde el hacinamiento se intensifica debido a la falta de planificación territorial."
-
-explicacion: |
-  El crecimiento urbano desordenado, impulsado a menudo por migraciones internas hacia grandes ciudades, conduce a la formación de barrios periféricos con infraestructura deficiente, lo que agrava el problema del hacinamiento.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["pobreza", "definicion", "diferencia"]
-
-variables:
-  diferencia: "canasta_basica_total"
-
-respuesta: diferencia
-tipo: completar
-
-enunciado: "La pobreza general se diferencia de la indigente porque toma como referencia la canasta básica de {diferencia}, que incluye alimentos y servicios no alimentarios."
-
-explicacion: |
-  La pobreza indigente mide la incapacidad de comprar alimentos. La pobreza general mide la incapacidad de cubrir la canasta básica total, que es más amplia e incluye servicios como transporte, salud y vestimenta.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["NBI", "logica", "condicion"]
-
-variables:
-  tiene_vivienda_pobre: verdadero
-  tiene_hacinamiento: falso
-  ninos_sin_escuela: falso
-
-respuesta: "si"
-tipo: completar
-
-enunciado: "Si un hogar tiene vivienda precaria ({tiene_vivienda_pobre}), no tiene hacinamiento ({tiene_hacinamiento}) y sus hijos asisten a la escuela ({ninos_sin_escuela}), ¿tiene NBI? (Responder 'si' o 'no')."
-
-explicacion: |
-  Si. El hogar tiene NBI porque cumple con al menos una de las condiciones: la vivienda precaria. No es necesario que cumpla todas las condiciones, solo una es suficiente para ser clasificado como tal.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["importancia", "calidad_vida", "estadistica"]
-
-variables:
-  funcion: "cuantificar"
-
-respuesta: funcion
-tipo: completar
-
-enunciado: "Los indicadores sociales permiten {funcion} la calidad de vida de una población, transformando condiciones subjetivas en datos objetivos y medibles."
-
-explicacion: |
-  Los indicadores sociales son herramientas estadísticas fundamentales para cuantificar (medir numéricamente) aspectos como la salud, educación y vivienda, permitiendo comparar realidades y diseñar políticas públicas.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["hacinamiento", "severo", "definicion"]
-
-variables:
-  limite: 2
-
-respuesta: "2"
-tipo: input
-
-enunciado: "Se considera hacinamiento severo cuando la relación de habitantes por dormitorio supera el límite de {limite}."
-
-explicacion: |
-  El umbral estándar para considerar hacinamiento es una relación mayor a 2 personas por dormitorio. Si la relación es mayor a este número, se considera que el espacio es insuficiente para el bienestar de los ocupantes.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "avanzado"
-  tags: ["desigualdad", "territorio", "patrones"]
-
-variables:
-  patron: "geograficos"
-
-respuesta: patron
-tipo: completar
-
-enunciado: "La distribución de la pobreza en Argentina revela patrones {patron} claros, concentrándose más en ciertas provincias y periferias urbanas que en otras."
-
-explicacion: |
-  La pobreza no se distribuye aleatoriamente; sigue patrones geográficos históricos y económicos, afectando desproporcionadamente a las regiones del norte y a los cinturones de pobreza alrededor de las grandes ciudades.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["NBI", "educacion", "escolaridad"]
-
-variables:
-  condicion: "asistir"
-
-respuesta: condicion
-tipo: completar
-
-enunciado: "Una de las variables del NBI es la escolaridad: se considera carencia si hay niños en el hogar que no {condicion} a la escuela."
-
-explicacion: |
-  La falta de escolaridad infantil es un indicador clave de pobreza intergeneracional. Si un niño en edad escolar no asiste a la escuela, el hogar es marcado como con NBI por esta variable.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["pobreza", "calcula", "porcentaje"]
-
-variables:
-  total_poblacion: random(1000000, 5000000)
-  poblacion_pobre: random(200000, 1500000)
-
-respuesta: "{redondear(poblacion_pobre / total_poblacion * 100, 1)}"
-tipo: input
-
-enunciado: "Si en una provincia de {total_poblacion} habitantes, {poblacion_pobre} viven en situación de pobreza, ¿cuál es la tasa de pobreza? (Expresar como número entero o decimal, sin el símbolo %)."
-
-explicacion: |
-  La tasa de pobreza se calcula dividiendo la población pobre entre la población total y multiplicando por 100. En este caso: {poblacion_pobre} / {total_poblacion} * 100 = {redondear(poblacion_pobre / total_poblacion * 100, 1)}%.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["hacinamiento", "privacidad", "impacto"]
-
-variables:
-  impacto: "menores"
-
-respuesta: impacto
-tipo: completar
-
-enunciado: "El hacinamiento se traduce en {impacto} oportunidades de desarrollo personal y comunitario debido a la falta de espacio físico y privacidad."
-
-explicacion: |
-  La falta de espacio adecuado afecta directamente la salud mental, el rendimiento escolar y la cohesión social, generando un ciclo de desventaja para las familias que viven en condiciones de hacinamiento.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["pobreza", "indigente", "alimentos"]
-
-variables:
-  referencia: "alimentos"
-
-respuesta: referencia
-tipo: completar
-
-enunciado: "La pobreza indigente se define como la incapacidad de cubrir la canasta básica de {referencia}."
-
-explicacion: |
-  La pobreza indigente es la forma más extrema de exclusión, donde el hogar no puede comprar ni siquiera los alimentos mínimos necesarios para sobrevivir.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["NBI", "servicios", "acceso"]
-
-variables:
-  relacion: "acceso"
-
-respuesta: relacion
-tipo: completar
-
-enunciado: "El NBI captura la falta de {relacion} a servicios básicos y educación, más allá de la situación económica del hogar."
-
-explicacion: |
-  El NBI es una medida de acceso a derechos básicos. Evalúa si la familia tiene acceso efectivo a una vivienda digna, un espacio habitable adecuado y la educación obligatoria para sus hijos.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["pobreza", "general", "servicios"]
-
-variables:
-  servicios: "no alimentarios"
-
-respuesta: servicios
-tipo: completar
-
-enunciado: "La pobreza general incluye la incapacidad de cubrir la canasta básica de alimentos más los bienes y servicios {servicios}."
-
-explicacion: |
-  La pobreza general es un indicador más amplio que la indigente. Incluye la capacidad de cubrir no solo la alimentación, sino también gastos esenciales como transporte, salud, vestimenta y vivienda.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "avanzado"
-  tags: ["hacinamiento", "distribucion", "urbano"]
-
-variables:
-  zona: "periferias"
-
-respuesta: zona
-tipo: completar
-
-enunciado: "El hacinamiento en Argentina es más frecuente en las {zona} de las grandes ciudades y en asentamientos informales, debido al crecimiento demográfico no planificado."
-
-explicacion: |
-  El hacinamiento no es uniforme. Se concentra en las periferias urbanas donde la oferta de vivienda formal es escasa y los precios son prohibitivos, forzando a las familias a ocupar espacios insuficientes.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "avanzado"
-  tags: ["hacinamiento", "salud", "impacto"]
-
-variables:
-  efecto: "mayor"
-
-respuesta: efecto
-tipo: completar
-
-enunciado: "El hacinamiento está ligado a un {efecto} riesgo de enfermedades respiratorias y infecciosas debido a la falta de ventilación y higiene adecuada."
-
-explicacion: |
-  La densidad poblacional excesiva en espacios reducidos facilita la transmisión de enfermedades y dificulta el mantenimiento de condiciones higiénicas, impactando negativamente en la salud pública.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["pobreza", "economia", "fluctuacion"]
-
-variables:
-  variable: "economia"
-
-respuesta: variable
-tipo: completar
-
-enunciado: "La tasa de pobreza en Argentina suele fluctuar con la {variable} nacional, aumentando en tiempos de crisis y disminuyendo en etapas de crecimiento."
-
-explicacion: |
-  A diferencia del NBI que es más estructural y cambia lentamente, la pobreza por ingreso es más sensible a los ciclos económicos, variando rápidamente con la inflación y el empleo.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["resumen", "indicadores", "importancia"]
-
-variables:
-  objetivo: "desigualdad"
-
-respuesta: objetivo
-tipo: completar
-
-enunciado: "Los indicadores sociales como NBI, pobreza y hacinamiento son fundamentales para entender la {objetivo} territorial en Argentina."
-
-explicacion: |
-  Estos indicadores permiten objetivar la desigualdad territorial, mostrando que la calidad de vida no es uniforme en el territorio y ayudando a identificar las zonas que requieren intervención prioritaria.
-```
 
 ## Sección: migraciones-internacionales (29 preguntas)
 
@@ -2462,5 +2016,531 @@ enunciado: "La rica mezcla cultural del Caribe se refleja especialmente en su:"
 
 explicacion: |
   La diversidad cultural del Caribe es evidente en su música, gastronomía y sociedad, fruto de la colonización y el intercambio forzado.
+```
+
+## Sección: recursos-hidricos-y-gestion (25 preguntas)
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["agua_dulce", "distribucion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Verdadero o Falso: Más del 50% del agua disponible en la Tierra es agua dulce accesible para el ser humano."
+
+explicacion: |
+  Falso. La inmensa mayoría del agua en la Tierra es salada (océanos). Solo alrededor del 2.5% es agua dulce, y de esa pequeña fracción, gran parte está inaccesible (congelada o muy profunda).
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["definicion", "vida"]
+
+respuesta: "agua"
+tipo: completar
+
+enunciado: "El ______ es el elemento fundamental que sostiene la vida en nuestro planeta, pero su distribución es desigual."
+
+respuestas_validas:
+  - "agua"
+  - "El agua"
+
+explicacion: |
+  El agua es esencial para la vida y las actividades humanas. Aunque abundante en总量, su disponibilidad como recurso hídrico dulce es limitada y desigual.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["conceptos_basicos", "finito"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: El agua es un bien finito y esencial para múltiples actividades económicas y sociales."
+
+explicacion: |
+  Verdadero. Aunque el agua se recicla naturalmente, la cantidad total de agua dulce utilizable en una región dada es limitada (finita) y crítica para la agricultura, industria y vida humana.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["agua_subterranea", "definicion"]
+
+respuesta: "acuíferos"
+tipo: completar
+
+enunciado: "Las reservas de agua dulce subterráneas que pueden ser captadas se denominan ______."
+
+respuestas_validas:
+  - "acuíferos"
+  - "acuífero"
+
+explicacion: |
+  Los acuíferos son formaciones geológicas subterráneas que almacenan y transmiten agua dulce, constituyendo una reserva estratégica importante para el suministro humano.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["gestion", "mitos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Verdadero o Falso: Gestionar el agua ya es solo cuestión de construir represas para asegurar su sostenibilidad."
+
+explicacion: |
+  Falso. La gestión moderna del agua va más allá de la infraestructura física (represas) e incluye la protección de fuentes naturales, la conservación de ecosistemas y la regulación de usos para asegurar la sostenibilidad a largo plazo.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["definicion", "agua_dulce"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: Los recursos hídricos incluyen tanto aguas superficiales (ríos, lagos) como subterráneas (acuíferos)."
+
+explicacion: |
+  Verdadero. La definición de recursos hídricos abarca todas las reservas de agua dulce accesibles, independientemente de si están en la superficie o bajo tierra.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["contaminacion", "agroquímicos"]
+
+variables:
+  region: uno_de(["norte de Córdoba", "región pampeana"])
+
+respuesta: "degradación"
+tipo: mc
+
+enunciado: "En {region}, el uso excesivo de agroquímicos provoca la _____ de la calidad del agua."
+
+opciones_explicitas: ["mejora", "degradación", "purificación", "aumento"]
+
+explicacion: |
+  La intensa actividad agrícola en zonas como el norte de Córdoba o la región pampeana ha provocado la degradación de la calidad del agua por agroquímicos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["energia", "hidroelectricidad"]
+
+variables:
+  fuente: "agua"
+
+respuesta: "energía"
+tipo: completar
+
+enunciado: "El agua es la base para la generación de _____ hidroeléctrica."
+
+respuestas_validas:
+  - "energía"
+  - "electricidad"
+
+explicacion: |
+  El agua es fundamental para la generación de energía hidroeléctrica, una fuente importante de poder en muchos países.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["finito", "gestión"]
+
+variables:
+  bien: "agua"
+
+respuesta: "finito"
+tipo: completar
+
+enunciado: "El agua es un bien _____ y esencial para la vida."
+
+respuestas_validas:
+  - "finito"
+  - "limitado"
+
+explicacion: |
+  Aunque abundante en la Tierra, el agua dulce utilizable es un bien finito que requiere gestión cuidadosa.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["cuenca", "paraná"]
+
+variables:
+  rio: "Paraná"
+
+respuesta: "Paraná"
+tipo: completar
+
+enunciado: "El caso práctico de gestión incluye la cuenca del río _____ y el Río de la Plata."
+
+respuestas_validas:
+  - "Paraná"
+  - "paraná"
+
+explicacion: |
+  La cuenca del río Paraná es un ejemplo clave de aplicación práctica en la gestión de recursos hídricos en Argentina.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "avanzado"
+  tags: ["sostenibilidad", "futuro"]
+
+variables:
+  objetivo: "sostenibilidad"
+
+respuesta: "sostenibilidad"
+tipo: completar
+
+enunciado: "Gestionar el agua implica asegurar su _____ para las futuras generaciones."
+
+respuestas_validas:
+  - "sostenibilidad"
+  - "sostenible"
+
+explicacion: |
+  La gestión moderna del agua busca proteger las fuentes naturales para garantizar su sostenibilidad a largo plazo.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["sobreexplotación", "napas"]
+
+variables:
+  accion: "extracción intensiva"
+
+respuesta: "disminución"
+tipo: mc
+
+enunciado: "La {accion} de napas subterráneas provoca la _____ de sus niveles."
+
+opciones_explicitas: ["aumento", "disminución", "estabilización", "purificación"]
+
+explicacion: |
+  La extracción intensiva de napas subterráneas ha provocado la disminución de sus niveles en varias regiones agrícolas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["ecosistemas", "preservación"]
+
+variables:
+  funcion: "preservación"
+
+respuesta: "preservación"
+tipo: completar
+
+enunciado: "El agua es vital para la _____ de los ecosistemas."
+
+respuestas_validas:
+  - "preservación"
+  - "conservación"
+
+explicacion: |
+  Más allá del uso humano, el agua es esencial para mantener y preservar los ecosistemas naturales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["uso_basico", "hidratación"]
+
+variables:
+  uso: "hidratación"
+
+respuesta: "hidratación"
+tipo: completar
+
+enunciado: "El agua es vital para la _____ y la higiene humana."
+
+respuestas_validas:
+  - "hidratación"
+
+explicacion: |
+  La hidratación y la higiene son usos básicos e insustituibles del agua para la supervivencia humana.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["ejemplo", "córdoba"]
+
+variables:
+  lugar: "norte de Córdoba"
+
+respuesta: "contaminación"
+tipo: mc
+
+enunciado: "En {lugar}, la intensa actividad agrícola genera problemas de _____ del agua."
+
+opciones_explicitas: ["limpieza", "contaminación", "abundancia", "claridad"]
+
+explicacion: |
+  El norte de Córdoba es un ejemplo de zona donde la actividad agrícola intensa provoca contaminación del agua por agroquímicos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "avanzado"
+  tags: ["patagonia", "glaciares"]
+
+variables:
+  region: "Patagonia"
+
+respuesta: "deshielo"
+tipo: completar
+
+enunciado: "En {region}, el deshielo de los glaciares altera los caudales."
+
+respuestas_validas:
+  - "deshielo"
+  - "descongelamiento"
+
+explicacion: |
+  La Patagonia enfrenta cambios en sus caudales debido al deshielo de sus glaciares, afectado por el cambio climático.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "avanzado"
+  tags: ["geopolítica", "desafío"]
+
+variables:
+  desafio: "geopolítico"
+
+respuesta: "geopolítico"
+tipo: completar
+
+enunciado: "La gestión del agua en Argentina es un desafío _____ y ambiental constante."
+
+respuestas_validas:
+  - "geopolítico"
+  - "geopolitico"
+
+explicacion: |
+  La desigual distribución del agua convierte su gestión en un desafío geopolítico constante debido a las disputas entre provincias.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["clima", "lluvia"]
+
+variables:
+  elemento: "patrones de lluvia"
+
+respuesta: "alterar"
+tipo: mc
+
+enunciado: "El cambio climático está tendiendo a _____ los patrones de lluvia."
+
+opciones_explicitas: ["estabilizar", "alterar", "eliminar", "aumentar uniformemente"]
+
+explicacion: |
+  El cambio climático altera los patrones de lluvia, haciendo más impredecible la disponibilidad de agua.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["agricultura", "consumo"]
+
+variables:
+  sector: "agricultura"
+
+respuesta: "mayor"
+tipo: mc
+
+enunciado: "La agricultura consume la _____ parte del agua dulce."
+
+opciones_explicitas: ["menor", "mayor", "igual", "ninguna"]
+
+explicacion: |
+  La agricultura es el sector que consume la mayor parte del agua dulce disponible para las sociedades humanas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["conflictos", "caudal"]
+
+variables:
+  aspecto: "derecho a usar el agua"
+
+respuesta: "disputas"
+tipo: completar
+
+enunciado: "Las cuencas que atraviesan múltiples provincias generan _____ sobre el derecho a usar el agua."
+
+respuestas_validas:
+  - "disputas"
+  - "conflictos"
+
+explicacion: |
+  La transfronteridad de las cuencas genera disputas entre provincias sobre quién tiene derecho a usar el agua.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["disponibilidad", "fracción"]
+
+variables:
+  cantidad: "minúscula"
+
+respuesta: "minúscula"
+tipo: mc
+
+enunciado: "Solo una fracción _____ de agua es dulce y accesible."
+
+opciones_explicitas: ["grande", "minúscula", "igual", "infinita"]
+
+explicacion: |
+  Aunque la Tierra está cubierta de agua, solo una minúscula fracción es agua dulce accesible.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["pampeana", "extracción"]
+
+variables:
+  region: "región pampeana"
+
+respuesta: "extracción"
+tipo: completar
+
+enunciado: "En {region}, la _____ intensiva de napas es un problema."
+
+respuestas_validas:
+  - "extracción"
+  - "extraccion"
+
+explicacion: |
+  La región pampeana enfrenta problemas de degradación del agua debido a la extracción intensiva de napas subterráneas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["gestión", "marco_legal"]
+
+variables:
+  elemento: "políticas"
+
+respuesta: "políticas"
+tipo: completar
+
+enunciado: "La gestión incluye {elemento}, leyes y acciones técnicas."
+
+respuestas_validas:
+  - "políticas"
+  - "politicas"
+
+explicacion: |
+  La gestión de los recursos hídricos se refiere al conjunto de políticas, leyes y acciones técnicas para su planificación.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["geografía_argentina", "selvas"]
+
+variables:
+  zona: "selvas subtropicales"
+
+respuesta: "abundante"
+tipo: mc
+
+enunciado: "En las {zona}, la disponibilidad de agua es generalmente abundante."
+
+opciones_explicitas: ["abundante", "escasa", "nula", "salada"]
+
+explicacion: |
+  Las selvas subtropicales en el norte de Argentina tienen una disponibilidad de agua generalmente abundante.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["geografía_argentina", "desiertos"]
+
+variables:
+  zona: "desiertos áridos"
+
+respuesta: "escasa"
+tipo: mc
+
+enunciado: "En los {zona}, la disponibilidad de agua es escasa."
+
+opciones_explicitas: ["abundante", "escasa", "neutral", "variable"]
+
+explicacion: |
+  Los desiertos áridos en Argentina presentan una disponibilidad de agua muy escasa, contrastando con otras regiones.
 ```
 

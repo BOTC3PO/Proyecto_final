@@ -1,1384 +1,474 @@
 # Examen jefe — [PENDIENTE #906]
 
-> Logro #906. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **119 preguntas totales** en 5/5 secciones.
+> Logro #906. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: rosetones-y-simetria (24 preguntas)
+## Sección: armonia-basica-acordes-tonalidad (25 preguntas)
 
 ```
 metadata:
   materia: "arte"
-  tema: "rosetones_y_simetria"
+  tema: "armonia_basica_acordes_tonalidad"
   nivel: "basico"
-  tags: ["rosetones", "vocabulario"]
+  tags: ["armonia", "teoria_musical"]
 
-enunciado: "¿Qué es un rosetón?"
 tipo: mc
-opciones_explicitas:
-  - "Una ventana circular ornamentada con un patrón geométrico repetido alrededor de un centro"
-  - "Cualquier ventana redonda, sin importar si tiene un patrón o no"
-  - "Un tipo de columna usada en la arquitectura gótica"
-respuesta: "Una ventana circular ornamentada con un patrón geométrico repetido alrededor de un centro"
+opciones_explicitas: ["La sucesión de notas que se escuchan una tras otra", "La combinación de tres o más notas que suenan simultáneamente", "La velocidad a la que se interpretan las notas", "La intensidad con la que suena un instrumento"]
+
+respuesta: "La combinación de tres o más notas que suenan simultáneamente"
+
+enunciado: "En la teoría musical, un acorde se define como ___."
 
 explicacion: |
-  Es típico de la arquitectura gótica, como en las grandes catedrales.
+  Un acorde es la superposición de tres o más notas musicales que suenan al mismo tiempo, creando una sonoridad específica (dos notas simultáneas forman un intervalo, no un acorde).
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "rosetones_y_simetria"
+  tema: "armonia_basica_acordes_tonalidad"
   nivel: "basico"
-  tags: ["rosetones"]
+  tags: ["tonalidad", "centro_tonal"]
 
-respuesta: verdadero
 tipo: vf
 
-enunciado: "Un rosetón bien diseñado se basa en una construcción geométrica sistemática, no en un dibujo decorativo al azar."
-
-explicacion: |
-  Divide la circunferencia en partes iguales y repite un motivo con
-  transformaciones geométricas precisas.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "intermedio"
-  tags: ["rosetones", "problema"]
-
-variables:
-  n: uno_de([6, 8, 9, 10, 12])
-
-respuesta: 360 / n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un rosetón se divide en {n} secciones iguales. ¿Cuántos grados mide cada sección?"
-
-pasos:
-  - "360° ÷ {n} = {360 / n}°"
-
-explicacion: |
-  Es la misma fórmula del ángulo central de una circunferencia, dividida
-  en partes iguales.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "avanzado"
-  tags: ["rosetones", "problema"]
-
-variables:
-  n: uno_de([6, 8, 9, 10, 12])
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un rosetón tiene secciones de {360 / n}° cada una. ¿Cuántas secciones tiene en total?"
-
-pasos:
-  - "360° ÷ {360 / n}° = {n} secciones"
-
-explicacion: |
-  Se despeja n dividiendo 360° por el ángulo de cada sección.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "intermedio"
-  tags: ["rosetones", "vocabulario"]
-
-enunciado: "¿Qué transformación geométrica se usa para repetir el motivo de un rosetón alrededor del centro?"
-tipo: mc
-opciones_explicitas:
-  - "La rotación"
-  - "La traslación"
-  - "La homotecia"
-respuesta: "La rotación"
-
-explicacion: |
-  El motivo se repite rotándolo el mismo ángulo, una y otra vez, hasta
-  completar la vuelta.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "avanzado"
-  tags: ["rosetones", "vocabulario"]
-
-enunciado: "¿Qué significa que un rosetón tenga 'simetría rotacional de orden n'?"
-tipo: mc
-opciones_explicitas:
-  - "Que se ve exactamente igual después de rotarlo 360°/n"
-  - "Que tiene exactamente n colores distintos"
-  - "Que fue diseñado hace n siglos"
-respuesta: "Que se ve exactamente igual después de rotarlo 360°/n"
-
-explicacion: |
-  Es la misma definición de simetría rotacional ya vista en
-  `../../matematica/transformaciones-geometricas/rotacion/`.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "intermedio"
-  tags: ["rosetones"]
+enunciado: "La tonalidad de una pieza musical es el sistema de relaciones que establece una jerarquía entre las notas, donde una nota específica actúa como el centro de gravedad o 'casa'."
 
 respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuantas más secciones (n) tiene un rosetón, más chico es su ángulo mínimo de simetría rotacional."
 
 explicacion: |
-  El ángulo es 360°/n: a mayor n, menor el resultado de esa división.
+  Correcto. La tonalidad organiza el lenguaje musical mediante una jerarquía donde la tónica es el punto de reposo principal.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "rosetones_y_simetria"
+  tema: "armonia_basica_acordes_tonalidad"
   nivel: "intermedio"
-  tags: ["rosetones", "vocabulario"]
+  tags: ["acordes", "intervalos"]
 
-enunciado: "¿Qué es la simetría axial en un rosetón?"
-tipo: mc
-opciones_explicitas:
-  - "Que cada sector es el reflejo especular de su vecino, respecto de una línea que pasa por el centro"
-  - "Que todos los sectores tienen exactamente el mismo color"
-  - "Que el rosetón tiene forma de eje, en vez de circular"
-respuesta: "Que cada sector es el reflejo especular de su vecino, respecto de una línea que pasa por el centro"
+tipo: completar
+respuesta: "mayor"
+respuestas_validas:
+  - "mayor"
+
+enunciado: "Si un acorde está formado por la raíz, una tercera mayor y una quinta justa, se trata de un acorde ___."
 
 explicacion: |
-  Es aplicar la reflexión (ver
-  `../../matematica/transformaciones-geometricas/reflexion/`) dentro del
-  diseño del rosetón.
+  La estructura de un acorde mayor se define por tener una tercera mayor (4 semitonos) entre la raíz y la tercera, y una quinta justa (7 semitonos) entre la raíz y la quinta.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "avanzado"
-  tags: ["rosetones", "problema"]
+  tema: "armonia_basica_acordes_tonalidad"
+  nivel: "basico"
+  tags: ["terminologia", "acordes"]
 
-variables:
-  n: uno_de([6, 8, 10, 12])
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un rosetón de {n} secciones tiene simetría axial completa. ¿Cuántos ejes de simetría tiene en total?"
-
-pasos:
-  - "Un eje de simetría por cada sección: {n} ejes"
-
-explicacion: |
-  Cada eje pasa por el centro, dividiendo el rosetón en dos mitades
-  espejadas.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "intermedio"
-  tags: ["rosetones"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un rosetón bien diseñado suele combinar simetría rotacional Y simetría axial (reflexión) a la vez, no usar sólo una de las dos."
-
-explicacion: |
-  Es lo que le da la sensación de máximo orden y armonía visual.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "intermedio"
-  tags: ["rosetones", "vocabulario"]
-
-enunciado: "¿Cuál es el primer paso para diseñar un rosetón?"
-tipo: mc
-opciones_explicitas:
-  - "Elegir n, la cantidad de secciones o 'pétalos' que va a tener"
-  - "Elegir los colores del vitral"
-  - "Calcular el costo del material"
-respuesta: "Elegir n, la cantidad de secciones o 'pétalos' que va a tener"
-
-explicacion: |
-  Todo el resto de la construcción (el ángulo de cada sección) depende
-  de ese número.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "avanzado"
-  tags: ["rosetones", "ordenar"]
-
-enunciado: "Ordená los pasos para diseñar un rosetón con n secciones."
 tipo: ordenar
-opciones_explicitas:
-  - "Repetir ese motivo rotándolo 360°/n grados, hasta completar la vuelta"
-  - "Elegir n y dividir la circunferencia en n arcos de 360°/n cada uno"
-  - "Diseñar el motivo dentro de un solo sector"
-respuesta_orden: ["Elegir n y dividir la circunferencia en n arcos de 360°/n cada uno", "Diseñar el motivo dentro de un solo sector", "Repetir ese motivo rotándolo 360°/n grados, hasta completar la vuelta"]
+opciones_explicitas: ["Raíz", "Tercera", "Quinta"]
+
+respuesta_orden: ["Raíz", "Tercera", "Quinta"]
+
+enunciado: "Ordena los elementos de un acorde básico (tríada) desde la nota más grave a la más aguda:"
+
 explicacion: |
-  El motivo se diseña una sola vez, y después se repite por rotación.
+  En una tríada estándar, la raíz es la nota fundamental, la tercera define la cualidad del acorde y la quinta es la nota más alta de la tríada básica.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "rosetones_y_simetria"
+  tema: "armonia_basica_acordes_tonalidad"
   nivel: "basico"
-  tags: ["rosetones", "vocabulario"]
+  tags: ["tonalidad", "percepcion"]
 
-enunciado: "¿Cuáles son valores típicos de n (cantidad de secciones) en rosetones góticos clásicos?"
 tipo: mc
-opciones_explicitas:
-  - "6, 8 o 12"
-  - "1 o 2"
-  - "1000 o más"
-respuesta: "6, 8 o 12"
+opciones_explicitas: ["Establecer la escala de notas que se utilizará", "Determinar el volumen de la música", "Indicar el ritmo de la pieza", "Definir el género musical"]
+
+respuesta: "Establecer la escala de notas que se utilizará"
+
+enunciado: "La principal función de la tonalidad en una composición es ___."
 
 explicacion: |
-  Son números que dividen 360° en ángulos "redondos" (60°, 45°, 30°).
+  La tonalidad proporciona un marco de referencia que determina qué notas son naturales, accidentadas o de tensión dentro de una obra.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "avanzado"
-  tags: ["rosetones"]
+  tema: "armonia_basica_acordes_tonalidad"
+  nivel: "basico"
+  tags: ["armonia", "acordes", "intervalos"]
+
+respuesta: "mayor"
+tipo: mc
+opciones_explicitas: ["mayor", "menor", "disminuido"]
+
+enunciado: "Un acorde mayor se construye mediante la superposición de dos intervalos. Si tomamos una nota fundamental y le sumamos una tercera mayor (4 semitonos) y luego una quinta justa (7 semitonos desde la fundamental), el acorde resultante es de tipo ___."
+
+explicacion: |
+  Un acorde mayor se define por su estructura de intervalos: 1 - 3 mayor - 5 justa. En semitonos: 0 - 4 - 7.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "armonia_basica_acordes_tonalidad"
+  nivel: "basico"
+  tags: ["tonalidad", "escala", "teoria"]
 
 respuesta: verdadero
 tipo: vf
-
-enunciado: "El propio círculo que enmarca un rosetón tiene infinitos ejes de simetría, más que cualquier patrón dibujado dentro de él."
+enunciado: "Si una pieza musical utiliza exclusivamente las notas de la escala de Do Mayor (Do, Re, Mi, Fa, Sol, La, Si) y sus acordes derivados, ¿es correcto afirmar que la pieza está en la tonalidad de Do Mayor?"
 
 explicacion: |
-  Es el caso límite ya visto en
-  `../../matematica/transformaciones-geometricas/reflexion/`.
+  La tonalidad está determinada por la escala que sirve como centro tonal y marco de referencia para la melodía y la armonía.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "rosetones_y_simetria"
+  tema: "armonia_basica_acordes_tonalidad"
   nivel: "intermedio"
-  tags: ["rosetones", "problema"]
-
-respuesta: 45
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos grados mide cada sección de un rosetón dividido en 8 partes iguales?"
-
-pasos:
-  - "360° ÷ 8 = 45°"
-
-explicacion: |
-  Es uno de los valores clásicos de n en rosetones góticos.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "intermedio"
-  tags: ["rosetones", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un mandala, además de un rosetón, es otro ejemplo de patrón que se construye dividiendo un círculo en secciones iguales y repitiendo un motivo por rotación."
-
-explicacion: |
-  El mismo principio geométrico aparece en distintas tradiciones
-  artísticas.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "avanzado"
-  tags: ["rosetones", "vocabulario"]
-
-enunciado: "¿Cuál de las cuatro transformaciones geométricas NO participa típicamente en la construcción de un rosetón?"
-tipo: mc
-opciones_explicitas:
-  - "La traslación (no tiene sentido en un patrón centrado en un punto fijo)"
-  - "La rotación"
-  - "La reflexión"
-respuesta: "La traslación (no tiene sentido en un patrón centrado en un punto fijo)"
-
-explicacion: |
-  Un rosetón está centrado en un punto fijo: la traslación (que no
-  tiene puntos fijos) no encaja en ese tipo de patrón, a diferencia de
-  un empapelado o mosaico repetido en una superficie plana.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "avanzado"
-  tags: ["rosetones", "problema"]
+  tags: ["acordes", "semitonos"]
 
 variables:
-  n: uno_de([6, 8, 10, 12])
-  con_reflexion: n / 2
+  base: uno_de(["Do", "Re", "Mi"])
 
-respuesta: con_reflexion
-tipo: input
-tolerancia_abs: 0
+respuesta: "3"
+tipo: completar
+respuestas_validas:
+  - "3"
 
-enunciado: "Un rosetón de {n} secciones tiene simetría axial, pero sólo la mitad de las secciones fueron diseñadas con un motivo reflejado respecto de su vecino (la otra mitad se repite sólo por rotación). ¿Cuántas secciones tienen motivo reflejado?"
-
-pasos:
-  - "{n} ÷ 2 = {con_reflexion} secciones"
-
-explicacion: |
-  No todos los rosetones combinan las dos simetrías en el 100% del
-  diseño.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "avanzado"
-  tags: ["rosetones", "vocabulario"]
-
-enunciado: "¿Qué nombre recibe un patrón que combina simetría rotacional de orden n con n ejes de simetría axial?"
-tipo: mc
-opciones_explicitas:
-  - "Simetría diédrica"
-  - "Simetría lineal"
-  - "Simetría homotética"
-respuesta: "Simetría diédrica"
-
-explicacion: |
-  Es el tipo de simetría más completo posible en un patrón plano
-  centrado, salvo el caso límite del círculo mismo.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "avanzado"
-  tags: ["rosetones", "problema"]
-
-variables:
-  n: uno_de([8, 10, 12])
-  saltos: uno_de([2, 3])
-
-respuesta: (360 / n) * saltos
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En un rosetón de {n} secciones iguales, ¿cuántos grados hay entre una sección y otra que está {saltos} posiciones más adelante?"
+enunciado: "Para transformar un acorde mayor en un acorde menor, debemos reducir la tercera mayor a una tercera menor. Si partimos de la nota fundamental {base}, debemos sumar exactamente ___ semitonos para obtener la tercera menor."
 
 pasos:
-  - "(360° ÷ {n}) × {saltos} = {(360 / n) * saltos}°"
+  - "Identificar la nota fundamental: {base}"
+  - "Calcular la distancia de la tercera mayor (4 semitonos)"
+  - "Restar 1 semitono para obtener la tercera menor (4 - 1 = 3 semitonos)"
 
 explicacion: |
-  Cada salto de una sección a la siguiente suma un ángulo de 360°/n.
+  La diferencia fundamental entre un acorde mayor y uno menor es la tercera. El acorde menor tiene la tercera menor (3 semitonos), mientras que el mayor tiene la tercera mayor (4 semitonos).
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "rosetones_y_simetria"
+  tema: "armonia_basica_acordes_tonalidad"
   nivel: "basico"
-  tags: ["rosetones", "vocabulario"]
+  tags: ["acordes", "teoria"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los rosetones son un elemento típico de la arquitectura gótica, presente en catedrales como la de Notre Dame."
-
-explicacion: |
-  Combinan función (dejar entrar luz) con un diseño geométrico
-  ornamental.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "intermedio"
-  tags: ["rosetones"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para diseñar un rosetón, el motivo decorativo se diseña una sola vez, dentro de un sector, y después se repite con transformaciones geométricas."
-
-explicacion: |
-  No hace falta rediseñar cada sección desde cero: se repite el mismo
-  motivo con rotación (y a veces reflexión).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "basico"
-  tags: ["rosetones", "problema"]
-
-respuesta: 30
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos grados mide cada sección de un rosetón dividido en 12 partes iguales?"
-
-pasos:
-  - "360° ÷ 12 = 30°"
-
-explicacion: |
-  12 secciones es otro valor clásico en el diseño de rosetones.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "rosetones_y_simetria"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve entender la construcción geométrica de un rosetón?"
-tipo: mc
-opciones_explicitas:
-  - "Para explicar por qué se ve ordenado y armónico, y para poder diseñar patrones radiales propios (mandalas, logos, mosaicos)"
-  - "Sólo sirve para restaurar catedrales góticas existentes"
-  - "No tiene ninguna aplicación fuera de la arquitectura religiosa"
-respuesta: "Para explicar por qué se ve ordenado y armónico, y para poder diseñar patrones radiales propios (mandalas, logos, mosaicos)"
-
-explicacion: |
-  Es la aplicación directa de circunferencia, rotación y reflexión a un
-  diseño real.
-```
-
-## Sección: narrativa-audiovisual/encuadre (24 preguntas)
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "basico"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es el encuadre, a diferencia del plano?"
-tipo: mc
-opciones_explicitas:
-  - "Cómo se organiza lo que entra dentro de los límites del plano ya elegido"
-  - "Qué tan cerca o lejos está la cámara del sujeto"
-  - "El guion técnico completo de la escena"
-respuesta: "Cómo se organiza lo que entra dentro de los límites del plano ya elegido"
-
-explicacion: |
-  El plano (ver `../plano/`) define la distancia; el encuadre define la
-  organización dentro de esa distancia.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "basico"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es el ángulo de cámara 'a nivel' o 'normal'?"
-tipo: mc
-opciones_explicitas:
-  - "La cámara a la altura de los ojos del sujeto"
-  - "La cámara mirando desde muy arriba"
-  - "La cámara inclinada, con el horizonte torcido"
-respuesta: "La cámara a la altura de los ojos del sujeto"
-
-explicacion: |
-  Es el punto de vista más neutral, el que menos condiciona la lectura
-  emocional.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es un ángulo picado?"
-tipo: mc
-opciones_explicitas:
-  - "La cámara mira hacia abajo, desde arriba del sujeto"
-  - "La cámara mira hacia arriba, desde abajo del sujeto"
-  - "La cámara está inclinada de costado"
-respuesta: "La cámara mira hacia abajo, desde arriba del sujeto"
-
-explicacion: |
-  Suele hacer que el sujeto se vea más pequeño o vulnerable.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué efecto suele transmitir un ángulo picado sobre el sujeto?"
-tipo: mc
-opciones_explicitas:
-  - "Que se vea más pequeño, débil o vulnerable"
-  - "Que se vea más grande y poderoso"
-  - "No tiene ningún efecto sobre cómo se percibe el sujeto"
-respuesta: "Que se vea más pequeño, débil o vulnerable"
-
-explicacion: |
-  Es el efecto opuesto al contrapicado.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es un ángulo contrapicado?"
-tipo: mc
-opciones_explicitas:
-  - "La cámara mira hacia arriba, desde abajo del sujeto"
-  - "La cámara mira hacia abajo, desde arriba del sujeto"
-  - "La cámara filma en cámara lenta"
-respuesta: "La cámara mira hacia arriba, desde abajo del sujeto"
-
-explicacion: |
-  Suele hacer que el sujeto se vea más grande, poderoso o imponente.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué efecto suele transmitir un ángulo contrapicado sobre el sujeto?"
-tipo: mc
-opciones_explicitas:
-  - "Que se vea más grande, poderoso o imponente"
-  - "Que se vea más pequeño y vulnerable"
-  - "No cambia en nada la percepción del sujeto"
-respuesta: "Que se vea más grande, poderoso o imponente"
-
-explicacion: |
-  Es un recurso típico para presentar a un personaje dominante o
-  amenazante.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es un ángulo aberrante (u 'holandés')?"
-tipo: mc
-opciones_explicitas:
-  - "La cámara está inclinada, con el horizonte torcido"
-  - "La cámara filmando desde un dron"
-  - "La cámara a la altura exacta de los ojos"
-respuesta: "La cámara está inclinada, con el horizonte torcido"
-
-explicacion: |
-  Genera una sensación de inestabilidad, desorientación o tensión.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ángulo aberrante (con el horizonte torcido) suele usarse para generar una sensación de inestabilidad o desorientación."
-
-explicacion: |
-  Rompe la referencia horizontal "normal" que el ojo espera ver.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es el 'espacio de mirada' (look room) en un encuadre?"
-tipo: mc
-opciones_explicitas:
-  - "El espacio extra que se deja del lado hacia donde mira o se mueve el sujeto"
-  - "El tiempo que dura un plano en pantalla"
-  - "La distancia entre la cámara y el micrófono"
-respuesta: "El espacio extra que se deja del lado hacia donde mira o se mueve el sujeto"
-
-explicacion: |
-  Sin ese espacio, la composición se siente apretada o incómoda.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un sujeto mira hacia un lado y no se le deja espacio de ese lado en el cuadro, la composición suele sentirse apretada o incómoda."
-
-explicacion: |
-  Es como si el sujeto estuviera "chocando" contra el borde del
-  encuadre.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es el headroom, en un encuadre?"
-tipo: mc
-opciones_explicitas:
-  - "El espacio entre la parte superior de la cabeza del sujeto y el borde superior del cuadro"
-  - "La altura total del sujeto en la escena"
-  - "El espacio entre dos sujetos distintos en el mismo plano"
-respuesta: "El espacio entre la parte superior de la cabeza del sujeto y el borde superior del cuadro"
-
-explicacion: |
-  Ni mucho (se ve "flotando" abajo) ni poco (se ve apretado o cortado).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Demasiado espacio entre la cabeza del sujeto y el borde superior del cuadro (headroom excesivo) hace que el sujeto se vea como flotando en la parte baja del encuadre."
-
-explicacion: |
-  Es uno de los dos extremos a evitar; el otro es muy poco headroom, que
-  corta o aprieta la cabeza.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La regla de tercios, ya vista en composición, también se aplica al encuadre cinematográfico: por ejemplo, ubicando los ojos del sujeto sobre una línea de tercios en vez de en el centro exacto."
-
-explicacion: |
-  Es la misma herramienta de `../../composicion-y-proporcion/`, aplicada
-  a un fotograma en movimiento.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es un encuadre cerrado?"
-tipo: mc
-opciones_explicitas:
-  - "Aquel que contiene dentro del cuadro todo lo que el espectador necesita para entender la escena"
-  - "Aquel filmado con la cámara muy cerca del sujeto"
-  - "Aquel que sólo se usa en primeros planos"
-respuesta: "Aquel que contiene dentro del cuadro todo lo que el espectador necesita para entender la escena"
-
-explicacion: |
-  No deja nada relevante fuera de cuadro.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es un encuadre abierto?"
-tipo: mc
-opciones_explicitas:
-  - "Aquel que deja intuir que hay más espacio o acción fuera de cuadro (fuera de campo)"
-  - "Aquel filmado siempre en plano general"
-  - "Aquel sin ningún tipo de composición planificada"
-respuesta: "Aquel que deja intuir que hay más espacio o acción fuera de cuadro (fuera de campo)"
-
-explicacion: |
-  Genera expectativa, o hace que el espectador complete mentalmente lo
-  que no se ve.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sugerir que hay algo fuera de cuadro (fuera de campo), sin mostrarlo, es un recurso que puede generar expectativa en el espectador."
-
-explicacion: |
-  El espectador completa mentalmente lo que no se ve directamente.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre", "ordenar"]
-
-enunciado: "Ordená estas decisiones típicas al encuadrar un plano ya elegido (el tamaño de plano ya está decidido de antemano)."
+respuesta_orden: ["Fundamental", "Tercera", "Quinta"]
 tipo: ordenar
-opciones_explicitas:
-  - "Ubicar el punto de interés sobre una línea de la regla de tercios"
-  - "Elegir el ángulo de cámara (a nivel, picado, contrapicado)"
-  - "Dejar el espacio de mirada y el headroom adecuados"
-respuesta_orden: ["Elegir el ángulo de cámara (a nivel, picado, contrapicado)", "Dejar el espacio de mirada y el headroom adecuados", "Ubicar el punto de interés sobre una línea de la regla de tercios"]
+
+opciones_explicitas: ["Fundamental", "Tercera", "Quinta"]
+
+enunciado: "Ordena los elementos de una tríade musical desde la nota más grave (la base) hasta la más aguda, siguiendo la estructura estándar de un acorde."
+
 explicacion: |
-  El ángulo es una decisión estructural; el espacio de mirada, el
-  headroom y la regla de tercios son ajustes finos de esa composición.
+  Una tríada básica se compone de tres notas: la fundamental (la raíz), la tercera (que determina el modo) y la quinta (que da estabilidad).
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
+  tema: "armonia_basica_acordes_tonalidad"
   nivel: "intermedio"
-  tags: ["encuadre"]
+  tags: ["intervalos", "calculo"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  nota_base: uno_de(["Do", "Re", "Mi", "Fa"])
 
-enunciado: "El ángulo de cámara 'a nivel' es el que menos condiciona la lectura emocional de una escena, en comparación con el picado o el contrapicado."
+respuesta: "7"
+tipo: completar
+respuestas_validas:
+  - "7"
+
+enunciado: "En el sistema de semitonos, una quinta justa siempre requiere un total de 7 semitonos desde la fundamental. Si partimos de la nota {nota_base}, ¿cuántos semitonos debemos subir para llegar a la quinta justa?"
 
 explicacion: |
-  Por eso se usa como punto de vista "neutral" por defecto.
+  El tamaño del intervalo de quinta justa (7 semitonos) es siempre el mismo, sin importar cuál sea la nota fundamental de partida.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué ángulo de cámara conviene usar para mostrar a un personaje como especialmente poderoso o amenazante?"
-tipo: mc
-opciones_explicitas:
-  - "Contrapicado"
-  - "Picado"
-  - "A nivel"
-respuesta: "Contrapicado"
-
-explicacion: |
-  Mirar hacia arriba, desde abajo del personaje, lo hace ver más grande
-  e imponente.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué ángulo de cámara conviene usar para mostrar a un personaje como especialmente pequeño o vulnerable?"
-tipo: mc
-opciones_explicitas:
-  - "Picado"
-  - "Contrapicado"
-  - "Aberrante"
-respuesta: "Picado"
-
-explicacion: |
-  Mirar hacia abajo, desde arriba del personaje, lo empequeñece.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
+  tema: "armonia_basica_acordes_tonalidad"
   nivel: "basico"
-  tags: ["encuadre"]
+  tags: ["teoria_musical", "acordes"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "un conjunto de tres o más notas que suenan simultáneamente"
+tipo: completar
+respuestas_validas:
+  - "un conjunto de tres o más notas que suenan simultáneamente"
+  - "un conjunto de notas que suenan al mismo tiempo"
 
-enunciado: "El encuadre es lo que convierte una simple elección de distancia (el plano) en una composición con intención narrativa."
+enunciado: "En teoría musical, un acorde se define como ___."
 
 explicacion: |
-  El ángulo, el espacio de mirada y el headroom no son detalles
-  técnicos menores: cambian cómo se interpreta la escena.
+  Un acorde no es simplemente cualquier grupo de notas, sino la superposición de tres o más notas que crean una sonoridad específica (como mayor, menor o disminuido).
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El headroom 'correcto' no es un número fijo: depende del tamaño de plano que se esté usando (un primer plano y un plano entero no necesitan el mismo headroom)."
-
-explicacion: |
-  No es una regla matemática rígida, sino un balance visual a ojo.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
+  tema: "armonia_basica_acordes_tonalidad"
   nivel: "intermedio"
-  tags: ["encuadre"]
+  tags: ["tonalidad", "escala"]
 
-respuesta: falso
-tipo: vf
-
-enunciado: "Un ángulo aberrante (u 'holandés') mantiene el horizonte perfectamente recto, sin ninguna inclinación."
+respuesta: "tonalidad"
+tipo: completar
+respuestas_validas:
+  - "tonalidad"
+enunciado: "La escala es el conjunto de notas que forman la base de una ___."
 
 explicacion: |
-  Al contrario: la característica que define al ángulo aberrante es
-  justamente la inclinación de la cámara, que tuerce el horizonte.
+  Es un error común confundir escala con tonalidad. La escala es la sucesión de notas (el "mapa"), mientras que la tonalidad es el sistema de relaciones jerárquicas que se establece alrededor de una nota fundamental (el "territorio").
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
+  tema: "armonia_basica_acordes_tonalidad"
   nivel: "basico"
-  tags: ["cierre"]
+  tags: ["tonalidad", "tonica"]
 
-enunciado: "¿Para qué sirve dominar las herramientas de encuadre (ángulo, espacio de mirada, headroom, regla de tercios)?"
+variables:
+  escenario: uno_de([["Do mayor", "Do"], ["Sol mayor", "Sol"], ["La menor", "La"]])
+
+respuesta: escenario[1]
 tipo: mc
-opciones_explicitas:
-  - "Para tomar decisiones deliberadas sobre cómo el espectador va a interpretar cada escena, no dejarlo al azar"
-  - "Sólo sirve para que la imagen se vea más prolija técnicamente"
-  - "Sólo aplica en cine, nunca en fotografía o video"
-respuesta: "Para tomar decisiones deliberadas sobre cómo el espectador va a interpretar cada escena, no dejarlo al azar"
+opciones_explicitas: ["Do", "Sol", "La", "Fa"]
+
+enunciado: "Si una pieza musical está en la tonalidad de {escenario[0]}, la nota que actúa como centro de gravedad y reposo es ___."
 
 explicacion: |
-  El encuadre es lenguaje visual: comunica algo, aunque no haya
-  diálogo.
-```
-
-## Sección: teatro-dramaturgia-y-actuacion (20 preguntas)
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "basico"
-  tags: ["teatro", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El teatro combina dos habilidades distintas: escribir el texto teatral (dramaturgia) e interpretarlo frente a público (actuación)."
-
-pasos:
-  - "Son dos oficios complementarios, no la misma habilidad aplicada dos veces."
-
-explicacion: |
-  Verdadero: es la definición central que organiza este tema.
+  La tónica es la nota fundamental de la tonalidad. Es el punto de máxima estabilidad hacia el cual tiende la música para sentir que ha "llegado a casa".
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "avanzado"
-  tags: ["genero_dramatico", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Este tema no repite la forma del texto teatral (diálogo, acotaciones, actos/escenas) ya vista en `../../lengua/genero-dramatico/`, sino que se enfoca en la escritura como oficio y la actuación como arte escénico."
-
-pasos:
-  - "Es una aclaración explícita sobre el alcance de este tema respecto de lo ya cubierto en Lengua."
-
-explicacion: |
-  Verdadero: es la delimitación de alcance central de este tema.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
+  tema: "armonia_basica_acordes_tonalidad"
   nivel: "intermedio"
-  tags: ["conflicto_dramatico"]
+  tags: ["intervalos", "acordes"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "tercera mayor, tercera menor, quinta justa"
+tipo: completar
+respuestas_validas:
+  - "tercera mayor, tercera menor, quinta justa"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Escribir teatro no es sólo poner diálogos correctos: implica construir un conflicto dramático, una tensión entre personajes (o entre un personaje y su circunstancia) que evoluciona a lo largo de la obra."
-
-pasos:
-  - "Es el eje central de la dramaturgia como oficio."
+enunciado: "Para construir un acorde mayor estándar, se requiere la fundamental, una ___ y una ___."
 
 explicacion: |
-  Verdadero: es la definición central de conflicto dramático en este
-  tema.
+  Un acorde mayor se construye con intervalos de tercera mayor (4 semitonos) respecto a la fundamental y quinta justa (7 semitonos).
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "avanzado"
-  tags: ["dramaturgia", "recursos_literarios"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La dramaturgia reutiliza los recursos literarios ya vistos en `../../lengua/recursos-literarios/`, aplicados específicamente al diálogo hablado: metáforas y antítesis que funcionan cuando se dicen en voz alta."
-
-pasos:
-  - "Es la conexión directa entre este tema y uno de sus dos prerrequisitos."
-
-explicacion: |
-  Verdadero: es la conexión central entre este tema y los recursos
-  literarios ya estudiados.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
+  tema: "armonia_basica_acordes_tonalidad"
   nivel: "intermedio"
-  tags: ["subtexto"]
+  tags: ["jerarquia", "funcionalidad"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El subtexto es lo que un personaje siente o quiere realmente, que no está dicho literalmente en sus palabras."
-
-pasos:
-  - "Un personaje puede decir \"estoy bien\" mientras el subtexto es que está furioso."
-
-explicacion: |
-  Verdadero: es la definición central de subtexto en dramaturgia.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "avanzado"
-  tags: ["subtexto", "interes_dramatico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La tensión entre lo que un personaje dice explícitamente y lo que realmente siente (el subtexto) es una fuente central de interés dramático."
-
-pasos:
-  - "Es la razón por la que el subtexto es una herramienta valorada en la escritura teatral."
-
-explicacion: |
-  Verdadero: es la aplicación práctica de por qué el subtexto
-  enriquece un texto dramático.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "basico"
-  tags: ["actuacion", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Actuar no es memorizar y decir líneas correctamente: es \"habitar\" un personaje, entendiendo sus motivaciones y transmitiéndolas de forma creíble al público."
-
-pasos:
-  - "Es la definición central de actuación en este tema."
-
-explicacion: |
-  Verdadero: es la definición central de actuación descrita en la
-  teoría.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "avanzado"
-  tags: ["actuacion", "exposicion_oral"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La actuación reutiliza directamente las técnicas de exposición oral (voz, ritmo, contacto visual, lenguaje corporal), llevadas a un contexto de ficción sostenida."
-
-pasos:
-  - "Ver `../../lengua/exposicion-oral/`: es la conexión directa con el otro prerrequisito de este tema."
-
-explicacion: |
-  Verdadero: es la conexión central entre este tema y el otro
-  prerrequisito.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "intermedio"
-  tags: ["tecnicas_actorales", "cuerpo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El trabajo con el cuerpo en actuación implica postura, gesto y movimiento que comuniquen al personaje, no sólo al actor."
-
-pasos:
-  - "Es una de las técnicas actorales básicas descritas en la teoría."
-
-explicacion: |
-  Verdadero: es una de las técnicas centrales de actuación.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "intermedio"
-  tags: ["tecnicas_actorales", "voz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El trabajo con la voz implica modular tono, ritmo y volumen según lo que el personaje siente, no según lo que el actor sentiría en su propia vida."
-
-pasos:
-  - "Es otra de las técnicas actorales básicas descritas en la teoría."
-
-explicacion: |
-  Verdadero: es otra de las técnicas centrales de actuación.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "avanzado"
-  tags: ["tecnicas_actorales", "escucha_activa"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La escucha activa en escena implica reaccionar genuinamente a lo que dice el otro personaje, no sólo esperar el propio turno de hablar — la misma escucha activa ya vista en debate, aplicada a la ficción."
-
-pasos:
-  - "Ver `../../lengua/debate-refutar-en-vivo/`: es la conexión con esa habilidad ya estudiada."
-
-explicacion: |
-  Verdadero: es la conexión explícita entre la escucha activa del
-  debate y su aplicación en la actuación.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "avanzado"
-  tags: ["tecnicas_actorales", "memoria_emotiva"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La memoria emotiva consiste en recurrir a experiencias o emociones propias para conectar de forma genuina con lo que el personaje siente en una escena."
-
-pasos:
-  - "Es otra de las técnicas actorales básicas descritas en la teoría."
-
-explicacion: |
-  Verdadero: es otra técnica central de actuación mencionada en la
-  teoría.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "intermedio"
-  tags: ["puesta_en_escena"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El teatro también incluye decisiones de puesta en escena (escenografía, vestuario, iluminación, sonido) que completan la experiencia más allá del texto dramático y la actuación en sí."
-
-pasos:
-  - "Son elementos adicionales que forman parte de la experiencia teatral completa."
-
-explicacion: |
-  Verdadero: la puesta en escena es un componente más del teatro,
-  además del texto y la interpretación.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "intermedio"
-  tags: ["dramaturgia", "actuacion", "diferenciacion"]
-
-variables:
-  acciones: ["escribir el diálogo y el conflicto de una escena entre dos hermanos", "interpretar a uno de esos hermanos en el escenario, con voz y gestos"]
-  oficios: ["dramaturgia", "actuación"]
-  idx: uno_de([0, 1])
-
-respuesta: oficios[idx]
-tipo: mc
-opciones_explicitas: ["dramaturgia", "actuación"]
-
-enunciado: "La acción de \"{acciones[idx]}\" corresponde al oficio de..."
-
-pasos:
-  - "Escribir el texto es dramaturgia; interpretarlo en escena es actuación."
-
-explicacion: |
-  Reconocer a qué oficio corresponde cada acción es la aplicación
-  central de la distinción de este tema.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "avanzado"
-  tags: ["subtexto", "genero_dramatico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El subtexto de un personaje siempre está escrito explícitamente en las acotaciones del texto teatral, así el actor no tiene que interpretarlo."
-
-pasos:
-  - "Ver `../../lengua/genero-dramatico/`: las acotaciones indican gestos/tono, pero el subtexto suele quedar implícito, para que el actor lo interprete y transmita."
-
-explicacion: |
-  Falso: el subtexto suele quedar implícito en el texto, es parte
-  del trabajo interpretativo del actor descubrirlo y transmitirlo.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "avanzado"
-  tags: ["actuacion", "interpretacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Distintos actores pueden interpretar el mismo texto dramático de formas distintas, según cómo entiendan el subtexto y las motivaciones del personaje."
-
-pasos:
-  - "Es una consecuencia de que la actuación implica una interpretación personal, no una lectura mecánica del texto."
-
-explicacion: |
-  Verdadero: la variedad interpretativa es parte central de por qué
-  la actuación es un arte creativo, no una simple ejecución.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "avanzado"
-  tags: ["escucha_activa", "credibilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un actor que no escucha realmente al otro personaje en escena tiende a reaccionar de forma mecánica o poco creíble, en vez de genuina."
-
-pasos:
-  - "Es la misma lógica de la escucha activa ya vista en debate, aplicada a la credibilidad de una escena."
-
-explicacion: |
-  Verdadero: la falta de escucha activa afecta directamente la
-  credibilidad de la interpretación.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "intermedio"
-  tags: ["teatro", "metodo"]
-
-enunciado: "Ordená los pasos para construir y llevar a escena un fragmento dramático."
+respuesta_orden: ["Tónica", "Subdominante", "Dominante"]
 tipo: ordenar
-opciones_explicitas:
-  - "Escribir el conflicto dramático entre los personajes (dramaturgia)"
-  - "Definir el subtexto de cada personaje en los momentos clave"
-  - "Trabajar la interpretación (voz, cuerpo) para transmitir ese subtexto (actuación)"
-  - "Definir decisiones de puesta en escena que acompañen la escena (escenografía, iluminación)"
-respuesta_orden: ["Escribir el conflicto dramático entre los personajes (dramaturgia)", "Definir el subtexto de cada personaje en los momentos clave", "Trabajar la interpretación (voz, cuerpo) para transmitir ese subtexto (actuación)", "Definir decisiones de puesta en escena que acompañen la escena (escenografía, iluminación)"]
+opciones_explicitas: ["Tónica", "Subdominante", "Dominante"]
+
+enunciado: "Ordena los grados de una escala de mayor según su función de estabilidad, desde la que tiene mayor reposo a la que genera mayor tensión:"
+
 explicacion: |
-  El proceso va de la escritura del texto a su interpretación en
-  escena, y termina con las decisiones adicionales de puesta en
-  escena.
+  La Tónica es el reposo absoluto; la Subdominante es una tensión media que prepara el camino; la Dominante es la máxima tensión que exige volver a la tónica.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "avanzado"
-  tags: ["teatro", "sintesis"]
+  tema: "armonia_basica_acordes_tonalidad"
+  nivel: "basico"
+  tags: ["armonia", "acordes"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "acorde"
+tipo: mc
+opciones_explicitas: ["melodia", "acorde", "ritmo", "timbre"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Escribir y actuar teatro es la aplicación práctica y en vivo de herramientas ya dominadas en Lengua (recursos literarios, exposición oral, escucha activa), llevadas a un lenguaje artístico propio."
-
-pasos:
-  - "Ver `../../lengua/recursos-literarios/`, `../../lengua/exposicion-oral/` y `../../lengua/debate-refutar-en-vivo/`: son las conexiones directas de este tema con Lengua."
+enunciado: "Mientras que la melodía es una sucesión de notas en el tiempo, un ___ es la combinación de tres o más notas sonando de forma simultánea."
 
 explicacion: |
-  Verdadero: es la síntesis de todas las conexiones de este tema con
-  contenidos ya estudiados en Lengua.
+  Un acorde se define por la superposición de diferentes alturas (notas) al mismo tiempo, creando una sonoridad específica.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "teatro_dramaturgia_y_actuacion"
-  nivel: "avanzado"
-  tags: ["teatro", "aplicacion"]
+  tema: "armonia_basica_acordes_tonalidad"
+  nivel: "intermedio"
+  tags: ["tonalidad", "escala"]
+
+respuesta: "tonalidad"
+tipo: completar
+respuestas_validas:
+  - "tonalidad"
+enunciado: "Si una pieza musical utiliza un conjunto de notas que actúan como centro gravitacional, estableciendo una jerarquía de tensión y reposo, ¿podemos decir que la pieza posee una ___?"
+
+explicacion: |
+  La tonalidad es el sistema de organización que utiliza una escala como centro de gravedad. Si no hay un centro tonal, la música es atonal.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "armonia_basica_acordes_tonalidad"
+  nivel: "intermedio"
+  tags: ["acordes", "intervalos"]
 
 variables:
-  n: uno_de([1, 1])
+  es_mayor: verdadero
+
+respuesta: "mayor"
+tipo: completar
+respuestas_validas:
+  - "mayor"
+  - "menor"
+
+enunciado: "Un acorde se diferencia de una tríada de dos notas (intervalo) por tener tres notas. Si la distancia entre la primera y la tercera nota es de dos tonos enteros, el acorde es de tipo ___."
+
+explicacion: |
+  La tercera mayor es la que define la sonoridad brillante del acorde mayor.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "armonia_basica_acordes_tonalidad"
+  nivel: "basico"
+  tags: ["armonia", "melodia"]
+
+respuesta_orden: ["melodia", "armonia", "ritmo"]
+tipo: ordenar
+
+opciones_explicitas: ["melodia", "armonia", "ritmo"]
+
+enunciado: "Ordena los elementos fundamentales de la música, desde la dimensión horizontal (sucesión) hacia la dimensión vertical (simultaneidad):"
+
+explicacion: |
+  La melodía es horizontal (una nota tras otra), la armonía es vertical (notas a la vez) y el ritmo es la duración de ambas.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "armonia_basica_acordes_tonalidad"
+  nivel: "intermedio"
+  tags: ["consonancia", "disonancia"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "En el contexto de la armonía, cuando un acorde produce una sensación de estabilidad y reposo, se dice que es una consonancia. ¿Es esto cierto?"
+
+explicacion: |
+  La consonancia es la cualidad de los intervalos o acordes que suenan estables y no requieren resolución inmediata.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "armonia_basica_acordes"
+  nivel: "basico"
+  tags: ["armonia", "teoria_musical"]
+
+variables:
+  datos: [["Do-Mi-Sol", "tríada de Do"], ["Re-Fa-La", "tríada de Re"], ["Mi-Sol-Si", "tríada de Mi"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Un músico está practicando una escala y toca las notas {datos[idx][0]}. Según la teoría musical, este conjunto de notas forma una {datos[idx][1]}."
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "tríada de Do"
+  - "tríada de Re"
+  - "tríada de Mi"
+
+explicacion: |
+  Un acorde se forma al superponer tres o más notas distintas. En este caso, las notas pertenecen a la estructura de una tríada básica.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "armonia_basica_tonalidad"
+  nivel: "basico"
+  tags: ["tonalidad", "teoria_musical"]
+
+variables:
+  datos: [["La menor", "la menor"], ["Sol mayor", "Sol mayor"], ["Do mayor", "Do mayor"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Una pieza musical suena melancólica y su nota de reposo (tónica) es {datos[idx][0]}. ¿En qué tonalidad se encuentra la pieza?"
+
+opciones_explicitas: ["la menor", "Sol mayor", "Do mayor"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  La tonalidad está determinada por la nota fundamental (tónica) que actúa como centro gravitacional de la obra.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "armonia_basica_acordes"
+  nivel: "intermedio"
+  tags: ["intervalos", "acordes"]
+
+enunciado: "Si un acorde se construye con la raíz, su tercera y su quinta, y la tercera es una tercera mayor, ¿el acorde es mayor?"
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Al preparar una escena para representar, conviene identificar el conflicto dramático central, definir el subtexto de cada personaje, y trabajar la voz y el cuerpo para transmitirlo de forma creíble al público."
+explicacion: |
+  La relación entre la primera y la tercera nota define si el acorde es mayor o menor. Si la tercera es mayor, el acorde es mayor.
+```
 
-pasos:
-  - "Es la aplicación práctica directa de todos los conceptos estudiados en este tema."
+```
+metadata:
+  materia: "arte"
+  tema: "armonia_basica_acordes"
+  nivel: "basico"
+  tags: ["armonia", "teoria_musical"]
+
+enunciado: "Para construir un acorde de Do Mayor de forma ascendente, ¿cuál es el orden correcto de sus notas?"
+
+opciones_explicitas: ["Do, Mi, Sol", "Sol, Mi, Do", "Do, Sol, Mi"]
+respuesta: "Do, Mi, Sol"
+tipo: mc
 
 explicacion: |
-  Verdadero: es la aplicación concreta de este tema al preparar una
-  escena teatral real.
+  Un acorde se construye por intervalos superpuestos (terceras) partiendo desde la nota raíz hacia arriba.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "armonia_basica_tonalidad"
+  nivel: "basico"
+  tags: ["tonalidad", "teoria_musical"]
+
+variables:
+  datos: [["La pieza termina en Do", "Do mayor"], ["La pieza termina en Sol", "Sol mayor"], ["La pieza termina en Fa", "Fa mayor"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "En una composición, {datos[idx][0]}. Si la última nota es la tónica, ¿cuál es la tonalidad probable?"
+
+opciones_explicitas: ["Do mayor", "Sol mayor", "Fa mayor"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  La resolución final en la tónica es el indicador más fuerte para identificar la tonalidad de una pieza musical.
 ```
 
 ## Sección: narrativa-audiovisual/montaje (26 preguntas)
@@ -1858,6 +948,483 @@ explicacion: |
   cadena narrativa.
 ```
 
+## Sección: rosetones-y-simetria (24 preguntas)
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "basico"
+  tags: ["rosetones", "vocabulario"]
+
+enunciado: "¿Qué es un rosetón?"
+tipo: mc
+opciones_explicitas:
+  - "Una ventana circular ornamentada con un patrón geométrico repetido alrededor de un centro"
+  - "Cualquier ventana redonda, sin importar si tiene un patrón o no"
+  - "Un tipo de columna usada en la arquitectura gótica"
+respuesta: "Una ventana circular ornamentada con un patrón geométrico repetido alrededor de un centro"
+
+explicacion: |
+  Es típico de la arquitectura gótica, como en las grandes catedrales.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "basico"
+  tags: ["rosetones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un rosetón bien diseñado se basa en una construcción geométrica sistemática, no en un dibujo decorativo al azar."
+
+explicacion: |
+  Divide la circunferencia en partes iguales y repite un motivo con
+  transformaciones geométricas precisas.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "intermedio"
+  tags: ["rosetones", "problema"]
+
+variables:
+  n: uno_de([6, 8, 9, 10, 12])
+
+respuesta: 360 / n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un rosetón se divide en {n} secciones iguales. ¿Cuántos grados mide cada sección?"
+
+pasos:
+  - "360° ÷ {n} = {360 / n}°"
+
+explicacion: |
+  Es la misma fórmula del ángulo central de una circunferencia, dividida
+  en partes iguales.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "avanzado"
+  tags: ["rosetones", "problema"]
+
+variables:
+  n: uno_de([6, 8, 9, 10, 12])
+
+respuesta: n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un rosetón tiene secciones de {360 / n}° cada una. ¿Cuántas secciones tiene en total?"
+
+pasos:
+  - "360° ÷ {360 / n}° = {n} secciones"
+
+explicacion: |
+  Se despeja n dividiendo 360° por el ángulo de cada sección.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "intermedio"
+  tags: ["rosetones", "vocabulario"]
+
+enunciado: "¿Qué transformación geométrica se usa para repetir el motivo de un rosetón alrededor del centro?"
+tipo: mc
+opciones_explicitas:
+  - "La rotación"
+  - "La traslación"
+  - "La homotecia"
+respuesta: "La rotación"
+
+explicacion: |
+  El motivo se repite rotándolo el mismo ángulo, una y otra vez, hasta
+  completar la vuelta.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "avanzado"
+  tags: ["rosetones", "vocabulario"]
+
+enunciado: "¿Qué significa que un rosetón tenga 'simetría rotacional de orden n'?"
+tipo: mc
+opciones_explicitas:
+  - "Que se ve exactamente igual después de rotarlo 360°/n"
+  - "Que tiene exactamente n colores distintos"
+  - "Que fue diseñado hace n siglos"
+respuesta: "Que se ve exactamente igual después de rotarlo 360°/n"
+
+explicacion: |
+  Es la misma definición de simetría rotacional ya vista en
+  `../../matematica/transformaciones-geometricas/rotacion/`.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "intermedio"
+  tags: ["rosetones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuantas más secciones (n) tiene un rosetón, más chico es su ángulo mínimo de simetría rotacional."
+
+explicacion: |
+  El ángulo es 360°/n: a mayor n, menor el resultado de esa división.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "intermedio"
+  tags: ["rosetones", "vocabulario"]
+
+enunciado: "¿Qué es la simetría axial en un rosetón?"
+tipo: mc
+opciones_explicitas:
+  - "Que cada sector es el reflejo especular de su vecino, respecto de una línea que pasa por el centro"
+  - "Que todos los sectores tienen exactamente el mismo color"
+  - "Que el rosetón tiene forma de eje, en vez de circular"
+respuesta: "Que cada sector es el reflejo especular de su vecino, respecto de una línea que pasa por el centro"
+
+explicacion: |
+  Es aplicar la reflexión (ver
+  `../../matematica/transformaciones-geometricas/reflexion/`) dentro del
+  diseño del rosetón.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "avanzado"
+  tags: ["rosetones", "problema"]
+
+variables:
+  n: uno_de([6, 8, 10, 12])
+
+respuesta: n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un rosetón de {n} secciones tiene simetría axial completa. ¿Cuántos ejes de simetría tiene en total?"
+
+pasos:
+  - "Un eje de simetría por cada sección: {n} ejes"
+
+explicacion: |
+  Cada eje pasa por el centro, dividiendo el rosetón en dos mitades
+  espejadas.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "intermedio"
+  tags: ["rosetones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un rosetón bien diseñado suele combinar simetría rotacional Y simetría axial (reflexión) a la vez, no usar sólo una de las dos."
+
+explicacion: |
+  Es lo que le da la sensación de máximo orden y armonía visual.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "intermedio"
+  tags: ["rosetones", "vocabulario"]
+
+enunciado: "¿Cuál es el primer paso para diseñar un rosetón?"
+tipo: mc
+opciones_explicitas:
+  - "Elegir n, la cantidad de secciones o 'pétalos' que va a tener"
+  - "Elegir los colores del vitral"
+  - "Calcular el costo del material"
+respuesta: "Elegir n, la cantidad de secciones o 'pétalos' que va a tener"
+
+explicacion: |
+  Todo el resto de la construcción (el ángulo de cada sección) depende
+  de ese número.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "avanzado"
+  tags: ["rosetones", "ordenar"]
+
+enunciado: "Ordená los pasos para diseñar un rosetón con n secciones."
+tipo: ordenar
+opciones_explicitas:
+  - "Repetir ese motivo rotándolo 360°/n grados, hasta completar la vuelta"
+  - "Elegir n y dividir la circunferencia en n arcos de 360°/n cada uno"
+  - "Diseñar el motivo dentro de un solo sector"
+respuesta_orden: ["Elegir n y dividir la circunferencia en n arcos de 360°/n cada uno", "Diseñar el motivo dentro de un solo sector", "Repetir ese motivo rotándolo 360°/n grados, hasta completar la vuelta"]
+explicacion: |
+  El motivo se diseña una sola vez, y después se repite por rotación.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "basico"
+  tags: ["rosetones", "vocabulario"]
+
+enunciado: "¿Cuáles son valores típicos de n (cantidad de secciones) en rosetones góticos clásicos?"
+tipo: mc
+opciones_explicitas:
+  - "6, 8 o 12"
+  - "1 o 2"
+  - "1000 o más"
+respuesta: "6, 8 o 12"
+
+explicacion: |
+  Son números que dividen 360° en ángulos "redondos" (60°, 45°, 30°).
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "avanzado"
+  tags: ["rosetones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El propio círculo que enmarca un rosetón tiene infinitos ejes de simetría, más que cualquier patrón dibujado dentro de él."
+
+explicacion: |
+  Es el caso límite ya visto en
+  `../../matematica/transformaciones-geometricas/reflexion/`.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "intermedio"
+  tags: ["rosetones", "problema"]
+
+respuesta: 45
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos grados mide cada sección de un rosetón dividido en 8 partes iguales?"
+
+pasos:
+  - "360° ÷ 8 = 45°"
+
+explicacion: |
+  Es uno de los valores clásicos de n en rosetones góticos.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "intermedio"
+  tags: ["rosetones", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un mandala, además de un rosetón, es otro ejemplo de patrón que se construye dividiendo un círculo en secciones iguales y repitiendo un motivo por rotación."
+
+explicacion: |
+  El mismo principio geométrico aparece en distintas tradiciones
+  artísticas.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "avanzado"
+  tags: ["rosetones", "vocabulario"]
+
+enunciado: "¿Cuál de las cuatro transformaciones geométricas NO participa típicamente en la construcción de un rosetón?"
+tipo: mc
+opciones_explicitas:
+  - "La traslación (no tiene sentido en un patrón centrado en un punto fijo)"
+  - "La rotación"
+  - "La reflexión"
+respuesta: "La traslación (no tiene sentido en un patrón centrado en un punto fijo)"
+
+explicacion: |
+  Un rosetón está centrado en un punto fijo: la traslación (que no
+  tiene puntos fijos) no encaja en ese tipo de patrón, a diferencia de
+  un empapelado o mosaico repetido en una superficie plana.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "avanzado"
+  tags: ["rosetones", "problema"]
+
+variables:
+  n: uno_de([6, 8, 10, 12])
+  con_reflexion: n / 2
+
+respuesta: con_reflexion
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un rosetón de {n} secciones tiene simetría axial, pero sólo la mitad de las secciones fueron diseñadas con un motivo reflejado respecto de su vecino (la otra mitad se repite sólo por rotación). ¿Cuántas secciones tienen motivo reflejado?"
+
+pasos:
+  - "{n} ÷ 2 = {con_reflexion} secciones"
+
+explicacion: |
+  No todos los rosetones combinan las dos simetrías en el 100% del
+  diseño.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "avanzado"
+  tags: ["rosetones", "vocabulario"]
+
+enunciado: "¿Qué nombre recibe un patrón que combina simetría rotacional de orden n con n ejes de simetría axial?"
+tipo: mc
+opciones_explicitas:
+  - "Simetría diédrica"
+  - "Simetría lineal"
+  - "Simetría homotética"
+respuesta: "Simetría diédrica"
+
+explicacion: |
+  Es el tipo de simetría más completo posible en un patrón plano
+  centrado, salvo el caso límite del círculo mismo.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "avanzado"
+  tags: ["rosetones", "problema"]
+
+variables:
+  n: uno_de([8, 10, 12])
+  saltos: uno_de([2, 3])
+
+respuesta: (360 / n) * saltos
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En un rosetón de {n} secciones iguales, ¿cuántos grados hay entre una sección y otra que está {saltos} posiciones más adelante?"
+
+pasos:
+  - "(360° ÷ {n}) × {saltos} = {(360 / n) * saltos}°"
+
+explicacion: |
+  Cada salto de una sección a la siguiente suma un ángulo de 360°/n.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "basico"
+  tags: ["rosetones", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los rosetones son un elemento típico de la arquitectura gótica, presente en catedrales como la de Notre Dame."
+
+explicacion: |
+  Combinan función (dejar entrar luz) con un diseño geométrico
+  ornamental.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "intermedio"
+  tags: ["rosetones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para diseñar un rosetón, el motivo decorativo se diseña una sola vez, dentro de un sector, y después se repite con transformaciones geométricas."
+
+explicacion: |
+  No hace falta rediseñar cada sección desde cero: se repite el mismo
+  motivo con rotación (y a veces reflexión).
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "basico"
+  tags: ["rosetones", "problema"]
+
+respuesta: 30
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos grados mide cada sección de un rosetón dividido en 12 partes iguales?"
+
+pasos:
+  - "360° ÷ 12 = 30°"
+
+explicacion: |
+  12 secciones es otro valor clásico en el diseño de rosetones.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "rosetones_y_simetria"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender la construcción geométrica de un rosetón?"
+tipo: mc
+opciones_explicitas:
+  - "Para explicar por qué se ve ordenado y armónico, y para poder diseñar patrones radiales propios (mandalas, logos, mosaicos)"
+  - "Sólo sirve para restaurar catedrales góticas existentes"
+  - "No tiene ninguna aplicación fuera de la arquitectura religiosa"
+respuesta: "Para explicar por qué se ve ordenado y armónico, y para poder diseñar patrones radiales propios (mandalas, logos, mosaicos)"
+
+explicacion: |
+  Es la aplicación directa de circunferencia, rotación y reflexión a un
+  diseño real.
+```
+
 ## Sección: produccion-multimedial (25 preguntas)
 
 ```
@@ -2324,5 +1891,463 @@ explicacion: |
   Es el cierre de toda la cadena: composición, elementos, principios,
   plano, encuadre, montaje y, por último, la integración multimedial
   completa.
+```
+
+## Sección: teatro-dramaturgia-y-actuacion (20 preguntas)
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "basico"
+  tags: ["teatro", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El teatro combina dos habilidades distintas: escribir el texto teatral (dramaturgia) e interpretarlo frente a público (actuación)."
+
+pasos:
+  - "Son dos oficios complementarios, no la misma habilidad aplicada dos veces."
+
+explicacion: |
+  Verdadero: es la definición central que organiza este tema.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "avanzado"
+  tags: ["genero_dramatico", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Este tema no repite la forma del texto teatral (diálogo, acotaciones, actos/escenas) ya vista en `../../lengua/genero-dramatico/`, sino que se enfoca en la escritura como oficio y la actuación como arte escénico."
+
+pasos:
+  - "Es una aclaración explícita sobre el alcance de este tema respecto de lo ya cubierto en Lengua."
+
+explicacion: |
+  Verdadero: es la delimitación de alcance central de este tema.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "intermedio"
+  tags: ["conflicto_dramatico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Escribir teatro no es sólo poner diálogos correctos: implica construir un conflicto dramático, una tensión entre personajes (o entre un personaje y su circunstancia) que evoluciona a lo largo de la obra."
+
+pasos:
+  - "Es el eje central de la dramaturgia como oficio."
+
+explicacion: |
+  Verdadero: es la definición central de conflicto dramático en este
+  tema.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "avanzado"
+  tags: ["dramaturgia", "recursos_literarios"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La dramaturgia reutiliza los recursos literarios ya vistos en `../../lengua/recursos-literarios/`, aplicados específicamente al diálogo hablado: metáforas y antítesis que funcionan cuando se dicen en voz alta."
+
+pasos:
+  - "Es la conexión directa entre este tema y uno de sus dos prerrequisitos."
+
+explicacion: |
+  Verdadero: es la conexión central entre este tema y los recursos
+  literarios ya estudiados.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "intermedio"
+  tags: ["subtexto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El subtexto es lo que un personaje siente o quiere realmente, que no está dicho literalmente en sus palabras."
+
+pasos:
+  - "Un personaje puede decir \"estoy bien\" mientras el subtexto es que está furioso."
+
+explicacion: |
+  Verdadero: es la definición central de subtexto en dramaturgia.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "avanzado"
+  tags: ["subtexto", "interes_dramatico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La tensión entre lo que un personaje dice explícitamente y lo que realmente siente (el subtexto) es una fuente central de interés dramático."
+
+pasos:
+  - "Es la razón por la que el subtexto es una herramienta valorada en la escritura teatral."
+
+explicacion: |
+  Verdadero: es la aplicación práctica de por qué el subtexto
+  enriquece un texto dramático.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "basico"
+  tags: ["actuacion", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Actuar no es memorizar y decir líneas correctamente: es \"habitar\" un personaje, entendiendo sus motivaciones y transmitiéndolas de forma creíble al público."
+
+pasos:
+  - "Es la definición central de actuación en este tema."
+
+explicacion: |
+  Verdadero: es la definición central de actuación descrita en la
+  teoría.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "avanzado"
+  tags: ["actuacion", "exposicion_oral"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La actuación reutiliza directamente las técnicas de exposición oral (voz, ritmo, contacto visual, lenguaje corporal), llevadas a un contexto de ficción sostenida."
+
+pasos:
+  - "Ver `../../lengua/exposicion-oral/`: es la conexión directa con el otro prerrequisito de este tema."
+
+explicacion: |
+  Verdadero: es la conexión central entre este tema y el otro
+  prerrequisito.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "intermedio"
+  tags: ["tecnicas_actorales", "cuerpo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El trabajo con el cuerpo en actuación implica postura, gesto y movimiento que comuniquen al personaje, no sólo al actor."
+
+pasos:
+  - "Es una de las técnicas actorales básicas descritas en la teoría."
+
+explicacion: |
+  Verdadero: es una de las técnicas centrales de actuación.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "intermedio"
+  tags: ["tecnicas_actorales", "voz"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El trabajo con la voz implica modular tono, ritmo y volumen según lo que el personaje siente, no según lo que el actor sentiría en su propia vida."
+
+pasos:
+  - "Es otra de las técnicas actorales básicas descritas en la teoría."
+
+explicacion: |
+  Verdadero: es otra de las técnicas centrales de actuación.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "avanzado"
+  tags: ["tecnicas_actorales", "escucha_activa"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La escucha activa en escena implica reaccionar genuinamente a lo que dice el otro personaje, no sólo esperar el propio turno de hablar — la misma escucha activa ya vista en debate, aplicada a la ficción."
+
+pasos:
+  - "Ver `../../lengua/debate-refutar-en-vivo/`: es la conexión con esa habilidad ya estudiada."
+
+explicacion: |
+  Verdadero: es la conexión explícita entre la escucha activa del
+  debate y su aplicación en la actuación.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "avanzado"
+  tags: ["tecnicas_actorales", "memoria_emotiva"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La memoria emotiva consiste en recurrir a experiencias o emociones propias para conectar de forma genuina con lo que el personaje siente en una escena."
+
+pasos:
+  - "Es otra de las técnicas actorales básicas descritas en la teoría."
+
+explicacion: |
+  Verdadero: es otra técnica central de actuación mencionada en la
+  teoría.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "intermedio"
+  tags: ["puesta_en_escena"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El teatro también incluye decisiones de puesta en escena (escenografía, vestuario, iluminación, sonido) que completan la experiencia más allá del texto dramático y la actuación en sí."
+
+pasos:
+  - "Son elementos adicionales que forman parte de la experiencia teatral completa."
+
+explicacion: |
+  Verdadero: la puesta en escena es un componente más del teatro,
+  además del texto y la interpretación.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "intermedio"
+  tags: ["dramaturgia", "actuacion", "diferenciacion"]
+
+variables:
+  acciones: ["escribir el diálogo y el conflicto de una escena entre dos hermanos", "interpretar a uno de esos hermanos en el escenario, con voz y gestos"]
+  oficios: ["dramaturgia", "actuación"]
+  idx: uno_de([0, 1])
+
+respuesta: oficios[idx]
+tipo: mc
+opciones_explicitas: ["dramaturgia", "actuación"]
+
+enunciado: "La acción de \"{acciones[idx]}\" corresponde al oficio de..."
+
+pasos:
+  - "Escribir el texto es dramaturgia; interpretarlo en escena es actuación."
+
+explicacion: |
+  Reconocer a qué oficio corresponde cada acción es la aplicación
+  central de la distinción de este tema.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "avanzado"
+  tags: ["subtexto", "genero_dramatico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El subtexto de un personaje siempre está escrito explícitamente en las acotaciones del texto teatral, así el actor no tiene que interpretarlo."
+
+pasos:
+  - "Ver `../../lengua/genero-dramatico/`: las acotaciones indican gestos/tono, pero el subtexto suele quedar implícito, para que el actor lo interprete y transmita."
+
+explicacion: |
+  Falso: el subtexto suele quedar implícito en el texto, es parte
+  del trabajo interpretativo del actor descubrirlo y transmitirlo.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "avanzado"
+  tags: ["actuacion", "interpretacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Distintos actores pueden interpretar el mismo texto dramático de formas distintas, según cómo entiendan el subtexto y las motivaciones del personaje."
+
+pasos:
+  - "Es una consecuencia de que la actuación implica una interpretación personal, no una lectura mecánica del texto."
+
+explicacion: |
+  Verdadero: la variedad interpretativa es parte central de por qué
+  la actuación es un arte creativo, no una simple ejecución.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "avanzado"
+  tags: ["escucha_activa", "credibilidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un actor que no escucha realmente al otro personaje en escena tiende a reaccionar de forma mecánica o poco creíble, en vez de genuina."
+
+pasos:
+  - "Es la misma lógica de la escucha activa ya vista en debate, aplicada a la credibilidad de una escena."
+
+explicacion: |
+  Verdadero: la falta de escucha activa afecta directamente la
+  credibilidad de la interpretación.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "intermedio"
+  tags: ["teatro", "metodo"]
+
+enunciado: "Ordená los pasos para construir y llevar a escena un fragmento dramático."
+tipo: ordenar
+opciones_explicitas:
+  - "Escribir el conflicto dramático entre los personajes (dramaturgia)"
+  - "Definir el subtexto de cada personaje en los momentos clave"
+  - "Trabajar la interpretación (voz, cuerpo) para transmitir ese subtexto (actuación)"
+  - "Definir decisiones de puesta en escena que acompañen la escena (escenografía, iluminación)"
+respuesta_orden: ["Escribir el conflicto dramático entre los personajes (dramaturgia)", "Definir el subtexto de cada personaje en los momentos clave", "Trabajar la interpretación (voz, cuerpo) para transmitir ese subtexto (actuación)", "Definir decisiones de puesta en escena que acompañen la escena (escenografía, iluminación)"]
+explicacion: |
+  El proceso va de la escritura del texto a su interpretación en
+  escena, y termina con las decisiones adicionales de puesta en
+  escena.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "avanzado"
+  tags: ["teatro", "sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Escribir y actuar teatro es la aplicación práctica y en vivo de herramientas ya dominadas en Lengua (recursos literarios, exposición oral, escucha activa), llevadas a un lenguaje artístico propio."
+
+pasos:
+  - "Ver `../../lengua/recursos-literarios/`, `../../lengua/exposicion-oral/` y `../../lengua/debate-refutar-en-vivo/`: son las conexiones directas de este tema con Lengua."
+
+explicacion: |
+  Verdadero: es la síntesis de todas las conexiones de este tema con
+  contenidos ya estudiados en Lengua.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "teatro_dramaturgia_y_actuacion"
+  nivel: "avanzado"
+  tags: ["teatro", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al preparar una escena para representar, conviene identificar el conflicto dramático central, definir el subtexto de cada personaje, y trabajar la voz y el cuerpo para transmitirlo de forma creíble al público."
+
+pasos:
+  - "Es la aplicación práctica directa de todos los conceptos estudiados en este tema."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema al preparar una
+  escena teatral real.
 ```
 

@@ -1,358 +1,8 @@
 # Examen jefe — [PENDIENTE #841]
 
-> Logro #841. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
+> Logro #841. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: atomo-particulas-subatomicas (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["protones", "neutrones", "electrones", "carga"]
-
-variables:
-  escenario: uno_de([["proton", "+1"], ["neutron", "0"], ["electron", "-1"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["+1", "0", "-1"]
-
-enunciado: "La partícula seleccionada es un {escenario[0]}. ¿Cuál es su carga eléctrica?"
-
-explicacion: |
-  El {escenario[0]} tiene una carga de {escenario[1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["masa", "electron"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La masa del electrón es casi despreciable comparada con la masa del protón."
-
-explicacion: |
-  Es verdadero. La masa del electrón es aproximadamente 1/1836 de la masa de un protón.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["nucleo", "neutron"]
-
-respuesta: "neutron"
-tipo: completar
-respuestas_validas:
-  - "neutron"
-  - "neutrón"
-
-enunciado: "La partícula sin carga eléctrica, ubicada en el núcleo, es el ___."
-
-explicacion: |
-  El neutrón es la partícula subatómica sin carga eléctrica situada en el núcleo atómico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["ubicacion", "nucleo", "nube"]
-
-variables:
-  escenario: uno_de([["proton", "nucleo"], ["neutron", "nucleo"], ["electron", "nube alrededor del nucleo"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["nucleo", "nube alrededor del nucleo"]
-
-enunciado: "La partícula seleccionada es un {escenario[0]}. ¿En qué parte del átomo se ubica?"
-
-explicacion: |
-  El {escenario[0]} se encuentra en el/la {escenario[1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["masa", "nucleo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Los protones y neutrones concentran casi toda la masa del átomo?"
-
-explicacion: |
-  Verdadero. Como la masa del electrón es despreciable, la masa atómica reside casi totalmente en el núcleo (protones y neutrones).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["protones", "electrones", "neutralidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un átomo neutro tiene el mismo número de protones que de electrones."
-
-explicacion: |
-  En un átomo neutro, la carga positiva de los protones se compensa exactamente con la carga negativa de los electrones.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["cation", "carga", "electrones"]
-
-respuesta: "positiva"
-tipo: mc
-opciones_explicitas: ["positiva", "negativa", "neutra"]
-
-enunciado: "Si un átomo pierde electrones, ¿qué carga resultante queda?"
-
-explicacion: |
-  Al perder electrones (cargas negativas), el átomo queda con un exceso de protones, resultando en una carga positiva. A este ion se lo llama catión.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["anion", "carga", "electrones"]
-
-respuesta: "negativa"
-tipo: mc
-opciones_explicitas: ["negativa", "positiva", "neutra"]
-
-enunciado: "Si un átomo gana electrones, ¿qué carga resultante queda?"
-
-explicacion: |
-  Al ganar electrones (cargas negativas), el átomo tiene más electrones que protones, resultando en una carga negativa. A este ion se lo llama anión.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["ion", "terminologia"]
-
-respuesta: "ion"
-tipo: completar
-respuestas_validas:
-  - "ion"
-
-enunciado: "Un átomo cargado eléctricamente, por ganar o perder electrones, se llama ___."
-
-explicacion: |
-  Un ion es un átomo (o molécula) que ganó o perdió electrones, adquiriendo así una carga eléctrica neta.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "intermedio"
-  tags: ["protones", "elemento", "identidad"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Para cambiar la identidad de un elemento químico, hay que cambiar el número de electrones y no el de protones."
-
-explicacion: |
-  La identidad de un elemento está determinada exclusivamente por su número de protones (número atómico). Cambiar los electrones sólo cambia la carga (ion), pero cambiar los protones crea un elemento distinto.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["protones", "elemento"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El número de protones de un átomo define de qué elemento se trata."
-
-explicacion: |
-  El número atómico (Z), la cantidad de protones, es lo que identifica a un elemento químico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["isotopos", "neutrones"]
-
-respuesta: "isótopos"
-tipo: mc
-opciones_explicitas: ["isótopos", "iones", "isómeros", "alótropos"]
-
-enunciado: "¿Cómo se llaman dos átomos del mismo elemento con distinto número de neutrones?"
-
-explicacion: |
-  Los isótopos son átomos de un mismo elemento (mismo número de protones) que difieren en su número de neutrones, lo que cambia su masa atómica.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["nucleones", "masa"]
-
-respuesta: "nucleones"
-tipo: completar
-respuestas_validas:
-  - "nucleones"
-
-enunciado: "Los protones y neutrones juntos se llaman ___."
-
-explicacion: |
-  El conjunto de protones y neutrones que forman el núcleo atómico se denomina nucleones.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["isotopos", "masa"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los isótopos de un mismo elemento tienen el mismo número de protones pero distinta masa."
-
-explicacion: |
-  Al tener distinto número de neutrones, la masa atómica (protones + neutrones) varía entre isótopos del mismo elemento.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "intermedio"
-  tags: ["protones", "identidad"]
-
-respuesta: "se convierte en otro elemento"
-tipo: mc
-opciones_explicitas: ["se convierte en otro elemento", "sigue siendo el mismo elemento", "se vuelve un ion", "se vuelve un isótopo"]
-
-enunciado: "Si un átomo cambia su número de protones, ¿qué ocurre?"
-
-explicacion: |
-  Como el número de protones define la identidad del elemento, cualquier cambio en esa cantidad transforma el átomo en un elemento distinto.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["protones", "electrones", "neutro"]
-
-variables:
-  protones: random(1, 20)
-
-respuesta: protones
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Un átomo neutro tiene {protones} protones. ¿Cuántos electrones tiene este átomo?"
-
-explicacion: |
-  En un átomo neutro, la cantidad de protones (carga positiva) es igual a la cantidad de electrones (carga negativa): las cargas se cancelan.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["nucleo", "volumen", "estructura"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El núcleo ocupa la mayor parte del volumen del átomo."
-
-explicacion: |
-  Falso. El núcleo es extremadamente pequeño comparado con el volumen total del átomo; la mayor parte del volumen es el espacio donde se mueven los electrones.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["nucleo", "particulas"]
-
-respuesta: "electrón"
-tipo: mc
-opciones_explicitas: ["electrón", "protón", "neutrón", "nucleón"]
-
-enunciado: "¿Cuál de las siguientes partículas NO se encuentra en el núcleo del átomo?"
-
-explicacion: |
-  El núcleo contiene protones y neutrones (llamados nucleones juntos). El electrón está en la nube electrónica, alrededor del núcleo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["ion", "cation", "carga"]
-
-respuesta: "positiva"
-tipo: completar
-respuestas_validas:
-  - "positiva"
-
-enunciado: "Un catión tiene carga ___ porque perdió electrones."
-
-explicacion: |
-  Al perder electrones (cargas negativas), el átomo queda con exceso de protones (cargas positivas), resultando en una carga neta positiva.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "atomo_particulas_subatomicas"
-  nivel: "basico"
-  tags: ["ion", "anion", "carga"]
-
-respuesta: "negativa"
-tipo: completar
-respuestas_validas:
-  - "negativa"
-
-enunciado: "Un anión tiene carga ___ porque ganó electrones."
-
-explicacion: |
-  Al ganar electrones (cargas negativas), el átomo tiene más electrones que protones, resultando en una carga neta negativa.
-```
 
 ## Sección: balanceo-ecuaciones (30 preguntas)
 
@@ -929,1033 +579,1766 @@ explicacion: |
   los reactivos).
 ```
 
-## Sección: biomoleculas-glucidos-lipidos-proteinas (20 preguntas)
+## Sección: concentracion-de-una-solucion (26 preguntas)
 
 ```
 metadata:
   materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
+  tema: "concentracion_de_una_solucion"
   nivel: "basico"
-  tags: ["glucidos", "estructura"]
+  tags: ["concentracion", "vocabulario"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los glúcidos poseen múltiples grupos hidroxilo (-OH) y un grupo carbonilo (C=O) en su estructura."
-
-explicacion: |
-  Los glúcidos se caracterizan por un carbono con grupo carbonilo (aldehído o cetona) y varios hidroxilos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "intermedio"
-  tags: ["clasificacion", "glucidos"]
-
-variables:
-  escenario: [["monosacarido", "glucosa"], ["disacarido", "sacarosa"], ["polisacarido", "almidon"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: escenario[idx][1]
+enunciado: "¿Qué es una solución en química?"
 tipo: mc
-opciones_explicitas: ["glucosa", "sacarosa", "almidon"]
-
-enunciado: "¿Cuál es un ejemplo de {escenario[idx][0]}?"
+opciones_explicitas:
+  - "Una mezcla homogénea de un soluto disuelto en un solvente"
+  - "Cualquier mezcla, homogénea o no"
+  - "Un compuesto químico puro"
+respuesta: "Una mezcla homogénea de un soluto disuelto en un solvente"
 
 explicacion: |
-  Un ejemplo de {escenario[idx][0]} es {escenario[idx][1]}.
+  Homogénea significa que se ve como una sola sustancia, sin partes
+  distinguibles.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
+  tema: "concentracion_de_una_solucion"
   nivel: "basico"
-  tags: ["glucogeno", "reserva_energetica"]
+  tags: ["concentracion", "vocabulario"]
+
+enunciado: "En agua salada, ¿cuál es el soluto y cuál el solvente?"
+tipo: mc
+opciones_explicitas:
+  - "La sal es el soluto; el agua es el solvente"
+  - "El agua es el soluto; la sal es el solvente"
+  - "Ambos son solventes"
+respuesta: "La sal es el soluto; el agua es el solvente"
+
+explicacion: |
+  El soluto es lo que se disuelve; el solvente es el medio, generalmente
+  en mayor cantidad.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "basico"
+  tags: ["concentracion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El glucógeno es la molécula de reserva de energía de los glúcidos en los animales."
+enunciado: "En una solución, el solvente suele estar en mayor cantidad que el soluto."
 
 explicacion: |
-  El glucógeno es un polisacárido de reserva, principalmente en hígado y músculos.
+  Es la sustancia "de fondo" en la que se disuelve el soluto.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "intermedio"
-  tags: ["celulosa", "almidon", "funcion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La celulosa cumple una función energética en las plantas, igual que el almidón."
-
-explicacion: |
-  Falso. El almidón es reserva energética; la celulosa es estructural (pared celular).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
+  tema: "concentracion_de_una_solucion"
   nivel: "basico"
-  tags: ["funcion", "energia"]
+  tags: ["concentracion", "vocabulario"]
 
-respuesta: "energetica"
+enunciado: "¿Qué indica la concentración de una solución?"
+tipo: mc
+opciones_explicitas:
+  - "Cuánto soluto hay por cada cantidad de solución"
+  - "Cuántos átomos tiene el soluto"
+  - "El color de la solución"
+respuesta: "Cuánto soluto hay por cada cantidad de solución"
+
+explicacion: |
+  Es la misma idea de "cantidad por unidad de volumen o masa" que la
+  densidad, aplicada a una mezcla.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "intermedio"
+  tags: ["concentracion", "completar"]
+
 tipo: completar
+enunciado: "Completá: %m/V = (masa del soluto en g / volumen de la solución en mL) × ___."
 respuestas_validas:
-  - "energetica"
-  - "energética"
-
-enunciado: "La función principal de los glúcidos es la ___ rápida."
+  - "100"
 
 explicacion: |
-  Los glúcidos son la fuente de energía inmediata para el metabolismo celular.
+  Multiplicar por 100 convierte la razón en un porcentaje.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "basico"
-  tags: ["lipidos", "solubilidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los lípidos no se disuelven en agua: son moléculas hidrofóbicas."
-
-explicacion: |
-  Al ser moléculas no polares, no forman puentes de hidrógeno con el agua.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "basico"
-  tags: ["lipidos", "trigliceridos"]
-
-respuesta: "grasos"
-tipo: completar
-respuestas_validas:
-  - "grasos"
-
-enunciado: "Un triglicérido está formado por 1 glicerol y 3 ácidos ___."
-
-explicacion: |
-  Los triglicéridos son ésteres de glicerol con 3 ácidos grasos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
+  tema: "concentracion_de_una_solucion"
   nivel: "intermedio"
-  tags: ["lipidos", "membrana_celular"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los fosfolípidos forman las membranas celulares, con cabeza hidrofílica y colas hidrofóbicas."
-
-explicacion: |
-  Su carácter anfipático hace que se organicen en bicapa, colas hacia adentro, cabezas hacia el medio acuoso.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "intermedio"
-  tags: ["lipidos", "energia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los lípidos almacenan menos energía por gramo que los glúcidos."
-
-explicacion: |
-  Falso. Los lípidos aportan ~9 kcal/g, los glúcidos ~4 kcal/g: los lípidos son más densos energéticamente.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "basico"
-  tags: ["proteinas", "aminoacidos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las proteínas son cadenas de aminoácidos unidos por enlaces peptídicos."
-
-explicacion: |
-  Correcto. Los aminoácidos forman largas cadenas polipeptídicas vía enlace peptídico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "basico"
-  tags: ["aminoacidos", "proteinas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Existen 20 aminoácidos distintos que se combinan para formar las proteínas."
-
-explicacion: |
-  Correcto: 20 aminoácidos estándar componen las proteínas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "intermedio"
-  tags: ["funciones", "proteinas"]
+  tags: ["concentracion", "problema"]
 
 variables:
-  escenario: [["estructural", "colágeno"], ["transporte", "hemoglobina"], ["enzimática", "cataliza reacciones"], ["defensa", "anticuerpos"]]
-  idx: uno_de([0, 1, 2, 3])
+  volumen: uno_de([100, 200, 250, 500])
+  masa: uno_de([2, 4, 5, 8, 10])
 
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["colágeno", "hemoglobina", "cataliza reacciones", "anticuerpos"]
+respuesta: redondear((masa / volumen) * 100, 2)
+tipo: input
+tolerancia_abs: 0.02
 
-enunciado: "¿Cuál es un ejemplo de proteína con función {escenario[idx][0]}?"
+enunciado: "Se disuelven {masa} g de sal en agua hasta completar {volumen} mL de solución. ¿Cuál es la concentración %m/V?"
+
+pasos:
+  - "({masa} ÷ {volumen}) × 100 = {redondear((masa / volumen) * 100, 2)} %m/V"
 
 explicacion: |
-  La proteína con función {escenario[idx][0]} es {escenario[idx][1]}.
+  Se divide la masa del soluto por el volumen total de la solución, y se
+  multiplica por 100.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "basico"
-  tags: ["metabolismo", "proteinas"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "A diferencia de glúcidos y lípidos, las proteínas son principalmente la fuente de combustible energético del organismo."
-
-explicacion: |
-  Falso. Su función principal es estructural, enzimática, de transporte o defensa — glúcidos y lípidos son las fuentes de energía primarias.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "intermedio"
-  tags: ["biomoleculas", "monomeros"]
-
-variables:
-  escenario: [["glucidos", "monosacarido"], ["lipidos", "glicerol y acidos grasos"], ["proteinas", "aminoacido"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["monosacarido", "glicerol y acidos grasos", "aminoacido", "nucleotido"]
-
-enunciado: "¿Cuál es la unidad básica de construcción de los {escenario[idx][0]}?"
-
-explicacion: |
-  La unidad básica de {escenario[idx][0]} es: {escenario[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "intermedio"
-  tags: ["enlaces", "biomoleculas"]
-
-variables:
-  escenario: [["glucidos", "glucosidico"], ["lipidos", "ester"], ["proteinas", "peptidico"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["glucosidico", "ester", "peptidico", "ionico"]
-
-enunciado: "¿Qué tipo de enlace une a los monómeros de {escenario[idx][0]}?"
-
-explicacion: |
-  El enlace característico de {escenario[idx][0]} es el {escenario[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "basico"
-  tags: ["glucidos", "sacarosa"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La sacarosa (azúcar de mesa) está formada por glucosa y fructosa unidas."
-
-explicacion: |
-  Verdadero. La sacarosa es un disacárido de glucosa + fructosa.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "intermedio"
-  tags: ["proteinas", "enlace_peptidico"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El enlace peptídico se forma entre un grupo amino y un grupo carboxilo, con pérdida de una molécula de agua."
-
-explicacion: |
-  Verdadero, es una síntesis por deshidratación.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
+  tema: "concentracion_de_una_solucion"
   nivel: "avanzado"
-  tags: ["glucidos", "aplicacion"]
-
-respuesta: "sus grupos hidroxilo, que interactúan con los receptores de dulzura de la lengua"
-tipo: mc
-opciones_explicitas: ["sus grupos hidroxilo, que interactúan con los receptores de dulzura de la lengua", "su color blanco", "su temperatura de fusión", "que siempre son sólidos a temperatura ambiente"]
-
-enunciado: "¿Qué característica estructural de los monosacáridos y disacáridos se relaciona con su sabor dulce?"
-
-explicacion: |
-  Los múltiples grupos -OH de los glúcidos son claves para que encajen en los receptores de sabor dulce.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "avanzado"
-  tags: ["lipidos", "membrana_celular"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los fosfolípidos forman una bicapa (doble capa) en las membranas porque así las colas hidrofóbicas quedan protegidas del agua, tanto de adentro como de afuera de la célula."
-
-explicacion: |
-  Correcto. Las cabezas hidrofílicas miran hacia el agua (intra y extracelular), y las colas hidrofóbicas quedan resguardadas en el medio.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "biomoleculas_glucidos_lipidos_proteinas"
-  nivel: "intermedio"
-  tags: ["proteinas", "enzimas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las enzimas, que aceleran reacciones químicas en los seres vivos, son en su mayoría proteínas."
-
-explicacion: |
-  Correcto. La función enzimática (catalítica) es una de las funciones más importantes de las proteínas.
-```
-
-## Sección: carbono-tetravalencia-cadenas (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["carbono", "enlaces"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El átomo de carbono siempre forma 4 enlaces covalentes para alcanzar la estabilidad."
-
-explicacion: |
-  El carbono tiene 4 electrones de valencia y necesita formar 4 enlaces covalentes para completar su octeto.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["catenacion", "propiedades"]
-
-respuesta: "catenacion"
-tipo: completar
-respuestas_validas:
-  - "catenacion"
-
-enunciado: "La propiedad del carbono de formar largas cadenas consigo mismo se llama ___."
-
-explicacion: |
-  La catenación permite formar cadenas lineales, ramificadas o anillos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["electrones", "valencia"]
-
-respuesta: "4"
-tipo: mc
-opciones_explicitas: ["2", "4", "6", "8"]
-
-enunciado: "El átomo de carbono posee en su capa de valencia:"
-
-explicacion: |
-  El carbono está en el grupo 14: tiene 4 electrones en su capa más externa.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["octeto", "electrones"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al átomo de carbono le faltan 4 electrones para completar su octeto de valencia."
-
-explicacion: |
-  Con 4 electrones propios y 4 que le faltan, alcanza los 8 de la configuración de gas noble.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "intermedio"
-  tags: ["quimica_organica", "carbono"]
+  tags: ["concentracion", "problema"]
 
 variables:
-  tipos: [["lineal", "sin ramificaciones, C-C-C-C"], ["ramificada", "con brazos laterales"], ["ciclica", "la cadena se cierra sobre si misma"]]
-  idx: uno_de([0, 1, 2])
+  volumen: uno_de([100, 200, 500, 1000])
+  porcentaje: uno_de([1, 2, 5, 10])
 
-respuesta: tipos[idx][1]
-tipo: mc
-opciones_explicitas: ["sin ramificaciones, C-C-C-C", "con brazos laterales", "la cadena se cierra sobre si misma"]
+respuesta: (porcentaje / 100) * volumen
+tipo: input
+tolerancia_abs: 0.01
 
-enunciado: "Una cadena de carbono de tipo {tipos[idx][0]} se caracteriza porque..."
+enunciado: "¿Cuántos gramos de soluto hacen falta para preparar {volumen} mL de una solución al {porcentaje}% m/V?"
+
+pasos:
+  - "({porcentaje} ÷ 100) × {volumen} = {(porcentaje / 100) * volumen} g"
 
 explicacion: |
-  Una cadena {tipos[idx][0]} es: {tipos[idx][1]}.
+  Se despeja la masa invirtiendo la fórmula: Masa = (%m/V ÷ 100) ×
+  Volumen.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["quimica_organica", "carbono"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una cadena de carbono cíclica es aquella que se cierra sobre sí misma formando un anillo."
-
-explicacion: |
-  Correcto, esa es la definición de cadena cíclica.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["quimica_organica", "carbono"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El átomo de carbono tiene la capacidad de formar únicamente cadenas lineales, sin posibilidad de ramificaciones o ciclos."
-
-explicacion: |
-  Falso. El carbono forma lineales, ramificadas y cíclicas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "intermedio"
-  tags: ["enlaces", "carbono"]
+  tema: "concentracion_de_una_solucion"
+  nivel: "avanzado"
+  tags: ["concentracion", "problema"]
 
 variables:
-  escenario: [["simple (C-C)", 1], ["doble (C=C)", 2], ["triple (C-triple-C)", 3]]
-  idx: uno_de([0, 1, 2])
+  porcentaje: uno_de([2, 4, 5, 10])
+  volumen_real: uno_de([100, 200, 500])
+  masa: (porcentaje / 100) * volumen_real
 
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: [1, 2, 3]
+respuesta: volumen_real
+tipo: input
+tolerancia_abs: 0.5
 
-enunciado: "Si un enlace entre dos átomos de carbono es de tipo {escenario[idx][0]}, ¿cuántos pares de electrones comparten?"
+enunciado: "Se disuelven {masa} g de soluto para preparar una solución al {porcentaje}% m/V. ¿Cuántos mL de solución se obtienen?"
+
+pasos:
+  - "{masa} ÷ ({porcentaje} ÷ 100) = {volumen_real} mL"
 
 explicacion: |
-  Un enlace simple comparte 1 par, uno doble 2 pares, y uno triple 3 pares.
+  Se despeja el volumen invirtiendo la fórmula.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["enlaces", "carbono"]
+  tema: "concentracion_de_una_solucion"
+  nivel: "intermedio"
+  tags: ["concentracion", "completar"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un enlace doble (C=C), cada átomo de carbono usa 2 de sus 4 enlaces de valencia con el mismo vecino."
-
-explicacion: |
-  Correcto: comparten dos pares de electrones, consumiendo dos de los cuatro enlaces disponibles de cada carbono.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["enlaces", "carbono"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En un enlace triple, cada átomo de carbono usa sólo 1 de sus 4 enlaces de valencia con el vecino."
-
-explicacion: |
-  Falso. En un enlace triple usa 3 de sus 4 enlaces con ese vecino.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["hidrocarburos"]
-
-respuesta: "alcanos"
 tipo: completar
+enunciado: "Completá: %m/m = (masa del soluto / masa de la ___) × 100."
 respuestas_validas:
-  - "alcanos"
-
-enunciado: "La distinción entre enlace simple, doble y triple entre carbonos es lo que separa a los ___, alquenos y alquinos."
+  - "solución"
+  - "solucion"
 
 explicacion: |
-  Alcanos (simple), alquenos (doble), alquinos (triple).
+  Ambas masas (soluto y solución total) en la misma unidad.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["enlaces", "catenacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El enlace C-C es fuerte y estable, lo que permite la catenación (formar cadenas largas)."
-
-explicacion: |
-  Esa fuerza y estabilidad del enlace C-C es la base de la catenación.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["definicion", "quimica_organica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La química orgánica es la rama de la química dedicada casi exclusivamente a los compuestos de carbono."
-
-explicacion: |
-  Correcto (con excepciones como carbonatos o CO2, que se estudian como química inorgánica).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["hidrocarburos", "diversidad"]
-
-respuesta: "millones de moléculas distintas"
-tipo: mc
-opciones_explicitas: ["millones de moléculas distintas", "solo una molécula", "a lo sumo 10 moléculas", "ninguna molécula estable"]
-
-enunciado: "Con sólo carbono e hidrógeno se pueden formar..."
-
-explicacion: |
-  Por la tetravalencia y los enlaces simples/dobles/triples, la variedad de hidrocarburos es enorme.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["diversidad", "tabla_periodica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ningún otro elemento de la tabla periódica genera tanta diversidad estructural como el carbono."
-
-explicacion: |
-  La catenación con enlaces estables es una propiedad casi exclusiva del carbono en la práctica.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
+  tema: "concentracion_de_una_solucion"
   nivel: "intermedio"
-  tags: ["carbono", "ramificacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un átomo de carbono en el medio de una cadena ramificada puede estar unido a 3 o 4 átomos de carbono distintos al mismo tiempo, sin dejar de tener 4 enlaces en total."
-
-explicacion: |
-  Correcto: sus 4 enlaces se reparten entre varios vecinos de carbono (más eventualmente H u otros átomos), formando la ramificación.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "avanzado"
-  tags: ["comparacion", "silicio"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El enlace Si-Si (silicio-silicio) es igual de fuerte y estable que el C-C, por eso el silicio también forma cadenas tan largas y variadas como el carbono."
-
-explicacion: |
-  Falso. El enlace Si-Si es más débil que el C-C, así que el silicio no cataniza tan bien — de ahí que la química orgánica sea "del carbono" y no "del silicio".
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "intermedio"
-  tags: ["carbono", "anillos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando la cadena de carbono se cierra en un anillo, cada carbono del anillo sigue teniendo 4 enlaces en total, repartidos entre sus vecinos del anillo y (si sobra) átomos de hidrógeno."
-
-explicacion: |
-  Correcto, la tetravalencia se mantiene siempre, ya sea en cadena abierta o cerrada (anillo).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: "la tetravalencia y la catenación del carbono"
-tipo: mc
-opciones_explicitas: ["la tetravalencia y la catenación del carbono", "la alta electronegatividad del carbono", "que el carbono es un metal", "que el carbono siempre forma enlaces iónicos"]
-
-enunciado: "¿Qué propiedad del carbono explica por qué existe toda una rama de la química (orgánica) dedicada casi solo a sus compuestos?"
-
-explicacion: |
-  La combinación de 4 enlaces disponibles y la capacidad de encadenarse consigo mismo (catenación) genera la enorme diversidad de compuestos orgánicos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "carbono_tetravalencia_cadenas"
-  nivel: "avanzado"
-  tags: ["comparacion", "tetravalencia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El carbono es el único elemento de la tabla periódica que puede formar 4 enlaces covalentes."
-
-explicacion: |
-  Falso. Otros elementos del grupo 14 (como el silicio) también son tetravalentes; lo distintivo del carbono no es sólo la tetravalencia, sino combinarla con enlaces C-C muy estables (catenación fuerte).
-```
-
-## Sección: cinetica-reaccion (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "basico"
-  tags: ["conceptos_basicos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La cinética química estudia qué tan rápido ocurre una reacción, no si esta libera o absorbe energía."
-
-explicacion: |
-  La cinética se ocupa de la velocidad y los mecanismos de reacción; la termoquímica estudia los cambios de energía.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "basico"
-  tags: ["definiciones"]
-
-respuesta: "tiempo"
-tipo: completar
-respuestas_validas:
-  - "tiempo"
-
-enunciado: "La velocidad de reacción se mide como el cambio de concentración dividido el cambio de ___."
-
-explicacion: |
-  v = Δ[concentración] / Δt.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "basico"
-  tags: ["conceptos_basicos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La termoquímica dice hasta dónde llega una reacción y el equilibrio dice qué tan rápido pasa."
-
-explicacion: |
-  Incorrecto — es al revés: el equilibrio dice hasta dónde llega, y la cinética (no la termoquímica) dice qué tan rápido.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "intermedio"
-  tags: ["calculo", "velocidad_media"]
+  tags: ["concentracion", "problema"]
 
 variables:
-  datos: [[10, 2], [20, 4], [40, 5]]
-  idx: uno_de([0, 1, 2])
+  masa_solucion: uno_de([100, 200, 500])
+  masa_soluto: uno_de([5, 10, 20])
 
-respuesta: datos[idx][0] / datos[idx][1]
+respuesta: redondear((masa_soluto / masa_solucion) * 100, 2)
+tipo: input
+tolerancia_abs: 0.02
+
+enunciado: "Una aleación de {masa_solucion} g contiene {masa_soluto} g de un metal disuelto en otro. ¿Cuál es su concentración %m/m?"
+
+pasos:
+  - "({masa_soluto} ÷ {masa_solucion}) × 100 = {redondear((masa_soluto / masa_solucion) * 100, 2)} %m/m"
+
+explicacion: |
+  Acá se comparan dos masas, no masa contra volumen.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "intermedio"
+  tags: ["concentracion", "completar"]
+
+tipo: completar
+enunciado: "Completá: %V/V = (volumen del soluto / volumen de la solución) × ___."
+respuestas_validas:
+  - "100"
+
+explicacion: |
+  Mismo patrón que %m/V y %m/m, pero comparando volúmenes.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "intermedio"
+  tags: ["concentracion", "problema"]
+
+variables:
+  volumen_bebida: uno_de([250, 500, 1000])
+  porcentaje: uno_de([5, 8, 10])
+
+respuesta: (porcentaje / 100) * volumen_bebida
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Una botella de {volumen_bebida} mL de cerveza tiene una graduación del {porcentaje}% V/V de alcohol. ¿Cuántos mL de alcohol puro contiene?"
+
+pasos:
+  - "({porcentaje} ÷ 100) × {volumen_bebida} = {(porcentaje / 100) * volumen_bebida} mL"
+
+explicacion: |
+  El %V/V indica directamente cuántos mL de soluto líquido hay por cada
+  100 mL de solución.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "intermedio"
+  tags: ["concentracion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La concentración %V/V se usa típicamente cuando tanto el soluto como el solvente son líquidos."
+
+explicacion: |
+  Como el alcohol disuelto en agua de una bebida.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "basico"
+  tags: ["concentracion", "vocabulario"]
+
+enunciado: "El suero fisiológico es una solución de cloruro de sodio al 0,9% m/V. ¿Qué significa eso?"
+tipo: mc
+opciones_explicitas:
+  - "Que hay 0,9 g de sal por cada 100 mL de solución"
+  - "Que el suero es 0,9% agua"
+  - "Que hay 9 g de sal por cada mL de solución"
+respuesta: "Que hay 0,9 g de sal por cada 100 mL de solución"
+
+explicacion: |
+  El %m/V siempre se lee como "gramos de soluto cada 100 mL de
+  solución".
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "avanzado"
+  tags: ["concentracion", "vocabulario"]
+
+enunciado: "¿Para qué se usa la unidad ppm (partes por millón) en vez del porcentaje?"
+tipo: mc
+opciones_explicitas:
+  - "Para expresar concentraciones muy chicas (como contaminantes), donde el porcentaje daría números incómodos"
+  - "Para concentraciones muy altas, cercanas al 100%"
+  - "Es exactamente lo mismo que el porcentaje, sólo un nombre distinto"
+respuesta: "Para expresar concentraciones muy chicas (como contaminantes), donde el porcentaje daría números incómodos"
+
+explicacion: |
+  1 ppm equivale a 0,0001% — mucho más cómodo de leer que un porcentaje
+  con muchos ceros.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "avanzado"
+  tags: ["concentracion", "problema"]
+
+variables:
+  masa_solucion: uno_de([1000, 2000, 5000])
+  masa_soluto: uno_de([1, 2, 4])
+
+respuesta: (masa_soluto / masa_solucion) * 1000000
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Una muestra de agua de {masa_solucion} g contiene {masa_soluto} g de un contaminante disuelto. ¿Cuál es su concentración en ppm?"
+
+pasos:
+  - "({masa_soluto} ÷ {masa_solucion}) × 1 000 000 = {(masa_soluto / masa_solucion) * 1000000} ppm"
+
+explicacion: |
+  Mismo cálculo que %m/m, pero multiplicando por 1 000 000 en vez de
+  por 100.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "basico"
+  tags: ["concentracion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuanto mayor es la concentración de una solución, más soluto hay por cada cantidad de solución."
+
+explicacion: |
+  Es la definición misma de concentración.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "intermedio"
+  tags: ["concentracion", "vocabulario"]
+
+enunciado: "¿Qué significa diluir una solución?"
+tipo: mc
+opciones_explicitas:
+  - "Agregarle más solvente, sin agregar ni quitar soluto"
+  - "Agregarle más soluto"
+  - "Evaporar parte del solvente"
+respuesta: "Agregarle más solvente, sin agregar ni quitar soluto"
+
+explicacion: |
+  La cantidad de soluto no cambia; lo que cambia es el volumen total de
+  solución.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "intermedio"
+  tags: ["concentracion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Diluir una solución (agregarle solvente) siempre reduce su concentración."
+
+explicacion: |
+  La misma cantidad de soluto queda repartida en más volumen de
+  solución.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "avanzado"
+  tags: ["concentracion", "problema"]
+
+variables:
+  masa: uno_de([10, 20])
+  volumen_inicial: uno_de([100, 200])
+  volumen_final: uno_de([400, 500])
+
+respuesta: redondear((masa / volumen_final) * 100, 2)
+tipo: input
+tolerancia_abs: 0.02
+
+enunciado: "Una solución tiene {masa} g de soluto en {volumen_inicial} mL. Se le agrega agua hasta completar {volumen_final} mL, sin agregar más soluto. ¿Cuál es la nueva concentración %m/V?"
+
+pasos:
+  - "La masa de soluto sigue siendo {masa} g, pero ahora en {volumen_final} mL"
+  - "({masa} ÷ {volumen_final}) × 100 = {redondear((masa / volumen_final) * 100, 2)} %m/V"
+
+explicacion: |
+  El soluto no cambia, pero al haber más volumen total la concentración
+  baja.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "intermedio"
+  tags: ["concentracion", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular la concentración %m/V de una solución."
+tipo: ordenar
+opciones_explicitas:
+  - "Dividir la masa por el volumen y multiplicar por 100"
+  - "Medir la masa del soluto (en gramos)"
+  - "Medir el volumen total de la solución (en mL)"
+respuesta_orden: ["Medir la masa del soluto (en gramos)", "Medir el volumen total de la solución (en mL)", "Dividir la masa por el volumen y multiplicar por 100"]
+explicacion: |
+  %m/V = (masa del soluto / volumen de la solución) × 100.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "avanzado"
+  tags: ["concentracion", "vocabulario"]
+
+enunciado: "¿En qué se parece la concentración a la densidad?"
+tipo: mc
+opciones_explicitas:
+  - "Ambas son una cantidad de algo (masa) dividida un volumen (o masa total)"
+  - "Ambas sólo se pueden medir con un densímetro"
+  - "No tienen ninguna relación entre sí"
+respuesta: "Ambas son una cantidad de algo (masa) dividida un volumen (o masa total)"
+
+explicacion: |
+  La densidad es masa/volumen de una sustancia pura; la concentración es
+  masa de soluto/volumen (o masa) de la solución completa.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "avanzado"
+  tags: ["concentracion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La concentración %m/m, al comparar dos masas, no depende de ninguna unidad de volumen."
+
+explicacion: |
+  Por eso conviene usarla para sólidos o mezclas donde medir el volumen
+  exacto es más difícil que medir la masa.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "avanzado"
+  tags: ["concentracion", "problema"]
+
+variables:
+  masa_soluto: uno_de([10, 20, 30])
+  masa_solvente: uno_de([190, 180, 270])
+
+respuesta: redondear((masa_soluto / (masa_soluto + masa_solvente)) * 100, 2)
+tipo: input
+tolerancia_abs: 0.02
+
+enunciado: "Se mezclan {masa_soluto} g de soluto con {masa_solvente} g de solvente. ¿Cuál es la concentración %m/m de la solución resultante?"
+
+pasos:
+  - "Masa total de la solución: {masa_soluto} + {masa_solvente} = {masa_soluto + masa_solvente} g"
+  - "({masa_soluto} ÷ {masa_soluto + masa_solvente}) × 100 = {redondear((masa_soluto / (masa_soluto + masa_solvente)) * 100, 2)} %m/m"
+
+explicacion: |
+  La masa de la solución total es soluto + solvente, no sólo uno de los
+  dos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "basico"
+  tags: ["concentracion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una concentración de 0% significa que la 'solución' es en realidad sólo solvente puro, sin nada de soluto."
+
+explicacion: |
+  Sin soluto no hay nada que concentrar.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve calcular la concentración de una solución?"
+tipo: mc
+opciones_explicitas:
+  - "Para dosificar correctamente medicamentos, productos de limpieza o bebidas, y controlar contaminantes"
+  - "Sólo para calcular el color de una mezcla"
+  - "Sólo aplica a mezclas sólidas"
+respuesta: "Para dosificar correctamente medicamentos, productos de limpieza o bebidas, y controlar contaminantes"
+
+explicacion: |
+  Desde el suero fisiológico hasta el límite legal de contaminantes en
+  agua potable, todo se expresa en concentración.
+```
+
+## Sección: densidad (26 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "basico"
+  tags: ["densidad", "vocabulario"]
+
+enunciado: "¿Qué es la densidad de una sustancia?"
+tipo: mc
+opciones_explicitas:
+  - "La relación entre su masa y el volumen que ocupa"
+  - "El peso total de un objeto"
+  - "La cantidad de átomos que tiene"
+respuesta: "La relación entre su masa y el volumen que ocupa"
+
+explicacion: |
+  Densidad = Masa / Volumen.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "basico"
+  tags: ["densidad", "completar"]
+
+tipo: completar
+enunciado: "Completá la fórmula: Densidad = Masa / ___."
+respuestas_validas:
+  - "Volumen"
+  - "volumen"
+
+explicacion: |
+  Es la masa dividida el volumen que ocupa esa masa.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "intermedio"
+  tags: ["densidad", "problema"]
+
+variables:
+  volumen: random(2, 20)
+  densidad_real: uno_de([2, 3, 4, 5, 7, 8])
+  masa: volumen * densidad_real
+
+respuesta: densidad_real
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto tiene una masa de {masa} g y ocupa un volumen de {volumen} cm³. ¿Cuál es su densidad (en g/cm³)?"
+
+pasos:
+  - "{masa} ÷ {volumen} = {densidad_real} g/cm³"
+
+explicacion: |
+  Se divide la masa por el volumen.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "intermedio"
+  tags: ["densidad", "problema"]
+
+variables:
+  volumen: random(2, 30)
+  densidad_dato: uno_de([2, 3, 4, 5, 7, 9])
+
+respuesta: volumen * densidad_dato
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una sustancia tiene una densidad de {densidad_dato} g/cm³. ¿Cuál es la masa de {volumen} cm³ de esa sustancia?"
+
+pasos:
+  - "{densidad_dato} × {volumen} = {volumen * densidad_dato} g"
+
+explicacion: |
+  Se despeja la masa: Masa = Densidad × Volumen.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "intermedio"
+  tags: ["densidad", "problema"]
+
+variables:
+  volumen_real: random(2, 25)
+  densidad_dato: uno_de([2, 3, 4, 5])
+  masa: volumen_real * densidad_dato
+
+respuesta: volumen_real
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una sustancia con densidad {densidad_dato} g/cm³ tiene una masa de {masa} g. ¿Cuál es su volumen?"
+
+pasos:
+  - "{masa} ÷ {densidad_dato} = {volumen_real} cm³"
+
+explicacion: |
+  Se despeja el volumen: Volumen = Masa / Densidad.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "intermedio"
+  tags: ["densidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La densidad es una propiedad intensiva: no depende de la cantidad de material, sólo del tipo de sustancia."
+
+explicacion: |
+  Un vaso de agua y una pileta tienen distinta masa y volumen, pero la
+  misma densidad.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "intermedio"
+  tags: ["densidad", "vocabulario"]
+
+enunciado: "¿Qué significa que la densidad sea una propiedad 'intensiva'?"
+tipo: mc
+opciones_explicitas:
+  - "Que no cambia según la cantidad de sustancia que haya"
+  - "Que sólo se puede medir con instrumentos muy precisos"
+  - "Que cambia constantemente con el tiempo"
+respuesta: "Que no cambia según la cantidad de sustancia que haya"
+
+explicacion: |
+  Por eso sirve para identificar de qué sustancia está hecho algo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "intermedio"
+  tags: ["densidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos objetos hechos exactamente de la misma sustancia tienen la misma densidad, sin importar el tamaño de cada uno."
+
+explicacion: |
+  La densidad depende del tipo de sustancia, no de cuánto material haya.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "basico"
+  tags: ["densidad", "vocabulario"]
+
+enunciado: "¿Cuáles son unidades comunes para medir densidad?"
+tipo: mc
+opciones_explicitas:
+  - "g/cm³ o kg/m³"
+  - "cm² o m²"
+  - "solamente kg"
+respuesta: "g/cm³ o kg/m³"
+
+explicacion: |
+  Siempre es una masa dividida un volumen.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "basico"
+  tags: ["densidad", "unidades"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "1 mililitro (mL) equivale exactamente a 1 centímetro cúbico (cm³), así que g/mL y g/cm³ son la misma unidad de densidad."
+
+explicacion: |
+  Es la misma equivalencia ya vista en
+  `../../matematica/volumen-y-capacidad/`.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "intermedio"
+  tags: ["densidad", "problema"]
+
+variables:
+  volumen: random(5, 40)
+  densidad_real: uno_de([1, 2, 3])
+  masa: volumen * densidad_real
+
+respuesta: densidad_real
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un líquido de {masa} g ocupa {volumen} mL. ¿Cuál es su densidad (en g/mL)?"
+
+pasos:
+  - "{masa} ÷ {volumen} = {densidad_real} g/mL"
+
+explicacion: |
+  Como 1 mL = 1 cm³, el cálculo es idéntico al de g/cm³.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "basico"
+  tags: ["densidad", "vocabulario"]
+
+enunciado: "¿Cuál es aproximadamente la densidad del agua líquida?"
+tipo: mc
+opciones_explicitas:
+  - "1 g/cm³"
+  - "10 g/cm³"
+  - "0,1 g/cm³"
+respuesta: "1 g/cm³"
+
+explicacion: |
+  Es el valor de referencia clásico: 1 g de agua ocupa 1 cm³.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "intermedio"
+  tags: ["densidad", "flotacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si la densidad de un objeto es menor que la densidad del líquido en el que se sumerge, ese objeto flota."
+
+explicacion: |
+  Es el caso del corcho o el aceite en agua.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "intermedio"
+  tags: ["densidad", "flotacion", "problema"]
+
+variables:
+  densidad_objeto: uno_de([0.5, 0.7, 0.9])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un objeto tiene una densidad de {densidad_objeto} g/cm³. Se lo sumerge en agua (densidad 1 g/cm³). ¿Flota?"
+
+explicacion: |
+  {densidad_objeto} g/cm³ es menor que 1 g/cm³ (la densidad del agua):
+  el objeto flota.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "intermedio"
+  tags: ["densidad", "flotacion", "problema"]
+
+variables:
+  densidad_objeto: uno_de([2, 5, 7, 11])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un objeto tiene una densidad de {densidad_objeto} g/cm³. Se lo sumerge en agua (densidad 1 g/cm³). ¿Flota?"
+
+explicacion: |
+  {densidad_objeto} g/cm³ es mayor que 1 g/cm³: el objeto se hunde.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "avanzado"
+  tags: ["densidad", "flotacion"]
+
+enunciado: "¿Por qué el hielo flota en el agua líquida?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el hielo es menos denso que el agua líquida"
+  - "Porque el hielo pesa menos, sin importar su volumen"
+  - "El hielo en realidad no flota, se hunde lentamente"
+respuesta: "Porque el hielo es menos denso que el agua líquida"
+
+explicacion: |
+  Es una excepción notable: la mayoría de las sustancias son más densas
+  en estado sólido que líquido, pero el agua se expande al congelarse.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "intermedio"
+  tags: ["densidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Comparar la densidad medida de un objeto con la densidad conocida de un metal (por ejemplo, el oro) permite detectar si es una falsificación."
+
+explicacion: |
+  Si la densidad medida no coincide con la del oro puro (≈19,3 g/cm³),
+  el objeto no es oro puro.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "avanzado"
+  tags: ["densidad", "problema"]
+
+variables:
+  volumen: uno_de([5, 10, 20, 25])
+
+respuesta: "Aluminio"
+tipo: mc
+opciones_explicitas:
+  - "Aluminio"
+  - "Hierro"
+  - "Plomo"
+
+enunciado: "Un bloque metálico de {volumen} cm³ tiene una masa de {2.7 * volumen} g. Sabiendo que el aluminio tiene densidad ≈2,7 g/cm³, el hierro ≈7,87 g/cm³ y el plomo ≈11,3 g/cm³, ¿de qué metal se trata?"
+
+explicacion: |
+  {2.7 * volumen} g ÷ {volumen} cm³ = 2,7 g/cm³, que coincide con la
+  densidad del aluminio.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "basico"
+  tags: ["densidad", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular la densidad de un objeto."
+tipo: ordenar
+opciones_explicitas:
+  - "Dividir la masa por el volumen"
+  - "Medir la masa del objeto (con una balanza)"
+  - "Medir el volumen del objeto (por ejemplo, con una probeta)"
+respuesta_orden: ["Medir la masa del objeto (con una balanza)", "Medir el volumen del objeto (por ejemplo, con una probeta)", "Dividir la masa por el volumen"]
+explicacion: |
+  Densidad = Masa / Volumen, en ese orden de cálculo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "avanzado"
+  tags: ["densidad", "unidades"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "1000 kg/m³ equivale a 1 g/cm³ (ambas expresan la densidad del agua)."
+
+explicacion: |
+  1 m³ = 1 000 000 cm³ y 1 kg = 1000 g: al dividir, los ceros se
+  simplifican y da la misma densidad expresada en otra unidad.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "intermedio"
+  tags: ["densidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La densidad de una sustancia no depende de la forma que tenga el objeto (una esfera o un cubo de la misma sustancia tienen igual densidad)."
+
+explicacion: |
+  Sólo depende del tipo de sustancia, no de la forma ni el tamaño.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "avanzado"
+  tags: ["densidad", "problema"]
+
+variables:
+  masa: uno_de([20, 40, 60, 80])
+  volumen_a: uno_de([2, 4])
+  volumen_b: uno_de([8, 10])
+
+respuesta: "El objeto A"
+tipo: mc
+opciones_explicitas:
+  - "El objeto A"
+  - "El objeto B"
+  - "Tienen la misma densidad"
+
+enunciado: "Dos objetos tienen la misma masa, {masa} g. El objeto A ocupa {volumen_a} cm³, y el objeto B ocupa {volumen_b} cm³ (un volumen mayor). ¿Cuál de los dos tiene mayor densidad?"
+
+explicacion: |
+  A igual masa, a menor volumen mayor densidad: el objeto A, al ocupar
+  menos espacio con la misma masa, es más denso.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "intermedio"
+  tags: ["densidad", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La densidad se calcula dividiendo la masa de un objeto por su peso."
+
+explicacion: |
+  La densidad relaciona masa y VOLUMEN, no masa y peso — el peso ni
+  siquiera entra en la fórmula.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "avanzado"
+  tags: ["densidad", "problema"]
+
+variables:
+  masa: random(10, 200)
+  volumen: random(3, 25)
+
+respuesta: redondear(masa / volumen, 2)
+tipo: input
+tolerancia_abs: 0.02
+
+enunciado: "Un mineral tiene una masa de {masa} g y ocupa un volumen de {volumen} cm³. ¿Cuál es su densidad (en g/cm³)? Redondeá a 2 decimales."
+
+pasos:
+  - "{masa} ÷ {volumen} = {redondear(masa / volumen, 2)} g/cm³"
+
+explicacion: |
+  No siempre la división da un número exacto: en ese caso se redondea.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "basico"
+  tags: ["densidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El oro (≈19,3 g/cm³) es más denso que el hierro (≈7,87 g/cm³)."
+
+explicacion: |
+  A igual volumen, un bloque de oro pesa más del doble que uno de
+  hierro.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "densidad"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve conocer la densidad de una sustancia?"
+tipo: mc
+opciones_explicitas:
+  - "Para identificar de qué material está hecho un objeto y predecir si flota o se hunde en un líquido"
+  - "Sólo sirve para calcular el peso de un objeto"
+  - "Sólo aplica a los metales"
+respuesta: "Para identificar de qué material está hecho un objeto y predecir si flota o se hunde en un líquido"
+
+explicacion: |
+  Desde detectar falsificaciones hasta explicar por qué el hielo flota,
+  la densidad conecta masa, volumen y comportamiento en fluidos.
+```
+
+## Sección: dilucion-soluciones (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["soluciones", "dilucion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al diluir una solución, se agrega solvente sin agregar ni quitar soluto."
+
+explicacion: |
+  Correcto. La dilución aumenta el volumen de solvente, lo que baja la concentración, pero la cantidad de soluto se mantiene constante.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["soluciones", "dilucion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La cantidad de soluto (en moles o gramos) cambia al diluir una solución."
+
+explicacion: |
+  Falso. En una dilución ideal la masa o los moles de soluto no varían; lo que cambia es la relación soluto/volumen.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["soluciones", "dilucion"]
+
+respuesta: "concentracion"
+tipo: completar
+respuestas_validas:
+  - "concentracion"
+
+enunciado: "Al diluir una solución, lo que cambia es el volumen total y por lo tanto baja la ___."
+
+explicacion: |
+  Al aumentar el volumen sin agregar más soluto, la relación soluto/volumen (la concentración) baja.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "intermedio"
+  tags: ["soluciones", "dilucion", "formula"]
+
+respuesta: "C1V1 = C2V2"
+tipo: mc
+opciones_explicitas: ["C1V1 = C2V2", "C1+V1 = C2+V2", "C1/V1 = C2/V2", "C1V1 = C2/V2"]
+
+enunciado: "Si una solución con concentración C1 y volumen V1 se diluye hasta obtener una concentración C2 y volumen V2, ¿cuál es la fórmula correcta?"
+
+explicacion: |
+  C1×V1 = C2×V2 sale de que la cantidad de soluto antes y después de diluir es la misma.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "intermedio"
+  tags: ["dilucion", "molaridad"]
+
+variables:
+  escenario: uno_de([[4, 50, 2], [10, 100, 5], [12, 50, 3], [6, 25, 2]])
+  c1: escenario[0]
+  v1: escenario[1]
+  c2: escenario[2]
+
+respuesta: c1 * v1 / c2
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Calculá la velocidad media de una reacción si el cambio de concentración es {datos[idx][0]} unidades y el intervalo de tiempo es {datos[idx][1]} segundos."
-
-pasos:
-  - "v = Δ[concentración] / Δt"
+enunciado: "Se tienen {c1} M de una solución de volumen {v1} L. Se diluye hasta {c2} M. ¿Cuál es el volumen final (V2) en litros?"
 
 explicacion: |
-  v = {datos[idx][0]} / {datos[idx][1]}.
+  V2 = (C1 × V1) / C2 = ({c1} × {v1}) / {c2}.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "basico"
-  tags: ["cinetica", "energia_activacion"]
-
-respuesta: "activacion"
-tipo: completar
-respuestas_validas:
-  - "activacion"
-
-enunciado: "La energía mínima que necesitan las partículas para reaccionar al chocar se llama energía de ___."
-
-explicacion: |
-  La energía de activación es la barrera que los reactivos deben superar para transformarse en productos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "basico"
-  tags: ["cinetica", "velocidad_reaccion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una reacción con energía de activación ALTA es más rápida que una con energía de activación baja."
-
-explicacion: |
-  Falso. A mayor energía de activación, menos partículas la superan en cada choque: la reacción es más lenta.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "cinetica_reaccion"
+  tema: "dilucion_soluciones"
   nivel: "intermedio"
-  tags: ["termodinamica", "cinetica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La energía de activación depende de si la reacción es endotérmica o exotérmica."
-
-explicacion: |
-  Falso. Son propiedades independientes: la energía de activación es cinética (velocidad), y endo/exotérmica es termodinámico (ΔH).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "intermedio"
-  tags: ["cinetica", "exotermica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una reacción muy exotérmica puede ser igual de lenta si su energía de activación es alta."
-
-explicacion: |
-  Verdadero. Ejemplo: la combustión del papel es muy exotérmica pero necesita una chispa para superar su energía de activación — no arranca sola.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "intermedio"
-  tags: ["cinetica", "factores_reaccion"]
+  tags: ["dilucion", "molaridad"]
 
 variables:
-  escenario: [["aumentar la temperatura", "mas particulas alcanzan la energia de activacion"], ["aumentar la concentracion", "mas choques por segundo"], ["aumentar la superficie de contacto", "mas particulas expuestas a la vez"]]
-  idx: uno_de([0, 1, 2])
+  escenario: uno_de([[2, 100, 50], [5, 200, 10], [8, 50, 20]])
+  c1: escenario[0]
+  v1: escenario[1]
+  v2: escenario[2]
 
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["mas particulas alcanzan la energia de activacion", "mas choques por segundo", "mas particulas expuestas a la vez"]
+respuesta: c1 * v1 / v2
+tipo: completar
+tolerancia_abs: 0.01
 
-enunciado: "Si se {escenario[idx][0]}, ¿por qué aumenta la velocidad de la reacción?"
+enunciado: "Una solución tiene concentración {c1} M y volumen {v1} L. Se diluye hasta un volumen final de {v2} L. ¿Cuál es la nueva concentración (C2)?"
 
 explicacion: |
-  {escenario[idx][1]}.
+  C2 = (C1 × V1) / V2 = ({c1} × {v1}) / {v2}.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "basico"
-  tags: ["superficie_contacto", "estado_de_agregacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Moler un sólido en polvo aumenta la velocidad de reacción respecto al mismo sólido entero, porque aumenta la superficie de contacto."
-
-explicacion: |
-  Al pulverizar el sólido, hay más partículas expuestas para colisionar al mismo tiempo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "basico"
-  tags: ["temperatura"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Bajar la temperatura de una reacción la hace más rápida."
-
-explicacion: |
-  Falso. Al bajar la temperatura, menos partículas superan la energía de activación: la reacción se hace más lenta.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "basico"
-  tags: ["factores_reaccion"]
-
-respuesta: "bajar la concentracion de los reactivos"
-tipo: mc
-opciones_explicitas: ["bajar la concentracion de los reactivos", "subir la temperatura", "agregar un catalizador", "aumentar la superficie de contacto"]
-
-enunciado: "¿Cuál de estos factores NO acelera una reacción química?"
-
-explicacion: |
-  Bajar la concentración reduce la frecuencia de choques: hace más lenta la reacción, no más rápida.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "basico"
-  tags: ["catalizadores", "energia_activacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un catalizador aumenta la velocidad de una reacción al disminuir la energía de activación, abriendo un camino alternativo."
-
-explicacion: |
-  Correcto. El catalizador ofrece una ruta con menor barrera energética, así que más partículas la superan.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "cinetica_reaccion"
+  tema: "dilucion_soluciones"
   nivel: "intermedio"
-  tags: ["catalizadores", "equilibrio_quimico"]
+  tags: ["dilucion", "molaridad"]
 
-respuesta: falso
-tipo: vf
+variables:
+  escenario: uno_de([[1, 100, 10], [2, 50, 5], [5, 40, 2]])
+  c2: escenario[0]
+  v2: escenario[1]
+  v1: escenario[2]
 
-enunciado: "Un catalizador modifica el valor de la constante de equilibrio (Kc) de una reacción."
+respuesta: c2 * v2 / v1
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Se quiere preparar {c2} M con un volumen final de {v2} L, partiendo de {v1} L de una solución concentrada. ¿Qué concentración (C1) debe tener esa solución original?"
 
 explicacion: |
-  Falso. El catalizador acelera la reacción directa E inversa por igual: no cambia Kc ni el ΔH, sólo llega más rápido al mismo equilibrio.
+  C1 = (C2 × V2) / V1 = ({c2} × {v2}) / {v1}.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "cinetica_reaccion"
+  tema: "dilucion_soluciones"
   nivel: "basico"
-  tags: ["catalizadores", "estequiometria"]
+  tags: ["teoria"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Un catalizador se consume completamente durante la reacción, como si fuera un reactivo."
+enunciado: "Al diluir una solución (agregando solvente), el volumen final (V2) siempre es mayor que el volumen inicial (V1)."
 
 explicacion: |
-  Falso. El catalizador participa del mecanismo pero se regenera al final: no se consume.
+  Verdadero. Agregar solvente aumenta el volumen total, lo que baja la concentración.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "cinetica_reaccion"
+  tema: "dilucion_soluciones"
   nivel: "basico"
-  tags: ["catalizadores", "equilibrio_quimico"]
+  tags: ["dilucion", "calculo"]
+
+variables:
+  c1: 12
+  v1: 50
+  c2: 2
+
+respuesta: c1 * v1 / c2
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Tengo una solución al {c1}% con volumen de {v1} mL y quiero diluirla hasta {c2}%. ¿Cuál será el volumen final (V2) en mL?"
+
+pasos:
+  - "C1 × V1 = C2 × V2"
+  - "V2 = (C1 × V1) / C2 = (12 × 50) / 2"
+
+explicacion: |
+  El volumen final es 300 mL: aumenta el volumen para mantener la misma cantidad de soluto con menor concentración.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["dilucion", "concentracion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si tengo 50 mL de una solución al 12% y la diluyo hasta un volumen total de 300 mL, la concentración final es 2%."
+
+explicacion: |
+  Correcto. 12 × 50 = C2 × 300 → C2 = 600/300 = 2.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["teoria", "unidades"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para aplicar C1×V1 = C2×V2, las unidades de C1 y C2 tienen que ser las mismas entre sí."
+
+explicacion: |
+  Verdadero. Si C1 está en Molaridad, C2 también tiene que estar en Molaridad para que la igualdad sea válida.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["teoria", "unidades"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para aplicar C1×V1 = C2×V2, las unidades de V1 y V2 tienen que ser las mismas entre sí."
+
+explicacion: |
+  Verdadero. Si V1 está en mL, V2 también tiene que estar en mL.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["teoria", "soluto"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Diluir una solución (agregar solvente) aumenta la cantidad total de soluto disuelto en la mezcla."
+
+explicacion: |
+  Falso. La cantidad de soluto se mantiene constante; lo que cambia es el volumen del solvente y, por lo tanto, la concentración.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["dilucion", "conceptos"]
+
+respuesta: "concentrada"
+tipo: completar
+respuestas_validas:
+  - "concentrada"
+
+enunciado: "En la fórmula C1V1 = C2V2, los términos C1 y V1 representan la solución ___ (también llamada solución stock), antes de la dilución."
+
+explicacion: |
+  La solución stock es la original, con concentración C1 y volumen V1, antes de agregar más solvente.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["dilucion", "volumen"]
+
+respuesta: "que el volumen total final es V2"
+tipo: mc
+opciones_explicitas: ["que el volumen total final es V2", "que se agregan V2 mL de solvente extra", "que se quitan V2 mL de solvente", "que V2 es el volumen de soluto"]
+
+enunciado: "Si se diluye una solución hasta alcanzar un volumen final V2, esto significa..."
+
+explicacion: |
+  V2 es el volumen TOTAL de la mezcla resultante (soluto + solvente agregado), no la cantidad de solvente añadida.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "avanzado"
+  tags: ["calculo", "dilucion"]
+
+variables:
+  datos: [[10, 40, 80], [8, 20, 40], [6, 40, 120]]
+  idx: uno_de([0, 1, 2])
+  c1: datos[idx][0]
+  v1: datos[idx][1]
+  v2: datos[idx][2]
+
+respuesta: c1 * v1 / v2
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Una solución tiene concentración C1={c1} M y volumen V1={v1} mL. Se diluye hasta un volumen final V2={v2} mL. ¿Cuál es la nueva concentración C2 (en M)?"
+
+pasos:
+  - "Moles iniciales: n = C1 × V1"
+  - "C2 = n / V2"
+
+explicacion: |
+  C2 = (C1 × V1) / V2 = ({c1} × {v1}) / {v2}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["conceptos", "relacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuanto mayor es el volumen final V2 de una dilución, menor es la concentración final C2 resultante."
+
+explicacion: |
+  Como la cantidad de soluto es constante, la concentración es inversamente proporcional al volumen: a mayor volumen, menor concentración.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "intermedio"
+  tags: ["calculo", "dilucion"]
+
+variables:
+  c1: 10
+  v1: 20
+  v2: 100
+
+respuesta: c1 * v1 / v2
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Si diluyo {v1} mL de una solución {c1} M hasta un volumen final de {v2} mL, ¿cuál es la concentración final?"
+
+explicacion: |
+  C2 = (C1 × V1) / V2 = ({c1} × {v1}) / {v2} = 2 M.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "intermedio"
+  tags: ["conceptos", "factor_dilucion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el volumen final es el doble del volumen inicial (V2 = 2×V1), entonces la concentración final es la mitad de la concentración inicial (C2 = C1/2)."
+
+explicacion: |
+  De C1×V1 = C2×V2, si V2=2×V1 entonces C2 = C1×V1/(2×V1) = C1/2.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Evaporar solvente de una solución (sin agregar ni quitar soluto) es un proceso de dilución."
+
+explicacion: |
+  Falso. Evaporar solvente reduce el volumen y AUMENTA la concentración — es el proceso contrario (concentrar), no diluir.
+```
+
+## Sección: equilibrio-quimico-kc (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "basico"
+  tags: ["equilibrio", "cinetica"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En el equilibrio químico, la reacción se detiene por completo y no hay movimiento de partículas."
+
+explicacion: |
+  Falso. El equilibrio es dinámico: las reacciones directa e inversa siguen ocurriendo, pero a la misma velocidad, así que las concentraciones no cambian.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "basico"
+  tags: ["equilibrio", "velocidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El equilibrio se alcanza cuando la velocidad de la reacción directa se iguala a la velocidad de la reacción inversa."
+
+explicacion: |
+  Verdadero. Esa igualdad de velocidades es la condición para que las concentraciones dejen de variar.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: "dinamico"
+tipo: completar
+respuestas_validas:
+  - "dinamico"
+
+enunciado: "Por eso el equilibrio químico se llama equilibrio ___."
+
+explicacion: |
+  Se llama dinámico porque, aunque las concentraciones no cambian, las reacciones directa e inversa siguen sucediendo constantemente.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "basico"
+  tags: ["concentracion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el estado de equilibrio, las concentraciones de reactivos y productos dejan de cambiar con el tiempo."
+
+explicacion: |
+  Verdadero. Al ser iguales las velocidades directa e inversa, la cantidad neta de cada especie se mantiene constante.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "intermedio"
+  tags: ["equilibrio", "calculo"]
+
+variables:
+  a: uno_de([1, 2, 4])
+  b: uno_de([1, 2])
+  c: uno_de([2, 4, 8])
+
+respuesta: c / (a * b)
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Para la reacción A + B ⇌ C en equilibrio, con [A] = {a} M, [B] = {b} M y [C] = {c} M, calculá la constante de equilibrio Kc."
+
+pasos:
+  - "Kc = [C] / ([A] × [B])"
+
+explicacion: |
+  Kc = {c} / ({a} × {b}).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "basico"
+  tags: ["teoria", "ley_accion_masas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la expresión de Kc, los exponentes de cada concentración molar corresponden a los coeficientes de la ecuación balanceada."
+
+explicacion: |
+  Correcto. Para aA + bB ⇌ cC + dD, Kc = [C]^c × [D]^d / ([A]^a × [B]^b).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "basico"
+  tags: ["teoria", "fases"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la expresión de Kc, los sólidos puros y los líquidos puros se incluyen usando su concentración molar como un término más."
+
+explicacion: |
+  Falso. Su "concentración" es constante (se considera 1), así que se omiten de la expresión de Kc.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "basico"
+  tags: ["teoria", "conceptos"]
 
 respuesta: "equilibrio"
 tipo: completar
 respuestas_validas:
   - "equilibrio"
 
-enunciado: "Un catalizador permite que una reacción alcance el ___ de forma más rápida, sin cambiar las concentraciones finales."
+enunciado: "En la expresión de Kc, la notación [X] representa la concentración de X en el ___ (no la inicial)."
 
 explicacion: |
-  El catalizador acelera la velocidad, permitiendo llegar antes al mismo estado de equilibrio.
+  Kc se calcula con las concentraciones en el momento en que el sistema ya alcanzó el equilibrio.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "intermedio"
-  tags: ["conceptos", "comparacion"]
+  tema: "equilibrio_quimico_kc"
+  nivel: "basico"
+  tags: ["equilibrio", "constante_equilibrio"]
 
-respuesta: "la velocidad"
+respuesta: "los productos"
 tipo: mc
-opciones_explicitas: ["la velocidad", "el calor liberado o absorbido", "hasta dónde llega la reacción", "la masa de los reactivos"]
+opciones_explicitas: ["los reactivos", "los productos", "cantidades iguales", "ninguno"]
 
-enunciado: "¿Qué mide específicamente la cinética química, a diferencia de la termoquímica y el equilibrio?"
+enunciado: "Si Kc es mucho mayor que 1, en el equilibrio predominan..."
 
 explicacion: |
-  La termoquímica mide el intercambio de calor (ΔH) y el equilibrio mide hasta dónde llega la reacción (Kc); la cinética mide qué tan rápido ocurre todo eso.
+  Un Kc muy grande indica que la relación productos/reactivos es alta: la reacción se desplazó casi hasta el final.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "cinetica_reaccion"
-  nivel: "avanzado"
-  tags: ["catalizadores", "equilibrio_quimico"]
+  tema: "equilibrio_quimico_kc"
+  nivel: "basico"
+  tags: ["equilibrio", "constante_equilibrio"]
+
+respuesta: "los reactivos"
+tipo: mc
+opciones_explicitas: ["los reactivos", "los productos", "cantidades iguales", "ninguno"]
+
+enunciado: "Si Kc es mucho menor que 1, en el equilibrio predominan..."
+
+explicacion: |
+  Un Kc muy chico indica que la concentración de reactivos es mucho mayor que la de productos: la reacción casi no avanzó.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "intermedio"
+  tags: ["temperatura", "propiedades"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un catalizador baja la energía de activación tanto de la reacción directa como de la inversa, por eso no altera la posición del equilibrio."
+enunciado: "Kc depende exclusivamente de la temperatura y no cambia si se aumenta la concentración de un reactivo en un sistema ya en equilibrio."
 
 explicacion: |
-  Correcto. Al acelerar ambos sentidos por igual, el sistema llega antes al equilibrio, pero ese equilibrio queda en el mismo punto que sin catalizador.
+  Correcto. Cambiar concentraciones desplaza el equilibrio (Le Chatelier), pero mientras la temperatura no varíe, Kc se mantiene igual.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "cinetica_reaccion"
+  tema: "equilibrio_quimico_kc"
   nivel: "intermedio"
-  tags: ["conceptos", "choques"]
+  tags: ["concentracion", "le_chatelier"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Cualquier choque entre partículas de reactivos produce una reacción, sin importar la energía que tengan."
+enunciado: "Si se agrega más reactivo a un sistema en equilibrio, el valor de Kc cambia para compensar el exceso de sustancia."
 
 explicacion: |
-  Falso. Sólo los choques con energía igual o mayor a la energía de activación (y con orientación adecuada) son "efectivos" y producen reacción.
+  Falso. Al agregar reactivo, cambian las concentraciones (el sistema se reacomoda), pero el cociente vuelve a dar el mismo Kc si la temperatura no cambió.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "cinetica_reaccion"
+  tema: "equilibrio_quimico_kc"
   nivel: "basico"
-  tags: ["aplicacion", "temperatura"]
+  tags: ["le_chatelier", "equilibrio"]
+
+respuesta: "los productos"
+tipo: mc
+opciones_explicitas: ["los productos", "los reactivos", "no se mueve", "se detiene"]
+
+enunciado: "Si se agrega más reactivo a un sistema en equilibrio, el equilibrio se desplaza hacia..."
+
+explicacion: |
+  Según Le Chatelier, el sistema consume el exceso desplazándose hacia la formación de productos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "intermedio"
+  tags: ["le_chatelier", "termoquimica"]
+
+respuesta: "los reactivos"
+tipo: mc
+opciones_explicitas: ["los reactivos", "los productos", "no se mueve", "se detiene"]
+
+enunciado: "Si se aumenta la temperatura en una reacción EXOTÉRMICA en equilibrio, el equilibrio se desplaza hacia..."
+
+explicacion: |
+  En una exotérmica, el calor "funciona" como un producto más. Al subir la temperatura, el sistema se desplaza hacia los reactivos (el lado que absorbe ese calor extra).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "intermedio"
+  tags: ["le_chatelier", "presion"]
+
+respuesta: "menos moles de gas"
+tipo: mc
+opciones_explicitas: ["menos moles de gas", "más moles de gas", "igual cantidad de moles", "no se mueve"]
+
+enunciado: "Si se aumenta la presión en un sistema gaseoso en equilibrio, el equilibrio se desplaza hacia el lado con..."
+
+explicacion: |
+  Aumentar la presión favorece el lado con menos moles de gas, para achicar el volumen que ocupan.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "basico"
+  tags: ["le_chatelier", "concentracion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Guardar comida en la heladera retrasa su descomposición porque baja la temperatura, y eso hace más lentas las reacciones químicas involucradas."
+enunciado: "Quitar producto de un sistema en equilibrio desplaza el equilibrio hacia los productos, para reponer lo que se quitó."
 
 explicacion: |
-  Correcto. A menor temperatura, menos partículas alcanzan la energía de activación necesaria para las reacciones de descomposición: todo va más lento.
+  Verdadero. Al bajar la concentración de un producto, el sistema se desplaza hacia la derecha para compensar esa pérdida.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "basico"
+  tags: ["conceptos", "balanceo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para escribir la expresión de Kc de una reacción, primero hay que tener la ecuación química balanceada."
+
+explicacion: |
+  Correcto. Los coeficientes balanceados son los exponentes que van en la expresión de Kc.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "intermedio"
+  tags: ["le_chatelier", "concentracion"]
+
+respuesta: "los reactivos"
+tipo: mc
+opciones_explicitas: ["los reactivos", "los productos", "no se mueve", "se detiene"]
+
+enunciado: "Si se quita reactivo de un sistema en equilibrio, el equilibrio se desplaza hacia..."
+
+explicacion: |
+  El sistema se desplaza hacia los reactivos (favoreciendo la reacción inversa) para reponer parte de lo que se quitó.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "intermedio"
+  tags: ["interpretacion", "kc"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si Kc es aproximadamente 1, hay cantidades comparables de reactivos y productos en el equilibrio."
+
+explicacion: |
+  Verdadero. Un Kc cercano a 1 indica que ni los reactivos ni los productos predominan claramente.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "avanzado"
+  tags: ["le_chatelier", "termoquimica"]
+
+respuesta: "los productos"
+tipo: mc
+opciones_explicitas: ["los productos", "los reactivos", "no se mueve", "se detiene"]
+
+enunciado: "Si se aumenta la temperatura en una reacción ENDOTÉRMICA en equilibrio, ¿hacia dónde se desplaza el equilibrio?"
+
+explicacion: |
+  En una endotérmica, el calor "funciona" como reactivo. Subir la temperatura favorece que se consuma ese calor extra, desplazando el equilibrio hacia los productos — al revés que en una exotérmica.
 ```
 

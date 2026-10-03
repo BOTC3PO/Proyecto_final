@@ -1,550 +1,8 @@
 # Examen jefe — [PENDIENTE #796]
 
-> Logro #796. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **119 preguntas totales** en 5/5 secciones.
+> Logro #796. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **116 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: america-anglosajona (25 preguntas)
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "basico"
-  tags: ["definicion", "colonizacion"]
-
-variables:
-  regiones: uno_de(["Canada y Estados Unidos", "Mexico y Centroamerica", "El Caribe Francés", "Sudamerica"])
-
-respuesta: "Canada y Estados Unidos"
-tipo: mc
-opciones_explicitas: ["Canada y Estados Unidos", "Mexico y Centroamerica", "El Caribe Francés", "Sudamerica"]
-
-enunciado: "¿Qué países conforman el núcleo principal de América Anglosajona?"
-
-explicacion: |
-  América Anglosajona se refiere fundamentalmente a los territorios del norte del continente americano colonizados por británicos, siendo Canadá y Estados Unidos sus componentes principales.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["historia", "colonizacion"]
-
-variables:
-  siglo: random(16, 18)
-
-respuesta: "17"
-tipo: input
-
-enunciado: "El poblamiento sistemático comenzó en el siglo {siglo} con la fundación de las Trece Colonias en la costa este."
-
-explicacion: |
-  La primera fase del poblamiento significativo ocurrió en el siglo XVII, estableciendo las bases culturales y políticas anglosajonas en la costa este.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "basico"
-  tags: ["motivacion", "religion"]
-
-variables:
-  motivo: uno_de(["libertad religiosa", "extracción de oro", "comercio de especias", "conquista militar"])
-
-respuesta: "libertad religiosa"
-tipo: mc
-opciones_explicitas: ["libertad religiosa", "extracción de oro", "comercio de especias", "conquista militar"]
-
-enunciado: "¿Cuál fue un motivo clave para la llegada de los primeros colonos protestantes al norte?"
-
-explicacion: |
-  Muchos de los primeros colonos buscaban libertad religiosa y oportunidades económicas, alejándose de las persecuciones en Europa.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["economia", "comparacion"]
-
-variables:
-  modelo_latam: uno_de(["extraccion de recursos", "agricultura de subsistencia", "industria pesada"])
-  modelo_anglo: uno_de(["comunidades permanentes", "encomiendas", "mita"])
-
-respuesta: "comunidades permanentes"
-tipo: mc
-opciones_explicitas: ["comunidades permanentes", "extraccion de recursos", "encomiendas", "mita"]
-
-enunciado: "A diferencia de la extracción rápida en el sur, el norte se caracterizó por la instalación de:"
-
-explicacion: |
-  El proceso en el norte fue más gradual y masivo, ligado a la instalación de comunidades permanentes, definiendo estructuras económicas distintas.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["demografia", "inmigracion"]
-
-variables:
-  origen: uno_de(["Irlanda y Alemania", "China y Japón", "Brasil y Argentina", "Rusia y Polonia"])
-
-respuesta: "Irlanda y Alemania"
-tipo: mc
-opciones_explicitas: ["Irlanda y Alemania", "China y Japón", "Brasil y Argentina", "Rusia y Polonia"]
-
-enunciado: "Entre los siglos XVIII y XIX, la inmigración masiva a EE.UU. provino principalmente de:"
-
-explicacion: |
-  Millones de personas de Irlanda, Alemania e Italia llegaron durante este periodo, transformando la demografía del país.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["expansion", "destino manifiesto"]
-
-variables:
-  concepto: "Destino Manifiesto"
-
-respuesta: "Destino Manifiesto"
-tipo: completar
-respuestas_validas:
-  - "Destino Manifiesto"
-  - "destino manifiesto"
-
-enunciado: "La expansión hacia el oeste de EE.UU. se justificó ideológicamente mediante el concepto de {concepto}."
-
-explicacion: |
-  El "Destino Manifiesto" fue la creencia de que los estadounidenses tenían el derecho divino y moral de expandirse por todo el continente.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "basico"
-  tags: ["canada", "cultura"]
-
-variables:
-  provincia: "Quebec"
-
-respuesta: "Quebec"
-tipo: completar
-respuestas_validas:
-  - "Quebec"
-  - "québec"
-
-enunciado: "En Canadá, la fuerte influencia francesa se concentra principalmente en la provincia de {provincia}."
-
-explicacion: |
-  Quebec mantiene una identidad cultural y lingüística francesa distintiva dentro de la federación canadiense.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["dinamica", "proceso"]
-
-variables:
-  caracteristica: uno_de(["gradual", "rápida", "violenta", "instantánea"])
-
-respuesta: "gradual"
-tipo: mc
-opciones_explicitas: ["gradual", "rápida", "violenta", "instantánea"]
-
-enunciado: "El poblamiento de América Anglosajona se describe como un proceso:"
-
-explicacion: |
-  A diferencia del sur, el norte tuvo un proceso más gradual, masivo y ligado a la instalación de comunidades.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "basico"
-  tags: ["ubicacion", "colonias"]
-
-variables:
-  region: "costa este"
-
-respuesta: "costa este"
-tipo: completar
-respuestas_validas:
-  - "costa este"
-  - "costa oriental"
-  - "este"
-
-enunciado: "Las Trece Colonias se fundaron inicialmente en la {region} de lo que hoy es Estados Unidos."
-
-explicacion: |
-  La colonización británica comenzó en la franja costera atlántica, extendiéndose luego hacia el interior.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["economia", "modelo"]
-
-variables:
-  modelo: "comunidades permanentes"
-
-respuesta: "comunidades permanentes"
-tipo: completar
-respuestas_validas:
-  - "comunidades permanentes"
-  - "poblamiento permanente"
-
-enunciado: "El modelo de América Anglosajona se basó en la instalación de {modelo}, no solo en la extracción."
-
-explicacion: |
-  La diferencia clave radica en la intención de establecer sociedades estables y duraderas.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "basico"
-  tags: ["origen", "britanico"]
-
-variables:
-  origen: "britanicos"
-
-respuesta: "britanicos"
-tipo: completar
-respuestas_validas:
-  - "britanicos"
-  - "británicos"
-  - "ingleses"
-
-enunciado: "Los territorios fueron colonizados principalmente por {origen} y otros grupos del norte de Europa."
-
-explicacion: |
-  La herencia británica es el pilar definitorio de la región anglosajona.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["infraestructura", "canada"]
-
-variables:
-  medio: "ferrocarriles"
-
-respuesta: "ferrocarriles"
-tipo: completar
-respuestas_validas:
-  - "ferrocarriles"
-  - "trenes"
-
-enunciado: "La expansión hacia el oeste de Canadá fue impulsada por políticas gubernamentales y la construcción de {medio}."
-
-explicacion: |
-  El ferrocarril fue vital para conectar las provincias y poblar las llanuras occidentales.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["inmigracion", "diversidad"]
-
-variables:
-  origen: uno_de(["Asia y América del Sur", "África y Oceanía", "Europa del Este", "Norte de África"])
-
-respuesta: "Asia y América del Sur"
-tipo: mc
-opciones_explicitas: ["Asia y América del Sur", "África y Oceanía", "Europa del Este", "Norte de África"]
-
-enunciado: "Posteriormente, la inmigración a EE.UU. incluyó grupos provenientes de:"
-
-explicacion: |
-  Aunque Europa fue la fuente principal inicialmente, flujos posteriores vinieron de Asia y América del Sur.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "basico"
-  tags: ["politica", "instituciones"]
-
-variables:
-  modelo: "británico"
-
-respuesta: "británico"
-tipo: completar
-respuestas_validas:
-  - "británico"
-  - "britanico"
-  - "british"
-
-enunciado: "Las instituciones políticas de la región se inspiraron en el modelo {modelo}."
-
-explicacion: |
-  El legado institucional británico influyó en el sistema legal y político de EE.UU. y Canadá.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["demografia", "crecimiento"]
-
-variables:
-  tipo_crecimiento: uno_de(["exponencial", "lineal", "estancado", "negativo"])
-
-respuesta: "exponencial"
-tipo: mc
-opciones_explicitas: ["exponencial", "lineal", "estancado", "negativo"]
-
-enunciado: "Tras la independencia, la población de EE.UU. creció de forma:"
-
-explicacion: |
-  El crecimiento fue exponencial debido a la alta tasa de natalidad y la inmigración masiva.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "basico"
-  tags: ["religion", "protestante"]
-
-variables:
-  religion: "protestantes"
-
-respuesta: "protestantes"
-tipo: completar
-respuestas_validas:
-  - "protestantes"
-  - "protestante"
-
-enunciado: "Los primeros colonos de las Trece Colonias eran en su mayoría {religion} del norte de Europa."
-
-explicacion: |
-  El protestantismo fue un elemento central de la identidad cultural y religiosa de los colonizadores.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["fronteras", "herencia"]
-
-variables:
-  influencia: "poblamiento"
-
-respuesta: "poblamiento"
-tipo: completar
-respuestas_validas:
-  - "poblamiento"
-  - "poblacion"
-
-enunciado: "Las dinámicas de {influencia} definieron las fronteras políticas actuales de la región."
-
-explicacion: |
-  La forma en que se ocupó el territorio determinó los límites estatales y nacionales.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["economia", "actualidad"]
-
-variables:
-  pais: uno_de(["EE.UU.", "Canadá", "Reino Unido", "Australia"])
-
-respuesta: "EE.UU."
-tipo: mc
-opciones_explicitas: ["EE.UU.", "Canadá", "Reino Unido", "Australia"]
-
-enunciado: "Comprender el poblamiento histórico es clave para entender la potencia económica actual de:"
-
-explicacion: |
-  Estados Unidos es la principal potencia económica derivada de este proceso histórico.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["cronologia", "inmigracion"]
-
-variables:
-  periodo: "siglos XVIII y XIX"
-
-respuesta: "siglos XVIII y XIX"
-tipo: completar
-respuestas_validas:
-  - "siglos XVIII y XIX"
-  - "siglo 18 y 19"
-  - "siglos 18 y 19"
-
-enunciado: "El verdadero cambio demográfico ocurrió entre los {periodo}."
-
-explicacion: |
-  Este periodo coincide con la industrialización y la necesidad de mano de obra en el norte.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "basico"
-  tags: ["comparacion", "violencia"]
-
-variables:
-  caracteristica_sur: "rápida y violenta"
-  caracteristica_norte: "gradual"
-
-respuesta: "gradual"
-tipo: completar
-respuestas_validas:
-  - "gradual"
-  - "lenta"
-
-enunciado: "Mientras el sur tuvo una colonización rápida y violenta, el norte fue más {caracteristica_norte}."
-
-explicacion: |
-  La diferencia en la intensidad y velocidad del poblamiento marcó la estructura social posterior.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "basico"
-  tags: ["colonias", "britanico"]
-
-variables:
-  origen: "británica"
-
-respuesta: "británica"
-tipo: completar
-respuestas_validas:
-  - "británica"
-  - "britanica"
-  - "inglesa"
-
-enunciado: "Las Trece Colonias fueron fundadas durante la etapa de colonización {origen}."
-
-explicacion: |
-  Son el origen directo del núcleo anglosajón en el continente.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "avanzado"
-  tags: ["geopolitica", "herencia"]
-
-variables:
-  aspecto: "estructura económica"
-
-respuesta: "estructura económica"
-tipo: completar
-respuestas_validas:
-  - "estructura económica"
-  - "estructura economica"
-  - "dinámica económica"
-
-enunciado: "El poblamiento definió la {aspecto}, la distribución de la población y las relaciones internacionales."
-
-explicacion: |
-  La base económica establecida durante la colonización perdura en las relaciones globales actuales.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["proceso", "continuidad"]
-
-variables:
-  naturaleza: "largo"
-
-respuesta: "largo"
-tipo: completar
-respuestas_validas:
-  - "largo"
-  - "prolongado"
-
-enunciado: "El poblamiento de América Anglosajona no fue un evento único, sino un proceso {naturaleza}."
-
-explicacion: |
-  Se desarrolló a lo largo de varios siglos, con etapas claras de expansión e inmigración.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["perspectiva", "colonial"]
-
-variables:
-  concepto: "espacio vacío"
-
-respuesta: "espacio vacío"
-tipo: completar
-respuestas_validas:
-  - "espacio vacío"
-  - "espacio vacio"
-  - "terra nullius"
-
-enunciado: "Desde la perspectiva europea, se entendió el territorio como un {concepto} a ser llenado."
-
-explicacion: |
-  Esta visión justificó la ocupación y la marginalización de los pueblos indígenas.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_anglosajona"
-  nivel: "intermedio"
-  tags: ["canada", "expansion"]
-
-variables:
-  motor: "ferrocarriles"
-
-respuesta: "ferrocarriles"
-tipo: completar
-respuestas_validas:
-  - "ferrocarriles"
-  - "trenes"
-
-enunciado: "La expansión canadiense hacia el oeste fue impulsada por políticas gubernamentales y {motor}."
-
-explicacion: |
-  El ferrocarril fue la herramienta clave para integrar el vasto territorio canadiense.
-```
 
 ## Sección: coordenadas-y-husos-horarios (25 preguntas)
 
@@ -2383,5 +1841,417 @@ tipo: completar
 
 explicacion: |
   El "agua virtual" es el volumen de agua que no vemos pero que se ha consumido para fabricar un producto (por ejemplo, para cultivar el algodón de una camiseta).
+```
+
+## Sección: orientacion-puntos-cardinales (22 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "vocabulario"]
+
+enunciado: "¿Cuáles son los cuatro puntos cardinales?"
+tipo: mc
+opciones_explicitas:
+  - "Norte, Sur, Este, Oeste"
+  - "Arriba, Abajo, Izquierda, Derecha"
+  - "Norte, Sur, Noreste, Sudoeste"
+respuesta: "Norte, Sur, Este, Oeste"
+
+explicacion: |
+  Son los cuatro puntos fijos de referencia, a diferencia de
+  izquierda/derecha que dependen de hacia dónde mira el observador.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "opuestos"]
+
+enunciado: "¿Cuál es el punto cardinal opuesto al norte?"
+tipo: mc
+opciones_explicitas:
+  - "Sur"
+  - "Este"
+  - "Oeste"
+respuesta: "Sur"
+
+explicacion: |
+  Norte y sur son opuestos entre sí, igual que este y oeste.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "opuestos"]
+
+enunciado: "¿Cuál es el punto cardinal opuesto al este?"
+tipo: mc
+opciones_explicitas:
+  - "Oeste"
+  - "Norte"
+  - "Sur"
+respuesta: "Oeste"
+
+explicacion: |
+  El este es por donde sale el Sol; el oeste, por donde se pone.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "sol"]
+
+enunciado: "¿Por qué punto cardinal sale el Sol?"
+tipo: mc
+opciones_explicitas:
+  - "Este"
+  - "Oeste"
+  - "Norte"
+respuesta: "Este"
+
+explicacion: |
+  El Sol sale por el este y se pone por el oeste, en cualquier
+  hemisferio.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "sol"]
+
+enunciado: "¿Por qué punto cardinal se pone el Sol?"
+tipo: mc
+opciones_explicitas:
+  - "Oeste"
+  - "Este"
+  - "Sur"
+respuesta: "Oeste"
+
+explicacion: |
+  Se pone por el oeste, opuesto al este por donde sale.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "colaterales"]
+
+enunciado: "¿Cómo se llama el punto intermedio entre el norte y el este?"
+tipo: mc
+opciones_explicitas:
+  - "Noreste"
+  - "Sudeste"
+  - "Noroeste"
+respuesta: "Noreste"
+
+explicacion: |
+  Se nombra combinando los dos cardinales que rodean al punto
+  intermedio: Norte + Este = Noreste.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "colaterales"]
+
+enunciado: "¿Cómo se llama el punto intermedio entre el sur y el este?"
+tipo: mc
+opciones_explicitas:
+  - "Sudeste"
+  - "Noreste"
+  - "Sudoeste"
+respuesta: "Sudeste"
+
+explicacion: |
+  Sur + Este = Sudeste.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "colaterales"]
+
+enunciado: "¿Cómo se llama el punto intermedio entre el sur y el oeste?"
+tipo: mc
+opciones_explicitas:
+  - "Sudoeste"
+  - "Noroeste"
+  - "Sudeste"
+respuesta: "Sudoeste"
+
+explicacion: |
+  Sur + Oeste = Sudoeste.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "colaterales"]
+
+enunciado: "¿Cómo se llama el punto intermedio entre el norte y el oeste?"
+tipo: mc
+opciones_explicitas:
+  - "Noroeste"
+  - "Noreste"
+  - "Sudoeste"
+respuesta: "Noroeste"
+
+explicacion: |
+  Norte + Oeste = Noroeste.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "intermedio"
+  tags: ["orientacion", "rosa_de_los_vientos"]
+
+enunciado: "Contando los 4 cardinales y los 4 intermedios, ¿cuántos puntos tiene la rosa de los vientos básica?"
+tipo: input
+respuesta: 8
+
+explicacion: |
+  4 cardinales (N, S, E, O) + 4 colaterales (NE, SE, SO, NO) = 8 puntos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "intermedio"
+  tags: ["orientacion", "angulos"]
+
+enunciado: "¿Cuántos grados hay entre el norte y el este, medidos en la rosa de los vientos?"
+tipo: input
+respuesta: 90
+
+explicacion: |
+  Los 4 cardinales dividen el círculo completo (360°) en 4 partes
+  iguales de 90° cada una.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "intermedio"
+  tags: ["orientacion", "angulos"]
+
+enunciado: "¿Cuántos grados hay entre el norte y su opuesto, el sur?"
+tipo: input
+respuesta: 180
+
+explicacion: |
+  Dos puntos opuestos están separados por media vuelta completa: 180°.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "angulos"]
+
+enunciado: "¿Cuántos grados tiene un giro completo (los 8 puntos de la rosa de los vientos, ida y vuelta al norte)?"
+tipo: input
+respuesta: 360
+
+explicacion: |
+  Un círculo completo siempre tiene 360°.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "avanzado"
+  tags: ["orientacion", "angulos"]
+
+variables:
+  total_puntos: 8
+  grados_totales: 360
+
+respuesta: grados_totales / total_puntos
+tipo: input
+
+enunciado: "Si la rosa de los vientos de 8 puntos divide el círculo en partes iguales, ¿cuántos grados separan a cada punto del siguiente (ej.: de norte a noreste)?"
+
+pasos:
+  - "{grados_totales}° ÷ {total_puntos} puntos"
+
+explicacion: |
+  360° repartidos en 8 puntos iguales dan 45° entre cada punto y el
+  siguiente.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "brujula"]
+
+enunciado: "La aguja imantada de una brújula se alinea sola con el campo magnético terrestre y señala el norte."
+tipo: vf
+respuesta: verdadero
+
+explicacion: |
+  Es el principio físico detrás de toda brújula: la aguja es un imán
+  chico que reacciona al campo magnético de la Tierra.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "relativo_absoluto"]
+
+enunciado: "\"Izquierda\" y \"derecha\" son referencias absolutas, iguales para cualquier persona sin importar hacia dónde mire."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Son referencias relativas: dependen de hacia dónde mira quien habla,
+  y cambian si esa persona se da vuelta. Los cardinales, en cambio, son
+  absolutos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "relativo_absoluto"]
+
+enunciado: "El norte geográfico es el mismo punto fijo sin importar hacia dónde mire la persona que lo señala."
+tipo: vf
+respuesta: verdadero
+
+explicacion: |
+  Por eso los cardinales son la referencia usada en mapas y
+  navegación: no dependen del observador.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "intermedio"
+  tags: ["orientacion", "sol", "hemisferios"]
+
+enunciado: "En Argentina (hemisferio sur), al mediodía el Sol queda aproximadamente hacia el..."
+tipo: mc
+opciones_explicitas:
+  - "Norte"
+  - "Sur"
+  - "Este"
+respuesta: "Norte"
+
+explicacion: |
+  En el hemisferio sur, al mediodía el Sol queda hacia el norte
+  (al revés que en el hemisferio norte, donde queda hacia el sur).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "mapas"]
+
+enunciado: "¿Para qué sirve la rosa de los vientos dibujada en un mapa?"
+tipo: mc
+opciones_explicitas:
+  - "Para indicar hacia dónde apunta el norte del mapa"
+  - "Para indicar la escala del mapa"
+  - "Para indicar la fecha en que se hizo el mapa"
+respuesta: "Para indicar hacia dónde apunta el norte del mapa"
+
+explicacion: |
+  Sin esa referencia, no se puede relacionar lo dibujado con el
+  territorio real: un mapa girado es ilegible aunque tenga toda la
+  información correcta.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "intermedio"
+  tags: ["orientacion", "hemisferios"]
+
+enunciado: "¿Qué referencia estelar se usa en el hemisferio sur para aproximar el sur de noche?"
+tipo: mc
+opciones_explicitas:
+  - "La Cruz del Sur"
+  - "La Estrella Polar"
+  - "La Osa Mayor"
+respuesta: "La Cruz del Sur"
+
+explicacion: |
+  La Estrella Polar es la referencia del hemisferio norte; en el sur
+  no hay una estrella tan cercana al polo, se usa la Cruz del Sur.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "avanzado"
+  tags: ["orientacion", "rosa_de_los_vientos"]
+
+enunciado: "Ordená estos 4 puntos empezando desde el norte y avanzando en sentido horario: Este, Norte, Oeste, Sur."
+tipo: ordenar
+opciones_explicitas:
+  - "Norte"
+  - "Este"
+  - "Sur"
+  - "Oeste"
+respuesta_orden: ["Norte", "Este", "Sur", "Oeste"]
+
+explicacion: |
+  En sentido horario desde el norte: Norte → Este → Sur → Oeste →
+  vuelta al Norte.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "intermedio"
+  tags: ["orientacion", "colaterales"]
+
+enunciado: "El noreste (NE) es el punto intermedio entre..."
+tipo: mc
+opciones_explicitas:
+  - "Norte y Este"
+  - "Norte y Oeste"
+  - "Sur y Este"
+respuesta: "Norte y Este"
+
+explicacion: |
+  El nombre combina los dos cardinales entre los que está: Norte y
+  Este.
 ```
 

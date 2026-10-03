@@ -1,2515 +1,2307 @@
 # Examen jefe — [PENDIENTE #743]
 
-> Logro #743. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #743. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: lentes-convergentes-divergentes (26 preguntas)
+## Sección: masas-de-aire-y-frentes (22 preguntas)
 
 ```
 metadata:
   materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
+  tema: "masas_de_aire_y_frentes"
   nivel: "basico"
-  tags: ["optica", "lentes", "definicion"]
+  tags: ["masas_de_aire", "vocabulario"]
 
-respuesta: "convergente"
+enunciado: "¿Qué es una masa de aire?"
 tipo: mc
-opciones_explicitas: ["divergente", "convergente", "plana"]
-
-enunciado: "Una lente que es más gruesa en el centro que en los bordes se denomina lente ________."
+opciones_explicitas:
+  - "Un volumen grande de atmósfera con temperatura y humedad relativamente uniformes"
+  - "Una nube muy grande y oscura"
+  - "El viento que sopla en una tormenta"
+respuesta: "Un volumen grande de atmósfera con temperatura y humedad relativamente uniformes"
 
 explicacion: |
-  Las lentes convergentes tienen su parte central más gruesa y tienden a unir los rayos de luz en un punto llamado foco.
+  Se forma al permanecer estacionada varios días sobre una misma región.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
+  tema: "masas_de_aire_y_frentes"
   nivel: "basico"
-  tags: ["luz", "rayos", "optica"]
+  tags: ["masas_de_aire", "clasificacion"]
+
+enunciado: "¿Qué característica tiene una masa de aire polar (P)?"
+tipo: mc
+opciones_explicitas:
+  - "Es fría, porque se formó en latitudes altas"
+  - "Es cálida, porque se formó en latitudes bajas"
+  - "Siempre es húmeda"
+respuesta: "Es fría, porque se formó en latitudes altas"
+
+explicacion: |
+  "Polar" indica latitud de origen alta, no humedad.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "basico"
+  tags: ["masas_de_aire", "clasificacion"]
+
+enunciado: "¿Qué característica tiene una masa de aire tropical (T)?"
+tipo: mc
+opciones_explicitas:
+  - "Es cálida, porque se formó en latitudes bajas"
+  - "Es fría, porque se formó en latitudes altas"
+  - "Siempre es seca"
+respuesta: "Es cálida, porque se formó en latitudes bajas"
+
+explicacion: |
+  "Tropical" indica latitud de origen baja, no humedad.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "basico"
+  tags: ["masas_de_aire", "clasificacion"]
 
 respuesta: verdadero
 tipo: vf
-enunciado: "En una lente divergente, los rayos de luz paralelos que inciden sobre ella se separan tras atravesarla."
+
+enunciado: "Una masa de aire marítima (m) se forma sobre el océano y es húmeda."
 
 explicacion: |
-  Es verdadero. Las lentes divergentes provocan que los rayos salgan de la lente con una trayectoria que se aleja del eje principal.
+  El criterio de humedad depende de la superficie de origen (océano o
+  tierra firme), independiente del criterio de temperatura.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
+  tema: "masas_de_aire_y_frentes"
   nivel: "basico"
-  tags: ["foco", "distancia_focal"]
+  tags: ["masas_de_aire", "clasificacion"]
 
-respuesta: "foco"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una masa de aire continental (c) se forma sobre tierra firme y es seca."
+
+explicacion: |
+  Igual que "marítima", es el criterio de humedad, independiente del de
+  temperatura.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "intermedio"
+  tags: ["masas_de_aire", "clasificacion"]
+
+enunciado: "¿Cómo se describe una masa de aire polar marítima (mP)?"
+tipo: mc
+opciones_explicitas:
+  - "Fría y húmeda"
+  - "Cálida y húmeda"
+  - "Fría y seca"
+respuesta: "Fría y húmeda"
+
+explicacion: |
+  Polar (fría) + marítima (húmeda).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "intermedio"
+  tags: ["masas_de_aire", "clasificacion"]
+
+enunciado: "¿Cómo se describe una masa de aire tropical continental (cT)?"
+tipo: mc
+opciones_explicitas:
+  - "Cálida y seca"
+  - "Fría y húmeda"
+  - "Cálida y húmeda"
+respuesta: "Cálida y seca"
+
+explicacion: |
+  Tropical (cálida) + continental (seca).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "basico"
+  tags: ["frentes", "vocabulario"]
+
+enunciado: "¿Qué es un frente meteorológico?"
+tipo: mc
+opciones_explicitas:
+  - "La zona de contacto entre dos masas de aire de características distintas"
+  - "Una masa de aire polar"
+  - "Otro nombre para la presión atmosférica"
+respuesta: "La zona de contacto entre dos masas de aire de características distintas"
+
+explicacion: |
+  Ahí es donde se producen los cambios de clima más marcados.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "intermedio"
+  tags: ["frentes", "densidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un frente, la masa de aire más fría y densa se desliza por debajo de la más cálida y liviana."
+
+explicacion: |
+  Es la misma idea de densidad que explica por qué el aire cálido sube y
+  el frío baja.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "intermedio"
+  tags: ["frentes", "frio"]
+
+enunciado: "En un frente frío, ¿qué ocurre con el aire cálido que estaba antes en la zona?"
+tipo: mc
+opciones_explicitas:
+  - "Es empujado hacia arriba bruscamente por el aire frío que avanza por debajo"
+  - "Se desliza suavemente por encima del aire frío"
+  - "Se queda estancado sin moverse"
+respuesta: "Es empujado hacia arriba bruscamente por el aire frío que avanza por debajo"
+
+explicacion: |
+  El aire frío, más denso, avanza y se mete por debajo del cálido.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "intermedio"
+  tags: ["frentes", "frio"]
+
+enunciado: "¿Qué tipo de clima suele traer el paso de un frente frío?"
+tipo: mc
+opciones_explicitas:
+  - "Tormentas eléctricas intensas pero de corta duración"
+  - "Llovizna suave y prolongada durante días"
+  - "Ningún cambio de clima"
+respuesta: "Tormentas eléctricas intensas pero de corta duración"
+
+explicacion: |
+  El ascenso brusco del aire cálido genera nubes de desarrollo vertical.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "intermedio"
+  tags: ["frentes", "calido"]
+
+enunciado: "En un frente cálido, ¿cómo avanza el aire cálido respecto del aire frío que se retira?"
+tipo: mc
+opciones_explicitas:
+  - "Se desliza suavemente por encima del aire frío"
+  - "Se mete bruscamente por debajo del aire frío"
+  - "No avanza, queda estacionario"
+respuesta: "Se desliza suavemente por encima del aire frío"
+
+explicacion: |
+  El aire cálido es menos denso, así que sube por encima del frío que se
+  retira más lentamente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "intermedio"
+  tags: ["frentes", "calido"]
+
+enunciado: "¿Qué tipo de precipitación suele traer un frente cálido?"
+tipo: mc
+opciones_explicitas:
+  - "Llovizna suave y prolongada, con nubes en capas por delante del frente"
+  - "Tormentas eléctricas breves e intensas"
+  - "Granizo severo únicamente"
+respuesta: "Llovizna suave y prolongada, con nubes en capas por delante del frente"
+
+explicacion: |
+  El ascenso del aire es gradual, no brusco.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "avanzado"
+  tags: ["frentes", "ocluido"]
+
+enunciado: "¿Cómo se forma un frente ocluido?"
+tipo: mc
+opciones_explicitas:
+  - "Un frente frío, que avanza más rápido, alcanza y atrapa a un frente cálido que iba adelante"
+  - "Dos masas de aire se encuentran y ninguna logra desplazar a la otra"
+  - "Una sola masa de aire se enfría de golpe"
+respuesta: "Un frente frío, que avanza más rápido, alcanza y atrapa a un frente cálido que iba adelante"
+
+explicacion: |
+  El aire cálido queda completamente levantado del suelo, atrapado entre
+  las dos masas de aire frío.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "avanzado"
+  tags: ["frentes", "estacionario"]
+
+enunciado: "¿Qué caracteriza a un frente estacionario?"
+tipo: mc
+opciones_explicitas:
+  - "Ninguna de las dos masas de aire logra desplazar a la otra, y el límite queda casi inmóvil varios días"
+  - "El aire frío avanza rápidamente y desplaza al cálido"
+  - "El aire cálido atrapa completamente al aire frío"
+respuesta: "Ninguna de las dos masas de aire logra desplazar a la otra, y el límite queda casi inmóvil varios días"
+
+explicacion: |
+  Suele traer nubosidad y lluvia persistente mientras dura.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "intermedio"
+  tags: ["frentes", "comparacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El paso de un frente frío suele ser más rápido y abrupto que el de un frente cálido, que es más lento y gradual."
+
+explicacion: |
+  El aire frío avanza empujando bruscamente por debajo; el aire cálido
+  se desliza suavemente por arriba.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "avanzado"
+  tags: ["frentes", "ocluido"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un frente ocluido combina características de un frente frío y un frente cálido, con nubosidad variada y precipitación irregular."
+
+explicacion: |
+  Es el resultado de la fusión de ambos tipos de frente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "intermedio"
+  tags: ["masas_de_aire", "clasificacion"]
+
+tipo: ordenar
+opciones_explicitas:
+  - "polar"
+  - "templada"
+  - "tropical"
+respuesta_orden: ["polar", "templada", "tropical"]
+enunciado: "Ordená estas regiones de origen de menor a mayor temperatura típica de la masa de aire que generan."
+
+explicacion: |
+  De latitudes altas (frío, polar) a bajas (cálido, tropical), pasando
+  por las templadas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "basico"
+  tags: ["frentes", "vocabulario"]
+
 tipo: completar
 respuestas_validas:
-  - "foco"
+  - "ocluido"
 
-enunciado: "El punto donde convergen los rayos de luz paralentes después de pasar por una lente convergente se denomina ________."
+enunciado: "El frente que se forma cuando un frente frío alcanza y atrapa a uno cálido se llama frente ____."
 
 explicacion: |
-  El foco es el punto de intersección de los rayos de luz que han sido refractados por la lente.
+  Frente ocluido: el aire cálido queda levantado del suelo entre las dos
+  masas de aire frío.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "basico"
-  tags: ["lentes", "forma"]
-
-respuesta_orden: ["Biconvexa", "Menisco convergente", "Bicóncava", "Menisco divergente"]
-tipo: ordenar
-
-opciones_explicitas: ["Biconvexa", "Menisco convergente", "Bicóncava", "Menisco divergente"]
-
-enunciado: "Ordena las siguientes lentes de mayor grosor central a menor grosor central (de la que más converge a la que más diverge):"
-
-explicacion: |
-  La lente biconvexa es la que tiene mayor grosor en el centro, seguida por las meniscos convergentes, luego las bicóncavas y finalmente las meniscos divergentes.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "intermedio"
-  tags: ["foco", "signo", "convencion"]
-
-respuesta: "negativo"
-tipo: mc
-opciones_explicitas: ["positivo", "negativo", "cero"]
-
-enunciado: "Según la convención de signos en óptica, la distancia focal de una lente divergente es siempre un valor ________."
-
-explicacion: |
-  En el sistema de signos estándar, las lentes divergentes tienen una distancia focal negativa, mientras que las convergentes tienen una positiva.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "basico"
-  tags: ["optica", "lentes"]
-
-respuesta: "convergente"
-tipo: "mc"
-opciones_explicitas: ["convergente", "divergente"]
-
-enunciado: "Una lente que es más gruesa en el centro que en los bordes se denomina lente _______."
-
-explicacion: |
-  Las lentes convergentes son más gruesas en el centro y hacen que los rayos de luz se unan en un punto llamado foco.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "basico"
-  tags: ["optica", "foco"]
+  tema: "masas_de_aire_y_frentes"
+  nivel: "avanzado"
+  tags: ["frentes", "sintesis"]
 
 respuesta: verdadero
-tipo: "vf"
-
-enunciado: "¿Es cierto que una lente divergente tiene una distancia focal negativa en los sistemas de signos estándar?"
-
-explicacion: |
-  Correcto. Por convención, las lentes convergentes tienen foco positivo y las divergentes tienen foco negativo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "intermedio"
-  tags: ["calculo", "optica"]
-
-variables:
-  distancia_objeto: 10
-  distancia_imagen: -30
-  distancia_focal: 15
-
-respuesta: 15
-tipo: "input"
-tolerancia_abs: 0.1
-
-enunciado: "Un objeto se coloca a {distancia_objeto} cm de una lente. Se forma una imagen virtual a {distancia_imagen} cm de la lente. ¿Cuál es el valor de la distancia focal de la lente en cm?"
-
-pasos:
-  - "Utilizar la ecuación de los lentes delgadas: 1/f = 1/s + 1/s'"
-  - "Sustituir los valores: 1/f = 1/{distancia_objeto} + 1/{distancia_imagen}"
-  - "Calcular el resultado final para f."
-
-explicacion: |
-  Aplicando la fórmula de lentes delgadas: 1/f = 1/s + 1/s'.
-  Sustituyendo los valores dados:
-  1/f = 1/10 + 1/(-30)
-  1/f = 3/30 - 1/30
-  1/f = 2/30
-  1/f = 1/15
-  Por lo tanto, f = 15 cm.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "intermedio"
-  tags: ["calculo", "optica"]
-
-variables:
-  s: 10
-  s_prime: -30
-  f_calc: 1 / (1/s + 1/s_prime)
-
-respuesta: 15.0
-tipo: "input"
-tolerancia_abs: 0.1
-
-enunciado: "Un objeto se encuentra a {s} cm de una lente convergente y forma una imagen a {s_prime} cm de la lente. ¿Cuál es la distancia focal de la lente en cm?"
-
-pasos:
-  - "Identificar datos: s = 10, s' = -30"
-  - "Aplicar la fórmula de Gauss: 1/f = 1/s + 1/s'"
-  - "1/f = 1/10 + 1/(-30) = 3/30 - 1/30 = 2/30"
-  - "f = 30 / 2 = 15"
-
-explicacion: |
-  Usando la ecuación de Gauss: 1/f = 1/10 - 1/30 = 2/30. Al invertir, f = 15 cm.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "basico"
-  tags: ["formula", "optica"]
-
-respuesta: "Gauss"
-tipo: "completar"
-respuestas_validas:
-  - "Gauss"
-  - "lentes delgadas"
-
-enunciado: "La relación fundamental para el estudio de lentes delgadas es la ecuación de _______ que relaciona la distancia focal con las distancias del objeto y la imagen."
-
-explicacion: |
-  La ecuación de Gauss (o de los lentes delgadas) es la base del estudio de la óptica geométrica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "avanzado"
-  tags: ["metodologia", "optica"]
-
-tipo: ordenar
-
-opciones_explicitas: ["Identificar signos de s y s'", "Aplicar la ecuación de Gauss", "Despejar la variable solicitada", "Verificar la naturaleza de la imagen"]
-
-respuesta_orden: ["Identificar signos de s y s'", "Aplicar la ecuación de Gauss", "Despejar la variable solicitada", "Verificar la naturaleza de la imagen"]
-
-enunciado: "Ordena los pasos lógicos para resolver un problema de distancia de imagen en una lente:"
-
-explicacion: |
-  Primero se deben asignar los signos correctos (convención de signos), luego aplicar la fórmula matemática, despejar la incógnita y finalmente interpretar si la imagen es real o virtual según su signo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "basico"
-  tags: ["optica", "lentes"]
-
-respuesta: "divergente"
-tipo: mc
-opciones_explicitas: ["convergente", "divergente"]
-
-enunciado: "Una lente que hace que los rayos de luz paralelos que pasan a través de ella se separen (diverjan) se denomina lente ________."
-
-explicacion: |
-  Las lentes divergentes (cóncavas) separan los rayos de luz, mientras que las convergentes (convexas) los enfocan en un punto.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "intermedio"
-  tags: ["distancia_focal", "signos"]
-
-variables:
-  escenario: uno_de([["convergente", "positiva"], ["divergente", "negativa"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["positiva", "negativa"]
-
-enunciado: "En el convenio de signos estándar para la óptica, si nos encontramos con una lente {escenario[0]}, su distancia focal se considera como ________."
-
-explicacion: |
-  Por convención, las lentes convergentes tienen distancia focal positiva y las divergentes tienen distancia focal negativa.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "intermedio"
-  tags: ["naturaleza_imagen"]
-
-respuesta: falso
 tipo: vf
 
-enunciado: "¿Es posible que una lente divergente forme una imagen real para un objeto situado en el infinito (rayos paralelos)?"
+enunciado: "Los frentes son la zona donde se producen los ascensos de aire que generan condensación y, por lo tanto, la formación de nubes."
 
 explicacion: |
-  Falso. Las lentes divergentes siempre forman imágenes virtuales, derechas y de menor tamaño para objetos reales.
+  Es la conexión directa con el módulo de Formación de nubes.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
+  tema: "masas_de_aire_y_frentes"
+  nivel: "intermedio"
+  tags: ["masas_de_aire", "comparacion"]
+
+enunciado: "¿Cuál de estas dos masas de aire es más húmeda: una marítima polar (mP), o una continental tropical (cT)?"
+tipo: mc
+opciones_explicitas:
+  - "La marítima polar (mP)"
+  - "La continental tropical (cT)"
+  - "Las dos tienen la misma humedad"
+respuesta: "La marítima polar (mP)"
+
+explicacion: |
+  "Marítima" (formada sobre el océano) es el criterio de humedad, no de
+  temperatura.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "masas_de_aire_y_frentes"
   nivel: "avanzado"
-  tags: ["confusion_comun", "imagen_virtual"]
+  tags: ["masas_de_aire", "frentes", "sintesis"]
+
+enunciado: "¿Cuál resume mejor la relación entre masas de aire y frentes?"
+tipo: mc
+opciones_explicitas:
+  - "Las masas de aire son volúmenes con temperatura/humedad uniformes, y los frentes son el límite de contacto entre masas distintas, donde ocurren los cambios de clima más marcados"
+  - "Las masas de aire y los frentes son el mismo fenómeno con nombres distintos"
+  - "Los frentes existen dentro de una sola masa de aire, sin que haya otra masa involucrada"
+respuesta: "Las masas de aire son volúmenes con temperatura/humedad uniformes, y los frentes son el límite de contacto entre masas distintas, donde ocurren los cambios de clima más marcados"
+
+explicacion: |
+  Son dos conceptos relacionados pero distintos: la masa de aire es el
+  volumen, el frente es el límite de contacto entre dos volúmenes.
+```
+
+## Sección: principio-de-arquimedes-empuje-flotacion (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "basico"
+  tags: ["arquimedes", "empuje", "fuerza"]
+
+tipo: mc
+opciones_explicitas: ["La fuerza que ejerce un fluido sobre un cuerpo sumergido", "La fuerza de gravedad que atrae al objeto", "La fuerza de fricción entre el objeto y el agua", "La fuerza que mantiene al objeto en reposo"]
+respuesta: "La fuerza que ejerce un fluido sobre un cuerpo sumergido"
+
+enunciado: "Según el principio de Arquímedes, el empuje es ___."
+
+explicacion: |
+  El empuje es la fuerza vertical hacia arriba que ejerce un fluido (líquido o gas) sobre cualquier cuerpo que esté sumergido en él.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "basico"
+  tags: ["equilibrio", "flotacion"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "Si un objeto se encuentra en equilibrio mientras flota en la superficie de un líquido, significa que su peso es mayor que la fuerza de empuje ejercida por el fluido."
+
+explicacion: |
+  Falso. Para que un objeto flote en equilibrio, la fuerza de empuje debe ser exactamente igual al peso del objeto (sumergido o parcialmente sumergido).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "intermedio"
+  tags: ["volumen", "desplazamiento"]
 
 variables:
-  caso: ["convergente", "virtual"]
+  volumenes: [1.5, 2.0, 0.8]
+  idx: uno_de([0,1,2])
+  volumen: volumenes[idx]
+
+tipo: completar
+tolerancia_abs: 1
+
+respuesta: volumen * 1000
+
+enunciado: "Un objeto sumergido desplaza un volumen de agua (densidad 1000 kg/m³) de {volumen} m³. Según el principio de Arquímedes, la magnitud del empuje será equivalente al peso de una masa de fluido de ___ kg."
+
+explicacion: |
+  El volumen de fluido desplazado es igual al volumen de la parte sumergida del objeto. El empuje es igual al peso de ese fluido desplazado.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "intermedio"
+  tags: ["densidad", "flotacion"]
+
+tipo: mc
+opciones_explicitas: ["El objeto se hunde", "El objeto flota", "El objeto se queda en equilibrio en el medio"]
+respuesta: "El objeto se hunde"
+
+enunciado: "Si la densidad del objeto es mayor que la densidad del fluido, el objeto ___."
+
+explicacion: |
+  Cuando la densidad del objeto es mayor, el peso del objeto es mayor que el empuje máximo que puede recibir (el peso del volumen de fluido desplazado por el objeto totalmente sumergido), por lo tanto, el objeto se hunde.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "avanzado"
+  tags: ["procedimiento", "analisis"]
+
+tipo: ordenar
+opciones_explicitas: ["Calcular el peso del objeto", "Calcular el empuje máximo (peso del fluido desplazado)", "Comparar peso con empuje para determinar flotación"]
+
+enunciado: "Para determinar si un objeto flotará o se hundirá en un fluido, se debe seguir este orden lógico de análisis:"
+
+explicacion: |
+  Primero determinamos la fuerza hacia abajo (peso), luego la fuerza hacia arriba máxima posible (empuje del volumen total del objeto) y finalmente comparamos ambas magnitudes.
+respuesta_orden: ["Calcular el peso del objeto", "Calcular el empuje máximo (peso del fluido desplazado)", "Comparar peso con empuje para determinar flotación"]
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "basico"
+  tags: ["arquimedes", "empuje", "teoria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Según el principio de Arquímedes, el empuje es una fuerza vertical hacia arriba que experimenta un cuerpo cuando se sumerge en un fluido."
+
+explicacion: |
+  El principio de Arquímedes establece que todo cuerpo sumergido en un fluido experimenta un empuje vertical hacia arriba igual al peso del fluido desalojado.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "intermedio"
+  tags: ["calculo", "empuje", "densidad"]
+
+variables:
+  idx: uno_de([0, 1])
+  volumenes: [0.5, 0.8]
+  V: volumenes[idx]
+
+respuesta: redondear(1000 * 9.8 * V, 1)
+tipo: completar
+tolerancia_abs: 1
+
+enunciado: "Un objeto desplaza un volumen de {V} m³ de agua al sumergirse. Si la densidad del agua es 1000 kg/m³ y la gravedad es 9.8 m/s², ¿cuál es el valor del empuje en Newtons?"
+
+pasos:
+  - "Calcular el volumen desplazado: V = {V} m³"
+  - "Calcular el peso del fluido desalojado: E = ρ * g * V"
+  - "E = 1000 * 9.8 * {V}"
+
+explicacion: |
+  El empuje se calcula con la fórmula E = ρ_fluido * g * V_sumergido.
+  Usando los datos: E = 1000 * 9.8 * {V} = {redondear(1000 * 9.8 * V, 1)} N.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "basico"
+  tags: ["flotacion", "densidad"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [[800, "flota"], [1200, "se hunde"]]
+
+respuesta: escenario[idx][1]
+tipo: mc
+
+opciones_explicitas: ["flota", "se hunde"]
+
+enunciado: "Si un objeto tiene una densidad de {escenario[idx][0]} kg/m³ y se sumerge en agua (densidad 1000 kg/m³), el objeto ___."
+
+explicacion: |
+  Si la densidad del objeto es menor que la del fluido, el objeto flota. Si es mayor, se hunde.
+  En este caso, {escenario[idx][0]} < 1000, por lo tanto, el objeto {escenario[idx][1]}.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "intermedio"
+  tags: ["equilibrio", "flotacion"]
+
+respuesta: "Peso del fluido desalojado"
+tipo: completar
+
+respuestas_validas:
+  - "Peso del fluido desalojado"
+  - "Peso del objeto"
+  - "Fuerza de gravedad"
+
+enunciado: "Cuando un objeto flota en equilibrio en la superficie de un líquido, el empuje es exactamente igual al ___."
+
+explicacion: |
+  En equilibrio de flotación, la fuerza hacia arriba (empuje) debe compensar exactamente la fuerza hacia abajo (peso del objeto). Por el principio de Arquímedes, esto equivale al peso del fluido desalojado.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "intermedio"
+  tags: ["procedimiento", "ordenar"]
+
+opciones_explicitas: ["Calcular volumen desplazado", "Multiplicar por la gravedad", "Multiplicar por la densidad del fluido"]
+respuesta_orden: ["Calcular volumen desplazado", "Multiplicar por la densidad del fluido", "Multiplicar por la gravedad"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para calcular el empuje (E = ρ * g * V) partiendo de conocer el volumen sumergido:"
+
+explicacion: |
+  El orden correcto es: 1. Determinar el volumen desplazado (V), 2. Multiplicar por la densidad del fluido (ρ * V) y 3. Finalmente, multiplicar por la aceleración de la gravedad (g).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes"
+  nivel: "basico"
+  tags: ["empuje", "arquimedes", "flotacion"]
+
+variables:
+  escenario: uno_de([[10, 90], [25, 75], [50, 50]])
+
+enunciado: "Un objeto sumergido en un fluido experimenta una fuerza hacia arriba llamada empuje. Si el peso del objeto es de {escenario[0]} N y el empuje es de {escenario[1]} N, ¿cuál es el peso aparente del objeto?"
+
+pasos:
+  - "Calcular la diferencia entre el peso real y el empuje."
+  - "El peso aparente es la fuerza resultante vertical."
+
+respuesta: escenario[0] - escenario[1]
+tipo: completar
+tolerancia_abs: 0.01
+
+explicacion: |
+  El peso aparente es la diferencia entre el peso real del objeto y la fuerza de empuje que ejerce el fluido. Si el empuje es igual al peso, el objeto tiene peso aparente cero (flota en equilibrio).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes"
+  nivel: "intermedio"
+  tags: ["empuje", "densidad", "volumen"]
+
+opciones_explicitas: ["El peso del objeto", "El volumen del objeto sumergido", "La densidad del objeto", "La forma del objeto"]
+
+enunciado: "Un error común es pensar que un objeto más pesado siempre tiene más empuje. Sin embargo, para un objeto totalmente sumergido, el empuje depende exclusivamente de:"
+
+respuesta: "El volumen del objeto sumergido"
+tipo: mc
+
+explicacion: |
+  El principio de Arquímedes establece que el empuje es igual al peso del volumen de fluido desplazado. Por lo tanto, si dos objetos tienen el mismo volumen y están totalmente sumergidos, el empuje será el mismo, sin importar sus pesos o materiales.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes"
+  nivel: "basico"
+  tags: ["flotacion", "densidad"]
+
+variables:
+  caso: uno_de([[1.2, "se hunde"], [0.8, "flota"], [1.0, "flota"]])
+
+enunciado: "Si un objeto tiene una densidad de {caso[0]} g/cm³ y se coloca en agua (cuya densidad es 1.0 g/cm³), el objeto ___."
+
+respuestas_validas:
+  - "se hunde"
+  - "flota"
 
 respuesta: caso[1]
 tipo: completar
-respuestas_validas:
-  - "virtual"
-
-enunciado: "Un error común es pensar que todas las imágenes que vemos a través de una lupa son invertidas. Sin embargo, si usamos una lente {caso[0]} como lupa (con el objeto dentro del foco), la imagen que vemos es de tipo ________."
 
 explicacion: |
-  Las lentes divergentes solo producen imágenes virtuales (derechas), mientras que las convergentes pueden producir imágenes reales (invertidas) o virtuales (derechas) dependiendo de la posición del objeto.
+  Si la densidad del objeto es mayor que la del fluido, el peso es mayor que el empuje máximo posible y el objeto se hunde. Si es menor, el objeto subirá hasta que el peso del volumen desplazado iguale su peso (flotación).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
+  tema: "principio_de_arquimedes"
   nivel: "intermedio"
-  tags: ["proceso_optico"]
-
-respuesta_orden: ["emisión", "refracción", "enfoque"]
-tipo: ordenar
-opciones_explicitas: ["emisión", "refracción", "enfoque"]
-
-enunciado: "Ordena los pasos lógicos que ocurren cuando un objeto real es proyectado por una lente convergente sobre una pantalla:"
-
-pasos:
-  - "El objeto emite rayos de luz."
-  - "La luz atraviesa la lente y cambia de dirección."
-  - "Los rayos se cruzan en un punto sobre la pantalla."
-
-explicacion: |
-  Primero el objeto emite la luz, luego la lente refracta los rayos y finalmente estos convergen en un punto para formar la imagen.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "basico"
-  tags: ["optica", "lentes"]
-
-opciones_explicitas: ["Las lentes convergentes son más gruesas en el centro que en los bordes", "Las lentes divergentes son más gruesas en el centro que en los bordes", "Ambas tienen la misma forma"]
-
-respuesta: "Las lentes convergentes son más gruesas en el centro que en los bordes"
-tipo: mc
-
-enunciado: "En términos de su geometría física, la principal distinción respecto a su espesor es que ___."
-
-explicacion: |
-  Las lentes convergentes (o biconvexas) tienen un centro más grueso que sus bordes, lo que permite que los rayos de luz se unan en un punto focal. Las divergentes (bicóncavas) son más delgadas en el centro.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "basico"
-  tags: ["optica", "rayos_luz"]
-
-variables:
-  tipo_lente: uno_de(["convergente", "divergente"])
-
-respuesta: tipo_lente == "divergente"
-tipo: vf
-enunciado: "Si utilizamos una lente {tipo_lente}, los rayos de luz paralelos que inciden sobre ella se separan (divergen) tras el paso por la lente."
-
-explicacion: |
-  En una lente convergente, los rayos se acercan entre sí para pasar por un punto común. En una divergente, los rayos se alejan.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "intermedio"
-  tags: ["imagen", "foco"]
-
-variables:
-  escenario: uno_de([0, 1])
-  escenario_datos: [["lente convergente", "real"], ["lente divergente", "virtual"]]
-
-respuesta: escenario_datos[escenario][1]
-tipo: completar
-respuestas_validas:
-  - "real"
-  - "virtual"
-
-enunciado: "Considerando una lente {escenario_datos[escenario][0]}, la imagen formada por un objeto situado más allá del foco es ________."
-
-explicacion: |
-  Las lentes convergentes pueden formar imágenes reales (si el objeto está lejos) o virtuales (si está muy cerca). Las lentes divergentes siempre forman imágenes virtuales.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "intermedio"
-  tags: ["foco", "signo"]
-
-tipo: mc
-opciones_explicitas: ["Positiva", "Negativa"]
-respuesta: "Positiva"
-
-enunciado: "En el convenio de signos de la óptica, la distancia focal de una lente convergente es siempre ________."
-
-explicacion: |
-  Por convención, las lentes convergentes tienen una distancia focal positiva ($f > 0$), mientras que las lentes divergentes tienen una distancia focal negativa ($f < 0$).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "avanzado"
-  tags: ["rayos_luz", "proceso"]
-
-opciones_explicitas: ["Incidencia de rayos paralelos", "Refracción en la superficie de la lente", "Convergencia en el punto focal"]
-
-respuesta_orden: ["Incidencia de rayos paralelos", "Refracción en la superficie de la lente", "Convergencia en el punto focal"]
-tipo: ordenar
-
-enunciado: "Para que una lente convergente enfoque la luz en un punto, el proceso sigue este orden lógico:"
-
-explicacion: |
-  Primero los rayos viajan hacia la lente (incidencia), luego cambian de dirección al cruzar el material (refracción) y finalmente se cruzan en un punto (foco).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "intermedio"
-  tags: ["optica", "salud", "lentes"]
-
-variables:
-  datos: [["un paciente con miopía", "divergente"], ["un paciente con hipermetropía", "convergente"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Para corregir la visión de {datos[idx][0]}, se requiere el uso de una lente de tipo {datos[idx][1]}."
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["convergente", "divergente"]
-
-explicacion: |
-  La miopía ocurre cuando la imagen se forma antes de la retina; una lente divergente ayuda a alejar el punto focal hacia la retina.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "basico"
-  tags: ["luz", "refraccion"]
-
-respuesta: "convergen"
-tipo: completar
-respuestas_validas:
-  - "convergen"
-
-enunciado: "Cuando los rayos de luz paralelos atraviesan una lente convergente, estos ___ en un punto llamado foco."
-
-explicacion: |
-  Las lentes convergentes (o convexas) hacen que los rayos de luz se junten en un punto focal.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "avanzado"
-  tags: ["calculo", "foco"]
-
-variables:
-  caso: uno_de([[10, 20], [15, 30], [20, 40]])
-  focal: caso[1]
-
-enunciado: "Un objeto se coloca a una distancia de {caso[0]} cm de una lente convergente cuya distancia focal es de {focal} cm (el objeto está dentro del foco, ya que {caso[0]} < {focal}). ¿La imagen formada será virtual y estará ubicada del mismo lado de la lente que el objeto?"
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  Como el objeto está entre el foco y la lente (distancia objeto < f), la imagen es virtual, derecha, aumentada y se ubica del mismo lado de la lente que el objeto.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "intermedio"
-  tags: ["proceso", "optica"]
-
-respuesta_orden: ["Luz incidente", "Refracción en la lente", "Formación de la imagen"]
-tipo: ordenar
-
-opciones_explicitas: ["Luz incidente", "Refracción en la lente", "Formación de la imagen"]
-
-enunciado: "Ordena el proceso físico que ocurre cuando un rayo de luz atraviesa una lente para formar una imagen:"
-
-explicacion: |
-  Primero llega la luz, luego cambia de dirección al entrar/salir de la lente (refracción) y finalmente se proyecta la imagen.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "lentes_convergentes_divergentes"
-  nivel: "basico"
-  tags: ["geometria", "lentes"]
-
-variables:
-  idx: uno_de([0, 1])
-  pares: [["convergente", "más gruesa en el centro"], ["divergente", "más delgada en el centro"]]
-  tipo_lente: pares[idx][0]
-  forma: pares[idx][1]
-
-enunciado: "Una lente es de tipo {tipo_lente} si es {forma}."
-
-respuesta: tipo_lente
-tipo: mc
-opciones_explicitas: ["convergente", "divergente"]
-
-explicacion: |
-  Las lentes convergentes son más gruesas en el centro (convexas), mientras que las divergentes son más delgadas en el centro (cóncavas).
-```
-
-## Sección: ley-de-coulomb (24 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "basico"
-  tags: ["coulomb", "vocabulario"]
-
-enunciado: "¿Qué establece la ley de Coulomb?"
-tipo: mc
-opciones_explicitas:
-  - "La fuerza entre dos cargas eléctricas es proporcional al producto de las cargas e inversamente proporcional al cuadrado de la distancia entre ellas"
-  - "Toda carga eléctrica genera la misma fuerza sin importar su magnitud"
-  - "La fuerza eléctrica es siempre atractiva, nunca repulsiva"
-respuesta: "La fuerza entre dos cargas eléctricas es proporcional al producto de las cargas e inversamente proporcional al cuadrado de la distancia entre ellas"
-
-explicacion: |
-  F = k × q₁ × q₂ / r², la misma forma matemática que la gravitación,
-  aplicada a cargas en vez de masas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "intermedio"
-  tags: ["coulomb", "completar"]
-
-tipo: completar
-enunciado: "Completá: F = k × q₁ × q₂ / r², donde k se llama la constante de ___."
-respuestas_validas:
-  - "Coulomb"
-
-explicacion: |
-  k ≈ 9×10⁹ N·m²/C² (valor redondeado habitual).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "basico"
-  tags: ["coulomb"]
-
-enunciado: "Dos cargas con el mismo signo (ambas positivas, o ambas negativas), ¿se atraen o se repelen?"
-tipo: mc
-opciones_explicitas:
-  - "Se repelen"
-  - "Se atraen"
-  - "No ejercen ninguna fuerza entre sí"
-respuesta: "Se repelen"
-
-explicacion: |
-  Mismo signo → repulsión, ya visto en `../cargas-electricas/`.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "basico"
-  tags: ["coulomb"]
-
-enunciado: "Una carga positiva y una carga negativa, ¿se atraen o se repelen?"
-tipo: mc
-opciones_explicitas:
-  - "Se atraen"
-  - "Se repelen"
-  - "No ejercen ninguna fuerza entre sí"
-respuesta: "Se atraen"
-
-explicacion: |
-  Signos opuestos → atracción.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "intermedio"
-  tags: ["coulomb", "gravitacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia de la fuerza gravitatoria (siempre atractiva), la fuerza eléctrica puede ser atractiva o repulsiva."
-
-explicacion: |
-  No existe "masa negativa" para la gravitación, pero sí existen
-  cargas negativas para la electricidad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "intermedio"
-  tags: ["coulomb", "gravitacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La ley de Coulomb (F=kq₁q₂/r²) tiene exactamente la misma forma matemática que la ley de gravitación de Newton (F=Gm₁m₂/r²)."
-
-explicacion: |
-  Mismo patrón (proporcional al producto, inversamente proporcional al
-  cuadrado de la distancia), aplicado a cargas en vez de masas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "avanzado"
-  tags: ["coulomb", "problema"]
-
-respuesta: redondear(1 / (2 ^ 2), 4)
-tipo: input
-tolerancia_abs: 0.001
-
-enunciado: "Si la distancia entre dos cargas se duplica (sin cambiar las cargas), ¿a qué fracción de la fuerza original queda reducida la fuerza eléctrica?"
-
-pasos:
-  - "F_nueva / F_original = 1 / 2² = {redondear(1 / (2 ^ 2), 4)}"
-
-explicacion: |
-  Es la misma ley de cuadrado inverso que la gravitación.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "intermedio"
-  tags: ["coulomb", "problema"]
-
-respuesta: 3
-tipo: input
-
-enunciado: "Si una de las dos cargas se triplica (la otra carga y la distancia no cambian), ¿cuántas veces mayor queda la fuerza eléctrica?"
-
-pasos:
-  - "F es directamente proporcional a cada carga: triplicarla triplica F."
-
-explicacion: |
-  Cada carga entra de forma lineal en la fórmula, igual que cada masa
-  en la gravitación.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "avanzado"
-  tags: ["coulomb", "problema"]
-
-variables:
-  q1: random(1, 10)
-  q2: random(1, 10)
-  r: uno_de([0.5, 1, 2])
-
-respuesta: redondear(9e9 * (q1 * 1e-6) * (q2 * 1e-6) / (r ^ 2), 3)
-tipo: input
-tolerancia_abs: 0.05
-unidad: "N"
-
-enunciado: "Dos cargas de {q1} µC y {q2} µC están separadas por {r} m (k=9×10⁹ N·m²/C²). ¿Cuál es la magnitud de la fuerza eléctrica entre ellas?"
-
-pasos:
-  - "En Coulomb: q₁={q1}×10⁻⁶ C, q₂={q2}×10⁻⁶ C"
-  - "F = k × q₁ × q₂ / r² = 9×10⁹ × {q1}×10⁻⁶ × {q2}×10⁻⁶ / {r}² = {redondear(9e9 * (q1 * 1e-6) * (q2 * 1e-6) / (r ^ 2), 3)} N"
-
-explicacion: |
-  1 microcoulomb (µC) = 10⁻⁶ C — las cargas cotidianas de electricidad
-  estática se miden en esta escala, no en Coulombs enteros.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "basico"
-  tags: ["coulomb", "vocabulario"]
-
-enunciado: "¿En qué unidad se mide la carga eléctrica en el Sistema Internacional?"
-tipo: mc
-opciones_explicitas:
-  - "Coulomb (C)"
-  - "Newton (N)"
-  - "Amperio (A)"
-respuesta: "Coulomb (C)"
-
-explicacion: |
-  Las cargas cotidianas suelen expresarse en microcoulombs (µC =
-  10⁻⁶ C) porque un Coulomb entero es una cantidad de carga enorme.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "intermedio"
-  tags: ["coulomb"]
-
-enunciado: "¿Cuál es el valor aproximado (redondeado) de la constante de Coulomb k?"
-tipo: mc
-opciones_explicitas:
-  - "9×10⁹ N·m²/C²"
-  - "6,674×10⁻¹¹ N·m²/kg²"
-  - "9,8 N/kg"
-respuesta: "9×10⁹ N·m²/C²"
-
-explicacion: |
-  No confundir con G (gravitación, mucho más chico) ni con g
-  (aceleración de la gravedad en la Tierra).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "intermedio"
-  tags: ["coulomb", "gravitacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Tanto la fuerza gravitatoria como la fuerza eléctrica disminuyen con el cuadrado de la distancia (ley de cuadrado inverso)."
-
-explicacion: |
-  Es el mismo patrón matemático (proporcional a 1/r²) en los dos casos.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "avanzado"
-  tags: ["coulomb", "gravitacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para cargas y masas de tamaño cotidiano, la fuerza eléctrica es muchísimo más intensa que la fuerza gravitatoria entre los mismos objetos."
-
-explicacion: |
-  G (≈10⁻¹¹) es un número muchísimo más chico que k (≈10⁹) — por eso
-  hacen falta masas planetarias para notar la gravedad, pero cargas
-  chicas ya generan fuerzas eléctricas notables.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "avanzado"
-  tags: ["coulomb", "problema"]
-
-respuesta: 4
-tipo: input
-
-enunciado: "Si AMBAS cargas se duplican a la vez (la distancia no cambia), ¿cuántas veces mayor queda la fuerza eléctrica?"
-
-pasos:
-  - "F_nueva / F_original = (2×q₁ × 2×q₂) / (q₁×q₂) = 4"
-
-explicacion: |
-  Cada duplicación multiplica por 2, y son dos duplicaciones
-  independientes: 2×2=4.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "avanzado"
-  tags: ["coulomb"]
-
-enunciado: "Si el producto q₁×q₂ es positivo (ambas cargas positivas, o ambas negativas), ¿qué tipo de fuerza es?"
-tipo: mc
-opciones_explicitas:
-  - "Repulsiva"
-  - "Atractiva"
-  - "Nula"
-respuesta: "Repulsiva"
-
-explicacion: |
-  El signo del producto de las cargas indica directamente si la fuerza
-  es de repulsión (producto positivo) o atracción (producto negativo).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "avanzado"
-  tags: ["coulomb", "ordenar"]
-
-enunciado: "Ordená los pasos para calcular la fuerza eléctrica entre dos cargas dadas en microcoulombs."
-tipo: ordenar
-opciones_explicitas:
-  - "Determinar si la fuerza es atractiva o repulsiva según el signo de las cargas"
-  - "Convertir las cargas de microcoulombs a Coulombs (×10⁻⁶)"
-  - "Aplicar F = k × q₁ × q₂ / r² con k=9×10⁹"
-respuesta_orden: ["Convertir las cargas de microcoulombs a Coulombs (×10⁻⁶)", "Aplicar F = k × q₁ × q₂ / r² con k=9×10⁹", "Determinar si la fuerza es atractiva o repulsiva según el signo de las cargas"]
-explicacion: |
-  El cálculo numérico y la dirección (atrae/repele) se resuelven por
-  separado.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "basico"
-  tags: ["coulomb", "aplicacion"]
-
-enunciado: "¿Por qué un globo frotado contra el pelo se queda pegado a la pared?"
-tipo: mc
-opciones_explicitas:
-  - "El frotamiento carga eléctricamente el globo, y esa carga atrae cargas opuestas inducidas en la pared"
-  - "El globo se vuelve magnético"
-  - "Es un efecto de la gravedad, no de electricidad"
-respuesta: "El frotamiento carga eléctricamente el globo, y esa carga atrae cargas opuestas inducidas en la pared"
-
-explicacion: |
-  Es electricidad estática: la fuerza de Coulomb entre las cargas del
-  globo y las cargas inducidas en la pared.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "intermedio"
-  tags: ["coulomb"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La fuerza que la carga 1 ejerce sobre la carga 2 tiene la misma magnitud que la que la carga 2 ejerce sobre la carga 1 (acción y reacción)."
-
-explicacion: |
-  Es un caso más de la tercera ley de Newton, ya vista en
-  `../leyes-de-newton/tercera-accion-reaccion/`.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "basico"
-  tags: ["coulomb"]
-
-enunciado: "¿Qué representa r en la fórmula F=k×q₁×q₂/r²?"
-tipo: mc
-opciones_explicitas:
-  - "La distancia entre las dos cargas"
-  - "El radio de una de las dos cargas"
-  - "El tiempo que dura la interacción"
-respuesta: "La distancia entre las dos cargas"
-
-explicacion: |
-  Las cargas se tratan como puntuales (sin tamaño), así que r es
-  simplemente la distancia entre sus posiciones.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "avanzado"
-  tags: ["coulomb"]
+  tags: ["conceptos", "error_comun"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El valor de F = k×q₁×q₂/r² (sin considerar el signo de las cargas) alcanza por sí solo para saber si la fuerza es atractiva o repulsiva."
+enunciado: "¿Es cierto que un objeto de hierro se hunde en el agua simplemente porque es más pesado que el agua?"
 
 explicacion: |
-  Hace falta mirar el signo del producto q₁×q₂ (o directamente el
-  signo de cada carga) para saber la dirección — la magnitud sola no
-  lo dice.
+  Falso. El hierro se hunde porque su densidad es mayor que la del agua, lo que significa que el empuje que puede ejercer el agua al desplazar su volumen es menor que el peso del objeto. No es el peso absoluto, sino la relación entre peso y volumen (densidad).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "ley_de_coulomb"
+  tema: "principio_de_arquimedes"
+  nivel: "intermedio"
+  tags: ["flotacion", "equilibrio"]
+
+opciones_explicitas: ["El objeto se hunde", "El objeto se detiene en la superficie", "El objeto se hunde hasta que el empuje iguala su peso"]
+
+enunciado: "Cuando un objeto se lanza al agua y comienza a descender pero tiene una densidad menor a la del fluido, ¿qué ocurre?"
+
+respuesta: "El objeto se hunde hasta que el empuje iguala su peso"
+tipo: mc
+
+explicacion: |
+  Al sumergirse, el objeto desplaza agua. A medida que baja, el volumen desplazado aumenta y, con él, el empuje. El objeto dejará de descender cuando el empuje sea igual a su peso, alcanzando un equilibrio de flotación.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes"
+  nivel: "basico"
+  tags: ["empuje", "peso", "flotacion"]
+
+variables:
+  densidad_obj: uno_de([2500, 800])
+  densidad_liq: 1000
+
+respuesta: densidad_obj < densidad_liq
+tipo: vf
+enunciado: "Si un objeto tiene una densidad de {densidad_obj} kg/m³ y se sumerge en un líquido de {densidad_liq} kg/m³, el objeto flotará en la superficie. ¿Es esto verdadero o falso?"
+
+explicacion: |
+  Si la densidad del objeto es menor que la del líquido (como en el caso de 800 < 1000), el objeto flota. Si es mayor (2500 > 1000), el objeto se hunde.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes"
+  nivel: "intermedio"
+  tags: ["arquimedes", "fuerza", "empuje"]
+
+respuesta: "fuerza vertical hacia arriba"
+tipo: completar
+respuestas_validas:
+  - "fuerza vertical hacia arriba"
+  - "fuerza hacia arriba"
+  - "empuje"
+
+enunciado: "El principio de Arquímedes establece que todo cuerpo sumergido en un fluido experimenta una ___ que es igual al peso del volumen del fluido desalojado."
+
+explicacion: |
+  El empuje es la fuerza que ejerce el fluido sobre el cuerpo, dirigida siempre hacia arriba (verticalmente).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes"
+  nivel: "intermedio"
+  tags: ["flotacion", "equilibrio"]
+
+variables:
+  peso_obj: uno_de([50, 150])
+  empuje: uno_de([100, 20])
+
+respuesta: "El peso es igual al empuje"
+tipo: mc
+opciones_explicitas: ["El peso es mayor que el empuje", "El peso es menor que el empuje", "El peso es igual al empuje"]
+
+enunciado: "Para que un objeto flote en equilibrio en la superficie de un fluido (flotación neutra), se debe cumplir que el peso del objeto sea ___ que el empuje."
+
+explicacion: |
+  Cuando un objeto flota sin hundirse ni emerger completamente, el peso es igual al empuje (equilibrio de fuerzas).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes"
   nivel: "avanzado"
-  tags: ["coulomb", "problema"]
+  tags: ["calculo", "empuje", "volumen"]
 
-variables:
-  q1: uno_de([2, 4, 5])
-  q2: uno_de([2, 4, 5])
-  r: uno_de([0.5, 1, 2])
-  F: redondear(9e9 * (q1 * 1e-6) * (q2 * 1e-6) / (r ^ 2), 4)
-
-respuesta: r
-tipo: input
-tolerancia_abs: 0.01
-unidad: "m"
-
-enunciado: "Dos cargas de {q1} µC y {q2} µC (k=9×10⁹ N·m²/C²) ejercen entre sí una fuerza de {F} N. ¿A qué distancia están? (usá la misma fórmula despejando r)"
-
-pasos:
-  - "r² = k × q₁ × q₂ / F = 9×10⁹ × {q1}×10⁻⁶ × {q2}×10⁻⁶ / {F}"
-  - "r = {r} m"
-
-explicacion: |
-  Es el mismo despeje que ya se practicó con otras fórmulas de
-  `../formulas-con-literales/`, aplicado ahora a la ley de Coulomb.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "basico"
-  tags: ["coulomb"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La ley de Coulomb es el punto de partida para entender fuerzas y campos eléctricos más complejos, con más de dos cargas."
-
-explicacion: |
-  Con más cargas se suman (vectorialmente) las fuerzas de Coulomb de
-  cada par, pero la ley de base sigue siendo la misma.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "intermedio"
-  tags: ["coulomb", "gravitacion"]
-
-enunciado: "¿Cuál de estas afirmaciones distingue correctamente k (Coulomb) de G (gravitación)?"
-tipo: mc
-opciones_explicitas:
-  - "k (≈9×10⁹) es enorme y G (≈6,674×10⁻¹¹) es diminuta — son constantes de fenómenos distintos, con órdenes de magnitud opuestos"
-  - "k y G son el mismo número, sólo cambia el nombre"
-  - "k se usa para masas y G para cargas"
-respuesta: "k (≈9×10⁹) es enorme y G (≈6,674×10⁻¹¹) es diminuta — son constantes de fenómenos distintos, con órdenes de magnitud opuestos"
-
-explicacion: |
-  Esa diferencia de magnitud entre k y G es la razón de fondo por la
-  que la fuerza eléctrica domina sobre la gravitatoria a escala
-  cotidiana.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_coulomb"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve entender la ley de Coulomb?"
-tipo: mc
-opciones_explicitas:
-  - "Para calcular la fuerza eléctrica entre dos cargas, y saber si atraen o repelen, a partir de sus magnitudes y su distancia"
-  - "Sólo sirve para calcular fuerzas gravitatorias"
-  - "Sólo aplica a cargas del mismo signo"
-respuesta: "Para calcular la fuerza eléctrica entre dos cargas, y saber si atraen o repelen, a partir de sus magnitudes y su distancia"
-
-explicacion: |
-  Es la versión eléctrica del mismo patrón matemático que la
-  gravitación universal, aplicado a un fenómeno que además puede
-  repeler, no sólo atraer.
-```
-
-## Sección: ley-de-ohm (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["conceptos", "corriente"]
-
-respuesta: "intensidad_de_corriente"
-tipo: completar
-
-enunciado: "La magnitud física que mide la cantidad de carga eléctrica que fluye por unidad de tiempo a través de una sección de un conductor se denomina ___."
-
-respuestas_validas:
-  - "intensidad_de_corriente"
-  - "corriente_electrica"
-
-explicacion: |
-  La intensidad de corriente eléctrica ($I$) se define como el flujo de carga eléctrica por unidad de tiempo ($I = dQ/dt$).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["proporcionalidad", "teoria"]
-
-opciones_explicitas: ["Directamente proporcional", "Inversamente proporcional", "No tiene relación"]
-respuesta: "Directamente proporcional"
-tipo: mc
-
-enunciado: "Según la Ley de Ohm, manteniendo la resistencia constante, la diferencia de potencial (voltaje) es ___ a la intensidad de la corriente."
-
-explicacion: |
-  La Ley de Ohm establece que $V = I \cdot R$. Si $R$ es constante, si aumentamos $V$, aumenta $I$ en la misma proporción.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["unidades", "ohm"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Voltaje", "Voltios"], ["Resistencia", "Ohmios"]]
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Voltios", "Amperios", "Ohmios", "Watts"]
-
-enunciado: "La unidad de medida en el Sistema Internacional para la {datos[idx][0]} es ___."
-
-explicacion: |
-  La unidad de la {datos[idx][0]} es el {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["teoria"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si la resistencia de un circuito aumenta y el voltaje se mantiene constante, la intensidad de la corriente también aumentará."
-
-explicacion: |
-  Falso. De la fórmula $I = V/R$, se observa que la corriente es inversamente proporcional a la resistencia. Si $R$ sube, $I$ baja.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "intermedio"
-  tags: ["calculo", "despeje"]
-
-respuesta: "R = V / I"
-tipo: mc
-opciones_explicitas: ["I = V / R", "R = V / I", "V = I / R", "R = I / V"]
-
-enunciado: "Para hallar la resistencia ($R$) en un circuito donde conocemos el voltaje ($V$) y la intensidad ($I$), la expresión correcta es ___."
-
-explicacion: |
-  Partiendo de $V = I \cdot R$, despejamos $R$ pasando la $I$ dividiendo al otro lado: $R = V / I$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["formula", "conceptos"]
-
-respuesta: "V = I * R"
-tipo: completar
-respuestas_validas:
-  - "V = I * R"
-  - "V = R * I"
-
-enunciado: "La Ley de Ohm establece que la diferencia de potencial (V) es igual al producto de la intensidad de corriente (I) por la resistencia (R). La expresión matemática es: ___"
-
-explicacion: |
-  La Ley de Ohm indica que la tensión es directamente proporcional a la corriente para una resistencia constante.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["calculo"]
-
-variables:
-  escenario: uno_de([[2, 5, 10], [6, 5, 30], [5, 10, 50]])
-
-respuesta: escenario[2]
-tipo: mc
-opciones_explicitas: [10, 30, 50, 60]
-
-enunciado: "Si una resistencia de {escenario[1]} Ω es atravesada por una corriente de {escenario[0]} A, ¿cuál es la diferencia de potencial aplicada (en voltios)?"
-
-pasos:
-  - "Identificar los datos: I = {escenario[0]} A, R = {escenario[1]} Ω"
-  - "Aplicar la fórmula: V = I * R"
-  - "Calcular: V = {escenario[0]} * {escenario[1]} = {escenario[2]} V"
-
-explicacion: |
-  Usando la fórmula V = I * R, multiplicamos la corriente por la resistencia para obtener la tensión.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "intermedio"
-  tags: ["calculo"]
-
-variables:
-  escenario: uno_de([[12, 4], [220, 110], [10, 5]])
-
-respuesta: escenario[0] / escenario[1]
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Una bombilla está conectada a una fuente de {escenario[0]} V y tiene una resistencia interna de {escenario[1]} Ω. ¿Cuál es la intensidad de la corriente que circula por ella (en Amperes)?"
-
-pasos:
-  - "Despejar la fórmula de Ohm para la corriente: I = V / R"
-  - "Sustituir valores: I = {escenario[0]} / {escenario[1]}"
-  - "Resultado: I = {escenario[0] / escenario[1]} A"
-
-explicacion: |
-  Para hallar la corriente cuando conocemos la tensión y la resistencia, despejamos la fórmula original obteniendo I = V / R.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si mantenemos la tensión (V) constante y aumentamos la resistencia (R), la intensidad de la corriente (I) debe disminuir."
-
-explicacion: |
-  Es verdadero. Según la Ley de Ohm, la corriente es inversamente proporcional a la resistencia cuando la tensión es constante.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "intermedio"
-  tags: ["calculo"]
-
-variables:
-  escenario: uno_de([[10, 2, 5], [24, 3, 8], [100, 10, 10]])
-
-respuesta: escenario[2]
-tipo: mc
-opciones_explicitas: [5, 8, 10, 20]
-
-enunciado: "Un dispositivo electrónico consume una corriente de {escenario[1]} A cuando se conecta a una batería de {escenario[0]} V. ¿Cuál es el valor de su resistencia (en ohmios)?"
-
-pasos:
-  - "Identificar datos: V = {escenario[0]} V, I = {escenario[1]} A"
-  - "Despejar R de la fórmula V = I * R: R = V / I"
-  - "Calcular: R = {escenario[0]} / {escenario[1]} = {escenario[2]} Ω"
-
-explicacion: |
-  Para encontrar la resistencia, dividimos la tensión aplicada entre la intensidad de la corriente que circula por el circuito.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["ley_de_ohm", "relaciones_proporcionales"]
-
-respuesta: "reducirse a la mitad"
-tipo: completar
-respuestas_validas:
-  - "reducirse a la mitad"
-  - "disminuir a la mitad"
-  - "la mitad"
-
-enunciado: "Si mantenemos el voltaje constante y duplicamos la resistencia, la intensidad de corriente debe ___ para mantener la igualdad de la Ley de Ohm."
-
-pasos:
-  - "Identificar que el voltaje es constante."
-  - "Aplicar la relación $I = V / R$."
-  - "Observar que al aumentar el denominador (R), el resultado (I) disminuye."
-
-explicacion: |
-  La Ley de Ohm establece que $V = I \cdot R$. Si el voltaje ($V$) no cambia, la corriente ($I$) y la resistencia ($R$) son inversamente proporcionales. Si la resistencia se duplica, la corriente se reduce a la mitad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["unidades", "error_comun"]
-
-respuesta: "mA"
-tipo: mc
-opciones_explicitas: ["A", "mA", "kΩ", "V"]
-
-enunciado: "Un error común es no convertir las unidades antes de operar. Si tienes un voltaje de 5 V y una resistencia de 1 kΩ, el resultado de I = V / R es 0.005 A. ¿En qué unidad se expresa este valor si queremos evitar el uso de decimales muy pequeños?"
-
-explicacion: |
-  Para evitar errores de escala, es común trabajar con múltiplos. 0.005 A es equivalente a 5 mA (miliamperios).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["proporcionalidad_directa"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un circuito con una resistencia fija, si aumentamos el voltaje aplicado, la intensidad de corriente que circula por el conductor también aumentará proporcionalmente."
-
-explicacion: |
-  Verdadero. Según $I = V / R$, si $R$ es constante, $I$ es directamente proporcional a $V$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "intermedio"
-  tags: ["calculo", "resistencia"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[24.0, 12.0, 2.0], [40.0, 8.0, 5.0]]
-
-respuesta: escenario[idx][2]
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Un circuito tiene un voltaje de {escenario[idx][0]} V y una corriente de {escenario[idx][1]} A. ¿Cuál es el valor de su resistencia (en $\\Omega$)?"
-
-pasos:
-  - "Usar la fórmula despejada: $R = V / I$."
-  - "Sustituir los valores: $R = {escenario[idx][0]} / {escenario[idx][1]}$."
-
-explicacion: |
-  Utilizando $R = V / I$, dividimos el voltaje por la corriente para hallar la resistencia: $R = {escenario[idx][0]} / {escenario[idx][1]} = {escenario[idx][2]}$ Ω.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["despeje", "formula"]
-
-respuesta_orden: ["V = I * R", "I = V / R", "R = V / I"]
+respuesta_orden: ["Calcular el volumen del fluido desplazado", "Multiplicar ese volumen por la densidad del fluido", "Multiplicar el resultado por la aceleración de la gravedad"]
 tipo: ordenar
 
-opciones_explicitas: ["V = I * R", "I = V / R", "R = V / I"]
+opciones_explicitas: ["Calcular el volumen del fluido desplazado", "Multiplicar ese volumen por la densidad del fluido", "Multiplicar el resultado por la aceleración de la gravedad"]
 
-enunciado: "Ordena las fórmulas de la Ley de Ohm empezando por la fórmula original (definición de voltaje) y luego sus dos despejes para corriente y resistencia respectivamente."
+enunciado: "Ordena los pasos lógicos para calcular la magnitud del empuje (E = ρ · V · g) de un cuerpo sumergido:"
 
 explicacion: |
-  Las tres formas de la Ley de Ohm son equivalentes, pero el orden correcto de despeje estándar es la definición, luego el despeje de la variable del denominador y finalmente el de la variable del numerador.
+  El empuje depende del volumen desplazado, la densidad del fluido y la gravedad.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "ley_de_ohm"
+  tema: "principio_de_arquimedes"
   nivel: "basico"
-  tags: ["ohm", "voltaje", "corriente"]
+  tags: ["masa", "empuje", "densidad"]
 
-tipo: mc
-opciones_explicitas: ["Proporcional", "Inversamente proporcional", "No tiene relación", "Exponencial"]
-
-enunciado: "Según la Ley de Ohm, si la resistencia de un circuito se mantiene constante y se aumenta el voltaje, la intensidad de la corriente será ___ a la del voltaje."
-
-respuesta: "Proporcional"
-
-explicacion: |
-  La Ley de Ohm establece que $V = I \cdot R$. Si $R$ es constante, $V$ y $I$ son directamente proporcionales.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["resistencia", "ohm", "voltaje"]
-
-tipo: vf
-
-enunciado: "Si mantenemos un voltaje constante en un circuito, un aumento en la resistencia provocará un aumento en la intensidad de la corriente."
+variables:
+  masa_bloque: 10
+  vol_bloque: 0.05
+  dens_agua: 1000
 
 respuesta: falso
+tipo: vf
+enunciado: "Si un bloque de hierro tiene una masa de {masa_bloque} kg y un volumen de {vol_bloque} m³, el empuje que recibe al sumergirse totalmente en agua es de {masa_bloque} Newtons. ¿Es esto verdadero o falso?"
 
 explicacion: |
-  Falso. De la Ley de Ohm $I = V / R$, se observa que la corriente es inversamente proporcional a la resistencia cuando el voltaje es constante.
+  El empuje es igual al peso del fluido desalojado (ρ_agua · V_bloque · g), no a la masa del objeto ni a su peso directamente. En este caso: 1000 · 0.05 · 9.8 = 490 N, que es distinto a 10 N.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "ley_de_ohm"
+  tema: "principio_de_arquimedes_empuje_flotacion"
   nivel: "intermedio"
-  tags: ["calculo", "ohm", "resistencia"]
+  tags: ["flotacion", "empuje", "densidad"]
 
 variables:
-  escenario: uno_de([[2, 10], [5, 20], [12, 4]])
+  escenario: uno_de([[1.2, "se hunde"], [0.8, "flota"], [1.0, "flota"]])
+  densidad_objeto: escenario[0]
+  densidad_fluido: 1.0
 
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Un circuito tiene una diferencia de potencial de {escenario[0]} V y una corriente que circula por él es de {escenario[1]} A. ¿Cuál es el valor de la resistencia en Ohmios ($\\Omega$)?"
-
-respuesta: escenario[0] / escenario[1]
-
-explicacion: |
-  Usando la fórmula $R = V / I$:
-  Para el caso sorteado: $R = {escenario[0]} / {escenario[1]} = {escenario[0]/escenario[1]} \Omega$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "intermedio"
-  tags: ["conceptos", "voltaje", "corriente"]
-
-tipo: completar
-
-enunciado: "Mientras que el voltaje se mide en ___ y representa la diferencia de potencial, la intensidad de corriente se mide en ___ y representa el flujo de carga."
-
-respuestas_validas:
-  - "Voltios"
-  - "Amperios"
-
-respuesta: ["Voltios", "Amperios"]
-
-explicacion: |
-  El voltaje (V) es la fuerza que impulsa las cargas, e intensidad (I) es la cantidad de carga que circula por unidad de tiempo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["formula", "orden"]
-
-tipo: completar
-
-enunciado: "Para despejar la intensidad de corriente (I) de la Ley de Ohm ($V = I \\cdot R$), la operación matemática correcta es dividir el voltaje por la ___."
-
-respuestas_validas:
-  - "resistencia"
-
-respuesta: "resistencia"
-
-explicacion: |
-  Despejando la fórmula original $V = I \cdot R$, pasamos la $R$ dividiendo al otro lado: $I = V / R$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["voltaje", "corriente", "resistencia"]
-
-variables:
-  escenario: uno_de([[120.0, "2.0", "60.0"], [220.0, "5.0", "44.0"], [12.0, "0.5", "24.0"]])
-  v: escenario[0]
-  i: escenario[1]
-  r: escenario[2]
-
-respuesta: r
-tipo: completar
-respuestas_validas:
-  - "60.0"
-  - "44.0"
-  - "24.0"
-
-enunciado: "Un dispositivo eléctrico se conecta a una fuente de tensión de {v} V y por él circula una corriente de {i} A. ¿Cuál es el valor de la resistencia del dispositivo?"
-
-explicacion: |
-  Aplicando la Ley de Ohm: R = V / I.
-  En este caso: {v} / {i} = {r} Ω.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_ohm"
-  nivel: "basico"
-  tags: ["corriente", "voltaje", "resistencia"]
-
-variables:
-  escenario: uno_de([[9.0, "0.2", "45.0"], [12.0, "0.5", "24.0"], [3.0, "1.0", "3.0"]])
-  v: escenario[0]
-  r: escenario[1]
-  i: escenario[2]
-
-respuesta: i
+respuesta: escenario[1]
 tipo: mc
-opciones_explicitas: ["45.0", "24.0", "3.0"]
+opciones_explicitas: ["flota", "se hunde", "flota"]
 
-enunciado: "Una linterna funciona con una batería de {v} V y tiene una resistencia interna de {r} Ω. ¿Qué intensidad de corriente circula por el circuito?"
+enunciado: "Un objeto con una densidad de {densidad_objeto} g/cm³ se sumerge en un fluido cuya densidad es de {densidad_fluido} g/cm³. El objeto ___."
 
 explicacion: |
-  Usamos la fórmula I = V / R.
-  I = {v} / {r} = {i} A.
+  Un objeto flota si su densidad es menor que la del fluido. Si es mayor, se hunde.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "ley_de_ohm"
+  tema: "principio_de_arquimedes_empuje_flotacion"
   nivel: "intermedio"
-  tags: ["relacion", "proporcionalidad"]
+  tags: ["empuje", "volumen", "arquimedes"]
 
 variables:
-  escenario: uno_de([[10.0, 2.0, 5.0], [20.0, 4.0, 5.0], [50.0, 10.0, 5.0]])
-  v: escenario[0]
-  i: escenario[1]
-  r: escenario[2]
+  volumenes: [0.5, 0.2, 1.0]
+  idx: uno_de([0, 1, 2])
+  volumen: volumenes[idx]
+  densidad_fluido: 1000
+  g: 10
+
+respuesta: densidad_fluido * g * volumen
+tipo: completar
+tolerancia_abs: 1
+
+enunciado: "Un cuerpo con un volumen de {volumen} m³ está completamente sumergido en agua (densidad {densidad_fluido} kg/m³). ¿Cuál es el valor del empuje (en Newtons) que experimenta el cuerpo? (Usa g = {g} m/s² para tus cálculos)."
+
+pasos:
+  - "Calcular el volumen desplazado (es igual al volumen del cuerpo sumergido)."
+  - "Aplicar la fórmula del empuje: E = densidad_fluido * g * volumen_desplazado."
+
+explicacion: |
+  El empuje es igual al peso del volumen de fluido desplazado: E = ρ * g * V.
+  Para el caso seleccionado: {densidad_fluido} * {g} * {volumen} = {densidad_fluido * g * volumen} N.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "basico"
+  tags: ["equilibrio", "fuerzas"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si mantenemos una resistencia constante de {r} Ω, al duplicar el voltaje de {v} V a {v*2} V, la corriente debe duplicarse de {i} A a {i*2} A. ¿Es esto correcto?"
+enunciado: "Cuando un objeto flota en equilibrio en la superficie de un líquido, la magnitud de la fuerza de empuje es igual a la magnitud de su peso."
 
 explicacion: |
-  Verdadero. Según la Ley de Ohm (V = I·R), el voltaje y la corriente son directamente proporcionales cuando la resistencia es constante.
+  Para que un objeto flote en equilibrio (sin aceleración vertical), la fuerza hacia arriba (empuje) debe compensar exactamente la fuerza hacia abajo (peso).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "ley_de_ohm"
+  tema: "principio_de_arquimedes_empuje_flotacion"
   nivel: "basico"
-  tags: ["voltaje", "corriente", "resistencia"]
+  tags: ["densidad", "conceptos"]
 
-variables:
-  escenario: uno_de([[5.0, "0.1", "0.5"], [10.0, "2.0", "20.0"], [12.0, "0.5", "6.0"]])
-  r: escenario[0]
-  i: escenario[1]
-  v: escenario[2]
-
-respuesta: v
+respuesta: "densidad"
 tipo: completar
 respuestas_validas:
-  - "0.5"
-  - "20.0"
-  - "6.0"
+  - "densidad"
 
-enunciado: "Un componente electrónico tiene una resistencia de {r} Ω y es atravesado por una corriente de {i} A. ¿Qué voltaje se aplica a dicho componente?"
+enunciado: "Si un objeto tiene una ___ mayor que la del fluido, el objeto se hundirá."
 
 explicacion: |
-  La fórmula es V = I · R.
-  V = {i} * {r} = {v} V.
+  La flotabilidad depende de la relación entre la densidad del objeto y la del fluido.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "ley_de_ohm"
+  tema: "principio_de_arquimedes_empuje_flotacion"
   nivel: "intermedio"
   tags: ["procedimiento", "metodologia"]
 
-respuesta_orden: ["Identificar datos", "Seleccionar fórmula", "Realizar cálculo"]
+opciones_explicitas: ["Calcular volumen desplazado", "Multiplicar por densidad del fluido", "Multiplicar por gravedad"]
+respuesta_orden: ["Calcular volumen desplazado", "Multiplicar por densidad del fluido", "Multiplicar por gravedad"]
 tipo: ordenar
-opciones_explicitas: ["Identificar datos", "Seleccionar fórmula", "Realizar cálculo"]
 
-enunciado: "Ordena los pasos lógicos para resolver un problema de Ley de Ohm donde conoces la resistencia y la corriente para hallar el voltaje:"
+enunciado: "Ordena los pasos lógicos para calcular la fuerza de empuje de un objeto sumergido:"
 
 explicacion: |
-  Para resolver problemas físicos de forma sistemática se debe:
-  1. Identificar los datos conocidos.
-  2. Seleccionar la fórmula adecuada (V=I·R, I=V/R o R=V/I).
-  3. Realizar el cálculo matemático.
+  1. Identificar el volumen desplazado.
+  2. Multiplicar por la densidad del fluido (obteniendo la masa del fluido desplazado).
+  3. Multiplicar por la gravedad para obtener la fuerza (peso del fluido).
 ```
 
-## Sección: leyes-de-newton/primera-inercia (25 preguntas)
+## Sección: formacion-de-nubes (22 preguntas)
 
 ```
 metadata:
   materia: "fisica"
-  tema: "primera_ley_newton_inercia"
+  tema: "formacion_de_nubes"
   nivel: "basico"
-  tags: ["inercia", "vocabulario"]
+  tags: ["nubes", "condensacion"]
 
-enunciado: "¿Qué dice la primera ley de Newton (ley de inercia)?"
+enunciado: "¿Qué ocurre con el vapor de agua cuando el aire que lo contiene se enfría lo suficiente al ascender?"
 tipo: mc
 opciones_explicitas:
-  - "Un objeto en reposo sigue en reposo, y uno en movimiento sigue con velocidad constante, a menos que actúe una fuerza neta"
-  - "Todo objeto se detiene solo con el tiempo, sin necesitar ninguna fuerza"
-  - "La fuerza siempre es igual a la masa por la velocidad"
-respuesta: "Un objeto en reposo sigue en reposo, y uno en movimiento sigue con velocidad constante, a menos que actúe una fuerza neta"
+  - "Se condensa: pasa de gas a diminutas gotitas líquidas o cristales de hielo"
+  - "Se evapora todavía más"
+  - "Desaparece del aire por completo"
+respuesta: "Se condensa: pasa de gas a diminutas gotitas líquidas o cristales de hielo"
 
 explicacion: |
-  Los objetos no cambian su estado de movimiento por sí solos.
+  Esas gotitas o cristales, en gran cantidad, forman lo que vemos como
+  una nube.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "primera_ley_newton_inercia"
+  tema: "formacion_de_nubes"
   nivel: "basico"
-  tags: ["fuerza_neta", "vocabulario"]
-
-enunciado: "¿Qué es la fuerza neta sobre un objeto?"
-tipo: mc
-opciones_explicitas:
-  - "La suma vectorial de todas las fuerzas que actúan sobre él al mismo tiempo"
-  - "La fuerza más grande de todas las que actúan sobre él"
-  - "El promedio de todas las fuerzas que actúan sobre él"
-respuesta: "La suma vectorial de todas las fuerzas que actúan sobre él al mismo tiempo"
-
-explicacion: |
-  Se calcula sumando vectores, como en
-  `../../../matematica/suma-de-vectores-y-descomposicion/`.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "intermedio"
-  tags: ["fuerza_neta"]
+  tags: ["nubes", "condensacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si dos fuerzas iguales en magnitud actúan sobre un objeto desde direcciones exactamente opuestas, la fuerza neta es cero."
+enunciado: "El aire se enfría a medida que asciende en la atmósfera."
 
 explicacion: |
-  Se cancelan entre sí como vectores, aunque ninguna de las dos sea cero
-  por separado.
+  Es la condición que dispara la condensación y la formación de nubes.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "intermedio"
-  tags: ["equilibrio", "vocabulario"]
+  tema: "formacion_de_nubes"
+  nivel: "basico"
+  tags: ["nubes", "punto_de_rocio"]
 
-enunciado: "Según la primera ley de Newton, ¿qué situaciones cuentan como 'equilibrio'?"
+enunciado: "¿Qué es el punto de rocío?"
 tipo: mc
 opciones_explicitas:
-  - "Estar en reposo, O moverse a velocidad constante (misma rapidez y dirección)"
-  - "Únicamente estar completamente en reposo"
-  - "Únicamente estar acelerando de forma constante"
-respuesta: "Estar en reposo, O moverse a velocidad constante (misma rapidez y dirección)"
+  - "La temperatura a la que el aire debe enfriarse para que su vapor de agua empiece a condensarse"
+  - "La altura máxima que puede alcanzar una nube"
+  - "La cantidad total de agua que cae en una tormenta"
+respuesta: "La temperatura a la que el aire debe enfriarse para que su vapor de agua empiece a condensarse"
 
 explicacion: |
-  Lo que importa es que la velocidad no cambie, no que sea cero.
+  Es clave para saber si un aire dado va a formar nubes o no.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "primera_ley_newton_inercia"
+  tema: "formacion_de_nubes"
   nivel: "intermedio"
-  tags: ["equilibrio"]
+  tags: ["nubes", "punto_de_rocio"]
+
+enunciado: "Si la temperatura del aire está muy por encima de su punto de rocío, ¿qué se espera?"
+tipo: mc
+opciones_explicitas:
+  - "Cielo despejado, lejos de condensar"
+  - "Formación inmediata de nubes"
+  - "Nieve garantizada"
+respuesta: "Cielo despejado, lejos de condensar"
+
+explicacion: |
+  Cuanto más lejos esté la temperatura actual del punto de rocío, menos
+  probable es la condensación.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "intermedio"
+  tags: ["nubes", "punto_de_rocio"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un objeto que se mueve en línea recta a velocidad constante también está en equilibrio, según la primera ley de Newton."
+enunciado: "Cuanto más húmedo es el aire, más alto (más cerca de la temperatura actual) está su punto de rocío."
 
 explicacion: |
-  Su velocidad no cambia, así que la fuerza neta sobre él es cero.
+  Necesita enfriarse menos para llegar a condensar.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "primera_ley_newton_inercia"
+  tema: "formacion_de_nubes"
+  nivel: "basico"
+  tags: ["nubes", "clasificacion"]
+
+enunciado: "¿Qué prefijo indica que una nube es de las capas más altas de la atmósfera?"
+tipo: mc
+opciones_explicitas:
+  - "Cirro-"
+  - "Alto-"
+  - "Estrato-"
+respuesta: "Cirro-"
+
+explicacion: |
+  Las nubes altas están formadas por cristales de hielo, por el frío
+  extremo a esa altura.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "basico"
+  tags: ["nubes", "clasificacion"]
+
+enunciado: "¿Qué prefijo indica que una nube está en las capas medias de la atmósfera?"
+tipo: mc
+opciones_explicitas:
+  - "Alto-"
+  - "Cirro-"
+  - "Nimbo-"
+respuesta: "Alto-"
+
+explicacion: |
+  Por ejemplo, altocúmulos o altoestratos.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
   nivel: "intermedio"
-  tags: ["equilibrio"]
+  tags: ["nubes", "clasificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las nubes de desarrollo vertical, como los cumulonimbos, atraviesan varias capas de altura, desde bajas hasta muy altas."
+
+explicacion: |
+  Pueden llegar a los 12-15 km de altura.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "basico"
+  tags: ["nubes", "clasificacion"]
+
+enunciado: "¿Cómo son las nubes tipo cúmulo?"
+tipo: mc
+opciones_explicitas:
+  - "En forma de algodón, acumuladas, con base plana"
+  - "En capas extendidas y uniformes"
+  - "Finas y filamentosas"
+respuesta: "En forma de algodón, acumuladas, con base plana"
+
+explicacion: |
+  Son típicas de un día de buen tiempo, salvo que crezcan demasiado.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "basico"
+  tags: ["nubes", "clasificacion"]
+
+enunciado: "¿Cómo son las nubes tipo estrato?"
+tipo: mc
+opciones_explicitas:
+  - "En capas extendidas y uniformes, que suelen cubrir todo el cielo"
+  - "En forma de algodón, acumuladas"
+  - "Finas y filamentosas, en las capas más altas"
+respuesta: "En capas extendidas y uniformes, que suelen cubrir todo el cielo"
+
+explicacion: |
+  Se asocian a llovizna suave y prolongada, típica de un frente cálido.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "intermedio"
+  tags: ["nubes", "clasificacion"]
+
+enunciado: "¿Qué caracteriza a los cirros?"
+tipo: mc
+opciones_explicitas:
+  - "Son nubes altas, finas y filamentosas, y no producen lluvia"
+  - "Son nubes bajas que siempre producen tormenta"
+  - "Son nubes que cubren todo el cielo con lluvia sostenida"
+respuesta: "Son nubes altas, finas y filamentosas, y no producen lluvia"
+
+explicacion: |
+  Suelen anticipar un cambio de tiempo en las próximas 24-48 horas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "intermedio"
+  tags: ["nubes", "clasificacion"]
+
+enunciado: "¿Qué indica el prefijo/sufijo \"nimbo-\" en el nombre de una nube?"
+tipo: mc
+opciones_explicitas:
+  - "Que la nube produce precipitación"
+  - "Que la nube está en las capas más altas"
+  - "Que la nube nunca se mueve"
+respuesta: "Que la nube produce precipitación"
+
+explicacion: |
+  Nimboestratos y cumulonimbos son ejemplos: estratos o cúmulos que
+  llueven.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "intermedio"
+  tags: ["nubes", "clasificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los cumulonimbos son cúmulos que crecieron mucho, de desarrollo vertical, y producen tormenta."
+
+explicacion: |
+  Son el tipo de nube asociado a un frente frío muy activo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "intermedio"
+  tags: ["nubes", "clasificacion"]
+
+enunciado: "¿Qué tipo de precipitación se asocia a los nimboestratos?"
+tipo: mc
+opciones_explicitas:
+  - "Lluvia sostenida, más suave pero prolongada"
+  - "Tormenta eléctrica breve e intensa"
+  - "Ninguna, esas nubes nunca llueven"
+respuesta: "Lluvia sostenida, más suave pero prolongada"
+
+explicacion: |
+  Son estratos que llueven, típicos de un frente cálido.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "avanzado"
+  tags: ["nubes", "frentes"]
+
+enunciado: "¿Qué tipo de nube genera típicamente un frente frío, que fuerza un ascenso brusco del aire cálido?"
+tipo: mc
+opciones_explicitas:
+  - "Nubes de desarrollo vertical (cumulonimbos)"
+  - "Nubes en capas uniformes (estratos)"
+  - "Nubes altas y filamentosas (cirros)"
+respuesta: "Nubes de desarrollo vertical (cumulonimbos)"
+
+explicacion: |
+  El ascenso brusco empuja el aire con fuerza hacia arriba, formando
+  torres de nube.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "avanzado"
+  tags: ["nubes", "frentes"]
+
+enunciado: "¿Qué tipo de nube genera típicamente un frente cálido, con ascenso suave y gradual del aire?"
+tipo: mc
+opciones_explicitas:
+  - "Nubes en capas uniformes (estratos)"
+  - "Nubes de desarrollo vertical (cumulonimbos)"
+  - "Ninguna nube en absoluto"
+respuesta: "Nubes en capas uniformes (estratos)"
+
+explicacion: |
+  Un ascenso gradual produce nubes extendidas en capas, no torres.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "intermedio"
+  tags: ["nubes", "clasificacion"]
+
+tipo: completar
+respuestas_validas:
+  - "cirros"
+
+enunciado: "Las nubes altas, finas y filamentosas que suelen anticipar un cambio de tiempo en las próximas 24-48 horas se llaman ____."
+
+explicacion: |
+  Son cristales de hielo suspendidos, sin producir lluvia por sí mismas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "intermedio"
+  tags: ["nubes", "clasificacion"]
+
+tipo: ordenar
+opciones_explicitas:
+  - "estratos (nubes bajas)"
+  - "altocúmulos (nubes medias)"
+  - "cirros (nubes altas)"
+respuesta_orden: ["estratos (nubes bajas)", "altocúmulos (nubes medias)", "cirros (nubes altas)"]
+enunciado: "Ordená estos tipos de nube de menor a mayor altura sobre el suelo."
+
+explicacion: |
+  Bajas, medias y altas es el orden de clasificación por altura.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "intermedio"
+  tags: ["nubes", "punto_de_rocio", "calculo"]
+
+variables:
+  temperatura_actual: random(20, 35)
+  punto_de_rocio: random(5, 19)
+
+respuesta: temperatura_actual - punto_de_rocio
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La temperatura actual del aire es {temperatura_actual}°C y su punto de rocío es {punto_de_rocio}°C. ¿Cuántos grados le falta enfriarse al aire para empezar a condensar?"
+
+explicacion: |
+  Es la diferencia entre la temperatura actual y el punto de rocío.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "avanzado"
+  tags: ["nubes", "punto_de_rocio"]
+
+variables:
+  temp: random(20, 30)
+  rocio_ciudad_a: random(5, 12)
+  rocio_ciudad_b: random(15, 19)
+
+respuesta: "la ciudad B"
+tipo: mc
+opciones_explicitas:
+  - "la ciudad B"
+  - "la ciudad A"
+  - "las dos tienen la misma humedad"
+
+enunciado: "Con la misma temperatura de {temp}°C, la ciudad A tiene un punto de rocío de {rocio_ciudad_a}°C y la ciudad B de {rocio_ciudad_b}°C. ¿Cuál de las dos tiene el aire más húmedo?"
+
+explicacion: |
+  El aire más húmedo tiene el punto de rocío más cercano a la
+  temperatura actual (necesita enfriarse menos para condensar).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "formacion_de_nubes"
+  nivel: "basico"
+  tags: ["nubes", "clasificacion"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Según la primera ley de Newton, un objeto en equilibrio siempre está completamente detenido."
+enunciado: "Todas las nubes, sin excepción, producen algún tipo de precipitación."
 
 explicacion: |
-  También puede estar en movimiento, siempre que sea a velocidad
-  constante.
+  Los cúmulos de buen tiempo y los cirros, por ejemplo, no producen
+  lluvia.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "intermedio"
-  tags: ["fuerza_neta", "problema"]
-
-variables:
-  f1: random(20, 50)
-  f2: random(5, 19)
-
-respuesta: f1 - f2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Sobre un objeto actúan dos fuerzas horizontales: {f1} N hacia la derecha, y {f2} N hacia la izquierda. ¿Cuál es la fuerza neta (positiva si es hacia la derecha)?"
-
-pasos:
-  - "{f1} − {f2} = {f1 - f2} N hacia la derecha"
-
-explicacion: |
-  Se restan porque apuntan en direcciones opuestas sobre el mismo eje.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
+  tema: "formacion_de_nubes"
   nivel: "avanzado"
-  tags: ["equilibrio", "problema"]
+  tags: ["nubes", "sintesis"]
+
+enunciado: "¿Cuál resume mejor por qué se forman las nubes?"
+tipo: mc
+opciones_explicitas:
+  - "El aire asciende, se enfría, y cuando llega al punto de rocío el vapor de agua se condensa en gotitas o cristales suspendidos"
+  - "Las nubes aparecen al azar sin relación con la temperatura del aire"
+  - "Las nubes se forman sólo cuando hay viento fuerte, sin importar la humedad"
+respuesta: "El aire asciende, se enfría, y cuando llega al punto de rocío el vapor de agua se condensa en gotitas o cristales suspendidos"
+
+explicacion: |
+  Es el mecanismo central: ascenso, enfriamiento, condensación en el
+  punto de rocío.
+```
+
+## Sección: principio-de-pascal-prensa-hidraulica (27 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal_prensa_hidraulica"
+  nivel: "basico"
+  tags: ["presion", "fluido", "pascal"]
+
+respuesta: "presion"
+tipo: completar
+respuestas_validas:
+  - "presion"
+
+enunciado: "El principio de Pascal establece que cualquier cambio de ___ aplicado a un fluido incompresible en equilibrio dentro de un recipiente se transmite íntegramente a todas las partes del fluido y a las paredes del recipiente."
+
+explicacion: |
+  La presión en un fluido en reposo se transmite con la misma intensidad en todas las direcciones.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal_prensa_hidraulica"
+  nivel: "basico"
+  tags: ["prensa", "hidraulica", "mecanismo"]
 
 variables:
-  f1: random(10, 30)
-  f2: random(10, 30)
+  es_hidraulica: verdadero
 
-respuesta: verdadero
+respuesta: es_hidraulica
 tipo: vf
-
-enunciado: "Sobre un objeto actúan tres fuerzas horizontales: {f1} N y {f2} N hacia la derecha, y {f1 + f2} N hacia la izquierda. ¿Está el objeto en equilibrio?"
+enunciado: "¿Es el principio de Pascal la base fundamental para el funcionamiento de una prensa hidráulica?"
 
 explicacion: |
-  {f1} + {f2} = {f1 + f2} N hacia la derecha, que se cancela
-  exactamente con los {f1 + f2} N hacia la izquierda: fuerza neta cero.
+  Correcto. La prensa hidráulica utiliza la transmisión de presión para multiplicar la fuerza aplicada.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "primera_ley_newton_inercia"
+  tema: "principio_de_pascal_prensa_hidraulica"
   nivel: "intermedio"
-  tags: ["inercia", "vocabulario"]
-
-enunciado: "Cuando un auto frena bruscamente, ¿por qué el cuerpo de los pasajeros 'sigue de largo' hacia adelante?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el cuerpo mantiene su inercia de movimiento mientras el auto ya está frenando"
-  - "Porque una fuerza invisible empuja al cuerpo hacia adelante"
-  - "Porque el aire dentro del auto empuja a los pasajeros"
-respuesta: "Porque el cuerpo mantiene su inercia de movimiento mientras el auto ya está frenando"
-
-explicacion: |
-  No hay ninguna fuerza nueva empujando hacia adelante: es el cuerpo
-  resistiéndose a cambiar su estado de movimiento.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "intermedio"
-  tags: ["inercia", "vocabulario"]
-
-enunciado: "¿Por qué cuesta más esfuerzo empezar a mover un mueble pesado desde el reposo que mantenerlo deslizándose una vez que ya está en movimiento?"
-tipo: mc
-opciones_explicitas:
-  - "Porque la inercia se opone al CAMBIO de estado de movimiento, no al movimiento en sí"
-  - "Porque el mueble pierde peso una vez que empieza a moverse"
-  - "En realidad cuesta exactamente el mismo esfuerzo en ambos casos"
-respuesta: "Porque la inercia se opone al CAMBIO de estado de movimiento, no al movimiento en sí"
-
-explicacion: |
-  Arrancar exige vencer la inercia del reposo; mantenerlo en velocidad
-  constante no exige cambiar nada.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "basico"
-  tags: ["inercia", "vocabulario"]
-
-enunciado: "¿Qué es la inercia de un objeto?"
-tipo: mc
-opciones_explicitas:
-  - "Su resistencia a cambiar su estado de movimiento"
-  - "La fuerza que lo empuja hacia adelante"
-  - "Su velocidad máxima posible"
-respuesta: "Su resistencia a cambiar su estado de movimiento"
-
-explicacion: |
-  Cuanta más inercia, más cuesta arrancarlo, frenarlo o desviarlo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "intermedio"
-  tags: ["inercia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuanto mayor es la masa de un objeto, mayor es su inercia."
-
-explicacion: |
-  La masa es, literalmente, la medida de la inercia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "intermedio"
-  tags: ["inercia", "problema"]
+  tags: ["fuerza", "area", "presion"]
 
 variables:
-  masa1: uno_de([5, 10])
-  masa2: masa1 * 100
+  escenario: uno_de([["F1", "A1", "F2", "A2"], ["100", "10", "500", "50"], ["500", "50", "100", "10"]])
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un camión de {masa2} kg y una bicicleta de {masa1} kg. ¿Tiene el camión más inercia que la bicicleta?"
-
-explicacion: |
-  Con una masa mucho mayor, hace falta mucha más fuerza neta para
-  cambiar el estado de movimiento del camión.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "basico"
-  tags: ["masa_peso", "vocabulario"]
-
-enunciado: "¿Qué mide la masa de un objeto?"
+respuesta: "F1/A1 = F2/A2"
 tipo: mc
-opciones_explicitas:
-  - "La cantidad de materia que lo compone"
-  - "La fuerza con la que la gravedad lo atrae"
-  - "Su velocidad máxima"
-respuesta: "La cantidad de materia que lo compone"
+opciones_explicitas: ["F1/A1 = F2/A2", "F1/A2 = F2/A1", "F1*A1 = F2*A2", "F1+A1 = F2+A2"]
+
+enunciado: "En una prensa hidráulica ideal, según el principio de Pascal, la relación entre las fuerzas (F) y las áreas (A) de los émbolos es:"
 
 explicacion: |
-  El peso, en cambio, es la fuerza gravitatoria sobre esa masa.
+  Dado que la presión es constante ($P = F_1/A_1 = F_2/A_2$), la relación es $F_1/A_1 = F_2/A_2$.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "primera_ley_newton_inercia"
+  tema: "principio_de_pascal_prensa_hidraulica"
   nivel: "basico"
-  tags: ["masa_peso", "vocabulario"]
+  tags: ["fluido", "compresibilidad"]
 
-enunciado: "¿Qué mide el peso de un objeto?"
-tipo: mc
-opciones_explicitas:
-  - "La fuerza con la que la gravedad lo atrae"
-  - "La cantidad de materia que lo compone"
-  - "Su resistencia al rozamiento"
-respuesta: "La fuerza con la que la gravedad lo atrae"
+respuesta: "incompresible"
+tipo: completar
+respuestas_validas:
+  - "incompresible"
+
+enunciado: "Para que el principio de Pascal se aplique de manera eficiente en una prensa hidráulica, el fluido utilizado debe ser, por definición, ___."
 
 explicacion: |
-  Se mide en Newton, a diferencia de la masa que se mide en kilogramos.
+  Se requiere un fluido incompresible (como el aceite) para que el volumen no cambie significativamente bajo presión, permitiendo la transmisión de la fuerza.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "primera_ley_newton_inercia"
+  tema: "principio_de_pascal_prensa_hidraulica"
   nivel: "intermedio"
-  tags: ["masa_peso"]
+  tags: ["componentes", "sistema"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La masa de un objeto es la misma sin importar en qué lugar del universo se encuentre."
-
-explicacion: |
-  A diferencia del peso, la masa no depende de la gravedad local.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "intermedio"
-  tags: ["masa_peso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El peso de un objeto sí cambia según el lugar, porque depende de la gravedad local."
-
-explicacion: |
-  El mismo objeto pesa distinto en la Tierra que en la Luna.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "intermedio"
-  tags: ["masa_peso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un astronauta pesa menos en la Luna que en la Tierra, aunque su masa sea exactamente la misma en los dos lugares."
-
-explicacion: |
-  La Luna tiene menos gravedad, así que atrae con menos fuerza a la
-  misma cantidad de materia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "basico"
-  tags: ["masa_peso", "vocabulario"]
-
-enunciado: "¿En qué unidad se mide la masa?"
-tipo: mc
-opciones_explicitas:
-  - "Kilogramos (kg)"
-  - "Newton (N)"
-  - "Metros por segundo (m/s)"
-respuesta: "Kilogramos (kg)"
-
-explicacion: |
-  El peso (una fuerza) se mide en Newton.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "basico"
-  tags: ["masa_peso", "vocabulario"]
-
-enunciado: "¿En qué unidad se mide la fuerza (y por lo tanto el peso)?"
-tipo: mc
-opciones_explicitas:
-  - "Newton (N)"
-  - "Kilogramos (kg)"
-  - "Joules (J)"
-respuesta: "Newton (N)"
-
-explicacion: |
-  La masa (una cantidad de materia) se mide en kilogramos.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "intermedio"
-  tags: ["equilibrio", "ordenar"]
-
-enunciado: "Ordená los pasos para determinar si un objeto está en equilibrio, conociendo todas las fuerzas que actúan sobre él."
+respuesta_orden: ["Émbolo pequeño", "Fluido", "Émbolo grande"]
 tipo: ordenar
-opciones_explicitas:
-  - "Si da cero, el objeto está en equilibrio (en reposo o a velocidad constante)"
-  - "Sumar vectorialmente todas las fuerzas que actúan sobre el objeto"
-  - "Verificar si esa suma (la fuerza neta) da cero"
-respuesta_orden: ["Sumar vectorialmente todas las fuerzas que actúan sobre el objeto", "Verificar si esa suma (la fuerza neta) da cero", "Si da cero, el objeto está en equilibrio (en reposo o a velocidad constante)"]
+
+opciones_explicitas: ["Émbolo pequeño", "Fluido", "Émbolo grande"]
+
+enunciado: "Ordene los componentes de una prensa hidráulica según el orden en que se transmite la presión desde la aplicación de la fuerza inicial hasta la salida de la fuerza amplificada:"
+
 explicacion: |
-  El equilibrio se define completamente por el resultado de la fuerza
-  neta.
+  La fuerza se aplica en el émbolo pequeño, se transmite a través del fluido y finalmente actúa sobre el émbolo grande.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "avanzado"
-  tags: ["fuerza_neta", "problema"]
-
-variables:
-  f1: random(10, 20)
-  f2: random(10, 20)
-  f3: random(5, 15)
-
-respuesta: (f1 + f2) - f3
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Sobre un objeto actúan tres fuerzas horizontales: {f1} N y {f2} N hacia la derecha, y {f3} N hacia la izquierda. ¿Cuál es la fuerza neta (positiva hacia la derecha)?"
-
-pasos:
-  - "({f1} + {f2}) − {f3} = {(f1 + f2) - f3} N hacia la derecha"
-
-explicacion: |
-  Se suman las fuerzas en un sentido y se restan las del sentido
-  contrario.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "intermedio"
-  tags: ["inercia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si la fuerza neta sobre un objeto en reposo es cero, ese objeto permanece en reposo indefinidamente, sin límite de tiempo."
-
-explicacion: |
-  No hace falta ninguna fuerza para "mantenerlo quieto": la ausencia de
-  fuerza neta ya es suficiente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
-  nivel: "intermedio"
-  tags: ["inercia", "vocabulario"]
-
-enunciado: "¿Por qué el cinturón de seguridad es necesario, en términos de la primera ley de Newton?"
-tipo: mc
-opciones_explicitas:
-  - "Porque en un choque, el auto frena bruscamente pero el cuerpo de la persona 'quiere' seguir moviéndose por inercia"
-  - "Porque el cinturón hace que el auto pese menos"
-  - "No tiene relación real con la inercia"
-respuesta: "Porque en un choque, el auto frena bruscamente pero el cuerpo de la persona 'quiere' seguir moviéndose por inercia"
-
-explicacion: |
-  El cinturón aplica la fuerza neta necesaria para frenar también al
-  cuerpo, junto con el auto.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "primera_ley_newton_inercia"
+  tema: "principio_de_pascal"
   nivel: "basico"
-  tags: ["cierre"]
+  tags: ["presion", "fluido", "teoria"]
 
-enunciado: "¿Para qué sirve entender la primera ley de Newton?"
-tipo: mc
-opciones_explicitas:
-  - "Para entender que los objetos no cambian su movimiento por sí solos, y que hace falta una fuerza neta para lograrlo"
-  - "Sólo sirve para calcular pesos en distintos planetas"
-  - "Sólo aplica a objetos que ya están en movimiento"
-respuesta: "Para entender que los objetos no cambian su movimiento por sí solos, y que hace falta una fuerza neta para lograrlo"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Según el Principio de Pascal, la presión aplicada a un fluido confinado se transmite íntegramente en todas las direcciones y a todos los puntos del fluido."
 
 explicacion: |
-  Es la base conceptual sobre la que se construyen la segunda y tercera
-  ley.
+  El Principio de Pascal establece que cualquier presión aplicada a un fluido en equilibrio dentro de un recipiente cerrado se transmite sin disminución a todos los puntos del fluido y a las paredes del recipiente.
 ```
-
-## Sección: leyes-de-newton/segunda-fma (26 preguntas)
 
 ```
 metadata:
   materia: "fisica"
-  tema: "segunda_ley_newton_fma"
+  tema: "principio_de_pascal"
+  nivel: "intermedio"
+  tags: ["prensa_hidraulica", "calculo"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[4, 16, 200, 800], [2, 10, 50, 250]]
+
+enunciado: "En una prensa hidráulica, el pistón de entrada tiene un área de {datos[idx][0]} cm² y el pistón de salida tiene un área de {datos[idx][1]} cm². Si se aplica una fuerza de {datos[idx][2]} N en el pistón de entrada, la fuerza resultante en el pistón de salida será de ___ N."
+
+pasos:
+  - "Identificar las áreas: A1 = {datos[idx][0]} cm², A2 = {datos[idx][1]} cm²"
+  - "Aplicar la fórmula de la prensa hidráulica: F2 / F1 = A2 / A1"
+  - "Despejar la fuerza de salida: F2 = F1 · (A2 / A1)"
+  - "Calcular: {datos[idx][2]} · ({datos[idx][1]} / {datos[idx][0]}) = {datos[idx][3]}"
+
+respuesta: datos[idx][3]
+tipo: completar
+tolerancia_abs: 0.1
+
+explicacion: |
+  Utilizando la fórmula F1 / A1 = F2 / A2, despejamos la fuerza de salida: F2 = F1 · (A2 / A1).
+  En este caso: F2 = {datos[idx][2]} N · ({datos[idx][1]} / {datos[idx][0]}) = {datos[idx][3]} N.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal"
+  nivel: "intermedio"
+  tags: ["presion", "unidad"]
+
+respuesta: "15000 Pa"
+tipo: mc
+
+opciones_explicitas: ["1500 Pa", "15000 Pa", "150000 Pa", "15 Pa"]
+
+enunciado: "Un pistón de una prensa hidráulica tiene un área de 0.03 m². Si se aplica una fuerza de 450 N sobre dicho pistón, ¿cuál es la presión ejercida sobre el fluido?"
+
+explicacion: |
+  La presión se define como la fuerza aplicada por unidad de área (P = F / A).
+  P = 450 N / 0.03 m² = 15000 Pa.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal"
   nivel: "basico"
-  tags: ["segunda_ley", "vocabulario"]
+  tags: ["componentes", "teoria"]
 
-enunciado: "¿Qué dice la segunda ley de Newton?"
-tipo: mc
-opciones_explicitas:
-  - "La aceleración de un objeto es directamente proporcional a la fuerza neta, e inversamente proporcional a su masa"
-  - "Todo objeto acelera siempre a la misma velocidad, sin importar la fuerza"
-  - "La masa de un objeto cambia según la fuerza que se le aplica"
-respuesta: "La aceleración de un objeto es directamente proporcional a la fuerza neta, e inversamente proporcional a su masa"
+respuesta_orden: ["Aplicar fuerza en pistón pequeño", "Transmisión de presión por el fluido", "Levantamiento de carga en pistón grande"]
+tipo: ordenar
+
+opciones_explicitas: ["Aplicar fuerza en pistón pequeño", "Transmisión de presión por el fluido", "Levantamiento de carga en pistón grande"]
+
+enunciado: "Ordene los pasos lógicos que ocurren en el funcionamiento de una prensa hidráulica para levantar un objeto pesado:"
 
 explicacion: |
-  Es la relación F = m × a.
+  1. Se aplica una fuerza pequeña en un área pequeña.
+  2. La presión se transmite íntegramente por el fluido incompresible.
+  3. La presión se traduce en una fuerza mucho mayor en el área grande.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  m: uno_de([2, 4, 5, 10])
-  a_real: uno_de([2, 3, 4, 5])
-
-respuesta: a_real
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una fuerza neta de {m * a_real} N actúa sobre un objeto de {m} kg. ¿Cuál es su aceleración?"
-
-pasos:
-  - "{m * a_real} ÷ {m} = {a_real} m/s²"
-
-explicacion: |
-  a = F / m.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  m: uno_de([3, 6, 8, 12])
-  a: uno_de([2, 3, 4])
-
-respuesta: m * a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Qué fuerza neta hace falta para darle una aceleración de {a} m/s² a un objeto de {m} kg?"
-
-pasos:
-  - "{m} × {a} = {m * a} N"
-
-explicacion: |
-  F = m × a.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["segunda_ley"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A igual masa, aplicar más fuerza neta produce más aceleración."
-
-explicacion: |
-  Es la relación directamente proporcional entre fuerza y aceleración.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["segunda_ley"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A igual fuerza neta aplicada, un objeto con más masa acelera menos que uno con menos masa."
-
-explicacion: |
-  Es la relación inversamente proporcional entre masa y aceleración.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
+  tema: "principio_de_pascal"
   nivel: "avanzado"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  fuerza: uno_de([20, 40, 60])
-  masa1: uno_de([2, 4])
-  masa2: masa1 * 2
+  tags: ["proporcionalidad", "calculo"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La misma fuerza de {fuerza} N se aplica a dos objetos: uno de {masa1} kg y otro de {masa2} kg. ¿Acelera más el de {masa1} kg?"
+enunciado: "Si el área de un pistón de salida es el doble que la del pistón de entrada, la fuerza ejercida en el pistón de salida será el doble que la aplicada en el de entrada. ¿Es esto verdadero o falso?"
 
 explicacion: |
-  Con menos masa, la misma fuerza produce más aceleración: {fuerza}/{masa1}
-  es mayor que {fuerza}/{masa2}.
+  Es verdadero. Debido a la relación $F_2 / F_1 = A_2 / A_1$, si el área de salida es el doble de la de entrada ($A_2 = 2 \cdot A_1$), entonces la fuerza de salida también es el doble ($F_2 = 2 \cdot F_1$).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "segunda_ley_newton_fma"
+  tema: "principio_de_pascal"
+  nivel: "avanzado"
+  tags: ["proporcionalidad"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Si el área del pistón de salida es el CUARTO de la del pistón de entrada, la fuerza de salida será el DOBLE de la fuerza de entrada."
+
+explicacion: |
+  Falso. Según la relación $F_2 = F_1 \cdot (A_2 / A_1)$, si $A_2 = A_1 / 4$, entonces $F_2 = F_1 \cdot (1/4)$. La fuerza de salida sería la cuarta parte, no el doble.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal"
+  nivel: "basico"
+  tags: ["conceptos_clave", "presion", "fuerza"]
+
+tipo: mc
+opciones_explicitas: ["La fuerza aplicada", "La presión aplicada", "La densidad del fluido", "El volumen del fluido"]
+
+enunciado: "Un error conceptual común al estudiar la prensa hidráulica es confundir qué magnitud se transmite íntegramente a través de un fluido incompresible. Según el principio de Pascal, lo que se transmite es la ___."
+
+respuesta: "La presión aplicada"
+
+explicacion: |
+  El principio de Pascal establece que la presión aplicada en un punto de un fluido en equilibrio se transmite con la misma intensidad en todas las direcciones y en todos los puntos del fluido. La fuerza, en cambio, varía dependiendo del área de la superficie.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal"
   nivel: "intermedio"
-  tags: ["newton_unidad", "completar"]
+  tags: ["prensa_hidraulica", "calculo"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[10, 1, 500], [5, 1, 1000]]
 
 tipo: completar
-enunciado: "Completá: 1 Newton es la fuerza necesaria para darle una aceleración de 1 m/s² a una masa de 1 ___."
 respuestas_validas:
-  - "kg"
-  - "kilogramo"
+  - "5000"
+
+enunciado: "Si la presión es {datos[idx][0]} Pa y el área de salida es {datos[idx][2]} m², la fuerza es ___ N."
 
 explicacion: |
-  1 N = 1 kg × 1 m/s².
+  La presión es constante en todo el sistema. Si P = F1/A1, entonces F2 = P * A2.
+  Para el caso 0: P=10, A2=500 -> F2 = 10 * 500 = 5000.
+  Para el caso 1: P=5, A2=1000 -> F2 = 5 * 1000 = 5000.
+  En ambos casos la fuerza resultante es 5000 N.
+
+respuesta: "5000"
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "segunda_ley_newton_fma"
+  tema: "principio_de_pascal"
+  nivel: "intermedio"
+  tags: ["prensa_hidraulica", "calculo"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[10, 500], [5, 1000]]
+
+tipo: completar
+respuestas_validas:
+  - "5000"
+  - "5000"
+
+enunciado: "En una prensa hidráulica, si la presión aplicada es de {datos[idx][0]} Pa y el área del émbolo de salida es de {datos[idx][1]} m², la fuerza resultante en dicho émbolo será de ___ N."
+
+pasos:
+  - "Identificar la presión constante: P = {datos[idx][0]} Pa."
+  - "Multiplicar la presión por el área de salida: F = P * A_salida."
+
+respuesta: datos[idx][0] * datos[idx][1]
+
+explicacion: |
+  La fuerza es el producto de la presión por el área (F = P * A). Como la presión es constante en todo el fluido, la fuerza en el émbolo de salida depende directamente de su área.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal"
   nivel: "basico"
-  tags: ["newton_unidad", "vocabulario"]
+  tags: ["fluido", "compresibilidad"]
 
-enunciado: "¿Cuál es la unidad de fuerza en el sistema internacional?"
+tipo: vf
+
+enunciado: "Para que una prensa hidráulica funcione de manera eficiente según el principio de Pascal, el fluido utilizado debe ser altamente compresible, como el aire."
+
+respuesta: falso
+
+explicacion: |
+  Falso. El principio de Pascal se aplica de forma efectiva en líquidos (fluidos incompresibles). Si se usara un gas como el aire, la mayor parte de la energía se gastaría en comprimir el gas en lugar de transmitir la presión para mover el émbolo, haciendo que el sistema sea ineficiente o inoperante.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal"
+  nivel: "intermedio"
+  tags: ["ventaja_mecanica", "fuerza"]
+
 tipo: mc
-opciones_explicitas:
-  - "El Newton (N)"
-  - "El kilogramo (kg)"
-  - "El Joule (J)"
-respuesta: "El Newton (N)"
+opciones_explicitas: ["Aumenta la presión", "Aumenta la fuerza", "Aumenta la velocidad", "Aumenta la densidad"]
+
+enunciado: "El objetivo principal de una prensa hidráulica, al usar un émbolo de salida mucho más grande que el de entrada, es lograr una ___ mayor."
+
+respuesta: "Aumenta la fuerza"
 
 explicacion: |
-  Se define directamente a partir de la segunda ley de Newton.
+  Aunque la presión es la misma en ambos émbolos, al aumentar el área de salida, la fuerza resultante (F = P * A) aumenta proporcionalmente. Este es el principio de la ventaja mecánica.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["peso", "vocabulario"]
+  tema: "principio_de_pascal"
+  nivel: "basico"
+  tags: ["proceso", "causa_efecto"]
 
-enunciado: "¿Qué es el peso de un objeto, en términos de la segunda ley de Newton?"
-tipo: mc
-opciones_explicitas:
-  - "Un caso particular de F = m·a, donde la aceleración es la de la gravedad (g)"
-  - "Lo mismo que la masa, sólo que en otra unidad"
-  - "Una fuerza que no tiene relación con la segunda ley"
-respuesta: "Un caso particular de F = m·a, donde la aceleración es la de la gravedad (g)"
+tipo: ordenar
+opciones_explicitas: ["Aplicación de presión sobre el fluido", "Transmisión de presión por el fluido", "Aumento de la fuerza en el émbolo de salida"]
+
+enunciado: "Ordena correctamente la secuencia de eventos que ocurren en una prensa hidráulica:"
+
+respuesta_orden: ["Aplicación de presión sobre el fluido", "Transmisión de presión por el fluido", "Aumento de la fuerza en el émbolo de salida"]
 
 explicacion: |
-  Peso = m × g.
+  Primero se aplica una presión en un punto (entrada), esta presión se transmite íntegramente por todo el fluido (Pascal) y finalmente se traduce en una fuerza mayor en el área de salida debido al incremento de superficie.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["peso", "problema"]
-
-variables:
-  m: uno_de([3, 5, 7, 8, 10, 12])
-
-respuesta: m * 10
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el peso de un objeto de {m} kg en la superficie terrestre? (usá g = 10 m/s²)"
-
-pasos:
-  - "{m} × 10 = {m * 10} N"
-
-explicacion: |
-  Peso = masa × g.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["peso", "problema"]
-
-variables:
-  m_real: uno_de([4, 6, 9, 15])
-
-respuesta: m_real
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto pesa {m_real * 10} N en la Tierra (g = 10 m/s²). ¿Cuál es su masa?"
-
-pasos:
-  - "{m_real * 10} ÷ 10 = {m_real} kg"
-
-explicacion: |
-  Se despeja la masa: masa = peso / g.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["segunda_ley"]
+  tema: "principio_de_pascal"
+  nivel: "basico"
+  tags: ["presion", "fluidos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Según F = m·a, si la fuerza neta sobre un objeto es cero, su aceleración también es cero."
+enunciado: "Según el principio de Pascal, si aplicamos una presión en un punto de un fluido incompresible contenido en un recipiente cerrado, esta presión se transmite íntegramente a todos los puntos del fluido y a las paredes del recipiente."
 
 explicacion: |
-  Es la conexión directa con la primera ley: sin fuerza neta, no hay
-  cambio de velocidad.
+  El principio de Pascal establece que la presión aplicada a un fluido en equilibrio se transmite sin disminución a todas las partes del fluido y a las paredes del contenedor.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley"]
+  tema: "principio_de_pascal"
+  nivel: "intermedio"
+  tags: ["presion", "fuerza", "area"]
 
-respuesta: verdadero
+respuesta: "200 N"
+tipo: mc
+opciones_explicitas: ["100 N", "200 N", "500 N", "1000 N"]
+
+enunciado: "En una prensa hidráulica, si el émbolo pequeño tiene un área de 5 cm² y el émbolo grande tiene 100 cm², y aplicamos una presión de 2 Pa en el émbolo pequeño, ¿cuál es la fuerza resultante en el émbolo grande?"
+
+pasos:
+  - "Calcular la presión aplicada: P = F1 / A1"
+  - "Aplicar la igualdad de presiones: P1 = P2"
+  - "Despejar la fuerza en el émbolo grande: F2 = P * A2"
+
+explicacion: |
+  La presión es constante en ambos émbolos. Si P = 2 Pa y A2 = 100 cm², entonces F2 = 2 * 100 = 200 N.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal"
+  nivel: "basico"
+  tags: ["prensa_hidraulica", "componentes"]
+
+respuesta_orden: ["Émbolo pequeño", "Fluido incompresible", "Émbolo grande", "Carga o peso"]
+tipo: ordenar
+
+opciones_explicitas: ["Fluido incompresible", "Émbolo pequeño", "Émbolo grande", "Carga o peso"]
+
+enunciado: "Ordene los elementos de una prensa hidráulica según el orden en que la energía mecánica se transmite desde la aplicación de la fuerza inicial hasta el levantamiento de la carga:"
+
+explicacion: |
+  El proceso comienza con la fuerza aplicada al émbolo pequeño, que genera una presión transmitida íntegramente por el fluido incompresible, moviendo el émbolo grande y finalmente levantando la carga.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal"
+  nivel: "intermedio"
+  tags: ["conceptos", "comparacion"]
+
+respuesta: "Principio de Arquímedes"
+tipo: completar
+respuestas_validas:
+  - "Principio de Arquímedes"
+
+enunciado: "Mientras que el principio de Pascal se centra en la transmisión de la presión en un fluido confinado, el principio que describe la fuerza de empuje vertical que experimenta un cuerpo sumergido es el ___."
+
+explicacion: |
+  El principio de Arquímedes se refiere al empuje hacia arriba, mientras que Pascal se refiere a la transmisión de presión en todas las direcciones.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal"
+  nivel: "avanzado"
+  tags: ["ventaja_mecanica", "relacion"]
+
+respuesta: "10"
+tipo: completar
+respuestas_validas:
+  - "10"
+
+enunciado: "Si en una prensa hidráulica el área del émbolo de salida es 10 veces mayor que el área del émbolo de entrada, la fuerza de salida será ___ veces la fuerza de entrada."
+
+pasos:
+  - "Relacionar presiones: F1/A1 = F2/A2"
+  - "Despejar la relación de fuerzas: F2/F1 = A2/A1"
+  - "Sustituir la relación de áreas: 10/1 = 10"
+
+explicacion: |
+  La ventaja mecánica es la relación entre las áreas (A2/A1), lo que permite multiplicar la fuerza aplicada.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal_prensa_hidraulica"
+  nivel: "basico"
+  tags: ["presion", "fluido", "pascal"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  f1s: [100, 50, 200]
+  a1s: [0.01, 0.02, 0.05]
+  a2s: [0.1, 0.1, 0.2]
+
+tipo: completar
+tolerancia_abs: 0.1
+respuesta: f1s[idx] * a2s[idx] / a1s[idx]
+
+enunciado: "En una prensa hidráulica, se aplica una fuerza de {f1s[idx]} N sobre un pistón de área {a1s[idx]} m². Si el segundo pistón tiene un área de {a2s[idx]} m², ¿cuál es la fuerza resultante en el segundo pistón en Newtons?"
+
+pasos:
+  - "Calcular la presión aplicada: P = F1 / A1"
+  - "La presión se transmite íntegramente, por lo que P2 = P1"
+  - "Calcular la fuerza resultante: F2 = P1 * A2"
+
+explicacion: |
+  Según el Principio de Pascal, la presión es constante en todo el fluido incompresible:
+  P = F1 / A1 = {f1s[idx]} / {a1s[idx]} = {f1s[idx] / a1s[idx]} Pa.
+  F2 = P * A2 = {f1s[idx] * a2s[idx] / a1s[idx]} N.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal_prensa_hidraulica"
+  nivel: "basico"
+  tags: ["conceptos"]
+
 tipo: vf
+respuesta: verdadero
 
-enunciado: "La primera ley de Newton (inercia) es, en el fondo, el caso particular de la segunda ley cuando la fuerza neta es exactamente cero."
+enunciado: "Para que una prensa hidráulica funcione de manera eficiente según el principio de Pascal, el fluido utilizado debe ser incompresible (su volumen no cambia significativamente con la presión)."
 
 explicacion: |
-  Con F_neta = 0, la fórmula F=ma da a=0: velocidad constante, la propia
-  definición de inercia.
+  Si el fluido fuera compresible (como un gas), parte de la energía se perdería en reducir el volumen del gas en lugar de transmitir la presión para mover el pistón de salida.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["peso", "vocabulario"]
+  tema: "principio_de_pascal_prensa_hidraulica"
+  nivel: "intermedio"
+  tags: ["aplicacion", "presion"]
 
-enunciado: "La gravedad en la Luna es aproximadamente 1/6 de la gravedad terrestre. Un objeto de 60 kg, ¿qué le pasa a su PESO en la Luna, comparado con la Tierra?"
+variables:
+  idx: uno_de([0, 1, 2])
+  ps: [5000, 2000, 10000]
+  a1s: [0.05, 0.1, 0.02]
+  a2s: [0.5, 1.0, 0.3]
+
+tipo: mc
+opciones_explicitas: [2500, 2000, 3000, 100000]
+respuesta: ps[idx] * a2s[idx]
+
+enunciado: "Un elevador hidráulico en un taller mecánico opera con una presión constante de {ps[idx]} Pa. Si el pistón de entrada tiene un área de {a1s[idx]} m² y el pistón que levanta el vehículo tiene un área de {a2s[idx]} m², ¿cuál es la fuerza máxima que puede ejercer el segundo pistón?"
+
+explicacion: |
+  La presión es la misma en ambos puntos: P = F1/A1 = F2/A2.
+  Por lo tanto, F2 = P * A2.
+  En este caso: {ps[idx] * a2s[idx]} N.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal_prensa_hidraulica"
+  nivel: "basico"
+  tags: ["componentes"]
+
+tipo: ordenar
+opciones_explicitas: ["Aplicación de fuerza en pistón pequeño", "Transmisión de presión por el fluido", "Levantamiento de carga en pistón grande"]
+respuesta_orden: ["Aplicación de fuerza en pistón pequeño", "Transmisión de presión por el fluido", "Levantamiento de carga en pistón grande"]
+
+enunciado: "Ordena lógicamente los pasos que ocurren en una prensa hidráulica desde que se aplica la fuerza inicial hasta que se obtiene el trabajo mecánico:"
+
+explicacion: |
+  1. Se aplica una fuerza en un área pequeña.
+  2. La presión se transmite íntegramente por el fluido (Pascal).
+  3. La presión actúa sobre el área grande, multiplicando la fuerza resultante.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal_prensa_hidraulica"
+  nivel: "avanzado"
+  tags: ["proporcionalidad"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  a2s: [10, 5, 100]
+  a1s: [2, 1, 10]
+  resultados_texto: ["El factor de multiplicación es 5", "El factor de multiplicación es 5", "El factor de multiplicación es 10"]
+
+tipo: mc
+opciones_explicitas: ["El factor de multiplicación es 2", "El factor de multiplicación es 5", "El factor de multiplicación es 10", "La fuerza no cambia"]
+respuesta: resultados_texto[idx]
+
+enunciado: "Si el área del pistón de salida (A2) es {a2s[idx]} m² y el área del pistón de entrada (A1) es {a1s[idx]} m², ¿por cuánto se multiplica la fuerza aplicada según el principio de Pascal?"
+
+explicacion: |
+  La relación de fuerzas es igual a la relación de áreas: F2/F1 = A2/A1.
+  En este caso, el factor es {a2s[idx] / a1s[idx]}.
+```
+
+## Sección: precipitacion (22 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "basico"
+  tags: ["precipitacion", "vocabulario"]
+
+enunciado: "¿Qué es la precipitación, en el sentido meteorológico?"
 tipo: mc
 opciones_explicitas:
-  - "Se reduce a aproximadamente 1/6 de su peso en la Tierra"
-  - "Se mantiene exactamente igual"
-  - "Su masa también se reduce a 1/6"
-respuesta: "Se reduce a aproximadamente 1/6 de su peso en la Tierra"
+  - "Cualquier forma de agua, líquida o sólida, que cae de una nube hacia la superficie"
+  - "El proceso por el cual el agua se evapora de los océanos"
+  - "El movimiento de una masa de aire de un lugar a otro"
+respuesta: "Cualquier forma de agua, líquida o sólida, que cae de una nube hacia la superficie"
 
 explicacion: |
-  Peso = m × g: con g mucho menor, el peso baja proporcionalmente. La
-  masa (60 kg) no cambia en ningún lugar.
+  Incluye lluvia, nieve, granizo y aguanieve.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  m: uno_de([800, 1000, 1200])
-  a: uno_de([2, 3, 4])
-
-respuesta: m * a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un auto de {m} kg frena con una desaceleración de {a} m/s². ¿Cuál es la magnitud de la fuerza neta (de frenado) que actúa sobre él?"
-
-pasos:
-  - "{m} × {a} = {m * a} N"
-
-explicacion: |
-  El cálculo es el mismo, aunque la aceleración esté frenando el auto
-  en vez de acelerarlo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "F = m·a describe DOS proporcionalidades a la vez: directa entre fuerza y aceleración, e inversa entre masa y aceleración."
-
-explicacion: |
-  Es la forma más completa de leer la segunda ley.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  m: uno_de([4, 5, 10])
-  a: uno_de([2, 3])
-
-respuesta: a * 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una fuerza de {m * a} N le da a un objeto de {m} kg una aceleración de {a} m/s². Si se DUPLICA la fuerza (manteniendo la misma masa), ¿cuál es la nueva aceleración?"
-
-pasos:
-  - "{m * a * 2} ÷ {m} = {a * 2} m/s²"
-
-explicacion: |
-  Al duplicar la fuerza con la misma masa, la aceleración también se
-  duplica (proporcionalidad directa).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  m: uno_de([4, 6, 10])
-  a: uno_de([2, 4, 6])
-
-respuesta: a / 2
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una fuerza de {m * a} N le da a un objeto de {m} kg una aceleración de {a} m/s². Si se DUPLICA la masa (manteniendo la misma fuerza), ¿cuál es la nueva aceleración?"
-
-pasos:
-  - "{m * a} ÷ {m * 2} = {a / 2} m/s²"
-
-explicacion: |
-  Al duplicar la masa con la misma fuerza, la aceleración se reduce a
-  la mitad (proporcionalidad inversa).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
+  tema: "precipitacion"
   nivel: "intermedio"
-  tags: ["segunda_ley", "ordenar"]
+  tags: ["precipitacion", "mecanismo"]
 
-enunciado: "Ordená los pasos para calcular la aceleración de un objeto, conociendo la fuerza neta y la masa."
+enunciado: "¿Por qué las gotitas o cristales de una nube no caen todo el tiempo?"
+tipo: mc
+opciones_explicitas:
+  - "Son demasiado pequeñas y livianas: flotan sostenidas por las corrientes de aire"
+  - "Porque el aire dentro de una nube no tiene corrientes"
+  - "Porque el agua dentro de una nube no pesa nada"
+respuesta: "Son demasiado pequeñas y livianas: flotan sostenidas por las corrientes de aire"
+
+explicacion: |
+  Sólo caen cuando crecen lo suficiente al chocar y unirse con otras.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "basico"
+  tags: ["precipitacion", "ciclo_del_agua"]
+
 tipo: ordenar
 opciones_explicitas:
-  - "Dividir la fuerza neta por la masa"
-  - "Identificar la fuerza neta que actúa sobre el objeto"
-  - "Identificar la masa del objeto"
-respuesta_orden: ["Identificar la fuerza neta que actúa sobre el objeto", "Identificar la masa del objeto", "Dividir la fuerza neta por la masa"]
+  - "evaporación"
+  - "condensación"
+  - "precipitación"
+respuesta_orden: ["evaporación", "condensación", "precipitación"]
+enunciado: "Ordená estas tres etapas del ciclo del agua en el orden en que ocurren."
+
 explicacion: |
-  a = F_neta / m.
+  El agua se evapora, sube y condensa en nubes, y luego cae como
+  precipitación.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En F = m·a, la masa m es la masa total del objeto que está siendo acelerado."
-
-explicacion: |
-  Es un dato fijo del objeto, no algo que varíe según la fuerza
-  aplicada.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "basico"
-  tags: ["peso", "problema"]
-
-respuesta: 5
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el peso de un objeto de 0,5 kg en la Tierra? (usá g = 10 m/s²)"
-
-pasos:
-  - "0,5 × 10 = 5 N"
-
-explicacion: |
-  Mismo cálculo, con una masa menor a 1 kg.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley", "vocabulario"]
-
-enunciado: "¿Para qué sirve, en la práctica, poder calcular la aceleración con F = m·a?"
-tipo: mc
-opciones_explicitas:
-  - "Para predecir cómo se va a mover un objeto, conociendo sólo la fuerza neta y su masa"
-  - "Sólo sirve para calcular la masa de objetos ya conocidos"
-  - "No tiene ninguna aplicación práctica real"
-respuesta: "Para predecir cómo se va a mover un objeto, conociendo sólo la fuerza neta y su masa"
-
-explicacion: |
-  Es la fórmula central de la dinámica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["peso", "problema"]
-
-variables:
-  m: uno_de([20, 40, 60])
-  g_marte: 4
-
-respuesta: m * g_marte
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "La gravedad en Marte es aproximadamente 4 m/s². ¿Cuál sería el peso de un objeto de {m} kg en Marte?"
-
-pasos:
-  - "{m} × 4 = {m * g_marte} N"
-
-explicacion: |
-  Mismo cálculo que en la Tierra, sólo que con la gravedad de Marte en
-  vez de 10 m/s².
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
+  tema: "precipitacion"
   nivel: "intermedio"
-  tags: ["segunda_ley"]
+  tags: ["precipitacion", "ciclo_del_agua"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La segunda ley de Newton, F = m·a, sólo tiene sentido para objetos que tienen masa."
-
-explicacion: |
-  Es un principio de la mecánica clásica, pensado para objetos con
-  masa.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  m: uno_de([5, 10])
-  f1: uno_de([20, 30])
-  f2: f1 * 2
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sobre un objeto de {m} kg actúan, en dos situaciones distintas, fuerzas de {f1} N y de {f2} N. ¿Es la aceleración en la segunda situación el doble que en la primera?"
-
-explicacion: |
-  Con la misma masa, duplicar la fuerza duplica la aceleración.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve la segunda ley de Newton?"
+enunciado: "¿Qué etapa del ciclo del agua cierra el ciclo después de la precipitación?"
 tipo: mc
 opciones_explicitas:
-  - "Para calcular cuánto acelera un objeto dado la fuerza neta y su masa, incluyendo el caso particular del peso"
-  - "Sólo sirve para calcular masas en el laboratorio"
-  - "Sólo aplica a objetos en reposo"
-respuesta: "Para calcular cuánto acelera un objeto dado la fuerza neta y su masa, incluyendo el caso particular del peso"
+  - "Escurrimiento e infiltración, de vuelta a ríos, lagos, napas u océanos"
+  - "Una nueva condensación inmediata"
+  - "El ciclo del agua no se cierra nunca"
+respuesta: "Escurrimiento e infiltración, de vuelta a ríos, lagos, napas u océanos"
 
 explicacion: |
-  Es la fórmula que cuantifica lo que la primera ley sólo describía en
-  palabras.
+  El agua que cae vuelve al sistema, listo para evaporarse de nuevo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "intermedio"
+  tags: ["precipitacion", "tipos"]
+
+enunciado: "¿Bajo qué condición de temperatura cae lluvia (agua líquida)?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando la temperatura se mantiene por encima de 0°C desde la nube hasta el suelo"
+  - "Cuando la temperatura está por debajo de 0°C en todo el trayecto"
+  - "La temperatura no influye en si cae lluvia o nieve"
+respuesta: "Cuando la temperatura se mantiene por encima de 0°C desde la nube hasta el suelo"
+
+explicacion: |
+  Los cristales de hielo formados en la nube se derriten antes de llegar
+  al suelo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "intermedio"
+  tags: ["precipitacion", "tipos"]
+
+enunciado: "¿Bajo qué condición de temperatura cae nieve?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando la temperatura se mantiene por debajo de 0°C en todo el trayecto hasta el suelo"
+  - "Cuando la temperatura está por encima de 0°C en todo el trayecto"
+  - "Sólo cuando hay granizo al mismo tiempo"
+respuesta: "Cuando la temperatura se mantiene por debajo de 0°C en todo el trayecto hasta el suelo"
+
+explicacion: |
+  El cristal de hielo no llega a derretirse en ningún punto del camino.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "intermedio"
+  tags: ["precipitacion", "tipos"]
+
+enunciado: "¿Qué es la aguanieve?"
+tipo: mc
+opciones_explicitas:
+  - "Una mezcla de lluvia y nieve, cuando la temperatura está justo en el límite de 0°C en parte del trayecto"
+  - "Otro nombre para el granizo"
+  - "Nieve que cayó hace muchos días y se derritió"
+respuesta: "Una mezcla de lluvia y nieve, cuando la temperatura está justo en el límite de 0°C en parte del trayecto"
+
+explicacion: |
+  El cristal ni termina de derretirse ni de mantenerse completamente
+  sólido.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "avanzado"
+  tags: ["precipitacion", "granizo"]
+
+enunciado: "¿Cómo se forma el granizo dentro de una nube de desarrollo vertical muy intensa?"
+tipo: mc
+opciones_explicitas:
+  - "Una gotita es arrastrada varias veces hacia arriba y abajo por corrientes fuertes, congelándose en capas sucesivas"
+  - "Cae directo desde una nube estrato, sin ningún proceso previo"
+  - "Se forma por la unión de dos gotas de lluvia comunes a nivel del suelo"
+respuesta: "Una gotita es arrastrada varias veces hacia arriba y abajo por corrientes fuertes, congelándose en capas sucesivas"
+
+explicacion: |
+  Cae cuando pesa demasiado para que la corriente de aire la siga
+  sosteniendo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "avanzado"
+  tags: ["precipitacion", "granizo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El granizo se forma en capas sucesivas de hielo, cada vez que la gotita sube a la parte más fría de la nube."
+
+explicacion: |
+  Por eso una piedra de granizo grande, cortada al medio, muestra anillos
+  como una cebolla.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "intermedio"
+  tags: ["precipitacion", "mecanismo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Hay nubes, como los cúmulos chicos de buen tiempo o los cirros, que nunca producen precipitación."
+
+explicacion: |
+  Sus gotitas o cristales nunca crecen lo suficiente como para vencer la
+  corriente de aire que las sostiene.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "intermedio"
+  tags: ["precipitacion", "frentes"]
+
+enunciado: "¿Qué tipo de precipitación es típica de un frente cálido (nubes tipo estrato/nimboestrato)?"
+tipo: mc
+opciones_explicitas:
+  - "Llovizna sostenida y suave, de gotas chicas y caída lenta"
+  - "Lluvia intensa de corta duración"
+  - "Granizo severo únicamente"
+respuesta: "Llovizna sostenida y suave, de gotas chicas y caída lenta"
+
+explicacion: |
+  El ascenso lento y uniforme del aire genera nubes en capas, con
+  precipitación pareja.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "intermedio"
+  tags: ["precipitacion", "frentes"]
+
+enunciado: "¿Qué tipo de precipitación es típica de un frente frío muy activo (cumulonimbos)?"
+tipo: mc
+opciones_explicitas:
+  - "Lluvia intensa de corta duración, y en los casos más fuertes, granizo"
+  - "Llovizna suave durante varios días seguidos"
+  - "Nunca produce ningún tipo de precipitación"
+respuesta: "Lluvia intensa de corta duración, y en los casos más fuertes, granizo"
+
+explicacion: |
+  Las corrientes internas fuertes de estas nubes son justamente lo que
+  arma las capas de hielo del granizo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "basico"
+  tags: ["precipitacion", "medicion"]
+
+enunciado: "¿En qué unidad se mide la cantidad de lluvia caída?"
+tipo: mc
+opciones_explicitas:
+  - "Milímetros (mm)"
+  - "Kilogramos (kg)"
+  - "Grados Celsius (°C)"
+respuesta: "Milímetros (mm)"
+
+explicacion: |
+  1 mm de lluvia equivale a 1 litro de agua por cada metro cuadrado.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "intermedio"
+  tags: ["precipitacion", "medicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "1 mm de lluvia equivale a 1 litro de agua caída por cada metro cuadrado de superficie."
+
+explicacion: |
+  Es la definición práctica que usan los pluviómetros.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "intermedio"
+  tags: ["precipitacion", "calculo"]
+
+variables:
+  mm_llovidos: random(5, 60)
+  area_m2: random(10, 200)
+
+respuesta: mm_llovidos * area_m2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Cayeron {mm_llovidos} mm de lluvia sobre un terreno de {area_m2} m². ¿Cuántos litros de agua cayeron en total?"
+
+pasos:
+  - "Litros = mm × área (m²) = {mm_llovidos} × {area_m2}"
+
+explicacion: |
+  Cada mm de lluvia equivale a 1 litro por m², así que se multiplica
+  directo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "intermedio"
+  tags: ["precipitacion", "calculo"]
+
+variables:
+  mm_ciudad_a: random(10, 40)
+  mm_ciudad_b: random(41, 90)
+
+respuesta: mm_ciudad_b - mm_ciudad_a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La ciudad A registró {mm_ciudad_a} mm de lluvia y la ciudad B registró {mm_ciudad_b} mm. ¿Cuántos mm más llovió en la ciudad B?"
+
+explicacion: |
+  Se resta la menor cantidad de la mayor.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "avanzado"
+  tags: ["precipitacion", "medicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "1 cm de nieve fresca equivale aproximadamente a 1 mm de agua líquida, aunque esto varía según qué tan compacta caiga la nieve."
+
+explicacion: |
+  Es una equivalencia aproximada, no exacta, porque la nieve puede caer
+  más o menos compacta.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "basico"
+  tags: ["precipitacion", "vocabulario"]
+
+tipo: completar
+respuestas_validas:
+  - "cumulonimbos"
+  - "cumulonimbo"
+
+enunciado: "El granizo se forma en nubes de desarrollo vertical muy intensas, llamadas ____."
+
+explicacion: |
+  Son cúmulos que crecieron mucho y produjeron tormenta.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "intermedio"
+  tags: ["precipitacion", "tipos"]
+
+tipo: ordenar
+opciones_explicitas:
+  - "llovizna de un frente cálido"
+  - "lluvia de un cúmulo mediano"
+  - "granizo de un cumulonimbo intenso"
+respuesta_orden: ["llovizna de un frente cálido", "lluvia de un cúmulo mediano", "granizo de un cumulonimbo intenso"]
+enunciado: "Ordená estos tipos de precipitación de menor a mayor intensidad típica."
+
+explicacion: |
+  A mayor desarrollo vertical de la nube, más intensa (y potencialmente
+  más severa) la precipitación.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "avanzado"
+  tags: ["precipitacion", "sintesis"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El tipo de precipitación que cae depende directamente del tipo de nube (su desarrollo vertical) y de la temperatura del aire debajo de ella."
+
+explicacion: |
+  Es la conexión con el módulo de Formación de nubes: el tipo de nube ya
+  formado determina qué precipitación cae.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "avanzado"
+  tags: ["precipitacion", "calculo"]
+
+variables:
+  mm: random(5, 40)
+  area: random(10, 100)
+  correcto: mm * area
+  error: uno_de([0, 0, 0, 50, -50])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 1)
+tipo: vf
+
+enunciado: "Cayeron {mm} mm de lluvia sobre {area} m². Según un cálculo, cayeron {mostrado} litros en total. ¿Es correcto ese resultado?"
+
+explicacion: |
+  Litros = mm × área = {correcto}.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "precipitacion"
+  nivel: "avanzado"
+  tags: ["precipitacion", "sintesis"]
+
+enunciado: "¿Cuál resume mejor por qué cae la precipitación?"
+tipo: mc
+opciones_explicitas:
+  - "Las gotitas o cristales de una nube crecen al chocar entre sí hasta que su peso vence a la corriente de aire que los sostiene"
+  - "Toda nube, sin excepción, llueve apenas se forma"
+  - "La precipitación no tiene relación con el tamaño de las gotas dentro de la nube"
+respuesta: "Las gotitas o cristales de una nube crecen al chocar entre sí hasta que su peso vence a la corriente de aire que los sostiene"
+
+explicacion: |
+  Es el mecanismo físico central detrás de cualquier tipo de
+  precipitación.
 ```
 

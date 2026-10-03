@@ -1,1137 +1,1163 @@
 # Examen jefe — [PENDIENTE #864]
 
-> Logro #864. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
+> Logro #864. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: filogenia-arboles-evolutivos (25 preguntas)
+## Sección: cadenas-redes-troficas (24 preguntas)
 
 ```
 metadata:
   materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "basico"
-  tags: ["filogenia", "evolucion", "cladograma"]
-
-tipo: vf
-
-enunciado: "Un árbol filogenético es una representación gráfica que muestra las relaciones de parentesco entre diferentes grupos de organismos basándose en sus ancestros comunes."
-
-respuesta: verdadero
-
-explicacion: |
-  Correcto. Los árboles filogenéticos ilustran la historia evolutiva de las especies, mostrando cómo se han diversificado a partir de ancestros compartidos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "basico"
-  tags: ["nodos", "ancestro"]
-
-tipo: completar
-
-enunciado: "En un cladograma, los puntos donde las ramas se bifurcan se denominan ___."
-
-respuestas_validas:
-  - "nodos"
-respuesta: "nodos"
-
-explicacion: |
-  Los nodos representan el momento en que una línea evolutiva se divide en dos o más linajes distintos, marcando el ancestro común más reciente de esos grupos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "basico"
-  tags: ["puntas", "taxones"]
-
-tipo: vf
-
-enunciado: "Las puntas o extremos de las ramas en un árbol filogenético representan siempre especies que ya se han extinguido."
-
-respuesta: falso
-
-explicacion: |
-  Falso. Las puntas pueden representar especies actuales (taxones existentes) o especies extintas que se han identificado en el registro fósil.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
+  tema: "cadenas_redes_troficas"
   nivel: "intermedio"
-  tags: ["ramas", "linajes"]
-
-tipo: completar
-
-enunciado: "Las líneas que conectan los nodos en un árbol filogenético se llaman ___."
-
-respuestas_validas:
-  - "ramas"
-respuesta: "ramas"
-
-explicacion: |
-  Las ramas representan el camino evolutivo o linaje que sigue un grupo de organismos a lo largo del tiempo desde un ancestro común.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "intermedio"
-  tags: ["parentesco", "ancestros"]
-
-tipo: vf
-
-enunciado: "Dos especies están más estrechamente relacionadas entre sí si comparten un ancestro común más reciente."
-
-respuesta: verdadero
-
-explicacion: |
-  Exacto. La cercanía en un árbol filogenético se mide por la proximidad del ancestro común más reciente; cuanto más reciente sea el nodo que las une, mayor es su parentesco.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "basico"
-  tags: ["filogenia", "evolucion", "ancestros"]
-
-tipo: mc
-opciones_explicitas: ["Tienen un ancestro común más reciente", "Tienen un ancestro común más antiguo", "Tienen más características físicas similares", "Tienen el mismo número de cromosomas"]
-
-respuesta: "Tienen un ancestro común más reciente"
-
-enunciado: "En un árbol filogenético, dos especies se consideran más estrechamente emparentadas si..."
-
-explicacion: |
-  El parentesco evolutivo se define por la proximidad temporal del ancestro común. Cuanto más reciente sea el nodo que une a dos taxones, mayor es su parentesco, independientemente de su apariencia física.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "intermedio"
-  tags: ["filogenia", "evolucion", "morfologia"]
-
-tipo: vf
-
-enunciado: "Un tiburón (pez) y un delfín (mamífero) tienen cuerpos con forma similar debido a la adaptación al medio acuático, pero no están estrechamente emparentados porque su ancestro común más reciente es muy antiguo."
-
-respuesta: verdadero
-
-explicacion: |
-  La similitud entre tiburones y delfines es un caso de evolución convergente. El parentesco se mide por la historia evolutiva (ancestro común), no por la apariencia externa.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "intermedio"
-  tags: ["filogenia", "nodos", "lectura_arbol"]
-
-tipo: mc
-opciones_explicitas: ["El nodo más cercano a las puntas", "El nodo más cercano a la raíz", "El nodo que tiene más ramas", "El nodo que está en el centro del árbol"]
-
-respuesta: "El nodo más cercano a las puntas"
-
-enunciado: "Para determinar qué dos especies tienen un parentesco más cercano en un cladograma, debemos buscar..."
-
-explicacion: |
-  El nodo más cercano a las puntas (terminales) representa el ancestro común más reciente. A medida que retrocedemos hacia la raíz, los ancestros son más antiguos y los grupos menos relacionados.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "avanzado"
-  tags: ["filogenia", "cladogramas", "relaciones"]
-
-tipo: vf
-
-enunciado: "Si en un árbol las especies A y B comparten un nodo exclusivo que no comparten con la especie C, entonces A y B están más emparentadas entre sí que con C."
-
-respuesta: verdadero
-
-explicacion: |
-  La clave de la filogenia es la exclusividad del ancestro común. Si A y B comparten un nodo que no incluye a C, significa que A y B divergieron después de separarse de la línea que lleva a C.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "basico"
-  tags: ["filogenia", "evolucion", "conceptos"]
-
-tipo: vf
-
-enunciado: "En un árbol filogenético, un nodo representa el momento en que un linaje se divide en dos o más linajes distintos."
-
-respuesta: verdadero
-
-explicacion: |
-  Correcto. Cada nodo en un cladograma representa un evento de especiación o la existencia de un ancestro común que dio origen a los grupos que se ramifican de él.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "basico"
-  tags: ["evolucion", "filogenia", "errores_conceptuales"]
-
-tipo: completar
-
-enunciado: "Un error común al interpretar árboles filogenéticos es verlos como una 'escalera de progreso' donde las especies más modernas son 'mejores' que las antiguas. En realidad, todas las especies actuales tienen la misma cantidad de tiempo transcurrido desde su ancestro común. Por lo tanto, la evolución no es una ___."
-
-respuestas_validas:
-  - "jerarquía"
-  - "jerarquia"
-respuesta: "jerarquía"
-
-explicacion: |
-  Los árboles filogenéticos representan relaciones de parentesco, no niveles de "perfección" o "progreso". Las especies actuales no son descendientes de otras especies actuales, sino que son ramas que coexisten tras haber divergido de un ancestro común.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "basico"
-  tags: ["filogenia", "interpretacion", "ancestros"]
-
-tipo: completar
-
-enunciado: "En un árbol filogenético, si rotamos las ramas alrededor de un nodo, la relación de parentesco entre las especies no cambia. Esto significa que el orden en que aparecen las especies en las puntas del árbol es ___."
-
-respuestas_validas:
-  - "arbitrario"
-respuesta: "arbitrario"
-
-explicacion: |
-  La rotación de nodos es una propiedad matemática de los árboles. El parentesco se define por la proximidad de los ancestros comunes, no por la posición visual de izquierda a derecha en el dibujo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "intermedio"
-  tags: ["evolucion", "tiempo", "ancestros"]
-
-tipo: completar
-
-enunciado: "Considerando un grupo de especies actuales, todas ellas han evolucionado desde su ancestro común durante el mismo período de tiempo. Si el ancestro común apareció hace 50 millones de años, todas las especies actuales del grupo tienen exactamente ___ millones de años de historia evolutiva desde ese punto."
-
-respuestas_validas:
-  - "50"
-respuesta: "50"
-
-explicacion: |
-  Todas las puntas de un árbol filogenético representan organismos contemporáneos. Por lo tanto, la distancia temporal desde el ancestro común hasta la actualidad es la misma para todos los linajes que parten de ese punto.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "basico"
-  tags: ["evolucion", "conceptos", "errores"]
-
-tipo: completar
-
-enunciado: "Es incorrecto afirmar que un ser humano es 'más evolucionado' que un hongo: ambos han acumulado cambios genéticos y adaptaciones desde sus respectivos ancestros comunes. La evolución no busca la ___ de una especie sobre otra, sino la adaptación al entorno."
-
-respuestas_validas:
-  - "superioridad"
-  - "perfección"
-  - "perfeccion"
-respuesta: "superioridad"
-
-explicacion: |
-  La evolución no tiene un objetivo de perfección o de llegar a un estado de "máximo desarrollo". Es un proceso de cambio continuo donde la supervivencia depende de la adaptación al nicho ecológico, no de alcanzar un estándar de complejidad predeterminado.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "intermedio"
-  tags: ["filogenia", "nodos", "parentesco"]
-
-tipo: completar
-
-enunciado: "En un árbol filogenético, un nodo representa el punto donde un linaje se divide en dos. Este punto simboliza un ___ común que ya no existe como una única población, sino que dio lugar a las especies actuales."
-
-respuestas_validas:
-  - "ancestro"
-respuesta: "ancestro"
-
-explicacion: |
-  Los nodos son los puntos de divergencia. No representan a una especie actual, sino a un ancestro común hipotético del cual descendieron los linajes que se separan en ese punto.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "basico"
-  tags: ["adn", "evolucion", "filogenia"]
+  tags: ["niveles_troficos"]
 
 variables:
-  escenario: uno_de([["ATGC", "ATGG", "Muy emparentadas"], ["CCGA", "TTAG", "Poco emparentadas"], ["TTAA", "TTAG", "Muy emparentadas"]])
+  tabla: [["1", "productores/autotrofos"], ["2", "consumidores primarios/herbivoros"], ["3", "consumidores secundarios/carnivoros que comen herbivoros"], ["4", "consumidores terciarios/carnivoros que comen carnivoros"]]
+  idx: uno_de([0, 1, 2, 3])
 
-enunciado: "Se comparan las secuencias de ADN de dos especies: la especie A tiene la secuencia {escenario[0]} y la especie B tiene la secuencia {escenario[1]}. Contando las diferencias entre ambas secuencias, ¿qué tan emparentadas están?"
-
-opciones_explicitas: ["Muy emparentadas", "Poco emparentadas"]
-respuesta: escenario[2]
-tipo: mc
-
-explicacion: |
-  En filogenia, cuantas más coincidencias existan en las secuencias de ADN entre dos especies, menor es el tiempo transcurrido desde su ancestro común, lo que indica un parentesco más cercano.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "basico"
-  tags: ["ancestros", "cladogramas"]
-
-enunciado: "En un árbol filogenético, el punto donde dos ramas se unen se denomina nodo, el cual representa el ___ común de las especies que de él derivan."
-
-respuestas_validas:
-  - "ancestro"
-  - "antepasado"
-respuesta: "ancestro"
-tipo: completar
-
-explicacion: |
-  Un nodo en un cladograma representa un evento de especiación o el último ancestro común compartido por los linajes que se separan en ese punto.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "intermedio"
-  tags: ["adn", "mutacion", "distancia"]
-
-variables:
-  idx: uno_de([0, 1])
-  tabla: [["El primer par", "El primer par"], ["El segundo par", "El segundo par"]]
-
-enunciado: "Comparando dos pares de especies por su distancia genética (cantidad de mutaciones acumuladas desde que se separaron): {tabla[idx][0]} tiene la menor cantidad de mutaciones. ¿Cuál de los dos pares tiene el ancestro común más reciente?"
-
-opciones_explicitas: ["El primer par", "El segundo par"]
 respuesta: tabla[idx][1]
 tipo: mc
+opciones_explicitas: ["productores/autotrofos", "consumidores primarios/herbivoros", "consumidores secundarios/carnivoros que comen herbivoros", "consumidores terciarios/carnivoros que comen carnivoros"]
+
+enunciado: "Un organismo que ocupa el nivel trófico {tabla[idx][0]}, ¿cómo se le denomina?"
 
 explicacion: |
-  A menor número de mutaciones (distancia genética), menor es el tiempo transcurrido desde la divergencia, por lo tanto, el ancestro común es más reciente.
+  El nivel trófico {tabla[idx][0]} corresponde a: {tabla[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "intermedio"
-  tags: ["homologia", "evolucion"]
-
-enunciado: "Las estructuras que derivan de un mismo ancestro común, aunque tengan funciones distintas, se llaman estructuras ___."
-
-respuestas_validas:
-  - "homologas"
-  - "homólogas"
-respuesta: "homologas"
-tipo: completar
-
-explicacion: |
-  La homología se refiere a rasgos compartidos por especies debido a su herencia común, como el brazo de un humano y la aleta de una ballena.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "avanzado"
-  tags: ["cladogramas", "adn"]
-
-variables:
-  escenario: uno_de([["chimpancé", "1", "cerdo"], ["gorila", "2", "ratón"]])
-
-enunciado: "El ser humano comparte más secuencia de ADN con el {escenario[0]} (diferencia de apenas {escenario[1]}% en algunas regiones comparadas) que con el {escenario[2]}. ¿Cuál de los dos animales comparte un ancestro común más reciente con el ser humano?"
-
-respuesta: escenario[0]
-tipo: completar
-respuestas_validas:
-  - escenario[0]
-
-explicacion: |
-  Cuanto menor es la diferencia porcentual entre secuencias de ADN, más reciente es el ancestro común compartido — por eso el árbol filogenético ubica a los primates mucho más cerca del ser humano que a otros mamíferos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
+  tema: "cadenas_redes_troficas"
   nivel: "basico"
-  tags: ["filogenia", "evolucion", "especiacion"]
-
-tipo: mc
-opciones_explicitas: ["Un ancestro común que se dividió en dos linajes", "Una especie que ha evolucionado mucho", "Un cambio climático que afectó a todos", "El fin de una línea evolutiva"]
-respuesta: "Un ancestro común que se dividió en dos linajes"
-
-enunciado: "En un árbol filogenético, un nodo (punto de ramificación) representa principalmente:"
-
-explicacion: |
-  Un nodo representa el último ancestro común entre los grupos que se desprenden de él. Es el momento en que una población ancestral se divide en dos linajes distintos, proceso conocido como especiación.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "basico"
-  tags: ["filogenia", "terminologia"]
-
-tipo: mc
-opciones_explicitas: ["Un evento de especiación", "Un ancestro común", "Una especie actual o extinta", "Un cambio genético"]
-respuesta: "Una especie actual o extinta"
-
-enunciado: "Las puntas de las ramas (llamadas taxones o terminales) en un árbol filogenético representan:"
-
-explicacion: |
-  Las puntas representan los grupos que se están comparando, que pueden ser especies actuales (si el árbol es actual) o especies extintas (si se incluyen fósiles).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "intermedio"
-  tags: ["filogenia", "conceptos"]
-
-tipo: completar
-respuestas_validas:
-  - "especiación"
-  - "especiacion"
-respuesta: "especiación"
-
-enunciado: "Cuando un nodo se bifurca, se está representando un evento de ___ que da origen a nuevos linajes."
-
-explicacion: |
-  La ramificación en un árbol es la representación visual de la especiación, donde una única línea ancestral se divide en dos o más ramas independientes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "intermedio"
-  tags: ["filogenia", "parentesco"]
-
-tipo: mc
-opciones_explicitas: ["más cercano", "más lejano", "idéntico", "no relacionado"]
-respuesta: "más cercano"
-
-enunciado: "Si dos especies comparten un nodo que no comparten con otras, se dice que están emparentadas de forma ___ entre sí en comparación con el resto."
-
-explicacion: |
-  La proximidad de un nodo compartido indica un parentesco más reciente. Cuanto más reciente sea el ancestro común (más cerca de las puntas), más estrecho es el parentesco.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "filogenia_arboles_evolutivos"
-  nivel: "avanzado"
-  tags: ["filogenia", "interpretacion"]
-
-tipo: completar
-respuestas_validas:
-  - "extinta"
-respuesta: "extinta"
-
-enunciado: "Si una rama del árbol termina antes de llegar al presente (no es una punta terminal de un árbol de especies actuales), esa rama representa una especie ___."
-
-explicacion: |
-  En los árboles filogenéticos, las ramas que no terminan en el presente suelen representar linajes que se extinguieron antes de la diversificación actual.
-```
-
-## Sección: flujo-materia-energia (22 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "flujo_materia_energia"
-  nivel: "basico"
-  tags: ["ecosistemas", "ciclos"]
+  tags: ["productores"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En un ecosistema, la materia circula en un ciclo cerrado: se recicla y reutiliza continuamente."
+enunciado: "Los productores ocupan el nivel trófico 1."
 
 explicacion: |
-  Los descomponedores devuelven nutrientes al sistema, disponibles de nuevo para los productores.
+  Correcto, inician la cadena.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "flujo_materia_energia"
+  tema: "cadenas_redes_troficas"
   nivel: "basico"
-  tags: ["ecosistemas", "energia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La energía en un ecosistema circula en un ciclo cerrado, recuperándose íntegramente tras cada nivel trófico."
-
-explicacion: |
-  Falso, fluye en una sola dirección y se disipa como calor.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "flujo_materia_energia"
-  nivel: "intermedio"
-  tags: ["comparativa"]
-
-respuesta: "La materia se recicla y la energía no"
-tipo: mc
-opciones_explicitas: ["La materia se recicla y la energía no", "La energía se recicla y la materia no", "Ambas se reciclan en ciclos cerrados", "Ninguna de las dos se recicla"]
-
-enunciado: "¿Cuál de estas afirmaciones es correcta sobre materia y energía en un ecosistema?"
-
-explicacion: |
-  La materia se recicla por ciclos biogeoquímicos; la energía entra como luz solar y sale como calor.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "flujo_materia_energia"
-  nivel: "basico"
-  tags: ["termodinamica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una vez que la energía se disipa como calor, se puede recapturar fácilmente para volver a usarla."
-
-explicacion: |
-  Falso. El calor disipado es de baja calidad y no puede reusarse para trabajo biológico.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "flujo_materia_energia"
-  nivel: "basico"
-  tags: ["fotosintesis"]
+  tags: ["consumidores"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Casi toda la energía que fluye por un ecosistema entra por la fotosíntesis."
+enunciado: "Un conejo que se alimenta de pasto es un consumidor primario."
 
 explicacion: |
-  Correcto, es la base de la mayoría de los ecosistemas.
+  Correcto, se alimenta directo de un productor.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "flujo_materia_energia"
-  nivel: "basico"
-  tags: ["autotrofos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los productores (autótrofos) capturan energía solar y la transforman en energía química."
-
-explicacion: |
-  Correcto, convierten luz en enlaces químicos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "flujo_materia_energia"
-  nivel: "intermedio"
-  tags: ["fotosintesis"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La fotosíntesis es la principal puerta de entrada de energía nueva a un ecosistema."
-
-explicacion: |
-  Correcto, sin ella el flujo de energía se agotaría.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "flujo_materia_energia"
+  tema: "cadenas_redes_troficas"
   nivel: "basico"
   tags: ["consumidores"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Los consumidores representan la principal fuente de energía nueva para un ecosistema."
+enunciado: "Un zorro que come conejos es un consumidor primario, igual que el conejo."
 
 explicacion: |
-  Falso, sólo transfieren energía ya existente; la fuente nueva son los productores.
+  Falso, es consumidor secundario (come al herbívoro).
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "flujo_materia_energia"
+  tema: "cadenas_redes_troficas"
   nivel: "basico"
-  tags: ["calor", "metabolismo"]
+  tags: ["conceptos_basicos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cada vez que un organismo usa energía, una parte se transforma en calor y se disipa al ambiente."
+enunciado: "Una cadena trófica es una secuencia lineal de quién come a quién."
 
 explicacion: |
-  Correcto, se pierde parte en cada transformación.
+  Correcto, representa un flujo lineal de energía.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "flujo_materia_energia"
+  tema: "cadenas_redes_troficas"
   nivel: "basico"
-  tags: ["termodinamica", "entropia"]
+  tags: ["flujo_energia"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
-enunciado: "El calor disipado por los organismos se puede recapturar para usarse de nuevo como energía útil."
+enunciado: "En pasto → conejo → zorro, cada flecha indica la dirección del flujo de energía."
 
 explicacion: |
-  Falso, por la segunda ley de la termodinámica.
+  Correcto, del organismo comido hacia el que come.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "flujo_materia_energia"
+  tema: "cadenas_redes_troficas"
   nivel: "intermedio"
-  tags: ["cadenas_troficas"]
+  tags: ["red_trofica"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Cuando la energía pasa de un nivel trófico a otro, el 100% pasa sin pérdidas."
+enunciado: "Una cadena trófica se caracteriza por presentar ramificaciones y cruces complejos entre múltiples especies."
 
 explicacion: |
-  Falso, sólo una fracción (típicamente ~10%) se transfiere.
+  Falso, eso describe una red trófica. La cadena es lineal.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "flujo_materia_energia"
-  nivel: "intermedio"
-  tags: ["termodinamica"]
+  tema: "cadenas_redes_troficas"
+  nivel: "basico"
+  tags: ["ejemplos"]
 
-respuesta: "termodinamica"
+respuesta: "cadena"
 tipo: completar
 respuestas_validas:
-  - "termodinamica"
+  - "cadena"
 
-enunciado: "La ley que explica por qué el calor no se puede recapturar como energía útil es la segunda ley de la ___."
+enunciado: "La secuencia pasto → conejo → zorro → águila es un ejemplo de ___ trófica."
 
 explicacion: |
-  Segunda ley de la termodinámica.
+  Es lineal y unidireccional: una cadena trófica.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "flujo_materia_energia"
+  tema: "cadenas_redes_troficas"
   nivel: "basico"
-  tags: ["sol"]
+  tags: ["alimentacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Como la energía no se recicla, un ecosistema necesita una entrada constante de energía nueva (el sol) para seguir funcionando."
+enunciado: "En la realidad, casi ningún organismo come una sola cosa o es comido por un solo depredador."
 
 explicacion: |
-  Correcto, es la fuente indispensable.
+  Correcto, la mayoría tiene dietas más variadas.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "flujo_materia_energia"
+  tema: "cadenas_redes_troficas"
+  nivel: "basico"
+  tags: ["red_trofica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una red trófica es el conjunto de varias cadenas tróficas entrecruzadas."
+
+explicacion: |
+  Correcto, representa mejor la complejidad de un ecosistema real.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cadenas_redes_troficas"
   nivel: "intermedio"
-  tags: ["materia", "sol"]
+  tags: ["estabilidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una red trófica es más estable que una cadena aislada, porque hay rutas alternativas si desaparece una especie."
+
+explicacion: |
+  Correcto, la redundancia da resiliencia.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cadenas_redes_troficas"
+  nivel: "intermedio"
+  tags: ["flujo_energia"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Si el sol dejara de brillar, la materia de un ecosistema desaparecería inmediatamente, aunque la energía siguiera disponible."
+enunciado: "En una cadena trófica simple, si se elimina un eslabón del medio, esto no afecta el flujo de energía hacia los niveles superiores."
 
 explicacion: |
-  Falso, es al revés: la materia (átomos) seguiría estando, pero el ecosistema colapsaría por falta de energía.
+  Falso, corta el flujo hacia los niveles siguientes.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "flujo_materia_energia"
+  tema: "cadenas_redes_troficas"
   nivel: "basico"
-  tags: ["atomos"]
+  tags: ["descomponedores"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Los átomos de un ecosistema no desaparecen, sólo cambian de forma y de ubicación."
+enunciado: "Los descomponedores (hongos, bacterias) se alimentan de materia orgánica muerta."
 
 explicacion: |
-  Correcto, se reciclan a través de los ciclos biogeoquímicos.
+  Correcto.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "flujo_materia_energia"
+  tema: "cadenas_redes_troficas"
   nivel: "basico"
-  tags: ["analogia"]
-
-respuesta: "el agua de una pileta con filtro, que circula y se reutiliza"
-tipo: mc
-opciones_explicitas: ["el agua de una pileta con filtro, que circula y se reutiliza", "el agua de una ducha que se va por el desague", "el aire", "ninguna analogia"]
-
-enunciado: "En la analogía, la materia se compara con..."
-
-explicacion: |
-  La materia circula, se filtra y se reutiliza.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "flujo_materia_energia"
-  nivel: "basico"
-  tags: ["analogia"]
-
-respuesta: "el agua de una ducha que entra, pasa una vez y se va"
-tipo: mc
-opciones_explicitas: ["el agua de una ducha que entra, pasa una vez y se va", "el agua de una pileta con filtro que se reutiliza", "el aire", "ninguna analogia"]
-
-enunciado: "En la analogía, la energía se compara con..."
-
-explicacion: |
-  Entra, se usa y se disipa, sin volver.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "flujo_materia_energia"
-  nivel: "basico"
-  tags: ["conceptos_clave"]
+  tags: ["nutrientes"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La analogía de la pileta y la ducha ayuda a recordar que la materia se recicla y la energía no."
+enunciado: "Los descomponedores devuelven nutrientes simples al ambiente, disponibles de nuevo para los productores."
 
 explicacion: |
-  Correcto, materia circula, energía fluye en un sentido.
+  Correcto, cierran el ciclo de la materia.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "flujo_materia_energia"
-  nivel: "intermedio"
-  tags: ["calculo"]
-
-variables:
-  energia_nivel1: uno_de([1000, 2000, 10000])
-  porcentaje_transferido: 10
-
-respuesta: energia_nivel1 * porcentaje_transferido / 100
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Un productor tiene {energia_nivel1} kJ. Con la regla del 10%, ¿cuánta energía llega al consumidor de segundo nivel?"
-
-pasos:
-  - "{energia_nivel1} × 10 / 100"
-
-explicacion: |
-  {energia_nivel1} × 0,1 kJ.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "flujo_materia_energia"
+  tema: "cadenas_redes_troficas"
   nivel: "basico"
-  tags: ["ecologia"]
+  tags: ["ciclo_nutrientes"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La regla del 10% dice que aproximadamente sólo el 10% de la energía de un nivel trófico pasa al siguiente."
+enunciado: "Sin descomponedores, los nutrientes quedarían atrapados para siempre en los cuerpos de los organismos muertos."
 
 explicacion: |
-  Correcto, el resto se pierde en el camino.
+  Correcto, el ciclo de la materia se detendría.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "flujo_materia_energia"
-  nivel: "basico"
-  tags: ["termodinamica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El 90% de la energía que no se transfiere se pierde principalmente como calor en la respiración y otros procesos metabólicos."
-
-explicacion: |
-  Correcto, consistente con la segunda ley de la termodinámica.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "flujo_materia_energia"
-  nivel: "basico"
-  tags: ["ecologia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La pérdida de energía en cada nivel trófico es la razón por la que las cadenas tróficas no pueden tener infinitos niveles."
-
-explicacion: |
-  Correcto, la energía disponible se agota rápido con cada nivel.
-```
-
-## Sección: fotosintesis-respiracion-celular (24 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "basico"
-  tags: ["cloroplasto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La fotosíntesis ocurre en el cloroplasto."
-
-explicacion: |
-  Correcto, gracias a la clorofila que contiene.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "basico"
-  tags: ["energia", "glucosa"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La fotosíntesis convierte energía luminosa en energía química almacenada en glucosa."
-
-explicacion: |
-  Correcto, captura la energía de la luz en moléculas orgánicas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "basico"
-  tags: ["autotrofos"]
-
-respuesta: "autótrofos"
-tipo: mc
-opciones_explicitas: ["autótrofos", "heterótrofos", "consumidores", "descomponedores"]
-
-enunciado: "Los organismos que fabrican su propio alimento se llaman..."
-
-explicacion: |
-  Autótrofos, como las plantas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "basico"
-  tags: ["seres_vivos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Todos los seres vivos, incluidos los animales, pueden hacer fotosíntesis."
-
-explicacion: |
-  Falso, sólo plantas, algas y algunas bacterias con clorofila.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "basico"
-  tags: ["reaccion", "oxigeno"]
-
-respuesta: "oxigeno"
-tipo: completar
-respuestas_validas:
-  - "oxigeno"
-  - "oxígeno"
-
-enunciado: "La fotosíntesis usa CO2, agua y luz para producir glucosa y ___."
-
-explicacion: |
-  Se libera oxígeno como subproducto.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "basico"
-  tags: ["mitocondria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La respiración celular ocurre principalmente en la mitocondria."
-
-explicacion: |
-  Correcto, es la central energética de la célula.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "basico"
-  tags: ["energia", "glucosa"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La respiración celular libera la energía química guardada en la glucosa."
-
-explicacion: |
-  Correcto, extrae la energía y la convierte en ATP.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "basico"
-  tags: ["organismos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La respiración celular ocurre sólo en los animales, no en las plantas."
-
-explicacion: |
-  Falso, las plantas también respiran (y también fotosintetizan).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "basico"
-  tags: ["atp"]
-
-respuesta: "ATP"
-tipo: completar
-respuestas_validas:
-  - "ATP"
-  - "energia"
-
-enunciado: "La respiración celular usa glucosa y oxígeno para producir CO2, agua y ___."
-
-explicacion: |
-  El ATP es la molécula que transporta esa energía.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "basico"
-  tags: ["bioquimica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La ecuación de la respiración celular es la ecuación de la fotosíntesis pero en sentido inverso."
-
-explicacion: |
-  Correcto, lo que una produce, la otra lo consume.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "basico"
-  tags: ["sustancias"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los productos de la fotosíntesis (glucosa y oxígeno) son los reactivos que se consumen en la respiración celular."
-
-explicacion: |
-  Correcto, hay un ciclo entre ambos procesos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "intermedio"
-  tags: ["organelas"]
-
-variables:
-  datos: [["cloroplasto", "fotosintesis"], ["mitocondria", "respiracion celular"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["fotosintesis", "respiracion celular"]
-
-enunciado: "¿Qué proceso ocurre principalmente en el {datos[idx][0]}?"
-
-explicacion: |
-  En el {datos[idx][0]}: {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
+  tema: "cadenas_redes_troficas"
   nivel: "intermedio"
   tags: ["clasificacion"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La fotosíntesis la realizan casi todos los seres vivos, mientras que la respiración celular es exclusiva de los autótrofos."
+enunciado: "Los descomponedores encajan exactamente en el nivel trófico 2, igual que los herbívoros."
 
 explicacion: |
-  Falso, es al revés: respiración casi todos, fotosíntesis sólo autótrofos.
+  Falso, no encajan en los niveles 1-4 tradicionales; procesan materia de cualquier nivel.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
+  tema: "cadenas_redes_troficas"
   nivel: "basico"
-  tags: ["plantas"]
+  tags: ["flujo_energia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La flecha en un diagrama trófico indica la dirección en la que se mueve la energía."
+
+explicacion: |
+  Correcto.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cadenas_redes_troficas"
+  nivel: "basico"
+  tags: ["flujo_energia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La flecha va desde la presa (que tenía la energía) hacia el depredador (que la absorbe al comerla)."
+
+explicacion: |
+  Correcto.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cadenas_redes_troficas"
+  nivel: "basico"
+  tags: ["conceptos"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Las plantas sólo realizan fotosíntesis y nunca respiración celular."
+enunciado: "La flecha en un diagrama trófico indica jerarquía de poder o 'quién manda', no flujo de energía."
 
 explicacion: |
-  Falso, hacen ambos procesos.
+  Falso, indica flujo de energía, no dominancia.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
+  tema: "cadenas_redes_troficas"
   nivel: "basico"
-  tags: ["dia"]
+  tags: ["ejemplos"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "hacia el conejo, porque la energia va del pasto al conejo"
+tipo: mc
+opciones_explicitas: ["hacia el conejo, porque la energia va del pasto al conejo", "hacia el pasto", "no tiene direccion", "indica quien es mas fuerte"]
 
-enunciado: "Durante el día, con luz, las plantas hacen fotosíntesis y respiración celular al mismo tiempo."
+enunciado: "En pasto → conejo, ¿hacia dónde apunta la flecha?"
 
 explicacion: |
-  Correcto, la respiración es continua, ocurra o no la fotosíntesis.
+  La energía fluye del productor al consumidor: la flecha apunta hacia el conejo.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "basico"
-  tags: ["noche"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Durante la noche, sin luz, las plantas sólo respiran."
-
-explicacion: |
-  Correcto, sin luz no hay fotosíntesis.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
+  tema: "cadenas_redes_troficas"
   nivel: "intermedio"
-  tags: ["oxigeno"]
+  tags: ["ejemplos"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  escenario: [["pasto", "productor"], ["conejo", "consumidor primario"], ["zorro", "consumidor secundario"], ["hongo descomponiendo un tronco", "descomponedor"]]
+  idx: uno_de([0, 1, 2, 3])
 
-enunciado: "Durante el día, las plantas normalmente producen más oxígeno del que consumen, liberando oxígeno neto."
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["productor", "consumidor primario", "consumidor secundario", "descomponedor"]
+
+enunciado: "¿Cuál es el nivel trófico de {escenario[idx][0]}?"
 
 explicacion: |
-  Correcto, la tasa de fotosíntesis suele superar a la de respiración con luz.
+  {escenario[idx][0]} es: {escenario[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
-  nivel: "basico"
-  tags: ["ecosistemas"]
+  tema: "cadenas_redes_troficas"
+  nivel: "intermedio"
+  tags: ["ser_humano"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La fotosíntesis es el punto de entrada de la energía solar a casi todos los ecosistemas."
+enunciado: "El ser humano puede ocupar distintos niveles tróficos según su dieta."
+
+explicacion: |
+  Correcto, es omnívoro: primario si come plantas, secundario o más si come carne.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cadenas_redes_troficas"
+  nivel: "basico"
+  tags: ["redes_troficas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una red trófica representa mejor un ecosistema real que una sola cadena trófica aislada."
+
+explicacion: |
+  Correcto, es un modelo más realista.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cadenas_redes_troficas"
+  nivel: "intermedio"
+  tags: ["energia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los niveles tróficos y el flujo de energía están directamente conectados: cada nivel recibe menos energía que el anterior."
+
+explicacion: |
+  Correcto — ver ../flujo-materia-energia/ (regla del 10%).
+```
+
+## Sección: mal-de-chagas (25 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "intermedio"
+  tags: ["ciclo_vida", "vector"]
+
+respuesta: "huevo, ninfa y adulto"
+tipo: completar
+
+enunciado: "El ciclo de vida de la vinchuca incluye las etapas: ___."
+
+explicacion: |
+  La vinchuca pasa por tres etapas principales: huevo, ninfa (que muda de piel varias veces) y adulto.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "basico"
+  tags: ["agente_etiologico", "parasito"]
+
+respuesta: "Trypanosoma cruzi"
+tipo: completar
+
+enunciado: "El agente etiológico principal de la enfermedad de Chagas es un parásito microscópico llamado ___."
+
+explicacion: |
+  La enfermedad de Chagas, o tripanosomiasis americana, es causada específicamente por el protozoo flagelado Trypanosoma cruzi.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "basico"
+  tags: ["vector", "vinchuca"]
+
+respuesta: "vinchuca"
+tipo: completar
+
+enunciado: "El insecto vector más común en Argentina para la transmisión del Chagas es la ___, también conocida como chinche del sur."
+
+explicacion: |
+  La vinchuca (familia Reduviidae) es el principal vector mecánico y biológico de Trypanosoma cruzi en la región.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "intermedio"
+  tags: ["transmision", "defecacion"]
+
+respuesta: "defeca"
+tipo: completar
+respuestas_validas:
+  - "defeca"
+  - "defecacion"
+  - "defecación"
+
+enunciado: "El riesgo de infección aumenta cuando la vinchuca pica y ___ cerca de la herida, permitiendo que los parásitos ingresen al organismo."
+
+explicacion: |
+  La transmisión ocurre cuando las heces infectadas con parásitos se frotan en la picadura, los ojos o la boca.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "intermedio"
+  tags: ["ciclo_vida", "insecto"]
+
+respuesta: "huevo, ninfa y adulto"
+tipo: completar
+
+enunciado: "El ciclo de vida de la vinchuca incluye tres etapas principales: ___."
+
+explicacion: |
+  La metamorfosis incompleta de la vinchuca pasa por huevo, ninfa (que muda varias veces) y adulto.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "basico"
+  tags: ["habitat", "grietas"]
+
+respuesta: "grietas"
+tipo: completar
+
+enunciado: "Durante el día, la vinchuca suele esconderse en ___ de paredes de adobe, techos de paja o montones de leña."
+
+explicacion: |
+  Estas grietas y hendiduras ofrecen protección y proximidad a los hospedadores mamíferos para su alimentación nocturna.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "avanzado"
+  tags: ["taxonomia", "reduviidae"]
+
+respuesta: "Reduviidae"
+tipo: completar
+
+enunciado: "La vinchuca pertenece a la familia de insectos hemípteros conocida como ___."
+
+explicacion: |
+  Los Reduviidae son conocidos como chinches asesinas, caracterizados por su probóscide larga y potente para chupar sangre.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "intermedio"
+  tags: ["transmision", "rasgado"]
+
+respuesta: "rascarse"
+tipo: completar
+
+enunciado: "La picadura en sí no transmite el parásito; es común que la persona ___ la zona, frotando las heces infectadas en la herida."
+
+explicacion: |
+  El rascamiento es el mecanismo involuntario que facilita la entrada de los tripomastigotas presentes en las heces de la vinchuca.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "basico"
+  tags: ["epidemiologia", "zonas_rurales"]
+
+respuesta: "rurales"
+tipo: completar
+
+enunciado: "Aunque ha disminuido, la enfermedad sigue siendo un desafío en zonas ___ y periurbanas del norte argentino."
+
+explicacion: |
+  Las condiciones de vivienda precaria en áreas rurales facilitan la convivencia con el vector.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "avanzado"
+  tags: ["nomenclatura", "vector"]
+
+respuesta: "Triatoma infestans"
+tipo: completar
+
+enunciado: "Una de las especies de vinchuca más importante y extendida en el Cono Sur, incluida Argentina, es ___."
+
+explicacion: |
+  Triatoma infestans es la principal especie vectora en la región del Gran Chaco y zonas aledañas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "basico"
+  tags: ["alimentacion", "sangre"]
+
+respuesta: "sangre"
+tipo: completar
+
+enunciado: "Tanto las ninfas como los adultos de la vinchuca deben alimentarse de ___ para crecer y reproducirse."
+
+explicacion: |
+  La alimentación hematófaga es esencial para el desarrollo del insecto y el ciclo de vida del parásito en su interior.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "intermedio"
+  tags: ["sintomas", "chagoma"]
+
+respuesta: "chagoma"
+tipo: completar
+
+enunciado: "En la fase aguda, puede aparecer una inflamación local en el sitio de inoculación llamada ___."
+
+explicacion: |
+  El chagoma es una lesión cutánea indurada que se forma en el lugar donde los parásitos ingresaron al organismo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "intermedio"
+  tags: ["ciclo_vida", "longevidad"]
+
+respuesta: "varios meses"
+tipo: completar
+
+enunciado: "Los insectos adultos de la vinchuca pueden vivir ___, lo que aumenta el riesgo de exposición prolongada."
+
+explicacion: |
+  Su longevidad relativa permite múltiples oportunidades de picadura y transmisión a lo largo del tiempo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "avanzado"
+  tags: ["parasitologia", "intestino"]
+
+respuesta: "intestino"
+tipo: completar
+
+enunciado: "El parásito Trypanosoma cruzi se desarrolla y multiplica dentro del ___ del insecto vector."
+
+explicacion: |
+  El ciclo del parásito dentro de la vinchuca ocurre en el tracto digestivo, donde se transforma en metacíclico.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "intermedio"
+  tags: ["salud_publica", "diagnostico"]
+
+respuesta: "evitar complicaciones"
+tipo: completar
+
+enunciado: "El diagnóstico temprano es clave para ___ graves a largo plazo, como la cardiopatía chagásica crónica."
+
+explicacion: |
+  Tratar la fase aguda previene la progresión a la fase crónica, que puede ser devastadora para el corazón y el sistema digestivo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "basico"
+  tags: ["nomenclatura", "tripanosomiasis"]
+
+respuesta: "tripanosomiasis americana"
+tipo: completar
+
+enunciado: "La enfermedad de Chagas también es conocida como ___."
+
+explicacion: |
+  Este nombre refleja la naturaleza del parásito (tripanosoma) y su distribución geográfica original (América).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "basico"
+  tags: ["morfologia", "proboscide"]
+
+respuesta: "probóscide"
+tipo: completar
+
+enunciado: "La vinchuca se caracteriza por tener un cuerpo aplanado y una larga ___ con la que se alimenta de sangre."
+
+explicacion: |
+  La probóscide es un órgano bucal piercing-sucking adaptado para penetrar la piel de los hospedadores.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "intermedio"
+  tags: ["prevencion", "control"]
+
+respuesta: "control vectorial"
+tipo: completar
+
+enunciado: "En las últimas décadas, los avances en ___ han logrado reducir significativamente la transmisión de la enfermedad."
+
+explicacion: |
+  El fumigación de viviendas y la mejora de la infraestructura habitacional son pilares del control en Argentina.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "basico"
+  tags: ["geografia", "america_latina"]
+
+respuesta: "América Latina"
+tipo: completar
+
+enunciado: "La enfermedad de Chagas es endémica en gran parte de ___, especialmente en zonas tropicales y subtropicales."
+
+explicacion: |
+  Desde el sur de México hasta el centro de Argentina y Chile, la enfermedad tiene presencia histórica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "avanzado"
+  tags: ["clinica", "cronica"]
+
+respuesta: "crónica"
+tipo: completar
+
+enunciado: "Después de la fase aguda, la enfermedad entra en una fase ___ que puede durar décadas y ser asintomática o causar daño orgánico."
+
+explicacion: |
+  La fase crónica se divide en indeterminada (asintomática) e indeterminada (con manifestaciones cardíacas o digestivas).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "basico"
+  tags: ["nomenclatura_regional", "vinchuca"]
+
+respuesta: "vinchuca"
+tipo: completar
+
+enunciado: "En el norte argentino, al insecto vector se lo llama comúnmente ___."
+
+explicacion: |
+  En otras regiones de Sudamérica se le conoce como chinche del sur, chupador o barbeiro.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "intermedio"
+  tags: ["transmision", "contaminacion"]
+
+respuesta: "excretas"
+tipo: completar
+
+enunciado: "La transmisión requiere la contaminación de la herida con las ___ de la vinchuca, no con su saliva."
+
+explicacion: |
+  Los parásitos están en las heces, no en la saliva. La picadura inocula saliva anticoagulante, pero la infección viene de las heces.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "basico"
+  tags: ["salud_publica", "impacto"]
+
+respuesta: "salud pública"
+tipo: completar
+
+enunciado: "El impacto histórico y actual del Chagas en Argentina lo convierte en un problema prioritario de ___."
+
+explicacion: |
+  Debido a su prevalencia y gravedad, requiere programas nacionales e internacionales de vigilancia y control.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "intermedio"
+  tags: ["desarrollo", "muda"]
+
+respuesta: "mudar"
+tipo: completar
+
+enunciado: "Las ninfas de la vinchuca deben alimentarse de sangre para crecer y ___ su piel hasta alcanzar la etapa adulta."
+
+explicacion: |
+  La muda es necesaria para el desarrollo morfológico del insecto durante su crecimiento.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mal_de_chagas"
+  nivel: "basico"
+  tags: ["prevencion", "higiene"]
+
+respuesta: "no rascarse"
+tipo: completar
+
+enunciado: "Una medida preventiva simple es ___ la picadura inmediatamente para evitar frotar las heces infectadas en los ojos o la boca."
+
+explicacion: |
+  Evitar el rascamiento reduce el riesgo de inoculación accidental de los parásitos presentes en las heces del vector.
+```
+
+## Sección: ciclos-biogeoquimicos (24 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un ciclo biogeoquímico describe cómo un elemento se mueve entre los seres vivos y el ambiente físico no vivo."
+
+explicacion: |
+  Correcto, permite el reciclaje de elementos esenciales para la vida.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["ley_conservacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En un ciclo biogeoquímico, el elemento se pierde para siempre después de usarse una vez."
+
+explicacion: |
+  Falso, cambia de forma y lugar pero permanece circulando en el sistema.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["etimologia"]
+
+respuesta: "vivos"
+tipo: completar
+respuestas_validas:
+  - "vivos"
+
+enunciado: "El prefijo 'bio' en biogeoquímico se refiere a los seres ___."
+
+explicacion: |
+  Del griego "bios" (vida).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["etimologia"]
+
+respuesta: "fisico"
+tipo: completar
+respuestas_validas:
+  - "fisico"
+  - "no vivo"
+
+enunciado: "El prefijo 'geo' en biogeoquímico se refiere al ambiente ___."
+
+explicacion: |
+  Del griego "geo" (tierra): suelo, aire, agua.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "intermedio"
+  tags: ["ciclo_del_agua"]
+
+variables:
+  etapas: [["evaporacion", "agua liquida se convierte en vapor"], ["condensacion", "vapor de agua forma nubes"], ["precipitacion", "nubes liberan lluvia o nieve"], ["escorrentia", "el agua vuelve a rios y mares o se filtra al subsuelo"]]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: etapas[idx][1]
+tipo: mc
+opciones_explicitas: ["agua liquida se convierte en vapor", "vapor de agua forma nubes", "nubes liberan lluvia o nieve", "el agua vuelve a rios y mares o se filtra al subsuelo"]
+
+enunciado: "¿Cuál es la descripción de la etapa de {etapas[idx][0]}?"
+
+explicacion: |
+  {etapas[idx][0]}: {etapas[idx][1]}.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["transpiracion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las plantas también liberan vapor de agua a la atmósfera mediante la transpiración."
+
+explicacion: |
+  Correcto, a través de los estomas de las hojas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["condensacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La condensación es el proceso mediante el cual el agua líquida se convierte en vapor."
+
+explicacion: |
+  Falso, eso es evaporación. Condensación es vapor pasando a líquido (nubes).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["carbono"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los productores fijan carbono del CO2 atmosférico en glucosa mediante la fotosíntesis."
+
+explicacion: |
+  Correcto — ver ../fotosintesis-respiracion-celular/.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["carbono"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La respiración celular devuelve CO2 a la atmósfera."
+
+explicacion: |
+  Correcto, cierra parte del ciclo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "intermedio"
+  tags: ["combustibles_fosiles"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los combustibles fósiles son carbono atrapado de organismos muertos hace millones de años."
+
+explicacion: |
+  Correcto, carbono orgánico transformado bajo presión geológica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "intermedio"
+  tags: ["combustibles_fosiles"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Quemar combustibles fósiles libera ese carbono a la atmósfera mucho más lento de lo que se acumuló originalmente."
+
+explicacion: |
+  Falso, es mucho más rápido: millones de años de acumulación se liberan en décadas/siglos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["nitrogeno"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El nitrógeno (N2) constituye aproximadamente el 78% del aire."
+
+explicacion: |
+  Correcto, es el gas más abundante de la atmósfera.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["nitrogeno"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La mayoría de los seres vivos puede usar el N2 atmosférico directamente, sin necesidad de fijarlo."
+
+explicacion: |
+  Falso, casi ninguno puede usarlo directo; hace falta fijarlo primero.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "intermedio"
+  tags: ["nitrogeno", "bacterias"]
+
+respuesta: "fijacion"
+tipo: completar
+respuestas_validas:
+  - "fijacion"
+  - "fijación"
+
+enunciado: "El proceso por el cual bacterias especializadas convierten el N2 atmosférico en formas utilizables se llama ___."
+
+explicacion: |
+  Fijación de nitrógeno.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "intermedio"
+  tags: ["nitrogeno", "leguminosas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Algunas bacterias fijadoras de nitrógeno viven en simbiosis en las raíces de leguminosas, como el poroto."
+
+explicacion: |
+  Correcto, las Rhizobium forman nódulos en esas raíces.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "avanzado"
+  tags: ["nitrogeno", "bacterias"]
+
+respuesta: "desnitrificacion"
+tipo: completar
+respuestas_validas:
+  - "desnitrificacion"
+  - "desnitrificación"
+
+enunciado: "El proceso por el cual bacterias convierten formas fijadas de nitrógeno de vuelta a N2 gaseoso se llama ___."
+
+explicacion: |
+  Desnitrificación, cierra el ciclo del nitrógeno.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["nitrogeno", "nutricion_vegetal"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las plantas absorben las formas fijadas de nitrógeno y las incorporan en la síntesis de proteínas."
+
+explicacion: |
+  Correcto, absorben nitratos y amonio del suelo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["nitrogeno", "cadena_alimentaria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los animales obtienen el nitrógeno que necesitan comiendo plantas u otros animales."
+
+explicacion: |
+  Correcto, no pueden fijar nitrógeno del aire.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["nitrogeno", "descomposicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al morir un organismo, los descomponedores liberan el nitrógeno de sus tejidos de vuelta al suelo."
+
+explicacion: |
+  Correcto, transforman nitrógeno orgánico en formas inorgánicas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["nitrogeno", "bacterias"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El ciclo del nitrógeno no tiene ninguna relación con las bacterias, opera únicamente a través de las plantas."
+
+explicacion: |
+  Falso, las bacterias son clave en la fijación y la desnitrificación.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["materia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los ciclos biogeoquímicos son la prueba concreta de que la materia siempre vuelve a estar disponible en algún punto del ciclo."
 
 explicacion: |
   Correcto — ver ../flujo-materia-energia/.
@@ -1140,889 +1166,855 @@ explicacion: |
 ```
 metadata:
   materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
+  tema: "ciclos_biogeoquimicos"
   nivel: "basico"
-  tags: ["autotrofos"]
+  tags: ["energia"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Sin autótrofos capturando energía solar en forma de glucosa, no habría alimento para el resto de la cadena trófica."
+enunciado: "A diferencia de la materia, la energía se disipa y necesita reposición constante desde el sol."
 
 explicacion: |
-  Correcto, son la base de las cadenas alimenticias.
+  Correcto, la energía no se recicla como la materia.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
+  tema: "ciclos_biogeoquimicos"
   nivel: "intermedio"
-  tags: ["flujo_energia"]
+  tags: ["identificacion"]
+
+variables:
+  escenarios: [["ciclo del agua", "H2O"], ["ciclo del carbono", "carbono/CO2"], ["ciclo del nitrogeno", "nitrogeno/N2"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: escenarios[idx][1]
+tipo: mc
+opciones_explicitas: ["H2O", "carbono/CO2", "nitrogeno/N2"]
+
+enunciado: "¿Cuál es el elemento principal del {escenarios[idx][0]}?"
+
+explicacion: |
+  El elemento principal del {escenarios[idx][0]} es {escenarios[idx][1]}.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ciclos_biogeoquimicos"
+  nivel: "basico"
+  tags: ["materia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los tres ciclos (agua, carbono, nitrógeno) son ejemplos de cómo la materia circula sin perderse."
+
+explicacion: |
+  Correcto, los átomos se reorganizan pero permanecen en el sistema.
+```
+
+## Sección: dinamica-poblacional-capacidad-carga (25 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "basico"
+  tags: ["poblacion", "definicion"]
+
+respuesta: "grupo de individuos de la misma especie que habitan en un mismo lugar y tiempo"
+tipo: completar
+respuestas_validas:
+  - "grupo de individuos de la misma especie que habitan en un mismo lugar y tiempo"
+
+enunciado: "En biología, una población se define como un ___."
+
+explicacion: |
+  Una población es un conjunto de organismos de la misma especie que coexisten en un área determinada y en un momento específico, permitiendo la interacción entre sus miembros.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "intermedio"
+  tags: ["crecimiento_exponencial", "curva_j"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["bacteria", "duplica", "2"], ["levadura", "triplica", "3"]]
+
+respuesta: datos[escenario_idx][2]
+tipo: completar
+respuestas_validas:
+  - "2"
+  - "3"
+
+enunciado: "Si una población de {datos[escenario_idx][0]} se {datos[escenario_idx][1]} en cada intervalo de tiempo, y empezamos con una unidad, el crecimiento sigue un modelo exponencial donde el factor de multiplicación por intervalo es ___."
+
+explicacion: |
+  En el modelo de crecimiento exponencial, la tasa de crecimiento es proporcional al número de individuos presentes, lo que genera una curva en forma de 'J'.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "basico"
+  tags: ["factores_limitantes", "recursos"]
+
+respuesta: "recursos"
+tipo: completar
+respuestas_validas:
+  - "recursos"
+
+enunciado: "El crecimiento exponencial teórico asume que no existen limitaciones por ___ como alimento o espacio."
+
+explicacion: |
+  El modelo exponencial es un modelo idealizado donde los recursos son infinitos, lo que permite que la población crezca sin frenos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "intermedio"
+  tags: ["curva_j", "curva_s"]
+
+respuesta: "J"
+tipo: completar
+respuestas_validas:
+  - "J"
+
+enunciado: "Cuando una población crece de manera exponencial sin restricciones, la representación gráfica de su crecimiento tiene forma de letra ___."
+
+explicacion: |
+  La forma de 'J' representa la aceleración constante del crecimiento conforme la base de individuos aumenta.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "avanzado"
+  tags: ["tasa_crecimiento", "modelo_exponencial"]
+
+respuesta: "más rápido"
+tipo: mc
+opciones_explicitas: ["más rápido", "más lento", "igual", "no depende de r"]
+
+enunciado: "En un modelo de crecimiento exponencial, cuanto mayor es la tasa de crecimiento intrínseca (r) de una población, ___ crece esa población por unidad de tiempo."
+
+explicacion: |
+  En el modelo exponencial, la tasa de crecimiento per cápita (r) se mantiene constante; cuanto mayor es r, más rápido crece el número total de individuos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "basico"
+  tags: ["crecimiento_logistico", "curva_S"]
+
+tipo: mc
+opciones_explicitas: ["Curva exponencial", "Curva en forma de J", "Curva en forma de S", "Curva de decaimiento"]
+respuesta: "Curva en forma de S"
+
+enunciado: "El crecimiento logístico de una población se caracteriza por presentar una curva con forma de ___ debido a la limitación de recursos."
+
+explicacion: |
+  A diferencia del crecimiento exponencial (forma de J), el crecimiento logístico se estabiliza cuando la población alcanza la capacidad de carga, resultando en una curva sigmoidea o en forma de S.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "intermedio"
+  tags: ["factores_limitantes", "competencia"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "La competencia por recursos como alimento y espacio es uno de los factores que frena el crecimiento poblacional en un modelo logístico."
+
+explicacion: |
+  Verdadero. En el modelo logístico, a medida que la población aumenta, la disponibilidad de recursos por individuo disminuye, lo que reduce la tasa de crecimiento hasta que se estabiliza.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "intermedio"
+  tags: ["capacidad_carga", "K"]
+
+tipo: mc
+opciones_explicitas: ["La tasa máxima de natalidad", "El número máximo de individuos que un ambiente puede sostener", "La velocidad de extinción de una especie", "El número total de nacimientos en un año"]
+respuesta: "El número máximo de individuos que un ambiente puede sostener"
+
+enunciado: "En dinámica de poblaciones, el término 'Capacidad de Carga' (K) se refiere a:"
+
+explicacion: |
+  La capacidad de carga es el límite superior de población que un ecosistema determinado puede mantener de forma sostenible, considerando los recursos disponibles.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "avanzado"
+  tags: ["tasa_crecimiento", "logistica"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "En un modelo de crecimiento logístico, la tasa de crecimiento de la población es máxima cuando la población es igual a la capacidad de carga (K)."
+
+explicacion: |
+  Falso. La tasa de crecimiento es máxima cuando la población alcanza la mitad de la capacidad de carga (K/2). Cuando la población se acerca a K, la tasa de crecimiento tiende a cero.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "basico"
+  tags: ["estabilizacion", "recursos"]
+
+tipo: mc
+opciones_explicitas: ["La población crece indefinidamente", "La población se estabiliza cerca de la capacidad de carga", "La población se divide en dos especies distintas", "La población entra en un ciclo de extinción inmediata"]
+respuesta: "La población se estabiliza cerca de la capacidad de carga"
+
+enunciado: "Cuando una población alcanza el equilibrio con su entorno en un modelo logístico, ¿qué sucede con el tamaño de la población?"
+
+explicacion: |
+  La población tiende a estabilizarse alrededor de la capacidad de carga (K), donde la tasa de natalidad y la tasa de mortalidad se equilibran.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "basico"
+  tags: ["ecologia", "poblaciones"]
+
+respuesta: "K"
+tipo: completar
+respuestas_validas:
+  - "K"
+
+enunciado: "El valor máximo de individuos de una especie que un entorno puede sostener de forma indefinida se denomina capacidad de carga, y se representa con la letra ___."
+
+explicacion: |
+  La capacidad de carga, representada frecuentemente con la letra K, es el límite de población que los recursos de un ecosistema pueden soportar.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "intermedio"
+  tags: ["recursos", "factores_limitantes"]
+
+variables:
+  recurso: uno_de(["comida", "agua", "espacio", "refugio"])
+
+respuesta: recurso
+tipo: completar
+respuestas_validas:
+  - "comida"
+  - "agua"
+  - "espacio"
+  - "refugio"
+
+enunciado: "La capacidad de carga de un ecosistema está determinada por la disponibilidad de recursos esenciales. Si el recurso considerado en este caso es {recurso}, escribí ese mismo recurso como respuesta: ___."
+
+explicacion: |
+  Los recursos limitantes (comida, agua, espacio y refugio) son los que impiden que una población crezca infinitamente.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "intermedio"
+  tags: ["variabilidad", "entorno"]
+
+respuesta: "fijo"
+tipo: completar
+respuestas_validas:
+  - "fijo"
+
+enunciado: "La capacidad de carga no es un número ___, ya que puede cambiar si las condiciones ambientales o la disponibilidad de recursos varían."
+
+explicacion: |
+  Si hay un incendio o una sequía, la capacidad de carga disminuye; si hay abundancia de lluvias, puede aumentar. Por eso no es un valor constante.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "avanzado"
+  tags: ["ecologia", "factores_ambientales"]
+
+respuesta: "cambia"
+tipo: completar
+respuestas_validas:
+  - "cambia"
+  - "disminuye"
+
+enunciado: "Si un ecosistema sufre una degradación de su suelo que reduce la disponibilidad de plantas, la capacidad de carga de los herbívoros en ese lugar ___."
+
+explicacion: |
+  Al reducirse la base de recursos (comida), el entorno puede sostener a menos individuos, por lo tanto, la capacidad de carga disminuye.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "intermedio"
+  tags: ["dinamica", "equilibrio"]
+
+respuesta: "recursos"
+tipo: completar
+respuestas_validas:
+  - "recursos"
+
+enunciado: "Cuando una población alcanza su capacidad de carga, se establece un equilibrio dinámico determinado por la disponibilidad de ___."
+
+explicacion: |
+  El equilibrio se alcanza cuando la tasa de natalidad y mortalidad se estabilizan debido a la limitación de los recursos disponibles en el medio.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "basico"
+  tags: ["ecologia", "capacidad_de_carga"]
+
+tipo: mc
+opciones_explicitas: ["El número máximo de individuos que un ambiente puede sostener indefinidamente", "El número total de individuos que nacen en un año", "El límite físico donde la población se extingue inmediatamente", "La cantidad de alimento disponible en un ecosistema"]
+respuesta: "El número máximo de individuos que un ambiente puede sostener indefinidamente"
+
+enunciado: "En ecología, ¿qué representa el concepto de capacidad de carga (K)?"
+
+explicacion: |
+  La capacidad de carga (K) es el número máximo de individuos de una especie que un entorno específico puede sostener de manera sostenible, considerando los recursos disponibles como alimento, agua y espacio.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "intermedio"
+  tags: ["mortalidad", "recursos"]
+
+tipo: completar
+respuesta: "ambas"
+respuestas_validas:
+  - "ambas"
+
+enunciado: "Cuando una población supera ampliamente su capacidad de carga, aumenta la mortalidad y disminuye la natalidad — es decir, ocurren ___ cosas a la vez."
+
+explicacion: |
+  Al exceder la capacidad de carga, la competencia por recursos se vuelve intensa. Esto provoca un aumento en la mortalidad por falta de alimento o refugio, y una disminución en la natalidad debido al estrés nutricional y ambiental.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "intermedio"
+  tags: ["equilibrio", "K"]
+
+tipo: mc
+opciones_explicitas: ["K es un techo absoluto que la población nunca puede tocar", "K es un punto de equilibrio dinámico donde la población oscila", "K es el número de individuos que mueren en cada ciclo", "K es la velocidad de reproducción de la especie"]
+
+respuesta: "K es un punto de equilibrio dinámico donde la población oscila"
+
+enunciado: "Sobre la relación entre la población real (N) y la capacidad de carga (K), es correcto afirmar que:"
+
+explicacion: |
+  La capacidad de carga no es un muro infranqueable, sino un punto de equilibrio. La población suele oscilar alrededor de K debido a las retroalimentaciones entre la disponibilidad de recursos y el tamaño poblacional.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "basico"
+  tags: ["factores_densidad"]
+
+tipo: completar
+respuesta: "factores dependientes de la densidad"
+respuestas_validas:
+  - "factores dependientes de la densidad"
+
+enunciado: "El aumento de la competencia por recursos cuando la población supera su capacidad de carga es un ejemplo de: ___"
+
+explicacion: |
+  Los factores dependientes de la densidad (como la competencia, la depredación o la enfermedad) son aquellos cuya intensidad aumenta a medida que la población crece, regulando así el tamaño poblacional cerca de K.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "avanzado"
+  tags: ["caida_poblacional", "recursos"]
+
+tipo: mc
+opciones_explicitas: ["La población cae por debajo de K y luego se estabiliza", "La población crece exponencialmente sin detenerse", "La población se mantiene constante por encima de K", "La población se mantiene en un crecimiento lineal"]
+
+respuesta: "La población cae por debajo de K y luego se estabiliza"
+
+enunciado: "Si una población experimenta un crecimiento explosivo que sobrepasa la capacidad de carga (overshoot), ¿cuál es la respuesta típica del sistema?"
+
+explicacion: |
+  El exceso de individuos agota los recursos, provocando una caída en la población (a menudo por debajo de K debido al daño ambiental causado), para luego estabilizarse nuevamente en un ciclo de equilibrio.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "basico"
+  tags: ["crecimiento_exponencial", "especies_invasoras"]
+
+variables:
+  escenario: uno_de(["una especie de ratones en una isla sin depredadores", "una población de bacterias en un medio con nutrientes ilimitados"])
+
+respuesta: "exponencial"
+tipo: mc
+opciones_explicitas: ["exponencial", "logístico", "estacionario", "decreciente"]
+
+enunciado: "En el caso de {escenario}, durante las primeras etapas de colonización, el modelo de crecimiento que mejor describe la dinámica poblacional es el de tipo ___."
+
+explicacion: |
+  Cuando una especie llega a un nuevo hábitat sin depredadores ni competencia significativa, los recursos son abundantes y la población crece de forma exponencial (J) antes de que los factores limitantes actúen.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "intermedio"
+  tags: ["capacidad_de_carga", "modelo_logistico"]
+
+respuesta: "500"
+tipo: completar
+respuestas_validas:
+  - "500"
+
+enunciado: "En un modelo de crecimiento logístico, la variable K representa la capacidad de carga del ecosistema. Si un ambiente tiene recursos que sólo permiten sostener a un máximo de 500 individuos de una especie, ¿cuál es el valor de K?"
+
+explicacion: |
+  La capacidad de carga (K) es el número máximo de individuos de una especie que un entorno puede sustentar indefinidamente, considerando los recursos disponibles.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "basico"
+  tags: ["curva_logistica", "forma_de_S"]
+
+respuesta: "forma de S"
+tipo: mc
+opciones_explicitas: ["forma de J", "forma de S", "línea recta", "curva descendente"]
+
+enunciado: "A diferencia del crecimiento exponencial, el crecimiento logístico se caracteriza por presentar una curva con ___ debido a la presencia de factores limitantes."
+
+explicacion: |
+  El modelo logístico muestra un crecimiento rápido al principio que se desacelera a medida que la población se acerca a la capacidad de carga, formando una curva sigmoidea o en forma de S.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "intermedio"
+  tags: ["factores_limitantes", "densidad_dependiente"]
+
+variables:
+  factor: uno_de(["la disponibilidad de alimento", "la acumulación de desechos tóxicos", "la competencia por espacio"])
+
+respuesta: "dependiente de la densidad"
+tipo: completar
+respuestas_validas:
+  - "dependiente de la densidad"
+
+enunciado: "Factores como {factor} actúan sobre la población de manera ___ (más fuerte cuanto más densa está la población)."
+
+explicacion: |
+  Los factores que afectan la tasa de crecimiento a medida que la población aumenta (como la comida o el espacio) se denominan factores dependientes de la densidad.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dinamica_poblacional_capacidad_carga"
+  nivel: "avanzado"
+  tags: ["comparacion_modelos", "recursos"]
+
+variables:
+  condicion: uno_de(["recursos limitados", "recursos limitados"])
+
+respuesta: "logístico"
+tipo: mc
+opciones_explicitas: ["exponencial", "logístico"]
+
+enunciado: "Si consideramos que en un ecosistema real los {condicion} son la norma, el modelo de crecimiento más realista para representar la población a largo plazo es el modelo ___."
+
+explicacion: |
+  Aunque el modelo exponencial es útil para entender fases iniciales, el modelo logístico es más preciso para la naturaleza porque reconoce que los recursos son finitos.
+```
+
+## Sección: mitosis-meiosis (20 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mitosis_meiosis"
+  nivel: "basico"
+  tags: ["mitosis", "division_celular"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La mitosis produce 2 células hijas idénticas a la célula original."
+
+explicacion: |
+  La mitosis asegura que ambas células resultantes tengan la misma información genética que la célula madre.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mitosis_meiosis"
+  nivel: "basico"
+  tags: ["mitosis", "crecimiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La mitosis es el proceso detrás del crecimiento y la reparación de tejidos en organismos pluricelulares."
+
+explicacion: |
+  Permite aumentar de tamaño y sustituir células dañadas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mitosis_meiosis"
+  nivel: "basico"
+  tags: ["mitosis", "cromosomas"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La energía que fluye por un ecosistema no tiene relación con la fotosíntesis."
+enunciado: "Las células hijas de la mitosis tienen la mitad de cromosomas que la célula original."
 
 explicacion: |
-  Falso, la fotosíntesis es la puerta de entrada de esa energía.
+  Falso. Tienen el mismo número (diploide); la reducción a la mitad ocurre en la meiosis.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
+  tema: "mitosis_meiosis"
   nivel: "intermedio"
-  tags: ["estequiometria"]
+  tags: ["mitosis", "calculo"]
 
 variables:
-  co2_consumido: uno_de([6, 12, 18])
+  cromosomas_originales: uno_de([2, 4, 6, 8])
 
-respuesta: co2_consumido
+respuesta: cromosomas_originales
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "En la fotosíntesis, la proporción CO2 consumido : O2 producido es 1:1. Si se consumen {co2_consumido} moléculas de CO2, ¿cuántas de O2 se producen?"
+enunciado: "Si una célula original tiene {cromosomas_originales} cromosomas, ¿cuántos tendrá cada célula hija tras la mitosis?"
+
+pasos:
+  - "La mitosis mantiene la dotación cromosómica original."
 
 explicacion: |
-  Con relación 1:1, se producen {co2_consumido} moléculas de O2.
+  Cada hija tiene {cromosomas_originales} cromosomas, igual que la original.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
+  tema: "mitosis_meiosis"
   nivel: "basico"
-  tags: ["ecuacion"]
+  tags: ["meiosis", "gametos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La ecuación balanceada de la fotosíntesis usa 6 CO2 y 6 H2O para producir 1 glucosa y 6 O2."
+enunciado: "La meiosis produce células sexuales (gametos) como óvulos y espermatozoides."
 
 explicacion: |
-  Correcto: 6CO2 + 6H2O + luz → C6H12O6 + 6O2.
+  Es el proceso especializado en producir gametos para la reproducción sexual.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
+  tema: "mitosis_meiosis"
   nivel: "basico"
-  tags: ["glucosa"]
+  tags: ["meiosis", "cromosomas"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La fórmula molecular de la glucosa es C6H12O6."
+enunciado: "La meiosis produce 4 células hijas con la mitad de cromosomas que la célula original."
 
 explicacion: |
-  Correcto, es un monosacárido con esa fórmula.
+  Correcto, reduce el número a haploide (n).
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "fotosintesis_respiracion_celular"
+  tema: "mitosis_meiosis"
+  nivel: "basico"
+  tags: ["meiosis"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La meiosis ocurre en casi cualquier célula del cuerpo, igual que la mitosis."
+
+explicacion: |
+  Falso. Sólo ocurre en las células germinales de los órganos reproductivos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mitosis_meiosis"
   nivel: "intermedio"
-  tags: ["gases", "ciclos"]
+  tags: ["meiosis", "calculo"]
 
-respuesta: "CO2"
-tipo: mc
-opciones_explicitas: ["CO2", "O2", "Ambos son reactivos en ambos procesos", "Ninguno"]
+variables:
+  cromosomas_originales: uno_de([4, 8, 12, 16])
 
-enunciado: "¿Qué gas es reactivo en la fotosíntesis y producto en la respiración celular?"
+respuesta: cromosomas_originales / 2
+tipo: completar
+tolerancia_abs: 0.01
 
-explicacion: |
-  El CO2 se fija en la fotosíntesis y se libera en la respiración.
-```
-
-## Sección: genetica-mendeliana-punnett (20 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "basico"
-  tags: ["punnett", "vocabulario"]
-
-enunciado: "¿Qué es un cuadro de Punnett?"
-tipo: mc
-opciones_explicitas:
-  - "Una tabla que cruza los alelos que puede aportar cada progenitor, para predecir las proporciones de genotipos posibles en la descendencia"
-  - "Un instrumento de laboratorio para medir ADN"
-  - "Un gráfico de barras que muestra la cantidad de hijos por familia"
-respuesta: "Una tabla que cruza los alelos que puede aportar cada progenitor, para predecir las proporciones de genotipos posibles en la descendencia"
+enunciado: "Si una célula somática tiene {cromosomas_originales} cromosomas, ¿cuántos tendrá cada célula hija tras la meiosis?"
 
 explicacion: |
-  Es una herramienta visual, no un instrumento de laboratorio.
+  De diploide (2n) a haploide (n): {cromosomas_originales} / 2.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "basico"
-  tags: ["vocabulario"]
-
-enunciado: "¿Cuál es la diferencia entre un alelo dominante y uno recesivo?"
-tipo: mc
-opciones_explicitas:
-  - "El dominante se manifiesta en el fenotipo con una sola copia presente; el recesivo sólo se manifiesta si están las dos copias"
-  - "El dominante siempre es más común en la población que el recesivo"
-  - "No hay ninguna diferencia real, son dos nombres para lo mismo"
-respuesta: "El dominante se manifiesta en el fenotipo con una sola copia presente; el recesivo sólo se manifiesta si están las dos copias"
-
-explicacion: |
-  Un heterocigota `Aa` muestra el fenotipo dominante, aunque tenga una
-  copia recesiva 'escondida'.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "basico"
-  tags: ["vocabulario"]
-
-enunciado: "¿Cuál es la diferencia entre genotipo y fenotipo?"
-tipo: mc
-opciones_explicitas:
-  - "El genotipo es la combinación de alelos que tiene un individuo; el fenotipo es cómo se expresa/ve esa combinación"
-  - "Son exactamente lo mismo, sólo cambia el nombre"
-  - "El fenotipo es siempre visible al microscopio, el genotipo no"
-respuesta: "El genotipo es la combinación de alelos que tiene un individuo; el fenotipo es cómo se expresa/ve esa combinación"
-
-explicacion: |
-  `AA` y `Aa` son genotipos distintos, pero pueden compartir el mismo
-  fenotipo dominante.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "basico"
-  tags: ["vocabulario"]
-
-enunciado: "¿Qué es un individuo heterocigota?"
-tipo: mc
-opciones_explicitas:
-  - "El que tiene un alelo de cada tipo (por ejemplo, Aa)"
-  - "El que tiene las dos copias iguales (AA o aa)"
-  - "El que no tiene ningún alelo para ese gen"
-respuesta: "El que tiene un alelo de cada tipo (por ejemplo, Aa)"
-
-explicacion: |
-  Homocigota es lo opuesto: las dos copias iguales (AA o aa).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "avanzado"
-  tags: ["punnett", "problema"]
-
-respuesta: 0.25
-tipo: input
-
-enunciado: "En un cruce Aa × Aa, ¿cuál es la probabilidad de que un hijo tenga genotipo aa (homocigota recesivo)?"
-
-pasos:
-  - "P(a del padre) = 1/2, P(a de la madre) = 1/2, independientes"
-  - "P(aa) = 1/2 × 1/2 = 0,25"
-
-explicacion: |
-  Es exactamente la casilla 'aa' del cuadro de Punnett: 1 de 4.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "avanzado"
-  tags: ["punnett", "problema"]
-
-respuesta: 0.75
-tipo: input
-
-enunciado: "En un cruce Aa × Aa (A dominante), ¿cuál es la probabilidad de que un hijo tenga fenotipo DOMINANTE (AA o Aa)?"
-
-pasos:
-  - "De las 4 combinaciones (AA, Aa, Aa, aa), 3 muestran fenotipo dominante"
-  - "P(dominante) = 3/4 = 0,75"
-
-explicacion: |
-  Es la proporción clásica 3:1 de Mendel.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "avanzado"
-  tags: ["punnett", "problema"]
-
-respuesta: 0.5
-tipo: input
-
-enunciado: "Se cruza un heterocigota Aa con un homocigota recesivo aa (testcross). ¿Cuál es la probabilidad de que un hijo tenga genotipo aa?"
-
-pasos:
-  - "El progenitor aa siempre aporta 'a'; el Aa aporta 'A' o 'a' con 1/2 de probabilidad cada uno"
-  - "P(aa) = 1 × 1/2 = 0,5"
-
-explicacion: |
-  Un testcross siempre da una proporción 1:1 entre los dos genotipos
-  posibles, cuando uno de los progenitores es homocigota recesivo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
+  tema: "mitosis_meiosis"
   nivel: "intermedio"
-  tags: ["punnett", "problema"]
+  tags: ["division_celular"]
 
-respuesta: 1
-tipo: input
+variables:
+  escenario: [["mitosis", 2], ["meiosis", 4]]
+  idx: uno_de([0, 1])
 
-enunciado: "Se cruza un homocigota dominante AA con un homocigota recesivo aa. ¿Qué proporción de los hijos será heterocigota Aa?"
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: [2, 4]
 
-pasos:
-  - "El progenitor AA sólo puede aportar 'A'; el aa sólo puede aportar 'a'"
-  - "Todos los hijos son Aa: proporción = 1 (100%)"
+enunciado: "¿Cuántas células hijas se obtienen al finalizar el proceso de {escenario[idx][0]}?"
 
 explicacion: |
-  Sin variabilidad en los alelos que puede aportar cada progenitor, el
-  resultado es un único genotipo posible.
+  La {escenario[idx][0]} produce {escenario[idx][1]} células hijas.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "avanzado"
-  tags: ["punnett", "probabilidad_compuesta"]
+  tema: "mitosis_meiosis"
+  nivel: "intermedio"
+  tags: ["genetica", "variabilidad"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cada casilla del cuadro de Punnett es, literalmente, el producto de las probabilidades del alelo del padre y del alelo de la madre (probabilidad compuesta de eventos independientes)."
+enunciado: "Las células hijas de la mitosis son idénticas entre sí, pero las de la meiosis no (por la recombinación genética)."
 
 explicacion: |
-  Heredar cada alelo es un evento independiente, así que las
-  probabilidades se multiplican.
+  La mitosis busca replicación exacta; la meiosis busca variabilidad (crossing-over).
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "intermedio"
-  tags: ["probabilidad_compuesta", "aplicacion"]
+  tema: "mitosis_meiosis"
+  nivel: "basico"
+  tags: ["celulas_somaticas"]
 
-enunciado: "¿Qué relación tiene el cuadro de Punnett con `../../matematica/probabilidad-compuesta/`?"
+respuesta: "mitosis"
 tipo: mc
-opciones_explicitas:
-  - "Es exactamente probabilidad compuesta (eventos independientes que se multiplican), con una notación visual de cuadraditos en vez de una fórmula"
-  - "No tiene ninguna relación real con la probabilidad"
-  - "El cuadro de Punnett reemplaza por completo la necesidad de calcular probabilidades"
-respuesta: "Es exactamente probabilidad compuesta (eventos independientes que se multiplican), con una notación visual de cuadraditos en vez de una fórmula"
+opciones_explicitas: ["mitosis", "meiosis", "ambos por igual", "ninguno"]
+
+enunciado: "¿Cuál de estos procesos ocurre en casi cualquier célula del cuerpo, para crecimiento y reparación?"
 
 explicacion: |
-  Es el cruce que más rinde de todo el bloque de probabilidad y
-  estadística, según `troncos.md`.
+  La mitosis es la división de las células somáticas.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "intermedio"
-  tags: ["punnett", "problema"]
+  tema: "mitosis_meiosis"
+  nivel: "basico"
+  tags: ["gametogenesis"]
 
-respuesta: 1
-tipo: input
+respuesta: "meiosis"
+tipo: mc
+opciones_explicitas: ["meiosis", "mitosis", "ambos por igual", "ninguno"]
 
-enunciado: "En el cuadro de Punnett de un cruce Aa × Aa (4 casillas: AA, Aa, Aa, aa), ¿cuántas casillas muestran fenotipo RECESIVO?"
+enunciado: "¿Cuál de estos procesos ocurre exclusivamente en órganos reproductivos, para formar gametos?"
 
 explicacion: |
-  Sólo la casilla 'aa' — las otras tres (AA, Aa, Aa) muestran fenotipo
-  dominante.
+  La meiosis ocurre en las gónadas, para producir óvulos y espermatozoides.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
+  tema: "mitosis_meiosis"
   nivel: "intermedio"
-  tags: ["punnett"]
+  tags: ["genetica", "reproduccion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La proporción fenotípica clásica 3:1 (3 dominantes por cada 1 recesivo) aparece en un cruce monohíbrido entre dos heterocigotas (Aa × Aa)."
+enunciado: "Si los gametos tuvieran el número completo de cromosomas (diploide), la fecundación duplicaría el número de cromosomas en cada generación."
 
 explicacion: |
-  Es el resultado más citado de los experimentos originales de Mendel
-  con arvejas.
+  Correcto — por eso la meiosis reduce a la mitad antes de la fecundación.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
+  tema: "mitosis_meiosis"
   nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "Mendel cruzó arvejas de semilla lisa (heterocigotas, Ll) entre sí y obtuvo, aproximadamente, 3/4 de semillas lisas y 1/4 de semillas rugosas. ¿Qué explica esta proporción?"
-tipo: mc
-opciones_explicitas:
-  - "'Lisa' es el fenotipo dominante — un cruce Ll × Ll da genotipos 1 LL : 2 Ll : 1 ll, y tanto LL como Ll muestran el fenotipo dominante (liso)"
-  - "Las semillas lisas son genéticamente idénticas entre sí, sin variación posible"
-  - "Es un resultado que no tiene ninguna explicación genética conocida"
-respuesta: "'Lisa' es el fenotipo dominante — un cruce Ll × Ll da genotipos 1 LL : 2 Ll : 1 ll, y tanto LL como Ll muestran el fenotipo dominante (liso)"
-
-explicacion: |
-  Es el experimento histórico real que originó las leyes de Mendel.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "avanzado"
-  tags: ["punnett", "problema"]
-
-respuesta: 0.5
-tipo: input
-
-enunciado: "Se cruza un heterocigota Aa con un homocigota dominante AA. ¿Cuál es la probabilidad de que un hijo sea heterocigota Aa?"
-
-pasos:
-  - "El progenitor AA siempre aporta 'A'; el Aa aporta 'A' o 'a' con 1/2 cada uno"
-  - "P(Aa) = 1 × 1/2 = 0,5 (y P(AA) = 1 × 1/2 = 0,5, ninguno es aa)"
-
-explicacion: |
-  Con un progenitor homocigota dominante, ningún hijo puede ser
-  recesivo — sólo se reparten entre AA y Aa.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "avanzado"
-  tags: ["punnett"]
+  tags: ["meiosis"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El cuadro de Punnett asume que cada progenitor transmite uno de sus dos alelos al azar, de forma independiente de qué alelo transmite el otro progenitor."
+enunciado: "La meiosis existe fundamentalmente para evitar que el número de cromosomas se duplique en cada nueva generación."
 
 explicacion: |
-  Es la ley de la segregación independiente de Mendel, y es lo que
-  justifica multiplicar las probabilidades en vez de sumarlas.
+  Correcto, mantiene constante el número cromosómico de la especie.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "avanzado"
-  tags: ["punnett", "problema"]
-
-respuesta: redondear(0.75 * 0.75, 4)
-tipo: input
-tolerancia_abs: 0.001
-
-enunciado: "En un cruce dihíbrido AaBb × AaBb (dos genes independientes entre sí), ¿cuál es la probabilidad de que un hijo muestre AMBOS fenotipos dominantes (para el gen A y para el gen B)?"
-
-pasos:
-  - "P(dominante en A) = 3/4; P(dominante en B) = 3/4, genes independientes"
-  - "P(ambos dominantes) = 3/4 × 3/4 = {redondear(0.75 * 0.75, 4)}"
-
-explicacion: |
-  Es la misma multiplicación de probabilidad compuesta, ahora aplicada
-  a dos genes en vez de a un único gen.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
+  tema: "mitosis_meiosis"
   nivel: "intermedio"
-  tags: ["testcross", "vocabulario"]
-
-enunciado: "¿Para qué sirve un 'testcross' (cruzar con un homocigota recesivo conocido)?"
-tipo: mc
-opciones_explicitas:
-  - "Para determinar el genotipo desconocido de un individuo con fenotipo dominante (podría ser AA o Aa)"
-  - "Para aumentar la cantidad de hijos con fenotipo recesivo"
-  - "Para eliminar por completo un alelo recesivo de una población"
-respuesta: "Para determinar el genotipo desconocido de un individuo con fenotipo dominante (podría ser AA o Aa)"
-
-explicacion: |
-  Si aparece algún hijo con fenotipo recesivo, el individuo original
-  era heterocigota (Aa).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "avanzado"
-  tags: ["testcross", "problema"]
-
-enunciado: "Se cruza un individuo de fenotipo dominante (genotipo desconocido) con un homocigota recesivo, y aparece al menos un hijo con fenotipo recesivo. ¿Cuál era el genotipo del individuo original?"
-tipo: mc
-opciones_explicitas:
-  - "Aa (heterocigota) — sólo así puede transmitir el alelo recesivo que aparece en la descendencia"
-  - "AA (homocigota dominante) — no puede transmitir ningún alelo recesivo"
-respuesta: "Aa (heterocigota) — sólo así puede transmitir el alelo recesivo que aparece en la descendencia"
-
-explicacion: |
-  Un AA nunca podría producir un hijo aa, sin importar el genotipo del
-  otro progenitor recesivo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué se dice que el cuadro de Punnett es 'probabilidad compuesta dibujada'?"
-tipo: mc
-opciones_explicitas:
-  - "Porque cada una de sus casillas representa una combinación específica de alelos, con una probabilidad que es el producto de las probabilidades de cada alelo por separado"
-  - "Porque fue inventado por el mismo matemático que descubrió la probabilidad compuesta"
-  - "Porque no tiene ninguna base matemática real, es sólo una convención visual"
-respuesta: "Porque cada una de sus casillas representa una combinación específica de alelos, con una probabilidad que es el producto de las probabilidades de cada alelo por separado"
-
-explicacion: |
-  Permite calcular probabilidades genéticas sin necesitar escribir
-  ninguna fórmula, sólo llenando los cuadraditos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_mendeliana_punnett"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve el cuadro de Punnett?"
-tipo: mc
-opciones_explicitas:
-  - "Para predecir, en términos de probabilidad, cómo se van a repartir los genotipos y fenotipos posibles en la descendencia de un cruce"
-  - "Para determinar con certeza absoluta el genotipo de cada hijo antes de que nazca"
-  - "Sólo se usa para estudiar plantas, no otros organismos"
-respuesta: "Para predecir, en términos de probabilidad, cómo se van a repartir los genotipos y fenotipos posibles en la descendencia de un cruce"
-
-explicacion: |
-  Es la base de `../herencia-ligada-al-sexo/` y `../grupos-sanguineos/`,
-  que aplican la misma lógica a mecanismos genéticos más específicos.
-```
-
-## Sección: grupos-sanguineos (20 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "basico"
-  tags: ["abo", "vocabulario"]
-
-enunciado: "¿Cuántos alelos posibles tiene el gen del sistema ABO, y cuántos tiene cada persona?"
-tipo: mc
-opciones_explicitas:
-  - "Hay 3 alelos posibles (Iᴬ, Iᴮ, i) en la población, pero cada persona sólo tiene 2 (uno de cada progenitor)"
-  - "Hay exactamente 2 alelos posibles, igual que cualquier otro gen"
-  - "Cada persona tiene los 3 alelos a la vez"
-respuesta: "Hay 3 alelos posibles (Iᴬ, Iᴮ, i) en la población, pero cada persona sólo tiene 2 (uno de cada progenitor)"
-
-explicacion: |
-  Es el ejemplo clásico de 'alelos múltiples' en genética humana.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "intermedio"
-  tags: ["codominancia", "vocabulario"]
-
-enunciado: "¿Qué es la codominancia entre Iᴬ e Iᴮ?"
-tipo: mc
-opciones_explicitas:
-  - "Que si una persona tiene ambos alelos, LOS DOS se expresan a la vez (fenotipo AB), sin que ninguno tape al otro"
-  - "Que Iᴬ siempre domina sobre Iᴮ, tapándolo por completo"
-  - "Que ninguno de los dos alelos se expresa nunca en el fenotipo"
-respuesta: "Que si una persona tiene ambos alelos, LOS DOS se expresan a la vez (fenotipo AB), sin que ninguno tape al otro"
-
-explicacion: |
-  Es distinto de la dominancia simple de
-  `../genetica-mendeliana-punnett/`, donde el dominante sí tapa al
-  recesivo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "intermedio"
-  tags: ["abo", "problema"]
-
-enunciado: "¿Cuáles son los DOS genotipos posibles que dan fenotipo tipo A?"
-tipo: mc
-opciones_explicitas:
-  - "IᴬIᴬ (homocigota) o Iᴬi (heterocigota)"
-  - "Sólo IᴬIᴬ, no existe otra combinación posible"
-  - "IᴬIᴮ o Iᴬi"
-respuesta: "IᴬIᴬ (homocigota) o Iᴬi (heterocigota)"
-
-explicacion: |
-  Como Iᴬ es dominante sobre i, ambos genotipos dan el mismo fenotipo
-  A.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "intermedio"
-  tags: ["abo", "problema"]
-
-enunciado: "¿Cuál es el ÚNICO genotipo posible para el fenotipo AB?"
-tipo: mc
-opciones_explicitas:
-  - "IᴬIᴮ — es la única combinación que produce el fenotipo AB, por codominancia"
-  - "IᴬIᴬ o IᴮIᴮ, indistintamente"
-  - "ii, porque O es la base de AB"
-respuesta: "IᴬIᴮ — es la única combinación que produce el fenotipo AB, por codominancia"
-
-explicacion: |
-  A diferencia de A o B (que tienen 2 genotipos posibles cada uno), AB
-  sólo tiene un genotipo posible.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "avanzado"
-  tags: ["abo", "problema"]
-
-respuesta: 0.5
-tipo: input
-
-enunciado: "Padre tipo AB (IᴬIᴮ) × madre tipo O (ii). ¿Cuál es la probabilidad de que un hijo sea tipo A?"
-
-pasos:
-  - "El padre aporta Iᴬ o Iᴮ (1/2 cada uno); la madre sólo puede aportar i"
-  - "P(hijo Iᴬi, tipo A) = 1/2"
-
-explicacion: |
-  La otra mitad de los hijos es tipo B (Iᴮi) — ningún hijo puede ser
-  AB ni O en este cruce.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "avanzado"
-  tags: ["abo"]
+  tags: ["fecundacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En un cruce entre un padre tipo AB y una madre tipo O, ningún hijo puede resultar tipo AB ni tipo O."
+enunciado: "La fecundación (unión de dos gametos haploides) restaura el número normal (diploide) de cromosomas en el nuevo organismo."
 
 explicacion: |
-  La madre sólo puede aportar 'i', así que ningún hijo puede recibir
-  dos alelos i (para ser O) ni recibir Iᴬ e Iᴮ juntos de un mismo
-  progenitor combinados con el otro (para ser AB).
+  Correcto, n + n = 2n en el organismo resultante.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "avanzado"
-  tags: ["codominancia"]
-
-enunciado: "¿En qué se diferencia la codominancia (Iᴬ e Iᴮ) de la dominancia simple (A y a de `../genetica-mendeliana-punnett/`)?"
-tipo: mc
-opciones_explicitas:
-  - "En dominancia simple, el heterocigota se ve igual que el homocigota dominante (la copia recesiva queda 'tapada'); en codominancia, el heterocigota muestra un fenotipo NUEVO donde se ven ambos alelos"
-  - "No hay ninguna diferencia real entre ambos mecanismos"
-  - "La codominancia sólo aplica a plantas, nunca a animales"
-respuesta: "En dominancia simple, el heterocigota se ve igual que el homocigota dominante (la copia recesiva queda 'tapada'); en codominancia, el heterocigota muestra un fenotipo NUEVO donde se ven ambos alelos"
-
-explicacion: |
-  AB es un fenotipo distinto de A y de B — no 'se parece' a ninguno de
-  los dos por separado.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "avanzado"
-  tags: ["abo", "problema"]
-
-respuesta: 0.25
-tipo: input
-
-enunciado: "Padre tipo A, heterocigota (Iᴬi) × madre tipo B, heterocigota (Iᴮi). ¿Cuál es la probabilidad de que un hijo sea tipo O?"
-
-pasos:
-  - "El padre aporta Iᴬ o i (1/2 cada uno); la madre aporta Iᴮ o i (1/2 cada uno)"
-  - "P(hijo ii, tipo O) = 1/2 × 1/2 = 0,25"
-
-explicacion: |
-  Aunque ninguno de los padres sea tipo O, ambos pueden ser portadores
-  del alelo 'i' sin saberlo (por ser heterocigotas).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué es importante conocer el grupo sanguíneo ABO antes de una transfusión?"
-tipo: mc
-opciones_explicitas:
-  - "Porque transfundir sangre de un grupo incompatible puede provocar una reacción inmunológica grave, ya que el sistema inmune reconoce como 'extraños' los antígenos A o B que no tiene"
-  - "El grupo sanguíneo no tiene ninguna relevancia médica real"
-  - "Sólo importa la cantidad de sangre transfundida, no el grupo"
-respuesta: "Porque transfundir sangre de un grupo incompatible puede provocar una reacción inmunológica grave, ya que el sistema inmune reconoce como 'extraños' los antígenos A o B que no tiene"
-
-explicacion: |
-  Es la aplicación médica directa de este sistema genético.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
+  tema: "mitosis_meiosis"
   nivel: "intermedio"
-  tags: ["rh", "vocabulario"]
-
-enunciado: "¿Qué es el factor Rh?"
-tipo: mc
-opciones_explicitas:
-  - "Un gen DISTINTO del sistema ABO, con herencia de dominancia simple (Rh+ dominante sobre Rh−)"
-  - "Otro nombre para el mismo gen del sistema ABO"
-  - "Un cuarto alelo del sistema ABO, además de Iᴬ, Iᴮ e i"
-respuesta: "Un gen DISTINTO del sistema ABO, con herencia de dominancia simple (Rh+ dominante sobre Rh−)"
-
-explicacion: |
-  El grupo sanguíneo completo (por ejemplo 'A+') combina ambos
-  sistemas genéticos por separado.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "intermedio"
-  tags: ["rh"]
+  tags: ["evolucion", "variacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El alelo Rh+ es dominante sobre el alelo Rh−, así que una persona Rh+Rh− (heterocigota) es Rh positivo."
+enunciado: "La variación genética generada durante la meiosis es importante para la selección natural, porque sin variabilidad no habría rasgos sobre los que actuar."
 
 explicacion: |
-  Es dominancia simple clásica, a diferencia de la codominancia del
-  sistema ABO.
+  Correcto — ver ../seleccion-natural/.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "grupos_sanguineos"
+  tema: "mitosis_meiosis"
   nivel: "avanzado"
-  tags: ["abo", "aplicacion"]
-
-enunciado: "Un hijo es tipo O (ii). ¿Puede uno de sus padres biológicos ser tipo AB (IᴬIᴮ)?"
-tipo: mc
-opciones_explicitas:
-  - "No: un padre AB sólo puede aportar Iᴬ o Iᴮ, nunca 'i' — no puede tener un hijo ii"
-  - "Sí, es perfectamente posible sin ninguna restricción"
-respuesta: "No: un padre AB sólo puede aportar Iᴬ o Iᴮ, nunca 'i' — no puede tener un hijo ii"
-
-explicacion: |
-  Es un uso real de la genética de grupos sanguíneos en casos legales
-  de determinación de paternidad (para excluir, no para confirmar con
-  certeza absoluta).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "avanzado"
-  tags: ["abo", "problema"]
-
-respuesta: 0.5
-tipo: input
-
-enunciado: "Un padre es tipo A, pero no se sabe si es IᴬIᴬ o Iᴬi (50% de probabilidad cada uno). Si es Iᴬi y la madre es tipo O (ii), ¿cuál es la probabilidad de que un hijo sea tipo O?"
-
-pasos:
-  - "Si el padre es Iᴬi: aporta Iᴬ o i (1/2 cada uno); la madre sólo aporta i"
-  - "P(hijo ii | padre es Iᴬi) = 1/2"
-
-explicacion: |
-  Si en cambio el padre fuera IᴬIᴬ, ningún hijo podría ser tipo O — el
-  genotipo exacto del padre (no sólo su fenotipo) cambia el cálculo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "basico"
-  tags: ["abo"]
+  tags: ["conceptos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Aunque existan 3 alelos posibles para el gen ABO en la población (Iᴬ, Iᴮ, i), cada persona individual sólo tiene 2 de esos tres (uno heredado de cada progenitor)."
+enunciado: "Antes de dividirse (sea mitosis o meiosis), la célula primero duplica todo su material genético, para que cada célula hija tenga una copia completa."
 
 explicacion: |
-  'Alelos múltiples' se refiere a la variedad en la POBLACIÓN, no a
-  que un individuo tenga más de 2 copias de un gen.
+  Correcto. Sin esa duplicación previa, no habría suficiente material para repartir entre las células hijas.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué a una persona tipo O se la suele llamar 'donante universal'?"
-tipo: mc
-opciones_explicitas:
-  - "Porque su sangre no tiene ni el antígeno A ni el B, así que en general no genera el mismo tipo de rechazo inmunológico al ser transfundida a personas de otros grupos ABO"
-  - "Porque puede recibir sangre de cualquier grupo sin ningún riesgo"
-  - "Porque el tipo O es el grupo sanguíneo más común en todo el mundo, sin ninguna otra razón"
-respuesta: "Porque su sangre no tiene ni el antígeno A ni el B, así que en general no genera el mismo tipo de rechazo inmunológico al ser transfundida a personas de otros grupos ABO"
-
-explicacion: |
-  Es consecuencia directa del genotipo ii, que no produce ninguno de
-  los dos antígenos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "avanzado"
-  tags: ["abo", "problema"]
-
-respuesta: 0.25
-tipo: input
-
-enunciado: "Padre tipo A (Iᴬi) × madre tipo A (Iᴬi), ambos heterocigotas. ¿Cuál es la probabilidad de que un hijo sea tipo O?"
-
-pasos:
-  - "Ambos padres aportan Iᴬ o i (1/2 cada uno)"
-  - "P(hijo ii) = 1/2 × 1/2 = 0,25"
-
-explicacion: |
-  Es el mismo patrón matemático que un cruce Aa × Aa de
-  `../genetica-mendeliana-punnett/`, sólo que acá 'aa' se llama 'ii' y
-  el fenotipo se llama 'tipo O' en vez de 'recesivo'.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
+  tema: "mitosis_meiosis"
   nivel: "intermedio"
-  tags: ["probabilidad_condicional", "aplicacion"]
-
-enunciado: "¿Qué relación tiene calcular el grupo sanguíneo posible de un hijo con `../../matematica/probabilidad-condicional/`?"
-tipo: mc
-opciones_explicitas:
-  - "La probabilidad del genotipo del hijo depende de qué se conoce (o no) del genotipo exacto de los padres — es una probabilidad condicionada a esa información disponible"
-  - "No tiene ninguna relación real con la probabilidad condicional"
-  - "El grupo sanguíneo de un hijo nunca depende del genotipo de sus padres"
-respuesta: "La probabilidad del genotipo del hijo depende de qué se conoce (o no) del genotipo exacto de los padres — es una probabilidad condicionada a esa información disponible"
-
-explicacion: |
-  Es la misma idea general que en `../herencia-ligada-al-sexo/`, ahora
-  aplicada a un mecanismo de alelos múltiples y codominancia.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "avanzado"
-  tags: ["rh", "abo", "problema"]
-
-respuesta: 0.125
-tipo: input
-
-enunciado: "Un hijo tiene 1/2 de probabilidad de ser tipo A (sistema ABO) y, de forma independiente, 1/4 de probabilidad de ser Rh negativo (sistema Rh). ¿Cuál es la probabilidad de que sea A Y Rh negativo a la vez?"
-
-pasos:
-  - "Son dos sistemas genéticos independientes entre sí (genes distintos)"
-  - "P(A y Rh−) = 1/2 × 1/4 = 0,125"
-
-explicacion: |
-  Al ser genes ubicados en cromosomas distintos, se aplica la regla
-  del producto de `../../matematica/probabilidad-compuesta/`.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "intermedio"
-  tags: ["rh", "abo"]
+  tags: ["mitosis", "reproduccion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El factor Rh y el sistema ABO son genes distintos, heredados de forma independiente entre sí — el genotipo de uno no determina el genotipo del otro."
+enunciado: "En organismos unicelulares, la mitosis también sirve como forma de reproducción (cada división crea un nuevo individuo)."
 
 explicacion: |
-  Por eso existen 8 combinaciones posibles de grupo sanguíneo completo
-  (A+, A−, B+, B−, AB+, AB−, O+, O−).
+  Correcto, en unicelulares dividirse ES reproducirse.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "grupos_sanguineos"
-  nivel: "basico"
-  tags: ["cierre"]
+  tema: "mitosis_meiosis"
+  nivel: "avanzado"
+  tags: ["reproduccion", "comparacion"]
 
-enunciado: "¿Para qué sirve entender la genética de los grupos sanguíneos?"
+respuesta: "meiosis"
 tipo: mc
-opciones_explicitas:
-  - "Para entender la compatibilidad en transfusiones, calcular probabilidades de herencia, y como aplicación real de alelos múltiples y codominancia"
-  - "Sólo tiene aplicación teórica, sin ningún uso médico o legal real"
-  - "Sólo sirve para clasificar tipos de sangre, sin relación con genética"
-respuesta: "Para entender la compatibilidad en transfusiones, calcular probabilidades de herencia, y como aplicación real de alelos múltiples y codominancia"
+opciones_explicitas: ["meiosis", "mitosis", "ambas por igual", "ninguna"]
+
+enunciado: "¿Cuál de los dos procesos está asociado a la reproducción SEXUAL (con dos progenitores aportando material genético)?"
 
 explicacion: |
-  Junto con `../herencia-ligada-al-sexo/`, completa las dos mitades
-  del nodo `B3` del MAPA — dos mecanismos genéticos distintos, ambos
-  resueltos con probabilidad condicional.
+  La meiosis produce los gametos que se combinan en la reproducción sexual.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "mitosis_meiosis"
+  nivel: "avanzado"
+  tags: ["aplicacion", "conceptos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un error durante la mitosis que hace que las células hijas se dividan sin control (sin detenerse) puede estar relacionado con el cáncer."
+
+explicacion: |
+  Correcto. El cáncer es, en esencia, una división celular descontrolada — un fallo en los mecanismos que regulan la mitosis.
 ```
 

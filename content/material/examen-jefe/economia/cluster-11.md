@@ -1,2026 +1,1569 @@
 # Examen jefe — [PENDIENTE #776]
 
-> Logro #776. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **101 preguntas totales** en 5/5 secciones.
+> Logro #776. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **83 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: punto-de-equilibrio (25 preguntas)
+## Sección: tipo-cambio-flotante (20 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "punto_de_equilibrio"
+  tema: "tipo_cambio_flotante"
   nivel: "basico"
-  tags: ["conceptos", "fundamentos"]
+  tags: ["cambiario", "vocabulario"]
 
+enunciado: "¿Qué es un régimen de tipo de cambio flotante?"
 tipo: mc
-opciones_explicitas: ["El punto donde los ingresos totales son iguales a los costos totales", "El punto donde las ventas son máximas", "El punto donde los costos fijos son cero", "El punto donde la utilidad es máxima"]
-
-enunciado: "En economía y contabilidad, el punto de equilibrio se define como ___."
-
-respuesta: "El punto donde los ingresos totales son iguales a los costos totales"
+opciones_explicitas:
+  - "El valor de la moneda lo determina la oferta y demanda del mercado, sin que el banco central prometa sostener un número fijo"
+  - "El banco central fija por ley el valor exacto de la moneda"
+  - "Un régimen donde la moneda nacional no se puede comprar ni vender"
+respuesta: "El valor de la moneda lo determina la oferta y demanda del mercado, sin que el banco central prometa sostener un número fijo"
 
 explicacion: |
-  El punto de equilibrio (break-even point) es el nivel de actividad donde la empresa no obtiene beneficios ni pérdidas, es decir, donde el ingreso total es igual al costo total.
+  Es lo opuesto al tipo de cambio fijo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "punto_de_equilibrio"
+  tema: "tipo_cambio_flotante"
   nivel: "basico"
-  tags: ["conceptos", "utilidad"]
+  tags: ["cambiario", "vocabulario"]
 
-tipo: vf
+enunciado: "Bajo un tipo de cambio flotante, si hay más gente que quiere comprar una moneda que gente dispuesta a venderla, ¿qué pasa con su precio?"
+tipo: mc
+opciones_explicitas:
+  - "Sube"
+  - "Baja"
+  - "Se queda fijo por ley"
+respuesta: "Sube"
 
-enunciado: "En el punto de equilibrio, la utilidad de la empresa es exactamente cero."
+explicacion: |
+  Es la misma ley de oferta y demanda aplicada al mercado cambiario.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_flotante"
+  nivel: "basico"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "Bajo un tipo de cambio flotante, si hay más gente que quiere vender una moneda que gente dispuesta a comprarla, ¿qué pasa con su precio?"
+tipo: mc
+opciones_explicitas:
+  - "Baja"
+  - "Sube"
+  - "Se queda fijo por ley"
+respuesta: "Baja"
+
+explicacion: |
+  Es la misma ley de oferta y demanda aplicada al mercado cambiario.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_flotante"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
 
 respuesta: verdadero
+tipo: vf
+
+enunciado: "Bajo un tipo de cambio flotante, el banco central no se compromete a sostener ningún valor puntual de la moneda."
 
 explicacion: |
-  Es correcto. Si los ingresos igualan a los costos, la diferencia (utilidad) es cero.
+  Es la diferencia central frente al régimen fijo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "punto_de_equilibrio"
+  tema: "tipo_cambio_flotante"
   nivel: "intermedio"
-  tags: ["costos", "estructuras"]
+  tags: ["cambiario", "vocabulario"]
 
-tipo: completar
-respuestas_validas:
-  - "costos_fijos"
-
-enunciado: "Para calcular el punto de equilibrio en unidades, se requiere conocer los ___ (que no cambian con la producción), los costos variables (que dependen del volumen) y el precio de venta (valor por unidad)."
-
-pasos:
-  - "Identificar los costos fijos (CF)"
-  - "Identificar los costos variables unitarios (CVu)"
-  - "Identificar el precio de venta unitario (P)"
-  - "Aplicar la fórmula: CF / (P - CVu)"
-
-respuesta: "costos_fijos"
-
-explicacion: |
-  Para calcular el punto de equilibrio se necesitan los costos fijos, los costos variables unitarios y el precio de venta.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "basico"
-  tags: ["ingresos", "costos"]
-
+enunciado: "¿Qué es la \"flotación limpia\"?"
 tipo: mc
-opciones_explicitas: ["Ingresos > Costos", "Ingresos < Costos", "Ingresos = Costos", "Ingresos + Costos = 0"]
-
-enunciado: "Si una empresa se encuentra por encima de su punto de equilibrio en términos de ventas, esto significa que sus ingresos son ___ que sus costos totales."
-
-respuesta: "Ingresos > Costos"
+opciones_explicitas:
+  - "Cuando el banco central deja flotar la moneda sin ninguna intervención"
+  - "Cuando el banco central interviene todos los días para fijar el precio"
+  - "Otro nombre para el tipo de cambio fijo"
+respuesta: "Cuando el banco central deja flotar la moneda sin ninguna intervención"
 
 explicacion: |
-  Si las ventas superan el punto de equilibrio, la empresa está en la zona de ganancias (Ingresos > Costos). Si están por debajo, está en zona de pérdidas.
+  Es el caso extremo del régimen flotante, sin intervención alguna.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "punto_de_equilibrio"
+  tema: "tipo_cambio_flotante"
   nivel: "intermedio"
-  tags: ["procedimiento", "calculo"]
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Qué es la \"flotación administrada\" (o \"sucia\")?"
+tipo: mc
+opciones_explicitas:
+  - "El precio se mueve libremente la mayor parte del tiempo, pero el banco central interviene puntualmente para suavizar movimientos muy bruscos"
+  - "Un tipo de cambio completamente fijo, sin ninguna variación"
+  - "Un régimen donde está prohibido comprar moneda extranjera"
+respuesta: "El precio se mueve libremente la mayor parte del tiempo, pero el banco central interviene puntualmente para suavizar movimientos muy bruscos"
+
+explicacion: |
+  Es la variante más común en la práctica: la mayoría de los países no
+  aplica una flotación 100% limpia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_flotante"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la práctica, pocos países dejan flotar su moneda por completo sin ninguna intervención: la mayoría usa una flotación administrada."
+
+explicacion: |
+  Es una aclaración importante: \"flotante\" no siempre significa cero
+  intervención.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_flotante"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "Si cae el precio internacional de lo que un país exporta, ¿cómo ayuda un tipo de cambio flotante a absorber ese golpe?"
+tipo: mc
+opciones_explicitas:
+  - "La moneda se deprecia gradualmente, sin que el banco central tenga que gastar reservas defendiendo un valor insostenible"
+  - "El banco central prohíbe automáticamente exportar ese producto"
+  - "El shock no afecta en nada al tipo de cambio flotante"
+respuesta: "La moneda se deprecia gradualmente, sin que el banco central tenga que gastar reservas defendiendo un valor insostenible"
+
+explicacion: |
+  Es la ventaja central del régimen flotante: ajuste automático y
+  gradual.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_flotante"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El ajuste del tipo de cambio flotante ante un shock externo tiende a ser automático y gradual, distinto de una crisis puntual como puede ocurrir cuando un régimen fijo se rompe de golpe."
+
+explicacion: |
+  Es la comparación directa con lo que puede pasar en un régimen fijo
+  que no se puede sostener más.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_flotante"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Cuál es la principal desventaja de un tipo de cambio flotante frente a uno fijo?"
+tipo: mc
+opciones_explicitas:
+  - "El valor de la moneda puede variar bastante de un día para otro, complicando planificar a mediano plazo"
+  - "El banco central pierde el control total de la política monetaria"
+  - "Es imposible comerciar con otros países bajo este régimen"
+respuesta: "El valor de la moneda puede variar bastante de un día para otro, complicando planificar a mediano plazo"
+
+explicacion: |
+  Lo que se gana en flexibilidad, se pierde en certeza.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_flotante"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un banco central bajo un régimen flotante no necesita mantener un nivel enorme de reservas sólo para sostener un valor prometido, porque no prometió ningún valor puntual."
+
+explicacion: |
+  Es una diferencia directa con el régimen fijo, que sí depende de
+  reservas para defender su compromiso.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_flotante"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Qué ventaja tiene un país con tipo de cambio flotante para manejar su tasa de interés, comparado con uno de tipo de cambio fijo?"
+tipo: mc
+opciones_explicitas:
+  - "Tiene más margen para usarla con otros objetivos (como controlar la inflación o el empleo), sin poner en riesgo un valor prometido"
+  - "No puede usar la tasa de interés bajo ningún régimen flotante"
+  - "Está obligado por ley a mantenerla siempre en 0%"
+respuesta: "Tiene más margen para usarla con otros objetivos (como controlar la inflación o el empleo), sin poner en riesgo un valor prometido"
+
+explicacion: |
+  Recupera la independencia de política monetaria que un régimen fijo
+  restringe.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_flotante"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El dólar estadounidense, el euro y el yen japonés flotan libremente entre sí desde hace décadas."
+
+explicacion: |
+  Es un ejemplo real de tipo de cambio flotante entre monedas
+  importantes.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_flotante"
+  nivel: "basico"
+  tags: ["cambiario", "problema"]
+
+enunciado: "En un país con tipo de cambio flotante, un noticiero dice \"el dólar subió hoy\". ¿Qué tan excepcional es ese hecho?"
+tipo: mc
+opciones_explicitas:
+  - "No es excepcional: es un movimiento normal del mercado bajo este régimen"
+  - "Es un evento excepcional que sólo ocurre una vez por década"
+  - "No puede pasar nunca bajo un régimen flotante"
+respuesta: "No es excepcional: es un movimiento normal del mercado bajo este régimen"
+
+explicacion: |
+  Bajo flotación, el valor se mueve todos los días según oferta y
+  demanda.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_flotante"
+  nivel: "intermedio"
+  tags: ["cambiario", "problema"]
+
+enunciado: "Un país deja que el precio de su moneda cambie todos los días según cuánta gente quiere comprarla o venderla, sin comprometerse a ningún valor puntual. ¿Qué régimen tiene?"
+tipo: mc
+opciones_explicitas:
+  - "Tipo de cambio flotante"
+  - "Tipo de cambio fijo"
+  - "Ningún régimen cambiario existe en ese caso"
+respuesta: "Tipo de cambio flotante"
+
+explicacion: |
+  Es la definición central de un régimen flotante.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_flotante"
+  nivel: "avanzado"
+  tags: ["cambiario", "orden"]
 
 tipo: ordenar
-opciones_explicitas: ["Determinar costos fijos totales", "Calcular el margen de contribución unitario", "Dividir costos fijos por el margen de contribución"]
-
-enunciado: "Ordene los pasos lógicos para hallar el punto de equilibrio en unidades:"
-
-respuesta_orden: ["Determinar costos fijos totales", "Calcular el margen de contribución unitario", "Dividir costos fijos por el margen de contribución"]
+enunciado: "Ordená esta secuencia de cómo un tipo de cambio flotante absorbe una caída en el precio internacional de una exportación clave."
+opciones_explicitas:
+  - "El ajuste se absorbe gradualmente, sin gastar reservas del banco central"
+  - "El precio del dólar sube (la moneda local se deprecia)"
+  - "Cae el ingreso de dólares por esa exportación"
+  - "Baja la oferta de dólares en el mercado cambiario"
+respuesta_orden: ["Cae el ingreso de dólares por esa exportación", "Baja la oferta de dólares en el mercado cambiario", "El precio del dólar sube (la moneda local se deprecia)", "El ajuste se absorbe gradualmente, sin gastar reservas del banco central"]
 
 explicacion: |
-  Primero se deben conocer los costos fijos, luego la diferencia entre precio y costo variable (margen de contribución) y finalmente realizar la división.
+  Cada paso es consecuencia del anterior: menos dólares ofrecidos
+  suben su precio, y ese ajuste de precio absorbe el shock.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "basico"
-  tags: ["conceptos", "fundamentos"]
+  tema: "tipo_cambio_flotante"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El punto de equilibrio se define como el nivel de actividad donde los ingresos totales son exactamente iguales a los costos totales, lo que implica que la empresa no obtiene ni beneficios ni pérdidas."
+enunciado: "Que un país tenga tipo de cambio flotante no significa necesariamente que el banco central nunca intervenga en el mercado cambiario: la flotación administrada permite intervenciones puntuales."
 
 explicacion: |
-  Exacto. En el punto de equilibrio (break-even point), el beneficio es cero porque la utilidad es igual a Ingresos Totales menos Costos Totales.
+  Es la distinción entre flotación limpia y administrada.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "punto_de_equilibrio"
+  tema: "tipo_cambio_flotante"
   nivel: "intermedio"
-  tags: ["calculo", "unidades"]
+  tags: ["cambiario", "problema"]
 
-variables:
-  escenario: uno_de([["Precio: $100, Costo Variable: $60, Costo Fijo: $400", "10"], ["Precio: $50, Costo Variable: $30, Costo Fijo: $1000", "50"], ["Precio: $200, Costo Variable: $150, Costo Fijo: $500", "10"]])
-
-respuesta: escenario[1]
+enunciado: "Una empresa que necesita planificar el costo exacto de una importación dentro de 6 meses, sin sorpresas, ¿en qué régimen encuentra más previsibilidad para ese cálculo puntual?"
 tipo: mc
-opciones_explicitas: ["10", "20", "50", "100"]
-
-enunciado: "Una empresa tiene los siguientes datos: {escenario[0]}. ¿Cuántas unidades debe vender para alcanzar su punto de equilibrio?"
+opciones_explicitas:
+  - "En un tipo de cambio fijo"
+  - "En un tipo de cambio flotante"
+  - "La previsibilidad es exactamente igual en los dos regímenes"
+respuesta: "En un tipo de cambio fijo"
 
 explicacion: |
-  Para hallar el punto de equilibrio en unidades se usa la fórmula: 
-  Unidades = Costos Fijos / (Precio - Costo Variable).
-  En este caso: 400 / (100 - 60) = 400 / 40 = 10 unidades.
+  Es la ventaja de previsibilidad del régimen fijo frente al flotante,
+  vista desde el lado que le falta al flotante.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "intermedio"
-  tags: ["margen_contribucion"]
+  tema: "tipo_cambio_flotante"
+  nivel: "basico"
+  tags: ["cambiario"]
 
-respuesta: "margen de contribución"
 tipo: completar
+enunciado: "Completá: bajo un tipo de cambio flotante, el valor de la moneda lo determina la ___ (las dos fuerzas del mercado ya vistas en otro tema) del mercado cambiario."
 respuestas_validas:
-  - "margen de contribución"
-  - "margen de contribución unitario"
-
-enunciado: "La diferencia entre el precio de venta unitario y el costo variable unitario se denomina ___."
+  - "oferta y demanda"
+  - "oferta y la demanda"
 
 explicacion: |
-  El margen de contribución es la cantidad de dinero que cada unidad vendida aporta para cubrir los costos fijos y, una vez cubiertos estos, generar utilidad.
+  Es la misma ley de oferta y demanda vista en `oferta-y-demanda/`,
+  aplicada acá al mercado cambiario.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "intermedio"
-  tags: ["metodologia"]
-
-opciones_explicitas: ["Calcular el margen de contribución unitario", "Identificar costos fijos y variables", "Dividir los costos fijos por el margen de contribución"]
-respuesta_orden: ["Identificar costos fijos y variables", "Calcular el margen de contribución unitario", "Dividir los costos fijos por el margen de contribución"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos para calcular el punto de equilibrio en unidades de un producto."
-
-explicacion: |
-  Primero se deben clasificar los costos (Fijos vs Variables), luego se determina cuánto aporta cada unidad (Margen) y finalmente se divide el total de costos fijos por ese aporte.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "avanzado"
-  tags: ["calculo", "ingresos"]
-
-variables:
-  datos: uno_de([["Precio: $50, Costo Variable: $30, Costo Fijo: $1000", "2500"], ["Precio: $20, Costo Variable: $10, Costo Fijo: $500", "1000"], ["Precio: $10, Costo Variable: $5, Costo Fijo: $200", "400"]])
-
-respuesta: datos[1]
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si una empresa tiene los siguientes costos: {datos[0]}. ¿Cuál es el nivel de ingresos totales (en $) necesario para alcanzar el punto de equilibrio?"
-
-pasos:
-  - "1. Calcular unidades de equilibrio: Costo Fijo / (Precio - Costo Variable)"
-  - "2. Calcular ingresos: Unidades de equilibrio * Precio"
-
-explicacion: |
-  Siguiendo los datos:
-  1. Unidades = Costo Fijo / (Precio - Costo Variable)
-  2. Ingresos de equilibrio = Unidades de equilibrio * Precio
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
+  tema: "tipo_cambio_flotante"
   nivel: "basico"
-  tags: ["conceptos", "costos", "ingresos"]
-
-respuesta: "cero"
-tipo: "completar"
-respuestas_validas:
-  - "cero"
-  - "0"
-  - "0.0"
-
-enunciado: "En el punto de equilibrio, la diferencia entre los ingresos totales y los costos totales es igual a ___."
-
-explicacion: |
-  El punto de equilibrio es el nivel de actividad donde la empresa no obtiene beneficios ni pérdidas; es decir, la utilidad es exactamente cero.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "intermedio"
-  tags: ["costos_fijos", "costos_variables"]
-
-respuesta: "100"
-tipo: "mc"
-opciones_explicitas: ["100", "50", "20", "10"]
-
-enunciado: "Si una empresa tiene un costo fijo de 1000, un costo variable por unidad de 5 y un precio de venta de 15, ¿cuántas unidades debe vender para alcanzar el punto de equilibrio?"
-
-explicacion: |
-  La fórmula es: Q = Costo Fijo / (Precio - Costo Variable Unitario).
-  En este caso: 1000 / (15 - 5) = 1000 / 10 = 100.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "basico"
-  tags: ["verdadero_falso", "utilidad"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "Si una empresa se encuentra exactamente en su punto de equilibrio, significa que ha maximizado sus beneficios."
-
-explicacion: |
-  Falso. En el punto de equilibrio la utilidad es cero. El objetivo de la empresa suele ser operar por encima de ese punto para generar ganancias.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "intermedio"
-  tags: ["margen_de_contribucion", "ordenar"]
-
-tipo: "ordenar"
-opciones_explicitas: ["Precio de venta", "Costo Variable Unitario", "Margen de Contribución"]
-respuesta_orden: ["Precio de venta", "Costo Variable Unitario", "Margen de Contribución"]
-
-enunciado: "Para calcular el punto de equilibrio, primero debemos determinar el margen de contribución unitario. Ordena los elementos según la lógica de la resta para obtener dicho margen:"
-
-explicacion: |
-  El Margen de Contribución se obtiene restando el Costo Variable Unitario al Precio de Venta.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "avanzado"
-  tags: ["sensibilidad", "costos_fijos"]
-
-tipo: "mc"
-opciones_explicitas: ["aumenta", "disminuye", "se mantiene"]
-
-respuesta: "aumenta"
-
-enunciado: "Si los costos fijos de una empresa aumentan, el nivel de ventas necesario para alcanzar el punto de equilibrio ___."
-
-explicacion: |
-  Existe una relación directa: a mayores costos fijos, se requiere vender más unidades para cubrir esos costos y llegar al punto de equilibrio.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "basico"
-  tags: ["conceptos_clave", "costos"]
-
-respuesta: "punto de equilibrio"
-tipo: completar
-respuestas_validas:
-  - "punto de equilibrio"
-  - "Punto de Equilibrio"
-
-enunciado: "El nivel de ventas en el cual los ingresos totales son exactamente iguales a los costos totales, lo que implica que la empresa no obtiene beneficios ni pérdidas, se denomina ___."
-
-explicacion: |
-  En el punto de equilibrio (break-even point), la utilidad es cero porque la curva de ingresos intercepta a la curva de costos totales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "basico"
-  tags: ["comparacion", "utilidad"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si una empresa se encuentra exactamente en su punto de equilibrio, significa que ha maximizado su utilidad neta."
-
-explicacion: |
-  Falso. En el punto de equilibrio la utilidad es exactamente cero. La maximización de la utilidad ocurre en un nivel de ventas distinto, donde la diferencia entre ingresos y costos es la mayor posible.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "intermedio"
-  tags: ["costos_fijos", "costos_variables"]
-
-variables:
-  escenario: uno_de([["Costo Fijo: 1000, Costo Variable: 5, Precio: 15", "100"], ["Costo Fijo: 500, Costo Variable: 10, Precio: 30", "25"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["100", "25", "50", "200"]
-
-enunciado: "Considerando el siguiente escenario: {escenario[0]}, ¿cuál es la cantidad de unidades que se deben vender para alcanzar el punto de equilibrio?"
-
-pasos:
-  - "Calcular el Margen de Contribución Unitario: Precio - Costo Variable"
-  - "Dividir el Costo Fijo por el Margen de Contribución"
-
-explicacion: |
-  El cálculo es: Unidades = Costo Fijo / (Precio - Costo Variable). 
-  Para el caso 1: 1000 / (15 - 5) = 100.
-  Para el caso 2: 500 / (30 - 10) = 25.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "intermedio"
-  tags: ["sensibilidad", "costos_fijos"]
-
-variables:
-  caso: uno_de([["Aumento de costos fijos", "sube"], ["Aumento de precio de venta", "baja"], ["Disminución de costos variables", "baja"]])
-
-respuesta: caso[1]
-tipo: mc
-opciones_explicitas: ["sube", "baja", "se mantiene", "desaparece"]
-
-enunciado: "Si una empresa experimenta un {caso[0]}, el nivel de ventas necesario para alcanzar el punto de equilibrio ___."
-
-explicacion: |
-  Si los costos fijos aumentan, se necesita vender más para cubrir ese exceso de costos. Si el precio aumenta, se necesita vender menos para cubrir los mismos costos. Si el costo variable baja, el margen es mayor y se requiere vender menos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "intermedio"
-  tags: ["procedimiento", "analisis"]
-
-respuesta_orden: ["Identificar costos fijos y variables", "Calcular margen de contribución unitario", "Dividir costos fijos por margen de contribución"]
-tipo: ordenar
-opciones_explicitas: ["Dividir costos fijos por margen de contribución", "Identificar costos fijos y variables", "Calcular margen de contribución unitario"]
-
-enunciado: "Para calcular matemáticamente el punto de equilibrio en unidades, ¿cuál es el orden lógico de los pasos a seguir?"
-
-explicacion: |
-  Primero se deben clasificar los costos (fijos vs variables), luego determinar cuánto aporta cada unidad a cubrir los costos fijos (margen) y finalmente realizar la división.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "intermedio"
-  tags: ["costos", "ventas", "equilibrio"]
-
-variables:
-  escenarios: [[150, 500, 10, 5, 2], [200, 800, 15, 7, 3], [120, 450, 8, 4, 2]]
-  idx: uno_de([0, 1, 2])
-  p_v: escenarios[idx][0]
-  c_f: escenarios[idx][1]
-  c_v: escenarios[idx][2]
-  p_m: escenarios[idx][3]
-  c_f_extra: escenarios[idx][4]
-
-respuesta: c_f / (p_v - c_v)
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Una empresa tiene costos fijos de ${c_f}, un precio de venta de ${p_v} por unidad y un costo variable de ${c_v} por unidad. ¿Cuántas unidades debe vender para alcanzar el punto de equilibrio?"
-
-pasos:
-  - "Calcular el margen de contribución unitario: ${p_v} - ${c_v}"
-  - "Dividir los costos fijos totales por el margen de contribución: ${c_f} / (${p_v} - ${c_v})"
-
-explicacion: |
-  El punto de equilibrio se alcanza cuando los ingresos totales igualan a los costos totales. La fórmula es: Costos Fijos / (Precio de Venta - Costo Variable).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "basico"
-  tags: ["conceptos", "ganancia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si una empresa vende una cantidad de unidades exactamente igual a su punto de equilibrio, ¿obtiene una ganancia positiva?"
-
-explicacion: |
-  En el punto de equilibrio, la utilidad es exactamente cero, ya que los ingresos cubren exactamente los costos totales, sin excedentes.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "basico"
-  tags: ["costos", "terminos"]
-
-tipo: mc
-opciones_explicitas: ["Costo Variable", "Costo Fijo", "Ingreso Total", "Utilidad"]
-
-respuesta: "Costo Fijo"
-
-enunciado: "El componente que representa los gastos que no cambian independientemente del nivel de producción (como el alquiler) es el: ___"
-
-explicacion: |
-  Los costos fijos son aquellos que permanecen constantes en un rango determinado de producción, sin importar si se produce mucho o poco.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "intermedio"
-  tags: ["calculo", "utilidad"]
-
-variables:
-  escenarios: [[100, 1000, 20, 10], [150, 1500, 30, 15], [200, 2000, 40, 20]]
-  idx: uno_de([0, 1, 2])
-  p_v: escenarios[idx][0]
-  c_f: escenarios[idx][1]
-  c_v: escenarios[idx][2]
-  p_m: escenarios[idx][3]
-  q: 150
-
-respuesta: (q * p_v) - (c_f + (q * c_v))
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Si los costos fijos son ${c_f}, el precio de venta es ${p_v}, el costo variable es ${c_v} y se venden ${q} unidades, ¿cuál es la utilidad total?"
-
-pasos:
-  - "Calcular Ingreso Total: ${q} * ${p_v}"
-  - "Calcular Costo Total: ${c_f} + (${q} * ${c_v})"
-  - "Restar: Ingreso Total - Costo Total"
-
-explicacion: |
-  La utilidad es la diferencia entre el ingreso total por ventas y el costo total (fijos + variables).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "punto_de_equilibrio"
-  nivel: "basico"
-  tags: ["proceso", "metodologia"]
-
-respuesta_orden: ["Identificar costos fijos", "Calcular margen de contribución", "Dividir costos fijos por margen"]
-tipo: ordenar
-opciones_explicitas: ["Identificar costos fijos", "Calcular margen de contribución", "Dividir costos fijos por margen"]
-
-enunciado: "Ordena los pasos lógicos para calcular la cantidad de unidades en el punto de equilibrio:"
-
-explicacion: |
-  Primero se deben conocer los costos fijos, luego saber cuánto aporta cada unidad a cubrir esos costos (margen) y finalmente realizar la división.
-```
-
-## Sección: recibo-de-sueldo/general (22 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-enunciado: "¿Qué es el sueldo básico?"
-tipo: mc
-opciones_explicitas:
-  - "El monto acordado en el contrato o convenio, antes de cualquier ajuste"
-  - "Lo que efectivamente se cobra al final"
-  - "El total de los descuentos"
-respuesta: "El monto acordado en el contrato o convenio, antes de cualquier ajuste"
-
-explicacion: |
-  Es el punto de partida, antes de sumar adicionales o restar
-  descuentos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-enunciado: "¿Qué es el sueldo bruto?"
-tipo: mc
-opciones_explicitas:
-  - "El básico más los adicionales, antes de descontar nada"
-  - "Lo que efectivamente se cobra"
-  - "Sólo los descuentos"
-respuesta: "El básico más los adicionales, antes de descontar nada"
-
-explicacion: |
-  Bruto = Básico + Adicionales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-enunciado: "¿Qué es el sueldo neto?"
-tipo: mc
-opciones_explicitas:
-  - "Lo que efectivamente se cobra, después de los descuentos"
-  - "El monto acordado en el contrato"
-  - "El bruto sin ningún ajuste"
-respuesta: "Lo que efectivamente se cobra, después de los descuentos"
-
-explicacion: |
-  Neto = Bruto − Descuentos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "calculo"]
-
-variables:
-  basico: random(20, 90) * 1000
-  adicional: random(2, 20) * 1000
-
-respuesta: basico + adicional
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El básico es ${basico} y los adicionales suman ${adicional}. ¿Cuál es el sueldo bruto?"
-
-explicacion: |
-  Se suma el básico más los adicionales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "calculo"]
-
-variables:
-  bruto: random(30, 150) * 1000
-  descuentos: random(3, 25) * 1000
-
-respuesta: bruto - descuentos
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El sueldo bruto es ${bruto} y los descuentos suman ${descuentos}. ¿Cuál es el sueldo neto?"
-
-explicacion: |
-  Se resta el total de descuentos al bruto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "calculo"]
-
-variables:
-  bruto: random(30, 150) * 1000
-  neto: bruto - random(3, 25) * 1000
-
-respuesta: bruto - neto
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El sueldo bruto es ${bruto} y el neto es ${neto}. ¿Cuánto suman los descuentos?"
-
-explicacion: |
-  Descuentos = Bruto − Neto (la misma resta, mirada al revés).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "calculo"]
-
-variables:
-  bruto: random(30, 150) * 1000
-  porcentaje: uno_de([5, 10, 15, 20])
-
-respuesta: bruto * porcentaje / 100
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "El sueldo bruto es ${bruto} y un descuento puntual es del {porcentaje}%. ¿Cuánto es ese descuento en pesos?"
-
-explicacion: |
-  Se calcula el porcentaje del bruto, igual que cualquier cálculo de
-  porcentaje.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "calculo"]
-
-variables:
-  basico: random(20, 90) * 1000
-  antiguedad: random(1, 10) * 1000
-  presentismo: random(1, 8) * 1000
-
-respuesta: basico + antiguedad + presentismo
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Básico ${basico}, más antigüedad ${antiguedad}, más presentismo ${presentismo}. ¿Cuál es el sueldo bruto?"
-
-explicacion: |
-  Se suman todos los componentes: básico y cada adicional.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "vocabulario"]
+  tags: ["cambiario", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El sueldo bruto es la suma del básico más todos los adicionales."
+enunciado: "Un tipo de cambio flotante deja que el mercado determine el valor de la moneda día a día, ganando margen de política monetaria y absorción automática de shocks, a cambio de menos previsibilidad."
 
 explicacion: |
-  Es la fórmula central del primer paso del recibo.
+  Es la idea central de todo el tema: la contracara exacta del
+  régimen fijo.
 ```
+
+## Sección: neoliberalismo (11 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El sueldo neto es el bruto menos todos los descuentos."
-
-explicacion: |
-  Es la fórmula central del segundo paso del recibo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El sueldo neto nunca puede ser mayor que el sueldo bruto."
-
-explicacion: |
-  Los descuentos restan (o, como mucho, no restan nada): el neto nunca
-  supera al bruto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando alguien dice \"gano tanto por mes\", casi siempre se refiere al sueldo neto (lo que ve reflejado en su cuenta)."
-
-explicacion: |
-  El bruto es más el número que figura en ofertas de trabajo o
-  negociaciones, no el que la gente usa en la conversación cotidiana.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
+  tema: "neoliberalismo"
   nivel: "intermedio"
-  tags: ["recibo_de_sueldo"]
-
-variables:
-  bruto: random(30, 150) * 1000
-  descuentos: random(3, 25) * 1000
-  correcto: bruto - descuentos
-
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - bruto + descuentos
-  - descuentos - bruto
-
-enunciado: "Bruto ${bruto}, descuentos ${descuentos}. ¿Cuál es el neto?"
-
-explicacion: |
-  Las otras opciones suman en vez de restar, o restan al revés.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "verificacion"]
-
-variables:
-  bruto: random(30, 150) * 1000
-  descuentos: random(3, 25) * 1000
-  correcto: bruto - descuentos
-  error: uno_de([0, 0, 0, 1000, -1000])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? Bruto ${bruto}, descuentos ${descuentos}, neto ${mostrado}."
-
-explicacion: |
-  Se vuelve a restar y se compara.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo"]
-
-variables:
-  basico: random(20, 90) * 1000
-  adicional: random(2, 20) * 1000
-  bruto: basico + adicional
-
-tipo: completar
-enunciado: "Completá: ___ (básico) + ${adicional} (adicionales) = ${bruto} (bruto)."
-respuestas_validas:
-  - basico
-
-explicacion: |
-  Se despeja restando: bruto − adicionales = básico.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "problema"]
-
-variables:
-  bruto: random(30, 150) * 1000
-  porcentaje: uno_de([10, 15, 20])
-
-respuesta: bruto * (1 - porcentaje / 100)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "El sueldo bruto es ${bruto}, y los descuentos suman un {porcentaje}% del bruto. ¿Cuál es el neto?"
-
-pasos:
-  - "{bruto} × (1 - {porcentaje}/100) = {bruto * (1 - porcentaje / 100)}"
-
-explicacion: |
-  Descontar un porcentaje es multiplicar por (1 − porcentaje/100).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "avanzado"
-  tags: ["recibo_de_sueldo", "problema"]
-
-variables:
-  bruto: random(30, 150) * 1000
-  p1: uno_de([5, 10])
-  p2: uno_de([3, 5])
-
-respuesta: bruto - (bruto * p1 / 100) - (bruto * p2 / 100)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "El sueldo bruto es ${bruto}, con dos descuentos calculados por separado sobre el bruto: uno del {p1}% y otro del {p2}%. ¿Cuál es el neto?"
-
-pasos:
-  - "{bruto} - ({bruto}×{p1}/100) - ({bruto}×{p2}/100) = {bruto - (bruto * p1 / 100) - (bruto * p2 / 100)}"
-
-explicacion: |
-  Cuando cada descuento se calcula sobre el bruto (no en cadena), se
-  pueden restar por separado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "comparacion"]
-
-variables:
-  a: random(30, 150) * 1000
-  b: random(30, 150) * 1000
-
-restricciones:
-  - a != b
-
-respuesta: (a > b)
-tipo: vf
-
-enunciado: "¿Es ${a} de sueldo bruto mayor que ${b}?"
-
-explicacion: |
-  Se comparan directamente los montos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos sueldos netos de menor a mayor."
-opciones_explicitas:
-  - "$85.000"
-  - "$62.000"
-  - "$120.000"
-  - "$45.000"
-respuesta_orden: ["$45.000", "$62.000", "$85.000", "$120.000"]
-
-explicacion: |
-  Se ordenan como cualquier lista de montos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los descuentos del sueldo suelen financiar sistemas colectivos (como jubilación futura o cobertura de salud), no son sólo \"plata perdida\"."
-
-explicacion: |
-  El detalle concreto de qué se financia varía según el país y el
-  sistema — pero la lógica de fondo es esa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Qué adicionales tiene un sueldo (antigüedad, presentismo, horas extra...) depende de cada trabajo y convenio puntual, no es igual en todos los empleos."
-
-explicacion: |
-  Lo universal es la fórmula (básico + adicionales = bruto), no la lista
-  específica de adicionales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_general"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Básico, bruto y neto son tres números distintos de un mismo sueldo, y confundirlos es un error común."
-
-explicacion: |
-  Es la idea central de todo el tema.
-```
-
-## Sección: sectores-economicos (20 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "basico"
-  tags: ["sector_primario", "clasificacion"]
-
-variables:
-  actividad: uno_de(["agricultura", "ganadería", "pesca", "minería"])
-  descripcion: |
-    Si {actividad} == "agricultura" entonces "cultivo de plantas"
-    elif {actividad} == "ganadería" entonces "cría de animales"
-    elif {actividad} == "pesca" entonces "captura de peces"
-    else "extracción de minerales"
-
-respuesta: "sector_primario"
-tipo: input
-
-enunciado: "La actividad de {actividad}, que implica {descripcion}, se clasifica dentro del sector económico:"
-
-explicacion: |
-  El sector primario comprende las actividades que extraen recursos naturales directamente del medio ambiente sin transformarlos significativamente.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "basico"
-  tags: ["sector_secundario", "industria"]
-
-variables:
-  producto: uno_de(["automóvil", "camisa", "cemento"])
-  proceso: uno_de(["ensamblaje", "tejido", "mezclado"])
-
-respuesta: "sector_secundario"
-tipo: input
-
-enunciado: "La fabricación de un {producto} mediante el proceso de {proceso} corresponde al sector:"
-
-explicacion: |
-  El sector secundario transforma las materias primas en bienes manufacturados, agregando valor mediante la industria o la construcción.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "avanzado"
-  tags: ["evolucion", "historia_economica"]
-
-variables:
-  etapa: uno_de(["preindustrial", "industrial", "postindustrial"])
-  sector_dominante: |
-    si etapa == "preindustrial" entonces "primario"
-    si etapa == "industrial" entonces "secundario"
-    si etapa == "postindustrial" entonces "terciario"
-
-respuesta: sector_dominante
-tipo: input
-
-enunciado: "En la etapa de {etapa}, el sector económico con mayor peso en el empleo y el PIB suele ser el sector {sector_dominante}."
-
-explicacion: |
-  Las economías evolucionan desde la dependencia del sector primario, pasando por la industrialización (secundario), hasta predominar los servicios (terciario) en etapas avanzadas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "basico"
-  tags: ["argentina", "primario"]
-
-variables:
-  recurso: uno_de(["soja", "trigo", "carne", "petróleo"])
-
-respuesta: "sector_primario"
-tipo: input
-
-enunciado: "La exportación de {recurso} es una actividad típica del sector económico:"
-
-explicacion: |
-  La producción y exportación de materias primas agrícolas o energéticas corresponde al sector primario, base de la economía argentina.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "avanzado"
-  tags: ["sector_cuaternario", "tecnologia"]
-
-variables:
-  actividad: uno_de(["investigación científica", "desarrollo de software", "consultoría estratégica"])
-
-respuesta: "sector_cuaternario"
-tipo: input
-
-enunciado: "La actividad de {actividad} se clasifica tradicionalmente en el sector cuaternario o de conocimiento."
-
-explicacion: |
-  El sector cuaternario es una extensión del terciario que se enfoca en el conocimiento, la información y la tecnología, siendo clave en economías modernas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "basico"
-  tags: ["sector_terciario", "ejemplos"]
-
-variables:
-  negocio: uno_de(["restaurante", "banco", "hospital", "empresa de transporte"])
-
-respuesta: "sector_terciario"
-tipo: input
-
-enunciado: "Un {negocio} pertenece al sector económico:"
-
-explicacion: |
-  Los negocios que ofrecen servicios (comida, dinero, salud, movimiento) pertenecen al sector terciario.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "avanzado"
-  tags: ["desarrollo", "estructura_economica"]
-
-variables:
-  pais_tipo: uno_de(["desarrollado", "en desarrollo"])
-  peso_terciario: |
-    si pais_tipo == "desarrollado" entonces "mayor"
-    si pais_tipo == "en desarrollo" entonces "menor"
-
-respuesta: "sector_terciario"
-tipo: input
-
-enunciado: "En un país {pais_tipo}, el sector con mayor peso relativo en el PIB suele ser el sector {peso_terciario} (nota: completar con el nombre del sector que predomina)."
-
-explicacion: |
-  En economías desarrolladas, el sector terciario (y cuaternario) domina la estructura económica, mientras que en las en desarrollo el primario o secundario tienen mayor peso relativo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "intermedio"
-  tags: ["transformacion", "secundario"]
-
-variables:
-  materia: uno_de(["leche", "caña de azúcar", "trigo"])
-  producto: uno_de(["queso", "etanol", "harina"])
-
-respuesta: "sector_secundario"
-tipo: input
-
-enunciado: "La transformación de {materia} en {producto} es una actividad del sector:"
-
-explicacion: |
-  La industrialización de productos primarios (leche a queso, caña a etanol) corresponde al sector secundario.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "basico"
-  tags: ["clasificacion", "ejercicios"]
-
-variables:
-  actividad: uno_de(["extracción de petróleo", "construcción de puentes", "enseñanza universitaria"])
-  sector_correcto: |
-    si actividad == "extracción de petróleo" entonces "primario"
-    si actividad == "construcción de puentes" entonces "secundario"
-    si actividad == "enseñanza universitaria" entonces "terciario"
-
-respuesta: sector_correcto
-tipo: input
-
-enunciado: "La actividad '{actividad}' corresponde al sector:"
-
-explicacion: |
-  Se debe identificar si la actividad extrae recursos (primario), transforma/construye (secundario) o presta un servicio (terciario).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "intermedio"
-  tags: ["bienes_capital", "industria"]
-
-variables:
-  bien: uno_de(["maquinaria agrícola", "computadora industrial", "ladrillo"])
-
-respuesta: "sector_secundario"
-tipo: input
-
-enunciado: "La fabricación de {bien} es una actividad del sector secundario, ya sea como bien de consumo o de capital."
-
-explicacion: |
-  El sector secundario produce tanto bienes de consumo final como bienes de capital necesarios para otras industrias.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "basico"
-  tags: ["definicion", "servicios"]
-
-variables:
-  concepto: "servicios"
-
-respuesta: "sector_terciario"
-tipo: input
-
-enunciado: "El sector que se dedica a la prestación de {concepto} en lugar de la producción de bienes físicos es el:"
-
-explicacion: |
-  El sector terciario se define por la generación de servicios intangibles.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "intermedio"
-  tags: ["seguridad_alimentaria", "primario"]
-
-variables:
-  producto: uno_de(["granos", "carne", "leche"])
-
-respuesta: "sector_primario"
-tipo: input
-
-enunciado: "La producción de {producto} es crucial para la seguridad alimentaria y pertenece al sector:"
-
-explicacion: |
-  La base de la alimentación proviene del sector primario (agricultura y ganadería).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "avanzado"
-  tags: ["cuaternario", "investigacion"]
-
-variables:
-  area: uno_de(["biotech", "finanzas algorítmicas", "consultoría ambiental"])
-
-respuesta: "sector_cuaternario"
-tipo: input
-
-enunciado: "La actividad en el área de {area} se clasifica en el sector cuaternario."
-
-explicacion: |
-  El sector cuaternario engloba actividades basadas en el conocimiento especializado y la innovación.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "basico"
-  tags: ["empleo", "terciario"]
-
-variables:
-  pais: uno_de(["Argentina", "Alemania", "Japón"])
-  sector_empleo: "terciario"
-
-respuesta: "sector_terciario"
-tipo: input
-
-enunciado: "En la mayoría de las economías modernas, incluido {pais}, el sector que genera más empleo es el sector:"
-
-explicacion: |
-  La terciarización de la economía implica que la mayoría de la fuerza laboral se dedica a servicios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "basico"
-  tags: ["minería", "primario"]
-
-variables:
-  mineral: uno_de(["cobre", "oro", "litio"])
-
-respuesta: "sector_primario"
-tipo: input
-
-enunciado: "La extracción de {mineral} es una actividad del sector primario."
-
-explicacion: |
-  La minería es la extracción de recursos minerales del subsuelo, parte del sector primario.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "basico"
-  tags: ["construccion", "secundario"]
-
-variables:
-  obra: uno_de(["edificio", "carretera", "puente"])
-
-respuesta: "sector_secundario"
-tipo: input
-
-enunciado: "La construcción de un {obra} pertenece al sector secundario."
-
-explicacion: |
-  La construcción es la actividad manufacturera que crea infraestructura y bienes inmuebles.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "intermedio"
-  tags: ["turismo", "terciario"]
-
-variables:
-  destino: uno_de(["Bariloche", "Mendoza", "Mar del Plata"])
-
-respuesta: "sector_terciario"
-tipo: input
-
-enunciado: "El turismo en {destino} es una actividad económica del sector terciario."
-
-explicacion: |
-  El turismo implica servicios de alojamiento, transporte y entretenimiento, todos del sector terciario.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "avanzado"
-  tags: ["educacion", "cuaternario"]
-
-variables:
-  institucion: "universidad de investigación"
-
-respuesta: "sector_cuaternario"
-tipo: input
-
-enunciado: "La generación de nuevo conocimiento en una {institucion} se asocia al sector cuaternario."
-
-explicacion: |
-  La educación superior e investigación básica aplicada es la base del sector cuaternario.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "intermedio"
-  tags: ["finanzas", "terciario"]
-
-variables:
-  servicio: "banca comercial"
-
-respuesta: "sector_terciario"
-tipo: input
-
-enunciado: "La {servicio} es una actividad del sector terciario."
-
-explicacion: |
-  Los servicios financieros intermediarios pertenecen al sector terciario.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "sectores_economicos"
-  nivel: "intermedio"
-  tags: ["evolucion_economica", "historia"]
-
-variables:
-  etapa: uno_de(["preindustrial", "industrial", "postindustrial"])
-
-respuesta: "primario"
-tipo: completar
-
-enunciado: "En las economías {etapa}, el sector primario suele tener el peso relativo más alto en el empleo y el PIB."
-
-explicacion: |
-  En las etapas preindustriales o en países en desarrollo, la economía depende fuertemente del sector primario. A medida que avanza el desarrollo, el peso relativo disminuye frente al secundario y terciario.
-```
-
-## Sección: recibo-de-sueldo/argentina (24 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-enunciado: "¿Cuáles son los tres aportes obligatorios del empleado en Argentina (sector privado)?"
-tipo: mc
-opciones_explicitas:
-  - "Jubilación, obra social y PAMI"
-  - "IVA, ganancias y bienes personales"
-  - "Sindicato, presentismo y antigüedad"
-respuesta: "Jubilación, obra social y PAMI"
-
-explicacion: |
-  Son los tres aportes personales que se descuentan del bruto en
-  cualquier recibo de sueldo en blanco.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo"]
-
-respuesta: 17
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Jubilación 11% + obra social 3% + PAMI 3%. ¿Qué porcentaje total del bruto representan los tres aportes juntos?"
-
-explicacion: |
-  11 + 3 + 3 = 17% del bruto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "calculo"]
-
-variables:
-  bruto: random(50, 300) * 1000
-
-respuesta: bruto * 0.11
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Con un sueldo bruto de ${bruto}, ¿cuánto se descuenta por jubilación (11%)?"
-
-explicacion: |
-  Es el aporte más grande de los tres.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "calculo"]
-
-variables:
-  bruto: random(50, 300) * 1000
-
-respuesta: bruto * 0.03
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Con un sueldo bruto de ${bruto}, ¿cuánto se descuenta por obra social (3%)?"
-
-explicacion: |
-  Financia la cobertura de salud del trabajador y su familia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "calculo"]
-
-variables:
-  bruto: random(50, 300) * 1000
-
-respuesta: bruto * 0.03
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Con un sueldo bruto de ${bruto}, ¿cuánto se descuenta por PAMI/INSSJP (3%)?"
-
-explicacion: |
-  Financia la cobertura de salud de los jubilados.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "calculo"]
-
-variables:
-  bruto: random(50, 300) * 1000
-
-respuesta: bruto * 0.17
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Con un sueldo bruto de ${bruto}, ¿cuánto suman los tres aportes obligatorios juntos (17%)?"
-
-explicacion: |
-  Jubilación (11%) + obra social (3%) + PAMI (3%) = 17% del bruto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "calculo"]
-
-variables:
-  bruto: random(50, 300) * 1000
-
-respuesta: bruto * 0.83
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Con un sueldo bruto de ${bruto}, y sin otros descuentos, ¿cuál es el neto después de los tres aportes obligatorios?"
-
-pasos:
-  - "{bruto} × (1 - 0,17) = {bruto} × 0,83 = {bruto * 0.83}"
-
-explicacion: |
-  Se descuenta el 17% total: queda el 83% del bruto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los aportes del empleado y las contribuciones patronales son exactamente lo mismo, sólo que con otro nombre."
-
-explicacion: |
-  Los aportes los paga el empleado (se ven en su recibo); las
-  contribuciones patronales las paga el empleador, aparte, sobre el mismo
-  bruto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las contribuciones patronales las paga el empleador, no se descuentan del sueldo del empleado."
-
-explicacion: |
-  Por eso no aparecen restadas en el recibo del trabajador, aunque sí
-  forman parte del costo laboral total para la empresa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "avanzado"
-  tags: ["recibo_de_sueldo", "problema"]
-
-variables:
-  bruto: random(50, 300) * 1000
-  sindicato: uno_de([1, 2, 3])
-
-respuesta: bruto * (1 - 0.17 - sindicato / 100)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Sueldo bruto ${bruto}, con los aportes obligatorios (17%) más una cuota sindical del {sindicato}%. ¿Cuál es el neto?"
-
-pasos:
-  - "{bruto} × (1 - 0,17 - {sindicato}/100) = {bruto * (1 - 0.17 - sindicato / 100)}"
-
-explicacion: |
-  Se suman todos los porcentajes de descuento y se restan juntos del
-  bruto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "aguinaldo"]
-
-variables:
-  mejor_sueldo: random(50, 300) * 1000
-
-respuesta: mejor_sueldo / 2
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "El mejor sueldo bruto del semestre fue ${mejor_sueldo}. ¿Cuánto corresponde de aguinaldo (SAC) ese semestre?"
-
-explicacion: |
-  El aguinaldo es la mitad del mejor sueldo del semestre.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "aguinaldo"]
-
-respuesta: 13
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Contando los 12 sueldos mensuales más el aguinaldo (medio sueldo dos veces al año, o sea un sueldo completo repartido en dos pagos), ¿a cuántos sueldos equivale el total cobrado en un año?"
-
-explicacion: |
-  12 sueldos mensuales + el equivalente a 1 sueldo más de aguinaldo (dos
-  mitades) = 13 sueldos por año.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "avanzado"
-  tags: ["recibo_de_sueldo", "problema", "aguinaldo"]
-
-variables:
-  sueldo_mensual: random(50, 300) * 1000
-
-respuesta: sueldo_mensual * 13
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Alguien cobra ${sueldo_mensual} de bruto todos los meses del año, sin cambios. Contando el aguinaldo, ¿cuánto cobra de bruto en todo el año?"
-
-pasos:
-  - "{sueldo_mensual} × 13 = {sueldo_mensual * 13}"
-
-explicacion: |
-  12 sueldos mensuales más el equivalente a 1 sueldo de aguinaldo (medio
-  sueldo en junio, medio en diciembre).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "verificacion"]
-
-variables:
-  bruto: random(50, 300) * 1000
-  correcto: bruto * 0.17
-  error: uno_de([0, 0, 0, 1000, -1000])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 1)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? Con bruto ${bruto}, los aportes obligatorios (17%) dan ${mostrado}."
-
-explicacion: |
-  Se vuelve a calcular el 17% del bruto y se compara.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo"]
-
-variables:
-  bruto: random(50, 300) * 1000
-  correcto: bruto * 0.83
-
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - bruto * 0.17
-  - bruto * 1.17
-
-enunciado: "Sueldo bruto ${bruto}, sólo con los tres aportes obligatorios (17%). ¿Cuál es el neto?"
-
-explicacion: |
-  La segunda opción es el DESCUENTO, no el neto; la tercera suma en vez
-  de restar.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "avanzado"
-  tags: ["recibo_de_sueldo"]
-
-variables:
-  bruto: random(50, 300) * 1000
-  neto: bruto * 0.83
-
-tipo: completar
-enunciado: "Un trabajador cobra ${neto} de neto, después de los aportes obligatorios (17%) y sin otros descuentos. Completá cuál era el sueldo bruto."
-respuestas_validas:
-  - neto / 0.83
-
-explicacion: |
-  bruto = neto ÷ 0,83 (deshacer el descuento del 17%).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "comparacion"]
-
-variables:
-  a: random(50, 300) * 1000
-  b: random(50, 300) * 1000
-
-restricciones:
-  - a != b
-
-respuesta: ((a * 0.17) > (b * 0.17))
-tipo: vf
-
-enunciado: "¿Descuenta más de aportes obligatorios un bruto de ${a} que uno de ${b}?"
-
-explicacion: |
-  A mayor bruto, mayor el monto de aportes (el porcentaje es el mismo,
-  17%, pero se aplica sobre una base más grande).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "avanzado"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para el empleador, el costo real de un empleado es mayor que el sueldo bruto, porque además paga las contribuciones patronales aparte."
-
-explicacion: |
-  El bruto es lo que ve reflejado el empleado en su recibo; el empleador
-  paga ese bruto MÁS las contribuciones patronales, que no se descuentan
-  del sueldo del trabajador.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "De los tres aportes obligatorios, la jubilación (11%) es el más grande — más que obra social y PAMI juntos (3%+3%=6%)."
-
-explicacion: |
-  11% es más que 6%: la jubilación es, por lejos, el aporte más grande.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos tres aportes de menor a mayor porcentaje (puede haber empate)."
-opciones_explicitas:
-  - "Jubilación"
-  - "PAMI"
-  - "Obra social"
-respuesta_orden: ["PAMI", "Obra social", "Jubilación"]
-
-explicacion: |
-  PAMI y obra social empatan en 3% cada uno; jubilación es 11%, el más
-  grande de los tres.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "intermedio"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia de jubilación, obra social y PAMI (obligatorios en todo el país), la cuota sindical depende de cada actividad y convenio."
-
-explicacion: |
-  No todos los trabajos tienen sindicato con cuota, ni el porcentaje es
-  el mismo en todos los gremios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "avanzado"
-  tags: ["recibo_de_sueldo", "aguinaldo", "problema"]
-
-variables:
-  sueldo1: random(50, 200) * 1000
-  sueldo2: sueldo1 + random(10, 50) * 1000
-
-respuesta: sueldo2 / 2
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "En un semestre, alguien cobró ${sueldo1} un mes y ${sueldo2} otro (el resto igual o menos). ¿Cuánto le corresponde de aguinaldo ese semestre?"
-
-explicacion: |
-  El aguinaldo se calcula sobre el MEJOR sueldo del semestre, no sobre un
-  promedio.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "aguinaldo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El aguinaldo (SAC) se cobra en dos pagos al año: uno en junio y otro en diciembre."
-
-explicacion: |
-  Cada pago es la mitad del mejor sueldo del semestre correspondiente.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "recibo_de_sueldo_argentina"
-  nivel: "basico"
-  tags: ["recibo_de_sueldo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En Argentina, un empleado en blanco del sector privado tiene tres aportes obligatorios sobre el bruto: jubilación (11%), obra social (3%) y PAMI (3%)."
-
-explicacion: |
-  Es la idea central de este módulo: la aplicación concreta del concepto
-  general de \"descuentos\" a la legislación laboral argentina.
-```
-
-## Sección: socialismo-utopico (10 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "socialismo_utopico"
-  nivel: "basico"
   tags: ["corrientes", "vocabulario"]
 
-enunciado: "¿Qué sostiene el socialismo utópico sobre qué forma el carácter de una persona?"
+enunciado: "Según el monetarismo, ¿cuál es la causa principal de la inflación?"
 tipo: mc
 opciones_explicitas:
-  - "El entorno en el que crece (educación, trato, condiciones de vida), no una elección individual libre"
-  - "Únicamente una elección libre e individual, sin influencia del entorno"
-  - "La cantidad de oro que posee su familia"
-respuesta: "El entorno en el que crece (educación, trato, condiciones de vida), no una elección individual libre"
+  - "Que la cantidad de dinero en circulación crece más rápido que la producción real de bienes y servicios"
+  - "Que el Estado gasta demasiado poco"
+  - "Que hay demasiada competencia entre empresas"
+respuesta: "Que la cantidad de dinero en circulación crece más rápido que la producción real de bienes y servicios"
 
 explicacion: |
-  Es la idea central de Robert Owen: rediseñar el entorno para mejorar
-  a las personas, en vez de castigar los vicios que ese mismo entorno
-  produjo.
+  Es la idea central de Milton Friedman en *Capitalismo y libertad*
+  (1962): la inflación es, en esencia, un fenómeno monetario.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "socialismo_utopico"
+  tema: "neoliberalismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia central entre lo que propone el monetarismo y lo que propone el keynesianismo como herramienta principal de política económica?"
+tipo: mc
+opciones_explicitas:
+  - "El monetarismo prioriza controlar la cantidad de dinero que emite el banco central; el keynesianismo prioriza el gasto público directo"
+  - "Las dos corrientes proponen exactamente la misma herramienta"
+  - "El monetarismo propone eliminar el dinero; el keynesianismo propone eliminar el Estado"
+respuesta: "El monetarismo prioriza controlar la cantidad de dinero que emite el banco central; el keynesianismo prioriza el gasto público directo"
+
+explicacion: |
+  Cada corriente identifica una palanca distinta como la más
+  importante para estabilizar la economía.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "neoliberalismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "problema"]
+
+enunciado: "Un banco central sube fuertemente la tasa de interés, priorizando controlar cuánto dinero circula, para frenar la inflación. ¿Con qué corriente se corresponde mejor esta decisión?"
+tipo: mc
+opciones_explicitas:
+  - "Monetarismo"
+  - "Marxismo"
+  - "Fisiocracia"
+respuesta: "Monetarismo"
+
+explicacion: |
+  Controlar la cantidad de dinero es la herramienta central que
+  propone el monetarismo contra la inflación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "neoliberalismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "¿A qué se le llama \"neoliberalismo\"?"
+tipo: mc
+opciones_explicitas:
+  - "Al programa de política económica, aplicado desde los años 80, cercano al monetarismo y a la escuela austríaca: privatización, apertura comercial, desregulación"
+  - "A la primera corriente económica de la historia, anterior al mercantilismo"
+  - "A un sinónimo exacto del keynesianismo"
+respuesta: "Al programa de política económica, aplicado desde los años 80, cercano al monetarismo y a la escuela austríaca: privatización, apertura comercial, desregulación"
+
+explicacion: |
+  Se lo asocia con políticas aplicadas en el Reino Unido, Estados
+  Unidos y Chile desde los años 80.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "neoliberalismo"
   nivel: "intermedio"
   tags: ["corrientes", "contexto"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Robert Owen no era sólo un teórico: era un empresario textil que puso en práctica sus ideas gestionando los molinos de New Lanark, en Escocia, desde 1800."
+enunciado: "El neoliberalismo se asocia con políticas aplicadas en el Reino Unido (gobierno de Thatcher), Estados Unidos (gobierno de Reagan) y Chile (los \"Chicago Boys\") desde la década de 1980."
 
 explicacion: |
-  A diferencia de otras corrientes de este bloque, el socialismo
-  utópico nace de una experiencia empresarial concreta, no sólo de un
-  tratado teórico.
+  Son los ejemplos históricos más citados de aplicación de este
+  programa de política económica.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "socialismo_utopico"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
+  tema: "neoliberalismo"
+  nivel: "basico"
+  tags: ["corrientes", "autor"]
 
-enunciado: "¿Qué medidas aplicó Robert Owen en la fábrica de New Lanark?"
+enunciado: "¿Quién escribió *Libertad de elegir* (1980), obra de divulgación más influyente asociada al neoliberalismo?"
 tipo: mc
 opciones_explicitas:
-  - "Redujo la jornada laboral, prohibió el trabajo de los niños más pequeños, construyó viviendas dignas y fundó una escuela infantil"
-  - "Aumentó la jornada laboral para maximizar la producción"
-  - "Eliminó todo tipo de educación para los hijos de los obreros"
-respuesta: "Redujo la jornada laboral, prohibió el trabajo de los niños más pequeños, construyó viviendas dignas y fundó una escuela infantil"
+  - "Milton Friedman (con Rose Friedman)"
+  - "John Maynard Keynes"
+  - "Wilhelm Röpke"
+respuesta: "Milton Friedman (con Rose Friedman)"
 
 explicacion: |
-  Fue uno de los primeros empresarios en aplicar estas medidas de
-  forma sistemática dentro de una fábrica industrial.
+  Fue publicada como complemento de una serie documental de televisión
+  del mismo nombre.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "socialismo_utopico"
+  tema: "neoliberalismo"
   nivel: "avanzado"
-  tags: ["corrientes", "vocabulario"]
+  tags: ["corrientes", "contexto"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Owen sostenía que había demostrado, con los propios registros contables de la empresa, que un trato más humano hacia los trabajadores no arruinaba el negocio: New Lanark siguió siendo rentable."
+enunciado: "A los economistas chilenos conocidos como \"Chicago Boys\" se los llama así porque se formaron en la Universidad de Chicago, donde enseñaba Milton Friedman."
 
 explicacion: |
-  Es el argumento central de Owen frente a quienes sostenían que
-  mejorar las condiciones laborales era económicamente inviable.
+  Aplicaron en Chile, desde los años 70-80, un programa de política
+  económica cercano al neoliberalismo y al monetarismo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "socialismo_utopico"
-  nivel: "intermedio"
-  tags: ["corrientes", "autor"]
-
-enunciado: "¿Cómo se llama la obra en la que Robert Owen expone su idea de que el carácter se forma por el entorno, publicada entre 1813 y 1816?"
-tipo: mc
-opciones_explicitas:
-  - "A New View of Society"
-  - "El Capital"
-  - "La riqueza de las naciones"
-respuesta: "A New View of Society"
-
-explicacion: |
-  En esta obra Owen propone su idea del carácter formado por el
-  entorno como base para reformar la sociedad entera.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "socialismo_utopico"
-  nivel: "avanzado"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Qué intentó hacer Owen con su proyecto de New Harmony (Indiana, Estados Unidos, 1825)?"
-tipo: mc
-opciones_explicitas:
-  - "Fundar una comunidad cooperativa autosuficiente, donde la propiedad y el trabajo se organizaran en común"
-  - "Abrir una nueva fábrica textil idéntica a New Lanark"
-  - "Establecer una colonia comercial para exportar algodón"
-respuesta: "Fundar una comunidad cooperativa autosuficiente, donde la propiedad y el trabajo se organizaran en común"
-
-explicacion: |
-  Fue un intento de ir más allá de reformar una sola fábrica, aplicando
-  sus ideas a una comunidad entera organizada sin la lógica de patrón
-  y empleado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "socialismo_utopico"
-  nivel: "avanzado"
-  tags: ["corrientes", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El experimento de New Harmony logró sostenerse económicamente en el tiempo tal como lo había hecho New Lanark."
-
-explicacion: |
-  Falso. A diferencia de New Lanark, la comunidad cooperativa de New
-  Harmony no logró sostenerse económicamente en el tiempo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "socialismo_utopico"
-  nivel: "avanzado"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Quién le puso el nombre \"socialismo utópico\" a las ideas de Owen y otros reformadores de su época?"
-tipo: mc
-opciones_explicitas:
-  - "Una corriente posterior, el marxismo, para distinguirlas de su propio \"socialismo científico\""
-  - "El propio Robert Owen, para distinguir su corriente del mercantilismo"
-  - "Adam Smith, en La riqueza de las naciones"
-respuesta: "Una corriente posterior, el marxismo, para distinguirlas de su propio \"socialismo científico\""
-
-explicacion: |
-  Ni Owen ni sus contemporáneos se llamaban a sí mismos "utópicos" —
-  fue una etiqueta puesta después por Marx y Engels.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "socialismo_utopico"
+  tema: "neoliberalismo"
   nivel: "avanzado"
   tags: ["corrientes", "problema"]
 
-enunciado: "Según la crítica que le hace el marxismo, ¿qué le faltaba al socialismo utópico de Owen?"
+enunciado: "¿En qué se diferencia el neoliberalismo del ordoliberalismo, aunque ambos parten del mismo punto (liberalismo clásico + keynesianismo)?"
 tipo: mc
 opciones_explicitas:
-  - "Un análisis sistemático de por qué el sistema económico en su conjunto produce esas condiciones, y una estrategia para transformarlo a esa escala"
-  - "Un ejemplo práctico real que probara que sus ideas podían funcionar"
-  - "Cualquier interés por mejorar las condiciones de los trabajadores"
-respuesta: "Un análisis sistemático de por qué el sistema económico en su conjunto produce esas condiciones, y una estrategia para transformarlo a esa escala"
+  - "El ordoliberalismo insiste en un marco estatal fuerte que sostenga activamente la competencia; el neoliberalismo confía más en que reducir la intervención estatal, en general, basta"
+  - "No hay ninguna diferencia real entre las dos corrientes"
+  - "El neoliberalismo propone eliminar por completo el dinero y volver al trueque"
+respuesta: "El ordoliberalismo insiste en un marco estatal fuerte que sostenga activamente la competencia; el neoliberalismo confía más en que reducir la intervención estatal, en general, basta"
 
 explicacion: |
-  Para el marxismo, Owen aportaba buenas intenciones y experimentos
-  aislados (una fábrica, una comunidad), pero no una teoría de cómo
-  cambiar el sistema entero — esa pregunta es lo que retoma el
-  marxismo a continuación.
+  Es uno de los ejes más citados en los debates de política económica
+  contemporáneos entre estas dos corrientes hermanas.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "socialismo_utopico"
+  tema: "neoliberalismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "¿A qué se le llamó \"Consenso de Washington\"?"
+tipo: mc
+opciones_explicitas:
+  - "Al conjunto de recomendaciones de política económica de corte neoliberal dirigidas a América Latina a fines de los años 80"
+  - "A un acuerdo comercial entre Estados Unidos y la Unión Soviética"
+  - "Al plan económico original del keynesianismo en 1936"
+respuesta: "Al conjunto de recomendaciones de política económica de corte neoliberal dirigidas a América Latina a fines de los años 80"
+
+explicacion: |
+  Incluía recomendaciones como privatización, apertura comercial y
+  reducción del gasto público, en línea con el programa neoliberal.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "neoliberalismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "orden"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El monetarismo de Friedman (Capitalismo y libertad, 1962) es anterior a la aplicación del neoliberalismo como programa de política económica en distintos países (desde la década de 1980)."
+
+explicacion: |
+  El monetarismo funciona como antecedente intelectual del programa
+  neoliberal, casi dos décadas antes de su aplicación como política de
+  Estado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "neoliberalismo"
   nivel: "intermedio"
   tags: ["corrientes", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El socialismo utópico sostenía que las condiciones de vida de la clase obrera podían mejorarse rediseñando el entorno de trabajo, sin necesidad de una revolución política violenta."
+enunciado: "El programa neoliberal incluye la privatización de empresas estatales, la apertura comercial, la desregulación de mercados y la reducción del gasto público."
 
 explicacion: |
-  Es la diferencia central con la estrategia que propondrá después el
-  marxismo: Owen apuesta por el ejemplo práctico y la reforma
-  voluntaria, no por la lucha de clases.
+  Son los cuatro componentes centrales del programa de política
+  económica que se conoce como neoliberalismo.
+```
+
+## Sección: devaluacion (21 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "basico"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Qué es una devaluación?"
+tipo: mc
+opciones_explicitas:
+  - "La decisión oficial de un banco central de bajar el valor fijado de su moneda, por un anuncio puntual"
+  - "Cualquier caída del valor de una moneda, sin importar el régimen cambiario"
+  - "Un aumento en las reservas del banco central"
+respuesta: "La decisión oficial de un banco central de bajar el valor fijado de su moneda, por un anuncio puntual"
+
+explicacion: |
+  Es un ajuste puntual y oficial, no un movimiento gradual del
+  mercado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "El término \"devaluación\", en sentido estricto, ¿bajo qué régimen cambiario tiene sentido?"
+tipo: mc
+opciones_explicitas:
+  - "Bajo un tipo de cambio fijo"
+  - "Bajo un tipo de cambio flotante"
+  - "Bajo cualquiera de los dos, exactamente igual"
+respuesta: "Bajo un tipo de cambio fijo"
+
+explicacion: |
+  Sólo bajo un régimen fijo hay un valor prometido que se pueda
+  \"romper\" con un anuncio oficial.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Cómo se llama la pérdida de valor de una moneda bajo un tipo de cambio flotante, y en qué se diferencia de una devaluación?"
+tipo: mc
+opciones_explicitas:
+  - "Depreciación: es un proceso continuo y gradual del mercado, no un anuncio puntual como la devaluación"
+  - "También se llama devaluación: son exactamente lo mismo"
+  - "No tiene nombre propio: bajo flotante nunca pierde valor una moneda"
+respuesta: "Depreciación: es un proceso continuo y gradual del mercado, no un anuncio puntual como la devaluación"
+
+explicacion: |
+  Misma dirección (pérdida de valor), pero distinto mecanismo:
+  gradual y de mercado vs. puntual y oficial.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Por qué un banco central llega a devaluar su moneda?"
+tipo: mc
+opciones_explicitas:
+  - "Porque ya no puede seguir sosteniendo el valor fijado: sus reservas se agotaron o están por agotarse"
+  - "Porque quiere subir la inflación a propósito, sin ninguna otra razón"
+  - "Porque es obligatorio devaluar cada 10 años por ley"
+respuesta: "Porque ya no puede seguir sosteniendo el valor fijado: sus reservas se agotaron o están por agotarse"
+
+explicacion: |
+  Es la consecuencia directa de no poder sostener más el régimen
+  fijo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Qué efecto tiene una devaluación sobre el precio de las importaciones?"
+tipo: mc
+opciones_explicitas:
+  - "Se encarecen: cada dólar cuesta más en moneda local"
+  - "Se abaratan: cada dólar cuesta menos en moneda local"
+  - "No tiene ningún efecto sobre las importaciones"
+respuesta: "Se encarecen: cada dólar cuesta más en moneda local"
+
+explicacion: |
+  Como la moneda local vale menos frente al dólar, comprar algo del
+  exterior cuesta más en moneda local.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Qué efecto tiene una devaluación sobre la competitividad de las exportaciones?"
+tipo: mc
+opciones_explicitas:
+  - "Las vuelve más competitivas: un producto local cuesta menos en dólares para un comprador extranjero"
+  - "Las vuelve menos competitivas: un producto local cuesta más en dólares"
+  - "No tiene ningún efecto sobre las exportaciones"
+respuesta: "Las vuelve más competitivas: un producto local cuesta menos en dólares para un comprador extranjero"
+
+explicacion: |
+  El mismo producto, cotizado en moneda local, ahora equivale a menos
+  dólares para quien compra desde afuera.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El encarecimiento de las importaciones tras una devaluación suele empujar la inflación general hacia arriba."
+
+explicacion: |
+  Es la conexión directa entre este tema y `pbi-e-inflacion/`: precios
+  importados más caros presionan el índice de precios general.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al abaratar las exportaciones y encarecer las importaciones, una devaluación puede ayudar a corregir un déficit de la balanza comercial."
+
+explicacion: |
+  Es la conexión con `balanza-comercial/`: exportar más y/o importar
+  menos mejora ese resultado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "avanzado"
+  tags: ["cambiario", "problema"]
+
+enunciado: "Alguien debe dólares pero gana su sueldo en moneda local. Después de una devaluación, ¿qué le pasa a esa deuda medida en moneda local?"
+tipo: mc
+opciones_explicitas:
+  - "Necesita más moneda local que antes para pagar la misma deuda en dólares"
+  - "Necesita menos moneda local que antes para pagar la misma deuda"
+  - "La devaluación no afecta en nada esa deuda"
+respuesta: "Necesita más moneda local que antes para pagar la misma deuda en dólares"
+
+explicacion: |
+  Si gana en moneda local y debe en dólares, la devaluación encarece
+  su deuda medida en su propia moneda.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "avanzado"
+  tags: ["cambiario", "problema"]
+
+enunciado: "Un exportador vende afuera y cobra en dólares, pero paga sus costos en moneda local. ¿Cómo lo afecta una devaluación?"
+tipo: mc
+opciones_explicitas:
+  - "Se beneficia: sus ingresos en dólares, convertidos a moneda local, valen más después del ajuste"
+  - "Se perjudica: sus ingresos en dólares valen menos en moneda local"
+  - "No lo afecta en absoluto"
+respuesta: "Se beneficia: sus ingresos en dólares, convertidos a moneda local, valen más después del ajuste"
+
+explicacion: |
+  Es el caso opuesto al de quien debe en dólares y gana en moneda
+  local.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una devaluación es un anuncio puntual, de un día para el otro, no un movimiento gradual como puede serlo una depreciación bajo régimen flotante."
+
+explicacion: |
+  Es la diferencia central de mecanismo entre los dos términos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "intermedio"
+  tags: ["cambiario", "problema"]
+
+enunciado: "Un país anuncia: \"a partir de mañana, el dólar oficial pasa de $100 a $150\". ¿Qué tipo de régimen cambiario tenía ese país hasta ese momento?"
+tipo: mc
+opciones_explicitas:
+  - "Tipo de cambio fijo"
+  - "Tipo de cambio flotante"
+  - "No se puede saber con esta información"
+respuesta: "Tipo de cambio fijo"
+
+explicacion: |
+  Sólo bajo un régimen fijo existe un valor prometido ($100) que se
+  pueda ajustar con un anuncio puntual como este.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "avanzado"
+  tags: ["cambiario", "problema"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una empresa que importa insumos Y tiene deudas en dólares puede verse afectada dos veces por una misma devaluación: le sube el costo de lo que compra, y le sube (en moneda local) lo que debe."
+
+explicacion: |
+  Son dos efectos distintos de la misma devaluación, sumándose sobre
+  el mismo actor.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una devaluación está directamente relacionada con el agotamiento (o la caída fuerte) de las reservas del banco central."
+
+explicacion: |
+  Es la causa central que fuerza el ajuste oficial del valor fijado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "Después de anunciar una devaluación, ¿qué intenta hacer el banco central con el nuevo valor?"
+tipo: mc
+opciones_explicitas:
+  - "Defender ese nuevo valor, de la misma forma en que defendía el anterior"
+  - "Dejar de intervenir para siempre en el mercado cambiario"
+  - "Volver inmediatamente al valor anterior"
+respuesta: "Defender ese nuevo valor, de la misma forma en que defendía el anterior"
+
+explicacion: |
+  Sigue siendo un régimen fijo, sólo que con un número distinto —la
+  lógica de defensa con reservas no cambia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "avanzado"
+  tags: ["cambiario", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená esta secuencia de eventos que termina en una devaluación."
+opciones_explicitas:
+  - "El banco central anuncia un nuevo valor fijado, más débil (devaluación)"
+  - "Hay una demanda sostenida de dólares al valor fijado"
+  - "Las reservas caen a un nivel insostenible"
+  - "El banco central vende reservas para sostener ese valor"
+respuesta_orden: ["Hay una demanda sostenida de dólares al valor fijado", "El banco central vende reservas para sostener ese valor", "Las reservas caen a un nivel insostenible", "El banco central anuncia un nuevo valor fijado, más débil (devaluación)"]
+
+explicacion: |
+  Cada paso lleva al siguiente: sin agotamiento de reservas, no hace
+  falta devaluar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "avanzado"
+  tags: ["cambiario", "problema"]
+
+enunciado: "Un país con tipo de cambio flotante ve que su moneda pierde valor de a poco, día tras día, durante varios meses. ¿Cómo se llama correctamente ese proceso?"
+tipo: mc
+opciones_explicitas:
+  - "Depreciación"
+  - "Devaluación"
+  - "Convertibilidad"
+respuesta: "Depreciación"
+
+explicacion: |
+  Bajo régimen flotante, el término correcto es depreciación, no
+  devaluación (que es específico del régimen fijo).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una devaluación tiene efectos que benefician a algunos actores (exportadores) y perjudican a otros (quienes deben en dólares y ganan en moneda local) al mismo tiempo — no es una medida buena o mala en abstracto, depende de la posición de cada uno."
+
+explicacion: |
+  Es el mismo criterio de no juzgar un número macroeconómico sin
+  contexto, ya visto en `balanza-comercial/`.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "basico"
+  tags: ["cambiario"]
+
+tipo: completar
+enunciado: "Completá: tras una devaluación, las importaciones se ___ (más caras o más baratas) y las exportaciones se vuelven más competitivas."
+respuestas_validas:
+  - "encarecen"
+  - "vuelven más caras"
+
+explicacion: |
+  Es el efecto directo sobre el costo de comprar bienes del exterior.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Qué hace que un cambio en el valor de una moneda sea, específicamente, una \"devaluación\" y no un simple movimiento de mercado?"
+tipo: mc
+opciones_explicitas:
+  - "Que sea un anuncio oficial y puntual de un banco central que sostenía un valor fijo"
+  - "Que el valor de la moneda haya bajado, sin importar el régimen ni quién lo decidió"
+  - "Que dure más de un año"
+respuesta: "Que sea un anuncio oficial y puntual de un banco central que sostenía un valor fijo"
+
+explicacion: |
+  Es la condición que distingue devaluación de depreciación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "devaluacion"
+  nivel: "basico"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una devaluación es el ajuste oficial y puntual de un tipo de cambio fijo que ya no se podía sostener, que encarece las importaciones y abarata las exportaciones en términos internacionales."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+## Sección: ordoliberalismo (10 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "basico"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "Según el ordoliberalismo, ¿qué hace falta para que la competencia de mercado funcione bien?"
+tipo: mc
+opciones_explicitas:
+  - "Un marco legal e institucional fuerte, diseñado y sostenido activamente por el Estado"
+  - "Que el Estado no intervenga nunca, bajo ninguna circunstancia"
+  - "Que el Estado sea dueño directo de todas las empresas grandes"
+respuesta: "Un marco legal e institucional fuerte, diseñado y sostenido activamente por el Estado"
+
+explicacion: |
+  Sin ese marco, sostiene esta corriente, el mercado puede degenerar
+  en monopolios o carteles que asfixian la competencia real.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "¿De qué palabra viene el nombre \"ordoliberalismo\"?"
+tipo: mc
+opciones_explicitas:
+  - "Del latín \"ordo\" (orden)"
+  - "Del alemán \"Ordnung\" en el sentido de obediencia militar"
+  - "Del nombre de su fundador, apellidado Ordo"
+respuesta: "Del latín \"ordo\" (orden)"
+
+explicacion: |
+  El nombre remite a la idea central: el mercado necesita un orden
+  (un marco de reglas), no que se lo deje librado a sí mismo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "contexto"]
+
+enunciado: "¿Dónde y cuándo nace el ordoliberalismo, dentro de la Escuela de Friburgo?"
+tipo: mc
+opciones_explicitas:
+  - "En Alemania, en los años 1930 y 1940"
+  - "En Argentina, en la década de 1990"
+  - "En Inglaterra, en el siglo XVIII"
+respuesta: "En Alemania, en los años 1930 y 1940"
+
+explicacion: |
+  Nace en gran parte como reflexión sobre las causas económicas que
+  llevaron al ascenso del nazismo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El ordoliberalismo distingue una versión \"pura\" de la economía de mercado (competencia genuina, muchos oferentes) de una versión \"degenerada\" (mercados concentrados por el poder de pocas empresas dominantes)."
+
+explicacion: |
+  Es la distinción central de Röpke en *Civitas Humana*: dejar que el
+  mercado funcione \"solo\" no garantiza que se mantenga en su forma
+  pura.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "¿Cómo describe Wilhelm Röpke su propia posición en *Civitas Humana* (1944)?"
+tipo: mc
+opciones_explicitas:
+  - "Una \"Tercera Vía\" o \"Humanismo Económico\", entre el capitalismo histórico y el colectivismo"
+  - "Una continuación exacta y sin cambios del mercantilismo"
+  - "Una rama del marxismo aplicada a Alemania"
+respuesta: "Una \"Tercera Vía\" o \"Humanismo Económico\", entre el capitalismo histórico y el colectivismo"
+
+explicacion: |
+  Röpke critica con dureza tanto el capitalismo histórico (por
+  permitir la concentración monopólica) como el colectivismo (por
+  concentrar el poder político).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "basico"
+  tags: ["corrientes", "autor"]
+
+enunciado: "¿Quién escribió *Civitas Humana* (1944), texto de referencia del ordoliberalismo?"
+tipo: mc
+opciones_explicitas:
+  - "Wilhelm Röpke"
+  - "John Maynard Keynes"
+  - "Karl Marx"
+respuesta: "Wilhelm Röpke"
+
+explicacion: |
+  Röpke fue uno de los economistas centrales de la Escuela de
+  Friburgo y de la tradición ordoliberal.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "Según el ordoliberalismo, ¿qué tienen en común, como resultado, un mercado degenerado en monopolio y un sistema colectivista?"
+tipo: mc
+opciones_explicitas:
+  - "Ambos terminan concentrando el poder (económico o político) en manos de un grupo pequeño"
+  - "Ambos garantizan automáticamente el pleno empleo"
+  - "Ambos eliminan por completo la necesidad de un marco legal"
+respuesta: "Ambos terminan concentrando el poder (económico o político) en manos de un grupo pequeño"
+
+explicacion: |
+  Es la razón por la que el ordoliberalismo rechaza ambos extremos:
+  concentración de poder económico en un caso, concentración de poder
+  político en el otro.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La \"economía social de mercado\" aplicada en Alemania Occidental después de la Segunda Guerra Mundial, bajo Ludwig Erhard, se basó en las ideas del ordoliberalismo."
+
+explicacion: |
+  Combinó mercado libre y competencia real, sostenidos por reglas
+  estatales fuertes contra los monopolios, con una red de protección
+  social financiada de forma mixta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "problema"]
+
+enunciado: "¿En qué se diferencia el rol del Estado para el ordoliberalismo del que propone el keynesianismo?"
+tipo: mc
+opciones_explicitas:
+  - "Para el ordoliberalismo el Estado interviene todo el tiempo como árbitro de las reglas de competencia, no como jugador que gasta o produce directamente en momentos de crisis puntual"
+  - "El ordoliberalismo, igual que el keynesianismo, propone que el Estado sea dueño de todas las empresas"
+  - "No hay ninguna diferencia entre ambas posturas sobre el rol del Estado"
+respuesta: "Para el ordoliberalismo el Estado interviene todo el tiempo como árbitro de las reglas de competencia, no como jugador que gasta o produce directamente en momentos de crisis puntual"
+
+explicacion: |
+  Ambas corrientes le dan al Estado un rol activo, pero de tipo
+  distinto: árbitro permanente de las reglas (ordoliberalismo) vs.
+  gasto puntual en la crisis (keynesianismo).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "problema"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El modelo de sistema de salud \"mixto\" (ni completamente público ni completamente privado) que se estudia en Cívica es, en gran medida, una aplicación del mismo modelo de \"economía social de mercado\" del que nace el ordoliberalismo."
+
+explicacion: |
+  Ver `../../civica/sistema-de-salud/` — combina competencia/elección
+  privada con un marco y una red de protección sostenidos por el
+  Estado, la misma lógica que Röpke describe para la economía en
+  general.
+```
+
+## Sección: reservas-banco-central (21 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "basico"
+  tags: ["banca_central", "vocabulario"]
+
+enunciado: "¿Cuál de estas es una función del banco central de un país?"
+tipo: mc
+opciones_explicitas:
+  - "Emitir la moneda oficial y fijar la política monetaria"
+  - "Vender productos directamente a los consumidores"
+  - "Fijar el precio de todos los bienes de la economía"
+respuesta: "Emitir la moneda oficial y fijar la política monetaria"
+
+explicacion: |
+  Es una de las funciones centrales de cualquier banco central.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "intermedio"
+  tags: ["banca_central", "vocabulario"]
+
+enunciado: "¿Qué significa que el banco central actúe como \"prestamista de última instancia\"?"
+tipo: mc
+opciones_explicitas:
+  - "Le presta a un banco comercial con problemas de liquidez, para evitar que el problema se contagie a todo el sistema financiero"
+  - "Le presta dinero directamente a cualquier persona que se lo pida"
+  - "Es el único banco al que pueden pedir un crédito las empresas grandes"
+respuesta: "Le presta a un banco comercial con problemas de liquidez, para evitar que el problema se contagie a todo el sistema financiero"
+
+explicacion: |
+  Es una función de estabilidad del sistema financiero en su
+  conjunto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "basico"
+  tags: ["banca_central", "vocabulario"]
+
+enunciado: "¿Qué son las reservas internacionales de un banco central?"
+tipo: mc
+opciones_explicitas:
+  - "Activos disponibles del banco central, mayormente moneda extranjera, oro y otros activos líquidos"
+  - "El total de la deuda pública de un país"
+  - "El sueldo de los empleados del banco central"
+respuesta: "Activos disponibles del banco central, mayormente moneda extranjera, oro y otros activos líquidos"
+
+explicacion: |
+  Es, en la práctica, lo que el banco central tiene guardado para usar
+  cuando hace falta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "intermedio"
+  tags: ["banca_central", "vocabulario"]
+
+enunciado: "¿Cómo puede un país acumular reservas a través de su comercio exterior?"
+tipo: mc
+opciones_explicitas:
+  - "Teniendo superávit comercial: exportando más de lo que importa, entran más dólares de los que salen"
+  - "Teniendo déficit comercial, sin excepción"
+  - "El comercio exterior no tiene ninguna relación con las reservas"
+respuesta: "Teniendo superávit comercial: exportando más de lo que importa, entran más dólares de los que salen"
+
+explicacion: |
+  Es la conexión directa con `balanza-comercial/`.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "intermedio"
+  tags: ["banca_central", "vocabulario"]
+
+enunciado: "Además del superávit comercial, ¿de qué otras dos formas puede un país sumar reservas?"
+tipo: mc
+opciones_explicitas:
+  - "Inversión extranjera y préstamos (de otros países u organismos como el FMI)"
+  - "Bajando la tasa de interés a cero"
+  - "Aumentando el gasto público interno"
+respuesta: "Inversión extranjera y préstamos (de otros países u organismos como el FMI)"
+
+explicacion: |
+  Son las otras dos fuentes principales mencionadas en la teoría.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "intermedio"
+  tags: ["banca_central", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una de las funciones de las reservas es defender un tipo de cambio fijo, comprando o vendiendo moneda propia según haga falta."
+
+explicacion: |
+  Es la conexión directa con `tipo-cambio-fijo/`.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "intermedio"
+  tags: ["banca_central", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las reservas también sirven para pagar obligaciones en moneda extranjera, como vencimientos de deuda pública externa."
+
+explicacion: |
+  Es la conexión que se retoma en `deuda-publica-externa/`.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "avanzado"
+  tags: ["banca_central", "vocabulario"]
+
+enunciado: "¿Por qué tener reservas altas puede ayudar a un país a conseguir préstamos más baratos en el resto del mundo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque transmite confianza de que puede cumplir sus compromisos en moneda extranjera sin problemas"
+  - "Porque los prestamistas exigen ver las reservas antes de prestar, sin importar el monto"
+  - "No hay ninguna relación entre reservas y costo de endeudarse"
+respuesta: "Porque transmite confianza de que puede cumplir sus compromisos en moneda extranjera sin problemas"
+
+explicacion: |
+  Más reservas suele asociarse con menor riesgo percibido por quien
+  presta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "avanzado"
+  tags: ["banca_central", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia entre reservas brutas y reservas netas?"
+tipo: mc
+opciones_explicitas:
+  - "Las netas restan compromisos de corto plazo ya comprometidos; las brutas son el total de activos sin descontar nada"
+  - "Las brutas sólo cuentan oro; las netas sólo cuentan dólares"
+  - "No hay ninguna diferencia real entre las dos"
+respuesta: "Las netas restan compromisos de corto plazo ya comprometidos; las brutas son el total de activos sin descontar nada"
+
+explicacion: |
+  Es una distinción habitual del debate público sobre cuánta
+  \"munición\" real tiene un banco central.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "avanzado"
+  tags: ["banca_central", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un banco central puede tener reservas brutas altas pero reservas netas mucho más bajas, si gran parte de esas reservas ya están comprometidas con obligaciones de corto plazo."
+
+explicacion: |
+  Por eso la distinción es relevante para saber cuánto margen real
+  tiene para intervenir.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "avanzado"
+  tags: ["banca_central", "vocabulario"]
+
+enunciado: "¿Qué significa que un banco central sea \"independiente\" o \"autónomo\" del gobierno de turno?"
+tipo: mc
+opciones_explicitas:
+  - "Que no está obligado a emitir dinero para financiar el gasto público, ni a bajar la tasa por pedido del gobierno"
+  - "Que no tiene ninguna relación con la política económica del país"
+  - "Que sus empleados son elegidos por voto popular"
+respuesta: "Que no está obligado a emitir dinero para financiar el gasto público, ni a bajar la tasa por pedido del gobierno"
+
+explicacion: |
+  Es un diseño institucional que separa las decisiones monetarias de
+  las presiones fiscales de corto plazo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "avanzado"
+  tags: ["banca_central", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La autonomía de un banco central tiene argumentos de ambos lados (menos inflación, pero también menos herramientas para el gobierno en una emergencia) — no hay un único modelo adoptado por todos los países."
+
+explicacion: |
+  Es un criterio de diseño institucional, no una regla universal
+  única.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "basico"
+  tags: ["banca_central", "vocabulario"]
+
+enunciado: "¿Cuál de estas instituciones es un ejemplo real de banco central?"
+tipo: mc
+opciones_explicitas:
+  - "La Reserva Federal de Estados Unidos (Fed)"
+  - "El Fondo Monetario Internacional (FMI)"
+  - "La Organización Mundial del Comercio (OMC)"
+respuesta: "La Reserva Federal de Estados Unidos (Fed)"
+
+explicacion: |
+  La Fed es el banco central de Estados Unidos; el FMI y la OMC son
+  organismos internacionales de otro tipo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "intermedio"
+  tags: ["banca_central", "problema"]
+
+enunciado: "Un informe dice: \"las reservas del banco central cayeron U$S 500 millones esta semana\". ¿Qué suele significar esto, bajo un régimen de tipo de cambio fijo o administrado?"
+tipo: mc
+opciones_explicitas:
+  - "Que el banco central intervino vendiendo dólares para sostener el tipo de cambio"
+  - "Que el país recibió un préstamo enorme del FMI"
+  - "Que subió mucho la inflación de ese país"
+respuesta: "Que el banco central intervino vendiendo dólares para sostener el tipo de cambio"
+
+explicacion: |
+  Es la lectura habitual de una caída de reservas en ese contexto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "intermedio"
+  tags: ["banca_central", "problema"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Que un país le pida un préstamo al FMI para \"reforzar reservas\" significa, literalmente, pedir dólares prestados para tener más margen de intervención."
+
+explicacion: |
+  Es una aplicación concreta y real de los préstamos como fuente de
+  reservas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "avanzado"
+  tags: ["banca_central", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando las reservas de un banco central se agotan defendiendo un tipo de cambio fijo, esa falta de reservas es lo que suele forzar una devaluación."
+
+explicacion: |
+  Es la conexión directa con el tema anterior, `devaluacion/`.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "intermedio"
+  tags: ["banca_central", "vocabulario"]
+
+enunciado: "Además de emitir moneda y fijar la tasa de interés, ¿qué otra función cumple habitualmente un banco central?"
+tipo: mc
+opciones_explicitas:
+  - "Regular y supervisar a los bancos comerciales"
+  - "Fijar el precio de todos los productos de supermercado"
+  - "Administrar directamente las empresas estatales"
+respuesta: "Regular y supervisar a los bancos comerciales"
+
+explicacion: |
+  Es una de las funciones centrales mencionadas en la teoría.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "avanzado"
+  tags: ["banca_central", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená esta secuencia de cómo un país acumula reservas y después las usa para defender su tipo de cambio."
+opciones_explicitas:
+  - "El banco central usa esas reservas acumuladas para defender el valor fijado"
+  - "Llega una crisis con fuerte demanda de dólares al tipo de cambio fijado"
+  - "El país tiene superávit comercial durante varios años"
+  - "El banco central acumula reservas con esos dólares excedentes"
+respuesta_orden: ["El país tiene superávit comercial durante varios años", "El banco central acumula reservas con esos dólares excedentes", "Llega una crisis con fuerte demanda de dólares al tipo de cambio fijado", "El banco central usa esas reservas acumuladas para defender el valor fijado"]
+
+explicacion: |
+  El orden muestra el ciclo completo: acumular en tiempos buenos,
+  para poder usar en tiempos de presión.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "basico"
+  tags: ["banca_central", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Banco Central de la República Argentina (BCRA) es un ejemplo real de banco central, con sus propias reglas de autonomía y manejo de reservas."
+
+explicacion: |
+  Es el ejemplo local citado en la teoría, junto a la Fed y el BCE.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "basico"
+  tags: ["banca_central"]
+
+tipo: completar
+enunciado: "Completá: las reservas internacionales son los activos disponibles del banco central, mayormente en moneda ___ (no la propia del país)."
+respuestas_validas:
+  - "extranjera"
+
+explicacion: |
+  Es la definición central de reservas internacionales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "reservas_banco_central"
+  nivel: "basico"
+  tags: ["banca_central", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El banco central es la institución que emite moneda, fija la política monetaria y administra las reservas, que sirven para defender el tipo de cambio, pagar deuda externa y dar confianza al resto del mundo."
+
+explicacion: |
+  Es la idea central de todo el tema.
 ```
 

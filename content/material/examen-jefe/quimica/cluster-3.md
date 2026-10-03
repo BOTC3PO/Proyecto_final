@@ -4,1825 +4,1874 @@
 
 ---
 
-## Sección: energia-libre-gibbs (20 preguntas)
+## Sección: mezclas-metodos-separacion (20 preguntas)
 
 ```
 metadata:
   materia: "quimica"
-  tema: "energia_libre_gibbs"
+  tema: "mezclas_metodos_separacion"
   nivel: "basico"
-  tags: ["termodinamica", "entropia"]
+  tags: ["clasificacion", "materia"]
 
-respuesta: "entropia"
-tipo: completar
-respuestas_validas:
-  - "entropía"
-  - "entropia"
+variables:
+  escenario: uno_de([["Agua destilada", "Sustancia pura/Compuesto"], ["Aire", "Mezcla homogénea"], ["Ensalada", "Mezcla heterogénea"], ["Oxígeno (O2)", "Sustancia pura/Elemento"]])
 
-enunciado: "La medida del desorden o dispersión de energía de un sistema se llama ___."
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["Sustancia pura/Elemento", "Sustancia pura/Compuesto", "Mezcla homogénea", "Mezcla heterogénea"]
+
+enunciado: "Si tenemos {escenario[0]}, ¿cómo clasificaríamos esta muestra de materia?"
 
 explicacion: |
-  La entropía (S) mide el grado de desorden de un sistema.
+  La clasificación depende de la composición: los elementos y compuestos son sustancias puras, mientras que las mezclas contienen dos o más sustancias combinadas.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "energia_libre_gibbs"
+  tema: "mezclas_metodos_separacion"
   nivel: "basico"
-  tags: ["termodinamica", "entropia", "soluciones"]
+  tags: ["compuestos", "metodos_separacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es posible separar un compuesto en sus elementos constituyentes mediante métodos físicos simples como la filtración?"
+
+explicacion: |
+  Falso. Los compuestos están unidos mediante enlaces químicos; para separarlos se requiere una reacción química, no un método físico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "mezclas_metodos_separacion"
+  nivel: "basico"
+  tags: ["formula", "elementos"]
+
+variables:
+  datos: uno_de([["Fe", "Elemento"], ["H2O", "Compuesto"], ["O2", "Elemento"], ["NaCl", "Compuesto"]])
+
+respuesta: datos[1]
+tipo: mc
+opciones_explicitas: ["Elemento", "Compuesto"]
+
+enunciado: "Dada la fórmula química {datos[0]}, ¿se trata de un elemento o de un compuesto?"
+
+explicacion: |
+  Un elemento está formado por un solo tipo de átomo; un compuesto está formado por la combinación química de dos o más elementos diferentes.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "mezclas_metodos_separacion"
+  nivel: "basico"
+  tags: ["mezclas", "soluciones"]
+
+respuesta: "solucion"
+tipo: completar
+respuestas_validas:
+  - "solucion"
+  - "solución"
+
+enunciado: "Una mezcla homogénea, donde sus componentes no se distinguen a simple vista, también se llama ___."
+
+explicacion: |
+  Las mezclas homogéneas se denominan comúnmente soluciones o disoluciones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "mezclas_metodos_separacion"
+  nivel: "basico"
+  tags: ["mezclas", "homogenea", "heterogenea"]
+
+variables:
+  escenario: uno_de([["agua con sal", "homogenea"], ["agua con arena", "heterogenea"], ["acero", "homogenea"], ["granito", "heterogenea"], ["aire", "homogenea"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["homogenea", "heterogenea"]
+
+enunciado: "El ejemplo dado es: {escenario[0]}. ¿Qué tipo de mezcla es?"
+
+explicacion: |
+  Las mezclas se clasifican en homogéneas (una sola fase) y heterogéneas (dos o más fases visibles).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "mezclas_metodos_separacion"
+  nivel: "basico"
+  tags: ["mezclas", "homogenea"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En una mezcla homogénea se pueden distinguir los componentes a simple vista."
+
+explicacion: |
+  Incorrecto. En las mezclas homogéneas (soluciones), las partículas son tan pequeñas que no se pueden distinguir ni con un microscopio óptico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "mezclas_metodos_separacion"
+  nivel: "basico"
+  tags: ["mezclas", "heterogenea"]
+
+respuesta: "heterogenea"
+tipo: completar
+respuestas_validas:
+  - "heterogenea"
+
+enunciado: "Una mezcla con dos o más fases visibles se llama mezcla ___."
+
+explicacion: |
+  Las mezclas heterogéneas presentan fases diferenciadas que se pueden distinguir.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "mezclas_metodos_separacion"
+  nivel: "intermedio"
+  tags: ["coloides", "leche"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si un sólido se disuelve en un líquido, la entropía del sistema aumenta."
+enunciado: "La leche es un ejemplo de mezcla heterogénea de partículas muy chicas, un coloide."
 
 explicacion: |
-  Al disolverse, las partículas pasan de una estructura cristalina ordenada a una distribución más desordenada: aumenta la entropía.
+  Correcto. Aunque parece homogénea a simple vista, la leche es un coloide donde se distinguen gotas de grasa dispersas en una fase líquida.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "energia_libre_gibbs"
+  tema: "mezclas_metodos_separacion"
   nivel: "basico"
-  tags: ["termodinamica", "segunda_ley"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El universo en conjunto tiende siempre a DISMINUIR su entropía."
-
-explicacion: |
-  Falso. Según la segunda ley de la termodinámica, la entropía total del universo siempre tiende a AUMENTAR.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "intermedio"
-  tags: ["termodinamica", "entropia", "espontaneidad"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Cada reacción individual está obligada a aumentar su propia entropía."
-
-explicacion: |
-  Falso. Una reacción puede disminuir su propia entropía (ej.: la formación de hielo) siempre que el entorno compense con un aumento mayor, de modo que la entropía TOTAL del universo aumente.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "intermedio"
-  tags: ["termodinamica", "calculo"]
+  tags: ["mezclas", "metodos_separacion"]
 
 variables:
-  datos: [[-40, 100, 0.1], [-20, 200, 0.2], [20, 300, 0.1], [40, 100, 0.2]]
+  escenarios: [["agua + arena", "filtracion"], ["agua + aceite", "decantacion"], ["agua + sal disuelta, para recuperar el solido", "evaporacion"], ["dos líquidos miscibles con distinto punto de ebullición", "destilacion"]]
   idx: uno_de([0, 1, 2, 3])
 
-respuesta: datos[idx][0] - datos[idx][1] * datos[idx][2]
-tipo: completar
-tolerancia_abs: 0.5
-
-enunciado: "Calculá ΔG para una reacción con ΔH = {datos[idx][0]} kJ/mol, T = {datos[idx][1]} K y ΔS = {datos[idx][2]} kJ/(K·mol)."
-
-pasos:
-  - "ΔG = ΔH - T × ΔS"
-
-explicacion: |
-  ΔG = {datos[idx][0]} - ({datos[idx][1]} × {datos[idx][2]}).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "basico"
-  tags: ["termodinamica", "espontaneidad"]
-
-respuesta: "espontanea"
+respuesta: escenarios[idx][1]
 tipo: mc
-opciones_explicitas: ["espontanea", "no espontanea", "esta en equilibrio", "imposible"]
+opciones_explicitas: ["filtracion", "decantacion", "evaporacion", "destilacion"]
 
-enunciado: "Si ΔG es negativo, la reacción es..."
+enunciado: "Para separar la mezcla de {escenarios[idx][0]}, ¿qué método utilizarías?"
 
 explicacion: |
-  ΔG < 0 indica que el proceso es termodinámicamente espontáneo.
+  El método adecuado depende de las propiedades físicas de los componentes. Para {escenarios[idx][0]}, se usa {escenarios[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "basico"
-  tags: ["termodinamica", "espontaneidad"]
+  tema: "mezclas_metodos_separacion"
+  nivel: "intermedio"
+  tags: ["cromatografia", "propiedades"]
 
-respuesta: "no espontanea"
+respuesta: "velocidad de arrastre distinta sobre un soporte"
 tipo: mc
-opciones_explicitas: ["no espontanea", "espontanea", "esta en equilibrio", "imposible"]
+opciones_explicitas: ["velocidad de arrastre distinta sobre un soporte", "punto de ebullición", "densidad", "tamaño"]
 
-enunciado: "Si ΔG es positivo, la reacción es..."
+enunciado: "¿Qué propiedad física aprovecha la cromatografía para separar los componentes de una mezcla?"
 
 explicacion: |
-  ΔG > 0 indica que la reacción directa no es espontánea (la inversa sí lo sería).
+  La cromatografía se basa en la diferencia de afinidad de los componentes por una fase estacionaria y una fase móvil, lo que produce distintas velocidades de arrastre.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "energia_libre_gibbs"
+  tema: "mezclas_metodos_separacion"
   nivel: "basico"
-  tags: ["termodinamica", "equilibrio"]
+  tags: ["magnetismo", "mezclas"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si ΔG es igual a 0, el sistema está en equilibrio."
-
-explicacion: |
-  Cuando ΔG = 0, no hay tendencia neta hacia reactivos ni hacia productos: equilibrio.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "intermedio"
-  tags: ["termodinamica", "entalpia", "entropia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una reacción tiene ΔH negativo (libera calor) y ΔS positivo (más desorden), es espontánea a cualquier temperatura."
-
-explicacion: |
-  ΔG = ΔH - TΔS: con ΔH negativo y -TΔS también negativo (porque ΔS>0), la suma siempre da ΔG < 0, sin importar T.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "intermedio"
-  tags: ["termodinamica", "entalpia", "entropia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una reacción tiene ΔH positivo (absorbe calor) y ΔS negativo (más orden), nunca es espontánea."
-
-explicacion: |
-  ΔH positivo y -TΔS también positivo (porque ΔS<0): la suma siempre da ΔG > 0, para cualquier temperatura.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "intermedio"
-  tags: ["termodinamica", "entalpia", "entropia"]
-
-respuesta: "solo a temperaturas bajas"
-tipo: mc
-opciones_explicitas: ["solo a temperaturas altas", "solo a temperaturas bajas", "siempre", "nunca"]
-
-enunciado: "Para una reacción con ΔH < 0 y ΔS < 0, ¿cuándo es espontánea?"
-
-explicacion: |
-  El término -TΔS es positivo (compite contra el ΔH negativo). A temperaturas bajas ese término pesa poco y gana el ΔH negativo: ΔG < 0.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "intermedio"
-  tags: ["termodinamica", "entalpia", "entropia"]
-
-respuesta: "solo a temperaturas altas"
-tipo: mc
-opciones_explicitas: ["solo a temperaturas altas", "solo a temperaturas bajas", "siempre", "nunca"]
-
-enunciado: "Para una reacción con ΔH > 0 y ΔS > 0, ¿cuándo es espontánea?"
-
-explicacion: |
-  El término -TΔS es negativo y crece con la temperatura. A temperaturas altas ese término supera al ΔH positivo: ΔG < 0.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "intermedio"
-  tags: ["termodinamica", "equilibrio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuanto más negativo es el ΔG° estándar, mayor es la constante de equilibrio Kc de esa reacción."
-
-explicacion: |
-  ΔG° = -RT×ln(Kc): un ΔG° muy negativo implica un ln(Kc) grande y positivo, entonces Kc es grande.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "basico"
-  tags: ["equilibrio", "termodinamica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el equilibrio químico, ΔG es igual a 0."
-
-explicacion: |
-  En el equilibrio no hay tendencia espontánea al cambio en ninguna dirección: ΔG = 0.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "basico"
-  tags: ["termodinamica"]
-
-respuesta: "S"
+respuesta: "magnetica"
 tipo: completar
 respuestas_validas:
-  - "S"
-  - "entropia"
+  - "magnetica"
 
-enunciado: "La ecuación de Gibbs es ΔG = ΔH - T × Δ___."
+enunciado: "La separación de limaduras de hierro de arena se realiza mediante separación ___."
 
 explicacion: |
-  ΔG = ΔH - T×ΔS, donde ΔS es el cambio de entropía del sistema.
+  El hierro es un material ferromagnético, por lo que puede ser atraído por un imán, permitiendo separarlo de la arena que no tiene propiedades magnéticas.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "energia_libre_gibbs"
+  tema: "mezclas_metodos_separacion"
   nivel: "basico"
-  tags: ["termodinamica", "unidades"]
+  tags: ["destilacion", "evaporacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La temperatura T en la ecuación de Gibbs debe expresarse en Kelvin."
+enunciado: "La destilación permite recuperar ambos líquidos de una mezcla líquido-líquido miscible, a diferencia de la evaporación que pierde el solvente."
 
 explicacion: |
-  Igual que en las otras fórmulas termodinámicas de este tronco, T siempre va en la escala absoluta.
+  En la destilación, el vapor se condensa y se recupera en un recipiente distinto. En la evaporación, el solvente se escapa a la atmósfera.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "avanzado"
-  tags: ["comparacion", "espontaneidad"]
+  tema: "mezclas_metodos_separacion"
+  nivel: "basico"
+  tags: ["solidos", "tamizado"]
 
-respuesta: "la reacción con ΔG = -50 kJ/mol"
+respuesta: "tamizado"
 tipo: mc
-opciones_explicitas: ["la reacción con ΔG = -50 kJ/mol", "la reacción con ΔG = +10 kJ/mol", "ambas son igual de espontáneas", "ninguna es espontánea"]
+opciones_explicitas: ["destilacion", "tamizado", "decantacion", "cromatografia"]
 
-enunciado: "Entre dos reacciones, una con ΔG = -50 kJ/mol y otra con ΔG = +10 kJ/mol, ¿cuál es espontánea?"
+enunciado: "Para separar una mezcla de dos sólidos que presentan distinto tamaño de grano, como arena gruesa y arena fina, el método más adecuado es el..."
 
 explicacion: |
-  Sólo la que tiene ΔG negativo (-50 kJ/mol) es espontánea. La de +10 kJ/mol necesita energía externa para ocurrir.
+  El tamizado usa una malla con orificios de un tamaño determinado que deja pasar las partículas más pequeñas mientras retiene las más grandes.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "energia_libre_gibbs"
+  tema: "mezclas_metodos_separacion"
   nivel: "intermedio"
-  tags: ["conceptos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una reacción exotérmica (ΔH negativo) siempre es espontánea, sin importar el valor de ΔS."
-
-explicacion: |
-  Falso. Si ΔS también es negativo, a temperaturas muy altas el término -TΔS puede volverse más positivo que lo que ΔH aporta de negativo, haciendo ΔG > 0.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "avanzado"
-  tags: ["conceptos", "reversibilidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una reacción directa tiene ΔG > 0 (no espontánea), la reacción inversa tiene ΔG < 0 (sí es espontánea)."
-
-explicacion: |
-  Verdadero. El ΔG de la reacción inversa es el opuesto exacto del de la reacción directa (mismo valor absoluto, signo contrario).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "energia_libre_gibbs"
-  nivel: "avanzado"
-  tags: ["conceptos", "cinetica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una reacción espontánea (ΔG < 0) siempre ocurre rápido, en la práctica."
-
-explicacion: |
-  Falso. Espontaneidad (termodinámica) y velocidad (cinética) son cosas distintas — ver ../cinetica-reaccion/. La oxidación del hierro es espontánea pero muy lenta.
-```
-
-## Sección: enlace-quimico-polaridad (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["estabilidad", "enlaces"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los átomos se enlazan para alcanzar una configuración más estable, generalmente con 8 electrones de valencia."
-
-explicacion: |
-  Los átomos buscan una configuración de baja energía, que en la mayoría de los elementos corresponde a 8 electrones en su capa de valencia (configuración de gas noble).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["regla_del_octeto"]
-
-respuesta: "octeto"
-tipo: completar
-respuestas_validas:
-  - "octeto"
-
-enunciado: "La regla que dice que los átomos buscan 8 electrones de valencia se llama regla del ___."
-
-explicacion: |
-  La regla del octeto establece que los átomos tienden a ganar, perder o compartir electrones para completar ocho en su nivel más externo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["estabilidad", "electrones"]
-
-respuesta: "ceder, ganar o compartir electrones"
-tipo: mc
-opciones_explicitas: ["ceder, ganar o compartir electrones", "crear o destruir electrones", "cambiar de protones", "fusionar núcleos"]
-
-enunciado: "Para lograr estabilidad, un átomo puede:"
-
-explicacion: |
-  Los átomos interactúan transfiriendo (cediendo/ganando) o compartiendo electrones de valencia para alcanzar estabilidad electrónica.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["gases_nobles", "reactividad"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un átomo con la capa de valencia ya completa (como un gas noble) tiende a formar muchos enlaces."
-
-explicacion: |
-  Los átomos con la capa de valencia completa son muy estables y de baja reactividad: tienden a NO formar enlaces.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["enlace", "electrones"]
-
-variables:
-  escenario: uno_de([["ionico", "se transfieren completamente de un atomo a otro"], ["covalente polar", "se comparten de forma desigual"], ["covalente no polar", "se comparten de forma igual"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["se transfieren completamente de un atomo a otro", "se comparten de forma desigual", "se comparten de forma igual"]
-
-enunciado: "En un enlace de tipo {escenario[0]}, ¿qué sucede con los electrones?"
-
-explicacion: |
-  El tipo de enlace determina cómo se distribuyen los electrones de valencia entre los núcleos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["enlace_ionico", "metal", "no_metal"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un enlace iónico, un metal cede electrones y un no metal los gana."
-
-explicacion: |
-  Correcto. La transferencia de electrones desde el átomo de baja electronegatividad (metal) hacia el de alta (no metal) genera iones con cargas opuestas que se atraen.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "intermedio"
-  tags: ["electronegatividad", "enlace_ionico"]
-
-respuesta: "ionico"
-tipo: mc
-opciones_explicitas: ["ionico", "covalente polar", "covalente no polar", "metalico"]
-
-enunciado: "Un enlace entre dos átomos con una gran diferencia de electronegatividad es predominantemente:"
-
-explicacion: |
-  Una diferencia de electronegatividad alta (generalmente > 1,7) indica que un átomo tiene tanta fuerza sobre los electrones que se los arranca al otro: enlace iónico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["enlace_metalico", "mar_de_electrones"]
-
-respuesta: "mar"
-tipo: completar
-respuestas_validas:
-  - "mar"
-
-enunciado: "En el enlace metálico, los electrones de valencia se deslocalizan formando un ___ de electrones."
-
-explicacion: |
-  Los electrones de valencia de los metales no están ligados a un átomo específico: forman un "mar" que rodea a todos los núcleos positivos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "intermedio"
-  tags: ["electronegatividad", "caracter_ionico"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuanto más grande es la diferencia de electronegatividad entre dos átomos, más iónico es el enlace."
-
-explicacion: |
-  La diferencia de electronegatividad es el indicador del carácter iónico: a mayor diferencia, mayor transferencia de carga.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["electronegatividad", "enlace_covalente"]
-
-respuesta: "negativa (delta menos)"
-tipo: mc
-opciones_explicitas: ["negativa (delta menos)", "positiva (delta mas)", "neutra"]
-
-enunciado: "En un enlace covalente polar, el átomo más electronegativo atrae con más fuerza el par de electrones compartidos, quedando con carga parcial ___."
-
-explicacion: |
-  El átomo más electronegativo tiene mayor afinidad por los electrones, así que la densidad electrónica se desplaza hacia él: carga parcial negativa (δ−).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["enlace_no_polar", "simetria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un enlace entre dos átomos idénticos (por ejemplo, H-H) es siempre covalente no polar porque la diferencia de electronegatividad es cero."
-
-explicacion: |
-  Al ser átomos del mismo elemento, ambos atraen los electrones con la misma fuerza, así que el par se comparte parejo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "intermedio"
-  tags: ["geometria_molecular", "momento_dipolar"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una molécula que tiene enlaces polares es siempre una molécula polar en su conjunto."
-
-explicacion: |
-  No necesariamente. Depende de la geometría molecular: si los momentos dipolares de los enlaces se cancelan por simetría (como en el CO₂), la molécula es apolar.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["electronegatividad", "carga_parcial"]
-
-respuesta: "positiva (delta mas)"
-tipo: completar
-respuestas_validas:
-  - "positiva (delta mas)"
-  - "positiva (delta más)"
-
-enunciado: "En un enlace covalente polar, el átomo menos electronegativo queda con carga parcial ___."
-
-explicacion: |
-  Al tener menos electronegatividad, ese átomo retiene con menos fuerza los electrones compartidos: carga parcial positiva (δ+).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["electronegatividad", "enlace_ionico", "enlace_covalente"]
-
-respuesta: "la diferencia de electronegatividad entre los átomos"
-tipo: mc
-opciones_explicitas: ["la diferencia de electronegatividad entre los átomos", "el tamaño de los átomos", "la cantidad de neutrones", "el color del elemento"]
-
-enunciado: "¿Qué factor determina si un enlace es iónico, covalente polar o covalente no polar?"
-
-explicacion: |
-  La diferencia de electronegatividad (ΔEN) indica cómo se comparten los electrones: alta → iónico, intermedia → covalente polar, baja o nula → covalente no polar.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "intermedio"
-  tags: ["enlace", "sustancias"]
-
-variables:
-  escenario: uno_de([["NaCl", "ionico"], ["H2O", "covalente polar"], ["O2", "covalente no polar"], ["Cu (cobre metálico)", "metalico"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["ionico", "covalente polar", "covalente no polar", "metalico"]
-
-enunciado: "¿Cuál es el tipo de enlace predominante en {escenario[0]}?"
-
-explicacion: |
-  {escenario[0]} tiene un enlace de tipo {escenario[1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["enlace_metalico"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El enlace metálico ocurre entre dos átomos metálicos."
-
-explicacion: |
-  Verdadero. En los metales, los átomos forman una red donde los electrones de valencia se deslocalizan en un "mar de electrones" que los mantiene unidos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["enlace_covalente", "enlace_ionico"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En un enlace covalente, los electrones se transfieren completamente de un átomo a otro."
-
-explicacion: |
-  Falso. En el enlace covalente los electrones se comparten. La transferencia completa es la característica del enlace iónico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "intermedio"
-  tags: ["electronegatividad", "enlace_ionico"]
-
-respuesta: "ionico"
-tipo: mc
-opciones_explicitas: ["ionico", "covalente polar", "covalente no polar", "metalico"]
-
-enunciado: "¿Qué tipo de enlace se da típicamente entre un metal y un no metal con gran diferencia de electronegatividad?"
-
-explicacion: |
-  Cuando la diferencia de electronegatividad es muy alta, el átomo más electronegativo le arranca el electrón al otro: enlace iónico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["enlace_metalico", "propiedades"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El enlace metálico explica por qué los metales son buenos conductores eléctricos: los electrones del \"mar\" se mueven con libertad."
-
-explicacion: |
-  Correcto. Como los electrones de valencia no están fijos a un átomo particular, se desplazan con facilidad cuando se aplica un campo eléctrico — de ahí la buena conductividad de los metales.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "enlace_quimico_polaridad"
-  nivel: "basico"
-  tags: ["covalente_no_polar", "ejemplos"]
-
-respuesta: "O2 (oxígeno diatómico)"
-tipo: mc
-opciones_explicitas: ["O2 (oxígeno diatómico)", "NaCl (cloruro de sodio)", "HCl (ácido clorhídrico)", "MgO (óxido de magnesio)"]
-
-enunciado: "¿Cuál de las siguientes sustancias tiene un enlace covalente NO polar?"
-
-explicacion: |
-  O₂ es un enlace entre dos átomos idénticos (misma electronegatividad, diferencia cero): covalente no polar. Los otros tres tienen electronegatividades distintas entre sus átomos.
-```
-
-## Sección: equilibrio-quimico-kc (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "basico"
-  tags: ["equilibrio", "cinetica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En el equilibrio químico, la reacción se detiene por completo y no hay movimiento de partículas."
-
-explicacion: |
-  Falso. El equilibrio es dinámico: las reacciones directa e inversa siguen ocurriendo, pero a la misma velocidad, así que las concentraciones no cambian.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "basico"
-  tags: ["equilibrio", "velocidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El equilibrio se alcanza cuando la velocidad de la reacción directa se iguala a la velocidad de la reacción inversa."
-
-explicacion: |
-  Verdadero. Esa igualdad de velocidades es la condición para que las concentraciones dejen de variar.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: "dinamico"
-tipo: completar
-respuestas_validas:
-  - "dinamico"
-
-enunciado: "Por eso el equilibrio químico se llama equilibrio ___."
-
-explicacion: |
-  Se llama dinámico porque, aunque las concentraciones no cambian, las reacciones directa e inversa siguen sucediendo constantemente.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "basico"
-  tags: ["concentracion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el estado de equilibrio, las concentraciones de reactivos y productos dejan de cambiar con el tiempo."
-
-explicacion: |
-  Verdadero. Al ser iguales las velocidades directa e inversa, la cantidad neta de cada especie se mantiene constante.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "intermedio"
-  tags: ["equilibrio", "calculo"]
-
-variables:
-  a: uno_de([1, 2, 4])
-  b: uno_de([1, 2])
-  c: uno_de([2, 4, 8])
-
-respuesta: c / (a * b)
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Para la reacción A + B ⇌ C en equilibrio, con [A] = {a} M, [B] = {b} M y [C] = {c} M, calculá la constante de equilibrio Kc."
-
-pasos:
-  - "Kc = [C] / ([A] × [B])"
-
-explicacion: |
-  Kc = {c} / ({a} × {b}).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "basico"
-  tags: ["teoria", "ley_accion_masas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la expresión de Kc, los exponentes de cada concentración molar corresponden a los coeficientes de la ecuación balanceada."
-
-explicacion: |
-  Correcto. Para aA + bB ⇌ cC + dD, Kc = [C]^c × [D]^d / ([A]^a × [B]^b).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "basico"
-  tags: ["teoria", "fases"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En la expresión de Kc, los sólidos puros y los líquidos puros se incluyen usando su concentración molar como un término más."
-
-explicacion: |
-  Falso. Su "concentración" es constante (se considera 1), así que se omiten de la expresión de Kc.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "basico"
-  tags: ["teoria", "conceptos"]
-
-respuesta: "equilibrio"
-tipo: completar
-respuestas_validas:
-  - "equilibrio"
-
-enunciado: "En la expresión de Kc, la notación [X] representa la concentración de X en el ___ (no la inicial)."
-
-explicacion: |
-  Kc se calcula con las concentraciones en el momento en que el sistema ya alcanzó el equilibrio.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "basico"
-  tags: ["equilibrio", "constante_equilibrio"]
-
-respuesta: "los productos"
-tipo: mc
-opciones_explicitas: ["los reactivos", "los productos", "cantidades iguales", "ninguno"]
-
-enunciado: "Si Kc es mucho mayor que 1, en el equilibrio predominan..."
-
-explicacion: |
-  Un Kc muy grande indica que la relación productos/reactivos es alta: la reacción se desplazó casi hasta el final.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "basico"
-  tags: ["equilibrio", "constante_equilibrio"]
-
-respuesta: "los reactivos"
-tipo: mc
-opciones_explicitas: ["los reactivos", "los productos", "cantidades iguales", "ninguno"]
-
-enunciado: "Si Kc es mucho menor que 1, en el equilibrio predominan..."
-
-explicacion: |
-  Un Kc muy chico indica que la concentración de reactivos es mucho mayor que la de productos: la reacción casi no avanzó.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "intermedio"
-  tags: ["temperatura", "propiedades"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Kc depende exclusivamente de la temperatura y no cambia si se aumenta la concentración de un reactivo en un sistema ya en equilibrio."
-
-explicacion: |
-  Correcto. Cambiar concentraciones desplaza el equilibrio (Le Chatelier), pero mientras la temperatura no varíe, Kc se mantiene igual.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "intermedio"
-  tags: ["concentracion", "le_chatelier"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si se agrega más reactivo a un sistema en equilibrio, el valor de Kc cambia para compensar el exceso de sustancia."
-
-explicacion: |
-  Falso. Al agregar reactivo, cambian las concentraciones (el sistema se reacomoda), pero el cociente vuelve a dar el mismo Kc si la temperatura no cambió.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "basico"
-  tags: ["le_chatelier", "equilibrio"]
-
-respuesta: "los productos"
-tipo: mc
-opciones_explicitas: ["los productos", "los reactivos", "no se mueve", "se detiene"]
-
-enunciado: "Si se agrega más reactivo a un sistema en equilibrio, el equilibrio se desplaza hacia..."
-
-explicacion: |
-  Según Le Chatelier, el sistema consume el exceso desplazándose hacia la formación de productos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "intermedio"
-  tags: ["le_chatelier", "termoquimica"]
-
-respuesta: "los reactivos"
-tipo: mc
-opciones_explicitas: ["los reactivos", "los productos", "no se mueve", "se detiene"]
-
-enunciado: "Si se aumenta la temperatura en una reacción EXOTÉRMICA en equilibrio, el equilibrio se desplaza hacia..."
-
-explicacion: |
-  En una exotérmica, el calor "funciona" como un producto más. Al subir la temperatura, el sistema se desplaza hacia los reactivos (el lado que absorbe ese calor extra).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "intermedio"
-  tags: ["le_chatelier", "presion"]
-
-respuesta: "menos moles de gas"
-tipo: mc
-opciones_explicitas: ["menos moles de gas", "más moles de gas", "igual cantidad de moles", "no se mueve"]
-
-enunciado: "Si se aumenta la presión en un sistema gaseoso en equilibrio, el equilibrio se desplaza hacia el lado con..."
-
-explicacion: |
-  Aumentar la presión favorece el lado con menos moles de gas, para achicar el volumen que ocupan.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "basico"
-  tags: ["le_chatelier", "concentracion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Quitar producto de un sistema en equilibrio desplaza el equilibrio hacia los productos, para reponer lo que se quitó."
-
-explicacion: |
-  Verdadero. Al bajar la concentración de un producto, el sistema se desplaza hacia la derecha para compensar esa pérdida.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "basico"
-  tags: ["conceptos", "balanceo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para escribir la expresión de Kc de una reacción, primero hay que tener la ecuación química balanceada."
-
-explicacion: |
-  Correcto. Los coeficientes balanceados son los exponentes que van en la expresión de Kc.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "intermedio"
-  tags: ["le_chatelier", "concentracion"]
-
-respuesta: "los reactivos"
-tipo: mc
-opciones_explicitas: ["los reactivos", "los productos", "no se mueve", "se detiene"]
-
-enunciado: "Si se quita reactivo de un sistema en equilibrio, el equilibrio se desplaza hacia..."
-
-explicacion: |
-  El sistema se desplaza hacia los reactivos (favoreciendo la reacción inversa) para reponer parte de lo que se quitó.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "intermedio"
-  tags: ["interpretacion", "kc"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si Kc es aproximadamente 1, hay cantidades comparables de reactivos y productos en el equilibrio."
-
-explicacion: |
-  Verdadero. Un Kc cercano a 1 indica que ni los reactivos ni los productos predominan claramente.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_quimico_kc"
-  nivel: "avanzado"
-  tags: ["le_chatelier", "termoquimica"]
-
-respuesta: "los productos"
-tipo: mc
-opciones_explicitas: ["los productos", "los reactivos", "no se mueve", "se detiene"]
-
-enunciado: "Si se aumenta la temperatura en una reacción ENDOTÉRMICA en equilibrio, ¿hacia dónde se desplaza el equilibrio?"
-
-explicacion: |
-  En una endotérmica, el calor "funciona" como reactivo. Subir la temperatura favorece que se consuma ese calor extra, desplazando el equilibrio hacia los productos — al revés que en una exotérmica.
-```
-
-## Sección: equilibrio-solubilidad-ksp (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "basico"
-  tags: ["equilibrio", "ksp", "conceptos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ksp es un caso particular de Kc, aplicado al equilibrio de una sal disolviéndose en un solvente."
-
-explicacion: |
-  Correcto. Ksp es la constante de equilibrio de la reacción de disolución de un sólido poco soluble.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "basico"
-  tags: ["terminologia"]
+  tags: ["solubilidad", "cristalizacion"]
 
 respuesta: "solubilidad"
 tipo: completar
 respuestas_validas:
   - "solubilidad"
 
-enunciado: "Ksp significa producto de ___."
+enunciado: "La cristalización es un método de separación que aprovecha que la ___ de un sólido cambia con la temperatura."
 
 explicacion: |
-  Ksp es el producto de las concentraciones molares de los iones en solución, elevadas a sus coeficientes.
+  Al disminuir la temperatura de una solución saturada, la solubilidad del soluto disminuye y precipita en forma de cristales.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
+  tema: "mezclas_metodos_separacion"
+  nivel: "basico"
+  tags: ["decantacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La decantación sirve para separar un sólido sedimentado de un líquido, o dos líquidos inmiscibles, sin necesidad de calentar."
+
+explicacion: |
+  Verdadero. La decantación se basa en la diferencia de densidades y la inmiscibilidad, permitiendo la separación por gravedad sin aporte térmico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "mezclas_metodos_separacion"
   nivel: "intermedio"
-  tags: ["calculo", "estequiometria"]
+  tags: ["escenarios", "metodos"]
 
 variables:
-  a: uno_de([1, 2, 3, 4])
-  b: uno_de([1, 2, 3])
-
-respuesta: a * b
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Para AB ⇌ A+ + B-, Ksp = [A+] × [B-]. Si [A+] = {a} M y [B-] = {b} M, ¿cuál es el valor de Ksp?"
-
-explicacion: |
-  Ksp = {a} × {b}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "basico"
-  tags: ["reglas_ksp"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la expresión de Ksp, el sólido puro (AB) no se incluye, porque su actividad es constante (se toma como 1)."
-
-explicacion: |
-  Correcto, igual que en Kc: los sólidos puros no aparecen explícitamente en la expresión de la constante.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "basico"
-  tags: ["ksp", "solubilidad"]
-
-respuesta: "[A2+]*[B-]^2"
-tipo: mc
-opciones_explicitas: ["[A2+]*[B-]^2", "[A2+]*[B-]", "[A2+]^2*[B-]", "[A2+]+2[B-]"]
-
-enunciado: "Para AB2(s) ⇌ A2+(ac) + 2B-(ac), la expresión correcta de Ksp es..."
-
-explicacion: |
-  Cada concentración se eleva a su coeficiente: 1 para A2+ y 2 para B-, entonces Ksp = [A2+]×[B-]².
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "intermedio"
-  tags: ["ksp", "calculo"]
-
-variables:
-  a2: uno_de([1, 2, 3, 4])
-  b: uno_de([2, 3, 4, 5])
-
-respuesta: a2 * (b ^ 2)
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Para AB2(s) ⇌ A2+(ac) + 2B-(ac), con [A2+] = {a2} M y [B-] = {b} M en el equilibrio, calculá Ksp."
-
-pasos:
-  - "Ksp = [A2+] × [B-]²"
-
-explicacion: |
-  Ksp = {a2} × ({b}²).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "basico"
-  tags: ["teoria", "ksp"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la expresión de Ksp, cada concentración iónica se eleva a la potencia de su coeficiente en la ecuación balanceada."
-
-explicacion: |
-  Verdadero, mismo patrón que Kc: exponente = coeficiente estequiométrico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "intermedio"
-  tags: ["ksp", "solubilidad"]
-
-variables:
-  s: uno_de([2, 3, 4, 5])
-
-respuesta: s * s
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Para una sal AB (1:1), Ksp = s², con s la solubilidad molar. Si s = {s} mol/L, ¿cuál es Ksp?"
-
-pasos:
-  - "AB ⇌ A+ + B-, entonces [A+]=[B-]=s"
-  - "Ksp = s × s = s²"
-
-explicacion: |
-  Ksp = {s} × {s}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "intermedio"
-  tags: ["ksp", "solubilidad"]
-
-variables:
-  ksp: uno_de([4, 9, 16, 25])
-
-respuesta: sqrt(ksp)
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Para una sal AB (1:1), Ksp = s². Si Ksp = {ksp}, ¿cuál es la solubilidad molar s?"
-
-pasos:
-  - "s = raíz cuadrada de Ksp"
-
-explicacion: |
-  s = √{ksp}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "intermedio"
-  tags: ["estequiometria", "solubilidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para una sal AB2 que se disocia en A2+ + 2B-, si se disuelven s moles de la sal, la concentración de B- es el doble que la de A2+."
-
-explicacion: |
-  Verdadero. Por cada mol de AB2 disuelto se forma 1 mol de A2+ pero 2 moles de B-.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "basico"
-  tags: ["ksp", "solubilidad"]
-
-respuesta: "2"
-tipo: completar
-respuestas_validas:
-  - "2"
-
-enunciado: "Para una sal AB (1:1), la fórmula que relaciona Ksp con la solubilidad molar s es Ksp = s elevado a la ___."
-
-explicacion: |
-  Como la disociación produce dos iones (uno de cada tipo), Ksp = s × s = s².
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "basico"
-  tags: ["ksp", "solubilidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un valor de Ksp muy pequeño, como 10⁻¹⁰, indica que la sal es muy poco soluble en agua."
-
-explicacion: |
-  Correcto. Cuanto menor el Ksp, menos iones se disuelven antes de saturar la solución.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "intermedio"
-  tags: ["producto_ionico", "saturacion"]
-
-respuesta: "la solución no está saturada, no precipita"
-tipo: mc
-opciones_explicitas: ["la solución no está saturada, no precipita", "la solución está sobresaturada y precipita", "la solución está exactamente en equilibrio", "no se puede saber"]
-
-enunciado: "Si el producto iónico Q es MENOR que Ksp, la solución..."
-
-explicacion: |
-  Q < Ksp significa que hay menos iones disueltos de los que el equilibrio permite: la solución no está saturada.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "intermedio"
-  tags: ["producto_ionico", "precipitacion"]
-
-respuesta: "la solución está sobresaturada, el exceso precipita"
-tipo: mc
-opciones_explicitas: ["la solución está sobresaturada, el exceso precipita", "la solución está saturada", "la solución no está saturada", "la solución está exactamente en equilibrio"]
-
-enunciado: "Si el producto iónico Q es MAYOR que Ksp, la solución..."
-
-explicacion: |
-  Q > Ksp significa que hay más iones de los que el equilibrio permite: el exceso precipita hasta que Q vuelva a igualar Ksp.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "basico"
-  tags: ["ksp", "equilibrio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el producto iónico Q es igual a Ksp, la solución está exactamente saturada, en equilibrio."
-
-explicacion: |
-  Correcto. Q = Ksp es la definición misma del punto de saturación.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "intermedio"
-  tags: ["conceptos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Agregar más sólido sin disolver a una solución ya saturada aumenta el valor de Ksp."
-
-explicacion: |
-  Falso. Ksp depende sólo de la temperatura, no de cuánto sólido en exceso haya en el fondo del recipiente.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "avanzado"
-  tags: ["comparacion", "ksp"]
-
-respuesta: "la sal con Ksp = 1x10^-3"
-tipo: mc
-opciones_explicitas: ["la sal con Ksp = 1x10^-3", "la sal con Ksp = 1x10^-12", "ambas son igual de solubles", "no se puede comparar sin más datos"]
-
-enunciado: "Entre dos sales del mismo tipo (AB 1:1), una con Ksp = 1×10⁻³ y otra con Ksp = 1×10⁻¹², ¿cuál es más soluble?"
-
-explicacion: |
-  A mayor Ksp, mayor solubilidad (para sales del mismo tipo estequiométrico): 1×10⁻³ es mucho más grande que 1×10⁻¹².
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "avanzado"
-  tags: ["ion_comun", "le_chatelier"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si a una solución saturada de AB se le agrega más B- (de otra fuente, ej. otra sal soluble con el mismo anión), la solubilidad de AB disminuye."
-
-explicacion: |
-  Verdadero (efecto del ion común). Por Le Chatelier, agregar más B- desplaza el equilibrio AB ⇌ A+ + B- hacia la izquierda, precipitando más AB sólido.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "avanzado"
-  tags: ["aplicacion", "precipitacion"]
-
-respuesta: "sí precipita, porque Q supera a Ksp"
-tipo: mc
-opciones_explicitas: ["sí precipita, porque Q supera a Ksp", "no precipita nunca, porque son soluciones diluidas", "sólo precipita si se calienta la mezcla", "depende únicamente del color de los iones"]
-
-enunciado: "Al mezclar dos soluciones cuyos iones forman una sal poco soluble, ¿cuándo precipita esa sal?"
-
-explicacion: |
-  Precipita cuando el producto iónico Q de la mezcla resultante supera el Ksp de esa sal — el mismo criterio Q vs. Ksp de siempre.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "equilibrio_solubilidad_ksp"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Ksp siempre tiene las mismas unidades para cualquier tipo de sal, sin importar su estequiometría."
-
-explicacion: |
-  Falso. Las unidades de Ksp dependen de los exponentes (coeficientes) de la sal: no es lo mismo M² (sal 1:1) que M³ (sal tipo AB2), por ejemplo.
-```
-
-## Sección: estados-y-cambios (24 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "basico"
-  tags: ["particulas", "estados"]
-
-variables:
-  descripcion: "Las partículas están muy separadas, se mueven al azar a alta velocidad y no presentan fuerzas de atracción significativas."
-
-respuesta: "gas"
-tipo: mc
-opciones_explicitas: ["sólido", "líquido", "gas"]
-
-enunciado: "Si las partículas presentan la siguiente descripción: {descripcion}, ¿a qué estado de la materia nos referimos?"
-
-explicacion: |
-  En el estado gaseoso, la energía cinética es tan alta que las fuerzas intermoleculares no logran mantener a las partículas unidas, permitiendo que ocupen todo el volumen disponible.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "basico"
-  tags: ["propiedades", "volumen"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Un líquido tiene volumen propio pero no tiene forma propia (se adapta al recipiente)?"
-
-explicacion: |
-  Correcto. Los líquidos tienen fuerzas de atracción suficientes para mantener un volumen constante, pero no para mantener una estructura rígida, lo que les permite fluir.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "intermedio"
-  tags: ["plasma", "ionizacion"]
-
-respuesta: "gas ionizado"
-tipo: mc
-opciones_explicitas: ["gas ionizado", "sólido denso", "líquido viscoso"]
-
-enunciado: "El plasma se define principalmente como un..."
-
-explicacion: |
-  El plasma es un gas que ha sido sometido a tanta energía que sus electrones se han separado de los núcleos, resultando en un medio de partículas cargadas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "basico"
-  tags: ["energia", "temperatura"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según la teoría cinético-molecular, si la temperatura de un sistema aumenta, la energía cinética promedio de sus partículas también aumenta."
-
-explicacion: |
-  La temperatura es, por definición, una medida de la energía cinética promedio de las partículas de un cuerpo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "basico"
-  tags: ["cambios_de_estado", "completar"]
-
-variables:
-  pares: [["el hielo derritiéndose", "fusion"], ["el vapor de agua volviéndose líquido", "condensacion"], ["el agua hirviendo", "vaporizacion"]]
+  escenarios: [["separar pigmentos de una tinta", "cromatografia"], ["separar agua de alcohol", "destilacion"], ["separar sal de agua recuperando la sal", "evaporacion"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: pares[idx][1]
-tipo: completar
-respuestas_validas:
-  - pares[idx][1]
-
-enunciado: "Identifica el cambio de estado que ocurre cuando: {pares[idx][0]}."
-
-explicacion: |
-  El proceso descrito corresponde a la {pares[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "basico"
-  tags: ["sublimacion_inversa", "mc"]
-
-respuesta: "Sublimación inversa"
+respuesta: escenarios[idx][1]
 tipo: mc
-opciones_explicitas: ["Fusión", "Sublimación inversa", "Condensación", "Sublimación"]
+opciones_explicitas: ["cromatografia", "destilacion", "evaporacion", "filtracion"]
 
-enunciado: "¿Cómo se denomina al paso directo del estado gaseoso al estado sólido sin pasar por el líquido?"
+enunciado: "Si nos enfrentamos al siguiente escenario: {escenarios[idx][0]}, ¿cuál es el método de separación correspondiente?"
 
 explicacion: |
-  El paso de gas a sólido se llama sublimación inversa (o deposición).
+  El método se elige según la propiedad que distingue a los componentes: afinidad con un soporte, punto de ebullición, o volatilidad del solvente.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "intermedio"
-  tags: ["completar", "estados"]
+  tema: "mezclas_metodos_separacion"
+  nivel: "basico"
+  tags: ["destilacion"]
 
-variables:
-  pares: [["fusión", "sólido a líquido"], ["vaporización", "líquido a gas"], ["condensación", "gas a líquido"], ["sublimación", "sólido a gas"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: pares[idx][0]
+respuesta: "destilacion"
 tipo: completar
 respuestas_validas:
-  - pares[idx][0]
+  - "destilacion"
 
-enunciado: "¿Cómo se llama el cambio de estado descrito como: {pares[idx][1]}?"
+enunciado: "El método usado para separar una mezcla de dos líquidos miscibles, aprovechando sus diferentes puntos de ebullición, se denomina ___."
 
 explicacion: |
-  El cambio de {pares[idx][1]} es la {pares[idx][0]}.
+  La destilación aprovecha la diferencia en la volatilidad (puntos de ebullición) de los componentes para separarlos.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estados_y_cambios"
+  tema: "mezclas_metodos_separacion"
   nivel: "basico"
-  tags: ["sublimacion", "vf"]
+  tags: ["mezclas", "conceptos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿En el proceso de sublimación, la sustancia pasa directamente de sólido a gas sin pasar por el estado líquido?"
+enunciado: "Todas las mezclas, tanto homogéneas como heterogéneas, se pueden separar mediante métodos físicos, sin necesidad de una reacción química."
 
 explicacion: |
-  Es verdadero. La sublimación es un cambio de estado directo que evita la fase líquida.
+  Correcto. En una mezcla cada componente mantiene sus propiedades químicas, así que sus componentes se pueden separar físicamente (a diferencia de un compuesto).
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estados_y_cambios"
+  tema: "mezclas_metodos_separacion"
   nivel: "basico"
-  tags: ["calor", "temperatura", "cambio_de_estado"]
+  tags: ["mezclas", "clasificacion"]
+
+respuesta: "mezcla homogénea"
+tipo: mc
+opciones_explicitas: ["mezcla homogénea", "mezcla heterogénea", "sustancia pura", "elemento"]
+
+enunciado: "Considerando el agua de mar (agua y sales disueltas), esta se clasifica como una:"
+
+explicacion: |
+  El agua de mar es una mezcla homogénea (disolución) porque sus componentes no se distinguen a simple vista y presenta una sola fase.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "mezclas_metodos_separacion"
+  nivel: "basico"
+  tags: ["filtracion"]
+
+respuesta: "filtracion"
+tipo: completar
+respuestas_validas:
+  - "filtracion"
+
+enunciado: "El proceso para separar un sólido de un líquido mediante el uso de un papel poroso se denomina ___."
+
+explicacion: |
+  La filtración deja pasar el líquido a través de un medio poroso mientras retiene las partículas sólidas más grandes.
+```
+
+## Sección: ph-poh (23 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "basico"
+  tags: ["ph", "vocabulario"]
+
+enunciado: "¿Qué mide el pH de una solución?"
+tipo: mc
+opciones_explicitas:
+  - "Qué tan ácida o básica es, a partir de la concentración de iones hidrógeno (H+)"
+  - "La temperatura de la solución"
+  - "Cuánta sal tiene disuelta la solución"
+respuesta: "Qué tan ácida o básica es, a partir de la concentración de iones hidrógeno (H+)"
+
+explicacion: |
+  Es una medida de acidez/basicidad, no de temperatura ni de salinidad.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "basico"
+  tags: ["ph", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Durante un cambio de estado, ¿la temperatura se mantiene constante mientras se sigue entregando calor?"
+enunciado: "El pH se calcula como pH = -log₁₀[H⁺], el logaritmo en base 10 de la concentración de H⁺, con el signo cambiado."
 
 explicacion: |
-  En un cambio de fase, la energía térmica se utiliza para romper las fuerzas de atracción intermoleculares en lugar de aumentar la energía cinética (temperatura).
+  Es la fórmula que conecta el pH con la concentración real de iones
+  hidrógeno.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estados_y_cambios"
+  tema: "ph_poh"
   nivel: "basico"
-  tags: ["calor_latente", "calor_sensible"]
-
-respuesta: "Hielo derritiéndose en un vaso"
-tipo: mc
-opciones_explicitas: ["Calentar agua de 20°C a 50°C", "Hielo derritiéndose en un vaso", "Calentar un metal"]
-
-enunciado: "Identifica la situación que representa un proceso de calor LATENTE:"
-
-explicacion: |
-  El calor latente ocurre durante el cambio de fase (fusión del hielo), donde la temperatura no varía a pesar de la transferencia de energía.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "basico"
-  tags: ["agua", "ebullicion"]
-
-variables:
-  valor: 100
-
-respuesta: valor
-tipo: completar
-respuestas_validas:
-  - valor
-
-enunciado: "El agua hirviendo a presión atmosférica normal no supera los {valor} grados Celsius."
-
-explicacion: |
-  A presión atmosférica estándar (1 atm), el agua alcanza su punto de ebullición a los 100°C.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "basico"
-  tags: ["fusion", "endotermico"]
-
-respuesta: "endotermico"
-tipo: mc
-opciones_explicitas: ["endotermico", "exotermico"]
-
-enunciado: "¿Cómo se clasifica el proceso de fusión (paso de sólido a líquido) según el flujo de calor?"
-
-explicacion: |
-  La fusión es un proceso endotérmico porque el sistema debe absorber calor del entorno para romper las estructuras sólidas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "basico"
-  tags: ["cambios_de_estado", "cotidiano"]
-
-variables:
-  ejemplos: [["hielo seco humeando", "sublimacion"], ["escarcha en el pasto", "sublimacion inversa"], ["vapor en el espejo del baño", "condensacion"], ["ropa que se seca al sol", "vaporizacion"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: ejemplos[idx][1]
-tipo: mc
-opciones_explicitas: ["sublimacion", "sublimacion inversa", "condensacion", "vaporizacion"]
-
-enunciado: "Si observamos el fenómeno de {ejemplos[idx][0]}, ¿qué proceso de cambio de estado está ocurriendo?"
-
-explicacion: |
-  El fenómeno descrito corresponde a la {ejemplos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "basico"
-  tags: ["vaporizacion", "conceptos"]
+  tags: ["ph", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La evaporación y la ebullición son las dos formas de vaporización."
+enunciado: "La escala de pH va de 0 a 14."
 
 explicacion: |
-  Es correcto. La evaporación es un proceso superficial y lento, mientras que la ebullición es un proceso en toda la masa del líquido con formación de burbujas.
+  Es el rango habitual usado para clasificar soluciones acuosas.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "intermedio"
-  tags: ["termodinamica", "energia"]
-
-variables:
-  cambios: [["fusión", "endotérmico"], ["solidificación", "exotérmico"], ["vaporización", "endotérmico"], ["condensación", "exotérmico"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: cambios[idx][1]
-tipo: completar
-respuestas_validas:
-  - cambios[idx][1]
-
-enunciado: "El proceso de {cambios[idx][0]} es un proceso ___ (absorbe o libera calor)."
-
-explicacion: |
-  Los procesos que absorben calor para cambiar de estado (como la fusión) son endotérmicos; los que lo liberan (como la condensación) son exotérmicos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "intermedio"
-  tags: ["cinetica", "teoria_cinetica"]
-
-respuesta: "MAYOR"
-tipo: mc
-opciones_explicitas: ["MAYOR", "MENOR", "IGUAL"]
-
-enunciado: "¿La energía cinética promedio de las partículas de un gas es MAYOR, MENOR o IGUAL que la de un sólido a la misma masa y temperatura?"
-
-explicacion: |
-  En un gas, las fuerzas de atracción intermolecular son mucho más débiles, lo que permite un movimiento desordenado y mayor energía cinética promedio que en un sólido.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
+  tema: "ph_poh"
   nivel: "basico"
-  tags: ["cinetica", "estados_materia", "ordenar"]
+  tags: ["ph", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una solución con pH menor a 7 es ácida."
+
+explicacion: |
+  A menor pH, mayor concentración de H⁺, más ácida.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "basico"
+  tags: ["ph", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una solución con pH igual a 7 es neutra, como el agua pura a 25°C."
+
+explicacion: |
+  Es el punto medio de la escala de 0 a 14.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "basico"
+  tags: ["ph", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una solución con pH mayor a 7 es básica (o alcalina)."
+
+explicacion: |
+  A mayor pH, menor concentración de H⁺.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "intermedio"
+  tags: ["ph", "calculo"]
 
 variables:
-  orden_correcto: ["Sólido", "Líquido", "Gas"]
+  exponente: random(1, 6)
+  concentracion_h: 1 / 10 ^ exponente
 
-respuesta_orden: orden_correcto
+respuesta: -log10(concentracion_h)
+tipo: input
+tolerancia_abs: 0.05
+
+enunciado: "Una solución tiene una concentración de H⁺ de {concentracion_h} mol/L. ¿Cuál es su pH?"
+
+pasos:
+  - "pH = -log₁₀({concentracion_h})"
+
+explicacion: |
+  Se aplica la fórmula del pH directamente sobre la concentración dada.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "basico"
+  tags: ["ph", "vocabulario"]
+
+enunciado: "¿Qué mide el pOH de una solución?"
+tipo: mc
+opciones_explicitas:
+  - "La concentración de iones hidroxilo (OH-), con la misma lógica logarítmica que el pH"
+  - "Lo mismo que el pH, con otro nombre"
+  - "La cantidad de oxígeno disuelto"
+respuesta: "La concentración de iones hidroxilo (OH-), con la misma lógica logarítmica que el pH"
+
+explicacion: |
+  Es la contraparte del pH, para el otro ion relevante del agua.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "intermedio"
+  tags: ["ph", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El pOH se calcula como pOH = -log₁₀[OH⁻]."
+
+explicacion: |
+  Misma estructura que la fórmula del pH, aplicada al ion hidroxilo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "intermedio"
+  tags: ["ph", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A 25°C, el pH y el pOH de cualquier solución acuosa siempre suman 14."
+
+explicacion: |
+  Conociendo uno de los dos, el otro se obtiene directamente sin
+  necesitar la concentración de iones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "intermedio"
+  tags: ["ph", "calculo"]
+
+variables:
+  ph: random(1, 13)
+
+respuesta: 14 - ph
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una solución tiene un pH de {ph}. ¿Cuál es su pOH?"
+
+explicacion: |
+  Se resta el pH de 14.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "intermedio"
+  tags: ["ph", "calculo"]
+
+variables:
+  poh: random(1, 13)
+
+respuesta: 14 - poh
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una solución tiene un pOH de {poh}. ¿Cuál es su pH?"
+
+explicacion: |
+  Se resta el pOH de 14.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "intermedio"
+  tags: ["ph", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada unidad de diferencia en el pH representa un cambio de 10 veces en la concentración de H⁺."
+
+explicacion: |
+  Es consecuencia directa de que la escala de pH es logarítmica en base
+  10.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "avanzado"
+  tags: ["ph", "calculo"]
+
+enunciado: "Una solución de pH 3 comparada con una de pH 5 (dos unidades más de pH), ¿cuántas veces más concentración de H⁺ tiene la de pH 3?"
+tipo: mc
+opciones_explicitas:
+  - "100 veces más"
+  - "2 veces más"
+  - "10 veces más"
+respuesta: "100 veces más"
+
+explicacion: |
+  Dos unidades de diferencia son 10 × 10 = 100 veces, no una simple
+  resta.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "avanzado"
+  tags: ["ph", "calculo"]
+
+variables:
+  ph: random(1, 8)
+
+respuesta: 1 / 10 ^ ph
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "Una solución tiene un pH de {ph}. ¿Cuál es su concentración de H⁺, en mol/L?"
+
+pasos:
+  - "[H⁺] = 10^(-{ph})"
+
+explicacion: |
+  Se despeja la concentración invirtiendo la fórmula del pH.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "basico"
+  tags: ["ph", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El agua pura tiene un pH cercano a 7, a 25°C — el punto neutro de la escala."
+
+explicacion: |
+  Es el ejemplo de referencia más habitual para \"neutro\".
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "intermedio"
+  tags: ["ph", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La relación entre pH y concentración de H⁺ es inversa: a menor pH, mayor concentración de H⁺ (más ácido)."
+
+explicacion: |
+  Es por el signo negativo en la fórmula del pH — un punto que suele
+  confundir si no se lo tiene en cuenta.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "basico"
+  tags: ["ph", "comparacion"]
+
+variables:
+  ph_a: random(1, 4)
+  ph_b: random(8, 13)
+
+respuesta: (ph_a < ph_b)
+tipo: vf
+
+enunciado: "Una solución con pH {ph_a} y otra con pH {ph_b}: ¿la primera es más ácida que la segunda?"
+
+explicacion: |
+  Cuanto menor el número de pH, más ácida es la solución.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "basico"
+  tags: ["ph", "orden"]
+
 tipo: ordenar
-opciones_explicitas: ["Sólido", "Líquido", "Gas"]
-
-enunciado: "Ordena los estados de la materia de MENOR a MAYOR energía cinética de sus partículas."
+enunciado: "Ordená estas sustancias de menor a mayor pH (de más ácida a más básica)."
+opciones_explicitas:
+  - "Agua pura (pH 7)"
+  - "Lejía (pH 13)"
+  - "Jugo de limón (pH 2)"
+respuesta_orden: ["Jugo de limón (pH 2)", "Agua pura (pH 7)", "Lejía (pH 13)"]
 
 explicacion: |
-  En el sólido la energía es mínima (solo vibran), en el líquido es intermedia y en el gas es máxima debido a la alta velocidad de sus partículas.
+  A menor pH, más ácida; a mayor pH, más básica.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "basico"
-  tags: ["solido", "particulas"]
+  tema: "ph_poh"
+  nivel: "intermedio"
+  tags: ["ph", "verificacion"]
+
+variables:
+  ph: random(1, 13)
+  correcto: 14 - ph
+  error: uno_de([0, 0, 0, 2, -2])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 0.5)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? pH de {ph}, pOH informado: {mostrado}."
+
+explicacion: |
+  Se vuelve a calcular 14 - pH y se compara con el valor informado.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "intermedio"
+  tags: ["ph"]
+
+variables:
+  ph: random(1, 13)
+  poh: 14 - ph
+
+tipo: completar
+enunciado: "Una solución tiene pH {ph}. Completá: ___ (pOH) = 14 - {ph}."
+respuestas_validas:
+  - poh
+
+explicacion: |
+  Se resta el pH de 14 para obtener el pOH.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "ph_poh"
+  nivel: "intermedio"
+  tags: ["ph", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En un sólido, las partículas no se desplazan de su lugar, solo vibran en sus posiciones de equilibrio."
+enunciado: "La escala de pH es logarítmica, no lineal: \"bajar 2 puntos de pH\" es un cambio de 100 veces en la concentración de H⁺, no un cambio chico."
 
 explicacion: |
-  Correcto. Las fuerzas de atracción son lo suficientemente fuertes como para mantener a las partículas en posiciones fijas, permitiendo únicamente el movimiento vibratorio.
+  Es el mismo tipo de escala logarítmica que aparece en decibeles y en
+  la escala Richter.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estados_y_cambios"
+  tema: "ph_poh"
   nivel: "basico"
-  tags: ["forma", "volumen"]
+  tags: ["ph", "vocabulario"]
 
-respuesta: "Sólido"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El pH mide la acidez con una escala logarítmica de 0 a 14, el pOH hace lo mismo con el ion hidroxilo, y ambos suman siempre 14 a 25°C."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+## Sección: modelos-atomicos (21 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "basico"
+  tags: ["historia", "atomos"]
+
+respuesta_orden: ["Dalton", "Thomson", "Rutherford", "Bohr"]
+tipo: ordenar
+opciones_explicitas: ["Dalton", "Thomson", "Rutherford", "Bohr"]
+
+enunciado: "Ordena cronológicamente los siguientes modelos atómicos, desde el más antiguo al más reciente."
+
+explicacion: |
+  El orden correcto es: Dalton (1803), Thomson (1897), Rutherford (1911) y Bohr (1913).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "basico"
+  tags: ["thomson", "electron"]
+
+variables:
+  escenarios: [["Dalton", "esfera maciza"], ["Thomson", "budín de pasas"], ["Rutherford", "núcleo denso"], ["Bohr", "órbitas de energía fija"]]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: escenarios[idx][1]
 tipo: mc
-opciones_explicitas: ["Sólido", "Líquido", "Gas"]
+opciones_explicitas: ["esfera maciza", "budín de pasas", "núcleo denso", "órbitas de energía fija"]
 
-enunciado: "¿Qué estado de la materia posee forma propia Y volumen propio?"
+enunciado: "Si el científico es {escenarios[idx][0]}, ¿cuál es el nombre o descripción de su modelo atómico?"
 
 explicacion: |
-  Los sólidos tienen fuerzas intermoleculares fuertes que mantienen su forma y volumen constantes independientemente del recipiente.
+  El modelo de {escenarios[idx][0]} se conoce como {escenarios[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estados_y_cambios"
+  tema: "modelos_atomicos"
   nivel: "basico"
-  tags: ["gas", "propiedades"]
+  tags: ["dalton", "electron"]
 
-respuesta: "gas"
+respuesta: falso
+tipo: vf
+
+enunciado: "¿El modelo atómico de Dalton ya incluía al electrón como partícula subatómica?"
+
+explicacion: |
+  Falso. Dalton consideraba el átomo como una esfera maciza e indivisible; fue Thomson quien descubrió el electrón varias décadas después.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "intermedio"
+  tags: ["rutherford", "nucleo"]
+
+variables:
+  metal: "oro"
+
+respuesta: metal
 tipo: completar
 respuestas_validas:
-  - "gas"
+  - metal
 
-enunciado: "El estado que no tiene forma propia NI volumen propio es el ___."
+enunciado: "El experimento que llevó a Rutherford a proponer un núcleo denso y positivo consistió en bombardear con partículas alfa una fina lámina de ___."
 
 explicacion: |
-  Los gases se expanden hasta ocupar todo el volumen del recipiente que los contiene y adoptan su forma, debido a la gran distancia entre sus partículas.
+  Rutherford usó una lámina de oro para observar la dispersión de partículas alfa, lo que reveló la existencia de un núcleo central pequeño y denso.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estados_y_cambios"
+  tema: "modelos_atomicos"
   nivel: "basico"
-  tags: ["agua", "puntos_criticos"]
+  tags: ["atomos", "electron", "thomson"]
 
-variables:
-  valor_fusion: 0
-
-respuesta: valor_fusion
-tipo: completar
-
-enunciado: "Indica el punto de fusión del agua en grados Celsius a presión atmosférica normal."
-
-explicacion: |
-  El punto de fusión del agua es 0°C.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "basico"
-  tags: ["agua", "puntos_criticos"]
-
-variables:
-  valor_ebullicion: 100
-
-respuesta: valor_ebullicion
-tipo: completar
-
-enunciado: "Indica el punto de ebullición del agua en grados Celsius a presión atmosférica normal."
-
-explicacion: |
-  El punto de ebullición del agua es 100°C.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "basico"
-  tags: ["cambios_de_estado", "condensacion"]
-
-respuesta: "El vapor se enfría y condensa al tocar la superficie fría"
+respuesta: "Thomson"
 tipo: mc
-opciones_explicitas: ["El vapor se enfría y condensa al tocar la superficie fría", "El vapor se expande por el choque térmico", "La tapa absorbe el calor y evapora las gotas", "El vapor se sublima directamente"]
+opciones_explicitas: ["Dalton", "Thomson", "Rutherford", "Bohr"]
 
-enunciado: "¿Por qué el vapor de una olla hirviendo se convierte en gotitas al tocar una tapa fría?"
+enunciado: "¿Qué científico descubrió el electrón mediante experimentos con tubos de rayos catódicos?"
 
 explicacion: |
-  Al entrar en contacto con una superficie fría, el vapor de agua pierde energía térmica, pasando de estado gaseoso a líquido (condensación).
+  J.J. Thomson descubrió el electrón en 1897, demostrando que el átomo no era una esfera indivisible como proponía Dalton, sino que contenía partículas subatómicas con carga negativa.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estados_y_cambios"
-  nivel: "intermedio"
-  tags: ["plasma", "universo"]
+  tema: "modelos_atomicos"
+  nivel: "basico"
+  tags: ["rutherford", "nucleo", "espacio_vacio"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es el plasma el estado de la materia más común en el universo, superando la suma de sólidos, líquidos y gases?"
+enunciado: "En el modelo atómico de Rutherford, el átomo está compuesto mayoritariamente por espacio vacío, con un núcleo pequeño y denso en el centro."
 
 explicacion: |
-  Debido a la enorme cantidad de estrellas y gas ionizado en el espacio, el plasma es el estado predominante en el cosmos.
+  El experimento de la lámina de oro demostró que la masa del átomo está concentrada en un núcleo central, dejando grandes zonas de vacío donde están los electrones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "intermedio"
+  tags: ["rutherford", "bohr", "electromagnetismo"]
+
+respuesta: "El electrón debería emitir radiación continua y caer en espiral hacia el núcleo"
+tipo: mc
+opciones_explicitas: ["El electrón debería emitir radiación continua y caer en espiral hacia el núcleo", "El átomo era demasiado grande para ser estable", "No explicaba la existencia de los neutrones", "Los electrones no tenían carga eléctrica"]
+
+enunciado: "¿Cuál era el principal problema del modelo de Rutherford que el modelo de Bohr buscaba resolver?"
+
+explicacion: |
+  Según la física clásica, una carga eléctrica en movimiento circular debería emitir radiación electromagnética, perder energía y colapsar contra el núcleo. Bohr resolvió esto con órbitas estacionarias.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "intermedio"
+  tags: ["bohr", "niveles_de_energia"]
+
+variables:
+  descriptor: "fijos y permitidos"
+
+respuesta: descriptor
+tipo: completar
+respuestas_validas:
+  - descriptor
+
+enunciado: "En el modelo de Bohr, los electrones giran en niveles de energía ___ (no en cualquier órbita)."
+
+explicacion: |
+  Bohr propuso que los electrones sólo pueden ocupar ciertas órbitas con energías cuantizadas, evitando así el colapso del átomo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "basico"
+  tags: ["thomson", "electron"]
+
+respuesta: "Electrones"
+tipo: mc
+opciones_explicitas: ["Protones", "Electrones", "Neutrones", "El núcleo"]
+
+enunciado: "En el modelo atómico de Thomson, comparado con un budín de pasas, ¿qué representan las pasas?"
+
+explicacion: |
+  Thomson propuso que el átomo era una esfera de carga positiva con electrones incrustados (las pasas), lo que explicaba la neutralidad eléctrica.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "basico"
+  tags: ["dalton", "teoria_atomica"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El modelo de Dalton describía al átomo como una esfera con una estructura interna compleja."
+
+explicacion: |
+  Dalton consideraba al átomo como una esfera indivisible, sólida e inmutable, sin estructura interna conocida.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "intermedio"
+  tags: ["historia_atomica", "modelos"]
+
+variables:
+  escenarios: [["Thomson", "la existencia del electrón"], ["Rutherford", "que la carga positiva está concentrada en un núcleo"], ["Bohr", "por qué los átomos emiten luz en colores específicos"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: escenarios[idx][1]
+tipo: mc
+opciones_explicitas: ["la existencia del electrón", "que la carga positiva está concentrada en un núcleo", "por qué los átomos emiten luz en colores específicos"]
+
+enunciado: "Considera el modelo de {escenarios[idx][0]}. ¿Qué explicó este modelo por primera vez?"
+
+explicacion: |
+  Cada modelo histórico aportó un avance fundamental: Thomson descubrió el electrón, Rutherford el núcleo y Bohr los niveles de energía.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "intermedio"
+  tags: ["cuantica", "orbitales"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El modelo actual (cuántico) reemplaza las órbitas fijas de Bohr por orbitales, zonas de probabilidad de hallar un electrón."
+
+explicacion: |
+  A diferencia del modelo de Bohr, donde los electrones siguen trayectorias circulares definidas, el modelo cuántico describe la probabilidad de posición mediante orbitales.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "intermedio"
+  tags: ["atomos", "teoria_atomica"]
+
+variables:
+  escenarios: [["Dalton", "no consideraba la existencia de partículas subatómicas"], ["Thomson", "no ubicaba correctamente la carga positiva del átomo"], ["Rutherford", "no explicaba por qué los electrones no colapsaban con el núcleo"], ["Bohr", "sus órbitas definidas no son compatibles con la mecánica cuántica"]]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: escenarios[idx][1]
+tipo: mc
+opciones_explicitas: ["no consideraba la existencia de partículas subatómicas", "no ubicaba correctamente la carga positiva del átomo", "no explicaba por qué los electrones no colapsaban con el núcleo", "sus órbitas definidas no son compatibles con la mecánica cuántica"]
+
+enunciado: "Considerando el modelo atómico de {escenarios[idx][0]}, ¿cuál era su principal limitación?"
+
+explicacion: |
+  El modelo de {escenarios[idx][0]} fue superado porque {escenarios[idx][1]}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "basico"
+  tags: ["rutherford", "nucleo_atomico"]
+
+respuesta: "Rutherford"
+tipo: completar
+respuestas_validas:
+  - "Rutherford"
+
+enunciado: "El átomo con carga positiva concentrada en un punto pequeño y denso, con electrones lejos girando alrededor, es el modelo de ___."
+
+explicacion: |
+  El modelo de Rutherford introdujo la idea de un núcleo central pequeño y denso, rompiendo con el "budín de pasas" de Thomson.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "basico"
+  tags: ["historia_quimica", "metodologia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Cada modelo atómico fue reemplazado porque el anterior estaba completamente equivocado, no porque resolviera un problema nuevo con evidencia nueva."
+
+explicacion: |
+  Falso. Cada modelo resolvió el problema que dejaba el anterior con evidencia experimental nueva (el electrón, el núcleo, los espectros de luz) — no fue descartado por estar "mal", sino superado.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "basico"
+  tags: ["cientificos", "historia"]
+
+respuesta: "Mendeleiev"
+tipo: mc
+opciones_explicitas: ["Dalton", "Thomson", "Rutherford", "Bohr", "Mendeleiev"]
+
+enunciado: "De la siguiente lista de científicos, ¿cuál NO propuso un modelo atómico dentro de la secuencia histórica Dalton→Thomson→Rutherford→Bohr?"
+
+explicacion: |
+  Mendeléyev es conocido por la Tabla Periódica, no por uno de los cuatro modelos atómicos de esta secuencia.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "intermedio"
+  tags: ["bohr", "espectros"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El modelo de Bohr explica por qué los átomos excitados emiten luz en colores (longitudes de onda) específicos, y no en cualquier color."
+
+explicacion: |
+  Como los electrones sólo pueden saltar entre niveles de energía fijos, cada salto emite un fotón de energía exacta, que corresponde a un color específico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "basico"
+  tags: ["thomson", "apodo"]
+
+respuesta: "budín de pasas"
+tipo: completar
+respuestas_validas:
+  - "budín de pasas"
+  - "budin de pasas"
+
+enunciado: "El modelo atómico de Thomson es conocido popularmente como el modelo del ___."
+
+explicacion: |
+  Se lo llama así porque describe al átomo como una esfera de carga positiva (el budín) con los electrones incrustados (las pasas).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "basico"
+  tags: ["dalton", "esfera_maciza"]
+
+respuesta: "Una esfera maciza e indivisible, sin estructura interna"
+tipo: mc
+opciones_explicitas: ["Una esfera maciza e indivisible, sin estructura interna", "Una esfera con electrones incrustados", "Un núcleo denso con electrones orbitando lejos", "Un núcleo con electrones en niveles de energía fijos"]
+
+enunciado: "¿Cómo describía Dalton al átomo?"
+
+explicacion: |
+  Dalton, el primer modelo atómico moderno (1803), lo describía como una bolita maciza, indivisible e indestructible, sin partículas subatómicas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "basico"
+  tags: ["rutherford", "thomson", "electron"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Rutherford fue quien descubrió el electrón con el tubo de rayos catódicos."
+
+explicacion: |
+  Falso. El electrón fue descubierto por Thomson (1897); Rutherford llegó después (1911) y descubrió el núcleo atómico con el experimento de la lámina de oro.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "modelos_atomicos"
+  nivel: "avanzado"
+  tags: ["bohr", "cuantica", "orbitales"]
+
+respuesta: "los niveles de energía cuantizados"
+tipo: mc
+opciones_explicitas: ["los niveles de energía cuantizados", "las órbitas circulares definidas", "el electrón como partícula maciza", "la carga positiva repartida en todo el volumen"]
+
+enunciado: "¿Qué idea de Bohr SÍ conserva el modelo cuántico actual, a pesar de reemplazar sus órbitas fijas por orbitales?"
+
+explicacion: |
+  El modelo actual descarta la trayectoria fija de Bohr, pero conserva su idea central: la energía del electrón está cuantizada, no puede tomar cualquier valor.
+```
+
+## Sección: propiedades-coligativas (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["propiedades_coligativas", "soluto", "teoria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las propiedades coligativas dependen exclusivamente de la cantidad de partículas de soluto presentes en la solución y no de la naturaleza química de la sustancia que actúa como soluto."
+
+explicacion: |
+  Correcto. Las propiedades coligativas (presión de vapor, punto de ebullición, punto de congelación, presión osmótica) dependen sólo de la concentración de partículas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "intermedio"
+  tags: ["disociacion", "soluto"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un mol de sal de mesa (NaCl), que se disocia en dos iones (Na+ y Cl-), tiene el mismo efecto coligativo que un mol de azúcar (sacarosa), que no se disocia en la solución."
+
+explicacion: |
+  Falso. Como el NaCl se disocia, 1 mol de NaCl produce 2 moles de partículas; 1 mol de azúcar produce sólo 1 mol de partículas. El NaCl tiene el doble de efecto coligativo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["definicion", "terminologia"]
+
+respuesta: "coligativa"
+tipo: completar
+respuestas_validas:
+  - "coligativa"
+
+enunciado: "La propiedad que depende únicamente de la CANTIDAD de partículas de soluto disueltas, y no de la identidad química del soluto, se llama propiedad ___."
+
+explicacion: |
+  "Coligativa" viene del latín "colligare" (ligar, atar): estas propiedades están ligadas a la cantidad de partículas, no a cuáles son.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["disociacion", "nacl"]
+
+respuesta: "2 moles de partículas"
+tipo: mc
+opciones_explicitas: ["2 moles de partículas", "1 mol de partículas", "3 moles de partículas", "0.5 moles de partículas"]
+
+enunciado: "Cuando 1 mol de NaCl se disuelve en agua y se disocia por completo en Na+ y Cl-, ¿cuántas moles de partículas aporta al medio?"
+
+explicacion: |
+  NaCl → Na+ + Cl−. Como hay dos iones por cada unidad de NaCl, la cantidad de partículas se duplica.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["crioscopia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un solvente con un soluto disuelto se congela a una temperatura menor que el solvente puro."
+
+explicacion: |
+  Correcto. La presencia de un soluto disminuye la temperatura de congelación del solvente: descenso crioscópico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Se usa sal en las calles con hielo para que la mezcla necesite una temperatura más baja para congelarse."
+
+explicacion: |
+  Al disolver sal en el hielo, el descenso crioscópico baja el punto de congelación, así que el hielo se derrite incluso bajo cero.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "intermedio"
+  tags: ["calculo", "crioscopia"]
+
+variables:
+  k_constante: uno_de([1, 2, 3])
+  molalidad: uno_de([1, 2, 3, 4])
+
+respuesta: k_constante * molalidad
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Calculá el descenso de la temperatura de congelación usando la constante crioscópica Kc = {k_constante} y molalidad m = {molalidad}."
+
+pasos:
+  - "Fórmula: ΔT = Kc × m"
+  - "ΔT = {k_constante} × {molalidad}"
+
+explicacion: |
+  El descenso crioscópico es Kc multiplicado por la molalidad de la solución.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["formula"]
+
+respuesta: "molalidad"
+tipo: completar
+respuestas_validas:
+  - "molalidad"
+  - "m"
+
+enunciado: "La fórmula del descenso crioscópico es ΔT = Kc × ___."
+
+explicacion: |
+  El descenso de la temperatura de congelación es proporcional a la molalidad de la solución.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["ebulloscopia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un solvente con un soluto no volátil disuelto hierve a una temperatura mayor que el solvente puro."
+
+explicacion: |
+  Esto es el ascenso ebulloscópico: el soluto disminuye la presión de vapor del solvente, así que hace falta más temperatura para que hierva.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "intermedio"
+  tags: ["calculo", "ebulloscopia"]
+
+variables:
+  ke: uno_de([1, 2, 3])
+  m: uno_de([1, 2, 3, 4])
+
+respuesta: ke * m
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Calculá el ascenso de la temperatura de ebullición usando ΔT = Ke × m, con Ke = {ke} y m = {m}."
+
+pasos:
+  - "ΔT = {ke} × {m}"
+
+explicacion: |
+  El ascenso ebulloscópico es directamente proporcional a la molalidad del soluto.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["propiedades"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A mayor cantidad de soluto disuelto, mayor es el desvío de temperatura respecto al solvente puro, tanto en el ascenso ebulloscópico como en el descenso crioscópico."
+
+explicacion: |
+  Las propiedades coligativas dependen sólo de la cantidad de partículas de soluto, no de su identidad química.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["aplicacion", "ebulloscopia"]
+
+respuesta: "más alta que el agua sola"
+tipo: mc
+opciones_explicitas: ["más alta que el agua sola", "más baja que el agua sola", "igual que el agua sola", "no hierve nunca"]
+
+enunciado: "Cuando se agrega sal al agua para cocinar, el agua hierve a una temperatura..."
+
+explicacion: |
+  La sal (soluto no volátil) produce un ascenso ebulloscópico: eleva el punto de ebullición por encima de los 100°C (a 1 atm).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["osmosis", "membrana"]
+
+respuesta: "membrana semipermeable"
+tipo: mc
+opciones_explicitas: ["membrana semipermeable", "pared sólida", "vacío", "llave de paso"]
+
+enunciado: "La presión osmótica ocurre cuando dos soluciones de distinta concentración están separadas por una..."
+
+explicacion: |
+  La ósmosis requiere una membrana semipermeable, que deja pasar el solvente pero no el soluto.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "intermedio"
+  tags: ["osmosis", "flujo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el proceso de ósmosis, el solvente se mueve desde el lado menos concentrado hacia el lado más concentrado."
+
+explicacion: |
+  Correcto. El solvente fluye hacia donde hay más soluto, buscando igualar las concentraciones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "intermedio"
+  tags: ["calculo", "osmosis"]
+
+variables:
+  M: uno_de([1, 2])
+  R: 0.082
+  T: uno_de([273, 298, 300])
+
+respuesta: M * R * T
+tipo: completar
+tolerancia_abs: 0.5
+
+enunciado: "Calculá la presión osmótica de una solución con molaridad {M} M a temperatura {T} K, usando R = {R} L·atm/(mol·K)."
+
+pasos:
+  - "π = M × R × T"
+
+explicacion: |
+  π = {M} × {R} × {T} atm.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["biologia", "osmosis"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una célula puesta en agua muy pura (sin sal) se hincha porque el agua entra buscando igualar la concentración de sales de adentro."
+
+explicacion: |
+  Verdadero. El agua externa es hipotónica respecto a la célula, así que el agua entra por ósmosis y la célula aumenta de volumen.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["formula", "osmosis"]
+
+respuesta: "T"
+tipo: completar
+respuestas_validas:
+  - "T"
+  - "temperatura absoluta"
+
+enunciado: "La fórmula de la presión osmótica es π = M × R × ___."
+
+explicacion: |
+  La variable que representa la temperatura en esta fórmula es la temperatura absoluta (T), en Kelvin.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "avanzado"
+  tags: ["disociacion", "comparacion"]
+
+respuesta: "CaCl2 (se disocia en 3 iones: Ca2+ + 2 Cl-)"
+tipo: mc
+opciones_explicitas: ["CaCl2 (se disocia en 3 iones: Ca2+ + 2 Cl-)", "NaCl (se disocia en 2 iones)", "Glucosa (no se disocia)", "Los tres tienen el mismo efecto"]
+
+enunciado: "Con la misma cantidad de moles disueltos, ¿cuál de estos solutos produce el mayor efecto coligativo?"
+
+explicacion: |
+  Cuantas más partículas libera cada unidad de soluto al disociarse, mayor el efecto coligativo. CaCl2 libera 3 partículas por unidad (1 Ca2+ + 2 Cl-), más que NaCl (2) o la glucosa, que no se disocia (1).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "intermedio"
+  tags: ["aplicacion", "crioscopia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El anticongelante de los autos funciona bajando el punto de congelación del agua del radiador, por el mismo principio del descenso crioscópico."
+
+explicacion: |
+  Correcto. El anticongelante es un soluto disuelto en el agua del radiador que baja su punto de congelación, evitando que se congele en climas fríos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "avanzado"
+  tags: ["comparacion", "resumen"]
+
+respuesta: "menor punto de congelación y mayor punto de ebullición"
+tipo: mc
+opciones_explicitas: ["menor punto de congelación y mayor punto de ebullición", "mayor punto de congelación y menor punto de ebullición", "ambos puntos suben", "ambos puntos bajan"]
+
+enunciado: "Comparado con agua pura, ¿qué le pasa al punto de congelación y al punto de ebullición del agua con sal disuelta?"
+
+explicacion: |
+  El soluto baja el punto de congelación (descenso crioscópico) y sube el punto de ebullición (ascenso ebulloscópico) — van en direcciones opuestas.
+```
+
+## Sección: atomo-particulas-subatomicas (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["protones", "neutrones", "electrones", "carga"]
+
+variables:
+  escenario: uno_de([["proton", "+1"], ["neutron", "0"], ["electron", "-1"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["+1", "0", "-1"]
+
+enunciado: "La partícula seleccionada es un {escenario[0]}. ¿Cuál es su carga eléctrica?"
+
+explicacion: |
+  El {escenario[0]} tiene una carga de {escenario[1]}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["masa", "electron"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La masa del electrón es casi despreciable comparada con la masa del protón."
+
+explicacion: |
+  Es verdadero. La masa del electrón es aproximadamente 1/1836 de la masa de un protón.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["nucleo", "neutron"]
+
+respuesta: "neutron"
+tipo: completar
+respuestas_validas:
+  - "neutron"
+  - "neutrón"
+
+enunciado: "La partícula sin carga eléctrica, ubicada en el núcleo, es el ___."
+
+explicacion: |
+  El neutrón es la partícula subatómica sin carga eléctrica situada en el núcleo atómico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["ubicacion", "nucleo", "nube"]
+
+variables:
+  escenario: uno_de([["proton", "nucleo"], ["neutron", "nucleo"], ["electron", "nube alrededor del nucleo"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["nucleo", "nube alrededor del nucleo"]
+
+enunciado: "La partícula seleccionada es un {escenario[0]}. ¿En qué parte del átomo se ubica?"
+
+explicacion: |
+  El {escenario[0]} se encuentra en el/la {escenario[1]}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["masa", "nucleo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Los protones y neutrones concentran casi toda la masa del átomo?"
+
+explicacion: |
+  Verdadero. Como la masa del electrón es despreciable, la masa atómica reside casi totalmente en el núcleo (protones y neutrones).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["protones", "electrones", "neutralidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un átomo neutro tiene el mismo número de protones que de electrones."
+
+explicacion: |
+  En un átomo neutro, la carga positiva de los protones se compensa exactamente con la carga negativa de los electrones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["cation", "carga", "electrones"]
+
+respuesta: "positiva"
+tipo: mc
+opciones_explicitas: ["positiva", "negativa", "neutra"]
+
+enunciado: "Si un átomo pierde electrones, ¿qué carga resultante queda?"
+
+explicacion: |
+  Al perder electrones (cargas negativas), el átomo queda con un exceso de protones, resultando en una carga positiva. A este ion se lo llama catión.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["anion", "carga", "electrones"]
+
+respuesta: "negativa"
+tipo: mc
+opciones_explicitas: ["negativa", "positiva", "neutra"]
+
+enunciado: "Si un átomo gana electrones, ¿qué carga resultante queda?"
+
+explicacion: |
+  Al ganar electrones (cargas negativas), el átomo tiene más electrones que protones, resultando en una carga negativa. A este ion se lo llama anión.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["ion", "terminologia"]
+
+respuesta: "ion"
+tipo: completar
+respuestas_validas:
+  - "ion"
+
+enunciado: "Un átomo cargado eléctricamente, por ganar o perder electrones, se llama ___."
+
+explicacion: |
+  Un ion es un átomo (o molécula) que ganó o perdió electrones, adquiriendo así una carga eléctrica neta.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "intermedio"
+  tags: ["protones", "elemento", "identidad"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para cambiar la identidad de un elemento químico, hay que cambiar el número de electrones y no el de protones."
+
+explicacion: |
+  La identidad de un elemento está determinada exclusivamente por su número de protones (número atómico). Cambiar los electrones sólo cambia la carga (ion), pero cambiar los protones crea un elemento distinto.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["protones", "elemento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El número de protones de un átomo define de qué elemento se trata."
+
+explicacion: |
+  El número atómico (Z), la cantidad de protones, es lo que identifica a un elemento químico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["isotopos", "neutrones"]
+
+respuesta: "isótopos"
+tipo: mc
+opciones_explicitas: ["isótopos", "iones", "isómeros", "alótropos"]
+
+enunciado: "¿Cómo se llaman dos átomos del mismo elemento con distinto número de neutrones?"
+
+explicacion: |
+  Los isótopos son átomos de un mismo elemento (mismo número de protones) que difieren en su número de neutrones, lo que cambia su masa atómica.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["nucleones", "masa"]
+
+respuesta: "nucleones"
+tipo: completar
+respuestas_validas:
+  - "nucleones"
+
+enunciado: "Los protones y neutrones juntos se llaman ___."
+
+explicacion: |
+  El conjunto de protones y neutrones que forman el núcleo atómico se denomina nucleones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["isotopos", "masa"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los isótopos de un mismo elemento tienen el mismo número de protones pero distinta masa."
+
+explicacion: |
+  Al tener distinto número de neutrones, la masa atómica (protones + neutrones) varía entre isótopos del mismo elemento.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "intermedio"
+  tags: ["protones", "identidad"]
+
+respuesta: "se convierte en otro elemento"
+tipo: mc
+opciones_explicitas: ["se convierte en otro elemento", "sigue siendo el mismo elemento", "se vuelve un ion", "se vuelve un isótopo"]
+
+enunciado: "Si un átomo cambia su número de protones, ¿qué ocurre?"
+
+explicacion: |
+  Como el número de protones define la identidad del elemento, cualquier cambio en esa cantidad transforma el átomo en un elemento distinto.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["protones", "electrones", "neutro"]
+
+variables:
+  protones: random(1, 20)
+
+respuesta: protones
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Un átomo neutro tiene {protones} protones. ¿Cuántos electrones tiene este átomo?"
+
+explicacion: |
+  En un átomo neutro, la cantidad de protones (carga positiva) es igual a la cantidad de electrones (carga negativa): las cargas se cancelan.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["nucleo", "volumen", "estructura"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El núcleo ocupa la mayor parte del volumen del átomo."
+
+explicacion: |
+  Falso. El núcleo es extremadamente pequeño comparado con el volumen total del átomo; la mayor parte del volumen es el espacio donde se mueven los electrones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["nucleo", "particulas"]
+
+respuesta: "electrón"
+tipo: mc
+opciones_explicitas: ["electrón", "protón", "neutrón", "nucleón"]
+
+enunciado: "¿Cuál de las siguientes partículas NO se encuentra en el núcleo del átomo?"
+
+explicacion: |
+  El núcleo contiene protones y neutrones (llamados nucleones juntos). El electrón está en la nube electrónica, alrededor del núcleo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["ion", "cation", "carga"]
+
+respuesta: "positiva"
+tipo: completar
+respuestas_validas:
+  - "positiva"
+
+enunciado: "Un catión tiene carga ___ porque perdió electrones."
+
+explicacion: |
+  Al perder electrones (cargas negativas), el átomo queda con exceso de protones (cargas positivas), resultando en una carga neta positiva.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "atomo_particulas_subatomicas"
+  nivel: "basico"
+  tags: ["ion", "anion", "carga"]
+
+respuesta: "negativa"
+tipo: completar
+respuestas_validas:
+  - "negativa"
+
+enunciado: "Un anión tiene carga ___ porque ganó electrones."
+
+explicacion: |
+  Al ganar electrones (cargas negativas), el átomo tiene más electrones que protones, resultando en una carga neta negativa.
 ```
 

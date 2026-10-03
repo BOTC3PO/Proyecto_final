@@ -4,1420 +4,6 @@
 
 ---
 
-## Sección: derecho-civil (25 preguntas)
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "basico"
-  tags: ["definicion", "conceptos_basicos"]
-
-tipo: mc
-opciones_explicitas: ["El conjunto de normas que regula las relaciones entre particulares y las de estos con el Estado cuando actúa como particular.", "El conjunto de normas que regula la organización y funcionamiento del Estado y sus instituciones.", "El conjunto de normas que regula la conducta de los ciudadanos en sociedad para garantizar la convivencia pública.", "El conjunto de normas que regula la relación entre el Estado y los ciudadanos en el ámbito penal."]
-
-respuesta: "El conjunto de normas que regula las relaciones entre particulares y las de estos con el Estado cuando actúa como particular."
-
-enunciado: "El Derecho Civil se define fundamentalmente como:"
-
-explicacion: |
-  El Derecho Civil es la rama del derecho privado que regula las relaciones más comunes de la vida cotidiana (familia, contratos, propiedad, sucesiones), interviniendo el Estado solo cuando actúa como un particular más.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "basico"
-  tags: ["sujetos", "personas"]
-
-tipo: completar
-respuestas_validas:
-  - "persona jurídica"
-
-respuesta: "persona jurídica"
-
-enunciado: "En el derecho civil, además de la persona física (ser humano), existen las ___ (entidades como sociedades o fundaciones) que tienen capacidad para ser sujetos de derechos y obligaciones."
-
-explicacion: |
-  Existen dos tipos de sujetos de derecho: la persona física (el ser humano) y la persona jurídica (entes colectivos o instituciones con personalidad propia).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "basico"
-  tags: ["teoria_general"]
-
-tipo: vf
-
-enunciado: "¿Es correcto afirmar que el Derecho Civil regula las relaciones entre el Estado y los ciudadanos cuando el Estado ejerce su poder de imperio (como en el derecho penal o administrativo)?"
-
-respuesta: falso
-
-explicacion: |
-  Falso. Cuando el Estado actúa con poder de imperio, se aplican el Derecho Público (Administrativo, Penal, etc.). El Derecho Civil se aplica cuando el Estado actúa como un particular (ej. alquilando un local).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "intermedio"
-  tags: ["relaciones_juridicas"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["El contrato de compraventa de un automóvil", "La herencia de un inmueble"], ["La celebración de un matrimonio", "La transferencia de propiedad de un bien"]]
-
-tipo: mc
-opciones_explicitas: ["Relaciones de Derecho Público", "Relaciones de Derecho Privado"]
-
-respuesta: "Relaciones de Derecho Privado"
-
-enunciado: "Tanto {escenarios[escenario_idx][0]} como {escenarios[escenario_idx][1]} son ejemplos de relaciones reguladas por el Derecho Civil, por lo tanto, pertenecen al ámbito del:"
-
-explicacion: |
-  El Derecho Civil es la piedra angular del Derecho Privado, ya que regula los intereses de los particulares.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "intermedio"
-  tags: ["capacidad", "orden_logico"]
-
-tipo: ordenar
-opciones_explicitas: ["Nacimiento de la persona", "Adquisición de la capacidad de goce", "Ejercicio de la capacidad de ejercicio"]
-
-respuesta_orden: ["Nacimiento de la persona", "Adquisición de la capacidad de goce", "Ejercicio de la capacidad de ejercicio"]
-
-enunciado: "Ordene cronológicamente los hitos que permiten el desarrollo de la personalidad jurídica y su capacidad en un individuo:"
-
-explicacion: |
-  Primero nace la persona (existencia), lo que le otorga capacidad de goce (derechos), y con el tiempo y la madurez adquiere la capacidad de ejercicio (facultad de actuar por sí mismo).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "basico"
-  tags: ["contratos", "compraventa"]
-
-variables:
-  objeto: uno_de(["un automóvil", "una casa", "un terreno"])
-  precio: uno_de([15000, 250000, 50000])
-
-enunciado: "Juan celebra un contrato de compraventa con Pedro donde se acuerda la transferencia de {objeto} por un valor de ${precio}. En este acto, se perfecciona el consentimiento entre las partes sobre el objeto y el precio."
-
-respuesta: verdadero
-tipo: "vf"
-
-explicacion: |
-  El contrato de compraventa es el acuerdo de voluntades donde una parte se obliga a entregar un bien y la otra a pagar un precio cierto. Al existir consentimiento sobre el objeto y el precio, el contrato es válido.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "intermedio"
-  tags: ["capacidad", "personas"]
-
-variables:
-  edades: [16, 25, 30]
-  idx: uno_de([0, 1, 2])
-  edad: edades[idx]
-
-enunciado: "Un individuo de {edad} años desea realizar un contrato de arrendamiento de forma autónoma. Según la normativa civil general, si la persona es mayor de edad, posee capacidad de ejercicio."
-
-respuesta: verdadero
-tipo: "vf"
-
-explicacion: |
-  La capacidad de ejercicio es la aptitud para ejercer derechos y contraer obligaciones por sí mismo. En la mayoría de las legislaciones, se adquiere con la mayoría de edad.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "intermedio"
-  tags: ["sucesiones", "herencia"]
-
-variables:
-  idx: uno_de([0, 1])
-  causas: ["testamento", "falta de testamento"]
-  tipos: ["testamentaria", "legítima"]
-
-enunciado: "Ante el fallecimiento de una persona, si la causa de la transmisión de sus bienes es {causas[idx]}, nos encontramos ante una sucesión ___ (o legítima/ab intestato, según corresponda)."
-
-respuestas_validas:
-  - tipos[idx]
-respuesta: tipos[idx]
-tipo: "completar"
-
-explicacion: |
-  La sucesión testamentaria es aquella que se rige por la voluntad del causante expresada en un testamento. La legítima (o ab intestato) ocurre cuando la ley determina a los herederos ante la ausencia de testamento.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "avanzado"
-  tags: ["acton_juridico", "vicios"]
-
-enunciado: "Para que un acto jurídico sea válido, su voluntad debe ser libre. Si una persona es obligada mediante amenazas físicas para firmar un contrato, el vicio que afecta la validez es el ___."
-
-respuestas_validas:
-  - "vicio de violencia"
-respuesta: "vicio de violencia"
-tipo: "completar"
-
-explicacion: |
-  La violencia es un vicio del consentimiento que consiste en la coacción física o moral que anula la libertad de la voluntad del sujeto.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "intermedio"
-  tags: ["propiedad", "derechos_reales"]
-
-enunciado: "Para que la transferencia de un inmueble sea oponible a terceros y perfeccione el derecho real de propiedad, se deben seguir ciertos pasos legales. Ordene el proceso típico de una compraventa de este tipo:"
-
-opciones_explicitas: ["Escritura pública", "Pago del precio", "Inscripción registral"]
-respuesta_orden: ["Escritura pública", "Pago del precio", "Inscripción registral"]
-tipo: "ordenar"
-
-explicacion: |
-  En bienes inmuebles, el proceso requiere la formalidad de la escritura, el cumplimiento de la contraprestación (pago) y la inscripción en el Registro de la Propiedad para que el derecho sea oponible a terceros.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "basico"
-  tags: ["conceptos_basicos", "relaciones_privadas"]
-
-respuesta: "privadas"
-tipo: completar
-respuestas_validas:
-  - "privadas"
-  - "privada"
-
-enunciado: "A diferencia del derecho público, el derecho civil regula las relaciones entre personas de carácter ___."
-
-explicacion: |
-  El derecho civil se encarga de las relaciones entre particulares (personas físicas o jurídicas) en un plano de igualdad, a diferencia del derecho público que regula la relación entre el Estado y los ciudadanos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "intermedio"
-  tags: ["distincion_ramas"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si una persona incumple un contrato de alquiler, la sanción principal que impone el derecho civil es la pena de prisión."
-
-explicacion: |
-  Falso. El derecho civil busca la reparación del daño o el cumplimiento de la obligación (indemnizaciones, rescisión de contrato, etc.). La pena de prisión es una sanción propia del derecho penal.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "basico"
-  tags: ["sujetos_derecho"]
-
-variables:
-  escenario: uno_de([["Un contrato de compraventa entre dos vecinos", "civil"], ["Una multa por exceso de velocidad", "administrativo"], ["Un juicio por un delito de robo", "penal"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["civil", "administrativo", "penal"]
-
-enunciado: "Identifique la naturaleza jurídica del siguiente caso: {escenario[0]}."
-
-explicacion: |
-  El caso planteado involucra a dos particulares en una relación de igualdad, lo cual es el núcleo del derecho civil.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "intermedio"
-  tags: ["sucesiones", "orden_legal"]
-
-respuesta_orden: ["1. Testamento", "2. Sucesión Intestada", "3. Sucesión Abintestato"]
-tipo: ordenar
-opciones_explicitas: ["1. Testamento", "2. Sucesión Intestada", "3. Sucesión Abintestato"]
-
-enunciado: "Ordene los criterios de prelación para determinar la transmisión de bienes tras el fallecimiento de una persona:"
-
-explicacion: |
-  En derecho civil, el orden de prioridad comienza por la voluntad del causante (testamento) y, en su defecto, se aplica la ley (sucesión intestada/abintestato).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "intermedio"
-  tags: ["capacidad_juridica"]
-
-respuesta: "capacidad_de_goce"
-tipo: mc
-opciones_explicitas: ["capacidad_de_goce", "capacidad_de_ejercicio", "capacidad_de_disposición"]
-
-enunciado: "La aptitud que tiene toda persona para ser titular de derechos y obligaciones se denomina ___."
-
-explicacion: |
-  La capacidad de goce es la aptitud inherente a la persona por el solo hecho de serlo, mientras que la capacidad de ejercicio es la facultad para ejercer esos derechos por sí mismo.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "basico"
-  tags: ["definicion", "comparacion"]
-
-respuesta: "derecho_privado"
-tipo: completar
-respuestas_validas:
-  - "derecho_privado"
-
-enunciado: "Mientras que el derecho público regula la organización del Estado y sus relaciones con los particulares, el derecho civil pertenece al ámbito del ________."
-
-explicacion: |
-  El derecho civil se encarga de regular las relaciones entre particulares (personas físicas o jurídicas) en condiciones de igualdad, situándose dentro de la rama del derecho privado.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "basico"
-  tags: ["comparacion", "derecho_penal"]
-
-opciones_explicitas: ["La sanción de penas privativas de la libertad", "La regulación de las relaciones privadas y el patrimonio", "La organización de la administración pública"]
-respuesta: "La regulación de las relaciones privadas y el patrimonio"
-tipo: mc
-
-enunciado: "A diferencia del derecho penal, cuyo fin es imponer sanciones por delitos, el objeto principal del derecho civil es:"
-
-explicacion: |
-  El derecho civil se centra en la regulación de la vida privada, los contratos, la familia, la propiedad y las sucesiones, no en la persecución de delitos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "intermedio"
-  tags: ["normas", "derecho_publico"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es el derecho civil una rama del derecho público, dado que regula las normas de convivencia entre ciudadanos?"
-
-explicacion: |
-  Falso. El derecho civil es la columna vertebral del derecho privado. El derecho público es el que regula la estructura del Estado y el ejercicio de la soberanía.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "avanzado"
-  tags: ["contratos", "ordenar"]
-
-opciones_explicitas: ["Normas de orden público", "Autonomía de la voluntad (acuerdo de partes)", "Cumplimiento de la prestación"]
-respuesta_orden: ["Normas de orden público", "Autonomía de la voluntad (acuerdo de partes)", "Cumplimiento de la prestación"]
-tipo: ordenar
-
-enunciado: "En la validez de un contrato civil, ordene cronológicamente la jerarquía de aplicación: primero las normas que no pueden ser alteradas por las partes, luego la voluntad de los contratantes y finalmente la ejecución del acto."
-
-explicacion: |
-  El orden jurídico establece que las normas de orden público son la base infranqueable; sobre ellas opera la autonomía de la voluntad para crear reglas particulares, las cuales culminan en el cumplimiento de lo pactado.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "intermedio"
-  tags: ["contratos", "derecho_administrativo"]
-
-tipo: mc
-opciones_explicitas: ["se rige por el derecho privado", "se rige por el derecho público"]
-
-respuesta: "se rige por el derecho privado"
-
-enunciado: "Si un particular celebra un contrato de compraventa con otro particular, la naturaleza de la relación es que ___."
-
-explicacion: |
-  En un contrato entre particulares, la relación es de derecho privado. Si una de las partes fuera el Estado actuando con prerrogativas de poder público, entraríamos en el ámbito del derecho administrativo.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "basico"
-  tags: ["capacidad", "personas"]
-
-variables:
-  datos: [["Juan (16 años) quiere vender su bicicleta", "incapaz"], ["Marta (25 años) firma un contrato de alquiler", "capaz"], ["Luis (80 años, con pleno uso de facultades) compra un auto", "capaz"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["incapaz", "capaz"]
-
-enunciado: "Considerando el siguiente caso: {datos[idx][0]}. ¿Cuál es la situación jurídica de la persona respecto a la capacidad de ejercicio?"
-
-explicacion: |
-  La capacidad de ejercicio es la aptitud para ejercer derechos y contraer obligaciones por sí mismo. Los menores de edad (sin excepción de edad en este contexto simplificado) suelen ser sujetos con capacidad de derecho pero con restricciones en la de ejercicio.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "intermedio"
-  tags: ["contratos", "elementos"]
-
-variables:
-  datos: [["Un vendedor ofrece un reloj por $100 y un comprador acepta", "consentimiento"], ["Un terreno que no existe legalmente", "objeto"], ["Un contrato firmado bajo amenaza de muerte", "vicio"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "consentimiento"
-  - "objeto"
-  - "vicio"
-
-enunciado: "En el siguiente supuesto: {datos[idx][0]}. El elemento esencial del contrato que se está describiendo o afectando es el ___."
-
-explicacion: |
-  Para que un contrato sea válido, requiere objeto lícito, causa lícita y consentimiento de las partes.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "intermedio"
-  tags: ["derechos_reales", "propiedad"]
-
-respuestas_validas:
-  - "poseedor"
-respuesta: "poseedor"
-tipo: completar
-enunciado: "Si una persona tiene el control de un bien pero no tiene el título de propiedad que la acredite legalmente (no 'tiene el dominio pleno sobre el bien'), su situación jurídica correcta es la de ___."
-
-explicacion: |
-  La posesión es el poder de hecho sobre una cosa, mientras que el dominio es el derecho real de propiedad. No son sinónimos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "avanzado"
-  tags: ["sucesiones", "herencia"]
-
-variables:
-  orden: ["Descendientes", "Ascendientes", "Cónyuge", "Colaterales"]
-
-respuesta_orden: orden
-tipo: ordenar
-
-enunciado: "Ordene los siguientes órdenes hereditarios según la prelación legal típica en el derecho civil (de mayor a menor prioridad):"
-
-explicacion: |
-  La ley establece un orden de vocación hereditaria para asegurar la transmisión de bienes, priorizando generalmente a los descendientes y luego a los ascendientes y cónyuge.
-opciones_explicitas: orden
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_civil"
-  nivel: "intermedio"
-  tags: ["responsabilidad", "daños"]
-
-variables:
-  datos: [["El daño fue causado por negligencia", "subjetiva"], ["El daño fue causado por un animal de la persona", "objetiva"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["subjetiva", "objetiva"]
-
-enunciado: "Analice el siguiente evento: {datos[idx][0]}. ¿Qué tipo de responsabilidad civil se está analizando principalmente?"
-
-explicacion: |
-  La responsabilidad subjetiva se basa en la culpa o dolo, mientras que la objetiva se basa en el riesgo creado o la guarda de una cosa.
-```
-
-## Sección: derecho-comercial (25 preguntas)
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "basico"
-  tags: ["definicion", "conceptos_clave"]
-
-tipo: mc
-opciones_explicitas: ["Es el conjunto de normas que regulan la actividad de los comerciantes y los actos de comercio.", "Es el conjunto de normas que regulan exclusivamente las relaciones entre personas físicas.", "Es la rama que regula únicamente los contratos de alquiler.", "Es el conjunto de normas que regulan la actividad de las empresas y los actos de comercio."]
-
-respuesta: "Es el conjunto de normas que regulan la actividad de los comerciantes y los actos de comercio."
-
-enunciado: "El Derecho Comercial se define fundamentalmente como el conjunto de normas que regulan ___."
-
-explicacion: |
-  El Derecho Comercial es la rama del derecho privado que regula la actividad de los comerciantes, la organización de las empresas y los actos de comercio.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "basico"
-  tags: ["sujetos", "comerciante"]
-
-tipo: vf
-respuesta: falso
-
-enunciado: "¿Es verdadero o falso que el Derecho Comercial regula únicamente a las personas jurídicas (sociedades), excluyendo a las personas humanas que actúan como comerciantes?"
-
-explicacion: |
-  Falso. El Derecho Comercial regula tanto a las personas humanas que realizan actos de comercio como a las personas jurídicas (sociedades comerciales).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "intermedio"
-  tags: ["empresa", "elementos"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["capital", "el aporte económico"], ["fuerza de trabajo", "el esfuerzo humano"]]
-
-tipo: completar
-respuestas_validas:
-  - "capital"
-  - "fuerza de trabajo"
-respuesta: datos[idx][0]
-
-enunciado: "En el ámbito del derecho comercial, un elemento esencial para la organización de la empresa es el ___."
-
-pasos:
-  - "Identificar los elementos que componen la unidad económica de la empresa."
-  - "Seleccionar el concepto que completa la definición técnica."
-
-explicacion: |
-  La empresa requiere de elementos como el capital, la fuerza de trabajo, la tecnología y la organización para cumplir su fin lucrativo.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "intermedio"
-  tags: ["actos_de_comercio", "clasificacion"]
-
-tipo: mc
-opciones_explicitas: ["Actos de comercio por su naturaleza (objetivos)", "Actos de comercio por la voluntad de las partes (subjetivos)", "Actos de comercio por su cuantía", "Actos de comercio por su duración"]
-
-respuesta: "Actos de comercio por su naturaleza (objetivos)"
-
-enunciado: "Cuando un acto es considerado comercial por la ley, independientemente de quién lo realice, estamos ante actos de comercio ___."
-
-explicacion: |
-  Los actos de comercio pueden ser objetivos (por su naturaleza, como la compraventa de bienes muebles para revender) o subjetivos (dependiendo de la calidad de la persona que lo realiza).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "avanzado"
-  tags: ["quiebra", "concurso_preventivo", "proceso"]
-
-tipo: ordenar
-opciones_explicitas: ["Estado de insolvencia", "Concurso preventivo", "Quiebra"]
-respuesta_orden: ["Estado de insolvencia", "Concurso preventivo", "Quiebra"]
-
-enunciado: "Ordene cronológicamente los estadios típicos de un proceso de crisis económica de un comerciante, desde la situación inicial hasta la liquidación forzosa."
-
-explicacion: |
-  El proceso suele comenzar con un estado de insolvencia, que puede derivar en un concurso preventivo (para renegociar deudas) o directamente en una quiebra (liquidación de activos).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "basico"
-  tags: ["sociedades", "comerciantes"]
-
-variables:
-  datos: [["sociedad", "sociedad"], ["contrato civil", "contrato civil"], ["asociación sin fines de lucro", "asociación sin fines de lucro"], ["persona física", "persona física"]]
-  idx: uno_de([0,1,2,3])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: [datos[0][0], datos[1][0], datos[2][0], datos[3][0]]
-
-enunciado: "Cuando dos o más personas se obligan a realizar aportes para un fin común y repartirse las ganancias, constituyen una ___."
-
-explicacion: |
-  En el derecho comercial, la unión de voluntades para un fin lucrativo y mediante aportes constituye una sociedad comercial.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "basico"
-  tags: ["comerciante", "acto_de_comercio"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "Una persona que realiza actos de comercio de forma habitual y profesional es considerada comerciante por la ley."
-
-explicacion: |
-  Verdadero. La habitualidad y la profesionalidad en el ejercicio de actos de comercio definen la condición de comerciante.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "intermedio"
-  tags: ["sociedades", "pasos_legales"]
-
-tipo: "ordenar"
-opciones_explicitas: ["redacción del contrato", "publicación de edictos", "inscripción en el registro", "obtención de CUIT"]
-respuesta_orden: ["redacción del contrato", "publicación de edictos", "inscripción en el registro", "obtención de CUIT"]
-
-enunciado: "Ordene cronológicamente los pasos para la formalización de una sociedad comercial (Considere el orden estándar de constitución)."
-
-explicacion: |
-  El orden lógico comienza con la voluntad de las partes (contrato), sigue con la publicidad (edictos), la formalidad registral (inscripción) y finalmente la habilitación impositiva (CUIT).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "avanzado"
-  tags: ["quiebras", "concurso_preventivo"]
-
-respuesta: "reorganización"
-tipo: "mc"
-opciones_explicitas: ["reorganización", "liquidación", "extinción inmediata", "suspensión de pagos"]
-
-enunciado: "Un comerciante con dificultades financieras solicita un concurso preventivo para evitar la quiebra. El objetivo principal de este proceso es la ___ de sus deudas."
-
-explicacion: |
-  El concurso preventivo busca la reorganización de la empresa mediante un acuerdo con los acreedores para evitar la quiebra.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "intermedio"
-  tags: ["contratos", "comercio"]
-
-respuesta: "precio"
-tipo: "completar"
-respuestas_validas:
-  - "precio"
-
-enunciado: "En un contrato de compraventa mercantil, el intercambio se centra en la entrega de una cosa a cambio de un ___ determinado."
-
-explicacion: |
-  El precio es el elemento esencial que distingue a la compraventa de otras figuras jurídicas en el ámbito comercial.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "basico"
-  tags: ["conceptos_fundamentales", "acto_de_comercio"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El derecho comercial regula únicamente los actos realizados por personas con la condición de 'comerciante', dejando de lado la naturaleza del acto en sí mismo."
-
-explicacion: |
-  El derecho comercial moderno se basa tanto en el sujeto (comerciante) como en el objeto (acto de comercio). Un acto puede ser comercial por su naturaleza, aunque el sujeto no esté matriculado.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "intermedio"
-  tags: ["distincion_civil_comercial", "sujeto"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Compraventa de un bien mueble para reventa", "Comercial"], ["Préstamo de dinero entre amigos sin interés", "Civil"]]
-
-respuesta: escenarios[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["Comercial", "Civil"]
-
-enunciado: "Determine la naturaleza jurídica del siguiente caso: {escenarios[escenario_idx][0]}"
-
-explicacion: |
-  La distinción radica en la finalidad de lucro y la intermediación en el cambio. En el primer caso hay intención de reventa (lucro), en el segundo es un acto de mera administración o ayuda mutua.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "intermedio"
-  tags: ["sociedades", "elementos"]
-
-respuesta_orden: ["Aportes", "Affectio Societatis", "Fin de lucro"]
-tipo: ordenar
-
-opciones_explicitas: ["Affectio Societatis", "Aportes", "Fin de lucro"]
-
-enunciado: "Ordene los elementos esenciales de un contrato de sociedad desde su constitución hasta su objetivo final:"
-
-explicacion: |
-  Para que exista sociedad se requiere primero el aporte de bienes, luego la voluntad de asociación (affectio societatis) y finalmente el objetivo de obtener una ganancia (fin de lucro).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "avanzado"
-  tags: ["concursos_y_quiebras", "insolvencia"]
-
-variables:
-  idx: uno_de([0, 1])
-  casos: ["El sujeto mantiene su patrimonio pero no puede pagar sus deudas vencidas.", "El sujeto tiene activos que superan sus deudas pero tiene problemas de liquidez."]
-  valores: [verdadero, falso]
-
-respuesta: valores[idx]
-
-tipo: vf
-enunciado: "En el marco del derecho comercial, ¿el siguiente estado constituye insolvencia (cesación de pagos) para que se dicte la quiebra? '{casos[idx]}'"
-
-explicacion: |
-  La quiebra es un proceso de ejecución colectiva que requiere la existencia de un estado de cesación de pagos (insolvencia), no solo una dificultad temporal de caja.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "basico"
-  tags: ["comerciante", "sujeto_derecho"]
-
-respuesta: "comerciante"
-tipo: completar
-respuestas_validas:
-  - "comerciante"
-
-enunciado: "La persona que se encuentra legalmente inscrita en el registro correspondiente y realiza actos de comercio de forma habitual es denominada _________."
-
-explicacion: |
-  La habitualidad y la inscripción en el registro mercantil son requisitos que definen la condición de comerciante en la mayoría de las legislaciones comerciales.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "basico"
-  tags: ["caracteristicas", "comparacion"]
-
-respuesta: "especial"
-tipo: "completar"
-respuestas_validas:
-  - "especial"
-  - "especialidad"
-
-enunciado: "A diferencia del Derecho Civil, que es de carácter general, el Derecho Comercial se caracteriza por su naturaleza ___."
-
-explicacion: |
-  El Derecho Comercial es una rama especial del Derecho que regula actos de comercio y sujetos específicos, diferenciándose de la generalidad del Derecho Civil.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "basico"
-  tags: ["sujetos", "comerciante"]
-
-opciones_explicitas: ["Persona física únicamente", "Persona física y persona jurídica", "Solo sociedades anónimas", "Solo personas físicas"]
-respuesta: "Persona física y persona jurídica"
-tipo: "mc"
-
-enunciado: "En el ámbito del Derecho Comercial, ¿quiénes pueden ser considerados sujetos de derecho (comerciantes/empresarios)?"
-
-explicacion: |
-  El Derecho Comercial regula tanto a las personas humanas (físicas) como a las personas jurídicas (sociedades) que realizan actos de comercio.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "intermedio"
-  tags: ["aplicacion", "contratos"]
-
-variables:
-  idx: uno_de([0, 1, 2, 3])
-  casos: ["una compraventa de un auto entre particulares", "una compraventa de mercadería para reventa", "un alquiler de una vivienda para uso familiar", "un contrato de leasing de maquinaria industrial"]
-  valores: [falso, verdadero, falso, verdadero]
-
-respuesta: valores[idx]
-tipo: "vf"
-
-enunciado: "Analice el siguiente caso: '{casos[idx]}'. ¿El acto jurídico resultante es de naturaleza comercial?"
-
-explicacion: |
-  Si el acto tiene como fin el lucro o la intermediación en el mercado, se rige por el Derecho Comercial; de lo contrario, pertenece al Derecho Civil.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "avanzado"
-  tags: ["responsabilidad", "quiebra"]
-
-respuesta: "quiebra"
-tipo: "completar"
-respuestas_validas:
-  - "quiebra"
-  - "concurso preventivo"
-
-enunciado: "Mientras que en el Derecho Civil la insolvencia se resuelve mediante procesos de ejecución patrimonial, en el Derecho Comercial la insolvencía del comerciante se regula principalmente a través del proceso de ___."
-
-explicacion: |
-  El Derecho Comercial posee institutos específicos para la insolvencia, como el concurso preventivo y la quiebra, para proteger el crédito y la unidad de la masa.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "basico"
-  tags: ["historia", "evolucion"]
-
-opciones_explicitas: ["Derecho de castas", "Derecho de clases", "Derecho de corporaciones", "Derecho de individuos"]
-respuesta: "Derecho de corporaciones"
-tipo: "mc"
-
-enunciado: "Históricamente, el Derecho Comercial se originó como un derecho de ___, basado en los usos y costumbres de los gremios de mercaderes, diferenciándose del derecho romano-civilista."
-
-explicacion: |
-  El origen del derecho comercial es corporativo, nacido de las necesidades de los estamentos de comerciantes que requerían reglas rápidas y basadas en la costumbre.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "basico"
-  tags: ["sociedades", "comerciantes"]
-
-variables:
-  datos: [["Juan y Pedro deciden formar una sociedad para vender muebles", "sociedad"], ["Ana decide abrir una tienda de ropa como persona física", "persona_fisica"]]
-  idx: uno_de([0, 1])
-
-enunciado: "En el caso de que {datos[idx][0]}, la entidad constituida se denomina una ___."
-
-respuestas_validas:
-  - "sociedad"
-  - "persona_fisica"
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  Si hay un acuerdo de voluntades para un fin común y aportes, se constituye una sociedad. Si actúa un individuo, es persona física/humana.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "intermedio"
-  tags: ["contratos", "comercio"]
-
-variables:
-  datos: [["Compraventa de mercadería para reventa", "comercial"], ["Alquiler de una vivienda para uso familiar", "civil"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Considerando que el acto es {datos[idx][0]}, el contrato resultante es de naturaleza ___."
-
-opciones_explicitas: ["comercial", "civil", "administrativo"]
-respuesta: datos[idx][1]
-tipo: mc
-
-explicacion: |
-  Los contratos comerciales son aquellos que tienen por objeto actos de comercio o son realizados por comerciantes en el ejercicio de su profesión.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "avanzado"
-  tags: ["quiebra", "concurso"]
-
-variables:
-  datos: [["El comerciante tiene insolvencia pero busca un acuerdo con acreedores", "concurso preventivo"], ["El comerciante es insolvente y no tiene posibilidad de acuerdo", "quiebra directa"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Si la situación es {datos[idx][0]}, el proceso legal correspondiente es un ___."
-
-opciones_explicitas: ["concurso preventivo", "quiebra directa", "liquidación"]
-respuesta: datos[idx][1]
-tipo: mc
-
-explicacion: |
-  El concurso preventivo busca la protección del deudor mediante un acuerdo; la quiebra busca la liquidación de activos ante la insolvencia total.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "basico"
-  tags: ["sociedades", "requisitos"]
-
-enunciado: "¿Es verdadero o falso que para la existencia de una sociedad comercial es indispensable la existencia de un fin de lucro?"
-
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "verdadero"
-tipo: mc
-
-explicacion: |
-  El ánimo de lucro (o fin de lucro) es el elemento esencial que distingue a las sociedades de las asociaciones civiles sin fines de lucro.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_comercial"
-  nivel: "intermedio"
-  tags: ["concurso", "pasos"]
-
-enunciado: "Ordene cronológicamente las etapas típicas de un proceso de concurso preventivo exitoso:"
-
-opciones_explicitas: ["Presentación del pedido de concurso", "Verificación de créditos", "Acuerdo preventivo", "Homologación judicial"]
-respuesta_orden: ["Presentación del pedido de concurso", "Verificación de créditos", "Acuerdo preventivo", "Homologación judicial"]
-tipo: ordenar
-
-explicacion: |
-  El proceso inicia con la presentación, sigue con la acreditación de los derechos de los acreedores (verificación), la negociación del acuerdo y finalmente el control judicial (homologación).
-```
-
-## Sección: derecho-constitucional (25 preguntas)
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "basico"
-  tags: ["definicion", "fundamentos"]
-
-respuesta: "estudia la Constitución, la organización del Estado y los derechos fundamentales"
-tipo: completar
-respuestas_validas:
-  - "estudia la Constitución, la organización del Estado y los derechos fundamentales"
-
-enunciado: "El Derecho Constitucional es la rama del derecho público que ___."
-
-explicacion: |
-  El Derecho Constitucional se encarga de regular la estructura fundamental del Estado y la protección de los derechos de los ciudadanos frente al poder.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "basico"
-  tags: ["objeto_estudio"]
-
-respuesta: "Constitución"
-tipo: mc
-opciones_explicitas: ["Constitución", "leyes comunes", "normas de tránsito", "contratos privados"]
-
-enunciado: "El objeto principal de estudio del Derecho Constitucional es la ___."
-
-explicacion: |
-  La Constitución es la norma suprema que rige la organización de un Estado.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "intermedio"
-  tags: ["jerarquia", "normas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un sistema jurídico democrático, la Constitución se encuentra en la cúspide de la jerarquía normativa, por encima de las leyes ordinarias."
-
-explicacion: |
-  Efectivamente, el principio de supremacía constitucional establece que ninguna norma inferior puede contradecir la Constitución.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "basico"
-  tags: ["partes_constitucion"]
-
-respuesta_orden: ["Parte Dogmática", "Parte Orgánica", "Cláusulas de Reforma"]
-tipo: ordenar
-opciones_explicitas: ["Parte Dogmática", "Parte Orgánica", "Cláusulas de Reforma"]
-
-enunciado: "Ordene los componentes típicos de una Constitución moderna de mayor a menor jerarquía conceptual (desde la protección de derechos hasta el mecanismo de cambio):"
-
-explicacion: |
-  La Parte Dogmática contiene los derechos; la Orgánica la estructura del Estado; y las Cláusulas de Reforma regulan cómo cambiar la propia Constitución.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "basico"
-  tags: ["derechos_fundamentales"]
-
-variables:
-  datos: [[ "libertad de expresión", "derecho a la vida" ], [ "libertad de culto", "derecho a la vida" ], [ "derecho a la propiedad", "derecho a la vida" ]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["libertad de expresión", "derecho a la vida", "derecho a la propiedad", "derecho al voto"]
-
-enunciado: "De la siguiente lista, identifique cuál de estos es un derecho fundamental clásico protegido por la Constitución: {datos[idx][0]}."
-
-explicacion: |
-  Aunque todos pueden ser derechos, el derecho a la vida es considerado el pilar fundamental sobre el cual se asientan los demás derechos humanos y constitucionales.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "basico"
-  tags: ["constitucion", "control_constitucional"]
-
-tipo: mc
-opciones_explicitas: ["constitucional", "inconstitucional", "nulo", "inaplicable"]
-
-respuesta: "inconstitucional"
-
-enunciado: "Si una ley sancionada por el Congreso contradice un principio fundamental establecido en la Constitución Nacional, un juez debe declarar que dicha ley es ___."
-
-explicacion: |
-  El control de constitucionalidad es la facultad de los jueces de asegurar que ninguna norma inferior (como una ley) contradiga la norma suprema (la Constitución). Si hay contradicción, la norma debe ser declarada inconstitucional.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "basico"
-  tags: ["poderes", "estado"]
-
-variables:
-  idx: uno_de([0, 1])
-  poderes: ["Poder Ejecutivo", "Poder Legislativo"]
-  valores: [falso, verdadero]
-
-respuesta: valores[idx]
-tipo: vf
-enunciado: "En un sistema republicano, el {poderes[idx]} tiene la función principal de dictar leyes que rigen a toda la sociedad."
-
-explicacion: |
-  La función de dictar leyes corresponde al Poder Legislativo. El Poder Ejecutivo tiene la función de administrar y ejecutar las leyes.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "intermedio"
-  tags: ["derechos_fundamentales", "libertad_expresion"]
-
-respuesta: "libertad de expresión"
-tipo: completar
-respuestas_validas:
-  - "libertad de expresión"
-
-enunciado: "Un periodista publica información veraz sobre un funcionario público para denunciar corrupción. En este conflicto de derechos, la jurisprudencia suele priorizar la ___ (el derecho a informar) sobre el derecho a la intimidad del funcionario."
-
-pasos:
-  - "Identificar el derecho en juego: informar sobre asuntos de interés público."
-  - "Contrastar con el derecho a la privacidad del funcionario en el ejercicio de su cargo."
-  - "Determinar cuál prevalece según la doctrina constitucional."
-
-explicacion: |
-  En casos de interés público, el derecho a la información y la libertad de expresión suelen prevalecer sobre la privacidad de los funcionarios, siempre que la información sea veraz y de relevancia social.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "intermedio"
-  tags: ["jerarquia", "kelsen"]
-
-respuesta_orden: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos"]
-tipo: ordenar
-
-opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos"]
-
-enunciado: "Ordene las siguientes normas de mayor a menor jerarquía, siguiendo el ordenamiento jurídico basado en la supremacía constitucional."
-
-explicacion: |
-  La Constitución y los Tratados de Derechos Humanos con jerarquía constitucional están en la cima. Por debajo se encuentran las leyes nacionales y, finalmente, los decretos del Poder Ejecutivo.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "avanzado"
-  tags: ["debido_proceso", "garantias"]
-
-respuesta: 1
-tipo: mc
-opciones_explicitas: [0, 1, 2]
-
-enunciado: "Un ciudadano es detenido y se le impide el acceso a un abogado y a ser escuchado por un juez antes de ser procesado. ¿Se ha vulnerado el derecho al debido proceso? (0: No, 1: Sí, 2: Solo si la prueba es falsa)"
-
-explicacion: |
-  El debido proceso es un derecho fundamental que garantiza que toda persona sea escuchada y tenga defensa técnica antes de que se dicte una resolución en su contra. La falta de defensa técnica y de intervención judicial viola este principio.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional_definicion"
-  nivel: "basico"
-  tags: ["definicion", "fundamentos"]
-
-opciones_explicitas: ["La regulación de las relaciones entre privados", "La estructura del Estado y los derechos fundamentales", "La organización de las empresas y el comercio", "El estudio de los delitos y las penas"]
-
-respuesta: "La estructura del Estado y los derechos fundamentales"
-tipo: "mc"
-
-enunciado: "El objeto de estudio principal del Derecho Constitucional es ___."
-
-explicacion: |
-  El Derecho Constitucional se centra en la norma suprema, la organización de los poderes del Estado y la garantía de los derechos fundamentales de los ciudadanos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional_clasificacion"
-  nivel: "basico"
-  tags: ["clasificacion", "derecho_publico"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "El Derecho Constitucional pertenece a la rama del Derecho Público, ya que regula la organización del Estado y las relaciones entre el Estado y los individuos."
-
-explicacion: |
-  Correcto. Al regular la estructura del poder estatal y las garantías frente al mismo, se clasifica dentro del Derecho Público.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional_vs_administrativo"
-  nivel: "intermedio"
-  tags: ["distincion", "derecho_administrativo"]
-
-variables:
-  datos: [["La norma suprema que establece la división de poderes", "La regulación de los procedimientos de los trámites en una oficina pública"], ["La base de la jerarquía normativa", "El funcionamiento operativo de la administración"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: "completar"
-respuestas_validas:
-  - datos[idx][1]
-
-enunciado: "Mientras que el Derecho Constitucional estudia {datos[idx][0]}, el Derecho Administrativo se ocupa de {datos[idx][1]}."
-
-explicacion: |
-  El Derecho Constitucional establece el marco general y la estructura (el "qué" y "quién"), mientras que el Derecho Administrativo regula la actividad y procedimientos de la administración pública (el "cómo" operativo).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional_jerarquia"
-  nivel: "intermedio"
-  tags: ["kelsen", "jerarquia", "normas"]
-
-opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos del Poder Ejecutivo"]
-
-respuesta_orden: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos del Poder Ejecutivo"]
-tipo: "ordenar"
-
-enunciado: "Ordene las siguientes normas de mayor a menor jerarquía según la supremacía constitucional (considerando el bloque de constitucionalidad):"
-
-explicacion: |
-  La Constitución y los Tratados de Derechos Humanos con jerarquía constitucional encabezan el ordenamiento, seguidos por las leyes y finalmente los decretos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional_vs_privado"
-  nivel: "basico"
-  tags: ["distincion", "derecho_privado"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "El estudio de la validez de un contrato de compraventa entre dos ciudadanos particulares es una materia propia del Derecho Constitucional."
-
-explicacion: |
-  Falso. La regulación de los contratos entre particulares pertenece al Derecho Privado (como el Derecho Civil), no al Derecho Constitucional.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "basico"
-  tags: ["definicion", "jerarquia"]
-
-respuesta: "derecho_público"
-tipo: completar
-respuestas_validas:
-  - "derecho_público"
-
-enunciado: "A diferencia del derecho privado, que regula las relaciones entre particulares, el derecho constitucional pertenece al ámbito del ___________."
-
-explicacion: |
-  El derecho constitucional es la base del derecho público, ya que regula la estructura del Estado y la relación entre este y los ciudadanos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "intermedio"
-  tags: ["jerarquia", "normativa"]
-
-variables:
-  escenario: uno_de([["Constitución", "Tratado Internacional", "Ley Común"], ["Constitución", "Decreto", "Resolución"]])
-
-opciones_explicitas: ["Constitución", "Tratado Internacional", "Ley Común", "Decreto", "Resolución"]
-
-respuesta: escenario[0]
-tipo: mc
-
-enunciado: "En la pirámide de Kelsen, ¿cuál de los siguientes elementos tiene mayor jerarquía que una {escenario[1]}?"
-
-pasos:
-  - "Identificar la posición de la norma mencionada en la jerarquía normativa."
-  - "Comparar con la supremacía constitucional."
-
-explicacion: |
-  La Constitución es la norma suprema; ninguna norma de menor rango (como leyes o decretos) puede contradecirla.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "intermedio"
-  tags: ["relacion", "administracion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es correcto afirmar que el Derecho Administrativo es una rama especializada que surge de la aplicación de los principios establecidos en el Derecho Constitucional?"
-
-explicacion: |
-  Verdadero. El Derecho Administrativo regula la función administrativa del Estado, la cual está subordinada a los principios constitucionales.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "avanzado"
-  tags: ["control", "jurisdiccion"]
-
-opciones_explicitas: ["anular", "validar", "modificar", "derogar"]
-
-respuesta: "anular"
-tipo: mc
-
-enunciado: "Cuando un tribunal ejerce el control de constitucionalidad sobre una ley que contradice la Carta Magna, su función es ___________ dicha norma."
-
-explicacion: |
-  El control de constitucionalidad busca asegurar la supremacía de la Constitución, permitiendo la anulación de normas inferiores que la vulneren.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "intermedio"
-  tags: ["derechos", "jerarquia"]
-
-opciones_explicitas: ["Reconocimiento de derechos fundamentales", "Promulgación de la Constitución", "Aplicación de la norma por el juez", "Creación de leyes orgánicas"]
-
-respuesta_orden: ["Promulgación de la Constitución", "Reconocimiento de derechos fundamentales", "Creación de leyes orgánicas", "Aplicación de la norma por el juez"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente el proceso lógico de la vigencia de un derecho constitucional: desde la existencia del texto hasta su aplicación efectiva."
-
-explicacion: |
-  Primero se promulga la norma suprema, luego se reconocen los derechos en ella, se desarrollan mediante leyes y finalmente el juez los aplica en casos concretos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "intermedio"
-  tags: ["constitucion", "control_constitucional"]
-
-variables:
-  datos: [["Una ley sancionada por el Congreso contradice un artículo de la Constitución.", "inconstitucional"], ["Un decreto presidencial respeta plenamente la Constitución.", "constitucional"], ["Una norma provincial es superior a la Constitución Nacional.", "inconstitucional"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["inconstitucional", "constitucional", "nula"]
-
-enunciado: "Analice el siguiente caso: {datos[idx][0]}. ¿Cuál es la calificación jurídica de la norma respecto a la Constitución?"
-
-explicacion: |
-  El control de constitucionalidad asegura la supremacía de la Constitución sobre cualquier otra norma del ordenamiento jurídico.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "basico"
-  tags: ["poderes", "division_de_poderes"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El principio de división de poderes busca evitar la concentración de la autoridad en un solo órgano, estableciendo un sistema de frenos y contrapesos."
-
-explicacion: |
-  La división de poderes es un pilar del Estado de Derecho para garantizar la libertad individual y evitar la tiranía.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "intermedio"
-  tags: ["jerarquia_normativa", "piramide_de_kelsen"]
-
-variables:
-  orden_jerarquico: [["Constitución Nacional y Tratados de DDHH", "Ley Nacional", "Decreto Reglamentario", "Resolución Ministerial"]]
-
-respuesta_orden: orden_jerarquico[0]
-
-tipo: ordenar
-opciones_explicitas: ["Constitución Nacional y Tratados de DDHH", "Ley Nacional", "Decreto Reglamentario", "Resolución Ministerial"]
-
-enunciado: "Ordene las siguientes normas de mayor a menor jerarquía según el bloque de constitucionalidad:"
-
-explicacion: |
-  La Constitución y los Tratados de Derechos Humanos con jerarquía constitucional ocupan la cúspide, seguidos por las leyes, decretos y finalmente las resoluciones.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "basico"
-  tags: ["derechos_fundamentales", "libertades"]
-
-variables:
-  textos: ["El Estado prohíbe toda manifestación pública sin permiso previo.", "Se garantiza la libertad de expresión, pero con responsabilidad."]
-  valores: [falso, verdadero]
-  idx: uno_de([0, 1])
-
-respuesta: valores[idx]
-tipo: vf
-
-enunciado: "En un Estado de Derecho, ¿es correcta la siguiente afirmación? '{textos[idx]}'"
-
-explicacion: |
-  Los derechos fundamentales son inherentes a la persona y el Estado debe garantizarlos, permitiendo solo restricciones legales y proporcionales.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "derecho_constitucional"
-  nivel: "avanzado"
-  tags: ["poder_judicial", "control_represivo"]
-
-respuesta: "represivo"
-tipo: mc
-opciones_explicitas: ["represivo", "preventivo", "legislativo"]
-
-enunciado: "En el sistema de control judicial de constitucionalidad, cuando el órgano actúa una vez que la norma ya ha sido dictada y está produciendo efectos, realiza un control ___."
-
-explicacion: |
-  El control repressivo actúa sobre leyes ya vigentes, mientras que el preventivo busca evitar que la norma entre en vigor (ej. control de un proyecto de ley).
-```
-
 ## Sección: derecho-internacional (25 preguntas)
 
 ```
@@ -2335,5 +921,1420 @@ enunciado: "Ordene cronológicamente los pasos habituales en un proceso de despi
 
 explicacion: |
   Primero se debe comunicar la causa, luego se debe respetar el preaviso (si corresponde) y finalmente se procede al pago de la liquidación final.
+```
+
+## Sección: derecho-penal (25 preguntas)
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "basico"
+  tags: ["definicion", "estado"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Derecho Penal es la rama del derecho que regula la potestad punitiva del Estado, definiendo los delitos y las penas aplicables a quienes los cometen."
+
+explicacion: |
+  Correcto. El Derecho Penal establece el marco normativo para la imposición de sanciones por conductas que la sociedad considera delitos.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "basico"
+  tags: ["terminologia", "delito"]
+
+variables:
+  escenario: uno_de([["cometer un acto prohibido por la ley con intención de causar daño", "doloso"], ["cometer un acto prohibido por la ley sin intención pero con negligencia", "culposo"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["doloso", "culposo", "imprudente", "accidental"]
+
+enunciado: "Si una persona actúa con la intención de producir un resultado típico y antijurídico, se dice que su conducta es de carácter: ___"
+
+pasos:
+  - "Identificar la intención (ánimo) del sujeto."
+  - "Relacionar la intención con la clasificación del tipo de delito."
+
+explicacion: |
+  La conducta es {escenario[0]}. En derecho penal, cuando hay intención, el delito es {escenario[1]}.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "intermedio"
+  tags: ["pena", "finalidad"]
+
+respuesta: "prevención y retribución"
+tipo: completar
+respuestas_validas:
+  - "prevención y retribución"
+
+enunciado: "Tradicionalmente, la pena tiene como fines principales la ___."
+
+explicacion: |
+  La pena busca prevenir nuevos delitos (prevención) y castigar la infracción cometida (retribución).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "basico"
+  tags: ["principios", "legalidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El principio de legalidad establece que nadie puede ser condenado por una acción u omisión que no esté previamente establecida como delito por una ley escrita."
+
+explicacion: |
+  Es el principio fundamental 'nullum crimen, nulla poena sine lege'.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "intermedio"
+  tags: ["procedimiento", "etapas"]
+
+respuesta_orden: ["Investigación", "Juicio", "Sentencia", "Ejecución"]
+tipo: ordenar
+opciones_explicitas: ["Investigación", "Juicio", "Sentencia", "Ejecución"]
+
+enunciado: "Ordene cronológicamente las etapas fundamentales de un proceso penal estándar:"
+
+explicacion: |
+  El proceso inicia con la investigación de los hechos, sigue con el juicio oral para valorar pruebas, se dicta la sentencia y finaliza con la ejecución de la pena.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "basico"
+  tags: ["definicion", "estado"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el derecho penal, el Estado es el único encargado de regular la relación entre el sujeto que comete un delito y la sanción impuesta, ejerciendo el ius puniendi."
+
+explicacion: |
+  El derecho penal es una rama del derecho público que regula la potestad punitiva del Estado (ius puniendi) para sancionar conductas que lesionan bienes jurídicos protegidos.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "intermedio"
+  tags: ["conducta", "tipicidad"]
+
+variables:
+  escenario: uno_de([["Juan decide robar un banco pero es detenido antes de tocar el dinero", "tentativa"], ["María entra a una tienda y toma un objeto sin pagar", "consumado"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["tentativa", "consumado", "imputable", "exento"]
+
+enunciado: "Analice el siguiente caso: {escenario[0]}. Según la doctrina penal, la conducta de Juan se clasifica como: ___"
+
+pasos:
+  - "Identificar si la acción llegó a completar el tipo penal."
+  - "Determinar si hubo ejecución del acto ilícito."
+
+explicacion: |
+  En el primer caso ({escenario[0]}), al no haberse completado el resultado típico, estamos ante una tentativa. En el segundo, el delito se considera consumado.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "intermedio"
+  tags: ["teoria_del_delito"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  datos: [["Un sujeto actúa bajo un error de prohibición invencible", "no_culpable"], ["Un sujeto actúa con dolo directo para causar daño", "culpable"]]
+
+respuesta: datos[caso_idx][1]
+tipo: completar
+respuestas_validas:
+  - "no_culpable"
+  - "culpable"
+
+enunciado: "Considerando el escenario: {datos[caso_idx][0]}. El resultado de la imputación penal para este sujeto es: ___"
+
+explicacion: |
+  La culpabilidad requiere que el sujeto sea capaz de comprender la ilicitud de su acción. Si el error es invencible, se excluye la culpabilidad.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "avanzado"
+  tags: ["proceso", "pena"]
+
+respuesta_orden: ["Tipicidad", "Antijuridicidad", "Culpabilidad", "Punibilidad"]
+tipo: ordenar
+opciones_explicitas: ["Tipicidad", "Antijuridicidad", "Culpabilidad", "Punibilidad"]
+
+enunciado: "Para que una conducta sea considerada delito y se le aplique una pena, debe cumplir con la teoría estratificada del delito. Ordene los elementos en el orden lógico de análisis (de la conducta al castigo):"
+
+pasos:
+  - "Primero se verifica si la conducta está en la ley."
+  - "Segundo, si la conducta es contraria al derecho."
+  - "Tercero, si el autor es reprochable."
+  - "Finalmente, si la conducta merece una sanción."
+
+explicacion: |
+  El análisis parte de la tipicidad (encuadre legal), sigue con la antijuridicidad (contrariedad al ordenamiento), la culpabilidad (reprochabilidad) y culmina en la punibilidad (posibilidad de imponer la pena).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "basico"
+  tags: ["bien_juridico"]
+
+variables:
+  delito_tipo: uno_de([["Homicidio", "la vida"], ["Hurto", "la propiedad"]])
+
+respuesta: delito_tipo[1]
+tipo: mc
+opciones_explicitas: ["la vida", "la propiedad", "la libertad", "la integridad física"]
+
+enunciado: "Si se comete un delito de {delito_tipo[0]}, el bien jurídico que el Estado busca proteger mediante la pena es: ___"
+
+explicacion: |
+  Cada delito protege un valor fundamental llamado bien jurídico. En el caso del {delito_tipo[0]}, el bien es {delito_tipo[1]}.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "basico"
+  tags: ["distincion", "civil_vs_penal"]
+
+respuesta: "reparar el daño"
+tipo: "completar"
+respuestas_validas:
+  - "reparar el daño"
+  - "reparación del daño"
+  - "reparación"
+
+enunciado: "Mientras que el Derecho Civil busca principalmente ___ causado por un incumplimiento contractual o un ilícito civil, el Derecho Penal busca sancionar una conducta que atenta contra la sociedad."
+
+explicacion: |
+  El Derecho Civil tiene un fin resarcitorio (reparar el daño patrimonial o moral), mientras que el Derecho Penal tiene un fin punitivo y de prevención social.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "basico"
+  tags: ["estado", "sujeto_activo"]
+
+variables:
+  escenario: uno_de([["robo", "un individuo"], ["homicidio", "una persona"]])
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "En el marco del Derecho Penal, cuando se comete un {escenario[0]}, es el Estado quien ejerce el 'ius puniendi' para imponer la sanción, independientemente de la voluntad de la víctima."
+
+explicacion: |
+  El Estado tiene el monopolio del ejercicio de la fuerza y la potestad de sancionar (ius puniendi) para mantener el orden social.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "intermedio"
+  tags: ["teoria_del_delito", "elementos"]
+
+respuesta: "el elemento subjetivo"
+tipo: "mc"
+opciones_explicitas: ["el elemento subjetivo", "el elemento material", "el elemento procesal", "el elemento administrativo"]
+
+enunciado: "Para que una conducta sea considerada delito, no basta con la acción física (tipicidad objetiva); también es fundamental determinar ___ (dolo o culpa), que define la intención del agente."
+
+explicacion: |
+  La distinción entre dolo (intención) y culpa (negligencia) es crucial para la aplicación de la pena en el Derecho Penal.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "intermedio"
+  tags: ["proceso_penal", "orden"]
+
+tipo: "ordenar"
+opciones_explicitas: ["investigación", "imputación", "juicio", "sentencia"]
+respuesta_orden: ["investigación", "imputación", "juicio", "sentencia"]
+
+enunciado: "Ordene cronológicamente las etapas fundamentales de un proceso penal típico:"
+
+explicacion: |
+  El proceso penal sigue una secuencia lógica que va desde la recolección de evidencia hasta la decisión final del juez.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "basico"
+  tags: ["penas", "sanciones"]
+
+variables:
+  tipo_sancion: uno_de([["multa", "económica"], ["prisión", "privativa de la libertad"]])
+
+respuesta: "privativa de la libertad"
+tipo: "mc"
+opciones_explicitas: ["económica", "privativa de la libertad", "administrativa", "reparatoria"]
+
+enunciado: "Si el delito cometido es un crimen grave, la sanción principal que busca la prevención especial es la pena {tipo_sancion[0]}, la cual es de naturaleza ___."
+
+explicacion: |
+  La pena privativa de la libertad es la sanción característica y más severa del Derecho Penal, diferenciándose de las multas administrativas o civiles.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "basico"
+  tags: ["comparacion", "derecho_civil"]
+
+respuesta: "sanción"
+tipo: completar
+respuestas_validas:
+  - "sanción"
+  - "pena"
+
+enunciado: "Mientras que el Derecho Civil busca la reparación del daño mediante la indemnización, el Derecho Penal busca la imposición de una ___ al infractor."
+
+explicacion: |
+  El Derecho Civil tiene un fin resarcitorio (reparar el daño), mientras que el Derecho Penal tiene un fin punitivo (aplicar una pena).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "basico"
+  tags: ["naturaleza", "derecho_civil"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "A diferencia del Derecho Civil, donde el incumplimiento de una obligación suele derivar en una indemnización, en el Derecho Penal el incumplimiento de una norma puede derivar en la privación de la libertad."
+
+explicacion: |
+  Correcto. La privación de la libertad es una sanción propia del ámbito penal y no existe en el ámbito civil.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "intermedio"
+  tags: ["comparacion", "derecho_administrativo"]
+
+tipo: mc
+opciones_explicitas: ["Sanción administrativa", "Pena privativa de la libertad", "Indemnización de daños y perjuicios", "Sanción disciplinaria interna"]
+
+respuesta: "Pena privativa de la libertad"
+
+enunciado: "Si un conductor excede los límites de velocidad, recibe una multa (Derecho Administrativo). Si un conductor causa un accidente por conducir en estado de ebriedad, puede recibir una ___ (Derecho Penal)."
+
+explicacion: |
+  El Derecho Penal regula conductas que afectan bienes jurídicos fundamentales y aplica penas, a diferencia del administrativo que aplica sanciones de carácter reglamentario.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "intermedio"
+  tags: ["principios", "legalidad"]
+
+respuesta_orden: ["Principio de legalidad", "Principio de culpabilidad", "Principio de lesividad"]
+tipo: ordenar
+
+opciones_explicitas: ["Principio de legalidad", "Principio de culpabilidad", "Principio de lesividad"]
+
+enunciado: "Ordene los principios fundamentales del Derecho Penal que lo distinguen de otras ramas (como el Derecho Civil) para asegurar que no haya arbitrariedad estatal:"
+
+pasos:
+  - "Primero: No hay delito sin ley previa (Nullum crimen sine lege)."
+  - "Segundo: Solo se puede reprochar la conducta al autor si hubo voluntad o negligencia (Culpabilidad)."
+  - "Tercero: Debe existir una lesión o puesta en peligro de un bien jurídico (Lesividad)."
+
+explicacion: |
+  El orden lógico-sistemático para la aplicación de la ley penal requiere la existencia de una norma previa, la responsabilidad del autor y la afectación de un bien jurídico.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "avanzado"
+  tags: ["sujeto", "estado"]
+
+tipo: mc
+opciones_explicitas: ["Un particular contra otro particular", "El Estado contra un particular", "Un Estado contra otro Estado", "Un particular contra una empresa"]
+
+respuesta: "El Estado contra un particular"
+
+enunciado: "En el Derecho Civil, el conflicto es típicamente entre particulares. En el Derecho Penal, el conflicto se caracteriza porque el sujeto activo es ___."
+
+explicacion: |
+  En el Derecho Penal, el Estado interviene como el sujeto que ejerce el 'ius puniendi' (derecho a castigar) frente al infractor.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "basico"
+  tags: ["principios", "legalidad"]
+
+variables:
+  textos: ["Juan comete una acción que no está tipificada en el código penal", "Juan comete una acción que está tipificada en el código penal"]
+  valores: [falso, verdadero]
+  idx: uno_de([0, 1])
+
+respuesta: valores[idx]
+tipo: vf
+enunciado: "De acuerdo al principio de legalidad, si {textos[idx]}, ¿es posible que el Estado imponga una pena a Juan?"
+
+explicacion: |
+  El principio de legalidad establece que no hay delito ni pena sin ley previa (*nullum crimen, nulla poena sine lege*). Si la conducta no está tipificada, no puede haber sanción.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "intermedio"
+  tags: ["tipicidad", "escenario"]
+
+variables:
+  datos: [["Pedro toma un objeto ajeno con ánimo de lucro", "hurto"], ["Pedro rompe una ventana para entrar a una casa", "daño"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+
+opciones_explicitas: ["hurto", "daño", "estafa", "robo"]
+
+enunciado: "Analizando el comportamiento de Pedro: {datos[idx][0]}. ¿Cuál es la conducta principal descrita?"
+
+explicacion: |
+  El tipo penal se ajusta a la descripción de la conducta realizada por el sujeto.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "basico"
+  tags: ["penas", "sanciones"]
+
+variables:
+  datos: [["privación de la libertad", "corporal"], ["multa económica", "pecuniaria"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: completar
+
+respuestas_validas:
+  - "corporal"
+  - "pecuniaria"
+
+enunciado: "Las penas se clasifican según su naturaleza. Si se impone una {datos[idx][0]}, la naturaleza de la sanción es ___________."
+
+explicacion: |
+  Las penas pueden ser privativas de la libertad (corporales) o multas (pecuniarias).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "avanzado"
+  tags: ["iter_criminis", "ordenar"]
+
+tipo: ordenar
+opciones_explicitas: ["ideación", "preparación", "ejecución", "consumación"]
+respuesta_orden: ["ideación", "preparación", "ejecución", "consumación"]
+
+enunciado: "Ordene cronológicamente las etapas del 'iter criminis' (camino del delito) desde la concepción de la idea hasta la culminación del acto."
+
+explicacion: |
+  El iter criminis comprende la fase interna (ideación), la fase externa (preparación, ejecución) y la consumación.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_penal"
+  nivel: "intermedio"
+  tags: ["imputabilidad", "responsabilidad"]
+
+variables:
+  textos: ["Un menor de edad con plena capacidad de comprensión", "Un adulto con plena capacidad de comprensión"]
+  valores: [falso, verdadero]
+  idx: uno_de([0, 1])
+
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Considerando el caso de {textos[idx]}, ¿se le puede atribuir responsabilidad penal bajo el concepto de imputabilidad?"
+
+explicacion: |
+  La imputabilidad es la capacidad de comprender la ilicitud del hecho. Si el sujeto carece de ella (como en menores según la legislación), no hay responsabilidad penal en el sentido estricto.
+```
+
+## Sección: denuncia-y-etapa-de-instruccion (25 preguntas)
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "basico"
+  tags: ["procedimiento", "denuncia"]
+
+tipo: mc
+opciones_explicitas: ["Denuncia", "Sentencia", "Fallo", "Recurso"]
+
+enunciado: "El acto mediante el cual se pone en conocimiento de la autoridad judicial la existencia de un hecho presuntamente delictivo se denomina:"
+
+respuesta: "Denuncia"
+
+explicacion: |
+  La denuncia es el acto procesal que da inicio a la investigación penal al informar un posible delito.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "basico"
+  tags: ["instruccion", "investigacion"]
+
+tipo: vf
+
+enunciado: "El objetivo principal de la etapa de instrucción es determinar si existe mérito para llevar a juicio a una persona."
+
+respuesta: verdadero
+
+explicacion: |
+  La instrucción tiene como fin la investigación de la verdad real y la recolección de pruebas para determinar si hay elementos suficientes para el juicio.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "intermedio"
+  tags: ["pruebas", "instruccion"]
+
+enunciado: "Durante la etapa de instrucción, si el fiscal o el juez necesitan la opinión técnica de un experto para analizar una evidencia física, ordenan un ___."
+
+pasos:
+  - "Se identifica el hecho delictivo."
+  - "Se recolectan las evidencias mediante medidas de prueba."
+
+respuesta: "pericia"
+
+tipo: completar
+respuestas_validas:
+  - "pericia"
+
+explicacion: |
+  La pericia es un medio de prueba técnico fundamental en la etapa de instrucción para esclarecer hechos complejos.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "intermedio"
+  tags: ["etapas", "orden_procesal"]
+
+tipo: ordenar
+opciones_explicitas: ["Denuncia", "Instrucción", "Juicio Oral", "Sentencia"]
+
+enunciado: "Ordene cronológicamente las etapas del proceso penal desde el inicio hasta la resolución final:"
+
+respuesta_orden: ["Denuncia", "Instrucción", "Juicio Oral", "Sentencia"]
+
+explicacion: |
+  El proceso comienza con la denuncia, sigue con la investigación (instrucción), la etapa de debate (juicio) y finaliza con la sentencia.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "intermedio"
+  tags: ["sujeto_procesal", "imputado"]
+
+tipo: mc
+opciones_explicitas: ["Imputado", "Querellante", "Testigo", "Juez"]
+
+enunciado: "La persona sobre la cual recae la sospecha de haber cometido un delito durante la etapa de instrucción es el:"
+
+respuesta: "Imputado"
+
+explicacion: |
+  El imputado es el sujeto pasivo de la acción penal en la fase de investigación.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "basico"
+  tags: ["procedimiento", "denuncia"]
+
+respuesta: "denuncia"
+tipo: mc
+opciones_explicitas: ["denuncia", "sentencia", "apelación", "querella"]
+
+enunciado: "Un ciudadano presencia un robo en una plaza y acude a la comisaría para poner en conocimiento el hecho. Este acto formal de poner en conocimiento un presunto delito se denomina ___."
+
+explicacion: |
+  La denuncia es el acto mediante el cual cualquier persona comunica a la autoridad judicial o policial la comisión de un hecho que podría ser un delito.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "intermedio"
+  tags: ["fiscalia", "investigacion"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "En la etapa de instrucción, el Fiscal tiene la función de dirigir la investigación y recolectar elementos de convicción para determinar si existe un caso para ir a juicio. ¿Es esto correcto en el sistema acusatorio?"
+
+explicacion: |
+  En el sistema acusatorio, el Fiscal dirige la investigación (etapa de instrucción/investigación preparatoria), pero la decisión de culpabilidad o inocencia es competencia exclusiva de un Juez de Oración o Tribunal de Juicio.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "intermedio"
+  tags: ["procedimiento", "orden_cronologico"]
+
+respuesta_orden: ["Denuncia", "Investigación preliminar", "Requerimiento de acusación", "Juicio Oral"]
+tipo: ordenar
+opciones_explicitas: ["Denuncia", "Investigación preliminar", "Requerimiento de acusación", "Juicio Oral"]
+
+enunciado: "Ordene cronológicamente las etapas de un proceso penal estándar, desde el conocimiento del hecho hasta la resolución del conflicto."
+
+explicacion: |
+  El proceso comienza con la denuncia o querella, sigue la investigación para reunir pruebas (instrucción), el fiscal presenta su acusación si hay pruebas, y finalmente se celebra el juicio para dictar sentencia.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "avanzado"
+  tags: ["pruebas", "instruccion"]
+
+respuesta: "pericia"
+tipo: mc
+opciones_explicitas: ["testimonio", "pericia", "sentencia", "recurso"]
+
+enunciado: "Durante la etapa de instrucción, para determinar la veracidad de un hecho, el instructor puede ordenar un examen realizado por un experto en una materia técnica (por ejemplo, un perito médico). Este elemento se conoce como una ___."
+
+explicacion: |
+  La pericia es el medio de prueba técnico-científico fundamental en la etapa de instrucción para aportar conocimientos especializados al proceso.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "intermedio"
+  tags: ["resolucion", "instruccion"]
+
+respuesta: "sobreseimiento"
+tipo: completar
+respuestas_validas:
+  - "sobreseimiento"
+
+enunciado: "Si durante la etapa de instrucción se demuestra que el hecho denunciado no existió o que el imputado no participó en él, el juez debe dictar el ___ para finalizar el proceso sin llegar a juicio."
+
+explicacion: |
+  El sobreseimiento es la resolución que pone fin al proceso de manera definitiva cuando no hay elementos para sostener una acusación, evitando que una persona sea sometida innecesariamente a un juicio.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "basico"
+  tags: ["proceso_penal", "denuncia"]
+
+respuesta: "denuncia"
+tipo: completar
+respuestas_validas:
+  - "denuncia"
+
+enunciado: "El proceso penal puede iniciarse de diversas formas; cuando un ciudadano comunica un hecho presuntamente delictivo ante la autoridad, el acto formal se denomina ___."
+
+explicacion: |
+  La denuncia es el acto mediante el cual se pone en conocimiento de la autoridad la comisión de un hecho presuntamente delictivo. La querella, en cambio, requiere la constitución de la parte como querellante en el proceso.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "intermedio"
+  tags: ["instruccion", "investigacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es la etapa de instrucción una fase de debate y juicio donde se determina la culpabilidad o inocencia del imputado?"
+
+explicacion: |
+  Falso. La etapa de instrucción es una fase de investigación preparatoria donde el objetivo es reunir elementos de convicción para determinar si existe causa para abrir un juicio, pero no es la etapa de debate oral y público.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "intermedio"
+  tags: ["querella", "denuncia"]
+
+tipo: mc
+opciones_explicitas: ["La denuncia requiere la participación activa de la víctima como parte procesal, mientras que la querella es un mero aviso.", "La querella implica la constitución de la víctima como parte en el proceso, mientras que la denuncia es un deber ciudadano de informar."]
+
+respuesta: "La querella implica la constitución de la víctima como parte en el proceso, mientras que la denuncia es un deber ciudadano de informar."
+
+enunciado: "Según la doctrina procesal, ¿cuál es la diferencia fundamental entre la denuncia y la querella?"
+
+explicacion: |
+  La diferencia radica en la legitimación y la participación: el querellante es parte activa en el proceso y puede proponer medidas, mientras que el denunciante simplemente informa el hecho.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "basico"
+  tags: ["etapas_procesales", "orden"]
+
+respuesta_orden: ["Notitia criminis", "Instrucción", "Juicio Oral"]
+tipo: ordenar
+opciones_explicitas: ["Juicio Oral", "Instrucción", "Notitia criminis"]
+
+enunciado: "Ordene cronológicamente las etapas del proceso penal, partiendo desde la noticia del delito:"
+
+explicacion: |
+  El orden correcto es: 1. Notitia criminis (noticia del delito), 2. Instrucción (investigación), 3. Juicio Oral (debate y sentencia).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "avanzado"
+  tags: ["fiscalia", "investigacion"]
+
+tipo: mc
+opciones_explicitas: ["El Fiscal tiene la carga de la prueba y dirige la investigación para esclarecer los hechos.", "El Fiscal es el encargado de dictar la sentencia definitiva tras la etapa de instrucción."]
+
+respuesta: "El Fiscal tiene la carga de la prueba y dirige la investigación para esclarecer los hechos."
+
+enunciado: "En el sistema acusatorio moderno, ¿cuál es la función principal del Ministerio Público durante la etapa de instrucción?"
+
+explicacion: |
+  El Fiscal dirige la investigación y recolecta pruebas para determinar si hay elementos suficientes para acusar, pero la sentencia es competencia exclusiva de un Juez.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "basico"
+  tags: ["proceso_penal", "denuncia"]
+
+respuesta: "denuncia"
+tipo: mc
+opciones_explicitas: ["denuncia", "querella", "sentencia", "resolución"]
+
+enunciado: "A diferencia de la querella, donde la víctima interviene activamente con abogado, la ___ es el acto mediante el cual se pone en conocimiento de la autoridad la comisión de un delito."
+
+explicacion: |
+  La denuncia es el acto de informar un hecho delictivo, mientras que la querella es una acción formal donde la víctima se constituye como parte en el proceso.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "intermedio"
+  tags: ["instruccion", "investigacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿El objetivo principal de la etapa de instrucción es la recolección de elementos de convicción para determinar si existe probabilidad de llevar a juicio a un imputado?"
+
+explicacion: |
+  Correcto. La instrucción busca reunir pruebas para decidir si se procede al juicio oral o se dicta el sobreseimiento.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "intermedio"
+  tags: ["querella", "denuncia"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["denuncia", "noticia criminal"], ["querella", "acción penal privada/pública con legitimación"]]
+
+respuesta: datos[escenario_idx][0]
+tipo: completar
+respuestas_validas:
+  - "denuncia"
+  - "querella"
+
+enunciado: "En el escenario seleccionado, se caracteriza por ser una {datos[escenario_idx][1]}. Esta figura procesal se denomina ___."
+
+explicacion: |
+  La distinción radica en la legitimación y la participación procesal de la víctima.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "basico"
+  tags: ["secuencia", "etapas"]
+
+respuesta_orden: ["Noticia criminis", "Etapa de Instrucción", "Etapa de Juicio"]
+tipo: ordenar
+opciones_explicitas: ["Noticia criminis", "Etapa de Instrucción", "Etapa de Juicio"]
+
+enunciado: "Ordene cronológicamente las etapas del proceso penal desde el hecho hasta la decisión final:"
+
+explicacion: |
+  Primero se recibe la noticia (denuncia/oficio), luego se investiga (instrucción) y finalmente se decide en juicio.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "avanzado"
+  tags: ["juez", "instrucción"]
+
+respuesta: "investigar"
+tipo: completar
+respuestas_validas:
+  - "investigar"
+
+enunciado: "Mientras que el Tribunal de Juicio tiene la función de dictar sentencia, el Juez de Instrucción tiene la función primordial de ___ los hechos."
+
+explicacion: |
+  La instrucción es una fase preparatoria de investigación, no de decisión de culpabilidad o inocencia definitiva.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "intermedio"
+  tags: ["procedimiento", "denuncia"]
+
+variables:
+  datos: [["Juan presencia un robo y lo reporta ante la policía", "denuncia"], ["María es víctima de una estafa y presenta el escrito", "denuncia"], ["Un policía encuentra un arma sin dueño y lo comunica", "noticia criminal"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["denuncia", "noticia criminal", "querella", "denuncia anónima"]
+
+enunciado: "En el caso de que {datos[idx][0]}, el acto formal que da inicio al proceso se denomina ___."
+
+explicacion: |
+  Cuando una persona con capacidad legal comunica un hecho delictivo, se inicia mediante una denuncia. Si el origen es un funcionario público en ejercicio, se denomina noticia criminal.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "avanzado"
+  tags: ["instruccion", "investigacion"]
+
+variables:
+  datos: [["presunto homicidio", "investigar la autoría y las pruebas"], ["presunto hurto", "recaudar elementos de convicción"]]
+  idx: uno_de([0,1])
+
+respuestas_validas:
+  - datos[idx][1]
+respuesta: datos[idx][1]
+tipo: completar
+enunciado: "Ante un caso de {datos[idx][0]}, el objetivo principal del fiscal en la etapa de instrucción es ___."
+
+explicacion: |
+  La etapa de instrucción tiene como fin la recolección de elementos de convicción para determinar si existe mérito para llevar a juicio a una persona.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "intermedio"
+  tags: ["procedimiento", "ordenar"]
+
+respuesta_orden: ["Presentación de la denuncia", "Apertura de la investigación", "Recolección de pruebas", "Elevación a juicio"]
+tipo: ordenar
+opciones_explicitas: ["Presentación de la denuncia", "Apertura de la investigación", "Recolección de pruebas", "Elevación a juicio"]
+
+enunciado: "Ordene cronológicamente las etapas desde que se conoce el hecho hasta que se cierra la instrucción:"
+
+explicacion: |
+  El proceso penal sigue un orden lógico: primero se recibe la noticia, se abre la investigación, se recolectan las pruebas y finalmente se decide si se va a juicio.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "avanzado"
+  tags: ["instruccion", "fiscal"]
+
+variables:
+  datos: [["El fiscal encuentra pruebas suficientes", "imputación"], ["El fiscal no tiene pruebas suficientes", "archivo"]]
+  idx: uno_de([0,1])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "imputación"
+  - "archivo"
+
+enunciado: "Si tras la investigación el fiscal determina que {datos[idx][0]}, la consecuencia procesal es la ___."
+
+explicacion: |
+  La formalización de la imputación es el acto que marca el inicio de la persecución penal efectiva sobre una persona determinada.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "denuncia_y_etapa_de_instruccion"
+  nivel: "basico"
+  tags: ["juez", "control"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En el sistema acusatorio moderno, el Juez de Instrucción es quien dirige la recolección de pruebas durante la etapa de investigación."
+
+explicacion: |
+  Falso. En el sistema acusatorio, la investigación y recolección de pruebas es responsabilidad exclusiva del Ministerio Público (Fiscalía); el Juez cumple un rol de control de garantías.
+```
+
+## Sección: hecho-juridicamente-relevante (25 preguntas)
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "basico"
+  tags: ["conceptos_basicos", "teoria_del_derecho"]
+
+respuesta: "hecho jurídicamente relevante"
+tipo: completar
+respuestas_validas:
+  - "hecho jurídicamente relevante"
+
+enunciado: "Aquel suceso de la naturaleza o del mundo material que, al producirse, tiene la capacidad de producir consecuencias jurídicas se denomina ___."
+
+explicacion: |
+  Un hecho es jurídicamente relevante cuando el ordenamiento jurídico le atribuye efectos, como la creación, modificación o extinción de derechos y obligaciones.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "basico"
+  tags: ["clasificacion", "hechos_juridicos"]
+
+tipo: mc
+opciones_explicitas: ["hecho puro", "acto jurídico"]
+
+respuesta: "hecho puro"
+
+enunciado: "Analice el siguiente caso: un rayo que incendia un bosque. Si este suceso ocurre sin la intervención de la voluntad humana con el fin de producir efectos legales, estamos ante un ___."
+
+explicacion: |
+  El hecho puro es aquel suceso de la naturaleza que no es producto de la voluntad humana, pero que aun así tiene relevancia para el derecho (ej: un desastre natural).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "intermedio"
+  tags: ["elementos", "norma"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para que un hecho sea considerado jurídicamente relevante, debe existir una norma jurídica previa que le asigne consecuencias legales."
+
+explicacion: |
+  La relevancia jurídica no es una propiedad intrínseca del hecho, sino una atribución de la norma. Si la norma no prevé consecuencias para ese hecho, este es irrelevante para el derecho.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "intermedio"
+  tags: ["proceso", "logica_juridica"]
+
+respuesta_orden: ["suceso fáctico", "subsunción", "consecuencia jurídica"]
+tipo: ordenar
+opciones_explicitas: ["suceso fáctico", "subsunción", "consecuencia jurídica"]
+
+enunciado: "Ordene los pasos lógicos que permiten pasar de un evento de la realidad a una sentencia judicial:"
+
+explicacion: |
+  Primero ocurre el hecho (suceso), luego se encuadra ese hecho en la norma (subsunción) y finalmente se produce el efecto legal (consecuencia).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "basico"
+  tags: ["clasificacion", "voluntad"]
+
+tipo: mc
+opciones_explicitas: ["hecho voluntario", "hecho involuntario"]
+
+respuesta: "hecho voluntario"
+
+enunciado: "Si un hecho es producido por la voluntad del sujeto, pero este no busca las consecuencias jurídicas, se clasifica como un ___."
+
+explicacion: |
+  En el derecho, distinguimos entre hechos voluntarios (donde hay voluntad pero no intención de producir efectos legales, como un accidente por negligencia) y actos jurídicos (donde la voluntad busca el efecto legal).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "basico"
+  tags: ["teoria_del_derecho", "hechos"]
+
+respuesta: "hecho_juridicamente_relevante"
+tipo: completar
+respuestas_validas:
+  - "hecho_juridicamente_relevante"
+
+enunciado: "Un evento de la naturaleza o de la conducta humana que produce efectos en el ordenamiento jurídico se denomina ___."
+
+explicacion: |
+  Un hecho es jurídicamente relevante cuando la norma jurídica le atribuye consecuencias (crear, modificar o extinguir derechos u obligaciones).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "basico"
+  tags: ["clasificacion", "hechos_naturales"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["un rayo que destruye una casa asegurada", "hecho de la naturaleza"], ["un contrato de compraventa firmado", "acto jurídico"]]
+
+respuesta: escenarios[escenario_idx][0]
+tipo: mc
+opciones_explicitas: ["un rayo que destruye una casa asegurada", "un contrato de compraventa firmado"]
+
+enunciado: "Identifique el ejemplo que corresponde a la categoría de: {escenarios[escenario_idx][1]}."
+
+explicacion: |
+  En el primer caso, el evento es un hecho de la naturaleza (caso fortuito) que activa una cláusula de seguro. En el segundo, es un acto jurídico porque hay voluntad dirigida a crear efectos legales.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "intermedio"
+  tags: ["elementos", "norma"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Para que un hecho sea jurídicamente relevante, debe existir una norma previa que le asigne una consecuencia jurídica?"
+
+explicacion: |
+  Correcto. Sin una norma que vincule el hecho con una consecuencia (sanción, derecho, obligación), el hecho es irrelevante para el Derecho, aunque sea relevante para la vida cotidiana.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "avanzado"
+  tags: ["metodologia", "subsuncion"]
+
+respuesta_orden: ["1. Observación del hecho", "2. Calificación jurídica", "3. Aplicación de la consecuencia"]
+tipo: ordenar
+opciones_explicitas: ["1. Observación del hecho", "2. Calificación jurídica", "3. Aplicación de la consecuencia"]
+
+enunciado: "Ordene los pasos lógicos para determinar la relevancia de un suceso en un proceso legal:"
+
+explicacion: |
+  Primero se observa la realidad (hecho), luego se encuadra en una norma (calificación) y finalmente se determina el efecto legal (consecuencia).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "intermedio"
+  tags: ["caso_practico", "causalidad"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  irrelevante: "Juan camina por la calle y ve una nube negra"
+  relevantes: ["Juan choca su auto contra un muro por negligencia", "Juan firma un testamento"]
+
+respuesta: relevantes[caso_idx]
+tipo: mc
+opciones_explicitas: [irrelevante, relevantes[caso_idx]]
+
+enunciado: "Analice los dos eventos: (1) {irrelevante}. (2) {relevantes[caso_idx]}. ¿Cuál de los dos posee relevancia jurídica?"
+
+explicacion: |
+  El primer evento es un hecho simple/natural sin consecuencias legales inmediatas. El segundo es un hecho/acto que genera responsabilidad civil (consecuencia jurídica).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "basico"
+  tags: ["conceptos_basicos", "teoria_del_derecho"]
+
+tipo: mc
+opciones_explicitas: ["Un accidente de tránsito sin culpa", "El nacimiento de una persona", "El paso de una nube por el cielo", "El deseo de comprar un auto"]
+
+respuesta: "El nacimiento de una persona"
+
+enunciado: "Un hecho es jurídicamente relevante cuando su ocurrencia produce una transformación en el ordenamiento jurídico (crea, modifica o extingue derechos). ¿Cuál de los siguientes es un ejemplo de hecho jurídico relevante?"
+
+explicacion: |
+  El nacimiento es un hecho jurídico relevante porque genera la capacidad de derecho y la personalidad jurídica. Un accidente sin culpa es un hecho natural, y el deseo es una mera intención sin manifestación externa.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "basico"
+  tags: ["distincion_fundamental"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "Todo hecho de la naturaleza, como la lluvia o el paso del tiempo, es automáticamente un hecho jurídicamente relevante."
+
+explicacion: |
+  Falso. Para que un hecho sea jurídicamente relevante, debe tener una consecuencia legal prevista por la norma. La lluvia es un hecho natural; la lluvia que destruye una cosecha asegurada es un hecho jurídicamente relevante por el contrato de seguro.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "intermedio"
+  tags: ["causalidad"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["La muerte de una persona", "La extinción de la personalidad jurídica y de los derechos patrimoniales"], ["El cumplimiento de la mayoría de edad", "El adquiremiento de la capacidad de ejercicio"]]
+
+tipo: completar
+respuestas_validas:
+  - "La extinción de la personalidad jurídica y de los derechos patrimoniales"
+  - "El adquiremiento de la capacidad de ejercicio"
+respuesta: datos[escenario_idx][1]
+
+enunciado: "Si ocurre {datos[escenario_idx][0]}, la consecuencia jurídica es ___."
+
+pasos:
+  - "Identificar el hecho natural o social planteado."
+  - "Relacionar el hecho con la consecuencia legal correspondiente según la normativa vigente."
+
+explicacion: |
+  El hecho jurídico es el suceso, y la consecuencia es el efecto legal que la norma asigna a ese suceso.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "intermedio"
+  tags: ["acto_juridico"]
+
+tipo: mc
+opciones_explicitas: ["El hecho es involuntario, el acto es una manifestación de voluntad destinada a producir efectos", "El hecho es siempre legal, el acto es siempre ilegal", "No hay diferencia, son sinónimos en derecho", "El acto es un hecho de la naturaleza y el hecho es un contrato"]
+
+respuesta: "El hecho es involuntario, el acto es una manifestación de voluntad destinada a producir efectos"
+
+enunciado: "¿Cuál es la distinción fundamental entre un hecho jurídico y un acto jurídico?"
+
+explicacion: |
+  La voluntad es el factor clave. En el acto jurídico, la persona busca deliberadamente producir efectos legales; en el hecho jurídico, la consecuencia se produce por la ley, independientemente de la voluntad del sujeto.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "avanzado"
+  tags: ["proceso_juridico"]
+
+tipo: ordenar
+opciones_explicitas: ["Ocurrencia de un suceso (hecho)", "Previsión de la norma (hipótesis)", "Producción de consecuencias jurídicas"]
+respuesta_orden: ["Ocurrencia de un suceso (hecho)", "Previsión de la norma (hipótesis)", "Producción de consecuencias jurídicas"]
+
+enunciado: "Ordene cronológicamente los elementos necesarios para que un suceso se transforme en un hecho con relevancia jurídica:"
+
+explicacion: |
+  Primero debe ocurrir el suceso; segundo, debe existir una norma que haya previsto ese suceso (hipótesis normativa); y finalmente, se produce el efecto legal.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "basico"
+  tags: ["conceptos_basicos", "hecho_juridico"]
+
+respuesta: "acto jurídico"
+tipo: completar
+respuestas_validas:
+  - "acto jurídico"
+
+enunciado: "Mientras que un hecho jurídico es un evento que produce consecuencias legales sin que medie la voluntad de las partes para producir dichas consecuencias, el ___ es aquel donde la voluntad está dirigida específicamente a crear, modificar o extinguir derechos."
+
+explicacion: |
+  El hecho jurídico es un acontecimiento natural o humano que el derecho vincula a una consecuencia, mientras que en el acto jurídico existe la intención deliberada de producir ese efecto legal.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "basico"
+  tags: ["relevancia", "consecuencia"]
+
+variables:
+  datos: [["Un rayo cae sobre un bosque y causa un incendio que destruye una propiedad asegurada.", "es"], ["Una persona camina por la calle y ve un atardecer hermoso.", "no es"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["es", "no es"]
+
+enunciado: "Analice el siguiente escenario: {datos[idx][0]} ¿Este evento es un hecho jurídicamente relevante?"
+
+explicacion: |
+  En el primer caso, el rayo (hecho natural) activa una consecuencia legal (el contrato de seguro). En el segundo, el atardecer es un hecho de la naturaleza pero no altera ninguna relación jurídica ni crea derechos u obligaciones.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "intermedio"
+  tags: ["clasificacion", "hechos_naturales"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que todos los hechos de la naturaleza (como un terremoto) son hechos jurídicamente relevantes por el solo hecho de ocurrir?"
+
+explicacion: |
+  Falso. Solo son hechos jurídicamente relevantes aquellos que el ordenamiento jurídico decide vincular a una consecuencia legal (por ejemplo, un terremoto que activa un seguro o una eximente de responsabilidad).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "intermedio"
+  tags: ["elementos", "causalidad"]
+
+respuesta_orden: ["Presencia de un hecho", "Norma jurídica", "Consecuencia legal"]
+tipo: ordenar
+
+opciones_explicitas: ["Presencia de un hecho", "Norma jurídica", "Consecuencia legal"]
+
+enunciado: "Ordene la secuencia lógica de la estructura de la relevancia jurídica, desde el suceso inicial hasta su efecto en el derecho:"
+
+explicacion: |
+  Para que exista relevancia, debe ocurrir un hecho, debe existir una norma que lo prevea y, finalmente, se produce la consecuencia legal prevista por dicha norma.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "avanzado"
+  tags: ["voluntad", "causalidad"]
+
+respuesta: "acto jurídico"
+tipo: mc
+opciones_explicitas: ["hecho jurídico", "acto jurídico"]
+
+enunciado: "Si un individuo firma un contrato de compraventa con la intención de transferir la propiedad de un bien, ¿ante qué figura estamos?"
+
+explicacion: |
+  La voluntad de transferir la propiedad es el elemento distintivo que convierte al evento en un acto jurídico, a diferencia del hecho jurídico donde la consecuencia se impone independientemente de la voluntad de los sujetos.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "basico"
+  tags: ["hecho_juridico", "derecho_civil"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["El nacimiento de un niño", "persona"], ["El nacimiento de un feto no viable", "no persona"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["persona", "no persona", "objeto", "sujeto pasivo"]
+
+enunciado: "En el derecho, el hecho de que {datos[escenario_idx][0]} es considerado un hecho jurídicamente relevante porque da origen a la condición de ___."
+
+explicacion: |
+  Un hecho es jurídicamente relevante cuando la norma le atribuye consecuencias jurídicas. El nacimiento con vida es el hecho que genera la personalidad jurídica.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "intermedio"
+  tags: ["responsabilidad_civil", "hecho_juridico"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  casos: [["Juan choca su auto por descuido y rompe un muro", "responsabilidad"], ["Juan camina por la vereda y ve una nube", "no relevante"]]
+
+respuesta: casos[caso_idx][1]
+tipo: mc
+opciones_explicitas: ["responsabilidad", "no relevante"]
+enunciado: "Analice el siguiente caso: {casos[caso_idx][0]}. ¿Cuál es la calificación jurídica de este evento para el derecho de daños?"
+
+explicacion: |
+  El segundo caso es un hecho natural sin consecuencias legales, mientras que el primero es un hecho humano que activa la responsabilidad civil.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "intermedio"
+  tags: ["teoria_del_hecho", "norma"]
+
+respuesta: "norma"
+tipo: completar
+respuestas_validas:
+  - "norma"
+  - "ley"
+  - "decreto"
+
+enunciado: "Para que un hecho sea jurídicamente relevante, debe existir una ___ que le asigne una consecuencia jurídica específica."
+
+explicacion: |
+  La relevancia jurídica no es una propiedad intrínseca del hecho, sino una consecuencia de la existencia de una norma que lo regula.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "avanzado"
+  tags: ["contrato", "hecho_juridico"]
+
+variables:
+  pasos_correctos: ["Acuerdo de voluntades", "Nacimiento de la obligación", "Cumplimiento o incumplimiento"]
+
+respuesta_orden: pasos_correctos
+tipo: ordenar
+opciones_explicitas: ["Acuerdo de voluntades", "Nacimiento de la obligación", "Cumplimiento o incumplimiento"]
+
+enunciado: "Ordene cronológicamente los hechos que convierten un simple acuerdo de voluntades en una relación jurídica contractual:"
+
+explicacion: |
+  Primero ocurre el acuerdo (hecho jurídico), esto crea la obligación (consecuencia) y finalmente el cumplimiento o incumplimiento (hecho que extingue o modifica la relación).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "hecho_juridicamente_relevante"
+  nivel: "intermedio"
+  tags: ["hecho_juridico", "acto_juridico"]
+
+variables:
+  ejemplo_idx: uno_de([0, 1])
+  ejemplos: [["Un rayo que destruye una casa", "hecho natural"], ["Un testamento", "acto jurídico"]]
+
+respuesta: ejemplos[ejemplo_idx][1]
+tipo: mc
+opciones_explicitas: ["hecho natural", "acto jurídico", "acto administrativo", "hecho social"]
+
+enunciado: "Si el hecho es {ejemplos[ejemplo_idx][0]}, estamos ante un ___."
+
+explicacion: |
+  Los hechos naturales son sucesos de la naturaleza que tienen relevancia legal (como un desastre que activa un seguro) sin que medie la voluntad humana.
 ```
 

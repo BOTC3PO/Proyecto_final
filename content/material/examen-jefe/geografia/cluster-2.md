@@ -1,891 +1,8 @@
 # Examen jefe — [PENDIENTE #797]
 
-> Logro #797. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **107 preguntas totales** en 5/5 secciones.
+> Logro #797. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: orientacion-puntos-cardinales (22 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "vocabulario"]
-
-enunciado: "¿Cuáles son los cuatro puntos cardinales?"
-tipo: mc
-opciones_explicitas:
-  - "Norte, Sur, Este, Oeste"
-  - "Arriba, Abajo, Izquierda, Derecha"
-  - "Norte, Sur, Noreste, Sudoeste"
-respuesta: "Norte, Sur, Este, Oeste"
-
-explicacion: |
-  Son los cuatro puntos fijos de referencia, a diferencia de
-  izquierda/derecha que dependen de hacia dónde mira el observador.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "opuestos"]
-
-enunciado: "¿Cuál es el punto cardinal opuesto al norte?"
-tipo: mc
-opciones_explicitas:
-  - "Sur"
-  - "Este"
-  - "Oeste"
-respuesta: "Sur"
-
-explicacion: |
-  Norte y sur son opuestos entre sí, igual que este y oeste.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "opuestos"]
-
-enunciado: "¿Cuál es el punto cardinal opuesto al este?"
-tipo: mc
-opciones_explicitas:
-  - "Oeste"
-  - "Norte"
-  - "Sur"
-respuesta: "Oeste"
-
-explicacion: |
-  El este es por donde sale el Sol; el oeste, por donde se pone.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "sol"]
-
-enunciado: "¿Por qué punto cardinal sale el Sol?"
-tipo: mc
-opciones_explicitas:
-  - "Este"
-  - "Oeste"
-  - "Norte"
-respuesta: "Este"
-
-explicacion: |
-  El Sol sale por el este y se pone por el oeste, en cualquier
-  hemisferio.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "sol"]
-
-enunciado: "¿Por qué punto cardinal se pone el Sol?"
-tipo: mc
-opciones_explicitas:
-  - "Oeste"
-  - "Este"
-  - "Sur"
-respuesta: "Oeste"
-
-explicacion: |
-  Se pone por el oeste, opuesto al este por donde sale.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "colaterales"]
-
-enunciado: "¿Cómo se llama el punto intermedio entre el norte y el este?"
-tipo: mc
-opciones_explicitas:
-  - "Noreste"
-  - "Sudeste"
-  - "Noroeste"
-respuesta: "Noreste"
-
-explicacion: |
-  Se nombra combinando los dos cardinales que rodean al punto
-  intermedio: Norte + Este = Noreste.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "colaterales"]
-
-enunciado: "¿Cómo se llama el punto intermedio entre el sur y el este?"
-tipo: mc
-opciones_explicitas:
-  - "Sudeste"
-  - "Noreste"
-  - "Sudoeste"
-respuesta: "Sudeste"
-
-explicacion: |
-  Sur + Este = Sudeste.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "colaterales"]
-
-enunciado: "¿Cómo se llama el punto intermedio entre el sur y el oeste?"
-tipo: mc
-opciones_explicitas:
-  - "Sudoeste"
-  - "Noroeste"
-  - "Sudeste"
-respuesta: "Sudoeste"
-
-explicacion: |
-  Sur + Oeste = Sudoeste.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "colaterales"]
-
-enunciado: "¿Cómo se llama el punto intermedio entre el norte y el oeste?"
-tipo: mc
-opciones_explicitas:
-  - "Noroeste"
-  - "Noreste"
-  - "Sudoeste"
-respuesta: "Noroeste"
-
-explicacion: |
-  Norte + Oeste = Noroeste.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "intermedio"
-  tags: ["orientacion", "rosa_de_los_vientos"]
-
-enunciado: "Contando los 4 cardinales y los 4 intermedios, ¿cuántos puntos tiene la rosa de los vientos básica?"
-tipo: input
-respuesta: 8
-
-explicacion: |
-  4 cardinales (N, S, E, O) + 4 colaterales (NE, SE, SO, NO) = 8 puntos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "intermedio"
-  tags: ["orientacion", "angulos"]
-
-enunciado: "¿Cuántos grados hay entre el norte y el este, medidos en la rosa de los vientos?"
-tipo: input
-respuesta: 90
-
-explicacion: |
-  Los 4 cardinales dividen el círculo completo (360°) en 4 partes
-  iguales de 90° cada una.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "intermedio"
-  tags: ["orientacion", "angulos"]
-
-enunciado: "¿Cuántos grados hay entre el norte y su opuesto, el sur?"
-tipo: input
-respuesta: 180
-
-explicacion: |
-  Dos puntos opuestos están separados por media vuelta completa: 180°.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "angulos"]
-
-enunciado: "¿Cuántos grados tiene un giro completo (los 8 puntos de la rosa de los vientos, ida y vuelta al norte)?"
-tipo: input
-respuesta: 360
-
-explicacion: |
-  Un círculo completo siempre tiene 360°.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "avanzado"
-  tags: ["orientacion", "angulos"]
-
-variables:
-  total_puntos: 8
-  grados_totales: 360
-
-respuesta: grados_totales / total_puntos
-tipo: input
-
-enunciado: "Si la rosa de los vientos de 8 puntos divide el círculo en partes iguales, ¿cuántos grados separan a cada punto del siguiente (ej.: de norte a noreste)?"
-
-pasos:
-  - "{grados_totales}° ÷ {total_puntos} puntos"
-
-explicacion: |
-  360° repartidos en 8 puntos iguales dan 45° entre cada punto y el
-  siguiente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "brujula"]
-
-enunciado: "La aguja imantada de una brújula se alinea sola con el campo magnético terrestre y señala el norte."
-tipo: vf
-respuesta: verdadero
-
-explicacion: |
-  Es el principio físico detrás de toda brújula: la aguja es un imán
-  chico que reacciona al campo magnético de la Tierra.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "relativo_absoluto"]
-
-enunciado: "\"Izquierda\" y \"derecha\" son referencias absolutas, iguales para cualquier persona sin importar hacia dónde mire."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Son referencias relativas: dependen de hacia dónde mira quien habla,
-  y cambian si esa persona se da vuelta. Los cardinales, en cambio, son
-  absolutos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "relativo_absoluto"]
-
-enunciado: "El norte geográfico es el mismo punto fijo sin importar hacia dónde mire la persona que lo señala."
-tipo: vf
-respuesta: verdadero
-
-explicacion: |
-  Por eso los cardinales son la referencia usada en mapas y
-  navegación: no dependen del observador.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "intermedio"
-  tags: ["orientacion", "sol", "hemisferios"]
-
-enunciado: "En Argentina (hemisferio sur), al mediodía el Sol queda aproximadamente hacia el..."
-tipo: mc
-opciones_explicitas:
-  - "Norte"
-  - "Sur"
-  - "Este"
-respuesta: "Norte"
-
-explicacion: |
-  En el hemisferio sur, al mediodía el Sol queda hacia el norte
-  (al revés que en el hemisferio norte, donde queda hacia el sur).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "basico"
-  tags: ["orientacion", "mapas"]
-
-enunciado: "¿Para qué sirve la rosa de los vientos dibujada en un mapa?"
-tipo: mc
-opciones_explicitas:
-  - "Para indicar hacia dónde apunta el norte del mapa"
-  - "Para indicar la escala del mapa"
-  - "Para indicar la fecha en que se hizo el mapa"
-respuesta: "Para indicar hacia dónde apunta el norte del mapa"
-
-explicacion: |
-  Sin esa referencia, no se puede relacionar lo dibujado con el
-  territorio real: un mapa girado es ilegible aunque tenga toda la
-  información correcta.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "intermedio"
-  tags: ["orientacion", "hemisferios"]
-
-enunciado: "¿Qué referencia estelar se usa en el hemisferio sur para aproximar el sur de noche?"
-tipo: mc
-opciones_explicitas:
-  - "La Cruz del Sur"
-  - "La Estrella Polar"
-  - "La Osa Mayor"
-respuesta: "La Cruz del Sur"
-
-explicacion: |
-  La Estrella Polar es la referencia del hemisferio norte; en el sur
-  no hay una estrella tan cercana al polo, se usa la Cruz del Sur.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "avanzado"
-  tags: ["orientacion", "rosa_de_los_vientos"]
-
-enunciado: "Ordená estos 4 puntos empezando desde el norte y avanzando en sentido horario: Este, Norte, Oeste, Sur."
-tipo: ordenar
-opciones_explicitas:
-  - "Norte"
-  - "Este"
-  - "Sur"
-  - "Oeste"
-respuesta_orden: ["Norte", "Este", "Sur", "Oeste"]
-
-explicacion: |
-  En sentido horario desde el norte: Norte → Este → Sur → Oeste →
-  vuelta al Norte.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "orientacion_puntos_cardinales"
-  nivel: "intermedio"
-  tags: ["orientacion", "colaterales"]
-
-enunciado: "El noreste (NE) es el punto intermedio entre..."
-tipo: mc
-opciones_explicitas:
-  - "Norte y Este"
-  - "Norte y Oeste"
-  - "Sur y Este"
-respuesta: "Norte y Este"
-
-explicacion: |
-  El nombre combina los dos cardinales entre los que está: Norte y
-  Este.
-```
-
-## Sección: urbanizacion-migracion-ciudad (25 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["historia", "revolucion_industrial"]
-
-respuesta: "Revolución Industrial"
-tipo: completar
-respuestas_validas:
-  - "Revolución Industrial"
-
-enunciado: "El proceso de crecimiento acelerado de las ciudades, conocido como urbanización, se vio fuertemente impulsado por la ___."
-
-explicacion: |
-  La Revolución Industrial provocó un éxodo masivo del campo a la ciudad debido a la mecanización de la agricultura y la creación de fábricas en los núcleos urbanos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["migracion", "causas"]
-
-respuesta: "atracción por empleos industriales"
-tipo: mc
-opciones_explicitas: ["falta de tierras y mecanización agrícola", "atracción por empleos industriales", "Crecimiento natural de la población urbana", "Políticas de vivienda"]
-
-enunciado: "En un contexto de urbanización acelerada, un factor de \"atracción\" (pull) que impulsa la migración desde el campo hacia la ciudad es: ___."
-
-explicacion: |
-  La migración suele responder a un factor de "expulsión" (lo que sucede en el origen) y un factor de "atracción" (lo que ofrece el destino).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["demografia", "densidad"]
-
-respuesta: 85
-tipo: completar
-tolerancia_abs: 5
-
-enunciado: "Si una ciudad tiene una superficie de 100 km² y una población de 8500 habitantes, ¿cuál es su densidad de población (habitantes por km²)? (Redondea al entero más cercano)"
-
-pasos:
-  - "Identificar la población total: 8500"
-  - "Identificar la superficie: 100 km²"
-  - "Dividir población / superficie: 8500 / 100"
-
-explicacion: |
-  La densidad de población se calcula dividiendo el número total de habitantes por la superficie territorial: 8500 / 100 = 85 hab/km².
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "avanzado"
-  tags: ["procesos", "urbanismo"]
-
-respuesta_orden: ["Consolidación del núcleo urbano", "Crecimiento de la zona industrial", "Densificación del centro", "Expansión de la periferia"]
-tipo: ordenar
-opciones_explicitas: ["Expansión de la periferia", "Densificación del centro", "Crecimiento de la zona industrial", "Consolidación del núcleo urbano"]
-
-enunciado: "Ordena cronológicamente las fases típicas de una ciudad que experimenta un crecimiento acelerado por la industrialización:"
-
-explicacion: |
-  El proceso suele comenzar con un núcleo consolidado, seguido por la creación de zonas industriales, la densificación del centro para albergar trabajadores y, finalmente, la expansión hacia la periferia.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["consecuencias", "social"]
-
-respuesta: "Desigualdad social"
-tipo: mc
-opciones_explicitas: ["Crecimiento demográfico natural", "Desigualdad social", "Despoblación de las metrópolis", "Migración estacional"]
-
-enunciado: "Un efecto común de la urbanización rápida y descontrolada es: ___."
-
-explicacion: |
-  Cuando la población urbana crece más rápido que la capacidad de la ciudad para proveer servicios y vivienda, surgen problemas como el hacinamiento o la falta de infraestructura.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["migracion", "campo", "ciudad"]
-
-tipo: mc
-opciones_explicitas: ["Falta de servicios y empleo en el campo", "Exceso de recursos naturales en la ciudad", "Deseo de vivir en zonas con menos población"]
-respuesta: "Falta de servicios y empleo en el campo"
-enunciado: "Uno de los principales motores que impulsa el éxodo rural hacia las grandes urbes es la ___."
-explicacion: |
-  La migración rural-urbana suele ser motivada por factores de 'expulsión' en el campo (falta de trabajo, servicios o tierras) y factores de 'atracción' en la ciudad (ofertas laborales y mejores servicios).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["urbanizacion", "crecimiento"]
-
-tipo: mc
-opciones_explicitas: ["crecimiento_planificado", "crecimiento_desordenado"]
-respuesta: "crecimiento_desordenado"
-
-enunciado: "Cuando la migración hacia la ciudad es masiva y rápida, suele producirse un ___ que genera problemas de vivienda."
-
-explicacion: |
-  El crecimiento desordenado ocurre cuando la infraestructura urbana no puede seguir el ritmo de la llegada de nuevos habitantes, derivando en asentamientos informales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["demografia", "poblacion"]
-
-tipo: completar
-respuestas_validas:
-  - "industrialización"
-  - "agricultura"
-
-enunciado: "Históricamente, el proceso de migración del campo a la ciudad ha estado estrechamente vinculado al proceso de ___."
-
-explicacion: |
-  La Revolución Industrial demandó mano de obra masiva en las ciudades para las fábricas, lo que aceleró el traslado de la población rural al ámbito urbano.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["proceso", "orden"]
-
-tipo: ordenar
-opciones_explicitas: ["Búsqueda de empleo en la ciudad", "Dificultades económicas en el sector rural", "Asentamiento en la periferia urbana"]
-
-enunciado: "Ordena cronológicamente las etapas típicas de un proceso de migración rural-urbana:"
-
-explicacion: |
-  Primero surge la necesidad o dificultad en el origen (campo), luego se realiza el traslado buscando oportunidades y finalmente se establece la residencia en la zona de destino (ciudad).
-respuesta_orden: ["Dificultades económicas en el sector rural", "Búsqueda de empleo en la ciudad", "Asentamiento en la periferia urbana"]
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "avanzado"
-  tags: ["economia", "servicios"]
-
-tipo: mc
-opciones_explicitas: ["alta densidad", "baja densidad"]
-respuesta: "alta densidad"
-
-enunciado: "La llegada masiva de personas a las urbes provoca un aumento de la ___ en los centros urbanos."
-
-explicacion: |
-  La concentración de población en áreas limitadas aumenta la densidad demográfica, lo que puede sobrecargar los servicios públicos y el mercado laboral.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["servicios", "urbanismo"]
-
-respuesta: "saturación"
-tipo: completar
-respuestas_validas:
-  - "saturación"
-  - "colapso"
-
-enunciado: "Cuando la migración hacia las ciudades es más rápida de lo que el Estado puede planificar, se produce una ___ de los servicios públicos como el agua potable y el transporte."
-
-explicacion: |
-  La urbanización acelerada genera una demanda de infraestructura que supera la capacidad de respuesta de la ciudad, provocando la saturación de los servicios básicos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["consecuencias", "barrios_precarios"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["crecimiento de asentamientos informales", "falta de planificación urbana"], ["aumento de la contaminación", "congestión vehicular"]]
-
-respuesta: escenarios[escenario_idx][0]
-tipo: mc
-opciones_explicitas: ["crecimiento de asentamientos informales", "falta de planificación urbana", "aumento de la contaminación", "congestión vehicular"]
-
-enunciado: "La expansión descontrolada de la mancha urbana hacia las periferias suele derivar en ___."
-
-explicacion: |
-  La falta de regulación y el rápido crecimiento demográfico llevan a la formación de barrios precarios o asentamientos informales en zonas no planificadas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["oportunidades", "empleo"]
-
-respuesta: "empleo"
-tipo: mc
-opciones_explicitas: ["empleo", "aislamiento", "subsistencia", "degradación"]
-
-enunciado: "Uno de los principales motores de la migración campo-ciudad es la búsqueda de mejores oportunidades de _________ y acceso a servicios especializados."
-
-explicacion: |
-  Las ciudades concentran la mayor parte de la actividad económica, ofreciendo una mayor diversidad de empleo en comparación con las zonas rurales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["procesos", "secuencia"]
-
-respuesta_orden: ["migración rural", "crecimiento demográfico", "expansión urbana", "asentamientos informales"]
-tipo: ordenar
-opciones_explicitas: ["migración rural", "crecimiento demográfico", "expansión urbana", "asentamientos informales"]
-
-enunciado: "Ordena cronológicamente los elementos que suelen caracterizar un proceso de urbanización acelerada no planificada:"
-
-pasos:
-  - "Movimiento de personas desde el campo a la ciudad."
-  - "Aumento de la población en el área metropolitana."
-  - "Ocupación de terrenos periféricos por la ciudad."
-  - "Formación de barrios con servicios deficientes."
-
-explicacion: |
-  El proceso suele iniciar con la migración, seguido por el aumento de población, la expansión física de la ciudad y, finalmente, la consolidación de barrios precarios por la falta de servicios.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "avanzado"
-  tags: ["dualidad", "urbanismo"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["positiva", "acceso a educación"], ["negativa", "hacinamiento"]]
-
-respuesta: casos[caso_idx][1]
-tipo: mc
-opciones_explicitas: ["positiva", "acceso a educación", "negativa", "hacinamiento"]
-
-enunciado: "La urbanización es un proceso dual: puede tener una consecuencia {casos[caso_idx][0]} como el ___."
-
-explicacion: |
-  La urbanización presenta una dualidad: por un lado, ofrece ventajas como el acceso a educación y salud; por otro, presenta desafíos como el hacinamiento y la falta de servicios.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["demografia", "urbanizacion"]
-
-respuesta: "urbana"
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Históricamente, la mayor parte de la población mundial vivía en entornos de carácter _____, pero en la actualidad la tendencia se ha invertido."
-
-explicacion: |
-  La transición de una sociedad mayoritariamente rural a una urbana es uno de los procesos demográficos más significativos de la historia moderna.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["poblacion", "ciudades"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[55, "más de la mitad"], [50, "exactamente la mitad"]]
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["menos de la mitad", "exactamente la mitad", "más de la mitad", "casi la totalidad"]
-
-enunciado: "En la actualidad, la población mundial es, aproximadamente, ___ urbana."
-
-explicacion: |
-  Hoy en día, la tendencia global muestra que la población urbana ha superado el umbral del 50% de la población total del planeta.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["migracion", "causas"]
-
-respuesta_orden: ["Industrialización", "Migración rural", "Crecimiento natural urbano"]
-tipo: ordenar
-
-opciones_explicitas: ["Migración rural", "Industrialización", "Crecimiento natural urbano"]
-
-enunciado: "Ordene cronológicamente los factores que impulsaron el crecimiento de las ciudades en la era moderna:"
-
-explicacion: |
-  El proceso comenzó con la migración del campo a la ciudad por la industrialización, seguido por el crecimiento demográfico dentro de las propias ciudades.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["densidad", "urbanismo"]
-
-respuesta: "densidad"
-tipo: completar
-respuestas_validas:
-  - "densidad"
-  - "extensión"
-  - "clima"
-
-enunciado: "El fenómeno de la urbanización implica una mayor ___ de población en áreas delimitadas en comparación con las zonas rurales."
-
-explicacion: |
-  La concentración de personas en núcleos urbanos genera un aumento en la densidad poblacional, lo que requiere infraestructuras más complejas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "avanzado"
-  tags: ["proyecciones", "globalizacion"]
-
-respuesta: "aumentará"
-tipo: mc
-opciones_explicitas: ["aumentará", "disminuirá", "se mantendrá igual", "desaparecerá"]
-
-enunciado: "Según las proyecciones de la ONU, la proporción de la población mundial que vive en ciudades ___ en las próximas décadas."
-
-explicacion: |
-  Se espera que el proceso de urbanización continúe, especialmente en países en vías de desarrollo, llevando la cifra urbana aún más arriba del 60% o 70%.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["migracion", "causas"]
-
-variables:
-  datos: [["La falta de infraestructura sanitaria y servicios de salud en el campo", "Mejorar la calidad de vida"], ["La mecanización de la agricultura que reduce la demanda de mano de obra", "Búsqueda de empleo"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Mejorar la calidad de vida", "Búsqueda de empleo", "Aumento de la densidad poblacional", "Contaminación acústica"]
-
-enunciado: "En el siguiente caso: {datos[idx][0]}, ¿cuál es la causa principal que impulsa la migración hacia la ciudad?"
-
-explicacion: |
-  La migración suele ser motivada por factores de "expulsión" en el origen (falta de servicios o empleo) y factores de "atracción" en el destino.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["consecuencias", "urbanismo"]
-
-variables:
-  datos: [["El crecimiento descontrolado de la periferia urbana", "Crecimiento de asentamientos informales"], ["La llegada masiva de personas en un corto periodo", "Saturación de los servicios públicos"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Crecimiento de asentamientos informales", "Saturación de los servicios públicos", "Reducción de la contaminación", "Descentralización económica"]
-
-enunciado: "Analice el siguiente fenómeno: {datos[idx][0]}. ¿Cuál es una consecuencia directa de este proceso?"
-
-explicacion: |
-  Cuando la urbanización supera la capacidad de planificación de la ciudad, se producen problemas de infraestructura y servicios.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["factores_atracción"]
-
-respuesta: "oferta educativa"
-tipo: completar
-respuestas_validas:
-  - "oferta educativa"
-  - "centros de salud"
-  - "empleo industrial"
-
-enunciado: "Uno de los principales factores de atracción de las grandes urbes para la población joven es la mayor ___."
-
-explicacion: |
-  Las ciudades concentran instituciones de enseñanza superior y técnica que no están disponibles en zonas rurales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["procesos", "secuencia"]
-
-respuesta_orden: ["Éxodo rural", "Crecimiento de la ciudad", "Expansión de la periferia"]
-tipo: ordenar
-opciones_explicitas: ["Éxodo rural", "Crecimiento de la ciudad", "Expansión de la periferia"]
-
-enunciado: "Ordene cronológicamente los procesos que caracterizan un proceso de urbanización acelerado:"
-
-explicacion: |
-  Primero ocurre el movimiento de población (éxodo), luego la ciudad se densifica y finalmente se expande hacia los bordes.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "avanzado"
-  tags: ["impacto_ambiental"]
-
-variables:
-  datos: [["La impermeabilización de suelos por el asfalto", "Aumento de la temperatura urbana"], ["La concentración de vehículos en el centro", "Creación de islas de calor"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Aumento de la temperatura urbana", "Creación de islas de calor", "Disminución de la huella de carbono", "Aumento de la biodiversidad"]
-
-enunciado: "Si observamos que {datos[idx][0]}, el fenómeno climático urbano resultante es el/la ___."
-
-explicacion: |
-  La sustitución de vegetación por materiales urbanos retiene el calor, generando el efecto de isla de calor.
-```
 
 ## Sección: mapa-plano-escala (20 preguntas)
 
@@ -2046,5 +1163,817 @@ respuesta: "Porque sin saber leer los símbolos y la escala del mapa no se puede
 explicacion: |
   Es la razón por la que `division-politica/` depende de
   `../mapa-plano-escala/` en `../dependencias.md`.
+```
+
+## Sección: sig-mapas-digitales (20 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "basico"
+  tags: ["sig", "vocabulario"]
+
+enunciado: "¿Qué es un Sistema de Información Geográfica (SIG)?"
+tipo: mc
+opciones_explicitas:
+  - "Una base de datos donde cada elemento del mapa tiene coordenadas y datos asociados"
+  - "Una foto escaneada de un mapa de papel"
+  - "Un tipo de brújula digital"
+respuesta: "Una base de datos donde cada elemento del mapa tiene coordenadas y datos asociados"
+
+explicacion: |
+  Eso es lo que permite que el mapa responda preguntas (buscar,
+  calcular rutas) en vez de sólo mostrarse.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "intermedio"
+  tags: ["sig"]
+
+enunciado: "¿Por qué un mapa digital moderno no es simplemente un mapa de papel escaneado?"
+tipo: mc
+opciones_explicitas:
+  - "Porque cada elemento tiene coordenadas y datos que se pueden consultar, no sólo una imagen fija"
+  - "Porque los mapas escaneados no tienen colores"
+  - "Porque un mapa digital no puede mostrar límites políticos"
+respuesta: "Porque cada elemento tiene coordenadas y datos que se pueden consultar, no sólo una imagen fija"
+
+explicacion: |
+  Una imagen escaneada es sólo píxeles; un SIG sabe qué es cada cosa y
+  dónde está en coordenadas reales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "basico"
+  tags: ["capas"]
+
+enunciado: "En un SIG, ¿qué es una \"capa\"?"
+tipo: mc
+opciones_explicitas:
+  - "Un conjunto de información independiente (calles, edificios, tránsito) que se puede mostrar u ocultar por separado"
+  - "El color de fondo del mapa"
+  - "La escala numérica del mapa"
+respuesta: "Un conjunto de información independiente (calles, edificios, tránsito) que se puede mostrar u ocultar por separado"
+
+explicacion: |
+  Las capas permiten combinar sólo la información que se necesita en
+  cada momento.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "basico"
+  tags: ["capas"]
+
+enunciado: "¿Cuál de estos es un ejemplo típico de capa en un mapa digital?"
+tipo: mc
+opciones_explicitas:
+  - "Tránsito en tiempo real"
+  - "El nombre de la empresa que hizo el mapa"
+  - "La fecha de instalación de la app"
+respuesta: "Tránsito en tiempo real"
+
+explicacion: |
+  Tránsito, imágenes satelitales, límites administrativos y calles son
+  capas típicas que se pueden combinar o separar.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "avanzado"
+  tags: ["capas"]
+
+enunciado: "¿En qué se parece el sistema de capas de un SIG a un mapa temático de papel?"
+tipo: mc
+opciones_explicitas:
+  - "Ambos eligen qué información mostrar y cuál descartar, para no saturar la lectura"
+  - "Ambos usan exactamente la misma escala numérica"
+  - "No se parecen en nada"
+respuesta: "Ambos eligen qué información mostrar y cuál descartar, para no saturar la lectura"
+
+explicacion: |
+  La diferencia es que el SIG permite cambiar esa selección al
+  instante prendiendo o apagando capas, en vez de dibujar un mapa nuevo.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "intermedio"
+  tags: ["geocodificacion"]
+
+enunciado: "¿Qué hace un SIG cuando convierte el texto \"Av. Corrientes 1000\" en un par de coordenadas de latitud y longitud?"
+tipo: mc
+opciones_explicitas:
+  - "Geocodificar la dirección"
+  - "Calcular una ruta"
+  - "Renderizar una capa satelital"
+respuesta: "Geocodificar la dirección"
+
+explicacion: |
+  Geocodificar es traducir una dirección en texto a las coordenadas
+  reales que la ubican en el mapa.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "intermedio"
+  tags: ["ventajas"]
+
+enunciado: "¿Qué diferencia hay entre la escala de un mapa de papel y la de un mapa digital?"
+tipo: mc
+opciones_explicitas:
+  - "El de papel tiene escala fija; el digital permite zoom continuo, recalculando qué detalle mostrar en cada nivel"
+  - "El mapa digital siempre usa la misma escala que uno de papel"
+  - "El mapa de papel siempre tiene más detalle"
+respuesta: "El de papel tiene escala fija; el digital permite zoom continuo, recalculando qué detalle mostrar en cada nivel"
+
+explicacion: |
+  Al acercar el zoom en un mapa digital aparecen nombres de calles que
+  no entrarían en un mapa impreso a escala de país.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "basico"
+  tags: ["ventajas"]
+
+enunciado: "¿Qué puede hacer un mapa digital que uno de papel no puede?"
+tipo: mc
+opciones_explicitas:
+  - "Calcular automáticamente el camino más corto o más rápido entre dos puntos"
+  - "Mostrar los límites entre países"
+  - "Usar una rosa de los vientos"
+respuesta: "Calcular automáticamente el camino más corto o más rápido entre dos puntos"
+
+explicacion: |
+  En papel, calcular una ruta óptima requeriría medir a mano; el
+  sistema lo hace automáticamente.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "basico"
+  tags: ["ventajas"]
+
+enunciado: "¿Cuál de estas capas es imposible de tener en un mapa impreso?"
+tipo: mc
+opciones_explicitas:
+  - "Tránsito en tiempo real, que se actualiza constantemente"
+  - "Los límites de las provincias"
+  - "El nombre de las ciudades"
+respuesta: "Tránsito en tiempo real, que se actualiza constantemente"
+
+explicacion: |
+  Un mapa impreso queda fijo desde el momento en que se imprime; el
+  tránsito en vivo necesita actualizarse todo el tiempo.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "intermedio"
+  tags: ["ventajas"]
+
+enunciado: "Buscar \"farmacias cerca\" en un mapa digital sin saber de antemano dónde están es un ejemplo de..."
+tipo: mc
+opciones_explicitas:
+  - "Búsqueda por categoría, posible gracias a que cada elemento tiene datos asociados"
+  - "Geocodificación de una dirección"
+  - "Una escala gráfica"
+respuesta: "Búsqueda por categoría, posible gracias a que cada elemento tiene datos asociados"
+
+explicacion: |
+  El SIG sabe qué tipo de lugar es cada punto (farmacia, banco,
+  restaurante) y puede filtrarlos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "basico"
+  tags: ["sig"]
+
+enunciado: "Un SIG es simplemente una imagen que se muestra en pantalla, sin datos asociados a lo que dibuja."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  La característica que define a un SIG es justamente que cada
+  elemento tiene datos asociados (coordenadas, nombre, tipo).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "basico"
+  tags: ["gps", "cruce"]
+
+enunciado: "¿De qué tecnología viene la posición del usuario en un mapa digital (el puntito azul)?"
+tipo: mc
+opciones_explicitas:
+  - "GPS"
+  - "Escala gráfica"
+  - "Rosa de los vientos"
+respuesta: "GPS"
+
+explicacion: |
+  El GPS calcula la posición y el mapa digital la muestra sobre sus
+  capas — ver `../sig-gps/`.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "basico"
+  tags: ["imagenes_satelitales", "cruce"]
+
+enunciado: "La capa de vista \"satélite\" de un mapa digital viene de..."
+tipo: mc
+opciones_explicitas:
+  - "Imágenes satelitales"
+  - "El sistema de posicionamiento GPS"
+  - "Una brújula digital"
+respuesta: "Imágenes satelitales"
+
+explicacion: |
+  Es otra tecnología distinta que se combina con el mapa digital — ver
+  `../sig-imagenes-satelitales/`.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "intermedio"
+  tags: ["capas"]
+
+enunciado: "Las capas de un SIG se pueden mostrar u ocultar de forma independiente unas de otras."
+tipo: vf
+respuesta: verdadero
+
+explicacion: |
+  Esa independencia es justamente lo que permite combinar sólo la
+  información necesaria en cada momento.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "intermedio"
+  tags: ["coordenadas", "cruce"]
+
+enunciado: "¿Qué tiene asociado cada elemento (calle, edificio, comercio) dentro de un mapa digital, además de sus datos?"
+tipo: mc
+opciones_explicitas:
+  - "Coordenadas de latitud y longitud reales"
+  - "Un número de escala numérica propio"
+  - "Un huso horario propio distinto al del resto del mapa"
+respuesta: "Coordenadas de latitud y longitud reales"
+
+explicacion: |
+  Es el mismo sistema de coordenadas que ya explica
+  `../coordenadas-y-husos-horarios/` — el SIG cuelga sus datos sobre esa
+  base.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "avanzado"
+  tags: ["sig"]
+
+enunciado: "¿Cuál de estas frases resume mejor qué es, en esencia, un Sistema de Información Geográfica?"
+tipo: mc
+opciones_explicitas:
+  - "Coordenadas con una capa de datos encima"
+  - "Un mapa dibujado a mano con más colores"
+  - "Una brújula conectada a internet"
+respuesta: "Coordenadas con una capa de datos encima"
+
+explicacion: |
+  Es la síntesis que usa `troncos.md` para explicar por qué mapas
+  digitales, GPS e imágenes satelitales cuelgan del mismo nodo de
+  coordenadas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "intermedio"
+  tags: ["capas"]
+
+enunciado: "Para planificar un viaje en auto evitando el tránsito, ¿qué capas conviene combinar?"
+tipo: mc
+opciones_explicitas:
+  - "Calles y tránsito en tiempo real"
+  - "Sólo la capa de límites políticos"
+  - "Sólo la capa de imágenes satelitales"
+respuesta: "Calles y tránsito en tiempo real"
+
+explicacion: |
+  Un SIG permite elegir exactamente esas dos capas sin cargar las
+  demás.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "basico"
+  tags: ["ventajas"]
+
+enunciado: "Un mapa de papel puede actualizar el tránsito o el clima automáticamente sin volver a imprimirse."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Un mapa impreso queda fijo desde su impresión; sólo un SIG con datos
+  en vivo puede actualizarse solo.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "avanzado"
+  tags: ["geocodificacion"]
+
+enunciado: "Para calcular una ruta desde \"mi ubicación\" hasta \"Av. Corrientes 1000\", ¿qué paso previo tiene que hacer el sistema con la dirección de texto?"
+tipo: mc
+opciones_explicitas:
+  - "Geocodificarla, convirtiéndola en coordenadas"
+  - "Traducirla a otro idioma"
+  - "Calcular su escala numérica"
+respuesta: "Geocodificarla, convirtiéndola en coordenadas"
+
+explicacion: |
+  Sin coordenadas no hay forma de ubicar el destino en el mapa ni de
+  calcular la distancia o el camino hacia él.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_mapas_digitales"
+  nivel: "intermedio"
+  tags: ["sig", "cruce"]
+
+enunciado: "¿Mapas digitales, GPS e imágenes satelitales son la misma tecnología o tecnologías distintas que se combinan?"
+tipo: mc
+opciones_explicitas:
+  - "Son tres tecnologías distintas que se combinan en una app de mapas moderna"
+  - "Son exactamente la misma tecnología con distinto nombre"
+  - "El GPS es sólo un tipo de mapa digital"
+respuesta: "Son tres tecnologías distintas que se combinan en una app de mapas moderna"
+
+explicacion: |
+  Por eso el MAPA las separó en 3 nodos hermanos (`G12a`/`G12b`/`G12c`)
+  en vez de tratarlas como una sola habilidad.
+```
+
+## Sección: estados-y-globalizacion (22 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "basico"
+  tags: ["estado", "definicion", "soberania"]
+
+variables:
+  paises: uno_de(["Argentina", "Brasil", "Chile", "Uruguay", "Paraguay"])
+
+respuesta: "territorio, poblacion y gobierno"
+tipo: completar
+
+enunciado: "Un estado se define tradicionalmente por tres elementos fundamentales: un {paises} (como ejemplo de territorio), una población y un gobierno que ejerce la soberanía. ¿Cuáles son esos tres pilares?"
+
+explicacion: |
+  El estado es una entidad política con territorio definido, población residente y un gobierno que ejerce la autoridad máxima (soberanía) dentro de esas fronteras.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "basico"
+  tags: ["actores", "corporaciones", "poder"]
+
+variables:
+  nivel_poder: uno_de(["supera", "iguala", "inferior"])
+
+respuesta: "corporaciones"
+tipo: completar
+
+enunciado: "Las grandes {nivel_poder} transnacionales a veces desplazan al poder de los gobiernos nacionales en la toma de decisiones económicas globales."
+
+explicacion: |
+  Las grandes corporaciones multinacionales tienen un poder económico y político que, en muchos casos, supera o iguala al de los gobiernos nacionales, influyendo en políticas públicas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "intermedio"
+  tags: ["interdependencia", "red", "conexion"]
+
+variables:
+  tipo_flujo: uno_de(["informacion", "capitales", "personas"])
+
+respuesta: "red"
+tipo: completar
+
+enunciado: "La globalización ha creado una {tipo_flujo} de interdependencia donde lo local y lo global se entrelazan constantemente, desdibujando las fronteras tradicionales del poder."
+
+explicacion: |
+  La globalización no es solo un flujo lineal, sino una red compleja de interdependencia donde los eventos locales tienen repercusiones globales y viceversa.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "avanzado"
+  tags: ["fmi", "condicionalidad", "deuda"]
+
+variables:
+  sector_afectado: uno_de(["salud", "educacion", "infraestructura"])
+
+respuesta: "ajustar_presupuestos"
+tipo: completar
+
+enunciado: "La 'trampa de la deuda' o condicionalidad obliga a los países a {sector_afectado} para obtener estabilidad financiera, afectando servicios públicos como la {sector_afectado}."
+
+explicacion: |
+  Al pedir préstamos internacionales, los países suelen aceptar condiciones (condicionalidad) que les obligan a recortar gastos públicos en áreas sensibles como salud o educación.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "intermedio"
+  tags: ["rol", "intermediario", "cambio"]
+
+variables:
+  rol_antiguo: uno_de(["actor_isolado", "centro_absoluto", "unico_actor"])
+
+respuesta: "intermediario"
+tipo: completar
+
+enunciado: "El rol del estado ha cambiado de ser un {rol_antiguo} a convertirse en un intermediario entre las fuerzas globales y la realidad local."
+
+explicacion: |
+  El estado no ha desaparecido, pero su función ha evolucionado. Ahora actúa como un puente o filtro entre las presiones externas (globalización) y las necesidades internas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "intermedio"
+  tags: ["tecnologia", "internet", "movimientos_sociales"]
+
+variables:
+  mecanismo: uno_de(["transcender_fronteras", "crear_economia", "imponer_leyes"])
+
+respuesta: "transcender_fronteras"
+tipo: completar
+
+enunciado: "Internet y las redes sociales permiten que los movimientos sociales {mecanismo}, presionando a gobiernos que antes operaban con total impunidad."
+
+explicacion: |
+  La tecnología ha democratizado la organización política, permitiendo que la presión social cruce fronteras y afecte la legitimidad de los gobiernos nacionales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "basico"
+  tags: ["onu", "fmi", "omc", "organismos"]
+
+variables:
+  organismo: uno_de(["onu", "fmi", "omc"])
+
+respuesta: "autonomia"
+tipo: completar
+
+enunciado: "Para participar en el comercio global o resolver conflictos, los estados deben ceder parte de su {organismo} a organismos internacionales como la ONU, el FMI o la OMC."
+
+explicacion: |
+  La participación en la gobernanza global requiere sacrificar parte de la autonomía nacional a favor de normas y decisiones colectivas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "avanzado"
+  tags: ["soberania", "negociada", "concepto"]
+
+variables:
+  tipo_soberania: uno_de(["absoluta", "limitada", "total"])
+
+respuesta: "limitada"
+tipo: completar
+
+enunciado: "Hoy en día, la soberanía se entiende más como una soberanía {tipo_soberania} o negociada, donde el estado debe ceder autonomía."
+
+explicacion: |
+  La soberanía absoluta es un ideal histórico; la realidad contemporánea es una soberanía relativa que depende de la capacidad de negociación internacional.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "basico"
+  tags: ["fronteras", "poder", "desdibujamiento"]
+
+variables:
+  efecto: uno_de(["fortalecen", "desdibujan", "eliminan"])
+
+respuesta: "desdibujan"
+tipo: completar
+
+enunciado: "La circulación global de información y capitales tiende a {efecto} las fronteras tradicionales del poder estatal."
+
+explicacion: |
+  Aunque las fronteras físicas existen, su eficacia como barreras de control político y económico se ha reducido significativamente.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "intermedio"
+  tags: ["poder_legal", "monopolio", "estado"]
+
+variables:
+  accion: uno_de(["declarar_guerra", "emitir_moneda", "garantizar_derechos"])
+
+respuesta: "estados"
+tipo: completar
+
+enunciado: "Los {accion} son roles que los estados siguen ejerciendo como únicos actores legales, diferenciándolos de las corporaciones."
+
+explicacion: |
+  La legitimidad legal y la capacidad coercitiva final residen en el estado, no en ningún otro actor privado o internacional.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "basico"
+  tags: ["informacion", "circulacion", "escala"]
+
+variables:
+  escala: uno_de(["local", "nacional", "planetaria"])
+
+respuesta: "planetaria"
+tipo: completar
+
+enunciado: "La globalización implica la circulación de mercancías, información, capitales y culturas a escala {escala}."
+
+explicacion: |
+  La característica definitoria de la globalización es la operación a escala mundial, superando las limitaciones geográficas tradicionales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "avanzado"
+  tags: ["tension", "prosperidad", "marginacion"]
+
+variables:
+  resultado: uno_de(["prosperidad", "marginacion", "estabilidad"])
+
+respuesta: "prosperan"
+tipo: completar
+
+enunciado: "Entender la tensión entre lo local y lo global es clave para analizar por qué algunos países {resultado} y otros quedan marginados."
+
+explicacion: |
+  La capacidad de un estado para navegar la globalización determina su éxito o fracaso económico y social.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "intermedio"
+  tags: ["tecnologia", "nuevo_poder", "internet"]
+
+variables:
+  esfera: uno_de(["economica", "politica", "social"])
+
+respuesta: "nuevas_esferas"
+tipo: completar
+
+enunciado: "La tecnología ha creado {esfera} de poder que operan fuera del control directo de los gobiernos nacionales."
+
+explicacion: |
+  El ciberespacio y las plataformas digitales forman nuevas esferas de influencia que los estados intentan regular pero no controlan totalmente.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "basico"
+  tags: ["soberania", "definicion", "autoridad"]
+
+variables:
+  autoridad: uno_de(["máxima", "mínima", "compartida"])
+
+respuesta: "máxima"
+tipo: completar
+
+enunciado: "Históricamente, la soberanía se definía como la autoridad {autoridad} para tomar decisiones dentro de las fronteras."
+
+explicacion: |
+  La definición clásica de soberanía implica la supremacía interna y la independencia externa, aunque hoy está matizada.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "intermedio"
+  tags: ["intermediario", "rol", "funcion"]
+
+variables:
+  fuerza: uno_de(["globales", "locales", "externas"])
+
+respuesta: "intermediario"
+tipo: completar
+
+enunciado: "El estado actúa como un {fuerza} entre las fuerzas globales y la realidad local, filtrando y adaptando las presiones externas."
+
+explicacion: |
+  El estado no es pasivo; media, negocia y adapta las normas globales a la legislación local.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "intermedio"
+  tags: ["movimientos_sociales", "presion", "transnacional"]
+
+variables:
+  efecto: uno_de(["presionar", "apoyar", "ignorar"])
+
+respuesta: "presionar"
+tipo: completar
+
+enunciado: "Los movimientos sociales transnacionales buscan {efecto} a gobiernos que operaban con impunidad, utilizando la visibilidad global."
+
+explicacion: |
+  La visibilidad global es una herramienta de poder para los movimientos sociales, obligando a los gobiernos a responder a estándares internacionales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "avanzado"
+  tags: ["prestamo", "condicionalidad", "perdida"]
+
+variables:
+  condicion: uno_de(["economicas", "militares", "culturales"])
+
+respuesta: "economicas"
+tipo: completar
+
+enunciado: "Al pedir un préstamo internacional, un país suele aceptar condiciones {condicion} que limitan sus políticas internas."
+
+explicacion: |
+  La condicionalidad financiera es el mecanismo principal mediante el cual se ejerce influencia sobre la política interna de los estados deudores.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "basico"
+  tags: ["cultura", "circulacion", "globalizacion"]
+
+variables:
+  elemento: uno_de(["mercancías", "personas", "culturas"])
+
+respuesta: "culturas"
+tipo: completar
+
+enunciado: "La globalización no es solo circulación de mercancías, sino también de información, capitales, personas y {elemento} a escala planetaria."
+
+explicacion: |
+  El intercambio cultural es un componente clave de la globalización, a menudo generando debates sobre identidad y homogeneización.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "basico"
+  tags: ["historia", "soberania", "absoluta"]
+
+variables:
+  caracteristica: uno_de(["clara", "borrosa", "inexistente"])
+
+respuesta: "absoluta"
+tipo: completar
+
+enunciado: "Históricamente, la soberanía se ejercía de forma casi {caracteristica} en el interior del país, con límites bien definidos."
+
+explicacion: |
+  El modelo westfaliano de estado-nación pretendía un control absoluto sobre su territorio, contraste con la realidad actual.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "basico"
+  tags: ["omc", "comercio", "participacion"]
+
+variables:
+  organismo: uno_de(["fmi", "omc", "onu"])
+
+respuesta: "comercio"
+tipo: completar
+
+enunciado: "Los estados ceden autonomía a organismos como la OMC para participar en el {organismo} global."
+
+explicacion: |
+  La OMC establece las reglas del comercio internacional, limitando la capacidad de los estados para proteger sus mercados internos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "avanzado"
+  tags: ["derechos", "garantia", "estado"]
+
+variables:
+  derecho: uno_de(["salud", "educacion", "seguridad"])
+
+respuesta: "garantizar"
+tipo: completar
+
+enunciado: "Los estados siguen siendo los únicos actores con capacidad legal para {derecho} a sus ciudadanos."
+
+explicacion: |
+  La protección de los derechos humanos y ciudadanos sigue siendo la responsabilidad última del estado, aunque los organismos internacionales monitoricen su cumplimiento.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "estados_y_globalizacion"
+  nivel: "intermedio"
+  tags: ["interdependencia", "local", "global"]
+
+variables:
+  relacion: uno_de(["entrelazan", "separan", "ignoran"])
+
+respuesta: "entrelazan"
+tipo: completar
+
+enunciado: "La globalización ha creado una red donde lo local y lo global se {relacion} constantemente."
+
+explicacion: |
+  No hay una separación clara; lo local es afectado por lo global y viceversa, creando una dinámica compleja de influencia mutua.
 ```
 

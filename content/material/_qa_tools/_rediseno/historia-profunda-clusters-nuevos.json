@@ -3,11 +3,11 @@
   "id": 681,
   "cluster": 1,
   "temas": [
-   "absolutismo-europeo",
-   "agujeros-negros",
-   "ampliacion-democratica-ley-saenz-pena",
-   "antigua-grecia",
-   "antigua-roma"
+   "escalas-de-tiempo-profundo",
+   "origen-del-universo",
+   "formacion-de-estrellas",
+   "galaxias-tipos-escala",
+   "nucleosintesis"
   ],
   "preguntas": 125
  },
@@ -15,11 +15,11 @@
   "id": 682,
   "cluster": 2,
   "temas": [
-   "antiguo-egipto",
-   "atmosfera-primitiva",
-   "baja-edad-media-y-crisis",
-   "caida-de-roma-y-alta-edad-media",
-   "cambio-climatico-linea-base-historica"
+   "corrimiento-al-rojo-expansion-universo",
+   "agujeros-negros",
+   "formacion-del-sistema-solar",
+   "ley-de-hubble",
+   "movimiento-rotacion-traslacion"
   ],
   "preguntas": 125
  },
@@ -27,11 +27,11 @@
   "id": 683,
   "cluster": 3,
   "temas": [
-   "china-antigua",
-   "ciclo-de-las-rocas",
-   "ciencia-revolucion-cientifica",
-   "cinco-extinciones-masivas",
-   "civilizaciones-antiguas"
+   "materia-energia-oscura",
+   "estaciones-del-ano",
+   "fases-lunares",
+   "movimiento-aparente-constelaciones",
+   "eclipses-sol-luna"
   ],
   "preguntas": 125
  },
@@ -39,47 +39,47 @@
   "id": 684,
   "cluster": 4,
   "temas": [
-   "civilizaciones-de-america-precolombinas",
-   "conquista-colonizacion-america",
-   "conquista-tierra-firme",
-   "conquista-y-colonia-argentina",
-   "corrimiento-al-rojo-expansion-universo"
+   "tabla-periodica-nivel2-cosmologico",
+   "tierra-primitiva-diferenciacion",
+   "atmosfera-primitiva",
+   "minerales-estructura-cristalina",
+   "origen-de-la-vida"
   ],
-  "preguntas": 125
+  "preguntas": 124
  },
  {
   "id": 685,
   "cluster": 5,
   "temas": [
-   "datacion-radiometrica",
-   "descolonizacion-de-africa-y-asia",
-   "distribucion-biomas",
-   "division-del-trabajo",
-   "eclipses-sol-luna"
+   "rocas-igneas-sedimentarias-metamorficas",
+   "procariotas",
+   "tiempo-geologico-eones-eras-periodos",
+   "gran-oxidacion",
+   "datacion-radiometrica"
   ],
-  "preguntas": 125
+  "preguntas": 123
  },
  {
   "id": 686,
   "cluster": 6,
   "temas": [
-   "edad-media-feudalismo",
-   "edad-media-plena",
-   "electrificacion-fabrica-hogar",
-   "entreguerras-y-crisis-de-1929",
-   "escalas-de-tiempo-profundo"
+   "eucariotas",
+   "fotosintesis-cambio-atmosfera-nivel2",
+   "multicelularidad",
+   "tectonica-placas-deriva-continental",
+   "explosion-cambrica"
   ],
-  "preguntas": 123
+  "preguntas": 125
  },
  {
   "id": 687,
   "cluster": 7,
   "temas": [
-   "escritura-primeras-ciudades",
-   "estaciones-del-ano",
-   "estados-nacionales",
-   "eucariotas",
-   "expansion-del-imperio-romano"
+   "ciclo-de-las-rocas",
+   "conquista-tierra-firme",
+   "distribucion-biomas",
+   "cinco-extinciones-masivas",
+   "paleoclima-glaciaciones"
   ],
   "preguntas": 125
  },
@@ -87,47 +87,47 @@
   "id": 688,
   "cluster": 8,
   "temas": [
-   "explosion-cambrica",
-   "fases-lunares",
-   "formacion-de-estrellas",
-   "formacion-del-sistema-solar",
-   "fotosintesis-cambio-atmosfera-nivel2"
+   "radiacion-mamiferos",
+   "cambio-climatico-linea-base-historica",
+   "hominizacion",
+   "relieve-sismos-volcanes",
+   "paleolitico"
   ],
-  "preguntas": 125
+  "preguntas": 126
  },
  {
   "id": 689,
   "cluster": 9,
   "temas": [
-   "galaxias-tipos-escala",
-   "globalizacion-era-digital",
-   "golpes-de-estado-interrupciones",
-   "gran-oxidacion",
-   "guerra-de-malvinas"
+   "seleccion-natural-evidencias-nivel2",
+   "herramientas-arte-rupestre",
+   "poblamiento-planeta-america",
+   "revolucion-neolitica",
+   "sedentarizacion-excedente"
   ],
-  "preguntas": 126
+  "preguntas": 125
  },
  {
   "id": 690,
   "cluster": 10,
   "temas": [
-   "guerra-fria-descolonizacion",
-   "guerras-civiles-unitarios-federales",
-   "guerras-de-independencia-argentina",
-   "guerras-mundiales",
-   "herramientas-arte-rupestre"
+   "division-del-trabajo",
+   "metalurgia-cobre-hierro",
+   "propiedad-jerarquia-estado",
+   "escritura-primeras-ciudades",
+   "antigua-grecia"
   ],
-  "preguntas": 126
+  "preguntas": 125
  },
  {
   "id": 691,
   "cluster": 11,
   "temas": [
-   "historia-contemporanea-de-africa",
-   "historia-contemporanea-de-asia-y-pacifico",
-   "historia-contemporanea-de-medio-oriente",
-   "historia-reciente-argentina",
-   "hominizacion"
+   "antigua-roma",
+   "antiguo-egipto",
+   "china-antigua",
+   "civilizaciones-de-america-precolombinas",
+   "india-antigua"
   ],
   "preguntas": 125
  },
@@ -135,10 +135,10 @@
   "id": 692,
   "cluster": 12,
   "temas": [
-   "huella-humana-en-el-clima-inicio",
-   "ilustracion",
-   "imperialismo",
-   "imperio-bizantino",
+   "mesopotamia",
+   "pueblos-originarios-territorio-argentino",
+   "civilizaciones-antiguas",
+   "expansion-del-imperio-romano",
    "imperio-de-alejandro-magno-helenistico"
   ],
   "preguntas": 125
@@ -150,8 +150,8 @@
    "imperio-han-china",
    "imperio-persa",
    "imperios-expansion",
-   "imprenta",
-   "india-antigua"
+   "caida-de-roma-y-alta-edad-media",
+   "edad-media-feudalismo"
   ],
   "preguntas": 125
  },
@@ -159,11 +159,11 @@
   "id": 694,
   "cluster": 14,
   "temas": [
-   "internet-redes-globalizacion-digital",
+   "imperio-bizantino",
    "islam-y-expansion-arabe",
-   "ley-de-hubble",
-   "materia-energia-oscura",
-   "mesopotamia"
+   "edad-media-plena",
+   "baja-edad-media-y-crisis",
+   "renacimiento-y-reforma"
   ],
   "preguntas": 125
  },
@@ -171,11 +171,11 @@
   "id": 695,
   "cluster": 15,
   "temas": [
-   "metalurgia-cobre-hierro",
-   "minerales-estructura-cristalina",
-   "modelo-agroexportador-inmigracion",
-   "modernidad-imprenta-navegacion-ciencia",
-   "movimiento-aparente-constelaciones"
+   "ciencia-revolucion-cientifica",
+   "imprenta",
+   "navegacion",
+   "conquista-colonizacion-america",
+   "modernidad-imprenta-navegacion-ciencia"
   ],
   "preguntas": 125
  },
@@ -183,11 +183,11 @@
   "id": 696,
   "cluster": 16,
   "temas": [
-   "movimiento-rotacion-traslacion",
-   "multicelularidad",
-   "navegacion",
-   "nucleosintesis",
-   "organizacion-nacional-constitucion-1853"
+   "absolutismo-europeo",
+   "conquista-y-colonia-argentina",
+   "ilustracion",
+   "virreinato-y-comercio",
+   "revolucion-industrial"
   ],
   "preguntas": 125
  },
@@ -195,23 +195,23 @@
   "id": 697,
   "cluster": 17,
   "temas": [
-   "origen-de-la-vida",
-   "origen-del-universo",
-   "paleoclima-glaciaciones",
-   "paleolitico",
-   "peronismo-derechos-sociales"
+   "revolucion-de-mayo",
+   "electrificacion-fabrica-hogar",
+   "guerras-de-independencia-argentina",
+   "huella-humana-en-el-clima-inicio",
+   "guerras-civiles-unitarios-federales"
   ],
-  "preguntas": 124
+  "preguntas": 123
  },
  {
   "id": 698,
   "cluster": 18,
   "temas": [
-   "poblamiento-planeta-america",
-   "primera-guerra-mundial-y-revolucion-rusa",
-   "procariotas",
-   "propiedad-jerarquia-estado",
-   "pueblos-originarios-territorio-argentino"
+   "revoluciones-burguesas-liberalismo",
+   "organizacion-nacional-constitucion-1853",
+   "estados-nacionales",
+   "modelo-agroexportador-inmigracion",
+   "imperialismo"
   ],
   "preguntas": 125
  },
@@ -219,40 +219,40 @@
   "id": 699,
   "cluster": 19,
   "temas": [
-   "radiacion-mamiferos",
-   "recuperacion-democratica-memoria",
-   "relieve-sismos-volcanes",
-   "renacimiento-y-reforma",
-   "revolucion-de-mayo"
+   "ampliacion-democratica-ley-saenz-pena",
+   "sociedad-de-masas-y-democracia-liberal",
+   "primera-guerra-mundial-y-revolucion-rusa",
+   "entreguerras-y-crisis-de-1929",
+   "golpes-de-estado-interrupciones"
   ],
-  "preguntas": 124
+  "preguntas": 126
  },
  {
   "id": 700,
   "cluster": 20,
   "temas": [
-   "revolucion-industrial",
-   "revolucion-neolitica",
-   "revoluciones-burguesas-liberalismo",
-   "rocas-igneas-sedimentarias-metamorficas",
-   "sedentarizacion-excedente"
+   "segunda-guerra-mundial",
+   "peronismo-derechos-sociales",
+   "descolonizacion-de-africa-y-asia",
+   "guerras-mundiales",
+   "guerra-fria-descolonizacion"
   ],
-  "preguntas": 123
+  "preguntas": 126
  },
  {
   "id": 701,
   "cluster": 21,
   "temas": [
-   "segunda-guerra-mundial",
-   "seleccion-natural-evidencias-nivel2",
-   "sociedad-de-masas-y-democracia-liberal",
-   "tabla-periodica-nivel2-cosmologico",
-   "tectonica-placas-deriva-continental",
    "terrorismo-de-estado-argentina",
-   "tiempo-geologico-eones-eras-periodos",
-   "tierra-primitiva-diferenciacion",
-   "virreinato-y-comercio"
+   "historia-contemporanea-de-africa",
+   "guerra-de-malvinas",
+   "historia-contemporanea-de-asia-y-pacifico",
+   "historia-contemporanea-de-medio-oriente",
+   "recuperacion-democratica-memoria",
+   "globalizacion-era-digital",
+   "historia-reciente-argentina",
+   "internet-redes-globalizacion-digital"
   ],
-  "preguntas": 223
+  "preguntas": 221
  }
 ]

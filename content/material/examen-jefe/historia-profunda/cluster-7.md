@@ -4,2270 +4,2356 @@
 
 ---
 
-## Sección: escritura-primeras-ciudades (25 preguntas)
+## Sección: ciclo-de-las-rocas (25 preguntas)
 
 ```
 metadata:
-  materia: "historia"
-  tema: "escritura_primeras_ciudades"
+  materia: "historia_profunda"
+  tema: "ciclo_de_las_rocas"
   nivel: "basico"
-  tags: ["mesopotamia", "sumerios", "cuneiforme"]
+  tags: ["geologia", "rocas_igneas"]
 
-respuesta: "Mesopotamia"
+respuesta: "ígnea"
+tipo: mc
+opciones_explicitas: ["sedimentaria", "metamórfica", "ígnea"]
+
+enunciado: "Las rocas que se forman a partir de la solidificación del magma o la lava se denominan rocas _______."
+
+explicacion: |
+  Las rocas ígneas se forman cuando el material fundido (magma o lava) se enfría y se solidifica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciclo_de_las_rocas"
+  nivel: "basico"
+  tags: ["geologia", "sedimentacion"]
+
+respuesta: "sedimentos"
 tipo: completar
 respuestas_validas:
-  - "Mesopotamia"
+  - "sedimentos"
 
-enunciado: "La escritura surgió en la región de ___ hace aproximadamente 5000 años."
+enunciado: "El proceso de litificación ocurre cuando los _______ se compactan y cementan para formar nuevas rocas."
 
 explicacion: |
-  La escritura se desarrolló en Mesopotamia, en la región de Sumer, para satisfacer necesidades de registro.
+  La acumulación y compactación de sedimentos es el proceso fundamental para la formación de rocas sedimentarias.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "escritura_primeras_ciudades"
-  nivel: "basico"
-  tags: ["contabilidad", "administracion"]
-
-respuesta: "administrativos"
-tipo: mc
-opciones_explicitas: ["poéticos", "administrativos", "religiosos", "militares"]
-
-enunciado: "Originalmente, la escritura no se inventó para la literatura, sino para llevar registros ___."
-
-explicacion: |
-  Las primeras tablillas se utilizaban principalmente para la contabilidad y la administración de recursos en las ciudades-estado.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escritura_primeras_ciudades"
+  materia: "historia_profunda"
+  tema: "ciclo_de_las_rocas"
   nivel: "intermedio"
-  tags: ["cuneiforme", "sumerios"]
+  tags: ["geologia", "metamorfismo"]
 
-variables:
-  datos: [["sumerios", "cuneiforme"], ["egipcios", "jeroglíficos"], ["fenicios", "alfabeto"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "metamórfica"
 tipo: mc
-opciones_explicitas: ["cuneiforme", "jeroglíficos", "alfabeto"]
+opciones_explicitas: ["ígnea", "sedimentaria", "metamórfica"]
 
-enunciado: "El pueblo de {datos[idx][0]} desarrolló el sistema de escritura conocido como {datos[idx][1]}."
+enunciado: "Cuando una roca preexistente es sometida a altas temperaturas y presiones sin llegar a fundirse, se transforma en una roca:"
 
 explicacion: |
-  Los sumerios en Mesopotamia crearon la escritura cuneiforme, caracterizada por marcas en forma de cuña sobre arcilla.
+  El metamorfismo es el proceso de transformación de rocas en estado sólido debido a cambios en las condiciones de presión y temperatura.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "escritura_primeras_ciudades"
-  nivel: "intermedio"
-  tags: ["proceso", "evolucion"]
+  materia: "historia_profunda"
+  tema: "ciclo_de_las_rocas"
+  nivel: "avanzado"
+  tags: ["geologia", "procesos"]
 
-respuesta_orden: ["Pictogramas", "Ideogramas", "Fonogramas"]
+respuesta_orden: ["magma", "roca ígnea", "sedimentos", "roca sedimentaria", "roca metamórfica"]
 tipo: ordenar
-opciones_explicitas: ["Pictogramas", "Ideogramas", "Fonogramas"]
+opciones_explicitas: ["magma", "roca ígnea", "sedimentos", "roca sedimentaria", "roca metamórfica"]
 
-enunciado: "Ordena cronológicamente la evolución conceptual de los signos en la escritura antigua:"
+enunciado: "Ordena la secuencia lógica de procesos que describe la transformación desde el material fundido hasta la formación de rocas metamórficas:"
 
-explicacion: |
-  La escritura evolucionó desde dibujos de objetos (pictogramas), pasando por conceptos (ideogramas), hasta representar sonidos (fonogramas).
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escritura_primeras_ciudades"
-  nivel: "basico"
-  tags: ["tiempo", "mesopotamia"]
-
-respuesta: 5000
-tipo: completar
-tolerancia_abs: 100
-
-enunciado: "Se estima que la escritura surgió hace aproximadamente ___ años."
+pasos:
+  - "Solidificación del magma"
+  - "Erosión y depósito"
+  - "Litificación"
+  - "Metamorfismo"
 
 explicacion: |
-  La invención de la escritura en Mesopotamia se sitúa hace unos 5000 años, marcando el inicio de la Edad Antigua.
+  El ciclo es un proceso continuo: el magma se solidifica (ígnea), se erosiona (sedimentos), se compacta (sedimentaria) y se transforma por presión/calor (metamórfica).
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "basico"
-  tags: ["escritura", "prehistoria", "historia"]
+  tema: "ciclo_de_las_rocas"
+  nivel: "intermedio"
+  tags: ["geologia", "fusión"]
 
-respuesta: "historia"
+respuesta: "fusión"
 tipo: completar
 respuestas_validas:
-  - "historia"
+  - "fusión"
 
-enunciado: "La aparición de la escritura marca la transición de la prehistoria al inicio de la ___."
+enunciado: "Para que una roca metamórfica o sedimentaria vuelva a convertirse en magma, debe experimentar un proceso de _______."
 
 explicacion: |
-  La prehistoria se define por la ausencia de registros escritos. Con la invención de la escritura, los seres humanos pueden dejar testimonios directos de sus leyes, mitos y transacciones, permitiendo el estudio de la historia documentada.
+  La fusión es el proceso por el cual la roca sólida se funde debido a temperaturas extremadamente altas, reiniciando el ciclo desde el magma.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "intermedio"
-  tags: ["arqueologia", "metodologia"]
-
-variables:
-  escenario: uno_de([["restos materiales (huesos, herramientas)", "arqueología"], ["registros escritos (tablillas, papiros)", "historia"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["arqueología", "historia"]
-
-enunciado: "Si un investigador encuentra una serie de tablillas de arcilla con nombres y cantidades de grano, está estudiando principalmente la ___."
-
-explicacion: |
-  El uso de registros escritos permite pasar de la reconstrucción basada en restos materiales (arqueología) al análisis de la historia documentada.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "intermedio"
-  tags: ["cronologia", "transicion"]
-
-respuesta: "verdadero"
-tipo: completar
-enunciado: "¿La escritura permite conocer la mentalidad de una civilización de forma directa, a diferencia de los restos materiales que requieren interpretación indirecta?"
-
-explicacion: |
-  Verdadero. Los objetos nos dicen qué tenían o cómo vivían, pero los textos nos dicen qué pensaban, qué leyes tenían y cómo se llamaban a sí mismos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "avanzado"
-  tags: ["metodologia", "transicion"]
-
-respuesta: "documental"
-tipo: completar
-respuestas_validas:
-  - "documental"
-
-enunciado: "Cuando un historiador utiliza textos antiguos para reconstruir un evento, está realizando un análisis de tipo ___."
-
-explicacion: |
-  El análisis documental se basa en el uso de fuentes escritas (documentos) para la reconstrucción de procesos sociales y políticos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "avanzado"
-  tags: ["evidencia", "metodologia"]
-
-respuesta_orden: ["restos materiales", "escritura", "historia documentada"]
-tipo: ordenar
-opciones_explicitas: ["restos materiales", "escritura", "historia documentada"]
-
-enunciado: "Ordena los niveles de evidencia según el grado de complejidad en la reconstrucción de la vida social, desde lo más material hasta lo más intelectual/directo:"
-
-explicacion: |
-  La escala comienza con la cultura material (objetos), sigue con la capacidad de registrar (escritura) y culmina en la capacidad de estudiar la historia a través de testimonios directos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
+  materia: "geologia"
+  tema: "ciclo_de_las_rocas"
   nivel: "basico"
-  tags: ["mesopotamia", "escritura", "uruk"]
-
-respuesta: "excedente"
-tipo: "completar"
-respuestas_validas:
-  - "excedente"
-
-enunciado: "El surgimiento de las primeras ciudades en Mesopotamia, como Uruk, estuvo estrechamente ligado a la capacidad de producir un ___ agrícola que permitía sostener a poblaciones no dedicadas a la agricultura."
-
-explicacion: |
-  La capacidad de producir más alimento del que se consume inmediatamente (excedente) permitió que parte de la población se especializara en otras tareas (artesanos, escribas, sacerdotes), dando origen a la estructura urbana y la necesidad de registrar estas cantidades mediante la escritura.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "intermedio"
-  tags: ["causalidad", "sociedad"]
-
-respuesta: "excedente agrícola"
-tipo: "mc"
-opciones_explicitas: ["excedente agrícola", "escritura", "estratificación social"]
-
-enunciado: "En el contexto de las primeras ciudades mesopotámicas, la aparición de la escritura fue una respuesta directa a la necesidad de gestionar el ___."
-
-explicacion: |
-  La escritura no nació como un medio de expresión literaria, sino como una herramienta contable para registrar el excedente agrícola y los bienes que entraban en los templos o palacios.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "avanzado"
-  tags: ["estado", "jerarquia"]
-
-respuesta: "estatal"
-tipo: "completar"
-respuestas_validas:
-  - "estatal"
-
-enunciado: "La gestión de los recursos excedentes y la redistribución de bienes exigieron una organización ___ compleja, lo que consolidó el poder de las élites en las primeras ciudades."
-
-explicacion: |
-  La complejidad de la vida urbana y la gestión de excedentes impulsaron la creación de estructuras de poder centralizadas o estados primordiales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "intermedio"
-  tags: ["contabilidad", "uruk"]
-
-respuesta: "contabilidad"
-tipo: "completar"
-respuestas_validas:
-  - "contabilidad"
-
-enunciado: "Antes de convertirse en un sistema de escritura fonética, los primeros signos en las ciudades de Mesopotamia servían para la ___ de bienes y ganado."
-
-explicacion: |
-  Los proto-escrituras (tokens o fichas de arcilla) eran herramientas de contabilidad para llevar el control de los inventarios en los centros de redistribución.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "intermedio"
-  tags: ["secuencia", "causalidad"]
-
-respuesta_orden: ["excedente agrícola", "especialización del trabajo", "aparición de la escritura"]
-tipo: "ordenar"
-opciones_explicitas: ["excedente agrícola", "especialización del trabajo", "aparición de la escritura"]
-
-enunciado: "Ordena cronológicamente los fenómenos que permitieron el desarrollo de la civilización urbana en Mesopotamia:"
-
-explicacion: |
-  Primero se produce el excedente (producción de más comida de la necesaria), esto permite que no todos tengan que cultivar (especialización), y esa especialización genera la necesidad de registrar la producción (escritura).
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escritura_primeras_ciudades"
-  nivel: "basico"
-  tags: ["escritura", "sociedad", "memoria"]
+  tags: ["roca_igneas", "sedimentacion"]
 
 tipo: mc
-opciones_explicitas: ["Permitió la transmisión de conocimiento más allá de la memoria oral", "Eliminó la necesidad de la comunicación verbal", "Redujo el tamaño de las poblaciones", "Hizo que la historia fuera irrelevante"]
-respuesta: "Permitió la transmisión de conocimiento más allá de la memoria oral"
+opciones_explicitas: ["Erosión y sedimentación", "Calor y presión", "Fusión parcial", "Cristalización"]
+respuesta: "Erosión y sedimentación"
 
-enunciado: "La invención de la escritura en las primeras civilizaciones permitió que el conocimiento fuera ___________."
+enunciado: "Una roca ígnea que queda expuesta en la superficie sufre procesos de desgaste y acumulación de partículas. ¿Cuál es el proceso principal para transformarse en una roca sedimentaria?"
 
 explicacion: |
-  La escritura permitió que la información no dependiera únicamente de la memoria de los individuos, facilitando la acumulación de saber a través de las generaciones.
+  La erosión desintegra la roca, el transporte mueve los sedimentos, la deposición los acumula y la litificación (compactación y cementación) los convierte en roca sedimentaria.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "escritura_primeras_ciudades"
+  materia: "geologia"
+  tema: "ciclo_de_las_rocas"
   nivel: "intermedio"
-  tags: ["administracion", "burocracia", "estado"]
-
-tipo: completar
-respuestas_validas:
-  - "administrar"
-  - "controlar"
-
-enunciado: "El desarrollo de sistemas de escritura fue fundamental para poder ___________ las excedentes de producción y los tributos en sociedades cada vez más complejas."
-
-explicacion: |
-  La complejidad social de las primeras ciudades requería un registro preciso de recursos, lo que impulsó la creación de sistemas de contabilidad y administración.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escritura_primeras_ciudades"
-  nivel: "basico"
-  tags: ["evolucion", "comunicacion"]
-
-tipo: ordenar
-opciones_explicitas: ["Tradición oral", "Signos pictográficos", "Escritura fonética"]
-
-enunciado: "Ordena cronológicamente la evolución de los sistemas de registro de información en las primeras civilizaciones:"
-
-explicacion: |
-  La evolución comenzó con la comunicación oral, pasó por representaciones de objetos (pictogramas) y finalmente hacia sistemas que representaban sonidos (fonética).
-respuesta_orden: ["Tradición oral", "Signos pictográficos", "Escritura fonética"]
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escritura_primeras_ciudades"
-  nivel: "avanzado"
-  tags: ["estado", "leyes", "orden"]
-
-tipo: mc
-respuesta: "Estabilidad y orden social"
-opciones_explicitas: ["Estabilidad y orden social", "Inestabilidad constante", "Desigualdad extrema"]
-
-enunciado: "Cuando las sociedades pasaron de leyes orales a leyes escritas, el resultado principal fue la ___________."
-
-explicacion: |
-  La codificación de leyes por escrito permitió una aplicación más uniforme y predecible de la justicia, contribuyendo a la estabilidad del Estado.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escritura_primeras_ciudades"
-  nivel: "intermedio"
-  tags: ["memoria", "registro", "tiempo"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Antes de la escritura, la historia dependía de la memoria. Con la escritura, la historia se convierte en un ___ que trasciende el tiempo."
-
-respuesta: "registro"
-
-explicacion: |
-  La escritura transformó la memoria humana en un registro físico, permitiendo que la historia fuera un objeto de estudio permanente y no algo sujeto al olvido biológico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "basico"
-  tags: ["mesopotamia", "sumerios"]
-
-respuesta: "Mesopotamia"
-tipo: mc
-opciones_explicitas: ["Mesopotamia", "Egipto", "China", "India"]
-
-enunciado: "El sistema de escritura basado en marcas en forma de cuña (cuneiforme) se desarrolló en la región de ___."
-
-explicacion: |
-  La escritura cuneiforme fue desarrollada por los sumerios en la antigua Mesopotamia alrededor del 3200 a.C.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "basico"
-  tags: ["egipto", "jeroglíficos"]
-
-respuesta: "Egipto"
-tipo: mc
-opciones_explicitas: ["Egipto", "Mesopotamia", "Fenicia", "China"]
-
-enunciado: "Los jeroglíficos fueron utilizados por las civilizaciones del valle del Nilo."
-
-explicacion: |
-  Los jeroglíficos egipcios combinaban logogramas y signos fonéticos para representar el lenguaje.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "intermedio"
-  tags: ["cronologia", "origen"]
-
-variables:
-  datos: [["Mesopotamia", "Sumerios"], ["Egipto", "Egipcios"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Sumerios", "Egipcios"]
-
-enunciado: "La escritura en la región de {datos[idx][0]} fue desarrollada originalmente por los {datos[idx][1]}."
-
-explicacion: |
-  La transición de la proto-escritura a sistemas complejos fue fundamental para la administración de las primeras ciudades-estado.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "avanzado"
-  tags: ["orden", "evolucion"]
-
-respuesta_orden: ["Tokens", "Escritura Cuneiforme", "Tablillas"]
-tipo: ordenar
-opciones_explicitas: ["Tokens", "Escritura Cuneiforme", "Tablillas"]
-
-enunciado: "Ordena la evolución de los soportes y formas de registro en el contexto de Mesopotamia:"
-
-explicacion: |
-  El proceso comenzó con objetos de arcilla (tokens) para contar, evolucionando hacia signos abstractos en tablillas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escritura_primeras_ciudades"
-  nivel: "intermedio"
-  tags: ["fenicia", "alfabeto"]
-
-respuesta: "Fenicia"
-tipo: mc
-opciones_explicitas: ["Fenicia", "China", "Mesopotamia", "Egipto"]
-
-enunciado: "A diferencia de los sistemas complejos, el sistema alfabético fue perfeccionado por los fenicios en la región de ___."
-
-explicacion: |
-  El alfabeto fenicio fue un sistema fonético que facilitó el comercio y fue la base de muchos alfabetos modernos.
-```
-
-## Sección: estaciones-del-ano (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "basico"
-  tags: ["astronomia", "mitos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El cambio de las estaciones del año ocurre principalmente porque la Tierra se acerca o se aleja del Sol en su órbita elíptica."
-
-explicacion: |
-  Falso. La distancia al Sol no es la causa de las estaciones: de hecho la Tierra está más cerca del Sol en enero (verano austral/invierno boreal) que en julio. La causa real es la inclinación del eje terrestre.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "intermedio"
-  tags: ["eje_terrestre", "inclinacion"]
-
-variables:
-  angulo_eje: 23.5
-
-respuesta: "inclinación del eje"
-tipo: completar
-respuestas_validas:
-  - "inclinación del eje"
-  - "inclinación terrestre"
-  - "eje inclinado"
-
-enunciado: "La causa fundamental de que existan las estaciones es la ___ de la Tierra respecto a su plano orbital."
-
-explicacion: |
-  La inclinación de aproximadamente {angulo_eje}° hace que la radiación solar se distribuya de forma desigual sobre la superficie terrestre a lo largo del año.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "intermedio"
-  tags: ["radiacion", "angulo"]
-
-respuesta: "mayor intensidad"
-tipo: mc
-opciones_explicitas: ["menor intensidad", "mayor intensidad", "misma intensidad", "intensidad nula"]
-
-enunciado: "Cuando un hemisferio está inclinado hacia el Sol, los rayos solares inciden con un ángulo más perpendicular y la energía se concentra en un área menor, resultando en una ___ de radiación por unidad de superficie."
-
-explicacion: |
-  Al incidir de forma más perpendicular, la energía solar se concentra en un área más pequeña, lo que aumenta la temperatura local y genera el verano.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "avanzado"
-  tags: ["hemisferios", "estaciones"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["verano", "invierno"], ["invierno", "verano"]]
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["verano", "invierno"]
-
-enunciado: "Debido a la inclinación del eje, si el hemisferio norte está experimentando {escenario[idx][0]}, ¿qué estación experimenta al mismo tiempo el hemisferio sur?"
-
-explicacion: |
-  La inclinación hace que un hemisferio reciba más energía directa mientras el otro recibe rayos más oblicuos y dispersos, creando estaciones opuestas y simultáneas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "basico"
-  tags: ["luz_solar"]
-
-respuesta: "perpendicular"
-tipo: completar
-respuestas_validas:
-  - "perpendicular"
-  - "directa"
-  - "recta"
-
-enunciado: "En el solsticio de verano, el sol alcanza su máxima altura en el cielo porque los rayos inciden de forma casi ___ sobre el trópico correspondiente."
-
-explicacion: |
-  La máxima concentración de calor ocurre cuando el ángulo de incidencia es lo más cercano posible a los 90 grados (perpendicular).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "basico"
-  tags: ["astronomia", "estaciones"]
-
-tipo: mc
-opciones_explicitas: ["Verano", "Invierno", "Equinoccio"]
-
-enunciado: "Cuando un hemisferio terrestre está inclinado hacia el Sol, recibe mayor radiación solar y experimenta la estación de ___."
-
-respuesta: "Verano"
-
-explicacion: |
-  La inclinación del eje terrestre hacia el Sol durante un periodo determinado provoca que la radiación sea más directa y los días sean más largos, definiendo el verano.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "basico"
-  tags: ["hemisferios", "estaciones"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["Norte", "Sur", "Verano", "Invierno"], ["Sur", "Norte", "Invierno", "Verano"]]
-
-tipo: mc
-opciones_explicitas: ["Verano", "Invierno"]
-
-enunciado: "Si en el hemisferio {escenario[idx][0]} es {escenario[idx][2]}, ¿qué estación es al mismo tiempo en el hemisferio {escenario[idx][1]}?"
-
-respuesta: escenario[idx][3]
-
-explicacion: |
-  Las estaciones están invertidas entre hemisferios: cuando uno está inclinado hacia el Sol (verano), el otro está inclinado alejándose de él (invierno).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "intermedio"
-  tags: ["radiacion", "duracion_dia"]
-
-tipo: completar
-respuestas_validas:
-  - "mayor"
-
-enunciado: "Debido a la inclinación hacia el Sol, el verano se caracteriza por recibir una radiación ___ que el resto del año."
-
-respuesta: "mayor"
-
-explicacion: |
-  La inclinación aumenta la densidad de energía solar por unidad de superficie y prolonga la duración de la luz solar diaria.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "basico"
-  tags: ["ciclo", "orden"]
-
-tipo: ordenar
-opciones_explicitas: ["Verano", "Otoño", "Invierno", "Primavera"]
-
-enunciado: "Ordena cronológicamente las estaciones del año comenzando desde el verano."
-
-respuesta_orden: ["Verano", "Otoño", "Invierno", "Primavera"]
-
-explicacion: |
-  El ciclo estacional sigue un orden regular determinado por la posición de la Tierra en su órbita.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "intermedio"
-  tags: ["energia", "sol"]
-
-tipo: completar
-respuestas_validas:
-  - "menor"
-
-enunciado: "Si la radiación solar es máxima en el verano, en el invierno la radiación solar es ___ que en el verano."
-
-respuesta: "menor"
-
-explicacion: |
-  En el invierno, la inclinación aleja el hemisferio del Sol, resultando en una menor intensidad de radiación solar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "basico"
-  tags: ["astronomia", "estaciones"]
-
-respuesta: "igual"
-tipo: completar
-respuestas_validas:
-  - "igual"
-
-enunciado: "Durante los equinoccios de primavera y de otoño, la duración del día y la noche es ___."
-
-explicacion: |
-  En los equinoccios, el Sol está directamente sobre el ecuador terrestre, lo que provoca que el día y la noche tengan aproximadamente la misma duración.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "basico"
-  tags: ["solsticio", "verano"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si nos encontramos en el Hemisferio Norte, el solsticio de verano coincide con el día más largo del año."
-
-explicacion: |
-  En el Hemisferio Norte, el solsticio de verano marca el punto donde el Sol alcanza su máxima declinación norte, resultando en el día más largo del año.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "intermedio"
-  tags: ["secuencia", "estaciones"]
-
-respuesta_orden: ["equinoccio de primavera", "solsticio de verano", "equinoccio de otoño", "solsticio de invierno"]
-tipo: ordenar
-opciones_explicitas: ["equinoccio de primavera", "solsticio de verano", "equinoccio de otoño", "solsticio de invierno"]
-
-enunciado: "Ordena cronológicamente las estaciones del año comenzando por el equinoccio de primavera:"
-
-explicacion: |
-  El ciclo estándar comienza con la primavera (equinoccio), sigue con el verano (solsticio), luego el otoño (equinoccio) y termina con el invierno (solsticio).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "basico"
-  tags: ["solsticio", "invierno"]
-
-respuesta: "solsticio de invierno"
-tipo: mc
-opciones_explicitas: ["solsticio de verano", "equinoccio de primavera", "equinoccio de otoño", "solsticio de invierno"]
-
-enunciado: "¿En qué momento astronómico ocurre el día más corto del año (en el hemisferio correspondiente)?"
-
-explicacion: |
-  El solsticio de invierno es el momento en que el hemisferio está más inclinado lejos del Sol, resultando en el día más corto y la noche más larga.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "avanzado"
-  tags: ["calculo", "astronomia"]
-
-respuesta: "mayor"
-tipo: completar
-respuestas_validas:
-  - "mayor"
-
-enunciado: "Si estamos en el solsticio de verano (en el hemisferio correspondiente), la duración del día es ___ que la de la noche."
-
-explicacion: |
-  En el solsticio de verano, la inclinación de la Tierra permite que ese hemisferio reciba luz solar por más tiempo, haciendo que el día sea más largo que la noche.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "basico"
-  tags: ["geografia", "clima", "latitud"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En las regiones de clima ecuatorial, la diferencia estacional de temperatura es mínima porque el ángulo de incidencia solar se mantiene casi constante durante todo el año."
-
-explicacion: |
-  En las zonas ecuatoriales, el sol incide de forma casi perpendicular todo el año, manteniendo temperaturas estables. En las zonas templadas y polares, en cambio, el ángulo cambia mucho más a lo largo del año, provocando estaciones marcadas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "intermedio"
-  tags: ["astronomia", "clima"]
-
-respuesta: "cambio"
-tipo: completar
-respuestas_validas:
-  - "cambio"
-
-enunciado: "En las zonas polares, la marcada diferencia estacional se debe a que el ángulo de incidencia solar experimenta un gran ___ durante el ciclo anual."
-
-explicacion: |
-  El movimiento de traslación combinado con la inclinación del eje hace que en los polos el ángulo de incidencia solar varíe drásticamente, causando cambios extremos de temperatura.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "intermedio"
-  tags: ["clima", "latitud"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Ecuador", "mínima"], ["Zonas Templadas", "máxima"]]
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["mínima", "máxima"]
-
-enunciado: "Considerando el escenario de {datos[idx][0]}, la variación estacional de la temperatura es ___."
-
-explicacion: |
-  En el Ecuador, la radiación solar es constante durante todo el año, por lo que la variación térmica es mínima; en las zonas templadas, en cambio, la variación es máxima.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "avanzado"
-  tags: ["astronomia", "geografia"]
-
-respuesta: "inclinación del eje"
-tipo: mc
-opciones_explicitas: ["inclinación del eje", "distancia al Sol", "velocidad de rotación", "forma de la órbita"]
-
-enunciado: "De los siguientes factores, ¿cuál es el que determina principalmente la variación del ángulo de incidencia solar y, con ella, la estacionalidad en cada latitud?"
-
-explicacion: |
-  La inclinación del eje terrestre es el factor principal que hace que el ángulo de incidencia varíe según la latitud y la época del año, no la distancia al Sol.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "basico"
-  tags: ["clima"]
-
-respuesta: "estabilidad"
-tipo: completar
-respuestas_validas:
-  - "estabilidad"
-  - "constancia"
-
-enunciado: "En el ecuador, la ausencia de estaciones térmicas marcadas se debe principalmente a la ___ del ángulo de incidencia solar a lo largo del año."
-
-explicacion: |
-  A diferencia de las latitudes altas, en el ecuador el ángulo de incidencia solar casi no cambia entre enero y julio, así que no hay una estación notablemente más fría o más cálida que otra.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "basico"
-  tags: ["astronomia", "hemisferios"]
-
-variables:
-  idx: uno_de([0, 1, 2, 3])
-  datos: [["Diciembre", "Verano", "Hemisferio Sur"], ["Junio", "Invierno", "Hemisferio Sur"], ["Diciembre", "Invierno", "Hemisferio Norte"], ["Junio", "Verano", "Hemisferio Norte"]]
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Verano", "Invierno", "Otoño", "Primavera"]
-
-enunciado: "Si nos encontramos en el mes de {datos[idx][0]} y estamos en el {datos[idx][2]}, ¿qué estación del año estamos experimentando?"
-
-explicacion: |
-  En el Hemisferio Sur, el sol incide más directamente sobre el Trópico de Capricornio en diciembre (verano) y sobre el Trópico de Cáncer en junio (invierno); en el Hemisferio Norte es al revés.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "intermedio"
-  tags: ["astronomia", "solsticio"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Solsticio de Diciembre", "Invierno", "Hemisferio Norte"], ["Solsticio de Junio", "Invierno", "Hemisferio Sur"]]
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Verano", "Invierno", "Otoño", "Primavera"]
-
-enunciado: "Durante el {datos[idx][0]}, en el {datos[idx][2]} la duración del día es la más corta del año. Esto define la estación de:"
-
-explicacion: |
-  El solsticio de invierno marca el inicio de la estación más fría en el hemisferio correspondiente, debido a la inclinación del eje terrestre.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "intermedio"
-  tags: ["comparacion", "hemisferios"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Primavera", "Otoño"], ["Otoño", "Primavera"]]
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "Primavera"
-  - "Otoño"
-
-enunciado: "Si en el Hemisferio Norte estamos en la estación de {datos[idx][0]}, en el Hemisferio Sur estamos en la estación de ___."
-
-explicacion: |
-  Las estaciones son opuestas entre hemisferios debido a la inclinación del eje de la Tierra respecto al plano de su órbita.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "basico"
-  tags: ["equinoccio", "astronomia"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Equinoccio de Marzo", "Primavera", "Hemisferio Norte"], ["Equinoccio de Septiembre", "Otoño", "Hemisferio Norte"]]
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Primavera", "Otoño", "Verano", "Invierno"]
-
-enunciado: "En el {datos[idx][0]} en el {datos[idx][2]}, el día y la noche tienen la misma duración. Esto marca el inicio de la:"
-
-explicacion: |
-  Los equinoccios (marzo y septiembre) representan los momentos en que el sol cruza el ecuador celeste, equilibrando la luz y la sombra en todo el planeta.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estaciones_del_ano"
-  nivel: "basico"
-  tags: ["secuencia", "ciclos"]
-
-respuesta_orden: ["Verano", "Otoño", "Invierno", "Primavera"]
-tipo: ordenar
-opciones_explicitas: ["Verano", "Otoño", "Invierno", "Primavera"]
-
-enunciado: "Ordena las estaciones siguiendo el ciclo natural comenzando desde el Verano."
-
-explicacion: |
-  El ciclo astronómico sigue siempre el mismo orden: Verano → Otoño → Invierno → Primavera (y vuelve a empezar).
-```
-
-## Sección: estados-nacionales (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "basico"
-  tags: ["definicion", "politica"]
-
-tipo: mc
-opciones_explicitas: ["Una organización política sin fronteras definidas ni cultura común.", "Una organización política con territorio, población y gobierno, con una identidad nacional compartida.", "Un grupo de personas que comparten una lengua pero no tienen un gobierno propio.", "Un sistema de comercio internacional basado en tratados de libre cambio."]
-enunciado: "Un Estado Nacional se define fundamentalmente como:"
-respuesta: "Una organización política con territorio, población y gobierno, con una identidad nacional compartida."
-explicacion: |
-  El Estado Nacional es una organización política que posee un territorio delimitado, una población asentada en él y un gobierno soberano, todo esto unido por una identidad cultural, histórica o lingüística común.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "basico"
-  tags: ["componentes", "territorio"]
+  tags: ["roca_metamorfica", "presion_calor"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["Francia", "populacion_fr"], ["Japón", "populacion_jp"]]
+  escenarios: [["roca ígnea", "roca sedimentaria"], ["granito", "caliza"]]
 
 tipo: completar
 respuestas_validas:
-  - "territorio"
-  - "población"
-  - "gobierno"
+  - "metamórfica"
 
-enunciado: "Para que el país {datos[escenario_idx][0]} funcione como un Estado Nacional, requiere de un _________ delimitado, una _________ asentada y un _________ que ejerza la soberanía."
-
-pasos:
-  - "Identificar los tres pilares de la estructura estatal."
-  - "Completar los espacios con los conceptos técnicos correctos."
+enunciado: "Cuando una {escenarios[escenario_idx][0]} es sometida a altas temperaturas y presiones extremas sin llegar a fundirse, se transforma en una roca ___."
 
 explicacion: |
-  Los tres elementos constitutivos son: territorio, población y gobierno. Sin la combinación de estos, no se puede hablar de un Estado Nacional moderno.
+  El metamorfismo ocurre cuando las condiciones de presión y temperatura cambian la estructura mineral de una roca sólida sin llegar a la fusión (que sería magma).
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "intermedio"
-  tags: ["identidad", "cultura"]
-
-tipo: mc
-opciones_explicitas: ["La lengua y la historia común ayudan a crear el sentimiento de pertenencia.", "La fuerza militar es el único factor que define a una nación.", "El territorio es lo único que importa, la cultura es irrelevante.", "Un Estado Nacional no requiere de una identidad compartida."]
-respuesta: "La lengua y la historia común ayudan a crear el sentimiento de pertenencia."
-
-enunciado: "¿Cuál es el papel de la lengua, la cultura y la historia en la formación de un Estado Nacional?"
-
-explicacion: |
-  A diferencia del Estado como estructura puramente administrativa, el concepto de 'Nación' aporta el componente de identidad (lengua, historia, cultura) que cohesiona a la población.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
+  materia: "geologia"
+  tema: "ciclo_de_las_rocas"
   nivel: "avanzado"
-  tags: ["proceso", "historia"]
+  tags: ["procesos_geologicos"]
 
 tipo: ordenar
-opciones_explicitas: ["Consolidación de fronteras territoriales", "Surgimiento de una identidad cultural común", "Centralización del poder y gobierno"]
+opciones_explicitas: ["Erosión", "Transporte", "Sedimentación", "Litificación"]
 
-enunciado: "Ordena cronológicamente los procesos típicos en la formación de un Estado Nacional moderno (desde la base cultural hasta la estructura política):"
+enunciado: "Ordene cronológicamente las etapas que transforman una roca ígnea en una roca sedimentaria:"
 
 explicacion: |
-  Aunque los procesos varían, históricamente la identidad cultural suele preceder o acompañar la centralización del poder y la delimitación formal de las fronteras.
-respuesta_orden: ["Surgimiento de una identidad cultural común", "Centralización del poder y gobierno", "Consolidación de fronteras territoriales"]
+  Primero la roca se rompe (erosión), luego los fragmentos se mueven (transporte), luego se asientan (sedimentación) y finalmente se compactan (litificación).
+respuesta_orden: ["Erosión", "Transporte", "Sedimentación", "Litificación"]
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
+  materia: "geologia"
+  tema: "ciclo_de_las_rocas"
+  nivel: "basico"
+  tags: ["metamorfismo"]
+
+tipo: mc
+opciones_explicitas: ["Calor y presión", "Erosión y transporte", "Fusión y enfriamiento", "Sedimentación y compactación"]
+respuesta: "Calor y presión"
+
+enunciado: "¿Qué agentes físicos son los responsables de la formación de una roca metamórfica a partir de una roca preexistente?"
+
+explicacion: |
+  El metamorfismo es la transformación de una roca debido a cambios en la presión y la temperatura, sin que la roca llegue a fundirse.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "ciclo_de_las_rocas"
   nivel: "intermedio"
-  tags: ["conceptos", "diferencias"]
+  tags: ["roca_igneas", "fusión"]
 
-variables:
-  casos: [["nación", "estado"]]
-
+respuesta: "ígnea"
+respuestas_validas:
+  - "ígnea"
+  - "ignea"
+  - "magmática"
+  - "magmatica"
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si nos encontramos ante el caso de nación, estamos ante una _________ que no ha logrado constituirse como un Estado Nacional."
-
-respuesta: "nación"
+enunciado: "Si una roca metamórfica se funde completamente debido al calor extremo, se convierte en magma. Si este magma se enfría y cristaliza, el tipo de roca resultante es una roca ___."
 
 explicacion: |
-  Cuando existe una nación (identidad compartida) pero carece de soberanía territorial o gobierno propio, se dice que es una nación sin Estado.
+  El enfriamiento del magma (ya sea intrusivo o extrusivo) da lugar a la formación de rocas ígneas.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
+  materia: "geologia"
+  tema: "ciclo_de_las_rocas"
   nivel: "basico"
-  tags: ["conceptos", "siglo_xix"]
+  tags: ["magma", "roca_igneas"]
 
-respuesta: "soberanía"
+variables:
+  tipo_roca: uno_de(["granito", "basalto", "obsidiana"])
+
+enunciado: "Cuando una roca se funde completamente debido al calor extremo en el manto, se convierte en ___."
+
+respuesta: "magma"
 tipo: completar
 respuestas_validas:
-  - "soberanía"
-
-enunciado: "El surgimiento del Estado-Nación implica la consolidación de un territorio delimitado donde el poder supremo reside en una entidad política que ejerce la ___ sobre su población."
+  - "magma"
 
 explicacion: |
-  La soberanía es el principio fundamental que define a un Estado moderno, permitiéndole ejercer autoridad exclusiva sobre un territorio y su población, sin interferencias externas.
+  El proceso de fusión de cualquier tipo de roca (sedimentaria, metamórfica o ígnea) da lugar al magma. Al enfriarse, este magma dará origen a una nueva roca ígnea.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
+  materia: "geologia"
+  tema: "ciclo_de_las_rocas"
   nivel: "intermedio"
-  tags: ["unificacion", "italia"]
+  tags: ["ciclo_geologico", "fusione"]
 
-respuesta: "Cavour"
-tipo: mc
-opciones_explicitas: ["Cavour", "Garibaldi", "Mazzini", "Bismarck"]
+variables:
+  roca_origen: uno_de(["sedimentaria", "metamorfica", "igneas"])
 
-enunciado: "Durante el proceso de unificación italiana (Risorgimento), el líder político que fue clave desde el Reino de Piamonte-Cerdeña fue ___."
+enunciado: "Si una roca de tipo {roca_origen} es sometida a temperaturas lo suficientemente altas como para fundirse, el material resultante es magma. Si este magma se enfría, el ciclo se reinicia produciendo una roca ___."
+
+respuesta: "igneas"
+tipo: completar
+respuestas_validas:
+  - "igneas"
 
 explicacion: |
-  El proceso de unificación fue complejo: mientras Garibaldi lideraba las campañas militares, figuras como Cavour (desde el Piamonte) gestionaban la diplomacia para consolidar el nuevo Estado.
+  Cualquier roca, sin importar su origen, puede fundirse. El producto de la solidificación de ese magma siempre será una roca ígnea.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
+  materia: "geologia"
+  tema: "ciclo_de_las_rocas"
+  nivel: "basico"
+  tags: ["magma", "solidificacion"]
+
+enunciado: "El proceso mediante el cual el magma se enfría y solidifica para formar nuevas rocas se denomina:"
+
+opciones_explicitas: ["Meteorización", "Cristalización", "Erosión", "Sedimentación"]
+respuesta: "Cristalización"
+tipo: mc
+
+explicacion: |
+  La cristalización es el proceso de formación de cristales durante el enfriamiento del magma, dando lugar a las rocas ígneas.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "ciclo_de_las_rocas"
   nivel: "intermedio"
-  tags: ["unificacion", "alemania"]
+  tags: ["ciclo_geologico", "secuencia"]
 
-respuesta: "Prusia"
-tipo: mc
-opciones_explicitas: ["Prusia", "Austria", "Baviera", "Sajonia"]
+enunciado: "Ordena la secuencia lógica que describe el reinicio del ciclo cuando una roca ígnea es fundida:"
 
-enunciado: "A diferencia de la unificación italiana, la unificación alemana de 1871 fue liderada por la potencia militar de ___."
-
-explicacion: |
-  Bajo el liderazgo de Otto von Bismarck, Prusia utilizó la diplomacia y la guerra (como la guerra franco-prusiana) para unificar los estados alemanes bajo su corona.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "avanzado"
-  tags: ["consecuencias", "geopolitica"]
-
-respuesta: "Imperio Austro-Húngaro"
-tipo: mc
-opciones_explicitas: ["Imperio Austro-Húngaro", "Imperio Británico", "Imperio Otomano", "Imperio Ruso"]
-
-enunciado: "El auge de los movimientos nacionalistas en el siglo XIX representó una amenaza directa para la integridad territorial de los imperios multiétnicos, como el ___."
-
-explicacion: |
-  Los imperios multiétnicos, donde convivían diversas lenguas y culturas bajo una misma corona, sufrieron tensiones constantes debido a que los grupos étnicos buscaban su propia independencia nacional.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "avanzado"
-  tags: ["cronologia", "unificacion"]
-
-respuesta_orden: ["Unificación Italiana", "Unificación Alemana", "Fragmentación del Imperio Otomano"]
+opciones_explicitas: ["Roca ígnea", "Magma", "Enfriamiento", "Nueva roca ígnea"]
+respuesta_orden: ["Roca ígnea", "Magma", "Enfriamiento", "Nueva roca ígnea"]
 tipo: ordenar
-opciones_explicitas: ["Unificación Italiana", "Unificación Alemana", "Fragmentación del Imperio Otomano"]
 
-enunciado: "Ordene cronológicamente los siguientes procesos de transformación del mapa europeo en el siglo XIX, desde el más temprano al más tardío:"
+explicacion: |
+  El ciclo es continuo: la roca existente se funde (magma), el magma se enfría y se solidifica (enfriamiento) para formar una nueva roca.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "ciclo_de_las_rocas"
+  nivel: "basico"
+  tags: ["magma", "estado_fisico"]
+
+enunciado: "Un material que ha pasado de ser una roca sólida a un estado fundido debido al calor extremo se encuentra en estado ___."
+
+opciones_explicitas: ["sólido", "líquido", "gaseoso"]
+respuesta: "líquido"
+tipo: mc
+
+explicacion: |
+  El magma es roca fundida, por lo tanto, se encuentra en estado líquido. Una vez que este líquido se enfría, vuelve al estado sólido.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciclo_de_las_rocas"
+  nivel: "basico"
+  tags: ["conceptos_basicos", "dinamica_terrestre"]
+
+tipo: mc
+opciones_explicitas: ["Un punto de inicio definido", "Un proceso lineal con un final", "Un ciclo continuo sin principio ni fin", "Un evento único ocurrido en el pasado"]
+respuesta: "Un ciclo continuo sin principio ni fin"
+
+enunciado: "Sobre la naturaleza del ciclo de las rocas, se afirma que este es..."
+
+explicacion: |
+  El ciclo de las rocas es un proceso continuo y dinámico. No existe un punto de partida o de finalización, ya que la materia se recicla constantemente a través de procesos internos y externos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ciclo_de_las_rocas"
+  nivel: "intermedio"
+  tags: ["procesos_geologicos", "tectonica"]
+
+tipo: completar
+respuestas_validas:
+  - "erosión"
+
+enunciado: "El ciclo de las rocas es impulsado por la tectónica de placas y el calor interno como fuerzas internas, y por la ___ y el clima como fuerzas externas."
 
 pasos:
-  - "Identifique la fecha de consolidación de la Italia unificada (1861)."
-  - "Identifique la fecha de la proclamación del Imperio Alemán (1871)."
-  - "Considere el declive de los Balcanes y el Imperio Otomano hacia finales del siglo."
+  - "Identifica los procesos internos (endógenos) que mueven el material desde el interior."
+  - "Identifica los procesos externos (exógenos) que modelan la superficie."
 
 explicacion: |
-  La unificación italiana se consolidó formalmente en 1861, seguida por la unificación alemana en 1871. El declive otomano y las tensiones nacionalistas en los Balcanes fueron procesos continuos que culminarían con mayor intensidad tras la Primera Guerra Mundial.
+  Los procesos internos (como la tectónica y el calor) mueven y transforman la materia desde el interior, mientras que los procesos externos (clima y erosión) actúan sobre la superficie.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "basico"
-  tags: ["nacionalismo", "identidad"]
-
-respuesta: "Estado"
-tipo: "completar"
-respuestas_validas:
-  - "Estado"
-
-enunciado: "El nacionalismo sostiene que una nación, entendida como un grupo con identidad cultural, lengua o historia común, debe tener su propio ___."
-
-explicacion: |
-  El nacionalismo es la ideología que vincula la identidad de un grupo cultural (nación) con la estructura política de un territorio soberano (Estado).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
+  tema: "ciclo_de_las_rocas"
   nivel: "intermedio"
-  tags: ["ideologia", "componentes"]
+  tags: ["rocas_magmaticas", "rocas_sedimentarias"]
 
-respuesta: "Lengua común, historia compartida y territorio definido"
 tipo: mc
-opciones_explicitas: ["Lengua común, historia compartida y territorio definido", "Religión única, monarquía absoluta y sistema feudal", "Clase obrera, lucha de clases y plusvalía"]
+opciones_explicitas: ["Magma", "Sedimento", "Roca metamórfica", "Lava"]
+respuesta: "Roca metamórfica"
 
-enunciado: "¿Cuál de los siguientes conjuntos de elementos ha servido históricamente como pilar para la construcción de una identidad nacional según el nacionalismo romántico?"
-
-explicacion: |
-  Para que un grupo se reconozca como nación, suele requerir elementos de cohesión como la lengua, la historia y un territorio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "basico"
-  tags: ["geopolitica"]
-
-respuesta: "fragmentación"
-tipo: "mc"
-opciones_explicitas: ["unificación", "fragmentación", "globalización", "feudalización"]
-
-enunciado: "El auge de los nacionalismos en el siglo XIX provocó la ___ de imperios multiétnicos que contenían diversas naciones sin identidad propia."
+enunciado: "Cuando una roca se somete a altas presiones y temperaturas sin llegar a fundirse, se transforma en una..."
 
 explicacion: |
-  Al buscar cada grupo su propio Estado, los grandes imperios (como el Austriaco o el Otomano) sufrieron procesos de fragmentación territorial.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "intermedio"
-  tags: ["soberania"]
-
-respuesta: "soberanía"
-tipo: "completar"
-respuestas_validas:
-  - "soberanía"
-
-enunciado: "El proyecto del Estado-Nación busca que el poder político sea ejercido por una nación que posee ___ sobre su territorio."
-
-explicacion: |
-  La soberanía es el derecho de un Estado a autogobernarse sin interferencias externas, un concepto clave para la legitimidad nacionalista.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "avanzado"
-  tags: ["teoria_politica"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["Un grupo con cultura propia pero sin fronteras claras."], ["Un Estado con fronteras claras pero con múltiples etnias sin cohesión."]]
-  respuestas: ["Nación sin Estado", "Estado sin Nación"]
-
-respuesta: respuestas[caso_idx]
-tipo: "mc"
-opciones_explicitas: ["Nación sin Estado", "Estado sin Nación"]
-
-enunciado: "Analice el siguiente escenario: {casos[caso_idx][0]} ¿Qué situación describe mejor la tensión nacionalista?"
-
-explicacion: |
-  La tensión surge precisamente cuando la delimitación de la 'nación' (identidad) no coincide con la delimitación del 'Estado' (fronteras políticas).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "intermedio"
-  tags: ["italia", "risorgimento", "siglo_xix"]
-
-enunciado: "Durante el proceso de unificación italiana, el liderazgo político y diplomático fue fundamental. El personaje que actuó como el cerebro diplomático del Reino de Piamonte-Cerdeña fue ___."
-
-respuesta: "Cavour"
-tipo: mc
-opciones_explicitas: ["Cavour", "Garibaldi", "Mazzini", "Vittorio Emanuele II"]
-
-explicacion: |
-  Camillo Benso, conde de Cavour, fue el arquitecto de la unificación italiana a través de la diplomacia y la modernización del Reino de Piamonte-Cerdeña.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "intermedio"
-  tags: ["alemania", "bismarck", "prusia"]
-
-enunciado: "La unificación alemana se consolidó tras la victoria en la Guerra Franco-Prusiana, lo que llevó a la firma del ___ en el año 1871."
-
-respuesta: "Tratado de Frankfurt"
-tipo: mc
-opciones_explicitas: ["Congreso de Viena", "Tratado de Frankfurt", "Tratado de Versalles", "Paz de Westfalia"]
-
-explicacion: |
-  El Tratado de Frankfurt puso fin a la guerra contra Francia y consolidó la creación del Segundo Imperio Alemán bajo el liderazgo de Prusia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "basico"
-  tags: ["conceptos", "soberania"]
-
-respuesta: "soberanía"
-tipo: completar
-respuestas_validas:
-  - "soberanía"
-  - "soberania"
-
-enunciado: "Un elemento esencial de la formación de los Estados nacionales en el siglo XIX fue la consolidación de la ___ territorial y política sobre un conjunto de poblaciones con una identidad común."
-
-explicacion: |
-  La soberanía es la autoridad suprema que ejerce el Estado sobre su territorio y población, permitiendo la independencia frente a otras potencias.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "avanzado"
-  tags: ["causas", "economia", "nacionalismo"]
-
-enunciado: "Un factor determinante para la cohesión de los estados alemanes antes de la unificación política fue la creación de la Zollverein, que facilitó el libre comercio entre los estados miembros."
-
-respuesta: "Zollverein"
-tipo: mc
-opciones_explicitas: ["Zollverein", "Confederación Germánica", "Unión Europea", "Liga Hanseática"]
-
-explicacion: |
-  El Zollverein fue una unión aduanera que eliminó las barreras comerciales entre los estados alemanes, fortaleciendo el poder de Prusia y preparando el terreno para la unificación política.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "intermedio"
-  tags: ["procesos", "guerras"]
-
-respuesta_orden: ["Guerra de los Ducados", "Guerra Austro-Prusiana", "Guerra Franco-Prusiana"]
-tipo: ordenar
-opciones_explicitas: ["Guerra de los Ducados", "Guerra Austro-Prusiana", "Guerra Franco-Prusiana"]
-
-enunciado: "El proceso de unificación liderado por Otto von Bismarck se desarrolló a través de una serie de conflictos bélicos estratégicos. Ordene cronológicamente estas guerras:"
-
-explicacion: |
-  Bismarck utilizó la política de 'sangre y hierro' a través de tres guerras clave: contra Dinamarca (1864), contra Austria (1866) y contra Francia (1870-1871).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "basico"
-  tags: ["teoria_politica", "elementos_estado"]
-
-variables:
-  escenario: uno_de([["Un grupo de personas sin fronteras definidas ni leyes comunes.", "No es un Estado"], ["Un territorio con población, gobierno y leyes, pero sin identidad cultural única.", "Es un Estado"], ["Un grupo con identidad, territorio y gobierno, pero sin población.", "No es un Estado"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["No es un Estado", "Es un Estado"]
-
-enunciado: "Analiza el siguiente caso: {escenario[0]} ¿Se puede considerar un Estado Nacional según la teoría clásica?"
-
-explicacion: |
-  Para que exista un Estado Nacional se requiere la coexistencia de territorio, población, gobierno y, frecuentemente, una identidad compartida.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "estados_nacionales"
-  nivel: "intermedio"
-  tags: ["territorio", "soberania"]
-
-variables:
-  caso: uno_de([["La delimitación de fronteras físicas y jurídicas.", "Territorio"], ["El conjunto de individuos que habitan el país.", "Población"], ["El conjunto de normas que rigen la convivencia.", "Gobierno"]])
-
-respuesta: caso[1]
-tipo: mc
-opciones_explicitas: ["Territorio", "Población", "Gobierno"]
-
-enunciado: "Un elemento fundamental de los Estados modernos es la delimitación de fronteras físicas y jurídicas. Este concepto se define como: ___"
-
-explicacion: |
-  El territorio es el espacio geográfico donde el Estado ejerce su soberanía.
+  La presión y el calor transforman las rocas existentes en rocas metamórficas antes de que puedan fundirse y volver a ser magma.
 ```
 
 ```
 metadata:
   materia: "historia_profucha"
-  tema: "estados_nacionales"
+  tema: "ciclo_de_las_rocas"
   nivel: "avanzado"
-  tags: ["identidad", "nacionalismo"]
+  tags: ["sedimentacion", "procesos_externos"]
 
-tipo: completar
-respuesta: "Identidad"
-respuestas_validas:
-  - "Identidad"
+tipo: ordenar
+opciones_explicitas: ["Meteorización", "Transporte", "Sedimentación", "Litificación"]
 
-enunciado: "En el proceso de formación de los Estados nacionales, la creación de un sentimiento de pertenencia común a través de símbolos y lengua se conoce como ___."
+enunciado: "Ordena correctamente las etapas que ocurren desde la degradación de una roca en la superficie hasta la formación de una nueva roca sedimentaria:"
 
 explicacion: |
-  La identidad nacional es el lazo simbólico que une a la población con el Estado.
+  La roca se rompe (meteorización), es movida (transporte), se deposita (sedimentación) y finalmente se compacta (litificación).
+respuesta_orden: ["Meteorización", "Transporte", "Sedimentación", "Litificación"]
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "estados_nacionales"
+  tema: "ciclo_de_las_rocas"
   nivel: "basico"
-  tags: ["orden_logico", "elementos"]
+  tags: ["magma", "cristalizacion"]
 
-respuesta_orden: ["Población", "Territorio", "Gobierno", "Identidad"]
-tipo: ordenar
-opciones_explicitas: ["Población", "Territorio", "Gobierno", "Identidad"]
+respuesta: "ígnea"
+respuestas_validas:
+  - "ígnea"
+  - "ignea"
+  - "magmática"
+  - "magmatica"
+tipo: completar
+tolerancia_abs: 0
 
-enunciado: "Ordena los elementos que tradicionalmente se consideran necesarios para la consolidación de un Estado Nacional, desde el elemento humano hasta el elemento simbólico."
+enunciado: "Cuando el magma se enfría y se solidifica, da origen a una roca de tipo ___."
 
 explicacion: |
-  El orden lógico parte de la base humana (población), el espacio (territorio), la estructura de mando (gobierno) y el cohesión cultural (identidad).
+  El enfriamiento del magma (ya sea bajo la superficie o en la superficie como lava) produce rocas ígneas o magmáticas.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "ciclo_de_las_rocas"
+  nivel: "basico"
+  tags: ["magma", "roca_ignea"]
+
+respuesta: "roca intrusiva"
+tipo: mc
+opciones_explicitas: ["roca intrusiva", "roca extrusiva", "roca sedimentaria", "roca metamórfica"]
+
+enunciado: "Si el magma se enfría lentamente bajo la superficie terrestre, el proceso de cristalización produce una ___."
+
+explicacion: |
+  El enfriamiento lento permite el desarrollo de cristales grandes, formando rocas ígneas intrusivas (plutónicas).
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "ciclo_las_rocas"
+  nivel: "basico"
+  tags: ["sedimento", "litificacion"]
+
+respuesta: "roca sedimentaria"
+tipo: mc
+opciones_explicitas: ["roca sedimentaria", "roca metamórfica", "roca ígnea", "magma"]
+
+enunciado: "La acumulación, compactación y cementación de sedimentos acumulados en el fondo de un lago da lugar a una ___."
+
+explicacion: |
+  La litificación de sedimentos es el proceso mediante el cual se forman las rocas sedimentarias.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "ciclo_las_rocas"
+  nivel: "intermedio"
+  tags: ["metamorfismo", "presion"]
+
+respuesta: "roca metamórfica"
+tipo: mc
+opciones_explicitas: ["roca metamórfica", "roca ígnea", "roca sedimentaria", "magma"]
+
+enunciado: "Cuando una roca ígnea sometida a altas presiones y temperaturas experimenta cambios físicos sin llegar a fundirse, se transforma en una ___."
+
+explicacion: |
+  El metamorfismo es la transformación de rocas preexistentes debido a cambios en la presión y temperatura.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "ciclo_las_rocas"
+  nivel: "intermedio"
+  tags: ["erosion", "sedimentos"]
+
+respuesta: "sedimentos"
+tipo: mc
+opciones_explicitas: ["sedimentos", "magma", "roca metamórfica", "cristales"]
+
+enunciado: "La meteorización y erosión de una roca sólida expuesta a la lluvia y el viento producen partículas sueltas llamadas ___."
+
+explicacion: |
+  La erosión rompe las rocas en fragmentos más pequeños llamados sedimentos.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "ciclo_las_rocas"
+  nivel: "avanzado"
+  tags: ["fusion", "magma"]
+
+variables:
+  idx: uno_de([0, 1])
+  materiales: ["una roca metamórfica", "una roca sedimentaria"]
+
+respuesta: "magma"
+tipo: mc
+opciones_explicitas: ["magma", "roca ígnea", "roca metamórfica", "sedimento"]
+
+enunciado: "Si {materiales[idx]} alcanza su punto de fusión por calor extremo, el material resultante es ___."
+
+explicacion: |
+  La fusión completa de cualquier tipo de roca produce magma, que es el origen de las rocas ígneas.
+```
+
+## Sección: conquista-tierra-firme (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_tierra_firme"
+  nivel: "basico"
+  tags: ["evolucion", "plantas"]
+
+respuesta: "plantas"
+tipo: completar
+respuestas_validas:
+  - "plantas"
+
+enunciado: "Las primeras formas de vida en colonizar la tierra firme fueron las ___."
+
+explicacion: |
+  Hace aproximadamente 470 millones de años, las plantas fueron las pioneras en la transición del medio acuático al terrestre.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "estados_nacionales"
+  tema: "conquista_tierra_firme"
   nivel: "intermedio"
-  tags: ["gobierno", "soberania"]
+  tags: ["cronologia", "evolucion"]
 
 variables:
-  situacion: uno_de([["Un territorio sin una autoridad central que dicte leyes.", "Falta Gobierno"], ["Un pueblo con leyes pero sin un territorio asignado.", "Falta Territorio"], ["Una nación con identidad pero sin población real.", "Falta Población"]])
+  escenario: uno_de([["plantas", "470"], ["artrópodos", "428"], ["tetrápodos", "365"]])
 
-respuesta: situacion[1]
+respuesta: escenario[0]
 tipo: mc
-opciones_explicitas: ["Falta Gobierno", "Falta Territorio", "Falta Población"]
+opciones_explicitas: ["plantas", "artrópodos", "tetrápodos"]
 
-enunciado: "Considera este escenario: {situacion[0]} ¿Qué elemento esencial del Estado está ausente?"
+enunciado: "De acuerdo con el registro fósil, ¿qué grupo colonizó la tierra firme hace aproximadamente {escenario[1]} millones de años?"
 
 explicacion: |
-  Sin un gobierno (autoridad política), no hay capacidad de ejercer soberanía ni de organizar a la población.
-```
-
-## Sección: eucariotas (25 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "eucariotas_vs_procariotas"
-  nivel: "basico"
-  tags: ["celulas", "nucleo"]
-
-tipo: mc
-respuesta: "Presencia de núcleo definido"
-opciones_explicitas: ["Presencia de núcleo definido", "Presencia de pared celular de peptidoglicano", "Ausencia de organelas", "ADN circular libre"]
-
-enunciado: "La principal característica que define a una célula eucariota frente a una procariota es la ___."
-
-explicacion: |
-  Las células eucariotas poseen un núcleo rodeado por una membrana nuclear que contiene el material genético, mientras que las procariotas tienen el ADN disperso en el citoplasma.
+  El orden de colonización fue: 1° Plantas (~470 Ma), 2° Artrópodos (~428 Ma) y 3° Tetrápodos (~365 Ma).
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "organelas_celulares"
+  materia: "historia_profunda"
+  tema: "conquista_tierra_firme"
   nivel: "basico"
-  tags: ["organelas", "membrana"]
+  tags: ["tetrapodos", "evolucion"]
 
+respuesta: 370
 tipo: completar
-respuestas_validas:
-  - "organelas membranosas"
+tolerancia_abs: 5
 
-enunciado: "A diferencia de los procariotas, las células eucariotas presentan un sistema complejo de ___."
-
-explicacion: |
-  Los eucariotas cuentan con compartimentos internos delimitados por membranas, como mitocondrias, retículo endoplasmático y aparato de Golgi.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "eucariotas_vs_procariotas"
-  nivel: "intermedio"
-  tags: ["estructura", "comparacion"]
-
-variables:
-  escenario: uno_de([["mitocondria", "respiración celular"], ["cloroplasto", "fotosíntesis"], ["lisosoma", "digestión celular"]])
-
-tipo: mc
-opciones_explicitas: ["respiración celular", "fotosíntesis", "digestión celular", "transporte de proteínas"]
-
-enunciado: "En una célula eucariota, la función de {escenario[0]} está asociada a la ___."
-
-respuesta: escenario[1]
-
-explicacion: |
-  La estructura {escenario[0]} es una organela membranosa cuya función principal es la {escenario[1]}.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "evolucion_celular"
-  nivel: "intermedio"
-  tags: ["evolucion", "orden"]
-
-tipo: ordenar
-opciones_explicitas: ["ADN libre en el citoplasma", "Formación de la membrana nuclear", "Aparición de organelas membranosas", "Organismo multicelular complejo"]
-
-enunciado: "Ordena cronológicamente la complejidad estructural desde una célula procariota simple hasta un organismo eucariota complejo:"
-
-explicacion: |
-  La evolución celular implicó primero la compartimentación del material genético, luego la especialización de organelas y finalmente la organización multicelular.
-respuesta_orden: ["ADN libre en el citoplasma", "Formación de la membrana nuclear", "Aparición de organelas membranosas", "Organismo multicelular complejo"]
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nucleo_eucariota"
-  nivel: "basico"
-  tags: ["nucleo", "membrana"]
-
-tipo: vf
-
-enunciado: "La presencia de una membrana nuclear que delimita el material genético es una característica exclusiva de las células eucariotas."
-
-respuesta: verdadero
-
-explicacion: |
-  Es verdadero. Los procariotas no poseen una envoltura nuclear que separe el ADN del resto del citoplasma.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "teoria_endosimbiosa"
-  nivel: "basico"
-  tags: ["eucariotas", "mitocondrias", "endosimbiosis"]
-
-tipo: mc
-opciones_explicitas: ["una bacteria aeróbica", "un virus", "un fragmento de núcleo", "un ribosoma"]
-respuesta: "una bacteria aeróbica"
-
-enunciado: "Según la teoría endosimbiótica, las mitocondrias se originaron a partir de la integración de una ___ que era capaz de realizar la respiración celular."
-
-explicacion: |
-  La teoría endosimbiótica propone que las mitocondrias fueron originalmente bacterias aeróbicas que fueron fagocitadas por una célula huésped, estableciendo una relación simbiótica.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "teoria_endosimbiosa"
-  nivel: "intermedio"
-  tags: ["evolucion", "endosimbiosis"]
-
-variables:
-  escenario: uno_de([["bacteria aeróbica", "mitocondria"], ["bacteria fotosintética", "cloroplasto"]])
-
-tipo: completar
-respuestas_validas:
-  - escenario[0]
-
-enunciado: "Si una célula eucariota primitiva engloba a una ___, el resultado evolutivo es la formación de un(a) {escenario[1]}."
-
-explicacion: |
-  El proceso de endosimbiosis implica que un organismo complejo absorbe a uno más pequeño que, en lugar de ser digerido, se convierte en un orgánulo especializado.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "teoria_endosimbiosa"
-  nivel: "avanzado"
-  tags: ["evidencia", "adn", "membrana"]
-
-tipo: mc
-opciones_explicitas: ["Poseen su propio ADN circular y ribosomas similares a los procariotas", "Tienen un núcleo rodeado de membrana", "Se originan en el retículo endoplasmático", "No poseen membrana propia"]
-respuesta: "Poseen su propio ADN circular y ribosomas similares a los procariotas"
-enunciado: "Una de las principales evidencias de que los cloroplastos y mitocondrias fueron bacterias libres es que:"
-explicacion: |
-  Tanto mitocondrias como cloroplastos poseen su propio material genético en forma de ADN circular, muy similar al de las bacterias actuales, y sus ribosomas son de tipo procariota.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "teoria_endosimbiosa"
-  nivel: "intermedio"
-  tags: ["evolucion", "orden"]
-
-tipo: ordenar
-opciones_explicitas: ["Célula procariota con membrana flexible", "Fagocitosis de una bacteria aeróbica", "Establecimiento de simbiosis", "Célula eucariota con mitocondrias"]
-
-enunciado: "Ordene los eventos que explican la aparición de la célula eucariota con mitocondrias:"
-
-explicacion: |
-  La evolución fue un proceso gradual: primero la célula huésped, luego la captura de la bacteria, la convivencia simbiótica y finalmente la especialización del orgánulo.
-respuesta_orden: ["Célula procariota con membrana flexible", "Fagocitosis de una bacteria aeróbica", "Establecimiento de simbiosis", "Célula eucariota con mitocondrias"]
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "teoria_endosimbiosa"
-  nivel: "basico"
-  tags: ["cloroplastos", "fotosintesis"]
-
-tipo: vf
-enunciado: "Los cloroplastos se originaron a partir de la endosimbiosis de una bacteria fotosintética (cianobacteria)."
-respuesta: verdadero
-explicacion: |
-  Es verdadero. La capacidad de realizar fotosíntesis en las plantas y algas se debe a la incorporación de cianobacterias que se convirtieron en cloroplastos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "teoria_endosimbiosis"
-  nivel: "basico"
-  tags: ["mitocondria", "evolucion"]
-
-respuesta: "fisión binaria"
-tipo: mc
-opciones_explicitas: ["ADN circular", "ADN lineal", "fisión binaria", "mitosis"]
-
-enunciado: "La evidencia de que las mitocondrias fueron bacterias es que poseen un tipo de ADN circular y se reproducen mediante ___."
-
-explicacion: |
-  Las mitocondrias poseen ADN circular y se dividen por fisión binaria, características típicas de las procariotas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "teoria_endosimbiosis"
-  nivel: "intermedio"
-  tags: ["adn", "cloroplastos"]
-
-respuesta: "circular"
-tipo: completar
-respuestas_validas:
-  - "circular"
-
-enunciado: "A diferencia del ADN del núcleo celular, el ADN de los cloroplastos es de forma ___."
-
-explicacion: |
-  El ADN de los organelos semiautónomos es circular, similar al de las bacterias actuales.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "teoria_endosimbiosis"
-  nivel: "basico"
-  tags: ["reproduccion", "organelos"]
-
-respuesta: "fisión binaria"
-tipo: completar
-respuestas_validas:
-  - "fisión binaria"
-
-enunciado: "El mecanismo de reproducción de las mitocondrias es la ___."
-
-explicacion: |
-  Las mitocondrias no se crean de la nada, sino que se dividen mediante fisión binaria, igual que los procariontes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "teoria_endosimbiosis"
-  nivel: "intermedio"
-  tags: ["membrana", "evolucion"]
-
-respuesta: "doble"
-tipo: mc
-opciones_explicitas: ["doble", "simple"]
-
-enunciado: "La teoría endosimbiótica sugiere que los organelos como los cloroplastos poseen una ___ membrana, la cual sería el remanente de la membrana de la bacteria original."
-
-explicacion: |
-  La presencia de una doble membrana es una evidencia clave de la captura de una célula por otra.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "teoria_endosimbiosis"
-  nivel: "avanzado"
-  tags: ["secuencia", "evolucion"]
-
-respuesta_orden: ["Célula procariota", "Fagocitosis", "Célula eucariota con mitocondria"]
-tipo: ordenar
-opciones_explicitas: ["Célula procariota", "Fagocitosis", "Célula eucariota con mitocondria"]
-
-enunciado: "Ordena los eventos que explican la aparición de la mitocondria según la teoría endosimbiótica:"
+enunciado: "Los primeros tetrápodos comenzaron su expansión por tierra firme hace aproximadamente ___ millones de años."
 
 pasos:
-  - "Una bacteria aeróbica es ingerida por una célula hospedadora."
-  - "Se establece una relación de simbiosis."
-  - "La bacteria se convierte en un organelo permanente."
+  - "Identificar el grupo de vertebrados con cuatro extremidades."
+  - "Localizar su aparición en la línea de tiempo de la conquista terrestre."
 
 explicacion: |
-  El proceso implica la ingestión (fagocitosis) de una bacteria que, al no ser digerida, establece una simbiosis que da origen al organelo.
+  Los tetrápodos aparecieron en el registro fósil hace unos 370 millones de años, mucho después de las plantas y los artrópodos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "eucariotas"
-  nivel: "basico"
-  tags: ["evolucion", "cronologia"]
-
-respuesta: "1500 millones de años"
-tipo: mc
-opciones_explicitas: ["3800 millones de años", "2000 millones de años", "1500 millones de años", "500 millones de años"]
-
-enunciado: "Los procariotas aparecieron hace aproximadamente 3800 millones de años, mientras que los eucariotas aparecieron mucho después, hace unos ___."
-
-explicacion: |
-  La vida procariota es mucho más antigua, con registros de hace unos 3800 millones de años, mientras que la complejidad celular eucariota surgió mucho después.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eucariotas"
-  nivel: "basico"
-  tags: ["comparacion"]
-
-respuesta: "mucho después"
-tipo: completar
-respuestas_validas:
-  - "mucho después"
-  - "antes"
-  - "al mismo tiempo"
-
-enunciado: "En la línea de tiempo de la vida, los eucariotas aparecieron ___ que los procariotas."
-
-explicacion: |
-  Los procariotas dominaron la Tierra durante casi 2000 millones de años antes de la aparición de las células eucariotas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eucariotas"
-  nivel: "intermedio"
-  tags: ["ordenar", "evolucion"]
-
-opciones_explicitas: ["Aparición de procariotas", "Aparición de eucariotas", "Aparición de organismos multicelulares"]
-respuesta_orden: ["Aparición de procariotas", "Aparición de eucariotas", "Aparición de organismos multicelulares"]
-tipo: ordenar
-
-enunciado: "Ordena cronológicamente los siguientes hitos biológicos, desde el más antiguo al más reciente:"
-
-explicacion: |
-  Primero aparecieron las células procariotas simples, luego las eucariotas con núcleo, y finalmente la multicelularidad compleja.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eucariotas"
+  tema: "conquista_tierra_firme"
   nivel: "avanzado"
-  tags: ["calculo", "tiempo"]
+  tags: ["orden", "evolucion"]
+
+respuesta_orden: ["plantas", "artrópodos", "tetrápodos"]
+tipo: ordenar
+opciones_explicitas: ["plantas", "artrópodos", "tetrápodos"]
+
+enunciado: "Ordene cronológicamente los grupos que colonizaron la tierra firme, desde el más antiguo al más reciente:"
+
+explicacion: |
+  La secuencia correcta es: Plantas (470 Ma) -> Artrópodos -> Tetrápodos (370 Ma).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_tierra_firme"
+  nivel: "intermedio"
+  tags: ["comparacion", "tiempo"]
 
 variables:
-  t_proc: 3800
-  t_euc: 1750
+  datos: uno_de([["plantas", "artrópodos"], ["artrópodos", "tetrápodos"], ["plantas", "tetrápodos"]])
 
-respuesta: t_proc - t_euc
-tipo: completar
-tolerancia_abs: 100
+respuesta: datos[1]
+tipo: mc
+opciones_explicitas: ["plantas", "artrópodos", "tetrápodos"]
 
-enunciado: "Si los procariotas aparecieron hace {t_proc} millones de años y los eucariotas hace {t_euc} millones de años, ¿cuántos millones de años de ventaja temporal tuvieron los procariotas sobre los eucariotas?"
+enunciado: "Si las {datos[0]} colonizaron la tierra hace 470 millones de años, ¿qué grupo colonizó después de ellas pero antes que los tetrápodos?"
 
 explicacion: |
-  La diferencia es de {t_proc - t_euc} millones de años.
+  El orden cronológico es: Plantas -> Artrópodos -> Tetrápodos.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "eucariotas"
+  materia: "biologia"
+  tema: "adaptaciones_terrestres"
   nivel: "basico"
-  tags: ["logica"]
+  tags: ["cuticula", "deshidratacion"]
+
+respuesta: "cuticula"
+tipo: completar
+respuestas_validas:
+  - "cuticula"
+
+enunciado: "Para evitar la pérdida excesiva de agua por evaporación en ambientes terrestres, muchos organismos han desarrollado una capa protectora externa llamada ___."
+
+explicacion: |
+  La cutícula es una capa cerosa e impermeable que sella la superficie del organismo, permitiendo la vida en medios secos al minimizar la deshidratación.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "adaptaciones_terrestres"
+  nivel: "intermedio"
+  tags: ["soporte", "esqueleto"]
+
+respuesta: "esqueleto interno"
+tipo: mc
+opciones_explicitas: ["esqueleto interno", "flotabilidad", "flotabilidad neutra", "soporte hidrostático"]
+
+enunciado: "En el medio acuático, el empuje compensa el peso. Sin embargo, al pasar a vivir en tierra firme, los organismos necesitan estructuras de soporte para vencer la gravedad, como un ___."
+
+explicacion: |
+  En tierra, la gravedad actúa directamente sobre el cuerpo sin la ayuda del empuje hidrostático, lo que requiere estructuras rígidas (como esqueletos) para mantener la forma y permitir el movimiento.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "adaptaciones_terrestres"
+  nivel: "basico"
+  tags: ["respiracion", "pulmones"]
+
+respuesta: "pulmones"
+tipo: mc
+opciones_explicitas: ["branquias", "pulmones", "piel desnuda", "estomas"]
+
+enunciado: "A diferencia de las branquias, que extraen oxígeno disuelto en agua, los animales terrestres suelen desarrollar ___ para captar el oxígeno presente en el aire."
+
+explicacion: |
+  Los pulmones o estructuras similares (como los traqueal en insectos) permiten la difusión de gases en un medio gaseoso sin que las superficies respiratorias se colapsen por falta de soporte líquido.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "adaptaciones_terrestres"
+  nivel: "avanzado"
+  tags: ["evolucion", "respiracion"]
+
+respuesta: "pulmones"
+tipo: completar
+respuestas_validas:
+  - "pulmones"
+
+enunciado: "Si un organismo evoluciona de un medio de agua a uno de aire, su sistema de intercambio gaseoso debe pasar de tener branquias a tener ___."
+
+explicacion: |
+  La transición del agua al aire exige un cambio radical: de estructuras que dependen de la humedad constante (branquias) a órganos protegidos que eviten el colapso y la sequedad (pulmones).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "adaptaciones_terrestres"
+  nivel: "avanzado"
+  tags: ["evolucion", "secuencia"]
+
+respuesta_orden: ["cuticula", "soporte", "pulmones"]
+tipo: ordenar
+opciones_explicitas: ["cuticula", "soporte", "pulmones"]
+
+enunciado: "Ordena las adaptaciones necesarias para colonizar la tierra firme, desde la prevención de la sequedad hasta la locomoción y la respiración:"
+
+pasos:
+  - "Primero: Evitar la deshidratación."
+  - "Segundo: Mantener la forma contra la gravedad."
+  - "Tercero: Obtener oxígeno del medio gaseoso."
+
+explicacion: |
+  La colonización de la tierra requirió primero evitar la muerte por sequedad (cutícula), luego desarrollar estructuras que sostengan el peso (soporte/esqueleto) y finalmente optimizar la captura de oxígeno (pulmones).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "evolucion_vertebrados"
+  nivel: "intermedio"
+  tags: ["evolucion", "tetrapodos", "sarcopterigios"]
+
+respuesta: "sarcopterigios"
+tipo: completar
+respuestas_validas:
+  - "sarcopterigios"
+  - "peces de aletas lobuladas"
+
+enunciado: "Los tetrápodos evolucionaron a partir de un grupo específico de peces con aletas lobuladas conocidos como ___."
+
+explicacion: |
+  Los sarcopterigios (del griego 'sarcopteryx', aleta carnosa) son peces que poseen aletas con una estructura ósea similar a la de los miembros de los tetrápodos, lo que permitió la transición hacia la vida terrestre.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "evolucion_vertebrados"
+  nivel: "intermedio"
+  tags: ["tiktaalik", "transicion", "paleontologia"]
+
+variables:
+  escenario: uno_de([["Tiktaalik roseae", "un fósil que muestra una transición entre peces y anfibios"], ["Eusthenopteron", "un pez sarcopterigio más primitivo"], ["Panderichthys", "un pez que muestra características de transición"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["un fósil que muestra una transición entre peces y anfibios", "un pez sarcopterigio más primitivo", "un pez que muestra características de transición"]
+
+enunciado: "El fósil {escenario[0]} es fundamental para la paleontología porque se considera {escenario[1]}."
+
+explicacion: |
+  Tiktaalik es un ejemplo clásico de morfología de transición, poseyendo características de peces (escamas, branquias) y de tetrápodos (cuello, articulaciones en las aletas para soportar peso).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "evolucion_vertebrados"
+  nivel: "avanzado"
+  tags: ["morfologia", "transicion"]
 
 respuesta: "falso"
 tipo: mc
 opciones_explicitas: ["verdadero", "falso"]
 
-enunciado: "¿Es correcto afirmar que los eucariotas y los procariotas aparecieron en la Tierra en el mismo periodo geológico inicial?"
+enunciado: "¿Es correcto afirmar que los primeros tetrápodos aparecieron de forma súbita sin formas de transición con aletas lobuladas?"
 
 explicacion: |
-  Es falso. Los procariotas precedieron a los eucariotas por un margen de aproximadamente 2000 millones de años.
+  La evidencia fósil demuestra una transición gradual donde las estructuras de soporte en las aletas de los sarcopterigios se modificaron para permitir el movimiento en ambientes poco profundos o terrestres.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "eucariotas_vs_procariotas"
-  nivel: "basico"
-  tags: ["celulas", "nucleo"]
-
-variables:
-  datos: [["presencia de nucleo definido", "eucariota"], ["ausencia de nucleo definido", "procariota"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["eucariota", "procariota"]
-
-enunciado: "Si una célula presenta {datos[idx][0]}, se trata de una célula tipo ___."
-
-explicacion: |
-  Las células eucariotas se caracterizan por tener su material genético rodeado por una membrana nuclear, mientras que las procariotas lo tienen libre en el citoplasma.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "eucariotas_vs_procariotas"
-  nivel: "basico"
-  tags: ["organelos", "mitocondria"]
-
-variables:
-  datos: [["mitocondria", "eucariota"], ["ribosomas sin membrana", "procariota"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["eucariota", "procariota"]
-
-enunciado: "La presencia de {datos[idx][0]} es una característica propia de la célula ___."
-
-explicacion: |
-  Los organelos membranosos como las mitocondrias son exclusivos de las células eucariotas. Las procariotas carecen de compartimentos internos delimitados por membranas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "eucariotas_vs_procariotas"
+  tema: "evolucion_vertebrados"
   nivel: "intermedio"
-  tags: ["estructura", "complejidad"]
+  tags: ["orden_evolutivo"]
 
-variables:
-  datos: [["organelos complejos", "eucariota"], ["estructura simple", "procariota"]]
-  idx: uno_de([0, 1])
+opciones_explicitas: ["Peces Actinopterigios", "Peces Sarcopterigios", "Tetrápodos"]
+respuesta_orden: ["Peces Actinopterigios", "Peces Sarcopterigios", "Tetrápodos"]
+tipo: ordenar
 
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "eucariota"
-  - "procariota"
+enunciado: "Ordena cronológicamente la línea evolutiva que lleva de los peces comunes a los vertebrados con cuatro extremidades:"
 
-enunciado: "Una célula con {datos[idx][0]} se clasifica como ___."
+pasos:
+  - "Identifica el grupo de peces con aletas radiadas (no lobuladas)."
+  - "Identifica el grupo con aletas carnosas (base de la evolución)."
+  - "Identifica el grupo con extremidades articuladas."
 
 explicacion: |
-  La complejidad estructural y la compartimentación celular son los rasgos distintivos de los organismos eucariotas.
+  La evolución muestra un paso de la radiación de las aletas (actinopterigios) hacia la especialización de la base de la aleta (sarcopterigios) y finalmente el desarrollo de miembros (tetrápodos).
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "eucariotas_vs_procariotas"
-  nivel: "intermedio"
-  tags: ["tamaño", "escala"]
+  tema: "evolucion_vertebrados"
+  nivel: "basico"
+  tags: ["anatomia", "extremidades"]
 
 variables:
-  datos: [["10-100 micrometros", "eucariota"], ["1-5 micrometros", "procariota"]]
-  idx: uno_de([0, 1])
+  caracteristica: uno_de([["presencia de cuello", "permite mover la cabeza independientemente del tronco"], ["presencia de escamas", "protección contra la desecación"], ["presencia de branquias", "respiración acuática"]])
 
-respuesta: datos[idx][1]
+respuesta: caracteristica[0]
 tipo: mc
-opciones_explicitas: ["eucariota", "procariota"]
+opciones_explicitas: ["presencia de cuello", "presencia de escamas", "presencia de branquias"]
 
-enunciado: "Si observamos una célula con un diámetro de {datos[idx][0]}, estamos ante una célula ___."
+enunciado: "Una de las innovaciones morfológicas clave observada en fósiles de transición como Tiktaalik fue la {caracteristica}."
 
 explicacion: |
-  Las células eucariotas son generalmente mucho más grandes (10-100 µm) que las procariotas (1-5 µm) debido a su mayor complejidad interna.
+  A diferencia de los peces, que tienen la cabeza fusionada al tronco, los primeros tetrápodos y sus ancestros de transición desarrollaron un cuello, permitiendo mayor movilidad para alimentarse y navegar en aguas someras.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "eucariotas_vs_procariotas"
+  materia: "historia_profunda"
+  tema: "conquista_tierra_firme"
+  nivel: "intermedio"
+  tags: ["botanica", "paleoecologia", "ciclo_del_agua"]
+
+variables:
+  escenario: uno_de(["bosque_denso", "estepa_abierta"])
+  tipo_suelo: uno_de(["suelo_desnudo", "suelo_cubierto"])
+
+enunciado: "Durante la conquista de Tierra Firme, la expansión de la vegetación tipo {escenario} sobre un {tipo_suelo} modificó drásticamente la escorrentía superficial."
+
+opciones_explicitas:
+  - "Aumentó la escorrentía"
+  - "Disminuyó la escorrentía"
+  - "No hubo cambios"
+
+respuesta: "Disminuyó la escorrentía"
+tipo: mc
+
+explicacion: |
+  La presencia de plantas y la cobertura vegetal actúan como una barrera física que intercepta la lluvia y permite la infiltración en el suelo, reduciendo la velocidad del agua superficial y, por ende, la escorrentía.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_tierra_firme"
   nivel: "avanzado"
-  tags: ["evolucion", "linaje"]
+  tags: ["carbono", "fotosintesis", "biomasa"]
 
 variables:
-  orden: ["procariota", "eucariota"]
-  idx: uno_de([0, 1])
+  valor_carbono: random_float(100.0, 500.0)
 
-respuesta_orden: orden
+enunciado: "Si una masa forestal emergente en Tierra Firme secuestra aproximadamente {valor_carbono} unidades de carbono por hectárea, el balance neto de la atmósfera durante este periodo de colonización vegetal fue de un valor ___ (positivo/negativo) en términos de almacenamiento de carbono."
+
+respuestas_validas:
+  - "positivo"
+
+respuesta: "positivo"
+tipo: completar
+
+explicacion: |
+  La colonización de las masas continentales por las plantas permitió un secuestro masivo de CO2 atmosférico en forma de biomasa orgánica, transformando el ciclo del carbono de un estado de equilibrio a uno de almacenamiento neto.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_tierra_firme"
+  nivel: "intermedio"
+  tags: ["ecologia", "sucesion", "animales"]
 
 tipo: ordenar
-opciones_explicitas: ["procariota", "eucariota"]
+opciones_explicitas: ["Aparición de plantas pioneras", "Estabilización del suelo y ciclo del agua", "Colonización por animales terrestres"]
+respuesta_orden: ["Aparición de plantas pioneras", "Estabilización del suelo y ciclo del agua", "Colonización por animales terrestres"]
+enunciado: "Ordená la secuencia correcta de la sucesión ecológica primaria."
+explicacion: |
+  La sucesión ecológica comenzó con la colonización de sustratos desnudos por plantas pioneras, lo que permitió la formación de suelos y la regulación hídrica, creando finalmente el hábitat necesario para la fauna terrestre.
+```
 
-enunciado: "Ordena los tipos celulares según la aparición evolutiva (de la más antigua a la más reciente):"
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_tierra_firme"
+  nivel: "basico"
+  tags: ["agua", "evapotranspiracion", "clima"]
+
+enunciado: "El aumento de la cobertura vegetal en Tierra Firme incrementó la tasa de ___ (evapotranspiración/precipitación) hacia la atmósfera, alterando los patrones climáticos locales."
+
+respuestas_validas:
+  - "evapotranspiración"
+
+respuesta: "evapotranspiración"
+tipo: completar
 
 explicacion: |
-  Las células procariotas aparecieron primero en la historia de la vida, seguidas por la aparición de las células eucariotas mediante procesos como la endosimbiosis.
+  Las plantas no solo retienen agua en el suelo, sino que la devuelven a la atmósfera a través de la transpiración, un proceso clave que regula la humedad atmosférica en los nuevos continentes.
 ```
-
-## Sección: expansion-del-imperio-romano (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
+  tema: "conquista_tierra_firme"
   nivel: "intermedio"
-  tags: ["guerras-punicas", "cartago", "expansion"]
-enunciado: "La victoria en las Guerras Púnicas permitió a Roma transformar el Mediterráneo Occidental en un \"lago romano\". ¿Qué conflicto específico consolidó el dominio romano sobre el mar tras la destrucción de Cartago?"
+  tags: ["fauna", "hábitat", "nutrientes"]
+
+variables:
+  factor_clave: uno_de(["nutrientes", "refugio", "alimento"])
+
+enunciado: "La transformación del paisaje mediante la vegetación proporcionó a los animales terrestres un factor crítico para su expansión: {factor_clave}."
+
+opciones_explicitas:
+  - "Nutrientes"
+  - "Refugio"
+  - "Alimento"
+
+respuesta: uno_de(["Nutrientes", "Refugio", "Alimento"])
 tipo: mc
-opciones_explicitas: ["Primera Guerra Púnica", "Segunda Guerra Púnica", "Tercera Guerra Púnica", "Guerra de Iliria"]
-respuesta: "Tercera Guerra Púnica"
-explicacion: "Tras la Tercera Guerra Púnica (149-146 a.C.), Roma no solo destruyó Cartago, sino que eliminó a su último gran rival naval y comercial en el oeste, permitiendo el control total de las rutas marítimas occidentales."
+
+explicacion: |
+  La vegetación no solo provee alimento, sino que estabiliza el suelo (nutrientes) y crea estructuras físicas para la protección (refugio), permitiendo la diversificación de nichos para la fauna.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["augusto", "egipto", "batalla-actium"]
-enunciado: "La anexión de Egipto como provincia romana marcó el fin de la República y el inicio del Principado, al poner bajo control directo de Augusto los graneros del Mediterráneo."
-respuesta: verdadero
-tipo: vf
-explicacion: "La anexión ocurrió en el 30 a.C., tras la batalla de Actium (31 a.C.) y el suicidio de Cleopatra y Marco Antonio, convirtiendo al último reino helenístico en una provincia imperial privada de los senadores."
-```
+  tema: "conquista_tierra_firme"
+  nivel: "avanzado"
+  tags: ["artropodos", "silurico", "paleontologia"]
 
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["anibal", "escipion", "trabajo"]
-enunciado: "Complete la frase: El tratado de paz que puso fin a la Segunda Guerra Púnica fue firmado en el año _____, obligando a Cartago a pagar una indemnización masiva y a ceder sus territorios exteriores."
-respuesta: "201 a.C."
-respuestas_validas:
-  - "201 a.C."
-  - "201ac"
-  - "201 a c"
-  - "201 AC"
+respuesta: "428"
 tipo: completar
-explicacion: "El tratado de 201 a.C. desmanteló el imperio cartaginés, dejándolo como un estado cliente sin capacidad militar exterior y sometido a fuertes restricciones económicas."
+tolerancia_abs: 5
+
+enunciado: "El fósil de miriápodo Pneumodesmus newmani, considerado el animal terrestre que respira aire más antiguo conocido, data de hace aproximadamente ___ millones de años (período Silúrico)."
+
+explicacion: |
+  Los artrópodos colonizaron la tierra firme mucho antes que los tetrápodos, ya en el Silúrico (hace ~428 millones de años), no recién hacia el final del Devónico.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
+  tema: "conquista_tierra_firme"
   nivel: "intermedio"
-  tags: ["filipo-v", "batalla-cinocefalas", "helenismo"]
-enunciado: "¿Cuál fue la consecuencia política inmediata de la derrota de Filipo V de Macedonia en la batalla de Cinocefalas (197 a.C.) ante los romanos?"
-opciones_explicitas:
-  - "Macedonia se convirtió en una provincia romana directamente gobernada por un legado."
-  - "Filipo V perdió sus territorios no griegos y se vio obligado a pagar tributo y entregar rehenes."
-  - "Roma estableció una base naval permanente en Corinto de inmediato."
-  - "Grecia fue declarada oficialmente \"libre\" pero bajo protectorado militar romano."
-respuesta: "Filipo V perdió sus territorios no griegos y se vio obligado a pagar tributo y entregar rehenes."
+  tags: ["plantas", "briofitas", "evolucion"]
+
+respuesta: "falso"
 tipo: mc
-explicacion: "Tras Cinocefalas, Macedonia no se anexionó inmediatamente, sino que se debilitó políticamente mediante tributos y la pérdida de territorios clave, sentando las bases para la anexión posterior."
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "¿Es correcto afirmar que las primeras plantas terrestres ya poseían raíces verdaderas y tejido vascular desarrollado, similares a los árboles actuales?"
+
+explicacion: |
+  Falso. Las primeras plantas terrestres eran simples, parecidas a musgos y hepáticas, sin raíces verdaderas ni sistema vascular complejo; estas estructuras se desarrollaron más tarde, en plantas vasculares posteriores.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
+  tema: "conquista_tierra_firme"
   nivel: "intermedio"
-  tags: ["cartago", "caton", "destruccion"]
-enunciado: "Complete la frase: El pretexto principal que Cato el Viejo utilizó para abogar por la destrucción de Cartago fue que esta ciudad, a pesar del tratado de paz, había recuperado su _____ y prosperidad económica."
-respuesta: "poder militar"
-respuestas_validas:
-  - "poder militar"
-  - "capacidad militar"
-  - "fuerza militar"
-  - "potencial militar"
+  tags: ["plantas", "esporas", "reproduccion"]
+
+respuesta: "esporas"
 tipo: completar
-explicacion: "Los romanos interpretaron la recuperación económica de Cartago (especialmente en agricultura y comercio) como una amenaza militar latente, justificando así la guerra preventiva."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["italia", "aliados", "ciudadania"]
-enunciado: "La Guerra Social (91-88 a.C.) estalló principalmente porque los aliados itálicos de Roma (socii) exigían:"
-opciones_explicitas:
-  - "La independencia total de la península itálica."
-  - "La igualdad de derechos políticos y ciudadanía romana."
-  - "La abolición de la deuda pública."
-  - "La redistribución de las tierras conquistadas en Oriente."
-respuesta: "La igualdad de derechos políticos y ciudadanía romana."
-tipo: mc
-explicacion: "Los aliados itálicos habían luchado junto a Roma durante siglos sin obtener la ciudadanía, lo que generó un resentimiento que estalló en una revuelta masiva cuando se denegó su petición."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["julio-caesar", "galia", "cultura"]
-enunciado: "¿Qué efecto cultural y administrativo tuvo la conquista de la Galia por Julio César entre el 58 y el 50 a.C.?"
-opciones_explicitas:
-  - "Imposición inmediata del cristianismo en toda la región."
-  - "Romanización progresiva, introducción del latín y creación de infraestructura urbana."
-  - "Destrucción total de la población indígena y su reemplazo por esclavos orientales."
-  - "Mantenimiento de la estructura tribal sin cambios administrativos romanos."
-respuesta: "Romanización progresiva, introducción del latín y creación de infraestructura urbana."
-tipo: mc
-explicacion: "La Galia se integró en el sistema provincial romano, adoptando la lengua, el derecho y las ciudades (oppida) como centros de romanización, aunque el proceso tomó siglos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["galia-narbonense", "provincia", "francia"]
-enunciado: "Complete la frase: La Galia Narbonense fue la primera provincia romana al norte de los Alpes, anexada formalmente en el año _____, sirviendo de puente logístico hacia la Galia transalpina."
-respuesta: "121 a.C."
 respuestas_validas:
-  - "121 a.C."
-  - "121ac"
-  - "121 a c"
-  - "121 AC"
+  - "esporas"
+
+enunciado: "Las primeras plantas terrestres se reprodujeron principalmente mediante ___, estructuras resistentes a la desecación que les permitían dispersarse sin depender de un medio acuático constante."
+
+explicacion: |
+  A diferencia de las semillas (una innovación posterior), las esporas fueron el mecanismo reproductivo de las plantas pioneras, permitiéndoles colonizar ambientes terrestres secos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_tierra_firme"
+  nivel: "basico"
+  tags: ["artropodos", "exoesqueleto", "adaptacion"]
+
+respuesta: "exoesqueleto"
 tipo: completar
-explicacion: "Establecida tras las campañas contra los alóbroges y arvernos, esta provincia (sur de Francia actual) fue crucial para el comercio y el movimiento de tropas hacia el norte."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["mithridates", "ponto", "asiatica"]
-enunciado: "Mitrídates VI del Ponto inició la Primera Guerra Mithridática (89-85 a.C.) principalmente para:"
-opciones_explicitas:
-  - "Expulsar a los romanos de toda Asia Menor y liberar a las ciudades griegas de su tutela."
-  - "Conquistar Egipto para unirla al Ponto."
-  - "Vengar la muerte de su padre en manos de Roma."
-  - "Detener la expansión romana hacia el norte de África."
-respuesta: "Expulsar a los romanos de toda Asia Menor y liberar a las ciudades griegas de su tutela."
-tipo: mc
-explicacion: "Mitrídates se presentó como libertador de los griegos de Asia contra la \"opresión romana\" y organizó una matanza de ciudadanos romanos y italianos en Asia Menor (el \"Vespero Asiático\") para debilitar la presencia romana."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["guerra-civil", "cesar", "pompeyo"]
-enunciado: "¿Qué evento específico puso fin a la República Romana y permitió la expansión imperial bajo un solo hombre?"
-opciones_explicitas:
-  - "La cruzada contra los piratas cilicios."
-  - "El cruce del río Rubicón por Julio César en 49 a.C."
-  - "La fundación de la colonia de Carthago Nova."
-  - "La victoria en la batalla de Alesia."
-respuesta: "El cruce del río Rubicón por Julio César en 49 a.C."
-tipo: mc
-explicacion: "Al cruzar el Rubicón con sus legiones, César desafió la autoridad del Senado, iniciando una guerra civil que, al ganar, concentró el poder en su persona y sentó las bases del Imperio."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["augusto", "claudio", "britania"]
-enunciado: "A diferencia de las invasiones de César, la conquista permanente de Britania comenzó bajo Claudio en 43 d.C. ¿Cuál fue su principal objetivo estratégico?"
-opciones_explicitas:
-  - "Buscar legiones de oro y plata abundantes."
-  - "Consolidar una frontera natural en el océano y ganar prestigio político."
-  - "Evitar la invasión de los vikingos desde el norte."
-  - "Controlar las rutas comerciales de la seda desde Asia."
-respuesta: "Consolidar una frontera natural en el océano y ganar prestigio político."
-tipo: mc
-explicacion: "Claudio, un emperador con poca experiencia militar, utilizó la conquista de Britania (una tierra lejana y misteriosa para los romanos) para ganar legitimidad y popularidad entre el pueblo romano."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["lesia", "vercingetoriges", "caesar"]
-enunciado: "Complete la frase: La resistencia galia se consideró derrotada tras la rendición de Vercingetorix en Alesia, ocurrida en el año _____, fecha simbólica del fin de la independencia celta."
-respuesta: "52 a.C."
 respuestas_validas:
-  - "52 a.C."
-  - "52ac"
-  - "52 a c"
-  - "52 AC"
+  - "exoesqueleto"
+
+enunciado: "La estructura externa rígida y cerosa que permitió a los artrópodos resistir la deshidratación al colonizar la tierra firme se denomina ___."
+
+explicacion: |
+  El exoesqueleto de quitina, recubierto por una capa cerosa, reduce la pérdida de agua por evaporación, una de las principales amenazas para los primeros animales terrestres.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_tierra_firme"
+  nivel: "avanzado"
+  tags: ["tetrapodos", "diversificacion", "paleontologia"]
+
+respuesta: "falso"
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "¿Es correcto afirmar que, inmediatamente después de la aparición de los primeros tetrápodos en el Devónico, existe un registro fósil abundante y continuo de su diversificación en tierra?"
+
+explicacion: |
+  Falso. Existe un período con muy pocos fósiles de tetrápodos justo después de su aparición, conocido como el 'vacío de Romer' (Romer's Gap), que dificulta rastrear en detalle su diversificación temprana en el Carbonífero inicial.
+```
+
+## Sección: distribucion-biomas (25 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "basico"
+  tags: ["conceptos", "ecologia"]
+
+tipo: mc
+opciones_explicitas: ["Una agrupación de especies animales y vegetales en un área determinada.", "Una gran región con clima, vegetación y fauna característicos.", "Un conjunto de suelos con propiedades químicas similares.", "La suma de todos los ecosistemas de un continente."]
+
+enunciado: "Un bioma se define como ___."
+
+respuesta: "Una gran región con clima, vegetación y fauna característicos."
+
+explicacion: |
+  Un bioma es una unidad ecológica de gran escala que se caracteriza por tener un clima, un tipo de vegetación y una fauna específicos que se repiten en diferentes partes del planeta.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "basico"
+  tags: ["factores_climaticos"]
+
+tipo: mc
+opciones_explicitas: ["La altitud y la presión atmosférica.", "La latitud y el clima.", "La distancia a la costa y la humedad.", "La actividad volcánica y el relieve."]
+enunciado: "La distribución de los biomas en la superficie terrestre está determinada principalmente por:"
+respuesta: "La latitud y el clima."
+explicacion: |
+  La latitud determina la radiación solar recibida, lo cual, junto con la humedad y la temperatura (clima), define el tipo de vegetación y el bioma resultante.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "intermedio"
+  tags: ["ejemplos", "clasificacion"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["Selva Tropical", "Desierto"], ["Altas precipitaciones y calor constante", "Escasez extrema de agua y temperaturas extremas"]]
+
 tipo: completar
-explicacion: "La batalla de Alesia fue el punto de inflexión militar. Aunque hubo resistencias posteriores, 52 a.C. marca el colapso de la organización militar galia unificada frente a Roma."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["numidia", "jugurta", "corrupcion"]
-enunciado: "La Guerra de Jugurta (112-106 a.C.) estalló porque el rey de Numidia, Jugurta, se negó a aceptar la división de su reino y comenzó a atacar a aliados romanos. ¿Qué factor romano facilitó inicialmente su rebeldía?"
-opciones_explicitas:
-  - "La corrupción de los magistrados romanos que fueron sobornados."
-  - "La falta de interés de Roma en el norte de África."
-  - "La alianza secreta entre Roma y Cartago."
-  - "La debilidad del ejército romano tras las Guerras Púnicas."
-respuesta: "La corrupción de los magistrados romanos que fueron sobornados."
-tipo: mc
-explicacion: "La famosa frase \"urbs venalis\" (ciudad a la venta) de Salustio refleja cómo la corrupción en Roma permitió a Jugurta comprar la impunidad inicial, hasta que Mario intervino militarmente."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["domiciano", "trayano", "dacia"]
-enunciado: "Tras las dos guerras dacias (101-102 y 105-106 d.C.), Trajano anexionó Dacia. ¿Cuál fue el beneficio económico principal que justificó esta costosa campaña?"
-opciones_explicitas:
-  - "El control de las minas de oro y plata de los Cárpatos."
-  - "El acceso directo al mar Negro para el comercio de grano."
-  - "La captura de esclavos para las minas de España."
-  - "El monopolio de la sal en la región."
-respuesta: "El control de las minas de oro y plata de los Cárpatos."
-tipo: mc
-explicacion: "Las minas dacias, especialmente las de oro de Alburnus Maior, fueron extremadamente productivas y ayudaron a financiar la administración y los monumentos de Trajano."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["jerusalen", "temple", "cesar"]
-enunciado: "Complete la frase: La Primera Guerra Judaica (66-73 d.C.) estalló tras una serie de insultos a la religión judía por parte del procurador romano _____, que provocó la revuelta abierta en Jerusalén."
-respuesta: "Gessio Floro"
 respuestas_validas:
-  - "Gessio Floro"
-  - "Gessiofloro"
-  - "Gessius Florus"
-  - "Floro"
+  - "Selva Tropical"
+  - "Desierto"
+
+enunciado: "El bioma caracterizado por {escenarios[escenario_idx][1]} es la {escenarios[escenario_idx][0]}."
+
+explicacion: |
+  El usuario debe identificar el bioma basado en la descripción climática proporcionada.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "intermedio"
+  tags: ["clima", "vegetacion"]
+
 tipo: completar
-explicacion: "Gessio Floro saqueó el tesoro del Templo y ejecutó injustamente a ciudadanos judíos, actuando como el detonante final de un conflicto latente por tensiones religiosas y fiscales."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["trayano", "partia", "armenia"]
-enunciado: "Trajano anexionó Armenia como provincia en 114 d.C. ¿Qué poder regional era el principal competidor de Roma en esta zona?"
-opciones_explicitas:
-  - "El Imperio Sasánida."
-  - "El Reino de Ponto."
-  - "El Imperio Parta."
-  - "El Reino de Nabatea."
-respuesta: "El Imperio Parta."
-tipo: mc
-explicacion: "Armenia era un estado tapón disputado entre Roma y Partia. La anexión de Trajano eliminó este tapón, llevando las legiones romanas hasta el Golfo Pérsico, pero fue abandonada por Adriano por ser insostenible."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["petra", "arabia-petraea", "trayano"]
-enunciado: "Complete la frase: El reino de Nabatea, rico gracias al comercio de incienso, fue anexionado como provincia Arabia Petraea en el año _____, extendiendo la frontera sur del imperio."
-respuesta: 106
 respuestas_validas:
-  - 106
-  - "106 d.C."
-  - "106dc"
-  - "106 dc"
+  - "Tundra"
+
+enunciado: "El bioma de clima frío, con suelos congelados (permafrost) y vegetación de musgos y líquenes, se denomina ___."
+
+explicacion: |
+  La Tundra se caracteriza por condiciones climáticas extremas de frío y la presencia de permafrost, lo que impide el crecimiento de árboles grandes.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "avanzado"
+  tags: ["jerarquia", "ecologia"]
+
+tipo: ordenar
+opciones_explicitas: ["Individuo", "Población", "Comunidad", "Ecosistema", "Bioma"]
+
+enunciado: "Ordene de menor a mayor complejidad los niveles de organización ecológica que conforman la estructura de un bioma:"
+
+explicacion: |
+  La jerarquía parte desde el organismo individual, pasa por grupos de la misma especie (población), interacciones entre especies (comunidad), la relación con el medio físico (ecosistema) y finalmente la escala global (bioma).
+respuesta_orden: ["Individuo", "Población", "Comunidad", "Ecosistema", "Bioma"]
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "basico"
+  tags: ["latitud", "clima"]
+
+respuesta: "latitud"
+tipo: mc
+opciones_explicitas: ["latitud", "altitud", "densidad_poblacion", "geologia"]
+
+enunciado: "La distribución de los biomas en la superficie terrestre sigue patrones principales determinados por la ___, debido a la inclinación del eje terrestre y el ángulo de incidencia de la radiación solar."
+
+explicacion: |
+  La latitud determina la cantidad de radiación solar que recibe una superficie, creando franjas climáticas que definen los biomas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "intermedio"
+  tags: ["altitud", "gradiente_termico"]
+
+respuesta: "disminución de temperatura"
 tipo: completar
-explicacion: "La anexión fue pacífica, posiblemente por la muerte del rey nabateo sin heredero varón, permitiendo a Roma controlar las rutas comerciales del sur y proteger Egipto."
+respuestas_validas:
+  - "disminución de temperatura"
+
+enunciado: "Al aumentar la altitud en una montaña, se produce un gradiente térmico donde ocurre una ___."
+
+explicacion: |
+  A mayor altitud, la presión atmosférica disminuye y la temperatura desciende, lo que puede cambiar el bioma local (piso térmico).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "intermedio"
+  tags: ["latitud", "zonas_climaticas"]
+
+variables:
+  datos: uno_de([["Ecuador", "Selva Tropical"], ["Zonas Templadas", "Bosques Caducifolios"], ["Polos", "Tundra"]])
+
+respuesta: datos[1]
+tipo: mc
+opciones_explicitas: ["Selva Tropical", "Bosques Caducifolios", "Tundra", "Desierto"]
+
+enunciado: "En las zonas de {datos[0]}, el bioma predominante suele ser el de {datos[1]}."
+
+explicacion: |
+  La radiación solar constante en el ecuador permite el desarrollo de biomas con alta biodiversidad y precipitaciones abundantes.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "avanzado"
+  tags: ["altitud", "zonas_verticales"]
+
+respuesta_orden: ["Bosque de niebla", "Páramo", "Superpáramo", "Nieves perpetuas"]
+tipo: ordenar
+opciones_explicitas: ["Bosque de niebla", "Páramo", "Superpáramo", "Nieves perpetuas"]
+
+enunciado: "Ordene los siguientes biomas de montaña desde la menor hasta la mayor altitud (de la base a la cima):"
+
+explicacion: |
+  La altitud genera una zonificación vertical donde la vegetación cambia según la temperatura y la presión.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "basico"
+  tags: ["factores", "clima"]
+
+respuesta: 2
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si sumamos los dos factores principales que determinan la distribución de biomas: la latitud (1) y la altitud (1), el resultado es: ___"
+
+explicacion: |
+  Ambos factores modifican la temperatura y la humedad, elementos clave para la vida vegetal.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "basico"
+  tags: ["selva", "tropical", "ecuador"]
+
+tipo: mc
+opciones_explicitas: ["Ecuador", "Sahara", "Antártida", "Siberia"]
+
+enunciado: "La selva tropical es un bioma caracterizado por altas temperaturas y precipitaciones constantes. Un ejemplo de región donde este bioma es predominante es ___."
+
+respuesta: "Ecuador"
+
+explicacion: |
+  La selva tropical, como la de Ecuador, se encuentra en zonas ecuatoriales con alta humedad y calor todo el año.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "basico"
+  tags: ["desierto", "subtropical", "clima"]
+
+tipo: completar
+respuestas_validas:
+  - "seco"
+
+enunciado: "Los desiertos se localizan generalmente en zonas subtropicales y se caracterizan por tener un clima muy ___."
+
+respuesta: "seco"
+
+explicacion: |
+  El desierto se define por la escasez de precipitaciones, lo que resulta en un clima extremadamente seco.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "intermedio"
+  tags: ["tundra", "polar", "latitud"]
+
+variables:
+  datos: [["Tundra", "Zonas polares"], ["Bosque templado", "Zonas de latitudes medias"]]
+  escenario_idx: uno_de([0, 1])
+  bioma: datos[escenario_idx][0]
+  ubicacion: datos[escenario_idx][1]
+
+tipo: mc
+opciones_explicitas: ["Tundra", "Bosque templado", "Selva tropical", "Desierto"]
+
+enunciado: "Considerando el bioma de {bioma}, este se encuentra ubicado típicamente en {ubicacion}."
+
+respuesta: bioma
+
+explicacion: |
+  La tundra se caracteriza por condiciones climáticas extremas en las zonas polares.
+  El bosque templado se ubica en zonas de latitudes medias.
+  La selva tropical en zonas ecuatoriales.
+  El desierto en zonas áridas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "avanzado"
+  tags: ["orden", "latitud", "clima"]
+
+tipo: ordenar
+opciones_explicitas: ["Selva tropical", "Bosque templado", "Tundra"]
+
+respuesta_orden: ["Selva tropical", "Bosque templado", "Tundra"]
+
+enunciado: "Ordena los siguientes biomas de mayor a menor temperatura (del más cálido al más frío):"
+
+explicacion: |
+  La temperatura disminuye a medida que nos alejamos del ecuador hacia los polos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "basico"
+  tags: ["bosque", "templado", "estaciones"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "El bosque templado se distingue de la selva por presentar estaciones del año bien marcadas. Si la temperatura media anual es de 15 grados, el valor numérico es ___."
+
+respuesta: 15
+
+explicacion: |
+  El bosque templado presenta variaciones estacionales significativas en su temperatura.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "intermedio"
+  tags: ["biogeografia", "tectonica_de_placas"]
+
+variables:
+  escenario: uno_de([["Pangea", "Pangea"], ["Gondwana", "Gondwana"], ["Laurasia", "Laurasia"]])
+
+enunciado: "La distribución actual de biomas y especies está influenciada por la fragmentación de {escenario[0]}."
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["Pangea", "Gondwana", "Laurasia", "Panthalassa"]
+
+explicacion: |
+  La fragmentación de Pangea permitió que las especies evolucionaran de forma aislada en diferentes masas continentales, determinando la distribución actual de biomas y la biodiversidad regional.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "intermedio"
+  tags: ["biogeografia", "aislamiento"]
+
+enunciado: "La separación de Australia permitió que la fauna evolucionara de manera única (el aislamiento de los marsupiales), un proceso clave en la biogeografía histórica."
+
+respuesta: "Australia"
+tipo: mc
+opciones_explicitas: ["Australia", "América del Sur", "África", "Antártida"]
+
+explicacion: |
+  El aislamiento geográfico prolongado impide el flujo genético, permitiendo que especies específicas evolucionen en biomas exclusivos de esa región.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "basico"
+  tags: ["factores_climaticos", "biomas"]
+
+variables:
+  factor: uno_de([["latitud", "la distancia respecto al ecuador"], ["altitud", "la altura sobre el nivel del mar"]])
+
+enunciado: "La distribución de los biomas no solo depende de la tectónica, sino también de factores climáticos como la {factor[0]}."
+
+respuesta: factor[0]
+tipo: mc
+opciones_explicitas: ["latitud", "altitud", "presión", "salinidad"]
+
+explicacion: |
+  La latitud determina la radiación solar recibida, lo cual es un factor determinante para la clasificación de biomas (tropicales, templados, polares).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "intermedio"
+  tags: ["historia_geologica", "procesos"]
+
+enunciado: "Ordena cronológicamente los procesos que influyen en la distribución de la vida en la Tierra:"
+
+pasos:
+  - "Formación de supercontinentes (ej. Pangea)"
+  - "Fragmentación de las masas continentales"
+  - "Evolución y especiación por aislamiento"
+  - "Establecimiento de biomas actuales"
+
+respuesta_orden: ["Formación de supercontinentes (ej. Pangea)", "Fragmentación de las masas continentales", "Evolución y especiación por aislamiento", "Establecimiento de biomas actuales"]
+tipo: ordenar
+opciones_explicitas: ["Formación de supercontinentes (ej. Pangea)", "Fragmentación de las masas continentales", "Evolución y especiación por aislamiento", "Establecimiento de biomas actuales"]
+
+explicacion: |
+  La estructura geológica establece la base física, la fragmentación crea barreras, el aislamiento permite la especiación y el clima finaliza la configuración de los biomas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "avanzado"
+  tags: ["biogeografia", "tectonica"]
+
+enunciado: "La relación entre la tectónica de placas y la biogeografía es ___________."
+
+respuesta: "directa"
+tipo: completar
+opciones_explicitas: ["directa", "inversa"]
+respuestas_validas:
+  - "directa"
+
+pasos:
+  - "Analizar cómo el movimiento de placas crea o destruye barreras físicas."
+  - "Considerar cómo estas barreras afectan la migración de especies."
+
+explicacion: |
+  Es una relación directa: el movimiento de las placas tectónicas crea montañas, océanos y separa continentes, lo que dicta las rutas de migración y el aislamiento de las especies.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "basico"
+  tags: ["clima", "latitud", "selva"]
+
+enunciado: "Un ecosistema con temperaturas elevadas durante todo el año, precipitaciones constantes y una biodiversidad extrema se encuentra en la zona de latitud ecuatorial. ¿Qué bioma es?"
+
+respuesta: "Selva Tropical"
+tipo: mc
+opciones_explicitas: ["Selva Tropical", "Tundra", "Desierto"]
+
+explicacion: |
+  La selva tropical se caracteriza por su clima cálido y húmedo, situado cerca del ecuador.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "basico"
+  tags: ["clima", "precipitacion"]
+
+enunciado: "Si un área presenta precipitaciones prácticamente nulas y una evaporación muy superior a la precipitación, el bioma es un ___."
+
+respuesta: "Desierto"
+tipo: completar
+respuestas_validas:
+  - "Desierto"
+
+explicacion: |
+  Los desiertos se definen por la escasez extrema de agua y la alta tasa de evaporación.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "intermedio"
+  tags: ["latitud", "secuencia", "clima"]
+
+enunciado: "Ordene los siguientes biomas desde la zona ecuatorial hacia los polos (de mayor a menor temperatura):"
+
+respuesta_orden: ["Selva Tropical", "Bosque Templado", "Tundra"]
+tipo: ordenar
+opciones_explicitas: ["Selva Tropical", "Bosque Templado", "Tundra"]
+
+explicacion: |
+  La temperatura disminuye a medida que nos alejamos del ecuador hacia los polos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "intermedio"
+  tags: ["clima", "suelo", "tundra"]
+
+enunciado: "Un bioma caracterizado por el permafrost permanente y la presencia de musgos y líquenes es la ___."
+
+respuesta: "Tundra"
+tipo: completar
+respuestas_validas:
+  - "Tundra"
+
+explicacion: |
+  La tundra se define por el permafrost, un suelo que permanece congelado casi todo el año.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "distribucion_biomas"
+  nivel: "basico"
+  tags: ["clima", "estaciones"]
+
+enunciado: "Un ecosistema con estaciones bien definidas y árboles que pierden sus hojas en otoño es un ___."
+
+respuesta: "Bosque Templado"
+tipo: mc
+opciones_explicitas: ["Bosque Templado", "Desierto", "Selva"]
+
+explicacion: |
+  El bosque templado se distingue por la marcada estacionalidad de sus climas.
+```
+
+## Sección: cinco-extinciones-masivas (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "basico"
+  tags: ["geologia", "paleontologia"]
+
+tipo: mc
+opciones_explicitas: ["Ordovícico-Silúrico", "Devónico", "Pérmico-Triásico", "Cretácico-Paleógeno"]
+
+enunciado: "La primera de las cinco grandes extinciones masivas de la historia de la Tierra ocurrió durante el periodo ___."
+
+respuesta: "Ordovícico-Silúrico"
+
+explicacion: |
+  La extinción del Ordovícico-Silúrico (hace ~444 millones de años) fue causada principalmente por una glaciación intensa que redujo los niveles del mar y la oxigenación de los océanos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
+  tema: "cinco_extinciones_masivas"
   nivel: "intermedio"
-  tags: ["cimbrios", "teutones", "migra"]
-enunciado: "Las guerras contra los Cimbrios y Teutones (113-101 a.C.) fueron causadas por:"
-opciones_explicitas:
-  - "Una invasión planificada por el rey persa."
-  - "La migración de pueblos germánicos y celtas hacia el sur y este, desplazados por cambios climáticos o presión demográfica."
-  - "Un ataque preventivo de Roma para conquistar Germania."
-  - "La búsqueda de oro en las minas de España."
-respuesta: "La migración de pueblos germánicos y celtas hacia el sur y este, desplazados por cambios climáticos o presión demográfica."
+  tags: ["permico", "extincion"]
+
 tipo: mc
-explicacion: "No fue una invasión militar tradicional, sino una migración masiva de pueblos enteros (familias, ganado) que chocó con la expansión romana, causando graves derrotas iniciales a Roma antes de la victoria de Mario."
+opciones_explicitas: ["Pérmico-Triásico", "Triásico-Jurásico", "Cretácico-Paleógeno"]
+
+enunciado: "El evento conocido como 'La Gran Mortandad' ocurrió durante la extinción ___."
+
+respuesta: "Pérmico-Triásico"
+
+explicacion: |
+  La extinción del Pérmico-Triásico fue la más severa de la historia, eliminando aproximadamente el 96% de las especies marinas.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["moesia", "danubio", "frontiera"]
-enunciado: "La creación de la provincia de Moesia (29 a.C.) sirvió principalmente para:"
-opciones_explicitas:
-  - "Proteger la frontera norte del Danubio contra los dacios y tracios."
-  - "Controlar las minas de plata de Dacia."
-  - "Acceder al comercio de la ruta de la seda."
-  - "Defender Grecia de los godos."
-respuesta: "Proteger la frontera norte del Danubio contra los dacios y tracios."
-tipo: mc
-explicacion: "Moesia se estableció como una provincia militar clave para estabilizar la frontera del Danubio, que se convertiría en la línea de defensa contra los pueblos germánicos y dacios."
+  tema: "cinco_extinciones_masivas"
+  nivel: "basico"
+  tags: ["asteroide", "dinosaurios"]
+
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "La extinción del Cretácico-Paleógeno es frecuentemente asociada al impacto de un asteroide en la península de Yucatán. ¿Cuántos millones de años aproximadamente ocurrió este evento? (Escribe el número entero)"
+
+respuesta: 66
+
+explicacion: |
+  Hace aproximadamente 66 millones de años, el impacto del asteroide Chicxulub marcó el fin de la era de los dinosaurios no avianos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["trayano", "mapa", "maxima"]
-enunciado: "El Imperio Romano alcanzó su máxima extensión territorial bajo el reinado de:"
-opciones_explicitas:
-  - "Augusto."
-  - "Trajano."
-  - "Adriano."
-  - "Constantino."
-respuesta: "Trajano."
-tipo: mc
-explicacion: "Bajo Trajano (98-117 d.C.), el imperio se expandió al máximo, incluyendo Dacia, Mesopotamia y Arabia, aunque estas últimas conquistas orientales fueron rápidamente abandonadas por su sucesor Adriano."
+  tema: "cinco_extinciones_masivas"
+  nivel: "avanzado"
+  tags: ["cronologia", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["Ordovícico-Silúrico", "Devónico", "Pérmico-Triásico", "Triásico-Jurásico", "Cretácico-Paleógeno"]
+
+enunciado: "Ordena cronológicamente las cinco grandes extinciones masivas, desde la más antigua a la más reciente."
+
+respuesta_orden: ["Ordovícico-Silúrico", "Devónico", "Pérmico-Triásico", "Triásico-Jurásico", "Cretácico-Paleógeno"]
+
+explicacion: |
+  El orden correcto sigue la escala de tiempo geológico: Ordovícico (444 Ma), Devónico (375 Ma), Pérmico (252 Ma), Triásico (201 Ma) y Cretácico (66 Ma).
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
+  tema: "cinco_extinciones_masivas"
   nivel: "intermedio"
-  tags: ["marcomanos", "marco-aurelio", "germania"]
-enunciado: "Durante el reinado de Marco Aurelio, las guerras marcománicas (166-180 d.C.) fueron causadas por:"
-opciones_explicitas:
-  - "La invasión de pueblos germánicos (marcomanos, cuados) a través del Danubio, presionados por pueblos del este."
-  - "La revuelta de los esclavos en Italia."
-  - "La caída del muro de Adriano."
-  - "La disputa por el trono de Armenia."
-respuesta: "La invasión de pueblos germánicos (marcomanos, cuados) a través del Danubio, presionados por pueblos del este."
-tipo: mc
-explicacion: "Estas guerras marcaron el fin de la seguridad fronteriza y el inicio de una crisis prolongada, donde los bárbaros penetraron profundamente en territorio romano, forzando al emperador a liderar campañas prolongadas."
+  tags: ["devonico", "oceanos"]
+
+tipo: completar
+respuestas_validas:
+  - "anoxia"
+
+enunciado: "Se cree que la extinción del Devónico fue causada por cambios en los niveles de ___ en los océanos, debido a la proliferación de plantas terrestres que aumentaron la escorrentía de nutrientes."
+
+respuesta: "anoxia"
+
+explicacion: |
+  La expansión de la vegetación terrestre aumentó el aporte de nutrientes a los mares, provocando eutrofización y la posterior anoxia (falta de oxígeno) en las aguas.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["chipre", "macedonia", "cobre"]
-enunciado: "Chipre fue anexionada como provincia romana en 58 a.C. ¿Qué recurso natural era clave para su importancia económica previa?"
-opciones_explicitas:
-  - "El cobre (de ahí el nombre \"Cyprium\")."
-  - "El oro de las montañas."
-  - "El aceite de oliva."
-  - "El vino de alta calidad."
-respuesta: "El cobre (de ahí el nombre \"Cyprium\")."
-tipo: mc
-explicacion: "El nombre \"copper\" (cobre) en inglés deriva del latín \"aes Cyprium\" (bronce de Chipre). Su anexion fue parte de la reorganización de las provincias del este por Cicerón como procónsul."
+  tema: "cinco_extinciones_masivas"
+  nivel: "basico"
+  tags: ["permerico", "triasico", "extincion"]
+
+respuesta: "96%"
+tipo: completar
+respuestas_validas:
+  - "96%"
+  - "95%"
+  - "90%"
+
+enunciado: "La extinción del Pérmico-Triásico es conocida como 'la Gran Mortandad' debido a que se estima que causó la desaparición de hasta un ___ de las especies marinas."
+
+explicacion: |
+  Fue el evento de extinción más severo de la historia de la Tierra, eliminando la gran mayoría de la vida marina.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
-  nivel: "intermedio"
-  tags: ["agripa", "germania", "rin"]
-enunciado: "Tras las fallidas campañas de Augusto en Germania (9-16 d.C.) y la derrota de Varo en Teutoburgo (9 d.C.), la frontera occidental/norte se estabilizó en:"
-opciones_explicitas:
-  - "El río Rin y el Danubio."
-  - "El mar del Norte."
-  - "El río Elba."
-  - "Las Islas Británicas."
-respuesta: "El río Rin y el Danubio."
+  tema: "cinco_extinciones_masivas"
+  nivel: "basico"
+  tags: ["permerico", "triasico", "magnitud"]
+
+respuesta: "Pérmico-Triásico"
 tipo: mc
-explicacion: "La derrota de Teutoburgo demostró que Germania era demasiado difícil de conquistar y poblar. Augusto decidió consolidar las fronteras naturales del Rin y el Danubio, deteniendo la expansión hacia el este de Germania."
+opciones_explicitas: ["Pérmico-Triásico", "Cretácico-Paleógeno", "Ordovícico-Silúrico", "Devónico-Carbonífero"]
+
+enunciado: "La extinción que ocurrió hace aproximadamente 252 millones de años y fue la más devastadora de la historia es la del periodo ___."
+
+explicacion: |
+  El evento Pérmico-Triásico es el punto de extinción más grande registrado en el registro fósil.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
+  tema: "cinco_extinciones_masivas"
   nivel: "intermedio"
-  tags: ["numidia", "provincia", "africa"]
-enunciado: "Tras la muerte del rey Juba II y la posterior anexión de Numidia, esta región se unió a la provincia de:"
-opciones_explicitas:
-  - "África Proconsular."
-  - "Egipto."
-  - "Cirenaica."
-  - "Mauritania."
-respuesta: "África Proconsular."
-tipo: mc
-explicacion: "La anexión de Numidia (posterior a la era de Juba II y la caída de Masinisa) expandió la provincia de África hacia el este, integrando la rica tierra agrícola numidia en el corazón del aprovisionamiento de Roma."
+  tags: ["causas", "volcanismo", "permico"]
+
+respuesta: "Siberian Traps"
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Se cree que la causa principal de la extinción del Pérmico-Triásico fue el vulcanismo masivo asociado a los llamados ___."
+
+explicacion: |
+  Las erupciones de los Traps de Siberia liberaron enormes cantidades de gases de efecto invernadero, provocando un calentamiento global extremo y acidificación de los océanos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "expansion-del-imperio-romano"
+  tema: "cinco_extinciones_masivas"
+  nivel: "avanzado"
+  tags: ["secuencia", "procesos"]
+
+respuesta_orden: ["Erupción masiva", "Calentamiento global", "Acidificación oceánica", "Extinción masiva"]
+tipo: ordenar
+opciones_explicitas: ["Erupción masiva", "Calentamiento global", "Acidificación oceánica", "Extinción masiva"]
+
+enunciado: "Ordena la secuencia probable de eventos que desencadenaron la Gran Mortandad:"
+
+pasos:
+  - "Inicio del vulcanismo masivo"
+  - "Aumento de la temperatura global"
+  - "Cambio químico en los océanos"
+  - "Colapso de la biodiversidad"
+
+explicacion: |
+  El ciclo comenzó con el vulcanismo extremo, que alteró la atmósfera y los océanos, llevando al colapso de los ecosistemas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
   nivel: "intermedio"
-  tags: ["domiciano", "decebalo", "trayano"]
-enunciado: "La Segunda Guerra Dacia (105-106 d.C.) fue necesaria porque el rey Decébalo:"
-opciones_explicitas:
-  - "Había violado el tratado de paz anterior y rearmado al reino."
-  - "Había aliado con los partas."
-  - "Se había convertido al cristianismo."
-  - "Había atacado a los egipcios."
-respuesta: "Había violado el tratado de paz anterior y rearmado al reino."
+  tags: ["oceanos", "biodiversidad"]
+
+respuesta: "96%"
 tipo: mc
-explicacion: "Aunque la primera guerra fue victoriosa para Roma, Decébalo logró mantener la independencia nominal rearmándose en secreto. Trajano volvió para asegurar la anexión total y eliminar la amenaza fronteriza."
+opciones_explicitas: ["96%", "50%", "75%", "10%"]
+
+enunciado: "El impacto en la biodiversidad marina durante el evento del Pérmico-Triásico fue de aproximadamente un ___ de especies extinguidas."
+
+explicacion: |
+  La acidificación y la anoxia (falta de oxígeno) en los océanos fueron fatales para la mayoría de los organismos marinos de la época.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "basico"
+  tags: ["cretacico", "asteroide", "chicxulub"]
+
+tipo: mc
+opciones_explicitas: ["Impacto de un asteroide", "Erupción volcánica masiva", "Cambio climático gradual", "Fragmentación de un planeta"]
+respuesta: "Impacto de un asteroide"
+
+enunciado: "La extinción del Cretácico-Paleógeno, que ocurrió hace aproximadamente 66 millones de años, fue causada principalmente por ___."
+
+explicacion: |
+  El impacto de un asteroide en la península de Yucatán (cráter de Chicxulub) desencadenó cambios climáticos catastróficos que finalizaron el reinado de los dinosaurios no aviares.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "basico"
+  tags: ["dinosaurios", "extincion"]
+
+tipo: completar
+respuestas_validas:
+  - "no aviares"
+  - "no-aviares"
+
+enunciado: "La extinción masiva del Cretácico-Paleógeno acabó con la mayoría de los dinosaurios, con la excepción de los dinosaurios ___."
+
+explicacion: |
+  Los dinosaurios aviares (ancestros de las aves actuales) lograron sobrevivir a la catástrofe, mientras que los dinosaurios no aviares se extinguieron.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "intermedio"
+  tags: ["secuencia", "causa_efecto"]
+
+tipo: ordenar
+opciones_explicitas: ["Impacto del asteroide", "Nube de escombros global", "Bloqueo de la luz solar", "Colapso de la fotosíntesis"]
+
+enunciado: "Ordena cronológicamente los eventos que desencadenaron la extinción tras el impacto de Chicxulub:"
+
+explicacion: |
+  El impacto lanzó material al espacio que luego regresó a la atmósfera, bloqueando la luz solar y deteniendo la fotosíntesis, lo que colapsó las redes tróficas.
+respuesta_orden: ["Impacto del asteroide", "Nube de escombros global", "Bloqueo de la luz solar", "Colapso de la fotosíntesis"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "intermedio"
+  tags: ["geologia", "crater"]
+
+tipo: completar
+
+enunciado: "El cráter formado por el impacto que causó la extinción del Cretácico-Paleógeno se localiza en Yucatán, México y se conoce como cráter de ___."
+
+respuesta: "Chicxulub"
+
+explicacion: |
+  El cráter de Chicxulub en México es la evidencia geológica principal de este evento de extinción masiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "avanzado"
+  tags: ["clima", "quimica_atmosferica"]
+
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Tras el impacto inicial y el invierno de impacto, la liberación de gases como el CO2 provocó un efecto de calentamiento global. Si un registro geológico muestra un aumento drástico de carbono, ¿cuántos millones de años aproximadamente ocurrió este evento de extinción? (Responde con el número entero)"
+
+pasos:
+  - "Identificar el periodo de la extinción (66 Ma)."
+  - "Escribir el valor numérico sin texto."
+
+explicacion: |
+  La extinción ocurrió hace 66 millones de años, marcando el límite entre el período Cretácico y el Paleógeno.
+
+respuesta: 66
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "basico"
+  tags: ["asteroides", "impacto", "dinodinos"]
+
+enunciado: "Se cree que la extinción masiva del Cretácico-Paleógeno, que eliminó a los dinosaurios no avianos, fue causada principalmente por el impacto de un asteroide en la península de Yucatán. ¿Cuál fue la consecuencia inmediata más devastadora para la fotosíntesis?"
+
+opciones_explicitas: ["Aumento de la temperatura global", "Bloqueo de la luz solar por polvo y cenizas", "Aumento del nivel del mar", "Acidificación extrema de los océanos"]
+
+respuesta: "Bloqueo de la luz solar por polvo y cenizas"
+tipo: "mc"
+
+explicacion: |
+  El impacto lanzó enormes cantidades de material en la atmósfera, bloqueando la luz solar durante meses o años, lo que detuvo la fotosíntesis y colapsó las cadenas alimentarias.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "intermedio"
+  tags: ["volcanismo", "trapp", "extincion"]
+
+enunciado: "Durante la extinción del Pérmico-Triásico, la actividad de los Siberian Traps liberó enormes cantidades de gases de efecto invernadero, provocando un cambio climático abrupto. ¿Qué fenómeno climático fue el principal responsable de la anoxia oceánica?"
+
+opciones_explicitas: ["Enfriamiento global", "Calentamiento global extremo", "Glaciación masiva", "Ciclo de hielo y deshielo"]
+
+respuesta: "Calentamiento global extremo"
+tipo: "mc"
+
+explicacion: |
+  El aumento masivo de CO2 causó un calentamiento global extremo, lo que redujo la solubilidad del oxígeno en los océanos, provocando condiciones de anoxia (falta de oxígeno) que mataron la vida marina.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "avanzado"
+  tags: ["nivel_del_mar", "plataformas_continentales"]
+
+enunciado: "En varios eventos de extinción masiva, la variación del nivel del mar afectó la biodiversidad. Cuando el nivel del mar desciende drásticamente, las plataformas continentales quedan expuestas. Esto reduce el área de hábitat para los organismos que viven en aguas poco profundas.\n\nEl descenso del nivel del mar provoca la pérdida de hábitats en las plataformas continentales, lo que resulta en una disminución de la ___________ marina."
+
+respuestas_validas:
+  - "biodiversidad"
+
+respuesta: "biodiversidad"
+tipo: "completar"
+
+explicacion: |
+  La reducción del área de las plataformas continentales elimina los hábitats más productivos y diversos del océano, afectando directamente la biodiversidad marina.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "intermedio"
+  tags: ["glaciación", "ordovícico"]
+
+enunciado: "La extinción del Ordovícico-Devónico está fuertemente asociada con una glaciación intensa. Ordena las consecuencias climáticas de este evento de mayor a menor impacto en la extinción de especies marinas:"
+
+opciones_explicitas: ["Glaciación global masiva", "Expansión de los polos de hielo", "Caída drástica del nivel del mar", "Reducción de hábitats costeros"]
+
+respuesta_orden: ["Glaciación global masiva", "Expansión de los polos de hielo", "Caída drástica del nivel del mar", "Reducción de hábitats costeros"]
+tipo: "ordenar"
+
+explicacion: |
+  La formación de grandes capas de hielo atrapó agua, haciendo que el nivel del mar bajara drásticamente y eliminara los hábitats de las plataformas continentales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "basico"
+  tags: ["causas", "resumen"]
+
+enunciado: "Las extinciones masivas suelen ser el resultado de cambios ambientales rápidos. Si un evento volcánico masivo libera grandes cantidades de CO2, el efecto inmediato en la temperatura es el ___________."
+
+respuestas_validas:
+  - "calentamiento"
+
+respuesta: "calentamiento"
+tipo: "completar"
+
+explicacion: |
+  El CO2 es un gas de efecto invernadero; su liberación masiva atrapa más calor en la atmósfera, elevando la temperatura global.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "basico"
+  tags: ["precambrico", "oxigeno"]
+
+respuesta: "oxigenación"
+tipo: mc
+opciones_explicitas: ["oxigenación", "impacto", "vulcanismo"]
+
+enunciado: "La extinción del evento del Gran Oxígeno fue causada principalmente por la acumulación de oxígeno atmosférico tras la fotosíntesis de cianobacterias, un proceso de ___."
+
+explicacion: |
+  El aumento de oxígeno libre en la atmósfera fue tóxico para la mayoría de los organismos anaerobios de la época.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "intermedio"
+  tags: ["paleozoico", "clima"]
+
+respuesta: "enfriamiento"
+tipo: completar
+respuestas_validas:
+  - "enfriamiento"
+  - "nivel del mar"
+
+enunciado: "Durante la extinción del Ordovícico-Devónico, el factor determinante fue el ___ climático que provocó la glaciación."
+
+explicacion: |
+  Cambios climáticos y fluctuaciones en el nivel del mar afectaron drásticamente la vida marina.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "avanzado"
+  tags: ["la_gran_muerte", "trapp"]
+
+variables:
+  idx: uno_de([0,1,2])
+  escenarios: [["La gran muerte del Pérmico-Triásico fue causada por...", "vulcanismo"], ["El grupo que sufrió la mayor pérdida fue el de los...", "insectos"], ["El efecto invernadero fue provocado por...", "metano"]]
+
+respuesta: escenarios[idx][1]
+tipo: mc
+opciones_explicitas: ["vulcanismo", "insectos", "metano"]
+
+enunciado: "En el evento del Pérmico-Triásico, {escenarios[idx][0]}."
+
+explicacion: |
+  Conocida como "La Gran Muerte", fue la extinción más severa de la historia de la Tierra.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "intermedio"
+  tags: ["dinosaurios", "pangea"]
+
+variables:
+  idx: uno_de([0,1,2])
+  datos: [["La fragmentación de Pangea liberó gases que causaron...", "calentamiento"], ["El grupo que comenzó a dominar tras la extinción fue el de los...", "dinosaurios"], ["La causa principal fue un aumento en el...", "CO2"]]
+  respuestas: [["calentamiento", "dinosaurios", "CO2"]]
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "calentamiento"
+  - "dinosaurios"
+  - "CO2"
+
+enunciado: "Tras la extinción del Triásico-Jurásico, el mundo cambió debido al {datos[idx][1]}."
+
+explicacion: |
+  La ruptura del supercontinente Pangea alteró el clima global y permitió la expansión de los dinosaurios.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cinco_extinciones_masivas"
+  nivel: "basico"
+  tags: ["asteroide", "dinosaurios"]
+
+respuesta: "luz solar"
+tipo: mc
+opciones_explicitas: ["dinosaurios", "luz solar", "reptiles"]
+
+enunciado: "El evento del Cretácico-Paleógeno se caracteriza por la reducción drástica de la ___, causada por el polvo y las cenizas liberadas tras el impacto del asteroide."
+
+explicacion: |
+  El impacto de un asteroide bloqueó la luz solar, colapsando la fotosíntesis y las cadenas alimentarias.
+```
+
+## Sección: paleoclima-glaciaciones (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "basico"
+  tags: ["definicion", "introduccion"]
+
+respuesta: "paleoclima"
+tipo: completar
+respuestas_validas:
+  - "paleoclima"
+
+enunciado: "El estudio de los climas de la Tierra en el pasado geológico se denomina ___."
+
+explicacion: |
+  El paleoclima es la ciencia que reconstruye las condiciones climáticas de épocas pasadas utilizando diversos indicadores naturales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "intermedio"
+  tags: ["metodos", "reconstruccion"]
+
+respuesta: "núcleos de hielo"
+tipo: mc
+opciones_explicitas: ["núcleos de hielo", "sedimentos marinos", "anillos de árboles", "fósiles de insectos"]
+
+enunciado: "Un método común para reconstruir el paleoclima mediante el análisis de capas de precipitación congelada es el uso de ___."
+
+explicacion: |
+  Los núcleos de hielo almacenan burbujas de aire y partículas que permiten conocer la composición atmosférica de hace miles de años.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "intermedio"
+  tags: ["indicadores", "fósiles"]
+
+respuesta: "fósiles"
+tipo: mc
+opciones_explicitas: ["fósiles", "satélites", "termómetros", "instrumentos de medición"]
+
+enunciado: "Cuando no hay hielo o sedimentos disponibles, los científicos utilizan ___ de especies extintas para inferir temperaturas antiguas."
+
+explicacion: |
+  Los fósiles (como corales o plantas) actúan como indicadores biológicos de las condiciones ambientales en las que vivieron.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "avanzado"
+  tags: ["metodologia", "proceso"]
+
+respuesta_orden: ["extracción", "datación", "análisis químico"]
+tipo: ordenar
+opciones_explicitas: ["extracción", "datación", "análisis químico"]
+
+enunciado: "Ordena los pasos típicos para reconstruir un clima antiguo a partir de una muestra de sedimento:"
+
+pasos:
+  - "Obtención de la muestra del terreno."
+  - "Determinación de la edad de la capa sedimentaria."
+  - "Estudio de la composición de la muestra en laboratorio."
+
+explicacion: |
+  Primero se extrae el material, luego se determina su edad (datación) y finalmente se analizan sus componentes químicos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "intermedio"
+  tags: ["dendrocronologia", "anillos"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  escenarios: ["ancho", "estrecho"]
+  resultado: ["clima favorable", "clima adverso"]
+
+respuesta: resultado[caso_idx]
+tipo: mc
+opciones_explicitas: ["clima favorable", "clima adverso"]
+
+enunciado: "En dendrocronología, si un anillo de crecimiento es {escenarios[caso_idx]}, esto suele indicar un {resultado[caso_idx]} durante ese año."
+
+explicacion: |
+  Anillos anchos sugieren condiciones óptimas de temperatura y humedad, mientras que anillos estrechos indican estrés ambiental.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "intermedio"
+  tags: ["astronomia", "clima", "milankovitch"]
+
+respuesta: "excentricidad"
+tipo: mc
+
+enunciado: "La variación en la forma de la órbita terrestre alrededor del Sol, que oscila entre una forma casi circular y una elíptica, se denomina:"
+
+opciones_explicitas: ["oblicuidad", "precesión", "excentricidad", "nutación"]
+
+explicacion: |
+  La excentricidad describe qué tan "achatada" es la órbita terrestre. Este ciclo tiene periodos de aproximadamente 100,000 y 400,000 años y afecta la cantidad de radiación solar que llega a la Tierra.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "avanzado"
+  tags: ["oblicuidad", "inclinacion", "clima"]
+
+respuesta: 22.1
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "La inclinación del eje terrestre (oblicuidad) varía periódicamente entre aproximadamente 22.1° y 24.5°. Si la inclinación aumenta hacia el valor máximo de 24.5 grados, ¿cuál es el valor aproximado de la inclinación mínima que alcanza en el ciclo?"
+
+pasos:
+  - "Identificar el valor máximo de inclinación proporcionado."
+  - "Identificar el valor mínimo de inclinación del ciclo real (22.1°-24.5°)."
+
+explicacion: |
+  La oblicuidad influye en la estacionalidad. Una mayor inclinación genera estaciones más marcadas, mientras que una menor inclinación (22.1 grados) tiende a favorecer la glaciación al hacer los veranos menos intensos en las altas latitudes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "intermedio"
+  tags: ["precesion", "eje_terrestre"]
+
+respuesta: "el eje de rotación"
+tipo: completar
+respuestas_validas:
+  - "el eje de rotación"
+  - "la órbita"
+  - "el sol"
+
+enunciado: "La precesión es el movimiento de bamboleo de ___ terrestre, similar al de un trompo, que cambia la orientación de los polos respecto a la eclíptica."
+
+explicacion: |
+  La precesión afecta la dirección en la que apunta la Tierra respecto a las estrellas y determina en qué época del año ocurre el solsticio o el equinoccio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "basico"
+  tags: ["causas", "glaciaciones"]
+
+respuesta_orden: ["excentricidad", "oblicuidad", "precesión"]
+tipo: ordenar
+
+opciones_explicitas: ["excentricidad", "oblicuidad", "precesión"]
+
+enunciado: "Ordene los tres ciclos de Milankovitch desde el que tiene el periodo de duración más largo al más corto:"
+
+explicacion: |
+  El orden correcto de duración es: Excentricidad (~100k-400k años), Oblicuidad (~41k años) y Precesión (~21k-26k años).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "intermedio"
+  tags: ["radiacion", "insolacion"]
+
+respuesta: "glaciación"
+tipo: mc
+
+enunciado: "Si los ciclos de Milankovitch provocan que la insolación estival en las altas latitudes sea significativamente menor, el efecto resultante en el clima global es una:"
+
+opciones_explicitas: ["glaciación", "interglaciar", "estabilidad térmica"]
+
+explicacion: |
+  Para que se formen grandes capas de hielo, los veranos deben ser lo suficientemente frescos como para que la nieve del invierno no se derrita completamente, permitiendo la acumulación de hielo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "basico"
+  tags: ["precambrico", "glaciacion", "teoria"]
+
+respuesta: "Tierra bola de nieve"
+tipo: completar
+respuestas_validas:
+  - "Tierra bola de nieve"
+  - "Snowball Earth"
+
+enunciado: "La hipótesis que propone que, durante el Precámbrico, la Tierra estuvo casi totalmente cubierta por capas de hielo se denomina ___."
+
+explicacion: |
+  La hipótesis de la 'Tierra bola de nieve' sugiere que el planeta experimentó periodos de glaciación global donde incluso el ecuador estaba cubierto de hielo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "intermedio"
+  tags: ["evidencia", "sedimentos"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  evidencias: [["diamictitas", "depósitos de tilita"], ["capas de carbonatos", "depósitos de hierro bandeado"]]
+  respuesta_correcta: evidencias[escenario_idx][0]
+
+respuesta: respuesta_correcta
+tipo: mc
+opciones_explicitas: ["diamictitas", "capas de carbonatos", "depósitos de hierro bandeado", "depósitos de tilita"]
+
+enunciado: "En el registro geológico, la presencia de ___ es una evidencia clave que sugiere la existencia de glaciaciones intensas en latitudes bajas durante el Precámbrico."
+
+pasos:
+  - "Identificar el tipo de sedimento glacial."
+  - "Relacionar el sedimento con la hipótesis de congelamiento global."
+
+explicacion: |
+  Las diamictitas (o tilitas) son rocas sedimentarias con matriz de grano fino que contiene clastos de diversos tamaños, características de la erosión glacial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "avanzado"
+  tags: ["albedo", "retroalimentacion", "clima"]
+
+respuesta: "albedo"
+tipo: completar
+respuestas_validas:
+  - "albedo"
+  - "efecto invernadero"
+
+enunciado: "El principal mecanismo de retroalimentación positiva que acelera el enfriamiento en la hipótesis de la Tierra bola de nieve es el aumento del ___ terrestre."
+
+explicacion: |
+  Al extenderse el hielo, la superficie refleja más radiación solar (mayor albedo) en lugar de absorberla, lo que reduce la temperatura y permite que el hielo crezca aún más.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "intermedio"
+  tags: ["volcanismo", "co2", "deshielo"]
+
+respuesta: "volcanismo"
+tipo: mc
+opciones_explicitas: ["tectónica de placas", "volcanismo", "actividad solar", "cambios en la órbita"]
+
+enunciado: "¿Qué proceso geológico se considera el principal responsable de liberar grandes cantidades de CO2 para romper el estado de 'bola de nieve' y provocar un efecto invernadero extremo?"
+
+explicacion: |
+  El vulcanismo continuo durante el periodo de congelación acumula gases de efecto invernadero en la atmósfera, ya que el ciclo de carbonato-silicato (que normalmente consume CO2) se detiene por la falta de meteorización líquida.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "avanzado"
+  tags: ["secuencia", "clima", "precambrico"]
+
+respuesta_orden: ["Glaciación global", "Acumulación de gases volcánicos", "Efecto invernadero extremo", "Deshielo masivo"]
+tipo: ordenar
+opciones_explicitas: ["Glaciación global", "Acumulación de gases volcánicos", "Efecto invernadero extremo", "Deshielo masivo"]
+
+enunciado: "Ordena cronológicamente los eventos que llevan a la transición de una Tierra bola de nieve a un estado de clima cálido."
+
+pasos:
+  - "Establecer el estado inicial de congelamiento."
+  - "Identificar la fuente de gases en la atmósfera."
+  - "Determinar la consecuencia térmica."
+  - "Indicar el resultado final del proceso."
+
+explicacion: |
+  La secuencia comienza con la glaciación, sigue con la acumulación de CO2 por vulcanismo (al no haber meteorización), lo que genera un efecto invernadero que finalmente provoca el deshielo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "basico"
+  tags: ["cuaternario", "glaciaciones"]
+
+respuesta: "Pleistoceno"
+tipo: completar
+respuestas_validas:
+  - "Pleistoceno"
+
+enunciado: "El periodo geológico que comprende la mayor parte del Cuaternario y que se caracteriza por ciclos de glaciaciones es el ___________."
+
+explicacion: |
+  El Pleistoceno abarca desde hace aproximadamente 2.58 millones de años hasta hace 11,700 años, marcando la era de las grandes glaciaciones.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "basico"
+  tags: ["glaciacion", "tiempo"]
+
+respuesta: 11700
+tipo: completar
+tolerancia_abs: 500
+
+enunciado: "La última glaciación (LGM - Last Glacial Maximum) terminó hace aproximadamente ________ años, dando inicio al Holoceno."
+
+explicacion: |
+  Hace unos 11,700 años el clima se estabilizó, permitiendo el florecimiento de las civilizaciones humanas actuales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "avanzado"
+  tags: ["milankovitch", "ciclos"]
+
+tipo: mc
+opciones_explicitas: ["Excentricidad", "Precesión", "Oblicuidad", "Efecto Coriolis"]
+respuesta: "Excentricidad"
+
+enunciado: "El ciclo de Milankovitch que altera la forma de la órbita terrestre, haciéndola pasar de casi circular a más elíptica y viceversa a lo largo de miles de años, se conoce como:"
+
+explicacion: |
+  La Excentricidad es uno de los tres ciclos astronómicos principales (junto con la Precesión y la Oblicuidad) que modulan la insolación terrestre, con un período aproximado de 100.000 años.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "intermedio"
+  tags: ["secuencia", "clima"]
+
+respuesta_orden: ["Interglaciar actual (Holoceno)", "Enfriamiento gradual", "Máximo glacial", "Deshielo hacia el siguiente interglaciar"]
+tipo: ordenar
+opciones_explicitas: ["Interglaciar actual (Holoceno)", "Enfriamiento gradual", "Máximo glacial", "Deshielo hacia el siguiente interglaciar"]
+
+enunciado: "Ordena las etapas de un ciclo climático típico del Cuaternario, comenzando desde el interglaciar actual:"
+
+explicacion: |
+  El Cuaternario se caracteriza por la alternancia entre periodos fríos (glaciaciones) y periodos cálidos (interglaciares).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "basico"
+  tags: ["holoceno", "clima"]
+
+respuesta: "Holoceno"
+tipo: mc
+opciones_explicitas: ["Pleistoceno", "Holoceno", "Eoceno", "Mioceno"]
+
+enunciado: "El periodo interglaciar actual, en el que nos encontramos y que comenzó tras la última gran glaciación, se denomina:"
+
+explicacion: |
+  El Holoceno es el periodo de clima estable y cálido que ha permitido el desarrollo de la agricultura y la civilización humana.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "intermedio"
+  tags: ["milankovitch", "astronomia"]
+
+respuesta: "cambios en la órbita terrestre"
+tipo: mc
+opciones_explicitas: ["cambios en la órbita terrestre", "inclinación del eje terrestre", "balanceo del eje terrestre"]
+
+enunciado: "La variación en la forma de la órbita terrestre alrededor del Sol, conocida como ciclo de excentricidad, consiste en:"
+
+explicacion: |
+  La excentricidad describe qué tan elíptica es la órbita, afectando la distancia promedio al Sol.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "basico"
+  tags: ["volcanes", "clima"]
+
+respuesta: "enfriamiento"
+tipo: mc
+opciones_explicitas: ["enfriamiento", "calentamiento"]
+
+enunciado: "Una erupción volcánica masiva inyecta ceniza y aerosoles en la estratosfera. El efecto inmediato de estas partículas sobre la temperatura global es de ___."
+
+explicacion: |
+  Las erupciones grandes suelen causar enfriamiento temporal debido al efecto albedo de los aerosoles.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "avanzado"
+  tags: ["carbono", "geoquimica"]
+
+respuesta: "secuestro de CO2"
+tipo: completar
+respuestas_validas:
+  - "secuestro de CO2"
+
+enunciado: "Durante un periodo de glaciación, la actividad biológica y la sedimentación oceánica provocan una ___ de carbono atmosférico."
+
+explicacion: |
+  El secuestro de carbono en el fondo marino reduce el efecto invernadero, favoreciendo el enfriamiento.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "intermedio"
+  tags: ["secuencia", "procesos"]
+
+respuesta_orden: ["Aumento de radiación solar", "Derretimiento de glaciares", "Aumento del nivel del mar"]
+tipo: ordenar
+opciones_explicitas: ["Aumento de radiación solar", "Derretimiento de glaciares", "Aumento del nivel del mar"]
+
+enunciado: "Ordene cronológicamente la reacción en cadena ante un aumento en la insolación solar:"
+
+explicacion: |
+  El aumento de radiación calienta la superficie, lo que derrite el hielo y finalmente eleva el nivel del mar.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleoclima_glaciaciones"
+  nivel: "basico"
+  tags: ["escalas", "tiempo"]
+
+respuesta: "Ciclos orbitales"
+tipo: mc
+opciones_explicitas: ["Ciclos orbitales", "Variaciones milenarias"]
+
+enunciado: "Las variaciones climáticas de escala geológica, como las glaciaciones, están impulsadas principalmente por los ciclos de Milankovitch, es decir, por:"
+
+explicacion: |
+  Los ciclos de Milankovitch operan en escalas de decenas de miles de años.
 ```
 

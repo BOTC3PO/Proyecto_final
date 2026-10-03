@@ -1,2295 +1,2394 @@
 # Examen jefe — [PENDIENTE #688]
 
-> Logro #688. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #688. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: explosion-cambrica (25 preguntas)
+## Sección: radiacion-mamiferos (26 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "explosion_cambrica"
+  tema: "radiacion_mamiferos"
   nivel: "basico"
-  tags: ["paleontologia", "evolucion"]
+  tags: ["extincion", "nichos", "evolucion"]
 
-respuesta: "541"
+respuesta: "radiación adaptativa"
 tipo: completar
-tolerancia_abs: 1
+respuestas_validas:
+  - "radiación adaptativa"
 
-enunciado: "La Explosión Cámbrica ocurrió hace aproximadamente ___ millones de años."
+enunciado: "Tras la extinción de los dinosaurios hace 66 millones de años, los mamíferos experimentaron un proceso de diversificación rápida para ocupar nuevos nichos, proceso conocido como ________."
 
 explicacion: |
-  La Explosión Cámbrica comenzó hace unos 541 millones de años, marcando el inicio del periodo Cámbrico.
+  La extinción de los dinosaurios eliminó a los grandes depredadores y herbívoros, permitiendo que los mamíferos, que antes eran mayormente pequeños, ocuparan esos roles ecológicos mediante la radiación adaptativa.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "explosion_cambrica"
+  tema: "radiacion_mamiferos"
   nivel: "intermedio"
-  tags: ["taxonomia", "evolucion"]
+  tags: ["tiempo", "geologia", "paleontologia"]
+
+respuesta: "66 millones de años"
+tipo: mc
+opciones_explicitas: ["66 millones de años", "230 millones de años", "100 millones de años", "500 millones de años"]
+
+enunciado: "La gran extinción que permitió la radiación de los mamíferos ocurrió hace aproximadamente:"
+
+explicacion: |
+  El evento de extinción masiva del Cretácico-Paleógeno ocurrió hace unos 66 millones de años, marcando el inicio de la era de los mamíferos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "basico"
+  tags: ["ecologia", "nichos"]
+
+respuesta: "vacíos"
+tipo: mc
+opciones_explicitas: ["llenos", "vacíos", "estables", "competitivos"]
+
+enunciado: "La disponibilidad de nichos ecológicos ________ fue el factor clave que permitió la rápida diversificación de los mamíferos tras la extinción masiva."
+
+explicacion: |
+  Al desaparecer los grandes reptiles, quedaron nichos (roles en el ecosistema) vacíos que fueron aprovechados por los mamíferos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "avanzado"
+  tags: ["proceso", "evolucion"]
+
+respuesta_orden: ["Extinción masiva", "Ocupación de nichos", "Radiación adaptativa", "Diversificación moderna"]
+tipo: ordenar
+opciones_explicitas: ["Extinción masiva", "Ocupación de nichos", "Radiación adaptativa", "Diversificación moderna"]
+
+enunciado: "Ordena cronológicamente los eventos que permitieron la dominancia de los mamíferos:"
+
+explicacion: |
+  Primero ocurre el evento de extinción, luego los supervivientes ocupan los espacios vacíos, lo que dispara la radiación adaptativa y finalmente resulta en la diversidad de formas que conocemos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "intermedio"
+  tags: ["comparativa", "evolucion"]
+
+respuesta: "pequeños"
+tipo: mc
+opciones_explicitas: ["gigantes", "pequeños", "acuáticos", "voladores"]
+
+enunciado: "Antes de la radiación post-extinción, la mayoría de los mamíferos se caracterizaban por ser animales de tamaño ________."
+
+explicacion: |
+  Durante el Mesozoico, los mamíferos coexistieron con los dinosaurios y, para evitar la competencia y la depredación, la mayoría mantuvo tamaños reducidos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "basico"
+  tags: ["evolucion", "dinosaurios"]
+
+tipo: mc
+opciones_explicitas: ["Eran grandes y dominantes", "Eran pequeños y nocturnos", "Eran reptiles gigantes", "Eran exclusivamente acuáticos"]
+respuesta: "Eran pequeños y nocturnos"
+
+enunciado: "Durante la era de los dinosaurios, los ancestros de los mamíferos se caracterizaban por ser ___."
+
+explicacion: |
+  Hace aproximadamente 200 millones de años, los mamíferos coexistieron con los dinosaurios, pero ocupaban nichos ecológicos pequeños y evitaban la luz del día para no ser depredados.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "intermedio"
+  tags: ["extincion_kp", "adaptacion"]
+
+tipo: completar
+respuestas_validas:
+  - "Diversificación"
+  - "Radiación"
+
+enunciado: "Tras la extinción masiva del Cretácico-Paleógeno (K-Pg), los mamíferos experimentaron una gran ___ en tamaño y forma."
+
+pasos:
+  - "Identificar el evento geológico mencionado."
+  - "Relacionar la desaparición de los dinosaurios con la apertura de nichos vacíos."
+
+explicacion: |
+  La desaparición de los dinosaurios no solo eliminó competidores, sino que permitió que los mamíferos ocuparan nuevos roles ecológicos, llevando a una rápida evolución.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "intermedio"
+  tags: ["cronologia", "geologia"]
+
+tipo: ordenar
+opciones_explicitas: ["Aparición de mamíferos pequeños", "Dominio de los dinosaurios", "Extinción K-Pg", "Diversificación de mamíferos modernos"]
+
+enunciado: "Ordene cronológicamente los siguientes eventos históricos:"
+
+explicacion: |
+  Primero aparecieron los mamíferos (coexistiendo con dinosaurios), luego ocurrió la extinción masiva, lo que finalmente permitió la radiación de los mamíferos actuales.
+respuesta_orden: ["Aparición de mamíferos pequeños", "Dominio de los dinosaurios", "Extinción K-Pg", "Diversificación de mamíferos modernos"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "avanzado"
+  tags: ["ecologia", "evolucion"]
+
+tipo: mc
+opciones_explicitas: ["Diurno", "Nocturno", "Subterráneo", "Acuático"]
+respuesta: "Nocturno"
+
+enunciado: "Para evitar la competencia y la depredación por parte de los dinosaurios, la mayoría de los mamíferos primitivos adoptaron un estilo de vida ___."
+
+explicacion: |
+  La vida nocturna fue una estrategia adaptativa clave que permitió a los mamíferos sobrevivir y prosperar en un mundo dominado por grandes reptiles.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "intermedio"
+  tags: ["ecologia", "evolucion"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "El evento de extinción ___ fue el catalizador que permitió la expansión de los mamíferos."
+
+respuesta: "K-Pg"
+
+explicacion: |
+  La extinción K-Pg eliminó a los grandes depredadores y herbívoros dominantes, dejando el camino libre para que los mamíferos evolucionaran hacia formas más grandes y diversas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "basico"
+  tags: ["evolucion", "adaptacion"]
+
+tipo: mc
+opciones_explicitas: ["Un cambio lento y gradual de una especie", "La diversificación rápida de un linaje al ocupar nuevos nichos", "La extinción masiva de un grupo de especies", "La mutación de un solo gen en un individuo"]
+respuesta: "La diversificación rápida de un linaje al ocupar nuevos nichos"
+enunciado: "En biología evolutiva, ¿qué describe mejor el proceso de una radiación adaptativa?"
+explicacion: |
+  La radiación adaptativa ocurre cuando un linaje ancestral se diversifica rápidamente en una gran variedad de formas para aprovechar diferentes recursos o nichos ecológicos disponibles.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "intermedio"
+  tags: ["ecologia", "nichos"]
 
 variables:
-  escenario: uno_de([["la mayoría de los grupos corporales", "phyla"], ["la mayor parte de los animales", "phyla"]])
+  escenario: uno_de([["aparición de nuevas islas volcánicas", "colonización de hábitats vacíos"], ["extinción masiva de competidores", "disponibilidad de nuevos nichos ecológicos"], ["cambio climático global", "apertura de nuevos espacios adaptativos"]])
 
+tipo: completar
 respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["phyla", "clases", "especies", "órdenes"]
 
-enunciado: "Durante la Explosión Cámbrica, se produjo la aparición de la mayoría de los grandes grupos animales actuales, conocidos como ___."
+enunciado: "La radiación adaptativa suele ser desencadenada por la {escenario[0]}, lo que permite la ___."
 
 explicacion: |
-  Se refiere a los phyla (filos), que son las categorías taxonómicas más altas de los animales.
+  Cuando aparecen nuevos entornos o se liberan nichos (por ejemplo, tras una extinción masiva), los linajes sobrevivientes pueden diversificarse rápidamente para ocupar esos espacios.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "avanzado"
+  tags: ["paleontologia", "k-pg"]
+
+tipo: mc
+opciones_explicitas: ["Los dinosaurios no pudieron adaptarse", "La extinción de los dinosaurios permitió la radiación de los mamíferos", "Los mamíferos ya eran gigantes antes de la extinción", "La radiación ocurrió por la aparición de las plantas"]
+respuesta: "La extinción de los dinosaurios permitió la radiación de los mamíferos"
+enunciado: "Tras la extinción masiva del Cretácico-Paleógeno, ¿por qué los mamíferos experimentaron una radiación adaptativa tan marcada?"
+explicacion: |
+  La desaparición de los dinosaurios no avianos liberó una enorme cantidad de nichos ecológicos, permitiendo que los mamíferos, que antes eran mayormente pequeños, se diversificaran en una multitud de formas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "intermedio"
+  tags: ["proceso", "evolucion"]
+
+tipo: ordenar
+opciones_explicitas: ["Aparición de nuevos nichos o hábitats", "Colonización de los nuevos entornos", "Diversificación en múltiples especies con rasgos distintos"]
+
+enunciado: "Ordena cronológicamente los pasos típicos de una radiación adaptativa:"
+
+explicacion: |
+  Primero debe existir una oportunidad ecológica (nicho), luego el linaje debe colonizar ese espacio y finalmente la selección natural debe favorecer la especialización en diferentes formas.
+respuesta_orden: ["Aparición de nuevos nichos o hábitats", "Colonización de los nuevos entornos", "Diversificación en múltiples especies con rasgos distintos"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "avanzado"
+  tags: ["matematica", "especiacion"]
+
+variables:
+  datos: uno_de([[10, 5], [100, 50], [1000, 500]])
+
+tipo: completar
+respuesta: datos[1]
+tolerancia_abs: 0
+
+enunciado: "Si un linaje de mamíferos experimenta una radiación adaptativa en la que se generan {datos[0]} especies nuevas en total, y la tasa de especiación efectiva equivale a la mitad de ese total, ¿cuántas especies representa la tasa de especiación efectiva en este escenario?"
+
+pasos:
+  - "Identificar el número total de especies nuevas en el escenario: {datos[0]}"
+  - "Calcular la mitad de ese valor para obtener la respuesta."
+
+explicacion: |
+  En este ejercicio hipotético, si el total de nuevas especies es {datos[0]}, la tasa de especiación efectiva es la mitad de ese valor, es decir, {datos[1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "intermedio"
+  tags: ["cenozoico", "evolucion", "placentarios"]
+
+respuesta: "Cenozoico"
+tipo: completar
+respuestas_validas:
+  - "Cenozoico"
+
+enunciado: "La gran radiación de los mamíferos placentarios, que dio lugar a los órdenes actuales como primates y carnívoros, ocurrió principalmente durante la era ___."
+
+explicacion: |
+  Tras la extinción de los dinosaurios al final del Cretácico, el Cenozoico permitió que los mamíferos ocuparan nichos ecológicos vacantes, diversificándose rápidamente.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "basico"
+  tags: ["taxonomia", "ordenes"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  datos: [["Primates", "Primates"], ["Carnivora", "Carnívoros"], ["Cetacea", "Cetáceos"]]
+
+respuesta: datos[idx][0]
+tipo: mc
+opciones_explicitas: ["Primates", "Carnivora", "Cetacea", "Ungulata"]
+
+enunciado: "Si consideramos al orden de los {datos[idx][1]}, ¿cuál es su nombre científico correcto?"
+
+explicacion: |
+  El orden mencionado es {datos[idx][1]}, cuya nomenclatura taxonómica es {datos[idx][0]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "intermedio"
+  tags: ["ungulados", "adaptacion"]
+
+respuesta: "puntas"
+tipo: completar
+respuestas_validas:
+  - "puntas"
+  - "puntas"
+
+enunciado: "Durante la expansión de las praderas en el Cenozoico, muchos ungulados desarrollaron ___ extremidades para una carrera más eficiente."
+
+explicacion: |
+  La transición de bosques a pastizales favoreció la selección de extremidades alargadas y dedos especializados para la locomoción rápida.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "avanzado"
+  tags: ["filogenia", "ordenar"]
+
+respuesta_orden: ["Mammalia", "Eutheria", "Primates", "Hominidae"]
+tipo: ordenar
+opciones_explicitas: ["Mammalia", "Eutheria", "Primates", "Hominidae"]
+
+enunciado: "Ordene la jerarquía taxonómica del ser humano desde la Clase hasta la Familia:"
+
+explicacion: |
+  La secuencia correcta es Clase Mammalia, Infraclase Eutheria, Orden Primates y Familia Hominidae (los grandes simios, incluyendo al ser humano).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "avanzado"
+  tags: ["taxonomia", "ordenar"]
+
+respuesta_orden: ["Mammalia", "Eutheria", "Cetartiodactyla", "Cetacea"]
+tipo: ordenar
+opciones_explicitas: ["Mammalia", "Eutheria", "Cetartiodactyla", "Cetacea"]
+
+enunciado: "Ordene la jerarquía taxonómica de una ballena desde la Clase hasta el Orden:"
+
+explicacion: |
+  La secuencia correcta es Clase Mammalia, Subclase Eutheria, Orden Cetartiodactyla y finalmente el Orden Cetacea.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "intermedio"
+  tags: ["relaciones", "evolucion"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenarios: [["Cetáceos", "acuáticos"], ["Primates", "arbóreos"]]
+
+respuesta: escenarios[idx][1]
+tipo: mc
+opciones_explicitas: ["acuáticos", "arbóreos", "terrestres", "voladores"]
+
+enunciado: "La radiación de los {escenarios[idx][0]} durante el Cenozoico permitió la especialización en nichos {escenarios[idx][1]}."
+
+explicacion: |
+  Los {escenarios[idx][0]} son ejemplos clave de la diversificación de nichos durante el Cenozoico, adaptándose a entornos {escenarios[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "intermedio"
+  tags: ["extincion", "nichos", "evolucion"]
+
+variables:
+  datos: [["La extinción masiva del Cretácico-Paleógeno eliminó a los grandes reptiles...", "liberó nichos ecológicos"], ["La desaparición de los dinosaurios no avianos...", "permitió la diversificación de los mamíferos"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["liberó nichos ecológicos", "permitió la diversificación de los mamíferos", "causó la extinción de insectos", "no tuvo impacto"]
+
+enunciado: "Según el escenario planteado: {datos[idx][0]}"
+
+explicacion: |
+  La extinción de los dinosaurios eliminó a los principales depredadores y herbívoros dominantes, dejando nichos ecológicos vacíos que los mamíferos, anteriormente pequeños y nocturnos, pudieron ocupar rápidamente.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "intermedio"
+  tags: ["morfologia", "evolucion"]
+
+variables:
+  datos: [["Antes de la extinción, la mayoría de los mamíferos eran...", "pequeños"], ["Tras la radiación, los mamíferos pudieron alcanzar...", "grandes tamaños"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["pequeños", "grandes tamaños", "tamaño medio", "tamaño insectívoro"]
+
+enunciado: "Considerando el proceso evolutivo: {datos[idx][0]}"
+
+explicacion: |
+  La ausencia de competencia con grandes reptiles permitió que los mamíferos experimentaran una rápida diversificación morfológica, incluyendo un aumento significativo en el tamaño corporal promedio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "basico"
+  tags: ["causa_efecto"]
+
+variables:
+  datos: [["La extinción de los dinosaurios fue la ___ de la radiación de los mamíferos.", "causa"], ["La radiación de los mamíferos fue la ___ de la extinción de los dinosaurios.", "consecuencia"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "causa"
+  - "consecuencia"
+
+enunciado: "Analizando la relación temporal: {datos[idx][0]}"
+
+explicacion: |
+  La extinción de los dinosaurios actuó como el evento desencadenante (causa) que permitió la expansión de los mamíferos (consecuencia).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "avanzado"
+  tags: ["cronologia"]
+
+variables:
+  secuencia: ["Impacto del asteroide", "Extinción de dinosaurios", "Ocupación de nichos por mamíferos", "Diversificación de órdenes modernos"]
+
+respuesta_orden: secuencia
+tipo: ordenar
+opciones_explicitas: ["Impacto del asteroide", "Extinción de dinosaurios", "Ocupación de nichos por mamíferos", "Diversificación de órdenes modernos"]
+
+enunciado: "Ordene cronológicamente los eventos que llevaron a la actual biodiversidad de mamíferos:"
+
+explicacion: |
+  El proceso comienza con el evento catastrófico, seguido de la extinción de los grupos dominantes, la colonización de los espacios vacíos y, finalmente, la especiación y diversificación.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "radiacion_mamiferos"
+  nivel: "intermedio"
+  tags: ["competencia", "ecologia"]
+
+respuesta: "menos diversos"
+tipo: completar
+respuestas_validas:
+  - "menos diversos"
+
+enunciado: "Durante el Mesozoico, la presión competitiva y depredadora de los dinosaurios mantuvo a los mamíferos ___."
+
+explicacion: |
+  La competencia por recursos y la depredación por parte de los dinosaurios habrían limitado la diversificación y el tamaño de los mamíferos durante el Mesozoico.
+```
+
+## Sección: cambio-climatico-linea-base-historica (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "basico"
+  tags: ["metodologia", "climatologia"]
+
+tipo: mc
+opciones_explicitas: ["Establecer un punto de comparación para distinguir variaciones naturales de antropogénicas", "Determinar la temperatura exacta del núcleo de la Tierra", "Calcular la velocidad de la rotación terrestre", "Predecir el fin de la vida en el planeta"]
+
+enunciado: "Para determinar si el calentamiento actual es una anomalía, los científicos necesitan establecer una ___ que permita comparar el clima presente con los registros del pasado."
+
+respuesta: "Establecer un punto de comparación para distinguir variaciones naturales de antropogénicas"
+
+explicacion: |
+  Sin una línea de base histórica (paleoclimatología), no podríamos saber si las fluctuaciones actuales están dentro de los rangos de variabilidad natural o si representan una desviación estadística significativa.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "intermedio"
+  tags: ["milankovitch", "astronomia"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [["excentricidad", "cambios en la forma de la órbita terrestre"], ["oblicuidad", "cambios en la inclinación del eje terrestre"]]
+
+tipo: completar
+respuestas_validas:
+  - "excentricidad"
+  - "oblicuidad"
+
+enunciado: "Los ciclos de Milankovitch explican las glaciaciones a través de variaciones en la órbita. El primer factor es la {escenario[idx][0]}, que se refiere a los {escenario[idx][1]}."
+
+respuesta: escenario[idx][0]
+
+explicacion: |
+  Los ciclos de Milankovitch incluyen la excentricidad (órbita), la oblicuidad (inclinación) y la precesión (balanceo). Estos procesos naturales operan en escalas de decenas de miles de años.
 ```
 
 ```
 metadata:
   materia: "historia_profucha"
-  tema: "explosion_cambrica"
-  nivel: "basico"
-  tags: ["tiempo_geologico"]
-
-respuesta: 25
-tipo: completar
-tolerancia_abs: 5
-
-enunciado: "Aunque fue un evento masivo, la Explosión Cámbrica fue un periodo relativamente breve en términos geológicos, durando aproximadamente ___ millones de años."
-
-pasos:
-  - "Identificar el rango de tiempo estimado para la diversificación de los filos."
-
-explicacion: |
-  Se estima que este evento de diversificación duró entre 20 y 25 millones de años.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "explosion_cambrica"
+  tema: "cambio_climatico_linea_base_historica"
   nivel: "avanzado"
-  tags: ["paleontologia", "fósiles"]
+  tags: ["ritmos", "velocidad"]
 
-respuesta: "más complejos"
-tipo: mc
-opciones_explicitas: ["más complejos", "más simples", "idénticos", "menos diversos"]
-
-enunciado: "En comparación con la biota de Ediacara que precedió al Cámbrico, los organismos de la Explosión Cámbrica eran ___."
-
-explicacion: |
-  La biota de Ediacara consistía en organismos de cuerpo blando y morfología menos especializada, mientras que el Cámbrico introdujo estructuras más complejas y con partes duras.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "explosion_cambrica"
-  nivel: "intermedio"
-  tags: ["cronologia"]
-
-opciones_explicitas: ["Precámbrico", "Cámbrico", "Ordovícico"]
-respuesta_orden: ["Precámbrico", "Cámbrico", "Ordovícico"]
 tipo: ordenar
+opciones_explicitas: ["Ciclos de Milankovitch (escala de milenios)", "Variaciones volcánicas menores (escala de años/décadas)", "Emisiones de gases de efecto invernadero actuales (escala de décadas)"]
 
-enunciado: "Ordena cronológicamente los siguientes periodos/eones, empezando por el más antiguo:"
+enunciado: "Ordena los procesos de abajo hacia arriba según la escala temporal en la que influyen en el sistema climático (de mayor duración a menor duración):"
 
-pasos:
-  - "Ubicar el Precámbrico como la era anterior."
-  - "Colocar el Cámbrico como el periodo de la explosión."
-  - "Ubicar el Ordovícico como el periodo posterior."
+respuesta_orden: ["Ciclos de Milankovitch (escala de milenios)", "Variaciones volcánicas menores (escala de años/décadas)", "Emisiones de gases de efecto invernadero actuales (escala de décadas)"]
 
 explicacion: |
-  La cronología correcta es Precámbrico (que incluye el Ediacárico), seguido del Cámbrico y luego el Ordovícico.
+  La diferencia fundamental entre el cambio climático natural histórico y el actual no es solo la dirección del cambio, sino la velocidad (ritmo) a la que ocurre el forzamiento radiativo.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "explosion_cambrica"
+  tema: "cambio_climatico_linea_base_historica"
   nivel: "intermedio"
-  tags: ["oxigeno", "geologia", "evolucion"]
+  tags: ["paleoclimatologia", "hielo"]
 
-enunciado: "¿Cuál de las siguientes teorías explica el desarrollo de organismos con metabolismos más complejos durante la explosión cámbrica?"
-
-respuesta: "aumento de oxígeno"
 tipo: mc
-opciones_explicitas: ["aumento de oxígeno", "cambio en la salinidad", "descarga de metano"]
+opciones_explicitas: ["isótopos de oxígeno", "isótopos de carbono", "niveles de salinidad", "densidad del aire"]
+
+enunciado: "Para reconstruir la temperatura de hace miles de años, los científicos analizan los ___ atrapados en el hielo de los núcleos glaciares."
+
+respuesta: "isótopos de oxígeno"
 
 explicacion: |
-  El aumento de la disponibilidad de oxígeno (oxigenación) fue crucial para sostener la alta demanda energética de los nuevos cuerpos complejos.
+  Los isótopos de oxígeno (especialmente la relación entre 18O y 16O) en el hielo actúan como un termómetro paleoclimático muy preciso.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "explosion_cambrica"
+  tema: "cambio_climatico_linea_base_historica"
   nivel: "avanzado"
-  tags: ["genetica", "hox", "desarrollo"]
+  tags: ["anomalia", "datos"]
 
-enunciado: "La aparición de una familia de genes reguladores fundamentales para el plan corporal de los animales se denomina genes ___."
-
-respuesta: "Hox"
-respuestas_validas:
-  - "Hox"
 tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Si la temperatura media global histórica (línea de base) fuera de 14.0°C y la actual es de 15.5°C, ¿cuál es la magnitud de la anomalía térmica en grados Celsius?"
+
+respuesta: 1.5
 
 explicacion: |
-  Los genes Hox controlan el eje anteroposterior del embrión, permitiendo la segmentación y especialización de los cuerpos.
+  La anomalía se calcula restando el valor de la línea de base al valor actual: 15.5 - 14.0 = 1.5.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "explosion_cambrica"
-  nivel: "intermedio"
-  tags: ["depredacion", "seleccion_natural"]
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "basico"
+  tags: ["velocidad", "comparacion"]
 
-enunciado: "La aparición de la depredación actuó como una presión evolutiva masiva, obligando a los organismos a desarrollar conchas, esqueletos y sistemas sensoriales."
-
-respuesta: "depredación"
 tipo: mc
-opciones_explicitas: ["depredación", "simbiósis", "filtración"]
-
+opciones_explicitas: ["El ritmo de cambio es similar en ambos casos", "El cambio actual es mucho más rápido que los naturales", "El cambio actual es más lento debido a la tecnología", "No hay diferencia medible en la velocidad"]
+respuesta: "El cambio actual es mucho más rápido que los naturales"
+enunciado: "Al comparar el cambio climático actual con los ciclos naturales del pasado, la diferencia fundamental radica en la ____."
 explicacion: |
-  La depredación creó un ciclo de retroalimentación: los depredadores necesitaban mejores sentidos y armas, y las presas, mejores defensas.
+  Mientras que los cambios climáticos naturales (como las glaciaciones) suelen ocurrir a lo largo de miles de años, el cambio climático antropogénico actual está ocurriendo en cuestión de décadas, una velocidad sin precedentes en la historia geológica.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "explosion_cambrica"
-  nivel: "avanzado"
-  tags: ["causas", "causalidad"]
-
-opciones_explicitas: ["Aumento de O2", "Evolución de genes Hox", "Aparición de depredación"]
-
-enunciado: "Ordena los factores que se consideran un modelo de causalidad en cascada para la explosión cámbrica (de la causa ambiental a la consecuencia biológica):"
-
-respuesta_orden: ["Aumento de O2", "Evolución de genes Hox", "Aparición de depredación"]
-tipo: ordenar
-
-explicacion: |
-  El modelo sugiere que el oxígeno permitió la vida compleja, los genes Hox permitieron la arquitectura corporal, y la depredación impulsó la diversificación rápida.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "explosion_cambrica"
-  nivel: "basico"
-  tags: ["oxigeno", "quimica"]
-
-enunciado: "Si el nivel de oxígeno en el océano aumenta, la probabilidad de que surjan organismos de gran tamaño es: ___"
-
-respuesta: "mayor"
-respuestas_validas:
-  - "mayor"
-tipo: completar
-
-explicacion: |
-  Los organismos grandes requieren más energía para mantener sus tejidos, la cual se obtiene mediante la respiración aeróbica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "explosion_cambrica"
-  nivel: "basico"
-  tags: ["ediacara", "precambrico"]
-
-respuesta: "blandos"
-tipo: completar
-respuestas_validas:
-  - "blandos"
-  - "blandos"
-
-enunciado: "Antes de la explosión cámbrica, los organismos que componían la fauna de Ediacara eran mayormente de cuerpo ___."
-
-explicacion: |
-  La fauna de Ediacara se caracteriza por organismos con estructuras corporales simples y, en su gran mayoría, sin partes endurecidas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "explosion_cambrica"
+  tema: "cambio_climatico_linea_base_historica"
   nivel: "intermedio"
-  tags: ["evolucion", "esqueletos"]
+  tags: ["escala_temporal", "comparacion"]
 
 variables:
-  escenario: uno_de([["aparición de esqueletos", "estructuras duras"], ["aparición de ojos", "órganos sensoriales"], ["aparición de depredadores", "planes complejos"]])
+  datos: [["Natural", "milenios"], ["Actual", "décadas"]]
+  idx: uno_de([0, 1])
+
+tipo: completar
+respuestas_validas:
+  - "milenios"
+  - "décadas"
+respuesta: datos[idx][1]
+
+enunciado: "Si un cambio climático natural suele manifestarse en un periodo de {datos[idx][0]}, el cambio climático actual se manifiesta en un periodo de ___."
+
+explicacion: |
+  La escala temporal es la clave: pasar de escalas de milenios a escalas de décadas es lo que impide que los ecosistemas se adapten naturalmente.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "basico"
+  tags: ["ritmo", "comparacion"]
+
+tipo: ordenar
+opciones_explicitas: ["Ciclos climáticos naturales (lentos)", "Cambio climático antropogénico (rápido)"]
+respuesta_orden: ["Ciclos climáticos naturales (lentos)", "Cambio climático antropogénico (rápido)"]
+
+enunciado: "Ordena los procesos de menor a mayor velocidad de cambio climático:"
+
+explicacion: |
+  El orden correcto refleja la aceleración del proceso: desde los cambios geológicos lentos hasta la aceleración actual causada por la actividad humana.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "avanzado"
+  tags: ["geologia", "velocidad"]
+
+variables:
+  datos: [["10000", "10"], ["5000", "50"], ["2000", "100"]]
+  idx: uno_de([0, 1, 2])
+
+tipo: completar
+tolerancia_abs: 0
+respuesta: datos[idx][1]
+
+enunciado: "En un escenario donde un cambio natural tarda {datos[idx][0]} años, el cambio actual se estima que ocurre en aproximadamente ___ años."
+
+pasos:
+  - "Identificar la escala de tiempo natural proporcionada."
+  - "Comparar con la escala de tiempo del cambio actual (décadas)."
+
+explicacion: |
+  El valor ingresado representa la escala de décadas que caracteriza la crisis climática actual frente a la escala de milenios de los procesos naturales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "basico"
+  tags: ["velocidad", "veracidad"]
+
+tipo: mc
+opciones_explicitas: ["Verdadero", "Falso"]
+respuesta: "Verdadero"
+
+enunciado: "La característica distintiva del cambio climático actual frente a los eventos naturales del pasado es que su velocidad de ejecución es órdenes de magnitud mayor. ¿Es esto verdadero o falso?"
+
+explicacion: |
+  Es verdadero. La rapidez del calentamiento actual es el factor que genera la mayor preocupación para la biodiversidad y la estabilidad de la civilización.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "intermedio"
+  tags: ["paleoclimatologia", "nucleos_de_hielo"]
+
+respuesta: "CO2"
+tipo: mc
+opciones_explicitas: ["CO2", "O2", "N2"]
+
+enunciado: "Al analizar núcleos de hielo extraídos de la Antártida, los científicos analizan las burbujas de aire atrapadas en las capas de nieve para determinar la concentración histórica de ___ en la atmósfera."
+
+explicacion: |
+  Las burbujas de aire atrapadas en el hielo actúan como cápsulas del tiempo, permitiendo medir la composición química de la atmósfera de hace cientos de miles de años.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "basico"
+  tags: ["dendrocronologia", "anillos_de_arboles"]
+
+respuesta: "ancho del anillo"
+tipo: completar
+respuestas_validas:
+  - "ancho del anillo"
+  - "color del anillo"
+  - "textura de la corteza"
+
+enunciado: "En la dendrocronología, la variabilidad climática (como la temperatura o la precipitación) se refleja principalmente en el ___ de cada anillo anual."
+
+explicacion: |
+  Un anillo más ancho suele indicar condiciones de crecimiento favorables (más lluvia o temperaturas óptimas), mientras que uno estrecho indica condiciones de estrés ambiental.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "avanzado"
+  tags: ["sedimentos", "oceanografia"]
+
+variables:
+  isocapa: uno_de([0, 1])
+
+respuesta_orden: ["Sedimentación de materia orgánica", "Acumulación de conchas de foraminíferos", "Deposición de partículas terrígenas"]
+tipo: ordenar
+opciones_explicitas: ["Sedimentación de materia orgánica", "Acumulación de conchas de foraminíferos", "Deposición de partículas terrígenas"]
+
+enunciado: "Para reconstruir un perfil climático en un núcleo de sedimentos oceánicos, se deben analizar los eventos en orden cronológico. Ordena los procesos de formación de un estrato típico (de lo más antiguo a lo más reciente):"
+
+explicacion: |
+  El proceso implica la caída de partículas, la acumulación de restos biológicos y la sedimentación continua que forma las capas que luego se estudian.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "avanzado"
+  tags: ["isótopos", "oxigeno"]
+
+respuesta: "18O"
+tipo: mc
+opciones_explicitas: ["12C", "14C", "18O", "16O"]
+
+enunciado: "En paleoclimatología, la relación entre los isótopos de oxígeno de las conchas de foraminíferos en el fondo marino es un indicador clave de la temperatura global. El isótopo más pesado utilizado es el ___."
+
+explicacion: |
+  La proporción entre el oxígeno-18 (pesado) y el oxígeno-16 (ligero) en los sedimentos marinos permite calcular las temperaturas de los antiguos océanos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "basico"
+  tags: ["proxies", "metodologia"]
+
+respuesta: "proxy"
+tipo: completar
+respuestas_validas:
+  - "proxy"
+  - "sensor"
+  - "registro"
+
+enunciado: "Dado que no existían termómetros en el pasado remoto, los científicos utilizan indicadores indirectos como los anillos de los árboles o los núcleos de hielo, denominados técnicamente como ___."
+
+explicacion: |
+  Un 'proxy' es una variable física, química o biológica que actúa como un sustituto de una variable climática que no se puede medir directamente.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "basico"
+  tags: ["paleoclimatologia", "co2"]
+
+respuesta: "800000"
+tipo: completar
+respuestas_validas:
+  - "800000"
+
+enunciado: "Los registros obtenidos de núcleos de hielo indican que los niveles actuales de CO2 atmosférico son más altos que en cualquier momento de los últimos ___ años."
+
+explicacion: |
+  Los núcleos de hielo de la Antártida permiten reconstruir la composición atmosférica de eras pasadas. Los datos muestran que las concentraciones actuales superan los máximos de los últimos 800.000 años.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "intermedio"
+  tags: ["co2", "comparacion"]
+
+respuesta: "Superior"
+tipo: mc
+opciones_explicitas: ["Superior", "Inferior"]
+
+enunciado: "Considerando que los niveles de CO2 actuales son de aproximadamente 420 ppm y que los niveles históricos preindustriales eran de ~280 ppm, la situación actual es ________ respecto al pasado geológico reciente."
+
+explicacion: |
+  La concentración actual de CO2 es significativamente más alta que los niveles estables de los últimos milenios, rompiendo el ciclo natural de los últimos 800.000 años.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "basico"
+  tags: ["metodologia", "paleoclimatologia"]
+
+respuesta: "núcleos de hielo"
+tipo: completar
+respuestas_validas:
+  - "núcleos de hielo"
+
+enunciado: "Para determinar la concentración de gases atmosféricos en el pasado remoto, los científicos analizan las burbujas de aire atrapadas en los ___."
+
+explicacion: |
+  Los núcleos de hielo actúan como cápsulas del tiempo que preservan muestras directas de la atmósfera de hace cientos de miles de años.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "avanzado"
+  tags: ["secuencia", "co2"]
+
+respuesta_orden: ["Preindustrial", "Máximo glacial", "Actualidad"]
+tipo: ordenar
+opciones_explicitas: ["Preindustrial", "Máximo glacial", "Actualidad"]
+
+enunciado: "Ordene cronológicamente (de lo más antiguo a lo más reciente) los estados de la concentración de CO2 según el registro de los últimos 800.000 años, considerando que el nivel actual es el más alto."
+
+explicacion: |
+  La secuencia refleja el aumento drástico desde los niveles preindustriales, pasando por las fluctuaciones de los periodos glaciares, hasta el pico antropogénico actual.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "basico"
+  tags: ["co2", "verdad_falso"]
+
+respuesta: "falso"
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "Es verdadero o falso que los niveles de CO2 actuales se encuentran dentro de los rangos naturales observados en los últimos 800.000 años registrados en los núcleos de hielo."
+
+explicacion: |
+  Es falso. Los niveles actuales han sobrepasado los límites naturales establecidos por los ciclos de hielo y deshielo de los últimos 800.000 años.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cambio_climatico_linea_base_historica"
+  nivel: "intermedio"
+  tags: ["paleoclimatologia", "velocidad"]
+
+variables:
+  escenario: uno_de([["un aumento de 2°C en 10,000 años", "0.0002"], ["un aumento de 2°C en 5,000 años", "0.0004"], ["un aumento de 2°C en 2,000 años", "0.001"]])
+
+enunciado: "Considerando el escenario de un aumento de temperatura de {escenario[0]}, ¿cuál es la tasa de cambio anual aproximada en grados Celsius por año (expresada como decimal)?"
+
+pasos:
+  - "Identificar el cambio total de temperatura (2°C)."
+  - "Dividir el cambio total por la cantidad de años para obtener la tasa anual."
 
 respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["estructuras duras", "órganos sensoriales", "planes complejos"]
-
-enunciado: "Uno de los cambios biológicos más significativos durante la explosión cámbrica fue la aparición de {escenario[0]}."
+tipo: completar
+tolerancia_abs: 0.00001
 
 explicacion: |
-  La evolución de partes duras (conchas, esqueletos) y órganos sensoriales complejos como los ojos permitió una nueva dinámica de supervivencia y depredación.
+  La tasa se calcula dividiendo el cambio de temperatura entre el tiempo transcurrido. En el escenario actual, la velocidad es órdenes de magnitud superior a los cambios naturales de los periodos interglaciares.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "explosion_cambrica"
-  nivel: "avanzado"
-  tags: ["secuencia", "evolucion"]
-
-opciones_explicitas: ["Organismos de Ediacara", "Aparición de esqueletos", "Diversificación de planos corporales"]
-respuesta_orden: ["Organismos de Ediacara", "Aparición de esqueletos", "Diversificación de planos corporales"]
-tipo: ordenar
-
-enunciado: "Ordena cronológicamente los eventos biológicos desde el Precámbrico hasta el Cámbrico:"
-
-explicacion: |
-  Primero dominaban los organismos de Ediacara; luego, la biomineralización permitió la aparición de esqueletos, lo que finalmente impulsó la diversificación de planos corporales complejos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "explosion_cambrica"
-  nivel: "intermedio"
-  tags: ["sensores", "evolucion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿La aparición de ojos y sistemas sensoriales complejos fue una característica distintiva de la explosión cámbrica?"
-
-explicacion: |
-  Correcto. La capacidad de detectar movimiento y luz permitió el desarrollo de una red trófica mucho más activa y compleja.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "explosion_cambrica"
+  tema: "cambio_climatico_linea_base_historica"
   nivel: "basico"
-  tags: ["comparacion"]
+  tags: ["magnitud", "comparacion"]
 
 variables:
-  datos: [["Ediacara", "simples"], ["Cámbrico", "complejos"]]
-  idx: uno_de([0,1])
+  datos: [["Ciclos de Milankovitch", "natural"], ["Erupciones volcánicas masivas", "natural"], ["Actividad antropogénica actual", "antropogénico"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "El fenómeno de {datos[idx][0]} se clasifica históricamente como un cambio de tipo ___________."
 
 respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["simples", "complejos"]
-
-enunciado: "Si comparamos la era de Ediacara con la explosión cámbrica, los organismos del Cámbrico eran biológicamente más {datos[idx][0]}."
-
-explicacion: |
-  La explosión cámbrica marca el paso de formas de vida mayormente simples a formas con planes corporales altamente especializados.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "explosion_cambrica"
-  nivel: "basico"
-  tags: ["geologia", "paleontologia", "canada"]
-
-respuesta: "Canadá"
 tipo: completar
 respuestas_validas:
-  - "Canadá"
-
-enunciado: "El famoso yacimiento de Burgess Shale, que documenta la diversidad de la fauna del Cámbrico, se encuentra ubicado en el país de ___."
+  - "natural"
+  - "antropogénico"
 
 explicacion: |
-  El yacimiento de Burgess Shale está situado en las Montañas Rocosas de la provincia de Columbia Británica, en Canadá.
+  Los ciclos orbitales (Milankovitch) y el vulcanismo son procesos naturales que han moldeado el clima por millones de años, a diferencia del forzamiento actual.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "explosion_cambrica"
+  tema: "cambio_climatico_linea_base_historica"
   nivel: "intermedio"
-  tags: ["preservacion", "fofiles"]
+  tags: ["co2", "geologia"]
 
 variables:
-  tipo_preservacion: uno_de(["carbonización", "permineralización", "molde"])
+  caso: uno_de([["Paleoceno-Eoceno (PETM)", "máximo"], ["Glaciaciones del Pleistoceno", "mínimo"], ["Periodo Cretácico", "moderado"]])
 
-respuesta: "carbonización"
+enunciado: "En el contexto del {caso[0]}, el aumento de CO2 provocó un cambio de magnitud ___________ en comparación con la variabilidad climática estándar del Holoceno."
+
+respuesta: caso[1]
 tipo: mc
-opciones_explicitas: ["carbonización", "permineralización", "molde"]
-
-enunciado: "La preservación excepcional de los tejidos blandos en Burgess Shale se debe principalmente a un proceso de ___ de la materia orgánica."
+opciones_explicitas: ["máximo", "mínimo", "moderado"]
 
 explicacion: |
-  La formación de películas delgadas de carbono (carbonización) permitió la preservación de estructuras blandas que normalmente no se fosilizan.
+  Eventos como el PETM muestran cambios rápidos de carbono, pero la velocidad actual de emisión de CO2 es excepcionalmente alta comparada con esos registros geológicos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "explosion_cambrica"
-  nivel: "intermedio"
-  tags: ["cronologia", "eventos"]
-
-opciones_explicitas: ["Explosión de la vida multicelular", "Aparición de los primeros organismos unicelulares", "Extinción masiva del Pérmico", "Aparición de las plantas terrestres"]
-respuesta_orden: ["Aparición de los primeros organismos unicelulares", "Explosión de la vida multicelular", "Aparición de las plantas terrestres", "Extinción masiva del Pérmico"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente los siguientes eventos biológicos/geológicos, desde el más antiguo al más reciente:"
-
-explicacion: |
-  La vida comenzó con organismos unicelulares, seguida por la explosión de diversidad del Cámbrico, la colonización de la tierra por plantas y, mucho después, las grandes extinciones masivas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "explosion_cambrica"
+  tema: "cambio_climatico_linea_base_historica"
   nivel: "avanzado"
-  tags: ["anomalocaris", "depredador"]
+  tags: ["causalidad", "procesos"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Basándonos en la morfología de *Anomalocaris canadensis* hallado en Burgess Shale, se considera que era un depredador de ápice."
-
-explicacion: |
-  *Anomalocaris* es uno de los depredadores más conocidos del Cámbrico, con apéndices frontales diseñados para capturar presas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "explosion_cambrica"
-  nivel: "intermedio"
-  tags: ["biologia", "evolucion"]
-
-respuesta: "alta"
-tipo: completar
-respuestas_validas:
-  - "alta"
+enunciado: "Ordene cronológicamente los factores que han dominado la variabilidad climática de la Tierra, desde el más lento al más rápido en su impacto actual:"
 
 pasos:
-  - "Identificar el periodo de la explosión cámbrica."
-  - "Determinar el nivel de diversidad biológica observado en Burgess Shale."
+  - "Identificar el ciclo de mayor duración (orbital)."
+  - "Identificar el ciclo de duración media (tectónica/volcánica)."
+  - "Identificar el factor de cambio instantáneo/decadal (antropogénico)."
 
-enunciado: "La diversidad de filos animales documentada en Burgess Shale durante la explosión cámbrica se caracteriza por ser de una magnitud ___."
+opciones_explicitas: ["Ciclos de Milankovitch", "Actividad Volcánica", "Emisiones de GEI"]
+respuesta_orden: ["Ciclos de Milankovitch", "Actividad Volcánica", "Emisiones de GEI"]
+tipo: ordenar
 
 explicacion: |
-  La explosión cámbrica representó un aumento drástico en la complejidad y diversidad de los cuerpos animales en el registro fósil.
+  Los ciclos orbitales actúan en escalas de miles de años, el vulcanismo en años/décadas, y las emisiones actuales en escalas de décadas, superando la velocidad de ajuste natural.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "explosion_cambrica"
-  nivel: "basico"
-  tags: ["geologia", "paleontologia"]
-
-respuesta: "Paleozoico"
-tipo: mc
-opciones_explicitas: ["Paleozoico", "Proterozoico", "Mesozoico", "Cenozoico"]
-
-enunciado: "La explosión cámbrica marca el inicio del eón Fanerozoico, específicamente de la era del ___."
-
-explicacion: |
-  La explosión cámbrica ocurrió hace unos 541 millones de años, marcando el inicio del eón Fanerozoico y la era Paleozoica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "explosion_cambrica"
+  tema: "cambio_climatico_linea_base_historica"
   nivel: "intermedio"
-  tags: ["escala_tiempo", "geologia"]
-
-respuesta: "Ediacárico"
-tipo: completar
-respuestas_validas:
-  - "Ediacárico"
-  - "Ediacarano"
-
-enunciado: "Si nos situamos inmediatamente antes de la explosión cámbrica, nos encontramos en el periodo ___."
-
-explicacion: |
-  El periodo Ediacárico precede a la explosión cámbrica, la cual da inicio al periodo Cámbrico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "explosion_cambrica"
-  nivel: "intermedio"
-  tags: ["orden", "escala_tiempo"]
+  tags: ["co2", "concentracion"]
 
 variables:
-  secuencia: ["Ediacarano", "Cámbrico", "Ordovícico", "Silúrico"]
+  escenario_co2: uno_de([["420 ppm", "280"], ["300 ppm", "280"], ["280 ppm", "280"]])
 
-respuesta_orden: ["Ediacarano", "Cámbrico", "Ordovícico", "Silúrico"]
-tipo: ordenar
-opciones_explicitas: ["Ediacarano", "Cámbrico", "Ordovícico", "Silúrico"]
+enunciado: "Si la concentración actual de CO2 es de {escenario_co2[0]}, ¿cuál era la concentración promedio aproximada durante el periodo preindustrial (base de comparación histórica)?"
 
-enunciado: "Ordena cronológicamente los siguientes periodos/eras, comenzando desde el más antiguo antes de la explosión cámbrica:"
+respuesta: "280 ppm"
+tipo: mc
+opciones_explicitas: ["280 ppm", "350 ppm", "400 ppm"]
 
 explicacion: |
-  La secuencia correcta es: Ediacarano (Precambriano tardío), Cámbrico (inicio de la explosión), Ordovícico y Silúrico.
+  El nivel de 280 ppm es el estándar utilizado para representar el estado de equilibrio preindustrial antes de la era de la industrialización masiva.
+```
+
+## Sección: hominizacion (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "basico"
+  tags: ["evolucion", "bipedismo"]
+
+respuesta: "bipedestación"
+tipo: completar
+respuestas_validas:
+  - "bipedestación"
+  - "bipedismo"
+
+enunciado: "El cambio anatómico fundamental que permitió a los primeros homínidos liberar las manos para el transporte de alimentos y el uso de herramientas fue la ___."
+
+explicacion: |
+  La bipedestación (caminar sobre dos extremidades) fue el rasgo clave que definió la transición hacia los homínidos, permitiendo una mayor eficiencia energética y la liberación de las manos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "explosion_cambrica"
+  tema: "hominizacion"
+  nivel: "intermedio"
+  tags: ["cronologia", "especies"]
+
+variables:
+  escenario: uno_de([["Australopithecus", "hace 4 millones de años"], ["Homo habilis", "hace 2 millones de años"], ["Homo sapiens", "hace 300.000 años"]])
+
+respuesta: escenario[0]
+tipo: mc
+opciones_explicitas: ["Australopithecus", "Homo habilis", "Homo sapiens", "Homo erectus"]
+
+enunciado: "De acuerdo al escenario seleccionado, ¿qué especie vivió aproximadamente {escenario[1]}?"
+
+explicacion: |
+  El escenario seleccionado fue {escenario[0]}, que se sitúa cronológicamente en {escenario[1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
   nivel: "avanzado"
-  tags: ["geologia", "eventos"]
-
-respuesta: "Cambriano"
-tipo: mc
-opciones_explicitas: ["Cambriano", "Triásico", "Jurásico", "Permiano"]
-
-enunciado: "La diversificación masiva de la vida animal, conocida como la explosión cámbrica, ocurrió hace aproximadamente 541 Ma, dando inicio al periodo ___."
-
-explicacion: |
-  La explosión cámbrica es el evento que define el inicio del periodo Cámbrico hace unos 541 millones de años.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "explosion_cambrica"
-  nivel: "basico"
-  tags: ["geologia"]
-
-respuesta: "Cámbrico"
-tipo: completar
-respuestas_validas:
-  - "Cámbrico"
-
-enunciado: "La explosión cámbrica es el evento fundacional del periodo ___."
-
-explicacion: |
-  La explosión cámbrica marca el inicio del periodo Cámbrico dentro de la era Paleozoica.
-```
-
-## Sección: fases-lunares (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["astronomia", "mitos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un error común es pensar que las fases lunares ocurren porque la Tierra proyecta su sombra sobre la Luna."
-
-explicacion: |
-  Las fases lunares no son causadas por la sombra de la Tierra. La sombra de la Tierra sobre la Luna sólo ocurre durante un eclipse lunar, un evento mucho más raro y específico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["astronomia", "geometria"]
-
-opciones_explicitas: ["La sombra de la Tierra", "La posición de la Luna respecto al Sol y la Tierra", "La atmósfera terrestre", "La distancia de la Luna a la Tierra"]
-respuesta: "La posición de la Luna respecto al Sol y la Tierra"
-tipo: mc
-
-enunciado: "¿Cuál es la causa real de que veamos diferentes fases lunares?"
-
-explicacion: |
-  Las fases dependen de la geometría entre el Sol, la Tierra y la Luna. Lo que vemos es la fracción de la cara iluminada de la Luna que es visible desde nuestra perspectiva en la Tierra.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "intermedio"
-  tags: ["astronomia", "terminologia"]
-
-respuestas_validas:
-  - "porción"
-  - "parte"
-  - "fracción"
-respuesta: "porción"
-tipo: completar
-
-enunciado: "Las fases lunares representan la ___ de la cara iluminada de la Luna que podemos observar desde la Tierra, según su posición orbital."
-
-explicacion: |
-  Como la Luna siempre tiene una mitad iluminada por el Sol, lo que cambia es la porción de esa mitad que nuestro ángulo de visión nos permite ver.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "intermedio"
-  tags: ["astronomia", "eventos"]
-
-respuesta: "eclipse lunar"
-tipo: completar
-respuestas_validas:
-  - "eclipse lunar"
-
-enunciado: "Si la Luna entra en la sombra proyectada por la Tierra (un evento raro, no mensual), estamos ante un ___."
-
-explicacion: |
-  Cuando la Tierra interfiere en la luz solar hacia la Luna, se produce un eclipse lunar, no una fase lunar normal (las fases ocurren todos los meses, los eclipses no).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["astronomia", "conceptos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Luna siempre tiene una mitad iluminada por el Sol, independientemente de la fase que veamos desde la Tierra."
-
-explicacion: |
-  Verdadero. La Luna siempre recibe luz solar (salvo en eclipses); lo que cambia es nuestra perspectiva de esa mitad iluminada según la posición orbital de la Luna.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["astronomia", "luna"]
-
-respuesta: "luna nueva"
-tipo: completar
-respuestas_validas:
-  - "luna nueva"
-
-enunciado: "La fase en la que la Luna se encuentra entre la Tierra y el Sol, por lo que su cara iluminada no es visible desde nuestro planeta, se denomina ___."
-
-explicacion: |
-  En la luna nueva, el ángulo entre el Sol, la Luna y la Tierra es de 0°, lo que impide ver la parte iluminada.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["astronomia", "luna"]
-
-opciones_explicitas: ["luna llena", "cuarto creciente", "luna nueva", "cuarto menguante"]
-respuesta: "luna llena"
-tipo: mc
-
-enunciado: "Cuando la Luna se encuentra opuesta al Sol con respecto a la Tierra, la vemos totalmente iluminada. ¿Cómo se llama esta fase?"
-
-explicacion: |
-  La luna llena ocurre cuando la Tierra está entre el Sol y la Luna.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "intermedio"
-  tags: ["astronomia", "luna"]
-
-opciones_explicitas: ["luna creciente iluminante", "cuarto creciente", "gibosa creciente", "luna llena"]
-respuesta_orden: ["luna creciente iluminante", "cuarto creciente", "gibosa creciente", "luna llena"]
-tipo: ordenar
-
-enunciado: "Ordena las siguientes fases lunares según aparecen en el ciclo de crecimiento (de menor a mayor iluminación):"
-
-explicacion: |
-  Después de la luna nueva, la parte visible crece primero como una pequeña astilla (creciente iluminante), luego alcanza la mitad (cuarto creciente) y finalmente se ensancha antes de la luna llena (gibosa creciente).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "intermedio"
-  tags: ["astronomia", "luna"]
+  tags: ["cerebro", "antropometria"]
 
 variables:
-  idx: uno_de([0, 1])
-  datos: [["gibosa creciente", "cuarto creciente"], ["gibosa menguante", "luna llena"]]
+  datos: [["Australopithecus", 450], ["Homo habilis", 650], ["Homo erectus", 900], ["Homo sapiens", 1400]]
+  idx: uno_de([0, 1, 2, 3])
 
-opciones_explicitas: ["gibosa creciente", "gibosa menguante", "cuarto creciente", "cuarto menguante"]
-respuesta: datos[idx][0]
-tipo: mc
-
-enunciado: "Si una fase ocurre justo después de la {datos[idx][1]} (y antes de la luna llena/nueva siguiente), ¿cuál es el nombre de esa fase intermedia?"
-
-explicacion: |
-  La fase gibosa es aquella en la que la Luna se ve iluminada en más de la mitad pero todavía no llega a ser llena.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["astronomia", "luna"]
-
-respuesta: "0.5"
+respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas:
-  - "0.5"
-  - "0,5"
-  - "1/2"
-  - "50%"
+tolerancia_abs: 0
 
-enunciado: "En las fases de 'cuarto creciente' y 'cuarto menguante', la fracción (en decimal) de la cara visible de la Luna que está iluminada es ___."
+enunciado: "El {datos[idx][0]} tenía un volumen craneal promedio de aproximadamente ___ cc."
 
 pasos:
-  - "Identificar que en el cuarto, la Luna está exactamente a la mitad de su ciclo de iluminación."
+  - "Identificar la especie según el escenario."
+  - "Asociar el volumen craneal promedio característico de dicha especie."
 
 explicacion: |
-  En las fases de cuarto, la Luna presenta exactamente la mitad de su cara visible iluminada.
+  El volumen craneal es un indicador clave de la encefalización en el proceso de hominización. Para {datos[idx][0]}, el valor es de {datos[idx][1]} cc.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["astronomia", "luna"]
-
-respuesta: "29.5"
-tipo: completar
-respuestas_validas:
-  - "29.5"
-  - "29,5"
-  - "29"
-
-enunciado: "El ciclo completo de las fases de la Luna, conocido como mes sinódico o lunación, dura aproximadamente ___ días."
-
-explicacion: |
-  El ciclo sinódico es el tiempo que tarda la Luna en volver a la misma fase respecto al Sol y la Tierra, unos 29,5 días.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["fases", "luna_nueva"]
-
-respuesta: "la cara iluminada mira al Sol"
-tipo: mc
-opciones_explicitas: ["la cara iluminada mira a la Tierra", "la cara iluminada mira al Sol", "la Luna deja de recibir luz solar"]
-
-enunciado: "Durante la fase de Luna Nueva, no podemos ver el disco lunar porque ___."
-
-explicacion: |
-  En la Luna Nueva, la Luna se encuentra entre la Tierra y el Sol: la cara que vemos desde nuestro planeta es la que está en sombra, mientras la cara iluminada mira hacia el Sol.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["fases", "luna_llena"]
-
-respuesta: "la cara iluminada mira a la Tierra"
-tipo: completar
-respuestas_validas:
-  - "la cara iluminada mira a la Tierra"
-
-enunciado: "En la fase de Luna Llena, podemos ver el disco completo porque ___."
-
-explicacion: |
-  En la Luna Llena, la Tierra se encuentra entre el Sol y la Luna, así que la cara iluminada es la que observamos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
+  tema: "hominizacion"
   nivel: "intermedio"
-  tags: ["orden", "fases"]
+  tags: ["herramientas", "tecnologia"]
 
-opciones_explicitas: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
-respuesta_orden: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
+respuesta: "Homo habilis"
+tipo: mc
+opciones_explicitas: ["Australopithecus", "Homo habilis", "Homo sapiens"]
+
+enunciado: "¿Qué especie es reconocida tradicionalmente por ser la primera en fabricar sistemáticamente herramientas de piedra (industria Olduvayense)?"
+
+explicacion: |
+  Aunque hubo usos previos, el género Homo (específicamente Homo habilis) marca el inicio de la cultura material mediante la fabricación de herramientas de piedra tallada.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "avanzado"
+  tags: ["orden", "lineaje"]
+
+respuesta_orden: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
 tipo: ordenar
+opciones_explicitas: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
 
-enunciado: "Ordena cronológicamente las fases lunares desde la ausencia de luz visible hasta la plenitud del disco."
+enunciado: "Ordena cronológicamente, de la especie más antigua a la más reciente, los siguientes homínidos:"
 
 explicacion: |
-  El ciclo comienza con la Luna Nueva (oscuridad), sigue con el crecimiento de la parte visible (creciente), llega al máximo (llena) y luego decrece (menguante).
+  La secuencia correcta refleja el aumento progresivo de la capacidad craneal y la complejidad tecnológica a lo largo de millones de años.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "fases_lunares"
+  tema: "hominizacion"
   nivel: "basico"
-  tags: ["logica", "fases"]
+  tags: ["evolucion", "bipedismo"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En fase de Luna Llena vemos el disco completo porque la parte iluminada de la Luna apunta hacia la Tierra."
-
-explicacion: |
-  Correcto. En Luna Llena, la Tierra queda entre el Sol y la Luna, así que la cara iluminada de la Luna mira de frente hacia nosotros.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["luna", "astronomia"]
-
-respuesta: "sincrónica"
 tipo: completar
-respuestas_validas:
-  - "sincrónica"
-  - "sincronizada"
-
-enunciado: "El fenómeno por el cual la Luna tarda el mismo tiempo en rotar sobre su propio eje que en completar su órbita alrededor de la Tierra se denomina rotación ___."
-
+enunciado: "Uno de los primeros rasgos evolutivos que distinguieron a los homínidos de otros primates, permitiendo la liberación de las manos, fue la ___."
+respuesta: "bipedestación"
 explicacion: |
-  Debido a que los períodos de rotación y traslación son iguales, la misma cara de la Luna siempre está orientada hacia la Tierra.
+  La bipedestación ocurrió mucho antes del aumento significativo del tamaño cerebral. Al caminar erguidos, los homínidos liberaron sus extremidades superiores para transportar alimentos y, eventualmente, fabricar herramientas.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["luna", "astronomia"]
-
-respuesta: "cara visible"
-tipo: completar
-respuestas_validas:
-  - "cara visible"
-
-enunciado: "Gracias a la rotación sincrónica, la parte de la Luna que siempre está orientada hacia nosotros se conoce como la ___."
-
-explicacion: |
-  La rotación sincrónica impide que veamos la cara oculta desde la Tierra, manteniendo siempre la misma cara frente a nosotros: la cara visible.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
+  tema: "hominizacion"
   nivel: "intermedio"
-  tags: ["luna", "astronomia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La existencia de una 'cara oculta' de la Luna depende de las fases lunares (luna llena, luna nueva, etc.)."
-
-explicacion: |
-  Falso. La cara oculta es consecuencia de la rotación sincrónica y es independiente de las fases lunares: es la parte que no vemos por la rotación, no por la iluminación.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "intermedio"
-  tags: ["luna", "astronomia"]
-
-respuesta: "rotación y traslación"
-tipo: mc
-opciones_explicitas: ["rotación y traslación", "distancia y tamaño", "gravedad y magnetismo"]
-
-enunciado: "La razón por la cual no podemos ver la cara oculta de la Luna se debe a la igualdad entre sus períodos de ___."
-
-explicacion: |
-  Como la Luna tarda lo mismo en rotar que en orbitar, la cara que mira a la Tierra siempre es la misma.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "avanzado"
-  tags: ["luna", "astronomia"]
-
-respuesta_orden: ["rotación sincrónica", "cara visible", "cara oculta"]
-tipo: ordenar
-
-opciones_explicitas: ["rotación sincrónica", "cara visible", "cara oculta"]
-
-enunciado: "Ordena estos conceptos según la relación de causa y efecto: primero la causa física, después sus dos consecuencias."
-
-explicacion: |
-  La rotación sincrónica es la causa física; de ella se derivan la existencia de una cara visible y una cara oculta.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["astronomia", "luna"]
-
-variables:
-  idx: uno_de([0, 1])
-  porcentajes: [0.0, 1.0]
-  fases: ["Luna Nueva", "Luna Llena"]
-
-respuesta: fases[idx]
-tipo: mc
-opciones_explicitas: ["Luna Nueva", "Cuarto Creciente", "Cuarto Menguante", "Luna Llena"]
-
-enunciado: "Si la iluminación visible de la Luna es del {redondear(porcentajes[idx] * 100, 0)}%, ¿qué fase lunar estamos observando?"
-
-explicacion: |
-  0% de iluminación visible es Luna Nueva; 100% es Luna Llena. (El 50% no alcanza para distinguir por sí solo entre cuarto creciente y cuarto menguante — hace falta saber si la iluminación está aumentando o disminuyendo.)
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["astronomia", "luna"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[100, "Luna Llena"], [0, "Luna Nueva"]]
-
-respuesta: datos[idx][0]
-tipo: completar
-respuestas_validas:
-  - datos[idx][0]
-
-enunciado: "Si la Luna se encuentra en fase {datos[idx][1]}, el porcentaje de su cara visible que está iluminado es ___%."
-
-explicacion: |
-  En la fase {datos[idx][1]}, la iluminación visible es del {datos[idx][0]}%.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "intermedio"
-  tags: ["astronomia", "luna"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Luna Nueva", 0], ["Luna Llena", 100]]
-
-respuesta: datos[idx][0]
-tipo: completar
-respuestas_validas:
-  - "Luna Nueva"
-  - "Luna Llena"
-
-enunciado: "Cuando la Luna presenta una iluminación visible del {datos[idx][1]}%, la fase se llama ___."
-
-explicacion: |
-  La fase con {datos[idx][1]}% de iluminación visible es la {datos[idx][0]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "intermedio"
-  tags: ["astronomia", "luna"]
-
-respuesta_orden: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
-tipo: ordenar
-opciones_explicitas: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
-
-enunciado: "Ordena cronológicamente las fases lunares desde la ausencia de luz visible hasta la plenitud."
-
-explicacion: |
-  El ciclo lunar comienza con la Luna Nueva, sigue con el cuarto creciente, luego la Luna Llena y finalmente el cuarto menguante.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "fases_lunares"
-  nivel: "basico"
-  tags: ["astronomia", "luna"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si la Luna tiene un 100% de iluminación visible, se trata de una Luna Nueva."
-
-explicacion: |
-  Falso: 100% de iluminación visible corresponde a la Luna Llena, no a la Luna Nueva (que es 0%).
-```
-
-## Sección: formacion-de-estrellas (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "basico"
-  tags: ["nebulosa", "gas"]
-
-enunciado: "Las estrellas nacen a partir de gigantescas nubes de gas y polvo interestelar conocidas como ___."
-
-respuestas_validas:
-  - "nebulosas"
-
-respuesta: "nebulosas"
-tipo: completar
-
-explicacion: |
-  Una nebulosa es una nube de gas y polvo en el espacio interestelar, la materia prima a partir de la cual se forman las estrellas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "intermedio"
-  tags: ["gravedad", "colapso"]
-
-enunciado: "La fuerza principal que provoca que una nebulosa comience a contraerse y colapsar sobre sí misma es la ___."
-
-respuestas_validas:
-  - "gravedad"
-
-respuesta: "gravedad"
-tipo: completar
-
-explicacion: |
-  La gravedad atrae el gas hacia las zonas más densas de la nube, iniciando el colapso que eventualmente formará una estrella.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "avanzado"
-  tags: ["momento_angular", "giro"]
-
-enunciado: "A medida que la nube colapsa, su velocidad de rotación aumenta para conservar el ___."
-
-respuestas_validas:
-  - "momento angular"
-
-respuesta: "momento angular"
-tipo: completar
-
-explicacion: |
-  Es el mismo principio que un patinador que gira más rápido al cerrar los brazos: al reducirse el radio de la nube, la velocidad de giro aumenta para conservar el momento angular.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "intermedio"
-  tags: ["temperatura", "energia"]
-
-enunciado: "Durante el colapso, la energía potencial gravitatoria se transforma en ___ en el núcleo de la protoestrella."
-
-respuestas_validas:
-  - "energía térmica"
-  - "energia termica"
-
-respuesta: "energía térmica"
-tipo: completar
-
-explicacion: |
-  A medida que el gas cae hacia el centro por gravedad, esa energía de movimiento se convierte en calor, elevando la temperatura del núcleo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "avanzado"
-  tags: ["disco", "acrecion"]
-
-respuesta: "disco de acreción"
-tipo: completar
-respuestas_validas:
-  - "disco de acreción"
-  - "disco protoplanetario"
-  - "disco de acrecion"
-
-enunciado: "Cuando la materia gira rápidamente alrededor del centro, se aplana formando un ___."
-
-explicacion: |
-  El aumento de la velocidad de rotación por la conservación del momento angular aplana la nube en un disco.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "basico"
-  tags: ["fusion", "hidrogeno"]
-
-tipo: mc
-opciones_explicitas: ["Fusión de helio en hidrógeno", "Fusión de hidrógeno en helio", "Fisión de núcleos de hierro", "Combustión de oxígeno"]
-respuesta: "Fusión de hidrógeno en helio"
-
-enunciado: "Durante la formación de una estrella, el 'encendido' ocurre cuando la temperatura y presión son tan altas que se inicia un proceso de ___."
-
-explicacion: |
-  El proceso fundamental que define la vida de una estrella es la fusión nuclear, donde núcleos de hidrógeno se unen para formar helio, liberando una enorme cantidad de energía.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "intermedio"
-  tags: ["equilibrio", "gravedad", "presion"]
-
-tipo: completar
-respuestas_validas:
-  - "equilibrio hidrostático"
-  - "equilibrio hidrostatico"
-respuesta: "equilibrio hidrostático"
-
-enunciado: "Para que una estrella sea estable y no colapse ni se expanda descontroladamente, debe existir un ___ entre la gravedad (que empuja hacia adentro) y la presión de la fusión (que empuja hacia afuera)."
-
-explicacion: |
-  Este estado se conoce como equilibrio hidrostático. La gravedad intenta comprimir la estrella, mientras que la energía de la fusión nuclear genera una presión hacia afuera que compensa esa fuerza.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "basico"
-  tags: ["gravedad", "presion"]
-
-tipo: mc
-opciones_explicitas: ["La gravedad gana y la estrella colapsa", "La presión de fusión gana y la estrella se expande", "Ambas fuerzas se anulan y la estrella es estable", "La gravedad desaparece"]
-respuesta: "Ambas fuerzas se anulan y la estrella es estable"
-
-enunciado: "Si una estrella ha alcanzado un estado de estabilidad donde la fuerza de gravedad hacia el centro es compensada exactamente por la presión de la fusión hacia el exterior, podemos decir que:"
-
-explicacion: |
-  La estabilidad estelar depende de que la fuerza de gravedad (atracción) y la presión de radiación/térmica (repulsión) estén en un equilibrio dinámico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "intermedio"
-  tags: ["temperatura", "presion", "nucleos"]
-
-tipo: completar
-respuestas_validas:
-  - "Fusión de hidrógeno"
-  - "fusión de hidrógeno"
-respuesta: "Fusión de hidrógeno"
-
-enunciado: "El primer paso crucial en el ciclo de vida de una estrella es la ___."
-
-explicacion: |
-  Antes de que una estrella pueda quemar elementos más pesados, debe superar la barrera de repulsión eléctrica entre protones para iniciar la fusión de hidrógeno.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "avanzado"
-  tags: ["gravedad", "fusión"]
-
-tipo: mc
-opciones_explicitas: ["La gravedad es mayor que la presión", "La presión es mayor que la gravedad", "La gravedad y la presión son iguales", "No hay fuerzas actuando"]
-respuesta: "La gravedad es mayor que la presión"
-
-enunciado: "Si una estrella agota su combustible de hidrógeno en el núcleo y la producción de energía disminuye, ¿qué sucede con el equilibrio de fuerzas?"
-
-explicacion: |
-  Al disminuir la presión hacia afuera causada por la fusión, la gravedad toma ventaja, provocando que el núcleo se contraiga nuevamente hasta alcanzar nuevas temperaturas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "basico"
-  tags: ["estrellas", "sol", "enana_blanca"]
-
-respuesta: "enana blanca"
-tipo: completar
-respuestas_validas:
-  - "enana blanca"
-
-enunciado: "Una estrella de masa media, similar a nuestro Sol, tras agotar su combustible de hidrógeno y helio, termina su ciclo de vida convirtiéndose en una ___."
-
-explicacion: |
-  Las estrellas de masa media como el Sol no tienen suficiente masa para colapsar en objetos ultra densos; en su lugar, expulsan sus capas externas y dejan un núcleo remanente llamado enana blanca.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "basico"
-  tags: ["estrellas_masivas", "supernova"]
-
-respuesta: "supernova"
-tipo: completar
-respuestas_validas:
-  - "supernova"
-
-enunciado: "Las estrellas con una masa muy superior a la del Sol tienen un destino violento: terminan su vida en una explosión masiva conocida como ___."
-
-explicacion: |
-  Debido a su enorme gravedad, las estrellas masivas procesan su combustible muy rápido y colapsan sobre sí mismas, provocando una explosión de supernova que puede iluminar galaxias enteras.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "intermedio"
-  tags: ["masa", "tiempo_vida"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["baja/media", "miles de millones"], ["muy masiva", "millones"]]
-
-respuesta: escenario[idx][1]
-tipo: completar
-respuestas_validas:
-  - "miles de millones"
-  - "millones"
-
-enunciado: "El tiempo de vida de una estrella depende de su masa. Una estrella de masa {escenario[idx][0]} vivirá durante aproximadamente ___ de años."
-
-explicacion: |
-  Existe una relación inversa: a mayor masa, mayor presión y temperatura en el núcleo, lo que hace que el combustible se queme mucho más rápido, resultando en una vida más corta.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "avanzado"
-  tags: ["agujero_negro", "colapso"]
-
-respuesta: "agujero negro"
-tipo: completar
-respuestas_validas:
-  - "agujero negro"
-
-enunciado: "Cuando una estrella extremadamente masiva colapsa tras una supernova y su remanente es lo suficientemente denso como para que ni la luz pueda escapar de su gravedad, se forma un ___."
-
-explicacion: |
-  El agujero negro es el destino final de las estrellas más masivas del universo, donde la densidad es tal que la curvatura del espacio-tiempo es extrema.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "intermedio"
-  tags: ["remanentes", "masa"]
-
-variables:
-  idx: uno_de([0, 1])
-  caso: [["enana blanca", "baja/media"], ["agujero negro", "muy masiva"]]
-
-respuesta: caso[idx][0]
-tipo: completar
-respuestas_validas:
-  - "enana blanca"
-  - "agujero negro"
-
-enunciado: "Si analizamos el remanente final de una estrella de masa {caso[idx][1]}, el objeto resultante será una/un ___."
-
-explicacion: |
-  El destino final está determinado principalmente por la masa remanente del núcleo tras la muerte de la estrella.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "basico"
-  tags: ["nucleosintesis", "elementos"]
-
-tipo: mc
-opciones_explicitas: ["Carbono, Oxígeno y Hierro", "Sólo Hidrógeno y Helio", "Sólo Fotones y Neutrinos", "Plutonio y Uranio solamente"]
-respuesta: "Sólo Hidrógeno y Helio"
-
-enunciado: "Si las estrellas no hubieran existido, el universo estaría compuesto casi exclusivamente por ___."
-
-explicacion: |
-  Sin la fusión nuclear que ocurre dentro de las estrellas, el universo se habría quedado con los elementos livianos formados en el Big Bang: hidrógeno y helio, casi sin nada más.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "intermedio"
-  tags: ["fusion", "nucleosintesis"]
-
-tipo: completar
-respuestas_validas:
-  - "fusión nuclear"
-  - "fusion nuclear"
-respuesta: "fusión nuclear"
-
-enunciado: "El proceso físico que ocurre en el núcleo de una estrella y permite la creación de elementos más pesados que el helio se denomina ___."
-
-explicacion: |
-  La fusión nuclear en el interior estelar es el único proceso natural capaz de fabricar elementos más pesados que el hidrógeno y el helio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "basico"
-  tags: ["quimica_cosmica", "elementos_pesados"]
-
-tipo: mc
-opciones_explicitas: ["Las estrellas son fábricas de elementos pesados", "Las estrellas sólo sirven para iluminar planetas", "Las estrellas destruyen la materia existente", "Las estrellas son sólo bolas de gas sin importancia química"]
-respuesta: "Las estrellas son fábricas de elementos pesados"
-
-enunciado: "¿Cuál es la función química fundamental de las estrellas en la evolución del universo?"
-
-explicacion: |
-  Las estrellas fabrican, mediante fusión nuclear, todos los elementos más pesados que el hidrógeno y el helio que existen en el universo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "intermedio"
-  tags: ["nucleosintesis", "evolucion"]
-
-tipo: completar
-respuestas_validas:
-  - "helio"
-respuesta: "helio"
-
-enunciado: "Antes de que las estrellas comenzaran a fusionar elementos más pesados, el universo era una mezcla primordial de hidrógeno y ___."
-
-explicacion: |
-  El Big Bang dejó al universo con principalmente hidrógeno y algo de helio — todo lo demás lo fabricaron las estrellas después.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "avanzado"
-  tags: ["nucleosintesis", "evolucion_estelar"]
-
-tipo: mc
-opciones_explicitas: ["Sin estrellas, no habría átomos complejos para formar planetas o vida", "Sin estrellas, el universo sería más oscuro pero igual de complejo", "Sin estrellas, el hidrógeno se habría agotado más rápido", "Sin estrellas, la gravedad no existiría"]
-respuesta: "Sin estrellas, no habría átomos complejos para formar planetas o vida"
-
-enunciado: "¿Qué consecuencia directa tiene la ausencia de procesos estelares para la formación de la materia compleja?"
-
-explicacion: |
-  Los elementos que forman planetas rocosos y organismos vivos (carbono, oxígeno, hierro, etc.) se fabricaron dentro de estrellas — sin ellas, no existirían.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "basico"
-  tags: ["evolucion_estelar", "masa"]
-
-respuesta: "enana blanca"
-tipo: completar
-respuestas_validas:
-  - "enana blanca"
-
-enunciado: "Una estrella con una masa similar a la del Sol llegará al final de su vida convirtiéndose en una ___."
-
-explicacion: |
-  Las estrellas de masa baja o media, como nuestro Sol, no tienen suficiente masa para colapsar en un agujero negro. Tras agotar su combustible, expulsan sus capas externas y dejan un núcleo denso llamado enana blanca.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "intermedio"
-  tags: ["supernova", "masa_alta"]
-
-respuesta: "supernova"
-tipo: mc
-opciones_explicitas: ["enana blanca", "supernova", "nebulosa planetaria", "protoestrella"]
-
-enunciado: "Cuando una estrella masiva (más de 8 masas solares) agota su combustible de fusión, experimenta un colapso catastrófico conocido como ___."
-
-explicacion: |
-  Las estrellas masivas terminan su vida en una explosión violenta llamada supernova, que puede dejar atrás una estrella de neutrones o un agujero negro.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "avanzado"
-  tags: ["agujero_negro", "densidad"]
-
-respuesta: "agujero negro"
-tipo: mc
-opciones_explicitas: ["agujero negro", "estrella de neutrones", "enana blanca", "pulsar"]
-
-enunciado: "Si el remanente de una supernova es lo suficientemente masivo, la gravedad es tan fuerte que nada puede escapar de él, formando un ___."
-
-explicacion: |
-  Un agujero negro es una región del espacio-tiempo donde la gravedad es tan intensa que ni siquiera la luz puede escapar de su horizonte de sucesos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "intermedio"
-  tags: ["estrellas_de_neutrones", "masa"]
-
-respuesta: "estrella de neutrones"
-tipo: completar
-respuestas_validas:
-  - "estrella de neutrones"
-
-enunciado: "Tras una supernova, si el objeto restante tiene una masa intermedia (entre 1,4 y 3 masas solares), se convierte en una ___."
-
-explicacion: |
-  Las estrellas de neutrones son objetos extremadamente densos que resultan del colapso de núcleos estelares masivos que no alcanzan a formar un agujero negro.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_de_estrellas"
-  nivel: "basico"
-  tags: ["enana_blanca", "sol"]
-
-respuesta: "enana blanca"
-tipo: mc
-opciones_explicitas: ["agujero negro", "enana blanca", "estrella de neutrones", "nebulosa"]
-
-enunciado: "El destino final de una estrella como el Sol es convertirse en una:"
-
-explicacion: |
-  Las estrellas de baja masa como el Sol no tienen la masa necesaria para producir explosiones de supernova; su destino es enfriarse lentamente como enanas blancas.
-```
-
-## Sección: formacion-del-sistema-solar (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "intermedio"
-  tags: ["nube_molecular", "estrellas_previas"]
-
-enunciado: "Antes de la formación del Sol, el sistema solar se originó a partir de una ___ de gas y polvo que contenía elementos pesados fabricados por estrellas anteriores."
-respuestas_validas:
-  - "nube molecular"
-respuesta: "nube molecular"
-tipo: completar
-
-explicacion: |
-  La materia que nos compone no es sólo hidrógeno y helio; contiene elementos más pesados (metales en astronomía) que fueron sintetizados en el núcleo de estrellas que existieron antes que nuestro Sol.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "basico"
-  tags: ["supernova", "colapso"]
-
-enunciado: "El colapso de la nube molecular que dio origen al sistema solar fue provocado por la onda de choque de una cercana ___."
-respuestas_validas:
-  - "supernova"
-respuesta: "supernova"
-tipo: completar
-
-explicacion: |
-  Una supernova es la explosión cataclísmica de una estrella masiva al final de su vida. La energía liberada puede comprimir una nube de gas cercana, iniciando el proceso de formación estelar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "basico"
-  tags: ["gravedad", "colapso"]
-
-enunciado: "Una vez que la nube molecular se comprimió, la ___ fue la fuerza principal que causó el colapso continuo hacia un centro común."
-respuestas_validas:
-  - "gravedad"
-respuesta: "gravedad"
-tipo: completar
-
-explicacion: |
-  La gravedad es la fuerza de atracción que hace que la materia se agrupe. A medida que la nube se hacía más densa, la atracción gravitatoria aumentaba, acelerando el colapso.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "intermedio"
-  tags: ["acrecion", "planetesimales"]
-
-enunciado: "Durante el proceso de formación, las partículas de polvo y hielo comenzaron a chocar y pegarse entre sí mediante un proceso llamado ___."
-respuestas_validas:
-  - "acreción"
-  - "acrecion"
-respuesta: "acreción"
-tipo: completar
-
-explicacion: |
-  La acreción es el proceso de crecimiento de cuerpos celestes mediante la acumulación de material circundante. Así se formaron desde granos de polvo hasta planetesimales y, finalmente, planetas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "avanzado"
-  tags: ["secuencia", "colapso"]
-
-enunciado: "En la secuencia lógica del origen de nuestro sistema solar, el evento astronómico que perturbó la nube molecular con su onda de choque fue una ___."
-respuestas_validas:
-  - "supernova"
-respuesta: "supernova"
-tipo: completar
-
-explicacion: |
-  El proceso es una reacción en cadena: la explosión (supernova) genera la perturbación necesaria para que la gravedad venza la presión interna de la nube y provoque el colapso.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "basico"
-  tags: ["disco_protoplanetario", "sol"]
-
-respuesta: "Sol"
-tipo: completar
-respuestas_validas:
-  - "Sol"
-
-enunciado: "Durante la formación del sistema solar, aproximadamente el 99% de la masa del disco protoplanetario se concentró en el centro para formar el ___."
-
-explicacion: |
-  La gran mayoría de la masa de la nebulosa solar colapsó hacia el centro gravitatorio, dando origen al Sol, mientras que el resto formó el disco de polvo y gas donde nacieron los planetas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "basico"
-  tags: ["masa", "distribucion"]
-
-respuesta: "Sol"
-tipo: mc
-opciones_explicitas: ["Sol", "Planetas"]
-
-enunciado: "Si analizamos la distribución de la masa en el sistema solar recién formado, ¿en qué cuerpo se concentró la mayor parte de la materia?"
-
-explicacion: |
-  El Sol contiene casi toda la masa del sistema, lo que explica su enorme influencia gravitatoria sobre el resto de los cuerpos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "intermedio"
-  tags: ["temperatura", "condensacion"]
-
-respuesta: "rocosos"
-tipo: completar
-respuestas_validas:
-  - "rocosos"
-
-enunciado: "Debido a la alta temperatura cerca del Sol, sólo los materiales con alto punto de fusión pudieron condensarse allí, dando lugar a la formación de planetas ___."
-
-explicacion: |
-  Cerca de la protoestrella, el calor era tan intenso que los elementos volátiles (gases y hielos) no podían permanecer en estado sólido, permitiendo sólo la acumulación de silicatos y metales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "intermedio"
-  tags: ["gaseosos", "temperatura"]
-
-respuesta: "lejos"
-tipo: mc
-opciones_explicitas: ["cerca", "lejos"]
-
-enunciado: "Los planetas gaseosos (gigantes) se formaron en las regiones ___ del disco protoplanetario, donde las temperaturas eran lo suficientemente bajas para que los gases y el hielo se condensaran."
-
-explicacion: |
-  Más allá de la "línea de nieve", los materiales volátiles se volvieron sólidos, permitiendo que los núcleos planetarios crecieran lo suficiente como para capturar grandes cantidades de gas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "intermedio"
-  tags: ["materiales", "condensacion"]
-
-respuesta: "gaseosos"
-tipo: completar
-respuestas_validas:
-  - "gaseosos"
-
-enunciado: "Los planetas que pudieron retener grandes capas de hidrógeno y helio en su atmósfera debido a la baja temperatura en su zona de formación son los planetas ___."
-
-explicacion: |
-  La baja temperatura en el sistema solar externo permitió la condensación de hielos y la retención de gases ligeros, resultando en planetas de gran tamaño y composición gaseosa.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "basico"
-  tags: ["acreción", "polvo_cósmico"]
-
-respuesta: "polvo"
-tipo: completar
-respuestas_validas:
-  - "polvo"
-
-enunciado: "En las etapas iniciales de la formación del sistema solar, pequeñas partículas de ___ cósmico comenzaron a colisionar entre sí debido a la gravedad."
-
-explicacion: |
-  El proceso comenzó con partículas microscópicas de polvo y hielo que, al chocar, se adherían mediante fuerzas electrostáticas y luego gravitatorias.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "intermedio"
-  tags: ["planetesimales", "gravedad"]
-
-respuesta: "planetesimales"
-tipo: completar
-respuestas_validas:
-  - "planetesimales"
-
-enunciado: "Cuando las partículas de polvo crecen lo suficiente por acreción, forman objetos de mayor tamaño llamados ___."
-
-explicacion: |
-  Los planetesimales son los bloques de construcción fundamentales que, al agruparse, dan origen a los protoplanetas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "basico"
-  tags: ["tiempo", "escala"]
-
-respuesta: "millones"
-tipo: completar
-respuestas_validas:
-  - "millones"
-
-enunciado: "El proceso de acreción que transformó el disco protoplanetario en el sistema solar actual duró decenas de ___ de años."
-
-explicacion: |
-  La formación planetaria no es un evento instantáneo, sino un proceso que toma escalas de tiempo vastas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "avanzado"
-  tags: ["secuencia", "acreción"]
-
-respuesta_orden: ["polvo", "planetesimales", "protoplanetas", "planetas"]
-tipo: ordenar
-opciones_explicitas: ["polvo", "planetesimales", "protoplanetas", "planetas"]
-
-enunciado: "Ordená cronológicamente las etapas de la formación de un planeta mediante el proceso de acreción:"
-
-explicacion: |
-  La jerarquía de la acreción va desde lo microscópico (polvo) hasta la consolidación de cuerpos masivos (planetas).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "intermedio"
-  tags: ["gravedad", "colisión"]
-
-respuesta: "acreción"
-tipo: completar
-respuestas_validas:
-  - "acreción"
-  - "acrecion"
-
-enunciado: "El proceso físico mediante el cual la gravedad atrae materia para formar cuerpos cada vez más grandes se denomina ___."
-
-explicacion: |
-  La acreción es el mecanismo principal por el cual la materia se aglutina para formar estructuras planetarias.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "basico"
-  tags: ["asteroides", "marte", "jupiter"]
-
-tipo: mc
-opciones_explicitas: ["Entre la Tierra y Marte", "Entre Marte y Júpiter", "Más allá de Neptuno", "En el centro del Sol"]
-respuesta: "Entre Marte y Júpiter"
-
-enunciado: "¿Dónde se localiza principalmente el cinturón de asteroides, compuesto por restos rocosos que nunca llegaron a formar un planeta?"
-
-explicacion: |
-  El cinturón de asteroides se encuentra en el espacio situado entre las órbitas de Marte y Júpiter. Su presencia se debe a la enorme gravedad de Júpiter que impidió la formación de un planeta en esa zona.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "intermedio"
-  tags: ["cometas", "kuiper", "oort"]
-
-respuesta: "Cinturón de Kuiper y Nube de Oort"
-tipo: mc
-opciones_explicitas: ["Cinturón de asteroides", "Cinturón de Kuiper y Nube de Oort", "El Sol", "La Luna"]
-
-enunciado: "Los cometas que visitan el sistema solar interno provienen mayoritariamente de las regiones más externas, específicamente del ___."
-
-explicacion: |
-  Los cometas son cuerpos compuestos de hielo y polvo que provienen del cinturón de Kuiper (más allá de Neptuno) y de la nube de Oort (la región más externa y difusa del sistema solar).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "basico"
-  tags: ["kuiper", "neptuno"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "El cinturón de Kuiper se encuentra situado más allá de la órbita de Neptuno."
-
-explicacion: |
-  Correcto. El cinturón de Kuiper es una región de objetos helados que se extiende desde la órbita de Neptuno hacia el espacio exterior.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "avanzado"
-  tags: ["oort", "cometas"]
-
-tipo: mc
-opciones_explicitas: ["Cinturón de asteroides", "Cinturón de Kuiper", "Nube de Oort", "Disco protoplanetario"]
-respuesta: "Nube de Oort"
-
-enunciado: "La región esférica y extremadamente lejana que rodea al sistema solar y que contiene una enorme cantidad de cometas de largo período se denomina:"
-
-explicacion: |
-  La nube de Oort es la frontera más externa del sistema solar, una zona teórica de objetos helados que orbitan muy lejos del Sol.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "basico"
-  tags: ["planetas", "restos"]
-
-tipo: vf
-respuesta: falso
-
-enunciado: "Los asteroides del cinturón principal son restos de gases que no pudieron condensarse debido al calor del Sol."
-
-explicacion: |
-  Falso. Los asteroides son restos de materiales rocosos y metálicos que no pudieron agruparse para formar un planeta debido a la perturbación gravitatoria de Júpiter.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "basico"
-  tags: ["planetas", "distancia", "sol"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["zona interna", "rocoso"], ["zona externa", "gaseoso"]]
-
-tipo: mc
-opciones_explicitas: ["rocoso", "gaseoso"]
-respuesta: escenario[idx][1]
-
-enunciado: "En la fase de acreción del disco protoplanetario, los materiales en la {escenario[idx][0]} tienden a formar un planeta de tipo ___."
-
-explicacion: |
-  Cerca del Sol, el calor impide la condensación de gases y hielos, dejando sólo materiales con alto punto de fusión como silicatos y metales, formando planetas rocosos; lejos, ocurre lo contrario.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "intermedio"
-  tags: ["gas", "hielo", "distancia"]
-
-variables:
-  idx: uno_de([0, 1])
-  caso: [["Júpiter", "hidrógeno y helio"], ["Urano", "hielos y gases ligeros"]]
-
-tipo: mc
-opciones_explicitas: ["hidrógeno y helio", "hielos y gases ligeros", "roca y metal"]
-respuesta: caso[idx][1]
-
-enunciado: "Considerando la línea de congelación, un planeta como {caso[idx][0]} habrá acumulado principalmente ___."
-
-explicacion: |
-  Más allá de la línea de congelación, los volátiles (hielos) pueden condensarse, permitiendo que los núcleos crezcan lo suficiente para capturar grandes cantidades de gas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "avanzado"
-  tags: ["materiales", "condensación"]
-
-respuesta: "hielos volátiles"
-tipo: completar
-respuestas_validas:
-  - "hielos volátiles"
-  - "hielos volatiles"
-
-enunciado: "Si la temperatura del disco protoplanetario permite la condensación de ___ en grandes cantidades, el planeta resultante será un gigante gaseoso."
-
-explicacion: |
-  La disponibilidad de materiales (hielos vs. silicatos) determina si el planeta será un mundo pequeño y denso o un gigante masivo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "intermedio"
-  tags: ["linea_nieve", "condensación"]
-
-respuesta: "gaseoso"
-tipo: mc
-opciones_explicitas: ["rocoso", "gaseoso"]
-
-enunciado: "Un objeto que se forma por encima de la línea de nieve tendrá una composición predominantemente ___."
-
-explicacion: |
-  La línea de nieve marca el punto donde los compuestos volátiles se congelan, cambiando drásticamente la masa disponible para la acreción.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "formacion_del_sistema_solar"
-  nivel: "avanzado"
-  tags: ["acreción", "masa", "gas"]
-
-respuesta: "gaseoso"
-tipo: completar
-respuestas_validas:
-  - "gaseoso"
-
-enunciado: "Si la acreción resulta en un núcleo de unas 10 masas terrestres, el planeta podrá capturar rápidamente la atmósfera del disco, resultando en un planeta ___."
-
-explicacion: |
-  Existe un umbral crítico de masa (aprox. 10 masas terrestres) que permite que la gravedad retenga el hidrógeno y el helio antes de que el viento solar los disperse.
-```
-
-## Sección: fotosintesis-cambio-atmosfera-nivel2 (25 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "intermedio"
-  tags: ["cianobacterias", "oxigeno", "evolucion"]
-
-tipo: mc
-opciones_explicitas: ["Dióxido de carbono", "Nitrógeno", "Oxígeno", "Metano"]
-respuesta: "Oxígeno"
-
-enunciado: "Durante la fotosíntesis oxigénica realizada por las cianobacterias, se produce la fotólisis del agua, liberando como subproducto gaseoso el ___."
-
-explicacion: |
-  Las cianobacterias utilizan la luz solar para romper moléculas de agua (H2O), liberando oxígeno (O2) como residuo de este proceso metabólico.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "intermedio"
-  tags: ["gran_oxidacion", "atmosfera", "cianobacterias"]
-
-tipo: mc
-respuesta: "La atmósfera se volvió oxidante"
-opciones_explicitas: ["La atmósfera se volvió oxidante", "La atmósfera se volvió reductora", "La atmósfera se volvió rica en metano", "La atmósfera se volvió rica en nitrógeno"]
-
-enunciado: "El aumento de la concentración de oxígeno atmosférico debido a la actividad de las cianobacterias provocó que la atmósfera dejara de ser reductora. ¿En qué se convirtió?"
-
-explicacion: |
-  La Gran Oxidación (o Evento de la Gran Oxidación) transformó la atmósfera primitiva de un estado reductor (rico en gases como CH4 y NH3) a uno oxidante, debido a la acumulación de O2.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "avanzado"
-  tags: ["extincion", "anaerobios", "evolucion"]
-
-tipo: completar
-respuestas_validas:
-  - "anaerobios"
-
-enunciado: "La acumulación de oxígeno en la atmósfera fue un evento catastrófico para las formas de vida ___ que dominaban la Tierra primitiva."
-
-explicacion: |
-  Para los organismos anaerobios estrictos, el oxígeno era un gas altamente reactivo y tóxico, lo que provocó una extinción masiva antes de que la vida evolucionara hacia la respiración aeróbica.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "intermedio"
-  tags: ["secuencia", "procesos", "evolucion"]
+  tags: ["secuencia", "evolucion"]
 
 tipo: ordenar
-opciones_explicitas: ["Evolución de la fotosíntesis oxigénica", "Liberación de O2 por cianobacterias", "Saturación de sumideros de hierro", "Aumento de O2 atmosférico"]
+opciones_explicitas: ["Bipedestación", "Uso de herramientas", "Aumento de la capacidad craneal"]
 
-enunciado: "Ordena cronológicamente los eventos que llevaron a la Gran Oxidación:"
+enunciado: "Ordena cronológicamente los hitos evolutivos según el consenso actual de la hominización:"
 
 explicacion: |
-  Primero surge la fotosíntesis oxigénica; el oxígeno producido es inicialmente absorbido por minerales (como el hierro en los océanos); una vez saturados estos sumideros, el oxígeno comienza a acumularse en la atmósfera.
-respuesta_orden: ["Evolución de la fotosíntesis oxigénica", "Liberación de O2 por cianobacterias", "Saturación de sumideros de hierro", "Aumento de O2 atmosférico"]
+  La evolución no fue lineal, pero la bipedestación precedió al desarrollo de herramientas complejas y al gran crecimiento cerebral (encefalización).
+respuesta_orden: ["Bipedestación", "Uso de herramientas", "Aumento de la capacidad craneal"]
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "basico"
+  tags: ["herramientas", "manos"]
+
+tipo: completar
+respuestas_validas:
+  - "uso de herramientas"
+
+enunciado: "La liberación de las manos gracias a la bipedestación facilitó el ___."
+
+explicacion: |
+  Al no tener que usar las manos para la locomoción, los homínidos pudieron manipular objetos, lo que llevó al desarrollo de la tecnología lítica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
   nivel: "avanzado"
-  tags: ["metano", "clima", "oxidacion"]
+  tags: ["cerebro", "bipedismo"]
+
+tipo: mc
+opciones_explicitas: ["antes", "después"]
+
+enunciado: "De acuerdo a la evidencia paleoantropológica, la bipedestación ocurrió ___ del gran aumento de la capacidad craneal."
+
+respuesta: "antes"
+
+explicacion: |
+  La bipedestación es un rasgo basal de los homínidos. El cerebro creció significativamente mucho después, impulsado en parte por la dieta obtenida gracias a la tecnología de herramientas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "intermedio"
+  tags: ["anatomia", "evolucion"]
 
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Antes de la Gran Oxidación, la atmósfera era rica en metano. La introducción de oxígeno causó que la concentración de este gas ___ drásticamente, afectando el efecto invernadero global."
+enunciado: "Si un homínido camina erguido, sus manos están libres para la manipulación. ¿Cuál es el término técnico para este modo de locomoción? (Escribe la palabra en minúsculas)"
+
+respuesta: "bipedismo"
 
 explicacion: |
-  El metano (CH4) es un potente gas de efecto invernadero. La oxidación del metano por el nuevo oxígeno atmosférico redujo el efecto invernadero, lo que posiblemente contribuyó a la primera glaciación global (Glaciación Huronesiana).
-
-respuesta: "disminuir"
+  El bipedismo es la capacidad de desplazarse sobre dos extremidades posteriores, un cambio fundamental en la anatomía homínida.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  materia: "historia_profunda"
+  tema: "hominizacion"
   nivel: "basico"
-  tags: ["fotosintesis", "ecuacion", "quimica"]
+  tags: ["evolucion", "australopithecus"]
 
-enunciado: "En el proceso de la fotosíntesis, los organismos autótrofos utilizan la energía lumínica para transformar el dióxido de carbono (CO2) y el agua (H2O) en un producto orgánico esencial y un subproducto gaseoso. El producto orgánico es ___ y el subproducto es ___."
-
-respuestas_validas:
-  - "glucosa"
-  - "O2"
-tipo: completar
-
-explicacion: |
-  La ecuación general es: 6CO2 + 6H2O + luz -> C6H12O6 + 6O2.
-  La glucosa (C6H12O6) es la molécula orgánica que almacena la energía química, mientras que el oxígeno (O2) es liberado como subproducto.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "intermedio"
-  tags: ["evolucion", "oxigeno", "geologia"]
-
-enunciado: "Durante el Gran Evento de Oxidación, antes de que el oxígeno se acumulara masivamente en la atmósfera, ¿qué sucedió principalmente con el O2 producido por las cianobacterias?"
-
-opciones_explicitas: ["el oxígeno se acumuló en los océanos", "el oxígeno se acumuló en la atmósfera", "el oxígeno reaccionó con el metano"]
-respuesta: "el oxígeno se acumuló en los océanos"
-tipo: mc
-
-explicacion: |
-  Antes de la acumulación atmosférica, el oxígeno liberado fue consumido por agentes reductores en los océanos (como el hierro ferroso) y por la oxidación de gases como el metano. Solo cuando estos "sumideros" se saturaron, el O2 comenzó a acumularse en la atmósfera.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "intermedio"
-  tags: ["estequiometria", "fotosintesis"]
-
-enunciado: "Si un organismo realiza la fotosíntesis de manera eficiente, por cada molécula de glucosa (C6H12O6) producida, ¿cuántas moléculas de oxígeno (O2) se liberan a la atmósfera?"
-
-opciones_explicitas: ["1", "2", "6", "12"]
-respuesta: "6"
-tipo: mc
-
-explicacion: |
-  Según la estequiometría de la reacción: 6CO2 + 6H2O -> C6H12O6 + 6O2. Por cada mol de glucosa se liberan 6 moles de O2.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "avanzado"
-  tags: ["geologia", "oxigenacion"]
-
-enunciado: "La acumulación de oxígeno en la atmósfera fue un proceso extremadamente lento debido a la existencia de sumideros. Un ejemplo principal fue el hierro disuelto en el agua."
-
-opciones_explicitas: ["el hierro disuelto en el agua", "la presencia de metano atmosférico"]
-respuesta: "el hierro disuelto en el agua"
-tipo: mc
-
-explicacion: |
-  La oxidación del hierro disuelto (Fe2+) en los océanos dio lugar a la formación de capas de hierro bandeado (BIFs), consumiendo el oxígeno producido por la fotosíntesis antes de que este pudiera escapar a la atmósfera.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "avanzado"
-  tags: ["evolucion", "oxigenacion", "secuencia"]
-
-enunciado: "Ordena cronológicamente los eventos que permitieron la oxigenación de la atmósfera terrestre:"
-
-opciones_explicitas: ["Aparición de fotosíntesis oxigénica", "Oxidación de hierro disuelto en océanos", "Saturación de sumideros de metano", "Acumulación masiva de O2 atmosférico"]
-respuesta_orden: ["Aparición de fotosíntesis oxigénica", "Oxidación de hierro disuelto en océanos", "Saturación de sumideros de metano", "Acumulación masiva de O2 atmosférico"]
-tipo: ordenar
-
-explicacion: |
-  1. Primero surge la fotosíntesis oxigénica.
-  2. El O2 producido se usa para oxidar el hierro en los mares (formando BIFs).
-  3. El O2 restante reacciona con gases reductores como el metano.
-  4. Una vez agotados los sumideros, el O2 se acumula en la atmósfera.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "intermedio"
-  tags: ["evolucion", "oxigeno", "extincion"]
-
-respuesta: "tóxico"
+respuesta: "Australopithecus"
 tipo: completar
 respuestas_validas:
-  - "tóxico"
-  - "venenoso"
-  - "mortal"
+  - "Australopithecus"
 
-enunciado: "La acumulación de oxígeno en la atmósfera primitiva fue ___ para los organismos anaeróbicos dominantes de esa época."
+enunciado: "El género ___ es considerado uno de los primeros homininos en la línea evolutiva, caracterizado por la bipedestación."
 
 explicacion: |
-  El aumento de oxígeno atmosférico (Gran Oxidación) causó una extinción masiva de organismos anaeróbicos, ya que el oxígeno es altamente reactivo y dañino para sus procesos metabólicos sin enzimas antioxidantes.
+  El Australopithecus vivió hace aproximadamente entre 4 y 2 millones de años y fue un paso clave hacia la bipedestación definitiva.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "basico"
-  tags: ["fotosintesis", "oxigeno", "atmosfera"]
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "intermedio"
+  tags: ["habilis", "tecnologia"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["El oxígeno liberado por la fotosíntesis fue un veneno para los anaerobios.", "tóxico"], ["El oxígeno permitió la aparición de la respiración aeróbica.", "beneficioso"]]
+  datos: [["Homo habilis", "fabricación de herramientas de piedra"], ["Homo erectus", "control del fuego"]]
+  idx: uno_de([0, 1])
 
-opciones_explicitas: ["tóxico", "beneficioso", "neutro"]
-respuesta: escenarios[escenario_idx][1]
+respuesta: datos[idx][1]
 tipo: mc
+opciones_explicitas: ["fabricación de herramientas de piedra", "control del fuego", "dominio del lenguaje complejo", "agricultura"]
 
-enunciado: "Considerando el impacto de la fotosíntesis en la atmósfera primitiva, ¿cuál fue el efecto principal del oxígeno sobre los organismos anaeróbicos existentes?"
+enunciado: "Se asocia principalmente a la especie {datos[idx][0]} la {datos[idx][1]}."
 
 explicacion: |
-  {escenarios[escenario_idx][0]}
+  El Homo habilis es reconocido por su capacidad para fabricar herramientas de piedra (cultura Olduvayense).
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  materia: "historia_profunda"
+  tema: "hominizacion"
   nivel: "intermedio"
-  tags: ["secuencia", "evolucion", "oxigeno"]
+  tags: ["erectus", "migracion"]
 
-opciones_explicitas: ["Aparición de fotosíntesis oxigénica", "Acumulación de O2 atmosférico", "Extinción de anaerobios dominantes"]
-respuesta_orden: ["Aparición de fotosíntesis oxigénica", "Acumulación de O2 atmosférico", "Extinción de anaerobios dominantes"]
+respuesta: "Homo erectus"
+tipo: mc
+opciones_explicitas: ["Homo habilis", "Homo erectus", "Homo sapiens", "Australopithecus"]
+
+enunciado: "¿Qué especie fue la primera en realizar migraciones significativas fuera de África hacia Eurasia?"
+
+explicacion: |
+  Homo erectus fue el primer hominino con una morfología corporal adaptada para caminar largas distancias y colonizar nuevos continentes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "basico"
+  tags: ["orden", "linea_evolutiva"]
+
+respuesta_orden: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
 tipo: ordenar
+opciones_explicitas: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
 
-enunciado: "Ordena cronológicamente los eventos que llevaron a la Gran Oxidación:"
-
-pasos:
-  - "Primer paso: la producción de oxígeno por cianobacterias."
-  - "Segundo paso: el oxígeno se acumula en la atmósfera."
-  - "Tercer paso: la toxicidad del oxígeno causa la extinción de anaerobios."
+enunciado: "Ordene cronológicamente las siguientes especies de la línea evolutiva humana, de la más antigua a la más reciente:"
 
 explicacion: |
-  La fotosíntesis oxigénica produjo el oxígeno, que luego se acumuló en la atmósfera, provocando finalmente la extinción de los organismos anaeróbicos dominantes.
+  La secuencia correcta sigue el aumento de la capacidad craneal y la complejidad tecnológica a lo largo de millones de años.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "avanzado"
-  tags: ["metabolismo", "anaerobio", "oxidacion"]
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "basico"
+  tags: ["sapiens", "modernidad"]
+
+respuesta: 300000
+tipo: completar
+tolerancia_abs: 50000
+
+enunciado: "Se estima que el Homo sapiens apareció en África hace aproximadamente ___ años (expresado en número entero)."
+
+explicacion: |
+  El Homo sapiens moderno tiene una antigüedad estimada de unos 300,000 años.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "basico"
+  tags: ["evolucion", "especies"]
+
+respuesta: "Homo sapiens"
+tipo: completar
+respuestas_validas:
+  - "Homo sapiens"
+  - "sapiens"
+
+enunciado: "De todas las especies del género Homo que existieron en el pasado, la única que sobrevive hoy en día es el ___."
+
+explicacion: |
+  A pesar de la coexistencia con otras especies como los Neandertales, el Homo sapiens es la única especie humana actual.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "intermedio"
+  tags: ["coexistencia", "neandertal"]
 
 variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["Si el organismo es anaerobio estricto, el O2 es ___.", "mortal"], ["Si el organismo es aeróbico, el O2 es ___.", "esencial"]]
-
-opciones_explicitas: ["mortal", "esencial", "neutro"]
-respuesta: casos[caso_idx][1]
-tipo: mc
-
-enunciado: "Analiza el escenario: {casos[caso_idx][0]}"
-
-explicacion: |
-  La capacidad de utilizar o resistir el oxígeno determinó la supervivencia de las especies durante la transición hacia una atmósfera oxidante.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "basico"
-  tags: ["oxigeno", "atmosfera"]
-
-respuesta: 21.0
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Si la fotosíntesis aumentó la concentración de oxígeno de 0% a 21%, ¿en qué porcentaje aumentó la presencia de este gas en la atmósfera (en puntos porcentuales)?"
-
-explicacion: |
-  El aumento es la diferencia directa entre el estado final (21%) y el inicial (0%), resultando en 21 puntos porcentuales.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "intermedio"
-  tags: ["ozono", "oxigeno", "fotosintesis"]
-
-respuesta: "oxigeno"
-tipo: mc
-opciones_explicitas: ["nitrogeno", "oxigeno", "metano", "dióxido de carbono"]
-
-enunciado: "La formación de la capa de ozono en la atmósfera terrestre fue posible gracias a la acumulación de ___ liberado por la fotosíntesis oxigénica."
-
-explicacion: |
-  La fotosíntesis oxigénica libera oxígeno molecular (O2). La interacción de este oxígeno con la radiación ultravioleta permite la formación de ozono (O3), el cual constituye la capa protectora de la Tierra.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "basico"
-  tags: ["radiacion_uv", "proteccion"]
+  escenario: uno_de([["Neandertales", "Homo sapiens"], ["Denisovanos", "Homo sapiens"]])
+  especie_extinta: escenario[0]
+  especie_actual: escenario[1]
 
 respuesta: "verdadero"
 tipo: mc
 opciones_explicitas: ["verdadero", "falso"]
 
-enunciado: "¿Es correcto afirmar que sin la fotosíntesis oxigénica la radiación ultravioleta habría afectado la vida terrestre de forma mucho más severa debido a la falta de una capa de ozono?"
+enunciado: "Durante gran parte de su historia, el {especie_actual} convivió en el mismo territorio y tiempo con otras especies humanas como los {especie_extinta}."
 
 explicacion: |
-  Correcto. La capa de ozono actúa como un escudo contra la radiación UV. Sin la producción masiva de oxígeno por parte de los organismos fotosintéticos, esta capa no se habría formado.
+  La evidencia arqueológica y genética confirma que distintas especies humanas compartieron el planeta antes de la extinción de las demás.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "avanzado"
-  tags: ["secuencia", "evolucion"]
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "basico"
+  tags: ["extincion", "neandertales"]
 
-respuesta_orden: ["Fotosíntesis oxigénica", "Acumulación de O2", "Formación de O3 (Ozono)", "Protección UV"]
-tipo: ordenar
-opciones_explicitas: ["Formación de O3 (Ozono)", "Fotosíntesis oxigénica", "Protección UV", "Acumulación de O2"]
-
-enunciado: "Ordena cronológicamente los procesos que permitieron la protección de la vida terrestre contra la radiación ultravioleta:"
-
-explicacion: |
-  El orden correcto es: 1. Fotosíntesis (produce O2) -> 2. Acumulación de O2 en la atmósfera -> 3. Fotólisis del O2 para formar O3 -> 4. Creación de la capa de ozono protectora.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "intermedio"
-  tags: ["oxigeno", "ozono"]
-
-respuesta: "O3"
+respuesta: "extinguirse"
 tipo: completar
 respuestas_validas:
-  - "O3"
-  - "ozono"
+  - "extinguirse"
+  - "extinción"
 
-enunciado: "La presencia de oxígeno (O2) en la atmósfera permitió la formación de la molécula de ___ mediante la acción de la radiación solar."
+enunciado: "A diferencia de nuestra especie, los Neandertales no sobrevivieron hasta la actualidad; ellos llegaron a ___ hace miles de años."
 
 explicacion: |
-  El oxígeno molecular (O2) se descompone por la radiación UV para formar átomos de oxígeno libres, que luego se combinan con otros O2 para formar ozono (O3).
+  La extinción de los Neandertales es un proceso complejo que ocurrió durante el Pleistoceno tardío.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "intermedio"
-  tags: ["radiacion", "consecuencia"]
-
-respuesta: "Aumento de la radiación UV en la superficie"
-tipo: mc
-opciones_explicitas: ["Aumento de la radiación UV en la superficie", "Disminución de la radiación UV en la superficie", "Aumento del efecto invernadero", "Disminución del oxígeno atmosférico"]
-
-enunciado: "Si los organismos fotosintéticos oxigénicos nunca hubieran evolucionado, ¿cuál sería la consecuencia directa sobre la radiación ultravioleta en la superficie terrestre?"
-
-explicacion: |
-  Sin la producción de oxígeno, no habría formación de la capa de ozono, lo que resultaría en un aumento letal de la radiación ultravioleta llegando a la superficie.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "intermedio"
-  tags: ["fotosintesis", "oxigeno", "evolucion"]
-
-respuesta: "oxigeno"
-tipo: mc
-opciones_explicitas: ["oxigeno", "metano", "dióxido de carbono", "nitrógeno"]
-
-enunciado: "Durante el Gran Evento de Oxidación, la actividad de las cianobacterias liberó un gas que transformó la atmósfera primitiva. ¿Qué gas fue?"
-
-explicacion: |
-  La aparición de organismos fotosintéticos como las cianobacterias permitió la liberación masiva de oxígeno como subproducto, cambiando la química atmosférica.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  materia: "historia_profunda"
+  tema: "hominizacion"
   nivel: "avanzado"
-  tags: ["redox", "fotosintesis", "oxigeno"]
-
-respuesta: "O2"
-tipo: mc
-opciones_explicitas: ["O2", "CO2", "H2", "CH4"]
-
-enunciado: "En la fase luminosa de la fotosíntesis, la fotólisis del agua produce el gas que permitió la vida aeróbica. El balance simplificado es: CO2 + H2O -> ___ + glucosa."
-
-explicacion: |
-  La fotólisis del agua libera O2, el cual es fundamental para la respiración celular aeróbica posterior.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "intermedio"
-  tags: ["respiracion", "oxigeno", "metabolismo"]
-
-respuesta: "fermentacion"
-tipo: completar
-respuestas_validas:
-  - "fermentacion"
-
-enunciado: "La acumulación de oxígeno en la atmósfera permitió que los organismos pasaran de la ___ a la utilización de aceptores de electrones más eficientes."
-
-explicacion: |
-  La disponibilidad de O2 permitió la evolución de la respiración aeróbica, un proceso mucho más eficiente energéticamente que la fermentación.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "intermedio"
-  tags: ["secuencia", "evolucion", "oxigeno"]
-
-respuesta_orden: ["Fotosíntesis oxigénica", "Oxidación de metano", "Acumulación de O2 atmosférico", "Explosión de la vida aeróbica"]
-tipo: ordenar
-opciones_explicitas: ["Fotosíntesis oxigénica", "Oxidación de metano", "Acumulación de O2 atmosférico", "Explosión de la vida aeróbica"]
-
-enunciado: "Ordena cronológicamente los eventos que permitieron la transición de una atmósfera reductora a una oxidante:"
-
-explicacion: |
-  Primero ocurre la fotosíntesis, luego el oxígeno reacciona con gases reductores (como el metano), luego se acumula en la atmósfera y finalmente permite la vida aeróbica.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fotosintesis_cambio_atmosfera_nivel2"
-  nivel: "avanzado"
-  tags: ["causa", "efecto", "oxigeno"]
+  tags: ["genetica", "evidencia"]
 
 variables:
-  datos: [["aumento de O2", "vida aerobia"], ["disminución de O2", "extinciones masivas"], ["aumento de CO2", "calentamiento global"]]
-  idx: uno_de([0,1,2])
+  caso: uno_de([["Neandertales", "Denisovanos"]])
+  especie_mencionada: caso[0]
+
+respuesta: "verdadero"
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "La existencia de ADN de {especie_mencionada} en poblaciones humanas actuales demuestra que hubo contacto y convivencia con otras especies humanas."
+
+explicacion: |
+  El análisis del genoma humano ha revelado rastros genéticos de especies con las que convivieron, como Neandertales y Denisovanos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "intermedio"
+  tags: ["secuencia", "evolucion"]
+
+respuesta_orden: ["Homo habilis", "Homo erectus", "Homo sapiens"]
+tipo: ordenar
+opciones_explicitas: ["Homo habilis", "Homo erectus", "Homo sapiens"]
+
+enunciado: "Ordena cronológicamente estas especies humanas desde la más antigua a la más reciente:"
+
+explicacion: |
+  La evolución humana presenta una secuencia de especies donde el Homo sapiens es el representante más reciente y el único actual.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "basico"
+  tags: ["evolucion", "hominidos"]
+
+enunciado: "Se analiza un fósil que presenta una pelvis ancha y adaptaciones para la marcha vertical. Se trata de un Australopithecus afarensis cuyo rasgo distintivo es el ___."
+
+respuesta: "bipedismo temprano"
+tipo: mc
+opciones_explicitas: ["bipedismo temprano", "uso de herramientas de piedra", "control del fuego", "desarrollo del lenguaje"]
+
+explicacion: |
+  El Australopithecus afarensis es reconocido principalmente por su capacidad de caminar erguido, lo cual es un paso clave en la hominización.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "intermedio"
+  tags: ["tecnologia", "hominidos"]
+
+variables:
+  datos: [["Homo habilis", "industria Olduvayense"], ["Homo erectus", "industria Acheulense"], ["Homo neanderthalensis", "industria Musteriense"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Un arqueólogo encuentra restos de la industria {datos[idx][1]} asociados a los restos de {datos[idx][0]}."
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "industria Olduvayense"
+  - "industria Acheulense"
+  - "industria Musteriense"
+
+explicacion: |
+  {datos[idx][0]} es asociado con la creación de las primeras herramientas de piedra tallada conocidas como {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "intermedio"
+  tags: ["migracion", "fuego"]
+
+variables:
+  datos: [["Homo erectus", "dominio del fuego"], ["Homo sapiens", "pensamiento simbólico"]]
+  idx: uno_de([0, 1])
+
+enunciado: "El hito evolutivo que permitió a {datos[idx][0]} colonizar nuevos entornos fue el {datos[idx][1]}."
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["vida aerobia", "extinciones masivas", "calentamiento global"]
-
-enunciado: "Considerando el impacto biológico: Un {datos[idx][0]} en la atmósfera fue la causa directa de la aparición de la ___."
+opciones_explicitas: ["dominio del fuego", "pensamiento simbólico", "creación de arte rupestre"]
 
 explicacion: |
-  El {datos[idx][0]} permitió la evolución de procesos metabólicos que utilizan oxígeno como aceptor final de electrones.
+  El control del fuego permitió a {datos[idx][0]} cocinar alimentos y protegerse, facilitando su expansión fuera de África.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "avanzado"
+  tags: ["secuencia", "hominidos"]
+
+variables:
+  orden: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
+
+enunciado: "Ordena cronológicamente las especies de homínidos desde la más antigua hasta la más reciente."
+
+respuesta_orden: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
+tipo: ordenar
+opciones_explicitas: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
+
+explicacion: |
+  La línea evolutiva muestra una tendencia hacia el aumento de la capacidad craneal y la complejidad tecnológica a través de estas especies.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "hominizacion"
+  nivel: "avanzado"
+  tags: ["cultura", "simbolismo"]
+
+variables:
+  datos: [["Homo neanderthalensis", "enterramientos rituales"], ["Homo sapiens", "arte rupestre complejo"]]
+  idx: uno_de([0, 1])
+
+enunciado: "El hallazgo de restos con evidencias de ___ es característico de {datos[idx][0]}."
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - datos[idx][1]
+
+explicacion: |
+  La presencia de ___ sugiere una estructura de pensamiento espiritual o ritual en {datos[idx][0]}.
+```
+
+## Sección: relieve-sismos-volcanes (25 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "tectonica_de_placas"
+  nivel: "basico"
+  tags: ["tectonica", "relieve"]
+
+respuesta: "bordes"
+tipo: completar
+respuestas_validas:
+  - "bordes"
+
+enunciado: "El relieve terrestre, como la formación de montañas y fosas, es una consecuencia directa de la tectónica de placas y se produce principalmente en los ___ de las placas tectónicas."
+
+explicacion: |
+  El movimiento de las placas tectónicas genera tensiones y fricciones que se manifiestan principalmente en sus límites o bordes, dando lugar a la formación de nuevas estructuras geológicas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "tectonica_de_placas"
+  nivel: "intermedio"
+  tags: ["placas", "limites"]
+
+variables:
+  escenario_idx: uno_de([0, 1, 2])
+  escenarios: [["divergente", "se separan las placas", "creación de dorsales oceánicas"], ["convergente", "chocan las placas", "formación de cordilleras o fosas"], ["transformante", "se deslizan lateralmente", "fallas como la de San Andrés"]]
+
+respuesta: escenarios[escenario_idx][0]
+tipo: mc
+opciones_explicitas: ["divergente", "convergente", "transformante"]
+
+enunciado: "Si observamos un movimiento donde las placas tectónicas {escenarios[escenario_idx][1]} , estamos ante un límite de tipo {escenarios[escenario_idx][0]}."
+
+explicacion: |
+  En el escenario seleccionado ({escenarios[escenario_idx][0]}), el movimiento principal es {escenarios[escenario_idx][2]}.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "tectonica_de_placas"
+  nivel: "basico"
+  tags: ["cordilleras", "convergencia"]
+
+respuesta: "convergente"
+tipo: mc
+opciones_explicitas: ["divergente", "convergente", "transformante"]
+
+enunciado: "¿Qué tipo de interacción entre placas es la responsable de la formación de grandes cordilleras como los Andes debido al choque de placas?"
+
+explicacion: |
+  Las cordilleras se forman en los límites convergentes, donde la compresión de las placas eleva la corteza terrestre.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "tectonica_de_placas"
+  nivel: "avanzado"
+  tags: ["procesos", "relieve"]
+
+respuesta_orden: ["choque de placas", "subducción de la placa", "formación de fosa oceánica", "erupción volcánica"]
+tipo: ordenar
+opciones_explicitas: ["choque de placas", "subducción de la placa", "formación de fosa oceánica", "erupción volcánica"]
+
+enunciado: "Ordena los eventos que ocurren típicamente en un límite convergente de subducción:"
+
+explicacion: |
+  El proceso comienza con el choque, seguido por la placa más densa se hunde (subducción), creando una fosa, y finalmente el magma asciende provocando volcanismo.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "tectonica_de_placas"
+  nivel: "intermedio"
+  tags: ["fosas", "oceanos"]
+
+variables:
+  dato_fosa: [["Fosa de las Marianas", "subducción", "más profunda"], ["Fosa de Atacama", "subducción", "muy profunda"]]
+  idx: uno_de([0, 1])
+
+respuesta: dato_fosa[idx][1]
+tipo: mc
+opciones_explicitas: ["subducción", "divergencia", "transformación"]
+
+enunciado: "La {dato_fosa[idx][0]} es una estructura extremadamente {dato_fosa[idx][2]} que se origina por un proceso de {dato_fosa[idx][1]}."
+
+explicacion: |
+  Las fosas oceánicas son zonas de subducción donde una placa se introduce bajo otra, creando depresiones profundas en el lecho marino.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "basico"
+  tags: ["placas_tectonicas", "sismos"]
+
+tipo: mc
+opciones_explicitas: ["Fricción entre placas", "Erosión eólica", "Movimiento de las mareas", "Ciclos solares"]
+respuesta: "Fricción entre placas"
+
+enunciado: "Los sismos se producen principalmente debido a la acumulación y posterior liberación repentina de energía causada por la ________ entre las placas tectónicas."
+
+explicacion: |
+  Los sismos ocurren cuando las fuerzas de fricción entre las placas tectónicas impiden su movimiento, acumulando energía elástica que se libera súbitamente en forma de ondas sísmicas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "basico"
+  tags: ["placas_tectonicas", "bordes_de_placas"]
+
+tipo: mc
+opciones_explicitas: ["Bordes de placas tectónicas", "Zonas de estabilidad tectónica", "Cimas de las montañas", "Fondos oceánicos estables"]
+respuesta: "Bordes de placas tectónicas"
+
+enunciado: "Los terremotos ocurren mayormente en los ___."
+
+explicacion: |
+  La mayor actividad sísmica se concentra en los límites o bordes de las placas tectónicas, donde la interacción entre ellas es constante.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "intermedio"
+  tags: ["energia", "friccion"]
+
+tipo: completar
+respuestas_validas:
+  - "energía"
+  - "fuerza"
+
+enunciado: "Durante un sismo, la energía acumulada por la fricción se libera de forma repentina en forma de ________ sísmica."
+
+explicacion: |
+  La liberación de la energía elástica acumulada es lo que genera las ondas que viajan a través de la litosfera.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "intermedio"
+  tags: ["placas_tectonicas", "friccion"]
+
+tipo: ordenar
+opciones_explicitas: ["Movimiento de las placas", "Acumulación de tensión por fricción", "Liberación repentina de energía", "Ondas sísmicas"]
+
+enunciado: "Ordena el proceso físico que da lugar a un terremoto, desde el movimiento inicial hasta la propagación de las ondas:"
+
+explicacion: |
+  El proceso comienza con el movimiento de las placas, seguido de la fricción que acumula tensión, la ruptura que libera energía y finalmente la propagación de ondas.
+respuesta_orden: ["Movimiento de las placas", "Acumulación de tensión por fricción", "Liberación repentina de energía", "Ondas sísmicas"]
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "avanzado"
+  tags: ["placas_tectonicas", "friccion"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si las placas tectónicas se encuentran en un estado de ___, la acumulación de tensión es mayor que en un estado de estabilidad absoluta."
+
+respuesta: "fricción"
+
+explicacion: |
+  A mayor fricción o resistencia al movimiento entre placas, mayor es la acumulación de energía elástica que, al liberarse, provoca sismos de mayor magnitud.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "basico"
+  tags: ["volcanes", "tectonica"]
+
+tipo: mc
+opciones_explicitas: ["Zonas de subducción", "Zonas de divergencia", "Zonas de transformación", "Zonas de estabilidad"]
+respuesta: "Zonas de subducción"
+
+enunciado: "Los volcanes se forman típicamente en las zonas de ___ donde una placa tectónica se desplaza debajo de otra."
+
+explicacion: |
+  En las zonas de subducción (bordes convergentes), la placa que se hunde se funde y genera magma que asciende a la superficie.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "basico"
+  tags: ["dorsales", "magma"]
+
+tipo: mc
+opciones_explicitas: ["Dorsales oceánicas", "Fallas transformantes", "Cinturones orogénicos", "Escudos continentales"]
+respuesta: "Dorsales oceánicas"
+
+enunciado: "El magma puede llegar a la superficie en los bordes divergentes, como ocurre en las ___."
+
+explicacion: |
+  Las dorsales oceánicas son bordes divergentes donde las placas se separan, permitiendo la salida de magma y la creación de nueva corteza.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "intermedio"
+  tags: ["bordes", "convergencia"]
+
+variables:
+  escenario: uno_de([["convergente", "subducción"], ["divergente", "separación"]])
+  tipo_borde: escenario[0]
+  proceso: escenario[1]
+
+tipo: completar
+respuestas_validas:
+  - "subducción"
+  - "separación"
+respuesta: proceso
+
+enunciado: "Si nos encontramos en un borde de tipo {tipo_borde}, el proceso geológico predominante es la ___."
+
+explicacion: |
+  En un borde convergente, el proceso es la subducción; en un borde divergente, es la separación de placas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "basico"
+  tags: ["magma", "superficie"]
+
+tipo: mc
+opciones_explicitas: ["Llega a la superficie", "Se mantiene en el manto", "Se solidifica inmediatamente", "Se transforma en roca sólida"]
+respuesta: "Llega a la superficie"
+
+enunciado: "Tanto en zonas de subducción como en dorsales, el magma tiene la capacidad de ___."
+
+explicacion: |
+  La actividad volcánica ocurre precisamente porque el magma logra ascender desde el manto hasta la superficie terrestre.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "avanzado"
+  tags: ["procesos", "tectonica"]
+
+tipo: ordenar
+opciones_explicitas: ["Movimiento de placas", "Fusión de material", "Ascenso de magma", "Erupción volcánica"]
+respuesta_orden: ["Movimiento de placas", "Fusión de material", "Ascenso de magma", "Erupción volcánica"]
+
+enunciado: "Ordena los pasos que ocurren típicamente en una zona de subducción hasta la erupción:"
+
+explicacion: |
+  Primero ocurre el movimiento de las placas, lo que provoca la fusión del material en el manto, luego el magma asciende y finalmente ocurre la erupción.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "cinturon_de_fuego"
+  nivel: "basico"
+  tags: ["tectonica_de_placas", "geologia"]
+
+tipo: mc
+opciones_explicitas: ["El océano Índico", "El océano Atlántico", "El océano Pacífico", "El océano Ártico"]
+respuesta: "El océano Pacífico"
+
+enunciado: "El Cinturón de Fuego es una zona de intensa actividad sísmica y volcánica que rodea el océano ________."
+
+explicacion: |
+  El Cinturón de Fuego del Pacífico es una zona de aproximadamente 40,000 km de longitud donde ocurre la mayor parte de la actividad sísmica y volcánica del mundo debido a la interacción de los bordes de las placas tectónicas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "cinturon_de_fuego"
+  nivel: "intermedio"
+  tags: ["tectonica_de_placas", "sismos"]
+
+variables:
+  escenario: uno_de([["subducción", "una placa se desliza debajo de otra", "se produce un arco volcánico y fosas marinas"], ["divergencia", "las placas se separan", "se crea nueva corteza oceánica en dorsales"], ["transformación", "las placas se deslizan lateralmente", "se generan grandes fallas como la de San Andrés"]])
+
+tipo: completar
+respuesta: escenario[0]
+
+enunciado: "Cuando en un límite de placas tectónicas {escenario[1]}, {escenario[2]}. Este tipo de límite se denomina límite de ___."
+
+explicacion: |
+  Los tres tipos principales de límites de placas tectónicas son divergentes (separación), convergentes o de subducción (una placa se hunde bajo otra) y transformantes (deslizamiento lateral). Cada uno genera fenómenos geológicos característicos, desde dorsales oceánicas hasta fosas y fallas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "cinturon_de_fuego"
+  nivel: "basico"
+  tags: ["volcanes", "geografia_fisica"]
+
+tipo: mc
+opciones_explicitas: ["Baja", "Moderada", "Muy alta"]
+respuesta: "Muy alta"
+
+enunciado: "Debido a la constante interacción de los bordes de placas, la densidad de volcanes activos en el Cinturón de Fuego es ________."
+
+explicacion: |
+  La mayoría de los volcanes activos del mundo se encuentran en esta zona debido a la actividad tectónica constante.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "cinturon_de_fuego"
+  nivel: "avanzado"
+  tags: ["procesos_geologicos", "tectonica"]
+
+tipo: ordenar
+opciones_explicitas: ["Acumulación de tensión elástica", "Ruptura de la falla", "Liberación de energía (sismo)", "Movimiento de la placa"]
+respuesta_orden: ["Acumulación de tensión elástica", "Ruptura de la falla", "Liberación de energía (sismo)", "Movimiento de la placa"]
+
+enunciado: "Ordena cronológicamente los eventos que ocurren durante un terremoto causado por la interacción de placas en el Cinturón de Fuego:"
+
+explicacion: |
+  La tensión se acumula por el movimiento de las placas, llega un punto crítico donde la roca se rompe (ruptura), liberando energía en forma de ondas sísmicas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "cinturon_de_fuego"
+  nivel: "intermedio"
+  tags: ["sismos", "calculo"]
+
+variables:
+  datos: uno_de([[3000, 15.0], [5000, 25.0], [8000, 40.0]])
+
+tipo: completar
+respuesta: datos[1]
+tolerancia_abs: 0.1
+
+enunciado: "Si una onda sísmica detectada en el Cinturón de Fuego viaja a una velocidad constante de 200 km/min, ¿a cuántos minutos llegará al observador si el epicentro está a {datos[0]} km de distancia?"
+
+pasos:
+  - "Identificar la distancia: {datos[0]} km"
+  - "Identificar la velocidad: 200 km/min"
+  - "Dividir distancia / velocidad: {datos[0]} / 200"
+
+explicacion: |
+  El tiempo se calcula dividiendo la distancia recorrida por la velocidad: {datos[0]} km / 200 km/min = {datos[1]} minutos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "basico"
+  tags: ["tectonica", "placas"]
+
+variables:
+  datos: [["dorsal oceánica", "divergente"], ["valle de rift", "divergente"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["divergente", "convergente", "transformante"]
+
+enunciado: "El fenómeno de la formación de una {datos[idx][0]} es característico de un límite de placas de tipo ________."
+
+explicacion: |
+  En los límites divergentes, las placas se separan, permitiendo la salida de magma que crea nuevo relieve, como las dorsales o los rifts.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "intermedio"
+  tags: ["tectonica", "subduccion"]
+
+variables:
+  datos: [["trinchera oceánica", "convergente"], ["arco volcánico", "convergente"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["divergente", "convergente", "transformante"]
+
+enunciado: "La presencia de una {datos[idx][0]} indica que las placas se encuentran en un límite de tipo ________."
+
+explicacion: |
+  Los límites convergentes ocurren cuando las placas colisionan, pudiendo subducir una debajo de otra (creando trincheras) o elevar cordilleras.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "basico"
+  tags: ["tectonica", "fallas"]
+
+variables:
+  datos: [["falla de San Andrés", "transformante"], ["desplazamiento lateral", "transformante"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["divergente", "convergente", "transformante"]
+
+enunciado: "El movimiento de {datos[idx][0]} es un ejemplo clásico de un límite de placas ________."
+
+explicacion: |
+  En los límites transformantes, las placas se deslizan lateralmente una respecto a la otra sin crear ni destruir litosfera.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "avanzado"
+  tags: ["tectonica", "orogenesis"]
+
+variables:
+  datos: [["cordillera del Himalaya", "convergente"], ["doblamiento de corteza", "convergente"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["divergente", "convergente", "transformante"]
+
+enunciado: "La formación de {datos[idx][0]} es el resultado de un proceso de colisión en un límite ________."
+
+explicacion: |
+  La colisión entre placas continentales (convergencia) produce el acortamiento y elevación de la corteza, formando grandes cordilleras.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "relieve_sismos_volcanes"
+  nivel: "basico"
+  tags: ["tectonica", "oceanos"]
+
+variables:
+  datos: [["crecimiento de la dorsal", "divergente"], ["separación de placas", "divergente"]]
+  idx: uno_de([0, 1])
+
+respuestas_validas:
+  - datos[idx][1]
+respuesta: datos[idx][1]
+tipo: completar
+opciones_explicitas: ["divergente", "convergente", "transformante"]
+
+enunciado: "El proceso de {datos[idx][0]} se asocia directamente con un borde de tipo ________."
+
+explicacion: |
+  La expansión del fondo marino ocurre en los límites divergentes donde el magma asciende para rellenar el espacio entre placas.
+```
+
+## Sección: paleolitico (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "basico"
+  tags: ["prehistoria", "etapas"]
+
+respuesta: "Paleolítico"
+tipo: completar
+respuestas_validas:
+  - "Paleolítico"
+
+enunciado: "La etapa más larga de la prehistoria humana, caracterizada por el uso de herramientas de piedra tallada, se denomina ___."
+
+explicacion: |
+  El Paleolítico (del griego 'paleo', antiguo y 'lithos', piedra) es la primera etapa de la historia de la humanidad.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "basico"
+  tags: ["economia", "nomadismo"]
+
+respuesta: "nómadas"
+tipo: mc
+opciones_explicitas: ["nómadas", "sedentarios", "urbanos"]
+
+enunciado: "Durante el Paleolítico, las sociedades humanas basaban su economía en la caza y la recolección, lo que las obligaba a ser ___."
+
+explicacion: |
+  Al no producir su propio alimento (agricultura), los grupos humanos debían desplazarse constantemente en busca de recursos, adoptando un estilo de vida nómada.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "intermedio"
+  tags: ["tecnologia", "piedra"]
+
+respuesta: "piedra tallada"
+tipo: completar
+respuestas_validas:
+  - "piedra tallada"
+
+enunciado: "A diferencia del Neolítico donde la piedra se pulía, en el Paleolítico la principal técnica de fabricación consistía en la ___."
+
+explicacion: |
+  La tecnología paleolítica se define por la talla de la piedra (percusión) para crear bordes cortantes en herramientas como bifaces o lascas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "intermedio"
+  tags: ["evolucion", "orden"]
+
+respuesta_orden: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
+tipo: ordenar
+opciones_explicitas: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
+
+enunciado: "Ordene cronológicamente los siguientes homínidos, desde el más antiguo al más reciente:"
+
+explicacion: |
+  La evolución humana no fue lineal, pero este orden representa una secuencia temporal de aparición de los géneros y especies principales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "avanzado"
+  tags: ["cultura", "fuego"]
+
+tipo: mc
+opciones_explicitas: ["socialización", "cocción", "iluminación"]
+respuesta: "cocción"
+
+enunciado: "El control del fuego fue un hito crucial. Además de la luz y el calor, su uso permitió principalmente la ___."
+
+explicacion: |
+  El control del fuego permitió cocinar los alimentos, lo que facilitó la digestión y la absorción de nutrientes, favoreciendo el desarrollo cerebral.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "basico"
+  tags: ["fuego", "evolucion", "supervivencia"]
+
+respuesta: "cocinar"
+tipo: completar
+respuestas_validas:
+  - "cocinar"
+  - "la cocción"
+
+enunciado: "El control del fuego permitió a los homínidos ___ los alimentos, lo que facilitó la digestión y aumentó la ingesta calórica."
+
+explicacion: |
+  La cocción de alimentos permitió que la energía fuera más fácil de absorber, favoreciendo el desarrollo cerebral.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "basico"
+  tags: ["fuego", "supervivencia"]
+
+opciones_explicitas: ["Ahuyentar depredadores", "Fabricar herramientas de piedra", "Navegación marítima"]
+respuesta: "Ahuyentar depredadores"
+tipo: mc
+
+enunciado: "Además de calentar y cocinar, una función vital del fuego para la seguridad de los grupos de homínidos era:"
+
+explicacion: |
+  El fuego actuaba como una barrera protectora contra los grandes depredadores durante la noche.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "intermedio"
+  tags: ["fuego", "adaptacion"]
+
+variables:
+  beneficio_idx: uno_de([0, 1, 2])
+  escenario: [["iluminar", "permitió extender las horas de actividad social y exploración en cuevas"], ["calentar", "permitió la migración hacia climas más fríos"], ["cocinar", "permitió el desarrollo de mandíbulas más pequeñas y cerebros más grandes"]]
+
+tipo: mc
+opciones_explicitas: ["permitió extender las horas de actividad social y exploración en cuevas", "permitió la migración hacia climas más fríos", "permitió el desarrollo de mandíbulas más pequeñas y cerebros más grandes"]
+respuesta: escenario[beneficio_idx][1]
+
+enunciado: "El control del fuego sirvió, entre otras cosas, para {escenario[beneficio_idx][0]}. ¿Cuál fue la consecuencia principal de este uso?"
+
+explicacion: |
+  {escenario[beneficio_idx][1]}
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "intermedio"
+  tags: ["fuego", "social", "comunicacion"]
+
+respuesta: "social"
+tipo: completar
+respuestas_validas:
+  - "social"
+  - "comunitaria"
+
+enunciado: "El uso del fuego alrededor de la hoguera fomentó la cohesión ___ de los grupos de homínidos."
+
+explicacion: |
+  La hoguera se convirtió en el centro de la comunicación y el intercambio de información.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "avanzado"
+  tags: ["fuego", "causa_efecto"]
+
+opciones_explicitas: ["Fuego", "Cocción", "Mejor nutrición", "Cerebro más grande"]
+respuesta_orden: ["Fuego", "Cocción", "Mejor nutrición", "Cerebro más grande"]
+tipo: ordenar
+
+enunciado: "Ordena la secuencia lógica de causa y efecto iniciada por el control del fuego:"
+
+explicacion: |
+  El control del fuego permitió la cocción, lo que mejoró la nutrición y, a largo plazo, el desarrollo cerebral.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "basico"
+  tags: ["nomadismo", "supervivencia"]
+
+variables:
+  escenario: uno_de([["el movimiento de las manadas de renos", "el movimiento de las manadas de renos"], ["la maduración de frutos silvestres", "la maduración de frutos silvestres"], ["el ciclo de vida de los grandes mamíferos", "el ciclo de vida de los grandes mamíferos"]])
+
+enunciado: "En el Paleolítico, los grupos humanos se desplazaban siguiendo {escenario[0]} para asegurar su subsistencia."
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["el movimiento de las manadas de renos", "la maduración de frutos silvestres", "el ciclo de vida de los grandes mamíferos"]
+
+explicacion: |
+  El nomadismo era una estrategia de supervivencia basada en el seguimiento de los ciclos naturales de los recursos disponibles.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "basico"
+  tags: ["asentamientos", "nomadismo"]
+
+enunciado: "A diferencia de los grupos nómadas, los asentamientos fijos no existían en el Paleolítico; los grupos humanos se movían constantemente de un lugar a otro."
+
+respuesta: "no existían"
+tipo: completar
+respuestas_validas:
+  - "no existían"
+  - "no existían"
+  - "no existían"
+
+explicacion: |
+  La falta de agricultura obligaba a los grupos humanos a desplazarse constantemente para no agotar los recursos de una zona.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "intermedio"
+  tags: ["recoleccion", "caza"]
+
+enunciado: "La economía del Paleolítico se basaba principalmente en la caza de animales y la recolección de plantas. Ordena estas actividades:"
+
+respuesta_orden: ["la caza", "la recolección"]
+tipo: ordenar
+opciones_explicitas: ["la caza", "la recolección"]
+
+explicacion: |
+  La subsistencia dependía de una combinación de actividades de caza y recolección para garantizar una dieta variada.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "intermedio"
+  tags: ["estacionalidad", "clima"]
+
+enunciado: "Los cambios estacionales asociados al invierno afectaban la disponibilidad de alimento, obligando a los grupos a migrar hacia zonas más favorables debido al ___."
+
+respuesta: "el frío"
+tipo: mc
+opciones_explicitas: ["el frío", "el calor"]
+
+explicacion: |
+  Las variaciones climáticas estacionales determinaban el movimiento de los animales y el crecimiento de las plantas, dictando la ruta de los nómadas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "avanzado"
+  tags: ["sociedad", "movilidad"]
+
+variables:
+  grupo: uno_de([["pequeños grupos familiares", "pequeños grupos familiares"], ["grandes tribus sedentarias", "grandes tribus sedentarias"]])
+
+enunciado: "La vida nómada era compatible con la organización en ___ debido a la necesidad de movilidad constante."
+
+respuesta: "pequeños grupos familiares"
+tipo: completar
+respuestas_validas:
+  - "pequeños grupos familiares"
+  - "pequeños grupos familiares"
+
+explicacion: |
+  Los grupos eran pequeños para facilitar el desplazamiento rápido y evitar el agotamiento de los recursos en un mismo territorio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "basico"
+  tags: ["tecnologia", "piedra"]
+
+respuesta: "Olduvayense"
+tipo: completar
+respuestas_validas:
+  - "Olduvayense"
+
+enunciado: "La industria lítica más antigua conocida, caracterizada por el uso de percutores para obtener filos rudimentarios, se denomina industria ___."
+
+explicacion: |
+  La industria Olduvayense (o Oldowaense) representa las primeras formas de tecnología lítica, donde los homínidos golpeaban una piedra contra otra para crear bordes cortantes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "basico"
+  tags: ["uso", "herramientas"]
+
+opciones_explicitas: ["Cazar grandes mamíferos", "Procesar carne y pieles", "Recolectar frutos y raíces", "Fabricar ropa"]
+respuesta: "Procesar carne y pieles"
+tipo: mc
+
+enunciado: "Aunque las herramientas de piedra tenían múltiples usos, una de las funciones principales de los filos de las lascas en el Paleolítico era ___."
+
+explicacion: |
+  Las lascas de piedra proporcionaban bordes extremadamente afilados, ideales para el desollado de animales y el corte de tejidos orgánicos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "intermedio"
+  tags: ["evolucion", "tecnologia"]
+
+respuesta: "Bifaces"
+tipo: mc
+opciones_explicitas: ["Choppers", "Bifaces", "Láminas"]
+
+enunciado: "En la cultura Acheulense, la herramienta característica que presenta una forma simétrica y ha sido trabajada por ambas caras se conoce como ___."
+
+explicacion: |
+  El bifaz es la herramienta emblemática del Paleolítico inferior, mostrando una planificación cognitiva superior al simple percutaje de lascas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "avanzado"
+  tags: ["proceso", "fabricacion"]
+
+opciones_explicitas: ["Selección de materia prima", "Percutaje/Talla", "Afilado/Retoque final"]
+respuesta_orden: ["Selección de materia prima", "Percutaje/Talla", "Afilado/Retoque final"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos que un homínido debía seguir para fabricar una herramienta de piedra tallada:"
+
+explicacion: |
+  La fabricación lítica requiere primero identificar la piedra adecuada (sílex, cuarcita), luego darle forma mediante golpes y finalmente refinar el filo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "intermedio"
+  tags: ["impacto", "alimentacion"]
+
+respuesta: 55
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Si un grupo de homínidos utilizaba una técnica de percutaje que permitía obtener un 10% más de filo útil por cada kilogramo de piedra, y tenían 50kg de sílex, ¿cuántos kg de material efectivo de corte obtendrían en total?"
+
+pasos:
+  - "Calcular el 10% de 50kg"
+  - "Sumar el material base y el excedente de filo"
+
+explicacion: |
+  El cálculo es: 50 kg + (50 kg * 0.10) = 55 kg de material efectivo de corte.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "basico"
+  tags: ["tecnologia", "herramientas"]
+
+variables:
+  idx: uno_de([0,1,2])
+  datos: [["hacha de mano de piedra tallada", "bifaz"], ["lanzas de piedra", "punta de proyectil"], ["raspadores de piedra tallada", "raspador"]]
+
+enunciado: "Durante el Paleolítico, los homínidos utilizaban diversas herramientas de piedra. Si encontramos un objeto con la forma de un {datos[idx][0]}, estamos ante un/a ___."
+
+respuestas_validas:
+  - "bifaz"
+  - "punta de proyectil"
+  - "raspador"
+respuesta: datos[idx][1]
+tipo: completar
+
+explicacion: |
+  El {datos[idx][0]} es una herramienta característica del Paleolítico, fabricada mediante la técnica de percusión para obtener un filo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "basico"
+  tags: ["subsistencia", "nómada"]
+
+enunciado: "La principal actividad económica en el Paleolítico era la recolección de frutos y la caza, lo que obligaba a los grupos humanos a tener un estilo de vida ___."
+
+opciones_explicitas: ["nómada", "sedentario"]
+respuesta: "nómada"
+tipo: mc
+
+explicacion: |
+  Al depender de los ciclos naturales y la migración de animales, los grupos debían desplazarse constantemente, siendo nómadas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "intermedio"
+  tags: ["arte", "rupestre"]
+
+enunciado: "El estilo artístico característico del Paleolítico, que consistía en pinturas en el interior de cuevas, se denomina ___."
+
+opciones_explicitas: ["arte rupestre", "arte clásico", "arte romano"]
+respuesta: "arte rupestre"
+tipo: mc
+
+explicacion: |
+  Las pinturas en el interior de cuevas son la expresión máxima del arte rupestre, utilizada para representar animales y escenas de caza.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "intermedio"
+  tags: ["tecnologia", "evolucion"]
+
+variables:
+  idx: uno_de([0,1,2])
+  datos: [["piedra tallada", "Paleolítico"], ["piedra pulida", "Neolítico"], ["metal", "Edad de los Metales"]]
+
+enunciado: "Ordena las siguientes etapas de la evolución tecnológica humana de la más antigua a la más reciente:"
+
+opciones_explicitas: ["Paleolítico", "Neolítico", "Edad de los Metales"]
+respuesta_orden: ["Paleolítico", "Neolítico", "Edad de los Metales"]
+tipo: ordenar
+
+explicacion: |
+  La secuencia correcta es: Paleolítico (piedra tallada), Neolítico (piedra pulida) y Edad de los Metales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "paleolitico"
+  nivel: "basico"
+  tags: ["fuego", "supervivencia"]
+
+enunciado: "El dominio del fuego fue un hito fundamental en el Paleolítico que proporcionó ___."
+
+respuestas_validas:
+  - "protección y calor"
+respuesta: "protección y calor"
+tipo: completar
+
+explicacion: |
+  El dominio del fuego permitió a los homínidos cocinar alimentos, calentarse y ahuyentar depredadores.
 ```
 

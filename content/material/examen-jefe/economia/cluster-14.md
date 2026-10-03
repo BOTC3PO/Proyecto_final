@@ -1,2153 +1,2420 @@
 # Examen jefe — [PENDIENTE #779]
 
-> Logro #779. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **113 preguntas totales** en 5/5 secciones.
+> Logro #779. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: tipo-cambio-fijo (20 preguntas)
+## Sección: cooperativismo-y-mutualismo (25 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_fijo"
+  tema: "cooperativismo_y_mutualismo"
   nivel: "basico"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["definicion", "organizacion"]
 
-enunciado: "¿Qué es el \"tipo de cambio\" de una moneda?"
-tipo: mc
-opciones_explicitas:
-  - "El precio de esa moneda expresado en otra moneda"
-  - "La cantidad total de esa moneda que emitió el banco central"
-  - "El porcentaje de inflación anual de un país"
-respuesta: "El precio de esa moneda expresado en otra moneda"
+respuesta: "democráticamente"
+tipo: completar
+respuestas_validas:
+  - "democráticamente"
+
+enunciado: "Según los principios de la economía social, las cooperativas son organizaciones gestionadas ________ por sus miembros."
 
 explicacion: |
-  Por ejemplo, cuántos pesos cuesta un dólar.
+  El principio de gestión democrática es fundamental: cada miembro tiene un voto, independientemente del capital aportado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_fijo"
+  tema: "cooperativismo_y_mutualismo"
   nivel: "basico"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["principios", "gestion"]
 
-enunciado: "¿Qué es un régimen de tipo de cambio fijo?"
-tipo: mc
-opciones_explicitas:
-  - "El banco central se compromete a sostener el valor de su moneda en un número exacto frente a otra"
-  - "El valor de la moneda lo determina libremente el mercado, sin ningún compromiso del banco central"
-  - "Un régimen donde no existe ninguna moneda extranjera"
-respuesta: "El banco central se compromete a sostener el valor de su moneda en un número exacto frente a otra"
+respuesta: falso
+tipo: vf
+enunciado: "En una cooperativa, el poder de decisión se distribuye de manera proporcional a la cantidad de acciones o capital aportado por cada socio."
+
+pasos:
+  - "Analizar el principio de 'una persona, un voto'."
 
 explicacion: |
-  Es la definición central del régimen fijo.
+  Falso. En las cooperativas rige el principio de gestión democrática (un socio, un voto), a diferencia de las sociedades de capital donde el voto depende de las acciones.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_fijo"
+  tema: "cooperativismo_y_mutualismo"
   nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["diferencias", "objetivo"]
 
-enunciado: "Si hay más gente que quiere comprar dólares que gente dispuesta a venderlos al precio fijado, ¿qué hace el banco central para sostener el tipo de cambio fijo?"
 tipo: mc
-opciones_explicitas:
-  - "Vende dólares de sus reservas para cubrir esa demanda extra"
-  - "Compra dólares con su propia moneda"
-  - "No hace nada: el precio sube libremente"
-respuesta: "Vende dólares de sus reservas para cubrir esa demanda extra"
+opciones_explicitas: ["ayuda_mutua", "servicios_comunes", "prestamos_y_ayuda", "excedentes_y_servicios"]
+
+respuesta: "ayuda_mutua"
+
+enunciado: "Si nos enfocamos en el objetivo principal de una mutual, estamos hablando de la práctica de la ________."
 
 explicacion: |
-  Usa sus propias reservas para evitar que el precio suba por encima
-  del valor fijado.
+  Mientras las cooperativas buscan satisfacer necesidades de sus socios mediante la prestación de servicios, el mutualismo se centra en la ayuda mutua entre sus integrantes.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_fijo"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "Si hay más gente que quiere vender dólares que gente dispuesta a comprarlos al precio fijado, ¿qué hace el banco central?"
-tipo: mc
-opciones_explicitas:
-  - "Compra esos dólares con su propia moneda, para que el precio no baje"
-  - "Vende dólares de sus reservas"
-  - "Prohíbe vender dólares"
-respuesta: "Compra esos dólares con su propia moneda, para que el precio no baje"
-
-explicacion: |
-  Absorbe el exceso de oferta comprando, para sostener el piso del
-  valor fijado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_fijo"
+  tema: "cooperativismo_y_mutualismo"
   nivel: "basico"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["vocabulario"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "socios"
+tipo: completar
+respuestas_validas:
+  - "socios"
 
-enunciado: "Una ventaja del tipo de cambio fijo es que le da certeza a quien comercia o invierte con ese país sobre a qué valor va a poder cambiar su dinero."
+enunciado: "Las cooperativas están compuestas por un grupo de ________ que se unen voluntariamente para satisfacer sus necesidades económicas, sociales y culturales."
 
 explicacion: |
-  Es la ventaja central: previsibilidad para el comercio y la
-  inversión.
+  Los socios son la base fundamental de cualquier organización de economía social.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_fijo"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un tipo de cambio fijo puede servir como \"ancla\" de las expectativas de inflación: si la gente confía en que el precio del dólar no se va a mover, tiende a esperar menos inflación en general."
-
-explicacion: |
-  Es uno de los argumentos a favor del régimen fijo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_fijo"
+  tema: "cooperativismo_y_mutualismo"
   nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["procedimiento"]
 
-enunciado: "¿Qué necesita tener un banco central, en cantidad suficiente, para poder defender un tipo de cambio fijo?"
+respuesta_orden: ["reunión_fundacional", "redacción_estatuto", "inscripción_registro"]
+tipo: ordenar
+opciones_explicitas: ["reunión_fundacional", "redacción_estatuto", "inscripción_registro"]
+
+enunciado: "Ordene cronológicamente los pasos básicos para la formación legal de una cooperativa:"
+
+explicacion: |
+  Primero se debe realizar la reunión de fundadores, luego redactar los estatutos que regirán la entidad y finalmente inscribirse en el registro correspondiente para obtener la personería jurídica.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["ley_26206", "gestion_democratica"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "En una cooperativa de trabajo, según el principio de gestión democrática, cada asociado tiene un voto, independientemente del capital aportado."
+
+explicacion: |
+  Correcto. A diferencia de una sociedad anónima donde el poder depende de la cantidad de acciones, en las cooperativas rige el principio de 'un asociado, un voto', garantizando la gestión democrática.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["caracteristicas", "economia_social"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["Una agrupación de productores de leche que se unen para procesar su materia prima y distribuir sus productos bajo una marca común, compartiendo excedentes según el uso de servicios.", "cooperativa"], ["Un grupo de vecinos que crean un fondo común para prestarse dinero entre ellos con tasas sociales, sin fines de lucro.", "mutual"]]
+
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
-opciones_explicitas:
-  - "Reservas"
-  - "Tasa de interés alta, sin importar las reservas"
-  - "Una ley que prohíba comprar dólares"
-respuesta: "Reservas"
+opciones_explicitas: ["cooperativa", "mutual", "sociedad_anónima", "s.r.l."]
+
+enunciado: "Analice el siguiente caso: {escenarios[escenario_idx][0]}"
 
 explicacion: |
-  Sin reservas suficientes, el banco central no puede comprar/vender
-  para sostener el valor fijado.
+  La respuesta es {escenarios[escenario_idx][1]}. Las cooperativas buscan satisfacer necesidades de sus miembros mediante la producción o comercialización de bienes/servicios, mientras que las mutuales se centran en la prestación de servicios sociales y ayuda recíproca.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_fijo"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["excedentes", "distribucion"]
 
-respuesta: verdadero
+variables:
+  excedente_total: 1000
+  porcentaje_reserva_legal: 0.05
+  porcentaje_fondo_educacion: 0.05
+  porcentaje_reparto_asociados: 0.90
+
+respuesta: redondear(excedente_total * porcentaje_reparto_asociados, 2)
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Una cooperativa de consumo al cierre de su ejercicio obtiene un excedente neto de ${excedente_total}. Tras destinar el 5% a la reserva legal y el 5% al fondo de educación, el resto se distribuye entre los asociados proporcionalmente al consumo realizado. ¿Cuánto dinero se reparte entre los asociados?"
+
+pasos:
+  - "Calcular el monto para reserva legal: ${excedente_total} * {porcentaje_reserva_legal}"
+  - "Calcular el monto para el fondo de educación: ${excedente_total} * {porcentaje_fondo_educacion}"
+  - "Restar ambos montos al excedente total para obtener el remanente a repartir."
+
+explicacion: |
+  El cálculo es: ${excedente_total} - (${excedente_total} * 0.05) - (${excedente_total} * 0.05) = ${excedente_total} * 0.90 = ${redondear(excedente_total * porcentaje_reparto_asociados, 2)}.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "avanzado"
+  tags: ["procedimiento", "constitucion"]
+
+respuesta_orden: ["Reunión de fundadores", "Redacción de Estatuto", "Asamblea de constitución", "Inscripción en el INAES"]
+tipo: ordenar
+opciones_explicitas: ["Reunión de fundadores", "Redacción de Estatuto", "Asamblea de constitución", "Inscripción en el INAES"]
+
+enunciado: "Ordene cronológicamente los pasos para la constitución legal de una cooperativa de trabajo en Argentina:"
+
+explicacion: |
+  Primero se reúnen los interesados, luego se redacta el estatuto que regirá la entidad, se celebra la asamblea donde se aprueba dicho estatuto y finalmente se inscribe ante el ente regulador (INAES).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["capital", "asociados"]
+
+respuesta: "variable"
+tipo: completar
+respuestas_validas:
+  - "variable"
+
+enunciado: "En el cooperativismo, el capital social es de naturaleza ___, ya que su monto cambia con la entrada y salida de nuevos asociados."
+
+explicacion: |
+  El capital es variable porque no está representado por acciones de libre negociación en bolsa, sino que depende de la integración de los asociados a la entidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["cooperativas", "diferencias"]
+
+respuesta: "sin fines de lucro"
+tipo: completar
+respuestas_validas:
+  - "sin fines de lucro"
+  - "no lucrativa"
+
+enunciado: "A diferencia de las sociedades comerciales tradicionales, las cooperativas se rigen por el principio de que su actividad es ___."
+
+explicacion: |
+  Las cooperativas son entidades de economía social cuyo objetivo principal es satisfacer las necesidades de sus asociados y no la maximización de beneficios para terceros. Aunque pueden generar excedentes, estos se reinvierten o distribuyen según el uso de servicios, no como lucro comercial puro.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["gestion", "democracia"]
+
+respuesta: falso
+tipo: vf
+enunciado: "En una cooperativa, el poder de decisión se distribuye según el capital aportado por cada socio (a más capital, más votos)."
+
+explicacion: |
+  Falso. El principio de democracia cooperativa establece que cada socio tiene un voto, independientemente de la cantidad de capital que haya aportado. Esto es lo que las distingue de las sociedades anónimas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["mutualismo", "ayuda_mutua"]
+
+respuesta: "ayuda mutua"
+tipo: mc
+opciones_explicitas: ["ayuda mutua", "maximización de dividendos", "especulación financiera", "competencia de mercado"]
+
+enunciado: "El principio fundamental que distingue al mutualismo de otras formas de asociación es la ___ entre sus miembros para satisfacer necesidades comunes."
+
+explicacion: |
+  El mutualismo se basa en el principio de ayuda mutua, donde los asociados se asocian para prestarse servicios de previsión, asistencia o ayuda recíproca.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "avanzado"
+  tags: ["ley_26206", "marco_legal"]
+
+respuesta: "sociedad de personas"
+tipo: mc
+opciones_explicitas: ["sociedad de personas", "sociedad de capitales"]
+
+enunciado: "Según el marco legal de las cooperativas, estas se definen esencialmente como una ___."
+
+explicacion: |
+  Las cooperativas son sociedades de personas, ya que lo fundamental es la calidad de los asociados y su voluntad de cooperación, no la cuantía de su capital.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["principios", "valores"]
+
+respuesta_orden: ["Ingreso voluntario y abierto de socios", "Control democrático de los socios", "Participación económica de los socios"]
+tipo: ordenar
+opciones_explicitas: ["Ingreso voluntario y abierto de socios", "Control democrático de los socios", "Participación económica de los socios"]
+
+enunciado: "Ordene los siguientes principios cooperativos según la lógica de constitución de una organización: primero la apertura, luego la gestión y finalmente la distribución."
+
+explicacion: |
+  Para que exista una cooperativa, primero deben ingresar los socios libremente (apertura), luego deben decidir cómo gestionarse (democracia) y finalmente cómo gestionar sus recursos (participación económica).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["gestion", "democracia"]
+
+tipo: mc
+opciones_explicitas: ["La búsqueda de lucro máximo para accionistas externos", "La gestión democrática por parte de sus miembros", "La propiedad estatal de los medios de producción", "La primacía del capital sobre el trabajo"]
+
+respuesta: "La gestión democrática por parte de sus miembros"
+
+enunciado: "A diferencia de las sociedades de capital tradicionales, donde el poder de voto depende de la cantidad de acciones, las cooperativas se distinguen por un modelo de gestión donde cada miembro tiene un voto, independientemente de su aporte. Esto se conoce como:"
+
+explicacion: |
+  En el cooperativismo, rige el principio de 'un hombre, un voto', asegurando que el control sea democrático y no dependa de la riqueza de los socios.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["mutualismo", "ayuda_mutua"]
+
 tipo: vf
 
-enunciado: "Si en algún momento las reservas de un banco central no alcanzan para seguir defendiendo el valor fijado, ese banco central no puede sostener la promesa del tipo de cambio fijo."
-
-explicacion: |
-  Es el límite estructural de cualquier régimen fijo: depende de la
-  disponibilidad de reservas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_fijo"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Qué pierde un país al adoptar un tipo de cambio fijo, en términos de política económica?"
-tipo: mc
-opciones_explicitas:
-  - "Independencia en su política monetaria: no puede usar libremente la tasa de interés o la emisión para otros objetivos"
-  - "El derecho a exportar productos al resto del mundo"
-  - "La posibilidad de tener un banco central propio"
-respuesta: "Independencia en su política monetaria: no puede usar libremente la tasa de interés o la emisión para otros objetivos"
-
-explicacion: |
-  Cualquier decisión que presione el tipo de cambio pone en riesgo el
-  compromiso de mantenerlo fijo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_fijo"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Qué régimen cambiario tuvo Argentina entre 1991 y 2001, conocido como \"Convertibilidad\"?"
-tipo: mc
-opciones_explicitas:
-  - "Un tipo de cambio fijo, 1 peso = 1 dólar por ley"
-  - "Un tipo de cambio flotante sin ninguna intervención"
-  - "Argentina no tuvo moneda propia en ese período"
-respuesta: "Un tipo de cambio fijo, 1 peso = 1 dólar por ley"
-
-explicacion: |
-  Es el ejemplo histórico real citado en la teoría.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_fijo"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
+enunciado: "El mutualismo se distingue del cooperativismo principalmente en que su fin primordial es la ayuda mutua para satisfacer necesidades comunes, sin tener como objetivo principal la distribución de excedentes entre sus miembros."
 
 respuesta: verdadero
-tipo: vf
-
-enunciado: "La Convertibilidad terminó en 2001 porque, ante una salida sostenida de reservas, el país no pudo seguir defendiendo la paridad fijada."
 
 explicacion: |
-  Es la misma mecánica general (agotamiento de reservas) aplicada a
-  este caso histórico concreto.
+  Correcto. Las cooperativas suelen distribuir excedentes entre sus socios según el uso de servicios, mientras que las mutuales no distribuyen ganancias: su propósito es cubrir gastos comunes o brindar asistencia recíproca.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_fijo"
+  tema: "cooperativismo_y_mutualismo"
   nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["ley_26206", "principios"]
 
-respuesta: verdadero
-tipo: vf
+tipo: completar
+respuestas_validas:
+  - "ayuda mutua"
 
-enunciado: "Hong Kong mantiene, desde 1983, un tipo de cambio fijo de su moneda frente al dólar estadounidense."
+enunciado: "Según el espíritu de la Ley 26.206, una organización que se distingue de una empresa comercial por su fin social debe basarse en el principio de ___."
+
+pasos:
+  - "Identificar el principio fundamental de la economía social."
 
 explicacion: |
-  Es un ejemplo real de tipo de cambio fijo vigente hoy.
+  La ayuda mutua es el pilar que diferencia a estas organizaciones de las empresas de capital, donde el fin es el lucro.
+
+respuesta: "ayuda mutua"
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_fijo"
-  nivel: "intermedio"
-  tags: ["cambiario", "problema"]
-
-enunciado: "Un banco central vende dólares de sus reservas para frenar una suba del tipo de cambio. ¿Qué tipo de acción es esta?"
-tipo: mc
-opciones_explicitas:
-  - "Una intervención típica de un régimen de tipo de cambio fijo (o una variante administrada de uno flotante)"
-  - "Una acción que sólo existe bajo un régimen totalmente flotante y sin intervención"
-  - "Una devaluación"
-respuesta: "Una intervención típica de un régimen de tipo de cambio fijo (o una variante administrada de uno flotante)"
-
-explicacion: |
-  Es exactamente el mecanismo de defensa del valor fijado descripto en
-  la teoría.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_fijo"
-  nivel: "intermedio"
-  tags: ["cambiario", "problema"]
-
-enunciado: "Una empresa que planea una inversión a 5 años en un país prefiere que ese país tenga un tipo de cambio fijo antes que uno muy volátil. ¿Por qué le conviene?"
-tipo: mc
-opciones_explicitas:
-  - "Porque puede planificar sabiendo de antemano a qué valor va a poder cambiar su dinero"
-  - "Porque un tipo de cambio fijo siempre sube con el tiempo"
-  - "Porque elimina completamente el riesgo de cualquier inversión"
-respuesta: "Porque puede planificar sabiendo de antemano a qué valor va a poder cambiar su dinero"
-
-explicacion: |
-  Es la ventaja de previsibilidad, no una garantía de ganancia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_fijo"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un país elige, en un momento dado, entre un régimen de tipo de cambio fijo o uno flotante: son dos alternativas distintas, no dos cosas que se aplican al mismo tiempo de la misma forma."
-
-explicacion: |
-  Son regímenes alternativos, aunque existen variantes intermedias
-  (flotación administrada) que combinan elementos de ambos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_fijo"
+  tema: "cooperativismo_y_mutualismo"
   nivel: "avanzado"
-  tags: ["cambiario", "orden"]
+  tags: ["principios", "orden"]
 
 tipo: ordenar
-enunciado: "Ordená esta secuencia de cómo un banco central defiende un tipo de cambio fijo ante una fuerte demanda de dólares."
-opciones_explicitas:
-  - "Si la demanda persiste y las reservas no alcanzan, el régimen fijo queda en riesgo"
-  - "Las reservas del banco central se reducen"
-  - "Sube la demanda de dólares al precio fijado"
-  - "El banco central vende dólares de sus reservas para cubrir esa demanda"
-respuesta_orden: ["Sube la demanda de dólares al precio fijado", "El banco central vende dólares de sus reservas para cubrir esa demanda", "Las reservas del banco central se reducen", "Si la demanda persiste y las reservas no alcanzan, el régimen fijo queda en riesgo"]
+opciones_explicitas: ["Ingreso libre y voluntario", "Gestión democrática", "Participación económica"]
+
+respuesta_orden: ["Ingreso libre y voluntario", "Gestión democrática", "Participación económica"]
+
+enunciado: "Para que una organización sea considerada cooperativa bajo los estándares de la economía social, debe seguir una secuencia lógica de principios. Ordene los siguientes principios según la estructura clásica de la identidad cooperativa (desde la pertenencia hasta la gestión):"
 
 explicacion: |
-  Cada paso es consecuencia del anterior: defender el precio fijado
-  consume reservas, y las reservas no son infinitas.
+  Primero se define quién puede entrar (Ingreso libre), luego cómo se decide (Gestión democrática) y finalmente cómo se gestionan los recursos (Participación económica).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_fijo"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["excedente", "lucro"]
 
-respuesta: verdadero
+tipo: mc
+opciones_explicitas: ["El excedente es igual al lucro de una empresa comercial", "El excedente se distribuye según el capital aportado", "El excedente se distribuye según el uso de los servicios", "El excedente se reinvierte íntegramente en el Estado"]
+
+respuesta: "El excedente se distribuye según el uso de los servicios"
+
+enunciado: "Una diferencia clave entre el 'lucro' de una sociedad comercial y el 'excedente' de una cooperativa es que el segundo se distribuye en función de la ___ realizada por los socios."
+
+explicacion: |
+  En las cooperativas, el retorno de excedentes no depende de cuánto capital puso cada uno, sino de cuánto utilizó los servicios de la cooperativa (retorno cooperativo).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["ley_26206", "organizacion"]
+
+variables:
+  datos: [["Un grupo de agricultores se une para comprar insumos por menor precio y vender su cosecha sin intermediarios", "cooperativa"], ["Un grupo de vecinos se une para prestar servicios de asistencia sanitaria y farmacia con fines de ayuda mutua", "mutual"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["cooperativa", "mutual"]
+
+enunciado: "Un grupo de personas se organiza bajo el modelo de economía social. Si el objetivo principal es la gestión de servicios de ayuda mutua y asistencia, estamos ante una: ___"
+
+explicacion: |
+  Según la normativa, las cooperativas buscan satisfacer necesidades de sus socios mediante la explotación de una actividad económica, mientras que las mutuales se centran en la ayuda mutua y servicios de asistencia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["gestion", "democracia"]
+
+respuesta: falso
 tipo: vf
 
-enunciado: "Bajo un tipo de cambio fijo, el banco central no puede usar la tasa de interés con total libertad para otros objetivos (como estimular el empleo), porque eso podría poner en riesgo el valor fijado."
+enunciado: "En una organización cooperativa, el principio de 'una persona, un voto' implica que el poder de decisión es proporcional al capital aportado por cada socio."
 
 explicacion: |
-  Es la misma pérdida de independencia monetaria explicada en la
-  teoría.
+  Falso. El principio fundamental de las cooperativas es la gestión democrática: cada socio tiene un voto, independientemente de la cantidad de capital que haya aportado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_fijo"
-  nivel: "avanzado"
-  tags: ["cambiario", "problema"]
-
-enunciado: "Dos países tienen tipo de cambio fijo. Uno tiene reservas muy altas, el otro reservas muy bajas y en caída. ¿Cuál está en mejores condiciones de sostener su régimen fijo ante una corrida?"
-tipo: mc
-opciones_explicitas:
-  - "El de reservas altas"
-  - "El de reservas bajas"
-  - "Da exactamente igual el nivel de reservas"
-respuesta: "El de reservas altas"
-
-explicacion: |
-  La capacidad de sostener un tipo de cambio fijo depende
-  directamente de la disponibilidad de reservas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_fijo"
+  tema: "cooperativismo_y_mutualismo"
   nivel: "basico"
-  tags: ["cambiario"]
+  tags: ["estructura", "socios"]
 
+variables:
+  datos: [["Asamblea de Socios", "Máximo órgano de decisión"], ["Consejo de Administración", "Órgano de gobierno y dirección"], ["Sindicatura", "Control de legalidad"]]
+
+respuesta: "Asamblea de Socios"
 tipo: completar
-enunciado: "Completá: bajo un tipo de cambio fijo, el banco central se compromete a sostener el valor de su moneda usando sus ___ (lo que compra/vende para defenderlo)."
 respuestas_validas:
-  - "reservas"
+  - "Asamblea de Socios"
+  - "Consejo de Administración"
+  - "Sindicatura"
+
+enunciado: "En la estructura de una cooperativa, el ___ es el órgano máximo de gobierno donde se toman las decisiones fundamentales por parte de los asociados."
 
 explicacion: |
-  Es la herramienta central para defender un tipo de cambio fijo.
+  La Asamblea de Socios es el órgano supremo donde se ejerce la soberanía de los miembros.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_fijo"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["fin_lucro", "economia_social"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Las entidades de la economía social, como cooperativas y mutuales, tienen como objetivo primordial la maximización de beneficios económicos para sus accionistas externos."
+
+explicacion: |
+  Falso. El fin es satisfacer necesidades de los asociados y promover el bienestar de la comunidad; no buscan el lucro para terceros, sino el beneficio de sus propios miembros.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "avanzado"
+  tags: ["procedimiento", "pasos"]
+
+respuesta_orden: ["Reunión de interesados y definición de objeto social", "Redacción del contrato social y estatutos", "Inscripción en el registro de cooperativas"]
+tipo: ordenar
+opciones_explicitas: ["Redacción del contrato social y estatutos", "Reunión de interesados y definición de objeto social", "Inscripción en el registro de cooperativas"]
+
+enunciado: "Ordene cronológicamente los pasos para la constitución legal de una cooperativa:"
+
+explicacion: |
+  Primero se define el objeto y los socios, luego se formaliza en un estatuto y finalmente se inscribe ante la autoridad de aplicación para obtener personería jurídica.
+```
+
+## Sección: planificacion-administrativa (25 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
   nivel: "basico"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["conceptos_basicos", "gestion"]
 
-respuesta: verdadero
-tipo: vf
+tipo: mc
+opciones_explicitas: ["El proceso de tomar decisiones anticipadas para alcanzar objetivos", "La ejecución de tareas diarias sin un orden previo", "El análisis de los resultados obtenidos tras una crisis", "La asignación de recursos basada en la intuición"]
+respuesta: "El proceso de tomar decisiones anticipadas para alcanzar objetivos"
 
-enunciado: "Un tipo de cambio fijo le da previsibilidad a cambio de que el banco central necesite reservas suficientes para defenderlo, y de perder independencia en su política monetaria."
+enunciado: "La planificación administrativa se define como ___________."
 
 explicacion: |
-  Es la idea central de todo el tema: ventaja y costo van juntos.
+  La planificación es la función administrativa que consiste en establecer metas y elegir los medios para alcanzarlas, actuando de forma anticipada.
 ```
-
-## Sección: tipo-cambio-flotante (20 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_flotante"
+  tema: "planificacion_administrativa"
   nivel: "basico"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["elementos", "objetivos"]
 
-enunciado: "¿Qué es un régimen de tipo de cambio flotante?"
-tipo: mc
-opciones_explicitas:
-  - "El valor de la moneda lo determina la oferta y demanda del mercado, sin que el banco central prometa sostener un número fijo"
-  - "El banco central fija por ley el valor exacto de la moneda"
-  - "Un régimen donde la moneda nacional no se puede comprar ni vender"
-respuesta: "El valor de la moneda lo determina la oferta y demanda del mercado, sin que el banco central prometa sostener un número fijo"
+respuesta: "objetivos"
+tipo: completar
+respuestas_validas:
+  - "objetivos"
+
+enunciado: "Para que una planificación sea efectiva, debe definir claramente los ___________ que se desean alcanzar, así como las estrategias para lograrlos y los recursos necesarios para llevar a cabo las acciones."
 
 explicacion: |
-  Es lo opuesto al tipo de cambio fijo.
+  La planificación requiere de objetivos (el qué), estrategias (el cómo) y recursos (con qué).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_flotante"
+  tema: "planificacion_administrativa"
   nivel: "basico"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["temporalidad", "cronograma"]
 
-enunciado: "Bajo un tipo de cambio flotante, si hay más gente que quiere comprar una moneda que gente dispuesta a venderla, ¿qué pasa con su precio?"
-tipo: mc
-opciones_explicitas:
-  - "Sube"
-  - "Baja"
-  - "Se queda fijo por ley"
-respuesta: "Sube"
-
-explicacion: |
-  Es la misma ley de oferta y demanda aplicada al mercado cambiario.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "basico"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "Bajo un tipo de cambio flotante, si hay más gente que quiere vender una moneda que gente dispuesta a comprarla, ¿qué pasa con su precio?"
-tipo: mc
-opciones_explicitas:
-  - "Baja"
-  - "Sube"
-  - "Se queda fijo por ley"
-respuesta: "Baja"
-
-explicacion: |
-  Es la misma ley de oferta y demanda aplicada al mercado cambiario.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
+tipo: vf
+enunciado: "La planificación implica determinar el momento exacto (cuándo) en que deben ejecutarse las acciones para asegurar la eficiencia operativa."
 
 respuesta: verdadero
-tipo: vf
-
-enunciado: "Bajo un tipo de cambio flotante, el banco central no se compromete a sostener ningún valor puntual de la moneda."
 
 explicacion: |
-  Es la diferencia central frente al régimen fijo.
+  La dimensión temporal es fundamental; sin un cronograma o tiempos definidos, la planificación carece de control y seguimiento.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_flotante"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Qué es la \"flotación limpia\"?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando el banco central deja flotar la moneda sin ninguna intervención"
-  - "Cuando el banco central interviene todos los días para fijar el precio"
-  - "Otro nombre para el tipo de cambio fijo"
-respuesta: "Cuando el banco central deja flotar la moneda sin ninguna intervención"
-
-explicacion: |
-  Es el caso extremo del régimen flotante, sin intervención alguna.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Qué es la \"flotación administrada\" (o \"sucia\")?"
-tipo: mc
-opciones_explicitas:
-  - "El precio se mueve libremente la mayor parte del tiempo, pero el banco central interviene puntualmente para suavizar movimientos muy bruscos"
-  - "Un tipo de cambio completamente fijo, sin ninguna variación"
-  - "Un régimen donde está prohibido comprar moneda extranjera"
-respuesta: "El precio se mueve libremente la mayor parte del tiempo, pero el banco central interviene puntualmente para suavizar movimientos muy bruscos"
-
-explicacion: |
-  Es la variante más común en la práctica: la mayoría de los países no
-  aplica una flotación 100% limpia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la práctica, pocos países dejan flotar su moneda por completo sin ninguna intervención: la mayoría usa una flotación administrada."
-
-explicacion: |
-  Es una aclaración importante: \"flotante\" no siempre significa cero
-  intervención.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "Si cae el precio internacional de lo que un país exporta, ¿cómo ayuda un tipo de cambio flotante a absorber ese golpe?"
-tipo: mc
-opciones_explicitas:
-  - "La moneda se deprecia gradualmente, sin que el banco central tenga que gastar reservas defendiendo un valor insostenible"
-  - "El banco central prohíbe automáticamente exportar ese producto"
-  - "El shock no afecta en nada al tipo de cambio flotante"
-respuesta: "La moneda se deprecia gradualmente, sin que el banco central tenga que gastar reservas defendiendo un valor insostenible"
-
-explicacion: |
-  Es la ventaja central del régimen flotante: ajuste automático y
-  gradual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ajuste del tipo de cambio flotante ante un shock externo tiende a ser automático y gradual, distinto de una crisis puntual como puede ocurrir cuando un régimen fijo se rompe de golpe."
-
-explicacion: |
-  Es la comparación directa con lo que puede pasar en un régimen fijo
-  que no se puede sostener más.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Cuál es la principal desventaja de un tipo de cambio flotante frente a uno fijo?"
-tipo: mc
-opciones_explicitas:
-  - "El valor de la moneda puede variar bastante de un día para otro, complicando planificar a mediano plazo"
-  - "El banco central pierde el control total de la política monetaria"
-  - "Es imposible comerciar con otros países bajo este régimen"
-respuesta: "El valor de la moneda puede variar bastante de un día para otro, complicando planificar a mediano plazo"
-
-explicacion: |
-  Lo que se gana en flexibilidad, se pierde en certeza.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un banco central bajo un régimen flotante no necesita mantener un nivel enorme de reservas sólo para sostener un valor prometido, porque no prometió ningún valor puntual."
-
-explicacion: |
-  Es una diferencia directa con el régimen fijo, que sí depende de
-  reservas para defender su compromiso.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Qué ventaja tiene un país con tipo de cambio flotante para manejar su tasa de interés, comparado con uno de tipo de cambio fijo?"
-tipo: mc
-opciones_explicitas:
-  - "Tiene más margen para usarla con otros objetivos (como controlar la inflación o el empleo), sin poner en riesgo un valor prometido"
-  - "No puede usar la tasa de interés bajo ningún régimen flotante"
-  - "Está obligado por ley a mantenerla siempre en 0%"
-respuesta: "Tiene más margen para usarla con otros objetivos (como controlar la inflación o el empleo), sin poner en riesgo un valor prometido"
-
-explicacion: |
-  Recupera la independencia de política monetaria que un régimen fijo
-  restringe.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El dólar estadounidense, el euro y el yen japonés flotan libremente entre sí desde hace décadas."
-
-explicacion: |
-  Es un ejemplo real de tipo de cambio flotante entre monedas
-  importantes.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "basico"
-  tags: ["cambiario", "problema"]
-
-enunciado: "En un país con tipo de cambio flotante, un noticiero dice \"el dólar subió hoy\". ¿Qué tan excepcional es ese hecho?"
-tipo: mc
-opciones_explicitas:
-  - "No es excepcional: es un movimiento normal del mercado bajo este régimen"
-  - "Es un evento excepcional que sólo ocurre una vez por década"
-  - "No puede pasar nunca bajo un régimen flotante"
-respuesta: "No es excepcional: es un movimiento normal del mercado bajo este régimen"
-
-explicacion: |
-  Bajo flotación, el valor se mueve todos los días según oferta y
-  demanda.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "intermedio"
-  tags: ["cambiario", "problema"]
-
-enunciado: "Un país deja que el precio de su moneda cambie todos los días según cuánta gente quiere comprarla o venderla, sin comprometerse a ningún valor puntual. ¿Qué régimen tiene?"
-tipo: mc
-opciones_explicitas:
-  - "Tipo de cambio flotante"
-  - "Tipo de cambio fijo"
-  - "Ningún régimen cambiario existe en ese caso"
-respuesta: "Tipo de cambio flotante"
-
-explicacion: |
-  Es la definición central de un régimen flotante.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "avanzado"
-  tags: ["cambiario", "orden"]
+  tags: ["proceso_administrativo", "orden"]
 
 tipo: ordenar
-enunciado: "Ordená esta secuencia de cómo un tipo de cambio flotante absorbe una caída en el precio internacional de una exportación clave."
-opciones_explicitas:
-  - "El ajuste se absorbe gradualmente, sin gastar reservas del banco central"
-  - "El precio del dólar sube (la moneda local se deprecia)"
-  - "Cae el ingreso de dólares por esa exportación"
-  - "Baja la oferta de dólares en el mercado cambiario"
-respuesta_orden: ["Cae el ingreso de dólares por esa exportación", "Baja la oferta de dólares en el mercado cambiario", "El precio del dólar sube (la moneda local se deprecia)", "El ajuste se absorbe gradualmente, sin gastar reservas del banco central"]
+opciones_explicitas: ["Establecer objetivos", "Analizar la situación actual", "Desarrollar planes de acción", "Implementar y controlar"]
+
+enunciado: "Ordene cronológicamente las etapas lógicas de un proceso de planificación administrativa:"
+
+respuesta_orden: ["Establecer objetivos", "Analizar la situación actual", "Desarrollar planes de acción", "Implementar y controlar"]
 
 explicacion: |
-  Cada paso es consecuencia del anterior: menos dólares ofrecidos
-  suben su precio, y ese ajuste de precio absorbe el shock.
+  Aunque los modelos varían, la lógica administrativa requiere primero saber a dónde ir (objetivos), dónde estamos (diagnóstico), cómo llegaremos (planes) y cómo nos aseguramos de haber llegado (control).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Que un país tenga tipo de cambio flotante no significa necesariamente que el banco central nunca intervenga en el mercado cambiario: la flotación administrada permite intervenciones puntuales."
-
-explicacion: |
-  Es la distinción entre flotación limpia y administrada.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["cambiario", "problema"]
+  tags: ["niveles", "estrategia"]
 
-enunciado: "Una empresa que necesita planificar el costo exacto de una importación dentro de 6 meses, sin sorpresas, ¿en qué régimen encuentra más previsibilidad para ese cálculo puntual?"
-tipo: mc
-opciones_explicitas:
-  - "En un tipo de cambio fijo"
-  - "En un tipo de cambio flotante"
-  - "La previsibilidad es exactamente igual en los dos regímenes"
-respuesta: "En un tipo de cambio fijo"
-
-explicacion: |
-  Es la ventaja de previsibilidad del régimen fijo frente al flotante,
-  vista desde el lado que le falta al flotante.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipo_cambio_flotante"
-  nivel: "basico"
-  tags: ["cambiario"]
+variables:
+  datos: [["estratégica", "largo plazo"], ["operativa", "corto plazo"]]
+  idx: uno_de([0, 1])
+  tipo_planificacion: datos[idx][0]
+  horizonte: datos[idx][1]
 
 tipo: completar
-enunciado: "Completá: bajo un tipo de cambio flotante, el valor de la moneda lo determina la ___ (las dos fuerzas del mercado ya vistas en otro tema) del mercado cambiario."
+respuesta: tipo_planificacion
 respuestas_validas:
-  - "oferta y demanda"
-  - "oferta y la demanda"
-
+  - tipo_planificacion
+enunciado: "La planificación que se realiza a nivel de alta dirección, enfocándose en la organización como un todo y con un horizonte de {horizonte}, es la planificación ___."
 explicacion: |
-  Es la misma ley de oferta y demanda vista en `oferta-y-demanda/`,
-  aplicada acá al mercado cambiario.
+  La planificación estratégica es global y de largo plazo, mientras que la operativa es específica y de corto plazo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipo_cambio_flotante"
+  tema: "planificacion_administrativa"
   nivel: "basico"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["gestion", "procesos"]
 
-respuesta: verdadero
+respuesta: "establecer objetivos"
+tipo: completar
+respuestas_validas:
+  - "establecer objetivos"
+  - "definir metas"
+
+enunciado: "La primera etapa fundamental de la planificación administrativa consiste en ___ para saber hacia dónde se dirige la organización."
+
+explicacion: |
+  La planificación comienza con la definición de los objetivos o metas. Sin un norte claro, los demás pasos (cómo, cuándo y con qué recursos) carecen de propósito.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "intermedio"
+  tags: ["toma_de_decisiones", "estrategia"]
+
+respuesta: "aumentar costos fijos"
+tipo: mc
+opciones_explicitas: ["aumentar costos fijos", "reducir costos de envío", "maximizar beneficios", "reducir personal"]
+
+enunciado: "Una empresa decide expandirse mediante la apertura de una nueva sucursal física. Según la planificación estratégica, esta acción implica principalmente: ___"
+
+explicacion: |
+  Al abrir una sucursal física, la empresa está planificando un crecimiento que conlleva un aumento en sus costos fijos (alquiler, servicios, salarios fijos), como se indica en la opción seleccionada.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: falso
 tipo: vf
 
-enunciado: "Un tipo de cambio flotante deja que el mercado determine el valor de la moneda día a día, ganando margen de política monetaria y absorción automática de shocks, a cambio de menos previsibilidad."
+enunciado: "La planificación administrativa es un proceso estático que, una vez definido, no debe ser revisado aunque el entorno cambie."
 
 explicacion: |
-  Es la idea central de todo el tema: la contracara exacta del
-  régimen fijo.
-```
-
-## Sección: tipos-de-organizaciones (24 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "basico"
-  tags: ["definicion", "concepto_basico"]
-
-variables:
-  num_personas: random(5, 20)
-
-respuesta: "agrupamiento"
-tipo: completar
-
-enunciado: "Una organización se define como un {num_personas} o más personas estructuradas con un propósito común."
-
-explicacion: |
-  Las organizaciones surgen porque es difícil satisfacer necesidades individuales por separado. Requieren estructura y objetivos compartidos.
+  Falso. La planificación debe ser flexible. Si el entorno (economía, competencia, leyes) cambia, la planificación debe ajustarse para asegurar el cumplimiento de los objetivos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "tipos_de_organizaciones"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["factores_produccion", "empresa"]
+  tags: ["pasos", "metodologia"]
 
-variables:
-  factor1: "trabajo"
-  factor2: "capital"
-  factor3: "tierra"
-
-respuesta: "trabajo, capital y tierra"
-tipo: completar
-
-enunciado: "Para crear bienes o servicios, la empresa combina factores como el {factor1}, el {factor2} y la {factor3}."
-
-explicacion: |
-  La empresa transforma estos tres factores de producción para generar valor económico.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "basico"
-  tags: ["definicion", "concepto_basico"]
-
-variables:
-  n_personas: random(5, 20)
-
-respuesta: "un grupo de personas estructuradas con un propósito común"
-tipo: completar
-
-enunciado: "Según la teoría, una organización se define como {n_personas} o más personas agrupadas para:"
-
-explicacion: |
-  Las organizaciones surgen porque rara vez podemos satisfacer todas nuestras necesidades individualmente. Se trata de un conjunto de personas estructuradas con un propósito común para trabajar en conjunto y compartir recursos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "intermedio"
-  tags: ["factores", "empresa"]
-
-variables:
-  f1: "trabajo"
-  f2: "capital"
-  f3: "tierra"
-
-respuesta: "trabajo, capital y tierra"
-tipo: completar
-
-enunciado: "Para crear bienes o prestar servicios, la empresa combina los factores de producción: {f1}, {f2} y {f3}."
-
-explicacion: |
-  La empresa combina tres factores clave de producción: el trabajo (mano de obra), el capital (dinero, maquinaria) y la tierra (recursos naturales) para generar productos o servicios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "intermedio"
-  tags: ["riesgo", "propietarios"]
-
-variables:
-  resultado: uno_de(["ganancia", "pérdida"])
-
-respuesta: "propietarios"
-tipo: completar
-
-enunciado: "En una empresa, si el resultado es una {resultado}, el riesgo y la recompensa recaen directamente en los:"
-
-explicacion: |
-  Lo que distingue a la empresa es que el riesgo y la recompensa (ganancias o pérdidas) recaen directamente en sus propietarios o accionistas, no en el Estado ni en los socios de una cooperativa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "basico"
-  tags: ["estado", "bienestar"]
-
-variables:
-  fin: "bienestar general de la sociedad"
-
-respuesta: "bienestar general de la sociedad"
-tipo: completar
-
-enunciado: "La administración pública tiene como fin el:"
-
-explicacion: |
-  Mientras la empresa busca ganancias, la administración pública (gestionada por el Estado) tiene como fin el bienestar general de la sociedad, proveiendo servicios esenciales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "intermedio"
-  tags: ["financiamiento", "impuestos"]
-
-variables:
-  fuente: "impuestos"
-
-respuesta: "impuestos"
-tipo: completar
-
-enunciado: "Las organizaciones de la administración pública se financian principalmente a través de los {fuente} que pagan los ciudadanos."
-
-explicacion: |
-  El Estado financia sus organizaciones (hospitales, escuelas, policía) principalmente mediante los impuestos que recauda de los ciudadanos, ya que no buscan generar lucro.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "intermedio"
-  tags: ["pyme", "economia_argentina"]
-
-variables:
-  rol: "corazón de la economía argentina"
-
-respuesta: "corazón de la economía argentina"
-tipo: completar
-
-enunciado: "Las pequeñas y medianas empresas (PyMEs) son consideradas el {rol}, ofreciendo empleo local y productos específicos."
-
-explicacion: |
-  En la economía argentina, las PyMEs son fundamentales. Aunque existen grandes corporaciones, las PyMEs constituyen el corazón de la economía al ofrecer empleo local y productos específicos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "intermedio"
-  tags: ["eficiencia", "competencia"]
-
-variables:
-  clave: "eficiencia"
-
-respuesta: "eficiencia"
-tipo: completar
-
-enunciado: "La {clave} es la clave de la empresa: debe producir de la mejor manera posible para ofrecer precios competitivos y seguir siendo rentable."
-
-explicacion: |
-  Para sobrevivir y ser rentable, la empresa debe basarse en la eficiencia. Debe producir de la mejor manera posible para ofrecer precios competitivos en el mercado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "basico"
-  tags: ["ong", "sin_animo_de_lucro"]
-
-variables:
-  fin: "ayudar a la comunidad sin ánimo de lucro"
-
-respuesta: "ayudar a la comunidad sin ánimo de lucro"
-tipo: completar
-
-enunciado: "Las organizaciones no gubernamentales (ONG) existen para:"
-
-explicacion: |
-  Las ONG son organizaciones que buscan ayudar a la comunidad sin ánimo de lucro. Su objetivo es social o benéfico, no económico.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "intermedio"
-  tags: ["ejemplo", "servicios_publicos"]
-
-variables:
-  gestion: "administración pública"
-
-respuesta: "administración pública"
-tipo: completar
-
-enunciado: "Para entender cómo se financian los hospitales públicos, debemos mirar a la {gestion}, que provee servicios esenciales."
-
-explicacion: |
-  Los hospitales públicos son un ejemplo de servicios provistos por la administración pública. Su financiamiento proviene de impuestos, no de ventas al consumidor final con fin de lucro.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "avanzado"
-  tags: ["ejemplo", "problemas_economicos"]
-
-variables:
-  razon: "lógica diferente"
-
-respuesta: "lógica diferente"
-tipo: completar
-
-enunciado: "Algunos clubes deportivos tienen problemas económicos mientras otros prosperan debido a que tienen una {razon} para generar riqueza o distribuir bienes."
-
-explicacion: |
-  La diversidad en los tipos de organizaciones (clubes, empresas, ONG) implica que cada una tiene una lógica diferente para generar riqueza o distribuir bienes, lo que explica sus distintos resultados económicos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "basico"
-  tags: ["clasificacion", "sector_privado"]
-
-variables:
-  sector: "sector privado"
-
-respuesta: "sector privado"
-tipo: completar
-
-enunciado: "La empresa es la organización más común en el {sector}."
-
-explicacion: |
-  La empresa pertenece al sector privado. Es la unidad básica de la economía de mercado, dedicada a la producción de bienes y servicios con fines de lucro.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "intermedio"
-  tags: ["riesgo", "propietarios"]
-
-variables:
-  quien: "propietarios o accionistas"
-
-respuesta: "propietarios o accionistas"
-tipo: completar
-
-enunciado: "En una empresa, si fracasa, las pérdidas las asumen los {quien}."
-
-explicacion: |
-  Una característica distintiva de la empresa es que los propietarios o accionistas asumen personalmente las pérdidas si la empresa fracasa, a diferencia de otros tipos de organizaciones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "basico"
-  tags: ["bien_publico", "estado"]
-
-variables:
-  quien: "el Estado"
-
-respuesta: "el Estado"
-tipo: completar
-
-enunciado: "Los bienes y servicios públicos esenciales son provistos por {quien}."
-
-explicacion: |
-  El Estado (a través de la administración pública) es responsable de proveer bienes y servicios públicos esenciales que el mercado por sí solo no proveería eficientemente.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "basico"
-  tags: ["clasificacion", "fin"]
-
-variables:
-  criterio: "su fin principal"
-
-respuesta: "su fin principal"
-tipo: completar
-
-enunciado: "Las organizaciones se pueden clasificar según {criterio}."
-
-explicacion: |
-  Una de las formas principales de clasificar las organizaciones es según su fin principal: generar ganancias, ayudar a la comunidad o proveer servicios públicos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "intermedio"
-  tags: ["eficiencia", "precio"]
-
-variables:
-  objetivo: "precios competitivos"
-
-respuesta: "precios competitivos"
-tipo: completar
-
-enunciado: "La eficiencia permite a la empresa ofrecer {objetivo} y seguir siendo rentable."
-
-explicacion: |
-  La eficiencia productiva es crucial para que la empresa pueda ofrecer precios competitivos en el mercado, lo cual es necesario para mantenerse rentable.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "basico"
-  tags: ["ong", "objetivo"]
-
-variables:
-  objetivo: "ayudar a la comunidad"
-
-respuesta: "ayudar a la comunidad"
-tipo: completar
-
-enunciado: "El objetivo de las ONG es {objetivo} sin ánimo de lucro."
-
-explicacion: |
-  Las organizaciones no gubernamentales (ONG) tienen como objetivo principal ayudar a la comunidad, operando sin fines de lucro.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "intermedio"
-  tags: ["mercado", "sociedad"]
-
-variables:
-  concepto: "sociedad moderna"
-
-respuesta: "sociedad moderna"
-
-enunciado: "La diversidad de tipos de organizaciones permite que funcione la {concepto}."
-
-explicacion: |
-  La existencia de diferentes tipos de organizaciones (empresas, estado, ONG) con lógicas distintas es lo que permite que funcione la sociedad moderna.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "intermedio"
-  tags: ["riesgo", "recompensa"]
-
-variables:
-  quien: "propietarios"
-
-respuesta: "propietarios"
-
-enunciado: "En la empresa, el riesgo y la recompensa recaen directamente en los {quien}."
-
-explicacion: |
-  Una característica clave de la empresa es que los propietarios (o accionistas) asumen directamente tanto el riesgo de pérdida como la recompensa de ganancia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "basico"
-  tags: ["financiamiento", "estado"]
-
-variables:
-  fuente: "impuestos"
-
-respuesta: "impuestos"
-
-enunciado: "La administración pública se financia principalmente a través de los {fuente}."
-
-explicacion: |
-  El Estado financia sus operaciones y servicios públicos principalmente mediante la recaudación de impuestos de los ciudadanos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "intermedio"
-  tags: ["pyme", "empleo"]
-
-variables:
-  rol: "corazón de la economía argentina"
-
-respuesta: "corazón de la economía argentina"
-
-enunciado: "Las PyMEs son consideradas el {rol} porque ofrecen empleo local."
-
-explicacion: |
-  Las PyMEs son el corazón de la economía argentina debido a su capacidad para ofrecer empleo local y productos específicos, diferenciándose de las grandes corporaciones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "basico"
-  tags: ["comparacion", "fin"]
-
-respuesta: "falso"
-
-enunciado: "Verdadero o Falso: Todas las organizaciones buscan lo mismo y lo hacen de la misma manera."
-
-explicacion: |
-  Falso. Las organizaciones no todas buscan lo mismo ni lo hacen de la misma manera. Algunas buscan ganancias, otras bienestar social, y otras servicios públicos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "tipos_de_organizaciones"
-  nivel: "avanzado"
-  tags: ["resumen", "clasificacion"]
-
-variables:
-  tipo1: "empresa"
-  tipo2: "administración pública"
-  tipo3: "ONG"
-
-respuesta: "empresa, administración pública y ONG"
-
-enunciado: "Las tres categorías principales de organizaciones mencionadas son: {tipo1}, {tipo2} y {tipo3}."
-
-explicacion: |
-  El texto clasifica las organizaciones principalmente en tres tipos: la empresa (sector privado con fin de lucro), la administración pública (Estado con fin social) y las ONG (sin ánimo de lucro).
-```
-
-## Sección: devaluacion (21 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "basico"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Qué es una devaluación?"
-tipo: mc
-opciones_explicitas:
-  - "La decisión oficial de un banco central de bajar el valor fijado de su moneda, por un anuncio puntual"
-  - "Cualquier caída del valor de una moneda, sin importar el régimen cambiario"
-  - "Un aumento en las reservas del banco central"
-respuesta: "La decisión oficial de un banco central de bajar el valor fijado de su moneda, por un anuncio puntual"
-
-explicacion: |
-  Es un ajuste puntual y oficial, no un movimiento gradual del
-  mercado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "El término \"devaluación\", en sentido estricto, ¿bajo qué régimen cambiario tiene sentido?"
-tipo: mc
-opciones_explicitas:
-  - "Bajo un tipo de cambio fijo"
-  - "Bajo un tipo de cambio flotante"
-  - "Bajo cualquiera de los dos, exactamente igual"
-respuesta: "Bajo un tipo de cambio fijo"
-
-explicacion: |
-  Sólo bajo un régimen fijo hay un valor prometido que se pueda
-  \"romper\" con un anuncio oficial.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Cómo se llama la pérdida de valor de una moneda bajo un tipo de cambio flotante, y en qué se diferencia de una devaluación?"
-tipo: mc
-opciones_explicitas:
-  - "Depreciación: es un proceso continuo y gradual del mercado, no un anuncio puntual como la devaluación"
-  - "También se llama devaluación: son exactamente lo mismo"
-  - "No tiene nombre propio: bajo flotante nunca pierde valor una moneda"
-respuesta: "Depreciación: es un proceso continuo y gradual del mercado, no un anuncio puntual como la devaluación"
-
-explicacion: |
-  Misma dirección (pérdida de valor), pero distinto mecanismo:
-  gradual y de mercado vs. puntual y oficial.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Por qué un banco central llega a devaluar su moneda?"
-tipo: mc
-opciones_explicitas:
-  - "Porque ya no puede seguir sosteniendo el valor fijado: sus reservas se agotaron o están por agotarse"
-  - "Porque quiere subir la inflación a propósito, sin ninguna otra razón"
-  - "Porque es obligatorio devaluar cada 10 años por ley"
-respuesta: "Porque ya no puede seguir sosteniendo el valor fijado: sus reservas se agotaron o están por agotarse"
-
-explicacion: |
-  Es la consecuencia directa de no poder sostener más el régimen
-  fijo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Qué efecto tiene una devaluación sobre el precio de las importaciones?"
-tipo: mc
-opciones_explicitas:
-  - "Se encarecen: cada dólar cuesta más en moneda local"
-  - "Se abaratan: cada dólar cuesta menos en moneda local"
-  - "No tiene ningún efecto sobre las importaciones"
-respuesta: "Se encarecen: cada dólar cuesta más en moneda local"
-
-explicacion: |
-  Como la moneda local vale menos frente al dólar, comprar algo del
-  exterior cuesta más en moneda local.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Qué efecto tiene una devaluación sobre la competitividad de las exportaciones?"
-tipo: mc
-opciones_explicitas:
-  - "Las vuelve más competitivas: un producto local cuesta menos en dólares para un comprador extranjero"
-  - "Las vuelve menos competitivas: un producto local cuesta más en dólares"
-  - "No tiene ningún efecto sobre las exportaciones"
-respuesta: "Las vuelve más competitivas: un producto local cuesta menos en dólares para un comprador extranjero"
-
-explicacion: |
-  El mismo producto, cotizado en moneda local, ahora equivale a menos
-  dólares para quien compra desde afuera.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El encarecimiento de las importaciones tras una devaluación suele empujar la inflación general hacia arriba."
-
-explicacion: |
-  Es la conexión directa entre este tema y `pbi-e-inflacion/`: precios
-  importados más caros presionan el índice de precios general.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al abaratar las exportaciones y encarecer las importaciones, una devaluación puede ayudar a corregir un déficit de la balanza comercial."
-
-explicacion: |
-  Es la conexión con `balanza-comercial/`: exportar más y/o importar
-  menos mejora ese resultado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "problema"]
-
-enunciado: "Alguien debe dólares pero gana su sueldo en moneda local. Después de una devaluación, ¿qué le pasa a esa deuda medida en moneda local?"
-tipo: mc
-opciones_explicitas:
-  - "Necesita más moneda local que antes para pagar la misma deuda en dólares"
-  - "Necesita menos moneda local que antes para pagar la misma deuda"
-  - "La devaluación no afecta en nada esa deuda"
-respuesta: "Necesita más moneda local que antes para pagar la misma deuda en dólares"
-
-explicacion: |
-  Si gana en moneda local y debe en dólares, la devaluación encarece
-  su deuda medida en su propia moneda.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "problema"]
-
-enunciado: "Un exportador vende afuera y cobra en dólares, pero paga sus costos en moneda local. ¿Cómo lo afecta una devaluación?"
-tipo: mc
-opciones_explicitas:
-  - "Se beneficia: sus ingresos en dólares, convertidos a moneda local, valen más después del ajuste"
-  - "Se perjudica: sus ingresos en dólares valen menos en moneda local"
-  - "No lo afecta en absoluto"
-respuesta: "Se beneficia: sus ingresos en dólares, convertidos a moneda local, valen más después del ajuste"
-
-explicacion: |
-  Es el caso opuesto al de quien debe en dólares y gana en moneda
-  local.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una devaluación es un anuncio puntual, de un día para el otro, no un movimiento gradual como puede serlo una depreciación bajo régimen flotante."
-
-explicacion: |
-  Es la diferencia central de mecanismo entre los dos términos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "problema"]
-
-enunciado: "Un país anuncia: \"a partir de mañana, el dólar oficial pasa de $100 a $150\". ¿Qué tipo de régimen cambiario tenía ese país hasta ese momento?"
-tipo: mc
-opciones_explicitas:
-  - "Tipo de cambio fijo"
-  - "Tipo de cambio flotante"
-  - "No se puede saber con esta información"
-respuesta: "Tipo de cambio fijo"
-
-explicacion: |
-  Sólo bajo un régimen fijo existe un valor prometido ($100) que se
-  pueda ajustar con un anuncio puntual como este.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "problema"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una empresa que importa insumos Y tiene deudas en dólares puede verse afectada dos veces por una misma devaluación: le sube el costo de lo que compra, y le sube (en moneda local) lo que debe."
-
-explicacion: |
-  Son dos efectos distintos de la misma devaluación, sumándose sobre
-  el mismo actor.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una devaluación está directamente relacionada con el agotamiento (o la caída fuerte) de las reservas del banco central."
-
-explicacion: |
-  Es la causa central que fuerza el ajuste oficial del valor fijado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "Después de anunciar una devaluación, ¿qué intenta hacer el banco central con el nuevo valor?"
-tipo: mc
-opciones_explicitas:
-  - "Defender ese nuevo valor, de la misma forma en que defendía el anterior"
-  - "Dejar de intervenir para siempre en el mercado cambiario"
-  - "Volver inmediatamente al valor anterior"
-respuesta: "Defender ese nuevo valor, de la misma forma en que defendía el anterior"
-
-explicacion: |
-  Sigue siendo un régimen fijo, sólo que con un número distinto —la
-  lógica de defensa con reservas no cambia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "orden"]
-
+respuesta_orden: ["Definir metas", "Determinar acciones", "Asignar recursos", "Establecer cronograma"]
 tipo: ordenar
-enunciado: "Ordená esta secuencia de eventos que termina en una devaluación."
-opciones_explicitas:
-  - "El banco central anuncia un nuevo valor fijado, más débil (devaluación)"
-  - "Hay una demanda sostenida de dólares al valor fijado"
-  - "Las reservas caen a un nivel insostenible"
-  - "El banco central vende reservas para sostener ese valor"
-respuesta_orden: ["Hay una demanda sostenida de dólares al valor fijado", "El banco central vende reservas para sostener ese valor", "Las reservas caen a un nivel insostenible", "El banco central anuncia un nuevo valor fijado, más débil (devaluación)"]
+opciones_explicitas: ["Definir metas", "Determinar acciones", "Asignar recursos", "Establecer cronograma"]
+
+enunciado: "Para implementar un nuevo proyecto de producción, un gerente debe seguir un orden lógico de planificación. Ordene los siguientes pasos de forma secuencial:"
 
 explicacion: |
-  Cada paso lleva al siguiente: sin agotamiento de reservas, no hace
-  falta devaluar.
+  Primero se define el 'qué' (metas), luego el 'cómo' (acciones), después el 'con qué' (recursos) y finalmente el 'cuándo' (cronograma). La evaluación es un paso posterior al proceso de ejecución.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "problema"]
-
-enunciado: "Un país con tipo de cambio flotante ve que su moneda pierde valor de a poco, día tras día, durante varios meses. ¿Cómo se llama correctamente ese proceso?"
-tipo: mc
-opciones_explicitas:
-  - "Depreciación"
-  - "Devaluación"
-  - "Convertibilidad"
-respuesta: "Depreciación"
-
-explicacion: |
-  Bajo régimen flotante, el término correcto es depreciación, no
-  devaluación (que es específico del régimen fijo).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["presupuesto", "calculo"]
 
-respuesta: verdadero
+variables:
+  datos: [[5000, 1200, 3000], [8000, 2500, 5500], [3000, 900, 2100]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][0] - datos[idx][1] - datos[idx][2]
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "En la fase de planificación de presupuesto, una empresa proyecta los siguientes valores para el próximo trimestre: Ingresos estimados: ${datos[idx][0]}, Gastos operativos: ${datos[idx][1]}, Impuestos proyectados: ${datos[idx][2]}. ¿Cuál es el beneficio neto planificado?"
+
+pasos:
+  - "Identificar los ingresos proyectados."
+  - "Restar los gastos operativos."
+  - "Restar los impuestos proyectados del resultado anterior."
+
+explicacion: |
+  El beneficio neto planificado se obtiene restando todos los costos y gastos proyectados de los ingresos totales previstos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["procesos", "administracion"]
+
+respuesta: falso
 tipo: vf
 
-enunciado: "Una devaluación tiene efectos que benefician a algunos actores (exportadores) y perjudican a otros (quienes deben en dólares y ganan en moneda local) al mismo tiempo — no es una medida buena o mala en abstracto, depende de la posición de cada uno."
+enunciado: "La planificación es un proceso que ocurre exclusivamente después de la ejecución de las actividades para corregir errores."
 
 explicacion: |
-  Es el mismo criterio de no juzgar un número macroeconómico sin
-  contexto, ya visto en `balanza-comercial/`.
+  La planificación es un proceso proactivo que se realiza antes de la acción. El proceso de comparar lo ejecutado con lo planificado es lo que se denomina 'control'.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "devaluacion"
-  nivel: "basico"
-  tags: ["cambiario"]
+  tema: "planificacion_administrativa"
+  nivel: "intermedio"
+  tags: ["elementos", "objetivos"]
 
+variables:
+  datos: [["definir el rumbo", "qué hacer"], ["establecer métodos", "cómo hacerlo"], ["fijar plazos", "cuándo hacerlo"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
 tipo: completar
-enunciado: "Completá: tras una devaluación, las importaciones se ___ (más caras o más baratas) y las exportaciones se vuelven más competitivas."
 respuestas_validas:
-  - "encarecen"
-  - "vuelven más caras"
+  - "qué hacer"
+  - "cómo hacerlo"
+  - "cuándo hacerlo"
+
+enunciado: "En la etapa de planificación, cuando una empresa decide establecer los procedimientos y recursos necesarios para alcanzar sus metas, está definiendo ___."
 
 explicacion: |
-  Es el efecto directo sobre el costo de comprar bienes del exterior.
+  La planificación implica determinar las acciones (qué), los métodos (cómo) y los tiempos (cuándo).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "devaluacion"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["flexibilidad", "errores"]
 
-enunciado: "¿Qué hace que un cambio en el valor de una moneda sea, específicamente, una \"devaluación\" y no un simple movimiento de mercado?"
+respuesta: "Planificación excesivamente rígida"
 tipo: mc
-opciones_explicitas:
-  - "Que sea un anuncio oficial y puntual de un banco central que sostenía un valor fijo"
-  - "Que el valor de la moneda haya bajado, sin importar el régimen ni quién lo decidió"
-  - "Que dure más de un año"
-respuesta: "Que sea un anuncio oficial y puntual de un banco central que sostenía un valor fijo"
+opciones_explicitas: ["Planificación excesivamente rígida", "Falta de objetivos", "Exceso de control", "Delegación ineficiente"]
+
+enunciado: "Un error común en la planificación es diseñar planes que no permiten ajustes ante cambios en el entorno, lo que se conoce como:"
 
 explicacion: |
-  Es la condición que distingue devaluación de depreciación.
+  Una planificación efectiva debe ser flexible para adaptarse a las contingencias del mercado sin perder de vista el objetivo final.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "devaluacion"
+  tema: "planificacion_administrativa"
   nivel: "basico"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["procesos", "orden"]
+
+respuesta_orden: ["Planificación", "Organización", "Dirección", "Control"]
+tipo: ordenar
+opciones_explicitas: ["Planificación", "Organización", "Dirección", "Control"]
+
+enunciado: "Ordene las etapas del proceso administrativo en su secuencia lógica estándar:"
+
+explicacion: |
+  El proceso administrativo comienza con la planificación (establecer metas), seguido de la organización (asignar recursos), la dirección (ejecutar/guiar) y el control (evaluar).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "avanzado"
+  tags: ["incertidumbre", "riesgo"]
+
+variables:
+  caso: uno_de([[0.90, "baja"], [0.50, "moderada"], [0.15, "alta"]])
+
+respuesta: caso[1]
+tipo: mc
+opciones_explicitas: ["alta", "baja", "moderada"]
+
+enunciado: "Si una empresa planifica basándose en un entorno con una probabilidad de éxito del {caso[0]}, la incertidumbre asociada a su planificación es ___."
+
+explicacion: |
+  A mayor probabilidad de éxito o mayor control sobre las variables, menor es la incertidumbre. Sin embargo, la planificación siempre busca reducir la incertidumbre, pero nunca puede eliminarla por completo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["procesos_administrativos", "gestion"]
+
+respuesta: "control"
+tipo: "completar"
+respuestas_validas:
+  - "control"
+  - "Control"
+
+enunciado: "Mientras que la planificación establece los objetivos y los medios para alcanzarlos, el proceso de ___ se encarga de verificar que las actividades se realicen conforme a lo planeado."
+
+explicacion: |
+  La planificación es la fase de diseño y establecimiento de metas, mientras que el control es la fase de monitoreo y corrección de desviaciones.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["conceptos_clave"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "La planificación administrativa se caracteriza por ser un proceso reactivo que solo se inicia una vez que los problemas han ocurrido en la organización."
+
+explicacion: |
+  Falso. La planificación es un proceso proactivo y preventivo que busca anticipar situaciones y establecer un curso de acción antes de que los eventos ocurran.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "intermedio"
+  tags: ["elementos", "metas"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["establecer un objetivo", "definir el camino"], ["determinar una meta", "asignar recursos"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: "mc"
+opciones_explicitas: [datos[escenario_idx][0], datos[escenario_idx][1], "evaluar resultados", "ejecutar órdenes"]
+
+enunciado: "En el proceso de planificación, una vez que se ha logrado {datos[escenario_idx][0]}, la siguiente etapa lógica es {datos[escenario_idx][1]}."
+
+explicacion: |
+  La planificación requiere primero la definición del 'qué' (objetivo) y luego el 'cómo' (estrategia o asignación de recursos).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "intermedio"
+  tags: ["jerarquia", "niveles"]
+
+respuesta_orden: ["Planificación Estratégica", "Planificación Táctica", "Planificación Operativa"]
+tipo: "ordenar"
+opciones_explicitas: ["Planificación Estratégica", "Planificación Táctica", "Planificación Operativa"]
+
+enunciado: "Ordene los niveles de planificación de la organización desde el alcance más global y a largo plazo hasta el más específico y de corto plazo:"
+
+explicacion: |
+  La jerarquía administrativa comienza con la Estratégica (toda la empresa/largo plazo), sigue con la Táctica (departamentos/mediano plazo) y finaliza con la Operativa (tareas específicas/corto plazo).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "intermedio"
+  tags: ["procesos_administrativos"]
+
+respuesta: "organizar"
+tipo: "completar"
+respuestas_validas:
+  - "organizar"
+  - "Organizar"
+
+enunciado: "La planificación determina qué se va a hacer y qué recursos se necesitan; por el contrario, la función de ___ se encarga de distribuir esos recursos y asignar responsabilidades entre los miembros de la empresa."
+
+explicacion: |
+  La planificación es el diseño de la acción, mientras que la organización es la estructura que permite ejecutar dicha acción mediante la asignación de tareas y autoridad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["gestion", "procesos"]
+
+respuesta: "definir_metas"
+tipo: mc
+opciones_explicitas: ["definir_metas", "distribuir_insumos", "fijar_tiempos", "evaluar_desempeño"]
+
+enunciado: "En el proceso de planificación, el primer paso fundamental consiste en ___."
+
+explicacion: |
+  La planificación comienza con la definición de objetivos o metas que la organización desea alcanzar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["conceptos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una devaluación es el ajuste oficial y puntual de un tipo de cambio fijo que ya no se podía sostener, que encarece las importaciones y abarata las exportaciones en términos internacionales."
+enunciado: "La planificación administrativa implica decidir por adelantado qué se va a hacer, cómo se va a hacer y cuándo se va a hacer."
 
 explicacion: |
-  Es la idea central de todo el tema.
-```
-
-## Sección: elementos-de-las-organizaciones (28 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "basico"
-  tags: ["factores", "naturales", "clasificacion"]
-
-variables:
-  recurso: uno_de(["tierra", "agua", "minerales", "energía solar"])
-
-respuesta: recurso
-tipo: completar
-
-enunciado: "La {recurso} es un ejemplo clásico de recurso natural porque la naturaleza la provee sin intervención humana directa."
-
-explicacion: |
-  Los recursos naturales incluyen la tierra, el agua, los minerales y la energía renovable. Se distinguen de los materiales porque no son fabricados por el hombre.
+  Correcto. La esencia de la planificación es la anticipación de acciones para alcanzar objetivos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "basico"
-  tags: ["capital", "físico", "recursos"]
-
-variables:
-  bien: uno_de(["máquinas industriales", "edificios", "herramientas", "inventario"])
-
-respuesta: "capital físico"
-tipo: completar
-
-enunciado: "Las {bien} se clasifican como recursos materiales o capital físico, ya que son bienes creados por el hombre para producir otros bienes."
-
-explicacion: |
-  El capital físico (o recursos materiales) incluye máquinas, edificios e inventario. A diferencia de los recursos naturales, estos pueden ser acumulados y mejorados mediante inversión.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "basico"
-  tags: ["capital humano", "talento"]
-
-variables:
-  concepto: "capital humano"
-
-respuesta: concepto
-tipo: completar
-
-enunciado: "El {concepto} se refiere a las habilidades, conocimientos, salud y experiencia de las personas, no solo a la cantidad de empleados."
-
-explicacion: |
-  El capital humano valora la calidad de la fuerza laboral. Es crucial para adaptar tecnologías y mejorar procesos, diferenciándose de la simple cantidad de trabajadores.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["ingresos", "salarios", "distribución"]
+  tags: ["procesos", "orden"]
 
-variables:
-  factor: "mano de obra"
+respuesta_orden: ["Diagnóstico", "Objetivos", "Estrategias", "Control"]
+tipo: ordenar
+opciones_explicitas: ["Diagnóstico", "Objetivos", "Estrategias", "Control"]
 
-respuesta: "salarios"
-tipo: completar
-
-enunciado: "El ingreso que recibe el factor de producción asociado a la {factor} por su trabajo se denomina salarios."
+enunciado: "Ordene cronológicamente las etapas de un proceso de planificación estándar:"
 
 explicacion: |
-  Cada factor de producción recibe un ingreso específico: salarios para el trabajo, rentas para la tierra, intereses para el capital y ganancias para el emprendimiento.
+  La secuencia lógica siempre parte del análisis de la situación actual para luego proyectar metas y acciones.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["ingresos", "rentas", "tierra"]
+  tags: ["componentes"]
 
 variables:
-  factor: "recursos naturales"
+  datos: [["recursos_humanos", "personal"], ["presupuesto", "dinero"], ["maquinaria", "equipos"]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: "rentas"
+respuesta: datos[idx][1]
 tipo: completar
+respuestas_validas:
+  - "personal"
+  - "dinero"
+  - "equipos"
 
-enunciado: "El ingreso que corresponde al factor {factor} por su disponibilidad y uso se llama rentas."
+enunciado: "Para ejecutar el plan de producción, la empresa debe planificar la asignación de ___."
 
 explicacion: |
-  Las rentas son la compensación económica por el uso de la tierra y otros recursos naturales. Su valor depende de la escasez y la productividad del recurso.
+  La planificación requiere la asignación de recursos (humanos, financieros o materiales) para que los planes sean realizables.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["ingresos", "intereses", "capital"]
-
-variables:
-  factor: "capital físico"
-
-respuesta: "intereses"
-tipo: completar
-
-enunciado: "El ingreso que obtiene el propietario del {factor} por cederlo temporalmente a una empresa se denomina intereses."
-
-explicacion: |
-  Los intereses son el retorno por el capital financiero o físico prestado. Reflejan el costo de oportunidad de usar ese capital en producción en lugar de en otros usos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["ingresos", "ganancias", "emprendimiento"]
-
-variables:
-  factor: "emprendimiento"
-
-respuesta: "ganancias"
-tipo: completar
-
-enunciado: "El ingreso residual que recibe el factor {factor} por asumir los riesgos de la actividad económica se llama ganancias."
-
-explicacion: |
-  Las ganancias son el beneficio que queda después de pagar todos los demás factores (salarios, rentas, intereses). Compensan la incertidumbre y la innovación del emprendedor.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  tema: "planificacion_administrativa"
   nivel: "basico"
-  tags: ["definición", "factores", "insumos"]
+  tags: ["tiempo", "cronograma"]
 
 variables:
-  termino: "factores de producción"
+  datos: [["corto plazo", "1 año"], ["mediano plazo", "3 años"], ["largo plazo", "5 años"]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: termino
-tipo: completar
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["1 año", "3 años", "5 años", "10 años"]
 
-enunciado: "Los {termino} son los insumos necesarios para crear valor y generar bienes y servicios."
+enunciado: "Si una empresa está realizando una planificación de {datos[idx][0]}, su horizonte temporal suele ser de ___."
 
 explicacion: |
-  Los factores de producción son los recursos (naturales, materiales, humanos) combinados para producir bienes y servicios.
+  El horizonte temporal define si la planificación es operativa (corto), táctica (mediano) o estratégica (largo).
 ```
+
+## Sección: tipos-de-sociedades (27 preguntas)
 
 ```
 metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  materia: "economía"
+  tema: "tipos_de_sociedades"
   nivel: "basico"
-  tags: ["factores", "naturales", "clasificacion"]
+  tags: ["definicion", "conceptos_basicos"]
 
 variables:
-  recurso: uno_de(["tierra", "agua", "minerales", "viento", "sol"])
-  recurso_clase: "recurso natural"
+  num_socios_min: 2
 
-respuesta: "recurso natural"
-tipo: completar
-
-enunciado: "La {recurso} es un ejemplo de {recurso_clase} porque proviene directamente de la naturaleza sin intervención humana directa."
-
-explicacion: |
-  Los recursos naturales son aquellos proveídos por la naturaleza sin intervención humana directa, como la tierra, el agua o los minerales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "basico"
-  tags: ["capital", "diferenciacion"]
-
-variables:
-  bien: uno_de(["maquina", "edificio", "herramienta", "inventario"])
-  clasificacion: "capital fisico"
-
-respuesta: "capital fisico"
-tipo: completar
-
-enunciado: "Las {bien} son bienes creados por el hombre para producir otros bienes, por lo tanto se clasifican como {clasificacion}."
-
-explicacion: |
-  Los recursos materiales o capital físico son bienes creados por el hombre (máquinas, edificios) que se utilizan para producir otros bienes.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["capital humano", "definicion"]
-
-variables:
-  concepto: "capital humano"
-  definicion: "habilidades, conocimientos, salud y experiencia"
-
-respuesta: "capital humano"
-tipo: completar
-
-enunciado: "Las {definicion} de las personas que trabajan en una organización se denominan {concepto}."
-
-explicacion: |
-  El capital humano se refiere a las habilidades, conocimientos, salud y experiencia de los trabajadores, no solo a su cantidad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["costos", "valor", "calculos"]
-
-variables:
-  tierra: random(10, 50)
-  trabajo: random(20, 100)
-  capital: random(30, 150)
-  total: redondear(tierra + trabajo + capital, 0)
-
-respuesta: total
+respuesta: "dos"
 tipo: input
 
-enunciado: "Si una organización utiliza recursos naturales valorados en {tierra}, capital humano en {trabajo} y capital físico en {capital}, ¿cuál es el valor total de los elementos combinados?"
+enunciado: "Para constituir una sociedad, se requiere como mínimo la participación de {num_socios_min} personas."
 
 explicacion: |
-  Se suman los valores de los diferentes factores de producción para obtener el costo total de los insumos.
+  Por definición legal y económica, una sociedad implica la reunión de dos o más personas que aportan bienes o trabajo para realizar una actividad económica común. El comercio individual, en cambio, es ejercido por una sola persona.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  materia: "economía"
+  tema: "tipos_de_sociedades"
   nivel: "intermedio"
-  tags: ["argentina", "agricultura", "ventaja comparativa"]
+  tags: ["utilidades", "reparto"]
 
 variables:
-  region: "pampa humeda"
-  factor: "recurso natural"
+  total_utilidad: random(100000, 1000000)
+  porcentaje_socio_a: random(30, 60)
+  porcentaje_socio_b: 100 - porcentaje_socio_a
 
-respuesta: "recurso natural"
-tipo: completar
+respuesta: "{redondear(total_utilidad * porcentaje_socio_a / 100, 0)}"
+tipo: input
 
-enunciado: "La {region} es un {factor} clave para la producción agrícola argentina debido a su fertilidad natural."
+enunciado: "Si una sociedad obtiene {total_utilidad} en utilidades y el Socio A tiene un {porcentaje_socio_a}% de participación, ¿cuánto le corresponde recibir (valor entero)?"
 
 explicacion: |
-  La pampa húmeda es un recurso natural fundamental que otorga ventaja comparativa a la agricultura argentina.
+  Las utilidades se reparten generalmente en proporción al capital aportado o según lo establecido en el contrato social. El cálculo es directo: Total * Porcentaje. Esto ilustra cómo la estructura societaria define el flujo de beneficios.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["conocimiento", "tecnologia", "adaptacion"]
-
-variables:
-  ventaja: "adaptar tecnologias"
-
-respuesta: "adaptar tecnologias"
-tipo: completar
-
-enunciado: "El capital humano permite a las organizaciones {ventaja} y mejorar los procesos productivos."
-
-explicacion: |
-  El capital humano es crucial porque permite adaptar las tecnologías y mejorar la eficiencia de los procesos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["litio", "recursos naturales", "argentina"]
-
-variables:
-  recurso: "litio"
-  region: "noroeste"
-  uso: "industria tecnologica"
-
-respuesta: "litio"
-tipo: completar
-
-enunciado: "Los yacimientos de {recurso} en el {region} son vitales para la {uso} mundial."
-
-explicacion: |
-  El litio es un recurso natural estratégico extraído en el noroeste argentino, esencial para la tecnología.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  materia: "economía"
+  tema: "tipos_de_sociedades"
   nivel: "avanzado"
-  tags: ["escasez", "precios", "dinamica de mercado"]
+  tags: ["gestion", "administracion"]
 
 variables:
-  condicion: "escasez"
-  efecto: "afecta los precios"
+  tipo_sociedad: uno_de(["S.A.", "S.R.L."])
 
-respuesta: "afecta los precios"
+respuesta: "S.A."
 tipo: completar
 
-enunciado: "La {condicion} de ciertos recursos {efecto} en el mercado."
+enunciado: "En la sociedad {tipo_sociedad}, es común que los propietarios (accionistas/socios) deleguen la administración diaria en un directorio o gerente profesional, separando la propiedad de la gestión."
 
 explicacion: |
-  La escasez de recursos influye directamente en los costos y, por ende, en los precios finales de los bienes y servicios.
+  En las S.A., especialmente las grandes, la propiedad (acciones) y la gestión (directorio) suelen estar separadas. En las S.R.L., es más frecuente que los socios participen directamente en la gestión o la controlen de forma más directa.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  materia: "economía"
+  tema: "tipos_de_sociedades"
+  nivel: "intermedio"
+  tags: ["srl", "socios"]
+
+variables:
+  min_socios: 2
+  max_socios: 50
+
+respuesta: "entre " + min_socios + " y " + max_socios
+tipo: completar
+
+enunciado: "La ley argentina establece que una S.R.L. debe tener un número de socios comprendido entre {min_socios} y {max_socios}."
+
+explicacion: |
+  La Ley General de Sociedades (y su precursora) regula que las S.R.L. deben tener entre 2 y 50 socios. Si quedan con uno solo, debe transformarse en sociedad unipersonal o disolverse. Si supera el límite, debe convertirse en S.A.
+```
+
+```
+metadata:
+  materia: "economía"
+  tema: "tipos_de_sociedades"
+  nivel: "avanzado"
+  tags: ["sa", "inversion"]
+
+variables:
+  cantidad_inversores: random(10, 100)
+
+respuesta: "muchos"
+tipo: completar
+
+enunciado: "Las S.A. son ideales cuando se necesita atraer a {cantidad_inversores} inversores que no participan en la gestión diaria."
+
+explicacion: |
+  La estructura accionaria permite dispersar la propiedad entre muchos inversores. Estos aportan capital pero delegan la gestión operativa en profesionales (directorios), lo que es crucial para proyectos que requieren grandes capitales pero no cuentan con la confianza personal entre todos los aportantes.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
   nivel: "basico"
-  tags: ["insumos", "definicion"]
+  tags: ["sociedad", "definicion", "concepto"]
 
 variables:
-  termino: "factores de produccion"
-  definicion: "insumos necesarios para crear valor"
+  socios: random(2, 5)
 
-respuesta: "factores de produccion"
+respuesta: "sociedad"
 tipo: completar
 
-enunciado: "Los {termino} son los {definicion} para crear bienes y servicios."
+enunciado: "Cuando {socios} o más personas deciden trabajar juntas para obtener ganancias, se constituyen en una ________."
 
 explicacion: |
-  Los factores de producción son los insumos necesarios para generar valor económico.
+  La unión de dos o más personas con fines lucrativos se denomina sociedad. Esto permite reunir capitales y conocimientos.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
   nivel: "intermedio"
-  tags: ["ventaja comparativa", "geografia"]
+  tags: ["SRL", "responsabilidad", "limitada"]
 
 variables:
-  factor: "disponibilidad geografica"
-  efecto: "influencia directamente"
+  capital: random(100000, 500000)
 
-respuesta: "influencia directamente"
+respuesta: "limitado"
 tipo: completar
 
-enunciado: "La {factor} de los recursos naturales {efecto} en la ventaja comparativa de cada región."
+enunciado: "En una S.R.L., la responsabilidad de los socios se limita al {capital} pesos que han aportado como capital."
 
 explicacion: |
-  La ubicación y disponibilidad de recursos naturales definen las ventajas comparativas de las regiones.
+  La característica clave de la S.R.L. es que los socios no responden con su patrimonio personal, solo con lo aportado a la empresa.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
   nivel: "intermedio"
-  tags: ["costos", "estructura"]
+  tags: ["unipersonal", "patrimonio", "riesgo"]
 
 variables:
-  concepto: "estructura de costos"
-  utilidad: "entender la dinamica del mercado"
+  escenario: uno_de(["unipersonal", "SRL"])
 
-respuesta: "entender la dinamica del mercado"
+respuesta: "todo su patrimonio personal"
 tipo: completar
 
-enunciado: "Identificar los elementos de producción permite entender la {concepto} y {utilidad}."
+enunciado: "Si el negocio es de un comerciante unipersonal, responde por las deudas con {escenario}."
 
 explicacion: |
-  Separar la producción en categorías claras ayuda a analizar costos y la dinámica del mercado.
+  El comerciante unipersonal responde con todo su patrimonio personal. En cambio, en una S.R.L. la responsabilidad está limitada al capital aportado.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "basico"
+  tags: ["capital", "participacion", "calculos"]
+
+variables:
+  capital_total: random(100, 1000) * 1000
+  aporte_socio: random(10, 50) * 1000
+  porcentaje: redondear((aporte_socio / capital_total) * 100, 0)
+
+respuesta: porcentaje
+tipo: input
+
+enunciado: "Si el capital total de una S.R.L. es {capital_total} pesos y un socio aporta {aporte_socio} pesos, ¿qué porcentaje de la sociedad posee?"
+
+explicacion: |
+  El porcentaje se calcula dividiendo el aporte individual por el capital total y multiplicando por 100.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "basico"
+  tags: ["SA", "inversion", "escala"]
+
+variables:
+  monto: random(1000000, 5000000)
+
+respuesta: "Sociedad Anónima"
+tipo: completar
+
+enunciado: "Para un proyecto que requiere una inversión inicial de {monto} pesos y atrae a muchos inversores, la estructura más adecuada es una ________."
+
+explicacion: |
+  Las Sociedades Anónimas (S.A.) son ideales para grandes proyectos que requieren mucha inversión y permiten la negociación de acciones.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
   nivel: "intermedio"
-  tags: ["capital humano", "calidad"]
+  tags: ["gestion", "directores", "SA"]
 
 variables:
-  aspecto: "calidad"
-  contraste: "cantidad"
+  rol: uno_de(["accionistas", "directores"])
 
-respuesta: "calidad"
+respuesta: "directores"
 tipo: completar
 
-enunciado: "El capital humano se refiere a la {aspecto} de la formación, no solo a la {contraste} de empleados."
+enunciado: "En una S.A., los inversores suelen delegar la administración diaria en los {rol}."
 
 explicacion: |
-  El capital humano valora la calidad (habilidades, salud) más que la simple cantidad de trabajadores.
+  En las S.A., los accionistas no participan necesariamente en la gestión diaria; esta queda a cargo de un directorio.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "basico"
+  tags: ["ventajas", "recursos", "capital"]
+
+variables:
+  recurso: uno_de(["capitales", "conocimientos", "recursos"])
+
+respuesta: "reunir"
+tipo: completar
+
+enunciado: "Una ventaja principal de la sociedad es la capacidad de ________ {recurso} de varios actores."
+
+explicacion: |
+  La sociedad permite reunir capitales, conocimientos y recursos de varios actores, facilitando proyectos de mayor envergadura.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
   nivel: "intermedio"
-  tags: ["inventario", "capital fisico"]
+  tags: ["unipersonal", "definicion", "legal"]
 
 variables:
-  elemento: "inventario"
-  clasificacion: "capital fisico"
+  numero_socios: 1
 
-respuesta: "capital fisico"
+respuesta: "una sola persona"
 tipo: completar
 
-enunciado: "El {elemento} de productos terminados se considera parte del {clasificacion}."
+enunciado: "La sociedad unipersonal permite que ________ constituya una sociedad, combinando flexibilidad y protección patrimonial."
 
 explicacion: |
-  El inventario, junto con máquinas y edificios, forma parte del capital físico o recursos materiales.
+  La sociedad unipersonal es una figura legal que permite a una sola persona constituir una sociedad con patrimonio separado.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "intermedio"
+  tags: ["identificacion", "responsabilidad", "SRL"]
+
+variables:
+  tipo_respuesta: uno_de(["limitada", "ilimitada"])
+
+respuesta: "limitada"
+tipo: completar
+
+enunciado: "Si la responsabilidad de los socios es {tipo_respuesta} al capital aportado, es probable que se trate de una S.R.L."
+
+explicacion: |
+  La S.R.L. se caracteriza por la responsabilidad limitada de los socios al capital que han aportado.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "intermedio"
+  tags: ["perdida", "capital", "SRL"]
+
+variables:
+  aporte: random(5000, 50000)
+
+respuesta: aporte
+tipo: input
+
+enunciado: "En una S.R.L., si el socio aporta {aporte} pesos y la empresa quiebra con deudas impagables, ¿cuál es su pérdida máxima?"
+
+explicacion: |
+  En una S.R.L., la pérdida máxima del socio es el capital que aportó. No responde con su patrimonio personal.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "intermedio"
+  tags: ["SA", "capital", "acciones"]
+
+variables:
+  capital: random(1000000, 10000000)
+
+respuesta: "Sociedad Anónima"
+tipo: completar
+
+enunciado: "Una empresa con capital dividido en acciones y un monto superior a {capital} pesos suele constituirse como ________."
+
+explicacion: |
+  Las Sociedades Anónimas (S.A.) son el formato estándar para grandes capitales divididos en acciones negociables.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "intermedio"
+  tags: ["accionistas", "gestion", "SA"]
+
+variables:
+  participacion: uno_de(["directa", "indirecta"])
+
+respuesta: "indirecta"
+tipo: completar
+
+enunciado: "En una S.A., los accionistas suelen tener participación ________ en la gestión diaria."
+
+explicacion: |
+  Los accionistas de una S.A. generalmente no participan directamente en la gestión; delegan esa función a los directores.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "basico"
+  tags: ["ganancias", "fines", "sociedad"]
+
+variables:
+  fin: uno_de(["lucro", "filantropia"])
+
+respuesta: "lucro"
+tipo: completar
+
+enunciado: "Las sociedades se constituyen con el fin de obtener ________."
+
+explicacion: |
+  El propósito fundamental de una sociedad económica es la obtención de ganancias o lucro.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "intermedio"
+  tags: ["utilidades", "distribucion", "calculos"]
+
+variables:
+  utilidad: random(100000, 1000000)
+  porcentaje_socio: random(10, 50)
+  monto_socio: redondear(utilidad * (porcentaje_socio / 100), 0)
+
+respuesta: monto_socio
+tipo: input
+
+enunciado: "Si la sociedad obtuvo {utilidad} pesos de utilidad y un socio tiene el {porcentaje_socio}% de participación, ¿cuánto le corresponde?"
+
+explicacion: |
+  Se calcula el porcentaje de la utilidad total según la participación accionaria o societaria del socio.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "intermedio"
+  tags: ["gestion", "diferencia", "SRL", "SA"]
+
+variables:
+  tipo_sociedad: uno_de(["SRL", "SA"])
+
+respuesta: "socios"
+tipo: completar
+
+enunciado: "En una {tipo_sociedad}, la gestión suele estar más directamente vinculada a los socios o administradores designados, a diferencia de la S.A."
+
+explicacion: |
+  En la S.R.L., la gestión es más cercana a los socios, mientras que en la S.A. hay una separación clara entre propiedad (accionistas) y gestión (directores).
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "basico"
+  tags: ["acciones", "identificacion", "SA"]
+
+variables:
+  instrumento: uno_de(["acciones", "cuotas"])
+
+respuesta: "Sociedad Anónima"
+tipo: completar
+
+enunciado: "Si el capital se divide en {instrumento}, la sociedad es una Sociedad Anónima."
+
+explicacion: |
+  La división del capital en acciones es la característica distintiva de las Sociedades Anónimas (S.A.).
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "intermedio"
+  tags: ["riesgo", "unipersonal", "patrimonio"]
+
+variables:
+  activo: uno_de(["casa", "ahorros", "auto"])
+
+respuesta: "todo su patrimonio"
+tipo: completar
+
+enunciado: "En el comercio unipersonal, el dueño responde con {activo} y el resto de su patrimonio por las deudas."
+
+explicacion: |
+  El comerciante unipersonal responde ilimitadamente con todo su patrimonio personal por las deudas del negocio.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "basico"
+  tags: ["capital", "resta", "SRL"]
+
+variables:
+  total: random(200000, 1000000)
+  aportado: random(50000, total - 10000)
+  restante: total - aportado
+
+respuesta: restante
+tipo: input
+
+enunciado: "Si el capital de una S.R.L. es {total} y un socio aportó {aportado}, ¿cuánto falta para completar el capital?"
+
+explicacion: |
+  Se resta el aporte realizado del capital total para determinar el monto restante a completar.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "intermedio"
+  tags: ["separacion", "patrimonio", "proteccion"]
+
+variables:
+  beneficio: uno_de(["proteger", "ocultar"])
+
+respuesta: "proteger"
+tipo: completar
+
+enunciado: "La separación patrimonial en sociedades como la S.R.L. sirve para ________ el patrimonio personal de los socios."
+
+explicacion: |
+  La separación patrimonial protege los bienes personales de los socios de las deudas de la empresa.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "intermedio"
+  tags: ["SA", "inversores", "escala"]
+
+variables:
+  cantidad: random(100, 1000)
+
+respuesta: "Sociedad Anónima"
+tipo: completar
+
+enunciado: "Para atraer a {cantidad} inversores que no participan en la gestión, se utiliza una ________."
+
+explicacion: |
+  Las S.A. permiten la captación de gran cantidad de inversores mediante la emisión de acciones, sin que estos participen en la gestión.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
+  nivel: "basico"
+  tags: ["socios", "minimo", "definicion"]
+
+variables:
+  minimo: 2
+
+respuesta: minimo
+tipo: input
+
+enunciado: "¿Cuál es el número mínimo de socios para constituir una sociedad (excluyendo la sociedad unipersonal)?"
+
+explicacion: |
+  Por definición, una sociedad requiere dos o más personas. La sociedad unipersonal es una excepción legal específica.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "tipos_de_sociedades"
   nivel: "avanzado"
-  tags: ["competitividad", "globalizacion"]
+  tags: ["comparacion", "SRL", "SA", "estructura"]
 
 variables:
-  factor: "comprender esta division"
-  resultado: "analizar la eficiencia economica"
+  estructura: uno_de(["SRL", "SA"])
 
-respuesta: "analizar la eficiencia economica"
+respuesta: "SRL"
 tipo: completar
 
-enunciado: "{factor} es fundamental para {resultado} y la competitividad en un mundo globalizado."
+enunciado: "La ________ es más flexible y común para PYMES, mientras que la S.A. es más compleja y para grandes capitales."
 
 explicacion: |
-  Entender la división de factores es clave para analizar la eficiencia y competitividad en la economía global.
+  La S.R.L. es más ágil y adecuada para pequeñas y medianas empresas, mientras que la S.A. está diseñada para grandes proyectos y capital abierto.
+```
+
+## Sección: coordinar-personas-y-recursos (25 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "basico"
+  tags: ["definicion", "organizacion"]
+
+respuesta: "coordinacion"
+tipo: completar
+respuestas_validas:
+  - "coordinacion"
+
+enunciado: "El proceso de integrar las actividades de diversos departamentos y asegurar que se dirijan hacia el cumplimiento de los objetivos organizacionales se denomina ___."
+
+explicacion: |
+  La coordinación es el proceso de asegurar que las actividades de los distintos miembros de una organización se realicen de manera armoniosa para alcanzar los objetivos comunes.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "avanzado"
-  tags: ["emprendimiento", "ganancia"]
+  tema: "coordinar_personas_y_recursos"
+  nivel: "basico"
+  tags: ["recursos", "factores_produccion"]
 
 variables:
-  factor: "emprendimiento"
-  ingreso: "ganancia"
+  escenario_idx: uno_de([0, 1])
+  datos: [["capital", "recursos financieros y maquinaria"], ["humanos", "conocimientos y habilidades de las personas"]]
 
-respuesta: "ganancia"
-tipo: completar
+respuesta: datos[escenario_idx][0]
+tipo: mc
+opciones_explicitas: ["capital", "humanos", "tecnología", "materias primas"]
 
-enunciado: "El factor de producción 'emprendimiento' recibe como ingreso la {ingreso}."
+enunciado: "En el contexto de la coordinación de recursos, ¿qué factor se refiere a {datos[escenario_idx][1]}?"
 
 explicacion: |
-  El emprendimiento o capacidad empresarial se remuneda con ganancias.
+  Las organizaciones deben coordinar diversos recursos. El tipo seleccionado en este ejercicio es {datos[escenario_idx][0]}.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "basico"
+  tags: ["division_trabajo", "eficiencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La división del trabajo consiste en descomponer una tarea compleja en tareas más pequeñas y especializadas para aumentar la eficiencia."
+
+explicacion: |
+  Efectivamente, la especialización mediante la división del trabajo es una herramienta fundamental para optimizar la productividad en la coordinación de equipos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
   nivel: "intermedio"
-  tags: ["diferenciacion", "tierra", "maquina"]
+  tags: ["estructura", "jerarquia"]
 
-variables:
-  recurso1: "tierra"
-  recurso2: "maquina"
-  diferencia: "intervencion humana"
+respuesta_orden: ["Planificación", "Organización", "Dirección", "Control"]
+tipo: ordenar
+opciones_explicitas: ["Planificación", "Organización", "Dirección", "Control"]
 
-respuesta: "intervencion humana"
-tipo: completar
-
-enunciado: "La principal diferencia entre {recurso1} y {recurso2} es el grado de {diferencia} requerida para su obtención."
+enunciado: "Ordene las cuatro funciones administrativas del proceso de gestión en el orden lógico de su ciclo de ejecución:"
 
 explicacion: |
-  La tierra es un recurso natural (poca intervención), mientras que la máquina es capital físico (alta intervención).
+  El proceso administrativo clásico sigue la secuencia: primero se establece lo que se quiere hacer (Planificación), luego se asignan recursos (Organización), se guía a las personas (Dirección) y finalmente se verifica el cumplimiento (Control).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  tema: "coordinar_personas_y_recursos"
   nivel: "intermedio"
-  tags: ["capital humano", "salud"]
+  tags: ["control", "supervision"]
 
 variables:
-  elemento: "salud"
-  categoria: "capital humano"
+  caso_idx: uno_de([0, 1])
+  casos: [["se detecta una desviación en la producción", "corregir la desviación"], ["se comparan los resultados con los objetivos", "verificar el desempeño"]]
 
-respuesta: "capital humano"
-tipo: completar
+respuesta: casos[caso_idx][1]
+tipo: mc
+opciones_explicitas: ["corregir la desviación", "verificar el desempeño", "asignar tareas", "contratar personal"]
 
-enunciado: "La salud de los trabajadores es un componente del {categoria}."
+enunciado: "Si en una empresa {casos[caso_idx][0]}, ¿cuál es la acción inmediata que corresponde a la función de control?"
 
 explicacion: |
-  El capital humano incluye la salud, conocimientos y habilidades de las personas.
+  El control implica comparar el desempeño real con los estándares planeados y, si hay diferencias, tomar medidas para corregirlas.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "avanzado"
-  tags: ["escasez", "valor"]
+  tema: "coordinacion_recursos"
+  nivel: "basico"
+  tags: ["gestion", "equipo"]
 
-variables:
-  concepto: "escasez"
-  efecto: "determina el valor"
+enunciado: "Una empresa de desarrollo de software tiene dos programadores (A y B) y dos tareas (X e Y). El programador A es más eficiente en la tarea X, mientras que el programador B es más eficiente en la tarea Y. Para maximizar la productividad total, la asignación óptima es que el programador ___ realice la tarea ___."
 
-respuesta: "determina el valor"
-tipo: completar
+pasos:
+  - "Identificar la especialización de cada recurso."
+  - "Asignar cada tarea al recurso con mayor ventaja comparativa."
 
-enunciado: "La {concepto} de los recursos {efecto} en el mercado."
+opciones_explicitas: ["A, X", "A, Y", "B, X", "B, Y"]
+respuesta: "A, X"
+tipo: "mc"
 
 explicacion: |
-  La escasez es un principio económico fundamental que determina el valor y precio de los recursos.
+  La coordinación eficiente busca la especialización. Si asignamos a cada persona la tarea donde su productividad es mayor, la producción total del equipo será máxima.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "elementos_de_las_organizaciones"
+  tema: "coordinacion_recursos"
   nivel: "intermedio"
-  tags: ["conocimiento", "acumulacion"]
+  tags: ["costo_oportunidad", "decision"]
 
-variables:
-  recurso: "conocimiento"
-  capacidad: "puede ser acumulado"
+enunciado: "Si una empresa decide utilizar todo su presupuesto disponible para contratar más personal de producción en lugar de invertir en publicidad, el costo de oportunidad es el ___ que se dejó de obtener."
 
-respuesta: "puede ser acumulado"
-tipo: completar
-
-enunciado: "El {recurso} es un activo intangible que {capacidad} con el tiempo y la educación."
+respuestas_validas:
+  - "beneficio de la publicidad"
+  - "incremento de ventas"
+  - "crecimiento de marca"
+respuesta: "beneficio de la publicidad"
+tipo: "completar"
 
 explicacion: |
-  El conocimiento y el capital humano pueden acumularse y mejorarse mediante la educación y la experiencia.
+  El costo de oportunidad no es solo el dinero gastado, sino el valor de la mejor alternativa sacrificada al tomar una decisión de asignación.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "avanzado"
-  tags: ["sintesis", "organizacion"]
+  tema: "coordinacion_recursos"
+  nivel: "intermedio"
+  tags: ["rendimientos", "escala"]
 
-variables:
-  numero_factores: 4
-  factores: "naturales, materiales, humanos y conocimiento"
+enunciado: "Al duplicar la cantidad de trabajadores en una cocina pequeña sin aumentar el espacio físico ni el número de hornos, la producción total no se duplica, sino que aumenta de forma desproporcionada hacia abajo debido a la falta de coordinación y el exceso de gente en el mismo espacio. Este fenómeno se conoce como rendimientos decrecientes a escala."
 
-respuesta: "naturales, materiales, humanos y conocimiento"
-tipo: completar
-
-enunciado: "Los principales elementos de las organizaciones se dividen en factores {factores}."
+respuesta: verdadero
+tipo: "vf"
 
 explicacion: |
-  Los factores de producción se clasifican generalmente en recursos naturales, materiales (capital físico), humanos y conocimiento.
+  La coordinación de recursos físicos es tan importante como la de recursos humanos. Si los recursos físicos (capital) no crecen al mismo ritmo que el trabajo, la eficiencia cae.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos"
+  nivel: "basico"
+  tags: ["flujo_trabajo", "procesos"]
+
+enunciado: "Para coordinar la producción de una silla de madera, se deben seguir los pasos lógicos de transformación de recursos. Ordena los siguientes pasos desde la adquisición de insumos hasta el producto final:"
+
+opciones_explicitas: ["Compra de madera y clavos", "Corte y ensamblado de piezas", "Lijado y barnizado", "Control de calidad y empaque"]
+respuesta_orden: ["Compra de madera y clavos", "Corte y ensamblado de piezas", "Lijado y barnizado", "Control de calidad y empaque"]
+tipo: ordenar
+
+explicacion: |
+  La coordinación de procesos requiere una secuencia lógica donde la salida de una etapa sea la entrada de la siguiente para evitar cuellos de botella.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos"
+  nivel: "avanzado"
+  tags: ["tecnologia", "productividad"]
+
+enunciado: "Una fábrica decide implementar un software de gestión para coordinar mejor sus turnos de trabajo. Si esta implementación reduce el tiempo de inactividad de los trabajadores en un 15%, la productividad laboral total de la empresa ___."
+
+respuestas_validas:
+  - "aumentará"
+  - "disminuirá"
+  - "se mantendrá igual"
+respuesta: "aumentará"
+tipo: "completar"
+
+explicacion: |
+  La tecnología actúa como un multiplicador de la coordinación. Al reducir los tiempos muertos (desperdicio de recursos), se produce más con la misma cantidad de insumos y horas hombre.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "intermedio"
+  tags: ["gestion", "recursos", "eficiencia"]
+
+respuesta: "ineficiencia"
+tipo: mc
+opciones_explicitas: ["eficiencia", "ineficiencia", "especializacion", "productividad"]
+
+enunciado: "Cuando un gestor asigna a un trabajador altamente capacitado a una tarea que requiere habilidades mínimas, ignorando el costo de oportunidad de su talento, está provocando una ___ en la organización."
+
+explicacion: |
+  La asignación ineficiente de recursos humanos (especialmente el talento especializado) genera un costo de oportunidad elevado, reduciendo la productividad global del equipo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "basico"
+  tags: ["gestion", "procesos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la gestión de equipos, la coordinación se limita exclusivamente a la supervisión directa y el control de horarios de los empleados."
+
+explicacion: |
+  Falso. La coordinación implica también la sincronización de flujos de información, la alineación de objetivos y la gestión de la interdependencia entre tareas y recursos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "avanzado"
+  tags: ["planificacion", "logistica"]
+
+respuesta_orden: ["Identificar necesidades", "Asignar recursos", "Monitorear ejecución"]
+tipo: ordenar
+opciones_explicitas: ["Monitorear ejecución", "Identificar necesidades", "Asignar recursos"]
+
+enunciado: "Para coordinar eficazmente un proyecto, se debe seguir un orden lógico de gestión de recursos. Ordene los siguientes pasos:"
+
+pasos:
+  - "Determinar qué materiales y personas se requieren para el objetivo."
+  - "Distribuir los insumos y el personal a las tareas específicas."
+  - "Verificar que el uso de los recursos coincida con lo planificado."
+
+explicacion: |
+  La planificación requiere primero el diagnóstico de necesidades, luego la distribución (asignación) y finalmente el control para corregir desviaciones.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "intermedio"
+  tags: ["especializacion", "costos"]
+
+respuesta: "exceso"
+tipo: completar
+respuestas_validas:
+  - "exceso"
+
+enunciado: "Si una empresa asigna demasiados trabajadores a una misma tarea de modo que se estorben entre sí, se produce un ___ de recursos humanos."
+
+explicacion: |
+  El exceso de recursos en una tarea específica genera rendimientos marginales decrecientes y aumenta los costos de coordinación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "intermedio"
+  tags: ["informacion", "asimetria"]
+
+respuesta: 56
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un equipo de 10 personas debe completar 200 unidades. Si la capacidad actual es de 7 unidades por persona al día, pero la coordinación falla y la productividad cae un 20% por falta de comunicación, ¿cuántas unidades producirá el equipo en un día?"
+
+pasos:
+  - "Calcular la producción teórica: 10 personas * 7 unidades = 70 unidades."
+  - "Aplicar la reducción por falta de coordinación: 70 * (1 - 0.20) = 56."
+
+explicacion: |
+  La falta de coordinación actúa como una fricción que reduce la productividad real por debajo de la capacidad teórica de los recursos individuales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos_humanos"
+  nivel: "basico"
+  tags: ["coordinacion", "division_trabajo"]
+
+respuesta: "coordinacion"
+tipo: "completar"
+respuestas_validas:
+  - "coordinacion"
+
+enunciado: "Mientras que la división del trabajo se encarga de fragmentar una tarea compleja en actividades simples, la ___ es el proceso de asegurar que estas tareas fragmentadas se integren de manera coherente para alcanzar el objetivo común."
+
+explicacion: |
+  La división del trabajo aumenta la eficiencia mediante la especialización, pero genera la necesidad de la coordinación para evitar que los esfuerzos individuales se desvíen o choquen entre sí.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos_humanos"
+  nivel: "intermedio"
+  tags: ["administracion", "recursos"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["un equipo de producción de automóviles", "gestionar la cadena de suministros"], ["una clínica médica", "coordinar turnos de especialistas"]]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: "mc"
+opciones_explicitas: ["gestionar la cadena de suministros", "coordinar turnos de especialistas", "eliminar la necesidad de supervisión", "maximizar la autonomía individual sin control"]
+
+enunciado: "En el escenario de {escenarios[escenario_idx][0]}, ¿cuál es la función principal de la coordinación de recursos?"
+
+explicacion: |
+  La coordinación busca sincronizar los recursos (humanos o materiales) con la demanda o el flujo de trabajo para evitar cuellos de botella.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos_humanos"
+  nivel: "intermedio"
+  tags: ["eficiencia", "eficacia"]
+
+respuesta: verdadero
+
+tipo: "vf"
+
+enunciado: "Si un equipo logra alcanzar la meta de producción establecida (eficacia) pero utiliza el doble de la materia prima presupuestada debido a una mala organización de los recursos, se ha fallado en la eficiencia de la coordinación."
+
+explicacion: |
+  La eficacia se refiere al cumplimiento del objetivo, mientras que la eficiencia se refiere al uso óptimo de los recursos para alcanzar dicho objetivo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos_humanos"
+  nivel: "avanzado"
+  tags: ["procesos", "organizacion"]
+
+respuesta_orden: ["identificar tareas", "asignar responsabilidades", "establecer mecanismos de control"]
+tipo: "ordenar"
+opciones_explicitas: ["identificar tareas", "asignar responsabilidades", "establecer mecanismos de control"]
+
+enunciado: "Para coordinar eficazmente un equipo de trabajo, un gestor debe seguir este orden lógico de organización de recursos:"
+
+explicacion: |
+  Primero se descompone el trabajo (identificación), luego se distribuyen los roles (asignación) y finalmente se verifica el cumplimiento (control).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos_humanos"
+  nivel: "intermedio"
+  tags: ["estructura", "decision"]
+
+variables:
+  tipo_estructura: uno_de(["centralizada", "descentralizada"])
+
+respuesta: tipo_estructura
+tipo: "mc"
+opciones_explicitas: ["centralizada", "descentralizada"]
+
+enunciado: "En una estructura organizacional {tipo_estructura}, la coordinación se logra mediante la jerarquía y la toma de decisiones concentrada en la parte superior, a diferencia de la estructura opuesta."
+
+explicacion: |
+  La centralización busca uniformidad y control estricto, mientras que la descentralización busca agilidad y empoderamiento en los niveles operativos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "intermedio"
+  tags: ["gestion", "recursos", "productividad"]
+
+variables:
+  escenario: uno_de([["La empresa A tiene 10 operarios y cada uno produce 5 unidades/hora.", 50], ["La empresa B tiene 12 operarios y cada uno produce 4 unidades/hora.", 48], ["La empresa C tiene 8 operarios y cada uno produce 6 unidades/hora.", 48]])
+  valor_total: escenario[0]
+  resultado_esperado: escenario[1]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si una empresa cuenta con {escenario[0]}, ¿cuál es la capacidad de producción total de unidades por hora?"
+
+explicacion: |
+  La capacidad total se calcula multiplicando el número de operarios por la productividad individual de cada uno.
+
+respuesta: resultado_esperado
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "basico"
+  tags: ["costos", "decision"]
+
+variables:
+  idx: uno_de([0, 1])
+  casos: ["El costo de contratar un nuevo empleado es de $500 y el aumento en ingresos es de $600.", "El costo de contratar un nuevo empleado es de $700 y el aumento en ingresos es de $650."]
+  valores: [verdadero, falso]
+
+respuesta: valores[idx]
+tipo: vf
+
+enunciado: "Si el costo marginal de contratar a un nuevo trabajador es menor al ingreso marginal que este genera, la decisión de contratar es rentable. En el escenario actual: {casos[idx]}"
+
+explicacion: |
+  En economía, una acción es rentable si el beneficio marginal es mayor al costo marginal.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "intermedio"
+  tags: ["procesos", "orden"]
+
+tipo: ordenar
+
+opciones_explicitas: ["Planificación de tareas", "Asignación de recursos", "Ejecución del trabajo", "Control de calidad"]
+respuesta_orden: ["Planificación de tareas", "Asignación de recursos", "Ejecución del trabajo", "Control de calidad"]
+
+enunciado: "Ordene cronológicamente las etapas lógicas para coordinar un equipo de trabajo en una línea de producción:"
+
+explicacion: |
+  Para una coordinación eficiente, primero se debe planificar, luego asignar los recursos necesarios, ejecutar la tarea y finalmente controlar los resultados.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "basico"
+  tags: ["productividad", "especializacion"]
+
+tipo: mc
+
+opciones_explicitas: ["Aumenta", "Disminuye", "Se mantiene igual"]
+
+enunciado: "Considerando la teoría de la división del trabajo de Adam Smith, si aplicamos la especialización en un taller, ¿qué ocurre con la eficiencia?"
+
+respuesta: "Aumenta"
+
+explicacion: |
+  La especialización permite que los trabajadores se vuelvan más hábiles en tareas específicas, reduciendo tiempos de transición y aumentando la productividad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "avanzado"
+  tags: ["inventario", "recursos"]
+
+variables:
+  datos: [["El stock actual es de 150 unidades y el consumo diario es de 30 unidades. Faltan ___ días para agotar el stock.", "5"], ["El stock actual es de 200 unidades y el consumo diario es de 50 unidades. Faltan ___ días para agotar el stock.", "4"], ["El stock actual es de 100 unidades y el consumo diario de 10 unidades. Faltan ___ días para agotar el stock.", "10"]]
+  idx: uno_de([0, 1, 2])
+
+tipo: completar
+
+respuestas_validas:
+  - "5"
+  - "4"
+  - "10"
+respuesta: datos[idx][1]
+
+enunciado: "Si el stock actual es de {datos[idx][0]}, ¿cuántos días faltan para agotar el stock?"
+
+explicacion: |
+  El tiempo de agotamiento se calcula dividiendo el stock total disponible por la tasa de consumo diaria.
+```
+
+## Sección: presupuesto-administrativo (25 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["definicion", "conceptos_clave"]
+
+respuesta: "estimación anticipada de ingresos y gastos"
+tipo: completar
+respuestas_validas:
+  - "estimación anticipada de ingresos y gastos"
+  - "estimación de ingresos y gastos"
+
+enunciado: "El presupuesto se define como una ___ para un período determinado."
+
+explicacion: |
+  El presupuesto es la herramienta de planificación que permite proyectar los recursos que entrarán (ingresos) y los que saldrán (gastos) de una organización.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["componentes", "ingresos", "gastos"]
+
+opciones_explicitas: ["Ingresos y Gastos", "Activos y Pasivos", "Oferta y Demanda"]
+respuesta: "Ingresos y Gastos"
+tipo: mc
+
+enunciado: "Un presupuesto se compone fundamentalmente de dos tipos de flujos: los ___."
+
+explicacion: |
+  Los ingresos representan las entradas de dinero, mientras que los gastos representan las salidas de recursos necesarias para la operación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["naturaleza", "planificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El presupuesto tiene un carácter preventivo, ya que se elabora antes de que ocurran los hechos económicos."
+
+explicacion: |
+  Correcto. Al ser una herramienta de planificación, su objetivo es anticiparse a los eventos para tomar decisiones informadas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["proceso", "ciclo_presupuestario"]
+
+opciones_explicitas: ["Elaboración", "Ejecución", "Control"]
+respuesta_orden: ["Elaboración", "Ejecución", "Control"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente las etapas principales del ciclo presupuestario:"
+
+explicacion: |
+  Primero se planifica (elaboración), luego se pone en marcha (ejecución) y finalmente se compara lo real con lo proyectado (control).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["desviaciones", "control"]
+
+respuesta: "Desfavorable"
+tipo: mc
+opciones_explicitas: ["Favorable", "Desfavorable"]
+
+enunciado: "Si los ingresos reales son menores a los presupuestados, la desviación se considera: ___"
+
+pasos:
+  - "Comparar el valor real obtenido con el valor estimado."
+  - "Determinar si la diferencia impacta positivamente o negativamente en el saldo."
+
+explicacion: |
+  Una desviación es favorable cuando el resultado real mejora la posición financiera respecto al plan, y desfavorable cuando la empeora.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["conceptos", "definiciones"]
+
+respuesta: "estimación anticipada de ingresos y gastos"
+tipo: completar
+respuestas_validas:
+  - "estimación anticipada de ingresos y gastos"
+
+enunciado: "El presupuesto se define como una ___ para un período determinado."
+
+explicacion: |
+  El presupuesto es la herramienta de planificación que permite proyectar la situación financiera de una organización mediante la cuantificación de sus ingresos y gastos esperados.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["calculo", "saldo"]
+
+variables:
+  datos: [["Ingresos: 5000, Gastos: 4200", "800"], ["Ingresos: 3000, Gastos: 3500", "-500"], ["Ingresos: 1000, Gastos: 1000", "0"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["800", "-500", "0", "1000"]
+
+enunciado: "Si una empresa tiene un escenario de {datos[idx][0]}, ¿cuál es el saldo presupuestario resultante?"
+
+explicacion: |
+  El saldo se calcula restando los gastos a los ingresos: {datos[idx][0]}. El resultado es {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["teoria"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Un presupuesto es un documento de carácter histórico que solo registra los movimientos financieros que ya han ocurrido."
+
+explicacion: |
+  Falso. El presupuesto es una herramienta de planificación hacia el futuro (proyectiva), no un registro de hechos pasados (contabilidad histórica).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["proceso", "orden"]
+
+respuesta_orden: ["Definición de objetivos", "Estimación de ingresos", "Asignación de gastos", "Control y seguimiento"]
+tipo: ordenar
+opciones_explicitas: ["Definición de objetivos", "Estimación de ingresos", "Asignación de gastos", "Control y seguimiento"]
+
+enunciado: "Ordene los pasos lógicos para la gestión de un presupuesto administrativo:"
+
+explicacion: |
+  Primero se definen las metas, luego se proyecta lo que entrará de dinero, se distribuye para cubrir las necesidades y finalmente se controla que se cumpla lo planeado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "avanzado"
+  tags: ["calculo", "déficit"]
+
+variables:
+  escenario: [["Ingresos: 12000, Gastos: 15000", "3000"], ["Ingresos: 8000, Gastos: 8500", "500"]]
+  idx: uno_de([0, 1])
+
+respuesta: escenario[idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "En el escenario de {escenario[idx][0]}, ¿cuál es el monto del déficit (valor absoluto de la diferencia negativa)?"
+
+pasos:
+  - "Identificar ingresos y gastos según el escenario"
+  - "Calcular la diferencia: Ingresos - Gastos"
+  - "Obtener el valor absoluto del resultado"
+
+explicacion: |
+  El déficit ocurre cuando los gastos superan a los ingresos. En este caso, el déficit es de {escenario[idx][1]}.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["conceptos", "definicion"]
+
+respuesta: "estimación anticipada de ingresos y gastos"
+tipo: completar
+respuestas_validas:
+  - "estimación anticipada de ingresos y gastos"
+  - "estimación de ingresos y gastos"
+
+enunciado: "El presupuesto se define como una ___ realizada para un período determinado."
+
+explicacion: |
+  El presupuesto es una herramienta de planificación que proyecta los recursos que entrarán (ingresos) y los que saldrán (gastos) de una entidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["diferencia_conceptos"]
+
+variables:
+  es_proyectivo: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de la contabilidad, que registra hechos ya ocurridos, el presupuesto es una herramienta de carácter proyectivo."
+
+explicacion: |
+  Correcto. La contabilidad es histórica (mira hacia atrás), mientras que el presupuesto es una herramienta de planificación (mira hacia adelante).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["gestion", "errores"]
+
+tipo: mc
+opciones_explicitas: ["El presupuesto es una norma inamovible que no admite cambios ante contingencias", "El presupuesto debe ser flexible para adaptarse a cambios en el entorno", "Un presupuesto rígido es siempre el ideal para una empresa"]
+
+respuesta: "El presupuesto debe ser flexible para adaptarse a cambios en el entorno"
+
+enunciado: "Respecto a la flexibilidad presupuestaria, ¿cuál de las siguientes afirmaciones es correcta?"
+
+explicacion: |
+  Un error común es creer que el presupuesto es una "camisa de fuerza". Para que sea útil, debe permitir ajustes (reprogramaciones) ante cambios significativos en el mercado o la economía.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["componentes"]
+
+respuesta_orden: ["Ingresos", "Gastos", "Resultado"]
+tipo: ordenar
+
+opciones_explicitas: ["Ingresos", "Gastos", "Resultado"]
+
+enunciado: "Ordene los elementos fundamentales que conforman la estructura básica de un presupuesto para determinar el saldo final:"
+
+explicacion: |
+  Para determinar la situación financiera proyectada, se deben listar primero los ingresos, luego los gastos y finalmente el resultado (superávit o déficit).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "avanzado"
+  tags: ["confusiones_comunes"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "Es posible que una organización presente un presupuesto de ingresos positivo pero experimente problemas de liquidez, si esas ventas presupuestadas son a crédito y el dinero aún no ingresó a caja."
+
+explicacion: |
+  Este es un error clásico. El presupuesto puede mostrar ingresos por ventas (devengado), pero si esas ventas son a crédito, el dinero no está disponible inmediatamente en caja (flujo de efectivo).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["conceptos_clave", "flujo_de_caja"]
+
+respuesta: "flujo de caja"
+tipo: "completar"
+respuestas_validas:
+  - "flujo de caja"
+  - "cash flow"
+
+enunciado: "Mientras que el presupuesto es una planificación de ingresos y gastos proyectados, el ___ es el registro de las entradas y salidas reales de efectivo en un periodo determinado."
+
+explicacion: |
+  El presupuesto es una herramienta de planificación (estimación), mientras que el flujo de caja (cash flow) se enfoca en la liquidez real y el movimiento efectivo de dinero.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["contabilidad", "planificacion"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "El presupuesto se distingue de la contabilidad financiera principalmente porque el presupuesto tiene un carácter prospectivo (hacia el futuro), mientras que la contabilidad es histórica (registra lo ya ocurrido)."
+
+explicacion: |
+  Correcto. El presupuesto mira hacia adelante para la toma de decisiones, la contabilidad mira hacia atrás para rendir cuentas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["control_presupuestal", "desviaciones"]
+
+respuesta: "desfavorable"
+tipo: "mc"
+opciones_explicitas: ["favorable", "desfavorable"]
+
+enunciado: "Si en el control presupuestario se detecta que un gasto real es mayor al gasto presupuestado, la desviación se considera: ___"
+
+explicacion: |
+  Un gasto mayor al previsto consume más recursos de los planeados, por lo tanto, es una desviación desfavorable.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["proceso", "ciclo_presupuestal"]
+
+respuesta_orden: ["elaboración", "ejecución", "control", "evaluación"]
+tipo: "ordenar"
+opciones_explicitas: ["elaboración", "ejecución", "control", "evaluación"]
+
+enunciado: "Ordene cronológicamente las etapas del ciclo presupuestario de una organización:"
+
+explicacion: |
+  El ciclo comienza con la planificación (elaboración), sigue con la puesta en marcha (ejecución), se monitorea el proceso (control) y finalmente se analizan los resultados (evaluación).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "avanzado"
+  tags: ["base_cero", "incremental"]
+
+variables:
+  idx: uno_de([0, 1])
+  # 0: Base Cero, 1: Incremental
+  # datos: [ [nombre, caracteristica], [nombre, caracteristica] ]
+  datos: [["Base Cero", "requiere justificar cada gasto desde cero"], ["Incremental", "se basa en los saldos del periodo anterior"]]
+
+respuesta: datos[idx][1]
+tipo: "mc"
+opciones_explicitas: ["requiere justificar cada gasto desde cero", "se basa en los saldos del periodo anterior", "no considera la inflación", "es de aplicación automática"]
+
+enunciado: "Si una empresa decide aplicar el método de presupuesto de tipo {datos[idx][0]}, su característica principal es que: ___"
+
+explicacion: |
+  El presupuesto incremental simplemente ajusta los valores del año pasado, mientras que el Base Cero obliga a justificar cada partida como si fuera la primera vez.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["presupuesto", "ingresos", "gastos"]
+
+variables:
+  escenarios: [["Ventas: 5000, Gastos: 3200", "Superávit"], ["Ventas: 4500, Gastos: 4600", "Déficit"], ["Ventas: 3000, Gastos: 2500", "Superávit"]]
+  caso: uno_de(escenarios)
+  enunciado_caso: caso[0]
+  resultado_correcto: caso[1]
+
+tipo: mc
+respuesta: resultado_correcto
+opciones_explicitas: ["Superávit", "Déficit", "Equilibrio"]
+
+enunciado: "Si una organización proyecta un escenario donde {enunciado_caso}, el resultado presupuestario es un ___."
+
+explicacion: |
+  El resultado se obtiene restando los gastos de los ingresos. Si el resultado es positivo, hay superávit; si es negativo, hay déficit.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["definiciones", "teoria"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "El presupuesto es una herramienta de planificación que permite estimar los recursos económicos necesarios para alcanzar objetivos en un periodo determinado."
+
+explicacion: |
+  Efectivamente, el presupuesto actúa como una hoja de ruta financiera para la gestión administrativa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["ingresos", "egresos", "clasificacion"]
+
+variables:
+  item: uno_de([["Alquiler de oficina", "Gasto"], ["Venta de servicios", "Ingreso"], ["Pago de salarios", "Gasto"]])
+
+tipo: completar
+respuestas_validas:
+  - "Ingreso"
+  - "Gasto"
+respuesta: item[1]
+
+enunciado: "El concepto '{item[0]}' se clasifica contablemente como un ___."
+
+explicacion: |
+  Los ingresos representan entradas de recursos, mientras que los gastos representan salidas o consumos de recursos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["proceso", "etapas"]
+
+tipo: ordenar
+opciones_explicitas: ["Planificación", "Ejecución", "Control y Evaluación"]
+respuesta_orden: ["Planificación", "Ejecución", "Control y Evaluación"]
+
+enunciado: "Ordene las etapas lógicas del proceso presupuestario en una organización:"
+
+explicacion: |
+  Primero se planifica (se estima), luego se ejecuta (se gasta/ingresa) y finalmente se controla (se compara lo real vs lo presupuestado).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "avanzado"
+  tags: ["desvio", "calculo", "analisis"]
+
+variables:
+  idx: uno_de([0, 1])
+  presupuestados: [1000, 500]
+  reales: [1200, 450]
+  desvios_texto: ["200", "-50"]
+
+respuesta: desvios_texto[idx]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si el presupuesto para un proyecto era de {presupuestados[idx]} y lo ejecutado fue {reales[idx]}, el desvío (real menos presupuestado) es de ___."
+
+pasos:
+  - "Identificar el valor presupuestado."
+  - "Identificar el valor real ejecutado."
+  - "Calcular la diferencia absoluta entre ambos valores."
+
+explicacion: |
+  El desvío mide la diferencia entre lo que se planeó y lo que realmente ocurrió, permitiendo ajustar la gestión.
 ```
 

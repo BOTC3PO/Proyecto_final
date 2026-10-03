@@ -1,0 +1,14 @@
+[
+ {
+  "id": 946,
+  "cluster": 1,
+  "temas": [
+   "lazo-abierto-vs-lazo-cerrado",
+   "plc-logica-de-control-industrial",
+   "realimentacion-feedback",
+   "control-pid-proporcional-integral-derivativo",
+   "servomecanismos"
+  ],
+  "preguntas": 125
+ }
+]

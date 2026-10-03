@@ -1,2299 +1,2207 @@
 # Examen jefe — [PENDIENTE #699]
 
-> Logro #699. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
+> Logro #699. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: radiacion-mamiferos (26 preguntas)
+## Sección: ampliacion-democratica-ley-saenz-pena (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
+  tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
-  tags: ["extincion", "nichos", "evolucion"]
+  tags: ["argentina", "democracia", "ley_saenz_pena"]
 
-respuesta: "radiación adaptativa"
+opciones_explicitas:
+  - "Voto secreto, universal (masculino) y obligatorio"
+  - "Voto cantado, restringido y facultativo"
+  - "Voto secreto, restringido y obligatorio"
+  - "Voto cantado, universal y facultativo"
+
+respuesta: "Voto secreto, universal (masculino) y obligatorio"
+tipo: mc
+
+enunciado: "La Ley Sáenz Peña, sancionada en 1912, introdujo un cambio fundamental en el sistema electoral argentino al establecer el voto ___."
+
+explicacion: |
+  La Ley 8.871, conocida como Ley Sáenz Peña, transformó la vida política argentina al garantizar el voto secreto, universal (para varones) y obligatorio, terminando con el fraude electoral de la época.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "intermedio"
+  tags: ["fraude", "sistema_electoral", "cambio_politico"]
+
+opciones_explicitas:
+  - "El sistema de voto cantado"
+  - "El sistema de voto secreto"
+  - "El sistema de voto obligatorio"
+  - "El sistema de voto universal"
+
+respuesta: "El sistema de voto cantado"
+tipo: mc
+
+enunciado: "Antes de la reforma de 1912, el sistema predominante que facilitaba el fraude y la coacción era el voto ___."
+
+explicacion: |
+  El voto cantado permitía que el elector manifestara su elección en voz alta frente a la autoridad de mesa, lo que facilitaba la intimidación y el control de los votos por parte de los sectores dominantes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "basico"
+  tags: ["participacion", "sufragio"]
+
+variables:
+  genero: uno_de(["masculino", "femenino"])
+
+respuesta: genero
 tipo: completar
 respuestas_validas:
-  - "radiación adaptativa"
+  - "masculino"
+  - "femenino"
 
-enunciado: "Tras la extinción de los dinosaurios hace 66 millones de años, los mamíferos experimentaron un proceso de diversificación rápida para ocupar nuevos nichos, proceso conocido como ________."
+enunciado: "En el contexto de 1912, la universalidad del sufragio establecida por la ley se refería únicamente al sexo {genero}."
 
 explicacion: |
-  La extinción de los dinosaurios eliminó a los grandes depredadores y herbívoros, permitiendo que los mamíferos, que antes eran mayormente pequeños, ocuparan esos roles ecológicos mediante la radiación adaptativa.
+  Aunque la ley fue un avance democrático enorme, la universalidad estaba limitada al género masculino. El sufragio femenino en Argentina se lograría recién en 1947.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "intermedio"
-  tags: ["tiempo", "geologia", "paleontologia"]
-
-respuesta: "66 millones de años"
-tipo: mc
-opciones_explicitas: ["66 millones de años", "230 millones de años", "100 millones de años", "500 millones de años"]
-
-enunciado: "La gran extinción que permitió la radiación de los mamíferos ocurrió hace aproximadamente:"
-
-explicacion: |
-  El evento de extinción masiva del Cretácico-Paleógeno ocurrió hace unos 66 millones de años, marcando el inicio de la era de los mamíferos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "basico"
-  tags: ["ecologia", "nichos"]
-
-respuesta: "vacíos"
-tipo: mc
-opciones_explicitas: ["llenos", "vacíos", "estables", "competitivos"]
-
-enunciado: "La disponibilidad de nichos ecológicos ________ fue el factor clave que permitió la rápida diversificación de los mamíferos tras la extinción masiva."
-
-explicacion: |
-  Al desaparecer los grandes reptiles, quedaron nichos (roles en el ecosistema) vacíos que fueron aprovechados por los mamíferos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
+  tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "avanzado"
-  tags: ["proceso", "evolucion"]
-
-respuesta_orden: ["Extinción masiva", "Ocupación de nichos", "Radiación adaptativa", "Diversificación moderna"]
-tipo: ordenar
-opciones_explicitas: ["Extinción masiva", "Ocupación de nichos", "Radiación adaptativa", "Diversificación moderna"]
-
-enunciado: "Ordena cronológicamente los eventos que permitieron la dominancia de los mamíferos:"
-
-explicacion: |
-  Primero ocurre el evento de extinción, luego los supervivientes ocupan los espacios vacíos, lo que dispara la radiación adaptativa y finalmente resulta en la diversidad de formas que conocemos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "intermedio"
-  tags: ["comparativa", "evolucion"]
-
-respuesta: "pequeños"
-tipo: mc
-opciones_explicitas: ["gigantes", "pequeños", "acuáticos", "voladores"]
-
-enunciado: "Antes de la radiación post-extinción, la mayoría de los mamíferos se caracterizaban por ser animales de tamaño ________."
-
-explicacion: |
-  Durante el Mesozoico, los mamíferos coexistieron con los dinosaurios y, para evitar la competencia y la depredación, la mayoría mantuvo tamaños reducidos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "basico"
-  tags: ["evolucion", "dinosaurios"]
-
-tipo: mc
-opciones_explicitas: ["Eran grandes y dominantes", "Eran pequeños y nocturnos", "Eran reptiles gigantes", "Eran exclusivamente acuáticos"]
-respuesta: "Eran pequeños y nocturnos"
-
-enunciado: "Durante la era de los dinosaurios, los ancestros de los mamíferos se caracterizaban por ser ___."
-
-explicacion: |
-  Hace aproximadamente 200 millones de años, los mamíferos coexistieron con los dinosaurios, pero ocupaban nichos ecológicos pequeños y evitaban la luz del día para no ser depredados.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "intermedio"
-  tags: ["extincion_kp", "adaptacion"]
-
-tipo: completar
-respuestas_validas:
-  - "Diversificación"
-  - "Radiación"
-
-enunciado: "Tras la extinción masiva del Cretácico-Paleógeno (K-Pg), los mamíferos experimentaron una gran ___ en tamaño y forma."
-
-pasos:
-  - "Identificar el evento geológico mencionado."
-  - "Relacionar la desaparición de los dinosaurios con la apertura de nichos vacíos."
-
-explicacion: |
-  La desaparición de los dinosaurios no solo eliminó competidores, sino que permitió que los mamíferos ocuparan nuevos roles ecológicos, llevando a una rápida evolución.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "intermedio"
-  tags: ["cronologia", "geologia"]
-
-tipo: ordenar
-opciones_explicitas: ["Aparición de mamíferos pequeños", "Dominio de los dinosaurios", "Extinción K-Pg", "Diversificación de mamíferos modernos"]
-
-enunciado: "Ordene cronológicamente los siguientes eventos históricos:"
-
-explicacion: |
-  Primero aparecieron los mamíferos (coexistiendo con dinosaurios), luego ocurrió la extinción masiva, lo que finalmente permitió la radiación de los mamíferos actuales.
-respuesta_orden: ["Aparición de mamíferos pequeños", "Dominio de los dinosaurios", "Extinción K-Pg", "Diversificación de mamíferos modernos"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "avanzado"
-  tags: ["ecologia", "evolucion"]
-
-tipo: mc
-opciones_explicitas: ["Diurno", "Nocturno", "Subterráneo", "Acuático"]
-respuesta: "Nocturno"
-
-enunciado: "Para evitar la competencia y la depredación por parte de los dinosaurios, la mayoría de los mamíferos primitivos adoptaron un estilo de vida ___."
-
-explicacion: |
-  La vida nocturna fue una estrategia adaptativa clave que permitió a los mamíferos sobrevivir y prosperar en un mundo dominado por grandes reptiles.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "intermedio"
-  tags: ["ecologia", "evolucion"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "El evento de extinción ___ fue el catalizador que permitió la expansión de los mamíferos."
-
-respuesta: "K-Pg"
-
-explicacion: |
-  La extinción K-Pg eliminó a los grandes depredadores y herbívoros dominantes, dejando el camino libre para que los mamíferos evolucionaran hacia formas más grandes y diversas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "basico"
-  tags: ["evolucion", "adaptacion"]
-
-tipo: mc
-opciones_explicitas: ["Un cambio lento y gradual de una especie", "La diversificación rápida de un linaje al ocupar nuevos nichos", "La extinción masiva de un grupo de especies", "La mutación de un solo gen en un individuo"]
-respuesta: "La diversificación rápida de un linaje al ocupar nuevos nichos"
-enunciado: "En biología evolutiva, ¿qué describe mejor el proceso de una radiación adaptativa?"
-explicacion: |
-  La radiación adaptativa ocurre cuando un linaje ancestral se diversifica rápidamente en una gran variedad de formas para aprovechar diferentes recursos o nichos ecológicos disponibles.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "intermedio"
-  tags: ["ecologia", "nichos"]
-
-variables:
-  escenario: uno_de([["aparición de nuevas islas volcánicas", "colonización de hábitats vacíos"], ["extinción masiva de competidores", "disponibilidad de nuevos nichos ecológicos"], ["cambio climático global", "apertura de nuevos espacios adaptativos"]])
-
-tipo: completar
-respuesta: escenario[1]
-
-enunciado: "La radiación adaptativa suele ser desencadenada por la {escenario[0]}, lo que permite la ___."
-
-explicacion: |
-  Cuando aparecen nuevos entornos o se liberan nichos (por ejemplo, tras una extinción masiva), los linajes sobrevivientes pueden diversificarse rápidamente para ocupar esos espacios.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "avanzado"
-  tags: ["paleontologia", "k-pg"]
-
-tipo: mc
-opciones_explicitas: ["Los dinosaurios no pudieron adaptarse", "La extinción de los dinosaurios permitió la radiación de los mamíferos", "Los mamíferos ya eran gigantes antes de la extinción", "La radiación ocurrió por la aparición de las plantas"]
-respuesta: "La extinción de los dinosaurios permitió la radiación de los mamíferos"
-enunciado: "Tras la extinción masiva del Cretácico-Paleógeno, ¿por qué los mamíferos experimentaron una radiación adaptativa tan marcada?"
-explicacion: |
-  La desaparición de los dinosaurios no avianos liberó una enorme cantidad de nichos ecológicos, permitiendo que los mamíferos, que antes eran mayormente pequeños, se diversificaran en una multitud de formas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "intermedio"
-  tags: ["proceso", "evolucion"]
-
-tipo: ordenar
-opciones_explicitas: ["Aparición de nuevos nichos o hábitats", "Colonización de los nuevos entornos", "Diversificación en múltiples especies con rasgos distintos"]
-
-enunciado: "Ordena cronológicamente los pasos típicos de una radiación adaptativa:"
-
-explicacion: |
-  Primero debe existir una oportunidad ecológica (nicho), luego el linaje debe colonizar ese espacio y finalmente la selección natural debe favorecer la especialización en diferentes formas.
-respuesta_orden: ["Aparición de nuevos nichos o hábitats", "Colonización de los nuevos entornos", "Diversificación en múltiples especies con rasgos distintos"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "avanzado"
-  tags: ["matematica", "especiacion"]
-
-variables:
-  datos: uno_de([[10, 5], [100, 50], [1000, 500]])
-
-tipo: completar
-respuesta: datos[1]
-tolerancia_abs: 0
-
-enunciado: "Si un linaje de mamíferos experimenta una radiación adaptativa en la que se generan {datos[0]} especies nuevas en total, y la tasa de especiación efectiva equivale a la mitad de ese total, ¿cuántas especies representa la tasa de especiación efectiva en este escenario?"
-
-pasos:
-  - "Identificar el número total de especies nuevas en el escenario: {datos[0]}"
-  - "Calcular la mitad de ese valor para obtener la respuesta."
-
-explicacion: |
-  En este ejercicio hipotético, si el total de nuevas especies es {datos[0]}, la tasa de especiación efectiva es la mitad de ese valor, es decir, {datos[1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "intermedio"
-  tags: ["cenozoico", "evolucion", "placentarios"]
-
-respuesta: "Cenozoico"
-tipo: completar
-respuestas_validas:
-  - "Cenozoico"
-
-enunciado: "La gran radiación de los mamíferos placentarios, que dio lugar a los órdenes actuales como primates y carnívoros, ocurrió principalmente durante la era ___."
-
-explicacion: |
-  Tras la extinción de los dinosaurios al final del Cretácico, el Cenozoico permitió que los mamíferos ocuparan nichos ecológicos vacantes, diversificándose rápidamente.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "basico"
-  tags: ["taxonomia", "ordenes"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  datos: [["Primates", "Primates"], ["Carnivora", "Carnívoros"], ["Cetacea", "Cetáceos"]]
-
-respuesta: datos[idx][0]
-tipo: mc
-opciones_explicitas: ["Primates", "Carnivora", "Cetacea", "Ungulata"]
-
-enunciado: "Si consideramos al orden de los {datos[idx][1]}, ¿cuál es su nombre científico correcto?"
-
-explicacion: |
-  El orden mencionado es {datos[idx][1]}, cuya nomenclatura taxonómica es {datos[idx][0]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "intermedio"
-  tags: ["ungulados", "adaptacion"]
-
-respuesta: "puntas"
-tipo: completar
-respuestas_validas:
-  - "puntas"
-  - "puntas"
-
-enunciado: "Durante la expansión de las praderas en el Cenozoico, muchos ungulados desarrollaron ___ extremidades para una carrera más eficiente."
-
-explicacion: |
-  La transición de bosques a pastizales favoreció la selección de extremidades alargadas y dedos especializados para la locomoción rápida.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "avanzado"
-  tags: ["filogenia", "ordenar"]
-
-respuesta_orden: ["Mammalia", "Eutheria", "Primates", "Hominidae"]
-tipo: ordenar
-opciones_explicitas: ["Mammalia", "Eutheria", "Primates", "Hominidae"]
-
-enunciado: "Ordene la jerarquía taxonómica del ser humano desde la Clase hasta la Familia:"
-
-explicacion: |
-  La secuencia correcta es Clase Mammalia, Infraclase Eutheria, Orden Primates y Familia Hominidae (los grandes simios, incluyendo al ser humano).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "avanzado"
-  tags: ["taxonomia", "ordenar"]
-
-respuesta_orden: ["Mammalia", "Eutheria", "Cetartiodactyla", "Cetacea"]
-tipo: ordenar
-opciones_explicitas: ["Mammalia", "Eutheria", "Cetartiodactyla", "Cetacea"]
-
-enunciado: "Ordene la jerarquía taxonómica de una ballena desde la Clase hasta el Orden:"
-
-explicacion: |
-  La secuencia correcta es Clase Mammalia, Subclase Eutheria, Orden Cetartiodactyla y finalmente el Orden Cetacea.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "intermedio"
-  tags: ["relaciones", "evolucion"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenarios: [["Cetáceos", "acuáticos"], ["Primates", "arbóreos"]]
-
-respuesta: escenarios[idx][1]
-tipo: mc
-opciones_explicitas: ["acuáticos", "arbóreos", "terrestres", "voladores"]
-
-enunciado: "La radiación de los {escenarios[idx][0]} durante el Cenozoico permitió la especialización en nichos {escenarios[idx][1]}."
-
-explicacion: |
-  Los {escenarios[idx][0]} son ejemplos clave de la diversificación de nichos durante el Cenozoico, adaptándose a entornos {escenarios[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "intermedio"
-  tags: ["extincion", "nichos", "evolucion"]
-
-variables:
-  datos: [["La extinción masiva del Cretácico-Paleógeno eliminó a los grandes reptiles...", "liberó nichos ecológicos"], ["La desaparición de los dinosaurios no avianos...", "permitió la diversificación de los mamíferos"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["liberó nichos ecológicos", "permitió la diversificación de los mamíferos", "causó la extinción de insectos", "no tuvo impacto"]
-
-enunciado: "Según el escenario planteado: {datos[idx][0]}"
-
-explicacion: |
-  La extinción de los dinosaurios eliminó a los principales depredadores y herbívoros dominantes, dejando nichos ecológicos vacíos que los mamíferos, anteriormente pequeños y nocturnos, pudieron ocupar rápidamente.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "intermedio"
-  tags: ["morfologia", "evolucion"]
-
-variables:
-  datos: [["Antes de la extinción, la mayoría de los mamíferos eran...", "pequeños"], ["Tras la radiación, los mamíferos pudieron alcanzar...", "grandes tamaños"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["pequeños", "grandes tamaños", "tamaño medio", "tamaño insectívoro"]
-
-enunciado: "Considerando el proceso evolutivo: {datos[idx][0]}"
-
-explicacion: |
-  La ausencia de competencia con grandes reptiles permitió que los mamíferos experimentaran una rápida diversificación morfológica, incluyendo un aumento significativo en el tamaño corporal promedio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "basico"
-  tags: ["causa_efecto"]
-
-variables:
-  datos: [["La extinción de los dinosaurios fue la ___ de la radiación de los mamíferos.", "causa"], ["La radiación de los mamíferos fue la ___ de la extinción de los dinosaurios.", "consecuencia"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "causa"
-  - "consecuencia"
-
-enunciado: "Analizando la relación temporal: {datos[idx][0]}"
-
-explicacion: |
-  La extinción de los dinosaurios actuó como el evento desencadenante (causa) que permitió la expansión de los mamíferos (consecuencia).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "avanzado"
-  tags: ["cronologia"]
-
-variables:
-  secuencia: ["Impacto del asteroide", "Extinción de dinosaurios", "Ocupación de nichos por mamíferos", "Diversificación de órdenes modernos"]
-
-respuesta_orden: secuencia
-tipo: ordenar
-opciones_explicitas: ["Impacto del asteroide", "Extinción de dinosaurios", "Ocupación de nichos por mamíferos", "Diversificación de órdenes modernos"]
-
-enunciado: "Ordene cronológicamente los eventos que llevaron a la actual biodiversidad de mamíferos:"
-
-explicacion: |
-  El proceso comienza con el evento catastrófico, seguido de la extinción de los grupos dominantes, la colonización de los espacios vacíos y, finalmente, la especiación y diversificación.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "radiacion_mamiferos"
-  nivel: "intermedio"
-  tags: ["competencia", "ecologia"]
-
-respuesta: "menos diversos"
-tipo: completar
-respuestas_validas:
-  - "menos diversos"
-
-enunciado: "Durante el Mesozoico, la presión competitiva y depredadora de los dinosaurios mantuvo a los mamíferos ___."
-
-explicacion: |
-  La competencia por recursos y la depredación por parte de los dinosaurios habrían limitado la diversificación y el tamaño de los mamíferos durante el Mesozoico.
-```
-
-## Sección: recuperacion-democratica-memoria (23 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "basico"
-  tags: ["democracia", "dictadura", "argentina"]
-
-respuesta: "democracia"
-tipo: completar
-respuestas_validas:
-  - "democracia"
-
-enunciado: "Tras el fin de la última dictadura militar en Argentina, las elecciones de 1983 marcaron el retorno a la ________."
-
-explicacion: |
-  Las elecciones de octubre de 1983 pusieron fin a la última dictadura cívico-militar, devolviendo el poder a los representantes elegidos por el pueblo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "basico"
-  tags: ["alfonsin", "presidencia", "1983"]
-
-opciones_explicitas: ["Raúl Alfonsín", "Carlos Menem", "Alfonsín", "Raúl Alfonsín"]
-respuesta: "Raúl Alfonsín"
-tipo: mc
-
-enunciado: "El primer presidente elegido mediante el sufragio universal tras el fin de la dictadura fue:"
-
-explicacion: |
-  Raúl Alfonsín, de la Unión Cívica Radical, asumió la presidencia el 10 de diciembre de 1983.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "intermedio"
-  tags: ["justicia", "derechos_humanos", "juicio_a_las_juntas"]
-
-opciones_explicitas: ["Juicio a las Juntas", "Juicio a los Militares", "Juicio a las Dictaduras", "Juicio a las Juntas"]
-respuesta: "Juicio a las Juntas"
-tipo: mc
-
-enunciado: "El proceso judicial de 1985 para juzgar a las cúpulas militares se conoce como el:"
-
-explicacion: |
-  El Juicio a las Juntas fue un hito histórico en la justicia argentina y un precedente mundial en el juzgamiento de crímenes de lesa humanidad.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "intermedio"
-  tags: ["transicion", "procesos", "orden"]
-
-opciones_explicitas: ["Fin de la dictadura", "Elecciones de 1983", "Asunción de Alfonsín"]
-respuesta_orden: ["Fin de la dictadura", "Elecciones de 1983", "Asunción de Alfonsín"]
+  tags: ["orden", "proceso_historico"]
+
+opciones_explicitas:
+  - "Fraude electoral"
+  - "Voto cantado"
+  - "Ley Sáenz Peña"
+  - "Democracia representativa"
+
+respuesta_orden: ["Fraude electoral", "Voto cantado", "Ley Sáenz Peña", "Democracia representativa"]
 tipo: ordenar
 
-enunciado: "Ordena cronológicamente los siguientes hitos del proceso de democratización:"
+enunciado: "Ordene cronológicamente los procesos o elementos que definieron la transición hacia la democracia moderna en Argentina:"
 
 explicacion: |
-  Primero terminó la dictadura, luego se realizaron las elecciones y finalmente el presidente electo asumió su cargo.
+  La secuencia lógica muestra la crisis del sistema de fraude y voto cantado, que llevó a la sanción de la Ley Sáenz Peña y, finalmente, a la consolidación de un sistema de representación más democrático.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "avanzado"
-  tags: ["derechos_humanos", "etica", "memoria"]
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "intermedio"
+  tags: ["consecuencias", "radicalismo", "poder"]
 
 variables:
-  escenario: uno_de([["reparación", "reparación"], ["olvido", "olvido"], ["justicia", "justicia"]])
+  escenario: uno_de([["1916", "La llegada de la UCR al poder"], ["1916", "La continuidad del régimen conservador"]])
 
-respuesta: "justicia"
-tipo: mc
-opciones_explicitas: ["reparación", "olvido", "justicia"]
-
-enunciado: "En el marco de los Derechos Humanos, la política de Estado para evitar la repetición de los crímenes de la dictadura se basa en el trípode: Memoria, Verdad y {escenario[0]}."
-
-explicacion: |
-  El lema "Memoria, Verdad y Justicia" es el pilar fundamental de los organismos de Derechos Humanos en Argentina para la reconstrucción del tejido social.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "intermedio"
-  tags: ["juicio_a_las_juntas", "derechos_humanos", "argentina"]
-
-respuesta: "Juicio a las Juntas"
-tipo: completar
-respuestas_validas:
-  - "Juicio a las Juntas"
-
-enunciado: "El proceso judicial histórico llevado a cabo en 1985 para juzgar a los máximos responsables de la dictadura militar argentina se conoce como el ___."
-
-explicacion: |
-  El Juicio a las Juntas fue un hito mundial, siendo la primera vez que un tribunal civil juzgó a las cúpulas militares de su propio país por delitos de lesa humanidad.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "basico"
-  tags: ["democracia", "justicia"]
-
-variables:
-  tipo_tribunal: uno_de(["civil", "militar"])
-
-respuesta: "civil"
-tipo: mc
-opciones_explicitas: ["civil", "militar"]
-
-enunciado: "A diferencia de otros procesos de transición, el juicio de 1985 fue llevado a cabo por un tribunal de carácter {tipo_tribunal}."
-
-explicacion: |
-  La naturaleza civil del tribunal fue fundamental para consolidar la supremacía de la Constitución y el Estado de Derecho sobre el poder militar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "avanzado"
-  tags: ["delitos", "terrorismo_de_estado"]
-
-respuesta_orden: ["terrorismo de Estado", "secuestro", "tortura", "homicidio"]
-tipo: ordenar
-opciones_explicitas: ["terrorismo de Estado", "secuestro", "tortura", "homicidio"]
-
-enunciado: "Ordene de lo más general a lo más específico los conceptos que definen la naturaleza de los crímenes juzgados:"
-
-explicacion: |
-  El juicio condenó a los responsables por la planificación y ejecución de un sistema de terrorismo de Estado que se manifestó a través de secuestros, torturas y homicidios.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "intermedio"
-  tags: ["conadep", "derechos_humanos"]
-
-respuesta: "CONADEP"
-tipo: completar
-respuestas_validas:
-  - "CONADEP"
-
-enunciado: "El informe fundamental que recopiló testimonios sobre la represión sistemática durante la última dictadura militar fue elaborado por la ___."
-
-explicacion: |
-  La Comisión Nacional sobre la Desaparición de Personas (CONADEP) elaboró el informe 'Nunca Más', que fue clave para el posterior Juicio a las Juntas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "basico"
-  tags: ["sitios_de_memoria", "museos"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["ESMA", "Ex Centro de Detención de la ESMA"], ["El Olimpo", "Ex Centro de Detención El Olimpo"]]
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Ex Centro de Detención de la ESMA", "Ex Centro de Detención El Olimpo", "Ex Base Naval Puerto Belgrano", "Ex Escuela de Mecánica de la Armada"]
-
-enunciado: "El sitio de memoria conocido como {datos[idx][0]} es un ejemplo de un espacio que funcionó como centro clandestino de detención y hoy es un museo dedicado a la memoria."
-
-explicacion: |
-  Los Sitios de Memoria son lugares que fueron utilizados para la represión y que han sido recuperados para la memoria colectiva, transformándose en museos o centros culturales.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "basico"
-  tags: ["verdad", "justicia", "derechos_humanos"]
-
-respuesta: "Verdad"
-tipo: mc
-opciones_explicitas: ["Verdad", "Justicia", "Memoria", "Reparación"]
-
-enunciado: "En el marco de las políticas de Derechos Humanos, el derecho a conocer la realidad de lo sucedido con las víctimas se denomina derecho a la ___."
-
-explicacion: |
-  El derecho a la Verdad, a la Justicia y a la Memoria son pilares fundamentales de la política de Derechos Humanos en Argentina tras la recuperación democrática.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "avanzado"
-  tags: ["cronologia", "democracia"]
-
-respuesta_orden: ["Fin de la dictadura", "Informe Nunca Más", "Juicio a las Juntas"]
-tipo: ordenar
-opciones_explicitas: ["Fin de la dictadura", "Informe Nunca Más", "Juicio a las Juntas"]
-
-enunciado: "Ordene cronológicamente los hitos fundamentales del proceso de justicia y memoria tras el retorno a la democracia en Argentina:"
-
-explicacion: |
-  Primero se produjo la salida de la dictadura, luego la CONADEP presentó su informe y posteriormente se llevó a cabo el histórico Juicio a las Juntas en 1985.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "intermedio"
-  tags: ["justicia", "impunidad"]
-
-respuesta: "imprescindible"
-tipo: completar
-respuestas_validas:
-  - "imprescindible"
-  - "fundamental"
-  - "clave"
-
-enunciado: "Para el proceso de reconstrucción del Estado de Derecho, la aplicación de la ___ para juzgar los crímenes de lesa humanidad fue considerada ___."
-
-explicacion: |
-  La justicia es un componente esencial para romper el ciclo de impunidad y garantizar que los crímenes contra la humanidad no queden sin castigo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "basico"
-  tags: ["democracia", "argentina", "1983"]
-
-respuesta: "1983"
-tipo: completar
-respuestas_validas:
-  - "1983"
-
-enunciado: "El año en que se produjo el retorno a la democracia y se inició el período democrático ininterrumpido más largo de la historia argentina fue en ___."
-
-explicacion: |
-  En 1983, tras la dictadura militar, se llevaron a cabo elecciones que marcaron el inicio de la era democrática más extensa del país.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "basico"
-  tags: ["presidencia", "democracia", "alfonsin"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Raúl Alfonsín", "Presidente de la Nación"], ["Raúl Alfonsín", "Dictador militar"]]
-
-respuesta: datos[idx][0]
-tipo: mc
-opciones_explicitas: ["Raúl Alfonsín", "Dictador militar", "Juan Carlos Onganía", "Jorge Rafael Videla"]
-
-enunciado: "El primer presidente elegido tras el fin de la dictadura militar fue {datos[idx][0]}."
-
-explicacion: |
-  {datos[idx][0]} asumió la presidencia en 1983, marcando el inicio del proceso de recuperación democrática.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "intermedio"
-  tags: ["procesos", "historia"]
-
-respuesta_orden: ["Dictadura Militar", "Elecciones de 1983", "Juicio a las Juntas"]
-tipo: ordenar
-
-opciones_explicitas: ["Dictadura Militar", "Elecciones de 1983", "Juicio a las Juntas"]
-
-enunciado: "Ordene cronológicamente los siguientes hitos de la historia argentina reciente:"
-
-pasos:
-  - "Identifique el período de gobierno de facto."
-  - "Identifique el proceso electoral de retorno."
-  - "Identifique el proceso judicial emblemático de la post-dictadura."
-
-explicacion: |
-  Primero fue la dictadura, luego las elecciones de 1983 y finalmente el histórico Juicio a las Juntas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "basico"
-  tags: ["democracia", "continuidad"]
-
-respuesta: "largo"
-tipo: mc
-opciones_explicitas: ["largo", "corto", "inestable", "interrumpido"]
-
-enunciado: "El período democrático iniciado en 1983 es el más ___ de la historia argentina hasta la actualidad."
-
-explicacion: |
-  A diferencia de los quiebres institucionales previos, este período se caracteriza por su continuidad y duración.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "avanzado"
-  tags: ["derechos_humanos", "memoria"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  escenarios: [["El proceso de Memoria, Verdad y Justicia busca...", "reparar el tejido social y la verdad histórica"], ["El proceso de Memoria, Verdad y Justicia busca...", "la reconstrucción de la identidad democrática"], ["El proceso de Memoria, Verdad y Justicia busca...", "la aplicación de la justicia sobre los crímenes de lesa humanidad"]]
-
-respuesta: escenarios[idx][1]
-tipo: mc
-opciones_explicitas: ["reparar el tejido social y la verdad histórica", "la reconstrucción de la identidad democrática", "la aplicación de la justicia sobre los crímenes de lesa humanidad", "la restauración del orden militar"]
-
-enunciado: "Dentro del marco de la recuperación democrática, el proceso de Memoria, Verdad y Justicia busca {escenarios[idx][1]}."
-
-explicacion: |
-  La reconstrucción de la identidad democrática es un pilar fundamental para consolidar el Estado de Derecho tras la dictadura.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "basico"
-  tags: ["argentina", "democracia", "historia"]
-
-variables:
-  escenario: uno_de([["¿Qué presidente asumió en 1983 tras el fin de la dictadura?", "Raúl Alfonsín"], ["¿Qué presidente asumió en 1983 tras el fin de la dictadura?", "Raúl Alfonsín"], ["¿Qué presidente asumió en 1983 tras el fin de la dictadura?", "Raúl Alfonsín"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["Raúl Alfonsín", "Carlos Menem", "Alfonsín", "Raúl Alfonsín"]
-
-enunciado: "En el contexto de la recuperación democrática argentina, {escenario[0]}"
-
-explicacion: |
-  Raúl Alfonsín asumió la presidencia en 1983, marcando el inicio del periodo democrático tras la última dictadura militar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "intermedio"
-  tags: ["justicia", "derechos_humanos"]
-
-variables:
-  evento: uno_de([["El proceso de juzgar a las cúpulas militares se conoce como el...", "Juicio a las Juntas"], ["El proceso de juzgar a las cúpulas militares se conoce como el...", "Juicio a las Juntas"], ["El proceso de juzgar a las cúpulas militares se conoce como el...", "Juicio a las Juntas"]])
-
-respuesta: evento[1]
-tipo: completar
-respuestas_validas:
-  - "Juicio a las Juntas"
-
-enunciado: "El proceso histórico fundamental para la memoria y la justicia en 1985 fue el ___."
-
-explicacion: |
-  El Juicio a las Juntas fue un hito mundial donde la justicia civil juzgó a los comandantes militares por crímenes de lesa humanidad.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "basico"
-  tags: ["conceptos", "derechos_humanos"]
-
-respuesta: "Derechos Humanos"
-tipo: mc
-opciones_explicitas: ["Derechos Humanos", "Derechos Civiles", "Derechos Sociales", "Derechos Políticos"]
-
-enunciado: "La recuperación democrática puso en el centro del debate nacional la defensa de los ___."
-
-explicacion: |
-  La democracia argentina se construyó sobre el pilar fundamental de la vigencia y defensa de los Derechos Humanos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "avanzado"
-  tags: ["cronologia", "transicion"]
-
-respuesta_orden: ["Dictadura Militar", "Elecciones de 1983", "Juicio a las Juntas", "Ley de Obediencia Debida"]
-tipo: ordenar
-opciones_explicitas: ["Dictadura Militar", "Elecciones de 1983", "Juicio a las Juntas", "Ley de Obediencia Debida"]
-
-enunciado: "Ordene cronológicamente los siguientes hitos del proceso de transición y memoria:"
-
-explicacion: |
-  La secuencia parte del fin del régimen militar (1976-1983), pasando por el triunfo electoral de Alfonsín, el juicio histórico de 1985 y las posteriores leyes de impunidad que marcaron la etapa posterior.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "recuperacion_democratica_memoria"
-  nivel: "intermedio"
-  tags: ["movimientos_sociales", "memoria"]
-
-variables:
-  sujeto: uno_de([["¿Qué colectivo social luchó por la aparición con vida de los desaparecidos?", "Madres de Plaza de Mayo"], ["¿Qué colectivo social luchó por la aparición con vida de los desaparecidos?", "Madres de Plaza de Mayo"], ["¿Qué colectivo social luchó por la aparición con vida de los desaparecidos?", "Madres de Plaza de Mayo"]])
-
-respuesta: sujeto[1]
-tipo: completar
-opciones_explicitas: [verdadero, falso]
-
-enunciado: "Las {sujeto[0]} fueron actores fundamentales en la exigencia de justicia durante la transición democrática."
-
-explicacion: |
-  Las Madres de Plaza de Mayo fueron un símbolo global de la lucha por la verdad y la justicia durante y después de la dictadura.
-```
-
-## Sección: relieve-sismos-volcanes (25 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "tectonica_de_placas"
-  nivel: "basico"
-  tags: ["tectonica", "relieve"]
-
-respuesta: "bordes"
-tipo: completar
-respuestas_validas:
-  - "bordes"
-
-enunciado: "El relieve terrestre, como la formación de montañas y fosas, es una consecuencia directa de la tectónica de placas y se produce principalmente en los ___ de las placas tectónicas."
-
-explicacion: |
-  El movimiento de las placas tectónicas genera tensiones y fricciones que se manifiestan principalmente en sus límites o bordes, dando lugar a la formación de nuevas estructuras geológicas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "tectonica_de_placas"
-  nivel: "intermedio"
-  tags: ["placas", "limites"]
-
-variables:
-  escenario_idx: uno_de([0, 1, 2])
-  escenarios: [["divergente", "se separan las placas", "creación de dorsales oceánicas"], ["convergente", "chocan las placas", "formación de cordilleras o fosas"], ["transformante", "se deslizan lateralmente", "fallas como la de San Andrés"]]
-
-respuesta: escenarios[escenario_idx][0]
-tipo: mc
-opciones_explicitas: ["divergente", "convergente", "transformante"]
-
-enunciado: "Si observamos un movimiento donde las placas tectónicas {escenarios[escenario_idx][1]} , estamos ante un límite de tipo {escenarios[escenario_idx][0]}."
-
-explicacion: |
-  En el escenario seleccionado ({escenarios[escenario_idx][0]}), el movimiento principal es {escenarios[escenario_idx][2]}.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "tectonica_de_placas"
-  nivel: "basico"
-  tags: ["cordilleras", "convergencia"]
-
-respuesta: "convergente"
-tipo: mc
-opciones_explicitas: ["divergente", "convergente", "transformante"]
-
-enunciado: "¿Qué tipo de interacción entre placas es la responsable de la formación de grandes cordilleras como los Andes debido al choque de placas?"
-
-explicacion: |
-  Las cordilleras se forman en los límites convergentes, donde la compresión de las placas eleva la corteza terrestre.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "tectonica_de_placas"
-  nivel: "avanzado"
-  tags: ["procesos", "relieve"]
-
-respuesta_orden: ["choque de placas", "subducción de la placa", "formación de fosa oceánica", "erupción volcánica"]
-tipo: ordenar
-opciones_explicitas: ["choque de placas", "subducción de la placa", "formación de fosa oceánica", "erupción volcánica"]
-
-enunciado: "Ordena los eventos que ocurren típicamente en un límite convergente de subducción:"
-
-explicacion: |
-  El proceso comienza con el choque, seguido por la placa más densa se hunde (subducción), creando una fosa, y finalmente el magma asciende provocando volcanismo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "tectonica_de_placas"
-  nivel: "intermedio"
-  tags: ["fosas", "oceanos"]
-
-variables:
-  dato_fosa: [["Fosa de las Marianas", "subducción", "más profunda"], ["Fosa de Atacama", "subducción", "muy profunda"]]
-  idx: uno_de([0, 1])
-
-respuesta: dato_fosa[idx][1]
-tipo: mc
-opciones_explicitas: ["subducción", "divergencia", "transformación"]
-
-enunciado: "La {dato_fosa[idx][0]} es una estructura extremadamente {dato_fosa[idx][2]} que se origina por un proceso de {dato_fosa[idx][1]}."
-
-explicacion: |
-  Las fosas oceánicas son zonas de subducción donde una placa se introduce bajo otra, creando depresiones profundas en el lecho marino.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
-  nivel: "basico"
-  tags: ["placas_tectonicas", "sismos"]
-
-tipo: mc
-opciones_explicitas: ["Fricción entre placas", "Erosión eólica", "Movimiento de las mareas", "Ciclos solares"]
-respuesta: "Fricción entre placas"
-
-enunciado: "Los sismos se producen principalmente debido a la acumulación y posterior liberación repentina de energía causada por la ________ entre las placas tectónicas."
-
-explicacion: |
-  Los sismos ocurren cuando las fuerzas de fricción entre las placas tectónicas impiden su movimiento, acumulando energía elástica que se libera súbitamente en forma de ondas sísmicas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
-  nivel: "basico"
-  tags: ["placas_tectonicas", "bordes_de_placas"]
-
-tipo: mc
-opciones_explicitas: ["Bordes de placas tectónicas", "Zonas de estabilidad tectónica", "Cimas de las montañas", "Fondos oceánicos estables"]
-respuesta: "Bordes de placas tectónicas"
-
-enunciado: "Los terremotos ocurren mayormente en los ___."
-
-explicacion: |
-  La mayor actividad sísmica se concentra en los límites o bordes de las placas tectónicas, donde la interacción entre ellas es constante.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
-  nivel: "intermedio"
-  tags: ["energia", "friccion"]
-
-tipo: completar
-respuestas_validas:
-  - "energía"
-  - "fuerza"
-
-enunciado: "Durante un sismo, la energía acumulada por la fricción se libera de forma repentina en forma de ________ sísmica."
-
-explicacion: |
-  La liberación de la energía elástica acumulada es lo que genera las ondas que viajan a través de la litosfera.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
-  nivel: "intermedio"
-  tags: ["placas_tectonicas", "friccion"]
-
-tipo: ordenar
-opciones_explicitas: ["Movimiento de las placas", "Acumulación de tensión por fricción", "Liberación repentina de energía", "Ondas sísmicas"]
-
-enunciado: "Ordena el proceso físico que da lugar a un terremoto, desde el movimiento inicial hasta la propagación de las ondas:"
-
-explicacion: |
-  El proceso comienza con el movimiento de las placas, seguido de la fricción que acumula tensión, la ruptura que libera energía y finalmente la propagación de ondas.
-respuesta_orden: ["Movimiento de las placas", "Acumulación de tensión por fricción", "Liberación repentina de energía", "Ondas sísmicas"]
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
-  nivel: "avanzado"
-  tags: ["placas_tectonicas", "friccion"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si las placas tectónicas se encuentran en un estado de ___, la acumulación de tensión es mayor que en un estado de estabilidad absoluta."
-
-respuesta: "fricción"
-
-explicacion: |
-  A mayor fricción o resistencia al movimiento entre placas, mayor es la acumulación de energía elástica que, al liberarse, provoca sismos de mayor magnitud.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
-  nivel: "basico"
-  tags: ["volcanes", "tectonica"]
-
-tipo: mc
-opciones_explicitas: ["Zonas de subducción", "Zonas de divergencia", "Zonas de transformación", "Zonas de estabilidad"]
-respuesta: "Zonas de subducción"
-
-enunciado: "Los volcanes se forman típicamente en las zonas de ___ donde una placa tectónica se desplaza debajo de otra."
-
-explicacion: |
-  En las zonas de subducción (bordes convergentes), la placa que se hunde se funde y genera magma que asciende a la superficie.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
-  nivel: "basico"
-  tags: ["dorsales", "magma"]
-
-tipo: mc
-opciones_explicitas: ["Dorsales oceánicas", "Fallas transformantes", "Cinturones orogénicos", "Escudos continentales"]
-respuesta: "Dorsales oceánicas"
-
-enunciado: "El magma puede llegar a la superficie en los bordes divergentes, como ocurre en las ___."
-
-explicacion: |
-  Las dorsales oceánicas son bordes divergentes donde las placas se separan, permitiendo la salida de magma y la creación de nueva corteza.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
-  nivel: "intermedio"
-  tags: ["bordes", "convergencia"]
-
-variables:
-  escenario: uno_de([["convergente", "subducción"], ["divergente", "separación"]])
-  tipo_borde: escenario[0]
-  proceso: escenario[1]
-
-tipo: completar
-respuestas_validas:
-  - "subducción"
-  - "separación"
-respuesta: proceso
-
-enunciado: "Si nos encontramos en un borde de tipo {tipo_borde}, el proceso geológico predominante es la ___."
-
-explicacion: |
-  En un borde convergente, el proceso es la subducción; en un borde divergente, es la separación de placas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
-  nivel: "basico"
-  tags: ["magma", "superficie"]
-
-tipo: mc
-opciones_explicitas: ["Llega a la superficie", "Se mantiene en el manto", "Se solidifica inmediatamente", "Se transforma en roca sólida"]
-respuesta: "Llega a la superficie"
-
-enunciado: "Tanto en zonas de subducción como en dorsales, el magma tiene la capacidad de ___."
-
-explicacion: |
-  La actividad volcánica ocurre precisamente porque el magma logra ascender desde el manto hasta la superficie terrestre.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
-  nivel: "avanzado"
-  tags: ["procesos", "tectonica"]
-
-tipo: ordenar
-opciones_explicitas: ["Movimiento de placas", "Fusión de material", "Ascenso de magma", "Erupción volcánica"]
-respuesta_orden: ["Movimiento de placas", "Fusión de material", "Ascenso de magma", "Erupción volcánica"]
-
-enunciado: "Ordena los pasos que ocurren típicamente en una zona de subducción hasta la erupción:"
-
-explicacion: |
-  Primero ocurre el movimiento de las placas, lo que provoca la fusión del material en el manto, luego el magma asciende y finalmente ocurre la erupción.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "cinturon_de_fuego"
-  nivel: "basico"
-  tags: ["tectonica_de_placas", "geologia"]
-
-tipo: mc
-opciones_explicitas: ["El océano Índico", "El océano Atlántico", "El océano Pacífico", "El océano Ártico"]
-respuesta: "El océano Pacífico"
-
-enunciado: "El Cinturón de Fuego es una zona de intensa actividad sísmica y volcánica que rodea el océano ________."
-
-explicacion: |
-  El Cinturón de Fuego del Pacífico es una zona de aproximadamente 40,000 km de longitud donde ocurre la mayor parte de la actividad sísmica y volcánica del mundo debido a la interacción de los bordes de las placas tectónicas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "cinturon_de_fuego"
-  nivel: "intermedio"
-  tags: ["tectonica_de_placas", "sismos"]
-
-variables:
-  escenario: uno_de([["subducción", "una placa se desliza debajo de otra", "se produce un arco volcánico y fosas marinas"], ["divergencia", "las placas se separan", "se crea nueva corteza oceánica en dorsales"], ["transformación", "las placas se deslizan lateralmente", "se generan grandes fallas como la de San Andrés"]])
-
-tipo: completar
 respuesta: escenario[0]
+tipo: completar
+tolerancia_abs: 0
 
-enunciado: "Cuando en un límite de placas tectónicas {escenario[1]}, {escenario[2]}. Este tipo de límite se denomina límite de ___."
+enunciado: "Gracias a la implementación de la Ley Sáenz Peña, el año {escenario[0]} marcó {escenario[1]}."
 
 explicacion: |
-  Los tres tipos principales de límites de placas tectónicas son divergentes (separación), convergentes o de subducción (una placa se hunde bajo otra) y transformantes (deslizamiento lateral). Cada uno genera fenómenos geológicos característicos, desde dorsales oceánicas hasta fosas y fallas.
+  La aplicación de la nueva ley permitió que en las elecciones de 1916 la Unión Cívica Radical (UCR) llegara a la presidencia con Hipólito Yrigoyen, rompiendo el monopolio del régimen conservador.
 ```
 
 ```
 metadata:
-  materia: "geografia"
-  tema: "cinturon_de_fuego"
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
-  tags: ["volcanes", "geografia_fisica"]
+  tags: ["electoral", "fraude", "argentina"]
+
+respuesta: "voto cantado"
+tipo: mc
+opciones_explicitas: ["voto secreto", "voto cantado", "voto digital", "voto por sorteo"]
+
+enunciado: "Antes de la sanción de la Ley Sáenz Peña en 1912, el sistema electoral en Argentina se caracterizaba por ser un ___ , lo que facilitaba la presión de los caudillos locales sobre los votantes."
+
+explicacion: |
+  El sistema de "voto cantado" obligaba al ciudadano a declarar su elección en voz alta frente a la autoridad de mesa, lo que permitía identificar el voto y aplicar represalias o incentivos, facilitando el fraude sistemático.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "intermedio"
+  tags: ["fraude", "oligarquia", "control"]
+
+variables:
+  escenario: uno_de([["voto cantado", "manipulación"], ["voto secreto", "transparencia"]])
+
+respuesta: escenario[1]
+tipo: completar
+respuestas_validas:
+  - "manipulación"
+  - "transparencia"
+
+enunciado: "En el régimen de la Generación del '80, la combinación del voto no secreto y la falta de padrones confiables permitía la ___ de los resultados electorales por parte del oficialismo de turno."
+
+explicacion: |
+  La falta de secreto en el sufragio permitía que el poder político controlara el comportamiento del elector, asegurando la continuidad de la hegemonía de la oligarquía mediante la manipulación de los resultados.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "basico"
+  tags: ["ley_saenz_pena", "reforma", "democracia"]
+
+respuesta: "universal, secreto y obligatorio"
+tipo: completar
+respuestas_validas:
+  - "universal, secreto y obligatorio"
+  - "opcional, secreto y universal"
+
+enunciado: "La reforma introducida por la Ley Sáenz Peña estableció que el sufragio debía ser ___."
+
+explicacion: |
+  La Ley 8.871 transformó el sistema electoral argentino al establecer tres pilares: el voto debe ser universal (para varones), secreto (para evitar coacciones) y obligatorio (para asegurar la participación masiva).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "intermedio"
+  tags: ["proceso", "ley", "reforma"]
+
+respuesta_orden: ["Crisis del régimen oligárquico", "Presión de la Unión Cívica Radical", "Sanción de la Ley Sáenz Peña"]
+tipo: ordenar
+opciones_explicitas: ["Crisis del régimen oligárquico", "Presión de la Unión Cívica Radical", "Sanción de la Ley Sáenz Peña"]
+
+enunciado: "Ordene cronológicamente los eventos que llevaron a la democratización del sistema electoral en Argentina:"
+
+explicacion: |
+  La crisis del modelo oligárquico y la presión constante de la oposición (especialmente la UCR) forzaron al gobierno de Roque Sáenz Peña a sancionar la ley para legitimar el sistema y evitar una revolución.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "avanzado"
+  tags: ["consecuencia", "radicalismo", "voto"]
+
+variables:
+  caso: uno_de([["1916", "triunfo de Hipólito Yrigoyen"], ["1916", "triunfo del conservadurismo"]])
+
+respuesta: caso[1]
+tipo: mc
+opciones_explicitas: ["triunfo de Hipólito Yrigoyen", "triunfo del conservadurismo"]
+
+enunciado: "Como consecuencia directa de la implementación de la nueva ley, en las elecciones de {caso[0]} se produjo el ___."
+
+explicacion: |
+  La implementación del voto secreto permitió que la Unión Cívica Radical, liderada por Hipólito Yrigoyen, lograra su primera victoria presidencial, rompiendo el monopolio de los partidos conservadores.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "basico"
+  tags: ["argentina", "democracia", "irrigoyen"]
 
 tipo: mc
-opciones_explicitas: ["Baja", "Moderada", "Muy alta"]
-respuesta: "Muy alta"
+opciones_explicitas: ["Unión Cívica Radical", "Partido Demócrata", "Partido Conservador", "Partido Socialista"]
 
-enunciado: "Debido a la constante interacción de los bordes de placas, la densidad de volcanes activos en el Cinturón de Fuego es ________."
+enunciado: "En las elecciones presidenciales de 1916, tras la implementación de la Ley Sáenz Peña, el partido ganador fue la ___."
+
+respuesta: "Unión Cívica Radical"
 
 explicacion: |
-  La mayoría de los volcanes activos del mundo se encuentran en esta zona debido a la actividad tectónica constante.
+  La Ley Sáenz Peña (1912) estableció el voto universal, secreto y obligatorio. Esto permitió que la Unión Cívica Radical, liderada por Hipólito Yrigoyen, llegara a la presidencia en 1916, rompiendo el hegemonismo del régimen conservador.
 ```
 
 ```
 metadata:
-  materia: "geografia"
-  tema: "cinturon_de_fuego"
-  nivel: "avanzado"
-  tags: ["procesos_geologicos", "tectonica"]
+  materia: "historia"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "intermedio"
+  tags: ["ley_saenz_pena", "voto_secreto"]
+
+variables:
+  escenario: uno_de([["el voto era abierto y fraudulento", "el régimen conservador"], ["el voto era secreto y obligatorio", "la democracia representativa"]])
+
+tipo: mc
+opciones_explicitas: ["el régimen conservador", "la democracia representativa"]
+
+enunciado: "Antes de la reforma de 1912, el sistema electoral se caracterizaba por {escenario[0]}. Esto permitía que {escenario[1]} fuera controlada por la oligarquía."
+
+respuesta: "el régimen conservador"
+
+explicacion: |
+  El sistema anterior permitía el fraude mediante el voto cantado, lo que facilitaba la manipulación de resultados por parte de los sectores dominantes.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "intermedio"
+  tags: ["caracteristicas", "voto"]
 
 tipo: ordenar
-opciones_explicitas: ["Acumulación de tensión elástica", "Ruptura de la falla", "Liberación de energía (sismo)", "Movimiento de la placa"]
-respuesta_orden: ["Acumulación de tensión elástica", "Ruptura de la falla", "Liberación de energía (sismo)", "Movimiento de la placa"]
+opciones_explicitas: ["Voto Cantado", "Voto Secreto", "Voto Universal", "Voto Obligatorio"]
 
-enunciado: "Ordena cronológicamente los eventos que ocurren durante un terremoto causado por la interacción de placas en el Cinturón de Fuego:"
+enunciado: "Ordene cronológicamente la evolución del sistema de votación en Argentina, desde el modelo previo a la Ley Sáenz Peña hasta el modelo implementado por esta ley."
+
+respuesta_orden: ["Voto Cantado", "Voto Secreto", "Voto Universal", "Voto Obligatorio"]
 
 explicacion: |
-  La tensión se acumula por el movimiento de las placas, llega un punto crítico donde la roca se rompe (ruptura), liberando energía en forma de ondas sísmicas.
+  La Ley Sáenz Peña transformó el sistema de un modelo de voto cantado (abierto) a uno basado en la universalidad (masculina), la obligatoriedad y, fundamentalmente, el secreto para evitar el fraude.
 ```
 
 ```
 metadata:
-  materia: "geografia"
-  tema: "cinturon_de_fuego"
-  nivel: "intermedio"
-  tags: ["sismos", "calculo"]
-
-variables:
-  datos: uno_de([[3000, 15.0], [5000, 25.0], [8000, 40.0]])
+  materia: "historia"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "basico"
+  tags: ["irrigoyen", "presidencia"]
 
 tipo: completar
-respuesta: datos[1]
-tolerancia_abs: 0.1
+respuestas_validas:
+  - "Hipólito Yrigoyen"
 
-enunciado: "Si una onda sísmica detectada en el Cinturón de Fuego viaja a una velocidad constante de 200 km/min, ¿a cuántos minutos llegará al observador si el epicentro está a {datos[0]} km de distancia?"
+enunciado: "El primer presidente elegido bajo el nuevo sistema de sufragio universal, secreto y obligatorio fue ___."
 
-pasos:
-  - "Identificar la distancia: {datos[0]} km"
-  - "Identificar la velocidad: 200 km/min"
-  - "Dividir distancia / velocidad: {datos[0]} / 200"
+respuesta: "Hipólito Yrigoyen"
 
 explicacion: |
-  El tiempo se calcula dividiendo la distancia recorrida por la velocidad: {datos[0]} km / 200 km/min = {datos[1]} minutos.
+  Hipólito Yrigoyen asumió la presidencia en 1916, representando el triunfo de las fuerzas populares y el fin del control exclusivo de la oligarquía sobre el Poder Ejecutivo.
 ```
 
 ```
 metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
-  nivel: "basico"
-  tags: ["tectonica", "placas"]
-
-variables:
-  datos: [["dorsal oceánica", "divergente"], ["valle de rift", "divergente"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["divergente", "convergente", "transformante"]
-
-enunciado: "El fenómeno de la formación de una {datos[idx][0]} es característico de un límite de placas de tipo ________."
-
-explicacion: |
-  En los límites divergentes, las placas se separan, permitiendo la salida de magma que crea nuevo relieve, como las dorsales o los rifts.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
-  nivel: "intermedio"
-  tags: ["tectonica", "subduccion"]
-
-variables:
-  datos: [["trinchera oceánica", "convergente"], ["arco volcánico", "convergente"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["divergente", "convergente", "transformante"]
-
-enunciado: "La presencia de una {datos[idx][0]} indica que las placas se encuentran en un límite de tipo ________."
-
-explicacion: |
-  Los límites convergentes ocurren cuando las placas colisionan, pudiendo subducir una debajo de otra (creando trincheras) o elevar cordilleras.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
-  nivel: "basico"
-  tags: ["tectonica", "fallas"]
-
-variables:
-  datos: [["falla de San Andrés", "transformante"], ["desplazamiento lateral", "transformante"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["divergente", "convergente", "transformante"]
-
-enunciado: "El movimiento de {datos[idx][0]} es un ejemplo clásico de un límite de placas ________."
-
-explicacion: |
-  En los límites transformantes, las placas se deslizan lateralmente una respecto a la otra sin crear ni destruir litosfera.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
+  materia: "historia"
+  tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "avanzado"
-  tags: ["tectonica", "orogenesis"]
+  tags: ["consecuencias", "politica"]
 
 variables:
-  datos: [["cordillera del Himalaya", "convergente"], ["doblamiento de corteza", "convergente"]]
-  idx: uno_de([0, 1])
+  caso: uno_de([[1, "fin del régimen conservador"], [2, "fortalecimiento de la oligarquía"]])
 
-respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["divergente", "convergente", "transformante"]
+opciones_explicitas: ["fin del régimen conservador", "fortalecimiento de la oligarquía"]
 
-enunciado: "La formación de {datos[idx][0]} es el resultado de un proceso de colisión en un límite ________."
+enunciado: "La implementación de la Ley Sáenz Peña tuvo como consecuencia principal el {caso[0]} en Argentina."
+
+respuesta: caso[1]
 
 explicacion: |
-  La colisión entre placas continentales (convergencia) produce el acortamiento y elevación de la corteza, formando grandes cordilleras.
+  La apertura democrática permitió que sectores que habían estado excluidos del poder político, como la Unión Cívica Radical, pudieran competir y ganar mediante el voto popular.
 ```
 
 ```
 metadata:
-  materia: "geografia"
-  tema: "relieve_sismos_volcanes"
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
-  tags: ["tectonica", "oceanos"]
+  tags: ["sufragio", "argentina", "ley_saenz_pena"]
 
-variables:
-  datos: [["crecimiento de la dorsal", "divergente"], ["separación de placas", "divergente"]]
-  idx: uno_de([0, 1])
+respuesta: "varones"
+tipo: mc
+opciones_explicitas: ["mujeres", "varones", "todos los ciudadanos", "extranjeros"]
 
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
-opciones_explicitas: ["divergente", "convergente", "transformante"]
-
-enunciado: "El proceso de {datos[idx][0]} se asocia directamente con un borde de tipo ________."
+enunciado: "Aunque la Ley Sáenz Peña de 1912 introdujo el voto universal, secreto y obligatorio, en la práctica este derecho estaba limitado exclusivamente a los ___."
 
 explicacion: |
-  La expansión del fondo marino ocurre en los límites divergentes donde el magma asciende para rellenar el espacio entre placas.
-```
-
-## Sección: renacimiento-y-reforma (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["renacimiento", "economia", "burguesia"]
-tipo: mc
-enunciado: "¿Cuál de los siguientes factores económicos fue fundamental para el surgimiento del mecenazgo artístico en las ciudades italianas del siglo XV?"
-opciones_explicitas:
-  - "El colapso del comercio marítimo en el Mediterráneo"
-  - "La acumulación de capital por parte de las familias mercantiles y banqueras"
-  - "La imposición de impuestos eclesiásticos sobre la nobleza feudal"
-  - "La escasez de mano de obra debido a la Peste Negra"
-respuesta: "La acumulación de capital por parte de las familias mercantiles y banqueras"
-explicacion: "El auge del comercio y la banca (ej. los Médici) generó una nueva clase rica que buscaba legitimidad social y religiosa a través del mecenazgo, financiando artistas y humanistas."
+  La Ley Sáenz Peña garantizó el voto para los varones mayores de 18 años, pero excluyó sistemáticamente a las mujeres del proceso electoral.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
+  tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
-  tags: ["reforma", "luteranismo", "teologia"]
-tipo: completar
-enunciado: "En 1517, Martín Lutero publicó sus tesis en Wittenberg, cuestionando la venta de este documento que prometía la reducción del purgatorio."
+  tags: ["sufragio_femenino", "evita", "derechos"]
+
 variables:
-  documento: uno_de(["indulgencias", "indulgencia"])
-respuesta: "indulgencias"
+  escenario: uno_de([["1947", "Ley de Sufragio Femenino"], ["1912", "Ley Sáenz Peña"]])
+  año: escenario[0]
+  evento: escenario[1]
+
+respuesta: escenario[0]
+tipo: completar
 respuestas_validas:
-  - "indulgencias"
-  - "indulgencia"
-  - "Indulgencias"
-  - "Indulgencia"
-explicacion: "Las indulgencias eran certificados vendidos por la Iglesia Católica que, según la doctrina de la época, reducían el tiempo de castigo en el purgatorio. Lutero rechazó esta práctica como una distorsión de la fe."
+  - "1947"
+  - "1912"
+
+enunciado: "Si bien la reforma de 1912 fue un paso hacia la democracia, las mujeres en Argentina no pudieron ejercer el voto hasta el año ___."
+
+explicacion: |
+  Fue mediante la sanción de la Ley 13.010, impulsada por el voto femenino, que las mujeres argentinas obtuvieron el derecho político pleno en 1947.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
+  tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
-  tags: ["humanismo", "filosofia", "antropocentrismo"]
+  tags: ["cronologia", "historia_argentina"]
+
+respuesta_orden: ["Ley Sáenz Peña", "Ley de Sufragio Femenino", "Ley de Ciudadanía Argentina"]
+tipo: ordenar
+opciones_explicitas: ["Ley Sáenz Peña", "Ley de Sufragio Femenino", "Ley de Ciudadanía Argentina"]
+
+enunciado: "Ordena cronológicamente los hitos que ampliaron la base electoral en Argentina:"
+
+explicacion: |
+  La secuencia correcta marca la transición desde un voto masculino (1912), pasando por la inclusión de la mujer (1947), hasta la plena ciudadanía para inmigrantes (1972).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "basico"
+  tags: ["caracteristicas", "voto"]
+
+respuesta: "secreto"
+tipo: mc
+opciones_explicitas: ["público", "secreto", "opcional", "electivo"]
+
+enunciado: "Uno de los pilares de la Ley Sáenz Peña para evitar el fraude mediante el control de la voluntad del votante fue el voto ___."
+
+explicacion: |
+  El voto secreto fue fundamental para terminar con el sistema de "voto cantado" que permitía la coacción de los patrones sobre los trabajadores.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "avanzado"
+  tags: ["democracia", "exclusiones"]
+
+variables:
+  caso: uno_de(["se incluyeron", "se excluyeron"])
+
+respuesta: "se excluyeron"
+
+tipo: mc
+opciones_explicitas: ["se incluyeron", "se excluyeron"]
+
+enunciado: "Considerando la composición de la población argentina en 1912, ¿qué ocurrió con el género femenino en la implementación de la Ley Sáenz Peña? Las mujeres {caso} del derecho al voto."
+
+explicacion: |
+  A pesar de la modernización del sistema, la exclusión de la mitad de la población (las mujeres) demuestra que la "universalidad" de la época era solo para el género masculino.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "basico"
+  tags: ["voto_cantado", "sistema_oligarquico"]
+
+variables:
+  datos: [["El voto era realizado de forma ___", "abierto"], ["El voto era realizado de forma ___", "secreto"], ["El voto era realizado de forma ___", "obligatorio"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["abierto", "secreto", "obligatorio"]
+
+enunciado: "Antes de la sanción de la Ley Sáenz Peña, el sistema electoral se caracterizaba porque el voto era ___."
+
+explicacion: |
+  Antes de 1912, el sistema era el "voto cantado", lo que permitía el fraude y la presión de los caudillos locales, ya que no había secreto.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "basico"
+  tags: ["caracteristicas_ley"]
+
+variables:
+  datos: [["voto universal", "masivo"], ["voto secreto", "anónimo"], ["voto obligatorio", "deber_ciudadano"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "masivo"
+  - "anónimo"
+  - "deber_ciudadano"
+
+enunciado: "Con la implementación de la Ley Sáenz Peña, el voto pasó a ser ___."
+
+explicacion: |
+  La ley estableció tres pilares: el voto era universal (para varones), secreto y obligatorio, rompiendo el control de la oligarquía.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "intermedio"
+  tags: ["comparativa", "fraude"]
+
+variables:
+  datos: [["Antes de 1912 el voto era ___ y después era ___", ["cantado", "secreto"]], ["Antes de 1912 el voto era ___ y después era ___", ["opcional", "obligatorio"]], ["Antes de 1912 el voto era ___ y después era ___", ["fraudulento", "transparente"]]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+
+tipo: completar
+respuestas_validas:
+  - "cantado"
+  - "secreto"
+  - "opcional"
+  - "obligatorio"
+  - "fraudulento"
+  - "transparente"
+
+enunciado: "{datos[idx][0]}"
+
+explicacion: |
+  La transición buscaba pasar de un sistema controlado y abierto a uno donde la voluntad popular fuera respetada mediante el secreto y la obligatoriedad.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "basico"
+  tags: ["obligatoriedad"]
+
+variables:
+  datos: [["En el sistema anterior, votar era ___", "un privilegio"], ["En el sistema anterior, votar era ___", "un derecho"], ["En el sistema anterior, votar era ___", "una carga"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["un privilegio", "un derecho", "una carga"]
+
+enunciado: "Antes de la reforma, el sufragio no era un derecho para todos, sino ___ para una élite restringida."
+
+explicacion: |
+  El sistema previo era restrictivo y estaba diseñado para que solo ciertos sectores sociales (la oligarquía) pudieran participar.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ampliacion_democratica_ley_saenz_pena"
+  nivel: "avanzado"
+  tags: ["consecuencias_politicas"]
+
+variables:
+  datos: [["La ley permitió el ascenso de ___", "la UCR"], ["La ley permitió el ascenso de ___", "el radicalismo"], ["La ley permitió el ascenso de ___", "el triunfo de Hipólito Yrigoyen"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "la UCR"
+  - "el radicalismo"
+  - "el triunfo de Hipólito Yrigoyen"
+
+enunciado: "La democratización del voto fue el factor clave que permitió el ascenso político de ___ en Argentina."
+
+explicacion: |
+  La Ley Sáenz Peña permitió que las fuerzas de masas, como la Unión Cívica Radical, pudieran ganar elecciones de manera legítima.
+```
+
+## Sección: sociedad-de-masas-y-democracia-liberal (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["sociologia", "terminos", "origen"]
+tipo: completar
+enunciado: "El concepto de \"sociedad de masas\" fue popularizado en el siglo XIX por el sociólogo [[uno_de([\"Gabriel Tarde\", \"Gustave Le Bon\", \"Émile Durkheim\", \"Karl Marx\"])]] para describir la transformación social tras la industrialización y la urbanización."
+respuesta: "Gustave Le Bon"
+respuestas_validas:
+  - "Gustave Le Bon"
+  - "gustave le bon"
+  - "Gustave le bon"
+  - "gustave le bon"
+explicacion: "Aunque otros sociólogos analizaron el fenómeno, Gustave Le Bon, junto con Tarde, es fundamental para la conceptualización temprana de la psicología de las masas y la crítica a la democracia moderna."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["le-bon", "psicologia", "masas"]
 tipo: vf
-enunciado: "El antropocentrismo, concepto central del humanismo renacentista, sostiene que el ser humano es la medida de todas las cosas y el centro de interés y preocupación del pensamiento humanista."
+enunciado: "Según Gustave Le Bon, las masas tienden a homogeneizarse psicológicamente, perdiendo su conciencia individual y adoptando un \"espíritu de masa\" caracterizado por la impulsividad y la sugestionabilidad."
 respuesta: verdadero
-explicacion: "A diferencia del teocentrismo medieval, el humanismo puso al ser humano en el centro, valorando la razón, la libertad y el potencial individual sin negar necesariamente la religión, sino reinterpretándola."
+explicacion: "Esta es la tesis central de \"La psicología de las multitudes\" (1895), donde Le Bon argumenta que la masa crea una ilusión colectiva de invencibilidad que anula el pensamiento crítico individual."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["arte", "pintura", "tecnicas"]
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["sufragio", "britania", "reform"]
 tipo: completar
-enunciado: "Leonardo da Vinci perfeccionó la técnica de aplicar capas finas de pintura sobre una base para lograr transiciones suaves de color y luz, conocida como {{técnica}}."
-variables:
-  tecnica: uno_de(["sfumato", "Sfumato"])
-respuesta: "sfumato"
+enunciado: "En el Reino Unido, la [[uno_de([\"Reform Act de 1832\", \"Reform Act de 1867\", \"Representation of the People Act de 1918\"])]] fue crucial para extender el voto a la clase trabajadora urbana, marcando un paso clave hacia la democracia de masas."
+respuesta: "Reform Act de 1867"
 respuestas_validas:
-  - "sfumato"
-  - "Sfumato"
-  - "SFUMATO"
-explicacion: "El sfumato (del italiano 'sfumare', difuminar) elimina los contornos duros, creando una atmósfera neblinosa y realista, visible en obras como la Mona Lisa."
+  - "Reform Act de 1867"
+  - "reform act de 1867"
+  - "Segunda Ley de Reforma de 1867"
+  - "segunda ley de reforma de 1867"
+explicacion: "La Ley de Reforma de 1867 duplicó el cuerpo electoral al incluir a los trabajadores urbanos calificados, cambiando la naturaleza de la política británica hacia la competencia por votos populares."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["contrarreforma", "iglesia", "concilios"]
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["partidos-politicos", "estructura", "organizacion"]
 tipo: mc
-enunciado: "¿Cuál fue el principal objetivo del Concilio de Trento (1545-1563) convocado por la Iglesia Católica?"
+enunciado: "¿Qué característica distintiva definía a los \"partidos de masas\" frente a los clubes parlamentarios anteriores?"
 opciones_explicitas:
-  - "Promover la traducción de la Biblia a las lenguas vernáculas"
-  - "Negociar la paz con los príncipes protestantes"
-  - "Definir la doctrina católica y reformar los abusos internos"
-  - "Establecer el calvinismo como religión oficial de Europa"
-respuesta: "Definir la doctrina católica y reformar los abusos internos"
-explicacion: "El Concilio de Trento fue la respuesta de la Iglesia Católica a la Reforma Protestante, reafirmando dogmas como la autoridad del Papa, la validez de los sacramentos y la necesidad de fe y obras, mientras se implementaban reformas disciplinarias."
+  - "Dependencia exclusiva de donantes privados para su financiamiento."
+  - "Estructura burocrática jerárquica y afiliación de miembros pagantes."
+  - "Ausencia de programa ideológico definido, enfocándose solo en figuras carismáticas."
+  - "Control total por parte de la aristocracia terrateniente."
+respuesta: "Estructura burocrática jerárquica y afiliación de miembros pagantes."
+explicacion: "Los partidos de masas (como los socialdemócratas o los conservadores organizados) se basaban en la membresía activa, cuotas y una burocracia profesional para movilizar y controlar a la gran base electoral."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["tecnologia", "imprenta", "difusion"]
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["filosofia", "espana", "rebelion"]
+tipo: completar
+enunciado: "En su obra \"La rebelión de las masas\" (1930), José Ortega y Gasset argumentaba que el hombre medio se sentía \"absolutamente indispensable\" y que la democracia de masas amenazaba con la [[uno_de([\"barbarie\", \"civilización\", \"progresión\", \"modernidad\"])]]."
+respuesta: "barbarie"
+respuestas_validas:
+  - "barbarie"
+  - "la barbarie"
+  - "Barbarie"
+  - "La barbarie"
+explicacion: "Ortega temía que la \"homo massus\" (hombre-masa), al no sentirse exigido a ser superior, impusiera su mediocridad sobre la excelencia cultural y política, llevando a la decadencia."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["medios", "prensa", "sensacionalismo"]
+tipo: mc
+enunciado: "¿Cuál fue el impacto principal del fenómeno de la \"prensa amarilla\" en la sociedad de masas de finales del siglo XIX?"
+opciones_explicitas:
+  - "Redujo la alfabetización al usar lenguaje excesivamente técnico."
+  - "Aumentó la circulación de periódicos mediante emociones fuertes y simplificación de noticias."
+  - "Centralizó el control informativo en manos del estado."
+  - "Elimina la polarización política al ofrecer datos neutros."
+respuesta: "Aumentó la circulación de periódicos mediante emociones fuertes y simplificación de noticias."
+explicacion: "La competencia por audiencias masales llevó al uso de titulares escandalosos, caricaturas y narrativas emocionales, democratizando el acceso a la información pero también manipulando la opinión pública."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["sufragio", "mujeres", "fin-siglo-xx"]
+tipo: mc
+opciones_explicitas: ["Finlandia", "Australia", "Nueva Zelanda", "Estados Unidos"]
+respuesta: "Finlandia"
+enunciado: "¿Qué país fue el primero en el mundo en otorgar tanto el derecho a voto como la elegibilidad al cargo parlamentario a las mujeres, en 1906?"
+explicacion: "Aunque Nueva Zelanda otorgó el voto en 1893, Finlandia fue el primero en permitir a las mujeres ser elegidas parlamentarias, marcando un hito único en la inclusión política de género."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["marx", "religion", "critica-social"]
 tipo: vf
-enunciado: "La invención de la imprenta de tipos móviles por Johannes Gutenberg alrededor de 1450 permitió la difusión masiva y barata de textos, acelerando tanto el Renacimiento como la Reforma."
+enunciado: "Karl Marx describió la religión como el \"opio de los pueblos\" para indicar que era una herramienta de distracción que impedía a la clase obrera tomar conciencia de su explotación real."
 respuesta: verdadero
-explicacion: "Antes de la imprenta, los libros eran manuscritos costosos y raros. La reproducción mecánica permitió que las ideas humanistas y los escritos de Lutero circulasen rápidamente por toda Europa."
+explicacion: "Esta frase, de \"Introducción a la crítica de la filosofía del derecho de Hegel\", refleja la visión marxista de la religión como un mecanismo de consuelo que perpetúa el statu quo."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["arte", "norte-europa", "realismo"]
-tipo: mc
-enunciado: "¿Qué característica distingue principalmente al Renacimiento del Norte de Europa (ej. Dürer, Van Eyck) respecto al italiano?"
-opciones_explicitas:
-  - "El uso exclusivo de la perspectiva lineal geométrica"
-  - "El enfoque detallado en el realismo doméstico y la naturaleza"
-  - "La ausencia total de temas religiosos"
-  - "La preferencia por la escultura en mármol sobre la pintura"
-respuesta: "El enfoque detallado en el realismo doméstico y la naturaleza"
-explicacion: "Los artistas del norte, como Jan van Eyck o Albrecht Dürer, se destacaron por su atención meticulosa al detalle, la textura y la luz natural, a menudo integrando lo espiritual en lo cotidiano."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["politica", "maquiavelo", "principe"]
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["cultura", "cine", "siglo-xx"]
 tipo: completar
-enunciado: "Nicolás Maquiavelo escribió \"El Príncipe\", una obra que analiza la adquisición y mantenimiento del poder político, separando la ética cristiana de la ___ política."
-respuesta: "virtu"
+enunciado: "A principios del siglo XX, el cine se consolidó como el medio de comunicación de masas por excelencia porque permitía [[uno_de([\"la transmisión instantánea de voz\", \"la visualización de historias universales sin barreras lingüísticas\", \"el debate político en tiempo real\", \"la lectura simultánea de textos\"])]]."
+respuesta: "la visualización de historias universales sin barreras lingüísticas"
 respuestas_validas:
-  - "virtu"
-  - "virtù"
-  - "Virtu"
-  - "Virtù"
-explicacion: "Para Maquiavelo, la 'virtù' no es la bondad moral, sino la habilidad, la energía y la astucia del gobernante para adaptarse a la fortuna (fortuna) y mantener el estado."
+  - "la visualización de historias universales sin barreras lingüísticas"
+  - "visualizacion de historias universales sin barreras linguisticas"
+  - "la visualización de historias universales sin barreras linguisticas"
+  - "visualizacion de historias universales sin barreras lingüisticas"
+explicacion: "El cine, especialmente antes del sonido sincronizado y con el uso de intertítulos o música, trascendía fronteras nacionales y niveles de educación, llegando a una audiencia global masiva."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["calvinismo", "etica", "economia"]
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["psicoanalisis", "frecuencia", "identidad"]
 tipo: mc
-enunciado: "Según el sociólogo Max Weber, ¿qué concepto calvinista se asocia con el surgimiento del espíritu del capitalismo?"
+enunciado: "En \"Psicología de las multitudes y análisis del yo\" (1921), Freud explica que la masa se forma cuando los individuos:"
 opciones_explicitas:
-  - "La justificación por la fe sola"
-  - "La predestinación y el ascetismo en el mundo"
-  - "La veneración de las reliquias santas"
-  - "El celibato obligatorio para el clero"
-respuesta: "La predestinación y el ascetismo en el mundo"
-explicacion: "La ansiedad por la salvación (predestinación) llevó a los calvinos a ver el éxito laboral y la riqueza (ganada sin lujos innecesarios) como posibles signos de la gracia divina, fomentando la acumulación de capital."
+  - "Desarrollan un superyó independiente y crítico."
+  - "Vinculan sus libidos al líder común, creando una identidad compartida."
+  - "Pierden totalmente su libido y se vuelven asociales."
+  - "Se organizan racionalmente alrededor de objetivos económicos claros."
+respuesta: "Vinculan sus libidos al líder común, creando una identidad compartida."
+explicacion: "Freud adaptó la idea de Le Bon, sugiriendo que la masa recrea la estructura de la familia primitiva, con el líder como figura paterna idealizada, permitiendo la regresión a estados emocionales primitivos."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["arte", "miguel-angel", "escultura"]
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["industria", "consumo", "estandarizacion"]
+tipo: completar
+enunciado: "La Segunda Revolución Industrial facilitó la sociedad de masas al permitir la [[uno_de([\"producción artesanal exclusiva\", \"producción en serie y consumo masivo\", \"destrucción de las clases medias\", \"regresión al feudalismo\"])]], lo que generó una cultura compartida."
+respuesta: "producción en serie y consumo masivo"
+respuestas_validas:
+  - "producción en serie y consumo masivo"
+  - "produccion en serie y consumo masivo"
+  - "producción en serie y consumo masivo"
+  - "produccion en serie y consumo masivo"
+explicacion: "La estandarización de productos (como el Fordismo) hizo que bienes antes exclusivos fueran accesibles a todos, creando hábitos y experiencias comunes entre las clases populares."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["nacionalismo", "educacion", "identidad"]
 tipo: vf
-enunciado: "La escultura \"David\" de Miguel Ángel representa al héroe bíblico en el momento anterior a la batalla con Goliat, exaltando la tensión muscular y la concentración humana."
+enunciado: "El nacionalismo moderno se consolidó como una fuerza de masas principalmente a través de la educación pública obligatoria y los símbolos patrios compartidos en el siglo XIX."
 respuesta: verdadero
-explicacion: "A diferencia de versiones anteriores que mostraban a David ya victorioso con la cabeza de Goliat, Miguel Ángel captura el instante de preparación, simbolizando la defensa de la libertad republicana frente a tiranos."
+explicacion: "Los estados-nación utilizaron la escuela para crear ciudadanos leales, enseñando una historia común y una lengua estándar, transformando la identidad local en identidad nacional."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["guerras", "paz", "religion"]
-tipo: completar
-enunciado: "La Paz de Augsburgo de 1555 estableció el principio de {{cuius regio, eius religio}}, permitiendo a los príncipes alemanes elegir entre catolicismo y luteranismo."
-variables:
-  principio: uno_de(["cuius regio, eius religio", "cuiusregio", "eius religio"])
-respuesta: "cuius regio, eius religio"
-respuestas_validas:
-  - "cuius regio, eius religio"
-  - "cuiusregio"
-  - "eius religio"
-  - "Cuius regio, eius religio"
-explicacion: "Este principio latino significa \"cuyo es el reino, de él es la religión\", legalizando la división religiosa en el Sacro Imperio Romano Germánico y reconociendo solo a católicos y luteranos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["literatura", "maquiavelo", "principe"]
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["trabajo", "sindicalismo", "marxismo"]
 tipo: mc
-enunciado: "¿Qué obra de Nicolás Maquiavelo analiza la historia romana para extraer lecciones sobre la virtud cívica y la república?"
+enunciado: "¿Cuál era la principal diferencia estratégica entre el sindicalismo revolucionario (como la CNT) y el reformismo socialdemócrata en la sociedad de masas?"
 opciones_explicitas:
-  - "El Príncipe"
-  - "Los Discursos sobre la primera década de Tito Livio"
-  - "La Mandrágora"
-  - "El Cortesano"
-respuesta: "Los Discursos sobre la primera década de Tito Livio"
-explicacion: "Mientras \"El Príncipe\" se centra en la monarquía y la adquisición del poder, los \"Discursos\" defienden la república y la libertad política basándose en el ejemplo de la Roma antigua."
+  - "El reformismo buscaba la abolición del estado mediante huelga general; el sindicalismo buscaba reformas legales."
+  - "El sindicalismo revolucionario rechazaba la participación parlamentaria; el reformismo la utilizaba para cambios graduales."
+  - "El reformismo promovía la violencia directa; el sindicalismo la evitaba."
+  - "No había diferencias, ambos buscaban los mismos objetivos por los mismos medios."
+respuesta: "El sindicalismo revolucionario rechazaba la participación parlamentaria; el reformismo la utilizaba para cambios graduales."
+explicacion: "Los reformistas (como Bernstein) creían en la evolución pacífica hacia el socialismo vía elecciones; los revolucionarios veían la lucha de clases y la huelga general como únicos caminos válidos."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["reforma", "zwinglio", "suiza"]
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["filosofia", "elite", "mediocridad"]
 tipo: completar
-enunciado: "Ulrico Zwinglio lideró la Reforma en Zürich, eliminando las imágenes religiosas y la música de la liturgia, influido por el humanismo y la lectura directa de {{autor}}."
-variables:
-  autor: uno_de(["pablo", "San Pablo", "paulo", "San Paulo"])
-respuesta: "pablo"
+enunciado: "Para Ortega y Gasset, el \"hombre-masa\" es aquél que se impone a sí mismo como [[uno_de([\"superior\", \"igual\", \"inferior\", \"independiente\"])]] sin haberse esforzado por merecerlo, exigiendo que el mundo se adapte a sus deseos básicos."
+respuesta: "igual"
 respuestas_validas:
-  - "pablo"
-  - "San Pablo"
-  - "paulo"
-  - "San Paulo"
-  - "Pablo"
-  - "San Pablo"
-explicacion: "Zwinglio, al igual que Lutero, se basó en la autoridad de las Escrituras, pero fue aún más radical en la iconoclastia y la interpretación literal de los textos del apóstol Pablo sobre la justificación."
+  - "igual"
+  - "de igual"
+  - "Igual"
+  - "De igual"
+explicacion: "La tragedia del hombre-masa es su falta de exigencia vital; no se siente \"prestado\" su bienestar y por tanto no respeta las normas o elites que lo mantuvieron."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["arquitectura", "filarete", "domingo"]
-tipo: mc
-enunciado: "¿Cuál de los siguientes elementos arquitectónicos es característico de la transición del Gótico al Renacimiento en la Catedral de Santa María del Fiore en Florencia?"
-opciones_explicitas:
-  - "La bóveda de crucería compleja"
-  - "La enorme cúpula diseñada por Brunelleschi"
-  - "Los arcos apuntados de estilo ojival"
-  - "Las torres gemelas de piedra caliza"
-respuesta: "La enorme cúpula diseñada por Brunelleschi"
-explicacion: "Filippo Brunelleschi resolvió el problema de cubrir la nave central con una cúpula de doble capa y estilo clásico (romano), marcando el inicio de la arquitectura renacentista moderna."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["guerra", "europa", "religion"]
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["francia", "sufragio", "universal"]
 tipo: vf
-enunciado: "La Guerra de los Treinta Años (1618-1648) comenzó como un conflicto religioso entre católicos y protestantes en el Sacro Imperio, pero evolucionó hacia una lucha geopolítica por la hegemonía europea."
+enunciado: "La Revolución de 1848 en Francia instauró el sufragio universal masculino, eliminando el censo de impuestos como requisito para votar."
 respuesta: verdadero
-explicacion: "Aunque el detonante fue la Defenestración de Praga (conflicto religioso), potencias católicas como Francia se aliaron con protestantes contra los Habsburgo, priorizando el interés estatal sobre la fe."
+explicacion: "Este evento fue un punto de inflexión en Europa, demostrando que la democracia de masas podía surgir de la presión popular y no solo de reformas elitistas graduales."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["literatura", "castiglione", "ideal"]
-tipo: completar
-enunciado: "Baldassare Castiglione escribió \"El Cortesano\", definiendo el ideal del hombre renacentista que debe poseer la {{grazia}} o gracia natural en todas sus acciones."
-variables:
-  grazia: uno_de(["grazia", "grace", "gracia", "Grazia"])
-respuesta: "grazia"
-respuestas_validas:
-  - "grazia"
-  - "grace"
-  - "gracia"
-  - "Grazia"
-  - "Grace"
-  - "Gracia"
-explicacion: "La 'sprezzatura' o gracia natural era esencial: hacer cosas difíciles parecer fáciles y naturales, demostrando nobleza sin esfuerzo aparente, combinando armas y letras."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["reforma", "iconoclastia", "arte"]
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["economia", "publicidad", "psicologia"]
 tipo: mc
-enunciado: "¿Qué fenómeno artístico ocurrió en Flandes y otras regiones calvinistas durante la Reforma?"
+enunciado: "¿Qué rol jugó la publicidad moderna en la formación de la sociedad de masas?"
 opciones_explicitas:
-  - "El florecimiento de la pintura de retratos nobles"
-  - "La destrucción masiva de imágenes religiosas en las iglesias"
-  - "La construcción de catedrales góticas gigantes"
-  - "El patrocinio público de esculturas mitológicas"
-respuesta: "La destrucción masiva de imágenes religiosas en las iglesias"
-explicacion: "Los reformadores calvinos consideraban las imágenes como idolatría prohibida por los mandamientos bíblicos, lo que llevó a la 'Beeldenstorm' (tormenta de imágenes) en los Países Bajos."
+  - "Desincentivó el consumo para preservar recursos."
+  - "Creó necesidades artificiales y estandarizó los gustos culturales."
+  - "Se centró únicamente en informar sobre precios sin apelar a emociones."
+  - "Fue controlada exclusivamente por el gobierno."
+respuesta: "Creó necesidades artificiales y estandarizó los gustos culturales."
+explicacion: "La publicidad no solo vendía productos, sino estilos de vida, aspiraciones y pertenencia, homogeneizando los deseos de la población y alimentando el ciclo de producción-consumo."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["elitismo", "mosca", "politica"]
+tipo: completar
+enunciado: "Gaetano Mosca, en su teoría de las élites, sostenía que en toda sociedad existe una [[uno_de([\"minoría organizada\", \"mayoría indiferente\", \"clase media\", \"oligarquía divina\"])]], que gobierna mientras la mayoría permanece pasiva."
+respuesta: "minoría organizada"
+respuestas_validas:
+  - "minoría organizada"
+  - "minoria organizada"
+  - "Una minoría organizada"
+  - "una minoría organizada"
+explicacion: "Mosca argumentaba que la democracia de masas no elimina la dominación, solo cambia la composición de la minoría gobernante, pero la estructura jerárquica es inevitable."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["usa", "sufragio", "enmienda"]
+tipo: completar
+enunciado: "La [[uno_de([\"Decimonovena Enmienda\", \"Decimoséptima Enmienda\", \"Decimocuarta Enmienda\", \"Décima Enmienda\"])]], ratificada en 1920, prohibió la discriminación en el voto basada en el sexo en Estados Unidos."
+respuesta: "Decimonovena Enmienda"
+respuestas_validas:
+  - "Decimonovena Enmienda"
+  - "decimonovena enmienda"
+  - "Decimonovena Enmienda"
+  - "decimonovena enmienda"
+  - "19th Amendment"
+  - "19th enmienda"
+explicacion: "Este fue el culmen de décadas de lucha del movimiento sufragista, expandiendo significativamente la base electoral de la democracia estadounidense."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["escuela-frankfurt", "cultura", "critica"]
+tipo: mc
+enunciado: "Para Theodor Adorno y Max Horkheimer, la \"industria cultural\" en la sociedad de masas:"
+opciones_explicitas:
+  - "Empodera al espectador con contenido crítico y complejo."
+  - "Estandariza el entretenimiento para conformar y alienar al público."
+  - "Fomenta la diversidad artística independiente del mercado."
+  - "Elimina la necesidad de ideología en la política."
+respuesta: "Estandariza el entretenimiento para conformar y alienar al público."
+explicacion: "Argumentaban que la cultura se convertía en mercancía, produciendo placer fácil que adormece el pensamiento crítico y mantiene al individuo sumiso al sistema capitalista."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["britania", "voto-rural", "democracia"]
+tipo: completar
+enunciado: "La [[uno_de([\"Reform Act de 1884\", \"Reform Act de 1911\", \"Parliament Act de 1911\", \"Great Reform Act de 1832\"])]], conocida como la \"Gran Extensión\", extendió el voto a los trabajadores agrícolas del campo, igualando las reglas electorales rurales con las urbanas."
+respuesta: "Reform Act de 1884"
+respuestas_validas:
+  - "Reform Act de 1884"
+  - "reform act de 1884"
+  - "Tercera Ley de Reforma de 1884"
+  - "tercera ley de reforma de 1884"
+explicacion: "Esta ley completó la democratización del cuerpo electoral masculino en el Reino Unido, preparando el terreno para el ascenso del Partido Laborista."
 ```
 
 ```
 metadata:
   materia: "historia-profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["humanismo", "erasmo", "cristianismo"]
-tipo: completar
-enunciado: "Erasmo de Rotterdam, conocido como \"el príncipe de los humanistas\", criticó los abusos de la Iglesia desde dentro, abogando por un {{cristianismo}} simple y basado en los textos originales."
-variables:
-  cristianismo: uno_de(["cristianismo filosófico", "cristianismo humano", "filosofia christi", "christianismo"])
-respuesta: "cristianismo filosófico"
-respuestas_validas:
-  - "cristianismo filosófico"
-  - "cristianismo humano"
-  - "filosofia christi"
-  - "christianismo"
-  - "Cristianismo filosófico"
-  - "Cristianismo humano"
-  - "Filosofia Christi"
-  - "Christianismo"
-explicacion: "Erasmo buscaba una reforma moral y educativa basada en el estudio de la Biblia y los Padres de la Iglesia, influenciando a Lutero inicialmente antes de distanciarse por temas teológicos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["arte", "perspectiva", " Brunelleschi"]
-tipo: vf
-enunciado: "La invención de la perspectiva lineal matemática permitió a los artistas renacentistas representar el espacio tridimensional en un plano bidimensional de manera científica y coherente."
-respuesta: verdadero
-explicacion: "Desarrollada por Brunelleschi y teorizada por Alberti, la perspectiva utiliza un punto de fuga y líneas convergentes para crear la ilusión de profundidad, revolucionando la pintura."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["reforma", "inglaterra", "henry"]
-tipo: completar
-enunciado: "Enrique VIII de Inglaterra rompió con la Iglesia Católica principalmente por razones políticas y dinásticas al buscar la anulación de su matrimonio con {{esposa}}."
-variables:
-  esposa: uno_de(["Catalina de Aragón", "catalina de aragon", "Catherine of Aragon", "catalina"])
-respuesta: "Catalina de Aragón"
-respuestas_validas:
-  - "Catalina de Aragón"
-  - "catalina de aragon"
-  - "Catherine of Aragon"
-  - "catalina"
-  - "Catalina"
-  - "Catalina de Aragon"
-explicacion: "La necesidad de un heredero varón llevó a Enrique a buscar la anulación, lo que le llevó a proclamarse Jefe Supremo de la Iglesia de Inglaterra mediante el Acta de Supremacía (1534)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["humanismo", "norte-europa", "educacion"]
-tipo: mc
-enunciado: "¿Qué enfoque caracterizó al humanismo del Norte de Europa en comparación con el italiano?"
-opciones_explicitas:
-  - "El interés exclusivo por la mitología clásica pagana"
-  - "La fusión del humanismo clásico con la devoción religiosa cristiana"
-  - "El rechazo total de la religión en favor del materialismo"
-  - "La priorización de la escultura sobre la literatura"
-respuesta: "La fusión del humanismo clásico con la devoción religiosa cristiana"
-explicacion: "Humanistas como Erasmo y Tomás Moro utilizaron la filología clásica para estudiar la Biblia y los Padres de la Iglesia, buscando una reforma religiosa basada en el conocimiento y la piedad personal."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["arte", "venecia", "color"]
-tipo: completar
-enunciado: "Los pintores venecianos como Tiziano se distinguieron por su uso magistral del {{color} en lugar del dibujo lineal (disegno) predominante en Florencia."
-variables:
-  color: uno_de(["color", "colore", "colour", "Color"])
-respuesta: "color"
-respuestas_validas:
-  - "color"
-  - "colore"
-  - "colour"
-  - "Color"
-  - "Colore"
-  - "Colour"
-explicacion: "En Venecia, la riqueza de los colores y la luz reflejada en el agua eran prioritarias (colore), mientras que en Florencia y Roma se valoraba más el diseño y la estructura (disegno)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["francia", "guerras", "hugonotes"]
-tipo: vf
-enunciado: "El Edicto de Nantes (1598) promulgado por Enrique IV puso fin a las guerras de religión en Francia otorgando ciertos derechos a los hugonotes (protestantes)."
-respuesta: verdadero
-explicacion: "Fue un edicto de tolerancia que permitía la libertad de culto en lugares específicos para los protestantes, estableciendo una coexistencia precaria pero crucial en un país mayoritariamente católico."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["arte", "manierismo", "estilo"]
-tipo: mc
-enunciado: "¿Qué característica define al Manierismo, fase final del Renacimiento?"
-opciones_explicitas:
-  - "El equilibrio perfecto y la claridad clásica"
-  - "La distorsión de la figura humana y la composición inestable"
-  - "El realismo fotográfico y el detalle hiperdetallado"
-  - "El uso exclusivo de colores pasteles suaves"
-respuesta: "La distorsión de la figura humana y la composición inestable"
-explicacion: "Artistas como Pontormo y Parmigianino buscaban la elegancia artificial, la complejidad y la tensión emocional, rompiendo con las reglas armónicas del Alto Renacimiento."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "renacimiento-y-reforma"
-  nivel: "intermedio"
-  tags: ["jesuitas", "ignacio", "mision"]
-tipo: completar
-enunciado: "San Ignacio de Loyza fundó la Compañía de Jesús, un orden religiosa dedicada a la {{educacion}} y la misión, que se convirtió en la principal arma de la Iglesia Católica contra la Reforma."
-variables:
-  educacion: uno_de(["educacion", "educación", "education", "enseñanza", "instruction"])
-respuesta: "educacion"
-respuestas_validas:
-  - "educacion"
-  - "educación"
-  - "education"
-  - "enseñanza"
-  - "instruction"
-  - "Educacion"
-  - "Educación"
-  - "Education"
-  - "Enseñanza"
-  - "Instruction"
-explicacion: "Los jesuitas establecieron colegios y universidades en toda Europa y el mundo, formando a las élites y contrarrestando la influencia protestante a través de la educación y la obediencia al Papa."
-```
-
-## Sección: revolucion-de-mayo (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
-  nivel: "basico"
-  tags: ["mayo_1810", "virrey", "independencia"]
-
-respuesta: "Baltasar Hidalgo de Cisneros"
-tipo: completar
-respuestas_validas:
-  - "Baltasar Hidalgo de Cisneros"
-
-enunciado: "El virrey que fue depuesto tras la Revolución de Mayo fue ___."
-
-explicacion: |
-  La Junta de Gobierno de 1810 decidió que el poder español ya no era legítimo ante la captura del Rey Fernando VII por Napoleón, lo que llevó a la destitución de Cisneros.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
-  nivel: "intermedio"
-  tags: ["primera_junta", "gobierno"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  datos: [["Cornelio Saavedra", "Presidente"], ["Mariano Moreno", "Secretario"], ["Juan José Paso", "Secretario"]]
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Presidente", "Secretario", "Vocal"]
-
-enunciado: "En la Primera Junta de Gobierno, el rol de {datos[idx][0]} era el de ___."
-
-explicacion: |
-  La Primera Junta estaba integrada por un presidente y varios secretarios y vocales. {datos[idx][0]} ocupaba el cargo de {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
-  nivel: "intermedio"
-  tags: ["causas", "contexto"]
-
-respuesta: "Napoleón Bonaparte"
-tipo: completar
-respuestas_validas:
-  - "Napoleón Bonaparte"
-
-enunciado: "Un factor externo crucial que aceleró la crisis de legitimidad en el Virreinato fue la invasión de ___ a España."
-
-explicacion: |
-  La invasión napoleónica a la península ibérica y la captura del Rey Fernando VII crearon un vacío de poder que las colonias utilizaron para reclamar autonomía.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
+  tema: "sociedad-de-masas-y-democracia-liberal"
   nivel: "avanzado"
-  tags: ["cronologia", "eventos"]
-
-respuesta_orden: ["Cabildo Abierto", "Junta de Gobierno", "Primera Junta"]
-tipo: ordenar
-opciones_explicitas: ["Cabildo Abierto", "Junta de Gobierno", "Primera Junta"]
-
-enunciado: "Ordene cronológicamente los hitos de la semana de mayo de 1810:"
-
-explicacion: |
-  Primero se debatió en el Cabildo Abierto, luego se conformó la Junta de Gobierno y finalmente se consolidó la Primera Junta con sus miembros.
+  tags: ["sociologia", "karl-mannheim", "ideologia"]
+tipo: vf
+enunciado: "Karl Mannheim analizó cómo la sociedad de masas puede llevar tanto a la democratización como al totalitarismo, dependiendo de si las masas son movilizadas por fuerzas liberales o autoritarias."
+respuesta: verdadero
+explicacion: "Mannheim, en \"Ideología y Utopía\" y otros trabajos, mostró que la estructura de masas es neutra en cuanto a régimen; su dirección depende de la lucha ideológica y la organización."
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
-  nivel: "basico"
-  tags: ["caracter", "gobierno"]
-
-respuesta: "fiel"
-tipo: mc
-opciones_explicitas: ["fiel", "rebelde", "monárquico"]
-
-enunciado: "Inicialmente, la Primera Junta proclamó su autoridad como ___ a la soberanía de Fernando VII (la llamada 'máscara de Fernando')."
-
-explicacion: |
-  Se utilizó la estrategia de la "máscara de Fernando VII", donde se gobernaba en nombre del rey cautivo para evitar represalias directas de España mientras se ganaba autonomía.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
-  nivel: "basico"
-  tags: ["contexto", "napoleon", "monarquia"]
-
-respuesta: "Napoleón Bonaparte"
+  materia: "historia-profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["deporte", "futbol", "sociedad"]
 tipo: completar
+enunciado: "El fútbol se expandió globalmente como deporte de masas en el siglo XIX gracias a su [[uno_de([\"reglamentación compleja\", \"reglas simples y accesibles\", \"alto costo de equipo\", \"exclusividad elitista\"])]], permitiendo la participación de trabajadores industriales."
+respuesta: "reglas simples y accesibles"
 respuestas_validas:
-  - "Napoleón Bonaparte"
-  - "Napoleón"
+  - "reglas simples y accesibles"
+  - "reglas simples y accesibles"
+  - "reglas simples y accesibles"
+  - "reglas simples y accesibles"
+explicacion: "La simplicidad de las reglas y la necesidad de poco equipo lo hicieron ideal para las ciudades industriales, creando una pasión compartida que trascendía clases."
+```
 
-enunciado: "La invasión de ___ a España en 1808 provocó una crisis de legitimidad que debilitó el control sobre las colonias americanas."
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["psicologia", "extrema", "comportamiento"]
+tipo: mc
+enunciado: "¿Qué tendencia demuestra la teoría de la polarización en grupos de masas?"
+opciones_explicitas:
+  - "Los grupos de masas siempre adoptan posturas moderadas y centristas."
+  - "Los grupos de masas tienden a adoptar posturas más extremas en la dirección de su inclinación inicial."
+  - "Los individuos en masas pierden toda capacidad de juicio."
+  - "Las masas son inherentemente pacíficas y racionales."
+respuesta: "Los grupos de masas tienden a adoptar posturas más extremas en la dirección de su inclinación inicial."
+explicacion: "La dinámica de grupo amplifica las creencias previas, llevando a la radicalización. Esto explica el éxito de movimientos políticos extremos en contextos de masas."
+```
 
-explicacion: |
-  La invasión napoleónica a España y la captura del rey Fernando VII crearon un vacío de poder que las élites criollas utilizaron para cuestionar la autoridad colonial.
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["trabajo", "leyes", "alemania"]
+tipo: mc
+opciones_explicitas: ["Otto von Bismarck", "Camillo Cavour", "Ludwig von Mises", "Karl Liebknecht"]
+respuesta: "Otto von Bismarck"
+enunciado: "¿Quién implementó las primeras leyes de seguridad social (seguro de salud, accidentes y pensiones) en Alemania en la década de 1880, para contrarrestar el atractivo del socialismo entre la clase trabajadora?"
+explicacion: "Este fue un ejemplo temprano de \"capitalismo de Estado\" o paternalismo conservador, usando el bienestar social para estabilizar la democracia emergente y frenar la revolución."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "sociedad-de-masas-y-democracia-liberal"
+  nivel: "avanzado"
+  tags: ["crisis", "1929", "fascismo"]
+tipo: vf
+enunciado: "La Gran Depresión de 1929 debilitó la legitimidad de la democracia liberal de masas en Europa, facilitando el ascenso de regímenes totalitarios que prometían orden y recuperación rápida."
+respuesta: verdadero
+explicacion: "La incapacidad de los gobiernos liberales para manejar la crisis económica mostró sus límites percibidos, mientras que las dictaduras presentaban una apariencia de eficiencia y unidad nacional."
+```
+
+## Sección: primera-guerra-mundial-y-revolucion-rusa (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["casus-belli", "sarajevo"]
+enunciado: "El asesinato de {{ uno_de([personaje_1, personaje_2 ]) }} en Sarajevo el 28 de junio de 1914 fue el detonante directo que activó el sistema de alianzas y llevó al estallido de la Primera Guerra Mundial."
+variables:
+  personaje_1: "Archiduque Francisco Fernando"
+  personaje_2: "Francisco Fernando de Austria"
+tipo: completar
+respuesta: "Archiduque Francisco Fernando"
+respuestas_validas:
+  - "Archiduque Francisco Fernando"
+  - "Archiduque Francisco Fernando de Austria"
+  - "Francisco Fernando"
+  - "Archiduque Francisco Fernando"
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
-  nivel: "intermedio"
-  tags: ["causas", "autoridad", "colonia"]
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["paz", "versalles"]
+enunciado: "¿Cuál fue el tratado de paz principal que puso fin oficialmente a la Primera Guerra Mundial entre las Potencias Aliadas y Alemania?"
+opciones_explicitas:
+  - "Tratado de Trianón"
+  - "Tratado de Versalles"
+  - "Tratado de Saint-Germain"
+  - "Tratado de Neuilly"
+respuesta: "Tratado de Versalles"
+```
 
-opciones_explicitas: ["Se fortaleció el control absoluto de la metrópoli", "Se produjo un debilitamiento de la autoridad real sobre las colonias", "Se unificaron los ejércitos de España y América"]
-respuesta: "Se produjo un debilitamiento de la autoridad real sobre las colonias"
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["febrero", "abdicacion"]
+enunciado: "La Revolución de Febrero de 1917 en Rusia provocó la abdicación del último zar de la dinastía Romanov. ¿Quién fue este monarca?"
+opciones_explicitas:
+  - "Pedro I el Grande"
+  - "Alejandro II"
+  - "Nicolás II"
+  - "Alejandro III"
+respuesta: "Nicolás II"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["mar", "bloqueo"]
+enunciado: "La estrategia naval británica consistió en un {{ uno_de([bloqueo_1, bloqueo_2 ]) }} de las costas alemanas para impedir la entrada de suministros y materias primas, debilitando gravemente la economía del Imperio Alemán."
+variables:
+  bloqueo_1: "bloqueo"
+  bloqueo_2: "cerco"
+tipo: completar
+respuesta: "bloqueo"
+respuestas_validas:
+  - "bloqueo"
+  - "cerco"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["rusia", "paz", "bolchevique"]
+enunciado: "La nueva gobierno bolchevique firmó el {{ uno_de([tratado_1, tratado_2 ]) }} con las Potencias Centrales en marzo de 1918, saliendo oficialmente de la guerra a costa de enormes pérdidas territoriales."
+variables:
+  tratado_1: "Tratado de Brest-Litovsk"
+  tratado_2: "Paz de Brest-Litovsk"
+tipo: completar
+respuesta: "Tratado de Brest-Litovsk"
+respuestas_validas:
+  - "Tratado de Brest-Litovsk"
+  - "Paz de Brest-Litovsk"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["armisticio", "compiene"]
+enunciado: "El armisticio que detuvo los combates en el frente occidental se firmó en un vagón de ferrocarril en el bosque de Compiègne. ¿En qué mes de 1918 ocurrió?"
+opciones_explicitas:
+  - "Noviembre"
+  - "Diciembre"
+  - "Octubre"
+  - "Septiembre"
+respuesta: "Noviembre"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["octubre", "lenin"]
+enunciado: "Fue el líder principal de la Revolución de Octubre de 1917 y el primer jefe de gobierno de la Rusia Soviética. ¿Quién fue?"
+opciones_explicitas:
+  - "León Trotsky"
+  - "Iósif Stalin"
+  - "Vladimir Lenin"
+  - "Grigori Zinóviev"
+respuesta: "Vladimir Lenin"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["frente", "rusia"]
+enunciado: "A diferencia del frente occidental, caracterizado por la guerra de trincheras estática, el {{ uno_de([frente_1, frente_2 ]) }} fue más móvil y amplio, lo que facilitó la posterior ruptura del ejército ruso."
+variables:
+  frente_1: "frente oriental"
+  frente_2: "frente ruso"
+tipo: completar
+respuesta: "frente oriental"
+respuestas_validas:
+  - "frente oriental"
+  - "frente ruso"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["submarino", "guerra_no_limitada"]
+enunciado: "Alemania reanudó la guerra submarina sin restricciones en 1917, atacando barcos neutrales, lo que fue un factor clave para la entrada en la guerra de {{ uno_de([pais_1, pais_2 ]) }}."
+variables:
+  pais_1: "Estados Unidos"
+  pais_2: "USA"
+tipo: completar
+respuesta: "Estados Unidos"
+respuestas_validas:
+  - "Estados Unidos"
+  - "USA"
+  - "Estados Unidos de América"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["genocidio", "imperio_otomano"]
+enunciado: "Durante la Primera Guerra Mundial, el gobierno del Imperio Otomano llevó a cabo la deportación y masacre sistemática de su población {{ uno_de([grupo_1, grupo_2 ]) }}, considerada por muchos historiadores como el primer genocidio moderno."
+variables:
+  grupo_1: "armenia"
+  grupo_2: "armenios"
+tipo: completar
+respuesta: "armenia"
+respuestas_validas:
+  - "armenia"
+  - "armenios"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["verdun", "sangre"]
+enunciado: "La batalla de Verdún, librada entre alemanes y franceses en 1916, es conocida por su {{ uno_de([caract_1, caract_2 ]) }} extrema, con cientos de miles de muertos y heridos sin cambios significativos en el frente."
+variables:
+  caract_1: "carnicería"
+  caract_2: "sangría"
+tipo: completar
+respuesta: "carnicería"
+respuestas_validas:
+  - "carnicería"
+  - "sangría"
+  - "masacre"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["trotsky", "ejercito_rojo"]
+enunciado: "{{ uno_de([nombre_1, nombre_2 ]) }} fue el comisario de Guerra que organizó y dirigió el Ejército Rojo durante la guerra civil rusa posterior a la revolución."
+variables:
+  nombre_1: "León Trotsky"
+  nombre_2: "Leon Trotsky"
+tipo: completar
+respuesta: "León Trotsky"
+respuestas_validas:
+  - "León Trotsky"
+  - "Leon Trotsky"
+  - "Trotsky"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["trincheras", "tactica"]
+enunciado: "La característica táctica definitoria del frente occidental fue la guerra de {{ uno_de([tipo_1, tipo_2 ]) }}, donde los soldados vivían en fosos excavados en la tierra protegidos por alambre de espino."
+variables:
+  tipo_1: "trincheras"
+  tipo_2: "trinchera"
+tipo: completar
+respuesta: "trincheras"
+respuestas_validas:
+  - "trincheras"
+  - "trinchera"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["octubre", "fecha"]
+enunciado: "La Revolución de Octubre en Rusia ocurrió según el calendario juliano en uso en Rusia en ese momento, pero corresponde al {{ uno_de([mes_1, mes_2 ]) }} de 1917 en el calendario gregoriano."
+variables:
+  mes_1: "noviembre"
+  mes_2: "Noviembre"
+tipo: completar
+respuesta: "noviembre"
+respuestas_validas:
+  - "noviembre"
+  - "Noviembre"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["wilson", "paz"]
+enunciado: "El presidente de Estados Unidos {{ uno_de([nombre_1, nombre_2 ]) }} presentó los \"Catorce Puntos\" como un programa de paz y base para la posterior creación de la Sociedad de Naciones."
+variables:
+  nombre_1: "Woodrow Wilson"
+  nombre_2: "Woodrow"
+tipo: completar
+respuesta: "Woodrow Wilson"
+respuestas_validas:
+  - "Woodrow Wilson"
+  - "Woodrow"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["artilleria", "armas"]
+enunciado: "Alemania utilizó artillería pesada de largo alcance, como los cañones {{ uno_de([modelo_1, modelo_2 ]) }}, para bombardear fortalezas belgas y francesas desde gran distancia."
+variables:
+  modelo_1: "Big Bertha"
+  modelo_2: "Big Bertha"
+tipo: completar
+respuesta: "Big Bertha"
+respuestas_validas:
+  - "Big Bertha"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["austria", "desmembramiento"]
+enunciado: "El Tratado de Saint-Germain en 1919 disolvió el Imperio Austrohúngico y reconoció la independencia de {{ uno_de([pais_1, pais_2 ]) }}, entre otras nuevas naciones."
+variables:
+  pais_1: "Austria"
+  pais_2: "austria"
+tipo: completar
+respuesta: "Austria"
+respuestas_validas:
+  - "Austria"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["gas", "ypr"]
+enunciado: "La primera gran utilización de gas venenoso en el campo de batalla por parte de Alemania ocurrió en la {{ uno_de([batalla_1, batalla_2 ]) }} de Ypres."
+variables:
+  batalla_1: "segunda batalla"
+  batalla_2: "Segunda batalla"
+tipo: completar
+respuesta: "segunda batalla"
+respuestas_validas:
+  - "segunda batalla"
+  - "Segunda batalla"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["guerra_civil", "almirante"]
+enunciado: "Durante la guerra civil rusa, el almirante {{ uno_de([nombre_1, nombre_2 ]) }} lideró a las fuerzas blancas en Siberia contra los bolcheviques."
+variables:
+  nombre_1: "Kolchak"
+  nombre_2: "Alexander Kolchak"
+tipo: completar
+respuesta: "Kolchak"
+respuestas_validas:
+  - "Kolchak"
+  - "Alexander Kolchak"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["escaperoal", "naval"]
+enunciado: "La escuadra alemana del Alto Mar se autohundió en ___ en 1919 para evitar que la flota fuera repartida entre las potencias aliadas, un acto de desobediencia ordenado por sus propios oficiales."
+tipo: completar
+respuesta: "Scapa Flow"
+respuestas_validas:
+  - "Scapa Flow"
+  - "scapa flow"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["weimar", "república"]
+enunciado: "La República de Weimar, establecida tras la abdicación del káiser Guillermo II, fue la forma de gobierno de Alemania entre 1919 y 1933."
+respuesta: verdadero
+tipo: vf
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["internacional", "tercera"]
+enunciado: "Lenin y Trotsky impulsaron la creación de la {{ uno_de([int_1, int_2 ]) }}, también conocida como la Komintern, para promover la revolución mundial."
+variables:
+  int_1: "Tercera Internacional"
+  int_2: "Comintern"
+tipo: completar
+respuesta: "Tercera Internacional"
+respuestas_validas:
+  - "Tercera Internacional"
+  - "Comintern"
+  - "Komintern"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["jutlandia", "naval"]
+enunciado: "La única gran batalla naval entre las flotas británica y alemana durante la Primera Guerra Mundial ocurrió en el {{ uno_de([mar_1, mar_2 ]) }} del Norte."
+variables:
+  mar_1: "mar del Norte"
+  mar_2: "Mar del Norte"
+tipo: completar
+respuesta: "mar del Norte"
+respuestas_validas:
+  - "mar del Norte"
+  - "Mar del Norte"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["domingo_sangriento", "1905"]
+enunciado: "El \"Domingo Sangriento\" de 1905, donde la guardia imperial disparó contra manifestantes pacíficos en San Petersburgo, fue un precursor clave de la revolución de 1917."
+respuesta: verdadero
+tipo: vf
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["hungria", "desmembramiento"]
+enunciado: "El Tratado de Trianón en 1920 redujo drásticamente el territorio de {{ uno_de([pais_1, pais_2 ]) }}, creando el estado de Hungría moderna y cediendo territorios a Rumania, Checoslovaquia y Yugoslavia."
+variables:
+  pais_1: "Hungria"
+  pais_2: "Hungría"
+tipo: completar
+respuesta: "Hungria"
+respuestas_validas:
+  - "Hungria"
+  - "Hungría"
+```
+
+## Sección: entreguerras-y-crisis-de-1929 (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["crisis-economica", "1929", "causas"]
 tipo: mc
+enunciado: "¿Cuál de las siguientes estructuras económicas fue identificada por muchos historiadores como una causa estructural fundamental que impidió la recuperación del mercado de consumo en Estados Unidos antes de la Gran Depresión?"
+opciones_explicitas:
+  - "La fuerte regulación bancaria de la Reserva Federal."
+  - "La sobreproducción industrial y agrícola combinada con un crédito al consumo desmedido y una distribución desigual de la renta."
+  - "El exceso de exportaciones agrícolas hacia Europa devastada por la guerra."
+  - "La escasez de materias primas debido al bloqueo naval de las potencias aliadas."
+respuesta: "La sobreproducción industrial y agrícola combinada con un crédito al consumo desmedido y una distribución desigual de la renta."
+explicacion: "Durante los años 20, la producción aumentó más rápido que los salarios, creando un desequilibrio. El crédito al consumo permitía comprar bienes que la mayoría no podía pagar con su ingreso actual, generando una burbuja de deuda que estalló cuando el mercado se saturó."
+```
 
-enunciado: "¿Cuál fue la consecuencia directa de la crisis de la monarquía española en 1808 respecto a sus territorios en América?"
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["1929", "bolsa", "cronologia"]
+tipo: vf
+enunciado: "El colapso inicial de la bolsa de Nueva York, conocido como el \"Jueves Negro\", ocurrió el 24 de octubre de 1929, marcando el inicio simbólico de la Gran Depresión."
+respuesta: verdadero
+explicacion: "El jueves 24 de octubre de 1929 fue el primer día de ventas masivas y pánico generalizado. Aunque el \"Martes Negro\" (29 de octubre) fue aún peor en volumen, el Jueves Negro es la fecha tradicionalmente citada como el inicio del colapso financiero."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["herbert-hoover", "politica-economica", "respuesta-gobierno"]
+tipo: completar
+enunciado: "El presidente estadounidense Herbert Hoover, aunque reticente a la intervención federal directa masiva, apoyó la creación de la _______ para intentar estabilizar los bancos y las corporaciones en dificultades."
+respuesta: "Reconstruction Finance Corporation"
+respuestas_validas:
+  - "Reconstruction Finance Corporation"
+  - "reconstruction finance corporation"
+  - "RFC"
+  - "Corporación de Financiamiento de la Reconstrucción"
+explicacion: "La RFC (Reconstruction Finance Corporation) fue establecida en 1932 bajo Hoover para prestar dinero a bancos, ferrocarriles y otras instituciones financieras, marcando un paso temprano hacia la intervención federal, aunque insuficiente para detener la crisis."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["diplomacia", "locarno", "estabilidad-relativa"]
+tipo: mc
+enunciado: "Los Pactos de Locarno (1925) tuvieron un impacto significativo en la diplomacia europea antes de la crisis de 1929. ¿Cuál fue su principal efecto?"
+opciones_explicitas:
+  - "Establecieron las fronteras orientales de Alemania con Polonia y Checoslovaquia de manera irreversible."
+  - "Garantizaron las fronteras occidentales de Alemania y permitieron su entrada en la Sociedad de Naciones, mejorando temporalmente la confianza entre potencias."
+  - "Imponían sanciones económicas automáticas a cualquier nación que rearmara sin autorización."
+  - "Crearon una unión aduanera entre Alemania, Francia e Italia."
+respuesta: "Garantizaron las fronteras occidentales de Alemania y permitieron su entrada en la Sociedad de Naciones, mejorando temporalmente la confianza entre potencias."
+explicacion: "Locarno vio a Alemania, Francia y Bélgica garantizar sus fronteras comunes. Esto llevó a la entrada de Alemania en la Sociedad de Naciones en 1926, creando la llamada \"Espíritu de Locarno\", una breve era de reconciliación que se desvaneció con la crisis."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["comercio", "proteccionismo", "smoot-hawley"]
+tipo: completar
+enunciado: "La _______ de 1930 elevó los aranceles estadounidenses a niveles históricos, provocando represalias comerciales globales y profundizando la Gran Depresión."
+respuesta: "Ley Smoot-Hawley"
+respuestas_validas:
+  - "Ley Smoot-Hawley"
+  - "ley smoot-hawley"
+  - "Smoot-Hawley Tariff Act"
+  - "arancel smoot-hawley"
+explicacion: "La Ley Smoot-Hawley aumentó los aranceles a más de 20.000 productos importados. Esto provocó que otros países elevaran sus propios aranceles, colapsando el comercio internacional y reduciendo drásticamente el volumen de intercambios globales."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["nazismo", "alemania", "crisis-politica"]
+tipo: mc
+enunciado: "¿Cómo contribuyó específicamente la Gran Depresión al ascenso electoral del Partido Nazi (NSDAP) en Alemania entre 1929 y 1933?"
+opciones_explicitas:
+  - "Al garantizar que Hitler fuera nombrado canciller directamente por el presidente Hindenburg en 1930."
+  - "Al provocar una hiperinflación que arruinó a la clase media, haciendo que apoyaran al SPD."
+  - "Al causar un desempleo masivo y desesperación social que erosionó la legitimidad de la República de Weimar y favoreció a los extremos políticos."
+  - "Al permitir que Alemania recibiera más préstamos de EE.UU. que usó para financiar propaganda nazi."
+respuesta: "Al causar un desempleo masivo y desesperación social que erosionó la legitimidad de la República de Weimar y favoreció a los extremos políticos."
+explicacion: "La crisis eliminó los préstamos estadounidenses (efecto de la retirada de capitales), provocando quiebras bancarias y desempleo masivo. Esto debilitó a los partidos moderados y hizo que los votores buscaran soluciones radicales, beneficiando a los nazis y comunistas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["urss", "stalin", "nep", "industrializacion"]
+tipo: vf
+enunciado: "Durante la Gran Depresión en Occidente, Stalin mantuvo la Nueva Política Económica (NEP) intacta para proteger a la Unión Soviética del impacto del capitalismo global."
+respuesta: falso
+explicacion: "Stalin abandonó la NEP a finales de los años 20 e inició los Planes Quinquenales, centrados en la industrialización forzada y la colectivización agrícola, independientemente de la crisis capitalista, buscando la autosuficiencia y el desarrollo industrial rápido."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["oro", "tipo-cambio", "economia-monetaria"]
+tipo: completar
+enunciado: "La adhesión a la _______ por parte de muchas naciones europeas durante la crisis limitó la capacidad de sus gobiernos para devaluar sus monedas y estimular la economía doméstica."
+respuesta: "Gold Standard"
+respuestas_validas:
+  - "Gold Standard"
+  - "gold standard"
+  - "patrón oro"
+  - "estandar oro"
+  - "patrón de oro"
+explicacion: "Bajo el patrón oro, los países debían mantener reservas de oro. Para defender la convertibilidad, tuvieron que subir tasas de interés y contraer la oferta monetaria, lo que profundizó la deflación y la recesión. Gran Bretaña abandonó el patrón oro en 1931, recuperando flexibilidad monetaria."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["fdr", "new-deal", "elecciones"]
+tipo: mc
+enunciado: "¿Qué factor político clave permitió a Franklin D. Roosevelt ganar las elecciones de 1932 con una mayoría abrumadora?"
+opciones_explicitas:
+  - "La popularidad de la Liga de las Naciones."
+  - "El fracaso percibido de la administración de Herbert Hoover para manejar la crisis económica y social."
+  - "Un pacto secreto con el Partido Comunista de EE.UU."
+  - "La intervención militar directa de EE.UU. en Europa."
+respuesta: "El fracaso percibido de la administración de Herbert Hoover para manejar la crisis económica y social."
+explicacion: "La percepción de que Hoover era indiferente al sufrimiento popular (\"Hoovervilles\", \"Hoover flags\") y que sus políticas eran insuficientes, llevó a un cambio de régimen masivo hacia el New Deal de FDR, prometiendo acción federal activa."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["new-deal", "nira", "constitucionalidad"]
+tipo: vf
+enunciado: "La Ley de Recuperación Industrial Nacional (NIRA) de 1933 fue declarada inconstitucional por la Corte Suprema de EE.UU. en 1935."
+respuesta: verdadero
+explicacion: "En el caso *Schechter Poultry Corp. v. United States*, la Corte Suprema dictaminó que la NIRA delegaba demasiado poder legislativo al ejecutivo y regulaba negocios intrastatales, excediendo la autoridad constitucional de la Unión."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["dust-bowl", "medio-ambiente", "migracion"]
+tipo: completar
+enunciado: "La combinación de sequía severa y prácticas agrícolas inadecuadas en las llanuras centrales de EE.UU. provocó las tormentas de polvo conocidas como _______."
+respuesta: "Dust Bowl"
+respuestas_validas:
+  - "Dust Bowl"
+  - "dust bowl"
+  - "Gran Tormenta de Polvo"
+  - "la gran tormenta de polvo"
+explicacion: "El Dust Bowl (mediados de los años 30) devastó la agricultura, forzando la migración de cientos de miles de personas (los \"Okies\") hacia California, generando una crisis humanitaria y social adicional a la depresión económica."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["alemania", "urss", "diplomacia-secreta"]
+tipo: mc
+enunciado: "El Tratado de Rappallo (1922) fue significativo para la Alemania de Weimar porque:"
+opciones_explicitas:
+  - "Le permitió rearmarse secretamente en territorio soviético, eludiendo las cláusulas militares del Tratado de Versalles."
+  - "Estableció la zona desmilitarizada del Rin."
+  - "Otorgó a Alemania el control de las minas de carbón del Sarre."
+  - "Fue el primer acuerdo de reparación de guerra pagado a Rusia."
+respuesta: "Le permitió rearmarse secretamente en territorio soviético, eludiendo las cláusulas militares del Tratado de Versalles."
+explicacion: "Alemania y la URSS normalizaron relaciones y firmaron acuerdos secretos de cooperación militar y económica. Esto permitió a Alemania entrenar tropas y desarrollar armas prohibidas por Versalles, sentando las bases del futuro rearme nazi."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["new-deal", "bancos", "glass-steagall"]
+tipo: completar
+enunciado: "La _______ de 1933 cerró temporalmente todos los bancos en EE.UU. para detener las corridas bancarias y restablecer la confianza en el sistema financiero."
+respuesta: "Ley de Reorganización Bancaria"
+respuestas_validas:
+  - "Ley de Reorganización Bancaria"
+  - "ley de reorganizacion bancaria"
+  - "Banking Act of 1933"
+  - "Ley Bancaria de 1933"
+explicacion: "Conocida como el \"Bank Holiday\", esta medida de emergencia detuvo el pánico bancario. Posteriormente, la Ley Glass-Steagall (parte de esta legislación) separó la banca comercial de la de inversión."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["mussolini", "fascismo", "italia"]
+tipo: vf
+enunciado: "Benito Mussolini llegó al poder en Italia principalmente como respuesta directa a la crisis económica de 1929, ya que la economía italiana estaba completamente intacta antes de esa fecha."
+respuesta: falso
+explicacion: "Mussolini llegó al poder en 1922, mucho antes de la crisis de 1929. Su ascenso se debió a la inestabilidad política post-Primera Guerra Mundial, el miedo al comunismo (Biennio Rosso) y la crisis económica de posguerra (1919-1921), no a la Gran Depresión."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["reparaciones", "alemania", "dawes"]
+tipo: mc
+enunciado: "¿Cuál era el mecanismo principal del Plan Dawes (1924) para manejar las reparaciones de guerra de Alemania?"
+opciones_explicitas:
+  - "Cancelar todas las deudas de Alemania a cambio de concesiones territoriales."
+  - "Proporcionar préstamos internacionales (principalmente de EE.UU.) a Alemania para que pagara a los aliados, quienes a su vez pagaban a EE.UU."
+  - "Transformar las reparaciones en bienes naturales extraídos directamente de la Ruhr."
+  - "Establecer un fondo de compensación mutua entre todas las potencias europeas."
+respuesta: "Proporcionar préstamos internacionales (principalmente de EE.UU.) a Alemania para que pagara a los aliados, quienes a su vez pagaban a EE.UU."
+explicacion: "El Plan Dawes creó un círculo vicioso de deuda: Alemania dependía de préstamos estadounidenses para pagar a Francia/Reino Unido, que usaban ese dinero para pagar sus propias deudas a EE.UU. Cuando los préstamos se detuvieron en 1929, el sistema colapsó."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["inmigracion", "eeuu", "nacionalismo"]
+tipo: completar
+enunciado: "La Ley de Inmigración de 1924 estableció cuotas basadas en el censo de _______ para reducir drásticamente la inmigración desde el sur y este de Europa."
+respuesta: 1890
+respuestas_validas:
+  - 1890
+  - "mil ochocientos noventa"
+  - "censo de 1890"
+explicacion: "Al usar el censo de 1890 (antes de la gran ola de inmigrantes del sur/este de Europa), EE.UU. favorecía a los inmigrantes del norte y oeste de Europa, reflejando un fuerte sentimiento nativista y racial antes de la crisis de 1929."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["sarre", "francia", "reparaciones"]
+tipo: mc
+enunciado: "¿Qué implicación tuvo la ocupación de la zona del Sarre por fuerzas francesas y belgas en 1923 para la estabilidad europea?"
+opciones_explicitas:
+  - "Provocó la retirada inmediata de EE.UU. de la región."
+  - "Generó la pasividad activa (o resistencia pasiva) alemana, hiperinflación y la ruptura de la confianza diplomática previa a Locarno."
+  - "Llevó a la creación inmediata de la Sociedad de Naciones."
+  - "Aseguró el pago completo de las reparaciones alemanas."
+respuesta: "Generó la pasividad activa (o resistencia pasiva) alemana, hiperinflación y la ruptura de la confianza diplomática previa a Locarno."
+explicacion: "La ocupación de la Ruhr/Sarre por Francia y Bélgica para asegurar reparaciones impagas llevó a Alemania a detener los pagos y fomentar la resistencia pasiva, causando hiperinflación y aislamiento diplomático, lo que debilitó la República de Weimar."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["new-deal", "seguridad-social"]
+tipo: vf
+enunciado: "El Seguro de Desempleo federal en Estados Unidos fue establecido inicialmente como parte de la Ley de Seguridad Social (Social Security Act) de 1935."
+respuesta: verdadero
+explicacion: "La Ley de Seguridad Social de 1935 creó el sistema federal de seguro de desempleo, pagado conjuntamente por empleadores y empleados, marcando el inicio de la red de seguridad social moderna en EE.UU., tras intentos previos fallidos a nivel estatal."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["economia-internacional", "genova", "libre-cambio"]
+tipo: mc
+enunciado: "¿Cuál fue el objetivo principal de la Conferencia Económica Internacional de Génova en 1922?"
+opciones_explicitas:
+  - "Establecer un arancel único para toda Europa."
+  - "Restaurar la convertibilidad de las monedas europeas al patrón oro y promover el libre comercio."
+  - "Imponer sanciones económicas a la Unión Soviética."
+  - "Crear una unión monetaria europea."
+respuesta: "Restaurar la convertibilidad de las monedas europeas al patrón oro y promover el libre comercio."
+explicacion: "Génova buscaba estabilizar las monedas europeas dañadas por la guerra y reintegrar a Alemania y la URSS en la economía global, aunque sus resultados fueron limitados y muchos países mantuvieron controles de cambio por años."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["aislacionismo", "lley-neutralidad", "pre-guerra"]
+tipo: completar
+enunciado: "La Ley de Neutralidad de 1939 permitió a las naciones aliadas comprar armas a EE.UU. bajo la política de _______ y pago inmediato en efectivo."
+respuesta: "Cash and Carry"
+respuestas_validas:
+  - "Cash and Carry"
+  - "cash and carry"
+  - "pago en efectivo y transporte propio"
+  - "efectivo y transporte propio"
+explicacion: "Esta política, aunque mantenía la neutralidad formal, benefició a Gran Bretaña y Francia, ya que podían transportar las armas por mar, mientras que Alemania no podía acceder a ellas debido al bloqueo naval británico."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["veteranos", "bonus", "protesta"]
+tipo: mc
+enunciado: "¿Qué efecto tuvo la represión de la \"Bonus Army\" por George Patton en 1932 en la opinión pública?"
+opciones_explicitas:
+  - "Consolidó el apoyo a Hoover como líder fuerte."
+  - "Generó una ola de simpatía hacia los veteranos y aumentó la crítica a la dureza del gobierno federal ante la crisis."
+  - "No tuvo impacto político significativo."
+  - "Llevó a la creación inmediata del Departamento de Asuntos de Veteranos."
+respuesta: "Generó una ola de simpatía hacia los veteranos y aumentó la crítica a la dureza del gobierno federal ante la crisis."
+explicacion: "La marcha de veteranos desempleados que pedían el pago anticipado de su bono de guerra fue dispersada violentamente por el ejército. Esto fue visto como una crueldad injusta y contribuyó a la derrota de Hoover en 1932."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["pacto-antikomintern", "alemania", "japon", "urss"]
+tipo: completar
+enunciado: "El _______ Anticomintern, firmado inicialmente por Alemania y Japón en 1936, fue un acuerdo para coordinar la oposición a la influencia de la Komintern soviética."
+respuesta: "Pacto"
+respuestas_validas:
+  - "Pacto"
+  - "pacto"
+  - "Anti-Comintern Pact"
+  - "anti-comintern pact"
+explicacion: "Inicialmente dirigido contra la URSS, este pacto sirvió para alinear a las potencias fascistas. Italia se unió después, y aunque fue una declaración ideológica, también sentó las bases para la posterior alianza del Eje."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["new-deal", "agricultura", "aaa"]
+tipo: vf
+enunciado: "La Ley de Ajuste Agrícola (AAA) de 1933 buscó aumentar los precios agrícolas pagando a los productores para que redujeran la producción y mataran ganado existente."
+respuesta: verdadero
+explicacion: "La AAA intentó combatir la deflación rural pagando a los granjeros para que dejaran de cultivar y destruyeran excedentes (ganado, cultivos). Esto fue controversial pero logró subir los precios agrícolas, aunque perjudicó a los inquilinos y trabajadores agrícolas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["reparaciones", "lausana", "fin-reparaciones"]
+tipo: mc
+enunciado: "¿Qué resultado clave tuvo la Conferencia de Lausana en 1932 respecto a las reparaciones alemanas?"
+opciones_explicitas:
+  - "Aumentó las reparaciones un 50%."
+  - "Suspendió efectivamente el pago de reparaciones de guerra, llevando a su cancelación de facto un año después."
+  - "Obligó a Alemania a hipotecar sus ferrocarriles."
+  - "Estableció un pago único definitivo de 10.000 millones de marcos."
+respuesta: "Suspendió efectivamente el pago de reparaciones de guerra, llevando a su cancelación de facto un año después."
+explicacion: "La Conferencia de Lausana suspendió los pagos de reparaciones. En 1933, se llegó a un acuerdo de facto donde Alemania no pagaría más reparaciones, liberándola de esa carga económica pero también aislándola financieramente de Occidente."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["new-deal", "vivienda", "fhla"]
+tipo: completar
+enunciado: "La _______ de Vivienda de Emergencia de 1933 creó la Federal Home Loan Bank para estabilizar el sector inmobiliario y facilitar el crédito hipotecario."
+respuesta: "Ley"
+respuestas_validas:
+  - "Ley"
+  - "ley"
+  - "Emergency Housing Act"
+  - "emergency housing act"
+explicacion: "Esta ley fue parte de los primeros días del New Deal, buscando evitar los desalojos masivos y la quiebra de los bancos hipotecarios, sentando las bases para la posterior creación de la FHLB y la regulación del mercado hipotecario."
+```
+
+## Sección: golpes-de-estado-interrupciones (26 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "basico"
+  tags: ["definicion", "politica"]
+
+tipo: mc
+opciones_explicitas: ["La toma del poder mediante procesos electorales y respeto a la constitución.", "La toma ilegítima e inconstitucional del poder político, generalmente por las fuerzas armadas.", "Un cambio de gobierno derivado de una crisis económica sin violencia.", "La renuncia voluntaria de un presidente por motivos de salud."]
+
+enunciado: "Un golpe de Estado se define fundamentalmente como:"
+
+respuesta: "La toma ilegítima e inconstitucional del poder político, generalmente por las fuerzas armadas."
 
 explicacion: |
-  Al no haber un rey legítimo en el trono, las autoridades coloniales perdieron su fuente de legitimidad, lo que permitió que los cabildos empezaran a reclamar autonomía.
+  Un golpe de Estado es una ruptura del orden constitucional donde se toma el poder de forma ilegítima, interrumpiendo el mandato de las autoridades electas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "intermedio"
+  tags: ["caracteristicas", "instituciones"]
+
+variables:
+  escenarios: [["El uso de la fuerza militar para deponer al ejecutivo.", "La ocupación de edificios gubernamentales y la suspensión de la Constitución."], ["La movilización social masiva para exigir nuevas elecciones.", "La renuncia del gabinete ministerial ante una crisis parlamentaria."]]
+  escenario: uno_de(escenarios)
+
+tipo: mc
+opciones_explicitas: ["Uso de mecanismos legales para cambiar al presidente.", "Uso de la fuerza o la ruptura de la legalidad para tomar el control estatal.", "Un proceso de transición democrática supervisado."]
+
+enunciado: "En un escenario de {escenario[0]}, el elemento central que caracteriza al golpe es:"
+
+respuesta: "Uso de la fuerza o la ruptura de la legalidad para tomar el control estatal."
+
+explicacion: |
+  La característica distintiva es la ruptura del marco legal preestablecido y el uso de medios no previstos por la norma constitucional.
 ```
 
 ```
 metadata:
   materia: "historia_profucha"
-  tema: "revolucion_de_mayo"
+  tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
-  tags: ["cronologia", "causas"]
+  tags: ["secuencia", "orden"]
 
-opciones_explicitas: ["Invasión napoleónica", "Crisis de la monarquía española", "Revolución de Mayo"]
-respuesta_orden: ["Invasión napoleónica", "Crisis de la monarquía española", "Revolución de Mayo"]
 tipo: ordenar
+opciones_explicitas: ["Crisis política o social", "Acción de las fuerzas armadas o grupos de poder", "Suspensión de la Constitución", "Establecimiento de un gobierno de facto"]
 
-enunciado: "Ordena cronológicamente los sucesos que desencadenaron el proceso revolucionario:"
+enunciado: "Ordene cronológicamente los pasos típicos de una interrupción institucional clásica:"
 
 explicacion: |
-  Primero ocurrió la invasión de Napoleón, esto generó la crisis de legitimidad en España y finalmente ese vacío de poder facilitó la Revolución de Mayo en el Virreinato.
+  Un golpe suele comenzar con una crisis que debilita al gobierno, seguido de la acción directa que rompe el orden legal y culmina con la instauración de un régimen no electo.
+respuesta_orden: ["Crisis política o social", "Acción de las fuerzas armadas o grupos de poder", "Suspensión de la Constitución", "Establecimiento de un gobierno de facto"]
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
+  tema: "golpes_de_estado_interrupciones"
   nivel: "avanzado"
-  tags: ["soberania", "derecho"]
+  tags: ["consecuencias", "derecho"]
 
-respuesta: "La soberanía recae en el pueblo"
-tipo: mc
-
-opciones_explicitas: ["La autoridad reside en el Rey", "La soberanía recae en el pueblo"]
-
-enunciado: "Ante la ausencia del rey, los criollos aplicaron la idea de que la soberanía debe volver al ___."
-
-explicacion: |
-  El concepto de 'retroversión de la soberanía' sostenía que, ante la falta del monarca, el poder volvía al pueblo, lo que justificó la formación de juntas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
-  nivel: "basico"
-  tags: ["causas", "impacto"]
-
-respuesta: 1
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si la invasión napoleónica debilitó la autoridad de España, la probabilidad de una revolución en América fue (0: nula / 1: alta). Indica el número de la opción correcta."
-
-explicacion: |
-  La debilidad de la metrópoli fue el catalizador fundamental que permitió que las aspiraciones de autonomía se transformaran en una revolución política.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
-  nivel: "basico"
-  tags: ["primera_junta", "saavedra", "mayo"]
-
-respuesta: "Cornelio Saavedra"
 tipo: completar
 respuestas_validas:
-  - "Cornelio Saavedra"
+  - "inconstitucional"
+  - "ilegitima"
 
-enunciado: "La Primera Junta, conformada tras la Revolución de Mayo, fue presidida por ___."
+enunciado: "Un golpe de Estado es un acto ___ que rompe con la legitimidad ___ del mandato popular."
 
 explicacion: |
-  La Primera Junta fue el primer gobierno patrio, presidido por Cornelio Saavedra, quien representaba el ala más conservadora del cabildo.
+  Al ignorar las reglas establecidas en la Carta Magna, la acción es inconstitucional y carece de legitimidad democrática.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
+  tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
-  tags: ["moreno", "secretario"]
+  tags: ["comparacion"]
 
-opciones_explicitas: ["Mariano Moreno", "Juan José Paso", "Manuel Belgrano", "Fidencio de la Riva"]
-respuesta: "Mariano Moreno"
 tipo: mc
+opciones_explicitas: ["El cambio de gobierno es legal y sigue las leyes; el golpe es una ruptura de estas.", "Ambos son procesos de la misma naturaleza pero con distinta duración.", "El golpe siempre es pacífico y el cambio de gobierno es violento.", "No existe diferencia técnica entre ambos conceptos."]
+respuesta: "El cambio de gobierno es legal y sigue las leyes; el golpe es una ruptura de estas."
 
-enunciado: "En la Primera Junta, ¿quién ocupaba el cargo de secretario?"
+enunciado: "¿Cuál es la diferencia fundamental entre un cambio de gobierno democrático y un golpe de Estado?"
 
 explicacion: |
-  Mariano Moreno fue el secretario de la Primera Junta, conocido por su pensamiento radical y su influencia en la redacción de documentos políticos.
+  La diferencia radica en el respeto a la legalidad: el primero ocurre dentro del marco de la ley, el segundo lo destruye.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
-  nivel: "intermedio"
-  tags: ["mascara_de_fecundidad", "fernando_vii"]
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "basico"
+  tags: ["argentina", "siglo_xx", "democracia"]
 
-respuesta: "Fernando VII"
-tipo: completar
-respuestas_validas:
-  - "Fernando VII"
-
-enunciado: "Debido a la estrategia política de la época, la Primera Junta gobernaba en nombre del rey depuesto, un fenómeno conocido como la 'máscara de ___'."
-
-explicacion: |
-  La 'máscara de Fernando VII' era una maniobra política para reconocer la autoridad del rey cautivo ante las potencias europeas, mientras se ejercía el autogobierno local.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
-  nivel: "intermedio"
-  tags: ["integrantes", "primera_junta"]
-
-variables:
-  idx: uno_de([0, 1])
-  tabla: [["Cornelio Saavedra", "Cornelio Saavedra"], ["Mariano Moreno", "Mariano Moreno"]]
-
-respuesta: tabla[idx][1]
-tipo: mc
-opciones_explicitas: ["Cornelio Saavedra", "Mariano Moreno", "Juan José Paso", "Domingo Saavedra"]
-
-enunciado: "Seleccione el nombre del integrante de la Primera Junta que corresponde al escenario actual."
-
-pasos:
-  - "Identifique el nombre del presidente o secretario según el caso sorteado."
-
-explicacion: |
-  La Primera Junta estaba integrada por miembros del cabildo y militares; Saavedra era el presidente y Moreno el secretario.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
-  nivel: "avanzado"
-  tags: ["orden_gobiernos", "etapas"]
-
-opciones_explicitas: ["Primera Junta", "Junta Grande", "Directorio"]
-respuesta_orden: ["Primera Junta", "Junta Grande", "Directorio"]
 tipo: ordenar
+opciones_explicitas: ["1930", "1943", "1955", "1966", "1976"]
+respuesta_orden: ["1930", "1943", "1955", "1966", "1976"]
 
-enunciado: "Ordene cronológicamente las etapas de los gobiernos patrios tras la Revolución de Mayo, desde el primero hasta el último de esta lista."
+enunciado: "Ordená cronológicamente los siguientes golpes de Estado que afectaron la institucionalidad argentina en el siglo XX:"
 
 explicacion: |
-  El proceso comenzó con la Primera Junta (1810), siguió con la Junta Grande (tras la incorporación de diputados del interior) y culminó con el Directorio (poder ejecutivo unipersonal).
+  La secuencia cronológica de las interrupciones al orden constitucional fue: 1930, 1943, 1955, 1966 y 1976.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
+  tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
-  tags: ["revolucion_de_mayo", "independencia", "procesos_historicos"]
+  tags: ["historia", "argentina"]
 
-respuesta: "1810"
-tipo: "input"
-tolerancia_abs: 0
+tipo: mc
+opciones_explicitas: ["1930", "1945", "1955", "1976"]
+respuesta: "1930"
 
-enunciado: "Aunque la independencia se declaró formalmente en 1816, la Revolución de Mayo ocurrió en el año ____."
+enunciado: "¿En qué año se produjo el primer golpe de Estado que interrumpió el orden constitucional en la Argentina del siglo XX?"
 
 explicacion: |
-  La Revolución de Mayo de 1810 marcó el inicio del proceso de ruptura con el poder colonial, pero no fue el fin del camino hacia la soberanía.
+  El golpe de Estado de 1930 derrocó al presidente Hipólito Yrigoyen, marcando el inicio de una era de inestabilidad institucional.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
+  tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
-  tags: ["cabildo_abierto", "soberania"]
+  tags: ["historia", "argentina"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["La Primera Junta", "el gobierno de la Junta"], ["El Primer Congreso", "la autoridad del Congreso"]]
+  escenarios: [["1955", "la Revolución Libertadora"], ["1966", "la Revolución Argentina"]]
 
-opciones_explicitas: ["gobernanza local", "soberanía absoluta", "restitución de la monarquía española", "subordinación a la corona británica"]
-respuesta: "gobernanza local"
-tipo: "mc"
+tipo: mc
+opciones_explicitas: ["1955", "1962", "1966", "1976"]
+respuesta: escenarios[escenario_idx][0]
 
-enunciado: "Tras la Revolución de Mayo, el objetivo inmediato de las autoridades locales era establecer la {escenarios[escenario_idx][0]} para gestionar los asuntos de la región, pero esto no significaba una independencia total inmediata."
+enunciado: "Identificá el año correspondiente al golpe conocido como {escenarios[escenario_idx][1]}."
 
 explicacion: |
-  En 1810 se buscaba la autonomía para gobernarse a sí mismos (frente a la crisis de la corona), pero legalmente se mantenía una ambigüedad respecto a la soberanía absoluta que se alcanzaría en 1816.
+  El escenario seleccionado fue el de {escenarios[escenario_idx][1]}, que ocurrió en el año {escenarios[escenario_idx][0]}.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
+  tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
-  tags: ["cronologia", "procesos"]
+  tags: ["historia", "argentina"]
 
-tipo: ordenar
-opciones_explicitas: ["Revolución de Mayo", "Congreso de Tucumán", "Declaración de la Independencia"]
-respuesta_orden: ["Revolución de Mayo", "Congreso de Tucumán", "Declaración de la Independencia"]
+tipo: completar
+respuestas_validas:
+  - "1976"
+respuesta: "1976"
 
-enunciado: "Ordena cronológicamente los hitos del proceso de emancipación argentina:"
+enunciado: "El golpe de Estado más violento y de mayor duración en términos de represión sistemática ocurrió en el año ___."
 
 explicacion: |
-  El proceso fue gradual: primero la ruptura del vínculo con España (1810), luego la organización política en el Congreso (1816) y finalmente la declaración formal de la independencia.
+  El golpe de Estado de 1976 dio inicio al proceso de dictadura militar más sangriento de la historia argentina.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
+  tema: "golpes_de_estado_interrupciones"
   nivel: "avanzado"
-  tags: ["causas", "consecuencias"]
+  tags: ["historia", "argentina", "estadistica"]
 
-respuesta: "proceso"
+variables:
+  lista_golpes: ["1930", "1943", "1955", "1962", "1966", "1976"]
+
+tipo: completar
+respuesta: 6
+
+enunciado: "Considerando la lista de golpes mencionados en el texto: {lista_golpes}, ¿cuántas interrupciones al orden democrático se enumeran en total?"
+
+pasos:
+  - "Identificar cada año mencionado en el enunciado."
+  - "Contar la cantidad de elementos en la lista proporcionada."
+
+explicacion: |
+  Se enumeran 6 golpes de Estado en la lista: 1930, 1943, 1955, 1962, 1966 y 1976.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "intermedio"
+  tags: ["argentina", "democracia", "irrigoyen"]
+
+respuesta: "1930"
 tipo: "completar"
 respuestas_validas:
-  - "proceso"
-  - "etapa"
-  - "punto de partida"
+  - "1930"
 
-enunciado: "La Revolución de Mayo no debe entenderse como el fin de la lucha, sino como el ___ que dio inicio a una compleja serie de conflictos y debates políticos."
+enunciado: "El primer golpe de Estado del siglo XX en Argentina, que derrocó al presidente Hipólito Yrigoyen, ocurrió en el año ___."
 
 explicacion: |
-  Es un error histórico considerar a mayo de 1810 como la independencia definitiva; fue el motor que desencadenó un proceso de décadas.
+  El golpe de 1930 marcó el inicio de un ciclo de interrupciones al orden constitucional en Argentina, rompiendo la estabilidad de la Ley Sáenz Peña.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revolucion_de_mayo"
-  nivel: "avanzado"
-  tags: ["soberania", "debate"]
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "basico"
+  tags: ["patrones", "militarismo"]
 
 variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["la legitimidad del Rey", "la autoridad de las juntas"], ["la soberanía popular", "la voluntad de los pueblos"]]
-  respuestas: [["la legitimidad del Rey", "la autoridad de las juntas"], ["la soberanía popular", "la voluntad de los pueblos"]]
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["El golpe de 1930 inició un ___ de intervenciones militares recurrentes.", "patrón"], ["El derrocamiento de Yrigoyen inauguró un ___ de inestabilidad política.", "ciclo"]]
 
-opciones_explicitas: ["la legitimidad del Rey", "la autoridad de las juntas", "la soberanía popular", "la voluntad de los pueblos"]
-respuesta: "la autoridad de las juntas"
+respuesta: escenarios[escenario_idx][1]
 tipo: "mc"
+opciones_explicitas: ["patrón", "ciclo", "acuerdo", "proceso"]
 
-enunciado: "En el debate post-revolucionario, la gran incógnita era si la soberanía residía en {casos[caso_idx][0]} o si, ante la ausencia del monarca, la autoridad pasaba a ser de {casos[caso_idx][1]}."
+enunciado: "{escenarios[escenario_idx][0]}"
 
 explicacion: |
-  El debate entre la 'retroversión de la soberanía' (el poder vuelve al pueblo) y la lealtad a la corona fue el eje central de las discusiones iniciadas en mayo de 1810.
+  El golpe de 1930 no fue un evento aislado, sino que inauguró un patrón de intervenciones militares que se repetiría durante gran parte del siglo XX.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "intermedio"
+  tags: ["contexto", "crisis"]
+
+respuesta: "crisis económica mundial"
+tipo: "mc"
+opciones_explicitas: ["crisis económica mundial", "guerra civil", "revolución industrial", "independencia"]
+
+enunciado: "El golpe de Estado de 1930 se produjo en un contexto de profunda ___ que afectó la estabilidad del gobierno de Yrigoyen."
+
+explicacion: |
+  La crisis económica de 1929 (Gran Depresión) debilitó la estructura política y social, facilitando el levantamiento militar contra el radicalismo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "avanzado"
+  tags: ["secuencia", "orden"]
+
+respuesta_orden: ["Ley Sáenz Peña", "Derrocamiento de Yrigoyen", "Intervención militar"]
+tipo: "ordenar"
+opciones_explicitas: ["Ley Sáenz Peña", "Derrocamiento de Yrigoyen", "Intervención militar"]
+
+enunciado: "Ordene cronológicamente los siguientes hitos relacionados con la estabilidad democrática argentina del siglo XX:"
+
+explicacion: |
+  Primero se establece la democracia con la Ley Sáenz Peña (1912), luego ocurre el primer golpe (1930) y esto deriva en la práctica de intervenciones militares.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "intermedio"
+  tags: ["consecuencias", "democracia"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "¿El golpe de 1930 fue un evento aislado que no influyó en la política argentina posterior?"
+
+explicacion: |
+  Falso. El golpe de 1930 fue el primer eslabón de una serie de interrupciones que marcaron la historia política argentina durante décadas.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "revolucion_de_mayo"
+  tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
-  tags: ["cabildo", "mayo_1810"]
+  tags: ["argentina", "dictadura", "1976"]
 
-respuesta: "Juan José Castelli"
+respuesta: "24 de marzo de 1976"
+tipo: completar
+respuestas_validas:
+  - "24 de marzo de 1976"
+
+enunciado: "El golpe de Estado que dio inicio a la última dictadura militar en Argentina ocurrió el día ___."
+
+explicacion: |
+  El 24 de marzo de 1976 se produjo el golpe de Estado que instauró un proceso de autodenominado 'Reorganización Nacional', marcando el inicio del período dictatorial más prolongado y violento de la historia argentina reciente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "intermedio"
+  tags: ["derechos_humanos", "terrorismo_de_estado"]
+
+opciones_explicitas: ["Violación sistemática de derechos humanos", "Retorno inmediato a la democracia", "Estabilidad económica sostenida", "Pluralismo político"]
+
+respuesta: "Violación sistemática de derechos humanos"
 tipo: mc
-opciones_explicitas: ["Juan José Castelli", "Cornelio Saavedra", "Mariano Moreno", "Manuel Belgrano"]
 
-enunciado: "En el Cabildo Abierto del 22 de mayo de 1810, ¿qué figura fue uno de los principales oradores defendiendo la soberanía del pueblo frente al virreinato?"
+enunciado: "Una de las características centrales y más graves del proceso de la última dictadura militar (1976-1983) fue la:"
 
 explicacion: |
-  Juan José Castelli fue conocido como 'el orador de la Revolución', defendiendo la postura de que el poder volvía al pueblo ante la caída de la Junta de Sevilla.
+  El Estado implementó un plan sistemático de represión que incluyó la desaparición forzada de personas, la tortura y el robo de bebés, constituyendo un crimen de lesa humanidad.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "revolucion_de_mayo"
+  tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
-  tags: ["primera_junta", "gobierno"]
+  tags: ["fechas", "periodo"]
+
+respuesta_orden: ["Inicio del golpe de Estado", "Guerra de Malvinas", "Fin de la dictadura militar", "Retorno a la democracia"]
+tipo: ordenar
+opciones_explicitas: ["Inicio del golpe de Estado", "Fin de la dictadura militar", "Guerra de Malvinas", "Retorno a la democracia"]
+
+enunciado: "Ordená cronológicamente los siguientes hitos relacionados con el período 1976-1983:"
+
+pasos:
+  - "Identificar el año de inicio del golpe."
+  - "Identificar el año del fin del proceso dictatorial."
+
+explicacion: |
+  El proceso comenzó en 1976 y finalizó en 1983, tras la derrota en la Guerra de Malvinas y la crisis del régimen.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "basico"
+  tags: ["fechas", "periodo"]
+
+respuesta_orden: ["Inicio del golpe de Estado", "Guerra de Malvinas", "Fin de la dictadura militar"]
+tipo: ordenar
+opciones_explicitas: ["Inicio del golpe de Estado", "Guerra de Malvinas", "Fin de la dictadura militar"]
+
+enunciado: "Ordená cronológicamente los eventos del período dictatorial:"
+
+explicacion: |
+  El orden correcto es: Inicio del golpe (1976), Guerra de Malvinas (1982) y Fin de la dictadura (1983).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "avanzado"
+  tags: ["conceptos", "derechos_humanos"]
 
 variables:
-  datos: [["Presidente", "Cornelio Saavedra"], ["Secretario", "Mariano Moreno"], ["Secretario", "Juan José Paso"]]
-  idx: uno_de([0,1,2])
+  escenario: uno_de([0,1])
+  datos: [["El uso de la estructura estatal para la represión ilegal", "terrorismo de Estado"], ["La participación en elecciones libres", "democracia representativa"]]
 
-respuesta: datos[idx][1]
+respuesta: datos[escenario][1]
 tipo: mc
-opciones_explicitas: ["Cornelio Saavedra", "Mariano Moreno", "Juan José Paso", "Baltasar Hidalgo de Cisneros"]
+opciones_explicitas: ["terrorismo de Estado", "democracia representativa"]
 
-enunciado: "La Primera Junta de Gobierno, establecida tras la Revolución de Mayo, tenía una estructura con un Presidente y dos Secretarios. Si el rol seleccionado es {datos[idx][0]}, ¿quién ocupaba dicho cargo?"
+enunciado: "Cuando el Estado utiliza sus instituciones y fuerzas de seguridad para cometer delitos contra la población, como la desaparición de personas, se denomina:"
 
 explicacion: |
-  La Primera Junta estaba integrada por Saavedra (Presidente), Moreno y Paso (Secretarios), junto a Castelli, Belgrano y otros como vocales.
+  El término 'terrorismo de Estado' describe la acción de los gobiernos de facto para sembrar terror en la sociedad mediante la represión sistemática.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "revolucion_de_mayo"
+  tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
-  tags: ["virrey", "cisneros"]
+  tags: ["duracion", "fechas"]
 
-respuesta: "Baltasar Hidalgo de Cisneros"
+respuesta: 7
 tipo: completar
-respuestas_validas:
-  - "Baltasar Hidalgo de Cisneros"
-  - "Cisneros"
+tolerancia_abs: 0
 
-enunciado: "El proceso revolucionario de mayo de 1810 culminó con la destitución de ___. "
+enunciado: "Si la última dictadura militar en Argentina duró desde 1976 hasta 1983, ¿cuántos años duró aproximadamente este proceso de interrupción democrática?"
 
 explicacion: |
-  Baltasar Hidalgo de Cisneros fue el último virrey enviado por la corona española que gobernó el territorio antes de la formación de la Primera Junta.
+  El proceso duró 7 años, desde el golpe de 1976 hasta la asunción de la presidencia de Raúl Alfonsín en 1983.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "revolucion_de_mayo"
+  materia: "historia_profunda"
+  tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
-  tags: ["cronologia", "mayo"]
+  tags: ["argentina", "siglo_xx", "dictadura"]
 
-respuesta_orden: ["Llegada de la Primera Junta", "Establecimiento de la Junta de Gobierno", "Cabildo Abierto del 22 de mayo", "Junta de los 25 de mayo"]
-tipo: ordenar
-opciones_explicitas: ["Llegada de la Primera Junta", "Establecimiento de la Junta de Gobierno", "Cabildo Abierto del 22 de mayo", "Junta de los 25 de mayo"]
+variables:
+  datos: [["José Félix Uriburu", "1930"], ["Agustín P. Justo", "1932"]]
+  idx: uno_de([0, 1])
 
-enunciado: "Ordena cronológicamente los hitos clave de la Semana de Mayo de 1810:"
+respuesta: datos[idx][0]
+tipo: mc
+opciones_explicitas: ["José Félix Uriburu", "Agustín P. Justo", "Juan Perón", "Arturo Illia"]
+
+enunciado: "El primer golpe de Estado que interrumpió el orden constitucional en Argentina durante el siglo XX fue liderado por {datos[idx][0]} en el año {datos[idx][1]}."
 
 explicacion: |
-  La secuencia comenzó con la crisis de legitimidad, el debate en el Cabildo, la formación de la Junta de Gobierno y finalmente la instauración de la Primera Junta.
+  El golpe de 1930 derrocó a Hipólito Yrigoyen, marcando el inicio de la denominada "Década Infame".
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "revolucion_de_mayo"
+  materia: "historia_profunda"
+  tema: "golpes_de_estado_interrupciones"
   nivel: "avanzado"
-  tags: ["prensa", "ideologia"]
+  tags: ["ordenar", "cronologia"]
 
-respuesta: "La Gazeta de Buenos Ayres"
-tipo: completar
-respuestas_validas:
-  - "La Gazeta de Buenos Ayres"
-  - "La Gaceta de Buenos Aires"
+respuesta_orden: ["Revolución Libertadora", "Revolución Argentina", "Onganía"]
+tipo: ordenar
+opciones_explicitas: ["Revolución Libertadora", "Revolución Argentina", "Onganía"]
 
-enunciado: "Durante el proceso revolucionario, la difusión de ideas fue vital. Se destaca que la principal publicación de ideas revolucionarias fue la ___. "
+enunciado: "Ordene cronológicamente los siguientes procesos/dictaduras que interrumpieron la democracia argentina entre 1955 y 1976:"
+
+pasos:
+  - "Identifique el golpe que derrocó a Perón en 1955."
+  - "Identifique el proceso iniciado por Onganía en 1966."
 
 explicacion: |
-  La Gazeta de Buenos Ayres fue el primer periódico de la ciudad, utilizado para difundir los ideales de la revolución.
+  La secuencia cronológica correcta es: Revolución Libertadora (1955), Revolución Argentina (1966) y el gobierno de facto de Onganía.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "basico"
+  tags: ["dictadura", "proceso"]
+
+respuesta: "Proceso de Reorganización Nacional"
+tipo: completar
+respuestas_validas:
+  - "Proceso de Reorganización Nacional"
+
+enunciado: "El golpe de Estado iniciado el 24 de marzo de 1976 fue autodenominado por la junta militar como el ___."
+
+explicacion: |
+  El Proceso de Reorganización Nacional fue la dictadura más sangrienta de la historia argentina.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "intermedio"
+  tags: ["liderazgo", "militar"]
+
+variables:
+  datos: [["Videla", "1976"], ["Anaya", "1981"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][0]
+tipo: mc
+opciones_explicitas: ["Videla", "Anaya", "Galtieri", "Borda"]
+
+enunciado: "El líder de la junta militar durante el inicio del golpe de {datos[idx][1]} fue {datos[idx][0]}."
+
+explicacion: |
+  Jorge Rafael Videla encabezó la dictadura que comenzó en 1976.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "golpes_de_estado_interrupciones"
+  nivel: "basico"
+  tags: ["democracia", "retorno"]
+
+respuesta: "Alfonsín"
+tipo: mc
+opciones_explicitas: ["Alfonsín", "Menem", "Duhalde", "De la Rúa"]
+
+enunciado: "Tras la caída de la dictadura militar en 1983, el primer presidente elegido fue ___."
+
+explicacion: |
+  Raúl Alfonsín asumió la presidencia en 1983, marcando el retorno a la democracia tras la dictadura.
 ```
 

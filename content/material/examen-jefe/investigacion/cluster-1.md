@@ -1,1425 +1,1339 @@
 # Examen jefe — [PENDIENTE #912]
 
-> Logro #912. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #912. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: analisis-estadistico-de-resultados (25 preguntas)
+## Sección: observacion-y-pregunta-investigable (25 preguntas)
 
 ```
 metadata:
   materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
+  tema: "observacion_y_pregunta_investigable"
   nivel: "basico"
-  tags: ["vocabulario", "estadistica"]
+  tags: ["metodologia", "observacion"]
 
-respuesta: "promedio"
+respuesta: "observacion"
 tipo: completar
 respuestas_validas:
-  - "promedio"
-  - "media"
-  - "media_aritmetica"
+  - "observacion"
 
-enunciado: "El valor que representa el centro de un conjunto de datos numéricos, calculado sumando todos los valores y dividiendo por la cantidad de ellos, se conoce como ___."
+enunciado: "El primer paso del método científico consiste en el uso de los sentidos o instrumentos para captar información del entorno, proceso conocido como ___."
 
 explicacion: |
-  El promedio (o media aritmética) es la medida de tendencia central más utilizada para resumir un conjunto de datos en un solo valor representativo.
+  La observación es el punto de partida de toda investigación; implica registrar hechos o fenómenos de manera objetiva.
 ```
 
 ```
 metadata:
   materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "intermedio"
-  tags: ["desviacion", "variabilidad"]
-
-respuesta: "alta"
-tipo: mc
-opciones_explicitas: ["baja", "alta"]
-
-enunciado: "Si observamos un conjunto de datos donde los valores están muy alejados de la media, la variabilidad o desviación estándar se considera de magnitud ___."
-
-explicacion: |
-  Una desviación estándar alta indica que los datos están muy dispersos respecto a la media, mientras que una baja indica que los datos están agrupados cerca del promedio.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
+  tema: "observacion_y_pregunta_investigable"
   nivel: "basico"
-  tags: ["mediana", "ordenamiento"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es correcto afirmar que la mediana es el valor que ocupa la posición central cuando los datos están ordenados de menor a mayor?"
-
-explicacion: |
-  Correcto. La mediana divide la distribución en dos partes iguales, con el 50% de los datos por debajo y el 50% por encima.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "intermedio"
-  tags: ["metodologia", "pasos"]
-
-respuesta_orden: ["recoleccion", "limpieza", "calculo", "interpretacion"]
-tipo: ordenar
-opciones_explicitas: ["recoleccion", "limpieza", "calculo", "interpretacion"]
-
-enunciado: "Ordene cronológicamente los pasos lógicos para realizar un análisis estadístico riguroso de los resultados obtenidos en una investigación:"
-
-explicacion: |
-  Primero se recolectan los datos, luego se limpian (eliminando errores), se realizan los cálculos estadísticos y finalmente se interpretan los resultados.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "basico"
-  tags: ["moda", "frecuencia"]
-
-respuesta: "frecuencia"
-tipo: completar
-respuestas_validas:
-  - "frecuencia"
-
-enunciado: "La moda se define como el valor que presenta la mayor ___ dentro de un conjunto de datos."
-
-explicacion: |
-  La moda es el valor que más veces se repite en una muestra o población.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "basico"
-  tags: ["descriptiva", "mediana"]
-
-variables:
-  datos: [[12, 15, 15, 18, 22, 25, 40]]
-  idx: uno_de([0])
-
-respuesta: "18"
-tipo: mc
-opciones_explicitas: ["15", "18", "22", "25"]
-
-enunciado: "En un estudio sobre tiempos de reacción (en ms) de un grupo de sujetos, se obtuvieron los siguientes valores: {datos[idx]}. ¿Cuál es la mediana de este conjunto de datos?"
-
-explicacion: |
-  Para hallar la mediana, primero ordenamos los datos (ya están ordenados en este caso). Como el número de elementos es impar (n=7), la mediana es el valor central, que ocupa la posición (7+1)/2 = 4. El cuarto valor es 18.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "intermedio"
-  tags: ["desviacion_estandar", "dispersion"]
-
-variables:
-  set_a: [10, 10, 10, 10]
-  set_b: [0, 5, 10, 15]
+  tags: ["pregunta", "metodologia"]
 
 respuesta: falso
 tipo: vf
-
-enunciado: "Si comparamos un conjunto de datos con varianza cero (como {set_a}) frente a un conjunto con varianza mayor a cero (como {set_b}), la desviación estándar del primer conjunto es mayor que la del segundo."
-
-explicacion: |
-  La desviación estándar mide la dispersión. Un conjunto donde todos los valores son iguales tiene varianza y desviación estándar igual a 0, por lo tanto, no puede ser mayor que un conjunto con dispersión.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "avanzado"
-  tags: ["error_medicion", "precision"]
-
-variables:
-  valor_real: 50.0
-  mediciones: [49.8, 50.1, 49.9, 50.2, 50.0]
-
-respuesta: 0.12
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Un investigador realiza mediciones de una constante física. El valor real es {valor_real} y sus mediciones son {mediciones}. Calcule el error absoluto promedio de las mediciones respecto al valor real (sin considerar el signo)."
+enunciado: "Una pregunta que solo puede responderse con un 'sí' o un 'no' se considera una pregunta de investigación de alto nivel científico."
 
 pasos:
-  - "Calcular la diferencia absoluta de cada medición respecto al valor real."
-  - "Sumar esos valores absolutos."
-  - "Dividir el resultado por el número total de mediciones."
+  - "Analizar si la pregunta permite la recolección de datos."
+  - "Verificar si la respuesta requiere experimentación o análisis profundo."
 
 explicacion: |
-  El error absoluto promedio se calcula como: (|49.8-50| + |50.1-50| + |49.9-50| + |50.2-50| + |50.0-50|) / 5 = (0.2 + 0.1 + 0.1 + 0.2 + 0) / 5 = 0.6 / 5 = 0.12.
+  Falso. Las preguntas investigables deben ser abiertas y permitir la recolección de datos empíricos para ser analizadas.
 ```
 
 ```
 metadata:
   materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "basico"
-  tags: ["metodologia", "pasos"]
-
-respuesta_orden: ["Recolección de datos", "Limpieza de datos", "Cálculo de estadísticos", "Interpretación de resultados"]
-tipo: ordenar
-opciones_explicitas: ["Recolección de datos", "Limpieza de datos", "Cálculo de estadísticos", "Interpretación de resultados"]
-
-enunciado: "Ordene cronológicamente las etapas lógicas para realizar un análisis estadístico riguroso tras una investigación de campo."
-
-explicacion: |
-  Primero se obtienen los datos (recolección), luego se eliminan errores o valores atípicos (limpieza), después se aplican las fórmulas (cálculo) y finalmente se extraen conclusiones (interpretación).
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "basico"
-  tags: ["moda", "frecuencia"]
-
-variables:
-  frecuencias: [5, 10, 8, 12, 3]
-  categorias: ["A", "B", "C", "D", "E"]
-
-respuesta: "D"
-tipo: completar
-respuestas_validas:
-  - "D"
-
-enunciado: "En un estudio de preferencias de consumo, las frecuencias de las categorías son {frecuencias}. La categoría que presenta la mayor frecuencia (la moda) es la categoría ___."
-
-explicacion: |
-  Observando el array de frecuencias, el valor máximo es 12, que corresponde a la categoría D (índice 3).
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
+  tema: "observacion_y_pregunta_investigable"
   nivel: "intermedio"
-  tags: ["errores_comunes", "correlacion", "causalidad"]
+  tags: ["proceso", "metodologia"]
 
-respuesta: falso
-tipo: vf
+respuesta: "Una pregunta que relaciona variables y es medible"
+tipo: mc
+opciones_explicitas: ["Una opinión personal sobre el fenómeno", "Una pregunta que relaciona variables y es medible", "Una descripción literaria de lo que se ve", "Una conclusión definitiva sobre el problema"]
 
-enunciado: "Si se encuentra una correlación estadísticamente significativa entre el consumo de helado y la incidencia de quemaduras solares, se puede afirmar que el consumo de helado causa las quemaduras."
+enunciado: "Al convertir una observación curiosa en una pregunta investigable, el investigador debe buscar que esta sea:"
 
 explicacion: |
-  La correlación indica que dos variables se mueven juntas, pero no implica causalidad. En este caso, una tercera variable (el calor/sol) causa ambas.
+  Una pregunta investigable debe establecer una relación entre variables que puedan ser medidas u observadas sistemáticamente.
 ```
 
 ```
 metadata:
   materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
+  tema: "observacion_y_pregunta_investigable"
+  nivel: "intermedio"
+  tags: ["pasos", "metodologia"]
+
+respuesta_orden: ["Observación del fenómeno", "Identificación de variables", "Formulación de la pregunta"]
+tipo: ordenar
+opciones_explicitas: ["Observación del fenómeno", "Identificación de variables", "Formulación de la pregunta"]
+
+enunciado: "Ordena los pasos lógicos para transformar una curiosidad inicial en una pregunta de investigación científica:"
+
+explicacion: |
+  Primero se observa el entorno, luego se identifican los factores (variables) que intervienen y finalmente se redacta la pregunta de investigación.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "observacion_y_pregunta_investigable"
   nivel: "avanzado"
-  tags: ["p-valor", "significancia", "errores_interpretacion"]
+  tags: ["variables", "metodologia"]
+
+respuesta: "La luz solar"
+tipo: mc
+opciones_explicitas: ["La luz solar", "La temperatura del agua", "El color de la planta", "El tipo de maceta"]
+
+enunciado: "Si observamos que las plantas crecen más rápido con un tipo de luz, la variable que estamos estudiando es ___."
+
+explicacion: |
+  En este caso, la luz es la variable independiente que el investigador observa para ver su efecto en el crecimiento.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "observacion_y_pregunta_investigable"
+  nivel: "basico"
+  tags: ["metodologia", "observacion"]
+
+enunciado: "Un estudiante observa que las plantas de su balcón crecen más rápido cuando están cerca de la pared que cuando están en el centro. Para convertir esto en una pregunta investigable, debe identificar la variable que puede manipular. Si decide cambiar la cantidad de luz solar, la pregunta debe centrarse en la variable ____."
+
+respuestas_validas:
+  - "luz solar"
+tipo: completar
+
+explicacion: |
+  Una pregunta investigable debe centrarse en una variable independiente (la que manipulas, como la luz) y una dependiente (la que mides, como el crecimiento).
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "observacion_y_pregunta_investigable"
+  nivel: "basico"
+  tags: ["variables", "metodologia"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [[0.03, "rechazar"], [0.07, "no rechazar"]]
+  escenarios: [["Se observa que los perros corren más rápido si les dan premios", "comida"], ["Se observa que las plantas crecen más si se riegan con té", "líquido"]]
 
+enunciado: "Observación: {escenarios[escenario_idx][0]}. En este caso, la variable que el investigador puede manipular (variable independiente) es el/la ___."
+
+opciones_explicitas: ["comida", "líquido", "velocidad de carrera", "entorno"]
 respuesta: escenarios[escenario_idx][1]
 tipo: mc
-opciones_explicitas: ["rechazar", "no rechazar"]
-
-enunciado: "En un estudio con un nivel de significancia $\\alpha = 0.05$, se obtiene un p-valor de {escenarios[escenario_idx][0]}. Por lo tanto, la decisión estadística es ___ la hipótesis nula."
-
-pasos:
-  - "Comparar el p-valor obtenido con el nivel de significancia $\\alpha$."
-  - "Si p-valor < $\\alpha$, se rechaza la hipótesis nula."
-  - "Si p-valor $\\ge$ $\\alpha$, no se rechaza la hipótesis nula."
 
 explicacion: |
-  El p-valor representa la probabilidad de observar los resultados obtenidos (o más extremos) asumiendo que la hipótesis nula es cierta.
+  La variable independiente es el factor que el investigador cambia deliberadamente para observar qué efecto produce.
 ```
 
 ```
 metadata:
   materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
+  tema: "observacion_y_pregunta_investigable"
   nivel: "intermedio"
-  tags: ["sesgo", "muestreo", "validez"]
+  tags: ["criterios", "validez"]
 
-respuesta: "sesgo de selección"
-tipo: completar
-respuestas_validas:
-  - "sesgo de selección"
-
-enunciado: "Cuando la muestra recolectada no es representativa de la población objetivo debido a un error en el proceso de muestreo, se ha incurrido en un ___."
-
-explicacion: |
-  El sesgo de selección invalida la generalización de los resultados, ya que la muestra no refleja la diversidad de la población real.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "avanzado"
-  tags: ["error_tipo_i", "error_tipo_ii", "hipotesis"]
-
-respuesta: "Error Tipo I"
-tipo: mc
-opciones_explicitas: ["Error Tipo I", "Error Tipo II", "Error de medición"]
-
-enunciado: "Un investigador concluye que un nuevo medicamento es efectivo cuando, en realidad, no tiene ningún efecto terapéutico. Este error se denomina:"
-
-explicacion: |
-  El Error Tipo I (falso positivo) ocurre cuando se rechaza una hipótesis nula que es verdadera.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "basico"
-  tags: ["metodologia", "proceso", "orden"]
-
-respuesta_orden: ["Limpieza de datos", "Análisis descriptivo", "Pruebas de hipótesis", "Interpretación de resultados"]
-tipo: ordenar
-opciones_explicitas: ["Limpieza de datos", "Análisis descriptivo", "Pruebas de hipótesis", "Interpretación de resultados"]
-
-enunciado: "Ordene las etapas del análisis de resultados de forma lógica para asegurar el rigor científico:"
-
-explicacion: |
-  Primero se deben tratar los datos brutos (limpieza), luego entender su distribución (descriptivo), aplicar modelos estadísticos (inferencia) y finalmente dar sentido a los hallazgos.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "intermedio"
-  tags: ["correlacion", "causalidad", "metodologia"]
-
-respuesta: "causalidad"
-tipo: "mc"
-opciones_explicitas: ["correlacion", "causalidad", "coincidencia", "varianza"]
-
-enunciado: "Mientras que la correlación indica que dos variables cambian de forma conjunta, la ___ implica que el cambio en una variable es la causa directa del cambio en la otra."
-
-explicacion: |
-  Es un error común en investigación asumir que porque dos variables están correlacionadas, una causa a la otra. La causalidad requiere evidencia de temporalidad y control de variables de confusión.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "avanzado"
-  tags: ["p-valor", "significancia", "relevancia"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "Un estudio con n=100000 muestra que un fármaco reduce el dolor en 0.1 segundos con p < 0.001. Dado que el resultado tiene una significancia estadística muy alta pero el efecto real es despreciable para el paciente, ¿es el resultado clínicamente relevante?"
-
-explicacion: |
-  La significancia estadística (p-valor) depende fuertemente del tamaño de la muestra. Con muestras muy grandes, diferencias minúsculas pueden ser estadísticamente significativas pero carecer de importancia en el mundo real (relevancia práctica).
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "basico"
-  tags: ["medidas_tendencia", "sesgo", "distribucion"]
-
-variables:
-  distribucion: uno_de([["simétrica", "media"], ["sesgada a la derecha", "mediana"]])
-
-respuesta: "mediana"
-tipo: "completar"
-respuestas_validas:
-  - "media"
-  - "mediana"
-
-enunciado: "En una distribución de datos con un sesgo positivo marcado (cola larga a la derecha), la medida de tendencia central que mejor representa el centro de los datos sin verse afectada por los valores extremos es la ___."
-
-explicacion: |
-  La media es sensible a los valores atípicos (outliers), mientras que la mediana es una medida robusta que solo depende de la posición de los datos, siendo preferible en distribuciones no simétricas.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "avanzado"
-  tags: ["hipotesis", "error_tipo_i", "error_tipo_ii"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "El Error Tipo I se define como el acto de rechazar la hipótesis nula cuando en realidad es verdadera (falso positivo)."
-
-explicacion: |
-  El Error Tipo I (falso positivo) ocurre cuando se rechaza una hipótesis nula que es verdadera. El Error Tipo II (falso negativo) ocurre cuando no se rechaza una hipótesis nula que es falsa.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "intermedio"
-  tags: ["análisis", "univariado", "multivariado"]
-
-respuesta_orden: ["Análisis Univariado", "Análisis Bivariado", "Análisis Multivariado"]
-tipo: "ordenar"
-opciones_explicitas: ["Análisis Univariado", "Análisis Bivariado", "Análisis Multivariado"]
-
-enunciado: "Ordene los niveles de complejidad del análisis estadístico, desde el estudio de una sola variable hasta el estudio de múltiples variables simultáneamente:"
-
-explicacion: |
-  El análisis univariado describe una variable; el bivariado examina la relación entre dos; y el multivariado analiza la relación entre tres o más variables, permitiendo controlar efectos de confusión.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "basico"
-  tags: ["mediana", "tendencia_central"]
-
-variables:
-  datos: [[[10, 12, 15, 18, 20], 15], [[5, 8, 10, 12, 50], 10], [[100, 110, 120, 130, 140], 120]]
-  idx: uno_de([0, 1, 2])
-  mediana_correcta: datos[idx][1]
-
-respuestas_validas:
-  - mediana_correcta
-respuesta: mediana_correcta
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Se realizó un estudio sobre el tiempo de respuesta (en segundos) de tres grupos de usuarios. Los datos recolectados para el grupo seleccionado son: {datos[idx][0]}. Calcule la mediana de este conjunto de datos."
-
-pasos:
-  - "Ordene los datos de menor a mayor (ya están ordenados en este caso)."
-  - "Identifique el valor que ocupa la posición central del conjunto."
-
-explicacion: |
-  La mediana es el valor central de un conjunto de datos ordenados. En el caso seleccionado, el valor central de {datos[idx][0]} es {mediana_correcta}.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "intermedio"
-  tags: ["outliers", "desviacion"]
-
-variables:
-  datos_escenario: [[[10, 10, 11, 12, 100], "sí"], [[50, 52, 48, 51, 49], "no"], [[20, 21, 19, 20, 22], "no"]]
-  idx: uno_de([0, 1, 2])
-  datos: datos_escenario[idx][0]
-  es_outlier: datos_escenario[idx][1]
-
-respuestas_validas:
-  - "sí"
-  - "no"
-respuesta: es_outlier
-tipo: completar
-enunciado: "Al analizar el conjunto de datos {datos}, ¿se observa la presencia de un valor atípico (outlier) que afecte significativamente la media aritmética?"
-
-explicacion: |
-  En el conjunto {datos}, el valor {es_outlier} indica si hay un outlier. En el caso seleccionado, la respuesta es {es_outlier}.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "intermedio"
-  tags: ["desviacion_estandar", "dispersion"]
-
-respuesta: "baja"
-tipo: mc
-opciones_explicitas: ["baja", "alta"]
-
-enunciado: "Si un experimento presenta una desviación estándar muy cercana a cero respecto a la media, ¿cómo se describe la dispersión de los datos recolectados?"
-
-explicacion: |
-  Una desviación estándar cercana a cero indica que los datos están muy agrupados alrededor de la media, por lo tanto, la dispersión es baja.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "basico"
-  tags: ["metodologia", "pasos"]
-
-respuesta_orden: ["Recolección", "Limpieza", "Análisis", "Interpretación"]
-tipo: ordenar
-opciones_explicitas: ["Recolección", "Limpieza", "Análisis", "Interpretación"]
-
-enunciado: "Ordene cronológicamente las fases del tratamiento de datos en una investigación científica, desde la obtención hasta la obtención de conclusiones."
-
-explicacion: |
-  El proceso riguroso requiere primero la Recolección, luego la Limpieza (manejo de errores/nulos), después el Análisis estadístico y finalmente la Interpretación de resultados.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "analisis_estadistico_de_resultados"
-  nivel: "avanzado"
-  tags: ["correlacion", "causalidad"]
-
-respuesta: "correlación"
-tipo: completar
-respuestas_validas:
-  - "correlación"
-
-enunciado: "Es un error común en la investigación afirmar que existe una causalidad entre dos variables basándose únicamente en que presentan una ___ estadística."
-
-explicacion: |
-  Es fundamental recordar que la existencia de una correlación no implica necesariamente una causalidad.
-```
-
-## Sección: argumentar-desde-evidencia (25 preguntas)
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "basico"
-  tags: ["definicion", "evidencia"]
-
-respuesta: "datos"
-tipo: completar
-respuestas_validas:
-  - "datos"
-  - "información empírica"
-
-enunciado: "Para construir un argumento científico sólido, es necesario apoyarse en ___ que permitan validar o refutar una hipótesis."
-
-explicacion: |
-  La evidencia en ciencia se compone de datos u observaciones sistemáticas que sirven de base para el razonamiento.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "basico"
-  tags: ["objecion", "debate"]
-
-variables:
-  escenario: uno_de([["Un científico presenta un estudio sobre el cambio climático.", "una observación contradictoria"], ["Un investigador propone una nueva vacuna.", "un estudio que muestra efectos secundarios"], ["Un biólogo afirma que una especie está en peligro.", "un censo que muestra población estable"]])
-
-respuesta: "objeción"
-tipo: mc
-opciones_explicitas: ["objeción", "conclusión", "hipótesis", "premisa"]
-
-enunciado: "Si un investigador presenta una conclusión, presentar evidencia contraria a ella (como {escenario[1]}) se conoce como plantear una ___."
-
-pasos:
-  - "Identificar la conclusión del argumento original."
-  - "Analizar la naturaleza de la objeción presentada."
-  - "Buscar evidencia que responda directamente a esa objeción."
-
-explicacion: |
-  Una objeción es un argumento o dato que desafía la validez de una conclusión previa; responderle con evidencia es la base de la argumentación científica.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "basico"
-  tags: ["veracidad", "booleano"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "¿Es suficiente presentar una opinión personal para defender una conclusión científica ante una objeción?"
-
-explicacion: |
-  Falso. En la ciencia, la opinión no constituye evidencia; se requieren datos, mediciones o hechos verificables.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "intermedio"
-  tags: ["estructura", "argumentacion"]
-
-respuesta_orden: ["Premisa", "Evidencia", "Conclusión"]
-tipo: ordenar
-opciones_explicitas: ["Premisa", "Evidencia", "Conclusión"]
-
-enunciado: "Ordene los elementos de un argumento científico estándar, desde el punto de partida hasta el cierre lógico:"
-
-explicacion: |
-  Un argumento científico parte de una premisa (afirmación), se sostiene mediante evidencia (datos) y culmina en una conclusión lógica.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "basico"
-  tags: ["defensa", "argumentacion"]
-
-variables:
-  caso: uno_de([["La hipótesis es falsa", "la evidencia es insuficiente"], ["La conclusión es correcta", "los datos son erróneos"], ["El método es válido", "la muestra es sesgada"]])
-
-respuesta: caso[1]
-
-tipo: mc
-opciones_explicitas: ["la evidencia es insuficiente", "los datos son erróneos", "la muestra es sesgada"]
-
-enunciado: "Cuando se enfrenta una objeción que cuestiona la validez de un dato, la defensa más efectiva consiste en demostrar que ___."
-
-explicacion: |
-  Si la objeción ataca la calidad de la información, la defensa debe centrarse en la robustez y representatividad de los datos utilizados.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "intermedio"
-  tags: ["evidencia", "argumentacion", "metodologia"]
-
-respuesta: "un mecanismo causal directo"
-tipo: mc
-opciones_explicitas: ["un mecanismo causal directo", "un aumento en el tamaño de la muestra", "un consenso de expertos", "una repetición de la misma correlación"]
-
-enunciado: "Ante la objeción de que los datos solo muestran una relación estadística, la defensa científica más sólida basada en la evidencia consiste en demostrar: ___"
-
-explicacion: |
-  Para defender una conclusión, no basta con señalar la correlación; se debe argumentar que la evidencia respalda el mecanismo causal propuesto.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "basico"
-  tags: ["falacia", "evidencia", "logica"]
+enunciado: "Analiza la siguiente pregunta de investigación: '¿Por qué los gatos prefieren el color azul sobre el rojo?'. ¿Es esta una pregunta científicamente investigable mediante experimentación directa?"
 
 respuesta: falso
 tipo: vf
-
-enunciado: "Si un investigador afirma que 'una teoría es verdadera solo porque ha funcionado en experimentos previos, sin presentar los datos crudos de dichos experimentos', está utilizando una evidencia sólida para su defensa."
-
 explicacion: |
-  Afirmar que algo es cierto basándose solo en éxitos pasados sin mostrar los datos que sustentan esos éxitos es una apelación a la autoridad o una generalización apresurada, no una argumentación basada en evidencia científica.
+  Las preferencias subjetivas (sentimientos o gustos) no son directamente medibles de forma objetiva sin una metodología de observación de comportamiento muy específica; las preguntas sobre 'por qué' suelen ser demasiado amplias para un experimento simple.
 ```
 
 ```
 metadata:
   materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
+  tema: "observacion_y_pregunta_investigable"
   nivel: "intermedio"
-  tags: ["estructura", "argumento", "evidencia"]
+  tags: ["proceso", "metodologia"]
 
-respuesta_orden: ["Observación/Dato", "Inferencia/Análisis", "Conclusión"]
+enunciado: "Ordena los pasos lógicos para transformar una observación curiosa en una pregunta de investigación científica:"
+
+opciones_explicitas: ["Realizar una observación detallada", "Identificar variables (independiente y dependiente)", "Formular la pregunta de investigación", "Diseñar un experimento para probarla"]
+respuesta_orden: ["Realizar una observación detallada", "Identificar variables (independiente y dependiente)", "Formular la pregunta de investigación", "Diseñar un experimento para probarla"]
 tipo: ordenar
-opciones_explicitas: ["Inferencia/Análisis", "Conclusión", "Observación/Dato"]
-
-enunciado: "Para construir un argumento científico robusto que responda a una objeción, se debe seguir este orden lógico de presentación de la evidencia:"
 
 explicacion: |
-  Un argumento científico debe partir de los hechos observados (datos), pasar por el análisis de esos datos (inferencia) y culminar en la conclusión que se defiende.
+  El proceso científico comienza con la percepción (observación), sigue con la delimitación de factores (variables), la formulación del problema (pregunta) y finalmente la acción (diseño experimental).
 ```
 
 ```
 metadata:
   materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
+  tema: "observacion_y_pregunta_investigable"
   nivel: "avanzado"
-  tags: ["variables", "control", "evidencia"]
-
-variables:
-  caso: uno_de([["Aumento de ventas de helados y aumento de ataques de tiburones", "El calor causa ambos"], ["Uso de fertilizante y crecimiento de plantas", "El fertilizante causa el crecimiento"]])
-  solucion: ["Controlar variables externas", "Ignorar la objeción", "Cambiar la conclusión", "Aceptar la correlación"]
-
-respuesta: solucion[0]
-tipo: mc
-opciones_explicitas: ["Controlar variables externas", "Ignorar la objeción", "Cambiar la conclusión", "Aceptar la correlación"]
-
-enunciado: "En el caso de {caso[0]}, si un revisor objeta que existe una variable de confusión (como el clima), la defensa científica correcta para mantener la validez de la conclusión es: ___"
-
-explicacion: |
-  La defensa ante una variable de confusión consiste en demostrar, mediante el control de variables o análisis estadísticos adicionales, que el efecto observado persiste independientemente de la variable externa.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "intermedio"
-  tags: ["refutacion", "evidencia", "metodologia"]
-
-respuesta: "conclusión"
-tipo: completar
-respuestas_validas:
-  - "conclusión"
-
-enunciado: "Para refutar una objeción científica, el investigador debe presentar datos que contradigan la crítica y así validar su ___ original."
-
-explicacion: |
-  La ciencia se basa en la evidencia; sin datos que respalden la posición frente a una crítica, la conclusión pierde validez científica.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "basico"
-  tags: ["argumentacion", "metodologia"]
-
-tipo: mc
-opciones_explicitas: ["Una opinión basada en la experiencia personal", "Un dato estadístico derivado de un muestreo representativo", "Una afirmación sin respaldo verificable", "Una creencia compartida por la comunidad científica"]
-respuesta: "Un dato estadístico derivado de un muestreo representativo"
-
-enunciado: "En el contexto de la investigación científica, ¿cuál de las siguientes opciones constituye una evidencia sólida para defender una conclusión?"
-
-explicacion: |
-  La evidencia científica debe ser reproducible y estar respaldada por datos obtenidos mediante métodos sistemáticos, no puede basarse únicamente en la subjetividad o la experiencia anecdótica.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "intermedio"
-  tags: ["errores_logicos", "correlacion"]
-
-tipo: vf
-respuesta: falso
-
-enunciado: "Si un estudio muestra que dos variables aumentan simultáneamente (correlación), esto es evidencia suficiente para afirmar que una variable causa la otra (causalidad)."
-
-explicacion: |
-  La correlación no implica causalidad. Que dos eventos ocurran al mismo tiempo no significa que uno sea la causa del otro; puede haber una tercera variable influyendo en ambos o ser una coincidencia estadística.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "avanzado"
-  tags: ["debate", "defensa_conclusion"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: ["El investigador presenta un gráfico con tendencia clara y valores de p < 0.05", "El investigador repite su conclusión sin mostrar nuevos datos"]
-  respuestas: ["Es una defensa válida mediante evidencia cuantitativa", "Es una falacia de autoridad o repetición"]
-
-tipo: completar
-respuestas_validas:
-  - "Es una defensa válida mediante evidencia cuantitativa"
-  - "Es una falacia de autoridad o repetición"
-respuesta: respuestas[escenario_idx]
-
-enunciado: "Ante una objeción científica, si el investigador actúa como en el escenario: {escenarios[escenario_idx]}, su respuesta es: ___"
-
-explicacion: |
-  Para defender una conclusión, no basta con insistir en la idea; se requiere aportar datos que refuten la objeción o que fortalezcan la validez del hallazgo original.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "intermedio"
-  tags: ["metodologia", "proceso"]
-
-tipo: ordenar
-opciones_explicitas: ["Recopilar datos mediante observación o experimento", "Analizar los datos para encontrar patrones", "Formular una conclusión basada en la evidencia", "Contrastar la conclusión con la objeción recibida"]
-
-enunciado: "Ordene los pasos lógicos para construir un argumento científico sólido que responda a una duda sobre un hallazgo:"
-
-explicacion: |
-  El proceso debe seguir un orden lógico: primero se obtiene la información, luego se procesa, se llega a una conclusión y finalmente se usa esa estructura para responder a críticas.
-respuesta_orden: ["Recopilar datos mediante observación o experimento", "Analizar los datos para encontrar patrones", "Formular una conclusión basada en la evidencia", "Contrastar la conclusión con la objeción recibida"]
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "avanzado"
-  tags: ["falsacion", "evidencia"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si una conclusión científica es 'Todos los elementos X presentan la propiedad Y', y un crítico presenta un elemento X que NO tiene la propiedad Y, ¿qué ha presentado el crítico?"
-
-respuesta: "contraejemplo"
-
-explicacion: |
-  Un solo contraejemplo basado en evidencia empírica es suficiente para refutar una generalización universal, obligando al investigador a revisar su conclusión o sus premisas.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "basico"
-  tags: ["metodologia", "argumentacion"]
-
-respuesta: "evidencia"
-tipo: "completar"
-respuestas_validas:
-  - "evidencia"
-  - "datos"
-  - "hechos"
-
-enunciado: "Mientras que una opinión es un juicio subjetivo sin necesidad de validación, la ___ es un dato o hecho comprobable que sustenta una conclusión científica."
-
-explicacion: |
-  La evidencia científica se distingue de la opinión porque es verificable, reproducible y puede ser contrastada mediante observación o experimentación.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "intermedio"
-  tags: ["logica", "metodologia"]
-
-variables:
-  escenario_idx: uno_de([0,1])
-  escenarios: [["Aumento de ventas de helados", "Aumento de ataques de tiburones"], ["Aumento de temperatura global", "Aumento de incendios forestales"]]
-
-respuesta: "correlación"
-tipo: "mc"
-opciones_explicitas: ["causalidad", "correlación", "coincidencia", "hipótesis"]
-
-enunciado: "En el escenario {escenarios[escenario_idx][0]} y {escenarios[escenario_idx][1]}, la relación observada entre ambas variables es una ___ pero no necesariamente una relación de causa-efecto. ¿Cómo se define este fenómeno?"
-
-explicacion: |
-  La correlación indica que dos variables cambian juntas, pero no implica que una cause la otra. Confundir esto con causalidad es un error lógico común en la argumentación científica.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "basico"
-  tags: ["logica", "argumentacion"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "Una conclusión científica es válida si se basa únicamente en la experiencia personal de un investigador, independientemente de si otros científicos pueden replicar el resultado."
-
-explicacion: |
-  Falso. La ciencia requiere replicabilidad y evidencia empírica que trascienda la subjetividad individual para ser considerada válida.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "avanzado"
-  tags: ["metodologia", "jerarquia"]
-
-respuesta_orden: ["Opinión de experto", "Estudio de caso", "Estudio observacional", "Ensayo clínico aleatorizado"]
-tipo: "ordenar"
-opciones_explicitas: ["Opinión de experto", "Estudio de caso", "Estudio observacional", "Ensayo clínico aleatorizado"]
-
-enunciado: "Ordene los siguientes niveles de evidencia de MENOR a MAYOR rigor científico para defender una conclusión médica:"
-
-explicacion: |
-  El rigor aumenta a medida que se controla la selección de la muestra y se minimizan los sesgos, siendo los ensayos clínicos aleatorizados el estándar de oro.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "intermedio"
-  tags: ["metodologia", "logica"]
-
-respuesta: "hipótesis"
-tipo: "completar"
-respuestas_validas:
-  - "hipótesis"
-  - "suposición"
-  - "conjetura"
-
-enunciado: "Una ___ es una explicación provisional que requiere ser contrastada con evidencia para ser aceptada, mientras que la evidencia es el soporte empírico que permite validarla o refutarla."
-
-explicacion: |
-  La hipótesis es el punto de partida de la investigación (una propuesta explicativa), mientras que la evidencia es la herramienta para probar si dicha propuesta es correcta.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "intermedio"
-  tags: ["argumentacion", "evidencia", "ciencia"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  objecion: ["la variabilidad natural", "la falta de mediciones precisas"]
-  evidencia_correcta: ["datos de núcleos de hielo", "datos de registros satelitales"]
-
-respuesta: evidencia_correcta[escenario_idx]
-tipo: mc
-opciones_explicitas: ["datos de registros satelitales", "datos de núcleos de hielo", "observaciones anecdóticas", "teorías sin sustento"]
-
-enunciado: "Un investigador afirma que el calentamiento es antropogénico. Un crítico objeta que {objecion[escenario_idx]}. Para defender su conclusión, el investigador debe presentar como evidencia: ___"
-
-explicacion: |
-  Para refutar una objeción sobre la variabilidad natural o errores de medición, se requiere evidencia empírica directa (registros o núcleos de hielo) que descarte la causa propuesta por el crítico.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "avanzado"
-  tags: ["metodologia", "evidencia"]
+  tags: ["estructura", "formulación"]
 
 variables:
   caso_idx: uno_de([0, 1])
-  escenario: [["El grupo control no mostró cambios significativos", "El grupo experimental redujo la carga viral en un 90%"], ["La muestra fue insuficiente para generalizar", "El fármaco mostró una eficacia del 85% en ensayos clínicos"]]
-  objecion: ["la varianza es demasiado alta", "el efecto es producto del azar"]
+  casos: [["¿Cómo afecta la temperatura al tiempo de disolución de la sal?", "temperatura", "tiempo"], ["¿Cómo influye la intensidad de la luz en la altura de la planta?", "luz", "altura"]]
 
-respuesta: verdadero
-tipo: vf
+enunciado: "En el caso: '{casos[caso_idx][0]}', la variable independiente es ___."
 
-enunciado: "En un ensayo clínico, si el grupo experimental muestra una reducción del 90% en la carga viral frente a un grupo control estable, y la desviación estándar es mínima, ¿es válido argumentar que el fármaco es efectivo para refutar la objecion de que {objecion[caso_idx]}?"
+opciones_explicitas: ["temperatura", "tiempo", "luz", "altura"]
+respuesta: casos[caso_idx][1]
+tipo: mc
 
 explicacion: |
-  La evidencia estadística (reducción significativa y baja varianza) es la base para defender una conclusión científica frente a críticas sobre la aleatoriedad.
+  La variable dependiente es el efecto o resultado que se mide (en el primer caso, el tiempo; en el segundo, la altura).
 ```
 
 ```
 metadata:
   materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
+  tema: "observacion_y_pregunta_investigable"
   nivel: "basico"
-  tags: ["logica", "argumentacion"]
-
-variables:
-  orden_idx: uno_de([0, 1])
-  pasos_correctos: [["Observación de datos", "Formulación de hipótesis", "Contraste con evidencia", "Conclusión"], ["Recolección de muestra", "Análisis estadístico", "Revisión de pares", "Publicación de resultados"]]
-
-respuesta_orden: pasos_correctos[orden_idx]
-tipo: ordenar
-opciones_explicitas: pasos_correctos[orden_idx]
-
-enunciado: "Para construir un argumento científico sólido que resista una objeción, se debe seguir un orden lógico de validación. Ordene los pasos para el caso de una investigación de campo:"
-
-explicacion: |
-  Un argumento científico no es solo una opinión; es una secuencia lógica que parte de la observación y pasa por el contraste riguroso de la evidencia antes de concluir.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "intermedio"
-  tags: ["logica", "critica"]
+  tags: ["metodologia", "errores_comunes"]
 
 variables:
   ejemplo_idx: uno_de([0, 1])
-  objecion_texto: [["Si no puedes medir el efecto exacto de cada molécula, entonces tu teoría es falsa", "No has probado que el cambio sea causado por el CO2, por lo tanto, el CO2 no influye"], ["No has probado que el cambio sea causado por el CO2, por lo tanto, el CO2 no influye", "Si no puedes medir el efecto exacto de cada molécula, entonces tu teoría es falsa"]]
+  escenarios: [["¿Las plantas crecen más con música clásica?", "cerrada"], ["¿Cómo afecta la frecuencia de riego al crecimiento de la planta?", "investigable"]]
 
-respuesta: "falacia de la evidencia insuficiente"
-tipo: completar
-respuestas_validas:
-  - "falacia de la evidencia insuficiente"
-  - "error de generalización"
-
-enunciado: "Ante la objecion: '{objecion_texto[ejemplo_idx][0]}', el investigador debe identificar que el crítico está cometiendo una ___ para poder responder con datos que cubran el margen de error."
-
-explicacion: |
-  Cuando un crítico exige una certeza absoluta (imposible en ciencia) para invalidar una tendencia, está incurriendo en una falacia de evidencia insuficiente.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "argumentar_desde_evidencia"
-  nivel: "intermedio"
-  tags: ["evidencia", "datos"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: ["Se estudia la eficacia de un nuevo fertilizante", "Se estudia la relación entre horas de sueño y memoria"]
-  dato_relevante: ["kg de biomasa por planta", "puntuación en test de retención"]
-  objecion: ["la calidad del suelo no fue controlada", "el nivel de estrés de los sujetos"]
-
-respuesta: dato_relevante[escenario_idx]
+respuesta: escenarios[ejemplo_idx][1]
 tipo: mc
-opciones_explicitas: ["kg de biomasa por planta", "puntuación en test de retención", "opinión de los agricultores", "color de las hojas"]
+opciones_explicitas: ["cerrada", "investigable", "subjetiva", "imposible"]
 
-enunciado: "Para defender la eficacia de {escenario[escenario_idx]} frente a la objecion de que {objecion[escenario_idx]}, el dato científico más concreto es: ___"
-
-explicacion: |
-  La defensa de una conclusión depende de la elección de la variable dependiente correcta que cuantifique directamente el fenómeno estudiado.
-```
-
-## Sección: conclusion-y-comunicacion-de-resultados (25 preguntas)
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "basico"
-  tags: ["conceptos", "conclusion"]
-
-respuesta: "síntesis"
-tipo: completar
-respuestas_validas:
-  - "síntesis"
-  - "resumen"
-
-enunciado: "La conclusión de una investigación debe presentarse como una ___ de los hallazgos principales, integrando los resultados con los objetivos planteados."
+enunciado: "Si observo que las plantas de mi salón están más verdes que las del pasillo y me pregunto: '{escenarios[ejemplo_idx][0]}', el tipo de pregunta que he formulado es una pregunta ___."
 
 explicacion: |
-  La conclusión no es un resumen de lo que ya se dijo, sino una síntesis que interpreta los resultados en relación con la pregunta de investigación.
+  Una pregunta investigable debe permitir la recolección de datos medibles. Las preguntas que se responden con un simple "sí" o "no" (como la del ejemplo) son preguntas cerradas y no permiten desarrollar un proceso de investigación experimental completo.
 ```
 
 ```
 metadata:
   materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "basico"
-  tags: ["discusion", "interpretacion"]
-
-variables:
-  es_correcta: verdadero
-
-respuesta: es_correcta
-tipo: vf
-enunciado: "¿La sección de discusión tiene como objetivo principal comparar los resultados obtenidos con la literatura existente y las hipótesis previas?"
-
-explicacion: |
-  Correcto. La discusión es el espacio donde se interpretan los datos y se contrastan con el marco teórico y estudios previos.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "basico"
-  tags: ["comunicacion", "difusion"]
-
-respuesta: "artículo científico"
-tipo: mc
-opciones_explicitas: ["artículo científico", "diario de campo", "encuesta de satisfacción", "plan de trabajo"]
-
-enunciado: "¿Cuál de los siguientes es el medio de comunicación formal por excelencia para difundir resultados de investigación ante la comunidad académica?"
-
-explicacion: |
-  El artículo científico es el estándar de comunicación en la ciencia para permitir la revisión por pares y la difusión del conocimiento.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
+  tema: "observacion_y_pregunta_investigable"
   nivel: "intermedio"
-  tags: ["estructura", "reporte"]
-
-respuesta_orden: ["resumen", "introducción", "metodología", "resultados", "discusión", "conclusión"]
-tipo: ordenar
-
-opciones_explicitas: ["resumen", "introducción", "metodología", "resultados", "discusión", "conclusión"]
-
-enunciado: "Ordene los elementos de un reporte de investigación siguiendo la estructura lógica estándar de publicación."
-
-explicacion: |
-  La estructura estándar sigue el orden: Resumen (Abstract), Introducción, Metodología, Resultados, Discusión y finalmente la Conclusión.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "intermedio"
-  tags: ["limitaciones", "ética"]
-
-respuesta: falso
-tipo: vf
-enunciado: "¿Es una mala práctica de comunicación omitir las limitaciones encontradas en el estudio para que la investigación parezca más sólida?"
-
-explicacion: |
-  Falso. Declarar las limitaciones es un acto de honestidad intelectual y es fundamental para que otros investigadores comprendan el alcance de los resultados.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "basico"
-  tags: ["estructura", "conclusion"]
-
-enunciado: "Al redactar la conclusión de un informe de investigación, el investigador debe retomar los objetivos planteados inicialmente para determinar si se cumplieron o no. Por lo tanto, una conclusión debe ser una síntesis de los hallazgos y no una repetición textual del resumen."
-
-respuesta: verdadero
-tipo: vf
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "intermedio"
-  tags: ["comunicacion", "revision"]
-
-enunciado: "En el proceso de comunicación científica, ¿cuál de las siguientes prácticas es recomendada para mejorar la calidad del manuscrito antes de la sumisión formal?"
-
-respuesta: "El investigador envía el artículo a un colega para una revisión por pares informal antes de la revista."
-tipo: mc
-opciones_explicitas: ["El investigador escribe el artículo y lo envía directamente a la revista sin revisión previa.", "El investigador envía el artículo a un colega para una revisión por pares informal antes de la revista.", "El investigador publica los resultados en un blog personal sin pasar por revisión científica."]
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "intermedio"
-  tags: ["proceso", "comunicacion"]
-
-enunciado: "Para asegurar una comunicación efectiva de un nuevo descubrimiento científico, se deben seguir estos pasos en orden lógico:"
-
-pasos:
-  - "Realizar el análisis exhaustivo de los datos obtenidos."
-  - "Redactar el manuscrito siguiendo las normas de la revista elegida."
-  - "Enviar el manuscrito a la editorial para la revisión por pares."
-  - "Presentar los resultados en un congreso para recibir feedback."
-
-respuesta_orden: ["Realizar el análisis exhaustivo de los datos obtenidos.", "Redactar el manuscrito siguiendo las normas de la revista elegida.", "Enviar el manuscrito a la editorial para la revisión por pares.", "Presentar los resultados en un congreso para recibir feedback."]
-tipo: ordenar
-opciones_explicitas: ["Realizar el análisis exhaustivo de los datos obtenidos.", "Redactar el manuscrito siguiendo las normas de la revista elegida.", "Enviar el manuscrito a la editorial para la revisión por pares.", "Presentar los resultados en un congreso para recibir feedback."]
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "avanzado"
-  tags: ["limitaciones", "etica"]
-
-variables:
-  caso: uno_de([["Un estudio sobre un fármaco que no menciona que la muestra fue de solo 5 personas.", "incorrecto"], ["Un estudio que reconoce que el clima afectó la velocidad de reacción química.", "correcto"]])
-
-enunciado: "En la sección de discusión y conclusiones, un investigador debe declarar las limitaciones del estudio. Un ejemplo de una declaración de limitaciones adecuada es: {caso[0]}"
-
-respuesta: caso[1]
-tipo: mc
-opciones_explicitas: ["incorrecto", "correcto"]
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "basico"
-  tags: ["terminologia", "completar"]
-
-enunciado: "Cuando un artículo científico es aceptado y publicado, se convierte en parte del ___ científico, permitiendo que otros investigadores citen los hallazgos para construir nuevo conocimiento."
-
-respuestas_validas:
-  - "cuerpo"
-  - "conocimiento"
-  - "corpus"
-respuesta: "conocimiento"
-tipo: completar
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "basico"
-  tags: ["metodologia", "conclusiones"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una conclusión debe ser una mera repetición o resumen de los resultados obtenidos, sin aportar una síntesis interpretativa de los mismos."
-
-explicacion: |
-  La conclusión no es un resumen. Mientras que el resumen describe qué se hizo y qué se encontró, la conclusión debe interpretar los hallazgos, responder a la pregunta de investigación y discutir las implicancias de los resultados.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "intermedio"
-  tags: ["comunicacion", "estructura"]
-
-variables:
-  orden_correcto: ["Resumen", "Introducción", "Metodología", "Resultados", "Discusión", "Conclusión"]
-  idx: uno_de([0,1,2,3,4,5])
-
-respuesta_orden: orden_correcto
-tipo: ordenar
-
-opciones_explicitas: ["Resumen", "Introducción", "Metodología", "Resultados", "Discusión", "Conclusión"]
-
-enunciado: "Ordene los elementos de un artículo científico estándar siguiendo la estructura lógica de publicación (IMRyD extendido)."
-
-explicacion: |
-  La estructura estándar sigue un flujo lógico: desde la visión general (Resumen), el contexto (Introducción), el proceso (Metodología), la evidencia (Resultados), la interpretación (Discusión) y el cierre (Conclusión).
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "avanzado"
-  tags: ["errores", "validez"]
-
-respuesta: "generalización excesiva"
-tipo: completar
-respuestas_validas:
-  - "generalización excesiva"
-  - "sesgo de confirmación"
-  - "error de muestreo"
-
-enunciado: "Cuando un investigador extiende sus conclusiones más allá de los límites de su muestra o de los datos recolectados, está incurriendo en una ___."
-
-explicacion: |
-  La validez externa de una investigación depende de que las conclusiones no pretendan aplicar leyes universales si la muestra es limitada o no representativa del universo estudiado.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "intermedio"
-  tags: ["discusion", "errores"]
-
-respuesta: "Presentar nuevos datos"
-tipo: mc
-opciones_explicitas: ["Presentar nuevos datos", "Comparar con autores previos", "Reconocer limitaciones", "Sugerir futuras líneas de investigación"]
-
-enunciado: "Durante la sección de Discusión de un informe o artículo, ¿cuál de las siguientes acciones es un error metodológico grave?"
-
-explicacion: |
-  La sección de Discusión es para interpretar resultados ya presentados. Si se introducen datos nuevos que no fueron expuestos en la sección de Resultados, se rompe la estructura lógica y la transparencia del proceso.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "avanzado"
-  tags: ["etica", "sesgo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al comunicar resultados, el investigador tiene la obligación ética de reportar tanto los hallazgos que apoyan su hipótesis como aquellos que la contradicen."
-
-explicacion: |
-  Omitir resultados que contradicen la hipótesis inicial es una forma de sesgo de publicación que distorsiona el conocimiento científico. La integridad requiere reportar toda la evidencia relevante.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "intermedio"
-  tags: ["metodologia", "escritura_cientifica"]
-
-respuesta: "discusión"
-tipo: mc
-opciones_explicitas: ["conclusión", "discusión", "resumen", "introducción"]
-
-enunciado: "Mientras que la conclusión se centra en sintetizar los hallazgos principales y responder al objetivo, la ___ se enfoca en interpretar los resultados en el contexto de la literatura existente y las implicaciones teóricas."
-
-explicacion: |
-  La discusión es la sección donde se comparan los resultados propios con otros estudios, mientras que la conclusión es un cierre sintético de lo aprendido.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "basico"
-  tags: ["comunicacion", "estructura"]
-
-respuesta: falso
-tipo: vf
-enunciado: "En un artículo científico, la sección de conclusiones debe ser una mera repetición del texto del resumen (abstract) sin aportar una síntesis interpretativa de los hallazgos."
-
-explicacion: |
-  Falso. El resumen es una síntesis de todo el trabajo (incluyendo métodos y resultados), mientras que la conclusión debe cerrar el argumento de la investigación y proyectar futuras líneas de estudio.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "intermedio"
-  tags: ["difusion", "etica"]
-
-respuesta_orden: ["publicar_en_revistas_con_revision_pares", "publicar_en_redes_sociales", "guardar_en_un_archivo_personal"]
-tipo: ordenar
-
-opciones_explicitas: ["publicar_en_revistas_con_revision_pares", "publicar_en_redes_sociales", "guardar_en_un_archivo_personal"]
-
-enunciado: "Ordene los niveles de formalidad y validación científica en la comunicación de resultados, desde el más riguroso/validado hasta el menos formal."
-
-explicacion: |
-  La revisión por pares (peer-review) es el estándar de oro de la comunicación científica, asegurando la calidad y veracidad de los hallazgos antes de su difusión masiva.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "basico"
-  tags: ["metodologia"]
-
-respuesta: "se_confirma_o_rechaza"
-tipo: completar
-respuestas_validas:
-  - "se_confirma_o_rechaza"
-
-enunciado: "Si la hipótesis es la proposición que se intenta verificar al inicio de la investigación, la conclusión es el espacio donde la hipótesis ___."
-
-explicacion: |
-  La conclusión debe retomar la hipótesis original para determinar si la evidencia recolectada la respalda o la refuta.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "avanzado"
-  tags: ["escritura_cientifica", "calidad"]
+  tags: ["variables", "diseño_experimental"]
 
 variables:
   caso_idx: uno_de([0, 1])
-  escenarios: [["hallazgos_limitados", "relevancia_alta"], ["hallazgos_contradictorios", "necesidad_de_nuevos_estudios"]]
-  respuestas: ["relevancia_alta", "necesidad_de_nuevos_estudios"]
+  casos: [["¿La temperatura influye en la velocidad de disolución de la sal?", "temperatura"], ["¿El color del recipiente afecta la rapidez con la que se disuelve el azúcar?", "color"]]
 
-respuesta: respuestas[caso_idx]
-tipo: mc
-opciones_explicitas: ["relevancia_alta", "necesidad_de_nuevos_estudios", "repetir_metodologia", "ignorar_errores"]
+respuesta: casos[caso_idx][1]
+tipo: completar
+respuestas_validas:
+  - "temperatura"
+  - "color"
 
-enunciado: "Si un investigador obtiene {escenarios[caso_idx][0]}, la conclusión debe enfocarse principalmente en la {escenarios[caso_idx][1]}."
+enunciado: "Para que una observación se transforme en una pregunta investigable, es necesario identificar una variable independiente. En el caso de: '{casos[caso_idx][0]}', la variable que el investigador debe manipular es el/la ___."
 
 explicacion: |
-  Una conclusión debe ser honesta con las limitaciones del estudio. Si los resultados son limitados o contradictorios, la comunicación científica exige señalar la necesidad de nuevas investigaciones para resolver la ambigüedad.
+  La variable independiente es el factor que el investigador cambia deliberadamente para observar su efecto. En el primer caso es la temperatura; en el segundo, el color.
 ```
 
 ```
 metadata:
   materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "intermedio"
-  tags: ["conclusiones", "informe"]
-
-variables:
-  datos: [["Los datos muestran una correlación positiva entre el uso de fertilizante y el crecimiento", "Se confirma la hipótesis inicial"], ["Los resultados son inconsistentes y no permiten validar la hipótesis", "Se sugiere ampliar la muestra"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Se confirma la hipótesis inicial", "Se sugiere ampliar la muestra", "Se deben ignorar los datos negativos", "El estudio es inválido"]
-
-enunciado: "Un investigador llega a la siguiente situación: {datos[idx][0]}. ¿Cuál es la acción o conclusión más adecuada para el cierre de su informe?"
-
-explicacion: |
-  Una conclusión debe ser coherente con los hallazgos. Si los datos apoyan la hipótesis, se confirma; si no, se debe proponer la necesidad de más investigación o admitir la falta de evidencia.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
+  tema: "observacion_y_pregunta_investigable"
   nivel: "basico"
-  tags: ["etica", "comunicacion"]
+  tags: ["subjetividad", "objetividad"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "En la comunicación de resultados, es éticamente aceptable omitir datos que contradicen la hipótesis principal para asegurar que la conclusión sea contundente."
+enunciado: "Una pregunta que contenga términos subjetivos como '¿Cuál es la flor más bonita del jardín?' es considerada una pregunta investigable porque la belleza es una propiedad física medible."
 
 explicacion: |
-  Falso. La integridad científica exige reportar todos los hallazgos, incluso aquellos que contradicen la hipótesis, para evitar el sesgo de publicación.
+  Falso. Los términos subjetivos (bonito, feo, increíble, mejor) dependen del observador y no pueden ser medidos de forma objetiva mediante instrumentos o datos estandarizados. Una pregunta investigable debe ser objetiva.
 ```
 
 ```
 metadata:
   materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
+  tema: "observacion_y_pregunta_investigable"
   nivel: "intermedio"
-  tags: ["estructura", "orden"]
+  tags: ["procedimiento", "metodologia"]
 
-respuesta_orden: ["Introducción", "Metodología", "Resultados", "Discusión y Conclusión"]
+respuesta_orden: ["Observación", "Identificación de variables", "Formulación de pregunta"]
 tipo: ordenar
-opciones_explicitas: ["Introducción", "Metodología", "Resultados", "Discusión y Conclusión"]
 
-enunciado: "Ordene los elementos de un artículo científico siguiendo el orden lógico estándar de comunicación de resultados."
+opciones_explicitas: ["Observación", "Identificación de variables", "Formulación de pregunta"]
+
+enunciado: "Ordena los pasos lógicos para convertir una curiosidad en una pregunta de investigación científica:"
+
+pasos:
+  - "Notar un fenómeno en el entorno."
+  - "Determinar qué factores pueden estar influyendo (causa-efecto)."
+  - "Redactar el interrogante de forma clara, precisa y medible."
 
 explicacion: |
-  El orden estándar permite que el lector comprenda primero el contexto (introducción), cómo se hizo (metodología), qué se encontró (resultados) y qué significan esos hallazgos (discusión/conclusión).
+  El método científico comienza con la observación de un fenómeno, seguido por el análisis de las variables involucradas y culmina con la formulación de una pregunta que pueda ser sometida a prueba.
 ```
 
 ```
 metadata:
   materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
+  tema: "observacion_y_pregunta_investigable"
   nivel: "avanzado"
-  tags: ["discusion", "interpretacion"]
+  tags: ["viabilidad", "limitaciones"]
 
 variables:
-  datos: [["Resultados significativos en el grupo A", "Resultados no significativos"], ["Efecto observado en la variable X", "Efecto nulo en la variable X"]]
-  idx: uno_de([0, 1])
+  pregunta_idx: uno_de([0, 1])
+  preguntas: [["¿Cómo influye el tipo de suelo en el crecimiento de las semillas?", "posible"], ["¿Por qué las plantas tienen sentimientos cuando no las riego?", "imposible"]]
 
-respuesta: "interpretar"
+respuesta: preguntas[pregunta_idx][1]
+tipo: mc
+opciones_explicitas: ["posible", "imposible"]
+
+enunciado: "Al evaluar la viabilidad de una pregunta de investigación, si nos planteamos: '{preguntas[pregunta_idx][0]}', la clasificación correcta es que la pregunta es ___."
+
+explicacion: |
+  Una pregunta es imposible de investigar científicamente si su objeto de estudio no es observable o medible (como los 'sentimientos' de una planta), o si requiere tecnología que no existe. Una pregunta sobre el suelo es posible porque el crecimiento y el tipo de suelo son variables medibles.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "observacion_y_pregunta_investigable"
+  nivel: "basico"
+  tags: ["metodologia", "conceptos_basicos"]
+
+respuesta: "pregunta"
 tipo: completar
 respuestas_validas:
-  - "interpretar"
-  - "repetir"
-  - "ignorar"
+  - "pregunta"
 
-enunciado: "En la sección de discusión de un informe, el investigador debe ___ los resultados obtenidos en relación con el marco teórico y los objetivos planteados."
+enunciado: "Mientras que una observación es la percepción de un fenómeno, una ___ es una interrogante que busca explicar o relacionar variables de forma empírica."
 
 explicacion: |
-  La discusión no es solo repetir los resultados, sino interpretarlos, compararlos con otros autores y explicar su relevancia científica.
+  La observación es el punto de partida (notar algo), pero para iniciar el proceso científico se requiere transformar esa percepción en una pregunta investigable.
 ```
 
 ```
 metadata:
   materia: "investigacion"
-  tema: "conclusion_y_comunicacion_de_resultados"
-  nivel: "basico"
-  tags: ["difusion", "canales"]
+  tema: "observacion_y_pregunta_investigable"
+  nivel: "intermedio"
+  tags: ["criterios", "metodologia"]
 
 variables:
-  datos: [["un congreso científico", "una red social personal"], ["una revista indexada", "un blog de opinión"]]
-  idx: uno_de([0, 1])
+  escenario: uno_de([["¿Por qué el cielo es azul?", "falsa"], ["¿Cómo afecta la temperatura al crecimiento de una planta?", "verdadera"], ["¿Es el color azul el más bonito?", "falsa"]])
 
-respuesta: datos[idx][0]
+respuesta: "¿Cómo afecta la temperatura al crecimiento de una planta?"
 tipo: mc
-opciones_explicitas: ["un congreso científico", "una red social personal", "una revista indexada", "un blog de opinión"]
+opciones_explicitas: ["¿Por qué el cielo es azul?", "¿Cómo afecta la temperatura al crecimiento de una planta?", "¿Es el color azul el más bonito?"]
 
-enunciado: "Si el objetivo es la difusión académica formal de los resultados de una investigación, el medio más apropiado es ___."
+enunciado: "De las siguientes opciones, ¿cuál representa una pregunta que puede ser investigada científicamente (es decir, que permite la recolección de datos empíricos)?"
 
 explicacion: |
-  Para la comunicación científica formal, se requieren canales con revisión por pares (peer-review) como revistas indexadas o presentaciones en congresos especializados.
+  Una pregunta investigable debe ser observable y medible. Las preguntas sobre opiniones ("más bonito") o causas metafísicas/filosóficas no se pueden probar mediante la experimentación directa.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "observacion_y_pregunta_investigable"
+  nivel: "avanzado"
+  tags: ["tipos_de_pregunta", "metodologia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Una pregunta que busca determinar la relación de causa y efecto entre dos variables (ej. '¿Cómo influye X en Y?') se clasifica únicamente como una pregunta descriptiva."
+
+explicacion: |
+  Falso. Una pregunta descriptiva busca caracterizar un fenómeno (¿cómo es?, ¿cuántos hay?), mientras que la pregunta que busca la relación causa-efecto es de carácter explicativo o correlacional.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "observacion_y_pregunta_investigable"
+  nivel: "basico"
+  tags: ["proceso", "pasos"]
+
+respuesta_orden: ["Observación", "Identificación de variables", "Formulación de la pregunta"]
+tipo: ordenar
+opciones_explicitas: ["Observación", "Identificación de variables", "Formulación de la pregunta"]
+
+enunciado: "Ordena los pasos lógicos para transformar una curiosidad en un problema de investigación científica:"
+
+explicacion: |
+  Primero se observa el fenómeno, luego se identifican los elementos que intervienen (variables) y finalmente se redacta la pregunta que vincula dichos elementos.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "observacion_y_pregunta_investigable"
+  nivel: "intermedio"
+  tags: ["conceptos_relacionados", "metodologia"]
+
+respuesta: "¿Influye la luz en el crecimiento?"
+tipo: mc
+opciones_explicitas: ["¿Influye la luz en el crecimiento?", "La luz influye en el crecimiento."]
+
+enunciado: "Si tenemos una observación sobre la luz y las plantas, ¿cuál de los siguientes enunciados representa la fase de 'pregunta investigable' y no una 'hipótesis'?"
+
+explicacion: |
+  La pregunta es una interrogación abierta que busca respuesta; la hipótesis es una afirmación provisional que intenta responder a dicha pregunta y que debe ser sometida a prueba.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "observacion_y_pregunta_investigable"
+  nivel: "basico"
+  tags: ["metodologia", "observacion"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["Observo que las plantas de mi balcón crecen más rápido cuando las riego con té de banana.", "El efecto de la concentración de potasio en el crecimiento de la planta de interior."], ["Noto que mis amigos se ven más cansados los lunes que los viernes.", "La relación entre el ciclo semanal de sueño y los niveles de energía percibida."]]
+
+respuesta: datos[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["¿Por qué las plantas son verdes?", datos[escenario_idx][1], "¿Me gusta el té de banana?", "¿Cómo se cuidan las plantas?"]
+
+enunciado: "Dada la siguiente observación: '{datos[escenario_idx][0]}', ¿cuál de las siguientes opciones representa una pregunta de investigación científica válida y delimitada?"
+
+explicacion: |
+  Una buena pregunta de investigación debe ser específica, medible y establecer una relación entre variables, evitando generalidades o juicios de valor.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "observacion_y_pregunta_investigable"
+  nivel: "intermedio"
+  tags: ["variables", "metodologia"]
+
+variables:
+  caso_idx: uno_de([0])
+  casos: [["Observación: El uso de música clásica durante el estudio parece mejorar la retención de vocabulario en estudiantes de inglés.", "música clásica", "retención de vocabulario"]]
+
+respuesta: "música clásica"
+tipo: completar
+respuestas_validas:
+  - "música clásica"
+
+enunciado: "En la observación: '{casos[caso_idx][0]}', la variable independiente (la que el investigador manipula) es la ___."
+
+pasos:
+  - "Identifica qué factor se está variando o estudiando como causa."
+  - "Identifica qué efecto se está midiendo."
+
+explicacion: |
+  La variable independiente es el factor que se presume causa un efecto; en este caso, la música clásica.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "observacion_y_pregunta_investigable"
+  nivel: "basico"
+  tags: ["criterios", "validacion"]
+
+variables:
+  pregunta_idx: uno_de([0, 1])
+  preguntas: [["¿Es el color azul el color más bonito de todos los colores?", falso], ["¿Influye la temperatura del agua en la velocidad de disolución de la sal?", verdadero]]
+
+respuesta: preguntas[pregunta_idx][1]
+tipo: completar
+enunciado: "Analiza la siguiente pregunta: '{preguntas[pregunta_idx][0]}'. ¿Es esta una pregunta que puede ser investigada mediante el método científico? (responde con verdadero o falso)"
+
+explicacion: |
+  Para ser investigable, una pregunta no debe basarse en opiniones subjetivas ("lo más bonito"), sino en hechos que puedan ser observados y medidos objetivamente.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "observacion_y_pregunta_investigable"
+  nivel: "intermedio"
+  tags: ["estructura", "metodologia"]
+
+variables:
+  escenarios: [["Observación: Los perros corren más rápido cuando hay un estímulo sonoro fuerte.", "¿De qué manera el nivel de decibelios de un estímulo sonoro afecta la velocidad de carrera de un canino?", "¿De qué manera el nivel de decibelios de un estímulo sonoro afecta la velocidad de carrera de un canino?", "El ruido hace que los perros corran."]]
+
+respuesta_orden: ["¿De qué manera el nivel de decibelios de un estímulo sonoro afecta la velocidad de carrera de un canino?", "¿Los perros corren con ruido?", "¿Por qué los perros corren rápido?", "El ruido hace que los perros corran."]
+tipo: ordenar
+opciones_explicitas: ["¿De qué manera el nivel de decibelios de un estímulo sonoro afecta la velocidad de carrera de un canino?", "¿Los perros corren con ruido?", "¿Por qué los perros corren rápido?", "El ruido hace que los perros corran."]
+
+enunciado: "Ordena los siguientes enunciados desde la pregunta de investigación más técnica y bien estructurada hasta la más informal o vaga, basándote en la observación: 'Observación: Los perros corren más rápido cuando hay un estímulo sonoro fuerte.'."
+
+explicacion: |
+  Una pregunta científica debe ser precisa, evitar términos ambiguos y establecer claramente la relación entre la variable independiente y la dependiente.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "observacion_y_pregunta_investigable"
+  nivel: "avanzado"
+  tags: ["delimitacion", "metodologia"]
+
+variables:
+  item_idx: uno_de([0])
+  items: [["Observación: El crecimiento de los moños en el pan depende de la humedad.", "Humedad relativa", "Tiempo de fermentación", "Temperatura ambiente"]]
+
+respuesta: "Humedad relativa"
+tipo: mc
+opciones_explicitas: ["Humedad relativa", "Temperatura ambiente", "Tiempo de fermentación", "Todas las anteriores"]
+
+enunciado: "Si queremos investigar la observación: '{items[item_idx][0]}', y decidimos enfocarnos únicamente en la variable ambiental que se puede medir con un higrómetro, ¿cuál sería nuestra variable principal?"
+
+explicacion: |
+  El higrómetro es el instrumento diseñado específicamente para medir la humedad (relativa o absoluta) del aire.
+```
+
+## Sección: hipotesis-buena-o-mala (25 preguntas)
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "basico"
+  tags: ["metodologia", "hipotesis"]
+
+tipo: mc
+opciones_explicitas: ["Es vaga y difícil de medir", "Es específica y comprobable", "Es una opinión personal sin sustento", "Es una verdad absoluta e incuestionable"]
+respuesta: "Es específica y comprobable"
+
+enunciado: "Una hipótesis científica se considera 'buena' cuando su estructura permite que sea ___ y ___."
+
+explicacion: |
+  Para que una hipótesis sea válida en el método científico, debe ser específica (delimitar qué se va a observar) y comprobable (permitir la experimentación para aceptar o rechazar la proposición).
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "intermedio"
+  tags: ["falsabilidad", "metodologia"]
+
+tipo: vf
+
+enunciado: "Si una hipótesis está formulada de tal manera que no existe ningún experimento posible para demostrar que es falsa, entonces se dice que la hipótesis es falsable."
+
+respuesta: falso
+
+explicacion: |
+  Es una contradicción. Para que una hipótesis sea científica, debe ser falsable; es decir, debe ser posible imaginar un experimento o una observación que pueda contradecirla. Si no puede ser refutada, no es científica.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "basico"
+  tags: ["hipotesis_mala", "vaguedad"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["La temperatura afecta el crecimiento de las plantas.", "La temperatura influye en el crecimiento de las plantas de tomate bajo luz roja."], ["El clima es malo hoy.", "El clima influye en el estado de ánimo de las personas."]]
+
+tipo: mc
+opciones_explicitas: ["Es demasiado específica", "Es vaga o ambigua", "Es una ley universal", "Es una variable dependiente"]
+
+enunciado: "Analiza el siguiente enunciado: '{escenarios[escenario_idx][0]}'. Esta hipótesis se considera 'mala' porque es ___."
+
+respuesta: "Es vaga o ambigua"
+
+explicacion: |
+  Una hipótesis vaga (como la del primer escenario) no define qué tipo de temperatura, qué tipo de planta o cómo se mide el crecimiento, lo que impide una prueba experimental rigurosa.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "intermedio"
+  tags: ["variables", "estructura"]
+
+tipo: completar
+opciones_explicitas: ["variable", "causa", "efecto"]
+respuestas_validas:
+  - "variable"
+  - "causa"
+  - "efecto"
+
+enunciado: "En una hipótesis bien formulada, se debe establecer la relación entre una ___ independiente y una ___ dependiente."
+
+respuesta: "variable"
+
+explicacion: |
+  La estructura básica de una hipótesis científica busca relacionar cómo el cambio en una variable (independiente) afecta a otra (dependiente).
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "basico"
+  tags: ["proceso", "metodologia"]
+
+tipo: ordenar
+opciones_explicitas: ["Observación del fenómeno", "Formulación de la hipótesis", "Diseño de la experimentación", "Análisis de resultados"]
+
+enunciado: "Ordena los pasos lógicos para validar una hipótesis científica:"
+
+explicacion: |
+  El proceso científico sigue un orden lógico: primero se observa un fenómeno, luego se propone una explicación provisional (hipótesis), se diseña un experimento para probarla y finalmente se analizan los datos obtenidos.
+respuesta_orden: ["Observación del fenómeno", "Formulación de la hipótesis", "Diseño de la experimentación", "Análisis de resultados"]
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buenas_y_malas"
+  nivel: "basico"
+  tags: ["metodologia", "hipotesis"]
+
+tipo: mc
+opciones_explicitas: ["La dieta de la felicidad mejora el bienestar general.", "El consumo de vitamina C reduce la duración del resfriado común en 2 días.", "Los pensamientos influyen en la suerte de las personas.", "El clima afecta el humor de la población."]
+enunciado: "De las siguientes afirmaciones, ¿cuál representa una hipótesis científica válida por ser específica y falsable?"
+respuesta: "El consumo de vitamina C reduce la duración del resfriado común en 2 días."
+explicacion: |
+  Una buena hipótesis debe ser específica y permitir una prueba empírica. La opción correcta define una variable (vitamina C), una población (resfriado común) y un efecto medible (2 días), permitiendo ser refutada o confirmada. Las otras son vagas o subjetivas.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buenas_y_malas"
+  nivel: "intermedio"
+  tags: ["falsabilidad", "logica"]
+
+tipo: vf
+respuesta: falso
+enunciado: "Una hipótesis que no puede ser refutada mediante la observación o la experimentación (es decir, es infalsable) se considera una hipótesis científica válida."
+
+explicacion: |
+  Falso. El criterio de falsabilidad de Popper establece que para que una hipótesis sea científica, debe existir, al menos en la teoría, un experimento o observación que pueda demostrar que es falsa. Si no puede ser refutada, no es ciencia.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buenas_y_malas"
+  nivel: "intermedio"
+  tags: ["variables", "especificidad"]
+
+variables:
+  escenario: uno_de([["El uso de fertilizante X aumenta el crecimiento de la planta Y en un 20% en 30 días", "fertilizante X"], ["El uso de fertilizante X aumenta el crecimiento de la planta Y en un 20% en 30 días", "fertilizante X"], ["El uso de fertilizante X aumenta el crecimiento de la planta Y en un 20% en 30 días", "fertilizante X"]])
+
+tipo: completar
+enunciado: "Dada la hipótesis: '{escenario[0]}', el factor que se pretende modificar es el ___."
+respuestas_validas:
+  - "fertilizante X"
+respuesta: escenario[1]
+
+explicacion: |
+  En el diseño experimental, el fertilizante X es la variable independiente (la causa propuesta), la cual se manipula para observar su efecto sobre el crecimiento.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buenas_y_malas"
+  nivel: "basico"
+  tags: ["metodologia", "proceso"]
+
+tipo: ordenar
+opciones_explicitas: ["Formular la hipótesis", "Diseñar el experimento", "Analizar los datos obtenidos", "Concluir si la hipótesis es aceptada o rechazada"]
+respuesta_orden: ["Formular la hipótesis", "Diseñar el experimento", "Analizar los datos obtenidos", "Concluir si la hipótesis es aceptada o rechazada"]
+
+enunciado: "Ordene cronológicamente los pasos lógicos para validar una hipótesis científica:"
+
+explicacion: |
+  El método científico requiere primero la formulación de la idea, luego la creación de un procedimiento (experimento), el tratamiento de la información recolectada (análisis) y finalmente la toma de decisiones sobre la validez de la premisa inicial.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buenas_y_malas"
+  nivel: "avanzado"
+  tags: ["evaluacion", "metodologia"]
+
+variables:
+  caso: uno_de([["'Las fuerzas invisibles del universo determinan el destino humano'", "Mala: es infalsable"], ["'El aumento de la temperatura global reduce el grosor del hielo ártico'", "Buena: es específica y comprobable"], ["'Las personas son felices cuando están con sus amigos'", "Mala: es vaga y no medible"]])
+
+tipo: mc
+opciones_explicitas: ["Mala: es vaga y no medible", "Mala: es infalsable", "Buena: es específica y comprobable"]
+enunciado: "Analice el siguiente caso: '{caso[0]}'. ¿Cuál es su clasificación?"
+respuesta: caso[1]
+
+explicacion: |
+  Si el caso es el 0, es infalsable (fuerzas invisibles). Si es el 1, es buena (medible). Si es el 2, es mala por ser vaga (qué es "feliz" y "amigos" es subjetivo). El sistema evaluará según la lógica de la opción seleccionada.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "basico"
+  tags: ["metodologia", "hipotesis"]
+
+tipo: mc
+opciones_explicitas: ["Comprobable", "Subjetiva", "Vaga", "Universal"]
+
+enunciado: "Una característica fundamental que distingue a una hipótesis científica de una mera opinión es que debe ser ___."
+
+respuesta: "Comprobable"
+
+explicacion: |
+  Para que una hipótesis sea científica, debe existir la posibilidad de diseñar un experimento o observación que pueda confirmar o refutar su validez. Si no puede ser sometida a prueba, no es ciencia.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "intermedio"
+  tags: ["falsabilidad", "popper"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "Una hipótesis que es tan amplia que cualquier resultado posible puede ser explicado por ella (es decir, no puede ser refutada por ningún experimento) se considera una hipótesis científica excelente."
+
+explicacion: |
+  Falso. Según el criterio de falsabilidad, una hipótesis que no puede ser refutada por ningún evento observable es una hipótesis no científica o "no falsable", ya que no permite el avance del conocimiento mediante la evidencia.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "especificidad"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["El clima afectará el ánimo de las personas.", "Vaga"], ["El aumento de la temperatura ambiente en 5°C reducirá la productividad laboral en un 10%.", "Específica"]]
+
+tipo: mc
+opciones_explicitas: ["Vaga", "Específica"]
+
+enunciado: "Analiza el siguiente enunciado: '{escenarios[escenario_idx][0]}'. La principal deficiencia de esta hipótesis es que es ___."
+
+respuesta: escenarios[escenario_idx][1]
+
+explicacion: |
+  Una buena hipótesis debe ser específica. Si es demasiado general o vaga, no permite establecer variables claras para medir el efecto y, por lo tanto, es difícil de contrastar empíricamente.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "basico"
+  tags: ["metodologia", "pasos"]
+
+tipo: ordenar
+opciones_explicitas: ["Observación del fenómeno", "Formulación de la hipótesis", "Diseño del experimento", "Análisis de resultados"]
+
+enunciado: "Ordena los pasos lógicos del método científico que permiten validar una hipótesis:"
+
+respuesta_orden: ["Observación del fenómeno", "Formulación de la hipótesis", "Diseño del experimento", "Análisis de resultados"]
+
+explicacion: |
+  El proceso comienza con la observación, lo que permite plantear una hipótesis explicativa. Luego, se debe diseñar un método para probarla y, finalmente, analizar los datos obtenidos para aceptar o rechazar la hipótesis.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "intermedio"
+  tags: ["terminologia"]
+
+tipo: completar
+respuestas_validas:
+  - "falsable"
+  - "falsable"
+
+enunciado: "Para que una hipótesis sea considerada científica, debe ser ___; esto significa que debe ser posible imaginar un experimento que pueda demostrar que la hipótesis es falsa."
+
+respuesta: "falsable"
+
+explicacion: |
+  La falsabilidad es el criterio de demarcación de la ciencia. Si una proposición no puede ser sometida a una prueba que pueda contradecirla, entonces no pertenece al ámbito de la ciencia empírica.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_vs_teoria"
+  nivel: "basico"
+  tags: ["metodologia", "conceptos_basicos"]
+
+respuesta: "teoria"
+tipo: mc
+opciones_explicitas: ["hipotesis", "teoria", "ley", "variable"]
+
+enunciado: "Mientras que una hipótesis es una explicación tentativa para un fenómeno observado, una _______ es una explicación amplia y bien sustentada que ha sido confirmada repetidamente mediante la observación y la experimentación."
+
+explicacion: |
+  La hipótesis es el punto de partida (una suposición), mientras que la teoría es un marco explicativo robusto y validado.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "falsabilidad"
+  nivel: "intermedio"
+  tags: ["metodologia", "criterio_falsabilidad"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "Una hipótesis científica se considera 'buena' si es falsable, es decir, si existe la posibilidad de que un experimento pueda demostrar que es incorrecta. ¿Es esto cierto?"
+
+explicacion: |
+  Si una afirmación no puede ser refutada por ningún experimento imaginable (es vaga o metafísica), no es científica. La falsabilidad es el criterio de demarcación de Popper.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "especificidad_hipotesis"
+  nivel: "basico"
+  tags: ["calidad_hipotesis"]
+
+variables:
+  escenario: uno_de([0, 1])
+  datos: [[ "La medicina mejora la salud", "vaga", falso ], [ "El fármaco X reduce el tiempo de recuperación en un 20% en pacientes con gripe en 5 días", "especifica", verdadero ]]
+
+respuestas_validas:
+  - datos[escenario][1]
+respuesta: datos[escenario][1]
+tipo: completar
+
+enunciado: "Analice el siguiente caso: {datos[escenario][0]} es una hipótesis ___."
+
+explicacion: |
+  Una hipótesis buena debe ser específica para que los resultados puedan ser medidos y comparados con la predicción inicial.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "estructura_hipotesis"
+  nivel: "intermedio"
+  tags: ["metodologia", "estructura"]
+
+respuesta_orden: ["variable_independiente", "variable_dependiente"]
+tipo: ordenar
+
+opciones_explicitas: ["variable_dependiente", "variable_independiente"]
+
+enunciado: "Para que una hipótesis sea comprobable, debe establecer una relación lógica entre dos elementos. Ordene los componentes según el flujo causal: Primero la causa (___) y luego el efecto (___)."
+
+explicacion: |
+  La estructura lógica estándar es: Si cambio la variable independiente, entonces observaré un cambio en la variable dependiente.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_nula_vs_alternativa"
+  nivel: "avanzado"
+  tags: ["estadistica", "metodologia"]
+
+respuesta: "hipotesis_nula"
+tipo: mc
+
+opciones_explicitas: ["hipotesis_nula", "hipotesis_alternativa"]
+
+enunciado: "En un experimento, la hipótesis que postula que 'no existe una relación o diferencia significativa entre las variables' se conoce como: ___"
+
+explicacion: |
+  La hipótesis nula (H0) es la que se busca rechazar mediante la estadística, mientras que la alternativa (H1) es la que el investigador realmente propone.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "basico"
+  tags: ["metodologia", "ciencia"]
+
+variables:
+  escenario: uno_de([["Si el fertilizante X aumenta el crecimiento de las plantas de tomate en un 20% en 15 días.", "buena"], ["El clima afecta el estado de ánimo de las personas de forma variable.", "mala"], ["Los estudiantes rinden mejor si hay música clásica en el aula.", "mala"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["buena", "mala"]
+
+enunciado: "Analiza el siguiente planteamiento: '{escenario[0]}'. ¿Qué tipo de hipótesis es?"
+
+explicacion: |
+  Una hipótesis es buena cuando es específica, medible y falsable. Si es vaga o no permite una prueba empírica clara (como en los casos de "clima" o "música" sin parámetros), se considera una mala hipótesis.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "intermedio"
+  tags: ["falsabilidad", "metodologia"]
+
+variables:
+  idx: uno_de([0, 1])
+  textos: ["La hipótesis es 'Existe una fuerza invisible que empuja los objetos pero no se puede medir'.", "La hipótesis es 'Si aumento la temperatura, el gas se expande'."]
+  es_falsable: [falso, verdadero]
+
+respuesta: es_falsable[idx]
+tipo: vf
+enunciado: "Considera el siguiente caso: {textos[idx]}. ¿Es esta una hipótesis científica falsable (es decir, que puede ser refutada por la observación)?"
+
+explicacion: |
+  Para que una hipótesis sea científica, debe ser posible diseñar un experimento que pueda demostrar que es falsa. Si una afirmación es tan vaga o metafísica que no hay forma de contradecirla, no es científica.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "basico"
+  tags: ["caracteristicas"]
+
+respuesta_orden: ["falsable", "especifica", "medible"]
+tipo: ordenar
+opciones_explicitas: ["falsable", "especifica", "medible"]
+
+enunciado: "Ordena los tres atributos fundamentales que debe poseer una hipótesis científica para ser considerada válida, desde el más general al más concreto: 1. La capacidad de ser refutada, 2. La claridad en su alcance, 3. La posibilidad de cuantificar sus variables."
+
+pasos:
+  - "Identificar la capacidad de ser refutada (falsabilidad)."
+  - "Identificar la claridad en su alcance (especificidad)."
+  - "Identificar la posibilidad de cuantificar (medibilidad)."
+
+explicacion: |
+  Una hipótesis científica debe ser primero falsable (poder ser sometida a prueba), luego específica (delimitar qué se estudia) y finalmente medible (permitir la recolección de datos cuantitativos o cualitativos claros).
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "intermedio"
+  tags: ["analisis"]
+
+variables:
+  ejemplo: uno_de([["Las plantas crecen mejor con luz solar.", "vaga"], ["El uso de la red social X reduce el tiempo de sueño en 30 minutos.", "especifica"]])
+
+respuesta: ejemplo[1]
+tipo: completar
+
+enunciado: "El siguiente enunciado es: '{ejemplo[0]}'. Por su estructura, se clasifica como una hipótesis _________."
+
+explicacion: |
+  Si la hipótesis no define qué es "mejor" o cuánto es el cambio, es "vaga". Si define variables y magnitudes, es "especifica".
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "hipotesis_buena_o_mala"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es cierto que una hipótesis que no puede ser sometida a prueba empírica (es decir, que no es falsable) carece de valor científico, aunque sea una idea lógica?"
+
+explicacion: |
+  Exacto. La ciencia se basa en la capacidad de probar y, potencialmente, refutar una idea. Una idea que no puede ser puesta a prueba no pertenece al ámbito de la ciencia empírica.
+```
+
+## Sección: metodologia-cualitativa-vs-cuantitativa (20 preguntas)
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "basico"
+  tags: ["cuantitativa", "definicion"]
+
+variables:
+  n: random(1, 100)
+
+respuesta: "cuantitativa"
+tipo: completar
+
+enunciado: "La metodología que se centra en la medición numérica, el análisis estadístico y la búsqueda de patrones generales se denomina enfoque {n}."
+
+explicacion: |
+  La investigación cuantitativa se caracteriza por su enfoque numérico y estadístico para medir fenómenos y generalizar resultados.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "basico"
+  tags: ["cualitativa", "definicion"]
+
+variables:
+  n: random(1, 100)
+
+respuesta: "cualitativa"
+tipo: completar
+
+enunciado: "El enfoque que busca comprender significados, experiencias y contextos profundos desde la perspectiva de los participantes es la metodología {n}."
+
+explicacion: |
+  La investigación cualitativa se enfoca en la comprensión profunda de los fenómenos sociales desde la perspectiva de los sujetos, sin depender exclusivamente de números.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["deductivo", "cuantitativa"]
+
+variables:
+  caso: uno_de(["A", "B", "C"])
+
+respuesta: "cuantitativa"
+tipo: completar
+
+enunciado: "En el caso {caso}, si la investigación parte de una teoría previa para formular hipótesis verificables, se está utilizando razonamiento {caso}."
+
+explicacion: |
+  La metodología cuantitativa utiliza un razonamiento deductivo: de lo general (teoría) a lo particular (datos).
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["inductivo", "cualitativa"]
+
+variables:
+  caso: uno_de(["X", "Y", "Z"])
+
+respuesta: "cualitativa"
+tipo: completar
+
+enunciado: "En el caso {caso}, si los conceptos y teorías emergen de los datos recolectados en el campo, se está utilizando razonamiento {caso}."
+
+explicacion: |
+  La metodología cualitativa utiliza un razonamiento inductivo: de lo particular (datos) a lo general (teoría emergente).
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "basico"
+  tags: ["generalizacion", "objetivos"]
+
+variables:
+  id: random(1, 50)
+
+respuesta: "cuantitativa"
+tipo: completar
+
+enunciado: "Si el objetivo principal es generalizar los resultados a una población más amplia, se trata de investigación {id}."
+
+explicacion: |
+  La cuantitativa busca la generalización mediante muestras representativas y análisis estadístico.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "basico"
+  tags: ["profundidad", "objetivos"]
+
+variables:
+  id: random(1, 50)
+
+respuesta: "cualitativa"
+tipo: completar
+
+enunciado: "Si el objetivo es profundizar en un caso específico sin buscar generalizar a toda la población, se trata de investigación {id}."
+
+explicacion: |
+  La cualitativa prioriza la comprensión detallada del contexto y la experiencia particular.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["rol", "objetividad"]
+
+variables:
+  rol: random(1, 10)
+
+respuesta: "cuantitativa"
+tipo: completar
+
+enunciado: "Un rol de investigador más objetivo y distante, recolectando datos estructurados, corresponde a la metodología {rol}."
+
+explicacion: |
+  En la cuantitativa, el investigador busca mantener la distancia para evitar sesgos y mantener la objetividad.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["rol", "interpretacion"]
+
+variables:
+  rol: random(1, 10)
+
+respuesta: "cualitativa"
+tipo: completar
+
+enunciado: "Un rol de investigador más cercano e interpretativo, utilizando técnicas como la observación participante, corresponde a la metodología {rol}."
+
+explicacion: |
+  En la cualitativa, el investigador es parte del proceso de recolección de datos, generando una comprensión rica y detallada.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["analisis", "estadistica"]
+
+variables:
+  metodo: random(1, 20)
+
+respuesta: "cuantitativa"
+tipo: completar
+
+enunciado: "El uso de fórmulas matemáticas y estadísticas para calcular promedios o correlaciones es característico de la metodología {metodo}."
+
+explicacion: |
+  La cuantitativa depende del análisis estadístico para validar hipótesis y encontrar patrones.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "avanzado"
+  tags: ["replicabilidad", "objetividad"]
+
+variables:
+  caso: random(1, 15)
+
+respuesta: "cuantitativa"
+tipo: completar
+
+enunciado: "La búsqueda de la replicabilidad del estudio mediante métodos estandarizados es un pilar de la metodología {caso}."
+
+explicacion: |
+  La cuantitativa busca que otros investigadores puedan repetir el estudio y obtener resultados similares.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["hipotesis", "cuantitativa"]
+
+variables:
+  n: random(1, 100)
+
+respuesta: "cuantitativa"
+tipo: completar
+
+enunciado: "Probar hipótesis establecidas previamente es el objetivo central de la investigación {n}."
+
+explicacion: |
+  La cuantitativa parte de hipótesis deductivas que se verifican con datos empíricos.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["teoria", "emergente"]
+
+variables:
+  n: random(1, 100)
+
+respuesta: "cualitativa"
+tipo: completar
+
+enunciado: "La generación de teorías que emergen de los datos recolectados es propia de la investigación {n}."
+
+explicacion: |
+  La cualitativa permite que las categorías y teorías surjan inductivamente de la interacción con el campo.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["causalidad", "cuantitativa"]
+
+variables:
+  id: random(1, 50)
+
+respuesta: "cuantitativa"
+tipo: completar
+
+enunciado: "Encontrar relaciones de causa y efecto que puedan generalizarse es un objetivo típico de la metodología {id}."
+
+explicacion: |
+  La cuantitativa busca explicar fenómenos mediante relaciones causales medibles.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["subjetividad", "cualitativa"]
+
+variables:
+  id: random(1, 50)
+
+respuesta: "cualitativa"
+tipo: completar
+
+enunciado: "Explorar significados y experiencias subjetivas desde la perspectiva de los participantes es el foco de la metodología {id}."
+
+explicacion: |
+  La cualitativa valora la experiencia vivida y la interpretación personal.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["seleccion", "mc"]
+
+variables:
+  objetivo: uno_de(["medir patrones", "comprender significados"])
+
+respuesta: "cuantitativa"
+tipo: mc
+opciones_explicitas: ["cuantitativa", "cualitativa", "experimental", "descriptiva"]
+
+enunciado: "Si el objetivo es medir patrones generales y probar hipótesis, ¿qué metodología se utiliza?"
+
+explicacion: |
+  La cuantitativa se enfoca en la medición y la prueba de hipótesis mediante datos numéricos.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["seleccion", "mc"]
+
+variables:
+  objetivo: uno_de(["profundizar en el caso", "generalizar resultados"])
+
+respuesta: "cualitativa"
+tipo: mc
+opciones_explicitas: ["cuantitativa", "cualitativa", "mixta", "longitudinal"]
+
+enunciado: "Si el objetivo es profundizar en un caso específico desde la perspectiva de los participantes, ¿qué metodología se utiliza?"
+
+explicacion: |
+  La cualitativa se centra en la comprensión profunda y contextualizada de fenómenos específicos.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["seleccion", "mc"]
+
+variables:
+  objetivo: uno_de(["razonamiento deductivo", "razonamiento inductivo"])
+
+respuesta: "cuantitativa"
+tipo: mc
+opciones_explicitas: ["cuantitativa", "cualitativa", "fenomenológica", "etnográfica"]
+
+enunciado: "¿Qué metodología se asocia comúnmente con el razonamiento deductivo?"
+
+explicacion: |
+  La cuantitativa utiliza el razonamiento deductivo para verificar hipótesis derivadas de teorías previas.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["seleccion", "mc"]
+
+variables:
+  objetivo: uno_de(["datos estandarizados", "datos no estandarizados"])
+
+respuesta: "cuantitativa"
+tipo: mc
+opciones_explicitas: ["cuantitativa", "cualitativa", "acción", "participativa"]
+
+enunciado: "¿Qué metodología utiliza predominantemente datos estandarizados?"
+
+explicacion: |
+  La cuantitativa requiere datos estandarizados para asegurar la comparabilidad y el análisis estadístico.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["seleccion", "mc"]
+
+variables:
+  objetivo: uno_de(["relaciones de causa y efecto", "experiencias vividas"])
+
+respuesta: "cuantitativa"
+tipo: mc
+opciones_explicitas: ["cuantitativa", "cualitativa", "histórica", "comparativa"]
+
+enunciado: "¿Qué metodología busca establecer relaciones de causa y efecto?"
+
+explicacion: |
+  La cuantitativa se enfoca en identificar y medir relaciones causales entre variables.
+```
+
+```
+metadata:
+  materia: "investigacion"
+  tema: "metodologia_cualitativa_vs_cuantitativa"
+  nivel: "intermedio"
+  tags: ["seleccion", "mc"]
+
+variables:
+  objetivo: uno_de(["comprensión rica", "objetividad distante"])
+
+respuesta: "cualitativa"
+tipo: mc
+opciones_explicitas: ["cuantitativa", "cualitativa", "experimental", "transversal"]
+
+enunciado: "¿Qué metodología busca una comprensión rica y detallada del fenómeno estudiado?"
+
+explicacion: |
+  La cualitativa prioriza la riqueza descriptiva y la interpretación profunda del contexto.
 ```
 
 ## Sección: construir-y-usar-un-modelo-cientifico (25 preguntas)
@@ -1884,476 +1798,449 @@ explicacion: |
   Al omitir variables relevantes para simplificar el cálculo, el modelo pierde precisión frente a la realidad, lo que se conoce como error por simplificación.
 ```
 
-## Sección: corrientes-filosofia-de-la-ciencia (25 preguntas)
+## Sección: trabajo-de-campo-enfoque-socioantropologico (23 preguntas)
 
 ```
 metadata:
-  materia: "investigacion"
-  tema: "filosofia_de_la_ciencia"
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
   nivel: "basico"
-  tags: ["popper", "falsacionismo", "demarcacion"]
+  tags: ["cualitativo", "limitaciones"]
 
-respuesta: "falsabilidad"
+variables:
+  metodo: "encuestas masivas"
+  dato_perdido: "matices"
+
+respuesta: "matices"
 tipo: completar
-respuestas_validas:
-  - "falsabilidad"
-  - "falsacion"
 
-enunciado: "Para Karl Popper, el criterio de demarcación que distingue a la ciencia de la metafísica es la ___________."
+enunciado: "A diferencia de las {metodo}, el trabajo de campo permite captar los {dato_perdido} culturales que se pierden en los cuestionarios cerrados."
 
 explicacion: |
-  Para Popper, una teoría es científica solo si es capaz de ser refutada por la experiencia. Si una teoría no puede ser sometida a pruebas que puedan contradecirla, no es científica.
+  Las encuestas masivas tienden a estandarizar respuestas, perdiendo los matices, gestos y contextos que solo la observación directa puede revelar.
 ```
 
 ```
 metadata:
-  materia: "investigacion"
-  tema: "filosofia_de_la_ciencia"
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
   nivel: "intermedio"
-  tags: ["kuhn", "paradigmas", "ciencia_normal"]
+  tags: ["objetivo", "comprension"]
 
-opciones_explicitas: ["ciencia_normal", "crisis", "revolucion"]
+variables:
+  objetivo: "comprension profunda"
 
-respuesta: "crisis"
-tipo: mc
+respuesta: "comprension profunda"
+tipo: completar
 
-enunciado: "Según Thomas Kuhn, el periodo caracterizado por la acumulación de anomalías que el modelo vigente no puede explicar se denomina ___________."
+enunciado: "El objetivo central del enfoque socioantropológico es la {objetivo} de los significados y relaciones del grupo estudiado."
 
 explicacion: |
-  La crisis es el paso previo a la revolución científica. Ocurre cuando las anomalías son tan numerosas o profundas que la comunidad científica pierde la confianza en el paradigma vigente.
+  No se busca solo describir, sino comprender en profundidad la lógica interna del grupo social desde su propia cultura.
 ```
 
 ```
 metadata:
-  materia: "investigacion"
-  tema: "filosofia_de_la_ciencia"
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "intermedio"
+  tags: ["observacion_participante", "inmersion"]
+
+variables:
+  rol_negativo: "turista invisible"
+  rol_positivo: "involucrarse"
+
+respuesta: "involucrarse"
+tipo: completar
+
+enunciado: "La observación participante no es mirar como un {rol_negativo}, sino {rol_positivo} lo suficiente en la vida del grupo para ganar confianza."
+
+explicacion: |
+  La clave de la observación participante es la inmersión activa, no la distancia pasiva que mantiene un observador externo o 'turista'.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
   nivel: "basico"
-  tags: ["feyerabend", "anarquismo", "metodologia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Sostiene Paul Feyerabend que existe un único método científico universal que debe seguirse para garantizar el progreso del conocimiento?"
-
-explicacion: |
-  Feyerabend, con su principio de "todo vale" (anything goes), argumentó que no existe un método único y que la ciencia progresa precisamente porque los científicos rompen las reglas metodológicas establecidas.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "filosofia_de_la_ciencia"
-  nivel: "intermedio"
-  tags: ["kuhn", "paradigmas", "ordenar"]
-
-opciones_explicitas: ["Ciencia Normal", "Crisis", "Revolución Científica", "Nuevo Paradigma"]
-
-respuesta_orden: ["Ciencia Normal", "Crisis", "Revolución Científica", "Nuevo Paradigma"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente las etapas del ciclo de desarrollo científico propuesto por Thomas Kuhn:"
-
-explicacion: |
-  El ciclo comienza con la Ciencia Normal (trabajo bajo un paradigma), sigue con una Crisis (anomalías), lleva a una Revolución Científica (cambio de modelo) y culmina con la instauración de un Nuevo Paradigma.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "filosofia_de_la_ciencia"
-  nivel: "avanzado"
-  tags: ["popper", "kuhn", "feyerabend"]
-
-opciones_explicitas: ["falsacionismo", "paradigmas", "anarquismo"]
-
-respuesta: "falsacionismo"
-tipo: mc
-
-enunciado: "Si un autor afirma que el progreso científico se da a través de la eliminación de teorías que han sido refutadas por la experiencia, se refiere al ___________."
-
-explicacion: |
-  El falsacionismo de Popper se basa en la idea de que la ciencia no busca verdades absolutas, sino teorías que aún no han sido refutadas (corroboradas), avanzando mediante la eliminación de errores.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "falsacionismo_popper"
-  nivel: "intermedio"
-  tags: ["popper", "falsacionismo", "demarcacion"]
+  tags: ["sociedad", "significados"]
 
 variables:
-  escenario: uno_de([["La teoría de la relatividad de Einstein predice que la luz de una estrella se curva al pasar cerca del sol.", "falsable"], ["La teoría del psicoanálisis de Freud puede explicar tanto un comportamiento heroico como uno egoísta sin contradicciones.", "no_falsable"], ["La teoría de la selección natural de Darwin propone cambios en las poblaciones a través de generaciones.", "falsable"]])
+  naturaleza: "tejido de significados"
 
-enunciado: "De acuerdo con el falsacionismo de Karl Popper, una teoría es científica si es capaz de ser sometida a pruebas que podrían refutarla. Analizando el siguiente caso: '{escenario[0]}', la naturaleza de esta teoría es ___."
-
-respuestas_validas:
-  - "falsable"
-  - "no_falsable"
-respuesta: escenario[1]
+respuesta: "tejido de significados"
 tipo: completar
 
+enunciado: "La sociedad no es un conjunto de números abstractos, sino un {naturaleza}, costumbres y relaciones humanas complejas."
+
 explicacion: |
-  Para Popper, la ciencia no progresa confirmando verdades, sino eliminando errores. Una teoría es científica si establece condiciones bajo las cuales, de ocurrir, la teoría quedaría refutada (falsada). Si una teoría explica todo lo que sucede (como criticaba Popper del psicoanálisis), entonces no es científica porque no se arriesga a ser falsa.
+  Esta visión es fundamental para justificar por qué los métodos cuantitativos solos son insuficientes para entender la realidad social completa.
 ```
 
 ```
 metadata:
-  materia: "investigacion"
-  tema: "paradigmas_kuhn"
-  nivel: "intermedio"
-  tags: ["kuhn", "paradigmas", "ciencia_normal"]
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "basico"
+  tags: ["ejemplo", "cuantitativo"]
 
-enunciado: "Thomas Kuhn sostiene que la ciencia no progresa de forma lineal, sino mediante saltos. El proceso sigue este orden: primero ocurre la 'Ciencia Normal', luego surge una serie de anomalías que no pueden ser resueltas, lo que lleva a una ___ y, finalmente, a un cambio de paradigma."
+variables:
+  pregunta_cuant: "horas en TikTok"
 
-opciones_explicitas: ["Crisis", "Revolución Científica", "Cambio de Paradigma"]
-respuesta: "Crisis"
-tipo: mc
-
-explicacion: |
-  Según Kuhn, la 'Ciencia Normal' opera bajo un paradigma aceptado. Cuando las anomalías se acumulan y el paradigma actual no puede resolverlas, se entra en una fase de 'Crisis', que es el preludio necesario para una 'Revolución Científica'.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "anarquismo_epistemologico_feyerabend"
-  nivel: "avanzado"
-  tags: ["feyerabend", "anarquismo", "metodologia"]
-
-enunciado: "Paul Feyerabend argumenta en su obra 'Contra el método' que no existe un único método científico universal que deba seguirse estrictamente para que el conocimiento sea válido. Su principio fundamental es 'Anything goes' (Todo vale). ¿Es esto cierto?"
-
-opciones_explicitas: [verdadero, falso]
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  Feyerabend sostiene que la historia de la ciencia muestra que los grandes avances ocurrieron precisamente porque los científicos violaron las reglas metodológicas establecidas. Por tanto, no hay una regla única e inamovible para hacer ciencia.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "paradigmas_kuhn"
-  nivel: "intermedio"
-  tags: ["kuhn", "historia_ciencia", "ordenar"]
-
-enunciado: "Ordena los eventos que describen el paso de la física Newtoniana a la física Relativista según el modelo de Kuhn:"
-
-opciones_explicitas: ["Predominio del paradigma de Newton", "Aparición de anomalías (ej. órbita de Mercurio)", "Crisis del modelo clásico", "Revolución y nuevo paradigma de Einstein"]
-respuesta_orden: ["Predominio del paradigma de Newton", "Aparición de anomalías (ej. órbita de Mercurio)", "Crisis del modelo clásico", "Revolución y nuevo paradigma de Einstein"]
-tipo: ordenar
-
-explicacion: |
-  El modelo de Kuhn es cíclico: 1) Estabilidad (Paradigma), 2) Anomalías (problemas no resueltos), 3) Crisis (pérdida de confianza en el paradigma) y 4) Revolución (sustitución por uno nuevo).
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "corrientes_filosofia_ciencia"
-  nivel: "avanzado"
-  tags: ["comparativa", "popper", "kuhn", "feyerabend"]
-
-enunciado: "Si un investigador se enfoca exclusivamente en la capacidad de una teoría para ser refutada mediante la experimentación, ¿qué autor está siguiendo?"
-
-opciones_explicitas: ["Popper", "Kuhn", "Feyerabend"]
-respuesta: "Popper"
-tipo: mc
-
-explicacion: |
-  El enfoque centrado en la refutabilidad (falsacionismo) es la piedra angular del pensamiento de Karl Popper para distinguir la ciencia de la pseudociencia.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "falsacionismo"
-  nivel: "intermedio"
-  tags: ["popper", "falsacionismo", "epistemologia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Para Karl Popper, el criterio de demarcación de la ciencia es la capacidad de una teoría para ser verificada empíricamente de forma definitiva."
-
-explicacion: |
-  El falsacionismo de Popper sostiene que la ciencia no progresa mediante la verificación (que es lógicamente imposible para leyes universales), sino mediante la falsación: una teoría es científica si es capaz de ser refutada por un enunciado observacional.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "paradigmas_kuhn"
-  nivel: "intermedio"
-  tags: ["kuhn", "paradigmas", "ciencia-normal"]
-
-opciones_explicitas: ["ciencia-normal", "revolucion-cientifica"]
-
-respuesta: "ciencia-normal"
-tipo: mc
-
-enunciado: "Según Thomas Kuhn, el periodo en el que los científicos se dedican a resolver 'enigmas' dentro de un marco teórico aceptado se denomina: ___"
-
-pasos:
-  - "Identificar si el enunciado describe un periodo de estabilidad o de crisis."
-
-explicacion: |
-  En la ciencia-normal, los científicos no cuestionan los fundamentos, sino que resuelven problemas dentro del modelo vigente. La ruptura de este estado da lugar a la revolución científica.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "anarquismo_epistemologico"
-  nivel: "avanzado"
-  tags: ["feyerabend", "anarquismo", "metodologia"]
-
-respuesta: "contra el método"
+respuesta: "horas en TikTok"
 tipo: completar
 
-respuestas_validas:
-  - "contra el método"
-  - "sin método"
-
-enunciado: "El principio de '___' de Paul Feyerabend sugiere que no existe una regla metodológica única y universal que guíe todo progreso científico."
+enunciado: "Un enfoque cuantitativo sobre redes sociales podría preguntar '¿Cuántas {pregunta_cuant} pasas?' para obtener un promedio numérico."
 
 explicacion: |
-  Feyerabend argumenta que la ciencia es una actividad pluralista y que imponer un método único (como el inductivismo o el falsacionismo) limitaría el progreso científico y la libertad de investigación.
+  Este ejemplo ilustra la búsqueda de datos medibles y estandarizados, característicos del enfoque cuantitativo, opuesto a la profundidad cualitativa.
 ```
 
 ```
 metadata:
-  materia: "investigacion"
-  tema: "comparativa_popper_kuhn"
-  nivel: "avanzado"
-  tags: ["popper", "kuhn", "comparacion"]
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "intermedio"
+  tags: ["ejemplo", "cualitativo"]
 
 variables:
-  caso: uno_de([["popper", "enfocado en la lógica de la justificación y la refutación"], ["kuhn", "enfocado en la historia y la sociología de la ciencia"]])
+  accion_cual: "pasar tiempo"
 
-opciones_explicitas: ["popper", "kuhn"]
-
-respuesta: caso[0]
-tipo: mc
-
-enunciado: "Si un filósofo analiza la ciencia centrándose en la estructura lógica de las leyes y cómo estas pueden ser refutadas, está adoptando una perspectiva principalmente ___."
-
-explicacion: |
-  Mientras que Kuhn analiza cómo la comunidad científica cambia sus paradigmas (perspectiva histórica/sociológica), Popper se centra en la lógica de la validación de las teorías (perspectiva lógica/normativa).
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "ciclo_kuhn"
-  nivel: "intermedio"
-  tags: ["kuhn", "paradigmas", "ordenar"]
-
-opciones_explicitas: ["Ciencia Normal", "Crisis", "Revolución Científica", "Nuevo Paradigma"]
-
-respuesta_orden: ["Ciencia Normal", "Crisis", "Revolución Científica", "Nuevo Paradigma"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente las etapas del ciclo de cambio de paradigma propuesto por Thomas Kuhn:"
-
-pasos:
-  - "Identificar el estado de estabilidad inicial."
-  - "Identificar la aparición de anomalías que no pueden ser resueltas."
-  - "Identificar el conflicto entre el modelo viejo y el nuevo."
-  - "Identificar el resultado final del proceso."
-
-explicacion: |
-  El ciclo comienza con la Ciencia Normal, sigue con la Crisis (cuando las anomalías se acumulan), continúa con la Revolución Científica (el conflicto) y culmina con la instauración de un Nuevo Paradigma.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "falsacionismo_popper"
-  nivel: "intermedio"
-  tags: ["popper", "falsacionismo", "demarcacion"]
-
-respuesta: "falsabilidad"
+respuesta: "pasar tiempo"
 tipo: completar
-respuestas_validas:
-  - "falsabilidad"
-  - "falsacionabilidad"
-  - "falsable"
 
-enunciado: "Para Karl Popper, lo que distingue a una teoría científica de una pseudocientífica no es su capacidad de ser confirmada por la experiencia, sino su capacidad de ser ___."
+enunciado: "Un trabajo de campo socioantropológico implicaría {accion_cual} en los espacios donde se genera la cultura digital, observando interacciones."
 
 explicacion: |
-  El falsacionismo sostiene que una teoría es científica solo si es posible imaginar un enunciado observacional que, de ser cierto, la refutaría.
+  La inmersión en los espacios naturales de los participantes permite entender el uso de la tecnología desde su contexto social, no solo desde el tiempo consumido.
 ```
 
 ```
 metadata:
-  materia: "investigacion"
-  tema: "paradigmas_kuhn"
-  nivel: "intermedio"
-  tags: ["kuhn", "paradigmas", "ciencia_normal"]
-
-respuesta: "Resolución de acertijos"
-tipo: mc
-opciones_explicitas: ["Resolución de acertijos", "Búsqueda de la verdad absoluta", "Resolución de crisis"]
-
-enunciado: "Según Thomas Kuhn, durante el periodo de 'Ciencia Normal', el trabajo de los científicos consiste principalmente en la ___."
-
-explicacion: |
-  En la ciencia normal, los científicos no buscan refutar el paradigma, sino resolver "acertijos" (puzzles) dentro de las reglas establecidas por el paradigma vigente.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "anarquismo_epistemologico_feyerabend"
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
   nivel: "avanzado"
-  tags: ["feyerabend", "anarquismo", "metodologia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es el anarquismo epistemológico de Paul Feyerabend una defensa de la existencia de un único método científico universal e ideal para el progreso del conocimiento?"
-
-explicacion: |
-  Feyerabend sostiene que "todo vale" (anything goes) y que la ciencia no sigue un método único y rígido, sino que el progreso a menudo requiere violar reglas metodológicas establecidas.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "ciclos_kuhn"
-  nivel: "intermedio"
-  tags: ["kuhn", "paradigmas", "crisis"]
+  tags: ["cultura", "normas"]
 
 variables:
-  secuencia: uno_de([[0, 1, 2], [0, 2, 1], [1, 0, 2]])
+  concepto: "reglas no escritas"
 
-respuesta_orden: ["Ciencia Normal", "Crisis", "Revolución Científica"]
-tipo: ordenar
-opciones_explicitas: ["Ciencia Normal", "Crisis", "Revolución Científica"]
-
-enunciado: "Ordene los momentos que caracterizan el ciclo de cambio científico propuesto por Thomas Kuhn:"
-
-pasos:
-  - "El periodo de estabilidad y resolución de problemas."
-  - "El periodo de acumulación de anomalías que el paradigma no puede explicar."
-  - "El periodo de ruptura y adopción de un nuevo paradigma."
-
-explicacion: |
-  Kuhn describe un proceso cíclico: la ciencia normal se ve interrumpida por una crisis, lo que da lugar a una revolución científica que establece un nuevo paradigma.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "contraste_popper_kuhn"
-  nivel: "avanzado"
-  tags: ["popper", "kuhn", "comparacion"]
-
-respuesta: "Refutación"
-tipo: mc
-opciones_explicitas: ["Cambio de paradigma", "Refutación", "Confirmación absoluta"]
-
-enunciado: "Mientras que para Kuhn la ciencia progresa mediante cambios de paradigma, para Karl Popper el motor del progreso es la ___."
-
-explicacion: |
-  Para Popper, la ciencia avanza mediante la eliminación de errores; es decir, mediante la refutación de teorías que han sido sometidas a pruebas severas.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "falsacionismo_popper"
-  nivel: "intermedio"
-  tags: ["popper", "falsacionismo", "demarcacion"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Una teoría que afirma que 'mañana lloverá o no lloverá'", "falsa"], ["Una teoría que afirma que 'todos los cisnes son blancos' y se observa un cisne negro", "verdadera"]]
-
-respuesta: escenarios[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["falsa", "verdadera", "inconmensurable", "paradigmática"]
-
-enunciado: "Según el falsacionismo de Karl Popper, una teoría es científica si es capaz de ser refutada por la experiencia. Si nos enfrentamos a: {escenarios[escenario_idx][0]}, ¿la teoría es científica bajo este criterio?"
-
-explicacion: |
-  Para Popper, una teoría es científica solo si es falsable. Una afirmación que es verdadera por definición (tautología) como 'A o no A' no puede ser refutada, por lo tanto, no es científica.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "paradigmas_kuhn"
-  nivel: "intermedio"
-  tags: ["kuhn", "paradigmas", "ciencia-normal"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["Un científico resuelve un acertijo dentro del modelo actual", "ciencia-normal"], ["La acumulación de anomalías provoca una crisis en el modelo", "crisis"]]
-  orden_kuhn: ["pre-ciencia", "ciencia-normal", "crisis", "revolución-científica", "nuevo-paradigma"]
-
-respuesta: casos[caso_idx][1]
-tipo: mc
-opciones_explicitas: ["ciencia-normal", "crisis", "revolución-científica", "falsación"]
-
-enunciado: "Thomas Kuhn sostiene que la ciencia progresa mediante cambios de paradigmas. Si un científico se encuentra en la situación de: {casos[caso_idx][0]}, ¿qué etapa de la ciencia está realizando?"
-
-explicacion: |
-  La 'ciencia normal' es el periodo donde el paradigma vigente es aceptado y se trabaja para resolver problemas o 'acertijos' dentro de su marco.
-```
-
-```
-metadata:
-  materia: "investigacion"
-  tema: "anarquismo_epistemologico"
-  nivel: "avanzado"
-  tags: ["feyerabend", "anarquismo", "metodologia"]
-
-respuesta: "contra-intuitivo"
+respuesta: "reglas no escritas"
 tipo: completar
-respuestas_validas:
-  - "contra-intuitivo"
 
-enunciado: "Paul Feyerabend, en su obra 'Contra el método', sostiene que no existe un método único y universal para el progreso científico, proponiendo un enfoque que puede ser considerado ___ para la metodología tradicional."
+enunciado: "La inmersión en el trabajo de campo permite descubrir las {concepto} que gobiernan la vida social y que rara vez aparecen en documentos oficiales."
 
 explicacion: |
-  Feyerabend defiende el 'anything goes' (todo vale), argumentando que la adherencia estricta a reglas metodológicas ha frenado el progreso científico.
+  Las normas informales son cruciales para entender el funcionamiento real de un grupo social, más allá de las leyes o reglamentos formales.
 ```
 
 ```
 metadata:
-  materia: "investigacion"
-  tema: "filosofia_de_la_ciencia"
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "basico"
+  tags: ["habilidades", "empatia"]
+
+variables:
+  habilidad: "mirada critica y empatica"
+
+respuesta: "mirada critica y empatica"
+tipo: completar
+
+enunciado: "El trabajo de campo en secundaria es vital para desarrollar una {habilidad}, capaz de analizar problemas sociales sin juzgarlos a priori."
+
+explicacion: |
+  La formación del investigador joven incluye aprender a suspender el juicio y comprender las raíces culturales de los comportamientos observados.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
   nivel: "intermedio"
-  tags: ["comparacion", "popper", "kuhn"]
+  tags: ["profundidad", "perspectiva"]
 
-respuesta: "Kuhn"
-tipo: mc
-opciones_explicitas: ["Popper", "Kuhn", "Feyerabend", "Lakatos"]
+variables:
+  enfoque: "socioantropologico"
 
-enunciado: "Mientras que Popper ve la ciencia como un proceso de eliminación de errores mediante la falsación, el autor que describe la ciencia como una serie de cambios bruscos de visión del mundo (paradigmas) es: ___"
+respuesta: "como y por que"
+tipo: completar
+
+enunciado: "Mientras otros métodos responden al 'qué', el enfoque {enfoque} permite entender el 'como' y el 'por que' desde la perspectiva de los actores."
 
 explicacion: |
-  Thomas Kuhn introdujo la noción de paradigma y la idea de que la ciencia no es solo un proceso lógico, sino también un proceso sociológico y psicológico de cambios de visión.
+  La riqueza del enfoque cualitativo reside en explicar los procesos y motivaciones internas, no solo los resultados observables.
 ```
 
 ```
 metadata:
-  materia: "investigacion"
-  tema: "paradigmas_kuhn"
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
   nivel: "avanzado"
-  tags: ["kuhn", "secuencia", "revolucion"]
+  tags: ["confianza", "etica"]
 
-respuesta_orden: ["pre-ciencia", "ciencia-normal", "crisis", "revolución-científica"]
-tipo: ordenar
-opciones_explicitas: ["pre-ciencia", "ciencia-normal", "crisis", "revolución-científica"]
+variables:
+  condicion: "confianza"
 
-enunciado: "Ordene cronológicamente las fases del desarrollo científico según la estructura propuesta por Thomas Kuhn:"
+respuesta: "confianza"
+tipo: completar
+
+enunciado: "Para acceder a información sensible o cotidiana, el investigador debe ganar la {condicion} del grupo mediante la participación."
 
 explicacion: |
-  El ciclo comienza con la pre-ciencia (falta de consenso), sigue con la ciencia-normal (dominio de un paradigma), la crisis (aparición de anomalías insolubles) y finalmente la revolución científica (cambio de paradigma).
+  La ética y la relación interpersonal son componentes técnicos del trabajo de campo; sin confianza, la recolección de datos profundos es imposible.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "basico"
+  tags: ["datos_cualitativos", "sintomas"]
+
+variables:
+  dato_cual: "gestos y silencios"
+
+respuesta: "gestos y silencios"
+tipo: completar
+
+enunciado: "En el trabajo de campo, los {dato_cual} y los rituales son datos tan importantes como las palabras habladas."
+
+explicacion: |
+  La comunicación no verbal y los silencios revelan tensiones, jerarquías y significados que el discurso explícito a menudo oculta.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "intermedio"
+  tags: ["lenguaje", "cotidianidad"]
+
+variables:
+  aspecto: "lenguaje cotidiano"
+
+respuesta: "lenguaje cotidiano"
+tipo: completar
+
+enunciado: "El investigador debe prestar atención al {aspecto} para entender cómo los participantes construyen su realidad social."
+
+explicacion: |
+  El uso del lenguaje en la vida diaria es un indicador clave de las estructuras sociales, identidades y relaciones de poder dentro del grupo.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "intermedio"
+  tags: ["ejemplo", "organizacion_social"]
+
+variables:
+  actividad: "asambleas"
+
+respuesta: "asambleas"
+tipo: completar
+
+enunciado: "Participar en las {actividad} o entender cómo se organizan los vecinos es una forma de observar la resolución de problemas comunes."
+
+explicacion: |
+  Los espacios de decisión colectiva son laboratorios ideales para observar la dinámica de poder, la solidaridad y la conflictividad social.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "basico"
+  tags: ["fuentes", "datos"]
+
+variables:
+  fuente: "estadisticas oficiales"
+
+respuesta: "estadisticas oficiales"
+tipo: completar
+
+enunciado: "El trabajo de campo se nutre de relatos en primera persona, a diferencia de las {fuente} que ofrecen datos agregados y distantes."
+
+explicacion: |
+  Las estadísticas oficiales son útiles para el contexto macro, pero carecen de la voz y la experiencia viva de los individuos estudiados.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "avanzado"
+  tags: ["causalidad", "estructura"]
+
+variables:
+  causa: "raices culturales"
+
+respuesta: "raices culturales"
+tipo: completar
+
+enunciado: "Para analizar problemas sociales sin prejuicios, hay que comprender sus {causa} y estructurales, no solo sus manifestaciones inmediatas."
+
+explicacion: |
+  La comprensión profunda exige ir más allá de la superficie del conflicto para identificar los factores históricos y culturales subyacentes.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "intermedio"
+  tags: ["tecnicas", "observacion"]
+
+variables:
+  pregunta: "tecnicas_centrales"
+
+respuesta: "observacion_participante"
+tipo: mc
+opciones_explicitas: ["observacion_participante", "encuesta_por_muestreo", "experimento_de_laboratorio", "analisis_de_contenido"]
+
+enunciado: "¿Cuál es una de las técnicas centrales del enfoque socioantropológico en el trabajo de campo?"
+
+explicacion: |
+  La observación participante es distintiva porque el investigador se integra al grupo, mientras que las otras opciones son métodos más distantes o experimentales.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "intermedio"
+  tags: ["emic", "etic"]
+
+variables:
+  pregunta: "vision_emic"
+
+respuesta: "vision_desde_adentro"
+tipo: mc
+opciones_explicitas: ["vision_desde_adentro", "vision_desde_fuera", "vision_objetiva_neutra", "vision_estadistica"]
+
+enunciado: "El término 'emic' se refiere a:"
+
+explicacion: |
+  Emic es la perspectiva interna del grupo. Etic es la perspectiva externa del observador. La distinción es fundamental en antropología.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "basico"
+  tags: ["rol", "actitud"]
+
+variables:
+  pregunta: "rol_investigador"
+
+respuesta: "aprender_de_los_participantes"
+tipo: mc
+opciones_explicitas: ["validar_sus_teorias", "aprender_de_los_participantes", "corregir_los_costumbres", "medir_el_tiempo"]
+
+enunciado: "En el trabajo de campo socioantropológico, el investigador llega dispuesto a:"
+
+explicacion: |
+  La humildad epistemológica implica reconocer que los participantes son expertos en su propia vida y que el investigador tiene mucho que aprender.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "intermedio"
+  tags: ["espacios", "contexto"]
+
+variables:
+  contexto: "espacios_cotidianos"
+
+respuesta: "espacios_cotidianos"
+tipo: completar
+
+enunciado: "Para estudiar el uso de redes sociales, no basta con preguntar horas; hay que observar los {contexto} donde se gela interacción digital."
+
+explicacion: |
+  El contexto espacial y social donde ocurre la práctica es inseparable del significado de esa práctica para los usuarios.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "avanzado"
+  tags: ["metodologia", "proceso"]
+
+variables:
+  proceso: "teoria_a_practica"
+
+respuesta: "teoria_a_practica"
+tipo: completar
+
+enunciado: "El trabajo de campo es el puente entre la {proceso} y la recolección de datos empíricos en el terreno."
+
+explicacion: |
+  No es solo aplicar teoría, sino generar teoría a partir de la práctica observada. Es un diálogo constante entre concepto y realidad.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "intermedio"
+  tags: ["critica_cuantitativo", "datos"]
+
+variables:
+  pregunta: "dato_perdido"
+
+respuesta: "matices_culturales"
+tipo: mc
+opciones_explicitas: ["matices_culturales", "promedios_numericos", "frecuencias_absolutas", "tablas_estadisticas"]
+
+enunciado: "¿Qué se pierde frecuentemente en cuestionarios cerrados pero se capta en el trabajo de campo?"
+
+explicacion: |
+  Los matices culturales (tono, contexto, ironía, relación) son difíciles de cuantificar y a menudo se pierden en la estandarización de las encuestas.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "basico"
+  tags: ["fuentes", "narrativa"]
+
+variables:
+  fuente: "relatos_primera_persona"
+
+respuesta: "relatos_primera_persona"
+tipo: completar
+
+enunciado: "El trabajo de campo se nutre de {fuente}, permitiendo acceder a la experiencia vivida de los sujetos."
+
+explicacion: |
+  La narrativa personal es la fuente primaria de la comprensión cualitativa, ofreciendo profundidad y autenticidad a los datos.
+```
+
+```
+metadata:
+  materia: "investigación"
+  tema: "trabajo_de_campo_enfoque_socioantropologico"
+  nivel: "basico"
+  tags: ["educacion", "secundaria"]
+
+variables:
+  pregunta: "finalidad_educativa"
+
+respuesta: "mirada_critica_y_empatica"
+tipo: mc
+opciones_explicitas: ["memorizar_datos", "mirada_critica_y_empatica", "calcular_estadisticas", "aplicar_formulas"]
+
+enunciado: "En el contexto escolar, el trabajo de campo busca desarrollar en los estudiantes:"
+
+explicacion: |
+  El objetivo pedagógico es formar ciudadanos con capacidad de análisis crítico y empatía social, no solo técnicos de datos.
 ```
 

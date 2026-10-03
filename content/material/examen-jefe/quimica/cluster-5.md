@@ -1,2024 +1,1707 @@
 # Examen jefe — [PENDIENTE #845]
 
-> Logro #845. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **107 preguntas totales** en 5/5 secciones.
+> Logro #845. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: medicion-de-laboratorio (24 preguntas)
+## Sección: seguridad-laboratorio (20 preguntas)
 
 ```
 metadata:
   materia: "quimica"
-  tema: "medicion_de_laboratorio"
+  tema: "seguridad_laboratorio"
   nivel: "basico"
-  tags: ["laboratorio", "vocabulario"]
-
-enunciado: "¿Qué es la apreciación de un instrumento de medición?"
-tipo: mc
-opciones_explicitas:
-  - "La mitad de la división más chica que puede distinguir el instrumento"
-  - "El valor máximo que puede medir"
-  - "El precio del instrumento"
-respuesta: "La mitad de la división más chica que puede distinguir el instrumento"
-
-explicacion: |
-  Es el límite físico del error posible con ese instrumento, ya visto en
-  `../../matematica/cifras-significativas-y-error/`.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio", "problema"]
+  tags: ["ghs", "pictogramas"]
 
 variables:
-  division: uno_de([1, 2])
+  tabla: [["llama", "inflamable"], ["calavera", "toxico agudo"], ["corrosion", "corrosivo, quema tejido o metal"], ["signo de exclamacion", "irritante o dañino en menor grado"]]
+  idx: uno_de([0, 1, 2, 3])
 
-respuesta: division / 2
-tipo: input
-tolerancia_abs: 0
+respuesta: tabla[idx][1]
+tipo: mc
+opciones_explicitas: ["inflamable", "toxico agudo", "corrosivo, quema tejido o metal", "irritante o dañino en menor grado"]
 
-enunciado: "Una probeta tiene marcas graduadas cada {division} mL. ¿Cuál es su apreciación (el margen de error mínimo de una lectura)?"
-
-pasos:
-  - "{division} ÷ 2 = {division / 2} mL"
+enunciado: "El pictograma de {tabla[idx][0]} significa..."
 
 explicacion: |
-  La apreciación es la mitad de la división más chica marcada.
+  El pictograma de {tabla[idx][0]} indica que la sustancia es {tabla[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio", "problema"]
-
-respuesta: 0.05
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una bureta tiene marcas graduadas cada 0,1 mL. ¿Cuál es su apreciación?"
-
-pasos:
-  - "0,1 ÷ 2 = 0,05 mL"
-
-explicacion: |
-  Al tener divisiones más finas que una probeta, la bureta permite una
-  lectura más precisa.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
+  tema: "seguridad_laboratorio"
   nivel: "basico"
-  tags: ["laboratorio", "vocabulario"]
-
-enunciado: "¿Qué es el menisco al medir un líquido en un recipiente graduado?"
-tipo: mc
-opciones_explicitas:
-  - "La curva que forma la superficie del líquido, por el contacto con las paredes de vidrio"
-  - "La marca de graduación más alta del recipiente"
-  - "El nombre del propio recipiente graduado"
-respuesta: "La curva que forma la superficie del líquido, por el contacto con las paredes de vidrio"
-
-explicacion: |
-  El líquido no queda perfectamente plano: se curva cerca de las
-  paredes.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio"]
+  tags: ["ghs", "estandar"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En el agua y la mayoría de las soluciones acuosas, el menisco es cóncavo: se curva hacia abajo en el centro."
+enunciado: "El GHS es un estándar internacional para etiquetar sustancias químicas peligrosas con símbolos reconocibles sin importar el idioma."
 
 explicacion: |
-  Es porque el agua "moja" el vidrio, arrastrando el borde del líquido
-  hacia arriba en el contacto con la pared.
+  Correcto. El Sistema Globalmente Armonizado estandariza la comunicación de peligros mundialmente.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio", "vocabulario"]
-
-enunciado: "¿Cómo se lee correctamente el nivel de un líquido con menisco cóncavo?"
-tipo: mc
-opciones_explicitas:
-  - "En la parte inferior de la curva, con el ojo a la misma altura del menisco"
-  - "En la parte superior de la curva, mirando desde arriba"
-  - "En cualquier punto de la curva, da lo mismo"
-respuesta: "En la parte inferior de la curva, con el ojo a la misma altura del menisco"
-
-explicacion: |
-  Leer desde otro punto o ángulo introduce un error evitable.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio", "vocabulario"]
-
-enunciado: "¿Qué es el error de paralaje?"
-tipo: mc
-opciones_explicitas:
-  - "El error de leer una escala desde un ángulo, en vez de mirarla de frente"
-  - "El error que viene de no calibrar el instrumento"
-  - "El error de usar un instrumento con divisiones muy grandes"
-respuesta: "El error de leer una escala desde un ángulo, en vez de mirarla de frente"
-
-explicacion: |
-  El ángulo de visión hace que la marca parezca corrida hacia un lado.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "avanzado"
-  tags: ["laboratorio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia de la apreciación (un límite físico del instrumento), el error de paralaje se puede evitar completamente con la técnica correcta de lectura."
-
-explicacion: |
-  Basta con poner el ojo a la altura exacta de la marca que se está
-  leyendo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
+  tema: "seguridad_laboratorio"
   nivel: "basico"
-  tags: ["laboratorio", "vocabulario"]
-
-enunciado: "¿Qué es tarar una balanza?"
-tipo: mc
-opciones_explicitas:
-  - "Ponerla en cero con el recipiente vacío puesto, antes de agregar la sustancia a pesar"
-  - "Calibrarla con un peso patrón certificado"
-  - "Limpiarla antes de usarla"
-respuesta: "Ponerla en cero con el recipiente vacío puesto, antes de agregar la sustancia a pesar"
-
-explicacion: |
-  Así el resultado final es sólo la masa de la sustancia, sin el peso
-  del recipiente.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Olvidar tarar la balanza (dejando el peso del recipiente sumado) produce un error sistemático: todas las mediciones quedan corridas en la misma dirección."
-
-explicacion: |
-  Es la misma idea de `../../matematica/error-sistematico-vs-aleatorio/`
-  aplicada a un caso concreto de laboratorio.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio", "problema"]
-
-variables:
-  masa_recipiente: random(10, 50)
-  masa_sustancia_real: random(5, 100)
-  masa_total: masa_recipiente + masa_sustancia_real
-
-respuesta: masa_sustancia_real
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un recipiente vacío pesa {masa_recipiente} g. Sin tarar la balanza, se agrega la sustancia y la balanza marca {masa_total} g en total. ¿Cuál es la masa real de la sustancia sola?"
-
-pasos:
-  - "{masa_total} − {masa_recipiente} = {masa_sustancia_real} g"
-
-explicacion: |
-  Si no se taró antes, hay que restar el peso del recipiente
-  después.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio", "vocabulario"]
-
-enunciado: "¿Qué es calibrar un instrumento de medición?"
-tipo: mc
-opciones_explicitas:
-  - "Verificar que marca el valor correcto en un punto conocido, antes de usarlo"
-  - "Limpiarlo después de cada uso"
-  - "Repetir la misma medición varias veces"
-respuesta: "Verificar que marca el valor correcto en un punto conocido, antes de usarlo"
-
-explicacion: |
-  Por ejemplo, un termómetro que debe marcar 0°C en agua con hielo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Calibrar un instrumento antes de medir permite detectar y corregir un error sistemático, en vez de descubrirlo después con resultados extraños."
-
-explicacion: |
-  Es una medida preventiva, no una corrección posterior.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "basico"
-  tags: ["laboratorio", "vocabulario"]
-
-enunciado: "¿Qué son las réplicas de una medición en un experimento?"
-tipo: mc
-opciones_explicitas:
-  - "Repeticiones de la misma medición, para después promediar los resultados"
-  - "Copias del informe del experimento"
-  - "Instrumentos de repuesto por si uno se rompe"
-respuesta: "Repeticiones de la misma medición, para después promediar los resultados"
-
-explicacion: |
-  El objetivo es reducir el efecto del error aleatorio.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Promediar varias réplicas de una medición reduce el efecto del error aleatorio en el resultado."
-
-explicacion: |
-  Las variaciones impredecibles de cada lectura tienden a cancelarse en
-  el promedio.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "avanzado"
-  tags: ["laboratorio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una balanza sin tarar mide siempre de más, repetir la medición y promediar NO corrige ese error."
-
-explicacion: |
-  Todas las réplicas están corridas en la misma dirección: promediar
-  sólo funciona contra el error aleatorio, no el sistemático.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio", "problema"]
-
-variables:
-  v1: random(20, 30)
-  v2: v1 + uno_de([-1, 1])
-  v3: v1 + uno_de([-2, 2])
-
-respuesta: redondear((v1 + v2 + v3) / 3, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "Se midió la masa de una muestra tres veces: {v1} g, {v2} g y {v3} g. ¿Cuál es el promedio de esas réplicas?"
-
-pasos:
-  - "({v1} + {v2} + {v3}) ÷ 3 = {redondear((v1 + v2 + v3) / 3, 2)} g"
-
-explicacion: |
-  El promedio suaviza las pequeñas variaciones aleatorias entre
-  réplicas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio", "vocabulario"]
-
-enunciado: "Una probeta está graduada cada 1 mL, y una bureta está graduada cada 0,1 mL. ¿Cuál de las dos permite una lectura más precisa?"
-tipo: mc
-opciones_explicitas:
-  - "La bureta, porque tiene una apreciación menor"
-  - "La probeta, porque es más grande"
-  - "Las dos son igual de precisas"
-respuesta: "La bureta, porque tiene una apreciación menor"
-
-explicacion: |
-  Cuanto más chica la división del instrumento, menor el margen de
-  error posible.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio", "ordenar"]
-
-enunciado: "Ordená los pasos para leer correctamente el volumen de un líquido en una probeta."
-tipo: ordenar
-opciones_explicitas:
-  - "Leer la marca en la parte inferior del menisco"
-  - "Colocar la probeta sobre una superficie plana"
-  - "Poner el ojo a la misma altura que la superficie del líquido, para evitar el error de paralaje"
-respuesta_orden: ["Colocar la probeta sobre una superficie plana", "Poner el ojo a la misma altura que la superficie del líquido, para evitar el error de paralaje", "Leer la marca en la parte inferior del menisco"]
-explicacion: |
-  El orden importa: primero la posición del recipiente, después la
-  altura del ojo, y recién ahí la lectura.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "avanzado"
-  tags: ["laboratorio"]
+  tags: ["ghs", "explosivo"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Un estudiante lee una probeta mirándola desde arriba (no a la altura del menisco) y usando una balanza sin tarar. Esa medición está libre de error evitable."
+enunciado: "El pictograma de una bomba explotando indica que la sustancia es inflamable, no explosiva."
 
 explicacion: |
-  Tiene dos errores evitables a la vez: paralaje (por mirar desde
-  arriba) y un error sistemático (por no tarar).
+  Falso. Ese pictograma indica específicamente que la sustancia es explosiva.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "intermedio"
-  tags: ["laboratorio"]
+  tema: "seguridad_laboratorio"
+  nivel: "basico"
+  tags: ["ghs", "medio_ambiente"]
+
+respuesta: "peligro para el ambiente"
+tipo: mc
+opciones_explicitas: ["peligro para el ambiente", "toxico agudo", "corrosivo", "inflamable"]
+
+enunciado: "El pictograma de medio ambiente (pez y árbol muerto) indica:"
+
+explicacion: |
+  Indica peligro para el ambiente (toxicidad acuática, daño ecológico, etc.).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "basico"
+  tags: ["ghs", "visual"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La apreciación de un instrumento es una propiedad del instrumento mismo, no depende de quién lo esté usando."
+enunciado: "Los pictogramas GHS se reconocen de un vistazo sin depender de leer texto."
 
 explicacion: |
-  Es un límite físico de la escala del instrumento; el error de
-  paralaje, en cambio, sí depende de la técnica de quien mide.
+  El objetivo de estos símbolos es la identificación rápida y visual del peligro.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "avanzado"
-  tags: ["laboratorio", "vocabulario"]
-
-enunciado: "¿Por qué en un experimento de laboratorio serio no alcanza con medir una sola vez?"
-tipo: mc
-opciones_explicitas:
-  - "Porque una sola medición no permite distinguir ni reducir el error aleatorio"
-  - "Porque los instrumentos se rompen después de un solo uso"
-  - "En realidad sí alcanza, medir varias veces es innecesario"
-respuesta: "Porque una sola medición no permite distinguir ni reducir el error aleatorio"
-
-explicacion: |
-  Con réplicas se puede promediar y también ver qué tan dispersos están
-  los resultados entre sí.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "avanzado"
-  tags: ["laboratorio", "problema"]
+  tema: "seguridad_laboratorio"
+  nivel: "intermedio"
+  tags: ["epp", "seguridad"]
 
 variables:
-  division: uno_de([0.1, 1, 10])
+  tabla: [["guantes", "contacto de la piel con sustancias corrosivas o toxicas"], ["gafas de seguridad", "salpicaduras en los ojos"], ["guardapolvo/bata", "salpicaduras en la ropa y piel"], ["campana extractora", "inhalacion de vapores toxicos"]]
+  idx: uno_de([0, 1, 2, 3])
 
-respuesta: division / 2
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un instrumento de laboratorio tiene divisiones cada {division} unidades. ¿Cuál es su apreciación?"
-
-pasos:
-  - "{division} ÷ 2 = {division / 2}"
-
-explicacion: |
-  La regla de la apreciación (mitad de la división más chica) es la
-  misma para cualquier instrumento, no sólo para los de laboratorio.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "medicion_de_laboratorio"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirven estas técnicas de medición en el laboratorio?"
+respuesta: tabla[idx][1]
 tipo: mc
-opciones_explicitas:
-  - "Para reducir errores evitables y lograr mediciones confiables y reproducibles por otros"
-  - "Sólo para que el informe se vea más prolijo"
-  - "Sólo aplican a mediciones de líquidos"
-respuesta: "Para reducir errores evitables y lograr mediciones confiables y reproducibles por otros"
+opciones_explicitas: ["contacto de la piel con sustancias corrosivas o toxicas", "salpicaduras en los ojos", "salpicaduras en la ropa y piel", "inhalacion de vapores toxicos"]
+
+enunciado: "¿De qué protege principalmente {tabla[idx][0]}?"
 
 explicacion: |
-  Un buen resultado experimental depende tanto del cálculo como de la
-  técnica con la que se midió.
+  {tabla[idx][0]} protege de: {tabla[idx][1]}.
 ```
-
-## Sección: mezclas-metodos-separacion (20 preguntas)
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mezclas_metodos_separacion"
+  tema: "seguridad_laboratorio"
   nivel: "basico"
-  tags: ["clasificacion", "materia"]
+  tags: ["epp"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La campana extractora protege de la inhalación de vapores tóxicos."
+
+explicacion: |
+  Correcto. Evacúa vapores, gases y polvos hacia afuera, evitando la inhalación.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "basico"
+  tags: ["epp"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los guantes protegen contra la inhalación de vapores."
+
+explicacion: |
+  Falso. Protegen las manos del contacto directo con sustancias, no la vía respiratoria.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "basico"
+  tags: ["buenas_practicas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para oler una sustancia química, hay que abanicar el vapor hacia la nariz con la mano desde una distancia prudencial, sin acercar el recipiente directo."
+
+explicacion: |
+  Acercar el recipiente directo puede causar irritación o intoxicación por vapores concentrados.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "basico"
+  tags: ["pipeteo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si no hay pera de goma o propipeta disponible, se permite pipetear con la boca para asegurar la precisión del volumen."
+
+explicacion: |
+  Falso. Nunca se pipetea con la boca — riesgo de ingerir sustancias tóxicas o corrosivas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "intermedio"
+  tags: ["reacciones_exotermicas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al diluir un ácido concentrado, el procedimiento seguro es verter siempre el ácido sobre el agua, lentamente."
+
+explicacion: |
+  Correcto. El calor generado se disipa en el gran volumen de agua; al revés, la reacción puede salpicar ácido concentrado.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "intermedio"
+  tags: ["reacciones_exotermicas"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Agregar agua a un ácido concentrado es una práctica segura, porque ayuda a que el ácido se diluya más rápido."
+
+explicacion: |
+  Falso. Genera una reacción exotérmica violenta que puede provocar ebullición instantánea y salpicaduras peligrosas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "basico"
+  tags: ["normativas"]
+
+respuesta: "seguridad"
+tipo: completar
+respuestas_validas:
+  - "seguridad"
+
+enunciado: "Antes de manipular una sustancia química nueva, hay que leer siempre la hoja de ___ (MSDS/FDS)."
+
+explicacion: |
+  Esa hoja contiene información sobre toxicidad, reactividad, primeros auxilios y EPP necesario.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "intermedio"
+  tags: ["pictogramas", "ghs"]
+
+respuesta: "Llama sobre un círculo (Comburente)"
+tipo: mc
+opciones_explicitas: ["Llama simple (Inflamable)", "Llama sobre un círculo (Comburente)", "Corrosivo", "Bomba explotando (Explosivo)"]
+
+enunciado: "Un pictograma que favorece la combustión de otros materiales, sin ser inflamable por sí mismo, es..."
+
+explicacion: |
+  El pictograma "comburente" (llama sobre círculo) indica sustancias que facilitan la combustión de otras, aunque ellas mismas no ardan.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "basico"
+  tags: ["sustancias", "comburente"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El peróxido de hidrógeno concentrado es un ejemplo de sustancia comburente."
+
+explicacion: |
+  Verdadero, es un fuerte agente oxidante que alimenta la combustión de otros materiales.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "intermedio"
+  tags: ["benceno", "cancerigeno"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El benceno tiene pictograma de peligro para la salud, porque está clasificado como cancerígeno."
+
+explicacion: |
+  Correcto, es un tóxico crónico clasificado como cancerígeno.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "basico"
+  tags: ["ghs", "normativa"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El diseño de los pictogramas GHS (rombo con borde rojo) es igual en todos los países que adoptan el sistema."
+
+explicacion: |
+  Correcto, es justamente el objetivo del estándar internacional.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+respuesta: "trabajar bajo la campana extractora"
+tipo: mc
+opciones_explicitas: ["trabajar bajo la campana extractora", "oler el frasco directamente", "abrirlo lejos de cualquier equipo de protección", "guardarlo sin etiqueta"]
+
+enunciado: "Si un frasco tiene el pictograma de tóxico agudo (calavera) y libera vapores, ¿qué medida es la más adecuada al manipularlo?"
+
+explicacion: |
+  Ante riesgo de inhalación de un tóxico, hay que trabajar bajo campana extractora, que evacúa los vapores.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "intermedio"
+  tags: ["pictogramas", "comparacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El pictograma de corrosivo y el de irritante (signo de exclamación) significan exactamente lo mismo, sólo cambia el dibujo."
+
+explicacion: |
+  Falso. El corrosivo indica daño severo (quemaduras en piel/metal); el irritante indica un daño más leve — son niveles de peligro distintos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "seguridad_laboratorio"
+  nivel: "avanzado"
+  tags: ["reacciones_exotermicas", "aplicacion"]
+
+respuesta: "el gran volumen de agua absorbe y disipa el calor liberado de a poco"
+tipo: mc
+opciones_explicitas: ["el gran volumen de agua absorbe y disipa el calor liberado de a poco", "el ácido se vuelve inofensivo al tocar el agua", "no hay ninguna razón real, es sólo una costumbre", "el agua reacciona más lento que el ácido"]
+
+enunciado: "¿Por qué es más seguro agregar ácido al agua (de a poco) en vez de agua al ácido?"
+
+explicacion: |
+  Al agregar poco a poco ácido a mucha agua, el calor liberado se reparte en todo ese volumen; al revés, el calor se concentra de golpe en poca agua y puede hervir violentamente, salpicando ácido.
+```
+
+## Sección: tabla-periodica-tendencias (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "basico"
+  tags: ["tabla_periodica", "periodos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los periodos (filas) de la tabla periódica indican el número de niveles de energía ocupados por los electrones de un átomo."
+
+explicacion: |
+  Correcto. El número de fila (periodo) indica la cantidad de niveles de energía que tiene la configuración electrónica del elemento.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "basico"
+  tags: ["tabla_periodica", "grupos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los elementos que pertenecen al mismo grupo (columna) comparten la misma cantidad de electrones en su capa de valencia."
+
+explicacion: |
+  Correcto. Compartir la cantidad de electrones de valencia es lo que da propiedades químicas similares a los elementos de un mismo grupo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "basico"
+  tags: ["tabla_periodica", "orden"]
+
+respuesta: "número atómico creciente"
+tipo: mc
+opciones_explicitas: ["número atómico creciente", "masa atómica creciente", "orden alfabético", "año de descubrimiento"]
+
+enunciado: "La tabla periódica moderna ordena los elementos según su..."
+
+explicacion: |
+  La tabla periódica moderna se organiza en orden creciente de número atómico (Z), la cantidad de protones — no por masa, como se ordenaba antes de conocerse el protón.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "basico"
+  tags: ["tabla_periodica", "nombres"]
+
+respuesta: "periodos"
+tipo: completar
+respuestas_validas:
+  - "periodos"
+
+enunciado: "Las filas horizontales de la tabla periódica se llaman ___."
+
+explicacion: |
+  Las filas horizontales se denominan periodos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "basico"
+  tags: ["tabla_periodica", "nombres"]
+
+respuesta: "grupos"
+tipo: completar
+respuestas_validas:
+  - "grupos"
+
+enunciado: "Las columnas verticales de la tabla periódica se llaman ___."
+
+explicacion: |
+  Las columnas verticales se denominan grupos o familias.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "basico"
+  tags: ["elementos", "electrones"]
 
 variables:
-  escenario: uno_de([["Agua destilada", "Sustancia pura/Compuesto"], ["Aire", "Mezcla homogénea"], ["Ensalada", "Mezcla heterogénea"], ["Oxígeno (O2)", "Sustancia pura/Elemento"]])
+  escenario: uno_de([["metal", "perder electrones (forma cationes)"], ["no metal", "ganar electrones (forma aniones)"]])
 
 respuesta: escenario[1]
 tipo: mc
-opciones_explicitas: ["Sustancia pura/Elemento", "Sustancia pura/Compuesto", "Mezcla homogénea", "Mezcla heterogénea"]
+opciones_explicitas: ["perder electrones (forma cationes)", "ganar electrones (forma aniones)"]
 
-enunciado: "Si tenemos {escenario[0]}, ¿cómo clasificaríamos esta muestra de materia?"
+enunciado: "Un elemento de tipo {escenario[0]} tiene la tendencia a..."
 
 explicacion: |
-  La clasificación depende de la composición: los elementos y compuestos son sustancias puras, mientras que las mezclas contienen dos o más sustancias combinadas.
+  Los metales tienden a perder electrones y formar cationes. Los no metales tienden a ganar electrones y formar aniones.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mezclas_metodos_separacion"
+  tema: "tabla_periodica_tendencias"
   nivel: "basico"
-  tags: ["compuestos", "metodos_separacion"]
+  tags: ["metaloides"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los metaloides tienen propiedades intermedias entre metales y no metales."
+
+explicacion: |
+  Los metaloides (como el silicio o el germanio) comparten características físicas y químicas con metales y no metales.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "basico"
+  tags: ["gases_nobles"]
+
+respuesta: "nobles"
+tipo: completar
+respuestas_validas:
+  - "nobles"
+
+enunciado: "El grupo 18 de la tabla periódica son los gases ___."
+
+explicacion: |
+  El grupo 18 está formado por los gases nobles (helio, neón, argón, etc.).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "basico"
+  tags: ["gases_nobles", "reactividad"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "¿Es posible separar un compuesto en sus elementos constituyentes mediante métodos físicos simples como la filtración?"
+enunciado: "Los gases nobles son muy reactivos porque tienen la capa de valencia incompleta."
 
 explicacion: |
-  Falso. Los compuestos están unidos mediante enlaces químicos; para separarlos se requiere una reacción química, no un método físico.
+  Falso. Los gases nobles son poco reactivos (inertes) justamente porque su capa de valencia está completa.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mezclas_metodos_separacion"
+  tema: "tabla_periodica_tendencias"
   nivel: "basico"
-  tags: ["formula", "elementos"]
+  tags: ["ubicacion", "tabla_periodica"]
 
-variables:
-  datos: uno_de([["Fe", "Elemento"], ["H2O", "Compuesto"], ["O2", "Elemento"], ["NaCl", "Compuesto"]])
-
-respuesta: datos[1]
+respuesta: "arriba a la derecha"
 tipo: mc
-opciones_explicitas: ["Elemento", "Compuesto"]
+opciones_explicitas: ["arriba a la derecha", "a la izquierda", "en el centro", "abajo a la izquierda"]
 
-enunciado: "Dada la fórmula química {datos[0]}, ¿se trata de un elemento o de un compuesto?"
+enunciado: "¿Dónde están ubicados los no metales en la tabla periódica?"
 
 explicacion: |
-  Un elemento está formado por un solo tipo de átomo; un compuesto está formado por la combinación química de dos o más elementos diferentes.
+  Los metales ocupan la mayor parte de la tabla (izquierda y centro); los no metales se ubican en la parte superior derecha.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mezclas_metodos_separacion"
+  tema: "tabla_periodica_tendencias"
   nivel: "basico"
-  tags: ["mezclas", "soluciones"]
+  tags: ["radio_atomico", "grupos"]
 
-respuesta: "solucion"
+respuesta: "aumenta"
+tipo: mc
+opciones_explicitas: ["aumenta", "disminuye", "se mantiene igual"]
+
+enunciado: "Al bajar en un grupo de la tabla periódica, el radio atómico..."
+
+explicacion: |
+  Al bajar en un grupo se agrega un nuevo nivel de energía por cada fila, lo que aumenta el tamaño del átomo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "basico"
+  tags: ["radio_atomico", "periodos"]
+
+respuesta: "disminuye"
+tipo: mc
+opciones_explicitas: ["disminuye", "aumenta", "se mantiene igual"]
+
+enunciado: "Al avanzar en un periodo de izquierda a derecha, el radio atómico..."
+
+explicacion: |
+  Al aumentar el número atómico en el mismo periodo, la carga nuclear efectiva aumenta y atrae los electrones con más fuerza, reduciendo el radio.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "intermedio"
+  tags: ["energia_ionizacion", "grupos"]
+
+respuesta: "disminuye"
+tipo: mc
+opciones_explicitas: ["disminuye", "aumenta", "se mantiene igual"]
+
+enunciado: "Al bajar en un grupo de la tabla periódica, la energía de ionización..."
+
+explicacion: |
+  Al bajar en un grupo, el electrón externo está en un nivel más lejano y menos atraído por el núcleo, así que cuesta menos energía sacarlo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "intermedio"
+  tags: ["electronegatividad", "periodos"]
+
+respuesta: "aumenta"
+tipo: mc
+opciones_explicitas: ["aumenta", "disminuye", "se mantiene igual"]
+
+enunciado: "Al avanzar en un periodo de izquierda a derecha, la electronegatividad..."
+
+explicacion: |
+  La mayor carga nuclear efectiva en el mismo nivel de energía aumenta la capacidad del núcleo de atraer electrones de un enlace.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "basico"
+  tags: ["electronegatividad", "fluor"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El flúor (F) es el elemento con mayor electronegatividad de toda la tabla periódica."
+
+explicacion: |
+  El flúor es el más electronegativo de la tabla por su alta carga nuclear efectiva combinada con su radio atómico chico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "intermedio"
+  tags: ["radio_atomico", "periodo"]
+
+respuesta: "El radio disminuye porque el núcleo tiene más protones y atrae con más fuerza a los electrones de valencia"
+tipo: mc
+opciones_explicitas: ["El radio aumenta porque hay menos electrones", "El radio disminuye porque el núcleo tiene más protones y atrae con más fuerza a los electrones de valencia", "El radio disminuye porque los electrones se alejan del núcleo", "El radio aumenta porque aumenta el número de niveles de energía"]
+
+enunciado: "¿Por qué el radio atómico disminuye al avanzar de izquierda a derecha en un mismo periodo?"
+
+explicacion: |
+  El número atómico aumenta (más protones) sin sumar niveles de energía nuevos: la carga nuclear efectiva sube y atrae a los electrones con más fuerza, achicando el átomo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "basico"
+  tags: ["radio_atomico", "grupo"]
+
+respuesta: "nuevo"
 tipo: completar
 respuestas_validas:
-  - "solucion"
-  - "solución"
+  - "nuevo"
 
-enunciado: "Una mezcla homogénea, donde sus componentes no se distinguen a simple vista, también se llama ___."
+enunciado: "Al bajar en un grupo de la tabla periódica se agrega un nivel de energía ___, lo que hace que el radio atómico aumente."
 
 explicacion: |
-  Las mezclas homogéneas se denominan comúnmente soluciones o disoluciones.
+  Cada vez que se baja un grupo se completa una capa electrónica más, agregando un nuevo nivel de energía y aumentando el tamaño del átomo.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mezclas_metodos_separacion"
+  tema: "tabla_periodica_tendencias"
   nivel: "basico"
-  tags: ["mezclas", "homogenea", "heterogenea"]
+  tags: ["electrones_valencia", "grupo"]
 
-variables:
-  escenario: uno_de([["agua con sal", "homogenea"], ["agua con arena", "heterogenea"], ["acero", "homogenea"], ["granito", "heterogenea"], ["aire", "homogenea"]])
+respuesta: verdadero
+tipo: vf
 
-respuesta: escenario[1]
+enunciado: "Dos elementos situados en el mismo grupo de la tabla periódica tienen la misma cantidad de electrones de valencia."
+
+explicacion: |
+  Los elementos de un mismo grupo comparten la misma configuración en su capa más externa, así que tienen el mismo número de electrones de valencia.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_tendencias"
+  nivel: "intermedio"
+  tags: ["energia_ionizacion", "propiedades"]
+
+respuesta: "Energía de ionización"
 tipo: mc
-opciones_explicitas: ["homogenea", "heterogenea"]
+opciones_explicitas: ["Electronegatividad", "Energía de ionización", "Radio atómico", "Afinidad electrónica"]
 
-enunciado: "El ejemplo dado es: {escenario[0]}. ¿Qué tipo de mezcla es?"
+enunciado: "¿Cuál es la propiedad que mide la energía necesaria para arrancarle un electrón a un átomo en estado gaseoso?"
 
 explicacion: |
-  Las mezclas se clasifican en homogéneas (una sola fase) y heterogéneas (dos o más fases visibles).
+  La energía de ionización mide el costo de remover un electrón. La electronegatividad mide la tendencia a atraer electrones en un enlace; la afinidad electrónica, la energía liberada al captar uno.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mezclas_metodos_separacion"
+  tema: "tabla_periodica_tendencias"
   nivel: "basico"
-  tags: ["mezclas", "homogenea"]
+  tags: ["metales", "conductividad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los metales son en general buenos conductores eléctricos, mientras que los no metales suelen ser malos conductores."
+
+explicacion: |
+  Los electrones de valencia de los metales están débilmente unidos y se mueven con facilidad, lo que permite la conducción eléctrica. En los no metales, los electrones están más fuertemente retenidos.
+```
+
+## Sección: tipos-reacciones-quimicas (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tipos_reacciones_quimicas"
+  nivel: "basico"
+  tags: ["sintesis", "conceptos_basicos"]
+
+respuesta: "1"
+tipo: mc
+opciones_explicitas: ["1", "2", "3", "depende de los reactivos"]
+
+enunciado: "En una reacción de síntesis (A + B → AB), ¿cuántos productos se forman?"
+
+explicacion: |
+  En una síntesis, dos o más sustancias se combinan para formar un único producto más complejo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tipos_reacciones_quimicas"
+  nivel: "basico"
+  tags: ["sintesis"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la reacción 2H2 + O2 → 2H2O, dos sustancias simples se combinan en una sola, por lo tanto, es una reacción de síntesis."
+
+explicacion: |
+  Verdadero. Hidrógeno y oxígeno se combinan para formar una única sustancia: agua.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tipos_reacciones_quimicas"
+  nivel: "basico"
+  tags: ["sintesis", "completar"]
+
+respuesta: "combinan"
+tipo: completar
+respuestas_validas:
+  - "combinan"
+
+enunciado: "En una reacción de síntesis, dos o más sustancias se ___ para formar una sola más compleja."
+
+explicacion: |
+  Los reactivos se combinan para formar un producto nuevo, único.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tipos_reacciones_quimicas"
+  nivel: "basico"
+  tags: ["sintesis"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "En una mezcla homogénea se pueden distinguir los componentes a simple vista."
+enunciado: "Una reacción de síntesis se caracteriza por tener un solo reactivo y varios productos."
 
 explicacion: |
-  Incorrecto. En las mezclas homogéneas (soluciones), las partículas son tan pequeñas que no se pueden distinguir ni con un microscopio óptico.
+  Falso. Es al revés: una síntesis tiene varios reactivos y un solo producto.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mezclas_metodos_separacion"
+  tema: "tipos_reacciones_quimicas"
   nivel: "basico"
-  tags: ["mezclas", "heterogenea"]
+  tags: ["descomposicion"]
 
-respuesta: "heterogenea"
-tipo: completar
-respuestas_validas:
-  - "heterogenea"
+respuesta: "1"
+tipo: mc
+opciones_explicitas: ["1", "2", "3", "depende"]
 
-enunciado: "Una mezcla con dos o más fases visibles se llama mezcla ___."
+enunciado: "En una reacción de descomposición (AB → A + B), ¿cuántos reactivos hay al inicio?"
 
 explicacion: |
-  Las mezclas heterogéneas presentan fases diferenciadas que se pueden distinguir.
+  En una descomposición, un solo reactivo complejo se separa en dos o más productos más simples.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mezclas_metodos_separacion"
-  nivel: "intermedio"
-  tags: ["coloides", "leche"]
+  tema: "tipos_reacciones_quimicas"
+  nivel: "basico"
+  tags: ["descomposicion", "sintesis"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La leche es un ejemplo de mezcla heterogénea de partículas muy chicas, un coloide."
+enunciado: "¿La reacción de descomposición es el proceso inverso a una reacción de síntesis?"
 
 explicacion: |
-  Correcto. Aunque parece homogénea a simple vista, la leche es un coloide donde se distinguen gotas de grasa dispersas en una fase líquida.
+  Correcto. En la síntesis varias sustancias se combinan en un producto; en la descomposición, un reactivo se separa en varios.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mezclas_metodos_separacion"
+  tema: "tipos_reacciones_quimicas"
   nivel: "basico"
-  tags: ["mezclas", "metodos_separacion"]
+  tags: ["electrolisis", "descomposicion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La electrólisis del agua (2H2O → 2H2 + O2) es un ejemplo de una reacción de síntesis."
+
+explicacion: |
+  Falso. Es descomposición: una sola sustancia (H2O) se separa en sus componentes (H2 y O2).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tipos_reacciones_quimicas"
+  nivel: "basico"
+  tags: ["energia", "descomposicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Las reacciones de descomposición requieren frecuentemente energía externa (como calor o electricidad) para ocurrir?"
+
+explicacion: |
+  Verdadero. Romper enlaces cuesta energía: muchas descomposiciones son endotérmicas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tipos_reacciones_quimicas"
+  nivel: "basico"
+  tags: ["desplazamiento"]
+
+respuesta: "reemplaza al elemento B dentro del compuesto BC"
+tipo: mc
+opciones_explicitas: ["se combina con el compuesto BC entero", "reemplaza al elemento B dentro del compuesto BC", "se descompone en sus elementos", "no reacciona con el compuesto BC"]
+
+enunciado: "En A + BC → AC + B, ¿qué hace el elemento A?"
+
+explicacion: |
+  A reemplaza a B dentro del compuesto, ocupando su lugar.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tipos_reacciones_quimicas"
+  nivel: "basico"
+  tags: ["desplazamiento", "zinc"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En Zn + 2HCl → ZnCl2 + H2, el zinc desplaza al hidrógeno del ácido clorhídrico."
+
+explicacion: |
+  Verdadero. El zinc es más reactivo que el hidrógeno, así que lo desplaza del HCl.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tipos_reacciones_quimicas"
+  nivel: "intermedio"
+  tags: ["reactividad", "desplazamiento"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para que una reacción de desplazamiento ocurra, el elemento que desplaza debe ser MENOS reactivo que el elemento desplazado."
+
+explicacion: |
+  Falso. Tiene que ser MÁS reactivo para poder desplazarlo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tipos_reacciones_quimicas"
+  nivel: "basico"
+  tags: ["desplazamiento", "completar"]
+
+respuesta: "solo"
+tipo: completar
+respuestas_validas:
+  - "solo"
+
+enunciado: "En una reacción de desplazamiento aparece un elemento ___ (sin combinar) tanto en reactivos como en productos, pero con distinto compañero."
+
+explicacion: |
+  El elemento desplazado queda libre en los productos, y el que desplaza toma su lugar en el compuesto.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tipos_reacciones_quimicas"
+  nivel: "intermedio"
+  tags: ["patrones"]
 
 variables:
-  escenarios: [["agua + arena", "filtracion"], ["agua + aceite", "decantacion"], ["agua + sal disuelta, para recuperar el solido", "evaporacion"], ["dos líquidos miscibles con distinto punto de ebullición", "destilacion"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: escenarios[idx][1]
-tipo: mc
-opciones_explicitas: ["filtracion", "decantacion", "evaporacion", "destilacion"]
-
-enunciado: "Para separar la mezcla de {escenarios[idx][0]}, ¿qué método utilizarías?"
-
-explicacion: |
-  El método adecuado depende de las propiedades físicas de los componentes. Para {escenarios[idx][0]}, se usa {escenarios[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mezclas_metodos_separacion"
-  nivel: "intermedio"
-  tags: ["cromatografia", "propiedades"]
-
-respuesta: "velocidad de arrastre distinta sobre un soporte"
-tipo: mc
-opciones_explicitas: ["velocidad de arrastre distinta sobre un soporte", "punto de ebullición", "densidad", "tamaño"]
-
-enunciado: "¿Qué propiedad física aprovecha la cromatografía para separar los componentes de una mezcla?"
-
-explicacion: |
-  La cromatografía se basa en la diferencia de afinidad de los componentes por una fase estacionaria y una fase móvil, lo que produce distintas velocidades de arrastre.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mezclas_metodos_separacion"
-  nivel: "basico"
-  tags: ["magnetismo", "mezclas"]
-
-respuesta: "magnetica"
-tipo: completar
-respuestas_validas:
-  - "magnetica"
-
-enunciado: "La separación de limaduras de hierro de arena se realiza mediante separación ___."
-
-explicacion: |
-  El hierro es un material ferromagnético, por lo que puede ser atraído por un imán, permitiendo separarlo de la arena que no tiene propiedades magnéticas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mezclas_metodos_separacion"
-  nivel: "basico"
-  tags: ["destilacion", "evaporacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La destilación permite recuperar ambos líquidos de una mezcla líquido-líquido miscible, a diferencia de la evaporación que pierde el solvente."
-
-explicacion: |
-  En la destilación, el vapor se condensa y se recupera en un recipiente distinto. En la evaporación, el solvente se escapa a la atmósfera.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mezclas_metodos_separacion"
-  nivel: "basico"
-  tags: ["solidos", "tamizado"]
-
-respuesta: "tamizado"
-tipo: mc
-opciones_explicitas: ["destilacion", "tamizado", "decantacion", "cromatografia"]
-
-enunciado: "Para separar una mezcla de dos sólidos que presentan distinto tamaño de grano, como arena gruesa y arena fina, el método más adecuado es el..."
-
-explicacion: |
-  El tamizado usa una malla con orificios de un tamaño determinado que deja pasar las partículas más pequeñas mientras retiene las más grandes.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mezclas_metodos_separacion"
-  nivel: "intermedio"
-  tags: ["solubilidad", "cristalizacion"]
-
-respuesta: "solubilidad"
-tipo: completar
-respuestas_validas:
-  - "solubilidad"
-
-enunciado: "La cristalización es un método de separación que aprovecha que la ___ de un sólido cambia con la temperatura."
-
-explicacion: |
-  Al disminuir la temperatura de una solución saturada, la solubilidad del soluto disminuye y precipita en forma de cristales.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mezclas_metodos_separacion"
-  nivel: "basico"
-  tags: ["decantacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La decantación sirve para separar un sólido sedimentado de un líquido, o dos líquidos inmiscibles, sin necesidad de calentar."
-
-explicacion: |
-  Verdadero. La decantación se basa en la diferencia de densidades y la inmiscibilidad, permitiendo la separación por gravedad sin aporte térmico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mezclas_metodos_separacion"
-  nivel: "intermedio"
-  tags: ["escenarios", "metodos"]
-
-variables:
-  escenarios: [["separar pigmentos de una tinta", "cromatografia"], ["separar agua de alcohol", "destilacion"], ["separar sal de agua recuperando la sal", "evaporacion"]]
+  tabla: [["sintesis", "varios reactivos, un solo producto"], ["descomposicion", "un solo reactivo, varios productos"], ["desplazamiento", "un elemento solo mas un compuesto, en ambos lados"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: escenarios[idx][1]
+respuesta: tabla[idx][1]
 tipo: mc
-opciones_explicitas: ["cromatografia", "destilacion", "evaporacion", "filtracion"]
+opciones_explicitas: ["varios reactivos, un solo producto", "un solo reactivo, varios productos", "un elemento solo mas un compuesto, en ambos lados"]
 
-enunciado: "Si nos enfrentamos al siguiente escenario: {escenarios[idx][0]}, ¿cuál es el método de separación correspondiente?"
+enunciado: "En una reacción de tipo {tabla[idx][0]}, ¿cuál es el patrón de reactivos y productos?"
 
 explicacion: |
-  El método se elige según la propiedad que distingue a los componentes: afinidad con un soporte, punto de ebullición, o volatilidad del solvente.
+  El patrón de {tabla[idx][0]} es: {tabla[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mezclas_metodos_separacion"
-  nivel: "basico"
-  tags: ["destilacion"]
-
-respuesta: "destilacion"
-tipo: completar
-respuestas_validas:
-  - "destilacion"
-
-enunciado: "El método usado para separar una mezcla de dos líquidos miscibles, aprovechando sus diferentes puntos de ebullición, se denomina ___."
-
-explicacion: |
-  La destilación aprovecha la diferencia en la volatilidad (puntos de ebullición) de los componentes para separarlos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mezclas_metodos_separacion"
-  nivel: "basico"
-  tags: ["mezclas", "conceptos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todas las mezclas, tanto homogéneas como heterogéneas, se pueden separar mediante métodos físicos, sin necesidad de una reacción química."
-
-explicacion: |
-  Correcto. En una mezcla cada componente mantiene sus propiedades químicas, así que sus componentes se pueden separar físicamente (a diferencia de un compuesto).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mezclas_metodos_separacion"
-  nivel: "basico"
-  tags: ["mezclas", "clasificacion"]
-
-respuesta: "mezcla homogénea"
-tipo: mc
-opciones_explicitas: ["mezcla homogénea", "mezcla heterogénea", "sustancia pura", "elemento"]
-
-enunciado: "Considerando el agua de mar (agua y sales disueltas), esta se clasifica como una:"
-
-explicacion: |
-  El agua de mar es una mezcla homogénea (disolución) porque sus componentes no se distinguen a simple vista y presenta una sola fase.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mezclas_metodos_separacion"
-  nivel: "basico"
-  tags: ["filtracion"]
-
-respuesta: "filtracion"
-tipo: completar
-respuestas_validas:
-  - "filtracion"
-
-enunciado: "El proceso para separar un sólido de un líquido mediante el uso de un papel poroso se denomina ___."
-
-explicacion: |
-  La filtración deja pasar el líquido a través de un medio poroso mientras retiene las partículas sólidas más grandes.
-```
-
-## Sección: modelos-atomicos (21 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "basico"
-  tags: ["historia", "atomos"]
-
-respuesta_orden: ["Dalton", "Thomson", "Rutherford", "Bohr"]
-tipo: ordenar
-opciones_explicitas: ["Dalton", "Thomson", "Rutherford", "Bohr"]
-
-enunciado: "Ordena cronológicamente los siguientes modelos atómicos, desde el más antiguo al más reciente."
-
-explicacion: |
-  El orden correcto es: Dalton (1803), Thomson (1897), Rutherford (1911) y Bohr (1913).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "basico"
-  tags: ["thomson", "electron"]
+  tema: "tipos_reacciones_quimicas"
+  nivel: "intermedio"
+  tags: ["ecuaciones", "clasificacion"]
 
 variables:
-  escenarios: [["Dalton", "esfera maciza"], ["Thomson", "budín de pasas"], ["Rutherford", "núcleo denso"], ["Bohr", "órbitas de energía fija"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: escenarios[idx][1]
-tipo: mc
-opciones_explicitas: ["esfera maciza", "budín de pasas", "núcleo denso", "órbitas de energía fija"]
-
-enunciado: "Si el científico es {escenarios[idx][0]}, ¿cuál es el nombre o descripción de su modelo atómico?"
-
-explicacion: |
-  El modelo de {escenarios[idx][0]} se conoce como {escenarios[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "basico"
-  tags: ["dalton", "electron"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿El modelo atómico de Dalton ya incluía al electrón como partícula subatómica?"
-
-explicacion: |
-  Falso. Dalton consideraba el átomo como una esfera maciza e indivisible; fue Thomson quien descubrió el electrón varias décadas después.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "intermedio"
-  tags: ["rutherford", "nucleo"]
-
-variables:
-  metal: "oro"
-
-respuesta: metal
-tipo: completar
-respuestas_validas:
-  - metal
-
-enunciado: "El experimento que llevó a Rutherford a proponer un núcleo denso y positivo consistió en bombardear con partículas alfa una fina lámina de ___."
-
-explicacion: |
-  Rutherford usó una lámina de oro para observar la dispersión de partículas alfa, lo que reveló la existencia de un núcleo central pequeño y denso.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "basico"
-  tags: ["atomos", "electron", "thomson"]
-
-respuesta: "Thomson"
-tipo: mc
-opciones_explicitas: ["Dalton", "Thomson", "Rutherford", "Bohr"]
-
-enunciado: "¿Qué científico descubrió el electrón mediante experimentos con tubos de rayos catódicos?"
-
-explicacion: |
-  J.J. Thomson descubrió el electrón en 1897, demostrando que el átomo no era una esfera indivisible como proponía Dalton, sino que contenía partículas subatómicas con carga negativa.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "basico"
-  tags: ["rutherford", "nucleo", "espacio_vacio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el modelo atómico de Rutherford, el átomo está compuesto mayoritariamente por espacio vacío, con un núcleo pequeño y denso en el centro."
-
-explicacion: |
-  El experimento de la lámina de oro demostró que la masa del átomo está concentrada en un núcleo central, dejando grandes zonas de vacío donde están los electrones.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "intermedio"
-  tags: ["rutherford", "bohr", "electromagnetismo"]
-
-respuesta: "El electrón debería emitir radiación continua y caer en espiral hacia el núcleo"
-tipo: mc
-opciones_explicitas: ["El electrón debería emitir radiación continua y caer en espiral hacia el núcleo", "El átomo era demasiado grande para ser estable", "No explicaba la existencia de los neutrones", "Los electrones no tenían carga eléctrica"]
-
-enunciado: "¿Cuál era el principal problema del modelo de Rutherford que el modelo de Bohr buscaba resolver?"
-
-explicacion: |
-  Según la física clásica, una carga eléctrica en movimiento circular debería emitir radiación electromagnética, perder energía y colapsar contra el núcleo. Bohr resolvió esto con órbitas estacionarias.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "intermedio"
-  tags: ["bohr", "niveles_de_energia"]
-
-variables:
-  descriptor: "fijos y permitidos"
-
-respuesta: descriptor
-tipo: completar
-respuestas_validas:
-  - descriptor
-
-enunciado: "En el modelo de Bohr, los electrones giran en niveles de energía ___ (no en cualquier órbita)."
-
-explicacion: |
-  Bohr propuso que los electrones sólo pueden ocupar ciertas órbitas con energías cuantizadas, evitando así el colapso del átomo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "basico"
-  tags: ["thomson", "electron"]
-
-respuesta: "Electrones"
-tipo: mc
-opciones_explicitas: ["Protones", "Electrones", "Neutrones", "El núcleo"]
-
-enunciado: "En el modelo atómico de Thomson, comparado con un budín de pasas, ¿qué representan las pasas?"
-
-explicacion: |
-  Thomson propuso que el átomo era una esfera de carga positiva con electrones incrustados (las pasas), lo que explicaba la neutralidad eléctrica.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "basico"
-  tags: ["dalton", "teoria_atomica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El modelo de Dalton describía al átomo como una esfera con una estructura interna compleja."
-
-explicacion: |
-  Dalton consideraba al átomo como una esfera indivisible, sólida e inmutable, sin estructura interna conocida.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "intermedio"
-  tags: ["historia_atomica", "modelos"]
-
-variables:
-  escenarios: [["Thomson", "la existencia del electrón"], ["Rutherford", "que la carga positiva está concentrada en un núcleo"], ["Bohr", "por qué los átomos emiten luz en colores específicos"]]
+  tabla: [["2H2 + O2 -> 2H2O", "sintesis"], ["2H2O -> 2H2 + O2", "descomposicion"], ["Zn + 2HCl -> ZnCl2 + H2", "desplazamiento"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: escenarios[idx][1]
+respuesta: tabla[idx][1]
 tipo: mc
-opciones_explicitas: ["la existencia del electrón", "que la carga positiva está concentrada en un núcleo", "por qué los átomos emiten luz en colores específicos"]
+opciones_explicitas: ["sintesis", "descomposicion", "desplazamiento"]
 
-enunciado: "Considera el modelo de {escenarios[idx][0]}. ¿Qué explicó este modelo por primera vez?"
+enunciado: "¿A qué tipo de reacción pertenece {tabla[idx][0]}?"
 
 explicacion: |
-  Cada modelo histórico aportó un avance fundamental: Thomson descubrió el electrón, Rutherford el núcleo y Bohr los niveles de energía.
+  Esa ecuación es de tipo {tabla[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "intermedio"
-  tags: ["cuantica", "orbitales"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El modelo actual (cuántico) reemplaza las órbitas fijas de Bohr por orbitales, zonas de probabilidad de hallar un electrón."
-
-explicacion: |
-  A diferencia del modelo de Bohr, donde los electrones siguen trayectorias circulares definidas, el modelo cuántico describe la probabilidad de posición mediante orbitales.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "intermedio"
-  tags: ["atomos", "teoria_atomica"]
-
-variables:
-  escenarios: [["Dalton", "no consideraba la existencia de partículas subatómicas"], ["Thomson", "no ubicaba correctamente la carga positiva del átomo"], ["Rutherford", "no explicaba por qué los electrones no colapsaban con el núcleo"], ["Bohr", "sus órbitas definidas no son compatibles con la mecánica cuántica"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: escenarios[idx][1]
-tipo: mc
-opciones_explicitas: ["no consideraba la existencia de partículas subatómicas", "no ubicaba correctamente la carga positiva del átomo", "no explicaba por qué los electrones no colapsaban con el núcleo", "sus órbitas definidas no son compatibles con la mecánica cuántica"]
-
-enunciado: "Considerando el modelo atómico de {escenarios[idx][0]}, ¿cuál era su principal limitación?"
-
-explicacion: |
-  El modelo de {escenarios[idx][0]} fue superado porque {escenarios[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "basico"
-  tags: ["rutherford", "nucleo_atomico"]
-
-respuesta: "Rutherford"
-tipo: completar
-respuestas_validas:
-  - "Rutherford"
-
-enunciado: "El átomo con carga positiva concentrada en un punto pequeño y denso, con electrones lejos girando alrededor, es el modelo de ___."
-
-explicacion: |
-  El modelo de Rutherford introdujo la idea de un núcleo central pequeño y denso, rompiendo con el "budín de pasas" de Thomson.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "basico"
-  tags: ["historia_quimica", "metodologia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Cada modelo atómico fue reemplazado porque el anterior estaba completamente equivocado, no porque resolviera un problema nuevo con evidencia nueva."
-
-explicacion: |
-  Falso. Cada modelo resolvió el problema que dejaba el anterior con evidencia experimental nueva (el electrón, el núcleo, los espectros de luz) — no fue descartado por estar "mal", sino superado.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "basico"
-  tags: ["cientificos", "historia"]
-
-respuesta: "Mendeleiev"
-tipo: mc
-opciones_explicitas: ["Dalton", "Thomson", "Rutherford", "Bohr", "Mendeleiev"]
-
-enunciado: "De la siguiente lista de científicos, ¿cuál NO propuso un modelo atómico dentro de la secuencia histórica Dalton→Thomson→Rutherford→Bohr?"
-
-explicacion: |
-  Mendeléyev es conocido por la Tabla Periódica, no por uno de los cuatro modelos atómicos de esta secuencia.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "intermedio"
-  tags: ["bohr", "espectros"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El modelo de Bohr explica por qué los átomos excitados emiten luz en colores (longitudes de onda) específicos, y no en cualquier color."
-
-explicacion: |
-  Como los electrones sólo pueden saltar entre niveles de energía fijos, cada salto emite un fotón de energía exacta, que corresponde a un color específico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "basico"
-  tags: ["thomson", "apodo"]
-
-respuesta: "budín de pasas"
-tipo: completar
-respuestas_validas:
-  - "budín de pasas"
-  - "budin de pasas"
-
-enunciado: "El modelo atómico de Thomson es conocido popularmente como el modelo del ___."
-
-explicacion: |
-  Se lo llama así porque describe al átomo como una esfera de carga positiva (el budín) con los electrones incrustados (las pasas).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "basico"
-  tags: ["dalton", "esfera_maciza"]
-
-respuesta: "Una esfera maciza e indivisible, sin estructura interna"
-tipo: mc
-opciones_explicitas: ["Una esfera maciza e indivisible, sin estructura interna", "Una esfera con electrones incrustados", "Un núcleo denso con electrones orbitando lejos", "Un núcleo con electrones en niveles de energía fijos"]
-
-enunciado: "¿Cómo describía Dalton al átomo?"
-
-explicacion: |
-  Dalton, el primer modelo atómico moderno (1803), lo describía como una bolita maciza, indivisible e indestructible, sin partículas subatómicas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "basico"
-  tags: ["rutherford", "thomson", "electron"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Rutherford fue quien descubrió el electrón con el tubo de rayos catódicos."
-
-explicacion: |
-  Falso. El electrón fue descubierto por Thomson (1897); Rutherford llegó después (1911) y descubrió el núcleo atómico con el experimento de la lámina de oro.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "modelos_atomicos"
-  nivel: "avanzado"
-  tags: ["bohr", "cuantica", "orbitales"]
-
-respuesta: "los niveles de energía cuantizados"
-tipo: mc
-opciones_explicitas: ["los niveles de energía cuantizados", "las órbitas circulares definidas", "el electrón como partícula maciza", "la carga positiva repartida en todo el volumen"]
-
-enunciado: "¿Qué idea de Bohr SÍ conserva el modelo cuántico actual, a pesar de reemplazar sus órbitas fijas por orbitales?"
-
-explicacion: |
-  El modelo actual descarta la trayectoria fija de Bohr, pero conserva su idea central: la energía del electrón está cuantizada, no puede tomar cualquier valor.
-```
-
-## Sección: mol-masa-molar (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "basico"
-  tags: ["mol", "particulas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "1 mol de cualquier sustancia contiene exactamente 6,022×10²³ partículas."
-
-explicacion: |
-  El mol es la unidad que define la cantidad de sustancia y equivale al número de Avogadro de partículas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "basico"
-  tags: ["avogadro", "constante"]
-
-respuesta: "6.022x10^23"
-tipo: mc
-opciones_explicitas: ["6.022x10^23", "3.14", "9.8", "1.6x10^-19"]
-
-enunciado: "El número de Avogadro es aproximadamente:"
-
-explicacion: |
-  El número de Avogadro es la cantidad de entidades elementales que hay en 1 mol.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "basico"
-  tags: ["avogadro", "propiedades"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El número de Avogadro cambia dependiendo de la sustancia que se esté midiendo."
-
-explicacion: |
-  Falso. El número de Avogadro es una constante universal; lo que cambia según la sustancia es la MASA de un mol (la masa molar).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "basico"
-  tags: ["constante", "nomenclatura"]
-
-respuesta: "N_A"
-tipo: completar
-respuestas_validas:
-  - "N_A"
-
-enunciado: "En VBLang, la constante del número de Avogadro ya está precargada con el nombre ___."
-
-explicacion: |
-  El identificador `N_A` está disponible como constante global, sin necesidad de declararlo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "basico"
-  tags: ["masa_molar", "elementos"]
-
-respuesta: "masa atómica de la tabla periódica"
-tipo: mc
-opciones_explicitas: ["masa atómica de la tabla periódica", "número atómico", "número de neutrones", "número de oxidación"]
-
-enunciado: "La masa molar de un elemento coincide numéricamente con su..."
-
-explicacion: |
-  La masa molar de un elemento (en g/mol) es numéricamente igual a su masa atómica de la tabla periódica (en u).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "intermedio"
-  tags: ["calculo", "agua"]
-
-variables:
-  h: 1
-  masa_o: 16
-
-respuesta: 2 * h + masa_o
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Calcula la masa molar del agua (H2O) si la masa atómica del H es {h} y la del O es {masa_o}."
-
-pasos:
-  - "Multiplicar la masa del H por 2 (hay 2 átomos de H): 2 × {h}"
-  - "Sumar la masa del O: (2 × {h}) + {masa_o}"
-
-explicacion: |
-  La masa molar de H2O es (2 × 1) + 16 = 18 g/mol.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "intermedio"
-  tags: ["calculo", "dioxido_de_carbono"]
-
-variables:
-  c: 12
-  masa_o: 16
-
-respuesta: c + 2 * masa_o
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Calcula la masa molar del dióxido de carbono (CO2) si la masa atómica del C es {c} y la del O es {masa_o}."
-
-pasos:
-  - "Sumar la masa de un átomo de C: {c}"
-  - "Sumar la masa de dos átomos de O: 2 × {masa_o}"
-
-explicacion: |
-  La masa molar de CO2 es 12 + (2 × 16) = 44 g/mol.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "intermedio"
-  tags: ["calculo", "sal_comun"]
-
-variables:
-  na: 23
-  cl: 35.5
-
-respuesta: na + cl
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Calcula la masa molar del cloruro de sodio (NaCl) si la masa atómica del Na es {na} y la del Cl es {cl}."
-
-explicacion: |
-  La masa molar de NaCl es 23 + 35,5 = 58,5 g/mol.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
+  tema: "tipos_reacciones_quimicas"
   nivel: "basico"
   tags: ["conceptos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La masa molar de un compuesto es la suma de las masas atómicas de todos los átomos de su fórmula."
+enunciado: "Para distinguir entre síntesis, descomposición y desplazamiento, la clave es contar cuántas sustancias hay de cada lado de la ecuación."
 
 explicacion: |
-  Correcto. Para un compuesto se suman las masas atómicas de cada átomo, según su cantidad en la fórmula.
+  Correcto. La cantidad de reactivos y productos (y si hay un elemento solo) define el tipo de reacción.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "intermedio"
-  tags: ["calculo", "moles"]
-
-variables:
-  masa_molar: uno_de([2, 4, 5, 10, 20, 25, 50])
-  moles_deseados: random(1, 10)
-  masa: masa_molar * moles_deseados
-
-respuesta: moles_deseados
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Una muestra contiene {masa} g de una sustancia cuya masa molar es {masa_molar} g/mol. ¿Cuántos moles hay en la muestra?"
-
-explicacion: |
-  n = m / M = {masa} / {masa_molar} = {moles_deseados} moles.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "intermedio"
-  tags: ["calculo", "masa"]
-
-variables:
-  masa_molar: uno_de([2, 4, 5, 10, 20, 25, 50])
-  moles: random(1, 10)
-
-respuesta: masa_molar * moles
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si hay {moles} moles de una sustancia con masa molar {masa_molar} g/mol, ¿cuál es la masa de la muestra en gramos?"
-
-explicacion: |
-  m = n × M = {moles} × {masa_molar} g/mol.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
+  tema: "tipos_reacciones_quimicas"
   nivel: "basico"
-  tags: ["teoria", "formula"]
+  tags: ["conceptos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Una reacción química con un solo reactivo y dos productos es una reacción de síntesis."
+
+explicacion: |
+  Falso. Un solo reactivo que se divide en varios productos es descomposición, no síntesis.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tipos_reacciones_quimicas"
+  nivel: "basico"
+  tags: ["conceptos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La fórmula para calcular el número de moles (n) es n = masa / masa molar."
+enunciado: "Una reacción con tres reactivos que se combinan en un solo producto es una reacción de síntesis."
 
 explicacion: |
-  Correcto. n = m / M relaciona la masa de una muestra con su masa molar para obtener la cantidad de sustancia.
+  Verdadero. El patrón "varios reactivos, un solo producto" es síntesis, sin importar si son 2, 3 o más reactivos.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "basico"
-  tags: ["unidades", "conceptos"]
+  tema: "tipos_reacciones_quimicas"
+  nivel: "intermedio"
+  tags: ["desplazamiento", "reconocimiento"]
 
-respuesta: "mol"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una ecuación tiene un elemento solo (sin combinar) del lado de los reactivos, y otro elemento solo del lado de los productos, probablemente es una reacción de desplazamiento."
+
+explicacion: |
+  Correcto. Esa es la señal característica del desplazamiento: un elemento libre "cambia de compañero" dentro de un compuesto.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tipos_reacciones_quimicas"
+  nivel: "intermedio"
+  tags: ["comparacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Descomposición y desplazamiento son el mismo tipo de reacción con distinto nombre."
+
+explicacion: |
+  Falso. En la descomposición hay 1 reactivo y varios productos, sin un elemento libre reemplazando a otro; en el desplazamiento siempre hay un elemento libre que cambia de compañero.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tipos_reacciones_quimicas"
+  nivel: "basico"
+  tags: ["ejemplos", "sintesis"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La reacción N2 + 3H2 → 2NH3 (síntesis del amoníaco) es una reacción de síntesis, porque dos reactivos se combinan en un solo producto."
+
+explicacion: |
+  Verdadero. Nitrógeno e hidrógeno (2 reactivos) se combinan para formar amoníaco (1 producto): patrón típico de síntesis.
+```
+
+## Sección: enlace-quimico-polaridad (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "enlace_quimico_polaridad"
+  nivel: "basico"
+  tags: ["estabilidad", "enlaces"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los átomos se enlazan para alcanzar una configuración más estable, generalmente con 8 electrones de valencia."
+
+explicacion: |
+  Los átomos buscan una configuración de baja energía, que en la mayoría de los elementos corresponde a 8 electrones en su capa de valencia (configuración de gas noble).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "enlace_quimico_polaridad"
+  nivel: "basico"
+  tags: ["regla_del_octeto"]
+
+respuesta: "octeto"
 tipo: completar
 respuestas_validas:
-  - "mol"
+  - "octeto"
 
-enunciado: "La unidad de la masa molar es gramos por ___."
+enunciado: "La regla que dice que los átomos buscan 8 electrones de valencia se llama regla del ___."
 
 explicacion: |
-  La masa molar es la masa de un mol de sustancia, así que su unidad es g/mol.
+  La regla del octeto establece que los átomos tienden a ganar, perder o compartir electrones para completar ocho en su nivel más externo.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "intermedio"
-  tags: ["avogadro", "mol"]
-
-respuesta: N_A
-tipo: completar
-tolerancia_abs: 1000000000000000000
-
-enunciado: "¿Cuántas partículas (átomos o moléculas) hay en exactamente 1 mol de cualquier sustancia?"
-
-explicacion: |
-  Por definición, 1 mol contiene N_A partículas (aproximadamente 6,022×10²³), sin importar de qué sustancia se trate.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "intermedio"
-  tags: ["moles", "agua", "calculo"]
-
-variables:
-  masa_molar_agua: 18
-  gramos: uno_de([18, 36, 54, 72, 90])
-
-respuesta: gramos / masa_molar_agua
-tipo: completar
-tolerancia_abs: 0.001
-
-enunciado: "Una muestra de agua tiene {gramos} gramos. ¿Cuántos moles de agua hay? (masa molar del agua = {masa_molar_agua} g/mol)"
-
-pasos:
-  - "Identificar la masa de la muestra."
-  - "Dividir la masa por la masa molar del agua."
-
-explicacion: |
-  n = m / M = {gramos} / {masa_molar_agua} moles.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
+  tema: "enlace_quimico_polaridad"
   nivel: "basico"
-  tags: ["relacion", "particulas"]
+  tags: ["estabilidad", "electrones"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuantos más moles de una sustancia tengo, más partículas (átomos o moléculas) hay en la muestra."
-
-explicacion: |
-  Verdadero. El número de partículas se relaciona con los moles mediante N = n × N_A.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "basico"
-  tags: ["simbologia", "notacion"]
-
-respuesta: "M"
+respuesta: "ceder, ganar o compartir electrones"
 tipo: mc
-opciones_explicitas: ["M", "m", "n", "N"]
+opciones_explicitas: ["ceder, ganar o compartir electrones", "crear o destruir electrones", "cambiar de protones", "fusionar núcleos"]
 
-enunciado: "¿Cuál es la abreviatura convencional de la masa molar en las fórmulas de este tema?"
+enunciado: "Para lograr estabilidad, un átomo puede:"
 
 explicacion: |
-  La masa molar se representa con "M" (mayúscula). "m" es la masa en gramos, "n" son los moles, y "N" es el número de partículas.
+  Los átomos interactúan transfiriendo (cediendo/ganando) o compartiendo electrones de valencia para alcanzar estabilidad electrónica.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mol_masa_molar"
+  tema: "enlace_quimico_polaridad"
   nivel: "basico"
-  tags: ["calculo", "sodio"]
-
-variables:
-  masa_atomica_na: 23
-
-respuesta: masa_atomica_na
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si la masa atómica del sodio (Na) en la tabla periódica es {masa_atomica_na}, ¿cuál es su masa molar en g/mol?"
-
-explicacion: |
-  Para un elemento, la masa molar coincide numéricamente con la masa atómica: {masa_atomica_na} g/mol.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "intermedio"
-  tags: ["conceptos", "diferencia"]
+  tags: ["gases_nobles", "reactividad"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La masa molar (M) y el número de moles (n) son la misma magnitud, sólo que con nombres distintos."
+enunciado: "Un átomo con la capa de valencia ya completa (como un gas noble) tiende a formar muchos enlaces."
 
 explicacion: |
-  Falso. La masa molar (M) es una propiedad fija de cada sustancia (g/mol); el número de moles (n) depende de cuánta cantidad de esa sustancia hay en la muestra.
+  Los átomos con la capa de valencia completa son muy estables y de baja reactividad: tienden a NO formar enlaces.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "avanzado"
-  tags: ["calculo", "co2"]
-
-variables:
-  c: 12
-  masa_o: 16
-  masa_molar_co2: c + 2 * masa_o
-  gramos_co2: uno_de([44, 88, 132, 176])
-
-respuesta: gramos_co2 / masa_molar_co2
-tipo: completar
-tolerancia_abs: 0.001
-
-enunciado: "El CO2 tiene masa molar {masa_molar_co2} g/mol (C={c}, O={masa_o}). Si hay {gramos_co2} g de CO2, ¿cuántos moles son?"
-
-explicacion: |
-  n = m / M = {gramos_co2} / {masa_molar_co2} moles.
-```
-
-## Sección: nanotecnologia (22 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "nanotecnologia"
+  tema: "enlace_quimico_polaridad"
   nivel: "basico"
-  tags: ["comparacion", "escala"]
+  tags: ["enlace", "electrones"]
 
 variables:
-  escala: uno_de(["macro", "micro", "nano"])
+  escenario: uno_de([["ionico", "se transfieren completamente de un atomo a otro"], ["covalente polar", "se comparten de forma desigual"], ["covalente no polar", "se comparten de forma igual"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["se transfieren completamente de un atomo a otro", "se comparten de forma desigual", "se comparten de forma igual"]
+
+enunciado: "En un enlace de tipo {escenario[0]}, ¿qué sucede con los electrones?"
+
+explicacion: |
+  El tipo de enlace determina cómo se distribuyen los electrones de valencia entre los núcleos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "enlace_quimico_polaridad"
+  nivel: "basico"
+  tags: ["enlace_ionico", "metal", "no_metal"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un enlace iónico, un metal cede electrones y un no metal los gana."
+
+explicacion: |
+  Correcto. La transferencia de electrones desde el átomo de baja electronegatividad (metal) hacia el de alta (no metal) genera iones con cargas opuestas que se atraen.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "enlace_quimico_polaridad"
+  nivel: "intermedio"
+  tags: ["electronegatividad", "enlace_ionico"]
+
+respuesta: "ionico"
+tipo: mc
+opciones_explicitas: ["ionico", "covalente polar", "covalente no polar", "metalico"]
+
+enunciado: "Un enlace entre dos átomos con una gran diferencia de electronegatividad es predominantemente:"
+
+explicacion: |
+  Una diferencia de electronegatividad alta (generalmente > 1,7) indica que un átomo tiene tanta fuerza sobre los electrones que se los arranca al otro: enlace iónico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "enlace_quimico_polaridad"
+  nivel: "basico"
+  tags: ["enlace_metalico", "mar_de_electrones"]
+
+respuesta: "mar"
+tipo: completar
+respuestas_validas:
+  - "mar"
+
+enunciado: "En el enlace metálico, los electrones de valencia se deslocalizan formando un ___ de electrones."
+
+explicacion: |
+  Los electrones de valencia de los metales no están ligados a un átomo específico: forman un "mar" que rodea a todos los núcleos positivos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "enlace_quimico_polaridad"
+  nivel: "intermedio"
+  tags: ["electronegatividad", "caracter_ionico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuanto más grande es la diferencia de electronegatividad entre dos átomos, más iónico es el enlace."
+
+explicacion: |
+  La diferencia de electronegatividad es el indicador del carácter iónico: a mayor diferencia, mayor transferencia de carga.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "enlace_quimico_polaridad"
+  nivel: "basico"
+  tags: ["electronegatividad", "enlace_covalente"]
+
+respuesta: "negativa (delta menos)"
+tipo: mc
+opciones_explicitas: ["negativa (delta menos)", "positiva (delta mas)", "neutra"]
+
+enunciado: "En un enlace covalente polar, el átomo más electronegativo atrae con más fuerza el par de electrones compartidos, quedando con carga parcial ___."
+
+explicacion: |
+  El átomo más electronegativo tiene mayor afinidad por los electrones, así que la densidad electrónica se desplaza hacia él: carga parcial negativa (δ−).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "enlace_quimico_polaridad"
+  nivel: "basico"
+  tags: ["enlace_no_polar", "simetria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un enlace entre dos átomos idénticos (por ejemplo, H-H) es siempre covalente no polar porque la diferencia de electronegatividad es cero."
+
+explicacion: |
+  Al ser átomos del mismo elemento, ambos atraen los electrones con la misma fuerza, así que el par se comparte parejo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "enlace_quimico_polaridad"
+  nivel: "intermedio"
+  tags: ["geometria_molecular", "momento_dipolar"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Las propiedades de los materiales a nanoescala son idénticas a las que observamos a escala macroscópica."
+enunciado: "Una molécula que tiene enlaces polares es siempre una molécula polar en su conjunto."
 
 explicacion: |
-  Falso. A nanoescala, los materiales exhiben propiedades físicas, químicas y biológicas únicas debido a efectos cuánticos y al aumento drástico de la relación superficie-volumen.
+  No necesariamente. Depende de la geometría molecular: si los momentos dipolares de los enlaces se cancelan por simetría (como en el CO₂), la molécula es apolar.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "nanotecnologia"
+  tema: "enlace_quimico_polaridad"
+  nivel: "basico"
+  tags: ["electronegatividad", "carga_parcial"]
+
+respuesta: "positiva (delta mas)"
+tipo: completar
+respuestas_validas:
+  - "positiva (delta mas)"
+  - "positiva (delta más)"
+
+enunciado: "En un enlace covalente polar, el átomo menos electronegativo queda con carga parcial ___."
+
+explicacion: |
+  Al tener menos electronegatividad, ese átomo retiene con menos fuerza los electrones compartidos: carga parcial positiva (δ+).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "enlace_quimico_polaridad"
+  nivel: "basico"
+  tags: ["electronegatividad", "enlace_ionico", "enlace_covalente"]
+
+respuesta: "la diferencia de electronegatividad entre los átomos"
+tipo: mc
+opciones_explicitas: ["la diferencia de electronegatividad entre los átomos", "el tamaño de los átomos", "la cantidad de neutrones", "el color del elemento"]
+
+enunciado: "¿Qué factor determina si un enlace es iónico, covalente polar o covalente no polar?"
+
+explicacion: |
+  La diferencia de electronegatividad (ΔEN) indica cómo se comparten los electrones: alta → iónico, intermedia → covalente polar, baja o nula → covalente no polar.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "enlace_quimico_polaridad"
   nivel: "intermedio"
-  tags: ["aplicaciones", "catalisis"]
+  tags: ["enlace", "sustancias"]
 
 variables:
-  rol: "catalizador"
+  escenario: uno_de([["NaCl", "ionico"], ["H2O", "covalente polar"], ["O2", "covalente no polar"], ["Cu (cobre metálico)", "metalico"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["ionico", "covalente polar", "covalente no polar", "metalico"]
+
+enunciado: "¿Cuál es el tipo de enlace predominante en {escenario[0]}?"
+
+explicacion: |
+  {escenario[0]} tiene un enlace de tipo {escenario[1]}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "enlace_quimico_polaridad"
+  nivel: "basico"
+  tags: ["enlace_metalico"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Las nanopartículas se utilizan frecuentemente en catálisis porque su alta superficie específica permite acelerar reacciones sin consumirse en el proceso."
+enunciado: "El enlace metálico ocurre entre dos átomos metálicos."
 
 explicacion: |
-  Verdadero. La mayor área superficial facilita el contacto con los reactivos, aumentando la eficiencia de la reacción sin alterar la naturaleza del catalizador.
+  Verdadero. En los metales, los átomos forman una red donde los electrones de valencia se deslocalizan en un "mar de electrones" que los mantiene unidos.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "nanotecnologia"
-  nivel: "avanzado"
-  tags: ["fuerzas", "fisica"]
-
-variables:
-  fuerza_gravedad: "dominante"
-  fuerza_electrica: "dominante"
-
-respuesta: fuerza_electrica
-tipo: input
-
-enunciado: "A escalas nanométricas, las fuerzas de Van der Waals y las interacciones electrostáticas dominan sobre la ___."
-
-explicacion: |
-  Gravedad. A esta escala, la masa es tan pequeña que las fuerzas gravitatorias son insignificantes comparadas con las interacciones electromagnéticas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "nanotecnologia"
-  nivel: "intermedio"
-  tags: ["diseño", "ingenieria"]
-
-variables:
-  enfoque: "naturaleza"
-  enfoque_nano: "a_medida"
-
-respuesta: enfoque_nano
-tipo: input
-
-enunciado: "La nanotecnología permite diseñar materiales ___ en lugar de buscar propiedades existentes en la naturaleza."
-
-explicacion: |
-  A medida (o a la medida). Los científicos pueden construir materiales átomo por átomo para obtener características específicas como conductividad o resistencia.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "nanotecnologia"
+  tema: "enlace_quimico_polaridad"
   nivel: "basico"
-  tags: ["definicion", "escala"]
+  tags: ["enlace_covalente", "enlace_ionico"]
 
-variables:
-  nano: 1000000000
-  micro: 1000000
+respuesta: falso
+tipo: vf
 
-respuesta: 1000
-tipo: input
-
-enunciado: "¿Cuántas veces más pequeña es una escala nanométrica (1 nm) comparada con una micrométrica (1 µm)?"
+enunciado: "En un enlace covalente, los electrones se transfieren completamente de un átomo a otro."
 
 explicacion: |
-  1000 veces. Un micrómetro es $10^{-6}$ m y un nanómetro es $10^{-9}$ m. La diferencia es un factor de $10^3$.
+  Falso. En el enlace covalente los electrones se comparten. La transferencia completa es la característica del enlace iónico.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "nanotecnologia"
+  tema: "enlace_quimico_polaridad"
   nivel: "intermedio"
-  tags: ["aplicaciones", "medicina"]
+  tags: ["electronegatividad", "enlace_ionico"]
 
-variables:
-  vehiculo: "nanoparticulas_lipidicas"
+respuesta: "ionico"
+tipo: mc
+opciones_explicitas: ["ionico", "covalente polar", "covalente no polar", "metalico"]
 
-respuesta: vehiculo
-tipo: input
-
-enunciado: "En el ámbito médico, se investigan las ___ para administrar fármacos de manera dirigida y eficiente."
+enunciado: "¿Qué tipo de enlace se da típicamente entre un metal y un no metal con gran diferencia de electronegatividad?"
 
 explicacion: |
-  Nanopartículas lipídicas. Estas estructuras pueden encapsular fármacos y liberarlos en sitios específicos del cuerpo, reduciendo efectos secundarios.
+  Cuando la diferencia de electronegatividad es muy alta, el átomo más electronegativo le arranca el electrón al otro: enlace iónico.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "nanotecnologia"
-  nivel: "avanzado"
-  tags: ["propiedades", "opticas"]
-
-variables:
-  fenomeno: "resonancia_plasmon_superficial"
-
-respuesta: fenomeno
-tipo: input
-
-enunciado: "El cambio de color en nanopartículas metálicas se explica mediante el fenómeno de resonancia de plasmón ___."
-
-explicacion: |
-  Superficial. Es la oscilación colectiva de los electrones libres en la superficie del metal cuando interactúan con la luz.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "nanotecnologia"
-  nivel: "intermedio"
-  tags: ["propiedades", "opticas"]
-
-variables:
-  electrones: "superficie"
-  electrones_bulk: "interior"
-
-respuesta: electrones
-tipo: input
-
-enunciado: "La resonancia de plasmón superficial implica la interacción de la luz con los electrones de la ___ de la nanopartícula."
-
-explicacion: |
-  Superficie. A diferencia de los metales macroscópicos donde los electrones están confinados en el volumen, en la nanoescala los de superficie son clave para la respuesta óptica.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "nanotecnologia"
-  nivel: "intermedio"
-  tags: ["aplicaciones", "catalisis"]
-
-variables:
-  area: "alta"
-  area: "baja"
-
-respuesta: area
-tipo: input
-
-enunciado: "Las nanopartículas son excelentes catalizadores porque poseen un área superficial ___ en relación con su volumen."
-
-explicacion: |
-  Alta. Un mayor área superficial expone más sitios activos para que ocurran las reacciones químicas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "nanotecnologia"
+  tema: "enlace_quimico_polaridad"
   nivel: "basico"
-  tags: ["definicion", "escala"]
-
-variables:
-  atomos: random(10, 100)
+  tags: ["enlace_metalico", "propiedades"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una nanopartícula típicamente contiene entre 100 y 100.000 átomos."
+enunciado: "El enlace metálico explica por qué los metales son buenos conductores eléctricos: los electrones del \"mar\" se mueven con libertad."
 
 explicacion: |
-  Verdadero. La definición de nanopartícula suele abarcar estructuras que van desde unos pocos átomos hasta unos pocos cientos de nanómetros de diámetro.
+  Correcto. Como los electrones de valencia no están fijos a un átomo particular, se desplazan con facilidad cuando se aplica un campo eléctrico — de ahí la buena conductividad de los metales.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "nanotecnologia"
-  nivel: "avanzado"
-  tags: ["fuerzas", "interacciones"]
-
-variables:
-  fuerza: "Van_der_Waals"
-
-respuesta: fuerza
-tipo: input
-
-enunciado: "A nanoescala, las fuerzas de ___ juegan un papel crucial en la estabilidad y agregación de las partículas."
-
-explicacion: |
-  Van der Waals. Estas fuerzas de atracción débiles, normalmente insignificantes a gran escala, se vuelven dominantes cuando la masa es pequeña.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "nanotecnologia"
-  nivel: "intermedio"
-  tags: ["aplicaciones", "industria"]
-
-variables:
-  sector: "agro"
-  sector: "farmaceutico"
-
-respuesta: sector
-tipo: input
-
-enunciado: "En Argentina, la nanotecnología tiene aplicaciones relevantes en el sector agroindustrial, por ejemplo en la liberación controlada de ___."
-
-explicacion: |
-  Fertilizantes o pesticidas. Las nanopartículas permiten una entrega más eficiente y menos contaminante de insumos agrícolas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "nanotecnologia"
-  nivel: "intermedio"
-  tags: ["propiedades", "electricas"]
-
-variables:
-  propiedad: "conductividad"
-
-respuesta: propiedad
-tipo: input
-
-enunciado: "La nanotecnología permite modificar la ___ eléctrica de los materiales, creando nuevos conductores o aislantes."
-
-explicacion: |
-  Conductividad. Al cambiar la estructura y el tamaño, se altera el comportamiento de los electrones, modificando cómo fluye la corriente.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "nanotecnologia"
-  nivel: "intermedio"
-  tags: ["propiedades", "mecanicas"]
-
-variables:
-  propiedad: "resistencia"
-
-respuesta: propiedad
-tipo: input
-
-enunciado: "Los nanomateriales como los nanotubos de carbono se destacan por su extrema ___ mecánica."
-
-explicacion: |
-  Resistencia. La estructura atómica ordenada y la falta de defectos macroscópicos les confieren una resistencia muy superior a la del acero.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "nanotecnologia"
+  tema: "enlace_quimico_polaridad"
   nivel: "basico"
-  tags: ["matematica", "conversion"]
+  tags: ["covalente_no_polar", "ejemplos"]
 
-variables:
-  nm: 5
-  um: 0.005
+respuesta: "O2 (oxígeno diatómico)"
+tipo: mc
+opciones_explicitas: ["O2 (oxígeno diatómico)", "NaCl (cloruro de sodio)", "HCl (ácido clorhídrico)", "MgO (óxido de magnesio)"]
 
-respuesta: um
-tipo: input
-
-enunciado: "5 nanómetros equivalen a ___ micrómetros."
+enunciado: "¿Cuál de las siguientes sustancias tiene un enlace covalente NO polar?"
 
 explicacion: |
-  0.005. Para convertir nanómetros a micrómetros, se divide por 1000 ($5 / 1000 = 0.005$).
+  O₂ es un enlace entre dos átomos idénticos (misma electronegatividad, diferencia cero): covalente no polar. Los otros tres tienen electronegatividades distintas entre sus átomos.
 ```
+
+## Sección: carbono-tetravalencia-cadenas (20 preguntas)
 
 ```
 metadata:
   materia: "quimica"
-  tema: "nanotecnologia"
-  nivel: "avanzado"
-  tags: ["fuerzas", "estabilidad"]
-
-variables:
-  fuerza: "electrostatica"
-
-respuesta: fuerza
-tipo: input
-
-enunciado: "La repulsión ___ entre nanopartículas cargadas ayuda a evitar su agregación y mantiene la suspensión estable."
-
-explicacion: |
-  Electrostatica. Las cargas superficiales generan fuerzas de repulsión que contrarrestan las fuerzas de atracción de Van der Waals.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "nanotecnologia"
+  tema: "carbono_tetravalencia_cadenas"
   nivel: "basico"
-  tags: ["definicion", "concepto"]
+  tags: ["carbono", "enlaces"]
 
-variables:
-  campo: "nanotecnologia"
+respuesta: verdadero
+tipo: vf
 
-respuesta: campo
-tipo: input
-
-enunciado: "La ___ es el campo que manipula la materia a escala nanométrica."
+enunciado: "El átomo de carbono siempre forma 4 enlaces covalentes para alcanzar la estabilidad."
 
 explicacion: |
-  Nanotecnología. Se define por la capacidad de controlar la materia átomo por átomo o molécula por molécula.
+  El carbono tiene 4 electrones de valencia y necesita formar 4 enlaces covalentes para completar su octeto.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "nanotecnologia"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "basico"
+  tags: ["catenacion", "propiedades"]
+
+respuesta: "catenacion"
+tipo: completar
+respuestas_validas:
+  - "catenacion"
+
+enunciado: "La propiedad del carbono de formar largas cadenas consigo mismo se llama ___."
+
+explicacion: |
+  La catenación permite formar cadenas lineales, ramificadas o anillos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "basico"
+  tags: ["electrones", "valencia"]
+
+respuesta: "4"
+tipo: mc
+opciones_explicitas: ["2", "4", "6", "8"]
+
+enunciado: "El átomo de carbono posee en su capa de valencia:"
+
+explicacion: |
+  El carbono está en el grupo 14: tiene 4 electrones en su capa más externa.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "basico"
+  tags: ["octeto", "electrones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al átomo de carbono le faltan 4 electrones para completar su octeto de valencia."
+
+explicacion: |
+  Con 4 electrones propios y 4 que le faltan, alcanza los 8 de la configuración de gas noble.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
   nivel: "intermedio"
-  tags: ["propiedades", "opticas"]
+  tags: ["quimica_organica", "carbono"]
 
 variables:
-  propiedad: "color"
+  tipos: [["lineal", "sin ramificaciones, C-C-C-C"], ["ramificada", "con brazos laterales"], ["ciclica", "la cadena se cierra sobre si misma"]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: propiedad
-tipo: input
+respuesta: tipos[idx][1]
+tipo: mc
+opciones_explicitas: ["sin ramificaciones, C-C-C-C", "con brazos laterales", "la cadena se cierra sobre si misma"]
 
-enunciado: "Un ejemplo clásico de propiedad única a nanoescala es el cambio de ___ en el oro."
+enunciado: "Una cadena de carbono de tipo {tipos[idx][0]} se caracteriza porque..."
 
 explicacion: |
-  Color. El oro nano puede ser rojo, púrpura o azul, a diferencia del amarillo macroscópico.
+  Una cadena {tipos[idx][0]} es: {tipos[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "nanotecnologia"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "basico"
+  tags: ["quimica_organica", "carbono"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una cadena de carbono cíclica es aquella que se cierra sobre sí misma formando un anillo."
+
+explicacion: |
+  Correcto, esa es la definición de cadena cíclica.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "basico"
+  tags: ["quimica_organica", "carbono"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El átomo de carbono tiene la capacidad de formar únicamente cadenas lineales, sin posibilidad de ramificaciones o ciclos."
+
+explicacion: |
+  Falso. El carbono forma lineales, ramificadas y cíclicas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
   nivel: "intermedio"
-  tags: ["aplicaciones", "filtracion"]
+  tags: ["enlaces", "carbono"]
 
 variables:
-  aplicacion: "filtracion_agua"
+  escenario: [["simple (C-C)", 1], ["doble (C=C)", 2], ["triple (C-triple-C)", 3]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: aplicacion
-tipo: input
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: [1, 2, 3]
 
-enunciado: "Las membranas con nanocanales se utilizan para la ___ de contaminantes y virus."
+enunciado: "Si un enlace entre dos átomos de carbono es de tipo {escenario[idx][0]}, ¿cuántos pares de electrones comparten?"
 
 explicacion: |
-  Filtración de agua. Los poros a escala nanométrica permiten el paso del agua pero retienen impurezas y microorganismos.
+  Un enlace simple comparte 1 par, uno doble 2 pares, y uno triple 3 pares.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "nanotecnologia"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "basico"
+  tags: ["enlaces", "carbono"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un enlace doble (C=C), cada átomo de carbono usa 2 de sus 4 enlaces de valencia con el mismo vecino."
+
+explicacion: |
+  Correcto: comparten dos pares de electrones, consumiendo dos de los cuatro enlaces disponibles de cada carbono.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "basico"
+  tags: ["enlaces", "carbono"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En un enlace triple, cada átomo de carbono usa sólo 1 de sus 4 enlaces de valencia con el vecino."
+
+explicacion: |
+  Falso. En un enlace triple usa 3 de sus 4 enlaces con ese vecino.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "basico"
+  tags: ["hidrocarburos"]
+
+respuesta: "alcanos"
+tipo: completar
+respuestas_validas:
+  - "alcanos"
+
+enunciado: "La distinción entre enlace simple, doble y triple entre carbonos es lo que separa a los ___, alquenos y alquinos."
+
+explicacion: |
+  Alcanos (simple), alquenos (doble), alquinos (triple).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "basico"
+  tags: ["enlaces", "catenacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El enlace C-C es fuerte y estable, lo que permite la catenación (formar cadenas largas)."
+
+explicacion: |
+  Esa fuerza y estabilidad del enlace C-C es la base de la catenación.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "basico"
+  tags: ["definicion", "quimica_organica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La química orgánica es la rama de la química dedicada casi exclusivamente a los compuestos de carbono."
+
+explicacion: |
+  Correcto (con excepciones como carbonatos o CO2, que se estudian como química inorgánica).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "basico"
+  tags: ["hidrocarburos", "diversidad"]
+
+respuesta: "millones de moléculas distintas"
+tipo: mc
+opciones_explicitas: ["millones de moléculas distintas", "solo una molécula", "a lo sumo 10 moléculas", "ninguna molécula estable"]
+
+enunciado: "Con sólo carbono e hidrógeno se pueden formar..."
+
+explicacion: |
+  Por la tetravalencia y los enlaces simples/dobles/triples, la variedad de hidrocarburos es enorme.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "basico"
+  tags: ["diversidad", "tabla_periodica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ningún otro elemento de la tabla periódica genera tanta diversidad estructural como el carbono."
+
+explicacion: |
+  La catenación con enlaces estables es una propiedad casi exclusiva del carbono en la práctica.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "intermedio"
+  tags: ["carbono", "ramificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un átomo de carbono en el medio de una cadena ramificada puede estar unido a 3 o 4 átomos de carbono distintos al mismo tiempo, sin dejar de tener 4 enlaces en total."
+
+explicacion: |
+  Correcto: sus 4 enlaces se reparten entre varios vecinos de carbono (más eventualmente H u otros átomos), formando la ramificación.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
   nivel: "avanzado"
-  tags: ["fisica", "cuantica"]
+  tags: ["comparacion", "silicio"]
 
-variables:
-  efecto: "cuantico"
+respuesta: falso
+tipo: vf
 
-respuesta: efecto
-tipo: input
-
-enunciado: "A escalas muy pequeñas, los efectos ___ comienzan a dominar el comportamiento de los materiales."
+enunciado: "El enlace Si-Si (silicio-silicio) es igual de fuerte y estable que el C-C, por eso el silicio también forma cadenas tan largas y variadas como el carbono."
 
 explicacion: |
-  Cuánticos. La física clásica deja de ser suficiente para describir el comportamiento de la materia a esta escala.
+  Falso. El enlace Si-Si es más débil que el C-C, así que el silicio no cataniza tan bien — de ahí que la química orgánica sea "del carbono" y no "del silicio".
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "nanotecnologia"
+  tema: "carbono_tetravalencia_cadenas"
   nivel: "intermedio"
-  tags: ["diseño", "ingenieria"]
+  tags: ["carbono", "anillos"]
 
-variables:
-  metodo: "atomico"
+respuesta: verdadero
+tipo: vf
 
-respuesta: metodo
-tipo: input
-
-enunciado: "La nanotecnología permite construir materiales ___ por átomo o molécula."
+enunciado: "Cuando la cadena de carbono se cierra en un anillo, cada carbono del anillo sigue teniendo 4 enlaces en total, repartidos entre sus vecinos del anillo y (si sobra) átomos de hidrógeno."
 
 explicacion: |
-  A medida. Esto permite obtener características específicas que no existen en la naturaleza.
+  Correcto, la tetravalencia se mantiene siempre, ya sea en cadena abierta o cerrada (anillo).
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "nanotecnologia"
-  nivel: "intermedio"
-  tags: ["propiedades", "superficie"]
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "basico"
+  tags: ["conceptos"]
 
-variables:
-  razon: "superficie"
+respuesta: "la tetravalencia y la catenación del carbono"
+tipo: mc
+opciones_explicitas: ["la tetravalencia y la catenación del carbono", "la alta electronegatividad del carbono", "que el carbono es un metal", "que el carbono siempre forma enlaces iónicos"]
 
-respuesta: razon
-tipo: input
-
-enunciado: "La alta reactividad de las nanopartículas se debe a que una gran fracción de átomos está en la ___."
+enunciado: "¿Qué propiedad del carbono explica por qué existe toda una rama de la química (orgánica) dedicada casi solo a sus compuestos?"
 
 explicacion: |
-  Superficie. Las reacciones químicas ocurren en la superficie, por lo que más superficie significa mayor reactividad.
+  La combinación de 4 enlaces disponibles y la capacidad de encadenarse consigo mismo (catenación) genera la enorme diversidad de compuestos orgánicos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "carbono_tetravalencia_cadenas"
+  nivel: "avanzado"
+  tags: ["comparacion", "tetravalencia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El carbono es el único elemento de la tabla periódica que puede formar 4 enlaces covalentes."
+
+explicacion: |
+  Falso. Otros elementos del grupo 14 (como el silicio) también son tetravalentes; lo distintivo del carbono no es sólo la tetravalencia, sino combinarla con enlaces C-C muy estables (catenación fuerte).
 ```
 

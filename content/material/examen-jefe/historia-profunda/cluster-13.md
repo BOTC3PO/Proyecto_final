@@ -1397,796 +1397,873 @@ explicacion: |
   {datos[idx][1]} marcó un periodo de estabilidad y aislamiento en Japón.
 ```
 
-## Sección: imprenta (25 preguntas)
+## Sección: caida-de-roma-y-alta-edad-media (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imprenta"
+  tema: "caida-de-roma-y-alta-edad-media"
   nivel: "intermedio"
-  tags: ["invención", "gutenberg", "siglo_xv"]
-tipo: mc
-enunciado: "¿En qué siglo se desarrolló y popularizó la imprenta de tipos móviles en Europa, marcando un hito en la difusión del conocimiento?"
-opciones_explicitas:
-  - "Siglo XIII"
-  - "Siglo XIV"
-  - "Siglo XV"
-  - "Siglo XVI"
-respuesta: "Siglo XV"
-explicacion: "Johannes Gutenberg perfeccionó la técnica de la imprenta de tipos móviles hacia 1450, situando su invención clave en el siglo XV."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["primera_impresa", "gutenberg", "biblia"]
-tipo: mc
-enunciado: "La primera gran obra impresa con la técnica de Gutenberg, conocida por su calidad tipográfica, lleva el nombre de:"
-opciones_explicitas:
-  - "El Libro de las 42 Líneas"
-  - "La Biblia de los Pobres"
-  - "El Códice de Maguncia"
-  - "El Evangelio de Gutenberg"
-respuesta: "El Libro de las 42 Líneas"
-explicacion: "Este texto, impreso hacia 1455, es famoso por tener aproximadamente 42 líneas por página en sus ediciones más conocidas."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["tecnologia", "aleacion", "gutenberg"]
-tipo: completar
-enunciado: "Gutenberg utilizó una aleación de plomo, estaño y ____ para fundir los tipos móviles, ya que debía tener un punto de fusión bajo y ser resistente."
-respuesta: "antimonio"
-respuestas_validas:
-  - "antimonio"
-  - "Antimonio"
-explicacion: "El antimonio era crucial en la aleación para endurecer el plomo y permitir que los tipos resistieran la presión de la prensa sin deformarse."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["biblia", "soporte", "papel"]
+  tags: ["imperio-romano", "caida", "fecha-clave"]
 tipo: vf
-enunciado: "La Biblia de Gutenberg fue impresa originalmente sobre pergamino debido a la escasez de papel en Europa en ese momento."
-respuesta: falso
-explicacion: "Aunque algunas copias se encuadernaron con pergaminos o se iluminaron posteriormente, la impresión masiva se realizó sobre papel, que era más económico y permitía la difusión rápida."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["expansion", "roma", "siglo_xv"]
-tipo: mc
-enunciado: "¿Cuál fue la primera ciudad italiana en recibir una imprenta, consolidándose como un centro clave de la humanística impresa?"
-opciones_explicitas:
-  - "Venecia"
-  - "Roma"
-  - "Milán"
-  - "Nápoles"
-respuesta: "Roma"
-explicacion: "La imprenta llegó a Roma en 1467, siendo seguida poco después por Venecia (1469), que se convertiría en el mayor centro editorial."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["venecia", "comercio", "humanismo"]
-tipo: mc
-enunciado: "En el siglo XV, ¿qué ciudad italiana se convirtió en el principal centro de producción y exportación de libros impresos en Europa?"
-opciones_explicitas:
-  - "Florencia"
-  - "Venecia"
-  - "Bolonia"
-  - "Génova"
-respuesta: "Venecia"
-explicacion: "Gracias a su red comercial y libertad relativa, Venecia se convirtió en la \"capital del libro\" europeo, con editoriales como la de Aldo Manucio."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["aldo_manucio", "tipografia", "humanismo"]
-tipo: completar
-enunciado: "Aldo Manucio, el gran impresor veneciano, popularizó el uso de la tipografía ____ para hacer los libros más pequeños y baratos."
-respuesta: "itálica"
-respuestas_validas:
-  - "itálica"
-  - "italica"
-  - "Itálica"
-  - "Italica"
-explicacion: "Manucio contrató a Francesco Griffo para diseñar una letra itálica que imitaba la escritura humanística, permitiendo textos más compactos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["espana", "sevilla", "colon"]
-tipo: mc
-enunciado: "¿Qué ciudad española fue el primer gran centro impresor fuera de Italia, crucial para la difusión de noticias sobre el Nuevo Mundo?"
-opciones_explicitas:
-  - "Madrid"
-  - "Barcelona"
-  - "Sevilla"
-  - "Valencia"
-respuesta: "Sevilla"
-explicacion: "Sevilla, al controlar el comercio con las Indias, se convirtió en el principal puerto de entrada y salida de libros e impresos en la Corona de Castilla."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["iglesia", "control", "siglo_xv"]
-tipo: vf
-enunciado: "La Iglesia Católica rechazó inicialmente la imprenta y prohibió su uso en todo el territorio papal hasta el siglo XVI."
-respuesta: falso
-explicacion: "La Iglesia adoptó rápidamente la imprenta para la difusión de bulas, indulgencias y textos litúrgicos; aunque luego reguló la censura, no hubo una prohibición inicial total."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["reforma", "martin_luter", "difusion"]
-tipo: mc
-enunciado: "¿Qué formato de impresión se utilizó masivamente para distribuir las 95 tesis y otros escritos de Martín Lutero?"
-opciones_explicitas:
-  - "Manuscritos iluminados"
-  - "Folletos y panfletos"
-  - "Códices de lujo"
-  - "Grabados en madera"
-respuesta: "Folletos y panfletos"
-explicacion: "La imprenta permitió la producción rápida y barata de folletos en alemán y latín, facilitando la propagación inmediata de las ideas luteranas."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["reforma", "biblia", "traduccion"]
-tipo: completar
-enunciado: "Martín Lutero tradujo el Nuevo Testamento al alemán e imprimió su famosa ____ en el castillo de Wartburg."
-respuesta: "biblia"
-respuestas_validas:
-  - "biblia"
-  - "Biblia"
-explicacion: "La traducción de la Biblia de Lutero estandarizó el alemán moderno y fue posible gracias a la tecnología de impresión masiva."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["censura", "indice", "inquisicion"]
-tipo: mc
-enunciado: "¿Qué institución creó el \"Índice de Libros Prohibidos\" para controlar la difusión de obras consideradas heréticas por la imprenta?"
-opciones_explicitas:
-  - "El Concilio de Trento"
-  - "La Inquisición Española"
-  - "La Congregación del Índice"
-  - "La Sorbona"
-respuesta: "La Congregación del Índice"
-explicacion: "Establecida en 1542, la Congregación del Índice se encargó de revisar y prohibir libros impresos que contradicieran la doctrina católica."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["otomano", "islam", "retraso"]
-tipo: vf
-enunciado: "La imprenta de tipos móviles para el árabe fue establecida por musulmanes en Constantinopla durante el siglo XV."
-respuesta: falso
-explicacion: "La imprenta para textos árabes fue introducida por europeos (como Ibrahim Müteferrika, apoyado por el sultán, pero con gran retraso) en el siglo XVIII; los musulmanes rechazaron inicialmente la imprenta por razones religiosas y técnicas."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["islam", "caligrafia", "resistencia"]
-tipo: mc
-enunciado: "¿Cuál fue la principal causa del retraso en la adopción de la imprenta en el mundo islámico?"
-opciones_explicitas:
-  - "La falta de papel"
-  - "La tradición de la caligrafía sagrada"
-  - "La ausencia de tinta"
-  - "El clima húmedo"
-respuesta: "La tradición de la caligrafía sagrada"
-explicacion: "Se consideraba que la caligrafía era un acto sagrado y que la mecanización de la palabra de Dios era una profanación, además de las dificultades técnicas con los caracteres árabes."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["china", "bi sheng", "tipos_movedizos"]
-tipo: completar
-enunciado: "En el siglo XI, el artesano chino ____ inventó los primeros tipos móviles de cerámica en China."
-respuesta: "bi sheng"
-respuestas_validas:
-  - "bi sheng"
-  - "Bi Sheng"
-  - "Bi sheng"
-explicacion: "Bi Sheng desarrolló esta tecnología mucho antes que Gutenberg, aunque su impacto fue limitado por la complejidad del sistema de escritura chino."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["corea", "jikji", "hierro"]
-tipo: mc
-enunciado: "¿Qué país desarrolló la imprenta de tipos móviles de metal (hierro) antes que Europa, produciendo el libro impreso más antiguo conocido?"
-opciones_explicitas:
-  - "Japón"
-  - "Corea"
-  - "Vietnam"
-  - "Tibet"
-respuesta: "Corea"
-explicacion: "El Jikji, impreso en 1377, es el libro de metal más antiguo superviviente, demostrando el avance tecnológico coreano en este campo."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["japon", "jesuitas", "xavier"]
-tipo: mc
-enunciado: "¿Qué grupo religioso introdujo la imprenta occidental en Japón en el siglo XVI?"
-opciones_explicitas:
-  - "Los budistas Zen"
-  - "Los jesuitas"
-  - "Los samuráis"
-  - "Los mercaderes holandeses"
-respuesta: "Los jesuitas"
-explicacion: "Los jesuitas, liderados por figuras como Francisco Javier y posteriormente impresores como los de Amakusa, trajeron prensas para imprimir catecismos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["america", "mexico", "primera_impresa"]
-tipo: completar
-enunciado: "La primera imprenta del continente americano se estableció en la Ciudad de México alrededor del año ____."
-respuesta: "1539"
-respuestas_validas:
-  - "1539"
-  - "1540"
-explicacion: "Aunque hay debate sobre la fecha exacta (1539 o 1540), se considera que la primera imprenta en América fue instalada por frailes franciscanos en México."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["brasil", "colonizacion", "portugal"]
-tipo: vf
-enunciado: "Brasil fue uno de los primeros países de América en adoptar la imprenta, en el siglo XVI."
-respuesta: falso
-explicacion: "Brasil adoptó la imprenta muy tarde, a finales del siglo XVIII (1763), debido a las políticas restrictivas de la Corona portuguesa."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["rusia", "ivan_fedorov", "ortodoxa"]
-tipo: mc
-enunciado: "¿Quién es considerado el primer impresor ruso, fundador de la primera imprenta en Moscú?"
-opciones_explicitas:
-  - "Iván Fedórov"
-  - "Piotr Yéršov"
-  - "Mijaíl Románov"
-  - "Serguéi Witte"
-respuesta: "Iván Fedórov"
-explicacion: "Iván Fedórov estableció la primera imprenta en Moscú en 1553, imprimiendo el Libro de la Hora."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["inglaterra", "caxton", "westminster"]
-tipo: completar
-enunciado: "____ estableció la primera imprenta en Inglaterra en la Abadía de Westminster en 1476."
-respuesta: "william caxton"
-respuestas_validas:
-  - "william caxton"
-  - "William Caxton"
-  - "William Caxton"
-explicacion: "William Caxton, un comerciante y diplomático, trajo la tecnología de Flandes a Inglaterra, imprimiendo obras como \"Las fábulas de Esopo\"."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["francia", "paris", "rey"]
-tipo: mc
-enunciado: "¿Qué rey francés estableció la Imprenta Real para controlar la producción de libros y estandarizar la tipografía?"
-opciones_explicitas:
-  - "Francisco I"
-  - "Luis XI"
-  - "Henri II"
-  - "Carlos VII"
-respuesta: "Francisco I"
-explicacion: "Francisco I fundó la Imprenta Real en 1537 para imprimir textos en griego y latín, centralizando el poder editorial en la monarquía."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["holanda", "amberes", "comercio"]
-tipo: mc
-enunciado: "¿Qué ciudad de los Países Bajos se convirtió en un importante centro de impresión de mapas y atlas en el siglo XVI?"
-opciones_explicitas:
-  - "Brujas"
-  - "Amberes"
-  - "Gante"
-  - "Utrecht"
-respuesta: "Amberes"
-explicacion: "Amberes, gracias a su prosperidad comercial, se convirtió en un hub clave para la impresión de mapas, ciencias y libros ilustrados."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imprenta"
-  nivel: "intermedio"
-  tags: ["polonia", "cracovia", "copernico"]
-tipo: vf
-enunciado: "La primera imprenta en Polonia se estableció en Cracovia, donde se imprimieron obras importantes para la universidad local."
+enunciado: "El año 476 d.C. marca tradicionalmente el fin del Imperio Romano de Occidente con la deposición del último emperador."
 respuesta: verdadero
-explicacion: "La imprenta llegó a Cracovia en 1473, poco después de la fundación de la universidad, facilitando la difusión del humanismo polaco."
+explicacion: "En el 476 d.C., el general germánico Odoacro depuso a Rómulo Augústulo, el último emperador romano de Occidente, poniendo fin de facto al imperio en esa mitad."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imprenta"
+  tema: "caida-de-roma-y-alta-edad-media"
   nivel: "intermedio"
-  tags: ["portugal", "lisboa", "manuelino"]
+  tags: ["odocaro", "germanos", "roma"]
 tipo: completar
-enunciado: "La primera imprenta en Portugal se estableció en ____ en 1487."
-respuesta: "lisboa"
+enunciado: "El líder de los hérulos que depuso a Rómulo Augústulo en 476 fue ______."
+respuesta: "Odoacro"
 respuestas_validas:
-  - "lisboa"
-  - "Lisboa"
-explicacion: "Lisboa fue el primer lugar en Portugal en recibir una imprenta, impulsada por la reina Leonor y el contexto de los descubrimientos."
+  - "Odoacro"
+  - "Odoacri"
+  - "Odovacri"
+  - "Odacri"
+explicacion: "Odoacro (o Odovacri) fue el caudillo herulo que tomó el control de Italia tras la caída de Roma, gobernando como rey sin reconocer la autoridad imperial de Oriente."
 ```
-
-## Sección: india-antigua (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "india_antigua"
+  tema: "caida-de-roma-y-alta-edad-media"
   nivel: "intermedio"
-  tags: ["sociedad", "varna"]
+  tags: ["economia", "inflacion", "romana"]
 tipo: mc
-enunciado: "En la antigua India, la estructura social jerárquica conocida como sistema varna dividía a la población en cuatro grandes grupos. ¿Cuál de los siguientes grupos estaba compuesto tradicionalmente por sacerdotes y maestros?"
+enunciado: "¿Cuál fue una grave consecuencia de la devaluación de la moneda romana en los siglos III y IV?"
 opciones_explicitas:
-  - "Kshatriya"
-  - "Brahman"
-  - "Vaishya"
-  - "Shudra"
-respuesta: "Brahman"
-explicacion: "Los Brahmanes eran la casta sacerdotal, encargada del estudio de los Vedas y la realización de rituales."
+  - "Aumento del comercio transcontinental"
+  - "Desaceleración de la actividad económica y el comercio"
+  - "Fortalecimiento de la clase media urbana"
+  - "Estabilidad en los precios de los granos"
+respuesta: "Desaceleración de la actividad económica y el comercio"
+explicacion: "La devaluación de la moneda (reducción del contenido de plata) generó inflación, desconfianza en el dinero y una desaceleración general del comercio y la economía monetaria."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "india_antigua"
+  tema: "caida-de-roma-y-alta-edad-media"
   nivel: "intermedio"
-  tags: ["civilizacion", "declive"]
+  tags: ["carolingios", "verdun", "particion"]
 tipo: completar
-enunciado: "La antigua civilización del Valle del Indo, conocida por sus ciudades planeadas como Mohenjo-Daro, entró en un periodo de declive y abandono alrededor del año ____ a. C."
-respuesta: "1900"
+enunciado: "El Tratado de Verdún de 843 dividió el Imperio Carolingio en tres reinos, uno de los cuales fue ______."
+respuesta: "Francia"
 respuestas_validas:
-  - "1900"
-  - "1900 a.C."
-  - "1900 AC"
-explicacion: "Hacia el 1900 a. C., factores como cambios climáticos, sequías y el desvío de los ríos contribuyeron al abandono de las grandes ciudades del Indo."
+  - "Francia"
+  - "francia"
+  - "Francia Occidental"
+  - "francia occidental"
+explicacion: "El tratado dividió el imperio entre los nietos de Carlomagno: Luis el Germánico (Este), Lotario I (Centro) y Carlos el Calvo (Occidente, futura Francia)."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "india_antigua"
+  tema: "caida-de-roma-y-alta-edad-media"
   nivel: "intermedio"
-  tags: ["religion", "karma"]
+  tags: ["visigodos", "alarico", "saqueo"]
+tipo: mc
+enunciado: "¿Qué pueblo germánico saqueó Roma en el año 410 d.C.?"
+opciones_explicitas:
+  - "Vándalos"
+  - "Ostrogodos"
+  - "Visigodos"
+  - "Francos"
+respuesta: "Visigodos"
+explicacion: "Bajo el mando de Alarico I, los visigodos saquearon Roma en el 410, un evento shock para la mentalidad romana que simbolizó la vulnerabilidad del imperio."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["feudalismo", "vasallaje", "estructura-social"]
+tipo: completar
+enunciado: "En el sistema feudal, el lazo jurídico y militar entre un señor y un noble se llamaba ______."
+respuesta: "vasallaje"
+respuestas_validas:
+  - "vasallaje"
+  - "vasallage"
+  - "lazo de vasallaje"
+  - "vinculo de vasallaje"
+explicacion: "El vasallaje era el contrato personal donde el vasallo juraba fidelidad y servicio militar a cambio de protección y un feudo (tierras)."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["carlomagno", "papa", "coronacion"]
+tipo: mc
+enunciado: "¿Qué Papa coronó a Carlomagno como Emperador en Navidad del año 800?"
+opciones_explicitas:
+  - "Papa Gregorio I"
+  - "Papa León III"
+  - "Papa Urbano II"
+  - "Papa Adriano I"
+respuesta: "Papa León III"
+explicacion: "El Papa León III coronó a Carlomagno en el año 800, restableciendo el título imperial en Occidente y estrechando los lazos entre la corona franca y la Iglesia."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["vikingos", "invasiones", "navegacion"]
 tipo: vf
-enunciado: "En el pensamiento religioso de la antigua India, el concepto de Karma sostiene que las acciones de una persona determinan directamente su estado en la siguiente reencarnación."
-respuesta: verdadero
-explicacion: "El Karma es la ley de causa y efecto en el dharma, donde las acciones morales o inmorales influyen en el ciclo de renacimiento (samsara)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["imperio", "maurya", "ashoka"]
-tipo: mc
-enunciado: "Tras la sangrienta Guerra de Kalinga, el emperador Ashoka del Imperio Maurya adoptó el budismo y promulgó sus principios a través de edictos grabados en pilares y rocas. ¿Cuál fue un cambio político notable derivado de esta conversión?"
-opciones_explicitas:
-  - "Abolición total del ejército"
-  - "Promoción de la no violencia (ahimsa) y la tolerancia religiosa"
-  - "Restablecimiento del sacrificio animal en los rituales védicos"
-  - "Expulsión de todos los monjes budistas fuera del imperio"
-respuesta: "Promoción de la no violencia (ahimsa) y la tolerancia religiosa"
-explicacion: "Ashoka no abolió el ejército, pero sí promovió activamente la ahimsa, la construcción de hospicios, la protección de animales y la tolerancia hacia otras sectas religiosas."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["arianos", "invacion"]
-tipo: completar
-enunciado: "Los pueblos indoiranios que entraron en la región del subcontinente indio alrededor del 1500 a. C. son comúnmente denominados en la historiografía tradicional como los ______."
-respuesta: "arios"
-respuestas_validas:
-  - "arios"
-  - "Arias"
-  - "ario"
-  - "arias"
-explicacion: "El término \"arios\" se utiliza para referirse a los grupos lingüísticos y culturales que trajeron la cultura védica y el sánscrito antiguo a la India."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["literatura", "vedas"]
-tipo: mc
-enunciado: "¿Cuál de los siguientes es considerado el texto sagrado más antiguo y fundamental del hinduismo, compuesto en sánscrito védico?"
-opciones_explicitas:
-  - "El Rig Veda"
-  - "El Mahabharata"
-  - "El Ramayana"
-  - "Las Upanishads"
-respuesta: "El Rig Veda"
-explicacion: "El Rig Veda es la composición más antigua de los cuatro Vedas, datando aproximadamente del 1500-1200 a. C., y contiene himnos dedicados a diversas deidades."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["budismo", "siddharta"]
-tipo: completar
-enunciado: "El fundador del budismo, nacido como príncipe en Lumbini (actual Nepal), alcanzó la iluminación bajo un árbol de higuera y pasó el resto de su vida enseñando el Dharma. Su nombre secular era ______."
-respuesta: "siddharta gautama"
-respuestas_validas:
-  - "siddharta gautama"
-  - "Siddharta Gautama"
-  - "Siddhartha Gautama"
-  - "siddhartha gautama"
-explicacion: "Siddhartha Gautama es el nombre histórico del Buda. Tras su iluminación, fue conocido como el Buda (el Despierto)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["epica", "mahabharata"]
-tipo: mc
-enunciado: "El Mahabharata es una vasta epopeya que narra el conflicto entre dos grupos de parientes. ¿Quiénes son los protagonistas principales del conflicto central de la obra?"
-opciones_explicitas:
-  - "Los Pandavas y los Kauravas"
-  - "Los Yadavas y los Andhakas"
-  - "Los Kshatriyas y los Brahmanes"
-  - "Los Arios y los Dravidianos"
-respuesta: "Los Pandavas y los Kauravas"
-explicacion: "La guerra de Kurukshetra es el evento central del Mahabharata, librada entre los Pandavas (los mejores) y sus primos los Kauravas (los hijos de Dhritarashtra)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["religion", "vedica"]
-tipo: vf
-enunciado: "Durante el periodo védico antiguo, el dios Indra era considerado la deidad principal, asociado con la tormenta, la lluvia y la guerra."
-respuesta: verdadero
-explicacion: "En los himnos del Rig Veda, Indra es el dios más invocado, celebrado por sus hazañas guerreras y su papel en traer fertilidad mediante la lluvia."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["imperio", "gupta", "edad de oro"]
-tipo: mc
-enunciado: "El Imperio Gupta (c. 320-550 d. C.) es frecuentemente descrito como una \"Edad de Oro\" de la India antigua debido a los avances en diversas áreas. ¿Cuál de las siguientes contribuciones se atribuye principalmente a este periodo?"
-opciones_explicitas:
-  - "El desarrollo del sistema de numeración con el cero"
-  - "La invención de la escritura en bronce"
-  - "La creación del primer código legal escrito"
-  - "La construcción del primer gran sistema de riego"
-respuesta: "El desarrollo del sistema de numeración con el cero"
-explicacion: "Durante el periodo Gupta, matemáticos como Aryabhata trabajaron en el concepto del cero y el sistema decimal posicional, fundamentales para las matemáticas modernas."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["budismo", "nirvana"]
-tipo: completar
-enunciado: "En el budismo, el estado final de liberación del ciclo de nacimiento y muerte (samsara), caracterizado por la extinción del deseo y el sufrimiento, se denomina ______."
-respuesta: "nirvana"
-respuestas_validas:
-  - "nirvana"
-  - "Nirvana"
-  - "nirvana"
-  - "Nibbana"
-explicacion: "El Nirvana es el objetivo último del practicante budista, representando la paz suprema y la liberación del sufrimiento."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["arqueologia", "harappa"]
-tipo: mc
-enunciado: "Harappa fue una de las dos grandes metrópolis de la civilización del Valle del Indo. ¿Qué característica urbanística es más famosa en sus restos arqueológicos?"
-opciones_explicitas:
-  - "Un sofisticado sistema de alcantarillado y baños públicos"
-  - "Murallas defensivas de piedra gigante"
-  - "Templos piramidales escalonados"
-  - "Palacios con jardines colgantes"
-respuesta: "Un sofisticado sistema de alcantarillado y baños públicos"
-explicacion: "Las ciudades del Indo, como Harappa y Mohenjo-Daro, eran notables por su planificación en cuadrícula y sus avanzadas instalaciones higiénicas y de agua."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["sociedad", "kshatriya"]
-tipo: completar
-enunciado: "En el sistema varna, la casta compuesta por gobernantes, reyes y guerreros se conoce como ______."
-respuesta: "kshatriya"
-respuestas_validas:
-  - "kshatriya"
-  - "Kshatriya"
-  - "kshatriyas"
-  - "Kshatriyas"
-explicacion: "Los Kshatriyas tenían la responsabilidad de proteger a la sociedad, gobernar y luchar en las guerras."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["religion", "ascetismo"]
-tipo: vf
-enunciado: "El movimiento sramana, que surgió en la antigua India contemporáneo al budismo y el jainismo, promovía la renuncia al mundo material y la práctica del ascetismo extremo como vía de liberación."
-respuesta: verdadero
-explicacion: "Los sramanas (ascetas) buscaban la liberación (moksha) a través del esfuerzo personal, la meditación y el rechazo de la autoridad védica y los rituales."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["imperio", "maurya", "chandragupta"]
-tipo: mc
-enunciado: "Chandragupta Maurya fue el fundador del gran Imperio Maurya. ¿Qué figura estratégica lo ayudó a unificar la India y derrotar a los griegos seleúcidas?"
-opciones_explicitas:
-  - "Chanakya (también conocido como Kautilya)"
-  - "Ashoka"
-  - "Chandragupta II"
-  - "Bimbisara"
-respuesta: "Chanakya (también conocido como Kautilya)"
-explicacion: "Chanakya fue el primer ministro y mentor de Chandragupta, autor del Arthashastra, un tratado sobre política y economía."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["religion", "dharma"]
-tipo: completar
-enunciado: "El concepto central en las religiones dhármicas de la India, que implica deber, ley, moralidad y orden cósmico, se llama ______."
-respuesta: "dharma"
-respuestas_validas:
-  - "dharma"
-  - "Dharma"
-  - "dhamma"
-  - "Dhamma"
-explicacion: "El Dharma varía según la etapa de la vida y la casta, pero es fundamental para mantener el orden social y cósmico."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["periodo", "vedico"]
-tipo: vf
-enunciado: "El periodo Védico tardío se caracteriza por la composición de los Upanishads, que marcan un giro filosófico desde los rituales externos hacia la especulación interna y metafísica."
-respuesta: verdadero
-explicacion: "Los Upanishads son textos filosóficos que exploran la naturaleza de la realidad (Brahman) y el alma (Atman), influyendo profundamente en el hinduismo posterior."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["politica", "magadha"]
-tipo: mc
-enunciado: "¿Qué reino del este de la India se convirtió en la base de poder para el Imperio Maurya y el posterior Imperio Gupta?"
-opciones_explicitas:
-  - "Magadha"
-  - "Kosala"
-  - "Kashi"
-  - "Avanti"
-respuesta: "Magadha"
-explicacion: "Magadha, con capitales como Rajagriha y Pataliputra, fue el centro político dominante en la India antigua durante varios imperios."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["religion", "jainismo"]
-tipo: completar
-enunciado: "El Jainismo es una de las religiones más antiguas de la India, fundada por Mahavira, quien es considerado el último ______ de esta tradición."
-respuesta: "tirthankara"
-respuestas_validas:
-  - "tirthankara"
-  - "Tirthankara"
-  - "tirthankaras"
-  - "Tirthankaras"
-explicacion: "Los Tirthankaras son \"constructores de puentes\" hacia la liberación. Mahavira es el 24º y último Tirthankara de la era actual."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["arte", "gandhara"]
-tipo: mc
-enunciado: "La escuela de arte de Gandhara, floreciente en el noroeste de la India antigua, es conocida por su representación del Buda. ¿Qué influencia artística externa es más evidente en sus estatuas?"
-opciones_explicitas:
-  - "Influencia helenística (griega)"
-  - "Influencia egipcia"
-  - "Influencia china"
-  - "Influencia romana de estilo clásico"
-respuesta: "Influencia helenística (griega)"
-explicacion: "Tras las conquistas de Alejandro Magno, los reinos greco-budistas de Gandhara desarrollaron un estilo que representaba al Buda con rasgos físicos y ropas estilo griego."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "india_antigua"
-  nivel: "intermedio"
-  tags: ["sociedad", "jati"]
-tipo: vf
-enunciado: "En la antigua India, el concepto de jati se refiere estrictamente al sistema varna de cuatro castas abiertas y universales."
+enunciado: "Los vikingos se distinguían por atacar principalmente por tierra, evitando los ríos."
 respuesta: falso
-explicacion: "El sistema varna es la teoría de las cuatro castas, mientras que jati se refiere a las miles de castas endogámicas y ocupacionales reales, que son más complejas y locales que el modelo varna."
+explicacion: "Los vikingos eran expertos navegantes que utilizaban sus barcos de fondo plano para remontar ríos y atacar monasterios y ciudades del interior, evitando el combate terrestre directo cuando era posible."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "india_antigua"
+  tema: "caida-de-roma-y-alta-edad-media"
   nivel: "intermedio"
-  tags: ["escritura", "brahmi"]
+  tags: ["cisma", "iglesia", "roma", "constantinopla"]
 tipo: completar
-enunciado: "La escritura abugida más antigua y prominente de la India antigua, utilizada por Ashoka en sus edictos y considerada la madre de la mayoría de las escrituras del sur y sudeste de Asia, es la escritura ______."
-respuesta: "brahmi"
+enunciado: "El Cisma de 1054 provocó la ruptura definitiva entre la Iglesia de Roma y la Iglesia de ______."
+respuesta: "Constantinopla"
 respuestas_validas:
-  - "brahmi"
-  - "Brahmi"
-  - "brami"
-  - "Brasi"
-explicacion: "La escritura Brahmi es crucial para la historia india, ya que permitió la administración del Imperio Maurya y la difusión de la cultura."
+  - "Constantinopla"
+  - "constantinopla"
+  - "Bizancio"
+  - "bizancio"
+  - "iglesia ortodoxa"
+  - "Iglesia Ortodoxa"
+explicacion: "El cisma separó el cristianismo en dos ramas: la católica romana (Occidente) y la ortodoxa oriental (con sede en Constantinopla)."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "india_antigua"
+  tema: "caida-de-roma-y-alta-edad-media"
   nivel: "intermedio"
-  tags: ["politica", "mahajanapadas"]
+  tags: ["bizancio", "turcos", "otomanos", "final"]
 tipo: mc
-enunciado: "Antes de la formación de los grandes imperios unificados, la India antigua estuvo dividida en 16 grandes estados o repúblicas conocidos como ______."
+enunciado: "¿Qué poder conquistó Constantinopla en 1453, poniendo fin al Imperio Romano de Oriente?"
 opciones_explicitas:
-  - "Mahajanapadas"
-  - "Janapadas"
-  - "Varnas"
-  - "Ashokas"
-respuesta: "Mahajanapadas"
-explicacion: "Los Mahajanapadas (\"grandes reinos\") existieron entre el 600 y el 300 a. C., siendo Magadha el más poderoso de ellos."
+  - "Los Francos"
+  - "Los Otomanos"
+  - "Los Mongoles"
+  - "Los Venedicos"
+respuesta: "Los Otomanos"
+explicacion: "El sultán Mehmed II conquistó Constantinopla en 1453, marcando el fin oficial del Imperio Bizantino y el fin simbólico de la Edad Media."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "india_antigua"
+  tema: "caida-de-roma-y-alta-edad-media"
   nivel: "intermedio"
-  tags: ["religion", "moksha"]
+  tags: ["agricultura", "tecnologia", "arado"]
 tipo: completar
-enunciado: "En el hinduismo y el jainismo, la liberación final del ciclo de renacimientos (samsara) se denomina ______."
-respuesta: "moksha"
+enunciado: "La invención del ______ de vertedera permitió arar los suelos pesados y húmedos del norte de Europa."
+respuesta: "arado"
 respuestas_validas:
-  - "moksha"
-  - "Moksha"
-  - "mukti"
-  - "Mukti"
-explicacion: "El Moksha es el objetivo supremo de la vida humana en las tradiciones dhármicas, representando la unión con lo divino o la independencia absoluta."
+  - "arado"
+  - "arado de vertedera"
+  - "arado pesado"
+  - "arado de ruedas"
+explicacion: "El arado de vertedera (con ruedas y cuchilla de hierro) revoluciona la agricultura medieval, permitiendo cultivar tierras fértiles pero pesadas del norte."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "india_antigua"
+  tema: "caida-de-roma-y-alta-edad-media"
   nivel: "intermedio"
-  tags: ["imperio", "maurya", "fin"]
+  tags: ["iglesia", "cultura", "manuscritos"]
+tipo: vf
+enunciado: "Durante los primeros siglos de la Alta Edad Media, los monasterios fueron los principales centros de copia y conservación de textos clásicos."
+respuesta: verdadero
+explicacion: "Con el colapso de las estructuras civiles, los monasterios se convirtieron en refugios de saber, donde los monjes copiaban manuscritos latinos y cristianos."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["francos", "musulmanes", "poitiers", "cartujo"]
 tipo: mc
-enunciado: "El Imperio Maurya comenzó a fragmentarse y colapsar poco después de la muerte de Ashoka. ¿Qué factor contribuyó significativamente a este declive?"
+enunciado: "¿Quién lideró a los francos en la victoria contra los musulmanes en la Batalla de Poitiers en 732?"
 opciones_explicitas:
-  - "Invasiones externas y debilidad de los sucesores"
-  - "Falta de recursos agrícolas"
-  - "Prohibición total del comercio"
-  - "Destrucción de las ciudades por terremotos"
-respuesta: "Invasiones externas y debilidad de los sucesores"
-explicacion: "Tras Ashoka, los sucesores Maurya fueron débiles y el imperio se debilitó internamente, facilitando la toma del poder por la dinastía Shunga hacia el 185 a. C."
+  - "Carlomagno"
+  - "Carlos Martel"
+  - "Pipino el Breve"
+  - "Clodoveo"
+respuesta: "Carlos Martel"
+explicacion: "Carlos Martel detuvo la expansión musulmana hacia el norte de Europa en Poitiers, consolidando el poder de los Carolingios y su alianza con la Iglesia."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["feudalismo", "poder", "fragmentacion"]
+tipo: completar
+enunciado: "La debilidad de los reyes carolingios llevó a una fragmentación del poder político en favor de la nobleza local, fenómeno conocido como ______."
+respuesta: "feudalismo"
+respuestas_validas:
+  - "feudalismo"
+  - "sistema feudal"
+  - "regimen feudal"
+  - "orden feudal"
+explicacion: "La incapacidad de los reyes para mantener el orden público generó que los señores locales asumieran funciones judiciales y militares, consolidando el feudalismo."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["reconquista", "covadonga", "asturias"]
+tipo: vf
+enunciado: "La batalla de Covadonga, tradicionalmente datada en 722, marca el inicio simbólico de la Reconquista en la península ibérica."
+respuesta: verdadero
+explicacion: "Pelayo lideró a los astures contra los omeyas en Covadonga, estableciendo el Reino de Asturias y marcando el comienzo de la lenta expansión cristiana hacia el sur."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["cruzadas", "jerusalen", "urbe"]
+tipo: mc
+enunciado: "¿Qué Papa convocó la Primera Cruzada en 1095 en el Concilio de Clermont?"
+opciones_explicitas:
+  - "Papa Urbano II"
+  - "Papa Inocencio III"
+  - "Papa Gregorio VII"
+  - "Papa León X"
+respuesta: "Papa Urbano II"
+explicacion: "Urbano II llamó a la cruzada para liberar Tierra Santa del control seléucida y ayudar al Imperio Bizantino, movilizando a la nobleza europea."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["peste", "bubonica", "muerte"]
+tipo: completar
+enunciado: "La Peste Negra del siglo XIV fue causada por la bacteria ______, transmitida principalmente por pulgas de ratas."
+respuesta: "Yersinia pestis"
+respuestas_validas:
+  - "Yersinia pestis"
+  - "yersinia pestis"
+  - "Yersinia"
+  - "pestis"
+explicacion: "La bacteria Yersinia pestis fue el agente causal de la peste bubónica, que diezmó la población europea entre 1347 y 1351."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["francia", "capetos", "centralizacion"]
+tipo: mc
+enunciado: "¿Qué dinastía comenzó a consolidar el poder real en Francia a partir del siglo X, reduciendo el poder de los señores feudales?"
+opciones_explicitas:
+  - "Carolingios"
+  - "Capetos"
+  - "Valois"
+  - "Plantagenets"
+respuesta: "Capetos"
+explicacion: "Los Capetos, empezando con Hugo Capet, lograron una lenta pero constante centralización del poder en Francia, sentando las bases del Estado nacional."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["siervos", "trabajo", "diferencia"]
+tipo: completar
+enunciado: "A diferencia de los esclavos romanos, los siervos medievales tenían derecho a ______ y a poseer herramientas propias."
+respuesta: "matrimonio"
+respuestas_validas:
+  - "matrimonio"
+  - "casamiento"
+  - "familia"
+  - "herencia"
+  - "tierra"
+explicacion: "Los siervos estaban ligados a la tierra pero no eran propiedad del señor; podían tener familia, heredar bienes y usar sus propias herramientas, aunque debían trabajo al señor."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["sacro-império", "germania", "otón"]
+tipo: mc
+enunciado: "¿Qué rey alemán fue coronado emperador en 962, fundando el Sacro Imperio Romano Germánico?"
+opciones_explicitas:
+  - "Federico I Barbarroja"
+  - "Otón I"
+  - "Enrique IV"
+  - "Carlomagno"
+respuesta: "Otón I"
+explicacion: "Otón I fue coronado emperador en 962, reviviendo el título imperial en Germania y estableciendo el Sacro Imperio Romano Germánico."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["cisma", "avignon", "papado"]
+tipo: vf
+enunciado: "Durante el Gran Cisma de Occidente (1378-1417), hubo dos papas rivales, uno en Roma y otro en Aviñón."
+respuesta: verdadero
+explicacion: "Este cisma dividió la cristiandad occidental con dos papas simultáneos, debilitando la autoridad moral y política del papado hasta su resolución en el Concilio de Constanza."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["mongoles", "genghis", "invasión"]
+tipo: completar
+enunciado: "El líder que unificó a las tribus mongolas y comenzó la mayor expansión terrestre de la historia fue ______."
+respuesta: "Genghis Khan"
+respuestas_validas:
+  - "Genghis Khan"
+  - "Gengis Khan"
+  - "Chingis Khan"
+  - "Temujin"
+explicacion: "Temujin, conocido como Genghis Khan, unificó a los mongoles en 1206 y lanzó campañas que extendieron el imperio desde Asia Central hasta Europa del Este."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["japon", "shogun", "samurai"]
+tipo: mc
+enunciado: "En el feudalismo japonés, ¿quién era el líder militar que ejercía el poder real mientras el emperador era una figura ceremonial?"
+opciones_explicitas:
+  - "Daimyo"
+  - "Shogun"
+  - "Samurai"
+  - "Kami"
+respuesta: "Shogun"
+explicacion: "El Shogun era el dictador militar, mientras el emperador permanecía en Kyoto como símbolo sagrado pero sin poder político efectivo durante gran parte del periodo feudal japonés."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["cultura", "carlomagno", "educación"]
+tipo: completar
+enunciado: "El intento de Carlomagno de revivir la cultura y el aprendizaje clásico se conoce como el ______."
+respuesta: "Renacimiento Carolingio"
+respuestas_validas:
+  - "Renacimiento Carolingio"
+  - "renacimiento carolingio"
+  - "Renacimiento de Carlomagno"
+  - "renacimiento de carlomagno"
+explicacion: "Fue un período de renovación cultural y educativa en la corte de Carlomagno, promoviendo el uso correcto del latín y la copia de textos antiguos."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "caida-de-roma-y-alta-edad-media"
+  nivel: "intermedio"
+  tags: ["tordesillas", "colonización", "mundo-nuevo"]
+tipo: mc
+enunciado: "¿Qué potencia europea perdió la disputa de zonas de influencia en el Tratado de Tordesillas frente a Portugal?"
+opciones_explicitas:
+  - "Francia"
+  - "España"
+  - "Inglaterra"
+  - "Italia"
+respuesta: "España"
+explicacion: "España y Portugal firmaron el tratado para dividir el mundo no europeo por un meridiano, otorgando a Portugal las rutas hacia la India y África, y a España las Américas (aunque inicialmente hubo disputas sobre la longitud exacta)."
+```
+
+## Sección: edad-media-feudalismo (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "basico"
+  tags: ["caida_romana", "cronologia"]
+
+respuesta: 476
+tipo: completar
+tolerancia_abs: 1
+
+enunciado: "La Edad Media en Europa occidental comienza tradicionalmente con la caída del Imperio Romano de Occidente, la cual ocurrió en el año ___ d.C."
+
+explicacion: |
+  La caída del Imperio Romano de Occidente en el año 476 d.C. marca el inicio de la Edad Media, caracterizada por la fragmentación política y la consolidación de los reinos germánicos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "intermedio"
+  tags: ["sociedad", "feudalismo"]
+
+variables:
+  escenario_idx: uno_de([0, 1, 2])
+  datos: [[["campesinos", "servidores"], ["nobles", "guerreros"], ["clero", "rezadores"]], [["siervos", "trabajadores"], ["caballeros", "protectores"], ["monjes", "espirituales"]], [["plebe", "campesinos"], ["aristocracia", "señores"], ["clero", "religiosos"]]]
+
+respuesta: datos[escenario_idx][2][1]
+tipo: mc
+opciones_explicitas: [datos[escenario_idx][0][1], datos[escenario_idx][1][1], datos[escenario_idx][2][1]]
+
+enunciado: "En la estructura estamental del feudalismo, el tercer grupo social, encargado de la labor espiritual, estaba compuesto por los {datos[escenario_idx][2][0]}."
+
+explicacion: |
+  La sociedad feudal era estamental y se dividía en: los que luchan (nobleza), los que oran (clero) y los que trabajan (campesinos/siervos).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "avanzado"
+  tags: ["feudalismo", "vasallaje"]
+
+respuesta: "homenaje"
+tipo: completar
+respuestas_validas:
+  - "homenaje"
+  - "investidura"
+  - "lealtad"
+
+enunciado: "El ritual mediante el cual un vasallo se convertía en hombre de un señor, mediante un compromiso de fidelidad y protección, se denominaba ceremonia de ___."
+
+explicacion: |
+  El acto de homenaje era el núcleo del contrato de vasallaje, donde el vasallo se arrodillaba ante el señor para jurar fidelidad.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "intermedio"
+  tags: ["jerarquia", "ordenar"]
+
+tipo: ordenar
+opciones_explicitas: ["Campesinos", "Caballeros", "Señores Feudales"]
+respuesta_orden: ["Campesinos", "Caballeros", "Señores Feudales"]
+
+enunciado: "Ordena los siguientes estamentos de menor a mayor poder político y militar en el sistema feudal:"
+
+pasos:
+  - "Identifica la base de la pirámide (trabajadores)"
+  - "Identifica la clase militar (protectores)"
+  - "Identifica la cúspide (dueños de la tierra)"
+
+explicacion: |
+  La jerarquía feudal era piramidal: la base era la campesinado, seguida por la baja nobleza (caballeros) y en la cima los grandes señores feudales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "basico"
+  tags: ["fin_edad_media", "caida_constantinopla"]
+
+respuesta: 1453
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "La Edad Media finaliza convencionalmente con la caída de Constantinopla a manos de los turcos otomanos en el año ___."
+
+explicacion: |
+  La caída de Constantinopla en 1453 es uno de los hitos que marcan la transición hacia la Edad Moderna.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "basico"
+  tags: ["feudalismo", "vasallaje"]
+
+tipo: mc
+opciones_explicitas: ["Protección y tierras a cambio de lealtad y servicio militar", "Pago de impuestos por el uso de herramientas de labranza", "Venta de productos agrícolas en los mercados locales", "Sometimiento total sin derecho a recibir tierras"]
+respuesta: "Protección y tierras a cambio de lealtad y servicio militar"
+enunciado: "En el sistema feudal, la relación de vasallaje entre un señor feudal y un vasallo se basaba principalmente en:"
+explicacion: |
+  El vasallaje era un contrato de carácter personal donde el señor otorgaba un beneficio (fief/feudo) y protección, mientras que el vasallo juraba auxilium (ayuda militar) y consilium (consejo político).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "basico"
+  tags: ["siervos", "estamentos"]
+
+tipo: completar
+opciones_explicitas: ["siervo", "caballero", "rey", "vasallo"]
+respuestas_validas:
+  - "siervo"
+
+enunciado: "A diferencia de los vasallos, los ___ eran campesinos que estaban ligados a la tierra y debían trabajarla para el señor a cambio de protección y una parcela para su subsistencia."
+
+explicacion: |
+  Los siervos no eran esclavos (no podían ser vendidos individualmente), pero estaban legalmente vinculados a la gleba (la tierra) y no podían abandonar el feudo sin permiso.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "intermedio"
+  tags: ["jerarquia", "ordenar"]
+
+tipo: ordenar
+opciones_explicitas: ["Rey", "Señor Feudal", "Vasallo", "Siervo"]
+
+enunciado: "Ordena de mayor a menor jerarquía social y poder político en la estructura del feudalismo clásico:"
+
+explicacion: |
+  La estructura era piramidal: El Rey era la máxima autoridad (aunque con poder limitado), seguido por los Grandes Señores (Duques/Condes), luego los vasallos (caballeros) y finalmente la base trabajadora (siervos).
+respuesta_orden: ["Rey", "Señor Feudal", "Vasallo", "Siervo"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "intermedio"
+  tags: ["economia", "intercambio"]
+
+tipo: mc
+opciones_explicitas: ["Servicio militar y lealtad", "Pago de oro y plata", "Intercambio de productos artesanales", "Voto de pobreza"]
+respuesta: "Servicio militar y lealtad"
+
+enunciado: "Si un vasallo fallaba en cumplir su parte del contrato hacia su señor, el señor perdía la oportunidad de recibir lealtad y servicio militar."
+
+explicacion: |
+  El sistema se basaba en la reciprocidad. Si el vasallo no prestaba el servicio militar o el consejo, el vínculo de vasallaje se rompía.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "avanzado"
+  tags: ["feudo", "tierra"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "El conjunto de tierras, campesinos y derechos que un señor otorgaba a un vasallo como parte del contrato de vasallaje se denomina ___."
+
+respuestas_validas:
+  - "feudo"
+
+explicacion: |
+  El feudo era la unidad económica y política básica del feudalismo, permitiendo al vasallo mantener a su familia y costear su equipo militar.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "basico"
+  tags: ["sociedad", "feudalismo"]
+
+respuesta: "Rey"
+tipo: mc
+opciones_explicitas: ["Rey", "Señor Feudal", "Caballero", "Siervo"]
+
+enunciado: "En la estructura social del feudalismo, la máxima autoridad política y la cúspide de la pirámide era el ___."
+
+explicacion: |
+  El Rey era la autoridad suprema, aunque en la práctica su poder estaba limitado por los grandes señores feudales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "basico"
+  tags: ["clases_sociales", "caballeros"]
+
+respuesta: "Caballeros"
+tipo: mc
+opciones_explicitas: ["Campesinos", "Clero", "Caballeros", "Nobles"]
+
+enunciado: "Los ___ eran la clase guerrera encargada de la protección militar de los señoríos."
+
+explicacion: |
+  Los caballeros formaban la base de la nobleza militar, subordinados a los grandes señores.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "intermedio"
+  tags: ["ordenar", "jerarquia"]
+
+respuesta_orden: ["Rey", "Señores Feudales", "Caballeros", "Siervos"]
+tipo: ordenar
+opciones_explicitas: ["Rey", "Señores Feudales", "Caballeros", "Siervos"]
+
+enunciado: "Ordene los siguientes estamentos de mayor a menor poder político y militar en el sistema feudal."
+
+explicacion: |
+  La jerarquía feudal era piramidal: el Rey en la cima, seguido por la alta nobleza, luego la caballería y finalmente el campesinado/siervos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "basico"
+  tags: ["campesinado", "siervos"]
+
+respuesta: "Siervos"
+tipo: completar
+respuestas_validas:
+  - "Siervos"
+
+enunciado: "En el sistema feudal, los ___ eran aquellos que no tenían libertad de movimiento y estaban ligados a la tierra que trabajaban."
+
+explicacion: |
+  A diferencia de los campesinos libres, los siervos estaban legalmente vinculados a la tierra que trabajaban.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "avanzado"
+  tags: ["vasallaje", "nobleza"]
+
+respuesta: "Vasallo"
+
+tipo: completar
+respuestas_validas:
+  - "Vasallo"
+
+enunciado: "Si un noble recibe tierras a cambio de lealtad y apoyo militar hacia otro noble de mayor rango, su posición en ese vínculo es la de un ___."
+
+explicacion: |
+  El intercambio de tierras (feudo) por servicios militares y lealtad definía la relación entre el señor y su vasallo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "basico"
+  tags: ["iglesia", "poder", "europa"]
+
+respuesta: "monopolio"
+tipo: completar
+respuestas_validas:
+  - "monopolio"
+
+enunciado: "Durante la Edad Media, la Iglesia Católica ejercía un ___ sobre la vida espiritual y cultural de Europa occidental."
+
+explicacion: |
+  La Iglesia no solo era una institución religiosa, sino que controlaba gran parte de la vida social, política y cultural, ejerciendo un control casi total sobre la mentalidad de la época.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "intermedio"
+  tags: ["monasterios", "cultura", "educacion"]
+
+opciones_explicitas: ["La preservación de textos clásicos", "La producción de armas de guerra", "La exploración de nuevas rutas marítimas", "El fomento del comercio internacional"]
+
+respuesta: "La preservación de textos clásicos"
+tipo: mc
+
+enunciado: "En el ámbito cultural, ¿cuál fue una de las funciones más críticas de los monasterios benedictinos?"
+
+explicacion: |
+  Los monjes copistas dedicaron gran parte de su vida a transcribir manuscritos, lo que permitió que gran parte del conocimiento de la antigüedad clásica sobreviviera a la caída del Imperio Romano.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "intermedio"
+  tags: ["jerarquia", "iglesia", "poder"]
+
+respuesta: "máxima autoridad espiritual"
+tipo: mc
+opciones_explicitas: ["máxima autoridad espiritual", "autoridad política y militar", "representante del emperador", "jefe de la guardia papal"]
+
+enunciado: "En la jerarquía eclesiástica medieval, el Papa era considerado la ___."
+
+explicacion: |
+  La estructura de la Iglesia era altamente jerárquica, donde cada cargo tenía funciones específicas que combinaban lo sagrado con la administración de territorios.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "avanzado"
+  tags: ["cosmovision", "teocentrismo", "cultura"]
+
+respuesta: "teocentrismo"
+tipo: completar
+respuestas_validas:
+  - "teocentrismo"
+
+enunciado: "La cosmovisión medieval se caracterizaba por el ________, donde Dios era el centro de todo el universo y de la explicación de la realidad."
+
+explicacion: |
+  A diferencia del antropocentrismo moderno, la Edad Media se estructuraba en torno a la figura de la divinidad, influyendo en la ciencia, el arte y la política.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "intermedio"
+  tags: ["educacion", "universidades", "iglesia"]
+
+opciones_explicitas: ["Escuelas catedralicias", "Academias de filosofía griega", "Escuelas de navegación", "Universidades de artes liberales"]
+
+respuesta: "Escuelas catedralicias"
+tipo: mc
+
+enunciado: "Antes del surgimiento de las universidades, ¿cuál era el principal centro de formación intelectual y religiosa en las ciudades?"
+
+explicacion: |
+  Las escuelas catedralicias, vinculadas a las sedes de los obispos, fueron la base sobre la cual se desarrollaron posteriormente las primeras universidades europeas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "basico"
+  tags: ["feudalismo", "estamentos"]
+
+variables:
+  datos: [["Se dedica a la defensa militar y la protección de sus tierras mediante el uso de las armas.", "Caballero"], ["Es el señor que otorga tierras a cambio de lealtad y servicio militar.", "Señor feudal"]]
+  idx: uno_de([0, 1])
+
+enunciado: "En el sistema feudal, una persona que {datos[idx][0]} pertenece al grupo de los: ___"
+
+opciones_explicitas: ["Caballero", "Señor feudal"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  En la estructura estamental, la nobleza (incluyendo caballeros y señores) tenía la función de la defensa y la administración de la tierra.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "basico"
+  tags: ["clero", "feudalismo"]
+
+variables:
+  datos: [["Su función principal es la oración y la administración de los sacramentos.", "Clérigo"], ["Se encarga de la enseñanza y la preservación de la cultura.", "Clérigo"]]
+  idx: uno_de([0, 1])
+
+enunciado: "El individuo cuya tarea es {datos[idx][0]} es un: ___"
+
+respuestas_validas:
+  - "Clérigo"
+respuesta: datos[idx][1]
+tipo: completar
+
+explicacion: |
+  El primer estado o estamento de la sociedad medieval era el clero, encargado de la vida espiritual.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "intermedio"
+  tags: ["jerarquia", "ordenar"]
+
+enunciado: "Ordena la jerarquía social feudal desde el estamento con mayor poder político hasta el que tiene menos derechos:"
+
+opciones_explicitas: ["Clero/Nobleza", "Nobleza/Clero", "Campesinado/Siervos"]
+respuesta_orden: ["Clero/Nobleza", "Nobleza/Clero", "Campesinado/Siervos"]
+tipo: ordenar
+
+explicacion: |
+  Aunque el orden exacto podía variar según la región, la jerarquía se basaba en la posesión de tierras y el estatus espiritual/militar.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "avanzado"
+  tags: ["vasallaje", "feudo"]
+
+variables:
+  datos: [["Recibe un feudo para su sustento y servicio.", "Vasallo"], ["Ofrece su espada y lealtad a un señor.", "Vasallo"]]
+  idx: uno_de([0, 1])
+
+enunciado: "En un contrato de vasallaje, la persona que {datos[idx][0]} es el: ___"
+
+opciones_explicitas: ["Señor", "Vasallo", "Siervo"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  El vasallo es el hombre libre que se pone bajo la protección de un señor a cambio de un beneficio (el feudo) y servicios.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad_media_feudalismo"
+  nivel: "basico"
+  tags: ["campesinado", "servidumbre"]
+
+variables:
+  datos: [["Está vinculado a la tierra y no puede abandonarla sin permiso.", "Siervo"], ["Trabaja la tierra para el señor a cambio de protección.", "Siervo"]]
+  idx: uno_de([0, 1])
+
+enunciado: "Aquella persona que {datos[idx][0]} es un: ___"
+
+respuestas_validas:
+  - "Siervo"
+respuesta: datos[idx][1]
+tipo: completar
+
+explicacion: |
+  A diferencia de los campesinos libres, los siervos estaban legalmente ligados a la gleba (la tierra).
 ```
 

@@ -1,1198 +1,1827 @@
 # Examen jefe — [PENDIENTE #848]
 
-> Logro #848. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **149 preguntas totales** en 7/7 secciones.
+> Logro #848. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **164 preguntas totales** en 7/7 secciones.
 
 ---
 
-## Sección: quimica-de-la-atmosfera (25 preguntas)
+## Sección: petroleo-como-recurso-energetico (40 preguntas)
 
 ```
 metadata:
   materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
+  tema: "petroleo_como_recurso_energetico"
   nivel: "basico"
-  tags: ["ozono", "estratosfera", "radiacion_uv"]
+  tags: ["hidrocarburos", "composicion"]
 
 variables:
-  funcion: uno_de(["absorbe", "filtra"])
-  tipo_radiacion: "ultravioleta"
+  elemento1: "uno_de(['carbono', 'hidrogeno'])"
+  elemento2: "uno_de(['carbono', 'hidrogeno'])"
 
-respuesta: funcion + " la radiación " + tipo_radiacion
+respuesta: "hidrocarburos"
 tipo: completar
 
-enunciado: "En la estratosfera, la capa de ozono tiene la función principal de {funcion} la radiación {tipo_radiacion} del sol."
+enunciado: "El petróleo es una mezcla compleja compuesta principalmente por átomos de {elemento1} y {elemento2}. La denominación química general para estos compuestos es: ___"
 
 explicacion: |
-  El ozono estratosférico actúa como un escudo natural absorbiendo la mayor parte de la radiación ultravioleta (UV) dañina, protegiendo a los seres vivos de sus efectos mutagénicos.
+  El petróleo está formado por hidrocarburos, que son compuestos orgánicos formados esencialmente por carbono e hidrógeno.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
+  tema: "petroleo_como_recurso_energetico"
   nivel: "basico"
-  tags: ["lluvia_acida", "so2", "combustibles_fosiles"]
+  tags: ["origen", "materia_organica"]
 
 variables:
-  gas: "SO2"
-  nombre: "dióxido de azufre"
-
-respuesta: nombre
-tipo: completar
-
-enunciado: "Uno de los principales precursores de la lluvia ácida, emitido por la quema de combustibles fósiles que contienen impurezas de azufre, es el {nombre} ({gas})."
-
-explicacion: |
-  El dióxido de azufre ($SO_2$) reacciona con el agua y el oxígeno atmosférico para formar ácido sulfúrico ($H_2SO_4$), principal componente de la lluvia ácida.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "intermedio"
-  tags: ["lluvia_acida", "acido_sulfurico"]
-
-variables:
-  formula: "H2SO4"
-
-respuesta: formula
-tipo: input
-
-enunciado: "Escribe la fórmula química del ácido fuerte formado cuando el dióxido de azufre reacciona con el vapor de agua y el oxígeno en la atmósfera."
-
-explicacion: |
-  La reacción del $SO_2$ conduce a la formación de ácido sulfúrico ($H_2SO_4$), que al precipitar acidifica los suelos y cuerpos de agua.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "intermedio"
-  tags: ["esmog", "fotoquimico", "luz_solar"]
-
-variables:
-  energia: "radiación ultravioleta"
-
-respuesta: energia
-tipo: completar
-
-enunciado: "El esmog fotoquímico se forma cuando los óxidos de nitrógeno y los compuestos orgánicos volátiles (COV) reaccionan en presencia de {energia}."
-
-explicacion: |
-  El término "fotoquímico" indica que la luz solar (específicamente la radiación UV) actúa como catalizador o fuente de energía para impulsar estas reacciones.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "intermedio"
-  tags: ["esmog", "nox", "cov"]
-
-variables:
-  gas1: "NOx"
-  gas2: "COV"
-  nombre1: "óxidos de nitrógeno"
-  nombre2: "compuestos orgánicos volátiles"
-
-respuesta: nombre1 + " y " + nombre2
-tipo: completar
-
-enunciado: "Los dos grupos principales de contaminantes que interactúan para formar el esmog fotoquímico son los {nombre1} y los {nombre2}."
-
-explicacion: |
-  La interacción entre los óxidos de nitrógeno ($NO_x$) emitidos por vehículos e industria, y los compuestos orgánicos volátiles (COV), en presencia de luz solar, genera esmog.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "intermedio"
-  tags: ["lluvia_acida", "aluminio", "toxicidad"]
-
-variables:
-  metal: "aluminio"
-
-respuesta: metal
-tipo: input
-
-enunciado: "La acidificación de los suelos causada por la lluvia ácida puede liberar metales pesados. ¿Qué metal, comúnmente presente en arcillas, se vuelve soluble y tóxico para las plantas?"
-
-explicacion: |
-  El aluminio ($Al$) es liberado de los minerales del suelo al bajar el pH. En forma soluble, es tóxico para las raíces de las plantas y la vida acuática.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "basico"
-  tags: ["ozono", "paradoja", "ubicacion"]
-
-variables:
-  capa_buena: "estratosfera"
-  capa_mala: "troposfera"
-
-respuesta: capa_buena + " y " + capa_mala
-tipo: completar
-
-enunciado: "El ozono es beneficioso en la {capa_buena}, pero actúa como contaminante en la {capa_mala}."
-
-explicacion: |
-  Esta es la paradoja del ozono: protege de la radiación UV arriba (estratosfera) pero irrita los pulmones abajo (troposfera).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "intermedio"
-  tags: ["lluvia_acida", "acido_nitrico"]
-
-variables:
-  formula: "HNO3"
-
-respuesta: formula
-tipo: input
-
-enunciado: "Además del ácido sulfúrico, la lluvia ácida contiene ácido nítrico. Escribe su fórmula química."
-
-explicacion: |
-  El ácido nítrico ($HNO_3$) se forma a partir de los óxidos de nitrógeno ($NO_x$) que reaccionan con el agua atmosférica.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "basico"
-  tags: ["esmog", "urbano", "densidad"]
-
-variables:
-  lugar: "áreas urbanas"
-
-respuesta: lugar
-tipo: input
-
-enunciado: "El esmog fotoquímico es particularmente relevante y frecuente en {lugar} debido a la alta densidad vehicular y emisiones industriales."
-
-explicacion: |
-  La concentración de vehículos y la topografía de muchas ciudades favorecen la acumulación de los precursores necesarios para el esmog.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "basico"
-  tags: ["ozono", "oxigeno", "alotropia"]
-
-variables:
-  nombre: "alótropos"
-
-respuesta: nombre
-tipo: input
-
-enunciado: "El oxígeno molecular ($O_2$) y el ozono ($O_3$) son {nombre} del elemento oxígeno."
-
-explicacion: |
-  Son formas alotrópicas, es decir, distintas estructuras moleculares del mismo elemento químico con propiedades diferentes.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "intermedio"
-  tags: ["lluvia_acida", "ecosistemas_acuaticos"]
-
-variables:
-  efecto: "acidificar"
-
-respuesta: efecto
-tipo: input
-
-enunciado: "Al precipitar, los ácidos formados en la lluvia ácida tienen la capacidad de {efecto} los cuerpos de agua, poniendo en riesgo la vida acuática."
-
-explicacion: |
-  La bajada del pH del agua mata peces, anfibios y altera la cadena alimentaria al liberar metales tóxicos como el aluminio.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "intermedio"
-  tags: ["esmog", "producto"]
-
-variables:
-  producto: "ozono troposférico"
-
-respuesta: producto
-tipo: input
-
-enunciado: "Una de las principales consecuencias de la reacción fotoquímica entre $NO_x$ y COV es la generación de {producto}."
-
-explicacion: |
-  El esmog fotoquímico se caracteriza por altos niveles de ozono a nivel del suelo, a diferencia del ozono estratosférico protector.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "basico"
-  tags: ["nox", "combustion", "temperatura"]
-
-variables:
-  fuente: "vehículos"
-
-respuesta: fuente
-tipo: input
-
-enunciado: "Los óxidos de nitrógeno ($NO_x$) se generan principalmente por la combustión a alta temperatura en {fuente} e industrias."
-
-explicacion: |
-  El nitrógeno del aire reacciona con el oxígeno a altas temperaturas (motores de combustión interna), formando $NO$ y $NO_2$.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "basico"
-  tags: ["ozono", "propiedades_quimicas"]
-
-variables:
-  propiedad: "inestable"
-
-respuesta: propiedad
-tipo: input
-
-enunciado: "A diferencia del $O_2$, el ozono ($O_3$) es un gas químicamente {propiedad} y altamente reactivo."
-
-explicacion: |
-  Su inestabilidad le permite actuar como un fuerte agente oxidante, lo que explica su toxicidad en bajas altitudes y su capacidad de absorber UV en altas altitudes.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "intermedio"
-  tags: ["lluvia_acida", "metales_pesados"]
-
-variables:
-  categoria: "metales pesados"
-
-respuesta: categoria
-tipo: input
-
-enunciado: "La lluvia ácida libera de los suelos y sedimentos {categoria} que son tóxicos para la vida terrestre y acuática."
-
-explicacion: |
-  Entre ellos destaca el aluminio, pero también pueden movilizarse plomo, mercurio y otros dependiendo de la geología local.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "basico"
-  tags: ["ozono", "proteccion_biologica"]
-
-variables:
-  proteccion: "escudo natural"
-
-respuesta: proteccion
-tipo: input
-
-enunciado: "La capa de ozono actúa como un {proteccion} natural contra la radiación ultravioleta solar."
-
-explicacion: |
-  Sin esta capa, la radiación UV alcanzaría la superficie en niveles que causarían daños masivos al ADN de los organismos vivos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "basico"
-  tags: ["lluvia_acida", "precipitacion"]
-
-variables:
-  forma: "ácidos fuertes"
-
-respuesta: forma
-tipo: input
-
-enunciado: "Los óxidos de nitrógeno y azufre reaccionan con el vapor de agua para formar {forma} que luego precipitan."
-
-explicacion: |
-  Se forman principalmente ácido nítrico ($HNO_3$) y ácido sulfúrico ($H_2SO_4$), que son ácidos fuertes que bajan drásticamente el pH de la lluvia.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "intermedio"
-  tags: ["esmog", "cov"]
-
-variables:
-  siglas: "COV"
-  nombre: "compuestos orgánicos volátiles"
-
-respuesta: nombre
-tipo: input
-
-enunciado: "Las siglas COV se refieren a los {nombre}, precursoes clave del esmog."
-
-explicacion: |
-  Son hidrocarburos y otros compuestos orgánicos que se evaporan fácilmente a temperatura ambiente, provenientes de combustibles, disolventes y vegetación.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "basico"
-  tags: ["ozono", "formula"]
-
-variables:
-  formula: "O3"
-
-respuesta: formula
-tipo: input
-
-enunciado: "Escribe la fórmula molecular del ozono."
-
-explicacion: |
-  El ozono está compuesto por tres átomos de oxígeno, por lo que su fórmula es $O_3$.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "intermedio"
-  tags: ["lluvia_acida", "transporte_atmosferico"]
-
-variables:
-  alcance: "distantes"
-
-respuesta: alcance
-tipo: input
-
-enunciado: "La lluvia ácida puede tener consecuencias devastadoras en ecosistemas {alcance} a la fuente de emisión de contaminantes."
-
-explicacion: |
-  Los vientos transportan los gases ($SO_2$, $NO_x$) a grandes distancias antes de que precipiten, haciendo que la contaminación sea un problema transfronterizo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "basico"
-  tags: ["esmog", "salud"]
-
-variables:
-  organo: "pulmones"
-
-respuesta: organo
-tipo: input
-
-enunciado: "El ozono troposférico presente en el esmog irrita principalmente los {organo} de las personas."
-
-explicacion: |
-  Al ser un oxidante fuerte, daña el tejido pulmonar, causando tos, dolor de garganta y agravando el asma.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "basico"
-  tags: ["definicion", "reactor"]
-
-variables:
-  concepto: "reactor químico"
-
-respuesta: concepto
-tipo: input
-
-enunciado: "La atmósfera puede ser conceptualizada como un gigante {concepto} donde ocurren reacciones constantes."
-
-explicacion: |
-  Es un sistema dinámico donde gases, partículas y radiación interactúan químicamente, determinando la calidad del aire y el clima.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "intermedio"
-  tags: ["lluvia_acida", "nox"]
-
-variables:
-  nombre: "óxidos de nitrógeno"
-
-respuesta: nombre
-tipo: input
-
-enunciado: "Los {nombre} ($NO_x$) son emitidos por la combustión y contribuyen a la formación de lluvia ácida."
-
-explicacion: |
-  Incluyen principalmente monóxido de nitrógeno ($NO$) y dióxido de nitrógeno ($NO_2$), que son precursores del ácido nítrico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "intermedio"
-  tags: ["esmog", "catalizador"]
-
-variables:
-  rol: "catalizador"
-
-respuesta: rol
-tipo: input
-
-enunciado: "En la formación del esmog fotoquímico, la luz solar actúa como {rol} de las transformaciones químicas."
-
-explicacion: |
-  Proporciona la energía necesaria (fotones UV) para romper enlaces en las moléculas precursoras e iniciar la cadena de reacciones.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "quimica_de_la_atmosfera"
-  nivel: "basico"
-  tags: ["ozono", "estratosfera"]
-
-variables:
-  capa: "estratosfera"
-
-respuesta: capa
-tipo: input
-
-enunciado: "La capa de ozono protectora se encuentra ubicada en la {capa}."
-
-explicacion: |
-  La estratosfera es la capa de la atmósfera que se encuentra entre los 10 y 50 km de altitud, donde la concentración de ozono es máxima.
-```
-
-## Sección: reactivo-limitante-rendimiento (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
-  nivel: "basico"
-  tags: ["analogia", "estequiometria"]
-
-respuesta: "3"
-tipo: mc
-opciones_explicitas: ["3", "5", "10", "13"]
-
-enunciado: "Para armar un sándwich necesitas 2 rodajas de pan y 1 de queso. Si tenés 10 rodajas de pan y 3 de queso, ¿cuántos sándwiches podés armar como máximo?"
-
-explicacion: |
-  Con 10 panes (2 por sándwich): 10/2 = 5 sándwiches posibles. Con 3 quesos (1 por sándwich): 3/1 = 3 sándwiches posibles. El queso se agota primero: sólo se pueden armar 3.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El reactivo limitante es aquel que sobra al final de la reacción química."
-
-explicacion: |
-  Falso. El reactivo limitante es el que se agota primero y detiene la reacción. El que sobra es el reactivo en exceso.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
-  nivel: "basico"
-  tags: ["terminologia"]
-
-respuesta: "exceso"
-tipo: completar
-respuestas_validas:
-  - "exceso"
-
-enunciado: "El reactivo que sobra al final de la reacción se llama reactivo en ___."
-
-explicacion: |
-  El reactivo que no se consume totalmente se llama reactivo en exceso.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
-  nivel: "basico"
-  tags: ["conceptos"]
+  origen: "uno_de(['plancton', 'minerales', 'metales'])"
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El reactivo limitante determina la cantidad máxima de producto que se puede formar en una reacción química."
+enunciado: "El petróleo se origina a partir de la acumulación y transformación de materia orgánica como {origen} y algas en mares antiguos."
 
 explicacion: |
-  Verdadero. Como el reactivo limitante se agota primero, la reacción se detiene ahí y limita la producción total.
+  El petróleo proviene de la descomposición de materia orgánica (plancton, algas) bajo altas presiones y temperaturas durante millones de años.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
+  tema: "petroleo_como_recurso_energetico"
   nivel: "intermedio"
-  tags: ["estequiometria", "moles"]
+  tags: ["refinamiento", "destilacion"]
 
 variables:
-  moles_h2: uno_de([4, 6, 8, 10])
+  propiedad: "uno_de(['temperatura de ebullicion', 'densidad', 'pH'])"
 
-respuesta: moles_h2 / 2
+respuesta: "temperatura de ebullicion"
+tipo: completar
+
+enunciado: "En la torre de refinamiento, la separación de los componentes del crudo se basa en la diferencia de su {propiedad}."
+
+explicacion: |
+  La destilación fraccionada separa los hidrocarburos según sus diferentes temperaturas de ebullición.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["renovable", "clasificacion"]
+
+variables:
+  recurso: "uno_de(['petroleo', 'energia solar', 'energia eolica'])"
+
+respuesta: "no renovable"
+tipo: completar
+
+enunciado: "El {recurso} es considerado un recurso energético de tipo '___' porque su formación tarda millones de años."
+
+explicacion: |
+  A diferencia de las energías renovables, el petróleo no se regenera a escala humana, por lo que es no renovable.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["alcanos", "estructura"]
+
+variables:
+  estructura: "uno_de(['cadena lineal', 'anillo', 'cadena ramificada'])"
+
+respuesta: "cadena lineal"
+tipo: completar
+
+enunciado: "Los alcanos presentes en el petróleo pueden tener estructura de {estructura} o ramificada, a diferencia de los cicloalcanos que forman anillos."
+
+explicacion: |
+  Los alcanos son hidrocarburos saturados que pueden presentarse como cadenas lineales o ramificadas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["fracking", "extraccion"]
+
+variables:
+  yacimiento: "uno_de(['convencional', 'no convencional'])"
+
+respuesta: "fracking"
+tipo: completar
+
+enunciado: "Para extraer petróleo de yacimientos {yacimiento} atrapados en rocas impermeables, se utiliza la técnica de ___."
+
+explicacion: |
+  El fracking (fracturamiento hidráulico) es necesario para liberar hidrocarburos de rocas impermeables en yacimientos no convencionales.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "avanzado"
+  tags: ["aromaticos", "benceno"]
+
+variables:
+  compuesto: "uno_de(['benceno', 'metano', 'etano'])"
+
+respuesta: "benceno"
+tipo: completar
+
+enunciado: "Un ejemplo clásico de hidrocarburo aromático encontrado en el petróleo es el {compuesto}, que posee una estructura de anillo con deslocalización electrónica."
+
+explicacion: |
+  El benceno es un hidrocarburo aromático clave presente en el crudo, distinto a los alcanos y cicloalcanos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["argentina", "vaca_muerta"]
+
+variables:
+  provincia: "uno_de(['Neuquen', 'Buenos Aires', 'Cordoba'])"
+
+respuesta: "Neuquen"
+tipo: completar
+
+enunciado: "La importante formación de petróleo no convencional y gas conocida como Vaca Muerta se encuentra en la provincia de {provincia}."
+
+explicacion: |
+  Vaca Muerta es una formación geológica en Neuquén, Argentina, rica en hidrocarburos no convencionales.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "avanzado"
+  tags: ["alcanos", "saturacion"]
+
+variables:
+  tipo_hc: "uno_de(['alcanos', 'alquenos', 'alquinos'])"
+
+respuesta: "alcanos"
+tipo: completar
+
+enunciado: "Los {tipo_hc} son hidrocarburos saturados, es decir, contienen solo enlaces simples entre átomos de carbono."
+
+explicacion: |
+  Los alcanos son los hidrocarburos más simples y saturados, con fórmula general CnH2n+2.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["quimica_aplicada", "fracking"]
+
+variables:
+  componente: "uno_de(['agua', 'arena', 'glicerina'])"
+
+respuesta: "agua"
+tipo: completar
+
+enunciado: "El fracking consiste en inyectar {componente} a alta presión junto con aditivos químicos para crear grietas en la roca."
+
+explicacion: |
+  La mezcla principal para la fracturación hidráulica es agua a alta presión, arena (proppant) y químicos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["geopolitica", "importancia"]
+
+variables:
+  pais: "uno_de(['Arabia Saudita', 'Argentina', 'Uruguay'])"
+
+respuesta: "Arabia Saudita"
+tipo: completar
+
+enunciado: "Entre los países con las mayores reservas probadas de petróleo se encuentra {pais}."
+
+explicacion: |
+  Arabia Saudita es uno de los principales productores y poseedores de reservas de petróleo mundial.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["origen", "biologia"]
+
+variables:
+  organismo: "uno_de(['plancton', 'dinosaurios', 'arboles'])"
+
+respuesta: "plancton"
+tipo: completar
+
+enunciado: "La materia orgánica que dio origen al petróleo incluía principalmente {organismo} y algas de mares antiguos."
+
+explicacion: |
+  El plancton marino es la fuente principal de la materia orgánica que se transformó en petróleo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "avanzado"
+  tags: ["quimica_organica", "benceno"]
+
+variables:
+  atomo_c: "random(6,6)"
+  atomo_h: "random(6,6)"
+
+respuesta: "C6H6"
+tipo: input
+
+enunciado: "La fórmula molecular del benceno, un hidrocarburo aromático clave, es {atomo_c} carbonos y {atomo_h} hidrógenos. Escribela como C6H6:"
+
+explicacion: |
+  El benceno tiene la fórmula C6H6, con un anillo hexagonal de carbonos e hidrógenos unidos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["geopolitica", "paises"]
+
+variables:
+  pais: "uno_de(['Rusia', 'España', 'Chile'])"
+
+respuesta: "Rusia"
+tipo: completar
+
+enunciado: "Además de Arabia Saudita y Estados Unidos, {pais} posee una de las mayores reservas probadas de petróleo."
+
+explicacion: |
+  Rusia es uno de los tres principales poseedores de reservas de petróleo a nivel mundial.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["hidrocarburos", "composicion"]
+
+variables:
+  elementos: uno_de(["carbono e hidrogeno", "carbono y oxigeno", "hidrogeno y nitrogeno", "azufre y oxigeno"])
+
+respuesta: "carbono e hidrogeno"
+tipo: mc
+opciones_explicitas: ["carbono e hidrogeno", "carbono y oxigeno", "hidrogeno y nitrogeno", "azufre y oxigeno"]
+
+enunciado: "El petróleo es una mezcla compleja de hidrocarburos. ¿Cuáles son los dos elementos químicos principales que lo componen?"
+
+explicacion: |
+  Los hidrocarburos, por definición, están formados principalmente por átomos de carbono e hidrógeno. El petróleo es una mezcla de este tipo de compuestos.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["origen", "materia_organica"]
+
+variables:
+  origen: uno_de(["plancton y algas", "restos de dinosaurios", "minerales volcánicos", "raíces de árboles gigantes"])
+
+respuesta: "plancton y algas"
+tipo: mc
+opciones_explicitas: ["plancton y algas", "restos de dinosaurios", "minerales volcánicos", "raíces de árboles gigantes"]
+
+enunciado: "El petróleo se origina a partir de la acumulación y transformación de materia orgánica. ¿Qué organismos fueron los principales contribuyentes?"
+
+explicacion: |
+  El petróleo proviene de la acumulación de plancton y algas marinos que vivieron en mares antiguos hace millones de años, no de dinosaurios o vegetación terrestre.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["refinamiento", "destilacion"]
+
+variables:
+  propiedad: "temperatura de ebullicion"
+
+respuesta: "temperatura de ebullicion"
+tipo: input
+
+enunciado: "El proceso clave para separar los componentes del crudo es la destilación fraccionada. ¿Qué propiedad física de los hidrocarburos aprovecha este proceso para separarlos?"
+
+explicacion: |
+  La destilación fraccionada separa los hidrocarburos aprovechando sus diferentes temperaturas de ebullicion. Al calentar el crudo, cada fracción se vaporiza a una temperatura distinta.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["argentina", "yacimientos", "vaca_muerta"]
+
+variables:
+  provincia: "neuquen"
+
+respuesta: "neuquen"
+tipo: input
+
+enunciado: "En Argentina, ¿en qué provincia se encuentra la formación de Vaca Muerta, una de las reservas de petróleo no convencional (shale oil) y gas más importantes del mundo?"
+
+explicacion: |
+  La formación de Vaca Muerta se ubica en la provincia de Neuquén. Su explotación ha transformado la matriz energética nacional en las últimas décadas.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["fracking", "explotacion", "no_convencional"]
+
+variables:
+  tecnica: "fracturamiento_hidraulico"
+
+respuesta: "fracturamiento_hidraulico"
+tipo: input
+
+enunciado: "Para extraer petróleo atrapado en rocas impermeables (yacimientos no convencionales), se utiliza una técnica que inyecta agua a alta presión con aditivos químicos. ¿Cómo se llama esta técnica?"
+
+explicacion: |
+  La técnica se llama fracturamiento hidráulico (fracking). Consiste en crear grietas en la roca para liberar el hidrocarburo atrapado.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["sostenibilidad", "clasificacion"]
+
+variables:
+  clasificacion: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El petróleo es considerado un recurso energético renovable porque se regenera rápidamente en la naturaleza."
+
+explicacion: |
+  Falso. El petróleo es un recurso no renovable porque su formación toma millones de años, a un ritmo mucho más lento que su consumo actual.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["reservas", "definicion"]
+
+variables:
+  concepto: "reservas"
+
+respuesta: "reservas"
+tipo: input
+
+enunciado: "¿Qué término se utiliza para definir las cantidades de petróleo que pueden extraerse económicamente con la tecnología actual?"
+
+explicacion: |
+  Se utilizan las "reservas" probadas. Este concepto depende tanto de la existencia física del recurso como de la viabilidad económica y tecnológica de su extracción.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["composicion", "aromaticos"]
+
+variables:
+  ejemplo: "benceno"
+
+respuesta: "benceno"
+tipo: input
+
+enunciado: "Entre los componentes químicos del petróleo se encuentran los hidrocarburos aromáticos. ¿Cuál es un ejemplo clásico de este tipo de compuesto?"
+
+explicacion: |
+  El benceno es un ejemplo clásico de hidrocarburo aromático, caracterizado por tener un anillo de átomos de carbono con enlaces dobles conjugados.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["uso", "transporte"]
+
+variables:
+  razon: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El petróleo ha sido la columna vertebral del transporte mundial principalmente porque es una energía renovable y limpia."
+
+explicacion: |
+  Falso. Su importancia en el transporte se debe a su alta densidad energética y facilidad de almacenamiento y transporte, no a ser renovable o limpio.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["clasificacion", "calidad"]
+
+variables:
+  factor: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La proporción de alcanos, cicloalcanos y aromáticos determina si el petróleo es ligero o pesado, pero no afecta su calidad para ser refinado."
+
+explicacion: |
+  Falso. La proporción de estos componentes determina tanto la densidad (ligero/pesado) como la calidad y facilidad para ser refinado en productos útiles.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["explotacion", "convencional"]
+
+variables:
+  mecanismo: "presion_interna"
+
+respuesta: "presion_interna"
+tipo: input
+
+enunciado: "En los yacimientos convencionales, el petróleo suele fluir naturalmente hacia los pozos. ¿Qué fuerza principal impulsa este flujo sin necesidad de técnicas complejas de extracción?"
+
+explicacion: |
+  La presión interna del yacimiento es la fuerza principal. Esta presión natural empuja el crudo hacia la superficie cuando se perfora el pozo.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "avanzado"
+  tags: ["geopolitica", "reservas"]
+
+variables:
+  pais: "arabia_saudita"
+
+respuesta: "arabia_saudita"
+tipo: input
+
+enunciado: "¿Qué país posee una de las mayores reservas probadas de petróleo a nivel mundial, siendo un actor clave en la geopolítica energética global?"
+
+explicacion: |
+  Arabia Saudita es uno de los países con las mayores reservas probadas de petróleo, lo que le otorga una gran influencia en el mercado energético mundial.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["propiedades", "energia"]
+
+variables:
+  ventaja: "verdadero"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de muchas energías renovables intermitentes, el petróleo puede almacenarse y transportarse con relativa facilidad."
+
+explicacion: |
+  Verdadero. El petróleo es un líquido denso en energía que se puede almacenar en tanques y transportar por oleoductos o barcos cisterna de manera eficiente.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["composicion", "cicloalcanos"]
+
+variables:
+  estructura: "anillos"
+
+respuesta: "anillos"
+tipo: input
+
+enunciado: "Los cicloalcanos son uno de los tipos de hidrocarburos presentes en el petróleo. ¿Cómo se describen sus estructuras químicas?"
+
+explicacion: |
+  Los cicloalcanos se describen como hidrocarburos cuyas cadenas de carbono forman anillos cerrados.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["shale", "no_convencional"]
+
+variables:
+  traduccion: "petroleo_de_esquistos"
+
+respuesta: "petroleo_de_esquistos"
+tipo: input
+
+enunciado: "El término inglés 'shale oil' se refiere al petróleo extraído de rocas impermeables. ¿Cómo se traduce comúnmente al español en el contexto energético?"
+
+explicacion: |
+  Se traduce como "petróleo de esquistos". Es un tipo de petróleo no convencional que requiere técnicas como el fracking para su extracción.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["propiedades", "energia"]
+
+variables:
+  caracteristica: "densa"
+
+respuesta: "densa"
+tipo: input
+
+enunciado: "El petróleo es una fuente de energía ______. ¿Qué palabra describe su capacidad de almacenar mucha energía en un volumen pequeño?"
+
+explicacion: |
+  El petróleo es una fuente de energía densa. Esto significa que libera una gran cantidad de energía por unidad de masa o volumen al quemarse.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["fracking", "quimica"]
+
+variables:
+  componente: "agua"
+
+respuesta: "agua"
+tipo: input
+
+enunciado: "El fracturamiento hidráulico consiste en inyectar ______ a alta presión con aditivos químicos para crear grietas en la roca. ¿Cuál es el líquido principal utilizado?"
+
+explicacion: |
+  El líquido principal es el agua. Se mezcla con arena y aditivos químicos para mantener las grietas abiertas y facilitar el flujo del hidrocarburo.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["reservas", "distribucion"]
+
+variables:
+  distribucion: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Las reservas de petróleo están distribuidas uniformemente en todo el planeta."
+
+explicacion: |
+  Falso. Las reservas no están distribuidas uniformemente; se concentran en regiones específicas como Medio Oriente, Rusia y América del Sur.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["refinamiento", "equipos"]
+
+variables:
+  equipo: "torre"
+
+respuesta: "torre"
+tipo: input
+
+enunciado: "Durante la refinación, el crudo se calienta en una ______ de destilación. ¿Cómo se llama el equipo vertical principal donde ocurre la separación por fracciones?"
+
+explicacion: |
+  Se llama torre de destilación. Es un equipo vertical donde los vapores se condensan a diferentes alturas según su temperatura de ebullición.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["origen", "tiempo_geologico"]
+
+variables:
+  periodo: "millones_de_anos"
+
+respuesta: "millones_de_anos"
+tipo: input
+
+enunciado: "La materia orgánica que originó el petróleo vivió en mares antiguos hace ______. ¿Qué escala de tiempo describe la formación del petróleo?"
+
+explicacion: |
+  Hace millones de años. La transformación de la materia orgánica en petróleo es un proceso geológico extremadamente lento.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["fracking", "fisica"]
+
+variables:
+  condicion: "alta"
+
+respuesta: "alta"
+tipo: input
+
+enunciado: "Para fracturar la roca impermeable en yacimientos no convencionales, el agua se inyecta a presión ______. ¿Qué adjetivo describe la magnitud de la presión necesaria?"
+
+explicacion: |
+  La presión debe ser alta. Solo con presiones muy elevadas se pueden generar las grietas necesarias en la roca dura.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["definicion", "quimica"]
+
+variables:
+  definicion: "hidrocarburos"
+
+respuesta: "hidrocarburos"
+tipo: input
+
+enunciado: "El petróleo es una mezcla compleja de ______. ¿Cómo se llaman los compuestos químicos formados por carbono e hidrógeno?"
+
+explicacion: |
+  Se llaman hidrocarburos. Son los compuestos orgánicos básicos que constituyen la mayor parte del petróleo crudo.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["propiedades_fisicas"]
+
+variables:
+  estado: "viscoso"
+
+respuesta: "viscoso"
+tipo: input
+
+enunciado: "El petróleo es un líquido ______ y oscuro que se encuentra en el subsuelo. ¿Qué palabra describe su resistencia a fluir?"
+
+explicacion: |
+  El petróleo es viscoso. Esta propiedad física varía según la composición, pero generalmente es más espeso que el agua.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["uso", "industria"]
+
+variables:
+  sector: "quimica"
+
+respuesta: "quimica"
+tipo: input
+
+enunciado: "El petróleo no solo es fuente de energía, sino también la columna vertebral de la industria ______. ¿Qué sector industrial depende del petróleo como materia prima?"
+
+explicacion: |
+  La industria química. El petróleo es la materia prima para producir plásticos, fertilizantes, medicamentos y muchos otros productos.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "intermedio"
+  tags: ["refinamiento", "proceso"]
+
+variables:
+  principio: "verdadero"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La destilación fraccionada separa los componentes del petróleo calentándolo y aprovechando que cada hidrocarburo se vaporiza a una temperatura distinta."
+
+explicacion: |
+  Verdadero. Este es el principio fundamental de la destilación fraccionada: la separación se basa en las diferentes temperaturas de ebullición.
+```
+
+```
+metadata:
+  materia: "Química"
+  tema: "petroleo_como_recurso_energetico"
+  nivel: "basico"
+  tags: ["clasificacion", "sostenibilidad"]
+
+variables:
+  clasificacion: "no_renovable"
+
+respuesta: "no_renovable"
+tipo: input
+
+enunciado: "El petróleo es un recurso ______. ¿Qué término indica que su tasa de consumo es mucho mayor que su tasa de formación natural?"
+
+explicacion: |
+  Es un recurso no renovable. Esto significa que una vez agotado, no puede ser reemplazado en un plazo de tiempo humano útil.
+```
+
+## Sección: pilas-celdas-galvanicas (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["redox", "espontaneidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una pila aprovecha una reacción redox espontánea para generar corriente eléctrica."
+
+explicacion: |
+  La energía liberada por la reacción espontánea desplaza electrones por un circuito externo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["electrodo", "separacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En una pila, los procesos de oxidación y reducción ocurren mezclados en el mismo lugar, sin separación física."
+
+explicacion: |
+  Falso. Se separan físicamente en ánodo (oxidación) y cátodo (reducción) para que los electrones tengan que pasar por un circuito.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "intermedio"
+  tags: ["energia", "calor"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si se mezclan directamente el agente reductor y el oxidante sin una celda de por medio, la energía se libera principalmente como calor, no como electricidad útil."
+
+explicacion: |
+  Sin un camino externo para los electrones, la energía se disipa como calor.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["nomenclatura"]
+
+respuesta: "galvanica"
+tipo: completar
+respuestas_validas:
+  - "galvanica"
+  - "galvánica"
+  - "voltaica"
+
+enunciado: "Otro nombre para una pila es celda ___."
+
+explicacion: |
+  Celda galvánica o voltaica: convierte energía química en eléctrica mediante una reacción espontánea.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["electroquimica", "anodo"]
+
+respuesta: "oxidacion"
+tipo: mc
+opciones_explicitas: ["oxidacion", "reduccion", "ninguna reaccion", "ambas"]
+
+enunciado: "En el ánodo de una celda galvánica ocurre la..."
+
+explicacion: |
+  En el ánodo ocurre siempre la oxidación.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["electroquimica", "catodo"]
+
+respuesta: "reduccion"
+tipo: mc
+opciones_explicitas: ["reduccion", "oxidacion", "ninguna reaccion", "ambas"]
+
+enunciado: "En el cátodo de una celda galvánica ocurre la..."
+
+explicacion: |
+  En el cátodo ocurre siempre la reducción.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["polaridad", "anodo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una pila galvánica, el ánodo es el polo negativo."
+
+explicacion: |
+  El ánodo libera electrones (fuente de electrones): es el polo negativo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["polaridad", "catodo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una pila galvánica, el cátodo es el polo positivo."
+
+explicacion: |
+  El cátodo recibe electrones (los consume en la reducción): es el polo positivo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["electrones", "anodo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En el ánodo, el electrodo gana electrones."
+
+explicacion: |
+  Falso. En el ánodo el electrodo libera (pierde) electrones — es donde ocurre la oxidación.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["puente_salino"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El puente salino permite el paso de iones para mantener la neutralidad eléctrica de cada solución."
+
+explicacion: |
+  Evita la acumulación de carga que frenaría la reacción, dejando pasar iones entre las semiceldas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "intermedio"
+  tags: ["puente_salino"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si se retira el puente salino de una pila, la reacción se detiene porque las soluciones acumulan cargas desbalanceadas."
+
+explicacion: |
+  Sin el flujo de iones, se genera un potencial opuesto que frena el paso de electrones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["electrones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una celda galvánica, los electrones viajan desde el ánodo hacia el cátodo a través del cable externo."
+
+explicacion: |
+  El ánodo libera electrones, el cátodo los consume: fluyen ánodo→cátodo por el cable.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "intermedio"
+  tags: ["electrones", "puente_salino"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los electrones viajan del cátodo al ánodo a través del puente salino."
+
+explicacion: |
+  Falso, doble error: los electrones van por el cable (no el puente salino, que es sólo para iones), y en la dirección ánodo→cátodo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["redox", "anodo", "daniell"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la pila de Daniell, el zinc metálico se disuelve como Zn2+ en el ánodo."
+
+explicacion: |
+  Zn(s) → Zn2+(ac) + 2e−.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["redox", "catodo", "daniell"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la pila de Daniell, se deposita cobre metálico nuevo en el cátodo."
+
+explicacion: |
+  Cu2+(ac) + 2e− → Cu(s).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["electrodos", "daniell"]
+
+respuesta: "Zn"
+tipo: mc
+opciones_explicitas: ["Zn", "Cu", "ambos", "ninguno"]
+
+enunciado: "En la pila de Daniell, ¿cuál electrodo es el ánodo?"
+
+explicacion: |
+  El Zn se oxida: es el ánodo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "basico"
+  tags: ["electrodos", "daniell"]
+
+respuesta: "Cu"
+tipo: mc
+opciones_explicitas: ["Cu", "Zn", "ambos", "ninguno"]
+
+enunciado: "En la pila de Daniell, ¿cuál electrodo es el cátodo?"
+
+explicacion: |
+  El Cu2+ se reduce sobre el electrodo de cobre: es el cátodo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "intermedio"
+  tags: ["estequiometria", "electrones"]
+
+variables:
+  electrones_por_reaccion: 2
+  moles_zn: uno_de([1, 2, 3])
+
+respuesta: moles_zn * electrones_por_reaccion
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "En la reacción 2 H2 + O2 → 2 H2O, si hay {moles_h2} moles de H2, ¿cuál es el cociente moles/coeficiente del H2?"
+enunciado: "Si reaccionan {moles_zn} moles de Zn, ¿cuántos moles de electrones se liberan en total?"
 
 pasos:
-  - "Coeficiente de H2 en la ecuación: 2"
-  - "Cociente: {moles_h2} / 2"
+  - "Zn → Zn2+ + 2e−"
 
 explicacion: |
-  El cociente se calcula dividiendo los moles disponibles por el coeficiente estequiométrico de esa sustancia.
+  {moles_zn} × 2 moles de electrones.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
+  tema: "pilas_celdas_galvanicas"
+  nivel: "avanzado"
+  tags: ["comparacion", "electrolisis"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Al igual que en la electrólisis, en una pila hace falta aportar energía eléctrica externa para que la reacción ocurra."
+
+explicacion: |
+  Falso. En una pila la reacción es espontánea (produce energía); en la electrólisis (ver ../electrolisis/) hace falta aportar energía externa porque la reacción no es espontánea.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "pilas_celdas_galvanicas"
   nivel: "intermedio"
-  tags: ["estequiometria", "moles"]
+  tags: ["aplicacion", "conceptos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una pila deja de funcionar cuando se agota alguno de los reactivos de su reacción redox (por ejemplo, se consume todo el metal del ánodo)."
+
+explicacion: |
+  Correcto. Sin reactivo disponible para oxidarse o reducirse, la reacción se detiene y la pila ya no genera corriente.
+```
+
+## Sección: polimeros-naturales-sinteticos (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "basico"
+  tags: ["polimeros", "monomeros"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un polímero es una molécula gigante formada por la repetición de un monómero."
+
+explicacion: |
+  Correcto. Los polímeros son macromoléculas formadas por la unión de muchas unidades (monómeros).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "basico"
+  tags: ["polimerizacion"]
+
+respuesta: "polimerizacion"
+tipo: completar
+respuestas_validas:
+  - "polimerizacion"
+  - "polimerización"
+
+enunciado: "El proceso de unir monómeros para formar un polímero se llama ___."
+
+explicacion: |
+  La polimerización combina los monómeros en una cadena.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "basico"
+  tags: ["tamaño", "estructura"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El monómero es más grande que el polímero que forma."
+
+explicacion: |
+  Falso. El monómero es la unidad chica; el polímero es la estructura gigante que resulta de repetirlo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "basico"
+  tags: ["estructura", "monomeros"]
+
+respuesta: "entre cientos y millones de monómeros repetidos"
+tipo: mc
+opciones_explicitas: ["entre cientos y millones de monómeros repetidos", "siempre exactamente 2 monómeros", "siempre exactamente 10 monómeros", "1 solo monómero"]
+
+enunciado: "Un polímero puede tener..."
+
+explicacion: |
+  Los polímeros pueden llegar a tener desde cientos hasta millones de unidades repetidas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "intermedio"
+  tags: ["polimeros", "biologia"]
 
 variables:
-  moles_o2: uno_de([1, 2, 3])
+  datos: [["almidon", "glucosa"], ["proteinas", "aminoacidos"], ["ADN", "nucleotidos"]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: moles_o2
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["glucosa", "aminoacidos", "nucleotidos"]
+
+enunciado: "¿Cuál es el monómero del polímero natural {datos[idx][0]}?"
+
+explicacion: |
+  {datos[idx][0]} tiene como monómero: {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "basico"
+  tags: ["proteinas", "polimeros"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las proteínas son un ejemplo de polímero natural, con aminoácidos como monómero."
+
+explicacion: |
+  Correcto. Las proteínas son cadenas de aminoácidos unidos por enlace peptídico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "intermedio"
+  tags: ["caucho", "isopreno"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El caucho natural (látex) tiene como monómero al isopreno."
+
+explicacion: |
+  Correcto: el caucho natural es un polímero de isopreno.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "basico"
+  tags: ["adn", "nucleotidos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El ADN es un polímero de aminoácidos."
+
+explicacion: |
+  Falso. El ADN es un polímero de nucleótidos; los aminoácidos son el monómero de las proteínas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "intermedio"
+  tags: ["polimeros", "sinteticos"]
+
+variables:
+  datos: [["polietileno", "etileno"], ["PVC", "cloruro de vinilo"], ["poliestireno", "estireno"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["etileno", "cloruro de vinilo", "estireno"]
+
+enunciado: "¿Cuál es el monómero del polímero sintético {datos[idx][0]}?"
+
+explicacion: |
+  {datos[idx][0]} se obtiene polimerizando {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "basico"
+  tags: ["petroleo", "sinteticos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los polímeros sintéticos generalmente se fabrican a partir de derivados del petróleo."
+
+explicacion: |
+  Verdadero. La mayoría de los plásticos vienen de hidrocarburos derivados del petróleo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "basico"
+  tags: ["nylon", "clasificacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El nylon es un polímero natural, no sintético."
+
+explicacion: |
+  Falso. El nylon es sintético, producido industrialmente.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "basico"
+  tags: ["poliestireno", "telgopor"]
+
+respuesta: "poliestireno"
+tipo: mc
+opciones_explicitas: ["poliestireno", "PVC", "nylon", "celulosa"]
+
+enunciado: "¿Cuál de estos polímeros se usa comúnmente para fabricar telgopor?"
+
+explicacion: |
+  El poliestireno expandido es el material del telgopor.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "intermedio"
+  tags: ["propiedades"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las propiedades físicas de un polímero (dureza, flexibilidad) dependen de cuántos monómeros tiene la cadena y de cómo se entrelazan."
+
+explicacion: |
+  La longitud de cadena y el entrelazado determinan las propiedades mecánicas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "intermedio"
+  tags: ["polietileno", "estructura"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El mismo monómero (etileno) puede dar polietileno de baja densidad (flexible) o de alta densidad (rígido), según cómo se arme la cadena."
+
+explicacion: |
+  El grado de ramificación afecta qué tan compactamente empaquetan las cadenas, cambiando densidad y rigidez.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "basico"
+  tags: ["ambiente", "degradacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los polímeros sintéticos suelen ser fáciles de degradar naturalmente, por eso no contaminan."
+
+explicacion: |
+  Falso. Sus enlaces estables son difíciles de romper por microorganismos: persisten mucho tiempo en el ambiente.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "intermedio"
+  tags: ["enlace_quimico", "ambiente"]
+
+respuesta: "estable"
+tipo: completar
+respuestas_validas:
+  - "estable"
+
+enunciado: "El mismo enlace ___ que hace prácticos a los polímeros sintéticos es el que los hace persistentes en el ambiente."
+
+explicacion: |
+  La estabilidad de los enlaces da durabilidad, pero también impide su degradación biológica.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "avanzado"
+  tags: ["biomoleculas", "polimeros"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Muchas biomoléculas (almidón, proteínas, ADN) son en realidad polímeros, aunque no se las llame así en el uso cotidiano."
+
+explicacion: |
+  Correcto. Todas cumplen la definición: cadenas largas de un monómero repetido.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "intermedio"
+  tags: ["ambiente", "reciclaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El reciclaje de plásticos busca reutilizar el material del polímero, en vez de esperar a que se degrade naturalmente (lo cual puede tardar siglos)."
+
+explicacion: |
+  Correcto. Dado que se degradan muy lentamente, reciclar evita que se acumulen como basura por mucho tiempo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "avanzado"
+  tags: ["conceptos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El agua (H2O) es un ejemplo de polímero, porque está formada por la repetición de átomos de hidrógeno y oxígeno."
+
+explicacion: |
+  Falso. Un polímero es la repetición de un MONÓMERO (una unidad molecular completa) muchas veces, no simplemente una molécula chica con varios átomos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "polimeros_naturales_sinteticos"
+  nivel: "intermedio"
+  tags: ["polietileno", "hidrocarburos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El monómero del polietileno (etileno) es también el hidrocarburo insaturado más simple de la familia de los alquenos."
+
+explicacion: |
+  Correcto. El eteno/etileno (C2H4) es el primer alqueno de la serie — ver ../hidrocarburos-alcanos-alquenos-alquinos/.
+```
+
+## Sección: presiones-parciales (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "basico"
+  tags: ["gases", "ley_de_dalton"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La presión total de una mezcla de gases es la suma de las presiones parciales de cada componente."
+
+explicacion: |
+  Según la Ley de Dalton, la presión total de una mezcla de gases que no reaccionan entre sí es la suma de las presiones que cada gas ejercería si ocupara solo todo el volumen.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: "parcial"
+tipo: completar
+respuestas_validas:
+  - "parcial"
+
+enunciado: "La presión que ejercería un gas si estuviera solo, ocupando todo el volumen, se llama presión ___."
+
+explicacion: |
+  Esa presión hipotética es la presión parcial del gas dentro de la mezcla.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "intermedio"
+  tags: ["calculo", "ley_de_dalton"]
+
+variables:
+  p1: uno_de([1, 2, 3])
+  p2: uno_de([1, 2])
+  p3: uno_de([1, 2, 3])
+
+respuesta: p1 + p2 + p3
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "En la reacción 2 H2 + O2 → 2 H2O, si hay {moles_o2} moles de O2, ¿cuál es el cociente moles/coeficiente del O2?"
+enunciado: "Una mezcla de tres gases tiene presiones parciales P1 = {p1} atm, P2 = {p2} atm y P3 = {p3} atm. ¿Cuál es la presión total de la mezcla?"
 
 pasos:
-  - "Coeficiente de O2 en la ecuación: 1"
-  - "Cociente: {moles_o2} / 1"
+  - "P_total = P1 + P2 + P3"
 
 explicacion: |
-  Como el coeficiente del O2 es 1, el cociente es igual a la cantidad de moles disponibles.
+  P_total = {p1} + {p2} + {p3} atm.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
+  tema: "presiones_parciales"
   nivel: "basico"
   tags: ["conceptos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿El reactivo con el cociente menor (moles dividido coeficiente) entre todos los reactivos es el reactivo limitante?"
+enunciado: "Cada gas de una mezcla se comporta como si estuviera solo ocupando todo el volumen, a la misma temperatura."
 
 explicacion: |
-  Correcto. El reactivo limitante se identifica porque su cociente moles/coeficiente es el valor mínimo entre todos los reactivos.
+  Es un postulado de la Ley de Dalton para gases ideales: cada gas se comporta de forma independiente de los demás.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
+  tema: "presiones_parciales"
   nivel: "basico"
-  tags: ["procedimiento"]
+  tags: ["fraccion_molar", "conceptos"]
 
-respuesta: "coeficiente"
+respuesta: "totales"
 tipo: completar
 respuestas_validas:
-  - "coeficiente"
-  - "coeficientes"
+  - "totales"
 
-enunciado: "Para encontrar el reactivo limitante hay que dividir los moles de cada reactivo por su ___ en la ecuación balanceada."
+enunciado: "La fracción molar de un gas es sus moles dividido los moles ___."
 
 explicacion: |
-  El coeficiente estequiométrico indica la proporción en la que reaccionan los reactivos; dividir los moles reales por él permite compararlos.
+  La fracción molar (Xi) es el cociente entre los moles de ese componente (ni) y los moles totales de la mezcla (n_total).
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
-  nivel: "intermedio"
-  tags: ["estequiometria", "ejercicio"]
-
-respuesta: "O2"
-tipo: mc
-opciones_explicitas: ["O2", "H2", "H2O", "Ninguno"]
-
-enunciado: "Dada la reacción 2 H2 + O2 → 2 H2O, si hay 6 moles de H2 y 2 moles de O2, ¿cuál es el reactivo limitante?"
-
-pasos:
-  - "Cociente de H2: 6 / 2 = 3"
-  - "Cociente de O2: 2 / 1 = 2"
-  - "El menor (2) corresponde al O2."
-
-explicacion: |
-  El cociente del H2 es 3 y el del O2 es 2. Como 2 es menor, el oxígeno se agota antes: es el reactivo limitante.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
-  nivel: "intermedio"
-  tags: ["estequiometria", "calculo"]
-
-variables:
-  rendimiento_teorico: uno_de([20, 40, 50, 80, 100])
-  porcentaje: uno_de([50, 75, 80, 90])
-  rendimiento_real: rendimiento_teorico * porcentaje / 100
-
-respuesta: porcentaje
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "El rendimiento teórico de una reacción es de {rendimiento_teorico} g y el rendimiento real obtenido en el laboratorio es de {rendimiento_real} g. ¿Cuál es el porcentaje de rendimiento?"
-
-pasos:
-  - "Dividir el rendimiento real por el teórico y multiplicar por 100."
-
-explicacion: |
-  % rendimiento = ({rendimiento_real} / {rendimiento_teorico}) × 100 = {porcentaje}%.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
+  tema: "presiones_parciales"
   nivel: "basico"
-  tags: ["teoria", "formula"]
-
-respuesta: "teorico"
-tipo: completar
-respuestas_validas:
-  - "teorico"
-
-enunciado: "La fórmula del rendimiento porcentual es (rendimiento real dividido rendimiento ___) por 100."
-
-explicacion: |
-  El rendimiento porcentual compara lo obtenido experimentalmente (real) contra la cantidad máxima predicha por la estequiometría (teórico).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
-  nivel: "basico"
-  tags: ["teoria"]
+  tags: ["fraccion_molar", "propiedades"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El rendimiento real de una reacción en la práctica es casi siempre menor al 100%."
+enunciado: "La suma de todas las fracciones molares de una mezcla siempre da 1."
 
 explicacion: |
-  Por reacciones secundarias, pérdidas de material en el proceso, etc., el rendimiento real suele ser menor al teórico.
+  Como cada fracción molar es una proporción respecto al total, la suma de todas las partes siempre es 1.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
+  tema: "presiones_parciales"
   nivel: "intermedio"
-  tags: ["estequiometria"]
+  tags: ["calculo", "fraccion_molar"]
 
-respuesta: "el reactivo limitante"
-tipo: mc
-opciones_explicitas: ["el reactivo limitante", "el reactivo en exceso", "el promedio de ambos reactivos", "el producto final medido"]
+variables:
+  datos: [[1, 4], [2, 5], [3, 10]]
+  idx: uno_de([0, 1, 2])
 
-enunciado: "El rendimiento teórico de una reacción se calcula a partir de:"
+respuesta: datos[idx][0] / datos[idx][1]
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Calculá la fracción molar de un componente con {datos[idx][0]} moles, en una mezcla de {datos[idx][1]} moles totales."
 
 explicacion: |
-  Siempre se basa en el reactivo limitante, porque es el que determina la cantidad máxima de producto posible.
+  Xi = ni / n_total = {datos[idx][0]} / {datos[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
+  tema: "presiones_parciales"
+  nivel: "intermedio"
+  tags: ["ley_de_dalton", "presion_parcial"]
+
+respuesta: "Pi = Xi * P_total"
+tipo: mc
+opciones_explicitas: ["Pi = Xi * P_total", "Pi = Xi + P_total", "Pi = Xi / P_total", "Pi = P_total / Xi"]
+
+enunciado: "¿Cuál es la fórmula para calcular la presión parcial (Pi) de un gas en una mezcla?"
+
+explicacion: |
+  Pi = Xi × P_total: la presión parcial es la fracción molar multiplicada por la presión total.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "intermedio"
+  tags: ["ley_dalton", "gases"]
+
+variables:
+  n_n2: 2
+  n_o2: 1
+  p_total: 3
+
+respuesta: (n_n2 / (n_n2 + n_o2)) * p_total
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Una mezcla tiene 2 moles de N2 y 1 mol de O2, con presión total de 3 atm. ¿Cuál es la presión parcial del N2?"
+
+pasos:
+  - "n_total = n_n2 + n_o2"
+  - "X_N2 = n_n2 / n_total"
+  - "P_N2 = X_N2 × P_total"
+
+explicacion: |
+  P_N2 = (2 / (2+1)) × 3 = (2/3) × 3 = 2 atm.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "intermedio"
+  tags: ["ley_dalton", "gases"]
+
+variables:
+  n_n2: 2
+  n_o2: 1
+  p_total: 3
+
+respuesta: (n_o2 / (n_n2 + n_o2)) * p_total
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Con la misma mezcla (2 mol de N2, 1 mol de O2, presión total 3 atm), ¿cuál es la presión parcial del O2?"
+
+pasos:
+  - "X_O2 = n_o2 / n_total"
+  - "P_O2 = X_O2 × P_total"
+
+explicacion: |
+  P_O2 = (1 / (2+1)) × 3 = 1 atm.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
   nivel: "basico"
-  tags: ["teoria"]
+  tags: ["ley_dalton", "gases"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la mezcla anterior (2 mol N2, 1 mol O2, 3 atm totales), la presión parcial del N2 (2 atm) es mayor que la del O2 (1 atm)."
+
+explicacion: |
+  Verdadero. Al haber más moles de N2, su fracción molar (y por lo tanto su presión parcial) es mayor.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "basico"
+  tags: ["ley_dalton", "gases"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La suma de las presiones parciales de todos los gases de una mezcla debe dar exactamente la presión total."
+
+explicacion: |
+  Verdadero. Es la definición misma de la Ley de Dalton: P_total = P1 + P2 + ... + Pn.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "intermedio"
+  tags: ["ley_de_dalton", "conceptos"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Un rendimiento mayor al 100% siempre es físicamente posible en condiciones normales, sin ningún error de medición."
+enunciado: "Para calcular la presión parcial de un gas en una mezcla, hace falta conocer la cantidad de moles de TODOS los otros gases presentes por separado."
 
 explicacion: |
-  Falso. No se puede obtener más producto del que la estequiometría permite; un rendimiento >100% indica errores experimentales (impurezas, humedad, pesada incorrecta).
+  Falso. Alcanza con conocer los moles de ese gas y el total de moles de la mezcla (o su fracción molar) — no hace falta la composición detallada de cada uno de los demás.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
-  nivel: "basico"
-  tags: ["estequiometria", "conceptos_clave"]
+  tema: "presiones_parciales"
+  nivel: "intermedio"
+  tags: ["gas_ideal", "mezclas"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los cálculos de la cantidad de producto formado se hacen a partir de los moles del reactivo LIMITANTE, no del reactivo en exceso."
-
-explicacion: |
-  Correcto. El reactivo limitante determina la cantidad máxima de producto posible.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
-  nivel: "basico"
-  tags: ["analogia", "conceptos_clave"]
-
-respuesta: "queda en exceso, sin usarse"
+respuesta: "la ecuación de estado de los gases ideales (PV=nRT)"
 tipo: mc
-opciones_explicitas: ["queda en exceso, sin usarse", "se usa igual", "se destruye", "se convierte en queso"]
+opciones_explicitas: ["la ley de Boyle", "la ley de Charles", "la ecuación de estado de los gases ideales (PV=nRT)", "ninguna de las anteriores"]
 
-enunciado: "En la analogía de los sándwiches (2 panes + 1 queso por sándwich), si el queso es el reactivo limitante, ¿qué pasa con el pan sobrante?"
+enunciado: "En una mezcla de gases ideales, cada componente sigue su propia..."
 
 explicacion: |
-  El reactivo en exceso es el que sobra una vez que el limitante se agotó por completo — no se transforma en nada, simplemente no reacciona.
+  Cada gas se comporta como si fuera el único presente, siguiendo PV=nRT con su propia presión parcial.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
-  nivel: "avanzado"
-  tags: ["calculo", "rendimiento"]
+  tema: "presiones_parciales"
+  nivel: "intermedio"
+  tags: ["calculo", "ley_de_dalton"]
 
 variables:
-  datos: [[10, 5], [20, 10], [25, 15], [50, 20]]
-  idx: uno_de([0, 1, 2, 3])
+  n_a: uno_de([2, 3, 4])
+  n_b: uno_de([1, 2])
+  p_total: uno_de([6, 9, 12])
 
-respuesta: datos[idx][1] / datos[idx][0] * 100
+respuesta: (n_a / (n_a + n_b)) * p_total
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "El rendimiento teórico de una reacción es de {datos[idx][0]} gramos y el rendimiento real obtenido es de {datos[idx][1]} gramos. ¿Cuál es el porcentaje de rendimiento?"
+enunciado: "Un recipiente tiene el gas A con {n_a} moles y el gas B con {n_b} moles. Si la presión total es {p_total} atm, ¿cuál es la presión parcial del gas A?"
+
+pasos:
+  - "n_total = n_a + n_b"
+  - "X_A = n_a / n_total"
+  - "P_A = X_A × P_total"
 
 explicacion: |
-  % rendimiento = ({datos[idx][1]} / {datos[idx][0]}) × 100.
+  P_A = ({n_a} / ({n_a} + {n_b})) × {p_total}.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
+  tema: "presiones_parciales"
   nivel: "basico"
-  tags: ["procedimiento", "estequiometria"]
+  tags: ["simbolos", "fraccion_molar"]
+
+respuesta: "X"
+tipo: completar
+respuestas_validas:
+  - "X"
+
+enunciado: "El símbolo típico para representar la fracción molar de un componente es la letra ___ (en mayúscula)."
+
+explicacion: |
+  La fracción molar se representa comúnmente con "X" (por ejemplo, X_A para el componente A).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "basico"
+  tags: ["conceptos", "ley_dalton"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Para encontrar el reactivo limitante, el primer paso es convertir todas las cantidades de los reactivos a moles."
+enunciado: "A igual presión total, el gas con más moles en la mezcla tiene la presión parcial más alta."
 
 explicacion: |
-  Correcto. La estequiometría trabaja en proporciones molares; no se pueden comparar masas directamente sin pasar antes por moles.
+  Verdadero. La presión parcial es proporcional a la fracción molar, así que más moles de un gas implican mayor presión parcial de ese gas.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
+  tema: "presiones_parciales"
   nivel: "intermedio"
-  tags: ["estequiometria", "ejercicio"]
+  tags: ["aplicacion", "aire"]
 
-respuesta: "H2"
+respuesta: "N2 (nitrógeno), porque es el componente mayoritario del aire"
 tipo: mc
-opciones_explicitas: ["H2", "O2", "H2O", "Ninguno"]
+opciones_explicitas: ["N2 (nitrógeno), porque es el componente mayoritario del aire", "O2 (oxígeno), porque es el que respiramos", "CO2, porque es el más pesado", "Todos tienen la misma presión parcial"]
 
-enunciado: "Dada la reacción 2 H2 + O2 → 2 H2O, si hay 4 moles de H2 y 3 moles de O2, ¿cuál es el reactivo limitante?"
+enunciado: "En el aire (mezcla de N2, O2, CO2 y otros gases), ¿cuál gas tiene la presión parcial más alta?"
 
 explicacion: |
-  Cociente de H2: 4/2 = 2. Cociente de O2: 3/1 = 3. El menor es 2 (H2), así que el H2 es el limitante.
+  El aire es ~78% N2 en moles, así que su fracción molar (y su presión parcial) es la más alta de todos los componentes.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "reactivo_limitante_rendimiento"
+  tema: "presiones_parciales"
   nivel: "basico"
   tags: ["conceptos"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si se agrega más cantidad del reactivo que YA está en exceso, la cantidad de producto formado no aumenta (mientras el limitante siga siendo el mismo)."
-
-explicacion: |
-  Verdadero. Agregar más del reactivo en exceso no cambia nada: el límite lo sigue poniendo el reactivo limitante, que no varió.
-```
-
-## Sección: seguridad-laboratorio (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "basico"
-  tags: ["ghs", "pictogramas"]
-
-variables:
-  tabla: [["llama", "inflamable"], ["calavera", "toxico agudo"], ["corrosion", "corrosivo, quema tejido o metal"], ["signo de exclamacion", "irritante o dañino en menor grado"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: tabla[idx][1]
-tipo: mc
-opciones_explicitas: ["inflamable", "toxico agudo", "corrosivo, quema tejido o metal", "irritante o dañino en menor grado"]
-
-enunciado: "El pictograma de {tabla[idx][0]} significa..."
-
-explicacion: |
-  El pictograma de {tabla[idx][0]} indica que la sustancia es {tabla[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "basico"
-  tags: ["ghs", "estandar"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El GHS es un estándar internacional para etiquetar sustancias químicas peligrosas con símbolos reconocibles sin importar el idioma."
-
-explicacion: |
-  Correcto. El Sistema Globalmente Armonizado estandariza la comunicación de peligros mundialmente.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "basico"
-  tags: ["ghs", "explosivo"]
-
 respuesta: falso
 tipo: vf
 
-enunciado: "El pictograma de una bomba explotando indica que la sustancia es inflamable, no explosiva."
+enunciado: "Un gas que está presente en una mezcla, aunque sea en muy poca cantidad, tiene presión parcial igual a cero."
 
 explicacion: |
-  Falso. Ese pictograma indica específicamente que la sustancia es explosiva.
+  Falso. Mientras haya al menos una fracción molar mayor que cero de ese gas, su presión parcial también es mayor que cero (aunque sea chica).
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "basico"
-  tags: ["ghs", "medio_ambiente"]
-
-respuesta: "peligro para el ambiente"
-tipo: mc
-opciones_explicitas: ["peligro para el ambiente", "toxico agudo", "corrosivo", "inflamable"]
-
-enunciado: "El pictograma de medio ambiente (pez y árbol muerto) indica:"
-
-explicacion: |
-  Indica peligro para el ambiente (toxicidad acuática, daño ecológico, etc.).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "basico"
-  tags: ["ghs", "visual"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los pictogramas GHS se reconocen de un vistazo sin depender de leer texto."
-
-explicacion: |
-  El objetivo de estos símbolos es la identificación rápida y visual del peligro.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
+  tema: "presiones_parciales"
   nivel: "intermedio"
-  tags: ["epp", "seguridad"]
-
-variables:
-  tabla: [["guantes", "contacto de la piel con sustancias corrosivas o toxicas"], ["gafas de seguridad", "salpicaduras en los ojos"], ["guardapolvo/bata", "salpicaduras en la ropa y piel"], ["campana extractora", "inhalacion de vapores toxicos"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: tabla[idx][1]
-tipo: mc
-opciones_explicitas: ["contacto de la piel con sustancias corrosivas o toxicas", "salpicaduras en los ojos", "salpicaduras en la ropa y piel", "inhalacion de vapores toxicos"]
-
-enunciado: "¿De qué protege principalmente {tabla[idx][0]}?"
-
-explicacion: |
-  {tabla[idx][0]} protege de: {tabla[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "basico"
-  tags: ["epp"]
+  tags: ["conceptos", "relacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La campana extractora protege de la inhalación de vapores tóxicos."
+enunciado: "Si dos gases en una mezcla tienen la misma fracción molar, entonces tienen la misma presión parcial."
 
 explicacion: |
-  Correcto. Evacúa vapores, gases y polvos hacia afuera, evitando la inhalación.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "basico"
-  tags: ["epp"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los guantes protegen contra la inhalación de vapores."
-
-explicacion: |
-  Falso. Protegen las manos del contacto directo con sustancias, no la vía respiratoria.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "basico"
-  tags: ["buenas_practicas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para oler una sustancia química, hay que abanicar el vapor hacia la nariz con la mano desde una distancia prudencial, sin acercar el recipiente directo."
-
-explicacion: |
-  Acercar el recipiente directo puede causar irritación o intoxicación por vapores concentrados.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "basico"
-  tags: ["pipeteo"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si no hay pera de goma o propipeta disponible, se permite pipetear con la boca para asegurar la precisión del volumen."
-
-explicacion: |
-  Falso. Nunca se pipetea con la boca — riesgo de ingerir sustancias tóxicas o corrosivas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "intermedio"
-  tags: ["reacciones_exotermicas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al diluir un ácido concentrado, el procedimiento seguro es verter siempre el ácido sobre el agua, lentamente."
-
-explicacion: |
-  Correcto. El calor generado se disipa en el gran volumen de agua; al revés, la reacción puede salpicar ácido concentrado.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "intermedio"
-  tags: ["reacciones_exotermicas"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Agregar agua a un ácido concentrado es una práctica segura, porque ayuda a que el ácido se diluya más rápido."
-
-explicacion: |
-  Falso. Genera una reacción exotérmica violenta que puede provocar ebullición instantánea y salpicaduras peligrosas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "basico"
-  tags: ["normativas"]
-
-respuesta: "seguridad"
-tipo: completar
-respuestas_validas:
-  - "seguridad"
-
-enunciado: "Antes de manipular una sustancia química nueva, hay que leer siempre la hoja de ___ (MSDS/FDS)."
-
-explicacion: |
-  Esa hoja contiene información sobre toxicidad, reactividad, primeros auxilios y EPP necesario.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "intermedio"
-  tags: ["pictogramas", "ghs"]
-
-respuesta: "Llama sobre un círculo (Comburente)"
-tipo: mc
-opciones_explicitas: ["Llama simple (Inflamable)", "Llama sobre un círculo (Comburente)", "Corrosivo", "Bomba explotando (Explosivo)"]
-
-enunciado: "Un pictograma que favorece la combustión de otros materiales, sin ser inflamable por sí mismo, es..."
-
-explicacion: |
-  El pictograma "comburente" (llama sobre círculo) indica sustancias que facilitan la combustión de otras, aunque ellas mismas no ardan.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "basico"
-  tags: ["sustancias", "comburente"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El peróxido de hidrógeno concentrado es un ejemplo de sustancia comburente."
-
-explicacion: |
-  Verdadero, es un fuerte agente oxidante que alimenta la combustión de otros materiales.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "intermedio"
-  tags: ["benceno", "cancerigeno"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El benceno tiene pictograma de peligro para la salud, porque está clasificado como cancerígeno."
-
-explicacion: |
-  Correcto, es un tóxico crónico clasificado como cancerígeno.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "basico"
-  tags: ["ghs", "normativa"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El diseño de los pictogramas GHS (rombo con borde rojo) es igual en todos los países que adoptan el sistema."
-
-explicacion: |
-  Correcto, es justamente el objetivo del estándar internacional.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-respuesta: "trabajar bajo la campana extractora"
-tipo: mc
-opciones_explicitas: ["trabajar bajo la campana extractora", "oler el frasco directamente", "abrirlo lejos de cualquier equipo de protección", "guardarlo sin etiqueta"]
-
-enunciado: "Si un frasco tiene el pictograma de tóxico agudo (calavera) y libera vapores, ¿qué medida es la más adecuada al manipularlo?"
-
-explicacion: |
-  Ante riesgo de inhalación de un tóxico, hay que trabajar bajo campana extractora, que evacúa los vapores.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "intermedio"
-  tags: ["pictogramas", "comparacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El pictograma de corrosivo y el de irritante (signo de exclamación) significan exactamente lo mismo, sólo cambia el dibujo."
-
-explicacion: |
-  Falso. El corrosivo indica daño severo (quemaduras en piel/metal); el irritante indica un daño más leve — son niveles de peligro distintos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "seguridad_laboratorio"
-  nivel: "avanzado"
-  tags: ["reacciones_exotermicas", "aplicacion"]
-
-respuesta: "el gran volumen de agua absorbe y disipa el calor liberado de a poco"
-tipo: mc
-opciones_explicitas: ["el gran volumen de agua absorbe y disipa el calor liberado de a poco", "el ácido se vuelve inofensivo al tocar el agua", "no hay ninguna razón real, es sólo una costumbre", "el agua reacciona más lento que el ácido"]
-
-enunciado: "¿Por qué es más seguro agregar ácido al agua (de a poco) en vez de agua al ácido?"
-
-explicacion: |
-  Al agregar poco a poco ácido a mucha agua, el calor liberado se reparte en todo ese volumen; al revés, el calor se concentra de golpe en poca agua y puede hervir violentamente, salpicando ácido.
+  Verdadero. Como Pi = Xi × P_total, si Xi es igual para dos gases, Pi también es igual (mismo P_total para toda la mezcla).
 ```
 
 ## Sección: superconductividad (24 preguntas)
@@ -1594,348 +2223,6 @@ explicacion: |
   Verdadero. Mantener temperaturas criogénicas requiere infraestructura costosa y compleja, lo que limita su uso a aplicaciones de alto valor.
 ```
 
-## Sección: tabla-periodica-tendencias (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["tabla_periodica", "periodos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los periodos (filas) de la tabla periódica indican el número de niveles de energía ocupados por los electrones de un átomo."
-
-explicacion: |
-  Correcto. El número de fila (periodo) indica la cantidad de niveles de energía que tiene la configuración electrónica del elemento.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["tabla_periodica", "grupos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los elementos que pertenecen al mismo grupo (columna) comparten la misma cantidad de electrones en su capa de valencia."
-
-explicacion: |
-  Correcto. Compartir la cantidad de electrones de valencia es lo que da propiedades químicas similares a los elementos de un mismo grupo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["tabla_periodica", "orden"]
-
-respuesta: "número atómico creciente"
-tipo: mc
-opciones_explicitas: ["número atómico creciente", "masa atómica creciente", "orden alfabético", "año de descubrimiento"]
-
-enunciado: "La tabla periódica moderna ordena los elementos según su..."
-
-explicacion: |
-  La tabla periódica moderna se organiza en orden creciente de número atómico (Z), la cantidad de protones — no por masa, como se ordenaba antes de conocerse el protón.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["tabla_periodica", "nombres"]
-
-respuesta: "periodos"
-tipo: completar
-respuestas_validas:
-  - "periodos"
-
-enunciado: "Las filas horizontales de la tabla periódica se llaman ___."
-
-explicacion: |
-  Las filas horizontales se denominan periodos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["tabla_periodica", "nombres"]
-
-respuesta: "grupos"
-tipo: completar
-respuestas_validas:
-  - "grupos"
-
-enunciado: "Las columnas verticales de la tabla periódica se llaman ___."
-
-explicacion: |
-  Las columnas verticales se denominan grupos o familias.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["elementos", "electrones"]
-
-variables:
-  escenario: uno_de([["metal", "perder electrones (forma cationes)"], ["no metal", "ganar electrones (forma aniones)"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["perder electrones (forma cationes)", "ganar electrones (forma aniones)"]
-
-enunciado: "Un elemento de tipo {escenario[0]} tiene la tendencia a..."
-
-explicacion: |
-  Los metales tienden a perder electrones y formar cationes. Los no metales tienden a ganar electrones y formar aniones.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["metaloides"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los metaloides tienen propiedades intermedias entre metales y no metales."
-
-explicacion: |
-  Los metaloides (como el silicio o el germanio) comparten características físicas y químicas con metales y no metales.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["gases_nobles"]
-
-respuesta: "nobles"
-tipo: completar
-respuestas_validas:
-  - "nobles"
-
-enunciado: "El grupo 18 de la tabla periódica son los gases ___."
-
-explicacion: |
-  El grupo 18 está formado por los gases nobles (helio, neón, argón, etc.).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["gases_nobles", "reactividad"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los gases nobles son muy reactivos porque tienen la capa de valencia incompleta."
-
-explicacion: |
-  Falso. Los gases nobles son poco reactivos (inertes) justamente porque su capa de valencia está completa.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["ubicacion", "tabla_periodica"]
-
-respuesta: "arriba a la derecha"
-tipo: mc
-opciones_explicitas: ["arriba a la derecha", "a la izquierda", "en el centro", "abajo a la izquierda"]
-
-enunciado: "¿Dónde están ubicados los no metales en la tabla periódica?"
-
-explicacion: |
-  Los metales ocupan la mayor parte de la tabla (izquierda y centro); los no metales se ubican en la parte superior derecha.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["radio_atomico", "grupos"]
-
-respuesta: "aumenta"
-tipo: mc
-opciones_explicitas: ["aumenta", "disminuye", "se mantiene igual"]
-
-enunciado: "Al bajar en un grupo de la tabla periódica, el radio atómico..."
-
-explicacion: |
-  Al bajar en un grupo se agrega un nuevo nivel de energía por cada fila, lo que aumenta el tamaño del átomo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["radio_atomico", "periodos"]
-
-respuesta: "disminuye"
-tipo: mc
-opciones_explicitas: ["disminuye", "aumenta", "se mantiene igual"]
-
-enunciado: "Al avanzar en un periodo de izquierda a derecha, el radio atómico..."
-
-explicacion: |
-  Al aumentar el número atómico en el mismo periodo, la carga nuclear efectiva aumenta y atrae los electrones con más fuerza, reduciendo el radio.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "intermedio"
-  tags: ["energia_ionizacion", "grupos"]
-
-respuesta: "disminuye"
-tipo: mc
-opciones_explicitas: ["disminuye", "aumenta", "se mantiene igual"]
-
-enunciado: "Al bajar en un grupo de la tabla periódica, la energía de ionización..."
-
-explicacion: |
-  Al bajar en un grupo, el electrón externo está en un nivel más lejano y menos atraído por el núcleo, así que cuesta menos energía sacarlo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "intermedio"
-  tags: ["electronegatividad", "periodos"]
-
-respuesta: "aumenta"
-tipo: mc
-opciones_explicitas: ["aumenta", "disminuye", "se mantiene igual"]
-
-enunciado: "Al avanzar en un periodo de izquierda a derecha, la electronegatividad..."
-
-explicacion: |
-  La mayor carga nuclear efectiva en el mismo nivel de energía aumenta la capacidad del núcleo de atraer electrones de un enlace.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["electronegatividad", "fluor"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El flúor (F) es el elemento con mayor electronegatividad de toda la tabla periódica."
-
-explicacion: |
-  El flúor es el más electronegativo de la tabla por su alta carga nuclear efectiva combinada con su radio atómico chico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "intermedio"
-  tags: ["radio_atomico", "periodo"]
-
-respuesta: "El radio disminuye porque el núcleo tiene más protones y atrae con más fuerza a los electrones de valencia"
-tipo: mc
-opciones_explicitas: ["El radio aumenta porque hay menos electrones", "El radio disminuye porque el núcleo tiene más protones y atrae con más fuerza a los electrones de valencia", "El radio disminuye porque los electrones se alejan del núcleo", "El radio aumenta porque aumenta el número de niveles de energía"]
-
-enunciado: "¿Por qué el radio atómico disminuye al avanzar de izquierda a derecha en un mismo periodo?"
-
-explicacion: |
-  El número atómico aumenta (más protones) sin sumar niveles de energía nuevos: la carga nuclear efectiva sube y atrae a los electrones con más fuerza, achicando el átomo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["radio_atomico", "grupo"]
-
-respuesta: "nuevo"
-tipo: completar
-respuestas_validas:
-  - "nuevo"
-
-enunciado: "Al bajar en un grupo de la tabla periódica se agrega un nivel de energía ___, lo que hace que el radio atómico aumente."
-
-explicacion: |
-  Cada vez que se baja un grupo se completa una capa electrónica más, agregando un nuevo nivel de energía y aumentando el tamaño del átomo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["electrones_valencia", "grupo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos elementos situados en el mismo grupo de la tabla periódica tienen la misma cantidad de electrones de valencia."
-
-explicacion: |
-  Los elementos de un mismo grupo comparten la misma configuración en su capa más externa, así que tienen el mismo número de electrones de valencia.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "intermedio"
-  tags: ["energia_ionizacion", "propiedades"]
-
-respuesta: "Energía de ionización"
-tipo: mc
-opciones_explicitas: ["Electronegatividad", "Energía de ionización", "Radio atómico", "Afinidad electrónica"]
-
-enunciado: "¿Cuál es la propiedad que mide la energía necesaria para arrancarle un electrón a un átomo en estado gaseoso?"
-
-explicacion: |
-  La energía de ionización mide el costo de remover un electrón. La electronegatividad mide la tendencia a atraer electrones en un enlace; la afinidad electrónica, la energía liberada al captar uno.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tabla_periodica_tendencias"
-  nivel: "basico"
-  tags: ["metales", "conductividad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los metales son en general buenos conductores eléctricos, mientras que los no metales suelen ser malos conductores."
-
-explicacion: |
-  Los electrones de valencia de los metales están débilmente unidos y se mueven con facilidad, lo que permite la conducción eléctrica. En los no metales, los electrones están más fuertemente retenidos.
-```
-
 ## Sección: termoquimica (20 preguntas)
 
 ```
@@ -2286,342 +2573,344 @@ explicacion: |
   Falso. El ΔH tabulado corresponde a la reacción tal como está balanceada (con esos coeficientes); si reacciona el doble de moles, el calor total intercambiado también se duplica.
 ```
 
-## Sección: tipos-reacciones-quimicas (20 preguntas)
+## Sección: energia-libre-gibbs (20 preguntas)
 
 ```
 metadata:
   materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
+  tema: "energia_libre_gibbs"
   nivel: "basico"
-  tags: ["sintesis", "conceptos_basicos"]
+  tags: ["termodinamica", "entropia"]
 
-respuesta: "1"
-tipo: mc
-opciones_explicitas: ["1", "2", "3", "depende de los reactivos"]
-
-enunciado: "En una reacción de síntesis (A + B → AB), ¿cuántos productos se forman?"
-
-explicacion: |
-  En una síntesis, dos o más sustancias se combinan para formar un único producto más complejo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "basico"
-  tags: ["sintesis"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la reacción 2H2 + O2 → 2H2O, dos sustancias simples se combinan en una sola, por lo tanto, es una reacción de síntesis."
-
-explicacion: |
-  Verdadero. Hidrógeno y oxígeno se combinan para formar una única sustancia: agua.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "basico"
-  tags: ["sintesis", "completar"]
-
-respuesta: "combinan"
+respuesta: "entropia"
 tipo: completar
 respuestas_validas:
-  - "combinan"
+  - "entropía"
+  - "entropia"
 
-enunciado: "En una reacción de síntesis, dos o más sustancias se ___ para formar una sola más compleja."
+enunciado: "La medida del desorden o dispersión de energía de un sistema se llama ___."
 
 explicacion: |
-  Los reactivos se combinan para formar un producto nuevo, único.
+  La entropía (S) mide el grado de desorden de un sistema.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
+  tema: "energia_libre_gibbs"
   nivel: "basico"
-  tags: ["sintesis"]
+  tags: ["termodinamica", "entropia", "soluciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un sólido se disuelve en un líquido, la entropía del sistema aumenta."
+
+explicacion: |
+  Al disolverse, las partículas pasan de una estructura cristalina ordenada a una distribución más desordenada: aumenta la entropía.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "basico"
+  tags: ["termodinamica", "segunda_ley"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Una reacción de síntesis se caracteriza por tener un solo reactivo y varios productos."
+enunciado: "El universo en conjunto tiende siempre a DISMINUIR su entropía."
 
 explicacion: |
-  Falso. Es al revés: una síntesis tiene varios reactivos y un solo producto.
+  Falso. Según la segunda ley de la termodinámica, la entropía total del universo siempre tiende a AUMENTAR.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "basico"
-  tags: ["descomposicion"]
-
-respuesta: "1"
-tipo: mc
-opciones_explicitas: ["1", "2", "3", "depende"]
-
-enunciado: "En una reacción de descomposición (AB → A + B), ¿cuántos reactivos hay al inicio?"
-
-explicacion: |
-  En una descomposición, un solo reactivo complejo se separa en dos o más productos más simples.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "basico"
-  tags: ["descomposicion", "sintesis"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿La reacción de descomposición es el proceso inverso a una reacción de síntesis?"
-
-explicacion: |
-  Correcto. En la síntesis varias sustancias se combinan en un producto; en la descomposición, un reactivo se separa en varios.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "basico"
-  tags: ["electrolisis", "descomposicion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La electrólisis del agua (2H2O → 2H2 + O2) es un ejemplo de una reacción de síntesis."
-
-explicacion: |
-  Falso. Es descomposición: una sola sustancia (H2O) se separa en sus componentes (H2 y O2).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "basico"
-  tags: ["energia", "descomposicion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Las reacciones de descomposición requieren frecuentemente energía externa (como calor o electricidad) para ocurrir?"
-
-explicacion: |
-  Verdadero. Romper enlaces cuesta energía: muchas descomposiciones son endotérmicas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "basico"
-  tags: ["desplazamiento"]
-
-respuesta: "reemplaza al elemento B dentro del compuesto BC"
-tipo: mc
-opciones_explicitas: ["se combina con el compuesto BC entero", "reemplaza al elemento B dentro del compuesto BC", "se descompone en sus elementos", "no reacciona con el compuesto BC"]
-
-enunciado: "En A + BC → AC + B, ¿qué hace el elemento A?"
-
-explicacion: |
-  A reemplaza a B dentro del compuesto, ocupando su lugar.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "basico"
-  tags: ["desplazamiento", "zinc"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En Zn + 2HCl → ZnCl2 + H2, el zinc desplaza al hidrógeno del ácido clorhídrico."
-
-explicacion: |
-  Verdadero. El zinc es más reactivo que el hidrógeno, así que lo desplaza del HCl.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
+  tema: "energia_libre_gibbs"
   nivel: "intermedio"
-  tags: ["reactividad", "desplazamiento"]
+  tags: ["termodinamica", "entropia", "espontaneidad"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Para que una reacción de desplazamiento ocurra, el elemento que desplaza debe ser MENOS reactivo que el elemento desplazado."
+enunciado: "Cada reacción individual está obligada a aumentar su propia entropía."
 
 explicacion: |
-  Falso. Tiene que ser MÁS reactivo para poder desplazarlo.
+  Falso. Una reacción puede disminuir su propia entropía (ej.: la formación de hielo) siempre que el entorno compense con un aumento mayor, de modo que la entropía TOTAL del universo aumente.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "basico"
-  tags: ["desplazamiento", "completar"]
+  tema: "energia_libre_gibbs"
+  nivel: "intermedio"
+  tags: ["termodinamica", "calculo"]
 
-respuesta: "solo"
+variables:
+  datos: [[-40, 100, 0.1], [-20, 200, 0.2], [20, 300, 0.1], [40, 100, 0.2]]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: datos[idx][0] - datos[idx][1] * datos[idx][2]
+tipo: completar
+tolerancia_abs: 0.5
+
+enunciado: "Calculá ΔG para una reacción con ΔH = {datos[idx][0]} kJ/mol, T = {datos[idx][1]} K y ΔS = {datos[idx][2]} kJ/(K·mol)."
+
+pasos:
+  - "ΔG = ΔH - T × ΔS"
+
+explicacion: |
+  ΔG = {datos[idx][0]} - ({datos[idx][1]} × {datos[idx][2]}).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "basico"
+  tags: ["termodinamica", "espontaneidad"]
+
+respuesta: "espontanea"
+tipo: mc
+opciones_explicitas: ["espontanea", "no espontanea", "esta en equilibrio", "imposible"]
+
+enunciado: "Si ΔG es negativo, la reacción es..."
+
+explicacion: |
+  ΔG < 0 indica que el proceso es termodinámicamente espontáneo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "basico"
+  tags: ["termodinamica", "espontaneidad"]
+
+respuesta: "no espontanea"
+tipo: mc
+opciones_explicitas: ["no espontanea", "espontanea", "esta en equilibrio", "imposible"]
+
+enunciado: "Si ΔG es positivo, la reacción es..."
+
+explicacion: |
+  ΔG > 0 indica que la reacción directa no es espontánea (la inversa sí lo sería).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "basico"
+  tags: ["termodinamica", "equilibrio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si ΔG es igual a 0, el sistema está en equilibrio."
+
+explicacion: |
+  Cuando ΔG = 0, no hay tendencia neta hacia reactivos ni hacia productos: equilibrio.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "intermedio"
+  tags: ["termodinamica", "entalpia", "entropia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una reacción tiene ΔH negativo (libera calor) y ΔS positivo (más desorden), es espontánea a cualquier temperatura."
+
+explicacion: |
+  ΔG = ΔH - TΔS: con ΔH negativo y -TΔS también negativo (porque ΔS>0), la suma siempre da ΔG < 0, sin importar T.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "intermedio"
+  tags: ["termodinamica", "entalpia", "entropia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una reacción tiene ΔH positivo (absorbe calor) y ΔS negativo (más orden), nunca es espontánea."
+
+explicacion: |
+  ΔH positivo y -TΔS también positivo (porque ΔS<0): la suma siempre da ΔG > 0, para cualquier temperatura.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "intermedio"
+  tags: ["termodinamica", "entalpia", "entropia"]
+
+respuesta: "solo a temperaturas bajas"
+tipo: mc
+opciones_explicitas: ["solo a temperaturas altas", "solo a temperaturas bajas", "siempre", "nunca"]
+
+enunciado: "Para una reacción con ΔH < 0 y ΔS < 0, ¿cuándo es espontánea?"
+
+explicacion: |
+  El término -TΔS es positivo (compite contra el ΔH negativo). A temperaturas bajas ese término pesa poco y gana el ΔH negativo: ΔG < 0.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "intermedio"
+  tags: ["termodinamica", "entalpia", "entropia"]
+
+respuesta: "solo a temperaturas altas"
+tipo: mc
+opciones_explicitas: ["solo a temperaturas altas", "solo a temperaturas bajas", "siempre", "nunca"]
+
+enunciado: "Para una reacción con ΔH > 0 y ΔS > 0, ¿cuándo es espontánea?"
+
+explicacion: |
+  El término -TΔS es negativo y crece con la temperatura. A temperaturas altas ese término supera al ΔH positivo: ΔG < 0.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "intermedio"
+  tags: ["termodinamica", "equilibrio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuanto más negativo es el ΔG° estándar, mayor es la constante de equilibrio Kc de esa reacción."
+
+explicacion: |
+  ΔG° = -RT×ln(Kc): un ΔG° muy negativo implica un ln(Kc) grande y positivo, entonces Kc es grande.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "basico"
+  tags: ["equilibrio", "termodinamica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el equilibrio químico, ΔG es igual a 0."
+
+explicacion: |
+  En el equilibrio no hay tendencia espontánea al cambio en ninguna dirección: ΔG = 0.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "basico"
+  tags: ["termodinamica"]
+
+respuesta: "S"
 tipo: completar
 respuestas_validas:
-  - "solo"
+  - "S"
+  - "entropia"
 
-enunciado: "En una reacción de desplazamiento aparece un elemento ___ (sin combinar) tanto en reactivos como en productos, pero con distinto compañero."
+enunciado: "La ecuación de Gibbs es ΔG = ΔH - T × Δ___."
 
 explicacion: |
-  El elemento desplazado queda libre en los productos, y el que desplaza toma su lugar en el compuesto.
+  ΔG = ΔH - T×ΔS, donde ΔS es el cambio de entropía del sistema.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "intermedio"
-  tags: ["patrones"]
-
-variables:
-  tabla: [["sintesis", "varios reactivos, un solo producto"], ["descomposicion", "un solo reactivo, varios productos"], ["desplazamiento", "un elemento solo mas un compuesto, en ambos lados"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: tabla[idx][1]
-tipo: mc
-opciones_explicitas: ["varios reactivos, un solo producto", "un solo reactivo, varios productos", "un elemento solo mas un compuesto, en ambos lados"]
-
-enunciado: "En una reacción de tipo {tabla[idx][0]}, ¿cuál es el patrón de reactivos y productos?"
-
-explicacion: |
-  El patrón de {tabla[idx][0]} es: {tabla[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "intermedio"
-  tags: ["ecuaciones", "clasificacion"]
-
-variables:
-  tabla: [["2H2 + O2 -> 2H2O", "sintesis"], ["2H2O -> 2H2 + O2", "descomposicion"], ["Zn + 2HCl -> ZnCl2 + H2", "desplazamiento"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: tabla[idx][1]
-tipo: mc
-opciones_explicitas: ["sintesis", "descomposicion", "desplazamiento"]
-
-enunciado: "¿A qué tipo de reacción pertenece {tabla[idx][0]}?"
-
-explicacion: |
-  Esa ecuación es de tipo {tabla[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
+  tema: "energia_libre_gibbs"
   nivel: "basico"
-  tags: ["conceptos"]
+  tags: ["termodinamica", "unidades"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Para distinguir entre síntesis, descomposición y desplazamiento, la clave es contar cuántas sustancias hay de cada lado de la ecuación."
+enunciado: "La temperatura T en la ecuación de Gibbs debe expresarse en Kelvin."
 
 explicacion: |
-  Correcto. La cantidad de reactivos y productos (y si hay un elemento solo) define el tipo de reacción.
+  Igual que en las otras fórmulas termodinámicas de este tronco, T siempre va en la escala absoluta.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "basico"
+  tema: "energia_libre_gibbs"
+  nivel: "avanzado"
+  tags: ["comparacion", "espontaneidad"]
+
+respuesta: "la reacción con ΔG = -50 kJ/mol"
+tipo: mc
+opciones_explicitas: ["la reacción con ΔG = -50 kJ/mol", "la reacción con ΔG = +10 kJ/mol", "ambas son igual de espontáneas", "ninguna es espontánea"]
+
+enunciado: "Entre dos reacciones, una con ΔG = -50 kJ/mol y otra con ΔG = +10 kJ/mol, ¿cuál es espontánea?"
+
+explicacion: |
+  Sólo la que tiene ΔG negativo (-50 kJ/mol) es espontánea. La de +10 kJ/mol necesita energía externa para ocurrir.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "intermedio"
   tags: ["conceptos"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Una reacción química con un solo reactivo y dos productos es una reacción de síntesis."
+enunciado: "Una reacción exotérmica (ΔH negativo) siempre es espontánea, sin importar el valor de ΔS."
 
 explicacion: |
-  Falso. Un solo reactivo que se divide en varios productos es descomposición, no síntesis.
+  Falso. Si ΔS también es negativo, a temperaturas muy altas el término -TΔS puede volverse más positivo que lo que ΔH aporta de negativo, haciendo ΔG > 0.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "basico"
-  tags: ["conceptos"]
+  tema: "energia_libre_gibbs"
+  nivel: "avanzado"
+  tags: ["conceptos", "reversibilidad"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una reacción con tres reactivos que se combinan en un solo producto es una reacción de síntesis."
+enunciado: "Si una reacción directa tiene ΔG > 0 (no espontánea), la reacción inversa tiene ΔG < 0 (sí es espontánea)."
 
 explicacion: |
-  Verdadero. El patrón "varios reactivos, un solo producto" es síntesis, sin importar si son 2, 3 o más reactivos.
+  Verdadero. El ΔG de la reacción inversa es el opuesto exacto del de la reacción directa (mismo valor absoluto, signo contrario).
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "intermedio"
-  tags: ["desplazamiento", "reconocimiento"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una ecuación tiene un elemento solo (sin combinar) del lado de los reactivos, y otro elemento solo del lado de los productos, probablemente es una reacción de desplazamiento."
-
-explicacion: |
-  Correcto. Esa es la señal característica del desplazamiento: un elemento libre "cambia de compañero" dentro de un compuesto.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "intermedio"
-  tags: ["comparacion"]
+  tema: "energia_libre_gibbs"
+  nivel: "avanzado"
+  tags: ["conceptos", "cinetica"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Descomposición y desplazamiento son el mismo tipo de reacción con distinto nombre."
+enunciado: "Una reacción espontánea (ΔG < 0) siempre ocurre rápido, en la práctica."
 
 explicacion: |
-  Falso. En la descomposición hay 1 reactivo y varios productos, sin un elemento libre reemplazando a otro; en el desplazamiento siempre hay un elemento libre que cambia de compañero.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "tipos_reacciones_quimicas"
-  nivel: "basico"
-  tags: ["ejemplos", "sintesis"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La reacción N2 + 3H2 → 2NH3 (síntesis del amoníaco) es una reacción de síntesis, porque dos reactivos se combinan en un solo producto."
-
-explicacion: |
-  Verdadero. Nitrógeno e hidrógeno (2 reactivos) se combinan para formar amoníaco (1 producto): patrón típico de síntesis.
+  Falso. Espontaneidad (termodinámica) y velocidad (cinética) son cosas distintas — ver ../cinetica-reaccion/. La oxidación del hierro es espontánea pero muy lenta.
 ```
 

@@ -1,6 +1,6 @@
 # Examen jefe — [PENDIENTE #651]
 
-> Logro #651. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **109 preguntas totales** en 5/5 secciones.
+> Logro #651. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **104 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -380,920 +380,6 @@ respuesta: "Porque prepara el oído para distinguir los sonidos del habla, la ba
 explicacion: |
   Es el punto de partida de toda la rama de Lengua — el siguiente
   paso es `../decodificacion-y-fluidez/`.
-```
-
-## Sección: escritura-como-tecnologia (25 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "basico"
-  tags: ["conceptos_fundamentales", "tecnologia"]
-
-tipo: mc
-opciones_explicitas: ["Un proceso biológico instintivo", "Un sistema tecnológico inventado", "Una capacidad natural del cerebro", "Un fenómeno meteorológico"]
-
-enunciado: "A diferencia del habla, que es una capacidad biológica natural de la especie humana, la escritura se define como:"
-
-respuesta: "Un sistema tecnológico inventado"
-
-explicacion: |
-  La escritura no es una facultad innata como el lenguaje oral; es una tecnología que requiere un aprendizaje cultural y técnico para registrar el pensamiento de forma visual y permanente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "intermedio"
-  tags: ["habla_vs_escritura", "permanencia"]
-
-tipo: completar
-respuestas_validas:
-  - "permanente"
-  - "efímero"
-
-enunciado: "Mientras que el habla es predominantemente ___, la escritura funciona como una tecnología que permite que el mensaje sea ___."
-
-respuesta: ["efímero", "permanente"]
-
-explicacion: |
-  El habla es transitoria (se desvanece en el tiempo), mientras que la escritura permite la permanencia del mensaje a través del soporte físico.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "basico"
-  tags: ["soportes", "historia"]
-
-variables:
-  escenario: uno_de([["piedra", "cincel"], ["papiro", "caña"], ["papel", "pluma"], ["pantalla", "teclado"]])
-
-tipo: completar
-
-enunciado: "La tecnología de la escritura evoluciona junto a sus soportes. Por ejemplo, si el soporte es {escenario[0]}, la herramienta tradicional es un {escenario[1]}."
-
-respuesta: escenario[1]
-
-explicacion: |
-  Cada avance en la tecnología de la escritura ha estado ligado a la invención de nuevos soportes y herramientas para grabarlos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "avanzado"
-  tags: ["sistemas_de_signos", "tecnologia"]
-
-tipo: mc
-opciones_explicitas: ["Es un sistema de signos arbitrarios", "Es una extensión del pensamiento puro", "Es un reflejo exacto del sonido", "Es un proceso inconsciente"]
-
-enunciado: "Como tecnología de registro, la escritura se basa en un sistema de signos que no es natural, sino ___."
-
-respuesta: "Es un sistema de signos arbitrarios"
-
-explicacion: |
-  La relación entre el signo escrito (grafema) y el concepto no es natural, sino una convención social y tecnológica establecida por el sistema de escritura elegido.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "intermedio"
-  tags: ["procesos", "tecnologia"]
-
-tipo: ordenar
-opciones_explicitas: ["Pensamiento", "Codificación visual", "Soporte físico", "Lectura/Interpretación"]
-
-enunciado: "Ordena los componentes de la cadena tecnológica de la escritura, desde la intención hasta la recepción:"
-
-respuesta_orden: ["Pensamiento", "Codificación visual", "Soporte físico", "Lectura/Interpretación"]
-
-explicacion: |
-  La escritura requiere un proceso de codificación (convertir pensamiento en signos visuales) sobre un soporte, para que luego otro sujeto pueda decodificarlo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "basico"
-  tags: ["escritura", "pictografia"]
-
-respuesta: "pictográfico"
-tipo: mc
-
-opciones_explicitas: ["silábico", "alfabético", "pictográfico", "logográfico"]
-
-enunciado: "Un sistema de escritura que utiliza símbolos para representar objetos o ideas directamente, sin pasar necesariamente por el sonido de las palabras, se denomina sistema ___."
-
-explicacion: |
-  Los sistemas pictográficos utilizan dibujos que guardan una relación visual directa con el concepto representado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "intermedio"
-  tags: ["evolucion", "sistemas"]
-
-variables:
-  escenario: uno_de([["dibujo de un sol", "pictográfico"], ["signo para la sílaba 'ma'", "silábico"], ["letra 'A'", "alfabético"]])
-  tipo_sistema: escenario[1]
-
-respuesta: tipo_sistema
-
-tipo: mc
-opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
-
-enunciado: "Si un sistema de escritura utiliza un símbolo para representar el sonido de una sílaba completa, estamos ante un sistema ___."
-
-explicacion: |
-  En el sistema silábico, el signo no representa una letra (sonido individual) ni un objeto, sino una unidad de sonido llamada sílaba.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "basico"
-  tags: ["alfabeto", "fonemas"]
-
-respuesta: "sonidos"
-tipo: completar
-respuestas_validas:
-  - "sonidos"
-  - "fonemas"
-
-enunciado: "A diferencia de los sistemas pictográficos, el sistema alfabético se basa en la representación de los ___ que constituyen el habla."
-
-explicacion: |
-  El alfabeto es un sistema donde cada signo (letra) representa un fonema o sonido mínimo, permitiendo una combinación infinita de palabras.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "avanzado"
-  tags: ["clasificacion", "tecnologia"]
-
-variables:
-  caso: uno_de([["jeroglíficos egipcios (fase temprana)", "pictográfico"], ["katakana japonés", "silábico"], ["alfabeto latino", "alfabético"]])
-  tipo_res: caso[1]
-
-respuesta: tipo_res
-
-tipo: mc
-opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
-
-enunciado: "Considerando el caso de {caso[0]}, el sistema de escritura utilizado es de tipo ___."
-
-explicacion: |
-  Dependiendo de la etapa y la función, los sistemas pueden transicionar de lo pictográfico a lo logográfico o silábico.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "intermedio"
-  tags: ["secuencia", "sistemas"]
-
-respuesta_orden: ["pictográfico", "silábico", "alfabético"]
-tipo: ordenar
-opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
-
-enunciado: "Ordena estos sistemas de escritura desde el que representa la unidad de significado más compleja (el objeto) hasta el que representa la unidad de sonido más simple (el fonema):"
-
-pasos:
-  - "Representación de objetos/ideas"
-  - "Representación de sílabas"
-  - "Representación de sonidos individuales"
-
-explicacion: |
-  La evolución tecnológica de la escritura tiende hacia la abstracción: de la imagen (pictograma) a la sílaba y finalmente al fonema (alfabeto).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "basico"
-  tags: ["historia", "alfabeto"]
-
-respuesta: "Mediterráneo oriental"
-tipo: completar
-respuestas_validas:
-  - "Mediterráneo oriental"
-
-enunciado: "La escritura alfabética, tal como la conocemos, tuvo su origen en el ___."
-
-explicacion: |
-  El sistema alfabético se desarrolló en la región del Mediterráneo oriental, simplificando la representación de los sonidos de la lengua.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "intermedio"
-  tags: ["aprendizaje", "tecnologia"]
-
-opciones_explicitas: ["Sistemas logográficos", "Sistemas silábicos", "Sistemas alfabéticos"]
-
-respuesta: "Sistemas alfabéticos"
-tipo: mc
-
-enunciado: "¿Qué sistema de escritura permitió una simplificación enorme en el proceso de aprendizaje de la lectura y la escritura en comparación con los sistemas logográficos o silábicos?"
-
-explicacion: |
-  Al representar sonidos individuales (fonemas) en lugar de conceptos (logogramas) o sílabas completas, el alfabeto requiere aprender un número mucho menor de signos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "basico"
-  tags: ["griego", "latino"]
-
-respuesta: "griego"
-tipo: completar
-respuestas_validas:
-  - "griego"
-
-enunciado: "El alfabeto ___ y el alfabeto latino son descendientes directos de las innovaciones de la escritura alfabética antigua."
-
-explicacion: |
-  El alfabeto griego y el latino son los pilares de la escritura occidental, derivados de evoluciones de sistemas alfabéticos anteriores.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "avanzado"
-  tags: ["cognicion", "tecnologia"]
-
-variables:
-  datos: [["logográfico", "alta", "complejo"], ["silábico", "media", "intermedio"], ["alfabético", "baja", "simple"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][2]
-tipo: mc
-opciones_explicitas: ["complejo", "intermedio", "simple"]
-
-enunciado: "Si comparamos la carga cognitiva necesaria para aprender un sistema de escritura, un sistema {datos[idx][0]} presenta una dificultad de aprendizaje de tipo {datos[idx][1]}."
-
-explicacion: |
-  La tecnología de la escritura alfabética redujo la dificultad de aprendizaje a un nivel {datos[idx][1]}, facilitando la alfabetización masiva.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "intermedio"
-  tags: ["evolucion", "orden"]
-
-opciones_explicitas: ["Logográfico", "Silábico", "Alfabético"]
-
-respuesta_orden: ["Logográfico", "Silábico", "Alfabético"]
-tipo: ordenar
-
-enunciado: "Ordena cronológicamente la evolución de la complejidad tecnológica de los sistemas de escritura, desde el más complejo al más simplificado:"
-
-explicacion: |
-  La evolución tecnológica de la escritura muestra una tendencia hacia la reducción de signos: de miles de logogramas a decenas de fonemas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "basico"
-  tags: ["historia", "comunicacion"]
-
-tipo: mc
-opciones_explicitas: ["Permitió la transmisión de conocimientos sin depender de la memoria humana", "Hizo que el lenguaje fuera más complejo y difícil de entender", "Eliminó la necesidad de hablar para comunicarse", "Solo sirve para registrar leyes y no ideas"]
-respuesta: "Permitió la transmisión de conocimientos sin depender de la memoria humana"
-
-enunciado: "Antes de la invención de la escritura, la transmisión de la cultura dependía exclusivamente de la memoria de los oradores. ¿Cuál fue el principal impacto tecnológico de la escritura en este proceso?"
-
-explicacion: |
-  La escritura actúa como un soporte externo que permite 'fijar' el lenguaje, liberando a la memoria humana de la carga de retener todo el saber de forma exacta, permitiendo que el conocimiento trascienda el tiempo y el espacio.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "intermedio"
-  tags: ["memoria", "tecnologia"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: ["un consejo de un abuelo a su nieto, transmitido solo de forma oral", "una receta médica escrita en un papiro"]
-  consecuencia: ["La información se pierde si el nieto olvida el consejo", "La información se mantiene intacta aunque el médico no esté presente"]
-
-respuesta: consecuencia[escenario_idx]
-tipo: mc
-opciones_explicitas: ["La información se pierde si el nieto olvida el consejo", "La información se mantiene intacta aunque el médico no esté presente", "La escritura no cambia la naturaleza de la comunicación"]
-
-enunciado: "Considera el siguiente caso: {escenarios[escenario_idx]}. ¿Qué ocurre con la información en este caso?"
-
-explicacion: |
-  La escritura funciona como una 'memoria externa'. Mientras que en la oralidad la información es volátil, la escritura permite que el mensaje sea independiente del emisor original.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "intermedio"
-  tags: ["conceptos"]
-
-tipo: completar
-respuestas_validas:
-  - "soporte"
-  - "signo"
-  - "código"
-
-enunciado: "Para que la escritura funcione como tecnología, se requiere de un ___ (donde se plasma el mensaje), un ___ (que representa la idea) y un ___ (el sistema de reglas que los une)."
-
-explicacion: |
-  La escritura requiere un soporte físico (piedra, papel, pantalla), un signo gráfico y un código lingüístico que permita la decodificación por parte de otro individuo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "avanzado"
-  tags: ["evolucion", "conocimiento"]
-
-tipo: ordenar
-opciones_explicitas: ["Cultura puramente oral", "Aparición de la escritura", "Acumulación de conocimiento complejo"]
-
-enunciado: "Ordena cronológicamente los procesos que describen la evolución de la transmisión del conocimiento humano gracias a la tecnología de la escritura."
-
-explicacion: |
-  La escritura permite la acumulación: al no tener que dedicar todo el esfuerzo cognitivo a recordar, la humanidad puede dedicar más recursos a la innovación y la complejidad, construyendo sobre lo ya escrito.
-respuesta_orden: ["Cultura puramente oral", "Aparición de la escritura", "Acumulación de conocimiento complejo"]
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "intermedio"
-  tags: ["tecnologia", "cognicion"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si la oralidad es la comunicación en tiempo real, la escritura es una tecnología de comunicación asincrónica (escribe la palabra que describe la capacidad de la escritura de durar en el tiempo)."
-
-respuesta: "asincrónica"
-
-explicacion: |
-  La escritura permite la comunicación asincrónica; es decir, el emisor y el receptor no necesitan estar presentes al mismo tiempo para que el mensaje sea transmitido con éxito.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "basico"
-  tags: ["escritura", "sistemas"]
-
-variables:
-  datos: [["un dibujo de un sol para representar el astro", "pictográfico"], ["un dibujo de un ojo para representar la visión", "pictográfico"], ["un dibujo de una mano para representar la acción de tocar", "pictográfico"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-
-opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
-
-enunciado: "Si un sistema de escritura utiliza un signo que representa directamente el objeto dibujado, como en el caso de {datos[idx][0]}, estamos ante un sistema ___."
-
-explicacion: |
-  Cuando el signo tiene una relación icónica (se parece al objeto) y representa el concepto o el objeto directamente, el sistema es pictográfico.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "intermedio"
-  tags: ["escritura", "sistemas"]
-
-variables:
-  datos: [["el signo 'ka' representa la sílaba completa", "silábico"], ["el signo 'ma' representa la sílaba completa", "silábico"], ["el signo 'lo' representa la sílaba completa", "silábico"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-
-opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
-
-enunciado: "En un sistema donde cada signo representa una unidad de sonido compuesta por consonante y vocal, como {datos[idx][0]}, el sistema se clasifica como ___."
-
-explicacion: |
-  Los sistemas silábicos (como el japonés hiragana) asignan un signo a una sílaba entera, no a sonidos individuales ni a conceptos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "basico"
-  tags: ["escritura", "sistemas"]
-
-variables:
-  datos: [["la letra 'A' representa un fonema", "alfabético"], ["la letra 'B' representa un fonema", "alfabético"], ["la letra 'S' representa un fonema", "alfabético"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: completar
-
-respuestas_validas:
-  - "alfabético"
-
-enunciado: "Si un sistema asigna un signo a cada fonema individual, como sucede con {datos[idx][0]}, el sistema es ___."
-
-explicacion: |
-  El sistema alfabético es el más eficiente en términos de cantidad de signos, ya que solo necesita un conjunto reducido de caracteres para representar todos los sonidos posibles.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "avanzado"
-  tags: ["escritura", "sistemas"]
-
-variables:
-  datos: [["un pictograma", "pictográfico"], ["una sílaba", "silábico"], ["un fonema", "alfabético"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-
-opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
-
-enunciado: "Si la unidad mínima de significado en el sistema es {datos[idx][0]}, la clasificación es ___."
-
-explicacion: |
-  La unidad de representación determina la clasificación: el pictograma representa el concepto, la sílaba el sonido silábico y el fonema el sonido alfabético.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "escritura_como_tecnologia"
-  nivel: "intermedio"
-  tags: ["escritura", "evolucion"]
-
-variables:
-  secuencia: ["pictográfico", "silábico", "alfabético"]
-
-respuesta_orden: secuencia
-tipo: ordenar
-
-opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
-
-enunciado: "Ordena los siguientes sistemas de escritura desde el que representa conceptos (menos abstracto) hasta el que representa sonidos individuales (más abstracto):"
-
-explicacion: |
-  La evolución tecnológica de la escritura tiende hacia la abstracción: de la imagen del objeto (pictograma) al sonido de la sílaba (silabario) y finalmente al sonido mínimo (alfabeto).
-```
-
-## Sección: decodificacion-y-fluidez (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "basico"
-  tags: ["decodificacion", "vocabulario"]
-
-enunciado: "¿Qué es la decodificación, en el proceso de aprender a leer?"
-tipo: mc
-opciones_explicitas:
-  - "El proceso de convertir letras en sonidos para reconstruir la palabra hablada"
-  - "El proceso de entender el significado de un texto completo"
-  - "El proceso de memorizar palabras completas sin analizar sus letras"
-respuesta: "El proceso de convertir letras en sonidos para reconstruir la palabra hablada"
-
-explicacion: |
-  Aplica directo la conciencia fonológica al código escrito.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "basico"
-  tags: ["fluidez", "vocabulario"]
-
-enunciado: "¿Qué es la fluidez lectora?"
-tipo: mc
-opciones_explicitas:
-  - "Leer con precisión, velocidad y prosodia adecuadas, de forma automática"
-  - "Leer lo más rápido posible, sin importar la precisión"
-  - "Conocer el significado de todas las palabras de un texto"
-respuesta: "Leer con precisión, velocidad y prosodia adecuadas, de forma automática"
-
-explicacion: |
-  Velocidad sola, sin precisión ni entonación, no es fluidez real.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["ppm", "problema"]
-
-variables:
-  palabras: uno_de([80, 100, 120])
-  segundos: 60
-
-respuesta: redondear(palabras / segundos * 60, 0)
-tipo: input
-unidad: "palabras por minuto"
-
-enunciado: "Un alumno lee {palabras} palabras correctamente en {segundos} segundos. ¿Cuál es su fluidez en palabras por minuto (PPM)?"
-
-pasos:
-  - "PPM = ({palabras}/{segundos}) × 60 = {redondear(palabras / segundos * 60, 0)}"
-
-explicacion: |
-  Como el tiempo ya es exactamente 1 minuto (60 segundos), el PPM
-  coincide directamente con la cantidad de palabras leídas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["ppm", "problema"]
-
-variables:
-  palabras: uno_de([60, 90])
-  segundos: 45
-
-respuesta: redondear(palabras / segundos * 60, 0)
-tipo: input
-unidad: "palabras por minuto"
-
-enunciado: "Un alumno lee {palabras} palabras correctamente en sólo {segundos} segundos (menos de un minuto). ¿Cuál es su fluidez en palabras por minuto?"
-
-pasos:
-  - "PPM = ({palabras}/{segundos}) × 60 = {redondear(palabras / segundos * 60, 0)}"
-
-explicacion: |
-  Se escala el resultado a 'por minuto', igual que cualquier tasa
-  (como la velocidad = distancia/tiempo).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["decodificacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La correspondencia entre letras y sonidos en español es, en general, más regular y predecible que en inglés, donde una misma letra puede sonar de formas muy distintas según la palabra."
-
-explicacion: |
-  Por eso decodificar en español suele ser más rápido de aprender una
-  vez conocidas las reglas básicas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué la fluidez lectora es un puente hacia la comprensión de un texto?"
-tipo: mc
-opciones_explicitas:
-  - "Porque cuando decodificar se vuelve automático, la atención que antes se gastaba en 'sonar' cada palabra queda libre para entender el significado"
-  - "Porque leer rápido garantiza automáticamente entender el texto, sin ninguna excepción"
-  - "No existe ninguna relación real entre fluidez y comprensión"
-respuesta: "Porque cuando decodificar se vuelve automático, la atención que antes se gastaba en 'sonar' cada palabra queda libre para entender el significado"
-
-explicacion: |
-  La capacidad de atención es limitada — automatizar un paso libera
-  recursos para el siguiente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["fluidez"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Leer muy rápido pero con errores o sin ninguna entonación (sin prosodia) no cuenta como verdadera fluidez lectora — hacen falta las tres cosas juntas: precisión, velocidad y prosodia."
-
-explicacion: |
-  Un lector 'fluido' pero impreciso no está realmente decodificando
-  bien.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["ppm", "problema"]
-
-variables:
-  palabras_a: 100
-  segundos_a: 50
-  palabras_b: 90
-  segundos_b: 60
-
-respuesta: (palabras_a / segundos_a * 60) > (palabras_b / segundos_b * 60)
-tipo: vf
-
-enunciado: "Lectura A: {palabras_a} palabras en {segundos_a} segundos. Lectura B: {palabras_b} palabras en {segundos_b} segundos. ¿La fluidez en PPM de la Lectura A es MAYOR que la de la Lectura B?"
-
-explicacion: |
-  PPM(A) = {redondear(palabras_a / segundos_a * 60, 0)}; PPM(B) =
-  {redondear(palabras_b / segundos_b * 60, 0)} — hay que calcular la
-  tasa, no comparar sólo la cantidad de palabras.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué conviene medir la fluidez de un alumno en varios textos y días distintos, en vez de con una sola lectura?"
-tipo: mc
-opciones_explicitas:
-  - "Porque una sola lectura puede estar afectada por factores puntuales (texto más difícil, cansancio, nervios) — promediar varias da una estimación más confiable"
-  - "Porque la fluidez de una persona cambia por completo de un día a otro sin ningún patrón"
-  - "No hay ninguna ventaja real en medir más de una vez"
-respuesta: "Porque una sola lectura puede estar afectada por factores puntuales (texto más difícil, cansancio, nervios) — promediar varias da una estimación más confiable"
-
-explicacion: |
-  Es la misma razón por la que `../../matematica/muestreo-y-sesgo/`
-  prefiere una muestra a un único dato suelto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["ppm", "problema"]
-
-variables:
-  ppm1: uno_de([95, 100])
-  ppm2: uno_de([105, 110])
-  ppm3: uno_de([90, 115])
-
-respuesta: redondear(promedio([ppm1, ppm2, ppm3]), 1)
-tipo: input
-tolerancia_abs: 0.1
-unidad: "palabras por minuto"
-
-enunciado: "Un alumno leyó a {ppm1}, {ppm2} y {ppm3} palabras por minuto en tres textos distintos. ¿Cuál es su fluidez promedio?"
-
-pasos:
-  - "Promedio = ({ppm1}+{ppm2}+{ppm3}) / 3 = {redondear(promedio([ppm1, ppm2, ppm3]), 1)}"
-
-explicacion: |
-  El promedio da una estimación más representativa que cualquiera de
-  las tres lecturas por separado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["prosodia", "vocabulario"]
-
-enunciado: "¿Qué es la prosodia, como parte de la fluidez lectora?"
-tipo: mc
-opciones_explicitas:
-  - "La entonación y el ritmo naturales con que se lee, respetando pausas, signos de puntuación y énfasis"
-  - "La cantidad de palabras leídas por minuto"
-  - "La cantidad de errores cometidos al leer"
-respuesta: "La entonación y el ritmo naturales con que se lee, respetando pausas, signos de puntuación y énfasis"
-
-explicacion: |
-  Leer 'como se habla', no en un tono monótono palabra por palabra.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["decodificacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El objetivo final de aprender a decodificar es que el proceso se vuelva automático, sin necesitar esfuerzo consciente para convertir cada letra en su sonido."
-
-explicacion: |
-  Cuando eso pasa, decodificar deja de competir por atención con
-  comprender el texto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["ppm", "problema"]
-
-variables:
-  ppm: uno_de([80, 100])
-  palabras_texto: uno_de([40, 50])
-
-respuesta: redondear(palabras_texto / ppm * 60, 0)
-tipo: input
-unidad: "segundos"
-
-enunciado: "Un alumno lee a {ppm} palabras por minuto. Si un texto tiene {palabras_texto} palabras, ¿cuánto tiempo (en segundos) debería tardar en leerlo completo?"
-
-pasos:
-  - "Tiempo = ({palabras_texto}/{ppm}) × 60 = {redondear(palabras_texto / ppm * 60, 0)} segundos"
-
-explicacion: |
-  Es la fórmula de PPM despejada para el tiempo en vez de para la
-  velocidad.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "Muchas escuelas usan 'registros de lectura oral' (running records), donde un docente escucha leer a un alumno en voz alta y anota errores, tiempo y entonación. ¿Para qué sirve esta evaluación?"
-tipo: mc
-opciones_explicitas:
-  - "Para medir el progreso real de la fluidez lectora de un alumno a lo largo del tiempo, con datos concretos (precisión, PPM, prosodia)"
-  - "Sólo sirve para calificar la letra del alumno"
-  - "No tiene ninguna utilidad pedagógica real"
-respuesta: "Para medir el progreso real de la fluidez lectora de un alumno a lo largo del tiempo, con datos concretos (precisión, PPM, prosodia)"
-
-explicacion: |
-  Es la aplicación práctica de todo lo visto en este módulo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["ppm", "problema"]
-
-variables:
-  palabras_a: 70
-  segundos_a: 60
-  palabras_b: 70
-  segundos_b: 90
-
-respuesta: (palabras_a / segundos_a * 60) > (palabras_b / segundos_b * 60)
-tipo: vf
-
-enunciado: "Dos alumnos leen el mismo texto de {palabras_a} palabras: el Alumno A tarda {segundos_a} segundos, el Alumno B tarda {segundos_b} segundos. ¿El Alumno A tiene mayor fluidez en PPM?"
-
-explicacion: |
-  Con la misma cantidad de palabras, tardar MENOS tiempo da un PPM
-  MAYOR.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-enunciado: "¿Qué relación tiene la decodificación con `../conciencia-fonologica/`?"
-tipo: mc
-opciones_explicitas:
-  - "La decodificación aplica al código escrito la distinción de sonidos que ya construyó la conciencia fonológica — sin distinguir sonidos, no se puede saber qué sonido corresponde a cada letra"
-  - "No tienen ninguna relación real entre sí"
-  - "La decodificación reemplaza por completo la necesidad de conciencia fonológica"
-respuesta: "La decodificación aplica al código escrito la distinción de sonidos que ya construyó la conciencia fonológica — sin distinguir sonidos, no se puede saber qué sonido corresponde a cada letra"
-
-explicacion: |
-  Es el prerrequisito formal de este módulo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["ppm", "problema"]
-
-variables:
-  palabras: uno_de([150, 200])
-  segundos: 120
-
-respuesta: redondear(palabras / segundos * 60, 0)
-tipo: input
-unidad: "palabras por minuto"
-
-enunciado: "Un alumno lee un texto largo: {palabras} palabras en {segundos} segundos (2 minutos). ¿Cuál es su fluidez en PPM?"
-
-pasos:
-  - "PPM = ({palabras}/{segundos}) × 60 = {redondear(palabras / segundos * 60, 0)}"
-
-explicacion: |
-  La fórmula funciona igual sin importar si el tiempo es más o menos
-  de un minuto — siempre se escala a 'por minuto'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["fluidez"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La fluidez lectora de una misma persona puede variar según qué tan difícil o familiar sea el texto que está leyendo, no es un número fijo e invariable."
-
-explicacion: |
-  Es otra razón por la que conviene promediar mediciones de varios
-  textos distintos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-enunciado: "Un alumno decodifica correctamente cada palabra de un texto, pero al preguntarle de qué trataba, no puede responder. ¿Qué explica esto, en términos de fluidez?"
-tipo: mc
-opciones_explicitas:
-  - "Es posible que la decodificación todavía no sea automática para ese alumno, así que gasta toda su atención 'sonando' las palabras y no le queda capacidad para comprender el significado"
-  - "Es imposible que esto pase: decodificar bien siempre implica comprender el texto"
-  - "El alumno tiene un problema de vocabulario, sin ninguna relación con la fluidez"
-respuesta: "Es posible que la decodificación todavía no sea automática para ese alumno, así que gasta toda su atención 'sonando' las palabras y no le queda capacidad para comprender el significado"
-
-explicacion: |
-  Es exactamente el fenómeno que explica por qué la fluidez es un
-  puente necesario hacia la comprensión.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirven la decodificación y la fluidez lectora?"
-tipo: mc
-opciones_explicitas:
-  - "Para convertir letras en sonidos de forma cada vez más automática, liberando la atención necesaria para poder comprender lo que se lee"
-  - "Sólo sirven para leer más rápido, sin ninguna relación con la comprensión"
-  - "Sólo se aplican en los primeros meses de la alfabetización, después dejan de ser relevantes"
-respuesta: "Para convertir letras en sonidos de forma cada vez más automática, liberando la atención necesaria para poder comprender lo que se lee"
-
-explicacion: |
-  Es el puente entre `../conciencia-fonologica/` y
-  `../vocabulario-y-familia-de-palabras/`, el módulo que sigue.
 ```
 
 ## Sección: ortografia-y-tildacion (20 preguntas)
@@ -1762,6 +848,889 @@ pasos:
 explicacion: |
   Verdadero: aplicar correctamente la tildación diacrítica evita
   ambigüedades reales de sentido en la escritura.
+```
+
+## Sección: decodificacion-y-fluidez (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "basico"
+  tags: ["decodificacion", "vocabulario"]
+
+enunciado: "¿Qué es la decodificación, en el proceso de aprender a leer?"
+tipo: mc
+opciones_explicitas:
+  - "El proceso de convertir letras en sonidos para reconstruir la palabra hablada"
+  - "El proceso de entender el significado de un texto completo"
+  - "El proceso de memorizar palabras completas sin analizar sus letras"
+respuesta: "El proceso de convertir letras en sonidos para reconstruir la palabra hablada"
+
+explicacion: |
+  Aplica directo la conciencia fonológica al código escrito.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "basico"
+  tags: ["fluidez", "vocabulario"]
+
+enunciado: "¿Qué es la fluidez lectora?"
+tipo: mc
+opciones_explicitas:
+  - "Leer con precisión, velocidad y prosodia adecuadas, de forma automática"
+  - "Leer lo más rápido posible, sin importar la precisión"
+  - "Conocer el significado de todas las palabras de un texto"
+respuesta: "Leer con precisión, velocidad y prosodia adecuadas, de forma automática"
+
+explicacion: |
+  Velocidad sola, sin precisión ni entonación, no es fluidez real.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["ppm", "problema"]
+
+variables:
+  palabras: uno_de([80, 100, 120])
+  segundos: 60
+
+respuesta: redondear(palabras / segundos * 60, 0)
+tipo: input
+unidad: "palabras por minuto"
+
+enunciado: "Un alumno lee {palabras} palabras correctamente en {segundos} segundos. ¿Cuál es su fluidez en palabras por minuto (PPM)?"
+
+pasos:
+  - "PPM = ({palabras}/{segundos}) × 60 = {redondear(palabras / segundos * 60, 0)}"
+
+explicacion: |
+  Como el tiempo ya es exactamente 1 minuto (60 segundos), el PPM
+  coincide directamente con la cantidad de palabras leídas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["ppm", "problema"]
+
+variables:
+  palabras: uno_de([60, 90])
+  segundos: 45
+
+respuesta: redondear(palabras / segundos * 60, 0)
+tipo: input
+unidad: "palabras por minuto"
+
+enunciado: "Un alumno lee {palabras} palabras correctamente en sólo {segundos} segundos (menos de un minuto). ¿Cuál es su fluidez en palabras por minuto?"
+
+pasos:
+  - "PPM = ({palabras}/{segundos}) × 60 = {redondear(palabras / segundos * 60, 0)}"
+
+explicacion: |
+  Se escala el resultado a 'por minuto', igual que cualquier tasa
+  (como la velocidad = distancia/tiempo).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["decodificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La correspondencia entre letras y sonidos en español es, en general, más regular y predecible que en inglés, donde una misma letra puede sonar de formas muy distintas según la palabra."
+
+explicacion: |
+  Por eso decodificar en español suele ser más rápido de aprender una
+  vez conocidas las reglas básicas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué la fluidez lectora es un puente hacia la comprensión de un texto?"
+tipo: mc
+opciones_explicitas:
+  - "Porque cuando decodificar se vuelve automático, la atención que antes se gastaba en 'sonar' cada palabra queda libre para entender el significado"
+  - "Porque leer rápido garantiza automáticamente entender el texto, sin ninguna excepción"
+  - "No existe ninguna relación real entre fluidez y comprensión"
+respuesta: "Porque cuando decodificar se vuelve automático, la atención que antes se gastaba en 'sonar' cada palabra queda libre para entender el significado"
+
+explicacion: |
+  La capacidad de atención es limitada — automatizar un paso libera
+  recursos para el siguiente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["fluidez"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Leer muy rápido pero con errores o sin ninguna entonación (sin prosodia) no cuenta como verdadera fluidez lectora — hacen falta las tres cosas juntas: precisión, velocidad y prosodia."
+
+explicacion: |
+  Un lector 'fluido' pero impreciso no está realmente decodificando
+  bien.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["ppm", "problema"]
+
+variables:
+  palabras_a: 100
+  segundos_a: 50
+  palabras_b: 90
+  segundos_b: 60
+
+respuesta: (palabras_a / segundos_a * 60) > (palabras_b / segundos_b * 60)
+tipo: vf
+
+enunciado: "Lectura A: {palabras_a} palabras en {segundos_a} segundos. Lectura B: {palabras_b} palabras en {segundos_b} segundos. ¿La fluidez en PPM de la Lectura A es MAYOR que la de la Lectura B?"
+
+explicacion: |
+  PPM(A) = {redondear(palabras_a / segundos_a * 60, 0)}; PPM(B) =
+  {redondear(palabras_b / segundos_b * 60, 0)} — hay que calcular la
+  tasa, no comparar sólo la cantidad de palabras.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué conviene medir la fluidez de un alumno en varios textos y días distintos, en vez de con una sola lectura?"
+tipo: mc
+opciones_explicitas:
+  - "Porque una sola lectura puede estar afectada por factores puntuales (texto más difícil, cansancio, nervios) — promediar varias da una estimación más confiable"
+  - "Porque la fluidez de una persona cambia por completo de un día a otro sin ningún patrón"
+  - "No hay ninguna ventaja real en medir más de una vez"
+respuesta: "Porque una sola lectura puede estar afectada por factores puntuales (texto más difícil, cansancio, nervios) — promediar varias da una estimación más confiable"
+
+explicacion: |
+  Es la misma razón por la que `../../matematica/muestreo-y-sesgo/`
+  prefiere una muestra a un único dato suelto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["ppm", "problema"]
+
+variables:
+  ppm1: uno_de([95, 100])
+  ppm2: uno_de([105, 110])
+  ppm3: uno_de([90, 115])
+
+respuesta: redondear(promedio([ppm1, ppm2, ppm3]), 1)
+tipo: input
+tolerancia_abs: 0.1
+unidad: "palabras por minuto"
+
+enunciado: "Un alumno leyó a {ppm1}, {ppm2} y {ppm3} palabras por minuto en tres textos distintos. ¿Cuál es su fluidez promedio?"
+
+pasos:
+  - "Promedio = ({ppm1}+{ppm2}+{ppm3}) / 3 = {redondear(promedio([ppm1, ppm2, ppm3]), 1)}"
+
+explicacion: |
+  El promedio da una estimación más representativa que cualquiera de
+  las tres lecturas por separado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["prosodia", "vocabulario"]
+
+enunciado: "¿Qué es la prosodia, como parte de la fluidez lectora?"
+tipo: mc
+opciones_explicitas:
+  - "La entonación y el ritmo naturales con que se lee, respetando pausas, signos de puntuación y énfasis"
+  - "La cantidad de palabras leídas por minuto"
+  - "La cantidad de errores cometidos al leer"
+respuesta: "La entonación y el ritmo naturales con que se lee, respetando pausas, signos de puntuación y énfasis"
+
+explicacion: |
+  Leer 'como se habla', no en un tono monótono palabra por palabra.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["decodificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El objetivo final de aprender a decodificar es que el proceso se vuelva automático, sin necesitar esfuerzo consciente para convertir cada letra en su sonido."
+
+explicacion: |
+  Cuando eso pasa, decodificar deja de competir por atención con
+  comprender el texto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["ppm", "problema"]
+
+variables:
+  ppm: uno_de([80, 100])
+  palabras_texto: uno_de([40, 50])
+
+respuesta: redondear(palabras_texto / ppm * 60, 0)
+tipo: input
+unidad: "segundos"
+
+enunciado: "Un alumno lee a {ppm} palabras por minuto. Si un texto tiene {palabras_texto} palabras, ¿cuánto tiempo (en segundos) debería tardar en leerlo completo?"
+
+pasos:
+  - "Tiempo = ({palabras_texto}/{ppm}) × 60 = {redondear(palabras_texto / ppm * 60, 0)} segundos"
+
+explicacion: |
+  Es la fórmula de PPM despejada para el tiempo en vez de para la
+  velocidad.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "Muchas escuelas usan 'registros de lectura oral' (running records), donde un docente escucha leer a un alumno en voz alta y anota errores, tiempo y entonación. ¿Para qué sirve esta evaluación?"
+tipo: mc
+opciones_explicitas:
+  - "Para medir el progreso real de la fluidez lectora de un alumno a lo largo del tiempo, con datos concretos (precisión, PPM, prosodia)"
+  - "Sólo sirve para calificar la letra del alumno"
+  - "No tiene ninguna utilidad pedagógica real"
+respuesta: "Para medir el progreso real de la fluidez lectora de un alumno a lo largo del tiempo, con datos concretos (precisión, PPM, prosodia)"
+
+explicacion: |
+  Es la aplicación práctica de todo lo visto en este módulo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["ppm", "problema"]
+
+variables:
+  palabras_a: 70
+  segundos_a: 60
+  palabras_b: 70
+  segundos_b: 90
+
+respuesta: (palabras_a / segundos_a * 60) > (palabras_b / segundos_b * 60)
+tipo: vf
+
+enunciado: "Dos alumnos leen el mismo texto de {palabras_a} palabras: el Alumno A tarda {segundos_a} segundos, el Alumno B tarda {segundos_b} segundos. ¿El Alumno A tiene mayor fluidez en PPM?"
+
+explicacion: |
+  Con la misma cantidad de palabras, tardar MENOS tiempo da un PPM
+  MAYOR.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+enunciado: "¿Qué relación tiene la decodificación con `../conciencia-fonologica/`?"
+tipo: mc
+opciones_explicitas:
+  - "La decodificación aplica al código escrito la distinción de sonidos que ya construyó la conciencia fonológica — sin distinguir sonidos, no se puede saber qué sonido corresponde a cada letra"
+  - "No tienen ninguna relación real entre sí"
+  - "La decodificación reemplaza por completo la necesidad de conciencia fonológica"
+respuesta: "La decodificación aplica al código escrito la distinción de sonidos que ya construyó la conciencia fonológica — sin distinguir sonidos, no se puede saber qué sonido corresponde a cada letra"
+
+explicacion: |
+  Es el prerrequisito formal de este módulo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["ppm", "problema"]
+
+variables:
+  palabras: uno_de([150, 200])
+  segundos: 120
+
+respuesta: redondear(palabras / segundos * 60, 0)
+tipo: input
+unidad: "palabras por minuto"
+
+enunciado: "Un alumno lee un texto largo: {palabras} palabras en {segundos} segundos (2 minutos). ¿Cuál es su fluidez en PPM?"
+
+pasos:
+  - "PPM = ({palabras}/{segundos}) × 60 = {redondear(palabras / segundos * 60, 0)}"
+
+explicacion: |
+  La fórmula funciona igual sin importar si el tiempo es más o menos
+  de un minuto — siempre se escala a 'por minuto'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["fluidez"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La fluidez lectora de una misma persona puede variar según qué tan difícil o familiar sea el texto que está leyendo, no es un número fijo e invariable."
+
+explicacion: |
+  Es otra razón por la que conviene promediar mediciones de varios
+  textos distintos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+enunciado: "Un alumno decodifica correctamente cada palabra de un texto, pero al preguntarle de qué trataba, no puede responder. ¿Qué explica esto, en términos de fluidez?"
+tipo: mc
+opciones_explicitas:
+  - "Es posible que la decodificación todavía no sea automática para ese alumno, así que gasta toda su atención 'sonando' las palabras y no le queda capacidad para comprender el significado"
+  - "Es imposible que esto pase: decodificar bien siempre implica comprender el texto"
+  - "El alumno tiene un problema de vocabulario, sin ninguna relación con la fluidez"
+respuesta: "Es posible que la decodificación todavía no sea automática para ese alumno, así que gasta toda su atención 'sonando' las palabras y no le queda capacidad para comprender el significado"
+
+explicacion: |
+  Es exactamente el fenómeno que explica por qué la fluidez es un
+  puente necesario hacia la comprensión.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirven la decodificación y la fluidez lectora?"
+tipo: mc
+opciones_explicitas:
+  - "Para convertir letras en sonidos de forma cada vez más automática, liberando la atención necesaria para poder comprender lo que se lee"
+  - "Sólo sirven para leer más rápido, sin ninguna relación con la comprensión"
+  - "Sólo se aplican en los primeros meses de la alfabetización, después dejan de ser relevantes"
+respuesta: "Para convertir letras en sonidos de forma cada vez más automática, liberando la atención necesaria para poder comprender lo que se lee"
+
+explicacion: |
+  Es el puente entre `../conciencia-fonologica/` y
+  `../vocabulario-y-familia-de-palabras/`, el módulo que sigue.
+```
+
+## Sección: signos-de-puntuacion (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "basico"
+  tags: ["puntuacion", "sentido"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"Vamos a comer, niños\" (invitación) y \"vamos a comer niños\" (sin coma) tienen sentidos completamente distintos por la sola presencia o ausencia de una coma."
+
+pasos:
+  - "La coma de vocativo separa a quién se dirige la oración del resto."
+
+explicacion: |
+  Verdadero: es el ejemplo clásico de cómo la puntuación cambia el
+  significado, no sólo el estilo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "basico"
+  tags: ["coma", "enumeracion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En \"Compré pan, leche, huevos y manteca\", las comas separan los elementos de una enumeración, sin poner coma antes del \"y\" final."
+
+pasos:
+  - "La regla general del español no usa coma antes de \"y\" en una enumeración simple."
+
+explicacion: |
+  Verdadero: es el uso más común de la coma, para listar elementos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["coma", "aclaracion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "coma de aclaración"
+tipo: mc
+opciones_explicitas: ["coma de aclaración", "coma de enumeración", "coma de vocativo"]
+
+enunciado: "En \"Mi hermano, que vive en Rosario, viene este fin de semana\", las comas que encierran \"que vive en Rosario\" son de tipo..."
+
+pasos:
+  - "Encierran información adicional no esencial para el sentido básico de la oración."
+
+explicacion: |
+  La coma de aclaración encierra información adicional, que se podría
+  quitar sin romper la oración.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["coma", "vocativo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "coma de vocativo"
+tipo: mc
+opciones_explicitas: ["coma de vocativo", "coma de enumeración", "coma de aclaración"]
+
+enunciado: "En \"Juan, vení un segundo\", la coma que separa \"Juan\" del resto es de tipo..."
+
+pasos:
+  - "Separa a quién se dirige la oración (el vocativo) del resto del enunciado."
+
+explicacion: |
+  La coma de vocativo separa el nombre de la persona a la que se le
+  habla directamente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["coma", "conectores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Se coloca coma antes de conectores adversativos como \"pero\", \"sino\" y \"aunque\": \"Estudió, pero no aprobó\"."
+
+pasos:
+  - "Ver `../oracion-compuesta-coordinacion-y-subordinacion/`: es la coma que antecede a la coordinación adversativa."
+
+explicacion: |
+  Verdadero: es una regla fija de puntuación para estos conectores.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "basico"
+  tags: ["punto"]
+
+variables:
+  usos: ["separar oraciones dentro del mismo párrafo", "separar párrafos, marcando cambio de idea principal"]
+  tipos: ["punto y seguido", "punto y aparte"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["punto y seguido", "punto y aparte", "punto final"]
+
+enunciado: "El uso de \"{usos[idx]}\" corresponde a..."
+
+pasos:
+  - "Punto y seguido queda dentro del mismo párrafo; punto y aparte inicia uno nuevo."
+
+explicacion: |
+  El tipo de punto usado depende de si se cambia de párrafo o se
+  sigue en el mismo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["punto", "idea_principal"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El punto y aparte suele marcar que la idea principal del texto cambia, iniciando un nuevo párrafo."
+
+pasos:
+  - "Ver `../comprension-idea-principal/`: cada párrafo suele desarrollar una idea principal distinta."
+
+explicacion: |
+  Verdadero: la división en párrafos (marcada por punto y aparte)
+  suele corresponder a un cambio de idea principal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["punto_y_coma"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El punto y coma se usa para separar elementos de una enumeración que ya contienen comas internamente, o para unir dos oraciones muy relacionadas sin conector."
+
+pasos:
+  - "\"Juan estudia; María trabaja\" es un ejemplo de unión de dos oraciones relacionadas sin conector explícito."
+
+explicacion: |
+  Verdadero: son los dos usos principales del punto y coma en
+  español.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["dos_puntos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los dos puntos anuncian lo que sigue: una enumeración, una cita textual, o una explicación/consecuencia de lo anterior."
+
+pasos:
+  - "\"Faltaban tres cosas: pan, leche y manteca\" anuncia la enumeración que sigue."
+
+explicacion: |
+  Verdadero: es la función central de los dos puntos en español.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "basico"
+  tags: ["interrogacion", "exclamacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En español, los signos de interrogación y exclamación se abren y se cierran (¿...?, ¡...!), a diferencia del inglés, que sólo los cierra."
+
+pasos:
+  - "Ver `../oraciones-negativas-e-interrogativas/`: es una diferencia ortográfica propia del español."
+
+explicacion: |
+  Verdadero: el uso del signo de apertura es obligatorio en español,
+  a diferencia de otros idiomas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["comillas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las comillas se usan para citas textuales o para señalar que una palabra se usa en sentido especial o irónico."
+
+pasos:
+  - "Ambos usos marcan que ese fragmento no es \"habla directa\" del propio autor en su sentido literal habitual."
+
+explicacion: |
+  Verdadero: son los dos usos principales de las comillas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["raya", "genero_narrativo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La raya o guion largo se usa para introducir cada intervención de un diálogo en un texto narrativo."
+
+pasos:
+  - "Ver `../genero-narrativo/`: es distinto de las acotaciones entre paréntesis del género dramático."
+
+explicacion: |
+  Verdadero: la raya de diálogo es la marca típica de las
+  intervenciones de personajes dentro de la prosa narrativa.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "avanzado"
+  tags: ["raya", "genero_dramatico", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La raya de diálogo narrativo y las acotaciones entre paréntesis del género dramático cumplen exactamente la misma función."
+
+pasos:
+  - "Ver `../genero-dramatico/`: la raya introduce lo que dice un personaje en prosa; la acotación indica gestos/tono, no es diálogo."
+
+explicacion: |
+  Falso: son marcas distintas para funciones distintas, propias de
+  géneros distintos (narrativo vs. dramático).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["coma", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "vamos a comer, abuela"
+tipo: mc
+opciones_explicitas: ["vamos a comer, abuela", "vamos a comer abuela"]
+
+enunciado: "¿Cuál de estas dos versiones usa correctamente la coma de vocativo para invitar a la abuela a comer (sin comérsela)?"
+
+pasos:
+  - "La coma de vocativo separa el nombre de la persona a la que se dirige la oración."
+
+explicacion: |
+  Sin la coma, \"abuela\" pasa a leerse como objeto directo del
+  verbo comer, cambiando radicalmente el sentido.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "avanzado"
+  tags: ["punto_y_coma", "coma", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El punto y coma y la coma son intercambiables en cualquier contexto, sin diferencia real de uso."
+
+pasos:
+  - "El punto y coma marca una pausa mayor que la coma, y se usa en casos específicos (enumeraciones con comas internas, unión de oraciones relacionadas)."
+
+explicacion: |
+  Falso: cada signo tiene reglas de uso propias, no son
+  intercambiables libremente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["dos_puntos", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Faltaban tres cosas: pan, leche y manteca"
+tipo: mc
+opciones_explicitas: ["Faltaban tres cosas: pan, leche y manteca", "Faltaban tres cosas, pan, leche y manteca"]
+
+enunciado: "¿Cuál de estas dos versiones usa correctamente los dos puntos para anunciar la enumeración que sigue?"
+
+pasos:
+  - "Los dos puntos anuncian explícitamente que a continuación viene la enumeración prometida."
+
+explicacion: |
+  Los dos puntos son el signo correcto para anunciar una enumeración,
+  no una coma.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "avanzado"
+  tags: ["puntuacion", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Juan, mi mejor amigo, estudió mucho, pero no aprobó el examen."
+tipo: mc
+opciones_explicitas: ["Juan, mi mejor amigo, estudió mucho, pero no aprobó el examen.", "Juan mi mejor amigo estudió mucho pero no aprobó el examen."]
+
+enunciado: "¿Cuál versión puntúa correctamente combinando coma de aclaración (\"mi mejor amigo\") y coma antes de conector adversativo (\"pero\")?"
+
+pasos:
+  - "Ambas comas cumplen funciones distintas: aclaración y antes de \"pero\"."
+
+explicacion: |
+  La combinación correcta de ambos usos de coma hace que la oración
+  larga se lea sin ambigüedad.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["puntuacion", "metodo"]
+
+enunciado: "Ordená los pasos para revisar la puntuación de un párrafo propio."
+tipo: ordenar
+opciones_explicitas:
+  - "Revisar si hay enumeraciones, aclaraciones o vocativos que necesiten coma"
+  - "Revisar si hay conectores adversativos que necesiten coma antes"
+  - "Decidir dónde termina cada oración (punto y seguido) y cada párrafo (punto y aparte)"
+  - "Revisar si hace falta punto y coma o dos puntos en algún tramo específico"
+respuesta_orden: ["Revisar si hay enumeraciones, aclaraciones o vocativos que necesiten coma", "Revisar si hay conectores adversativos que necesiten coma antes", "Decidir dónde termina cada oración (punto y seguido) y cada párrafo (punto y aparte)", "Revisar si hace falta punto y coma o dos puntos en algún tramo específico"]
+explicacion: |
+  El proceso va de los usos más frecuentes de la coma a la
+  organización general en oraciones y párrafos, y termina con los
+  signos más específicos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "avanzado"
+  tags: ["puntuacion", "prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin dominar coma, punto, punto y coma y dos puntos, combinar oraciones largas y complejas en un texto se vuelve ilegible, aunque la gramática de cada oración individual sea correcta."
+
+pasos:
+  - "Ver `../produccion-escrita-compleja/`: la puntuación es lo que hace legible un texto con oraciones compuestas y varias ideas encadenadas."
+
+explicacion: |
+  Verdadero: por eso signos de puntuación es prerrequisito directo de
+  producción escrita compleja, el siguiente tema de la cadena.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "avanzado"
+  tags: ["puntuacion", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al escribir un mensaje importante (un mail formal, una consigna de examen), revisar la puntuación es tan necesario como revisar la ortografía, porque ambas pueden generar ambigüedad si están mal."
+
+pasos:
+  - "Una coma mal puesta puede cambiar completamente lo que se está pidiendo o afirmando."
+
+explicacion: |
+  Verdadero: la puntuación es una herramienta práctica de precisión
+  comunicativa, no un detalle decorativo.
 ```
 
 ## Sección: circuito-de-la-comunicacion (24 preguntas)

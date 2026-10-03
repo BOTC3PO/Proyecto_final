@@ -4,818 +4,6 @@
 
 ---
 
-## Sección: sig-mapas-digitales (20 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["sig", "vocabulario"]
-
-enunciado: "¿Qué es un Sistema de Información Geográfica (SIG)?"
-tipo: mc
-opciones_explicitas:
-  - "Una base de datos donde cada elemento del mapa tiene coordenadas y datos asociados"
-  - "Una foto escaneada de un mapa de papel"
-  - "Un tipo de brújula digital"
-respuesta: "Una base de datos donde cada elemento del mapa tiene coordenadas y datos asociados"
-
-explicacion: |
-  Eso es lo que permite que el mapa responda preguntas (buscar,
-  calcular rutas) en vez de sólo mostrarse.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["sig"]
-
-enunciado: "¿Por qué un mapa digital moderno no es simplemente un mapa de papel escaneado?"
-tipo: mc
-opciones_explicitas:
-  - "Porque cada elemento tiene coordenadas y datos que se pueden consultar, no sólo una imagen fija"
-  - "Porque los mapas escaneados no tienen colores"
-  - "Porque un mapa digital no puede mostrar límites políticos"
-respuesta: "Porque cada elemento tiene coordenadas y datos que se pueden consultar, no sólo una imagen fija"
-
-explicacion: |
-  Una imagen escaneada es sólo píxeles; un SIG sabe qué es cada cosa y
-  dónde está en coordenadas reales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["capas"]
-
-enunciado: "En un SIG, ¿qué es una \"capa\"?"
-tipo: mc
-opciones_explicitas:
-  - "Un conjunto de información independiente (calles, edificios, tránsito) que se puede mostrar u ocultar por separado"
-  - "El color de fondo del mapa"
-  - "La escala numérica del mapa"
-respuesta: "Un conjunto de información independiente (calles, edificios, tránsito) que se puede mostrar u ocultar por separado"
-
-explicacion: |
-  Las capas permiten combinar sólo la información que se necesita en
-  cada momento.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["capas"]
-
-enunciado: "¿Cuál de estos es un ejemplo típico de capa en un mapa digital?"
-tipo: mc
-opciones_explicitas:
-  - "Tránsito en tiempo real"
-  - "El nombre de la empresa que hizo el mapa"
-  - "La fecha de instalación de la app"
-respuesta: "Tránsito en tiempo real"
-
-explicacion: |
-  Tránsito, imágenes satelitales, límites administrativos y calles son
-  capas típicas que se pueden combinar o separar.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "avanzado"
-  tags: ["capas"]
-
-enunciado: "¿En qué se parece el sistema de capas de un SIG a un mapa temático de papel?"
-tipo: mc
-opciones_explicitas:
-  - "Ambos eligen qué información mostrar y cuál descartar, para no saturar la lectura"
-  - "Ambos usan exactamente la misma escala numérica"
-  - "No se parecen en nada"
-respuesta: "Ambos eligen qué información mostrar y cuál descartar, para no saturar la lectura"
-
-explicacion: |
-  La diferencia es que el SIG permite cambiar esa selección al
-  instante prendiendo o apagando capas, en vez de dibujar un mapa nuevo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["geocodificacion"]
-
-enunciado: "¿Qué hace un SIG cuando convierte el texto \"Av. Corrientes 1000\" en un par de coordenadas de latitud y longitud?"
-tipo: mc
-opciones_explicitas:
-  - "Geocodificar la dirección"
-  - "Calcular una ruta"
-  - "Renderizar una capa satelital"
-respuesta: "Geocodificar la dirección"
-
-explicacion: |
-  Geocodificar es traducir una dirección en texto a las coordenadas
-  reales que la ubican en el mapa.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["ventajas"]
-
-enunciado: "¿Qué diferencia hay entre la escala de un mapa de papel y la de un mapa digital?"
-tipo: mc
-opciones_explicitas:
-  - "El de papel tiene escala fija; el digital permite zoom continuo, recalculando qué detalle mostrar en cada nivel"
-  - "El mapa digital siempre usa la misma escala que uno de papel"
-  - "El mapa de papel siempre tiene más detalle"
-respuesta: "El de papel tiene escala fija; el digital permite zoom continuo, recalculando qué detalle mostrar en cada nivel"
-
-explicacion: |
-  Al acercar el zoom en un mapa digital aparecen nombres de calles que
-  no entrarían en un mapa impreso a escala de país.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["ventajas"]
-
-enunciado: "¿Qué puede hacer un mapa digital que uno de papel no puede?"
-tipo: mc
-opciones_explicitas:
-  - "Calcular automáticamente el camino más corto o más rápido entre dos puntos"
-  - "Mostrar los límites entre países"
-  - "Usar una rosa de los vientos"
-respuesta: "Calcular automáticamente el camino más corto o más rápido entre dos puntos"
-
-explicacion: |
-  En papel, calcular una ruta óptima requeriría medir a mano; el
-  sistema lo hace automáticamente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["ventajas"]
-
-enunciado: "¿Cuál de estas capas es imposible de tener en un mapa impreso?"
-tipo: mc
-opciones_explicitas:
-  - "Tránsito en tiempo real, que se actualiza constantemente"
-  - "Los límites de las provincias"
-  - "El nombre de las ciudades"
-respuesta: "Tránsito en tiempo real, que se actualiza constantemente"
-
-explicacion: |
-  Un mapa impreso queda fijo desde el momento en que se imprime; el
-  tránsito en vivo necesita actualizarse todo el tiempo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["ventajas"]
-
-enunciado: "Buscar \"farmacias cerca\" en un mapa digital sin saber de antemano dónde están es un ejemplo de..."
-tipo: mc
-opciones_explicitas:
-  - "Búsqueda por categoría, posible gracias a que cada elemento tiene datos asociados"
-  - "Geocodificación de una dirección"
-  - "Una escala gráfica"
-respuesta: "Búsqueda por categoría, posible gracias a que cada elemento tiene datos asociados"
-
-explicacion: |
-  El SIG sabe qué tipo de lugar es cada punto (farmacia, banco,
-  restaurante) y puede filtrarlos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["sig"]
-
-enunciado: "Un SIG es simplemente una imagen que se muestra en pantalla, sin datos asociados a lo que dibuja."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  La característica que define a un SIG es justamente que cada
-  elemento tiene datos asociados (coordenadas, nombre, tipo).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["gps", "cruce"]
-
-enunciado: "¿De qué tecnología viene la posición del usuario en un mapa digital (el puntito azul)?"
-tipo: mc
-opciones_explicitas:
-  - "GPS"
-  - "Escala gráfica"
-  - "Rosa de los vientos"
-respuesta: "GPS"
-
-explicacion: |
-  El GPS calcula la posición y el mapa digital la muestra sobre sus
-  capas — ver `../sig-gps/`.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["imagenes_satelitales", "cruce"]
-
-enunciado: "La capa de vista \"satélite\" de un mapa digital viene de..."
-tipo: mc
-opciones_explicitas:
-  - "Imágenes satelitales"
-  - "El sistema de posicionamiento GPS"
-  - "Una brújula digital"
-respuesta: "Imágenes satelitales"
-
-explicacion: |
-  Es otra tecnología distinta que se combina con el mapa digital — ver
-  `../sig-imagenes-satelitales/`.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["capas"]
-
-enunciado: "Las capas de un SIG se pueden mostrar u ocultar de forma independiente unas de otras."
-tipo: vf
-respuesta: verdadero
-
-explicacion: |
-  Esa independencia es justamente lo que permite combinar sólo la
-  información necesaria en cada momento.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["coordenadas", "cruce"]
-
-enunciado: "¿Qué tiene asociado cada elemento (calle, edificio, comercio) dentro de un mapa digital, además de sus datos?"
-tipo: mc
-opciones_explicitas:
-  - "Coordenadas de latitud y longitud reales"
-  - "Un número de escala numérica propio"
-  - "Un huso horario propio distinto al del resto del mapa"
-respuesta: "Coordenadas de latitud y longitud reales"
-
-explicacion: |
-  Es el mismo sistema de coordenadas que ya explica
-  `../coordenadas-y-husos-horarios/` — el SIG cuelga sus datos sobre esa
-  base.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "avanzado"
-  tags: ["sig"]
-
-enunciado: "¿Cuál de estas frases resume mejor qué es, en esencia, un Sistema de Información Geográfica?"
-tipo: mc
-opciones_explicitas:
-  - "Coordenadas con una capa de datos encima"
-  - "Un mapa dibujado a mano con más colores"
-  - "Una brújula conectada a internet"
-respuesta: "Coordenadas con una capa de datos encima"
-
-explicacion: |
-  Es la síntesis que usa `troncos.md` para explicar por qué mapas
-  digitales, GPS e imágenes satelitales cuelgan del mismo nodo de
-  coordenadas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["capas"]
-
-enunciado: "Para planificar un viaje en auto evitando el tránsito, ¿qué capas conviene combinar?"
-tipo: mc
-opciones_explicitas:
-  - "Calles y tránsito en tiempo real"
-  - "Sólo la capa de límites políticos"
-  - "Sólo la capa de imágenes satelitales"
-respuesta: "Calles y tránsito en tiempo real"
-
-explicacion: |
-  Un SIG permite elegir exactamente esas dos capas sin cargar las
-  demás.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["ventajas"]
-
-enunciado: "Un mapa de papel puede actualizar el tránsito o el clima automáticamente sin volver a imprimirse."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Un mapa impreso queda fijo desde su impresión; sólo un SIG con datos
-  en vivo puede actualizarse solo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "avanzado"
-  tags: ["geocodificacion"]
-
-enunciado: "Para calcular una ruta desde \"mi ubicación\" hasta \"Av. Corrientes 1000\", ¿qué paso previo tiene que hacer el sistema con la dirección de texto?"
-tipo: mc
-opciones_explicitas:
-  - "Geocodificarla, convirtiéndola en coordenadas"
-  - "Traducirla a otro idioma"
-  - "Calcular su escala numérica"
-respuesta: "Geocodificarla, convirtiéndola en coordenadas"
-
-explicacion: |
-  Sin coordenadas no hay forma de ubicar el destino en el mapa ni de
-  calcular la distancia o el camino hacia él.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["sig", "cruce"]
-
-enunciado: "¿Mapas digitales, GPS e imágenes satelitales son la misma tecnología o tecnologías distintas que se combinan?"
-tipo: mc
-opciones_explicitas:
-  - "Son tres tecnologías distintas que se combinan en una app de mapas moderna"
-  - "Son exactamente la misma tecnología con distinto nombre"
-  - "El GPS es sólo un tipo de mapa digital"
-respuesta: "Son tres tecnologías distintas que se combinan en una app de mapas moderna"
-
-explicacion: |
-  Por eso el MAPA las separó en 3 nodos hermanos (`G12a`/`G12b`/`G12c`)
-  en vez de tratarlas como una sola habilidad.
-```
-
-## Sección: estados-y-globalizacion (22 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "basico"
-  tags: ["estado", "definicion", "soberania"]
-
-variables:
-  paises: uno_de(["Argentina", "Brasil", "Chile", "Uruguay", "Paraguay"])
-
-respuesta: "territorio, poblacion y gobierno"
-tipo: completar
-
-enunciado: "Un estado se define tradicionalmente por tres elementos fundamentales: un {paises} (como ejemplo de territorio), una población y un gobierno que ejerce la soberanía. ¿Cuáles son esos tres pilares?"
-
-explicacion: |
-  El estado es una entidad política con territorio definido, población residente y un gobierno que ejerce la autoridad máxima (soberanía) dentro de esas fronteras.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "basico"
-  tags: ["actores", "corporaciones", "poder"]
-
-variables:
-  nivel_poder: uno_de(["supera", "iguala", "inferior"])
-
-respuesta: "corporaciones"
-tipo: completar
-
-enunciado: "Las grandes {nivel_poder} transnacionales a veces desplazan al poder de los gobiernos nacionales en la toma de decisiones económicas globales."
-
-explicacion: |
-  Las grandes corporaciones multinacionales tienen un poder económico y político que, en muchos casos, supera o iguala al de los gobiernos nacionales, influyendo en políticas públicas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "intermedio"
-  tags: ["interdependencia", "red", "conexion"]
-
-variables:
-  tipo_flujo: uno_de(["informacion", "capitales", "personas"])
-
-respuesta: "red"
-tipo: completar
-
-enunciado: "La globalización ha creado una {tipo_flujo} de interdependencia donde lo local y lo global se entrelazan constantemente, desdibujando las fronteras tradicionales del poder."
-
-explicacion: |
-  La globalización no es solo un flujo lineal, sino una red compleja de interdependencia donde los eventos locales tienen repercusiones globales y viceversa.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "avanzado"
-  tags: ["fmi", "condicionalidad", "deuda"]
-
-variables:
-  sector_afectado: uno_de(["salud", "educacion", "infraestructura"])
-
-respuesta: "ajustar_presupuestos"
-tipo: completar
-
-enunciado: "La 'trampa de la deuda' o condicionalidad obliga a los países a {sector_afectado} para obtener estabilidad financiera, afectando servicios públicos como la {sector_afectado}."
-
-explicacion: |
-  Al pedir préstamos internacionales, los países suelen aceptar condiciones (condicionalidad) que les obligan a recortar gastos públicos en áreas sensibles como salud o educación.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "intermedio"
-  tags: ["rol", "intermediario", "cambio"]
-
-variables:
-  rol_antiguo: uno_de(["actor_isolado", "centro_absoluto", "unico_actor"])
-
-respuesta: "intermediario"
-tipo: completar
-
-enunciado: "El rol del estado ha cambiado de ser un {rol_antiguo} a convertirse en un intermediario entre las fuerzas globales y la realidad local."
-
-explicacion: |
-  El estado no ha desaparecido, pero su función ha evolucionado. Ahora actúa como un puente o filtro entre las presiones externas (globalización) y las necesidades internas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "intermedio"
-  tags: ["tecnologia", "internet", "movimientos_sociales"]
-
-variables:
-  mecanismo: uno_de(["transcender_fronteras", "crear_economia", "imponer_leyes"])
-
-respuesta: "transcender_fronteras"
-tipo: completar
-
-enunciado: "Internet y las redes sociales permiten que los movimientos sociales {mecanismo}, presionando a gobiernos que antes operaban con total impunidad."
-
-explicacion: |
-  La tecnología ha democratizado la organización política, permitiendo que la presión social cruce fronteras y afecte la legitimidad de los gobiernos nacionales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "basico"
-  tags: ["onu", "fmi", "omc", "organismos"]
-
-variables:
-  organismo: uno_de(["onu", "fmi", "omc"])
-
-respuesta: "autonomia"
-tipo: completar
-
-enunciado: "Para participar en el comercio global o resolver conflictos, los estados deben ceder parte de su {organismo} a organismos internacionales como la ONU, el FMI o la OMC."
-
-explicacion: |
-  La participación en la gobernanza global requiere sacrificar parte de la autonomía nacional a favor de normas y decisiones colectivas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "avanzado"
-  tags: ["soberania", "negociada", "concepto"]
-
-variables:
-  tipo_soberania: uno_de(["absoluta", "limitada", "total"])
-
-respuesta: "limitada"
-tipo: completar
-
-enunciado: "Hoy en día, la soberanía se entiende más como una soberanía {tipo_soberania} o negociada, donde el estado debe ceder autonomía."
-
-explicacion: |
-  La soberanía absoluta es un ideal histórico; la realidad contemporánea es una soberanía relativa que depende de la capacidad de negociación internacional.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "basico"
-  tags: ["fronteras", "poder", "desdibujamiento"]
-
-variables:
-  efecto: uno_de(["fortalecen", "desdibujan", "eliminan"])
-
-respuesta: "desdibujan"
-tipo: completar
-
-enunciado: "La circulación global de información y capitales tiende a {efecto} las fronteras tradicionales del poder estatal."
-
-explicacion: |
-  Aunque las fronteras físicas existen, su eficacia como barreras de control político y económico se ha reducido significativamente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "intermedio"
-  tags: ["poder_legal", "monopolio", "estado"]
-
-variables:
-  accion: uno_de(["declarar_guerra", "emitir_moneda", "garantizar_derechos"])
-
-respuesta: "estados"
-tipo: completar
-
-enunciado: "Los {accion} son roles que los estados siguen ejerciendo como únicos actores legales, diferenciándolos de las corporaciones."
-
-explicacion: |
-  La legitimidad legal y la capacidad coercitiva final residen en el estado, no en ningún otro actor privado o internacional.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "basico"
-  tags: ["informacion", "circulacion", "escala"]
-
-variables:
-  escala: uno_de(["local", "nacional", "planetaria"])
-
-respuesta: "planetaria"
-tipo: completar
-
-enunciado: "La globalización implica la circulación de mercancías, información, capitales y culturas a escala {escala}."
-
-explicacion: |
-  La característica definitoria de la globalización es la operación a escala mundial, superando las limitaciones geográficas tradicionales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "avanzado"
-  tags: ["tension", "prosperidad", "marginacion"]
-
-variables:
-  resultado: uno_de(["prosperidad", "marginacion", "estabilidad"])
-
-respuesta: "prosperan"
-tipo: completar
-
-enunciado: "Entender la tensión entre lo local y lo global es clave para analizar por qué algunos países {resultado} y otros quedan marginados."
-
-explicacion: |
-  La capacidad de un estado para navegar la globalización determina su éxito o fracaso económico y social.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "intermedio"
-  tags: ["tecnologia", "nuevo_poder", "internet"]
-
-variables:
-  esfera: uno_de(["economica", "politica", "social"])
-
-respuesta: "nuevas_esferas"
-tipo: completar
-
-enunciado: "La tecnología ha creado {esfera} de poder que operan fuera del control directo de los gobiernos nacionales."
-
-explicacion: |
-  El ciberespacio y las plataformas digitales forman nuevas esferas de influencia que los estados intentan regular pero no controlan totalmente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "basico"
-  tags: ["soberania", "definicion", "autoridad"]
-
-variables:
-  autoridad: uno_de(["máxima", "mínima", "compartida"])
-
-respuesta: "máxima"
-tipo: completar
-
-enunciado: "Históricamente, la soberanía se definía como la autoridad {autoridad} para tomar decisiones dentro de las fronteras."
-
-explicacion: |
-  La definición clásica de soberanía implica la supremacía interna y la independencia externa, aunque hoy está matizada.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "intermedio"
-  tags: ["intermediario", "rol", "funcion"]
-
-variables:
-  fuerza: uno_de(["globales", "locales", "externas"])
-
-respuesta: "intermediario"
-tipo: completar
-
-enunciado: "El estado actúa como un {fuerza} entre las fuerzas globales y la realidad local, filtrando y adaptando las presiones externas."
-
-explicacion: |
-  El estado no es pasivo; media, negocia y adapta las normas globales a la legislación local.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "intermedio"
-  tags: ["movimientos_sociales", "presion", "transnacional"]
-
-variables:
-  efecto: uno_de(["presionar", "apoyar", "ignorar"])
-
-respuesta: "presionar"
-tipo: completar
-
-enunciado: "Los movimientos sociales transnacionales buscan {efecto} a gobiernos que operaban con impunidad, utilizando la visibilidad global."
-
-explicacion: |
-  La visibilidad global es una herramienta de poder para los movimientos sociales, obligando a los gobiernos a responder a estándares internacionales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "avanzado"
-  tags: ["prestamo", "condicionalidad", "perdida"]
-
-variables:
-  condicion: uno_de(["economicas", "militares", "culturales"])
-
-respuesta: "economicas"
-tipo: completar
-
-enunciado: "Al pedir un préstamo internacional, un país suele aceptar condiciones {condicion} que limitan sus políticas internas."
-
-explicacion: |
-  La condicionalidad financiera es el mecanismo principal mediante el cual se ejerce influencia sobre la política interna de los estados deudores.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "basico"
-  tags: ["cultura", "circulacion", "globalizacion"]
-
-variables:
-  elemento: uno_de(["mercancías", "personas", "culturas"])
-
-respuesta: "culturas"
-tipo: completar
-
-enunciado: "La globalización no es solo circulación de mercancías, sino también de información, capitales, personas y {elemento} a escala planetaria."
-
-explicacion: |
-  El intercambio cultural es un componente clave de la globalización, a menudo generando debates sobre identidad y homogeneización.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "basico"
-  tags: ["historia", "soberania", "absoluta"]
-
-variables:
-  caracteristica: uno_de(["clara", "borrosa", "inexistente"])
-
-respuesta: "absoluta"
-tipo: completar
-
-enunciado: "Históricamente, la soberanía se ejercía de forma casi {caracteristica} en el interior del país, con límites bien definidos."
-
-explicacion: |
-  El modelo westfaliano de estado-nación pretendía un control absoluto sobre su territorio, contraste con la realidad actual.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "basico"
-  tags: ["omc", "comercio", "participacion"]
-
-variables:
-  organismo: uno_de(["fmi", "omc", "onu"])
-
-respuesta: "comercio"
-tipo: completar
-
-enunciado: "Los estados ceden autonomía a organismos como la OMC para participar en el {organismo} global."
-
-explicacion: |
-  La OMC establece las reglas del comercio internacional, limitando la capacidad de los estados para proteger sus mercados internos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "avanzado"
-  tags: ["derechos", "garantia", "estado"]
-
-variables:
-  derecho: uno_de(["salud", "educacion", "seguridad"])
-
-respuesta: "garantizar"
-tipo: completar
-
-enunciado: "Los estados siguen siendo los únicos actores con capacidad legal para {derecho} a sus ciudadanos."
-
-explicacion: |
-  La protección de los derechos humanos y ciudadanos sigue siendo la responsabilidad última del estado, aunque los organismos internacionales monitoricen su cumplimiento.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "estados_y_globalizacion"
-  nivel: "intermedio"
-  tags: ["interdependencia", "local", "global"]
-
-variables:
-  relacion: uno_de(["entrelazan", "separan", "ignoran"])
-
-respuesta: "entrelazan"
-tipo: completar
-
-enunciado: "La globalización ha creado una red donde lo local y lo global se {relacion} constantemente."
-
-explicacion: |
-  No hay una separación clara; lo local es afectado por lo global y viceversa, creando una dinámica compleja de influencia mutua.
-```
-
 ## Sección: region (20 preguntas)
 
 ```
@@ -2063,5 +1251,841 @@ explicacion: |
   A diferencia de `G12` o `H2` (que sí tienen sub-IDs `a`/`b`/`c` en el
   MAPA), `G6` sigue siendo un solo nodo — señal de que se pensó como
   unidad.
+```
+
+## Sección: sig-imagenes-satelitales (20 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "basico"
+  tags: ["teledeteccion", "vocabulario"]
+
+enunciado: "¿Qué es una imagen satelital?"
+tipo: mc
+opciones_explicitas:
+  - "Una medición de energía reflejada o emitida por la superficie terrestre, captada por un satélite en órbita"
+  - "Una foto tomada por un avión a baja altura"
+  - "Un mapa dibujado a mano por un cartógrafo"
+respuesta: "Una medición de energía reflejada o emitida por la superficie terrestre, captada por un satélite en órbita"
+
+explicacion: |
+  La disciplina que estudia esto se llama teledetección: percibir algo
+  a distancia, sin tocarlo.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["teledeteccion"]
+
+enunciado: "¿Cómo se llama la disciplina que estudia cómo captar información de la superficie terrestre a distancia, sin contacto directo?"
+tipo: mc
+opciones_explicitas:
+  - "Teledetección"
+  - "Trilateración"
+  - "Geocodificación"
+respuesta: "Teledetección"
+
+explicacion: |
+  Es el nombre técnico de "percibir algo a distancia" — cubre tanto
+  imágenes satelitales como aéreas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["bandas_espectrales"]
+
+enunciado: "¿En qué se diferencia un sensor satelital de una cámara de fotos común?"
+tipo: mc
+opciones_explicitas:
+  - "El sensor satelital suele captar además bandas de luz invisibles al ojo humano, como el infrarrojo"
+  - "El sensor satelital sólo capta blanco y negro"
+  - "No hay ninguna diferencia real"
+respuesta: "El sensor satelital suele captar además bandas de luz invisibles al ojo humano, como el infrarrojo"
+
+explicacion: |
+  Una cámara común capta sólo luz visible (rojo, verde, azul); los
+  satélites suelen sumar infrarrojo, térmico y microondas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["bandas_espectrales", "agricultura"]
+
+enunciado: "¿Por qué la banda de infrarrojo cercano es clave para medir la salud de un cultivo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque la vegetación sana la refleja mucho más que la vegetación enferma o el suelo desnudo"
+  - "Porque el infrarrojo cercano muestra el color real de las plantas"
+  - "Porque sólo detecta agua, no plantas"
+respuesta: "Porque la vegetación sana la refleja mucho más que la vegetación enferma o el suelo desnudo"
+
+explicacion: |
+  Esa diferencia de reflectancia entre vegetación sana y enferma es la
+  base de los índices de vegetación usados en agricultura de precisión.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["bandas_espectrales"]
+
+enunciado: "¿Qué mide la banda de infrarrojo térmico de un satélite?"
+tipo: mc
+opciones_explicitas:
+  - "La temperatura de la superficie"
+  - "El color visible del terreno"
+  - "La altitud del satélite"
+respuesta: "La temperatura de la superficie"
+
+explicacion: |
+  Es útil para detectar incendios activos, islas de calor urbano o
+  temperatura del mar.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["bandas_espectrales"]
+
+enunciado: "¿Qué ventaja tiene la banda de microondas (radar) frente a la luz visible o el infrarrojo?"
+tipo: mc
+opciones_explicitas:
+  - "Puede atravesar nubes y funcionar de noche"
+  - "Muestra colores más realistas"
+  - "Sólo funciona sobre el océano"
+respuesta: "Puede atravesar nubes y funcionar de noche"
+
+explicacion: |
+  Es clave para monitorear zonas con clima muy nublado (como la selva
+  amazónica) o hacer seguimiento constante sin depender de luz solar.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["bandas_espectrales"]
+
+enunciado: "¿Qué es una imagen \"falso color\" en teledetección?"
+tipo: mc
+opciones_explicitas:
+  - "Combinar bandas invisibles al ojo humano en una imagen para resaltar lo que se quiere estudiar"
+  - "Una imagen tomada de noche sin luz"
+  - "Un error de calibración del sensor"
+respuesta: "Combinar bandas invisibles al ojo humano en una imagen para resaltar lo que se quiere estudiar"
+
+explicacion: |
+  Ej.: mostrar vegetación en rojo intenso combinando bandas de
+  infrarrojo, para verla mejor que en color natural.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "basico"
+  tags: ["usos"]
+
+enunciado: "¿Cómo se mide deforestación con imágenes satelitales?"
+tipo: mc
+opciones_explicitas:
+  - "Comparando imágenes del mismo lugar en dos fechas distintas"
+  - "Contando la cantidad de satélites que pasan por la zona"
+  - "Midiendo la temperatura del aire"
+respuesta: "Comparando imágenes del mismo lugar en dos fechas distintas"
+
+explicacion: |
+  La diferencia entre las dos imágenes muestra cuánto bosque
+  desapareció en ese período.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "basico"
+  tags: ["usos"]
+
+enunciado: "¿Qué información usan los satélites meteorológicos como base del pronóstico del tiempo?"
+tipo: mc
+opciones_explicitas:
+  - "Imágenes de nubes, ciclones y frentes"
+  - "Sólo la posición GPS de las ciudades"
+  - "El color del cielo visto desde el suelo"
+respuesta: "Imágenes de nubes, ciclones y frentes"
+
+explicacion: |
+  Buena parte del pronóstico del tiempo depende de imágenes satelitales
+  actualizadas constantemente.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["usos"]
+
+enunciado: "¿Para qué se usan las imágenes satelitales después de una inundación?"
+tipo: mc
+opciones_explicitas:
+  - "Para medir el área afectada comparando imágenes de antes y después"
+  - "Para calcular la posición GPS de las víctimas"
+  - "Para predecir el próximo terremoto"
+respuesta: "Para medir el área afectada comparando imágenes de antes y después"
+
+explicacion: |
+  Es el mismo principio que la detección de deforestación: comparar
+  el mismo lugar en dos momentos distintos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["usos"]
+
+enunciado: "¿Cómo se mide el crecimiento de una ciudad a lo largo de los años con imágenes satelitales?"
+tipo: mc
+opciones_explicitas:
+  - "Observando el cambio en la superficie construida entre imágenes de distintos años"
+  - "Contando la cantidad de satélites en órbita"
+  - "Midiendo sólo la temperatura del asfalto"
+respuesta: "Observando el cambio en la superficie construida entre imágenes de distintos años"
+
+explicacion: |
+  Es otro caso del mismo método de comparación temporal de imágenes.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["resolucion"]
+
+enunciado: "¿Qué indica la \"resolución espacial\" de una imagen satelital?"
+tipo: mc
+opciones_explicitas:
+  - "El tamaño real del área que representa cada píxel de la imagen"
+  - "La cantidad de colores que puede mostrar"
+  - "La velocidad del satélite en su órbita"
+respuesta: "El tamaño real del área que representa cada píxel de la imagen"
+
+explicacion: |
+  Un satélite de 10 metros de resolución no distingue nada más chico
+  que un cuadrado de 10 m de lado.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["resolucion"]
+
+enunciado: "Con un satélite de 10 metros de resolución, ¿qué pasa con dos autos estacionados uno al lado del otro?"
+tipo: mc
+opciones_explicitas:
+  - "Se ven como un solo punto, sin poder distinguirlos"
+  - "Se ven perfectamente separados y con detalle"
+  - "El satélite no puede fotografiar autos en absoluto"
+respuesta: "Se ven como un solo punto, sin poder distinguirlos"
+
+explicacion: |
+  Cada píxel de esa imagen representa un área de 10x10 m; dos autos
+  chicos caen dentro del mismo píxel.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["resolucion"]
+
+enunciado: "¿Qué compromiso suele existir entre resolución y frecuencia de paso de un satélite?"
+tipo: mc
+opciones_explicitas:
+  - "Un satélite que fotografía todo el planeta a diario suele tener menor resolución que uno especializado que pasa cada varias semanas"
+  - "No existe ningún compromiso, ambas cosas son independientes"
+  - "A mayor frecuencia de paso, siempre mayor resolución"
+respuesta: "Un satélite que fotografía todo el planeta a diario suele tener menor resolución que uno especializado que pasa cada varias semanas"
+
+explicacion: |
+  Es un trade-off real de ingeniería: cobertura amplia y frecuente vs.
+  detalle fino en un punto específico.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["cruce"]
+
+enunciado: "¿En qué se diferencia una imagen satelital del GPS?"
+tipo: mc
+opciones_explicitas:
+  - "La imagen satelital muestra una zona entera; el GPS sólo da una posición puntual"
+  - "Son exactamente la misma tecnología"
+  - "El GPS necesita cámaras y la imagen satelital no"
+respuesta: "La imagen satelital muestra una zona entera; el GPS sólo da una posición puntual"
+
+explicacion: |
+  Son dos usos distintos de satélites: uno da un punto (posición), el
+  otro da una imagen completa de una superficie.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["teledeteccion"]
+
+enunciado: "Para tomar una imagen satelital de una zona hace falta un receptor especial instalado en esa zona."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  A diferencia del GPS (que necesita un receptor calculando su
+  posición), la imagen satelital se capta desde el satélite sin
+  necesitar nada en tierra.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "basico"
+  tags: ["bandas_espectrales"]
+
+enunciado: "Un satélite de observación terrestre sólo puede captar luz visible, igual que el ojo humano."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  La mayoría de los satélites de observación captan además bandas
+  invisibles (infrarrojo, térmico, microondas), cada una útil para
+  medir algo distinto.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "basico"
+  tags: ["cruce"]
+
+enunciado: "En una app de mapas, ¿qué capa se construye directamente a partir de imágenes satelitales?"
+tipo: mc
+opciones_explicitas:
+  - "La vista \"satélite\""
+  - "La capa de tránsito en tiempo real"
+  - "La capa de límites políticos"
+respuesta: "La vista \"satélite\""
+
+explicacion: |
+  Es la capa que muestra el terreno tal como se ve desde el espacio,
+  distinta de la capa vectorial de calles.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["bandas_espectrales"]
+
+enunciado: "Para monitorear deforestación en la selva amazónica, con nubosidad casi constante, ¿qué banda es especialmente útil?"
+tipo: mc
+opciones_explicitas:
+  - "Microondas (radar), que atraviesa las nubes"
+  - "Luz visible únicamente"
+  - "Sólo infrarrojo térmico"
+respuesta: "Microondas (radar), que atraviesa las nubes"
+
+explicacion: |
+  El radar permite captar imágenes útiles incluso con cobertura de
+  nubes casi permanente, donde la luz visible o el infrarrojo cercano
+  quedarían bloqueados.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["cruce"]
+
+enunciado: "De las 3 tecnologías del Sistema de Información Geográfica (mapas digitales, GPS, imágenes satelitales), ¿cuál da una imagen completa de una zona en vez de un punto o una capa de datos vectoriales?"
+tipo: mc
+opciones_explicitas:
+  - "Imágenes satelitales"
+  - "GPS"
+  - "Mapas digitales"
+respuesta: "Imágenes satelitales"
+
+explicacion: |
+  El GPS da un punto; el mapa digital organiza datos en capas
+  vectoriales (calles, edificios); la imagen satelital capta una
+  fotografía/medición completa de la superficie.
+```
+
+## Sección: recursos-actividades-economicas (22 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["recursos", "vocabulario"]
+
+enunciado: "¿Qué es un recurso natural?"
+tipo: mc
+opciones_explicitas:
+  - "Cualquier elemento del ambiente que una sociedad puede aprovechar para producir bienes o servicios"
+  - "Cualquier producto fabricado en una industria"
+  - "El dinero disponible en un territorio"
+respuesta: "Cualquier elemento del ambiente que una sociedad puede aprovechar para producir bienes o servicios"
+
+explicacion: |
+  El relieve, clima y bioma de un territorio determinan qué recursos
+  existen ahí.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["recursos"]
+
+enunciado: "¿Qué actividad económica depende directamente de tener suelo fértil, clima templado y lluvias moderadas?"
+tipo: mc
+opciones_explicitas:
+  - "Agricultura"
+  - "Minería"
+  - "Pesca"
+respuesta: "Agricultura"
+
+explicacion: |
+  Ejemplo real: la Pampa argentina, llanura con esas condiciones
+  climáticas exactas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["renovables"]
+
+enunciado: "¿Qué distingue a un recurso renovable de uno no renovable?"
+tipo: mc
+opciones_explicitas:
+  - "El renovable se regenera a un ritmo comparable al que se consume; el no renovable existe en cantidad fija y se agota"
+  - "El renovable siempre es más barato de explotar"
+  - "El no renovable siempre es un recurso energético"
+respuesta: "El renovable se regenera a un ritmo comparable al que se consume; el no renovable existe en cantidad fija y se agota"
+
+explicacion: |
+  Agua de lluvia, viento y sol se regeneran constantemente; petróleo y
+  minerales, no.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["renovables"]
+
+enunciado: "¿Cuál de estos es un recurso NO renovable?"
+tipo: mc
+opciones_explicitas:
+  - "Petróleo"
+  - "Viento"
+  - "Radiación solar"
+respuesta: "Petróleo"
+
+explicacion: |
+  Se forma en escalas de tiempo geológico, mucho más largas que
+  cualquier ritmo de consumo humano.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "avanzado"
+  tags: ["renovables"]
+
+enunciado: "¿Por qué el petróleo se clasifica como recurso no renovable a pesar de que técnicamente sigue formándose en la naturaleza?"
+tipo: mc
+opciones_explicitas:
+  - "Porque se forma en escalas de tiempo geológico, muchísimo más lentas que el ritmo al que se consume"
+  - "Porque no se puede volver a formar bajo ninguna circunstancia"
+  - "Porque no es un elemento natural"
+respuesta: "Porque se forma en escalas de tiempo geológico, muchísimo más lentas que el ritmo al que se consume"
+
+explicacion: |
+  En la práctica, para la escala de tiempo humana, es como si no se
+  regenerara.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["sectores"]
+
+enunciado: "¿Qué caracteriza al sector primario de la economía?"
+tipo: mc
+opciones_explicitas:
+  - "Extrae recursos directamente de la naturaleza sin transformarlos demasiado"
+  - "Transforma recursos en productos manufacturados"
+  - "Presta servicios en vez de producir bienes físicos"
+respuesta: "Extrae recursos directamente de la naturaleza sin transformarlos demasiado"
+
+explicacion: |
+  Agricultura, ganadería, pesca, minería y explotación forestal son
+  ejemplos de sector primario.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["sectores"]
+
+enunciado: "¿Qué hace el sector secundario de la economía?"
+tipo: mc
+opciones_explicitas:
+  - "Transforma recursos naturales en productos manufacturados"
+  - "Extrae recursos directamente de la naturaleza"
+  - "Presta servicios de salud y educación"
+respuesta: "Transforma recursos naturales en productos manufacturados"
+
+explicacion: |
+  Industria textil, alimenticia, metalúrgica y automotriz son ejemplos
+  de sector secundario.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["sectores"]
+
+enunciado: "¿Qué caracteriza al sector terciario?"
+tipo: mc
+opciones_explicitas:
+  - "Presta servicios en vez de producir bienes físicos"
+  - "Extrae recursos naturales"
+  - "Es siempre el sector más chico de cualquier economía"
+respuesta: "Presta servicios en vez de producir bienes físicos"
+
+explicacion: |
+  Comercio, educación, salud, turismo, finanzas y transporte son
+  ejemplos de sector terciario.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["sectores"]
+
+enunciado: "¿A qué sector económico pertenece la minería?"
+tipo: mc
+opciones_explicitas:
+  - "Sector primario"
+  - "Sector secundario"
+  - "Sector terciario"
+respuesta: "Sector primario"
+
+explicacion: |
+  Extrae un recurso mineral directamente de la naturaleza, sin
+  transformarlo en un producto manufacturado.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["sectores"]
+
+enunciado: "¿A qué sector económico pertenece la industria automotriz?"
+tipo: mc
+opciones_explicitas:
+  - "Sector secundario"
+  - "Sector primario"
+  - "Sector terciario"
+respuesta: "Sector secundario"
+
+explicacion: |
+  Transforma materias primas (metal, plástico, vidrio) en un producto
+  manufacturado.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["sectores"]
+
+enunciado: "¿A qué sector económico pertenece el turismo?"
+tipo: mc
+opciones_explicitas:
+  - "Sector terciario"
+  - "Sector primario"
+  - "Sector secundario"
+respuesta: "Sector terciario"
+
+explicacion: |
+  Presta un servicio (alojamiento, guía, transporte) en vez de
+  producir un bien físico.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "avanzado"
+  tags: ["sectores"]
+
+enunciado: "¿Qué sector económico suele crecer más, en proporción, a medida que una economía se desarrolla?"
+tipo: mc
+opciones_explicitas:
+  - "El sector terciario (servicios)"
+  - "El sector primario (extracción directa)"
+  - "Ninguno cambia su proporción con el desarrollo"
+respuesta: "El sector terciario (servicios)"
+
+explicacion: |
+  Es un patrón histórico observado en la mayoría de las economías que
+  se industrializan y luego se "terciarizan".
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "avanzado"
+  tags: ["sectores"]
+
+enunciado: "¿Por qué el sector secundario está \"menos atado\" al territorio local que el primario?"
+tipo: mc
+opciones_explicitas:
+  - "Porque una fábrica puede instalarse donde convenga logísticamente, no necesariamente donde está el recurso"
+  - "Porque el sector secundario no necesita ningún recurso natural"
+  - "Porque el sector secundario siempre se instala en la capital del país"
+respuesta: "Porque una fábrica puede instalarse donde convenga logísticamente, no necesariamente donde está el recurso"
+
+explicacion: |
+  A diferencia de la agricultura o la minería (atadas al lugar donde
+  está el recurso), una fábrica puede transportar la materia prima
+  desde otro lugar.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["recursos"]
+
+enunciado: "Los recursos naturales de un territorio determinan de forma automática y única qué actividades económicas se desarrollan ahí, sin margen para otras decisiones."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  La tecnología, el capital disponible y las decisiones políticas
+  también influyen — el territorio pone un piso de condiciones reales,
+  no un destino inevitable.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "avanzado"
+  tags: ["recursos"]
+
+enunciado: "¿Qué significa que el territorio pone un \"piso de condiciones reales\" para la economía, en vez de determinarla del todo?"
+tipo: mc
+opciones_explicitas:
+  - "Que hay límites reales que el territorio impone (ej.: sin costa no hay pesca marítima), aunque no elimina toda decisión humana sobre cómo aprovecharlo"
+  - "Que la economía nunca depende del territorio en absoluto"
+  - "Que sólo el sector primario depende del territorio"
+respuesta: "Que hay límites reales que el territorio impone (ej.: sin costa no hay pesca marítima), aunque no elimina toda decisión humana sobre cómo aprovecharlo"
+
+explicacion: |
+  Es el matiz entre "condiciona" y "determina" que explica
+  `teoria.md`.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["recursos"]
+
+enunciado: "¿Puede un país sin salida al mar desarrollar pesca marítima?"
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Es un ejemplo directo de cómo el territorio pone un límite real —
+  puede tener pesca de agua dulce (ríos, lagos), pero no marítima.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "avanzado"
+  tags: ["argentina", "cruce"]
+
+enunciado: "¿Qué combinación de relieve/clima/bioma explica el perfil agroexportador histórico de Argentina (cereales, oleaginosas, carne)?"
+tipo: mc
+opciones_explicitas:
+  - "Llanura, clima templado y pastizal con suelo fértil de la Pampa húmeda"
+  - "Cordillera con clima muy frío"
+  - "Selva tropical con suelo pobre"
+respuesta: "Llanura, clima templado y pastizal con suelo fértil de la Pampa húmeda"
+
+explicacion: |
+  Es la misma cadena relieve → clima → bioma que ya explicó
+  `../relieve-clima-biomas/`, aplicada acá a un caso económico
+  concreto.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["recursos"]
+
+enunciado: "¿Para cuál de estos usos NO sirve típicamente el agua dulce como recurso?"
+tipo: mc
+opciones_explicitas:
+  - "Generación de energía nuclear"
+  - "Riego agrícola"
+  - "Generación de energía hidroeléctrica"
+respuesta: "Generación de energía nuclear"
+
+explicacion: |
+  La energía nuclear usa un combustible mineral (uranio), no el agua
+  como recurso energético directo (aunque el agua sí se use para
+  refrigerar la planta).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["recursos", "cruce"]
+
+enunciado: "¿Por qué el relieve montañoso suele tener más yacimientos minerales que una llanura?"
+tipo: mc
+opciones_explicitas:
+  - "Por la historia geológica del territorio, ligada a la formación de las montañas"
+  - "Porque las montañas siempre tienen más lluvia"
+  - "Porque las llanuras nunca tuvieron actividad volcánica"
+respuesta: "Por la historia geológica del territorio, ligada a la formación de las montañas"
+
+explicacion: |
+  La ubicación de yacimientos minerales depende de procesos geológicos
+  de largo plazo, distintos de los que forman una llanura.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["renovables", "cruce"]
+
+enunciado: "¿Por qué se dice que el potencial de energía solar o eólica de una zona está \"ligado directamente al clima\"?"
+tipo: mc
+opciones_explicitas:
+  - "Porque la cantidad de radiación solar o viento disponible depende directamente de las condiciones climáticas del lugar"
+  - "Porque el clima determina el precio de los paneles solares"
+  - "Porque sin clima no hay electricidad en ningún lugar"
+respuesta: "Porque la cantidad de radiación solar o viento disponible depende directamente de las condiciones climáticas del lugar"
+
+explicacion: |
+  A diferencia del petróleo o el gas (ligados a la historia geológica),
+  el potencial solar y eólico depende del clima actual del territorio.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "avanzado"
+  tags: ["sectores"]
+
+enunciado: "Ordená los tres sectores de más cercano al recurso natural (extrae directo) a más lejano (sólo servicios): Terciario, Primario, Secundario."
+tipo: ordenar
+opciones_explicitas:
+  - "Primario"
+  - "Secundario"
+  - "Terciario"
+respuesta_orden: ["Primario", "Secundario", "Terciario"]
+
+explicacion: |
+  Primario extrae directo; secundario transforma lo extraído;
+  terciario presta servicios sin producir un bien físico.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["sectores", "cruce"]
+
+enunciado: "¿Por qué el sector primario es el más directamente dependiente del clima, relieve y bioma de un territorio?"
+tipo: mc
+opciones_explicitas:
+  - "Porque extrae recursos directamente de la naturaleza, sin la mediación de una fábrica que pueda instalarse en otro lado"
+  - "Porque el sector primario no usa ningún recurso natural"
+  - "Porque el sector primario siempre se ubica en la capital del país"
+respuesta: "Porque extrae recursos directamente de la naturaleza, sin la mediación de una fábrica que pueda instalarse en otro lado"
+
+explicacion: |
+  Es la razón por la que `recursos-actividades-economicas/` depende de
+  `../relieve-clima-biomas/`: sin saber qué clima/relieve/bioma tiene
+  un territorio, no se puede predecir qué recursos primarios ofrece.
 ```
 

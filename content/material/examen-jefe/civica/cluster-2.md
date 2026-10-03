@@ -4,374 +4,6 @@
 
 ---
 
-## Sección: derechos-genero (20 preguntas)
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "basico"
-  tags: ["marco_normativo"]
-
-enunciado: "¿Qué inciso del art. 92 de la Ley 26.206 corresponde a la igualdad entre los sexos?"
-tipo: mc
-opciones_explicitas:
-  - "Inciso f)"
-  - "Inciso d)"
-  - "Inciso e)"
-respuesta: "Inciso f)"
-
-explicacion: |
-  El inciso d) corresponde a derechos del niño y el e) a derechos
-  indígenas.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "basico"
-  tags: ["marco_normativo"]
-
-enunciado: "¿Qué tratado internacional cita el art. 92 inciso f como base de la igualdad entre los sexos?"
-tipo: mc
-opciones_explicitas:
-  - "La Convención sobre la Eliminación de Todas las Formas de Discriminación contra la Mujer (CEDAW)"
-  - "La Convención sobre los Derechos del Niño"
-  - "El Tratado de Libre Comercio"
-respuesta: "La Convención sobre la Eliminación de Todas las Formas de Discriminación contra la Mujer (CEDAW)"
-
-explicacion: |
-  Tratado de la ONU adoptado en 1979.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "intermedio"
-  tags: ["historia"]
-
-enunciado: "¿En qué año fue adoptada la CEDAW por la ONU?"
-tipo: input
-respuesta: 1979
-
-explicacion: |
-  Adoptada en 1979, ratificada después por Argentina.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "intermedio"
-  tags: ["marco_normativo"]
-
-enunciado: "¿Desde qué reforma tiene la CEDAW jerarquía constitucional en Argentina?"
-tipo: input
-respuesta: 1994
-
-explicacion: |
-  Art. 75 inc. 22 de la Constitución Nacional, reforma de 1994.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "basico"
-  tags: ["marco_normativo"]
-
-enunciado: "¿Qué exige la CEDAW a los Estados que la ratifican?"
-tipo: mc
-opciones_explicitas:
-  - "Eliminar la discriminación contra la mujer en la vida política, social, económica y cultural"
-  - "Prohibir la participación política de las mujeres"
-  - "Ninguna obligación concreta, es sólo una declaración simbólica"
-respuesta: "Eliminar la discriminación contra la mujer en la vida política, social, económica y cultural"
-
-explicacion: |
-  Es la obligación central del tratado.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "avanzado"
-  tags: ["marco_normativo"]
-
-enunciado: "¿Qué exige la CEDAW respecto de los 'patrones socioculturales'?"
-tipo: mc
-opciones_explicitas:
-  - "Modificar los que sostengan la idea de inferioridad o superioridad de un sexo sobre otro"
-  - "Prohibir su estudio en las escuelas"
-  - "Mantenerlos intactos, sin ninguna modificación"
-respuesta: "Modificar los que sostengan la idea de inferioridad o superioridad de un sexo sobre otro"
-
-explicacion: |
-  Apunta a los estereotipos culturales de fondo, no sólo a conductas
-  puntuales.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "intermedio"
-  tags: ["leyes_argentinas"]
-
-enunciado: "¿Qué ley argentina se sancionó en 2009 para prevenir, sancionar y erradicar la violencia contra las mujeres?"
-tipo: mc
-opciones_explicitas:
-  - "Ley 26.485"
-  - "Ley 26.618"
-  - "Ley 26.743"
-respuesta: "Ley 26.485"
-
-explicacion: |
-  Ley de Protección Integral para Prevenir, Sancionar y Erradicar la
-  Violencia contra las Mujeres.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "intermedio"
-  tags: ["historia"]
-
-enunciado: "¿En qué año se sancionó la Ley 26.485 en Argentina?"
-tipo: input
-respuesta: 2009
-
-explicacion: |
-  Ley de Protección Integral contra la Violencia hacia las Mujeres.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "intermedio"
-  tags: ["leyes_argentinas"]
-
-enunciado: "¿Qué ley argentina estableció el matrimonio igualitario, y en qué año?"
-tipo: mc
-opciones_explicitas:
-  - "Ley 26.618, en 2010"
-  - "Ley 26.485, en 2009"
-  - "Ley 26.743, en 2012"
-respuesta: "Ley 26.618, en 2010"
-
-explicacion: |
-  Ley de matrimonio igualitario, sancionada en 2010.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "intermedio"
-  tags: ["leyes_argentinas"]
-
-enunciado: "¿Qué ley argentina reconoce el derecho a la identidad de género, y en qué año?"
-tipo: mc
-opciones_explicitas:
-  - "Ley 26.743, en 2012"
-  - "Ley 26.618, en 2010"
-  - "Ley 26.485, en 2009"
-respuesta: "Ley 26.743, en 2012"
-
-explicacion: |
-  Ley de identidad de género, sancionada en 2012.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "avanzado"
-  tags: ["leyes_argentinas"]
-
-enunciado: "Ordená cronológicamente estas 3 leyes argentinas: Identidad de género (26.743), Violencia contra las mujeres (26.485), Matrimonio igualitario (26.618)."
-tipo: ordenar
-opciones_explicitas: ["Violencia contra las mujeres (26.485)", "Matrimonio igualitario (26.618)", "Identidad de género (26.743)"]
-respuesta_orden: ["Violencia contra las mujeres (26.485)", "Matrimonio igualitario (26.618)", "Identidad de género (26.743)"]
-
-explicacion: |
-  Orden real: 2009 (26.485) → 2010 (26.618) → 2012 (26.743).
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "intermedio"
-  tags: ["neutralidad"]
-
-enunciado: "¿A qué ángulo específico se limita este tema, según lo establece explícitamente el art. 92 inciso f?"
-tipo: mc
-opciones_explicitas:
-  - "Igualdad, solidaridad y respeto entre los sexos"
-  - "Corrientes filosóficas feministas en general, sin límite de alcance"
-  - "Ningún ángulo específico, cubre cualquier debate de género posible"
-respuesta: "Igualdad, solidaridad y respeto entre los sexos"
-
-explicacion: |
-  Es el límite explícito que fija el propio artículo, y el mismo
-  criterio de neutralidad ya aplicado en otros temas de corrientes de
-  pensamiento del proyecto.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "avanzado"
-  tags: ["neutralidad"]
-
-enunciado: "¿Por qué la teoría de este tema no desarrolla corrientes de pensamiento feminista más amplias ni debates filosóficos sobre género?"
-tipo: mc
-opciones_explicitas:
-  - "Porque exceden el contenido curricular específico que cita la ley (CEDAW + normativa argentina concreta)"
-  - "Porque esos debates no existen en la actualidad"
-  - "Porque la ley los prohíbe expresamente"
-respuesta: "Porque exceden el contenido curricular específico que cita la ley (CEDAW + normativa argentina concreta)"
-
-explicacion: |
-  El tema se limita al marco normativo confirmado, no a debates
-  filosóficos abiertos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "intermedio"
-  tags: ["marco_normativo"]
-
-enunciado: "¿En qué ámbitos exige la CEDAW garantizar igualdad de derechos entre hombres y mujeres?"
-tipo: mc
-opciones_explicitas:
-  - "Educación, empleo, salud y participación política"
-  - "Únicamente en el ámbito deportivo"
-  - "Únicamente en el ámbito religioso"
-respuesta: "Educación, empleo, salud y participación política"
-
-explicacion: |
-  Son los ámbitos explícitos que menciona la teoría.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "intermedio"
-  tags: ["prerrequisito"]
-
-enunciado: "¿Qué relación tiene este tema con `../derechos-indigenas/` en la cadena de esta materia?"
-tipo: mc
-opciones_explicitas:
-  - "Es el último hermano de la secuencia: los 3 (niño, indígenas, género) son especificaciones distintas del art. 92"
-  - "No tienen ninguna relación entre sí"
-  - "Los derechos de género reemplazan a los derechos indígenas"
-respuesta: "Es el último hermano de la secuencia: los 3 (niño, indígenas, género) son especificaciones distintas del art. 92"
-
-explicacion: |
-  Cierra la subrama de 3 hermanos del nodo `T7` del MAPA.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "avanzado"
-  tags: ["marco_normativo"]
-
-enunciado: "¿Verdadero o falso? La CEDAW sólo exige eliminar leyes discriminatorias, sin ocuparse de patrones culturales o sociales."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  También exige modificar patrones socioculturales que sostengan
-  desigualdad, no sólo normas legales explícitas.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "basico"
-  tags: ["marco_normativo"]
-
-enunciado: "¿A qué ley pertenece el art. 92 que cita el marco normativo de este tema?"
-tipo: mc
-opciones_explicitas:
-  - "Ley de Educación Nacional 26.206"
-  - "Ley 26.061"
-  - "Constitución Nacional"
-respuesta: "Ley de Educación Nacional 26.206"
-
-explicacion: |
-  Mismo artículo 92 que ya usaron `../derechos-nino/` (inciso d),
-  `../derechos-indigenas/` (inciso e) y
-  `../../geografia/ambiente-y-recursos/` (inciso g).
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "intermedio"
-  tags: ["marco_normativo"]
-
-enunciado: "¿Verdadero o falso? Argentina ratificó la CEDAW, dándole jerarquía constitucional desde la reforma de 1994."
-tipo: vf
-respuesta: verdadero
-
-explicacion: |
-  Confirmado con la reforma constitucional de 1994 (art. 75 inc. 22).
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-enunciado: "¿Para qué sirve, según la teoría, distinguir lo que la ley argentina ya reconoce explícitamente de lo que es debate social en curso?"
-tipo: mc
-opciones_explicitas:
-  - "Para leer con criterio noticias sobre legislación de género, sin confundir norma vigente con debate abierto"
-  - "Para descartar por completo cualquier debate social sobre género"
-  - "Para reemplazar el estudio de las leyes por opiniones personales"
-respuesta: "Para leer con criterio noticias sobre legislación de género, sin confundir norma vigente con debate abierto"
-
-explicacion: |
-  Es el cierre práctico de la teoría.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "intermedio"
-  tags: ["sintesis"]
-
-enunciado: "¿Cuál resume mejor el marco de derechos de género visto en este tema?"
-tipo: mc
-opciones_explicitas:
-  - "CEDAW (1979, jerarquía constitucional desde 1994) + leyes argentinas concretas (26.485, 26.618, 26.743), limitado al ángulo de igualdad entre los sexos"
-  - "Un conjunto de debates filosóficos sin ninguna base normativa"
-  - "Un marco idéntico al de los derechos del niño, sin ninguna diferencia"
-respuesta: "CEDAW (1979, jerarquía constitucional desde 1994) + leyes argentinas concretas (26.485, 26.618, 26.743), limitado al ángulo de igualdad entre los sexos"
-
-explicacion: |
-  Cierre del marco normativo desarrollado en la teoría.
-```
-
 ## Sección: estado-de-derecho-por-que-importa (25 preguntas)
 
 ```
@@ -2061,5 +1693,379 @@ enunciado: "El Estado debe gestionar recursos para la obra descrita: {datos[idx]
 
 explicacion: |
   El Poder Ejecutivo es el encargado de la gestión diaria, la administración de los recursos y la ejecución de las leyes.
+```
+
+## Sección: constitucion-preambulo (20 preguntas)
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "basico"
+  tags: ["definicion"]
+
+enunciado: "¿Qué es el Preámbulo de la Constitución Nacional?"
+tipo: mc
+opciones_explicitas:
+  - "La introducción que declara los objetivos e intención de todo el texto constitucional"
+  - "El primer artículo con fuerza de ley igual que los demás"
+  - "Un anexo agregado en 1994 sin relación con el resto del texto"
+respuesta: "La introducción que declara los objetivos e intención de todo el texto constitucional"
+
+explicacion: |
+  No impone una obligación puntual como los artículos, pero orienta la
+  interpretación de toda la Constitución.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "basico"
+  tags: ["historia"]
+
+enunciado: "¿En qué año se sancionó originalmente la Constitución Nacional Argentina?"
+tipo: input
+respuesta: 1853
+
+explicacion: |
+  Sancionada en 1853, con reformas posteriores (la última integral en
+  1994).
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "basico"
+  tags: ["historia"]
+
+enunciado: "¿En qué año fue la última reforma integral de la Constitución Nacional Argentina?"
+tipo: input
+respuesta: 1994
+
+explicacion: |
+  La reforma de 1994 incorporó, entre otras cosas, los tratados
+  internacionales de derechos humanos con jerarquía constitucional.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "intermedio"
+  tags: ["funcion"]
+
+enunciado: "¿Cómo usa la Corte Suprema el Preámbulo en la práctica?"
+tipo: mc
+opciones_explicitas:
+  - "Como criterio de interpretación de la Constitución completa"
+  - "Nunca lo cita, no tiene ningún valor jurídico"
+  - "Como el único artículo con fuerza obligatoria"
+respuesta: "Como criterio de interpretación de la Constitución completa"
+
+explicacion: |
+  Aunque no impone obligaciones puntuales, orienta cómo se interpretan
+  los artículos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "basico"
+  tags: ["objetivos"]
+
+enunciado: "¿Cuál de estos es uno de los objetivos declarados en el Preámbulo?"
+tipo: mc
+opciones_explicitas:
+  - "Constituir la unión nacional"
+  - "Fundar una monarquía hereditaria"
+  - "Prohibir la inmigración"
+respuesta: "Constituir la unión nacional"
+
+explicacion: |
+  Es el primero de los objetivos enumerados en el Preámbulo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "basico"
+  tags: ["objetivos"]
+
+enunciado: "¿Cuál de estos es también un objetivo declarado en el Preámbulo?"
+tipo: mc
+opciones_explicitas:
+  - "Afianzar la justicia"
+  - "Concentrar todo el poder en una sola persona"
+  - "Eliminar la división de poderes"
+respuesta: "Afianzar la justicia"
+
+explicacion: |
+  Junto con consolidar la paz interior, proveer a la defensa común,
+  promover el bienestar general y asegurar los beneficios de la
+  libertad.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "intermedio"
+  tags: ["objetivos"]
+
+enunciado: "¿Cuántos objetivos principales enumera el Preámbulo (constituir la unión, afianzar la justicia, consolidar la paz interior, proveer a la defensa común, promover el bienestar general, asegurar los beneficios de la libertad)?"
+tipo: input
+respuesta: 6
+
+explicacion: |
+  6 objetivos enumerados antes de la cláusula final para "todos los
+  hombres del mundo que quieran habitar en el suelo argentino".
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "intermedio"
+  tags: ["inmigracion"]
+
+enunciado: "¿Qué frase del Preámbulo explica la vocación históricamente abierta a la inmigración de la Constitución argentina?"
+tipo: mc
+opciones_explicitas:
+  - "'Para todos los hombres del mundo que quieran habitar en el suelo argentino'"
+  - "'Sólo para los nacidos en el territorio argentino'"
+  - "El Preámbulo no menciona nada sobre inmigración"
+respuesta: "'Para todos los hombres del mundo que quieran habitar en el suelo argentino'"
+
+explicacion: |
+  Es la cláusula que hace explícitamente extensivos los objetivos a
+  quien decida habitar el suelo argentino, no sólo a los ciudadanos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "avanzado"
+  tags: ["funcion"]
+
+enunciado: "¿Verdadero o falso? El Preámbulo impone obligaciones puntuales igual que un artículo constitucional cualquiera."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  No impone una obligación puntual; funciona como declaración de
+  intención y criterio interpretativo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "intermedio"
+  tags: ["texto"]
+
+enunciado: "¿A quién invoca el Preámbulo antes de enumerar sus objetivos?"
+tipo: mc
+opciones_explicitas:
+  - "A 'Dios, fuente de toda razón y justicia'"
+  - "A ningún ente, es un texto puramente laico"
+  - "Al rey de España"
+respuesta: "A 'Dios, fuente de toda razón y justicia'"
+
+explicacion: |
+  Es la invocación que abre el texto del Preámbulo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "avanzado"
+  tags: ["prerrequisito"]
+
+enunciado: "¿Por qué 'constituir la unión nacional' presupone entender primero la organización del Estado?"
+tipo: mc
+opciones_explicitas:
+  - "Porque presupone que existían provincias/territorios previos que se unieron bajo un Estado organizado"
+  - "Porque no tiene ninguna relación con el concepto de Estado"
+  - "Porque la unión nacional es previa a cualquier territorio"
+respuesta: "Porque presupone que existían provincias/territorios previos que se unieron bajo un Estado organizado"
+
+explicacion: |
+  Sin el concepto de organización estatal, "unión nacional" no tiene
+  sentido concreto.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "basico"
+  tags: ["objetivos"]
+
+enunciado: "¿Cuál de estos objetivos del Preámbulo se relaciona con la seguridad frente a amenazas externas?"
+tipo: mc
+opciones_explicitas:
+  - "Proveer a la defensa común"
+  - "Asegurar los beneficios de la libertad"
+  - "Afianzar la justicia"
+respuesta: "Proveer a la defensa común"
+
+explicacion: |
+  Es el objetivo vinculado a la defensa del territorio y la
+  población.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "basico"
+  tags: ["objetivos"]
+
+enunciado: "¿Qué objetivo del Preámbulo se vincula más directamente con políticas sociales y económicas del Estado?"
+tipo: mc
+opciones_explicitas:
+  - "Promover el bienestar general"
+  - "Consolidar la paz interior"
+  - "Constituir la unión nacional"
+respuesta: "Promover el bienestar general"
+
+explicacion: |
+  Es la base de fundamentación de muchas políticas públicas.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "basico"
+  tags: ["objetivos"]
+
+enunciado: "¿Qué objetivo del Preámbulo busca evitar conflictos internos (entre provincias o dentro del país)?"
+tipo: mc
+opciones_explicitas:
+  - "Consolidar la paz interior"
+  - "Proveer a la defensa común"
+  - "Asegurar los beneficios de la libertad"
+respuesta: "Consolidar la paz interior"
+
+explicacion: |
+  Se distingue de "defensa común" (amenaza externa) por apuntar a
+  conflictos internos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "basico"
+  tags: ["objetivos"]
+
+enunciado: "¿Cuál es el último objetivo enumerado en el Preámbulo, antes de la cláusula de inmigración?"
+tipo: mc
+opciones_explicitas:
+  - "Asegurar los beneficios de la libertad"
+  - "Constituir la unión nacional"
+  - "Afianzar la justicia"
+respuesta: "Asegurar los beneficios de la libertad"
+
+explicacion: |
+  Cierra la enumeración de los 6 objetivos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "intermedio"
+  tags: ["texto"]
+
+enunciado: "¿Verdadero o falso? El Preámbulo declara sus objetivos sólo para los representantes que la firmaron en 1853, sin extenderlos a generaciones futuras."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  El Preámbulo declara sus objetivos "para nosotros, para nuestra
+  posteridad" — se extiende explícitamente a las generaciones futuras.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "intermedio"
+  tags: ["puente"]
+
+enunciado: "¿Qué viene después del Preámbulo en la estructura de la Constitución, según esta cadena de temas?"
+tipo: mc
+opciones_explicitas:
+  - "La parte dogmática: derechos y garantías"
+  - "Un nuevo Preámbulo alternativo"
+  - "El sistema electoral D'Hondt directamente"
+respuesta: "La parte dogmática: derechos y garantías"
+
+explicacion: |
+  Se profundiza en `../derechos-y-garantias/`.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "intermedio"
+  tags: ["funcion"]
+
+enunciado: "¿Qué rol cumple el Preámbulo respecto del resto de la Constitución?"
+tipo: mc
+opciones_explicitas:
+  - "Es la síntesis de PARA QUÉ existe el Estado tal como se organizó"
+  - "Es un capítulo desconectado, sin relación con los demás artículos"
+  - "Reemplaza a todos los artículos siguientes"
+respuesta: "Es la síntesis de PARA QUÉ existe el Estado tal como se organizó"
+
+explicacion: |
+  El resto de la Constitución (derechos, poderes) desarrolla en
+  detalle cómo se cumplen esos objetivos generales.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "avanzado"
+  tags: ["texto"]
+
+enunciado: "¿Verdadero o falso? El Preámbulo tiene un número de artículo, igual que el resto del articulado constitucional."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  El Preámbulo no está numerado como artículo — es una introducción
+  previa al articulado (que empieza en el art. 1).
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "constitucion_preambulo"
+  nivel: "intermedio"
+  tags: ["sintesis"]
+
+enunciado: "¿Cuál resume mejor el rol del Preámbulo en la Constitución Nacional?"
+tipo: mc
+opciones_explicitas:
+  - "Declara los objetivos e intención de todo el texto, sin imponer obligaciones puntuales por sí solo"
+  - "Es el artículo con más peso legal de toda la Constitución"
+  - "Es un texto sin ninguna relación con el resto del documento"
+respuesta: "Declara los objetivos e intención de todo el texto, sin imponer obligaciones puntuales por sí solo"
+
+explicacion: |
+  Síntesis de la teoría: función declarativa e interpretativa, no
+  normativa directa.
 ```
 

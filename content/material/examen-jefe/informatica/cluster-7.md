@@ -1,1388 +1,508 @@
 # Examen jefe — [PENDIENTE #822]
 
-> Logro #822. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #822. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: planificacion-de-procesos (25 preguntas)
+## Sección: direccionamiento-ip-dns (26 preguntas)
 
 ```
 metadata:
   materia: "informatica"
-  tema: "planificacion_de_procesos"
+  tema: "direccionamiento_ip"
   nivel: "basico"
-  tags: ["conceptos", "so"]
+  tags: ["redes", "ip", "conceptos"]
 
-respuesta: "scheduler"
+respuesta: "identificador"
 tipo: completar
 respuestas_validas:
-  - "scheduler"
-  - "planificador"
+  - "identificador"
+  - "dirección"
+  - "etiqueta"
 
-enunciado: "El componente del sistema operativo encargado de decidir qué proceso en la cola de listos tendrá el control de la CPU se denomina ___."
+enunciado: "En una red de computadoras, la dirección IP funciona como un ___ único que permite identificar un dispositivo en la red."
 
 explicacion: |
-  El scheduler (o planificador) es el algoritmo que decide la asignación de recursos de la CPU para maximizar la eficiencia del sistema.
+  La dirección IP (Internet Protocol) es la etiqueta numérica que identifica de manera lógica a un dispositivo dentro de una red, permitiendo que los datos lleguen al destino correcto.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "intermedio"
-  tags: ["tipos", "algoritmos"]
-
-respuesta: "No preemptiva"
-tipo: mc
-opciones_explicitas: ["Preemptiva", "No preemptiva"]
-
-enunciado: "En un modelo de planificación ___, una vez que un proceso toma el control de la CPU, no puede ser retirado de él hasta que finalice o se bloquee por una operación de E/S."
-
-explicacion: |
-  En la planificación no preemptiva, el proceso mantiene la CPU hasta que termina su ejecución o realiza una llamada al sistema que lo deja en estado de espera.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
+  tema: "dns_funcionamiento"
   nivel: "basico"
-  tags: ["estados", "ciclo_de_vida"]
+  tags: ["dns", "redes", "internet"]
+
+opciones_explicitas: ["Traducir nombres de dominio a direcciones IP", "Asignar direcciones IP dinámicas", "Cifrar el tráfico de la red", "Almacenar páginas web"]
+
+respuesta: "Traducir nombres de dominio a direcciones IP"
+tipo: mc
+
+enunciado: "Si escribes 'google.com' en tu navegador, ¿qué tarea realiza principalmente el sistema DNS?"
+
+explicacion: |
+  El DNS (Domain Name System) actúa como una 'agenda telefónica' que traduce los nombres de dominio legibles para humanos (como google.com) en direcciones IP legibles para las máquinas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolos_ip"
+  nivel: "basico"
+  tags: ["ipv4", "ipv6", "protocolos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es correcto afirmar que un proceso en estado 'Ready' (Listo) tiene todos los recursos necesarios para ejecutarse y solo está esperando que el planificador le asigne la CPU?"
+enunciado: "La principal diferencia entre IPv4 e IPv6 es que IPv6 utiliza direcciones de 128 bits, mientras que IPv4 utiliza 32 bits."
 
 explicacion: |
-  Verdadero. Un proceso en estado 'Listo' está preparado para ejecutarse, pero la CPU está siendo utilizada por otro proceso.
+  Verdadero. IPv4 usa direcciones de 32 bits (unos 4.3 mil millones posibles), mientras que IPv6 usa direcciones de 128 bits, lo que ofrece un espacio prácticamente ilimitado.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "intermedio"
-  tags: ["estados", "secuencia"]
-
-respuesta_orden: ["Nuevo", "Listo", "Ejecución", "Terminado"]
-tipo: ordenar
-opciones_explicitas: ["Nuevo", "Listo", "Ejecución", "Terminado"]
-
-enunciado: "Ordene cronológicamente los estados típicos de un proceso desde su creación hasta su finalización, omitiendo el estado de espera (I/O wait):"
-
-explicacion: |
-  La secuencia lógica es: Creación (Nuevo) -> Cola de espera de CPU (Listo) -> Uso de CPU (Ejecución) -> Fin de vida (Terminado).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "avanzado"
-  tags: ["metricas", "rendimiento"]
-
-respuesta: "Tiempo de respuesta"
-tipo: mc
-opciones_explicitas: ["Tiempo de respuesta", "Turnaround"]
-
-enunciado: "El tiempo que transcurre desde que se envía una solicitud hasta que se produce la primera respuesta es una métrica clave llamada ___."
-
-explicacion: |
-  El 'Response Time' es vital en sistemas interactivos para garantizar que el usuario sienta que el sistema responde rápidamente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
+  tema: "protocolos_ip"
   nivel: "basico"
-  tags: ["scheduling", "fcfs", "cpu"]
+  tags: ["ipv4", "ipv6", "protocolos"]
 
-variables:
-  escenario: uno_de([[10, 5, 8], [2, 7, 4], [5, 5, 5]])
-
-enunciado: "En un sistema con planificación FCFS, tres procesos llegan en el orden dado con los siguientes tiempos de ráfaga (burst time): P1: {escenario[0]}, P2: {escenario[1]} y P3: {escenario[2]}. Si el tiempo de llegada de todos es 0, ¿cuál es el tiempo de espera promedio?"
-
-pasos:
-  - "Calcular el tiempo de espera de cada proceso: P1=0, P2=P1_burst, P3=P1_burst+P2_burst."
-  - "Sumar los tiempos de espera y dividir por la cantidad de procesos."
-
-respuesta: (0 + escenario[0] + (escenario[0] + escenario[1])) / 3
-tipo: completar
-tolerancia_abs: 0.1
-
-explicacion: |
-  En FCFS, el primer proceso no espera nada. El segundo espera lo que dure el primero, y el tercero la suma de los dos anteriores. El promedio es la suma de esperas dividida por el total de procesos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "intermedio"
-  tags: ["sjf", "scheduling", "optimal"]
-
-variables:
-  procesos: [["P1", 8], ["P2", 3], ["P3", 6], ["P4", 2]]
-
-enunciado: "Se tiene una cola de procesos con los siguientes tiempos de ráfaga: P1: 8ms, P2: 3ms, P3: 6ms y P4: 2ms. Si el planificador utiliza el algoritmo SJF (Non-preemptive), ¿cuál es el orden de ejecución de los procesos?"
-
-opciones_explicitas: ["P1, P2, P3, P4", "P4, P2, P3, P1", "P4, P2, P1, P3", "P2, P4, P3, P1"]
-respuesta: "P4, P2, P3, P1"
-tipo: mc
-
-explicacion: |
-  El algoritmo SJF selecciona siempre el proceso con la ráfaga de CPU más corta disponible. Ordenando de menor a mayor ráfaga obtenemos: P4 (2), P2 (3), P3 (6) y P1 (8).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "intermedio"
-  tags: ["priority", "scheduling"]
-
-variables:
-  caso: uno_de([[1, 5], [10, 2], [5, 8]])
-
-enunciado: "En un sistema operativo con planificación por prioridades (donde un número menor indica mayor prioridad), se tienen dos procesos: P1 con prioridad {caso[0]} y P2 con prioridad {caso[1]}. Si P1 llega primero, pero P2 tiene una prioridad más alta, en un sistema de planificación por prioridades NO PREEMPTIVE, ¿cuál es la prioridad del proceso que se está ejecutando actualmente si P1 ya tomó la CPU?"
-
-respuesta: caso[0]
-tipo: completar
-tolerancia_abs: 0
-explicacion: |
-  En la planificación por prioridades NO PREEMPTIVE, una vez que un proceso toma la CPU, no puede ser expulsado por uno de mayor prioridad; debe esperar a que termine su ráfaga actual. Por lo tanto, el proceso en ejecución sigue siendo P1, con su prioridad original ({caso[0]}).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "avanzado"
-  tags: ["round_robin", "quantum"]
-
-variables:
-  quantum: 4
-  p_burst: 10
-
-enunciado: "Un proceso tiene una ráfaga de CPU de {p_burst} ms. Si el sistema utiliza un algoritmo Round Robin con un quantum de {quantum} ms, ¿cuántas veces será el proceso movido de vuelta a la cola de listos (ready queue) debido a que se le agota su quantum antes de terminar?"
-
-respuesta: 2
-tipo: completar
-tolerancia_abs: 0
-
-explicacion: |
-  El proceso consume: 4ms (1ra vez), 4ms (2da vez), y le quedan 2ms. Al terminar los 2ms finales, el proceso finaliza y no vuelve a la cola. Por lo tanto, fue expulsado por quantum 2 veces.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "basico"
-  tags: ["process_states", "os"]
-
-enunciado: "Ordena correctamente los estados por los que pasa un proceso desde que se crea hasta que termina su ejecución en un sistema operativo estándar:"
-
-opciones_explicitas: ["Nuevo", "Listo", "Ejecución", "Bloqueado", "Terminado"]
-respuesta_orden: ["Nuevo", "Listo", "Ejecución", "Bloqueado", "Terminado"]
-tipo: ordenar
-
-explicacion: |
-  El ciclo de vida estándar es: se crea (Nuevo), espera turno (Listo), usa la CPU (Ejecución), espera un evento de E/S (Bloqueado) y finalmente finaliza (Terminado).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "intermedio"
-  tags: ["conceptos_basicos", "hilos", "procesos"]
-
-respuesta: falso
-
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Un hilo (thread) es una unidad de ejecución independiente que posee su propio espacio de direccionamiento de memoria, separado del proceso que lo contiene."
+enunciado: "El protocolo IPv4 es una versión más antigua que IPv6 y ofrece un espacio de direcciones mucho más limitado."
 
 explicacion: |
-  Falso. Los hilos comparten el espacio de direccionamiento de su proceso padre (memoria, archivos abiertos, etc.), lo que permite una comunicación más rápida pero también requiere mayor sincronización para evitar condiciones de carrera.
+  Es verdadero. IPv4 utiliza 32 bits (aprox. 4.3 mil millones de direcciones), mientras que IPv6 utiliza 128 bits, proporcionando un número prácticamente infinito de direcciones.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "planificacion_de_procesos"
+  tema: "dns_flujo"
   nivel: "intermedio"
-  tags: ["overhead", "context_switch"]
+  tags: ["dns", "redes", "orden"]
+
+opciones_explicitas: ["Consulta al servidor DNS", "Traducción de nombre a IP", "Conexión al servidor web"]
+
+respuesta_orden: ["Consulta al servidor DNS", "Traducción de nombre a IP", "Conexión al servidor web"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos que ocurren desde que escribes una URL hasta que ves la página en tu pantalla:"
+
+explicacion: |
+  Primero el cliente pregunta al DNS, el DNS devuelve la IP, y finalmente el cliente usa esa IP para establecer la conexión con el servidor web.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "direccionamiento_ip"
+  nivel: "basico"
+  tags: ["ip", "redes"]
 
 variables:
-  escenario: uno_de([["El sistema operativo guarda el estado de los registros del proceso A para cargar el proceso B.", "Cambio de contexto"], ["El procesador ejecuta instrucciones de un proceso de usuario de forma continua.", "Ejecución"], ["Un proceso solicita acceso a un recurso de E/S y queda bloqueado.", "Espera de E/S"]])
+  idx: uno_de([0, 1])
+  datos: [["192.168.1.1", "Dirección IP"], ["google.com", "Nombre de dominio"]]
 
-enunciado: "En el siguiente escenario, ¿qué acción se está describiendo?: {escenario[0]}"
+respuesta: datos[idx][1]
+tipo: mc
 
-opciones_explicitas: ["Cambio de contexto", "Ejecución", "Espera de E/S"]
+opciones_explicitas: ["Dirección IP", "Nombre de dominio"]
 
+enunciado: "Si tenemos el valor {datos[idx][0]}, este representa un/a ___."
+
+explicacion: |
+  Dependiendo del valor sorteado, se identifica si es una dirección numérica (IP) o un nombre alfanumérico (Dominio).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "direccionamiento_ip"
+  nivel: "basico"
+  tags: ["redes", "ip"]
+
+tipo: mc
+opciones_explicitas: ["La dirección física de la tarjeta de red", "La etiqueta lógica que identifica un dispositivo en una red", "El nombre asignado por el usuario al equipo", "La velocidad de conexión a internet"]
+
+respuesta: "La etiqueta lógica que identifica un dispositivo en una red"
+
+enunciado: "En una red local, cada dispositivo necesita una identidad única para que los datos lleguen al destino correcto. Esta identidad se conoce como dirección IP. ¿Cuál es su función principal?"
+
+explicacion: |
+  La dirección IP (Internet Protocol) actúa como una etiqueta lógica que permite identificar un dispositivo (como tu móvil o tu router) dentro de una red, permitiendo que la información sepa exactamente a dónde dirigirse.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "dns_resolucion"
+  nivel: "basico"
+  tags: ["dns", "internet"]
+
+variables:
+  escenario: uno_de([["www.google.com", "142.250.190.46"], ["www.wikipedia.org", "103.102.166.224"]])
+
+tipo: completar
+respuestas_validas:
+  - "142.250.190.46"
+  - "103.102.166.224"
 respuesta: escenario[1]
 
-tipo: mc
+enunciado: "Cuando escribes un nombre de dominio en tu navegador, el sistema DNS realiza una traducción. Si el dominio es {escenario[0]}, el servidor DNS te devolverá la dirección IP correspondiente, que es ___."
 
 explicacion: |
-  El cambio de contexto (context switch) es la operación de guardar el estado (contexto) de un proceso o hilo para que pueda ser reanudado más tarde, permitiendo que la CPU pase a otro proceso.
+  El DNS (Domain Name System) funciona como una agenda telefónica: tú buscas el nombre (dominio) y el DNS te devuelve el número (dirección IP) necesario para establecer la conexión.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "avanzado"
-  tags: ["algoritmos", "sjf", "eficiencia"]
-
-enunciado: "Se tienen tres procesos con tiempos de ráfaga de CPU (burst time) de 10, 2 y 5 ms respectivamente. Si aplicamos el algoritmo Shortest Job First (SJF) sin preempción, ordena los tiempos de ráfaga de menor a mayor (ese es el orden de ejecución):"
-
-opciones_explicitas: ["10", "2", "5"]
-
-respuesta_orden: ["2", "5", "10"]
-
-tipo: ordenar
-
-explicacion: |
-  El algoritmo SJF (Shortest Job First) selecciona siempre el proceso con el tiempo de ráfaga más corto para minimizar el tiempo de espera promedio.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "intermedio"
-  tags: ["starvation", "prioridades"]
-
-respuesta: "inanición"
-
-tipo: completar
-
-enunciado: "En un sistema de planificación basado en prioridades, si los procesos de alta prioridad llegan constantemente, los procesos de baja prioridad pueden no recibir tiempo de CPU nunca, un fenómeno conocido como ___."
-
-respuestas_validas:
-  - "inanición"
-  - "starvation"
-
-explicacion: |
-  La inanición ocurre cuando un proceso es ignorado indefinidamente porque el planificador siempre elige otros procesos con mayor prioridad o que se ajustan mejor a un criterio específico.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
+  tema: "dns_funcionamiento"
   nivel: "basico"
-  tags: ["preemption", "kernel"]
+  tags: ["dns", "verdadero_falso"]
+
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que la función principal del DNS es traducir nombres de dominio (como google.com) en direcciones IP (como 142.250.190.46) para que las computadoras puedan comunicarse?"
 
 respuesta: verdadero
 
-tipo: vf
-
-enunciado: "En la planificación no apropiativa (non-preemptive), una vez que un proceso toma el control de la CPU, no puede ser retirado de ella hasta que termine su ejecución o pase a un estado de espera."
-
 explicacion: |
-  Verdadero. A diferencia de la planificación apropiativa (preemptive), donde el SO puede interrumpir un proceso para dar paso a otro, en la no apropiativa el proceso retiene la CPU hasta que libera el recurso voluntariamente.
+  Verdadero. Las computadoras se comunican mediante números (IPs), pero los humanos preferimos usar nombres (dominios). El DNS es el traductor que permite esta interoperabilidad.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "planificacion_de_procesos"
+  tema: "flujo_dns"
   nivel: "intermedio"
-  tags: ["so", "cpu", "gestion"]
+  tags: ["dns", "redes"]
 
-respuesta: falso
-tipo: vf
-
-enunciado: "La planificación de procesos es un mecanismo de hardware diseñado exclusivamente para que el procesador pueda pausar una tarea ante un evento externo."
-
-explicacion: |
-  Falso. La planificación de procesos es una función del Sistema Operativo (software) para gestionar el tiempo de CPU. Las interrupciones son señales de hardware o software que alteran el flujo de ejecución actual.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "intermedio"
-  tags: ["algoritmos", "scheduling"]
-
-respuesta: "Round Robin"
-tipo: mc
-
-opciones_explicitas: ["Round Robin", "FCFS"]
-
-enunciado: "Si un sistema operativo utiliza un algoritmo de planificación que garantiza un tiempo de respuesta equitativo mediante el uso de una cuota de tiempo (quantum) para cada proceso, ¿qué algoritmo está utilizando y en qué se diferencia del FCFS (First-Come, First-Served)?"
-
-explicacion: |
-  El algoritmo Round Robin utiliza un quantum de tiempo para evitar que un proceso largo monopolice la CPU, mientras que en FCFS los procesos se ejecutan estrictamente en el orden en que llegan, lo que puede causar el efecto de 'convoy'.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "basico"
-  tags: ["estados", "ciclo_de_vida"]
-
-respuesta_orden: ["Creado", "Listo", "Ejecución", "Bloqueado", "Terminado"]
 tipo: ordenar
+opciones_explicitas: ["El navegador solicita la IP al servidor DNS", "El servidor DNS responde con la dirección IP", "El navegador se conecta a la dirección IP obtenida", "Se carga el contenido de la página web"]
 
-opciones_explicitas: ["Creado", "Listo", "Ejecución", "Bloqueado", "Terminado"]
+respuesta_orden: ["El navegador solicita la IP al servidor DNS", "El servidor DNS responde con la dirección IP", "El navegador se conecta a la dirección IP obtenida", "Se carga el contenido de la página web"]
 
-enunciado: "Ordene cronológicamente los estados típicos de un proceso en un sistema operativo, desde que se instancia hasta que finaliza su ejecución."
+enunciado: "Ordena cronológicamente los pasos que ocurren desde que presionas 'Enter' en tu navegador hasta que ves una página web:"
 
 explicacion: |
-  El ciclo de vida estándar comienza con la creación, pasa por la cola de listos, la ejecución en CPU, el bloqueo por espera de I/O y finalmente el término.
+  Primero se consulta al DNS para obtener la IP, luego se usa esa IP para establecer la conexión con el servidor de destino y finalmente se descarga el contenido.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "planificacion_de_procesos"
+  tema: "direccionamiento_ip"
   nivel: "avanzado"
-  tags: ["overhead", "contexto"]
-
-respuesta: "cambio de contexto"
-tipo: completar
-
-respuestas_validas:
-  - "cambio de contexto"
-  - "context switch"
-
-enunciado: "El proceso de guardar el estado de un proceso que está en uso por la CPU para cargar el estado de un nuevo proceso se denomina ___."
-
-explicacion: |
-  El cambio de contexto (context switch) es una operación necesaria para la multiprogramación, pero implica un 'overhead' o costo de tiempo de CPU que no se realiza en trabajo útil del usuario.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "intermedio"
-  tags: ["prioridad", "scheduling"]
-
-respuesta: "la prioridad"
-tipo: completar
-respuestas_validas:
-  - "la prioridad"
-  - "prioridad"
-
-enunciado: "En un algoritmo de planificación Shortest Job First (SJF), el criterio de decisión para elegir el siguiente proceso es el tiempo de ráfaga. En cambio, un algoritmo de planificación por prioridades toma su decisión basándose en ___."
-
-explicacion: |
-  En SJF se busca minimizar el tiempo de espera promedio priorizando procesos cortos. En el de prioridad, se busca atender primero tareas críticas independientemente de su duración.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "intermedio"
-  tags: ["scheduler", "round_robin", "cpu"]
+  tags: ["ip", "calculo"]
 
 variables:
-  datos: [[10, 2], [15, 3], [8, 1]]
-  idx: uno_de([0, 1, 2])
-  quantum: 4
+  ip_base: "192.168.1.0"
+  mascara: "255.255.255.0"
+  total_hosts: 254
 
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Se tiene un proceso con un tiempo de ráfaga de {datos[idx][0]} ms. Si el planificador utiliza el algoritmo Round Robin con un quantum de {quantum} ms, ¿cuántos cortes de tiempo (context switches) se realizarán antes de que el proceso termine y se libere la CPU?"
+enunciado: "Si tenemos una red con máscara de subred {mascara}, y el rango de direcciones utilizables comienza en {ip_base} (excluyendo la red) y termina en 192.168.1.255 (excluyendo el broadcast), ¿cuántos dispositivos distintos pueden tener una IP válida en este segmento?"
 
 pasos:
-  - "Calcular la cantidad de ráfagas completas: ceil(tiempo_rafaga / quantum)"
-  - "Restar 1 al resultado para obtener la cantidad de interrupciones/cortes antes del final."
+  - "Identificar el número total de direcciones en el bloque (256)"
+  - "Restar la dirección de red (.0) y la dirección de broadcast (.255)"
+  - "Resultado: 256 - 2 = 254"
+
+respuesta: 254
 
 explicacion: |
-  En Round Robin, el proceso se interrumpe cada vez que alcanza el quantum. Si el tiempo es 10 y el quantum es 4, el proceso corre: [0-4], [4-8], [8-10]. Se realizaron 2 cortes de tiempo antes de terminar.
+  En una red con máscara /24 (255.255.255.0), hay 256 direcciones totales. Se deben restar siempre dos: la dirección de red (la primera) y la de broadcast (la última), dejando 254 direcciones para hosts.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "planificacion_de_procesos"
+  tema: "dns_resolucion"
   nivel: "basico"
-  tags: ["prioridad", "scheduling"]
+  tags: ["redes", "internet", "dns"]
 
-respuesta: "Alto"
-tipo: mc
-opciones_explicitas: ["Alto", "Bajo", "Medio", "Nulo"]
-
-enunciado: "En un sistema operativo con planificación basada en prioridades, si un proceso de sistema (kernel) entra en la cola de listos, su prioridad suele ser ___ para asegurar la estabilidad del sistema."
-
-explicacion: |
-  Los procesos del núcleo o del sistema operativo tienen prioridad alta para garantizar que las tareas críticas de gestión de hardware y memoria se completen sin retrasos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "basico"
-  tags: ["estados", "process_control_block"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es verdadero que un proceso en estado 'Waiting' (Esperando) se encuentra actualmente utilizando la CPU para ejecutar sus instrucciones?"
-
-explicacion: |
-  Falso. Un proceso en estado 'Waiting' está esperando un evento externo (como la finalización de una operación de E/S) y no está utilizando la CPU.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "intermedio"
-  tags: ["fifo", "fcfs"]
-
-tipo: ordenar
-
-opciones_explicitas: [2, 5, 8]
-respuesta_orden: [2, 5, 8]
-
-enunciado: "Se tienen tres procesos que llegan a la cola de listos en el siguiente orden de tiempo de llegada: P1 (t=2), P2 (t=5) y P3 (t=8). Si el planificador utiliza el algoritmo FCFS (First-Come, First-Served), ordene la secuencia de ejecución de los procesos."
-
-explicacion: |
-  El algoritmo FCFS atiende los procesos estrictamente en el orden en que llegan a la cola de listos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "planificacion_de_procesos"
-  nivel: "avanzado"
-  tags: ["turnaround", "waiting_time"]
-
-variables:
-  datos: [12, 20, 15]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx]
-tipo: completar
-respuestas_validas:
-  - 12
-  - 20
-  - 15
-
-enunciado: "Un proceso llega al sistema en el tiempo 0. Su tiempo de ráfaga de CPU es de {datos[idx]} ms. Si el proceso termina exactamente cuando su tiempo de ejecución se completa sin esperas adicionales de E/S, su tiempo de retorno (turnaround time) es de ___ ms."
-
-explicacion: |
-  El tiempo de retorno (turnaround time) es el tiempo transcurrido desde que el proceso llega hasta que termina. En este caso simple: Turnaround = Tiempo de finalización - Tiempo de llegada.
-```
-
-## Sección: poo-clases-y-objetos (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_clases_y_objetos"
-  nivel: "basico"
-  tags: ["poo", "clases", "conceptos"]
-
-respuesta: "molde"
-tipo: completar
-respuestas_validas:
-  - "molde"
-  - "plantilla"
-
-enunciado: "En la programación orientada a objetos, una clase se define como un ___ para crear objetos."
-
-explicacion: |
-  Una clase actúa como un plano o molde que define la estructura (atributos) y el comportamiento (métodos) que tendrán los objetos creados a partir de ella.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_clases_y_objetos"
-  nivel: "basico"
-  tags: ["poo", "atributos", "metodos"]
-
-opciones_explicitas: ["Estado (datos)", "Acciones (comportamiento)", "Ambas anteriores"]
-respuesta: "Estado (datos)"
-tipo: mc
-
-enunciado: "Un objeto se compone de atributos que representan su estado y métodos que representan su comportamiento. ¿Qué representan los atributos?"
-
-explicacion: |
-  Los atributos son variables que almacenan el estado o las características de un objeto, mientras que los métodos son funciones que definen lo que el objeto puede hacer.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_clases_y_objetos"
-  nivel: "basico"
-  tags: ["poo", "objetos", "instancia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El proceso de crear un objeto a partir de una clase se denomina instanciación."
-
-explicacion: |
-  Correcto. El objeto resultante de este proceso es una 'instancia' de la clase.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_clases_y_objetos"
-  nivel: "intermedio"
-  tags: ["poo", "clases", "objetos"]
-
-respuesta: "Fido es una instancia concreta de la clase Perro"
-tipo: mc
-opciones_explicitas: ["Fido es una instancia concreta de la clase Perro", "Perro es una instancia de Fido", "Fido y Perro son la misma cosa", "Ninguna clase puede tener objetos"]
-
-enunciado: "Si tenemos la clase 'Perro' y un objeto llamado 'Fido' creado a partir de ella, ¿cuál de las siguientes afirmaciones es correcta?"
-
-explicacion: |
-  La clase es la definición abstracta (Perro), mientras que el objeto es la realización concreta con datos específicos (Fido).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_clases_y_objetos"
-  nivel: "basico"
-  tags: ["poo", "ordenar", "proceso"]
-
-opciones_explicitas: ["Definir la clase", "Declarar la variable", "Instanciar el objeto"]
-respuesta_orden: ["Definir la clase", "Declarar la variable", "Instanciar el objeto"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos para tener un objeto listo para usar en memoria:"
-
-explicacion: |
-  Primero se debe diseñar el plano (clase), luego reservar el nombre de la variable y finalmente ejecutar el constructor para crear la instancia en memoria.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_clases_y_objetos"
-  nivel: "basico"
-  tags: ["conceptos", "clases", "objetos"]
-
-respuesta: "clase"
-tipo: "mc"
-opciones_explicitas: ["objeto", "clase", "atributo", "metodo"]
-
-enunciado: "En programación orientada a objetos, si imaginamos que un 'Plano de una Casa' es el diseño general, el plano en sí mismo es la ___."
-
-explicacion: |
-  La clase actúa como un molde o plano que define las características y comportamientos, mientras que el objeto es la instancia concreta creada a partir de ese molde.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_atributos"
-  nivel: "basico"
-  tags: ["atributos", "estado"]
-
-variables:
-  escenario: uno_de([["color", "marca", "modelo"], ["modelo", "color", "marca"], ["marca", "modelo", "color"]])
-
-respuesta: escenario[0]
+respuesta: "traducción"
 tipo: "completar"
 respuestas_validas:
-  - "color"
-  - "marca"
-  - "modelo"
+  - "traducción"
+  - "traducir"
+  - "resolver"
 
-enunciado: "Si definimos una clase 'Auto' con las propiedades 'color', 'marca' y 'modelo', estas propiedades se conocen como ___."
+enunciado: "El sistema DNS tiene la función principal de realizar la ___ de nombres de dominio a direcciones IP."
 
 explicacion: |
-  Los atributos representan el estado o las características de un objeto (en este caso, las propiedades del auto).
+  El DNS (Domain Name System) actúa como una 'agenda telefónica' de Internet, transformando nombres fáciles de recordar (como google.com) en direcciones IP numéricas que las máquinas pueden entender.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "poo_metodos"
+  tema: "direccionamiento_ip"
   nivel: "basico"
-  tags: ["metodos", "comportamiento"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "En una clase llamada 'Perro', una función llamada 'ladrar()' que define una acción que el objeto puede realizar es un método."
-
-explicacion: |
-  Los métodos son las funciones definidas dentro de una clase que representan las acciones o comportamientos de los objetos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_instanciacion"
-  nivel: "intermedio"
-  tags: ["instanciacion", "orden"]
-
-respuesta_orden: ["Definir la clase", "Instanciar el objeto", "Acceder a sus atributos"]
-tipo: "ordenar"
-opciones_explicitas: ["Acceder a sus atributos", "Instanciar el objeto", "Definir la clase"]
-
-enunciado: "Ordena los pasos lógicos para utilizar un objeto en un programa:"
-
-explicacion: |
-  Primero debes tener el molde (clase), luego creas la instancia (objeto) y finalmente puedes interactuar con su información o acciones.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_calculo_metodos"
-  nivel: "intermedio"
-  tags: ["metodos", "calculo"]
+  tags: ["ip", "dns", "conceptos"]
 
 variables:
-  datos: uno_de([[5.0, 10.0, 50.0], [3.0, 4.0, 12.0], [2.0, 6.0, 12.0]])
+  escenario: uno_de([["192.168.1.1", "google.com"], ["8.8.8.8", "facebook.com"], ["10.0.0.5", "wikipedia.org"]])
 
-respuesta: datos[2]
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Tenemos una clase 'Rectangulo' con los atributos 'base' y 'altura'. Si un objeto de esta clase tiene base = {datos[0]} y altura = {datos[1]}, ¿cuál es el valor resultante del método 'calcular_area()'?"
-
-pasos:
-  - "Identificar los valores de base y altura."
-  - "Aplicar la fórmula: base * altura."
-
-explicacion: |
-  El método calcula el área multiplicando los atributos internos del objeto: 5.0 * 10.0 = 50.0.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_clases_y_objetos"
-  nivel: "basico"
-  tags: ["conceptos_fundamentales", "confusiones_comunes"]
-
-respuesta: "molde"
+respuesta: "El dominio es el nombre y la IP es la dirección"
 tipo: mc
-opciones_explicitas: ["instancia", "molde", "atributo", "metodo"]
+opciones_explicitas: ["La IP es el nombre y el dominio es la dirección", "El dominio es el nombre y la IP es la dirección", "Ambos son lo mismo", "El DNS convierte IPs en dominios"]
 
-enunciado: "En el paradigma de Programación Orientada a Objetos, si comparamos la creación de un objeto con la construcción de una casa, la Clase actúa como el _________."
+enunciado: "Si intentas acceder a {escenario[1]}, tu navegador primero buscará la dirección IP correspondiente a ese nombre. En este contexto, {escenario[1]} es el dominio y {escenario[0]} es la IP."
 
 explicacion: |
-  Una clase es un plano o molde que define la estructura y el comportamiento, mientras que el objeto es la instancia real construida a partir de ese molde.
+  El nombre de dominio es la etiqueta legible para humanos, mientras que la dirección IP es la identificación numérica única de un dispositivo en la red.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "poo_atributos"
+  tema: "dns_resolucion"
   nivel: "intermedio"
-  tags: ["memoria", "alcance"]
+  tags: ["dns", "pasos", "redes"]
 
-respuesta: "Atributo de clase"
-tipo: mc
-opciones_explicitas: ["Atributo de instancia", "Atributo de clase"]
+respuesta_orden: ["Consulta al servidor DNS", "El DNS devuelve la IP", "El navegador se conecta a la IP"]
+tipo: "ordenar"
+opciones_explicitas: ["Consulta al servidor DNS", "El DNS devuelve la IP", "El navegador se conecta a la IP"]
 
-enunciado: "Si definimos una variable dentro de una clase pero fuera de cualquier método, y dicha variable es compartida por todos los objetos de esa clase, estamos ante un: ___."
+enunciado: "Ordena los pasos lógicos que ocurren cuando escribes una URL en tu navegador y el nombre no está en caché:"
 
 explicacion: |
-  Los atributos de clase pertenecen a la clase misma y se comparten entre todas las instancias, mientras que los de instancia son únicos para cada objeto.
+  El proceso sigue un orden jerárquico: primero se pregunta al servidor DNS, este responde con la IP y finalmente el cliente puede establecer la conexión con el servidor de destino.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "poo_constructores"
-  nivel: "intermedio"
-  tags: ["errores_comunes", "inicializacion"]
-
-respuesta: "constructor"
-tipo: completar
-respuestas_validas:
-  - "constructor"
-  - "init"
-  - "inicializador"
-
-enunciado: "Un error común al programar POO es olvidar definir el método _________ (o constructor), lo que impide que los atributos de un objeto se inicialicen correctamente al momento de su creación."
-
-explicacion: |
-  El constructor es el método especial que se ejecuta automáticamente al instanciar un objeto, permitiendo establecer su estado inicial.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_metodos"
+  tema: "direccionamiento_ip"
   nivel: "basico"
-  tags: ["comportamiento"]
+  tags: ["ip", "capas_modelo_osi"]
 
 respuesta: falso
-tipo: vf
 
-enunciado: "¿Es correcto afirmar que un método es una característica que define las propiedades (datos) de un objeto?"
+tipo: "vf"
+
+enunciado: "La dirección IP es una dirección física única grabada en el hardware de la tarjeta de red (MAC Address)."
 
 explicacion: |
-  Falso. Los atributos definen las propiedades (datos/estado), mientras que los métodos definen el comportamiento (acciones).
+  Falso. La dirección IP es una dirección lógica asignada por la red para el direccionamiento en la capa de red, mientras que la dirección MAC es la dirección física grabada en el hardware.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "poo_instanciacion"
+  tema: "dns_cache"
   nivel: "intermedio"
-  tags: ["flujo_ejecucion"]
+  tags: ["dns", "troubleshooting"]
 
-respuesta_orden: ["Definir clase", "Instanciar objeto", "Acceder a atributos/métodos"]
-tipo: ordenar
-opciones_explicitas: ["Definir clase", "Instanciar objeto", "Acceder a atributos/métodos"]
+variables:
+  caso: uno_de([["un sitio web cambió de servidor y la IP vieja sigue cargando", "el servidor DNS tiene datos desactualizados"], ["un sitio web no carga pero la IP funciona", "hay un problema de resolución de nombres"]])
 
-enunciado: "Ordena los pasos lógicos para poder utilizar una propiedad de un objeto en un programa:"
+respuesta: "El DNS tiene datos desactualizados"
+tipo: "mc"
+opciones_explicitas: ["La IP es incorrecta", "El DNS tiene datos desactualizados", "El cable de red está desconectado", "El dominio expiró"]
+
+enunciado: "Si un usuario intenta entrar a una web y recibe un error de 'no se encuentra el servidor', pero al usar la IP directamente la web carga, ¿cuál es la causa más probable? {caso[0]}."
 
 explicacion: |
-  Primero se debe diseñar el plano (clase), luego crear el objeto en memoria (instanciar) y finalmente interactuar con él (acceder).
+  Esto ocurre cuando el sistema operativo o el servidor DNS mantienen en caché una información antigua (la IP vieja) que ya no apunta al servidor actual del sitio web.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "poo_clases_y_objetos"
+  tema: "direccionamiento_ip"
   nivel: "basico"
-  tags: ["poo", "conceptos_fundamentales"]
+  tags: ["redes", "ip", "mac"]
 
-respuesta: "molde"
+respuesta: "capa de red"
 tipo: completar
 respuestas_validas:
-  - "molde"
-  - "plantilla"
-  - "definicion"
+  - "capa de red"
+  - "capa red"
 
-enunciado: "Si comparamos la relación entre un plano de construcción y una casa real, la clase actúa como el plano, mientras que el objeto es la ___."
+enunciado: "Mientras que la dirección MAC se utiliza para la comunicación en la capa de enlace, la dirección IP se utiliza para el direccionamiento en la ___."
 
 explicacion: |
-  La clase es la definición abstracta (el molde) que describe las propiedades y comportamientos, mientras que el objeto es la instancia concreta creada a partir de esa clase.
+  La dirección MAC es una dirección física única grabada en el hardware (Capa 2), mientras que la IP es una dirección lógica que permite el enrutamiento entre redes distintas (Capa 3).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "poo_clases_y_objetos"
+  tema: "dns_resolucion"
   nivel: "basico"
-  tags: ["poo", "atributos", "metodos"]
+  tags: ["dns", "internet"]
 
-respuesta: "estado"
+variables:
+  datos: [["google.com", "142.250.190.46"], ["wikipedia.org", "103.102.166.224"]]
+  escenario: uno_de(datos)
+
+respuesta: "Traducir nombres de dominio a direcciones IP"
 tipo: mc
-opciones_explicitas: ["estado", "comportamiento"]
+opciones_explicitas: ["Traducir nombres de dominio a direcciones IP", "Asignar una dirección MAC a un dispositivo", "Encriptar el tráfico de la web", "Almacenar archivos de sitios web"]
 
-enunciado: "En el paradigma de POO, la principal distinción es que los atributos representan el ___, mientras que los métodos representan el comportamiento."
-
-pasos:
-  - "Identificar qué elemento define las características (datos)."
-  - "Identificar qué elemento define las acciones (funciones)."
+enunciado: "Si un usuario intenta acceder a {escenario[0]}, el sistema DNS se encarga de realizar la siguiente tarea: ___"
 
 explicacion: |
-  Los atributos almacenan el estado o las propiedades de un objeto (datos), mientras que los métodos definen las acciones que el objeto puede realizar (comportamiento).
+  El DNS (Domain Name System) actúa como una 'agenda telefónica' que traduce nombres legibles para humanos a direcciones IP legibles para las máquinas.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "poo_clases_y_objetos"
+  tema: "direccionamiento_ip"
   nivel: "intermedio"
-  tags: ["poo", "instanciacion"]
+  tags: ["ipv4", "ipv6"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es posible que dos objetos distintos, creados a partir de la misma clase, tengan valores diferentes en sus atributos?"
+enunciado: "¿Es correcto afirmar que la principal diferencia entre IPv4 e IPv6 es que IPv6 utiliza direcciones de 128 bits para ofrecer un espacio de direccionamiento mucho mayor que los 32 bits de IPv4?"
 
 explicacion: |
-  Verdadero. Aunque comparten la misma estructura definida por la clase, cada instancia (objeto) posee su propio espacio en memoria para sus atributos, permitiendo que cada objeto tenga su propio estado.
+  Verdadero. El agotamiento de direcciones IPv4 fue el motor principal para la transición hacia IPv6, que permite un número prácticamente infinito de direcciones.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "poo_clases_y_objetos"
+  tema: "dns_resolucion"
   nivel: "intermedio"
-  tags: ["poo", "ciclo_de_vida"]
+  tags: ["dns", "proceso"]
 
-respuesta_orden: ["Definición de clase", "Instanciación de objeto", "Llamada a método"]
+respuesta_orden: ["Consulta al Resolver", "Consulta al Root Server", "Consulta al TLD Server", "Consulta al Authoritative Server"]
 tipo: ordenar
-opciones_explicitas: ["Definición de clase", "Instanciación de objeto", "Llamada a método"]
+opciones_explicitas: ["Consulta al Resolver", "Consulta al Root Server", "Consulta al TLD Server", "Consulta al Authoritative Server"]
 
-enunciado: "Ordene los pasos lógicos para que un objeto pueda interactuar con su entorno:"
+enunciado: "Ordena los pasos lógicos que sigue un cliente cuando busca resolver un nombre de dominio que no está en la caché local:"
 
 explicacion: |
-  Primero se debe definir la estructura (Clase), luego se crea la instancia en memoria (Instanciación) y finalmente se ejecutan sus acciones (Métodos).
+  El proceso comienza con el Resolver (usualmente tu ISP), que pregunta a los Root Servers, estos derivan a los servidores TLD (como .com) y finalmente al servidor autoritativo que tiene la IP real.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "poo_clases_y_objetos"
-  nivel: "avanzado"
-  tags: ["poo", "abstraccion"]
-
-variables:
-  caso: uno_de([0, 1])
-
-respuesta: "abstracción"
-tipo: mc
-opciones_explicitas: ["abstracción", "implementación", "encapsulamiento"]
-
-enunciado: "El proceso de ocultar los detalles complejos de cómo funciona un método y mostrar solo la interfaz necesaria para el usuario se conoce como ___."
-
-explicacion: |
-  La abstracción permite al programador centrarse en 'qué' hace un objeto en lugar de 'cómo' lo hace internamente, simplificando la interacción con sistemas complejos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_clases_y_objetos"
+  tema: "direccionamiento_ip"
   nivel: "basico"
-  tags: ["poo", "clases", "atributos"]
+  tags: ["ip_estatica", "ip_dinamica"]
 
 variables:
-  datos: [["Vehiculo", "color", "marca"], ["Persona", "nombre", "edad"], ["Libro", "titulo", "autor"]]
+  config: [["estatica", "servidor web"], ["dinamica", "computadora de hogar"]]
+  tipo_ip_idx: uno_de([0, 1])
+  tipo_seleccionado: config[tipo_ip_idx][0]
+  respuesta_correcta: config[tipo_ip_idx][1]
+
+respuesta: respuesta_correcta
+
+tipo: mc
+opciones_explicitas: ["servidor web", "computadora de hogar", "router principal", "switch de capa 2"]
+
+enunciado: "Para el tipo de dirección IP {tipo_seleccionado}, es más común utilizar una dirección de tipo ___."
+
+explicacion: |
+  Los servidores necesitan una IP estática para que siempre sean localizables en la misma dirección. Los dispositivos finales suelen usar IPs dinámicas asignadas por DHCP para optimizar el uso de direcciones.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "dns_funcionamiento"
+  nivel: "basico"
+  tags: ["redes", "dns"]
+
+variables:
+  datos: [["google.com", "142.250.190.46"], ["wikipedia.org", "103.102.166.224"], ["github.com", "140.82.121.4"]]
   idx: uno_de([0, 1, 2])
 
-enunciado: "Si definimos una clase llamada {datos[idx][0]}, uno de sus atributos (propiedades) es {datos[idx][1]}."
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "142.250.190.46"
+  - "103.102.166.224"
+  - "140.82.121.4"
+
+enunciado: "Un usuario escribe en su navegador el nombre de dominio {datos[idx][0]}. Para poder conectar con el servidor, el sistema DNS debe traducir ese nombre a la dirección IP: ___"
+
+explicacion: |
+  El DNS (Domain Name System) actúa como una 'agenda telefónica' de Internet, traduciendo nombres legibles para humanos en direcciones IP numéricas que las máquinas pueden entender.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "direccionamiento_ip"
+  nivel: "basico"
+  tags: ["ip", "redes"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La dirección IP 192.168.1.1 es una dirección lógica que identifica a un dispositivo en una red, a diferencia de la dirección MAC que es física."
+
+explicacion: |
+  Correcto. La dirección IP es una dirección lógica asignada por software (capa de red), mientras que la MAC es la dirección física grabada en el hardware (capa de enlace).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "dns_funcionamiento"
+  nivel: "intermedio"
+  tags: ["dns", "protocolos"]
+
+respuesta: "DNS"
+tipo: mc
+opciones_explicitas: ["DNS", "DHCP", "HTTP", "FTP"]
+
+enunciado: "Si un ordenador conoce el nombre de un servidor pero no sabe su dirección IP para establecer la comunicación, ¿qué servicio debe consultar?"
+
+explicacion: |
+  El servicio DNS es el encargado de la resolución de nombres a direcciones IP.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "dns_funcionamiento"
+  nivel: "intermedio"
+  tags: ["dns", "proceso"]
+
+respuesta_orden: ["Consulta caché local", "Consulta servidor DNS recursivo", "Consulta servidor DNS raíz", "Obtención de la IP final"]
+tipo: ordenar
+opciones_explicitas: ["Consulta caché local", "Consulta servidor DNS recursivo", "Consulta servidor DNS raíz", "Obtención de la IP final"]
+
+enunciado: "Ordena los pasos lógicos que sigue un sistema operativo para resolver un nombre de dominio cuando no lo tiene en memoria:"
+
+explicacion: |
+  El proceso comienza buscando en la caché local; si no está, consulta al resolver (recursivo), quien a su vez consulta a los servidores raíz y otros niveles hasta encontrar la IP.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "direccionamiento_ip"
+  nivel: "avanzado"
+  tags: ["ip", "redes"]
+
+variables:
+  datos: [["192.168.1.5", "192.168.1.255"], ["10.0.0.1", "10.0.0.255"], ["172.16.0.10", "172.16.0.255"]]
+  idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["color", "nombre", "titulo", "no_aplica"]
+opciones_explicitas: ["192.168.1.255", "10.0.0.255", "172.16.0.255"]
+
+enunciado: "Si un host tiene la dirección IP {datos[idx][0]} en una red con máscara /24 (255.255.255.0), ¿cuál es la dirección de broadcast de esa red?"
 
 explicacion: |
-  Un atributo representa una característica o propiedad de un objeto de la clase. En el caso de {datos[idx][0]}, {datos[idx][1]} es una de sus propiedades fundamentales.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_clases_y_objetos"
-  nivel: "intermedio"
-  tags: ["poo", "metodos", "comportamiento"]
-
-variables:
-  accion: uno_de([["acelerar", "aumentar_velocidad"], ["saludar", "decir_hola"], ["abrir", "cambiar_estado"]])
-
-enunciado: "En la programación orientada a objetos, los métodos representan el comportamiento de un objeto. Si tenemos un método llamado '{accion[0]}', su propósito funcional es {accion[1]}."
-
-respuesta: accion[1]
-tipo: completar
-respuestas_validas:
-  - "aumentar_velocidad"
-  - "decir_hola"
-  - "cambiar_estado"
-
-explicacion: |
-  Los métodos son funciones definidas dentro de una clase que operan sobre los atributos del objeto o realizan acciones específicas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_clases_y_objetos"
-  nivel: "basico"
-  tags: ["poo", "objetos", "instancia"]
-
-enunciado: "Si la clase es 'Perro', un objeto creado a partir de ella (una instancia) sería un perro real con nombre y edad específicos."
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  Un objeto es una instancia concreta de una clase. Mientras la clase es el molde, el objeto es la entidad con datos reales.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_clases_y_objetos"
-  nivel: "intermedio"
-  tags: ["poo", "estructura", "clases"]
-
-enunciado: "Para implementar correctamente una clase con atributos y métodos, ¿cuál es el orden lógico de definición en la estructura de la clase?"
-
-respuesta_orden: ["Definir atributos", "Definir métodos", "Instanciar objeto"]
-tipo: ordenar
-opciones_explicitas: ["Definir atributos", "Definir métodos", "Instanciar objeto"]
-
-explicacion: |
-  Primero se definen las propiedades (atributos), luego las acciones que puede realizar (métodos) y finalmente se crean los objetos (instancias) que usarán esa estructura.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "poo_clases_y_objetos"
-  nivel: "avanzado"
-  tags: ["poo", "objetos", "identidad"]
-
-variables:
-  caso: uno_de([["perro1", "perro2"], ["auto1", "auto2"], ["usuario1", "usuario2"]])
-
-enunciado: "Si creamos dos objetos distintos, {caso[0]} y {caso[1]}, a partir de la misma clase, aunque tengan los mismos atributos, ¿son objetos idénticos en memoria?"
-
-respuesta: falso
-tipo: vf
-
-explicacion: |
-  Aunque dos objetos tengan los mismos valores en sus atributos, cada instancia ocupa un lugar distinto en la memoria y tiene una identidad única.
-```
-
-## Sección: interrupciones (24 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "basico"
-  tags: ["definicion", "concepto"]
-
-respuesta: "una señal que detiene la ejecución actual"
-tipo: completar
-
-enunciado: "Una interrupción es, básicamente, ___ que detiene momentáneamente la ejecución actual del procesador para atender una prioridad más urgente."
-
-explicacion: |
-  Las interrupciones son señales (de hardware o software) que permiten al procesador responder a eventos externos o internos de manera prioritaria, pausando temporalmente la tarea en curso.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "basico"
-  tags: ["procesador", "ejecucion"]
-
-variables:
-  instruccion_actual: random(1, 100)
-
-respuesta: "terminar"
-tipo: completar
-
-enunciado: "Cuando un dispositivo envía una señal de interrupción, el procesador ___ de ejecutar la instrucción actual por seguridad antes de atender la solicitud."
-
-explicacion: |
-  Por razones de seguridad y consistencia del estado, el procesador completa la instrucción en curso antes de cambiar el flujo de control hacia el vector de interrupción.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["vector", "memoria", "hardware"]
-
-variables:
-  tipo_vector: uno_de(["dirección", "registro", "puerto"])
-
-respuesta: "dirección"
-tipo: completar
-
-enunciado: "El procesador busca una ___ de memoria especial llamada Vector de Interrupción, la cual apunta al Controlador de Interrupción."
-
-explicacion: |
-  El Vector de Interrupción es una tabla en la memoria que mapea cada tipo de interrupción a la dirección de memoria de su respectivo manejador (ISR).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["isr", "software", "hardware"]
-
-respuesta: "Controlador de Interrupción"
-tipo: completar
-
-enunciado: "La dirección del Vector de Interrupción apunta a un pequeño programa específico conocido como el ___ (o ISR)."
-
-explicacion: |
-  El Controlador de Interrupción (Interrupt Service Routine) es el código que se ejecuta para manejar el evento de interrupción específico.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "basico"
-  tags: ["hardware", "ejemplos"]
-
-variables:
-  dispositivo: uno_de(["teclado", "mouse", "disco duro"])
-
-respuesta: "hardware"
-tipo: completar
-
-enunciado: "La señal generada por el clic de un botón del mouse o el ingreso de datos por un ___ es un ejemplo clásico de interrupción de hardware."
-
-explicacion: |
-  Las interrupciones de hardware son generadas por dispositivos físicos externos para informar al procesador de que necesitan atención.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["software", "excepciones"]
-
-variables:
-  error: uno_de(["dividir por cero", "acceso ilegal", "memoria llena"])
-
-respuesta: "software"
-tipo: completar
-
-enunciado: "Las interrupciones generadas por el propio programa o sistema operativo para reportar errores como dividir por cero se llaman interrupciones de ___."
-
-explicacion: |
-  Estas se denominan interrupciones de software, traps o excepciones, y surgen de la ejecución del código o del OS, no de un dispositivo físico externo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["estado", "pila", "registros"]
-
-variables:
-  componente: uno_de(["registros", "memoria cache", "disco"])
-
-respuesta: "registros"
-tipo: completar
-
-enunciado: "El controlador de interrupción guarda el estado actual del procesador, como los valores de los ___, en la pila de memoria."
-
-explicacion: |
-  Guardar el estado de los registros es crucial para que el programa principal pueda reanudarse sin notar la pausa, restaurando los valores exactos previos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["comparacion", "clasificacion"]
-
-variables:
-  origen_hw: "dispositivo fisico"
-  origen_sw: "programa o OS"
-
-respuesta: "dispositivo fisico"
-tipo: completar
-
-enunciado: "Las interrupciones de hardware son generadas por ___, mientras que las de software son generadas por el propio programa o el sistema operativo."
-
-explicacion: |
-  La distinción clave es el origen: hardware proviene de señales eléctricas externas; software proviene de instrucciones ejecutadas o condiciones del sistema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["ejemplos", "software"]
-
-variables:
-  accion: uno_de(["solicitar servicio del sistema", "leer teclado", "enviar datos a red"])
-
-respuesta: "solicitar servicio del sistema"
-tipo: completar
-
-enunciado: "Un ejemplo común de interrupción de software es cuando un programa necesita ___ del sistema operativo."
-
-explicacion: |
-  Las llamadas al sistema (syscalls) a menudo se implementan mediante interrupciones de software para pasar el control al kernel de manera segura.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["vector", "estructura"]
-
-variables:
-  funcion: uno_de(["identificar", "ejecutar", "borrar"])
-
-respuesta: "identificar"
-tipo: completar
-
-enunciado: "El Vector de Interrupción ayuda al procesador a ___ qué dispositivo solicitó la atención mediante la dirección correspondiente."
-
-explicacion: |
-  Cada entrada en la tabla de vectores apunta a la rutina específica para manejar ese tipo de interrupción, facilitando su identificación y procesamiento.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "basico"
-  tags: ["hardware", "redes"]
-
-variables:
-  evento: uno_de(["llegada de datos", "pérdida de energía", "actualización de driver"])
-
-respuesta: "llegada de datos"
-tipo: completar
-
-enunciado: "La ___ por una tarjeta de red es un evento que genera una interrupción de hardware."
-
-explicacion: |
-  Cuando la NIC (Network Interface Card) recibe paquetes, envía una señal de interrupción al CPU para procesar la información sin esperar polling.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["proceso", "secuencia"]
-
-variables:
-  paso1: "pausa"
-  paso2: "atender"
-  paso3: "reanudar"
-
-respuesta: "pausa"
-tipo: completar
-
-enunciado: "El proceso sigue esta secuencia: 1. La interrupción ___ la tarea actual. 2. Se atiende la prioridad. 3. Se reanuda la tarea original."
-
-explicacion: |
-  La secuencia lógica es siempre: interrupción (pausa), servicio (atención) y retorno (reanudación).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "basico"
-  tags: ["hardware", "dispositivos"]
-
-respuesta: "dispositivo físico externo"
-tipo: completar
-
-enunciado: "El clic del mouse es generado por un ___."
-
-explicacion: |
-  El mouse es un periférico externo que envía señales eléctricas al controlador de interrupciones del sistema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["software", "errores"]
-
-respuesta: "el propio programa o el sistema operativo"
-tipo: completar
-
-enunciado: "Una división por cero es generada por ___."
-
-explicacion: |
-  Es un error de ejecución detectado por la CPU o el OS, clasificándose como interrupción de software (trap).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["memoria", "direccion"]
-
-variables:
-  tipo_memoria: uno_de(["especial", "común", "virtual"])
-
-respuesta: "especial"
-tipo: completar
-
-enunciado: "El procesador busca una dirección de memoria ___ llamada Vector de Interrupción."
-
-explicacion: |
-  Esta dirección es parte de una tabla reservada y especial en la memoria, no memoria de usuario común.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "basico"
-  tags: ["hardware", "almacenamiento"]
-
-variables:
-  evento: uno_de(["fin de lectura", "inicio de formateo", "cambio de nombre"])
-
-respuesta: "fin de lectura"
-tipo: completar
-
-enunciado: "El ___ por un disco duro es un evento que genera una interrupción de hardware."
-
-explicacion: |
-  Cuando el disco termina de leer/escribir datos, envía una interrupción al CPU para informar que está listo para la siguiente operación.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["estado", "registros"]
-
-variables:
-  dato: uno_de(["valores de los registros", "código del programa", "datos del usuario"])
-
-respuesta: "valores de los registros"
-tipo: completar
-
-enunciado: "El controlador de interrupción guarda en la pila los ___ del procesador."
-
-explicacion: |
-  Los registros contienen el estado de ejecución (PC, flags, datos temporales) y deben preservarse para la reanudación.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "basico"
-  tags: ["definicion", "señal"]
-
-respuesta: "señal"
-tipo: completar
-
-enunciado: "Una interrupción es una ___ de hardware o software."
-
-explicacion: |
-  Es una señal eléctrica (hardware) o una instrucción especial (software) que notifica al CPU.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["comparacion", "origen"]
-
-variables:
-  origen_hw: "externo"
-  origen_sw: "interno"
-
-respuesta: "externo"
-tipo: completar
-
-enunciado: "Las interrupciones de hardware tienen un origen ___, mientras que las de software son internas."
-
-explicacion: |
-  Hardware: externo (periféricos). Software: interno (CPU/OS).
-```
-
-```
-metadata:
-  materia: "informática"
-  tema: "interrupciones"
-  nivel: "basico"
-  tags: ["analogia", "comprension"]
-
-variables:
-  situacion: uno_de(["leer un libro", "cocinar", "conducir"])
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "La analogía de dejar de leer un libro para contestar el teléfono y luego retomar la lectura ilustra correctamente el concepto de pausa y recuperación de estado en las interrupciones."
-
-explicacion: |
-  La analogía es precisa: la tarea principal (leer) se pausa, se atiende la prioridad (teléfono) y luego se restaura el estado (continuar leyendo desde donde se quedó).
-```
-
-```
-metadata:
-  materia: "informática"
-  tema: "interrupciones"
-  nivel: "basico"
-  tags: ["espera_pasiva", "concepto"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Sin interrupciones, el procesador actuaría de manera activa, ejecutando tareas paralelas sin detenerse."
-
-explicacion: |
-  Falso. Sin interrupciones, el procesador tendría que esperar pasivamente o hacer polling (preguntar constantemente), lo cual es ineficiente y no es "actividad paralela" en el sentido moderno.
-```
-
-```
-metadata:
-  materia: "informática"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["vector", "memoria"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "El Vector de Interrupción apunta a la dirección de memoria donde comienza el código del Controlador de Interrupción."
-
-explicacion: |
-  Verdadero. Es la tabla que mapea cada tipo de interrupción a su rutina de servicio correspondiente.
-```
-
-```
-metadata:
-  materia: "informática"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["polling", "comparacion"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "El método de 'preguntar constantemente' a los dispositivos si tienen datos se conoce como polling y es menos eficiente que el uso de interrupciones."
-
-explicacion: |
-  Verdadero. El polling consume ciclos de CPU innecesariamente, mientras que las interrupciones son eventos asíncronos que despiertan al CPU solo cuando es necesario.
-```
-
-```
-metadata:
-  materia: "informática"
-  tema: "interrupciones"
-  nivel: "intermedio"
-  tags: ["transparencia", "recuperacion"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "El objetivo de guardar y restaurar el estado es que el programa principal no note que hubo una pausa."
-
-explicacion: |
-  Verdadero. La interrupción debe ser transparente para el programa en ejecución, devolviéndolo a un estado idéntico al previo.
+  La dirección de broadcast es la dirección que se utiliza para enviar paquetes a todos los hosts de una red específica; es la última dirección de ese rango de red.
 ```
 
 ## Sección: proceso-programa-en-ejecucion (26 preguntas)
@@ -2321,5 +1441,839 @@ tipo: mc
 
 explicacion: |
   Cada método tiene una semántica definida: GET para lectura, POST para creación, PUT para actualización y DELETE para eliminación.
+```
+
+## Sección: comunicacion-entre-procesos (20 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["procesos", "aislamiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los procesos en un sistema operativo moderno funcionan de manera completamente integrada y comparten su espacio de memoria por defecto."
+
+explicacion: |
+  Falso. Los procesos se gestionan de manera aislada por seguridad y estabilidad. Si uno falla, no necesariamente se cae el resto gracias a este aislamiento.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["estabilidad", "seguridad"]
+
+respuesta: 1
+tipo: mc
+opciones: 4
+
+enunciado: "¿Cuál es una razón clave para que el sistema operativo gestione los procesos de forma aislada?"
+
+explicacion: |
+  El aislamiento mejora la estabilidad y la seguridad. Si un proceso falla, no corrompe la memoria de otros procesos ni cae todo el sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["ejemplo", "portapapeles"]
+
+respuesta: 2
+tipo: mc
+opciones: 4
+
+enunciado: "Cuando copias texto de un editor y lo pegas en otro, ¿qué mecanismo está involucrado indirectamente?"
+
+explicacion: |
+  El portapapeles es una forma de IPC. El editor A escribe en una región de memoria compartida (o envía un mensaje al gestor de portapapeles) y el editor B lee de ahí.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "avanzado"
+  tags: ["seguridad", "comparacion"]
+
+respuesta: 1
+tipo: mc
+opciones: 4
+
+enunciado: "¿Qué mecanismo es generalmente más seguro por defecto al no requerir conocimiento de los detalles internos del otro proceso?"
+
+explicacion: |
+  El intercambio de mensajes es más seguro porque los procesos no compiten por el mismo espacio de memoria, reduciendo riesgos de corrupción accidental.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["lenguaje", "sintaxis"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el lenguaje de descripción de ejercicios, los booleanos se escriben como 'true' o 'false'."
+
+explicacion: |
+  Falso. En este DSL, los booleanos literales son 'verdadero' y 'falso', sin comillas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["diseño", "ventajas"]
+
+respuesta: 3
+tipo: mc
+opciones: 4
+
+enunciado: "¿Cuál NO es una ventaja directa de usar IPC sobre un monolito gigante?"
+
+explicacion: |
+  La complejidad de implementación es una DESVENTAJA. Las ventajas son modularidad, seguridad, estabilidad y reutilización. La opción de "menor complejidad de código" es falsa.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["ipc", "definicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La comunicación entre procesos (IPC) es el conjunto de mecanismos que permiten que procesos independientes intercambien información o modifiquen su comportamiento."
+
+explicacion: |
+  Correcto. La IPC es fundamental para que aplicaciones aisladas colaboren, como cuando copiar y pegar texto involucra comunicación entre el editor y el sistema de almacenamiento temporal.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "intermedio"
+  tags: ["seguridad", "mensajes"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El intercambio de mensajes es considerado más seguro que la memoria compartida porque los procesos no necesitan conocer los detalles internos del otro."
+
+explicacion: |
+  Correcto. Al usar canales definidos por el SO, los procesos mantienen su aislamiento interno, reduciendo riesgos de corrupción accidental de memoria.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["proceso", "definicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada aplicación que abres en tu computadora, como un navegador o un reproductor de música, es considerada un proceso separado."
+
+explicacion: |
+  Correcto. El sistema operativo trata a cada aplicación ejecutándose como un proceso independiente con su propio espacio de memoria.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "intermedio"
+  tags: ["eficiencia", "diseno"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dividir tareas complejas en procesos pequeños que se comunican mejora la eficiencia, seguridad y mantenimiento del software."
+
+explicacion: |
+  Correcto. La modularidad mediante IPC permite crear sistemas más robustos, fáciles de actualizar y menos propensos a fallos catastróficos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "intermedio"
+  tags: ["errores", "memoria_compartida"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si dos procesos intentan escribir en el mismo lugar de memoria compartida al mismo tiempo sin sincronización, pueden ocurrir errores."
+
+explicacion: |
+  Correcto. La condición de carrera puede llevar a corrupción de datos, por lo que se requieren mecanismos de exclusión mutua o semáforos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["ejemplo", "portapapeles"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando copias y pegas texto, hay comunicación constante entre el editor de texto y el sistema de almacenamiento temporal."
+
+explicacion: |
+  Correcto. El portapapeles es un ejemplo cotidiano de IPC, donde un proceso escribe datos y otro los lee desde una zona compartida o canal del SO.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["estabilidad", "aislamiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Debido al aislamiento, si un proceso falla, no necesariamente se cae el resto del sistema."
+
+explicacion: |
+  Correcto. El aislamiento de memoria previene que un error en un proceso afecte la integridad de otros procesos o del kernel.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "avanzado"
+  tags: ["aplicaciones", "rendimiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para aplicaciones gráficas, la memoria compartida es preferible por su eficiencia en grandes volúmenes de datos."
+
+explicacion: |
+  Correcto. Los gráficos requieren transferir grandes cantidades de píxeles o vectores rápidamente, lo que la memoria compartida facilita mejor que los mensajes.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["mensajes", "estructura"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el intercambio de mensajes, los datos viajan a través de un canal definido por el sistema operativo."
+
+explicacion: |
+  Correcto. El SO proporciona la infraestructura (colas de mensajes, pipes, etc.) que actúa como el canal de comunicación.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "intermedio"
+  tags: ["diseno", "beneficios"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El uso de IPC mejora la capacidad de mantenimiento del software al permitir dividir tareas en partes manejables."
+
+explicacion: |
+  Correcto. Los módulos pueden desarrollarse, probarse y actualizarse independientemente, facilitando el mantenimiento a largo plazo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "intermedio"
+  tags: ["mensajes", "costo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El intercambio de mensajes implica copiar datos de un espacio de memoria a otro, lo que puede ser lento."
+
+explicacion: |
+  Correcto. La sobrecarga de copiar datos entre espacios de usuario y kernel (o entre procesos) es el principal costo del modelo de mensajes.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "avanzado"
+  tags: ["memoria_compartida", "control"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La memoria compartida requiere mecanismos de sincronización para evitar que procesos escriban simultáneamente en el mismo lugar."
+
+explicacion: |
+  Correcto. Sin sincronización (mutex, semáforos), la escritura concurrente lleva a condiciones de carrera y corrupción de datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["ejemplo", "portapapeles"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sistema de almacenamiento temporal (portapapeles) participa en la comunicación cuando copias texto."
+
+explicacion: |
+  Correcto. El portapapeles es un servicio del SO que actúa como intermediario de datos entre el proceso que copia y el que pega.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "intermedio"
+  tags: ["sincronizacion", "riesgos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La memoria compartida elimina por completo la necesidad de mecanismos de sincronización entre procesos, ya que el sistema operativo gestiona automáticamente la integridad de los datos sin intervención del desarrollador."
+
+explicacion: |
+  Falso. La memoria compartida introduce el desafío de la sincronización. Si dos procesos escriben simultáneamente, pueden ocurrir condiciones de carrera o corrupción de datos, requiriendo semáforos o mutex.
+```
+
+## Sección: memoria-asignacion-memoria-virtual (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "basico"
+  tags: ["conceptos", "gestion_de_memoria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La memoria virtual es una técnica que permite a un proceso utilizar una cantidad de memoria que excede la capacidad de la memoria física (RAM) disponible, utilizando parte del almacenamiento secundario como extensión."
+
+explicacion: |
+  Correcto. La memoria virtual permite que el sistema operativo gestione la memoria de forma abstracta, permitiendo ejecutar programas más grandes que la RAM física mediante el uso de paginación o segmentación en el disco.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "intermedio"
+  tags: ["hardware", "direccionamiento"]
+
+respuesta: "dirección lógica"
+tipo: mc
+
+opciones_explicitas: ["dirección lógica", "dirección física", "dirección de disco", "dirección de caché"]
+
+enunciado: "En un sistema con memoria virtual, la unidad de gestión de memoria (MMU) es el componente de hardware encargado de traducir la ___ en una dirección física."
+
+explicacion: |
+  La MMU (Memory Management Unit) es el componente encargado de la traducción de direcciones lógicas (generadas por la CPU) a direcciones físicas (ubicadas en la RAM).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "basico"
+  tags: ["terminologia", "paginacion"]
+
+respuesta_orden: ["Paginación", "Segmentación", "Direccionamiento"]
+tipo: ordenar
+
+opciones_explicitas: ["Paginación", "Segmentación", "Direccionamiento"]
+
+enunciado: "Ordena los conceptos de mayor a menor nivel de abstracción en la gestión de memoria (desde la división de memoria en bloques de tamaño fijo hasta la traducción de direcciones):"
+
+explicacion: |
+  La paginación divide la memoria en trozos fijos, la segmentación divide la memoria en unidades lógicas de tamaño variable, y el direccionamiento es el proceso final de localización.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "intermedio"
+  tags: ["paginacion", "errores"]
+
+respuesta: "page fault"
+tipo: completar
+
+respuestas_validas:
+  - "page fault"
+  - "error de paginación"
+  - "fallo de página"
+
+enunciado: "Cuando un proceso intenta acceder a una página que no se encuentra actualmente en la memoria física, se produce un evento conocido como ___."
+
+explicacion: |
+  Un 'page fault' (fallo de página) es una interrupción generada por el hardware que indica que la página requerida debe ser cargada desde el disco a la RAM.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "basico"
+  tags: ["comparacion"]
+
+variables:
+  datos: uno_de([[16, 128], [32, 256], [64, 512]])
+
+respuesta: datos[1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si un sistema tiene una memoria RAM física de {datos[0]} GB y se implementa memoria virtual, la capacidad de direccionamiento lógico total para un proceso puede llegar a ser de hasta {datos[1]} GB."
+
+pasos:
+  - "Identificar la capacidad de la RAM física."
+  - "Asociar la capacidad de direccionamiento virtual como un valor superior a la física."
+
+explicacion: |
+  La memoria virtual permite que el espacio de direcciones lógicas sea significativamente mayor que la memoria física instalada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "basico"
+  tags: ["conceptos", "gestion_de_memoria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La memoria virtual permite que un proceso utilice una cantidad de memoria que excede la capacidad física de la memoria RAM disponible, utilizando el almacenamiento secundario como extensión."
+
+explicacion: |
+  La memoria virtual es una técnica de gestión de memoria que utiliza el espacio en el disco duro para simular memoria RAM adicional, permitiendo ejecutar procesos más grandes que la RAM física.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "asignacion_de_memoria"
+  nivel: "intermedio"
+  tags: ["calculo", "paginacion"]
+
+variables:
+  escenario: uno_de([["4096", "4096", "1024", "4"], ["8192", "8192", "4096", "2"], ["1024", "1024", "512", "2"]])
+
+respuesta: escenario[3]
+tipo: mc
+opciones_explicitas: ["1", "2", "4", "8"]
+
+enunciado: "Un proceso requiere un bloque de memoria de {escenario[0]} bytes. Si el sistema utiliza páginas de tamaño fijo de {escenario[2]} bytes, ¿cuántas páginas se deben asignar para cubrir el requerimiento total del proceso?"
+
+pasos:
+  - "Dividir el tamaño total del proceso por el tamaño de la página: {escenario[0]} / {escenario[2]}"
+  - "Si el resultado no es entero, redondear hacia arriba (ceil) para asegurar que el proceso quepa."
+
+explicacion: |
+  Para calcular el número de páginas: 
+  {escenario[0]} / {escenario[2]} = {escenario[3]}. 
+  Se requiere asignar exactamente esa cantidad de páginas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "fragmentacion"
+  nivel: "intermedio"
+  tags: ["paginacion", "fragmentacion_interna"]
+
+variables:
+  datos: uno_de([["15000", "4096", "1384"], ["18000", "4096", "2480"], ["10000", "4096", "2288"]])
+
+respuesta: datos[2]
+tipo: completar
+respuestas_validas:
+  - "1384"
+  - "2480"
+  - "2288"
+
+enunciado: "En un sistema con paginación de {datos[1]} bytes, se asigna un proceso de {datos[0]} bytes. La fragmentación interna (espacio desperdiciado en la última página) es de ___ bytes."
+
+explicacion: |
+  1. Calculamos cuántas páginas completas se necesitan: ceil({datos[0]} / {datos[1]}) páginas.
+  2. Espacio total asignado: número de páginas * {datos[1]}.
+  3. Fragmentación: espacio total asignado - {datos[0]} = {datos[2]}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "avanzado"
+  tags: ["swapping", "gestion_procesos"]
+
+respuesta_orden: ["Petición de memoria", "Fallo de página (Page Fault)", "Intercambio (Swap-in/out)", "Actualización de tabla de páginas"]
+tipo: ordenar
+
+enunciado: "Ordene los pasos que ocurren cuando un proceso intenta acceder a una página que no se encuentra actualmente en la memoria RAM (Page Fault):"
+
+opciones_explicitas: ["Petición de memoria", "Fallo de página (Page Fault)", "Intercambio (Swap-in/out)", "Actualización de tabla de páginas"]
+
+explicacion: |
+  El flujo lógico es:
+  1. El proceso solicita una dirección de memoria.
+  2. La MMU detecta que la página no está en RAM (Page Fault).
+  3. El SO busca la página en el disco y la carga en RAM (Swap-in).
+  4. Se actualiza la tabla de páginas para marcar la página como presente.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "direccionamiento_virtual"
+  nivel: "avanzado"
+  tags: ["direccionamiento", "paginacion"]
+
+variables:
+  direccion: uno_de([["0x0045", "0x0005"], ["0x01A2", "0x0002"], ["0x03FF", "0x000F"]])
+
+respuesta: direccion[1]
+tipo: mc
+opciones_explicitas: ["0x0000", "0x0005", "0x0002", "0x000F"]
+
+enunciado: "Si el tamaño de página es de 16 bytes (0x10 en hex) y una dirección virtual es {direccion[0]}, ¿cuál es el desplazamiento (offset) dentro de la página?"
+
+pasos:
+  - "El desplazamiento se obtiene calculando el residuo de la dirección dividido por el tamaño de la página."
+  - "En hexadecimal: {direccion[0]} MOD 0x10 = {direccion[1]}."
+
+explicacion: |
+  El desplazamiento (offset) identifica la posición exacta dentro de una página. Se calcula mediante la operación módulo: {direccion[0]} % 16 = {direccion[1]}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "basico"
+  tags: ["memoria_virtual", "conceptos_base"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La memoria virtual permite que un proceso acceda a una cantidad de memoria que excede la capacidad de la memoria RAM física instalada en el sistema."
+
+explicacion: |
+  Verdadero. La memoria virtual utiliza espacio en el disco (archivo de paginación/swap) para simular memoria adicional, permitiendo que el sistema operativo gestione procesos que requieren más espacio del que la RAM física puede ofrecer de forma inmediata.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "asignacion_de_memoria"
+  nivel: "intermedio"
+  tags: ["fragmentacion", "gestion_memoria"]
+
+variables:
+  escenario: uno_de([["fragmentacion_externa", "la memoria tiene huecos libres pero no contiguos"], ["fragmentacion_interna", "la memoria tiene espacio sobrante dentro de un bloque asignado"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["la memoria tiene huecos libres pero no contiguos", "la memoria tiene espacio sobrante dentro de un bloque asignado", "el procesador no puede acceder a la RAM"]
+
+enunciado: "Un sistema operativo utiliza particiones fijas para la asignación de memoria. Si un proceso requiere 15KB y se le asigna un bloque de 20KB, el espacio sobrante de 5KB dentro de ese bloque se conoce como: {escenario[1]}"
+
+explicacion: |
+  La fragmentación interna ocurre cuando se asigna un bloque de memoria a un proceso que es mayor que el tamaño requerido por este, dejando un residuo inutilizable dentro de la partición asignada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "intermedio"
+  tags: ["paginacion", "direccionamiento"]
+
+respuesta_orden: ["Dirección lógica", "MMU", "Dirección física"]
+tipo: ordenar
+
+opciones_explicitas: ["Dirección lógica", "MMU", "Dirección física"]
+
+enunciado: "Ordena el flujo de resolución de una dirección de memoria cuando un proceso intenta acceder a un dato en un sistema con paginación:"
+
+explicacion: |
+  El proceso comienza con la dirección lógica generada por la CPU, la cual es interceptada por la Unidad de Gestión de Memoria (MMU) para ser traducida mediante tablas de páginas, resultando finalmente en una dirección física en la RAM.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "avanzado"
+  tags: ["page_fault", "rendimiento"]
+
+respuesta: "page_fault"
+tipo: completar
+respuestas_validas:
+  - "page_fault"
+
+enunciado: "Cuando un proceso intenta acceder a una página de memoria que no se encuentra actualmente cargada en la memoria RAM, se produce una excepción llamada ___."
+
+explicacion: |
+  El 'page fault' (falta de página) no es un error fatal del programa, sino una interrupción que le indica al sistema operativo que debe buscar la página necesaria en el disco para cargarla en la RAM.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "direccionamiento"
+  nivel: "intermedio"
+  tags: ["bus_direcciones", "arquitectura"]
+
+variables:
+  pares: [[32, 4294967296], [64, 18446744073709551616]]
+  idx: uno_de([0, 1])
+  bits: pares[idx][0]
+  max_direccion: pares[idx][1]
+
+respuesta: max_direccion
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si un procesador tiene un bus de direcciones de {bits} bits, el número total de direcciones de memoria únicas que puede direccionar es:"
+
+explicacion: |
+  El número de direcciones posibles es igual a 2 elevado a la potencia del número de bits del bus de direcciones. Para 32 bits es 2^32, y para 64 bits es 2^64.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "intermedio"
+  tags: ["memoria", "sistema_operativo", "abstraccion"]
+
+respuesta: "abstraccion"
+tipo: mc
+opciones_explicitas: ["abstraccion", "hardware", "almacenamiento", "registro"]
+
+enunciado: "A diferencia de la memoria RAM (memoria física), la memoria virtual actúa como una ___ que permite a los procesos manejar un espacio de direcciones mayor al tamaño de la memoria física disponible."
+
+explicacion: |
+  La memoria virtual es una técnica de gestión de memoria que proporciona una abstracción de la memoria física, permitiendo que cada proceso crea que tiene un espacio de direccionamiento continuo y extenso.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "gestion_de_memoria"
+  nivel: "avanzado"
+  tags: ["paginacion", "segmentacion", "fragmentacion"]
+
+respuesta: "externa"
+tipo: mc
+opciones_explicitas: ["interna", "externa"]
+
+enunciado: "La paginación divide la memoria en bloques de tamaño fijo, lo que puede causar fragmentación interna. Por el contrario, la segmentación, al usar tamaños variables, suele provocar fragmentación ___."
+
+explicacion: |
+  La paginación causa fragmentación interna (espacio sobrante dentro de una página), mientras que la segmentación causa fragmentación externa (huecos entre segmentos que no son lo suficientemente grandes para nuevos procesos).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "basico"
+  tags: ["conceptos_clave", "hardware"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La memoria virtual es una extensión física de la memoria RAM mediante la adición de módulos de memoria adicionales."
+
+explicacion: |
+  Falso. La memoria virtual es una técnica de gestión lógica/de software que utiliza espacio en el disco (almacenamiento secundario) para simular memoria adicional, no es un componente físico extra.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "intermedio"
+  tags: ["paginacion", "swap", "paged_fault"]
+
+respuesta_orden: ["Page Fault", "Swap In", "Update Page Table", "Resume Execution"]
+tipo: ordenar
+
+opciones_explicitas: ["Page Fault", "Swap In", "Update Page Table", "Resume Execution"]
+
+enunciado: "Cuando un proceso intenta acceder a una página que no está en la RAM, ocurre un 'Page Fault'. Ordena los pasos lógicos que el Sistema Operativo debe seguir para resolver esta interrupción:"
+
+explicacion: |
+  1. Se detecta el Page Fault (interrupción).
+  2. Se busca la página en el disco y se carga en RAM (Swap In).
+  3. Se actualiza la tabla de páginas para marcarla como presente.
+  4. Se reanuda la ejecución de la instrucción original.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "intermedio"
+  tags: ["direcciones", "logico", "fisico"]
+
+respuesta: "lógico"
+tipo: completar
+respuestas_validas:
+  - "lógico"
+  - "virtual"
+
+enunciado: "Mientras que la memoria física se refiere a las direcciones reales en los chips de RAM, el espacio de direcciones que ve un proceso es un espacio ___."
+
+explicacion: |
+  El espacio de direcciones lógico (o virtual) es la vista que el procesador y el software tienen de la memoria, la cual es mapeada a direcciones físicas mediante la MMU (Memory Management Unit).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "asignacion_memoria_procesos"
+  nivel: "intermedio"
+  tags: ["memoria", "segmentacion", "procesos"]
+
+variables:
+  datos: [["segmento_codigo", "0x0040"], ["segmento_datos", "0x0080"], ["segmento_stack", "0x0120"]]
+  resultados: ["1040", "1080", "1120"]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Un sistema operativo utiliza segmentación para gestionar la memoria de un proceso. Si el proceso requiere cargar el {datos[idx][0]} en una dirección base específica, la dirección física final será el resultado de sumar la base más el offset. Si la base es 0x1000 y el offset es {datos[idx][1]}, ¿cuál es la dirección física resultante en hexadecimal (sin el prefijo 0x)?"
+
+pasos:
+  - "Convertir el offset hexadecimal a decimal."
+  - "Sumar el valor de la base (4096) al offset."
+  - "Convertir el resultado de nuevo a hexadecimal."
+
+respuestas_validas:
+  - "1040"
+  - "1080"
+  - "1120"
+respuesta: resultados[idx]
+tipo: completar
+tolerancia_abs: 0
+
+explicacion: |
+  La dirección física se calcula sumando la dirección base del segmento al offset relativo.
+  Para el caso de {datos[idx][0]}, la suma es 0x1000 + {datos[idx][1]} = 0x{resultados[idx]}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "basico"
+  tags: ["memoria_virtual", "conceptos"]
+
+enunciado: "La memoria virtual permite que un proceso utilice una cantidad de memoria que es mayor a la capacidad de la memoria RAM física disponible, utilizando el almacenamiento secundario (disco) como extensión. ¿Es esta afirmación verdadera o falsa?"
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  Correcto. La memoria virtual abstrae la memoria física, permitiendo que los programas se ejecuten incluso si la RAM es insuficiente, mediante el uso de paginación o segmentación y el intercambio (swapping) con el disco.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "intermedio"
+  tags: ["mmu", "direccionamiento"]
+
+enunciado: "Cuando un proceso intenta acceder a una dirección de memoria virtual, un componente de hardware especializado debe traducir esa dirección a una dirección física real. ¿Cómo se llama este componente?"
+
+opciones_explicitas: ["MMU (Memory Management Unit)", "CPU (Central Processing Unit)", "ALU (Arithmetic Logic Unit)", "Controlador de Interrupciones"]
+respuesta: "MMU (Memory Management Unit)"
+tipo: mc
+
+explicacion: |
+  La MMU es la unidad de hardware encargada de la traducción de direcciones virtuales a físicas en tiempo real durante la ejecución de las instrucciones.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "memoria_virtual"
+  nivel: "avanzado"
+  tags: ["paginacion", "paginas", "frames"]
+
+variables:
+  datos: [["pagina_virtual_2", "frame_fisico_5"], ["pagina_virtual_3", "frame_fisico_8"], ["pagina_virtual_5", "frame_fisico_12"]]
+  resultados: [20480, 32768, 49152]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "En un sistema de paginación, la tabla de páginas mapea la {datos[idx][0]} hacia el {datos[idx][1]}. Si el tamaño de página es de 4KB, ¿en qué dirección física comienza el {datos[idx][1]}?"
+
+pasos:
+  - "Identificar el número de frame físico: {datos[idx][1]}."
+  - "Multiplicar el número de frame por el tamaño de página (4096)."
+  - "El resultado es la dirección base del frame."
+
+respuesta: resultados[idx]
+tipo: completar
+tolerancia_abs: 0
+
+explicacion: |
+  Si el frame físico es el {datos[idx][1]} (índice 5, 8 o 12), la dirección base se calcula como:
+  Frame * 4096. Por ejemplo, si es el frame 5: 5 * 4096 = 20480.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "asignacion_memoria_procesos"
+  nivel: "intermedio"
+  tags: ["gestion", "orden"]
+
+enunciado: "Ordena los pasos que sigue el Sistema Operativo desde que un proceso solicita memoria hasta que esta es liberada:"
+
+opciones_explicitas: ["El SO asigna un bloque de memoria (física o virtual)", "El proceso solicita memoria mediante una llamada al sistema", "El proceso finaliza y el SO libera la memoria", "El proceso utiliza la memoria para sus datos"]
+respuesta_orden: ["El proceso solicita memoria mediante una llamada al sistema", "El SO asigna un bloque de memoria (física o virtual)", "El proceso utiliza la memoria para sus datos", "El proceso finaliza y el SO libera la memoria"]
+tipo: ordenar
+
+explicacion: |
+  El flujo lógico es: 1. Solicitud (System Call), 2. Asignación (Gestión de memoria), 3. Uso (Ejecución), 4. Liberación (Cleanup).
 ```
 

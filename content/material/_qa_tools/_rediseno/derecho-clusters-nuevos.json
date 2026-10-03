@@ -3,11 +3,11 @@
   "id": 894,
   "cluster": 1,
   "temas": [
-   "apelacion-e-instancias",
-   "argumentacion-juridica",
-   "corrientes-interpretacion-juridica",
-   "denuncia-y-etapa-de-instruccion",
-   "derecho-administrativo"
+   "ramas-del-derecho",
+   "derecho-administrativo",
+   "derecho-civil",
+   "derecho-comercial",
+   "derecho-constitucional"
   ],
   "preguntas": 126
  },
@@ -15,11 +15,11 @@
   "id": 895,
   "cluster": 2,
   "temas": [
-   "derecho-civil",
-   "derecho-comercial",
-   "derecho-constitucional",
    "derecho-internacional",
-   "derecho-laboral"
+   "derecho-laboral",
+   "derecho-penal",
+   "denuncia-y-etapa-de-instruccion",
+   "hecho-juridicamente-relevante"
   ],
   "preguntas": 125
  },
@@ -27,25 +27,25 @@
   "id": 896,
   "cluster": 3,
   "temas": [
-   "derecho-penal",
-   "ejecucion-de-la-sentencia",
+   "investigacion-prueba-y-fiscalia",
    "fuentes-del-derecho",
-   "hecho-juridicamente-relevante",
+   "norma-jerarquia-y-vigencia",
+   "corrientes-interpretacion-juridica",
    "interpretacion-normativa"
   ],
-  "preguntas": 128
+  "preguntas": 127
  },
  {
   "id": 897,
   "cluster": 4,
   "temas": [
-   "investigacion-prueba-y-fiscalia",
-   "juicio-oral",
-   "norma-jerarquia-y-vigencia",
    "politica-criminal-garantismo-mano-dura",
-   "ramas-del-derecho",
-   "resolucion-de-conflictos-y-sentencia"
+   "argumentacion-juridica",
+   "resolucion-de-conflictos-y-sentencia",
+   "juicio-oral",
+   "apelacion-e-instancias",
+   "ejecucion-de-la-sentencia"
   ],
-  "preguntas": 149
+  "preguntas": 150
  }
 ]

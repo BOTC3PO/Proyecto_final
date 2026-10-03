@@ -4,1860 +4,456 @@
 
 ---
 
-## Sección: apelacion-e-instancias (25 preguntas)
+## Sección: ramas-del-derecho (25 preguntas)
 
 ```
 metadata:
   materia: "derecho"
-  tema: "apelacion_e_instancias"
+  tema: "ramas_del_derecho"
   nivel: "basico"
-  tags: ["proceso_civil", "recursos"]
+  tags: ["civil", "regulación"]
 
-respuesta: "recurso de apelación"
+respuesta: "personas y relaciones privadas"
 tipo: completar
 respuestas_validas:
-  - "recurso de apelación"
-  - "apelación"
+  - "personas y relaciones privadas"
 
-enunciado: "El medio de impugnación que permite a una parte solicitar que un tribunal superior revise la resolución dictada por un juez de primera instancia se denomina ___."
+enunciado: "El Derecho Civil es la rama que regula las relaciones entre ___."
 
 explicacion: |
-  El recurso de apelación es la herramienta procesal mediante la cual la parte que se siente agraviada por una sentencia solicita su revisión ante un órgano jerárquicamente superior.
+  El Derecho Civil regula las relaciones de las personas (físicas o jurídicas) en su ámbito privado, como la familia, la propiedad y los contratos civiles.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "apelacion_e_instancias"
+  tema: "ramas_del_derecho"
   nivel: "basico"
-  tags: ["jerarquia", "tribunales"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Juez de Primera Instancia", "Tribunal de Alzada"], ["Juez de Primera Instancia", "Corte Suprema"]]
-
-opciones_explicitas: ["Juez de Primera Instancia", "Tribunal de Alzada", "Corte Suprema"]
-
-respuesta: escenarios[escenario_idx][1]
-tipo: mc
-
-enunciado: "En un proceso judicial estándar, cuando se interpone un recurso contra la sentencia de un {escenarios[escenario_idx][0]}, el órgano que debe conocer la cuestión es el {escenarios[escenario_idx][1]}."
-
-explicacion: |
-  La estructura judicial se organiza en instancias; la revisión de una decisión de primera instancia corresponde al tribunal de alzada o segunda instancia.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "intermedio"
-  tags: ["efectos", "suspensivo"]
+  tags: ["penal", "delitos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿El efecto suspensivo en un recurso de apelación implica que la ejecución de la sentencia queda detenida hasta que el tribunal superior resuelva?"
+enunciado: "¿El objetivo principal del Derecho Penal es imponer sanciones o penas ante la comisión de delitos que afectan a la sociedad?"
 
 explicacion: |
-  Correcto. El efecto suspensivo impide que la sentencia se cumpla mientras el recurso de apelación está pendiente de resolución.
+  Correcto. El Derecho Penal define las conductas consideradas delitos y establece las penas correspondientes para mantener el orden social.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "apelacion_e_instancias"
+  tema: "ramas_del_derecho"
   nivel: "intermedio"
-  tags: ["requisitos", "agravio"]
+  tags: ["comercial", "laboral", "administrativo"]
 
-respuesta: "agravio"
+respuesta: "comercial"
+tipo: mc
+opciones_explicitas: ["laboral", "comercial", "administrativo", "penal"]
+
+enunciado: "Si una disputa surge a raíz de un contrato de compraventa entre dos empresas, ¿qué rama del derecho regula este conflicto?"
+
+explicacion: |
+  Un contrato de compraventa entre empresas es un acto de comercio, por lo tanto la rama correspondiente es el Derecho Comercial.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ramas_del_derecho"
+  nivel: "basico"
+  tags: ["administrativo", "estado"]
+
+respuesta: "Estado"
 tipo: completar
 respuestas_validas:
-  - "agravio"
-  - "perjuicio"
+  - "Estado"
 
-enunciado: "Para que un recurso de apelación sea admisible, la parte recurrente debe demostrar la existencia de un ___, es decir, un perjuicio real derivado de la decisión judicial."
+enunciado: "El Derecho Administrativo regula la organización y el funcionamiento del ___ y sus relaciones con los particulares."
 
 explicacion: |
-  Sin la existencia de un agravio (un daño o perjuicio jurídico o material causado por la resolución), el recurso carece de objeto y debe ser rechazado.
+  El Derecho Administrativo es la rama que regula la actividad de la administración pública y el ejercicio de la función administrativa del Estado.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "apelacion_e_instancias"
+  tema: "ramas_del_derecho"
   nivel: "intermedio"
-  tags: ["procedimiento", "pasos"]
+  tags: ["procedimiento", "orden"]
 
-opciones_explicitas: ["Interposición del recurso", "Expresión de agravios", "Elevación a la segunda instancia", "Sentencia de Alzada"]
-
-respuesta_orden: ["Interposición del recurso", "Expresión de agravios", "Elevación a la segunda instancia", "Sentencia de Alzada"]
+respuesta_orden: ["delito", "investigación", "juicio", "sentencia"]
 tipo: ordenar
+opciones_explicitas: ["delito", "investigación", "juicio", "sentencia"]
 
-enunciado: "Ordene cronológicamente las etapas típicas de un proceso de apelación:"
+enunciado: "Ordene cronológicamente las etapas típicas de un proceso en el ámbito del Derecho Penal:"
 
 explicacion: |
-  Primero se interpone el recurso, luego se fundamentan los agravios, el expediente se eleva al tribunal superior y finalmente este dicta la sentencia de segunda instancia (Alzada).
+  El proceso penal comienza con la detección de un delito, seguido de la investigación, el juicio oral y finalmente la emisión de una sentencia.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "apelacion_e_instancias"
+  tema: "ramas_del_derecho"
   nivel: "basico"
-  tags: ["recurso", "sentencia", "segunda_instancia"]
+  tags: ["civil", "contratos"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["El demandante perdió el juicio", "El demandante"], ["El juez dictó una sentencia injusta", "El demandante"]]
-
-respuesta: datos[idx][1]
+respuesta: "civil"
 tipo: mc
-opciones_explicitas: ["El demandante", "El demandado", "El juez", "El fiscal"]
+opciones_explicitas: ["civil", "penal", "laboral", "comercial"]
 
-enunciado: "En un proceso civil, si {datos[idx][0]}, la parte afectada puede interponer un recurso de apelación para que un tribunal superior revise la resolución. ¿Quién es el sujeto que tiene legitimación para apelar en este caso?"
+enunciado: "Juan firma un contrato de alquiler para vivir en un departamento. Si surge un conflicto sobre el pago de las expensas o la entrega de las llaves, la rama del derecho que regula esta relación es el derecho ___."
 
 explicacion: |
-  El recurso de apelación es un medio de impugnación que permite a la parte que se siente agraviada por una resolución judicial solicitar que un tribunal de jerarquía superior la revise, modifique o anule.
+  El derecho civil regula las relaciones privadas entre particulares, como los contratos de locación (alquiler), sucesiones y propiedad.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "intermedio"
-  tags: ["requisitos", "agravio", "proceso"]
+  tema: "ramas_del_derecho"
+  nivel: "basico"
+  tags: ["laboral", "trabajo"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es obligatorio que el apelante manifieste expresamente los agravios (los errores que considera que cometió el juez) para que el recurso de apelación sea admitido?"
+respuesta: "laboral"
+tipo: completar
+respuestas_validas:
+  - "laboral"
+enunciado: "Un empleado es despedido sin causa y sin recibir la indemnización que establece la ley. El trabajador decide demandar para reclamar sus derechos. ¿Qué rama del derecho interviene en este caso? Derecho ___."
 
 explicacion: |
-  Para que la apelación sea válida, no basta con la disconformidad; es indispensable la fundamentación del agravio, es decir, explicar por qué la sentencia es errónea en su aplicación de la ley o en la valoración de los hechos.
+  El derecho laboral regula el vínculo entre empleadores y empleados, protegiendo la parte más débil de la relación y regulando despidos y salarios.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "apelacion_e_instancias"
+  tema: "ramas_del_derecho"
+  nivel: "basico"
+  tags: ["penal", "delitos"]
+
+respuesta: "penal"
+tipo: completar
+respuestas_validas:
+  - "penal"
+
+enunciado: "Una persona entra a un supermercado y sustrae una mercadería sin pagar, siendo capturada por la seguridad. Dado que este acto constituye un delito contra la propiedad, la rama del derecho que debe intervenir es el derecho ___."
+
+explicacion: |
+  El derecho penal se encarga de definir las conductas que son consideradas delitos y de establecer las penas o sanciones correspondientes.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ramas_del_derecho"
   nivel: "intermedio"
-  tags: ["secuencia", "proceso_judicial"]
+  tags: ["administrativo", "estado"]
 
-opciones_explicitas: ["Dictado de la sentencia de primera instancia", "Interposición del recurso de apelación", "Expresión de agravios", "Resolución de la Cámara/Tribal Superior"]
+respuesta: "administrativo"
+tipo: mc
+opciones_explicitas: ["civil", "administrativo", "comercial", "penal"]
 
-respuesta_orden: ["Dictado de la sentencia de primera instancia", "Interposición del recurso de apelación", "Expresión de agravios", "Resolución de la Cámara/Tribal Superior"]
+enunciado: "El Estado decide multar a una empresa de transporte por incumplir las normas de seguridad vial. Para resolver la validez de esta multa, se debe recurrir al derecho ___."
+
+explicacion: |
+  El derecho administrativo regula la organización, funcionamiento y las facultades de la Administración Pública y sus relaciones con los ciudadanos.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ramas_del_derecho"
+  nivel: "intermedio"
+  tags: ["comercial", "ordenar"]
+
+respuesta_orden: ["oferta", "aceptación", "entrega de mercadería", "pago"]
 tipo: ordenar
+opciones_explicitas: ["oferta", "aceptación", "entrega de mercadería", "pago"]
 
-enunciado: "Ordene cronológicamente las etapas de un proceso judicial que incluye la revisión por una segunda instancia:"
-
-explicacion: |
-  El proceso comienza con la resolución del juez de grado, seguido por la voluntad de la parte de apelar, la fundamentación técnica de sus quejas y, finalmente, el fallo del tribunal superior.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "avanzado"
-  tags: ["efectos", "suspension", "ejecucion"]
-
-respuesta: "suspensivo"
-tipo: mc
-opciones_explicitas: ["suspensivo", "devolutivo"]
-
-enunciado: "Si un recurso de apelación se admite con un efecto tal que la ejecución de la sentencia queda paralizada hasta que el superior resuelva, ¿cómo se denomina técnicamente a ese efecto?"
-
-explicacion: |
-  El efecto suspensivo detiene la ejecución de la resolución recurrida, mientras que el efecto devolutivo permite que la sentencia se cumpla a pesar de la apelación.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "basico"
-  tags: ["sentencia", "terminacion"]
-
-respuesta: "confirmar"
-tipo: completar
-respuestas_validas:
-  - "confirmar"
-  - "revocar"
-  - "anular"
-
-enunciado: "Si el tribunal de alzada (segunda instancia) coincide con el criterio del juez de primera instancia y considera que la sentencia es correcta, su decisión será ___ la sentencia original."
-
-explicacion: |
-  Cuando el tribunal superior ratifica la decisión del inferior, se dice que la sentencia ha sido 'confirmada'. Si la cambia, la 'revoca'; si la deja sin efecto por errores de forma, la 'anula'.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "intermedio"
-  tags: ["proceso_civil", "recursos"]
-
-enunciado: "En un proceso civil, si se interpone un recurso de apelación con efecto suspensivo, la ejecución de la sentencia ___."
-
-respuesta: "se suspende"
-tipo: completar
-respuestas_validas:
-  - "se suspende"
-  - "queda suspendida"
-
-explicacion: |
-  El efecto suspensivo detiene la ejecución de la sentencia hasta que el tribunal superior resuelva el recurso.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "avanzado"
-  tags: ["principios_procesales", "limitacion_tribunal"]
-
-respuesta: "El tribunal no puede resolver sobre temas no apelados"
-tipo: mc
-opciones_explicitas: ["El tribunal puede resolver sobre temas no apelados", "El tribunal no puede resolver sobre temas no apelados"]
-
-enunciado: "De acuerdo al principio de congruencia, en segunda instancia, ___."
-
-explicacion: |
-  El tribunal de alzada está limitado por la materia de la apelación (principio de congrucia), no pudiendo extender su conocimiento a cuestiones que no hayan sido objeto de impugnación.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "basico"
-  tags: ["garantias", "derechos_fundamentales"]
-
-enunciado: "El derecho a la doble instancia es considerado una garantía fundamental en los sistemas procesales modernos. ¿Es esto correcto?"
-
-respuesta: verdadero
-tipo: vf
-explicacion: |
-  La doble instancia permite que un órgano superior revise la aplicación de la ley o la valoración de la prueba realizada por el juez de primera instancia.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "intermedio"
-  tags: ["procedimiento", "etapas"]
-
-variables:
-  pasos_ordenados: ["Interposición del recurso", "Expresión de agravios", "Resolución de la Alzada"]
-
-enunciado: "Ordene cronológicamente las etapas típicas de un recurso de apelación:"
+enunciado: "En una operación de compraventa entre dos empresas (acto de comercio), se deben seguir pasos lógicos para que la relación jurídica se consume. Ordena cronológicamente estos elementos:"
 
 pasos:
-  - "Interposición del recurso"
-  - "Expresión de agravios"
-  - "Resolución de la Alzada"
-
-respuesta_orden: ["Interposición del recurso", "Expresión de agravios", "Resolución de la Alzada"]
-tipo: ordenar
-opciones_explicitas: ["Interposición del recurso", "Expresión de agravios", "Resolución de la Alzada"]
+  - "El vendedor propone el precio y el producto."
+  - "El comprador manifiesta su conformidad con la propuesta."
+  - "Se realiza la transferencia del bien."
+  - "Se efectúa la contraprestación económica."
 
 explicacion: |
-  Primero se presenta el recurso, luego se fundamentan los errores (agravios) y finalmente el tribunal superior decide.
+  El derecho comercial regula los actos de comercio y las relaciones entre comerciantes; el proceso sigue una secuencia de oferta, aceptación y ejecución.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "intermedio"
-  tags: ["agravios", "errores_comunes"]
-
-variables:
-  errores: ["reiterar los argumentos de la demanda sin criticar la sentencia", "presentar argumentos nuevos que no fueron debatidos en primera instancia"]
-  idx: uno_de([0, 1])
-
-enunciado: "Un error común que puede llevar a la improcedencia de un recurso de apelación es ___."
-
-respuesta: errores[idx]
-tipo: completar
-respuestas_validas:
-  - "reiterar los argumentos de la demanda sin criticar la sentencia"
-  - "presentar argumentos nuevos que no fueron debatidos en primera instancia"
-
-explicacion: |
-  La apelación requiere la crítica concreta y concreta de los fundamentos de la sentencia. Simplemente repetir lo dicho en la demanda no constituye un agravio jurídico.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
+  tema: "ramas_del_derecho"
   nivel: "basico"
-  tags: ["recursos", "instancias", "proceso_civil"]
+  tags: ["civil", "regulacion"]
 
-respuesta: "revisión"
-tipo: completar
-respuestas_validas:
-  - "revisión"
-  - "revisar"
-  - "revisar la sentencia"
-
-enunciado: "A diferencia de la reposición, que busca que el mismo juez corrija su decisión, la apelación tiene como finalidad la ___ de la sentencia por un tribunal de jerarquía superior."
-
-explicacion: |
-  La apelación busca que un tribunal superior (segunda instancia) revise la resolución del juez de primera instancia para corregir posibles errores de hecho o de derecho.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "intermedio"
-  tags: ["instancia", "recurso", "jerarquia"]
-
-variables:
-  escenario: uno_de([["apelación", "recurso", "instancia"], ["reposición", "recurso", "instancia"], ["casación", "recurso", "instancia"]])
-
-respuesta: escenario[1]
 tipo: mc
-opciones_explicitas: ["recurso", "instancia", "sentencia"]
+opciones_explicitas: ["Las relaciones de trabajo entre empleador y empleado", "Las relaciones de familia, contratos y propiedad entre particulares", "Los delitos y las penas impuestas por el Estado", "Los conflictos entre el Estado y los ciudadanos"]
 
-enunciado: "En el sistema judicial, la apelación es un ___ que permite pasar de la primera a la segunda instancia."
+respuesta: "Las relaciones de familia, contratos y propiedad entre particulares"
+
+enunciado: "Un error común es confundir el Derecho Civil con el Derecho Laboral. Mientras el segundo regula el trabajo, el Derecho Civil regula ___."
 
 explicacion: |
-  La apelación es el medio o recurso procesal que habilita el ejercicio de la segunda instancia, permitiendo que un órgano superior revise lo decidido.
+  El Derecho Civil es el tronco común que regula las relaciones privadas entre personas (familia, contratos, sucesiones, propiedad), a diferencia del Laboral que es una rama especializada para el trabajo.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "avanzado"
-  tags: ["efectos", "suspensivo", "devolutivo"]
+  tema: "ramas_del_derecho"
+  nivel: "basico"
+  tags: ["administrativo", "confusion"]
 
-respuesta: falso
 tipo: vf
 
-enunciado: "Si un recurso de apelación se concede con efecto suspensivo, la ejecución de la sentencia queda paralizada hasta que el tribunal superior resuelva."
-
-explicacion: |
-  Es verdadero. El efecto suspensivo impide que la sentencia se cumpla mientras el recurso está pendiente, a diferencia del efecto devolutivo, que permite la ejecución pero deja la posibilidad de reparación posterior.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "basico"
-  tags: ["jerarquia", "tribunales"]
-
-respuesta_orden: ["Sentencia de Primera Instancia", "Sentencia de Segunda Instancia", "Sentencia de Casación"]
-tipo: ordenar
-opciones_explicitas: ["Sentencia de Primera Instancia", "Sentencia de Segunda Instancia", "Sentencia de Casación"]
-
-enunciado: "Ordene los niveles de revisión jerárquica de una controversia jurídica, desde el tribunal que dicta la resolución inicial hasta el tribunal de máxima instancia."
-
-explicacion: |
-  El proceso sigue un orden ascendente: primero el juez de grado (1ra instancia), luego el tribunal de alzada (2da instancia) y finalmente la Corte Suprema o Tribunal de Casación.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "intermedio"
-  tags: ["revisión", "hechos", "derecho"]
-
-respuesta: "derecho"
-tipo: completar
-respuestas_validas:
-  - "derecho"
-  - "norma"
-
-enunciado: "Mientras que la apelación en sede ordinaria permite revisar tanto los hechos como el ___ aplicado, la casación suele limitarse estrictamente a la correcta aplicación de la ley."
-
-explicacion: |
-  La apelación es un recurso amplio que permite la revisión de la valoración de la prueba (hechos) y de la aplicación de la norma (derecho), mientras que la casación es un recurso extraordinario de estricto derecho.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "intermedio"
-  tags: ["recurso", "instancia", "proceso"]
-
-variables:
-  datos: [["La sentencia de primera instancia fue desfavorables para el demandante", "apelacion"], ["El juez cometió un error de procedimiento en el juicio", "apelacion"], ["La contraparte presentó pruebas nuevas que no fueron valoradas", "apelacion"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "En el caso planteado, donde {datos[idx][0]}, la parte afectada decide interponer un recurso de {datos[idx][1]} para que un tribunal superior revise la resolución."
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "apelacion"
-
-explicacion: |
-  El recurso de apelación es el medio de impugnación que permite que un tribunal de jerarquía superior (segunda instancia) revise la resolución dictada por un juez de primera instancia, con el fin de que la modifique, revoque o anule.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "intermedio"
-  tags: ["efectos", "suspensivo", "devolutivo"]
-
-variables:
-  datos: [["suspensivo", "La ejecución de la sentencia se detiene hasta que el superior resuelva."], ["devolutivo", "La sentencia se puede ejecutar aunque se haya apelado."]]
-  idx: uno_de([0, 1])
-
-enunciado: "Si el recurso de apelación se admite con efecto {datos[idx][0]}, significa que {datos[idx][1]}"
-
-respuesta: datos[idx][0]
-tipo: mc
-opciones_explicitas: ["suspensivo", "devolutivo"]
-
-explicacion: |
-  El efecto suspensivo impide la ejecución de la sentencia mientras el tribunal superior decide. El efecto devolutivo permite que la sentencia se cumpla a pesar de la impugnación.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "basico"
-  tags: ["instancias", "jerarquia"]
-
-variables:
-  orden_instancias: [["Juzgado de Primera Instancia", "Tribunal de Alzada (Segunda Instancia)", "Corte Suprema"]]
-
-enunciado: "Ordene correctamente el flujo jerárquico de la revisión judicial desde el inicio del conflicto hasta la máxima autoridad."
-
-respuesta_orden: ["Juzgado de Primera Instancia", "Tribunal de Alzada (Segunda Instancia)", "Corte Suprema"]
-tipo: ordenar
-opciones_explicitas: ["Juzgado de Primera Instancia", "Tribunal de Alzada (Segunda Instancia)", "Corte Suprema"]
-
-explicacion: |
-  El sistema judicial se organiza en instancias: la primera instancia es donde se inicia el juicio y se dicta la primera sentencia; la segunda instancia (o alzada) es la revisión por un tribunal superior.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "basico"
-  tags: ["impugnacion", "derecho_defensa"]
-
-enunciado: "Si una sentencia ha sido dictada con violación al debido proceso, ¿es jurídicamente posible impugnarla mediante un recurso de apelación?"
-
-respuestas_validas:
-  - "se puede apelar"
-respuesta: "se puede apelar"
-tipo: completar
-explicacion: |
-  La apelación es un derecho fundamental derivado del principio de la doble instancia, que permite corregir errores de hecho o de derecho cometidos por el juez de primera instancia.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "apelacion_e_instancias"
-  nivel: "intermedio"
-  tags: ["tribunal", "alzada", "revisión"]
-
-variables:
-  datos: [["Tribunal de Alzada", "Tribunal de Segunda Instancia"], ["Tribunal de Alzada", "Corte de Apelaciones"]]
-  idx: uno_de([0, 1])
-
-enunciado: "El órgano encargado de revisar la sentencia dictada por el juez de primera instancia es conocido comúnmente como {datos[idx][0]}."
-
-respuesta: datos[idx][0]
-tipo: mc
-opciones_explicitas: ["Tribunal de Alzada", "Corte de Apelaciones", "Juzgado de Letras"]
-
-explicacion: |
-  El tribunal de alzada es el órgano colegiado que tiene la competencia para revisar lo actuado en la primera instancia, garantizando el derecho a la revisión judicial.
-```
-
-## Sección: argumentacion-juridica (25 preguntas)
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "basico"
-  tags: ["conceptos_clave", "teoria_del_derecho"]
-
-tipo: mc
-opciones_explicitas: ["El proceso de justificación de una decisión mediante razones", "La aplicación mecánica de la ley sin razonamiento", "La imposición de la voluntad del juez sobre la norma", "Un conjunto de normas sin interpretación"]
-
-respuesta: "El proceso de justificación de una decisión mediante razones"
-
-enunciado: "La argumentación jurídica se define fundamentalmente como ___"
-
-explicacion: |
-  La argumentación jurídica no es una mera aplicación mecánica de la norma, sino un proceso de razonamiento orientado a justificar una decisión mediante la entrega de razones válidas.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "basico"
-  tags: ["logica_juridica", "silogismo"]
-
-tipo: vf
 respuesta: falso
 
-enunciado: "En el silogismo jurídico, la premisa mayor es el hecho concreto ocurrido en la realidad, mientras que la premisa menor es la norma aplicable."
+enunciado: "Es un error pensar que el Derecho Administrativo regula los contratos entre dos empresas privadas; su función es regular la organización y el funcionamiento de la administración pública."
 
 explicacion: |
-  Es falso. En el silogismo jurídico, la premisa mayor es la norma (el precepto legal) y la premisa menor es el hecho (el caso concreto).
+  Falso. El Derecho Administrativo regula la actividad del Estado y sus relaciones con los particulares cuando el Estado actúa como poder público. Los contratos entre empresas privadas son materia del Derecho Comercial/Civil.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "argumentacion_juridica"
+  tema: "ramas_del_derecho"
   nivel: "intermedio"
-  tags: ["estructura", "precedentes"]
+  tags: ["penal", "delitos"]
 
-respuesta: "precedente"
+respuesta: "penal"
 tipo: completar
 respuestas_validas:
-  - "precedente"
-  - "argumento de autoridad"
+  - "penal"
 
-enunciado: "Cuando un abogado utiliza una decisión previa de un tribunal superior para sustentar su postura, está recurriendo al ___."
+enunciado: "Si una persona comete un delito, el Estado interviene para imponer una sanción punitiva; esta materia es regulada por el Derecho ___."
+
+explicacion: |
+  El Derecho Penal se encarga de las conductas que son consideradas delitos y las sanciones que el Estado impone. No debe confundirse con el Derecho Civil, que busca la reparación de daños pero no la pena criminal.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ramas_del_derecho"
+  nivel: "basico"
+  tags: ["comercial", "civil"]
+
+tipo: mc
+opciones_explicitas: ["Derecho Comercial", "Derecho Civil", "Derecho Administrativo", "Derecho Penal"]
+
+respuesta: "Derecho Comercial"
+
+enunciado: "Un comerciante tiene un conflicto por una transacción de mercaderías con un proveedor. Aunque el Derecho Civil es la base, la regulación específica de los actos de comercio corresponde al ___."
+
+explicacion: |
+  El Derecho Comercial es una rama especializada que regula los actos de comercio y a los sujetos que se dedican a ellos, desprendiéndose del marco general del Derecho Civil.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ramas_del_derecho"
+  nivel: "intermedio"
+  tags: ["laboral", "procedimiento"]
+
+tipo: ordenar
+opciones_explicitas: ["Identificar el vínculo laboral", "Determinar la normativa aplicable (Derecho Laboral)", "Calificar la sanción o indemnización"]
+
+respuesta_orden: ["Identificar el vínculo laboral", "Determinar la normativa aplicable (Derecho Laboral)", "Calificar la sanción o indemnización"]
+
+enunciado: "Ante un conflicto por un despido, el abogado debe seguir este orden lógico para aplicar correctamente el Derecho Laboral:"
+
+explicacion: |
+  Primero se debe verificar si existe una relación de dependencia (vínculo), luego aplicar las leyes específicas de trabajo (Laboral) y finalmente determinar la consecuencia jurídica (indemnización).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ramas_del_derecho"
+  nivel: "basico"
+  tags: ["civil", "comercial"]
+
+respuesta: "comercial"
+tipo: mc
+opciones_explicitas: ["civil", "comercial", "penal", "laboral"]
+
+enunciado: "Mientras que el Derecho Civil regula las relaciones privadas de las personas en general, el Derecho ___ se especializa en los actos de comercio y la actividad de los comerciantes."
+
+explicacion: |
+  El Derecho Civil es la rama general que regula relaciones como la familia o sucesiones, mientras que el Derecho Comercial es una rama especial que se aplica específicamente a los actos de comercio.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ramas_del_derecho"
+  nivel: "basico"
+  tags: ["penal", "civil"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia del Derecho Civil, que busca la reparación de un daño, el Derecho Penal tiene como fin principal la imposición de una sanción o pena por la comisión de un delito."
+
+explicacion: |
+  Es verdadero. El Derecho Civil es eminentemente reparatorio (indemnizaciones), mientras que el Derecho Penal es punitivo (penas de prisión, multas estatales, etc.).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ramas_del_derecho"
+  nivel: "intermedio"
+  tags: ["laboral", "civil"]
+
+respuesta: "subordinación"
+tipo: completar
+respuestas_validas:
+  - "subordinación"
+
+enunciado: "A diferencia de un contrato de locación de servicios (civil), donde prima la autonomía de la voluntad, el Derecho Laboral se distingue por la existencia de una relación de ___ entre las partes."
 
 pasos:
-  - "Identificar la fuente de la autoridad (jurisprudencia o precedente)."
-  - "Verificar la pertinencia del caso anterior con el caso actual."
+  - "Identificar la relación jurídica: ¿hay dependencia o es un servicio independiente?"
+  - "Comparar con el concepto de autonomía civil."
 
 explicacion: |
-  El uso de decisiones previas es la base de la doctrina del precedente, permitiendo la predictibilidad del sistema jurídico.
+  El elemento distintivo del Derecho Laboral es la subordinación (dependencia técnica, económica y jurídica) del trabajador respecto al empleador.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "basico"
-  tags: ["terminologia"]
-
-tipo: ordenar
-opciones_explicitas: ["Premisa Normativa", "Premisa Fáctica", "Conclusión"]
-respuesta_orden: ["Premisa Normativa", "Premisa Fáctica", "Conclusión"]
-
-enunciado: "Ordene los elementos lógicos que componen la estructura de un argumento jurídico estándar:"
-
-explicacion: |
-  La estructura lógica requiere primero la norma (Normativa), luego la verificación de los hechos (Fáctica) y finalmente la subsunción que lleva a la resolución (Conclusión).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
+  tema: "ramas_del_derecho"
   nivel: "intermedio"
-  tags: ["logica", "validez"]
+  tags: ["administrativo", "civil"]
 
+respuesta: "Estado"
 tipo: mc
-opciones_explicitas: ["La coherencia lógica de la estructura del argumento", "La verdad material de los hechos presentados", "La opinión personal del juzgador", "La cantidad de leyes citadas"]
+opciones_explicitas: ["Estado", "Particulares", "Empresas", "Sociedades"]
 
-respuesta: "La coherencia lógica de la estructura del argumento"
-
-enunciado: "En lógica jurídica, cuando un argumento sigue correctamente las reglas de inferencia pero sus premisas son cuestionables, se dice que el argumento es ___ pero no necesariamente ___."
+enunciado: "El Derecho Administrativo se distingue del Derecho Civil porque su sujeto principal es el ___ en el ejercicio de sus funciones públicas."
 
 explicacion: |
-  Un argumento puede ser formalmente válido (lógicamente correcto) pero carecer de solidez si sus premisas fácticas o normativas son falsas o incorrectas.
+  El Derecho Administrativo regula la organización y el funcionamiento de la administración pública y sus relaciones con los ciudadanos.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "intermedio"
-  tags: ["silogismo", "logica_juridica"]
-
-respuesta: "premisa_mayor"
-tipo: completar
-respuestas_validas:
-  - "premisa_mayor"
-  - "premisa_menor"
-  - "conclusión"
-
-enunciado: "En un silogismo jurídico, la norma general o ley aplicable se denomina ___."
-
-explicacion: |
-  El silogismo jurídico consta de tres partes: la premisa mayor (la norma), la premisa menor (el hecho probado) y la conclusión (la consecuencia jurídica resultante de aplicar la norma al hecho).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
+  tema: "ramas_del_derecho"
   nivel: "avanzado"
-  tags: ["analogia", "interpretacion"]
+  tags: ["administrativo", "ordenamiento"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Se aplica una norma de un contrato de compraventa a uno de permuta por similitud de objeto.", "falso"], ["Se aplica una norma de derecho penal para sancionar una conducta no prevista por analogia in malam partem.", "falso"]]
-
-respuesta: escenarios[escenario_idx][1]
-tipo: completar
-enunciado: "En el escenario donde {escenarios[escenario_idx][0]}, la aplicación analógica de la norma es jurídicamente válida para crear nuevas obligaciones."
-
-explicacion: |
-  La analogía es válida en derecho civil/administrativo para llenar lagunas, pero está prohibida en derecho penal cuando la interpretación es 'in malam partem' (perjudicial para el reo). En ambos casos presentados, la afirmación de validez es falsa según la doctrina general.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "basico"
-  tags: ["jerarquia", "normas"]
-
-respuesta: "Constitución Nacional"
-tipo: mc
-opciones_explicitas: ["Constitución Nacional", "Decreto Reglamentario", "Resolución Ministerial", "Contrato entre partes"]
-
-enunciado: "Si un juez debe resolver una contradicción entre una norma de rango constitucional y un decreto administrativo, debe priorizar la ___."
-
-explicacion: |
-  De acuerdo al principio de jerarquía normativa (Pirámide de Kelsen), la Constitución es la norma suprema y prevalece sobre cualquier norma de inferior rango.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "intermedio"
-  tags: ["precedente", "ratio_decidendi"]
-
-respuesta_orden: ["Identificación de los hechos relevantes", "Determinación de la ratio decidendi", "Extracción del principio jurídico", "Aplicación al caso actual"]
+respuesta_orden: ["Constitución", "Ley", "Reglamento"]
 tipo: ordenar
 
-opciones_explicitas: ["Identificación de los hechos relevantes", "Determinación de la ratio decidendi", "Extracción del principio jurídico", "Aplicación al caso actual"]
+opciones_explicitas: ["Constitución", "Ley", "Reglamento"]
 
-enunciado: "Para utilizar un precedente judicial de forma sólida en un nuevo argumento, se debe seguir este orden lógico:"
+enunciado: "En el Derecho Administrativo, para verificar la validez de un acto, se debe seguir el orden jerárquico de normas. Ordene de mayor a menor jerarquía:"
 
 explicacion: |
-  Para aplicar un precedente no basta con citar la sentencia; se debe identificar primero los hechos (fáctico), luego el núcleo de la decisión (ratio decidendi), extraer la regla de derecho y finalmente aplicarla al nuevo caso.
+  La jerarquía normativa establece que un Reglamento no puede contrariar una Ley, y una Ley no puede contrariar la Constitución.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "intermedio"
-  tags: ["carga_de_la_prueba", "argumentacion"]
+  tema: "ramas_del_derecho"
+  nivel: "basico"
+  tags: ["civil", "contratos"]
 
 variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["El demandado alega un hecho extintivo de la obligación.", "verdadero"], ["El actor afirma la existencia de un contrato verbal.", "falso"]]
-
-respuesta: casos[caso_idx][1]
-tipo: completar
-enunciado: "En el caso donde {casos[caso_idx][0]}, la carga de la prueba recae sobre el demandado (quien debe probar el hecho que afirma)."
-
-explicacion: |
-  Según la carga de la prueba, quien afirma un hecho debe probarlo. Sin embargo, si el demandado alega un hecho nuevo que extingue la obligación (ej. pago o prescripción), la carga de la prueba se traslada a él.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "intermedio"
-  tags: ["jerarquia", "normas", "argumentacion"]
-
-respuesta: "Constitución"
-tipo: completar
-respuestas_validas:
-  - "Constitución"
-
-enunciado: "En un sistema de argumentación jurídica basado en la jerarquía de Kelsen, ninguna norma puede contradecir a la ___."
-
-explicacion: |
-  La Constitución es la norma de máxima jerarquía (norma fundamental). Un argumento jurídico sólido debe respetar la supremacía constitucional para evitar la invalidez de la norma inferior.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "intermedio"
-  tags: ["precedente", "jurisprudencia", "fuentes"]
-
-tipo: mc
-opciones_explicitas: ["El precedente es una norma de aplicación general e inmediata para todos los casos futuros.", "El precedente es una guía interpretativa que debe ser analizada caso por caso según su ratio decidendi."]
-
-respuesta: "El precedente es una guía interpretativa que debe ser analizada caso por caso según su ratio decidendi."
-
-enunciado: "Al utilizar la jurisprudencia como fuente de argumentación, ¿cuál es el error más común al aplicar un precedente?"
-
-explicacion: |
-  No se debe aplicar un precedente de forma mecánica (subsunción automática). Un argumento sólido requiere identificar la 'ratio decidendi' (razón de la decisión) y verificar si los hechos del nuevo caso son sustancialmente similares.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "basico"
-  tags: ["falacias", "logica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si un abogado cita la opinión de un jurista prestigioso para sustentar una tesis, el argumento es automáticamente válido y vinculante, independientemente de si la opinión es doctrina o jurisprudencia."
-
-explicacion: |
-  Falso. La opinión de un jurista es doctrina (autoridad científica), pero no tiene fuerza vinculante como la ley o la jurisprudencia. Citar autoridad sin conectar la razón jurídica con el caso constituye una falacia de autoridad.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "intermedio"
-  tags: ["silogismo", "estructura", "logica"]
-
-respuesta_orden: ["Premisa mayor", "Premisa menor", "Conclusión"]
-tipo: ordenar
-opciones_explicitas: ["Premisa mayor", "Premisa menor", "Conclusión"]
-
-enunciado: "Para construir un silogismo jurídico válido y evitar errores de lógica formal, se debe seguir este orden de construcción:"
-
-explicacion: |
-  1. Premisa mayor: La norma general. 2. Premisa menor: El hecho concreto encuadrado en la norma. 3. Conclusión: La consecuencia jurídica derivada de la subsunción.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "avanzado"
-  tags: ["analogia", "interpretacion"]
-
-tipo: mc
-opciones_explicitas: ["La analogía es válida siempre que la laguna legal sea absoluta y no existan normas de principios.", "La analogía solo es lícita si existe identidad de razón entre el caso regulado y el caso no regulado, evitando la analogía in malam partem en derecho penal."]
-
-respuesta: "La analogía solo es lícita si existe identidad de razón entre el caso regulado y el caso no regulado, evitando la analogía in malam partem en derecho penal."
-
-enunciado: "En un argumento basado en la analogía, ¿cuál es el límite fundamental para evitar la arbitrariedad?"
-
-explicacion: |
-  El límite es la 'identidad de razón'. Además, en materias como el derecho penal, está prohibida la analogía para crear delitos o penas (principio de legalidad), lo que se conoce como prohibición de analogía 'in malam partem'.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "basico"
-  tags: ["fundamentos", "logica"]
-
-respuesta: "argumento"
-tipo: "completar"
-respuestas_validas:
-  - "argumento"
-
-enunciado: "Mientras que una opinión es una manifestación subjetiva de un juicio de valor, un ___ se construye mediante el uso de premisas normativas y hechos probados para llegar a una conclusión jurídica."
-
-explicacion: |
-  La diferencia fundamental radica en la fundamentación. La opinión no requiere de una estructura lógica ni de la aplicación de una norma, mientras que el argumento jurídico debe derivar necesariamente de la norma aplicada al caso concreto.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "intermedio"
-  tags: ["silogismo", "estructura"]
-
-variables:
-  escenario: uno_de([["La norma prohíbe conducir ebrio", "El sujeto conducía con 0.8 g/l", "El sujeto es culpable"], ["La ley otorga propiedad a quien compra", "Juan compró la casa con escritura", "Juan es el dueño"], ["El contrato exige firma para validez", "El contrato no tiene firma", "El contrato es nulo"]])
-
-respuesta: "premisa_mayor"
-tipo: "mc"
-opciones_explicitas: ["premisa_mayor", "premisa_menor", "conclusión"]
-
-enunciado: "En el silogismo jurídico aplicado al escenario {escenario[0]}, la afirmación '{escenario[0]}' representa la: "
-
-explicacion: |
-  La estructura del silogismo jurídico consta de: 1) Premisa mayor (la norma), 2) Premisa menor (el hecho/subsunción) y 3) Conclusión (la consecuencia jurídica).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "avanzado"
-  tags: ["precedente", "doctrina"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "A diferencia de la doctrina (que es la opinión de los estudiosos del derecho), el precedente judicial es una decisión vinculante que establece una regla de interpretación para casos futuros similares."
-
-explicacion: |
-  La doctrina no tiene fuerza obligatoria por sí misma, mientras que el precedente (dependiendo del sistema jurídico, como el Common Law o la jurisprudencia vinculante en Civil Law) es una fuente de derecho que debe ser respetada por los jueces.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "avanzado"
-  tags: ["interpretacion", "logica"]
-
-respuesta: "a_contrario"
-tipo: "mc"
-opciones_explicitas: ["analogia", "a_contrario", "a_significatio"]
-
-enunciado: "Si un abogado sostiene que, dado que la norma prohíbe el ingreso de 'perros' a un recinto, se entiende que también se prohíbe el ingreso de 'gatos' por una similitud de naturaleza, está usando analogía. Si, por el contrario, sostiene que como la norma dice 'perros', se entiende que se permite todo lo que NO sea un perro, está utilizando el argumento: "
-
-explicacion: |
-  El argumento 'a contrario' establece que la norma es excluyente: si la ley regula una situación específica, se entiende que excluye a todas aquellas que no encajen en esa descripción.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "intermedio"
-  tags: ["subsuncion", "metodologia"]
-
-tipo: "ordenar"
-opciones_explicitas: ["enunciado_normativo", "enunciado_fáctico", "subsunción", "conclusión"]
-respuesta_orden: ["enunciado_normativo", "enunciado_fáctico", "subsunción", "conclusión"]
-
-enunciado: "Para construir un argumento sólido mediante la técnica de la subsunción, el jurista debe seguir este orden lógico de elementos:"
-
-explicacion: |
-  El proceso requiere primero identificar la norma (premisa mayor), luego los hechos probados (premisa menor), realizar el encuadre o subsunción (verificar si el hecho encaja en la norma) y finalmente dictar la consecuencia jurídica.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "intermedio"
-  tags: ["jerarquia_normativa", "constitucionalidad"]
-
-variables:
-  escenario: uno_de([["Una ley provincial contradice la Constitución Nacional.", "inconstitucional"], ["Un decreto reglamentario contradice la Ley Nacional.", "ilegal"], ["Un reglamento municipal contradice una Ley Provincial.", "inválido"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["inconstitucional", "ilegal", "inválido"]
-
-enunciado: "De acuerdo al principio de jerarquía normativa, si {escenario[0]}, el argumento jurídico debe concluir que la norma inferior es ___."
-
-explicacion: |
-  En el sistema jurídico, la norma de mayor rango (como la Constitución) prevalece sobre las de menor rango. Un argumento sólido debe identificar la norma superior para invalidar la inferior.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "logica_juridica"
-  nivel: "basico"
-  tags: ["silogismo", "premisa_mayor", "premisa_menor"]
-
-variables:
-  silogismo: uno_de([["La norma establece una sanción para el robo. Juan robó. Por tanto, Juan debe ser sancionado.", "Juan robó", "premisa_menor"], ["El contrato exige firma para ser válido. El contrato no tiene firma. Por tanto, es nulo.", "El contrato exige firma para ser válido", "premisa_mayor"], ["La ley prohíbe conducir sin licencia. Pedro no tiene licencia. Por tanto, Pedro infringe la ley.", "Pedro no tiene licencia", "premisa_menor"]])
-
-respuesta: silogismo[2]
-tipo: completar
-respuestas_validas:
-  - "premisa_menor"
-  - "premisa_mayor"
-enunciado: "En el siguiente silogismo: '{silogismo[0]}', el elemento '{silogismo[1]}' actúa como la ___ (la subsunción del hecho a la norma)."
-
-explicacion: |
-  El silogismo jurídico se compone de la premisa mayor (la norma), la premisa menor (el hecho) y la conclusión. La subsunción es el proceso de encuadrar el hecho en la norma.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "precedentes_judiciales"
-  nivel: "avanzado"
-  tags: ["stare_decisis", "argumentacion"]
-
-variables:
-  caso: uno_de([["Un fallo de la Corte Suprema sobre libertad de expresión.", "obligatorio"], ["Una sentencia de un juzgado de primera instancia sobre un contrato.", "persuasivo"], ["Un dictamen de un tribunal administrativo sobre un trámite.", "persuasivo"]])
-
-respuesta: caso[1]
-tipo: mc
-opciones_explicitas: ["obligatorio", "persuasivo", "irrelevante"]
-
-enunciado: "Al construir un argumento basado en la jurisprudencia, si se cita {caso[0]}, el valor del precedente para el juez es ___."
-
-explicacion: |
-  Los precedentes de tribunales superiores (como la Corte) suelen tener carácter obligatorio (stare decisis), mientras que los de instancias inferiores o administrativas sirven como argumento persuasivo.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "argumentacion_juridica"
-  nivel: "intermedio"
-  tags: ["argumentos", "autoridad", "razonamiento"]
-
-tipo: ordenar
-opciones_explicitas: ["Premisa Mayor", "Premisa Menor", "Conclusión"]
-respuesta_orden: ["Premisa Mayor", "Premisa Menor", "Conclusión"]
-
-enunciado: "Ordene los elementos necesarios para construir un argumento jurídico deductivo sólido, desde la norma general hasta el caso concreto:"
-
-pasos:
-  - "El hecho concreto aplicado a la norma."
-  - "La consecuencia jurídica derivada."
-  - "La norma o precepto legal general."
-
-explicacion: |
-  El orden lógico deductivo requiere primero la norma (mayor), luego el hecho (menor) y finalmente la consecuencia (conclusión).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "fallos_en_la_argumentacion"
-  nivel: "intermedio"
-  tags: ["falacias", "argumentacion_logica"]
-
-variables:
-  falacia: uno_de([["El abogado dice: 'Es culpable porque siempre miente'.", "ad_hominem"], ["El abogado dice: 'Es culpable porque todos los vecinos dicen que es malo'.", "ad_populum"]])
-
-respuesta: falacia[1]
-tipo: completar
-respuestas_validas:
-  - "ad_hominem"
-  - "ad_populum"
-
-enunciado: "Si un abogado argumenta que: '{falacia[0]}', está incurriendo en una falacia de tipo ___."
-
-explicacion: |
-  La falacia ad hominem ataca a la persona y no al argumento, mientras que la ad populum apela a la mayoría para validar una conclusión.
-```
-
-## Sección: corrientes-interpretacion-juridica (25 preguntas)
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "basico"
-  tags: ["iusnaturalismo", "teoria_del_derecho"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El iusnaturalismo sostiene que existen principios morales universales e inmutables que son superiores al derecho positivo creado por el hombre."
-
-explicacion: |
-  El iusnaturalismo postula la existencia de un derecho natural (jusnaturalismo) basado en la razón o la naturaleza humana, que sirve como parámetro de validez para las leyes humanas.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "basico"
-  tags: ["iuspositivismo", "norma"]
-
-respuesta: "una norma es válida si ha sido creada por la autoridad competente siguiendo el procedimiento legal"
-tipo: mc
-opciones_explicitas: ["una norma es válida si ha sido creada por la autoridad competente siguiendo el procedimiento legal", "la validez de una norma depende de su concordancia con la moral"]
-
-enunciado: "¿Cuál de las siguientes afirmaciones representa correctamente la perspectiva del iuspositivismo?"
-
-explicacion: |
-  Para el iuspositivismo, la validez de una norma es una cuestión de forma y procedencia (derecho puesto), separando la validez jurídica de la moralidad.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "intermedio"
-  tags: ["realismo_juridico", "jueces"]
-
-respuesta: "lo que los jueces hacen en la práctica"
-tipo: completar
-respuestas_validas:
-  - "lo que los jueces hacen en la práctica"
-  - "la conducta judicial efectiva"
-
-enunciado: "Para el realismo jurídico, el derecho no es un conjunto de normas abstractas, sino ___."
-
-explicacion: |
-  El realismo jurídico desplaza el foco de la norma escrita hacia la conducta de los tribunales y la eficacia de las decisiones judiciales en la realidad social.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "basico"
-  tags: ["iuspositivismo", "iusnaturalismo"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El iuspositivismo defiende la tesis de la conexión necesaria entre el derecho y la moral."
-
-explicacion: |
-  Al contrario, el iuspositivismo sostiene la tesis de la separación, argumentando que la existencia de una norma no depende de su contenido moral.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "intermedio"
-  tags: ["teoria_del_derecho", "ordenar"]
-
-respuesta_orden: ["Derecho Natural", "Derecho Positivo", "Realismo Jurídico"]
-tipo: ordenar
-opciones_explicitas: ["Derecho Natural", "Derecho Positivo", "Realismo Jurídico"]
-
-enunciado: "Ordene estas corrientes según su enfoque principal: de la búsqueda de principios universales hacia el enfoque en la eficacia de la decisión judicial."
-
-explicacion: |
-  El orden solicitado parte del Iusnaturalismo (principios universales), pasa por el Iuspositivismo (la norma escrita) y llega al Realismo Jurídico (la práctica judicial).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "basico"
-  tags: ["iuspositivismo", "iusnaturalismo"]
-
-respuesta: "iusnaturalismo"
-tipo: mc
-opciones_explicitas: ["iuspositivismo", "iusnaturalismo", "realismo_juridico"]
-
-enunciado: "Un juez se encuentra ante una ley que, aunque es válida y fue promulgada correctamente por el legislador, considera que es profundamente inmoral y viola los derechos humanos fundamentales. Si el juez decide que no puede aplicarla porque el derecho debe basarse en principios morales universales superiores a la norma escrita, está adoptando una postura de ___."
-
-explicacion: |
-  El iusnaturalismo sostiene que el derecho positivo (la ley escrita) solo es válido si es conforme a la justicia o a principios morales naturales. Si la ley es injusta, no es derecho.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "intermedio"
-  tags: ["realismo_juridico"]
-
-tipo: mc
-opciones_explicitas: ["El juez decide basándose en la jurisprudencia predominante de su tribunal.", "El juez ignora la norma para seguir su propia convicción.", "El juez aplica la ley de forma mecánica sin considerar el contexto."]
-
-respuesta: "El juez decide basándose en la jurisprudencia predominante de su tribunal."
-
-enunciado: "Un estudioso del derecho observa que, ante una ley ambigua, los jueces de una ciudad siempre fallan a favor de las empresas locales para mantener la estabilidad económica. El estudioso concluye que el derecho no es la norma en el papel, sino la conducta de los jueces. ¿Cuál de las siguientes conductas judiciales ejemplifica mejor esta visión realista?"
-
-explicacion: |
-  El realismo jurídico sostiene que el derecho es lo que los jueces hacen en la práctica, desplazando la importancia de la norma abstracta por la realidad de la función judicial.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "basico"
-  tags: ["iuspositivismo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Desde la perspectiva del iuspositivismo estricto, la validez de una norma jurídica depende de su proceso de creación y su vigencia, independientemente de si su contenido es moral o inmoral."
-
-explicacion: |
-  Para el iuspositivismo, existe una separación conceptual entre el derecho y la moral. La validez es una cuestión de hechos (si fue dictada por la autoridad competente) y no de valores.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "intermedio"
-  tags: ["metodologia"]
-
-respuesta_orden: ["Identificar la norma escrita", "Analizar la moralidad de la norma", "Decidir la aplicación según principios superiores"]
-tipo: ordenar
-
-opciones_explicitas: ["Identificar la norma escrita", "Analizar la moralidad de la norma", "Decidir la aplicación según principios superiores"]
-
-enunciado: "Un abogado que sigue la corriente del iusnaturalismo para impugnar una ley injusta debería seguir este orden de razonamiento:"
-
-explicacion: |
-  El iusnaturalista primero reconoce la norma positiva, luego la confronta con un sistema de valores morales superiores y finalmente concluye que la norma no debe aplicarse por ser contraria a la justicia.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "avanzado"
-  tags: ["realismo_juridico"]
-
-respuesta: "El derecho es la acción judicial"
-tipo: completar
-respuestas_validas:
-  - "El derecho es la acción judicial"
-
-enunciado: "En un escenario de realismo jurídico, si un abogado quiere saber cómo se aplicará una nueva ley, no leerá solo el código, sino que estudiará cómo actúan los jueces. Para esta corriente, el derecho es ___."
-
-explicacion: |
-  El realismo jurídico desplaza el foco del texto legal hacia la conducta del funcionario judicial, considerando que la norma es solo una predicción de lo que el juez hará.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "basico"
-  tags: ["iuspositivismo", "iusnaturalismo"]
-
-respuesta: "iusnaturalismo"
-tipo: completar
-respuestas_validas:
-  - "iusnaturalismo"
-
-enunciado: "La corriente que sostiene que la validez de una norma jurídica depende de su conformidad con principios morales o derechos universales superiores, independientemente de si ha sido promulgada por el Estado, es el ___."
-
-explicacion: |
-  El iusnaturalismo postula la existencia de un derecho natural superior al derecho positivo, basado en la moral o la razón.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "intermedio"
-  tags: ["iuspositivismo"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Para el iuspositivismo extremo, la validez de una norma jurídica está intrínsecamente condicionada a su contenido moral; es decir, una ley injusta no es ley."
-
-explicacion: |
-  Falso. El iuspositivismo sostiene la tesis de la separación: la validez de una norma depende de su origen formal y su vigencia, no de su contenido moral.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "intermedio"
-  tags: ["realismo_juridico"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["realismo jurídico", "El derecho es la predicción de lo que los jueces decidirán en la práctica."], ["formalismo jurídico", "El derecho es un conjunto de normas abstractas contenidas en los códigos."]]
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["El derecho es un conjunto de normas abstractas contenidas en los códigos.", "El derecho es la predicción de lo que los jueces decidirán en la práctica."]
-
-enunciado: "Según la perspectiva del {datos[idx][0]}, ¿cuál es la naturaleza del derecho?"
-
-explicacion: |
-  El realismo jurídico desplaza el foco de la norma escrita a la conducta real de los tribunales y los jueces.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "avanzado"
-  tags: ["comparativa"]
-
-respuesta: "El iuspositivismo busca la certeza jurídica mediante la norma escrita, mientras que el iusnaturalismo busca la justicia mediante la moral."
-tipo: completar
-respuestas_validas:
-  - "El iuspositivismo busca la certeza jurídica mediante la norma escrita, mientras que el iusnaturalismo busca la justicia mediante la moral."
-
-enunciado: "Una distinción fundamental es que ___."
-
-explicacion: |
-  El positivismo prioriza la seguridad jurídica y la estructura formal, mientras que el iusnaturalismo prioriza la justicia material.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "basico"
-  tags: ["ordenar"]
-
-respuesta_orden: ["Iusnaturalismo", "Iuspositivismo", "Realismo jurídico"]
-tipo: ordenar
-opciones_explicitas: ["Iusnaturalismo", "Iuspositivismo", "Realismo jurídico"]
-
-enunciado: "Ordene estas corrientes según su enfoque principal: de la búsqueda de la justicia moral (primero) a la búsqueda de la eficacia judicial (último)."
-
-explicacion: |
-  El iusnaturalismo se centra en la moral (justicia), el iuspositivismo en la norma (ley escrita) y el realismo en la aplicación (hechos judiciales).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "basico"
-  tags: ["iuspositivismo", "iusnaturalismo", "realismo"]
-
-respuesta: "iusnaturalismo"
-tipo: "completar"
-respuestas_validas:
-  - "iusnaturalismo"
-
-enunciado: "A diferencia del iuspositivismo, que sostiene que la validez de una norma depende exclusivamente de su origen formal y su vigencia, el ___ sostiene que existe un conjunto de principios morales universales superiores al derecho positivo."
-
-explicacion: |
-  El iusnaturalismo postula la existencia de un derecho natural (basado en la moral o la razón) que sirve como criterio de validez para el derecho creado por el hombre.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "intermedio"
-  tags: ["realismo_juridico", "interpretacion"]
-
-opciones_explicitas: ["El derecho es un conjunto de normas abstractas e ideales.", "El derecho es lo que los jueces deciden en la práctica.", "El derecho es la voluntad del legislador plasmada en códigos."]
-
-respuesta: "El derecho es lo que los jueces deciden en la práctica."
-tipo: "mc"
-
-enunciado: "Desde la perspectiva del realismo jurídico, ¿cuál es la característica que distingue su visión del derecho frente al formalismo iuspositivista?"
-
-explicacion: |
-  Para el realismo jurídico, el derecho no es un sistema de normas lógicas, sino una conducta social observada; por tanto, el derecho es la actividad judicial efectiva.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "basico"
-  tags: ["iuspositivismo", "moral"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "Para el iuspositivismo puro, la validez de una norma jurídica no depende de su contenido moral, sino de su procedencia conforme a los procedimientos establecidos por el sistema."
-
-explicacion: |
-  El iuspositivismo establece una separación conceptual entre el derecho (lo que es) y la moral (lo que debería ser).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "intermedio"
-  tags: ["ordenar", "corrientes"]
-
-opciones_explicitas: ["Iusnaturalismo (Derecho basado en la moral)", "Iuspositivismo (Derecho basado en la norma escrita)", "Realismo Jurídico (Derecho basado en la eficacia judicial)"]
-
-tipo: "ordenar"
-respuesta_orden: ["Iusnaturalismo (Derecho basado en la moral)", "Iuspositivismo (Derecho basado en la norma escrita)", "Realismo Jurídico (Derecho basado en la eficacia judicial)"]
-
-enunciado: "Ordene cronológicamente la evolución predominante de las corrientes de pensamiento jurídico en la historia del derecho occidental:"
-
-explicacion: |
-  Históricamente, el pensamiento transitó desde la búsqueda de leyes naturales universales, pasando por la codificación y formalismo del positivismo, hasta llegar al enfoque empírico del realismo.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "avanzado"
-  tags: ["comparacion", "metodologia"]
-
-variables:
-  idx: uno_de([0, 1])
-  frases: ["El iuspositivismo se centra en la norma escrita, mientras que el realismo jurídico se centra en la conducta del juez.", "El iusnaturalismo se centra en la justicia universal, mientras que el iuspositivismo se centra en la validez formal."]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "Determina si la siguiente afirmación es correcta: {frases[idx]}"
-
-explicacion: |
-  Ambas afirmaciones posibles son correctas: el iuspositivismo prioriza la norma escrita mientras el realismo jurídico se centra en la conducta judicial efectiva, y el iusnaturalismo prioriza la justicia universal mientras el iuspositivismo prioriza la validez formal.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "basico"
-  tags: ["iusnaturalismo", "iuspositivismo"]
-
-variables:
-  datos: [["Un juez decide que una ley es injusta porque viola la dignidad humana y, por tanto, no es aplicable", "iusnaturalismo"], ["Un juez aplica una ley que considera moralmente cuestionable simplemente porque fue promulgada por la autoridad competente", "iuspositivismo"]]
+  datos: [["Juan firma un contrato de alquiler con un propietario para vivir en su casa.", "civil"], ["María es demandada por un accidente de tránsito.", "civil"]]
   idx: uno_de([0, 1])
 
-enunciado: "{datos[idx][0]}. ¿Qué corriente de interpretación jurídica ejemplifica esta actitud?"
-
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["iusnaturalismo", "iuspositivismo", "realismo_juridico"]
+opciones_explicitas: ["civil", "penal", "laboral", "comercial"]
+
+enunciado: "{datos[idx][0]} ¿Qué rama del derecho regula este vínculo contractual?"
 
 explicacion: |
-  El iusnaturalismo sostiene que existe un derecho natural superior al derecho positivo, basado en la moral y la razón.
+  El derecho civil regula las relaciones privadas entre personas, como los contratos de alquiler, el matrimonio o la propiedad.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
+  tema: "ramas_del_derecho"
+  nivel: "basico"
+  tags: ["penal", "delitos"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "Un individuo es detenido por sustraer mercadería de un comercio sin pagar. ¿Este hecho es regulado por el derecho penal?"
+
+explicacion: |
+  El derecho penal se encarga de las conductas que son consideradas delitos y las penas que el Estado impone a sus autores.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ramas_del_derecho"
+  nivel: "basico"
+  tags: ["laboral", "trabajo"]
+
+respuesta: "laboral"
+tipo: completar
+respuestas_validas:
+  - "laboral"
+
+enunciado: "Un empleado es despedido sin causa y reclama sus indemnizaciones. El conflicto se debe resolver ante el derecho ___."
+
+explicacion: |
+  El derecho laboral regula las relaciones entre empleadores y trabajadores, incluyendo despidos, salarios y condiciones de trabajo.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ramas_del_derecho"
   nivel: "intermedio"
-  tags: ["iuspositivismo"]
+  tags: ["comercial", "sociedades"]
 
 variables:
-  textos: ["La ley es válida porque cumple con el proceso legislativo, independientemente de su contenido moral", "La validez de una norma depende de su conformidad con la moralidad social"]
-  valores: [verdadero, falso]
+  datos: [["Dos socios de una sociedad anónima discuten sobre la distribución de dividendos.", "comercial"], ["Un ciudadano reclama una multa de tránsito impuesta por la municipalidad.", "administrativo"]]
   idx: uno_de([0, 1])
 
-enunciado: "Según el iuspositivismo estricto, ¿es correcta la siguiente afirmación? '{textos[idx]}'"
-
-respuesta: valores[idx]
-tipo: vf
-explicacion: |
-  Para el iuspositivismo, la separación entre derecho y moral es fundamental para determinar la validez de la norma.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "avanzado"
-  tags: ["realismo_juridico"]
-
-respuesta: "lo que los jueces deciden en sus sentencias"
-tipo: completar
-respuestas_validas:
-  - "lo que los jueces realmente hacen"
-  - "lo que los jueces deciden en sus sentencias"
-
-enunciado: "Desde la perspectiva del realismo jurídico, el derecho se define como ___."
-
-explicacion: |
-  El realismo jurídico desplaza el foco de la norma escrita hacia la conducta y decisiones de los tribunales.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "intermedio"
-  tags: ["ordenar", "metodologia"]
-
-enunciado: "Ordene los elementos según el enfoque del Realismo Jurídico, desde el factor más subjetivo (el juez) al más objetivo (la norma escrita):"
-
-pasos:
-  - "La decisión del juez en el caso concreto"
-  - "La conducta social predominante"
-  - "El texto de la norma legal"
-
-respuesta_orden: ["La decisión del juez en el caso concreto", "La conducta social predominante", "El texto de la norma legal"]
-tipo: ordenar
-opciones_explicitas: ["La decisión del juez en el caso concreto", "La conducta social predominante", "El texto de la norma legal"]
-
-explicacion: |
-  El realismo enfatiza que el derecho no es solo texto, sino la actividad judicial influenciada por factores sociales.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "corrientes_interpretacion_juridica"
-  nivel: "basico"
-  tags: ["iusnaturalismo", "iuspositivismo"]
-
-respuesta: "positivismo"
-tipo: mc
-opciones_explicitas: ["positivismo", "iusnaturalismo", "realismo_juridico"]
-
-enunciado: "Si un sistema jurídico afirma que 'la ley es la ley' y su aplicación es obligatoria incluso si es considerada injusta, el sistema está operando bajo el principio de ___."
-
-explicacion: |
-  El principio de legalidad estricta es un pilar del iuspositivismo, donde la validez es formal.
-```
-
-## Sección: denuncia-y-etapa-de-instruccion (25 preguntas)
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "basico"
-  tags: ["procedimiento", "denuncia"]
-
-tipo: mc
-opciones_explicitas: ["Denuncia", "Sentencia", "Fallo", "Recurso"]
-
-enunciado: "El acto mediante el cual se pone en conocimiento de la autoridad judicial la existencia de un hecho presuntamente delictivo se denomina:"
-
-respuesta: "Denuncia"
-
-explicacion: |
-  La denuncia es el acto procesal que da inicio a la investigación penal al informar un posible delito.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "basico"
-  tags: ["instruccion", "investigacion"]
-
-tipo: vf
-
-enunciado: "El objetivo principal de la etapa de instrucción es determinar si existe mérito para llevar a juicio a una persona."
-
-respuesta: verdadero
-
-explicacion: |
-  La instrucción tiene como fin la investigación de la verdad real y la recolección de pruebas para determinar si hay elementos suficientes para el juicio.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "intermedio"
-  tags: ["pruebas", "instruccion"]
-
-enunciado: "Durante la etapa de instrucción, si el fiscal o el juez necesitan la opinión técnica de un experto para analizar una evidencia física, ordenan un ___."
-
-pasos:
-  - "Se identifica el hecho delictivo."
-  - "Se recolectan las evidencias mediante medidas de prueba."
-
-respuesta: "pericia"
-
-tipo: completar
-respuestas_validas:
-  - "pericia"
-
-explicacion: |
-  La pericia es un medio de prueba técnico fundamental en la etapa de instrucción para esclarecer hechos complejos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "intermedio"
-  tags: ["etapas", "orden_procesal"]
-
-tipo: ordenar
-opciones_explicitas: ["Denuncia", "Instrucción", "Juicio Oral", "Sentencia"]
-
-enunciado: "Ordene cronológicamente las etapas del proceso penal desde el inicio hasta la resolución final:"
-
-respuesta_orden: ["Denuncia", "Instrucción", "Juicio Oral", "Sentencia"]
-
-explicacion: |
-  El proceso comienza con la denuncia, sigue con la investigación (instrucción), la etapa de debate (juicio) y finaliza con la sentencia.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "intermedio"
-  tags: ["sujeto_procesal", "imputado"]
-
-tipo: mc
-opciones_explicitas: ["Imputado", "Querellante", "Testigo", "Juez"]
-
-enunciado: "La persona sobre la cual recae la sospecha de haber cometido un delito durante la etapa de instrucción es el:"
-
-respuesta: "Imputado"
-
-explicacion: |
-  El imputado es el sujeto pasivo de la acción penal en la fase de investigación.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "basico"
-  tags: ["procedimiento", "denuncia"]
-
-respuesta: "denuncia"
-tipo: mc
-opciones_explicitas: ["denuncia", "sentencia", "apelación", "querella"]
-
-enunciado: "Un ciudadano presencia un robo en una plaza y acude a la comisaría para poner en conocimiento el hecho. Este acto formal de poner en conocimiento un presunto delito se denomina ___."
-
-explicacion: |
-  La denuncia es el acto mediante el cual cualquier persona comunica a la autoridad judicial o policial la comisión de un hecho que podría ser un delito.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "intermedio"
-  tags: ["fiscalia", "investigacion"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "En la etapa de instrucción, el Fiscal tiene la función de dirigir la investigación y recolectar elementos de convicción para determinar si existe un caso para ir a juicio. ¿Es esto correcto en el sistema acusatorio?"
-
-explicacion: |
-  En el sistema acusatorio, el Fiscal dirige la investigación (etapa de instrucción/investigación preparatoria), pero la decisión de culpabilidad o inocencia es competencia exclusiva de un Juez de Oración o Tribunal de Juicio.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "intermedio"
-  tags: ["procedimiento", "orden_cronologico"]
-
-respuesta_orden: ["Denuncia", "Investigación preliminar", "Requerimiento de acusación", "Juicio Oral"]
-tipo: ordenar
-opciones_explicitas: ["Denuncia", "Investigación preliminar", "Requerimiento de acusación", "Juicio Oral"]
-
-enunciado: "Ordene cronológicamente las etapas de un proceso penal estándar, desde el conocimiento del hecho hasta la resolución del conflicto."
-
-explicacion: |
-  El proceso comienza con la denuncia o querella, sigue la investigación para reunir pruebas (instrucción), el fiscal presenta su acusación si hay pruebas, y finalmente se celebra el juicio para dictar sentencia.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "avanzado"
-  tags: ["pruebas", "instruccion"]
-
-respuesta: "pericia"
-tipo: mc
-opciones_explicitas: ["testimonio", "pericia", "sentencia", "recurso"]
-
-enunciado: "Durante la etapa de instrucción, para determinar la veracidad de un hecho, el instructor puede ordenar un examen realizado por un experto en una materia técnica (por ejemplo, un perito médico). Este elemento se conoce como una ___."
-
-explicacion: |
-  La pericia es el medio de prueba técnico-científico fundamental en la etapa de instrucción para aportar conocimientos especializados al proceso.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "intermedio"
-  tags: ["resolucion", "instruccion"]
-
-respuesta: "sobreseimiento"
-tipo: completar
-respuestas_validas:
-  - "sobreseimiento"
-
-enunciado: "Si durante la etapa de instrucción se demuestra que el hecho denunciado no existió o que el imputado no participó en él, el juez debe dictar el ___ para finalizar el proceso sin llegar a juicio."
-
-explicacion: |
-  El sobreseimiento es la resolución que pone fin al proceso de manera definitiva cuando no hay elementos para sostener una acusación, evitando que una persona sea sometida innecesariamente a un juicio.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "basico"
-  tags: ["proceso_penal", "denuncia"]
-
-respuesta: "denuncia"
-tipo: completar
-respuestas_validas:
-  - "denuncia"
-
-enunciado: "El proceso penal puede iniciarse de diversas formas; cuando un ciudadano comunica un hecho presuntamente delictivo ante la autoridad, el acto formal se denomina ___."
-
-explicacion: |
-  La denuncia es el acto mediante el cual se pone en conocimiento de la autoridad la comisión de un hecho presuntamente delictivo. La querella, en cambio, requiere la constitución de la parte como querellante en el proceso.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "intermedio"
-  tags: ["instruccion", "investigacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es la etapa de instrucción una fase de debate y juicio donde se determina la culpabilidad o inocencia del imputado?"
-
-explicacion: |
-  Falso. La etapa de instrucción es una fase de investigación preparatoria donde el objetivo es reunir elementos de convicción para determinar si existe causa para abrir un juicio, pero no es la etapa de debate oral y público.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "intermedio"
-  tags: ["querella", "denuncia"]
-
-tipo: mc
-opciones_explicitas: ["La denuncia requiere la participación activa de la víctima como parte procesal, mientras que la querella es un mero aviso.", "La querella implica la constitución de la víctima como parte en el proceso, mientras que la denuncia es un deber ciudadano de informar."]
-
-respuesta: "La querella implica la constitución de la víctima como parte en el proceso, mientras que la denuncia es un deber ciudadano de informar."
-
-enunciado: "Según la doctrina procesal, ¿cuál es la diferencia fundamental entre la denuncia y la querella?"
-
-explicacion: |
-  La diferencia radica en la legitimación y la participación: el querellante es parte activa en el proceso y puede proponer medidas, mientras que el denunciante simplemente informa el hecho.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "basico"
-  tags: ["etapas_procesales", "orden"]
-
-respuesta_orden: ["Notitia criminis", "Instrucción", "Juicio Oral"]
-tipo: ordenar
-opciones_explicitas: ["Juicio Oral", "Instrucción", "Notitia criminis"]
-
-enunciado: "Ordene cronológicamente las etapas del proceso penal, partiendo desde la noticia del delito:"
-
-explicacion: |
-  El orden correcto es: 1. Notitia criminis (noticia del delito), 2. Instrucción (investigación), 3. Juicio Oral (debate y sentencia).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "avanzado"
-  tags: ["fiscalia", "investigacion"]
-
-tipo: mc
-opciones_explicitas: ["El Fiscal tiene la carga de la prueba y dirige la investigación para esclarecer los hechos.", "El Fiscal es el encargado de dictar la sentencia definitiva tras la etapa de instrucción."]
-
-respuesta: "El Fiscal tiene la carga de la prueba y dirige la investigación para esclarecer los hechos."
-
-enunciado: "En el sistema acusatorio moderno, ¿cuál es la función principal del Ministerio Público durante la etapa de instrucción?"
-
-explicacion: |
-  El Fiscal dirige la investigación y recolecta pruebas para determinar si hay elementos suficientes para acusar, pero la sentencia es competencia exclusiva de un Juez.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "basico"
-  tags: ["proceso_penal", "denuncia"]
-
-respuesta: "denuncia"
-tipo: mc
-opciones_explicitas: ["denuncia", "querella", "sentencia", "resolución"]
-
-enunciado: "A diferencia de la querella, donde la víctima interviene activamente con abogado, la ___ es el acto mediante el cual se pone en conocimiento de la autoridad la comisión de un delito."
-
-explicacion: |
-  La denuncia es el acto de informar un hecho delictivo, mientras que la querella es una acción formal donde la víctima se constituye como parte en el proceso.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "intermedio"
-  tags: ["instruccion", "investigacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿El objetivo principal de la etapa de instrucción es la recolección de elementos de convicción para determinar si existe probabilidad de llevar a juicio a un imputado?"
-
-explicacion: |
-  Correcto. La instrucción busca reunir pruebas para decidir si se procede al juicio oral o se dicta el sobreseimiento.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "intermedio"
-  tags: ["querella", "denuncia"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["denuncia", "noticia criminal"], ["querella", "acción penal privada/pública con legitimación"]]
-
-respuesta: datos[escenario_idx][0]
-tipo: completar
-respuestas_validas:
-  - "denuncia"
-  - "querella"
-
-enunciado: "En el escenario seleccionado, se caracteriza por ser una {datos[escenario_idx][1]}. Esta figura procesal se denomina ___."
-
-explicacion: |
-  La distinción radica en la legitimación y la participación procesal de la víctima.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "basico"
-  tags: ["secuencia", "etapas"]
-
-respuesta_orden: ["Noticia criminis", "Etapa de Instrucción", "Etapa de Juicio"]
-tipo: ordenar
-opciones_explicitas: ["Noticia criminis", "Etapa de Instrucción", "Etapa de Juicio"]
-
-enunciado: "Ordene cronológicamente las etapas del proceso penal desde el hecho hasta la decisión final:"
-
-explicacion: |
-  Primero se recibe la noticia (denuncia/oficio), luego se investiga (instrucción) y finalmente se decide en juicio.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "avanzado"
-  tags: ["juez", "instrucción"]
-
-respuesta: "investigar"
-tipo: completar
-respuestas_validas:
-  - "investigar"
-
-enunciado: "Mientras que el Tribunal de Juicio tiene la función de dictar sentencia, el Juez de Instrucción tiene la función primordial de ___ los hechos."
-
-explicacion: |
-  La instrucción es una fase preparatoria de investigación, no de decisión de culpabilidad o inocencia definitiva.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "intermedio"
-  tags: ["procedimiento", "denuncia"]
-
-variables:
-  datos: [["Juan presencia un robo y lo reporta ante la policía", "denuncia"], ["María es víctima de una estafa y presenta el escrito", "denuncia"], ["Un policía encuentra un arma sin dueño y lo comunica", "noticia criminal"]]
-  idx: uno_de([0,1,2])
-
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["denuncia", "noticia criminal", "querella", "denuncia anónima"]
+opciones_explicitas: ["civil", "penal", "comercial", "administrativo"]
 
-enunciado: "En el caso de que {datos[idx][0]}, el acto formal que da inicio al proceso se denomina ___."
+enunciado: "{datos[idx][0]} ¿Qué rama del derecho regula esta actividad?"
 
 explicacion: |
-  Cuando una persona con capacidad legal comunica un hecho delictivo, se inicia mediante una denuncia. Si el origen es un funcionario público en ejercicio, se denomina noticia criminal.
+  El derecho comercial (o mercantil) regula los actos de comercio y las relaciones jurídicas derivadas de la actividad de los comerciantes y las sociedades.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "avanzado"
-  tags: ["instruccion", "investigacion"]
-
-variables:
-  datos: [["presunto homicidio", "investigar la autoría y las pruebas"], ["presunto hurto", "recaudar elementos de convicción"]]
-  idx: uno_de([0,1])
-
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "Ante un caso de {datos[idx][0]}, el objetivo principal del fiscal en la etapa de instrucción es ___."
-
-explicacion: |
-  La etapa de instrucción tiene como fin la recolección de elementos de convicción para determinar si existe mérito para llevar a juicio a una persona.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
+  tema: "ramas_del_derecho"
   nivel: "intermedio"
-  tags: ["procedimiento", "ordenar"]
+  tags: ["ordenar", "conceptos"]
 
-respuesta_orden: ["Presentación de la denuncia", "Apertura de la investigación", "Recolección de pruebas", "Elevación a juicio"]
+respuesta_orden: ["Derecho Civil", "Derecho Comercial", "Derecho Administrativo", "Derecho Penal"]
 tipo: ordenar
-opciones_explicitas: ["Presentación de la denuncia", "Apertura de la investigación", "Recolección de pruebas", "Elevación a juicio"]
 
-enunciado: "Ordene cronológicamente las etapas desde que se conoce el hecho hasta que se cierra la instrucción:"
+opciones_explicitas: ["Derecho Penal", "Derecho Civil", "Derecho Administrativo", "Derecho Comercial"]
 
-explicacion: |
-  El proceso penal sigue un orden lógico: primero se recibe la noticia, se abre la investigación, se recolectan las pruebas y finalmente se decide si se va a juicio.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "avanzado"
-  tags: ["instruccion", "fiscal"]
-
-variables:
-  datos: [["El fiscal encuentra pruebas suficientes", "imputación"], ["El fiscal no tiene pruebas suficientes", "archivo"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "imputación"
-  - "archivo"
-
-enunciado: "Si tras la investigación el fiscal determina que {datos[idx][0]}, la consecuencia procesal es la ___."
+enunciado: "Ordena las siguientes ramas del derecho de mayor a menor amplitud en cuanto a la regulación de la vida cotidiana (desde la relación entre particulares hasta la relación con el Estado y el control social):"
 
 explicacion: |
-  La formalización de la imputación es el acto que marca el inicio de la persecución penal efectiva sobre una persona determinada.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "denuncia_y_etapa_de_instruccion"
-  nivel: "basico"
-  tags: ["juez", "control"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En el sistema acusatorio moderno, el Juez de Instrucción es quien dirige la recolección de pruebas durante la etapa de investigación."
-
-explicacion: |
-  Falso. En el sistema acusatorio, la investigación y recolección de pruebas es responsabilidad exclusiva del Ministerio Público (Fiscalía); el Juez cumple un rol de control de garantías.
+  El orden lógico suele partir de la regulación de la vida privada (Civil), pasando por el comercio (Comercial), la relación con el Estado (Administrativo) y finalmente la sanción de conductas graves (Penal).
 ```
 
 ## Sección: derecho-administrativo (26 preguntas)
@@ -2334,5 +930,1419 @@ enunciado: "Ordene cronológicamente las etapas típicas de un procedimiento adm
 
 explicacion: |
   El procedimiento comienza con la Iniciación (de oficio o a parte), sigue con la Instrucción (donde se aportan pruebas y alegaciones) y concluye con la Finalización (mediante resolución o acto administrativo).
+```
+
+## Sección: derecho-civil (25 preguntas)
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "basico"
+  tags: ["definicion", "conceptos_basicos"]
+
+tipo: mc
+opciones_explicitas: ["El conjunto de normas que regula las relaciones entre particulares y las de estos con el Estado cuando actúa como particular.", "El conjunto de normas que regula la organización y funcionamiento del Estado y sus instituciones.", "El conjunto de normas que regula la conducta de los ciudadanos en sociedad para garantizar la convivencia pública.", "El conjunto de normas que regula la relación entre el Estado y los ciudadanos en el ámbito penal."]
+
+respuesta: "El conjunto de normas que regula las relaciones entre particulares y las de estos con el Estado cuando actúa como particular."
+
+enunciado: "El Derecho Civil se define fundamentalmente como:"
+
+explicacion: |
+  El Derecho Civil es la rama del derecho privado que regula las relaciones más comunes de la vida cotidiana (familia, contratos, propiedad, sucesiones), interviniendo el Estado solo cuando actúa como un particular más.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "basico"
+  tags: ["sujetos", "personas"]
+
+tipo: completar
+respuestas_validas:
+  - "persona jurídica"
+
+respuesta: "persona jurídica"
+
+enunciado: "En el derecho civil, además de la persona física (ser humano), existen las ___ (entidades como sociedades o fundaciones) que tienen capacidad para ser sujetos de derechos y obligaciones."
+
+explicacion: |
+  Existen dos tipos de sujetos de derecho: la persona física (el ser humano) y la persona jurídica (entes colectivos o instituciones con personalidad propia).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "basico"
+  tags: ["teoria_general"]
+
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que el Derecho Civil regula las relaciones entre el Estado y los ciudadanos cuando el Estado ejerce su poder de imperio (como en el derecho penal o administrativo)?"
+
+respuesta: falso
+
+explicacion: |
+  Falso. Cuando el Estado actúa con poder de imperio, se aplican el Derecho Público (Administrativo, Penal, etc.). El Derecho Civil se aplica cuando el Estado actúa como un particular (ej. alquilando un local).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "intermedio"
+  tags: ["relaciones_juridicas"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["El contrato de compraventa de un automóvil", "La herencia de un inmueble"], ["La celebración de un matrimonio", "La transferencia de propiedad de un bien"]]
+
+tipo: mc
+opciones_explicitas: ["Relaciones de Derecho Público", "Relaciones de Derecho Privado"]
+
+respuesta: "Relaciones de Derecho Privado"
+
+enunciado: "Tanto {escenarios[escenario_idx][0]} como {escenarios[escenario_idx][1]} son ejemplos de relaciones reguladas por el Derecho Civil, por lo tanto, pertenecen al ámbito del:"
+
+explicacion: |
+  El Derecho Civil es la piedra angular del Derecho Privado, ya que regula los intereses de los particulares.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "intermedio"
+  tags: ["capacidad", "orden_logico"]
+
+tipo: ordenar
+opciones_explicitas: ["Nacimiento de la persona", "Adquisición de la capacidad de goce", "Ejercicio de la capacidad de ejercicio"]
+
+respuesta_orden: ["Nacimiento de la persona", "Adquisición de la capacidad de goce", "Ejercicio de la capacidad de ejercicio"]
+
+enunciado: "Ordene cronológicamente los hitos que permiten el desarrollo de la personalidad jurídica y su capacidad en un individuo:"
+
+explicacion: |
+  Primero nace la persona (existencia), lo que le otorga capacidad de goce (derechos), y con el tiempo y la madurez adquiere la capacidad de ejercicio (facultad de actuar por sí mismo).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "basico"
+  tags: ["contratos", "compraventa"]
+
+variables:
+  objeto: uno_de(["un automóvil", "una casa", "un terreno"])
+  precio: uno_de([15000, 250000, 50000])
+
+enunciado: "Juan celebra un contrato de compraventa con Pedro donde se acuerda la transferencia de {objeto} por un valor de ${precio}. En este acto, se perfecciona el consentimiento entre las partes sobre el objeto y el precio."
+
+respuesta: verdadero
+tipo: "vf"
+
+explicacion: |
+  El contrato de compraventa es el acuerdo de voluntades donde una parte se obliga a entregar un bien y la otra a pagar un precio cierto. Al existir consentimiento sobre el objeto y el precio, el contrato es válido.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "intermedio"
+  tags: ["capacidad", "personas"]
+
+variables:
+  edades: [16, 25, 30]
+  idx: uno_de([0, 1, 2])
+  edad: edades[idx]
+
+enunciado: "Un individuo de {edad} años desea realizar un contrato de arrendamiento de forma autónoma. Según la normativa civil general, si la persona es mayor de edad, posee capacidad de ejercicio."
+
+respuesta: verdadero
+tipo: "vf"
+
+explicacion: |
+  La capacidad de ejercicio es la aptitud para ejercer derechos y contraer obligaciones por sí mismo. En la mayoría de las legislaciones, se adquiere con la mayoría de edad.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "intermedio"
+  tags: ["sucesiones", "herencia"]
+
+variables:
+  idx: uno_de([0, 1])
+  causas: ["testamento", "falta de testamento"]
+  tipos: ["testamentaria", "legítima"]
+
+enunciado: "Ante el fallecimiento de una persona, si la causa de la transmisión de sus bienes es {causas[idx]}, nos encontramos ante una sucesión ___ (o legítima/ab intestato, según corresponda)."
+
+respuestas_validas:
+  - tipos[idx]
+respuesta: tipos[idx]
+tipo: "completar"
+
+explicacion: |
+  La sucesión testamentaria es aquella que se rige por la voluntad del causante expresada en un testamento. La legítima (o ab intestato) ocurre cuando la ley determina a los herederos ante la ausencia de testamento.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "avanzado"
+  tags: ["acton_juridico", "vicios"]
+
+enunciado: "Para que un acto jurídico sea válido, su voluntad debe ser libre. Si una persona es obligada mediante amenazas físicas para firmar un contrato, el vicio que afecta la validez es el ___."
+
+respuestas_validas:
+  - "vicio de violencia"
+respuesta: "vicio de violencia"
+tipo: "completar"
+
+explicacion: |
+  La violencia es un vicio del consentimiento que consiste en la coacción física o moral que anula la libertad de la voluntad del sujeto.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "intermedio"
+  tags: ["propiedad", "derechos_reales"]
+
+enunciado: "Para que la transferencia de un inmueble sea oponible a terceros y perfeccione el derecho real de propiedad, se deben seguir ciertos pasos legales. Ordene el proceso típico de una compraventa de este tipo:"
+
+opciones_explicitas: ["Escritura pública", "Pago del precio", "Inscripción registral"]
+respuesta_orden: ["Escritura pública", "Pago del precio", "Inscripción registral"]
+tipo: "ordenar"
+
+explicacion: |
+  En bienes inmuebles, el proceso requiere la formalidad de la escritura, el cumplimiento de la contraprestación (pago) y la inscripción en el Registro de la Propiedad para que el derecho sea oponible a terceros.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "basico"
+  tags: ["conceptos_basicos", "relaciones_privadas"]
+
+respuesta: "privadas"
+tipo: completar
+respuestas_validas:
+  - "privadas"
+  - "privada"
+
+enunciado: "A diferencia del derecho público, el derecho civil regula las relaciones entre personas de carácter ___."
+
+explicacion: |
+  El derecho civil se encarga de las relaciones entre particulares (personas físicas o jurídicas) en un plano de igualdad, a diferencia del derecho público que regula la relación entre el Estado y los ciudadanos.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "intermedio"
+  tags: ["distincion_ramas"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si una persona incumple un contrato de alquiler, la sanción principal que impone el derecho civil es la pena de prisión."
+
+explicacion: |
+  Falso. El derecho civil busca la reparación del daño o el cumplimiento de la obligación (indemnizaciones, rescisión de contrato, etc.). La pena de prisión es una sanción propia del derecho penal.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "basico"
+  tags: ["sujetos_derecho"]
+
+variables:
+  escenario: uno_de([["Un contrato de compraventa entre dos vecinos", "civil"], ["Una multa por exceso de velocidad", "administrativo"], ["Un juicio por un delito de robo", "penal"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["civil", "administrativo", "penal"]
+
+enunciado: "Identifique la naturaleza jurídica del siguiente caso: {escenario[0]}."
+
+explicacion: |
+  El caso planteado involucra a dos particulares en una relación de igualdad, lo cual es el núcleo del derecho civil.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "intermedio"
+  tags: ["sucesiones", "orden_legal"]
+
+respuesta_orden: ["1. Testamento", "2. Sucesión Intestada", "3. Sucesión Abintestato"]
+tipo: ordenar
+opciones_explicitas: ["1. Testamento", "2. Sucesión Intestada", "3. Sucesión Abintestato"]
+
+enunciado: "Ordene los criterios de prelación para determinar la transmisión de bienes tras el fallecimiento de una persona:"
+
+explicacion: |
+  En derecho civil, el orden de prioridad comienza por la voluntad del causante (testamento) y, en su defecto, se aplica la ley (sucesión intestada/abintestato).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "intermedio"
+  tags: ["capacidad_juridica"]
+
+respuesta: "capacidad_de_goce"
+tipo: mc
+opciones_explicitas: ["capacidad_de_goce", "capacidad_de_ejercicio", "capacidad_de_disposición"]
+
+enunciado: "La aptitud que tiene toda persona para ser titular de derechos y obligaciones se denomina ___."
+
+explicacion: |
+  La capacidad de goce es la aptitud inherente a la persona por el solo hecho de serlo, mientras que la capacidad de ejercicio es la facultad para ejercer esos derechos por sí mismo.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "basico"
+  tags: ["definicion", "comparacion"]
+
+respuesta: "derecho_privado"
+tipo: completar
+respuestas_validas:
+  - "derecho_privado"
+
+enunciado: "Mientras que el derecho público regula la organización del Estado y sus relaciones con los particulares, el derecho civil pertenece al ámbito del ________."
+
+explicacion: |
+  El derecho civil se encarga de regular las relaciones entre particulares (personas físicas o jurídicas) en condiciones de igualdad, situándose dentro de la rama del derecho privado.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "basico"
+  tags: ["comparacion", "derecho_penal"]
+
+opciones_explicitas: ["La sanción de penas privativas de la libertad", "La regulación de las relaciones privadas y el patrimonio", "La organización de la administración pública"]
+respuesta: "La regulación de las relaciones privadas y el patrimonio"
+tipo: mc
+
+enunciado: "A diferencia del derecho penal, cuyo fin es imponer sanciones por delitos, el objeto principal del derecho civil es:"
+
+explicacion: |
+  El derecho civil se centra en la regulación de la vida privada, los contratos, la familia, la propiedad y las sucesiones, no en la persecución de delitos.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "intermedio"
+  tags: ["normas", "derecho_publico"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es el derecho civil una rama del derecho público, dado que regula las normas de convivencia entre ciudadanos?"
+
+explicacion: |
+  Falso. El derecho civil es la columna vertebral del derecho privado. El derecho público es el que regula la estructura del Estado y el ejercicio de la soberanía.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "avanzado"
+  tags: ["contratos", "ordenar"]
+
+opciones_explicitas: ["Normas de orden público", "Autonomía de la voluntad (acuerdo de partes)", "Cumplimiento de la prestación"]
+respuesta_orden: ["Normas de orden público", "Autonomía de la voluntad (acuerdo de partes)", "Cumplimiento de la prestación"]
+tipo: ordenar
+
+enunciado: "En la validez de un contrato civil, ordene cronológicamente la jerarquía de aplicación: primero las normas que no pueden ser alteradas por las partes, luego la voluntad de los contratantes y finalmente la ejecución del acto."
+
+explicacion: |
+  El orden jurídico establece que las normas de orden público son la base infranqueable; sobre ellas opera la autonomía de la voluntad para crear reglas particulares, las cuales culminan en el cumplimiento de lo pactado.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "intermedio"
+  tags: ["contratos", "derecho_administrativo"]
+
+tipo: mc
+opciones_explicitas: ["se rige por el derecho privado", "se rige por el derecho público"]
+
+respuesta: "se rige por el derecho privado"
+
+enunciado: "Si un particular celebra un contrato de compraventa con otro particular, la naturaleza de la relación es que ___."
+
+explicacion: |
+  En un contrato entre particulares, la relación es de derecho privado. Si una de las partes fuera el Estado actuando con prerrogativas de poder público, entraríamos en el ámbito del derecho administrativo.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "basico"
+  tags: ["capacidad", "personas"]
+
+variables:
+  datos: [["Juan (16 años) quiere vender su bicicleta", "incapaz"], ["Marta (25 años) firma un contrato de alquiler", "capaz"], ["Luis (80 años, con pleno uso de facultades) compra un auto", "capaz"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["incapaz", "capaz"]
+
+enunciado: "Considerando el siguiente caso: {datos[idx][0]}. ¿Cuál es la situación jurídica de la persona respecto a la capacidad de ejercicio?"
+
+explicacion: |
+  La capacidad de ejercicio es la aptitud para ejercer derechos y contraer obligaciones por sí mismo. Los menores de edad (sin excepción de edad en este contexto simplificado) suelen ser sujetos con capacidad de derecho pero con restricciones en la de ejercicio.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "intermedio"
+  tags: ["contratos", "elementos"]
+
+variables:
+  datos: [["Un vendedor ofrece un reloj por $100 y un comprador acepta", "consentimiento"], ["Un terreno que no existe legalmente", "objeto"], ["Un contrato firmado bajo amenaza de muerte", "vicio"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "consentimiento"
+  - "objeto"
+  - "vicio"
+
+enunciado: "En el siguiente supuesto: {datos[idx][0]}. El elemento esencial del contrato que se está describiendo o afectando es el ___."
+
+explicacion: |
+  Para que un contrato sea válido, requiere objeto lícito, causa lícita y consentimiento de las partes.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "intermedio"
+  tags: ["derechos_reales", "propiedad"]
+
+respuestas_validas:
+  - "poseedor"
+respuesta: "poseedor"
+tipo: completar
+enunciado: "Si una persona tiene el control de un bien pero no tiene el título de propiedad que la acredite legalmente (no 'tiene el dominio pleno sobre el bien'), su situación jurídica correcta es la de ___."
+
+explicacion: |
+  La posesión es el poder de hecho sobre una cosa, mientras que el dominio es el derecho real de propiedad. No son sinónimos.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "avanzado"
+  tags: ["sucesiones", "herencia"]
+
+variables:
+  orden: ["Descendientes", "Ascendientes", "Cónyuge", "Colaterales"]
+
+respuesta_orden: orden
+tipo: ordenar
+
+enunciado: "Ordene los siguientes órdenes hereditarios según la prelación legal típica en el derecho civil (de mayor a menor prioridad):"
+
+explicacion: |
+  La ley establece un orden de vocación hereditaria para asegurar la transmisión de bienes, priorizando generalmente a los descendientes y luego a los ascendientes y cónyuge.
+opciones_explicitas: orden
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_civil"
+  nivel: "intermedio"
+  tags: ["responsabilidad", "daños"]
+
+variables:
+  datos: [["El daño fue causado por negligencia", "subjetiva"], ["El daño fue causado por un animal de la persona", "objetiva"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["subjetiva", "objetiva"]
+
+enunciado: "Analice el siguiente evento: {datos[idx][0]}. ¿Qué tipo de responsabilidad civil se está analizando principalmente?"
+
+explicacion: |
+  La responsabilidad subjetiva se basa en la culpa o dolo, mientras que la objetiva se basa en el riesgo creado o la guarda de una cosa.
+```
+
+## Sección: derecho-comercial (25 preguntas)
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "basico"
+  tags: ["definicion", "conceptos_clave"]
+
+tipo: mc
+opciones_explicitas: ["Es el conjunto de normas que regulan la actividad de los comerciantes y los actos de comercio.", "Es el conjunto de normas que regulan exclusivamente las relaciones entre personas físicas.", "Es la rama que regula únicamente los contratos de alquiler.", "Es el conjunto de normas que regulan la actividad de las empresas y los actos de comercio."]
+
+respuesta: "Es el conjunto de normas que regulan la actividad de los comerciantes y los actos de comercio."
+
+enunciado: "El Derecho Comercial se define fundamentalmente como el conjunto de normas que regulan ___."
+
+explicacion: |
+  El Derecho Comercial es la rama del derecho privado que regula la actividad de los comerciantes, la organización de las empresas y los actos de comercio.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "basico"
+  tags: ["sujetos", "comerciante"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "¿Es verdadero o falso que el Derecho Comercial regula únicamente a las personas jurídicas (sociedades), excluyendo a las personas humanas que actúan como comerciantes?"
+
+explicacion: |
+  Falso. El Derecho Comercial regula tanto a las personas humanas que realizan actos de comercio como a las personas jurídicas (sociedades comerciales).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "intermedio"
+  tags: ["empresa", "elementos"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["capital", "el aporte económico"], ["fuerza de trabajo", "el esfuerzo humano"]]
+
+tipo: completar
+respuestas_validas:
+  - "capital"
+  - "fuerza de trabajo"
+respuesta: datos[idx][0]
+
+enunciado: "En el ámbito del derecho comercial, un elemento esencial para la organización de la empresa es el ___."
+
+pasos:
+  - "Identificar los elementos que componen la unidad económica de la empresa."
+  - "Seleccionar el concepto que completa la definición técnica."
+
+explicacion: |
+  La empresa requiere de elementos como el capital, la fuerza de trabajo, la tecnología y la organización para cumplir su fin lucrativo.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "intermedio"
+  tags: ["actos_de_comercio", "clasificacion"]
+
+tipo: mc
+opciones_explicitas: ["Actos de comercio por su naturaleza (objetivos)", "Actos de comercio por la voluntad de las partes (subjetivos)", "Actos de comercio por su cuantía", "Actos de comercio por su duración"]
+
+respuesta: "Actos de comercio por su naturaleza (objetivos)"
+
+enunciado: "Cuando un acto es considerado comercial por la ley, independientemente de quién lo realice, estamos ante actos de comercio ___."
+
+explicacion: |
+  Los actos de comercio pueden ser objetivos (por su naturaleza, como la compraventa de bienes muebles para revender) o subjetivos (dependiendo de la calidad de la persona que lo realiza).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "avanzado"
+  tags: ["quiebra", "concurso_preventivo", "proceso"]
+
+tipo: ordenar
+opciones_explicitas: ["Estado de insolvencia", "Concurso preventivo", "Quiebra"]
+respuesta_orden: ["Estado de insolvencia", "Concurso preventivo", "Quiebra"]
+
+enunciado: "Ordene cronológicamente los estadios típicos de un proceso de crisis económica de un comerciante, desde la situación inicial hasta la liquidación forzosa."
+
+explicacion: |
+  El proceso suele comenzar con un estado de insolvencia, que puede derivar en un concurso preventivo (para renegociar deudas) o directamente en una quiebra (liquidación de activos).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "basico"
+  tags: ["sociedades", "comerciantes"]
+
+variables:
+  datos: [["sociedad", "sociedad"], ["contrato civil", "contrato civil"], ["asociación sin fines de lucro", "asociación sin fines de lucro"], ["persona física", "persona física"]]
+  idx: uno_de([0,1,2,3])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: [datos[0][0], datos[1][0], datos[2][0], datos[3][0]]
+
+enunciado: "Cuando dos o más personas se obligan a realizar aportes para un fin común y repartirse las ganancias, constituyen una ___."
+
+explicacion: |
+  En el derecho comercial, la unión de voluntades para un fin lucrativo y mediante aportes constituye una sociedad comercial.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "basico"
+  tags: ["comerciante", "acto_de_comercio"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "Una persona que realiza actos de comercio de forma habitual y profesional es considerada comerciante por la ley."
+
+explicacion: |
+  Verdadero. La habitualidad y la profesionalidad en el ejercicio de actos de comercio definen la condición de comerciante.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "intermedio"
+  tags: ["sociedades", "pasos_legales"]
+
+tipo: "ordenar"
+opciones_explicitas: ["redacción del contrato", "publicación de edictos", "inscripción en el registro", "obtención de CUIT"]
+respuesta_orden: ["redacción del contrato", "publicación de edictos", "inscripción en el registro", "obtención de CUIT"]
+
+enunciado: "Ordene cronológicamente los pasos para la formalización de una sociedad comercial (Considere el orden estándar de constitución)."
+
+explicacion: |
+  El orden lógico comienza con la voluntad de las partes (contrato), sigue con la publicidad (edictos), la formalidad registral (inscripción) y finalmente la habilitación impositiva (CUIT).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "avanzado"
+  tags: ["quiebras", "concurso_preventivo"]
+
+respuesta: "reorganización"
+tipo: "mc"
+opciones_explicitas: ["reorganización", "liquidación", "extinción inmediata", "suspensión de pagos"]
+
+enunciado: "Un comerciante con dificultades financieras solicita un concurso preventivo para evitar la quiebra. El objetivo principal de este proceso es la ___ de sus deudas."
+
+explicacion: |
+  El concurso preventivo busca la reorganización de la empresa mediante un acuerdo con los acreedores para evitar la quiebra.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "intermedio"
+  tags: ["contratos", "comercio"]
+
+respuesta: "precio"
+tipo: "completar"
+respuestas_validas:
+  - "precio"
+
+enunciado: "En un contrato de compraventa mercantil, el intercambio se centra en la entrega de una cosa a cambio de un ___ determinado."
+
+explicacion: |
+  El precio es el elemento esencial que distingue a la compraventa de otras figuras jurídicas en el ámbito comercial.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "basico"
+  tags: ["conceptos_fundamentales", "acto_de_comercio"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El derecho comercial regula únicamente los actos realizados por personas con la condición de 'comerciante', dejando de lado la naturaleza del acto en sí mismo."
+
+explicacion: |
+  El derecho comercial moderno se basa tanto en el sujeto (comerciante) como en el objeto (acto de comercio). Un acto puede ser comercial por su naturaleza, aunque el sujeto no esté matriculado.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "intermedio"
+  tags: ["distincion_civil_comercial", "sujeto"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["Compraventa de un bien mueble para reventa", "Comercial"], ["Préstamo de dinero entre amigos sin interés", "Civil"]]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["Comercial", "Civil"]
+
+enunciado: "Determine la naturaleza jurídica del siguiente caso: {escenarios[escenario_idx][0]}"
+
+explicacion: |
+  La distinción radica en la finalidad de lucro y la intermediación en el cambio. En el primer caso hay intención de reventa (lucro), en el segundo es un acto de mera administración o ayuda mutua.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "intermedio"
+  tags: ["sociedades", "elementos"]
+
+respuesta_orden: ["Aportes", "Affectio Societatis", "Fin de lucro"]
+tipo: ordenar
+
+opciones_explicitas: ["Affectio Societatis", "Aportes", "Fin de lucro"]
+
+enunciado: "Ordene los elementos esenciales de un contrato de sociedad desde su constitución hasta su objetivo final:"
+
+explicacion: |
+  Para que exista sociedad se requiere primero el aporte de bienes, luego la voluntad de asociación (affectio societatis) y finalmente el objetivo de obtener una ganancia (fin de lucro).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "avanzado"
+  tags: ["concursos_y_quiebras", "insolvencia"]
+
+variables:
+  idx: uno_de([0, 1])
+  casos: ["El sujeto mantiene su patrimonio pero no puede pagar sus deudas vencidas.", "El sujeto tiene activos que superan sus deudas pero tiene problemas de liquidez."]
+  valores: [verdadero, falso]
+
+respuesta: valores[idx]
+
+tipo: vf
+enunciado: "En el marco del derecho comercial, ¿el siguiente estado constituye insolvencia (cesación de pagos) para que se dicte la quiebra? '{casos[idx]}'"
+
+explicacion: |
+  La quiebra es un proceso de ejecución colectiva que requiere la existencia de un estado de cesación de pagos (insolvencia), no solo una dificultad temporal de caja.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "basico"
+  tags: ["comerciante", "sujeto_derecho"]
+
+respuesta: "comerciante"
+tipo: completar
+respuestas_validas:
+  - "comerciante"
+
+enunciado: "La persona que se encuentra legalmente inscrita en el registro correspondiente y realiza actos de comercio de forma habitual es denominada _________."
+
+explicacion: |
+  La habitualidad y la inscripción en el registro mercantil son requisitos que definen la condición de comerciante en la mayoría de las legislaciones comerciales.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "basico"
+  tags: ["caracteristicas", "comparacion"]
+
+respuesta: "especial"
+tipo: "completar"
+respuestas_validas:
+  - "especial"
+  - "especialidad"
+
+enunciado: "A diferencia del Derecho Civil, que es de carácter general, el Derecho Comercial se caracteriza por su naturaleza ___."
+
+explicacion: |
+  El Derecho Comercial es una rama especial del Derecho que regula actos de comercio y sujetos específicos, diferenciándose de la generalidad del Derecho Civil.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "basico"
+  tags: ["sujetos", "comerciante"]
+
+opciones_explicitas: ["Persona física únicamente", "Persona física y persona jurídica", "Solo sociedades anónimas", "Solo personas físicas"]
+respuesta: "Persona física y persona jurídica"
+tipo: "mc"
+
+enunciado: "En el ámbito del Derecho Comercial, ¿quiénes pueden ser considerados sujetos de derecho (comerciantes/empresarios)?"
+
+explicacion: |
+  El Derecho Comercial regula tanto a las personas humanas (físicas) como a las personas jurídicas (sociedades) que realizan actos de comercio.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "intermedio"
+  tags: ["aplicacion", "contratos"]
+
+variables:
+  idx: uno_de([0, 1, 2, 3])
+  casos: ["una compraventa de un auto entre particulares", "una compraventa de mercadería para reventa", "un alquiler de una vivienda para uso familiar", "un contrato de leasing de maquinaria industrial"]
+  valores: [falso, verdadero, falso, verdadero]
+
+respuesta: valores[idx]
+tipo: "vf"
+
+enunciado: "Analice el siguiente caso: '{casos[idx]}'. ¿El acto jurídico resultante es de naturaleza comercial?"
+
+explicacion: |
+  Si el acto tiene como fin el lucro o la intermediación en el mercado, se rige por el Derecho Comercial; de lo contrario, pertenece al Derecho Civil.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "avanzado"
+  tags: ["responsabilidad", "quiebra"]
+
+respuesta: "quiebra"
+tipo: "completar"
+respuestas_validas:
+  - "quiebra"
+  - "concurso preventivo"
+
+enunciado: "Mientras que en el Derecho Civil la insolvencia se resuelve mediante procesos de ejecución patrimonial, en el Derecho Comercial la insolvencía del comerciante se regula principalmente a través del proceso de ___."
+
+explicacion: |
+  El Derecho Comercial posee institutos específicos para la insolvencia, como el concurso preventivo y la quiebra, para proteger el crédito y la unidad de la masa.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "basico"
+  tags: ["historia", "evolucion"]
+
+opciones_explicitas: ["Derecho de castas", "Derecho de clases", "Derecho de corporaciones", "Derecho de individuos"]
+respuesta: "Derecho de corporaciones"
+tipo: "mc"
+
+enunciado: "Históricamente, el Derecho Comercial se originó como un derecho de ___, basado en los usos y costumbres de los gremios de mercaderes, diferenciándose del derecho romano-civilista."
+
+explicacion: |
+  El origen del derecho comercial es corporativo, nacido de las necesidades de los estamentos de comerciantes que requerían reglas rápidas y basadas en la costumbre.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "basico"
+  tags: ["sociedades", "comerciantes"]
+
+variables:
+  datos: [["Juan y Pedro deciden formar una sociedad para vender muebles", "sociedad"], ["Ana decide abrir una tienda de ropa como persona física", "persona_fisica"]]
+  idx: uno_de([0, 1])
+
+enunciado: "En el caso de que {datos[idx][0]}, la entidad constituida se denomina una ___."
+
+respuestas_validas:
+  - "sociedad"
+  - "persona_fisica"
+respuesta: datos[idx][1]
+tipo: completar
+
+explicacion: |
+  Si hay un acuerdo de voluntades para un fin común y aportes, se constituye una sociedad. Si actúa un individuo, es persona física/humana.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "intermedio"
+  tags: ["contratos", "comercio"]
+
+variables:
+  datos: [["Compraventa de mercadería para reventa", "comercial"], ["Alquiler de una vivienda para uso familiar", "civil"]]
+  idx: uno_de([0, 1])
+
+enunciado: "Considerando que el acto es {datos[idx][0]}, el contrato resultante es de naturaleza ___."
+
+opciones_explicitas: ["comercial", "civil", "administrativo"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  Los contratos comerciales son aquellos que tienen por objeto actos de comercio o son realizados por comerciantes en el ejercicio de su profesión.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "avanzado"
+  tags: ["quiebra", "concurso"]
+
+variables:
+  datos: [["El comerciante tiene insolvencia pero busca un acuerdo con acreedores", "concurso preventivo"], ["El comerciante es insolvente y no tiene posibilidad de acuerdo", "quiebra directa"]]
+  idx: uno_de([0, 1])
+
+enunciado: "Si la situación es {datos[idx][0]}, el proceso legal correspondiente es un ___."
+
+opciones_explicitas: ["concurso preventivo", "quiebra directa", "liquidación"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  El concurso preventivo busca la protección del deudor mediante un acuerdo; la quiebra busca la liquidación de activos ante la insolvencia total.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "basico"
+  tags: ["sociedades", "requisitos"]
+
+enunciado: "¿Es verdadero o falso que para la existencia de una sociedad comercial es indispensable la existencia de un fin de lucro?"
+
+opciones_explicitas: ["verdadero", "falso"]
+respuesta: "verdadero"
+tipo: mc
+
+explicacion: |
+  El ánimo de lucro (o fin de lucro) es el elemento esencial que distingue a las sociedades de las asociaciones civiles sin fines de lucro.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_comercial"
+  nivel: "intermedio"
+  tags: ["concurso", "pasos"]
+
+enunciado: "Ordene cronológicamente las etapas típicas de un proceso de concurso preventivo exitoso:"
+
+opciones_explicitas: ["Presentación del pedido de concurso", "Verificación de créditos", "Acuerdo preventivo", "Homologación judicial"]
+respuesta_orden: ["Presentación del pedido de concurso", "Verificación de créditos", "Acuerdo preventivo", "Homologación judicial"]
+tipo: ordenar
+
+explicacion: |
+  El proceso inicia con la presentación, sigue con la acreditación de los derechos de los acreedores (verificación), la negociación del acuerdo y finalmente el control judicial (homologación).
+```
+
+## Sección: derecho-constitucional (25 preguntas)
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "basico"
+  tags: ["definicion", "fundamentos"]
+
+respuesta: "estudia la Constitución, la organización del Estado y los derechos fundamentales"
+tipo: completar
+respuestas_validas:
+  - "estudia la Constitución, la organización del Estado y los derechos fundamentales"
+
+enunciado: "El Derecho Constitucional es la rama del derecho público que ___."
+
+explicacion: |
+  El Derecho Constitucional se encarga de regular la estructura fundamental del Estado y la protección de los derechos de los ciudadanos frente al poder.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "basico"
+  tags: ["objeto_estudio"]
+
+respuesta: "Constitución"
+tipo: mc
+opciones_explicitas: ["Constitución", "leyes comunes", "normas de tránsito", "contratos privados"]
+
+enunciado: "El objeto principal de estudio del Derecho Constitucional es la ___."
+
+explicacion: |
+  La Constitución es la norma suprema que rige la organización de un Estado.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "intermedio"
+  tags: ["jerarquia", "normas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un sistema jurídico democrático, la Constitución se encuentra en la cúspide de la jerarquía normativa, por encima de las leyes ordinarias."
+
+explicacion: |
+  Efectivamente, el principio de supremacía constitucional establece que ninguna norma inferior puede contradecir la Constitución.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "basico"
+  tags: ["partes_constitucion"]
+
+respuesta_orden: ["Parte Dogmática", "Parte Orgánica", "Cláusulas de Reforma"]
+tipo: ordenar
+opciones_explicitas: ["Parte Dogmática", "Parte Orgánica", "Cláusulas de Reforma"]
+
+enunciado: "Ordene los componentes típicos de una Constitución moderna de mayor a menor jerarquía conceptual (desde la protección de derechos hasta el mecanismo de cambio):"
+
+explicacion: |
+  La Parte Dogmática contiene los derechos; la Orgánica la estructura del Estado; y las Cláusulas de Reforma regulan cómo cambiar la propia Constitución.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "basico"
+  tags: ["derechos_fundamentales"]
+
+variables:
+  datos: [[ "libertad de expresión", "derecho a la vida" ], [ "libertad de culto", "derecho a la vida" ], [ "derecho a la propiedad", "derecho a la vida" ]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["libertad de expresión", "derecho a la vida", "derecho a la propiedad", "derecho al voto"]
+
+enunciado: "De la siguiente lista, identifique cuál de estos es un derecho fundamental clásico protegido por la Constitución: {datos[idx][0]}."
+
+explicacion: |
+  Aunque todos pueden ser derechos, el derecho a la vida es considerado el pilar fundamental sobre el cual se asientan los demás derechos humanos y constitucionales.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "basico"
+  tags: ["constitucion", "control_constitucional"]
+
+tipo: mc
+opciones_explicitas: ["constitucional", "inconstitucional", "nulo", "inaplicable"]
+
+respuesta: "inconstitucional"
+
+enunciado: "Si una ley sancionada por el Congreso contradice un principio fundamental establecido en la Constitución Nacional, un juez debe declarar que dicha ley es ___."
+
+explicacion: |
+  El control de constitucionalidad es la facultad de los jueces de asegurar que ninguna norma inferior (como una ley) contradiga la norma suprema (la Constitución). Si hay contradicción, la norma debe ser declarada inconstitucional.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "basico"
+  tags: ["poderes", "estado"]
+
+variables:
+  idx: uno_de([0, 1])
+  poderes: ["Poder Ejecutivo", "Poder Legislativo"]
+  valores: [falso, verdadero]
+
+respuesta: valores[idx]
+tipo: vf
+enunciado: "En un sistema republicano, el {poderes[idx]} tiene la función principal de dictar leyes que rigen a toda la sociedad."
+
+explicacion: |
+  La función de dictar leyes corresponde al Poder Legislativo. El Poder Ejecutivo tiene la función de administrar y ejecutar las leyes.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "intermedio"
+  tags: ["derechos_fundamentales", "libertad_expresion"]
+
+respuesta: "libertad de expresión"
+tipo: completar
+respuestas_validas:
+  - "libertad de expresión"
+
+enunciado: "Un periodista publica información veraz sobre un funcionario público para denunciar corrupción. En este conflicto de derechos, la jurisprudencia suele priorizar la ___ (el derecho a informar) sobre el derecho a la intimidad del funcionario."
+
+pasos:
+  - "Identificar el derecho en juego: informar sobre asuntos de interés público."
+  - "Contrastar con el derecho a la privacidad del funcionario en el ejercicio de su cargo."
+  - "Determinar cuál prevalece según la doctrina constitucional."
+
+explicacion: |
+  En casos de interés público, el derecho a la información y la libertad de expresión suelen prevalecer sobre la privacidad de los funcionarios, siempre que la información sea veraz y de relevancia social.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "intermedio"
+  tags: ["jerarquia", "kelsen"]
+
+respuesta_orden: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos"]
+tipo: ordenar
+
+opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos"]
+
+enunciado: "Ordene las siguientes normas de mayor a menor jerarquía, siguiendo el ordenamiento jurídico basado en la supremacía constitucional."
+
+explicacion: |
+  La Constitución y los Tratados de Derechos Humanos con jerarquía constitucional están en la cima. Por debajo se encuentran las leyes nacionales y, finalmente, los decretos del Poder Ejecutivo.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "avanzado"
+  tags: ["debido_proceso", "garantias"]
+
+respuesta: 1
+tipo: mc
+opciones_explicitas: [0, 1, 2]
+
+enunciado: "Un ciudadano es detenido y se le impide el acceso a un abogado y a ser escuchado por un juez antes de ser procesado. ¿Se ha vulnerado el derecho al debido proceso? (0: No, 1: Sí, 2: Solo si la prueba es falsa)"
+
+explicacion: |
+  El debido proceso es un derecho fundamental que garantiza que toda persona sea escuchada y tenga defensa técnica antes de que se dicte una resolución en su contra. La falta de defensa técnica y de intervención judicial viola este principio.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional_definicion"
+  nivel: "basico"
+  tags: ["definicion", "fundamentos"]
+
+opciones_explicitas: ["La regulación de las relaciones entre privados", "La estructura del Estado y los derechos fundamentales", "La organización de las empresas y el comercio", "El estudio de los delitos y las penas"]
+
+respuesta: "La estructura del Estado y los derechos fundamentales"
+tipo: "mc"
+
+enunciado: "El objeto de estudio principal del Derecho Constitucional es ___."
+
+explicacion: |
+  El Derecho Constitucional se centra en la norma suprema, la organización de los poderes del Estado y la garantía de los derechos fundamentales de los ciudadanos.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional_clasificacion"
+  nivel: "basico"
+  tags: ["clasificacion", "derecho_publico"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "El Derecho Constitucional pertenece a la rama del Derecho Público, ya que regula la organización del Estado y las relaciones entre el Estado y los individuos."
+
+explicacion: |
+  Correcto. Al regular la estructura del poder estatal y las garantías frente al mismo, se clasifica dentro del Derecho Público.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional_vs_administrativo"
+  nivel: "intermedio"
+  tags: ["distincion", "derecho_administrativo"]
+
+variables:
+  datos: [["La norma suprema que establece la división de poderes", "La regulación de los procedimientos de los trámites en una oficina pública"], ["La base de la jerarquía normativa", "El funcionamiento operativo de la administración"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: "completar"
+respuestas_validas:
+  - datos[idx][1]
+
+enunciado: "Mientras que el Derecho Constitucional estudia {datos[idx][0]}, el Derecho Administrativo se ocupa de {datos[idx][1]}."
+
+explicacion: |
+  El Derecho Constitucional establece el marco general y la estructura (el "qué" y "quién"), mientras que el Derecho Administrativo regula la actividad y procedimientos de la administración pública (el "cómo" operativo).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional_jerarquia"
+  nivel: "intermedio"
+  tags: ["kelsen", "jerarquia", "normas"]
+
+opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos del Poder Ejecutivo"]
+
+respuesta_orden: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos del Poder Ejecutivo"]
+tipo: "ordenar"
+
+enunciado: "Ordene las siguientes normas de mayor a menor jerarquía según la supremacía constitucional (considerando el bloque de constitucionalidad):"
+
+explicacion: |
+  La Constitución y los Tratados de Derechos Humanos con jerarquía constitucional encabezan el ordenamiento, seguidos por las leyes y finalmente los decretos.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional_vs_privado"
+  nivel: "basico"
+  tags: ["distincion", "derecho_privado"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "El estudio de la validez de un contrato de compraventa entre dos ciudadanos particulares es una materia propia del Derecho Constitucional."
+
+explicacion: |
+  Falso. La regulación de los contratos entre particulares pertenece al Derecho Privado (como el Derecho Civil), no al Derecho Constitucional.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "basico"
+  tags: ["definicion", "jerarquia"]
+
+respuesta: "derecho_público"
+tipo: completar
+respuestas_validas:
+  - "derecho_público"
+
+enunciado: "A diferencia del derecho privado, que regula las relaciones entre particulares, el derecho constitucional pertenece al ámbito del ___________."
+
+explicacion: |
+  El derecho constitucional es la base del derecho público, ya que regula la estructura del Estado y la relación entre este y los ciudadanos.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "intermedio"
+  tags: ["jerarquia", "normativa"]
+
+variables:
+  escenario: uno_de([["Constitución", "Tratado Internacional", "Ley Común"], ["Constitución", "Decreto", "Resolución"]])
+
+opciones_explicitas: ["Constitución", "Tratado Internacional", "Ley Común", "Decreto", "Resolución"]
+
+respuesta: escenario[0]
+tipo: mc
+
+enunciado: "En la pirámide de Kelsen, ¿cuál de los siguientes elementos tiene mayor jerarquía que una {escenario[1]}?"
+
+pasos:
+  - "Identificar la posición de la norma mencionada en la jerarquía normativa."
+  - "Comparar con la supremacía constitucional."
+
+explicacion: |
+  La Constitución es la norma suprema; ninguna norma de menor rango (como leyes o decretos) puede contradecirla.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "intermedio"
+  tags: ["relacion", "administracion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que el Derecho Administrativo es una rama especializada que surge de la aplicación de los principios establecidos en el Derecho Constitucional?"
+
+explicacion: |
+  Verdadero. El Derecho Administrativo regula la función administrativa del Estado, la cual está subordinada a los principios constitucionales.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "avanzado"
+  tags: ["control", "jurisdiccion"]
+
+opciones_explicitas: ["anular", "validar", "modificar", "derogar"]
+
+respuesta: "anular"
+tipo: mc
+
+enunciado: "Cuando un tribunal ejerce el control de constitucionalidad sobre una ley que contradice la Carta Magna, su función es ___________ dicha norma."
+
+explicacion: |
+  El control de constitucionalidad busca asegurar la supremacía de la Constitución, permitiendo la anulación de normas inferiores que la vulneren.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "intermedio"
+  tags: ["derechos", "jerarquia"]
+
+opciones_explicitas: ["Reconocimiento de derechos fundamentales", "Promulgación de la Constitución", "Aplicación de la norma por el juez", "Creación de leyes orgánicas"]
+
+respuesta_orden: ["Promulgación de la Constitución", "Reconocimiento de derechos fundamentales", "Creación de leyes orgánicas", "Aplicación de la norma por el juez"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente el proceso lógico de la vigencia de un derecho constitucional: desde la existencia del texto hasta su aplicación efectiva."
+
+explicacion: |
+  Primero se promulga la norma suprema, luego se reconocen los derechos en ella, se desarrollan mediante leyes y finalmente el juez los aplica en casos concretos.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "intermedio"
+  tags: ["constitucion", "control_constitucional"]
+
+variables:
+  datos: [["Una ley sancionada por el Congreso contradice un artículo de la Constitución.", "inconstitucional"], ["Un decreto presidencial respeta plenamente la Constitución.", "constitucional"], ["Una norma provincial es superior a la Constitución Nacional.", "inconstitucional"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["inconstitucional", "constitucional", "nula"]
+
+enunciado: "Analice el siguiente caso: {datos[idx][0]}. ¿Cuál es la calificación jurídica de la norma respecto a la Constitución?"
+
+explicacion: |
+  El control de constitucionalidad asegura la supremacía de la Constitución sobre cualquier otra norma del ordenamiento jurídico.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "basico"
+  tags: ["poderes", "division_de_poderes"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El principio de división de poderes busca evitar la concentración de la autoridad en un solo órgano, estableciendo un sistema de frenos y contrapesos."
+
+explicacion: |
+  La división de poderes es un pilar del Estado de Derecho para garantizar la libertad individual y evitar la tiranía.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "intermedio"
+  tags: ["jerarquia_normativa", "piramide_de_kelsen"]
+
+variables:
+  orden_jerarquico: [["Constitución Nacional y Tratados de DDHH", "Ley Nacional", "Decreto Reglamentario", "Resolución Ministerial"]]
+
+respuesta_orden: orden_jerarquico[0]
+
+tipo: ordenar
+opciones_explicitas: ["Constitución Nacional y Tratados de DDHH", "Ley Nacional", "Decreto Reglamentario", "Resolución Ministerial"]
+
+enunciado: "Ordene las siguientes normas de mayor a menor jerarquía según el bloque de constitucionalidad:"
+
+explicacion: |
+  La Constitución y los Tratados de Derechos Humanos con jerarquía constitucional ocupan la cúspide, seguidos por las leyes, decretos y finalmente las resoluciones.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "basico"
+  tags: ["derechos_fundamentales", "libertades"]
+
+variables:
+  textos: ["El Estado prohíbe toda manifestación pública sin permiso previo.", "Se garantiza la libertad de expresión, pero con responsabilidad."]
+  valores: [falso, verdadero]
+  idx: uno_de([0, 1])
+
+respuesta: valores[idx]
+tipo: vf
+
+enunciado: "En un Estado de Derecho, ¿es correcta la siguiente afirmación? '{textos[idx]}'"
+
+explicacion: |
+  Los derechos fundamentales son inherentes a la persona y el Estado debe garantizarlos, permitiendo solo restricciones legales y proporcionales.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "derecho_constitucional"
+  nivel: "avanzado"
+  tags: ["poder_judicial", "control_represivo"]
+
+respuesta: "represivo"
+tipo: mc
+opciones_explicitas: ["represivo", "preventivo", "legislativo"]
+
+enunciado: "En el sistema de control judicial de constitucionalidad, cuando el órgano actúa una vez que la norma ya ha sido dictada y está produciendo efectos, realiza un control ___."
+
+explicacion: |
+  El control repressivo actúa sobre leyes ya vigentes, mientras que el preventivo busca evitar que la norma entre en vigor (ej. control de un proyecto de ley).
 ```
 

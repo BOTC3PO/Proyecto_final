@@ -1,6 +1,6 @@
 # Examen jefe — [PENDIENTE #652]
 
-> Logro #652. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **106 preguntas totales** en 5/5 secciones.
+> Logro #652. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -473,468 +473,499 @@ explicacion: |
   textuales\", el siguiente módulo de la currícula.
 ```
 
-## Sección: signos-de-puntuacion (20 preguntas)
+## Sección: escritura-como-tecnologia (25 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
+  tema: "escritura_como_tecnologia"
   nivel: "basico"
-  tags: ["puntuacion", "sentido"]
+  tags: ["conceptos_fundamentales", "tecnologia"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"Vamos a comer, niños\" (invitación) y \"vamos a comer niños\" (sin coma) tienen sentidos completamente distintos por la sola presencia o ausencia de una coma."
-
-pasos:
-  - "La coma de vocativo separa a quién se dirige la oración del resto."
-
-explicacion: |
-  Verdadero: es el ejemplo clásico de cómo la puntuación cambia el
-  significado, no sólo el estilo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "basico"
-  tags: ["coma", "enumeracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En \"Compré pan, leche, huevos y manteca\", las comas separan los elementos de una enumeración, sin poner coma antes del \"y\" final."
-
-pasos:
-  - "La regla general del español no usa coma antes de \"y\" en una enumeración simple."
-
-explicacion: |
-  Verdadero: es el uso más común de la coma, para listar elementos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["coma", "aclaracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "coma de aclaración"
 tipo: mc
-opciones_explicitas: ["coma de aclaración", "coma de enumeración", "coma de vocativo"]
+opciones_explicitas: ["Un proceso biológico instintivo", "Un sistema tecnológico inventado", "Una capacidad natural del cerebro", "Un fenómeno meteorológico"]
 
-enunciado: "En \"Mi hermano, que vive en Rosario, viene este fin de semana\", las comas que encierran \"que vive en Rosario\" son de tipo..."
+enunciado: "A diferencia del habla, que es una capacidad biológica natural de la especie humana, la escritura se define como:"
 
-pasos:
-  - "Encierran información adicional no esencial para el sentido básico de la oración."
+respuesta: "Un sistema tecnológico inventado"
 
 explicacion: |
-  La coma de aclaración encierra información adicional, que se podría
-  quitar sin romper la oración.
+  La escritura no es una facultad innata como el lenguaje oral; es una tecnología que requiere un aprendizaje cultural y técnico para registrar el pensamiento de forma visual y permanente.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
+  tema: "escritura_como_tecnologia"
   nivel: "intermedio"
-  tags: ["coma", "vocativo"]
+  tags: ["habla_vs_escritura", "permanencia"]
 
-variables:
-  n: uno_de([1, 1])
+tipo: completar
+respuestas_validas:
+  - "permanente"
+  - "efímero"
 
-respuesta: "coma de vocativo"
-tipo: mc
-opciones_explicitas: ["coma de vocativo", "coma de enumeración", "coma de aclaración"]
+enunciado: "Mientras que el habla es predominantemente ___, la escritura funciona como una tecnología que permite que el mensaje sea ___."
 
-enunciado: "En \"Juan, vení un segundo\", la coma que separa \"Juan\" del resto es de tipo..."
-
-pasos:
-  - "Separa a quién se dirige la oración (el vocativo) del resto del enunciado."
+respuesta: ["efímero", "permanente"]
 
 explicacion: |
-  La coma de vocativo separa el nombre de la persona a la que se le
-  habla directamente.
+  El habla es transitoria (se desvanece en el tiempo), mientras que la escritura permite la permanencia del mensaje a través del soporte físico.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["coma", "conectores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Se coloca coma antes de conectores adversativos como \"pero\", \"sino\" y \"aunque\": \"Estudió, pero no aprobó\"."
-
-pasos:
-  - "Ver `../oracion-compuesta-coordinacion-y-subordinacion/`: es la coma que antecede a la coordinación adversativa."
-
-explicacion: |
-  Verdadero: es una regla fija de puntuación para estos conectores.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
+  tema: "escritura_como_tecnologia"
   nivel: "basico"
-  tags: ["punto"]
+  tags: ["soportes", "historia"]
 
 variables:
-  usos: ["separar oraciones dentro del mismo párrafo", "separar párrafos, marcando cambio de idea principal"]
-  tipos: ["punto y seguido", "punto y aparte"]
-  idx: uno_de([0, 1])
+  escenario: uno_de([["piedra", "cincel"], ["papiro", "caña"], ["papel", "pluma"], ["pantalla", "teclado"]])
 
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["punto y seguido", "punto y aparte", "punto final"]
+tipo: completar
 
-enunciado: "El uso de \"{usos[idx]}\" corresponde a..."
+enunciado: "La tecnología de la escritura evoluciona junto a sus soportes. Por ejemplo, si el soporte es {escenario[0]}, la herramienta tradicional es un {escenario[1]}."
 
-pasos:
-  - "Punto y seguido queda dentro del mismo párrafo; punto y aparte inicia uno nuevo."
+respuesta: escenario[1]
 
 explicacion: |
-  El tipo de punto usado depende de si se cambia de párrafo o se
-  sigue en el mismo.
+  Cada avance en la tecnología de la escritura ha estado ligado a la invención de nuevos soportes y herramientas para grabarlos.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["punto", "idea_principal"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El punto y aparte suele marcar que la idea principal del texto cambia, iniciando un nuevo párrafo."
-
-pasos:
-  - "Ver `../comprension-idea-principal/`: cada párrafo suele desarrollar una idea principal distinta."
-
-explicacion: |
-  Verdadero: la división en párrafos (marcada por punto y aparte)
-  suele corresponder a un cambio de idea principal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["punto_y_coma"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El punto y coma se usa para separar elementos de una enumeración que ya contienen comas internamente, o para unir dos oraciones muy relacionadas sin conector."
-
-pasos:
-  - "\"Juan estudia; María trabaja\" es un ejemplo de unión de dos oraciones relacionadas sin conector explícito."
-
-explicacion: |
-  Verdadero: son los dos usos principales del punto y coma en
-  español.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["dos_puntos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los dos puntos anuncian lo que sigue: una enumeración, una cita textual, o una explicación/consecuencia de lo anterior."
-
-pasos:
-  - "\"Faltaban tres cosas: pan, leche y manteca\" anuncia la enumeración que sigue."
-
-explicacion: |
-  Verdadero: es la función central de los dos puntos en español.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "basico"
-  tags: ["interrogacion", "exclamacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En español, los signos de interrogación y exclamación se abren y se cierran (¿...?, ¡...!), a diferencia del inglés, que sólo los cierra."
-
-pasos:
-  - "Ver `../oraciones-negativas-e-interrogativas/`: es una diferencia ortográfica propia del español."
-
-explicacion: |
-  Verdadero: el uso del signo de apertura es obligatorio en español,
-  a diferencia de otros idiomas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["comillas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las comillas se usan para citas textuales o para señalar que una palabra se usa en sentido especial o irónico."
-
-pasos:
-  - "Ambos usos marcan que ese fragmento no es \"habla directa\" del propio autor en su sentido literal habitual."
-
-explicacion: |
-  Verdadero: son los dos usos principales de las comillas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["raya", "genero_narrativo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La raya o guion largo se usa para introducir cada intervención de un diálogo en un texto narrativo."
-
-pasos:
-  - "Ver `../genero-narrativo/`: es distinto de las acotaciones entre paréntesis del género dramático."
-
-explicacion: |
-  Verdadero: la raya de diálogo es la marca típica de las
-  intervenciones de personajes dentro de la prosa narrativa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
+  tema: "escritura_como_tecnologia"
   nivel: "avanzado"
-  tags: ["raya", "genero_dramatico", "diferenciacion"]
+  tags: ["sistemas_de_signos", "tecnologia"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La raya de diálogo narrativo y las acotaciones entre paréntesis del género dramático cumplen exactamente la misma función."
-
-pasos:
-  - "Ver `../genero-dramatico/`: la raya introduce lo que dice un personaje en prosa; la acotación indica gestos/tono, no es diálogo."
-
-explicacion: |
-  Falso: son marcas distintas para funciones distintas, propias de
-  géneros distintos (narrativo vs. dramático).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["coma", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "vamos a comer, abuela"
 tipo: mc
-opciones_explicitas: ["vamos a comer, abuela", "vamos a comer abuela"]
+opciones_explicitas: ["Es un sistema de signos arbitrarios", "Es una extensión del pensamiento puro", "Es un reflejo exacto del sonido", "Es un proceso inconsciente"]
 
-enunciado: "¿Cuál de estas dos versiones usa correctamente la coma de vocativo para invitar a la abuela a comer (sin comérsela)?"
+enunciado: "Como tecnología de registro, la escritura se basa en un sistema de signos que no es natural, sino ___."
 
-pasos:
-  - "La coma de vocativo separa el nombre de la persona a la que se dirige la oración."
+respuesta: "Es un sistema de signos arbitrarios"
 
 explicacion: |
-  Sin la coma, \"abuela\" pasa a leerse como objeto directo del
-  verbo comer, cambiando radicalmente el sentido.
+  La relación entre el signo escrito (grafema) y el concepto no es natural, sino una convención social y tecnológica establecida por el sistema de escritura elegido.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "avanzado"
-  tags: ["punto_y_coma", "coma", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El punto y coma y la coma son intercambiables en cualquier contexto, sin diferencia real de uso."
-
-pasos:
-  - "El punto y coma marca una pausa mayor que la coma, y se usa en casos específicos (enumeraciones con comas internas, unión de oraciones relacionadas)."
-
-explicacion: |
-  Falso: cada signo tiene reglas de uso propias, no son
-  intercambiables libremente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
+  tema: "escritura_como_tecnologia"
   nivel: "intermedio"
-  tags: ["dos_puntos", "practica"]
+  tags: ["procesos", "tecnologia"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Faltaban tres cosas: pan, leche y manteca"
-tipo: mc
-opciones_explicitas: ["Faltaban tres cosas: pan, leche y manteca", "Faltaban tres cosas, pan, leche y manteca"]
-
-enunciado: "¿Cuál de estas dos versiones usa correctamente los dos puntos para anunciar la enumeración que sigue?"
-
-pasos:
-  - "Los dos puntos anuncian explícitamente que a continuación viene la enumeración prometida."
-
-explicacion: |
-  Los dos puntos son el signo correcto para anunciar una enumeración,
-  no una coma.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "avanzado"
-  tags: ["puntuacion", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Juan, mi mejor amigo, estudió mucho, pero no aprobó el examen."
-tipo: mc
-opciones_explicitas: ["Juan, mi mejor amigo, estudió mucho, pero no aprobó el examen.", "Juan mi mejor amigo estudió mucho pero no aprobó el examen."]
-
-enunciado: "¿Cuál versión puntúa correctamente combinando coma de aclaración (\"mi mejor amigo\") y coma antes de conector adversativo (\"pero\")?"
-
-pasos:
-  - "Ambas comas cumplen funciones distintas: aclaración y antes de \"pero\"."
-
-explicacion: |
-  La combinación correcta de ambos usos de coma hace que la oración
-  larga se lea sin ambigüedad.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["puntuacion", "metodo"]
-
-enunciado: "Ordená los pasos para revisar la puntuación de un párrafo propio."
 tipo: ordenar
-opciones_explicitas:
-  - "Revisar si hay enumeraciones, aclaraciones o vocativos que necesiten coma"
-  - "Revisar si hay conectores adversativos que necesiten coma antes"
-  - "Decidir dónde termina cada oración (punto y seguido) y cada párrafo (punto y aparte)"
-  - "Revisar si hace falta punto y coma o dos puntos en algún tramo específico"
-respuesta_orden: ["Revisar si hay enumeraciones, aclaraciones o vocativos que necesiten coma", "Revisar si hay conectores adversativos que necesiten coma antes", "Decidir dónde termina cada oración (punto y seguido) y cada párrafo (punto y aparte)", "Revisar si hace falta punto y coma o dos puntos en algún tramo específico"]
+opciones_explicitas: ["Pensamiento", "Codificación visual", "Soporte físico", "Lectura/Interpretación"]
+
+enunciado: "Ordena los componentes de la cadena tecnológica de la escritura, desde la intención hasta la recepción:"
+
+respuesta_orden: ["Pensamiento", "Codificación visual", "Soporte físico", "Lectura/Interpretación"]
+
 explicacion: |
-  El proceso va de los usos más frecuentes de la coma a la
-  organización general en oraciones y párrafos, y termina con los
-  signos más específicos.
+  La escritura requiere un proceso de codificación (convertir pensamiento en signos visuales) sobre un soporte, para que luego otro sujeto pueda decodificarlo.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "avanzado"
-  tags: ["puntuacion", "prerrequisito"]
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["escritura", "pictografia"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "pictográfico"
+tipo: mc
 
-respuesta: verdadero
-tipo: vf
+opciones_explicitas: ["silábico", "alfabético", "pictográfico", "logográfico"]
 
-enunciado: "Sin dominar coma, punto, punto y coma y dos puntos, combinar oraciones largas y complejas en un texto se vuelve ilegible, aunque la gramática de cada oración individual sea correcta."
-
-pasos:
-  - "Ver `../produccion-escrita-compleja/`: la puntuación es lo que hace legible un texto con oraciones compuestas y varias ideas encadenadas."
+enunciado: "Un sistema de escritura que utiliza símbolos para representar objetos o ideas directamente, sin pasar necesariamente por el sonido de las palabras, se denomina sistema ___."
 
 explicacion: |
-  Verdadero: por eso signos de puntuación es prerrequisito directo de
-  producción escrita compleja, el siguiente tema de la cadena.
+  Los sistemas pictográficos utilizan dibujos que guardan una relación visual directa con el concepto representado.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "avanzado"
-  tags: ["puntuacion", "aplicacion"]
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["evolucion", "sistemas"]
 
 variables:
-  n: uno_de([1, 1])
+  escenario: uno_de([["dibujo de un sol", "pictográfico"], ["signo para la sílaba 'ma'", "silábico"], ["letra 'A'", "alfabético"]])
+  tipo_sistema: escenario[1]
 
-respuesta: verdadero
-tipo: vf
+respuesta: tipo_sistema
 
-enunciado: "Al escribir un mensaje importante (un mail formal, una consigna de examen), revisar la puntuación es tan necesario como revisar la ortografía, porque ambas pueden generar ambigüedad si están mal."
+tipo: mc
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
 
-pasos:
-  - "Una coma mal puesta puede cambiar completamente lo que se está pidiendo o afirmando."
+enunciado: "Si un sistema de escritura utiliza un símbolo para representar el sonido de una sílaba completa, estamos ante un sistema ___."
 
 explicacion: |
-  Verdadero: la puntuación es una herramienta práctica de precisión
-  comunicativa, no un detalle decorativo.
+  En el sistema silábico, el signo no representa una letra (sonido individual) ni un objeto, sino una unidad de sonido llamada sílaba.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["alfabeto", "fonemas"]
+
+respuesta: "sonidos"
+tipo: completar
+respuestas_validas:
+  - "sonidos"
+  - "fonemas"
+
+enunciado: "A diferencia de los sistemas pictográficos, el sistema alfabético se basa en la representación de los ___ que constituyen el habla."
+
+explicacion: |
+  El alfabeto es un sistema donde cada signo (letra) representa un fonema o sonido mínimo, permitiendo una combinación infinita de palabras.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "avanzado"
+  tags: ["clasificacion", "tecnologia"]
+
+variables:
+  caso: uno_de([["jeroglíficos egipcios (fase temprana)", "pictográfico"], ["katakana japonés", "silábico"], ["alfabeto latino", "alfabético"]])
+  tipo_res: caso[1]
+
+respuesta: tipo_res
+
+tipo: mc
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
+
+enunciado: "Considerando el caso de {caso[0]}, el sistema de escritura utilizado es de tipo ___."
+
+explicacion: |
+  Dependiendo de la etapa y la función, los sistemas pueden transicionar de lo pictográfico a lo logográfico o silábico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["secuencia", "sistemas"]
+
+respuesta_orden: ["pictográfico", "silábico", "alfabético"]
+tipo: ordenar
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
+
+enunciado: "Ordena estos sistemas de escritura desde el que representa la unidad de significado más compleja (el objeto) hasta el que representa la unidad de sonido más simple (el fonema):"
+
+pasos:
+  - "Representación de objetos/ideas"
+  - "Representación de sílabas"
+  - "Representación de sonidos individuales"
+
+explicacion: |
+  La evolución tecnológica de la escritura tiende hacia la abstracción: de la imagen (pictograma) a la sílaba y finalmente al fonema (alfabeto).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["historia", "alfabeto"]
+
+respuesta: "Mediterráneo oriental"
+tipo: completar
+respuestas_validas:
+  - "Mediterráneo oriental"
+
+enunciado: "La escritura alfabética, tal como la conocemos, tuvo su origen en el ___."
+
+explicacion: |
+  El sistema alfabético se desarrolló en la región del Mediterráneo oriental, simplificando la representación de los sonidos de la lengua.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["aprendizaje", "tecnologia"]
+
+opciones_explicitas: ["Sistemas logográficos", "Sistemas silábicos", "Sistemas alfabéticos"]
+
+respuesta: "Sistemas alfabéticos"
+tipo: mc
+
+enunciado: "¿Qué sistema de escritura permitió una simplificación enorme en el proceso de aprendizaje de la lectura y la escritura en comparación con los sistemas logográficos o silábicos?"
+
+explicacion: |
+  Al representar sonidos individuales (fonemas) en lugar de conceptos (logogramas) o sílabas completas, el alfabeto requiere aprender un número mucho menor de signos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["griego", "latino"]
+
+respuesta: "griego"
+tipo: completar
+respuestas_validas:
+  - "griego"
+
+enunciado: "El alfabeto ___ y el alfabeto latino son descendientes directos de las innovaciones de la escritura alfabética antigua."
+
+explicacion: |
+  El alfabeto griego y el latino son los pilares de la escritura occidental, derivados de evoluciones de sistemas alfabéticos anteriores.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "avanzado"
+  tags: ["cognicion", "tecnologia"]
+
+variables:
+  datos: [["logográfico", "alta", "complejo"], ["silábico", "media", "intermedio"], ["alfabético", "baja", "simple"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][2]
+tipo: mc
+opciones_explicitas: ["complejo", "intermedio", "simple"]
+
+enunciado: "Si comparamos la carga cognitiva necesaria para aprender un sistema de escritura, un sistema {datos[idx][0]} presenta una dificultad de aprendizaje de tipo {datos[idx][1]}."
+
+explicacion: |
+  La tecnología de la escritura alfabética redujo la dificultad de aprendizaje a un nivel {datos[idx][1]}, facilitando la alfabetización masiva.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["evolucion", "orden"]
+
+opciones_explicitas: ["Logográfico", "Silábico", "Alfabético"]
+
+respuesta_orden: ["Logográfico", "Silábico", "Alfabético"]
+tipo: ordenar
+
+enunciado: "Ordena cronológicamente la evolución de la complejidad tecnológica de los sistemas de escritura, desde el más complejo al más simplificado:"
+
+explicacion: |
+  La evolución tecnológica de la escritura muestra una tendencia hacia la reducción de signos: de miles de logogramas a decenas de fonemas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["historia", "comunicacion"]
+
+tipo: mc
+opciones_explicitas: ["Permitió la transmisión de conocimientos sin depender de la memoria humana", "Hizo que el lenguaje fuera más complejo y difícil de entender", "Eliminó la necesidad de hablar para comunicarse", "Solo sirve para registrar leyes y no ideas"]
+respuesta: "Permitió la transmisión de conocimientos sin depender de la memoria humana"
+
+enunciado: "Antes de la invención de la escritura, la transmisión de la cultura dependía exclusivamente de la memoria de los oradores. ¿Cuál fue el principal impacto tecnológico de la escritura en este proceso?"
+
+explicacion: |
+  La escritura actúa como un soporte externo que permite 'fijar' el lenguaje, liberando a la memoria humana de la carga de retener todo el saber de forma exacta, permitiendo que el conocimiento trascienda el tiempo y el espacio.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["memoria", "tecnologia"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: ["un consejo de un abuelo a su nieto, transmitido solo de forma oral", "una receta médica escrita en un papiro"]
+  consecuencia: ["La información se pierde si el nieto olvida el consejo", "La información se mantiene intacta aunque el médico no esté presente"]
+
+respuesta: consecuencia[escenario_idx]
+tipo: mc
+opciones_explicitas: ["La información se pierde si el nieto olvida el consejo", "La información se mantiene intacta aunque el médico no esté presente", "La escritura no cambia la naturaleza de la comunicación"]
+
+enunciado: "Considera el siguiente caso: {escenarios[escenario_idx]}. ¿Qué ocurre con la información en este caso?"
+
+explicacion: |
+  La escritura funciona como una 'memoria externa'. Mientras que en la oralidad la información es volátil, la escritura permite que el mensaje sea independiente del emisor original.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["conceptos"]
+
+tipo: completar
+respuestas_validas:
+  - "soporte"
+  - "signo"
+  - "código"
+
+enunciado: "Para que la escritura funcione como tecnología, se requiere de un ___ (donde se plasma el mensaje), un ___ (que representa la idea) y un ___ (el sistema de reglas que los une)."
+
+explicacion: |
+  La escritura requiere un soporte físico (piedra, papel, pantalla), un signo gráfico y un código lingüístico que permita la decodificación por parte de otro individuo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "avanzado"
+  tags: ["evolucion", "conocimiento"]
+
+tipo: ordenar
+opciones_explicitas: ["Cultura puramente oral", "Aparición de la escritura", "Acumulación de conocimiento complejo"]
+
+enunciado: "Ordena cronológicamente los procesos que describen la evolución de la transmisión del conocimiento humano gracias a la tecnología de la escritura."
+
+explicacion: |
+  La escritura permite la acumulación: al no tener que dedicar todo el esfuerzo cognitivo a recordar, la humanidad puede dedicar más recursos a la innovación y la complejidad, construyendo sobre lo ya escrito.
+respuesta_orden: ["Cultura puramente oral", "Aparición de la escritura", "Acumulación de conocimiento complejo"]
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["tecnologia", "cognicion"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si la oralidad es la comunicación en tiempo real, la escritura es una tecnología de comunicación asincrónica (escribe la palabra que describe la capacidad de la escritura de durar en el tiempo)."
+
+respuesta: "asincrónica"
+
+explicacion: |
+  La escritura permite la comunicación asincrónica; es decir, el emisor y el receptor no necesitan estar presentes al mismo tiempo para que el mensaje sea transmitido con éxito.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["escritura", "sistemas"]
+
+variables:
+  datos: [["un dibujo de un sol para representar el astro", "pictográfico"], ["un dibujo de un ojo para representar la visión", "pictográfico"], ["un dibujo de una mano para representar la acción de tocar", "pictográfico"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
+
+enunciado: "Si un sistema de escritura utiliza un signo que representa directamente el objeto dibujado, como en el caso de {datos[idx][0]}, estamos ante un sistema ___."
+
+explicacion: |
+  Cuando el signo tiene una relación icónica (se parece al objeto) y representa el concepto o el objeto directamente, el sistema es pictográfico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["escritura", "sistemas"]
+
+variables:
+  datos: [["el signo 'ka' representa la sílaba completa", "silábico"], ["el signo 'ma' representa la sílaba completa", "silábico"], ["el signo 'lo' representa la sílaba completa", "silábico"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
+
+enunciado: "En un sistema donde cada signo representa una unidad de sonido compuesta por consonante y vocal, como {datos[idx][0]}, el sistema se clasifica como ___."
+
+explicacion: |
+  Los sistemas silábicos (como el japonés hiragana) asignan un signo a una sílaba entera, no a sonidos individuales ni a conceptos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["escritura", "sistemas"]
+
+variables:
+  datos: [["la letra 'A' representa un fonema", "alfabético"], ["la letra 'B' representa un fonema", "alfabético"], ["la letra 'S' representa un fonema", "alfabético"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: completar
+
+respuestas_validas:
+  - "alfabético"
+
+enunciado: "Si un sistema asigna un signo a cada fonema individual, como sucede con {datos[idx][0]}, el sistema es ___."
+
+explicacion: |
+  El sistema alfabético es el más eficiente en términos de cantidad de signos, ya que solo necesita un conjunto reducido de caracteres para representar todos los sonidos posibles.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "avanzado"
+  tags: ["escritura", "sistemas"]
+
+variables:
+  datos: [["un pictograma", "pictográfico"], ["una sílaba", "silábico"], ["un fonema", "alfabético"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
+
+enunciado: "Si la unidad mínima de significado en el sistema es {datos[idx][0]}, la clasificación es ___."
+
+explicacion: |
+  La unidad de representación determina la clasificación: el pictograma representa el concepto, la sílaba el sonido silábico y el fonema el sonido alfabético.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["escritura", "evolucion"]
+
+variables:
+  secuencia: ["pictográfico", "silábico", "alfabético"]
+
+respuesta_orden: secuencia
+tipo: ordenar
+
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
+
+enunciado: "Ordena los siguientes sistemas de escritura desde el que representa conceptos (menos abstracto) hasta el que representa sonidos individuales (más abstracto):"
+
+explicacion: |
+  La evolución tecnológica de la escritura tiende hacia la abstracción: de la imagen del objeto (pictograma) al sonido de la sílaba (silabario) y finalmente al sonido mínimo (alfabeto).
 ```
 
 ## Sección: tecnicas-de-estudio-resumen-y-organizadores-graficos (23 preguntas)

@@ -1,1147 +1,1811 @@
 # Examen jefe — [PENDIENTE #867]
 
-> Logro #867. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **172 preguntas totales** en 7/7 secciones.
+> Logro #867. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **183 preguntas totales** en 7/7 secciones.
 
 ---
 
-## Sección: quimiosintesis (22 preguntas)
+## Sección: deriva-genetica-flujo-genico (25 preguntas)
 
 ```
 metadata:
   materia: "biologia"
-  tema: "quimiosintesis"
+  tema: "deriva_genetica_flujo_genico"
   nivel: "basico"
-  tags: ["definicion", "organismos"]
+  tags: ["genetica", "evolucion", "azar"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La quimiosíntesis es un proceso mediante el cual ciertos organismos producen materia orgánica utilizando la energía de reacciones químicas inorgánicas, en lugar de la luz solar."
-
-explicacion: |
-  La quimiosíntesis se define precisamente por el uso de energía química (oxidación de sustratos inorgánicos) para fijar carbono, a diferencia de la fotosíntesis que usa luz.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "basico"
-  tags: ["bacterias", "arqueas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las bacterias y las arqueas son los principales organismos capaces de realizar quimiosíntesis."
-
-explicacion: |
-  Estos procariotas son los productores primarios en ecosistemas quimiosintéticos. Los eucariotas no realizan este proceso directamente.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "basico"
-  tags: ["ecosistemas", "fuentes_hidrotermales"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las fuentes hidrotermales del fondo oceánico son un ejemplo clásico de ecosistema donde predomina la quimiosíntesis."
-
-explicacion: |
-  En estas profundidades no llega la luz solar, por lo que la vida depende completamente de la energía química liberada por las bacterias quimiosintéticas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "intermedio"
-  tags: ["ciclo_nitrogeno", "fertilidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las bacterias quimiosintéticas nitrificantes transforman el nitrógeno en formas que las plantas pueden absorber, contribuyendo a la fertilidad del suelo."
-
-explicacion: |
-  Al convertir amoníaco en nitrato, hacen el nitrógeno disponible para la absorción radicular por parte de las plantas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "intermedio"
-  tags: ["calvin", "fijacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La fijación de carbono en la quimiosíntesis ocurre mediante un proceso similar al ciclo de Calvin utilizado en la fotosíntesis."
-
-explicacion: |
-  Ambas usan el ciclo de Calvin para incorporar CO2 en moléculas orgánicas, diferenciándose solo en la fuente de energía (ATP/NADPH de luz vs. de química).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "basico"
-  tags: ["ambientes", "oscuridad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La quimiosíntesis permite la vida en ambientes donde la luz solar no llega."
-
-explicacion: |
-  Es fundamental en cuevas profundas, fondos oceánicos y subsuelo, demostrando la independencia del sol para la biosfera.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "intermedio"
-  tags: ["ciclos", "regulacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las bacterias quimiosintéticas juegan un papel vital en la regulación de elementos como el nitrógeno, el azufre y el hierro."
-
-explicacion: |
-  Al oxidar estos elementos, los transforman entre sus diferentes estados de oxidación, manteniendo los ciclos biogeoquímicos en movimiento.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "basico"
-  tags: ["autotrofo", "independencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La quimiosíntesis demuestra que la energía química puede sostener ecosistemas completos de manera independiente del sol."
-
-explicacion: |
-  Es la prueba biológica de que la vida no requiere necesariamente la fotosíntesis para existir.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "intermedio"
-  tags: ["biodiversidad", "habitats"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin las bacterias quimiosintéticas, muchos hábitats profundos y aislados serían incapaces de sostener vida compleja."
-
-explicacion: |
-  Son la base trófica exclusiva en estos ambientes, permitiendo la existencia de gusanos tubícolas, crustáceos y otros organismos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "intermedio"
-  tags: ["calvin", "mecanismo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La fijación de carbono en la quimiosíntesis utiliza un mecanismo bioquímicamente similar al ciclo de Calvin de la fotosíntesis."
-
-explicacion: |
-  La enzima RuBisCO y el camino metabólico son esencialmente los mismos; la diferencia radica en la fuente de poder (ATP/NADPH).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "basico"
-  tags: ["global", "significado"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La quimiosíntesis es fundamental para la comprensión de la biodiversidad y los ciclos biogeoquímicos globales."
-
-explicacion: |
-  Contribuye a la fertilidad del suelo, la calidad del agua y la existencia de vida en condiciones extremas, impactando el planeta entero.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "basico"
-  tags: ["definicion", "organismos"]
-
-respuesta: "bacterias y arqueas"
+respuesta: "azar"
 tipo: completar
 respuestas_validas:
-  - "bacterias y arqueas"
-  - "bacterias"
-  - "arqueas"
+  - "azar"
 
-enunciado: "La quimiosíntesis es un proceso llevado a cabo principalmente por ___ que producen su propio alimento."
+enunciado: "La deriva genética se define como el cambio en las frecuencias alélicas de una población debido a eventos de ___."
 
 explicacion: |
-  A diferencia de los organismos fotosintéticos, las bacterias y arqueas quimiosintéticas utilizan energía química inorgánica para sintetizar materia orgánica.
+  A diferencia de la selección natural, donde los rasgos se heredan por su ventaja adaptativa, la deriva genética es un proceso estocástico (al azar) que afecta la composición genética de la población sin importar si el rasgo es beneficioso o perjudicial.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "quimiosintesis"
+  tema: "deriva_genetica_flujo_genico"
   nivel: "basico"
-  tags: ["energia", "comparacion"]
-
-respuesta: "reacciones químicas inorgánicas"
-tipo: completar
-
-enunciado: "Mientras la fotosíntesis usa luz solar, la quimiosíntesis obtiene energía de ___."
-
-explicacion: |
-  La clave de la quimiosíntesis es la oxidación de compuestos inorgánicos (como sulfuro de hidrógeno o amoníaco) para obtener la energía necesaria para fijar el carbono.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "intermedio"
-  tags: ["ecologia", "productores"]
-
-respuesta: "productores primarios"
-tipo: completar
-
-enunciado: "En ecosistemas extremos sin luz, las bacterias quimiosintéticas actúan como ___."
-
-explicacion: |
-  Estas bacterias forman la base de la cadena alimentaria en hábitats como las fuentes hidrotermales, al igual que las plantas en ecosistemas terrestres.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "intermedio"
-  tags: ["sustratos", "azufre"]
-
-respuesta: "sulfuro de hidrógeno"
-tipo: input
-
-enunciado: "¿Qué compuesto oxidan las bacterias sulfurosas para obtener energía? (Escribe el nombre químico)"
-
-explicacion: |
-  Las bacterias sulfurosas oxidan el sulfuro de hidrógeno ($H_2S$) produciendo ácido sulfúrico como subproducto.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "intermedio"
-  tags: ["nitrificacion", "nitrogeno"]
-
-respuesta: "nitrato"
-tipo: input
-respuestas_validas:
-  - "nitrato"
-  - "NO3-"
-  - "NO3"
-
-enunciado: "En la nitrificación, las bacterias oxidan primero amoníaco ($NH_3$) a nitrito ($NO_2^-$) y luego a ___."
-
-explicacion: |
-  El primer paso de la nitrificación convierte amoníaco en nitrito ($NO_2^-$). El segundo paso convierte nitrito en nitrato ($NO_3^-$).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "basico"
-  tags: ["habitat", "hidrotermal"]
-
-respuesta: "fuentes hidrotermales"
-tipo: input
-
-enunciado: "¿En qué tipo de ambiente se encuentra comúnmente la quimiosíntesis? (Escribe el nombre del ambiente)"
-
-explicacion: |
-  Las fuentes hidrotermales del fondo oceánico son el ejemplo clásico donde la luz solar no llega y la quimiosíntesis sostiene la vida.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "intermedio"
-  tags: ["ATP", "bioquimica"]
-
-respuesta: "ATP"
-tipo: input
-
-enunciado: "La energía liberada en la oxidación inorgánica se almacena temporalmente en moléculas de ___."
-
-explicacion: |
-  Similar a la fotosíntesis, la energía química se convierte en ATP para ser utilizada en la fijación de carbono.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "basico"
-  tags: ["carbono", "comparacion"]
-
-respuesta: "dióxido de carbono"
-tipo: input
-
-enunciado: "Tanto la fotosíntesis como la quimiosíntesis utilizan ___ como fuente de carbono."
-
-explicacion: |
-  Ambas procesos fijan el carbono inorgánico ($CO_2$) para producir materia orgánica, pero difieren en la fuente de energía.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "avanzado"
-  tags: ["ciclo", "calvin"]
-
-respuesta: "Calvin"
-tipo: input
-
-enunciado: "La fijación de carbono en bacterias quimiosintéticas ocurre mediante un mecanismo similar al ciclo de ___ de las plantas."
-
-explicacion: |
-  El ciclo de Calvin es utilizado para convertir $CO_2$ en glucosa, utilizando el ATP y NADPH generados por la oxidación inorgánica.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "intermedio"
-  tags: ["crecimiento", "comparacion"]
-
-respuesta: "lenta"
-tipo: input
-
-enunciado: "Las comunidades quimiosintéticas suelen tener tasas de crecimiento ___ comparadas con las fotosintéticas."
-
-explicacion: |
-  La energía obtenida de la oxidación de compuestos inorgánicos es menor que la de la fotosíntesis, lo que resulta en crecimiento más lento.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "quimiosintesis"
-  nivel: "basico"
-  tags: ["ecologia", "base"]
-
-respuesta: 1
-tipo: input
-
-enunciado: "En un ecosistema quimiosintético, ¿cuántos tipos de productores primarios existen típicamente (solo bacterias/quimiosíntesis)?"
-
-explicacion: |
-  En estos ecosistemas extremos, las bacterias quimiosintéticas son los únicos productores primarios (1 tipo principal).
-```
-
-## Sección: seleccion-natural (25 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "basico"
-  tags: ["evolucion", "darwinismo"]
-
-respuesta: "proceso mediante el cual los organismos mejor adaptados a su entorno tienen mayores probabilidades de sobrevivir y reproducirse"
-tipo: completar
-respuestas_validas:
-  - "proceso mediante el cual los organismos mejor adaptados a su entorno tienen mayores probabilidades de sobrevivir y reproducirse"
-
-enunciado: "La selección natural es el ___ que permite la evolución de las poblaciones."
-
-explicacion: |
-  La selección natural no es un proceso consciente, sino un mecanismo donde las variaciones que favorecen la supervivencia se vuelven más comunes en las siguientes generaciones.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "basico"
-  tags: ["variacion", "herencia"]
-
-respuesta: "variación heredable"
-tipo: completar
-respuestas_validas:
-  - "variación heredable"
-  - "variación genética"
-
-enunciado: "Para que la selección natural actúe, debe existir una ___ entre los individuos de una misma población, la cual debe poder transmitirse a la descendencia."
-
-explicacion: |
-  Si los rasgos adquiridos durante la vida (como el músculo de un atleta) no son heredables, no pueden ser seleccionados por la evolución.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "intermedio"
-  tags: ["presion_ambiental", "adaptacion"]
+  tags: ["poblacion", "tamaño", "deriva"]
 
 variables:
-  escenario: uno_de([["un cambio brusco en la temperatura del clima", "el calor extremo"], ["la presencia de un nuevo depredador en el bosque", "la depredación"], ["la escasez de un tipo específico de alimento", "la falta de alimento"]])
+  escenario: uno_de([["una isla pequeña con pocos individuos", "pequeña"], ["un continente con millones de individuos", "grande"]])
 
-respuesta: "presión ambiental"
+respuesta: escenario[1]
 tipo: completar
 respuestas_validas:
-  - "presión ambiental"
+  - "pequeña"
+  - "grande"
 
-enunciado: "Cuando ocurre {escenario[0]}, se genera una ___ que actúa como filtro sobre las características de los individuos."
+enunciado: "La deriva genética tiene un impacto mucho más significativo y es más notoria en una población de tamaño ___."
 
 explicacion: |
-  La presión ambiental es el factor externo (clima, depredadores, comida) que determina qué rasgos son ventajosos y cuáles no.
+  En poblaciones grandes, el azar tiende a compensarse y las frecuencias se mantienen estables. En poblaciones pequeñas, un evento aleatorio (como la muerte accidental de un individuo) puede cambiar drásticamente el porcentaje de un alelo en la siguiente generación.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "seleccion_natural"
+  tema: "deriva_genetica_flujo_genico"
   nivel: "intermedio"
-  tags: ["reproduccion", "fitness"]
+  tags: ["variabilidad", "polimorfismo", "extincion"]
 
-respuesta: "reproducción diferencial"
+respuesta: "disminuye"
 tipo: completar
 respuestas_validas:
-  - "reproducción diferencial"
+  - "disminuye"
 
-enunciado: "El éxito de la selección natural depende de la ___: la capacidad de ciertos individuos para dejar más descendencia que otros."
+enunciado: "Debido a que los alelos pueden desaparecer de la población por puro azar, la deriva genética generalmente hace que la variabilidad genética ___."
 
 explicacion: |
-  No basta con sobrevivir; el objetivo biológico es pasar los genes a la siguiente generación. Si un individuo vive mucho pero no tiene hijos, su ventaja evolutiva es nula.
+  Al perderse alelos de forma aleatoria (especialmente en poblaciones pequeñas), la diversidad genética de la población se reduce, lo que puede limitar la capacidad de adaptación de la especie a cambios ambientales futuros.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "avanzado"
-  tags: ["mecanismo", "resumen"]
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "intermedio"
+  tags: ["efecto_fundador", "colonizacion"]
+
+respuesta: "fundador"
+tipo: completar
+respuestas_validas:
+  - "fundador"
+
+enunciado: "Cuando un grupo muy pequeño de individuos coloniza un nuevo hábitat, se produce un fenómeno de deriva genética conocido como efecto ___."
+
+explicacion: |
+  El efecto fundador ocurre cuando una nueva población se establece a partir de un número reducido de individuos. La composición genética de los nuevos colonizadores puede ser muy distinta a la de la población original debido al azar.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "intermedio"
+  tags: ["comparacion", "seleccion_natural"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El mecanismo de la selección natural requiere de tres condiciones fundamentales: variación heredable, presión ambiental y reproducción diferencial."
+enunciado: "Si un alelo aumenta su frecuencia en una población porque otorga una ventaja de supervivencia, ese cambio es producto de la selección natural, no de la deriva genética."
 
 explicacion: |
-  Sin estos tres elementos, el proceso evolutivo por selección natural no puede ocurrir. La combinación de estos factores es lo que impulsa la adaptación.
+  Correcto. La deriva genética es, por definición, un proceso que ocurre independientemente de la ventaja o desventaja del rasgo — si hay una ventaja de por medio, el mecanismo en juego es la selección natural.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "seleccion_natural"
+  tema: "deriva_genetica_flujo_genico"
   nivel: "basico"
-  tags: ["evolucion", "variacion"]
+  tags: ["genetica", "evolucion", "deriva_genetica"]
 
-respuesta: falso
-tipo: vf
-
-enunciado: "¿La selección natural es el mecanismo que crea nuevas variaciones genéticas en una población para que los individuos se adapten?"
-
-explicacion: |
-  Falso. La selección natural actúa sobre la variación ya existente (causada por mutaciones y recombinación). La selección no "crea" rasgos nuevos, solo "filtra" los que ya están presentes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "basico"
-  tags: ["evolucion", "adaptacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Los individuos cambian sus características físicas de forma voluntaria o por esfuerzo para adaptarse mejor a su entorno?"
-
-explicacion: |
-  Falso. La adaptación no es un proceso consciente ni voluntario. Los individuos nacen con ciertas características; aquellos que tienen rasgos favorables para su ambiente tienen más éxito reproductivo, pero no "deciden" cambiar.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "intermedio"
-  tags: ["evolucion", "fitness"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿En el contexto de la selección natural, ser 'el más apto' significa necesariamente ser el individuo más fuerte y agresivo del grupo?"
-
-explicacion: |
-  Falso. El concepto biológico de "fitness" o aptitud se refiere a la capacidad de un organismo para sobrevivir y, fundamentalmente, dejar descendencia con éxito. A veces, ser el más pequeño o el más discreto es lo que permite sobrevivir y reproducirse.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "intermedio"
-  tags: ["evolucion", "teleologia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿La selección natural tiene como objetivo final alcanzar la perfección biológica de una especie?"
-
-explicacion: |
-  Falso. La evolución no tiene un objetivo ni busca la "perfección". Es un proceso reactivo a las condiciones ambientales actuales. Lo que es "bueno" hoy puede dejar de serlo si el clima o los depredadores cambian mañana.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "basico"
-  tags: ["evolucion", "herencia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿La selección natural actúa directamente sobre los genes de un individuo para modificarlos durante su vida?"
-
-explicacion: |
-  Falso. La selección natural actúa sobre el fenotipo (la expresión de los rasgos) de los individuos. Los cambios en la frecuencia de los genes ocurren a través de las generaciones, no mediante la modificación de los genes de un individuo que ya ha nacido.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "basico"
-  tags: ["darwin", "pinzones", "evolucion"]
-
-opciones_explicitas: ["picos más grandes y fuertes", "picos más largos y finos", "picos más cortos y planos", "picos de colores brillantes"]
-respuesta: "picos más grandes y fuertes"
 tipo: mc
+opciones_explicitas: ["Un grupo pequeño coloniza una nueva zona, llevando sólo una parte de la variabilidad", "Un grupo grande se mezcla con una población residente", "La selección natural favorece a los individuos más fuertes", "Un evento catastrófico mata a la mayoría de los individuos de una población"]
+respuesta: "Un grupo pequeño coloniza una nueva zona, llevando sólo una parte de la variabilidad"
 
-enunciado: "En una isla donde la principal fuente de alimento son las semillas grandes y duras, ¿qué característica de los pinzones presentará una ventaja adaptativa para la supervivencia?"
+enunciado: "El efecto fundador ocurre cuando ___."
 
 explicacion: |
-  Los individuos con picos más grandes y fuertes pueden romper las semillas duras, obteniendo energía de una fuente que otros no pueden aprovechar. Esto aumenta su probabilidad de sobrevivir y reproducirse.
+  El efecto fundador es un tipo de deriva genética que sucede cuando un pequeño número de individuos se separa de una población original para establecer una nueva colonia. La nueva población tendrá una composición genética muy distinta a la original porque el grupo fundador no representa la diversidad total de la población madre.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "seleccion_natural"
+  tema: "deriva_genetica_flujo_genico"
   nivel: "intermedio"
-  tags: ["mecanismos", "evolucion"]
+  tags: ["variabilidad", "polimorfismo"]
 
-opciones_explicitas: ["Variabilidad", "Selección natural", "Herencia"]
-respuesta_orden: ["Variabilidad", "Selección natural", "Herencia"]
+variables:
+  escenario: [["un grupo de 5 mariposas", "Disminución de la variabilidad genética"], ["un grupo de 10 mariposas", "Disminución de la variabilidad genética"]]
+  idx: uno_de([0, 1])
+
+tipo: mc
+opciones_explicitas: ["Aumento de la variabilidad genética", "Disminución de la variabilidad genética", "No hay cambios en la frecuencia alélica", "Aumento del tamaño poblacional"]
+respuesta: escenario[idx][1]
+
+enunciado: "Si {escenario[idx][0]} coloniza una isla desierta, ¿cuál es la consecuencia más probable para la variabilidad genética de la nueva población?"
+
+explicacion: |
+  Al ser un grupo tan reducido, muchos alelos presentes en la población original pueden no estar presentes en los fundadores, lo que reduce la riqueza genética de la nueva población.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "intermedio"
+  tags: ["frecuencia_alelica", "deriva_genetica"]
+
+tipo: completar
+respuesta: "alta"
+respuestas_validas:
+  - "alta"
+
+enunciado: "Si por azar uno de los pocos individuos fundadores porta un alelo que era raro en la población original, ese alelo puede terminar con una frecuencia ___ en la nueva población, muy distinta a su frecuencia original."
+
+explicacion: |
+  Debido al azar del muestreo con tan pocos individuos, un alelo raro puede volverse desproporcionadamente común (o directamente desaparecer) en la población fundadora.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "avanzado"
+  tags: ["analisis", "deriva_genetica"]
+
+variables:
+  datos: [["Un grupo de 10 escarabajos llega a una isla y se establece", "Efecto fundador"], ["Un incendio mata al 90% de los leones de una población ya establecida", "Cuello de botella"]]
+  idx: uno_de([0, 1])
+
+tipo: mc
+opciones_explicitas: ["Efecto fundador", "Cuello de botella", "Selección natural", "Mutación"]
+respuesta: datos[idx][1]
+
+enunciado: "{datos[idx][0]}. ¿Cómo se llama este fenómeno?"
+
+explicacion: |
+  La clave es distinguir colonización de un espacio nuevo por un grupo reducido (efecto fundador) de una mortalidad masiva sobre una población ya establecida (cuello de botella).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "intermedio"
+  tags: ["tamaño_poblacional", "deriva_genetica"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "El efecto fundador tiene un impacto mucho mayor en la composición genética de una población si el tamaño del grupo colonizador es muy pequeño."
+
+explicacion: |
+  Verdadero. Cuanto más pequeño sea el número de individuos fundadores, mayor es el error de muestreo y, por lo tanto, mayor es la deriva genética respecto a la población original.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "basico"
+  tags: ["evolucion", "deriva_genetica"]
+
+tipo: mc
+opciones_explicitas: ["Aumento de la variabilidad genética", "Reducción de la diversidad genética", "Aumento del tamaño de la población", "Selección natural dirigida"]
+respuesta: "Reducción de la diversidad genética"
+
+enunciado: "Un incendio forestal destruye la mayor parte de una población de escarabajos, dejando vivos sólo a unos pocos individuos al azar. Este evento de 'cuello de botella' provoca principalmente una ___."
+
+explicacion: |
+  El cuello de botella reduce drásticamente el tamaño de la población. Como los sobrevivientes son una muestra aleatoria, la diversidad de alelos disminuye, lo que limita la capacidad de la población para adaptarse en el futuro.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "basico"
+  tags: ["deriva_genetica", "cuello_de_botella"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "En un evento de cuello de botella, los individuos que sobreviven lo hacen porque poseen características físicamente superiores que les permiten adaptarse mejor al desastre."
+
+explicacion: |
+  Falso. En la deriva genética (como el cuello de botella), la supervivencia es producto del azar y no de la adaptación. Los sobrevivientes no son necesariamente los "más aptos", sino los que tuvieron suerte.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "intermedio"
+  tags: ["genetica_de_poblaciones", "cuello_de_botella"]
+
+tipo: mc
+opciones_explicitas: ["Aumento de la endogamia", "Aumento de la tasa de mutación", "Eliminación de la selección natural", "Aumento de la frecuencia de alelos raros"]
+respuesta: "Aumento de la endogamia"
+
+enunciado: "Cuando una población pasa por un cuello de botella, la reducción drástica del número de individuos suele llevar a un aumento de la ___ debido a la reproducción entre parientes cercanos."
+
+explicacion: |
+  Al haber pocos individuos, la probabilidad de que se crucen parientes aumenta, lo que incrementa la endogamia y puede manifestar rasgos recesivos perjudiciales.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "basico"
+  tags: ["deriva_genetica"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "La deriva genética por cuello de botella es un mecanismo de la evolución que actúa de forma aleatoria, independientemente de si los rasgos son beneficiosos o no."
+
+explicacion: |
+  Verdadero. A diferencia de la selección natural, la deriva genética se basa en eventos aleatorios (catástrofes, desastres) que cambian las frecuencias alélicas sin considerar la adaptación.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "intermedio"
+  tags: ["biodiversidad", "cuello_de_botella"]
+
+tipo: mc
+opciones_explicitas: ["La población recupera su diversidad original inmediatamente", "La diversidad genética se mantiene igual", "La diversidad genética se reduce significativamente", "La población se vuelve inmune a cambios ambientales"]
+respuesta: "La diversidad genética se reduce significativamente"
+
+enunciado: "Si una población de 1000 individuos es reducida a sólo 10 sobrevivientes por un desastre natural, ¿qué ocurre con la diversidad genética de la nueva población?"
+
+explicacion: |
+  La diversidad se reduce significativamente porque los 10 sobrevivientes sólo llevan consigo una pequeña fracción de la información genética que existía en la población original.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "basico"
+  tags: ["genetica", "poblaciones"]
+
+respuesta: "migración"
+tipo: completar
+respuestas_validas:
+  - "migración"
+  - "migracion"
+
+enunciado: "El movimiento de genes entre poblaciones, causado por la ___ de individuos que se reproducen en un nuevo grupo, se conoce como flujo génico."
+
+explicacion: |
+  El flujo génico ocurre cuando individuos de una población se desplazan a otra y se reproducen, introduciendo nuevos alelos o cambiando las frecuencias existentes.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "intermedio"
+  tags: ["homogeneizacion", "frecuencias"]
+
+respuesta: "homogeneizar"
+tipo: completar
+respuestas_validas:
+  - "homogeneizar"
+  - "homogeneizacion"
+  - "homogeneización"
+
+enunciado: "Uno de los efectos principales del flujo génico constante entre dos poblaciones es que tiende a ___ sus frecuencias alélicas, haciéndolas más similares entre sí."
+
+explicacion: |
+  Al intercambiar individuos, las diferencias genéticas entre las poblaciones disminuyen, lo que reduce la divergencia genética y las hace más parecidas (homogéneas).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "intermedio"
+  tags: ["comparacion", "deriva"]
+
+respuesta: "reducir"
+tipo: completar
+respuestas_validas:
+  - "reducir"
+  - "disminuir"
+
+enunciado: "Mientras que la deriva genética tiende a aumentar la diferenciación entre poblaciones, el flujo génico tiende a ___ esa diferenciación entre ellas."
+
+explicacion: |
+  La deriva genética es un proceso aleatorio que aumenta la diferencia entre poblaciones, mientras que el flujo génico actúa como una fuerza cohesiva que las iguala.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "basico"
+  tags: ["variabilidad", "alelos"]
+
+respuesta: "aumentar"
+tipo: completar
+respuestas_validas:
+  - "aumentar"
+  - "incrementar"
+
+enunciado: "Cuando un grupo de individuos llega a una población que es genéticamente muy similar, el flujo génico puede servir para ___ la variabilidad genética dentro de esa población receptora."
+
+explicacion: |
+  Al introducir nuevos alelos que no estaban presentes o que eran raros, la diversidad genética dentro de la población local aumenta.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "avanzado"
+  tags: ["aislamiento", "reproduccion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El flujo génico es posible si las poblaciones están completamente aisladas reproductivamente (por ejemplo, por una barrera geográfica infranqueable)."
+
+explicacion: |
+  Falso. Para que exista flujo génico debe haber transferencia de genes, lo cual requiere que los individuos se desplacen y logren reproducirse exitosamente en la nueva población.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "basico"
+  tags: ["evolucion", "mecanismos"]
+
+tipo: mc
+opciones_explicitas: ["Selección natural", "Deriva genética", "Flujo génico"]
+respuesta: "Deriva genética"
+
+enunciado: "Un incendio accidental elimina a la mayoría de los individuos de una pequeña población de escarabajos, cambiando la frecuencia de un alelo por puro azar. Este proceso se denomina:"
+
+explicacion: |
+  La deriva genética es un cambio aleatorio en las frecuencias alélicas de una población, generalmente más impactante en poblaciones pequeñas, donde el azar determina qué individuos sobreviven o se reproducen, independientemente de su adaptación.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "intermedio"
+  tags: ["flujo_genico", "especies"]
+
+tipo: completar
+respuesta: "homogeneización"
+respuestas_validas:
+  - "homogeneización"
+  - "homogeneizacion"
+
+enunciado: "El flujo génico (migración) actúa como un agente de ___, ya que introduce nuevos alelos en una población pero tiende a hacer que las poblaciones sean más similares entre sí."
+
+explicacion: |
+  El flujo génico es el movimiento de genes entre poblaciones. Al intercambiar individuos, las diferencias genéticas entre poblaciones disminuyen, lo que impide la especiación al mantener el acervo genético conectado.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "intermedio"
+  tags: ["comparacion", "seleccion"]
+
+tipo: mc
+opciones_explicitas: ["La selección natural es dirigida por el ambiente y la deriva es azarosa.", "La selección natural es azarosa y la deriva es dirigida por el ambiente.", "Ambas son procesos puramente azarosos.", "Ambas dependen de la migración de individuos."]
+respuesta: "La selección natural es dirigida por el ambiente y la deriva es azarosa."
+
+enunciado: "¿Cuál es la diferencia fundamental entre la selección natural y la deriva genética?"
+
+explicacion: |
+  La selección natural favorece rasgos que aumentan la supervivencia y reproducción en un ambiente específico (no es azarosa), mientras que la deriva genética cambia las frecuencias de alelos por eventos fortuitos (azar).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "avanzado"
+  tags: ["especiacion", "flujo_genico"]
+
+tipo: completar
+respuesta: "baja"
+respuestas_validas:
+  - "baja"
+  - "menor"
+
+enunciado: "Si el flujo génico entre dos poblaciones de plantas es muy alto y constante, la probabilidad de que estas poblaciones se conviertan en especies distintas es ___, debido a que el intercambio de genes mantiene la similitud genética."
+
+explicacion: |
+  Para que ocurra la especiación, suele ser necesario el aislamiento (reproductivo o geográfico). El flujo génico constante actúa como un "pegamento" genético que contrarresta la divergencia que podrían causar la selección o la deriva.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "deriva_genetica_flujo_genico"
+  nivel: "intermedio"
+  tags: ["poblacion", "deriva"]
+
+tipo: mc
+opciones_explicitas: ["En poblaciones grandes", "En poblaciones pequeñas", "En poblaciones con mucho flujo génico", "En poblaciones con alta selección natural"]
+respuesta: "En poblaciones pequeñas"
+
+enunciado: "El efecto de la deriva genética sobre las frecuencias alélicas es significativamente mayor en:"
+
+explicacion: |
+  En poblaciones grandes, los cambios azarosos en un individuo tienen poco impacto en la frecuencia total. En poblaciones pequeñas, la pérdida o ganancia de un solo individuo puede alterar drásticamente la composición genética del grupo.
+```
+
+## Sección: especiacion (25 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "basico"
+  tags: ["definicion", "reproduccion"]
+
+respuesta: "fértil"
+tipo: completar
+respuestas_validas:
+  - "fértil"
+  - "fertil"
+
+enunciado: "Según el concepto biológico de especie, los individuos de una misma especie pueden reproducirse entre sí y producir descendencia ___."
+
+explicacion: |
+  El criterio biológico de especie establece que una especie es un grupo de poblaciones cuyos individuos pueden reproducirse entre sí y dejar descendencia fértil.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "basico"
+  tags: ["definicion", "origen"]
+
+respuesta: "dos o más"
+tipo: completar
+respuestas_validas:
+  - "dos o más"
+  - "dos o mas"
+
+enunciado: "La especiación es el proceso mediante el cual una población original da origen a ___ especies distintas."
+
+explicacion: |
+  La especiación ocurre cuando la variabilidad genética y el aislamiento permiten que una población se divida en dos o más linajes separados.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["aislamiento", "reproduccion"]
+
+respuesta: "barreras"
+tipo: completar
+
+enunciado: "Para que ocurra la especiación, deben existir ___ reproductivas que impidan el flujo de genes entre los grupos de individuos."
+
+respuestas_validas:
+  - "barreras"
+
+explicacion: |
+  Las barreras (ya sean geográficas, conductuales o mecánicas) son fundamentales para que los grupos dejen de intercambiar material genético y diverjan.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "basico"
+  tags: ["diversidad", "evolucion"]
+
+respuesta: "distintas"
+tipo: completar
+respuestas_validas:
+  - "distintas"
+
+enunciado: "Cuando un proceso de especiación se completa con éxito, los nuevos grupos de organismos se consideran especies ___."
+
+explicacion: |
+  Una vez que el aislamiento es total y no pueden producir descendencia fértil entre sí, se consideran especies distintas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["reproduccion", "descendencia"]
+
+respuesta: "fértil"
+tipo: completar
+
+enunciado: "Si dos poblaciones se cruzan pero su descendencia es estéril, no se ha cumplido el criterio de reproducción para formar una nueva especie, ya que no se produce descendencia ___."
+
+respuestas_validas:
+  - "fértil"
+  - "fertil"
+
+explicacion: |
+  La clave del concepto biológico es que la descendencia sea capaz de seguir reproduciéndose (fértil) para mantener el linaje.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "basico"
+  tags: ["aislamiento", "flujo_genico"]
+
+tipo: mc
+opciones_explicitas: ["Barrera geográfica", "Mutación espontánea", "Selección natural", "Deriva genética"]
+respuesta: "Barrera geográfica"
+
+enunciado: "Para que ocurra la especiación alopátrica, es fundamental que exista una ___ que impida el flujo génico entre dos poblaciones."
+
+explicacion: |
+  El aislamiento geográfico (como una montaña o un río) impide que los individuos se crucen, permitiendo que las poblaciones acumulen diferencias genéticas por separado.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["flujo_genico", "evolucion"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "¿El flujo génico constante entre dos poblaciones puede favorecer la especiación al impedir que se diferencien genéticamente?"
+
+explicacion: |
+  Falso. El flujo génico actúa como una "fuerza homogeneizadora". Para que haya especiación, el flujo génico debe ser interrumpido o reducido drásticamente.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["aislamiento_reproductivo", "mecanismos"]
+
+tipo: mc
+opciones_explicitas: ["Aislamiento precigótico", "Aislamiento postcigótico", "Mutación puntual", "Selección sexual"]
+respuesta: "Aislamiento precigótico"
+
+enunciado: "Cuando los mecanismos que impiden la formación de un cigoto (como la diferencia en los periodos de celo o la incompatibilidad de órganos genitales) actúan, estamos ante un mecanismo de aislamiento ___."
+
+explicacion: |
+  Los mecanismos precigóticos impiden la fecundación, asegurando que no haya intercambio de material genético entre poblaciones que ya han comenzado a divergir.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "basico"
+  tags: ["divergencia", "genetica"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "Si dos poblaciones de una misma especie quedan aisladas reproductivamente de forma permanente, la acumulación de cambios genéticos puede dar lugar a la formación de nuevas especies."
+
+explicacion: |
+  Verdadero. La falta de intercambio genético permite que la selección natural y la deriva genética actúen de forma independiente en cada grupo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["aislamiento_ecologico", "reproduccion"]
+
+tipo: mc
+opciones_explicitas: ["Aislamiento temporal", "Aislamiento por hábitat", "Aislamiento mecánico", "Aislamiento gamético"]
+respuesta: "Aislamiento por hábitat"
+
+enunciado: "Dos poblaciones de insectos que viven en la misma zona pero una habita en el dosel de los árboles y la otra en el suelo, presentan un tipo de aislamiento llamado ___."
+
+explicacion: |
+  Aunque ocupen el mismo espacio geográfico, al no encontrarse debido a sus preferencias de hábitat, se produce un aislamiento ecológico que corta el flujo génico.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "basico"
+  tags: ["conceptos", "evolucion"]
+
+tipo: mc
+opciones_explicitas: ["El surgimiento de nuevas especies", "La extinción de una especie", "La mutación de un solo gen", "El cambio de hábitat de un individuo"]
+respuesta: "El surgimiento de nuevas especies"
+
+enunciado: "El proceso mediante el cual una población existente da lugar a una o más especies nuevas se denomina:"
+
+explicacion: |
+  La especiación es el proceso evolutivo que da lugar a la formación de especies distintas a partir de un ancestro común.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "basico"
+  tags: ["especiacion_alopatrica", "aislamiento"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "En la especiación alopátrica, una barrera física (como un río o una montaña) impide el flujo de genes entre dos poblaciones de la misma especie."
+
+explicacion: |
+  Exacto. La barrera física actúa como un mecanismo de aislamiento que impide que los individuos se reproduzcan entre sí, permitiendo que las poblaciones evolucionen de forma independiente.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["ejemplo", "gran_cañon"]
+
+tipo: mc
+opciones_explicitas: ["la formación de dos especies distintas", "la extinción inmediata de ambas", "la mezcla de las poblaciones", "ninguna de las anteriores"]
+respuesta: "la formación de dos especies distintas"
+
+enunciado: "En el Gran Cañón, la formación del cañón separó por millones de años a una población original de ardillas (Kaibab en un borde, Abert en el otro). ¿Cuál fue el resultado a largo plazo?"
+
+explicacion: |
+  Al quedar separadas por el cañón, las poblaciones de ardillas dejaron de reproducirse entre sí, acumulando diferencias genéticas hasta convertirse en especies diferentes.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["mecanismos", "reproduccion"]
+
+tipo: completar
+respuesta: "geográfico"
+respuestas_validas:
+  - "geográfico"
+  - "geografico"
+
+enunciado: "Cuando una barrera física separa a dos poblaciones, hablamos de un aislamiento ___ — el primer paso de la especiación alopátrica."
+
+explicacion: |
+  El aislamiento geográfico es el primer paso en la especiación alopátrica, pero el aislamiento reproductivo (que las poblaciones ya no puedan cruzarse incluso si se reencuentran) es lo que define finalmente la existencia de una nueva especie.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["flujo_genico", "genetica"]
+
+tipo: mc
+opciones_explicitas: ["Se detiene el flujo de genes", "Aumenta la variabilidad dentro de la población original", "Se produce la fusión de las dos poblaciones", "Las mutaciones dejan de ocurrir"]
+respuesta: "Se detiene el flujo de genes"
+
+enunciado: "Cuando ocurre una especiación alopátrica debido a una barrera física, ¿qué sucede con el flujo de genes entre las poblaciones separadas?"
+
+explicacion: |
+  El flujo de genes es el intercambio de material genético entre poblaciones. Al haber una barrera física, este intercambio se interrumpe, permitiendo la divergencia genética.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "basico"
+  tags: ["conceptos", "evolucion"]
+
+tipo: mc
+opciones_explicitas: ["Ocurre cuando las poblaciones están separadas por una barrera geográfica como una montaña.", "Ocurre cuando nuevas especies surgen dentro de una misma área geográfica sin barreras físicas.", "Ocurre sólo cuando una población se divide en dos por un río.", "Ocurre por la migración de individuos a un nuevo continente."]
+respuesta: "Ocurre cuando nuevas especies surgen dentro de una misma área geográfica sin barreras físicas."
+
+enunciado: "La especiación simpátrica se define como el proceso en el cual..."
+
+explicacion: |
+  A diferencia de la especiación alopátrica (donde hay una barrera física), en la simpátrica el aislamiento reproductivo ocurre en el mismo territorio, por ejemplo, debido a cambios en el comportamiento o la dieta.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["mecanismos", "aislamiento"]
+
+tipo: completar
+respuesta: "temporal"
+respuestas_validas:
+  - "temporal"
+
+enunciado: "Si dos poblaciones de la misma especie habitan en el mismo lugar, pero una se reproduce en primavera y la otra en otoño, el mecanismo de aislamiento se llama aislamiento ___."
+
+explicacion: |
+  Cuando las diferencias en los periodos de actividad o reproducción impiden que las poblaciones se crucen, estamos ante un mecanismo de aislamiento temporal, un tipo de aislamiento precigótico.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["nicho", "recursos"]
+
+tipo: mc
+opciones_explicitas: ["La especialización en un nuevo recurso alimenticio dentro del mismo hábitat.", "El desplazamiento de la población hacia un clima más frío.", "La mutación de un cromosoma que impide la fecundación.", "La formación de una montaña que divide el bosque."]
+respuesta: "La especialización en un nuevo recurso alimenticio dentro del mismo hábitat."
+
+enunciado: "Un ejemplo clásico de especiación simpátrica es cuando un grupo de individuos comienza a utilizar un nuevo recurso (como un fruto distinto) que los separa del resto de la población. Esto se conoce como..."
+
+explicacion: |
+  La explotación de un nuevo nicho ecológico permite que los individuos se especialicen, reduciendo la competencia y favoreciendo el aislamiento reproductivo sin necesidad de barreras físicas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "avanzado"
+  tags: ["comportamiento", "etologia"]
+
+tipo: completar
+respuesta: "etológico"
+respuestas_validas:
+  - "etológico"
+  - "etologico"
+
+enunciado: "Cuando las diferencias en los rituales de cortejo o en los cantos de apareamiento impiden que dos grupos se reproduzcan entre sí, estamos ante un aislamiento ___."
+
+explicacion: |
+  El aislamiento etológico (o de comportamiento) es un mecanismo precigótico donde las diferencias en el comportamiento impiden el reconocimiento entre parejas de diferentes grupos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["factores", "evolucion"]
+
+tipo: mc
+opciones_explicitas: ["Barreras físicas como glaciares o desiertos.", "Cambios en los patrones de apareamiento o preferencias de hábitat.", "La fragmentación de un bosque por la actividad humana.", "La deriva genética por aislamiento geográfico."]
+respuesta: "Cambios en los patrones de apareamiento o preferencias de hábitat."
+
+enunciado: "¿Cuál de los siguientes factores es un motor principal de la especiación simpátrica?"
+
+explicacion: |
+  Dado que no hay una barrera física (como un glaciar o un desierto), la especiación debe ocurrir mediante mecanismos biológicos como cambios en el comportamiento, la dieta o la selección sexual.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "basico"
+  tags: ["concepto", "reproduccion"]
+
+respuesta: "reproductivo"
+tipo: completar
+respuestas_validas:
+  - "reproductivo"
+
+enunciado: "El criterio biológico más utilizado para definir si dos individuos pertenecen a la misma especie es su capacidad de tener descendencia con éxito ___."
+
+explicacion: |
+  El concepto biológico de especie se basa en la capacidad de los individuos para cruzarse y producir descendencia fértil. Si no pueden hacerlo, se consideran especies distintas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["flujo_genico", "aislamiento"]
+
+variables:
+  escenario: uno_de([["una montaña que divide un bosque", "aislamiento geográfico"], ["un cambio en el comportamiento de apareamiento", "aislamiento etológico"], ["una diferencia en la época de celo", "aislamiento temporal"]])
+
+respuesta: escenario[1]
+tipo: completar
+respuestas_validas:
+  - "aislamiento geográfico"
+  - "aislamiento etológico"
+  - "aislamiento temporal"
+
+enunciado: "Cuando una población queda dividida por {escenario[0]}, ocurre un tipo de barrera reproductiva llamada ___."
+
+explicacion: |
+  La ausencia de flujo génico es fundamental para la especiación. Cualquiera sea el mecanismo (geográfico, etológico, temporal), lo que importa es que impida el cruce entre las poblaciones.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "avanzado"
+  tags: ["seleccion_natural", "deriva_genetica"]
+
+respuesta: "selección natural"
+tipo: completar
+respuestas_validas:
+  - "selección natural"
+  - "seleccion natural"
+
+enunciado: "Si una población, aislada de otra, cambia sus rasgos debido a la presión por sobrevivir en un ambiente específico, el proceso responsable de ese cambio se llama ___."
+
+explicacion: |
+  La selección natural actúa sobre la variabilidad existente, favoreciendo ciertos rasgos que aumentan la supervivencia y reproducción, lo que con el tiempo, sumado al aislamiento, puede llevar a la especiación.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["deriva_genetica", "azar"]
+
+respuesta: "azar"
+tipo: completar
+respuestas_validas:
+  - "azar"
+
+enunciado: "A diferencia de la selección natural, la deriva genética provoca cambios en las frecuencias alélicas de una población debido al ___."
+
+explicacion: |
+  La deriva genética es un proceso estocástico (aleatorio) que afecta principalmente a poblaciones pequeñas, cambiando la composición genética sin que necesariamente haya una ventaja adaptativa.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "especiacion"
+  nivel: "intermedio"
+  tags: ["flujo_genico", "especiacion"]
+
+respuesta: "interrumpido"
+tipo: completar
+respuestas_validas:
+  - "interrumpido"
+  - "cortado"
+
+enunciado: "Para que la especiación ocurra, el flujo génico entre dos poblaciones debe estar ___."
+
+explicacion: |
+  Si el flujo génico continúa, los genes se mezclan constantemente y las poblaciones se mantienen genéticamente similares. La especiación requiere que el intercambio de genes cese para que las diferencias se acumulen.
+```
+
+## Sección: presion-arterial (25 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "presion_arterial_conceptos"
+  nivel: "basico"
+  tags: ["definicion", "circulacion"]
+
+respuesta: "fuerza"
+tipo: completar
+respuestas_validas:
+  - "fuerza"
+
+enunciado: "La presión arterial es la ___ que ejerce la sangre contra las paredes de las arterias."
+
+explicacion: |
+  La presión arterial es la fuerza ejercida por la sangre contra las paredes de las arterias mientras el corazón bombea sangre a través de ellas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "presion_arterial_conceptos"
+  nivel: "basico"
+  tags: ["sistolica", "corazon"]
+
+respuesta: "sistólica"
+tipo: mc
+opciones_explicitas: ["sistólica", "diastólica", "media", "pulsátil"]
+
+enunciado: "El valor de la presión arterial que representa la presión en las arterias cuando el corazón se contrae se denomina presión _______."
+
+explicacion: |
+  La presión sistólica ocurre durante la contracción del ventrículo izquierdo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "presion_arterial_conceptos"
+  nivel: "basico"
+  tags: ["diastolica", "corazon"]
+
+respuesta: "diastólica"
+tipo: mc
+opciones_explicitas: ["sistólica", "diastólica", "capilar", "venosa"]
+
+enunciado: "El valor de la presión arterial que representa la presión en las arterias cuando el corazón está en reposo entre latidos se denomina presión _______."
+
+explicacion: |
+  La presión diastólica es la presión mínima en las arterias durante el periodo de relajación cardíaca.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "presion_arterial_unidades"
+  nivel: "basico"
+  tags: ["unidades", "medicion"]
+
+respuesta: "mmHg"
+tipo: completar
+respuestas_validas:
+  - "mmHg"
+  - "mm Hg"
+  - "milímetros de mercurio"
+
+enunciado: "La presión arterial se mide comúnmente en unidades de _______."
+
+explicacion: |
+  La unidad estándar es el milímetro de mercurio (mmHg).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "presion_arterial_conceptos"
+  nivel: "basico"
+  tags: ["lectura"]
+
+respuesta: "120/80"
+tipo: mc
+opciones_explicitas: ["120/80", "80/120", "120/120", "80/80"]
+
+enunciado: "Si una persona tiene una presión de 120/80 mmHg, ¿cuál es la forma correcta de expresar sus valores sistólico y diastólico?"
+
+explicacion: |
+  El primer valor es la sistólica y el segundo es la diastólica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "procedimiento_medicion"
+  nivel: "intermedio"
+  tags: ["pasos", "esfigmomanometro"]
+
+respuesta_orden: ["inflar el manguito", "desinflar lentamente", "escuchar ruidos de Korotkoff"]
 tipo: ordenar
+opciones_explicitas: ["inflar el manguito", "desinflar lentamente", "escuchar ruidos de Korotkoff"]
 
-enunciado: "Ordena los pasos lógicos que permiten que la selección natural actúe sobre una población de pinzones para que aparezca una nueva adaptación:"
+enunciado: "Ordena los pasos lógicos para la toma de presión arterial manual:"
 
 explicacion: |
-  Primero debe existir variabilidad (diferentes picos), luego la selección natural actúa sobre esa variabilidad según el ambiente, y finalmente la herencia permite que los rasgos exitosos pasen a la siguiente generación.
+  Primero se infla el manguito para ocluir la arteria, luego se desinfla para permitir el flujo y se escuchan los sonidos.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "basico"
-  tags: ["ambiente", "supervivencia"]
-
-opciones_explicitas: ["determina", "causa", "crea", "provoca"]
-respuesta: "determina"
-tipo: mc
-
-enunciado: "El tipo de alimento disponible en una isla de Galápagos ___ la presión selectiva sobre la forma del pico de los pinzones."
-
-explicacion: |
-  El ambiente no "crea" la mutación, sino que "determina" qué rasgos existentes son ventajosos o desfavorables para la supervivencia en ese contexto específico.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
+  tema: "fisiologia_presion"
   nivel: "intermedio"
-  tags: ["terminologia", "adaptacion"]
-
-respuesta: "adaptación"
-tipo: completar
-respuestas_validas:
-  - "adaptación"
-  - "adaptacion"
-
-enunciado: "Cuando un grupo de pinzones desarrolla un pico especializado para un tipo de semilla predominante en su isla, se dice que la población ha desarrollado una ___."
-
-explicacion: |
-  Una adaptación es un rasgo heredado que aumenta la capacidad de un organismo para sobrevivir y reproducirse en un ambiente determinado.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "avanzado"
-  tags: ["conceptos_clave", "reproduccion"]
-
-variables:
-  caso: uno_de([["picos finos", "semillas pequeñas"], ["picos gruesos", "semillas grandes"]])
-
-opciones_explicitas: ["falla", "éxito", "mutación", "estancamiento"]
-respuesta: "éxito"
-tipo: mc
-
-enunciado: "Si en una isla predominan las {caso[1]}, los pinzones con picos tipo {caso[0]} tendrán un ___ reproductivo mayor debido a la disponibilidad de alimento."
-
-explicacion: |
-  El éxito reproductivo (fitness) se define por la capacidad de un individuo para sobrevivir y dejar descendencia con las características ventajosas en su entorno.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "basico"
-  tags: ["evolucion", "adaptacion", "biston_betularia"]
-
-respuesta: "claro"
-tipo: completar
-respuestas_validas:
-  - "claro"
-
-enunciado: "En las poblaciones de la polilla Biston betularia antes de la Revolución Industrial, la mayoría de los individuos presentaban un color ___ debido a que los troncos de los árboles estaban cubiertos de líquenes claros."
-
-explicacion: |
-  Antes de la industrialización, los líquenes claros en los árboles proporcionaban un camuflaje ideal para las polillas de color claro, permitiéndoles evitar a los depredadores.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "intermedio"
-  tags: ["seleccion_natural", "camuflaje", "biston_betularia"]
-
-opciones_explicitas: ["El aumento de la temperatura", "La mayor visibilidad de las polillas claras ante los depredadores", "La desaparición de los depredadores", "La mutación espontánea por el hollín"]
-respuesta: "La mayor visibilidad de las polillas claras ante los depredadores"
-tipo: mc
-
-enunciado: "Durante la Revolución Industrial, la contaminación por hollín oscureció los troncos de los árboles. ¿Cuál fue el principal factor de cambio en la población de polillas?"
-
-explicacion: |
-  El hollín eliminó el camuflaje de las polillas claras, haciendo que los pájaros las detectaran y devoraran con mayor facilidad. Esto es un ejemplo de presión de selección ambiental.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "intermedio"
-  tags: ["supervivencia", "reproduccion", "biston_betularia"]
-
-respuesta: "oscuro"
-tipo: completar
-respuestas_validas:
-  - "oscuro"
-
-enunciado: "En un ambiente con troncos oscurecidos por el hollín, las polillas de color ___ tienen una mayor probabilidad de sobrevivir y reproducirse."
-
-explicacion: |
-  La supervivencia diferencial es clave: los individuos con el fenotipo que mejor se camufla en el nuevo ambiente tienen más éxito reproductivo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "avanzado"
-  tags: ["frecuencia_alelica", "evolucion"]
-
-opciones_explicitas: ["Disminuye", "Se mantiene constante", "Aumenta", "Desaparece"]
-respuesta: "Aumenta"
-tipo: mc
-
-enunciado: "Si la supervivencia de las polillas oscuras aumenta debido al camuflaje en árboles contaminados, ¿qué sucede con la frecuencia de sus genes en la siguiente generación?"
-
-explicacion: |
-  La evolución se define como el cambio en las frecuencias alélicas de una población a lo largo del tiempo. Al sobrevivir más, las polillas oscuras pasan más genes a su descendencia.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "basico"
-  tags: ["conceptos_clave"]
-
-respuesta: "fenotipos"
-tipo: completar
-respuestas_validas:
-  - "fenotipos"
-  - "fenotipo"
-
-enunciado: "La selección natural actúa sobre los ___ de los individuos, permitiendo que aquellos con rasgos ventajosos sobrevivan mejor en un ambiente determinado."
-
-explicacion: |
-  La selección natural no actúa directamente sobre los genes, sino sobre el fenotipo (la expresión física de los rasgos), que es lo que los depredadores ven y lo que determina la supervivencia.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "basico"
-  tags: ["evolucion", "antibioticos"]
-
-respuesta: "selección"
-tipo: completar
-respuestas_validas:
-  - "selección"
-  - "seleccion"
-
-enunciado: "La resistencia a los antibióticos es un ejemplo de ___ natural, donde el fármaco actúa como un factor de presión ambiental."
-
-explicacion: |
-  La selección natural no crea la resistencia, sino que actúa sobre variaciones preexistentes. Los individuos que ya poseen mutaciones que les permiten sobrevivir al antibiótico son los que logran reproducirse, transmitiendo esa característica a la siguiente generación.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "intermedio"
-  tags: ["mutacion", "genetica"]
-
-respuesta: "mutación previa"
-tipo: completar
-respuestas_validas:
-  - "mutación previa"
-  - "mutacion previa"
-
-enunciado: "En un entorno con presencia de antibióticos, la supervivencia de una población bacteriana depende de una ___ que ocurrió antes del contacto con el fármaco."
-
-pasos:
-  - "Identificar si la mutación ocurre por necesidad o por azar."
-  - "Relacionar la mutación con la capacidad de supervivencia en el entorno actual."
-
-explicacion: |
-  Es un error común pensar que las bacterias "se adaptan" para sobrevivir al antibiótico. La mutación es un evento aleatorio que ocurre antes de la presión selectiva. El antibiótico solo "selecciona" a los que ya eran resistentes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "intermedio"
-  tags: ["poblacion", "supervivencia"]
+  tags: ["resistencia", "vasos"]
 
 respuesta: "aumenta"
 tipo: completar
 respuestas_validas:
   - "aumenta"
+  - "disminuye"
 
-enunciado: "Si un pesticida elimina a todos los insectos sensibles pero no a los que poseen una mutación de resistencia, la frecuencia de genes de resistencia en la siguiente generación ___."
+enunciado: "Si el diámetro de las arterias se reduce (vasoconstricción), la resistencia periférica _______ y, por lo tanto, la presión arterial aumenta."
 
 explicacion: |
-  Al morir los individuos no resistentes, los sobrevivientes (que portan el gen de resistencia) son los únicos que dejan descendencia. Por lo tanto, la proporción de individuos con esa característica aumenta en la población.
+  A menor diámetro, mayor es la resistencia al flujo sanguíneo.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "seleccion_natural"
-  nivel: "basico"
-  tags: ["pesticidas", "presion_selectiva"]
+  tema: "fisiologia_presion"
+  nivel: "intermedio"
+  tags: ["gasto_cardiaco"]
 
-respuesta: "agente"
+respuesta: verdadero
+tipo: vf
+enunciado: "Un aumento en el volumen de sangre expulsado por el corazón en cada latido (volumen sistólico) tiende a elevar la presión arterial."
+
+explicacion: |
+  Mayor volumen de sangre circulando bajo la misma resistencia eleva la presión.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "factores_externos"
+  nivel: "intermedio"
+  tags: ["error", "medicion"]
+
+respuesta: falso
+tipo: vf
+enunciado: "Realizar una toma de presión con el brazo por debajo del nivel del corazón no afecta el resultado de la lectura."
+
+explicacion: |
+  La posición del brazo respecto al corazón es crítica; si el brazo está bajo el nivel del corazón, la lectura será falsamente alta.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fisiologia_presion"
+  nivel: "intermedio"
+  tags: ["componentes"]
+
+respuesta: "corazón"
 tipo: completar
 respuestas_validas:
-  - "agente"
-  - "causa"
+  - "corazón"
+  - "pulmones"
 
-enunciado: "En el proceso de evolución por selección natural, el antibiótico actúa como un ___ de selección que determina qué individuos logran reproducirse."
+enunciado: "La presión arterial depende principalmente del gasto del _______ y la resistencia de los vasos sanguíneos."
 
 explicacion: |
-  El antibiótico no es la causa de la mutación, sino el agente que ejerce la presión ambiental, filtrando a los individuos menos aptos para ese entorno específico.
+  El corazón actúa como la bomba que genera el flujo y la presión.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "seleccion_natural"
+  tema: "valores_clinicos"
+  nivel: "intermedio"
+  tags: ["normalidad"]
+
+respuesta: "120/80"
+tipo: mc
+opciones_explicitas: ["120/80", "140/90", "110/70", "130/85"]
+
+enunciado: "Según las guías generales, un valor de presión arterial considerado óptimo o normal es aproximadamente:"
+
+explicacion: |
+  Aunque varía según la edad, 120/80 mmHg es el estándar de referencia para normalidad.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "patologia_presion"
   nivel: "avanzado"
-  tags: ["mitos_evolutivos", "resistencia"]
+  tags: ["hipertension"]
 
-respuesta: falso
-tipo: vf
-
-enunciado: "El uso excesivo de antibióticos provoca que las bacterias muten específicamente para volverse resistentes."
-
-explicacion: |
-  Es falso. Las mutaciones son eventos aleatorios. El antibiótico no "induce" la mutación hacia la resistencia; simplemente elimina a los que no la tienen, permitiendo que la población cambie su composición genética hacia la resistencia.
-```
-
-## Sección: ser-vivo-caracteristicas (20 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "basico"
-  tags: ["caracteristicas", "vida"]
-
-variables:
-  tabla: [["organizacion", "esta formado por una o mas celulas"], ["nutricion", "obtiene y procesa materia y energia"], ["reproduccion", "genera nuevos individuos de su misma especie"], ["homeostasis", "mantiene su ambiente interno estable"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: tabla[idx][1]
-tipo: mc
-opciones_explicitas: ["esta formado por una o mas celulas", "obtiene y procesa materia y energia", "genera nuevos individuos de su misma especie", "mantiene su ambiente interno estable"]
-
-enunciado: "¿Qué significa la característica {tabla[idx][0]}?"
-
-explicacion: |
-  {tabla[idx][0]} significa: {tabla[idx][1]}.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "basico"
-  tags: ["irritabilidad", "estimulos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La irritabilidad es la capacidad de reaccionar a cambios del ambiente, como luz, calor o contacto."
-
-explicacion: |
-  Correcto. Permite responder a estímulos para sobrevivir.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "basico"
-  tags: ["crecimiento"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El crecimiento significa aumentar de tamaño o cantidad de células a lo largo del tiempo."
-
-explicacion: |
-  Correcto, ocurre por aumento de tamaño celular o por división celular.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "basico"
-  tags: ["metabolismo", "respiracion"]
-
-respuesta: "respiracion"
+respuesta: "hipertensión"
 tipo: completar
 respuestas_validas:
-  - "respiracion"
+  - "hipertensión"
 
-enunciado: "Liberar la energía guardada en el alimento se llama ___."
+enunciado: "Cuando la presión sistólica es consistentemente mayor a 140 mmHg, se diagnostica _______."
 
 explicacion: |
-  La respiración celular transforma la energía de los nutrientes en energía utilizable.
+  La hipertensión se define por valores elevados de presión en el sistema arterial.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "basico"
-  tags: ["evolucion", "adaptacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La adaptación es que la especie cambia con el tiempo para ajustarse mejor al ambiente."
-
-explicacion: |
-  Correcto — ver ../seleccion-natural/.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "basico"
-  tags: ["reproduccion", "mula"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La mula (cruza de caballo y burro) es considerada un ser vivo, aunque no pueda reproducirse."
-
-explicacion: |
-  Cumple el resto de las funciones vitales — la esterilidad no la excluye de ser un ser vivo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
+  tema: "patologia_presion"
   nivel: "intermedio"
-  tags: ["definicion", "excepciones"]
+  tags: ["hipotension"]
 
-respuesta: falso
-tipo: vf
-
-enunciado: "Si un individuo no cumple una característica general (como reproducirse), deja de ser considerado ser vivo automáticamente."
-
-explicacion: |
-  Falso. La lista describe el patrón general, no una regla sin excepción para cada individuo — hay híbridos estériles que igual son seres vivos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "basico"
-  tags: ["reproduccion", "genetica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aunque la mula sea estéril, sus especies de origen (caballo y burro) sí pueden reproducirse."
-
-explicacion: |
-  Correcto. La esterilidad es del híbrido, no de las especies parentales.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "basico"
-  tags: ["virus", "celula"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los virus carecen de organización celular propia (no tienen membrana, citoplasma ni organelos)."
-
-explicacion: |
-  Correcto. Son agentes acelulares, no células.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "basico"
-  tags: ["virus", "metabolismo"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los virus se alimentan por sí mismos, con procesos metabólicos independientes, como una célula normal."
-
-explicacion: |
-  Falso. No tienen metabolismo propio.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "intermedio"
-  tags: ["virus", "reproduccion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los virus sólo pueden reproducirse usando la maquinaria de una célula que infectan."
-
-explicacion: |
-  Correcto — ver ../microbiologia-virus-inmunitario/.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "intermedio"
-  tags: ["virus", "debate"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Existe debate científico sobre si los virus deben clasificarse como seres vivos o no."
-
-explicacion: |
-  Correcto, por su falta de metabolismo y reproducción autónoma.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "basico"
-  tags: ["conceptos_basicos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para ser considerado ser vivo, un organismo debe cumplir un conjunto de características (nutrición, reproducción, respuesta a estímulos, etc.)."
-
-explicacion: |
-  Correcto, esa es la base de la definición biológica de vida.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "basico"
-  tags: ["caracteristicas"]
-
-respuesta: "Tener siempre color verde"
+respuesta: "baja"
 tipo: mc
-opciones_explicitas: ["Nutrición", "Reproducción", "Tener siempre color verde", "Crecimiento"]
+opciones_explicitas: ["baja", "alta", "estable", "irregular"]
 
-enunciado: "¿Cuál de estas NO es una característica esencial de todos los seres vivos?"
+enunciado: "La hipotensión se caracteriza por tener una presión arterial _______."
 
 explicacion: |
-  El color verde no es universal (sólo aparece en organismos fotosintéticos con clorofila); nutrición, reproducción y crecimiento sí lo son.
+  Hipotensión es la disminución de la presión arterial por debajo de los niveles normales.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "basico"
-  tags: ["ejemplos"]
+  tema: "calculo_presion"
+  nivel: "avanzado"
+  tags: ["calculo"]
+
+respuesta: 40
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si una persona tiene una presión de 120/80 mmHg, ¿cuál es su presión de pulso (diferencia entre sistólica y diastólica)?"
+
+pasos:
+  - "Restar la presión diastólica de la sistólica (120 - 80)."
+
+explicacion: |
+  La presión de pulso es la diferencia entre la presión sistólica y la diastólica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "factores_biologicos"
+  nivel: "intermedio"
+  tags: ["edad"]
 
 respuesta: verdadero
 tipo: vf
-
-enunciado: "Las plantas, la célula y los ciclos de vida son ejemplos concretos que ilustran estas mismas características generales."
+enunciado: "La rigidez de las arterias asociada al envejecimiento suele provocar un aumento en la presión sistólica."
 
 explicacion: |
-  Correcto, son "instancias" de las características de todo ser vivo.
+  Con la edad, las arterias pierden elasticidad, lo que incrementa la presión sistólica.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "basico"
+  tema: "comparacion_vasos"
+  nivel: "intermedio"
+  tags: ["arterias", "venas"]
+
+respuesta: "arterias"
+tipo: completar
+respuestas_validas:
+  - "arterias"
+  - "venas"
+
+enunciado: "La presión arterial es significativamente más alta en las _______ que en las venas."
+
+explicacion: |
+  Las arterias transportan sangre a alta presión desde el corazón, mientras que las venas lo hacen a baja presión.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "factores_estres"
+  nivel: "intermedio"
+  tags: ["estres", "adrenalina"]
+
+respuesta: "aumenta"
+tipo: mc
+opciones_explicitas: ["aumenta", "disminuye", "se mantiene", "desaparece"]
+
+enunciado: "Durante una situación de estrés agudo, la liberación de adrenalina provoca que la presión arterial _______."
+
+explicacion: |
+  La adrenalina causa vasoconstricción y aumenta la frecuencia cardíaca, elevando la presión.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "error_medicion"
+  nivel: "avanzado"
+  tags: ["manguito", "tamaño"]
+
+respuesta: "falsamente alta"
+tipo: completar
+respuestas_validas:
+  - "falsamente alta"
+  - "falsamente baja"
+
+enunciado: "Si el manguito es demasiado pequeño para el brazo del paciente, la lectura será _______."
+
+explicacion: |
+  Un manguito pequeño requiere más presión para ocluir la arteria, dando un valor erróneo superior al real.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "comparacion"
+  nivel: "intermedio"
   tags: ["comparacion"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
-
-enunciado: "Un objeto inerte, como una piedra, puede realizar procesos de nutrición y reproducción."
+enunciado: "La presión sistólica es siempre mayor que la presión diastólica."
 
 explicacion: |
-  Falso, esos procesos son exclusivos de los sistemas biológicos.
+  Por definición, la sistólica es el pico de presión y la diastólica es el mínimo.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
+  tema: "ejercicio_fisico"
   nivel: "intermedio"
-  tags: ["homeostasis"]
+  tags: ["ejercicio"]
+
+respuesta: "aumenta"
+tipo: mc
+opciones_explicitas: ["aumenta", "disminuye", "se estabiliza", "cae"]
+
+enunciado: "Durante el ejercicio físico intenso, la presión arterial sistólica suele _______."
+
+explicacion: |
+  El aumento del gasto cardíaco durante el ejercicio eleva la presión sistólica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "escenario_clinico"
+  nivel: "avanzado"
+  tags: ["deshidratacion", "volumen"]
+
+respuesta: "disminuye"
+tipo: completar
+respuestas_validas:
+  - "disminuye"
+  - "aumenta"
+
+enunciado: "En un paciente con deshidratación severa, el volumen sanguíneo total disminuye, lo que causa que la presión arterial _______."
+
+explicacion: |
+  Menos volumen de fluido en el sistema circulatorio reduce la presión ejercida contra las paredes.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "escenario_clinico"
+  nivel: "avanzado"
+  tags: ["vasodilatacion"]
+
+respuesta: "baja"
+tipo: mc
+opciones_explicitas: ["baja", "sube", "se mantiene", "oscila"]
+
+enunciado: "Si un fármaco produce una vasodilatación masiva en las arterias, la presión arterial _______."
+
+explicacion: |
+  La vasodilatación reduce la resistencia periférica, lo que disminuye la presión.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sustancias_estimulantes"
+  nivel: "intermedio"
+  tags: ["cafeina", "estimulante"]
 
 respuesta: verdadero
 tipo: vf
-
-enunciado: "La homeostasis permite que el ambiente interno de un ser vivo se mantenga relativamente estable, aunque el ambiente externo cambie mucho."
+enunciado: "El consumo de grandes cantidades de cafeína puede provocar un aumento temporal de la presión arterial."
 
 explicacion: |
-  Correcto, por ejemplo mantener la temperatura corporal aunque haga frío o calor afuera.
+  La cafeína es un estimulante que puede elevar la presión arterial y la frecuencia cardíaca.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
+  tema: "escenario_clinico"
   nivel: "avanzado"
-  tags: ["conceptos", "casos_limite"]
+  tags: ["postura"]
 
-respuesta: falso
+respuesta: "incorrecta"
+tipo: completar
+respuestas_validas:
+  - "incorrecta"
+  - "correcta"
+
+enunciado: "Si el paciente tiene las piernas cruzadas durante la toma de presión, la lectura obtenida será _______."
+
+explicacion: |
+  Cruzar las piernas aumenta la presión arterial sistólica en la medición.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "nutricion_presion"
+  nivel: "intermedio"
+  tags: ["sodio", "dieta"]
+
+respuesta: "aumenta"
+tipo: mc
+opciones_explicitas: ["aumenta", "disminuye", "no cambia", "baja"]
+
+enunciado: "Una dieta con un contenido muy elevado de sodio (sal) tiende a _______ la presión arterial a largo plazo."
+
+explicacion: |
+  El sodio retiene agua en el torrente sanguíneo, aumentando el volumen y la presión.
+```
+
+## Sección: filogenia-arboles-evolutivos (25 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "basico"
+  tags: ["filogenia", "evolucion", "cladograma"]
+
 tipo: vf
 
-enunciado: "El fuego, que crece, se reproduce (propaga) y consume 'alimento' (combustible), es considerado un ser vivo porque cumple algunas de estas características."
-
-explicacion: |
-  Falso. Aunque comparte alguna característica superficial, el fuego no tiene organización celular, no responde a estímulos de forma coordinada ni tiene material genético — cumplir una o dos características sueltas no alcanza para ser considerado ser vivo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "intermedio"
-  tags: ["organizacion", "celula"]
+enunciado: "Un árbol filogenético es una representación gráfica que muestra las relaciones de parentesco entre diferentes grupos de organismos basándose en sus ancestros comunes."
 
 respuesta: verdadero
-tipo: vf
-
-enunciado: "Todo ser vivo conocido (con la excepción discutida de los virus) está formado por al menos una célula."
 
 explicacion: |
-  Correcto — desde organismos unicelulares (una sola célula) hasta pluricelulares (muchas), la célula es la unidad básica.
+  Correcto. Los árboles filogenéticos ilustran la historia evolutiva de las especies, mostrando cómo se han diversificado a partir de ancestros compartidos.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "ser_vivo_caracteristicas"
-  nivel: "avanzado"
-  tags: ["conceptos"]
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "basico"
+  tags: ["nodos", "ancestro"]
 
-respuesta: falso
-tipo: vf
+tipo: completar
 
-enunciado: "Todas las características de los seres vivos tienen la misma importancia y ninguna depende de las otras."
+enunciado: "En un cladograma, los puntos donde las ramas se bifurcan se denominan ___."
+
+respuestas_validas:
+  - "nodos"
+respuesta: "nodos"
 
 explicacion: |
-  Falso. Por ejemplo, sin nutrición (obtener energía) no hay crecimiento posible, y sin organización celular no hay ninguna de las demás funciones — hay dependencias entre ellas, no son totalmente independientes.
+  Los nodos representan el momento en que una línea evolutiva se divide en dos o más linajes distintos, marcando el ancestro común más reciente de esos grupos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "basico"
+  tags: ["puntas", "taxones"]
+
+tipo: vf
+
+enunciado: "Las puntas o extremos de las ramas en un árbol filogenético representan siempre especies que ya se han extinguido."
+
+respuesta: falso
+
+explicacion: |
+  Falso. Las puntas pueden representar especies actuales (taxones existentes) o especies extintas que se han identificado en el registro fósil.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "intermedio"
+  tags: ["ramas", "linajes"]
+
+tipo: completar
+
+enunciado: "Las líneas que conectan los nodos en un árbol filogenético se llaman ___."
+
+respuestas_validas:
+  - "ramas"
+respuesta: "ramas"
+
+explicacion: |
+  Las ramas representan el camino evolutivo o linaje que sigue un grupo de organismos a lo largo del tiempo desde un ancestro común.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "intermedio"
+  tags: ["parentesco", "ancestros"]
+
+tipo: vf
+
+enunciado: "Dos especies están más estrechamente relacionadas entre sí si comparten un ancestro común más reciente."
+
+respuesta: verdadero
+
+explicacion: |
+  Exacto. La cercanía en un árbol filogenético se mide por la proximidad del ancestro común más reciente; cuanto más reciente sea el nodo que las une, mayor es su parentesco.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "basico"
+  tags: ["filogenia", "evolucion", "ancestros"]
+
+tipo: mc
+opciones_explicitas: ["Tienen un ancestro común más reciente", "Tienen un ancestro común más antiguo", "Tienen más características físicas similares", "Tienen el mismo número de cromosomas"]
+
+respuesta: "Tienen un ancestro común más reciente"
+
+enunciado: "En un árbol filogenético, dos especies se consideran más estrechamente emparentadas si..."
+
+explicacion: |
+  El parentesco evolutivo se define por la proximidad temporal del ancestro común. Cuanto más reciente sea el nodo que une a dos taxones, mayor es su parentesco, independientemente de su apariencia física.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "intermedio"
+  tags: ["filogenia", "evolucion", "morfologia"]
+
+tipo: vf
+
+enunciado: "Un tiburón (pez) y un delfín (mamífero) tienen cuerpos con forma similar debido a la adaptación al medio acuático, pero no están estrechamente emparentados porque su ancestro común más reciente es muy antiguo."
+
+respuesta: verdadero
+
+explicacion: |
+  La similitud entre tiburones y delfines es un caso de evolución convergente. El parentesco se mide por la historia evolutiva (ancestro común), no por la apariencia externa.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "intermedio"
+  tags: ["filogenia", "nodos", "lectura_arbol"]
+
+tipo: mc
+opciones_explicitas: ["El nodo más cercano a las puntas", "El nodo más cercano a la raíz", "El nodo que tiene más ramas", "El nodo que está en el centro del árbol"]
+
+respuesta: "El nodo más cercano a las puntas"
+
+enunciado: "Para determinar qué dos especies tienen un parentesco más cercano en un cladograma, debemos buscar..."
+
+explicacion: |
+  El nodo más cercano a las puntas (terminales) representa el ancestro común más reciente. A medida que retrocedemos hacia la raíz, los ancestros son más antiguos y los grupos menos relacionados.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "avanzado"
+  tags: ["filogenia", "cladogramas", "relaciones"]
+
+tipo: vf
+
+enunciado: "Si en un árbol las especies A y B comparten un nodo exclusivo que no comparten con la especie C, entonces A y B están más emparentadas entre sí que con C."
+
+respuesta: verdadero
+
+explicacion: |
+  La clave de la filogenia es la exclusividad del ancestro común. Si A y B comparten un nodo que no incluye a C, significa que A y B divergieron después de separarse de la línea que lleva a C.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "basico"
+  tags: ["filogenia", "evolucion", "conceptos"]
+
+tipo: vf
+
+enunciado: "En un árbol filogenético, un nodo representa el momento en que un linaje se divide en dos o más linajes distintos."
+
+respuesta: verdadero
+
+explicacion: |
+  Correcto. Cada nodo en un cladograma representa un evento de especiación o la existencia de un ancestro común que dio origen a los grupos que se ramifican de él.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "basico"
+  tags: ["evolucion", "filogenia", "errores_conceptuales"]
+
+tipo: completar
+
+enunciado: "Un error común al interpretar árboles filogenéticos es verlos como una 'escalera de progreso' donde las especies más modernas son 'mejores' que las antiguas. En realidad, todas las especies actuales tienen la misma cantidad de tiempo transcurrido desde su ancestro común. Por lo tanto, la evolución no es una ___."
+
+respuestas_validas:
+  - "jerarquía"
+  - "jerarquia"
+respuesta: "jerarquía"
+
+explicacion: |
+  Los árboles filogenéticos representan relaciones de parentesco, no niveles de "perfección" o "progreso". Las especies actuales no son descendientes de otras especies actuales, sino que son ramas que coexisten tras haber divergido de un ancestro común.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "basico"
+  tags: ["filogenia", "interpretacion", "ancestros"]
+
+tipo: completar
+
+enunciado: "En un árbol filogenético, si rotamos las ramas alrededor de un nodo, la relación de parentesco entre las especies no cambia. Esto significa que el orden en que aparecen las especies en las puntas del árbol es ___."
+
+respuestas_validas:
+  - "arbitrario"
+respuesta: "arbitrario"
+
+explicacion: |
+  La rotación de nodos es una propiedad matemática de los árboles. El parentesco se define por la proximidad de los ancestros comunes, no por la posición visual de izquierda a derecha en el dibujo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "intermedio"
+  tags: ["evolucion", "tiempo", "ancestros"]
+
+tipo: completar
+
+enunciado: "Considerando un grupo de especies actuales, todas ellas han evolucionado desde su ancestro común durante el mismo período de tiempo. Si el ancestro común apareció hace 50 millones de años, todas las especies actuales del grupo tienen exactamente ___ millones de años de historia evolutiva desde ese punto."
+
+respuestas_validas:
+  - "50"
+respuesta: "50"
+
+explicacion: |
+  Todas las puntas de un árbol filogenético representan organismos contemporáneos. Por lo tanto, la distancia temporal desde el ancestro común hasta la actualidad es la misma para todos los linajes que parten de ese punto.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "basico"
+  tags: ["evolucion", "conceptos", "errores"]
+
+tipo: completar
+
+enunciado: "Es incorrecto afirmar que un ser humano es 'más evolucionado' que un hongo: ambos han acumulado cambios genéticos y adaptaciones desde sus respectivos ancestros comunes. La evolución no busca la ___ de una especie sobre otra, sino la adaptación al entorno."
+
+respuestas_validas:
+  - "superioridad"
+  - "perfección"
+  - "perfeccion"
+respuesta: "superioridad"
+
+explicacion: |
+  La evolución no tiene un objetivo de perfección o de llegar a un estado de "máximo desarrollo". Es un proceso de cambio continuo donde la supervivencia depende de la adaptación al nicho ecológico, no de alcanzar un estándar de complejidad predeterminado.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "intermedio"
+  tags: ["filogenia", "nodos", "parentesco"]
+
+tipo: completar
+
+enunciado: "En un árbol filogenético, un nodo representa el punto donde un linaje se divide en dos. Este punto simboliza un ___ común que ya no existe como una única población, sino que dio lugar a las especies actuales."
+
+respuestas_validas:
+  - "ancestro"
+respuesta: "ancestro"
+
+explicacion: |
+  Los nodos son los puntos de divergencia. No representan a una especie actual, sino a un ancestro común hipotético del cual descendieron los linajes que se separan en ese punto.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "basico"
+  tags: ["adn", "evolucion", "filogenia"]
+
+variables:
+  escenario: uno_de([["ATGC", "ATGG", "Muy emparentadas"], ["CCGA", "TTAG", "Poco emparentadas"], ["TTAA", "TTAG", "Muy emparentadas"]])
+
+enunciado: "Se comparan las secuencias de ADN de dos especies: la especie A tiene la secuencia {escenario[0]} y la especie B tiene la secuencia {escenario[1]}. Contando las diferencias entre ambas secuencias, ¿qué tan emparentadas están?"
+
+opciones_explicitas: ["Muy emparentadas", "Poco emparentadas"]
+respuesta: escenario[2]
+tipo: mc
+
+explicacion: |
+  En filogenia, cuantas más coincidencias existan en las secuencias de ADN entre dos especies, menor es el tiempo transcurrido desde su ancestro común, lo que indica un parentesco más cercano.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "basico"
+  tags: ["ancestros", "cladogramas"]
+
+enunciado: "En un árbol filogenético, el punto donde dos ramas se unen se denomina nodo, el cual representa el ___ común de las especies que de él derivan."
+
+respuestas_validas:
+  - "ancestro"
+  - "antepasado"
+respuesta: "ancestro"
+tipo: completar
+
+explicacion: |
+  Un nodo en un cladograma representa un evento de especiación o el último ancestro común compartido por los linajes que se separan en ese punto.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "intermedio"
+  tags: ["adn", "mutacion", "distancia"]
+
+variables:
+  idx: uno_de([0, 1])
+  tabla: [["El primer par", "El primer par"], ["El segundo par", "El segundo par"]]
+
+enunciado: "Comparando dos pares de especies por su distancia genética (cantidad de mutaciones acumuladas desde que se separaron): {tabla[idx][0]} tiene la menor cantidad de mutaciones. ¿Cuál de los dos pares tiene el ancestro común más reciente?"
+
+opciones_explicitas: ["El primer par", "El segundo par"]
+respuesta: tabla[idx][1]
+tipo: mc
+
+explicacion: |
+  A menor número de mutaciones (distancia genética), menor es el tiempo transcurrido desde la divergencia, por lo tanto, el ancestro común es más reciente.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "intermedio"
+  tags: ["homologia", "evolucion"]
+
+enunciado: "Las estructuras que derivan de un mismo ancestro común, aunque tengan funciones distintas, se llaman estructuras ___."
+
+respuestas_validas:
+  - "homologas"
+  - "homólogas"
+respuesta: "homologas"
+tipo: completar
+
+explicacion: |
+  La homología se refiere a rasgos compartidos por especies debido a su herencia común, como el brazo de un humano y la aleta de una ballena.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "avanzado"
+  tags: ["cladogramas", "adn"]
+
+variables:
+  escenario: uno_de([["chimpancé", "1", "cerdo"], ["gorila", "2", "ratón"]])
+
+enunciado: "El ser humano comparte más secuencia de ADN con el {escenario[0]} (diferencia de apenas {escenario[1]}% en algunas regiones comparadas) que con el {escenario[2]}. ¿Cuál de los dos animales comparte un ancestro común más reciente con el ser humano?"
+
+respuesta: escenario[0]
+tipo: completar
+respuestas_validas:
+  - escenario[0]
+
+explicacion: |
+  Cuanto menor es la diferencia porcentual entre secuencias de ADN, más reciente es el ancestro común compartido — por eso el árbol filogenético ubica a los primates mucho más cerca del ser humano que a otros mamíferos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "basico"
+  tags: ["filogenia", "evolucion", "especiacion"]
+
+tipo: mc
+opciones_explicitas: ["Un ancestro común que se dividió en dos linajes", "Una especie que ha evolucionado mucho", "Un cambio climático que afectó a todos", "El fin de una línea evolutiva"]
+respuesta: "Un ancestro común que se dividió en dos linajes"
+
+enunciado: "En un árbol filogenético, un nodo (punto de ramificación) representa principalmente:"
+
+explicacion: |
+  Un nodo representa el último ancestro común entre los grupos que se desprenden de él. Es el momento en que una población ancestral se divide en dos linajes distintos, proceso conocido como especiación.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "basico"
+  tags: ["filogenia", "terminologia"]
+
+tipo: mc
+opciones_explicitas: ["Un evento de especiación", "Un ancestro común", "Una especie actual o extinta", "Un cambio genético"]
+respuesta: "Una especie actual o extinta"
+
+enunciado: "Las puntas de las ramas (llamadas taxones o terminales) en un árbol filogenético representan:"
+
+explicacion: |
+  Las puntas representan los grupos que se están comparando, que pueden ser especies actuales (si el árbol es actual) o especies extintas (si se incluyen fósiles).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "intermedio"
+  tags: ["filogenia", "conceptos"]
+
+tipo: completar
+respuestas_validas:
+  - "especiación"
+  - "especiacion"
+respuesta: "especiación"
+
+enunciado: "Cuando un nodo se bifurca, se está representando un evento de ___ que da origen a nuevos linajes."
+
+explicacion: |
+  La ramificación en un árbol es la representación visual de la especiación, donde una única línea ancestral se divide en dos o más ramas independientes.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "intermedio"
+  tags: ["filogenia", "parentesco"]
+
+tipo: mc
+opciones_explicitas: ["más cercano", "más lejano", "idéntico", "no relacionado"]
+respuesta: "más cercano"
+
+enunciado: "Si dos especies comparten un nodo que no comparten con otras, se dice que están emparentadas de forma ___ entre sí en comparación con el resto."
+
+explicacion: |
+  La proximidad de un nodo compartido indica un parentesco más reciente. Cuanto más reciente sea el ancestro común (más cerca de las puntas), más estrecho es el parentesco.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "filogenia_arboles_evolutivos"
+  nivel: "avanzado"
+  tags: ["filogenia", "interpretacion"]
+
+tipo: completar
+respuestas_validas:
+  - "extinta"
+respuesta: "extinta"
+
+enunciado: "Si una rama del árbol termina antes de llegar al presente (no es una punta terminal de un árbol de especies actuales), esa rama representa una especie ___."
+
+explicacion: |
+  En los árboles filogenéticos, las ramas que no terminan en el presente suelen representar linajes que se extinguieron antes de la diversificación actual.
 ```
 
 ## Sección: sistema-endocrino-hormonas-glandulas (25 preguntas)
@@ -2268,372 +2932,6 @@ enunciado: "Los neurotransmisores se unen a ___ en la membrana de la siguiente n
 
 explicacion: |
   Los receptores específicos en la membrana postsináptica detectan los neurotransmisores y generan la respuesta celular correspondiente.
-```
-
-## Sección: sistemas-cuerpo-humano (22 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["organizacion", "biologia_celular"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El orden de los niveles de organización biológica, desde lo más pequeño a lo más grande, es: célula, tejido, órgano, sistema y organismo."
-
-explicacion: |
-  Correcto. La jerarquía biológica comienza con la unidad básica de la vida (célula) y se va complejizando mediante la agrupación de sus componentes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["tejido", "celulas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un tejido se define como un grupo de células similares que trabajan juntas para cumplir una misma función."
-
-explicacion: |
-  Exacto. La especialización de las células permite que se agrupen en tejidos con funciones específicas (epitelial, muscular, nervioso, conectivo).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["organo", "celula"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un órgano es una estructura biológica compuesta por una sola célula altamente especializada."
-
-explicacion: |
-  Falso. Un órgano es una estructura compleja formada por la integración de diversos tejidos que colaboran para una función determinada.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "intermedio"
-  tags: ["corazon", "tejidos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El corazón es un órgano que combina tejidos muscular, nervioso y conectivo para cumplir su función de bombeo."
-
-explicacion: |
-  Verdadero. Para funcionar, el corazón requiere tejido muscular (miocardio), tejido nervioso (para la conducción eléctrica) y tejido conectivo (válvulas y estructura).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "intermedio"
-  tags: ["organizacion", "definiciones"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  datos: [["tejido", "grupo de celulas similares con la misma funcion"], ["organo", "combinacion de distintos tejidos con un proposito"], ["sistema", "conjunto de organos que colaboran en una funcion general"]]
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["grupo de celulas similares con la misma funcion", "combinacion de distintos tejidos con un proposito", "conjunto de organos que colaboran en una funcion general"]
-
-enunciado: "Identifica la definición correcta para el nivel de organización: {datos[idx][0]}"
-
-explicacion: |
-  La respuesta correcta corresponde a la definición del nivel seleccionado en este intento.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["sistemas", "fisiologia"]
-
-variables:
-  idx: uno_de([0, 1, 2, 3])
-  escenario: [["digestivo", "descomponer alimento y absorber nutrientes"], ["respiratorio", "intercambio de gases oxigeno y dioxido de carbono"], ["circulatorio", "transportar sangre, nutrientes y gases"], ["nervioso", "recibir y procesar informacion, controlar el cuerpo"]]
-
-opciones_explicitas: ["descomponer alimento y absorber nutrientes", "intercambio de gases oxigeno y dioxido de carbono", "transportar sangre, nutrientes y gases", "recibir y procesar informacion, controlar el cuerpo"]
-
-respuesta: escenario[idx][1]
-tipo: mc
-
-enunciado: "La función principal del sistema {escenario[idx][0]} es: ___"
-
-explicacion: |
-  El sistema seleccionado es el {escenario[idx][0]}, cuya función es {escenario[idx][1]}.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["respiratorio", "gases"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El sistema respiratorio se encarga del intercambio de gases entre el cuerpo y el aire."
-
-explicacion: |
-  Verdadero. El sistema respiratorio permite la entrada de oxígeno y la eliminación de dióxido de carbono.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["circulatorio", "sangre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El sistema circulatorio transporta sangre por todo el cuerpo."
-
-explicacion: |
-  Verdadero. A través de la sangre, el sistema circulatorio distribuye nutrientes y oxígeno a todas las células.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["digestivo", "nervioso"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El sistema digestivo se encarga de procesar información nerviosa."
-
-explicacion: |
-  Falso. El procesamiento de la información nerviosa es función del sistema nervioso; el digestivo se encarga de la nutrición.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["sistemas", "anatomia"]
-
-variables:
-  escenario: [["oseo", "huesos"], ["muscular", "musculos"], ["excretor", "riñones"], ["endocrino", "tiroides o pancreas"]]
-  idx: uno_de([0, 1, 2, 3])
-  sistema_actual: escenario[idx][0]
-  organo_correcto: escenario[idx][1]
-
-tipo: mc
-opciones_explicitas: ["huesos", "musculos", "riñones", "tiroides o pancreas"]
-
-enunciado: "El sistema {sistema_actual} tiene como órgano clave a los ___."
-
-respuesta: organo_correcto
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["sistema_oseo", "funciones"]
-
-tipo: vf
-
-enunciado: "El sistema óseo cumple la función de sostén y protección."
-
-respuesta: verdadero
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["sistema_muscular", "movimiento"]
-
-tipo: vf
-
-enunciado: "El sistema muscular es responsable del movimiento del cuerpo."
-
-respuesta: verdadero
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["sistema_excretor", "riñones"]
-
-tipo: vf
-
-enunciado: "El sistema excretor filtra y elimina desechos, teniendo a los riñones como órgano clave."
-
-respuesta: verdadero
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["integracion", "sistemas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ningún sistema del cuerpo humano trabaja de forma completamente aislada; todos funcionan de manera coordinada."
-
-explicacion: |
-  El cuerpo humano es un sistema complejo donde la interacción entre órganos y sistemas es fundamental para mantener la homeostasis.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "intermedio"
-  tags: ["musculo", "nervioso", "circulatorio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para que un músculo realice un movimiento, es necesaria la señal eléctrica proveniente del sistema nervioso y el suministro de oxígeno transportado por el sistema circulatorio."
-
-explicacion: |
-  El sistema nervioso envía el impulso para la contracción, mientras que el sistema circulatorio provee el oxígeno necesario para el metabolismo celular muscular.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["especializacion", "integracion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La especialización de cada sistema (digestivo, excretor, nervioso, etc.) significa que sus funciones son completamente independientes entre sí."
-
-explicacion: |
-  Aunque cada sistema tiene funciones especializadas, todos están integrados. La especialización permite la eficiencia, pero la interdependencia es necesaria para la vida.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["respiratorio", "circulatorio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El sistema respiratorio es el encargado de capturar el oxígeno del medio externo, el cual es posteriormente transportado por la sangre a través del sistema circulatorio."
-
-explicacion: |
-  Existe una dependencia directa: el sistema respiratorio realiza el intercambio gaseoso en los alvéolos y el sistema circulatorio actúa como el vehículo de distribución.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["homeostasis", "equilibrio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La homeostasis es el equilibrio interno del cuerpo (temperatura, pH, azúcar en sangre), aunque el ambiente externo cambie."
-
-explicacion: |
-  La homeostasis es el proceso mediante el cual los organismos mantienen un ambiente interno estable a pesar de las variaciones en el entorno.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["homeostasis", "sistemas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todos los sistemas del cuerpo, en conjunto, trabajan para mantener la homeostasis."
-
-explicacion: |
-  La homeostasis no depende de un solo órgano, sino de la interacción coordinada de múltiples sistemas (nervioso, endocrino, excretor, etc.).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["sistema_inmunitario", "defensa"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El sistema inmunitario se encarga de la defensa del organismo contra patógenos."
-
-explicacion: |
-  El sistema inmunitario identifica y destruye agentes extraños como bacterias, virus y parásitos para proteger al cuerpo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["sistema_reproductor", "reproduccion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El sistema reproductor tiene como función principal la producción de descendencia para asegurar la supervivencia de la especie."
-
-explicacion: |
-  A diferencia de otros sistemas que mantienen la vida del individuo, el sistema reproductor permite la continuidad de la vida a nivel poblacional.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "sistemas_cuerpo_humano"
-  nivel: "basico"
-  tags: ["homeostasis", "completar"]
-
-respuesta: "homeostasis"
-tipo: completar
-respuestas_validas:
-  - "homeostasis"
-
-enunciado: "El equilibrio interno del cuerpo que se mantiene aunque el ambiente externo cambie se llama ___."
-
-explicacion: |
-  El término correcto es homeostasis, que proviene del griego 'homoios' (similar) y 'stasis' (estabilidad).
 ```
 
 ## Sección: transgenicos-bioetica (23 preguntas)

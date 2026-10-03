@@ -4,35 +4,35 @@
   "cluster": 1,
   "temas": [
    "acustica-instrumento-musical",
-   "armonia-basica-acordes-tonalidad",
    "composicion-y-proporcion",
-   "danza-ritmo-tiempo-expresion-corporal",
-   "elementos-del-arte"
+   "origen-del-arte",
+   "elementos-del-arte",
+   "principios-de-diseno"
   ],
-  "preguntas": 127
+  "preguntas": 132
  },
  {
   "id": 905,
   "cluster": 2,
   "temas": [
-   "lenguaje-musical-pentagrama-escalas-intervalos",
-   "origen-del-arte",
-   "principios-de-diseno",
    "ritmo-compas-pulso-figuras-musicales",
-   "narrativa-audiovisual/plano"
+   "narrativa-audiovisual/plano",
+   "danza-ritmo-tiempo-expresion-corporal",
+   "lenguaje-musical-pentagrama-escalas-intervalos",
+   "narrativa-audiovisual/encuadre"
   ],
-  "preguntas": 129
+  "preguntas": 123
  },
  {
   "id": 906,
   "cluster": 3,
   "temas": [
-   "rosetones-y-simetria",
-   "narrativa-audiovisual/encuadre",
-   "teatro-dramaturgia-y-actuacion",
+   "armonia-basica-acordes-tonalidad",
    "narrativa-audiovisual/montaje",
-   "produccion-multimedial"
+   "rosetones-y-simetria",
+   "produccion-multimedial",
+   "teatro-dramaturgia-y-actuacion"
   ],
-  "preguntas": 119
+  "preguntas": 120
  }
 ]

@@ -1,1767 +1,2154 @@
 # Examen jefe — [PENDIENTE #777]
 
-> Logro #777. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **95 preguntas totales** en 5/5 secciones.
+> Logro #777. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **113 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: descuentos-obligatorios/jubilacion (20 preguntas)
+## Sección: tipos-de-organizaciones (24 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion"
+  tema: "tipos_de_organizaciones"
   nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Qué significa jubilarse?"
-tipo: mc
-opciones_explicitas:
-  - "Dejar de trabajar y empezar a cobrar un haber mensual financiado por los aportes hechos durante la vida laboral"
-  - "Cambiar de trabajo a uno mejor pago"
-  - "Dejar de pagar impuestos"
-respuesta: "Dejar de trabajar y empezar a cobrar un haber mensual financiado por los aportes hechos durante la vida laboral"
-
-explicacion: |
-  Es la contrapartida de haber aportado durante los años de actividad
-  laboral.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Cómo funciona el sistema de reparto en Argentina?"
-tipo: mc
-opciones_explicitas:
-  - "Lo que aportan los trabajadores activos hoy financia las jubilaciones que se pagan hoy"
-  - "Cada persona junta su propia plata en una cuenta individual para su futuro"
-  - "El Estado paga las jubilaciones con impuestos al consumo únicamente"
-respuesta: "Lo que aportan los trabajadores activos hoy financia las jubilaciones que se pagan hoy"
-
-explicacion: |
-  Es un pacto entre generaciones, no un ahorro individual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En el sistema de reparto, cada trabajador junta su propia plata en una cuenta individual para cuando se jubile."
-
-explicacion: |
-  Eso sería un sistema de capitalización individual, no de reparto. En el
-  reparto, los aportes de los activos de hoy pagan a los jubilados de
-  hoy.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el sistema de reparto argentino, los aportes de los trabajadores activos financian las jubilaciones que se pagan en ese mismo momento."
-
-explicacion: |
-  Es la característica central del sistema de reparto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "basico"
-  tags: ["jubilacion"]
-
-respuesta: 65
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el régimen general argentino, ¿a qué edad mínima se puede jubilar un varón?"
-
-explicacion: |
-  65 años es la edad mínima general para varones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "basico"
-  tags: ["jubilacion"]
-
-respuesta: 60
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el régimen general argentino, ¿a qué edad mínima se puede jubilar una mujer?"
-
-explicacion: |
-  60 años es la edad mínima general para mujeres, 5 años antes que los
-  varones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "basico"
-  tags: ["jubilacion"]
-
-respuesta: 30
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el régimen general, ¿cuántos años mínimos de aportes hacen falta para jubilarse?"
-
-explicacion: |
-  30 años de aportes es el mínimo del régimen general.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para jubilarse en el régimen general hacen falta la edad mínima Y los años de aportes al mismo tiempo, no alcanza con cumplir sólo una de las dos condiciones."
-
-explicacion: |
-  Son dos requisitos que se piden juntos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Qué organismo administra el sistema jubilatorio argentino?"
-tipo: mc
-opciones_explicitas:
-  - "ANSES"
-  - "AFIP"
-  - "El Banco Central"
-respuesta: "ANSES"
-
-explicacion: |
-  ANSES recauda los aportes, liquida y paga los haberes jubilatorios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Existen mecanismos (como moratorias previsionales o la PUAM) para dar alguna cobertura a quienes llegan a la edad pero no completaron los 30 años de aportes."
-
-explicacion: |
-  El sistema busca dar algún tipo de cobertura incluso a quien no
-  completó el régimen general.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "problema"]
+  tags: ["definicion", "concepto_basico"]
 
 variables:
-  edad_actual: random(30, 64)
+  num_personas: random(5, 20)
 
-respuesta: 65 - edad_actual
-tipo: input
-tolerancia_abs: 0
+respuesta: "agrupamiento"
+tipo: completar
 
-enunciado: "Un varón tiene {edad_actual} años. ¿Cuántos años le faltan para la edad jubilatoria mínima (65)?"
+enunciado: "Una organización se define como un {num_personas} o más personas estructuradas con un propósito común."
 
 explicacion: |
-  Se resta la edad actual a la edad mínima requerida.
+  Las organizaciones surgen porque es difícil satisfacer necesidades individuales por separado. Requieren estructura y objetivos compartidos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion"
+  tema: "tipos_de_organizaciones"
   nivel: "intermedio"
-  tags: ["jubilacion", "problema"]
+  tags: ["factores_produccion", "empresa"]
 
 variables:
-  anios_aportados: random(5, 29)
+  factor1: "trabajo"
+  factor2: "capital"
+  factor3: "tierra"
 
-respuesta: 30 - anios_aportados
-tipo: input
-tolerancia_abs: 0
+respuesta: "trabajo, capital y tierra"
+tipo: completar
 
-enunciado: "Alguien ya aportó {anios_aportados} años. ¿Cuántos años más de aportes necesita para llegar a los 30 requeridos?"
+enunciado: "Para crear bienes o servicios, la empresa combina factores como el {factor1}, el {factor2} y la {factor3}."
 
 explicacion: |
-  Se resta lo ya aportado al mínimo requerido.
+  La empresa transforma estos tres factores de producción para generar valor económico.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El sistema de reparto funciona como un pacto entre generaciones: la generación activa sostiene a la jubilada, esperando que la próxima generación activa la sostenga a ella después."
-
-explicacion: |
-  Es la lógica de fondo del sistema, distinta de un ahorro individual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Además de las jubilaciones, ANSES gestiona otras prestaciones sociales, como la Asignación Universal por Hijo (AUH)."
-
-explicacion: |
-  ANSES no administra sólo jubilaciones, sino varios programas de
-  seguridad social.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion"]
-
-enunciado: "¿Cuál definición corresponde al sistema de reparto?"
-tipo: mc
-opciones_explicitas:
-  - "Los aportes de los activos de hoy financian las jubilaciones de hoy"
-  - "Cada trabajador ahorra en una cuenta propia que usa cuando se jubila"
-  - "El Estado no participa para nada en el sistema"
-respuesta: "Los aportes de los activos de hoy financian las jubilaciones de hoy"
-
-explicacion: |
-  La segunda opción describe un sistema de capitalización individual, no
-  de reparto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Además del régimen general, existen regímenes jubilatorios especiales para ciertas actividades (como docentes o tareas insalubres), con requisitos propios."
-
-explicacion: |
-  No todos los trabajadores se jubilan bajo exactamente las mismas
-  condiciones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
+  tema: "tipos_de_organizaciones"
   nivel: "basico"
-  tags: ["jubilacion"]
+  tags: ["definicion", "concepto_basico"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  n_personas: random(5, 20)
 
-enunciado: "En el régimen general, la edad mínima jubilatoria de las mujeres (60) es menor que la de los varones (65)."
+respuesta: "un grupo de personas estructuradas con un propósito común"
+tipo: completar
+
+enunciado: "Según la teoría, una organización se define como {n_personas} o más personas agrupadas para:"
 
 explicacion: |
-  Hay una diferencia de 5 años entre ambas edades mínimas.
+  Las organizaciones surgen porque rara vez podemos satisfacer todas nuestras necesidades individualmente. Se trata de un conjunto de personas estructuradas con un propósito común para trabajar en conjunto y compartir recursos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion"
+  tema: "tipos_de_organizaciones"
+  nivel: "intermedio"
+  tags: ["factores", "empresa"]
+
+variables:
+  f1: "trabajo"
+  f2: "capital"
+  f3: "tierra"
+
+respuesta: "trabajo, capital y tierra"
+tipo: completar
+
+enunciado: "Para crear bienes o prestar servicios, la empresa combina los factores de producción: {f1}, {f2} y {f3}."
+
+explicacion: |
+  La empresa combina tres factores clave de producción: el trabajo (mano de obra), el capital (dinero, maquinaria) y la tierra (recursos naturales) para generar productos o servicios.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "intermedio"
+  tags: ["riesgo", "propietarios"]
+
+variables:
+  resultado: uno_de(["ganancia", "pérdida"])
+
+respuesta: "propietarios"
+tipo: completar
+
+enunciado: "En una empresa, si el resultado es una {resultado}, el riesgo y la recompensa recaen directamente en los:"
+
+explicacion: |
+  Lo que distingue a la empresa es que el riesgo y la recompensa (ganancias o pérdidas) recaen directamente en sus propietarios o accionistas, no en el Estado ni en los socios de una cooperativa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "basico"
+  tags: ["estado", "bienestar"]
+
+variables:
+  fin: "bienestar general de la sociedad"
+
+respuesta: "bienestar general de la sociedad"
+tipo: completar
+
+enunciado: "La administración pública tiene como fin el:"
+
+explicacion: |
+  Mientras la empresa busca ganancias, la administración pública (gestionada por el Estado) tiene como fin el bienestar general de la sociedad, proveiendo servicios esenciales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "intermedio"
+  tags: ["financiamiento", "impuestos"]
+
+variables:
+  fuente: "impuestos"
+
+respuesta: "impuestos"
+tipo: completar
+
+enunciado: "Las organizaciones de la administración pública se financian principalmente a través de los {fuente} que pagan los ciudadanos."
+
+explicacion: |
+  El Estado financia sus organizaciones (hospitales, escuelas, policía) principalmente mediante los impuestos que recauda de los ciudadanos, ya que no buscan generar lucro.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "intermedio"
+  tags: ["pyme", "economia_argentina"]
+
+variables:
+  rol: "corazón de la economía argentina"
+
+respuesta: "corazón de la economía argentina"
+tipo: completar
+
+enunciado: "Las pequeñas y medianas empresas (PyMEs) son consideradas el {rol}, ofreciendo empleo local y productos específicos."
+
+explicacion: |
+  En la economía argentina, las PyMEs son fundamentales. Aunque existen grandes corporaciones, las PyMEs constituyen el corazón de la economía al ofrecer empleo local y productos específicos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "intermedio"
+  tags: ["eficiencia", "competencia"]
+
+variables:
+  clave: "eficiencia"
+
+respuesta: "eficiencia"
+tipo: completar
+
+enunciado: "La {clave} es la clave de la empresa: debe producir de la mejor manera posible para ofrecer precios competitivos y seguir siendo rentable."
+
+explicacion: |
+  Para sobrevivir y ser rentable, la empresa debe basarse en la eficiencia. Debe producir de la mejor manera posible para ofrecer precios competitivos en el mercado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "basico"
+  tags: ["ong", "sin_animo_de_lucro"]
+
+variables:
+  fin: "ayudar a la comunidad sin ánimo de lucro"
+
+respuesta: "ayudar a la comunidad sin ánimo de lucro"
+tipo: completar
+
+enunciado: "Las organizaciones no gubernamentales (ONG) existen para:"
+
+explicacion: |
+  Las ONG son organizaciones que buscan ayudar a la comunidad sin ánimo de lucro. Su objetivo es social o benéfico, no económico.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "intermedio"
+  tags: ["ejemplo", "servicios_publicos"]
+
+variables:
+  gestion: "administración pública"
+
+respuesta: "administración pública"
+tipo: completar
+
+enunciado: "Para entender cómo se financian los hospitales públicos, debemos mirar a la {gestion}, que provee servicios esenciales."
+
+explicacion: |
+  Los hospitales públicos son un ejemplo de servicios provistos por la administración pública. Su financiamiento proviene de impuestos, no de ventas al consumidor final con fin de lucro.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
   nivel: "avanzado"
-  tags: ["jubilacion", "problema"]
+  tags: ["ejemplo", "problemas_economicos"]
 
 variables:
-  edad_jubilacion: uno_de([60, 65])
-  anios_trabajados: 30
+  razon: "lógica diferente"
 
-respuesta: edad_jubilacion - anios_trabajados
+respuesta: "lógica diferente"
+tipo: completar
+
+enunciado: "Algunos clubes deportivos tienen problemas económicos mientras otros prosperan debido a que tienen una {razon} para generar riqueza o distribuir bienes."
+
+explicacion: |
+  La diversidad en los tipos de organizaciones (clubes, empresas, ONG) implica que cada una tiene una lógica diferente para generar riqueza o distribuir bienes, lo que explica sus distintos resultados económicos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "basico"
+  tags: ["clasificacion", "sector_privado"]
+
+variables:
+  sector: "sector privado"
+
+respuesta: "sector privado"
+tipo: completar
+
+enunciado: "La empresa es la organización más común en el {sector}."
+
+explicacion: |
+  La empresa pertenece al sector privado. Es la unidad básica de la economía de mercado, dedicada a la producción de bienes y servicios con fines de lucro.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "intermedio"
+  tags: ["riesgo", "propietarios"]
+
+variables:
+  quien: "propietarios o accionistas"
+
+respuesta: "propietarios o accionistas"
+tipo: completar
+
+enunciado: "En una empresa, si fracasa, las pérdidas las asumen los {quien}."
+
+explicacion: |
+  Una característica distintiva de la empresa es que los propietarios o accionistas asumen personalmente las pérdidas si la empresa fracasa, a diferencia de otros tipos de organizaciones.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "basico"
+  tags: ["bien_publico", "estado"]
+
+variables:
+  quien: "el Estado"
+
+respuesta: "el Estado"
+tipo: completar
+
+enunciado: "Los bienes y servicios públicos esenciales son provistos por {quien}."
+
+explicacion: |
+  El Estado (a través de la administración pública) es responsable de proveer bienes y servicios públicos esenciales que el mercado por sí solo no proveería eficientemente.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "basico"
+  tags: ["clasificacion", "fin"]
+
+variables:
+  criterio: "su fin principal"
+
+respuesta: "su fin principal"
+tipo: completar
+
+enunciado: "Las organizaciones se pueden clasificar según {criterio}."
+
+explicacion: |
+  Una de las formas principales de clasificar las organizaciones es según su fin principal: generar ganancias, ayudar a la comunidad o proveer servicios públicos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "intermedio"
+  tags: ["eficiencia", "precio"]
+
+variables:
+  objetivo: "precios competitivos"
+
+respuesta: "precios competitivos"
+tipo: completar
+
+enunciado: "La eficiencia permite a la empresa ofrecer {objetivo} y seguir siendo rentable."
+
+explicacion: |
+  La eficiencia productiva es crucial para que la empresa pueda ofrecer precios competitivos en el mercado, lo cual es necesario para mantenerse rentable.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "basico"
+  tags: ["ong", "objetivo"]
+
+variables:
+  objetivo: "ayudar a la comunidad"
+
+respuesta: "ayudar a la comunidad"
+tipo: completar
+
+enunciado: "El objetivo de las ONG es {objetivo} sin ánimo de lucro."
+
+explicacion: |
+  Las organizaciones no gubernamentales (ONG) tienen como objetivo principal ayudar a la comunidad, operando sin fines de lucro.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "intermedio"
+  tags: ["mercado", "sociedad"]
+
+variables:
+  concepto: "sociedad moderna"
+
+respuesta: "sociedad moderna"
+
+enunciado: "La diversidad de tipos de organizaciones permite que funcione la {concepto}."
+
+explicacion: |
+  La existencia de diferentes tipos de organizaciones (empresas, estado, ONG) con lógicas distintas es lo que permite que funcione la sociedad moderna.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "intermedio"
+  tags: ["riesgo", "recompensa"]
+
+variables:
+  quien: "propietarios"
+
+respuesta: "propietarios"
+
+enunciado: "En la empresa, el riesgo y la recompensa recaen directamente en los {quien}."
+
+explicacion: |
+  Una característica clave de la empresa es que los propietarios (o accionistas) asumen directamente tanto el riesgo de pérdida como la recompensa de ganancia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "basico"
+  tags: ["financiamiento", "estado"]
+
+variables:
+  fuente: "impuestos"
+
+respuesta: "impuestos"
+
+enunciado: "La administración pública se financia principalmente a través de los {fuente}."
+
+explicacion: |
+  El Estado financia sus operaciones y servicios públicos principalmente mediante la recaudación de impuestos de los ciudadanos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "intermedio"
+  tags: ["pyme", "empleo"]
+
+variables:
+  rol: "corazón de la economía argentina"
+
+respuesta: "corazón de la economía argentina"
+
+enunciado: "Las PyMEs son consideradas el {rol} porque ofrecen empleo local."
+
+explicacion: |
+  Las PyMEs son el corazón de la economía argentina debido a su capacidad para ofrecer empleo local y productos específicos, diferenciándose de las grandes corporaciones.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "basico"
+  tags: ["comparacion", "fin"]
+
+respuesta: "falso"
+
+enunciado: "Verdadero o Falso: Todas las organizaciones buscan lo mismo y lo hacen de la misma manera."
+
+explicacion: |
+  Falso. Las organizaciones no todas buscan lo mismo ni lo hacen de la misma manera. Algunas buscan ganancias, otras bienestar social, y otras servicios públicos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipos_de_organizaciones"
+  nivel: "avanzado"
+  tags: ["resumen", "clasificacion"]
+
+variables:
+  tipo1: "empresa"
+  tipo2: "administración pública"
+  tipo3: "ONG"
+
+respuesta: "empresa, administración pública y ONG"
+
+enunciado: "Las tres categorías principales de organizaciones mencionadas son: {tipo1}, {tipo2} y {tipo3}."
+
+explicacion: |
+  El texto clasifica las organizaciones principalmente en tres tipos: la empresa (sector privado con fin de lucro), la administración pública (Estado con fin social) y las ONG (sin ánimo de lucro).
+```
+
+## Sección: deuda-publica-externa (20 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_externa"
+  nivel: "basico"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "¿Qué es la deuda pública externa?"
+tipo: mc
+opciones_explicitas:
+  - "La parte de la deuda de un Estado contraída con acreedores de afuera del país, típicamente en moneda extranjera"
+  - "La deuda que un Estado tiene con sus propios bancos comerciales"
+  - "El total de impuestos que un país no logró cobrar en un año"
+respuesta: "La parte de la deuda de un Estado contraída con acreedores de afuera del país, típicamente en moneda extranjera"
+
+explicacion: |
+  Es la definición central del tema, en contraste con la deuda
+  interna.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_externa"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "¿Cuál de estos es un ejemplo típico de acreedor de deuda pública externa?"
+tipo: mc
+opciones_explicitas:
+  - "El Fondo Monetario Internacional (FMI)"
+  - "Un fondo de pensión que sólo invierte en bonos del propio país"
+  - "Un banco comercial local, exclusivamente"
+respuesta: "El Fondo Monetario Internacional (FMI)"
+
+explicacion: |
+  Es uno de los acreedores externos habituales mencionados en la
+  teoría.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_externa"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "¿Por qué la moneda en la que está denominada la deuda externa es tan relevante?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el Estado no puede emitir esa moneda extranjera para pagarla, a diferencia de lo que puede intentar con deuda en moneda propia"
+  - "Porque la moneda extranjera no tiene ningún valor real"
+  - "En realidad no tiene ninguna relevancia especial"
+respuesta: "Porque el Estado no puede emitir esa moneda extranjera para pagarla, a diferencia de lo que puede intentar con deuda en moneda propia"
+
+explicacion: |
+  Es la diferencia estructural central frente a la deuda interna.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_externa"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "¿De qué formas puede un país conseguir la moneda extranjera necesaria para pagar deuda externa?"
+tipo: mc
+opciones_explicitas:
+  - "Usando reservas, generando superávit comercial, o pidiendo un préstamo nuevo para pagar el vencimiento anterior"
+  - "Emitiendo esa moneda extranjera directamente con su propio banco central"
+  - "No existe ninguna forma de conseguir moneda extranjera"
+respuesta: "Usando reservas, generando superávit comercial, o pidiendo un préstamo nuevo para pagar el vencimiento anterior"
+
+explicacion: |
+  Son las tres vías mencionadas en la teoría, todas conectadas con
+  temas anteriores de esta sub-rama.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_externa"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "Si la moneda local se devalúa, ¿qué pasa con el costo (medido en moneda local) de pagar una deuda externa en dólares?"
+tipo: mc
+opciones_explicitas:
+  - "Aumenta: hace falta más moneda local para juntar la misma cantidad de dólares que antes"
+  - "Disminuye: hace falta menos moneda local para pagar la misma deuda"
+  - "No cambia en absoluto"
+respuesta: "Aumenta: hace falta más moneda local para juntar la misma cantidad de dólares que antes"
+
+explicacion: |
+  Es la conexión directa con `devaluacion/`: la deuda externa es
+  sensible al tipo de cambio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_externa"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La deuda externa en moneda extranjera es más sensible a los movimientos del tipo de cambio que la deuda interna denominada en moneda propia."
+
+explicacion: |
+  Es la diferencia clave entre los dos tipos de deuda pública.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_externa"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "¿Cuál es el riesgo específico central de la deuda externa?"
+tipo: mc
+opciones_explicitas:
+  - "Que el país necesite conseguir suficiente moneda extranjera al vencimiento, sin controlar directamente esa moneda"
+  - "Que la deuda externa nunca genera intereses"
+  - "Que sólo puede pagarse en la moneda del propio país"
+respuesta: "Que el país necesite conseguir suficiente moneda extranjera al vencimiento, sin controlar directamente esa moneda"
+
+explicacion: |
+  Es el riesgo estructural que distingue a la deuda externa de la
+  interna.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_externa"
+  nivel: "basico"
+  tags: ["deuda_publica", "problema"]
+
+enunciado: "Un país recibe un préstamo del FMI, en dólares. ¿Qué tipo de deuda es esta?"
+tipo: mc
+opciones_explicitas:
+  - "Deuda pública externa"
+  - "Deuda pública interna"
+  - "No es deuda: es una donación"
+respuesta: "Deuda pública externa"
+
+explicacion: |
+  Acreedor de afuera, en moneda extranjera: es exactamente la
+  definición de deuda externa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_externa"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un bono emitido \"bajo ley de Nueva York\", vendido a inversores extranjeros en dólares, es un ejemplo real de deuda pública externa."
+
+explicacion: |
+  Es el ejemplo concreto citado en la teoría.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_externa"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "problema"]
+
+enunciado: "Una noticia dice \"el país tiene vencimientos de deuda externa por U$S 2.000 millones el año que viene\". ¿Qué está informando esa cifra?"
+tipo: mc
+opciones_explicitas:
+  - "Cuánta moneda extranjera necesita conseguir el país en ese plazo para cumplir sus pagos"
+  - "Cuánto va a recaudar el país en impuestos ese año"
+  - "El tamaño total del PBI del país"
+respuesta: "Cuánta moneda extranjera necesita conseguir el país en ese plazo para cumplir sus pagos"
+
+explicacion: |
+  Es la lectura directa de un vencimiento de deuda externa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_externa"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "calculo"]
+
+variables:
+  capital_usd: random(1, 20) * 100
+  tasa_pct: uno_de([4, 5, 8])
+  anios: uno_de([1, 2])
+
+respuesta: capital_usd * (1 + tasa_pct / 100) ^ anios
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 1
 
-enunciado: "Alguien se jubiló justo a la edad mínima ({edad_jubilacion} años) con exactamente los 30 años de aportes requeridos, sin ninguna interrupción. ¿A qué edad empezó a trabajar en blanco?"
+enunciado: "Un país toma un préstamo externo de U$S {capital_usd} millones, a una tasa anual del {tasa_pct}%, a devolver en {anios} año(s), con interés compuesto anual. ¿Cuántos millones de dólares tiene que devolver en total?"
 
 explicacion: |
-  Se resta la cantidad de años trabajados a la edad de jubilación.
+  Misma fórmula de interés compuesto que en `deuda-publica-interna/`,
+  ahora en dólares en vez de moneda local.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El haber que se cobra al jubilarse está relacionado con los aportes hechos durante la vida laboral activa."
-
-explicacion: |
-  Es la contrapartida de haber aportado: a más historia de aportes,
-  mejor el haber (dentro de las reglas del sistema).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El aporte jubilatorio del 11% no es sólo un descuento del sueldo: financia un sistema de reparto que sostiene a quienes ya se jubilaron, con la expectativa de sostener también a quien aporta hoy cuando le toque jubilarse."
-
-explicacion: |
-  Es la idea central de todo el tema: el por qué y el cómo detrás del
-  número que ya se calculó en `../../recibo-de-sueldo/argentina/`.
-```
-
-## Sección: descuentos-obligatorios/obra-social (20 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "basico"
-  tags: ["obra_social", "vocabulario"]
-
-enunciado: "¿Qué es una obra social?"
-tipo: mc
-opciones_explicitas:
-  - "Una entidad que brinda cobertura de salud a los trabajadores y sus familias"
-  - "Un impuesto que se paga al Estado"
-  - "Una empresa de medicina prepaga privada"
-respuesta: "Una entidad que brinda cobertura de salud a los trabajadores y sus familias"
-
-explicacion: |
-  Se financia con el aporte del trabajador más la contribución del
-  empleador.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
+  tema: "deuda_publica_externa"
   nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-enunciado: "¿Con qué se financia una obra social?"
-tipo: mc
-opciones_explicitas:
-  - "El aporte del empleado (3% del bruto) más la contribución del empleador"
-  - "Sólo con impuestos generales del Estado"
-  - "Sólo con lo que paga el empleado, el empleador no aporta nada"
-respuesta: "El aporte del empleado (3% del bruto) más la contribución del empleador"
-
-explicacion: |
-  Es el mismo esquema aporte+contribución que la jubilación, aplicado a
-  la cobertura de salud.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-enunciado: "¿Qué es el PMO (Programa Médico Obligatorio)?"
-tipo: mc
-opciones_explicitas:
-  - "El piso mínimo de prestaciones que todas las obras sociales tienen que cubrir por ley"
-  - "El máximo de prestaciones que una obra social puede dar"
-  - "Un impuesto adicional sobre la salud"
-respuesta: "El piso mínimo de prestaciones que todas las obras sociales tienen que cubrir por ley"
-
-explicacion: |
-  Ninguna obra social puede cubrir menos que el PMO, sin importar cuál
-  sea.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "basico"
-  tags: ["obra_social", "vocabulario"]
+  tags: ["deuda_publica", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Todas las obras sociales, sin importar cuál sea, tienen que cubrir el PMO como mínimo."
+enunciado: "Los inversores privados de otros países que compran bonos de un Estado en moneda extranjera (\"bonistas\") son un tipo habitual de acreedor de deuda externa."
 
 explicacion: |
-  Es un piso obligatorio por ley, parejo para todas.
+  Es uno de los tres tipos de acreedores externos mencionados en la
+  teoría.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una obra social puede ofrecer prestaciones adicionales por encima del PMO, pero nunca menos que ese piso."
-
-explicacion: |
-  El PMO es un mínimo, no un máximo ni un techo fijo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-enunciado: "¿Qué es la \"opción de cambio\" de obra social?"
-tipo: mc
-opciones_explicitas:
-  - "El derecho de un afiliado a pasar de una obra social a otra, bajo ciertas condiciones"
-  - "La obligación de cambiar de obra social cada año"
-  - "Un descuento extra en el sueldo"
-respuesta: "El derecho de un afiliado a pasar de una obra social a otra, bajo ciertas condiciones"
-
-explicacion: |
-  No es automática: suele pedir una antigüedad mínima de afiliación.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un afiliado puede ejercer la opción de cambio para pasar de la obra social que le corresponde a otra, cumpliendo ciertos requisitos."
-
-explicacion: |
-  No es un derecho ilimitado en cualquier momento, pero sí existe.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia principal entre una obra social y una prepaga?"
-tipo: mc
-opciones_explicitas:
-  - "La obra social se financia con aportes/contribuciones obligatorios del trabajo formal; la prepaga es un seguro privado al que cualquiera se afilia pagando de su bolsillo"
-  - "No hay ninguna diferencia real"
-  - "La prepaga es gratis y la obra social se paga"
-respuesta: "La obra social se financia con aportes/contribuciones obligatorios del trabajo formal; la prepaga es un seguro privado al que cualquiera se afilia pagando de su bolsillo"
-
-explicacion: |
-  Una depende de tener trabajo en blanco; la otra no.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "basico"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cualquier persona puede afiliarse a una prepaga pagando la cuota, sin necesidad de tener un trabajo formal."
-
-explicacion: |
-  A diferencia de la obra social, que depende del aporte de un trabajo
-  registrado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "basico"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "PAMI (INSSJP) es la obra social específica para jubilados y pensionados."
-
-explicacion: |
-  Funciona en paralelo a las obras sociales "de actividad" de los
-  trabajadores activos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aunque PAMI cubre a jubilados, también recibe un aporte (3%) directamente del sueldo de los trabajadores activos."
-
-explicacion: |
-  Es el mismo 3% ya calculado en `../../recibo-de-sueldo/argentina/`: los
-  activos también sostienen la cobertura de los jubilados de hoy, igual
-  que en el sistema jubilatorio de reparto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada rama de actividad o sindicato suele tener su propia obra social (la de comercio, la de metalúrgicos, etc.)."
-
-explicacion: |
-  La afiliación inicial depende del convenio de la actividad en la que
-  trabaja cada uno.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "basico"
-  tags: ["obra_social", "calculo"]
-
-variables:
-  bruto: random(50, 300) * 1000
-
-respuesta: bruto * 0.03
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Con un sueldo bruto de ${bruto}, ¿cuánto financia el trabajador para su obra social (3%)?"
-
-explicacion: |
-  Es el mismo cálculo ya visto en `../../recibo-de-sueldo/argentina/`,
-  ahora aplicado a lo que financia en concreto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
+  tema: "deuda_publica_externa"
   nivel: "avanzado"
-  tags: ["obra_social", "vocabulario"]
+  tags: ["deuda_publica", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Es posible derivar el aporte de obra social hacia una empresa de medicina prepaga, generalmente pagando una diferencia adicional de bolsillo."
+enunciado: "Un Estado no puede emitir dólares (u otra moneda extranjera) para pagar su deuda externa: sólo puede emitir su propia moneda local."
 
 explicacion: |
-  El aporte obligatorio no desaparece, sólo cambia de destino — y suele
-  no alcanzar para cubrir el costo total de una prepaga por sí solo.
+  Es la limitación estructural central que distingue a la deuda
+  externa.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "obra_social"
+  tema: "deuda_publica_externa"
   nivel: "intermedio"
-  tags: ["obra_social"]
+  tags: ["deuda_publica", "vocabulario"]
 
-enunciado: "¿Cuál definición corresponde al PMO?"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las reservas del banco central son una de las formas con las que un país puede afrontar un vencimiento de deuda externa."
+
+explicacion: |
+  Es la conexión directa con `reservas-banco-central/`.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_externa"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "problema"]
+
+enunciado: "Un gobierno le pide un préstamo en euros a otro país europeo. ¿Qué tipo de deuda pública está tomando?"
 tipo: mc
 opciones_explicitas:
-  - "El conjunto mínimo de prestaciones de salud que toda obra social debe cubrir por ley"
-  - "El monto máximo que puede cobrar una obra social"
-  - "Un programa exclusivo de PAMI"
-respuesta: "El conjunto mínimo de prestaciones de salud que toda obra social debe cubrir por ley"
+  - "Deuda pública externa"
+  - "Deuda pública interna"
+  - "No es deuda pública: es deuda privada"
+respuesta: "Deuda pública externa"
 
 explicacion: |
-  Aplica a todas las obras sociales, no sólo a PAMI.
+  Acreedor de otro país, en moneda extranjera (euros): es deuda
+  externa.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "obra_social"
-  nivel: "basico"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La obra social de un trabajador suele cubrir también a su grupo familiar (cónyuge, hijos), no sólo al propio trabajador."
-
-explicacion: |
-  Es una de las razones por las que el aporte de obra social se
-  considera parte de un sistema colectivo, no sólo individual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Además del 3% que aporta el trabajador, el empleador también hace una contribución adicional para la obra social, que no se descuenta del sueldo del empleado."
-
-explicacion: |
-  Mismo esquema aporte+contribución que la jubilación (ver
-  `../jubilacion/teoria.md`).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El PMO es el mismo piso mínimo obligatorio sin importar cuál sea la obra social específica del trabajador."
-
-explicacion: |
-  Es un piso parejo por ley, para cualquier obra social del país.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
+  tema: "deuda_publica_externa"
   nivel: "avanzado"
-  tags: ["obra_social", "vocabulario"]
+  tags: ["deuda_publica", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Es posible tener obra social y, además, pagar una prepaga particular por separado, sin depender exclusivamente de una sola cobertura."
+enunciado: "Un país puede pedir un préstamo externo nuevo específicamente para pagar el vencimiento de un préstamo externo anterior — el mismo mecanismo de rollover, ahora en moneda extranjera."
 
 explicacion: |
-  No son mutuamente excluyentes: alguien puede tener las dos coberturas
-  a la vez, aunque implique un gasto adicional.
+  Es la misma lógica de refinanciación ya vista en
+  `deuda-publica-interna/`, aplicada a deuda en moneda extranjera.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "obra_social"
-  nivel: "basico"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El aporte de obra social del 3% no es sólo un descuento del sueldo: financia un sistema de cobertura de salud colectiva, con un piso mínimo garantizado por ley (el PMO)."
-
-explicacion: |
-  Es la idea central de todo el tema: el por qué y el cómo detrás del
-  número ya calculado en `../../recibo-de-sueldo/argentina/`.
-```
-
-## Sección: jubilacion-sistema-previsional (22 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Cómo funciona un sistema previsional de reparto?"
-tipo: mc
-opciones_explicitas:
-  - "Lo que aportan los trabajadores activos hoy financia las jubilaciones que se pagan hoy"
-  - "Cada trabajador tiene una cuenta propia donde se acumula lo que aportó"
-  - "El Estado paga las jubilaciones con impuestos al consumo, no con aportes laborales"
-respuesta: "Lo que aportan los trabajadores activos hoy financia las jubilaciones que se pagan hoy"
-
-explicacion: |
-  Es un pacto entre generaciones: la generación activa sostiene a la
-  jubilada, con la expectativa de que la próxima haga lo mismo con ella.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Cómo funciona un sistema previsional de capitalización individual (privado)?"
-tipo: mc
-opciones_explicitas:
-  - "Cada trabajador aporta a una cuenta propia, que se invierte y crece según lo que rinda esa inversión"
-  - "El Estado reparte lo aportado hoy entre los jubilados de hoy"
-  - "No existen aportes: el Estado paga las jubilaciones directamente de su presupuesto general"
-respuesta: "Cada trabajador aporta a una cuenta propia, que se invierte y crece según lo que rinda esa inversión"
-
-explicacion: |
-  El haber jubilatorio de cada persona depende de lo acumulado
-  específicamente en su propia cuenta, no de un fondo común.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Cómo funciona un sistema previsional híbrido (mixto)?"
-tipo: mc
-opciones_explicitas:
-  - "Combina reparto (garantiza un piso mínimo) y capitalización individual (varía según la inversión)"
-  - "Es un sistema de reparto que además cobra una comisión fija a los trabajadores"
-  - "Es lo mismo que un sistema de capitalización individual, con otro nombre"
-respuesta: "Combina reparto (garantiza un piso mínimo) y capitalización individual (varía según la inversión)"
-
-explicacion: |
-  Reparte el riesgo entre los dos modelos: parte del aporte va a un
-  sistema solidario, parte va a una cuenta individual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "No existe un único modelo de sistema previsional: distintos países usan reparto, capitalización individual o modelos híbridos."
-
-explicacion: |
-  Cada modelo reparte el riesgo de forma distinta; ninguno es
-  intrínsecamente "el correcto" para cualquier contexto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Entre 1994 y 2008, en Argentina funcionó un sistema con capitalización individual, con cuentas administradas por empresas privadas llamadas AFJP."
-
-explicacion: |
-  Es un dato histórico real: Argentina usó ese modelo mixto durante 14
-  años, antes del cambio de 2008.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En 2008, la Ley 26.425 eliminó el régimen de capitalización individual administrado por las AFJP y estatizó esos fondos."
-
-explicacion: |
-  Fue el cambio que dio origen al sistema previsional argentino actual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Cómo se llama el sistema previsional que rige hoy en Argentina, creado en 2008?"
-tipo: mc
-opciones_explicitas:
-  - "SIPA (Sistema Integrado Previsional Argentino)"
-  - "AFJP (Administradoras de Fondos de Jubilaciones y Pensiones)"
-  - "PUAM (Prestación Universal para el Adulto Mayor)"
-respuesta: "SIPA (Sistema Integrado Previsional Argentino)"
-
-explicacion: |
-  Reemplazó al régimen de capitalización individual de las AFJP.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El SIPA es un sistema de reparto, administrado por ANSES."
-
-explicacion: |
-  Es el mismo modelo de reparto explicado en el módulo anterior, ahora
-  con el nombre y la historia del sistema que lo reemplazó.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El argumento oficial del gobierno para eliminar el régimen de las AFJP en 2008 fue que esas administradoras cobraban comisiones que reducían lo que efectivamente se acumulaba para cada trabajador."
-
-explicacion: |
-  Es el argumento que dio el gobierno de ese momento — no implica que
-  no haya habido otras posturas ni otros argumentos en el debate.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un sistema de capitalización individual, el haber jubilatorio de una persona depende específicamente de lo acumulado en su propia cuenta, no de un fondo común entre todos los trabajadores."
-
-explicacion: |
-  Es la diferencia central con el sistema de reparto, donde no hay
-  cuentas individuales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un sistema de reparto puro, el aporte de un trabajador activo se usa de inmediato para pagar la jubilación de otra persona — no se va acumulando en una cuenta a nombre de quien aportó."
-
-explicacion: |
-  Por eso, en el sistema de reparto, calcular un "valor futuro
-  acumulado" del aporte de una persona no describe cómo funciona
-  realmente ese sistema.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["aporte", "vocabulario"]
-
-enunciado: "En el sentido de ahorro personal para el futuro, ¿qué es \"el aporte\"?"
-tipo: mc
-opciones_explicitas:
-  - "Un monto fijo que se destina periódicamente (por ejemplo, cada mes) a un fondo que se va acumulando"
-  - "El haber jubilatorio que se cobra una vez jubilado"
-  - "La edad mínima para poder jubilarse"
-respuesta: "Un monto fijo que se destina periódicamente (por ejemplo, cada mes) a un fondo que se va acumulando"
-
-explicacion: |
-  Es la pieza que, capitalizada con interés compuesto durante muchos
-  años, determina cuánto se llega a acumular.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
+  tema: "deuda_publica_externa"
   nivel: "avanzado"
-  tags: ["aporte", "calculo"]
+  tags: ["deuda_publica", "orden"]
 
-variables:
-  aporte: random(5, 50) * 1000
-  tasa: random(1, 3)
-  n: random(10, 40)
-
-respuesta: aporte * ((1 + tasa / 100) ^ n - 1) / (tasa / 100)
-tipo: input
-tolerancia_abs: 100
-
-enunciado: "Alguien aporta ${aporte} por período a una tasa del {tasa}% por período, durante {n} períodos. ¿Cuál es el valor futuro acumulado?"
-
-pasos:
-  - "VF = aporte × ((1+r)^n - 1) / r = {aporte} × ((1+{tasa/100})^{n} - 1) / {tasa/100}"
+tipo: ordenar
+enunciado: "Ordená esta secuencia de lo que puede pasar cuando se acerca un vencimiento grande de deuda externa."
+opciones_explicitas:
+  - "Si no los consigue, el país queda en riesgo de no poder pagar en la fecha comprometida"
+  - "Se acerca la fecha de un vencimiento grande de deuda en dólares"
+  - "Si consigue los dólares, paga el vencimiento a tiempo"
+  - "El país busca conseguir esos dólares: con reservas, superávit comercial o un préstamo nuevo"
+respuesta_orden: ["Se acerca la fecha de un vencimiento grande de deuda en dólares", "El país busca conseguir esos dólares: con reservas, superávit comercial o un préstamo nuevo", "Si consigue los dólares, paga el vencimiento a tiempo", "Si no los consigue, el país queda en riesgo de no poder pagar en la fecha comprometida"]
 
 explicacion: |
-  Cada aporte capitaliza por interés compuesto desde el momento en que
-  se hizo hasta el final del período total.
+  Es la secuencia de riesgo central de la deuda externa, que conecta
+  directo con el tema siguiente (`default-deuda/`).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["aporte", "vocabulario"]
+  tema: "deuda_publica_externa"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El valor futuro de una serie de aportes periódicos crece con interés compuesto, igual que un único capital invertido de una vez."
+enunciado: "Un país con superávit comercial sostenido tiene más facilidad para conseguir la moneda extranjera necesaria para pagar su deuda externa, que uno con déficit comercial persistente."
 
 explicacion: |
-  La diferencia es que cada aporte individual capitaliza por una
-  cantidad distinta de períodos, según cuándo se hizo.
+  Es la conexión directa con `balanza-comercial/`: más dólares
+  entrando por exportaciones, más margen para afrontar deuda externa.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["aporte", "comparacion"]
-
-variables:
-  aporte: random(5, 50) * 1000
-  tasa: random(1, 3)
-  n_a: random(10, 20)
-  n_b: random(21, 40)
-
-respuesta: ((aporte * ((1 + tasa / 100) ^ n_b - 1) / (tasa / 100)) > (aporte * ((1 + tasa / 100) ^ n_a - 1) / (tasa / 100)))
-tipo: vf
-
-enunciado: "Con el mismo aporte de ${aporte} por período y la misma tasa del {tasa}%, ¿aportar durante {n_b} períodos da un valor futuro mayor que aportar durante {n_a} períodos?"
-
-explicacion: |
-  A más períodos aportando, más tiempo tiene cada aporte para
-  capitalizar, y mayor el valor futuro acumulado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "avanzado"
-  tags: ["aporte", "comparacion"]
-
-variables:
-  tasa: random(1, 3)
-  aporte_chico: random(10, 20) * 1000
-  n_largo: random(30, 40)
-  aporte_grande: random(30, 60) * 1000
-  n_corto: random(10, 15)
-
-respuesta: ((aporte_chico * ((1 + tasa / 100) ^ n_largo - 1) / (tasa / 100)) > (aporte_grande * ((1 + tasa / 100) ^ n_corto - 1) / (tasa / 100)))
-tipo: vf
-
-enunciado: "Persona A aporta ${aporte_chico} por período durante {n_largo} períodos (empezó antes). Persona B aporta ${aporte_grande} por período (más que A) pero sólo durante {n_corto} períodos (empezó después). A la misma tasa del {tasa}%, ¿A termina con un valor futuro mayor que B, a pesar de aportar menos por período?"
-
-explicacion: |
-  El tiempo capitalizando pesa muchísimo: empezar antes con montos
-  chicos suele superar a empezar tarde con montos más altos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "avanzado"
-  tags: ["aporte", "calculo"]
-
-variables:
-  tasa: random(1, 3)
-  n: random(10, 40)
-  aporte: random(5, 50) * 1000
-  vf_objetivo: aporte * ((1 + tasa / 100) ^ n - 1) / (tasa / 100)
-
-respuesta: aporte
-tipo: input
-tolerancia_abs: 5
-
-enunciado: "Alguien quiere llegar a un valor futuro de ${redondear(vf_objetivo, 0)}, aportando por {n} períodos a una tasa del {tasa}% por período. ¿Cuál tiene que ser el aporte periódico?"
-
-explicacion: |
-  Se despeja el aporte de la fórmula del valor futuro, con la tasa y la
-  cantidad de períodos ya conocidas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["aporte", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Calcular el valor futuro de una serie de aportes tiene sentido claro en un sistema de capitalización individual, pero no describe cómo funciona un sistema de reparto puro, donde el aporte de hoy se usa de inmediato y no se acumula en una cuenta propia."
-
-explicacion: |
-  Sirve igual como herramienta general de ahorro personal, pero no es
-  literalmente cómo opera el sistema de reparto en sí.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Con una población que en general vive más años y tiene menos hijos que antes, la relación entre trabajadores activos y personas jubiladas tiende a ajustarse con el tiempo en los sistemas de reparto — por eso muchos especialistas recomiendan un ahorro previsional propio, además del aporte obligatorio."
-
-explicacion: |
-  Es una observación demográfica general (no específica de ningún país
-  ni de ninguna postura política puntual), y una recomendación habitual
-  de las finanzas personales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["aporte", "verificacion"]
-
-variables:
-  aporte: random(5, 50) * 1000
-  tasa: random(1, 3)
-  n: random(10, 40)
-  correcto: aporte * ((1 + tasa / 100) ^ n - 1) / (tasa / 100)
-  error: uno_de([0, 0, 0, 20000, -20000])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 200)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? Aporte de ${aporte} por período, tasa {tasa}% por período, {n} períodos, valor futuro informado: ${redondear(mostrado, 0)}."
-
-explicacion: |
-  Se vuelve a calcular con la fórmula del valor futuro de aportes
-  periódicos y se compara con el valor informado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "avanzado"
-  tags: ["aporte"]
-
-variables:
-  aporte: random(10, 40) * 1000
-  tasa: uno_de([1, 2])
-  n: uno_de([15, 20, 25, 30])
-  vf: aporte * ((1 + tasa / 100) ^ n - 1) / (tasa / 100)
+  tema: "deuda_publica_externa"
+  nivel: "basico"
+  tags: ["deuda_publica"]
 
 tipo: completar
-enunciado: "Aportando ${aporte} por período a una tasa del {tasa}% por período, se llegó a un valor futuro de ${redondear(vf, 0)}. Completá: se aportó durante ___ períodos."
+enunciado: "Completá: a diferencia de la deuda interna, la deuda pública externa está contraída con acreedores de ___ (dentro o fuera) del país."
 respuestas_validas:
-  - n
+  - "fuera"
+  - "afuera"
 
 explicacion: |
-  Entre las opciones típicas de cantidad de períodos, sólo una da
-  exactamente ese valor futuro con ese aporte y esa tasa.
+  Es el criterio central que distingue a la deuda externa.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion_sistema_previsional"
+  tema: "deuda_publica_externa"
   nivel: "basico"
-  tags: ["jubilacion", "aporte", "vocabulario"]
+  tags: ["deuda_publica", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Existen tres modelos posibles de sistema previsional (reparto, capitalización individual, híbrido); Argentina usó capitalización individual con las AFJP entre 1994 y 2008, y desde entonces usa el SIPA, un sistema de reparto — y, más allá del modelo del país, el interés compuesto aplicado a aportes periódicos muestra por qué empezar antes a ahorrar pesa tanto como cuánto se aporta."
+enunciado: "La deuda pública externa está contraída con acreedores de afuera del país, típicamente en moneda extranjera que el Estado no puede emitir por su cuenta, lo que la hace más sensible al tipo de cambio que la deuda interna."
 
 explicacion: |
   Es la idea central de todo el tema.
 ```
 
-## Sección: marxismo (11 preguntas)
+## Sección: deuda-publica-interna (20 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "marxismo"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Qué es la \"plusvalía\", concepto central del marxismo?"
-tipo: mc
-opciones_explicitas:
-  - "La diferencia entre el valor que un trabajador produce y el salario que recibe a cambio"
-  - "El impuesto que cobra el Estado sobre las ganancias"
-  - "La diferencia entre el precio de exportación e importación de un país"
-respuesta: "La diferencia entre el valor que un trabajador produce y el salario que recibe a cambio"
-
-explicacion: |
-  Marx sostiene que esa diferencia queda en manos de quien es dueño
-  del medio de producción.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "marxismo"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "Según el marxismo, ¿cuál es el motor de la historia económica?"
-tipo: mc
-opciones_explicitas:
-  - "La lucha entre clases sociales"
-  - "La acumulación de oro y plata"
-  - "La libre competencia entre empresas"
-respuesta: "La lucha entre clases sociales"
-
-explicacion: |
-  Específicamente, entre quienes poseen los medios de producción y
-  quienes sólo poseen su fuerza de trabajo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "marxismo"
+  tema: "deuda_publica_interna"
   nivel: "basico"
-  tags: ["corrientes", "autor"]
+  tags: ["deuda_publica", "vocabulario"]
 
-enunciado: "¿Quién escribió *El Capital* (1867), texto de referencia del marxismo?"
+enunciado: "¿Cómo hace un Estado para pedir dinero prestado?"
 tipo: mc
 opciones_explicitas:
-  - "Karl Marx"
-  - "Adam Smith"
-  - "John Maynard Keynes"
-respuesta: "Karl Marx"
+  - "Emite títulos de deuda (bonos), que promete pagar con interés en fechas determinadas"
+  - "Sólo puede pedir dinero directamente al Fondo Monetario Internacional"
+  - "No existe ningún mecanismo para que un Estado se endeude"
+respuesta: "Emite títulos de deuda (bonos), que promete pagar con interés en fechas determinadas"
 
 explicacion: |
-  *El Capital* es la obra central del marxismo como corriente
-  económica.
+  Es el mecanismo central de endeudamiento de cualquier Estado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "marxismo"
-  nivel: "avanzado"
-  tags: ["corrientes", "problema"]
+  tema: "deuda_publica_interna"
+  nivel: "basico"
+  tags: ["deuda_publica", "vocabulario"]
 
-enunciado: "¿Qué diferencia el marxismo (según se presenta a sí mismo) del socialismo utópico de Robert Owen?"
+enunciado: "¿Qué es la deuda pública interna?"
 tipo: mc
 opciones_explicitas:
-  - "Un análisis sistemático de las leyes del capitalismo como sistema, del que se desprende una estrategia de transformación a esa misma escala"
-  - "El marxismo no propone ningún cambio en la organización económica"
-  - "El marxismo, a diferencia de Owen, defiende la propiedad privada de los medios de producción"
-respuesta: "Un análisis sistemático de las leyes del capitalismo como sistema, del que se desprende una estrategia de transformación a esa misma escala"
+  - "La parte de la deuda de un Estado contraída con acreedores dentro del propio país"
+  - "La deuda que un Estado tiene con organismos internacionales exclusivamente"
+  - "El total de impuestos que recauda un Estado en un año"
+respuesta: "La parte de la deuda de un Estado contraída con acreedores dentro del propio país"
 
 explicacion: |
-  A diferencia de Owen (una fábrica, una comunidad como ejemplo), el
-  marxismo se presenta como un análisis del sistema entero y de cómo
-  transformarlo en esa escala.
+  Es la definición central del tema.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "marxismo"
-  nivel: "avanzado"
-  tags: ["corrientes", "problema"]
+  tema: "deuda_publica_interna"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
 
-enunciado: "¿Cuál es la objeción central que plantea Ludwig von Mises al marxismo en *El cálculo económico en el sistema socialista* (1920)?"
+enunciado: "¿Cuál de estos es un ejemplo típico de acreedor de deuda pública interna?"
 tipo: mc
 opciones_explicitas:
-  - "Sin un mercado de medios de producción no hay precios reales para ellos, y sin precios no se puede calcular si un proceso productivo es eficiente"
-  - "Que la plusvalía no existe en ningún sistema económico"
-  - "Que la lucha de clases nunca ocurrió realmente en la historia"
-respuesta: "Sin un mercado de medios de producción no hay precios reales para ellos, y sin precios no se puede calcular si un proceso productivo es eficiente"
+  - "Un fondo de pensión local que compra bonos del propio país"
+  - "Un turista extranjero de visita"
+  - "Un organismo internacional exclusivamente"
+respuesta: "Un fondo de pensión local que compra bonos del propio país"
 
 explicacion: |
-  Es una objeción económica puntual, no política ni moral: sin mercado
-  de precios para maquinaria/materias primas/terrenos industriales, no
-  hay forma de comparar si un uso de esos recursos es más eficiente
-  que otro.
+  Es uno de los acreedores internos habituales mencionados en la
+  teoría.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "marxismo"
-  nivel: "avanzado"
-  tags: ["corrientes", "vocabulario"]
+  tema: "deuda_publica_interna"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Según Mises, dentro de una empresa capitalista cada departamento puede comparar costos y calcular eficiencia porque existe un mercado de precios para todo lo que compra y vende."
+enunciado: "La deuda pública reutiliza la misma matemática del interés compuesto ya vista para un crédito personal, sólo que quien pide prestado es un Estado en vez de una familia."
 
 explicacion: |
-  Ese mercado de precios (de materia prima, maquinaria, mano de obra)
-  es, para Mises, la herramienta que permite el cálculo económico —y
-  la que, según su argumento, desaparece sin propiedad privada de los
-  medios de producción.
+  Es la conexión directa con `interes-compuesto/`.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "marxismo"
+  tema: "deuda_publica_interna"
   nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
+  tags: ["deuda_publica", "vocabulario"]
 
-enunciado: "¿A qué corriente económica pertenece Ludwig von Mises, autor de la objeción al cálculo económico socialista?"
+enunciado: "¿Qué es el \"rollover\" de deuda pública?"
 tipo: mc
 opciones_explicitas:
-  - "La escuela austríaca"
-  - "El keynesianismo"
-  - "El socialismo utópico"
-respuesta: "La escuela austríaca"
+  - "Emitir un título nuevo para juntar el dinero y pagar un vencimiento anterior, refinanciando en vez de cancelar de una vez"
+  - "Cancelar toda la deuda de una sola vez con lo recaudado en un año"
+  - "Dejar de pagar la deuda por completo"
+respuesta: "Emitir un título nuevo para juntar el dinero y pagar un vencimiento anterior, refinanciando en vez de cancelar de una vez"
 
 explicacion: |
-  Ver `../liberalismo-clasico-y-escuela-austriaca/` — Mises es uno de
-  los autores centrales de esa corriente.
+  Es la práctica habitual de la mayoría de los Estados con su deuda.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "marxismo"
-  nivel: "avanzado"
-  tags: ["corrientes", "contexto"]
+  tema: "deuda_publica_interna"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Karl Marx murió en 1883, antes de que Mises formulara su objeción sobre el cálculo económico (1920), por lo que nunca respondió a ese argumento en particular."
+enunciado: "En la práctica, los Estados rara vez pagan toda su deuda de una sola vez con lo recaudado en un año: lo habitual es refinanciar, estirando el pago en el tiempo."
 
 explicacion: |
-  Distintos economistas marxistas y socialistas del siglo XX
-  propusieron respuestas propias después de Marx (como mecanismos de
-  "precios sombra"), pero el propio Marx no llegó a hacerlo.
+  Es la práctica estándar de gestión de deuda pública.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "marxismo"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
+  tema: "deuda_publica_interna"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "Si la deuda interna está en la propia moneda del país, ¿qué opción tiene el Estado que no tiene con deuda en moneda extranjera?"
+tipo: mc
+opciones_explicitas:
+  - "En principio, podría pedirle al banco central que emita más moneda para pagarla"
+  - "Puede pagarla automáticamente sin ningún costo, sin excepción"
+  - "Puede eliminarla por decreto sin ninguna consecuencia"
+respuesta: "En principio, podría pedirle al banco central que emita más moneda para pagarla"
+
+explicacion: |
+  Es una opción real que sólo existe para deuda en moneda propia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_interna"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Este tema describe tanto lo que sostiene el marxismo como la objeción de Mises con la misma seriedad, sin tomar partido sobre cuál de las dos posturas tiene razón."
+enunciado: "Emitir moneda sin respaldo en más producción para pagar deuda tiende a generar inflación — no es una salida sin costo."
 
 explicacion: |
-  Es el mismo criterio de neutralidad que se aplica a todo el bloque
-  de corrientes de pensamiento económico.
+  Es la conexión con `pbi-e-inflacion/`: emitir de más presiona los
+  precios generales al alza.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "marxismo"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "Según el marxismo, en el capitalismo, ¿entre quiénes se da la lucha de clases central?"
-tipo: mc
-opciones_explicitas:
-  - "Entre quienes poseen los medios de producción y quienes sólo poseen su fuerza de trabajo"
-  - "Entre los distintos países que compiten por el comercio internacional"
-  - "Entre el Estado y las empresas privadas"
-respuesta: "Entre quienes poseen los medios de producción y quienes sólo poseen su fuerza de trabajo"
-
-explicacion: |
-  Es la división de clases central del análisis marxista del
-  capitalismo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "marxismo"
+  tema: "deuda_publica_interna"
   nivel: "avanzado"
-  tags: ["corrientes", "vocabulario"]
+  tags: ["deuda_publica", "vocabulario"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Según el argumento de Mises, los errores de cálculo dentro de una empresa capitalista son iguales de graves e insuperables que la ausencia total de cálculo económico que él atribuye al socialismo."
+enunciado: "Un banco central con autonomía respecto del gobierno suele resistirse a financiar el pago de deuda emitiendo moneda sin límite, justamente por el riesgo de inflación que eso implica."
 
 explicacion: |
-  Falso. Mises distingue entre los errores normales de cálculo que
-  pueden ocurrir dentro de una empresa capitalista (acotados, dentro
-  de un sistema de precios real) y la imposibilidad total de calcular
-  que —según su argumento— se da cuando no existe ningún mercado de
-  precios para los medios de producción.
+  Es la conexión con la independencia del banco central vista en
+  `reservas-banco-central/`.
 ```
-
-## Sección: monotributo (22 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "monotributo"
-  nivel: "basico"
-  tags: ["monotributo", "vocabulario"]
+  tema: "deuda_publica_interna"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "problema"]
 
-enunciado: "¿Qué es el monotributo?"
+enunciado: "Un gobierno emite un bono en su propia moneda y lo vende a bancos e inversores del propio país. ¿Qué tipo de deuda está tomando?"
 tipo: mc
 opciones_explicitas:
-  - "Un régimen simplificado con una única cuota mensual fija, para quienes trabajan de forma independiente"
-  - "Un impuesto exclusivo para empleados en relación de dependencia"
-  - "Una multa por no pagar impuestos a tiempo"
-respuesta: "Un régimen simplificado con una única cuota mensual fija, para quienes trabajan de forma independiente"
+  - "Deuda pública interna"
+  - "Deuda pública externa"
+  - "No es deuda: es un impuesto nuevo"
+respuesta: "Deuda pública interna"
 
 explicacion: |
-  Reemplaza tener que liquidar IVA y Ganancias por separado, con un solo
-  pago mensual.
+  Acreedores dentro del país, en moneda local: es exactamente la
+  definición de deuda interna.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "monotributo"
+  tema: "deuda_publica_interna"
   nivel: "basico"
-  tags: ["monotributo"]
+  tags: ["deuda_publica", "vocabulario"]
 
-respuesta: 11
+enunciado: "¿Qué es un título de deuda (bono) emitido por un Estado?"
+tipo: mc
+opciones_explicitas:
+  - "Una promesa de pago: el Estado se compromete a devolver el capital prestado más un interés en fechas determinadas"
+  - "Un impuesto obligatorio que paga toda la población"
+  - "Un tipo de moneda extranjera"
+respuesta: "Una promesa de pago: el Estado se compromete a devolver el capital prestado más un interés en fechas determinadas"
+
+explicacion: |
+  Es la definición básica de un bono estatal.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_interna"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "calculo"]
+
+variables:
+  capital: random(1, 20) * 100000
+  tasa_pct: uno_de([5, 10, 20])
+  anios: uno_de([1, 2])
+
+respuesta: capital * (1 + tasa_pct / 100) ^ anios
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 1
 
-enunciado: "¿Cuántas categorías tiene el monotributo en total (de la A a la K)?"
+enunciado: "Un Estado emite un bono por ${capital}, a una tasa de interés anual del {tasa_pct}%, a devolver en {anios} año(s), capitalizando el interés cada año. ¿Cuánto tiene que devolver en total?"
 
 explicacion: |
-  De la A a la K son 11 letras, y por lo tanto 11 categorías.
+  Es la misma fórmula de interés compuesto ya vista en
+  `interes-compuesto/`, aplicada a deuda estatal: Monto = Capital ×
+  (1 + tasa)^tiempo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "monotributo"
-  nivel: "basico"
-  tags: ["monotributo"]
-
-enunciado: "¿Cuál es la categoría más baja del monotributo?"
-tipo: mc
-opciones_explicitas:
-  - "A"
-  - "K"
-  - "1"
-respuesta: "A"
-
-explicacion: |
-  Las categorías van de la A (la más baja) a la K (la más alta).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "basico"
-  tags: ["monotributo"]
-
-enunciado: "¿Cuál es la categoría más alta del monotributo?"
-tipo: mc
-opciones_explicitas:
-  - "K"
-  - "A"
-  - "Z"
-respuesta: "K"
-
-explicacion: |
-  Superar el tope de la categoría K obliga a pasar al régimen general.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "basico"
-  tags: ["monotributo", "vocabulario"]
+  tema: "deuda_publica_interna"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "A medida que sube la categoría (más cerca de la K), la cuota mensual a pagar es más cara."
+enunciado: "El propio banco central de un país puede ser, en algunos casos, un acreedor de la deuda pública interna, cuando compra deuda emitida por el Tesoro."
 
 explicacion: |
-  Cada componente de la cuota sube junto con la categoría.
+  Es uno de los acreedores internos mencionados en la teoría.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "monotributo"
-  nivel: "intermedio"
-  tags: ["monotributo", "vocabulario"]
-
-enunciado: "¿Qué parámetros determinan la categoría de un monotributista?"
-tipo: mc
-opciones_explicitas:
-  - "Facturación anual, superficie afectada, energía consumida y alquileres devengados, entre otros"
-  - "Sólo la edad del monotributista"
-  - "Sólo si tiene empleados en relación de dependencia"
-respuesta: "Facturación anual, superficie afectada, energía consumida y alquileres devengados, entre otros"
-
-explicacion: |
-  Son varios parámetros a la vez, no sólo la facturación.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "intermedio"
-  tags: ["monotributo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un monotributista supera el tope de la categoría K, tiene que salir del monotributo e inscribirse en el régimen general."
-
-explicacion: |
-  La K es la categoría techo: no hay una categoría más alta dentro del
-  monotributo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "intermedio"
-  tags: ["monotributo", "vocabulario"]
-
-enunciado: "¿Qué tres componentes integra la cuota mensual del monotributo?"
-tipo: mc
-opciones_explicitas:
-  - "Impuesto integrado, aporte jubilatorio y aporte a obra social"
-  - "Sólo el impuesto integrado"
-  - "IVA, Ganancias y Bienes Personales por separado"
-respuesta: "Impuesto integrado, aporte jubilatorio y aporte a obra social"
-
-explicacion: |
-  Es un pago único que empaqueta los tres conceptos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "basico"
-  tags: ["monotributo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Parte de la cuota del monotributo es un aporte jubilatorio, el mismo tipo de aporte que hace un empleado en relación de dependencia."
-
-explicacion: |
-  Un monotributista también construye derechos jubilatorios, sólo que
-  con un monto fijo en vez de un porcentaje del sueldo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "basico"
-  tags: ["monotributo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Parte de la cuota del monotributo da acceso a una obra social."
-
-explicacion: |
-  Igual que el aporte del 3% de un empleado, sólo que empaquetado dentro
-  de la cuota fija.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "intermedio"
-  tags: ["monotributo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El \"impuesto integrado\" de la cuota del monotributo reemplaza tener que liquidar IVA y Ganancias por separado."
-
-explicacion: |
-  Es la simplificación central del régimen: un solo pago en vez de varios
-  impuestos separados.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "basico"
-  tags: ["monotributo"]
-
-respuesta: 6
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cada cuántos meses hay que revisar (recategorizar) la categoría del monotributo?"
-
-explicacion: |
-  Dos veces al año: cada 6 meses.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "intermedio"
-  tags: ["monotributo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al recategorizarse, se mira la facturación (y otros parámetros) de los últimos 12 meses, no sólo del último semestre."
-
-explicacion: |
-  La ventana de revisión son los últimos 12 meses completos, aunque la
-  recategorización se haga cada 6 meses.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "intermedio"
-  tags: ["monotributo", "vocabulario"]
-
-enunciado: "¿Qué es el monotributo social?"
-tipo: mc
-opciones_explicitas:
-  - "Una categoría especial, más económica, para actividades de baja escala en situación de vulnerabilidad económica"
-  - "Un monotributo exclusivo para empleados públicos"
-  - "Una categoría más cara que la K"
-respuesta: "Una categoría especial, más económica, para actividades de baja escala en situación de vulnerabilidad económica"
-
-explicacion: |
-  Tiene requisitos y beneficios distintos al monotributo general.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "intermedio"
-  tags: ["monotributo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un monotributista paga una cuota fija mensual, en vez de tener un porcentaje descontado de un sueldo bruto como un empleado en relación de dependencia."
-
-explicacion: |
-  Son dos esquemas distintos: descuento variable sobre el bruto (empleado)
-  vs. cuota fija según categoría (monotributista).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "intermedio"
-  tags: ["monotributo"]
-
-enunciado: "¿Cuál definición corresponde a la categoría del monotributo?"
-tipo: mc
-opciones_explicitas:
-  - "El nivel (de la A a la K) que determina cuánto se paga de cuota, según parámetros como la facturación"
-  - "El tipo de actividad económica únicamente, sin relación con lo que se paga"
-  - "Un número aleatorio que asigna AFIP"
-respuesta: "El nivel (de la A a la K) que determina cuánto se paga de cuota, según parámetros como la facturación"
-
-explicacion: |
-  Es directamente la variable que fija cuánto se termina pagando de
-  cuota.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "intermedio"
-  tags: ["monotributo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los tres componentes de la cuota (impuesto integrado, aporte jubilatorio, obra social) suben todos junto con la categoría, no sólo uno de ellos."
-
-explicacion: |
-  Es un aumento conjunto de los tres, no de uno solo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "basico"
-  tags: ["monotributo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Subir de categoría significa pagar una cuota más cara, no más barata."
-
-explicacion: |
-  Refleja que la actividad creció (más facturación, más consumo
-  eléctrico, etc.).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "intermedio"
-  tags: ["monotributo", "comparacion"]
-
-enunciado: "Entre la categoría D y la categoría H del monotributo, ¿cuál paga una cuota más cara?"
-tipo: mc
-opciones_explicitas:
-  - "H"
-  - "D"
-respuesta: "H"
-
-explicacion: |
-  H está más cerca de la K (la más alta): representa más actividad, y
-  por lo tanto una cuota más cara.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
-  nivel: "basico"
-  tags: ["monotributo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El monotributo se paga estando inscripto ante AFIP (el organismo de recaudación nacional)."
-
-explicacion: |
-  Es el mismo organismo que administra el régimen general de impuestos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "monotributo"
+  tema: "deuda_publica_interna"
   nivel: "avanzado"
-  tags: ["monotributo", "vocabulario"]
+  tags: ["deuda_publica", "vocabulario"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un monotributista no se recategoriza cuando corresponde, puede quedar pagando una categoría que ya no refleja su actividad real, con las consecuencias que eso implique."
+enunciado: "Si la deuda interna está denominada en moneda local, ¿la afecta directamente una devaluación de esa moneda, de la misma forma en que afecta a una deuda en dólares?"
+tipo: mc
+opciones_explicitas:
+  - "No de la misma forma: al estar en moneda propia, el monto adeudado en esa misma moneda no cambia por una devaluación"
+  - "Sí, exactamente igual que la deuda externa en dólares"
+  - "La devaluación siempre cancela automáticamente la deuda interna"
+respuesta: "No de la misma forma: al estar en moneda propia, el monto adeudado en esa misma moneda no cambia por una devaluación"
 
 explicacion: |
-  La recategorización no es sólo un trámite formal: mantiene alineada la
-  cuota con la actividad real.
+  Es una diferencia clave con la deuda externa, que sí se ve afectada
+  directo por el tipo de cambio (ver `deuda-publica-externa/`).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "monotributo"
-  nivel: "basico"
-  tags: ["monotributo", "vocabulario"]
+  tema: "deuda_publica_interna"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená esta secuencia de un rollover de deuda pública."
+opciones_explicitas:
+  - "La deuda queda refinanciada, estirada en el tiempo"
+  - "Vence un título de deuda emitido hace tiempo"
+  - "Con lo recaudado del título nuevo, se paga el vencimiento del título viejo"
+  - "El Estado emite un título nuevo para juntar el dinero necesario"
+respuesta_orden: ["Vence un título de deuda emitido hace tiempo", "El Estado emite un título nuevo para juntar el dinero necesario", "Con lo recaudado del título nuevo, se paga el vencimiento del título viejo", "La deuda queda refinanciada, estirada en el tiempo"]
+
+explicacion: |
+  Es la secuencia típica de cómo un Estado refinancia sus
+  vencimientos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_interna"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El monotributo simplifica varios pagos (impuesto, jubilación, obra social) en una única cuota mensual fija, definida por la categoría de cada contribuyente."
+enunciado: "Aunque la deuda interna en moneda propia tiene la opción de pagarse emitiendo dinero, esa opción tiene el costo real de la inflación — no está exenta de todo riesgo."
 
 explicacion: |
-  Es la idea central de todo el tema: categoría y cuota son dos caras de
-  la misma moneda.
+  Es la aclaración explícita de la teoría: no es una salida
+  \"gratis\".
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_interna"
+  nivel: "basico"
+  tags: ["deuda_publica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los bancos comerciales del propio país son uno de los tipos de acreedores habituales de la deuda pública interna."
+
+explicacion: |
+  Es uno de los ejemplos mencionados en la teoría.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_interna"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "¿Cuál es el criterio central que distingue la deuda pública interna de la externa?"
+tipo: mc
+opciones_explicitas:
+  - "Si el acreedor está dentro o fuera del país"
+  - "El monto total de la deuda"
+  - "La tasa de interés que paga"
+respuesta: "Si el acreedor está dentro o fuera del país"
+
+explicacion: |
+  Es el criterio central de la distinción entre los dos tipos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_interna"
+  nivel: "basico"
+  tags: ["deuda_publica"]
+
+tipo: completar
+enunciado: "Completá: cuando un Estado emite un título nuevo para pagar uno que vence, en vez de cancelarlo con lo recaudado, está haciendo un ___ (nombre en inglés usado para esta práctica)."
+respuestas_validas:
+  - "rollover"
+
+explicacion: |
+  Es el término técnico central del tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "deuda_publica_interna"
+  nivel: "basico"
+  tags: ["deuda_publica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La deuda pública interna es la parte de la deuda de un Estado con acreedores dentro del propio país, típicamente en moneda local, y suele refinanciarse en vez de pagarse toda de una vez."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+## Sección: elementos-de-las-organizaciones (28 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "basico"
+  tags: ["factores", "naturales", "clasificacion"]
+
+variables:
+  recurso: uno_de(["tierra", "agua", "minerales", "energía solar"])
+
+respuesta: recurso
+tipo: completar
+
+enunciado: "La {recurso} es un ejemplo clásico de recurso natural porque la naturaleza la provee sin intervención humana directa."
+
+explicacion: |
+  Los recursos naturales incluyen la tierra, el agua, los minerales y la energía renovable. Se distinguen de los materiales porque no son fabricados por el hombre.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "basico"
+  tags: ["capital", "físico", "recursos"]
+
+variables:
+  bien: uno_de(["máquinas industriales", "edificios", "herramientas", "inventario"])
+
+respuesta: "capital físico"
+tipo: completar
+
+enunciado: "Las {bien} se clasifican como recursos materiales o capital físico, ya que son bienes creados por el hombre para producir otros bienes."
+
+explicacion: |
+  El capital físico (o recursos materiales) incluye máquinas, edificios e inventario. A diferencia de los recursos naturales, estos pueden ser acumulados y mejorados mediante inversión.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "basico"
+  tags: ["capital humano", "talento"]
+
+variables:
+  concepto: "capital humano"
+
+respuesta: concepto
+tipo: completar
+
+enunciado: "El {concepto} se refiere a las habilidades, conocimientos, salud y experiencia de las personas, no solo a la cantidad de empleados."
+
+explicacion: |
+  El capital humano valora la calidad de la fuerza laboral. Es crucial para adaptar tecnologías y mejorar procesos, diferenciándose de la simple cantidad de trabajadores.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["ingresos", "salarios", "distribución"]
+
+variables:
+  factor: "mano de obra"
+
+respuesta: "salarios"
+tipo: completar
+
+enunciado: "El ingreso que recibe el factor de producción asociado a la {factor} por su trabajo se denomina salarios."
+
+explicacion: |
+  Cada factor de producción recibe un ingreso específico: salarios para el trabajo, rentas para la tierra, intereses para el capital y ganancias para el emprendimiento.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["ingresos", "rentas", "tierra"]
+
+variables:
+  factor: "recursos naturales"
+
+respuesta: "rentas"
+tipo: completar
+
+enunciado: "El ingreso que corresponde al factor {factor} por su disponibilidad y uso se llama rentas."
+
+explicacion: |
+  Las rentas son la compensación económica por el uso de la tierra y otros recursos naturales. Su valor depende de la escasez y la productividad del recurso.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["ingresos", "intereses", "capital"]
+
+variables:
+  factor: "capital físico"
+
+respuesta: "intereses"
+tipo: completar
+
+enunciado: "El ingreso que obtiene el propietario del {factor} por cederlo temporalmente a una empresa se denomina intereses."
+
+explicacion: |
+  Los intereses son el retorno por el capital financiero o físico prestado. Reflejan el costo de oportunidad de usar ese capital en producción en lugar de en otros usos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["ingresos", "ganancias", "emprendimiento"]
+
+variables:
+  factor: "emprendimiento"
+
+respuesta: "ganancias"
+tipo: completar
+
+enunciado: "El ingreso residual que recibe el factor {factor} por asumir los riesgos de la actividad económica se llama ganancias."
+
+explicacion: |
+  Las ganancias son el beneficio que queda después de pagar todos los demás factores (salarios, rentas, intereses). Compensan la incertidumbre y la innovación del emprendedor.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "basico"
+  tags: ["definición", "factores", "insumos"]
+
+variables:
+  termino: "factores de producción"
+
+respuesta: termino
+tipo: completar
+
+enunciado: "Los {termino} son los insumos necesarios para crear valor y generar bienes y servicios."
+
+explicacion: |
+  Los factores de producción son los recursos (naturales, materiales, humanos) combinados para producir bienes y servicios.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "basico"
+  tags: ["factores", "naturales", "clasificacion"]
+
+variables:
+  recurso: uno_de(["tierra", "agua", "minerales", "viento", "sol"])
+  recurso_clase: "recurso natural"
+
+respuesta: "recurso natural"
+tipo: completar
+
+enunciado: "La {recurso} es un ejemplo de {recurso_clase} porque proviene directamente de la naturaleza sin intervención humana directa."
+
+explicacion: |
+  Los recursos naturales son aquellos proveídos por la naturaleza sin intervención humana directa, como la tierra, el agua o los minerales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "basico"
+  tags: ["capital", "diferenciacion"]
+
+variables:
+  bien: uno_de(["maquina", "edificio", "herramienta", "inventario"])
+  clasificacion: "capital fisico"
+
+respuesta: "capital fisico"
+tipo: completar
+
+enunciado: "Las {bien} son bienes creados por el hombre para producir otros bienes, por lo tanto se clasifican como {clasificacion}."
+
+explicacion: |
+  Los recursos materiales o capital físico son bienes creados por el hombre (máquinas, edificios) que se utilizan para producir otros bienes.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["capital humano", "definicion"]
+
+variables:
+  concepto: "capital humano"
+  definicion: "habilidades, conocimientos, salud y experiencia"
+
+respuesta: "capital humano"
+tipo: completar
+
+enunciado: "Las {definicion} de las personas que trabajan en una organización se denominan {concepto}."
+
+explicacion: |
+  El capital humano se refiere a las habilidades, conocimientos, salud y experiencia de los trabajadores, no solo a su cantidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["costos", "valor", "calculos"]
+
+variables:
+  tierra: random(10, 50)
+  trabajo: random(20, 100)
+  capital: random(30, 150)
+  total: redondear(tierra + trabajo + capital, 0)
+
+respuesta: total
+tipo: input
+
+enunciado: "Si una organización utiliza recursos naturales valorados en {tierra}, capital humano en {trabajo} y capital físico en {capital}, ¿cuál es el valor total de los elementos combinados?"
+
+explicacion: |
+  Se suman los valores de los diferentes factores de producción para obtener el costo total de los insumos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["argentina", "agricultura", "ventaja comparativa"]
+
+variables:
+  region: "pampa humeda"
+  factor: "recurso natural"
+
+respuesta: "recurso natural"
+tipo: completar
+
+enunciado: "La {region} es un {factor} clave para la producción agrícola argentina debido a su fertilidad natural."
+
+explicacion: |
+  La pampa húmeda es un recurso natural fundamental que otorga ventaja comparativa a la agricultura argentina.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["conocimiento", "tecnologia", "adaptacion"]
+
+variables:
+  ventaja: "adaptar tecnologias"
+
+respuesta: "adaptar tecnologias"
+tipo: completar
+
+enunciado: "El capital humano permite a las organizaciones {ventaja} y mejorar los procesos productivos."
+
+explicacion: |
+  El capital humano es crucial porque permite adaptar las tecnologías y mejorar la eficiencia de los procesos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["litio", "recursos naturales", "argentina"]
+
+variables:
+  recurso: "litio"
+  region: "noroeste"
+  uso: "industria tecnologica"
+
+respuesta: "litio"
+tipo: completar
+
+enunciado: "Los yacimientos de {recurso} en el {region} son vitales para la {uso} mundial."
+
+explicacion: |
+  El litio es un recurso natural estratégico extraído en el noroeste argentino, esencial para la tecnología.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "avanzado"
+  tags: ["escasez", "precios", "dinamica de mercado"]
+
+variables:
+  condicion: "escasez"
+  efecto: "afecta los precios"
+
+respuesta: "afecta los precios"
+tipo: completar
+
+enunciado: "La {condicion} de ciertos recursos {efecto} en el mercado."
+
+explicacion: |
+  La escasez de recursos influye directamente en los costos y, por ende, en los precios finales de los bienes y servicios.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "basico"
+  tags: ["insumos", "definicion"]
+
+variables:
+  termino: "factores de produccion"
+  definicion: "insumos necesarios para crear valor"
+
+respuesta: "factores de produccion"
+tipo: completar
+
+enunciado: "Los {termino} son los {definicion} para crear bienes y servicios."
+
+explicacion: |
+  Los factores de producción son los insumos necesarios para generar valor económico.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["ventaja comparativa", "geografia"]
+
+variables:
+  factor: "disponibilidad geografica"
+  efecto: "influencia directamente"
+
+respuesta: "influencia directamente"
+tipo: completar
+
+enunciado: "La {factor} de los recursos naturales {efecto} en la ventaja comparativa de cada región."
+
+explicacion: |
+  La ubicación y disponibilidad de recursos naturales definen las ventajas comparativas de las regiones.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["costos", "estructura"]
+
+variables:
+  concepto: "estructura de costos"
+  utilidad: "entender la dinamica del mercado"
+
+respuesta: "entender la dinamica del mercado"
+tipo: completar
+
+enunciado: "Identificar los elementos de producción permite entender la {concepto} y {utilidad}."
+
+explicacion: |
+  Separar la producción en categorías claras ayuda a analizar costos y la dinámica del mercado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["capital humano", "calidad"]
+
+variables:
+  aspecto: "calidad"
+  contraste: "cantidad"
+
+respuesta: "calidad"
+tipo: completar
+
+enunciado: "El capital humano se refiere a la {aspecto} de la formación, no solo a la {contraste} de empleados."
+
+explicacion: |
+  El capital humano valora la calidad (habilidades, salud) más que la simple cantidad de trabajadores.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["inventario", "capital fisico"]
+
+variables:
+  elemento: "inventario"
+  clasificacion: "capital fisico"
+
+respuesta: "capital fisico"
+tipo: completar
+
+enunciado: "El {elemento} de productos terminados se considera parte del {clasificacion}."
+
+explicacion: |
+  El inventario, junto con máquinas y edificios, forma parte del capital físico o recursos materiales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "avanzado"
+  tags: ["competitividad", "globalizacion"]
+
+variables:
+  factor: "comprender esta division"
+  resultado: "analizar la eficiencia economica"
+
+respuesta: "analizar la eficiencia economica"
+tipo: completar
+
+enunciado: "{factor} es fundamental para {resultado} y la competitividad en un mundo globalizado."
+
+explicacion: |
+  Entender la división de factores es clave para analizar la eficiencia y competitividad en la economía global.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "avanzado"
+  tags: ["emprendimiento", "ganancia"]
+
+variables:
+  factor: "emprendimiento"
+  ingreso: "ganancia"
+
+respuesta: "ganancia"
+tipo: completar
+
+enunciado: "El factor de producción 'emprendimiento' recibe como ingreso la {ingreso}."
+
+explicacion: |
+  El emprendimiento o capacidad empresarial se remuneda con ganancias.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["diferenciacion", "tierra", "maquina"]
+
+variables:
+  recurso1: "tierra"
+  recurso2: "maquina"
+  diferencia: "intervencion humana"
+
+respuesta: "intervencion humana"
+tipo: completar
+
+enunciado: "La principal diferencia entre {recurso1} y {recurso2} es el grado de {diferencia} requerida para su obtención."
+
+explicacion: |
+  La tierra es un recurso natural (poca intervención), mientras que la máquina es capital físico (alta intervención).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["capital humano", "salud"]
+
+variables:
+  elemento: "salud"
+  categoria: "capital humano"
+
+respuesta: "capital humano"
+tipo: completar
+
+enunciado: "La salud de los trabajadores es un componente del {categoria}."
+
+explicacion: |
+  El capital humano incluye la salud, conocimientos y habilidades de las personas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "avanzado"
+  tags: ["escasez", "valor"]
+
+variables:
+  concepto: "escasez"
+  efecto: "determina el valor"
+
+respuesta: "determina el valor"
+tipo: completar
+
+enunciado: "La {concepto} de los recursos {efecto} en el mercado."
+
+explicacion: |
+  La escasez es un principio económico fundamental que determina el valor y precio de los recursos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "intermedio"
+  tags: ["conocimiento", "acumulacion"]
+
+variables:
+  recurso: "conocimiento"
+  capacidad: "puede ser acumulado"
+
+respuesta: "puede ser acumulado"
+tipo: completar
+
+enunciado: "El {recurso} es un activo intangible que {capacidad} con el tiempo y la educación."
+
+explicacion: |
+  El conocimiento y el capital humano pueden acumularse y mejorarse mediante la educación y la experiencia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "elementos_de_las_organizaciones"
+  nivel: "avanzado"
+  tags: ["sintesis", "organizacion"]
+
+variables:
+  numero_factores: 4
+  factores: "naturales, materiales, humanos y conocimiento"
+
+respuesta: "naturales, materiales, humanos y conocimiento"
+tipo: completar
+
+enunciado: "Los principales elementos de las organizaciones se dividen en factores {factores}."
+
+explicacion: |
+  Los factores de producción se clasifican generalmente en recursos naturales, materiales (capital físico), humanos y conocimiento.
+```
+
+## Sección: default-deuda (21 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "basico"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "¿Qué es un default de deuda pública?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando un Estado no cumple con los pagos comprometidos de su deuda (interés, capital, o ambos)"
+  - "Cuando un Estado paga toda su deuda antes de lo previsto"
+  - "Cuando un Estado sube los impuestos para financiar su deuda"
+respuesta: "Cuando un Estado no cumple con los pagos comprometidos de su deuda (interés, capital, o ambos)"
+
+explicacion: |
+  Es la definición central del tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "¿Por qué puede ocurrir un default?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el Estado no consigue el dinero o la moneda extranjera necesaria, o porque decide no pagar"
+  - "Sólo puede ocurrir por un error administrativo, nunca por decisión ni por falta de fondos"
+  - "Los Estados nunca entran en default: sólo les pasa a las empresas privadas"
+respuesta: "Porque el Estado no consigue el dinero o la moneda extranjera necesaria, o porque decide no pagar"
+
+explicacion: |
+  Son las dos razones centrales mencionadas en la teoría.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un default no siempre afecta a toda la deuda de un país por igual: puede ser sólo de deuda externa, sólo de deuda interna, o de ambas."
+
+explicacion: |
+  Es la razón por la que este tema depende de entender los dos tipos
+  de deuda por separado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "problema"]
+
+enunciado: "Un país deja de pagarle a sus acreedores extranjeros, pero sigue pagando con normalidad a los acreedores locales de deuda en moneda propia. ¿Qué tipo de default es este?"
+tipo: mc
+opciones_explicitas:
+  - "Default de deuda externa exclusivamente"
+  - "Default de deuda interna exclusivamente"
+  - "No es un default: es una reestructuración automática"
+respuesta: "Default de deuda externa exclusivamente"
+
+explicacion: |
+  Sólo se dejó de pagar a los acreedores de afuera: es un default
+  parcial, sólo de la deuda externa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "¿Qué suele pasar con el acceso de un país al crédito internacional después de un default?"
+tipo: mc
+opciones_explicitas:
+  - "Se vuelve mucho más difícil y más caro volver a pedir prestado"
+  - "Mejora automáticamente, porque el país ya no debe nada"
+  - "No tiene ningún efecto sobre el crédito futuro"
+respuesta: "Se vuelve mucho más difícil y más caro volver a pedir prestado"
+
+explicacion: |
+  Los prestamistas exigen una tasa más alta para compensar el riesgo
+  mayor que perciben tras un default.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "¿Qué es una \"reestructuración\" de deuda, después de un default?"
+tipo: mc
+opciones_explicitas:
+  - "Una negociación con los acreedores para pagar menos del monto original (quita), extender los plazos, o ambas cosas"
+  - "El pago inmediato y completo de toda la deuda original"
+  - "La cancelación automática de la deuda sin ninguna negociación"
+respuesta: "Una negociación con los acreedores para pagar menos del monto original (quita), extender los plazos, o ambas cosas"
+
+explicacion: |
+  Es el mecanismo habitual para salir de un default y volver a tener
+  una relación de pago con los acreedores.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "basico"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "¿Qué es una \"quita\", en el contexto de una reestructuración de deuda?"
+tipo: mc
+opciones_explicitas:
+  - "Que los acreedores acepten cobrar menos del monto originalmente pactado"
+  - "Que el Estado pague el 100% de lo que debía, sin ningún descuento"
+  - "Un impuesto nuevo que se cobra a los acreedores"
+respuesta: "Que los acreedores acepten cobrar menos del monto originalmente pactado"
+
+explicacion: |
+  Es uno de los dos componentes centrales de una reestructuración,
+  junto con la extensión de plazos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "calculo"]
+
+variables:
+  monto_original: random(1, 20) * 100
+  quita_pct: uno_de([20, 25, 30, 50])
+
+respuesta: monto_original * (1 - quita_pct / 100)
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Un país reestructura un bono de U$S {monto_original} millones con una quita del {quita_pct}%. ¿Cuántos millones de dólares terminan cobrando los acreedores?"
+
+explicacion: |
+  Con una quita del X%, los acreedores cobran el (100 - X)% del monto
+  original.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "En un default de deuda externa, ¿qué puede pasar con los acreedores que NO aceptan la reestructuración?"
+tipo: mc
+opciones_explicitas:
+  - "Pueden llevar el reclamo a tribunales extranjeros, buscando cobrar el monto original por esa vía legal"
+  - "Automáticamente pierden todo derecho a reclamar cualquier cosa"
+  - "El Estado está obligado por ley internacional a pagarles el doble"
+respuesta: "Pueden llevar el reclamo a tribunales extranjeros, buscando cobrar el monto original por esa vía legal"
+
+explicacion: |
+  Es un riesgo real y específico de la deuda externa, que no aplica de
+  la misma forma a la deuda interna.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "¿En qué año declaró Argentina un default de su deuda externa, en medio de una crisis económica más amplia?"
+tipo: mc
+opciones_explicitas:
+  - "2001"
+  - "1991"
+  - "2015"
+respuesta: "2001"
+
+explicacion: |
+  Es el ejemplo histórico real citado en la teoría.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Después del default de 2001, Argentina negoció una reestructuración con la mayoría de sus acreedores (con una quita importante), mientras que un grupo que no aceptó llevó el reclamo a tribunales de Estados Unidos."
+
+explicacion: |
+  Es el desenlace real de ese caso histórico, presentado con
+  neutralidad: negociación con la mayoría, litigio con la minoría que
+  no aceptó.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Este tema explica la mecánica de qué pasa en un default (consecuencias, reestructuración, litigios), sin evaluar si la decisión puntual de algún país de entrar en default fue correcta o no."
+
+explicacion: |
+  Es el mismo criterio de neutralidad ya aplicado a otros temas
+  sensibles de esta materia (ver el bloque de corrientes de
+  pensamiento económico, `../liberalismo-clasico-y-escuela-austriaca/`
+  y afines).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "Cuando se informa que \"las calificadoras de riesgo bajaron la nota de un país\", ¿qué suelen estar reflejando?"
+tipo: mc
+opciones_explicitas:
+  - "Un default reciente o una mayor probabilidad de que ocurra uno"
+  - "Que el país acaba de tener superávit comercial"
+  - "Que el país bajó su tasa de interés de referencia"
+respuesta: "Un default reciente o una mayor probabilidad de que ocurra uno"
+
+explicacion: |
+  Es la lectura habitual de un cambio en la calificación crediticia de
+  un país.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un país que vuelve a pedir prestado después de un default suele pagar una tasa de interés más alta que antes, como consecuencia directa de la pérdida de confianza que generó ese default."
+
+explicacion: |
+  Es el costo futuro de haber entrado en default: no es gratis salir
+  de un incumplimiento.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aunque es menos común que el default de deuda externa, un default (o canje forzoso) de deuda interna también puede ocurrir."
+
+explicacion: |
+  Es la aclaración explícita de la teoría: el default no es exclusivo
+  de la deuda externa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená esta secuencia de un default y su resolución."
+opciones_explicitas:
+  - "El país recupera acceso al crédito, generalmente a una tasa más alta que antes"
+  - "El Estado negocia una reestructuración (quita y/o extensión de plazos) con sus acreedores"
+  - "El Estado no puede cumplir un pago comprometido de su deuda"
+  - "Se declara el default (cese de pagos)"
+respuesta_orden: ["El Estado no puede cumplir un pago comprometido de su deuda", "Se declara el default (cese de pagos)", "El Estado negocia una reestructuración (quita y/o extensión de plazos) con sus acreedores", "El país recupera acceso al crédito, generalmente a una tasa más alta que antes"]
+
+explicacion: |
+  Es el ciclo típico completo: incumplimiento, default, negociación, y
+  el costo futuro de haber pasado por eso.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "vocabulario"]
+
+enunciado: "¿Por qué este tema depende de entender tanto la deuda interna como la externa?"
+tipo: mc
+opciones_explicitas:
+  - "Porque un default puede afectar a una, a la otra, o a ambas, con consecuencias y acreedores distintos en cada caso"
+  - "Porque un default siempre afecta a las dos deudas exactamente igual"
+  - "Porque la deuda interna y la externa son, en realidad, la misma cosa"
+respuesta: "Porque un default puede afectar a una, a la otra, o a ambas, con consecuencias y acreedores distintos en cada caso"
+
+explicacion: |
+  Es la razón de la dependencia explicada al principio de la teoría.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "avanzado"
+  tags: ["deuda_publica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El riesgo de litigios en tribunales extranjeros por parte de acreedores que no aceptan una reestructuración es un riesgo específico de la deuda externa."
+
+explicacion: |
+  La deuda interna, al estar bajo jurisdicción del propio país, no
+  tiene ese mismo riesgo de litigio en tribunales de otro país.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "basico"
+  tags: ["deuda_publica"]
+
+tipo: completar
+enunciado: "Completá: una reestructuración de deuda combina una ___ (pagar menos del monto original) con, muchas veces, una extensión de los plazos de pago."
+respuestas_validas:
+  - "quita"
+
+explicacion: |
+  Es el término central de una reestructuración.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "basico"
+  tags: ["deuda_publica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un default es el cese de pagos de una deuda, que puede afectar a la deuda interna, la externa, o ambas, y que suele resolverse con una reestructuración negociada con los acreedores."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "default_deuda"
+  nivel: "intermedio"
+  tags: ["deuda_publica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Desde la balanza comercial hasta el default de deuda, toda esta sub-rama sigue el mismo hilo: cómo un país se relaciona económicamente con el resto del mundo, y qué puede salir bien o mal en esa relación."
+
+explicacion: |
+  Es el cierre conceptual de toda la sub-rama de Economía
+  Internacional (`E33`-`E37`).
 ```
 

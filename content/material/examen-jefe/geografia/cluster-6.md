@@ -1,6 +1,6 @@
 # Examen jefe — [PENDIENTE #801]
 
-> Logro #801. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **105 preguntas totales** en 5/5 secciones.
+> Logro #801. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **108 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -505,389 +505,6 @@ enunciado: "Durante la colonia, la organización social jerárquica se basaba en
 
 explicacion: |
   El origen étnico determinaba el estatus social, el poder político y los derechos individuales.
-```
-
-## Sección: ambientalismo-liberal (20 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "basico"
-  tags: ["ambientalismo_liberal", "vocabulario"]
-
-enunciado: "¿Qué sostiene el ambientalismo liberal (o de mercado)?"
-tipo: mc
-opciones_explicitas:
-  - "Que los mecanismos de mercado son herramientas más eficaces para proteger el ambiente que la regulación estatal directa"
-  - "Que el Estado debe controlar directamente toda actividad económica"
-  - "Que hay que reducir el crecimiento económico para proteger el ambiente"
-respuesta: "Que los mecanismos de mercado son herramientas más eficaces para proteger el ambiente que la regulación estatal directa"
-
-explicacion: |
-  También se lo llama ambientalismo de libre mercado o ecocapitalismo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "intermedio"
-  tags: ["ambientalismo_liberal"]
-
-enunciado: "¿Qué es la regulación de \"comando y control\" que critica el ambientalismo liberal?"
-tipo: mc
-opciones_explicitas:
-  - "Leyes ambientales que prohíben o limitan directamente por decreto estatal"
-  - "Un sistema de derechos de propiedad privada"
-  - "Un mecanismo de mercado de carbono"
-respuesta: "Leyes ambientales que prohíben o limitan directamente por decreto estatal"
-
-explicacion: |
-  Según esta corriente, ese tipo de regulación desalienta la inversión
-  y la innovación empresarial.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["propiedad_privada"]
-
-enunciado: "¿Qué es el problema de la \"tragedia de los comunes\" que esta corriente busca resolver?"
-tipo: mc
-opciones_explicitas:
-  - "Que si un recurso no tiene dueño claro, nadie internaliza el costo de dañarlo"
-  - "Que la propiedad privada siempre genera más contaminación"
-  - "Que el Estado siempre gestiona mejor un recurso que un privado"
-respuesta: "Que si un recurso no tiene dueño claro, nadie internaliza el costo de dañarlo"
-
-explicacion: |
-  Un río o el aire, al ser "de nadie", no tienen quién asuma el costo
-  económico de su degradación.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "intermedio"
-  tags: ["propiedad_privada"]
-
-enunciado: "Según el ambientalismo liberal, ¿por qué el dueño de un bosque privado tendría interés en cuidarlo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el valor futuro del bosque depende de su estado de conservación"
-  - "Porque la ley lo obliga estrictamente a hacerlo"
-  - "Porque no existe ningún interés económico real en cuidarlo"
-respuesta: "Porque el valor futuro del bosque depende de su estado de conservación"
-
-explicacion: |
-  Es el argumento central: un dueño claro tiene incentivo económico
-  directo para cuidar el recurso.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "intermedio"
-  tags: ["cap_and_trade"]
-
-enunciado: "¿Qué es el sistema de \"cap and trade\" (límite y comercio) de derechos de emisión?"
-tipo: mc
-opciones_explicitas:
-  - "El Estado fija un límite total de emisiones y emite certificados que las empresas pueden comprar y vender entre sí"
-  - "Una prohibición total de cualquier tipo de emisión"
-  - "Un impuesto fijo idéntico para todas las empresas sin excepción"
-respuesta: "El Estado fija un límite total de emisiones y emite certificados que las empresas pueden comprar y vender entre sí"
-
-explicacion: |
-  Es el instrumento de mercado más conocido de esta corriente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["cap_and_trade"]
-
-enunciado: "En un sistema de cap and trade, ¿quién puede vender su excedente de derechos de emisión?"
-tipo: mc
-opciones_explicitas:
-  - "Quien contamina menos de lo permitido"
-  - "Sólo el Estado que emitió los certificados"
-  - "Nadie, los derechos no se pueden vender"
-respuesta: "Quien contamina menos de lo permitido"
-
-explicacion: |
-  Puede vender su excedente a quien necesita emitir más, dirigiendo la
-  reducción hacia quien puede lograrla al menor costo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["cap_and_trade"]
-
-enunciado: "¿Qué busca lograr, en teoría, el mecanismo de cap and trade frente a un límite parejo impuesto a todas las empresas por igual?"
-tipo: mc
-opciones_explicitas:
-  - "Dirigir la reducción de emisiones hacia quien puede lograrla al menor costo"
-  - "Eliminar completamente cualquier emisión de inmediato"
-  - "Aumentar las emisiones totales permitidas cada año"
-respuesta: "Dirigir la reducción de emisiones hacia quien puede lograrla al menor costo"
-
-explicacion: |
-  Es el argumento de eficiencia económica detrás de este mecanismo de
-  mercado.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "intermedio"
-  tags: ["referencia"]
-
-enunciado: "¿Cuál es el libro de referencia real que sistematiza el ambientalismo de mercado?"
-tipo: mc
-opciones_explicitas:
-  - "Free Market Environmentalism (Terry L. Anderson y Donald R. Leal, 1991)"
-  - "A Sand County Almanac (Aldo Leopold, 1949)"
-  - "El Capital (Karl Marx, 1867)"
-respuesta: "Free Market Environmentalism (Terry L. Anderson y Donald R. Leal, 1991)"
-
-explicacion: |
-  Argumenta que la propiedad privada y la responsabilidad civil son
-  más efectivas que la regulación de comando y control.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "intermedio"
-  tags: ["referencia"]
-
-enunciado: "¿En qué año se publicó Free Market Environmentalism de Anderson y Leal?"
-tipo: input
-respuesta: 1991
-
-explicacion: |
-  Es el libro que sistematizó esta corriente como propuesta coherente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["propiedad_privada"]
-
-enunciado: "Además de la propiedad privada, ¿qué otra herramienta legal propone Anderson y Leal para proteger el ambiente?"
-tipo: mc
-opciones_explicitas:
-  - "La responsabilidad civil, para poder demandar a quien contamina"
-  - "La nacionalización de todas las empresas contaminantes"
-  - "La eliminación total del sistema judicial en temas ambientales"
-respuesta: "La responsabilidad civil, para poder demandar a quien contamina"
-
-explicacion: |
-  Permite que quien sufre el daño ambiental pueda reclamar
-  judicialmente al responsable, sin necesitar regulación estatal
-  previa.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["matices_internos"]
-
-enunciado: "¿Qué proponen los \"coasianos\" (en referencia al economista Ronald Coase) dentro del ambientalismo de mercado?"
-tipo: mc
-opciones_explicitas:
-  - "El comercio supranacional de derechos de carbono como solución práctica"
-  - "La abolición completa de cualquier mercado de emisiones"
-  - "Que el Estado prohíba toda forma de propiedad privada"
-respuesta: "El comercio supranacional de derechos de carbono como solución práctica"
-
-explicacion: |
-  Aceptan el cap and trade como mecanismo válido y práctico.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["matices_internos"]
-
-enunciado: "¿Por qué los \"libertarios\" más estrictos dentro de esta corriente se oponen incluso al cap and trade?"
-tipo: mc
-opciones_explicitas:
-  - "Porque lo consideran una intervención gubernamental disfrazada"
-  - "Porque prefieren la regulación de comando y control"
-  - "Porque no creen en la propiedad privada"
-respuesta: "Porque lo consideran una intervención gubernamental disfrazada"
-
-explicacion: |
-  Para ellos, la única solución legítima es la propiedad privada y la
-  responsabilidad civil, sin ningún mercado regulado por el Estado.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿En qué se diferencia el ambientalismo liberal del conservacionismo (`../conservacionismo/`)?"
-tipo: mc
-opciones_explicitas:
-  - "El ambientalismo liberal confía en mecanismos de mercado; el conservacionismo confía más en la acción directa del Estado"
-  - "Son exactamente la misma postura con distinto nombre"
-  - "El ambientalismo liberal rechaza cualquier forma de propiedad privada"
-respuesta: "El ambientalismo liberal confía en mecanismos de mercado; el conservacionismo confía más en la acción directa del Estado"
-
-explicacion: |
-  Es la diferencia clave entre las dos primeras corrientes del
-  espectro.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Con qué corriente económica ya vista en `E28P` (Corrientes del pensamiento económico) cruza directamente el ambientalismo liberal?"
-tipo: mc
-opciones_explicitas:
-  - "La escuela austriaca, crítica de la planificación centralizada"
-  - "El marxismo"
-  - "El mercantilismo"
-respuesta: "La escuela austriaca, crítica de la planificación centralizada"
-
-explicacion: |
-  Ambas confían en que los precios y mercados libres coordinan mejor
-  que la planificación estatal.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "intermedio"
-  tags: ["cruce"]
-
-enunciado: "El ambientalismo liberal considera que el crecimiento económico y la protección ambiental son incompatibles."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Los considera compatibles, si los incentivos de mercado están bien
-  diseñados — a diferencia del decrecimiento (`../decrecimiento/`).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿En qué se diferencia el ambientalismo liberal del ecologismo político (`../ecologismo-politico/`)?"
-tipo: mc
-opciones_explicitas:
-  - "El ambientalismo liberal no cuestiona el capitalismo; el ecologismo político sí exige repensar el sistema económico de fondo"
-  - "Son exactamente la misma postura"
-  - "El ecologismo político confía en el mercado libre y el ambientalismo liberal no"
-respuesta: "El ambientalismo liberal no cuestiona el capitalismo; el ecologismo político sí exige repensar el sistema económico de fondo"
-
-explicacion: |
-  Es la diferencia central entre las corrientes "dentro del sistema" y
-  las corrientes "que cuestionan el sistema".
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "basico"
-  tags: ["propiedad_privada"]
-
-enunciado: "Según el ambientalismo liberal, ¿qué genera que un recurso tenga un precio y un dueño claro?"
-tipo: mc
-opciones_explicitas:
-  - "Un incentivo económico concreto para cuidarlo"
-  - "Un incentivo para destruirlo lo antes posible"
-  - "Ningún efecto sobre cómo se lo cuida"
-respuesta: "Un incentivo económico concreto para cuidarlo"
-
-explicacion: |
-  Es el argumento central de esta corriente frente a recursos sin
-  dueño ("tragedia de los comunes").
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["matices_internos"]
-
-enunciado: "El ambientalismo de mercado es una corriente completamente homogénea, sin ningún matiz interno."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Existen matices internos: coasianos (aceptan cap and trade) vs.
-  libertarios estrictos (lo rechazan por considerarlo intervención
-  disfrazada).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "basico"
-  tags: ["vocabulario"]
-
-enunciado: "¿Cuál de estos es otro nombre usado para referirse al ambientalismo liberal?"
-tipo: mc
-opciones_explicitas:
-  - "Ecocapitalismo"
-  - "Ecosocialismo"
-  - "Decrecimiento"
-respuesta: "Ecocapitalismo"
-
-explicacion: |
-  También se lo llama ambientalismo de libre mercado.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "basico"
-  tags: ["neutralidad"]
-
-enunciado: "¿El objetivo de este material es convencer de que el ambientalismo liberal es superior a las otras 3 corrientes?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  El objetivo es identificar qué sostiene, con la misma seriedad
-  expositiva que el resto, no evaluar cuál tiene razón.
 ```
 
 ## Sección: conservacionismo (20 preguntas)
@@ -2049,5 +1666,451 @@ respuesta: "Porque cuestionar el sistema económico frente a la crisis ambiental
 
 explicacion: |
   Es el mismo prerrequisito compartido por las 4 corrientes hermanas.
+```
+
+## Sección: indicadores-sociales-de-argentina (23 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "intermedio"
+  tags: ["hacinamiento", "calculos", "critico"]
+
+variables:
+  habitantes: 12
+  dormitorios: 3
+
+respuesta: "si"
+tipo: input
+
+enunciado: "En un hogar con {habitantes} habitantes y {dormitorios} dormitorios, ¿hay hacinamiento? (escribe 'si' o 'no')."
+
+explicacion: |
+  El ratio es 12 / 3 = 4. Como 4 es mayor que 2, hay hacinamiento.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "basico"
+  tags: ["NBI", "definicion", "carencias"]
+
+variables:
+  condicion1: falso
+  condicion2: falso
+  condicion3: falso
+
+respuesta: "al menos una"
+tipo: completar
+
+enunciado: "Un hogar se considera con Necesidad Básica Insatisfecha (NBI) si cumple {condicion1} una de las condiciones de carencia (vivienda precaria, hacinamiento o niños sin escolaridad)."
+
+explicacion: |
+  El NBI es un indicador compuesto. No basta con tener un solo problema; la definición clásica establece que si el hogar presenta AL MENOS UNA de las carencias estructurales (vivienda precaria, hacinamiento o falta de escolaridad infantil), se clasifica como NBI.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "intermedio"
+  tags: ["hacinamiento", "calculo", "densidad"]
+
+variables:
+  habitantes: random(5, 15)
+  dormitorios: random(1, 4)
+
+respuesta: "{redondear(habitantes / dormitorios, 1)}"
+tipo: input
+
+enunciado: "Si un hogar tiene {habitantes} habitantes y {dormitorios} dormitorios, ¿cuál es la relación de personas por dormitorio? (Redondear a 1 decimal)."
+
+explicacion: |
+  El hacinamiento se mide dividiendo el número de habitantes entre el número de dormitorios. Si esta relación es mayor a 2, se considera hacinamiento severo. En este caso, la relación es {redondear(habitantes / dormitorios, 1)}.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "basico"
+  tags: ["pobreza", "ingreso", "canasta"]
+
+variables:
+  tipo_pobreza: uno_de(["indigente", "general"])
+
+respuesta: tipo_pobreza
+tipo: completar
+
+enunciado: "Cuando los ingresos de un hogar no alcanzan para cubrir la canasta básica de ALIMENTOS, se denomina pobreza {tipo_pobreza}."
+
+explicacion: |
+  La pobreza indigente se define específicamente por la incapacidad de cubrir la canasta básica de alimentos. La pobreza general abarca la canasta básica total (alimentos + bienes y servicios no alimentarios).
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "basico"
+  tags: ["hacinamiento", "umbral", "regla"]
+
+variables:
+  valor: 2
+
+respuesta: "2"
+tipo: input
+
+enunciado: "Según los estándares utilizados en Argentina, se considera que hay hacinamiento cuando la relación habitantes/dormitorios es mayor a {valor}."
+
+explicacion: |
+  El umbral clásico para detectar hacinamiento es una relación superior a 2 personas por dormitorio. Esto indica que el espacio físico es insuficiente para garantizar la privacidad y el descanso adecuado.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "intermedio"
+  tags: ["desigualdad", "territorio", "pobreza"]
+
+variables:
+  region: uno_de(["norte", "centro", "sur"])
+
+respuesta: region
+tipo: completar
+
+enunciado: "En Argentina, las provincias de la región {region} suelen presentar tasas más altas de pobreza e indicadores de carencia estructural en comparación con otras zonas del país."
+
+explicacion: |
+  Históricamente, las provincias del norte argentino presentan mayores índices de pobreza y NBI debido a factores estructurales, menos industrialización y menor acceso a servicios públicos comparado con el centro del país.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "basico"
+  tags: ["vivienda", "NBI", "materiales"]
+
+variables:
+  material: uno_de(["ladrillo", "quincha", "madera"])
+
+respuesta: material
+tipo: completar
+
+enunciado: "Para ser considerada vivienda precaria en el cálculo del NBI, el techo o las paredes deben estar construidos con materiales como {material} o similares no dignos, en lugar de ladrillo o bloques sólidos."
+
+explicacion: |
+  La condición de vivienda precaria se refiere a la falta de materiales de construcción dignos. Materiales como quincha, cartón o madera en mal estado suelen ser indicadores de esta carencia en las encuestas.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "avanzado"
+  tags: ["migracion", "urbanizacion", "hacinamiento"]
+
+variables:
+  causa: "crecimiento_urbano_desordenado"
+
+respuesta: causa
+tipo: completar
+
+enunciado: "El fenómeno de migración interna y el {causa} generan asentamientos periféricos donde el hacinamiento se intensifica debido a la falta de planificación territorial."
+
+explicacion: |
+  El crecimiento urbano desordenado, impulsado a menudo por migraciones internas hacia grandes ciudades, conduce a la formación de barrios periféricos con infraestructura deficiente, lo que agrava el problema del hacinamiento.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "intermedio"
+  tags: ["pobreza", "definicion", "diferencia"]
+
+variables:
+  diferencia: "canasta_basica_total"
+
+respuesta: diferencia
+tipo: completar
+
+enunciado: "La pobreza general se diferencia de la indigente porque toma como referencia la canasta básica de {diferencia}, que incluye alimentos y servicios no alimentarios."
+
+explicacion: |
+  La pobreza indigente mide la incapacidad de comprar alimentos. La pobreza general mide la incapacidad de cubrir la canasta básica total, que es más amplia e incluye servicios como transporte, salud y vestimenta.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "intermedio"
+  tags: ["NBI", "logica", "condicion"]
+
+variables:
+  tiene_vivienda_pobre: verdadero
+  tiene_hacinamiento: falso
+  ninos_sin_escuela: falso
+
+respuesta: "si"
+tipo: completar
+
+enunciado: "Si un hogar tiene vivienda precaria ({tiene_vivienda_pobre}), no tiene hacinamiento ({tiene_hacinamiento}) y sus hijos asisten a la escuela ({ninos_sin_escuela}), ¿tiene NBI? (Responder 'si' o 'no')."
+
+explicacion: |
+  Si. El hogar tiene NBI porque cumple con al menos una de las condiciones: la vivienda precaria. No es necesario que cumpla todas las condiciones, solo una es suficiente para ser clasificado como tal.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "basico"
+  tags: ["importancia", "calidad_vida", "estadistica"]
+
+variables:
+  funcion: "cuantificar"
+
+respuesta: funcion
+tipo: completar
+
+enunciado: "Los indicadores sociales permiten {funcion} la calidad de vida de una población, transformando condiciones subjetivas en datos objetivos y medibles."
+
+explicacion: |
+  Los indicadores sociales son herramientas estadísticas fundamentales para cuantificar (medir numéricamente) aspectos como la salud, educación y vivienda, permitiendo comparar realidades y diseñar políticas públicas.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "intermedio"
+  tags: ["hacinamiento", "severo", "definicion"]
+
+variables:
+  limite: 2
+
+respuesta: "2"
+tipo: input
+
+enunciado: "Se considera hacinamiento severo cuando la relación de habitantes por dormitorio supera el límite de {limite}."
+
+explicacion: |
+  El umbral estándar para considerar hacinamiento es una relación mayor a 2 personas por dormitorio. Si la relación es mayor a este número, se considera que el espacio es insuficiente para el bienestar de los ocupantes.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "avanzado"
+  tags: ["desigualdad", "territorio", "patrones"]
+
+variables:
+  patron: "geograficos"
+
+respuesta: patron
+tipo: completar
+
+enunciado: "La distribución de la pobreza en Argentina revela patrones {patron} claros, concentrándose más en ciertas provincias y periferias urbanas que en otras."
+
+explicacion: |
+  La pobreza no se distribuye aleatoriamente; sigue patrones geográficos históricos y económicos, afectando desproporcionadamente a las regiones del norte y a los cinturones de pobreza alrededor de las grandes ciudades.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "basico"
+  tags: ["NBI", "educacion", "escolaridad"]
+
+variables:
+  condicion: "asistir"
+
+respuesta: condicion
+tipo: completar
+
+enunciado: "Una de las variables del NBI es la escolaridad: se considera carencia si hay niños en el hogar que no {condicion} a la escuela."
+
+explicacion: |
+  La falta de escolaridad infantil es un indicador clave de pobreza intergeneracional. Si un niño en edad escolar no asiste a la escuela, el hogar es marcado como con NBI por esta variable.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "intermedio"
+  tags: ["pobreza", "calcula", "porcentaje"]
+
+variables:
+  total_poblacion: random(1000000, 5000000)
+  poblacion_pobre: random(200000, 1500000)
+
+respuesta: "{redondear(poblacion_pobre / total_poblacion * 100, 1)}"
+tipo: input
+
+enunciado: "Si en una provincia de {total_poblacion} habitantes, {poblacion_pobre} viven en situación de pobreza, ¿cuál es la tasa de pobreza? (Expresar como número entero o decimal, sin el símbolo %)."
+
+explicacion: |
+  La tasa de pobreza se calcula dividiendo la población pobre entre la población total y multiplicando por 100. En este caso: {poblacion_pobre} / {total_poblacion} * 100 = {redondear(poblacion_pobre / total_poblacion * 100, 1)}%.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "basico"
+  tags: ["hacinamiento", "privacidad", "impacto"]
+
+variables:
+  impacto: "menores"
+
+respuesta: impacto
+tipo: completar
+
+enunciado: "El hacinamiento se traduce en {impacto} oportunidades de desarrollo personal y comunitario debido a la falta de espacio físico y privacidad."
+
+explicacion: |
+  La falta de espacio adecuado afecta directamente la salud mental, el rendimiento escolar y la cohesión social, generando un ciclo de desventaja para las familias que viven en condiciones de hacinamiento.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "basico"
+  tags: ["pobreza", "indigente", "alimentos"]
+
+variables:
+  referencia: "alimentos"
+
+respuesta: referencia
+tipo: completar
+
+enunciado: "La pobreza indigente se define como la incapacidad de cubrir la canasta básica de {referencia}."
+
+explicacion: |
+  La pobreza indigente es la forma más extrema de exclusión, donde el hogar no puede comprar ni siquiera los alimentos mínimos necesarios para sobrevivir.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "intermedio"
+  tags: ["NBI", "servicios", "acceso"]
+
+variables:
+  relacion: "acceso"
+
+respuesta: relacion
+tipo: completar
+
+enunciado: "El NBI captura la falta de {relacion} a servicios básicos y educación, más allá de la situación económica del hogar."
+
+explicacion: |
+  El NBI es una medida de acceso a derechos básicos. Evalúa si la familia tiene acceso efectivo a una vivienda digna, un espacio habitable adecuado y la educación obligatoria para sus hijos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "intermedio"
+  tags: ["pobreza", "general", "servicios"]
+
+variables:
+  servicios: "no alimentarios"
+
+respuesta: servicios
+tipo: completar
+
+enunciado: "La pobreza general incluye la incapacidad de cubrir la canasta básica de alimentos más los bienes y servicios {servicios}."
+
+explicacion: |
+  La pobreza general es un indicador más amplio que la indigente. Incluye la capacidad de cubrir no solo la alimentación, sino también gastos esenciales como transporte, salud, vestimenta y vivienda.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "avanzado"
+  tags: ["hacinamiento", "distribucion", "urbano"]
+
+variables:
+  zona: "periferias"
+
+respuesta: zona
+tipo: completar
+
+enunciado: "El hacinamiento en Argentina es más frecuente en las {zona} de las grandes ciudades y en asentamientos informales, debido al crecimiento demográfico no planificado."
+
+explicacion: |
+  El hacinamiento no es uniforme. Se concentra en las periferias urbanas donde la oferta de vivienda formal es escasa y los precios son prohibitivos, forzando a las familias a ocupar espacios insuficientes.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "avanzado"
+  tags: ["hacinamiento", "salud", "impacto"]
+
+variables:
+  efecto: "mayor"
+
+respuesta: efecto
+tipo: completar
+
+enunciado: "El hacinamiento está ligado a un {efecto} riesgo de enfermedades respiratorias y infecciosas debido a la falta de ventilación y higiene adecuada."
+
+explicacion: |
+  La densidad poblacional excesiva en espacios reducidos facilita la transmisión de enfermedades y dificulta el mantenimiento de condiciones higiénicas, impactando negativamente en la salud pública.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "intermedio"
+  tags: ["pobreza", "economia", "fluctuacion"]
+
+variables:
+  variable: "economia"
+
+respuesta: variable
+tipo: completar
+
+enunciado: "La tasa de pobreza en Argentina suele fluctuar con la {variable} nacional, aumentando en tiempos de crisis y disminuyendo en etapas de crecimiento."
+
+explicacion: |
+  A diferencia del NBI que es más estructural y cambia lentamente, la pobreza por ingreso es más sensible a los ciclos económicos, variando rápidamente con la inflación y el empleo.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "indicadores_sociales_de_argentina"
+  nivel: "basico"
+  tags: ["resumen", "indicadores", "importancia"]
+
+variables:
+  objetivo: "desigualdad"
+
+respuesta: objetivo
+tipo: completar
+
+enunciado: "Los indicadores sociales como NBI, pobreza y hacinamiento son fundamentales para entender la {objetivo} territorial en Argentina."
+
+explicacion: |
+  Estos indicadores permiten objetivar la desigualdad territorial, mostrando que la calidad de vida no es uniforme en el territorio y ayudando a identificar las zonas que requieren intervención prioritaria.
 ```
 

@@ -1,8 +1,358 @@
 # Examen jefe — [PENDIENTE #826]
 
-> Logro #826. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **213 preguntas totales** en 9/9 secciones.
+> Logro #826. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **215 preguntas totales** en 9/9 secciones.
 
 ---
+
+## Sección: sistema-de-archivos-por-bitacora (21 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "basico"
+  tags: ["journaling", "definicion", "consistencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La bitácora (journal) es un registro que almacena información sobre los cambios pendientes en los metadatos antes de aplicarlos al sistema de archivos."
+
+explicacion: |
+  Correcto. El propósito principal de la bitácora es registrar las intenciones de cambio en los metadatos para garantizar la consistencia del sistema ante fallos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["recuperacion", "consistencia", "reinicio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al reiniciar después de un fallo, el sistema lee la bitácora para determinar qué operaciones de metadatos estaban pendientes y las completa o revierte."
+
+explicacion: |
+  Correcto. La bitácora actúa como un plan de trabajo. Si hay operaciones incompletas, el sistema las procesa para restaurar la integridad lógica del sistema de archivos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["rendimiento", "fsck", "tiempo"]
+
+variables:
+  tiempo_fsck: random(30, 120)
+  tiempo_journal: random(1, 5)
+
+respuesta: tiempo_journal
+tipo: input
+
+enunciado: "Si un sistema sin journaling tarda {tiempo_fsck} segundos en escanear errores (fsck), ¿cuántos segundos tarda aproximadamente uno con journaling en recuperar la consistencia? (Redondea a entero)."
+
+explicacion: |
+  Con journaling, la recuperación es casi instantánea (segundos) porque solo se revisa la bitácora, a diferencia del escaneo completo del disco que toma minutos u horas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "basico"
+  tags: ["concepto", "analogia", "planificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La bitácora funciona como un 'cuaderno de apuntes' donde se escribe el plan antes de ejecutar la tarea física en el disco."
+
+explicacion: |
+  Correcto. Esta analogía ilustra cómo el sistema escribe la intención de cambio primero, garantizando que si falla, pueda saber qué había planeado hacer.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["integridad", "estructura", "coherencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El journaling garantiza la integridad lógica, asegurando que la estructura de carpetas y archivos siempre sea coherente."
+
+explicacion: |
+  Correcto. La integridad lógica se refiere a que la estructura del sistema de archivos no queda rota o inconsistente tras un fallo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["fsck", "comparacion", "rendimiento"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los sistemas con journaling requieren ejecutar fsck completo cada vez que se apaga la computadora para verificar la integridad."
+
+explicacion: |
+  Falso. Con journaling, el fsck es muy rápido porque solo verifica la bitácora. El fsck completo solo es necesario en sistemas sin journaling o si hay errores graves no resueltos por la bitácora.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["estado", "bitacora", "fallos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un sistema de archivos se marca como 'sucio' (dirty) si hubo un fallo durante una operación que involucra la bitácora."
+
+explicacion: |
+  Correcto. El estado 'sucio' indica que hay operaciones en la bitácora que deben ser procesadas al reiniciar para completar o deshacer cambios.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["rendimiento", "comparacion", "tiempo"]
+
+variables:
+  tiempo_sin_journal: random(10, 60)
+  tiempo_con_journal: random(1, 5)
+
+respuesta: tiempo_con_journal
+tipo: input
+
+enunciado: "Si un disco sin journaling tarda {tiempo_sin_journal} segundos en repararse, ¿cuántos segundos tarda uno con journaling? (Redondea a entero)."
+
+explicacion: |
+  La recuperación con journaling es mucho más rápida (segundos) porque solo se procesan las entradas pendientes de la bitácora.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["consistencia", "estructura", "integridad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La bitácora asegura que la estructura del sistema de archivos (directorios, bloques) sea consistente, aunque los datos de usuario estén intactos."
+
+explicacion: |
+  Correcto. El objetivo principal es la consistencia de la estructura (metadatos), permitiendo que el sistema acceda correctamente a los archivos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "basico"
+  tags: ["fallos", "recuperacion", "bitacora"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ante un fallo repentino, la bitácora permite al sistema saber qué tareas estaban pendientes al momento del corte."
+
+explicacion: |
+  Correcto. La bitácora contiene el registro de las operaciones incompletas, permitiendo una recuperación ordenada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["concepto", "diferencia", "backup"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La bitácora es un mecanismo de respaldo (backup) que copia los archivos de usuario a otro disco."
+
+explicacion: |
+  Falso. La bitácora no es un backup. Es un mecanismo de consistencia interna del sistema de archivos que registra cambios en metadatos, no una copia de seguridad de datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "basico"
+  tags: ["estabilidad", "usuario", "beneficio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El uso de journaling contribuye a una computadora más estable y menos propensa a corrupción de datos."
+
+explicacion: |
+  Correcto. Al prevenir inconsistencias en la estructura del sistema de archivos, se reduce la probabilidad de errores y corrupción de datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["verificacion", "fsck", "recuperacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El proceso de verificación tras un fallo con journaling es casi instantáneo porque el sistema ya sabe qué parte del disco está incompleta."
+
+explicacion: |
+  Correcto. La bitácora indica exactamente qué operaciones fallaron, evitando escanear todo el disco.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "basico"
+  tags: ["analogia", "funcionamiento", "bitacora"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La bitácora es como un asistente que escribe el plan antes de ejecutar la tarea, para saber qué hacer si se interrumpe el trabajo."
+
+explicacion: |
+  Correcto. Esta analogía ayuda a entender el rol de la bitácora como registro de intenciones de cambio.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["integridad", "carpetas", "estructura"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El journaling asegura que la estructura de carpetas sea coherente, evitando que apunten a directorios inexistentes."
+
+explicacion: |
+  Correcto. La integridad de la estructura de directorios es clave para que el sistema pueda navegar y acceder a los archivos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["rendimiento", "tiempo", "comparacion"]
+
+variables:
+  tiempo_sin_journal: random(20, 90)
+  tiempo_con_journal: random(1, 5)
+
+respuesta: tiempo_con_journal
+tipo: input
+
+enunciado: "Si un disco sin journaling tarda {tiempo_sin_journal} segundos en repararse, ¿cuántos segundos tarda uno con journaling? (Redondea a entero)."
+
+explicacion: |
+  La recuperación con journaling es rápida (segundos) porque solo se procesan las entradas pendientes de la bitácora.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "basico"
+  tags: ["fallos", "luz", "recuperacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ante un corte de luz, el journaling permite al sistema recuperar la consistencia de los metadatos al reiniciar."
+
+explicacion: |
+  Correcto. El journaling es crucial para manejar fallos de energía, asegurando que los cambios en metadatos se completen o se deshagan.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["registro", "intencion", "bitacora"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La bitácora es un registro de las intenciones de cambio en los metadatos antes de que se apliquen."
+
+explicacion: |
+  Correcto. El registro de intenciones permite al sistema saber qué hacer si la operación se interrumpe.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["consistencia", "logica", "integridad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El journaling garantiza la consistencia lógica, asegurando que la estructura del sistema de archivos sea coherente."
+
+explicacion: |
+  Correcto. La consistencia lógica es el objetivo principal del journaling, evitando estructuras rotas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["fsck", "rendimiento", "comparacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los sistemas con journaling requieren fsck completo cada vez que se apagan para verificar la integridad."
+
+explicacion: |
+  Falso. Con journaling, el fsck es rápido y solo verifica la bitácora. El fsck completo es innecesario en la mayoría de los casos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["estado", "sucio", "bitacora"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un sistema se marca como 'sucio' si hubo un fallo durante una operación que involucra la bitácora."
+
+explicacion: |
+  Correcto. El estado 'sucio' indica que hay operaciones pendientes en la bitácora que deben procesarse al reiniciar.
+```
 
 ## Sección: sql-consultas-joins-agregaciones (25 preguntas)
 
@@ -1857,462 +2207,482 @@ explicacion: |
   La GPL solo obliga a liberar el código cuando se distribuye el software. El uso interno no requiere liberación.
 ```
 
-## Sección: tipos-de-so-por-dispositivo (22 preguntas)
+## Sección: seguridad-de-red-firewall-vpn-cifrado (25 preguntas)
 
 ```
 metadata:
   materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
+  tema: "seguridad_de_red_firewall_vpn_cifrado"
   nivel: "basico"
-  tags: ["concepto"]
+  tags: ["firewall", "redes", "seguridad"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Todos los dispositivos usan el mismo tipo de sistema operativo, sin importar su función."
-
-explicacion: |
-  Los SO no son "talla única": están diseñados según las necesidades de
-  hardware y objetivos de cada tipo de dispositivo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "basico"
-  tags: ["mainframes"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "procesar volúmenes masivos de datos con disponibilidad casi ininterrumpida"
-tipo: mc
-opciones_explicitas: ["procesar volúmenes masivos de datos con disponibilidad casi ininterrumpida", "ofrecer la mejor interfaz gráfica para el usuario", "consumir la menor batería posible"]
-
-enunciado: "Los mainframes están diseñados principalmente para..."
-
-explicacion: |
-  Son el corazón de instituciones financieras, aerolíneas y gobiernos:
-  priorizan la integridad de datos y el procesamiento en bloque.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "intermedio"
-  tags: ["servidores"]
-
-variables:
-  ejemplo_so: uno_de(["Linux", "Windows Server"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{ejemplo_so}\" es mencionado en la teoría como ejemplo de sistema operativo típico de un servidor."
-
-explicacion: |
-  Ambos son SO reales usados en servidores, enfocados en gestión de
-  redes, seguridad perimetral y entrega de recursos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "intermedio"
-  tags: ["servidores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "escalabilidad: aumentar capacidad según demanda sin detenerse"
-tipo: mc
-opciones_explicitas: ["escalabilidad: aumentar capacidad según demanda sin detenerse", "una interfaz gráfica vistosa para el usuario final", "un consumo energético mínimo"]
-
-enunciado: "Una característica clave de los SO de servidor, según la teoría, es..."
-
-explicacion: |
-  A diferencia de un mainframe aislado, un servidor debe poder crecer en
-  capacidad según la demanda sin interrumpir el servicio.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "basico"
-  tags: ["diferencia mainframe servidor"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los mainframes suelen ser sistemas aislados y centralizados, mientras que los servidores operan en entornos distribuidos."
-
-explicacion: |
-  Es una diferencia clave entre ambos: el mainframe centraliza, el
-  servidor se conecta y distribuye recursos a otros equipos por red.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "basico"
-  tags: ["pcs"]
-
-variables:
-  so: uno_de(["Windows", "macOS", "distribuciones de Linux"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{so}\" es mencionado en la teoría como sistema operativo típico de una computadora personal (PC)."
-
-explicacion: |
-  Los tres priorizan la experiencia del usuario, la interfaz gráfica y
-  la compatibilidad con periféricos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "basico"
-  tags: ["pcs"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "facilitar la interacción humana con interfaz gráfica y multitarea ligera"
-tipo: mc
-opciones_explicitas: ["facilitar la interacción humana con interfaz gráfica y multitarea ligera", "garantizar respuesta en milisegundos para sistemas críticos", "controlar un único hardware específico con consumo mínimo"]
-
-enunciado: "El objetivo principal de un SO para PC es..."
-
-explicacion: |
-  A diferencia de los sistemas embebidos o de tiempo real, la PC busca
-  facilitar la interacción del usuario con aplicaciones diversas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "intermedio"
-  tags: ["tiempo real"]
-
-variables:
-  ejemplo: uno_de(["control industrial", "aviónica", "equipos médicos"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{ejemplo}\" es un ámbito donde los sistemas operativos de tiempo real son vitales, según la teoría."
-
-explicacion: |
-  En estos ámbitos, un retraso de milisegundos puede ser catastrófico,
-  así que se necesita una respuesta estrictamente predecible.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "intermedio"
-  tags: ["tiempo real"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "que una tarea se complete dentro de un plazo estricto y predecible"
-tipo: mc
-opciones_explicitas: ["que una tarea se complete dentro de un plazo estricto y predecible", "que el usuario tenga la mejor experiencia visual", "que el dispositivo consuma la menor batería posible"]
-
-enunciado: "Un sistema operativo de tiempo real garantiza principalmente..."
-
-explicacion: |
-  La predictibilidad del tiempo de respuesta es la característica
-  central de estos sistemas, no la interfaz ni el consumo energético.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "basico"
-  tags: ["embebidos"]
-
-variables:
-  dispositivo: uno_de(["lavadoras", "televisores inteligentes", "controles de acceso"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{dispositivo}\" es un ejemplo de dispositivo con sistema operativo embebido mencionado en la teoría."
-
-explicacion: |
-  Los sistemas embebidos son SO livianos integrados en dispositivos
-  cotidianos con función específica y bajo consumo energético.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "intermedio"
-  tags: ["embebidos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "controlar un hardware específico con consumo energético muy bajo"
-tipo: mc
-opciones_explicitas: ["controlar un hardware específico con consumo energético muy bajo", "permitir instalar cualquier programa arbitrario", "procesar millones de transacciones financieras"]
-
-enunciado: "La función de un sistema embebido es..."
-
-explicacion: |
-  Tienen capacidades mínimas porque su rol es controlar un hardware
-  puntual, sin necesidad de interfaces complejas ni gran potencia.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "basico"
-  tags: ["identificacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "embebido"
-tipo: mc
-opciones_explicitas: ["embebido", "mainframe", "servidor"]
-
-enunciado: "La pantalla digital de un microondas usa un sistema operativo..."
-
-explicacion: |
-  Es un ejemplo claro de sistema embebido: no se le instalan programas
-  arbitrarios, sólo controla el hardware específico del microondas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "intermedio"
-  tags: ["identificacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "tiempo real"
-tipo: mc
-opciones_explicitas: ["tiempo real", "para PC", "embebido"]
-
-enunciado: "El sistema que controla un airbag en un auto, garantizando respuesta inmediata ante una señal de peligro, es de tipo..."
-
-explicacion: |
-  Necesita una respuesta predecible en milisegundos, algo que un SO de
-  PC común no puede garantizar con la misma fiabilidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "basico"
-  tags: ["identificacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "servidor"
-tipo: mc
-opciones_explicitas: ["servidor", "embebido", "tiempo real"]
-
-enunciado: "Cuando accedés a la plataforma de tu escuela y ves datos que residen en otra máquina remota, esos datos están gestionados por un SO de tipo..."
-
-explicacion: |
-  El servidor asegura que la información llegue a todos los usuarios de
-  forma segura, gestionando la red y los recursos remotos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "basico"
-  tags: ["identificacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "para PC"
-tipo: mc
-opciones_explicitas: ["para PC", "mainframe", "tiempo real"]
-
-enunciado: "Cuando abrís tu notebook para hacer una tarea, estás usando un sistema operativo..."
-
-explicacion: |
-  Está diseñado para la interacción directa del usuario: es un SO de PC.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "avanzado"
-  tags: ["criterios de eleccion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "la eficiencia, la seguridad y la capacidad de respuesta del dispositivo"
-tipo: mc
-opciones_explicitas: ["la eficiencia, la seguridad y la capacidad de respuesta del dispositivo", "únicamente el precio de venta del hardware", "el color de la carcasa del dispositivo"]
-
-enunciado: "Según la teoría, la elección del tipo de SO determina principalmente..."
-
-explicacion: |
-  No es una decisión estética: afecta directamente la eficiencia,
-  seguridad y capacidad de respuesta según el contexto de uso.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "intermedio"
-  tags: ["funcion comun"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aunque su implementación varía drásticamente, todos los tipos de SO comparten la función básica de gestionar recursos."
-
-explicacion: |
-  Mainframes, servidores, PCs, sistemas de tiempo real y embebidos
-  gestionan recursos de forma distinta, pero esa función básica es
-  compartida por todos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "intermedio"
-  tags: ["mainframes"]
-
-variables:
-  institucion: uno_de(["instituciones financieras", "aerolíneas", "gobiernos"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{institucion}\" son mencionadas en la teoría como usuarias típicas de mainframes."
-
-explicacion: |
-  Los mainframes son el corazón de este tipo de instituciones, que
-  necesitan procesar grandes volúmenes de datos de forma confiable.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "basico"
-  tags: ["identificacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "embebido"
-tipo: mc
-opciones_explicitas: ["embebido", "servidor", "mainframe"]
-
-enunciado: "El sistema operativo de un celular es, según la teoría, de tipo..."
-
-explicacion: |
-  El celular es mencionado explícitamente como ejemplo de dispositivo
-  con sistema embebido, sin acceso directo a instalar cualquier
-  programa arbitrario.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "avanzado"
-  tags: ["comparacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un SO de PC común puede garantizar la misma fiabilidad de respuesta inmediata que un sistema de tiempo real."
-
-explicacion: |
-  Los sistemas de tiempo real están diseñados específicamente para
-  respuestas predecibles en milisegundos; un SO de PC no ofrece esa
-  garantía.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
-  nivel: "basico"
-  tags: ["ejemplo cotidiano"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "tren"
+respuesta: "filtrar"
 tipo: completar
+respuestas_validas:
+  - "filtrar"
+  - "controlar"
+  - "bloquear"
 
-enunciado: "El sistema de control de un ___ (mencionado junto al airbag) es un ejemplo de sistema de tiempo real en la teoría."
+enunciado: "La función principal de un firewall es ___ el tráfico de red basándose en un conjunto de reglas de seguridad establecidas."
+
+explicacion: |
+  Un firewall actúa como una barrera entre una red confiable y una no confiable, permitiendo o denegando paquetes según criterios predefinidos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_de_red_firewall_vpn_cifrado"
+  nivel: "basico"
+  tags: ["vpn", "tunel", "redes"]
+
+opciones_explicitas: ["Un túnel cifrado", "Un cable físico", "Un servidor de archivos", "Un sistema de backup"]
+respuesta: "Un túnel cifrado"
+tipo: mc
+
+enunciado: "Una Red Privada Virtual (VPN) crea esencialmente ___ sobre una infraestructura de red pública como Internet."
+
+explicacion: |
+  La VPN utiliza protocolos de encapsulamiento y cifrado para crear un "túnel" lógico que protege la privacidad de los datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_de_red_firewall_vpn_cifrado"
+  nivel: "intermedio"
+  tags: ["cifrado", "datos_en_transito", "seguridad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿El cifrado de datos en tránsito asegura que, si un atacante intercepta los paquetes, no pueda leer su contenido original?"
+
+explicacion: |
+  Exacto. El cifrado transforma la información en un formato ilegible para cualquiera que no posea la clave de descifrado, protegiendo la confidencialidad durante el movimiento de los datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_de_red_firewall_vpn_cifrado"
+  nivel: "intermedio"
+  tags: ["protocolos", "seguridad", "ordenar"]
+
+opciones_explicitas: ["Cifrado", "Encapsulamiento", "Autenticación"]
+respuesta_orden: ["Autenticación", "Encapsulamiento", "Cifrado"]
+tipo: ordenar
+
+enunciado: "Ordene los procesos lógicos que ocurren típicamente en la construcción de un túnel VPN seguro, desde la validación de identidad hasta la protección del contenido:"
+
+explicacion: |
+  Primero se autentica al usuario, luego se encapsula el paquete dentro de otro protocolo y finalmente se cifra el contenido para garantizar la privacidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_de_red_firewall_vpn_cifrado"
+  nivel: "avanzado"
+  tags: ["cifrado", "hash", "seguridad"]
+
+respuesta: "El cifrado es reversible con una clave, el hashing es una función de una sola vía"
+tipo: mc
+opciones_explicitas: ["El cifrado es reversible con una clave, el hashing es una función de una sola vía", "El cifrado es de una vía, el hashing es reversible", "Ambos son lo mismo", "El cifrado es para archivos y el hashing para redes"]
+
+enunciado: "Considerando las propiedades de los algoritmos de seguridad, ¿cuál es la diferencia fundamental entre el cifrado y el hashing?"
+
+explicacion: |
+  El cifrado está diseñado para ser revertido (descifrado) mediante una clave, mientras que el hashing es una función unidireccional que no permite recuperar el dato original.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_de_red_firewall"
+  nivel: "basico"
+  tags: ["firewall", "seguridad", "redes"]
+
+variables:
+  puerto_bloqueado: uno_de([21, 22, 23, 80])
+
+enunciado: "Un administrador de red configura un firewall para proteger un servidor web. Si el puerto {puerto_bloqueado} está en la lista de reglas de 'Denegar' (Deny), ¿qué acción tomará el firewall ante un paquete que intenta entrar por ese puerto?"
+
+opciones_explicitas:
+  - "Permitir el tráfico"
+  - "Bloquear el tráfico"
+  - "Redirigir el tráfico"
+
+respuesta: "Bloquear el tráfico"
+tipo: mc
+
+explicacion: |
+  El firewall actúa como un filtro basado en reglas. Si una regla de 'Denegar' coincide con el puerto de origen/destino, el paquete es descartado o bloqueado para proteger el sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "vpn_cifrado"
+  nivel: "intermedio"
+  tags: ["vpn", "cifrado", "tunel"]
+
+enunciado: "Para establecer un túnel seguro en una VPN, se utiliza comúnmente el protocolo IPsec. ¿Es este protocolo un estándar utilizado para asegurar la comunicación en una VPN?"
+
+respuesta: verdadero
+tipo: vf
+explicacion: |
+  IPsec (Internet Protocol Security) es un conjunto de protocolos para asegurar las comunicaciones IP mediante la autenticación y el cifrado de cada paquete en una comunicación IP.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_de_red_handshake"
+  nivel: "avanzado"
+  tags: ["handshake", "protocolo", "seguridad"]
+
+enunciado: "En un proceso de negociación de seguridad (como el handshake de TLS), el orden correcto de las fases es el siguiente:"
+
+opciones_explicitas:
+  - "Negociación de parámetros"
+  - "Intercambio de claves"
+  - "Verificación de certificados"
+  - "Cifrado de datos"
+
+respuesta_orden: ["Negociación de parámetros", "Intercambio de claves", "Verificación de certificados", "Cifrado de datos"]
+tipo: ordenar
+
+explicacion: |
+  Primero se acuerdan los algoritmos (negociación), luego se intercambian las claves para el cifrado, se validan las identidades mediante certificados y finalmente se establece el canal cifrado para los datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "cifrado_datos_en_transito"
+  nivel: "basico"
+  tags: ["protocolos", "cifrado", "web"]
+
+enunciado: "Un usuario navega por una web. Si el usuario desea que sus datos (como contraseñas) viajen cifrados en tránsito, el protocolo utilizado debe ser ___."
 
 respuestas_validas:
-  - "tren"
+  - "HTTPS"
+
+respuesta: "HTTPS"
+tipo: completar
 
 explicacion: |
-  Tanto el sistema de un tren como el airbag de un auto necesitan
-  respuestas inmediatas y predecibles: son ejemplos de tiempo real.
+  HTTPS utiliza TLS/SSL para cifrar la comunicación entre el cliente y el servidor, garantizando la confidencialidad e integridad de los datos en tránsito.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "tipos_de_so_por_dispositivo"
+  tema: "integridad_datos"
   nivel: "intermedio"
-  tags: ["embebidos vs pc"]
+  tags: ["hash", "integridad", "seguridad"]
 
 variables:
-  n: uno_de([1, 1])
+  hash_original: "a1b2c3d4"
+  hash_recibido: "a1b2c3d4"
 
-respuesta: verdadero
-tipo: vf
+enunciado: "Se envía un archivo con un valor Hash original de {hash_original}. Al recibirlo, el receptor calcula el Hash del archivo y obtiene {hash_recibido}. ¿El mensaje ha sido alterado en el camino?"
 
-enunciado: "En un sistema embebido, a diferencia de una PC, no se puede instalar programas arbitrarios porque su función es controlar un hardware específico."
+opciones_explicitas:
+  - "Sí, el hash cambió"
+  - "No, el hash es idéntico"
+
+respuesta: "No, el hash es idéntico"
+tipo: mc
 
 explicacion: |
-  Un microondas o un celular no permiten instalar cualquier software:
-  están limitados a la función para la que fueron fabricados.
+  La función Hash es determinista. Si el mensaje no ha sido alterado (ni un solo bit), el valor del Hash calculado por el receptor debe ser exactamente igual al enviado por el emisor.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_de_red"
+  nivel: "basico"
+  tags: ["firewall", "seguridad"]
+
+tipo: mc
+opciones_explicitas: ["Filtrar tráfico de red según reglas", "Eliminar archivos infectados del disco", "Cifrar el contenido de los correos", "Gestionar las contraseñas de usuario"]
+
+enunciado: "Un error común es pensar que un firewall sustituye al antivirus. La función principal de un firewall es ___."
+
+respuesta: "Filtrar tráfico de red según reglas"
+
+explicacion: |
+  El firewall actúa como una barrera que controla el flujo de datos (paquetes) que entran o salen de una red basándose en reglas, mientras que el antivirus busca código malicioso en archivos o procesos del sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "vpn_cifrado"
+  nivel: "intermedio"
+  tags: ["vpn", "privacidad"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["Navegar en una red Wi-Fi pública de una cafetería", "proteger la privacidad de la conexión"], ["Aumentar la velocidad de descarga de Internet", "proteger la privacidad de la conexión"]]
+
+tipo: mc
+opciones_explicitas: ["Aumentar la velocidad de descarga de Internet", "proteger la privacidad de la conexión", "Eliminar la necesidad de usar contraseñas", "Evitar que el hardware se sobrecaliente"]
+
+enunciado: "Un usuario piensa que usar una VPN sirve para {escenarios[escenario_idx][0]}. Sin embargo, el objetivo principal es {escenarios[escenario_idx][1]}."
+
+respuesta: "proteger la privacidad de la conexión"
+
+explicacion: |
+  Una VPN crea un túnel cifrado para tus datos, pero no mejora la velocidad de tu proveedor de internet; de hecho, debido al proceso de cifrado, puede aumentar ligeramente la latencia.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "cifrado_datos"
+  nivel: "intermedio"
+  tags: ["cifrado", "seguridad_datos"]
+
+tipo: vf
+
+enunciado: "Si un archivo está cifrado en el disco duro de un servidor (en reposo), esto garantiza automáticamente que el archivo no pueda ser interceptado mientras se envía por una red sin protección (en tránsito)."
+
+respuesta: falso
+
+explicacion: |
+  El cifrado en reposo protege los datos si el soporte físico es robado. El cifrado en tránsito (como TLS/SSL) es necesario para proteger los datos mientras viajan por la red.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolos_seguridad"
+  nivel: "basico"
+  tags: ["http", "https", "seguridad"]
+
+tipo: completar
+respuestas_validas:
+  - "HTTPS"
+
+enunciado: "Para asegurar que la comunicación entre un navegador y un servidor web esté cifrada, se debe utilizar el protocolo ___ en lugar de HTTP."
+
+respuesta: "HTTPS"
+
+explicacion: |
+  HTTPS utiliza protocolos de cifrado (como TLS) para asegurar que la información enviada entre el cliente y el servidor no pueda ser leída por terceros.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "vpn_handshake"
+  nivel: "avanzado"
+  tags: ["vpn", "seguridad", "proceso"]
+
+tipo: ordenar
+opciones_explicitas: ["Establecer túnel de comunicación", "Autenticar al usuario", "Negociar algoritmos de cifrado", "Intercambiar claves de cifrado"]
+
+enunciado: "Para establecer una conexión VPN segura, los pasos lógicos suelen seguir este orden de negociación y autenticación:"
+
+respuesta_orden: ["Negociar algoritmos de cifrado", "Intercambiar claves de cifrado", "Autenticar al usuario", "Establecer túnel de comunicación"]
+
+explicacion: |
+  Primero el cliente y el servidor acuerdan qué algoritmos usarán, luego intercambian las llaves necesarias, después el servidor verifica la identidad del usuario y, finalmente, se establece el túnel de datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_de_red_firewall_vpn_cifrado"
+  nivel: "basico"
+  tags: ["firewall", "seguridad"]
+
+tipo: mc
+opciones_explicitas: ["El firewall analiza el tráfico de red y puertos, mientras que el antivirus analiza archivos y procesos en el host.", "El firewall detecta virus en archivos descargados, mientras que el antivirus bloquea conexiones no autorizadas.", "Son conceptos idénticos aplicados a diferentes capas del sistema operativo.", "El firewall cifra los datos y el antivirus los descifra."]
+
+enunciado: "En una estrategia de defensa en profundidad, ¿cuál es la distinción fundamental entre un firewall y un antivirus?"
+
+respuesta: "El firewall analiza el tráfico de red y puertos, mientras que el antivirus analiza archivos y procesos en el host."
+
+explicacion: |
+  El firewall actúa como una barrera en el perímetro de la red o el sistema, controlando el flujo de datos basado en reglas de puertos y protocolos. El antivirus se enfoca en identificar y eliminar software malicioso (malware) dentro del sistema de archivos o la memoria.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_de_red_firewall_vpn_cifrado"
+  nivel: "intermedio"
+  tags: ["cifrado", "seguridad_datos"]
+
+tipo: completar
+respuestas_validas:
+  - "confidencialidad"
+  - "integridad"
+  - "disponibilidad"
+
+enunciado: "Mientras que un mecanismo de checksum asegura la ___ de los datos, el cifrado de datos en tránsito tiene como objetivo principal garantizar la ___."
+
+explicacion: |
+  El checksum o hash detecta si los datos han sido alterados (integridad), pero el cifrado asegura que, aunque sean interceptados, no puedan ser leídos por terceros (confidencialidad).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_de_red_firewall_vpn_cifrado"
+  nivel: "avanzado"
+  tags: ["vpn", "cifrado"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["VPN de Acceso Remoto", "crea un túnel virtual sobre una red pública"], ["Cifrado de extremo a extremo (E2EE)", "asegura que solo los nodos finales puedan leer el mensaje"]]
+
+tipo: mc
+opciones_explicitas: ["La VPN cifra todo el tráfico de la interfaz de red, mientras que el cifrado E2EE solo cifra la aplicación específica.", "La VPN es un protocolo de capa 2 y el cifrado E2EE es de capa 7.", "La VPN requiere un servidor central y el cifrado E2EE no requiere infraestructura.", "No hay diferencia, ambos términos son sinónimos en redes modernas."]
+
+enunciado: "Considerando el escenario de {escenarios[escenario_idx][0]}, ¿cuál es la diferencia clave respecto al {escenarios[1 - escenario_idx][0]}?"
+
+respuesta: "La VPN cifra todo el tráfico de la interfaz de red, mientras que el cifrado E2EE solo cifra la aplicación específica."
+
+explicacion: |
+  Una VPN establece un túnel que encapsula todo el tráfico de un dispositivo a través de una red (como Internet), mientras que el cifrado E2EE (End-to-End) se asegura de que el contenido sea ilegible para cualquier intermediario, incluso para el proveedor del servicio, centrándose en la aplicación.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_de_red_firewall_vpn_cifrado"
+  nivel: "intermedio"
+  tags: ["waf", "firewall"]
+
+tipo: vf
+
+enunciado: "Un Firewall de Aplicaciones Web (WAF) se distingue de un firewall de red tradicional porque opera principalmente en la capa de aplicación (Capa 7) del modelo OSI, permitiendo inspeccionar contenido HTTP/HTTPS, a diferencia del firewall de red que se centra en capas inferiores como IP y TCP."
+
+respuesta: verdadero
+
+explicacion: |
+  Es correcto. El firewall de red tradicional filtra por IP y puerto, mientras que el WAF inspecciona el contenido de las peticiones web para prevenir ataques como SQL Injection o Cross-Site Scripting (XSS).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_de_red_firewall_vpn_cifrado"
+  nivel: "intermedio"
+  tags: ["handshake", "seguridad"]
+
+tipo: ordenar
+opciones_explicitas: ["Negociación de parámetros de cifrado", "Intercambio de claves públicas/privadas", "Autenticación de las partes", "Establecimiento del canal de datos cifrado"]
+respuesta_orden: ["Negociación de parámetros de cifrado", "Intercambio de claves públicas/privadas", "Autenticación de las partes", "Establecimiento del canal de datos cifrado"]
+
+enunciado: "Ordene los pasos lógicos de un protocolo de negociación de seguridad (como TLS) para establecer una conexión segura:"
+
+explicacion: |
+  Primero se acuerda qué algoritmos usar (Cipher Suite), luego se intercambian las claves para el cifrado asimétrico, se verifica la identidad de los participantes y, finalmente, se empieza a transmitir la información protegida.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_de_red_firewall"
+  nivel: "basico"
+  tags: ["firewall", "redes"]
+
+variables:
+  datos: [["bloquear tráfico no deseado", "bloquear"], ["permitir todo el tráfico", "permitir"], ["analizar virus", "analizar"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["bloquear", "permitir", "analizar"]
+
+enunciado: "Un firewall actúa como una barrera de seguridad cuya función principal es {datos[idx][0]}."
+
+explicacion: |
+  El firewall inspecciona los paquetes de red y decide si permitirlos o bloquearlos basándose en un conjunto de reglas de seguridad predefinidas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "cifrado_datos_transito"
+  nivel: "intermedio"
+  tags: ["cifrado", "seguridad"]
+
+variables:
+  datos: [["HTTPS", "seguro"], ["HTTP", "inseguro"]]
+  idx: uno_de([0,1])
+
+respuestas_validas:
+  - datos[idx][1]
+respuesta: datos[idx][1]
+tipo: completar
+enunciado: "Si un usuario navega utilizando el protocolo {datos[idx][0]}, la información que transita por la red se considera {datos[idx][1]}."
+
+explicacion: |
+  El protocolo HTTPS utiliza TLS/SSL para cifrar la comunicación, protegiendo los datos contra la interceptación (sniffing). El protocolo HTTP envía los datos en texto plano.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "vpn_conceptos"
+  nivel: "intermedio"
+  tags: ["vpn", "tunel"]
+
+respuesta: "túnel"
+tipo: completar
+respuestas_validas:
+  - "túnel"
+
+enunciado: "Una VPN (Virtual Private Network) crea un ___ cifrado sobre una red pública para permitir el transporte seguro de datos."
+
+explicacion: |
+  La VPN establece un 'túnel' lógico que encapsula y cifra los paquetes de datos, permitiendo que la información viaje de forma privada a través de internet.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "handshake_tls"
+  nivel: "avanzado"
+  tags: ["tls", "handshake", "seguridad"]
+
+respuesta_orden: ["Negociación de versión", "Intercambio de certificados", "Intercambio de claves", "Cifrado de datos"]
+tipo: ordenar
+opciones_explicitas: ["Negociación de versión", "Intercambio de certificados", "Intercambio de claves", "Cifrado de datos"]
+
+enunciado: "Ordene los pasos lógicos de un apretón de manos (handshake) TLS para establecer una conexión segura:"
+
+explicacion: |
+  Primero se acuerda la versión del protocolo, luego se verifica la identidad mediante certificados, se intercambian claves para la sesión y finalmente se inicia el flujo de datos cifrados.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "cifrado_simetrico"
+  nivel: "avanzado"
+  tags: ["cifrado", "simetrico", "clave"]
+
+variables:
+  datos: [["una sola clave para cifrar y descifrar", "simétrico"], ["dos claves distintas", "asimétrico"]]
+  idx: uno_de([0,1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["simétrico", "asimétrico"]
+
+enunciado: "Si el sistema utiliza {datos[idx][0]}, estamos ante un algoritmo de cifrado {datos[idx][1]}."
+
+explicacion: |
+  En el cifrado simétrico se utiliza la misma clave para las operaciones de cifrado y descifrado. En el asimétrico se utiliza un par de claves (pública y privada).
 ```
 
 ## Sección: transacciones-acid (25 preguntas)
@@ -2775,901 +3145,460 @@ explicacion: |
   En un escenario de éxito, la secuencia es: Inicio -> Ejecución de comandos -> COMMIT (confirmación) -> El sistema aplica permanentemente los cambios.
 ```
 
-## Sección: unidades-almacenamiento (22 preguntas)
+## Sección: seguridad-informatica (25 preguntas)
 
 ```
 metadata:
   materia: "informatica"
-  tema: "unidades_almacenamiento"
+  tema: "seguridad_informatica"
   nivel: "basico"
-  tags: ["unidades_almacenamiento", "vocabulario"]
+  tags: ["phishing", "amenazas"]
 
-enunciado: "¿Qué es un bit?"
 tipo: mc
-opciones_explicitas:
-  - "La unidad mínima de información en una computadora: un 0 o un 1"
-  - "Un grupo de 8 bytes"
-  - "La velocidad de un procesador"
-respuesta: "La unidad mínima de información en una computadora: un 0 o un 1"
+opciones_explicitas: ["Un software diseñado para dañar el hardware", "Una técnica de engaño para obtener datos sensibles", "Un método para acelerar la conexión a internet", "Un tipo de antivirus de última generación"]
+
+respuesta: "Una técnica de engaño para obtener datos sensibles"
+
+enunciado: "El phishing es una técnica de ingeniería social que consiste en ___ para obtener información confidencial como contraseñas o datos bancarios."
 
 explicacion: |
-  Todo lo demás (bytes, kilobytes...) se construye a partir de esta
-  unidad mínima.
+  El phishing busca engañar al usuario mediante correos o sitios web falsos que suplantan la identidad de entidades legítimas.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "unidades_almacenamiento"
+  tema: "seguridad_informatica"
   nivel: "basico"
-  tags: ["unidades_almacenamiento", "vocabulario"]
+  tags: ["malware", "conceptos"]
 
-respuesta: verdadero
 tipo: vf
-
-enunciado: "Un byte está compuesto por 8 bits."
-
-explicacion: |
-  Es la unidad base sobre la que se arman kilobyte, megabyte, etc.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "basico"
-  tags: ["unidades_almacenamiento", "vocabulario"]
-
-enunciado: "En el sistema decimal (SI), ¿a cuántos bytes equivale 1 KB?"
-tipo: mc
-opciones_explicitas:
-  - "1.000 bytes"
-  - "1.024 bytes"
-  - "100 bytes"
-respuesta: "1.000 bytes"
-
-explicacion: |
-  Es la potencia de 10 estándar, igual que en cualquier otra unidad
-  \"kilo\" (kilogramo, kilómetro).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "basico"
-  tags: ["unidades_almacenamiento", "vocabulario"]
-
-enunciado: "En el sistema binario (IEC), ¿a cuántos bytes equivale 1 KiB?"
-tipo: mc
-opciones_explicitas:
-  - "1.024 bytes"
-  - "1.000 bytes"
-  - "512 bytes"
-respuesta: "1.024 bytes"
-
-explicacion: |
-  1.024 es 2 elevado a la 10, la potencia de 2 más cercana a 1.000.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "intermedio"
-  tags: ["unidades_almacenamiento", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "KB (1.000 bytes) y KiB (1.024 bytes) no son la misma cantidad, aunque en el uso cotidiano a veces se confundan o se usen como sinónimos."
-
-explicacion: |
-  Es justamente la ambigüedad que el estándar IEC de 1998 quiso resolver
-  con los prefijos \"kibi/mebi/gibi\".
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "intermedio"
-  tags: ["unidades_almacenamiento", "calculo"]
-
-variables:
-  cantidad_kb: random(5, 900)
-
-respuesta: cantidad_kb * 1000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un archivo pesa {cantidad_kb} KB (sistema decimal). ¿Cuántos bytes son?"
-
-explicacion: |
-  Se multiplica por 1.000, la definición decimal de kilo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "intermedio"
-  tags: ["unidades_almacenamiento", "calculo"]
-
-variables:
-  cantidad_kib: random(5, 900)
-
-respuesta: cantidad_kib * 1024
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un archivo pesa {cantidad_kib} KiB (sistema binario). ¿Cuántos bytes son?"
-
-explicacion: |
-  Se multiplica por 1.024, la definición binaria de kibi.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "intermedio"
-  tags: ["unidades_almacenamiento", "comparacion"]
-
-variables:
-  cantidad: random(10, 500)
-
-respuesta: ((cantidad * 1024) > (cantidad * 1000))
-tipo: vf
-
-enunciado: "Con el mismo número, {cantidad} KiB representa más bytes que {cantidad} KB."
-
-explicacion: |
-  1.024 es mayor que 1.000, así que la versión binaria siempre da más
-  bytes para el mismo número.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "intermedio"
-  tags: ["unidades_almacenamiento", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La memoria RAM y el direccionamiento de memoria de una computadora usan naturalmente potencias de 2, porque las computadoras funcionan internamente en base binaria."
-
-explicacion: |
-  Es la razón de fondo por la que existe el sistema binario de
-  prefijos (kibi, mebi, gibi).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "intermedio"
-  tags: ["unidades_almacenamiento", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los fabricantes de discos, pendrives y tarjetas de memoria suelen anunciar la capacidad usando el sistema decimal (1.000), no el binario."
-
-explicacion: |
-  Da un número redondo y, casualmente, también más grande que el
-  binario.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "avanzado"
-  tags: ["unidades_almacenamiento", "calculo"]
-
-variables:
-  gb_anunciados: uno_de([120, 240, 500, 1000, 2000])
-
-respuesta: gb_anunciados * 1000000000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un disco se vende anunciando \"{gb_anunciados} GB\" (sistema decimal del fabricante). ¿Cuántos bytes tiene realmente ese disco?"
-
-pasos:
-  - "{gb_anunciados} × 1.000.000.000"
-
-explicacion: |
-  1 GB decimal son 1.000 millones de bytes.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "avanzado"
-  tags: ["unidades_almacenamiento", "calculo"]
-
-variables:
-  gb_anunciados: uno_de([120, 240, 500, 1000, 2000])
-
-respuesta: (gb_anunciados * 1000000000) / 1073741824
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Ese mismo disco de \"{gb_anunciados} GB\" (decimal), ¿aproximadamente cuánto va a mostrar el sistema operativo, que calcula dividiendo por potencias de 1.024 (aunque siga llamándolo \"GB\")?"
-
-pasos:
-  - "bytes reales: {gb_anunciados} × 1.000.000.000 = {gb_anunciados * 1000000000}"
-  - "÷ 1.024³ (1.073.741.824) = {(gb_anunciados * 1000000000) / 1073741824}"
-
-explicacion: |
-  El sistema operativo divide por 1.024³, no por 1.000³, así que el
-  número que muestra siempre es menor al anunciado por el fabricante.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "intermedio"
-  tags: ["unidades_almacenamiento", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un disco anunciado como \"500 GB\" por el fabricante suele mostrar un número menor a 500 en el sistema operativo (aproximadamente 465,7)."
-
-explicacion: |
-  Es la consecuencia directa de que el fabricante usa 1.000 y el
-  sistema operativo divide por 1.024.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "intermedio"
-  tags: ["unidades_almacenamiento", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La diferencia entre el \"500 GB\" del fabricante y lo que muestra el sistema operativo no significa que falte espacio: es la misma cantidad de bytes, contada con dos reglas de prefijos distintas."
-
-explicacion: |
-  No hay ningún byte \"perdido\": es sólo una diferencia de convención
-  de conteo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "intermedio"
-  tags: ["unidades_almacenamiento", "calculo"]
-
-variables:
-  cantidad_kb: random(5, 900)
-  bytes_totales: cantidad_kb * 1000
-
-respuesta: cantidad_kb
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un archivo pesa {bytes_totales} bytes. ¿Cuántos KB (sistema decimal) son?"
-
-explicacion: |
-  Se despeja dividiendo los bytes totales por 1.000.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "avanzado"
-  tags: ["unidades_almacenamiento", "vocabulario"]
-
-enunciado: "¿Para qué introdujo la IEC los prefijos \"kibi/mebi/gibi\" en 1998?"
-tipo: mc
-opciones_explicitas:
-  - "Para desambiguar: que \"KB\" volviera a significar sólo 1.000 bytes, y \"KiB\" quedara para 1.024"
-  - "Para reemplazar por completo al byte como unidad base"
-  - "Para que los fabricantes de discos vendieran más capacidad"
-respuesta: "Para desambiguar: que \"KB\" volviera a significar sólo 1.000 bytes, y \"KiB\" quedara para 1.024"
-
-explicacion: |
-  Antes del estándar, \"KB\" se usaba indistintamente para 1.000 o 1.024
-  bytes, según el contexto.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "basico"
-  tags: ["unidades_almacenamiento", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estas unidades de almacenamiento de menor a mayor."
-opciones_explicitas:
-  - "1 MB"
-  - "1 byte"
-  - "1 GB"
-  - "1 KB"
-respuesta_orden: ["1 byte", "1 KB", "1 MB", "1 GB"]
-
-explicacion: |
-  Cada prefijo es 1.000 (o 1.024) veces más grande que el anterior.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "intermedio"
-  tags: ["unidades_almacenamiento", "verificacion"]
-
-variables:
-  cantidad_kib: random(5, 900)
-  correcto: cantidad_kib * 1024
-  error: uno_de([0, 0, 0, 50, -50])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 1)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? {cantidad_kib} KiB convertidos a bytes: {mostrado}."
-
-explicacion: |
-  Se vuelve a multiplicar por 1.024 y se compara con el valor mostrado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "intermedio"
-  tags: ["unidades_almacenamiento"]
-
-variables:
-  cantidad_kib: random(5, 900)
-  bytes_totales: cantidad_kib * 1024
-
-tipo: completar
-enunciado: "Un archivo pesa {bytes_totales} bytes. Completá: ___ (KiB) = {bytes_totales} (bytes) ÷ 1.024."
-respuestas_validas:
-  - cantidad_kib
-
-explicacion: |
-  Se divide por 1.024 para pasar de bytes a KiB.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "avanzado"
-  tags: ["unidades_almacenamiento", "comparacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para el mismo disco, el número de \"GB\" que anuncia el fabricante (sistema decimal) siempre es mayor que el número que muestra el sistema operativo al calcularlo en sistema binario."
-
-explicacion: |
-  Dividir la misma cantidad de bytes por 1.000³ da un número mayor que
-  dividirla por 1.024³.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "intermedio"
-  tags: ["unidades_almacenamiento", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "1 MB (1.000.000 bytes, decimal) no es exactamente lo mismo que 1 MiB (1.048.576 bytes, binario)."
-
-explicacion: |
-  La diferencia se agranda a medida que se sube de escala (kilo, mega,
-  giga...).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "unidades_almacenamiento"
-  nivel: "basico"
-  tags: ["unidades_almacenamiento", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Existen dos sistemas de prefijos de almacenamiento (decimal: KB=1.000; binario: KiB=1.024), y confundirlos es la razón por la que un disco \"de 500 GB\" nunca muestra exactamente 500 en la computadora."
-
-explicacion: |
-  Es la idea central de todo el tema.
-```
-
-## Sección: variables-y-tipos-de-dato (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
-  nivel: "basico"
-  tags: ["conceptos", "fundamentos"]
-
-respuesta: "contenedor"
-tipo: completar
-respuestas_validas:
-  - "contenedor"
-
-enunciado: "En programación, una variable se puede definir conceptualmente como un ___ en memoria que permite almacenar un valor que puede cambiar durante la ejecución de un programa."
-
-explicacion: |
-  Una variable es un espacio reservado en la memoria de la computadora, identificado por un nombre, destinado a guardar un dato que puede ser modificado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
-  nivel: "basico"
-  tags: ["tipos_de_datos", "identificacion"]
-
-variables:
-  escenario_idx: uno_de([0, 1, 2])
-  datos: [["15", "entero"], ["3.14", "decimal"], ["'Hola'", "texto"]]
-
-respuesta: datos[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["entero", "decimal", "texto", "booleano"]
-
-enunciado: "Si tenemos el valor {datos[escenario_idx][0]}, ¿qué tipo de dato representa principalmente?"
-
-explicacion: |
-  El tipo de dato determina qué operaciones se pueden realizar con el valor. En este caso, {datos[escenario_idx][0]} es de tipo {datos[escenario_idx][1]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
-  nivel: "basico"
-  tags: ["booleanos", "logica"]
 
 respuesta: falso
-tipo: vf
 
-enunciado: "¿El tipo de dato booleano puede almacenar valores como 'si', 'no', 'tal vez' o '10'?"
+enunciado: "El término 'malware' se refiere exclusivamente a los virus que eliminan archivos del disco duro de forma inmediata."
 
 explicacion: |
-  Falso. El tipo booleano es estrictamente binario: solo puede representar dos estados, verdadero (true) o falso (false).
+  Falso. Malware es un término genérico que incluye virus, troyanos, ransomware, spyware y muchos otros tipos de software malicioso con diferentes objetivos.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
-  nivel: "basico"
-  tags: ["numeros", "decimales"]
+  tema: "seguridad_informatica"
+  nivel: "intermedio"
+  tags: ["ransomware", "amenazas"]
 
-respuesta: "float"
-tipo: mc
-opciones_explicitas: ["int", "float", "string", "bool"]
-
-enunciado: "Cuando necesitamos representar un número que contiene una parte fraccionaria (como 0.5 o -1.25), el tipo de dato más adecuado es:"
-
-explicacion: |
-  Los números enteros (int) no permiten decimales. Para valores con precisión decimal utilizamos tipos de punto flotante (float o double).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
-  nivel: "basico"
-  tags: ["flujo", "asignacion"]
-
-respuesta_orden: ["Declarar", "Asignar", "Usar"]
-tipo: ordenar
-opciones_explicitas: ["Declarar", "Asignar", "Usar"]
-
-enunciado: "Ordena los pasos lógicos para trabajar con una variable en un programa:"
-
-pasos:
-  - "Crear el nombre de la variable en memoria."
-  - "Darle un valor inicial."
-  - "Emplear la variable en una operación o instrucción."
-
-explicacion: |
-  Primero se debe declarar la variable (reservar espacio), luego asignar un valor (inicializar) y finalmente se puede usar en el código.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_datos"
-  nivel: "basico"
-  tags: ["fundamentos", "tipos_de_datos"]
-
-variables:
-  ejemplo_idx: uno_de([0, 1, 2])
-  datos: [["42", "int"], ["3.14", "float"], ["\"Hola\"", "string"]]
-
-enunciado: "Si asignamos el valor {datos[ejemplo_idx][0]} a una variable, el tipo de dato resultante es {datos[ejemplo_idx][1]}."
-
-respuesta: datos[ejemplo_idx][1]
-tipo: mc
-opciones_explicitas: ["int", "float", "string", "boolean"]
-
-explicacion: |
-  Cada valor tiene un tipo asociado: los números sin decimales son enteros (int), los que tienen punto decimal son de punto flotante (float) y las secuencias de caracteres entre comillas son cadenas (string).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_datos"
-  nivel: "basico"
-  tags: ["logica", "booleanos"]
-
-enunciado: "En programación, una comparación como 10 > 5 resulta en un valor de tipo ___."
-
-respuestas_validas:
-  - "booleano"
-  - "bool"
-respuesta: "booleano"
 tipo: completar
+respuestas_validas:
+  - "secuestro"
+
+respuesta: "secuestro"
+
+enunciado: "El ransomware es un tipo de malware que realiza un cifrado de los archivos del usuario para luego exigir un pago a cambio de la clave de descifrado. Esto se conoce como un ___ digital."
 
 explicacion: |
-  Las comparaciones lógicas devuelven valores booleanos: 'verdadero' (true) si la condición se cumple, o 'falso' (false) si no se cumple. Como 10 > 5 se cumple, el resultado concreto es 'verdadero', pero su tipo de dato es booleano.
+  El ransomware bloquea el acceso a tus datos (usualmente mediante cifrado) para extorsionar a la víctima.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "tipos_de_datos"
-  nivel: "intermedio"
-  tags: ["casting", "conversiones"]
+  tema: "seguridad_informatica"
+  nivel: "basico"
+  tags: ["buenas_practicas", "reaccion"]
+
+tipo: ordenar
+opciones_explicitas: ["Desconfiar de correos con enlaces sospechosos", "No hacer clic en ningún enlace ni descargar archivos", "Reportar el correo al departamento de seguridad", "Cambiar las contraseñas de las cuentas afectadas"]
+
+respuesta_orden: ["Desconfiar de correos con enlaces sospechosos", "No hacer clic en ningún enlace ni descargar archivos", "Reportar el correo al departamento de seguridad", "Cambiar las contraseñas de las cuentas afectadas"]
+
+enunciado: "Ordena los pasos lógicos que debe seguir un usuario al detectar un posible intento de phishing:"
+
+explicacion: |
+  Primero se identifica la sospecha, luego se evita la interacción con el elemento malicioso, se notifica a los expertos y finalmente se asegura la cuenta.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_informatica"
+  nivel: "basico"
+  tags: ["buenas_practicas", "contraseñas"]
+
+tipo: mc
+opciones_explicitas: ["Usar la misma contraseña para todo", "Usar contraseñas largas con caracteres especiales y MFA", "Compartir la contraseña con familiares para facilitar el acceso", "Anotar las contraseñas en un papel pegado al monitor"]
+
+respuesta: "Usar contraseñas largas con caracteres especiales y MFA"
+
+enunciado: "Para fortalecer la seguridad de las cuentas personales, la mejor práctica es:"
+
+explicacion: |
+  El uso de contraseñas robustas combinadas con la Autenticación de Doble Factor (MFA) añade una capa crítica de protección.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "phishing"
+  nivel: "basico"
+  tags: ["seguridad", "phishing", "ingenieria_social"]
 
 variables:
-  valor_original: "10.7"
-  escenario: [["int", "10"], ["float", "10.7"]]
-  idx: uno_de([0, 1])
+  caso_idx: uno_de([0, 1])
+  escenarios: [["Recibes un correo de tu banco diciendo que tu cuenta ha sido bloqueada y debes hacer clic en un enlace para 'verificar' tus datos.", "phishing"], ["Recibes un mensaje de un amigo por redes sociales con un enlace extraño que dice ser un video gracioso, pero el remitente no es él.", "phishing"]]
 
-enunciado: "Si convertimos el valor {valor_original} al tipo {escenario[idx][0]}, ¿cuál será el resultado?"
-
-respuesta: escenario[idx][1]
+respuesta: escenarios[caso_idx][1]
 tipo: mc
-opciones_explicitas: ["10", "10.7", "11", "error"]
+opciones_explicitas: ["malware", "phishing", "ransomware", "spyware"]
+
+enunciado: "Un usuario recibe un mensaje urgente de una entidad conocida solicitando información sensible a través de un enlace sospechoso. ¿A qué tipo de amenaza estamos ante?"
 
 explicacion: |
-  Al convertir un número decimal (float) a un entero (int), se realiza un truncamiento: se eliminan todos los dígitos después del punto decimal sin redondear.
+  El caso descrito es un ejemplo de phishing, una técnica de ingeniería social donde el atacante se hace pasar por una entidad de confianza para engañar a la víctima y obtener datos confidenciales.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "tipos_de_datos"
+  tema: "malware"
   nivel: "basico"
-  tags: ["almacenamiento", "memoria"]
-
-enunciado: "Ordena los siguientes tipos de datos de menor a mayor consumo aproximado de memoria en un sistema estándar (asumiendo 8 bits para booleanos y 32/64 para otros):"
-
-opciones_explicitas: ["boolean", "int", "float", "string"]
-respuesta_orden: ["boolean", "int", "float", "string"]
-tipo: ordenar
-
-explicacion: |
-  Un booleano ocupa el espacio mínimo (1 bit/byte), seguido por enteros y flotantes de tamaño fijo, mientras que los strings son dinámicos y dependen de la longitud del texto.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_datos"
-  nivel: "intermedio"
-  tags: ["conceptos", "mutabilidad"]
-
-enunciado: "En muchos lenguajes de programación, una vez que una variable de tipo 'string' ha sido creada, su contenido no puede ser modificado directamente en la memoria, sino que se debe crear una nueva cadena. ¿Es esto verdadero o falso?"
+  tags: ["malware", "virus", "seguridad"]
 
 respuesta: verdadero
 tipo: vf
-opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "¿Es cierto que un 'Ransomware' es un tipo de malware que cifra los archivos del usuario y exige un pago para recuperarlos?"
 
 explicacion: |
-  Esto se conoce como inmutabilidad. En lenguajes como Python o Java, los strings son inmutables; cualquier "modificación" genera un nuevo objeto en memoria.
+  Correcto. El ransomware es una amenaza que secuestra la información mediante cifrado, exigiendo un rescate (generalmente en criptomonedas) para desbloquearla.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
-  nivel: "basico"
-  tags: ["tipos_de_dato", "errores_comunes"]
-
-variables:
-  a: 10
-  b: "5"
-
-enunciado: "Si intentamos realizar la operación matemática de sumar {a} + {b} en un lenguaje de tipado fuerte, el resultado esperado suele ser un error de tipo (TypeError) porque no se puede sumar un entero con un ___."
-
-opciones_explicitas: ["entero", "decimal", "string", "booleano"]
-respuesta: "string"
-tipo: "mc"
-
-explicacion: |
-  En programación, no puedes sumar directamente un número (entero) con una cadena de texto (string). Para hacerlo, primero debes convertir el string a un número usando funciones como `int()` o `float()`.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
-  nivel: "basico"
-  tags: ["booleanos", "logica"]
-
-enunciado: "En la lógica de programación, el valor booleano que representa la falsedad se escribe como ___."
-
-respuestas_validas:
-  - "falso"
-  - "false"
-tipo: "completar"
-
-explicacion: |
-  Los tipos de datos booleanos solo pueden tener dos valores posibles: verdadero (true) o falso (false).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
-  nivel: "basico"
-  tags: ["decimales", "float", "precision"]
-
-variables:
-  valor_a: 15
-  valor_b: 15.5
-
-enunciado: "Si declaramos una variable para almacenar el precio de un producto que puede tener centavos, como {valor_b}, ¿qué tipo de dato es el más adecuado para evitar la pérdida de precisión?"
-
-opciones_explicitas: ["int", "float", "string", "bool"]
-respuesta: "float"
-tipo: "mc"
-
-explicacion: |
-  Los tipos `int` (enteros) solo almacenan números sin parte decimal. Para valores con decimales, se utilizan tipos de punto flotante como `float` o `double`.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
+  tema: "buenas_practicas"
   nivel: "intermedio"
-  tags: ["almacenamiento", "memoria"]
+  tags: ["seguridad", "protocolo", "reaccion"]
 
-enunciado: "Ordena los siguientes pasos que ocurren cuando una computadora asigna una variable en memoria, desde la reserva del espacio hasta el uso del dato:"
-
-opciones_explicitas: ["Reserva de espacio en RAM", "Asignación de un nombre a la dirección", "Almacenamiento del valor", "Acceso al dato mediante el nombre"]
-respuesta_orden: ["Reserva de espacio en RAM", "Asignación de un nombre a la dirección", "Almacenamiento del valor", "Acceso al dato mediante el nombre"]
-tipo: "ordenar"
-
-explicacion: |
-  Para usar una variable, el sistema primero debe encontrar un lugar vacío en la memoria (RAM), asignar ese lugar a un nombre para que el programador lo reconozca, guardar el valor y finalmente permitir su lectura.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
-  nivel: "basico"
-  tags: ["comparacion", "booleanos"]
-
-enunciado: "Si evaluamos la expresión lógica (5 == 5.0), el resultado es ___."
-
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "verdadero"
-tipo: "mc"
-
-explicacion: |
-  En la mayoría de los lenguajes modernos, al comparar un entero con un número decimal que tiene el mismo valor numérico, el resultado es verdadero porque el contenido matemático es el mismo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_dato_numericos"
-  nivel: "basico"
-  tags: ["tipos_de_dato", "numeros"]
-
-respuesta: "flotante"
-tipo: completar
-respuestas_validas:
-  - "flotante"
-  - "decimal"
-  - "real"
-
-enunciado: "Mientras que un tipo de dato entero representa números sin parte decimal, un tipo de dato ___ representa números que requieren precisión decimal."
-
-explicacion: |
-  En programación, los enteros (int) se usan para conteos exactos, mientras que los flotantes (float) se usan para mediciones con decimales.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_dato_logicos"
-  nivel: "basico"
-  tags: ["booleanos", "logica"]
-
-opciones_explicitas: ["falso", "verdadero", "texto", "entero"]
-respuesta: "verdadero"
-tipo: mc
-
-enunciado: "Un tipo de dato booleano se distingue de otros tipos porque su valor solo puede representar uno de dos estados lógicos: 'falso' es uno de ellos. ¿Cuál es el otro estado posible?"
-
-explicacion: |
-  Los booleanos son la base de la lógica computacional y solo pueden ser 'verdadero' o 'falso'.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "tipos_de_dato_texto"
-  nivel: "basico"
-  tags: ["strings", "texto"]
-
-respuestas_validas:
-  - "comillas"
-respuesta: "comillas"
-tipo: completar
-
-enunciado: "A diferencia de los tipos numéricos, el tipo de dato texto (string) se distingue de un número por estar delimitado por ___ en el código fuente."
-
-explicacion: |
-  El uso de comillas (simples o dobles) le indica al compilador que el contenido debe tratarse como una secuencia de caracteres y no como una variable o un número.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "almacenamiento_memoria"
-  nivel: "intermedio"
-  tags: ["memoria", "orden"]
-
-opciones_explicitas: ["Booleano", "Entero", "Flotante", "String"]
-respuesta_orden: ["Booleano", "Entero", "Flotante", "String"]
 tipo: ordenar
 
-enunciado: "Ordena los siguientes tipos de datos de menor a mayor complejidad de almacenamiento y procesamiento en la memoria de una computadora típica:"
+opciones_explicitas: ["Detectar el comportamiento sospechoso en el sistema.", "Desconectar el equipo de la red (Wi-Fi o cable).", "Informar al responsable de seguridad o soporte técnico.", "Realizar un escaneo completo con el antivirus."]
+
+respuesta_orden: ["Detectar el comportamiento sospechoso en el sistema.", "Desconectar el equipo de la red (Wi-Fi o cable).", "Informar al responsable de seguridad o soporte técnico.", "Realizar un escaneo completo con el antivirus."]
+
+enunciado: "Si sospechas que tu computadora ha sido infectada, ordena los pasos lógicos para mitigar el impacto del incidente:"
 
 explicacion: |
-  Los booleanos ocupan menos espacio, seguidos por enteros, luego números decimales (que requieren más bits para la mantisa) y finalmente las cadenas de texto, cuyo tamaño depende de su longitud.
+  Lo primero es la detección, seguido de la contención (desconectar la red para evitar la propagación), la comunicación del incidente y finalmente la limpieza/escaneo.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "tipos_de_dato_logicos"
+  tema: "buenas_practicas"
   nivel: "basico"
-  tags: ["booleanos", "logica"]
+  tags: ["contraseñas", "seguridad"]
 
-respuesta: falso
+respuesta: "complejo"
+tipo: completar
+respuestas_validas:
+  - "complejo"
+
+enunciado: "Para asegurar una cuenta, una contraseña debe ser ___ (que incluya mayúsculas, minúsculas, números y símbolos) en lugar de ser una palabra simple."
+
+explicacion: |
+  Las contraseñas complejas aumentan significativamente el tiempo y la dificultad que requiere un atacante para realizar un ataque de fuerza bruta.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "malware"
+  nivel: "basico"
+  tags: ["malware", "spyware"]
+
+respuesta: "espionaje"
+tipo: mc
+opciones_explicitas: ["espionaje", "destrucción", "publicidad", "minería"]
+
+enunciado: "El principal objetivo de un 'Spyware' es el ___ de la actividad del usuario, como capturar pulsaciones de teclas (keylogging) o historial de navegación."
+
+explicacion: |
+  El spyware se caracteriza por su naturaleza sigilosa, diseñada para recopilar información sobre una persona o dispositivo sin su consentimiento.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_informatica"
+  nivel: "basico"
+  tags: ["phishing", "ingenieria_social"]
+
+tipo: mc
+opciones_explicitas: ["Un correo de un banco pidiendo tu contraseña", "Un software que mejora la velocidad del PC", "Un mensaje de un amigo con un link de un video", "Un antivirus que detecta un virus"]
+respuesta: "Un correo de un banco pidiendo tu contraseña"
+
+enunciado: "El phishing es una técnica de ingeniería social que se basa en el engaño. Un ejemplo típico de este ataque es:"
+
+explicacion: |
+  El phishing busca engañar al usuario para que entregue información sensible (contraseñas, datos bancarios) suplantando la identidad de una entidad de confianza.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_informatica"
+  nivel: "intermedio"
+  tags: ["malware", "ransomware"]
+
+variables:
+  es_secuestro: verdadero
+
 tipo: vf
 
-enunciado: "¿Es correcto afirmar que el tipo de dato booleano puede almacenar el valor numérico 5.5?"
+respuesta: verdadero
+
+enunciado: "El Ransomware es un tipo de malware que cifra los archivos del usuario y exige un pago para recuperarlos. ¿Es esto verdadero o falso?"
 
 explicacion: |
-  Falso. El tipo booleano es estrictamente binario (verdadero/falso) y no puede contener valores decimales o enteros distintos a su lógica.
+  Efectivamente, el ransomware 'secuestra' la información mediante cifrado y solicita un rescate, generalmente en criptomonedas.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
+  tema: "seguridad_informatica"
   nivel: "basico"
-  tags: ["tipos_de_dato", "programacion"]
+  tags: ["buenas_practicas", "protocolo"]
 
-variables:
-  datos: [["edad", "25", "entero"], ["nombre", "Ana", "texto"], ["precio", "19.99", "decimal"], ["es_valido", "true", "booleano"], ["puntos", "100", "entero"], ["usuario", "Dev_User", "texto"], ["promedio", "8.5", "decimal"], ["esta_activo", "false", "booleano"]]
-  idx: uno_de([0, 1, 2, 3, 4, 5, 6, 7])
+tipo: ordenar
+opciones_explicitas: ["Recibir correo con link extraño", "No hacer clic en el enlace ni descargar archivos", "Borrar el correo o reportarlo como spam", "Notificar al equipo de soporte técnico"]
 
-enunciado: "Si queremos almacenar el valor de la variable {datos[idx][0]} que contiene el dato {datos[idx][1]}, ¿qué tipo de dato es?"
-
-opciones_explicitas: ["entero", "decimal", "texto", "booleano"]
-respuesta: datos[idx][2]
-tipo: mc
+enunciado: "Ordena los pasos correctos que debes seguir cuando recibes un correo electrónico sospechoso que parece ser un intento de estafa:"
 
 explicacion: |
-  El tipo de dato depende del contenido: si es un número sin decimales es entero, si tiene decimales es decimal, si es una secuencia de caracteres es texto y si es verdadero/falso es booleano.
+  La regla de oro es la prevención: nunca interactuar con el contenido sospechoso y seguir los protocolos de reporte de la organización.
+respuesta_orden: ["Recibir correo con link extraño", "No hacer clic en el enlace ni descargar archivos", "Borrar el correo o reportarlo como spam", "Notificar al equipo de soporte técnico"]
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
-  nivel: "basico"
-  tags: ["completar", "tipos_de_dato"]
+  tema: "seguridad_informatica"
+  nivel: "intermedio"
+  tags: ["phishing", "url"]
 
 variables:
-  datos: [["\"Hola Mundo\"", "texto"], ["42", "entero"], ["3.14", "decimal"], ["false", "booleano"]]
-  idx: uno_de([0, 1, 2, 3])
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["google.com", "g00gle.com"], ["microsoft.com", "micros0ft.com"]]
 
-enunciado: "La variable que contiene el valor {datos[idx][0]} es de tipo ___."
-
+tipo: completar
 respuestas_validas:
-  - "texto"
-  - "entero"
-  - "decimal"
-  - "booleano"
+  - "g00gle.com"
+  - "micros0ft.com"
+
+enunciado: "En un ataque de phishing, el atacante suele usar dominios visualmente similares al real (typosquatting). Si el sitio legítimo es {escenarios[escenario_idx][0]}, el atacante podría usar ___ para engañarte."
+
+explicacion: |
+  Los atacantes cambian caracteres (como un cero por una 'o') para que la URL parezca legítima a simple vista, pero el dominio es distinto.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_informatica"
+  nivel: "basico"
+  tags: ["contraseñas", "buenas_practicas"]
+
+tipo: mc
+opciones_explicitas: ["123456", "MiNombre2024", "P@ssw0rd_2024!_Xy", "password"]
+respuesta: "P@ssw0rd_2024!_Xy"
+
+enunciado: "De la siguiente lista, ¿cuál es la opción que presenta una mayor resistencia ante un ataque de fuerza bruta debido a su complejidad?"
+
+explicacion: |
+  Una contraseña segura debe combinar mayúsculas, minúsculas, números, caracteres especiales y tener una longitud considerable para aumentar el tiempo necesario para descifrarla.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_informatica"
+  nivel: "basico"
+  tags: ["malware", "phishing"]
+
+enunciado: "Si un ataque de ingeniería social se realiza a través de un mensaje de texto (SMS) en lugar de un correo electrónico, el término técnico correcto para este tipo de phishing es smishing."
+
+respuesta: "smishing"
+tipo: completar
+respuestas_validas:
+  - "smishing"
+
+explicacion: |
+  El phishing es el término general, pero se diferencia según el canal: phishing (email), smishing (SMS) y vishing (voz/llamadas).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_informatica"
+  nivel: "intermedio"
+  tags: ["malware", "ransomware"]
+
+opciones_explicitas: ["El ransomware cifra archivos para pedir un rescate, mientras que un virus se replica infectando otros archivos.", "Un virus siempre cifra archivos, mientras que el ransomware solo se propaga por redes.", "El ransomware es un tipo de virus que no requiere de un archivo anfitrión para ejecutarse."]
+
+respuesta: "El ransomware cifra archivos para pedir un rescate, mientras que un virus se replica infectando otros archivos."
+tipo: mc
+enunciado: "¿Cuál es la distinción principal entre ransomware y virus?"
+
+explicacion: |
+  La distinción principal es el objetivo: el ransomware busca extorsión mediante el secuestro de datos (cifrado), mientras que un virus es un concepto de propagación que infecta archivos existentes.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_informatica"
+  nivel: "intermedio"
+  tags: ["gestion_de_accesos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La autenticación es el proceso de verificar la identidad de un usuario, mientras que la autorización es el proceso de determinar qué permisos tiene ese usuario sobre un recurso."
+
+explicacion: |
+  Es un error común confundirlos. Autenticación responde "¿Quién eres?", y la autorización responde "¿Qué puedes hacer?".
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_informatica"
+  nivel: "avanzado"
+  tags: ["protocolos"]
+
+opciones_explicitas: ["Detección", "Contención", "Erradicación", "Recuperación"]
+
+respuesta_orden: ["Detección", "Contención", "Erradicación", "Recuperación"]
+tipo: ordenar
+
+enunciado: "Ordena las siguientes fases de la respuesta a un incidente de seguridad informática, desde la primera hasta la última:"
+
+explicacion: |
+  Ante un incidente, primero se debe detectar la anomalía, luego contener el daño para que no se propague, erradicar la causa raíz y finalmente recuperar los sistemas a su estado normal.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_informatica"
+  nivel: "intermedio"
+  tags: ["malware", "gusano"]
+
+enunciado: "A diferencia de un gusano (worm), que se propaga de forma autónoma a través de la red, un troyano requiere que el usuario ___ para infectar el sistema."
+
+respuesta: "interacción del usuario"
+tipo: completar
+respuestas_validas:
+  - "interacción del usuario"
+
+explicacion: |
+  El gusano es capaz de replicarse sin intervención humana aprovechando vulnerabilidades de red, mientras que el troyano se disfraza de software legítimo y depende de que el usuario lo ejecute.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_informatica"
+  nivel: "basico"
+  tags: ["phishing", "seguridad"]
+
+variables:
+  datos: [["Recibiste un mail de tu banco pidiendo tu clave urgency", "phishing"], ["Un amigo te envía un link de un video que no abre", "posible_virus"], ["Un aviso de actualización de Windows en la barra de tareas", "sistema"]]
+  idx: uno_de([0,1,2])
+
+enunciado: "Analiza el siguiente caso: {datos[idx][0]}. ¿Qué tipo de amenaza o situación representa?"
+
+opciones_explicitas: ["phishing", "posible_virus", "sistema"]
 respuesta: datos[idx][1]
-tipo: completar
+tipo: mc
 
 explicacion: |
-  Cada valor tiene una representación lógica en memoria: los textos van entre comillas, los enteros no tienen punto decimal, los decimales sí, y los booleanos representan estados lógicos.
+  El caso {datos[idx][0]} se clasifica como {datos[idx][1]}. Recuerda nunca entregar credenciales por correo electrónico.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
-  nivel: "intermedio"
-  tags: ["booleanos", "memoria"]
+  tema: "seguridad_informatica"
+  nivel: "basico"
+  tags: ["malware", "virus"]
 
-enunciado: "¿Es correcto afirmar que una variable de tipo booleano puede almacenar el valor 15.5?"
+variables:
+  datos: [["Un programa que se oculta y registra tus pulsaciones de teclado", "spyware"], ["Un programa que cifra tus archivos y pide dinero", "ransomware"], ["Un programa que se duplica y se propaga por la red", "virus"]]
+  idx: uno_de([0,1,2])
+
+enunciado: "Se detecta en el sistema: {datos[idx][0]}. ¿Cuál es el nombre de este malware?"
+
+opciones_explicitas: ["spyware", "ransomware", "virus"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  El software descrito es {datos[idx][1]}. Es fundamental contar con un antivirus actualizado.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "seguridad_informatica"
+  nivel: "basico"
+  tags: ["buenas_practicas", "passwords"]
+
+enunciado: "¿Es una buena práctica de seguridad utilizar la misma contraseña para todas tus cuentas personales para no olvidarlas?"
 
 respuesta: falso
 tipo: vf
 
 explicacion: |
-  Falso. Las variables de tipo booleano solo pueden almacenar dos valores: verdadero o falso. El valor 15.5 es un número decimal.
+  Falso. Si un atacante obtiene una de tus contraseñas, tendrá acceso a todas tus cuentas. Se recomienda usar un gestor de contraseñas.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
+  tema: "seguridad_informatica"
   nivel: "intermedio"
-  tags: ["ordenar", "memoria"]
+  tags: ["reaccion", "incidente"]
 
-enunciado: "Ordena los siguientes tipos de datos de menor a mayor capacidad de representar valores numéricos (desde el más simple al más complejo en términos de precisión decimal):"
+enunciado: "Has detectado que tu computadora está actuando de forma errática y aparecen ventanas emergentes constantes. Ordena los pasos lógicos para mitigar el riesgo:"
 
-opciones_explicitas: ["entero", "decimal", "texto"]
-respuesta_orden: ["entero", "decimal", "texto"]
+opciones_explicitas: ["Desconectar el equipo de la red", "Realizar un escaneo con antivirus", "Cambiar contraseñas desde otro dispositivo seguro"]
+respuesta_orden: ["Desconectar el equipo de la red", "Realizar un escaneo con antivirus", "Cambiar contraseñas desde otro dispositivo seguro"]
 tipo: ordenar
 
 explicacion: |
-  El tipo entero solo maneja números sin decimales. El decimal permite precisión fraccionaria. El texto es una estructura compleja que puede contener cualquier carácter.
+  Primero se aísla el equipo (desconectar red) para evitar la propagación, luego se limpia el sistema y finalmente se asegura la identidad desde un equipo limpio.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "variables_y_tipos_de_dato"
+  tema: "seguridad_informatica"
   nivel: "basico"
-  tags: ["identificacion", "programacion"]
+  tags: ["phishing", "ingenieria_social"]
 
-variables:
-  datos: [["saldo", "500.50", "decimal"], ["nombre", "Juan", "texto"], ["es_mayor", "true", "booleano"]]
-  idx: uno_de([0, 1, 2])
+enunciado: "El uso de técnicas psicológicas para engañar a las personas y obtener información confidencial se conoce como ___."
 
-enunciado: "En un sistema de gestión, la variable '{datos[idx][0]}' tiene el valor '{datos[idx][1]}'. Su tipo de dato es:"
-
-opciones_explicitas: ["decimal", "texto", "booleano"]
-respuesta: datos[idx][2]
-tipo: mc
+respuestas_validas:
+  - "ingeniería social"
+respuesta: "ingeniería social"
+tipo: completar
 
 explicacion: |
-  Al analizar el valor '{datos[idx][1]}', podemos determinar su naturaleza: si tiene punto decimal es decimal, si es una cadena de letras es texto y si es un valor lógico es booleano.
+  La técnica utilizada es la ingeniería social. El eslabón más débil en la seguridad suele ser el usuario debido a la manipulación psicológica.
 ```
 
 ## Sección: virtualizacion-maquina-virtual-contenedor (25 preguntas)

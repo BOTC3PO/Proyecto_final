@@ -4,1729 +4,1752 @@
 
 ---
 
-## Sección: huella-humana-en-el-clima-inicio (25 preguntas)
+## Sección: mesopotamia (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "basico"
-  tags: ["revolucion_industrial", "co2", "carbón"]
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["leyes", "babylon", "justicia"]
+tipo: vf
+enunciado: "El Código de Hammurabi, promulgado en el siglo XVIII a.C., se caracterizaba por aplicar el principio de la ley del talión (ojo por ojo) de manera uniforme e igualitaria para todas las clases sociales de Babilonia, sin distinción entre nobles, libres y esclavos."
+respuesta: falso
+explicacion: "Aunque el código establecía castigos físicos proporcionales al delito, las penas variaban significativamente según la condición social del ofendido y del ofensor; los nobles recibían penas más leves o monetarias que los plebeyos o esclavos por el mismo delito."
+```
 
-respuesta: "Revolución Industrial"
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["escritura", "sumeria", "economía"]
 tipo: completar
+enunciado: "La escritura cuneiforme surgió inicialmente en Sumeria no con fines literarios o religiosos, sino como una herramienta administrativa para registrar ______ de granos, ganado y bienes comerciales en los templos."
+respuesta: "transacciones"
 respuestas_validas:
-  - "Revolución Industrial"
-
-enunciado: "El aumento sostenido de la concentración de CO2 en la atmósfera debido a la actividad humana comenzó con la ___."
-
-explicacion: |
-  La Revolución Industrial marcó el inicio del uso masivo de combustibles fósiles (principalmente carbón) para alimentar máquinas de vapor, alterando el ciclo natural del carbono.
+  - "transacciones"
+  - "transacción"
+  - "transacciones de"
+  - "transacción de"
+explicacion: "La necesidad de llevar cuentas de las contribuciones y redistribuciones en la economía templaria fue el motor principal para el desarrollo de los primeros signos pictográficos que evolucionaron hacia la cuneiforme."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "basico"
-  tags: ["combustibles_fosiles", "carbón"]
-
-respuesta: "carbón"
-tipo: mc
-opciones_explicitas: ["carbón", "petróleo", "gas natural", "biomasa"]
-
-enunciado: "Durante la primera etapa de la Revolución Industrial, ¿cuál fue el principal combustible fósil que impulsó el aumento de la huella de carbono?"
-
-explicacion: |
-  El carbón fue el combustible que impulsó la primera fase de la industrialización; el petróleo se convirtió en el motor de la segunda fase, con la expansión del automovilismo y la química sintética.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
+  tema: "mesopotamia"
   nivel: "intermedio"
-  tags: ["co2", "gas_efecto_invernadero"]
+  tags: ["geografía", "ríos", "fundación"]
+tipo: mc
+enunciado: "¿Qué par de ríos delimita la región geográfica conocida como Mesopotamia, cuyo nombre significa \"tierra entre ríos\"?"
+opciones_explicitas:
+  - "Nilo y el Tigris"
+  - "Éufrates y el Tigris"
+  - "Indo y el Ganges"
+  - "Danubio y el Rin"
+respuesta: "Éufrates y el Tigris"
+explicacion: "Mesopotamia se sitúa entre el río Éufrates y el río Tigris, en lo que hoy es principalmente Irak, permitiendo el desarrollo de la agricultura de riego."
+```
 
-respuesta: "aumentar"
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["arquitectura", "religión", "sumeria"]
 tipo: completar
+enunciado: "La ______ era una estructura monumental escalonada que servía como base para el templo dedicado al dios patrón de la ciudad, simbolizando la montaña sagrada que conectaba el cielo con la tierra."
+respuesta: "ziggurat"
 respuestas_validas:
-  - "aumentar"
-  - "elevar"
-  - "incrementar"
-
-enunciado: "La quema masiva de combustibles fósiles desde el siglo XVIII tiene como efecto principal ___ la concentración de gases de efecto invernadero en la atmósfera."
-
-explicacion: |
-  El aumento de la concentración de CO2 atrapa más calor en la atmósfera, intensificando el efecto invernadero.
+  - "ziggurat"
+  - "zigurate"
+  - "Ziggurat"
+  - "Zigurate"
+explicacion: "Las ziggurats, como la Gran Ziggurat de Ur, no eran templos en sí mismos, sino plataformas elevadas donde se ubicaba el santuario al que solo los sacerdotes podían acceder."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
+  tema: "mesopotamia"
   nivel: "intermedio"
-  tags: ["historia", "combustibles"]
-
-opciones_explicitas: ["Carbón -> Petróleo -> Gas natural", "Petróleo -> Carbón -> Gas natural", "Gas natural -> Carbón -> Petróleo", "Carbón -> Gas natural -> Petróleo"]
-respuesta: "Carbón -> Petróleo -> Gas natural"
-tipo: mc
-
-enunciado: "Ordena cronológicamente el predominio de los combustibles fósiles que han marcado la huella humana en la escala temporal de la industrialización:"
-
-explicacion: |
-  Primero el carbón (siglo XVIII-XIX), luego el petróleo (siglo XX) y finalmente el gas natural (finales del XX - actualidad).
+  tags: ["acad", "imperio", "sargón"]
+tipo: vf
+enunciado: "Sargón I, conocido como Sargón el Grande, fue el fundador del Primer Imperio de Acad, logrando unificar por primera vez las ciudades-estado sumerias bajo un único gobierno centralizado."
+respuesta: verdadero
+explicacion: "Sargón de Acad conquistó las ciudades-estado sumerias como Uruk y Ur, creando una burocracia centralizada y estableciendo la capital en Acad (Agade), marcando el inicio de la historia imperial en la región."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "avanzado"
-  tags: ["geologia", "antropoceno"]
-
-respuesta: "positivo"
-tipo: mc
-opciones_explicitas: ["positivo", "negativo", "neutro", "nulo"]
-
-enunciado: "Desde el inicio de la Revolución Industrial, la tendencia de la concentración de CO2 en la atmósfera ha sido de un cambio ___."
-
-explicacion: |
-  Se considera un cambio positivo porque la cantidad de CO2 en la atmósfera ha crecido de manera sostenida, no ha disminuido ni se ha mantenido constante.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "basico"
-  tags: ["preindustrial", "agricultura", "deforestacion"]
-
-respuesta: "local"
-tipo: mc
-
-opciones_explicitas: ["global", "local", "nulo", "atmosferico"]
-
-enunciado: "A diferencia de la era industrial, el impacto climático derivado de la deforestación para la agricultura en las sociedades preindustriales se caracterizaba por ser de escala ___."
-
-explicacion: |
-  Las sociedades preindustriales alteraban el ecosistema de su entorno inmediato (deforestación, erosión), pero sus emisiones de gases de efecto invernadero no eran suficientes para alterar el balance térmico global de la atmósfera.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
+  tema: "mesopotamia"
   nivel: "intermedio"
-  tags: ["combustibles_fosiles", "industrializacion", "co2"]
-
-respuesta: 135
-tipo: completar
-tolerancia_abs: 10
-
-enunciado: "Considerando que la concentración de CO2 en la atmósfera era de aproximadamente 280 ppm antes de la industrialización masiva, y que tras la quema masiva de combustibles fósiles ha superado las 415 ppm, ¿cuál es el incremento aproximado en ppm (redondeado al entero más cercano)?"
-
-pasos:
-  - "Identificar la concentración preindustrial (aprox. 280 ppm)."
-  - "Identificar la concentración actual (aprox. 415-420 ppm)."
-  - "Restar la concentración preindustrial de la actual."
-
-explicacion: |
-  La quema de combustibles fósiles liberó carbono que estuvo secuestrado durante millones de años, aumentando la concentración de CO2 de ~280 ppm a niveles superiores a 415 ppm, rompiendo el ciclo natural del carbono.
+  tags: ["literatura", "epopeya", "muerte"]
+tipo: mc
+enunciado: "La Epopeya de Gilgamesh, una de las obras literarias más antiguas, gira principalmente en torno a la búsqueda del héroe de Uruk por:"
+opciones_explicitas:
+  - "La inmortalidad física tras la muerte de su amigo Enkidu"
+  - "La conquista de todo el mundo conocido"
+  - "La construcción del primer gran ziggurat"
+  - "El amor imposible con la diosa Ishtar"
+respuesta: "La inmortalidad física tras la muerte de su amigo Enkidu"
+explicacion: "El núcleo de la epopeya es el duelo de Gilgamesh ante la mortalidad humana, llevándolo a buscar a Utnapishtim (el superviviente del diluvio) para aprender el secreto de la vida eterna, el cual finalmente no obtiene."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "basico"
-  tags: ["causas", "gas_efecto_invernadero"]
-
-respuesta: "CO2"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["agricultura", "cebada", "economía"]
 tipo: completar
+enunciado: "Debido a la salinización progresiva de los suelos en el sur de Mesopotamia, los agricultores sumerios y babilonios promovieron el cultivo de ______ como cereal principal por su mayor resistencia a la sal."
+respuesta: "cebada"
 respuestas_validas:
-  - "CO2"
-  - "CH4"
-  - "N2O"
-
-enunciado: "Mientras que la agricultura preindustrial afectaba el uso del suelo, la industrialización introdujo una quema masiva de combustibles fósiles que aumentó la concentración de ___ en la atmósfera."
-
-explicacion: |
-  El dióxido de carbono (CO2) es el principal gas de efecto invernadero emitido por la combustión de carbón, petróleo y gas natural, siendo el principal responsable del forzamiento radiativo antropogénico.
+  - "cebada"
+  - "Cebada"
+  - "la cebada"
+explicacion: "La cebada era el cultivo básico, utilizado también como moneda de cambio y para la elaboración de cerveza, mientras que otros cultivos como el trigo requerían suelos menos salinizados."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "avanzado"
-  tags: ["escala", "comparacion"]
-
-respuesta_orden: ["Deforestación local", "Cambio en el uso del suelo", "Emisiones globales de GEI"]
-tipo: ordenar
-
-opciones_explicitas: ["Deforestación local", "Cambio en el uso del suelo", "Emisiones globales de GEI"]
-
-enunciado: "Ordene los siguientes fenómenos de menor a mayor escala de impacto climático global, según la evolución histórica de la huella humana:"
-
-explicacion: |
-  La escala comenzó con la modificación de paisajes locales (deforestación), continuó con cambios sistemáticos en el uso del suelo (agricultura intensiva) y culminó con la alteración química global de la atmósfera (emisiones de GEI).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
+  tema: "mesopotamia"
   nivel: "intermedio"
-  tags: ["tiempo", "ciclo_carbono"]
-
-respuesta: "ciclo_largo"
+  tags: ["babylon", "nabucodonosor", "arquitectura"]
 tipo: mc
-
-opciones_explicitas: ["ciclo_corto", "ciclo_largo"]
-
-enunciado: "La agricultura preindustrial se basaba en ciclos biológicos rápidos. La industrialización, al extraer carbono de depósitos fósiles, introdujo carbono en el ___ ciclo del carbono."
-
-explicacion: |
-  El carbono en los combustibles fósiles forma parte del ciclo geológico (largo plazo). Al quemarlo, la humanidad está moviendo carbono de un reservorio de millones de años a la atmósfera de forma casi instantánea.
+enunciado: "Bajo el reinado de Nabucodonosor II, ¿qué obra arquitectónica de Babilonia fue considerada una de las Siete Maravillas del Mundo Antiguo?"
+opciones_explicitas:
+  - "El Coliseo Romano"
+  - "Los Jardines Colgantes de Babilonia"
+  - "El Partenón"
+  - "Las Murallas de Jericó"
+respuesta: "Los Jardines Colgantes de Babilonia"
+explicacion: "Los Jardines Colgantes fueron un complejo sistema de terrazas irrigadas, atribuido a Nabucodonosor II para complacer a su esposa Amitis, quien extrañaba las montañas de su tierra natal."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "basico"
-  tags: ["geologia", "antropoceno", "conceptos"]
-
-tipo: mc
-opciones_explicitas: ["Una era de predominio de la vida vegetal", "Una época geológica definida por el impacto humano medible", "Un periodo de estabilidad climática absoluta", "La era de la formación de los continentes"]
-respuesta: "Una época geológica definida por el impacto humano medible"
-
-enunciado: "El término 'Antropoceno' se utiliza para describir una propuesta de nueva época geológica caracterizada por ___."
-
-explicacion: |
-  El Antropoceno propone que la actividad humana se ha convertido en una fuerza geológica dominante, capaz de dejar marcas permanentes en los estratos sedimentarios, el clima y la biodiversidad de la Tierra.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
+  tema: "mesopotamia"
   nivel: "intermedio"
-  tags: ["evidencias", "sedimentos", "huella_geologica"]
+  tags: ["cronología", "acad", "duración"]
+tipo: vf
+enunciado: "El Imperio de Acad, fundado por Sargón, mantuvo su hegemonía política ininterrumpida durante más de cinco siglos hasta ser absorbido por los persas."
+respuesta: falso
+explicacion: "El Imperio de Acad fue relativamente breve; colapsó alrededor del 2150 a.C., poco después de un siglo de existencia, debido a invasiones de los gutis y conflictos internos, seguido de un renacimiento sumerio (Tercera Dinastía de Ur)."
+```
 
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["escritura", "técnica", "arcilla"]
 tipo: completar
+enunciado: "Los escribas mesopotámicos utilizaban una caña cortada en triángulo, conocida como estilete, para presionar signos en tablas de arcilla húmeda, creando marcas con forma de ______."
+respuesta: "cuña"
 respuestas_validas:
-  - "sedimentos artificiales"
-respuesta: "sedimentos artificiales"
-
-enunciado: "En el registro geológico del Antropoceno, se busca identificar marcadores como los plásticos y el hormigón que se consolidan como ___."
-
-explicacion: |
-  Los materiales sintéticos como los plásticos, el hormigón y los isótopos radiactivos actúan como 'tecnofósiles' que permiten identificar nuestra era en el futuro.
+  - "cuña"
+  - "cuñas"
+  - "Cuña"
+  - "Cuñas"
+explicacion: "La forma de las marcas, que se asemejan a cuñas o clavos, es la que da nombre a la escritura cuneiforme, evolucionando desde pictogramas simples hasta signos abstractos y fonéticos."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
+  tema: "mesopotamia"
   nivel: "intermedio"
-  tags: ["clima", "gases_efecto_invernadero"]
-
+  tags: ["leyes", "ur", "ur-nammu"]
 tipo: mc
-opciones_explicitas: ["Aumento de la radiación solar", "Cambios en la composición de la atmósfera por gases de efecto invernadero", "Desplazamiento de las placas tectónicas", "Variaciones en el campo magnético terrestre"]
-respuesta: "Cambios en la composición de la atmósfera por gases de efecto invernadero"
-
-enunciado: "Uno de los principales motores del cambio climático en el Antropoceno es la alteración de la atmósfera mediante ___."
-
-explicacion: |
-  La quema de combustibles fósiles y la deforestación han incrementado la concentración de gases como el CO2, alterando el balance térmico del planeta.
+enunciado: "¿Qué rey de la Tercera Dinastía de Ur promulgó el código de leyes más antiguo conocido, anterior al Código de Hammurabi?"
+opciones_explicitas:
+  - "Gilgamesh"
+  - "Ur-Nammu"
+  - "Sargón de Acad"
+  - "Naram-Sin"
+respuesta: "Ur-Nammu"
+explicacion: "El Código de Ur-Nammu, datado circa 2100-2050 a.C., es el más antiguo conservado, aunque fragmentario; establece multas en plata en lugar de la ley del talión física aplicada luego por Hammurabi."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "avanzado"
-  tags: ["biodiversidad", "extinciones"]
-
-tipo: mc
-opciones_explicitas: ["la sexta extinción masiva", "la era de hielo", "la expansión de los continentes", "el ciclo de las mareas"]
-respuesta: "la sexta extinción masiva"
-
-enunciado: "El Antropoceno se asocia con una crisis biológica sin precedentes conocida como ___."
-
-explicacion: |
-  La tasa actual de extinción de especies es significativamente superior a la tasa natural, lo cual es una característica distintiva de la huella humana sobre la biosfera.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "avanzado"
-  tags: ["causa_efecto", "procesos"]
-
-tipo: ordenar
-opciones_explicitas: ["Emisión masiva de gases de efecto invernadero", "Aumento de la temperatura global", "Alteración de los ciclos biogeoquímicos", "Cambios en la composición de los sedimentos futuros"]
-
-enunciado: "Ordena cronológicamente los procesos que caracterizan la huella humana en la Tierra:"
-
-explicacion: |
-  La actividad industrial genera gases, estos alteran el clima, lo que modifica los ciclos naturales (como el del carbono) y finalmente deja una marca física en los sedimentos.
-respuesta_orden: ["Emisión masiva de gases de efecto invernadero", "Aumento de la temperatura global", "Alteración de los ciclos biogeoquímicos", "Cambios en la composición de los sedimentos futuros"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
+  tema: "mesopotamia"
   nivel: "intermedio"
-  tags: ["paleoclimatologia", "co2", "glaciares"]
+  tags: ["asiria", "militar", "hierro"]
+tipo: vf
+enunciado: "El ejército asirio fue famoso por ser el primero en utilizar extensivamente armas de hierro y por emplear técnicas de asedio avanzadas, incluyendo torres de asedio y arietes, para conquistar ciudades fortificadas."
+respuesta: verdadero
+explicacion: "La superioridad militar asiria, basada en la metalurgia del hierro y la organización profesional del ejército, fue clave para la expansión del Imperio Neoasirio y su reputación de terror militar."
+```
 
-enunciado: "Al analizar los núcleos de hielo, se observa que durante los periodos preindustriales los niveles de CO2 se mantenían en torno a los 280 ppm, pero tras la Revolución Industrial, los valores saltaron a aproximadamente 420 ppm."
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["religión", "comparativa", "egipto"]
+tipo: mc
+enunciado: "En contraste con la visión mesopotámica de un universo hostil y caprichoso, la religión del antiguo Egipto se centraba en el concepto de:"
+opciones_explicitas:
+  - "El Ma'at (orden cósmico y verdad)"
+  - "El Karma (reencarnación)"
+  - "El Monoteísmo absoluto"
+  - "El Animismo tribal"
+respuesta: "El Ma'at (orden cósmico y verdad)"
+explicacion: "Mientras los mesopotámicos veían a los dioses como impredecibles y a la naturaleza como un peligro, los egipcios buscaban mantener el Ma'at, el equilibrio y orden divino que garantizaba la continuidad del universo."
+```
 
-respuesta: 420
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["nínive", "biblioteca", "asurbanipal"]
 tipo: completar
-tolerancia_abs: 5
-
-explicacion: |
-  Los núcleos de hielo actúan como cápsulas del tiempo. Mientras que la variabilidad natural mantenía el CO2 en niveles estables (alrededor de 280-300 ppm), la quema de combustibles fósiles disparó la concentración actual.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "basico"
-  tags: ["co2", "industrializacion"]
-
-enunciado: "Antes de la era industrial, las fluctuaciones de CO2 en los núcleos de hielo seguían ciclos naturales. Sin embargo, la actividad humana ha provocado un cambio en la tendencia hacia un estado:"
-
-opciones_explicitas: ["estacionario", "ascendente", "descendente", "cíclico"]
-
-respuesta: "ascendente"
-tipo: mc
-
-explicacion: |
-  La curva de los núcleos de hielo muestra un ascenso abrupto y lineal que no coincide con los ciclos naturales de los últimos 800,000 años, marcando el inicio de la huella humana.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "intermedio"
-  tags: ["metodologia", "paleoclimatologia"]
-
-enunciado: "Para reconstruir la atmósfera del pasado, los científicos extraen burbujas de aire atrapadas en el hielo. El proceso para entender el clima antiguo sigue este orden lógico:"
-
-opciones_explicitas: ["Extracción de núcleos", "Análisis de burbujas de aire", "Medición de gases de efecto invernadero", "Comparación con datos actuales"]
-
-respuesta_orden: ["Extracción de núcleos", "Análisis de burbujas de aire", "Medición de gases de efecto invernadero", "Comparación con datos actuales"]
-tipo: ordenar
-
-explicacion: |
-  Primero se extrae el cilindro de hielo, luego se liberan las burbujas atrapadas para medir la composición química y finalmente se compara con los niveles actuales para identificar la anomalía industrial.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "avanzado"
-  tags: ["co2", "quimica_atmosferica"]
-
-enunciado: "Si comparamos la variabilidad natural (V) con el registro post-industrial (I), la diferencia fundamental es que la magnitud de la desviación de I respecto a V es ___."
-
+enunciado: "La famosa biblioteca de ______, fundada por el rey asirio Asurbanipal, contenía miles de tablillas que preservaron textos como la Epopeya de Gilgamesh y conocimientos astronómicos."
+respuesta: "nínive"
 respuestas_validas:
-  - "significativa"
-  - "nula"
-  - "inversa"
-
-respuesta: "significativa"
-tipo: completar
-
-explicacion: |
-  La magnitud del aumento de CO2 tras la industrialización es órdenes de magnitud superior a las variaciones naturales observadas en los registros de hielo de periodos interglaciares.
+  - "nínive"
+  - "ninive"
+  - "Nínive"
+  - "Ninive"
+explicacion: "Asurbanipal recopiló sistemáticamente textos de toda Mesopotamia en su palacio de Nínive, permitiendo la conservación de gran parte del conocimiento literario y científico del antiguo Oriente Próximo."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "basico"
-  tags: ["co2", "revolucion_industrial"]
-
-enunciado: "¿Cuál de los siguientes factores es el principal responsable del salto observado en los niveles de CO2 en los núcleos de hielo durante el siglo XIX y XX?"
-
-opciones_explicitas: ["Erupciones volcánicas", "Ciclos orbitales terrestres", "Quema de combustibles fósiles", "Variaciones de la radiación solar"]
-
-respuesta: "Quema de combustibles fósiles"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["astronomía", "calendario", "sumeria"]
 tipo: mc
-
-explicacion: |
-  Aunque los volcanes y los ciclos orbitales afectan el clima, la velocidad y magnitud del aumento de CO2 detectado en el hielo coinciden exactamente con el inicio de la combustión masiva de carbón y petróleo.
+enunciado: "El calendario mesopotámico básico se basaba en el ciclo de:"
+opciones_explicitas:
+  - "La rotación de la Tierra sobre su eje (día solar)"
+  - "Las fases de la Luna (mes lunar)"
+  - "El movimiento de Saturno"
+  - "La precesión de los equinoccios"
+respuesta: "Las fases de la Luna (mes lunar)"
+explicacion: "Los mesopotámicos dividían el año en 12 meses lunares, añadiendo meses intercalares periódicamente para sincronizar el calendario lunar con las estaciones agrícolas solares."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["sumeria", "eridu", "origen"]
+tipo: vf
+enunciado: "Según la Lista Real Sumeria y las tradiciones posteriores, Eridu era considerada la primera ciudad fundada por los dioses antes de que la realeza bajara del cielo, marcando el inicio de la civilización urbana."
+respuesta: verdadero
+explicacion: "Eridu, situada en el extremo sur de Mesopotamia, es vista en la mitología sumeria como la primera ciudad, hogar del dios Enki, y el lugar donde comenzó la civilización antes de propagarse a Ur, Uruk y Nippur."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["comercio", "lapislázuli", "afganistán"]
+tipo: completar
+enunciado: "Mesopotamia carecía de recursos minerales como madera y piedra preciosa, por lo que importaba el ______ desde las montañas de Afganistán (Bactria) a través de largas rutas comerciales."
+respuesta: "lapislázuli"
+respuestas_validas:
+  - "lapislázuli"
+  - "lapis lazuli"
+  - "Lapislázuli"
+  - "Lapis lazuli"
+explicacion: "El lapislázuli era extremadamente valorado para joyería y adornos de estatuarias divinas, y su adquisición requería una red comercial que se extendía hasta el norte de la India."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["acad", "naram-sin", "divinidad"]
+tipo: mc
+enunciado: "¿Qué rey de Acad fue el primero en autoproclamarse \"Dios\" en sus inscripciones, elevando la autoridad real por encima de la tradicional mediación sacerdotal?"
+opciones_explicitas:
+  - "Sargón I"
+  - "Naram-Sin"
+  - "Gudea"
+  - "Ur-Nanshe"
+respuesta: "Naram-Sin"
+explicacion: "Naram-Sin, nieto de Sargón, adoptó el título de \"Rey de los Cuatro Rumbos\" y se divinizó en vida, un precedente político-teológico que luego sería retomado por otros reyes orientales."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["lagash", "gudea", "arte"]
+tipo: vf
+enunciado: "Gudea, gobernante de la ciudad de Lagash, es conocido por sus numerosas estatuas de diorita que lo representan con una bandeja de cestas en la cabeza, simbolizando su papel de constructor de templos y su humildad piadosa."
+respuesta: verdadero
+explicacion: "Las estatuas de Gudea, como la del Louvre, son icónicas por su detalle en el plegado de la ropa y su expresión serena, reflejando la ideología de un gobernante que se veía como el mayordomo del dios Ningirsu."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["astrología", "ciencia", "presagio"]
+tipo: completar
+enunciado: "En Mesopotamia, la observación de los astros no tenía fines puramente astronómicos, sino que se utilizaba para la ______, interpretando los movimientos celestes como mensajes divinos sobre el futuro del rey y el estado."
+respuesta: "astrología"
+respuestas_validas:
+  - "astrología"
+  - "astrológica"
+  - "Astrología"
+  - "Astrológica"
+explicacion: "Los astrólogos (barû) buscaban patrones en el cielo (lunas, eclipses, posiciones de planetas) para predecir eventos terrestres, estableciendo una conexión directa entre el cosmos y la política."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["mitología", "diluvio", "utnapishtim"]
+tipo: mc
+enunciado: "En la Epopeya de Gilgamesh, ¿quién es el personaje que construye una gran barca para sobrevivir al diluvio enviado por los dioses, inspirando posteriormente el relato bíblico de Noé?"
+opciones_explicitas:
+  - "Ziusudra"
+  - "Utnapishtim"
+  - "Enkidu"
+  - "Gilgamesh"
+respuesta: "Utnapishtim"
+explicacion: "Utnapishtim (cuyo equivalente en la versión sumeria es Ziusudra) es advertido por el dios Ea (Enki) para construir un barco, sobreviviendo al diluvio y recibiendo la inmortalidad como recompensa."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["babylon", "caída", "persia"]
+tipo: vf
+enunciado: "El Imperio Neo-Babilónico cayó definitivamente en el año 539 a.C. cuando Nabonido fue derrotado por las fuerzas del rey persa Ciro el Grande en la batalla de Opis."
+respuesta: verdadero
+explicacion: "La conquista de Babilonia por Ciro II marcó el fin de la independencia mesopotamia antigua y su integración dentro del vasto Imperio Aqueménida, respetando inicialmente las instituciones locales."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["educación", "escriba", "edubba"]
+tipo: completar
+enunciado: "La educación de los futuros escribas tenía lugar en la ______, una escuela donde los estudiantes memorizaban listas de signos, gramática y literatura mediante la repetitiva copia de tablillas."
+respuesta: "edubba"
+respuestas_validas:
+  - "edubba"
+  - "edubba"
+  - "Edubba"
+  - "La edubba"
+explicacion: "La edubba (\"casa de la tablilla\") era el centro educativo donde se formaba la élite administrativa; el aprendizaje era duro y se basaba en la memorización y la caligrafía precisa."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["agricultura", "salinización", "declive"]
+tipo: mc
+enunciado: "El exceso de riego en Mesopotamia causó la salinización del suelo, lo que llevó a:"
+opciones_explicitas:
+  - "Un aumento de la producción de trigo"
+  - "El desplazamiento del centro de gravedad agrícola hacia el norte"
+  - "La invención del arado de vertedera"
+  - "La disminución de la población urbana"
+respuesta: "El desplazamiento del centro de gravedad agrícola hacia el norte"
+explicacion: "A medida que el sur se salinizaba y la producción de cereal caía, el poder económico y político se desplazó gradualmente hacia las regiones más al norte (Acad y luego Babilonia) donde los suelos eran más fértiles."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "mesopotamia"
+  nivel: "intermedio"
+  tags: ["persia", "ciro", "tolerancia"]
+tipo: vf
+enunciado: "Tras conquistar Babilonia, Ciro el Grande emitió un decreto que permitía a los pueblos subyugados, incluidos los judíos, regresar a sus tierras y reconstruir sus templos, promoviendo una política de tolerancia religiosa."
+respuesta: verdadero
+explicacion: "El Cilindro de Ciro, considerado un charter de derechos humanos, muestra su política de restaurar los cultos locales y devolver a los exiliados a sus ciudades, consolidando su control mediante el respeto a las tradiciones locales."
+```
+
+## Sección: pueblos-originarios-territorio-argentino (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
-  tags: ["clima", "historia", "carbono"]
+  tags: ["diaguitas", "norte", "geografia"]
+
+tipo: mc
+opciones_explicitas: ["Noroeste (valles y montañas)", "Litoral (ríos)", "Patagonia (estepa)", "Pampa (llanura)"]
+respuesta: "Noroeste (valles y montañas)"
+
+enunciado: "Los pueblos de cultura Diaguita se asentaban principalmente en la zona del ______."
+
+explicacion: |
+  Los diaguitas habitaban los valles calchaquíes y zonas montañosas del actual Noroeste Argentino, desarrollando una agricultura avanzada en terrazas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "basico"
+  tags: ["tehuelches", "patagonia", "nómadas"]
+
+tipo: mc
+opciones_explicitas: ["Agricultores sedentarios", "Cazadores-recolectores nómadas", "Pescadores de gran escala", "Comerciantes de seda"]
+respuesta: "Cazadores-recolectores nómadas"
+
+enunciado: "Los Tehuelches, habitantes de la Patagonia, se caracterizaban por su estilo de vida de:"
+
+explicacion: |
+  Eran grupos nómadas que se desplazaban siguiendo los ciclos de caza de guanacos y choiques, además de la recolección de frutos silvestres.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "intermedio"
+  tags: ["guaraníes", "litoral", "agricultura"]
 
 variables:
-  datos: [["Era Preindustrial", "bajo"], ["Era Industrial", "alto"]]
-  idx: uno_de([0, 1])
+  escenario: uno_de([["Guaraníes", "agricultura de roza y quema", "selva/ríos"], ["Mapuches", "caza y recolección con agricultura limitada", "zonas templadas"], ["Selk'nam", "caza terrestre de guanacos", "Tierra del Fuego"]])
 
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["bajo", "medio", "alto"]
-
-enunciado: "Si analizamos la etapa de la {datos[idx][0]}, el nivel de impacto climático global se considera ____."
+tipo: completar
+respuestas_validas:
+  - "agricultura de roza y quema"
+  - "caza y recolección con agricultura limitada"
+  - "caza terrestre de guanacos"
+respuesta: escenario[1]
+enunciado: "Los pueblos {escenario[2]} se destacaban por su técnica de {escenario[1]}."
 
 explicacion: |
-  La era preindustrial se caracterizaba por un uso de biomasa y combustibles fósiles muy limitado, resultando en un impacto climático bajo comparado con la era industrial.
+  Los guaraníes utilizaban la técnica de roza y quema para la agricultura en las zonas de selva y ríos del Litoral.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "avanzado"
+  tags: ["ordenar", "geografia"]
+
+tipo: ordenar
+opciones_explicitas: ["Diaguitas", "Guaraníes", "Mapuches", "Tehuelches"]
+respuesta_orden: ["Diaguitas", "Guaraníes", "Mapuches", "Tehuelches"]
+
+enunciado: "Ordene los siguientes pueblos de Norte a Sur (desde el Noroeste hacia la Patagonia):"
+
+explicacion: |
+  El orden geográfico de norte a sur es: Diaguitas (Noroeste), Guaraníes (Litoral/Noreste), Mapuches (Zona Centro/Sur) y Tehuelches (Patagonia).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
-  tags: ["emisiones", "carbono", "historia"]
+  tags: ["mapuches", "sur", "territorio"]
 
-variables:
-  datos: [["1750", "10"], ["1950", "5000"], ["2020", "36000"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "En el año {datos[idx][0]}, la tasa de emisión global de CO2 (en millones de toneladas) era aproximadamente de ____."
+variables:
+  datos: uno_de([["mapuches", "sur", "Pampa"], ["diaguitas", "noroeste", "Noroeste"], ["tehuelches", "patagonia", "Patagonia"]])
 
-pasos:
-  - "Identificar el año en la cronología histórica."
-  - "Asociar el valor de emisiones correspondiente a dicho año."
+enunciado: "Los pueblos ______ habitaban principalmente en la zona ______ de Argentina."
+
+respuesta: "mapuches"
 
 explicacion: |
-  La escala de emisiones creció exponencialmente desde el año {datos[idx][0]} debido a la intensificación de la actividad económica.
+  Los mapuches ocupaban territorios que se extendían desde el centro-sur de la actual Argentina hacia el oeste (Chile).
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_clima_evolucion"
-  nivel: "intermedio"
-  tags: ["cronologia", "impacto"]
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "basico"
+  tags: ["diaguitas", "agricultura", "sedentarismo"]
 
-respuesta_orden: ["Era Preindustrial", "Revolución Industrial", "Era de la Información"]
-tipo: ordenar
-opciones_explicitas: ["Era Preindustrial", "Revolución Industrial", "Era de la Información"]
+respuesta: "sedentaria"
+tipo: completar
+respuestas_validas:
+  - "sedentaria"
 
-enunciado: "Ordena cronológicamente las etapas de la humanidad según el aumento progresivo de su huella climática:"
+enunciado: "A diferencia de los grupos nómadas, los pueblos como los diaguitas desarrollaron una organización social ___ basada en la agricultura y el control de terrazas de cultivo."
 
 explicacion: |
-  La secuencia muestra cómo la complejidad tecnológica y el uso de combustibles fósiles aumentaron la huella de carbono de forma escalonada.
+  Los diaguitas, al establecerse en valles y zonas montañosas, desarrollaron una agricultura avanzada que requería asentamientos permanentes, lo que define a una sociedad sedentaria.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
-  nivel: "avanzado"
-  tags: ["aceleracion", "antropoceno"]
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "basico"
+  tags: ["tehuelches", "nómadas", "caza"]
 
 variables:
-  datos: [["antes de 1950", "estacionario"], ["después de 1950", "acelerado"]]
-  idx: uno_de([0, 1])
+  escenario: uno_de([["Tehuelches", "Patagonia"], ["Guaraníes", "Litoral"]])
+  tipo_sociedad: uno_de(["nómada", "sedentaria"])
+
+respuesta: "nómada"
+tipo: mc
+opciones_explicitas: ["nómada", "sedentaria"]
+
+enunciado: "Los {escenario[0]} se caracterizaban por un estilo de vida {tipo_sociedad}, desplazándose constantemente para la caza y la recolección."
+
+explicacion: |
+  Los pueblos de la Patagonia, como los tehuelches, dependían de la migración estacional de la fauna para su subsistencia, lo que impedía el sedentarismo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "intermedio"
+  tags: ["diaguitas", "inca", "influencia"]
+
+respuesta: "incaica"
+tipo: mc
+opciones_explicitas: ["incaica", "maya", "azteca", "guaraní"]
+
+enunciado: "La organización política y técnica de muchos pueblos del Noroeste Argentino, como los diaguitas, estuvo fuertemente influenciada por la expansión del imperio ___."
+
+explicacion: |
+  La expansión del Tahuantinsuyo (Imperio Inca) dejó una huella profunda en la organización social, el uso de terrazas y la administración de recursos en el actual territorio argentino.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "avanzado"
+  tags: ["organización", "social", "secuencia"]
+
+respuesta_orden: ["Cazadores-recolectores", "Pastores seminómadas", "Sociedades agrícolas complejas"]
+tipo: ordenar
+opciones_explicitas: ["Cazadores-recolectores", "Pastores seminómadas", "Sociedades agrícolas complejas"]
+
+enunciado: "Ordene de menor a mayor complejidad en la organización social y permanencia en el territorio:"
+
+explicacion: |
+  La complejidad social suele estar ligada a la capacidad de producir excedentes alimentarios: desde la recolección (nómadas) hasta la agricultura intensiva (sedentarios con jerarquías).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "intermedio"
+  tags: ["nómadas", "sedentarios", "comparación"]
+
+variables:
+  caso: uno_de([["nómadas", "caza y recolección"], ["sedentarios", "agricultura y excedente"]])
+
+respuesta: "caza y recolección"
+tipo: mc
+opciones_explicitas: ["caza y recolección", "agricultura y excedente"]
+
+enunciado: "Las sociedades con un modo de vida {caso[0]} se basaban principalmente en la {caso[1]}."
+
+explicacion: |
+  Los grupos nómadas dependen de los ciclos naturales de los recursos disponibles en el entorno, moviéndose según la disponibilidad de presas o frutos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "basico"
+  tags: ["incas", "collasuyo", "noroeste_argentino"]
+
+respuesta: "Collasuyo"
+tipo: completar
+respuestas_validas:
+  - "Collasuyo"
+
+enunciado: "La región del noroeste argentino, que incluía partes de las actuales Salta y Jujuy, formaba parte de la división territorial del Imperio Inca conocida como ___."
+
+explicacion: |
+  El Imperio Inca se dividía en cuatro regiones o 'suyos'. La región sur, que comprendía gran parte del actual territorio argentino, se denominaba Collasuyo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "intermedio"
+  tags: ["incas", "administracion", "territorio"]
+
+variables:
+  escenario: uno_de([["control_administrativo", "el control de los recursos mediante el sistema de mitas"], ["control_mita", "el control de los recursos mediante el sistema de mitas"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["el control de los recursos mediante el sistema de mitas", "la construcción de grandes pirámides de piedra", "la navegación de los ríos de montaña", "el uso exclusivo del idioma quechua en todos los pueblos"]
+
+enunciado: "Para consolidar su dominio en el noroeste argentino, el Imperio Inca implementó una estrategia de {escenario[1]} para asegurar la lealtad de los pueblos locales y la producción de excedentes."
+
+explicacion: |
+  El sistema de la 'mita' era un trabajo por turnos que permitía al Estado Inca movilizar grandes cantidades de mano de obra para obras públicas y agricultura, asegurando el control sobre los territorios conquistados.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "basico"
+  tags: ["caminos", "qhapaq_ñan", "incas"]
+
+respuesta: "Qhapaq Ñan"
+tipo: completar
+respuestas_validas:
+  - "Qhapaq Ñan"
+
+enunciado: "La red de caminos que conectaba los centros administrativos del imperio, permitiendo el tránsito de ejércitos y mensajeros por el noroeste argentino, se denominaba ___."
+
+explicacion: |
+  El Qhapaq Ñan (Camino del Inca) era una red vial altamente sofisticada que conectaba todo el imperio, facilitando la comunicación y el control territorial.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "intermedio"
+  tags: ["agricultura", "terrazas", "tecnologia"]
+
+respuesta: "terrazas"
+tipo: mc
+opciones_explicitas: ["terrazas", "canales de riego por inundación", "campos de cultivo de llanura", "sistemas de rotación de cultivos"]
+
+enunciado: "Debido a la geografía montañosa de Jujuy y Salta, los Incas perfeccionaron una técnica agrícola de escalonamiento de las laderas para maximizar la superficie cultivable y evitar la erosión. Esta técnica se conoce como ___."
+
+explicacion: |
+  Las terrazas de cultivo permitían aprovechar las pendientes de los cerros, optimizando el uso del agua y evitando que la lluvia lavara los nutrientes del suelo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "avanzado"
+  tags: ["expansion", "etapas", "incas"]
+
+respuesta_orden: ["Diplomacia/Alianzas", "Conquista militar", "Asentamiento administrativo"]
+tipo: ordenar
+opciones_explicitas: ["Diplomacia/Alianzas", "Conquista militar", "Asentamiento administrativo"]
+
+enunciado: "El proceso de expansión del Imperio Inca sobre los pueblos del noroeste argentino seguía generalmente un orden lógico de integración. Ordena las etapas de este proceso:"
+
+pasos:
+  - "Primero se buscaba la integración mediante regalos o alianzas."
+  - "Si la diplomacia fallaba, se procedía a la acción militar."
+  - "Finalmente, se establecían centros para la administración y el control."
+
+explicacion: |
+  La expansión incaica no era puramente militar; preferían la diplomacia y el intercambio de bienes de prestigio. Si los pueblos locales se resistían, utilizaban la fuerza, para luego establecer una estructura administrativa (como los mitimaes) para asegurar el control.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "basico"
+  tags: ["mapuches", "geografia"]
+
+tipo: mc
+opciones_explicitas: ["Norte", "Litoral", "Sur y Cordillera", "Cuyo"]
+
+enunciado: "La región geográfica principal asociada históricamente al pueblo Mapuche en el territorio argentino es la zona de: ___"
+
+respuesta: "Sur y Cordillera"
+
+explicacion: |
+  El pueblo Mapuche se asentó principalmente en las regiones del sur y la zona de la cordillera de los Andes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "basico"
+  tags: ["guaraníes", "litoral"]
+
+tipo: completar
+respuestas_validas:
+  - "Litoral/Noreste"
+
+enunciado: "Los pueblos Guaraníes se desarrollaron predominantemente en la región del ___."
+
+respuesta: "Litoral/Noreste"
+
+explicacion: |
+  Los guaraníes habitaban las zonas de selva y ríos, principalmente en el Litoral y el Noreste argentino.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "basico"
+  tags: ["diaguitas", "noroeste"]
+
+tipo: mc
+opciones_explicitas: ["Patagonia", "Noroeste", "Pampa", "Mesopotamia"]
+
+enunciado: "Si un historiador estudia las culturas de los Diaguitas, debe centrar su investigación en la región del: ___"
+
+respuesta: "Noroeste"
+
+explicacion: |
+  Los diaguitas habitaron las zonas montañosas del Noroeste argentino.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "basico"
+  tags: ["tehuelches", "patagonia"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "El pueblo Tehuelche habitaba históricamente la región de la ___."
+
+respuesta: "Patagonia"
+
+explicacion: |
+  Los tehuelches eran pueblos nómadas que recorrían las estepas de la Patagonia.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "intermedio"
+  tags: ["repaso", "geografia"]
+
+variables:
+  idx: uno_de([0, 1, 2, 3])
+  datos: [["Mapuches", "Sur/Cordillera"], ["Guaraníes", "Litoral/Noreste"], ["Diaguitas", "Noroeste"], ["Tehuelches", "Patagonia"]]
+
+tipo: mc
+opciones_explicitas: ["Sur/Cordillera", "Litoral/Noreste", "Noroeste", "Patagonia"]
+
+enunciado: "De acuerdo a la información histórica, el pueblo {datos[idx][0]} se asocia con la región de: ___"
 
 respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "estacionario"
-  - "acelerado"
-
-enunciado: "El impacto climático se describe como ____ en el periodo {datos[idx][0]}."
 
 explicacion: |
-  El periodo después de 1950, conocido como 'El Gran Aceleramiento', muestra un crecimiento exponencial en el impacto humano sobre la biosfera.
+  La respuesta correcta corresponde a la región geográfica donde se asentó el pueblo seleccionado.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "huella_humana_clima_inicio"
+  tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
-  tags: ["comparativa", "clima"]
+  tags: ["geografia", "etnias"]
 
 variables:
-  comparativa: [["Preindustrial", "Baja"], ["Industrial", "Alta"]]
+  escenario: [[ "Los Selk'nam habitaban la región de la Tierra del Fuego", "Tierra del Fuego" ], [ "Los Guaraníes se asentaban principalmente en el noreste", "Noreste" ], [ "Los Mapuches ocupaban gran parte de la zona andina y central", "Zona Andina" ]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["Tierra del Fuego", "Noreste", "Zona Andina", "Pampa"]
+
+enunciado: "Identificá la región geográfica correspondiente al pueblo mencionado: {escenario[idx][0]}."
+
+explicacion: |
+  El pueblo mencionado se caracteriza por habitar la región de {escenario[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "intermedio"
+  tags: ["estilos_de_vida", "antropologia"]
+
+variables:
   idx: uno_de([0, 1])
+  pueblos: ["Tehuelches", "Diaguitas"]
+  modos: ["nómadas", "sedentarios"]
 
-respuesta: comparativa[idx][1]
-tipo: mc
-opciones_explicitas: ["Baja", "Media", "Alta"]
+tipo: completar
+respuesta: modos[idx]
 
-enunciado: "La huella de carbono de la era {comparativa[idx][0]} es de magnitud ____."
+enunciado: "Considerando el modo de vida de los {pueblos[idx]}, su organización social era de tipo ___."
 
 explicacion: |
-  La magnitud depende directamente de la fuente de energía predominante en cada periodo histórico.
-```
-
-## Sección: ilustracion (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["filosofia_politica", "contrato_social"]
-tipo: mc
-enunciado: "En su obra \"El contrato social\", Jean-Jacques Rousseau propone que la legitimidad del estado reside en:"
-opciones_explicitas:
-  - "El derecho divino del rey"
-  - "La voluntad general del pueblo"
-  - "La fuerza militar del monarca"
-  - "La tradición religiosa"
-respuesta: "La voluntad general del pueblo"
-explicacion: "Rousseau argumenta que la soberanía reside en el pueblo y que las leyes deben reflejar la voluntad general para ser legítimas, oponiéndose al absolutismo."
+  Los {pueblos[idx]} se definían por ser {modos[idx]}.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["enciclopedia", "diderot", "d Alembert"]
-tipo: completar
-enunciado: "La obra monumental editada por Denis Diderot y Jean le Rond d'Alembert, que buscaba compilar todo el conocimiento humano de la época bajo criterios racionales, se titula la __________."
-respuesta: "Enciclopedia"
-respuestas_validas:
-  - "Enciclopedia"
-  - "enciclopedia"
-  - "Enciclopedie"
-  - "enciclopedie"
-explicacion: "La Enciclopedia (1751-1772) fue el proyecto clave de los enciclopedistas para diseminar la Ilustración y criticar las instituciones tradicionales."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["montesquieu", "separacion_de_poderes"]
-tipo: vf
-enunciado: "Verdadero o Falso: Montesquieu, en \"El espíritu de las leyes\", abogaba por la concentración de todos los poderes del estado en una sola persona para garantizar la eficiencia."
-respuesta: falso
-explicacion: "Montesquieu defendía la separación de poderes (ejecutivo, legislativo y judicial) como mecanismo para prevenir la tiranía y proteger la libertad política."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["voltaire", "gobierno_ingles"]
-tipo: completar
-enunciado: "Voltaire, tras su exilio en Inglaterra, escribió las \"Cartas filosóficas\" admirando el sistema político y religioso de este país, contrastándolo con el absolutismo de __________."
-respuesta: "Francia"
-respuestas_validas:
-  - "Francia"
-  - "francia"
-  - "el Reino de Francia"
-  - "frances"
-explicacion: "Voltaire vio en Inglaterra un ejemplo de tolerancia religiosa y libertad de expresión que faltaba en la Francia absolutista de su tiempo."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["adam_smith", "economia", "libre_mercado"]
-tipo: mc
-enunciado: "En \"La riqueza de las naciones\" (1776), Adam Smith defiende que la economía funciona mejor cuando:"
-opciones_explicitas:
-  - "El estado controla todos los precios"
-  - "Existe la libertad de mercado y la mano invisible"
-  - "Se prohíbe el comercio internacional"
-  - "La iglesia regula la producción"
-respuesta: "Existe la libertad de mercado y la mano invisible"
-explicacion: "Smith argumenta contra el mercantilismo, proponiendo que la búsqueda del interés individual, guiada por la \"mano invisible\", beneficia al conjunto de la sociedad."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["locke", "empirismo", "tabula_rasa"]
-tipo: completar
-enunciado: "John Locke, padre del empirismo, sostenía que la mente humana al nacer es una __________, es decir, una página en blanco sin ideas innatas."
-respuesta: "tabula rasa"
-respuestas_validas:
-  - "tabula rasa"
-  - "Tabula rasa"
-  - "tablarasa"
-  - "Tablarasa"
-explicacion: "Esta teoría contrastaba con el racionalismo cartesiano y sugiere que todo conocimiento proviene de la experiencia sensorial."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["locke", "tolerancia", "carta_sobre_tolerancia"]
-tipo: mc
-enunciado: "En su \"Carta sobre la tolerancia\", John Locke argumenta que la fuerza militar no debe usarse para:"
-opciones_explicitas:
-  - "Defender la propiedad privada"
-  - "Salvar las almas de los individuos"
-  - "Mantener el orden público"
-  - "Recaudar impuestos"
-respuesta: "Salvar las almas de los individuos"
-explicacion: "Locke sostenía que la creencia religiosa no puede ser impuesta por la fuerza, ya que la fe requiere convicción interna, no coerción externa."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["bentham", "utilitarismo", "principio_utilidad"]
-tipo: completar
-enunciado: "Jeremy Bentham, filósofo utilitarista, propuso que la base de la moral y la ley debe ser el principio de __________, que busca la mayor felicidad para el mayor número."
-respuesta: "utilidad"
-respuestas_validas:
-  - "utilidad"
-  - "Utilidad"
-  - "el principio de utilidad"
-  - "principio de utilidad"
-explicacion: "El utilitarismo evalúa las acciones por sus consecuencias, buscando maximizar el placer y minimizar el dolor."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["dholbach", "ateismo", "sistema_de_la_naturaleza"]
-tipo: vf
-enunciado: "Verdadero o Falso: Baron d'Holbach, en \"El sistema de la naturaleza\", promovía el deísmo como la forma más elevada de religión racional."
-respuesta: falso
-explicacion: "D'Holbach fue un materialista ateo radical que atacaba directamente la religión revelada y la superstición, no promoviendo el deísmo."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["kant", "juego", "sublime"]
-tipo: completar
-enunciado: "En su \"Crítica del juicio\", Immanuel Kant define el arte y la belleza como un __________ libre, donde la imaginación y el entendimiento se armonizan sin un concepto determinado."
-respuesta: "juego"
-respuestas_validas:
-  - "juego"
-  - "Juego"
-  - "juego libre"
-  - "Juego libre"
-explicacion: "Kant distingue lo bello de lo útil o lo moral, afirmando que el placer estético es desinteresado y universal."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["ilustracion_escocesa", "smellie", "sentido_comun"]
-tipo: mc
-enunciado: "Thomas Reid, líder de la Escuela del Sentido Común en la Ilustración escocesa, criticó el escepticismo de Hume argumentando que:"
-opciones_explicitas:
-  - "Nada se puede conocer con certeza"
-  - "Existen principios básicos de sentido común innatos"
-  - "La razón es la única fuente de verdad"
-  - "La experiencia es una ilusión"
-respuesta: "Existen principios básicos de sentido común innatos"
-explicacion: "Reid buscaba fundamentar el conocimiento en principios evidentes que el sentido común reconoce inmediatamente, evitando el escepticismo radical."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["leibniz", "optimismo", "teodicea"]
-tipo: completar
-enunciado: "Gottfried Wilhelm Leibniz, cuya filosofía influyó en la Ilustración temprana, defendía que este es el __________ de los mundos posibles, creado por un Dios perfecto."
-respuesta: "mejor"
-respuestas_validas:
-  - "mejor"
-  - "el mejor"
-  - "Best"
-  - "best"
-explicacion: "Esta idea, satirizada por Voltaire en \"Cándido\", asumía que la armonía preestablecida garantiza que todo ocurre por la mejor de las razones."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["condorcet", "progreso", "mejorabilidad_infinita"]
-tipo: mc
-enunciado: "Marqués de Condorcet, en su \"Esbozo de un cuadro histórico de los progresos del espíritu humano\", sostenía que:"
-opciones_explicitas:
-  - "La historia está cíclica y repetitiva"
-  - "El progreso humano es infinito y perfectible"
-  - "La humanidad está destinada a la decadencia"
-  - "La ciencia no tiene valor moral"
-respuesta: "El progreso humano es infinito y perfectible"
-explicacion: "Condorcet fue un optimista radical que creía en la capacidad de la razón y la ciencia para mejorar indefinidamente la condición humana."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["buffon", "historia_natural", "tierra"]
-tipo: completar
-enunciado: "Georges-Louis Leclerc, Conde de Buffon, en su \"Historia Natural\", propuso una edad de la tierra mucho más antigua que la bíblica, basándose en __________ y observaciones geológicas."
-respuesta: "cálculos"
-respuestas_validas:
-  - "cálculos"
-  - "calculos"
-  - "los cálculos"
-  - "los calculos"
-explicacion: "Buffon utilizó métodos científicos para estimar la edad de la Tierra, desafiando la cronología bíblica de Ussher."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["quesnay", "fisiocracia", "produit_net"]
-tipo: mc
-enunciado: "François Quesnay, líder de los fisiócratas, afirmaba que la única fuente de riqueza era:"
-opciones_explicitas:
-  - "El comercio internacional"
-  - "La agricultura"
-  - "La manufactura"
-  - "La minería"
-respuesta: "La agricultura"
-explicacion: "Los fisiócratas creían que solo la tierra producía un \"producto neto\" verdadero, mientras que la industria solo transformaba materiales sin añadir valor neto."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["proudhon", "propiedad", "robo"]
-tipo: completar
-enunciado: "Aunque posterior, Pierre-Joseph Proudhon radicalizó el pensamiento ilustrado al declarar en \"¿Qué es la propiedad?\" que \"la propiedad es __________\"."
-respuesta: "robo"
-respuestas_validas:
-  - "robo"
-  - "El robo"
-  - "ROBO"
-  - "el robo"
-explicacion: "Proudhon argumentaba que la propiedad privada excluía a los trabajadores de los frutos de su labor, una crítica derivada de las discusiones ilustradas sobre justicia."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["voltaire", "deismo", "relojero"]
-tipo: vf
-enunciado: "Verdadero o Falso: Voltaire era un ateo convencido que rechazaba la existencia de cualquier ser supremo o creador."
-respuesta: falso
-explicacion: "Voltaire era deísta; creía en un \"Gran Arquitecto\" o relojero que creó el universo pero no intervenía en él, rechazando la religión revelada."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["beccaria", "castigos", "proporcionalidad"]
-tipo: completar
-enunciado: "Cesare Beccaria, en \"De los delitos y las penas\", abogaba por que los castigos debían ser __________ a los delitos, no excesivamente severos."
-respuesta: "proporcionales"
-respuestas_validas:
-  - "proporcionales"
-  - "proporcional"
-  - "la proporción"
-  - "proporcionalidad"
-explicacion: "Beccaria criticaba la tortura y la pena de muerte, argumentando que la certeza de la pena, no su crueldad, disuade mejor el crimen."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["descartes", "duda", "cogito"]
-tipo: mc
-enunciado: "René Descartes, considerado precursor de la Ilustración, estableció su filosofía partiendo de:"
-opciones_explicitas:
-  - "La fe en la tradición"
-  - "La duda metódica"
-  - "La autoridad de la iglesia"
-  - "La experiencia sensorial"
-respuesta: "La duda metódica"
-explicacion: "Descartes buscaba una base indudable para el conocimiento mediante la duda radical, llegando al \"Cogito, ergo sum\"."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["pestalozzi", "educacion", "cabana"]
-tipo: completar
-enunciado: "Johann Heinrich Pestalozzi, influido por Rousseau, desarrolló un método educativo basado en la observación directa y la __________ del niño."
-respuesta: "naturaleza"
-respuestas_validas:
-  - "naturaleza"
-  - "Naturaleza"
-  - "la naturaleza"
-  - "LA NATURALEZA"
-explicacion: "Pestalozzi creía que la educación debía seguir el desarrollo natural del niño, promoviendo el aprendizaje a través de la experiencia y la vida cotidiana."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["lamettrie", "hombre_maquina", "dualismo"]
-tipo: vf
-enunciado: "Verdadero o Falso: Julien Offray de La Mettrie, en \"El hombre máquina\", defendía el dualismo cartesiano separando alma y cuerpo."
-respuesta: falso
-explicacion: "La Mettrie era materialista y negaba la existencia del alma inmaterial, argumentando que el hombre es una máquina compleja gobernada por leyes físicas."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["humboldt", "correlacion", "naturaleza"]
-tipo: completar
-enunciado: "Alexander von Humboldt, científico ilustrado, demostró que los fenómenos naturales están interconectados en una __________ global de la naturaleza."
-respuesta: "red"
-respuestas_validas:
-  - "red"
-  - "Red"
-  - "la red"
-  - "LA RED"
-explicacion: "Humboldt pioneered la ecología y la geografía física, mostrando cómo el clima, el terreno y la vida están relacionados en un todo unitario."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["kant", "raza", "definicion"]
-tipo: mc
-enunciado: "En sus escritos antropológicos, Kant intentó clasificar las razas humanas basándose en:"
-opciones_explicitas:
-  - "La cultura y el idioma"
-  - "Características físicas hereditarias invariables"
-  - "El nivel de riqueza"
-  - "La religión practicada"
-respuesta: "Características físicas hereditarias invariables"
-explicacion: "A pesar de su ética universal, Kant cayó en prejuicios raciales, definiendo razas por rasgos físicos fijos, lo cual fue criticado posteriormente."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["federalistas", "constitucion", "union"]
-tipo: completar
-enunciado: "Los Federalistas, como Hamilton y Madison, aplicaron ideas ilustradas para defender una __________ fuerte que equilibrara la libertad con el orden."
-respuesta: "union"
-respuestas_validas:
-  - "union"
-  - "Unión"
-  - "una union"
-  - "una unión"
-explicacion: "El Federalismo buscaba crear un gobierno nacional robusto pero con controles y equilibrios, inspirado en la teoría política de la Ilustración."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ilustracion"
-  nivel: "intermedio"
-  tags: ["newton", "leyes", "universo"]
-tipo: mc
-enunciado: "Isaac Newton, cuya obra fue la base científica de la Ilustración, demostró que el universo funciona según:"
-opciones_explicitas:
-  - "Caprichos divinos inescrutables"
-  - "Leyes matemáticas universales"
-  - "La voluntad del pueblo"
-  - "El azar absoluto"
-respuesta: "Leyes matemáticas universales"
-explicacion: "Las leyes de Newton mostraron que el cosmos era predecible y regido por la razón matemática, inspirando a los filósofos a buscar leyes sociales similares."
-```
-
-## Sección: imperialismo (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "intermedio"
-  tags: ["africa", "conferencia_de_berlin"]
-
-enunciado: "El proceso de reparto de África entre las potencias europeas se formalizó durante la Conferencia de Berlín en el año ___."
-
-respuesta: "1884"
-tipo: completar
-respuestas_validas:
-  - "1884"
-  - "1885"
-
-explicacion: |
-  La Conferencia de Berlín (1884-1885) estableció las reglas para la ocupación de África, evitando conflictos directos entre potencias europeas pero ignorando las realidades étnicas del continente.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
+  tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
-  tags: ["japon", "asia"]
+  tags: ["cultura"]
 
-enunciado: "A finales del siglo XIX, ¿qué país asiático logró modernizarse rápidamente y expandir su influencia imperialista tras la guerra ruso-japonesa?"
-
-opciones_explicitas: ["China", "Japón", "Tailandia", "Vietnam"]
-respuesta: "Japón"
+respuesta: "agricultura"
 tipo: mc
+opciones_explicitas: ["caza", "agricultura", "pesca", "recolección"]
+
+enunciado: "Los pueblos de la región de los Andes Centrales, como los Diaguitas, basaban su economía principalmente en la ___."
 
 explicacion: |
-  Japón, tras la Restauración Meiji, se transformó en una potencia industrial y militar, derrotando a Rusia en 1905 y consolidando su control sobre Corea y partes de China.
+  La agricultura fue la base de la economía de los pueblos sedentarios de la zona andina.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperialismo"
+  tema: "pueblos_originarios_territorio_argentino"
   nivel: "avanzado"
-  tags: ["ideologia", "darwinismo_social"]
+  tags: ["cronologia", "territorio"]
 
-enunciado: "El concepto de '___' fue utilizado para justificar la expansión colonial mediante la idea de la supervivencia del más apto aplicada a los pueblos y naciones."
-
-respuesta: "Darwinismo Social"
-tipo: completar
-respuestas_validas:
-  - "Darwinismo Social"
-
-explicacion: |
-  El Darwinismo Social aplicó erróneamente las leyes de la selección natural de la biología a las sociedades humanas para legitimar la superioridad de las potencias occidentales sobre las colonias.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "basico"
-  tags: ["oceania", "australia"]
-
-enunciado: "Durante el siglo XIX, la expansión de Gran Bretaña en Oceanía se caracterizó por la ocupación de territorios que antes eran habitados por pueblos indígenas, como los..."
-
-opciones_explicitas: ["Maoríes", "Aborígenes", "Polinesios", "Melanesios"]
-respuesta: "Aborígenes"
-tipo: mc
-
-explicacion: |
-  La colonización británica en Australia se basó en la doctrina de 'Terra Nullius' (tierra de nadie), ignorando la soberanía de los pueblos aborígenes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "intermedio"
-  tags: ["cronologia", "potencias"]
-
-enunciado: "Ordena cronológicamente estos procesos de expansión imperialista, desde el más temprano al más tardío:"
-
-opciones_explicitas: ["Expansión Británica en África", "Expansión Japonesa en Asia", "Expansión de EE.UU. en el Pacífico"]
-respuesta_orden: ["Expansión Británica en África", "Expansión Japonesa en Asia", "Expansión de EE.UU. en el Pacífico"]
+respuesta_orden: ["Selk'nam", "Tehuelches", "Guaraníes"]
 tipo: ordenar
+opciones_explicitas: ["Selk'nam", "Tehuelches", "Guaraníes"]
+
+enunciado: "Ordená estos pueblos de Sur a Norte según su ubicación geográfica predominante en el territorio argentino."
 
 explicacion: |
-  El auge del imperialismo europeo (África) precedió a la consolidación del imperialismo japonés en Asia, mientras que la expansión de EE.UU. en el Pacífico se intensificó tras la guerra hispano-estadounidense (1898).
+  El orden correcto de Sur a Norte es: Selk'nam (Tierra del Fuego), Tehuelches (Patagonia) y Guaraníes (Noreste).
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "basico"
-  tags: ["economia", "materias_primas", "mercados"]
+  tema: "pueblos_originarios_territorio_argentino"
+  nivel: "intermedio"
+  tags: ["geografia"]
 
-respuesta: "materias_primas"
+variables:
+  pueblo_datos: [[ "Qom", "Chaco" ], [ "Mapuche", "Patagonia/Andes" ], [ "Selk'nam", "Tierra del Fuego" ]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: pueblo_datos[idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Escribí el nombre de la región donde habita el pueblo {pueblo_datos[idx][0]}."
+
+explicacion: |
+  El pueblo {pueblo_datos[idx][0]} se asocia con la región de {pueblo_datos[idx][1]}.
+```
+
+## Sección: civilizaciones-antiguas (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones_antiguas"
+  nivel: "basico"
+  tags: ["mesopotamia", "rios"]
+
+respuesta: "Tigris y Éufrates"
 tipo: completar
 respuestas_validas:
-  - "materias_primas"
+  - "Tigris y Éufrates"
 
-enunciado: "Durante el siglo XIX, la Revolución Industrial impulsó a las potencias europeas a buscar en África y Asia un suministro constante de ___ para alimentar sus fábricas."
+enunciado: "La civilización de Mesopotamia se desarrolló entre los ríos ___."
 
 explicacion: |
-  La necesidad de materias primas (como caucho, algodón o minerales) fue un motor central del imperialismo para sostener el crecimiento industrial europeo.
+  Mesopotamia significa 'tierra entre ríos', refiriéndose específicamente al Tigris y al Éufrates.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "intermedio"
-  tags: ["politica", "prestigio", "competencia"]
+  tema: "civilizaciones_antiguas"
+  nivel: "basico"
+  tags: ["egipto", "nilo"]
 
-respuesta: "prestigio"
+variables:
+  escenario: uno_de([["Nilo", "Egipto"], ["Indo", "India"], ["Huang He", "China"]])
+
+respuesta: escenario[1]
 tipo: mc
-opciones_explicitas: ["prestigio", "recursos", "religión"]
+opciones_explicitas: ["Egipto", "India", "China"]
 
-enunciado: "La expansión colonial no solo buscaba beneficios económicos, sino también aumentar el estatus internacional de la nación frente a sus rivales europeos. Esta motivación se clasifica como de tipo ___."
+enunciado: "El río {escenario[1]} fue fundamental para el desarrollo de la civilización de {escenario[0]}."
 
 explicacion: |
-  La competencia por el poder político y el estatus internacional (prestigio) llevó a las potencias a disputarse territorios estratégicos para demostrar su dominio.
+  Heródoto llamó a Egipto 'el don del Nilo' debido a sus inundaciones predecibles que permitían la agricultura.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperialismo"
+  tema: "civilizaciones_antiguas"
+  nivel: "intermedio"
+  tags: ["china", "huang_he"]
+
+respuesta: "Huang He"
+tipo: mc
+opciones_explicitas: ["Yangtsé", "Huang He", "Indo", "Ganges"]
+
+enunciado: "La civilización china antigua se asentó principalmente a lo largo del río ___."
+
+explicacion: |
+  El Huang He (Río Amarillo) es conocido por sus sedimentos de loess que fertilizaban las tierras.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones_antiguas"
   nivel: "avanzado"
-  tags: ["ideologia", "darwinismo_social", "superioridad"]
+  tags: ["cronologia", "civilizaciones"]
 
-respuesta: "darwinismo social"
-tipo: completar
-respuestas_validas:
-  - "darwinismo social"
+respuesta_orden: ["Mesopotamia", "Egipto", "Indo", "China"]
+tipo: ordenar
+opciones_explicitas: ["Mesopotamia", "Egipto", "Indo", "China"]
 
-enunciado: "Para justificar la dominación sobre otros pueblos, muchas potencias utilizaron la idea de la superioridad racial, concepto erróneamente aplicado de la biología a la sociedad, conocido como ___."
+enunciado: "Ordena cronológicamente el surgimiento de estas civilizaciones fluviales (de la más antigua a la más reciente):"
 
 explicacion: |
-  El darwinismo social fue una distorsión de la teoría de la evolución que se utilizó para legitimar el control colonial bajo la premisa de que ciertas razas eran "naturalmente" superiores.
+  Aunque los periodos se solapan, el registro arqueológico sitúa el surgimiento de las ciudades-estado en Mesopotamia y el valle del Nilo como los más tempranos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperialismo"
+  tema: "civilizaciones_antiguas"
   nivel: "intermedio"
-  tags: ["causas", "clasificacion"]
+  tags: ["india", "indo"]
 
+variables:
+  datos: [[ "Indo", "India" ], [ "Nilo", "Egipto" ], [ "Tigris", "Mesopotamia" ]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["India", "Egipto", "Mesopotamia"]
+
+enunciado: "El río {datos[idx][0]} fue el eje central de la civilización de {datos[idx][1]}."
+
+explicacion: |
+  La civilización del Valle del Indo (actual Pakistán/Noroeste de India) fue una de las más avanzadas de la antigüedad.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones_antiguas"
+  nivel: "basico"
+  tags: ["geografia", "rios"]
+
+respuesta: "riego"
+tipo: completar
+respuestas_validas:
+  - "riego"
+
+enunciado: "El asentamiento de las primeras civilizaciones cerca de grandes ríos permitió el desarrollo de la agricultura gracias al sistema de ___."
+
+explicacion: |
+  El acceso constante al agua permitió crear sistemas de riego para cultivar en zonas que de otro modo serían áridas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones_antiguas"
+  nivel: "basico"
+  tags: ["geografia", "causas"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  civilizaciones: ["Mesopotamia", "Egipto", "India"]
+  rios: ["Tigris y Éufrates", "Nilo", "Indo y Ganges"]
+
+respuesta: rios[idx]
+tipo: mc
+opciones_explicitas: ["Tigris y Éufrates", "Nilo", "Indo y Ganges", "Amazonas"]
+
+enunciado: "La civilización de {civilizaciones[idx]} se desarrolló principalmente a orillas de los ríos ___."
+
+explicacion: |
+  Cada gran civilización antigua estuvo ligada a un sistema fluvial específico que proporcionaba sustento.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones_antiguas"
+  nivel: "intermedio"
+  tags: ["agricultura", "suelo"]
+
+respuesta: "fértiles"
+tipo: completar
+respuestas_validas:
+  - "fértiles"
+
+enunciado: "Las inundaciones periódicas de los ríos depositaban sedimentos que hacían que las tierras fueran muy ___."
+
+explicacion: |
+  El limo o sedimento depositado por las crecidas enriquecía el suelo, permitiendo excedentes de producción.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones_antiguas"
+  nivel: "intermedio"
+  tags: ["transporte", "comercio"]
+
+respuesta: "transporte"
+tipo: completar
+respuestas_validas:
+  - "transporte"
+
+enunciado: "Además de la agricultura, los ríos servían como una vía de ___ para el comercio entre diferentes asentamientos."
+
+explicacion: |
+  Los ríos funcionaban como las primeras "autopistas", facilitando el movimiento de personas y mercancías.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones_antiguas"
+  nivel: "avanzado"
+  tags: ["causas", "multicausalidad"]
+
+respuesta_orden: ["Agua para riego", "Tierras fértiles", "Transporte fluvial"]
 tipo: ordenar
+opciones_explicitas: ["Agua para riego", "Tierras fértiles", "Transporte fluvial"]
 
-enunciado: "Ordena las siguientes motivaciones del imperialismo desde la más materialista (recursos) hasta la más abstracta (creencias):"
+enunciado: "Ordena los tres factores principales que explican por qué las civilizaciones se asentaron junto a los ríos, desde el más vital para la supervivencia hasta el que facilita la expansión:"
 
 pasos:
-  - "Búsqueda de nuevos mercados y materias primas"
-  - "Competencia por el prestigio y control territorial"
-  - "Nociones de superioridad cultural o misión civilizadora"
-
-opciones_explicitas: ["económicas", "políticas", "ideológicas"]
-
-respuesta_orden: ["económicas", "políticas", "ideológicas"]
+  - "1. Necesidad básica de supervivencia (agua para cultivos)."
+  - "2. Calidad del suelo tras las crecidas."
+  - "3. Facilidad de movimiento y comercio."
 
 explicacion: |
-  El imperialismo fue un fenómeno multidimensional: comenzó con la necesidad económica, se intensificó por la rivalidad política y se legitimó mediante ideologías culturales.
+  El surgimiento fue un proceso multicausal: el agua permite la vida, el suelo fértil permite el excedente y el río permite la conexión.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperialismo"
+  tema: "civilizaciones_antiguas"
   nivel: "basico"
-  tags: ["economia", "mercados"]
+  tags: ["civilizacion", "rasgos_comunes"]
 
-respuesta: "nuevos mercados"
 tipo: mc
-opciones_explicitas: ["nuevos mercados", "mano de obra barata", "territorio para el descanso"]
+opciones_explicitas: ["Nómadas sin escritura", "Ciudades, escritura y gobierno centralizado", "Pequeños grupos de caza", "Sociedades sin división del trabajo"]
+respuesta: "Ciudades, escritura y gobierno centralizado"
 
-enunciado: "Además de extraer recursos, las potencias buscaban establecer ___ para colocar el exceso de producción de sus industrias."
+enunciado: "Para que un asentamiento sea considerado una 'civilización' en términos históricos, debe presentar rasgos como la vida urbana, la capacidad de registro y una estructura de poder. ¿Cuál de las siguientes opciones describe mejor estos rasgos?"
 
 explicacion: |
-  La creación de mercados cautivos en las colonias permitía a las metrópolis vender sus productos manufacturados sin competencia, asegurando el ciclo de acumulación de capital.
+  Las civilizaciones se distinguen de las bandas de cazadores-recolectores por la complejidad de su organización: ciudades permanentes, sistemas de escritura para la administración, un gobierno centralizado y una estructura social con división del trabajo.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperialismo"
+  tema: "civilizaciones_antiguas"
   nivel: "intermedio"
-  tags: ["reparto_de_africa", "conferencia_berlin"]
+  tags: ["escritura", "administracion"]
 
-enunciado: "La Conferencia de Berlín (1884-1885) fue el evento clave donde las potencias europeas establecieron las reglas para la ocupación de África. ¿Cuál fue una de las consecuencias más críticas de este proceso respecto a la organización territorial del continente?"
+tipo: completar
+respuestas_validas:
+  - "administración"
+  - "comunicación"
 
-opciones_explicitas:
-  - "Se respetaron las fronteras étnicas y lingüísticas preexistentes."
-  - "Se trazaron fronteras artificiales que ignoraron la realidad cultural de las poblaciones."
-  - "Se promovió la independencia inmediata de los estados africanos."
-  - "Se estableció un sistema de protectorados basado en el consenso local."
-
-respuesta: "Se trazaron fronteras artificiales que ignoraron la realidad cultural de las poblaciones."
-tipo: mc
+enunciado: "La invención de la escritura en las civilizaciones antiguas tuvo como función primordial la __________, permitiendo llevar el control de excedentes agrícolas, tributos y leyes por parte del Estado."
 
 explicacion: |
-  El Reparto de África se caracterizó por la creación de fronteras arbitrarias trazadas en mapas por potencias europeas, lo que agrupó a grupos étnicos rivales en un mismo estado o dividió a comunidades unidas, sembrando las bases de conflictos futuros.
+  La escritura surgió principalmente como una herramienta contable y administrativa para gestionar la complejidad de las sociedades urbanas y el excedente de producción.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperialismo"
+  tema: "civilizaciones_antiguas"
+  nivel: "basico"
+  tags: ["division_del_trabajo", "economia"]
+
+tipo: mc
+opciones_explicitas: ["Todos realizan las mismas tareas", "Especialización de funciones y división del trabajo", "Dependencia total de la caza", "Ausencia de jerarquías"]
+respuesta: "Especialización de funciones y división del trabajo"
+
+enunciado: "El aumento de la producción agrícola permitió que no todos los miembros de la sociedad tuvieran que dedicarse a la obtención de alimentos. Este fenómeno se conoce como:"
+
+explicacion: |
+  La división del trabajo permite que aparezcan especialistas (artesanos, sacerdotes, guerreros, escribas), lo cual es un pilar fundamental de las civilizaciones complejas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones_antiguas"
+  nivel: "intermedio"
+  tags: ["gobierno", "centralizacion"]
+
+tipo: completar
+respuestas_validas:
+  - "centralizado"
+
+enunciado: "A diferencia de las tribus igualitarias, las civilizaciones antiguas se caracterizan por poseer un gobierno __________, donde el poder político se concentra en una autoridad que coordina la sociedad."
+
+explicacion: |
+  El gobierno centralizado permite la coordinación de grandes obras públicas (como canales de riego) y la gestión de ejércitos y leyes a gran escala.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones_antiguas"
   nivel: "avanzado"
-  tags: ["congo", "leopoldo_ii", "explotacion"]
+  tags: ["secuencia", "desarrollo"]
 
-enunciado: "En el contexto del imperialismo, el caso del Estado Libre del Congo es recordado por la gestión de Leopoldo II, cuyo régimen se caracterizó por la ___."
-
-respuesta: "explotación extrema de caucho y marfil"
-tipo: completar
-respuestas_validas:
-  - "explotación extrema de caucho y marfil"
-
-explicacion: |
-  El Estado Libre del Congo no era una colonia de Bélgica inicialmente, sino propiedad privada de Leopoldo II, donde se implementó un sistema de terror para la extracción de recursos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "basico"
-  tags: ["causas", "economia"]
-
-enunciado: "Durante el siglo XIX, la Revolución Industrial impulsó la necesidad de las potencias europeas de obtener nuevas fuentes de materias primas y nuevos mercados para sus productos. Completa la siguiente afirmación: El imperialismo fue impulsado por una combinación de factores económicos, _______ y políticos."
-
-respuesta: "ideológicos"
-tipo: completar
-respuestas_validas:
-  - "ideológicos"
-
-explicacion: |
-  Además de la necesidad económica, existieron justificaciones ideológicas (como la supuesta "misión civilizadora") y ambiciones políticas de prestigio nacional.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "intermedio"
-  tags: ["berlin", "diplomacia"]
-
-enunciado: "Ordena cronológicamente los procesos que definieron la dinámica del imperialismo africano:"
-
-opciones_explicitas:
-  - "Conferencia de Berlín para regular la ocupación."
-  - "Expansión de las potencias europeas en el continente."
-  - "Consolidación de fronteras coloniales y resistencia local."
-
-respuesta_orden: ["Conferencia de Berlín para regular la ocupación.", "Expansión de las potencias europeas en el continente.", "Consolidación de fronteras coloniales y resistencia local."]
 tipo: ordenar
+opciones_explicitas: ["Agricultura excedente", "Sedentarismo y ciudades", "Especialización del trabajo", "Escritura y administración"]
+
+enunciado: "Ordena cronológicamente los procesos que permiten el surgimiento de una civilización compleja, desde la base económica hasta la institucionalización:"
 
 explicacion: |
-  Primero se establecieron las reglas diplomáticas (Berlín), luego se produjo la ocupación efectiva del territorio y finalmente se consolidaron las estructuras coloniales que enfrentaron resistencias.
+  Primero el excedente agrícola permite el sedentarismo; esto genera ciudades, lo que a su vez requiere especialistas y, finalmente, un sistema de registro (escritura) para gestionar la complejidad.
+respuesta_orden: ["Agricultura excedente", "Sedentarismo y ciudades", "Especialización del trabajo", "Escritura y administración"]
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "avanzado"
-  tags: ["ideologia", "darwinismo_social"]
-
-enunciado: "El imperialismo se justificó en gran medida mediante el uso del 'Darwinismo Social'. ¿Qué premisa defendía esta idea para legitimar el dominio europeo?"
-
-opciones_explicitas:
-  - "La igualdad natural entre todas las razas humanas."
-  - "La idea de que las naciones 'más aptas' tenían el derecho de dominar a las 'menos aptas'."
-  - "La necesidad de cooperación económica entre continentes."
-  - "El respeto a la soberanía de las naciones no europeas."
-
-respuesta: "La idea de que las naciones 'más aptas' tenían el derecho de dominar a las 'menos aptas'."
-tipo: mc
-
-explicacion: |
-  El darwinismo social fue una distorsión de la teoría de la evolución aplicada a la sociedad, utilizada para justificar el colonialismo como un proceso "natural" de superioridad.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "intermedio"
-  tags: ["geopolitica", "africa", "fronteras"]
-
-enunciado: "Durante el siglo XIX, la delimitación de la Conferencia de Berlín ignoró las realidades étnicas locales, lo que ha generado tensiones geopolíticas que persisten en la actualidad."
-
-respuesta: "la división de África"
-tipo: completar
-respuestas_validas:
-  - "la división de África"
-
-explicacion: |
-  La Conferencia de Berlín (1884-1885) repartió el continente africano entre potencias europeas mediante líneas rectas que no respetaban la distribución de grupos étnicos o lingüísticos, provocando conflictos internos constantes en la era post-colonial.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "intermedio"
-  tags: ["economia", "teoria_dependencia", "recursos"]
-
-opciones_explicitas: ["Modelo de extracción", "Modelo de integración", "Modelo de autarquía", "Modelo de libre comercio"]
-
-enunciado: "El imperialismo consolidó un modelo económico basado en la extracción de materias primas de las colonias para abastecer a las metrópolis. Este sistema, que aún influye en la estructura de muchas economías periféricas, se conoce como:"
-
-respuesta: "Modelo de extracción"
-tipo: mc
-
-explicacion: |
-  La estructura económica colonial fue diseñada para la exportación de recursos naturales, lo que impidió el desarrollo de industrias locales en las colonias y perpetuó la dependencia económica de las antiguas metrópolis.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "avanzado"
-  tags: ["etnia", "conflictos", "herencia_colonial"]
-
-enunciado: "Una de las consecuencias sociales más persistentes es el legado del uso de la política de 'divide y vencerás', donde las potencias coloniales utilizaban tácticas de división para mantener el control, exacerbando las divisiones entre grupos que hoy derivan en conflictos civiles."
-
-respuesta: "tácticas de división"
-tipo: completar
-respuestas_validas:
-  - "tácticas de división"
-
-explicacion: |
-  Al favorecer a un grupo étnico sobre otro para facilitar el control administrativo, las potencias coloniales crearon resentimientos profundos que han estallado en guerras civiles tras la independencia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "intermedio"
-  tags: ["procesos", "descolonizacion", "orden"]
-
-opciones_explicitas: ["Consolidación del control colonial", "Movimientos de liberación nacional", "Independencia política y crisis de fronteras"]
-
-enunciado: "Ordena cronológicamente los procesos que explican la situación actual de muchas naciones post-coloniales:"
-
-respuesta_orden: ["Consolidación del control colonial", "Movimientos de liberación nacional", "Independencia política y crisis de fronteras"]
-tipo: ordenar
-
-explicacion: |
-  El proceso comenzó con la explotación sistemática (control colonial), seguido por la resistencia organizada (movimientos de liberación) y culminó en independencias que, al no redefinir las fronteras, dejaron problemas estructurales vigentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
+  materia: "historia"
+  tema: "civilizaciones_antiguas"
   nivel: "basico"
-  tags: ["soberania", "politica"]
+  tags: ["america", "origen"]
 
-enunciado: "¿Cuál de los siguientes es un efecto directo de la delimitación arbitraria de fronteras en la soberanía de los estados modernos?"
+respuesta: "independiente"
+tipo: "completar"
+respuestas_validas:
+  - "independiente"
 
-opciones_explicitas: ["Conflictos por la delimitación territorial", "Aumento de la riqueza industrial", "Unificación cultural inmediata", "Estabilidad política garantizada"]
-
-respuesta: "Conflictos por la delimitación territorial"
-tipo: mc
+enunciado: "Las civilizaciones de América, como Caral y los Olmecas, se desarrollaron de forma ___ a las civilizaciones de Eurasia y África."
 
 explicacion: |
-  Las fronteras que no coinciden con las realidades demográficas obligan a estados modernos a gestionar poblaciones que no se sienten representadas o que se encuentran divididas entre dos o más naciones.
+  Las civilizaciones americanas surgieron de manera autónoma, sin contacto con el Viejo Mundo en sus etapas formativas.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
+  materia: "historia"
+  tema: "civilizaciones_antiguas"
+  nivel: "intermedio"
+  tags: ["andes", "caral"]
+
+variables:
+  datos: [["Caral", "Perú", "la civilización más antigua"], ["Chavín", "Perú", "una cultura formadora clave"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][2]
+tipo: "completar"
+respuestas_validas:
+  - "la civilización más antigua"
+  - "una cultura formadora clave"
+
+enunciado: "La civilización de {datos[idx][0]} se encuentra ubicada en el actual territorio de {datos[idx][1]} y es considerada ___ del continente americano."
+
+explicacion: |
+  Caral es la civilización más antigua de América, situada en la costa central de Perú.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "civilizaciones_antiguas"
   nivel: "basico"
-  tags: ["economia", "recursos"]
+  tags: ["mesoamerica", "olmecas"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["La búsqueda de nuevos mercados para productos industriales excedentes", "económica"], ["El control de yacimientos de caucho y oro en África", "económica"]]
+respuesta: "cabezas colosales"
+tipo: "mc"
+opciones_explicitas: ["pirámides escalonadas", "cabezas colosales", "códices de papel", "calendario solar"]
 
-enunciado: "Un país europeo busca asegurar el acceso a materias primas baratas para su industria. La motivación principal es: ___"
-
-respuestas_validas:
-  - "económica"
-
-respuesta: datos[escenario_idx][1]
-tipo: completar
+enunciado: "La cultura Olmeca, considerada la 'cultura madre' de Mesoamérica, es famosa por la escultura de sus ___."
 
 explicacion: |
-  El imperialismo fue impulsado por la necesidad de las potencias industriales de obtener recursos naturales y mercados para sus productos.
+  Los Olmecas dejaron grandes monumentos de piedra conocidos como cabezas colosales.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "intermedio"
-  tags: ["geopolitica", "poder"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["La competencia por establecer bases navales estratégicas en el Pacífico", "política"], ["La expansión territorial para aumentar el prestigio nacional", "política"]]
-
-enunciado: "El control de territorios para fortalecer el poderío militar y la posición geopolítica responde a una motivación: ___"
-
-respuestas_validas:
-  - "política"
-
-respuesta: datos[escenario_idx][1]
-tipo: completar
-
-explicacion: |
-  La competencia entre potencias por el prestigio y el control de rutas estratégicas fue un motor político clave.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "intermedio"
-  tags: ["ideologia", "darwinismo_social"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["La creencia en la superioridad de la civilización occidental", "ideológica"], ["La misión de 'civilizar' a pueblos considerados atrasados", "ideológica"]]
-
-enunciado: "El uso de teorías como el darwinismo social para justificar el dominio sobre otros pueblos es una motivación de tipo: ___"
-
-opciones_explicitas: ["económica", "política", "ideológica"]
-
-respuesta: datos[escenario_idx][1]
-tipo: mc
-
-explicacion: |
-  Las justificaciones morales, religiosas o pseudocientíficas que validaban el dominio extranjero pertenecen al ámbito ideológico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
+  materia: "historia"
+  tema: "civilizaciones_antiguas"
   nivel: "avanzado"
-  tags: ["clasificacion", "analisis"]
+  tags: ["mesoamerica", "ordenar"]
 
-variables:
-  escenario_idx: uno_de([0, 1, 2])
-  datos: [["Control de rutas comerciales", "económica"], ["Prestigio nacional", "política"], ["Misión civilizadora", "ideológica"]]
-
-enunciado: "Identifica la clasificación correcta para el escenario: {datos[escenario_idx][0]}"
-
-opciones_explicitas: ["económica", "política", "ideológica"]
-
-respuesta: datos[escenario_idx][1]
-tipo: mc
-
-explicacion: |
-  Cada escenario representa una de las tres dimensiones fundamentales del imperialismo decimonónico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperialismo"
-  nivel: "avanzado"
-  tags: ["secuencia", "causalidad"]
-
-opciones_explicitas: ["Revolución Industrial", "Búsqueda de materias primas", "Control de nuevos mercados", "Dominio territorial"]
-
-respuesta_orden: ["Revolución Industrial", "Búsqueda de materias primas", "Control de nuevos mercados", "Dominio territorial"]
 tipo: ordenar
+opciones_explicitas: ["Olmecas", "Mayas", "Aztecas"]
+respuesta_orden: ["Olmecas", "Mayas", "Aztecas"]
 
-enunciado: "Ordena cronológicamente la cadena causal que impulsó el imperialismo: La industrialización genera necesidad de recursos, esto lleva a la búsqueda de suministros, lo que requiere nuevos mercados y culmina en el control territorial."
+enunciado: "Ordena cronológicamente las siguientes culturas de Mesoamérica, de la más antigua a la más reciente:"
+
+pasos:
+  - "Identifica la cultura madre."
+  - "Ubica el periodo de esplendor clásico."
+  - "Ubica el periodo de expansión imperialista."
 
 explicacion: |
-  La Revolución Industrial fue el motor inicial que desencadenó la necesidad de expansión económica y, finalmente, el control político de territorios.
+  El orden correcto es: Olmecas (Preclásico), Mayas (Clásico/Postclásico) y Aztecas (Posclásico).
 ```
-
-## Sección: imperio-bizantino (25 preguntas)
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  materia: "historia"
+  tema: "civilizaciones_antiguas"
   nivel: "intermedio"
-  tags: ["constantinopla", "fundacion", "capital"]
-tipo: completar
-enunciado: "Tras la reorganización del estado romano por Constantino I, la antigua Bizancio fue renombrada como Nueva Roma, pero históricamente se la conoce por su nombre original transformado, que se convirtió en la capital del imperio durante más de mil años. ¿Cuál es ese nombre?"
-respuesta: "Constantinopla"
+  tags: ["mayas", "escritura"]
+
+respuesta: "glifos"
+tipo: "completar"
 respuestas_validas:
-  - "Constantinopla"
-  - "Constantinopla."
-  - "constantinopla"
-  - "constantinopla."
+  - "glifos"
+
+enunciado: "Los mayas desarrollaron un complejo sistema de escritura basado en ___."
+
+explicacion: |
+  El sistema de escritura maya era logosilábico, compuesto por glifos que representaban palabras o sonidos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  tema: "civilizaciones_antiguas"
+  nivel: "basico"
+  tags: ["mesopotamia", "rios"]
+
+variables:
+  datos: [["Mesopotamia", "Tigris y Éufrates"], ["Egipto", "Nilo"], ["Indo", "Indo"]]
+  idx: uno_de([0,1,2])
+
+enunciado: "La civilización de {datos[idx][0]} se desarrolló a orillas del río {datos[idx][1]}."
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Tigris y Éufrates", "Nilo", "Indo", "Río Amarillo"]
+explicacion: |
+  La civilización de Mesopotamia se desarrolló a orillas del río Tigris y Éufrates, la de Egipto junto al Nilo, y la de Indo cerca del río Indo. El Río Amarillo no está asociado con ninguna de estas tres civilizaciones antiguas mencionadas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones_antiguas"
+  nivel: "basico"
+  tags: ["egipto", "nilo"]
+
+enunciado: "El río que fue considerado una deidad y motor de la civilización egipcia es el ___."
+
+respuestas_validas:
+  - "Nilo"
+respuesta: "Nilo"
+tipo: completar
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones_antiguas"
+  nivel: "basico"
+  tags: ["china", "civilizaciones"]
+
+variables:
+  datos: [["China", "Río Amarillo"], ["Mesopotamia", "Tigris"], ["Egipto", "Nilo"]]
+  idx: uno_de([0,1,2])
+
+enunciado: "Asocia la civilización con su río correspondiente: {datos[idx][0]} -> ___"
+
+respuestas_validas:
+  - "Río Amarillo"
+  - "Tigris"
+  - "Nilo"
+respuesta: datos[idx][1]
+tipo: completar
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones_antiguas"
   nivel: "intermedio"
-  tags: ["cisma", "iglesia", "1054"]
-tipo: vf
-enunciado: "El Cisma de 1054 marcó la división definitiva entre la Iglesia de Roma y la Iglesia de Constantinopla, separando el cristianismo en las ramas católica romana y ortodoxa oriental."
+  tags: ["ordenar", "geografia"]
+
+enunciado: "Ordena las siguientes civilizaciones según el orden de su ubicación geográfica de norte a sur (considerando sus ríos principales):"
+
+opciones_explicitas: ["Mesopotamia", "Egipto", "Indo"]
+respuesta_orden: ["Mesopotamia", "Egipto", "Indo"]
+tipo: ordenar
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones_antiguas"
+  nivel: "intermedio"
+  tags: ["identificacion"]
+
+variables:
+  pares: [["Egipto", "Nilo"], ["China", "Huang He"], ["Mesopotamia", "Tigris"]]
+  idx: uno_de([0,1,2])
+
+enunciado: "Si estamos analizando la región de {pares[idx][0]}, el río principal es el ___."
+
+respuestas_validas:
+  - "Nilo"
+  - "Huang He"
+  - "Tigris"
+respuesta: pares[idx][1]
+tipo: completar
+```
+
+## Sección: expansion-del-imperio-romano (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "expansion-del-imperio-romano"
+  nivel: "intermedio"
+  tags: ["guerras-punicas", "cartago", "expansion"]
+enunciado: "La victoria en las Guerras Púnicas permitió a Roma transformar el Mediterráneo Occidental en un \"lago romano\". ¿Qué conflicto específico consolidó el dominio romano sobre el mar tras la destrucción de Cartago?"
+tipo: mc
+opciones_explicitas: ["Primera Guerra Púnica", "Segunda Guerra Púnica", "Tercera Guerra Púnica", "Guerra de Iliria"]
+respuesta: "Tercera Guerra Púnica"
+explicacion: "Tras la Tercera Guerra Púnica (149-146 a.C.), Roma no solo destruyó Cartago, sino que eliminó a su último gran rival naval y comercial en el oeste, permitiendo el control total de las rutas marítimas occidentales."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "expansion-del-imperio-romano"
+  nivel: "intermedio"
+  tags: ["augusto", "egipto", "batalla-actium"]
+enunciado: "La anexión de Egipto como provincia romana marcó el fin de la República y el inicio del Principado, al poner bajo control directo de Augusto los graneros del Mediterráneo."
 respuesta: verdadero
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperio-bizantino"
-  nivel: "intermedio"
-  tags: ["justiniano", "derecho", "corpus"]
-tipo: completar
-enunciado: "El emperador Justiniano I encargó la recopilación y sistematización del derecho romano en una obra monumental que sentó las bases del derecho civil moderno. Esta colección se conoce comúnmente como el _____ de Justiniano."
-respuesta: "Corpus Juris Civilis"
-respuestas_validas:
-  - "Corpus Juris Civilis"
-  - "corpus juris civilis"
-  - "Corpus iuris civilis"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperio-bizantino"
-  nivel: "intermedio"
-  tags: ["lengua", "griego", "administracion"]
-tipo: mc
-enunciado: "A diferencia de las fases tempranas del Imperio Romano de Oriente, durante el reinado de Heraclio (siglo VII) la lengua oficial de la administración y la cultura imperial cambió definitivamente. ¿Cuál fue esa lengua?"
-opciones_explicitas:
-  - "Latín"
-  - "Griego"
-  - "Sirio"
-  - "Copto"
-respuesta: "Griego"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperio-bizantino"
-  nivel: "intermedio"
-  tags: ["peste", "justiniano", "demografia"]
 tipo: vf
-enunciado: "La Peste de Justiniano, que azotó al Imperio Bizantino entre los años 541 y 549 d.C., fue causada por la bacteria Yersinia pestis y contribuyó significativamente al declive económico y demográfico del imperio en el siglo VI."
-respuesta: verdadero
+explicacion: "La anexión ocurrió en el 30 a.C., tras la batalla de Actium (31 a.C.) y el suicidio de Cleopatra y Marco Antonio, convirtiendo al último reino helenístico en una provincia imperial privada de los senadores."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  tema: "expansion-del-imperio-romano"
   nivel: "intermedio"
-  tags: ["iconoclasia", "leo", "arte"]
-tipo: completar
-enunciado: "El emperador León III el Isaurio impulsó en el siglo VIII una política de destrucción de imágenes sagradas conocida como _____, un conflicto interno que debilitó la unidad religiosa del imperio."
-respuesta: "Iconoclasia"
+  tags: ["anibal", "escipion", "trabajo"]
+enunciado: "Complete la frase: El tratado de paz que puso fin a la Segunda Guerra Púnica fue firmado en el año _____, obligando a Cartago a pagar una indemnización masiva y a ceder sus territorios exteriores."
+respuesta: "201 a.C."
 respuestas_validas:
-  - "Iconoclasia"
-  - "iconoclasia"
-  - "La iconoclasia"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperio-bizantino"
-  nivel: "intermedio"
-  tags: ["manzikert", "seldjukos", "anatolia"]
-tipo: mc
-enunciado: "La derrota bizantina frente a los selyúcidas en la batalla de Manzikert en 1071, bajo el emperador Romano IV Diógenes, tuvo como consecuencia inmediata más grave:"
-opciones_explicitas:
-  - "La pérdida del control sobre Anatolia y su apertura a la turquización."
-  - "La caída inmediata de Constantinopla en manos musulmanas."
-  - "El inicio de las Cruzadas en Europa Occidental como respuesta directa."
-  - "La independencia total de la Iglesia Ortodoxa de Constantinopla."
-respuesta: "La pérdida del control sobre Anatolia y su apertura a la turquización."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperio-bizantino"
-  nivel: "intermedio"
-  tags: ["varangianos", "guardia", "vikings"]
+  - "201 a.C."
+  - "201ac"
+  - "201 a c"
+  - "201 AC"
 tipo: completar
-enunciado: "La guardia imperial de élite del emperador de Constantinopla, compuesta originalmente por guerreros nórdicos y anglosajones, era conocida como la Guardia _____."
-respuesta: "Varangiana"
-respuestas_validas:
-  - "Varangiana"
-  - "guardia varangiana"
-  - "La guardia varangiana"
+explicacion: "El tratado de 201 a.C. desmanteló el imperio cartaginés, dejándolo como un estado cliente sin capacidad militar exterior y sometido a fuertes restricciones económicas."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  tema: "expansion-del-imperio-romano"
   nivel: "intermedio"
-  tags: ["cisma", "filioque", "teologia"]
-tipo: mc
-enunciado: "Uno de los principales puntos de controversia teológica que llevó al Cisma de 1054 fue la inclusión del término 'Filioque' en el Credo por parte de la Iglesia de Roma. ¿Qué afirmaba este término?"
+  tags: ["filipo-v", "batalla-cinocefalas", "helenismo"]
+enunciado: "¿Cuál fue la consecuencia política inmediata de la derrota de Filipo V de Macedonia en la batalla de Cinocefalas (197 a.C.) ante los romanos?"
 opciones_explicitas:
-  - "Que el Espíritu Santo procede del Padre y del Hijo."
-  - "Que el Espíritu Santo procede solo del Padre."
-  - "Que el Hijo es inferior al Padre."
-  - "Que el Padre es la única fuente de la divinidad."
-respuesta: "Que el Espíritu Santo procede del Padre y del Hijo."
+  - "Macedonia se convirtió en una provincia romana directamente gobernada por un legado."
+  - "Filipo V perdió sus territorios no griegos y se vio obligado a pagar tributo y entregar rehenes."
+  - "Roma estableció una base naval permanente en Corinto de inmediato."
+  - "Grecia fue declarada oficialmente \"libre\" pero bajo protectorado militar romano."
+respuesta: "Filipo V perdió sus territorios no griegos y se vio obligado a pagar tributo y entregar rehenes."
+tipo: mc
+explicacion: "Tras Cinocefalas, Macedonia no se anexionó inmediatamente, sino que se debilitó políticamente mediante tributos y la pérdida de territorios clave, sentando las bases para la anexión posterior."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  tema: "expansion-del-imperio-romano"
   nivel: "intermedio"
-  tags: ["cuarta-cruzada", "saqueo", "latin"]
-tipo: vf
-enunciado: "Durante la Cuarta Cruzada, las tropas cristianas occidentales desviaron su objetivo y saquearon Constantinopla en 1204, estableciendo temporalmente el Imperio Latino en la ciudad."
-respuesta: verdadero
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperio-bizantino"
-  nivel: "intermedio"
-  tags: ["santa-sofia", "arquitectura", "justiniano"]
+  tags: ["cartago", "caton", "destruccion"]
+enunciado: "Complete la frase: El pretexto principal que Cato el Viejo utilizó para abogar por la destrucción de Cartago fue que esta ciudad, a pesar del tratado de paz, había recuperado su _____ y prosperidad económica."
+respuesta: "poder militar"
+respuestas_validas:
+  - "poder militar"
+  - "capacidad militar"
+  - "fuerza militar"
+  - "potencial militar"
 tipo: completar
-enunciado: "Construida entre 532 y 537 d.C. por los arquitectos Antemio de Tralles e Isidoro de Mileto bajo orden de Justiniano, la grandiosa catedral de Constantinopla se llama Basílica de _____."
-respuesta: "Santa Sofía"
-respuestas_validas:
-  - "Santa Sofía"
-  - "santa sofía"
-  - "Hagia Sophia"
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "imperio-bizantino"
-  nivel: "intermedio"
-  tags: ["nimea", "lascaris", "estado-exilio"]
-tipo: mc
-enunciado: "Tras la caída de Constantinopla en 1204, el Imperio Bizantino fue sucesoriamente restaurado por tres estados griegos. ¿Cuál de ellos logró finalmente reconquistar la capital en 1261?"
-opciones_explicitas:
-  - "El Imperio de Nicea."
-  - "El Despotado de Epiro."
-  - "El Reino de Trebisonda."
-  - "El Estado de Tesalónica."
-respuesta: "El Imperio de Nicea."
+explicacion: "Los romanos interpretaron la recuperación económica de Cartago (especialmente en agricultura y comercio) como una amenaza militar latente, justificando así la guerra preventiva."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  tema: "expansion-del-imperio-romano"
   nivel: "intermedio"
-  tags: ["paleologo", "reconquista", "1261"]
+  tags: ["italia", "aliados", "ciudadania"]
+enunciado: "La Guerra Social (91-88 a.C.) estalló principalmente porque los aliados itálicos de Roma (socii) exigían:"
+opciones_explicitas:
+  - "La independencia total de la península itálica."
+  - "La igualdad de derechos políticos y ciudadanía romana."
+  - "La abolición de la deuda pública."
+  - "La redistribución de las tierras conquistadas en Oriente."
+respuesta: "La igualdad de derechos políticos y ciudadanía romana."
+tipo: mc
+explicacion: "Los aliados itálicos habían luchado junto a Roma durante siglos sin obtener la ciudadanía, lo que generó un resentimiento que estalló en una revuelta masiva cuando se denegó su petición."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "expansion-del-imperio-romano"
+  nivel: "intermedio"
+  tags: ["julio-caesar", "galia", "cultura"]
+enunciado: "¿Qué efecto cultural y administrativo tuvo la conquista de la Galia por Julio César entre el 58 y el 50 a.C.?"
+opciones_explicitas:
+  - "Imposición inmediata del cristianismo en toda la región."
+  - "Romanización progresiva, introducción del latín y creación de infraestructura urbana."
+  - "Destrucción total de la población indígena y su reemplazo por esclavos orientales."
+  - "Mantenimiento de la estructura tribal sin cambios administrativos romanos."
+respuesta: "Romanización progresiva, introducción del latín y creación de infraestructura urbana."
+tipo: mc
+explicacion: "La Galia se integró en el sistema provincial romano, adoptando la lengua, el derecho y las ciudades (oppida) como centros de romanización, aunque el proceso tomó siglos."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "expansion-del-imperio-romano"
+  nivel: "intermedio"
+  tags: ["galia-narbonense", "provincia", "francia"]
+enunciado: "Complete la frase: La Galia Narbonense fue la primera provincia romana al norte de los Alpes, anexada formalmente en el año _____, sirviendo de puente logístico hacia la Galia transalpina."
+respuesta: "121 a.C."
+respuestas_validas:
+  - "121 a.C."
+  - "121ac"
+  - "121 a c"
+  - "121 AC"
 tipo: completar
-enunciado: "El emperador _____ reconquistó Constantinopla en 1261, poniendo fin al Imperio Latino y restaurando el Imperio Bizantino, dando inicio a la dinastía Paleóloga."
-respuesta: "Miguel VIII"
-respuestas_validas:
-  - "Miguel VIII"
-  - "miguel viii"
-  - "Miguel Palaeologus"
+explicacion: "Establecida tras las campañas contra los alóbroges y arvernos, esta provincia (sur de Francia actual) fue crucial para el comercio y el movimiento de tropas hacia el norte."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  tema: "expansion-del-imperio-romano"
   nivel: "intermedio"
-  tags: ["fuego-griego", "naval", "arma"]
-tipo: mc
-enunciado: "El arma naval secreta bizantina, una sustancia incendiaria líquida que ardía en el agua y se usaba principalmente contra las flotas enemigas, era conocida como:"
+  tags: ["mithridates", "ponto", "asiatica"]
+enunciado: "Mitrídates VI del Ponto inició la Primera Guerra Mithridática (89-85 a.C.) principalmente para:"
 opciones_explicitas:
-  - "Fuego griego."
-  - "Petra ignis."
-  - "Llama eterna."
-  - "Azufre volátil."
-respuesta: "Fuego griego."
+  - "Expulsar a los romanos de toda Asia Menor y liberar a las ciudades griegas de su tutela."
+  - "Conquistar Egipto para unirla al Ponto."
+  - "Vengar la muerte de su padre en manos de Roma."
+  - "Detener la expansión romana hacia el norte de África."
+respuesta: "Expulsar a los romanos de toda Asia Menor y liberar a las ciudades griegas de su tutela."
+tipo: mc
+explicacion: "Mitrídates se presentó como libertador de los griegos de Asia contra la \"opresión romana\" y organizó una matanza de ciudadanos romanos y italianos en Asia Menor (el \"Vespero Asiático\") para debilitar la presencia romana."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  tema: "expansion-del-imperio-romano"
   nivel: "intermedio"
-  tags: ["yarmuk", "arabes", "perdida"]
-tipo: vf
-enunciado: "La batalla de Yarmuk en 636 d.C. resultó en la pérdida definitiva de las provincias sirias y palestinas del Imperio Bizantino ante el expanding Califato Rashidun."
-respuesta: verdadero
+  tags: ["guerra-civil", "cesar", "pompeyo"]
+enunciado: "¿Qué evento específico puso fin a la República Romana y permitió la expansión imperial bajo un solo hombre?"
+opciones_explicitas:
+  - "La cruzada contra los piratas cilicios."
+  - "El cruce del río Rubicón por Julio César en 49 a.C."
+  - "La fundación de la colonia de Carthago Nova."
+  - "La victoria en la batalla de Alesia."
+respuesta: "El cruce del río Rubicón por Julio César en 49 a.C."
+tipo: mc
+explicacion: "Al cruzar el Rubicón con sus legiones, César desafió la autoridad del Senado, iniciando una guerra civil que, al ganar, concentró el poder en su persona y sentó las bases del Imperio."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  tema: "expansion-del-imperio-romano"
   nivel: "intermedio"
-  tags: ["comneno", "renacimiento", "justo"]
+  tags: ["augusto", "claudio", "britania"]
+enunciado: "A diferencia de las invasiones de César, la conquista permanente de Britania comenzó bajo Claudio en 43 d.C. ¿Cuál fue su principal objetivo estratégico?"
+opciones_explicitas:
+  - "Buscar legiones de oro y plata abundantes."
+  - "Consolidar una frontera natural en el océano y ganar prestigio político."
+  - "Evitar la invasión de los vikingos desde el norte."
+  - "Controlar las rutas comerciales de la seda desde Asia."
+respuesta: "Consolidar una frontera natural en el océano y ganar prestigio político."
+tipo: mc
+explicacion: "Claudio, un emperador con poca experiencia militar, utilizó la conquista de Britania (una tierra lejana y misteriosa para los romanos) para ganar legitimidad y popularidad entre el pueblo romano."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "expansion-del-imperio-romano"
+  nivel: "intermedio"
+  tags: ["lesia", "vercingetoriges", "caesar"]
+enunciado: "Complete la frase: La resistencia galia se consideró derrotada tras la rendición de Vercingetorix en Alesia, ocurrida en el año _____, fecha simbólica del fin de la independencia celta."
+respuesta: "52 a.C."
+respuestas_validas:
+  - "52 a.C."
+  - "52ac"
+  - "52 a c"
+  - "52 AC"
 tipo: completar
-enunciado: "El emperador _____ (r. 1118–1143), hijo de Alejo I, es conocido por su piadosa gestión y por haber evitado que el imperio se endeudara con las repúblicas italianas, marcando el apogeo de la dinastía Comnena."
-respuesta: "Juan II"
-respuestas_validas:
-  - "Juan II"
-  - "juan ii"
-  - "Juan Comneno"
+explicacion: "La batalla de Alesia fue el punto de inflexión militar. Aunque hubo resistencias posteriores, 52 a.C. marca el colapso de la organización militar galia unificada frente a Roma."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  tema: "expansion-del-imperio-romano"
   nivel: "intermedio"
-  tags: ["andonico", "reformas", "muerte"]
-tipo: mc
-enunciado: "Andrónico I Comneno, conocido por sus drásticas y brutales reformas para combatir la corrupción y el poder de la nobleza, terminó su reinado siendo:"
+  tags: ["numidia", "jugurta", "corrupcion"]
+enunciado: "La Guerra de Jugurta (112-106 a.C.) estalló porque el rey de Numidia, Jugurta, se negó a aceptar la división de su reino y comenzó a atacar a aliados romanos. ¿Qué factor romano facilitó inicialmente su rebeldía?"
 opciones_explicitas:
-  - "Linchado por la multitud en Constantinopla."
-  - "Abdicando y retirándose a un monasterio."
-  - "Asesinado por sus propios generales en Anatolia."
-  - "Exiliado a Venecia."
-respuesta: "Linchado por la multitud en Constantinopla."
+  - "La corrupción de los magistrados romanos que fueron sobornados."
+  - "La falta de interés de Roma en el norte de África."
+  - "La alianza secreta entre Roma y Cartago."
+  - "La debilidad del ejército romano tras las Guerras Púnicas."
+respuesta: "La corrupción de los magistrados romanos que fueron sobornados."
+tipo: mc
+explicacion: "La famosa frase \"urbs venalis\" (ciudad a la venta) de Salustio refleja cómo la corrupción en Roma permitió a Jugurta comprar la impunidad inicial, hasta que Mario intervino militarmente."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  tema: "expansion-del-imperio-romano"
   nivel: "intermedio"
-  tags: ["paleologo", "ultima-dinastia", "1453"]
+  tags: ["domiciano", "trayano", "dacia"]
+enunciado: "Tras las dos guerras dacias (101-102 y 105-106 d.C.), Trajano anexionó Dacia. ¿Cuál fue el beneficio económico principal que justificó esta costosa campaña?"
+opciones_explicitas:
+  - "El control de las minas de oro y plata de los Cárpatos."
+  - "El acceso directo al mar Negro para el comercio de grano."
+  - "La captura de esclavos para las minas de España."
+  - "El monopolio de la sal en la región."
+respuesta: "El control de las minas de oro y plata de los Cárpatos."
+tipo: mc
+explicacion: "Las minas dacias, especialmente las de oro de Alburnus Maior, fueron extremadamente productivas y ayudaron a financiar la administración y los monumentos de Trajano."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "expansion-del-imperio-romano"
+  nivel: "intermedio"
+  tags: ["jerusalen", "temple", "cesar"]
+enunciado: "Complete la frase: La Primera Guerra Judaica (66-73 d.C.) estalló tras una serie de insultos a la religión judía por parte del procurador romano _____, que provocó la revuelta abierta en Jerusalén."
+respuesta: "Gessio Floro"
+respuestas_validas:
+  - "Gessio Floro"
+  - "Gessiofloro"
+  - "Gessius Florus"
+  - "Floro"
 tipo: completar
-enunciado: "La última dinastía reinante en el Imperio Bizantino, que gobernó desde la reconquista de 1261 hasta la caída final de 1453, fue la dinastía _____."
-respuesta: "Paleóloga"
-respuestas_validas:
-  - "Paleóloga"
-  - "paleologa"
-  - "Palaiologos"
+explicacion: "Gessio Floro saqueó el tesoro del Templo y ejecutó injustamente a ciudadanos judíos, actuando como el detonante final de un conflicto latente por tensiones religiosas y fiscales."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  tema: "expansion-del-imperio-romano"
   nivel: "intermedio"
-  tags: ["constantino-xi", "caida", "1453"]
-tipo: vf
-enunciado: "El último emperador bizantino, Constantino XI Paleólogo, murió combatiendo personalmente en las murallas de Constantinopla durante el asedio otomano de 1453."
-respuesta: verdadero
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperio-bizantino"
-  nivel: "intermedio"
-  tags: ["concilio", "unificacion", "iglesia"]
-tipo: mc
-enunciado: "El emperador Juan VIII Paleólogo asistió al Concilio de Florencia en 1439 con el objetivo principal de:"
+  tags: ["trayano", "partia", "armenia"]
+enunciado: "Trajano anexionó Armenia como provincia en 114 d.C. ¿Qué poder regional era el principal competidor de Roma en esta zona?"
 opciones_explicitas:
-  - "Lograr la unificación de las iglesias ortodoxa y católica para obtener ayuda militar contra los otomanos."
-  - "Distribuir las riquezas del tesoro imperial entre los cardenales europeos."
-  - "Proclamar al Papa como jefe supremo de todas las iglesias orientales sin condiciones."
-  - "Establecer una alianza comercial con las repúblicas italianas."
-respuesta: "Lograr la unificación de las iglesias ortodoxa y católica para obtener ayuda militar contra los otomanos."
+  - "El Imperio Sasánida."
+  - "El Reino de Ponto."
+  - "El Imperio Parta."
+  - "El Reino de Nabatea."
+respuesta: "El Imperio Parta."
+tipo: mc
+explicacion: "Armenia era un estado tapón disputado entre Roma y Partia. La anexión de Trajano eliminó este tapón, llevando las legiones romanas hasta el Golfo Pérsico, pero fue abandonada por Adriano por ser insostenible."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  tema: "expansion-del-imperio-romano"
   nivel: "intermedio"
-  tags: ["basilio-ii", "bulgaros", "apogeo"]
+  tags: ["petra", "arabia-petraea", "trayano"]
+enunciado: "Complete la frase: El reino de Nabatea, rico gracias al comercio de incienso, fue anexionado como provincia Arabia Petraea en el año _____, extendiendo la frontera sur del imperio."
+respuesta: 106
+respuestas_validas:
+  - 106
+  - "106 d.C."
+  - "106dc"
+  - "106 dc"
 tipo: completar
-enunciado: "El emperador _____ (r. 976–1025) consolidó las fronteras del imperio y derrotó al Primer Imperio Búlgaro, ganándose el sobrenombre de 'Bulgaroctono' (Matador de búlgaros)."
-respuesta: "Basilio II"
-respuestas_validas:
-  - "Basilio II"
-  - "basilio ii"
-  - "Basileios II"
+explicacion: "La anexión fue pacífica, posiblemente por la muerte del rey nabateo sin heredero varón, permitiendo a Roma controlar las rutas comerciales del sur y proteger Egipto."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "imperio-bizantino"
+  tema: "expansion-del-imperio-romano"
   nivel: "intermedio"
-  tags: ["literatura", "grecia", "clasicismo"]
-tipo: mc
-enunciado: "Durante el Renacimiento Paleólogo (siglos XIII-XV), los eruditos bizantinos jugaron un papel crucial en la transmisión de textos clásicos griegos a Occidente. ¿Cuál de los siguientes textos fue preservado y estudiado intensamente por estos eruditos?"
+  tags: ["cimbrios", "teutones", "migra"]
+enunciado: "Las guerras contra los Cimbrios y Teutones (113-101 a.C.) fueron causadas por:"
 opciones_explicitas:
-  - "La Ilíada y la Odisea de Homero."
-  - "Las obras completas de Aristófanes."
-  - "Los Diálogos de Platón."
-  - "Todas las anteriores."
-respuesta: "Todas las anteriores."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperio-bizantino"
-  nivel: "intermedio"
-  tags: ["polvora", "siege", "tecnologia"]
-tipo: vf
-enunciado: "El Imperio Bizantino desarrolló y utilizó armas de fuego y pólvora de manera nativa y exclusiva antes que cualquier otra potencia europea durante el siglo XIV."
-respuesta: falso
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperio-bizantino"
-  nivel: "intermedio"
-  tags: ["tema", "militar", "anatolia"]
-tipo: completar
-enunciado: "El sistema administrativo y militar bizantino se basaba en las divisiones territoriales llamadas _____. El Tema de los Anatólicos fue uno de los más grandes y importantes, ubicado en el norte de Anatolia."
-respuesta: "temas"
-respuestas_validas:
-  - "temas"
-  - "el tema"
-  - "Themata"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "imperio-bizantino"
-  nivel: "intermedio"
-  tags: ["motin", "nika", "hipodromo"]
+  - "Una invasión planificada por el rey persa."
+  - "La migración de pueblos germánicos y celtas hacia el sur y este, desplazados por cambios climáticos o presión demográfica."
+  - "Un ataque preventivo de Roma para conquistar Germania."
+  - "La búsqueda de oro en las minas de España."
+respuesta: "La migración de pueblos germánicos y celtas hacia el sur y este, desplazados por cambios climáticos o presión demográfica."
 tipo: mc
-enunciado: "En 532 d.C., Justiniano I estuvo a punto de ser depuesto durante un motín popular conocido como la Revuelta de Nika. ¿Cuál fue el desenlace de este motín?"
+explicacion: "No fue una invasión militar tradicional, sino una migración masiva de pueblos enteros (familias, ganado) que chocó con la expansión romana, causando graves derrotas iniciales a Roma antes de la victoria de Mario."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "expansion-del-imperio-romano"
+  nivel: "intermedio"
+  tags: ["moesia", "danubio", "frontiera"]
+enunciado: "La creación de la provincia de Moesia (29 a.C.) sirvió principalmente para:"
 opciones_explicitas:
-  - "Fue suprimido con gran violencia por Belisario y Mundus en el Hipódromo."
-  - "Justiniano abdicó y huyó de la ciudad."
-  - "Se negoció una paz que otorgó más poderes al Senado."
-  - "Los motines se resolvieron con la construcción de nuevas iglesias."
-respuesta: "Fue suprimido con gran violencia por Belisario y Mundus en el Hipódromo."
+  - "Proteger la frontera norte del Danubio contra los dacios y tracios."
+  - "Controlar las minas de plata de Dacia."
+  - "Acceder al comercio de la ruta de la seda."
+  - "Defender Grecia de los godos."
+respuesta: "Proteger la frontera norte del Danubio contra los dacios y tracios."
+tipo: mc
+explicacion: "Moesia se estableció como una provincia militar clave para estabilizar la frontera del Danubio, que se convertiría en la línea de defensa contra los pueblos germánicos y dacios."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "expansion-del-imperio-romano"
+  nivel: "intermedio"
+  tags: ["trayano", "mapa", "maxima"]
+enunciado: "El Imperio Romano alcanzó su máxima extensión territorial bajo el reinado de:"
+opciones_explicitas:
+  - "Augusto."
+  - "Trajano."
+  - "Adriano."
+  - "Constantino."
+respuesta: "Trajano."
+tipo: mc
+explicacion: "Bajo Trajano (98-117 d.C.), el imperio se expandió al máximo, incluyendo Dacia, Mesopotamia y Arabia, aunque estas últimas conquistas orientales fueron rápidamente abandonadas por su sucesor Adriano."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "expansion-del-imperio-romano"
+  nivel: "intermedio"
+  tags: ["marcomanos", "marco-aurelio", "germania"]
+enunciado: "Durante el reinado de Marco Aurelio, las guerras marcománicas (166-180 d.C.) fueron causadas por:"
+opciones_explicitas:
+  - "La invasión de pueblos germánicos (marcomanos, cuados) a través del Danubio, presionados por pueblos del este."
+  - "La revuelta de los esclavos en Italia."
+  - "La caída del muro de Adriano."
+  - "La disputa por el trono de Armenia."
+respuesta: "La invasión de pueblos germánicos (marcomanos, cuados) a través del Danubio, presionados por pueblos del este."
+tipo: mc
+explicacion: "Estas guerras marcaron el fin de la seguridad fronteriza y el inicio de una crisis prolongada, donde los bárbaros penetraron profundamente en territorio romano, forzando al emperador a liderar campañas prolongadas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "expansion-del-imperio-romano"
+  nivel: "intermedio"
+  tags: ["chipre", "macedonia", "cobre"]
+enunciado: "Chipre fue anexionada como provincia romana en 58 a.C. ¿Qué recurso natural era clave para su importancia económica previa?"
+opciones_explicitas:
+  - "El cobre (de ahí el nombre \"Cyprium\")."
+  - "El oro de las montañas."
+  - "El aceite de oliva."
+  - "El vino de alta calidad."
+respuesta: "El cobre (de ahí el nombre \"Cyprium\")."
+tipo: mc
+explicacion: "El nombre \"copper\" (cobre) en inglés deriva del latín \"aes Cyprium\" (bronce de Chipre). Su anexion fue parte de la reorganización de las provincias del este por Cicerón como procónsul."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "expansion-del-imperio-romano"
+  nivel: "intermedio"
+  tags: ["agripa", "germania", "rin"]
+enunciado: "Tras las fallidas campañas de Augusto en Germania (9-16 d.C.) y la derrota de Varo en Teutoburgo (9 d.C.), la frontera occidental/norte se estabilizó en:"
+opciones_explicitas:
+  - "El río Rin y el Danubio."
+  - "El mar del Norte."
+  - "El río Elba."
+  - "Las Islas Británicas."
+respuesta: "El río Rin y el Danubio."
+tipo: mc
+explicacion: "La derrota de Teutoburgo demostró que Germania era demasiado difícil de conquistar y poblar. Augusto decidió consolidar las fronteras naturales del Rin y el Danubio, deteniendo la expansión hacia el este de Germania."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "expansion-del-imperio-romano"
+  nivel: "intermedio"
+  tags: ["numidia", "provincia", "africa"]
+enunciado: "Tras la muerte del rey Juba II y la posterior anexión de Numidia, esta región se unió a la provincia de:"
+opciones_explicitas:
+  - "África Proconsular."
+  - "Egipto."
+  - "Cirenaica."
+  - "Mauritania."
+respuesta: "África Proconsular."
+tipo: mc
+explicacion: "La anexión de Numidia (posterior a la era de Juba II y la caída de Masinisa) expandió la provincia de África hacia el este, integrando la rica tierra agrícola numidia en el corazón del aprovisionamiento de Roma."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "expansion-del-imperio-romano"
+  nivel: "intermedio"
+  tags: ["domiciano", "decebalo", "trayano"]
+enunciado: "La Segunda Guerra Dacia (105-106 d.C.) fue necesaria porque el rey Decébalo:"
+opciones_explicitas:
+  - "Había violado el tratado de paz anterior y rearmado al reino."
+  - "Había aliado con los partas."
+  - "Se había convertido al cristianismo."
+  - "Había atacado a los egipcios."
+respuesta: "Había violado el tratado de paz anterior y rearmado al reino."
+tipo: mc
+explicacion: "Aunque la primera guerra fue victoriosa para Roma, Decébalo logró mantener la independencia nominal rearmándose en secreto. Trajano volvió para asegurar la anexión total y eliminar la amenaza fronteriza."
 ```
 
 ## Sección: imperio-de-alejandro-magno-helenistico (25 preguntas)

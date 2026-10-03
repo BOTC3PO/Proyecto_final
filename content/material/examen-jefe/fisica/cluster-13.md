@@ -1,2479 +1,2723 @@
 # Examen jefe — [PENDIENTE #748]
 
-> Logro #748. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #748. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: precipitacion (22 preguntas)
+## Sección: tiro-vertical (26 preguntas)
 
 ```
 metadata:
-  materia: "fisica"
-  tema: "precipitacion"
+  materia: "matematicas"
+  tema: "tiro_vertical"
   nivel: "basico"
-  tags: ["precipitacion", "vocabulario"]
-
-enunciado: "¿Qué es la precipitación, en el sentido meteorológico?"
-tipo: mc
-opciones_explicitas:
-  - "Cualquier forma de agua, líquida o sólida, que cae de una nube hacia la superficie"
-  - "El proceso por el cual el agua se evapora de los océanos"
-  - "El movimiento de una masa de aire de un lugar a otro"
-respuesta: "Cualquier forma de agua, líquida o sólida, que cae de una nube hacia la superficie"
-
-explicacion: |
-  Incluye lluvia, nieve, granizo y aguanieve.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "intermedio"
-  tags: ["precipitacion", "mecanismo"]
-
-enunciado: "¿Por qué las gotitas o cristales de una nube no caen todo el tiempo?"
-tipo: mc
-opciones_explicitas:
-  - "Son demasiado pequeñas y livianas: flotan sostenidas por las corrientes de aire"
-  - "Porque el aire dentro de una nube no tiene corrientes"
-  - "Porque el agua dentro de una nube no pesa nada"
-respuesta: "Son demasiado pequeñas y livianas: flotan sostenidas por las corrientes de aire"
-
-explicacion: |
-  Sólo caen cuando crecen lo suficiente al chocar y unirse con otras.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "basico"
-  tags: ["precipitacion", "ciclo_del_agua"]
-
-tipo: ordenar
-opciones_explicitas:
-  - "evaporación"
-  - "condensación"
-  - "precipitación"
-respuesta_orden: ["evaporación", "condensación", "precipitación"]
-enunciado: "Ordená estas tres etapas del ciclo del agua en el orden en que ocurren."
-
-explicacion: |
-  El agua se evapora, sube y condensa en nubes, y luego cae como
-  precipitación.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "intermedio"
-  tags: ["precipitacion", "ciclo_del_agua"]
-
-enunciado: "¿Qué etapa del ciclo del agua cierra el ciclo después de la precipitación?"
-tipo: mc
-opciones_explicitas:
-  - "Escurrimiento e infiltración, de vuelta a ríos, lagos, napas u océanos"
-  - "Una nueva condensación inmediata"
-  - "El ciclo del agua no se cierra nunca"
-respuesta: "Escurrimiento e infiltración, de vuelta a ríos, lagos, napas u océanos"
-
-explicacion: |
-  El agua que cae vuelve al sistema, listo para evaporarse de nuevo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "intermedio"
-  tags: ["precipitacion", "tipos"]
-
-enunciado: "¿Bajo qué condición de temperatura cae lluvia (agua líquida)?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando la temperatura se mantiene por encima de 0°C desde la nube hasta el suelo"
-  - "Cuando la temperatura está por debajo de 0°C en todo el trayecto"
-  - "La temperatura no influye en si cae lluvia o nieve"
-respuesta: "Cuando la temperatura se mantiene por encima de 0°C desde la nube hasta el suelo"
-
-explicacion: |
-  Los cristales de hielo formados en la nube se derriten antes de llegar
-  al suelo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "intermedio"
-  tags: ["precipitacion", "tipos"]
-
-enunciado: "¿Bajo qué condición de temperatura cae nieve?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando la temperatura se mantiene por debajo de 0°C en todo el trayecto hasta el suelo"
-  - "Cuando la temperatura está por encima de 0°C en todo el trayecto"
-  - "Sólo cuando hay granizo al mismo tiempo"
-respuesta: "Cuando la temperatura se mantiene por debajo de 0°C en todo el trayecto hasta el suelo"
-
-explicacion: |
-  El cristal de hielo no llega a derretirse en ningún punto del camino.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "intermedio"
-  tags: ["precipitacion", "tipos"]
-
-enunciado: "¿Qué es la aguanieve?"
-tipo: mc
-opciones_explicitas:
-  - "Una mezcla de lluvia y nieve, cuando la temperatura está justo en el límite de 0°C en parte del trayecto"
-  - "Otro nombre para el granizo"
-  - "Nieve que cayó hace muchos días y se derritió"
-respuesta: "Una mezcla de lluvia y nieve, cuando la temperatura está justo en el límite de 0°C en parte del trayecto"
-
-explicacion: |
-  El cristal ni termina de derretirse ni de mantenerse completamente
-  sólido.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "avanzado"
-  tags: ["precipitacion", "granizo"]
-
-enunciado: "¿Cómo se forma el granizo dentro de una nube de desarrollo vertical muy intensa?"
-tipo: mc
-opciones_explicitas:
-  - "Una gotita es arrastrada varias veces hacia arriba y abajo por corrientes fuertes, congelándose en capas sucesivas"
-  - "Cae directo desde una nube estrato, sin ningún proceso previo"
-  - "Se forma por la unión de dos gotas de lluvia comunes a nivel del suelo"
-respuesta: "Una gotita es arrastrada varias veces hacia arriba y abajo por corrientes fuertes, congelándose en capas sucesivas"
-
-explicacion: |
-  Cae cuando pesa demasiado para que la corriente de aire la siga
-  sosteniendo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "avanzado"
-  tags: ["precipitacion", "granizo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El granizo se forma en capas sucesivas de hielo, cada vez que la gotita sube a la parte más fría de la nube."
-
-explicacion: |
-  Por eso una piedra de granizo grande, cortada al medio, muestra anillos
-  como una cebolla.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "intermedio"
-  tags: ["precipitacion", "mecanismo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Hay nubes, como los cúmulos chicos de buen tiempo o los cirros, que nunca producen precipitación."
-
-explicacion: |
-  Sus gotitas o cristales nunca crecen lo suficiente como para vencer la
-  corriente de aire que las sostiene.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "intermedio"
-  tags: ["precipitacion", "frentes"]
-
-enunciado: "¿Qué tipo de precipitación es típica de un frente cálido (nubes tipo estrato/nimboestrato)?"
-tipo: mc
-opciones_explicitas:
-  - "Llovizna sostenida y suave, de gotas chicas y caída lenta"
-  - "Lluvia intensa de corta duración"
-  - "Granizo severo únicamente"
-respuesta: "Llovizna sostenida y suave, de gotas chicas y caída lenta"
-
-explicacion: |
-  El ascenso lento y uniforme del aire genera nubes en capas, con
-  precipitación pareja.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "intermedio"
-  tags: ["precipitacion", "frentes"]
-
-enunciado: "¿Qué tipo de precipitación es típica de un frente frío muy activo (cumulonimbos)?"
-tipo: mc
-opciones_explicitas:
-  - "Lluvia intensa de corta duración, y en los casos más fuertes, granizo"
-  - "Llovizna suave durante varios días seguidos"
-  - "Nunca produce ningún tipo de precipitación"
-respuesta: "Lluvia intensa de corta duración, y en los casos más fuertes, granizo"
-
-explicacion: |
-  Las corrientes internas fuertes de estas nubes son justamente lo que
-  arma las capas de hielo del granizo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "basico"
-  tags: ["precipitacion", "medicion"]
-
-enunciado: "¿En qué unidad se mide la cantidad de lluvia caída?"
-tipo: mc
-opciones_explicitas:
-  - "Milímetros (mm)"
-  - "Kilogramos (kg)"
-  - "Grados Celsius (°C)"
-respuesta: "Milímetros (mm)"
-
-explicacion: |
-  1 mm de lluvia equivale a 1 litro de agua por cada metro cuadrado.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "intermedio"
-  tags: ["precipitacion", "medicion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "1 mm de lluvia equivale a 1 litro de agua caída por cada metro cuadrado de superficie."
-
-explicacion: |
-  Es la definición práctica que usan los pluviómetros.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "intermedio"
-  tags: ["precipitacion", "calculo"]
+  tags: ["velocidad"]
 
 variables:
-  mm_llovidos: random(5, 60)
-  area_m2: random(10, 200)
+  v0: random(2, 10) * 5
+  g: 10
+  t: random(1, 3)
 
-respuesta: mm_llovidos * area_m2
+respuesta: v0 - g * t
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Cayeron {mm_llovidos} mm de lluvia sobre un terreno de {area_m2} m². ¿Cuántos litros de agua cayeron en total?"
-
-pasos:
-  - "Litros = mm × área (m²) = {mm_llovidos} × {area_m2}"
+enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s (g=10 m/s²). ¿Cuál es su velocidad en t={t} s?"
 
 explicacion: |
-  Cada mm de lluvia equivale a 1 litro por m², así que se multiplica
-  directo.
+  v(t) = {v0} − {g}×{t} = {v0 - g * t}.
 ```
 
 ```
 metadata:
-  materia: "fisica"
-  tema: "precipitacion"
+  materia: "matematicas"
+  tema: "tiro_vertical"
   nivel: "intermedio"
-  tags: ["precipitacion", "calculo"]
+  tags: ["velocidad", "verdadero_falso"]
 
 variables:
-  mm_ciudad_a: random(10, 40)
-  mm_ciudad_b: random(41, 90)
+  v0: random(4, 10) * 5
+  g: 10
+  t: random(1, 4)
 
-respuesta: mm_ciudad_b - mm_ciudad_a
+respuesta: ((v0 - g * t) < 0)
+tipo: vf
+
+enunciado: "v₀={v0} m/s (g=10 m/s²). ¿Ya está bajando el objeto en t={t} s (o sea, v(t) es negativa)?"
+
+explicacion: |
+  v(t) = {v0}−{g}×{t} = {v0 - g * t} — negativa significa que ya pasó el
+  punto más alto y está descendiendo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "intermedio"
+  tags: ["tiempo_subida"]
+
+variables:
+  g: 10
+  t_sol: random(1, 8)
+  v0: g * t_sol
+
+respuesta: t_sol
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "La ciudad A registró {mm_ciudad_a} mm de lluvia y la ciudad B registró {mm_ciudad_b} mm. ¿Cuántos mm más llovió en la ciudad B?"
-
-explicacion: |
-  Se resta la menor cantidad de la mayor.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "avanzado"
-  tags: ["precipitacion", "medicion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "1 cm de nieve fresca equivale aproximadamente a 1 mm de agua líquida, aunque esto varía según qué tan compacta caiga la nieve."
-
-explicacion: |
-  Es una equivalencia aproximada, no exacta, porque la nieve puede caer
-  más o menos compacta.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "basico"
-  tags: ["precipitacion", "vocabulario"]
-
-tipo: completar
-respuestas_validas:
-  - "cumulonimbos"
-  - "cumulonimbo"
-
-enunciado: "El granizo se forma en nubes de desarrollo vertical muy intensas, llamadas ____."
-
-explicacion: |
-  Son cúmulos que crecieron mucho y produjeron tormenta.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "intermedio"
-  tags: ["precipitacion", "tipos"]
-
-tipo: ordenar
-opciones_explicitas:
-  - "llovizna de un frente cálido"
-  - "lluvia de un cúmulo mediano"
-  - "granizo de un cumulonimbo intenso"
-respuesta_orden: ["llovizna de un frente cálido", "lluvia de un cúmulo mediano", "granizo de un cumulonimbo intenso"]
-enunciado: "Ordená estos tipos de precipitación de menor a mayor intensidad típica."
-
-explicacion: |
-  A mayor desarrollo vertical de la nube, más intensa (y potencialmente
-  más severa) la precipitación.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "avanzado"
-  tags: ["precipitacion", "sintesis"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El tipo de precipitación que cae depende directamente del tipo de nube (su desarrollo vertical) y de la temperatura del aire debajo de ella."
-
-explicacion: |
-  Es la conexión con el módulo de Formación de nubes: el tipo de nube ya
-  formado determina qué precipitación cae.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "avanzado"
-  tags: ["precipitacion", "calculo"]
-
-variables:
-  mm: random(5, 40)
-  area: random(10, 100)
-  correcto: mm * area
-  error: uno_de([0, 0, 0, 50, -50])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 1)
-tipo: vf
-
-enunciado: "Cayeron {mm} mm de lluvia sobre {area} m². Según un cálculo, cayeron {mostrado} litros en total. ¿Es correcto ese resultado?"
-
-explicacion: |
-  Litros = mm × área = {correcto}.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "precipitacion"
-  nivel: "avanzado"
-  tags: ["precipitacion", "sintesis"]
-
-enunciado: "¿Cuál resume mejor por qué cae la precipitación?"
-tipo: mc
-opciones_explicitas:
-  - "Las gotitas o cristales de una nube crecen al chocar entre sí hasta que su peso vence a la corriente de aire que los sostiene"
-  - "Toda nube, sin excepción, llueve apenas se forma"
-  - "La precipitación no tiene relación con el tamaño de las gotas dentro de la nube"
-respuesta: "Las gotitas o cristales de una nube crecen al chocar entre sí hasta que su peso vence a la corriente de aire que los sostiene"
-
-explicacion: |
-  Es el mecanismo físico central detrás de cualquier tipo de
-  precipitación.
-```
-
-## Sección: principio-de-pascal-prensa-hidraulica (27 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal_prensa_hidraulica"
-  nivel: "basico"
-  tags: ["presion", "fluido", "pascal"]
-
-respuesta: "presion"
-tipo: completar
-respuestas_validas:
-  - "presion"
-
-enunciado: "El principio de Pascal establece que cualquier cambio de ___ aplicado a un fluido incompresible en equilibrio dentro de un recipiente se transmite íntegramente a todas las partes del fluido y a las paredes del recipiente."
-
-explicacion: |
-  La presión en un fluido en reposo se transmite con la misma intensidad en todas las direcciones.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal_prensa_hidraulica"
-  nivel: "basico"
-  tags: ["prensa", "hidraulica", "mecanismo"]
-
-variables:
-  es_hidraulica: verdadero
-
-respuesta: es_hidraulica
-tipo: vf
-enunciado: "¿Es el principio de Pascal la base fundamental para el funcionamiento de una prensa hidráulica?"
-
-explicacion: |
-  Correcto. La prensa hidráulica utiliza la transmisión de presión para multiplicar la fuerza aplicada.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal_prensa_hidraulica"
-  nivel: "intermedio"
-  tags: ["fuerza", "area", "presion"]
-
-variables:
-  escenario: uno_de([["F1", "A1", "F2", "A2"], ["100", "10", "500", "50"], ["500", "50", "100", "10"]])
-
-respuesta: "F1/A1 = F2/A2"
-tipo: mc
-opciones_explicitas: ["F1/A1 = F2/A2", "F1/A2 = F2/A1", "F1*A1 = F2*A2", "F1+A1 = F2+A2"]
-
-enunciado: "En una prensa hidráulica ideal, según el principio de Pascal, la relación entre las fuerzas (F) y las áreas (A) de los émbolos es:"
-
-explicacion: |
-  Dado que la presión es constante ($P = F_1/A_1 = F_2/A_2$), la relación es $F_1/A_1 = F_2/A_2$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal_prensa_hidraulica"
-  nivel: "basico"
-  tags: ["fluido", "compresibilidad"]
-
-respuesta: "incompresible"
-tipo: completar
-respuestas_validas:
-  - "incompresible"
-
-enunciado: "Para que el principio de Pascal se aplique de manera eficiente en una prensa hidráulica, el fluido utilizado debe ser, por definición, ___."
-
-explicacion: |
-  Se requiere un fluido incompresible (como el aceite) para que el volumen no cambie significativamente bajo presión, permitiendo la transmisión de la fuerza.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal_prensa_hidraulica"
-  nivel: "intermedio"
-  tags: ["componentes", "sistema"]
-
-respuesta_orden: ["Émbolo pequeño", "Fluido", "Émbolo grande"]
-tipo: ordenar
-
-opciones_explicitas: ["Émbolo pequeño", "Fluido", "Émbolo grande"]
-
-enunciado: "Ordene los componentes de una prensa hidráulica según el orden en que se transmite la presión desde la aplicación de la fuerza inicial hasta la salida de la fuerza amplificada:"
-
-explicacion: |
-  La fuerza se aplica en el émbolo pequeño, se transmite a través del fluido y finalmente actúa sobre el émbolo grande.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
-  nivel: "basico"
-  tags: ["presion", "fluido", "teoria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según el Principio de Pascal, la presión aplicada a un fluido confinado se transmite íntegramente en todas las direcciones y a todos los puntos del fluido."
-
-explicacion: |
-  El Principio de Pascal establece que cualquier presión aplicada a un fluido en equilibrio dentro de un recipiente cerrado se transmite sin disminución a todos los puntos del fluido y a las paredes del recipiente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
-  nivel: "intermedio"
-  tags: ["prensa_hidraulica", "calculo"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[4, 16, 200, 800], [2, 10, 50, 250]]
-
-enunciado: "En una prensa hidráulica, el pistón de entrada tiene un área de {datos[idx][0]} cm² y el pistón de salida tiene un área de {datos[idx][1]} cm². Si se aplica una fuerza de {datos[idx][2]} N en el pistón de entrada, la fuerza resultante en el pistón de salida será de ___ N."
+enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s (g=10 m/s²). ¿Cuánto tarda en llegar a la altura máxima?"
 
 pasos:
-  - "Identificar las áreas: A1 = {datos[idx][0]} cm², A2 = {datos[idx][1]} cm²"
-  - "Aplicar la fórmula de la prensa hidráulica: F2 / F1 = A2 / A1"
-  - "Despejar la fuerza de salida: F2 = F1 · (A2 / A1)"
-  - "Calcular: {datos[idx][2]} · ({datos[idx][1]} / {datos[idx][0]}) = {datos[idx][3]}"
-
-respuesta: datos[idx][3]
-tipo: completar
-tolerancia_abs: 0.1
+  - "t_subida = v₀/g = {v0}/{g} = {t_sol}"
 
 explicacion: |
-  Utilizando la fórmula F1 / A1 = F2 / A2, despejamos la fuerza de salida: F2 = F1 · (A2 / A1).
-  En este caso: F2 = {datos[idx][2]} N · ({datos[idx][1]} / {datos[idx][0]}) = {datos[idx][3]} N.
+  En la altura máxima, v=0 — se despeja el tiempo de esa condición.
 ```
 
 ```
 metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
-  nivel: "intermedio"
-  tags: ["presion", "unidad"]
-
-respuesta: "15000 Pa"
-tipo: mc
-
-opciones_explicitas: ["1500 Pa", "15000 Pa", "150000 Pa", "15 Pa"]
-
-enunciado: "Un pistón de una prensa hidráulica tiene un área de 0.03 m². Si se aplica una fuerza de 450 N sobre dicho pistón, ¿cuál es la presión ejercida sobre el fluido?"
-
-explicacion: |
-  La presión se define como la fuerza aplicada por unidad de área (P = F / A).
-  P = 450 N / 0.03 m² = 15000 Pa.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
-  nivel: "basico"
-  tags: ["componentes", "teoria"]
-
-respuesta_orden: ["Aplicar fuerza en pistón pequeño", "Transmisión de presión por el fluido", "Levantamiento de carga en pistón grande"]
-tipo: ordenar
-
-opciones_explicitas: ["Aplicar fuerza en pistón pequeño", "Transmisión de presión por el fluido", "Levantamiento de carga en pistón grande"]
-
-enunciado: "Ordene los pasos lógicos que ocurren en el funcionamiento de una prensa hidráulica para levantar un objeto pesado:"
-
-explicacion: |
-  1. Se aplica una fuerza pequeña en un área pequeña.
-  2. La presión se transmite íntegramente por el fluido incompresible.
-  3. La presión se traduce en una fuerza mucho mayor en el área grande.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
+  materia: "matematicas"
+  tema: "tiro_vertical"
   nivel: "avanzado"
-  tags: ["proporcionalidad", "calculo"]
+  tags: ["altura_maxima"]
+
+variables:
+  g: 10
+  t_sol: random(1, 8)
+  v0: g * t_sol
+
+respuesta: (v0 ^ 2) / (2 * g)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s (g=10 m/s²), desde el nivel del piso. ¿Cuál es la altura máxima?"
+
+pasos:
+  - "y_max = v₀²/(2g) = {v0 ^ 2}/{2 * g} = {(v0 ^ 2) / (2 * g)}"
+
+explicacion: |
+  y_max = v₀²/(2g).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "avanzado"
+  tags: ["altura_maxima"]
+
+variables:
+  g: 10
+  t_sol: random(1, 6)
+  v0: g * t_sol
+  y0: random(1, 20)
+
+respuesta: y0 + (v0 ^ 2) / (2 * g)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s desde una altura y₀={y0} m (g=10 m/s²). ¿Cuál es la altura máxima total?"
+
+explicacion: |
+  Se suma la altura inicial a lo que sube: y₀ + v₀²/(2g).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "intermedio"
+  tags: ["tiempo_vuelo"]
+
+variables:
+  g: 10
+  t_subida: random(1, 8)
+  v0: g * t_subida
+
+respuesta: 2 * t_subida
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s (g=10 m/s²), y vuelve al mismo nivel de partida. ¿Cuánto tiempo está en el aire en total?"
+
+pasos:
+  - "Por simetría, tiempo total = 2×tiempo de subida = 2×{t_subida} = {2 * t_subida}"
+
+explicacion: |
+  El tiempo de bajada es igual al de subida, si vuelve al mismo nivel.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "intermedio"
+  tags: ["velocidad"]
+
+variables:
+  v0: random(10, 50)
+
+respuesta: -v0
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s, y vuelve al mismo nivel de partida. ¿Cuál es su velocidad justo al volver?"
+
+explicacion: |
+  Misma magnitud que la inicial, pero de signo opuesto (ahora bajando):
+  −{v0}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "basico"
+  tags: ["caida_libre"]
+
+variables:
+  g: 10
+  t: random(1, 8)
+
+respuesta: -g * t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto se suelta desde el reposo (g=10 m/s²). ¿Cuál es su velocidad en t={t} s?"
+
+explicacion: |
+  v(t) = −gt = −{g}×{t} = {-g * t} (negativa: cae, hacia abajo).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "intermedio"
+  tags: ["caida_libre"]
+
+variables:
+  g: 10
+  t: random(1, 6)
+
+respuesta: (g * t ^ 2) / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto se suelta desde el reposo (g=10 m/s²). ¿Qué distancia cayó en t={t} s?"
+
+explicacion: |
+  distancia = ½gt² = {g}×{t}²/2 = {(g * t ^ 2) / 2}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "avanzado"
+  tags: ["caida_libre"]
+
+variables:
+  g: 10
+  t_sol: random(1, 2) * 2
+  y0: (g * t_sol ^ 2) / 2
+
+respuesta: t_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto se suelta desde {y0} m de altura (g=10 m/s²). ¿Cuánto tarda en llegar al piso?"
+
+pasos:
+  - "{y0} = ½×{g}×t² → t² = {2 * y0 / g} → t = {t_sol}"
+
+explicacion: |
+  Se despeja t de la fórmula de caída libre.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si el área de un pistón de salida es el doble que la del pistón de entrada, la fuerza ejercida en el pistón de salida será el doble que la aplicada en el de entrada. ¿Es esto verdadero o falso?"
+enunciado: "En el punto más alto de un tiro vertical, la velocidad vertical del objeto es 0."
 
 explicacion: |
-  Es verdadero. Debido a la relación $F_2 / F_1 = A_2 / A_1$, si el área de salida es el doble de la de entrada ($A_2 = 2 \cdot A_1$), entonces la fuerza de salida también es el doble ($F_2 = 2 \cdot F_1$).
+  Es el instante exacto en que deja de subir y empieza a bajar.
 ```
 
 ```
 metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
-  nivel: "avanzado"
-  tags: ["proporcionalidad"]
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
 
 respuesta: falso
 
 tipo: vf
 
-enunciado: "Si el área del pistón de salida es el CUARTO de la del pistón de entrada, la fuerza de salida será el DOBLE de la fuerza de entrada."
+enunciado: "En el punto más alto, tanto la velocidad como la aceleración del objeto son 0."
 
 explicacion: |
-  Falso. Según la relación $F_2 = F_1 \cdot (A_2 / A_1)$, si $A_2 = A_1 / 4$, entonces $F_2 = F_1 \cdot (1/4)$. La fuerza de salida sería la cuarta parte, no el doble.
+  Sólo la velocidad es 0 ahí — la aceleración de la gravedad sigue
+  actuando todo el tiempo, incluido ese instante.
 ```
 
 ```
 metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
-  nivel: "basico"
-  tags: ["conceptos_clave", "presion", "fuerza"]
-
-tipo: mc
-opciones_explicitas: ["La fuerza aplicada", "La presión aplicada", "La densidad del fluido", "El volumen del fluido"]
-
-enunciado: "Un error conceptual común al estudiar la prensa hidráulica es confundir qué magnitud se transmite íntegramente a través de un fluido incompresible. Según el principio de Pascal, lo que se transmite es la ___."
-
-respuesta: "La presión aplicada"
-
-explicacion: |
-  El principio de Pascal establece que la presión aplicada en un punto de un fluido en equilibrio se transmite con la misma intensidad en todas las direcciones y en todos los puntos del fluido. La fuerza, en cambio, varía dependiendo del área de la superficie.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
+  materia: "matematicas"
+  tema: "tiro_vertical"
   nivel: "intermedio"
-  tags: ["prensa_hidraulica", "calculo"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[10, 1, 500], [5, 1, 1000]]
-
-tipo: completar
-respuestas_validas:
-  - "5000"
-
-enunciado: "Si la presión es {datos[idx][0]} Pa y el área de salida es {datos[idx][2]} m², la fuerza es ___ N."
-
-explicacion: |
-  La presión es constante en todo el sistema. Si P = F1/A1, entonces F2 = P * A2.
-  Para el caso 0: P=10, A2=500 -> F2 = 10 * 500 = 5000.
-  Para el caso 1: P=5, A2=1000 -> F2 = 5 * 1000 = 5000.
-  En ambos casos la fuerza resultante es 5000 N.
-
-respuesta: "5000"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
-  nivel: "intermedio"
-  tags: ["prensa_hidraulica", "calculo"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[10, 500], [5, 1000]]
-
-tipo: completar
-respuestas_validas:
-  - "5000"
-  - "5000"
-
-enunciado: "En una prensa hidráulica, si la presión aplicada es de {datos[idx][0]} Pa y el área del émbolo de salida es de {datos[idx][1]} m², la fuerza resultante en dicho émbolo será de ___ N."
-
-pasos:
-  - "Identificar la presión constante: P = {datos[idx][0]} Pa."
-  - "Multiplicar la presión por el área de salida: F = P * A_salida."
-
-respuesta: datos[idx][0] * datos[idx][1]
-
-explicacion: |
-  La fuerza es el producto de la presión por el área (F = P * A). Como la presión es constante en todo el fluido, la fuerza en el émbolo de salida depende directamente de su área.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
-  nivel: "basico"
-  tags: ["fluido", "compresibilidad"]
-
-tipo: vf
-
-enunciado: "Para que una prensa hidráulica funcione de manera eficiente según el principio de Pascal, el fluido utilizado debe ser altamente compresible, como el aire."
+  tags: ["concepto", "error_comun", "verdadero_falso"]
 
 respuesta: falso
 
+tipo: vf
+
+enunciado: "El tiempo de subida y el tiempo total de vuelo (hasta volver al punto de partida) son siempre el mismo número."
+
 explicacion: |
-  Falso. El principio de Pascal se aplica de forma efectiva en líquidos (fluidos incompresibles). Si se usara un gas como el aire, la mayor parte de la energía se gastaría en comprimir el gas en lugar de transmitir la presión para mover el émbolo, haciendo que el sistema sea ineficiente o inoperante.
+  El tiempo total es el DOBLE del tiempo de subida (por la simetría
+  subida/bajada), no el mismo número.
 ```
 
 ```
 metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
-  nivel: "intermedio"
-  tags: ["ventaja_mecanica", "fuerza"]
-
-tipo: mc
-opciones_explicitas: ["Aumenta la presión", "Aumenta la fuerza", "Aumenta la velocidad", "Aumenta la densidad"]
-
-enunciado: "El objetivo principal de una prensa hidráulica, al usar un émbolo de salida mucho más grande que el de entrada, es lograr una ___ mayor."
-
-respuesta: "Aumenta la fuerza"
-
-explicacion: |
-  Aunque la presión es la misma en ambos émbolos, al aumentar el área de salida, la fuerza resultante (F = P * A) aumenta proporcionalmente. Este es el principio de la ventaja mecánica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
+  materia: "matematicas"
+  tema: "tiro_vertical"
   nivel: "basico"
-  tags: ["proceso", "causa_efecto"]
-
-tipo: ordenar
-opciones_explicitas: ["Aplicación de presión sobre el fluido", "Transmisión de presión por el fluido", "Aumento de la fuerza en el émbolo de salida"]
-
-enunciado: "Ordena correctamente la secuencia de eventos que ocurren en una prensa hidráulica:"
-
-respuesta_orden: ["Aplicación de presión sobre el fluido", "Transmisión de presión por el fluido", "Aumento de la fuerza en el émbolo de salida"]
-
-explicacion: |
-  Primero se aplica una presión en un punto (entrada), esta presión se transmite íntegramente por todo el fluido (Pascal) y finalmente se traduce en una fuerza mayor en el área de salida debido al incremento de superficie.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
-  nivel: "basico"
-  tags: ["presion", "fluidos"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Según el principio de Pascal, si aplicamos una presión en un punto de un fluido incompresible contenido en un recipiente cerrado, esta presión se transmite íntegramente a todos los puntos del fluido y a las paredes del recipiente."
+enunciado: "El tiro vertical es exactamente un MRUV, con a=−g."
 
 explicacion: |
-  El principio de Pascal establece que la presión aplicada a un fluido en equilibrio se transmite sin disminución a todas las partes del fluido y a las paredes del contenedor.
+  Usa las mismas fórmulas de `../mruv/`, con la aceleración fija en −g.
 ```
 
 ```
 metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
+  materia: "matematicas"
+  tema: "tiro_vertical"
   nivel: "intermedio"
-  tags: ["presion", "fuerza", "area"]
+  tags: ["concepto", "verdadero_falso"]
 
-respuesta: "200 N"
-tipo: mc
-opciones_explicitas: ["100 N", "200 N", "500 N", "1000 N"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "En una prensa hidráulica, si el émbolo pequeño tiene un área de 5 cm² y el émbolo grande tiene 100 cm², y aplicamos una presión de 2 Pa en el émbolo pequeño, ¿cuál es la fuerza resultante en el émbolo grande?"
-
-pasos:
-  - "Calcular la presión aplicada: P = F1 / A1"
-  - "Aplicar la igualdad de presiones: P1 = P2"
-  - "Despejar la fuerza en el émbolo grande: F2 = P * A2"
+enunciado: "En la convención 'arriba positivo', la aceleración de la gravedad se escribe con signo negativo (−g)."
 
 explicacion: |
-  La presión es constante en ambos émbolos. Si P = 2 Pa y A2 = 100 cm², entonces F2 = 2 * 100 = 200 N.
+  La gravedad siempre tira hacia abajo, en sentido contrario a la
+  convención elegida como positiva.
 ```
 
 ```
 metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
-  nivel: "basico"
-  tags: ["prensa_hidraulica", "componentes"]
-
-respuesta_orden: ["Émbolo pequeño", "Fluido incompresible", "Émbolo grande", "Carga o peso"]
-tipo: ordenar
-
-opciones_explicitas: ["Fluido incompresible", "Émbolo pequeño", "Émbolo grande", "Carga o peso"]
-
-enunciado: "Ordene los elementos de una prensa hidráulica según el orden en que la energía mecánica se transmite desde la aplicación de la fuerza inicial hasta el levantamiento de la carga:"
-
-explicacion: |
-  El proceso comienza con la fuerza aplicada al émbolo pequeño, que genera una presión transmitida íntegramente por el fluido incompresible, moviendo el émbolo grande y finalmente levantando la carga.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
+  materia: "matematicas"
+  tema: "tiro_vertical"
   nivel: "intermedio"
-  tags: ["conceptos", "comparacion"]
+  tags: ["verificacion", "verdadero_falso"]
 
-respuesta: "Principio de Arquímedes"
-tipo: completar
-respuestas_validas:
-  - "Principio de Arquímedes"
+variables:
+  g: 10
+  t_sol: random(1, 8)
+  v0: g * t_sol
+  real: (v0 ^ 2) / (2 * g)
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
 
-enunciado: "Mientras que el principio de Pascal se centra en la transmisión de la presión en un fluido confinado, el principio que describe la fuerza de empuje vertical que experimenta un cuerpo sumergido es el ___."
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "Se lanza un objeto con v₀={v0} m/s (g=10 m/s²). ¿Es correcto que la altura máxima sea {propuesto} m?"
 
 explicacion: |
-  El principio de Arquímedes se refiere al empuje hacia arriba, mientras que Pascal se refiere a la transmisión de presión en todas las direcciones.
+  La altura máxima correcta es v₀²/(2g) = {real}.
 ```
 
 ```
 metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal"
+  materia: "matematicas"
+  tema: "tiro_vertical"
   nivel: "avanzado"
-  tags: ["ventaja_mecanica", "relacion"]
-
-respuesta: "10"
-tipo: completar
-respuestas_validas:
-  - "10"
-
-enunciado: "Si en una prensa hidráulica el área del émbolo de salida es 10 veces mayor que el área del émbolo de entrada, la fuerza de salida será ___ veces la fuerza de entrada."
-
-pasos:
-  - "Relacionar presiones: F1/A1 = F2/A2"
-  - "Despejar la relación de fuerzas: F2/F1 = A2/A1"
-  - "Sustituir la relación de áreas: 10/1 = 10"
-
-explicacion: |
-  La ventaja mecánica es la relación entre las áreas (A2/A1), lo que permite multiplicar la fuerza aplicada.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal_prensa_hidraulica"
-  nivel: "basico"
-  tags: ["presion", "fluido", "pascal"]
+  tags: ["posicion"]
 
 variables:
-  idx: uno_de([0, 1, 2])
-  f1s: [100, 50, 200]
-  a1s: [0.01, 0.02, 0.05]
-  a2s: [0.1, 0.1, 0.2]
+  g: 10
+  v0: random(20, 60)
+  t: random(1, 3)
 
-tipo: completar
-tolerancia_abs: 0.1
-respuesta: f1s[idx] * a2s[idx] / a1s[idx]
+respuesta: v0 * t - (g * t ^ 2) / 2
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "En una prensa hidráulica, se aplica una fuerza de {f1s[idx]} N sobre un pistón de área {a1s[idx]} m². Si el segundo pistón tiene un área de {a2s[idx]} m², ¿cuál es la fuerza resultante en el segundo pistón en Newtons?"
+enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s desde el piso (g=10 m/s²). ¿A qué altura está en t={t} s?"
 
 pasos:
-  - "Calcular la presión aplicada: P = F1 / A1"
-  - "La presión se transmite íntegramente, por lo que P2 = P1"
-  - "Calcular la fuerza resultante: F2 = P1 * A2"
+  - "y(t) = {v0}t − ½×{g}t² = {v0 * t} − {(g * t ^ 2) / 2}"
 
 explicacion: |
-  Según el Principio de Pascal, la presión es constante en todo el fluido incompresible:
-  P = F1 / A1 = {f1s[idx]} / {a1s[idx]} = {f1s[idx] / a1s[idx]} Pa.
-  F2 = P * A2 = {f1s[idx] * a2s[idx] / a1s[idx]} N.
+  Se usa la fórmula completa de posición del MRUV, con a=−g.
 ```
 
 ```
 metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal_prensa_hidraulica"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "Para que una prensa hidráulica funcione de manera eficiente según el principio de Pascal, el fluido utilizado debe ser incompresible (su volumen no cambia significativamente con la presión)."
-
-explicacion: |
-  Si el fluido fuera compresible (como un gas), parte de la energía se perdería en reducir el volumen del gas en lugar de transmitir la presión para mover el pistón de salida.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal_prensa_hidraulica"
-  nivel: "intermedio"
-  tags: ["aplicacion", "presion"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  ps: [5000, 2000, 10000]
-  a1s: [0.05, 0.1, 0.02]
-  a2s: [0.5, 1.0, 0.3]
-
-tipo: mc
-opciones_explicitas: [2500, 2000, 3000, 100000]
-respuesta: ps[idx] * a2s[idx]
-
-enunciado: "Un elevador hidráulico en un taller mecánico opera con una presión constante de {ps[idx]} Pa. Si el pistón de entrada tiene un área de {a1s[idx]} m² y el pistón que levanta el vehículo tiene un área de {a2s[idx]} m², ¿cuál es la fuerza máxima que puede ejercer el segundo pistón?"
-
-explicacion: |
-  La presión es la misma en ambos puntos: P = F1/A1 = F2/A2.
-  Por lo tanto, F2 = P * A2.
-  En este caso: {ps[idx] * a2s[idx]} N.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal_prensa_hidraulica"
-  nivel: "basico"
-  tags: ["componentes"]
-
-tipo: ordenar
-opciones_explicitas: ["Aplicación de fuerza en pistón pequeño", "Transmisión de presión por el fluido", "Levantamiento de carga en pistón grande"]
-respuesta_orden: ["Aplicación de fuerza en pistón pequeño", "Transmisión de presión por el fluido", "Levantamiento de carga en pistón grande"]
-
-enunciado: "Ordena lógicamente los pasos que ocurren en una prensa hidráulica desde que se aplica la fuerza inicial hasta que se obtiene el trabajo mecánico:"
-
-explicacion: |
-  1. Se aplica una fuerza en un área pequeña.
-  2. La presión se transmite íntegramente por el fluido (Pascal).
-  3. La presión actúa sobre el área grande, multiplicando la fuerza resultante.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "principio_de_pascal_prensa_hidraulica"
+  materia: "matematicas"
+  tema: "tiro_vertical"
   nivel: "avanzado"
-  tags: ["proporcionalidad"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  a2s: [10, 5, 100]
-  a1s: [2, 1, 10]
-  resultados_texto: ["El factor de multiplicación es 5", "El factor de multiplicación es 5", "El factor de multiplicación es 10"]
-
-tipo: mc
-opciones_explicitas: ["El factor de multiplicación es 2", "El factor de multiplicación es 5", "El factor de multiplicación es 10", "La fuerza no cambia"]
-respuesta: resultados_texto[idx]
-
-enunciado: "Si el área del pistón de salida (A2) es {a2s[idx]} m² y el área del pistón de entrada (A1) es {a1s[idx]} m², ¿por cuánto se multiplica la fuerza aplicada según el principio de Pascal?"
-
-explicacion: |
-  La relación de fuerzas es igual a la relación de áreas: F2/F1 = A2/A1.
-  En este caso, el factor es {a2s[idx] / a1s[idx]}.
-```
-
-## Sección: reflexion-espejos-planos-curvos (27 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "reflexion_espejos"
-  nivel: "basico"
-  tags: ["reflexion", "luz"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La reflexión especular ocurre cuando la luz rebota en una superficie lisa, como un espejo plano."
+enunciado: "Un objeto en tiro vertical pasa por la misma altura dos veces (una subiendo, otra bajando), con la misma rapidez (magnitud de velocidad) en las dos, pero sentidos opuestos."
 
 explicacion: |
-  La reflexión especular mantiene la dirección de los rayos de luz, permitiendo la formación de imágenes claras.
+  Es una consecuencia de la simetría del movimiento respecto al punto
+  más alto.
 ```
 
 ```
 metadata:
-  materia: "fisica"
-  tema: "reflexion_espejos"
-  nivel: "basico"
-  tags: ["ley_reflexion", "angulos"]
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La fórmula t_total=2v₀/g sólo vale si el objeto vuelve exactamente al mismo nivel desde el que se lanzó — si cae más abajo (o más arriba), hay que resolver la ecuación cuadrática completa."
+
+explicacion: |
+  El atajo de la simetría no aplica cuando el punto de llegada es
+  distinto del de partida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "avanzado"
+  tags: ["problema"]
 
 variables:
-  angulo_incidencia: 45
+  g: 10
+  k: random(1, 5)
+  v0: g * k
+  subida: (v0 ^ 2) / (2 * g)
+  altura_balcon: random(5, 30)
 
-respuesta: 45
-tipo: completar
-tolerancia_abs: 0.1
+respuesta: subida + (subida + altura_balcon)
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "Si un rayo de luz incide sobre un espejo plano con un ángulo de incidencia de {angulo_incidencia} grados respecto a la normal, el ángulo de reflexión será de ___ grados."
+enunciado: "Desde un balcón de {altura_balcon} m se lanza un objeto hacia arriba con v₀={v0} m/s. Sube, y después cae hasta el piso (nivel 0). ¿Qué distancia TOTAL recorrió (subida + bajada), sumando ambos tramos?"
 
 pasos:
-  - "Identificar el ángulo de incidencia respecto a la normal."
-  - "Aplicar la ley de la reflexión: ángulo de incidencia = ángulo de reflexión."
+  - "Sube {subida} m hasta el punto más alto"
+  - "Desde ahí baja {subida}+{altura_balcon} m hasta el piso (el punto más alto queda a {subida}+{altura_balcon} m del piso)"
+  - "Total: {subida} + ({subida}+{altura_balcon}) = {subida + (subida + altura_balcon)}"
 
 explicacion: |
-  Según la ley de la reflexión, el ángulo de incidencia es siempre igual al ángulo de reflexión.
+  La distancia TOTAL recorrida suma los dos tramos por separado — no es
+  lo mismo que el desplazamiento neto (balcón hasta el piso), que sería
+  sólo {altura_balcon} m.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+variables:
+  v0: random(10, 50)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si se lanza un objeto hacia arriba con v₀={v0} m/s y vuelve a pasar por el punto de lanzamiento, su rapidez en ese instante vuelve a ser {v0} m/s (aunque el sentido sea el opuesto)."
+
+explicacion: |
+  La energía se conserva en ausencia de rozamiento — la rapidez al
+  volver al mismo nivel es igual a la inicial.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  g: 10
+  t: random(1, 6)
+  real: (g * t ^ 2) / 2
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "Un objeto cae libremente durante {t} s (g=10 m/s²). ¿Es correcto que cayó {propuesto} m?"
+
+explicacion: |
+  La distancia correcta es ½gt² = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En ausencia de resistencia del aire, dos objetos de distinta masa soltados desde la misma altura llegan al piso al mismo tiempo."
+
+explicacion: |
+  La aceleración de la gravedad no depende de la masa del objeto — es
+  el mismo g para cualquiera.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "intermedio"
+  tags: ["problema"]
+
+variables:
+  g: 10
+  t_subida: random(1, 6)
+  v0: g * t_subida
+
+respuesta: 2 * t_subida
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una pelota pateada hacia arriba con v₀={v0} m/s vuelve al mismo nivel del piso. ¿Cuánto tiempo estuvo en el aire?"
+
+explicacion: |
+  Mismo cálculo de siempre: t_total = 2v₀/g.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "avanzado"
+  tags: ["verdadero_falso"]
+
+variables:
+  v0_a: random(10, 30)
+  v0_b: random(31, 60)
+
+respuesta: ((v0_b ^ 2) > (v0_a ^ 2))
+tipo: vf
+
+enunciado: "Un objeto se lanza con v₀={v0_a} m/s, y otro con v₀={v0_b} m/s. ¿Alcanza mayor altura el segundo?"
+
+explicacion: |
+  La altura máxima crece con el CUADRADO de v₀ — mayor velocidad
+  inicial siempre da mayor altura.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tiro_vertical"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para saber en qué instante(s) un objeto en tiro vertical pasa por una altura específica (que no sea la máxima), hay que resolver una ecuación cuadrática en t, que en general tiene dos soluciones (subiendo y bajando)."
+
+explicacion: |
+  y(t)=y₀+v₀t−½gt² es cuadrática en t — la fórmula resolvente de
+  `../../matematica/ecuacion-cuadratica/` da las dos soluciones (dos
+  instantes distintos a la misma altura).
+```
+
+## Sección: circuitos-en-paralelo (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_paralelo"
+  nivel: "basico"
+  tags: ["electricidad", "voltaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un circuito en paralelo, todos los componentes conectados a las mismas ramas mantienen la misma tensión."
+
+explicacion: |
+  En un circuito en paralelo, la diferencia de potencial (tensión o voltaje) es la misma para todas las ramas que están conectadas directamente a los terminales de la fuente.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "espejos_curvos"
-  nivel: "basico"
-  tags: ["espejos", "concavo", "convexo"]
+  tema: "circuitos_en_paralelo"
+  nivel: "intermedio"
+  tags: ["resistencia", "equivalente"]
 
 variables:
-  idx: uno_de([0, 1])
-  escenario: [["cóncavo", "hacia adentro"], ["convexo", "hacia afuera"]]
+  r1: 10
+  r2: 20
+  r_eq: 1 / (1/r1 + 1/r2)
 
-respuesta: escenario[idx][0]
+respuesta: r_eq
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Si tenemos dos resistencias en paralelo con valores de {r1} Ω y {r2} Ω, ¿cuál es el valor de la resistencia equivalente (en Ω)?"
+
+pasos:
+  - "Calcular la conductancia de la primera rama: 1/r1"
+  - "Calcular la conductancia de la segunda rama: 1/r2"
+  - "Sumar las conductancias: G_total = 1/r1 + 1/r2"
+  - "La resistencia equivalente es el inverso de la conductancia total: R_eq = 1/G_total"
+
+explicacion: |
+  La fórmula para dos resistencias en paralelo es: 1/R_eq = 1/R1 + 1/R2. En este caso: 1/10 + 1/20 = 3/20, por lo tanto R_eq = 20/3 ≈ 6.67 Ω.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_paralelo"
+  nivel: "basico"
+  tags: ["corriente", "ley_de_kochl"]
+
+opciones_explicitas: ["se divide", "se suma", "se mantiene igual"]
+
+respuesta: "se divide"
 tipo: mc
-opciones_explicitas: ["cóncavo", "convexo"]
 
-enunciado: "Un espejo cuya superficie reflectante está orientada hacia el interior de la curva se denomina espejo ___."
+enunciado: "En un circuito en paralelo, la corriente total que sale de la fuente ___ entre las distintas ramas del circuito."
 
 explicacion: |
-  Los espejos cóncavos tienen la superficie curva hacia el observador (como una cuchara), mientras que los convexos la tienen hacia afuera.
+  De acuerdo con la Ley de Corrientes de Kirchhoff, la corriente total es la suma de las corrientes que pasan por cada rama. Por lo tanto, la corriente se reparte o divide entre ellas.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "espejos_planos"
-  nivel: "intermedio"
-  tags: ["imagen", "espejo_plano"]
-
-respuesta: "derecha"
-tipo: completar
-respuestas_validas:
-  - "derecha"
-  - "izquierda"
-
-enunciado: "En un espejo plano, la imagen es virtual, de igual tamaño y tiene la misma orientación, pero la imagen es ___ respecto al objeto."
-
-explicacion: |
-  La imagen en un espejo plano es simétrica respecto al plano del espejo, lo que se conoce como imagen lateralmente invertida o derecha (en términos de orientación vertical).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "reflexion_espejos"
-  nivel: "intermedio"
-  tags: ["proceso", "luz"]
-
-respuesta_orden: ["emisión", "incidencia", "reflexión", "percepción"]
-tipo: ordenar
-opciones_explicitas: ["emisión", "incidencia", "reflexión", "percepción"]
-
-enunciado: "Ordena los pasos físicos que permiten que veamos nuestra imagen en un espejo:"
-
-pasos:
-  - "La fuente de luz emite fotones."
-  - "La luz llega a la superficie del espejo."
-  - "La luz rebota siguiendo las leyes de la reflexión."
-  - "La luz llega a nuestros ojos."
-
-explicacion: |
-  Para ver una imagen, primero debe haber una fuente de luz, luego la luz debe incidir en el objeto, reflejarse hacia el espejo y finalmente llegar al observador.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "reflexion_espejos_planos_curvos"
+  tema: "circuitos_en_paralelo"
   nivel: "basico"
-  tags: ["espejos", "foco", "distancia"]
+  tags: ["componentes", "nodos"]
 
-variables:
-  f: 15.0
+respuestas_validas:
+  - "fuente"
+  - "cables"
+  - "cargas"
 
-respuesta: 30.0
+respuesta: ["fuente", "cables", "cargas"]
 tipo: completar
-tolerancia_abs: 0.1
 
-enunciado: "Si un espejo cóncavo tiene una distancia focal de {f} cm, ¿a qué distancia debe colocarse un objeto para que la imagen se forme exactamente en la misma posición que el objeto (imágenes infinitas)?"
-
-pasos:
-  - "Identificar la distancia focal: f = 15 cm."
-  - "Para que la imagen se forme en la misma posición que el objeto, este debe estar en el centro de curvatura (C = 2f)."
-  - "Calcular: C = 2 * 15 = 30 cm."
+enunciado: "Para armar un circuito básico en paralelo se requiere una ___ de energía, ___ de conexión y las ___ que queremos alimentar."
 
 explicacion: |
-  Cuando un objeto se coloca en el centro de curvatura (C = 2f) de un espejo cóncavo, los rayos incidentes se reflejan sobre sí mismos y la imagen se forma exactamente en la misma posición que el objeto (real, invertida y del mismo tamaño).
+  Un circuito requiere una fuente para proporcionar la diferencia de potencial, cables para permitir el flujo de electrones y cargas (resistencias, bombillas, etc.) para consumir la energía.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "reflexion_espejos_planos_curvos"
+  tema: "circuitos_en_paralelo"
   nivel: "intermedio"
-  tags: ["espejos", "calculo", "foco"]
+  tags: ["resistencia", "comparacion"]
 
 variables:
-  f: 20.0
-  s: 15.0
+  r_base: 100
+  r_paralelo: 50
 
-respuesta: -60.0
-tipo: completar
-tolerancia_abs: 0.1
+respuesta: "menor"
+tipo: mc
 
-enunciado: "Un espejo cóncavo tiene una distancia focal de {f} cm. Si colocamos un objeto a una distancia de {s} cm del espejo, ¿cuál es la posición de la imagen (s') en centímetros? (Indique valor negativo para imágenes virtuales)."
+opciones_explicitas: ["mayor", "menor", "igual"]
 
-pasos:
-  - "Usar la ecuación de los espejos: 1/s + 1/s' = 1/f"
-  - "Sustituir valores: 1/15 + 1/s' = 1/20"
-  - "Despejar 1/s': 1/s' = 1/20 - 1/15 = 3/60 - 4/60 = -1/60"
-  - "s' = -60 cm (imagen virtual, ya que el objeto está entre el foco y el espejo)"
+enunciado: "Si añadimos una resistencia adicional en paralelo a una resistencia ya existente, la resistencia total del circuito será ___ que la original."
 
 explicacion: |
-  Usamos la ecuación de Gauss: 1/s + 1/s' = 1/f.
-  1/15 + 1/s' = 1/20
-  1/s' = 1/20 - 1/15 = (3 - 4) / 60 = -1/60
-  s' = -60 cm. El signo negativo indica que la imagen es virtual, ya que el objeto está entre el foco y el espejo.
+  Al añadir una rama en paralelo, se ofrecen más caminos para que fluyan los electrones, lo que reduce la oposición total al paso de la corriente. Por lo tanto, la resistencia equivalente siempre disminuye al agregar resistencias en paralelo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "reflexion_espejos_planos_curvos"
-  nivel: "intermedio"
-  tags: ["espejos", "calculo", "foco"]
+  tema: "circuitos_en_paralelo"
+  nivel: "basico"
+  tags: ["resistencia", "paralelo"]
 
 variables:
-  f: 20.0
-  s: 12.0
+  r1: 10.0
+  r2: 10.0
 
-respuesta: -30.0
+respuestas_validas:
+  - 5.0
+respuesta: 5.0
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Un espejo cóncavo tiene una distancia focal de {f} cm. Si colocamos un objeto a una distancia de {s} cm del espejo, ¿cuál es la posición de la imagen (s') en centímetros? (Indique valor negativo para imágenes virtuales)."
+enunciado: "Si tenemos dos resistencias en paralelo, una de {r1} Ω y otra de {r2} Ω, ¿cuál es el valor de la resistencia equivalente (Req)?"
+
+pasos:
+  - "Utilizar la fórmula para dos resistencias: 1/Req = 1/R1 + 1/R2"
+  - "Calcular: 1/Req = 1/10 + 1/10 = 2/10"
+  - "Invertir el resultado: Req = 10/2 = 5 Ω"
 
 explicacion: |
-  Usamos la ecuación de Gauss: 1/s + 1/s' = 1/f.
-  1/12 + 1/s' = 1/20
-  1/s' = 1/20 - 1/12 = (3 - 5) / 60 = -2 / 60
-  s' = -60 / 2 = -30 cm.
+  En un circuito en paralelo, la resistencia equivalente siempre es menor que la resistencia más pequeña del circuito. En este caso, 1/Req = 1/10 + 1/10 = 0.2, por lo tanto Req = 1/0.2 = 5 Ω.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "reflexion_espejos_planos_curvos"
+  tema: "circuitos_en_paralelo"
   nivel: "basico"
-  tags: ["espejos", "convexo", "imagen"]
-
-respuesta: "virtual"
-tipo: mc
-opciones_explicitas: ["real", "virtual", "imaginaria", "doble"]
-
-enunciado: "Un espejo convexo siempre produce imágenes de este tipo, independientemente de la posición del objeto."
-
-explicacion: |
-  Los espejos convexos siempre divergen los rayos de luz, por lo que la imagen siempre se forma detrás del espejo, siendo virtual, derecha y de menor tamaño.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "reflexion_espejos_planos_curvos"
-  nivel: "intermedio"
-  tags: ["pasos", "metodologia"]
-
-opciones_explicitas: ["Calcular la distancia de la imagen (s') usando la ecuación de los espejos", "Determinar la distancia focal (f) a partir del radio de curvatura", "Calcular la amplificación lateral (m) usando m = -s'/s"]
-
-respuesta_orden: ["Determinar la distancia focal (f) a partir del radio de curvatura", "Calcular la distancia de la imagen (s') usando la ecuación de los espejos", "Calcular la amplificación lateral (m) usando m = -s'/s"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos para calcular la amplificación lateral de una imagen formada por un espejo curvo si solo conocemos el radio de curvatura y la posición del objeto."
-
-explicacion: |
-  Primero necesitas el foco (f = R/2), luego la posición de la imagen (s') con la ecuación de Gauss, y finalmente la relación de tamaños (m).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "reflexion_espejos_planos_curvos"
-  nivel: "basico"
-  tags: ["espejo_plano", "verdadero"]
+  tags: ["tensión", "voltaje"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En un espejo plano, la distancia del objeto al espejo es igual a la distancia de la imagen al espejo."
+enunciado: "En un circuito de corriente continua con dos o más resistencias conectadas en paralelo, la diferencia de potencial (tensión) es la misma para todas las resistencias."
 
 explicacion: |
-  Por definición de la reflexión en espejos planos, la imagen es simétrica respecto al plano del espejo.
+  Correcto. Una de las propiedades fundamentales de los circuitos en paralelo es que todos los componentes están conectados a los mismos dos nodos, por lo tanto, la tensión es idéntica para todos.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "reflexion_espejos_planos_curvos"
-  nivel: "basico"
-  tags: ["foco", "radio"]
+  tema: "circuitos_en_paralelo"
+  nivel: "intermedio"
+  tags: ["corriente", "ley_de_kirchhoff"]
 
 variables:
-  R: 50.0
+  v_total: 12.0
+  r1: 4.0
+  r2: 6.0
+  i_total: 4.0
+  i1: 2.0
+  i2: 1.3333
 
-respuesta: 25.0
+respuesta: "3 A"
+tipo: mc
+
+opciones_explicitas: ["3 A", "2 A", "5 A"]
+
+enunciado: "Se tiene una fuente de {v_total}V conectada a dos resistencias en paralelo: R1 = {r1} Ω y R2 = {r2} Ω. ¿Cuál es la corriente que circula por la rama de la resistencia R1?"
+
+pasos:
+  - "Calcular la corriente en la rama 1 usando la Ley de Ohm: I1 = V / R1"
+  - "I1 = 12V / 4 Ω = 3A"
+  - "Calcular la corriente en la rama 2: I2 = 12V / 6 Ω = 2A"
+  - "Verificar la corriente total: I_total = 3A + 2A = 5A"
+
+explicacion: |
+  La corriente total se divide entre las ramas. Usando I = V/R, la corriente en la primera rama es 12/4 = 3A.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_paralelo"
+  nivel: "intermedio"
+  tags: ["corriente_total", "resistencia_equivalente"]
+
+variables:
+  r1: 12.0
+  r2: 6.0
+  v: 12.0
+  r_eq: 4.0
+  i_total: 3.0
+
+respuesta: 3.0
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Si un espejo esférico tiene un radio de curvatura de {R} cm, ¿cuál es su distancia focal (f)?"
-
-explicacion: |
-  La distancia focal (f) es la mitad del radio de curvatura (R): f = R / 2.
-  f = 50 / 2 = 25 cm.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "reflexion_espejos_planos"
-  nivel: "basico"
-  tags: ["espejos", "reflexion", "imagen"]
-
-respuesta: "virtual"
-tipo: mc
-opciones_explicitas: ["real", "virtual", "imaginaria", "proyectable"]
-
-enunciado: "En un espejo plano, la imagen que se forma detrás de la superficie reflectante se denomina imagen ___."
-
-explicacion: |
-  Una imagen es virtual cuando los rayos de luz parecen provenir de un punto detrás del espejo, pero no se cruzan físicamente en el espacio, por lo que no puede proyectarse en una pantalla.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "espejos_curvos_convexos"
-  nivel: "intermedio"
-  tags: ["convexo", "imagen", "tamaño"]
-
-variables:
-  escenario: uno_de([["espejo_convexo", "siempre menor", "siempre mayor", "igual"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["siempre menor", "siempre mayor", "igual"]
-
-enunciado: "Un objeto se coloca frente a un espejo convexo. La imagen resultante será ___ que el objeto original."
-
-explicacion: |
-  Los espejos convexos (como los de los retrovisores de autos) siempre producen imágenes virtuales, derechas y de tamaño reducido para permitir un mayor campo de visión.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "espejos_curvos_concavos"
-  nivel: "avanzado"
-  tags: ["concavo", "imagen_real", "foco"]
-
-respuesta: "frente"
-tipo: completar
-respuestas_validas:
-  - "frente"
-
-enunciado: "Para que un espejo cóncavo produzca una imagen real que pueda ser proyectada en una pantalla, el objeto debe colocarse ___ al espejo."
-
-explicacion: |
-  Las imágenes reales solo se forman cuando los rayos de luz convergen físicamente. En un espejo cóncavo, esto ocurre solo si el objeto está más allá del foco.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "espejos_planos"
-  nivel: "basico"
-  tags: ["simetria", "distancia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un espejo plano, la distancia del objeto al espejo es exactamente igual a la distancia de la imagen al espejo."
-
-explicacion: |
-  Una de las propiedades fundamentales de los espejos planos es que la imagen es simétrica respecto al plano del espejo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "espejos_curvos_concavos"
-  nivel: "avanzado"
-  tags: ["orden", "enfoque", "distancia"]
-
-respuesta_orden: ["Objeto muy lejos (más allá del foco)", "Objeto en el centro de curvatura", "Objeto muy cerca (entre foco y vértice)"]
-tipo: ordenar
-opciones_explicitas: ["Objeto muy lejos (más allá del foco)", "Objeto en el centro de curvatura", "Objeto muy cerca (entre foco y vértice)"]
-
-enunciado: "Ordena las siguientes situaciones de un espejo cóncavo según el tipo de imagen que se forma (de imagen REAL a imagen VIRTUAL):"
-
-explicacion: |
-  1. Más allá del foco: Imagen real e invertida.
-  2. En el centro de curvatura: Imagen real, invertida y de igual tamaño.
-  3. Entre el foco y el vértice: Imagen virtual, derecha y de mayor tamaño.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "reflexion_espejos_planos"
-  nivel: "basico"
-  tags: ["optica", "espejos"]
-
-respuesta: "virtual"
-tipo: completar
-respuestas_validas:
-  - "virtual"
-
-enunciado: "A diferencia de una imagen real que puede proyectarse en una pantalla, la imagen formada por un espejo plano es de naturaleza ___."
-
-explicacion: |
-  En un espejo plano, los rayos de luz divergen tras la reflexión, por lo que sus prolongaciones se interceptan detrás del espejo, creando una imagen virtual que no puede ser proyectada.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "espejos_curvos"
-  nivel: "intermedio"
-  tags: ["espejos", "reflexion"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "Considerando la desviación de los rayos de luz tras la reflexión: ¿Es cierto que un espejo convexo siempre produce una imagen virtual y divergente, a diferencia de un espejo cóncavo que puede producir imágenes reales?"
-
-explicacion: |
-  Los espejos convexos siempre divergen los rayos, resultando en imágenes virtuales, derechas y de menor tamaño. Los cóncavos, según la posición del objeto, pueden converger rayos y formar imágenes reales.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "espejos_curvos"
-  nivel: "avanzado"
-  tags: ["optica", "espejos_concavos"]
-
-variables:
-  idx: uno_de([0, 1])
-  distancias: [5, 1]
-  resultados_texto: ["Real e invertida", "Virtual y derecha"]
-
-respuesta: resultados_texto[idx]
-
-opciones_explicitas: ["Real e invertida", "Virtual y derecha"]
-tipo: mc
-
-enunciado: "Si colocamos un objeto a una distancia de {distancias[idx]} cm de un espejo cóncavo de radio de curvatura de 4 cm, la imagen resultante será:"
-
-explicacion: |
-  Si el objeto está más allá del foco (distancia > radio/2), la imagen es real e invertida. Si el objeto está entre el foco y el espejo (distancia < radio/2), la imagen es virtual y derecha.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "reflexion_espejos"
-  nivel: "intermedio"
-  tags: ["optica", "rayos_luz"]
-
-opciones_explicitas: ["Incidencia", "Reflexión", "Propagación"]
-respuesta_orden: ["Propagación", "Incidencia", "Reflexión"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente los fenómenos que ocurren cuando un rayo de luz se encuentra con un espejo plano:"
-
-explicacion: |
-  El rayo primero viaja por el medio (propagación), llega a la superficie (incidencia) y luego cambia de dirección (reflexión).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "reflexion_espejos"
-  nivel: "basico"
-  tags: ["optica", "imágenes"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una imagen se denomina 'real' si los rayos de luz que la forman convergen físicamente en un punto, a diferencia de la imagen 'virtual' donde solo se produce la intersección de las prolongaciones de los rayos. ¿Es esto correcto?"
-
-explicacion: |
-  Efectivamente, la distinción fundamental radica en si los rayos convergen físicamente en el espacio (real) o si la imagen es una construcción visual de las trayectorias (virtual).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "reflexion_espejos_planos"
-  nivel: "basico"
-  tags: ["optica", "reflexion"]
-
-variables:
-  idx: uno_de([0,1])
-  datos: [["espejo plano", "la imagen es del mismo tamaño que el objeto"], ["espejo plano", "la imagen es invertida lateralmente"]]
-  escenario: uno_de([["un pasillo de supermercado", "espejo plano"], ["un baño", "espejo plano"]])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["la imagen es del mismo tamaño que el objeto", "la imagen es invertida lateralmente", "la imagen es siempre mayor", "la imagen es siempre menor"]
-
-enunciado: "En {escenario[0]}, el uso de un {escenario[1]} permite ver el entorno. En este caso, la característica de la imagen es que ___."
-
-explicacion: |
-  En un espejo plano, la imagen es virtual, derecha y de igual tamaño que el objeto, aunque presenta inversión lateral.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "espejos_curvos"
-  nivel: "intermedio"
-  tags: ["espejos_curvos", "concavo"]
-
-variables:
-  tipo_lado: uno_de([0,1])
-  lados: [["la parte interna (cóncava)", "se ve invertida"], ["la parte externa (convexa)", "se ve derecha"]]
-
-respuesta: lados[tipo_lado][1]
-tipo: mc
-opciones_explicitas: ["se ve invertida", "se ve derecha", "se ve aumentada", "se ve reducida"]
-
-enunciado: "Si observas tu rostro en una cuchara de metal, el efecto dependerá de qué parte uses. Si miras por {lados[tipo_lado][0]}, la imagen que percibes ___."
-
-explicacion: |
-  La parte interna de la cuchara actúa como un espejo cóncavo. Dependiendo de la distancia, la imagen puede ser real e invertida o virtual y aumentada.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "espejos_curvos"
-  nivel: "intermedio"
-  tags: ["espejos_convexos", "seguridad"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "Los espejos situados en las salidas de los estacionamientos o en curvas peligrosas suelen ser convexos para ampliar el campo visual. ¿Es cierto que un espejo convexo siempre produce imágenes virtuales y menores que el objeto?"
-
-explicacion: |
-  Verdadero. Los espejos convexos divergen los rayos de luz, lo que resulta en imágenes siempre virtuales, derechas y de menor tamaño, permitiendo un campo visual más amplio.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "reflexion_espejos_curvos"
-  nivel: "avanzado"
-  tags: ["espejos_curvos", "ordenar"]
-
-respuesta_orden: ["Luz incidente", "Reflexión en la superficie curva", "Formación de la imagen"]
-tipo: ordenar
-
-enunciado: "Para entender cómo se forma una imagen en un espejo curvo, debemos seguir el camino de la luz. Ordena los siguientes eventos:"
+enunciado: "Un circuito tiene dos resistencias en paralelo de {r1} Ω y {r2} Ω. Si se aplica una tensión de {v}V, ¿cuál es la corriente total suministrada por la fuente?"
 
 pasos:
-  - "La luz viaja hacia el espejo"
-  - "Los rayos rebotan en el espejo"
-  - "Los rayos convergen o divergen para crear la imagen"
-
-opciones_explicitas: ["Luz incidente", "Reflexión en la superficie curva", "Formación de la imagen"]
+  - "Calcular la resistencia equivalente: 1/Req = 1/12 + 1/6 = 1/12 + 2/12 = 3/12, entonces Req = 4 Ω"
+  - "Calcular la corriente total con la Ley de Ohm: I_total = V / Req"
+  - "I_total = 12V / 4 Ω = 3A"
 
 explicacion: |
-  El proceso óptico comienza con la incidencia de la luz, sigue con el fenómeno de la reflexión (segunda ley) y culmina con la percepción de la imagen.
+  Primero hallamos la Req que es 4 Ω. Luego, aplicamos I = V/R, resultando en 12/4 = 3A.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "espejos_curvos"
+  tema: "circuitos_en_paralelo"
   nivel: "avanzado"
-  tags: ["espejos_concavos", "distancia"]
+  tags: ["procedimiento", "metodología"]
 
-variables:
-  distancia_tipo: uno_de([0,1])
-  casos: [["muy cerca (dentro del foco)", "aumentada"], ["muy lejos (fuera del foco)", "invertida"]]
+opciones_explicitas: ["Calcular R_eq", "Calcular I_total", "Calcular tensiones"]
 
-respuesta: casos[distancia_tipo][1]
-tipo: completar
+respuesta_orden: ["Calcular R_eq", "Calcular I_total", "Calcular tensiones"]
+tipo: ordenar
 
-enunciado: "En un espejo cóncavo, si el objeto se coloca ___ , la imagen resultante será ___."
-
-pasos:
-  - "Identificar la posición del objeto respecto al foco"
-  - "Determinar si la imagen es real o virtual"
-
-respuestas_validas:
-  - "aumentada"
-  - "invertida"
+enunciado: "Ordena los pasos lógicos para determinar la corriente que circula por una rama específica en un circuito de resistencias en paralelo con una fuente de tensión conocida:"
 
 explicacion: |
-  Si el objeto está entre el foco y el espejo, la imagen es virtual, derecha y aumentada. Si el objeto está más allá del foco, la imagen es real e invertida.
-```
-
-## Sección: refraccion-indice-ley-snell (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "refraccion_ley_snell"
-  nivel: "basico"
-  tags: ["refraccion", "indice_de_refraccion"]
-
-respuesta: "n"
-tipo: "completar"
-respuestas_validas:
-  - "n"
-  - "N"
-  - "índice"
-
-enunciado: "El parámetro adimensional que describe la velocidad de la luz en un medio en comparación con el vacío se denomina ___ de refracción."
-
-explicacion: |
-  El índice de refracción (n) se define como la relación entre la velocidad de la luz en el vacío (c) y la velocidad de la luz en el medio (v): n = c/v.
+  Para resolver circuitos en paralelo, el orden lógico es: 1. Hallar la resistencia equivalente de la red para entender el sistema, 2. Calcular la corriente total de la fuente, 3. Usar la tensión (que es constante) para hallar la corriente de cada rama individual.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "refraccion_ley_snell"
+  tema: "circuitos_en_paralelo"
   nivel: "basico"
-  tags: ["velocidad_luz", "medios"]
+  tags: ["resistencia", "paralelo", "error_comun"]
+
+respuesta: "menor"
+tipo: "mc"
+opciones_explicitas: ["mayor", "menor", "igual"]
+
+enunciado: "Al conectar dos resistencias en paralelo, la resistencia equivalente del circuito es ___ que la resistencia más pequeña del conjunto."
+
+explicacion: |
+  En un circuito en paralelo, siempre se ofrecen más caminos para que la corriente fluya, lo que reduce la resistencia total. Por lo tanto, la resistencia equivalente es siempre menor que la menor de las resistencias individuales.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitas_en_paralelo"
+  nivel: "basico"
+  tags: ["tension", "voltaje", "paralelo"]
 
 respuesta: falso
 tipo: "vf"
 
-enunciado: "En un medio con un índice de refracción mayor que el del vacío (n > 1), la luz viaja más rápido que en el vacío."
+enunciado: "En un circuito de corriente continua con dos resistencias conectadas en paralelo a una fuente de voltaje, la tensión en la primera resistencia es distinta a la tensión en la segunda."
 
 explicacion: |
-  Falso. Como n = c/v, si n es mayor que 1, la velocidad en el medio (v) es menor que la velocidad en el vacío (c).
+  Una de las propiedades fundamentales de los circuitos en paralelo es que todos los componentes conectados a los mismos nodos comparten la misma diferencia de potencial (tensión).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "refraccion_ley_snell"
+  tema: "circuitas_en_paralelo"
   nivel: "intermedio"
-  tags: ["ley_de_snell", "angulos"]
+  tags: ["ley_de_ohm", "corriente", "paralelo"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[1.5, 0.7], [1.33, 1.5]]
+  escenario: uno_de([[12.0, 2.0, 4.0], [24.0, 6.0, 3.0], [9.0, 3.0, 9.0]])
+  v: escenario[0]
+  r1: escenario[1]
+  r2: escenario[2]
+  r_eq: (r1 * r2) / (r1 + r2)
 
-respuesta: datos[escenario_idx][1]
-tipo: "mc"
-opciones_explicitas: [0.7, 1.5, 1.33, 0.85]
+respuesta: v / r_eq
+tipo: completar
+tolerancia_abs: 0.01
 
-enunciado: "Si un rayo de luz pasa de un medio con índice {datos[escenario_idx][0]} a un medio con índice {datos[escenario_idx][1]}, ¿cuál es el valor del índice de refracción del segundo medio?"
+enunciado: "Se tiene una fuente de tensión de {v} V conectada a dos resistencias en paralelo de {r1} Ω y {r2} Ω. Calcule la corriente total suministrada por la fuente en Amperes (A)."
+
+pasos:
+  - "Calcular la resistencia equivalente: Req = (R1 · R2) / (R1 + R2)"
+  - "Aplicar la Ley de Ohm: I_total = V / Req"
 
 explicacion: |
-  El enunciado pide identificar el segundo índice de refracción según el escenario sorteado.
+  Req = ({r1} · {r2}) / ({r1} + {r2}) = {r_eq} Ω.
+  I_total = {v} / {r_eq} = {v / r_eq} A.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "refraccion_ley_snell"
-  nivel: "basico"
-  tags: ["terminos", "rayos"]
+  tema: "circuitas_en_paralelo"
+  nivel: "intermedio"
+  tags: ["corriente", "resistencia", "paralelo"]
 
-respuesta: "normal"
+respuesta: "mayor"
 tipo: "completar"
 respuestas_validas:
-  - "normal"
-  - "perpendicular"
+  - "mayor"
+  - "menor"
+  - "igual"
 
-enunciado: "La línea imaginaria perpendicular a la superficie de separación entre dos medios se denomina línea ___."
+enunciado: "Si en un circuito en paralelo se añade una tercera resistencia en paralelo a las dos ya existentes, la corriente total que sale de la fuente será ___ que la corriente del circuito original."
 
 explicacion: |
-  La 'normal' es la línea perpendicular a la interfaz, y los ángulos de incidencia y refracción se miden respecto a ella.
+  Al añadir una resistencia en paralelo, la resistencia equivalente total disminuye. Según la Ley de Ohm ($I = V/R$), si la tensión $V$ es constante y $R$ disminuye, la corriente total $I$ debe aumentar.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "refraccion_ley_snell"
-  nivel: "basico"
-  tags: ["secuencia", "fenomenos"]
+  tema: "circuitas_en_paralelo"
+  nivel: "intermedio"
+  tags: ["analisis", "pasos", "metodologia"]
 
 tipo: ordenar
-opciones_explicitas: ["incidencia", "refraccion", "reflexion_parcial"]
-respuesta_orden: ["incidencia", "refraccion", "reflexion_parcial"]
+opciones_explicitas: ["Calcular R equivalente", "Calcular corriente total", "Calcular corrientes individuales", "Calcular tensión en cada rama"]
+respuesta_orden: ["Calcular R equivalente", "Calcular corriente total", "Calcular corrientes individuales", "Calcular tensión en cada rama"]
 
-enunciado: "Ordena los eventos que ocurren cuando un rayo de luz incide sobre una interfaz entre dos medios distintos, considerando el fenómeno de refracción y la posible reflexión parcial."
+enunciado: "Para analizar un circuito con una fuente de tensión y tres resistencias en paralelo, ordene los pasos lógicos para determinar la corriente que circula por la rama de mayor resistencia:"
 
 explicacion: |
-  Primero el rayo incide (incidencia), luego parte de la energía cambia de dirección al entrar al segundo medio (refracción) y otra parte rebota (reflexión parcial).
+  Para resolver circuitos complejos, primero se simplifica el circuito (calculando la resistencia equivalente o la corriente total) y luego se desglosa la información hacia las ramas individuales para hallar los valores específicos.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "refraccion_indice_de_refraccion"
+  tema: "circuitos_en_paralelo"
   nivel: "basico"
-  tags: ["optica", "indice_de_refraccion"]
-
-variables:
-  n_medio: 1.5
-
-respuesta: "1.5"
-tipo: mc
-opciones_explicitas: ["1.0", "1.5", "2.0", "0.5"]
-
-enunciado: "El índice de refracción de un medio se define como la relación entre la velocidad de la luz en el vacío ($c$) y la velocidad de la luz en dicho medio ($v$). Si la luz viaja en un medio con una velocidad que es exactamente dos tercios de la velocidad de la luz en el vacío, ¿cuál es el índice de refracción?"
-
-explicacion: |
-  El índice de refracción $n$ se calcula como $n = c/v$. 
-  Si $v = (2/3)c$, entonces $n = c / ((2/3)c) = 3/2 = 1.5$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_snell"
-  nivel: "basico"
-  tags: ["ley_de_snell", "optica"]
+  tags: ["electricidad", "tension"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es correcto afirmar que si la luz pasa de un medio con índice de refracción $n_1$ a un medio con $n_2$ y $n_2 > n_1$, el rayo de luz se acerca a la normal?"
+enunciado: "En un circuito en paralelo, la diferencia de potencial (tensión) entre dos puntos es la misma para todas las ramas en comparación con un circuito en serie donde la tensión se divide entre los componentes."
 
 explicacion: |
-  Cuando la luz pasa a un medio más denso ópticamente ($n_2 > n_1$), la velocidad disminuye y el rayo se desvía hacia la normal.
+  En un circuito en paralelo, todos los componentes están conectados a los mismos dos nodos, por lo que la tensión es idéntica para todos. En serie, la tensión total se reparte entre los componentes.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "ley_de_snell"
+  tema: "circuitos_en_paralelo"
   nivel: "intermedio"
-  tags: ["ley_de_snell", "calculo"]
+  tags: ["resistencia", "ley_de_ohm"]
 
 variables:
-  n1: 1.0
-  n2: 1.33
-  theta1: 30.0
-
-respuesta: asin_deg(n1 * sin_deg(theta1) / n2)
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Un rayo de luz viaja desde el aire (n1 = {n1}) hacia el agua (n2 = {n2}) con un ángulo de incidencia de {theta1}° respecto a la normal. Calcula el ángulo de refracción en el agua."
-
-pasos:
-  - "Aplicar la Ley de Snell: n1 · sin(θ1) = n2 · sin(θ2)"
-  - "Despejar sin(θ2) = (n1 · sin(θ1)) / n2"
-  - "Calcular θ2 = arcsin(resultado)"
-
-explicacion: |
-  Usando la Ley de Snell:
-  1.0 · sin(30°) = 1.33 · sin(θ2)
-  0.5 = 1.33 · sin(θ2)
-  sin(θ2) = 0.5 / 1.33 ≈ 0.3759
-  θ2 = arcsin(0.3759) ≈ {asin_deg(n1 * sin_deg(theta1) / n2)}°
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_snell"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-tipo: ordenar
-
-opciones_explicitas: ["n1", "sen(theta1)", "n2", "sen(theta2)"]
-
-respuesta_orden: ["n1", "sen(theta1)", "n2", "sen(theta2)"]
-
-enunciado: "Ordena los términos de la fórmula de la Ley de Snell (n1 * sen(theta1) = n2 * sen(theta2)) según su aparición en la ecuación, de izquierda a derecha."
-
-explicacion: |
-  La ecuación establece la igualdad entre el producto del índice del primer medio por el seno del ángulo de incidencia y el producto del índice del segundo medio por el seno del ángulo de refracción.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ley_de_snell"
-  nivel: "intermedio"
-  tags: ["completar", "formula"]
-
-respuesta: "n2"
-tipo: completar
-respuestas_validas:
-  - "n2"
-
-enunciado: "En la expresión de la Ley de Snell, n1 * sin(theta1) = ___ * sin(theta2), el término desconocido representa el índice de refracción del segundo medio."
-
-explicacion: |
-  La Ley de Snell relaciona las propiedades de los dos medios involucrados: n1 sin(theta1) = n2 sin(theta2).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "refraccion_indice_ley_snell"
-  nivel: "basico"
-  tags: ["refraccion", "indice_refraccion", "velocidad_luz"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si un rayo de luz pasa de un medio con índice de refracción $n_1 = 1.5$ a un medio con $n_2 = 1.0$, la velocidad de la luz en el segundo medio es menor que en el primero."
-
-explicacion: |
-  El índice de refracción se define como $n = c/v$. Por lo tanto, a mayor índice de refracción, menor es la velocidad de la luz en ese medio. Si $n_2 < n_1$, la velocidad en el segundo medio es mayor.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "refraccion_indice_ley_snell"
-  nivel: "intermedio"
-  tags: ["ley_snell", "angulos", "refraccion"]
-
-variables:
-  escenario: uno_de([["n1=1.0, n2=1.5", "se acerca a la normal"], ["n1=1.5, n2=1.0", "se aleja de la normal"]])
+  escenario: uno_de([[10.0, 5.0], [20.0, 10.0], [30.0, 15.0]])
 
 respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["se acerca a la normal", "se aleja de la normal"]
-
-enunciado: "Cuando la luz viaja de un medio con índice de refracción {escenario[0]}, el rayo refractado ___ la línea normal."
-
-pasos:
-  - "Identificar si el índice aumenta o disminuye."
-  - "Aplicar la Ley de Snell: n1 * sen(theta1) = n2 * sen(theta2)."
-  - "Si n2 > n1, entonces sen(theta2) < sen(theta1), por lo que theta2 < theta1."
-
-explicacion: |
-  Al pasar a un medio más denso ópticamente (n2 > n1), la velocidad disminuye y el rayo se desvía hacia la normal para mantener la igualdad en la Ley de Snell.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "refraccion_indice_ley_snell"
-  nivel: "intermedio"
-  tags: ["velocidad", "calculo", "indice_refraccion"]
-
-variables:
-  datos: uno_de([[1.33, 2.25e8], [1.50, 2.0e8], [2.42, 1.24e8]])
-
-respuesta: datos[1]
 tipo: completar
-tolerancia_abs: 1e6
+tolerancia_abs: 0.01
 
-enunciado: "Calcula la velocidad de la luz en un medio cuyo índice de refracción es n = {datos[0]}. (Usa c = 3.0 × 10^8 m/s)."
+enunciado: "Si tenemos dos resistencias idénticas en paralelo, cada una con un valor de {escenario[0]} Ω, ¿cuál es el valor de la resistencia equivalente del sistema?"
 
 pasos:
-  - "Usa la fórmula v = c / n."
-  - "Sustituye los valores: v = 3.0 × 10^8 / {datos[0]}."
+  - "Identificar que para dos resistencias iguales en paralelo, la resistencia equivalente es la mitad de una de ellas."
+  - "Aplicar fórmula: 1/Req = 1/R1 + 1/R2."
 
 explicacion: |
-  La velocidad en el medio se calcula dividiendo la velocidad en el vacío por el índice de refracción del medio.
+  La resistencia equivalente en paralelo siempre es menor que la resistencia más pequeña del circuito. Para R = {escenario[0]} Ω, Req = {escenario[0]} / 2 = {escenario[1]} Ω.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "refraccion_indice_ley_snell"
-  nivel: "avanzado"
-  tags: ["reflexion_total", "angulo_critico", "condiciones"]
+  tema: "circuitos_en_paralelo"
+  nivel: "intermedio"
+  tags: ["corriente", "ley_de_kirchhoff"]
 
-respuesta_orden: ["El medio debe ser menos denso ópticamente", "El ángulo de incidencia debe ser mayor al crítico", "La luz debe viajar de un medio con mayor n a uno con menor n"]
-
-tipo: ordenar
-opciones_explicitas: ["El medio debe ser menos denso ópticamente", "El ángulo de incidencia debe ser mayor al crítico", "La luz debe viajar de un medio con mayor n a uno con menor n"]
-
-enunciado: "Ordena las condiciones necesarias para que ocurra la Reflexión Total Interna, desde la condición del medio hasta la condición del ángulo:"
-
-explicacion: |
-  Para la reflexión total interna se requiere: 1) Que la luz pase de un medio con n alto a uno con n bajo (menos denso), 2) Que el ángulo de incidencia sea mayor al ángulo crítico θc.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "refraccion_indice_ley_snell"
-  nivel: "basico"
-  tags: ["ley_snell", "formula"]
-
-respuesta: "n1*sin(theta1)=n2*sin(theta2)"
+respuesta: "se divide"
 tipo: completar
 respuestas_validas:
-  - "n1*sin(theta1)=n2*sin(theta2)"
+  - "se divide"
+  - "se reparte"
+  - "se fragmenta"
 
-enunciado: "La expresión matemática de la Ley de Snell es: ___"
+enunciado: "A diferencia de un circuito en serie donde la corriente es la misma en todos los puntos, en un circuito en paralelo la corriente total se ___ entre las distintas ramas."
 
 explicacion: |
-  La Ley de Snell establece que el producto del índice de refracción por el seno del ángulo de incidencia es constante para dos medios en contacto.
+  Según la Ley de Corrientes de Kirchhoff, la corriente que entra a un nodo debe ser igual a la suma de las corrientes que salen de él, lo que significa que la corriente se reparte por las ramas disponibles.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "refraccion_indice_snell"
+  tema: "circuitos_en_paralelo"
   nivel: "basico"
-  tags: ["refraccion", "indice_de_refraccion"]
+  tags: ["resistencia", "comparacion"]
 
-respuesta: falso
+respuesta: "menor"
+tipo: mc
+opciones_explicitas: ["mayor", "menor", "igual"]
+
+enunciado: "Al añadir una nueva resistencia en paralelo a un circuito ya existente, la resistencia total del circuito es ___ que la resistencia que había antes."
+
+explicacion: |
+  Añadir una rama en paralelo es como ofrecer un camino adicional para el flujo de carga; esto facilita el paso de la corriente y, por lo tanto, disminuye la resistencia total.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_paralelo"
+  nivel: "avanzado"
+  tags: ["corriente", "resistencia"]
+
+tipo: ordenar
+opciones_explicitas: ["corriente total", "corriente en la resistencia de 2 Ω", "corriente en la resistencia de 5 Ω"]
+respuesta_orden: ["corriente total", "corriente en la resistencia de 2 Ω", "corriente en la resistencia de 5 Ω"]
+
+enunciado: "En un circuito en paralelo con una fuente de tensión de 10 V y dos resistencias de 2 Ω y 5 Ω, ordena estas magnitudes de MAYOR a MENOR corriente:"
+
+explicacion: |
+  1. La corriente total es la suma de las corrientes de las ramas, por lo tanto es la mayor.
+  2. A menor resistencia, mayor corriente (I = V/R): la rama de 2 Ω tiene más corriente que la de 5 Ω.
+  3. Orden: corriente total, luego la rama de 2 Ω, luego la rama de 5 Ω.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_paralelo"
+  nivel: "intermedio"
+  tags: ["resistencia", "paralelo", "calculo"]
+
+variables:
+  datos: [[10.0, 5.0], [20.0, 6.666666666666667], [30.0, 15.0]]
+  idx: uno_de([0, 1, 2])
+  R1: datos[idx][0]
+  R_eq: datos[idx][1]
+
+enunciado: "En una instalación eléctrica doméstica, dos resistencias se conectan en paralelo. Si la primera resistencia es de {R1} $\\Omega$ y la resistencia equivalente del circuito es de {R_eq} $\\Omega$, ¿cuál es el valor de la segunda resistencia?"
+
+respuesta: (R1 * R_eq) / (R1 - R_eq)
+tipo: completar
+tolerancia_abs: 0.01
+
+explicacion: |
+  Para resistencias en paralelo, la fórmula es: 1/R_eq = 1/R1 + 1/R2.
+  Despejando R2: R2 = (R1 * R_eq) / (R1 - R_eq).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_paralelo"
+  nivel: "basico"
+  tags: ["tensión", "voltaje"]
+
+variables:
+  V_fuente: 220.0
+  V_componente: 220.0
+
+enunciado: "Si conectamos una lámpara a una batería de {V_fuente} V en un circuito en paralelo, la tensión en la lámpara será de {V_componente} V."
+
+respuesta: verdadero
 tipo: vf
 
-enunciado: "El índice de refracción de un medio se define como la relación entre la velocidad de la luz en el vacío y la velocidad de la luz en dicho medio, por lo que un índice mayor implica una mayor velocidad de la luz en el medio."
-
 explicacion: |
-  Falso. El índice de refracción es n = c/v. Si el índice n es mayor, la velocidad v es menor (la luz viaja más lento en medios más densos ópticamente).
+  En un circuito en paralelo, todos los componentes conectados a los mismos nodos mantienen la misma diferencia de potencial (tensión).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "refraccion_indice_snell"
+  tema: "circuitos_en_paralelo"
   nivel: "intermedio"
-  tags: ["ley_de_snell", "angulo_de_refraccion"]
+  tags: ["corriente", "ley_de_ohm"]
 
 variables:
-  escenario: uno_de([["aire", "agua", 1.0, 1.33], ["agua", "diamante", 1.33, 2.42], ["aire", "diamante", 1.0, 2.42]])
-
-respuesta: "hacia_la_normal"
-tipo: mc
-
-opciones_explicitas: ["hacia_la_normal", "alejandose_de_la_normal", "se_mantiene_igual", "se_anula"]
-
-enunciado: "Si un rayo de luz viaja desde un medio con índice de refracción {escenario[0]} hacia un medio con un índice de refracción mayor, {escenario[1]}, el rayo se refractará ___."
-
-explicacion: |
-  Cuando la luz pasa de un medio menos denso (menor n) a uno más denso (mayor n), el rayo se acerca a la normal para compensar la disminución de velocidad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "refraccion_indice_snell"
-  nivel: "intermedio"
-  tags: ["ley_de_snell", "velocidad_luz"]
-
-variables:
-  caso: uno_de([["n1=1.0", "n2=1.5", "menor"], ["n1=1.5", "n2=1.0", "mayor"], ["n1=1.33", "n2=1.5", "menor"]])
-
-respuesta: caso[2]
-tipo: completar
-
-respuestas_validas:
-  - "mayor"
-  - "menor"
-
-enunciado: "Considerando el caso donde el medio 1 tiene un índice {caso[0]} y el medio 2 tiene un índice {caso[1]}, si el rayo pasa del medio 1 al medio 2, la velocidad de la luz en el medio 2 es ___ que en el medio 1."
-
-explicacion: |
-  Según la Ley de Snell y la definición de n = c/v, a mayor índice de refracción, menor es la velocidad de la luz en ese medio.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "refraccion_indice_snell"
-  nivel: "avanzado"
-  tags: ["refraccion", "vector_onda"]
-
-respuesta: "se_mantiene_constante"
-tipo: mc
-
-opciones_explicitas: ["se_mantiene_constante", "cambia_su_magnitud", "cambia_su_direccion", "se_anula"]
-
-enunciado: "Al comparar la propagación de una onda en la interfaz entre dos medios con diferentes índices de refracción, ¿qué sucede con la componente del vector de onda paralela a la interfaz?"
-
-explicacion: |
-  Para que se cumpla la continuidad de la fase en la interfaz, la componente del vector de onda $k$ paralela a la superficie debe ser la misma para ambos medios.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "refraccion_indice_snell"
-  nivel: "basico"
-  tags: ["refraccion", "proceso"]
-
-respuesta_orden: ["incidencia", "cambio_de_velocidad", "cambio_de_direccion"]
-tipo: ordenar
-
-opciones_explicitas: ["incidencia", "cambio_de_velocidad", "cambio_de_direccion"]
-
-enunciado: "Ordena cronológicamente los eventos físicos que ocurren cuando un rayo de luz pasa de un medio a otro con diferente índice de refracción:"
-
-pasos:
-  - "El rayo llega a la superficie de separación."
-  - "La velocidad de la onda cambia debido a la densidad óptica."
-  - "El ángulo de propagación cambia para satisfacer la Ley de Snell."
-
-explicacion: |
-  Primero ocurre la incidencia, luego el cambio de velocidad en el nuevo medio y, como consecuencia, el cambio en la dirección (ángulo de refracción).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "refraccion_ley_snell"
-  nivel: "basico"
-  tags: ["refraccion", "indice_refraccion", "luz"]
-
-variables:
-  datos: [["agua", 1.33, "se ve más grueso"], ["aceite", 1.45, "se ve más grueso"], ["vidrio", 1.50, "se ve más grueso"]]
+  datos: [[12.0, 3.0, "4.0 A"], [24.0, 6.0, "4.0 A"], [10.0, 5.0, "2.0 A"]]
   idx: uno_de([0, 1, 2])
+  V: datos[idx][0]
+  R: datos[idx][1]
 
-enunciado: "Al observar un lápiz dentro de un recipiente con {datos[idx][0]}, el objeto parece sufrir una desviación visual debido al cambio de medio. El índice de refracción del {datos[idx][0]} es aproximadamente {datos[idx][1]}."
+enunciado: "En un circuito en paralelo con una fuente de {V} V, una de las ramas tiene una resistencia de {R} $\\Omega$. ¿Cuál es la intensidad de corriente que circula por esa rama específica?"
 
-opciones_explicitas: ["se ve más grueso", "se ve más delgado", "no cambia su apariencia"]
+opciones_explicitas: ["0.5 A", "2.0 A", "4.0 A", "6.0 A"]
 respuesta: datos[idx][2]
 tipo: mc
 
 explicacion: |
-  La refracción ocurre cuando la luz cambia de velocidad al pasar de un medio a otro, lo que provoca un cambio en la dirección de los rayos luminosos, dando la ilusión de que el objeto está desplazado o deformado.
+  Usando la Ley de Ohm: I = V / R. En este caso, {V} / {R} = {datos[idx][2]}.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "refraccion_ley_snell"
-  nivel: "intermedio"
-  tags: ["snell", "calculo", "angulo"]
+  tema: "circuitos_en_paralelo"
+  nivel: "basico"
+  tags: ["corriente", "conceptos"]
 
 variables:
-  nombres: ["aire", "agua", "diamante"]
-  indices: [1.0, 1.33, 2.42]
-  angulos: [30.0, 45.0, 15.0]
-  idx: uno_de([0, 1, 2])
-  n1: indices[idx]
-  theta1: angulos[idx]
+  I_total: 10.0
+  I1: 4.0
+  I2: 6.0
 
-enunciado: "Un rayo de luz viaja desde el {nombres[idx]} (n={n1}) hacia un medio con un índice de refracción de 1.50. Si el ángulo de incidencia es de {theta1} grados, ¿cuál es el ángulo de refracción aproximado?"
+enunciado: "En un circuito con dos resistencias en paralelo, si la corriente que atraviesa la rama 1 es de {I1} A y la corriente en la rama 2 es de {I2} A, la corriente total suministrada por la fuente es de ___ A."
+
+opciones_explicitas: ["2.0", "4.0", "6.0", "10.0"]
+respuesta: "10.0"
+tipo: completar
+
+explicacion: |
+  Por la Ley de Corrientes de Kirchhoff, la corriente total es la suma de las corrientes de cada rama: I_total = I1 + I2.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_paralelo"
+  nivel: "basico"
+  tags: ["metodologia", "procedimiento"]
+
+opciones_explicitas: ["Calcular la resistencia equivalente", "Identificar las tensiones de cada rama", "Sumar las corrientes de cada rama para obtener la total"]
+
+respuesta_orden: ["Identificar las tensiones de cada rama", "Calcular la resistencia equivalente", "Sumar las corrientes de cada rama para obtener la total"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para analizar un circuito en paralelo y hallar la corriente total si conocemos las resistencias y el voltaje de la fuente:"
+
+explicacion: |
+  1. Primero verificas que la tensión sea la misma en todas las ramas.
+  2. Calculas la resistencia equivalente o las corrientes individuales.
+  3. Sumas las corrientes para obtener la corriente total del sistema.
+```
+
+## Sección: circuitos-en-serie (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["resistencia", "serie", "conceptos"]
+
+tipo: mc
+opciones_explicitas: ["La suma de las resistencias individuales", "La inversa de la suma de las resistencias", "La media de las resistencias", "La resta de las resistencias"]
+respuesta: "La suma de las resistencias individuales"
+
+enunciado: "En un circuito en serie, la resistencia total o equivalente es igual a ___."
+
+explicacion: |
+  En un circuito en serie, las resistencias se conectan una tras otra, por lo que la resistencia total es la suma algebraica de todas las resistencias del circuito.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["corriente", "intensidad"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "En un circuito en serie, la intensidad de corriente que circula por cada uno de los componentes es la misma."
+
+explicacion: |
+  Al haber un único camino para el flujo de electrones, la carga no tiene otra vía para circular, por lo tanto, la intensidad es constante en todos los puntos del circuito.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "intermedio"
+  tags: ["tension", "voltaje", "ley_de_kirchhoff"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["12V", "24V"], ["10V", "20V"]]
+  componentes: [["R1=2Ω, R2=4Ω", "R1=5Ω, R2=5Ω"], ["R1=10Ω, R2=10Ω", "R1=2Ω, R2=8Ω"]]
+
+tipo: completar
+respuestas_validas:
+  - "12V"
+  - "24V"
+  - "10V"
+  - "20V"
+respuesta: datos[escenario_idx][0]
+
+enunciado: "Si tenemos un circuito con una fuente de tensión de {datos[escenario_idx][0]} y dos resistencias, la suma de las caídas de tensión en cada resistencia debe ser igual a ___."
+
+explicacion: |
+  Según la Ley de Kirchhoff de tensiones, la suma de las caídas de potencial en un lazo cerrado es igual a la tensión total suministrada por la fuente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["vocabulario", "componentes"]
+
+tipo: ordenar
+opciones_explicitas: ["Fuente de tensión", "Interruptor", "Resistencias", "Cables de conexión"]
+respuesta_orden: ["Fuente de tensión", "Interruptor", "Resistencias", "Cables de conexión"]
+
+enunciado: "Ordena los elementos de un circuito básico desde la fuente de energía hasta el receptor, pasando por el control y la conducción:"
+
+explicacion: |
+  Un circuito típico comienza con la fuente de energía, sigue por el dispositivo de control (interruptor), los elementos de carga (resistencias/receptores) y el conductor (cables).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["resistencia", "serie"]
+
+tipo: mc
+opciones_explicitas: ["Aumenta", "Disminuye", "Se mantiene igual", "Se vuelve cero"]
+respuesta: "Aumenta"
+
+enunciado: "Si añadimos una resistencia adicional a un circuito que ya está en serie, la resistencia total del circuito ___."
+
+explicacion: |
+  Como la resistencia total en serie es la suma de todas las resistencias ($R_t = R_1 + R_2 + ... + R_n$), añadir más elementos siempre incrementará el valor de la resistencia total.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["resistencia", "serie"]
+
+variables:
+  r1: 10.0
+  r2: 20.0
+  r3: 30.0
+
+respuesta: r1 + r2 + r3
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Se conectan tres resistencias en serie con valores de {r1} $\\Omega$, {r2} $\\Omega$ y {r3} $\\Omega$. ¿Cuál es el valor de la resistencia total del circuito?"
 
 pasos:
-  - "Identificar los índices de refracción: n1 = {n1} y n2 = 1.50"
-  - "Aplicar la Ley de Snell: n1 * sin_deg({theta1}) = n2 * sin_deg(theta2)"
-  - "Despejar: theta2 = arcsin((n1 * sin_deg({theta1}) / n2))"
+  - "Identificar las resistencias: R1 = 10, R2 = 20, R3 = 30"
+  - "En un circuito en serie, la resistencia total es la suma de las resistencias individuales: R_total = R1 + R2 + R3"
+  - "Calcular: 10 + 20 + 30 = 60"
 
-respuesta: asin_deg(n1 * sin_deg(theta1) / 1.50)
+explicacion: |
+  En un circuito en serie, la resistencia total es siempre la suma algebraica de todas las resistencias presentes en la rama.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["corriente", "ley_de_ohm"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un circuito de corriente continua con resistencias conectadas en serie, ¿la intensidad de corriente es la misma en todos los puntos del circuito?"
+
+explicacion: |
+  Verdadero. En un circuito en serie solo existe un camino para el flujo de electrones, por lo que la carga que pasa por una resistencia es la misma que pasa por las demás.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "intermedio"
+  tags: ["tension", "voltaje"]
+
+variables:
+  v_total: 24.0
+  r1: 4.0
+  r2: 8.0
+  r3: 4.0
+  idx: uno_de([0, 1])
+  resistencia_label: ["R1", "R2"]
+  resultados_texto: ["6.0 V", "12.0 V"]
+
+respuesta: resultados_texto[idx]
+tipo: mc
+opciones_explicitas: ["6.0 V", "12.0 V", "8.0 V", "16.0 V"]
+
+enunciado: "Un circuito en serie tiene una fuente de {v_total} V y tres resistencias: R1 = {r1} Ω, R2 = {r2} Ω y R3 = {r3} Ω. Si calculamos la caída de tensión en la resistencia {resistencia_label[idx]}, ¿cuál es el valor obtenido?"
+
+explicacion: |
+  R_total = R1 + R2 + R3 = 16 Ω.
+  La caída de tensión en cada resistencia es proporcional a su valor: V = V_total * (R / R_total).
+  Para {resistencia_label[idx]}: V = {resultados_texto[idx]}.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "intermedio"
+  tags: ["ley_de_ohm", "corriente"]
+
+variables:
+  v_fuente: 12.0
+  r_total: 4.0
+
+respuesta: 3.0
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un circuito en serie tiene una resistencia total de {r_total} $\\Omega$ y se alimenta con una fuente de {v_fuente} V. ¿Cuál es la intensidad de corriente total que circula por el circuito?"
+
+pasos:
+  - "Aplicar la Ley de Ohm: I = V / R"
+  - "Sustituir valores: I = 12 / 4"
+  - "Resultado: I = 3 A"
+
+explicacion: |
+  La corriente se calcula dividiendo la tensión total por la resistencia equivalente del circuito.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "intermedio"
+  tags: ["metodologia"]
+
+opciones_explicitas: ["Calcular la resistencia total sumando las resistencias", "Calcular la corriente total usando la Ley de Ohm", "Calcular las caídas de tensión individuales"]
+respuesta_orden: ["Calcular la resistencia total sumando las resistencias", "Calcular la corriente total usando la Ley de Ohm", "Calcular las caídas de tensión individuales"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para determinar la tensión en una resistencia específica dentro de un circuito en serie dado el voltaje total y las resistencias."
+
+explicacion: |
+  Primero necesitas la resistencia total para hallar la corriente. Una vez que tienes la corriente, puedes hallar la tensión en cualquier componente usando V = I * R.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["resistencia", "serie", "ley_de_ohm"]
+
+variables:
+  r1: 10
+  r2: 20
+  r3: 30
+
+respuesta: r1 + r2 + r3
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "En un circuito en serie con tres resistencias de {r1} Ω, {r2} Ω y {r3} Ω, ¿cuál es el valor de la resistencia total (equivalente) del circuito?"
+
+pasos:
+  - "Identificar que en un circuito en serie, la resistencia total es la suma de las resistencias individuales."
+  - "Sumar los valores: {r1} + {r2} + {r3}."
+
+explicacion: |
+  En una configuración en serie, la resistencia total es siempre la suma aritmética de todas las resistencias presentes en la rama.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["corriente", "intensidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un circuito en serie, la intensidad de corriente que circula por cada uno de los componentes es la misma."
+
+explicacion: |
+  Verdadero. Al haber un solo camino para el flujo de electrones, la carga debe pasar por todos los componentes en la misma cantidad, por lo que la corriente es constante en todo el circuito.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "intermedio"
+  tags: ["tension", "voltaje", "ley_de_kirchhoff"]
+
+variables:
+  v_total: 12
+  r1: 5
+  r2: 7
+
+respuesta_orden: ["V2", "V1"]
+tipo: ordenar
+
+opciones_explicitas: ["V1", "V2"]
+
+enunciado: "Si tenemos dos resistencias en serie con una tensión total de {v_total}V, donde la primera resistencia consume {r1}V y la segunda consume {r2}V, ordena los componentes según el orden en que se reparte la tensión total (de mayor a menor consumo)."
+
+explicacion: |
+  En un circuito en serie, la tensión total se reparte entre los componentes. La suma de las caídas de tensión en cada resistencia debe ser igual a la tensión de la fuente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "intermedio"
+  tags: ["resistencia", "paralelo_vs_serie"]
+
+variables:
+  r1: 10
+  r2: 10
+
+respuesta: "La resistencia total disminuye"
+tipo: mc
+
+opciones_explicitas: ["La resistencia total aumenta", "La resistencia total disminuye", "La resistencia total permanece igual"]
+
+enunciado: "Si añadimos una segunda resistencia de {r1} Ω en serie a una resistencia ya existente de {r1} Ω, ¿qué sucede con la resistencia total del circuito?"
+
+explicacion: |
+  Al añadir componentes en serie, se incrementa la oposición total al paso de la corriente, por lo tanto, la resistencia total aumenta.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "avanzado"
+  tags: ["corriente", "ley_de_ohm", "calculo"]
+
+variables:
+  v_fuente: 24
+  r1: 4
+  r2: 8
+
+respuesta: 2
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un circuito tiene una fuente de {v_fuente}V conectada a dos resistencias en serie de {r1} Ω y {r2} Ω. ¿Cuál es la intensidad de corriente que circula por el circuito?"
+
+pasos:
+  - "Calcular la resistencia total: R_total = {r1} + {r2}."
+  - "Usar la Ley de Ohm: I = V / R_total."
+
+explicacion: |
+  Primero sumamos las resistencias: 4 + 8 = 12 Ω. Luego aplicamos la Ley de Ohm: I = 24V / 12Ω = 2A.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["resistencia", "serie"]
+
+variables:
+  datos: [[10, 20, 30], [5, 15, 25], [8, 12, 20]]
+  idx: uno_de([0, 1, 2])
+  r1: datos[idx][0]
+  r2: datos[idx][1]
+  r3: datos[idx][2]
+
+respuestas_validas:
+  - r1 + r2 + r3
+respuesta: r1 + r2 + r3
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "En un circuito en serie con tres resistencias de {r1} Ω, {r2} Ω y {r3} Ω, ¿cuál es el valor de la resistencia equivalente total?"
+
+explicacion: |
+  En un circuito en serie, la resistencia total es la suma aritmética de todas las resistencias individuales: R_total = R1 + R2 + ... + Rn.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["corriente", "comparacion"]
+
+opciones_explicitas: ["Es la misma en todos los puntos del circuito", "Se divide entre las distintas resistencias", "Es mayor en las resistencias más grandes"]
+
+respuesta: "Es la misma en todos los puntos del circuito"
+tipo: mc
+
+enunciado: "Al comparar un circuito en serie con uno en paralelo, ¿cuál es la característica fundamental de la intensidad de corriente en un circuito en serie?"
+
+explicacion: |
+  A diferencia de los circuitos en paralelo donde la corriente se divide, en un circuito en serie la corriente es la misma en cualquier punto del circuito porque solo hay un camino para las cargas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "intermedio"
+  tags: ["tension", "voltaje"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["se reparte entre los componentes", "es la misma para todos los componentes"], ["se divide entre las distintas ramas", "es la misma en todas las ramas"]]
+
+respuesta: datos[idx][0]
+tipo: completar
+enunciado: "En un circuito en serie con múltiples receptores, la tensión total de la fuente ___."
+
+explicacion: |
+  En un circuito en serie, la tensión total es la suma de las caídas de tensión en cada componente (la tensión se reparte). En un circuito en paralelo, la tensión es la misma en todos los componentes.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "intermedio"
+  tags: ["corriente", "comparacion"]
+
+opciones_explicitas: ["La corriente disminuye al aumentar la resistencia total", "La corriente aumenta al aumentar la resistencia total", "La corriente permanece constante sin importar la resistencia"]
+
+respuesta: "La corriente disminuye al aumentar la resistencia total"
+tipo: mc
+
+enunciado: "Si añadimos una resistencia adicional en serie a un circuito ya existente, ¿qué sucede con la intensidad de corriente total (asumiendo voltaje constante)?"
+
+explicacion: |
+  Según la Ley de Ohm (I = V/R), si la resistencia total aumenta debido a la conexión en serie, la intensidad de corriente disminuye.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "avanzado"
+  tags: ["resistencia", "comparacion"]
+
+tipo: ordenar
+opciones_explicitas: ["Resistencia en serie", "Resistencia en paralelo"]
+respuesta_orden: ["Resistencia en serie", "Resistencia en paralelo"]
+
+enunciado: "Ordena los conceptos de mayor a menor valor de resistencia equivalente, considerando que tenemos dos resistencias de 10 Ω y 20 Ω conectadas de forma distinta."
+
+explicacion: |
+  Para R1=10 y R2=20:
+  En serie: R_eq = 10 + 20 = 30 Ω.
+  En paralelo: R_eq = (10 * 20) / (10 + 20) = 200 / 30 = 6.66 Ω.
+  Por lo tanto, la resistencia en serie es mayor que la resistencia en paralelo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["resistencia", "serie"]
+
+variables:
+  datos: [[10.0, 5.0, 2.0], [20.0, 15.0, 10.0], [5.0, 3.0, 2.0]]
+  idx: uno_de([0, 1, 2])
+  r1: datos[idx][0]
+  r2: datos[idx][1]
+  r3: datos[idx][2]
+
+respuestas_validas:
+  - r1 + r2 + r3
+respuesta: r1 + r2 + r3
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "En un circuito en serie, se conectan tres resistencias con valores de {r1} Ω, {r2} Ω y {r3} Ω. ¿Cuál es la resistencia total del circuito?"
+
+pasos:
+  - "Identificar que en un circuito en serie la resistencia total es la suma de las resistencias individuales."
+  - "Sumar los valores: {r1} + {r2} + {r3}."
+
+explicacion: |
+  La resistencia equivalente en un circuito en serie se calcula sumando todas las resistencias: R_total = R1 + R2 + R3.
+  En este caso: {r1} + {r2} + {r3} = {r1 + r2 + r3} Ω.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["corriente", "ley_de_ohm"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un circuito en serie con múltiples resistencias, ¿la intensidad de corriente que circula por cada una de las resistencias es la misma?"
+
+explicacion: |
+  Verdadero. En un circuito en serie solo existe un camino para la carga eléctrica, por lo tanto, la corriente (I) es constante en todos los puntos del circuito.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "intermedio"
+  tags: ["tensión", "voltaje"]
+
+variables:
+  datos: [[12.0, 4.0, 8.0], [24.0, 12.0, 12.0], [9.0, 3.0, 6.0]]
+  idx: uno_de([0, 1, 2])
+  v_total: datos[idx][0]
+  r1: datos[idx][1]
+  r2: datos[idx][2]
+  r_total: r1 + r2
+  i: v_total / r_total
+  v1: i * r1
+
+respuesta: "4.0 V"
+tipo: mc
+
+opciones_explicitas: ["4.0 V", "8.0 V", "12.0 V", "24.0 V"]
+
+enunciado: "Se tiene una fuente de tensión de {v_total} V conectada a dos resistencias en serie de {r1} Ω y {r2} Ω. ¿Cuál es la caída de tensión (voltaje) en la primera resistencia ({r1} Ω)?"
+
+pasos:
+  - "Calcular la resistencia total: R_total = {r1} + {r2} = {r_total} Ω."
+  - "Calcular la corriente total usando Ley de Ohm: I = V_total / R_total = {v_total} / {r_total} A."
+  - "Calcular la tensión en R1: V1 = I * R1."
+
+explicacion: |
+  Primero hallamos la resistencia total: {r_total} Ω. Luego la corriente: {i} A. Finalmente, el voltaje en R1 es: {v1} V.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["metodologia"]
+
+opciones_explicitas: ["Calcular resistencia total", "Calcular corriente total", "Calcular voltajes parciales"]
+respuesta_orden: ["Calcular resistencia total", "Calcular corriente total", "Calcular voltajes parciales"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para hallar la tensión en una resistencia específica dentro de un circuito en serie con una fuente de voltaje conocida."
+
+explicacion: |
+  Para resolver circuitos en serie, el orden estándar es: 1. Sumar resistencias, 2. Hallar la corriente con la Ley de Ohm, 3. Usar la corriente para hallar voltajes individuales.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "intermedio"
+  tags: ["completar", "resistencia"]
+
+variables:
+  escenario: [[100.0, 60.0], [50.0, 25.0], [30.0, 15.0]]
+  idx: uno_de([0, 1, 2])
+  r_total: escenario[idx][0]
+  r1: escenario[idx][1]
+
+respuestas_validas:
+  - r_total - r1
+respuesta: r_total - r1
+tipo: completar
+
+enunciado: "Si la resistencia total de un circuito en serie es de {r_total} Ω y una de las resistencias es de {r1} Ω, la otra resistencia debe ser de ___ Ω."
+
+explicacion: |
+  En serie: R_total = R1 + R2. Por lo tanto, R2 = R_total - R1.
+  En este caso: {r_total} - {r1} = {r_total - r1}.
+```
+
+## Sección: potencia-electrica (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["definicion", "conceptos_clave"]
+
+respuesta: "potencia"
+tipo: "completar"
+respuestas_validas:
+  - "potencia"
+  - "Potencia"
+
+enunciado: "La rapidez con la que un dispositivo consume o transforma energía eléctrica en otro tipo de energía se denomina ___."
+
+explicacion: |
+  La potencia eléctrica mide la tasa de transferencia de energía por unidad de tiempo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["unidades", "vatios"]
+
+opciones_explicitas: ["Voltio (V)", "Amperio (A)", "Vatio (W)", "Ohmio (Ω)"]
+respuesta: "Vatio (W)"
+tipo: "mc"
+
+enunciado: "En el Sistema Internacional de Unidades, la unidad de potencia eléctrica es el:"
+
+explicacion: |
+  El vatio (W) se define como el trabajo realizado por una fuerza de un Newton a lo largo de un metro en un segundo, o equivalentemente, la potencia de un dispositivo que consume 1 Joule por segundo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "intermedio"
+  tags: ["relacion_variables", "formula"]
+
+variables:
+  voltajes: [12, 220, 10]
+  corrientes: [2, 5, 0.5]
+  resultados: [24, 1100, 5]
+  idx: uno_de([0, 1, 2])
+  v: voltajes[idx]
+  i: corrientes[idx]
+  p: resultados[idx]
+
+respuesta: p
+tipo: "input"
+tolerancia_abs: 0
+
+enunciado: "Si un dispositivo tiene un voltaje de {v} V y una intensidad de {i} A, ¿cuál es su potencia eléctrica en vatios?"
+
+pasos:
+  - "Identificar el voltaje (V) y la intensidad (I)."
+  - "Aplicar la fórmula P = V · I."
+
+explicacion: |
+  Usando la fórmula P = V · I:
+  P = {v}V · {i}A = {p}W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["teoria", "verdadero_falso"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "¿Es correcto afirmar que la potencia eléctrica es directamente proporcional a la resistencia cuando el voltaje se mantiene constante?"
+
+explicacion: |
+  Falso. Según la fórmula P = V²/R, si el voltaje (V) es constante, la potencia es inversamente proporcional a la resistencia (R). A mayor resistencia, menor potencia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "intermedio"
+  tags: ["formulas", "ley_ohm"]
+
+opciones_explicitas: ["P = I · R", "P = V / R", "P = I² · R", "P = V² / R"]
+respuesta: "P = I² · R"
+tipo: "mc"
+
+enunciado: "Combinando la Ley de Ohm (V = I · R) con la definición de potencia (P = V · I), obtenemos que la potencia también puede expresarse como:"
+
+explicacion: |
+  Sustituyendo V por (I · R) en la fórmula de potencia:
+  P = (I · R) · I = I² · R.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["formula", "calculo"]
+
+variables:
+  datos: [[12, 2], [24, 3], [10, 5], [220, 2]]
+  idx: uno_de([0,1,2,3])
+  v: datos[idx][0]
+  i: datos[idx][1]
+  p: v * i
+
+respuesta: p
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Una fuente de alimentación entrega un voltaje de {v} V y una corriente de {i} A. ¿Cuál es la potencia eléctrica consumida por el dispositivo?"
+
+pasos:
+  - "Identificar los valores de voltaje (V) y corriente (I)."
+  - "Aplicar la fórmula de la potencia eléctrica: P = V · I."
+  - "Multiplicar el voltaje por la corriente: {v} * {i} = {p}."
+
+explicacion: |
+  La potencia eléctrica (P) se define como el producto del voltaje (V) por la intensidad de corriente (I). En este caso, la potencia es de {p} W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "intermedio"
+  tags: ["resistencia", "formula"]
+
+variables:
+  datos: [[10, 5], [20, 10], [5, 2], [15, 3]]
+  idx: uno_de([0,1,2,3])
+  i: datos[idx][0]
+  r: datos[idx][1]
+  p: i * i * r
+
+respuesta: "P = I² · R"
+tipo: mc
+opciones_explicitas: ["P = V · I", "P = I² · R", "P = V / R", "P = I / R"]
+
+enunciado: "Si conocemos la intensidad de corriente (I) que circula por un conductor y su resistencia (R), ¿cuál es la expresión correcta para calcular la potencia eléctrica (P) disipada?"
+
+explicacion: |
+  Cuando se conoce la corriente y la resistencia, la fórmula derivada de P = V · I (sustituyendo V = I · R) es P = I² · R.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "intermedio"
+  tags: ["voltaje", "resistencia"]
+
+variables:
+  datos: [[100, 20], [200, 50], [12, 4], [220, 110]]
+  idx: uno_de([0,1,2,3])
+  v: datos[idx][0]
+  r: datos[idx][1]
+  p: (v * v) / r
+
+respuesta: p
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un componente electrónico tiene una resistencia de {r} Ω y se conecta a una fuente de {v} V. Calcula la potencia disipada en el componente."
+
+pasos:
+  - "Elevar el voltaje al cuadrado: {v}^2."
+  - "Dividir el resultado por la resistencia: ({v}^2) / {r}."
+
+explicacion: |
+  Utilizando la variante de la fórmula que relaciona voltaje y resistencia: P = V² / R. El cálculo es ({v}^2) / {r} = {p} W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["unidades", "teoria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el Sistema Internacional de Unidades, la unidad de potencia eléctrica es el Vatio (W), que equivale a un Julio por segundo (J/s)."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["completar", "formula"]
+
+respuestas_validas:
+  - "V * I"
+  - "V*I"
+  - "V·I"
+respuesta: "V * I"
+tipo: completar
+
+enunciado: "La fórmula fundamental para calcular la potencia eléctrica (P) en un circuito de corriente continua es P = ___."
+
+explicacion: |
+  La potencia eléctrica es el producto de la diferencia de potencial (Voltaje) por la intensidad de corriente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["potencia", "voltaje", "corriente"]
+
+respuesta: "aumenta"
+tipo: completar
+respuestas_validas:
+  - "aumenta"
+
+enunciado: "Si mantenemos la resistencia de un componente constante y aumentamos el voltaje aplicado, la potencia eléctrica consumida por dicho componente ___."
+
+explicacion: |
+  De la fórmula $P = V^2 / R$, se observa que la potencia es directamente proporcional al cuadrado del voltaje. Si el voltaje aumenta, la potencia aumenta.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "intermedio"
+  tags: ["resistencia", "serie", "potencia"]
+
+variables:
+  escenario: uno_de([["R1", "R2", "R3", "R1+R2+R3"], ["10", "20", "30", "60"]])
+
+respuesta: "R1+R2+R3"
+tipo: mc
+opciones_explicitas: ["R1", "R2", "R3", "R1+R2+R3"]
+
+enunciado: "En un circuito en serie con tres resistencias, la resistencia equivalente que determina la potencia total entregada por la fuente es ___."
+
+explicacion: |
+  En un circuito en serie, la resistencia total es la suma de las resistencias individuales. La potencia total se calcula usando esta resistencia equivalente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["booleano", "corriente", "potencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si la resistencia de un conductor se mantiene constante y la corriente eléctrica se duplica, la potencia disipada en el conductor se cuadruplica."
+
+explicacion: |
+  Usando la fórmula $P = I^2 \cdot R$, si la corriente se multiplica por 2, la potencia se multiplica por $2^2 = 4$. Por lo tanto, es verdadero.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "intermedio"
+  tags: ["calculo", "ley_de_ohm"]
+
+variables:
+  datos: uno_de([[12, 2], [220, 5], [12, 0.5]])
+
+respuesta: datos[0] * datos[1]
 tipo: completar
 tolerancia_abs: 0.1
 
+enunciado: "Un dispositivo eléctrico está conectado a una fuente de {datos[0]} V y por él circula una corriente de {datos[1]} A. ¿Cuál es su potencia eléctrica en Watts?"
+
+pasos:
+  - "Identificar el voltaje (V) y la corriente (I)."
+  - "Aplicar la fórmula P = V * I."
+
 explicacion: |
-  Usando la Ley de Snell: {n1} * sin({theta1}°) = 1.50 * sin(theta2) -> sin(theta2) = ({n1} * sin_deg({theta1})) / 1.50 -> theta2 ≈ {asin_deg(n1 * sin_deg(theta1) / 1.50)}°.
+  La potencia se calcula multiplicando el voltaje por la intensidad: $P = V \cdot I$.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "refraccion_ley_snell"
-  nivel: "basico"
-  tags: ["booleanos", "refraccion"]
+  tema: "potencia_electrica"
+  nivel: "intermedio"
+  tags: ["procedimiento", "resistencia", "voltaje"]
 
-variables:
-  datos: [["aire", 1.0, "diamante", 2.42, "se acerca"], ["agua", 1.33, "vidrio", 1.5, "se acerca"], ["aceite", 1.45, "agua", 1.33, "se aleja"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Si un rayo de luz pasa de {datos[idx][0]} ({datos[idx][2]}) a {datos[idx][1]}, ¿el rayo se acerca o se aleja de la normal?"
-
-respuestas_validas:
-  - "se acerca"
-  - "se aleja"
-respuesta: datos[idx][4]
-tipo: completar
-
-explicacion: |
-  Si el índice de refracción del segundo medio es mayor que el del primero (n2 > n1), la luz se refracta hacia la normal (se acerca). Si es menor, se aleja.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "refraccion_ley_snell"
-  nivel: "avanzado"
-  tags: ["reflexion_total", "snell"]
-
-variables:
-  escenario: [["agua", 1.33, 1.5], ["vidrio", 1.5, 1.6]]
-  idx: uno_de([0, 1])
-
-enunciado: "Considerando un rayo que viaja desde el medio 1 ({escenario[idx][0]}) hacia el medio 2 ({escenario[idx][1]}), ordene los fenómenos según la magnitud del índice de refracción de los medios (de menor a mayor n)."
-
-opciones_explicitas: ["Medio 1", "Medio 2"]
-respuesta_orden: ["Medio 1", "Medio 2"]
+opciones_explicitas: ["Calcular la corriente usando Ohm", "Multiplicar voltaje por corriente", "Calcular potencia final"]
+respuesta_orden: ["Calcular la corriente usando Ohm", "Multiplicar voltaje por corriente", "Calcular potencia final"]
 tipo: ordenar
 
+enunciado: "Si conoces el voltaje (V) y la resistencia (R) de una bombilla, pero no la corriente (I), ¿cuál es el orden lógico para hallar la potencia usando P = V · I?"
+
 explicacion: |
-  El orden depende de los valores de n asignados en la tabla de escenarios.
+  Primero debes hallar la incógnita faltante ($I = V/R$) y luego aplicar la fórmula de potencia.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "refraccion_ley_snell"
+  tema: "potencia_electrica"
   nivel: "basico"
-  tags: ["teoria", "definicion"]
+  tags: ["conceptos_base", "potencia"]
+
+respuesta: "potencia"
+tipo: "mc"
+opciones_explicitas: ["energía", "potencia", "voltaje", "corriente"]
+
+enunciado: "Mientras que la energía eléctrica es la cantidad total de trabajo realizado por una carga en un tiempo determinado, la ___ es la rapidez con la que dicho trabajo se realiza."
+
+explicacion: |
+  La potencia (P) mide la tasa de transferencia de energía por unidad de tiempo (P = dE/dt).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "intermedio"
+  tags: ["ley_de_joule", "resistencia"]
 
 variables:
-  respuesta_correcta: verdadero
+  escenario_idx: uno_de([0, 1])
+  datos: [[2, 5, "mayor"], [4, 2, "menor"]]
 
-enunciado: "El índice de refracción de un material es una medida de cuánto se ralentiza la luz al atravesar dicho medio. ¿Es esto verdadero?"
-
-respuesta: verdadero
-tipo: vf
-explicacion: |
-  Correcto. El índice de refracción n se define como c/v, donde c es la velocidad en el vacío y v es la velocidad en el medio. A mayor n, menor es la velocidad de la luz en ese medio.
-```
-
-## Sección: relatividad-especial-conceptual (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "basico"
-  tags: ["principios", "inercia"]
-
-respuesta: "mismo"
-tipo: "mc"
-opciones_explicitas: ["mismo", "diferente", "mayor", "menor"]
-
-enunciado: "Según el primer postulado de la relatividad especial, las leyes de la física son las ___ en todos los marcos de referencia inerciales."
-
-explicacion: |
-  El primer postulado establece que las leyes de la física son invariantes en todos los sistemas de referencia inerciales.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "basico"
-  tags: ["c", "postulados"]
-
-respuesta: "c"
-tipo: "completar"
-respuestas_validas:
-  - "c"
-  - "c"
-  - "velocidad_de_la_luz"
-
-enunciado: "La velocidad de la luz en el vacío, representada por la constante ___ , es la misma para todos los observadores, independientemente de su movimiento."
-
-explicacion: |
-  La constancia de la velocidad de la luz es el segundo postulado de Einstein.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "basico"
-  tags: ["e_mc2", "equivalencia"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "La ecuación $E=mc^2$ implica que la masa puede ser convertida en energía y viceversa."
-
-explicacion: |
-  La equivalencia masa-energía es uno de los pilares de la relatividad especial.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "basico"
-  tags: ["tiempo", "relatividad"]
-
-respuesta: "relativo"
-tipo: "mc"
-opciones_explicitas: ["absoluto", "relativo", "constante", "infinito"]
-
-enunciado: "En la relatividad especial, el tiempo no es un parámetro universal, sino que es ___ al observador."
-
-explicacion: |
-  El tiempo depende del marco de referencia del observador (dilatación del tiempo).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "basico"
-  tags: ["masa_reposo"]
-
-respuesta: "m_0"
-tipo: "completar"
-respuestas_validas:
-  - "m_0"
-  - "m_reposo"
-  - "m_0"
-
-enunciado: "La masa de un objeto cuando no tiene velocidad se denomina masa ___."
-
-explicacion: |
-  La masa en reposo es una propiedad intrínseca de la partícula.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "intermedio"
-  tags: ["simultaneidad", "observadores"]
-
-respuesta: "no_es_absoluta"
-tipo: "mc"
-opciones_explicitas: ["es_absoluta", "no_es_absoluta", "es_dependiente_de_la_gravedad", "es_constante"]
-
-enunciado: "Dos eventos que son simultáneos para un observador en reposo, ___ para un observador que se mueve a velocidad constante respecto al primero."
-
-explicacion: |
-  La simultaneidad es relativa al marco de referencia; lo que es simultáneo para uno, no lo es para otro en movimiento.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "intermedio"
-  tags: ["dilatacion_tiempo"]
-
-respuesta: "menor"
+respuesta: datos[escenario_idx][2]
 tipo: "mc"
 opciones_explicitas: ["menor", "mayor", "igual", "nula"]
 
-enunciado: "Para un observador externo, el tiempo transcurrido en un reloj que se mueve a alta velocidad parece pasar de forma ___ que un reloj en reposo."
+enunciado: "Si mantenemos el voltaje constante en un circuito, un componente con una resistencia de {datos[escenario_idx][0]} $\\Omega$ disipará una potencia ___ que uno con una resistencia de {datos[escenario_idx][1]} $\\Omega$."
 
 explicacion: |
-  La dilatación del tiempo hace que el tiempo de un reloj en movimiento parezca transcurrir más lento para el observador externo.
+  Usando la fórmula $P = V^2 / R$, la potencia es inversamente proporcional a la resistencia cuando el voltaje es constante.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "intermedio"
-  tags: ["contraccion_longitud"]
+  tema: "potencia_electrica"
+  nivel: "avanzado"
+  tags: ["ley_de_joule", "corriente"]
 
-respuesta: "paralelo_al_movimiento"
-tipo: "completar"
-respuestas_validas:
-  - "paralelo_al_movimiento"
-  - "perpendicular_al_movimiento"
-
-enunciado: "La contracción de la longitud ocurre únicamente en la dirección ___ del movimiento."
-
-explicacion: |
-  La contracción de Lorentz solo afecta a las dimensiones paralelas a la velocidad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "intermedio"
-  tags: ["energia_cinetica"]
-
-respuesta: "infinito"
-tipo: "mc"
-opciones_explicitas: ["finito", "cero", "infinito", "negativo"]
-
-enunciado: "A medida que la velocidad de un objeto con masa se acerca a la velocidad de la luz, la energía necesaria para acelerarlo tiende a ___."
-
-explicacion: |
-  Debido a la relatividad, la energía requerida para alcanzar la velocidad de la luz es infinita para una partícula con masa.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "intermedio"
-  tags: ["gamma"]
+variables:
+  corriente_inicial: 2.0
+  corriente_final: 4.0
+  resistencia: 10.0
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El factor de Lorentz (gamma) siempre es mayor o igual a 1 para cualquier velocidad v < c."
+enunciado: "Si la corriente que atraviesa una resistencia de {resistencia} ohmios se duplica de {corriente_inicial} A a {corriente_final} A, la potencia disipada se cuadruplica."
 
 explicacion: |
-  Dado que gamma = 1 / sqrt(1 - v^2/c^2), si v < c, el denominador es menor que 1, por lo que gamma >= 1.
+  Según la fórmula P = I^2 * R, la potencia depende del cuadrado de la intensidad. Si la corriente se multiplica por 2, la potencia se multiplica por 2^2 = 4.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "avanzado"
-  tags: ["comparacion"]
-
-respuesta: "mismo"
-tipo: "mc"
-opciones_explicitas: ["mismo", "diferente", "inverso", "variable"]
-
-enunciado: "Si dos observadores se mueven a velocidades constantes y relativas entre sí, ambos marcos de referencia son considerados ___."
-
-explicacion: |
-  Ambos son marcos inerciales y las leyes de la física se aplican igual en ambos.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "avanzado"
-  tags: ["experimento_luz"]
-
-respuesta: "c"
-tipo: "mc"
-opciones_explicitas: ["c", "c+v", "c-v", "v"]
-
-enunciado: "Si una nave viaja a velocidad $v$ y dispara un rayo de luz hacia adelante, un observador en la nave medirá la velocidad del rayo como ___."
-
-explicacion: |
-  La velocidad de la luz es constante para todos los observadores, sin importar el movimiento de la fuente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "avanzado"
-  tags: ["masa_relativista"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "En la física moderna, se prefiere hablar de 'masa inercial' constante en lugar de una 'masa que aumenta con la velocidad'."
-
-explicacion: |
-  El concepto de 'masa relativista' es una interpretación antigua; la física actual usa masa en reposo constante y energía variable.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "avanzado"
-  tags: ["secuencia"]
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["unidades"]
 
 tipo: ordenar
-opciones_explicitas: ["observar_movimiento", "medir_longitud_contraccion", "medir_tiempo_dilatado"]
-respuesta_orden: ["observar_movimiento", "medir_longitud_contraccion", "medir_tiempo_dilatado"]
+opciones_explicitas: ["vatio", "voltio", "amperio", "ohmio"]
+respuesta_orden: ["vatio", "voltio", "amperio", "ohmio"]
 
-enunciado: "Ordena los pasos para un observador que analiza una nave espacial que pasa a gran velocidad:"
+enunciado: "Ordena las siguientes magnitudes de mayor a menor según su símbolo en el Sistema Internacional (W, V, A, Ω):"
 
 explicacion: |
-  Primero se establece el marco, luego se miden las dimensiones espaciales y finalmente los intervalos temporales.
+  El orden solicitado es: W (vatio), V (voltio), A (amperio) y Ω (ohmio).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "avanzado"
-  tags: ["energia_reposo"]
-
-respuesta: "m_0 * c^2"
-tipo: "completar"
-respuestas_validas:
-  - "m_0 * c^2"
-  - "m_0*c^2"
-  - "m_0 * c^2"
-
-enunciado: "La energía de un objeto en reposo se calcula como la masa en reposo multiplicado por ___."
-
-explicacion: |
-  La energía de reposo es el producto de la masa en reposo por el cuadrado de la velocidad de la luz.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relatividad_especial"
+  tema: "potencia_electrica"
   nivel: "intermedio"
-  tags: ["paradoja_gemelos"]
+  tags: ["calculo", "ley_de_joule"]
 
-respuesta: "viajero"
-tipo: "mc"
-opciones_explicitas: ["viajero", "en_la_tierra", "ambos", "ninguno"]
+variables:
+  escenario_idx: uno_de([0, 1])
+  valores: [[12, 2], [24, 3]]
 
-enunciado: "En la paradoja de los gemelos, el gemelo que experimenta la aceleración (el que realiza el viaje espacial) es el ___."
+respuesta: valores[escenario_idx][0] * valores[escenario_idx][0] * valores[escenario_idx][1]
+tipo: "input"
+tolerancia_abs: 0.1
+
+enunciado: "Un dispositivo eléctrico tiene una resistencia de {valores[escenario_idx][1]} $\\Omega$ y es atravesado por una corriente de {valores[escenario_idx][0]} A. ¿Cuál es su potencia eléctrica en Watts?"
+
+pasos:
+  - "Identificar la corriente (I) y la resistencia (R)."
+  - "Aplicar la fórmula $P = I^2 \\cdot R$."
+  - "Calcular el resultado final."
 
 explicacion: |
-  El gemelo que viaja y acelera es quien experimenta la dilatación del tiempo de forma asimétrica.
+  Aplicando $P = I^2 \cdot R$:
+  P = {valores[escenario_idx][0]}² · {valores[escenario_idx][1]} = {valores[escenario_idx][0] * valores[escenario_idx][0] * valores[escenario_idx][1]} W.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "intermedio"
-  tags: ["energia"]
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["potencia", "voltaje", "corriente"]
 
-respuesta: "aumenta"
-tipo: "completar"
-respuestas_validas:
-  - "aumenta"
-  - "aumenta_con_la_velocidad"
+variables:
+  escenario: uno_de([[12, 2, 24], [220, 5, 1100], [12, 10, 120]])
+  v: escenario[0]
+  i: escenario[1]
+  p: escenario[2]
 
-enunciado: "A medida que la velocidad de una partícula aumenta, su energía total ___."
+respuesta: p
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Una bombilla se conecta a una fuente de tensión de {v} V y por ella circula una corriente de {i} A. ¿Cuál es la potencia eléctrica consumida por la bombilla?"
+
+pasos:
+  - "Identificar el voltaje (V) y la corriente (I)."
+  - "Aplicar la fórmula de potencia: P = V * I."
 
 explicacion: |
-  La energía total aumenta con la velocidad, tendiendo a infinito cuando $v \to c$.
+  La potencia eléctrica se calcula multiplicando la diferencia de potencial por la intensidad de corriente: P = V * I.
+  En este caso: {v} V * {i} A = {p} W.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "relatividad_especial"
+  tema: "potencia_electrica"
   nivel: "intermedio"
-  tags: ["fotón"]
+  tags: ["resistencia", "potencia", "ley_de_joule"]
 
-respuesta: "no_tiene_masa_en_reposo"
-tipo: "mc"
-opciones_explicitas: ["no_tiene_masa_en_reposo", "tiene_masa_infinita", "tiene_masa_cero", "su_masa_es_c"]
+variables:
+  escenario: uno_de([[10, 5], [20, 4], [5, 10]])
+  r: escenario[0]
+  i: escenario[1]
+  p: escenario[1] * escenario[1] * escenario[0]
 
-enunciado: "Un fotón (partícula de luz) se caracteriza porque ___."
+respuesta: p
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un componente electrónico tiene una resistencia de {r} Ω. Si circula una corriente de {i} A a través de él, ¿cuánta potencia se disipa en forma de calor?"
+
+pasos:
+  - "Utilizar la variante de la fórmula de potencia: P = I² * R."
+  - "Elevar la corriente al cuadrado: {i} * {i}."
+  - "Multiplicar por la resistencia: {i} * {i} * {r}."
 
 explicacion: |
-  Los fotones no tienen masa en reposo, por lo que siempre viajan a la velocidad $c$.
+  Para calcular la potencia disipada por una resistencia conociendo la corriente, usamos P = I² * R.
+  Cálculo: ({i} A)² * {r} Ω = {p} W.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "intermedio"
-  tags: ["longitud"]
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["comparacion", "potencia"]
 
+variables:
+  escenario: uno_de([[50, 1000], [500, 50], [10, 2000]])
+  p: escenario[0]
+  limite: escenario[1]
+
+respuesta: p > limite
 tipo: vf
-respuesta: verdadero
-
-enunciado: "Un objeto que se mueve a una velocidad cercana a la luz parecerá más corto para un observador estacionario."
+enunciado: "Un dispositivo consume una potencia de {p} W. Si el límite de seguridad de la instalación es de {limite} W, ¿se ha superado el límite de seguridad?"
 
 explicacion: |
-  Este es el efecto de la contracción de Lorentz.
+  Comparamos la potencia consumida ({p} W) con el límite establecido ({limite} W). 
+  Si {p} > {limite}, la respuesta es verdadero.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "avanzado"
-  tags: ["energia_cinetica_relativista"]
+  tema: "potencia_electrica"
+  nivel: "intermedio"
+  tags: ["voltaje", "resistencia", "corriente"]
 
-respuesta: "diferente"
-tipo: "mc"
-opciones_explicitas: ["diferente", "igual", "menor", "nula"]
+variables:
+  escenario: uno_de([[120, 10], [230, 100], [12, 10]])
+  v: escenario[0]
+  r: escenario[1]
+  i: escenario[0] / escenario[1]
 
-enunciado: "A velocidades cercanas a la luz, la energía cinética calculada por la física clásica es ___ a la de la física relativista."
+respuesta: i
+tipo: mc
+
+opciones_explicitas: [12.0, 2.3, 1.2, 0.5]
+
+enunciado: "Un calefactor tiene una resistencia interna de {r} Ω y se conecta a una toma de corriente de {v} V. ¿Qué intensidad de corriente circulará por el circuito (en amperios)?"
 
 explicacion: |
-  La física clásica falla a velocidades relativistas, subestimando la energía necesaria.
+  Usamos la relación derivada de la ley de Ohm y la potencia: P = V²/R, pero para hallar la corriente usamos I = V / R.
+  Cálculo: {v} V / {r} Ω = {i} A.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "avanzado"
-  tags: ["particulas_subatomicas"]
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["metodologia", "procedimiento"]
 
-respuesta: "mayor"
-tipo: "mc"
-opciones_explicitas: ["mayor", "menor", "igual", "nula"]
+opciones_explicitas: ["Medir voltaje y corriente", "Multiplicar V por I", "Calcular el resultado en Watts"]
 
-enunciado: "En los aceleradores de partículas, los protones adquieren una energía ___ a la que tendrían en física clásica a la misma velocidad."
+respuesta_orden: ["Medir voltaje y corriente", "Multiplicar V por I", "Calcular el resultado en Watts"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para determinar la potencia eléctrica de un electrodoméstico desconocido usando un multímetro en serie y paralelo."
 
 explicacion: |
-  La energía relativista es mayor que la clásica debido al factor $\gamma$.
+  Para hallar la potencia P = V * I, primero debemos obtener los valores de la tensión (V) y la intensidad (I) mediante mediciones, luego realizar la multiplicación matemática y finalmente expresar el resultado en la unidad de potencia (W).
 ```
+
+## Sección: circuitos-mixtos (26 preguntas)
 
 ```
 metadata:
   materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "avanzado"
-  tags: ["espacio_tiempo"]
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["resistencia", "equivalente", "conceptos"]
 
-respuesta: "un_solo_tejido"
-tipo: "completar"
+respuesta: "resistencia equivalente"
+tipo: completar
 respuestas_validas:
-  - "un_solo_tejido"
-  - "un_solo_continuo"
+  - "resistencia equivalente"
 
-enunciado: "La relatividad especial sugiere que el espacio y el tiempo no son entidades separadas, sino que forman ___."
+enunciado: "En un circuito complejo que combina tramos en serie y en paralelo, la única resistencia que permite simplificar todo el sistema a un solo componente es la ___."
 
 explicacion: |
-  El concepto de espacio-tiempo une las tres dimensiones espaciales y la dimensión temporal.
+  La resistencia equivalente es el valor de una resistencia única que puede sustituir a todo el conjunto de resistencias de un circuito, manteniendo la misma corriente y voltaje.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "intermedio"
-  tags: ["satelites"]
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["serie", "corriente", "voltaje"]
 
-respuesta: "atrasan"
-tipo: "mc"
-opciones_explicitas: ["atrasan", "adelantan", "se_detienen", "no_cambian"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Si un satélite se mueve a gran velocidad respecto a la Tierra, sus relojes ___ respecto a los de la Tierra (debido solo a la dilatación del tiempo por velocidad)."
+enunciado: "En un tramo de un circuito que está conectado en serie, la corriente eléctrica que circula por cada una de las resistencias es la misma."
 
 explicacion: |
-  La dilatación del tiempo hace que el reloj en movimiento marque menos tiempo transcurrido.
+  Verdadero. En una conexión en serie, al haber un único camino para la carga, la intensidad de corriente (I) es constante en todos los puntos del tramo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "relatividad_especial"
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["paralelo", "nodos", "voltaje"]
+
+respuesta: "voltaje"
+tipo: mc
+opciones_explicitas: ["voltaje", "corriente", "resistencia", "potencia"]
+
+enunciado: "En un tramo de un circuito conectado en paralelo, la propiedad que se mantiene constante en cada rama es el ___."
+
+explicacion: |
+  En una conexión en paralelo, todos los terminales de las resistencias están conectados a los mismos dos puntos (nodos), por lo que el voltaje es el mismo para todas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
   nivel: "intermedio"
-  tags: ["simultaneidad"]
+  tags: ["metodologia", "resolucion"]
+
+respuesta_orden: ["identificar", "simplificar", "calcular"]
+tipo: ordenar
+opciones_explicitas: ["identificar", "simplificar", "calcular"]
+
+enunciado: "Ordena los pasos lógicos para resolver un circuito mixto complejo:"
+
+pasos:
+  - "Identificar qué partes están en serie y cuáles en paralelo."
+  - "Simplificar los tramos mediante el cálculo de resistencias equivalentes parciales."
+  - "Calcular la resistencia total y las variables finales (I, V, R)."
+
+explicacion: |
+  Para resolver circuitos mixtos, primero se debe analizar la topología para separar tramos, luego reducir cada tramo a una resistencia equivalente y finalmente resolver el circuito simplificado.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["serie", "calculo"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenarios: [[10, 5, 15], [20, 30, 50]]
+
+respuesta: escenarios[idx][2]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si tenemos un tramo de un circuito mixto con dos resistencias en serie de {escenarios[idx][0]} Ω y {escenarios[idx][1]} Ω, ¿cuál es su resistencia equivalente?"
+
+pasos:
+  - "Identificar que las resistencias están en serie."
+  - "Sumar los valores de las resistencias: Req = R1 + R2."
+
+explicacion: |
+  En una conexión en serie, la resistencia total es la suma aritmética de las resistencias individuales.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["resistencia", "paralelo"]
+
+variables:
+  R1: 10
+  R2: 40
+
+respuesta: 8.0
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Dos resistencias, una de {R1} Ω y otra de {R2} Ω, se encuentran conectadas en paralelo. ¿Cuál es el valor de la resistencia equivalente (Req)?"
+
+pasos:
+  - "Calcular la resistencia equivalente usando la fórmula: 1/Req = 1/R1 + 1/R2"
+  - "O la fórmula directa para dos resistencias: Req = (R1 · R2) / (R1 + R2)"
+  - "Req = (10 · 40) / (10 + 40) = 400 / 50 = 8"
+
+explicacion: |
+  En una conexión en paralelo, la resistencia equivalente siempre es menor que la menor de las resistencias individuales. En este caso, 8 < 10.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["conceptos", "serie_paralelo"]
+
+respuesta: "serie"
+tipo: mc
+opciones_explicitas: ["serie", "paralelo", "mixto"]
+
+enunciado: "Si dos resistencias están conectadas una tras otra, de modo que la corriente que pasa por la primera debe pasar obligatoriamente por la segunda, estamos ante una conexión en ___."
+
+explicacion: |
+  En una conexión en serie, no hay caminos alternativos para la corriente; todos los componentes comparten la misma intensidad de corriente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "intermedio"
+  tags: ["calculo", "mixto"]
+
+variables:
+  idx: uno_de([0, 1])
+  R_s: [6, 5]
+  R_p: [4, 10]
+  R_eq: [8, 10]
+
+respuesta: R_eq[idx]
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "En un circuito mixto, una resistencia de {R_s[idx]} Ω está en serie con un bloque en paralelo compuesto por dos resistencias de {R_p[idx]} Ω y {R_p[idx]} Ω. ¿Cuál es la resistencia equivalente total?"
+
+pasos:
+  - "Primero calculamos la resistencia del bloque en paralelo: Rp_eq = (Rp · Rp) / (Rp + Rp)"
+  - "Luego sumamos la resistencia en serie: Req = Rs + Rp_eq"
+
+explicacion: |
+  Para resolver circuitos mixtos, primero se simplifican las partes en paralelo para convertirlas en una resistencia equivalente, y luego se suma con las resistencias que están en serie.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["leyes", "teoria"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Si dos eventos son simultáneos en un marco inercial, serán simultáneos para todos los demás marcos inerciales."
+enunciado: "En un circuito mixto, la corriente total que sale de la fuente es igual a la suma de las corrientes que pasan por cada una de las ramas en paralelo."
 
 explicacion: |
-  La simultaneidad es relativa al movimiento del observador.
+  Falso. La corriente total es la suma de las corrientes de las ramas en paralelo, pero esto solo se cumple si la fuente está en serie con el bloque paralelo. La afirmación es una generalización incorrecta de la Ley de Corrientes de Kirchhoff aplicada a cualquier punto del circuito.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "relatividad_especial"
-  nivel: "basico"
-  tags: ["energia"]
+  tema: "circuitos_mixtos"
+  nivel: "intermedio"
+  tags: ["metodologia", "ordenar"]
 
-respuesta: "c^2"
-tipo: "completar"
-respuestas_validas:
-  - "c^2"
-  - "c^2"
-  - "c^2"
+opciones_explicitas: ["Identificar ramas en paralelo", "Simplificar ramas en paralelo", "Sumar resistencias en serie", "Calcular resistencia equivalente total"]
+respuesta_orden: ["Identificar ramas en paralelo", "Simplificar ramas en paralelo", "Sumar resistencias en serie", "Calcular resistencia equivalente total"]
+tipo: ordenar
 
-enunciado: "En la famosa ecuación de Einstein, la energía es igual a la masa por la velocidad de la luz al ___."
+enunciado: "Ordena los pasos lógicos para resolver la resistencia equivalente de un circuito mixto complejo:"
 
 explicacion: |
-  La relación es proporcional al cuadrado de la velocidad de la luz.
+  El orden correcto implica simplificar de lo más interno (paralelos) hacia lo más externo (series) para reducir el circuito a una sola resistencia equivalente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "intermedio"
+  tags: ["resistencia", "paralelo", "error_comun"]
+
+variables:
+  r1: 10
+  r2: 10
+
+respuesta: 5
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un error común es pensar que la resistencia equivalente de dos resistencias en paralelo es la suma de sus valores. Si tenemos dos resistencias de {r1} $\\Omega$ y {r2} $\\Omega$ conectadas en paralelo, la resistencia equivalente es de ___ $\\Omega$."
+
+pasos:
+  - "Identificar que las resistencias están en paralelo."
+  - "Aplicar la fórmula: 1 / Req = 1 / r1 + 1 / r2"
+  - "Calcular: Req = (r1 * r2) / (r1 + r2)"
+
+explicacion: |
+  En un circuito en paralelo, la resistencia equivalente siempre es MENOR que la resistencia más pequeña del conjunto. En este caso, (10 * 10) / (10 + 10) = 100 / 20 = 5 $\Omega$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["voltaje", "serie", "concepto"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En un tramo de un circuito mixto donde dos resistencias están conectadas en serie, la diferencia de potencial (voltaje) es la misma para ambas resistencias."
+
+explicacion: |
+  Falso. En una conexión en serie, la corriente es la misma, pero el voltaje total se reparte entre las resistencias (según la Ley de Ohm, V = I * R). El voltaje es igual solo si las resistencias son idénticas, pero la afirmación general es falsa.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["corriente", "paralelo", "concepto"]
+
+respuesta: "se divide"
+tipo: completar
+respuestas_validas:
+  - "se divide"
+  - "se mantiene"
+  - "aumenta"
+
+enunciado: "En un circuito mixto, cuando la corriente llega a un nodo donde el camino se divide en dos ramas en paralelo, la corriente total ___ en las ramas."
+
+explicacion: |
+  En un circuito en paralelo, la corriente total se divide entre las ramas disponibles. La suma de las corrientes de cada rama es igual a la corriente que entra al nodo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "avanzado"
+  tags: ["resolucion", "pasos", "metodo"]
+
+variables:
+  casos: [[10, 5, 2, "serie-paralelo"], [20, 20, 10, "paralelo-serie"], [15, 30, 5, "serie-paralelo"]]
+  idx: uno_de([0, 1, 2])
+  r_serie: casos[idx][0]
+  r_paralelo: casos[idx][1]
+  r_extra: casos[idx][2]
+  r_correcto: verdadero
+
+respuesta: r_correcto
+tipo: vf
+
+enunciado: "Para resolver un circuito mixto complejo, se debe seguir un orden lógico de simplificación. Dado un circuito donde una resistencia {r_serie} está en serie con un bloque paralelo compuesto por {r_paralelo} y {r_extra}, ¿es correcto resolver primero el bloque paralelo y luego sumar la resistencia en serie?"
+
+explicacion: |
+  Primero se debe resolver la parte más interna o el bloque más simple (en este caso el paralelo) y luego sumar la resistencia que está en serie con ese bloque.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["resistencia", "serie", "error_comun"]
+
+variables:
+  r_a: 5
+  r_b: 15
+
+respuesta: "aumenta"
+tipo: mc
+opciones_explicitas: ["aumenta", "disminuye", "se mantiene", "es cero"]
+
+enunciado: "Al añadir una resistencia adicional en serie a un tramo de un circuito mixto, la resistencia equivalente de ese tramo ___."
+
+explicacion: |
+  En una conexión en serie, las resistencias se suman (Req = R1 + R2 + ...). Por lo tanto, añadir más resistencias en serie siempre aumenta la resistencia total del tramo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["resistencia", "corriente", "voltaje"]
+
+tipo: mc
+opciones_explicitas: ["La corriente es la misma en todos los componentes", "El voltaje es el mismo en todos los componentes", "La resistencia total disminuye al añadir componentes", "La corriente se divide entre las ramas"]
+
+enunciado: "En un circuito en serie, a diferencia de un circuito en paralelo, la característica principal que se mantiene constante en todos los componentes es la ___."
+
+respuesta: "La corriente es la misma en todos los componentes"
+
+explicacion: |
+  En un circuito en serie, solo existe un camino para la corriente, por lo que la intensidad es igual en todos los puntos. En paralelo, lo que se mantiene constante es el voltaje.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "intermedio"
+  tags: ["resistencia_equivalente", "paralelo"]
+
+tipo: vf
+enunciado: "En un circuito mixto que contiene una sección en paralelo, la resistencia equivalente de esa sección siempre será menor que la resistencia de cada uno de los componentes individuales en dicha sección."
+
+respuesta: verdadero
+
+explicacion: |
+  Verdadero. En una configuración en paralelo, la resistencia equivalente siempre es menor que la menor de las resistencias individuales, ya que se ofrecen más caminos para el flujo de carga.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "intermedio"
+  tags: ["calculo", "resistencia"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[10, 20], [30, 60]]
+  resultados_texto: ["20", "60"]
+
+tipo: completar
+respuesta: resultados_texto[idx]
+
+enunciado: "Si tenemos un circuito compuesto por una resistencia de {datos[idx][0]} Ω en serie con un bloque en paralelo formado por dos resistencias de {datos[idx][1]} Ω cada una, la resistencia equivalente total es de ___ Ω."
+
+pasos:
+  - "Calcular la resistencia equivalente de la sección en paralelo: Rp = (R2 * R3) / (R2 + R3)"
+  - "Sumar la resistencia en serie a la resistencia equivalente obtenida: Rtotal = R1 + Rp"
+
+explicacion: |
+  Para este caso: Rp = {datos[idx][1]}*{datos[idx][1]} / ({datos[idx][1]}+{datos[idx][1]}). Total = {resultados_texto[idx]} Ω.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "intermedio"
+  tags: ["calculo", "resistencia"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[10, 20], [30, 60]]
+
+tipo: completar
+respuestas_validas:
+  - 20
+  - 60
+
+enunciado: "Si tenemos un circuito compuesto por una resistencia de {datos[idx][0]} Ω en serie con un bloque en paralelo formado por dos resistencias de {datos[idx][1]} Ω cada una, la resistencia equivalente total es de ___ Ω."
+
+pasos:
+  - "Calcular la resistencia equivalente de la sección en paralelo: Rp = (R2 * R3) / (R2 + R3)"
+  - "Sumar la resistencia en serie a la resistencia equivalente obtenida: Rtotal = R1 + Rp"
+
+respuesta: datos[idx][0] + (datos[idx][1] / 2)
+
+explicacion: |
+  La resistencia en paralelo de dos iguales es la mitad de una. Luego se suma la serie.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["metodologia", "resolucion"]
+
+tipo: ordenar
+opciones_explicitas: ["Identificar tramos en paralelo", "Calcular resistencias equivalentes de cada tramo", "Sumar las resistencias en serie para el total"]
+
+enunciado: "Para resolver un circuito mixto, ¿cuál es el orden lógico de simplificación?"
+
+respuesta_orden: ["Identificar tramos en paralelo", "Calcular resistencias equivalentes de cada tramo", "Sumar las resistencias en serie para el total"]
+
+explicacion: |
+  Primero se deben simplificar las partes más complejas (paralelos) para convertir el circuito en una cadena de componentes en serie, facilitando el cálculo final.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "avanzado"
+  tags: ["corriente", "ley_de_kirchhoff"]
+
+tipo: mc
+opciones_explicitas: ["La corriente se divide en las ramas en paralelo", "La corriente es la misma en todas las ramas", "La corriente aumenta en las ramas en paralelo", "La corriente es cero en las ramas en paralelo"]
+
+enunciado: "Al pasar de un tramo en serie a un tramo en paralelo dentro de un circuito mixto, la corriente total del circuito ___."
+
+respuesta: "La corriente se divide en las ramas en paralelo"
+
+explicacion: |
+  En un tramo en paralelo, la corriente total se bifurca, repartiéndose entre las distintas ramas según la resistencia de cada una (Ley de Corrientes de Kirchhoff).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "intermedio"
+  tags: ["resistencia", "serie", "paralelo"]
+
+variables:
+  escenario: uno_de([[10, 5, 2], [20, 10, 4], [5, 5, 5]])
+  R1: escenario[0]
+  R2: escenario[1]
+  R3: escenario[2]
+
+enunciado: "En una linterna, la resistencia R1 está en serie con un bloque en paralelo formado por R2 y R3. ¿Cuál es la resistencia equivalente total del circuito?"
+
+pasos:
+  - "Primero, calcula la resistencia equivalente del tramo en paralelo: Rp = 1 / (1/R2 + 1/R3)"
+  - "Luego, suma la resistencia R1 al resultado anterior: Req = R1 + Rp"
+
+respuesta: R1 + 1 / (1 / R2 + 1 / R3)
+tipo: completar
+tolerancia_abs: 0.01
+
+explicacion: |
+  La resistencia equivalente de un tramo en paralelo se calcula como Rp = (R2 * R3) / (R2 + R3). 
+  Al estar en serie con R1, la fórmula final es Req = R1 + Rp.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "intermedio"
+  tags: ["corriente", "ley_de_ohm"]
+
+variables:
+  datos: [[12, 2, 4, 4], [24, 3, 6, 6], [6, 2, 2, 2]]
+  V: datos[0][0]
+  R1: datos[0][1]
+  R2: datos[0][2]
+  R3: datos[0][3]
+
+enunciado: "Si aplicamos un voltaje de {V}V a un circuito donde R1 está en serie con el paralelo de R2 y R3, y sabiendo que R2 = {R2}Ω y R3 = {R3}Ω, ¿la corriente total que sale de la fuente será mayor que si R2 y R3 estuvieran en serie?"
+
+respuesta: verdadero
+tipo: vf
+explicacion: |
+  Al poner R2 y R3 en paralelo, la resistencia equivalente del bloque disminuye en comparación con ponerlas en serie. 
+  Al disminuir la resistencia total, la corriente total (I = V/Req) aumenta.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["conceptos", "serie_paralelo"]
+
+enunciado: "En un circuito mixto, si dos resistencias están conectadas de tal forma que la corriente que pasa por una es la misma que pasa por la otra, decimos que están en ___."
+
+respuestas_validas:
+  - "serie"
+  - "paralelo"
+respuesta: "serie"
+tipo: completar
+
+explicacion: |
+  En una conexión en serie, no hay bifurcaciones, por lo que la intensidad de corriente es constante en todos los puntos del tramo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "avanzado"
+  tags: ["voltaje", "ley_de_kirchhoff"]
+
+variables:
+  config: [[10, 2, 4, 3], [20, 5, 5, 5], [12, 4, 2, 2]]
+  V_total: config[0][0]
+  R1: config[0][1]
+  R2: config[0][2]
+  R3: config[0][3]
+  R_par: 1 / (1 / R2 + 1 / R3)
+
+enunciado: "En un circuito con una fuente de {V_total}V, una resistencia R1 está en serie con un paralelo de R2 y R3. ¿Cuál es el voltaje que cae exclusivamente en el bloque paralelo (R2 y R3)?"
+
+pasos:
+  - "Calcula la resistencia equivalente total: Req = R1 + Rp"
+  - "Calcula la corriente total: I_total = V_total / Req"
+  - "Calcula el voltaje en el paralelo: Vp = I_total * Rp"
+
+respuesta: (V_total / (R1 + 1 / (1 / R2 + 1 / R3))) * (1 / (1 / R2 + 1 / R3))
+tipo: completar
+tolerancia_abs: 0.01
+
+explicacion: |
+  El voltaje en el bloque paralelo es igual a la corriente total multiplicada por la resistencia equivalente de ese bloque.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "basico"
+  tags: ["metodologia", "pasos"]
+
+enunciado: "Para resolver un circuito mixto complejo, ¿cuál es el orden lógico de simplificación de los componentes?"
+
+opciones_explicitas: ["Identificar tramos en paralelo", "Simplificar tramos en paralelo a una resistencia equivalente", "Sumar resistencias en serie", "Calcular resistencia total"]
+respuesta_orden: ["Identificar tramos en paralelo", "Simplificar tramos en paralelo a una resistencia equivalente", "Sumar resistencias en serie", "Calcular resistencia total"]
+tipo: ordenar
+
+explicacion: |
+  El método estándar consiste en reducir el circuito por partes, empezando por los nodos más internos (paralelos) para convertir el circuito en uno de serie simple.
 ```
 

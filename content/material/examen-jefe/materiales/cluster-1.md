@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de Propiedades Mecánicas
+# Examen jefe — [PENDIENTE #930]
 
-> Logro #211. Completaste el parcial sobre corrosion, elasticidad, fatiga y propiedades de materiales jefe. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas. **151 preguntas totales** en 6/6 secciones.
+> Logro #930. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **151 preguntas totales** en 6/6 secciones.
 
 ---
 
@@ -15,7 +15,8 @@ metadata:
 
 respuesta: "deterioro"
 tipo: completar
-respuestas_validas: ["deterioro"]
+respuestas_validas:
+  - "deterioro"
 
 enunciado: "La corrosión se define como el proceso de ___ de un material, generalmente un metal, debido a una reacción química o electroquímica con su entorno."
 
@@ -31,14 +32,14 @@ metadata:
   tags: ["factores", "ambiente"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [[["humedad alta", "oxidación rápida"], ["humedad baja", "oxidación lenta"]]]
+  escenarios: [["humedad alta", "oxidación rápida"], ["humedad baja", "oxidación lenta"]]
+  escenario: uno_de(escenarios)
 
-respuesta: uno_de(["oxidación rápida", "oxidación lenta"])
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["oxidación rápida", "oxidación lenta", "ausencia de reacción", "estabilidad química"]
 
-enunciado: "En un ambiente con {escenarios[escenario_idx][0]}, la velocidad de corrosión suele resultar en una {escenarios[escenario_idx][1]}."
+enunciado: "En un ambiente con {escenario[0]}, la velocidad de corrosión suele resultar en una {escenario[1]}."
 
 explicacion: |
   La presencia de electrolitos (como el agua o humedad) acelera drásticamente los procesos de corrosión electroquímica.
@@ -69,7 +70,8 @@ metadata:
 
 respuesta: "capa protectora"
 tipo: completar
-respuestas_validas: ["capa protectora", "capa destructiva"]
+respuestas_validas:
+  - "capa protectora"
 
 enunciado: "Cuando el producto de la corrosión es denso y adherente, puede actuar como una ___ que reduce la velocidad de degradación. Si es poroso, el proceso continúa."
 
@@ -84,7 +86,7 @@ metadata:
   nivel: "intermedio"
   tags: ["celda", "electrodo"]
 
-respuesta: ["Ánodo", "Cátodo", "Electrolito", "Conexión eléctrica"]
+respuesta_orden: ["Ánodo", "Cátodo", "Electrolito", "Conexión eléctrica"]
 tipo: ordenar
 
 opciones_explicitas: ["Ánodo", "Cátodo", "Electrolito", "Conexión eléctrica"]
@@ -119,24 +121,24 @@ metadata:
   tags: ["hierro", "oxidacion"]
 
 variables:
-  escenario: uno_de([
-    ["hierro", "Fe", "se oxida"],
-    ["aluminio", "Al", "forma una capa protectora"],
-    ["magnesio", "Mg", "es muy reactivo"]
-  ])
+  escenario: uno_de([["hierro", "Fe", "se oxida"], ["aluminio", "Al", "forma una capa protectora"], ["magnesio", "Mg", "es muy reactivo"]])
+  simbolo: escenario[1]
 
-respuesta: escenario[0][1
 tipo: completar
-respuestas_validas: ["Fe", "Fe2+", "Fe3+"]
+respuesta: simbolo
+respuestas_validas:
+  - "Fe"
+  - "Al"
+  - "Mg"
 
-enunciado: "En un proceso de corrosión galvánica, el elemento metálico que actúa como ánodo en la formación de óxido de hierro se representa con el símbolo químico ___."
+enunciado: "En un proceso de corrosión galvánica, el elemento metálico {escenario[0]} se representa con el símbolo químico ___."
 
 pasos:
   - "Identificar el metal base en el enunciado."
   - "Escribir su símbolo químico correspondiente."
 
 explicacion: |
-  El hierro se representa con el símbolo Fe. En la corrosión, el hierro pierde electrones (se oxida) para formar iones.
+  El símbolo químico depende del metal sorteado: Fe para hierro, Al para aluminio, Mg para magnesio.
 ```
 
 ```
@@ -163,7 +165,7 @@ metadata:
   nivel: "intermedio"
   tags: ["pasos", "reaccion"]
 
-respuesta: ["Oxidación del metal", "Difusión de iones", "Formación de óxido sólido"]
+respuesta_orden: ["Oxidación del metal", "Difusión de iones", "Formación de óxido sólido"]
 tipo: ordenar
 opciones_explicitas: ["Oxidación del metal", "Difusión de iones", "Formación de óxido sólido"]
 
@@ -180,18 +182,11 @@ metadata:
   nivel: "avanzado"
   tags: ["proteccion", "galvanizado"]
 
-variables:
-  metal_protector: uno_de([
-    ["Zinc", "Zn"],
-    ["Magnesio", "Mg"],
-    ["Aluminio", "Al"]
-  ])
-
-respuesta: metal_protector[0][1
+respuesta: "Zn"
 tipo: mc
 opciones_explicitas: ["Zn", "Cu", "Ag", "Au"]
 
-enunciado: "En el proceso de galvanizado, se recubre el acero con una capa de {metal_protector[0][0]} para actuar como ánodo de sacrificio. El símbolo químico del metal utilizado es ___."
+enunciado: "En el proceso de galvanizado, se recubre el acero con una capa de zinc para actuar como ánodo de sacrificio. El símbolo químico del metal utilizado es ___."
 
 explicacion: |
   El zinc es más reactivo que el hierro. Al aplicarse como recubrimiento, el zinc se oxida preferencialmente (se sacrifica), protegiendo al acero.
@@ -206,7 +201,9 @@ metadata:
 
 respuesta: "oxidación"
 tipo: completar
-respuestas_validas: ["oxidación", "oxidacion"]
+respuestas_validas:
+  - "oxidación"
+  - "oxidacion"
 
 enunciado: "Aunque a menudo se usan como sinónimos, el término químico preciso para la pérdida de electrones de un átomo es la ___."
 
@@ -221,8 +218,8 @@ metadata:
   nivel: "basico"
   tags: ["ambiente", "electrolito"]
 
-respuesta: false
-tipo: completar
+tipo: vf
+respuesta: verdadero
 enunciado: "¿La presencia de un electrolito (como agua salada) siempre acelera el proceso de corrosión galvánica en comparación con el aire seco?"
 
 explicacion: |
@@ -237,17 +234,14 @@ metadata:
   tags: ["pasivacion", "aluminio", "acero"]
 
 variables:
+  casos: [["hierro en condiciones normales", "Se oxida rápidamente de forma continua"], ["aluminio", "Se protege mediante una capa de óxido estable"]]
   idx: uno_de([0, 1])
-  caso: datos[idx][0]
-  respuesta_correcta: datos[idx][1]
+  caso: casos[idx][0]
+  respuesta_correcta: casos[idx][1]
 
-respuesta: tabla[caso][1]
+respuesta: respuesta_correcta
 tipo: mc
 opciones_explicitas: ["Se oxida rápidamente de forma continua", "Se protege mediante una capa de óxido estable", "No se corroe nunca", "Se disuelve en el ambiente"]
-tabla: [
-  ["hierro en condiciones normales", false],
-  ["aluminio", true]
-]
 
 enunciado: "Considerando el comportamiento del {caso}, ¿cuál es la principal diferencia en su comportamiento frente a la corrosión?"
 
@@ -262,10 +256,10 @@ metadata:
   nivel: "intermedio"
   tags: ["electroquimica", "pilas"]
 
-respuesta: ["Ánodo", "Electrolito", "Cátodo"]
+respuesta_orden: ["Ánodo", "Electrolito", "Cátodo"]
 tipo: ordenar
 
-opciones_explicitas: ["Ánodo", "Electrolito", "Cátodo", "Aislante"]
+opciones_explicitas: ["Ánodo", "Electrolito", "Cátodo"]
 
 enunciado: "Ordene los componentes necesarios para que ocurra una celda de corrosión galvánica, desde donde se pierde el material hasta donde se produce la reducción:"
 
@@ -283,12 +277,9 @@ metadata:
 variables:
   idx: uno_de([0, 1])
   humedad_relativa: [10, 85][idx]
-  tabla: [
-    ["No influye", false],
-    ["Aumenta la velocidad de corrosión", true]
-  ]
+  tabla: ["No influye", "Aumenta la velocidad de corrosión"]
 
-respuesta: tabla[idx][1]
+respuesta: tabla[idx]
 tipo: mc
 opciones_explicitas: ["No influye", "Aumenta la velocidad de corrosión", "Disminuye la velocidad de corrosión"]
 
@@ -307,7 +298,8 @@ metadata:
 
 respuesta: "oxidación"
 tipo: "completar"
-respuestas_validas: ["oxidación"]
+respuestas_validas:
+  - "oxidación"
 
 enunciado: "Si bien la corrosión es un proceso de deterioro, la ___ es el proceso químico de pérdida de electrones que puede ocurrir incluso sin la degradación destructiva de la pieza."
 
@@ -322,14 +314,11 @@ metadata:
   nivel: "intermedio"
   tags: ["mecanica", "deterioro"]
 
-variables:
-  tipo_deterioro: uno_de(["quimico", "mecanico"])
-
-respuesta: uno_de(["quimico", "mecanico"])
+respuesta: "quimico"
 tipo: "mc"
 opciones_explicitas: ["quimico", "mecanico"]
 
-enunciado: "El deterioro de un material debido al desgaste físico por el impacto de partículas o flujo de fluidos se denomina erosión, mientras que la corrosión es un proceso de naturaleza {tipo_deterioro}."
+enunciado: "El deterioro de un material debido al desgaste físico por el impacto de partículas o flujo de fluidos se denomina erosión, mientras que la corrosión es un proceso de naturaleza ___."
 
 explicacion: |
   La erosión es un proceso mecánico de remoción de material por fricción o impacto, mientras que la corrosión es un proceso químico o electroquímico.
@@ -358,9 +347,9 @@ metadata:
   nivel: "basico"
   tags: ["ambiente"]
 
-respuesta: ["Presencia de electrolitos", "Aumento de humedad", "Presencia de sales"]
-tipo: "ordenar"
+tipo: ordenar
 opciones_explicitas: ["Presencia de electrolitos", "Aumento de humedad", "Presencia de sales"]
+respuesta_orden: ["Presencia de electrolitos", "Aumento de humedad", "Presencia de sales"]
 
 enunciado: "Ordene de mayor a menor relevancia los factores que suelen acelerar un proceso de corrosión electrolítica en un ambiente marino:"
 
@@ -375,17 +364,11 @@ metadata:
   nivel: "avanzado"
   tags: ["defectos", "localizada"]
 
-variables:
-  escenario: uno_de([0, 1])
-
-respuesta: uno_de(["localizada", "general"])
+respuesta: "general"
 tipo: "mc"
 opciones_explicitas: ["localizada", "general"]
 
-enunciado: "Si el daño por corrosión se concentra en puntos específicos creando pequeños agujeros profundos, estamos ante una corrosión {escenario_desc}, a diferencia de la corrosión ___ que afecta toda la superficie por igual."
-
-variables:
-  escenario_desc: uno_de(["localizada", "general"])
+enunciado: "Si el daño por corrosión se concentra en puntos específicos creando pequeños agujeros profundos, estamos ante una corrosión localizada, a diferencia de la corrosión ___ que afecta toda la superficie por igual."
 
 explicacion: |
   La corrosión por picadura (pitting) es un tipo de corrosión localizada muy peligrosa porque es difícil de detectar, a diferencia de la corrosión general que es uniforme.
@@ -399,7 +382,7 @@ metadata:
   tags: ["metales", "electroquimica"]
 
 variables:
-  datos: [["Hierro (Fe)", "Zinc (Zn)"], ["Aluminio (Al)", "Cobre (Cu)"], ["Acero (Fe)", "Plata (Ag)"]]
+  datos: [["Zinc (Zn)", "Hierro (Fe)"], ["Aluminio (Al)", "Cobre (Cu)"], ["Acero (Fe)", "Plata (Ag)"]]
   idx: uno_de([0, 1, 2])
   metal_anodo: datos[idx][0]
   metal_catodo: datos[idx][1]
@@ -424,13 +407,14 @@ metadata:
 variables:
   datos: [["ambiente seco", "ambiente húmedo y salino"], ["aire puro", "ambiente con alta salinidad"]]
   idx: uno_de([0, 1])
-  entorno: datos[idx][0]
+  entorno: datos[idx][1]
 
-enunciado: "La velocidad de corrosión de un acero al carbono aumenta significativamente cuando se encuentra en un {entorno}."
+enunciado: "La velocidad de corrosión de un acero al carbono ___ significativamente cuando se encuentra en un {entorno}."
 
 respuesta: "aumenta"
 tipo: completar
-respuestas_validas: ["aumenta", "disminuye"]
+respuestas_validas:
+  - "aumenta"
 
 explicacion: |
   La presencia de electrolitos (como la sal o el agua) facilita el flujo de iones en la superficie del metal, acelerando la reacción electroquímica de corrosión.
@@ -446,7 +430,7 @@ metadata:
 enunciado: "Ordene las etapas típicas de una celda de corrosión electrolítica en el orden correcto, desde el inicio de la reacción hasta el producto final."
 
 opciones_explicitas: ["Oxidación en el ánodo", "Transferencia de electrones", "Reducción en el cátodo", "Difusión de iones"]
-respuesta: ["Oxidación en el ánodo", "Transferencia de electrones", "Reducción en el cátodo", "Difusión de iones"]
+respuesta_orden: ["Oxidación en el ánodo", "Transferencia de electrones", "Reducción en el cátodo", "Difusión de iones"]
 tipo: ordenar
 
 explicacion: |
@@ -461,11 +445,9 @@ metadata:
   tags: ["proteccion", "anodo_sacrificio"]
 
 variables:
-  datos: [["Tubería de acero", "Casco de barco de hierro"]]
-  idx: uno_de([0, 1])
-  objetivo: datos[idx][0]
+  objetivo: uno_de(["Tubería de acero", "Casco de barco de hierro"])
 
-enunciado: "Para proteger una {objetivo} mediante protección galvánica, se debe conectar un ánodo de sacrificio que sea ___ que el metal a proteger."
+enunciado: "Para proteger una {objetivo} mediante protección galvánica, se debe conectar un ánodo de sacrificio que sea menos noble que el metal a proteger."
 
 respuesta: "menos noble"
 tipo: mc
@@ -483,15 +465,12 @@ metadata:
   tags: ["localizada", "cloruros"]
 
 variables:
-  datos: [["cloruros (Cl⁻)", "oxígeno (O₂)"]]
-  idx: uno_de([0, 1])
-  sustancia: datos[idx][0]
+  sustancia: "cloruros (Cl⁻)"
 
 enunciado: "La presencia de iones {sustancia} es uno de los factores más críticos que desencadenan la corrosión por picadura (pitting) en aceros inoxidables."
 
-respuestas_validas: [true]
-respuesta: true
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   Los iones cloruro rompen la capa pasiva de óxido de los aceros inoxidables, permitiendo una corrosión localizada muy agresiva y difícil de detectar.
 ```
@@ -505,10 +484,10 @@ metadata:
   nivel: "basico"
   tags: ["elasticidad", "hooke", "fuerza"]
 
-respuesta: "F"
-tipo: "vf"
+respuesta: verdadero
+tipo: vf
 
-enunciado: "La Ley de Hooke establece que la deformación de un cuerpo elástico es directamente proporcional a la fuerza aplicada, siempre que no se exceda el límite elástico. (Verdadero/Falso)"
+enunciado: "La Ley de Hooke establece que la deformación de un cuerpo elástico es directamente proporcional a la fuerza aplicada, siempre que no se exceda el límite elástico."
 
 explicacion: |
   La Ley de Hooke postula la relación lineal entre la fuerza aplicada y la deformación (estiramiento o compresión) en el régimen elástico.
@@ -542,11 +521,10 @@ metadata:
   nivel: "intermedio"
   tags: ["deformacion", "esfuerzo", "modulo_young"]
 
-respuesta: ["esfuerzo", "deformacion"]
-tipo: "ordenar"
-opciones_explicitas: ["esfuerzo", "deformacion", "masa"]
+tipo: vf
+respuesta: verdadero
 
-enunciado: "Para calcular el Módulo de Young (E), se debe dividir el ___ entre la ___."
+enunciado: "Para calcular el Módulo de Young (E), se debe dividir el esfuerzo entre la deformación. ¿Verdadero o falso?"
 
 explicacion: |
   La fórmula del Módulo de Young es E = σ / ε, donde σ es el esfuerzo (fuerza/área) y ε es la deformación unitaria.
@@ -561,7 +539,8 @@ metadata:
 
 respuesta: "plasticidad"
 tipo: "completar"
-respuestas_validas: ["plasticidad"]
+respuestas_validas:
+  - "plasticidad"
 
 enunciado: "Cuando un material es sometido a un esfuerzo que supera su límite elástico, la deformación deja de ser reversible y entra en el régimen de ________."
 
@@ -638,10 +617,7 @@ metadata:
   nivel: "intermedio"
   tags: ["tension", "deformacion", "elasticidad"]
 
-variables:
-  es_elastico: verdadero
-
-enunciado: "Si un material se somete a una carga y, al retirar dicha carga, recupera su forma original sin deformaciones permanentes, se dice que el material se ha comportado de forma {es_elastico}."
+enunciado: "Si un material se somete a una carga y, al retirar dicha carga, recupera su forma original sin deformaciones permanentes, se dice que el material se ha comportado de forma elástica. ¿Verdadero o falso?"
 
 respuesta: verdadero
 tipo: vf
@@ -659,7 +635,8 @@ metadata:
 
 variables:
   datos: [[100.0, 0.01], [200.0, 0.02], [50.0, 0.005]]
-  idx: uno_de([0,1,2])
+  idx: uno_de([0, 1, 2])
+  respuesta_correcta: 10000.0
 
 enunciado: "Se aplica una fuerza de {datos[idx][0]} N sobre una barra con una sección transversal de {datos[idx][1]} m². ¿Cuál es el valor del esfuerzo mecánico (tensión) en Pascales (Pa)?"
 
@@ -667,25 +644,9 @@ pasos:
   - "Calcular el esfuerzo usando la fórmula: σ = F / A."
   - "Sustituir los valores: σ = {datos[idx][0]} / {datos[idx][1]}."
 
-respuesta: datos[idx][1] # Error en lógica de pensamiento, corregido abajo:
-# La respuesta debe ser el resultado del cálculo:
-# Para idx=0: 100 / 0.01 = 10000
-# Para idx=1: 200 / 0.02 = 10000
-# Para idx=2: 50 / 0.005 = 10000
-# Como el resultado es constante en este ejemplo para simplificar:
-# (En un caso real usaríamos la expresión matemática si el DSL lo permitiera, 
-# pero como la respuesta debe ser el valor exacto del sorteo, calculamos:
-# Si idx=0, respuesta=10000.0; Si idx=1, respuesta=10000.0; Si idx=2, respuesta=10000.0)
-
-# Re-ajuste para cumplir reglas de respuesta:
-# Usaremos una tabla de respuestas para asegurar el match exacto con el sorteo.
-
-respuesta: tabla_respuestas[idx][1
+respuesta: respuesta_correcta
 tipo: completar
 tolerancia_abs: 0.01
-
-variables:
-  tabla_respuestas: [[10000.0, 10000.0], [10000.0, 10000.0], [10000.0, 10000.0]]
 
 explicacion: |
   El esfuerzo (σ) se calcula dividiendo la fuerza entre el área de la sección transversal: σ = F / A.
@@ -700,7 +661,7 @@ metadata:
 
 opciones_explicitas: ["Se aplica una carga externa al material.", "El material experimenta una deformación elástica.", "Se retira la carga y el material recupera su forma."]
 
-respuesta: ["Se aplica una carga externa al material.", "El material experimenta una deformación elástica.", "Se retira la carga y el material recupera su forma."]
+respuesta_orden: ["Se aplica una carga externa al material.", "El material experimenta una deformación elástica.", "Se retira la carga y el material recupera su forma."]
 tipo: ordenar
 
 enunciado: "Ordena cronológicamente los eventos que describen un ciclo de carga y descarga en un material dentro de su límite elástico:"
@@ -744,7 +705,7 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En el régimen elástico de un material, la deformación unitaria ($\epsilon$) es directamente proporcional al esfuerzo aplicado ($\sigma$), siempre que no se supere el límite de proporcionalidad."
+enunciado: "En el régimen elástico de un material, la deformación unitaria ($\\epsilon$) es directamente proporcional al esfuerzo aplicado ($\\sigma$), siempre que no se supere el límite de proporcionalidad."
 
 explicacion: |
   Esta es la esencia de la Ley de Hooke ($\sigma = E \cdot \epsilon$). Si el material sale del régimen elástico, la relación deja de ser lineal y la Ley de Hooke ya no es aplicable.
@@ -759,24 +720,31 @@ metadata:
 
 variables:
   escenario: uno_de([0, 1])
-  valores: [[1000, 0.0005, 200e9], [500, 0.001, 100e9]]
+  valores: [[1000, 0.0005], [500, 0.001]]
+  fuerza: valores[escenario][0]
+  delta_l: valores[escenario][1]
+  area: 0.001
+  longitud: 2
+  esfuerzo: fuerza / area
+  deformacion: delta_l / longitud
+  modulo_e: esfuerzo / deformacion
 
 pasos:
-  - "Calcular el esfuerzo $\sigma = F / A$"
-  - "Calcular la deformación unitaria $\epsilon = \Delta L / L$"
-  - "Calcular $E = \sigma / \epsilon$"
+  - "Calcular el esfuerzo σ = F / A"
+  - "Calcular la deformación unitaria ε = ΔL / L"
+  - "Calcular E = σ / ε"
 
-enunciado: "Se aplica una fuerza de {valores[escenario][0]} N sobre una varilla de sección $A = 10^{-3}$ $m^2$ y longitud $L = 2$ $m$. Si la varilla se estira $\Delta L = {valores[escenario][1]}$ $m$, ¿cuál es el módulo de Young del material en Pa?"
+enunciado: "Se aplica una fuerza de {fuerza} N sobre una varilla de sección A = 10⁻³ m² y longitud L = 2 m. Si la varilla se estira ΔL = {delta_l} m, ¿cuál es el módulo de Young del material en Pa?"
 
-respuesta: {valores[escenario][2]}
+respuesta: modulo_e
 tipo: completar
-tolerancia_abs: 0.001
+tolerancia_abs: 1000
 
 explicacion: |
-  Usando la fórmula $E = \frac{F/A}{\Delta L/L}$:
-  $\sigma = 1000 / 0.001 = 1,000,000$ Pa.
-  $\epsilon = 0.0005 / 2 = 0.00025$.
-  $E = 1,000,000 / 0.00025 = 4 \times 10^9$ Pa (ajustado según el escenario).
+  Usando la fórmula E = (F/A)/(ΔL/L):
+  σ = {fuerza} / {area} = {esfuerzo} Pa.
+  ε = {delta_l} / {longitud} = {deformacion}.
+  E = {esfuerzo} / {deformacion} = {modulo_e} Pa.
 ```
 
 ```
@@ -786,10 +754,12 @@ metadata:
   nivel: "basico"
   tags: ["completar", "esfuerzo", "deformación"]
 
-respuesta: ["esfuerzo", "deformación"]
+respuesta: "deformación"
 tipo: completar
+respuestas_validas:
+  - "deformación"
 
-enunciado: "La Ley de Hooke establece que el ___ es proporcional a la ___ unitaria en el régimen elástico."
+enunciado: "La Ley de Hooke establece que el esfuerzo es proporcional a la ___ unitaria en el régimen elástico."
 
 explicacion: |
   La relación es $\sigma \propto \epsilon$. El error común es confundir el esfuerzo (fuerza por área) con la fuerza directamente, o la deformación (cambio relativo) con el desplazamiento absoluto.
@@ -804,7 +774,7 @@ metadata:
 
 opciones_explicitas: ["Aplicación de carga", "Deformación elástica", "Deformación plástica", "Rotura"]
 
-respuesta: ["Aplicación de carga", "Deformación elástica", "Deformación plástica", "Rotura"]
+respuesta_orden: ["Aplicación de carga", "Deformación elástica", "Deformación plástica", "Rotura"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente los estados por los que pasa un material sometido a una carga creciente hasta su falla:"
@@ -820,11 +790,10 @@ metadata:
   nivel: "basico"
   tags: ["elasticidad", "hooke"]
 
-variables:
-  es_elastico: verdadero
-
-respuesta: es_elastico
+respuesta: "elástico"
 tipo: completar
+respuestas_validas:
+  - "elástico"
 enunciado: "Si un material se deforma y, al retirar la carga, recupera su forma original, se dice que se encuentra dentro de su rango ____. Si la deformación es permanente, se ha superado el límite elástico."
 
 pasos:
@@ -841,15 +810,12 @@ metadata:
   nivel: "intermedio"
   tags: ["modulo_young", "modulo_corte", "deformacion"]
 
-variables:
-  tipo_deformacion: uno_de(["axial", "cizalladura"])
-
-respuesta: tipo_deformacion[1
+respuesta: "axial"
 tipo: mc
 
 opciones_explicitas: ["axial", "cizalladura"]
 
-enunciado: "El Módulo de Young mide la rigidez de un material frente a una deformación de tipo {tipo_deformacion[0]}, mientras que el Módulo de Corte mide la resistencia a la deformación por {tipo_deformacion[1]}."
+enunciado: "El Módulo de Young mide la rigidez de un material frente a una deformación de tipo ___, mientras que el Módulo de Corte mide la resistencia a la deformación por cizalladura."
 
 explicacion: |
   El Módulo de Young ($E$) relaciona el esfuerzo normal con la deformación axial. El Módulo de Corte ($G$) relaciona el esfuerzo cortante con la deformación por cizalladura.
@@ -862,11 +828,8 @@ metadata:
   nivel: "intermedio"
   tags: ["modulo_young", "rigidez"]
 
-variables:
-  es_mayor: verdadero
-
-respuesta: es_mayor
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Si comparamos dos barras del mismo material pero con diferentes diámetros, la barra con mayor diámetro tendrá un valor de Módulo de Young más alto. ¿Es esto verdadero o falso?"
 
 explicacion: |
@@ -880,12 +843,12 @@ metadata:
   nivel: "basico"
   tags: ["hooke", "esfuerzo", "deformacion"]
 
-respuesta: ["esfuerzo", "deformación"]
+respuesta_orden: ["esfuerzo", "deformación"]
 tipo: ordenar
 
-opciones_explicitas: ["deformación", "esfuerzo", "temperatura", "masa"]
+opciones_explicitas: ["esfuerzo", "deformación"]
 
-enunciado: "En la formulación de la Ley de Hooke ($\sigma = E \cdot \epsilon$), se establece una relación de proporcionalidad directa entre el ____ y la ____."
+enunciado: "En la formulación de la Ley de Hooke (σ = E · ε), se establece una relación de proporcionalidad directa entre el ____ y la ____."
 
 explicacion: |
   La Ley de Hooke establece que el esfuerzo ($\sigma$) es directamente proporcional a la deformación unitaria ($\epsilon$), siendo el Módulo de Young ($E$) la constante de proporcionalidad.
@@ -898,11 +861,8 @@ metadata:
   nivel: "basico"
   tags: ["esfuerzo", "deformacion", "hooke"]
 
-variables:
-  es_relacion_directa: verdadero
-
-respuesta: es_relacion_directa
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En el régimen elástico, si el esfuerzo aplicado sobre un material aumenta, la deformación resultante también aumenta. ¿Es esta relación directa?"
 
 explicacion: |
@@ -917,28 +877,30 @@ metadata:
   tags: ["elasticidad", "fisica", "materiales"]
 
 variables:
-  escenario: uno_de([[10, 0.001, 200e9, 0.005], [15, 0.002, 150e9, 0.004], [20, 0.001, 100e9, 0.002]])
+  escenario: uno_de([[1000, 0.001, 2, 0.0001], [2000, 0.001, 1, 0.0002]])
   F: escenario[0]
-  delta_L: escenario[1]
-  E: escenario[2]
-  L: escenario[3]
+  A: escenario[1]
+  L: escenario[2]
+  delta_L: escenario[3]
+  esfuerzo: F / A
+  deformacion: delta_L / L
+  modulo_e: esfuerzo / deformacion
 
-respuesta: (F / delta_L) / (E * L) * L
+respuesta: modulo_e
 tipo: completar
-tolerancia_abs: 1e-6
+tolerancia_abs: 1e7
 
-enunciado: "Un material tiene una longitud inicial de {L} m. Al aplicarle una fuerza de {F} N, su longitud aumenta {delta_L} m. ¿Cuál es el módulo de Young (E) del material en Pa?"
+enunciado: "Una varilla de sección transversal A = {A} m² y longitud inicial L = {L} m se somete a una fuerza F = {F} N, lo que produce un alargamiento ΔL = {delta_L} m. ¿Cuál es el módulo de Young (E) del material, en Pa?"
 
 pasos:
-  - "Calcular la tensión (stress): σ = F / A. Como no se da el área, usamos la forma deformación: σ = E * ε"
-  - "La deformación unitaria es ε = ΔL / L"
-  - "Despejamos E de la fórmula: E = (F / ΔL) / (A / L) -> En este caso, para obtener E directamente con los datos: E = (F * L) / (ΔL * A). Si asumimos que el dato proporcionado es la relación para el cálculo directo: E = (F / ΔL) / (L / (L * (ΔL/L))) -> Simplificado: E = (F * L) / (ΔL * A). Dado que el problema pide el módulo y relaciona F, ΔL, L y E, la fórmula es E = (F / ΔL) / (A/L). Si el área no se da, el enunciado implica el cálculo de la relación de rigidez: E = (F * L) / (ΔL * A). Asumiendo un área unitaria de 1 m² para el cálculo del módulo si no se especifica, o que el usuario debe despejar de la relación dada."
-  - "Nota: Para este ejercicio, asuma un área de sección transversal de 1 m² para el cálculo del módulo de Young."
+  - "Calcular el esfuerzo: σ = F / A"
+  - "Calcular la deformación unitaria: ε = ΔL / L"
+  - "Calcular E = σ / ε"
 
 explicacion: |
-  El módulo de Young se define como el esfuerzo dividido por la deformación unitaria: E = σ / ε.
-  Donde σ = F / A y ε = ΔL / L.
-  Si A = 1 m², entonces E = (F / ΔL) / (1 / L) = (F * L) / ΔL.
+  σ = {F} / {A} = {esfuerzo} Pa.
+  ε = {delta_L} / {L} = {deformacion}.
+  E = {esfuerzo} / {deformacion} = {modulo_e} Pa.
 ```
 
 ```
@@ -952,6 +914,9 @@ respuesta: verdadero
 tipo: vf
 
 enunciado: "Si un material se encuentra dentro de su límite elástico, al retirar la carga aplicada, este recuperará su forma original."
+
+explicacion: |
+  Verdadero. Dentro del límite elástico, la deformación es reversible: el material recupera completamente su forma original al retirar la carga.
 ```
 
 ```
@@ -961,11 +926,7 @@ metadata:
   nivel: "basico"
   tags: ["ley_de_hooke", "proporcionalidad"]
 
-variables:
-  datos: [[10, "aumenta"], [20, "aumenta"], [30, "aumenta"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1
+respuesta: "aumenta"
 tipo: mc
 
 opciones_explicitas: ["disminuye", "aumenta", "se mantiene constante", "se vuelve negativo"]
@@ -1001,7 +962,7 @@ metadata:
   nivel: "intermedio"
   tags: ["deformación", "plasticidad"]
 
-respuesta: ["Deformación elástica", "Límite elástico", "Deformación plástica", "Punto de rotura"]
+respuesta_orden: ["Deformación elástica", "Límite elástico", "Deformación plástica", "Punto de rotura"]
 tipo: ordenar
 
 opciones_explicitas: ["Deformación elástica", "Límite elástico", "Deformación plástica", "Punto de rotura"]
@@ -1015,946 +976,485 @@ explicacion: |
   4. Punto de rotura: El material falla y se separa.
 ```
 
-## Sección: familias-de-materiales-metales-ceramicos-polimeros-compuestos (25 preguntas)
+## Sección: propiedades-mecanicas-dureza-tenacidad-ductilidad (26 preguntas)
 
 ```
 metadata:
   materia: "materiales"
-  tema: "familias_de_materiales"
+  tema: "propiedades_mecanicas"
   nivel: "basico"
-  tags: ["clasificacion", "metales"]
+  tags: ["dureza", "definicion"]
 
 tipo: mc
-opciones_explicitas: ["Metales", "Cerámicos", "Polímeros", "Compuestos"]
-respuesta: "Metales"
+opciones_explicitas: ["resistencia a la deformación plástica", "resistencia al rayado o penetración", "resistencia a la rotura", "capacidad de estiramiento"]
 
-enunciado: "Los materiales que se caracterizan por tener un enlace metálico, alta conductividad eléctrica y térmica, y alta ductilidad, pertenecen a la familia de los ___."
+enunciado: "La dureza de un material se define como su resistencia a la ___."
+
+respuesta: "resistencia al rayado o penetración"
 
 explicacion: |
-  Los metales poseen una red de cationes inmersos en un "mar de electrones" que permite el movimiento de carga y calor, otorgándoles su conductividad característica.
+  La dureza es la propiedad que indica cuánto se resiste un material a ser rayado, penetrado o deformado superficialmente por otro cuerpo más duro.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "familias_de_materiales"
+  tema: "propiedades_mecanicas"
   nivel: "basico"
-  tags: ["ceramicos", "propiedades"]
+  tags: ["tenacidad", "energia"]
 
 tipo: vf
-respuesta: falso
+respuesta: verdadero
 
-enunciado: "¿Los materiales cerámicos se caracterizan por ser altamente dúctiles y tener una excelente conductividad eléctrica?"
+enunciado: "¿Es la tenacidad la capacidad de un material para absorber energía antes de romperse?"
 
 explicacion: |
-  Falso. Los cerámicos son materiales generalmente frágiles (no dúctiles) y actúan como excelentes aislantes eléctricos debido a sus enlaces iónicos o covalentes.
+  Verdadero. La tenacidad es la capacidad de un material para absorber energía y deformarse plásticamente antes de la fractura.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "familias_de_materiales"
+  tema: "propiedades_mecanicas"
   nivel: "basico"
-  tags: ["polimeros", "estructura"]
+  tags: ["tenacidad"]
 
-tipo: completar
-respuestas_validas: ["macromoléculas", "monómeros"]
-respuesta: "macromoléculas"
-
-enunciado: "Los polímeros son materiales formados por la unión de largas cadenas de ___."
-
-explicacion: |
-  Las macromoléculas o polímeros se forman mediante la repetición de unidades estructurales más pequeñas llamadas monómeros.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "basico"
-  tags: ["compuestos", "definicion"]
-
-tipo: mc
-opciones_explicitas: ["Una sola fase pura", "Dos o más fases distintas", "Una mezcla homogénea de átomos", "Unión de metales y cerámicos únicamente"]
-respuesta: "Dos o más fases distintas"
-
-enunciado: "Un material compuesto se define como aquel que está constituido por:"
-
-explicacion: |
-  Los materiales compuestos combinan dos o más componentes (fase matriz y fase refuerzo) para obtener propiedades que ninguno de los componentes posee por separado.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "intermedio"
-  tags: ["polimeros", "procesamiento"]
-
-tipo: ordenar
-opciones_explicitas: ["Monómero", "Polímero", "Producto final"]
-respuesta: ["Monómero", "Polímero", "Producto final"]
-
-enunciado: "Ordene las etapas de formación de un material polimérico desde la unidad básica hasta el objeto terminado:"
-
-explicacion: |
-  El proceso comienza con la unidad química básica (monómero), que mediante la polimerización forma la cadena (polímero), que luego se procesa para obtener el producto.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "basico"
-  tags: ["clasificacion", "metales"]
-
-respuesta: "metales"
-tipo: mc
-opciones_explicitas: ["metales", "cerámicos", "polímeros", "compuestos"]
-
-enunciado: "Un cable de cobre utilizado para transmitir electricidad en una instalación doméstica posee alta conductividad eléctrica y ductilidad. Por sus propiedades, este material pertenece a la familia de los ________."
-
-explicacion: |
-  Los metales se caracterizan por tener enlaces metálicos que permiten el movimiento libre de electrones, lo que les otorga alta conductividad eléctrica y térmica, además de ser generalmente dúctiles.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "basico"
-  tags: ["cerámicos", "propiedades"]
-
-respuesta: falso
 tipo: vf
+respuesta: verdadero
 
-enunciado: "Los materiales cerámicos, debido a sus enlaces iónicos o covalentes, presentan una alta ductilidad y son excelentes conductores de electricidad a temperatura ambiente."
+enunciado: "La tenacidad se define como la capacidad de un material para absorber energía antes de la fractura."
 
 explicacion: |
-  Falso. Los cerámicos son materiales mayoritariamente aislantes eléctricos y presentan una alta fragilidad (no son dúctiles), ya que sus enlaces fuertes impiden el deslizamiento de planos atómicos.
+  Correcto. Un material tenaz es aquel que puede absorber una gran cantidad de energía (trabajo) antes de romperse, combinando resistencia y ductilidad.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "intermedio"
-  tags: ["compuestos", "estructura"]
-
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: tabla[idx][1
-tipo: completar
-tabla: [["fibra de vidrio", "fibra de vidrio"], ["resina epoxi", "resina epoxi"]]
-opciones_explicitas: ["fibra de vidrio", "resina epoxi"]
-
-enunciado: "En un material compuesto reforzado (como la fibra de vidrio), la fase que aporta resistencia mecánica se denomina fase ________, mientras que la fase que mantiene la forma y transfiere la carga es la matriz."
-
-explicacion: |
-  En los materiales compuestos, la fase de refuerzo (como la fibra) es la que soporta la mayor parte de la carga, mientras que la matriz (como la resina) rodea y protege al refuerzo.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
+  tema: "propiedades_mecanicas"
   nivel: "basico"
-  tags: ["polímeros", "estructuras"]
+  tags: ["ductilidad"]
 
-respuesta: "polímeros"
 tipo: completar
-respuestas_validas: ["polímeros"]
+respuestas_validas:
+  - "ductilidad"
 
-enunciado: "Las macromoléculas formadas por la unión de largas cadenas de unidades repetitivas llamadas monómeros se conocen como ________."
+enunciado: "La capacidad de un material para deformarse plásticamente bajo tensión sin llegar a la rotura, permitiendo su estiramiento en hilos, se denomina ___."
+
+respuesta: "ductilidad"
 
 explicacion: |
-  Los polímeros (del griego 'muchos') son materiales cuyas moléculas son cadenas muy largas, lo que les confiere propiedades como la flexibilidad y baja densidad.
+  La ductilidad es la propiedad que permite a los materiales (especialmente metales) deformarse permanentemente sin romperse, facilitando procesos como el trefilado.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "familias_de_materiales"
+  tema: "propiedades_mecanicas"
   nivel: "intermedio"
-  tags: ["polímeros", "procesamiento"]
+  tags: ["relacion_propiedades"]
 
-respuesta: ["calentamiento", "moldeo", "enfriamiento", "solidificación"]
+tipo: mc
+opciones_explicitas: ["Dureza", "Tenacidad", "Ductilidad"]
+
+enunciado: "Si un material es capaz de absorber mucha energía antes de romperse, es porque posee una alta ___."
+
+respuesta: "Tenacidad"
+
+explicacion: |
+  La tenacidad es el área bajo la curva de esfuerzo-deformación; requiere tanto resistencia como capacidad de deformación plástica.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "propiedades_mecanicas"
+  nivel: "intermedio"
+  tags: ["ordenar"]
+
 tipo: ordenar
-opciones_explicitas: ["calentamiento", "moldeo", "enfriamiento", "solidificación"]
+opciones_explicitas: ["Fragilidad", "Ductilidad", "Maleabilidad"]
 
-enunciado: "Para fabricar una pieza mediante inyección de un polímero termoplástico, se debe seguir un orden lógico de transformación térmica. Ordena los pasos:"
+respuesta_orden: ["Fragilidad", "Ductilidad", "Maleabilidad"]
 
-pasos:
-  - "El material se eleva su temperatura hasta alcanzar el estado viscoso."
-  - "El material fundido se introduce en la cavidad del molde."
-  - "Se reduce la temperatura para recuperar la rigidez."
-  - "El material toma su forma final tras el cambio de fase."
+enunciado: "Ordene los siguientes conceptos según su capacidad de deformación plástica, desde el que menos se deforma (se rompe súbitamente) hasta el que permite mayor deformación/moldeado:"
 
 explicacion: |
-  Los termoplásticos se caracteran por poder fundirse y moldearse repetidamente mediante ciclos de calentamiento (fusión) y enfriamiento (solidificación) sin que su estructura química cambie drásticamente.
+  La fragilidad implica rotura sin deformación previa significativa. La ductilidad permite estiramiento (hilos) y la maleabilidad permite deformación en láminas.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "familias_de_materiales_metales_ceramicos_polimeros_compuestos"
+  tema: "propiedades_mecanicas"
   nivel: "basico"
-  tags: ["enlaces", "ceramicos"]
+  tags: ["definiciones", "dureza", "tenacidad"]
 
-respuesta: "iónico o covalente"
+enunciado: "Un diamante es extremadamente difícil de rayar, mientras que un trozo de vidrio se rompe fácilmente ante un impacto seco. La propiedad que hace al diamante difícil de rayar es su alta ___."
+
+respuestas_validas:
+  - "dureza"
+respuesta: "dureza"
 tipo: completar
-respuestas_validas: ["iónico o covalente", "iónico", "covalente"]
-
-enunciado: "A diferencia de los metales, cuyos átomos se mantienen unidos por un mar de electrones, los materiales cerámicos se caracterizan por tener enlaces de tipo ___."
 
 explicacion: |
-  Los cerámicos presentan enlaces iónicos (transferencia de electrones) o covalentes (compartición de electrones), lo que les otorga su alta temperatura de fusión y fragilidad.
+  La dureza es la resistencia de un material a ser rayado o penetrado. La tenacidad es la capacidad de absorber energía antes de la rotura (resistencia al impacto).
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "familias_de_materiales_metales_ceramicos_polimeros_compuestos"
-  nivel: "basico"
-  tags: ["polimeros", "conductividad"]
-
-variables:
-  es_conductor: falso
-
-respuesta: es_conductor
-tipo: completar
-enunciado: "Un error común es pensar que todos los polímeros son conductores debido a su flexibilidad; sin embargo, la mayoría de los polímeros son aislantes eléctricos."
-
-explicacion: |
-  Los polímeros son generalmente aislantes debido a que sus electrones están localizados en enlaces covalentes, a diferencia de los metales.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales_metales_ceramicos_polimeros_compuestos"
+  tema: "propiedades_mecanicas"
   nivel: "intermedio"
-  tags: ["compuestos", "matriz"]
+  tags: ["ductilidad", "frágil"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["fibra de carbono", "resina epoxi"], ["grafitos", "polietileno"]]
+  datos: [["cobre", "este se estira significativamente sin romperse", "dúctil"], ["hierro fundido", "este se rompe repentinamente con muy poca deformación previa", "frágil"]]
 
-respuesta: datos[escenario_idx][1
+enunciado: "Se analiza un material de {datos[escenario_idx][0]}. Al someterlo a una carga creciente, {datos[escenario_idx][1]}. Por lo tanto, el material es ___."
+
+opciones_explicitas: ["dúctil", "frágil"]
+respuesta: datos[escenario_idx][2]
 tipo: mc
-opciones_explicitas: ["datos[escenario_idx][0]", "datos[escenario_idx][1]", "una mezcla homogénea de ambos"]
-
-enunciado: "En un material compuesto, la fase que rodea y mantiene unidas a las partículas o fibras se denomina ___."
 
 explicacion: |
-  En el ejemplo de {datos[escenario_idx][0]} y {datos[escenario_idx][1]}, la segunda componente actúa como la matriz que da forma al compuesto.
+  La ductilidad es la propiedad que permite a un material deformarse plásticamente (estirarse) antes de la fractura.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "familias_de_materiales_metales_ceramicos_polimeros_compuestos"
+  tema: "propiedades_mecanicas"
+  nivel: "basico"
+  tags: ["verdadero_falso"]
+
+enunciado: "Un material que absorbe mucha energía antes de romperse (alta tenacidad) es necesariamente un material muy duro."
+
+respuesta: falso
+tipo: vf
+
+explicacion: |
+  No siempre. Un material puede ser muy tenaz (como el acero de baja graduación) pero no ser especialmente duro. La dureza y la tenacidad son propiedades distintas.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "propiedades_mecanicas"
+  nivel: "intermedio"
+  tags: ["ductilidad", "proceso"]
+
+enunciado: "Ordena el proceso típico de un material dúctil cuando se somete a una carga de tracción creciente:"
+
+opciones_explicitas: ["Deformación elástica", "Deformación plástica", "Estricción", "Fractura"]
+respuesta_orden: ["Deformación elástica", "Deformación plástica", "Estricción", "Fractura"]
+tipo: ordenar
+
+explicacion: |
+  Primero ocurre la deformación elástica (reversible), luego la plástica (permanente), seguida de la estricción (reducción de sección local) y finalmente la fractura.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "propiedades_mecanicas"
+  nivel: "avanzado"
+  tags: ["tenacidad", "area_bajo_curva"]
+
+variables:
+  curva_tipo: uno_de([0, 1])
+  curva_datos: [[50, "alta"], [2, "baja"]]
+
+enunciado: "En un ensayo de tracción, la tenacidad se representa mediante el área bajo la curva de esfuerzo-deformación. Si comparamos un material con un área de {curva_datos[curva_tipo][0]} MPa·mm/mm frente a otro con un área de 5 MPa·mm/mm, el primero tiene una tenacidad ___."
+
+opciones_explicitas: ["alta", "baja"]
+respuesta: curva_datos[curva_tipo][1]
+tipo: mc
+
+explicacion: |
+  La tenacidad es la integral del esfuerzo respecto a la deformación; a mayor área bajo la curva, mayor es la energía absorbida y, por ende, mayor la tenacidad.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "propiedades_mecanicas"
+  nivel: "basico"
+  tags: ["dureza", "tenacidad", "confusiones"]
+
+enunciado: "Un material que es extremadamente duro (como el diamante) no es necesariamente tenaz. La dureza mide la resistencia al ___, mientras que la tenacidad mide la capacidad de absorber energía antes de la rotura."
+
+respuestas_validas:
+  - "rayado"
+respuesta: "rayado"
+tipo: completar
+
+explicacion: |
+  Es un error común pensar que un material duro es resistente a los impactos. La dureza es resistencia superficial al rayado o penetración, mientras que la tenacidad es la energía total que absorbe un material antes de romperse (relacionada con la tenacidad/fragilidad).
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "propiedades_mecanicas"
   nivel: "intermedio"
   tags: ["ductilidad", "fragilidad"]
 
-respuesta: ["Ductilidad", "Fragilidad"]
-tipo: ordenar
+enunciado: "Si un material se deforma significativamente de manera plástica antes de fallar, se dice que es dúctil. Si se rompe de forma repentina con mínima deformación, el material es considerado ___."
 
-opciones_explicitas: ["Ductilidad", "Fragilidad"]
-
-enunciado: "Ordena las siguientes propiedades mecánicas de mayor a menor capacidad de deformación plástica antes de la rotura, comparando un metal típico frente a una cerámica típica."
-
-explicacion: |
-  Los metales son generalmente dúctiles (pueden deformarse), mientras que los cerámicos son frágiles (se rompen sin deformación previa significativa).
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales_metales_ceramicos_polimeros_compuestos"
-  nivel: "basico"
-  tags: ["metales", "aleaciones"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "Una aleación metálica es un material compuesto donde la fase dispersa es otro metal."
-
-explicacion: |
-  Falso. Una aleación es una solución sólida (o mezcla) donde los elementos están distribuidos a nivel atómico, no es un material compuesto con fases claramente separadas como en los compuestos reforzados.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "basico"
-  tags: ["clasificacion", "metales"]
-
-respuesta: "metales"
-tipo: mc
-opciones_explicitas: ["metales", "cerámicos", "polímeros", "compuestos"]
-
-enunciado: "Los materiales que se caracterizan por tener enlaces metálicos, alta conductividad térmica y eléctrica, y ser generalmente dúctiles, pertenecen a la familia de los ___."
-
-explicacion: |
-  Los metales se distinguen por su nube de electrones deslocalizados, lo que permite la conducción eléctrica y la deformación plástica sin rotura inmediata.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "basico"
-  tags: ["ceramicos", "propiedades"]
-
-variables:
-  es_ceramico_fragil: true
-
-respuesta: es_ceramico_fragil
-tipo: completar
-enunciado: "A diferencia de los metales, los materiales cerámicos se caracterizan por ser altamente frágiles ante la aplicación de cargas mecánicas."
-
-explicacion: |
-  Los cerámicos poseen enlaces iónicos o covalentes muy fuertes que impiden el movimiento de dislocaciones, resultando en una baja tenacidad y alta fragilidad.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "intermedio"
-  tags: ["compuestos", "definicion"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [
-    ["fibra de carbono", "resina epoxi"],
-    ["arena", "cemento"]
-  ]
-
-respuesta: datos[escenario_idx][1
-tipo: completar
-respuestas_validas: ["resina epoxi", "cemento"]
-
-enunciado: "Un material compuesto se distingue de una aleación porque combina dos o más fases distintas. Por ejemplo, en un material reforzado con fibras de {datos[escenario_idx][0]}, la fase continua es la {datos[escenario_idx][1]}."
-
-explicacion: |
-  En un compuesto, la fase continua (matriz) rodea a la fase dispersa (refuerzo) para combinar propiedades que ninguna de las fases posee por separado.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "intermedio"
-  tags: ["polimeros", "moleculas"]
-
-respuesta: "cadenas largas de macromoléculas"
-tipo: completar
-respuestas_validas: ["cadenas largas de macromoléculas", "átomos en red cúbica"]
-
-enunciado: "Lo que distingue fundamentalmente a los polímeros de los metales y cerámicos es que su estructura está formada por ___."
-
-explicacion: |
-  Los polímeros están constituidos por unidades repetitivas (monómeros) que se unen para formar largas cadenas, lo que determina su baja densidad y flexibilidad.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "avanzado"
-  tags: ["orden", "jerarquia"]
-
-respuesta: ["átomos", "moléculas", "microestructura", "material compuesto"]
-tipo: ordenar
-opciones_explicitas: ["átomos", "moléculas", "microestructura", "material compuesto"]
-
-enunciado: "Ordene de lo más simple a lo más complejo la jerarquía de organización de la materia, desde el nivel atómico hasta la formación de un material compuesto funcional."
-
-explicacion: |
-  La jerarquía comienza en los átomos, que forman moléculas (en polímeros) o redes (en cerámicos/metales), cuya organización forma la microestructura, la cual es la base para diseñar materiales compuestos con propiedades específicas.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "basico"
-  tags: ["ceramicos", "propiedades"]
-
-variables:
-  datos: [["un horno industrial de alta temperatura", "cerámicos"], ["un cable eléctrico de alta conductividad", "metales"], ["un envase de plástico ligero para alimentos", "polímeros"]]
-  idx: uno_de([0,1,2])
-
-opciones_explicitas: ["metales", "cerámicos", "polímeros"]
-
-enunciado: "Se requiere un material para {datos[idx][0]} debido a su excelente resistencia al calor y su naturaleza aislante. El tipo de material adecuado es: ___"
-
-respuestas_validas: [datos[idx][1]]
-
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  Los materiales cerámicos se caracterizan por su alto punto de fusión y su capacidad de actuar como aislantes térmicos y eléctricos, lo que los hace ideales para aplicaciones de alta temperatura.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "basico"
-  tags: ["metales", "electricidad"]
-
-variables:
-  propiedad: uno_de(["alta conductividad eléctrica", "baja conductividad eléctrica", "aislamiento total"])
-  es_metal: uno_de([true, false])
-
-enunciado: "Los metales se distinguen principalmente por su {propiedad} debido a la movilidad de sus electrones de valencia."
-
-respuesta: es_metal
-tipo: completar
-explicacion: |
-  Los metales poseen un "mar de electrones" libres que permite el transporte eficiente de carga eléctrica, lo que define su alta conductividad.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "intermedio"
-  tags: ["polimeros", "densidad"]
-
-variables:
-  datos: [["un neumático de automóvil", "caucho"], ["una botella de PET", "polímero"], ["una viga de acero", "metal"]]
-  idx: uno_de([0,1,2])
-
-opciones_explicitas: ["metal", "polímero", "cerámico"]
-
-enunciado: "Analizando el caso de {datos[idx][0]}, observamos un material con baja densidad y gran flexibilidad. Este pertenece a la familia de los: ___"
-
-respuesta: datos[idx][1]
+opciones_explicitas: ["dúctil", "frágil", "elástico", "tenaz"]
+respuesta: "frágil"
 tipo: mc
 
 explicacion: |
-  Los polímeros son macromoléculas formadas por unidades repetitivas (monómeros) que generalmente presentan baja densidad y alta ductilidad/flexibilidad en comparación con metales o cerámicos.
+  La fragilidad es la propiedad opuesta a la ductilidad. Un material frágil (como el vidrio) no permite deformación plástica significativa antes de la fractura.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "familias_de_materiales"
+  tema: "propiedades_mecanicas"
   nivel: "intermedio"
-  tags: ["compuestos", "estructura"]
+  tags: ["relacion_propiedades"]
 
-variables:
-  componente_matriz: uno_de(["resina epóxica", "cemento", "aluminio"])
-  componente_refuerzo: uno_de(["fibra de carbono", "arena", "magnesio"])
-  es_compuesto: true
-
-enunciado: "Un material compuesto se define por la combinación de dos o más fases. Si combinamos una matriz de {"componente_matriz} con un refuerzo de {"componente_refuerzo}, estamos creando un material de tipo compuesto."
-
-respuesta: true
-tipo: completar
-explicacion: |
-  Los materiales compuestos (como el CFRP) combinan una matriz (que da forma y transfiere cargas) y un refuerzo (que aporta rigidez/resistencia), logrando propiedades superiores a sus componentes por separado.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "familias_de_materiales"
-  nivel: "avanzado"
-  tags: ["polimeros", "procesamiento"]
-
-variables:
-  pasos_correctos: ["Calentamiento del polímero", "Moldeo por inyección", "Enfriamiento y desmolde"]
-
-opciones_explicitas: ["Calentamiento del polímero", "Moldeo por inyección", "Enfriamiento y desmolde"]
-
-enunciado: "Para fabricar una pieza mediante moldeo por inyección de un polímero termoplástico, el orden lógico de los pasos es:"
-
-respuesta: ["Calentamiento del polímero", "Moldeo por inyección", "Enfriamiento y desmolde"]
-tipo: ordenar
-
-explicacion: |
-  En los termoplásticos, el material debe fundirse primero (calentamiento), ser forzado en el molde (moldeo) y finalmente solidificarse para recuperar su forma (enfriamiento).
-```
-
-## Sección: fatiga-y-fractura (25 preguntas)
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "basico"
-  tags: ["fatiga", "esfuerzo_repetitivo"]
-
-respuesta: "fatiga"
-tipo: "completar"
-respuestas_validas: ["fatiga"]
-
-enunciado: "El fenómeno por el cual un material se rompe bajo la aplicación de esfuerzos cíclicos o repetitivos, incluso cuando el esfuerzo máximo es inferior al límite de fluencia del material, se denomina ___."
-
-explicacion: |
-  La fatiga es un proceso de degradación estructural que ocurre debido a la aplicación de cargas fluctuantes, lo que puede generar microgrietas que se propagan hasta causar la falla catastrófica.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "basico"
-  tags: ["mecanismo", "grieta"]
-
-opciones_explicitas: ["Iniciación de grieta", "Propagación de grieta", "Fractura final"]
-respuesta: "Iniciación de grieta"
-tipo: "mc"
-
-enunciado: "En un proceso de falla por fatiga, ¿cuál es la etapa inicial que ocurre generalmente en la superficie del material debido a concentradores de tensión?"
-
-explicacion: |
-  El proceso típico de fatiga comienza con la nucleación o iniciación de una microgrieta, seguida por su propagación gradual y, finalmente, la fractura súbita cuando la sección remanente no puede soportar la carga.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "basico"
-  tags: ["esfuerzo", "estatico"]
+enunciado: "¿Es posible que un material sea muy duro y, al mismo tiempo, muy tenaz?"
 
 respuesta: falso
-tipo: "vf"
-
-enunciado: "Si un material está sometido a un esfuerzo constante (estático) que es menor a su límite de rotura, el material nunca fallará por fatiga."
-
-explicacion: |
-  Correcto. La fatiga requiere de la naturaleza cíclica o fluctuante de la carga. Un esfuerzo constante sin variaciones de amplitud no produce el mecanismo de fatiga.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "intermedio"
-  tags: ["secuencia", "falla"]
-
-opciones_explicitas: ["Iniciación", "Propagación", "Fractura catastrófica"]
-respuesta: ["Iniciación", "Propagación", "Fractura catastrófica"]
-tipo: "ordenar"
-
-enunciado: "Ordene cronológicamente las etapas que ocurren durante la falla de un componente sometido a fatiga:"
-
-explicacion: |
-  La secuencia lógica es: primero se nuclea la grieta (iniciación), luego la grieta crece a través del material (propagación) y finalmente la sección restante falla de forma súbita (fractura).
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "intermedio"
-  tags: ["limite_fatiga", "curva_s-n"]
-
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: tabla[idx][1
-tipo: "mc"
-opciones_explicitas: ["Límite de fatiga", "Límite elástico", "Límite de rotura"]
-
-enunciado: "En materiales como el acero, existe un valor de esfuerzo por debajo del cual el material puede soportar un número infinito de ciclos sin fallar. Este valor se conoce como ___."
-
-pasos:
-  - "Identificar el concepto relacionado con la resistencia a ciclos infinitos."
-
-explicacion: |
-  El límite de fatiga (o límite de resistencia a la fatiga) es el esfuerzo máximo que un material puede soportar sin presentar falla por fatiga tras un número de ciclos muy elevado.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "basico"
-  tags: ["conceptos", "fatiga"]
-
-respuesta: verdadero
 tipo: vf
-
-enunciado: "La fatiga es un fenómeno donde un material falla bajo cargas cíclicas o repetitivas, incluso si el esfuerzo máximo aplicado es significativamente menor al límite elástico del material."
-
 explicacion: |
-  Correcto. La fatiga es una falla progresiva que ocurre cuando un material es sometido a esfuerzos fluctuantes. El daño se acumula en pequeñas grietas que crecen con cada ciclo hasta que la sección remanente no puede soportar la carga.
+  En la mayoría de los metales, existe una relación inversa: al aumentar la dureza (mediante tratamientos térmicos como la templación), generalmente disminuye la tenacidad (el material se vuelve más frágil).
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "intermedio"
-  tags: ["limite_fatiga", "acero"]
+  tema: "propiedades_mecanicas"
+  nivel: "basico"
+  tags: ["deformacion", "ductilidad"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[150, "MPa"], [250, "MPa"]]
-  limite: uno_de([150, 250])
+enunciado: "Ordena los procesos que ocurren en un material dúctil cuando se aplica una carga de tracción progresiva:"
 
-respuesta: limite
-tipo: mc
-opciones_explicitas: ["100 MPa", "150 MPa", "200 MPa", "300 MPa"]
-
-enunciado: "En un ensayo de fatiga para un acero específico, se determina que el material puede soportar un número infinito de ciclos si el esfuerzo aplicado se mantiene por debajo del límite de fatiga, que para este caso es de {datos[escenario_idx][0]} {datos[escenario_idx][1]}."
-
-explicacion: |
-  El límite de fatiga (o límite de resistencia a la fatiga) es el valor de esfuerzo por debajo del cual el material puede resistir ciclos de carga teóricamente infinitos sin fallar por fatiga.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "intermedio"
-  tags: ["mecanismo", "fractura"]
-
-respuesta: ["Iniciación de grieta", "Propagación de grieta", "Fractura súbita"]
+opciones_explicitas: ["Deformación elástica", "Deformación plástica", "Estricción", "Fractura"]
+respuesta_orden: ["Deformación elástica", "Deformación plástica", "Estricción", "Fractura"]
 tipo: ordenar
 
-enunciado: "Ordene cronológicamente las etapas que ocurren durante el proceso de falla por fatiga en un componente mecánico:"
-
-pasos:
-  - "La grieta se extiende a través de la sección transversal."
-  - "Se forma una pequeña fisura en la superficie debido a concentradores de tensión."
-  - "El componente se rompe repentinamente cuando la sección remanente es insuficiente."
-
 explicacion: |
-  El proceso comienza con la nucleación (iniciación) en un punto de alta concentración de esfuerzos, seguido por la propagación lenta de la grieta (donde suelen verse las 'marcas de playa') y termina con la fractura catastrófica cuando la sección resistente es mínima.
+  Primero ocurre la deformación reversible (elástica), luego la permanente (plástica), seguida de la reducción de la sección transversal (estricción) y finalmente la rotura (fractura).
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "avanzado"
-  tags: ["morfologia", "fractura"]
-
-variables:
-  tipo_falla: uno_de([0, 1])
-  descripcion: ["marcas de playa", "superficie rugosa y granular"]
-  visual: uno_de(["marcas de playa", "superficie rugosa y granular"])
-
-respuesta: visual
-tipo: completar
-respuestas_validas: ["marcas de playa", "superficie rugosa y granular"]
-
-enunciado: "Al examinar la superficie de una fractura por fatiga, es común observar un patrón característico llamado ___ que indica el avance de la grieta."
-
-explicacion: |
-  Las 'marcas de playa' (beach marks) son líneas macroscópicas que representan el avance de la frente de la grieta durante periodos de carga. Son la evidencia clásica de una falla por fatiga.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "avanzado"
-  tags: ["calculo", "esfuerzo"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  carga: uno_de([5000, 10000])
-  area: uno_de([250, 500])
-  esfuerzo_calc: uno_de([20.0, 20.0])
-
-respuesta: esfuerzo_calc
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Un perno sufre una carga cíclica de {carga} N. Si el área de la sección transversal del perno es de {area} mm², ¿cuál es el esfuerzo de tensión ($\sigma$) aplicado en cada ciclo? (Expresado en MPa)"
-
-pasos:
-  - "Identificar la carga aplicada ($F = \{carga\}$ N)."
-  - "Identificar el área de la sección ($A = \{area\}$ mm²)."
-  - "Calcular el esfuerzo usando la fórmula $\sigma = F / A$."
-
-explicacion: |
-  El esfuerzo se calcula como $\sigma = F / A$. 
-  Para el caso 1: $5000 / 250 = 20$ MPa.
-  Para el caso 2: $10000 / 500 = 20$ MPa.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "intermedio"
-  tags: ["fatiga", "esfuerzo", "resistencia"]
-
-respuesta: "verdadero"
-tipo: "vf"
-
-enunciado: "Un material sometido a ciclos de carga repetitivos puede fallar por fatiga incluso si el esfuerzo máximo aplicado es significativamente menor que su límite elástico."
-
-explicacion: |
-  La fatiga es un fenómeno de degradación progresiva. Las microfisuras se propagan con cada ciclo de carga, reduciendo la sección efectiva del material hasta que la fractura ocurre, incluso bajo cargas que no causarían deformación plástica en una sola aplicación.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "avanzado"
-  tags: ["superficie", "fisuras", "acabado"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["rugoso", "menor"], ["pulido", "mayor"]]
-
-respuesta: datos[escenario_idx][1
-tipo: "mc"
-opciones_explicitas: ["menor", "mayor", "igual", "nulo"]
-
-enunciado: "Considerando el estado de la superficie de una pieza, un acabado {datos[escenario_idx][0]} tiende a resultar en una vida a la fatiga {datos[escenario_idx][1]} que un acabado pulido."
-
-explicacion: |
-  Las irregularidades superficiales (rugosidad) actúan como concentradores de esfuerzos (notch effect), facilitando la nucleación de grietas de fatiga. Un acabado pulido retarda este proceso.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "intermedio"
-  tags: ["mecanismo", "fractura", "secuencia"]
-
-respuesta: ["Nucleación de grieta", "Propagación de la grieta", "Fractura súbita"]
-tipo: "ordenar"
-opciones_explicitas: ["Nucleación de grieta", "Propagación de la grieta", "Fractura súbita"]
-
-enunciado: "Ordene cronológicamente las etapas que ocurren durante el fallo de un componente por fatiga mecánica."
-
-explicacion: |
-  El proceso comienza con la nucleación de una microgrieta (generalmente en la superficie), seguida por la propagación de la grieta a través de la sección transversal, y finaliza con una fractura súbita cuando la sección restante ya no puede soportar la carga.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
+  tema: "propiedades_mecanicas"
   nivel: "basico"
-  tags: ["curva_sn", "esfuerzo", "ciclos"]
+  tags: ["dureza", "resistencia"]
 
-respuesta: "inversamente"
-tipo: "completar"
-respuestas_validas: ["inversamente", "directamente"]
+enunciado: "Si un material resiste muy bien una carga de compresión sin deformarse, pero se raya fácilmente con una lija, ¿es correcto decir que es un material duro?"
 
-enunciado: "En una curva de Wöhler (S-N), la relación entre el esfuerzo de la carga aplicada y el número de ciclos hasta la falla es de tipo ___."
+opciones_explicitas: ["Sí, es correcto", "No, es un error"]
+respuesta: "No, es un error"
+tipo: mc
 
 explicacion: |
-  La curva S-N muestra que a medida que el nivel de esfuerzo (S) disminuye, el número de ciclos hasta la falla (N) aumenta. Es una relación inversa.
+  Confundir resistencia mecánica (capacidad de soportar cargas) con dureza (resistencia al rayado/penetración superficial) es un error conceptual frecuente.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "intermedio"
-  tags: ["fractura", "deformacion", "superficie"]
+  tema: "propiedades_mecanicas"
+  nivel: "basico"
+  tags: ["dureza", "tenacidad"]
+
+tipo: mc
+opciones_explicitas: ["La dureza es la resistencia a la deformación plástica, mientras que la tenacidad es la capacidad de absorber energía antes de la rotura.", "La dureza es la capacidad de absorber energía, mientras que la tenacidad es la resistencia al rayado.", "La dureza mide la elasticidad y la tenacidad mide la plasticidad.", "Ambas son sinónimos en materiales cerámicos."]
+
+respuesta: "La dureza es la resistencia a la deformación plástica, mientras que la tenacidad es la capacidad de absorber energía antes de la rotura."
+
+enunciado: "Al comparar la dureza con la tenacidad, ¿cuál es la distinción fundamental entre ambas propiedades?"
+
+explicacion: |
+  La dureza se refiere a la resistencia de un material a ser penetrado o rayado en su superficie. La tenacidad, en cambio, es la capacidad de un material de absorber energía y deformarse plásticamente antes de romperse.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "propiedades_mecanicas"
+  nivel: "basico"
+  tags: ["ductilidad", "fragilidad"]
+
+tipo: mc
+opciones_explicitas: ["dúctil", "frágil"]
+enunciado: "El cobre es un material dúctil que se deforma plásticamente antes de romperse. Por el contrario, el vidrio es un material ___ que se rompe con muy poca deformación previa."
 
 respuesta: "frágil"
-tipo: "mc"
-opciones_explicitas: ["dúctil", "frágil", "elástica", "plástica"]
-
-enunciado: "La fractura por fatiga suele presentar una superficie de fractura que, en su fase de propagación, muestra marcas de playa (beach marks), lo cual es característico de un comportamiento de tipo ___."
 
 explicacion: |
-  Aunque el material original sea dúctil, la fractura por fatiga se comporta de manera predominantemente frágil (poca deformación macroscópica antes de la rotura) debido a la propagación localizada de la grieta.
+  Un material dúctil (como el cobre) puede deformarse significativamente bajo tensión antes de fallar. Un material frágil (como el vidrio) se rompe con muy poca deformación plástica.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "intermedio"
-  tags: ["fatiga", "esfuerzo", "fractura"]
-
-respuesta: "fractura_frágil"
-tipo: completar
-respuestas_validas: ["fractura_frágil", "fractura_dúctil"]
-
-enunciado: "A diferencia de la deformación plástica, donde el material sufre una deformación permanente visible antes de romperse, la fatiga suele conducir a una ___ que puede ocurrir sin deformación macroscópica previa."
-
-explicacion: |
-  La fatiga es un proceso de degradación progresiva que genera microgrietas. A menudo, el material falla de forma repentina (fractura frágil) sin mostrar el estiramiento o la deformación plástica característica de los materiales dúctiles bajo cargas estáticas.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "avanzado"
-  tags: ["limite_fatiga", "esfuerzo"]
-
-variables:
-  es_ciclo_critico: uno_de([verdadero, falso])
-
-respuesta: es_ciclo_critico
-tipo: completar
-enunciado: "Si un material está sometido a un esfuerzo cíclico cuyo valor máximo es inferior al límite de fatiga del material, ¿se producirá la falla por fatiga tras un número infinito de ciclos? (Asumiendo un material con límite de fatiga definido)"
-
-explicacion: |
-  Por definición, el límite de fatiga es el nivel de esfuerzo por debajo del cual un material puede soportar un número infinito de ciclos de carga sin fallar por fatiga.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "intermedio"
-  tags: ["fractografia", "superficie"]
-
-respuesta: "Marcas de playa"
-tipo: mc
-opciones_explicitas: ["Marcas de playa", "Rugosidad granular", "Estriaciones de deslizamiento", "Rugosidad de copa y cono"]
-
-enunciado: "En un análisis fractográfico, ¿qué característica visual distingue una superficie de fractura por fatiga de una fractura por impacto estático?"
-
-explicacion: |
-  Las 'marcas de playa' (beach marks) son líneas concéntricas que indican la progresión de la grieta de fatiga a través de la sección transversal, permitiendo identificar el origen de la falla.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "intermedio"
-  tags: ["propagacion", "grieta"]
-
-respuesta: ["Iniciación", "Propagación", "Fractura inminente"]
-tipo: ordenar
-opciones_explicitas: ["Iniciación", "Propagación", "Fractura inminente"]
-
-enunciado: "Ordene cronológicamente las etapas que ocurren durante el proceso de falla por fatiga en un componente mecánico:"
-
-explicacion: |
-  El proceso comienza con la nucleación de una microgrieta (iniciación), seguida del crecimiento de la grieta bajo cargas cíclicas (propagación) y finaliza con la rotura súbita de la sección remanente (fractura inminente).
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
+  tema: "propiedades_mecanicas"
   nivel: "basico"
-  tags: ["acabado", "rugosidad"]
+  tags: ["dureza"]
 
-variables:
-  es_superficie_lisa: uno_de([verdadero, falso])
-
-respuesta: es_superficie_lisa
 tipo: completar
-enunciado: "Un acabado superficial rugoso o con muescas actúa como un concentrador de esfuerzos, lo que {es_superficie_lisa} aumenta la resistencia a la fatiga del material en comparación con una superficie pulida."
+respuestas_validas:
+  - "rayado"
+
+enunciado: "La dureza se define técnicamente como la resistencia que opone un material a la penetración o al ___."
+
+respuesta: "rayado"
 
 explicacion: |
-  La rugosidad superficial crea micro-entalladuras que actúan como concentradores de tensión, facilitando la iniciación de grietas y, por lo tanto, reduciendo la vida útil a la fatiga.
+  La dureza es una propiedad superficial que mide la resistencia de un material a la deformación plástica localizada (como un rayado o una hendidura).
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "fatiga_y_fractura"
+  tema: "propiedades_mecanicas"
   nivel: "intermedio"
-  tags: ["fatiga", "resistencia"]
+  tags: ["dureza", "tenacidad"]
 
-variables:
-  escenario: uno_de([[120, "120 MPa"], [150, "150 MPa"], [180, "180 MPa"]])
-
-respuesta: escenario[idx][1
 tipo: mc
-opciones_explicitas: ["120 MPa", "150 MPa", "180 MPa", "200 MPa"]
+opciones_explicitas: ["A mayor dureza, generalmente mayor es la tenacidad.", "A mayor dureza, generalmente menor es la tenacidad.", "La dureza y la tenacidad son propiedades idénticas.", "No existe relación entre ambas propiedades."]
 
-enunciado: "Un componente de acero está sometido a un ciclo de carga alternante. Si el límite de fatiga del material es de {escenario[idx][0]} MPa, ¿cuál es el valor máximo de esfuerzo que puede soportar indefinidamente sin fallar por fatiga?"
+respuesta: "A mayor dureza, generalmente menor es la tenacidad."
+
+enunciado: "En muchos materiales ferrosos, se observa que al aumentar la dureza mediante tratamientos térmicos, ¿qué ocurre generalmente con la tenacidad?"
 
 explicacion: |
-  El límite de fatiga es el valor de esfuerzo por debajo del cual un material puede soportar ciclos de carga infinitos sin que se inicie una fractura por fatiga.
+  Comúnmente existe una relación inversa: los materiales muy duros suelen ser más frágiles (menor tenacidad), mientras que los materiales más blandos suelen ser más tenaces.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "basico"
-  tags: ["fractura", "grieta"]
-
-respuesta: "propagación"
-tipo: completar
-respuestas_validas: ["propagación", "iniciación", "nucleación"]
-
-enunciado: "En un proceso de fatiga, una vez que se ha formado una microgrieta en la superficie, la etapa siguiente es la de ___ de la grieta hacia el interior del material."
-
-explicacion: |
-  La fatiga ocurre en tres etapas: 1) Iniciación de la grieta, 2) Propagación de la grieta (donde se observa la estriación) y 3) Fractura catastrófica final.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "avanzado"
-  tags: ["curva_s_n", "fatiga"]
-
-variables:
-  datos: [[200, "alta"], [350, "baja"]]
-  idx: uno_de([0, 1])
-
-respuestas_validas: [datos[idx][1]]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "Si aumentamos la amplitud del esfuerzo aplicado en un componente, la vida útil a la fatiga (número de ciclos hasta la rotura) será: {datos[idx][1]}."
-
-explicacion: |
-  Existe una relación inversa entre la amplitud del esfuerzo y la vida útil: a mayor esfuerzo, menor es el número de ciclos que el material puede resistir antes de fallar.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "fatiga_y_fractura"
+  tema: "propiedades_mecanicas"
   nivel: "intermedio"
-  tags: ["secuencia", "fractura"]
+  tags: ["ductilidad", "deformacion"]
 
-respuesta: ["iniciación", "propagación", "fractura final"]
 tipo: ordenar
-opciones_explicitas: ["iniciación", "propagación", "fractura final"]
+opciones_explicitas: ["Deformación elástica", "Deformación plástica", "Rotura del material"]
 
-enunciado: "Ordene cronológicamente las etapas de un proceso de falla por fatiga en un material dúctil:"
+enunciado: "En un material dúctil, el proceso de deformación mecánica sigue este orden lógico de eventos:"
+
+respuesta_orden: ["Deformación elástica", "Deformación plástica", "Rotura del material"]
 
 explicacion: |
-  El proceso comienza con la iniciación de una grieta (usualmente en superficie), continúa con la propagación de la misma mediante estriaciones y termina con una fractura rápida cuando la sección remanente es insuficiente.
+  Primero ocurre la deformación elástica (reversible), luego la deformación plástica (permanente, característica de la ductilidad) y finalmente la fractura o rotura.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "fatiga_y_fractura"
-  nivel: "intermedio"
-  tags: ["morfología", "fractura"]
+  tema: "propiedades_mecanicas"
+  nivel: "basico"
+  tags: ["dureza", "tenacidad", "ductilidad"]
 
 variables:
-  tipo_falla: uno_de([[1, "rugosa"], [2, "dúctil"], [3, "frágil"]])
+  escenario_idx: uno_de([0, 1, 2])
+  datos: [["Un diamante es extremadamente difícil de rayar con una lija de carburo.", "dureza"], ["Un cable de cobre se estira formando un hilo fino sin romperse.", "ductilidad"], ["Un acero de alta calidad absorbe mucha energía antes de fracturarse.", "tenacidad"]]
 
-respuesta: tipo_falla[idx][1
+enunciado: "El material descrito en el escenario: '{datos[escenario_idx][0]}' posee principalmente la propiedad de ___."
+
+respuesta: datos[escenario_idx][1]
 tipo: mc
-opciones_explicitas: ["rugosa", "dúctil", "frágil"]
-
-enunciado: "La superficie de una fractura por fatiga se caracteriza visualmente por ser de apariencia {tipo_falla[idx][1]} debido a la progresión de la grieta, a diferencia de una fractura súbita."
+opciones_explicitas: ["dureza", "tenacidad", "ductilidad"]
 
 explicacion: |
-  Las fracturas por fatiga suelen presentar una zona de progresión con apariencia rugosa o con marcas de estriaciones, mientras que las fracturas frágiles suelen ser granulares o brillantes.
+  La propiedad descrita corresponde a la definición de {datos[escenario_idx][1]}.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "propiedades_mecanicas"
+  nivel: "intermedio"
+  tags: ["tenacidad", "fractura"]
+
+enunciado: "Si un material se rompe de forma súbita ante un impacto sin absorber energía, ¿se puede decir que tiene una alta tenacidad?"
+
+respuesta: falso
+tipo: vf
+explicacion: |
+  Falso. La tenacidad es la capacidad de absorber energía antes de la rotura. Si el material se rompe súbitamente sin absorber energía, su tenacidad es baja, no alta.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "propiedades_mecanicas"
+  nivel: "intermedio"
+  tags: ["dureza", "rayado"]
+
+variables:
+  test_idx: uno_de([0, 1])
+  tests: [["Un material A es rayado fácilmente por un clavo de acero.", "baja"], ["Un material B no presenta marcas tras ser frotado con acero.", "alta"]]
+
+enunciado: "En un test de rayado se observa lo siguiente: {tests[test_idx][0]} Esto indica que, respecto al acero, el material presenta una dureza ___."
+
+respuesta: tests[test_idx][1]
+tipo: completar
+respuestas_validas:
+  - "baja"
+  - "alta"
+
+explicacion: |
+  La dureza se define como la resistencia a la deformación plástica localizada (como el rayado).
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "propiedades_mecanicas"
+  nivel: "avanzado"
+  tags: ["ductilidad", "deformacion"]
+
+variables:
+  proceso_idx: uno_de([0, 1, 2])
+  procesos: [["El material se deforma plásticamente", "El material cambia de forma", "El material se estira sin romperse"], ["El material se deforma plásticamente", "El material cambia de forma", "El material se estira sin romperse"], ["El material se deforma plásticamente", "El material cambia de forma", "El material se estira sin romperse"]]
+
+enunciado: "Ordene los pasos que describen el proceso de ductilidad en un metal:"
+
+pasos:
+  - "El material se deforma plásticamente"
+  - "El material cambia de forma"
+  - "El material se estira sin romperse"
+
+respuesta_orden: ["El material se deforma plásticamente", "El material cambia de forma", "El material se estira sin romperse"]
+tipo: ordenar
+opciones_explicitas: ["El material se deforma plásticamente", "El material cambia de forma", "El material se estira sin romperse"]
+
+explicacion: |
+  La ductilidad implica una deformación plástica continua que permite el cambio de forma antes de la rotura.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "propiedades_mecanicas"
+  nivel: "intermedio"
+  tags: ["tenacidad", "energia"]
+
+variables:
+  val_idx: uno_de([0, 1])
+  valores: [[50, 50], [120, 120]]
+
+enunciado: "Si un material absorbe {valores[val_idx][0]} Joules antes de la rotura y otro absorbe {valores[val_idx][0] + 100} Joules, el primero es ___ que el segundo en términos de tenacidad."
+
+respuesta: "menor"
+tipo: completar
+respuestas_validas:
+  - "menor"
+
+explicacion: |
+  A mayor energía absorbida antes de la fractura, mayor es la tenacidad del material.
 ```
 
 ## Sección: plasticidad-y-punto-de-fluencia (25 preguntas)
@@ -1968,7 +1468,9 @@ metadata:
 
 respuesta: "deformación permanente"
 tipo: completar
-respuestas_validas: ["deformación permanente", "deformacion permanente"]
+respuestas_validas:
+  - "deformación permanente"
+  - "deformacion permanente"
 
 enunciado: "La plasticidad es la propiedad de un material que le permite experimentar una ___ tras retirar la carga aplicada."
 
@@ -2017,7 +1519,7 @@ metadata:
   tags: ["curva_esfuerzo", "secuencia"]
 
 opciones_explicitas: ["Deformación elástica", "Punto de fluencia", "Deformación plástica", "Rotura"]
-respuesta: ["Deformación elástica", "Punto de fluencia", "Deformación plástica", "Rotura"]
+respuesta_orden: ["Deformación elástica", "Punto de fluencia", "Deformación plástica", "Rotura"]
 tipo: ordenar
 
 enunciado: "Ordene las etapas que experimenta un material dúctil conforme aumenta la tensión aplicada:"
@@ -2033,13 +1535,11 @@ metadata:
   nivel: "basico"
   tags: ["punto_de_fluencia", "definicion"]
 
-variables:
-  idx: uno_de([0, 1])
+respuesta: "plástica"
+tipo: mc
+opciones_explicitas: ["elástica", "plástica"]
 
-datos: [["elástica", "plástica"]]
-respuesta: datos[idx][1]
-
-enunciado: "Si un material supera su punto de fluencia, la deformación resultante será de tipo {datos[idx][1]}."
+enunciado: "Si un material supera su punto de fluencia, la deformación resultante será de tipo ___."
 
 explicacion: |
   El punto de fluencia marca la transición entre el comportamiento elástico (reversible) y el comportamiento plástico (permanente).
@@ -2053,11 +1553,11 @@ metadata:
   tags: ["deformacion", "elasticidad"]
 
 variables:
-  es_elastico: true
+  es_elastico: verdadero
 
-respuesta: es_elastico
-tipo: completar
-enunciado: "Si un material se somete a una carga que no supera su límite elástico, al retirar la carga el material recuperará su forma original. ¿Es esto un comportamiento elástico? {es_elastico}"
+respuesta: verdadero
+tipo: vf
+enunciado: "Si un material se somete a una carga que no supera su límite elástico, al retirar la carga el material recuperará su forma original. ¿Es esto un comportamiento elástico?"
 
 explicacion: |
   Correcto. El comportamiento elástico se caracteriza por la capacidad de un material de recuperar su forma original tras retirar la carga, siempre que no se haya superado el límite elástico.
@@ -2091,13 +1591,10 @@ metadata:
   nivel: "intermedio"
   tags: ["calculo", "deformacion_unitaria"]
 
-variables:
-  datos: [[0.002, "0.002"], [0.005, "0.005"], [0.012, "0.012"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1
+respuesta: "0.005"
 tipo: completar
-respuestas_validas: ["0.002", "0.005", "0.012"]
+respuestas_validas:
+  - "0.005"
 
 enunciado: "Un cilindro de aluminio se estira desde una longitud inicial de 100 mm hasta una longitud final de 100.5 mm. La deformación unitaria (ε) se calcula como (L_final - L_inicial) / L_inicial. El valor obtenido es ________."
 
@@ -2114,9 +1611,9 @@ metadata:
   materia: "materiales"
   tema: "plasticidad_y_punto_de_fluencia"
   nivel: "basico"
-  tags: ["ensayo_traccion", "procedimiento"]]
+  tags: ["ensayo_traccion", "procedimiento"]
 
-respuesta: ["Aplicar carga progresiva", "Observar límite elástico", "Superar punto de fluencia", "Medir deformación permanente"]
+respuesta_orden: ["Aplicar carga progresiva", "Observar límite elástico", "Superar punto de fluencia", "Medir deformación permanente"]
 tipo: ordenar
 opciones_explicitas: ["Aplicar carga progresiva", "Observar límite elástico", "Superar punto de fluencia", "Medir deformación permanente"]
 
@@ -2133,11 +1630,7 @@ metadata:
   nivel: "avanzado"
   tags: ["punto_de_fluencia", "esfuerzo"]
 
-variables:
-  datos: [["el material fluye sin aumento de carga", "fluencia"], ["el material se estira proporcionalmente", "elástico"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "fluencia"
 tipo: mc
 opciones_explicitas: ["fluencia", "elástico"]
 
@@ -2156,7 +1649,8 @@ metadata:
 
 respuesta: "elástica"
 tipo: completar
-respuestas_validas: ["elástica", "elástica", "elástica"]
+respuestas_validas:
+  - "elástica"
 
 enunciado: "Cuando un material se somete a una carga y, al retirarla, recupera su forma original sin presentar deformación permanente, se dice que ha ocurrido una deformación ___."
 
@@ -2188,18 +1682,11 @@ metadata:
   nivel: "intermedio"
   tags: ["diagrama_esfuerzo_deformacion", "curva"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [
-    ["El material es un metal dúctil que presenta una meseta de fluencia clara.", "El material es un metal dúctil que presenta una meseta de fluencia clara."],
-    ["El material es un polímero que muestra una transición suave sin meseta clara.", "El material es un polímero que muestra una transición suave sin meseta clara."]
-  ]
-
-respuesta: escenario[idx][1
+respuesta: "un metal dúctil"
 tipo: mc
-opciones_explicitas: ["El material es un metal dúctil que presenta una meseta de fluencia clara.", "El material es un metal dúctil que presenta una meseta de fluencia clara.", "El material es un polímero que muestra una transición suave sin meseta clara.", "El material es un polímero que muestra una transición suave sin meseta clara."]
+opciones_explicitas: ["un metal dúctil", "un polímero"]
 
-enunciado: "En un diagrama de esfuerzo-deformación, la presencia de una meseta horizontal donde la deformación aumenta sin aumento de carga es característica de: {escenario[idx][0]}"
+enunciado: "En un diagrama de esfuerzo-deformación, la presencia de una meseta horizontal donde la deformación aumenta sin aumento de carga es característica de ___."
 
 explicacion: |
   Los metales con estructura FCC o BCC suelen mostrar una meseta de fluencia bien definida, mientras que otros materiales como polímeros o aleaciones específicas pueden tener una transición más gradual.
@@ -2229,7 +1716,7 @@ metadata:
   tags: ["secuencia", "ensayo_traccion"]
 
 opciones_explicitas: ["Deformación Elástica", "Punto de Fluencia", "Deformación Plástica", "Fractura"]
-respuesta: ["Deformación Elástica", "Punto de Fluencia", "Deformación Plástica", "Fractura"]
+respuesta_orden: ["Deformación Elástica", "Punto de Fluencia", "Deformación Plástica", "Fractura"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente las etapas que experimenta una probeta de acero dulce durante un ensayo de tracción desde que se aplica carga hasta la rotura:"
@@ -2247,7 +1734,9 @@ metadata:
 
 respuesta: "deformación permanente"
 tipo: completar
-respuestas_validas: ["deformación permanente", "deformación irreversible"]
+respuestas_validas:
+  - "deformación permanente"
+  - "deformación irreversible"
 
 enunciado: "Mientras que la deformación elástica es reversible al retirar la carga, la deformación que ocurre tras superar el punto de fluencia se conoce como ___."
 
@@ -2262,15 +1751,8 @@ metadata:
   nivel: "basico"
   tags: ["punto_de_fluencia", "esfuerzo"]
 
-variables:
-  escenario: uno_de([
-    ["el material se deforma y vuelve a su forma original", "elástico"],
-    ["el material se deforma y no recupera su forma", "plástico"],
-    ["el material se rompe inmediatamente", "frágil"]
-  ])
-
 opciones_explicitas: ["elástico", "plástico", "frágil"]
-respuesta: escenario[1
+respuesta: "elástico"
 tipo: mc
 
 enunciado: "Si sometemos un material a un esfuerzo que es inferior al punto de fluencia, su comportamiento es ___."
@@ -2303,7 +1785,7 @@ metadata:
   tags: ["curva_esfuerzo", "secuencia"]
 
 opciones_explicitas: ["Región elástica", "Punto de fluencia", "Región plástica"]
-respuesta: ["Región elástica", "Punto de fluencia", "Región plástica"]
+respuesta_orden: ["Región elástica", "Punto de fluencia", "Región plástica"]
 tipo: ordenar
 
 enunciado: "Ordene las etapas de un material dúctil según aumenta la carga aplicada:"
@@ -2319,21 +1801,14 @@ metadata:
   nivel: "intermedio"
   tags: ["límite", "esfuerzo"]
 
-variables:
-  valor: uno_de([
-    ["el límite de proporcionalidad", "límite"],
-    ["el límite de rotura", "límite"],
-    ["el límite elástico", "límite"]
-  ])
-
-opciones_explicitas: ["el límite de proporcionalidad", "el límite de rotura", "el límite elástico"]
-respuesta: valor[0
+opciones_explicitas: ["el límite de rotura", "la región elástica"]
+respuesta: "la región elástica"
 tipo: mc
 
-enunciado: "En un diagrama de esfuerzo-deformación, el punto de fluencia se distingue de ___ porque marca el inicio de la deformación no reversible."
+enunciado: "En un diagrama de esfuerzo-deformación, el punto de fluencia marca el inicio de la deformación no reversible, a diferencia de ___, donde toda la deformación es recuperable."
 
 explicacion: |
-  El punto de fluencia es el umbral crítico que separa la zona donde el material es elástico de la zona donde comienza la deformación plástica.
+  El punto de fluencia es el umbral crítico que separa la región elástica (donde el material recupera su forma) de la región donde comienza la deformación plástica permanente.
 ```
 
 ```
@@ -2344,14 +1819,15 @@ metadata:
   tags: ["deformacion", "elasticidad"]
 
 variables:
-  datos: [["un resorte de acero", "elástico"], ["un clip de papel", "plástico"], ["una banda elástica", "elástico"]]
+  datos: ["un resorte de acero", "un clip de papel", "una banda elástica"]
   idx: uno_de([0,1,2])
+  objeto: datos[idx]
 
-respuesta: datos[idx][1]
+respuesta: "plástico"
 tipo: mc
 opciones_explicitas: ["elástico", "plástico"]
 
-enunciado: "Si sometemos {datos[idx][0]} a una carga que supera su límite elástico, el comportamiento del material será ___."
+enunciado: "Si sometemos {objeto} a una carga que supera su límite elástico, el comportamiento del material será ___."
 
 explicacion: |
   Si la deformación supera el punto de fluencia, el material entra en el régimen plástico, donde la deformación es permanente.
@@ -2368,7 +1844,8 @@ variables:
   datos: [["un clavo siendo doblado con un martillo", "permanente"], ["una goma de borrar", "temporal"], ["un muelle de suspensión", "temporal"]]
   idx: uno_de([0,1,2])
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 enunciado: "Al aplicar una fuerza sobre {datos[idx][0]}, la deformación resultante es ___."
@@ -2384,7 +1861,7 @@ metadata:
   nivel: "intermedio"
   tags: ["curva_esfuerzo_deformacion", "etapas"]
 
-respuesta: ["Región elástica", "Punto de fluencia", "Región plástica", "Rotura"]
+respuesta_orden: ["Región elástica", "Punto de fluencia", "Región plástica", "Rotura"]
 tipo: ordenar
 opciones_explicitas: ["Región elástica", "Punto de fluencia", "Región plástica", "Rotura"]
 
@@ -2401,19 +1878,16 @@ metadata:
   nivel: "avanzado"
   tags: ["esfuerzo", "calculo"]
 
-variables:
-  datos: [["150", "250"], ["300", "450"], ["50", "80"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1
+respuesta: "250"
 tipo: completar
-respuestas_validas: ["250", "450", "80"]
+respuestas_validas:
+  - "250"
 
 enunciado: "Un cilindro de sección transversal de 100 mm² sufre una fuerza de 25000 N antes de alcanzar su punto de fluencia. El esfuerzo de fluencia es de ___ MPa."
 
 pasos:
-  - "Calcular el esfuerzo: $\sigma = F / A$"
-  - "$\sigma = 25000 / 100 = 250$ (Nota: el valor de respuesta en la tabla es el objetivo del ejercicio)"
+  - "Calcular el esfuerzo: $\\sigma = F / A$"
+  - "$\\sigma = 25000 / 100 = 250$"
 
 explicacion: |
   El esfuerzo se calcula dividiendo la fuerza entre el área de la sección transversal.
@@ -2435,503 +1909,927 @@ explicacion: |
   Falso. La característica principal de la región plástica es que la deformación es irreversible o permanente.
 ```
 
-## Sección: propiedades-mecanicas-dureza-tenacidad-ductilidad (26 preguntas)
+## Sección: familias-de-materiales-metales-ceramicos-polimeros-compuestos (25 preguntas)
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "familias_de_materiales"
   nivel: "basico"
-  tags: ["dureza", "definicion"]
+  tags: ["clasificacion", "metales"]
 
 tipo: mc
-opciones_explicitas: ["resistencia a la deformación plástica", "resistencia al rayado o penetración", "resistencia a la rotura", "capacidad de estiramiento"]
+opciones_explicitas: ["Metales", "Cerámicos", "Polímeros", "Compuestos"]
+respuesta: "Metales"
 
-enunciado: "La dureza de un material se define como su resistencia a la ___."
-
-respuesta: "resistencia al rayado o penetración"
+enunciado: "Los materiales que se caracterizan por tener un enlace metálico, alta conductividad eléctrica y térmica, y alta ductilidad, pertenecen a la familia de los ___."
 
 explicacion: |
-  La dureza es la propiedad que indica cuánto se resiste un material a ser rayado, penetrado o deformado superficialmente por otro cuerpo más duro.
+  Los metales poseen una red de cationes inmersos en un "mar de electrones" que permite el movimiento de carga y calor, otorgándoles su conductividad característica.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "familias_de_materiales"
   nivel: "basico"
-  tags: ["tenacidad", "energia"]
+  tags: ["ceramicos", "propiedades"]
 
 tipo: vf
 respuesta: falso
 
-enunciado: "¿Es la tenacidad la capacidad de un material para absorber energía antes de romperse?"
+enunciado: "¿Los materiales cerámicos se caracterizan por ser altamente dúctiles y tener una excelente conductividad eléctrica?"
 
 explicacion: |
-  La afirmación es verdadera. La tenacidad es la capacidad de un material para absorber energía y deformarse plásticamente antes de la fractura. (Nota: El usuario debe marcar falso si la pregunta se plantea como "La tenacidad es la resistencia al rayado").
-  *Corrección de lógica para VF*: Si la pregunta es "¿La tenacidad es la capacidad de absorber energía?", la respuesta es verdadero.
+  Falso. Los cerámicos son materiales generalmente frágiles (no dúctiles) y actúan como excelentes aislantes eléctricos debido a sus enlaces iónicos o covalentes.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "familias_de_materiales"
   nivel: "basico"
-  tags: ["tenacidad"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "La tenacidad se define como la capacidad de un material para absorber energía antes de la fractura."
-
-explicacion: |
-  Correcto. Un material tenaz es aquel que puede absorber una gran cantidad de energía (trabajo) antes de romperse, combinando resistencia y ductilidad.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "propiedades_mecanicas"
-  nivel: "basico"
-  tags: ["ductilidad"]
+  tags: ["polimeros", "estructura"]
 
 tipo: completar
-respuestas_validas: ["ductilidad"]
+respuestas_validas:
+  - "monómeros"
+respuesta: "monómeros"
 
-enunciado: "La capacidad de un material para deformarse plásticamente bajo tensión sin llegar a la rotura, permitiendo su estiramiento en hilos, se denomina ___."
-
-respuesta: "ductilidad"
+enunciado: "Los polímeros son materiales formados por la unión de largas cadenas de ___."
 
 explicacion: |
-  La ductilidad es la propiedad que permite a los materiales (especialmente metales) deformarse permanentemente sin romperse, facilitando procesos como el trefilado.
+  Las macromoléculas o polímeros se forman mediante la repetición de unidades estructurales más pequeñas llamadas monómeros.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
-  nivel: "intermedio"
-  tags: ["relacion_propiedades"]
+  tema: "familias_de_materiales"
+  nivel: "basico"
+  tags: ["compuestos", "definicion"]
 
 tipo: mc
-opciones_explicitas: ["Dureza", "Tenacidad", "Ductilidad"]
+opciones_explicitas: ["Una sola fase pura", "Dos o más fases distintas", "Una mezcla homogénea de átomos", "Unión de metales y cerámicos únicamente"]
+respuesta: "Dos o más fases distintas"
 
-enunciado: "Si un material es capaz de absorber mucha energía antes de romperse, es porque posee una alta ___."
-
-respuesta: "Tenacidad"
+enunciado: "Un material compuesto se define como aquel que está constituido por:"
 
 explicacion: |
-  La tenacidad es el área bajo la curva de esfuerzo-deformación; requiere tanto resistencia como capacidad de deformación plástica.
+  Los materiales compuestos combinan dos o más componentes (fase matriz y fase refuerzo) para obtener propiedades que ninguno de los componentes posee por separado.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "familias_de_materiales"
   nivel: "intermedio"
-  tags: ["ordenar"]
+  tags: ["polimeros", "procesamiento"]
 
-type: ordenar
-opciones_explicitas: ["Fragilidad", "Ductilidad", "Maleabilidad"]
+tipo: ordenar
+opciones_explicitas: ["Monómero", "Polímero", "Producto final"]
+respuesta_orden: ["Monómero", "Polímero", "Producto final"]
 
-respuesta: ["Fragilidad", "Ductilidad", "Maleabilidad"]
-
-enunciado: "Ordene los siguientes conceptos según su capacidad de deformación plástica, desde el que menos se deforma (se rompe súbitamente) hasta el que permite mayor deformación/moldeado:"
+enunciado: "Ordene las etapas de formación de un material polimérico desde la unidad básica hasta el objeto terminado:"
 
 explicacion: |
-  La fragilidad implica rotura sin deformación previa significativa. La ductilidad permite estiramiento (hilos) y la maleabilidad permite deformación en láminas.
+  El proceso comienza con la unidad química básica (monómero), que mediante la polimerización forma la cadena (polímero), que luego se procesa para obtener el producto.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "familias_de_materiales"
   nivel: "basico"
-  tags: ["definiciones", "dureza", "tenacidad"]
+  tags: ["clasificacion", "metales"]
 
-enunciado: "Un diamante es extremadamente difícil de rayar, mientras que un trozo de vidrio se rompe fácilmente ante un impacto seco. El diamante presenta una alta ___ y el vidrio una baja ___."
+respuesta: "metales"
+tipo: mc
+opciones_explicitas: ["metales", "cerámicos", "polímeros", "compuestos"]
 
-respuestas_validas: ["dureza", "tenacidad"]
-respuesta: ["dureza", "tenacidad"]
-tipo: completar
+enunciado: "Un cable de cobre utilizado para transmitir electricidad en una instalación doméstica posee alta conductividad eléctrica y ductilidad. Por sus propiedades, este material pertenece a la familia de los ________."
 
 explicacion: |
-  La dureza es la resistencia de un material a ser rayado o penetrado. La tenacidad es la capacidad de absorber energía antes de la rotura (resistencia al impacto).
+  Los metales se caracterizan por tener enlaces metálicos que permiten el movimiento libre de electrones, lo que les otorga alta conductividad eléctrica y térmica, además de ser generalmente dúctiles.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "familias_de_materiales"
+  nivel: "basico"
+  tags: ["cerámicos", "propiedades"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los materiales cerámicos, debido a sus enlaces iónicos o covalentes, presentan una alta ductilidad y son excelentes conductores de electricidad a temperatura ambiente."
+
+explicacion: |
+  Falso. Los cerámicos son materiales mayoritariamente aislantes eléctricos y presentan una alta fragilidad (no son dúctiles), ya que sus enlaces fuertes impiden el deslizamiento de planos atómicos.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "familias_de_materiales"
   nivel: "intermedio"
-  tags: ["ductilidad", "frágil"]
+  tags: ["compuestos", "estructura"]
+
+respuesta: "fibra de vidrio"
+tipo: completar
+respuestas_validas:
+  - "fibra de vidrio"
+
+enunciado: "En un material compuesto reforzado (como la fibra de vidrio), la fase que aporta resistencia mecánica se denomina fase ________, mientras que la fase que mantiene la forma y transfiere la carga es la matriz."
+
+explicacion: |
+  En los materiales compuestos, la fase de refuerzo (como la fibra) es la que soporta la mayor parte de la carga, mientras que la matriz (como la resina) rodea y protege al refuerzo.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "familias_de_materiales"
+  nivel: "basico"
+  tags: ["polímeros", "estructuras"]
+
+respuesta: "polímeros"
+tipo: completar
+respuestas_validas:
+  - "polímeros"
+
+enunciado: "Las macromoléculas formadas por la unión de largas cadenas de unidades repetitivas llamadas monómeros se conocen como ________."
+
+explicacion: |
+  Los polímeros (del griego 'muchos') son materiales cuyas moléculas son cadenas muy largas, lo que les confiere propiedades como la flexibilidad y baja densidad.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "familias_de_materiales"
+  nivel: "intermedio"
+  tags: ["polímeros", "procesamiento"]
+
+respuesta_orden: ["calentamiento", "moldeo", "enfriamiento", "solidificación"]
+tipo: ordenar
+opciones_explicitas: ["calentamiento", "moldeo", "enfriamiento", "solidificación"]
+
+enunciado: "Para fabricar una pieza mediante inyección de un polímero termoplástico, se debe seguir un orden lógico de transformación térmica. Ordena los pasos:"
+
+pasos:
+  - "El material se eleva su temperatura hasta alcanzar el estado viscoso."
+  - "El material fundido se introduce en la cavidad del molde."
+  - "Se reduce la temperatura para recuperar la rigidez."
+  - "El material toma su forma final tras el cambio de fase."
+
+explicacion: |
+  Los termoplásticos se caracteran por poder fundirse y moldearse repetidamente mediante ciclos de calentamiento (fusión) y enfriamiento (solidificación) sin que su estructura química cambie drásticamente.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "familias_de_materiales_metales_ceramicos_polimeros_compuestos"
+  nivel: "basico"
+  tags: ["enlaces", "ceramicos"]
+
+respuesta: "iónico o covalente"
+tipo: completar
+respuestas_validas:
+  - "iónico o covalente"
+  - "iónico"
+  - "covalente"
+
+enunciado: "A diferencia de los metales, cuyos átomos se mantienen unidos por un mar de electrones, los materiales cerámicos se caracterizan por tener enlaces de tipo ___."
+
+explicacion: |
+  Los cerámicos presentan enlaces iónicos (transferencia de electrones) o covalentes (compartición de electrones), lo que les otorga su alta temperatura de fusión y fragilidad.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "familias_de_materiales_metales_ceramicos_polimeros_compuestos"
+  nivel: "basico"
+  tags: ["polimeros", "conductividad"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "¿Es cierto que, a pesar de la creencia común de que los polímeros son conductores por ser flexibles, la mayoría de los polímeros son en realidad aislantes eléctricos?"
+
+explicacion: |
+  Los polímeros son generalmente aislantes debido a que sus electrones están localizados en enlaces covalentes, a diferencia de los metales.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "familias_de_materiales_metales_ceramicos_polimeros_compuestos"
+  nivel: "intermedio"
+  tags: ["compuestos", "matriz"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [[0, "cobre", "ductil"], [1, "hierro fundido", "frágil"]]
+  datos: [["fibra de carbono", "resina epoxi"], ["grafitos", "polietileno"]]
 
-enunciado: "Se analiza un material {datos[escenario_idx][1]}. Al someterlo a una deformación plástica prolongada, este se estira significativamente sin romperse. Por lo tanto, el material es {datos[escenario_idx][2]}."
-
-opciones_explicitas: ["ductil", "frágil"]
-respuesta: datos[escenario_idx][2
+respuesta: datos[escenario_idx][1]
 tipo: mc
+opciones_explicitas: [datos[escenario_idx][0], datos[escenario_idx][1], "una mezcla homogénea de ambos"]
+
+enunciado: "En un material compuesto, la fase que rodea y mantiene unidas a las partículas o fibras se denomina ___."
 
 explicacion: |
-  La ductilidad es la propiedad que permite a un material deformarse plásticamente (estirarse) antes de la fractura.
+  En el ejemplo de {datos[escenario_idx][0]} y {datos[escenario_idx][1]}, la segunda componente actúa como la matriz que da forma al compuesto.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
-  nivel: "basico"
-  tags: ["verdadero_falso"]
+  tema: "familias_de_materiales_metales_ceramicos_polimeros_compuestos"
+  nivel: "intermedio"
+  tags: ["ductilidad", "fragilidad"]
 
-enunciado: "Un material que absorbe mucha energía antes de romperse (alta tenacidad) es necesariamente un material muy duro."
+respuesta_orden: ["Ductilidad", "Fragilidad"]
+tipo: ordenar
+
+opciones_explicitas: ["Ductilidad", "Fragilidad"]
+
+enunciado: "Ordena las siguientes propiedades mecánicas de mayor a menor capacidad de deformación plástica antes de la rotura, comparando un metal típico frente a una cerámica típica."
+
+explicacion: |
+  Los metales son generalmente dúctiles (pueden deformarse), mientras que los cerámicos son frágiles (se rompen sin deformación previa significativa).
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "familias_de_materiales_metales_ceramicos_polimeros_compuestos"
+  nivel: "basico"
+  tags: ["metales", "aleaciones"]
 
 respuesta: falso
+
 tipo: vf
 
+enunciado: "Una aleación metálica es un material compuesto donde la fase dispersa es otro metal."
+
 explicacion: |
-  No siempre. Un material puede ser muy tenaz (como el acero de baja graduación) pero no ser especialmente duro. La dureza y la tenacidad son propiedades distintas.
+  Falso. Una aleación es una solución sólida (o mezcla) donde los elementos están distribuidos a nivel atómico, no es un material compuesto con fases claramente separadas como en los compuestos reforzados.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "familias_de_materiales"
+  nivel: "basico"
+  tags: ["clasificacion", "metales"]
+
+respuesta: "metales"
+tipo: mc
+opciones_explicitas: ["metales", "cerámicos", "polímeros", "compuestos"]
+
+enunciado: "Los materiales que se caracterizan por tener enlaces metálicos, alta conductividad térmica y eléctrica, y ser generalmente dúctiles, pertenecen a la familia de los ___."
+
+explicacion: |
+  Los metales se distinguen por su nube de electrones deslocalizados, lo que permite la conducción eléctrica y la deformación plástica sin rotura inmediata.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "familias_de_materiales"
+  nivel: "basico"
+  tags: ["ceramicos", "propiedades"]
+
+variables:
+  es_ceramico_fragil: verdadero
+
+respuesta: verdadero
+tipo: vf
+enunciado: "A diferencia de los metales, los materiales cerámicos se caracterizan por ser altamente frágiles ante la aplicación de cargas mecánicas."
+
+explicacion: |
+  Los cerámicos poseen enlaces iónicos o covalentes muy fuertes que impiden el movimiento de dislocaciones, resultando en una baja tenacidad y alta fragilidad.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "familias_de_materiales"
   nivel: "intermedio"
-  tags: ["ductilidad", "proceso"]
+  tags: ["compuestos", "definicion"]
 
-enunciado: "Ordena el proceso típico de un material dúctil cuando se somete a una carga de tracción creciente:"
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["fibra de carbono", "resina epoxi"], ["arena", "cemento"]]
 
-opciones_explicitas: ["Deformación elástica", "Deformación plástica", "Estricción", "Fractura"]
-respuesta: ["Deformación elástica", "Deformación plástica", "Estricción", "Fractura"]
-tipo: ordenar
+respuesta: datos[escenario_idx][1]
+tipo: completar
+respuestas_validas:
+  - datos[escenario_idx][1]
+
+enunciado: "Un material compuesto se distingue de una aleación porque combina dos o más fases distintas. Por ejemplo, en un material reforzado con fibras de {datos[escenario_idx][0]}, la fase continua (matriz) es la ___."
 
 explicacion: |
-  Primero ocurre la deformación elástica (reversible), luego la plástica (permanente), seguida de la estricción (reducción de sección local) y finalmente la fractura.
+  En un compuesto, la fase continua (matriz) rodea a la fase dispersa (refuerzo) para combinar propiedades que ninguna de las fases posee por separado.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "familias_de_materiales"
+  nivel: "intermedio"
+  tags: ["polimeros", "moleculas"]
+
+respuesta: "cadenas largas de macromoléculas"
+tipo: completar
+respuestas_validas:
+  - "cadenas largas de macromoléculas"
+  - "átomos en red cúbica"
+
+enunciado: "Lo que distingue fundamentalmente a los polímeros de los metales y cerámicos es que su estructura está formada por ___."
+
+explicacion: |
+  Los polímeros están constituidos por unidades repetitivas (monómeros) que se unen para formar largas cadenas, lo que determina su baja densidad y flexibilidad.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "familias_de_materiales"
   nivel: "avanzado"
-  tags: ["tenacidad", "area_bajo_curva"]
+  tags: ["orden", "jerarquia"]
 
-variables:
-  curva_tipo: uno_de([0, 1])
-  curva_datos: [[0, 50, "alta"], [1, 10, "baja"]]
+respuesta_orden: ["átomos", "moléculas", "microestructura", "material compuesto"]
+tipo: ordenar
+opciones_explicitas: ["átomos", "moléculas", "microestructura", "material compuesto"]
 
-enunciado: "En un ensayo de tracción, la tenacidad se representa mediante el área bajo la curva de esfuerzo-deformación. Si comparamos un material con un área de {curva_datos[curva_tipo][0]} MPa·mm/mm frente a otro con un área de 5 MPa·mm/mm, el primero tiene una tenacidad {curva_datos[curva_tipo][1]}."
-
-opciones_explicitas: ["alta", "baja"]
-respuesta: curva_datos[curva_tipo][2
-tipo: mc
+enunciado: "Ordene de lo más simple a lo más complejo la jerarquía de organización de la materia, desde el nivel atómico hasta la formación de un material compuesto funcional."
 
 explicacion: |
-  La tenacidad es la integral del esfuerzo respecto a la deformación; a mayor área bajo la curva, mayor es la energía absorbida y, por ende, mayor la tenacidad.
+  La jerarquía comienza en los átomos, que forman moléculas (en polímeros) o redes (en cerámicos/metales), cuya organización forma la microestructura, la cual es la base para diseñar materiales compuestos con propiedades específicas.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "familias_de_materiales"
   nivel: "basico"
-  tags: ["dureza", "tenacidad", "confusiones"]
+  tags: ["ceramicos", "propiedades"]
 
-enunciado: "Un material que es extremadamente duro (como el diamante) no es necesariamente tenaz. La dureza mide la resistencia al ___ mientras que la tenacidad mide la capacidad de absorber energía antes de la ___."
+variables:
+  datos: [["un horno industrial de alta temperatura", "cerámicos"], ["un cable eléctrico de alta conductividad", "metales"], ["un envase de plástico ligero para alimentos", "polímeros"]]
+  idx: uno_de([0,1,2])
 
-respuestas_validas: ["rayado", "rotura"]
-respuesta: ["rayado", "rotura"]
+opciones_explicitas: ["metales", "cerámicos", "polímeros"]
+
+enunciado: "Se requiere un material para {datos[idx][0]} debido a su excelente resistencia al calor y su naturaleza aislante. El tipo de material adecuado es: ___"
+
+respuestas_validas:
+  - datos[idx][1]
+
+respuesta: datos[idx][1]
 tipo: completar
 
 explicacion: |
-  Es un error común pensar que un material duro es resistente a los impactos. La dureza es resistencia superficial al rayado o penetración, mientras que la tenacidad es la energía total que absorbe un material antes de romperse (relacionada con la tenacidad/fragilidad).
+  Los materiales cerámicos se caracterizan por su alto punto de fusión y su capacidad de actuar como aislantes térmicos y eléctricos, lo que los hace ideales para aplicaciones de alta temperatura.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "familias_de_materiales"
+  nivel: "basico"
+  tags: ["metales", "electricidad"]
+
+enunciado: "Los metales se distinguen principalmente por su alta conductividad eléctrica debido a la movilidad de sus electrones de valencia. ¿Verdadero o falso?"
+
+respuesta: verdadero
+tipo: vf
+explicacion: |
+  Los metales poseen un "mar de electrones" libres que permite el transporte eficiente de carga eléctrica, lo que define su alta conductividad.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "familias_de_materiales"
   nivel: "intermedio"
-  tags: ["ductilidad", "fragilidad"]
+  tags: ["polimeros", "densidad"]
 
 variables:
-  es_ductil: verdadero
+  datos: [["un neumático de automóvil", "polímero"], ["una botella de PET", "polímero"], ["una viga de acero", "metal"]]
+  idx: uno_de([0,1,2])
 
-enunciado: "Si un material se deforma significativamente de manera plástica antes de fallar, se dice que es dúctil. Si se rompe de forma repentina con mínima deformación, el material es considerado ___."
+opciones_explicitas: ["metal", "polímero", "cerámico"]
 
-opciones_explicitas: ["dúctil", "frágil", "elástico", "tenaz"]
-respuesta: "frágil"
+enunciado: "Analizando el caso de {datos[idx][0]}, observamos un material con baja densidad y gran flexibilidad. Este pertenece a la familia de los: ___"
+
+respuesta: datos[idx][1]
 tipo: mc
 
 explicacion: |
-  La fragilidad es la propiedad opuesta a la ductilidad. Un material frágil (como el vidrio) no permite deformación plástica significativa antes de la fractura.
+  Los polímeros son macromoléculas formadas por unidades repetitivas (monómeros) que generalmente presentan baja densidad y alta ductilidad/flexibilidad en comparación con metales o cerámicos.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "familias_de_materiales"
   nivel: "intermedio"
-  tags: ["relacion_propiedades"]
+  tags: ["compuestos", "estructura"]
 
-enunciado: "¿Es posible que un material sea muy duro y, al mismo tiempo, muy tenaz?"
+variables:
+  componente_matriz: uno_de(["resina epóxica", "cemento", "aluminio"])
+  componente_refuerzo: uno_de(["fibra de carbono", "arena", "magnesio"])
 
-opciones_explicitas: ["Verdadero", "Falso"]
-respuesta: "Falso"
+enunciado: "Un material compuesto se define por la combinación de dos o más fases. Si combinamos una matriz de {componente_matriz} con un refuerzo de {componente_refuerzo}, estamos creando un material de tipo compuesto."
+
+respuesta: "compuesto"
 tipo: completar
 explicacion: |
-  En la mayoría de los metales, existe una relación inversa: al aumentar la dureza (mediante tratamientos térmicos como la templación), generalmente disminuye la tenacidad (el material se vuelve más frágil).
+  Los materiales compuestos (como el CFRP) combinan una matriz (que da forma y transfiere cargas) y un refuerzo (que aporta rigidez/resistencia), logrando propiedades superiores a sus componentes por separado.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
-  nivel: "basico"
-  tags: ["deformacion", "ductilidad"]
+  tema: "familias_de_materiales"
+  nivel: "avanzado"
+  tags: ["polimeros", "procesamiento"]
 
-enunciado: "Ordena los procesos que ocurren en un material dúctil cuando se aplica una carga de tracción progresiva:"
+variables:
+  pasos_correctos: ["Calentamiento del polímero", "Moldeo por inyección", "Enfriamiento y desmolde"]
 
-opciones_explicitas: ["Deformación elástica", "Deformación plástica", "Estricción", "Fractura"]
-respuesta: ["Deformación elástica", "Deformación plástica", "Estricción", "Fractura"]
+opciones_explicitas: ["Calentamiento del polímero", "Moldeo por inyección", "Enfriamiento y desmolde"]
+
+enunciado: "Para fabricar una pieza mediante moldeo por inyección de un polímero termoplástico, el orden lógico de los pasos es:"
+
+respuesta_orden: ["Calentamiento del polímero", "Moldeo por inyección", "Enfriamiento y desmolde"]
 tipo: ordenar
 
 explicacion: |
-  Primero ocurre la deformación reversible (elástica), luego la permanente (plástica), seguida de la reducción de la sección transversal (estricción) y finalmente la rotura (fractura).
+  En los termoplásticos, el material debe fundirse primero (calentamiento), ser forzado en el molde (moldeo) y finalmente solidificarse para recuperar su forma (enfriamiento).
+```
+
+## Sección: fatiga-y-fractura (25 preguntas)
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "basico"
+  tags: ["fatiga", "esfuerzo_repetitivo"]
+
+respuesta: "fatiga"
+tipo: "completar"
+respuestas_validas:
+  - "fatiga"
+
+enunciado: "El fenómeno por el cual un material se rompe bajo la aplicación de esfuerzos cíclicos o repetitivos, incluso cuando el esfuerzo máximo es inferior al límite de fluencia del material, se denomina ___."
+
+explicacion: |
+  La fatiga es un proceso de degradación estructural que ocurre debido a la aplicación de cargas fluctuantes, lo que puede generar microgrietas que se propagan hasta causar la falla catastrófica.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "fatiga_y_fractura"
   nivel: "basico"
-  tags: ["dureza", "resistencia"]
+  tags: ["mecanismo", "grieta"]
+
+opciones_explicitas: ["Iniciación de grieta", "Propagación de grieta", "Fractura final"]
+respuesta: "Iniciación de grieta"
+tipo: "mc"
+
+enunciado: "En un proceso de falla por fatiga, ¿cuál es la etapa inicial que ocurre generalmente en la superficie del material debido a concentradores de tensión?"
+
+explicacion: |
+  El proceso típico de fatiga comienza con la nucleación o iniciación de una microgrieta, seguida por su propagación gradual y, finalmente, la fractura súbita cuando la sección remanente no puede soportar la carga.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "basico"
+  tags: ["esfuerzo", "estatico"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "Si un material está sometido a un esfuerzo constante (estático) que es menor a su límite de rotura, el material nunca fallará por fatiga."
+
+explicacion: |
+  Correcto. La fatiga requiere de la naturaleza cíclica o fluctuante de la carga. Un esfuerzo constante sin variaciones de amplitud no produce el mecanismo de fatiga.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "intermedio"
+  tags: ["secuencia", "falla"]
+
+opciones_explicitas: ["Iniciación", "Propagación", "Fractura catastrófica"]
+respuesta_orden: ["Iniciación", "Propagación", "Fractura catastrófica"]
+tipo: "ordenar"
+
+enunciado: "Ordene cronológicamente las etapas que ocurren durante la falla de un componente sometido a fatiga:"
+
+explicacion: |
+  La secuencia lógica es: primero se nuclea la grieta (iniciación), luego la grieta crece a través del material (propagación) y finalmente la sección restante falla de forma súbita (fractura).
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "intermedio"
+  tags: ["limite_fatiga", "curva_s-n"]
+
+respuesta: "Límite de fatiga"
+tipo: "mc"
+opciones_explicitas: ["Límite de fatiga", "Límite elástico", "Límite de rotura"]
+
+enunciado: "En materiales como el acero, existe un valor de esfuerzo por debajo del cual el material puede soportar un número infinito de ciclos sin fallar. Este valor se conoce como ___."
+
+pasos:
+  - "Identificar el concepto relacionado con la resistencia a ciclos infinitos."
+
+explicacion: |
+  El límite de fatiga (o límite de resistencia a la fatiga) es el esfuerzo máximo que un material puede soportar sin presentar falla por fatiga tras un número de ciclos muy elevado.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "basico"
+  tags: ["conceptos", "fatiga"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La fatiga es un fenómeno donde un material falla bajo cargas cíclicas o repetitivas, incluso si el esfuerzo máximo aplicado es significativamente menor al límite elástico del material."
+
+explicacion: |
+  Correcto. La fatiga es una falla progresiva que ocurre cuando un material es sometido a esfuerzos fluctuantes. El daño se acumula en pequeñas grietas que crecen con cada ciclo hasta que la sección remanente no puede soportar la carga.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "intermedio"
+  tags: ["limite_fatiga", "acero"]
 
 variables:
-  es_error: verdadero
+  escenario_idx: uno_de([0, 1])
+  valores: [150, 250]
+  valores_texto: ["150 MPa", "250 MPa"]
 
-enunciado: "Si un material resiste muy bien una carga de compresión sin deformarse, pero se raya fácilmente con una lija, ¿es correcto decir que es un material duro? {es_error}"
-
-opciones_explicitas: ["Sí, es correcto", "No, es un error"]
-respuesta: "No, es un error"
+respuesta: valores_texto[escenario_idx]
 tipo: mc
+opciones_explicitas: ["100 MPa", "150 MPa", "200 MPa", "250 MPa", "300 MPa"]
+
+enunciado: "En un ensayo de fatiga para un acero específico, se determina que el material puede soportar un número infinito de ciclos si el esfuerzo aplicado se mantiene por debajo del límite de fatiga, que para este caso es de {valores[escenario_idx]} MPa."
 
 explicacion: |
-  Confundir resistencia mecánica (capacidad de soportar cargas) con dureza (resistencia al rayado/penetración superficial) es un error conceptual frecuente.
+  El límite de fatiga (o límite de resistencia a la fatiga) es el valor de esfuerzo por debajo del cual el material puede resistir ciclos de carga teóricamente infinitos sin fallar por fatiga.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
-  nivel: "basico"
-  tags: ["dureza", "tenacidad"]
-
-tipo: mc
-opciones_explicitas: ["La dureza es la resistencia a la deformación plástica, mientras que la tenacidad es la capacidad de absorber energía antes de la rotura.", "La dureza es la capacidad de absorber energía, mientras que la tenacidad es la resistencia al rayado.", "La dureza mide la elasticidad y la tenacidad mide la plasticidad.", "Ambas son sinónimos en materiales cerámicos."]
-
-enunciado: "Al comparar la dureza con la tenacidad, la distinción fundamental radica en que la dureza mide la resistencia a la ___ superficial, mientras que la tenacidad mide la capacidad de absorber energía antes de la ___."
-
-explicacion: |
-  La dureza se refiere a la resistencia de un material a ser penetrado o rayado en su superficie. La tenacidad, en cambio, es la capacidad de un material de absorber energía y deformarse plásticamente antes de romperse.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "propiedades_mecanicas"
-  nivel: "basico"
-  tags: ["ductilidad", "fragilidad"]
-
-variables:
-  escenario: uno_de([["cobre", "ductil"], ["vidrio", "fragil"]])
-
-tipo: completar
-enunciado: "Si un material se comporta como un {escenario[0]}, se dice que posee alta ductilidad, lo que lo distingue de un material {escenario[1]}."
-
-respuesta: escenario[1] == "fragil"
-
-explicacion: |
-  Un material dúctil (como el cobre) puede deformarse significativamente bajo tensión antes de fallar. Un material frágil (como el vidrio) se rompe con muy poca deformación plástica.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "propiedades_mecanicas"
-  nivel: "basico"
-  tags: ["dureza"]
-
-tipo: completar
-respuestas_validas: ["rayado"]
-
-enunciado: "La dureza se define técnicamente como la resistencia que opone un material a la penetración o al ___."
-
-respuesta: "rayado"
-
-explicacion: |
-  La dureza es una propiedad superficial que mide la resistencia de un material a la deformación plástica localizada (como un rayado o una hendidura).
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "fatiga_y_fractura"
   nivel: "intermedio"
-  tags: ["dureza", "tenacidad"]
-
-tipo: mc
-opciones_explicitas: ["A mayor dureza, generalmente mayor es la tenacidad.", "A mayor dureza, generalmente menor es la tenacidad.", "La dureza y la tenacidad son propiedades idénticas.", "No existe relación entre ambas propiedades."]
-
-enunciado: "En muchos materiales ferrosos, se observa que al aumentar la dureza mediante tratamientos térmicos, la tenacidad tiende a..."
-
-explicacion: |
-  Comúnmente existe una relación inversa: los materiales muy duros suelen ser más frágiles (menor tenacidad), mientras que los materiales más blandos suelen ser más tenaces.
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "propiedades_mecanicas"
-  nivel: "intermedio"
-  tags: ["ductilidad", "deformacion"]
+  tags: ["mecanismo", "fractura"]
 
 tipo: ordenar
-opciones_explicitas: ["Deformación elástica", "Deformación plástica", "Rotura del material"]
+respuesta_orden: ["Se forma una pequeña fisura en la superficie debido a concentradores de tensión.", "La grieta se extiende a través de la sección transversal.", "El componente se rompe repentinamente cuando la sección remanente es insuficiente."]
+opciones_explicitas: ["Se forma una pequeña fisura en la superficie debido a concentradores de tensión.", "La grieta se extiende a través de la sección transversal.", "El componente se rompe repentinamente cuando la sección remanente es insuficiente."]
 
-enunciado: "En un material dúctil, el proceso de deformación mecánica sigue este orden lógico de eventos:"
-
-respuesta: ["Deformación elástica", "Deformación plástica", "Rotura del material"]
+enunciado: "Ordene cronológicamente las etapas que ocurren durante el proceso de falla por fatiga en un componente mecánico:"
 
 explicacion: |
-  Primero ocurre la deformación elástica (reversible), luego la deformación plástica (permanente, característica de la ductilidad) y finalmente la fractura o rotura.
+  El proceso comienza con la nucleación (iniciación) en un punto de alta concentración de esfuerzos, seguido por la propagación lenta de la grieta (donde suelen verse las 'marcas de playa') y termina con la fractura catastrófica cuando la sección resistente es mínima.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
-  nivel: "basico"
-  tags: ["dureza", "tenacidad", "ductilidad"]
+  tema: "fatiga_y_fractura"
+  nivel: "avanzado"
+  tags: ["morfologia", "fractura"]
 
-variables:
-  escenario_idx: uno_de([0, 1, 2])
-  datos: [
-    ["Un diamante es extremadamente difícil de rayar con una lija de carburo.", "dureza"],
-    ["Un cable de cobre se estira formando un hilo fino sin romperse.", "ductilidad"],
-    ["Un acero de alta calidad absorbe mucha energía antes de fracturarse.", "tenacidad"]
-  ]
+respuesta: "marcas de playa"
+tipo: completar
+respuestas_validas:
+  - "marcas de playa"
+  - "beach marks"
 
-enunciado: "El material descrito en el escenario: '{datos[escenario_idx][0]}' posee principalmente la propiedad de {datos[escenario_idx][1]}."
-
-respuesta: datos[escenario_idx][1
-tipo: mc
-opciones_explicitas: ["dureza", "tenacidad", "ductilidad"]
+enunciado: "Al examinar la superficie de una fractura por fatiga, es común observar un patrón característico llamado ___ que indica el avance de la grieta."
 
 explicacion: |
-  La propiedad descrita corresponde a la definición de {datos[escenario_idx][1]}.
+  Las 'marcas de playa' (beach marks) son líneas macroscópicas que representan el avance de la frente de la grieta durante periodos de carga. Son la evidencia clásica de una falla por fatiga.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
-  nivel: "intermedio"
-  tags: ["tenacidad", "fractura"]
+  tema: "fatiga_y_fractura"
+  nivel: "avanzado"
+  tags: ["calculo", "esfuerzo"]
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [
-    ["Un cristal de vidrio se rompe instantáneamente al recibir un golpe seco.", "falsa"],
-    ["Un polímero elástico absorbe el impacto de una caída sin fragmentarse.", "verdadera"]
-  ]
+  cargas: [5000, 10000]
+  areas: [250, 500]
+  carga: cargas[caso_idx]
+  area: areas[caso_idx]
+  esfuerzo_calc: carga / area
 
-enunciado: "Si un material se rompe de forma súbita ante un impacto sin absorber energía, ¿se puede decir que tiene una alta tenacidad? (Escenario: {casos[caso_idx][0]})"
-
-respuesta: casos[caso_idx][1
+respuesta: esfuerzo_calc
 tipo: completar
-explicacion: |
-  La tenacidad es la capacidad de absorber energía antes de la rotura. Si el material se rompe súbitamente, su tenacidad es baja.
-```
+tolerancia_abs: 0.1
 
-```
-metadata:
-  materia: "materiales"
-  tema: "propiedades_mecanicas"
-  nivel: "intermedio"
-  tags: ["dureza", "rayado"]
-
-variables:
-  test_idx: uno_de([0, 1])
-  tests: [
-    ["Un material A es rayado fácilmente por un clavo de acero.", "baja"],
-    ["Un material B no presenta marcas tras ser frotado con acero.", "alta"]
-  ]
-
-enunciado: "En el test de rayado, el material presenta una dureza ___ respecto al acero."
-
-respuesta: tests[test_idx][1
-tipo: completar
-respuestas_validas: ["baja", "alta"]
-
-explicacion: |
-  La dureza se define como la resistencia a la deformación plástica localizada (como el rayado).
-```
-
-```
-metadata:
-  materia: "materiales"
-  tema: "propiedades_mecanicas"
-  nivel: "avanzado"
-  tags: ["ductilidad", "deformacion"]
-
-variables:
-  proceso_idx: uno_de([0, 1, 2])
-  procesos: [
-    ["El material se deforma plásticamente", "El material cambia de forma", "El material se estira sin romperse"],
-    ["El material se deforma plásticamente", "El material cambia de forma", "El material se estira sin romperse"],
-    ["El material se deforma plásticamente", "El material cambia de forma", "El material se estira sin romperse"]
-  ]
-
-enunciado: "Ordene los pasos que describen el proceso de ductilidad en un metal:"
+enunciado: "Un perno sufre una carga cíclica de {carga} N. Si el área de la sección transversal del perno es de {area} mm², ¿cuál es el esfuerzo de tensión (σ) aplicado en cada ciclo? (Expresado en MPa)"
 
 pasos:
-  - "El material se deforma plásticamente"
-  - "El material cambia de forma"
-  - "El material se estira sin romperse"
-
-respuesta: ["El material se deforma plásticamente", "El material cambia de forma", "El material se estira sin romperse"]
-tipo: ordenar
-opciones_explicitas: ["El material se deforma plásticamente", "El material cambia de forma", "El material se estira sin romperse"]
+  - "Identificar la carga aplicada (F = {carga} N)."
+  - "Identificar el área de la sección (A = {area} mm²)."
+  - "Calcular el esfuerzo usando la fórmula σ = F / A."
 
 explicacion: |
-  La ductilidad implica una deformación plástica continua que permite el cambio de forma antes de la rotura.
+  El esfuerzo se calcula como σ = F / A.
+  Para este caso: {carga} / {area} = {esfuerzo_calc} MPa.
 ```
 
 ```
 metadata:
   materia: "materiales"
-  tema: "propiedades_mecanicas"
+  tema: "fatiga_y_fractura"
   nivel: "intermedio"
-  tags: ["tenacidad", "energia"]
+  tags: ["fatiga", "esfuerzo", "resistencia"]
 
-variables:
-  val_idx: uno_de([0, 1])
-  valores: [
-    [50, 50],
-    [120, 120]
-  ]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Si un material absorbe {valores[val_idx][0]} Joules antes de la rotura y otro absorbe {valores[val_idx][0] + 100} Joules, el primero es ___ que el segundo en términos de tenacidad."
-
-respuesta: "menor"
-tipo: completar
-respuestas_validas: ["menor", "mayor"]
+enunciado: "Un material sometido a ciclos de carga repetitivos puede fallar por fatiga incluso si el esfuerzo máximo aplicado es significativamente menor que su límite elástico."
 
 explicacion: |
-  A mayor energía absorbida antes de la fractura, mayor es la tenacidad del material.
+  La fatiga es un fenómeno de degradación progresiva. Las microfisuras se propagan con cada ciclo de carga, reduciendo la sección efectiva del material hasta que la fractura ocurre, incluso bajo cargas que no causarían deformación plástica en una sola aplicación.
 ```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "avanzado"
+  tags: ["superficie", "fisuras", "acabado"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["rugoso", "menor"], ["pulido", "mayor"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: "mc"
+opciones_explicitas: ["menor", "mayor", "igual", "nulo"]
+
+enunciado: "Considerando el estado de la superficie de una pieza, un acabado {datos[escenario_idx][0]} tiende a resultar en una vida a la fatiga {datos[escenario_idx][1]} que un acabado pulido."
+
+explicacion: |
+  Las irregularidades superficiales (rugosidad) actúan como concentradores de esfuerzos (notch effect), facilitando la nucleación de grietas de fatiga. Un acabado pulido retarda este proceso.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "intermedio"
+  tags: ["mecanismo", "fractura", "secuencia"]
+
+tipo: ordenar
+opciones_explicitas: ["Nucleación de grieta", "Propagación de la grieta", "Fractura súbita"]
+respuesta_orden: ["Nucleación de grieta", "Propagación de la grieta", "Fractura súbita"]
+
+enunciado: "Ordene cronológicamente las etapas que ocurren durante el fallo de un componente por fatiga mecánica."
+
+explicacion: |
+  El proceso comienza con la nucleación de una microgrieta (generalmente en la superficie), seguida por la propagación de la grieta a través de la sección transversal, y finaliza con una fractura súbita cuando la sección restante ya no puede soportar la carga.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "basico"
+  tags: ["curva_sn", "esfuerzo", "ciclos"]
+
+respuesta: "inversamente"
+tipo: "completar"
+respuestas_validas:
+  - "inversamente"
+
+enunciado: "En una curva de Wöhler (S-N), la relación entre el esfuerzo de la carga aplicada y el número de ciclos hasta la falla es de tipo ___."
+
+explicacion: |
+  La curva S-N muestra que a medida que el nivel de esfuerzo (S) disminuye, el número de ciclos hasta la falla (N) aumenta. Es una relación inversa.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "intermedio"
+  tags: ["fractura", "deformacion", "superficie"]
+
+respuesta: "frágil"
+tipo: "mc"
+opciones_explicitas: ["dúctil", "frágil", "elástica", "plástica"]
+
+enunciado: "La fractura por fatiga suele presentar una superficie de fractura que, en su fase de propagación, muestra marcas de playa (beach marks), lo cual es característico de un comportamiento de tipo ___."
+
+explicacion: |
+  Aunque el material original sea dúctil, la fractura por fatiga se comporta de manera predominantemente frágil (poca deformación macroscópica antes de la rotura) debido a la propagación localizada de la grieta.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "intermedio"
+  tags: ["fatiga", "esfuerzo", "fractura"]
+
+respuesta: "fractura_frágil"
+tipo: completar
+respuestas_validas:
+  - "fractura_frágil"
+  - "fractura_dúctil"
+
+enunciado: "A diferencia de la deformación plástica, donde el material sufre una deformación permanente visible antes de romperse, la fatiga suele conducir a una ___ que puede ocurrir sin deformación macroscópica previa."
+
+explicacion: |
+  La fatiga es un proceso de degradación progresiva que genera microgrietas. A menudo, el material falla de forma repentina (fractura frágil) sin mostrar el estiramiento o la deformación plástica característica de los materiales dúctiles bajo cargas estáticas.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "avanzado"
+  tags: ["limite_fatiga", "esfuerzo"]
+
+respuesta: falso
+tipo: vf
+enunciado: "Si un material está sometido a un esfuerzo cíclico cuyo valor máximo es inferior al límite de fatiga del material, ¿se producirá la falla por fatiga tras un número infinito de ciclos? (Asumiendo un material con límite de fatiga definido)"
+
+explicacion: |
+  Por definición, el límite de fatiga es el nivel de esfuerzo por debajo del cual un material puede soportar un número infinito de ciclos de carga sin fallar por fatiga.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "intermedio"
+  tags: ["fractografia", "superficie"]
+
+respuesta: "Marcas de playa"
+tipo: mc
+opciones_explicitas: ["Marcas de playa", "Rugosidad granular", "Estriaciones de deslizamiento", "Rugosidad de copa y cono"]
+
+enunciado: "En un análisis fractográfico, ¿qué característica visual distingue una superficie de fractura por fatiga de una fractura por impacto estático?"
+
+explicacion: |
+  Las 'marcas de playa' (beach marks) son líneas concéntricas que indican la progresión de la grieta de fatiga a través de la sección transversal, permitiendo identificar el origen de la falla.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "intermedio"
+  tags: ["propagacion", "grieta"]
+
+respuesta_orden: ["Iniciación", "Propagación", "Fractura inminente"]
+tipo: ordenar
+opciones_explicitas: ["Iniciación", "Propagación", "Fractura inminente"]
+
+enunciado: "Ordene cronológicamente las etapas que ocurren durante el proceso de falla por fatiga en un componente mecánico:"
+
+explicacion: |
+  El proceso comienza con la nucleación de una microgrieta (iniciación), seguida del crecimiento de la grieta bajo cargas cíclicas (propagación) y finaliza con la rotura súbita de la sección remanente (fractura inminente).
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "basico"
+  tags: ["acabado", "rugosidad"]
+
+respuesta: falso
+tipo: vf
+enunciado: "Un acabado superficial rugoso o con muescas actúa como un concentrador de esfuerzos, lo que aumenta la resistencia a la fatiga del material en comparación con una superficie pulida."
+
+explicacion: |
+  La rugosidad superficial crea micro-entalladuras que actúan como concentradores de tensión, facilitando la iniciación de grietas y, por lo tanto, reduciendo la vida útil a la fatiga.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "intermedio"
+  tags: ["fatiga", "resistencia"]
+
+variables:
+  escenario: uno_de([[120, "120 MPa"], [150, "150 MPa"], [180, "180 MPa"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["120 MPa", "150 MPa", "180 MPa", "200 MPa"]
+
+enunciado: "Un componente de acero está sometido a un ciclo de carga alternante. Si el límite de fatiga del material es de {escenario[0]} MPa, ¿cuál es el valor máximo de esfuerzo que puede soportar indefinidamente sin fallar por fatiga?"
+
+explicacion: |
+  El límite de fatiga es el valor de esfuerzo por debajo del cual un material puede soportar ciclos de carga infinitos sin que se inicie una fractura por fatiga.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "basico"
+  tags: ["fractura", "grieta"]
+
+respuesta: "propagación"
+tipo: completar
+respuestas_validas:
+  - "propagación"
+
+enunciado: "En un proceso de fatiga, una vez que se ha formado una microgrieta en la superficie, la etapa siguiente es la de ___ de la grieta hacia el interior del material."
+
+explicacion: |
+  La fatiga ocurre en tres etapas: 1) Iniciación de la grieta, 2) Propagación de la grieta (donde se observa la estriación) y 3) Fractura catastrófica final.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "avanzado"
+  tags: ["curva_s_n", "fatiga"]
+
+respuestas_validas:
+  - "baja"
+respuesta: "baja"
+tipo: completar
+enunciado: "Si aumentamos la amplitud del esfuerzo aplicado en un componente, la vida útil a la fatiga (número de ciclos hasta la rotura) será: ___."
+
+explicacion: |
+  Existe una relación inversa entre la amplitud del esfuerzo y la vida útil: a mayor esfuerzo, menor es el número de ciclos que el material puede resistir antes de fallar.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "intermedio"
+  tags: ["secuencia", "fractura"]
+
+respuesta_orden: ["iniciación", "propagación", "fractura final"]
+tipo: ordenar
+opciones_explicitas: ["iniciación", "propagación", "fractura final"]
+
+enunciado: "Ordene cronológicamente las etapas de un proceso de falla por fatiga en un material dúctil:"
+
+explicacion: |
+  El proceso comienza con la iniciación de una grieta (usualmente en superficie), continúa con la propagación de la misma mediante estriaciones y termina con una fractura rápida cuando la sección remanente es insuficiente.
+```
+
+```
+metadata:
+  materia: "materiales"
+  tema: "fatiga_y_fractura"
+  nivel: "intermedio"
+  tags: ["morfología", "fractura"]
+
+variables:
+  tipo_falla: uno_de([[1, "rugosa"], [3, "frágil"]])
+
+respuesta: tipo_falla[1]
+tipo: mc
+opciones_explicitas: ["rugosa", "dúctil", "frágil"]
+
+enunciado: "La superficie de una fractura por fatiga se caracteriza visualmente por ser de apariencia {tipo_falla[1]} debido a la progresión de la grieta, a diferencia de una fractura súbita."
+
+explicacion: |
+  Las fracturas por fatiga suelen presentar una zona de progresión con apariencia rugosa o con marcas de estriaciones, mientras que las fracturas frágiles suelen ser granulares o brillantes.
+```
+

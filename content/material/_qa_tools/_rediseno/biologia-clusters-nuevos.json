@@ -3,86 +3,86 @@
   "id": 861,
   "cluster": 1,
   "temas": [
-   "adn-gen-proteina",
-   "biodiversidad-indices",
-   "biotecnologia-pcr-crispr",
-   "cadenas-redes-troficas",
-   "celula-organelas"
+   "crecimiento-poblacional",
+   "genetica-mendeliana-punnett",
+   "grupos-sanguineos",
+   "cruce-dihibrido",
+   "herencia-ligada-al-sexo"
   ],
-  "preguntas": 113
+  "preguntas": 117
  },
  {
   "id": 862,
   "cluster": 2,
   "temas": [
-   "ciclos-biogeoquimicos",
+   "necesidades-basicas-seres-vivos",
+   "ser-vivo-caracteristicas",
+   "celula-organelas",
    "ciclos-vida-metamorfosis",
-   "clasificacion-evolucion",
-   "conservacion-areas-protegidas",
-   "crecimiento-poblacional"
+   "clasificacion-evolucion"
   ],
-  "preguntas": 115
+  "preguntas": 100
  },
  {
   "id": 863,
   "cluster": 3,
   "temas": [
-   "cruce-dihibrido",
-   "deriva-genetica-flujo-genico",
-   "dinamica-poblacional-capacidad-carga",
+   "fotosintesis-respiracion-celular",
+   "habitats-adaptacion",
    "enzimas-proteina-sustrato-ph",
-   "especiacion"
+   "flujo-materia-energia",
+   "microbiologia-virus-inmunitario"
   ],
-  "preguntas": 131
+  "preguntas": 111
  },
  {
   "id": 864,
   "cluster": 4,
   "temas": [
-   "filogenia-arboles-evolutivos",
-   "flujo-materia-energia",
-   "fotosintesis-respiracion-celular",
-   "genetica-mendeliana-punnett",
-   "grupos-sanguineos"
+   "cadenas-redes-troficas",
+   "mal-de-chagas",
+   "ciclos-biogeoquimicos",
+   "dinamica-poblacional-capacidad-carga",
+   "mitosis-meiosis"
   ],
-  "preguntas": 111
+  "preguntas": 118
  },
  {
   "id": 865,
   "cluster": 5,
   "temas": [
-   "habitats-adaptacion",
-   "herencia-ligada-al-sexo",
-   "mal-de-chagas",
-   "microbiologia-virus-inmunitario",
-   "mitosis-meiosis"
+   "biodiversidad-indices",
+   "adn-gen-proteina",
+   "conservacion-areas-protegidas",
+   "biotecnologia-pcr-crispr",
+   "nicho-ecologico"
   ],
-  "preguntas": 105
+  "preguntas": 119
  },
  {
   "id": 866,
   "cluster": 6,
   "temas": [
-   "necesidades-basicas-seres-vivos",
-   "nicho-ecologico",
    "partes-planta-germinacion",
    "piramide-biomasas",
-   "presion-arterial"
+   "quimiosintesis",
+   "seleccion-natural",
+   "sistemas-cuerpo-humano"
   ],
-  "preguntas": 110
+  "preguntas": 109
  },
  {
   "id": 867,
   "cluster": 7,
   "temas": [
-   "quimiosintesis",
-   "seleccion-natural",
-   "ser-vivo-caracteristicas",
+   "deriva-genetica-flujo-genico",
+   "especiacion",
+   "presion-arterial",
+   "filogenia-arboles-evolutivos",
    "sistema-endocrino-hormonas-glandulas",
    "sistema-nervioso-neurona-sinapsis",
-   "sistemas-cuerpo-humano",
    "transgenicos-bioetica"
   ],
-  "preguntas": 172
+  "preguntas": 183
  }
 ]

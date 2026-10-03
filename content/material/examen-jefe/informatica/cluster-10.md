@@ -1,941 +1,929 @@
 # Examen jefe — [PENDIENTE #825]
 
-> Logro #825. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
+> Logro #825. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: seguridad-de-red-firewall-vpn-cifrado (25 preguntas)
+## Sección: patrones-y-buenas-practicas (25 preguntas)
 
 ```
 metadata:
   materia: "informatica"
-  tema: "seguridad_de_red_firewall_vpn_cifrado"
+  tema: "patrones_y_buenas_practicas"
   nivel: "basico"
-  tags: ["firewall", "redes", "seguridad"]
+  tags: ["conceptos", "patrones"]
 
-respuesta: "filtrar"
-tipo: completar
+respuesta: "solucion"
+tipo: "completar"
 respuestas_validas:
-  - "filtrar"
-  - "controlar"
-  - "bloquear"
+  - "solucion"
+  - "soluciones"
 
-enunciado: "La función principal de un firewall es ___ el tráfico de red basándose en un conjunto de reglas de seguridad establecidas."
+enunciado: "Un patrón de diseño es una ________ reutilizable que sirve para resolver un problema común dentro de un contexto de diseño de software."
 
 explicacion: |
-  Un firewall actúa como una barrera entre una red confiable y una no confiable, permitiendo o denegando paquetes según criterios predefinidos.
+  Los patrones de diseño no son fragmentos de código, sino descripciones de soluciones a problemas recurrentes en el desarrollo de software.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "seguridad_de_red_firewall_vpn_cifrado"
+  tema: "patrones_y_buenas_practicas"
   nivel: "basico"
-  tags: ["vpn", "tunel", "redes"]
+  tags: ["clasificacion", "categorias"]
 
-opciones_explicitas: ["Un túnel cifrado", "Un cable físico", "Un servidor de archivos", "Un sistema de backup"]
-respuesta: "Un túnel cifrado"
-tipo: mc
+respuesta: "Creacionales"
+tipo: "completar"
 
-enunciado: "Una Red Privada Virtual (VPN) crea esencialmente ___ sobre una infraestructura de red pública como Internet."
+enunciado: "Si un programador utiliza el patrón 'Singleton' para asegurar que una clase tenga una única instancia, está utilizando un patrón de tipo: ___."
 
 explicacion: |
-  La VPN utiliza protocolos de encapsulamiento y cifrado para crear un "túnel" lógico que protege la privacidad de los datos.
+  Los patrones se dividen en tres categorías principales según su propósito: Creacionales, Estructurales y de Comportamiento.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "seguridad_de_red_firewall_vpn_cifrado"
+  tema: "patrones_y_buenas_practicas"
   nivel: "intermedio"
-  tags: ["cifrado", "datos_en_transito", "seguridad"]
+  tags: ["solid", "buenas_practicas"]
 
 respuesta: verdadero
-tipo: vf
+tipo: "vf"
 
-enunciado: "¿El cifrado de datos en tránsito asegura que, si un atacante intercepta los paquetes, no pueda leer su contenido original?"
+enunciado: "El principio de Responsabilidad Única (SRP) establece que una clase debe tener una, y solo una, razón para cambiar."
 
 explicacion: |
-  Exacto. El cifrado transforma la información en un formato ilegible para cualquiera que no posea la clave de descifrado, protegiendo la confidencialidad durante el movimiento de los datos.
+  Correcto. El SRP busca que cada módulo o clase sea responsable de una única parte de la funcionalidad, facilitando el mantenimiento y la testabilidad.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "seguridad_de_red_firewall_vpn_cifrado"
-  nivel: "intermedio"
-  tags: ["protocolos", "seguridad", "ordenar"]
-
-opciones_explicitas: ["Cifrado", "Encapsulamiento", "Autenticación"]
-respuesta_orden: ["Autenticación", "Encapsulamiento", "Cifrado"]
-tipo: ordenar
-
-enunciado: "Ordene los procesos lógicos que ocurren típicamente en la construcción de un túnel VPN seguro, desde la validación de identidad hasta la protección del contenido:"
-
-explicacion: |
-  Primero se autentica al usuario, luego se encapsula el paquete dentro de otro protocolo y finalmente se cifra el contenido para garantizar la privacidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_de_red_firewall_vpn_cifrado"
-  nivel: "avanzado"
-  tags: ["cifrado", "hash", "seguridad"]
-
-respuesta: "El cifrado es reversible con una clave, el hashing es una función de una sola vía"
-tipo: mc
-opciones_explicitas: ["El cifrado es reversible con una clave, el hashing es una función de una sola vía", "El cifrado es de una vía, el hashing es reversible", "Ambos son lo mismo", "El cifrado es para archivos y el hashing para redes"]
-
-enunciado: "Considerando las propiedades de los algoritmos de seguridad, ¿cuál es la diferencia fundamental entre el cifrado y el hashing?"
-
-explicacion: |
-  El cifrado está diseñado para ser revertido (descifrado) mediante una clave, mientras que el hashing es una función unidireccional que no permite recuperar el dato original.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_de_red_firewall"
+  tema: "patrones_y_buenas_practicas"
   nivel: "basico"
-  tags: ["firewall", "seguridad", "redes"]
+  tags: ["proceso", "desarrollo"]
+
+respuesta_orden: ["Identificar el problema", "Analizar la solución existente", "Implementar el patrón", "Refactorizar el código"]
+tipo: "ordenar"
+opciones_explicitas: ["Identificar el problema", "Analizar la solución existente", "Implementar el patrón", "Refactorizar el código"]
+
+enunciado: "Ordena los pasos lógicos para la aplicación correcta de un patrón de diseño en un sistema existente:"
+
+explicacion: |
+  Primero se debe entender el problema, luego evaluar si un patrón conocido aplica, se implementa y finalmente se refactoriza para asegurar la calidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_y_buenas_practices"
+  nivel: "basico"
+  tags: ["reutilizacion", "eficiencia"]
+
+respuesta: "reutilizar"
+tipo: "mc"
+opciones_explicitas: ["reutilizar", "copiar"]
+
+enunciado: "El objetivo principal de aplicar buenas prácticas y patrones es poder ________ la lógica de solución en diferentes partes del sistema sin duplicar código innecesariamente."
+
+explicacion: |
+  La reutilización es un pilar de la ingeniería de software que permite aumentar la productividad y reducir la probabilidad de errores.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "intermedio"
+  tags: ["creacionales", "singleton"]
 
 variables:
-  puerto_bloqueado: uno_de([21, 22, 23, 80])
+  escenario: uno_de([["Gestión de conexión a base de datos", "DatabaseConnection"], ["Gestión de configuración global", "ConfigManager"], ["Gestión de sistema de logs", "LoggerInstance"]])
 
-enunciado: "Un administrador de red configura un firewall para proteger un servidor web. Si el puerto {puerto_bloqueado} está en la lista de reglas de 'Denegar' (Deny), ¿qué acción tomará el firewall ante un paquete que intenta entrar por ese puerto?"
+enunciado: "Se requiere implementar un patrón que garantice que una clase tenga una única instancia y proporcione un punto de acceso global a ella. En el caso de un {escenario[0]}, la clase sería {escenario[1]}."
 
-opciones_explicitas:
-  - "Permitir el tráfico"
-  - "Bloquear el tráfico"
-  - "Redirigir el tráfico"
-
-respuesta: "Bloquear el tráfico"
-tipo: mc
+opciones_explicitas: ["Singleton", "Factory", "Observer", "Strategy"]
+respuesta: "Singleton"
+tipo: "mc"
 
 explicacion: |
-  El firewall actúa como un filtro basado en reglas. Si una regla de 'Denegar' coincide con el puerto de origen/destino, el paquete es descartado o bloqueado para proteger el sistema.
+  El patrón Singleton asegura que una clase tenga una única instancia durante toda la ejecución del programa, lo cual es ideal para recursos compartidos como conexiones a bases de datos o configuraciones.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "vpn_cifrado"
+  tema: "patrones_de_diseno"
   nivel: "intermedio"
-  tags: ["vpn", "cifrado", "tunel"]
+  tags: ["comportamiento", "observer"]
 
-enunciado: "Para establecer un túnel seguro en una VPN, se utiliza comúnmente el protocolo IPsec. ¿Es este protocolo un estándar utilizado para asegurar la comunicación en una VPN?"
-
-respuesta: verdadero
-tipo: vf
-explicacion: |
-  IPsec (Internet Protocol Security) es un conjunto de protocolos para asegurar las comunicaciones IP mediante la autenticación y el cifrado de cada paquete en una comunicación IP.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_de_red_handshake"
-  nivel: "avanzado"
-  tags: ["handshake", "protocolo", "seguridad"]
-
-enunciado: "En un proceso de negociación de seguridad (como el handshake de TLS), el orden correcto de las fases es el siguiente:"
-
-opciones_explicitas:
-  - "Negociación de parámetros"
-  - "Intercambio de claves"
-  - "Verificación de certificados"
-  - "Cifrado de datos"
-
-respuesta_orden: ["Negociación de parámetros", "Intercambio de claves", "Verificación de certificados", "Cifrado de datos"]
-tipo: ordenar
-
-explicacion: |
-  Primero se acuerdan los algoritmos (negociación), luego se intercambian las claves para el cifrado, se validan las identidades mediante certificados y finalmente se establece el canal cifrado para los datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "cifrado_datos_en_transito"
-  nivel: "basico"
-  tags: ["protocolos", "cifrado", "web"]
-
-enunciado: "Un usuario navega por una web. Si el usuario desea que sus datos (como contraseñas) viajen cifrados en tránsito, el protocolo utilizado debe ser ___."
+enunciado: "En el patrón Observer, un objeto llamado 'Subject' mantiene una lista de sus dependientes. Cuando el estado del Subject cambia, este debe notificar a sus ___ para que actualicen su estado."
 
 respuestas_validas:
-  - "HTTPS"
-
-respuesta: "HTTPS"
-tipo: completar
+  - "observadores"
+  - "observers"
+  - "subscriptores"
+respuesta: "observadores"
+tipo: "completar"
 
 explicacion: |
-  HTTPS utiliza TLS/SSL para cifrar la comunicación entre el cliente y el servidor, garantizando la confidencialidad e integridad de los datos en tránsito.
+  El patrón Observer define una relación de uno a muchos, donde cuando un objeto cambia su estado, todos sus dependientes (observadores) son notificados automáticamente.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "integridad_datos"
-  nivel: "intermedio"
-  tags: ["hash", "integridad", "seguridad"]
+  tema: "buenas_practicas"
+  nivel: "basico"
+  tags: ["clean_code", "refactoring"]
 
 variables:
-  hash_original: "a1b2c3d4"
-  hash_recibido: "a1b2c3d4"
+  caso: uno_de([["un método que calcula el IVA, aplica un descuento y luego imprime el total", "calcular_total_con_impuestos"], ["un método que valida datos, conecta a la red y procesa un archivo", "procesar_archivo_seguro"]])
 
-enunciado: "Se envía un archivo con un valor Hash original de {hash_original}. Al recibirlo, el receptor calcula el Hash del archivo y obtiene {hash_recibido}. ¿El mensaje ha sido alterado en el camino?"
+enunciado: "Tienes un método llamado '{caso[0]}' que es demasiado largo y realiza múltiples tareas distintas. Para aplicar la técnica de 'Extract Method', deberías dividirlo en métodos más pequeños y específicos. ¿Cuál es el objetivo principal de esta práctica?"
 
-opciones_explicitas:
-  - "Sí, el hash cambió"
-  - "No, el hash es idéntico"
-
-respuesta: "No, el hash es idéntico"
-tipo: mc
+opciones_explicitas: ["Aumentar la complejidad del código", "Mejorar la legibilidad y reutilización", "Hacer que el código sea más lento", "Eliminar la necesidad de comentarios"]
+respuesta: "Mejorar la legibilidad y reutilización"
+tipo: "mc"
 
 explicacion: |
-  La función Hash es determinista. Si el mensaje no ha sido alterado (ni un solo bit), el valor del Hash calculado por el receptor debe ser exactamente igual al enviado por el emisor.
+  La extracción de métodos permite que cada función tenga una única responsabilidad (Single Responsibility Principle), facilitando la lectura y permitiendo reutilizar fragmentos de lógica en otros lugares.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "seguridad_de_red"
-  nivel: "basico"
-  tags: ["firewall", "seguridad"]
-
-tipo: mc
-opciones_explicitas: ["Filtrar tráfico de red según reglas", "Eliminar archivos infectados del disco", "Cifrar el contenido de los correos", "Gestionar las contraseñas de usuario"]
-
-enunciado: "Un error común es pensar que un firewall sustituye al antivirus. La función principal de un firewall es ___."
-
-respuesta: "Filtrar tráfico de red según reglas"
-
-explicacion: |
-  El firewall actúa como una barrera que controla el flujo de datos (paquetes) que entran o salen de una red basándose en reglas, mientras que el antivirus busca código malicioso en archivos o procesos del sistema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "vpn_cifrado"
+  tema: "buenas_practicas"
   nivel: "intermedio"
-  tags: ["vpn", "privacidad"]
+  tags: ["solid", "srp"]
+
+variables:
+  clase_mala: uno_de([["Clase Usuario que guarda datos en BD y también envía emails", "Usuario"], ["Clase Factura que calcula totales y también genera un PDF", "Factura"]])
+
+enunciado: "Si tenemos una clase llamada {clase_mala[0]} que realiza la lógica de negocio y además se encarga de la persistencia en base de datos y el envío de notificaciones, ¿está cumpliendo con el Principio de Responsabilidad Única (SRP)?"
+
+opciones_explicitas: [verdadero, falso]
+respuesta: falso
+tipo: "vf"
+
+explicacion: |
+  El SRP dicta que una clase debe tener una, y solo una, razón para cambiar. Si una clase maneja lógica de negocio y también detalles de infraestructura (como BD o envío de emails), viola este principio.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "avanzado"
+  tags: ["comportamiento", "command"]
+
+enunciado: "Para implementar correctamente el patrón Command, se deben seguir estos pasos en orden para transformar una acción en un objeto ejecutable:"
+
+opciones_explicitas: ["Definir el Command con el método execute()", "Crear el Receiver que contiene la lógica real", "El Invoker solicita la ejecución al Command", "El Cliente instancia el Command y lo vincula al Receiver"]
+
+respuesta_orden: ["Crear el Receiver que contiene la lógica real", "Definir el Command con el método execute()", "El Cliente instancia el Command y lo vincula al Receiver", "El Invoker solicita la ejecución al Command"]
+
+tipo: "ordenar"
+
+explicacion: |
+  El patrón Command encapsula una solicitud como un objeto, permitiendo parametrizar clientes, colar solicitudes o soportar operaciones que se pueden deshacer (undo).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "intermedio"
+  tags: ["creacionales", "singleton"]
+
+enunciado: "El patrón Singleton se utiliza para asegurar que una clase tenga una única instancia y proporciona un punto de acceso global a ella. Sin embargo, una crítica común es que su uso excesivo puede ___."
+
+opciones_explicitas: ["mejorar la modularidad", "crear un estado global difícil de testear", "aumentar la velocidad de ejecución", "eliminar la necesidad de clases"]
+
+respuesta: "crear un estado global difícil de testear"
+tipo: mc
+
+explicacion: |
+  El patrón Singleton es criticado frecuentemente porque introduce un estado global en la aplicación, lo que dificulta el aislamiento de componentes durante las pruebas unitarias (testing), ya que el estado de la instancia persiste entre diferentes tests.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "basico"
+  tags: ["solid", "srp"]
+
+variables:
+  clase_nombre: uno_de(["GestorBaseDeDatos", "CalculadoraMatematica"])
+
+enunciado: "De acuerdo al Principio de Responsabilidad Única (SRP), una clase como {clase_nombre} debe tener una única razón para cambiar. Si esta clase además de procesar datos también se encarga de la interfaz de usuario, se está violando este principio."
+
+respuesta: falso
+tipo: vf
+
+explicacion: |
+  El SRP establece que una clase debe tener una sola responsabilidad. Si una clase maneja lógica de negocio y también la presentación (UI), se vuelve rígida y difícil de mantener, violando el principio.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "avanzado"
+  tags: ["inversion_de_control", "di"]
+
+enunciado: "En el patrón de Inyección de Dependencias (DI), el comportamiento correcto es que ___"
+
+opciones_explicitas: ["el objeto crea sus propias dependencias internamente", "el objeto recibe sus dependencias desde el exterior"]
+
+respuesta: "el objeto recibe sus dependencias desde el exterior"
+tipo: mc
+
+explicacion: |
+  La Inyección de Dependencias es una forma de Inversión de Control (IoC) donde las dependencias de un objeto se le pasan (inyectan) desde el exterior (por constructor, setter o interfaz), en lugar de que el objeto las instancie por sí mismo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "intermedio"
+  tags: ["creacionales", "factory"]
+
+enunciado: "Para implementar correctamente un patrón Factory Method y asegurar la extensibilidad, se deben seguir estos pasos en orden:"
+
+opciones_explicitas: ["Definir la interfaz del producto", "Crear las implementaciones concretas del producto", "Implementar la clase creadora con el método factory"]
+
+respuesta_orden: ["Definir la interfaz del producto", "Crear las implementaciones concretas del producto", "Implementar la clase creadora con el método factory"]
+tipo: ordenar
+
+explicacion: |
+  Primero se define qué es lo que se va a crear (la interfaz del producto), luego se crean las versiones específicas (productos concretos) y finalmente se crea la lógica que decide qué producto instanciar (el método factory en la clase creadora).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "basico"
+  tags: ["calidad_codigo", "acoplamiento"]
+
+enunciado: "En un diseño de software de alta calidad, buscamos que el acoplamiento entre módulos sea ___ y que la cohesión dentro de un módulo sea ___."
+
+opciones_explicitas: ["alto y baja", "bajo y alta"]
+
+respuesta: "bajo y alta"
+tipo: mc
+
+explicacion: |
+  El acoplamiento bajo significa que los módulos son independientes y cambian poco entre sí. La cohesión alta significa que los elementos de un módulo están estrechamente relacionados y trabajan para un único objetivo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_y_buenas_practicas"
+  nivel: "intermedio"
+  tags: ["patrones_de_diseno", "conceptos_basicos"]
+
+respuesta: "algoritmo"
+tipo: completar
+respuestas_validas:
+  - "algoritmo"
+
+enunciado: "Mientras que un patrón de diseño es una solución general a un problema recurrente de diseño de software, un ___ es una secuencia de pasos finitos y precisos para resolver un problema computacional específico."
+
+explicacion: |
+  Un patrón de diseño es una plantilla de alto nivel para resolver problemas de estructura, mientras que un algoritmo es una receta paso a paso para realizar un cálculo o tarea.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "intermedio"
+  tags: ["creacionales", "singleton", "factory"]
+
+respuesta: "Singleton"
+tipo: mc
+opciones_explicitas: ["Singleton", "Factory"]
+
+enunciado: "Si el objetivo principal es garantizar que una clase tenga una única instancia en toda la aplicación, estamos ante un patrón ___."
+
+explicacion: |
+  El patrón Singleton asegura una instancia única, mientras que el patrón Factory se encarga de delegar la responsabilidad de la creación de objetos a una clase especializada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "avanzado"
+  tags: ["limpieza_de_codigo", "principios"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En el diseño de software orientado a objetos, una buena práctica consiste en buscar un diseño con alto acoplamiento y baja cohesión."
+
+explicacion: |
+  Es exactamente lo contrario: se busca un **bajo acoplamiento** (que los módulos sean independientes) y una **alta cohesión** (que cada módulo haga una sola cosa y la haga bien).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "intermedio"
+  tags: ["procesos", "desarrollo"]
+
+respuesta_orden: ["Identificar el problema", "Elegir el patrón adecuado", "Implementar la solución", "Refactorizar si es necesario"]
+tipo: ordenar
+opciones_explicitas: ["Identificar el problema", "Elegir el patrón adecuado", "Implementar la solución", "Refactorizar si es necesario"]
+
+enunciado: "Ordene los pasos lógicos para aplicar correctamente un patrón de diseño en un proyecto de software:"
+
+explicacion: |
+  El proceso comienza con la comprensión del problema, seguido de la selección del patrón, la codificación y finalmente la revisión/refactorización para asegurar la calidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "avanzado"
+  tags: ["oop", "herencia", "interfaces"]
+
+respuesta: "interfaz"
+tipo: mc
+opciones_explicitas: ["interfaz", "clase_abstracta"]
+
+enunciado: "Si necesitamos definir un contrato que solo especifique comportamientos (métodos sin implementación) sin poseer estado o lógica compartida, lo más adecuado es usar una ___."
+
+explicacion: |
+  Las interfaces definen "qué" puede hacer un objeto (contrato puro), mientras que las clases abstractas pueden definir "cómo" se hace algo (compartiendo código y estado) pero impidiendo la instanciación directa.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "intermedio"
+  tags: ["diseño", "creacionales"]
+
+variables:
+  escenario: uno_de([["Se requiere que una clase de conexión a base de datos solo tenga una instancia única en toda la aplicación.", "Singleton"], ["Se requiere que un objeto pueda tener múltiples representaciones (como un checkbox o un botón) según el contexto.", "Flyweight"], ["Se requiere que un objeto delegue la creación de otros objetos a una subclase.", "Factory Method"]])
+
+tipo: mc
+opciones_explicitas: ["Singleton", "Flyweight", "Factory Method", "Observer"]
+
+enunciado: "Un desarrollador debe resolver el siguiente escenario: {escenario[0]} ¿Qué patrón de diseño debe aplicar?"
+
+respuesta: escenario[1]
+
+explicacion: |
+  El patrón Singleton garantiza que una clase tenga una única instancia y proporciona un punto de acceso global a ella.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "basico"
+  tags: ["clean_code", "refactorizacion"]
+
+variables:
+  caso: uno_de([["Una función tiene 150 líneas de código y realiza tres tareas distintas.", "Dividir la función en funciones más pequeñas."], ["Una variable se llama 'x' y su valor cambia constantemente sin contexto claro.", "Renombrar la variable con un nombre descriptivo."], ["Un bloque de código se repite exactamente igual en tres archivos diferentes.", "Extraer el código repetido a una función o clase común."]])
+
+tipo: completar
+respuestas_validas:
+  - "Dividir la función en funciones más pequeñas."
+  - "Renombrar la variable con un nombre descriptivo."
+  - "Extraer el código repetido a una función o clase común."
+
+enunciado: "Para mejorar la mantenibilidad del software, se detecta que: {caso[0]} La acción recomendada es: ___"
+
+respuesta: caso[1]
+
+explicacion: |
+  La legibilidad y la reutilización son pilares de las buenas prácticas. Cada caso presentado requiere una acción de refactorización específica para cumplir con principios como SOLID o Clean Code.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "avanzado"
+  tags: ["comportamiento", "eventos"]
+
+variables:
+  escenario: uno_de([["Un sistema de clima donde varios sensores notifican cambios a una pantalla y a una base de datos simultáneamente.", "Observer"], ["Un sistema donde un objeto complejo se construye paso a paso mediante varios métodos.", "Builder"], ["Un sistema donde se envían mensajes de un emisor a múltiples receptores sin que estos se conozcan.", "PubSub"]])
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "En el escenario: {escenario[0]}, el patrón de diseño que permite que un objeto (sujeto) notifique automáticamente a otros objetos (observadores) sobre cambios en su estado es el patrón {escenario[1]}."
+
+explicacion: |
+  El patrón Observer define una relación de uno a muchos, de modo que cuando el objeto cambia de estado, todos sus dependientes son notificados.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "intermedio"
+  tags: ["solid", "arquitectura"]
+
+tipo: mc
+opciones_explicitas: ["Responsabilidad Única", "Acoplamiento Fuerte", "Cohesión Baja", "Incapacidad de Testeo"]
+
+enunciado: "Analizando el siguiente caso: Una clase 'Usuario' que gestiona los datos del perfil Y también se encarga de guardar el archivo en el disco. La clase está violando el principio de: ___"
+
+respuesta: "Responsabilidad Única"
+
+explicacion: |
+  El Principio de Responsabilidad Única (SRP) establece que una clase debe tener una única razón para cambiar. Si una clase gestiona datos y además la persistencia, tiene dos responsabilidades.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "basico"
+  tags: ["calidad", "procesos"]
+
+tipo: ordenar
+opciones_explicitas: ["Reportar error", "Asignar a desarrollador", "Corregir error", "Verificar solución", "Cerrar ticket"]
+respuesta_orden: ["Reportar error", "Asignar a desarrollador", "Corregir error", "Verificar solución", "Cerrar ticket"]
+
+enunciado: "Para asegurar la calidad de software, el proceso estándar de gestión de un defecto (bug) debe seguir este orden lógico: ___"
+
+explicacion: |
+  Un flujo de trabajo ordenado permite la trazabilidad del error desde su detección hasta su validación final por parte de QA.
+```
+
+## Sección: pruebas-unitarias-integracion (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_e_integracion"
+  nivel: "basico"
+  tags: ["testing", "unitario"]
+
+respuesta: "unitario"
+tipo: completar
+respuestas_validas:
+  - "unitario"
+  - "unitarias"
+
+enunciado: "Una prueba ___ se enfoca en verificar el funcionamiento de la unidad más pequeña y aislada de código, como una función o un método, sin dependencias externas."
+
+explicacion: |
+  Las pruebas unitarias validan la lógica interna de un componente de forma aislada, asegurando que cada pieza cumpla su contrato individualmente.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_e_integracion"
+  nivel: "basico"
+  tags: ["conceptos", "integracion"]
+
+opciones_explicitas: ["Verificar la comunicación entre módulos", "Verificar la sintaxis del lenguaje", "Verificar el rendimiento del hardware"]
+respuesta: "Verificar la comunicación entre módulos"
+tipo: mc
+
+enunciado: "El objetivo principal de las pruebas de integración es:"
+
+explicacion: |
+  Mientras que las pruebas unitarias miran el componente solo, las de integración buscan detectar errores en la interacción y el flujo de datos entre diferentes módulos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_e_integracion"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En una prueba de integración, el objetivo principal es aislar completamente un componente de sus dependencias para probar su lógica interna."
+
+explicacion: |
+  Falso. El aislamiento es la característica de las pruebas unitarias. Las pruebas de integración, por el contrario, requieren que los componentes estén conectados para verificar su interacción.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_e_integracion"
+  nivel: "intermedio"
+  tags: ["flujo_de_trabajo"]
+
+opciones_explicitas: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
+respuesta_orden: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
+tipo: ordenar
+
+enunciado: "Ordena las etapas de testing de software desde el nivel más granular (más pequeño) hasta el nivel de sistema completo:"
+
+explicacion: |
+  El flujo estándar de desarrollo sigue una jerarquía: primero se asegura que cada pieza funcione (Unitarias), luego que las piezas encajen (Integración) y finalmente que el sistema completo cumpla el requisito (Sistema).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_e_integracion"
+  nivel: "intermedio"
+  tags: ["diagnostico"]
+
+respuesta: "unitario"
+tipo: mc
+opciones_explicitas: ["unitario", "integracion"]
+
+enunciado: "Si una función matemática falla al calcular un resultado, pero el resto del sistema funciona bien, estamos ante un error de tipo: ___"
+
+explicacion: |
+  Como el fallo está contenido en la lógica interna de una pieza aislada, el error se identifica mediante pruebas unitarias.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_vs_integracion"
+  nivel: "basico"
+  tags: ["testing", "calidad_software"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["Navegar en una red Wi-Fi pública de una cafetería", "proteger la privacidad de la conexión"], ["Aumentar la velocidad de descarga de Internet", "proteger la privacidad de la conexión"]]
+  escenarios: [["Se verifica que la función 'sumar(a, b)' devuelva correctamente el resultado de la suma de dos enteros.", "unitarias"], ["Se verifica que el módulo de 'pagos' se comunique correctamente con la 'base de datos' para registrar una transacción.", "integracion"]]
 
-tipo: mc
-opciones_explicitas: ["Aumentar la velocidad de descarga de Internet", "proteger la privacidad de la conexión", "Eliminar la necesidad de usar contraseñas", "Evitar que el hardware se sobrecaliente"]
+enunciado: "Si el objetivo es verificar {escenarios[escenario_idx][0]}, estamos realizando pruebas de tipo: ___"
 
-enunciado: "Un usuario piensa que usar una VPN sirve para {escenarios[escenario_idx][0]}. Sin embargo, el objetivo principal es {escenarios[escenario_idx][1]}."
-
-respuesta: "proteger la privacidad de la conexión"
+respuesta: escenarios[escenario_idx][1]
+tipo: completar
+respuestas_validas:
+  - "unitarias"
+  - "integracion"
 
 explicacion: |
-  Una VPN crea un túnel cifrado para tus datos, pero no mejora la velocidad de tu proveedor de internet; de hecho, debido al proceso de cifrado, puede aumentar ligeramente la latencia.
+  Las pruebas unitarias se enfocan en la lógica interna de una función o componente de forma aislada. Las pruebas de integración verifican la interacción entre diferentes módulos o componentes del sistema.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "cifrado_datos"
-  nivel: "intermedio"
-  tags: ["cifrado", "seguridad_datos"]
+  tema: "pruebas_unitarias_vs_integracion"
+  nivel: "basico"
+  tags: ["conceptos"]
 
-tipo: vf
-
-enunciado: "Si un archivo está cifrado en el disco duro de un servidor (en reposo), esto garantiza automáticamente que el archivo no pueda ser interceptado mientras se envía por una red sin protección (en tránsito)."
+enunciado: "En una prueba de integración, el objetivo principal es asegurar que una función individual funcione correctamente de forma aislada, sin importar si sus dependencias responden bien."
 
 respuesta: falso
-
-explicacion: |
-  El cifrado en reposo protege los datos si el soporte físico es robado. El cifrado en tránsito (como TLS/SSL) es necesario para proteger los datos mientras viajan por la red.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolos_seguridad"
-  nivel: "basico"
-  tags: ["http", "https", "seguridad"]
-
-tipo: completar
-respuestas_validas:
-  - "HTTPS"
-
-enunciado: "Para asegurar que la comunicación entre un navegador y un servidor web esté cifrada, se debe utilizar el protocolo ___ en lugar de HTTP."
-
-respuesta: "HTTPS"
-
-explicacion: |
-  HTTPS utiliza protocolos de cifrado (como TLS) para asegurar que la información enviada entre el cliente y el servidor no pueda ser leída por terceros.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "vpn_handshake"
-  nivel: "avanzado"
-  tags: ["vpn", "seguridad", "proceso"]
-
-tipo: ordenar
-opciones_explicitas: ["Establecer túnel de comunicación", "Autenticar al usuario", "Negociar algoritmos de cifrado", "Intercambiar claves de cifrado"]
-
-enunciado: "Para establecer una conexión VPN segura, los pasos lógicos suelen seguir este orden de negociación y autenticación:"
-
-respuesta_orden: ["Negociar algoritmos de cifrado", "Intercambiar claves de cifrado", "Autenticar al usuario", "Establecer túnel de comunicación"]
-
-explicacion: |
-  Primero el cliente y el servidor acuerdan qué algoritmos usarán, luego intercambian las llaves necesarias, después el servidor verifica la identidad del usuario y, finalmente, se establece el túnel de datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_de_red_firewall_vpn_cifrado"
-  nivel: "basico"
-  tags: ["firewall", "seguridad"]
-
-tipo: mc
-opciones_explicitas: ["El firewall analiza el tráfico de red y puertos, mientras que el antivirus analiza archivos y procesos en el host.", "El firewall detecta virus en archivos descargados, mientras que el antivirus bloquea conexiones no autorizadas.", "Son conceptos idénticos aplicados a diferentes capas del sistema operativo.", "El firewall cifra los datos y el antivirus los descifra."]
-
-enunciado: "En una estrategia de defensa en profundidad, ¿cuál es la distinción fundamental entre un firewall y un antivirus?"
-
-respuesta: "El firewall analiza el tráfico de red y puertos, mientras que el antivirus analiza archivos y procesos en el host."
-
-explicacion: |
-  El firewall actúa como una barrera en el perímetro de la red o el sistema, controlando el flujo de datos basado en reglas de puertos y protocolos. El antivirus se enfoca en identificar y eliminar software malicioso (malware) dentro del sistema de archivos o la memoria.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_de_red_firewall_vpn_cifrado"
-  nivel: "intermedio"
-  tags: ["cifrado", "seguridad_datos"]
-
-tipo: completar
-respuestas_validas:
-  - "confidencialidad"
-  - "integridad"
-  - "disponibilidad"
-
-enunciado: "Mientras que un mecanismo de checksum asegura la ___ de los datos, el cifrado de datos en tránsito tiene como objetivo principal garantizar la ___."
-
-explicacion: |
-  El checksum o hash detecta si los datos han sido alterados (integridad), pero el cifrado asegura que, aunque sean interceptados, no puedan ser leídos por terceros (confidencialidad).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_de_red_firewall_vpn_cifrado"
-  nivel: "avanzado"
-  tags: ["vpn", "cifrado"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["VPN de Acceso Remoto", "crea un túnel virtual sobre una red pública"], ["Cifrado de extremo a extremo (E2EE)", "asegura que solo los nodos finales puedan leer el mensaje"]]
-
-tipo: mc
-opciones_explicitas: ["La VPN cifra todo el tráfico de la interfaz de red, mientras que el cifrado E2EE solo cifra la aplicación específica.", "La VPN es un protocolo de capa 2 y el cifrado E2EE es de capa 7.", "La VPN requiere un servidor central y el cifrado E2EE no requiere infraestructura.", "No hay diferencia, ambos términos son sinónimos en redes modernas."]
-
-enunciado: "Considerando el escenario de {escenarios[escenario_idx][0]}, ¿cuál es la diferencia clave respecto al {escenarios[1 - escenario_idx][0]}?"
-
-respuesta: "La VPN cifra todo el tráfico de la interfaz de red, mientras que el cifrado E2EE solo cifra la aplicación específica."
-
-explicacion: |
-  Una VPN establece un túnel que encapsula todo el tráfico de un dispositivo a través de una red (como Internet), mientras que el cifrado E2EE (End-to-End) se asegura de que el contenido sea ilegible para cualquier intermediario, incluso para el proveedor del servicio, centrándose en la aplicación.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_de_red_firewall_vpn_cifrado"
-  nivel: "intermedio"
-  tags: ["waf", "firewall"]
-
 tipo: vf
 
-enunciado: "Un Firewall de Aplicaciones Web (WAF) se distingue de un firewall de red tradicional porque opera principalmente en la capa de aplicación (Capa 7) del modelo OSI, permitiendo inspeccionar contenido HTTP/HTTPS, a diferencia del firewall de red que se centra en capas inferiores como IP y TCP."
-
-respuesta: verdadero
-
 explicacion: |
-  Es correcto. El firewall de red tradicional filtra por IP y puerto, mientras que el WAF inspecciona el contenido de las peticiones web para prevenir ataques como SQL Injection o Cross-Site Scripting (XSS).
+  Falso. El objetivo de las pruebas de integración es precisamente verificar cómo interactúan los componentes entre sí, por lo que el foco no es el aislamiento, sino la comunicación y el flujo de datos entre ellos.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "seguridad_de_red_firewall_vpn_cifrado"
+  tema: "pruebas_unitarias_vs_integracion"
   nivel: "intermedio"
-  tags: ["handshake", "seguridad"]
+  tags: ["flujo_de_trabajo"]
 
+enunciado: "Ordena las etapas típicas de un ciclo de desarrollo de software orientado a calidad (Testing Pyramid):"
+
+opciones_explicitas: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema/E2E"]
+respuesta_orden: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema/E2E"]
 tipo: ordenar
-opciones_explicitas: ["Negociación de parámetros de cifrado", "Intercambio de claves públicas/privadas", "Autenticación de las partes", "Establecimiento del canal de datos cifrado"]
-respuesta_orden: ["Negociación de parámetros de cifrado", "Intercambio de claves públicas/privadas", "Autenticación de las partes", "Establecimiento del canal de datos cifrado"]
-
-enunciado: "Ordene los pasos lógicos de un protocolo de negociación de seguridad (como TLS) para establecer una conexión segura:"
 
 explicacion: |
-  Primero se acuerda qué algoritmos usar (Cipher Suite), luego se intercambian las claves para el cifrado asimétrico, se verifica la identidad de los participantes y, finalmente, se empieza a transmitir la información protegida.
+  El flujo lógico comienza con las pruebas más granulares y rápidas (Unitarias), luego se combinan componentes (Integración) y finalmente se prueba el sistema completo en un entorno similar al real (Sistema/E2E).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "seguridad_de_red_firewall"
-  nivel: "basico"
-  tags: ["firewall", "redes"]
-
-variables:
-  datos: [["bloquear tráfico no deseado", "bloquear"], ["permitir todo el tráfico", "permitir"], ["analizar virus", "analizar"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["bloquear", "permitir", "analizar"]
-
-enunciado: "Un firewall actúa como una barrera de seguridad cuya función principal es {datos[idx][0]}."
-
-explicacion: |
-  El firewall inspecciona los paquetes de red y decide si permitirlos o bloquearlos basándose en un conjunto de reglas de seguridad predefinidas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "cifrado_datos_transito"
+  tema: "pruebas_unitarias_vs_integracion"
   nivel: "intermedio"
-  tags: ["cifrado", "seguridad"]
-
-variables:
-  datos: [["HTTPS", "seguro"], ["HTTP", "inseguro"]]
-  idx: uno_de([0,1])
-
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "Si un usuario navega utilizando el protocolo {datos[idx][0]}, la información que transita por la red se considera {datos[idx][1]}."
-
-explicacion: |
-  El protocolo HTTPS utiliza TLS/SSL para cifrar la comunicación, protegiendo los datos contra la interceptación (sniffing). El protocolo HTTP envía los datos en texto plano.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "vpn_conceptos"
-  nivel: "intermedio"
-  tags: ["vpn", "tunel"]
-
-respuesta: "túnel"
-tipo: completar
-respuestas_validas:
-  - "túnel"
-
-enunciado: "Una VPN (Virtual Private Network) crea un ___ cifrado sobre una red pública para permitir el transporte seguro de datos."
-
-explicacion: |
-  La VPN establece un 'túnel' lógico que encapsula y cifra los paquetes de datos, permitiendo que la información viaje de forma privada a través de internet.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "handshake_tls"
-  nivel: "avanzado"
-  tags: ["tls", "handshake", "seguridad"]
-
-respuesta_orden: ["Negociación de versión", "Intercambio de certificados", "Intercambio de claves", "Cifrado de datos"]
-tipo: ordenar
-opciones_explicitas: ["Negociación de versión", "Intercambio de certificados", "Intercambio de claves", "Cifrado de datos"]
-
-enunciado: "Ordene los pasos lógicos de un apretón de manos (handshake) TLS para establecer una conexión segura:"
-
-explicacion: |
-  Primero se acuerda la versión del protocolo, luego se verifica la identidad mediante certificados, se intercambian claves para la sesión y finalmente se inicia el flujo de datos cifrados.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "cifrado_simetrico"
-  nivel: "avanzado"
-  tags: ["cifrado", "simetrico", "clave"]
-
-variables:
-  datos: [["una sola clave para cifrar y descifrar", "simétrico"], ["dos claves distintas", "asimétrico"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["simétrico", "asimétrico"]
-
-enunciado: "Si el sistema utiliza {datos[idx][0]}, estamos ante un algoritmo de cifrado {datos[idx][1]}."
-
-explicacion: |
-  En el cifrado simétrico se utiliza la misma clave para las operaciones de cifrado y descifrado. En el asimétrico se utiliza un par de claves (pública y privada).
-```
-
-## Sección: seguridad-informatica (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "basico"
-  tags: ["phishing", "amenazas"]
-
-tipo: mc
-opciones_explicitas: ["Un software diseñado para dañar el hardware", "Una técnica de engaño para obtener datos sensibles", "Un método para acelerar la conexión a internet", "Un tipo de antivirus de última generación"]
-
-respuesta: "Una técnica de engaño para obtener datos sensibles"
-
-enunciado: "El phishing es una técnica de ingeniería social que consiste en ___ para obtener información confidencial como contraseñas o datos bancarios."
-
-explicacion: |
-  El phishing busca engañar al usuario mediante correos o sitios web falsos que suplantan la identidad de entidades legítimas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "basico"
-  tags: ["malware", "conceptos"]
-
-tipo: vf
-
-respuesta: falso
-
-enunciado: "El término 'malware' se refiere exclusivamente a los virus que eliminan archivos del disco duro de forma inmediata."
-
-explicacion: |
-  Falso. Malware es un término genérico que incluye virus, troyanos, ransomware, spyware y muchos otros tipos de software malicioso con diferentes objetivos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "intermedio"
-  tags: ["ransomware", "amenazas"]
-
-tipo: completar
-respuestas_validas:
-  - "secuestro"
-
-respuesta: "secuestro"
-
-enunciado: "El ransomware es un tipo de malware que realiza un cifrado de los archivos del usuario para luego exigir un pago a cambio de la clave de descifrado. Esto se conoce como un ___ digital."
-
-explicacion: |
-  El ransomware bloquea el acceso a tus datos (usualmente mediante cifrado) para extorsionar a la víctima.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "basico"
-  tags: ["buenas_practicas", "reaccion"]
-
-tipo: ordenar
-opciones_explicitas: ["Desconfiar de correos con enlaces sospechosos", "No hacer clic en ningún enlace ni descargar archivos", "Reportar el correo al departamento de seguridad", "Cambiar las contraseñas de las cuentas afectadas"]
-
-respuesta_orden: ["Desconfiar de correos con enlaces sospechosos", "No hacer clic en ningún enlace ni descargar archivos", "Reportar el correo al departamento de seguridad", "Cambiar las contraseñas de las cuentas afectadas"]
-
-enunciado: "Ordena los pasos lógicos que debe seguir un usuario al detectar un posible intento de phishing:"
-
-explicacion: |
-  Primero se identifica la sospecha, luego se evita la interacción con el elemento malicioso, se notifica a los expertos y finalmente se asegura la cuenta.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "basico"
-  tags: ["buenas_practicas", "contraseñas"]
-
-tipo: mc
-opciones_explicitas: ["Usar la misma contraseña para todo", "Usar contraseñas largas con caracteres especiales y MFA", "Compartir la contraseña con familiares para facilitar el acceso", "Anotar las contraseñas en un papel pegado al monitor"]
-
-respuesta: "Usar contraseñas largas con caracteres especiales y MFA"
-
-enunciado: "Para fortalecer la seguridad de las cuentas personales, la mejor práctica es:"
-
-explicacion: |
-  El uso de contraseñas robustas combinadas con la Autenticación de Doble Factor (MFA) añade una capa crítica de protección.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "phishing"
-  nivel: "basico"
-  tags: ["seguridad", "phishing", "ingenieria_social"]
+  tags: ["casos_practicos"]
 
 variables:
   caso_idx: uno_de([0, 1])
-  escenarios: [["Recibes un correo de tu banco diciendo que tu cuenta ha sido bloqueada y debes hacer clic en un enlace para 'verificar' tus datos.", "phishing"], ["Recibes un mensaje de un amigo por redes sociales con un enlace extraño que dice ser un video gracioso, pero el remitente no es él.", "phishing"]]
+  casos: [["El sistema debe validar que el módulo de 'Login' envíe las credenciales correctamente al servicio de 'Autenticación'.", "integracion"], ["El sistema debe validar que el método 'calcular_iva(monto)' devuelva el 21% del monto ingresado.", "unitarias"]]
 
-respuesta: escenarios[caso_idx][1]
+enunciado: "Analiza el siguiente caso: '{casos[caso_idx][0]}'. ¿Qué tipo de prueba es?"
+
+opciones_explicitas: ["unitarias", "integracion"]
+respuesta: casos[caso_idx][1]
 tipo: mc
-opciones_explicitas: ["malware", "phishing", "ransomware", "spyware"]
-
-enunciado: "Un usuario recibe un mensaje urgente de una entidad conocida solicitando información sensible a través de un enlace sospechoso. ¿A qué tipo de amenaza estamos ante?"
 
 explicacion: |
-  El caso descrito es un ejemplo de phishing, una técnica de ingeniería social donde el atacante se hace pasar por una entidad de confianza para engañar a la víctima y obtener datos confidenciales.
+  Si el caso implica la interacción entre dos entidades distintas (Login -> Servicio), es de integración. Si solo valida la lógica de un método matemático o de cálculo simple, es unitaria.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "malware"
-  nivel: "basico"
-  tags: ["malware", "virus", "seguridad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es cierto que un 'Ransomware' es un tipo de malware que cifra los archivos del usuario y exige un pago para recuperarlos?"
-
-explicacion: |
-  Correcto. El ransomware es una amenaza que secuestra la información mediante cifrado, exigiendo un rescate (generalmente en criptomonedas) para desbloquearla.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "buenas_practicas"
-  nivel: "intermedio"
-  tags: ["seguridad", "protocolo", "reaccion"]
-
-tipo: ordenar
-
-opciones_explicitas: ["Detectar el comportamiento sospechoso en el sistema.", "Desconectar el equipo de la red (Wi-Fi o cable).", "Informar al responsable de seguridad o soporte técnico.", "Realizar un escaneo completo con el antivirus."]
-
-respuesta_orden: ["Detectar el comportamiento sospechoso en el sistema.", "Desconectar el equipo de la red (Wi-Fi o cable).", "Informar al responsable de seguridad o soporte técnico.", "Realizar un escaneo completo con el antivirus."]
-
-enunciado: "Si sospechas que tu computadora ha sido infectada, ordena los pasos lógicos para mitigar el impacto del incidente:"
-
-explicacion: |
-  Lo primero es la detección, seguido de la contención (desconectar la red para evitar la propagación), la comunicación del incidente y finalmente la limpieza/escaneo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "buenas_practicas"
-  nivel: "basico"
-  tags: ["contraseñas", "seguridad"]
-
-respuesta: "complejo"
-tipo: completar
-respuestas_validas:
-  - "complejo"
-
-enunciado: "Para asegurar una cuenta, una contraseña debe ser ___ (que incluya mayúsculas, minúsculas, números y símbolos) en lugar de ser una palabra simple."
-
-explicacion: |
-  Las contraseñas complejas aumentan significativamente el tiempo y la dificultad que requiere un atacante para realizar un ataque de fuerza bruta.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "malware"
-  nivel: "basico"
-  tags: ["malware", "spyware"]
-
-respuesta: "espionaje"
-tipo: mc
-opciones_explicitas: ["espionaje", "destrucción", "publicidad", "minería"]
-
-enunciado: "El principal objetivo de un 'Spyware' es el ___ de la actividad del usuario, como capturar pulsaciones de teclas (keylogging) o historial de navegación."
-
-explicacion: |
-  El spyware se caracteriza por su naturaleza sigilosa, diseñada para recopilar información sobre una persona o dispositivo sin su consentimiento.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "basico"
-  tags: ["phishing", "ingenieria_social"]
-
-tipo: mc
-opciones_explicitas: ["Un correo de un banco pidiendo tu contraseña", "Un software que mejora la velocidad del PC", "Un mensaje de un amigo con un link de un video", "Un antivirus que detecta un virus"]
-respuesta: "Un correo de un banco pidiendo tu contraseña"
-
-enunciado: "El phishing es una técnica de ingeniería social que se basa en el engaño. Un ejemplo típico de este ataque es:"
-
-explicacion: |
-  El phishing busca engañar al usuario para que entregue información sensible (contraseñas, datos bancarios) suplantando la identidad de una entidad de confianza.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "intermedio"
-  tags: ["malware", "ransomware"]
-
-variables:
-  es_secuestro: verdadero
-
-tipo: vf
-
-respuesta: verdadero
-
-enunciado: "El Ransomware es un tipo de malware que cifra los archivos del usuario y exige un pago para recuperarlos. ¿Es esto verdadero o falso?"
-
-explicacion: |
-  Efectivamente, el ransomware 'secuestra' la información mediante cifrado y solicita un rescate, generalmente en criptomonedas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "basico"
-  tags: ["buenas_practicas", "protocolo"]
-
-tipo: ordenar
-opciones_explicitas: ["Recibir correo con link extraño", "No hacer clic en el enlace ni descargar archivos", "Borrar el correo o reportarlo como spam", "Notificar al equipo de soporte técnico"]
-
-enunciado: "Ordena los pasos correctos que debes seguir cuando recibes un correo electrónico sospechoso que parece ser un intento de estafa:"
-
-explicacion: |
-  La regla de oro es la prevención: nunca interactuar con el contenido sospechoso y seguir los protocolos de reporte de la organización.
-respuesta_orden: ["Recibir correo con link extraño", "No hacer clic en el enlace ni descargar archivos", "Borrar el correo o reportarlo como spam", "Notificar al equipo de soporte técnico"]
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "intermedio"
-  tags: ["phishing", "url"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["google.com", "g00gle.com"], ["microsoft.com", "micros0ft.com"]]
-
-tipo: completar
-respuestas_validas:
-  - "g00gle.com"
-  - "micros0ft.com"
-
-enunciado: "En un ataque de phishing, el atacante suele usar dominios visualmente similares al real (typosquatting). Si el sitio legítimo es {escenarios[escenario_idx][0]}, el atacante podría usar ___ para engañarte."
-
-explicacion: |
-  Los atacantes cambian caracteres (como un cero por una 'o') para que la URL parezca legítima a simple vista, pero el dominio es distinto.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "basico"
-  tags: ["contraseñas", "buenas_practicas"]
-
-tipo: mc
-opciones_explicitas: ["123456", "MiNombre2024", "P@ssw0rd_2024!_Xy", "password"]
-respuesta: "P@ssw0rd_2024!_Xy"
-
-enunciado: "De la siguiente lista, ¿cuál es la opción que presenta una mayor resistencia ante un ataque de fuerza bruta debido a su complejidad?"
-
-explicacion: |
-  Una contraseña segura debe combinar mayúsculas, minúsculas, números, caracteres especiales y tener una longitud considerable para aumentar el tiempo necesario para descifrarla.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "basico"
-  tags: ["malware", "phishing"]
-
-enunciado: "Si un ataque de ingeniería social se realiza a través de un mensaje de texto (SMS) en lugar de un correo electrónico, el término técnico correcto para este tipo de phishing es smishing."
-
-respuesta: "smishing"
-tipo: completar
-respuestas_validas:
-  - "smishing"
-
-explicacion: |
-  El phishing es el término general, pero se diferencia según el canal: phishing (email), smishing (SMS) y vishing (voz/llamadas).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "intermedio"
-  tags: ["malware", "ransomware"]
-
-opciones_explicitas: ["El ransomware cifra archivos para pedir un rescate, mientras que un virus se replica infectando otros archivos.", "Un virus siempre cifra archivos, mientras que el ransomware solo se propaga por redes.", "El ransomware es un tipo de virus que no requiere de un archivo anfitrión para ejecutarse."]
-
-respuesta: "El ransomware cifra archivos para pedir un rescate, mientras que un virus se replica infectando otros archivos."
-tipo: mc
-enunciado: "¿Cuál es la distinción principal entre ransomware y virus?"
-
-explicacion: |
-  La distinción principal es el objetivo: el ransomware busca extorsión mediante el secuestro de datos (cifrado), mientras que un virus es un concepto de propagación que infecta archivos existentes.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "intermedio"
-  tags: ["gestion_de_accesos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La autenticación es el proceso de verificar la identidad de un usuario, mientras que la autorización es el proceso de determinar qué permisos tiene ese usuario sobre un recurso."
-
-explicacion: |
-  Es un error común confundirlos. Autenticación responde "¿Quién eres?", y la autorización responde "¿Qué puedes hacer?".
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
+  tema: "pruebas_unitarias_vs_integracion"
   nivel: "avanzado"
-  tags: ["protocolos"]
+  tags: ["debug"]
 
-opciones_explicitas: ["Detección", "Contención", "Erradicación", "Recuperación"]
-
-respuesta_orden: ["Detección", "Contención", "Erradicación", "Recuperación"]
-tipo: ordenar
-
-enunciado: "Ordena las siguientes fases de la respuesta a un incidente de seguridad informática, desde la primera hasta la última:"
-
-explicacion: |
-  Ante un incidente, primero se debe detectar la anomalía, luego contener el daño para que no se propague, erradicar la causa raíz y finalmente recuperar los sistemas a su estado normal.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "intermedio"
-  tags: ["malware", "gusano"]
-
-enunciado: "A diferencia de un gusano (worm), que se propaga de forma autónoma a través de la red, un troyano requiere que el usuario ___ para infectar el sistema."
-
-respuesta: "interacción del usuario"
+enunciado: "En el contexto de pruebas de ___, un fallo puede indicar un problema en la interfaz entre dos componentes, no necesariamente en la lógica interna de cada uno."
 tipo: completar
-respuestas_validas:
-  - "interacción del usuario"
+respuesta: "integracion"
 
 explicacion: |
-  El gusano es capaz de replicarse sin intervención humana aprovechando vulnerabilidades de red, mientras que el troyano se disfraza de software legítimo y depende de que el usuario lo ejecute.
+  Las pruebas de integración son cruciales para detectar errores de contrato, protocolos de comunicación o formatos de datos incorrectos que las pruebas unitarias (por su naturaleza aislada) no pueden detectar.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "seguridad_informatica"
+  tema: "pruebas_unitarias_vs_integracion"
   nivel: "basico"
-  tags: ["phishing", "seguridad"]
+  tags: ["testing", "unitarias"]
 
-variables:
-  datos: [["Recibiste un mail de tu banco pidiendo tu clave urgency", "phishing"], ["Un amigo te envía un link de un video que no abre", "posible_virus"], ["Un aviso de actualización de Windows en la barra de tareas", "sistema"]]
-  idx: uno_de([0,1,2])
-
-enunciado: "Analiza el siguiente caso: {datos[idx][0]}. ¿Qué tipo de amenaza o situación representa?"
-
-opciones_explicitas: ["phishing", "posible_virus", "sistema"]
-respuesta: datos[idx][1]
+respuesta: "unitarias"
 tipo: mc
+opciones_explicitas: ["unitarias", "de_integracion", "de_sistema", "de_aceptacion"]
+
+enunciado: "Cuando un desarrollador se enfoca exclusivamente en verificar que una única función o método funcione correctamente de forma aislada, está realizando pruebas ___."
 
 explicacion: |
-  El caso {datos[idx][0]} se clasifica como {datos[idx][1]}. Recuerda nunca entregar credenciales por correo electrónico.
+  Las pruebas unitarias se centran en la unidad mínima de software (una función, un método o una clase) de forma aislada de sus dependencias.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "seguridad_informatica"
+  tema: "pruebas_unitarias_vs_integracion"
   nivel: "basico"
-  tags: ["malware", "virus"]
-
-variables:
-  datos: [["Un programa que se oculta y registra tus pulsaciones de teclado", "spyware"], ["Un programa que cifra tus archivos y pide dinero", "ransomware"], ["Un programa que se duplica y se propaga por la red", "virus"]]
-  idx: uno_de([0,1,2])
-
-enunciado: "Se detecta en el sistema: {datos[idx][0]}. ¿Cuál es el nombre de este malware?"
-
-opciones_explicitas: ["spyware", "ransomware", "virus"]
-respuesta: datos[idx][1]
-tipo: mc
-
-explicacion: |
-  El software descrito es {datos[idx][1]}. Es fundamental contar con un antivirus actualizado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "seguridad_informatica"
-  nivel: "basico"
-  tags: ["buenas_practicas", "passwords"]
-
-enunciado: "¿Es una buena práctica de seguridad utilizar la misma contraseña para todas tus cuentas personales para no olvidarlas?"
+  tags: ["testing", "integracion"]
 
 respuesta: falso
 tipo: vf
 
+enunciado: "El objetivo principal de las pruebas de integración es verificar que cada componente individual funcione correctamente según su especificación técnica."
+
 explicacion: |
-  Falso. Si un atacante obtiene una de tus contraseñas, tendrá acceso a todas tus cuentas. Se recomienda usar un gestor de contraseñas.
+  Falso. El objetivo de las pruebas de integración es verificar que los componentes, una vez probados individualmente, funcionen correctamente al interactuar entre sí.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "seguridad_informatica"
+  tema: "pruebas_unitarias_vs_integracion"
   nivel: "intermedio"
-  tags: ["reaccion", "incidente"]
+  tags: ["testing", "errores_comunes"]
 
-enunciado: "Has detectado que tu computadora está actuando de forma errática y aparecen ventanas emergentes constantes. Ordena los pasos lógicos para mitigar el riesgo:"
+respuesta: "de_integracion"
+tipo: mc
+opciones_explicitas: ["unitarias", "de_integracion"]
 
-opciones_explicitas: ["Desconectar el equipo de la red", "Realizar un escaneo con antivirus", "Cambiar contraseñas desde otro dispositivo seguro"]
-respuesta_orden: ["Desconectar el equipo de la red", "Realizar un escaneo con antivirus", "Cambiar contraseñas desde otro dispositivo seguro"]
-tipo: ordenar
+enunciado: "Si una prueba falla porque la interacción entre dos módulos es incorrecta, pero cada módulo funciona bien por separado, estamos ante un error de tipo: ___."
 
 explicacion: |
-  Primero se aísla el equipo (desconectar red) para evitar la propagación, luego se limpia el sistema y finalmente se asegura la identidad desde un equipo limpio.
+  En este caso, el problema no reside en la lógica interna de los módulos (unitario), sino en el contrato o la comunicación entre ellos (integración).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "seguridad_informatica"
+  tema: "pruebas_unitarias_vs_integracion"
   nivel: "basico"
-  tags: ["phishing", "ingenieria_social"]
+  tags: ["testing", "flujo_de_trabajo"]
 
-enunciado: "El uso de técnicas psicológicas para engañar a las personas y obtener información confidencial se conoce como ___."
+respuesta_orden: ["Unitarias", "Integración", "Sistema"]
+tipo: ordenar
+opciones_explicitas: ["Unitarias", "Integración", "Sistema"]
+
+enunciado: "Ordena las etapas típicas de una estrategia de testing ascendente (Bottom-Up), desde lo más pequeño a lo más complejo."
+
+explicacion: |
+  El flujo lógico estándar comienza validando las piezas individuales (unitarias), luego cómo se conectan (integración) y finalmente el sistema completo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_vs_integracion"
+  nivel: "avanzado"
+  tags: ["testing", "mocks"]
+
+respuesta: "unitarias"
+tipo: completar
+respuestas_validas:
+  - "unitarias"
+
+enunciado: "Para aislar una pieza de código y evitar que dependencias externas (como una base de datos) afecten el resultado, se utilizan objetos simulados (Mocks/Stubs). Este enfoque es característico de las pruebas ___."
+
+explicacion: |
+  El uso de Mocks es fundamental en las pruebas unitarias para garantizar que el test solo evalúe la lógica de la unidad y no el comportamiento de sus dependencias.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_vs_integracion"
+  nivel: "basico"
+  tags: ["testing", "calidad_software"]
+
+tipo: mc
+opciones_explicitas: ["El objetivo de la prueba unitaria es verificar la interacción entre múltiples módulos.", "La prueba unitaria se enfoca en la lógica interna de un componente aislado.", "La prueba de integración busca validar la interfaz de usuario.", "Ambas pruebas tienen exactamente el mismo alcance y objetivo."]
+
+respuesta: "La prueba unitaria se enfoca en la lógica interna de un componente aislado."
+
+enunciado: "En el ciclo de vida de pruebas, ¿cuál es la principal distinción de una prueba unitaria respecto a una de integración?"
+
+explicacion: |
+  Las pruebas unitarias validan la unidad mínima de software (como una función o método) de forma aislada, mientras que las de integración verifican que los componentes funcionen correctamente al unirse.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_vs_integracion"
+  nivel: "basico"
+  tags: ["testing", "conceptos"]
+
+tipo: vf
+
+enunciado: "En una prueba unitaria, si el componente que estamos probando depende de una base de datos, se debe utilizar un objeto simulado (mock) para mantener el aislamiento del componente."
+
+respuesta: verdadero
+
+explicacion: |
+  Es correcto. Para que una prueba sea puramente unitaria, no debe depender de sistemas externos (DB, APIs, archivos); se utilizan mocks o stubs para simular esos comportamientos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_vs_integracion"
+  nivel: "intermedio"
+  tags: ["testing", "flujo_de_errores"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["error_logica", "error_interfaz"], ["error_calculo", "error_comunicacion"]]
+
+tipo: completar
+respuesta: escenarios[escenario_idx][1]
+respuestas_validas:
+  - "error_logica"
+  - "error_interfaz"
+  - "error_calculo"
+  - "error_comunicacion"
+
+enunciado: "Si una función calcula mal un impuesto debido a un error en su algoritmo interno, el tipo de error detectado es un ___; pero si la función envía el dato correcto pero el receptor no sabe interpretarlo, el problema es un ___."
+
+pasos:
+  - "Identificar si el error es interno (lógica) o de interacción (interfaz)."
+  - "Relacionar el tipo de error con el nivel de prueba correspondiente."
+
+explicacion: |
+  Los errores de lógica interna se detectan en pruebas unitarias, mientras que los errores de comunicación entre módulos se detectan en pruebas de integración.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_vs_integracion"
+  nivel: "basico"
+  tags: ["testing", "jerarquia"]
+
+tipo: ordenar
+opciones_explicitas: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
+
+respuesta_orden: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
+
+enunciado: "Ordene los siguientes niveles de prueba según el orden lógico de ejecución en un proceso de desarrollo estándar (de lo más pequeño a lo más completo):"
+
+explicacion: |
+  El desarrollo sigue una pirámide: primero se asegura que cada pieza funcione (Unitarias), luego que las piezas encajen (Integración) y finalmente que el sistema completo cumpla su propósito (Sistema).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_vs_integracion"
+  nivel: "intermedio"
+  tags: ["testing", "complejidad"]
+
+tipo: mc
+opciones_explicitas: ["Las pruebas unitarias son generalmente más complejas de configurar que las de integración.", "Las pruebas de integración suelen ser más rápidas de ejecutar que las unitarias.", "Las pruebas unitarias son más fáciles de aislar que las de integración.", "Las pruebas de integración no requieren de código de prueba."]
+
+respuesta: "Las pruebas unitarias son más fáciles de aislar que las de integración."
+
+enunciado: "Al comparar la dificultad de preparación (setup) y aislamiento, ¿cuál de las siguientes afirmaciones es correcta?"
+
+explicacion: |
+  Las pruebas unitarias son fáciles de aislar porque solo requieren el componente y sus mocks. Las de integración son más complejas porque requieren configurar múltiples módulos, bases de datos o servicios reales para que interactúen.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_vs_integracion"
+  nivel: "basico"
+  tags: ["testing", "calidad_software"]
+
+variables:
+  escenario: uno_de([["Se está probando si la función 'calcular_iva(monto)' devuelve el valor correcto para un número dado, sin considerar la base de datos.", "unitaria"], ["Se está probando si el módulo de 'pagos' logra comunicarse correctamente con la 'pasarela_de_pagos' externa.", "integracion"], ["Se está probando si un solo método de una clase procesa correctamente un string de entrada.", "unitaria"], ["Se está probando si la interacción entre el módulo de 'inventario' y el de 'ventas' actualiza el stock tras una compra.", "integracion"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["unitaria", "integracion"]
+
+enunciado: "Dado el siguiente escenario: {escenario[0]}. ¿Qué tipo de prueba se está ejecutando?"
+
+explicacion: |
+  Las pruebas unitarias se enfocan en la lógica interna de una pieza mínima de código (función, método) de forma aislada. Las pruebas de integración verifican que la interacción entre diferentes módulos o componentes funcione correctamente.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_vs_integracion"
+  nivel: "basico"
+  tags: ["testing", "conceptos"]
+
+variables:
+  respuesta_correcta: falso
+
+tipo: vf
+enunciado: "Las pruebas de integración tienen como objetivo principal verificar que cada función individual cumpla con su contrato de entrada y salida, de forma aislada de otros módulos."
+
+respuesta: falso
+
+explicacion: |
+  Falso. Eso es la definición de pruebas unitarias. Las de integración buscan detectar fallos en las interfaces y la comunicación entre componentes ya probados.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_vs_integracion"
+  nivel: "intermedio"
+  tags: ["testing", "flujo_de_datos"]
 
 respuestas_validas:
-  - "ingeniería social"
-respuesta: "ingeniería social"
+  - "flujo"
+  - "interacción"
+  - "comunicación"
+respuesta: "interacción"
 tipo: completar
 
+enunciado: "Mientras que las pruebas unitarias validan la lógica de un componente aislado, las pruebas de ___________ validan que los componentes funcionen correctamente cuando se combinan."
+
 explicacion: |
-  La técnica utilizada es la ingeniería social. El eslabón más débil en la seguridad suele ser el usuario debido a la manipulación psicológica.
+  La integración se centra en la interacción entre módulos para asegurar que el flujo de datos y el control entre ellos sea el esperado.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_vs_integracion"
+  nivel: "intermedio"
+  tags: ["testing", "metodologia"]
+
+opciones_explicitas: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
+respuesta_orden: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
+tipo: ordenar
+
+enunciado: "Ordena las fases de testing de menor a mayor alcance (de lo más pequeño a lo más complejo):"
+
+explicacion: |
+  El proceso estándar comienza con la validación de la unidad mínima (Unitarias), luego se unen las piezas (Integración) y finalmente se prueba el sistema completo (Sistema/E2E).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "pruebas_unitarias_vs_integracion"
+  nivel: "avanzado"
+  tags: ["testing", "debug"]
+
+variables:
+  caso: uno_de([["El módulo A envía un objeto JSON, pero el módulo B espera un XML.", "error_integracion"], ["La función 'sumar(a, b)' devuelve un resultado incorrecto debido a un error de redondeo.", "error_unitario"], ["Un método de validación de email no acepta caracteres especiales.", "error_unitario"], ["El módulo de base de datos no responde ante una consulta de un módulo de reporte.", "error_integracion"]])
+
+respuesta: caso[1]
+tipo: mc
+opciones_explicitas: ["error_unitario", "error_integracion"]
+
+enunciado: "Se detecta el siguiente problema: {caso[0]}. ¿A qué categoría de error pertenece principalmente?"
+
+explicacion: |
+  Si el error reside en la lógica interna de una función, es unitario. Si el error surge por la incompatibilidad de formatos o la falta de comunicación entre dos componentes que por separado funcionan bien, es un error de integración.
 ```
 
 ## Sección: sistema-de-archivos (25 preguntas)
@@ -1409,820 +1397,985 @@ explicacion: |
   En informática, las unidades suelen basarse en potencias de 2 (binarias): 1024 bytes = 1 KB, 1024^2 = 1 MB, etc.
 ```
 
-## Sección: sistemas-numeracion (24 preguntas)
+## Sección: mantenimiento-y-deuda-tecnica (26 preguntas)
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistemas_numeracion"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "basico"
-  tags: ["sistemas_numeracion", "vocabulario"]
+  tags: ["conceptos", "deuda_tecnica"]
 
-enunciado: "¿Qué caracteriza a un sistema de numeración posicional?"
-tipo: mc
-opciones_explicitas:
-  - "El valor de cada dígito depende de la posición en la que está escrito, según una potencia de la base"
-  - "Cada dígito vale siempre lo mismo, sin importar dónde esté escrito"
-  - "Sólo existe en el sistema decimal"
-respuesta: "El valor de cada dígito depende de la posición en la que está escrito, según una potencia de la base"
+respuesta: "deuda_tecnica"
+tipo: completar
+respuestas_validas:
+  - "deuda_tecnica"
+
+enunciado: "El concepto que describe el coste adicional de realizar cambios en el software debido a decisiones de diseño rápidas o deficientes se conoce como ___."
 
 explicacion: |
-  El decimal es sólo uno de los tantos sistemas posicionales posibles.
+  La deuda técnica es una metáfora que compara las decisiones de desarrollo apresuradas con la deuda financiera: si no se "paga" (refactorizando), los "intereses" (dificultad de mantenimiento) aumentan.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistemas_numeracion"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "basico"
-  tags: ["sistemas_numeracion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el sistema decimal, cada posición de un número vale una potencia de 10."
-
-explicacion: |
-  Por eso se llama \"base 10\": decenas, centenas, etc. son potencias de
-  10.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "basico"
-  tags: ["sistemas_numeracion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el sistema binario, cada posición de un número vale una potencia de 2."
-
-explicacion: |
-  Es la base que usan internamente las computadoras.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "basico"
-  tags: ["sistemas_numeracion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el sistema hexadecimal, cada posición de un número vale una potencia de 16."
-
-explicacion: |
-  \"Hexa\" (seis) + \"decimal\" (diez) = dieciséis, la base de este
-  sistema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "basico"
-  tags: ["sistemas_numeracion", "vocabulario"]
-
-enunciado: "¿Cuántos dígitos posibles usa el sistema binario?"
-tipo: mc
-opciones_explicitas:
-  - "2 (0 y 1)"
-  - "10 (0 al 9)"
-  - "16 (0 al 9 y A a F)"
-respuesta: "2 (0 y 1)"
-
-explicacion: |
-  Corresponde a los dos estados naturales de un componente electrónico.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "basico"
-  tags: ["sistemas_numeracion", "vocabulario"]
-
-enunciado: "¿Cuántos dígitos posibles usa el sistema hexadecimal?"
-tipo: mc
-opciones_explicitas:
-  - "16 (0 al 9 y A a F)"
-  - "2 (0 y 1)"
-  - "10 (0 al 9)"
-respuesta: "16 (0 al 9 y A a F)"
-
-explicacion: |
-  Los 10 dígitos decimales más 6 letras para los valores 10 a 15.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "intermedio"
-  tags: ["sistemas_numeracion", "vocabulario"]
-
-enunciado: "En hexadecimal, ¿qué valor decimal representa la letra A?"
-tipo: mc
-opciones_explicitas:
-  - "10"
-  - "1"
-  - "11"
-respuesta: "10"
-
-explicacion: |
-  Las letras A a F representan los valores 10 a 15, en orden.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "intermedio"
-  tags: ["sistemas_numeracion", "vocabulario"]
-
-enunciado: "En hexadecimal, ¿qué valor decimal representa la letra F?"
-tipo: mc
-opciones_explicitas:
-  - "15"
-  - "6"
-  - "16"
-respuesta: "15"
-
-explicacion: |
-  F es la última letra usada, y representa el valor más alto de un solo
-  dígito hexadecimal.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "intermedio"
-  tags: ["sistemas_numeracion", "calculo"]
+  tags: ["mantenimiento", "tipos"]
 
 variables:
-  b3: uno_de([0, 1])
-  b2: uno_de([0, 1])
-  b1: uno_de([0, 1])
-  b0: uno_de([0, 1])
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["corregir un error que causa un cierre inesperado", "correctivo"], ["añadir una nueva funcionalidad solicitada por el cliente", "evolutivo"]]
 
-respuesta: b3 * 8 + b2 * 4 + b1 * 2 + b0 * 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El número binario {b3}{b2}{b1}{b0}, ¿a qué valor decimal equivale?"
-
-pasos:
-  - "{b3}×8 + {b2}×4 + {b1}×2 + {b0}×1"
-
-explicacion: |
-  Se suma el valor posicional de cada bit que esté en 1.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "intermedio"
-  tags: ["sistemas_numeracion", "calculo"]
-
-variables:
-  b3: uno_de([0, 1])
-  b2: uno_de([0, 1])
-  b1: uno_de([0, 1])
-  b0: uno_de([0, 1])
-
-respuesta: b3 * 8 + b2 * 4 + b1 * 2 + b0 * 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El número binario {b3}{b2}{b1}{b0}, ¿a qué valor decimal equivale?"
-
-explicacion: |
-  Mismo procedimiento: sumar 8, 4, 2 o 1 según qué bits estén en 1.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "intermedio"
-  tags: ["sistemas_numeracion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Con 4 bits (1111 en binario), el valor máximo representable es 15 en decimal."
-
-explicacion: |
-  1111 = 8+4+2+1 = 15, y coincide con el dígito hexadecimal más alto (F).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "basico"
-  tags: ["sistemas_numeracion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las computadoras usan binario internamente porque sus componentes electrónicos trabajan naturalmente con dos estados (encendido/apagado)."
-
-explicacion: |
-  Representar de forma confiable más de dos estados sería mucho más
-  complejo electrónicamente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "intermedio"
-  tags: ["sistemas_numeracion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada dígito hexadecimal representa exactamente 4 bits, porque 16 es 2 elevado a la 4."
-
-explicacion: |
-  Es la razón matemática de por qué el hexadecimal es tan práctico para
-  representar binario de forma compacta.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "intermedio"
-  tags: ["sistemas_numeracion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos dígitos hexadecimales representan exactamente 1 byte (8 bits)."
-
-explicacion: |
-  Cada dígito hex son 4 bits, así que dos dígitos son 4+4 = 8 bits.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "avanzado"
-  tags: ["sistemas_numeracion", "problema"]
-
-enunciado: "El grupo de 4 bits \"1010\", ¿a qué dígito hexadecimal corresponde?"
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
-opciones_explicitas:
-  - "A"
-  - "8"
-  - "5"
-respuesta: "A"
+opciones_explicitas: ["correctivo", "adaptativo", "evolutivo", "preventivo"]
+
+enunciado: "Se debe realizar un mantenimiento tipo ___ cuando el objetivo es {escenarios[escenario_idx][0]}."
 
 explicacion: |
-  1010 en binario es 8+0+2+0 = 10 en decimal, que en hexadecimal es la
-  letra A.
+  El mantenimiento correctivo busca arreglar fallos; el adaptativo ajusta el software a nuevos entornos; el evolutivo añade funciones y el preventivo busca evitar fallos futuros.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "avanzado"
-  tags: ["sistemas_numeracion", "problema"]
-
-enunciado: "El grupo de 4 bits \"0110\", ¿a qué dígito hexadecimal corresponde?"
-tipo: mc
-opciones_explicitas:
-  - "6"
-  - "B"
-  - "9"
-respuesta: "6"
-
-explicacion: |
-  0110 en binario es 0+4+2+0 = 6 en decimal, que en hexadecimal se
-  escribe igual (6), porque es menor a 10.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "avanzado"
-  tags: ["sistemas_numeracion", "calculo"]
-
-variables:
-  digito_alto: random(1, 9)
-  digito_bajo: random(0, 9)
-
-respuesta: digito_alto * 16 + digito_bajo
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un número hexadecimal de dos dígitos es \"{digito_alto}{digito_bajo}\" (los dos dígitos son números, sin letras). ¿A qué valor decimal equivale?"
-
-pasos:
-  - "{digito_alto} × 16 + {digito_bajo}"
-
-explicacion: |
-  El dígito de la izquierda vale por la posición de las \"dieciseises\";
-  el de la derecha, por las unidades.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "avanzado"
-  tags: ["sistemas_numeracion", "calculo"]
-
-variables:
-  digito_alto: random(1, 9)
-  digito_bajo: random(0, 9)
-  valor_decimal: digito_alto * 16 + digito_bajo
-
-respuesta: digito_alto
-tipo: input
-tolerancia_abs: 0.1
-
-enunciado: "Un número hexadecimal de dos dígitos (ambos sin letras) vale {valor_decimal} en decimal, y su dígito de la derecha es {digito_bajo}. ¿Cuál es su dígito de la izquierda?"
-
-explicacion: |
-  Se despeja restando el dígito de la derecha y dividiendo por 16.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistemas_numeracion"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "intermedio"
-  tags: ["sistemas_numeracion", "vocabulario"]
+  tags: ["impacto", "calidad"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "El hexadecimal es, en la práctica, una forma compacta de escribir binario: cada dígito hex corresponde exactamente a un grupo de 4 bits, sin ninguna conversión aproximada de por medio."
+enunciado: "La presencia de deuda técnica en un proyecto de software siempre implica que el código es de mala calidad y no tiene utilidad."
 
 explicacion: |
-  Por eso pasar de binario a hexadecimal (y viceversa) es directo,
-  agrupando de a 4 bits.
+  Falso. A veces se toma deuda técnica de forma estratégica para cumplir con una fecha de lanzamiento crítica, con el plan de pagarla (refactorizar) más adelante.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistemas_numeracion"
+  tema: "mantenimiento_y_deuda_tecnica"
+  nivel: "intermedio"
+  tags: ["procesos", "orden"]
+
+respuesta_orden: ["Detección del problema", "Análisis de la causa", "Diseño de la solución", "Implementación del cambio", "Pruebas de regresión"]
+tipo: ordenar
+opciones_explicitas: ["Detección del problema", "Análisis de la causa", "Diseño de la solución", "Implementación del cambio", "Pruebas de regresión"]
+
+enunciado: "Ordena las etapas típicas de un proceso de mantenimiento correctivo:"
+
+explicacion: |
+  Un ciclo de mantenimiento debe seguir un orden lógico: primero se identifica el error, se entiende por qué ocurre, se planea el arreglo, se aplica y finalmente se verifica que no se haya roto nada más.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "avanzado"
-  tags: ["sistemas_numeracion", "comparacion"]
+  tags: ["refactorizacion", "calidad"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  valor_refactor: uno_de([0, 1])
+  datos: [["Cambiar la estructura interna del código sin alterar su comportamiento externo", "refactorizar"], ["Añadir un nuevo módulo de seguridad al sistema", "extender"]]
 
-enunciado: "Con la misma cantidad de dígitos (dos), el sistema hexadecimal puede representar muchos más valores distintos que el sistema binario."
+respuesta: datos[valor_refactor][1]
+tipo: mc
+opciones_explicitas: ["refactorizar", "extender", "optimizar", "reparar"]
+
+enunciado: "La acción de {datos[valor_refactor][0]} se define como ___."
 
 explicacion: |
-  Dos dígitos hex representan hasta 256 valores (16×16); dos dígitos
-  binarios sólo representan hasta 4 (2×2).
+  La refactorización es la técnica principal para reducir la deuda técnica, mejorando la legibilidad y la estructura sin cambiar lo que el código hace para el usuario.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistemas_numeracion"
+  tema: "mantenimiento_y_deuda_tecnica"
+  nivel: "intermedio"
+  tags: ["deuda_tecnica", "mantenimiento"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "Si un equipo de desarrollo decide no refactorizar un módulo complejo para cumplir con una fecha de entrega, está acumulando deuda técnica. Esta acción, si no se paga pronto, aumenta el costo de mantenimiento futuro. ¿Es el refactorizado una forma de mantenimiento preventivo?"
+
+explicacion: |
+  El refactorizado busca mejorar la estructura interna del código sin cambiar su comportamiento externo, lo cual es una actividad de mantenimiento preventivo para evitar la acumulación de deuda técnica.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "basico"
-  tags: ["sistemas_numeracion", "orden"]
+  tags: ["deuda_tecnica", "conceptos"]
+
+opciones_explicitas: ["Código mal documentado", "Cambio de requerimientos", "Nueva funcionalidad", "Actualización de dependencias"]
+
+respuesta: "Código mal documentado"
+tipo: mc
+
+enunciado: "Un desarrollador nota que el sistema funciona correctamente, pero la lógica de negocio está dispersa y no hay comentarios en las funciones críticas, lo que dificultará cambios futuros. ¿Cuál de estos es un ejemplo claro de deuda técnica?"
+
+explicacion: |
+  La falta de documentación y la mala estructura del código (código espagueti) son formas de deuda técnica que incrementan el esfuerzo necesario para realizar mantenimientos correctivos o evolutivos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "mantenimiento_y_deuda_tecnica"
+  nivel: "intermedio"
+  tags: ["mantenimiento", "tipos"]
 
 tipo: ordenar
-enunciado: "Ordená estos sistemas de numeración de menor a mayor cantidad de valores distintos que puede representar un solo dígito."
-opciones_explicitas:
-  - "Decimal"
-  - "Binario"
-  - "Hexadecimal"
-respuesta_orden: ["Binario", "Decimal", "Hexadecimal"]
+opciones_explicitas: ["Detectar error", "Corregir error", "Optimizar rendimiento", "Implementar nueva función", "Documentar sistema"]
+respuesta_orden: ["Detectar error", "Corregir error", "Optimizar rendimiento", "Implementar nueva función", "Documentar sistema"]
+
+enunciado: "Ordena las siguientes etapas típicas del ciclo de mantenimiento de un sistema de software, desde la detección de un problema hasta la documentación final."
 
 explicacion: |
-  Binario tiene 2 dígitos posibles, decimal 10, hexadecimal 16.
+  El mantenimiento correctivo (detectar y corregir errores) suele preceder a las mejoras de rendimiento y a las nuevas funcionalidades; documentar los cambios es siempre el último paso.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistemas_numeracion"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "intermedio"
-  tags: ["sistemas_numeracion", "verificacion"]
+  tags: ["mantenimiento", "tipos"]
 
-variables:
-  b3: uno_de([0, 1])
-  b2: uno_de([0, 1])
-  b1: uno_de([0, 1])
-  b0: uno_de([0, 1])
-  correcto: b3 * 8 + b2 * 4 + b1 * 2 + b0 * 1
-  error: uno_de([0, 0, 0, 3, -3])
-  mostrado: correcto + error
+respuesta: "perfectivo"
+tipo: completar
 
-respuesta: (abs(mostrado - correcto) < 1)
-tipo: vf
+enunciado: "Si el objetivo es mejorar la velocidad de una consulta SQL que tarda 10 segundos, estamos realizando un mantenimiento de tipo ___."
 
-enunciado: "¿Está bien calculado esto? Binario {b3}{b2}{b1}{b0}, valor decimal informado: {mostrado}."
+pasos:
+  - "Identificar el cuello-de-bote en la base de datos."
+  - "Aplicar índices o reescribir la consulta."
+
+opciones_explicitas: ["correctivo", "evolutivo", "adaptativo", "perfectivo"]
+respuestas_validas:
+  - "perfectivo"
 
 explicacion: |
-  Se vuelve a sumar el valor posicional de cada bit y se compara.
+  El mantenimiento perfectivo se encarga de mejorar el rendimiento o la eficiencia de un software que ya funciona correctamente.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistemas_numeracion"
-  nivel: "intermedio"
-  tags: ["sistemas_numeracion"]
-
-variables:
-  b3: uno_de([0, 1])
-  b2: uno_de([0, 1])
-  b1: uno_de([0, 1])
-  b0: uno_de([0, 1])
-  decimal: b3 * 8 + b2 * 4 + b1 * 2 + b0 * 1
+  tema: "mantenimiento_y_deuda_tecnica"
+  nivel: "avanzado"
+  tags: ["deuda_tecnica", "costos"]
 
 tipo: completar
-enunciado: "El binario {b3}{b2}{b1}{b0} vale {decimal} en decimal. Completá: ___ (el bit más a la izquierda) = {b3}."
+
+enunciado: "Un equipo decide ignorar las pruebas unitarias para lanzar una versión hoy. Esto genera una deuda técnica que se traduce en ___."
+
 respuestas_validas:
-  - b3
+  - "intereses"
 
 explicacion: |
-  Es sólo identificar el bit ya dado en el enunciado.
+  La deuda técnica funciona como un préstamo financiero: el 'principal' es el tiempo ahorrado hoy, y los 'intereses' es el tiempo extra que se perderá mañana arreglando errores o lidiando con código complejo.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistemas_numeracion"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "basico"
-  tags: ["sistemas_numeracion", "vocabulario"]
+  tags: ["mantenimiento", "adaptativo"]
 
-respuesta: verdadero
-tipo: vf
+opciones_explicitas: ["Cambio de Sistema Operativo", "Arreglar un crash", "Añadir un botón", "Cambiar el color de la interfaz"]
 
-enunciado: "El binario (base 2) es el sistema que usan las computadoras internamente; el hexadecimal (base 16) es una forma compacta de escribir ese mismo binario, agrupando de a 4 bits por cada dígito."
+respuesta: "Cambio de Sistema Operativo"
+tipo: mc
 
-explicacion: |
-  Es la idea central de todo el tema.
-```
-
-## Sección: sistema-de-archivos-por-bitacora (21 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "basico"
-  tags: ["journaling", "definicion", "consistencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La bitácora (journal) es un registro que almacena información sobre los cambios pendientes en los metadatos antes de aplicarlos al sistema de archivos."
+enunciado: "Una aplicación de escritorio debe actualizarse para ser compatible con la nueva versión de Windows que salió este mes. ¿Qué tipo de mantenimiento es este?"
 
 explicacion: |
-  Correcto. El propósito principal de la bitácora es registrar las intenciones de cambio en los metadatos para garantizar la consistencia del sistema ante fallos.
+  El mantenimiento adaptativo ocurre cuando el software debe ajustarse a cambios en su entorno (sistema operativo, hardware, bases de datos o leyes externas) para seguir siendo funcional.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "intermedio"
-  tags: ["recuperacion", "consistencia", "reinicio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al reiniciar después de un fallo, el sistema lee la bitácora para determinar qué operaciones de metadatos estaban pendientes y las completa o revierte."
-
-explicacion: |
-  Correcto. La bitácora actúa como un plan de trabajo. Si hay operaciones incompletas, el sistema las procesa para restaurar la integridad lógica del sistema de archivos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["rendimiento", "fsck", "tiempo"]
+  tags: ["deuda_tecnica", "costo_software"]
 
 variables:
-  tiempo_fsck: random(30, 120)
-  tiempo_journal: random(1, 5)
+  escenario: uno_de([["reparar_bug", "reparar un error crítico", "reparar un error crítico"], ["agregar_feature", "implementar una nueva funcionalidad", "implementar una nueva funcionalidad"], ["refactorizar", "refactorizar un módulo heredado", "refactorizar un módulo heredado"]])
+  tipo_accion: escenario[0]
+  descripcion_accion: escenario[1]
+  respuesta_correcta: escenario[2]
 
-respuesta: tiempo_journal
-tipo: input
+tipo: mc
+opciones_explicitas: ["reparar un error crítico", "implementar una nueva funcionalidad", "refactorizar un módulo heredado"]
+respuesta: respuesta_correcta
 
-enunciado: "Si un sistema sin journaling tarda {tiempo_fsck} segundos en escanear errores (fsck), ¿cuántos segundos tarda aproximadamente uno con journaling en recuperar la consistencia? (Redondea a entero)."
+enunciado: "Cuando la deuda técnica es muy alta, el tiempo dedicado a {descripcion_accion} suele aumentar drásticamente debido a la complejidad del código existente."
 
 explicacion: |
-  Con journaling, la recuperación es casi instantánea (segundos) porque solo se revisa la bitácora, a diferencia del escaneo completo del disco que toma minutos u horas.
+  La deuda técnica actúa como un interés compuesto: cuanta más deuda se acumula, más tiempo y esfuerzo requiere cada nueva tarea (ya sea corregir errores o añadir funciones) debido a la fragilidad del sistema.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "basico"
-  tags: ["concepto", "analogia", "planificacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La bitácora funciona como un 'cuaderno de apuntes' donde se escribe el plan antes de ejecutar la tarea física en el disco."
-
-explicacion: |
-  Correcto. Esta analogía ilustra cómo el sistema escribe la intención de cambio primero, garantizando que si falla, pueda saber qué había planeado hacer.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["integridad", "estructura", "coherencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El journaling garantiza la integridad lógica, asegurando que la estructura de carpetas y archivos siempre sea coherente."
-
-explicacion: |
-  Correcto. La integridad lógica se refiere a que la estructura del sistema de archivos no queda rota o inconsistente tras un fallo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["fsck", "comparacion", "rendimiento"]
+  tags: ["conceptos", "gestion_de_proyectos"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Los sistemas con journaling requieren ejecutar fsck completo cada vez que se apaga la computadora para verificar la integridad."
+enunciado: "La deuda técnica es siempre un error de programación que debe evitarse a toda costa desde el primer día del proyecto."
 
 explicacion: |
-  Falso. Con journaling, el fsck es muy rápido porque solo verifica la bitácora. El fsck completo solo es necesario en sistemas sin journaling o si hay errores graves no resueltos por la bitácora.
+  Falso. La deuda técnica puede ser una decisión estratégica (deuda consciente) para acelerar el lanzamiento al mercado (Time-to-Market), siempre que se planifique su posterior pago.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "intermedio"
-  tags: ["estado", "bitacora", "fallos"]
+  tags: ["mantenimiento_software"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "correctivo"
+tipo: completar
+respuestas_validas:
+  - "correctivo"
+  - "adaptativo"
+  - "perfectivo"
+  - "preventivo"
 
-enunciado: "Un sistema de archivos se marca como 'sucio' (dirty) si hubo un fallo durante una operación que involucra la bitácora."
+enunciado: "El tipo de mantenimiento que se realiza exclusivamente para corregir fallos detectados en el software ya en producción se denomina mantenimiento ___."
 
 explicacion: |
-  Correcto. El estado 'sucio' indica que hay operaciones en la bitácora que deben ser procesadas al reiniciar para completar o deshacer cambios.
+  El mantenimiento correctivo se enfoca en solucionar errores (bugs) que impiden el funcionamiento correcto del sistema.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
+  tema: "mantenimiento_y_deuda_tecnica"
+  nivel: "avanzado"
+  tags: ["ciclo_vida", "deuda_tecnica"]
+
+respuesta_orden: ["Implementación rápida", "Acumulación de deuda", "Aumento de complejidad", "Refactorización necesaria"]
+tipo: ordenar
+opciones_explicitas: ["Implementación rápida", "Acumulación de deuda", "Aumento de complejidad", "Refactorización necesaria"]
+
+enunciado: "Ordene cronológicamente los eventos que describen el proceso de degradación de la calidad de software por deuda técnica no gestionada:"
+
+explicacion: |
+  El proceso comienza con una decisión de velocidad, lo que genera deuda; esto aumenta la complejidad del código y finalmente obliga a realizar refactorizaciones costosas para recuperar la mantenibilidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "intermedio"
-  tags: ["rendimiento", "comparacion", "tiempo"]
+  tags: ["mantenibilidad", "calidad_software"]
+
+respuesta: "alto"
+tipo: mc
+opciones_explicitas: ["bajo", "medio", "alto"]
+
+enunciado: "Si un módulo tiene una alta complejidad ciclomática y falta de documentación, el esfuerzo requerido para realizar mantenimiento sobre él será ___."
+
+explicacion: |
+  La falta de estándares y la complejidad excesiva aumentan la carga cognitiva de los desarrolladores, elevando el esfuerzo de mantenimiento.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "mantenimiento_y_deuda_tecnica"
+  nivel: "basico"
+  tags: ["conceptos", "ciclo_de_vida"]
+
+respuesta: "evolución"
+tipo: "completar"
+respuestas_validas:
+  - "evolución"
+  - "evolucion"
+
+enunciado: "Mientras que el mantenimiento correctivo se enfoca en reparar errores, el proceso de añadir nuevas funcionalidades o adaptar el software a nuevos entornos se denomina ___."
+
+explicacion: |
+  El mantenimiento correctivo busca solucionar fallos existentes, mientras que la evolución (o mantenimiento evolutivo) busca expandir las capacidades del sistema para satisfacer nuevas necesidades del usuario.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "mantenimiento_y_deuda_tecnica"
+  nivel: "intermedio"
+  tags: ["deuda_tecnica", "calidad"]
 
 variables:
-  tiempo_sin_journal: random(10, 60)
-  tiempo_con_journal: random(1, 5)
+  datos: [["decidir tomar un atajo en el diseño para cumplir con una fecha de entrega inmediata", "Aumento de la velocidad de entrega inicial"], ["ignorar las pruebas unitarias para acelerar el despliegue", "Aumento de la velocidad de entrega inicial"]]
+  escenario_idx: uno_de([0, 1])
 
-respuesta: tiempo_con_journal
-tipo: input
+respuesta: datos[escenario_idx][1]
+tipo: "mc"
+opciones_explicitas: ["Aumento de la velocidad de entrega inicial", "Reducción del costo de mantenimiento", "Mejora de la legibilidad del código", "Reducción de la complejidad ciclomática"]
 
-enunciado: "Si un disco sin journaling tarda {tiempo_sin_journal} segundos en repararse, ¿cuántos segundos tarda uno con journaling? (Redondea a entero)."
+enunciado: "En el escenario de {datos[escenario_idx][0]}, la principal consecuencia a largo plazo es:"
 
 explicacion: |
-  La recuperación con journaling es mucho más rápida (segundos) porque solo se procesan las entradas pendientes de la bitácora.
+  La deuda técnica suele ser una decisión consciente (o no) para ganar velocidad de entrega a corto plazo, pero genera un "interés" en forma de mayor dificultad para realizar cambios en el futuro.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["consistencia", "estructura", "integridad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La bitácora asegura que la estructura del sistema de archivos (directorios, bloques) sea consistente, aunque los datos de usuario estén intactos."
-
-explicacion: |
-  Correcto. El objetivo principal es la consistencia de la estructura (metadatos), permitiendo que el sistema acceda correctamente a los archivos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "basico"
-  tags: ["fallos", "recuperacion", "bitacora"]
+  tags: ["mantenimiento", "tipos"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "preventivo"
+tipo: "mc"
+opciones_explicitas: ["correctivo", "evolutivo", "preventivo", "adaptativo"]
 
-enunciado: "Ante un fallo repentino, la bitácora permite al sistema saber qué tareas estaban pendientes al momento del corte."
+enunciado: "Si un equipo de desarrollo realiza una refactorización para mejorar la estructura interna del código sin cambiar su comportamiento externo, está realizando mantenimiento ___."
 
 explicacion: |
-  Correcto. La bitácora contiene el registro de las operaciones incompletas, permitiendo una recuperación ordenada.
+  El mantenimiento preventivo busca mejorar la estructura del software para evitar problemas futuros (como la degradación por deuda técnica), sin alterar la funcionalidad actual.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "intermedio"
-  tags: ["concepto", "diferencia", "backup"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La bitácora es un mecanismo de respaldo (backup) que copia los archivos de usuario a otro disco."
-
-explicacion: |
-  Falso. La bitácora no es un backup. Es un mecanismo de consistencia interna del sistema de archivos que registra cambios en metadatos, no una copia de seguridad de datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "basico"
-  tags: ["estabilidad", "usuario", "beneficio"]
+  tags: ["deuda_tecnica", "costo"]
 
 respuesta: verdadero
-tipo: vf
+tipo: "vf"
 
-enunciado: "El uso de journaling contribuye a una computadora más estable y menos propensa a corrupción de datos."
+enunciado: "¿Es correcto afirmar que la deuda técnica se diferencia de la mala calidad de software en que la deuda suele ser una decisión estratégica para acelerar el desarrollo?"
 
 explicacion: |
-  Correcto. Al prevenir inconsistencias en la estructura del sistema de archivos, se reduce la probabilidad de errores y corrupción de datos.
+  Exacto. La mala calidad es un error o descuido, mientras que la deuda técnica es a menudo una decisión deliberada de "pedir prestado" tiempo de diseño para ganar tiempo de mercado.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
+  tema: "mantenimiento_y_deuda_tecnica"
+  nivel: "avanzado"
+  tags: ["refactorizacion", "deuda_tecnica"]
+
+tipo: ordenar
+
+opciones_explicitas: ["Identificar deuda técnica", "Escribir pruebas unitarias", "Ejecutar refactorización", "Verificar integridad"]
+
+respuesta_orden: ["Identificar deuda técnica", "Escribir pruebas unitarias", "Ejecutar refactorización", "Verificar integridad"]
+
+enunciado: "Ordena los pasos lógicos para abordar una deuda técnica mediante refactorización de forma segura:"
+
+explicacion: |
+  Para refactorizar sin introducir nuevos errores, primero se debe identificar el problema, asegurar la existencia de pruebas (test suite) para garantizar el comportamiento actual, realizar el cambio y finalmente verificar que todo siga funcionando.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "intermedio"
-  tags: ["verificacion", "fsck", "recuperacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El proceso de verificación tras un fallo con journaling es casi instantáneo porque el sistema ya sabe qué parte del disco está incompleta."
-
-explicacion: |
-  Correcto. La bitácora indica exactamente qué operaciones fallaron, evitando escanear todo el disco.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "basico"
-  tags: ["analogia", "funcionamiento", "bitacora"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La bitácora es como un asistente que escribe el plan antes de ejecutar la tarea, para saber qué hacer si se interrumpe el trabajo."
-
-explicacion: |
-  Correcto. Esta analogía ayuda a entender el rol de la bitácora como registro de intenciones de cambio.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["integridad", "carpetas", "estructura"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El journaling asegura que la estructura de carpetas sea coherente, evitando que apunten a directorios inexistentes."
-
-explicacion: |
-  Correcto. La integridad de la estructura de directorios es clave para que el sistema pueda navegar y acceder a los archivos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["rendimiento", "tiempo", "comparacion"]
+  tags: ["refactorizacion", "deuda_tecnica"]
 
 variables:
-  tiempo_sin_journal: random(20, 90)
-  tiempo_con_journal: random(1, 5)
+  escenario: uno_de([["El equipo decide ignorar la implementación de pruebas unitarias para cumplir con la fecha de entrega.", "deuda_tecnica"], ["El equipo decide reescribir un módulo complejo para mejorar su legibilidad sin cambiar su comportamiento.", "refactorizacion"], ["El equipo decide parchar un error crítico con un código temporal que no sigue los estándares.", "deuda_tecnica"]])
 
-respuesta: tiempo_con_journal
-tipo: input
+enunciado: "En el escenario descrito: '{escenario[0]}', la acción realizada se clasifica como: ___"
 
-enunciado: "Si un disco sin journaling tarda {tiempo_sin_journal} segundos en repararse, ¿cuántos segundos tarda uno con journaling? (Redondea a entero)."
+respuestas_validas:
+  - "deuda_tecnica"
+  - "refactorizacion"
+respuesta: escenario[1]
+tipo: completar
 
 explicacion: |
-  La recuperación con journaling es rápida (segundos) porque solo se procesan las entradas pendientes de la bitácora.
+  La deuda técnica surge cuando se toman caminos de desarrollo rápidos o de baja calidad que facilitan la entrega inmediata pero aumentan el costo de mantenimiento futuro. La refactorización, en cambio, es una práctica deliberada para mejorar la estructura interna sin alterar la funcionalidad.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "basico"
-  tags: ["fallos", "luz", "recuperacion"]
+  tags: ["mantenimiento_correctivo", "mantenimiento_evolutivo"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  caso: uno_de([["Corregir un error que causa que la aplicación se cierre inesperadamente.", "correctivo"], ["Añadir una nueva funcionalidad de exportación a PDF que el cliente solicitó.", "evolutivo"], ["Optimizar el uso de memoria de una función existente para que sea más rápida.", "perfectivo"]])
 
-enunciado: "Ante un corte de luz, el journaling permite al sistema recuperar la consistencia de los metadatos al reiniciar."
+enunciado: "Si el objetivo es '{caso[0]}', estamos realizando un mantenimiento de tipo: ___"
+
+respuestas_validas:
+  - "correctivo"
+  - "evolutivo"
+  - "perfectivo"
+respuesta: caso[1]
+tipo: completar
 
 explicacion: |
-  Correcto. El journaling es crucial para manejar fallos de energía, asegurando que los cambios en metadatos se completen o se deshagan.
+  El mantenimiento correctivo soluciona fallos; el evolutivo añade nuevas capacidades; y el perfectivo mejora aspectos no funcionales como el rendimiento o la eficiencia.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
+  tema: "mantenimiento_y_deuda_tecnica"
   nivel: "intermedio"
-  tags: ["registro", "intencion", "bitacora"]
+  tags: ["costo", "deuda_tecnica"]
 
-respuesta: verdadero
-tipo: vf
+enunciado: "A medida que la deuda técnica en un proyecto de software aumenta, el costo de implementar nuevos cambios tiende a ___."
 
-enunciado: "La bitácora es un registro de las intenciones de cambio en los metadatos antes de que se apliquen."
+opciones_explicitas: ["Aumentar", "Disminuir"]
+respuesta: "Aumentar"
+tipo: mc
 
 explicacion: |
-  Correcto. El registro de intenciones permite al sistema saber qué hacer si la operación se interrumpe.
+  La deuda técnica actúa como un interés compuesto: cuanto más se acumula, más difícil y costoso es trabajar sobre el código, ya que las dependencias y la complejidad no gestionada frenan el desarrollo.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["consistencia", "logica", "integridad"]
+  tema: "mantenimiento_y_deuda_tecnica"
+  nivel: "basico"
+  tags: ["ciclo_de_vida"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  orden: ["Detección del problema", "Análisis de la causa raíz", "Diseño de la solución", "Implementación del cambio", "Pruebas de regresión"]
 
-enunciado: "El journaling garantiza la consistencia lógica, asegurando que la estructura del sistema de archivos sea coherente."
+enunciado: "Ordene los pasos típicos de un proceso de mantenimiento correctivo, desde el inicio hasta la verificación final."
+
+opciones_explicitas: ["Detección del problema", "Análisis de la causa raíz", "Diseño de la solución", "Implementación del cambio", "Pruebas de regresión"]
+respuesta_orden: ["Detección del problema", "Análisis de la causa raíz", "Diseño de la solución", "Implementación del cambio", "Pruebas de regresión"]
+tipo: ordenar
 
 explicacion: |
-  Correcto. La consistencia lógica es el objetivo principal del journaling, evitando estructuras rotas.
+  Un proceso de mantenimiento estructurado requiere primero identificar el fallo, entender por qué sucede, planear la solución, aplicarla y, crucialmente, verificar que el cambio no haya roto otras partes del sistema (regresión).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["fsck", "rendimiento", "comparacion"]
+  tema: "mantenimiento_y_deuda_tecnica"
+  nivel: "basico"
+  tags: ["calidad", "mantenimiento"]
 
+enunciado: "Si un software tiene un alto nivel de deuda técnica, es ___ que su código sea fácil de mantener a largo plazo."
+
+opciones_explicitas: ["verdadero", "falso"]
+respuesta: "falso"
+tipo: completar
+explicacion: |
+  La mantenibilidad es la facilidad con la que un sistema puede ser modificado. Una alta deuda técnica degrada la calidad del código, haciendo que la mantenibilidad sea baja.
+```
+
+## Sección: permisos-y-usuarios (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["seguridad", "conceptos"]
+
+respuesta: "permisos"
+tipo: completar
+respuestas_validas:
+  - "permisos"
+
+enunciado: "Las reglas que determinan qué acciones puede realizar un usuario sobre un recurso se conocen como ___."
+
+explicacion: |
+  Los permisos definen la capacidad de lectura, escritura o ejecución sobre un objeto del sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["unix", "linux"]
+
+variables:
+  opciones_validas: ["lectura", "escritura", "ejecución"]
+
+respuesta: "ejecución"
+tipo: completar
+
+enunciado: "En un sistema de archivos estándar, además de leer y escribir, un archivo puede tener permiso de ___."
+
+explicacion: |
+  El permiso de ejecución permite que un archivo sea tratado como un programa o script.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["usuarios", "seguridad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un sistema operativo, el usuario 'root' (o superusuario) tiene la capacidad de ignorar la mayoría de las restricciones de permisos del sistema."
+
+explicacion: |
+  El superusuario tiene privilegios totales sobre el núcleo y los archivos del sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["seguridad", "jerarquia"]
+
+tipo: ordenar
+
+opciones_explicitas: ["Usuario común", "Grupo", "Propietario"]
+respuesta_orden: ["Usuario común", "Grupo", "Propietario"]
+
+enunciado: "Ordena los niveles de acceso de menor a mayor jerarquía de privilegios sobre un archivo específico:"
+
+explicacion: |
+  El orden jerárquico estándar es: el usuario (dueño), el grupo al que pertenece y, finalmente, los otros usuarios.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "avanzado"
+  tags: ["acl", "seguridad"]
+
+respuesta: "permisos estándar"
+tipo: mc
+opciones_explicitas: ["permisos estándar", "permisos de red", "permisos de hardware", "permisos de memoria"]
+
+enunciado: "Las ACL (Access Control Lists) se utilizan para definir ___ más granulares que los permisos tradicionales de un archivo."
+
+explicacion: |
+  Las ACL permiten asignar permisos específicos a múltiples usuarios y grupos sin depender solo del modelo propietario/grupo/otros.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["linux", "permisos", "chmod"]
+
+enunciado: "Un administrador desea que un archivo llamado 'datos.txt' sea legible por el dueño, pero que nadie más pueda leerlo, escribirlo ni ejecutarlo. ¿Cuál es la representación numérica de los permisos para este archivo?"
+
+opciones_explicitas: ["644", "400", "755", "666"]
+respuesta: "400"
+tipo: "mc"
+
+explicacion: |
+  En sistemas Unix/Linux, los permisos se calculan sumando valores: Lectura (4), Escritura (2) y Ejecución (1).
+  Para el dueño (Read): 4 + 0 + 0 = 4.
+  Para el grupo (None): 0.
+  Para otros (None): 0.
+  Resultado: 400.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["usuarios", "ownership"]
+
+enunciado: "Si un usuario intenta modificar un archivo que pertenece al 'root' y el usuario actual no tiene permisos de escritura, la operación será denegada."
+
+respuesta: verdadero
+tipo: "vf"
+
+explicacion: |
+  El sistema operativo verifica primero si el usuario es el dueño del archivo. Si no lo es, comprueba los permisos del grupo y, finalmente, los permisos para 'otros'. Si el permiso de escritura no está concedido en la categoría correspondiente, el acceso se deniega.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["chmod", "simbolico"]
+
+variables:
+  comandos: [["chmod u+x", "u+x"], ["chmod g-w", "g-w"], ["chmod o+r", "o+r"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Si aplicamos el comando 'chmod {comandos[idx][1]}' a un archivo, estamos modificando los permisos de forma simbólica. El código de modificación aplicado es ___."
+
+pasos:
+  - "Identificar el usuario (u=user, g=group, o=others)"
+  - "Identificar la acción (+ para añadir, - para quitar)"
+  - "Identificar el permiso (r, w, x)"
+
+respuesta: comandos[idx][1]
+tipo: "completar"
+respuestas_validas:
+  - "u+x"
+  - "g-w"
+  - "o+r"
+
+explicacion: |
+  El modo simbólico permite modificar permisos específicos sin redefinir todos los valores.
+  En el caso de {comandos[idx][0]}, estamos operando directamente sobre la categoría seleccionada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["secuencia", "ejecucion"]
+
+enunciado: "Para que un script de Bash sea ejecutable por un usuario después de haberlo creado, se deben seguir estos pasos en orden:"
+
+opciones_explicitas: ["Crear el archivo con un editor", "Asignar permisos de ejecución con chmod", "Ejecutar el script con ./script.sh"]
+respuesta_orden: ["Crear el archivo con un editor", "Asignar permisos de ejecución con chmod", "Ejecutar el script con ./script.sh"]
+tipo: ordenar
+
+explicacion: |
+  Primero el archivo debe existir (creación), luego el sistema operativo debe permitir su ejecución (permisos) y finalmente se puede lanzar el proceso (ejecución).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "avanzado"
+  tags: ["binario", "permisos"]
+
+enunciado: "Un archivo tiene permisos de lectura y escritura para el dueño, pero ningún permiso para el grupo ni para otros. ¿Cuál es su valor decimal?"
+
+respuesta: "6"
+tipo: "completar"
+respuestas_validas:
+  - "6"
+
+explicacion: |
+  Lectura (4) + Escritura (2) + Ejecución (0) = 6.
+  En binario: 110.
+  Si el valor fuera 7, sería 111 (rwx).
+  Si el valor fuera 5, sería 101 (r-x).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["linux", "permisos", "directorios"]
+
+tipo: mc
+opciones_explicitas: ["Permitir leer el contenido de los archivos dentro del directorio", "Permitir listar los nombres de archivos dentro del directorio", "Permitir entrar/acceder al directorio (hacer cd)", "Permitir ejecutar archivos binarios dentro del directorio"]
+
+enunciado: "En sistemas tipo Unix, si un usuario tiene permisos de lectura (r) pero NO tiene permisos de ejecución (x) en un directorio, ¿qué acción NO podrá realizar?"
+
+respuesta: "Permitir entrar/acceder al directorio (hacer cd)"
+
+explicacion: |
+  El permiso de ejecución (x) en un directorio es el que permite al usuario 'entrar' en él (hacer `cd`) y acceder a los metadatos de los archivos que contiene. Sin `x`, no puedes acceder a los archivos aunque sepas sus nombres.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["linux", "usuarios", "grupos"]
+
+variables:
+  escenario: uno_de([["archivo_A", "usuario_1", "grupo_admin"], ["archivo_B", "usuario_2", "grupo_staff"], ["archivo_C", "usuario_3", "grupo_dev"]])
+
+tipo: vf
 respuesta: falso
-tipo: vf
 
-enunciado: "Los sistemas con journaling requieren fsck completo cada vez que se apagan para verificar la integridad."
+enunciado: "Si el archivo {escenario[0]} tiene como dueño a {escenario[1]} y pertenece al grupo {escenario[2]}, cualquier usuario que pertenezca al grupo {escenario[2]} tiene automáticamente todos los permisos de lectura, escritura y ejecución sobre el archivo, independientemente de los permisos asignados al grupo."
 
 explicacion: |
-  Falso. Con journaling, el fsck es rápido y solo verifica la bitácora. El fsck completo es innecesario en la mayoría de los casos.
+  Falso. El hecho de pertenecer al grupo otorga los permisos definidos para el 'grupo' en la máscara de permisos (rwx), pero estos pueden estar limitados (por ejemplo, solo lectura).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
+  tema: "permisos_y_usuarios"
+  nivel: "avanzado"
+  tags: ["seguridad", "linux", "lógica"]
+
+tipo: mc
+opciones_explicitas: ["Usuario -> Grupo -> Otros", "Otros -> Grupo -> Usuario", "Usuario -> Otros -> Grupo", "El que tenga el permiso más restrictivo gana"]
+
+enunciado: "Cuando un proceso intenta acceder a un archivo, ¿en qué orden evalúa el sistema operativo los permisos de un usuario?"
+
+respuesta: "Usuario -> Grupo -> Otros"
+
+explicacion: |
+  El sistema operativo busca la coincidencia más específica primero. Si el usuario es el dueño, se aplican sus permisos y se deja de evaluar. Si no, se mira si pertenece al grupo del archivo, y si no, se aplican los permisos de 'otros'.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["seguridad", "root", "sudo"]
+
+tipo: completar
+respuestas_validas:
+  - "root"
+  - "superuser"
+  - "administrador"
+
+enunciado: "En sistemas operativos basados en Linux, el usuario que posee todos los privilegios del sistema y puede saltarse cualquier restricción de permisos es conocido como ___."
+
+respuesta: "root"
+
+explicacion: |
+  El usuario 'root' es la cuenta de superusuario por excelencia. Aunque en contextos generales se le llame administrador, el nombre técnico del usuario con UID 0 es root.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
   nivel: "intermedio"
-  tags: ["estado", "sucio", "bitacora"]
+  tags: ["comandos", "chmod", "linux"]
+
+tipo: ordenar
+opciones_explicitas: ["identificar el archivo y sus permisos actuales", "aplicar el comando chmod con los nuevos permisos", "verificar que los cambios se aplicaron correctamente"]
+
+enunciado: "Ordena los pasos lógicos para cambiar de forma segura los permisos de un archivo crítico en un servidor de producción:"
+
+respuesta_orden: ["identificar el archivo y sus permisos actuales", "aplicar el comando chmod con los nuevos permisos", "verificar que los cambios se aplicaron correctamente"]
+
+explicacion: |
+  Antes de modificar permisos en entornos críticos, es vital saber qué estamos cambiando (usando `ls -l`) para evitar bloquear el acceso a servicios esenciales o dejar brechas de seguridad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["permisos", "usuarios", "sistemas_operativos"]
+
+respuesta: "grupo"
+tipo: completar
+respuestas_validas:
+  - "grupo"
+
+enunciado: "Mientras que un usuario es una entidad individual con sus propios permisos, un ___ es una colección de usuarios que comparten los mismos privilegios de acceso a los recursos."
+
+explicacion: |
+  Los grupos permiten administrar permisos de manera colectiva. En lugar de asignar permisos a cada usuario uno por uno, se asignan al grupo y los usuarios se añaden a él.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["privilegios", "root", "seguridad"]
+
+variables:
+  escenario_idx: uno_de([0,1])
+  escenarios: [["Un usuario estándar intenta modificar archivos del sistema.", "denegado"], ["El superusuario (root) intenta modificar archivos del sistema.", "permitido"]]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["denegado", "permitido", "error de sintaxis", "requiere contraseña"]
+
+enunciado: "En un sistema basado en Unix, ante el escenario: {escenarios[escenario_idx][0]}, el acceso es ___."
+
+explicacion: |
+  El usuario 'root' tiene privilegios totales sobre el sistema, mientras que un usuario estándar está restringido a su propio directorio personal y archivos para los que tenga permisos explícitos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["permisos", "chmod", "linux"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un sistema se marca como 'sucio' si hubo un fallo durante una operación que involucra la bitácora."
+enunciado: "En un sistema de archivos Linux, el permiso de 'ejecución' (x) en un directorio permite al usuario entrar en él (hacer cd), lo cual es distinto al permiso de ejecución en un archivo, que permite correr un programa."
 
 explicacion: |
-  Correcto. El estado 'sucio' indica que hay operaciones pendientes en la bitácora que deben procesarse al reiniciar.
+  Es una distinción fundamental: en archivos, 'x' es ejecución; en directorios, 'x' es la capacidad de acceder al contenido del directorio (traverse).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "avanzado"
+  tags: ["seguridad", "principios"]
+
+respuesta_orden: ["Identificar el usuario", "Asignar permisos mínimos", "Auditar el acceso"]
+tipo: ordenar
+opciones_explicitas: ["Identificar el usuario", "Asignar permisos mínimos", "Auditar el acceso"]
+
+enunciado: "Para implementar correctamente el principio de menor privilegio en la gestión de recursos, se deben seguir estos pasos en orden lógico:"
+
+explicacion: |
+  Primero se define quién es el sujeto (usuario), luego se le da solo lo que necesita para su tarea (mínimo privilegio) y finalmente se supervisa que no se desvíe de su función.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "avanzado"
+  tags: ["acl", "permisos", "seguridad"]
+
+variables:
+  es_acl: uno_de([0,1])
+  comparacion: [["permisos_tradicionales", "solo permiten definir dueño, grupo y otros"], ["ACL", "permiten definir permisos específicos para múltiples usuarios"]]
+
+respuesta: comparacion[es_acl][1]
+tipo: mc
+opciones_explicitas: ["solo permiten definir dueño, grupo y otros", "permiten definir permisos específicos para múltiples usuarios", "son solo para archivos comprimidos", "no se pueden usar en Linux"]
+
+enunciado: "A diferencia de los {comparacion[es_acl][0]}, las listas de control de acceso (___) ofrecen una granularidad mucho mayor."
+
+explicacion: |
+  Los permisos tradicionales (rwx para owner, group, others) son limitados. Las ACL (Access Control Lists) permiten asignar permisos a un usuario específico que no es el dueño, sin necesidad de crear un grupo nuevo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["linux", "permisos"]
+
+variables:
+  archivos: ["archivo_secreto.txt", "config.sys", "script.sh"]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Se desea que el archivo {archivos[idx]} tenga permisos donde el dueño tenga lectura y escritura, pero nadie más tenga acceso. El modo octal correspondiente es ___."
+
+respuestas_validas:
+  - "600"
+
+respuesta: "600"
+tipo: completar
+
+explicacion: |
+  En sistemas tipo Unix, el primer dígito (6) representa al dueño (lectura=4 + escritura=2), el segundo (0) al grupo y el tercero (0) a otros.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["usuarios", "root"]
+
+enunciado: "¿Es el usuario 'root' el superusuario que tiene control total sobre el sistema operativo, pudiendo ignorar la mayoría de las restricciones de permisos?"
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  El usuario root es el superusuario en sistemas basados en Unix/Linux y tiene privilegios máximos sobre todos los recursos del sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["permisos", "octal"]
+
+variables:
+  datos: [["rwx r-- ---", "740"], ["rw- r-- r--", "644"], ["rwx rwx ---", "770"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Si un comando 'ls -l' muestra que un archivo tiene los permisos {datos[idx][0]}, ¿cuál es su representación en formato octal?"
+
+opciones_explicitas:
+  - "740"
+  - "644"
+  - "770"
+
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  Cada bloque de tres caracteres (dueño, grupo, otros) se suma: r=4, w=2, x=1.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["proceso", "seguridad"]
+
+enunciado: "Ordena los pasos lógicos para asegurar un archivo recién creado en un servidor compartido para que solo el usuario actual pueda leerlo y editarlo, sin que otros puedan verlo."
+
+opciones_explicitas:
+  - "Crear el archivo con el contenido necesario"
+  - "Cambiar el propietario con 'chown' si es necesario"
+  - "Restringir permisos con 'chmod 600'"
+  - "Verificar la configuración de la umask del sistema"
+
+respuesta_orden: ["Crear el archivo con el contenido necesario", "Cambiar el propietario con 'chown' si es necesario", "Restringir permisos con 'chmod 600'", "Verificar la configuración de la umask del sistema"]
+tipo: ordenar
+
+explicacion: |
+  Para asegurar un recurso, primero se crea, se asegura la propiedad del dueño, se aplican los permisos restrictivos y se valida que la umask no haya aplicado permisos por defecto más abiertos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "avanzado"
+  tags: ["umask", "permisos"]
+
+variables:
+  datos: [["022", "755"], ["027", "750"], ["077", "700"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Si la umask del sistema está configurada como {datos[idx][0]}, un nuevo archivo creado por un usuario tendrá como permiso máximo (en modo octal) el valor ___."
+
+respuestas_validas:
+  - "755"
+  - "750"
+  - "700"
+
+respuesta: datos[idx][1]
+tipo: completar
+
+explicacion: |
+  La umask (User Mask) se resta de los permisos base (normalmente 777 para directorios o 666 para archivos) para determinar los permisos finales.
 ```
 

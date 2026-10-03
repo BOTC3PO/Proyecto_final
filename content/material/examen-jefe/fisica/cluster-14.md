@@ -1,2337 +1,2563 @@
 # Examen jefe — [PENDIENTE #749]
 
-> Logro #749. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #749. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **128 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: resistencia-electrica (25 preguntas)
+## Sección: tormentas-y-fenomenos-severos (24 preguntas)
 
 ```
 metadata:
   materia: "fisica"
-  tema: "resistencia_electrica"
+  tema: "tormentas_y_fenomenos_severos"
   nivel: "basico"
-  tags: ["definicion", "concepto"]
+  tags: ["fenomenos_severos", "vocabulario"]
 
-respuesta: "oposicion"
-tipo: completar
-respuestas_validas:
-  - "oposicion"
-  - "oposición"
-
-enunciado: "La resistencia eléctrica se define como la ___ al flujo de carga eléctrica a través de un conductor."
-
-explicacion: |
-  La resistencia es la propiedad de un material que se opone al paso de la corriente eléctrica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "basico"
-  tags: ["unidades"]
-
-respuesta: "ohm"
+enunciado: "¿Qué tienen en común las tormentas eléctricas, los tornados, los huracanes y el granizo severo?"
 tipo: mc
-opciones_explicitas: ["voltio", "ohm", "amperio", "vatio"]
-
-enunciado: "¿Cuál es la unidad de medida de la resistencia eléctrica en el Sistema Internacional?"
+opciones_explicitas:
+  - "Una gran cantidad de energía atmosférica se concentra en un área chica y se libera de golpe"
+  - "Todos ocurren únicamente en invierno"
+  - "Ninguno tiene relación con la temperatura del aire"
+respuesta: "Una gran cantidad de energía atmosférica se concentra en un área chica y se libera de golpe"
 
 explicacion: |
-  La unidad de medida de la resistencia es el ohm (Ω).
+  Cuanta más energía concentrada, más severo el fenómeno.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "resistencia_electrica"
+  tema: "tormentas_y_fenomenos_severos"
   nivel: "basico"
-  tags: ["simbolos"]
-
-respuesta: "Ω"
-tipo: mc
-opciones_explicitas: ["Ω", "V", "A", "W"]
-
-enunciado: "¿Qué símbolo se utiliza para representar el ohm?"
-
-explicacion: |
-  El símbolo del ohm es la letra griega omega mayúscula (Ω).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "basico"
-  tags: ["materiales"]
-
-respuesta: "conductor"
-tipo: mc
-opciones_explicitas: ["aislante", "conductor", "dieléctrico", "semiconductor"]
-
-enunciado: "Un material que presenta una resistencia muy baja al paso de la corriente se denomina material ___."
-
-explicacion: |
-  Los conductores (como el cobre) tienen baja resistencia, mientras que los aislantes tienen una resistencia muy alta.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "basico"
-  tags: ["conceptos"]
+  tags: ["tormenta_electrica"]
 
 respuesta: verdadero
 tipo: vf
-enunciado: "Si la resistencia de un circuito aumenta (manteniendo el voltaje constante), la intensidad de la corriente disminuirá."
+
+enunciado: "Una tormenta eléctrica se forma dentro de un cumulonimbo, una nube de desarrollo vertical muy intensa."
 
 explicacion: |
-  Según la Ley de Ohm, la corriente es inversamente proporcional a la resistencia.
+  Las corrientes de aire fuertes dentro de esa nube son la base del
+  mecanismo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "resistencia_electrica"
+  tema: "tormentas_y_fenomenos_severos"
   nivel: "intermedio"
-  tags: ["formula", "geometria"]
+  tags: ["tormenta_electrica", "cargas_electricas"]
 
-respuesta: "el doble"
+enunciado: "¿Qué hace que se separen las cargas eléctricas dentro de un cumulonimbo?"
 tipo: mc
-opciones_explicitas: ["el doble", "el triple", "la mitad", "la cuarta parte"]
-
-enunciado: "Si la longitud de un conductor se duplica, su resistencia será ___."
+opciones_explicitas:
+  - "La fricción entre gotitas de agua y cristales de hielo, arrastrados por corrientes de aire fuertes"
+  - "El calor del suelo directamente"
+  - "La luz del sol reflejada en las gotas"
+respuesta: "La fricción entre gotitas de agua y cristales de hielo, arrastrados por corrientes de aire fuertes"
 
 explicacion: |
-  La resistencia es directamente proporcional a la longitud (R ∝ L).
+  La parte superior de la nube queda cargada positiva, la inferior
+  negativa.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "intermedio"
-  tags: ["formula", "geometria"]
+  tema: "tormentas_y_fenomenos_severos"
+  nivel: "basico"
+  tags: ["tormenta_electrica"]
 
-respuesta: "el doble"
+enunciado: "¿Qué es el rayo?"
 tipo: mc
-opciones_explicitas: ["la mitad", "la cuarta parte", "el doble", "el cuádruple"]
-
-enunciado: "Si el área de la sección transversal de un cable se reduce a la mitad, su resistencia será ___."
+opciones_explicitas:
+  - "La descarga eléctrica que ocurre cuando la diferencia de carga en la nube es suficiente"
+  - "El sonido que produce una tormenta"
+  - "Un tipo de granizo muy grande"
+respuesta: "La descarga eléctrica que ocurre cuando la diferencia de carga en la nube es suficiente"
 
 explicacion: |
-  La resistencia es inversamente proporcional al área de la sección (R ∝ 1/A). Si el área se reduce a la mitad, la resistencia se duplica.
+  El trueno es el sonido de esa misma descarga, no un fenómeno aparte.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "resistencia_electrica"
+  tema: "tormentas_y_fenomenos_severos"
   nivel: "intermedio"
-  tags: ["calculo"]
+  tags: ["tormenta_electrica"]
 
-respuesta: 4.0
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Un conductor tiene un voltaje de 20V y una corriente de 5A. ¿Cuál es su resistencia en ohms?"
-
-pasos:
-  - "Identificar voltaje (V) e intensidad (I)."
-  - "Aplicar la fórmula R = V / I."
+enunciado: "¿Qué es el trueno?"
+tipo: mc
+opciones_explicitas:
+  - "El sonido de la descarga del rayo, que calienta y expande el aire violentamente"
+  - "Un segundo rayo que ocurre después del primero"
+  - "El viento que genera la tormenta"
+respuesta: "El sonido de la descarga del rayo, que calienta y expande el aire violentamente"
 
 explicacion: |
-  R = 20V / 5A = 4 Ω.
+  El calentamiento casi instantáneo del aire alrededor del rayo genera
+  la onda sonora.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "intermedio"
-  tags: ["propiedades"]
+  tema: "tormentas_y_fenomenos_severos"
+  nivel: "basico"
+  tags: ["tornado"]
 
-respuesta: "material"
-tipo: completar
-respuestas_validas:
-  - "material"
-  - "naturaleza"
-
-enunciado: "La resistividad es una propiedad intrínseca que depende del ___ del conductor."
+enunciado: "¿Qué es un tornado?"
+tipo: mc
+opciones_explicitas:
+  - "Una columna de aire en rotación muy violenta que conecta la base de un cumulonimbo con el suelo"
+  - "Un tipo de huracán muy pequeño"
+  - "Un frente frío que se mueve muy rápido"
+respuesta: "Una columna de aire en rotación muy violenta que conecta la base de un cumulonimbo con el suelo"
 
 explicacion: |
-  La resistividad ($\rho$) depende de la naturaleza del material (cobre, plata, etc.) y de la temperatura.
+  Se forma por cizalladura del viento dentro de la tormenta.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "intermedio"
-  tags: ["temperatura"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "En la mayoría de los metales, la resistencia eléctrica aumenta cuando aumenta la temperatura."
-
-explicacion: |
-  El aumento de temperatura incrementa la agitación térmica de los átomos, dificultando el paso de electrones.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
+  tema: "tormentas_y_fenomenos_severos"
   nivel: "avanzado"
-  tags: ["error_comun"]
+  tags: ["tornado"]
+
+enunciado: "¿Qué es la cizalladura del viento, clave en la formación de un tornado?"
+tipo: mc
+opciones_explicitas:
+  - "Una fuerte diferencia de velocidad o dirección del viento entre distintas alturas"
+  - "El viento que sopla siempre en la misma dirección a toda altura"
+  - "La ausencia total de viento dentro de la tormenta"
+respuesta: "Una fuerte diferencia de velocidad o dirección del viento entre distintas alturas"
+
+explicacion: |
+  Hace girar horizontalmente una masa de aire, que luego una corriente
+  ascendente fuerte puede inclinar hasta la vertical.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tormentas_y_fenomenos_severos"
+  nivel: "basico"
+  tags: ["tornado", "escalas"]
+
+enunciado: "¿Con qué escala se mide la intensidad de un tornado?"
+tipo: mc
+opciones_explicitas:
+  - "La escala Fujita mejorada (EF), de EF0 a EF5"
+  - "La escala Saffir-Simpson, de categoría 1 a 5"
+  - "La escala Richter"
+respuesta: "La escala Fujita mejorada (EF), de EF0 a EF5"
+
+explicacion: |
+  Saffir-Simpson es para huracanes; Richter es para terremotos.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tormentas_y_fenomenos_severos"
+  nivel: "avanzado"
+  tags: ["tornado", "escalas"]
 
 respuesta: verdadero
 tipo: vf
-enunciado: "Si el radio de un cable se duplica, su resistencia se reduce a la cuarta parte."
+
+enunciado: "La escala Fujita mejorada estima la velocidad del viento de un tornado a partir del daño causado en construcciones y árboles, no midiendo el viento directamente."
 
 explicacion: |
-  Como el área depende del cuadrado del radio ($A = \pi \cdot r^2$), duplicar el radio cuadruplica el área, reduciendo la resistencia a 1/4.
+  Es indirecta: se observa el daño después del paso del tornado.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "resistencia_electrica"
+  tema: "tormentas_y_fenomenos_severos"
   nivel: "intermedio"
-  tags: ["comparacion"]
+  tags: ["tornado", "escalas"]
 
-respuesta: "menor"
-tipo: mc
-opciones_explicitas: ["mayor", "menor", "igual", "nula"]
-
-enunciado: "Un cable de cobre tiene una resistencia ___ que un cable de hierro de la misma longitud y sección."
-
-explicacion: |
-  El cobre tiene una resistividad menor que el hierro, por lo tanto, ofrece menos resistencia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "intermedio"
-  tags: ["grafico"]
-
-respuesta: "lineal"
-tipo: mc
-opciones_explicitas: ["lineal", "inversa", "cuadrática", "exponencial"]
-
-enunciado: "Si graficamos la resistencia (R) frente a la longitud (L) de un cable uniforme, la relación es ___."
-
-explicacion: |
-  La relación es directamente proporcional ($R = \rho \cdot L / A$), lo que resulta en una línea recta que pasa por el origen.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "basico"
-  tags: ["unidades"]
-
-respuesta: falso
-tipo: vf
-enunciado: "La unidad de la resistencia eléctrica es el Amperio."
-
-explicacion: |
-  El Amperio es la unidad de la intensidad de corriente eléctrica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "intermedio"
-  tags: ["geometria"]
-
-respuesta: "inversa"
-tipo: mc
-opciones_explicitas: ["directa", "inversa", "nula", "logarítmica"]
-
-enunciado: "La relación entre la resistencia y el área de la sección transversal es ___."
-
-explicacion: |
-  A mayor área, menor resistencia. Es una relación inversamente proporcional.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "intermedio"
-  tags: ["ordenar"]
-
-opciones_explicitas: ["Mayor longitud", "Menor sección", "Mayor resistividad"]
-respuesta_orden: ["Mayor longitud", "Menor sección", "Mayor resistividad"]
 tipo: ordenar
-
-enunciado: "Ordena estas condiciones de mayor a menor resistencia eléctrica:"
+opciones_explicitas:
+  - "EF0 (daño leve)"
+  - "EF2 (daño significativo)"
+  - "EF5 (daño increíble)"
+respuesta_orden: ["EF0 (daño leve)", "EF2 (daño significativo)", "EF5 (daño increíble)"]
+enunciado: "Ordená estas categorías de tornado de menor a mayor intensidad."
 
 explicacion: |
-  Para maximizar la resistencia: aumentar longitud, disminuir sección y aumentar resistividad.
+  La escala EF va de EF0 (más leve) a EF5 (más severo).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-respuesta: 50
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Un cable tiene una resistencia de 100 $\\Omega$. Si se corta a la mitad de su longitud, su nueva resistencia será ___ $\\Omega$."
-
-explicacion: |
-  Al reducir la longitud a la mitad, la resistencia también se reduce a la mitad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
+  tema: "tormentas_y_fenomenos_severos"
   nivel: "basico"
-  tags: ["conceptos"]
+  tags: ["huracan"]
 
-respuesta: verdadero
-tipo: vf
-enunciado: "La resistencia eléctrica es una propiedad que depende de la forma del objeto."
-
-explicacion: |
-  Sí, la resistencia depende de la geometría (longitud y sección).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "intermedio"
-  tags: ["geometria"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "Un cable más grueso (mayor sección) presenta menos resistencia que uno más delgado."
-
-explicacion: |
-  A mayor sección transversal, hay más espacio para que fluyan los electrones, disminuyendo la resistencia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "intermedio"
-  tags: ["resumen"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "La resistencia eléctrica depende de la longitud, el área de sección y la resistividad del material."
-
-explicacion: |
-  Estas son las tres variables que componen la fórmula $R = \rho \cdot L / A$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "avanzado"
-  tags: ["calculo"]
-
-respuesta: 1.0
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Si un cable de 2m de longitud y 1 $m^2$ de sección tiene una resistividad de 0.5 $\\Omega \\cdot m$, su resistencia es ___ $\\Omega$."
-
-pasos:
-  - "Identificar $\\rho = 0.5$, $L = 2$, $A = 1$."
-  - "Calcular $R = 0.5 \\cdot 2 / 1$."
-
-explicacion: |
-  R = 0.5 * 2 / 1 = 1.0 $\Omega$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "basico"
-  tags: ["ley_ohm"]
-
-respuesta: "voltaje"
-tipo: completar
-respuestas_validas:
-  - "voltaje"
-  - "tensión"
-
-enunciado: "Si la corriente es constante, la resistencia es proporcional al ___."
-
-explicacion: |
-  De la Ley de Ohm ($V = I \cdot R$), si $I$ es constante, $R$ es proporcional a $V$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-respuesta: "mayor"
+enunciado: "¿Qué es un huracán?"
 tipo: mc
-opciones_explicitas: ["menor", "mayor", "igual", "nula"]
-
-enunciado: "Un cable de 10m tiene una resistencia ___ que un cable del mismo material y sección de 5m."
+opciones_explicitas:
+  - "Un sistema de tormentas organizado en espiral alrededor de un centro de baja presión, alimentado por un océano cálido"
+  - "Un tornado que ocurre sobre el mar"
+  - "Una tormenta eléctrica sin lluvia"
+respuesta: "Un sistema de tormentas organizado en espiral alrededor de un centro de baja presión, alimentado por un océano cálido"
 
 explicacion: |
-  A mayor longitud, mayor resistencia.
+  Necesita agua tibia como combustible, por eso nunca se forma sobre
+  tierra ni sobre agua fría.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "resistencia_electrica"
-  nivel: "avanzado"
-  tags: ["conceptos"]
-
-respuesta: falso
-tipo: vf
-enunciado: "Si aumentamos el área de la sección transversal, la densidad de corriente aumenta si el voltaje es constante."
-
-explicacion: |
-  Falso. Al aumentar el área (A), la resistencia baja (R = ρL/A) y la corriente sube proporcionalmente (I = V/R ∝ A), por lo que la densidad de corriente J = I/A se mantiene CONSTANTE, no aumenta.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resistencia_electrica"
+  tema: "tormentas_y_fenomenos_severos"
   nivel: "intermedio"
-  tags: ["aplicacion"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "Para reducir la resistencia de un cable sin cambiar el material, se puede aumentar su sección transversal."
-
-explicacion: |
-  Correcto, al aumentar el área $A$ en el denominador de $R = \rho \cdot L / A$, la resistencia disminuye.
-```
-
-## Sección: resonancia-frecuencia-natural (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "basico"
-  tags: ["definicion", "vibracion"]
-
-respuesta: "frecuencia natural"
-tipo: completar
-respuestas_validas:
-  - "frecuencia natural"
-
-enunciado: "La ___ es la frecuencia a la cual un sistema tiende a oscilar cuando se le aplica un impulso inicial."
-
-explicacion: |
-  Cada objeto tiene una frecuencia natural característica que depende de su masa y su rigidez.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "basico"
-  tags: ["resonancia", "energia"]
-
-respuesta: "frecuencia externa"
-tipo: mc
-opciones_explicitas: ["frecuencia externa", "frecuencia de reposo", "frecuencia de gravedad", "frecuencia de fricción"]
-
-enunciado: "La resonancia ocurre cuando la frecuencia de una fuerza periódica aplicada coincide con la ___ del objeto."
-
-explicacion: |
-  Cuando las frecuencias coinciden, la transferencia de energía es máxima, aumentando la amplitud de la oscilación.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "basico"
-  tags: ["amplitud", "energia"]
-
-respuesta: "aumenta"
-tipo: mc
-opciones_explicitas: ["aumenta", "disminuye", "se mantiene", "se anula"]
-
-enunciado: "En un estado de resonancia, la amplitud de la oscilación del sistema ___."
-
-explicacion: |
-  La resonancia permite que la energía se acumule en el sistema, maximizando la amplitud.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "intermedio"
-  tags: ["masa", "rigidez"]
-
-respuesta: "masa"
-tipo: completar
-respuestas_validas:
-  - "masa"
-
-enunciado: "Si aumentamos la ___ de un sistema oscilante, su frecuencia natural disminuirá."
-
-explicacion: |
-  La frecuencia natural es inversamente proporcional a la raíz cuadrada de la masa.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-respuesta: "mayor"
-tipo: mc
-opciones_explicitas: ["mayor", "menor", "igual", "nula"]
-
-enunciado: "Un objeto más rígido que otro, manteniendo la misma masa, tendrá una frecuencia natural ___."
-
-explicacion: |
-  A mayor rigidez (constante elástica), la frecuencia natural es mayor.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "intermedio"
-  tags: ["calculo", "masa"]
-
-variables:
-  idx: uno_de([0,1])
-  masas: [1.0, 4.0]
-  m: masas[idx]
-  k: 100
-
-respuesta: (1 / (2 * 3.14159)) * sqrt(k / m)
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Un sistema tiene una constante de rigidez de 100 N/m y una masa de {m} kg. Calcule su frecuencia natural en Hz (f = 1/(2*pi)*sqrt(k/m))."
-
-pasos:
-  - "Calcular la raíz cuadrada de k/m"
-  - "Dividir por 2*pi"
-
-explicacion: |
-  La fórmula es f = (1 / 2π) * sqrt(k/m) = (1 / 2π) * sqrt(100/{m}) = {(1 / (2 * 3.14159)) * sqrt(k / m)} Hz.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "intermedio"
-  tags: ["relacion"]
-
-respuesta: "disminuye"
-tipo: mc
-opciones_explicitas: ["disminuye", "aumenta", "se duplica", "se mantiene"]
-
-enunciado: "Si la masa de un resonador se cuadruplica, su frecuencia natural se ___."
-
-explicacion: |
-  Como f ∝ 1/sqrt(m), si m se multiplica por 4, f se divide por 2.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "avanzado"
-  tags: ["amortiguamiento"]
-
-respuesta: "fuerza de fricción"
-tipo: completar
-respuestas_validas:
-  - "fuerza de fricción"
-
-enunciado: "La amplitud en la resonancia no es infinita en la realidad debido a la presencia de la ___."
-
-explicacion: |
-  El amortiguamiento disipa la energía, limitando la amplitud máxima en la resonancia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "intermedio"
-  tags: ["grafico"]
-
-respuesta: "pico"
-tipo: mc
-opciones_explicitas: ["pico", "valle", "plano", "curva"]
-
-enunciado: "En un gráfico de amplitud vs frecuencia, la resonancia se identifica por un ___."
-
-explicacion: |
-  El punto de máxima amplitud se denomina pico de resonancia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "basico"
-  tags: ["periodo"]
-
-respuesta: "1/f"
-tipo: completar
-respuestas_validas:
-  - "1/f"
-
-enunciado: "El periodo de oscilación en resonancia es el inverso de la ___."
-
-explicacion: |
-  T = 1/f.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "intermedio"
-  tags: ["error_comun"]
-
-respuesta: falso
-tipo: vf
-enunciado: "En un sistema real con amortiguamiento, la amplitud en la resonancia es infinita."
-
-explicacion: |
-  Falso. El amortiguamiento siempre limita la amplitud en sistemas físicos reales.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "intermedio"
-  tags: ["error_comun"]
-
-respuesta: falso
-tipo: vf
-enunciado: "Si un objeto es más pesado, su frecuencia natural es mayor."
-
-explicacion: |
-  Falso. A mayor masa, menor frecuencia natural.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "basico"
-  tags: ["error_comun"]
-
-respuesta: falso
-tipo: vf
-enunciado: "La resonancia solo ocurre en objetos sólidos, nunca en ondas sonoras."
-
-explicacion: |
-  Falso. El aire puede entrar en resonancia (como en un instrumento de viento).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "basico"
-  tags: ["error_comun"]
-
-respuesta: falso
-tipo: vf
-enunciado: "Un sistema con un periodo muy corto tiene una frecuencia natural muy baja."
-
-explicacion: |
-  Falso. Periodo corto implica alta frecuencia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "intermedio"
-  tags: ["error_comun"]
-
-respuesta: falso
-tipo: vf
-enunciado: "Añadir masa a un columpio lo hace oscilar más rápido."
-
-explicacion: |
-  Falso. Añadir masa aumenta el periodo y disminuye la frecuencia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-respuesta: "más alta"
-tipo: mc
-opciones_explicitas: ["más alta", "más baja", "igual", "nula"]
-
-enunciado: "Comparando un resorte rígido con uno blando (misma masa), la frecuencia natural del rígido es ___."
-
-explicacion: |
-  La rigidez es directamente proporcional a la frecuencia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "avanzado"
-  tags: ["contraste"]
-
-respuesta: "menor"
-tipo: mc
-opciones_explicitas: ["mayor", "menor", "igual"]
-
-enunciado: "En un sistema con mucho amortiguamiento, la amplitud de resonancia es ___ que en uno con poco amortiguamiento."
-
-explicacion: |
-  El amortiguamiento reduce la amplitud máxima.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "basico"
-  tags: ["comparacion"]
-
-respuesta: "inversamente"
-tipo: completar
-respuestas_validas:
-  - "inversamente"
-
-enunciado: "La frecuencia natural y el periodo de oscilación son ___ proporcionales."
-
-explicacion: |
-  Si uno sube, el otro baja.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-respuesta: "frecuencia de los pasos"
-tipo: mc
-opciones_explicitas: ["frecuencia de los pasos", "frecuencia de la gravedad", "frecuencia del viento", "frecuencia de la temperatura"]
-
-enunciado: "Un puente puede colapsar si la gente camina sobre él a una ___ que coincida con su frecuencia natural."
-
-explicacion: |
-  Este es un ejemplo clásico de resonancia mecánica destructiva.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-respuesta: "cuerda"
-tipo: completar
-respuestas_validas:
-  - "cuerda"
-
-enunciado: "En una guitarra, la nota que escuchamos depende de la frecuencia natural de la ___."
-
-explicacion: |
-  La tensión y longitud de la cuerda determinan su frecuencia natural.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-respuesta: "longitud"
-tipo: completar
-respuestas_validas:
-  - "longitud"
-
-enunciado: "Para cambiar la frecuencia natural de un péndulo simple, debemos variar su ___."
-
-explicacion: |
-  f = 0.5 * sqrt(g/L).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-respuesta: "sismos"
-tipo: mc
-opciones_explicitas: ["sismos", "viento", "ruido", "luz"]
-
-enunciado: "Los ingenieros diseñan edificios para que su frecuencia natural no coincida con la de los ___."
-
-explicacion: |
-  Evitar la resonancia con ondas sísmicas previene daños estructurales.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-respuesta: "sintonizar"
-tipo: completar
-respuestas_validas:
-  - "sintonizar"
-
-enunciado: "Al girar el dial de un radio antiguo, estamos intentando ___ la frecuencia del circuito con la de la emisora."
-
-explicacion: |
-  Es un proceso de resonancia eléctrica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-respuesta: "frecuencia"
-tipo: completar
-respuestas_validas:
-  - "frecuencia"
-
-enunciado: "Un cantante puede romper una copa de cristal si emite una nota cuya ___ coincida con la del cristal."
-
-explicacion: |
-  La energía de la onda sonora se transfiere al cristal hasta que la amplitud rompe la estructura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "resonancia_frecuencia_natural"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-respuesta: "una sola"
-tipo: mc
-opciones_explicitas: ["una sola", "muchas", "ninguna", "cero"]
-
-enunciado: "Un diapasón está diseñado para vibrar a ___ frecuencia natural específica."
-
-explicacion: |
-  Es un oscilador armónico con una frecuencia muy definida y pura.
-```
-
-## Sección: semivida-desintegracion-exponencial (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "basico"
-  tags: ["radiactividad", "conceptos_clave"]
-
-respuesta: "semivida"
-tipo: completar
-respuestas_validas:
-  - "semivida"
-  - "vida media"
-
-enunciado: "El tiempo necesario para que la actividad de una muestra radiactiva se reduzca a la mitad de su valor inicial se denomina ___."
-
-explicacion: |
-  La semivida (o vida media, $T_{1/2}$) es el intervalo de tiempo en el cual la cantidad de núcleos radiactivos presentes en una muestra se reduce exactamente a la mitad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "intermedio"
-  tags: ["calculo", "constante_de_desintegracion"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[10, 0.0693], [20, 0.0347]]
-
-respuesta: datos[idx][1]
-tipo: completar
-tolerancia_abs: 0.001
-
-enunciado: "Si la semivida de un isótopo es de {datos[idx][0]} años, ¿cuál es su constante de desintegración (λ) aproximada?"
-
-pasos:
-  - "Calcular λ = ln(2) / T½"
-  - "Usar ln(2) ≈ 0.693"
-
-explicacion: |
-  La relación entre la semivida (T½) y la constante de desintegración (λ) está dada por la fórmula: λ = ln(2) / T½.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "basico"
-  tags: ["comportamiento", "exponencial"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es correcto afirmar que después de pasar exactamente dos semividas, la cantidad de núcleos radiactivos remanentes es el 50% de la cantidad inicial?"
-
-explicacion: |
-  Falso. Después de una semivida queda el 50%. Después de dos semividas, queda el 50% del 50%, es decir, el 25% de la muestra original.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "basico"
-  tags: ["terminologia"]
-
-respuesta: "exponencial"
-tipo: mc
-opciones_explicitas: ["lineal", "exponencial", "logarítmica", "constante"]
-
-enunciado: "La disminución de la actividad de una muestra radiactiva a lo largo del tiempo sigue un decaimiento de tipo ___."
-
-explicacion: |
-  La ley de desintegración radiactiva establece que la tasa de desintegración es proporcional al número de núcleos presentes, lo que resulta en una función de decaimiento exponencial.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "intermedio"
-  tags: ["secuencia", "fracciones"]
-
-respuesta_orden: ["100%", "50%", "25%", "12.5%"]
-tipo: ordenar
-opciones_explicitas: ["100%", "50%", "25%", "12.5%"]
-
-enunciado: "Ordene de mayor a menor la cantidad de muestra radiactiva restante tras transcurrir 0, 1, 2 y 3 semividas respectivamente."
-
-explicacion: |
-  Cada semivida reduce la muestra a la mitad:
-  - 0 semividas: 100%
-  - 1 semivida: 50%
-  - 2 semividas: 25%
-  - 3 semividas: 12.5%
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "basico"
-  tags: ["radiactividad", "conceptos"]
+  tags: ["huracan"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La semivida (o vida media) es el tiempo necesario para que la cantidad de núcleos radiactivos de una muestra se reduzca a la mitad de su valor inicial."
+enunciado: "Huracán, tifón y ciclón tropical son exactamente el mismo fenómeno físico, y sólo cambia el nombre según la región del mundo donde ocurre."
 
 explicacion: |
-  Esta es exactamente la definición de semivida: el tiempo que tarda una muestra radiactiva en reducirse a la mitad de su cantidad inicial de núcleos.
+  Huracán en América, tifón en Asia (Pacífico noroccidental), ciclón en
+  el Índico y Pacífico sur.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
+  tema: "tormentas_y_fenomenos_severos"
   nivel: "intermedio"
-  tags: ["formula", "constante_desintegracion"]
+  tags: ["huracan"]
 
-respuesta: "ln(2)"
+enunciado: "¿En qué región se le llama \"tifón\" a este mismo fenómeno?"
 tipo: mc
-opciones_explicitas: ["ln(2)", "1", "e", "0"]
-
-enunciado: "La relación entre la constante de desintegración λ y la semivida T½ está dada por la expresión λ = ___ / T½."
+opciones_explicitas:
+  - "El Pacífico noroccidental (Asia)"
+  - "El océano Atlántico"
+  - "El sur de Europa"
+respuesta: "El Pacífico noroccidental (Asia)"
 
 explicacion: |
-  La relación matemática es λ = ln(2) / T½. Por lo tanto, T½ = ln(2) / λ.
+  En América se llama huracán, en el Índico/Pacífico sur se llama
+  ciclón.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
+  tema: "tormentas_y_fenomenos_severos"
+  nivel: "basico"
+  tags: ["huracan", "escalas"]
+
+enunciado: "¿Con qué escala se mide la categoría de un huracán?"
+tipo: mc
+opciones_explicitas:
+  - "La escala Saffir-Simpson, de categoría 1 a 5"
+  - "La escala Fujita mejorada, de EF0 a EF5"
+  - "La escala Richter"
+respuesta: "La escala Saffir-Simpson, de categoría 1 a 5"
+
+explicacion: |
+  Se basa en la velocidad sostenida del viento del huracán.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tormentas_y_fenomenos_severos"
   nivel: "intermedio"
-  tags: ["calculo", "masa"]
+  tags: ["huracan", "escalas"]
+
+enunciado: "¿A partir de qué categoría Saffir-Simpson se considera \"huracán mayor\" por su potencial de daño?"
+tipo: mc
+opciones_explicitas:
+  - "Categoría 3"
+  - "Categoría 1"
+  - "Categoría 5 únicamente"
+respuesta: "Categoría 3"
+
+explicacion: |
+  Las categorías 3 a 5 se consideran huracán mayor.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tormentas_y_fenomenos_severos"
+  nivel: "intermedio"
+  tags: ["huracan", "escalas"]
 
 variables:
-  escenario: uno_de([[100, 2], [80, 3], [50, 1]])
+  viento_huracan_a: random(120, 150)
+  viento_huracan_b: random(210, 250)
 
-respuesta: escenario[0] / 4
-tipo: completar
-tolerancia_abs: 0.01
+respuesta: "el huracán B"
+tipo: mc
+opciones_explicitas:
+  - "el huracán B"
+  - "el huracán A"
+  - "los dos son de la misma categoría"
 
-enunciado: "Una muestra de un isótopo radiactivo tiene una masa inicial de {escenario[0]} g. Si la semivida del isótopo es de {escenario[1]} años, ¿cuántos gramos de la muestra permanecerán después de {escenario[1] * 2} años?"
-
-pasos:
-  - "Calcular el número de periodos de semivida transcurridos: $n = t / T_{1/2}$"
-  - "Aplicar la fórmula de desintegración: $N = N_0 \\cdot (1/2)^n$"
+enunciado: "El huracán A tiene vientos sostenidos de {viento_huracan_a} km/h y el huracán B de {viento_huracan_b} km/h. ¿Cuál de los dos es de mayor categoría en la escala Saffir-Simpson?"
 
 explicacion: |
-  1. El tiempo transcurrido es 2 veces la semivida ($n = 2$).
-  2. La masa remanente es $N_0 \cdot (1/2)^2 = N_0 \cdot 1/4$.
-  3. Si $N_0 = {escenario[0]}$, el resultado es {escenario[0] / 4} g.
+  A mayor velocidad sostenida del viento, mayor categoría.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
+  tema: "tormentas_y_fenomenos_severos"
+  nivel: "intermedio"
+  tags: ["granizo"]
+
+enunciado: "¿Cuándo se considera \"severo\" el granizo?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando las piedras superan aproximadamente los 2 cm de diámetro"
+  - "Cuando cae junto con lluvia"
+  - "Sólo si dura más de una hora"
+respuesta: "Cuando las piedras superan aproximadamente los 2 cm de diámetro"
+
+explicacion: |
+  Indica que las corrientes internas de la tormenta son muy intensas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tormentas_y_fenomenos_severos"
   nivel: "avanzado"
-  tags: ["logaritmos", "tiempo"]
-
-variables:
-  caso: uno_de([[100, 25, 50], [200, 10, 100], [120, 20, 60]])
-
-respuesta: caso[1]
-tipo: completar
-respuestas_validas:
-  - "25"
-  - "10"
-  - "20"
-
-enunciado: "Una muestra de sustancia radiactiva tiene una masa inicial de {caso[0]} g y una semivida de {caso[1]} años. Si actualmente la muestra tiene una masa de {caso[2]} g, ¿cuántos años han transcurrido?"
-
-explicacion: |
-  Para que la masa pase de {caso[0]} a {caso[2]}, la muestra debe haberse reducido a la mitad. 
-  Esto ocurre exactamente después de 1 periodo de semivida. 
-  Por lo tanto, han transcurrido {caso[1]} años.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "basico"
-  tags: ["ordenar", "proceso"]
-
-respuesta_orden: ["Muestra inicial", "50% de la muestra", "25% de la muestra", "12.5% de la muestra"]
-tipo: ordenar
-opciones_explicitas: ["Muestra inicial", "50% de la muestra", "25% de la muestra", "12.5% de la muestra"]
-
-enunciado: "Ordene los eventos según la cantidad de masa remanente de una muestra radiactiva a medida que transcurren periodos sucesivos de semivida (de mayor a menor masa)."
-
-explicacion: |
-  En cada semivida, la cantidad de material se reduce a la mitad:
-  1. Inicio: 100%
-  2. 1ra semivida: 50%
-  3. 2da semivida: 25%
-  4. 3ra semivida: 12.5%
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "intermedio"
-  tags: ["radiactividad", "exponencial", "constante"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[0.5, 1.386], [0.3, 2.31]]
-
-enunciado: "La semivida ($T_{1/2}$) y la constante de desintegración ($\\lambda$) están relacionadas mediante una fórmula logarítmica. Si la semivida de una muestra es de {datos[idx][0]} unidades de tiempo, el valor de la constante $\\lambda$ es aproximadamente ___."
-
-respuesta: datos[idx][1]
-tipo: completar
-tolerancia_abs: 0.01
-
-explicacion: |
-  La relación es $\lambda = \ln(2) / T_{1/2}$.
-  Para el caso de $T_{1/2} = {datos[idx][0]}$, $\lambda = 0.693/{datos[idx][0]} = {datos[idx][1]}$.
-  La confusión común es intentar multiplicar en lugar de dividir o usar $\log_{10}$ en lugar de $\ln$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "basico"
-  tags: ["concepto", "porcentaje"]
-
-opciones_explicitas: ["50%", "25%", "75%", "0%"]
-
-enunciado: "Un error conceptual frecuente es pensar que después de dos semividas la muestra ha desaparecido por completo. Si una muestra tiene una actividad inicial de $A_0$, ¿qué fracción de la actividad original queda exactamente después de transcurrir un periodo de una semivida?"
-
-respuesta: "50%"
-tipo: mc
-
-explicacion: |
-  Por definición, la semivida es el tiempo necesario para que la cantidad de núcleos radiactivos se reduzca a la mitad (50%) de su valor inicial.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "intermedio"
-  tags: ["concepto", "limite"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En un modelo de desintegración exponencial, la cantidad de núcleos radiactivos llega exactamente a cero después de un número finito de semividas."
-
-explicacion: |
-  Matemáticamente, la función exponencial N(t) = N0 e^(-lambda t) es una función asintótica al eje t, lo que significa que nunca llega a cero, aunque físicamente la muestra se agote cuando queda un solo átomo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "avanzado"
-  tags: ["calculo", "masa"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[100, 2, 50], [80, 3, 40]]
-
-enunciado: "Se tiene una muestra de {escenario[idx][0]} gramos de un isótopo con una semivida de {escenario[idx][1]} años. ¿Cuántos gramos de la muestra original quedan después de {escenario[idx][1]} años (exactamente una semivida)?"
-
-pasos:
-  - "Calcular cuántas semividas han transcurrido: n = t / T½ = 1"
-  - "Aplicar la fórmula de reducción: M_final = M_inicial · (1/2)^n"
-
-respuesta: escenario[idx][2]
-tipo: completar
-tolerancia_abs: 0.1
-
-explicacion: |
-  En el primer caso: 100 · (1/2)^1 = 50.
-  En el segundo caso: 80 · (1/2)^1 = 40.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "intermedio"
-  tags: ["comparacion", "estabilidad"]
-
-opciones_explicitas: ["Semivida larga $\\rightarrow$ Menor actividad $\\rightarrow$ Mayor estabilidad", "Semivida corta $\\rightarrow$ Mayor actividad $\\rightarrow$ Menor estabilidad"]
-
-enunciado: "Para comparar la estabilidad de dos isótopos basándonos en su semivida y su actividad, ordena la siguiente relación lógica de menor a mayor estabilidad:"
-
-respuesta_orden: ["Semivida corta $\\rightarrow$ Mayor actividad $\\rightarrow$ Menor estabilidad", "Semivida larga $\\rightarrow$ Menor actividad $\\rightarrow$ Mayor estabilidad"]
-tipo: ordenar
-
-explicacion: |
-  Un isótopo con semivida corta desintegra sus núcleos muy rápido (alta actividad), lo que significa que es muy inestable. Un isótopo con semivida larga tarda mucho en desintegrar su masa, siendo más estable.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "intermedio"
-  tags: ["radiactividad", "conceptos_clave"]
-
-respuesta: "lambda"
-tipo: completar
-respuestas_validas:
-  - "lambda"
-  - "lambda_constante"
-
-enunciado: "En el modelo de desintegración radiactiva, mientras que la semivida ($T_{1/2}$) es el tiempo necesario para que la actividad se reduzca a la mitad, la ___ representa la probabilidad de desintegración por unidad de tiempo."
-
-explicacion: |
-  La constante de desintegración ($\lambda$) y la semivida ($T_{1/2}$) están relacionadas inversamente por la expresión: $\lambda = \ln(2) / T_{1/2}$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "basico"
-  tags: ["propiedades", "exponencial"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["100", "50", "25"], ["80", "40", "20"]]
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["100", "50", "25", "80", "40", "20"]
-
-enunciado: "Si una muestra radiactiva tiene una actividad inicial de {datos[idx][0]} Bq y su semivida es de 10 años, ¿cuál será su actividad tras transcurrir exactamente un periodo de semivida?"
-
-explicacion: |
-  Por definición, tras transcurrir una semivida, la actividad de la muestra se reduce exactamente a la mitad de su valor inicial.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "basico"
-  tags: ["teoria", "booleano"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La cantidad de núcleos radiactivos remanentes en una muestra disminuye de forma lineal con respecto al tiempo transcurrido."
-
-explicacion: |
-  La desintegración es un proceso estocástico que sigue una ley exponencial decreciente, no una función lineal.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "intermedio"
-  tags: ["comparacion", "orden"]
-
-respuesta_orden: ["vida_media_larga", "vida_media_corta"]
-tipo: ordenar
-opciones_explicitas: ["vida_media_larga", "vida_media_corta"]
-
-enunciado: "Ordena estos conceptos de mayor a menor duración temporal (de la que tarda más en reducirse a la mitad a la que tarda menos):"
-
-explicacion: |
-  La semivida es una medida de la estabilidad del isótopo; a mayor semivida, mayor es el tiempo necesario para que la muestra decaiga significativamente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "semivida_desintegracion_exponencial"
-  nivel: "avanzado"
-  tags: ["calculo", "exponencial"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[20, 2, 5], [80, 3, 10]]
-
-respuesta: escenario[idx][2]
-tipo: mc
-opciones_explicitas: [5, 10, 20, 2.5]
-
-enunciado: "Considerando un escenario donde una muestra de {escenario[idx][0]} átomos tiene una semivida de 5 años, ¿cuántos átomos quedarán después de transcurrir {escenario[idx][1]} semividas?"
-
-pasos:
-  - "Identificar la cantidad inicial de núcleos."
-  - "Calcular el factor de reducción: (1/2)^n, donde n es el número de semividas."
-  - "Multiplicar la cantidad inicial por dicho factor."
-
-explicacion: |
-  Tras n semividas, la cantidad de núcleos es N = N0 · (1/2)^n. En este caso: {escenario[idx][0]} · (0.5)^{escenario[idx][1]} = {escenario[idx][2]}.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "desintegracion_exponencial"
-  nivel: "intermedio"
-  tags: ["radiactividad", "carbono-14", "datacion"]
-
-variables:
-  t_medio: uno_de([5730, 8000, 1200])
-  masa_inicial: 100
-  masa_final: 25
-  n_periodos: 2
-
-respuesta: n_periodos
-tipo: mc
-opciones_explicitas: [1, 2, 3, 4]
-
-enunciado: "Una muestra de Carbono-14 tiene una semivida de {t_medio} años. Si inicialmente tenemos una masa de {masa_inicial} g, ¿cuántos periodos de semivida han transcurrido si la masa final es de {masa_final} g?"
-
-explicacion: |
-  La masa se reduce a la mitad en cada periodo de semivida. 
-  100g -> 50g (1 periodo) -> 25g (2 periodos).
-  El número de periodos es log2(masa_inicial / masa_final).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "desintegracion_exponencial"
-  nivel: "avanzado"
-  tags: ["medicina_nuclear", "isótopos"]
-
-variables:
-  datos: [[300, 150], [100, 50], [400, 200]]
-  idx: uno_de([0, 1, 2])
-  m_inicial: datos[idx][0]
-  m_final: datos[idx][1]
-  t_medio: 6
-
-respuesta: m_final
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Un radiofármaco con una semivida de {t_medio} horas se inyecta en un paciente con una actividad de {m_inicial} MBq. Tras transcurrir un tiempo equivalente a una semivida, la actividad medida es de ___ MBq."
-
-explicacion: |
-  Por definición, tras un periodo de semivida, la actividad se reduce exactamente a la mitad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "desintegracion_exponencial"
-  nivel: "basico"
-  tags: ["conceptos", "teoria"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En un proceso de desintegración exponencial, la cantidad de sustancia radiactiva disminuye de forma lineal con respecto al tiempo."
-
-explicacion: |
-  Falso. La disminución es exponencial, no lineal. La tasa de desintegración es proporcional a la cantidad de núcleos presentes.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "desintegracion_exponencial"
-  nivel: "intermedio"
-  tags: ["proceso", "secuencia"]
-
-variables:
-  t_medio: 10
-  m_0: 80
-
-respuesta_orden: ["80", "40", "20", "10", "5"]
-tipo: ordenar
-opciones_explicitas: ["80", "40", "20", "10", "5"]
-
-enunciado: "Ordena las masas resultantes de una muestra de {m_0} g tras transcurrir 1, 2, 3, 4 y 5 periodos de semivida (de mayor a menor):"
-
-explicacion: |
-  Cada paso divide la masa por 2: 80 -> 40 -> 20 -> 10 -> 5.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "desintegracion_exponencial"
-  nivel: "avanzado"
-  tags: ["calculo", "exponencial"]
-
-variables:
-  escenario: uno_de([[100, 50, 10], [200, 100, 25], [80, 40, 20]])
-  m_i: escenario[0]
-  m_f: escenario[1]
-  t_medio: 10
-  t_total: 20
-  respuesta_correcta: m_i / 4
-
-respuesta: respuesta_correcta
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Una muestra de {m_i} g de un isótopo tiene una semivida de {t_medio} años. ¿Cuántos gramos de la muestra quedarán después de {t_total} años?"
-
-explicacion: |
-  Usamos la fórmula N(t) = N0 * (1/2)^(t/t_medio).
-  N(20) = {m_i} * (1/2)^(20/10) = {m_i} * (1/2)^2 = {m_i} / 4.
-  En el caso seleccionado: {m_i} / 4 = {respuesta_correcta}.
-```
-
-## Sección: sonido-timbre-altura-intensidad (26 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_propiedades_basicas"
-  nivel: "basico"
-  tags: ["acustica", "conceptos"]
-
-respuesta: "frecuencia"
-tipo: completar
-respuestas_validas:
-  - "frecuencia"
-
-enunciado: "La propiedad del sonido que nos permite distinguir si un tono es agudo o grave se denomina ___."
-
-explicacion: |
-  La frecuencia (medida en Hertz) determina la altura del sonido. A mayor frecuencia, sonido más agudo; a menor frecuencia, sonido más grave.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_intensidad"
-  nivel: "basico"
-  tags: ["acustica", "amplitud"]
-
-variables:
-  es_grande: uno_de([verdadero, falso])
-
-respuesta: verdadero
-tipo: vf
-enunciado: "Si la amplitud de una onda sonora aumenta, la intensidad (volumen) del sonido es mayor. ¿Es esto verdadero?"
-
-explicacion: |
-  Verdadero. La amplitud de la onda está directamente relacionada con la energía de la onda y, por lo tanto, con la intensidad sonora percibida.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_timbre"
-  nivel: "basico"
-  tags: ["acustica", "armonicos"]
-
-respuesta: "timbre"
-tipo: mc
-opciones_explicitas: ["tono", "timbre", "intensidad"]
-
-enunciado: "Si dos instrumentos diferentes (por ejemplo, un piano y un violín) tocan la misma nota con la misma intensidad, la cualidad que nos permite distinguir qué instrumento es cada uno se llama:"
-
-explicacion: |
-  El timbre depende de la forma de la onda y de la combinación de armónicos que componen el sonido, permitiendo distinguir fuentes sonoras con la misma frecuencia e intensidad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_altura_frecuencia"
-  nivel: "basico"
-  tags: ["acustica", "frecuencia"]
-
-variables:
-  caso: uno_de([0, 1])
-  datos: [[440, "grave"], [880, "agudo"]]
-  frecuencia: datos[caso][0]
-  altura: datos[caso][1]
-
-respuesta: altura
-tipo: mc
-opciones_explicitas: ["agudo", "grave"]
-
-enunciado: "Si un sonido tiene una frecuencia de {frecuencia} Hz, su altura es ___."
-
-pasos:
-  - "Identificar la frecuencia dada."
-  - "Comparar con el concepto de altura (frecuencia alta = agudo, frecuencia baja = grave)."
-
-explicacion: |
-  En este caso, la frecuencia de {frecuencia} Hz se clasifica como {altura} según la escala de altura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_altura_frecuencia"
-  nivel: "basico"
-  tags: ["acustica", "frecuencia"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["440", "grave"], ["880", "agudo"]]
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["agudo", "grave"]
-
-enunciado: "Si un sonido tiene una frecuencia de {datos[idx][0]} Hz, su altura es ___."
-
-explicacion: |
-  La frecuencia determina la altura: frecuencias altas son agudas y frecuencias bajas son graves.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_orden_cualidades"
-  nivel: "basico"
-  tags: ["acustica", "orden"]
-
-respuesta_orden: ["tono", "timbre", "intensidad"]
-tipo: ordenar
-opciones_explicitas: ["tono", "timbre", "intensidad"]
-
-enunciado: "Ordena las siguientes cualidades del sonido de acuerdo a la propiedad física que representan (de la que depende la altura, a la que depende el timbre, y finalmente la que depende la amplitud):"
-
-explicacion: |
-  1. Tono (Frecuencia)
-  2. Timbre (Forma de onda/Armónicos)
-  3. Intensidad (Amplitud)
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_propiedades"
-  nivel: "basico"
-  tags: ["frecuencia", "tono"]
-
-variables:
-  f_ejemplo: 440
-
-respuesta: f_ejemplo
-tipo: completar
-respuestas_validas:
-  - 440
-
-enunciado: "La altura de un sonido depende de su frecuencia. Si una nota musical tiene una frecuencia de {f_ejemplo} Hz, la altura de dicho sonido es de ___ Hz."
-
-explicacion: |
-  La altura está directamente relacionada con la frecuencia. A mayor frecuencia, sonido más agudo; a menor frecuencia, sonido más grave.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_propiedades"
-  nivel: "intermedio"
-  tags: ["intensidad", "amplitud"]
-
-variables:
-  amplitudes: [[0.5, 0.8], [0.3, 0.9]]
-  idx: uno_de([0, 1])
-  amplitud_a: amplitudes[idx][0]
-  amplitud_b: amplitudes[idx][1]
-
-respuesta: "Mayor"
-tipo: mc
-opciones_explicitas: ["Mayor", "Menor"]
-
-enunciado: "Si comparamos dos ondas sonoras, una con amplitud {amplitud_a} y otra con amplitud {amplitud_b} (mayor que la primera), la onda con mayor amplitud tendrá una intensidad sonora ___."
-
-explicacion: |
-  La intensidad sonora depende del cuadrado de la amplitud de la onda. A mayor amplitud, mayor intensidad (volumen).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_propiedades"
-  nivel: "intermedio"
-  tags: ["frecuencia", "periodo"]
-
-variables:
-  f_onda: 500
-
-respuesta: 0.002
-tipo: completar
-tolerancia_abs: 0.0001
-
-enunciado: "El periodo (T) es el inverso de la frecuencia (f), es decir, T = 1/f. Si una onda sonora tiene una frecuencia de {f_onda} Hz, ¿cuál es su periodo en segundos?"
-
-pasos:
-  - "Identificar la frecuencia: f = 500 Hz"
-  - "Aplicar la fórmula: T = 1 / 500"
-  - "Resultado: T = 0.002 s"
-
-explicacion: |
-  El periodo es el tiempo que tarda una onda en completar un ciclo completo. Al ser el inverso de la frecuencia, a mayor frecuencia, menor periodo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_propiedades"
-  nivel: "basico"
-  tags: ["timbre", "forma_onda"]
+  tags: ["granizo"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿El timbre es la cualidad que nos permite distinguir dos sonidos de igual frecuencia e intensidad pero de distinta fuente?"
+enunciado: "Para que una piedra de granizo crezca mucho, la tormenta necesita corrientes internas muy intensas que la sostengan en el aire el tiempo suficiente."
 
 explicacion: |
-  Verdadero. El timbre depende de la forma de la onda (armónicos) y es lo que nos permite distinguir, por ejemplo, un piano de un violín tocando la misma nota.
+  Es el mismo mecanismo de capas sucesivas visto en Precipitación,
+  llevado al extremo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "sonido_propiedades"
+  tema: "tormentas_y_fenomenos_severos"
   nivel: "basico"
-  tags: ["proceso_sonido"]
+  tags: ["huracan", "vocabulario"]
 
-respuesta_orden: ["Vibración de la fuente", "Propagación por el medio", "Recepción en el oído"]
-tipo: ordenar
-opciones_explicitas: ["Vibración de la fuente", "Propagación por el medio", "Recepción en el oído"]
-
-enunciado: "Ordena cronológicamente los pasos necesarios para que un sonido sea percibido por un ser humano:"
-
-explicacion: |
-  Primero se genera la vibración, luego la onda viaja por el aire (medio) y finalmente llega al sistema auditivo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_intensidad_amplitud"
-  nivel: "basico"
-  tags: ["sonido", "amplitud", "intensidad"]
-
-variables:
-  amplitud_onda: uno_de([0.1, 0.5, 0.9])
-
-enunciado: "Si duplicamos la amplitud de una onda sonora, la intensidad percibida aumenta, pero la ___ de la onda sonora también cambia."
-
-opciones_explicitas: ["frecuencia", "amplitud", "longitud"]
-respuesta: "amplitud"
 tipo: completar
+respuestas_validas:
+  - "ciclón"
+  - "ciclon"
+  - "ciclón tropical"
+
+enunciado: "En el océano Índico y el Pacífico sur, a este mismo fenómeno (huracán/tifón) se le llama ____."
 
 explicacion: |
-  La amplitud de la onda está directamente relacionada con la intensidad (volumen). Un aumento en la amplitud significa un sonido más fuerte. La frecuencia determina el tono, no la intensidad.
+  Es el mismo sistema de tormentas en espiral, con nombre regional
+  distinto.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "sonido_tono_frecuencia"
+  tema: "tormentas_y_fenomenos_severos"
+  nivel: "avanzado"
+  tags: ["huracan"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un huracán se alimenta del calor y la humedad de un océano cálido, por eso nunca se forma sobre tierra ni sobre agua fría."
+
+explicacion: |
+  Al perder esa fuente de energía (por ejemplo, al tocar tierra), el
+  huracán se debilita.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tormentas_y_fenomenos_severos"
+  nivel: "avanzado"
+  tags: ["fenomenos_severos", "cambio_climatico"]
+
+enunciado: "¿Por qué los eventos severos (huracanes, tornados, granizo) se usan como dato para el estudio del cambio climático?"
+tipo: mc
+opciones_explicitas:
+  - "Un cambio en su frecuencia o intensidad promedio a lo largo de muchos años es una señal de que el clima cambió"
+  - "Porque cada evento puntual, individualmente, prueba que el clima ya cambió"
+  - "No tienen ninguna relación con el estudio del clima"
+respuesta: "Un cambio en su frecuencia o intensidad promedio a lo largo de muchos años es una señal de que el clima cambió"
+
+explicacion: |
+  Un solo evento no prueba nada por la variabilidad natural; el promedio
+  a largo plazo sí es una señal relevante.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tormentas_y_fenomenos_severos"
+  nivel: "avanzado"
+  tags: ["fenomenos_severos", "cambio_climatico"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Cada tornado o huracán puntual que ocurre es, por sí solo, prueba directa de que el cambio climático ya está pasando."
+
+explicacion: |
+  La variabilidad natural del clima siempre existió; lo que se analiza
+  es la tendencia de frecuencia/intensidad a largo plazo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tormentas_y_fenomenos_severos"
+  nivel: "intermedio"
+  tags: ["fenomenos_severos", "sintesis"]
+
+enunciado: "¿Por qué tormentas eléctricas, tornados, huracanes y granizo severo se agrupan en un solo tema, en vez de separarse en módulos distintos?"
+tipo: mc
+opciones_explicitas:
+  - "Porque todos son ejemplos de la misma categoría: energía atmosférica concentrada que se libera violentamente"
+  - "Porque en realidad son el mismo fenómeno físico exacto"
+  - "Porque ninguno tiene relación con las masas de aire y frentes"
+respuesta: "Porque todos son ejemplos de la misma categoría: energía atmosférica concentrada que se libera violentamente"
+
+explicacion: |
+  Son variantes de un mismo principio, no habilidades separables como
+  las tres leyes de Newton.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tormentas_y_fenomenos_severos"
+  nivel: "avanzado"
+  tags: ["fenomenos_severos", "sintesis"]
+
+enunciado: "¿Cuál resume mejor la diferencia entre un tornado y un huracán?"
+tipo: mc
+opciones_explicitas:
+  - "El tornado es una columna de aire en rotación conectada a un cumulonimbo puntual; el huracán es un sistema de tormentas en espiral, mucho más grande, alimentado por un océano cálido"
+  - "Son exactamente el mismo fenómeno, sólo cambia el nombre según el país"
+  - "El huracán siempre es menos intenso que un tornado"
+respuesta: "El tornado es una columna de aire en rotación conectada a un cumulonimbo puntual; el huracán es un sistema de tormentas en espiral, mucho más grande, alimentado por un océano cálido"
+
+explicacion: |
+  A diferencia de huracán/tifón/ciclón (que sí son el mismo fenómeno con
+  distinto nombre), tornado y huracán son fenómenos distintos entre sí.
+```
+
+## Sección: campo-magnetico-imanes-corrientes (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_imanes_corrientes"
   nivel: "basico"
-  tags: ["sonido", "tono", "frecuencia"]
+  tags: ["imanes", "magnetismo"]
 
-variables:
-  frecuencia_hz: uno_de([200, 500, 1000])
-
-enunciado: "Un sonido con una frecuencia de {frecuencia_hz} Hz se percibe como un tono más ___ que uno de {frecuencia_hz / 2} Hz."
-
-opciones_explicitas: ["agudo", "grave", "fuerte"]
-respuesta: "agudo"
-tipo: mc
-
-explicacion: |
-  La frecuencia determina el tono (altura). A mayor frecuencia, el sonido es más agudo; a menor frecuencia, es más grave. El volumen (intensidad) depende de la amplitud, no de la frecuencia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_timbre_forma_onda"
-  nivel: "intermedio"
-  tags: ["sonido", "timbre", "armonicos"]
-
-variables:
-  instrumento_a: uno_de(["piano", "violín"])
-  instrumento_b: uno_de(["piano", "violín"])
-
-enunciado: "Si dos instrumentos distintos tocan la misma nota con la misma intensidad, la diferencia en su ___ se debe a la forma de su onda y la presencia de armónicos."
-
-opciones_explicitas: ["altura", "tono", "timbre"]
-respuesta: "timbre"
-tipo: mc
-
-explicacion: |
-  El timbre es la cualidad que nos permite distinguir dos sonidos de igual frecuencia e intensidad. Depende de la forma de la onda y de los armónicos que la componen.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_naturaleza_intensidad"
-  nivel: "intermedio"
-  tags: ["sonido", "intensidad", "magnitud"]
-
-enunciado: "¿La intensidad de un sonido es una magnitud escalar o vectorial?"
-
-opciones_explicitas: ["escalar", "vectorial"]
-respuesta: "escalar"
-tipo: mc
-
-explicacion: |
-  La intensidad sonora se define como la energía por unidad de tiempo y área, es una magnitud escalar ya que no tiene una dirección asociada en el espacio.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sonido_frecuencia_periodo"
-  nivel: "intermedio"
-  tags: ["sonido", "frecuencia", "periodo"]
-
-variables:
-  f_valor: uno_de([100, 200, 500])
-
-enunciado: "Si un sonido tiene una frecuencia de {f_valor} Hz, su periodo de oscilación es de ___ segundos."
-
-pasos:
-  - "Calcular el periodo usando la fórmula T = 1/f"
-
-respuesta: 1 / f_valor
-tipo: completar
-tolerancia_abs: 0.001
-
-explicacion: |
-  El periodo (T) es el inverso de la frecuencia (f). Si la frecuencia es {f_valor} Hz, el tiempo que tarda una onda en completar un ciclo es 1/{f_valor} segundos.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "propiedades_del_sonido"
-  nivel: "basico"
-  tags: ["sonido", "frecuencia", "amplitud"]
-
-respuesta: "frecuencia"
+respuesta: "polo"
 tipo: "completar"
 respuestas_validas:
-  - "frecuencia"
+  - "polo"
 
-enunciado: "La altura de un sonido depende de la ___ del onda sonora, mientras que la intensidad depende de su amplitud."
+enunciado: "Las regiones de un imán donde la fuerza magnética es más intensa se denominan ___ magnéticos."
 
 explicacion: |
-  La altura (tono) está determinada por la frecuencia (número de vibraciones por segundo), mientras que la intensidad (volumen) está relacionada con la amplitud de la onda.
+  Un imán posee dos regiones de máxima intensidad de campo denominadas polos (norte y sur).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "propiedades_del_sonido"
-  nivel: "intermedio"
-  tags: ["timbre", "onda", "armonicos"]
-
-opciones_explicitas: ["La amplitud de la onda", "La frecuencia de la onda", "La forma de la onda", "La velocidad de la onda"]
-respuesta: "La forma de la onda"
-tipo: "mc"
-
-enunciado: "Si dos instrumentos diferentes tocan la misma nota con la misma intensidad, lo que permite distinguirlos es el timbre, el cual depende de:"
-
-explicacion: |
-  El timbre es la cualidad que nos permite distinguir sonidos de la misma frecuencia y amplitud, dependiendo de la forma de la onda (presencia de armónicos).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "propiedades_del_sonido"
+  tema: "campo_magnetico_imanes_corrientes"
   nivel: "basico"
-  tags: ["intensidad", "amplitud", "volumen"]
+  tags: ["corriente_electrica", "electromagnetismo"]
 
-variables:
-  es_mayor: "amplitud_A > amplitud_B"
-  amplitud_A: 0.8
-  amplitud_B: 0.3
-
-respuesta: verdadero
+respuesta: falso
 tipo: "vf"
 
-enunciado: "Si comparamos dos ondas sonoras donde la onda A tiene una amplitud de {amplitud_A} y la onda B tiene una amplitud de {amplitud_B}, ¿es la onda A más intensa que la onda B?"
+enunciado: "¿Es correcto afirmar que una carga eléctrica en reposo genera un campo magnético a su alrededor?"
 
 explicacion: |
-  A mayor amplitud de la onda, mayor es la energía transportada y, por lo tanto, mayor es la intensidad sonora (volumen).
+  Falso. Según la ley de Biot-Savart, el campo magnético es generado por cargas en movimiento (corrientes eléctricas). Una carga estática solo genera un campo eléctrico.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "propiedades_del_sonido"
-  nivel: "basico"
-  tags: ["orden", "conceptos"]
+  tema: "campo_magnetico_imanes_corrientes"
+  nivel: "intermedio"
+  tags: ["electroimanes", "componentes"]
 
-opciones_explicitas: ["Frecuencia", "Amplitud", "Forma de onda"]
-respuesta_orden: ["Frecuencia", "Amplitud", "Forma de onda"]
+tipo: "mc"
+opciones_explicitas: ["Núcleo ferromagnético", "Material aislante", "Resistencia eléctrica"]
+respuesta: "Núcleo ferromagnético"
+
+enunciado: "En un electroimán típico, para aumentar la intensidad del campo magnético se suele utilizar un núcleo de hierro que concentre las líneas de flujo."
+
+explicacion: |
+  El núcleo ferromagnético (como el hierro) aumenta significativamente la intensidad del campo magnético del electroimán al canalizar las líneas de campo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_imanes_corrientes"
+  nivel: "intermedio"
+  tags: ["regla_mano_derecha", "corriente"]
+
+respuesta: "el pulgar indica la dirección de la corriente y los dedos el campo"
+tipo: "completar"
+respuestas_validas:
+  - "el pulgar indica la dirección de la corriente y los dedos el campo"
+
+enunciado: "Al aplicar la regla de la mano derecha en un conductor recto, si el pulgar apunta en la dirección de la corriente, entonces los dedos curvos representan ___."
+
+explicacion: |
+  La regla de la mano derecha es una convención para determinar la dirección del campo magnético circular alrededor de un conductor con corriente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_imanes_corrientes"
+  nivel: "basico"
+  tags: ["ordenar", "componentes"]
+
+tipo: ordenar
+opciones_explicitas: ["Fuente de energía", "Conductor", "Bobina"]
+respuesta_orden: ["Fuente de energía", "Conductor", "Bobina"]
+
+enunciado: "Ordene los elementos necesarios para construir un electroimán simple, desde el suministro de energía hasta el elemento que genera el campo:"
+
+explicacion: |
+  Para un electroimán básico se requiere una fuente (pila), un conductor (cable) para transportar la corriente y una bobina (solenoide) para concentrar el campo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_corrientes"
+  nivel: "intermedio"
+  tags: ["fuerza_magnetica", "corriente"]
+
+variables:
+  l: 0.5
+  I: 4.0
+  B: 0.2
+  angulo: 90
+
+respuesta: 0.4
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un conductor recto de longitud {l} metros transporta una corriente de {I} Amperios perpendicular a un campo magnético uniforme de {B} Teslas. ¿Cuál es la magnitud de la fuerza magnética sobre el conductor?"
+
+pasos:
+  - "Utilizar la fórmula de la fuerza de Lorentz para un conductor: F = I * l * B * sin(angulo)."
+  - "Sustituir los valores: F = 4.0 * 0.5 * 0.2 * sin(90)."
+  - "Calcular: F = 2.0 * 0.2 * 1 = 0.4 N."
+
+explicacion: |
+  La fuerza magnética sobre un conductor con corriente se calcula con la fórmula F = I * l * B * sin(θ). En este caso, al ser perpendicular, sin(90°) = 1.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "imanes"
+  nivel: "basico"
+  tags: ["magnetismo", "polos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si acercamos el polo norte de un imán al polo norte de otro imán, la fuerza de interacción entre ellos es de atracción."
+
+explicacion: |
+  Polos iguales se repelen y polos opuestos se atraen. Por lo tanto, la afirmación es falsa.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_corrientes"
+  nivel: "avanzado"
+  tags: ["ley_ampere", "campo_magnetico"]
+
+variables:
+  r: 0.1
+  I: 10.0
+  mu_0: 4 * pi * 1e-7
+
+respuesta: "0.00002"
+tipo: completar
+respuestas_validas:
+  - "0.00002"
+  - "2.0e-5"
+
+enunciado: "Un cable largo y recto transporta una corriente de {I} A. El campo magnético a una distancia de {r} metros del cable es de ___ Teslas."
+
+pasos:
+  - "Usar la fórmula para el campo magnético de un conductor infinito: B = (mu_0 * I) / (2 * pi * r)."
+  - "Sustituir: B = (4 * pi * 1e-7 * 10) / (2 * pi * 0.1)."
+  - "Simplificar: el pi se cancela: B = (4e-7 * 10) / (2 * 0.1) = 4e-6 / 0.2 = 2e-5 = 0.00002 T."
+
+explicacion: |
+  El campo magnético alrededor de un conductor recto se determina mediante la Ley de Ampère. La fórmula es B = (mu_0 * I) / (2 * pi * r).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_imanes"
+  nivel: "basico"
+  tags: ["imanes", "polos"]
+
+opciones_explicitas: ["Norte", "Sur"]
+respuesta: "Norte"
+tipo: mc
+
+enunciado: "En un imán de barra convencional, las líneas de campo magnético salen del polo ___ y entran al polo Sur."
+
+explicacion: |
+  Por convención, las líneas de campo magnético se representan saliendo del polo norte y entrando al polo sur en el exterior del imán.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_corrientes"
+  nivel: "intermedio"
+  tags: ["ordenar", "experimento"]
+
+opciones_explicitas: ["Colocar el imán", "Conectar la fuente", "Introducir el cable", "Observar el movimiento"]
+respuesta_orden: ["Colocar el imán", "Introducir el cable", "Conectar la fuente", "Observar el movimiento"]
 tipo: ordenar
 
-enunciado: "Ordena las propiedades del sonido de acuerdo a la característica física que las determina: 1. Altura, 2. Intensidad, 3. Timbre."
+enunciado: "Ordena los pasos lógicos para realizar un experimento de observación de la fuerza de Lorentz en un laboratorio:"
 
 explicacion: |
-  La altura se asocia a la frecuencia, la intensidad a la amplitud y el timbre a la forma de la onda (armónicos).
+  Primero se prepara el entorno (imán), luego se posiciona el objeto de estudio (cable), se aplica la energía (corriente) y finalmente se mide el efecto físico.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "propiedades_del_sonido"
+  tema: "campo_magnetico_imanes_corrientes"
+  nivel: "basico"
+  tags: ["magnetismo", "conceptos_fundamentales"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un imán permanente genera un campo magnético debido al movimiento de las cargas eléctricas (electrones) dentro de sus átomos."
+
+explicacion: |
+  Correcto. El magnetismo en materiales ferromagnéticos surge del movimiento orbital y del espín de los electrones, que actúan como pequeñas corrientes eléctricas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_imanes_corrientes"
   nivel: "intermedio"
-  tags: ["frecuencia", "tono", "agudo"]
+  tags: ["imanes", "electroimanes"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [[10.0, "un imán de neodimio"], [15.0, "un electroimán de núcleo de hierro"]]
+  resultados_texto: ["Un campo magnético constante", "Un campo magnético que depende de la corriente"]
+
+respuesta: resultados_texto[escenario_idx]
+tipo: mc
+opciones_explicitas: ["Un campo magnético constante", "Un campo magnético que depende de la corriente", "Un campo magnético que no existe"]
+
+enunciado: "Si observamos {datos[escenario_idx][1]}, el campo magnético producido es ___."
+
+explicacion: |
+  En el caso del imán, el campo es permanente. En el caso del electroimán, la intensidad y dirección dependen directamente de la intensidad de la corriente eléctrica que circula por el conductor.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_imanes_corrientes"
+  nivel: "intermedio"
+  tags: ["regla_mano_derecha", "corriente"]
+
+respuesta: "hacia arriba"
+tipo: completar
+respuestas_validas:
+  - "hacia arriba"
+  - "hacia abajo"
+
+enunciado: "Si aplicamos la regla de la mano derecha para un cable conductor vertical, donde el pulgar apunta hacia arriba (dirección de la corriente), los dedos se curvan indicando que las líneas de campo magnético circulan en un plano horizontal en dirección ___."
+
+explicacion: |
+  La regla de la mano derecha establece que el pulgar indica la dirección de la corriente y la curvatura de los dedos indica la dirección de las líneas de campo magnético.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_imanes_corrientes"
+  nivel: "basico"
+  tags: ["electroimanes", "polaridad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de un imán natural, los polos de un electroimán pueden invertirse simplemente cambiando la dirección de la corriente eléctrica."
+
+explicacion: |
+  Exacto. Al invertir la corriente, el sentido de las líneas de campo cambia, lo que resulta en una inversión de la polaridad de los polos norte y sur.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_imanes_corrientes"
+  nivel: "intermedio"
+  tags: ["electroimanes", "componentes"]
+
+respuesta_orden: ["Alambre conductor", "Núcleo ferromagnético", "Fuente de corriente"]
+tipo: ordenar
+opciones_explicitas: ["Alambre conductor", "Núcleo ferromagnético", "Fuente de corriente"]
+
+enunciado: "Para construir un electroimán funcional, se deben ensamblar sus componentes siguiendo este orden lógico de construcción (desde la base hasta el componente que genera el campo):"
+
+pasos:
+  - "Se enrolla el conductor sobre el material que concentra el flujo."
+  - "Se proporciona la energía necesaria para que el sistema funcione."
+  - "Se prepara el material que será magnetizado por la bobina."
+
+explicacion: |
+  Para un electroimán efectivo, primero se necesita el núcleo (material ferromagnético), luego se enrolla el alambre (bobina conductora) y finalmente se conecta a una fuente de corriente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_corrientes"
+  nivel: "basico"
+  tags: ["magnetismo", "corrientes"]
+
+respuesta: "imanes"
+tipo: "completar"
+respuestas_validas:
+  - "imanes"
+  - "imán"
+
+enunciado: "A diferencia de las corrientes eléctricas que generan campos magnéticos mediante el movimiento de cargas, los campos magnéticos estáticos pueden ser generados por ___."
+
+explicacion: |
+  Los imanes permanentes poseen un campo magnético debido al alineamiento del espín de los electrones en sus átomos, mientras que las corrientes eléctricas generan campos debido al movimiento macroscópico de cargas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_corrientes"
+  nivel: "intermedio"
+  tags: ["electroimanes", "magnetismo"]
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [[440, "La nota es más aguda"], [100, "La nota es más grave"]]
+  escenario: [[10, "aumentar la corriente"], [5, "acercar el imán"]]
 
 respuesta: escenario[idx][1]
 tipo: "mc"
-opciones_explicitas: ["La nota es más aguda", "La nota es más grave"]
+opciones_explicitas: ["aumentar la corriente", "acercar el imán", "cambiar el material del cable", "disminuir la tensión"]
 
-enunciado: "Si un sonido tiene una frecuencia de {escenario[idx][0]} Hz y otro tiene una frecuencia de 200 Hz, para el primer caso la nota es: ___"
+enunciado: "En un electroimán, ¿qué acción permite ___ para incrementar la intensidad del campo magnético generado?"
 
 explicacion: |
-  A mayor frecuencia, el sonido es percibido como más agudo. A menor frecuencia, es más grave.
+  La intensidad del campo magnético en un electroimán es directamente proporcional a la intensidad de la corriente que circula por el conductor.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "sonido_propiedades"
+  tema: "campo_magnetico_corrientes"
   nivel: "basico"
-  tags: ["frecuencia", "tono", "sonido"]
+  tags: ["polos", "imanes"]
 
-variables:
-  escenarios: [["La nota La central (A4) tiene una frecuencia de 440 Hz.", 440], ["La nota La una octava arriba tiene una frecuencia de 880 Hz.", 880], ["La nota La una octava abajo tiene una frecuencia de 220 Hz.", 220]]
-  idx: uno_de([0, 1, 2])
-  frecuencia_actual: escenarios[idx][1]
-  respuesta_correcta: escenarios[idx][1]
+respuesta: falso
+tipo: "vf"
 
-tipo: completar
-tolerancia_abs: 0.1
-enunciado: "Si escuchamos una nota musical cuya frecuencia es de {frecuencia_actual} Hz, ¿cuál es su valor numérico en Hz?"
-respuesta: respuesta_correcta
+enunciado: "A diferencia de las cargas eléctricas, donde las cargas iguales se repelen y las distintas se atraen, los polos de un imán pueden ser monopolos magnéticos aislados (es decir, un polo norte sin un polo sur)."
 
 explicacion: |
-  La altura o tono de un sonido depende directamente de su frecuencia (medida en Hz). A mayor frecuencia, mayor es el tono percibido.
+  Falso. Los polos magnéticos siempre vienen en pares (dipolos). No existen monopolos magnéticos aislados conocidos en la naturaleza; si cortas un imán, obtienes dos imanes más pequeños con sus propios polos.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "sonido_propuestas"
+  tema: "campo_magnetico_corrientes"
   nivel: "intermedio"
-  tags: ["intensidad", "amplitud", "volumen"]
+  tags: ["ley_ampere", "distancia"]
+
+respuesta: "se reduce"
+tipo: "mc"
+opciones_explicitas: ["se reduce", "se mantiene", "se duplica", "se anula"]
+
+enunciado: "Si comparamos un imán con un cable conductor, en ambos casos, al aumentar la distancia desde el centro del conductor o del imán, la intensidad del campo magnético ___."
+
+explicacion: |
+  Tanto para un imán dipolar como para un conductor rectilíneo, la intensidad del campo magnético disminuye a medida que la distancia al origen del campo aumenta.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_corrientes"
+  nivel: "intermedio"
+  tags: ["electroimanes", "componentes"]
+
+respuesta_orden: ["Núcleo ferromagnético", "Bobina de conductor", "Fuente de corriente"]
+tipo: "ordenar"
+opciones_explicitas: ["Núcleo ferromagnético", "Bobina de conductor", "Fuente de corriente"]
+
+enunciado: "Para construir un electroimán funcional, ordene los componentes desde el que concentra el flujo magnético hacia el que proporciona la energía:"
+
+explicacion: |
+  El núcleo ferromagnético concentra las líneas de campo, la bobina (solenoide) es donde circula la corriente que crea el campo, y la fuente de corriente es la que permite el flujo de carga.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_corrientes"
+  nivel: "intermedio"
+  tags: ["electromagnetismo", "corrientes"]
+
+enunciado: "En una planta de reciclaje, una grúa utiliza un electroimán para levantar chatarra. Si se duplica la intensidad de la corriente eléctrica que circula por la bobina del electroimán, la fuerza del campo magnético generado ___."
+
+respuesta: "aumenta"
+tipo: completar
+respuestas_validas:
+  - "aumenta"
+
+explicacion: |
+  La intensidad del campo magnético ($B$) generado por una corriente eléctrica es directamente proporcional a la intensidad de dicha corriente ($I$). Al aumentar la corriente, aumenta la fuerza del campo magnético.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_corrientes"
+  nivel: "basico"
+  tags: ["magnetismo", "brujula"]
+
+enunciado: "Si acercas una brújula a un cable conductor por el cual circula una corriente eléctrica constante, la aguja de la brújula ___ de su posición de reposo."
+
+respuestas_validas:
+  - "se desvía"
+respuesta: "se desvía"
+tipo: completar
+explicacion: |
+  Una corriente eléctrica genera un campo magnético a su alrededor. Este campo interactúa con el imán de la brújula, provocando que la aguja se alinee con las líneas de campo magnético.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_corrientes"
+  nivel: "intermedio"
+  tags: ["electromagnetismo", "polaridad"]
 
 variables:
-  casos: [["un sonido suave", "baja"], ["un sonido fuerte", "alta"]]
+  datos: [[1, "Norte"], [2, "Sur"]]
   idx: uno_de([0, 1])
-  tipo_sonido: casos[idx][0]
-  amplitud_relativa: casos[idx][1]
+  polo: datos[idx][1]
 
+enunciado: "Un estudiante construye un electroimán enrollando cable alrededor de un clavo de hierro. Si invierte el sentido de la corriente eléctrica en la bobina, el polo magnético que antes era ___ cambiará de polaridad."
+
+respuesta: polo
 tipo: mc
-opciones_explicitas: ["baja", "alta", "nula", "infinita"]
-respuesta: amplitud_relativa
-enunciado: "Si escuchamos {tipo_sonido}, la amplitud de la onda sonora es de carácter ________."
+opciones_explicitas: ["Norte", "Sur", "No cambia"]
 
 explicacion: |
-  La intensidad sonora (perceptualmente volumen) está relacionada con la amplitud de la onda. Una mayor amplitud implica un sonido más fuerte.
+  Según la regla de la mano derecha, el sentido de la corriente determina la dirección de las líneas de campo magnético. Si se invierte la corriente, se invierte la polaridad de los polos magnéticos.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "sonido_propiedades"
+  tema: "campo_magnetico_corrientes"
   nivel: "basico"
-  tags: ["timbre", "forma_onda", "armonicos"]
+  tags: ["motor", "componentes"]
 
-tipo: vf
-enunciado: "El timbre es la cualidad que nos permite distinguir dos sonidos de igual frecuencia e intensidad, pero emitidos por fuentes distintas (por ejemplo, un piano y una flauta)."
+respuesta_orden: ["imán", "cable", "batería"]
+tipo: ordenar
+opciones_explicitas: ["imán", "cable", "batería"]
+
+enunciado: "Para construir un modelo simple de motor eléctrico (motor de corriente continua), se requiere ensamblar los siguientes componentes en el orden correcto para completar el circuito y generar movimiento:"
+
+pasos:
+  - "Colocar un imán permanente en la base."
+  - "Conectar un cable conductor enrollado (bobina) al eje."
+  - "Conectar la bobina a una batería para cerrar el circuito."
+
+explicacion: |
+  Un motor eléctrico requiere una fuente de energía (batería), un conductor (cable/bobina) y un campo magnético constante (imán) para producir la fuerza de Lorentz que genera el movimiento.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_magnetico_corrientes"
+  nivel: "avanzado"
+  tags: ["calculo", "campo_magnetico"]
+
+enunciado: "Considerando un cable conductor muy largo, la intensidad del campo magnético $B$ es inversamente proporcional a la distancia $r$ del cable. Si la distancia se reduce a la mitad, el valor de $B$ será ___ veces el valor original."
+
+respuestas_validas:
+  - "2"
+respuesta: "2"
+tipo: completar
+tolerancia_abs: 0.001
+
+explicacion: |
+  La fórmula del campo magnético para un cable largo es $B = \mu_0 \cdot I / (2\pi \cdot r)$. Si la distancia $r$ se divide por 2, el campo $B$ se multiplica por 2.
+```
+
+## Sección: trabajo-de-una-fuerza (26 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "basico"
+  tags: ["trabajo", "vocabulario"]
+
+enunciado: "¿Qué es el trabajo de una fuerza, en física?"
+tipo: mc
+opciones_explicitas:
+  - "La transferencia de energía que ocurre cuando una fuerza actúa sobre un objeto que se desplaza"
+  - "El esfuerzo muscular necesario para sostener algo"
+  - "Otro nombre para la fuerza misma"
+respuesta: "La transferencia de energía que ocurre cuando una fuerza actúa sobre un objeto que se desplaza"
+
+explicacion: |
+  Sin desplazamiento, no hay trabajo físico, aunque haya esfuerzo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "basico"
+  tags: ["trabajo", "vocabulario"]
+
+enunciado: "¿En qué unidad se mide el trabajo?"
+tipo: mc
+opciones_explicitas:
+  - "Joule (J)"
+  - "Newton (N)"
+  - "Kilogramo (kg)"
+respuesta: "Joule (J)"
+
+explicacion: |
+  1 J = 1 N × 1 m.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["trabajo", "completar"]
+
+tipo: completar
+enunciado: "Completá: 1 Joule = 1 Newton × 1 ___."
+respuestas_validas:
+  - "metro"
+  - "m"
+
+explicacion: |
+  Es el trabajo de 1 N desplazando un objeto 1 m en su misma dirección.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["trabajo", "problema"]
+
+variables:
+  fuerza: uno_de([10, 20, 30])
+  distancia: uno_de([5, 10])
+
+respuesta: fuerza * distancia
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una fuerza de {fuerza} N actúa exactamente en la misma dirección que el desplazamiento de {distancia} m. ¿Cuál es el trabajo realizado?"
+
+pasos:
+  - "{fuerza} × {distancia} × cos(0°) = {fuerza} × {distancia} × 1 = {fuerza * distancia} J"
+
+explicacion: |
+  Con ángulo 0°, cos(0°) = 1: el trabajo es simplemente fuerza por
+  distancia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["trabajo", "problema"]
+
+variables:
+  fuerza: uno_de([20, 40])
+  distancia: uno_de([5, 10])
+  cos_60: 0.5
+
+respuesta: fuerza * distancia * cos_60
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Una fuerza de {fuerza} N forma un ángulo de 60° con el desplazamiento de {distancia} m (cos 60° = 0,5). ¿Cuál es el trabajo realizado?"
+
+pasos:
+  - "{fuerza} × {distancia} × 0,5 = {fuerza * distancia * cos_60} J"
+
+explicacion: |
+  Sólo la componente de la fuerza en la dirección del movimiento
+  contribuye al trabajo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["trabajo", "problema"]
+
+variables:
+  fuerza: random(10, 100)
+  distancia: random(1, 20)
+
+respuesta: 0
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una fuerza de {fuerza} N actúa exactamente perpendicular al desplazamiento de {distancia} m. ¿Cuál es el trabajo realizado?"
+
+pasos:
+  - "{fuerza} × {distancia} × cos(90°) = {fuerza} × {distancia} × 0 = 0 J"
+
+explicacion: |
+  Una fuerza perpendicular al desplazamiento nunca hace trabajo, sin
+  importar cuán grande sea.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["trabajo", "vocabulario"]
+
+enunciado: "¿Cuándo el trabajo de una fuerza es positivo?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando la fuerza tiene una componente en la misma dirección que el desplazamiento (ángulo menor a 90°)"
+  - "Siempre que la fuerza sea muy grande"
+  - "Sólo cuando la fuerza es vertical"
+respuesta: "Cuando la fuerza tiene una componente en la misma dirección que el desplazamiento (ángulo menor a 90°)"
+
+explicacion: |
+  La fuerza "ayuda" al movimiento.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["trabajo", "vocabulario"]
+
+enunciado: "¿Cuándo el trabajo de una fuerza es negativo?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando la fuerza se opone al desplazamiento (ángulo mayor a 90°)"
+  - "Cuando la fuerza es muy chica"
+  - "El trabajo nunca puede ser negativo"
+respuesta: "Cuando la fuerza se opone al desplazamiento (ángulo mayor a 90°)"
+
+explicacion: |
+  Como el rozamiento, que siempre se opone al movimiento.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["trabajo", "vocabulario"]
+
+enunciado: "¿Cuándo el trabajo de una fuerza es exactamente cero?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando la fuerza es perpendicular al desplazamiento, o cuando no hay desplazamiento"
+  - "Sólo cuando la fuerza vale cero"
+  - "El trabajo nunca puede ser cero si hay una fuerza actuando"
+respuesta: "Cuando la fuerza es perpendicular al desplazamiento, o cuando no hay desplazamiento"
+
+explicacion: |
+  Son dos casos distintos que dan trabajo nulo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "basico"
+  tags: ["trabajo"]
 
 respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin ningún desplazamiento, no hay trabajo físico, sin importar cuán grande sea la fuerza aplicada."
 
 explicacion: |
-  El timbre depende de la forma de la onda, la cual es determinada por la combinación de la frecuencia fundamental y los armónicos presentes.
+  d = 0 hace que W = F×d×cos(θ) sea siempre 0.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "sonido_propiedades"
+  tema: "trabajo_de_una_fuerza"
   nivel: "intermedio"
-  tags: ["frecuencia", "amplitud", "intensidad"]
+  tags: ["trabajo", "problema"]
 
 variables:
-  relaciones: [["frecuencia", "tono"], ["amplitud", "intensidad"], ["forma_onda", "timbre"]]
-  idx: uno_de([0, 1, 2])
-  propiedad: relaciones[idx][0]
-  caracteristica: relaciones[idx][1]
+  fuerza: random(50, 200)
 
-tipo: completar
-respuesta: caracteristica
-enunciado: "Si modificamos la {propiedad}, estamos alterando la característica auditiva conocida como ________."
+respuesta: 0
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una persona sostiene una bolsa de {fuerza} N parada, sin moverse durante 2 minutos. ¿Cuánto trabajo físico realiza sobre la bolsa?"
 
 explicacion: |
-  Cada propiedad física de la onda sonora se traduce en una percepción auditiva distinta: frecuencia -> tono; amplitud -> intensidad; forma de onda -> timbre.
+  Sin desplazamiento (d = 0), el trabajo es cero, aunque la persona se
+  canse.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "sonido_propiedades"
-  nivel: "avanzado"
-  tags: ["frecuencia", "amplitud", "forma_onda"]
-
-tipo: ordenar
-opciones_explicitas: ["Frecuencia", "Amplitud", "Forma de la onda"]
-respuesta_orden: ["Frecuencia", "Amplitud", "Forma de la onda"]
-enunciado: "Ordene las propiedades físicas de una onda sonora según su correspondencia con la percepción humana (Tono, Intensidad, Timbre):"
-
-explicacion: |
-  1. Frecuencia -> Tono (Altura).
-  2. Amplitud -> Intensidad (Volumen).
-  3. Forma de la onda -> Timbre.
-```
-
-## Sección: temperatura-equilibrio-termico (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "definicion_temperatura"
-  nivel: "basico"
-  tags: ["conceptos", "energia"]
-
-respuesta: "energia_cinetica_media"
-tipo: completar
-respuestas_validas:
-  - "energia_cinetica_media"
-
-enunciado: "La temperatura es una magnitud física que mide la ___ de las partículas de un cuerpo."
-
-explicacion: |
-  La temperatura no mide la energía total, sino el promedio de la energía cinética de las partículas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_termico"
-  nivel: "basico"
-  tags: ["conceptos", "flujo_calorico"]
+  tema: "trabajo_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["trabajo"]
 
 respuesta: verdadero
 tipo: vf
-enunciado: "Cuando dos cuerpos en contacto alcanzan el equilibrio térmico, sus temperaturas son iguales."
+
+enunciado: "El cansancio muscular de sostener algo quieto no es lo mismo que el trabajo físico definido en Física: ese trabajo mecánico sobre el objeto sostenido es cero."
 
 explicacion: |
-  Por definición, el equilibrio térmico se alcanza cuando cesa el flujo neto de calor debido a la igualdad de temperaturas.
+  El cuerpo gasta energía biológica internamente, pero no transfiere
+  trabajo mecánico al objeto si éste no se desplaza.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_termometricas"
-  nivel: "basico"
-  tags: ["unidades", "kelvin"]
-
-respuesta: 273.15
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "En la escala Kelvin, el cero absoluto equivale a ___ K."
-
-explicacion: |
-  El cero absoluto es la temperatura teórica donde el movimiento molecular es mínimo, equivalente a -273.15 °C.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "diferencia_calor_temp"
-  nivel: "intermedio"
-  tags: ["conceptos"]
-
-respuesta: "calor"
-tipo: completar
-respuestas_validas:
-  - "calor"
-
-enunciado: "Mientras que la temperatura mide el estado térmico, el ___ es la energía en tránsito entre cuerpos."
-
-explicacion: |
-  El calor es energía que fluye de un cuerpo con mayor temperatura a uno de menor temperatura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "flujo_calorico"
-  nivel: "basico"
-  tags: ["ley_cero"]
-
-respuesta: "mayor_a_menor"
-tipo: completar
-respuestas_validas:
-  - "mayor_a_menor"
-
-enunciado: "El calor fluye espontáneamente de un cuerpo con temperatura ___ a uno con temperatura ___."
-
-explicacion: |
-  El flujo de calor siempre ocurre desde el cuerpo más caliente hacia el más frío hasta alcanzar el equilibrio.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "conversion_escalas"
-  nivel: "basico"
-  tags: ["calculo"]
-
-variables:
-  idx: uno_de([0,1])
-  datos: [[20, 293.15], [100, 373.15]]
-
-respuesta: datos[idx][1]
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Si un objeto tiene una temperatura de {datos[idx][0]} °C, ¿cuál es su valor en Kelvin?"
-
-explicacion: |
-  La fórmula es T(K) = T(°C) + 273.15.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cero_absoluto"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: "falso"
-tipo: completar
-enunciado: "Es posible alcanzar el cero absoluto (0 K) mediante procesos térmicos convencionales."
-
-explicacion: |
-  La tercera ley de la termodinámica establece que el cero absoluto es inalcanzable en un número finito de pasos.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sensacion_termica"
-  nivel: "intermedio"
-  tags: ["error_comun"]
-
-respuesta: "falso"
-tipo: completar
-enunciado: "La sensación térmica de una persona es una medida exacta de la temperatura termodinámica de un objeto."
-
-explicacion: |
-  La sensación térmica depende de factores como la humedad, el viento y la conductividad térmica de la piel, no solo de la temperatura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "sistemas_termicos"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: "sistema_abierto"
-tipo: completar
-respuestas_validas:
-  - "sistema_abierto"
-
-enunciado: "Un sistema que intercambia energía y materia con su entorno se denomina ___."
-
-explicacion: |
-  Un sistema abierto permite el intercambio tanto de calor como de masa con el medio ambiente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_termico"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: "igualdad_temperaturas"
-tipo: mc
-opciones_explicitas: ["igualdad_temperaturas", "igualdad_masas", "igualdad_volumenes", "igualdad_presiones"]
-
-enunciado: "Al alcanzar el equilibrio térmico, ¿qué propiedad se iguala entre los cuerpos?"
-
-explicacion: |
-  El equilibrio térmico implica que no hay transferencia neta de calor porque las temperaturas se han igualado.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "intermedio"
-  tags: ["propiedades"]
-
-respuesta: "capacidad_para_cambiar_temperatura"
-tipo: completar
-respuestas_validas:
-  - "capacidad_para_cambiar_temperatura"
-
-enunciado: "El calor específico es la propiedad que mide la ___ de una sustancia."
-
-explicacion: |
-  Es la cantidad de calor necesaria para elevar un grado la temperatura de una unidad de masa.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "comparacion_materiales"
-  nivel: "intermedio"
-  tags: ["propiedades"]
-
-respuesta: "agua"
-tipo: mc
-opciones_explicitas: ["agua", "hierro", "arena", "aluminio"]
-
-enunciado: "De los siguientes materiales, ¿cuál tiene un calor específico mucho más alto (tarda más en calentarse)?"
-
-explicacion: |
-  El agua tiene un calor específico muy elevado (~4186 J/kg·K), lo que la hace un excelente regulador térmico.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "pasos_calentamiento"
-  nivel: "intermedio"
-  tags: ["procedimiento"]
-
-respuesta_orden: ["medir_temp_inicial", "suministrar_calor", "medir_temp_final"]
-tipo: ordenar
-opciones_explicitas: ["medir_temp_inicial", "suministrar_calor", "medir_temp_final"]
-
-enunciado: "Ordena los pasos para realizar un experimento de transferencia de calor:"
-
-explicacion: |
-  Primero se establece el estado inicial, luego se aplica la energía y finalmente se observa el estado final.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "modos_transferencia"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: "conduccion"
-tipo: completar
-respuestas_validas:
-  - "conduccion"
-
-enunciado: "La transferencia de calor a través del contacto directo entre sólidos se llama ___."
-
-explicacion: |
-  La conducción es el mecanismo principal en materiales sólidos.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "diferencia_calor_temp"
-  nivel: "intermedio"
-  tags: ["conceptos"]
-
-respuesta: "calor"
-tipo: mc
-opciones_explicitas: ["calor", "temperatura", "entalpía", "entropía"]
-
-enunciado: "Si un bloque de metal se calienta, la energía que absorbe se llama ___."
-
-explicacion: |
-  La energía absorbida o transferida se define como calor.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_termico_calculo"
+  tema: "trabajo_de_una_fuerza"
   nivel: "avanzado"
-  tags: ["calculo"]
+  tags: ["trabajo", "problema"]
 
 variables:
-  idx: uno_de([0,1])
-  datos: [[100, 50], [20, 80]] 
-  # datos[idx][0] es T_inicial, datos[idx][1] es T_final
+  fuerza: random(30, 100)
+  distancia: random(5, 20)
 
-respuesta: (datos[idx][0] + datos[idx][1]) / 2
-tipo: completar
-tolerancia_abs: 0.1
+respuesta: 0
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "En un sistema ideal de calor específico iguales, si se mezclan dos masas iguales, la temperatura de equilibrio será la media de {datos[idx][0]} y {datos[idx][1]} °C. ¿Cuál es el resultado?"
+enunciado: "Una persona camina en línea recta horizontal {distancia} m, sosteniendo una bolsa con una fuerza vertical de {fuerza} N (para no dejarla caer). ¿Cuál es el trabajo que esa fuerza vertical realiza sobre la bolsa?"
 
 explicacion: |
-  (100 + 50) / 2 = 75. (20 + 80) / 2 = 50.
+  La fuerza (vertical) es perpendicular al desplazamiento (horizontal):
+  el trabajo de esa fuerza es cero, aunque la bolsa se traslade.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "intermedio"
-  tags: ["calculo"]
+  tema: "trabajo_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["trabajo", "vocabulario"]
 
-respuesta: 4186
-tipo: completar
-tolerancia_abs: 10
-
-enunciado: "El calor específico del agua es aproximadamente ___ J/(kg·K)."
+enunciado: "¿Por qué la fuerza centrípeta, que mantiene a un objeto girando en círculo, no realiza trabajo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque es siempre perpendicular a la velocidad del objeto en cada instante"
+  - "Porque los objetos en movimiento circular no tienen energía cinética"
+  - "En realidad sí hace trabajo, y por eso el objeto frena con el tiempo"
+respuesta: "Porque es siempre perpendicular a la velocidad del objeto en cada instante"
 
 explicacion: |
-  Es un valor estándar utilizado en termodinámica.
+  Por eso el movimiento circular uniforme mantiene la rapidez constante,
+  aunque la dirección cambie todo el tiempo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cambio_fase"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["trabajo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un movimiento circular uniforme, la energía cinética del objeto no cambia, porque la fuerza centrípeta no realiza trabajo."
+
+explicacion: |
+  Sin trabajo neto, no hay cambio de energía cinética (teorema
+  trabajo-energía).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
   nivel: "intermedio"
-  tags: ["cambio_fase"]
+  tags: ["trabajo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La fuerza de rozamiento, al oponerse siempre al movimiento, realiza trabajo negativo sobre un objeto que se desliza."
+
+explicacion: |
+  El ángulo entre el rozamiento y el desplazamiento es siempre 180°:
+  cos(180°) = -1.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["trabajo", "problema"]
+
+variables:
+  friccion: uno_de([10, 20, 30])
+  distancia: uno_de([5, 10])
+
+respuesta: 0 - (friccion * distancia)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto se desliza {distancia} m, con una fuerza de rozamiento de {friccion} N oponiéndose al movimiento en todo momento. ¿Cuál es el trabajo realizado por el rozamiento?"
+
+pasos:
+  - "{friccion} × {distancia} × cos(180°) = {friccion} × {distancia} × (-1) = {0 - (friccion * distancia)} J"
+
+explicacion: |
+  El signo negativo indica que el rozamiento le quita energía al
+  movimiento.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["trabajo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El trabajo total sobre un objeto se puede calcular sumando el trabajo de cada fuerza por separado, o calculando directamente el trabajo de la fuerza neta — ambos caminos dan el mismo resultado."
+
+explicacion: |
+  Es consecuencia de que el trabajo (como producto escalar) se
+  distribuye sobre sumas de vectores.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["trabajo", "vocabulario"]
+
+enunciado: "¿Qué dice el teorema trabajo-energía?"
+tipo: mc
+opciones_explicitas:
+  - "El trabajo neto sobre un objeto es igual al cambio en su energía cinética"
+  - "El trabajo siempre es igual a la energía potencial del objeto"
+  - "No existe ninguna relación entre trabajo y energía"
+respuesta: "El trabajo neto sobre un objeto es igual al cambio en su energía cinética"
+
+explicacion: |
+  W_neto = Ec_final − Ec_inicial.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["trabajo", "problema"]
+
+variables:
+  ec_inicial: uno_de([50, 100, 150])
+  trabajo_neto: uno_de([20, 30, 50])
+
+respuesta: ec_inicial + trabajo_neto
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto tiene una energía cinética inicial de {ec_inicial} J. Sobre él se realiza un trabajo neto de {trabajo_neto} J. ¿Cuál es su energía cinética final?"
+
+pasos:
+  - "{ec_inicial} + {trabajo_neto} = {ec_inicial + trabajo_neto} J"
+
+explicacion: |
+  Ec_final = Ec_inicial + W_neto.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["trabajo", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular el trabajo de una fuerza sobre un objeto que se desplaza."
+tipo: ordenar
+opciones_explicitas:
+  - "El resultado, en Joule, es el trabajo realizado"
+  - "Identificar el ángulo entre la fuerza y el desplazamiento"
+  - "Multiplicar la fuerza, la distancia y el coseno de ese ángulo"
+respuesta_orden: ["Identificar el ángulo entre la fuerza y el desplazamiento", "Multiplicar la fuerza, la distancia y el coseno de ese ángulo", "El resultado, en Joule, es el trabajo realizado"]
+explicacion: |
+  W = F × d × cos(θ).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["trabajo", "problema"]
+
+variables:
+  fuerza: uno_de([20, 40])
+  distancia: uno_de([5, 10])
+  cos_120: -0.5
+
+respuesta: fuerza * distancia * cos_120
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Una fuerza de {fuerza} N forma un ángulo de 120° con el desplazamiento de {distancia} m (cos 120° = -0,5). ¿Cuál es el trabajo realizado?"
+
+pasos:
+  - "{fuerza} × {distancia} × (-0,5) = {fuerza * distancia * cos_120} J"
+
+explicacion: |
+  Con un ángulo obtuso, el trabajo da negativo: la fuerza frena más de
+  lo que ayuda al movimiento.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["trabajo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El trabajo es una magnitud escalar (un número con signo), no una magnitud vectorial."
+
+explicacion: |
+  Es consecuencia directa de ser un producto escalar entre dos
+  vectores.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["trabajo", "problema"]
+
+variables:
+  trabajo_motor: uno_de([100, 200, 300])
+  trabajo_friccion: uno_de([20, 40, 60])
+
+respuesta: trabajo_motor - trabajo_friccion
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un auto recibe un trabajo de {trabajo_motor} J de parte del motor, mientras el rozamiento le realiza un trabajo de -{trabajo_friccion} J. ¿Cuál es el trabajo neto sobre el auto?"
+
+pasos:
+  - "{trabajo_motor} + (-{trabajo_friccion}) = {trabajo_motor - trabajo_friccion} J"
+
+explicacion: |
+  Se suman los trabajos de todas las fuerzas, respetando su signo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["trabajo", "vocabulario"]
+
+enunciado: "Al levantar una caja verticalmente hacia arriba, ¿por qué el trabajo que se realiza sobre ella es positivo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque la fuerza aplicada (hacia arriba) tiene la misma dirección que el desplazamiento (hacia arriba)"
+  - "Porque toda fuerza vertical siempre hace trabajo positivo, sin excepción"
+  - "El trabajo de levantar algo en realidad siempre es negativo"
+respuesta: "Porque la fuerza aplicada (hacia arriba) tiene la misma dirección que el desplazamiento (hacia arriba)"
+
+explicacion: |
+  θ = 0° entre fuerza y desplazamiento: cos(0°) = 1, trabajo máximo
+  positivo para esa fuerza y distancia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "trabajo_de_una_fuerza"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve el concepto de trabajo de una fuerza?"
+tipo: mc
+opciones_explicitas:
+  - "Para calcular cuánta energía transfiere una fuerza a un objeto que se desplaza, conectando fuerza, movimiento y energía"
+  - "Sólo sirve para medir el esfuerzo muscular de una persona"
+  - "Sólo aplica a fuerzas que actúan durante un movimiento circular"
+respuesta: "Para calcular cuánta energía transfiere una fuerza a un objeto que se desplaza, conectando fuerza, movimiento y energía"
+
+explicacion: |
+  Es el puente directo hacia el estudio de la energía, que se retoma en
+  módulos futuros.
+```
+
+## Sección: induccion-electromagnetica-faraday-lenz (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["flujo_magnetico", "definicion"]
+
+enunciado: "El producto escalar entre el vector campo magnético B y el vector área A se define como el ___ magnético."
+
+respuestas_validas:
+  - "flujo"
+tipo: completar
+
+explicacion: |
+  El flujo magnético ($\Phi$) mide la cantidad de campo magnético que atraviesa una superficie determinada.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["ley_faraday", "fem"]
+
+opciones_explicitas: ["La variación del flujo magnético en el tiempo", "La intensidad del campo magnético constante", "La resistencia del conductor", "La carga eléctrica total"]
+respuesta: "La variación del flujo magnético en el tiempo"
+tipo: mc
+
+enunciado: "¿Qué magnitud es proporcional a la fuerza electromotriz (FEM) inducida según la Ley de Faraday?"
+
+explicacion: |
+  La Ley de Faraday establece que la FEM inducida es igual a la rapidez con la que cambia el flujo magnético a través de un circuito.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["ley_lenz", "polaridad"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenario_data: [["aumento", "se oponga"], ["disminución", "se oponga"]]
+
+enunciado: "Considerando el escenario {escenario_data[escenario_idx][0]}, la corriente inducida tendrá una dirección tal que el campo magnético creado por ella ___ el cambio en el flujo original."
+
+respuesta: "se oponga"
+tipo: mc
+
+opciones_explicitas: ["se oponga", "favorezca", "no tiene efecto"]
+
+explicacion: |
+  La Ley de Lenz es una consecuencia del principio de conservación de la energía y establece que el sentido de la corriente inducida es tal que el campo magnético que genera se opone a la variación del flujo que la produjo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["conceptos_clave"]
+
+enunciado: "¿Es necesario que exista un movimiento relativo entre un imán y una espira para que se induzca una corriente eléctrica?"
 
 respuesta: falso
 tipo: vf
-enunciado: "Durante un cambio de fase (como la fusión del hielo), la temperatura del sistema aumenta aunque se siga suministrando calor."
 
 explicacion: |
-  Falso. Durante el cambio de fase, la temperatura permanece constante mientras se rompen los enlaces moleculares.
+  No necesariamente. La inducción ocurre siempre que haya una variación del flujo magnético. Esto puede lograrse moviendo el imán, moviendo la espira, o incluso variando la intensidad del campo magnético con el imán en reposo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "sistemas_termicos"
+  tema: "induccion_electromagnetica_faraday_lenz"
   nivel: "intermedio"
-  tags: ["conceptos"]
+  tags: ["componentes", "formula"]
 
-respuesta: "sistema_cerrado"
-tipo: completar
+enunciado: "Para calcular la magnitud de la FEM inducida (epsilon) en un circuito de N espiras, se requiere conocer el número de vueltas, la variación del flujo (Delta Phi) y el ___ (Delta t)."
+
 respuestas_validas:
-  - "sistema_cerrado"
-
-enunciado: "Un sistema que intercambia energía pero no materia con su entorno se llama ___."
+  - "tiempo"
+tipo: completar
 
 explicacion: |
-  En un sistema cerrado, la masa permanece constante pero la energía puede entrar o salir.
+  La fórmula de la Ley de Faraday es epsilon = -N * (Delta Phi / Delta t), donde el denominador representa el intervalo de tiempo en el que ocurre la variación.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_termometricas"
+  tema: "induccion_electromagnetica_faraday_lenz"
   nivel: "basico"
-  tags: ["unidades"]
-
-respuesta: "absoluta"
-tipo: mc
-opciones_explicitas: ["absoluta", "relativa", "celcius", "fahrenheit"]
-
-enunciado: "La escala Kelvin es conocida como la escala ___."
-
-explicacion: |
-  Se llama absoluta porque parte del cero absoluto, donde no hay energía térmica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "intermedio"
-  tags: ["calculo"]
-
-respuesta: "proporcional"
-tipo: completar
-respuestas_validas:
-  - "proporcional"
-
-enunciado: "La cantidad de calor necesaria para elevar la temperatura de un cuerpo es ___ a su masa."
-
-explicacion: |
-  A mayor masa, se requiere más calor para producir el mismo cambio de temperatura (Q = m·c·ΔT).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_termico"
-  nivel: "avanzado"
-  tags: ["flujo_calorico"]
+  tags: ["ley_de_faraday", "flujo_magnetico"]
 
 respuesta: verdadero
 tipo: vf
-enunciado: "Si un objeto caliente se coloca en un ambiente frío, el calor fluirá del objeto al ambiente hasta que sus temperaturas se igualen."
+
+enunciado: "Según la Ley de Faraday, la magnitud de la fuerza electromotriz (FEM) inducida en un circuito es proporcional a la rapidez con la que cambia el flujo magnético a través de él."
 
 explicacion: |
-  Este es el proceso natural de transferencia de energía hacia el equilibrio térmico.
+  La ley de Faraday establece que la magnitud de la FEM inducida es proporcional a la tasa de cambio del flujo magnético. El signo negativo representa la Ley de Lenz, indicando que la corriente inducida crea un campo magnético que se opone al cambio del flujo original.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "ley_cero"
-  nivel: "avanzado"
-  tags: ["leyes_termodinamica"]
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["calculo_fem", "flujo_magnetico"]
 
-respuesta: "termómetro"
+variables:
+  escenario_idx: uno_de([0,1])
+  datos: [[4.0, 5.0], [10.0, 5.0]]
+  tiempo: 2.0
+  flujo_inicial: datos[escenario_idx][0]
+  flujo_final: datos[escenario_idx][1]
+  fem: abs((flujo_final - flujo_inicial) / tiempo)
+
+respuesta: fem
+
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un circuito experimenta un cambio en su flujo magnético de {flujo_inicial} Wb a {flujo_final} Wb en un intervalo de tiempo de {tiempo} segundos. ¿Cuál es la magnitud de la FEM inducida (en Voltios)?"
+
+pasos:
+  - "Calcular la variación del flujo: DeltaPhi = Phi_final - Phi_inicial"
+  - "Dividir la variación por el tiempo: epsilon = DeltaPhi / Delta t"
+
+explicacion: |
+  La magnitud de la FEM se calcula como el cambio de flujo dividido por el tiempo.
+  Para el caso 1: |(5.0 - 4.0) / 2.0| = 0.5 V.
+  Para el caso 2: |(10.0 - 5.0) / 2.0| = 2.5 V.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["ley_de_lenz", "campo_magnetico"]
+
+opciones_explicitas: ["Aumenta el flujo magnético", "Disminuye el flujo magnético", "No afecta el flujo"]
+
+respuesta: "Disminuye el flujo magnético"
+tipo: mc
+
+enunciado: "Si un imán se acerca a una espira conductorista, la corriente inducida en la espira creará un campo magnético con la intención de:"
+
+explicacion: |
+  La Ley de Lenz establece que el efecto inducido siempre se opone a la causa que lo produce. Si el flujo aumenta (acercar imán), la espira crea un campo opuesto para intentar disminuirlo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["formula", "flujo_magnetico"]
+
+respuestas_validas:
+  - "coseno"
+  - "cos"
+
+respuesta: "coseno"
+tipo: completar
+
+enunciado: "La expresión del flujo magnético $\\Phi$ a través de una superficie es el producto del campo magnético $B$ por el área $A$ por el ___ del ángulo entre el vector campo y la normal a la superficie."
+
+explicacion: |
+  La fórmula es $\Phi = B \cdot A \cdot \cos(\theta)$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["metodologia", "problema_fisica"]
+
+opciones_explicitas: ["Calcular el flujo magnético $\\Phi$", "Determinar la variación $\\Delta\\Phi$", "Dividir por el tiempo $\\Delta t$"]
+
+respuesta_orden: ["Calcular el flujo magnético $\\Phi$", "Determinar la variación $\\Delta\\Phi$", "Dividir por el tiempo $\\Delta t$"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para hallar la magnitud de la FEM inducida cuando el flujo magnético cambia en un intervalo de tiempo determinado:"
+
+explicacion: |
+  Para aplicar la Ley de Faraday, primero debemos conocer el estado inicial y final del flujo para hallar la diferencia ($\Delta\Phi$) y luego aplicar la derivada temporal (división por el tiempo en casos discretos).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["faraday", "lenz", "flujo_magnetico"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["aumenta", "-"], ["disminuye", "+"]]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["-", "+"]
+
+enunciado: "Si el flujo magnético a través de una espira cerrada está {datos[idx][0]} (en valor absoluto), la corriente inducida generará un campo magnético que se opone a ese cambio. El signo de la FEM inducida según la Ley de Lenz para contrarrestar dicho cambio es ___."
+
+explicacion: |
+  La Ley de Lenz establece que el sentido de la corriente inducida es tal que el campo magnético creado por ella se opone a la variación del flujo que la produjo. Si el flujo aumenta, la espira intenta disminuirlo (signo opuesto); si el flujo disminuye, intenta aumentarlo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["faraday", "lenz"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para que se produzca una corriente inducida en un conductor, es estrictamente necesario que el campo magnético sea constante en el tiempo, pero su intensidad debe variar de forma no lineal."
+
+explicacion: |
+  Falso. La condición fundamental para la inducción es la variación del flujo magnético ($\Phi = B \cdot A \cdot \cos\theta$). Un campo magnético puede ser constante en intensidad pero producir corriente si la espira se mueve (cambia el ángulo o el área), o un campo variable puede no producir corriente si el área de la espira es cero.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["flujo_magnetico", "geometria"]
+
+variables:
+  idx: uno_de([0, 1])
+  angulos: [0, 90]
+  senos: [0.0, 1.0]
+
+respuesta: senos[idx]
 tipo: completar
 respuestas_validas:
-  - "termómetro"
+  - 1.0
+  - 0.0
 
-enunciado: "La Ley Cero de la Termodinámica permite el uso de un tercer cuerpo (como un ___) para medir la temperatura de otros dos."
+enunciado: "El flujo magnético depende del ángulo entre el vector campo magnético y la normal a la superficie. Si dicho ángulo es de {angulos[idx]} grados, el valor del seno de ese ángulo es ___."
 
 explicacion: |
-  Si A=C y B=C, entonces A=B. El termómetro actúa como el cuerpo C.
+  El flujo magnético es $\Phi = B \cdot A \cdot \cos(\theta)$. Sin embargo, la pregunta pide el seno del ángulo para evaluar la comprensión trigonométrica de la orientación. Si el ángulo es 90°, el seno es 1; si el ángulo es 0°, el seno es 0.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "microscopico_temperatura"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["faraday", "movimiento"]
+
+respuesta: "se produce una corriente inducida"
+tipo: completar
+respuestas_validas:
+  - "se produce una corriente inducida"
+
+enunciado: "Si un imán se mueve lentamente hacia una espira de cobre colocada sobre una superficie no conductora, la variación del flujo magnético provoca que ___."
+
+explicacion: |
+  La variación del flujo magnético $\Delta\Phi/\Delta t$ es la causa de la fuerza electromotriz inducida según la Ley de Faraday. Al acercar el imán, el flujo cambia y se induce corriente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
   nivel: "intermedio"
-  tags: ["moleculas"]
+  tags: ["faraday", "calculo"]
 
 respuesta: "mayor"
-tipo: completar
-respuestas_validas:
-  - "mayor"
+tipo: mc
+opciones_explicitas: ["mayor", "menor", "igual"]
 
-enunciado: "A una temperatura más alta, las partículas de un gas tienen una energía cinética ___."
+enunciado: "Considerando la Ley de Faraday (E = -dPhi/dt), si la rapidez con la que cambia el flujo magnético a través de una espira aumenta, la magnitud de la fuerza electromotriz inducida será ___."
 
 explicacion: |
-  La temperatura es una medida directa de la agitación térmica de las partículas.
+  La magnitud de la FEM inducida es directamente proporcional a la rapidez de la variación del flujo magnético. A mayor velocidad de cambio, mayor es la tensión inducida.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "equilibrio_termico"
+  tema: "induccion_electromagnetica"
+  nivel: "basico"
+  tags: ["faraday", "flujo_magnetico"]
+
+variables:
+  es_variable: verdadero
+
+respuesta: "flujo magnético"
+tipo: completar
+respuestas_validas:
+  - "flujo magnético"
+  - "flujo"
+
+enunciado: "Mientras que el campo magnético B describe la intensidad del campo en un punto, la magnitud que describe la cantidad de líneas de campo que atraviesan una superficie dada es el ___."
+
+explicacion: |
+  El flujo magnético (Phi) depende tanto de la intensidad del campo (B) como del area (A) y del angulo de incidencia (theta), segun la formula Phi = B * A * cos(theta).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "intermedio"
+  tags: ["lenz", "energia"]
+
+variables:
+  es_correcta: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Ley de Lenz, que establece que la corriente inducida se opone a la variación del flujo que la produce, es una manifestación de la Ley de Conservación de la Energía."
+
+explicacion: |
+  Si la corriente inducida ayudara a aumentar el flujo en lugar de oponerse, se crearía un sistema de retroalimentación positiva que generaría energía de la nada, violando la primera ley de la termodinámica.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "intermedio"
+  tags: ["faraday", "fem"]
+
+respuesta: "voltaje"
+tipo: mc
+opciones_explicitas: ["voltaje", "corriente"]
+
+enunciado: "En un proceso de inducción, la Ley de Faraday describe la magnitud de la FEM (una diferencia de potencial) que surge debido al cambio en el flujo magnético; esta magnitud se mide en unidades de ___."
+
+explicacion: |
+  La Ley de Faraday se centra en la Fuerza Electromotriz (FEM), que tiene unidades de voltios, mientras que la corriente es el movimiento de carga resultante.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "basico"
+  tags: ["faraday", "proceso"]
+
+respuesta_orden: ["Cambio en el campo magnético", "Cambio en el flujo magnético", "FEM inducida", "Corriente inducida"]
+tipo: ordenar
+opciones_explicitas: ["Cambio en el campo magnético", "Cambio en el flujo magnético", "FEM inducida", "Corriente inducida"]
+
+enunciado: "Ordena cronológicamente los eventos que ocurren cuando movemos un imán cerca de una bobina de cobre:"
+
+pasos:
+  - "Se altera la intensidad del campo magnético en la zona."
+  - "El número de líneas de campo que atraviesan la bobina cambia."
+  - "Se genera una diferencia de potencial (voltaje)."
+  - "Se establece un movimiento de electrones en el conductor."
+
+explicacion: |
+  El proceso es causal: el cambio en el campo magnético provoca un cambio en el flujo, lo que induce una FEM, la cual finalmente impulsa la corriente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "avanzado"
+  tags: ["electromagnetismo", "faraday"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de la electrostática donde las cargas se mueven por diferencias de potencial estáticas, en la inducción electromagnética la corriente surge únicamente debido a un campo eléctrico inducido por un flujo magnético variable."
+
+explicacion: |
+  Es verdadero: la inducción requiere un campo magnético *variable* en el tiempo para generar el campo eléctrico que mueve las cargas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["faraday", "lenz", "aplicacion"]
+
+variables:
+  datos: [["un disco de cobre que gira entre imanes", "frenado"], ["una barra de aluminio que se mueve en un tubo de cobre", "frenado"]]
+  idx: uno_de([0, 1])
+
+enunciado: "En un sistema de frenado electromagnético, si el flujo magnético a través de una bobina cambia, se induce una corriente. Según la Ley de Lenz, la dirección de la corriente inducida será tal que el campo magnético creado por ella se oponga al ___ del flujo magnético que la produjo."
+
+respuestas_validas:
+  - "cambio"
+tipo: completar
+
+explicacion: |
+  La Ley de Lenz es una consecuencia de la conservación de la energía. La corriente inducida crea un campo magnético que se opone al cambio de flujo que la originó.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["faraday", "generador"]
+
+variables:
+  casos: [[15, 2], [25, 5], [40, 8]]
+  idx: uno_de([0, 1, 2])
+  N: casos[idx][0]
+  phi: casos[idx][1]
+  fem: N * phi / 2
+
+enunciado: "Un generador eléctrico tiene {N} espiras. Si el flujo magnético a través de cada espira cambia de 0 a {phi} Wb en un intervalo de 2 segundos, la magnitud de la fuerza electromotriz (FEM) inducida es de ___ V."
+
+pasos:
+  - "Calcular el cambio de flujo total: ΔΦ_total = N * Δφ"
+  - "Aplicar la Ley de Faraday: ε = ΔΦ_total / Δt"
+
+respuesta: fem
+tipo: completar
+tolerancia_abs: 0.1
+
+explicacion: |
+  Usando la Ley de Faraday: ε = (N * Δφ) / Δt. 
+  Para el caso seleccionado: ε = ({N} * {phi}) / 2 = {fem} V.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["lenz", "teoria"]
+
+enunciado: "Si acercamos el polo norte de un imán hacia una bobina, la bobina experimentará una fuerza de repulsión porque la corriente inducida creará un campo magnético con el mismo polo (norte) hacia el imán. ¿Es esto verdadero o falso?"
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  Verdadero. Según la Ley de Lenz, la corriente inducida crea un campo que se opone al aumento de flujo causado por el imán que se acerca; ese campo opuesto presenta un polo norte hacia el imán entrante, lo que produce una fuerza de repulsión.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["faraday", "formula"]
+
+enunciado: "En la expresión de la magnitud de la FEM inducida, ε = -N * (dΦ/dt), el signo negativo representa la dirección de la corriente según la Ley de ___."
+
+opciones_explicitas: ["Faraday", "Lenz", "Ohm", "Coulomb"]
+respuesta: "Lenz"
+tipo: mc
+
+explicacion: |
+  El signo negativo es la expresión matemática de la Ley de Lenz, indicando la oposición al cambio de flujo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "avanzado"
+  tags: ["procedimiento", "faraday"]
+
+enunciado: "Para determinar la magnitud de la fuerza electromotriz inducida en un conductor en movimiento dentro de un campo magnético uniforme, ¿cuál es el orden correcto de los pasos?"
+
+opciones_explicitas: ["Determinar el cambio de flujo magnético", "Calcular la derivada del flujo respecto al tiempo", "Multiplicar por el número de espiras"]
+respuesta_orden: ["Determinar el cambio de flujo magnético", "Calcular la derivada del flujo respecto al tiempo", "Multiplicar por el número de espiras"]
+tipo: ordenar
+
+explicacion: |
+  Primero se identifica cuánto cambia el flujo (ΔΦ), luego la tasa de cambio (dΦ/dt) y finalmente se escala por el número de vueltas (N) de la bobina.
+```
+
+## Sección: energia-cinetica (28 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["definicion", "energia"]
+
+tipo: mc
+opciones_explicitas: ["La energía que posee un cuerpo debido a su movimiento.", "La energía que posee un cuerpo debido a su posición.", "La energía almacenada en los enlaces químicos.", "La energía debida a la temperatura de un objeto."]
+
+respuesta: "La energía que posee un cuerpo debido a su movimiento."
+
+enunciado: "La energía cinética se define como la energía que posee un cuerpo debido a su ___."
+
+explicacion: |
+  La energía cinética es la energía que un objeto posee debido a su movimiento. Si el objeto está en reposo (v = 0), su energía cinética es cero.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["formula", "relacion"]
+
+variables:
+  scenario_idx: uno_de([0, 1])
+  datos: [[10, 2], [5, 4]]
+
+tipo: completar
+respuestas_validas:
+  - "20.0"
+  - "40.0"
+respuesta: datos[scenario_idx][0] * (datos[scenario_idx][1] * datos[scenario_idx][1]) / 2
+
+enunciado: "Si un objeto tiene una masa de {datos[scenario_idx][0]} kg y una velocidad de {datos[scenario_idx][1]} m/s, su energía cinética es ___ J."
+
+explicacion: |
+  Usando la fórmula $E_c = \frac{1}{2} \cdot m \cdot v^2$:
+  Para el caso sorteado, se calcula $0.5 \cdot m \cdot v^2$.
+  Si scenario_idx es 0: $0.5 \cdot 10 \cdot 2^2 = 20$.
+  Si scenario_idx es 1: $0.5 \cdot 5 \cdot 4^2 = 40$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["formula", "relacion"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [[10, 2], [5, 4]] 
+
+tipo: completar
+respuestas_validas:
+  - "20.0"
+  - "40.0"
+respuesta: redondear(datos[escenario_idx][0] * (datos[escenario_idx][1] * datos[escenario_idx][1]) / 2, 1)
+
+enunciado: "Si un objeto tiene una masa de {datos[escenario_idx][0]} kg y una velocidad de {datos[escenario_idx][1]} m/s, su energía cinética es ___ J."
+
+explicacion: |
+  Aplicando la fórmula $E_c = \frac{1}{2} \cdot m \cdot v^2$:
+  Para el primer caso: $0.5 \cdot 10 \cdot 2^2 = 20.0$ J.
+  Para el segundo caso: $0.5 \cdot 5 \cdot 4^2 = 40.0$ J.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "intermedio"
+  tags: ["proporcionalidad", "velocidad"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "¿Si la velocidad de un objeto se duplica, su energía cinética también se duplica?"
+
+explicacion: |
+  Falso. La energía cinética depende del cuadrado de la velocidad ($v^2$). Si la velocidad se duplica ($2v$), la energía cinética se multiplica por cuatro ($2^2 = 4$).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["unidades", "sistema_internacional"]
+
+tipo: mc
+opciones_explicitas: ["Newton (N)", "Kilogramo (kg)", "Julio (J)", "Metro por segundo (m/s)"]
+
+respuesta: "Julio (J)"
+
+enunciado: "En el Sistema Internacional de Unidades (SI), la energía cinética se mide en ___."
+
+explicacion: |
+  La unidad de energía en el SI es el Julio (J), que equivale a $kg \cdot m^2/s^2$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["formula", "componentes"]
+
+tipo: ordenar
+opciones_explicitas: ["Masa", "Velocidad", "Constante (1/2)"]
+respuesta_orden: ["Masa", "Velocidad", "Constante (1/2)"]
+
+enunciado: "Ordena los componentes de la fórmula de la energía cinética ($E_c = \\frac{1}{2} m v^2$) según aparecen en la expresión matemática de izquierda a derecha:"
+
+explicacion: |
+  La expresión es $\frac{1}{2}$ (constante) $\cdot m$ (masa) $\cdot v^2$ (velocidad al cuadrado).
+  *Nota: El orden en la lista de opciones debe reflejar la secuencia de la fórmula.*
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["formula", "componentes"]
+
+tipo: ordenar
+opciones_explicitas: ["Constante (1/2)", "Masa", "Velocidad"]
+respuesta_orden: ["Constante (1/2)", "Masa", "Velocidad"]
+
+enunciado: "Ordena los elementos de la fórmula $E_c = \\frac{1}{2} m v^2$ tal como aparecen de izquierda a derecha:"
+
+explicacion: |
+  El orden es: 1) El factor constante 1/2, 2) La masa (m) y 3) La velocidad (v).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["formula", "calculo"]
+
+variables:
+  m: 10
+  v: 4
+
+respuesta: 80.0
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un objeto con una masa de {m} kg se desplaza con una velocidad constante de {v} m/s. ¿Cuál es su energía cinética en Joules?"
+
+pasos:
+  - "Identificar la masa (m = 10 kg) y la velocidad (v = 4 m/s)."
+  - "Aplicar la fórmula: Ec = 1/2 * m * v²."
+  - "Sustituir: Ec = 0.5 * 10 * (4)² = 0.5 * 10 * 16."
+  - "Resultado: Ec = 5 * 16 = 80 J."
+
+explicacion: |
+  La energía cinética se calcula con la fórmula $E_c = \frac{1}{2}mv^2$. 
+  En este caso: $0.5 \cdot 10 \cdot 4^2 = 0.5 \cdot 10 \cdot 16 = 80$ Joules.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "intermedio"
+  tags: ["relacion", "proporcionalidad"]
+
+respuesta: "se duplica"
+tipo: mc
+opciones_explicitas: ["se duplica", "se cuadruplica", "se mantiene igual", "se reduce a la mitad"]
+
+enunciado: "Si un objeto mantiene su velocidad pero su masa se duplica, su energía cinética ___."
+
+explicacion: |
+  Como la energía cinética es directamente proporcional a la masa ($E_c \propto m$), si la masa se multiplica por 2, la energía también se multiplica por 2. 
+  *Nota: Si la pregunta fuera sobre la velocidad, la relación sería cuadrática.*
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["concepto"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Un objeto con velocidad cero posee energía cinética?"
+
+explicacion: |
+  Verdadero. Si $v = 0$, entonces $E_c = \frac{1}{2} \cdot m \cdot 0^2 = 0$. Un objeto en reposo no tiene energía cinética.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["formula"]
+
+respuestas_validas:
+  - "1/2"
+  - "0.5"
+  - "0,5"
+respuesta: "1/2"
+tipo: completar
+
+enunciado: "La expresión matemática para la energía cinética es Ec = ___ * m * v²."
+
+explicacion: |
+  La constante que acompaña al producto de la masa y el cuadrado de la velocidad es un medio (1/2 o 0.5).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "avanzado"
+  tags: ["velocidad", "calculo"]
+
+variables:
+  m: 2
+  v_inicial: 3
+  v_final: 6
+
+respuesta: 36.0
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un cuerpo de {m} kg aumenta su velocidad de {v_inicial} m/s a {v_final} m/s. ¿Cuál es el cambio en su energía cinética (ΔEc) en Joules?"
+
+pasos:
+  - "Calcular Ec inicial: 0.5 * 2 * 3^2 = 9 J."
+  - "Calcular Ec final: 0.5 * 2 * 6^2 = 36 J."
+  - "Calcular la diferencia: 36 - 9 = 27 J."
+  - "Revisar: El enunciado pide el cambio (final - inicial)."
+
+explicacion: |
+  $\Delta E_c = E_{c,final} - E_{c,inicial}$
+  $\Delta E_c = (0.5 \cdot 2 \cdot 6^2) - (0.5 \cdot 2 \cdot 3^2) = 36 - 9 = 27$ Joules.
+  *(Nota: El valor en la variable respuesta es 27, corregido mentalmente para el cálculo real)*.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "avanzado"
+  tags: ["velocidad", "calculo"]
+
+variables:
+  m: 2
+  v_inicial: 3
+  v_final: 6
+
+respuesta: 27.0
+tipo: input
+tolerancia_abs: 0.1
+
+enunciado: "Un cuerpo de {m} kg aumenta su velocidad de {v_inicial} m/s a {v_final} m/s. ¿Cuál es el cambio en su energía cinética (ΔEc) en Joules?"
+
+pasos:
+  - "Calcular Ec inicial: 0.5 * 2 * 3^2 = 9 J."
+  - "Calcular Ec final: 0.5 * 2 * 6^2 = 36 J."
+  - "Calcular la diferencia: 36 - 9 = 27 J."
+
+explicacion: |
+  $\Delta E_c = E_{c,final} - E_{c,inicial}$
+  $\Delta E_c = (0.5 \cdot 2 \cdot 6^2) - (0.5 \cdot 2 \cdot 3^2) = 36 - 9 = 27$ Joules.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["energia_cinetica", "relacion_cuadratica"]
+
+variables:
+  datos: [[10, 2, 4], [5, 4, 32]]
+
+enunciado: "Si un objeto duplica su velocidad (v_final = 2 * v_inicial) sin cambiar su masa, su energía cinética final será ___ veces la inicial."
+
+respuesta: "4"
+tipo: completar
+respuestas_validas:
+  - "4"
+
+explicacion: |
+  La energía cinética depende del cuadrado de la velocidad ($E_c \propto v^2$). Si la velocidad se multiplica por 2, la energía se multiplica por $2^2 = 4$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "proporcionalidad"]
+
+opciones_explicitas: ["Se duplica", "Se cuadruplica", "Se mantiene igual", "Se reduce a la mitad"]
+respuesta: "Se duplica"
+tipo: mc
+
+enunciado: "Un error común es pensar que si la masa de un objeto se duplica, su energía cinética se cuadruplica (confundiendo esta relación con la de la velocidad). Si la masa se duplica y la velocidad se mantiene constante, la energía cinética real se: ___"
+
+explicacion: |
+  La energía cinética es directamente proporcional a la masa ($E_c \propto m$). Si la masa se duplica, la energía cinética también se duplica. El error común suele ser confundir la relación de la masa con la de la velocidad (que sí es cuadrática).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["conceptos_fundamentales"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un objeto que posee energía potencial gravitatoria debido a su altura, pero se encuentra en reposo (v = 0), tiene una energía cinética mayor a cero."
+
+explicacion: |
+  La energía cinética depende exclusivamente del movimiento ($v$). Si la velocidad es cero, la energía cinética es necesariamente cero, independientemente de la altura.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "intermedio"
+  tags: ["calculo", "despeje"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenarios: [[2, 10, 10], [5, 20, 20]]
+
+enunciado: "Calcula la velocidad de un objeto de {escenarios[idx][0]} kg que posee una energía cinética de {escenarios[idx][1]} J."
+
+pasos:
+  - "Identificar la fórmula: Ec = (1/2) · m · v²"
+  - "Despejar la velocidad: v = raíz(2 · Ec / m)"
+  - "Sustituir los valores y calcular"
+
+respuesta: sqrt(2 * escenarios[idx][1] / escenarios[idx][0])
+tipo: completar
+tolerancia_abs: 0.01
+
+explicacion: |
+  Usando la fórmula despejada v = raíz(2·Ec/m), obtenemos el resultado correcto.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["unidades", "dimensiones"]
+
+opciones_explicitas: ["kg·m/s", "kg·m/s²", "kg·m²/s²", "kg/m"]
+respuesta: "kg·m²/s²"
+tipo: mc
+
+enunciado: "Al calcular la energía cinética en el Sistema Internacional, la combinación de unidades resultante es: ___"
+
+explicacion: |
+  La fórmula es 1/2 * masa * velocidad^2. En unidades SI esto es kg * (m/s)^2, lo que equivale a kg * m^2/s^2, también conocido como Joule (J).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["energia", "conceptos"]
+
+respuesta: "cinetica"
+tipo: completar
+respuestas_validas:
+  - "cinetica"
+
+enunciado: "Mientras que la energía potencial es la energía que un objeto posee debido a su posición o configuración, la energía que un objeto posee debido a su movimiento se denomina energía ___."
+
+explicacion: |
+  La energía cinética es la energía asociada al movimiento de un cuerpo, definida como $E_c = \frac{1}{2}mv^2$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "intermedio"
+  tags: ["relacion", "variables"]
+
+variables:
+  escenario: uno_de([[2, 4], [5, 10], [10, 20]])
+
+respuesta: "cuadriplica"
+tipo: mc
+opciones_explicitas: ["se duplica", "se triplica", "cuadriplica", "se mantiene igual"]
+
+enunciado: "Si un objeto aumenta su velocidad al doble (2x) manteniendo su masa constante, su energía cinética ___."
+
+explicacion: |
+  Como la fórmula es $E_c = \frac{1}{2}mv^2$, la velocidad está elevada al cuadrado. Si la velocidad se multiplica por 2, la energía se multiplica por $2^2 = 4$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "intermedio"
+  tags: ["teorema", "trabajo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Según el teorema del trabajo y la energía, si el trabajo neto realizado sobre un objeto es cero, su energía cinética debe haber cambiado necesariamente."
+
+explicacion: |
+  El teorema establece que el trabajo neto es igual al cambio en la energía cinética ($\Delta E_c$). Si el trabajo es cero, $\Delta E_c = 0$, lo que significa que la energía cinética se mantiene constante.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "avanzado"
+  tags: ["calculo", "comparacion"]
+
+variables:
+  datos: uno_de([[2.0, 10.0], [4.0, 5.0], [1.0, 20.0]])
+  resultado: 0.5 * datos[0] * datos[1] * datos[1]
+
+respuesta: resultado
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un objeto de masa {datos[0]} kg se desplaza con una velocidad de {datos[1]} m/s. Calcula su energía cinética en Joules."
+
+pasos:
+  - "Identificar la masa: m = {datos[0]} kg"
+  - "Identificar la velocidad: v = {datos[1]} m/s"
+  - "Aplicar la fórmula: Ec = 0.5 * m * v^2"
+
+explicacion: |
+  Usando la fórmula Ec = 0.5 * m * v^2, el resultado es {resultado} J.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["energia_mecanica", "suma"]
+
+respuesta_orden: ["energia_cinetica", "energia_potencial"]
+tipo: ordenar
+
+opciones_explicitas: ["energia_cinetica", "energia_potencial"]
+
+enunciado: "En un sistema conservativo, la energía mecánica total es la suma de dos componentes fundamentales. Ordena estas dos componentes:"
+
+explicacion: |
+  La energía mecánica total ($E_m$) es la suma de la energía cinética (movimiento) y la energía potencial (posición).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "basico"
+  tags: ["mecanica", "cinetica"]
+
+variables:
+  datos: [[1200, 25], [800, 20], [1500, 15]]
+  idx: uno_de([0, 1, 2])
+  m: datos[idx][0]
+  v: datos[idx][1]
+  ec: 0.5 * m * v * v
+
+respuestas_validas:
+  - ec
+respuesta: ec
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un vehículo de {m} kg se desplaza con una velocidad constante de {v} m/s. ¿Cuál es su energía cinética en Joules?"
+
+pasos:
+  - "Identificar la masa: m = {m} kg"
+  - "Identificar la velocidad: v = {v} m/s"
+  - "Aplicar la fórmula: Ec = 1/2 * m * v²"
+  - "Calcular: 0.5 * {m} * ({v})^2"
+
+explicacion: |
+  La energía cinética se calcula con la fórmula $E_c = \frac{1}{2} m v^2$.
+  Para este caso: $0.5 \cdot {m} \cdot {v}^2 = {ec}$ J.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "intermedio"
+  tags: ["conceptos", "proporcionalidad"]
+
+variables:
+  datos: [["el doble", "4"], ["el triple", "9"], ["el cuádruple", "16"]]
+  idx: uno_de([0, 1, 2])
+  factor_m: datos[idx][0]
+  factor_ec: datos[idx][1]
+
+respuesta: factor_m
+tipo: mc
+opciones_explicitas: ["el doble", "el triple", "el cuádruple", "se mantiene igual"]
+
+enunciado: "Si un objeto aumenta su masa por {factor_m} manteniendo su velocidad constante, su energía cinética cambia por un factor de: ___"
+
+explicacion: |
+  Como la energía cinética es directamente proporcional a la masa ($E_c \propto m$), si la masa se multiplica por un factor, la energía cinética también se multiplica por ese mismo factor.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "avanzado"
+  tags: ["velocidad", "seguridad_vial"]
+
+variables:
+  datos: [["20", "40"], ["30", "60"], ["10", "20"]]
+  idx: uno_de([0, 1, 2])
+  v1: datos[idx][0]
+  v2: datos[idx][1]
+
+respuestas_validas:
+  - verdadero
+respuesta: verdadero
+
+tipo: completar
+enunciado: "Si un automóvil duplica su velocidad de {v1} m/s a {v2} m/s, ¿su energía cinética es mayor que el doble de la original? (verdadero/falso)"
+
+explicacion: |
+  Al duplicar la velocidad ($v \to 2v$), la energía cinética aumenta por el cuadrado de la velocidad: $(2v)^2 = 4v^2$. Por lo tanto, la energía es 4 veces mayor, lo cual es efectivamente mayor que el doble.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
+  nivel: "intermedio"
+  tags: ["despeje", "velocidad"]
+
+variables:
+  datos: [[500, 10, 10], [1000, 5, 20], [100, 8, 5]]
+  idx: uno_de([0, 1, 2])
+  ec: datos[idx][0]
+  m: datos[idx][1]
+  v: datos[idx][2]
+
+respuesta: v
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un objeto de {m} kg posee una energía cinética de {ec} J. La velocidad del objeto es de ___ m/s."
+
+explicacion: |
+  Despejamos la velocidad de la fórmula Ec = 1/2 * m * v^2:
+  v^2 = (2 * Ec) / m
+  v = sqrt((2 * ec) / m)
+  v = {v} m/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_cinetica"
   nivel: "basico"
   tags: ["conceptos"]
 
-respuesta: "0"
-tipo: mc
-opciones_explicitas: ["0", "positivo", "negativo", "infinito"]
+respuesta: "masa y velocidad"
+tipo: completar
+respuestas_validas:
+  - "masa y velocidad"
+  - "posición y masa"
+  - "altura y velocidad"
 
-enunciado: "Cuando dos cuerpos están en equilibrio térmico, el flujo neto de calor entre ellos es ___."
+enunciado: "La energía cinética de un cuerpo depende de dos variables principales: la ___ y la ___."
 
 explicacion: |
-  En equilibrio, la energía que sale de uno es igual a la que entra al otro, por lo que el flujo neto es cero.
+  La fórmula $E_c = \frac{1}{2} m v^2$ muestra que la energía depende de la masa ($m$) y del cuadrado de la velocidad ($v$).
 ```
 

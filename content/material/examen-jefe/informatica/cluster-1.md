@@ -1,6 +1,6 @@
 # Examen jefe — [PENDIENTE #816]
 
-> Logro #816. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
+> Logro #816. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **116 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -465,1896 +465,1810 @@ explicacion: |
   acceso.
 ```
 
-## Sección: algoritmo-secuencia-de-pasos (25 preguntas)
+## Sección: complejidad-asintotica (26 preguntas)
 
 ```
 metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
   nivel: "basico"
-  tags: ["definicion", "conceptos_clave"]
+  tags: ["evaluar"]
 
-respuesta: "secuencia finita de pasos"
-tipo: completar
-respuestas_validas:
-  - "secuencia finita de pasos"
-  - "pasos ordenados"
-  - "instrucciones"
+variables:
+  n: random(10, 1000)
 
-enunciado: "Un algoritmo se define como una ___ para resolver un problema o realizar una tarea."
+respuesta: n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un algoritmo O(n) hace exactamente n operaciones. ¿Cuántas operaciones hace con n={n}?"
 
 explicacion: |
-  Un algoritmo es una serie de pasos ordenados y finitos que permiten alcanzar un objetivo o resolver un problema.
+  O(n): el trabajo crece en proporción directa a n.
 ```
 
 ```
 metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
   nivel: "basico"
-  tags: ["propiedades", "finitud"]
+  tags: ["evaluar"]
+
+variables:
+  n: random(5, 100)
+
+respuesta: n ^ 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un algoritmo O(n²) hace n² operaciones. ¿Cuántas operaciones hace con n={n}?"
+
+explicacion: |
+  O(n²): el trabajo crece con el cuadrado de n.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "intermedio"
+  tags: ["evaluar"]
+
+variables:
+  n: random(3, 15)
+
+respuesta: 2 ^ n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un algoritmo O(2ⁿ) hace 2ⁿ operaciones. ¿Cuántas operaciones hace con n={n}?"
+
+explicacion: |
+  O(2ⁿ): el trabajo se duplica por cada elemento más en la entrada —
+  crece muchísimo más rápido que cualquier polinomio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "intermedio"
+  tags: ["comparacion", "verdadero_falso"]
+
+variables:
+  n: random(50, 500)
+
+respuesta: ((n ^ 2) > n)
+tipo: vf
+
+enunciado: "Para n={n}, ¿un algoritmo O(n²) hace más operaciones que uno O(n)?"
+
+explicacion: |
+  n² supera a n para cualquier n>1 — y la diferencia se agranda cuanto
+  más grande es n.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "avanzado"
+  tags: ["comparacion", "verdadero_falso"]
+
+variables:
+  n: random(15, 25)
+
+respuesta: ((2 ^ n) > (n ^ 2))
+tipo: vf
+
+enunciado: "Para n={n}, ¿un algoritmo O(2ⁿ) hace más operaciones que uno O(n²)?"
+
+explicacion: |
+  A partir de cierto n, la exponencial siempre termina superando a
+  cualquier polinomio — mismo principio de
+  `../../matematica/familias-exponencial-logaritmica/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "avanzado"
+  tags: ["comparacion", "verdadero_falso"]
+
+variables:
+  n: uno_de([2, 3])
+
+respuesta: ((2 ^ n) > (n ^ 2))
+tipo: vf
+
+enunciado: "Para n={n} (chico), ¿un algoritmo O(2ⁿ) hace más operaciones que uno O(n²)?"
+
+explicacion: |
+  Para n muy chico, la comparación puede no seguir el patrón habitual —
+  Big O describe el comportamiento para n GRANDE, no para cualquier n.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "intermedio"
+  tags: ["identificar", "opcion_multiple"]
+
+respuesta: "O(log n)"
+tipo: mc
+opciones_explicitas:
+  - "O(log n)"
+  - "O(n)"
+  - "O(n²)"
+
+enunciado: "La búsqueda binaria en una lista ordenada descarta la mitad de las opciones en cada paso. ¿Qué notación Big O le corresponde?"
+
+explicacion: |
+  Descartar la mitad en cada paso es exactamente el patrón logarítmico
+  — el número de pasos crece muy despacio, aunque la lista sea enorme.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "basico"
+  tags: ["identificar", "opcion_multiple"]
+
+respuesta: "O(n)"
+tipo: mc
+opciones_explicitas:
+  - "O(n)"
+  - "O(1)"
+  - "O(n²)"
+
+enunciado: "Un algoritmo que recorre una lista de n elementos una sola vez, mirando cada uno. ¿Qué notación Big O le corresponde?"
+
+explicacion: |
+  Una pasada por cada uno de los n elementos: O(n).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "intermedio"
+  tags: ["identificar", "opcion_multiple"]
+
+respuesta: "O(n²)"
+tipo: mc
+opciones_explicitas:
+  - "O(n²)"
+  - "O(n)"
+  - "O(log n)"
+
+enunciado: "Un algoritmo que compara cada elemento de una lista con todos los demás (todos los pares posibles). ¿Qué notación Big O le corresponde?"
+
+explicacion: |
+  Comparar todos los pares de n elementos da, aproximadamente, n×n
+  comparaciones: O(n²).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "basico"
+  tags: ["identificar", "opcion_multiple"]
+
+respuesta: "O(1)"
+tipo: mc
+opciones_explicitas:
+  - "O(1)"
+  - "O(n)"
+  - "O(log n)"
+
+enunciado: "Acceder a un elemento de un array por su índice (por ejemplo, arr[5]). ¿Qué notación Big O le corresponde?"
+
+explicacion: |
+  No importa el tamaño del array: acceder por índice tarda lo mismo
+  siempre — O(1), constante.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "avanzado"
+  tags: ["identificar", "opcion_multiple"]
+
+respuesta: "O(2ⁿ)"
+tipo: mc
+opciones_explicitas:
+  - "O(2ⁿ)"
+  - "O(n²)"
+  - "O(n)"
+
+enunciado: "Un algoritmo que prueba todos los subconjuntos posibles de un conjunto de n elementos. ¿Qué notación Big O le corresponde?"
+
+explicacion: |
+  Un conjunto de n elementos tiene 2ⁿ subconjuntos posibles —
+  exponencial.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "intermedio"
+  tags: ["simplificar", "opcion_multiple"]
+
+variables:
+  k: random(2, 9)
+  c: random(1, 20)
+
+respuesta: "O(n)"
+tipo: mc
+opciones_explicitas:
+  - "O(n)"
+  - "O(n²)"
+  - "O(1)"
+
+enunciado: "Un algoritmo hace {k}n + {c} operaciones (por ejemplo, {k} pasadas por la lista más un paso final). ¿Cuál es su notación Big O simplificada?"
+
+explicacion: |
+  Se ignoran la constante multiplicativa ({k}) y el término independiente
+  ({c}) — sólo importa el orden de crecimiento: O(n).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "intermedio"
+  tags: ["simplificar", "opcion_multiple"]
+
+respuesta: "O(n²)"
+tipo: mc
+opciones_explicitas:
+  - "O(n²)"
+  - "O(n)"
+  - "O(n² + n)"
+
+enunciado: "Un algoritmo hace n² + n operaciones. ¿Cuál es su notación Big O simplificada?"
+
+explicacion: |
+  n² domina sobre n cuando n crece mucho — el término de menor orden se
+  descarta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Para que un algoritmo sea considerado como tal, debe ser finito, es decir, debe tener un número determinado de pasos y terminar en algún momento."
+enunciado: "La complejidad de un algoritmo describe cómo crece el trabajo que hace a medida que crece el tamaño de la entrada, no el tiempo en segundos de reloj."
 
 explicacion: |
-  Efectivamente, si un proceso no termina nunca, no es un algoritmo funcional para resolver un problema específico, sino un bucle infinito.
+  Los segundos de reloj dependen de la computadora; el orden de
+  crecimiento no.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "O(log n) crece más lento que O(n), que a su vez crece más lento que O(n²), que a su vez crece más lento que O(2ⁿ)."
+
+explicacion: |
+  Es la jerarquía central del tema, de menor a mayor crecimiento.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Un algoritmo O(n²) siempre es más lento que uno O(n), para cualquier valor de n, sin excepción."
+
+explicacion: |
+  Para n muy chico, las constantes ocultas pueden invertir esa relación
+  en la práctica — Big O describe el comportamiento asintótico (n
+  grande), no cada caso puntual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "O(5n) y O(n) se consideran la misma complejidad — la constante multiplicativa no cambia el orden de crecimiento."
+
+explicacion: |
+  Big O agrupa por orden de crecimiento, no por el número exacto de
+  operaciones.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  n: random(5, 100)
+  real: n ^ 2
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "Un algoritmo O(n²) procesa n={n}. ¿Es correcto que haga {propuesto} operaciones?"
+
+explicacion: |
+  El valor correcto es n² = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La notación Big O suele describir el PEOR caso de un algoritmo — en la práctica, puede comportarse mejor en casos promedio o favorables."
+
+explicacion: |
+  Es una distinción importante: "peor caso O(n²)" no significa "siempre
+  tarda exactamente eso".
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "avanzado"
+  tags: ["opcion_multiple"]
+
+respuesta: "El O(n log n), para una lista suficientemente grande"
+tipo: mc
+opciones_explicitas:
+  - "El O(n log n), para una lista suficientemente grande"
+  - "El O(n²), siempre, sin importar el tamaño"
+  - "Da exactamente lo mismo cuál se elija"
+
+enunciado: "Para ordenar una lista muy grande, ¿qué algoritmo conviene más: uno O(n log n) o uno O(n²)?"
+
+explicacion: |
+  Para listas grandes, O(n log n) escala mucho mejor — la diferencia se
+  vuelve enorme a medida que crece n.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La palabra 'asintótica' en el nombre del tema hace referencia a mirar el comportamiento del algoritmo cuando n se acerca al infinito, no a un valor puntual chico."
+
+explicacion: |
+  Es el mismo concepto de comportamiento en el infinito ya visto en
+  `../../matematica/limite/` (límites en el infinito).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+variables:
+  n: random(50, 500)
+
+respuesta: 2 * n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un algoritmo O(n) tarda {n} operaciones con una entrada de tamaño {n}. Si se duplica el tamaño de la entrada, ¿cuántas operaciones tarda?"
+
+explicacion: |
+  En O(n), duplicar la entrada duplica el trabajo — relación
+  proporcional directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "avanzado"
+  tags: ["aplicacion", "verdadero_falso"]
+
+variables:
+  n: random(10, 100)
+
+respuesta: (((2 * n) ^ 2) == (4 * (n ^ 2)))
+tipo: vf
+
+enunciado: "Un algoritmo O(n²) tarda {n ^ 2} operaciones con entrada {n}. Si se duplica el tamaño de la entrada, ¿el trabajo se CUADRUPLICA (no se duplica)?"
+
+explicacion: |
+  (2n)² = 4n² — duplicar la entrada cuadruplica el trabajo en un
+  algoritmo cuadrático, el mismo patrón ya visto en
+  `../../vida-cotidiana/distancia-frenado/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un algoritmo O(log n) apenas nota la diferencia entre procesar 1.000 elementos y 1.000.000 — el logaritmo crece muchísimo más despacio que n."
+
+explicacion: |
+  log₂(1.000.000) es apenas unas 20 veces log₂(1.000) — a pesar de que
+  la entrada creció 1000 veces.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "avanzado"
+  tags: ["simplificar", "opcion_multiple"]
+
+respuesta: "O(2ⁿ)"
+tipo: mc
+opciones_explicitas:
+  - "O(2ⁿ)"
+  - "O(n²)"
+  - "O(2ⁿ + n²)"
+
+enunciado: "Un algoritmo hace 2ⁿ + n² operaciones. ¿Cuál es su notación Big O simplificada?"
+
+explicacion: |
+  2ⁿ crece mucho más rápido que n² — domina completamente para n
+  grande, así que el término n² se descarta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "complejidad_asintotica"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Entender por qué O(2ⁿ) es mucho peor que O(n²) para n grande usa exactamente la misma idea matemática de `../../matematica/familias-exponencial-logaritmica/`: una exponencial siempre termina superando a un polinomio."
+
+explicacion: |
+  Es el resumen del módulo: la teoría de funciones ya construida en
+  Álgebra explica directamente por qué la jerarquía de complejidad es
+  como es.
+```
+
+## Sección: ofimatica-planilla-de-calculo (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "basico"
+  tags: ["conceptos", "celda"]
+
+tipo: mc
+opciones_explicitas: ["La intersección de una fila y una columna", "El espacio para escribir texto solamente", "Una función matemática predefinida", "El comando para guardar el archivo"]
+
+respuesta: "La intersección de una fila y una columna"
+
+enunciado: "En una planilla de cálculo, la unidad básica de información se denomina ___."
+
+explicacion: |
+  Cada celda se identifica por la combinación de su letra de columna y su número de fila (ej. A1).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
+  tema: "ofimatica_planilla_de_calculo"
   nivel: "basico"
-  tags: ["orden", "secuencia"]
+  tags: ["referencias", "celdas"]
+
+tipo: vf
+
+enunciado: "Si una celda tiene la referencia $A$1, esto significa que la columna A está fijada (referencia absoluta) y la fila 1 es relativa."
+
+respuesta: falso
+
+explicacion: |
+  El símbolo $ antes de la letra fija la columna, y el símbolo $ antes del número fija la fila. En $A$1, ambos están fijados.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "basico"
+  tags: ["formulas", "sintaxis"]
+
+tipo: completar
+respuestas_validas:
+  - "="
+
+respuesta: "="
+
+enunciado: "Para que una celda reconozca que el contenido ingresado es una fórmula y no un texto simple, el primer carácter debe ser ___."
+
+explicacion: |
+  Toda fórmula o función en una planilla de cálculo debe comenzar obligatoriamente con el signo igual (=).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "basico"
+  tags: ["operadores", "aritmética"]
+
+tipo: mc
+opciones_explicitas: ["*", "/", "+", "-"]
+
+respuesta: "*"
+
+enunciado: "En una planilla de cálculo, el operador utilizado para representar la multiplicación es ___."
+
+explicacion: |
+  Los operadores básicos son: + (suma), - (resta), * (multiplicación) y / (división).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "intermedio"
+  tags: ["prioridad", "operaciones"]
 
 tipo: ordenar
-opciones_explicitas: ["Mojar platos", "Lavar platos", "Secar platos"]
-respuesta_orden: ["Mojar platos", "Lavar platos", "Secar platos"]
 
-enunciado: "Un algoritmo requiere que los pasos sigan un orden lógico. Para lavar los platos correctamente, ¿cuál es la secuencia correcta de estos pasos?"
+opciones_explicitas: ["Paréntesis", "Potencias", "Multiplicación y División", "Suma y Resta"]
+
+respuesta_orden: ["Paréntesis", "Potencias", "Multiplicación y División", "Suma y Resta"]
+
+enunciado: "Ordena los siguientes elementos según la jerarquía de prioridad de operaciones en una fórmula de planilla de cálculo, de mayor a menor importancia:"
+
+explicacion: |
+  La jerarquía matemática se respeta en las planillas: primero lo que está entre paréntesis, luego potencias, luego multiplicación/división y finalmente suma/resta.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "basico"
+  tags: ["celdas", "referencias"]
+
+respuesta: "absoluta"
+tipo: completar
+respuestas_validas:
+  - "absoluta"
+
+enunciado: "Si queremos fijar la celda A1 para que no cambie al arrastrar una fórmula hacia abajo, debemos usar una referencia tipo ___."
+
+explicacion: |
+  Para mantener una referencia fija (como el valor de un impuesto o un tipo de cambio), se utiliza el símbolo '$' antes de la letra y el número (ej. $A$1). Esto se conoce como referencia absoluta.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "basico"
+  tags: ["formulas"]
+
+variables:
+  val1: 15
+  val2: 25
+
+respuesta: 40
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "En una planilla, si la celda A1 contiene {val1} y la celda B1 contiene {val2}, ¿cuál es el resultado de la fórmula =SUMA(A1;B1)?"
 
 pasos:
-  - "Identificar los elementos necesarios."
-  - "Establecer el orden lógico de ejecución."
-  - "Verificar que la secuencia resuelva el problema."
+  - "Identificar los valores en las celdas A1 y B1."
+  - "Sumar ambos valores: 15 + 25."
 
 explicacion: |
-  El orden es fundamental. Si los pasos se ejecutan fuera de su secuencia lógica, el algoritmo fallará en alcanzar el objetivo.
+  La función SUMA suma los valores de los rangos o celdas indicados. En este caso, 15 + 25 = 40.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
+  tema: "ofimatica_planilla_de_calculo"
   nivel: "basico"
-  tags: ["entrada", "salida", "procesamiento"]
+  tags: ["operadores"]
 
-respuesta: "entrada, procesamiento y salida"
+variables:
+  op_multi: "*"
+  op_div: "/"
+
+respuesta: "*"
 tipo: mc
-opciones_explicitas: ["entrada, procesamiento y salida", "inicio, desarrollo y fin", "datos, código y error", "input, loop y output"]
+opciones_explicitas: ["+", "*", "/", "-"]
 
-enunciado: "Todo algoritmo procesa información. ¿Cuáles son las tres etapas fundamentales de su estructura?"
+enunciado: "Para realizar una multiplicación entre la celda A1 y la celda B1 en una fórmula de planilla de cálculo, se debe utilizar el operador: ___."
 
 explicacion: |
-  Los algoritmos reciben datos de entrada, realizan procesos sobre ellos y devuelven un resultado o salida.
+  En las hojas de cálculo, el asterisco (*) representa la multiplicación, el signo más (+) la suma, el signo menos (-) la resta y la barra diagonal (/) la división.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "basico"
-  tags: ["precision", "ambiguedad"]
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "intermedio"
+  tags: ["logica", "celdas"]
+
+variables:
+  condicion: falso
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Un buen algoritmo debe ser ambiguo, permitiendo que los pasos se interpreten de diferentes maneras según el programador."
+enunciado: "Si una celda A1 tiene el valor 10, la expresión lógica =A1>20 devuelve el valor booleano verdadero."
 
 explicacion: |
-  Falso. Un algoritmo debe ser preciso y no ambiguo; cada paso debe estar claramente definido para que siempre produzca el mismo resultado ante los mismos datos.
+  La expresión evalúa si 10 es mayor que 20. Como esto es falso, el resultado de la comparación es el booleano falso.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "basico"
-  tags: ["algoritmo", "secuencia", "logica"]
-
-enunciado: "Para preparar un té, un algoritmo debe seguir un orden lógico. Si el orden es: 1. Hervir agua, 2. Poner la bolsa en la taza, 3. Verter el agua en la taza. ¿Cuál es la secuencia correcta para que el proceso sea efectivo?"
-
-opciones_explicitas: ["1, 2, 3", "2, 1, 3", "2, 3, 1", "3, 2, 1"]
-respuesta: "2, 1, 3"
-tipo: "mc"
-
-explicacion: |
-  Un algoritmo requiere que los pasos sigan una secuencia lógica donde cada paso dependa del anterior o prepare el escenario para el siguiente. En este caso, no puedes verter el agua si no está hervida, y es más eficiente tener la bolsa ya en la taza.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "basico"
-  tags: ["definicion", "finitud"]
-
-enunciado: "Un algoritmo debe ser una secuencia de pasos que tiene un principio y un fin, es decir, debe terminar después de realizar un número limitado de instrucciones. ¿Este concepto se conoce como finitud?"
-
-respuesta: verdadero
-tipo: "vf"
-
-explicacion: |
-  Correcto. La finitud es una de las características esenciales de un algoritmo: debe tener un número determinado de pasos y terminar en algún momento.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
+  tema: "ofimatica_planilla_de_calculo"
   nivel: "intermedio"
-  tags: ["calculo", "pasos"]
+  tags: ["orden_operaciones"]
 
 variables:
-  datos: [[15, 10, 25], [5, 8, 13], [100, 50, 150]]
+  f_orden: ["Paréntesis", "Potencia", "Multiplicación/División", "Suma/Resta"]
+
+respuesta_orden: ["Paréntesis", "Potencia", "Multiplicación/División", "Suma/Resta"]
+tipo: ordenar
+opciones_explicitas: ["Paréntesis", "Potencia", "Multiplicación/División", "Suma/Resta"]
+
+enunciado: "Ordena las operaciones según la jerarquía de precedencia matemática que siguen las fórmulas en una planilla de cálculo:"
+
+explicacion: |
+  Al igual que en la matemática, las hojas de cálculo resuelven primero lo que está entre paréntesis, luego potencias, después multiplicaciones y divisiones, y finalmente sumas y restas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "basico"
+  tags: ["celdas", "referencias", "formulas"]
+
+variables:
+  datos: [["A1", "A2"], ["B5", "B6"]]
+  idx: uno_de([0, 1])
+  ref_origen: datos[idx][0]
+  ref_destino: datos[idx][1]
+
+enunciado: "Si arrastras la fórmula {ref_origen} hacia abajo una fila, la referencia cambiará a {ref_destino} si la referencia es relativa."
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  Las referencias relativas (sin $) cambian automáticamente al copiar la fórmula a otra celda. Las referencias absolutas (con $) permanecen fijas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "basico"
+  tags: ["errores", "sintaxis"]
+
+enunciado: |
+  ¿Cuál es la forma correcta de escribir la función SUMA para sumar el rango A1:A5 en una planilla de cálculo?
+
+opciones_explicitas: ["=SUMA(A1:A5)", "SUMA(A1:A5)", "SUMA(A1;A5)", "SUMA(A1,A5)"]
+
+respuesta: "=SUMA(A1:A5)"
+tipo: mc
+
+explicacion: |
+  En una planilla de cálculo, toda fórmula o función debe comenzar obligatoriamente con el signo igual (=).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "intermedio"
+  tags: ["operadores", "precedencia"]
+
+enunciado: "Si en la celda A1 tenemos 10, en A2 tenemos 5 y en A3 tenemos 2, ¿cuál es el orden de evaluación de la fórmula =A1+A2*A3?"
+
+pasos:
+  - "Primero se identifica la multiplicación"
+  - "Luego se identifica la suma"
+
+opciones_explicitas: ["A1+A2 y luego *A3", "A2*A3 y luego +A1"]
+
+respuesta: "A2*A3 y luego +A1"
+tipo: mc
+
+explicacion: |
+  Siguiendo la jerarquía de operaciones matemáticas, la multiplicación tiene prioridad sobre la suma.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "intermedio"
+  tags: ["errores", "logica"]
+
+enunciado: "Si en la celda A1 escribes la fórmula =A1+10, el programa detectará un error de tipo ___."
+
+respuestas_validas:
+  - "circular"
+  - "referencia"
+
+respuesta: "circular"
+tipo: completar
+
+explicacion: |
+  Una referencia circular ocurre cuando una fórmula intenta calcular su propio valor, creando un bucle infinito.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "intermedio"
+  tags: ["referencias", "absolutas"]
+
+enunciado: "Para fijar la columna A pero permitir que la fila cambie al arrastrar hacia abajo, la referencia correcta es ___."
+
+respuestas_validas:
+  - "$A1"
+
+respuesta: "$A1"
+tipo: completar
+
+explicacion: |
+  El signo $ antes de la letra fija la columna, mientras que el signo $ antes del número fija la fila.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "basico"
+  tags: ["celdas", "referencias"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "En una planilla de cálculo, la principal distinción de una referencia absoluta es que mantiene la posición de la celda fija aunque se copie la fórmula a otra ubicación, utilizando el signo $."
+
+pasos:
+  - "Identificar si la referencia cambia al arrastrar la fórmula."
+  - "Observar la presencia del símbolo $ en la referencia."
+
+explicacion: |
+  Las referencias relativas (ej. A1) cambian según la posición donde se pegue la fórmula. Las referencias absolutas (ej. $A$1) permanecen constantes.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "basico"
+  tags: ["celdas", "rangos"]
+
+respuesta: "A1:B2"
+tipo: completar
+respuestas_validas:
+  - "A1:B2"
+  - "A1-B2"
+  - "A1...B2"
+
+enunciado: "Si queremos referirnos a un conjunto de celdas que abarca desde la celda A1 hasta la celda B2, la notación correcta para representar este rango es ___."
+
+explicacion: |
+  En las planillas de cálculo, los rangos se definen utilizando los dos puntos (:) para indicar el origen y el destino del área seleccionada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "basico"
+  tags: ["formulas", "funciones"]
+
+opciones_explicitas: ["Una fórmula es una expresión escrita por el usuario, mientras que una función es una fórmula predefinida por el programa.", "Una fórmula es una función, mientras que una función es una fórmula.", "No existe diferencia entre ambas.", "Las fórmulas solo usan números y las funciones solo usan texto."]
+
+respuesta: "Una fórmula es una expresión escrita por el usuario, mientras que una función es una fórmula predefinida por el programa."
+tipo: mc
+
+enunciado: "Al comparar el uso de fórmulas y funciones en una celda, ¿cuál es la distinción fundamental?"
+
+explicacion: |
+  Una fórmula es cualquier expresión que comienza con "=" (ej. =A1+A2), mientras que una función es un componente de la fórmula ya programado (ej. SUMA, PROMEDIO) que realiza un cálculo específico.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "intermedio"
+  tags: ["operadores", "logica"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En una fórmula de planilla de cálculo, el operador '=' se utiliza exclusivamente para asignar un valor a una celda, y no puede ser usado para comparar si dos valores son iguales."
+
+explicacion: |
+  El signo '=' tiene una doble función: inicia una fórmula y actúa como operador de comparación lógica para evaluar la igualdad entre dos expresiones.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "intermedio"
+  tags: ["operadores", "orden_operaciones"]
+
+opciones_explicitas: ["Paréntesis", "Multiplicación y División", "Suma y Resta"]
+
+respuesta_orden: ["Paréntesis", "Multiplicación y División", "Suma y Resta"]
+tipo: ordenar
+
+enunciado: "Ordene los siguientes elementos según el orden de prioridad (precedencia) en el que la planilla de cálculo resuelve las operaciones en una fórmula:"
+
+pasos:
+  - "Observar los símbolos de agrupación."
+  - "Observar las operaciones aritméticas básicas."
+
+explicacion: |
+  El orden de prioridad estándar sigue la jerarquía matemática: primero se resuelven los paréntesis, luego potencias, después multiplicación/división y finalmente suma/resta.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "basico"
+  tags: ["excel", "celdas", "referencias"]
+
+variables:
+  datos: [["A1", "A2", "B1"], ["C5", "C6", "D5"], ["F10", "F11", "G10"]]
   idx: uno_de([0, 1, 2])
 
-enunciado: "Considera el siguiente algoritmo para sumar dos números: 1. Leer primer número, 2. Leer segundo número, 3. Sumar ambos valores, 4. Mostrar resultado. Si los números ingresados son {datos[idx][0]} y {datos[idx][1]}, ¿cuál es el valor final que mostrará el paso 4?"
+enunciado: "Si en la celda B1 escribimos la fórmula ={datos[idx][0]}*{datos[idx][1]} y arrastramos el controlador de relleno hacia abajo una fila, la fórmula en la celda B2 será ___."
+
+respuestas_validas:
+  - "A2*A2"
+  - "C6*C6"
+  - "F11*F11"
 
 respuesta: datos[idx][2]
 tipo: completar
 tolerancia_abs: 0
 
 explicacion: |
-  El algoritmo sigue una secuencia lógica de entrada, proceso y salida. En el caso sorteado, la suma de {datos[idx][0]} y {datos[idx][1]} es {datos[idx][2]}.
+  Al arrastrar una referencia relativa (sin $) hacia abajo, la fila aumenta automáticamente. Como el primer término es una referencia a una celda, esta cambia de A1 a A2, C5 a C6, o F10 a F11.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "intermedio"
-  tags: ["orden", "logica"]
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "basico"
+  tags: ["formulas", "operaciones"]
 
-enunciado: |
-  Para cambiar una bombilla (foco) quemada, se deben seguir estos pasos desordenados:
-  - Colocar la bombilla nueva en el casquillo.
-  - Retirar la bombilla quemada.
-  - Asegurarse de que el interruptor esté apagado.
-  - Encender el interruptor para probar.
+variables:
+  valores: [[10, 5, 2], [20, 4, 3], [50, 2, 10]]
+  idx: uno_de([0, 1, 2])
+  a: valores[idx][0]
+  b: valores[idx][1]
+  c: valores[idx][2]
+  resultado: a + b * c
 
-opciones_explicitas: ["Apagar, Retirar, Colocar, Encender", "Retirar, Apagar, Colocar, Encender", "Apagar, Colocar, Retirar, Encender", "Encender, Retirar, Colocar, Apagar"]
-respuesta: "Apagar, Retirar, Colocar, Encender"
+enunciado: "En una planilla, la celda A1 tiene el valor {a}, la A2 tiene {b} y la A3 tiene {c}. Si en A4 escribimos la fórmula ={a} + {b} * {c}, ¿cuál es el resultado?"
+
+tipo: completar
+respuesta: resultado
+tolerancia_abs: 0
+
+explicacion: |
+  Por la jerarquía de operaciones, la multiplicación se realiza antes que la suma. 
+  En el caso actual: {a} + ({b} * {c}).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "basico"
+  tags: ["funciones", "suma"]
+
+variables:
+  datos: [[10, 20, 30], [10, 10, 10], [100, 200, 300]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Si tenemos los valores {datos[idx][0]}, {datos[idx][1]} y {datos[idx][2]} en las celdas A1, A2 y A3 respectivamente, ¿cuál es el resultado de aplicar la función =SUMA(A1:A3)?"
+
+opciones_explicitas: [30, 60, 65, 90, 600]
+
+respuesta: datos[idx][0] + datos[idx][1] + datos[idx][2]
 tipo: mc
 
 explicacion: |
-  La seguridad es primordial en un algoritmo de la vida real. Primero se debe asegurar que no haya corriente (Apagar), luego proceder al cambio físico y finalmente verificar el resultado.
+  La función SUMA con el operador de rango ':' suma todos los valores comprendidos entre la celda inicial y la final.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "intermedio"
-  tags: ["completar", "logica"]
-
-enunciado: "Un algoritmo de inicio de sesión sigue esta lógica: 1. Solicitar usuario y contraseña, 2. Comparar datos con la base de datos, 3. Si son correctos, permitir acceso; si no, mostrar error. En el paso 2, la acción principal es la ___."
-
-respuestas_validas:
-  - "comparación"
-  - "validación"
-  - "verificación"
-respuesta: "validación"
-tipo: "completar"
-
-explicacion: |
-  En el contexto de algoritmos de seguridad, el paso donde se contrastan los datos ingresados con los almacenados se denomina validación o comparación.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
+  tema: "ofimatica_planilla_de_calculo"
   nivel: "basico"
-  tags: ["definicion", "caracteristicas"]
+  tags: ["formato", "texto"]
 
-respuesta: verdadero
+enunciado: "En una planilla de cálculo, si queremos que una celda muestre el texto 'Hola Mundo' como parte de una fórmula, debemos escribirlo entre comillas, por ejemplo: =CONCATENAR(\"Hola\", \" \", \"Mundo\")."
+
 tipo: vf
 
-enunciado: "Un algoritmo se define como una secuencia de pasos que debe ser finita para poder resolver un problema."
+respuesta: verdadero
 
 explicacion: |
-  Por definición, un algoritmo debe tener un fin. Si un proceso no termina nunca, se considera un bucle infinito, pero no un algoritmo válido para resolver un problema específico.
+  Para que una planilla de cálculo interprete una cadena de caracteres como texto y no como una función o nombre de variable, los valores textuales deben ir entre comillas dobles.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "basico"
-  tags: ["orden", "logica"]
+  tema: "ofimatica_planilla_de_calculo"
+  nivel: "intermedio"
+  tags: ["jerarquia", "operadores"]
 
-tipo: ordenar
+enunciado: "Para resolver una fórmula compleja que combina sumas, multiplicaciones y paréntesis, ¿cuál es el orden correcto de ejecución que sigue el motor de la planilla?"
 
 opciones_explicitas:
-  - "Poner agua en la olla"
-  - "Poner la olla al fuego"
-  - "Echar la pasta"
+  - "Paréntesis"
+  - "Potencias"
+  - "Multiplicación/División"
+  - "Suma/Resta"
 
-respuesta_orden: ["Poner agua en la olla", "Poner la olla al fuego", "Echar la pasta"]
-
-enunciado: "Para cocinar pasta, el orden lógico de los pasos es el siguiente:"
-
-pasos:
-  - "Primero preparamos el recipiente con el líquido."
-  - "Luego aplicamos calor."
-  - "Finalmente añadimos el ingrediente principal."
+respuesta_orden: ["Paréntesis", "Potencias", "Multiplicación/División", "Suma/Resta"]
 
 explicacion: |
-  La secuencia debe ser lógica y ordenada; si alteramos el orden de los pasos, el algoritmo fallará en alcanzar su objetivo (la pasta cocida).
+  Las hojas de cálculo siguen la jerarquía matemática estándar (PEMDAS/BODMAS): primero se resuelven los paréntesis, luego potencias, después multiplicaciones y divisiones, y finalmente sumas y restas.
 ```
+
+## Sección: que-es-la-tecnica-y-la-tecnologia (20 preguntas)
 
 ```
 metadata:
   materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
   nivel: "basico"
-  tags: ["ambiguedad"]
-
-respuesta: "ambos"
-tipo: mc
-
-opciones_explicitas:
-  - "solo un algoritmo"
-  - "solo una receta"
-  - "ambos"
-
-enunciado: "Si una receta de cocina sigue una secuencia finita, ordenada y clara de pasos para lograr un plato, ¿se puede considerar un algoritmo?"
-
-explicacion: |
-  Correcto. Un algoritmo es un concepto general. Una receta de cocina es un ejemplo de un algoritmo aplicado al mundo real.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "intermedio"
-  tags: ["ambiguedad", "instrucciones"]
-
-respuesta: "ambiguo"
-tipo: completar
-
-respuestas_validas:
-  - "ambiguo"
-
-enunciado: "Si una instrucción en un algoritmo dice 'añadir un poco de sal' sin especificar la cantidad, el paso es considerado ___________."
-
-explicacion: |
-  Un algoritmo debe ser preciso. Las instrucciones ambiguas pueden llevar a resultados diferentes según quién o qué ejecute el algoritmo, rompiendo la determinística.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "basico"
-  tags: ["orden", "logica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un conjunto de pasos que no siguen un orden lógico pero que eventualmente llegan a un resultado se considera un algoritmo válido."
-
-explicacion: |
-  Falso. La secuencia debe ser estrictamente ordenada. Si el orden de los pasos es incorrecto, el algoritmo no es válido porque no garantiza la solución del problema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "basico"
-  tags: ["definicion", "conceptos_base"]
-
-respuesta: "algoritmo"
-tipo: "completar"
-respuestas_validas:
-  - "algoritmo"
-
-enunciado: "Mientras que un proceso puede ser una serie de acciones desordenadas o continuas, un ___ es una secuencia finita, definida y ordenada de pasos para resolver un problema específico."
-
-explicacion: |
-  Un algoritmo se distingue por ser una secuencia estructurada y con un fin determinado, a diferencia de un proceso que puede ser una ejecución continua sin una estructura de pasos estricta para un fin único.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "basico"
-  tags: ["propiedades", "finitud"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "¿Es correcto afirmar que un algoritmo puede ejecutarse infinitamente sin llegar nunca a un estado de finalización?"
-
-explicacion: |
-  Falso. Una de las propiedades fundamentales de un algoritmo es la finitud: debe terminar tras un número limitado de pasos. Un proceso que no termina se denomina bucle infinito o loop.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "intermedio"
-  tags: ["algoritmo_vs_codigo", "abstraccion"]
-
-respuesta: "La lógica abstracta del procedimiento"
-tipo: mc
-opciones_explicitas: ["La implementación en un lenguaje de programación", "La lógica abstracta del procedimiento"]
-
-enunciado: "Si comparamos un algoritmo con su implementación en un lenguaje de programación (código), el algoritmo se distingue por ser: ___"
-
-explicacion: |
-  El algoritmo es el diseño lógico y abstracto (el "qué" hacer), mientras que el código es la implementación técnica en un lenguaje específico (el "cómo" hacerlo en una máquina).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "basico"
-  tags: ["orden", "secuencia"]
-
-respuesta_orden: ["Paso 1: Entrada", "Paso 2: Proceso", "Paso 3: Salida"]
-tipo: "ordenar"
-opciones_explicitas: ["Paso 1: Entrada", "Paso 2: Proceso", "Paso 3: Salida"]
-
-enunciado: "Para que un algoritmo sea efectivo, debe seguir una secuencia lógica. Ordene los componentes fundamentales de un algoritmo de procesamiento de datos:"
-
-explicacion: |
-  La estructura clásica de un algoritmo requiere primero recibir datos (entrada), transformarlos mediante instrucciones (proceso) y entregar un resultado (salida).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "intermedio"
-  tags: ["determinismo", "precisicion"]
-
-respuesta: "precisión"
-tipo: "completar"
-respuestas_validas:
-  - "precisión"
-
-enunciado: "A diferencia de una instrucción ambigua, un algoritmo debe poseer ___; esto significa que, ante los mismos datos de entrada, siempre debe producir el mismo resultado tras seguir los mismos pasos."
-
-explicacion: |
-  La precisión (o determinismo) garantiza que no haya ambigüedad en los pasos, asegurando que el camino hacia la solución sea único y predecible para la computadora.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "basico"
-  tags: ["algoritmo", "secuencia"]
-
-variables:
-  textos: ["Para hacer un café: 1. Calentar agua, 2. Poner café en filtro, 3. Verter agua", "Para encender una PC: 1. Presionar botón, 2. Conectar cable, 3. Esperar inicio"]
-  valores: [verdadero, falso]
-  idx: uno_de([0, 1])
-
-respuesta: valores[idx]
-tipo: vf
-enunciado: "Analiza el siguiente escenario: {textos[idx]}. ¿Es una secuencia lógica y ordenada para resolver el problema planteado?"
-
-explicacion: |
-  Un algoritmo debe ser una secuencia finita y ordenada de pasos. En el primer caso, los pasos siguen un orden lógico para obtener el resultado. En el segundo, el orden es incorrecto (primero se debe conectar el cable).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "basico"
-  tags: ["algoritmo", "orden"]
-
-tipo: ordenar
-
-opciones_explicitas: ["Leer primer número", "Leer segundo número", "Sumar ambos", "Mostrar resultado"]
-respuesta_orden: ["Leer primer número", "Leer segundo número", "Sumar ambos", "Mostrar resultado"]
-
-enunciado: "Ordena los pasos necesarios para realizar el algoritmo de suma de dos números:"
-
-explicacion: |
-  Un algoritmo requiere un orden lógico. Para sumar, primero debemos obtener los datos (entrada), luego procesarlos (suma) y finalmente entregar el resultado (salida).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "basico"
-  tags: ["definicion", "caracteristicas"]
-
-variables:
-  textos: ["Un proceso que no termina nunca", "Un proceso con pasos finitos y definidos"]
-  valores: [falso, verdadero]
-  idx: uno_de([0, 1])
-
-respuesta: valores[idx]
-tipo: vf
-enunciado: "Un algoritmo debe ser necesariamente finito, es decir, debe tener un número determinado de pasos que se completan en un tiempo razonable. ¿Es esto correcto para describir lo siguiente: {textos[idx]}?"
-
-explicacion: |
-  La finitud es una característica esencial de todo algoritmo. Si un proceso no termina, no puede ser considerado un algoritmo funcional para resolver un problema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "basico"
-  tags: ["algoritmo", "completar"]
-
-respuesta: "encender"
-tipo: completar
-respuestas_validas:
-  - "encender"
-
-enunciado: "Para resolver el problema de iluminar una habitación oscura, el primer paso del algoritmo debe ser ___ la luz."
-
-explicacion: |
-  En un algoritmo de acción, el primer paso debe ser la instrucción que cambia el estado del entorno para resolver el problema. En este caso, encender la luz.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmo_secuencia_de_pasos"
-  nivel: "intermedio"
-  tags: ["logica", "errores"]
-
-variables:
-  escenario: uno_de([["1. Salir de casa, 2. Abrir la puerta, 3. Caminar hacia la calle", "Pasos desordenados"], ["1. Abrir la puerta, 2. Salir de casa, 3. Caminar hacia la calle", "Pasos correctos"]])
-
-respuesta: escenario[1]
-tipo: mc
-
-opciones_explicitas: ["Pasos desordenados", "Pasos correctos"]
-
-enunciado: "Analiza la secuencia: {escenario[0]}. ¿Cuál es la clasificación de este algoritmo?"
-
-explicacion: |
-  Si el orden de los pasos impide alcanzar el objetivo de forma lógica (como intentar salir de casa antes de abrir la puerta), el algoritmo es incorrecto o está desordenado.
-```
-
-## Sección: algoritmos-busqueda-ordenamiento (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda_ordenamiento"
-  nivel: "basico"
-  tags: ["busqueda", "lineal"]
-
-tipo: mc
-opciones_explicitas: ["Compara elemento por elemento", "Divide la lista a la mitad", "Ordena de mayor a menor", "Busca solo en listas ordenadas"]
-respuesta: "Compara elemento por elemento"
-
-enunciado: "El algoritmo de búsqueda lineal funciona de la siguiente manera:"
-
-explicacion: |
-  La búsqueda lineal recorre cada elemento de la lista secuencialmente hasta encontrar el objetivo o terminar la lista.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda_ordenamiento"
-  nivel: "basico"
-  tags: ["busqueda", "binaria"]
-
-tipo: completar
-
-enunciado: "Para que un algoritmo de búsqueda binaria sea efectivo, la lista de datos debe estar previamente ___."
-
-respuesta: "ordenada"
-
-explicacion: |
-  La búsqueda binaria utiliza la propiedad de orden para descartar la mitad de los elementos en cada paso. Sin orden, no se puede determinar qué mitad descartar.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda_ordenamiento"
-  nivel: "intermedio"
-  tags: ["complejidad", "busqueda"]
-
-variables:
-  datos: [["10, 20, 30, 40, 50", "50"], ["5, 15, 25, 35", "5"]]
-  escenario_idx: uno_de([0, 1])
-
-tipo: mc
-respuesta: "O(n)"
-opciones_explicitas: ["O(1)", "O(n)", "O(log n)", "O(n^2)"]
-
-enunciado: "En el escenario {datos[escenario_idx][0]}, ¿cuál es la complejidad en el peor de los casos para una búsqueda lineal?"
-
-explicacion: |
-  En el peor de los casos, la búsqueda lineal debe revisar todos los elementos 'n', por lo tanto su complejidad es O(n).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda_ordenamiento"
-  nivel: "basico"
-  tags: ["ordenamiento", "burbuja"]
-
-tipo: ordenar
-opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si están desordenados", "Repetir hasta que no haya cambios"]
-
-enunciado: "Ordena los pasos lógicos para completar una pasada del algoritmo de ordenamiento de burbuja (Bubble Sort):"
-
-explicacion: |
-  El algoritmo compara pares de elementos contiguos e intercambia sus posiciones si están en el orden incorrecto, repitiendo el proceso hasta que la lista esté lista.
-respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si están desordenados", "Repetir hasta que no haya cambios"]
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda_ordenamiento"
-  nivel: "basico"
-  tags: ["ordenamiento", "burbuja"]
-
-tipo: vf
-
-enunciado: "El algoritmo de ordenamiento de burbuja tiene una complejidad temporal de O(n^2) en su peor caso."
+  tags: ["caracteristicas", "tecnica"]
 
 respuesta: verdadero
-
-explicacion: |
-  Es correcto, ya que requiere dos bucles anidados (uno para las pasadas y otro para las comparaciones), resultando en n * n comparaciones en el peor escenario.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda"
-  nivel: "basico"
-  tags: ["busqueda", "lineal"]
-
-enunciado: "Se tiene el siguiente array de enteros: [12, 45, 7, 23, 56, 10]. Si aplicamos un algoritmo de búsqueda lineal para encontrar el elemento 23, ¿cuál es el índice (empezando desde 0) donde se encuentra el elemento?"
-
-opciones_explicitas: ["2", "3", "4", "5"]
-
-respuesta: "3"
-tipo: mc
-
-explicacion: |
-  La búsqueda lineal recorre el array elemento por elemento desde el inicio:
-  - Índice 0: 12 (no es 23)
-  - Índice 1: 45 (no es 23)
-  - Índice 2: 7 (no es 23)
-  - Índice 3: 23 (¡Encontrado!)
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda"
-  nivel: "basico"
-  tags: ["busqueda", "binaria"]
-
-enunciado: "Para que un algoritmo de búsqueda binaria funcione correctamente sobre un conjunto de datos, es indispensable que los datos estén previamente ___."
-
-respuestas_validas:
-  - "ordenados"
-
-respuesta: "ordenados"
-tipo: completar
-
-explicacion: |
-  La búsqueda binaria funciona dividiendo el espacio de búsqueda a la mitad en cada paso. Para decidir si el objetivo está a la izquierda o a la derecha del punto medio, el conjunto debe estar ordenado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_ordenamiento"
-  nivel: "intermedio"
-  tags: ["burbuja", "pasos"]
-
-variables:
-  idx: uno_de([0, 1])
-  arrays_iniciales: ["[5, 2, 8]", "[3, 1, 4]"]
-  resultados: ["[2, 5, 8]", "[1, 3, 4]"]
-
-enunciado: "Considera el array {arrays_iniciales[idx]}. Tras completar la primera pasada completa del algoritmo de ordenamiento burbuja (comparando pares adyacentes de izquierda a derecha), ¿cuál es el estado del array?"
-
-opciones_explicitas: [resultados[idx], "[8, 5, 2]", "[4, 3, 1]", "[2, 8, 5]"]
-
-respuesta: resultados[idx]
-tipo: mc
-
-explicacion: |
-  En la primera pasada del Bubble Sort, el elemento más grande 'flota' hacia la última posición mediante intercambios sucesivos de pares adyacentes.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda"
-  nivel: "intermedio"
-  tags: ["complejidad", "binaria"]
-
-enunciado: "Si buscamos un elemento en un array de 1024 elementos usando búsqueda binaria, ¿cuál es el número máximo de comparaciones que se realizarán en el peor de los casos?"
-
-respuesta: 10
-tipo: completar
-tolerancia_abs: 0
-
-explicacion: |
-  La búsqueda binaria tiene una complejidad de O(log2(n)). 
-  Como 2^10 = 1024, el número máximo de divisiones necesarias para reducir el espacio a un solo elemento es 10.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_ordenamiento"
-  nivel: "basico"
-  tags: ["ordenar", "burbuja"]
-
-enunciado: "Ordena los siguientes pasos que describe el funcionamiento del algoritmo de burbuja para ordenar un array de n elementos:"
-
-opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor que el segundo", "Repetir el proceso hasta que no haya más intercambios"]
-
-respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor que el segundo", "Repetir el proceso hasta que no haya más intercambios"]
-tipo: ordenar
-
-explicacion: |
-  El algoritmo burbuja funciona comparando pares de elementos contiguos y moviendo el mayor hacia la derecha, repitiendo este ciclo hasta que la lista esté totalmente ordenada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda"
-  nivel: "basico"
-  tags: ["busqueda", "binaria"]
-
-tipo: mc
-opciones_explicitas: ["El arreglo debe estar desordenado", "El arreglo debe estar ordenado", "El arreglo debe tener un tamaño impar", "No requiere ninguna condición"]
-
-enunciado: "Para que el algoritmo de búsqueda binaria funcione correctamente y garantice encontrar el elemento (si existe), el arreglo de entrada debe estar ___."
-
-respuesta: "El arreglo debe estar ordenado"
-
-explicacion: |
-  La búsqueda binaria funciona dividiendo el espacio de búsqueda a la mitad en cada paso. Para decidir si el objetivo está a la izquierda o a la derecha del punto medio, es indispensable que los elementos sigan un orden establecido.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda"
-  nivel: "intermedio"
-  tags: ["complejidad", "lineal"]
-
-variables:
-  n: 1000
-
-tipo: completar
-respuestas_validas:
-  - "O(n)"
-
-enunciado: "En el peor de los casos, si tenemos un arreglo de tamaño {n}, la complejidad temporal de una búsqueda lineal es ___."
-
-respuesta: "O(n)"
-
-explicacion: |
-  En la búsqueda lineal, en el peor de los casos (cuando el elemento es el último o no está), debemos comparar el elemento buscado con cada uno de los {n} elementos del arreglo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda"
-  nivel: "intermedio"
-  tags: ["errores", "indices"]
-
 tipo: vf
 
-enunciado: "Si un algoritmo de búsqueda binaria utiliza un cálculo de punto medio como `medio = (inicio + fin) / 2` en un lenguaje con desbordamiento de enteros, puede fallar si la suma de `inicio` y `fin` supera el valor máximo permitido para un entero."
+enunciado: "La técnica se describe como un conjunto de procedimientos, métodos o habilidades específicas."
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
+  nivel: "basico"
+  tags: ["caracteristicas", "tecnologia"]
 
 respuesta: verdadero
+tipo: vf
 
-explicacion: |
-  Este es un error clásico. Para evitar el desbordamiento (overflow), se recomienda usar `medio = inicio + (fin - inicio) / 2`.
+enunciado: "La tecnología es solo la herramienta física en sí misma, sin considerar el conocimiento detrás de ella."
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "algoritmos_ordenamiento"
-  nivel: "basico"
-  tags: ["burbuja", "pasos"]
-
-tipo: ordenar
-opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor que el segundo", "Repetir el proceso para todos los elementos", "Terminar cuando no haya más intercambios"]
-
-enunciado: "Ordena los pasos lógicos de una implementación estándar del algoritmo de ordenamiento burbuja (Bubble Sort):"
-
-respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor que el segundo", "Repetir el proceso para todos los elementos", "Terminar cuando no haya más intercambios"]
-
-explicacion: |
-  El método de burbuja funciona comparando pares de elementos contiguos y moviendo el más grande hacia el final en cada iteración.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
   nivel: "avanzado"
-  tags: ["eficiencia", "comparacion"]
+  tags: ["critica", "neutralidad"]
 
-tipo: mc
-opciones_explicitas: ["log2(n)", "n"]
+respuesta: falso
+tipo: vf
 
-enunciado: "Si comparamos la eficiencia teórica de una búsqueda binaria frente a una búsqueda lineal, la búsqueda binaria tiene una complejidad de ___ en el peor de los casos."
-
-respuesta: "log2(n)"
-
-explicacion: |
-  La búsqueda binaria reduce el espacio de búsqueda a la mitad en cada paso, lo que resulta en una complejidad logarítmica, mucho más eficiente que la lineal para conjuntos de datos grandes.
+enunciado: "La tecnología es neutral y está libre de sesgos culturales o objetivos de diseño."
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "algoritmos_busqueda"
-  nivel: "basico"
-  tags: ["busqueda", "eficiencia"]
-
-respuesta: "binaria"
-tipo: mc
-opciones_explicitas: ["lineal", "binaria", "exponencial"]
-
-enunciado: "Para que un algoritmo de búsqueda sea más eficiente que la búsqueda lineal, aprovechando la estructura de los datos, el arreglo debe estar previamente ordenado y el algoritmo utilizado sería la búsqueda ___."
-
-explicacion: |
-  La búsqueda binaria requiere que el conjunto de datos esté ordenado para poder dividir el espacio de búsqueda a la mitad en cada paso, logrando una complejidad de O(log n), mientras que la lineal siempre recorre uno por uno.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_ordenamiento"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
   nivel: "intermedio"
-  tags: ["burbuja", "complejidad"]
-
-variables:
-  n_elementos: 10
-
-respuesta: 100
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "En el peor de los casos, un algoritmo de ordenamiento de burbuja (Bubble Sort) realiza aproximadamente {n_elementos * n_elementos} comparaciones para un arreglo de tamaño {n_elementos}."
-
-pasos:
-  - "Identificar que el peor caso ocurre cuando el arreglo está en orden inverso."
-  - "Calcular el número de comparaciones como n^2."
-
-explicacion: |
-  El algoritmo de burbuja compara pares adyacentes. En el peor de los casos realiza exactamente n*(n-1)/2 comparaciones (45 para n=10), pero esa cifra crece asintóticamente como n^2, por lo que decimos que su complejidad es O(n^2). Usando n^2 como aproximación, para n=10 el valor es 100.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda"
-  nivel: "basico"
-  tags: ["busqueda_binaria", "requisitos"]
+  tags: ["componentes", "informatica"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es necesario que un arreglo esté ordenado para aplicar el algoritmo de búsqueda binaria?"
-
-explicacion: |
-  La búsqueda binaria funciona dividiendo el rango de búsqueda basándose en la comparación del elemento medio con el objetivo. Si el arreglo no está ordenado, la decisión de ir a la izquierda o a la derecha no es válida.
+enunciado: "En informática, la tecnología incluye hardware, software y protocolos de comunicación."
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "algoritmos_ordenamiento"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
   nivel: "basico"
-  tags: ["burbuja", "pasos"]
-
-opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor", "Repetir hasta que no haya intercambios"]
-
-respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor", "Repetir hasta que no haya intercambios"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos fundamentales para la ejecución de una iteración estándar de un algoritmo de burbuja:"
-
-explicacion: |
-  El algoritmo recorre la lista comparando parejas de elementos contiguos y los intercambia si están en el orden incorrecto, repitiendo este proceso hasta que el arreglo esté ordenado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda"
-  nivel: "intermedio"
-  tags: ["eficiencia", "comparacion"]
-
-respuesta: "binaria"
-tipo: mc
-opciones_explicitas: ["lineal", "binaria"]
-
-enunciado: "Si comparamos la eficiencia de búsqueda en un arreglo de un millón de elementos, una de las dos es preferible sobre la otra porque su complejidad es menor. El nombre de la búsqueda más eficiente es ___."
-
-explicacion: |
-  La búsqueda binaria tiene una complejidad logarítmica O(log n), lo que significa que para un millón de elementos solo requiere unos 20 pasos, mientras que la lineal podría requerir un millón.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda"
-  nivel: "basico"
-  tags: ["busqueda", "lineal"]
-
-variables:
-  escenario: [[ [12, 45, 7, 23, 56], 23 ], [ [5, 18, 2, 9, 31], 9 ], [ [10, 40, 20, 50, 30], 40 ]]
-  idx: uno_de([0, 1, 2])
-  lista: escenario[idx][0]
-  objetivo: escenario[idx][1]
-
-respuesta: "lineal"
-tipo: mc
-opciones_explicitas: ["lineal", "binaria", "exponencial"]
-
-enunciado: "Si queremos encontrar el elemento {objetivo} en la lista {lista} sin saber si está ordenada, ¿qué tipo de búsqueda es la única garantizada para encontrarlo?"
-
-explicacion: |
-  En una lista desordenada, la búsqueda binaria no funciona porque requiere que los elementos sigan un orden. Por lo tanto, debemos recorrer la lista elemento por elemento, lo que se conoce como búsqueda lineal.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_busqueda"
-  nivel: "basico"
-  tags: ["busqueda_binaria", "condicion"]
+  tags: ["variabilidad", "tecnica"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Para aplicar el algoritmo de búsqueda binaria de manera eficiente, la lista de datos debe estar previamente ordenada."
-
-explicacion: |
-  La búsqueda binaria funciona dividiendo el rango de búsqueda a la mitad en cada paso. Para decidir si el objetivo está a la izquierda o a la derecha del punto medio, es indispensable que los elementos estén ordenados.
+enunciado: "Las técnicas pueden variar según el contexto o la herramienta disponible."
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "algoritmos_ordenamiento"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
   nivel: "intermedio"
-  tags: ["burbuja", "pasos"]
+  tags: ["interdependencia", "historia"]
 
-opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si el de la izquierda es mayor", "Repetir el proceso para todos los elementos"]
+respuesta: verdadero
+tipo: vf
 
-respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si el de la izquierda es mayor", "Repetir el proceso para todos los elementos"]
-tipo: ordenar
-
-enunciado: "Indica el orden lógico de las operaciones básicas que realiza el algoritmo de ordenamiento de burbuja (Bubble Sort) para ordenar una lista de menor a mayor:"
-
-explicacion: |
-  El método de burbuja compara parejas de elementos contiguos y los intercambia si están en el orden incorrecto, repitiendo este ciclo hasta que no haya más intercambios necesarios.
+enunciado: "Las nuevas técnicas surgen como respuesta a las limitaciones de la tecnología existente."
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "algoritmos_busqueda"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
   nivel: "avanzado"
-  tags: ["complejidad", "big_o"]
+  tags: ["ciclo", "computacion"]
 
-respuesta: "logarítmica"
-tipo: completar
-respuestas_validas:
-  - "logarítmica"
-  - "logaritmica"
-
-enunciado: "La complejidad temporal de la búsqueda binaria en el peor de los casos se describe como ___."
-
-explicacion: |
-  La búsqueda binaria reduce el espacio de búsqueda a la mitad en cada paso, por lo que en el peor de los casos su complejidad es O(log n), es decir, logarítmica (nunca lineal, ni siquiera en escenarios favorables).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "algoritmos_ordenamiento"
-  nivel: "intermedio"
-  tags: ["burbuja", "eficiencia"]
-
-variables:
-  datos: [[ 10, 5, 8, 2 ], [ 3, 1, 4, 2 ], [ 7, 9, 6, 5 ]]
-  intercambios_primer_par: [1, 1, 0]
-  idx: uno_de([0, 1, 2])
-  lista: datos[idx]
-
-respuesta: intercambios_primer_par[idx]
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si aplicamos el algoritmo de burbuja a la lista {lista}, ¿cuántos intercambios se realizan si comparamos solo el primer par de elementos (el primero con el segundo) en la primera pasada?"
-
-pasos:
-  - "Comparar el primer elemento con el segundo."
-  - "Si el primero es mayor que el segundo, intercambiarlos."
-  - "Contar los intercambios realizados."
-
-explicacion: |
-  En el algoritmo de burbuja, se comparan elementos adyacentes: si el de la izquierda es mayor que el de la derecha, se intercambian (1 intercambio); si no, no se realiza ninguno (0 intercambios). Para {lista}, comparando solo el primer par, el resultado depende de si ese par está o no en el orden correcto.
-```
-
-## Sección: almacenamiento-volatil-vs-no-volatil (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "basico"
-  tags: ["memoria", "hardware", "conceptos"]
-
-tipo: mc
-opciones_explicitas: ["energía eléctrica", "datos", "programas", "espacio en disco"]
-
-enunciado: "La característica que define a una memoria como 'volátil' es que su contenido se pierde cuando se corta el suministro de ___."
-
-respuesta: "energía eléctrica"
-
-explicacion: |
-  La memoria volátil (como la RAM) requiere energía eléctrica constante para mantener almacenada la información. Sin energía, los datos se borran.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "basico"
-  tags: ["ram", "disco_duro"]
-
-variables:
-  nombres: ["RAM", "ROM", "Caché", "Disco SSD", "Pendrive"]
-  valores: [verdadero, falso, verdadero, falso, falso]
-  idx: uno_de([0, 1, 2, 3, 4])
-
+respuesta: verdadero
 tipo: vf
-enunciado: "Si el componente es {nombres[idx]}, ¿se considera que es una memoria volátil?"
 
-respuesta: valores[idx]
-
-explicacion: |
-  La RAM y la memoria caché son volátiles: pierden su contenido sin energía. La ROM, el disco SSD y el pendrive son no volátiles: conservan los datos aunque se corte la energía.
+enunciado: "En el campo de la computación, el ciclo entre técnica y tecnología es acelerado."
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "basico"
-  tags: ["clasificacion", "hardware"]
+  tema: "que_es_la_tecnica_y_la_tecnologia"
+  nivel: "avanzado"
+  tags: ["analisis", "critica"]
 
-tipo: mc
-opciones_explicitas: ["Disco Duro (HDD)", "Memoria RAM", "Memoria Caché", "Registros del procesador"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "¿Cuál de los siguientes dispositivos es un ejemplo de almacenamiento NO volátil?"
-
-respuesta: "Disco Duro (HDD)"
-
-explicacion: |
-  Los discos duros (HDD) o unidades de estado sólido (SSD) conservan la información incluso cuando la computadora se apaga, por lo tanto, son no volátiles.
+enunciado: "Entender la diferencia entre técnica y tecnología ayuda a analizar críticamente el mundo digital."
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
   nivel: "intermedio"
-  tags: ["terminologia", "conceptos"]
+  tags: ["definicion", "marco"]
 
-tipo: completar
-opciones_explicitas: ["persistente", "temporal", "aleatoria", "secuencial"]
-respuestas_validas:
-  - "temporal"
+respuesta: verdadero
+tipo: vf
 
-enunciado: "La función principal de la memoria RAM es servir como un espacio de almacenamiento ___ para que el procesador acceda rápidamente a los datos en ejecución."
-
-respuesta: "temporal"
-
-explicacion: |
-  La RAM es una memoria de acceso rápido pero de naturaleza temporal; su propósito es sostener los datos que se están usando en el momento exacto.
+enunciado: "La tecnología define el marco de posibilidades y restricciones para la acción técnica."
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "basico"
-  tags: ["flujo_datos", "hardware"]
+  tema: "que_es_la_tecnica_y_la_tecnologia"
+  nivel: "intermedio"
+  tags: ["definicion", "herramienta"]
 
-tipo: ordenar
-opciones_explicitas: ["Carga de datos de disco a RAM", "Ejecución de procesos en CPU", "Guardado de cambios en disco"]
+respuesta: verdadero
+tipo: vf
 
-respuesta_orden: ["Carga de datos de disco a RAM", "Ejecución de procesos en CPU", "Guardado de cambios en disco"]
-
-enunciado: "Ordena el flujo lógico de la información cuando un usuario trabaja en un documento y decide guardarlo:"
-
-explicacion: |
-  Primero los datos pasan del almacenamiento no volátil (disco) a la memoria volátil (RAM) para ser procesados, y finalmente se escriben de nuevo en el disco para persistir.
+enunciado: "La técnica es descrita como la herramienta que da poder de acción inmediato."
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "basico"
-  tags: ["memoria", "hardware", "ram"]
+  tema: "que_es_la_tecnica_y_la_tecnologia"
+  nivel: "intermedio"
+  tags: ["diferencia", "naturaleza"]
+
+variables:
+  tipo_technica: "individual"
+  tipo_tecnologia: "colectiva"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: La técnica se caracteriza por ser individual y procedimental, mientras que la tecnología suele ser colectiva y sistémica."
+
+explicacion: |
+  La técnica es una habilidad o método que posee o aplica una persona (individual). La tecnología es un sistema complejo que involucra múltiples componentes, usuarios y procesos (colectivo).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
+  nivel: "intermedio"
+  tags: ["neutralidad", "etica"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Si apagas una computadora que tiene 16 GB de memoria RAM, la información almacenada en ella se mantiene intacta gracias a que la RAM es un tipo de memoria no volátil."
+enunciado: "Verdadero o Falso: La tecnología es un elemento neutral, libre de sesgos culturales o objetivos de sus creadores."
 
 explicacion: |
-  La memoria RAM (Random Access Memory) es volátil. Esto significa que requiere una corriente eléctrica constante para mantener los datos; al cortar la energía, los datos se pierden.
+  La tecnología no es neutral. Está diseñada por personas con ciertos objetivos, sesgos y contextos culturales. Su diseño refleja las intenciones y valores de quienes la crean.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "basico"
-  tags: ["clasificacion", "hardware"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  dispositivos: [["Memoria RAM", "Memoria Caché"], ["Disco Duro HDD", "Memoria Flash USB"]]
-  tipo_memoria: [["volátil", "volátil"], ["no volátil", "no volátil"]]
-
-respuesta: tipo_memoria[escenario_idx][0]
-tipo: mc
-opciones_explicitas: ["volátil", "no volátil"]
-
-enunciado: "Considerando el dispositivo {dispositivos[escenario_idx][0]}, ¿cuál es su característica principal respecto a la persistencia de datos?"
-
-explicacion: |
-  El dispositivo seleccionado pertenece a la categoría de memoria {tipo_memoria[escenario_idx][0]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
   nivel: "intermedio"
-  tags: ["flujo_datos", "guardado"]
+  tags: ["interdependencia", "ciclo"]
 
-respuesta: "disco"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: Las nuevas técnicas surgen como respuesta a limitaciones tecnológicas existentes, y a su vez, nuevas tecnologías permiten técnicas más complejas."
+
+explicacion: |
+  Existe un ciclo dinámico. Las limitaciones de la tecnología actual impulsan la creación de nuevas técnicas, y el avance tecnológico abre puertas para desarrollar técnicas más sofisticadas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
+  nivel: "intermedio"
+  tags: ["componentes", "definicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: En informática, la tecnología incluye solo el hardware y el software, pero no los protocolos de comunicación."
+
+explicacion: |
+  Falso. La tecnología informática incluye hardware, software, protocolos de comunicación e infraestructura. Todos estos elementos funcionan en conjunto para permitir la operación del sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
+  nivel: "basico"
+  tags: ["contexto", "variabilidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: Las técnicas pueden variar según el contexto o la herramienta disponible."
+
+explicacion: |
+  Sí. Una misma tarea puede requerir diferentes técnicas dependiendo de las herramientas (software/hardware) o el entorno (contexto) en el que se realice.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
+  nivel: "intermedio"
+  tags: ["impacto", "sociedad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: Es importante comprender el impacto de la tecnología en la sociedad para pasar de ser usuarios pasivos a ciudadanos conscientes."
+
+explicacion: |
+  El análisis crítico del impacto social, ético y cultural de la tecnología es fundamental para una ciudadanía digital responsable y activa.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
+  nivel: "basico"
+  tags: ["definicion", "concepto"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: La técnica se refiere al 'cómo' hacemos algo."
+
+explicacion: |
+  Correcto. La técnica define los métodos, procedimientos y habilidades para ejecutar una tarea. Es la parte procedimental del conocimiento.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
+  nivel: "basico"
+  tags: ["definicion", "concepto"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: La tecnología es el producto o sistema resultante de aplicar conocimiento y técnicas."
+
+explicacion: |
+  Correcto. La tecnología es el resultado tangible o sistémico de la aplicación del saber técnico y científico para resolver problemas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
+  nivel: "intermedio"
+  tags: ["metacognicion", "evaluacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: Estudiar informática implica solo aprender a operar máquinas, sin necesidad de entender su diseño."
+
+explicacion: |
+  Falso. Estudiar informática implica entender la lógica detrás del diseño, los sesgos y el impacto, no solo la operación. Esto permite una ciudadanía digital crítica.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "que_es_la_tecnica_y_la_tecnologia"
+  nivel: "intermedio"
+  tags: ["ciudadania", "objetivo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: Entender la diferencia entre técnica y tecnología nos ayuda a analizar críticamente el mundo digital."
+
+explicacion: |
+  Sí. Esta distinción permite pasar de la mera operación (técnica) al análisis crítico del sistema (tecnología), fomentando una ciudadanía digital más consciente y capaz de innovar.
+```
+
+## Sección: revolucion-informatica (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "revolucion_informatica"
+  nivel: "basico"
+  tags: ["historia", "computadoras"]
+
+respuesta: "ENIAC"
 tipo: completar
 respuestas_validas:
-  - "disco"
-  - "memoria"
+  - "ENIAC"
 
-enunciado: "Cuando estás escribiendo un documento en un procesador de texto, los cambios se mantienen temporalmente en la memoria RAM. Para que el archivo no se pierda al apagar la PC, debes realizar una acción de guardado que traslade la información desde la RAM hacia el ___."
-
-pasos:
-  - "1. El procesador carga el archivo desde el almacenamiento permanente a la RAM."
-  - "2. El usuario realiza cambios (estos viven en la RAM)."
-  - "3. El comando 'Guardar' copia los datos de la RAM al almacenamiento persistente."
+enunciado: "La primera computadora electrónica de propósito general, utilizada para cálculos balísticos durante la Segunda Guerra Mundial, fue la ___."
 
 explicacion: |
-  El proceso de guardado consiste en transferir la información de la memoria volátil (RAM) al dispositivo de almacenamiento no volátil (como un disco duro o SSD).
+  La ENIAC (Electronic Numerical Integrator and Computer) fue una de las primeras computadoras electrónicas de gran escala, marcando el inicio de la era de la computación moderna.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
+  tema: "revolucion_informatica"
   nivel: "intermedio"
-  tags: ["jerarquia", "orden"]
-
-respuesta_orden: ["Caché L1", "Memoria RAM", "Disco SSD"]
-tipo: ordenar
-opciones_explicitas: ["Caché L1", "Memoria RAM", "Disco SSD"]
-
-enunciado: "Ordena los siguientes componentes de hardware de mayor a menor velocidad de acceso (desde el más rápido al más lento):"
-
-explicacion: |
-  En la jerarquía de memoria, la velocidad disminuye a medida que aumenta la capacidad y la persistencia. La caché es la más rápida, seguida de la RAM y finalmente el almacenamiento masivo (SSD/HDD).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "basico"
-  tags: ["consecuencia", "energia"]
+  tags: ["hardware", "transistores"]
 
 variables:
-  caso_idx: uno_de([0, 1])
-  situacion: [["Estás editando una foto y se corta la luz sin haber guardado.", "perder"], ["Estás viendo una película descargada en un pendrive y se corta la luz.", "nada"]]
-  resultado: ["perder", "nada"]
+  tecnologia_actual: "transistores"
 
-respuesta: resultado[caso_idx]
+respuesta: "transistores"
 tipo: mc
-opciones_explicitas: ["perder", "nada"]
+opciones_explicitas: ["tubos de vacío", "transistores", "microprocesadores"]
 
-enunciado: "Analiza el siguiente caso: {situacion[caso_idx]} ¿Qué sucede con la información que se estaba procesando en ese momento?"
+enunciado: "La transición de la primera a la segunda generación de computadoras se caracterizó por el reemplazo de los tubos de vacío por una tecnología más pequeña y eficiente."
 
 explicacion: |
-  En el caso de la edición (volátil), la información se pierde porque la RAM se vacía. En el caso del pendrive (no volátil), el archivo ya está grabado físicamente y no se ve afectado por la falta de energía inmediata.
+  La primera generación usaba tubos de vacío (grandes y calientes), mientras que la segunda generación introdujo el transistor, permitiendo miniaturización y mayor fiabilidad.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
+  tema: "revolucion_informatica"
   nivel: "basico"
-  tags: ["memoria", "ram", "hardware"]
+  tags: ["pc", "historia"]
 
-respuesta: "volátil"
-tipo: "completar"
-respuestas_validas:
-  - "volátil"
-  - "volatil"
+respuesta: "Apple II"
+tipo: mc
+opciones_explicitas: ["ENIAC", "Altair 8800", "Apple II", "IBM PC"]
 
-enunciado: "La memoria que requiere un suministro constante de energía para mantener la información almacenada se denomina memoria ___________."
+enunciado: "¿Cuál de estos dispositivos fue uno de los primeros en popularizar la computación personal masiva a finales de los años 70 y principios de los 80?"
 
 explicacion: |
-  La memoria volátil (como la RAM) pierde todos sus datos cuando se corta la energía. La memoria no volátil (como un SSD o HDD) conserva los datos sin electricidad.
+  El Apple II fue uno de los primeros computadores personales con gráficos a color y capacidad de uso doméstico, impulsando la revolución de la informática personal.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "basico"
-  tags: ["errores_comunes", "guardado"]
-
-tipo: vf
-respuesta: falso
-
-enunciado: "Si estoy escribiendo un documento en un procesador de texto y se corta la luz antes de que yo haga clic en 'Guardar', la información se mantiene intacta en el disco duro porque el procesador estaba encendido."
-
-explicacion: |
-  Falso. Mientras editas, el texto reside en la memoria RAM (volátil). Si no se ha escrito en el disco (no volátil), la información se pierde al cortarse la energía.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
+  tema: "revolucion_informatica"
   nivel: "intermedio"
-  tags: ["hardware", "clasificacion"]
+  tags: ["cronologia", "hitos"]
+
+respuesta_orden: ["Tubos de vacío", "Transistores", "Circuitos Integrados", "Microprocesadores"]
+tipo: ordenar
+opciones_explicitas: ["Tubos de vacío", "Transistores", "Circuitos Integrados", "Microprocesadores"]
+
+enunciado: "Ordena cronológicamente las tecnologías que permitieron la miniaturización de las computadoras:"
+
+explicacion: |
+  La evolución siguió este orden: Tubos de vacío (1ra gen) -> Transistores (2da gen) -> Circuitos Integrados (3ra gen) -> Microprocesadores (4ta gen).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "revolucion_informatica"
+  nivel: "avanzado"
+  tags: ["ley_de_moore", "teoria"]
 
 variables:
-  escenario: uno_de([["Memoria RAM", "volátil"], ["Disco Duro (HDD)", "no volátil"]])
+  valor_doble: 2
 
-respuesta: escenario[1]
+respuesta: "exponencial"
+tipo: mc
+opciones_explicitas: ["lineal", "exponencial", "decreciente", "constante"]
+
+enunciado: "La revolución informática se vio acelerada por la Ley de Moore, la cual predice que el número de transistores en un chip se duplica aproximadamente cada {valor_doble} años, lo que implica un crecimiento de tipo ___."
+
+explicacion: |
+  La Ley de Moore describe un crecimiento exponencial de la capacidad de procesamiento, lo que permitió pasar de máquinas que ocupaban habitaciones a dispositivos que caben en un bolsillo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "revolucion_informatica"
+  nivel: "basico"
+  tags: ["hardware", "historia"]
+
+respuesta: "válvulas"
 tipo: "mc"
-opciones_explicitas: ["volátil", "no volátil"]
 
-enunciado: "Considerando el dispositivo {escenario[0]}, su característica principal de almacenamiento es: ___________."
+opciones_explicitas: ["válvulas", "transistores", "circuitos integrados", "microprocesadores"]
+
+enunciado: "Las primeras computadoras de gran escala, como la ENIAC, utilizaban principalmente ________ de vacío para realizar sus operaciones lógicas."
 
 explicacion: |
-  La RAM es volátil (pierde datos sin energía) y el HDD es no volátil (mantiene datos sin energía).
+  Las válvulas de vacío (o tubos de vacío) fueron los componentes fundamentales de la primera generación de computadoras, antes de la invención del transistor.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
+  tema: "revolucion_informatica"
   nivel: "intermedio"
-  tags: ["flujo_datos", "ciclo_de_vida"]
+  tags: ["hardware", "historia"]
 
-respuesta_orden: ["Cargar desde disco", "Procesar en RAM", "Guardar en disco"]
-tipo: "ordenar"
-opciones_explicitas: ["Cargar desde disco", "Procesar en RAM", "Guardar en disco"]
+respuesta: "Transistor"
+tipo: "mc"
 
-enunciado: "Ordena el flujo lógico de datos cuando un usuario abre un archivo, edita un párrafo y luego decide conservar los cambios permanentemente:"
+opciones_explicitas: ["Transistor", "Circuito Integrado", "Microprocesador", "CPU"]
+
+enunciado: "La invención del ___ permitió reemplazar las válvulas de vacío, reduciendo drásticamente el tamaño y el calor de las máquinas."
 
 explicacion: |
-  1. Los datos pasan de la memoria no volátil (disco) a la volátil (RAM) para ser usados.
-  2. La CPU trabaja sobre la RAM.
-  3. Al guardar, los datos vuelven a la memoria no volátil.
+  El transistor permitió la segunda generación de computadoras, permitiendo que fueran más pequeñas y confiables que las de válvulas.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
+  tema: "revolucion_informatica"
+  nivel: "avanzado"
+  tags: ["hardware", "historia"]
+
+respuesta: "1971"
+tipo: "completar"
+
+respuestas_validas:
+  - "1971"
+  - "1972"
+
+enunciado: "El primer microprocesador comercial, el Intel 4004, fue lanzado en el año ___."
+
+explicacion: |
+  El Intel 4004 marcó el inicio de la era de la integración a gran escala, permitiendo que toda la unidad de procesamiento residiera en un solo chip.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "revolucion_informatica"
+  nivel: "intermedio"
+  tags: ["historia", "ordenar"]
+
+tipo: ordenar
+
+opciones_explicitas: ["Válvula de vacío", "Transistor", "Circuito Integrado", "Microprocesador"]
+
+respuesta_orden: ["Válvula de vacío", "Transistor", "Circuito Integrado", "Microprocesador"]
+
+enunciado: "Ordena cronológicamente los hitos tecnológicos que permitieron la evolución del hardware de computación:"
+
+explicacion: |
+  La evolución siguió este orden: Válvulas (1ra gen), Transistores (2da gen), Circuitos Integrados (3ra gen) y Microprocesadores (4ta gen).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "revolucion_informatica"
+  nivel: "basico"
+  tags: ["usuario", "historia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿La llegada de la computadora personal (PC) a los hogares en los años 70 y 80 fue posible gracias a la integración masiva de microprocesadores?"
+
+explicacion: |
+  Correcto. La capacidad de integrar la CPU en un solo chip permitió que las computadoras pasaran de ocupar habitaciones enteras a ser dispositivos de escritorio accesibles.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "revolucion_informatica"
+  nivel: "basico"
+  tags: ["historia", "hardware"]
+
+tipo: mc
+opciones_explicitas: ["La velocidad de procesamiento", "La capacidad de almacenamiento", "La densidad de transistores en un chip", "El costo de los componentes electrónicos"]
+
+enunciado: "La Ley de Moore es una observación histórica que predice el aumento de la densidad de ___ en un circuito integrado cada dos años aproximadamente."
+
+respuesta: "La densidad de transistores en un chip"
+
+explicacion: |
+  Gordon Moore, cofundador de Intel, observó que el número de transistores en un microchip se duplicaba aproximadamente cada dos años, lo que impulsó la miniaturización de la tecnología.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "revolucion_informatica"
+  nivel: "intermedio"
+  tags: ["calculo", "hardware"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["1000", "2000"], ["500", "1000"]]
+  base: datos[idx][0]
+  doble: datos[idx][1]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si un chip tiene {base} transistores hoy, siguiendo la Ley de Moore, ¿cuántos transistores tendrá aproximadamente en el próximo ciclo de dos años?"
+
+respuesta: doble
+
+pasos:
+  - "Identificar la cantidad actual de transistores."
+  - "Aplicar el factor de duplicación (x2) según la ley."
+
+explicacion: |
+  La Ley de Moore establece que la cantidad de transistores se duplica. Por lo tanto, {base} * 2 = {doble}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "revolucion_informatica"
+  nivel: "basico"
+  tags: ["historia", "procesadores"]
+
+tipo: ordenar
+opciones_explicitas: ["Aumento de transistores", "Reducción del tamaño de los componentes", "Aumento de la potencia de cómputo", "Reducción de costos por transistor"]
+
+enunciado: "Ordena los efectos causados por la aplicación de la Ley de Moore en la tecnología, desde la causa técnica hasta el efecto en el consumidor final:"
+
+respuesta_orden: ["Aumento de transistores", "Reducción del tamaño de los componentes", "Aumento de la potencia de cómputo", "Reducción de costos por transistor"]
+
+explicacion: |
+  La Ley de Moore describe un ciclo: más transistores en menos espacio permiten chips más potentes y, con la escala de producción, más económicos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "revolucion_informatica"
+  nivel: "intermedio"
+  tags: ["teoria", "hardware"]
+
+tipo: completar
+respuestas_validas:
+  - "potencia"
+  - "capacidad"
+
+enunciado: "Debido al aumento exponencial de transistores, la ___ de procesamiento de los ordenadores ha crecido de forma similar a lo largo de las últimas décadas."
+
+respuesta: "potencia"
+
+explicacion: |
+  Al integrar más transistores en un mismo espacio, el procesador puede realizar más operaciones por segundo, aumentando su potencia.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "revolucion_informatica"
   nivel: "basico"
   tags: ["conceptos"]
 
-enunciado: "¿Cuál de las siguientes afirmaciones describe correctamente la diferencia principal entre la memoria volátil y la no volátil?"
-tipo: "mc"
-respuesta: "Solo la memoria no volátil puede almacenar datos de forma permanente."
-opciones_explicitas: ["Solo la memoria no volátil puede almacenar datos de forma permanente.", "Tanto la RAM como el disco duro son memorias no volátiles.", "La memoria volátil es más lenta que la no volátil.", "El almacenamiento volátil es el que se usa para guardar archivos a largo plazo."]
+tipo: mc
+opciones_explicitas: ["Verdadero", "Falso"]
+
+enunciado: "La Ley de Moore es una ley física inmutable de la naturaleza, similar a la Ley de la Gravedad."
+
+respuesta: "Falso"
 
 explicacion: |
-  La característica definitoria es la persistencia: la memoria volátil pierde los datos sin energía, independientemente de su velocidad o capacidad.
+  No es una ley física, sino una observación empírica y una meta industrial que ha guiado la planificación de la industria de los semiconductores.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
+  tema: "revolucion_informatica"
   nivel: "basico"
-  tags: ["memoria", "ram", "volatil"]
+  tags: ["internet", "economia"]
 
-respuesta: falso
-tipo: vf
+tipo: mc
+opciones_explicitas: ["Descentralización de la información", "Aumento de la burocracia física", "Reducción de la velocidad de comunicación", "Eliminación del comercio electrónico"]
+respuesta: "Descentralización de la información"
 
-enunciado: "La memoria RAM es un tipo de almacenamiento no volátil, lo que significa que la información se mantiene guardada aunque se apague el ordenador."
+enunciado: "La combinación de la revolución informática y el internet ha permitido la ________ de la información, permitiendo el acceso global a datos en tiempo real."
 
 explicacion: |
-  La memoria RAM es volátil; su contenido se pierde por completo cuando la corriente eléctrica deja de fluir.
+  La digitalización ha democratizado el acceso a la información, rompiendo las barreras geográficas y temporales que existían antes de la era de internet.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "basico"
-  tags: ["clasificacion", "disco_duro", "ssd"]
+  tema: "revolucion_informatica"
+  nivel: "intermedio"
+  tags: ["economia_digital", "e-commerce"]
 
 variables:
-  escenario: uno_de([["Disco Duro (HDD)", "No volátil"], ["Memoria RAM", "Volátil"]])
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["comercio_electronico", "servicios_streaming"], ["ventas_retail_fisico", "suscripciones_digitales"]]
 
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["No volátil", "Volátil"]
-
-enunciado: "Considerando el dispositivo {escenario[0]}, su característica principal respecto a la persistencia de datos es que es ___."
-
-explicacion: |
-  El {escenario[0]} es un dispositivo de almacenamiento secundario y, por lo tanto, es {escenario[1]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "intermedio"
-  tags: ["flujo_datos", "ram", "disco"]
-
-respuesta_orden: ["Disco Duro", "Memoria RAM", "Procesador"]
-tipo: ordenar
-
-opciones_explicitas: ["Disco Duro", "Memoria RAM", "Procesador"]
-
-enunciado: "Ordena el flujo lógico de datos cuando el usuario abre un archivo para trabajar con él:"
-
-pasos:
-  - "El archivo reside permanentemente en el..."
-  - "Para ser procesado, el archivo se carga en la..."
-  - "Finalmente, los datos pasan a la unidad de..."
-
-explicacion: |
-  Los datos se extraen del almacenamiento no volátil (Disco Duro) hacia la memoria de trabajo (RAM) para que el procesador pueda acceder a ellos rápidamente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "basico"
-  tags: ["terminologia", "persistente"]
-
-respuesta: "persistencia"
 tipo: completar
 respuestas_validas:
-  - "persistencia"
-  - "permanencia"
+  - "servicios_streaming"
+  - "suscripciones_digitales"
+respuesta: escenarios[escenario_idx][1]
 
-enunciado: "La capacidad de un medio de almacenamiento para mantener la información sin necesidad de suministro eléctrico se denomina ___."
+enunciado: "Un ejemplo clave de la transformación económica es el paso de modelos basados en el ________ hacia modelos basados en las ________."
 
 explicacion: |
-  La persistencia es la característica que define a los medios no volátiles como los SSD o los discos duros.
+  La economía ha migrado de la propiedad física y el comercio en locales hacia el consumo de servicios bajo demanda y plataformas digitales.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "intermedio"
-  tags: ["rendimiento", "comparativa"]
-
-variables:
-  caso: uno_de([[0, "Memoria RAM", "Alta velocidad, poca capacidad"], [1, "Disco SSD", "Velocidad media, mayor capacidad"]])
-
-respuesta: caso[2]
-tipo: mc
-opciones_explicitas: ["Alta velocidad, poca capacidad", "Velocidad media, mayor capacidad"]
-
-enunciado: "Si comparamos el dispositivo {caso[1]} con un disco duro mecánico, su característica distintiva es que posee una {caso[2]}."
-
-explicacion: |
-  En este escenario, estamos comparando la velocidad y capacidad relativa de un SSD frente a un HDD.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
+  tema: "revolucion_informatica"
   nivel: "basico"
-  tags: ["hardware", "memoria", "ram"]
+  tags: ["comunicacion", "impacto_social"]
 
-variables:
-  escenario: uno_de([["Estás editando un documento de texto en un procesador de palabras y aún no has guardado los cambios.", "RAM"], ["Has guardado una fotografía en tu carpeta de imágenes en el disco duro.", "Disco"], ["Estás jugando un videojuego y la acción se está procesando en tiempo real.", "RAM"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["RAM", "Disco", "ROM"]
-
-enunciado: "Considerando el escenario: '{escenario[0]}', ¿qué tipo de memoria es la principal responsable de mantener la información mientras el dispositivo tiene energía, pero que se borraría al apagar la computadora?"
-
-explicacion: |
-  La memoria RAM es volátil, lo que significa que requiere energía eléctrica para mantener los datos. Si el dispositivo se apaga sin guardar los cambios en un medio no volátil (como el disco), la información se pierde.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "basico"
-  tags: ["volatilidad", "energia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si un dispositivo de almacenamiento es de tipo 'no volátil', la información almacenada en él se perderá inmediatamente al desconectar la fuente de alimentación eléctrica."
-
-explicacion: |
-  Falso. Precisamente la característica de la memoria no volátil (como un SSD o un HDD) es que la información persiste sin necesidad de energía eléctrica.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "basico"
-  tags: ["clasificacion", "hardware"]
-
-variables:
-  item: uno_de([["Memoria RAM", "volátil"], ["Disco Duro (HDD)", "no volátil"], ["Memoria Flash (USB)", "no volátil"], ["Memoria Caché", "volátil"]])
-
-tipo: completar
-respuesta: item[1]
-enunciado: "El dispositivo '{item[0]}' se clasifica como memoria ___________."
-
-explicacion: |
-  La memoria volátil es aquella que requiere energía para mantener los datos, mientras que la no volátil permite el almacenamiento a largo plazo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "intermedio"
-  tags: ["jerarquia", "ordenar"]
-
-opciones_explicitas: ["Memoria RAM", "Disco Duro", "Memoria ROM"]
-respuesta_orden: ["Memoria RAM", "Disco Duro", "Memoria ROM"]
-tipo: ordenar
-
-enunciado: "Ordena los siguientes componentes de mayor a menor persistencia de datos (desde el que pierde la información más rápido al apagar el equipo hasta el que la mantiene de forma permanente):"
-
-pasos:
-  - "1. RAM (Volátil)"
-  - "2. Disco Duro (No volátil - almacenamiento masivo)"
-  - "3. ROM (No volátil - lectura permanente)"
-
-explicacion: |
-  La RAM es volátil (pierde datos al apagar), el Disco Duro es no volátil para archivos, y la ROM está diseñada para contener instrucciones permanentes que no se borran.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "almacenamiento_volatil_vs_no_volatil"
-  nivel: "basico"
-  tags: ["flujo_datos"]
-
-variables:
-  accion: uno_de([["Guardar un archivo", "no volátil"], ["Abrir un programa", "volátil"]])
-
-respuesta: accion[1]
-tipo: mc
-opciones_explicitas: ["volátil", "no volátil"]
-
-enunciado: "Cuando realizas la acción de '{accion[0]}', el destino final donde quedan los datos es un medio ___________."
-
-explicacion: |
-  Al guardar un archivo, los datos pasan de la memoria volátil (RAM) al almacenamiento no volátil (disco), donde quedan grabados de forma permanente. Al abrir un programa, ocurre lo contrario: los datos se cargan desde el disco (no volátil) hacia la RAM (volátil) para que el procesador pueda trabajar con ellos.
-```
-
-## Sección: archivos-y-persistencia (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "basico"
-  tags: ["conceptos", "almacenamiento"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La persistencia de datos se refiere a la capacidad de una aplicación para guardar información en un medio no volátil para que los datos sobrevivan al cierre del programa o al apagado del sistema."
-
-explicacion: |
-  Correcto. La persistencia permite que la información sea recuperable después de que el proceso de ejecución haya terminado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "basico"
-  tags: ["formatos", "json", "xml"]
-
-variables:
-  formato_idx: uno_de([0, 1])
-  nombres: ["JSON", "XML"]
-  descripciones: ["es un formato basado en pares clave-valor", "es un formato basado en etiquetas como <tag>"]
-
-opciones_explicitas:
-  - "JSON"
-  - "XML"
-
-respuesta: nombres[formato_idx]
-tipo: mc
-
-enunciado: "El formato {nombres[formato_idx]} {descripciones[formato_idx]} es ampliamente utilizado en la web moderna para el intercambio de datos."
-
-explicacion: |
-  Si elegiste JSON, recuerda que usa llaves y corchetes. Si elegiste XML, recuerda que usa etiquetas jerárquicas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "basico"
-  tags: ["extensiones", "texto"]
-
-respuesta: ".csv"
-tipo: completar
-respuestas_validas:
-  - ".csv"
-
-enunciado: "Un archivo que contiene datos estructurados en forma de tabla, donde cada línea es un registro y cada valor está separado por una coma, suele tener la extensión ___"
-
-explicacion: |
-  La extensión .csv significa 'Comma-Separated Values'.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "intermedio"
-  tags: ["estructurado", "texto_plano"]
-
-variables:
-  detalle: uno_de([["Texto Plano", "se puede leer directamente como texto"], ["Binario", "contiene una secuencia de bytes que requiere un formato específico para ser interpretado"]])
-
-opciones_explicitas:
-  - "Texto Plano"
-  - "Binario"
-
-respuesta: detalle[0]
-tipo: mc
-
-enunciado: "Un archivo de tipo {detalle[0]} es aquel que {detalle[1]}."
-
-explicacion: |
-  Los archivos de texto plano contienen caracteres legibles (ASCII/UTF-8), mientras que los binarios contienen datos codificados que no son legibles directamente sin un software específico.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "basico"
-  tags: ["ciclo_vida", "operaciones"]
-
-opciones_explicitas:
-  - "Abrir el archivo"
-  - "Leer o escribir datos"
-  - "Cerrar el archivo"
-
-respuesta_orden: ["Abrir el archivo", "Leer o escribir datos", "Cerrar el archivo"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos necesarios para manipular un archivo de forma segura en un programa:"
-
-explicacion: |
-  Es fundamental abrir el archivo primero, realizar las operaciones de I/O y siempre cerrarlo para liberar recursos y asegurar que los cambios se guarden.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "basico"
-  tags: ["json", "formato", "datos"]
-
-variables:
-  escenario: uno_de([["{\"nombre\": \"Ana\", \"edad\": 25}", "objeto"], ["[1, 2, 3, 4]", "array"], ["{\"id\": 101, \"activo\": true}", "objeto"]])
-
-enunciado: "Se tiene el siguiente fragmento de datos en un archivo: {escenario[0]}."
-
-opciones_explicitas: ["objeto", "array", "diccionario"]
-respuesta: escenario[1]
-tipo: mc
-
-explicacion: |
-  El formato JSON (JavaScript Object Notation) utiliza llaves para representar objetos (pares clave-valor) y corchetes para representar arrays (listas ordenadas).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "basico"
-  tags: ["csv", "delimitadores"]
-
-enunciado: "En un archivo CSV estándar, los datos de una misma fila se separan por un delimitador (comúnmente una coma) y los registros se separan por un salto de línea. Si tenemos el siguiente contenido:\nnombre,edad,ciudad\nJuan,30,Madrid\n\n¿Cuántos campos o columnas tiene cada registro?"
-
-respuesta: 3
 tipo: completar
 tolerancia_abs: 0
 
+enunciado: "Si en la era industrial la comunicación se basaba en el telégrafo y el correo físico, en la era informática la comunicación es instantánea. Si comparamos la velocidad de un mensaje de texto con un correo físico que tarda 3 días, y el mensaje tarda 0 segundos, ¿cuántos segundos de ahorro representa el mensaje digital frente al correo?"
+
+pasos:
+  - "Convertir 3 días a segundos: 3 * 24 * 60 * 60 = 259200"
+  - "Restar el tiempo del mensaje digital (0) al tiempo del correo (259200)"
+
+respuesta: 259200
+
 explicacion: |
-  El archivo contiene tres columnas: 'nombre', 'edad' y 'ciudad'. Cada línea representa una fila y las comas separan los valores de esas columnas.
+  La inmediatez es una de las características fundamentales de la revolución informática, permitiendo la globalización de los mercados en tiempo real.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "archivos_y_persistencia"
+  tema: "revolucion_informatica"
   nivel: "intermedio"
-  tags: ["xml", "json", "comparacion"]
+  tags: ["hardware", "historia"]
 
-enunciado: "Analiza las siguientes dos representaciones de un mismo dato:\n1. `<usuario><id>1</id></usuario>`\n2. `{\"id\": 1}`\n\n¿Cuál de las dos opciones utiliza etiquetas de apertura y cierre para definir la estructura de los datos?"
-
-opciones_explicitas: ["La opción 1 (XML)", "La opción 2 (JSON)", "Ambas", "Ninguna"]
-respuesta: "La opción 1 (XML)"
-tipo: mc
-
-explicacion: |
-  XML (eXtensible Markup Language) se basa en un sistema de etiquetas (tags) como `<id>...</id>`, mientras que JSON utiliza una estructura de pares clave-valor con llaves y corchetes.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "intermedio"
-  tags: ["serializacion", "conceptos"]
-
-enunciado: "Para guardar un objeto de la memoria de un programa en un archivo de forma permanente, se debe realizar un proceso llamado ___."
-
-respuestas_validas:
-  - "serialización"
-  - "serializacion"
-respuesta: "serialización"
-tipo: completar
-
-explicacion: |
-  La serialización es el proceso de convertir un objeto en un formato que pueda ser almacenado (como un archivo) o transmitido, para luego ser reconstruido (deserializado).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "avanzado"
-  tags: ["flujo", "orden", "escritura"]
-
-enunciado: "Para asegurar que todos los datos almacenados en el búfer de escritura se escriban físicamente en el disco duro antes de cerrar un archivo, se debe seguir este orden lógico de operaciones:"
-
-opciones_explicitas: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
-respuesta_orden: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
 tipo: ordenar
+opciones_explicitas: ["Mainframes gigantescos", "Computadoras personales (PC)", "Dispositivos móviles y smartphones"]
+
+enunciado: "Ordena cronológicamente los hitos tecnológicos que permitieron la integración de la informática en la vida cotidiana:"
+
+respuesta_orden: ["Mainframes gigantescos", "Computadoras personales (PC)", "Dispositivos móviles y smartphones"]
 
 explicacion: |
-  El flujo correcto es abrir el archivo para obtener un puntero/manejador, realizar las operaciones de escritura y, finalmente, cerrar el archivo para liberar recursos y asegurar que los datos se guarden (flush).
+  La computación comenzó en grandes centros de datos corporativos, pasó a los escritorios de los hogares con la PC y finalmente se volvió ubicua con los smartphones.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "basico"
-  tags: ["formato", "json", "xml"]
+  tema: "revolucion_informatica"
+  nivel: "avanzado"
+  tags: ["trabajo", "automatizacion"]
 
-respuesta: "JSON"
 tipo: mc
-opciones_explicitas: ["JSON", "XML", "CSV", "TXT"]
+opciones_explicitas: ["Automatización de tareas repetitivas", "Desaparición total del trabajo humano", "Aumento de la necesidad de archivos físicos", "Reducción de la conectividad global"]
+respuesta: "Automatización de tareas repetitivas"
 
-enunciado: "Un programador necesita un formato de intercambio de datos que sea ligero, basado en pares clave-valor y que no utilice etiquetas de cierre como <tag>...</tag>. ¿Qué formato debería usar?"
+enunciado: "Un efecto crítico de la revolución informática en la economía laboral es la ________, lo que obliga a la fuerza de trabajo a especializarse en tareas de mayor valor cognitivo."
 
 explicacion: |
-  JSON (JavaScript Object Notation) es un formato de texto ligero para el intercambio de datos que utiliza una estructura de objetos y arreglos, a diferencia de XML que depende de etiquetas jerárquicas.
+  La automatización impulsada por software y algoritmos ha transformado la estructura del empleo, eliminando tareas mecánicas pero creando nuevas demandas tecnológicas.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "archivos_y_persistencia"
+  tema: "revolucion_informatica"
   nivel: "basico"
-  tags: ["memoria", "disco", "volatilidad"]
+  tags: ["historia", "ordenar"]
 
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es cierto que los datos almacenados en una variable de tipo 'integer' dentro de la memoria RAM se mantienen intactos después de apagar la computadora?"
-
-explicacion: |
-  La memoria RAM es volátil. Para lograr la persistencia, los datos deben escribirse en un dispositivo de almacenamiento secundario (disco duro, SSD) mediante archivos o bases de datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "intermedio"
-  tags: ["flujo", "escritura", "orden"]
-
-respuesta_orden: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
 tipo: ordenar
-opciones_explicitas: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
+opciones_explicitas: ["ENIAC", "Transistor", "PC"]
+respuesta_orden: ["ENIAC", "Transistor", "PC"]
 
-enunciado: "Para asegurar la integridad de la información y liberar los recursos del sistema operativo, ¿cuál es el orden lógico de operaciones para guardar un registro en un archivo de texto?"
+enunciado: "Ordena cronológicamente los siguientes hitos tecnológicos: ENIAC, Transistor y PC."
 
 explicacion: |
-  Es fundamental abrir el flujo de escritura, realizar la operación de volcado de datos y, muy importante, cerrar el archivo para asegurar que el buffer se vacíe correctamente al disco.
+  El orden cronológico correcto es:
+  1. ENIAC (1945) -> 2. Transistor (1947) -> 3. PC (años 70/80).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "archivos_y_persistencia"
+  tema: "revolucion_informatica"
   nivel: "intermedio"
-  tags: ["binario", "texto", "encoding"]
+  tags: ["lenguajes", "historia"]
 
-respuesta: "texto"
-tipo: completar
-opciones_explicitas: ["texto", "binario"]
-respuestas_validas:
-  - "texto"
-  - "binario"
-
-enunciado: "Si un archivo es diseñado para ser leído directamente por un editor de notas sin necesidad de un software especializado para interpretar bytes complejos, se dice que el formato es de tipo ___."
-
-explicacion: |
-  Los archivos de texto plano almacenan caracteres codificados (como ASCII o UTF-8) que representan símbolos legibles. Los archivos binarios contienen datos en un formato que requiere un programa específico para ser interpretado correctamente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "avanzado"
-  tags: ["sobrescritura", "append", "error"]
-
-respuesta: "sobrescritura"
+respuesta: "Ada Lovelace"
 tipo: mc
-opciones_explicitas: ["sobrescritura", "incremento", "creacion", "lectura"]
 
-enunciado: "Un programador utiliza el modo 'w' (write) en lugar de 'a' (append) al abrir un archivo de logs. ¿Cuál es la consecuencia inmediata si el archivo ya contenía datos?"
+opciones_explicitas: ["Ada Lovelace", "Grace Hopper", "John Backus", "Alan Turing"]
+
+enunciado: "Identifica a la figura histórica reconocida por escribir los primeros algoritmos destinados a ser procesados por la Máquina Analítica de Charles Babbage."
 
 explicacion: |
-  El modo 'w' (write) trunca el archivo, es decir, borra todo su contenido actual para empezar desde cero. El modo 'a' (append) posiciona el puntero al final para añadir datos sin borrar lo anterior.
+  Ada Lovelace es reconocida históricamente por haber escrito el primer algoritmo destinado a ser procesado por una máquina.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "archivos_y_persistencia"
+  tema: "revolucion_informatica"
   nivel: "basico"
-  tags: ["formato", "json", "datos"]
-
-respuesta: "JSON"
-tipo: "mc"
-opciones_explicitas: ["XML", "JSON", "TXT", "CSV"]
-
-enunciado: "A diferencia de XML, que utiliza etiquetas anidadas para estructurar la información, el formato ___ es un estándar ligero basado en pares clave-valor que es ampliamente utilizado en APIs web."
-
-explicacion: |
-  JSON (JavaScript Object Notation) es preferido en la web moderna por su sintaxis más simple y menor sobrecarga de datos en comparación con XML.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "basico"
-  tags: ["memoria", "persistencia", "volatilidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un programa guarda una variable en el disco duro (archivo), la información se mantiene aunque el proceso termine o se apague la computadora. Esto significa que la escritura en disco es una operación persistente."
-
-explicacion: |
-  La memoria RAM es volátil (se pierde al apagar el equipo), mientras que el almacenamiento secundario (archivos) permite la persistencia de los datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "intermedio"
-  tags: ["csv", "estructura", "datos"]
-
-respuesta: "CSV"
-tipo: "completar"
-respuestas_validas:
-  - "CSV"
-  - "csv"
-
-enunciado: "Mientras que un archivo de texto plano (.txt) no tiene una estructura interna definida, un archivo ___ utiliza un carácter delimitador (como una coma o punto y coma) para separar los campos de cada registro."
-
-explicacion: |
-  El formato CSV (Comma-Separated Values) es una forma estructurada de representar tablas de datos en texto plano.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "avanzado"
-  tags: ["serializacion", "objetos", "binario"]
+  tags: ["hardware", "almacenamiento"]
 
 variables:
-  escenario: uno_de([["binaria", "binario"], ["de texto", "texto"]])
+  casos: [["Disquete", "CD-ROM", "USB"], ["Cassette", "Disco Duro", "SSD"]]
+  idx: uno_de([0,1])
+  respuesta_correcta: casos[idx][0]
 
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["texto", "binario"]
-
-enunciado: "Si la serialización utilizada es {escenario[0]}, el archivo resultante será de tipo ___."
-
-explicacion: |
-  La serialización binaria es más eficiente en tamaño y velocidad de lectura/escritura, pero no es legible por humanos, a diferencia de la serialización en texto (como JSON).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "intermedio"
-  tags: ["flujo", "archivos", "orden"]
-
-respuesta_orden: ["Abrir", "Leer", "Cerrar"]
-tipo: "ordenar"
-opciones_explicitas: ["Cerrar", "Leer", "Abrir"]
-
-enunciado: "Para manipular un archivo de forma segura y evitar fugas de memoria o bloqueos del sistema operativo, se debe seguir este orden lógico de operaciones:"
-
-explicacion: |
-  Es fundamental abrir el flujo (stream), realizar las operaciones de lectura/escritura y, lo más importante, cerrar el archivo para liberar el recurso.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "basico"
-  tags: ["formato", "json", "datos"]
-
-tipo: mc
-opciones_explicitas: ["{\"nombre\": \"Juan\", \"edad\": 30}", "nombre: 'Juan', edad: 30", "<user><name>Juan</name><age>30</age></user>", "nombre=Juan&edad=30"]
-respuesta: "{\"nombre\": \"Juan\", \"edad\": 30}"
-
-enunciado: "Un desarrollador necesita guardar un objeto de configuración en un formato estándar de intercambio de datos (JSON). Los datos son: nombre: 'Juan', edad: 30. ¿Cuál es la representación correcta del objeto en este formato?"
-
-explicacion: |
-  El formato JSON utiliza llaves para objetos, corchetes para arrays y requiere que las claves y los strings estén encerrados en comillas dobles.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "basico"
-  tags: ["extensiones", "texto"]
-
-respuesta: ".csv"
 tipo: completar
+respuesta: respuesta_correcta
 respuestas_validas:
-  - ".csv"
+  - "Disquete"
+  - "CD-ROM"
+  - "USB"
+  - "Disco Duro"
+  - "Cassette"
+  - "SSD"
 
-enunciado: "Si quieres guardar una lista de productos con sus precios y stock de forma tabular para abrirla en una hoja de cálculo, la extensión más común es ___."
+enunciado: "En la evolución del almacenamiento magnético y óptico, el dispositivo que precede al siguiente es: ___."
 
 explicacion: |
-  El formato CSV (Comma Separated Values) es un estándar para representar datos tabulares en archivos de texto plano.
+  El orden de evolución tecnológica en el escenario seleccionado es: {casos[idx][0]} -> {casos[idx][1]} -> {casos[idx][2]}.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "archivos_y_persistencia"
+  tema: "revolucion_informatica"
   nivel: "intermedio"
-  tags: ["xml", "estructura"]
+  tags: ["internet", "web"]
 
-respuesta: verdadero
-tipo: vf
-enunciado: "Considerando que el formato XML utiliza etiquetas para definir la jerarquía de los datos, ¿es este un formato estructurado?"
+respuesta: "Tim Berners-Lee"
+tipo: mc
+
+opciones_explicitas: ["Tim Berners-Lee", "Vint Cerf", "Marc Andreessen", "Steve Jobs"]
+
+enunciado: "¿Quién es el creador de la World Wide Web (WWW) según el contexto de la revolución digital?"
 
 explicacion: |
-  XML (eXtensible Markup Language) es un lenguaje de marcado diseñado para almacenar y transportar datos de forma jerárquica mediante etiquetas.
+  Tim Berners-Lee inventó la WWW en el CERN, permitiendo la democratización de la información en la red.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "intermedio"
-  tags: ["operaciones", "archivo"]
-
-respuesta_orden: ["Abrir", "Escribir", "Cerrar"]
-tipo: ordenar
-
-opciones_explicitas: ["Abrir", "Escribir", "Cerrar"]
-
-enunciado: "Para asegurar la integridad de la información al guardar datos en un archivo físico, ¿cuál es el orden lógico de las operaciones de bajo nivel?"
-
-explicacion: |
-  Primero se debe obtener un descriptor mediante la apertura, luego se realiza la transferencia de datos al buffer/disco y finalmente se cierra el flujo para liberar el recurso y asegurar que los datos se escriban físicamente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "archivos_y_persistencia"
-  nivel: "avanzado"
-  tags: ["binario", "eficiencia"]
+  tema: "revolucion_informatica"
+  nivel: "basico"
+  tags: ["movilidad", "hardware"]
 
 variables:
-  extensiones: [".exe o .png", ".txt o .log"]
-  valores: [verdadero, falso]
-  idx: uno_de([0, 1])
+  tecnologias: [["Teléfono Fijo", "Teléfono Móvil", "Smartphone"], ["Radio", "Walkman", "iPod"]]
+  idx: uno_de([0,1])
 
-respuesta: valores[idx]
+respuesta: tecnologias[idx][2]
+tipo: mc
 
-tipo: vf
-enunciado: "Si estamos trabajando con un archivo de tipo {extensiones[idx]}, ¿estamos ante un formato de datos binarios que no es legible directamente como texto plano?"
+opciones_explicitas: ["Teléfono Fijo", "Teléfono Móvil", "Smartphone", "Radio", "Walkman", "iPod"]
+
+enunciado: "Identifica el dispositivo que representa la etapa final de la evolución de la comunicación/reproducción en este escenario: ___."
 
 explicacion: |
-  Los archivos binarios contienen datos codificados que requieren un software específico para ser interpretados, a diferencia de los archivos de texto que representan caracteres legibles.
+  La evolución tecnológica sigue una línea de miniaturización y conectividad: {tecnologias[idx][0]} -> {tecnologias[idx][1]} -> {tecnologias[idx][2]}.
 ```
 

@@ -3,35 +3,35 @@
   "id": 796,
   "cluster": 1,
   "temas": [
-   "america-anglosajona",
    "coordenadas-y-husos-horarios",
    "densidad-poblacion",
    "escala-de-mapa",
-   "huella-de-carbono-agua-virtual"
+   "huella-de-carbono-agua-virtual",
+   "orientacion-puntos-cardinales"
   ],
-  "preguntas": 119
+  "preguntas": 116
  },
  {
   "id": 797,
   "cluster": 2,
   "temas": [
-   "orientacion-puntos-cardinales",
-   "urbanizacion-migracion-ciudad",
    "mapa-plano-escala",
    "coordenadas-geograficas",
-   "division-politica"
+   "division-politica",
+   "sig-mapas-digitales",
+   "estados-y-globalizacion"
   ],
-  "preguntas": 107
+  "preguntas": 102
  },
  {
   "id": 798,
   "cluster": 3,
   "temas": [
-   "sig-mapas-digitales",
-   "estados-y-globalizacion",
    "region",
    "sig-gps",
-   "relieve-clima-biomas"
+   "relieve-clima-biomas",
+   "sig-imagenes-satelitales",
+   "recursos-actividades-economicas"
   ],
   "preguntas": 106
  },
@@ -39,59 +39,59 @@
   "id": 799,
   "cluster": 4,
   "temas": [
-   "sig-imagenes-satelitales",
-   "recursos-actividades-economicas",
    "regiones-naturales-de-argentina",
    "geografia-economica-agricola-argentina",
-   "geografia-industrial-mundial"
+   "geografia-industrial-mundial",
+   "mineria-e-hidrocarburos-en-argentina",
+   "america-latina-industria-y-energia"
   ],
-  "preguntas": 136
+  "preguntas": 154
  },
  {
   "id": 800,
   "cluster": 5,
   "temas": [
-   "mineria-e-hidrocarburos-en-argentina",
-   "america-latina-industria-y-energia",
    "poblacion-piramides-migraciones",
    "produccion-agraria-mundial-y-biotecnologia",
-   "ambiente-y-recursos"
+   "ambiente-y-recursos",
+   "america-anglosajona",
+   "ambientalismo-liberal"
   ],
-  "preguntas": 126
+  "preguntas": 111
  },
  {
   "id": 801,
   "cluster": 6,
   "temas": [
    "america-latina-formacion-poblacion",
-   "ambientalismo-liberal",
    "conservacionismo",
    "decrecimiento",
-   "ecologismo-politico"
+   "ecologismo-politico",
+   "indicadores-sociales-de-argentina"
   ],
-  "preguntas": 105
+  "preguntas": 108
  },
  {
   "id": 802,
   "cluster": 7,
   "temas": [
-   "indicadores-sociales-de-argentina",
    "migraciones-internacionales",
    "indice-de-desarrollo-humano",
    "migraciones-internas-en-argentina",
-   "paises-de-america-latina"
+   "paises-de-america-latina",
+   "recursos-hidricos-y-gestion"
   ],
-  "preguntas": 126
+  "preguntas": 128
  },
  {
   "id": 803,
   "cluster": 8,
   "temas": [
-   "recursos-hidricos-y-gestion",
    "riesgos-naturales-argentinos",
    "trabajo-y-desempleo-mundial",
    "riesgos-ambientales-mundiales",
-   "turismo-mundial"
+   "turismo-mundial",
+   "urbanizacion-migracion-ciudad"
   ],
   "preguntas": 130
  }

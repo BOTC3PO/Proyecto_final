@@ -1,1865 +1,901 @@
 # Examen jefe — [PENDIENTE #700]
 
-> Logro #700. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
+> Logro #700. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: revolucion-industrial (25 preguntas)
+## Sección: segunda-guerra-mundial (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "basico"
-  tags: ["tecnologia", "energia"]
-
-enunciado: "La Revolución Industrial en Inglaterra se caracterizó por el uso masivo de carbón como fuente de energía para impulsar la nueva ___."
-
-respuesta: "máquina de vapor"
-tipo: mc
-opciones_explicitas: ["máquina de vapor", "motor de combustión", "molino de viento", "motor eléctrico"]
-
-explicacion: |
-  El uso del carbón mineral permitió el funcionamiento de la máquina de vapor de James Watt, motor fundamental de la Primera Revolución Industrial.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "intermedio"
-  tags: ["social", "economia"]
-
-enunciado: "El paso del 'putting-out system' (producción doméstica) al ___ supuso la concentración de trabajadores en grandes edificios llamados fábricas."
-
-respuesta: "factory system"
-tipo: mc
-opciones_explicitas: ["factory system", "domestic system", "guild system", "corporative system"]
-
-explicacion: |
-  El 'factory system' o sistema de fábrica centralizó la producción, la maquinaria y la mano de obra en un mismo lugar, rompiendo con la producción artesanal en el hogar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "basico"
-  tags: ["urbanismo", "sociedad"]
-
-respuesta: "urbanización"
-tipo: completar
-respuestas_validas:
-  - "urbanización"
-  - "ruralización"
-  - "industrialización"
-
-enunciado: "El desplazamiento masivo de población desde el campo hacia las ciudades para trabajar en las nuevas industrias provocó un acelerado proceso de ___."
-
-explicacion: |
-  La necesidad de mano de obra en las fábricas generó un éxodo rural sin precedentes, transformando las ciudades en centros densamente poblados.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "intermedio"
-  tags: ["procesos", "cronologia"]
-
-enunciado: "Ordena cronológicamente los elementos que caracterizaron la transición hacia la producción mecanizada:"
-
-pasos:
-  - "Producción artesanal en talleres pequeños"
-  - "Introducción de maquinaria textil mecánica"
-  - "Consolidación del sistema de fábricas y ferrocarril"
-
-respuesta_orden: ["Producción artesanal en talleres pequeños", "Introducción de maquinaria textil mecánica", "Consolidación del sistema de fábricas y ferrocarril"]
-tipo: ordenar
-opciones_explicitas: ["Producción artesanal en talleres pequeños", "Introducción de maquinaria textil mecánica", "Consolidación del sistema de fábricas y ferrocarril"]
-
-explicacion: |
-  La transición fue un proceso gradual que comenzó con la mejora de herramientas manuales, siguió con la mecanización de la industria textil y culminó con la expansión del transporte ferroviario.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
+  tema: "segunda-guerra-mundial"
   nivel: "avanzado"
-  tags: ["clases_sociales", "lucha_de_clases"]
-
-variables:
-  clase_obrera: uno_de(["proletariado", "burguesía"])
-
-enunciado: "La nueva clase social surgida de la Revolución Industrial, compuesta por quienes solo poseían su fuerza de trabajo, se denomina ___."
-
-respuesta: "proletariado"
-tipo: mc
-opciones_explicitas: ["proletariado", "burguesía", "aristocracia", "campesinado"]
-
-explicacion: |
-  El proletariado urbano surgió como la clase trabajadora industrial, diferenciándose de la burguesía, que era la dueña de los medios de producción.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "basico"
-  tags: ["tecnologia", "james_watt"]
-
-respuesta: "James Watt"
+  tags: ["inicio", "1939", "invasion"]
 tipo: completar
-respuestas_validas:
-  - "James Watt"
-
-enunciado: "El perfeccionamiento de la máquina de vapor por ___ fue el motor tecnológico que permitió la transición hacia la producción mecanizada."
-
-explicacion: |
-  James Watt no inventó la máquina de vapor, pero sus mejoras (como el condensador separado) la hicieron eficiente para la industria.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "intermedio"
-  tags: ["geografia_industrial", "energia"]
-
+enunciado: "La Segunda Guerra Mundial en Europa comenzó oficialmente el 1 de septiembre de 1939 cuando Alemania invadió {{pais_objetivo}}."
 variables:
-  fuente_tradicional: uno_de(["agua", "animal", "humana"])
-
-respuesta: fuente_tradicional
-tipo: mc
-opciones_explicitas: ["agua", "animal", "humana", "viento"]
-
-enunciado: "Antes de la máquina de vapor, las fábricas dependían principalmente de la fuerza de {fuente_tradicional} o de la fuerza muscular. La máquina de vapor permitió que las fábricas se ubicaran lejos de las corrientes de {fuente_tradicional}."
-
-explicacion: |
-  La energía hidráulica obligaba a las fábiles a estar junto a ríos; la máquina de vapor permitió la urbanización industrial.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "basico"
-  tags: ["mecanizacion", "produccion"]
-
-respuesta: "mecanización"
-tipo: completar
+  pais_objetivo: uno_de(["Polonia", "Polonia"])
+respuesta: "polonia"
 respuestas_validas:
-  - "mecanización"
-
-enunciado: "La implementación de la tecnología de Watt facilitó la ___ de procesos que anteriormente se realizaban de forma manual o artesanal."
-
-explicacion: |
-  La mecanización permitió aumentar la escala de producción y reducir los tiempos de fabricación de manera exponencial.
+  - "polonia"
+  - "polonia"
+  - "Polonia"
+explicacion: "La invasión de Polonia por parte de la Alemania nazi el 1 de septiembre de 1939 es considerada universalmente el evento detonante del conflicto en Europa, provocando la declaración de guerra de Francia y el Reino Unido dos días después."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revolucion_industrial"
+  tema: "segunda-guerra-mundial"
   nivel: "avanzado"
-  tags: ["procesos", "causalidad"]
-
-respuesta_orden: ["Revolución Agraria", "Máquina de Vapor", "Expansión de Ferrocarriles", "Urbanización Masiva"]
-tipo: ordenar
-opciones_explicitas: ["Revolución Agraria", "Máquina de Vapor", "Expansión de Ferrocarriles", "Urbanización Masiva"]
-
-enunciado: "Ordena cronológicamente los procesos que impulsaron la Revolución Industrial:"
-
-explicacion: |
-  La revolución agrícola aumentó la oferta de alimentos; la máquina de vapor mecanizó la industria y el transporte; esto finalmente provocó un éxodo rural hacia las ciudades.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "intermedio"
-  tags: ["energia", "carbón"]
-
-respuesta: "verdadero"
+  tags: ["guerra-fria", "truman", "doctrina"]
 tipo: completar
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "¿La máquina de vapor permitió que la producción industrial dejara de depender exclusivamente de fuentes de energía naturales y renovables como el viento o el agua?"
-
-explicacion: |
-  Es verdadero. Al usar carbón para generar vapor, la industria ganó autonomía respecto a las condiciones climáticas o geográficas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revolucion_industrial"
-  nivel: "basico"
-  tags: ["urbanizacion", "migracion"]
-
+enunciado: "En 1947, el presidente estadounidense Harry S. Truman anunció la doctrina que establecía que Estados Unidos apoyaría a cualquier nación resistente a la presión de minorías armadas o {{ideologia_opuesta}}, marcando el inicio de la Guerra Fría."
 variables:
-  escenario: uno_de([["el cercamiento de tierras", "la búsqueda de empleo en las fábricas"], ["la mecanización de la agricultura", "la oferta de salarios en los centros urbanos"], ["la crisis de la industria artesanal", "la promesa de una vida mejor en la ciudad"]])
-
-respuesta: escenario[1]
-tipo: completar
-
-enunciado: "La Revolución Industrial provocó una migración masiva desde el campo hacia las ciudades, impulsada principalmente por {escenario[0]} y {escenario[1]}."
-
-pasos:
-  - "Analizar el proceso de cercamiento de tierras (enclosures)."
-  - "Identificar la necesidad de mano de obra en las nuevas fábricas textiles y siderúrgicas."
-
-explicacion: |
-  La mecanización del campo y los cercamientos dejaron a muchos campesinos sin tierras, obligándolos a migrar a las ciudades para trabajar en las nuevas industrias.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revolucion_industrial"
-  nivel: "basico"
-  tags: ["clases_sociales", "proletariado"]
-
-variables:
-  clase_social: uno_de(["proletariado", "burguesía", "aristocracia"])
-
-respuesta: "proletariado"
-tipo: mc
-
-opciones_explicitas: ["proletariado", "burguesía", "aristocracia"]
-
-enunciado: "El grupo social que surgió con la Revolución Industrial, compuesto por personas que solo poseían su fuerza de trabajo para vender a cambio de un salario, se denomina ________."
-
-explicacion: |
-  El proletariado es la clase trabajadora urbana que surgió como consecuencia directa de la industrialización y la pérdida de medios de producción propios.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revolucion_industrial"
-  nivel: "intermedio"
-  tags: ["condiciones_laborales", "jornada"]
-
-respuesta: 14
-tipo: completar
-tolerancia_abs: 1
-
-enunciado: "Durante el apogeo de la Revolución Industrial, las jornadas laborales en las fábricas textiles eran extremadamente extensas. Si un obrero trabajaba de 06:00 a 20:00 con una hora de descanso para comer, ¿cuántas horas trabajaba efectivamente por día?"
-
-pasos:
-  - "Calcular el tiempo total transcurrido desde las 06:00 hasta las 20:00."
-  - "Restar la hora de descanso."
-
-explicacion: |
-  Las jornadas de 12 a 16 horas eran la norma en la primera fase de la Revolución Industrial, lo que generaba un agotamiento extremo en la clase obrera.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revolucion_industrial"
-  nivel: "intermedio"
-  tags: ["urbanizacion", "causas"]
-
-respuesta_orden: ["Mecanización agrícola", "Cercamientos de tierras", "Crecimiento de fábricas"]
-tipo: ordenar
-
-opciones_explicitas: ["Mecanización agrícola", "Cercamientos de tierras", "Crecimiento de fábricas"]
-
-enunciado: "Ordene los siguientes procesos según su secuencia lógica en el fenómeno de la urbanización industrial (desde la causa rural hasta el efecto urbano):"
-
-explicacion: |
-  Primero la mecanización y cercamientos expulsan al campesino; luego, el crecimiento de fábricas en ciudades atrae a esa población desplazada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revolucion_industrial"
-  nivel: "avanzado"
-  tags: ["salud_publica", "hacinamiento"]
-
-variables:
-  problema: uno_de([["el hacinamiento en barrios obreros", "la falta de sistemas de alcantarillado"], ["la contaminación del aire", "la falta de agua potable"]])
-
-respuesta: problema[0]
-tipo: mc
-
-opciones_explicitas: ["el hacinamiento en barrios obreros", "la falta de sistemas de alcantarillado", "la contaminación del aire", "la falta de agua potable"]
-
-enunciado: "Uno de los problemas sociales y sanitarios más graves de las ciudades industriales fue {problema[0]}."
-
-explicacion: |
-  El crecimiento descontrolado de las ciudades atrajo a tanta gente que se crearon barrios obreros con condiciones de hacinamiento extremo, facilitando la propagación de enfermedades.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "basico"
-  tags: ["tecnologia", "economia"]
-
-tipo: completar
-enunciado: "La invención y perfeccionamiento de la ___ fue el motor tecnológico fundamental que impulsó la Primera Revolución Industrial."
-respuesta: "Máquina de vapor"
-explicacion: |
-  La máquina de vapor, perfeccionada por James Watt, permitió mecanizar la producción y revolucionar el transporte, siendo el pilar del cambio industrial.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "intermedio"
-  tags: ["capitalismo", "economia"]
-
-tipo: completar
+  ideologia_opuesta: uno_de(["del comunismo", "del comunismo"])
+respuesta: "del comunismo"
 respuestas_validas:
-  - "capitalismo industrial"
-
-enunciado: "La Revolución Industrial transformó la economía mundial, sentando las bases del ___ moderno."
-
-explicacion: |
-  El paso de una economía agraria y artesanal a una basada en la propiedad privada de los medios de producción y el trabajo asalariado definió el capitalismo industrial.
+  - "del comunismo"
+  - "del comunismo"
+  - "del comunismo"
+explicacion: "La Doctrina Truman se formuló para contener la expansión del comunismo soviético, especialmente en Grecia y Turquía, estableciendo el principio de intervención estadounidense en conflictos globales para prevenir la proliferación comunista."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "basico"
-  tags: ["produccion", "manufactura"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si una fábrica artesanal producía 10 unidades por día y, tras la industrialización, su capacidad se multiplica por 150, ¿cuántas unidades produce ahora?"
-
-pasos:
-  - "Identificar la producción inicial: 10"
-  - "Multiplicar por el factor de escala: 10 * 150"
-
-respuesta: 1500
-
-explicacion: |
-  La mecanización permitió un aumento exponencial en la capacidad de producción, pasando de escalas manuales a escalas masivas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
+  tema: "segunda-guerra-mundial"
   nivel: "avanzado"
-  tags: ["sociedad", "urbanizacion"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["urbanización", "crecimiento"], ["proletariado", "clase obrera"]]
-
-tipo: mc
-opciones_explicitas: ["urbanización y crecimiento", "proletariado y clase obrera", "feudalismo y campesinado", "monarquía y aristocracia"]
-
-enunciado: "La Revolución Industrial provocó un proceso de {datos[escenario_idx][0]} y {datos[escenario_idx][1]} sin precedentes en las ciudades europeas."
-
-respuesta: datos[escenario_idx][0] + " y " + datos[escenario_idx][1]
-explicacion: |
-  El desplazamiento de la población del campo a la ciudad (éxodo rural) transformó la demografía y la estructura social.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "intermedio"
-  tags: ["procesos", "orden"]
-
-tipo: ordenar
-opciones_explicitas: ["Revolución Agraria", "Mecanización Textil", "Expansión del Ferrocarril", "Segunda Revolución Industrial"]
-
-enunciado: "Ordena cronológicamente los hitos que permitieron la consolidación de la era industrial:"
-
-respuesta_orden: ["Revolución Agraria", "Mecanización Textil", "Expansión del Ferrocarril", "Segunda Revolución Industrial"]
-
-explicacion: |
-  Primero la agricultura permitió alimentar a más gente; luego la industria textil se mecanizó; el ferrocarril conectó mercados y finalmente la segunda fase introdujo la electricidad y el acero.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "basico"
-  tags: ["inventos", "transporte"]
-
-variables:
-  datos: [["Máquina de vapor de Watt", "Revolución del transporte terrestre"], ["Telar mecánico", "Producción textil masiva"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Revolución del transporte terrestre", "Producción textil masiva", "Comunicación instantánea", "Iluminación urbana"]
-
-enunciado: "El impacto principal de la {datos[idx][0]} fue la {datos[idx][1]}."
-
-explicacion: |
-  La {datos[idx][0]} transformó la economía al permitir la {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "intermedio"
-  tags: ["comunicacion", "tecnologia"]
-
-variables:
-  datos: [["Telégrafo", "Comunicación a larga distancia"], ["Ferrocarril", "Movilidad de mercancías"], ["Máquina de coser", "Producción de indumentaria"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "Comunicación a larga distancia"
-  - "Movilidad de mercancías"
-  - "Producción de indumentaria"
-
-enunciado: "El invento del ___ permitió la ___."
-
-pasos:
-  - "Identificar el invento seleccionado."
-  - "Relacionar con su consecuencia social o económica."
-
-explicacion: |
-  El {datos[idx][0]} fue fundamental para la {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "avanzado"
-  tags: ["procesos", "orden"]
-
-opciones_explicitas: ["Máquina de vapor", "Locomotora de vapor", "Expansión ferroviaria"]
-
-respuesta_orden: ["Máquina de vapor", "Locomotora de vapor", "Expansión ferroviaria"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente la evolución tecnológica que impulsó el transporte en la Revolución Industrial:"
-
-explicacion: |
-  Primero se perfeccionó la máquina de vapor, luego se aplicó al transporte con la locomotora y finalmente se consolidó la red ferroviaria.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "basico"
-  tags: ["industria", "textil"]
-
-variables:
-  datos: [["Mecanización", "Aumento de la productividad"], ["Artesanía", "Producción lenta y manual"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Aumento de la productividad", "Producción lenta y manual", "Reducción de costos", "Desaparición de talleres"]
-
-enunciado: "Al comparar la {datos[idx][0]} con el modelo anterior, el resultado fue un {datos[idx][1]}."
-
-explicacion: |
-  La transición hacia la {datos[idx][0]} significó un {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_industrial"
-  nivel: "intermedio"
-  tags: ["energia", "carbón"]
-
-variables:
-  datos: [["Carbón mineral", "Combustible fósil"], ["Madera", "Biomasa"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "Combustible fósil"
-  - "Biomasa"
-
-enunciado: "El uso masivo de ___ permitió el acceso a un ___."
-
-explicacion: |
-  La transición hacia el uso de {datos[idx][0]} fue el motor que proporcionó el {datos[idx][1]} necesario para las fábricas.
-```
-
-## Sección: revolucion-neolitica (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "basico"
-  tags: ["agricultura", "sedentarismo"]
-
-tipo: mc
-opciones_explicitas: ["Caza y recolección", "Agricultura y ganadería", "Comercio de especias", "Metalurgia del hierro"]
-
-enunciado: "La Revolución Neolítica se define fundamentalmente por el paso de una economía de subsistencia basada en la caza y la recolección hacia una basada en la..."
-
-respuesta: "Agricultura y ganadería"
-
-explicacion: |
-  El Neolítico marca la transición de la dependencia de los recursos naturales espontáneos al control de la producción de alimentos mediante la domesticación de plantas y animales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "basico"
-  tags: ["estilo_de_vida", "asentamientos"]
-
-variables:
-  escenario: uno_de([["nómadas", "se desplazan constantemente"], ["sedentarios", "se establecen en un lugar fijo"]])
-
-tipo: completar
-respuestas_validas:
-  - "nómadas"
-  - "sedentarios"
-
-enunciado: "Antes de la agricultura, los grupos humanos eran principalmente {escenario[0]}, pero con la domesticación de especies se volvieron {escenario[1]}."
-
-respuesta: escenario[1]
-
-explicacion: |
-  Al tener cultivos y ganado que cuidar, los grupos humanos ya no necesitaban desplazarse constantemente, dando origen a los primeros asentamientos permanentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "intermedio"
-  tags: ["sociedad", "excedente"]
-
-tipo: mc
-opciones_explicitas: ["Desigualdad social", "Igualdad absoluta", "Desaparición de la propiedad", "Retorno a la caza"]
-
-enunciado: "La capacidad de producir un excedente de alimentos permitió la especialización del trabajo y, consecuentemente, el surgimiento de..."
-
-respuesta: "Desigualdad social"
-
-explicacion: |
-  El excedente alimentario permitió que no todos tuvieran que producir comida, lo que llevó a la división del trabajo y a la aparición de estructuras de poder y jerarquías sociales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "basico"
-  tags: ["tiempo", "cronologia"]
-
-tipo: ordenar
-opciones_explicitas: ["Paleolítico", "Revolución Neolítica", "Edad de los Metales"]
-
-respuesta_orden: ["Paleolítico", "Revolución Neolítica", "Edad de los Metales"]
-
-enunciado: "Ordena cronológicamente las etapas de la historia humana según el uso de herramientas y tecnología de subsistencia:"
-
-explicacion: |
-  La Revolución Neolítica es el puente entre el Paleolítico (piedra tallada/caza) y el desarrollo de las civilizaciones complejas que usarían metales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "avanzado"
-  tags: ["demografia", "salud"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Se estima que hace aproximadamente 12000 años, la transición hacia la agricultura provocó que la población mundial ___ de forma drástica."
-
-respuesta: "aumentó"
-
-explicacion: |
-  La agricultura permitió una mayor densidad de población por unidad de superficie, aunque también trajo nuevos desafíos como enfermedades zoonóticas y carencias nutricionales específicas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "basico"
-  tags: ["agricultura", "cereales"]
-
-variables:
-  escenario: uno_de([["Creciente Fértil", "trigo y cebada"], ["Mesoamérica", "maíz"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["trigo y cebada", "maíz", "papa", "arroz"]
-
-enunciado: "En la región del {escenario[0]}, los primeros agricultores se especializaron en el cultivo de {escenario[1]}."
-
-explicacion: |
-  En el Creciente Fértil (Mesopotamia y Levante), el trigo y la cebada fueron los pilares de la agricultura neolítica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "basico"
-  tags: ["ganaderia", "animales"]
-
-respuesta: "oveja"
-tipo: mc
-opciones_explicitas: ["oveja", "vaca", "cerdo", "caballo"]
-
-enunciado: "Uno de los animales más importantes para la obtención de lana y carne en el Neolítico fue la ___."
-
-explicacion: |
-  La domesticación de la oveja permitió no solo alimento, sino también fibras textiles para la vestimenta.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "intermedio"
-  tags: ["america", "papa"]
-
-respuesta: "papa"
-respuestas_validas:
-  - "papa"
-tipo: completar
-
-enunciado: "A diferencia de los cereales de Eurasia, en la región de los Andes el cultivo fundamental fue la ___."
-
-explicacion: |
-  La papa fue el cultivo base de las civilizaciones andinas, permitiendo el asentamiento en zonas de altura.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "avanzado"
-  tags: ["procesos", "orden"]
-
-respuesta_orden: ["Recolección de granos silvestres", "Selección de semillas", "Cultivo de campos"]
-tipo: ordenar
-opciones_explicitas: ["Recolección de granos silvestres", "Selección de semillas", "Cultivo de campos"]
-
-enunciado: "Ordena los pasos que permitieron la transición de la recolección a la agricultura intensiva:"
-
-explicacion: |
-  Primero se recolectaban granos, luego se seleccionaban las mejores semillas para la siguiente siembra, consolidando el cultivo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "intermedio"
-  tags: ["consecuencias", "poblacion"]
-
-respuesta: "aumento"
-tipo: mc
-opciones_explicitas: ["aumento", "disminución", "estancamiento", "variación"]
-
-enunciado: "La capacidad de producir excedentes alimentarios provocó un ___ de la población humana."
-
-explicacion: |
-  La agricultura permitió alimentar a más personas en un mismo territorio, lo que derivó en un crecimiento demográfico sostenido.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "basico"
-  tags: ["agricultura", "origen", "neolitico"]
-
-tipo: mc
-opciones_explicitas: ["En un único punto geográfico", "De forma independiente en diversas regiones", "Fue un proceso importado de Europa", "Ocurrió solo en el Creciente Fértil"]
-respuesta: "De forma independiente en diversas regiones"
-enunciado: "Sobre el surgimiento de la agricultura durante la Revolución Neolítica, es correcto afirmar que esta ocurrió ___."
-explicacion: |
-  La agricultura no fue un evento único y global, sino que surgió de manera independiente en múltiples focos como el Creciente Fértil, China, Mesoamérica y los Andes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "intermedio"
-  tags: ["regiones", "centros_de_origen"]
-
-variables:
-  idx: uno_de([0, 1, 2, 3])
-  datos: [["Creciente Fértil", "trigo y cebada"], ["China", "arroz y mijo"], ["Mesoamérica", "maíz y calabaza"], ["Andes", "papa y quinoa"]]
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "trigo y cebada"
-  - "arroz y mijo"
-  - "maíz y calabaza"
-  - "papa y quinoa"
-
-enunciado: "En la región de {datos[idx][0]}, los primeros cultivos domesticados fueron principalmente {datos[idx][1]}."
-
-explicacion: |
-  Cada región desarrolló sus propios cultivos base de forma autónoma: {datos[idx][0]} se centró en {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "intermedio"
-  tags: ["proceso", "secuencia"]
-
-tipo: ordenar
-opciones_explicitas: ["Recolección de granos silvestres", "Domesticación de plantas", "Sedentarismo", "Aumento de la densidad poblacional"]
-
-enunciado: "Ordena cronológicamente las etapas que generalmente preceden a la consolidación de las sociedades agrícolas:"
-
-explicacion: |
-  El proceso comienza con la recolección, seguido de la selección de semillas (domesticación), lo que permite asentarse (sedentarismo) y finalmente permite que la población crezca.
-respuesta_orden: ["Recolección de granos silvestres", "Domesticación de plantas", "Sedentarismo", "Aumento de la densidad poblacional"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "avanzado"
-  tags: ["geografia", "determinismo"]
-
+  tags: ["frente-oriental", "invasion-urss", "1941"]
 tipo: vf
-
-enunciado: "La existencia de múltiples centros de origen de la agricultura sugiere que el clima y la disponibilidad de especies silvestres fueron factores clave en diferentes partes del mundo."
-
+enunciado: "La Operación Barbarroja fue el nombre en clave del ataque sorpresa lanzado por la Alemania nazi contra la Unión Soviética en junio de 1941."
 respuesta: verdadero
-
-explicacion: |
-  Es verdadero. La diversidad de cultivos en distintas regiones demuestra que la transición neolítica fue una respuesta adaptativa a entornos locales específicos.
+explicacion: "Lanzada el 22 de junio de 1941, fue la mayor invasión terrestre de la historia, rompiendo el pacto de no agresión Molotov-Ribbentrop y abriendo el Frente Oriental, que se convirtió en el escenario más sangriento del conflicto."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "intermedio"
-  tags: ["regiones", "identificacion"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Mesoamérica", "Maíz"], ["Andes", "Papa"]]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si estamos en la región de {datos[idx][0]}, el cultivo fundamental para el desarrollo de la agricultura fue la {datos[idx][1]}."
-
-pasos:
-  - "Identificar la región según el escenario."
-  - "Relacionar la región con su cultivo principal."
-
-explicacion: |
-  En {datos[idx][0]}, la domesticación de la {datos[idx][1]} fue el motor del cambio neolítico.
-
-respuesta: datos[idx][1]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "basico"
-  tags: ["agricultura", "excedente"]
-
-respuesta: "excedente"
-tipo: completar
-respuestas_validas:
-  - "excedente"
-
-enunciado: "La capacidad de producir más alimento del que se consume inmediatamente se denomina ___."
-
-explicacion: |
-  Este fenómeno permitió que no todas las personas tuvieran que dedicarse a la recolección o caza, permitiendo la especialización del trabajo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "basico"
-  tags: ["sedentarismo", "agricultura"]
-
-respuesta: "sedentarismo"
-tipo: mc
-opciones_explicitas: ["sedentarismo", "desplazamiento constante", "nomadismo extremo", "migración estacional"]
-
-enunciado: "La adopción de la agricultura estable permitió que los grupos humanos abandonaran el nomadismo, dando paso al ___."
-
-explicacion: |
-  Al tener una fuente de alimento constante y predecible, las poblaciones pudieron establecer asentamientos permanentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "intermedio"
-  tags: ["demografia", "neolitico"]
-
-respuesta: "aumento"
-tipo: mc
-opciones_explicitas: ["aumento", "disminución", "estancamiento", "inestabilidad"]
-
-enunciado: "La disponibilidad de excedentes alimentarios provocó un ___ de la población humana."
-
-explicacion: |
-  La mayor disponibilidad de calorías y la estabilidad de los asentamientos permitieron un crecimiento demográfico sostenido.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
-  nivel: "intermedio"
-  tags: ["secuencia", "transicion"]
-
-respuesta_orden: ["agricultura", "excedente", "sedentarismo", "especialización"]
-tipo: ordenar
-opciones_explicitas: ["agricultura", "excedente", "sedentarismo", "especialización"]
-
-enunciado: "Ordena la siguiente secuencia lógica de la Revolución Neolítica:"
-
-pasos:
-  - "Primero, la domesticación de plantas y animales."
-  - "Segundo, la acumulación de comida sobrante."
-  - "Tercero, el establecimiento de asentamientos permanentes."
-  - "Cuarto, la aparición de artesanos y guerreros."
-
-explicacion: |
-  La secuencia muestra cómo la producción de alimentos (agricultura) genera excedentes, lo que permite el sedentarismo y, finalmente, la división del trabajo (especialización).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revolucion_neolitica"
+  tema: "segunda-guerra-mundial"
   nivel: "avanzado"
-  tags: ["causalidad", "sociedad"]
-
-respuesta: "sedentarismo"
+  tags: ["frente-oriental", "stalingrado", "punto-de-inflexion"]
 tipo: mc
-opciones_explicitas: ["sedentarismo", "nomadismo", "migración", "recolección"]
-
-enunciado: "Si la agricultura genera un excedente, la consecuencia social directa es el ___."
-
-explicacion: |
-  El excedente permite que la sociedad deje de moverse constantemente en busca de comida, fijando la población en un territorio.
+enunciado: "¿Cuál batalla es ampliamente considerada por los historiadores como el punto de inflexión estratégico en el Frente Oriental?"
+opciones_explicitas:
+  - "Batalla de Moscú"
+  - "Batalla de Stalingrado"
+  - "Batalla de Kursk"
+  - "Sitio de Leningrado"
+respuesta: "Batalla de Stalingrado"
+explicacion: "La derrota del 6º Ejército alemán en Stalingrado (noviembre de 1942 - febrero de 1943) marcó el comienzo del colapso de la ofensiva alemana en la URSS y el inicio de la retirada general de las fuerzas del Eje hacia el oeste."
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "revolucion_neolitica"
-  nivel: "basico"
-  tags: ["agricultura", "origen"]
-
-respuesta: "Oriente Próximo"
-tipo: mc
-opciones_explicitas: ["Oriente Próximo", "Río Amarillo", "México"]
-
-enunciado: "La domesticación de cereales como el trigo y la cebada ocurrió principalmente en la región del Creciente Fértil, también conocida como ___."
-
-explicacion: |
-  La región del Creciente Fértil fue el núcleo de la revolución neolítica, permitiendo el sedentarismo gracias al cultivo de cereales.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revolucion_neolitica"
-  nivel: "basico"
-  tags: ["america", "maiz"]
-
-variables:
-  datos: [["Mesoamérica", "maíz"], ["Andes", "papa"], ["China", "arroz"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["maíz", "papa", "arroz"]
-
-enunciado: "En la región de {datos[idx][0]}, el cultivo fundamental que transformó la dieta humana fue el ___."
-
-explicacion: |
-  El maíz es el pilar de la agricultura en Mesoamérica, derivado del teosinte.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revolucion_neolitica"
-  nivel: "intermedio"
-  tags: ["nomadismo", "sedentarismo"]
-
-respuesta: "agricultores"
-tipo: completar
-respuestas_validas:
-  - "agricultores"
-
-enunciado: "Antes de la revolución neolítica, los grupos humanos eran mayoritariamente nómadas y recolectores; tras la domesticación de plantas, se convirtieron en ___."
-
-explicacion: |
-  La capacidad de producir alimento permitió que los grupos humanos dejaran de desplazarse constantemente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revolucion_neolitica"
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
   nivel: "avanzado"
-  tags: ["geografia", "cultivos"]
-
-respuesta: "papa"
-tipo: mc
-opciones_explicitas: ["arroz", "papa", "trigo"]
-
-enunciado: "Si un arqueólogo encuentra restos de tubérculos domesticados en la zona de los Andes, lo más probable es que se trate de ___."
-
-explicacion: |
-  La domesticación de la papa es un proceso clave que ocurrió en la región andina.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revolucion_neolitica"
-  nivel: "intermedio"
-  tags: ["procesos", "orden"]
-
-respuesta_orden: ["Recolección", "Domesticación", "Sedentarismo", "Excedente"]
-tipo: ordenar
-opciones_explicitas: ["Recolección", "Domesticación", "Sedentarismo", "Excedente"]
-
-enunciado: "Ordena cronológicamente los procesos que definen la transición del Paleolítico al Neolítico:"
-
-explicacion: |
-  Primero se recolectaba, luego se domesticó la especie, lo que permitió el sedentarismo y finalmente la creación de excedentes que permitieron la especialización del trabajo.
-```
-
-## Sección: revoluciones-burguesas-liberalismo (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "basico"
-  tags: ["revolucion_francesa", "burguesia"]
-
-respuesta: "burguesía"
+  tags: ["diplomacia", "alianzas", "1945"]
 tipo: completar
+enunciado: "En febrero de 1945, Roosevelt, Churchill y Stalin se reunieron en {{ciudad}} para discutir la reorganización de Europa después de la guerra, acordando la división de Alemania y los futuros límites de Polonia."
+variables:
+  ciudad: uno_de(["Yalta", "Yalta"])
+respuesta: "yalta"
 respuestas_validas:
-  - "burguesía"
-  - "la burguesía"
-
-enunciado: "Durante el siglo XVIII, la clase social que lideró el desafío al Antiguo Régimen, buscando mayor participación política y la eliminación de los privilegios feudales, fue la ___."
-
-explicacion: |
-  La burguesía, compuesta por comerciantes, banqueros y profesionales, poseía poder económico pero carecía de poder político, lo que impulsó las revoluciones liberales.
+  - "yalta"
+  - "Yalta"
+  - "yalta"
+explicacion: "La Conferencia de Yalta estableció las esferas de influencia en Europa del Este y acordó la entrada de la URSS en la guerra contra Japón, sentando las bases para la posterior división del continente y la Guerra Fría."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["derechos_humanos", "liberalismo"]
-
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["pacifico", "atrocidades", "japon"]
+tipo: completar
+enunciado: "Tras la captura de la capital china en diciembre de 1937, las tropas japonesas cometieron una masacre masiva conocida como el Asedio o Masacre de {{ciudad_china}}, donde cientos de miles de civiles y prisioneros fueron ejecutados."
 variables:
-  es_derecho_natural: uno_de([verdadero, falso])
+  ciudad_china: uno_de(["Nankín", "Nankín"])
+respuesta: "nankin"
+respuestas_validas:
+  - "nankin"
+  - "nankín"
+  - "Nankín"
+  - "Nanjing"
+explicacion: "La Masacre de Nankín fue una serie de crímenes de guerra cometidos por el Ejército Imperial Japonés contra la población civil y los prisioneros de guerra chinos durante los primeros meses de ocupación de la ciudad."
+```
 
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["estrategia", "alemania", "occidente"]
+tipo: mc
+enunciado: "A diferencia del Plan Schlieffen de la Primera Guerra Mundial, la estrategia inicial alemana en la Segunda Guerra Mundial para Occidente (Fall Gelb) se basó principalmente en:"
+opciones_explicitas:
+  - "Una invasión directa y frontal a través de la Línea Maginot"
+  - "Un flanqueo rápido a través de las Ardenas y Bélgica"
+  - "Un asedio naval prolongado para forzar la rendición"
+  - "Un desembarco anfibio en el sur de Francia"
+respuesta: "Un flanqueo rápido a través de las Ardenas y Bélgica"
+explicacion: "El Plan Fall Gelb (1940) evitó la fuerte defensa francesa en la frontera oriental atacando a través de las Ardenas (consideradas inexpugnables por los aliados) y avanzando rápidamente hacia el Canal de la Mancha, aislando a las fuerzas aliadas en Bélgica."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["pacifico", "armas-nucleares", "1945"]
+tipo: completar
+enunciado: "El 6 de agosto de 1945, el bombardero B-29 Enola Gay arrojó la primera bomba atómica en combate sobre la ciudad japonesa de {{ciudad}}, causando la muerte inmediata de unas 70.000 a 80.000 personas."
+variables:
+  ciudad: uno_de(["Hiroshima", "Hiroshima"])
+respuesta: "hiroshima"
+respuestas_validas:
+  - "hiroshima"
+  - "Hiroshima"
+  - "hiroshima"
+explicacion: "El bombardeo de Hiroshima, seguido por el de Nagasaki tres días después, llevó a la rendición incondicional de Japón y marcó el inicio de la era nuclear, así como el fin de la Segunda Guerra Mundial."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["naval", "submarinos", "logistica"]
+tipo: vf
+enunciado: "La Batalla del Atlántico fue la campaña naval de mayor duración en la Segunda Guerra Mundial, centrada en el bloqueo aliado de Alemania y la guerra de submarinos (U-boot) alemana contra los convoyes de suministro."
 respuesta: verdadero
+explicacion: "Esta campaña submarina y contrasubmarina duró desde el primer día de la guerra hasta la rendición de Alemania en 1945, siendo crucial para la supervivencia del Reino Unido y el esfuerzo bélico aliado."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["resistencia", "francia", "colaboracion"]
+tipo: mc
+enunciado: "¿Qué organización fue el brazo militar principal de la Resistencia francesa libre, bajo el liderazgo de Charles de Gaulle, que operaba desde Londres antes de consolidarse en Francia ocupada?"
+opciones_explicitas:
+  - "Les Maquis"
+  - "FFI (Forces Françaises de l'Intérieur)"
+  - "FTP (Francs-Tireurs et Partisans)"
+  - "Ejército de Liberación Nacional"
+respuesta: "FFI (Forces Françaises de l'Intérieur)"
+explicacion: "Las FFI fueron la unificación de las diversas redes de resistencia interior (como los Maquis) bajo el mando general del General de Gaulle y el mando aliado para coordinar los levantamientos durante y después del Día D."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["causas", "ww1", "humillacion"]
+tipo: completar
+enunciado: "Muchos historiadores argumentan que las duras condiciones del {{tratado}} de 1919, que incluyó la cláusula de culpa de guerra y las reparaciones económicas, crearon el resentimiento nacionalista que el nazismo explotó para ascender al poder."
+variables:
+  tratado: uno_de(["Tratado de Versalles", "Tratado de Versalles"])
+respuesta: "tratado de versalles"
+respuestas_validas:
+  - "tratado de versalles"
+  - "Tratado de Versalles"
+  - "TRATADO DE VERSALLES"
+explicacion: "El Tratado de Versalles impuso a Alemania la responsabilidad exclusiva de la Primera Guerra Mundial, desmilitarización y cuantiosas reparaciones, generando un profundo sentimiento de humillación y revanchismo en la sociedad alemana."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["pacifico", "naval", "1942"]
+tipo: completar
+enunciado: "La batalla de {{isla}}, librada en junio de 1942, fue el punto de inflexión en el Pacífico, donde la marina estadounidense hundió cuatro portaaviones japoneses, deteniendo su expansión estratégica."
+variables:
+  isla: uno_de(["Midway", "Midway"])
+respuesta: "midway"
+respuestas_validas:
+  - "midway"
+  - "Midway"
+  - "midway"
+explicacion: "La victoria en Midway permitió a EE.UU. pasar a la ofensiva en el Pacífico, destruyendo la capacidad de la IJN (Marina Imperial Japonesa) de lanzar grandes operaciones ofensivas de portaaviones."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["propaganda", "antisemitismo", "ideologia"]
 tipo: vf
-
-enunciado: "En el contexto de la Revolución Francesa, el principio de que los hombres nacen y permanecen libres e iguales en derechos es un pilar del liberalismo. ¿Se considera este un derecho natural según la filosofía ilustrada que impulsó la revolución?"
-
-explicacion: |
-  La Ilustración promovió la idea de que la libertad y la igualdad son derechos inherentes al ser humano, rompiendo con la idea de que los derechos eran concesiones del monarca.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["causas", "monarquia_absoluta"]
-
-respuesta: "Absolutismo"
-tipo: mc
-opciones_explicitas: ["Absolutismo", "Feudalismo", "Democracia", "Teocracia"]
-
-enunciado: "El sistema político que la burguesía buscaba derrocar mediante la implementación de constituciones y la división de poderes era el:"
-
-explicacion: |
-  El absolutismo concentraba todo el poder en la figura del monarca, impidiendo la representación de los sectores económicos emergentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "avanzado"
-  tags: ["procesos", "etapas"]
-
-respuesta_orden: ["Estados Generales", "Asamblea Nacional", "Convención Nacional", "Directorio"]
-tipo: ordenar
-opciones_explicitas: ["Estados Generales", "Asamblea Nacional", "Convención Nacional", "Directorio"]
-
-enunciado: "Ordene cronológicamente las siguientes etapas o instituciones de la Revolución Francesa, desde el estallido de la crisis hasta la consolidación del orden burgués:"
-
-explicacion: |
-  La revolución transitó desde la crisis de los Estados Generales hacia la soberanía de la Asamblea, la radicalización de la Convención y finalmente el orden moderado del Directorio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["economia", "liberalismo"]
-
-respuesta: "Libre mercado"
-tipo: completar
-respuestas_validas:
-  - "Libre mercado"
-  - "el libre mercado"
-
-enunciado: "La burguesía, al consolidar su poder político, promovió la eliminación de las aduanas internas y los gremios, abogando por la libertad de comercio y el ___."
-
-explicacion: |
-  El liberalismo económico buscaba eliminar las trabas corporativas y estatales para permitir la libre competencia y la expansión del capitalismo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "basico"
-  tags: ["liberalismo", "derechos"]
-
-respuesta: "igualdad ante la ley"
-tipo: completar
-respuestas_validas:
-  - "igualdad ante la ley"
-  - "igualdad jurídica"
-
-enunciado: "El liberalismo político postula que todos los ciudadanos deben ser tratados de la misma forma por el Estado, principio conocido como ___."
-
-explicacion: |
-  La igualdad ante la ley (o igualdad jurídica) es el pilar que busca eliminar los privilegios de la nobleza y el clero, estableciendo que la ley es la misma para todos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["poderes", "montesquieu"]
-
-respuesta: "separación de poderes"
-tipo: mc
-opciones_explicitas: ["centralización absoluta", "separación de poderes", "supremacía monárquica", "gobierno de facciones"]
-
-enunciado: "Para evitar la tiranía, el liberalismo clásico propone dividir el poder del Estado en órganos independientes (Ejecutivo, Legislativo y Judicial). Este mecanismo se conoce como:"
-
-explicacion: |
-  La separación de poderes (Ejecutivo, Legislativo y Judicial) busca que ninguna entidad concentre todo el control del Estado.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["soberanía", "democracia"]
-
-respuesta: "soberanía popular"
-tipo: mc
-opciones_explicitas: ["derecho divino", "soberanía popular", "voluntad del monarca", "orden natural"]
-
-enunciado: "A diferencia del absolutismo, donde el poder emanaba de Dios hacia el Rey, el liberalismo sostiene que el poder reside en el pueblo, concepto denominado ___."
-
-explicacion: |
-  La soberanía popular establece que la legitimidad de un gobierno proviene del consentimiento de los gobernados.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "avanzado"
-  tags: ["derechos", "individuo"]
-
-respuesta_orden: ["libertad", "propiedad", "seguridad"]
-tipo: ordenar
-opciones_explicitas: ["libertad", "propiedad", "seguridad"]
-
-enunciado: "Según la tradición de las declaraciones de derechos de la era revolucionaria, se deben proteger los derechos naturales del individuo. Ordene los siguientes conceptos según la secuencia clásica de la Declaración de Derechos del Hombre y del Ciudadano (en orden de mención):"
-
-explicacion: |
-  La Declaración de 1789 establece que los hombres nacen y permanecen libres e iguales en derechos, mencionando la libertad, la propiedad, la seguridad y la resistencia a la opresión.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["estado", "derechos"]
-
-respuesta: "derechos individuales"
-tipo: mc
-opciones_explicitas: ["derechos individuales", "bienestar colectivo", "interés de la corona", "estabilidad social"]
-
-enunciado: "El objetivo principal del Estado liberal es la protección de los ___ frente a la arbitrariedad del poder público."
-
-explicacion: |
-  El liberalismo pone al individuo y sus derechos naturales (libertad, propiedad, etc.) como el fin último de la organización política.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "basico"
-  tags: ["revolucion_francesa", "lema"]
-
-tipo: mc
-opciones_explicitas: ["Libertad, Igualdad, Fraternidad", "Libertad, Igualdad, Propiedad", "Igualdad, Justicia, Libertad", "Libertad, Orden, Progreso"]
-respuesta: "Libertad, Igualdad, Fraternidad"
-
-enunciado: "El lema que sintetiza los ideales de la Revolución Francesa es:"
-
-explicacion: |
-  El lema 'Libertad, Igualdad, Fraternidad' (Liberté, Égalité, Fraternité) fue el pilar ideológico que impulsó la caída del Antiguo Régimen.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["derechos_humanos", "declaracion_1789"]
-
-tipo: completar
-respuestas_validas:
-  - "1789"
-
-enunciado: "La Declaración de los Derechos del Hombre y del Ciudadano fue adoptada por la Asamblea Nacional Constituyente en el año ____."
-
-explicacion: |
-  La Declaración de 1789 es uno de los documentos fundacionales de la democracia moderna, estableciendo que los hombres nacen y permanecen libres e iguales en derechos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "avanzado"
-  tags: ["derechos_humanos", "soberania"]
-
-variables:
-  datos: [["La soberanía reside en la Nación", "La ley es la expresión de la voluntad general"], ["La ley es la expresión de la voluntad general", "La soberanía reside en la Nación"]]
-
-tipo: mc
-opciones_explicitas: ["La soberanía reside en la Nación", "La soberanía reside en el Monarca", "La soberanía reside en la Iglesia", "La soberanía reside en la Aristocracia"]
-
-enunciado: "Según la Declaración de 1789, el principio de soberanía establece que: {datos[0][0]}"
-
-respuesta: "La soberanía reside en la Nación"
-
-explicacion: |
-  El Artículo 3 de la Declaración establece que "El principio de toda soberanía reside esencialmente en la Nación".
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["cronologia", "eventos"]
-
-tipo: ordenar
-opciones_explicitas: ["Toma de la Bastilla", "Declaración de los Derechos del Hombre", "Ejecución de Luis XVI"]
-
-enunciado: "Ordena cronológicamente los siguientes hitos de la Revolución Francesa:"
-
-explicacion: |
-  La Bastilla cayó en julio de 1789, la Declaración se aprobó en agosto de 1789 y la ejecución del Rey ocurrió en enero de 1793.
-respuesta_orden: ["Toma de la Bastilla", "Declaración de los Derechos del Hombre", "Ejecución de Luis XVI"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["igualdad", "derechos"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "La Declaración de 1789 establece que los hombres nacen y permanecen libres e ____ en derechos."
-
-explicacion: |
-  El concepto de igualdad ante la ley fue fundamental para desmantelar los privilegios estamentales del feudalismo.
-
-respuesta: "iguales"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "basico"
-  tags: ["absolutismo", "soberania"]
-
-respuesta: "soberanía_nacional"
-tipo: completar
-respuestas_validas:
-  - "soberanía_nacional"
-
-enunciado: "Con el ascenso de las revoluciones burguesas, el principio de la ___ desplazó al concepto de la soberanía de derecho divino del monarca."
-
-explicacion: |
-  Las revoluciones burguesas (como la Revolución Francesa) trasladaron el origen del poder del monarca a la nación o al pueblo, estableciendo la soberanía nacional como base del Estado moderno.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["ciudadania", "estamentos"]
-
-variables:
-  escenario: uno_de([["El sistema de estamentos", "La sociedad de ciudadanos"], ["El absolutismo monárquico", "El constitucionalismo liberal"]])
-
-tipo: completar
-respuesta: escenario[1]
-
-enunciado: "La burguesía buscaba reemplazar {escenario[0]} por ___."
-
-explicacion: |
-  El paso fundamental fue la transición de una sociedad dividida por privilegios de nacimiento (estamentos) a una sociedad de individuos con derechos iguales ante la ley (ciudadanía).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["constitucion", "derechos"]
-
-respuesta_orden: ["Constitución", "División de poderes", "Derechos individuales"]
-tipo: ordenar
-opciones_explicitas: ["Constitución", "División de poderes", "Derechos individuales"]
-
-enunciado: "Ordena los pilares del Estado Liberal que surgieron para limitar el poder absoluto:"
-
-explicacion: |
-  El orden lógico y funcional del Estado Liberal implica primero una norma suprema (Constitución), la fragmentación del poder para evitar la tiranía (División de poderes) y la protección de las libertades (Derechos individuales).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "avanzado"
-  tags: ["economia", "propiedad"]
-
-variables:
-  valor_propiedad: 1
-  es_derecho_fundamental: valor_propiedad == 1
-
-respuesta: verdadero
-tipo: vf
-opciones_explicitas: [verdadero, falso]
-
-enunciado: "En el marco de las revoluciones burguesas, la propiedad privada se consolidó como un derecho natural e inviolable, oponiéndose a las trabas feudales."
-
-explicacion: |
-  La protección de la propiedad privada fue un motor clave de la burguesía para eliminar los derechos señoriales y los impuestos arbitrarios de la nobleza.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["parlamento", "representacion"]
-
-respuesta: "censitario"
-tipo: mc
-opciones_explicitas: ["universal", "censitario"]
-
-enunciado: "Aunque las revoluciones burguesas promovieron la representación, en la práctica inicial, la mayoría de los regímenes liberales aplicaron un sufragio ___ (basado en la renta o propiedad)."
-
-explicacion: |
-  Si bien el ideal era la igualdad, el liberalismo clásico fue inicialmente 'censitario', limitando el derecho al voto a aquellos con propiedades o ingresos suficientes, excluyendo a las masas trabajadoras.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "basico"
-  tags: ["liberalismo", "poder"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Un sistema donde el Rey dicta las leyes, las ejecuta y las juzga a su voluntad.", "Separación de poderes"], ["Un sistema donde el Rey tiene el control total de la justicia, el legislativo y el ejecutivo.", "Separación de poderes"]]
-
-respuesta: escenarios[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["Igualdad", "Libertad", "Separación de poderes"]
-
-enunciado: "En el contexto de las revoluciones burguesas, un sistema donde {escenarios[escenario_idx][0]} representa una violación de qué principio liberal fundamental?"
-
-explicacion: |
-  El liberalismo político busca evitar la tiranía mediante la división de funciones del Estado en órganos distintos e independientes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "basico"
-  tags: ["liberalismo", "derechos"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["la nobleza tiene privilegios legales que el campesino no posee", "Igualdad"], ["el nacimiento determina los derechos civiles de una persona", "Igualdad"]]
-
-respuesta: casos[caso_idx][1]
-tipo: mc
-opciones_explicitas: ["Igualdad", "Libertad", "Propiedad"]
-
-enunciado: "Si en una sociedad {casos[caso_idx][0]}, se está negando el principio de ___."
-
-explicacion: |
-  La igualdad ante la ley (isonomía) es un pilar del liberalismo que busca eliminar los estamentos y privilegios de la aristocracia.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["liberalismo", "derechos"]
-
-variables:
-  situacion_idx: uno_de([0, 1])
-  situaciones: [["el Estado prohíbe la libre circulación de mercancías", "Libertad"], ["el Estado impone censura previa a las ideas publicadas", "Libertad"]]
-
-respuesta: situaciones[situacion_idx][1]
-tipo: completar
-respuestas_validas:
-  - "Libertad"
-
-enunciado: "Cuando el Estado interviene de forma arbitraria, como cuando {situaciones[situacion_idx][0]}, se está vulnerando el principio de ___."
-
-explicacion: |
-  El liberalismo defiende un ámbito de acción individual (libertad de culto, expresión, comercio) donde el Estado no debe interferir.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "intermedio"
-  tags: ["liberalismo", "conceptos"]
-
-respuesta_orden: ["Igualdad", "Libertad", "Propiedad"]
-tipo: ordenar
-opciones_explicitas: ["Propiedad", "Igualdad", "Libertad"]
-
-enunciado: "Ordena los siguientes pilares del pensamiento liberal clásico, desde el que busca la justicia social ante el privilegio, pasando por la autonomía individual, hasta la base económica burguesa:"
-
-explicacion: |
-  La tríada clásica suele entender la igualdad ante la ley, la libertad individual y el derecho a la propiedad privada como ejes de la modernidad liberal.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "revoluciones_burguesas_liberalismo"
-  nivel: "avanzado"
-  tags: ["liberalismo", "soberania"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["la soberanía reside en el monarca por derecho divino", "Libertad"], ["el poder emana del pueblo a través de la ley", "Libertad"]]
-
-respuesta: escenarios[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["Igualdad", "Libertad", "Propiedad"]
-
-enunciado: "Si en una constitución se establece que {escenarios[escenario_idx][0]}, se está rompiendo con el principio de ___ política (entendida como la capacidad de autodeterminación)."
-
-explicacion: |
-  La transición de la soberanía de Dios/Rey a la soberanía nacional es el paso fundamental hacia la libertad política moderna.
-```
-
-## Sección: rocas-igneas-sedimentarias-metamorficas (23 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas"
-  nivel: "basico"
-  tags: ["geologia", "magma"]
-
-tipo: mc
-opciones_explicitas: ["Enfriamiento de magma o lava", "Acumulación de sedimentos", "Presión y temperatura extrema", "Evaporación de agua salada"]
-respuesta: "Enfriamiento de magma o lava"
-
-enunciado: "Las rocas ígneas se originan principalmente por el proceso de ___."
-
-explicacion: |
-  Las rocas ígneas se forman cuando el material fundido (magma si es intrusivo o lava si es extrusivo) se enfría y se solidifica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas"
-  nivel: "basico"
-  tags: ["granito", "basalto"]
-
-variables:
-  escenario: uno_de([["granito", "intrusiva"], ["basalto", "extrusiva"]])
-
-tipo: completar
-respuestas_validas:
-  - "intrusiva"
-  - "extrusiva"
-
-enunciado: "Si el magma se enfría lentamente bajo la superficie terrestre, forma una roca de tipo {escenario[0]} y su clasificación es ___."
-
-explicacion: |
-  El {escenario[0]} es una roca ígnea {escenario[1]} porque se formó en el interior de la corteza.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas"
-  nivel: "intermedio"
-  tags: ["clasificacion"]
-
-tipo: mc
-opciones_explicitas: ["Granito y Basalto", "Caliza y Arenisca", "Mármol y Pizarra", "Granito y Caliza"]
-respuesta: "Granito y Basalto"
-
-enunciado: "¿Cuál de los siguientes pares de rocas son ejemplos de rocas ígneas?"
-
-explicacion: |
-  El granito es una roca ígnea intrusiva y el basalto es una roca ígnea extrusiva.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas"
-  nivel: "basico"
-  tags: ["magma", "lava"]
-
-tipo: completar
-enunciado: "Cuando el material fundido sale a la superficie terrestre, se denomina ___."
-respuesta: "Lava"
-explicacion: |
-  El término magma se usa para el material fundido bajo la superficie, mientras que lava es el término para el material que ya ha emergido.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas"
-  nivel: "avanzado"
-  tags: ["textura", "enfriamiento"]
-
-variables:
-  caso: uno_de([["lento", "cristales grandes"], ["rápido", "cristales pequeños"]])
-
-tipo: completar
-respuestas_validas:
-  - "cristales grandes"
-  - "cristales pequeños"
-
-enunciado: "Un enfriamiento de tipo {caso[0]} en el interior de la corteza produce rocas con ___."
-
-explicacion: |
-  El enfriamiento {caso[0]} permite que los minerales tengan tiempo de crecer, resultando en {caso[1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
-  nivel: "basico"
-  tags: ["sedimentarias", "procesos"]
-
-tipo: mc
-opciones_explicitas: ["Fragmentación de rocas ígneas", "Enfriamiento de magma", "Presión y calor extremo", "Sublimación de gases"]
-respuesta: "Fragmentación de rocas ígneas"
-
-enunciado: "Las rocas sedimentarias se forman principalmente a través del proceso de acumulación y compactación de ___."
-
-explicacion: |
-  Las rocas sedimentarias se originan por la acumulación de sedimentos (fragmentos de otras rocas, restos orgánicos o sales) que se depositan en capas y se compactan con el tiempo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
-  nivel: "basico"
-  tags: ["ejemplos", "sedimentarias"]
-
-tipo: mc
-opciones_explicitas: ["Arenisca y caliza", "Granito y basalto", "Mármol y pizarra", "Obsidiana y pumita"]
-respuesta: "Arenisca y caliza"
-
-enunciado: "Un ejemplo clásico de rocas que se forman por la acumulación de sedimentos es el par:"
-
-explicacion: |
-  La arenisca (formada por granos de arena) y la caliza (frecuentemente de origen orgánico o químico) son ejemplos fundamentales de rocas sedimentarias.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
-  nivel: "intermedio"
-  tags: ["procesos", "compactacion"]
-
-tipo: ordenar
-opciones_explicitas: ["Meteorización y erosión", "Transporte de sedimentos", "Deposición en capas", "Litificación (compactación y cementación)"]
-
-enunciado: "Ordena cronológicamente los pasos necesarios para la formación de una roca sedimentaria:"
-
-explicacion: |
-  Primero la roca madre se rompe (meteorización), los restos viajan (transporte), se asientan (deposición) y finalmente se transforman en roca sólida (litificación).
-respuesta_orden: ["Meteorización y erosión", "Transporte de sedimentos", "Deposición en capas", "Litificación (compactación y cementación)"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
-  nivel: "basico"
-  tags: ["sedimentos", "composición"]
-
-tipo: completar
-respuestas_validas:
-  - "restos orgánicos"
-
-enunciado: "Además de fragmentos de otras rocas, las rocas sedimentarias pueden formarse por la acumulación de ___."
-
-explicacion: |
-  Los restos orgánicos (como conchas de animales o materia vegetal) son componentes esenciales que, al acumularse, dan lugar a rocas como la caliza.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
-  nivel: "intermedio"
-  tags: ["estratigrafia", "calculo"]
-
-variables:
-  espesor_capa: random_float(1.5, 5.5)
-  cantidad_capas: 12
-  espesor_total: espesor_capa * cantidad_capas
-
-tipo: completar
-tolerancia_abs: 0.1
-respuesta: espesor_total
-
-enunciado: "Si un afloramiento sedimentario presenta {cantidad_capas} capas, y cada capa tiene un espesor promedio de {espesor_capa} metros, ¿cuál es el espesor total del afloramiento en metros?"
-
-pasos:
-  - "Determinar el espesor de una capa: {espesor_capa}"
-  - "Multiplicar el espesor por el número de capas: {espesor_capa} * {cantidad_capas}"
-
-explicacion: |
-  El espesor total se obtiene multiplicando el espesor de una capa individual por la cantidad total de capas depositadas.
-```
-
-```
-metadata:
-  materia: "geologia"
-  tema: "rocas_metamorficas"
-  nivel: "basico"
-  tags: ["procesos", "calor", "presion"]
-
-tipo: mc
-opciones_explicitas: ["fundición completa de la roca", "transformación por calor y/o presión sin fundirse", "acumulación de sedimentos en el lecho marino", "enfriamiento de magma expuesto"]
-
-enunciado: "Las rocas metamórficas se forman cuando una roca preexistente es sometida a condiciones de ___ sin llegar a fundirse."
-
-respuesta: "transformación por calor y/o presión sin fundirse"
-
-explicacion: |
-  El metamorfismo es un proceso de transformación en estado sólido. Si la roca se fundiera, se convertiría en magma y daría lugar a una roca ígnea.
-```
-
-```
-metadata:
-  materia: "geologia"
-  tema: "rocas_metamorficas"
-  nivel: "basico"
-  tags: ["marmol", "caliza", "transformacion"]
-
-variables:
-  datos: [["caliza", "mármol"], ["granito", "gneis"], ["arenisca", "cuarcita"]]
-  idx: uno_de([0, 1, 2])
-
-tipo: completar
-respuestas_validas:
-  - "mármol"
-  - "gneis"
-  - "cuarcita"
-
-enunciado: "Cuando la roca ___ se somete a procesos metamórficos, se transforma en ___."
-
-pasos:
-  - "Identificar la roca sedimentaria original."
-  - "Asociar su producto metamórfico correspondiente."
-
-respuesta: datos[idx][1]
-
-explicacion: |
-  La caliza es una roca sedimentaria que, bajo presión y temperatura, se recristaliza para formar mármol.
-```
-
-```
-metadata:
-  materia: "geologia"
-  tema: "rocas_metamorficas"
-  nivel: "intermedio"
-  tags: ["clasificacion", "origen"]
-
-tipo: ordenar
-opciones_explicitas: ["Magma", "Roca Ígnea", "Roca Sedimentaria", "Roca Metamórfica"]
-
-enunciado: "Ordena el ciclo de formación de las rocas según su origen, desde el material fundido hasta la roca transformada por presión:"
-
-respuesta_orden: ["Magma", "Roca Ígnea", "Roca Sedimentaria", "Roca Metamórfica"]
-
-explicacion: |
-  El ciclo comienza con el magma que al enfriarse crea rocas ígneas; estas pueden erosionarse en sedimentos (sedimentarias) y finalmente transformarse por presión en metamórficas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
-  nivel: "basico"
-  tags: ["fósiles", "sedimentarias"]
-
-tipo: completar
-enunciado: "Los fósiles se encuentran casi exclusivamente en un tipo de roca llamado ___."
-respuesta: "Rocas sedimentarias"
-explicacion: |
-  Los fósiles requieren la acumulación de sedimentos que entierren la materia orgánica rápidamente. Las rocas ígneas y metamórficas implican procesos de calor y presión que destruyen los restos orgánicos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
-  nivel: "intermedio"
-  tags: ["procesos", "fósiles"]
-
-tipo: mc
-opciones_explicitas: ["Calor y presión", "Erosión y sedimentación", "Cristalización y enfriamiento"]
-respuesta: "Calor y presión"
-
-enunciado: "Las rocas ígneas y metamórficas suelen destruir la materia orgánica debido a la acción de:"
-
-explicacion: |
-  El calor extremo de la formación de rocas ígneas y la presión de las metamórficas descomponen o funden cualquier resto orgánico que pudiera existir.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
-  nivel: "avanzado"
-  tags: ["geologia", "fósiles"]
-
-respuesta: "ígneas"
-tipo: completar
-respuestas_validas:
-  - "ígneas"
-
-enunciado: "Si un paleontólogo busca restos de un trilobita, lo hará en rocas de tipo sedimentarias. Si busca magma solidificado, lo hará en rocas ___."
-
-pasos:
-  - "Identificar el tipo de roca donde se preserva la vida."
-  - "Identificar el origen de las rocas ígneas."
-
-explicacion: |
-  Los fósiles son indicadores de ambientes sedimentarios. Las rocas ígneas resultan de magma y las metamórficas de transformación por calor/presión.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
-  nivel: "basico"
-  tags: ["clasificacion"]
-
-tipo: ordenar
-opciones_explicitas: ["Sedimentación", "Litificación", "Fosilización"]
-
-enunciado: "Ordena los pasos típicos para la formación de un fósil en una roca sedimentaria:"
-
-explicacion: |
-  Primero los restos se cubren con sedimentos (sedimentación), luego esos sedimentos se compactan (litificación) y finalmente se preservan los restos (fosilización).
-respuesta_orden: ["Sedimentación", "Litificación", "Fosilización"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-tipo: vf
+enunciado: "El \"Protocolo de los Sabios de Sion\" es un documento real y verificado que demostraba una conspiración judía global, siendo utilizado por la propaganda nazi para justificar el Holocausto."
 respuesta: falso
-
-enunciado: "¿Es posible encontrar fósiles de plantas en una corriente de lava fresca?"
-
-explicacion: |
-  No, el calor extremo de la lava (roca ígnea) incineraría instantáneamente la materia orgánica.
+explicacion: "Los Protocolos son un fraude elaborado por la Okhta (policía secreta zarista) a principios del siglo XX. Aunque fueron falsos, fueron ampliamente difundidos por los nazis como \"prueba\" de una conspiración judía, sirviendo de justificación ideológica para el genocidio."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
-  nivel: "basico"
-  tags: ["clasificacion", "rocas"]
-
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["frente-occidental", "día-d", "1944"]
+tipo: completar
+enunciado: "La operación anfibia más grande de la historia, conocida como el Día D, tuvo lugar el 6 de junio de 1944 en las playas de {{region_costera}} en el norte de Francia."
 variables:
-  datos: [["Magma enfriado lentamente bajo la superficie", "ignea"], ["Sedimentos compactados por presión", "sedimentaria"], ["Roca transformada por calor y presión", "metamorfica"]]
-  idx: uno_de([0, 1, 2])
+  region_costera: uno_de(["Normandía", "Normandía"])
+respuesta: "normandia"
+respuestas_validas:
+  - "normandia"
+  - "Normandía"
+  - "normandia"
+explicacion: "La invasión de Normandía abrió el segundo frente en Europa occidental, forzando a Alemania a combatir en dos frentes principales y acelerando su colapso final."
+```
 
-respuesta: datos[idx][1]
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["diplomacia", "pacto", "1939"]
 tipo: mc
-opciones_explicitas: ["ignea", "sedimentaria", "metamorfica"]
-
-enunciado: "Se observa una roca cuya formación se describe como: {datos[idx][0]}. ¿A qué tipo de roca pertenece?"
-
-explicacion: |
-  Las rocas se clasifican según su origen: las ígneas vienen de magma, las sedimentarias de sedimentos y las metamórficas de transformación.
+enunciado: "¿Qué cláusula secreta contenía el Pacto de No Agresión entre Alemania y la Unión Soviética de 1939?"
+opciones_explicitas:
+  - "La unión aduanera entre ambos países"
+  - "La división de Polonia y Europa del Este en esferas de influencia"
+  - "El apoyo militar soviético a la invasión de Francia"
+  - "La neutralidad permanente de Finlandia"
+respuesta: "La división de Polonia y Europa del Este en esferas de influencia"
+explicacion: "El protocolo secreto dividía Polonia y los países bálticos entre Alemania y la URSS, permitiendo a Hitler invadir Polonia sin temor a una intervención soviética inmediata y a Stalin expandir su territorio hacia el oeste."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
-  nivel: "intermedio"
-  tags: ["procesos", "geologia"]
-
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["holocausto", "campos", "genocidio"]
+tipo: completar
+enunciado: "{{campo}}, ubicado cerca de Cracovia, fue el mayor y más letal de los campos de exterminio nazis, donde murieron aproximadamente 1,1 millones de personas, la mayoría judíos."
 variables:
-  datos: [["Litificación de sedimentos", "sedimentaria"], ["Cristalización de lava", "ignea"], ["Recristalización mineral", "metamorfica"]]
-  idx: uno_de([0, 1, 2])
+  campo: uno_de(["Auschwitz-Birkenau", "Auschwitz-Birkenau"])
+respuesta: "aushwitz-birkenau"
+respuestas_validas:
+  - "aushwitz-birkenau"
+  - "aushwitz"
+  - "auschwitz-birkenau"
+  - "Auschwitz-Birkenau"
+explicacion: "El complejo de Auschwitz-Birkenau era el centro principal de la \"Solución Final\", combinando trabajo forzado y exterminio industrial mediante cámaras de gas y crematorios."
+```
 
-respuesta: datos[idx][1]
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["aerea", "reino-unido", "1940"]
+tipo: mc
+enunciado: "¿Qué fuerza aérea alemana lanzó la ofensiva aérea contra el Reino Unido durante la Batalla de Inglaterra (1940)?"
+opciones_explicitas:
+  - "Luftwaffe"
+  - "Wehrmacht"
+  - "Kriegsmarine"
+  - "Fallschirmjäger"
+respuesta: "Luftwaffe"
+explicacion: "La Luftwaffe, bajo el mando de Hermann Göring, intentó obtener la superioridad aérea necesaria para invadir Gran Bretaña (Operación León Marino), pero fue repelida por la RAF, siendo la primera gran derrota de Hitler."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["diplomacia", "post-guerra", "1945"]
+tipo: completar
+enunciado: "En julio de 1945, Truman (o Stalin en la segunda fase), Churchill (luego Attlee) y Stalin se reunieron en {{ciudad}} para acordar los detalles de la ocupación de Alemania y las fronteras polacas."
+variables:
+  ciudad: uno_de(["Potsdam", "Potsdam"])
+respuesta: "potsdam"
+respuestas_validas:
+  - "potsdam"
+  - "Potsdam"
+  - "potsdam"
+explicacion: "La Conferencia de Potsdam estableció los principios de desmilitarización, desnazificación, democratización y descentralización de la Alemania vencida, y definió la nueva frontera oeste de Polonia con Alemania."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["italia", "partisanos", "resistencia"]
+tipo: completar
+enunciado: "Tras el armisticio italiano de 1943, la resistencia italiana contra la ocupación alemana en el norte se organizó principalmente como el {{movimiento_resistencia}}, liderado por el Comité de Liberación Nacional."
+variables:
+  movimiento_resistencia: uno_de(["CLN", "CLN"])
+respuesta: "cln"
+respuestas_validas:
+  - "cln"
+  - "CLN"
+  - "comite de liberacion nacional"
+  - "Comitato di Liberazione Nazionale"
+explicacion: "El Comitato di Liberazione Nazionale (CLN) coordinó la resistencia política y militar en Italia, organizando la guerrilla contra las fuerzas alemanas y la República Social Italiana fascista."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["bombardeo", "controversia", "1945"]
+tipo: completar
+enunciado: "En febrero de 1945, los aliados bombardearon la ciudad histórica de {{ciudad}}, causando un incendio devastador y la muerte de decenas de miles de civiles, un hecho aún debatido por su necesidad militar."
+variables:
+  ciudad: uno_de(["Dresde", "Dresde"])
+respuesta: "dresde"
+respuestas_validas:
+  - "dresde"
+  - "Dresde"
+  - "dresde"
+explicacion: "El bombardeo de Dresde es controvertido debido a la gran destrucción cultural y el alto número de víctimas civiles en una ciudad que ya estaba siendo evacuada y tenía poco valor estratégico militar directo en ese momento."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["china", "resistencia", "kmt-cpc"]
+tipo: mc
+enunciado: "Durante la ocupación japonesa en China, ¿qué dos facciones chinas formaron una frágil Segunda Unión de la Frontera Unida contra Japón?"
+opciones_explicitas:
+  - "El Kuomintang y el Partido Comunista Chino"
+  - "Los señores de la guerra regionales y Japón"
+  - "Los republicanos democráticos y los monárquicos"
+  - "El ejército nacionalista y las potencias occidentales"
+respuesta: "El Kuomintang y el Partido Comunista Chino"
+explicacion: "A pesar de su larga guerra civil, el KMT (nacionalistas) y el PCCh (comunistas) unieron fuerzas temporalmente contra la invasión japonesa, aunque la desconfianza entre ambos reavivó la guerra civil poco después de la victoria."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["nordic", "invasion", "1940"]
+tipo: completar
+enunciado: "En abril de 1940, Alemania lanzó la Operación Weserübung para invadir y ocupar {{paises_nordicos}}, asegurando sus suministros de hierro y su costa contra los aliados."
+variables:
+  paises_nordicos: uno_de(["Noruega y Dinamarca", "Noruega y Dinamarca"])
+respuesta: "noruega y dinamarca"
+respuestas_validas:
+  - "noruega y dinamarca"
+  - "noruega y dinamarca"
+  - "Noruega y Dinamarca"
+explicacion: "Esta campaña aseguró el acceso alemán al mineral de hierro sueco y proporcionó bases navales y aéreas cruciales para la posterior guerra contra Gran Bretaña."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["justicia", "crimenes-guerra", "1945"]
+tipo: completar
+enunciado: "Tras la guerra, los principales criminales de guerra nazis fueron juzgados por el Tribunal Militar Internacional en {{ciudad_juicio}}, estableciendo precedentes para el derecho internacional penal."
+variables:
+  ciudad_juicio: uno_de(["Núremberg", "Núremberg"])
+respuesta: "nuremberg"
+respuestas_validas:
+  - "nuremberg"
+  - "núremberg"
+  - "Nuremberg"
+  - "Núremberg"
+explicacion: "Los Juicios de Núremberg definieron los crímenes contra la paz, los crímenes de guerra y los crímenes contra la humanidad, sentando las bases para la Corte Penal Internacional moderna."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["pacifico", "guerras-islas", "1942"]
+tipo: completar
+enunciado: "La campaña de Guadalcanal, iniciada en agosto de 1942, fue la primera gran ofensiva terrestre aliada contra las fuerzas japonesas en el {{teatro_pacifico}}, marcando el fin de la iniciativa estratégica japonesa."
+variables:
+  teatro_pacifico: uno_de(["Pacífico", "Pacífico"])
+respuesta: "pacifico"
+respuestas_validas:
+  - "pacifico"
+  - "Pacífico"
+  - "pacifico"
+explicacion: "La victoria aliada en Guadalcanal permitió a EE.UU. establecer una base aérea y naval clave para la campaña de \"salto de isla\" hacia las islas japonesas metropolitanas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "segunda-guerra-mundial"
+  nivel: "avanzado"
+  tags: ["fin", "rendicion", "1945"]
+tipo: completar
+enunciado: "La Segunda Guerra Mundial terminó formalmente el 2 de septiembre de 1945 cuando Japón firmó la rendición incondicional a bordo del acorazado {{barco}} en la bahía de Tokio."
+variables:
+  barco: uno_de(["Missouri", "Missouri"])
+respuesta: "missouri"
+respuestas_validas:
+  - "missouri"
+  - "Missouri"
+  - "missouri"
+explicacion: "La firma en el USS Missouri puso fin oficial a las hostilidades, marcando el cierre del conflicto más mortífero de la historia humana."
+```
+
+## Sección: peronismo-derechos-sociales (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "basico"
+  tags: ["peronismo", "politica", "argentina"]
+
+respuesta: "Juan Domingo Perón"
 tipo: completar
 respuestas_validas:
-  - "sedimentaria"
-  - "ignea"
-  - "metamorfica"
+  - "Juan Domingo Perón"
 
-enunciado: "El proceso observado es la {datos[idx][0]}. Por lo tanto, la roca es de tipo ___."
+enunciado: "El líder que encabezó el movimiento que transformó la estructura política y social de Argentina a partir de 1946 fue ___."
 
 explicacion: |
-  Cada proceso geológico es característico de un grupo de rocas específico.
+  Juan Domingo Perón consolidó su poder mediante una fuerte alianza con los sectores obreros, transformando la relación entre el Estado y la clase trabajadora.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
-  nivel: "avanzado"
-  tags: ["textura", "clasificacion"]
+  tema: "peronismo_derechos_sociales"
+  nivel: "basico"
+  tags: ["clase_obrera", "movimiento_sustitutivo"]
+
+opciones_explicitas: ["La oligarquía terrateniente", "La clase trabajadora", "La burguesía industrial", "La clase media profesional"]
+respuesta: "La clase trabajadora"
+tipo: mc
+
+enunciado: "¿Cuál fue el principal sector social que brindó el sustento político y electoral al peronismo en sus inicios?"
+
+explicacion: |
+  El peronismo se caracterizó por la integración política de la clase trabajadora, que hasta entonces había sido marginada de los procesos de decisión estatal.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "intermedio"
+  tags: ["justicia_social", "derechos_laborales"]
 
 variables:
-  datos: [["presencia de fósiles", "sedimentaria"], ["textura afanítica", "ignea"], ["foliación marcada", "metamorfica"]]
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["vacaciones pagas", "la implementación de las vacaciones pagas"], ["aguinaldo", "la instauración del aguinaldo"]]
+  respuestas: [["vacaciones pagas", "la implementación de las vacaciones pagas"], ["aguinaldo", "la instauración del aguinaldo"]]
+
+respuesta: "la implementación de las vacaciones pagas"
+tipo: completar
+respuestas_validas:
+  - "la implementación de las vacaciones pagas"
+  - "la instauración del aguinaldo"
+
+enunciado: "Uno de los grandes hitos de la justicia social peronista fue {escenarios[escenario_idx][1]}."
+
+explicacion: |
+  La extensión de derechos como las vacaciones pagas o el aguinaldo permitió una redistribución de la riqueza hacia el consumo interno.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "intermedio"
+  tags: ["doctrina", "peronismo"]
+
+opciones_explicitas: ["Justicia Social, Independencia Económica y Soberanía Política", "Libertad de mercado, Propiedad privada y Globalización", "Estado ausente, Libre comercio y Individualismo", "Autoritarismo, Centralismo y Proteccionismo"]
+respuesta: "Justicia Social, Independencia Económica y Soberanía Política"
+tipo: mc
+
+enunciado: "¿Cuáles son las tres columnas fundamentales de la doctrina peronista?"
+
+explicacion: |
+  Estas tres consignas definieron el programa político de Perón durante sus mandatos, buscando un equilibrio entre el capital y el trabajo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "avanzado"
+  tags: ["proceso_historico", "ordenar"]
+
+opciones_explicitas: ["Surgimiento del movimiento obrero", "Llegada al poder en 1946", "Consolidación de derechos sociales", "Expansión de la industria nacional"]
+respuesta_orden: ["Surgimiento del movimiento obrero", "Llegada al poder en 1946", "Consolidación de derechos sociales", "Expansión de la industria nacional"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente los procesos que permitieron el ascenso y consolidación del peronismo:"
+
+explicacion: |
+  El proceso comenzó con la organización de los sindicatos, seguido por la victoria electoral, la implementación de medidas de bienestar y el fomento de la industria para sostener dicho modelo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "peronismo_derechos_sociales"
+  nivel: "basico"
+  tags: ["derechos_laborales", "peronismo"]
+
+respuesta: "Sueldo Anual Complementario"
+tipo: completar
+respuestas_validas:
+  - "Sueldo Anual Complementario"
+  - "sueldo anual complementario"
+  - "Aguinaldo"
+
+enunciado: "El beneficio laboral que consiste en la percepción de una parte del sueldo en dos cuotas durante el año se conoce formalmente como ___."
+
+explicacion: |
+  El aguinaldo, o Sueldo Anual Complementario (SAC), fue consolidado como un derecho adquirido para asegurar una compensación extra al trabajador.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "peronismo_derechos_sociales"
+  nivel: "basico"
+  tags: ["derechos_laborales", "vacaciones"]
+
+opciones_explicitas: ["Vacaciones pagas", "Licencia por enfermedad", "Día de la familia", "Feriado religioso"]
+respuesta: "Vacaciones pagas"
+tipo: mc
+
+enunciado: "Durante los primeros gobiernos peronistas, se garantizó el derecho al descanso mediante la implementación de las:"
+
+explicacion: |
+  Las vacaciones pagas permitieron que el trabajador disfrutara de su tiempo libre sin perder su remuneración, un pilar de la justicia social.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "peronismo_derechos_sociales"
+  nivel: "intermedio"
+  tags: ["sindicatos", "derechos_laborales"]
+
+tipo: completar
+enunciado: "Uno de los pilares de la reforma laboral peronista fue el ___ sindical, que dio a los trabajadores mayor poder de negociación colectiva."
+respuesta: "fortalecimiento"
+respuestas_validas:
+  - "fortalecimiento"
+  - "fortalecimiento sindical"
+
+explicacion: |
+  El fortalecimiento de los sindicatos permitió que los trabajadores tuvieran una voz institucionalizada en la negociación de sus condiciones de vida.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "peronismo_derechos_sociales"
+  nivel: "intermedio"
+  tags: ["jubilaciones", "seguridad_social"]
+
+tipo: mc
+opciones_explicitas: ["seguros de vida", "jubilaciones", "créditos hipotecarios", "asistencia escolar"]
+respuesta: "jubilaciones"
+
+enunciado: "La ampliación de la cobertura de la seguridad social se manifestó principalmente en la expansión de las ___ para la clase trabajadora."
+
+explicacion: |
+  La universalización de las jubilaciones permitió que una gran parte de la población pudiera acceder a una vejez digna y protegida por el Estado.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "peronismo_derechos_sociales"
+  nivel: "avanzado"
+  tags: ["ordenar", "derechos_laborales"]
+
+opciones_explicitas: ["Preexistencia de leyes", "Promulgación de leyes de protección", "Consolidación de derechos sociales"]
+respuesta_orden: ["Preexistencia de leyes", "Promulgación de leyes de protección", "Consolidación de derechos sociales"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente la evolución de la situación de los derechos laborales en Argentina durante el proceso de transformación social de mediados del siglo XX:"
+
+explicacion: |
+  El proceso comenzó con la existencia de leyes previas, continuó con una intensa actividad legislativa de protección y culminó con la consolidación de un sistema de derechos sociales robusto.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "basico"
+  tags: ["derechos", "voto_femenino", "eva_peron"]
+
+respuesta: "1947"
+tipo: "completar"
+respuestas_validas:
+  - "1947"
+
+enunciado: "La Ley de Sufragio Femenino en Argentina, que garantizó el derecho político de las mujeres, fue sancionada en el año ___."
+
+explicacion: |
+  La Ley 13.010 fue sancionada el 9 de septiembre de 1947, marcando un hito en la democracia argentina.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "basico"
+  tags: ["eva_peron", "liderazgo"]
+
+respuesta: "Eva Perón"
+tipo: "mc"
+opciones_explicitas: ["Eva Perón", "Isabel Perón", "Alicia Moreau de Justo", "Victoria Ocampo"]
+
+enunciado: "¿Qué figura política fue la principal impulsora y referente del reclamo por el voto femenino durante el primer peronismo?"
+
+explicacion: |
+  Eva Perón (Evita) fue la líder indiscutida del movimiento sufragista, logrando que el proyecto fuera una política de Estado.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "intermedio"
+  tags: ["elecciones", "hitos"]
+
+variables:
+  escenario: uno_de([["1951", "primeras elecciones con voto femenino"]])
+
+respuesta: "1951"
+tipo: "input"
+tolerancia_abs: 0
+
+enunciado: "Si bien la ley se sancionó en 1947, las mujeres argentinas ejercieron el derecho al voto por primera vez en las elecciones de el año {escenario[0]}."
+
+explicacion: |
+  En 1951, las mujeres votaron por primera vez en elecciones nacionales, incluyendo a las candidatas a diputadas y senadoras.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "intermedio"
+  tags: ["derechos_civiles", "ciudadania"]
+
+respuesta_orden: ["Ley 13.010", "Sufragio Femenino", "Ciudadanía Plena"]
+tipo: "ordenar"
+opciones_explicitas: ["Ley 13.010", "Sufragio Femenino", "Ciudadanía Plena"]
+
+enunciado: "Ordena cronológicamente los procesos que permitieron la integración política de la mujer en Argentina:"
+
+explicacion: |
+  Primero se sanciona la ley, luego se implementa el sufragio y finalmente se consolida la ciudadanía plena de la mujer.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "avanzado"
+  tags: ["democracia", "participacion"]
+
+respuesta: "se amplió la base electoral"
+tipo: mc
+opciones_explicitas: ["se amplió la base electoral", "se redujo la participación"]
+
+enunciado: "Considerando el impacto del voto femenino en la democracia argentina, ¿qué ocurrió con la participación política?"
+
+explicacion: |
+  La incorporación de las mujeres como electoras amplió significativamente la base de representatividad del sistema democrático.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "intermedio"
+  tags: ["polarizacion", "sociedad"]
+
+variables:
+  idx: uno_de([0,1])
+  escenario: [["El peronismo generó una división entre sectores que lo veían como una herramienta de justicia social y sectores que lo veían como una amenaza a las instituciones.", "La polarización fue un rasgo distintivo del periodo."], ["El apoyo masivo de los trabajadores consolidó una nueva base política, mientras que la oposición se concentró en las clases medias y élites.", "La base social del movimiento fue transformadora."]]
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["La polarización fue un rasgo distintivo del periodo.", "La base social del movimiento fue transformadora."]
+
+enunciado: "{escenario[idx][0]}"
+
+explicacion: |
+  El peronismo introdujo una nueva dinámica de participación política que fracturó la estructura social tradicional argentina, creando una división que ha persistido en la cultura política del país.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "basico"
+  tags: ["clases_sociales", "trabajadores"]
+
+respuesta: "clase_obrera"
+tipo: completar
+respuestas_validas:
+  - "clase_obrera"
+  - "clase trabajadora"
+
+enunciado: "El principal sector social que brindó el apoyo masivo y sostenido al movimiento peronista fue la ___."
+
+explicacion: |
+  La incorporación de la clase obrera a la vida política activa fue el pilar fundamental del movimiento, otorgándole un poder de movilización sin precedentes en la historia argentina.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "intermedio"
+  tags: ["oposición", "sectores_sociales"]
+
+variables:
+  opcion_correcta: uno_de(["clases_medias_urbanas", "sectores_rurales_oligárquicos", "sindicatos_tradicionales"])
+  opcion_incorrecta_1: "sectores_rurales_oligárquicos"
+  opcion_incorrecta_2: "sindicatos_tradicionales"
+
+respuesta: opcion_correcta
+tipo: mc
+opciones_explicitas: ["clases_medias_urbanas", "sectores_rurales_oligárquicos", "sindicatos_tradicionales"]
+
+enunciado: "Históricamente, uno de los sectores que manifestó una oposición más estructurada y constante a la hegemonía peronista fue el de las ___."
+
+explicacion: |
+  La oposición peronista fue heterogénea, pero las clases medias urbanas y la élite tradicional conformaron los núcleos de resistencia más significativos durante el periodo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "avanzado"
+  tags: ["legado", "politica_argentina"]
+
+respuesta: "identidad_politica"
+tipo: completar
+respuestas_validas:
+  - "identidad_politica"
+  - "identidad política"
+
+enunciado: "El peronismo no solo fue un gobierno, sino que configuró una nueva ___ que sigue siendo un eje central en la política argentina contemporánea."
+
+explicacion: |
+  La capacidad de la identidad peronista para reorganizarse y permanecer como un actor central demuestra la profundidad de su impacto en la estructura política nacional.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "intermedio"
+  tags: ["proceso_historico", "derechos"]
+
+respuesta_orden: ["Reivindicación de derechos laborales", "Fortalecimiento del rol sindical", "Polarización de la estructura social"]
+tipo: ordenar
+opciones_explicitas: ["Reivindicación de derechos laborales", "Fortalecimiento del rol sindical", "Polarización de la estructura social"]
+
+enunciado: "Ordene cronológicamente los efectos sociales derivados del ascenso del peronismo en la Argentina:"
+
+explicacion: |
+  El proceso comenzó con la conquista de derechos, continuó con la institucionalización de la fuerza sindical y culminó en una división social profunda entre partidarios y detractores.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "basico"
+  tags: ["derechos_laborales", "peronismo"]
+
+variables:
+  datos: [["implementacion_vacaciones", "descanso_pago"], ["seguro_vida", "proteccion_familia"], ["estatuto_obrero", "estabilidad_laboral"]]
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["sedimentaria", "ignea", "metamorfica"]
+opciones_explicitas: ["descanso_pago", "proteccion_familia", "estabilidad_laboral"]
 
-enunciado: "Una muestra presenta {datos[idx][0]}. Esto indica que es una roca ___."
+enunciado: "Durante el primer peronismo, la legislación laboral garantizó que los trabajadores tuvieran derecho a un periodo de ___."
 
 explicacion: |
-  La textura y la presencia de fósiles son indicadores clave del origen de la roca.
+  La Ley de Vacaciones Pagas fue uno de los pilares de la justicia social, permitiendo el descanso remunerado de la clase obrera.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
+  tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
-  tags: ["ciclo_rocoso", "orden"]
+  tags: ["voto_femenino", "derechos_civiles"]
 
-tipo: ordenar
-opciones_explicitas: ["Roca Ígnea", "Sedimento", "Roca Sedimentaria"]
-respuesta_orden: ["Roca Ígnea", "Sedimento", "Roca Sedimentaria"]
+respuesta: "voto_femenino"
+tipo: completar
+respuestas_validas:
+  - "voto_femenino"
 
-enunciado: "Ordena los elementos según el proceso de formación de una roca sedimentaria a partir de material ígneo erosionado:"
+enunciado: "La promulgación de la Ley 13.010 en 1947 permitió que las mujeres ejercieran su derecho al ___ en Argentina."
 
 explicacion: |
-  El ciclo de las rocas implica la transformación constante de un tipo en otro: una roca ígnea expuesta en la superficie se erosiona en sedimentos, que luego se compactan y cementan para formar una roca sedimentaria.
+  La Ley de Sufragio Femenino fue fundamental para la integración de la mujer a la vida política y ciudadana del país.
 ```
 
 ```
 metadata:
-  materia: "historia_profucha"
-  tema: "rocas_igneas_sedimentarias_metamorficas"
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
   nivel: "basico"
-  tags: ["calor", "presion"]
+  tags: ["justicia_social", "distribucion_riqueza"]
 
 variables:
-  datos: [["fusión parcial", "ignea"], ["compactación", "sedimentaria"], ["reordenamiento atómico", "metamorfica"]]
+  datos: [["reparto_ganancias", "justicia_social"], ["salario_minimo", "poder_pobres"], ["seguridad_social", "bienestar_general"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["justicia_social", "poder_pobres", "bienestar_general"]
+
+enunciado: "El objetivo central de la política de redistribución de la riqueza durante este periodo era alcanzar la ___."
+
+explicacion: |
+  El peronismo promovió la idea de que la riqueza debe ser distribuida para garantizar una vida digna a los sectores trabajadores.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "avanzado"
+  tags: ["secuencia_historica", "derechos"]
+
+variables:
+  orden_correcta: ["Estatuto del Peón", "Ley de Vacaciones", "Voto Femenino", "Seguros de Vida"]
+
+respuesta_orden: orden_correcta
+tipo: ordenar
+opciones_explicitas: ["Estatuto del Peón", "Ley de Vacaciones", "Voto Femenino", "Seguros de Vida"]
+
+enunciado: "Ordene cronológicamente las siguientes conquistas sociales del ámbito de los derechos laborales y civiles durante el primer peronismo:"
+
+explicacion: |
+  La secuencia refleja la expansión de derechos desde el ámbito rural y laboral hacia la plena ciudadanía política.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "peronismo_derechos_sociales"
+  nivel: "intermedio"
+  tags: ["trabajo", "dignidad"]
+
+variables:
+  datos: [["salario_justo", "dignidad"], ["jornada_8h", "salud"], ["afiliacion_sindicato", "poder"]]
   idx: uno_de([0, 1, 2])
 
 respuestas_validas:
@@ -1868,483 +904,1374 @@ respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si una roca se forma por {datos[idx][0]}, su clasificación es ___."
+enunciado: "Para el peronismo, el trabajo no era solo una mercancía, sino un medio para alcanzar la ___ del trabajador."
 
 explicacion: |
-  La fusión produce magma (ígnea), la compactación produce sedimentaria y el reordenamiento por calor/presión produce metamórfica.
+  La noción de 'dignidad' fue el eje transversal de todas las reformas laborales impulsadas por el Estado.
 ```
 
-## Sección: sedentarizacion-excedente (25 preguntas)
+## Sección: descolonizacion-de-africa-y-asia (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "basico"
-  tags: ["sedentarizacion", "agricultura"]
-
-respuesta: "sedentarios"
-tipo: completar
-respuestas_validas:
-  - "sedentarios"
-
-enunciado: "Al depender de la agricultura y la domesticación de plantas, los grupos humanos dejaron de ser nómadas para convertirse en ___."
-
-explicacion: |
-  La capacidad de producir alimento de forma controlada permitió que los grupos humanos se establecieran en un lugar fijo, dando inicio a la sedentarización.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "basico"
-  tags: ["causas", "agricultura"]
-
-respuesta: "la agricultura"
-tipo: mc
-opciones_explicitas: ["la caza", "la agricultura", "la recolección", "la migración"]
-
-enunciado: "La domesticación de plantas fue el motor principal de la sedentarización, un proceso conocido como ___."
-
-explicacion: |
-  El paso de una economía de subsistencia basada en la recolección a una basada en la producción agrícola permitió la permanencia en un territorio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "intermedio"
-  tags: ["excedente", "especializacion"]
-
-respuesta: "especialización"
-tipo: completar
-respuestas_validas:
-  - "especialización"
-  - "especializacion"
-
-enunciado: "La generación de un excedente agrícola permitió que no todos los individuos tuvieran que dedicarse a la producción de alimentos, dando lugar a la ___ del trabajo."
-
-explicacion: |
-  El excedente alimentario permitió que surgieran otros roles sociales (artesanos, guerreros, sacerdotes), rompiendo la igualdad de la economía de subsistencia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "intermedio"
-  tags: ["procesos", "ordenar"]
-
-respuesta_orden: ["Domesticación de plantas", "Producción de excedentes", "Asentamientos permanentes", "Especialización social"]
-tipo: ordenar
-opciones_explicitas: ["Domesticación de plantas", "Producción de excedentes", "Asentamientos permanentes", "Especialización social"]
-
-enunciado: "Ordena cronológicamente los procesos que permitieron el surgimiento de las primeras civilizaciones:"
-
-explicacion: |
-  Primero se domestican las especies, lo que genera comida de sobra (excedente), lo que permite quedarse en un lugar (sedentarismo) y finalmente permite que la sociedad se divida en clases o profesiones.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
+  tema: "descolonizacion-de-africa-y-asia"
   nivel: "avanzado"
-  tags: ["territorio", "geografia_humana"]
-
-respuesta: verdadero
-tipo: vf
-opciones_explicitas: [verdadero, falso]
-
-enunciado: "Los asentamientos permanentes fueron una consecuencia directa de la necesidad de cuidar los cultivos."
-
-explicacion: |
-  La agricultura requiere una inversión de tiempo y cuidado constante en el mismo terreno, lo que obliga a la población a permanecer en un radio cercano a sus campos.
+  tags: ["indochina", "francia", "vietnam", "1954"]
+enunciado: "El colapso del dominio colonial francés en Indochina se consolidó tras la derrota en la batalla de Dien Bien Phu y la firma de los acuerdos que dividieron temporalmente el territorio en dos zonas militares. ¿En qué año se firmaron estos acuerdos?"
+tipo: completar
+respuesta: "1954"
+respuestas_validas:
+  - "1954"
+  - "1954."
+explicacion: "Los Acuerdos de Ginebra se firmaron en julio de 1954, estableciendo el cese del fuego y la división de Vietnam a lo largo del paralelo 17."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "basico"
-  tags: ["agricultura", "conceptos"]
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["bandung", "no-alineados", "1955", "solidaridad"]
+enunciado: "En 1955, se reunió en Indonesia una histórica asamblea de estados asiáticos y africanos que buscaba promover la cooperación económica y cultural y oponerse al colonialismo. ¿Cómo se denominó esta conferencia fundacional del movimiento de Países No Alineados?"
+tipo: completar
+respuesta: "bandung"
+respuestas_validas:
+  - "bandung"
+  - "Bandung"
+  - "conferencia de bandung"
+  - "Conferencia de Bandung"
+explicacion: "La Conferencia de Bandung fue un hito en la historia de la descolonización, sentando las bases para la futura solidaridad del Sur global."
+```
 
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["ghana", "nkrumah", "independencia", "1957"]
+enunciado: "Ghana fue el primer país de África subsahariana en obtener la independencia de la metropoli británica en 1957, bajo el liderazgo carismático de un político que promovió el panaficanismo. ¿Quién fue este líder?"
+tipo: completar
+respuesta: "kwame nkrumah"
+respuestas_validas:
+  - "kwame nkrumah"
+  - "Kwame Nkrumah"
+  - "nkrumah"
+  - "Nkrumah"
+explicacion: "Kwame Nkrumah lideró la Gold Coast hacia la independencia como Ghana y se convirtió en su primer primer ministro y presidente."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["argelia", "francia", "colonialismo", "1945"]
+enunciado: "En mayo de 1945, mientras se celebraba la victoria aliada en la Segunda Guerra Mundial, estallaron violentos disturbios en Argelia que fueron reprimidos brutalmente por las fuerzas coloniales francesas, marcando el inicio del camino hacia la guerra de independencia. ¿En qué ciudad argelina ocurrió el brote inicial de esta masacre?"
+tipo: completar
+respuesta: "setif"
+respuestas_validas:
+  - "setif"
+  - "Sétif"
+  - "setif"
+  - "Sétif"
+explicacion: "La masacre de Sétif (y Guelma) de 1945 fue un punto de inflexión donde la contradicción entre los ideales democráticos aliados y el colonialismo francés se hizo evidente."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["india", "pakistan", "montbatten", "1947"]
+enunciado: "El plan que definió la partición del subcontinente indio en dos dominios independientes, India y Pakistán, fue anunciado en junio de 1947 por el último virrey británico. ¿Quién fue este virrey responsable de la transición?"
+tipo: completar
+respuesta: "louis mountbatten"
+respuestas_validas:
+  - "louis mountbatten"
+  - "Louis Mountbatten"
+  - "mountbatten"
+  - "Mountbatten"
+explicacion: "Lord Louis Mountbatten diseñó el calendario acelerado para la independencia y la partición, lo que resultó en una de las mayores migraciones forzadas de la historia."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["chipre", "britania", "grecia", "turquia"]
+enunciado: "La independencia de Chipre en 1960 fue el resultado de acuerdos entre el Reino Unido, Grecia y Turquía. Este proceso puso fin a la enosis (unión con Grecia) y la taksim (partición). ¿Qué isla mediterránea fue el objeto de este proceso descolonizador?"
+tipo: completar
+respuesta: "chipre"
+respuestas_validas:
+  - "chipre"
+  - "Chipre"
+explicacion: "Chipre logró su independencia bajo un tratado que garantizaba la protección de las comunidades turcochipriota y griegochipriota, aunque con bases soberanas británicas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["india", "china", "tibet", "1954"]
+enunciado: "En 1954, India y China firmaron el Tratado de Amity y Coordinación, que incluía los Cinco Principios de la Coexistencia Pacífica. Este tratado fue significativo porque la primera parte lo negoció un líder de un país recién independiente que reclamaba la soberanía sobre un territorio del Himalaya que China disputaba. ¿Qué territorio fue el foco de esta disputa inicial en el tratado?"
+tipo: completar
+respuesta: "tibet"
+respuestas_validas:
+  - "tibet"
+  - "Tibet"
+explicacion: "India reconoció la soberanía china sobre Tibet en el tratado, pero luego la invasión china de 1950-51 y la posterior guerra de 1962 invalidaron la confianza en estos principios."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["canal de suez", "egipto", "israel", "1956"]
+enunciado: "La nacionalización del Canal de Suez por Gamal Abdel Nasser en 1956 provocó una invasión coordinada por Israel, Reino Unido y Francia. ¿En qué mes y año comenzó esta guerra que demostró el fin de la hegemonía colonial europea directa en la región?"
+tipo: completar
+respuesta: "octubre 1956"
+respuestas_validas:
+  - "octubre 1956"
+  - "octubre de 1956"
+  - "1956"
+  - "octubre"
+explicacion: "La crisis de Suez (1956) marcó el declive final de Gran Bretaña y Francia como potencias globiales independentes, obligadas a retirarse bajo presión de EE.UU. y la URSS."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["indonesia", "holanda", "sukarno", "independencia"]
+enunciado: "Indonesia proclamó su independencia en 1945, pero los Países Bajos no reconocieron formalmente la soberanía hasta 1949 tras una guerra de guerrillas y presión diplomática. ¿Quién fue el primer presidente de Indonesia y figura central del nacionalismo indonesio?"
+tipo: completar
+respuesta: "sukarno"
+respuestas_validas:
+  - "sukarno"
+  - "Sukarno"
+explicacion: "Sukarno fue el arquitecto de la independencia indonesia y un líder clave del Movimiento de Países No Alineados."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["malaya", "emergencia", "comunistas", "britania"]
+enunciado: "Antes de la independencia de Malaya en 1957, el Reino Unido enfrentó una insurgencia armada liderada principalmente por el Partido Comunista de Malaya. ¿Cómo se denominó oficialmente este conflicto de baja intensidad que duró desde 1948 hasta 1960?"
+tipo: completar
+respuesta: "emergencia de malaya"
+respuestas_validas:
+  - "emergencia de malaya"
+  - "Emergencia de Malaya"
+  - "la emergencia"
+explicacion: "La 'Emergencia' fue un ejemplo de guerra contrainsurgente donde las fuerzas britanas combinaron tácticas militares con la reubicación de la población rural china malaya."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["marruecos", "francia", "sultan", "1956"]
+enunciado: "Marruecos logró su independencia de Francia en 1956 mediante negociaciones políticas que restauraron el poder del monarca. ¿Quién fue el sultán que se convirtió en rey y símbolo de la unidad nacional marroquí?"
+tipo: completar
+respuesta: "mohammed v"
+respuestas_validas:
+  - "mohammed v"
+  - "Mohammed V"
+  - "muhammad v"
+  - "Muhammad V"
+explicacion: "Mohammed V (Sidi Mohammed ben Youssef) fue exiliado por los franceses en 1953 por su activismo nacionalista, pero su regreso precipitó la independencia."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["birmania", "britania", "u nu", "independencia"]
+enunciado: "Birmania fue el primer país de la Commonwealth en abandonar la unión al obtener la independencia en 1948, un año antes que la India. ¿Quién fue el primer ministro birmano que negoció la independencia con Clement Attlee y luego lideró el país?"
+tipo: completar
+respuesta: "u nu"
+respuestas_validas:
+  - "u nu"
+  - "U Nu"
+explicacion: "U Nu negoció la independencia bajo la condición de que Birmania no se uniera a la Commonwealth, manteniendo una política de no alineamiento."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["ceilan", "sri lanka", "britania", "1958"]
+enunciado: "Aunque Ceilán (actual Sri Lanka) obtuvo la independencia en 1948 de forma relativamente pacífica, las tensiones étnicas entre cingaleses y tamiles estallaron violentamente años después. ¿En qué año ocurrieron los primeros disturbios intercomunitarios masivos en la isla?"
+tipo: completar
+respuesta: "1958"
+respuestas_validas:
+  - "1958"
+  - "1958."
+explicacion: "Los disturbios de 1958 marcaron el inicio de la violencia política estructurada basada en la identidad étnica en Sri Lanka."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["turquia", "imperio otomano", "mustafa kemal", "1923"]
+enunciado: "Aunque anterior a la ola principal de descolonización del siglo XX, este tratado puso fin formalmente al Imperio Otomano y estableció la República de Turquía como un estado soberano moderno. ¿En qué ciudad suiza se firmó este tratado?"
+tipo: completar
+respuesta: "lausana"
+respuestas_validas:
+  - "lausana"
+  - "Lausana"
+  - "lausanne"
+  - "Lausanne"
+explicacion: "El Tratado de Lausana (1923) fue un precedente crucial de autodeterminación nacional que inspiró a movimientos nacionalistas en Asia y África."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["kenia", "mau mau", "jomo kenatta", "independencia"]
+enunciado: "Kenia luchó una guerra de liberación contra el dominio británico, conocida como la Rebelión Mau-Mau, antes de obtener la independencia en 1963. ¿Quién fue el líder nacionalista que se convirtió en el primer presidente de Kenia?"
+tipo: completar
+respuesta: "jomo kenatta"
+respuestas_validas:
+  - "jomo kenatta"
+  - "Jomo Kenyatta"
+  - "kenyatta"
+  - "Kenyatta"
+explicacion: "Jomo Kenyatta fue encarcelado por los británicos durante la rebelión Mau-Mau, pero luego se convirtió en la figura unificadora de la independencia."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["argelia", "francia", "evian", "1962"]
+enunciado: "Tras ocho años de guerra brutal, Francia y los nacionalistas argelinos (FLN) firmaron unos acuerdos que pusieron fin al conflicto y permitieron la independencia de Argelia. ¿En qué ciudad francesa se firmaron estos acuerdos en marzo de 1962?"
+tipo: completar
+respuesta: "evian"
+respuestas_validas:
+  - "evian"
+  - "Évian"
+  - "evian-les-bains"
+  - "Évian-les-Bains"
+explicacion: "Los Acuerdos de Évian-Les-Bains establecieron el cese al fuego y el referéndum de independencia que se celebró poco después."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["etiopia", "italia", "ocupacion", "1941"]
+enunciado: "A diferencia de la mayoría de los países africanos, Etiopía fue solo brevemente ocupada por Italia fascista. ¿En qué año las fuerzas aliadas y los patriotas etíopes liberaron Addis Abeba, restaurando la soberanía etíope?"
+tipo: completar
+respuesta: "1941"
+respuestas_validas:
+  - "1941"
+  - "1941."
+explicacion: "La liberación de 1941 reafirmó a Etiopía como un símbolo de resistencia anticolonial en África, aunque mantuvo su estatus de monarquía hasta 1974."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["francia", "africa", "colonialismo", "1944"]
+enunciado: "En 1944, el general de Gaulle convocó una conferencia en la capital de la África Ecuatorial Francesa para discutir el futuro de las colonias. ¿Qué ciudad fue sede de esta conferencia que prometía reformas pero rechazaba la independencia inmediata?"
+tipo: completar
+respuesta: "brazzaville"
+respuestas_validas:
+  - "brazzaville"
+  - "Brazzaville"
+explicacion: "La Conferencia de Brazzaville fue un intento de reformar el imperio colonial francés sin conceder la autodeterminación política total."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["tanganyika", "nyerere", "tanzania", "independencia"]
+enunciado: "Tanganyika obtuvo la independencia de Gran Bretaña en 1961. Su líder, conocido por su filosofía de 'Ujamaa' (familia), se convirtió en el primer presidente. ¿Quién fue este líder?"
+tipo: completar
+respuesta: "julius nyerere"
+respuestas_validas:
+  - "julius nyerere"
+  - "Julius Nyerere"
+  - "nyerere"
+  - "Nyerere"
+explicacion: "Julius Nyerere fue un intelectual y líder socialista que unió Tanganyika con Zanzíbar para formar Tanzania."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["senegal", "francia", "veteranos", "1944"]
+enunciado: "En diciembre de 1944, en las afueras de Dakar, las tropas coloniales francesas dispararon contra sus propios camaradas veteranos que reclamaban sus pagas y licencias. ¿En qué localidad senegalesa ocurrió esta masacre?"
+tipo: completar
+respuesta: "thiaroye"
+respuestas_validas:
+  - "thiaroye"
+  - "Thiaroye"
+  - "thiaroye sur mer"
+  - "Thiaroye-sur-Mer"
+explicacion: "La masacre de Thiaroye simbolizó la traición de las potencias coloniales hacia los soldados africanos que habían luchado por la libertad en Europa."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["argelia", "argel", "francia", "1961"]
+enunciado: "En abril de 1961, se intentó negociar un alto el fuego entre el gobierno francés y el FLN argelino en una villa en las afueras de Argel. ¿En qué localidad se celebraron estas conversaciones fallidas?"
+tipo: completar
+respuesta: "finkenstein"
+respuestas_validas:
+  - "finkenstein"
+  - "Finkenstein"
+  - "finkenstein-sur-mer"
+  - "Finkenstein-sur-Mer"
+explicacion: "Las conversaciones de Finkenstein-sur-Mer fracasaron debido a la intransigencia de la OAS (Organización del Ejército Secreto) y la desconfianza mutua."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["libia", "italia", "onu", "1951"]
+enunciado: "Libia fue el único país africano que obtuvo la independencia a través de una resolución de la ONU que estableció un reino constitucional. ¿Quién fue el primer rey de Libia y líder de la dinastía Idrisida?"
+tipo: completar
+respuesta: "idris"
+respuestas_validas:
+  - "idris"
+  - "Idris"
+  - "idris i"
+  - "Idris I"
+explicacion: "El Rey Idris I gobernó Libia hasta 1969, cuando fue derrocado por Muamar Gadafi en un golpe de estado."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["birmania", "britania", "independencia", "1947"]
+enunciado: "Justo antes de la independencia de Birmania, estallaron disturbios comunitarios en una ciudad importante. Aunque menos conocida que otras, la violencia en 1947 marcó las tensiones étnicas tempranas. Sin embargo, un evento más simbólico de la transición fue la ejecución de un líder nacionalista birmano por parte de los británicos en 1947. ¿Quién fue este líder ejecutado?"
+tipo: completar
+respuesta: "aung san"
+respuestas_validas:
+  - "aung san"
+  - "Aung San"
+explicacion: "Aung San fue negociado la independencia pero fue asesinado antes de su implementación, convirtiéndose en un héroe nacional."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["iran", "britania", "petroleo", "mosaddeq"]
+enunciado: "En 1951, Irán nacionalizó su industria petrolera, desafiando los intereses de la Anglo-Iranian Oil Company. El primer ministro iraní que lideró esta resistencia fue derrocado en un golpe de estado en 1953 apoyado por EE.UU. y el Reino Unido. ¿Quién fue este primer ministro?"
+tipo: completar
+respuesta: "mohammad mosaddeq"
+respuestas_validas:
+  - "mohammad mosaddeq"
+  - "Mohammad Mosaddeq"
+  - "mosaddeq"
+  - "Mosaddeq"
+explicacion: "La nacionalización petrolera irana fue un acto de soberanía económica que desafió el neocolonialismo occidental en Oriente Medio."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["india", "segunda guerra mundial", "transporte", "1943"]
+enunciado: "Durante la Segunda Guerra Mundial, el transporte de tropas indias sufrió una tragedia marítima masiva. El buque SS Mendi fue hundido por un submarino alemán en 1943, causando cientos de muertes entre soldados del Cuerpo de Trabajo Indio. ¿Qué nacionalidad tenían las víctimas principales de este desastre?"
 tipo: mc
-opciones_explicitas: ["La producción total de alimentos de una comunidad", "La producción de alimento por encima de lo necesario para la subsistencia", "El proceso de transformar granos en harina", "El intercambio de semillas entre comunidades"]
-respuesta: "La producción de alimento por encima de lo necesario para la subsistencia"
-
-enunciado: "En el contexto de la Revolución Neolítica, ¿qué se define como excedente agrícola?"
-
-explicacion: |
-  El excedente es la cantidad de alimento que sobra después de haber cubierto las necesidades básicas de supervivencia de la población. Este sobrante es la base de la especialización del trabajo.
+opciones_explicitas:
+  - "Pacistaníes"
+  - "Indios"
+  - "Bangladesíes"
+  - "Sri Lankeses"
+respuesta: "Indios"
+explicacion: "Las víctimas eran soldados y trabajadores indios del Imperio Británico, recordados como héroes en la historia militar de la India."
 ```
 
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "intermedio"
-  tags: ["sociedad", "especializacion"]
-
-variables:
-  escenarios: [["comerciar con otros grupos", "alimentar a artesanos y sacerdotes"], ["almacenar para tiempos de sequía", "permitir la aparición de jerarquías sociales"]]
-  escenario: uno_de(escenarios)
-
-tipo: mc
-opciones_explicitas: ["Reducir el tamaño de las poblaciones", "Fomentar la autosuficiencia absoluta", "Permitir la especialización del trabajo", "Eliminar la necesidad de agricultura"]
-
-enunciado: "La existencia de un excedente agrícola permitió que parte de la población pudiera dedicarse a actividades distintas a la producción de alimentos, como {escenario[0]} o {escenario[1]}. ¿A qué proceso social dio lugar esto?"
-
-respuesta: "Permitir la especialización del trabajo"
-
-explicacion: |
-  Al no tener que producir comida todos los días, surgieron especialistas (artesanos, guerreros, administradores) y se consolidaron las estructuras sociales complejas.
-```
+## Sección: guerras-mundiales (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
+  tema: "causas_primera_guerra"
   nivel: "basico"
-  tags: ["nomadismo", "sedentarismo"]
+  tags: ["causas", "nacionalismo", "imperialismo"]
 
-tipo: ordenar
-opciones_explicitas: ["Domesticación de plantas y animales", "Producción de excedente agrícola", "Formación de asentamientos permanentes", "Aparición de la división social del trabajo"]
-
-enunciado: "Ordena cronológicamente los procesos que permitieron la transición del nomadismo al sedentarismo complejo:"
-
-explicacion: |
-  Primero se domestican especies, lo que permite producir más de lo que se consume; esto permite quedarse en un lugar (sedentarismo) y finalmente permite que no todos trabajen en el campo.
-respuesta_orden: ["Domesticación de plantas y animales", "Producción de excedente agrícola", "Formación de asentamientos permanentes", "Aparición de la división social del trabajo"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "intermedio"
-  tags: ["economia_antigua"]
-
+respuesta: "Francisco Fernando"
 tipo: completar
 respuestas_validas:
-  - "comercio"
-  - "intercambio"
+  - "Francisco Fernando"
 
-enunciado: "El excedente agrícola no solo servía para el almacenamiento, sino que también facilitó el ________ con otros grupos humanos."
+enunciado: "El asesinato del archiduque ___ en Sarajevo fue el detonante que activó el sistema de alianzas en Europa en 1914."
 
 explicacion: |
-  El sobrante de productos permite que una comunidad obtenga otros bienes que no produce, dando origen a las primeras redes de intercambio o comercio.
+  El asesinato del heredero al trono austrohúngaro, Francisco Fernando, por un nacionalista serbio, desencadenó la crisis de julio que llevó a la guerra.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "avanzado"
-  tags: ["logica", "economia"]
+  tema: "alianzas_guerra"
+  nivel: "intermedio"
+  tags: ["alianzas", "triple_entente"]
 
 variables:
-  datos: [[100, 70], [250, 180], [50, 45]]
-  idx: uno_de([0, 1, 2])
-  produccion: datos[idx][0]
-  consumo: datos[idx][1]
-  excedente: produccion - consumo
-
-tipo: completar
-enunciado: "Si una comunidad agrícola produce {produccion} sacos de grano y el consumo necesario para su subsistencia es de {consumo} sacos, ¿cuántos sacos representan el excedente?"
-
-respuesta: excedente
-
-pasos:
-  - "Identificar la producción total"
-  - "Identificar el consumo de subsistencia"
-  - "Restar el consumo de la producción para hallar el sobrante"
-
-explicacion: |
-  El excedente se calcula mediante la resta: Producción - Consumo. En este caso, el resultado es {excedente}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "basico"
-  tags: ["sedentarizacion", "excedente", "division_del_trabajo"]
-
-tipo: mc
-opciones_explicitas: ["La agricultura de subsistencia", "La acumulación de excedente", "La caza y recolección", "El nomadismo"]
-respuesta: "La acumulación de excedente"
-
-enunciado: "El fenómeno que permitió, por primera vez, que ciertos grupos humanos se dedicaran a tareas distintas a la obtención de alimento fue..."
-
-explicacion: |
-  El excedente agrícola permitió que no toda la población tuviera que producir comida, dando lugar a la especialización del trabajo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "intermedio"
-  tags: ["clases_sociales", "especializacion"]
-
-variables:
-  escenario: uno_de([["artesanos", "creadores de herramientas y objetos"], ["sacerdotes", "encargados de rituales y la cosmogonía"], ["gobernantes", "encargados de la administración y defensa"]])
-
-tipo: completar
-respuesta: escenario[0]
-
-enunciado: "Gracias al excedente, surgieron roles sociales especializados. A quienes eran {escenario[1]} se los denominaba ___."
-
-pasos:
-  - "Identificar la función social descrita."
-  - "Relacionar la función con el término correspondiente."
-
-explicacion: |
-  La división del trabajo permitió la aparición de especialistas en la producción, la religión y la política.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "intermedio"
-  tags: ["division_del_trabajo", "jerarquia"]
-
-tipo: ordenar
-opciones_explicitas: ["Producción de excedente", "Sedentarismo", "División del trabajo", "Especialización social"]
-
-enunciado: "Ordena cronológicamente los procesos que permitieron la aparición de las primeras civilizaciones complejas:"
-
-explicacion: |
-  Primero se establece el sedentarismo, lo que permite producir excedentes; esto a su vez permite la división del trabajo y finalmente la especialización de roles sociales.
-respuesta_orden: ["Producción de excedente", "Sedentarismo", "División del trabajo", "Especialización social"]
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "sedentarizacion_excedente"
-  nivel: "basico"
-  tags: ["excedente", "base_social"]
-
-tipo: mc
-opciones_explicitas: ["La escasez de recursos", "La división del trabajo", "El excedente de producción", "La guerra constante"]
-respuesta: "El excedente de producción"
-
-enunciado: "La base fundamental que permitió la división del trabajo en las sociedades neolíticas fue..."
-
-explicacion: |
-  Sin un excedente de alimentos, cada individuo debe dedicar la mayor parte de su tiempo a asegurar la supervivencia alimentaria.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "avanzado"
-  tags: ["especializacion", "clases_sociales"]
-
-tipo: mc
-opciones_explicitas: ["artesano", "sacerdote", "gobernante"]
-respuesta: "gobernante"
-
-enunciado: "Si una sociedad cuenta con excedentes y surge una clase dedicada exclusivamente a la gestión del orden y la defensa, estamos ante la figura del:"
-
-explicacion: |
-  La gestión del poder es una de las especializaciones más tempranas derivadas de la organización de sociedades con excedentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "basico"
-  tags: ["sedentarizacion", "poblacion"]
-
-respuesta: "crecimiento"
-tipo: completar
-respuestas_validas:
-  - "crecimiento"
-
-enunciado: "La transición de la vida nómada a la sedentarización favoreció el ___ poblacional debido a la estabilidad en el suministro de alimentos."
-
-explicacion: |
-  Al establecerse en un lugar fijo y cultivar alimentos, las comunidades pudieron asegurar un suministro constante, lo que permitió que la población creciera de forma sostenida.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "basico"
-  tags: ["aldeas", "asentamientos"]
-
-opciones_explicitas: ["Asentamientos temporales", "Aldeas permanentes", "Migraciones constantes"]
-respuesta: "Aldeas permanentes"
-tipo: mc
-
-enunciado: "La capacidad de producir excedentes agrícolas permitió que los grupos humanos abandonaran el nomadismo y fundaran:"
-
-explicacion: |
-  El excedente de comida permitió que las personas no tuvieran que desplazarse constantemente en busca de alimento, dando origen a las primeras aldeas permanentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "intermedio"
-  tags: ["nutrición", "recursos"]
-
-variables:
-  escenarios: [["estabilidad de recursos", "una mejor nutrición en cantidad"], ["excedente de granos", "la reducción de la mortalidad infantil"]]
   idx: uno_de([0, 1])
-  factor: escenarios[idx][1]
+  tabla: [["Triple Entente", "Triple Entente"], ["Triple Alianza", "Triple Alianza"]]
 
-enunciado: "Considerando el escenario de {escenarios[idx][0]}, el factor principal que impulsó el aumento de la población fue {factor}."
-
-respuesta: factor
+respuesta: tabla[idx][1]
 tipo: mc
-opciones_explicitas: ["una mejor nutrición en cantidad", "la reducción de la mortalidad infantil"]
+opciones_explicitas: ["Triple Entente", "Triple Alianza"]
+
+enunciado: "Si consideramos el bloque de potencias formado por Francia, Gran Bretaña y Rusia, estamos hablando de la {tabla[idx][0]}."
+
+pasos:
+  - "Identificar los miembros del bloque mencionado."
+  - "Diferenciar entre la Triple Entente y la Triple Alianza."
 
 explicacion: |
-  La estabilidad en el suministro de recursos y una nutrición más constante son pilares fundamentales para el crecimiento demográfico en la era neolítica.
+  La Triple Entente estaba compuesta por Francia, Reino Unido y Rusia, mientras que la Triple Alianza (Potencias Centrales) incluía a Alemania, Austria-Hungría e Italia (inicialmente).
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
+  tema: "guerra_de_trincheras"
+  nivel: "basico"
+  tags: ["trench_warfare", "estancamiento"]
+
+respuesta: "estancamiento"
+tipo: mc
+opciones_explicitas: ["movimiento", "estancamiento", "guerra_relampago"]
+
+enunciado: "El predominio de la defensa sobre la ofensiva y el uso de redes de trincheras provocaron un ___ táctico en el frente occidental."
+
+explicacion: |
+  La guerra de trincheras impidió avances significativos durante años, convirtiendo el conflicto en una guerra de desgaste y posiciones estáticas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tecnologia_militar"
   nivel: "intermedio"
-  tags: ["proceso", "causa_efecto"]
+  tags: ["tecnologia", "tanques", "guerra_quimica"]
 
-opciones_explicitas: ["Agricultura", "Excedente de alimentos", "Aldeas permanentes"]
-respuesta_orden: ["Agricultura", "Excedente de alimentos", "Aldeas permanentes"]
-tipo: ordenar
+respuesta: "tanques"
+tipo: mc
+opciones_explicitas: ["tanques", "aviones de combate", "submarinos", "guerra química"]
 
-enunciado: "Ordene cronológicamente los procesos que permitieron la transición hacia la vida sedentaria:"
+enunciado: "Para romper el estancamiento de las trincheras, los británicos introdujeron nuevos blindados conocidos como ___."
 
 explicacion: |
-  Primero se desarrolla la agricultura, esto genera un excedente de comida, lo que finalmente permite que los asentamientos se vuelvan permanentes.
+  Aunque los tanques no ganaron la guerra por sí solos, fueron un intento tecnológico clave para cruzar el terreno devastado de las trincheras.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
+  tema: "causas_guerra"
   nivel: "avanzado"
-  tags: ["excedente", "sociedad"]
+  tags: ["ordenar", "causas"]
 
-respuesta: "verdadero"
-tipo: completar
-enunciado: "¿El excedente de alimentos permitió que no todos los miembros de la aldea tuvieran que dedicarse a la agricultura, dando paso a la especialización del trabajo?"
-
-explicacion: |
-  Exacto. Al haber comida de sobra (excedente), algunas personas pudieron dedicarse a otras tareas como la alfarería, la metalurgia o la administración.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "basico"
-  tags: ["agricultura", "sedentarismo"]
-
-variables:
-  datos: [["el cultivo de cereales permitió almacenar comida", "la sedentarización"], ["la domesticación de animales generó excedentes", "el aumento de la población"], ["el control del riego aseguró cosechas", "la formación de los primeros asentamientos"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["la sedentarización", "el aumento de la población", "la formación de los primeros asentamientos"]
-
-enunciado: "Si consideramos que {datos[idx][0]}, el efecto directo fue ___."
-
-explicacion: |
-  La capacidad de producir más alimento del que se consume inmediatamente (excedente) permitió que los grupos humanos dejaran de ser nómadas y se establecieran en lugares fijos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "intermedio"
-  tags: ["excedente", "especializacion"]
-
-variables:
-  datos: [["excedente alimentario", "especialización del trabajo"], ["excedente alimentario", "aparición de jerarquías"], ["excedente alimentario", "desarrollo del comercio"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["especialización del trabajo", "aparición de jerarquías", "desarrollo del comercio"]
-
-enunciado: "Cuando una sociedad logra un {datos[idx][0]}, surge como consecuencia la ___."
-
-explicacion: |
-  Al no tener que dedicar todo el tiempo a la búsqueda de alimento, algunos individuos pudieron dedicarse a otras tareas como la artesanía, la metalurgia o la administración.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
-  nivel: "intermedio"
-  tags: ["secuencia", "neolitico"]
-
-respuesta_orden: ["Domesticación de plantas", "Producción de excedentes", "Sedentarización", "Estratificación social"]
+respuesta_orden: ["Imperialismo", "Nacionalismo", "Asesinato de Francisco Fernando"]
 tipo: ordenar
-opciones_explicitas: ["Domesticación de plantas", "Producción de excedentes", "Sedentarización", "Estratificación social"]
+opciones_explicitas: ["Nacionalismo", "Imperialismo", "Asesinato de Francisco Fernando"]
 
-enunciado: "Ordena cronológicamente los procesos que permitieron el surgimiento de las primeras civilizaciones:"
+enunciado: "Ordena cronológicamente las tensiones que llevaron a la guerra, desde las causas estructurales de largo plazo hasta el evento detonante."
 
 explicacion: |
-  La secuencia lógica comienza con la transformación de la dieta (domesticación), que genera sobras de comida (excedente), lo que permite vivir en un sitio fijo (sedentarización) y finalmente la división de clases (estratificación).
+  Primero existieron las tensiones imperialistas y nacionalistas (causas estructurales) y finalmente el asesinato en Sarajevo (causa inmediata).
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
+  tema: "ascenso_regimenes_totalitarios"
   nivel: "basico"
-  tags: ["sedentarismo", "poblacion"]
+  tags: ["nazismo", "historia", "segunda_guerra"]
+
+respuesta: "Alemania"
+tipo: completar
+respuestas_validas:
+  - "Alemania"
+
+enunciado: "El régimen nazi, liderado por Adolf Hitler, tomó el poder político en ___ en 1933, consolidando un sistema totalitario."
+
+explicacion: |
+  El ascenso de Hitler al poder fue un proceso que culminó en 1933, transformando la República de Weimar en un Estado totalitario.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ascenso_regimenes_totalitarios"
+  nivel: "basico"
+  tags: ["fascismo", "nazismo", "ideologia"]
+
+opciones_explicitas: ["Fascismo", "Comunismo", "Democracia Liberal", "Socialdemocracia"]
+respuesta: "Fascismo"
+tipo: mc
+
+enunciado: "El régimen de Benito Mussolini en Italia es el ejemplo característico de la ideología conocida como:"
+
+explicacion: |
+  El fascismo italiano fue el precursor de otros regímenes totalitarios de derecha en Europa durante el periodo de entreguerras.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "holocausto"
+  nivel: "intermedio"
+  tags: ["holocausto", "genocidio", "segunda_guerra"]
 
 variables:
-  datos: [["el sedentarismo", "aumento de la densidad poblacional"], ["la agricultura", "aumento de la densidad poblacional"], ["el excedente", "aumento de la densidad poblacional"]]
+  datos: [["genocidio", "Holocausto"], ["exterminio", "Holocausto"], ["persecución", "Holocausto"]]
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][1]
 tipo: completar
 respuestas_validas:
-  - "aumento de la densidad poblacional"
+  - "Holocausto"
 
-enunciado: "La transición de la caza-recolección hacia {datos[idx][0]} provocó un ___."
+enunciado: "El asesinato sistemático y organizado de millones de judíos y otros grupos por parte del régimen nazi se conoce históricamente como el ___."
 
 explicacion: |
-  La estabilidad de las fuentes de alimento permitió que las tasas de natalidad aumentaran y la mortalidad disminuyera, incrementando la densidad de habitantes en un mismo territorio.
+  El Holocausto (Shoah) fue el genocidio sistemático llevado a cabo por la Alemania nazi durante la Segunda Guerra Mundial.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "sedentarizacion_excedente"
+  tema: "armas_nucleares"
+  nivel: "intermedio"
+  tags: ["atomica", "hiroshima", "nagasaki"]
+
+respuesta: "Fat Man"
+tipo: mc
+opciones_explicitas: ["Little Boy", "Fat Man", "Enola Gay", "B-29"]
+
+enunciado: "En el segundo ataque atómico de la historia, ocurrido en la ciudad de Nagasaki, se utilizó la bomba llamada ___."
+
+explicacion: |
+  El 9 de agosto de 1945, la bomba 'Fat Man' fue lanzada sobre Nagasaki, marcando el segundo uso de armas nucleares en combate.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "cronologia_guerra"
   nivel: "avanzado"
-  tags: ["economia_prehistorica", "causalidad"]
+  tags: ["cronologia", "eventos_clave"]
+
+opciones_explicitas: ["Invasión de Polonia", "Ataque a Pearl Harbor", "Desarme de Japón"]
+respuesta_orden: ["Invasión de Polonia", "Ataque a Pearl Harbor", "Desarme de Japón"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente los siguientes eventos clave de la Segunda Guerra Mundial, desde el inicio hasta el fin:"
+
+explicacion: |
+  La guerra comenzó con la invasión de Polonia (1939), escaló con la entrada de EE.UU. tras Pearl Harbor (1941) y terminó con la rendición de Japón (1945).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "intermedio"
+  tags: ["versalles", "alemania", "causas"]
+
+tipo: mc
+opciones_explicitas: ["La pérdida de territorios y reparaciones económicas", "La creación de la Sociedad de Naciones", "El ascenso del comunismo en Europa", "La firma del Pacto Molotov-Ribbentrop"]
+respuesta: "La pérdida de territorios y reparaciones económicas"
+
+enunciado: "Uno de los factores principales que generó un profundo resentimiento en la población alemana tras la Primera Guerra Mundial fue ___."
+
+explicacion: |
+  El Tratado de Versalles impuso a Alemania la "cláusula de culpa de guerra", obligándola a pagar reparaciones astronómicas y ceder territorios estratégicos, lo que desestabilizó su economía y política.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "intermedio"
+  tags: ["economia", "reparaciones", "inflacion"]
 
 variables:
-  datos: [["excedente", "comercio"], ["excedente", "burocracia"], ["excedente", "urbanismo"]]
-  idx: uno_de([0, 1, 2])
+  escenario: uno_de([["reparaciones económicas", "hiperinflación"], ["pérdida de territorio", "expansionismo"], ["cláusula de culpa", "revanchismo"]])
+
+tipo: completar
+respuestas_validas:
+  - "reparaciones económicas"
+  - "pérdida de territorio"
+  - "cláusula de culpa"
+
+enunciado: "Las duras condiciones impuestas por el tratado de Versalles, específicamente las ___ , provocaron una crisis económica sin precedentes en la República de Weimar."
+
+pasos:
+  - "Analizar cómo la deuda externa afectó la estabilidad de la moneda alemana."
+  - "Relacionar la crisis económica con el ascenso de movimientos extremistas."
+
+explicacion: |
+  La imposición de reparaciones económicas masivas impidió la recuperación de Alemania, facilitando el ascenso de ideologías radicales que prometían restaurar la gloria nacional.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "basico"
+  tags: ["sociedad_naciones", "diplomacia"]
+
+tipo: completar
+enunciado: "El organismo internacional creado tras la Primera Guerra Mundial para mantener la paz, pero que demostró ser incapaz de evitar la Segunda Guerra Mundial, fue la ___."
+respuesta: "Sociedad de Naciones"
+explicacion: |
+  La Sociedad de Naciones carecía de fuerza militar y de la participación de potencias clave como EE.UU., lo que la hizo ineficaz para frenar el expansionismo de Alemania, Italia y Japón.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "avanzado"
+  tags: ["causas", "geopolitica", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["Firma del Tratado de Versalles", "Crisis económica de 1929", "Ascenso del Partido Nazi al poder", "Invasión de Polonia"]
+
+enunciado: "Ordene cronológicamente los eventos que contribuyeron al estallido de la Segunda Guerra Mundial, partiendo de las consecuencias de la Gran Guerra."
+
+explicacion: |
+  La secuencia muestra cómo el orden impuesto en 1919 se desmoronó debido a la crisis económica, permitiendo el ascenso de regímenes totalitarios que finalmente desafiaron el orden internacional con la invasión de Polonia.
+respuesta_orden: ["Firma del Tratado de Versalles", "Crisis económica de 1929", "Ascenso del Partido Nazi al poder", "Invasión de Polonia"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "intermedio"
+  tags: ["terminologia", "alemania"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "En Alemania, el Tratado de Versalles fue visto por muchos sectores políticos no como un acuerdo de paz, sino como un ___ (término alemán que significa 'imposición')."
+
+respuesta: "Diktat"
+
+explicacion: |
+  El término 'Diktat' fue utilizado por los políticos alemanes para denunciar que el tratado no fue negociado, sino impuesto por las potencias vencedoras, alimentando el sentimiento nacionalista.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "basico"
+  tags: ["primera_guerra", "cronologia"]
+
+tipo: mc
+opciones_explicitas: ["1914", "1918", "1939", "1945"]
+
+enunciado: "El asesinato del archiduque Francisco Fernando en Sarajevo desencadenó la Primera Guerra Mundial en el año ___."
+
+respuesta: "1914"
+
+explicacion: |
+  El atentado de Sarajevo ocurrió el 28 de junio de 1914, activando el sistema de alianzas que llevó a Europa a la guerra.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "basico"
+  tags: ["tratado_versalles", "geopolitica"]
+
+tipo: mc
+opciones_explicitas: ["El Tratado de Versalles", "El Pacto Molotov-Ribbentrop", "El Plan Marshall", "La Conferencia de Yalta"]
+
+enunciado: "¿Qué evento marcó el fin formal de la Primera Guerra Mundial y redefinió el mapa de Europa?"
+
+respuesta: "El Tratado de Versalles"
+
+explicacion: |
+  El Tratado de Versalles (1919) impuso duras condiciones a Alemania y estableció un nuevo orden mundial que influiría en el periodo de entreguerras.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "intermedio"
+  tags: ["crisis_economica", "entreguerras"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["La Gran Depresión", "El ascenso de los regímenes totalitarios"], ["La crisis económica de 1929", "La inestabilidad política europea"]]
+
+tipo: completar
+respuestas_validas:
+  - "La Gran Depresión"
+  - "La crisis económica de 1929"
+
+enunciado: "Durante el periodo de entreguerras, el mundo sufrió un colapso financiero conocido como ___."
+
+respuesta: escenarios[escenario_idx][0]
+
+explicacion: |
+  El crack de 1929 y la posterior Gran Depresión generaron un clima de inestabilidad que facilitó el ascenso de ideologías extremistas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "intermedio"
+  tags: ["orden_cronologico", "historia"]
+
+tipo: ordenar
+opciones_explicitas: ["Primera Guerra Mundial", "Crisis de 1929", "Segunda Guerra Mundial"]
+
+respuesta_orden: ["Primera Guerra Mundial", "Crisis de 1929", "Segunda Guerra Mundial"]
+
+enunciado: "Ordena cronológicamente los siguientes eventos históricos, desde el más antiguo al más reciente."
+
+explicacion: |
+  La secuencia correcta es: Gran Guerra (1914-1918), Crisis económica (1929) y Segunda Guerra Mundial (1939-1945).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "basico"
+  tags: ["segunda_guerra", "consecuencias"]
+
+tipo: mc
+opciones_explicitas: ["La creación de la ONU", "La caída del Muro de Berlín", "La Revolución Rusa", "El Tratado de Versalles"]
+
+enunciado: "Como consecuencia directa del fin de la Segunda Guerra Mundial, se fundó para mantener la paz internacional la ___."
+
+respuesta: "La creación de la ONU"
+
+explicacion: |
+  La Organización de las Naciones Unidas (ONU) fue establecida en 1945 para reemplazar a la fallida Sociedad de Naciones.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "basico"
+  tags: ["historia", "conflictos"]
+
+variables:
+  datos: [["El asesinato del archiduque Francisco Fernando en Sarajevo desencadenó el conflicto.", "Primera Guerra Mundial"], ["La invasión de Polonia por parte de la Alemania nazi fue el detonante.", "Segunda Guerra Mundial"]]
+  idx: uno_de([0, 1])
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["comercio", "burocracia", "urbanismo"]
+opciones_explicitas: ["Primera Guerra Mundial", "Segunda Guerra Mundial"]
 
-enunciado: "El control y la gestión del {datos[idx][0]} fue el motor que impulsó el desarrollo de la ___."
+enunciado: "Identifica a qué conflicto histórico corresponde el siguiente evento: {datos[idx][0]}"
 
 explicacion: |
-  La necesidad de contabilizar y distribuir el excedente obligó a las sociedades a crear sistemas de registro y administración, dando origen a las primeras estructuras burocráticas.
+  El evento descrito marca el inicio de la {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "intermedio"
+  tags: ["tecnologia", "armamento"]
+
+variables:
+  datos: [["El uso masivo de gases venenosos en las trincheras.", "Primera Guerra Mundial"], ["El desarrollo y uso de la bomba atómica en Hiroshima y Nagasaki.", "Segunda Guerra Mundial"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Primera Guerra Mundial", "Segunda Guerra Mundial"]
+
+enunciado: "Analiza la característica tecnológica: {datos[idx][0]}. ¿A qué guerra pertenece?"
+
+explicacion: |
+  La característica mencionada es propia de la {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "avanzado"
+  tags: ["geopolitica", "tratados"]
+
+variables:
+  datos: [["La firma del Tratado de Versalles para redefinir fronteras europeas.", "Primera Guerra Mundial"], ["La creación de la Organización de las Naciones Unidas (ONU) para mantener la paz.", "Segunda Guerra Mundial"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: completar
+
+enunciado: "El evento '{datos[idx][0]}' es un hito fundamental de la ___."
+respuestas_validas:
+  - "Primera Guerra Mundial"
+  - "Segunda Guerra Mundial"
+
+explicacion: |
+  El hito mencionado ocurrió durante la {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "intermedio"
+  tags: ["alianzas", "bloques"]
+
+variables:
+  datos: [["La Triple Entente (Francia, Gran Bretaña y Rusia) contra las Potencias Centrales.", "Primera Guerra Mundial"], ["El Eje (Alemania, Italia y Japón) contra los Aliados.", "Segunda Guerra Mundial"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Primera Guerra Mundial", "Segunda Guerra Mundial"]
+
+enunciado: "Dada la formación de bloques: {datos[idx][0]}. ¿A qué guerra corresponde?"
+
+explicacion: |
+  Corresponde a la {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_mundiales"
+  nivel: "avanzado"
+  tags: ["cronologia", "eventos"]
+
+respuesta_orden: ["La guerra de movimientos", "El Tratado de Versalles", "La creación de la Sociedad de Naciones"]
+tipo: ordenar
+opciones_explicitas: ["La guerra de movimientos", "El Tratado de Versalles", "La creación de la Sociedad de Naciones"]
+
+enunciado: "Ordena cronológicamente los siguientes hitos de la Primera Guerra Mundial y su posguerra:"
+
+explicacion: |
+  La secuencia correcta representa la cronología: primero la guerra de movimientos (1914), luego el Tratado de Versalles (1919) que puso fin al conflicto, y finalmente la creación de la Sociedad de Naciones (1920).
+```
+
+## Sección: guerra-fria-descolonizacion (26 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "basico"
+  tags: ["geopolitica", "orden_mundial"]
+
+respuesta: "bipolar"
+tipo: mc
+opciones_explicitas: ["unipolar", "bipolar", "multipolar", "unilateral"]
+
+enunciado: "Debido a la hegemonía de las dos superpotencias (EEUU y la URSS), el sistema internacional durante la Guerra Fría se caracterizó por ser un mundo de carácter ________."
+
+explicacion: |
+  El término 'bipolar' se refiere a la existencia de dos centros de poder político, económico y militar contrapuestos que dominaron la escena internacional.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "intermedio"
+  tags: ["economia", "doctrinas"]
+
+respuesta: "Plan Marshall"
+tipo: mc
+opciones_explicitas: ["Plan Marshall", "COMECON", "Tratado de Varsovia", "Plan Molotov"]
+
+enunciado: "En el marco de la contención del comunismo, la estrategia de Estados Unidos para reconstruir las economías de Europa Occidental fue el ___."
+
+explicacion: |
+  El Plan Marshall fue el programa de asistencia económica de EE.UU. para la reconstrucción de Europa tras la Segunda Guerra Mundial, diseñado para evitar el avance del comunismo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "avanzado"
+  tags: ["crisis", "nucleares"]
+
+respuesta: 1962
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "La crisis de los misiles en Cuba, el momento de mayor tensión nuclear entre las superpotencias, ocurrió en el año ________."
+
+explicacion: |
+  En octubre de 1962, la instalación de misiles soviéticos en Cuba llevó al mundo al borde de una guerra nuclear total.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "intermedio"
+  tags: ["alemania", "fronteras"]
+
+respuesta_orden: ["RFA (Alemania Occidental)", "RDA (Alemania Oriental)"]
+tipo: ordenar
+opciones_explicitas: ["RFA (Alemania Occidental)", "RDA (Alemania Oriental)"]
+
+enunciado: "Ordena las entidades políticas resultantes de la división alemana, desde la capitalista hacia la socialista:"
+
+explicacion: |
+  La República Federal de Alemania (RFA), es decir Alemania Occidental, representaba al bloque capitalista, mientras que la República Democrática Alemana (RDA), es decir Alemania Oriental, representaba al bloque soviético.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "intermedio"
+  tags: ["descolonizacion", "asiatismo"]
+
+variables:
+  tabla: [["No alineados", "No alineados"], ["Aliados", "Aliados"]]
+
+respuesta: tabla[0][1]
+tipo: completar
+opciones_explicitas: ["No alineados", "Aliados"]
+
+enunciado: "Durante la Guerra Fría, los países que decidieron no sumarse ni al bloque de EE.UU. ni al de la URSS se conocieron como países ________."
+
+explicacion: |
+  El Movimiento de Países No Alineados surgió para buscar una vía neutral frente a la polarización de la Guerra Fría.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "basico"
+  tags: ["descolonizacion", "postguerra"]
+
+tipo: mc
+opciones_explicitas: ["El fortalecimiento de las potencias europeas", "El debilitamiento de las potencias europeas tras la Segunda Guerra Mundial", "La unión de todas las colonias bajo un mando único", "El apoyo de las colonias a los regímenes coloniales"]
+respuesta: "El debilitamiento de las potencias europeas tras la Segunda Guerra Mundial"
+enunciado: "Tras la Segunda Guerra Mundial, ¿cuál fue el principal factor que impulsó los procesos de independencia en África y Asia?"
+explicacion: |
+  La Segunda Guerra Mundial dejó a las potencias coloniales tradicionales (como Reino Unido y Francia) agotadas económica y militarmente, lo que facilitó los movimientos de liberación nacional.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "basico"
+  tags: ["conceptos", "soberania"]
+
+tipo: completar
+opciones_explicitas: ["soberanía", "colonialismo", "imperialismo"]
+respuestas_validas:
+  - "soberanía"
+
+enunciado: "El proceso de descolonización permitió que las antiguas colonias recuperaran su ___________ política y económica."
+
+explicacion: |
+  La soberanía es el derecho de un Estado a autogobernarse sin la interferencia de potencias extranjeras.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "intermedio"
+  tags: ["onu", "diplomacia"]
+
+tipo: mc
+opciones_explicitas: ["La Carta de las Naciones Unidas", "El Pacto de Varsovia", "La Liga de las Naciones", "El Tratado de Versalles"]
+respuesta: "La Carta de las Naciones Unidas"
+
+enunciado: "En el contexto de la descolonización, ___ fue fundamental porque promovió el principio de autodeterminación de los pueblos."
+
+explicacion: |
+  La ONU, a través de su principio de autodeterminación de los pueblos, dio un marco jurídico internacional que legitimó los movimientos de independencia.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "avanzado"
+  tags: ["geopolitica", "guerra_fria"]
+
+tipo: mc
+opciones_explicitas: ["Se unificaron en un solo bloque", "Se convirtieron en escenarios de disputa entre las superpotencias", "Eliminaron el capitalismo de sus territorios", "Se volvieron potencias nucleares de inmediato"]
+respuesta: "Se convirtieron en escenarios de disputa entre las superpotencias"
+
+enunciado: "Debido a la Guerra Fría, la descolonización en Asia y África provocó que estos nuevos estados ___."
+
+explicacion: |
+  Muchos nuevos estados independientes se convirtieron en "campos de batalla" por delegación (proxy wars) debido a la polarización de la Guerra Fría.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "intermedio"
+  tags: ["cronologia", "procesos"]
+
+tipo: ordenar
+opciones_explicitas: ["Agotamiento de potencias europeas", "Surgimiento de movimientos de liberación", "Declaración de independencia de las colonias", "Consolidación de nuevos Estados-Nación"]
+
+enunciado: "Ordena cronológicamente las etapas típicas de un proceso de descolonización:"
+
+explicacion: |
+  Primero ocurre el debilitamiento de la metrópoli, luego la organización de movimientos locales, la ruptura formal y finalmente la formación del nuevo Estado.
+respuesta_orden: ["Agotamiento de potencias europeas", "Surgimiento de movimientos de liberación", "Declaración de independencia de las colonias", "Consolidación de nuevos Estados-Nación"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "intermedio"
+  tags: ["guerra_fria", "descolonizacion", "no_alineados"]
+
+variables:
+  escenario: uno_de([["Egipto de Nasser", "movimiento de no alineación", "Egipto de Nasser", "Egipto de Nasser"], ["Yugoslavia de Tito", "movimiento de no alineación", "Yugoslavia de Tito", "Yugoslavia de Tito"], ["India de Nehru", "movimiento de no alineación", "India de Nehru", "India de Nehru"]])
+
+enunciado: "Durante la descolonización, muchos países intentaron evitar la lógica de bloques mediante la creación del ___."
+
+opciones_explicitas: ["movimiento de no alineación", "Pacto de Varsovia", "OTAN"]
+respuesta: "movimiento de no alineación"
+tipo: mc
+
+explicacion: |
+  Tras la Segunda Guerra Mundial, líderes de países recién independizados buscaron mantener su soberanía evitando alinearse con EE.UU. o la URSS, dando origen al Movimiento de Países No Alineados.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "intermedio"
+  tags: ["geopolitica", "bloques"]
+
+enunciado: "Un país recién independizado que decide aceptar ayuda financiera masiva de la URSS para su industrialización pesada, corre el riesgo de alinearse con el bloque ___."
+
+respuestas_validas:
+  - "comunista"
+  - "capitalista"
+  - "neutral"
+respuesta: "comunista"
+tipo: completar
+
+explicacion: |
+  La ayuda económica y técnica era una herramienta de influencia geopolítica; la dependencia de modelos de desarrollo soviéticos solía arrastrar a los nuevos estados al bloque socialista.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "basico"
+  tags: ["terminologia", "geopolitica"]
+
+enunciado: "En el contexto de la Guerra Fría, el término 'Tercer Mundo' se utilizaba para referirse a:"
+
+opciones_explicitas: ["países alineados con EE.UU.", "países alineados con la URSS", "países no alineados o en vías de desarrollo"]
+respuesta: "países no alineados o en vías de desarrollo"
+tipo: mc
+
+explicacion: |
+  Mientras el Primer Mundo era el bloque capitalista y el Segundo el socialista, el término 'Tercer Mundo' designaba a las naciones que no pertenecían a ninguno de estos dos polos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "avanzado"
+  tags: ["intervencionismo", "soberania"]
+
+enunciado: "Ordena los factores que explican la intervención de las superpotencias en procesos de descolonización de menor a mayor impacto en la soberanía de los nuevos estados:"
+
+opciones_explicitas: ["Intereses económicos por recursos naturales", "Propagación de ideologías políticas", "Control de puntos estratégicos militares"]
+respuesta_orden: ["Intereses económicos por recursos naturales", "Propagación de ideologías políticas", "Control de puntos estratégicos militares"]
+tipo: ordenar
+
+explicacion: |
+  Aunque los tres factores interactuaban, la lucha por el control de bases militares y puntos estratégicos (como el Canal de Suez) era el factor determinante para la soberanía nacional.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "intermedio"
+  tags: ["vietnam", "conflicto_proxy"]
+
+variables:
+  caso: uno_de([["Vietnam del Sur", "apoyado por EE.UU.", "Vietnam del Sur", "Vietnam del Sur"], ["Vietnam del Norte", "apoyado por la URSS", "Vietnam del Norte", "Vietnam del Norte"]])
+
+enunciado: "En el conflicto de Vietnam, el país que era {caso[1]} fue el principal escenario de la lucha entre las ideologías de la Guerra Fría."
+
+opciones_explicitas: ["apoyado por EE.UU.", "apoyado por la URSS", "neutral"]
+respuesta: caso[1]
+tipo: mc
+
+explicacion: |
+  Vietnam se convirtió en un conflicto de proxy war, donde la descolonización se vio truncada por la lucha de las superpotencias por expandir sus esferas de influencia.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "basico"
+  tags: ["berlin", "simbolo"]
+
+tipo: mc
+opciones_explicitas: ["La caída del Muro de Berlín", "La Revolución Rusa", "La Crisis de los Misiles", "La Guerra de Vietnam"]
+respuesta: "La caída del Muro de Berlín"
+
+enunciado: "El evento ocurrido en 1989 que simbolizó el fin de la división de Europa y el colapso del bloque socialista fue ___."
+
+explicacion: |
+  La caída del Muro de Berlín en noviembre de 1989 marcó el inicio del fin de la Guerra Fría, permitiendo la reunificación de Alemania y el colapso de los regímenes comunistas en Europa del Este.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "intermedio"
+  tags: ["urss", "geopolitica"]
+
+respuesta: "1991"
+tipo: completar
+respuestas_validas:
+  - "1991"
+
+enunciado: "La disolución formal de la URSS ocurrió en el año ___."
+
+explicacion: |
+  La desintegración de la Unión Soviética en 1991 puso fin a la existencia de la superpotencia que lideraba el bloque socialista, consolidando el orden mundial unipolar liderado por EE.UU.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "avanzado"
+  tags: ["gorbachev", "reformas"]
+
+tipo: mc
+opciones_explicitas: ["Glasnost y Perestroika", "El Plan Marshall", "La Doctrina Monroe", "La Doctrina Truman"]
+respuesta: "Glasnost y Perestroika"
+
+enunciado: "Las reformas políticas y económicas implementadas por Mijaíl Gorbachachev que aceleraron el fin de la URSS fueron la ___."
+
+explicacion: |
+  La Perestroika (reestructuración económica) y la Glasnost (apertura política) fueron los motores de cambio que, aunque buscaban modernizar el sistema, terminaron por desestabilizar el control centralizado de la URSS.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "intermedio"
+  tags: ["cronologia", "eventos"]
+
+tipo: ordenar
+opciones_explicitas: ["Caída del Muro de Berlín", "Tratado de Malta", "Reunificación de Alemania", "Disolución de la URSS"]
+
+enunciado: "Ordena cronológicamente los siguientes eventos que marcaron el fin de la Guerra Fría:"
+
+explicacion: |
+  La secuencia correcta es: caída del muro (noviembre de 1989), Cumbre de Malta (diciembre de 1989, donde EE.UU. y la URSS declararon el fin simbólico de la Guerra Fría), reunificación alemana (octubre de 1990) y, finalmente, la disolución total de la URSS (diciembre de 1991).
+respuesta_orden: ["Caída del Muro de Berlín", "Tratado de Malta", "Reunificación de Alemania", "Disolución de la URSS"]
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "basico"
+  tags: ["geopolitica", "superpotencias"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Tras la caída de la URSS, el mundo dejó de ser bipolar para convertirse en un sistema ___."
+
+respuesta: "unipolar"
+
+explicacion: |
+  Con la desaparición de la URSS como superpotencia, el equilibrio de poder se desplazó hacia un modelo donde una sola nación (EE.UU.) dominaba la escena internacional, conocido como unipolaridad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "basico"
+  tags: ["geopolitica", "superpotencias"]
+
+tipo: mc
+opciones_explicitas: ["unipolar", "bipolar", "tripolar", "multipolar"]
+respuesta: "unipolar"
+
+enunciado: "Tras la caída de la URSS, el mundo dejó de ser bipolar para convertirse en un sistema ___."
+
+explicacion: |
+  Con la desaparición de la URSS como superpotencia, el equilibrio de poder se desplazó hacia un modelo donde una sola nación (EE.UU.) dominaba la escena internacional, conocido como unipolaridad.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "basico"
+  tags: ["geopolitica", "guerra_fria"]
+
+variables:
+  datos: [["Un país con un sistema de partido único y economía centralizada bajo la influencia de la URSS", "Bloque del Este"], ["Un país con una economía de mercado y alianzas militares como la OTAN", "Bloque Occidental"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Bloque del Este", "Bloque Occidental", "Países No Alineados"]
+
+enunciado: "En el contexto de la Guerra Fría, se describe a un país con las siguientes características: {datos[idx][0]}. ¿A qué bloque pertenecía?"
+
+explicacion: |
+  La división del mundo en dos grandes bloques ideológicos y económicos definió la Guerra Fría: el Bloque del Este (comunista) y el Bloque Occidental (capitalista).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "intermedio"
+  tags: ["descolonizacion", "no_alineados"]
+
+variables:
+  datos: [["India", "Jawaharlal Nehru"], ["Egipto", "Gamal Abdel Nasser"], ["Yugoslavia", "Josip Broz Tito"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "Jawaharlal Nehru"
+  - "Gamal Abdel Nasser"
+  - "Josip Broz Tito"
+
+enunciado: "Durante la descolonización, algunos líderes buscaron la neutralidad frente a las superpotencias. El líder que representó a {datos[idx][0]} en el Movimiento de Países No Alineados fue ___."
+
+explicacion: |
+  Líderes como Nehru (India), Nasser (Egipto) y Tito (Yugoslavia) fueron piezas clave para establecer una 'tercera vía' que no se alineara ni con EE.UU. ni con la URSS.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "avanzado"
+  tags: ["crisis", "misiles"]
+
+respuesta: "1962"
+tipo: mc
+opciones_explicitas: ["1953", "1962", "1961", "1979"]
+
+enunciado: "La crisis de los misiles en Cuba llevó al mundo al borde de una guerra nuclear en el año ___."
+
+explicacion: |
+  La Crisis de los Misiles de Cuba (octubre de 1962) representó el momento de mayor tensión nuclear de la Guerra Fría. (No confundir con la Crisis de Berlín de 1961, que no fue una 'crisis de misiles' sino el episodio de la construcción del Muro de Berlín.)
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "intermedio"
+  tags: ["independencia", "africa"]
+
+variables:
+  eventos: [["La independencia de Argelia de Francia", "Guerra de Argelia"], ["La independencia de Ghana del Reino Unido", "Movimiento independentista liderado por Nkrumah"]]
+  idx: uno_de([0, 1])
+  evento_actual: eventos[idx]
+
+respuesta_orden: [evento_actual[1], evento_actual[0]]
+tipo: ordenar
+opciones_explicitas: [evento_actual[1], evento_actual[0]]
+
+enunciado: "Identifica el orden cronológico de los procesos de descolonización mencionados: {evento_actual[0]} y {evento_actual[1]}."
+
+explicacion: |
+  La descolonización fue un proceso heterogéneo: en África subsahariana fue mayormente política (Ghana, 1957) y en el norte de África fue frecuentemente violenta (Argelia, 1954-1962).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerra_fria_descolonizacion"
+  nivel: "avanzado"
+  tags: ["doctrina", "contencion"]
+
+variables:
+  datos: [["Contención del comunismo", "Truman"], ["Contención del comunismo", "Eisenhower"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "Truman"
+  - "Eisenhower"
+
+enunciado: "La política estadounidense de frenar la expansión del comunismo durante la Guerra Fría se conoció como la doctrina de ___."
+
+explicacion: |
+  La Doctrina Truman (1947) estableció el principio de apoyo a los pueblos libres que se resistían al intento de sometimiento por minorías armadas o presiones externas.
 ```
 

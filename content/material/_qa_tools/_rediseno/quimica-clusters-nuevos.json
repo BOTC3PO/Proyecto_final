@@ -3,35 +3,35 @@
   "id": 841,
   "cluster": 1,
   "temas": [
-   "atomo-particulas-subatomicas",
    "balanceo-ecuaciones",
-   "biomoleculas-glucidos-lipidos-proteinas",
-   "carbono-tetravalencia-cadenas",
-   "cinetica-reaccion"
+   "concentracion-de-una-solucion",
+   "densidad",
+   "dilucion-soluciones",
+   "equilibrio-quimico-kc"
   ],
-  "preguntas": 110
+  "preguntas": 122
  },
  {
   "id": 842,
   "cluster": 2,
   "temas": [
-   "concentracion-de-una-solucion",
-   "configuracion-electronica",
-   "densidad",
-   "dilucion-soluciones",
-   "electrolisis"
+   "estados-y-cambios",
+   "cinetica-reaccion",
+   "equilibrio-solubilidad-ksp",
+   "estequiometria",
+   "medicion-de-laboratorio"
   ],
-  "preguntas": 112
+  "preguntas": 114
  },
  {
   "id": 843,
   "cluster": 3,
   "temas": [
-   "energia-libre-gibbs",
-   "enlace-quimico-polaridad",
-   "equilibrio-quimico-kc",
-   "equilibrio-solubilidad-ksp",
-   "estados-y-cambios"
+   "mezclas-metodos-separacion",
+   "ph-poh",
+   "modelos-atomicos",
+   "propiedades-coligativas",
+   "atomo-particulas-subatomicas"
   ],
   "preguntas": 104
  },
@@ -39,62 +39,62 @@
   "id": 844,
   "cluster": 4,
   "temas": [
-   "estequiometria",
-   "gases-ideales",
-   "geometria-molecular-vsepr",
-   "grupos-funcionales",
-   "hidrocarburos-alcanos-alquenos-alquinos"
+   "quimica-analitica",
+   "numero-atomico-masico",
+   "quimica-de-la-atmosfera",
+   "configuracion-electronica",
+   "reactivo-limitante-rendimiento"
   ],
-  "preguntas": 106
+  "preguntas": 110
  },
  {
   "id": 845,
   "cluster": 5,
   "temas": [
-   "medicion-de-laboratorio",
-   "mezclas-metodos-separacion",
-   "modelos-atomicos",
-   "mol-masa-molar",
-   "nanotecnologia"
+   "seguridad-laboratorio",
+   "tabla-periodica-tendencias",
+   "tipos-reacciones-quimicas",
+   "enlace-quimico-polaridad",
+   "carbono-tetravalencia-cadenas"
   ],
-  "preguntas": 107
+  "preguntas": 100
  },
  {
   "id": 846,
   "cluster": 6,
   "temas": [
-   "nomenclatura-compuestos",
-   "numero-atomico-masico",
-   "oxidacion-reduccion",
-   "petroleo-como-recurso-energetico",
-   "ph-poh"
+   "geometria-molecular-vsepr",
+   "hidrocarburos-alcanos-alquenos-alquinos",
+   "nanotecnologia",
+   "grupos-funcionales",
+   "nomenclatura-compuestos"
   ],
-  "preguntas": 123
+  "preguntas": 102
  },
  {
   "id": 847,
   "cluster": 7,
   "temas": [
-   "pilas-celdas-galvanicas",
-   "polimeros-naturales-sinteticos",
-   "presiones-parciales",
-   "propiedades-coligativas",
-   "quimica-analitica"
+   "biomoleculas-glucidos-lipidos-proteinas",
+   "mol-masa-molar",
+   "oxidacion-reduccion",
+   "gases-ideales",
+   "electrolisis"
   ],
-  "preguntas": 105
+  "preguntas": 100
  },
  {
   "id": 848,
   "cluster": 8,
   "temas": [
-   "quimica-de-la-atmosfera",
-   "reactivo-limitante-rendimiento",
-   "seguridad-laboratorio",
+   "petroleo-como-recurso-energetico",
+   "pilas-celdas-galvanicas",
+   "polimeros-naturales-sinteticos",
+   "presiones-parciales",
    "superconductividad",
-   "tabla-periodica-tendencias",
    "termoquimica",
-   "tipos-reacciones-quimicas"
+   "energia-libre-gibbs"
   ],
-  "preguntas": 149
+  "preguntas": 164
  }
 ]

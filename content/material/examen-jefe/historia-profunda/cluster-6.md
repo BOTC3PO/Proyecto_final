@@ -1,2160 +1,2337 @@
 # Examen jefe — [PENDIENTE #686]
 
-> Logro #686. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
+> Logro #686. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: edad-media-feudalismo (25 preguntas)
+## Sección: eucariotas (25 preguntas)
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
+  materia: "biologia"
+  tema: "eucariotas_vs_procariotas"
   nivel: "basico"
-  tags: ["caida_romana", "cronologia"]
+  tags: ["celulas", "nucleo"]
 
-respuesta: 476
-tipo: completar
-tolerancia_abs: 1
-
-enunciado: "La Edad Media en Europa occidental comienza tradicionalmente con la caída del Imperio Romano de Occidente, la cual ocurrió en el año ___ d.C."
-
-explicacion: |
-  La caída del Imperio Romano de Occidente en el año 476 d.C. marca el inicio de la Edad Media, caracterizada por la fragmentación política y la consolidación de los reinos germánicos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "intermedio"
-  tags: ["sociedad", "feudalismo"]
-
-variables:
-  escenario_idx: uno_de([0, 1, 2])
-  datos: [[["campesinos", "servidores"], ["nobles", "guerreros"], ["clero", "rezadores"]], [["siervos", "trabajadores"], ["caballeros", "protectores"], ["monjes", "espirituales"]], [["plebe", "campesinos"], ["aristocracia", "señores"], ["clero", "religiosos"]]]
-
-respuesta: datos[escenario_idx][2][1]
 tipo: mc
-opciones_explicitas: [datos[escenario_idx][0][1], datos[escenario_idx][1][1], datos[escenario_idx][2][1]]
+respuesta: "Presencia de núcleo definido"
+opciones_explicitas: ["Presencia de núcleo definido", "Presencia de pared celular de peptidoglicano", "Ausencia de organelas", "ADN circular libre"]
 
-enunciado: "En la estructura estamental del feudalismo, el tercer grupo social, encargado de la labor espiritual, estaba compuesto por los {datos[escenario_idx][2][0]}."
+enunciado: "La principal característica que define a una célula eucariota frente a una procariota es la ___."
 
 explicacion: |
-  La sociedad feudal era estamental y se dividía en: los que luchan (nobleza), los que oran (clero) y los que trabajan (campesinos/siervos).
+  Las células eucariotas poseen un núcleo rodeado por una membrana nuclear que contiene el material genético, mientras que las procariotas tienen el ADN disperso en el citoplasma.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "avanzado"
-  tags: ["feudalismo", "vasallaje"]
+  materia: "biologia"
+  tema: "organelas_celulares"
+  nivel: "basico"
+  tags: ["organelas", "membrana"]
 
-respuesta: "homenaje"
 tipo: completar
 respuestas_validas:
-  - "homenaje"
-  - "investidura"
-  - "lealtad"
+  - "organelas membranosas"
 
-enunciado: "El ritual mediante el cual un vasallo se convertía en hombre de un señor, mediante un compromiso de fidelidad y protección, se denominaba ceremonia de ___."
+enunciado: "A diferencia de los procariotas, las células eucariotas presentan un sistema complejo de ___."
 
 explicacion: |
-  El acto de homenaje era el núcleo del contrato de vasallaje, donde el vasallo se arrodillaba ante el señor para jurar fidelidad.
+  Los eucariotas cuentan con compartimentos internos delimitados por membranas, como mitocondrias, retículo endoplasmático y aparato de Golgi.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
+  materia: "biologia"
+  tema: "eucariotas_vs_procariotas"
   nivel: "intermedio"
-  tags: ["jerarquia", "ordenar"]
+  tags: ["estructura", "comparacion"]
+
+variables:
+  escenario: uno_de([["mitocondria", "respiración celular"], ["cloroplasto", "fotosíntesis"], ["lisosoma", "digestión celular"]])
+
+tipo: mc
+opciones_explicitas: ["respiración celular", "fotosíntesis", "digestión celular", "transporte de proteínas"]
+
+enunciado: "En una célula eucariota, la función de {escenario[0]} está asociada a la ___."
+
+respuesta: escenario[1]
+
+explicacion: |
+  La estructura {escenario[0]} es una organela membranosa cuya función principal es la {escenario[1]}.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "evolucion_celular"
+  nivel: "intermedio"
+  tags: ["evolucion", "orden"]
 
 tipo: ordenar
-opciones_explicitas: ["Campesinos", "Caballeros", "Señores Feudales"]
-respuesta_orden: ["Campesinos", "Caballeros", "Señores Feudales"]
+opciones_explicitas: ["ADN libre en el citoplasma", "Formación de la membrana nuclear", "Aparición de organelas membranosas", "Organismo multicelular complejo"]
 
-enunciado: "Ordena los siguientes estamentos de menor a mayor poder político y militar en el sistema feudal:"
+enunciado: "Ordena cronológicamente la complejidad estructural desde una célula procariota simple hasta un organismo eucariota complejo:"
+
+explicacion: |
+  La evolución celular implicó primero la compartimentación del material genético, luego la especialización de organelas y finalmente la organización multicelular.
+respuesta_orden: ["ADN libre en el citoplasma", "Formación de la membrana nuclear", "Aparición de organelas membranosas", "Organismo multicelular complejo"]
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "nucleo_eucariota"
+  nivel: "basico"
+  tags: ["nucleo", "membrana"]
+
+tipo: vf
+
+enunciado: "La presencia de una membrana nuclear que delimita el material genético es una característica exclusiva de las células eucariotas."
+
+respuesta: verdadero
+
+explicacion: |
+  Es verdadero. Los procariotas no poseen una envoltura nuclear que separe el ADN del resto del citoplasma.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "teoria_endosimbiosa"
+  nivel: "basico"
+  tags: ["eucariotas", "mitocondrias", "endosimbiosis"]
+
+tipo: mc
+opciones_explicitas: ["una bacteria aeróbica", "un virus", "un fragmento de núcleo", "un ribosoma"]
+respuesta: "una bacteria aeróbica"
+
+enunciado: "Según la teoría endosimbiótica, las mitocondrias se originaron a partir de la integración de una ___ que era capaz de realizar la respiración celular."
+
+explicacion: |
+  La teoría endosimbiótica propone que las mitocondrias fueron originalmente bacterias aeróbicas que fueron fagocitadas por una célula huésped, estableciendo una relación simbiótica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "teoria_endosimbiosa"
+  nivel: "intermedio"
+  tags: ["evolucion", "endosimbiosis"]
+
+variables:
+  escenario: uno_de([["bacteria aeróbica", "mitocondria"], ["bacteria fotosintética", "cloroplasto"]])
+
+tipo: completar
+respuestas_validas:
+  - escenario[0]
+
+enunciado: "Si una célula eucariota primitiva engloba a una ___, el resultado evolutivo es la formación de un(a) {escenario[1]}."
+
+explicacion: |
+  El proceso de endosimbiosis implica que un organismo complejo absorbe a uno más pequeño que, en lugar de ser digerido, se convierte en un orgánulo especializado.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "teoria_endosimbiosa"
+  nivel: "avanzado"
+  tags: ["evidencia", "adn", "membrana"]
+
+tipo: mc
+opciones_explicitas: ["Poseen su propio ADN circular y ribosomas similares a los procariotas", "Tienen un núcleo rodeado de membrana", "Se originan en el retículo endoplasmático", "No poseen membrana propia"]
+respuesta: "Poseen su propio ADN circular y ribosomas similares a los procariotas"
+enunciado: "Una de las principales evidencias de que los cloroplastos y mitocondrias fueron bacterias libres es que:"
+explicacion: |
+  Tanto mitocondrias como cloroplastos poseen su propio material genético en forma de ADN circular, muy similar al de las bacterias actuales, y sus ribosomas son de tipo procariota.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "teoria_endosimbiosa"
+  nivel: "intermedio"
+  tags: ["evolucion", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["Célula procariota con membrana flexible", "Fagocitosis de una bacteria aeróbica", "Establecimiento de simbiosis", "Célula eucariota con mitocondrias"]
+
+enunciado: "Ordene los eventos que explican la aparición de la célula eucariota con mitocondrias:"
+
+explicacion: |
+  La evolución fue un proceso gradual: primero la célula huésped, luego la captura de la bacteria, la convivencia simbiótica y finalmente la especialización del orgánulo.
+respuesta_orden: ["Célula procariota con membrana flexible", "Fagocitosis de una bacteria aeróbica", "Establecimiento de simbiosis", "Célula eucariota con mitocondrias"]
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "teoria_endosimbiosa"
+  nivel: "basico"
+  tags: ["cloroplastos", "fotosintesis"]
+
+tipo: vf
+enunciado: "Los cloroplastos se originaron a partir de la endosimbiosis de una bacteria fotosintética (cianobacteria)."
+respuesta: verdadero
+explicacion: |
+  Es verdadero. La capacidad de realizar fotosíntesis en las plantas y algas se debe a la incorporación de cianobacterias que se convirtieron en cloroplastos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "teoria_endosimbiosis"
+  nivel: "basico"
+  tags: ["mitocondria", "evolucion"]
+
+respuesta: "fisión binaria"
+tipo: mc
+opciones_explicitas: ["ADN circular", "ADN lineal", "fisión binaria", "mitosis"]
+
+enunciado: "La evidencia de que las mitocondrias fueron bacterias es que poseen un tipo de ADN circular y se reproducen mediante ___."
+
+explicacion: |
+  Las mitocondrias poseen ADN circular y se dividen por fisión binaria, características típicas de las procariotas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "teoria_endosimbiosis"
+  nivel: "intermedio"
+  tags: ["adn", "cloroplastos"]
+
+respuesta: "circular"
+tipo: completar
+respuestas_validas:
+  - "circular"
+
+enunciado: "A diferencia del ADN del núcleo celular, el ADN de los cloroplastos es de forma ___."
+
+explicacion: |
+  El ADN de los organelos semiautónomos es circular, similar al de las bacterias actuales.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "teoria_endosimbiosis"
+  nivel: "basico"
+  tags: ["reproduccion", "organelos"]
+
+respuesta: "fisión binaria"
+tipo: completar
+respuestas_validas:
+  - "fisión binaria"
+
+enunciado: "El mecanismo de reproducción de las mitocondrias es la ___."
+
+explicacion: |
+  Las mitocondrias no se crean de la nada, sino que se dividen mediante fisión binaria, igual que los procariontes.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "teoria_endosimbiosis"
+  nivel: "intermedio"
+  tags: ["membrana", "evolucion"]
+
+respuesta: "doble"
+tipo: mc
+opciones_explicitas: ["doble", "simple"]
+
+enunciado: "La teoría endosimbiótica sugiere que los organelos como los cloroplastos poseen una ___ membrana, la cual sería el remanente de la membrana de la bacteria original."
+
+explicacion: |
+  La presencia de una doble membrana es una evidencia clave de la captura de una célula por otra.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "teoria_endosimbiosis"
+  nivel: "avanzado"
+  tags: ["secuencia", "evolucion"]
+
+respuesta_orden: ["Célula procariota", "Fagocitosis", "Célula eucariota con mitocondria"]
+tipo: ordenar
+opciones_explicitas: ["Célula procariota", "Fagocitosis", "Célula eucariota con mitocondria"]
+
+enunciado: "Ordena los eventos que explican la aparición de la mitocondria según la teoría endosimbiótica:"
 
 pasos:
-  - "Identifica la base de la pirámide (trabajadores)"
-  - "Identifica la clase militar (protectores)"
-  - "Identifica la cúspide (dueños de la tierra)"
+  - "Una bacteria aeróbica es ingerida por una célula hospedadora."
+  - "Se establece una relación de simbiosis."
+  - "La bacteria se convierte en un organelo permanente."
 
 explicacion: |
-  La jerarquía feudal era piramidal: la base era la campesinado, seguida por la baja nobleza (caballeros) y en la cima los grandes señores feudales.
+  El proceso implica la ingestión (fagocitosis) de una bacteria que, al no ser digerida, establece una simbiosis que da origen al organelo.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
+  tema: "eucariotas"
   nivel: "basico"
-  tags: ["fin_edad_media", "caida_constantinopla"]
+  tags: ["evolucion", "cronologia"]
 
-respuesta: 1453
+respuesta: "1500 millones de años"
+tipo: mc
+opciones_explicitas: ["3800 millones de años", "2000 millones de años", "1500 millones de años", "500 millones de años"]
+
+enunciado: "Los procariotas aparecieron hace aproximadamente 3800 millones de años, mientras que los eucariotas aparecieron mucho después, hace unos ___."
+
+explicacion: |
+  La vida procariota es mucho más antigua, con registros de hace unos 3800 millones de años, mientras que la complejidad celular eucariota surgió mucho después.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "eucariotas"
+  nivel: "basico"
+  tags: ["comparacion"]
+
+respuesta: "mucho después"
+tipo: completar
+respuestas_validas:
+  - "mucho después"
+  - "antes"
+  - "al mismo tiempo"
+
+enunciado: "En la línea de tiempo de la vida, los eucariotas aparecieron ___ que los procariotas."
+
+explicacion: |
+  Los procariotas dominaron la Tierra durante casi 2000 millones de años antes de la aparición de las células eucariotas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "eucariotas"
+  nivel: "intermedio"
+  tags: ["ordenar", "evolucion"]
+
+opciones_explicitas: ["Aparición de procariotas", "Aparición de eucariotas", "Aparición de organismos multicelulares"]
+respuesta_orden: ["Aparición de procariotas", "Aparición de eucariotas", "Aparición de organismos multicelulares"]
+tipo: ordenar
+
+enunciado: "Ordena cronológicamente los siguientes hitos biológicos, desde el más antiguo al más reciente:"
+
+explicacion: |
+  Primero aparecieron las células procariotas simples, luego las eucariotas con núcleo, y finalmente la multicelularidad compleja.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "eucariotas"
+  nivel: "avanzado"
+  tags: ["calculo", "tiempo"]
+
+variables:
+  t_proc: 3800
+  t_euc: 1750
+
+respuesta: t_proc - t_euc
+tipo: completar
+tolerancia_abs: 100
+
+enunciado: "Si los procariotas aparecieron hace {t_proc} millones de años y los eucariotas hace {t_euc} millones de años, ¿cuántos millones de años de ventaja temporal tuvieron los procariotas sobre los eucariotas?"
+
+explicacion: |
+  La diferencia es de {t_proc - t_euc} millones de años.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "eucariotas"
+  nivel: "basico"
+  tags: ["logica"]
+
+respuesta: "falso"
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "¿Es correcto afirmar que los eucariotas y los procariotas aparecieron en la Tierra en el mismo periodo geológico inicial?"
+
+explicacion: |
+  Es falso. Los procariotas precedieron a los eucariotas por un margen de aproximadamente 2000 millones de años.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "eucariotas_vs_procariotas"
+  nivel: "basico"
+  tags: ["celulas", "nucleo"]
+
+variables:
+  datos: [["presencia de nucleo definido", "eucariota"], ["ausencia de nucleo definido", "procariota"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["eucariota", "procariota"]
+
+enunciado: "Si una célula presenta {datos[idx][0]}, se trata de una célula tipo ___."
+
+explicacion: |
+  Las células eucariotas se caracterizan por tener su material genético rodeado por una membrana nuclear, mientras que las procariotas lo tienen libre en el citoplasma.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "eucariotas_vs_procariotas"
+  nivel: "basico"
+  tags: ["organelos", "mitocondria"]
+
+variables:
+  datos: [["mitocondria", "eucariota"], ["ribosomas sin membrana", "procariota"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["eucariota", "procariota"]
+
+enunciado: "La presencia de {datos[idx][0]} es una característica propia de la célula ___."
+
+explicacion: |
+  Los organelos membranosos como las mitocondrias son exclusivos de las células eucariotas. Las procariotas carecen de compartimentos internos delimitados por membranas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "eucariotas_vs_procariotas"
+  nivel: "intermedio"
+  tags: ["estructura", "complejidad"]
+
+variables:
+  datos: [["organelos complejos", "eucariota"], ["estructura simple", "procariota"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "eucariota"
+  - "procariota"
+
+enunciado: "Una célula con {datos[idx][0]} se clasifica como ___."
+
+explicacion: |
+  La complejidad estructural y la compartimentación celular son los rasgos distintivos de los organismos eucariotas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "eucariotas_vs_procariotas"
+  nivel: "intermedio"
+  tags: ["tamaño", "escala"]
+
+variables:
+  datos: [["10-100 micrometros", "eucariota"], ["1-5 micrometros", "procariota"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["eucariota", "procariota"]
+
+enunciado: "Si observamos una célula con un diámetro de {datos[idx][0]}, estamos ante una célula ___."
+
+explicacion: |
+  Las células eucariotas son generalmente mucho más grandes (10-100 µm) que las procariotas (1-5 µm) debido a su mayor complejidad interna.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "eucariotas_vs_procariotas"
+  nivel: "avanzado"
+  tags: ["evolucion", "linaje"]
+
+variables:
+  orden: ["procariota", "eucariota"]
+  idx: uno_de([0, 1])
+
+respuesta_orden: orden
+
+tipo: ordenar
+opciones_explicitas: ["procariota", "eucariota"]
+
+enunciado: "Ordena los tipos celulares según la aparición evolutiva (de la más antigua a la más reciente):"
+
+explicacion: |
+  Las células procariotas aparecieron primero en la historia de la vida, seguidas por la aparición de las células eucariotas mediante procesos como la endosimbiosis.
+```
+
+## Sección: fotosintesis-cambio-atmosfera-nivel2 (25 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "intermedio"
+  tags: ["cianobacterias", "oxigeno", "evolucion"]
+
+tipo: mc
+opciones_explicitas: ["Dióxido de carbono", "Nitrógeno", "Oxígeno", "Metano"]
+respuesta: "Oxígeno"
+
+enunciado: "Durante la fotosíntesis oxigénica realizada por las cianobacterias, se produce la fotólisis del agua, liberando como subproducto gaseoso el ___."
+
+explicacion: |
+  Las cianobacterias utilizan la luz solar para romper moléculas de agua (H2O), liberando oxígeno (O2) como residuo de este proceso metabólico.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "intermedio"
+  tags: ["gran_oxidacion", "atmosfera", "cianobacterias"]
+
+tipo: mc
+respuesta: "La atmósfera se volvió oxidante"
+opciones_explicitas: ["La atmósfera se volvió oxidante", "La atmósfera se volvió reductora", "La atmósfera se volvió rica en metano", "La atmósfera se volvió rica en nitrógeno"]
+
+enunciado: "El aumento de la concentración de oxígeno atmosférico debido a la actividad de las cianobacterias provocó que la atmósfera dejara de ser reductora. ¿En qué se convirtió?"
+
+explicacion: |
+  La Gran Oxidación (o Evento de la Gran Oxidación) transformó la atmósfera primitiva de un estado reductor (rico en gases como CH4 y NH3) a uno oxidante, debido a la acumulación de O2.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "avanzado"
+  tags: ["extincion", "anaerobios", "evolucion"]
+
+tipo: completar
+respuestas_validas:
+  - "anaerobios"
+
+enunciado: "La acumulación de oxígeno en la atmósfera fue un evento catastrófico para las formas de vida ___ que dominaban la Tierra primitiva."
+
+explicacion: |
+  Para los organismos anaerobios estrictos, el oxígeno era un gas altamente reactivo y tóxico, lo que provocó una extinción masiva antes de que la vida evolucionara hacia la respiración aeróbica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "intermedio"
+  tags: ["secuencia", "procesos", "evolucion"]
+
+tipo: ordenar
+opciones_explicitas: ["Evolución de la fotosíntesis oxigénica", "Liberación de O2 por cianobacterias", "Saturación de sumideros de hierro", "Aumento de O2 atmosférico"]
+
+enunciado: "Ordena cronológicamente los eventos que llevaron a la Gran Oxidación:"
+
+explicacion: |
+  Primero surge la fotosíntesis oxigénica; el oxígeno producido es inicialmente absorbido por minerales (como el hierro en los océanos); una vez saturados estos sumideros, el oxígeno comienza a acumularse en la atmósfera.
+respuesta_orden: ["Evolución de la fotosíntesis oxigénica", "Liberación de O2 por cianobacterias", "Saturación de sumideros de hierro", "Aumento de O2 atmosférico"]
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "avanzado"
+  tags: ["metano", "clima", "oxidacion"]
+
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "La Edad Media finaliza convencionalmente con la caída de Constantinopla a manos de los turcos otomanos en el año ___."
+enunciado: "Antes de la Gran Oxidación, la atmósfera era rica en metano. La introducción de oxígeno causó que la concentración de este gas ___ drásticamente, afectando el efecto invernadero global."
 
 explicacion: |
-  La caída de Constantinopla en 1453 es uno de los hitos que marcan la transición hacia la Edad Moderna.
+  El metano (CH4) es un potente gas de efecto invernadero. La oxidación del metano por el nuevo oxígeno atmosférico redujo el efecto invernadero, lo que posiblemente contribuyó a la primera glaciación global (Glaciación Huronesiana).
+
+respuesta: "disminuir"
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
   nivel: "basico"
-  tags: ["feudalismo", "vasallaje"]
+  tags: ["fotosintesis", "ecuacion", "quimica"]
 
-tipo: mc
-opciones_explicitas: ["Protección y tierras a cambio de lealtad y servicio militar", "Pago de impuestos por el uso de herramientas de labranza", "Venta de productos agrícolas en los mercados locales", "Sometimiento total sin derecho a recibir tierras"]
-respuesta: "Protección y tierras a cambio de lealtad y servicio militar"
-enunciado: "En el sistema feudal, la relación de vasallaje entre un señor feudal y un vasallo se basaba principalmente en:"
-explicacion: |
-  El vasallaje era un contrato de carácter personal donde el señor otorgaba un beneficio (fief/feudo) y protección, mientras que el vasallo juraba auxilium (ayuda militar) y consilium (consejo político).
-```
+enunciado: "En el proceso de la fotosíntesis, los organismos autótrofos utilizan la energía lumínica para transformar el dióxido de carbono (CO2) y el agua (H2O) en un producto orgánico esencial y un subproducto gaseoso. El producto orgánico es ___ y el subproducto es ___."
 
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "basico"
-  tags: ["siervos", "estamentos"]
-
-tipo: completar
-opciones_explicitas: ["siervo", "caballero", "rey", "vasallo"]
 respuestas_validas:
-  - "siervo"
-
-enunciado: "A diferencia de los vasallos, los ___ eran campesinos que estaban ligados a la tierra y debían trabajarla para el señor a cambio de protección y una parcela para su subsistencia."
+  - "glucosa"
+  - "O2"
+tipo: completar
 
 explicacion: |
-  Los siervos no eran esclavos (no podían ser vendidos individualmente), pero estaban legalmente vinculados a la gleba (la tierra) y no podían abandonar el feudo sin permiso.
+  La ecuación general es: 6CO2 + 6H2O + luz -> C6H12O6 + 6O2.
+  La glucosa (C6H12O6) es la molécula orgánica que almacena la energía química, mientras que el oxígeno (O2) es liberado como subproducto.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
   nivel: "intermedio"
-  tags: ["jerarquia", "ordenar"]
+  tags: ["evolucion", "oxigeno", "geologia"]
 
-tipo: ordenar
-opciones_explicitas: ["Rey", "Señor Feudal", "Vasallo", "Siervo"]
+enunciado: "Durante el Gran Evento de Oxidación, antes de que el oxígeno se acumulara masivamente en la atmósfera, ¿qué sucedió principalmente con el O2 producido por las cianobacterias?"
 
-enunciado: "Ordena de mayor a menor jerarquía social y poder político en la estructura del feudalismo clásico:"
-
-explicacion: |
-  La estructura era piramidal: El Rey era la máxima autoridad (aunque con poder limitado), seguido por los Grandes Señores (Duques/Condes), luego los vasallos (caballeros) y finalmente la base trabajadora (siervos).
-respuesta_orden: ["Rey", "Señor Feudal", "Vasallo", "Siervo"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "intermedio"
-  tags: ["economia", "intercambio"]
-
+opciones_explicitas: ["el oxígeno se acumuló en los océanos", "el oxígeno se acumuló en la atmósfera", "el oxígeno reaccionó con el metano"]
+respuesta: "el oxígeno se acumuló en los océanos"
 tipo: mc
-opciones_explicitas: ["Servicio militar y lealtad", "Pago de oro y plata", "Intercambio de productos artesanales", "Voto de pobreza"]
-respuesta: "Servicio militar y lealtad"
-
-enunciado: "Si un vasallo fallaba en cumplir su parte del contrato hacia su señor, el señor perdía la oportunidad de recibir lealtad y servicio militar."
 
 explicacion: |
-  El sistema se basaba en la reciprocidad. Si el vasallo no prestaba el servicio militar o el consejo, el vínculo de vasallaje se rompía.
+  Antes de la acumulación atmosférica, el oxígeno liberado fue consumido por agentes reductores en los océanos (como el hierro ferroso) y por la oxidación de gases como el metano. Solo cuando estos "sumideros" se saturaron, el O2 comenzó a acumularse en la atmósfera.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "intermedio"
+  tags: ["estequiometria", "fotosintesis"]
+
+enunciado: "Si un organismo realiza la fotosíntesis de manera eficiente, por cada molécula de glucosa (C6H12O6) producida, ¿cuántas moléculas de oxígeno (O2) se liberan a la atmósfera?"
+
+opciones_explicitas: ["1", "2", "6", "12"]
+respuesta: "6"
+tipo: mc
+
+explicacion: |
+  Según la estequiometría de la reacción: 6CO2 + 6H2O -> C6H12O6 + 6O2. Por cada mol de glucosa se liberan 6 moles de O2.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
   nivel: "avanzado"
-  tags: ["feudo", "tierra"]
+  tags: ["geologia", "oxigenacion"]
 
-tipo: completar
-tolerancia_abs: 0
+enunciado: "La acumulación de oxígeno en la atmósfera fue un proceso extremadamente lento debido a la existencia de sumideros. Un ejemplo principal fue el hierro disuelto en el agua."
 
-enunciado: "El conjunto de tierras, campesinos y derechos que un señor otorgaba a un vasallo como parte del contrato de vasallaje se denomina ___."
-
-respuestas_validas:
-  - "feudo"
-
-explicacion: |
-  El feudo era la unidad económica y política básica del feudalismo, permitiendo al vasallo mantener a su familia y costear su equipo militar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "basico"
-  tags: ["sociedad", "feudalismo"]
-
-respuesta: "Rey"
+opciones_explicitas: ["el hierro disuelto en el agua", "la presencia de metano atmosférico"]
+respuesta: "el hierro disuelto en el agua"
 tipo: mc
-opciones_explicitas: ["Rey", "Señor Feudal", "Caballero", "Siervo"]
-
-enunciado: "En la estructura social del feudalismo, la máxima autoridad política y la cúspide de la pirámide era el ___."
 
 explicacion: |
-  El Rey era la autoridad suprema, aunque en la práctica su poder estaba limitado por los grandes señores feudales.
+  La oxidación del hierro disuelto (Fe2+) en los océanos dio lugar a la formación de capas de hierro bandeado (BIFs), consumiendo el oxígeno producido por la fotosíntesis antes de que este pudiera escapar a la atmósfera.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "basico"
-  tags: ["clases_sociales", "caballeros"]
-
-respuesta: "Caballeros"
-tipo: mc
-opciones_explicitas: ["Campesinos", "Clero", "Caballeros", "Nobles"]
-
-enunciado: "Los ___ eran la clase guerrera encargada de la protección militar de los señoríos."
-
-explicacion: |
-  Los caballeros formaban la base de la nobleza militar, subordinados a los grandes señores.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "intermedio"
-  tags: ["ordenar", "jerarquia"]
-
-respuesta_orden: ["Rey", "Señores Feudales", "Caballeros", "Siervos"]
-tipo: ordenar
-opciones_explicitas: ["Rey", "Señores Feudales", "Caballeros", "Siervos"]
-
-enunciado: "Ordene los siguientes estamentos de mayor a menor poder político y militar en el sistema feudal."
-
-explicacion: |
-  La jerarquía feudal era piramidal: el Rey en la cima, seguido por la alta nobleza, luego la caballería y finalmente el campesinado/siervos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "basico"
-  tags: ["campesinado", "siervos"]
-
-respuesta: "Siervos"
-tipo: completar
-respuestas_validas:
-  - "Siervos"
-
-enunciado: "En el sistema feudal, los ___ eran aquellos que no tenían libertad de movimiento y estaban ligados a la tierra que trabajaban."
-
-explicacion: |
-  A diferencia de los campesinos libres, los siervos estaban legalmente vinculados a la tierra que trabajaban.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
   nivel: "avanzado"
-  tags: ["vasallaje", "nobleza"]
+  tags: ["evolucion", "oxigenacion", "secuencia"]
 
-respuesta: "Vasallo"
+enunciado: "Ordena cronológicamente los eventos que permitieron la oxigenación de la atmósfera terrestre:"
 
-tipo: completar
-respuestas_validas:
-  - "Vasallo"
-
-enunciado: "Si un noble recibe tierras a cambio de lealtad y apoyo militar hacia otro noble de mayor rango, su posición en ese vínculo es la de un ___."
-
-explicacion: |
-  El intercambio de tierras (feudo) por servicios militares y lealtad definía la relación entre el señor y su vasallo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "basico"
-  tags: ["iglesia", "poder", "europa"]
-
-respuesta: "monopolio"
-tipo: completar
-respuestas_validas:
-  - "monopolio"
-
-enunciado: "Durante la Edad Media, la Iglesia Católica ejercía un ___ sobre la vida espiritual y cultural de Europa occidental."
-
-explicacion: |
-  La Iglesia no solo era una institución religiosa, sino que controlaba gran parte de la vida social, política y cultural, ejerciendo un control casi total sobre la mentalidad de la época.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "intermedio"
-  tags: ["monasterios", "cultura", "educacion"]
-
-opciones_explicitas: ["La preservación de textos clásicos", "La producción de armas de guerra", "La exploración de nuevas rutas marítimas", "El fomento del comercio internacional"]
-
-respuesta: "La preservación de textos clásicos"
-tipo: mc
-
-enunciado: "En el ámbito cultural, ¿cuál fue una de las funciones más críticas de los monasterios benedictinos?"
-
-explicacion: |
-  Los monjes copistas dedicaron gran parte de su vida a transcribir manuscritos, lo que permitió que gran parte del conocimiento de la antigüedad clásica sobreviviera a la caída del Imperio Romano.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "intermedio"
-  tags: ["jerarquia", "iglesia", "poder"]
-
-respuesta: "máxima autoridad espiritual"
-tipo: mc
-opciones_explicitas: ["máxima autoridad espiritual", "autoridad política y militar", "representante del emperador", "jefe de la guardia papal"]
-
-enunciado: "En la jerarquía eclesiástica medieval, el Papa era considerado la ___."
-
-explicacion: |
-  La estructura de la Iglesia era altamente jerárquica, donde cada cargo tenía funciones específicas que combinaban lo sagrado con la administración de territorios.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "avanzado"
-  tags: ["cosmovision", "teocentrismo", "cultura"]
-
-respuesta: "teocentrismo"
-tipo: completar
-respuestas_validas:
-  - "teocentrismo"
-
-enunciado: "La cosmovisión medieval se caracterizaba por el ________, donde Dios era el centro de todo el universo y de la explicación de la realidad."
-
-explicacion: |
-  A diferencia del antropocentrismo moderno, la Edad Media se estructuraba en torno a la figura de la divinidad, influyendo en la ciencia, el arte y la política.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "intermedio"
-  tags: ["educacion", "universidades", "iglesia"]
-
-opciones_explicitas: ["Escuelas catedralicias", "Academias de filosofía griega", "Escuelas de navegación", "Universidades de artes liberales"]
-
-respuesta: "Escuelas catedralicias"
-tipo: mc
-
-enunciado: "Antes del surgimiento de las universidades, ¿cuál era el principal centro de formación intelectual y religiosa en las ciudades?"
-
-explicacion: |
-  Las escuelas catedralicias, vinculadas a las sedes de los obispos, fueron la base sobre la cual se desarrollaron posteriormente las primeras universidades europeas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "basico"
-  tags: ["feudalismo", "estamentos"]
-
-variables:
-  datos: [["Se dedica a la defensa militar y la protección de sus tierras mediante el uso de las armas.", "Caballero"], ["Es el señor que otorga tierras a cambio de lealtad y servicio militar.", "Señor feudal"]]
-  idx: uno_de([0, 1])
-
-enunciado: "En el sistema feudal, una persona que {datos[idx][0]} pertenece al grupo de los: ___"
-
-opciones_explicitas: ["Caballero", "Señor feudal"]
-respuesta: datos[idx][1]
-tipo: mc
-
-explicacion: |
-  En la estructura estamental, la nobleza (incluyendo caballeros y señores) tenía la función de la defensa y la administración de la tierra.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "basico"
-  tags: ["clero", "feudalismo"]
-
-variables:
-  datos: [["Su función principal es la oración y la administración de los sacramentos.", "Clérigo"], ["Se encarga de la enseñanza y la preservación de la cultura.", "Clérigo"]]
-  idx: uno_de([0, 1])
-
-enunciado: "El individuo cuya tarea es {datos[idx][0]} es un: ___"
-
-respuestas_validas:
-  - "Clérigo"
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  El primer estado o estamento de la sociedad medieval era el clero, encargado de la vida espiritual.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "intermedio"
-  tags: ["jerarquia", "ordenar"]
-
-enunciado: "Ordena la jerarquía social feudal desde el estamento con mayor poder político hasta el que tiene menos derechos:"
-
-opciones_explicitas: ["Clero/Nobleza", "Nobleza/Clero", "Campesinado/Siervos"]
-respuesta_orden: ["Clero/Nobleza", "Nobleza/Clero", "Campesinado/Siervos"]
+opciones_explicitas: ["Aparición de fotosíntesis oxigénica", "Oxidación de hierro disuelto en océanos", "Saturación de sumideros de metano", "Acumulación masiva de O2 atmosférico"]
+respuesta_orden: ["Aparición de fotosíntesis oxigénica", "Oxidación de hierro disuelto en océanos", "Saturación de sumideros de metano", "Acumulación masiva de O2 atmosférico"]
 tipo: ordenar
 
 explicacion: |
-  Aunque el orden exacto podía variar según la región, la jerarquía se basaba en la posesión de tierras y el estatus espiritual/militar.
+  1. Primero surge la fotosíntesis oxigénica.
+  2. El O2 producido se usa para oxidar el hierro en los mares (formando BIFs).
+  3. El O2 restante reacciona con gases reductores como el metano.
+  4. Una vez agotados los sumideros, el O2 se acumula en la atmósfera.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
-  nivel: "avanzado"
-  tags: ["vasallaje", "feudo"]
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "intermedio"
+  tags: ["evolucion", "oxigeno", "extincion"]
 
-variables:
-  datos: [["Recibe un feudo para su sustento y servicio.", "Vasallo"], ["Ofrece su espada y lealtad a un señor.", "Vasallo"]]
-  idx: uno_de([0, 1])
+respuesta: "tóxico"
+tipo: completar
+respuestas_validas:
+  - "tóxico"
+  - "venenoso"
+  - "mortal"
 
-enunciado: "En un contrato de vasallaje, la persona que {datos[idx][0]} es el: ___"
-
-opciones_explicitas: ["Señor", "Vasallo", "Siervo"]
-respuesta: datos[idx][1]
-tipo: mc
+enunciado: "La acumulación de oxígeno en la atmósfera primitiva fue ___ para los organismos anaeróbicos dominantes de esa época."
 
 explicacion: |
-  El vasallo es el hombre libre que se pone bajo la protección de un señor a cambio de un beneficio (el feudo) y servicios.
+  El aumento de oxígeno atmosférico (Gran Oxidación) causó una extinción masiva de organismos anaeróbicos, ya que el oxígeno es altamente reactivo y dañino para sus procesos metabólicos sin enzimas antioxidantes.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "edad_media_feudalismo"
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
   nivel: "basico"
-  tags: ["campesinado", "servidumbre"]
-
-variables:
-  datos: [["Está vinculado a la tierra y no puede abandonarla sin permiso.", "Siervo"], ["Trabaja la tierra para el señor a cambio de protección.", "Siervo"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Aquella persona que {datos[idx][0]} es un: ___"
-
-respuestas_validas:
-  - "Siervo"
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  A diferencia de los campesinos libres, los siervos estaban legalmente ligados a la gleba (la tierra).
-```
-
-## Sección: edad-media-plena (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["tratado", "verdun", "francia", "alemania", "italia"]
-tipo: mc
-enunciado: "El Tratado de Verdún, firmado en el año 843, dividió el Imperio Carolingio entre los nietos de Carlomagno. ¿Cuál de las siguientes opciones describe correctamente el territorio asignado a Luis el Germánico?"
-respuesta: "El reino de Francia Oriental, que sentó las bases de lo que luego sería el Sacro Imperio Romano Germánico"
-opciones_explicitas:
-  - "El reino de Francia Occidental, que evolucionaría hacia el reino de Francia moderno"
-  - "El reino de Francia Oriental, que sentó las bases de lo que luego sería el Sacro Imperio Romano Germánico"
-  - "El reino de Italia, que permaneció bajo el control directo del emperador"
-  - "Un reino central que incluía la Borgoña y el norte de Italia"
-explicacion: "El Tratado de Verdún dividió el impero en tres partes: Luis el Germánico recibió la Franconia y territorios al este del Rin (Francia Oriental); Lotario I recibió el título imperial y una franja central (Francia Media); y Carlos el Calvo recibió la Aquitania y territorios al oeste del Rin (Francia Occidental)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["iglesia", "gregorio-vii", "investidura", "laicato"]
-tipo: completar
-enunciado: "Durante el siglo XI, el papa Gregorio VII impulsó la Reforma Gregoriana para afirmar la independencia de la Iglesia frente al poder secular. Uno de sus objetivos principales fue eliminar la práctica de la __________, mediante la cual los monarcas y nobles nombraban a los obispos y abades."
-respuesta: "investidura"
-respuestas_validas:
-  - "investidura"
-  - "Investidura"
-  - "INVESTIDURA"
-explicacion: "La lucha por las investiduras fue el conflicto central entre el papado y el imperio (y otros monarcas) en el siglo XI y XII. La Reforma Gregoriana buscaba que solo la Iglesia pudiera nombrar a sus clérigos, eliminando el control laico sobre los cargos eclesiásticos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["bizancio", "selyucidas", "anatolia", "1071"]
-tipo: vf
-enunciado: "La derrota del emperador romano de oriente Manuel I Comneno en la batalla de Manzikert en 1071 abrió Anatolia a la invasión turca."
-respuesta: falso
-explicacion: "La batalla de Manzikert ocurrió en 1071, pero el emperador bizantino derrotado fue Romano IV Diógenes, no Manuel I Comneno (quien reinó mucho después, entre 1143 y 1180)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["cisma", "iglesia", "roma", "constantinopla"]
-tipo: mc
-enunciado: "El Cisma de 1054 marcó la ruptura definitiva entre la Iglesia de Roma y la Iglesia de Constantinopla. ¿Cuál fue la principal causa teológica y política de este cisma?"
-respuesta: "El desacuerdo sobre la autoridad del Papa y el uso del filioque en el Credo"
-opciones_explicitas:
-  - "La disputa sobre la validez de los sacramentos administrados por sacerdotes casados"
-  - "El desacuerdo sobre la autoridad del Papa y el uso del filioque en el Credo"
-  - "La negativa del Patriarca de Constantinopla a pagar impuestos al Emperador Bizantino"
-  - "La invasión normanda de Italia meridional y el apoyo papal a los normandos"
-explicacion: "Las tensiones acumuladas por diferencias litúrgicas, culturales y políticas, culminando en la excomunión mutua de los legados papales y el Patriarca Miguel I Cerulario, se centraron en la primacía papal y la cláusula del filioque (que el Espíritu Santo procede del Padre y del Hijo) añadida en el occidente al Credo."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["cruzadas", "urbeles", "jerusalen", "1096"]
-tipo: completar
-enunciado: "En el Concilio de Clermont de 1095, el papa Urbano II llamó a la Primera Cruzada. El objetivo principal declarado era recuperar la ciudad santa de __________ del control musulmán."
-respuesta: "jerusalen"
-respuestas_validas:
-  - "jerusalen"
-  - "jerusalén"
-  - "Jerusalen"
-  - "Jerusalén"
-  - "JERUSALEN"
-  - "JERUSALÉN"
-explicacion: "La recuperación de Jerusalén, donde según la tradición cristiana murió y resucitó Jesucristo, era el objetivo central de la Primera Cruzada, lograda en 1099 con la captura de la ciudad por los cruzados."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["cluny", "monasterio", "reforma", "siglo-x"]
-tipo: mc
-enunciado: "La abadía de Cluny, fundada en 910, jugó un papel crucial en la renovación religiosa de la Edad Media. ¿Cuál era su característica distintiva respecto a la mayoría de los monasterios de la época?"
-respuesta: "Su independencia directa del poder local de los laicos y su influencia en la uniformización de la regla benedictina"
-opciones_explicitas:
-  - "Su adopción de la regla agustina en lugar de la benedictina"
-  - "Su independencia directa del poder local de los laicos y su influencia en la uniformización de la regla benedictina"
-  - "Su enfoque exclusivo en la predicación urbana y la vida activa"
-  - "Su rechazo total a la propiedad territorial y la acumulación de riquezas"
-explicacion: "Cluny fue pionera en liberarse del control de los señores locales (laicos) al poner el monasterio directamente bajo la protección del Papa. Esto le permitió mantener la disciplina monástica original y extender su reforma a cientos de monasterios afiliados."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["paz-de-dios", "iglesia", "violencia", "campesinos"]
-tipo: vf
-enunciado: "La Paz de Dios fue un movimiento promovido por la Iglesia en el siglo X que buscaba proteger a los no combatientes (clérigos, campesinos, mercaderes) de la violencia feudal."
-respuesta: verdadero
-explicacion: "La Paz de Dios (Pax Dei) fue un intento de la Iglesia para limitar la violencia feudal, prohibiendo a los caballeros atacar a ciertos grupos vulnerables bajo pena de excomunión. Posteriormente, se complementó con la Tregua de Dios."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["tregua-de-dios", "domingos", "adviento", "cuaresma"]
-tipo: completar
-enunciado: "Junto a la Paz de Dios, la Iglesia promovió la Tregua de Dios, que prohibía la guerra en días específicos. ¿Cuáles eran los días principales en los que estaba prohibida la violencia según esta norma?"
-respuesta: "domingos, festivos y tiempos litúrgicos como adviento y cuaresma"
-respuestas_validas:
-  - "domingos, festivos y tiempos litúrgicos como adviento y cuaresma"
-  - "Domingos, festivos y tiempos litúrgicos como adviento y cuaresma"
-  - "DOMINGOS, FESTIVOS Y TIEMPOS LITURGICOS COMO ADVIENTO Y CUARESMA"
-explicacion: "La Tregua de Dios intentaba reducir los días de combate al prohibir la guerra desde el miércoles al viernes y durante todo el adviento y la cuaresma, reservando el tiempo para la oración y la paz religiosa."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["inglaterra", "normandos", "guillermo-conquistador", "1066"]
-tipo: mc
-enunciado: "La Batalla de Hastings en 1066 fue decisiva para la historia de Inglaterra. ¿Quién fue el vencedor y qué consecuencia inmediata tuvo?"
-respuesta: "Guillermo el Conquistador, lo que llevó a la conquista normanda y la introducción del feudalismo anglonormando"
-opciones_explicitas:
-  - "Harold II Godwinson, consolidando la dinastía anglosajona"
-  - "Guillermo el Conquistador, lo que llevó a la conquista normanda y la introducción del feudalismo anglonormando"
-  - "Los daneses, estableciendo el Reino de Danelaw"
-  - "Los escoceses, uniendo temporalmente las coronas de Escocia e Inglaterra"
-explicacion: "Guillermo, duque de Normandía, derrotó al rey anglosajón Harold II. Esta victoria instaló una nueva élite normanda en Inglaterra, transformando su estructura política, social y lingüística, y conectándola más con el continente europeo que con Escandinavia."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["otón-i", "coronación", "962", "imperio"]
-tipo: completar
-enunciado: "En el año 962, el rey otón I fue coronado emperador por el papa Juan XII, fundando de facto el __________."
-respuesta: "sacro imperio romano germánico"
-respuestas_validas:
-  - "sacro imperio romano germánico"
-  - "Sacro Imperio Romano Germánico"
-  - "SACRO IMPERIO ROMANO GERMÁNICO"
-explicacion: "La coronación de Otón I revivió la idea del imperio en Occidente, diferenciándose del Imperio Carolingio anterior y estableciendo la estrecha relación (y conflicto) entre el poder imperial alemán y el papado."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["tomás-de-aquino", "filosofía", "fe", "razón", "siglo-xiii"]
-tipo: mc
-enunciado: "Tomás de Aquino, figura central de la escolástica del siglo XIII, intentó reconciliar la fe cristiana con la filosofía de Aristóteles. ¿Cuál fue su contribución principal en este sentido?"
-respuesta: "Sostener que la fe y la razón son complementarias y no contradictorias, ya que ambas provienen de Dios"
-opciones_explicitas:
-  - "Sostener que la fe y la razón son complementarias y no contradictorias, ya que ambas provienen de Dios"
-  - "Defender que la razón debe someterse totalmente a la revelación divina sin excepción"
-  - "Proponer que la filosofía aristotélica era pagana y debía ser descartada por los cristianos"
-  - "Argumentar que la Iglesia no debía involucrarse en asuntos filosóficos ni científicos"
-explicacion: "La Suma Teológica de Tomás de Aquino integró la lógica aristotélica con la teología cristiana, argumentando que la verdad revelada y la verdad natural (racional) no pueden contradecirse porque Dios es la fuente de ambas."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["peste-negra", "1347", "muerte", "demografía"]
-tipo: vf
-enunciado: "La Peste Negra llegó a Europa por primera vez en 1347, causando una drástica reducción de la población en las décadas siguientes."
-respuesta: verdadero
-explicacion: "La peste bubónica, traída probablemente por ratas en barcos mercantes desde Asia, llegó a Messina en 1347 y se extendió rápidamente por toda Europa, matando entre un tercio y la mitad de la población en varias regiones."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["juan-sin-tierra", "1215", "barones", "ley"]
-tipo: completar
-enunciado: "En 1215, el rey Juan de Inglaterra fue obligado por sus barones rebeldes a firmar la Carta Magna, que establecía que el rey estaba sujeto a la __________."
-respuesta: "ley"
-respuestas_validas:
-  - "ley"
-  - "Ley"
-  - "LEY"
-explicacion: "La Carta Magna fue un documento fundamental que limitó el poder absoluto del monarca, estableciendo que nadie, ni siquiera el rey, estaba por encima de la ley, y protegiendo ciertos derechos feudales y libertades eclesiásticas."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["caballeros-teutones", "báltico", "prusianos", "lituania"]
-tipo: mc
-enunciado: "Además de las Cruzadas a Tierra Santa, la Iglesia promovió cruzadas en otras regiones. ¿Cuál fue el objetivo principal de las Cruzadas del Norte en el Báltico?"
-respuesta: "Cristianizar a los pueblos paganos del Báltico y expandir la influencia germánica"
-opciones_explicitas:
-  - "Cristianizar a los pueblos paganos del Báltico y expandir la influencia germánica"
-  - "Recuperar Jerusalén del control de los mamelucos"
-  - "Derrocar al Emperador Bizantino y tomar Constantinopla"
-  - "Combatir a los cátaros en el sur de Francia"
-explicacion: "Los Caballeros Teutónicos y otros órdenes militares se dirigieron al Báltico para conquistar y convertir a los prusianos, lituanos y otros pueblos bálticos, estableciendo un estado monástico en la región."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["cisma-occidente", "avignon", "papado", "1378"]
-tipo: completar
-enunciado: "El Cisma de Occidente (1378-1417) fue un período en el que la cristiandad latina tuvo simultáneamente a dos o tres papas rivales, uno en Roma y otro en __________."
-respuesta: "avignon"
-respuestas_validas:
-  - "avignon"
-  - "Avignon"
-  - "AVIGNON"
-  - "avignón"
-  - "Avignón"
-explicacion: "Tras el regreso del papado a Roma, la elección de Urbano VI provocó que un grupo de cardenales eligiera a un antipapa en Avignon. Este cisma debilitó la autoridad papal hasta que el Concilio de Constanza resolvió la situación."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["guerra-pucel", "inglaterra", "francia", "1297"]
-tipo: vf
-enunciado: "La Batalla de las Esporas fue un enfrentamiento naval entre Inglaterra y Francia en 1340, decisivo para el control del canal de la Mancha."
-respuesta: falso
-explicacion: "La Batalla de las Esporas (1297) fue un combate caballeril fuera de las murallas de Furnes (Flanders), no una batalla naval. La gran batalla naval contra Inglaterra fue la Batalla de Sluys en 1340."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["feudalismo", "vasallaje", "beneficio", "siglo-x"]
-tipo: mc
-enunciado: "El sistema feudal se basaba en relaciones de dependencia personal. ¿Cuál era el vínculo central que unía al señor con su vasallo?"
-respuesta: "El juramento de homenaje y lealtad a cambio de un beneficio (generalmente tierra)"
-opciones_explicitas:
-  - "El juramento de homenaje y lealtad a cambio de un beneficio (generalmente tierra)"
-  - "Un contrato de arrendamiento mercantil firmado ante notario"
-  - "La propiedad plena de la tierra por parte del vasallo"
-  - "La obligación de servicio militar pago en dinero al rey"
-explicacion: "El feudalismo se estructuraba sobre la base del vasallaje: un hombre (vasallo) juraba fidelidad a otro (señor) a cambio de protección y un feudo (tierra o derechos), obligándose a prestar servicio, generalmente militar."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["peste-negra", "consecuencias", "trabajo", "salarios"]
-tipo: completar
-enunciado: "Tras la Peste Negra, la escasez de mano de obra en Europa tuvo como consecuencia económica principal el aumento del poder de negociación de los __________."
-respuesta: "campesinos"
-respuestas_validas:
-  - "campesinos"
-  - "Campesinos"
-  - "CAMPESENOS"
-  - "siervos"
-  - "Siervos"
-explicacion: "La muerte de gran parte de la población hizo que el trabajo escaseara, permitiendo a los campesinos supervivientes exigir mejores condiciones, salarios más altos o la liberación de la servidumbre, debilitando el sistema feudal."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["latran-iv", "inocencio-iii", "cristianismo", "1215"]
-tipo: mc
-enunciado: "El Concilio de Letrán IV, convocado en 1215 por el papa Inocencio III, fue uno de los más importantes de la Edad Media. ¿Cuál de sus decretos fue fundamental para la vida religiosa cotidiana?"
-respuesta: "La obligatoriedad de la confesión anual para todos los fieles"
-opciones_explicitas:
-  - "La obligatoriedad de la confesión anual para todos los fieles"
-  - "La prohibición absoluta de cualquier comercio con musulmanes"
-  - "La creación de un ejército permanente bajo mando papal"
-  - "La abolición de la jerarquía episcopal en favor de los obispos electos"
-explicacion: "El Concilio estableció que todo fiel que hubiera alcanzado la edad de discreción debía confesar sus pecados al menos una vez al año a su propio párroco, reforzando el control pastoral de la Iglesia sobre la sociedad."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["templarios", "jerusalen", "banca", "1307"]
-tipo: completar
-enunciado: "La Orden de los Pobres Compañeros de Cristo del Templo de Salomón, conocidos como templarios, fueron fundados en Jerusalén alrededor de 1119 y se disolvieron oficialmente en 1312 tras la persecución liderada por el rey __________ de Francia."
-respuesta: "filipe"
-respuestas_validas:
-  - "filipe"
-  - "Filipe"
-  - "FILIPE"
-  - "filipe-iv"
-  - "Filipe IV"
-explicacion: "El rey Felipe IV de Francia, conocido como Felipe el Hermoso, acusó a los templarios de herejía y otros cargos para confiscar sus riquezas y cancelar las deudas que debía a la orden, siendo arrestados masivamente en 1307."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["guerra-cien-anos", "edward-iii", "filipe-iv", "reclamación"]
-tipo: mc
-enunciado: "La Guerra de los Cien Años (1337-1453) fue un conflicto prolongado entre Inglaterra y Francia. ¿Cuál fue la causa dinástica principal que la inició?"
-respuesta: "La reclamación del trono francés por parte del rey inglés Eduardo III"
-opciones_explicitas:
-  - "La reclamación del trono francés por parte del rey inglés Eduardo III"
-  - "La invasión normanda de Inglaterra en 1066"
-  - "El deseo de los papas de Avignon de recuperar los estados pontificios"
-  - "La disputa comercial sobre la región de Flandes"
-explicacion: "Al morir Carlos IV de Francia sin heredero varón, su primo Eduardo III de Inglaterra (hijo de Isabel de Francia) reclamó la corona, lo que fue rechazado por los nobles franceses que aplicaron la Ley Sálica, iniciando la guerra."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["peste-negra", "iglesia", "crisis", "autoridad"]
-tipo: vf
-enunciado: "La Peste Negra fortaleció inmediatamente la autoridad y la moral de la Iglesia Católica, ya que los clérigos murieron menos que la población general."
-respuesta: falso
-explicacion: "La alta mortalidad entre el clero (que atendía a los enfermos) y la incapacidad de la Iglesia para explicar o detener la peste minaron su autoridad moral y espiritual, generando movimientos de penitencia extrema y cuestionamientos futuros."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["renacimiento-xii", "universidades", "aristóteles", "traducción"]
-tipo: completar
-enunciado: "El llamado Renacimiento del siglo XII se caracterizó por un florecimiento cultural y intelectual, impulsado en gran parte por la traducción al latín de obras científicas y filosóficas desde el árabe y el griego, lo que llevó al surgimiento de las primeras __________."
-respuesta: "universidades"
-respuestas_validas:
-  - "universidades"
-  - "Universidades"
-  - "UNIVERSIDADES"
-explicacion: "El interés por el conocimiento clásico y el derecho canónico llevó a la formación de escuelas catedralicias que evolucionaron hacia universidades, como las de Bolonia, París y Oxford, institucionalizando el aprendizaje superior."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["leanto", "otomano", "liga-santa", "1571"]
-tipo: vf
-enunciado: "La Batalla de Lepanto, donde la Liga Santa derrotó a la flota otomana, tuvo lugar en 1571, marcando el fin de la Edad Media."
-respuesta: falso
-explicacion: "La Batalla de Lepanto ocurrió en 1571, en la Edad Moderna, no en la Edad Media. La Edad Media generalmente se considera que termina a finales del siglo XV (1453 o 1492)."
-```
-
-```
-metadata:
-  materia: "historia-profunda"
-  tema: "edad-media-plena"
-  nivel: "intermedio"
-  tags: ["francisco-de-asis", "pobreza", "mendicidad", "siglo-xiii"]
-tipo: mc
-enunciado: "San Francisco de Asís fundó la Orden de los Frailes Menores en el siglo XIII. ¿Cuál era el principio central de su vida religiosa?"
-respuesta: "La pobreza evangélica literal y la imitación de la vida de Cristo"
-opciones_explicitas:
-  - "La pobreza evangélica literal y la imitación de la vida de Cristo"
-  - "El estudio académico avanzado en las universidades"
-  - "La acumulación de riquezas para construir catedrales"
-  - "La vida contemplativa en monasterios cerrados y aislados"
-explicacion: "Francisco de Asís rechazó la riqueza y el estatus social, promoviendo una vida de pobreza radical y predicación itinerante, inspirada en el Evangelio, lo que contrastaba con la riqueza de otras órdenes y la Iglesia institucional."
-```
-
-## Sección: electrificacion-fabrica-hogar (23 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "basico"
-  tags: ["revolucion_industrial", "energia"]
-
-respuesta: "motor eléctrico"
-tipo: completar
-respuestas_validas:
-  - "motor eléctrico"
-
-enunciado: "A finales del siglo XIX, la transición de la energía de vapor a la energía eléctrica en las fábricas fue posible gracias a la invención y adopción masiva del ___."
-
-explicacion: |
-  El motor eléctrico permitió que la energía no tuviera que transmitirse mediante complejos sistemas de correas y ejes conectados a una única máquina de vapor central, permitiendo una distribución más flexible de la fuerza motriz.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "basico"
-  tags: ["iluminacion", "hogar"]
-
-respuesta: "luz de gas"
-tipo: mc
-opciones_explicitas: ["luz de gas", "luz eléctrica", "luz de vela"]
-
-enunciado: "Antes de la llegada de la red eléctrica doméstica, ¿cuál era la fuente de iluminación principal en los hogares urbanos de finales del siglo XIX?"
-
-explicacion: |
-  La llegada de la luz eléctrica en los hogares cambió drásticamente los hábitos de vida, permitiendo actividades nocturnas seguras y eliminando el riesgo de incendios por llamas abiertas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "intermedio"
-  tags: ["secuencia", "desarrollo"]
-
-respuesta_orden: ["máquinas de vapor", "motores eléctricos industriales", "iluminación doméstica", "electrodomésticos"]
-tipo: ordenar
-opciones_explicitas: ["máquinas de vapor", "motores eléctricos industriales", "iluminación doméstica", "electrodomésticos"]
-
-enunciado: "Ordene cronológicamente la evolución del uso de la energía en la sociedad desde la Primera Revolución Industrial hasta la consolidación del hogar moderno:"
-
-explicacion: |
-  La electrificación comenzó en la industria para optimizar la producción, luego se extendió a la iluminación urbana y doméstica, y finalmente permitió la aparición de los electrodomésticos que definieron la vida moderna.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "avanzado"
-  tags: ["corrientes", "tesla", "edison"]
-
-tipo: mc
-opciones_explicitas: ["Corriente Continua (DC)", "Corriente Alterna (AC)"]
-respuesta: "Corriente Continua (DC)"
-
-enunciado: "En la 'Guerra de las Corrientes', ¿qué tipo de corriente defendía Thomas Edison para su sistema de distribución?"
-
-explicacion: |
-  Edison promovía la Corriente Continua (DC), mientras que Tesla y Westinghouse impulsaban la Corriente Alterna (AC), que permitía transportar electricidad a largas distancias con menos pérdida de energía.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "intermedio"
-  tags: ["hogar", "tecnologia"]
-
-respuesta: "iluminación"
-tipo: completar
-respuestas_validas:
-  - "iluminación"
-
-enunciado: "El primer gran cambio que experimentaron los hogares con la llegada de la red eléctrica fue la ___."
-
-explicacion: |
-  Aunque hoy asociamos la electricidad con la cocina o el lavado, el primer uso masivo y transformador en las viviendas fue la sustitución de la luz de gas o aceite por la luz eléctrica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "basico"
-  tags: ["revolucion_industrial", "energia"]
-
-respuesta: "centralizada"
-tipo: completar
-respuestas_validas:
-  - "centralizada"
-
-enunciado: "A diferencia de los motores eléctricos que permiten una distribución flexible, el sistema de máquinas de vapor dependía de una fuente de energía ___."
-
-explicacion: |
-  Las máquinas de vapor requerían una ubicación centralizada y un complejo sistema de ejes y correas para transmitir movimiento a toda la fábrica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "intermedio"
-  tags: ["eficiencia", "motores"]
-
-respuesta: "mayor flexibilidad"
-tipo: mc
-opciones_explicitas: ["mayor flexibilidad", "mayor eficiencia", "menor costo de instalación"]
-
-enunciado: "Al reemplazar la transmisión por correas de cuero de una máquina de vapor por motores eléctricos individuales en cada máquina, se logra principalmente:"
-
-explicacion: |
-  La electrificación permitió que cada máquina tuviera su propio motor, eliminando la necesidad de mantener todo el sistema funcionando si solo una máquina se necesitaba.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "intermedio"
-  tags: ["transicion", "tecnologia"]
-
-respuesta: "eléctrica"
-tipo: completar
-respuestas_validas:
-  - "eléctrica"
-
-enunciado: "La transición de la energía mecánica a la energía ___ permitió que las fábricas dejaran de depender de la proximidad de fuentes de agua o carbón masivo para sus ejes de transmisión."
-
-explicacion: |
-  La electricidad permitió que la energía se transportara a través de cables, permitiendo que las fábricas se ubicaran en cualquier lugar, no solo cerca de ríos o minas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "avanzado"
-  tags: ["cronologia", "procesos"]
-
-opciones_explicitas: ["Implementación de máquinas de vapor", "Instalación de redes eléctricas", "Uso de motores eléctricos individuales", "Sistemas de correas y ejes centrales"]
-respuesta_orden: ["Implementación de máquinas de vapor", "Sistemas de correas y ejes centrales", "Instalación de redes eléctricas", "Uso de motores eléctricos individuales"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente la evolución de la potencia industrial desde la Primera hasta la Segunda Revolución Industrial:"
-
-explicacion: |
-  Primero se usaba el vapor directamente, luego se intentó distribuir ese movimiento mediante correas (lo cual era ineficiente), y finalmente la electricidad permitió la independencia de cada máquina.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "intermedio"
-  tags: ["arquitectura", "espacio"]
-
-respuesta: "espacios más abiertos y seguros"
-tipo: mc
-opciones_explicitas: ["espacios más abiertos y seguros", "espacios saturados de ejes y correas", "espacios con mayor ruido mecánico"]
-
-enunciado: "Comparado con el sistema de vapor, el uso de motores eléctricos individuales en cada máquina resultó en:"
-
-explicacion: |
-  Al eliminar los enormes ejes de transmisión que atravesaban los techos y suelos de las fábricas, el espacio se volvió más seguro, limpio y versátil.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_hogar"
-  nivel: "basico"
-  tags: ["iluminacion", "siglo_XX"]
-
-respuesta: "bombilla"
-tipo: mc
-opciones_explicitas: ["vela", "lámpara de aceite", "bombilla", "gas"]
-
-enunciado: "Antes de la electrificación masiva, la iluminación nocturna en los hogares dependía de fuentes de combustión. La llegada de la _______ permitió extender las actividades humanas durante la noche de forma segura."
-
-explicacion: |
-  La bombilla incandescente permitió que los hogares dejaran de depender de la luz de gas o aceite, reduciendo riesgos de incendio y mejorando la calidad del aire interior.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_hogar"
-  nivel: "intermedio"
-  tags: ["electrodomesticos", "vida_cotidiana"]
+  tags: ["fotosintesis", "oxigeno", "atmosfera"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenario: [["lavadora", "lavado de ropa"], ["refrigerador", "conservación de alimentos"]]
+  escenarios: [["El oxígeno liberado por la fotosíntesis fue un veneno para los anaerobios.", "tóxico"], ["El oxígeno permitió la aparición de la respiración aeróbica.", "beneficioso"]]
 
-respuesta: escenario[escenario_idx][1]
-tipo: completar
-respuestas_validas:
-  - "lavado de ropa"
-  - "conservación de alimentos"
+opciones_explicitas: ["tóxico", "beneficioso", "neutro"]
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
 
-enunciado: "La adopción de la {escenario[escenario_idx][0]} transformó radicalmente el ___."
+enunciado: "Considerando el impacto de la fotosíntesis en la atmósfera primitiva, ¿cuál fue el efecto principal del oxígeno sobre los organismos anaeróbicos existentes?"
+
+explicacion: |
+  {escenarios[escenario_idx][0]}
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "intermedio"
+  tags: ["secuencia", "evolucion", "oxigeno"]
+
+opciones_explicitas: ["Aparición de fotosíntesis oxigénica", "Acumulación de O2 atmosférico", "Extinción de anaerobios dominantes"]
+respuesta_orden: ["Aparición de fotosíntesis oxigénica", "Acumulación de O2 atmosférico", "Extinción de anaerobios dominantes"]
+tipo: ordenar
+
+enunciado: "Ordena cronológicamente los eventos que llevaron a la Gran Oxidación:"
 
 pasos:
-  - "Identifica el electrodoméstico seleccionado."
-  - "Determina qué actividad doméstica fue impactada directamente."
+  - "Primer paso: la producción de oxígeno por cianobacterias."
+  - "Segundo paso: el oxígeno se acumula en la atmósfera."
+  - "Tercer paso: la toxicidad del oxígeno causa la extinción de anaerobios."
 
 explicacion: |
-  La {escenario[escenario_idx][0]} fue clave para la automatización de tareas que antes requerían mucho esfuerzo manual o tiempo.
+  La fotosíntesis oxigénica produjo el oxígeno, que luego se acumuló en la atmósfera, provocando finalmente la extinción de los organismos anaeróbicos dominantes.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_hogar"
-  nivel: "intermedio"
-  tags: ["secuencia", "tecnologia"]
-
-respuesta_orden: ["iluminación", "refrigeración", "comunicación"]
-tipo: ordenar
-opciones_explicitas: ["iluminación", "refrigeración", "comunicación"]
-
-enunciado: "Ordena cronológicamente la adopción masiva de tecnologías eléctricas en los hogares del siglo XX, desde la más temprana a la más tardía."
-
-explicacion: |
-  Primero se electrificaron las ciudades para la luz (iluminación), luego los grandes electrodomésticos de cocina (refrigeración) y finalmente los dispositivos de entretenimiento y comunicación.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "basico"
-  tags: ["edison", "corriente_continua"]
-
-respuesta: "corriente continua"
-tipo: completar
-respuestas_validas:
-  - "corriente continua"
-
-enunciado: "Thomas Edison impulsó un sistema de distribución basado en la ___."
-
-explicacion: |
-  Edison defendía la corriente continua (DC), que era difícil de transportar a largas distancias debido a la caída de tensión.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "intermedio"
-  tags: ["tesla", "westinghouse", "corriente_alterna"]
-
-respuesta: "Tesla y Westinghouse"
-tipo: mc
-opciones_explicitas: ["Tesla y Westinghouse", "Edison y General Electric"]
-
-enunciado: "El sistema de corriente alterna, que finalmente se impuso para la distribución a larga distancia, fue promovido principalmente por ___."
-
-explicacion: |
-  Nikola Tesla y George Westinghouse desarrollaron el sistema de corriente alterna (AC), permitiendo elevar la tensión con transformadores para el transporte eficiente.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "intermedio"
-  tags: ["tecnologia", "distribucion"]
-
-respuesta: "transformador"
-tipo: completar
-respuestas_validas:
-  - "transformador"
-
-enunciado: "La principal ventaja técnica de la corriente alterna sobre la continua en el siglo XIX era la capacidad de modificar el voltaje mediante el uso de un ___."
-
-explicacion: |
-  El transformador permite elevar el voltaje para reducir las pérdidas por calor en los cables durante el transporte a largas distancias.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "basico"
-  tags: ["personajes"]
-
-respuesta_orden: ["Edison", "Tesla", "Westinghouse"]
-tipo: ordenar
-
-opciones_explicitas: ["Edison", "Tesla", "Westinghouse"]
-
-enunciado: "Ordena cronológicamente la relevancia de estos actores en el desarrollo de los estándares de corriente (de la corriente continua a la alterna dominante):"
-
-explicacion: |
-  Edison fue el pionero de la DC, mientras que Tesla y Westinghouse lideraron la revolución de la AC que permitió la electrificación masiva.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
   nivel: "avanzado"
-  tags: ["tecnologia", "comparativa"]
+  tags: ["metabolismo", "anaerobio", "oxidacion"]
 
 variables:
-  datos: [[0, "Alterna", "Larga distancia"], [1, "Continua", "Corta distancia"]]
-  idx: uno_de([0, 1])
-  tipo_corriente: datos[idx][1]
-  distancia: datos[idx][2]
+  caso_idx: uno_de([0, 1])
+  casos: [["Si el organismo es anaerobio estricto, el O2 es ___.", "mortal"], ["Si el organismo es aeróbico, el O2 es ___.", "esencial"]]
 
-respuesta: distancia
+opciones_explicitas: ["mortal", "esencial", "neutro"]
+respuesta: casos[caso_idx][1]
 tipo: mc
-opciones_explicitas: ["Larga distancia", "Corta distancia"]
 
-enunciado: "Si comparamos el sistema de {tipo_corriente}, este fue históricamente preferido para la distribución de ___."
+enunciado: "Analiza el escenario: {casos[caso_idx][0]}"
 
 explicacion: |
-  La corriente alterna (AC) permite el uso de transformadores para elevar la tensión, lo que minimiza pérdidas y permite llevar energía a ciudades lejanas.
+  La capacidad de utilizar o resistir el oxígeno determinó la supervivencia de las especies durante la transición hacia una atmósfera oxidante.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
   nivel: "basico"
-  tags: ["industria", "motor"]
+  tags: ["oxigeno", "atmosfera"]
+
+respuesta: 21.0
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Si la fotosíntesis aumentó la concentración de oxígeno de 0% a 21%, ¿en qué porcentaje aumentó la presencia de este gas en la atmósfera (en puntos porcentuales)?"
+
+explicacion: |
+  El aumento es la diferencia directa entre el estado final (21%) y el inicial (0%), resultando en 21 puntos porcentuales.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "intermedio"
+  tags: ["ozono", "oxigeno", "fotosintesis"]
+
+respuesta: "oxigeno"
+tipo: mc
+opciones_explicitas: ["nitrogeno", "oxigeno", "metano", "dióxido de carbono"]
+
+enunciado: "La formación de la capa de ozono en la atmósfera terrestre fue posible gracias a la acumulación de ___ liberado por la fotosíntesis oxigénica."
+
+explicacion: |
+  La fotosíntesis oxigénica libera oxígeno molecular (O2). La interacción de este oxígeno con la radiación ultravioleta permite la formación de ozono (O3), el cual constituye la capa protectora de la Tierra.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "basico"
+  tags: ["radiacion_uv", "proteccion"]
+
+respuesta: "verdadero"
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "¿Es correcto afirmar que sin la fotosíntesis oxigénica la radiación ultravioleta habría afectado la vida terrestre de forma mucho más severa debido a la falta de una capa de ozono?"
+
+explicacion: |
+  Correcto. La capa de ozono actúa como un escudo contra la radiación UV. Sin la producción masiva de oxígeno por parte de los organismos fotosintéticos, esta capa no se habría formado.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "avanzado"
+  tags: ["secuencia", "evolucion"]
+
+respuesta_orden: ["Fotosíntesis oxigénica", "Acumulación de O2", "Formación de O3 (Ozono)", "Protección UV"]
+tipo: ordenar
+opciones_explicitas: ["Formación de O3 (Ozono)", "Fotosíntesis oxigénica", "Protección UV", "Acumulación de O2"]
+
+enunciado: "Ordena cronológicamente los procesos que permitieron la protección de la vida terrestre contra la radiación ultravioleta:"
+
+explicacion: |
+  El orden correcto es: 1. Fotosíntesis (produce O2) -> 2. Acumulación de O2 en la atmósfera -> 3. Fotólisis del O2 para formar O3 -> 4. Creación de la capa de ozono protectora.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "intermedio"
+  tags: ["oxigeno", "ozono"]
+
+respuesta: "O3"
+tipo: completar
+respuestas_validas:
+  - "O3"
+  - "ozono"
+
+enunciado: "La presencia de oxígeno (O2) en la atmósfera permitió la formación de la molécula de ___ mediante la acción de la radiación solar."
+
+explicacion: |
+  El oxígeno molecular (O2) se descompone por la radiación UV para formar átomos de oxígeno libres, que luego se combinan con otros O2 para formar ozono (O3).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "intermedio"
+  tags: ["radiacion", "consecuencia"]
+
+respuesta: "Aumento de la radiación UV en la superficie"
+tipo: mc
+opciones_explicitas: ["Aumento de la radiación UV en la superficie", "Disminución de la radiación UV en la superficie", "Aumento del efecto invernadero", "Disminución del oxígeno atmosférico"]
+
+enunciado: "Si los organismos fotosintéticos oxigénicos nunca hubieran evolucionado, ¿cuál sería la consecuencia directa sobre la radiación ultravioleta en la superficie terrestre?"
+
+explicacion: |
+  Sin la producción de oxígeno, no habría formación de la capa de ozono, lo que resultaría en un aumento letal de la radiación ultravioleta llegando a la superficie.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "intermedio"
+  tags: ["fotosintesis", "oxigeno", "evolucion"]
+
+respuesta: "oxigeno"
+tipo: mc
+opciones_explicitas: ["oxigeno", "metano", "dióxido de carbono", "nitrógeno"]
+
+enunciado: "Durante el Gran Evento de Oxidación, la actividad de las cianobacterias liberó un gas que transformó la atmósfera primitiva. ¿Qué gas fue?"
+
+explicacion: |
+  La aparición de organismos fotosintéticos como las cianobacterias permitió la liberación masiva de oxígeno como subproducto, cambiando la química atmosférica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "avanzado"
+  tags: ["redox", "fotosintesis", "oxigeno"]
+
+respuesta: "O2"
+tipo: mc
+opciones_explicitas: ["O2", "CO2", "H2", "CH4"]
+
+enunciado: "En la fase luminosa de la fotosíntesis, la fotólisis del agua produce el gas que permitió la vida aeróbica. El balance simplificado es: CO2 + H2O -> ___ + glucosa."
+
+explicacion: |
+  La fotólisis del agua libera O2, el cual es fundamental para la respiración celular aeróbica posterior.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "intermedio"
+  tags: ["respiracion", "oxigeno", "metabolismo"]
+
+respuesta: "fermentacion"
+tipo: completar
+respuestas_validas:
+  - "fermentacion"
+
+enunciado: "La acumulación de oxígeno en la atmósfera permitió que los organismos pasaran de la ___ a la utilización de aceptores de electrones más eficientes."
+
+explicacion: |
+  La disponibilidad de O2 permitió la evolución de la respiración aeróbica, un proceso mucho más eficiente energéticamente que la fermentación.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "intermedio"
+  tags: ["secuencia", "evolucion", "oxigeno"]
+
+respuesta_orden: ["Fotosíntesis oxigénica", "Oxidación de metano", "Acumulación de O2 atmosférico", "Explosión de la vida aeróbica"]
+tipo: ordenar
+opciones_explicitas: ["Fotosíntesis oxigénica", "Oxidación de metano", "Acumulación de O2 atmosférico", "Explosión de la vida aeróbica"]
+
+enunciado: "Ordena cronológicamente los eventos que permitieron la transición de una atmósfera reductora a una oxidante:"
+
+explicacion: |
+  Primero ocurre la fotosíntesis, luego el oxígeno reacciona con gases reductores (como el metano), luego se acumula en la atmósfera y finalmente permite la vida aeróbica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_cambio_atmosfera_nivel2"
+  nivel: "avanzado"
+  tags: ["causa", "efecto", "oxigeno"]
 
 variables:
-  datos: [["motor de inducción", "fábrica"], ["bombilla incandescente", "hogar"], ["telar eléctrico", "fábrica"]]
+  datos: [["aumento de O2", "vida aerobia"], ["disminución de O2", "extinciones masivas"], ["aumento de CO2", "calentamiento global"]]
   idx: uno_de([0,1,2])
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["fábrica", "hogar"]
+opciones_explicitas: ["vida aerobia", "extinciones masivas", "calentamiento global"]
 
-enunciado: "La implementación del {datos[idx][0]} transformó radicalmente el ámbito de la: ___"
+enunciado: "Considerando el impacto biológico: Un {datos[idx][0]} en la atmósfera fue la causa directa de la aparición de la ___."
 
 explicacion: |
-  El {datos[idx][0]} fue un pilar fundamental para la automatización en la {datos[idx][1]}.
+  El {datos[idx][0]} permitió la evolución de procesos metabólicos que utilizan oxígeno como aceptor final de electrones.
 ```
+
+## Sección: multicelularidad (25 preguntas)
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
+  materia: "biologia"
+  tema: "multicelularidad"
   nivel: "basico"
-  tags: ["hogar", "iluminacion"]
+  tags: ["celulas", "organismos"]
 
-respuesta: "hogar"
+respuesta: "cooperan y se especializan en funciones distintas"
 tipo: completar
 respuestas_validas:
-  - "hogar"
+  - "cooperan y se especializan en funciones distintas"
 
-enunciado: "La llegada de la luz eléctrica permitió extender las actividades nocturnas en el ___."
+enunciado: "La multicelularidad se define como la organización de organismos formados por múltiples células que ___ en vez de vivir cada una de forma independiente."
 
 explicacion: |
-  La luz eléctrica permitió que el hogar cambiara sus hábitos de descanso y ocio.
+  En los organismos multicelulares, las células no solo coexisten, sino que trabajan juntas y desarrollan funciones específicas para asegurar la supervivencia del individuo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad"
+  nivel: "basico"
+  tags: ["comparacion", "unicelulares"]
+
+opciones_explicitas: ["Las células funcionan de forma totalmente independiente", "Las células cooperan y se especializan", "Las células son siempre idénticas", "Las células no tienen ADN"]
+
+respuesta: "Las células cooperan y se especializan"
+tipo: mc
+
+enunciado: "¿Cuál es la característica principal que distingue a un organismo multicelular de uno unicelular?"
+
+explicacion: |
+  A diferencia de los unicelulares, donde una sola célula realiza todas las funciones vitales, los multicelulares dividen el trabajo mediante la especialización celular.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad"
+  nivel: "intermedio"
+  tags: ["jerarquia", "organos"]
+
+opciones_explicitas: ["Célula -> Tejido -> Órgano -> Sistema"]
+
+respuesta_orden: ["Célula -> Tejido -> Órgano -> Sistema"]
+tipo: ordenar
+
+enunciado: "Ordena correctamente los niveles de organización biológica que surgen gracias a la especialización en organismos multicelulares complejos:"
+
+explicacion: |
+  La especialización permite que las células se agrupen en tejidos, los tejidos en órganos, y los órganos en sistemas de órganos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad"
+  nivel: "intermedio"
+  tags: ["especializacion", "funciones"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [["un grupo de 100 células que solo se dividen", "reproducción"], ["un grupo de 100 células con formas distintas", "especialización"]]
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["reproducción", "especialización"]
+
+enunciado: "Si en un organismo multicelular las células han adquirido formas y funciones diferentes para optimizar el trabajo del individuo, estamos ante un proceso de {escenario[idx][0]}."
+
+explicacion: |
+  La especialización es el pilar de la multicelularidad, permitiendo que el organismo sea más eficiente que una colonia de células independientes.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que en un organismo multicelular cada célula puede realizar todas las funciones vitales de manera totalmente independiente de las demás?"
+
+explicacion: |
+  Falso. Aunque algunas células pueden ser versátiles, la esencia de la multicelularidad es la interdependencia y la división de funciones.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad_evolutiva"
+  nivel: "intermedio"
+  tags: ["evolucion", "linajes"]
+
+respuesta: "independiente"
+tipo: completar
+respuestas_validas:
+  - "independiente"
+
+enunciado: "La evidencia filogenética sugiere que la multicelularidad evolucionó de forma ___ en distintos linajes de la vida."
+
+explicacion: |
+  La multicelularidad no es un rasgo que surgió una sola vez en un ancestro común de todos los eucariotas; en su lugar, ocurrió múltiples veces de forma convergente en animales, plantas, hongos y algas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad_evolutiva"
+  nivel: "basico"
+  tags: ["linajes", "taxonomia"]
+
+variables:
+  escenario: uno_de([["Animales", "Metazoa", "con células especializadas"], ["Plantas", "Viridiplantae", "con paredes de celulosa"], ["Hongos", "Fungi", "con paredes de quitina"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["Metazoa", "Viridiplantae", "Fungi", "Protista"]
+
+enunciado: "Si observamos el linaje de las {escenario[0]}, este se caracteriza por la presencia de {escenario[2]}."
+
+explicacion: |
+  Cada uno de estos grupos representa un evento de transición hacia la multicelularidad en un momento distinto de la historia evolutiva.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad_evolutiva"
+  nivel: "basico"
+  tags: ["convergencia", "evolucion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La multicelularidad es un carácter derivado único que define a todos los organismos complejos en un solo evento evolutivo."
+
+explicacion: |
+  Esto es falso. La evolución de la multicelularidad es un ejemplo clásico de evolución convergente, donde diferentes grupos resolvieron el mismo problema biológico por separado.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad_evolutiva"
+  nivel: "intermedio"
+  tags: ["algas", "organismos"]
+
+respuesta_orden: ["Animales", "Plantas", "Hongos", "Algas"]
+tipo: ordenar
+
+opciones_explicitas: ["Animales", "Plantas", "Hongos", "Algas"]
+
+enunciado: "Ordena los siguientes grupos según su capacidad de haber desarrollado multicelularidad de forma independiente (de mayor a menor complejidad estructural común en la historia evolutiva):"
+
+pasos:
+  - "Identificar los linajes clave"
+  - "Reconocer la independencia de sus orígenes"
+
+explicacion: |
+  Aunque todos son multicelulares, cada uno pertenece a un supergrupo eucariota distinto, lo que confirma que la transición ocurrió de forma independiente.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad_evolutiva"
+  nivel: "avanzado"
+  tags: ["algas", "evolucion"]
+
+variables:
+  caso: uno_de([["rojas", "Rhodophyta"], ["verdes", "Chlorophyta"]])
+
+respuesta: caso[1]
+tipo: mc
+opciones_explicitas: ["Rhodophyta", "Chlorophyta", "Oomycota"]
+
+enunciado: "El nombre científico (taxón) del linaje de las algas {caso[0]} es:"
+
+explicacion: |
+  Incluso dentro de los grupos que parecen similares, como las algas, la multicelularidad ha surgido en múltiples linajes distintos (algas rojas, verdes, pardas, etc.).
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "intermedio"
-  tags: ["produccion", "transicion"]
+  tema: "multicelularidad"
+  nivel: "basico"
+  tags: ["biologia", "evolucion"]
 
-respuesta: "fábrica"
 tipo: mc
-opciones_explicitas: ["fábrica", "hogar"]
+opciones_explicitas: ["Mayor tamaño corporal", "Menor consumo de energía", "Aumento de la superficie de contacto con el medio", "Simplificación de procesos metabólicos"]
+respuesta: "Mayor tamaño corporal"
 
-enunciado: "La electrificación de la línea de montaje fue clave para la producción en serie en la: ___"
+enunciado: "Una de las principales ventajas evolutivas de la multicelularidad es que permite a los organismos alcanzar un ___."
 
 explicacion: |
-  La línea de montaje es un ejemplo clásico de la mecanización en la fábrica.
+  El aumento de tamaño corporal permite una mejor interacción con el entorno y una mayor capacidad de almacenamiento de recursos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "multicelularidad"
+  nivel: "intermedio"
+  tags: ["biologia", "evolucion"]
+
+variables:
+  escenario: uno_de([["digestión", "digestiva"], ["movimiento", "motora"], ["sensorial", "sensorial"]])
+
+tipo: completar
+respuestas_validas:
+  - "digestiva"
+  - "motora"
+  - "sensorial"
+respuesta: escenario[1]
+
+enunciado: "La división del trabajo permite que existan células con funciones específicas. Si un grupo de células se especializa en el movimiento, se dice que tiene una función ___."
+
+explicacion: |
+  La especialización celular permite que diferentes tejidos realicen tareas distintas de manera eficiente, permitiendo la complejidad biológica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "multicelularidad"
+  nivel: "basico"
+  tags: ["biologia", "evolucion"]
+
+tipo: mc
+opciones_explicitas: ["Ser más visibles para los depredadores", "Ser más difíciles de ingerir para los depredadores", "Reducir la necesidad de alimento", "Aumentar la tasa de evaporación"]
+respuesta: "Ser más difíciles de ingerir para los depredadores"
+
+enunciado: "El incremento en el tamaño corporal derivado de la multicelularidad ofrece una ventaja de supervivencia relacionada con:"
+
+explicacion: |
+  Los organismos más grandes suelen ser más difíciles de consumir para depredadores de pequeño tamaño, lo que aumenta sus posibilidades de supervivencia.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "multicelularidad"
+  nivel: "avanzado"
+  tags: ["biologia", "evolucion"]
+
+tipo: ordenar
+opciones_explicitas: ["Célula unicelular", "Agregación de células", "Colonia de células", "Organismo multicelular especializado"]
+
+respuesta_orden: ["Célula unicelular", "Agregación de células", "Colonia de células", "Organismo multicelular especializado"]
+
+enunciado: "Ordena los niveles de organización biológica desde la forma más simple hasta la más compleja en el proceso evolutivo de la multicelularidad:"
+
+explicacion: |
+  La evolución hacia la multicelularidad implica pasar de células aisladas a agrupaciones que luego desarrollan una división de funciones coordinada.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "multicelularidad"
+  nivel: "intermedio"
+  tags: ["biologia", "evolucion"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "En un organismo multicelular, la división del trabajo implica que las células ya no pueden realizar todas las funciones por sí mismas. Este proceso de especialización se conoce como ___."
+
+respuesta: "diferenciación"
+
+explicacion: |
+  La diferenciación celular es el proceso mediante el cual las células adquieren formas y funciones específicas dentro de un organismo complejo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad"
+  nivel: "basico"
+  tags: ["adhesion", "evolucion"]
+
+tipo: mc
+opciones_explicitas: ["proteínas de adhesión", "paredes celulares rígidas", "flagelos de locomoción", "vacuolas contráctiles"]
+respuesta: "proteínas de adhesión"
+
+enunciado: "Para que un grupo de células pase de ser una colonia a un organismo multicelular, es indispensable el desarrollo de mecanismos de ___ que permitan mantener la cohesión entre ellas."
+
+explicacion: |
+  La multicelularidad requiere que las células se mantengan unidas físicamente mediante proteínas de adhesión (como cadherinas o integrinas), algo que no es necesario en organismos unicelulares independientes.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad"
+  nivel: "intermedio"
+  tags: ["comunicacion", "señalización"]
+
+tipo: mc
+opciones_explicitas: ["comunicación química", "reproducción asexual", "fotosíntesis", "quimiotaxis"]
+respuesta: "comunicación química"
+
+enunciado: "En un organismo multicelular, para que exista una división del trabajo, las células deben coordinar sus procesos. Esto se logra mediante la ___."
+
+explicacion: |
+  A diferencia de los unicelulares que responden a estímulos externos, los multicelulares necesitan comunicarse entre sí (comunicación química/señalización) para actuar como una unidad funcional.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad"
+  nivel: "basico"
+  tags: ["unicelulares", "multicelulares"]
+
+tipo: completar
+opciones_explicitas: ["adhesión", "comunicación", "metabolismo", "respiración"]
+respuestas_validas:
+  - "adhesión"
+  - "comunicación"
+
+enunciado: "Mientras que un organismo unicelular es una unidad autónoma, la multicelularidad requiere mecanismos de ___ y de ___ para funcionar como un todo integrado."
+
+explicacion: |
+  La transición a la multicelularidad implica dos pilares: la capacidad de pegarse (adhesión) y la capacidad de hablarse (comunicación).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad"
+  nivel: "avanzado"
+  tags: ["evolucion", "procesos"]
+
+tipo: ordenar
+opciones_explicitas: ["Agrupamiento de células", "Especialización celular", "Diferenciación de tejidos", "Organización de órganos"]
+
+enunciado: "Ordena los procesos evolutivos que permiten pasar de una colonia de células idénticas a un organismo complejo:"
+
+explicacion: |
+  Primero las células deben estar juntas (agrupamiento), luego adquieren funciones distintas (especialización/diferenciación) y finalmente se organizan en estructuras mayores (tejidos/órganos).
+respuesta_orden: ["Agrupamiento de células", "Especialización celular", "Diferenciación de tejidos", "Organización de órganos"]
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "multicelularidad"
+  nivel: "intermedio"
+  tags: ["proteinas", "adhesion"]
+
+variables:
+  datos: [["cadherina", "unión célula-célula"], ["integrina", "unión célula-matriz"]]
+  idx: uno_de([0, 1])
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si una célula utiliza una {datos[idx][0]} para adherirse a su entorno, está ejerciendo una función de ___."
+
+explicacion: |
+  Las cadherinas median la unión célula-célula, mientras que las integrinas median la unión célula-matriz extracelular; ambas son clave para la cohesión de los tejidos en organismos multicelulares.
+
+respuesta: datos[idx][1]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "multicelularidad"
+  nivel: "basico"
+  tags: ["biologia", "clasificacion"]
+
+variables:
+  datos: [["Amoeba proteus", "unicelular"], ["Homo sapiens", "multicelular"]]
+  idx: uno_de([0, 1])
+
+enunciado: "El organismo {datos[idx][0]} se caracteriza por ser un organismo ___________."
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["unicelular", "multicelular"]
+
+explicacion: |
+  Los organismos unicelulares están formados por una sola célula que realiza todas las funciones vitales, mientras que los multicelulares están formados por múltiples células especializadas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "multicelularidad"
+  nivel: "intermedio"
+  tags: ["evolucion", "celulas"]
+
+variables:
+  datos: [["un grupo de algas verdes", "multicelulares"], ["una bacteria extremófila", "unicelulares"]]
+  idx: uno_de([0, 1])
+
+enunciado: "Considerando el ejemplo de {datos[idx][0]}, podemos clasificar a este grupo como ___________."
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "unicelulares"
+  - "multicelulares"
+
+explicacion: |
+  La multicelularidad implica la especialización celular y la división de funciones, algo que no ocurre en los organismos unicelulares.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "multicelularidad"
+  nivel: "basico"
+  tags: ["biologia", "taxonomia"]
+
+variables:
+  datos: [["Paramecium", "unicelular"], ["Fungi (hongo)", "multicelular"]]
+  idx: uno_de([0, 1])
+
+enunciado: "Si observamos un {datos[idx][0]}, su estructura es ___________."
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["unicelular", "multicelular"]
+
+explicacion: |
+  La distinción fundamental radica en el número de células que componen el individuo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "multicelularidad"
+  nivel: "avanzado"
+  tags: ["evolucion", "orden"]
+
+enunciado: "Ordena los niveles de organización biológica desde el más simple al más complejo:"
+
+pasos:
+  - "Organismo unicelular"
+  - "Colonia de células"
+  - "Organismo multicelular con tejidos"
+
+respuesta_orden: ["Organismo unicelular", "Colonia de células", "Organismo multicelular con tejidos"]
+tipo: ordenar
+opciones_explicitas: ["Organismo unicelular", "Colonia de células", "Organismo multicelular con tejidos"]
+
+explicacion: |
+  La evolución hacia la multicelularidad implica pasar de células aisladas a agrupaciones con comunicación y especialización.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "multicelularidad"
+  nivel: "intermedio"
+  tags: ["laboratorio", "observacion"]
+
+variables:
+  datos: [["una muestra de levadura", "unicelular"], ["una muestra de musgo", "multicelular"]]
+  idx: uno_de([0, 1])
+
+enunciado: "Al analizar {datos[idx][0]} bajo el microscopio, determinamos que es ___________."
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "unicelular"
+  - "multicelular"
+
+explicacion: |
+  La observación microscópica permite identificar si la unidad funcional es una célula individual o un conjunto de ellas organizadas.
+```
+
+## Sección: tectonica-placas-deriva-continental (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "basico"
+  tags: ["wegener", "geologia", "historia"]
+
+respuesta: "Alfred Wegener"
+tipo: completar
+respuestas_validas:
+  - "Alfred Wegener"
+
+enunciado: "El científico que propuso la teoría de la deriva continental en 1912 fue ___."
+
+explicacion: |
+  Alfred Wegener fue un meteorólogo y geofísico alemán que postuló que los continentes se desplazan sobre la superficie terrestre.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "basico"
+  tags: ["evidencia", "geografia"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["África", "Sudamérica"], ["India", "Antártida"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["Sudamérica", "Antártida", "Australia", "Europa"]
+
+enunciado: "Wegener observó que las costas de {datos[escenario_idx][0]} y {datos[escenario_idx][1]} encajaban casi perfectamente como piezas de un rompecabezas."
+
+explicacion: |
+  El encaje de los contornos continentales fue una de las observaciones iniciales más impactantes de la teoría de Wegener.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "intermedio"
+  tags: ["evidencia", "fosiles"]
+
+respuesta: "fósiles"
+tipo: mc
+opciones_explicitas: ["fósiles", "astros", "mareas", "viento"]
+
+enunciado: "Además del encaje de las costas, la coincidencia de ___ de especies idénticas en continentes separados apoyó la teoría de la deriva continental."
+
+explicacion: |
+  El hallazgo de fósiles de animales y plantas que no podrían haber cruzado océanos actuales fue una prueba fundamental.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "basico"
+  tags: ["cronologia", "historia"]
+
+respuesta: 1912
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Wegener presentó su hipótesis de la deriva continental en el año ___."
+
+explicacion: |
+  En 1912, Wegener presentó su hipótesis que cambiaría la geología para siempre.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "intermedio"
+  tags: ["pangea", "geologia"]
+
+variables:
+  nombre_supercontinente: "Pangea"
+
+respuesta: "Pangea"
+tipo: completar
+respuestas_validas:
+  - "Pangea"
+
+enunciado: "Wegener denominó al supercontinente que agrupaba a todas las masas de tierra actuales como ___."
+
+explicacion: |
+  El término Pangea (que significa "toda la Tierra") fue acuñado para describir la masa continental única de hace millones de años.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "basico"
+  tags: ["pangea", "geologia"]
+
+respuesta: "Pangea"
+tipo: completar
+respuestas_validas:
+  - "Pangea"
+
+enunciado: "El supercontinente que agrupaba a todas las masas terrestres hace aproximadamente 335 millones de años se denominaba ___."
+
+explicacion: |
+  Pangea fue un supercontinente que existió durante el período Pérmico y el Triásico, antes de su fragmentación.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "intermedio"
+  tags: ["fragmentacion", "oceanos"]
+
+respuesta: "Panthalassa"
+tipo: mc
+opciones_explicitas: ["Panthalassa", "Tetis", "Atlántico", "Índico"]
+
+enunciado: "Cuando Pangea comenzó a fragmentarse, el vasto océano que rodeaba a la masa continental se llamaba ___."
+
+explicacion: |
+  El océano global que rodeaba a Pangea era el Panthalassa. El Tetis era un océano más pequeño situado entre Laurasia y Gondwana.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "basico"
+  tags: ["movimiento", "tectonica"]
+
+respuesta: "convergente"
+tipo: mc
+opciones_explicitas: ["convergente", "divergente", "transformante", "estacionaria"]
+
+enunciado: "El movimiento de las placas tectónicas que provoca que los continentes se separen es un movimiento de tipo ___."
+
+explicacion: |
+  Los límites divergentes ocurren cuando las placas se separan, permitiendo que el magma ascienda y cree nueva corteza oceánica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "avanzado"
+  tags: ["secuencia", "geologia"]
+
+respuesta_orden: ["Pangea", "Laurasia", "Gondwana", "Continentes actuales"]
+tipo: ordenar
+opciones_explicitas: ["Pangea", "Laurasia", "Gondwana", "Continentes actuales"]
+
+enunciado: "Ordena cronológicamente los estados de la masa terrestre desde la unidad única hasta la configuración actual:"
+
+explicacion: |
+  Primero existió el supercontinente único (Pangea), luego se dividió en dos grandes masas (Laurasia al norte y Gondwana al sur) hasta llegar a la distribución actual.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "intermedio"
+  tags: ["evidencias", "fósiles"]
+
+respuesta: "Fósiles de Mesosaurus"
+tipo: mc
+opciones_explicitas: ["Fósiles de Mesosaurus", "Restos de dinosaurios", "Estructuras volcánicas", "Depósitos de carbón"]
+
+enunciado: "La presencia de ___ en continentes separados como África y Sudamérica es una prueba clave de la deriva continental."
+
+explicacion: |
+  El Mesosaurus era un reptil de agua dulce cuyas huellas fósiles se encuentran tanto en África como en Sudamérica, lo que indica que ambos continentes estuvieron unidos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "basico"
+  tags: ["geologia", "placas_tectonicas"]
+
+tipo: mc
+opciones_explicitas: ["Divergente", "Convergente", "Transformante"]
+
+enunciado: "Cuando dos placas tectónicas se mueven en direcciones opuestas alejándose una de la otra, el tipo de borde formado es un borde ________."
+
+respuesta: "Divergente"
+
+explicacion: |
+  Los bordes divergentes ocurren cuando las placas se separan, permitiendo que el magma ascienda y cree nueva corteza oceánica (como en la dorsal mesoatlántica).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "intermedio"
+  tags: ["subduccion", "convergencia"]
+
+tipo: mc
+opciones_explicitas: ["Subducción", "Rifting", "Deslizamiento lateral"]
+
+enunciado: "En un borde tipo convergente, si una placa oceánica colisiona con una placa continental, el proceso por el cual la placa más densa se hunde hacia el manto se denomina ________."
+
+respuesta: "Subducción"
+
+explicacion: |
+  En los bordes convergentes, la placa oceánica (más densa) se subduce bajo la continental, generando fosas marinas y actividad volcánica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "basico"
+  tags: ["sismos", "transformante"]
+
+tipo: mc
+opciones_explicitas: ["Falla de San Andrés", "Dorsal Mesoatlántica", "Cordillera de los Andes"]
+
+enunciado: "Los bordes transformantes se caracterizan por el deslizamiento lateral de las placas. Un ejemplo clásico de este tipo de movimiento es la ________."
+
+respuesta: "Falla de San Andrés"
+
+explicacion: |
+  En los bordes transformantes las placas se deslizan lateralmente sin crear ni destruir corteza, acumulando tensión que se libera en forma de sismos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "intermedio"
+  tags: ["montañas", "convergencia"]
+
+tipo: completar
+respuestas_validas:
+  - "montañas"
+  - "valles"
+
+enunciado: "La colisión entre dos masas continentales en un borde convergente da lugar principalmente a la formación de ________."
+
+respuesta: "montañas"
+
+explicacion: |
+  Cuando dos placas continentales chocan, la corteza se pliega y se eleva, formando grandes cordilleras como el Himalaya.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "avanzado"
+  tags: ["ciclo_tectonico", "procesos"]
+
+tipo: ordenar
+opciones_explicitas: ["Separación de placas", "Ascenso de magma", "Creación de nueva corteza", "Expansión del fondo oceánico"]
+
+enunciado: "Ordene correctamente la secuencia de eventos que ocurre en un borde divergente oceánico:"
+
+respuesta_orden: ["Separación de placas", "Ascenso de magma", "Creación de nueva corteza", "Expansión del fondo oceánico"]
+
+explicacion: |
+  En los bordes divergentes, la separación de placas permite el ascenso de magma, el cual se solidifica creando nueva corteza y expandiendo el lecho marino.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "basico"
+  tags: ["tectonica", "manto", "conveccion"]
+
+respuesta: "corrientes de convección"
+tipo: completar
+respuestas_validas:
+  - "corrientes de convección"
+  - "convección"
+
+enunciado: "El movimiento de las placas tectónicas es impulsado principalmente por las ___ en el manto terrestre."
+
+explicacion: |
+  El calor interno de la Tierra genera corrientes de convección en el manto, donde el material caliente asciende y el frío desciende, moviendo las placas superficiales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "basico"
+  tags: ["calor", "manto", "energia"]
+
+respuesta: "El calor interno de la Tierra"
+tipo: mc
+opciones_explicitas: ["El calor interno de la Tierra", "La rotación del planeta", "La atracción lunar"]
+
+enunciado: "¿Cuál es la causa fundamental que desencadena las corrientes de convección en el manto terrestre?"
+
+explicacion: |
+  El gradiente térmico (diferencia de temperatura) entre el núcleo y la corteza es la fuente de energía que mueve el manto.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "intermedio"
+  tags: ["manto", "conveccion", "densidad"]
+
+respuesta: "ascendente"
+tipo: completar
+respuestas_validas:
+  - "ascendente"
+  - "hacia arriba"
+
+enunciado: "En una celda de convección, el material del manto que es menos denso debido al calor se desplaza de forma ___."
+
+explicacion: |
+  El material caliente es menos denso y asciende hacia la litosfera, mientras que el material frío y denso desciende.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "intermedio"
+  tags: ["densidad", "termodinamica"]
+
+respuesta: "verdadero"
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "¿El aumento de la temperatura en el material del manto provoca una disminución de su densidad, facilitando el ascenso del material?"
+
+explicacion: |
+  Efectivamente, la expansión térmica reduce la densidad, lo que genera el movimiento ascendente característico de la convección.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "avanzado"
+  tags: ["proceso", "secuencia", "conveccion"]
+
+respuesta_orden: ["Calentamiento del manto", "Reducción de densidad", "Ascenso de material", "Desplazamiento de la placa"]
+tipo: ordenar
+opciones_explicitas: ["Calentamiento del manto", "Reducción de densidad", "Ascenso de material", "Desplazamiento de la placa"]
+
+enunciado: "Ordena la secuencia lógica de un ciclo de convección que resulta en el movimiento de una placa tectónica:"
+
+pasos:
+  - "El núcleo transfiere calor al manto."
+  - "El material se expande y se vuelve menos denso."
+  - "El material caliente sube hacia la litosfera."
+  - "La fricción y el arrastre mueven la placa superficial."
+
+explicacion: |
+  La secuencia comienza con la transferencia de calor, sigue con el cambio físico de las propiedades del material (densidad), el movimiento fluido (ascenso) y finalmente el efecto mecánico sobre la litosfera.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "basico"
+  tags: ["tectonica", "bordes_divergentes"]
+
+enunciado: "Se observa la formación de nueva corteza oceánica en un límite de tipo ___."
+
+opciones_explicitas: ["divergente", "convergente", "transformante"]
+respuesta: "divergente"
+tipo: mc
+
+explicacion: |
+  La formación de nueva corteza en las dorsales oceánicas ocurre en los bordes divergentes, donde las placas se separan.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "basico"
+  tags: ["tectonica", "bordes_convergentes"]
+
+variables:
+  datos: [["cordillera de los Andes", "convergente"], ["dorsal mesoatlantica", "divergente"], ["falla de San Andrés", "transformante"]]
+  idx: uno_de([0,1,2])
+
+enunciado: "La presencia de la {datos[idx][0]} es característica de un límite de tipo ___."
+
+opciones_explicitas: ["divergente", "convergente", "transformante"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  Las cordilleras resultantes de la colisión o subducción son típicas de los bordes convergentes.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "basico"
+  tags: ["tectonica", "bordes_transformantes"]
+
+enunciado: "Un movimiento de deslizamiento lateral, como el de la falla de San Andrés, indica un borde de tipo ___."
+
+opciones_explicitas: ["divergente", "convergente", "transformante"]
+respuesta: "transformante"
+tipo: mc
+
+explicacion: |
+  Las fallas transformantes ocurren cuando las placas se deslizan horizontalmente una respecto a la otra.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "intermedio"
+  tags: ["tectonica", "subduccion"]
+
+enunciado: "La existencia de una fosa oceánica profunda es evidencia de un límite de placas tipo ___."
+
+opciones_explicitas: ["divergente", "convergente", "transformante"]
+respuesta: "convergente"
+tipo: mc
+
+explicacion: |
+  Las fosas oceánicas se forman en los límites convergentes por la subducción de una placa bajo otra.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "tectonica_placas_deriva_continental"
+  nivel: "avanzado"
+  tags: ["tectonica", "procesos"]
+
+variables:
+  datos: [["creación de corteza", "divergente"], ["destrucción de corteza", "convergente"], ["desplazamiento lateral", "transformante"]]
+  idx: uno_de([0,1,2])
+
+enunciado: "El proceso de {datos[idx][0]} es el resultado principal de un borde ___."
+
+opciones_explicitas: ["divergente", "convergente", "transformante"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  Cada tipo de borde se define por el proceso geológico predominante: creación (divergente), destrucción (convergente) o deslizamiento (transformante).
+```
+
+## Sección: explosion-cambrica (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
+  nivel: "basico"
+  tags: ["paleontologia", "evolucion"]
+
+respuesta: "541"
+tipo: completar
+tolerancia_abs: 1
+
+enunciado: "La Explosión Cámbrica ocurrió hace aproximadamente ___ millones de años."
+
+explicacion: |
+  La Explosión Cámbrica comenzó hace unos 541 millones de años, marcando el inicio del periodo Cámbrico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
+  nivel: "intermedio"
+  tags: ["taxonomia", "evolucion"]
+
+variables:
+  escenario: uno_de([["la mayoría de los grupos corporales", "phyla"], ["la mayor parte de los animales", "phyla"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["phyla", "clases", "especies", "órdenes"]
+
+enunciado: "Durante la Explosión Cámbrica, se produjo la aparición de la mayoría de los grandes grupos animales actuales, conocidos como ___."
+
+explicacion: |
+  Se refiere a los phyla (filos), que son las categorías taxonómicas más altas de los animales.
 ```
 
 ```
 metadata:
   materia: "historia_profucha"
-  tema: "electrificacion_fabrica_hogar"
-  nivel: "avanzado"
-  tags: ["orden", "progreso"]
+  tema: "explosion_cambrica"
+  nivel: "basico"
+  tags: ["tiempo_geologico"]
 
-respuesta_orden: ["generación central", "distribución en la red", "consumo final"]
-tipo: ordenar
-opciones_explicitas: ["generación central", "distribución en la red", "consumo final"]
+respuesta: 25
+tipo: completar
+tolerancia_abs: 5
 
-enunciado: "Ordena el proceso técnico necesario para que la electricidad llegue desde la central hasta un electrodoméstico:"
+enunciado: "Aunque fue un evento masivo, la Explosión Cámbrica fue un periodo relativamente breve en términos geológicos, durando aproximadamente ___ millones de años."
+
+pasos:
+  - "Identificar el rango de tiempo estimado para la diversificación de los filos."
 
 explicacion: |
-  El flujo eléctrico sigue la secuencia: generación central -> distribución en la red -> consumo final.
+  Se estima que este evento de diversificación duró entre 20 y 25 millones de años.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "electrificacion_fabrica_hogar"
+  tema: "explosion_cambrica"
+  nivel: "avanzado"
+  tags: ["paleontologia", "fósiles"]
+
+respuesta: "más complejos"
+tipo: mc
+opciones_explicitas: ["más complejos", "más simples", "idénticos", "menos diversos"]
+
+enunciado: "En comparación con la biota de Ediacara que precedió al Cámbrico, los organismos de la Explosión Cámbrica eran ___."
+
+explicacion: |
+  La biota de Ediacara consistía en organismos de cuerpo blando y morfología menos especializada, mientras que el Cámbrico introdujo estructuras más complejas y con partes duras.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
   nivel: "intermedio"
-  tags: ["tecnologia", "clasificacion"]
+  tags: ["cronologia"]
+
+opciones_explicitas: ["Precámbrico", "Cámbrico", "Ordovícico"]
+respuesta_orden: ["Precámbrico", "Cámbrico", "Ordovícico"]
+tipo: ordenar
+
+enunciado: "Ordena cronológicamente los siguientes periodos/eones, empezando por el más antiguo:"
+
+pasos:
+  - "Ubicar el Precámbrico como la era anterior."
+  - "Colocar el Cámbrico como el periodo de la explosión."
+  - "Ubicar el Ordovícico como el periodo posterior."
+
+explicacion: |
+  La cronología correcta es Precámbrico (que incluye el Ediacárico), seguido del Cámbrico y luego el Ordovícico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
+  nivel: "intermedio"
+  tags: ["oxigeno", "geologia", "evolucion"]
+
+enunciado: "¿Cuál de las siguientes teorías explica el desarrollo de organismos con metabolismos más complejos durante la explosión cámbrica?"
+
+respuesta: "aumento de oxígeno"
+tipo: mc
+opciones_explicitas: ["aumento de oxígeno", "cambio en la salinidad", "descarga de metano"]
+
+explicacion: |
+  El aumento de la disponibilidad de oxígeno (oxigenación) fue crucial para sostener la alta demanda energética de los nuevos cuerpos complejos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
+  nivel: "avanzado"
+  tags: ["genetica", "hox", "desarrollo"]
+
+enunciado: "La aparición de una familia de genes reguladores fundamentales para el plan corporal de los animales se denomina genes ___."
+
+respuesta: "Hox"
+respuestas_validas:
+  - "Hox"
+tipo: completar
+
+explicacion: |
+  Los genes Hox controlan el eje anteroposterior del embrión, permitiendo la segmentación y especialización de los cuerpos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
+  nivel: "intermedio"
+  tags: ["depredacion", "seleccion_natural"]
+
+enunciado: "La aparición de la depredación actuó como una presión evolutiva masiva, obligando a los organismos a desarrollar conchas, esqueletos y sistemas sensoriales."
+
+respuesta: "depredación"
+tipo: mc
+opciones_explicitas: ["depredación", "simbiósis", "filtración"]
+
+explicacion: |
+  La depredación creó un ciclo de retroalimentación: los depredadores necesitaban mejores sentidos y armas, y las presas, mejores defensas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
+  nivel: "avanzado"
+  tags: ["causas", "causalidad"]
+
+opciones_explicitas: ["Aumento de O2", "Evolución de genes Hox", "Aparición de depredación"]
+
+enunciado: "Ordena los factores que se consideran un modelo de causalidad en cascada para la explosión cámbrica (de la causa ambiental a la consecuencia biológica):"
+
+respuesta_orden: ["Aumento de O2", "Evolución de genes Hox", "Aparición de depredación"]
+tipo: ordenar
+
+explicacion: |
+  El modelo sugiere que el oxígeno permitió la vida compleja, los genes Hox permitieron la arquitectura corporal, y la depredación impulsó la diversificación rápida.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
+  nivel: "basico"
+  tags: ["oxigeno", "quimica"]
+
+enunciado: "Si el nivel de oxígeno en el océano aumenta, la probabilidad de que surjan organismos de gran tamaño es: ___"
+
+respuesta: "mayor"
+respuestas_validas:
+  - "mayor"
+tipo: completar
+
+explicacion: |
+  Los organismos grandes requieren más energía para mantener sus tejidos, la cual se obtiene mediante la respiración aeróbica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
+  nivel: "basico"
+  tags: ["ediacara", "precambrico"]
+
+respuesta: "blandos"
+tipo: completar
+respuestas_validas:
+  - "blandos"
+  - "blandos"
+
+enunciado: "Antes de la explosión cámbrica, los organismos que componían la fauna de Ediacara eran mayormente de cuerpo ___."
+
+explicacion: |
+  La fauna de Ediacara se caracteriza por organismos con estructuras corporales simples y, en su gran mayoría, sin partes endurecidas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
+  nivel: "intermedio"
+  tags: ["evolucion", "esqueletos"]
 
 variables:
-  datos: [["electrodoméstico", "hogar"], ["transformador industrial", "fábrica"], ["enchufe doméstico", "hogar"]]
-  idx: uno_de([0,1,2])
+  escenario: uno_de([["aparición de esqueletos", "estructuras duras"], ["aparición de ojos", "órganos sensoriales"], ["aparición de depredadores", "planes complejos"]])
 
-respuestas_validas:
-  - datos[idx][1]
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["estructuras duras", "órganos sensoriales", "planes complejos"]
+
+enunciado: "Uno de los cambios biológicos más significativos durante la explosión cámbrica fue la aparición de {escenario[0]}."
+
+explicacion: |
+  La evolución de partes duras (conchas, esqueletos) y órganos sensoriales complejos como los ojos permitió una nueva dinámica de supervivencia y depredación.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
+  nivel: "avanzado"
+  tags: ["secuencia", "evolucion"]
+
+opciones_explicitas: ["Organismos de Ediacara", "Aparición de esqueletos", "Diversificación de planos corporales"]
+respuesta_orden: ["Organismos de Ediacara", "Aparición de esqueletos", "Diversificación de planos corporales"]
+tipo: ordenar
+
+enunciado: "Ordena cronológicamente los eventos biológicos desde el Precámbrico hasta el Cámbrico:"
+
+explicacion: |
+  Primero dominaban los organismos de Ediacara; luego, la biomineralización permitió la aparición de esqueletos, lo que finalmente impulsó la diversificación de planos corporales complejos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
+  nivel: "intermedio"
+  tags: ["sensores", "evolucion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿La aparición de ojos y sistemas sensoriales complejos fue una característica distintiva de la explosión cámbrica?"
+
+explicacion: |
+  Correcto. La capacidad de detectar movimiento y luz permitió el desarrollo de una red trófica mucho más activa y compleja.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
+  nivel: "basico"
+  tags: ["comparacion"]
+
+variables:
+  datos: [["Ediacara", "simples"], ["Cámbrico", "complejos"]]
+  idx: uno_de([0,1])
+
 respuesta: datos[idx][1]
-tipo: completar
-tolerancia_abs: 0
+tipo: mc
+opciones_explicitas: ["simples", "complejos"]
 
-enunciado: "Un {datos[idx][0]} es un invento destinado principalmente al ___."
+enunciado: "Si comparamos la era de Ediacara con la explosión cámbrica, los organismos del Cámbrico eran biológicamente más {datos[idx][0]}."
 
 explicacion: |
-  El uso de un {datos[idx][0]} es típico del ámbito del {datos[idx][1]}.
-```
-
-## Sección: entreguerras-y-crisis-de-1929 (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["crisis-economica", "1929", "causas"]
-tipo: mc
-enunciado: "¿Cuál de las siguientes estructuras económicas fue identificada por muchos historiadores como una causa estructural fundamental que impidió la recuperación del mercado de consumo en Estados Unidos antes de la Gran Depresión?"
-opciones_explicitas:
-  - "La fuerte regulación bancaria de la Reserva Federal."
-  - "La sobreproducción industrial y agrícola combinada con un crédito al consumo desmedido y una distribución desigual de la renta."
-  - "El exceso de exportaciones agrícolas hacia Europa devastada por la guerra."
-  - "La escasez de materias primas debido al bloqueo naval de las potencias aliadas."
-respuesta: "La sobreproducción industrial y agrícola combinada con un crédito al consumo desmedido y una distribución desigual de la renta."
-explicacion: "Durante los años 20, la producción aumentó más rápido que los salarios, creando un desequilibrio. El crédito al consumo permitía comprar bienes que la mayoría no podía pagar con su ingreso actual, generando una burbuja de deuda que estalló cuando el mercado se saturó."
+  La explosión cámbrica marca el paso de formas de vida mayormente simples a formas con planes corporales altamente especializados.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["1929", "bolsa", "cronologia"]
-tipo: vf
-enunciado: "El colapso inicial de la bolsa de Nueva York, conocido como el \"Jueves Negro\", ocurrió el 24 de octubre de 1929, marcando el inicio simbólico de la Gran Depresión."
-respuesta: verdadero
-explicacion: "El jueves 24 de octubre de 1929 fue el primer día de ventas masivas y pánico generalizado. Aunque el \"Martes Negro\" (29 de octubre) fue aún peor en volumen, el Jueves Negro es la fecha tradicionalmente citada como el inicio del colapso financiero."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["herbert-hoover", "politica-economica", "respuesta-gobierno"]
-tipo: completar
-enunciado: "El presidente estadounidense Herbert Hoover, aunque reticente a la intervención federal directa masiva, apoyó la creación de la _______ para intentar estabilizar los bancos y las corporaciones en dificultades."
-respuesta: "Reconstruction Finance Corporation"
-respuestas_validas:
-  - "Reconstruction Finance Corporation"
-  - "reconstruction finance corporation"
-  - "RFC"
-  - "Corporación de Financiamiento de la Reconstrucción"
-explicacion: "La RFC (Reconstruction Finance Corporation) fue establecida en 1932 bajo Hoover para prestar dinero a bancos, ferrocarriles y otras instituciones financieras, marcando un paso temprano hacia la intervención federal, aunque insuficiente para detener la crisis."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["diplomacia", "locarno", "estabilidad-relativa"]
-tipo: mc
-enunciado: "Los Pactos de Locarno (1925) tuvieron un impacto significativo en la diplomacia europea antes de la crisis de 1929. ¿Cuál fue su principal efecto?"
-opciones_explicitas:
-  - "Establecieron las fronteras orientales de Alemania con Polonia y Checoslovaquia de manera irreversible."
-  - "Garantizaron las fronteras occidentales de Alemania y permitieron su entrada en la Sociedad de Naciones, mejorando temporalmente la confianza entre potencias."
-  - "Imponían sanciones económicas automáticas a cualquier nación que rearmara sin autorización."
-  - "Crearon una unión aduanera entre Alemania, Francia e Italia."
-respuesta: "Garantizaron las fronteras occidentales de Alemania y permitieron su entrada en la Sociedad de Naciones, mejorando temporalmente la confianza entre potencias."
-explicacion: "Locarno vio a Alemania, Francia y Bélgica garantizar sus fronteras comunes. Esto llevó a la entrada de Alemania en la Sociedad de Naciones en 1926, creando la llamada \"Espíritu de Locarno\", una breve era de reconciliación que se desvaneció con la crisis."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["comercio", "proteccionismo", "smoot-hawley"]
-tipo: completar
-enunciado: "La _______ de 1930 elevó los aranceles estadounidenses a niveles históricos, provocando represalias comerciales globales y profundizando la Gran Depresión."
-respuesta: "Ley Smoot-Hawley"
-respuestas_validas:
-  - "Ley Smoot-Hawley"
-  - "ley smoot-hawley"
-  - "Smoot-Hawley Tariff Act"
-  - "arancel smoot-hawley"
-explicacion: "La Ley Smoot-Hawley aumentó los aranceles a más de 20.000 productos importados. Esto provocó que otros países elevaran sus propios aranceles, colapsando el comercio internacional y reduciendo drásticamente el volumen de intercambios globales."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["nazismo", "alemania", "crisis-politica"]
-tipo: mc
-enunciado: "¿Cómo contribuyó específicamente la Gran Depresión al ascenso electoral del Partido Nazi (NSDAP) en Alemania entre 1929 y 1933?"
-opciones_explicitas:
-  - "Al garantizar que Hitler fuera nombrado canciller directamente por el presidente Hindenburg en 1930."
-  - "Al provocar una hiperinflación que arruinó a la clase media, haciendo que apoyaran al SPD."
-  - "Al causar un desempleo masivo y desesperación social que erosionó la legitimidad de la República de Weimar y favoreció a los extremos políticos."
-  - "Al permitir que Alemania recibiera más préstamos de EE.UU. que usó para financiar propaganda nazi."
-respuesta: "Al causar un desempleo masivo y desesperación social que erosionó la legitimidad de la República de Weimar y favoreció a los extremos políticos."
-explicacion: "La crisis eliminó los préstamos estadounidenses (efecto de la retirada de capitales), provocando quiebras bancarias y desempleo masivo. Esto debilitó a los partidos moderados y hizo que los votores buscaran soluciones radicales, beneficiando a los nazis y comunistas."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["urss", "stalin", "nep", "industrializacion"]
-tipo: vf
-enunciado: "Durante la Gran Depresión en Occidente, Stalin mantuvo la Nueva Política Económica (NEP) intacta para proteger a la Unión Soviética del impacto del capitalismo global."
-respuesta: falso
-explicacion: "Stalin abandonó la NEP a finales de los años 20 e inició los Planes Quinquenales, centrados en la industrialización forzada y la colectivización agrícola, independientemente de la crisis capitalista, buscando la autosuficiencia y el desarrollo industrial rápido."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["oro", "tipo-cambio", "economia-monetaria"]
-tipo: completar
-enunciado: "La adhesión a la _______ por parte de muchas naciones europeas durante la crisis limitó la capacidad de sus gobiernos para devaluar sus monedas y estimular la economía doméstica."
-respuesta: "Gold Standard"
-respuestas_validas:
-  - "Gold Standard"
-  - "gold standard"
-  - "patrón oro"
-  - "estandar oro"
-  - "patrón de oro"
-explicacion: "Bajo el patrón oro, los países debían mantener reservas de oro. Para defender la convertibilidad, tuvieron que subir tasas de interés y contraer la oferta monetaria, lo que profundizó la deflación y la recesión. Gran Bretaña abandonó el patrón oro en 1931, recuperando flexibilidad monetaria."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["fdr", "new-deal", "elecciones"]
-tipo: mc
-enunciado: "¿Qué factor político clave permitió a Franklin D. Roosevelt ganar las elecciones de 1932 con una mayoría abrumadora?"
-opciones_explicitas:
-  - "La popularidad de la Liga de las Naciones."
-  - "El fracaso percibido de la administración de Herbert Hoover para manejar la crisis económica y social."
-  - "Un pacto secreto con el Partido Comunista de EE.UU."
-  - "La intervención militar directa de EE.UU. en Europa."
-respuesta: "El fracaso percibido de la administración de Herbert Hoover para manejar la crisis económica y social."
-explicacion: "La percepción de que Hoover era indiferente al sufrimiento popular (\"Hoovervilles\", \"Hoover flags\") y que sus políticas eran insuficientes, llevó a un cambio de régimen masivo hacia el New Deal de FDR, prometiendo acción federal activa."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["new-deal", "nira", "constitucionalidad"]
-tipo: vf
-enunciado: "La Ley de Recuperación Industrial Nacional (NIRA) de 1933 fue declarada inconstitucional por la Corte Suprema de EE.UU. en 1935."
-respuesta: verdadero
-explicacion: "En el caso *Schechter Poultry Corp. v. United States*, la Corte Suprema dictaminó que la NIRA delegaba demasiado poder legislativo al ejecutivo y regulaba negocios intrastatales, excediendo la autoridad constitucional de la Unión."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["dust-bowl", "medio-ambiente", "migracion"]
-tipo: completar
-enunciado: "La combinación de sequía severa y prácticas agrícolas inadecuadas en las llanuras centrales de EE.UU. provocó las tormentas de polvo conocidas como _______."
-respuesta: "Dust Bowl"
-respuestas_validas:
-  - "Dust Bowl"
-  - "dust bowl"
-  - "Gran Tormenta de Polvo"
-  - "la gran tormenta de polvo"
-explicacion: "El Dust Bowl (mediados de los años 30) devastó la agricultura, forzando la migración de cientos de miles de personas (los \"Okies\") hacia California, generando una crisis humanitaria y social adicional a la depresión económica."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["alemania", "urss", "diplomacia-secreta"]
-tipo: mc
-enunciado: "El Tratado de Rappallo (1922) fue significativo para la Alemania de Weimar porque:"
-opciones_explicitas:
-  - "Le permitió rearmarse secretamente en territorio soviético, eludiendo las cláusulas militares del Tratado de Versalles."
-  - "Estableció la zona desmilitarizada del Rin."
-  - "Otorgó a Alemania el control de las minas de carbón del Sarre."
-  - "Fue el primer acuerdo de reparación de guerra pagado a Rusia."
-respuesta: "Le permitió rearmarse secretamente en territorio soviético, eludiendo las cláusulas militares del Tratado de Versalles."
-explicacion: "Alemania y la URSS normalizaron relaciones y firmaron acuerdos secretos de cooperación militar y económica. Esto permitió a Alemania entrenar tropas y desarrollar armas prohibidas por Versalles, sentando las bases del futuro rearme nazi."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["new-deal", "bancos", "glass-steagall"]
-tipo: completar
-enunciado: "La _______ de 1933 cerró temporalmente todos los bancos en EE.UU. para detener las corridas bancarias y restablecer la confianza en el sistema financiero."
-respuesta: "Ley de Reorganización Bancaria"
-respuestas_validas:
-  - "Ley de Reorganización Bancaria"
-  - "ley de reorganizacion bancaria"
-  - "Banking Act of 1933"
-  - "Ley Bancaria de 1933"
-explicacion: "Conocida como el \"Bank Holiday\", esta medida de emergencia detuvo el pánico bancario. Posteriormente, la Ley Glass-Steagall (parte de esta legislación) separó la banca comercial de la de inversión."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["mussolini", "fascismo", "italia"]
-tipo: vf
-enunciado: "Benito Mussolini llegó al poder en Italia principalmente como respuesta directa a la crisis económica de 1929, ya que la economía italiana estaba completamente intacta antes de esa fecha."
-respuesta: falso
-explicacion: "Mussolini llegó al poder en 1922, mucho antes de la crisis de 1929. Su ascenso se debió a la inestabilidad política post-Primera Guerra Mundial, el miedo al comunismo (Biennio Rosso) y la crisis económica de posguerra (1919-1921), no a la Gran Depresión."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["reparaciones", "alemania", "dawes"]
-tipo: mc
-enunciado: "¿Cuál era el mecanismo principal del Plan Dawes (1924) para manejar las reparaciones de guerra de Alemania?"
-opciones_explicitas:
-  - "Cancelar todas las deudas de Alemania a cambio de concesiones territoriales."
-  - "Proporcionar préstamos internacionales (principalmente de EE.UU.) a Alemania para que pagara a los aliados, quienes a su vez pagaban a EE.UU."
-  - "Transformar las reparaciones en bienes naturales extraídos directamente de la Ruhr."
-  - "Establecer un fondo de compensación mutua entre todas las potencias europeas."
-respuesta: "Proporcionar préstamos internacionales (principalmente de EE.UU.) a Alemania para que pagara a los aliados, quienes a su vez pagaban a EE.UU."
-explicacion: "El Plan Dawes creó un círculo vicioso de deuda: Alemania dependía de préstamos estadounidenses para pagar a Francia/Reino Unido, que usaban ese dinero para pagar sus propias deudas a EE.UU. Cuando los préstamos se detuvieron en 1929, el sistema colapsó."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["inmigracion", "eeuu", "nacionalismo"]
-tipo: completar
-enunciado: "La Ley de Inmigración de 1924 estableció cuotas basadas en el censo de _______ para reducir drásticamente la inmigración desde el sur y este de Europa."
-respuesta: 1890
-respuestas_validas:
-  - 1890
-  - "mil ochocientos noventa"
-  - "censo de 1890"
-explicacion: "Al usar el censo de 1890 (antes de la gran ola de inmigrantes del sur/este de Europa), EE.UU. favorecía a los inmigrantes del norte y oeste de Europa, reflejando un fuerte sentimiento nativista y racial antes de la crisis de 1929."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["sarre", "francia", "reparaciones"]
-tipo: mc
-enunciado: "¿Qué implicación tuvo la ocupación de la zona del Sarre por fuerzas francesas y belgas en 1923 para la estabilidad europea?"
-opciones_explicitas:
-  - "Provocó la retirada inmediata de EE.UU. de la región."
-  - "Generó la pasividad activa (o resistencia pasiva) alemana, hiperinflación y la ruptura de la confianza diplomática previa a Locarno."
-  - "Llevó a la creación inmediata de la Sociedad de Naciones."
-  - "Aseguró el pago completo de las reparaciones alemanas."
-respuesta: "Generó la pasividad activa (o resistencia pasiva) alemana, hiperinflación y la ruptura de la confianza diplomática previa a Locarno."
-explicacion: "La ocupación de la Ruhr/Sarre por Francia y Bélgica para asegurar reparaciones impagas llevó a Alemania a detener los pagos y fomentar la resistencia pasiva, causando hiperinflación y aislamiento diplomático, lo que debilitó la República de Weimar."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["new-deal", "seguridad-social"]
-tipo: vf
-enunciado: "El Seguro de Desempleo federal en Estados Unidos fue establecido inicialmente como parte de la Ley de Seguridad Social (Social Security Act) de 1935."
-respuesta: verdadero
-explicacion: "La Ley de Seguridad Social de 1935 creó el sistema federal de seguro de desempleo, pagado conjuntamente por empleadores y empleados, marcando el inicio de la red de seguridad social moderna en EE.UU., tras intentos previos fallidos a nivel estatal."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["economia-internacional", "genova", "libre-cambio"]
-tipo: mc
-enunciado: "¿Cuál fue el objetivo principal de la Conferencia Económica Internacional de Génova en 1922?"
-opciones_explicitas:
-  - "Establecer un arancel único para toda Europa."
-  - "Restaurar la convertibilidad de las monedas europeas al patrón oro y promover el libre comercio."
-  - "Imponer sanciones económicas a la Unión Soviética."
-  - "Crear una unión monetaria europea."
-respuesta: "Restaurar la convertibilidad de las monedas europeas al patrón oro y promover el libre comercio."
-explicacion: "Génova buscaba estabilizar las monedas europeas dañadas por la guerra y reintegrar a Alemania y la URSS en la economía global, aunque sus resultados fueron limitados y muchos países mantuvieron controles de cambio por años."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["aislacionismo", "lley-neutralidad", "pre-guerra"]
-tipo: completar
-enunciado: "La Ley de Neutralidad de 1939 permitió a las naciones aliadas comprar armas a EE.UU. bajo la política de _______ y pago inmediato en efectivo."
-respuesta: "Cash and Carry"
-respuestas_validas:
-  - "Cash and Carry"
-  - "cash and carry"
-  - "pago en efectivo y transporte propio"
-  - "efectivo y transporte propio"
-explicacion: "Esta política, aunque mantenía la neutralidad formal, benefició a Gran Bretaña y Francia, ya que podían transportar las armas por mar, mientras que Alemania no podía acceder a ellas debido al bloqueo naval británico."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["veteranos", "bonus", "protesta"]
-tipo: mc
-enunciado: "¿Qué efecto tuvo la represión de la \"Bonus Army\" por George Patton en 1932 en la opinión pública?"
-opciones_explicitas:
-  - "Consolidó el apoyo a Hoover como líder fuerte."
-  - "Generó una ola de simpatía hacia los veteranos y aumentó la crítica a la dureza del gobierno federal ante la crisis."
-  - "No tuvo impacto político significativo."
-  - "Llevó a la creación inmediata del Departamento de Asuntos de Veteranos."
-respuesta: "Generó una ola de simpatía hacia los veteranos y aumentó la crítica a la dureza del gobierno federal ante la crisis."
-explicacion: "La marcha de veteranos desempleados que pedían el pago anticipado de su bono de guerra fue dispersada violentamente por el ejército. Esto fue visto como una crueldad injusta y contribuyó a la derrota de Hoover en 1932."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["pacto-antikomintern", "alemania", "japon", "urss"]
-tipo: completar
-enunciado: "El _______ Anticomintern, firmado inicialmente por Alemania y Japón en 1936, fue un acuerdo para coordinar la oposición a la influencia de la Komintern soviética."
-respuesta: "Pacto"
-respuestas_validas:
-  - "Pacto"
-  - "pacto"
-  - "Anti-Comintern Pact"
-  - "anti-comintern pact"
-explicacion: "Inicialmente dirigido contra la URSS, este pacto sirvió para alinear a las potencias fascistas. Italia se unió después, y aunque fue una declaración ideológica, también sentó las bases para la posterior alianza del Eje."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["new-deal", "agricultura", "aaa"]
-tipo: vf
-enunciado: "La Ley de Ajuste Agrícola (AAA) de 1933 buscó aumentar los precios agrícolas pagando a los productores para que redujeran la producción y mataran ganado existente."
-respuesta: verdadero
-explicacion: "La AAA intentó combatir la deflación rural pagando a los granjeros para que dejaran de cultivar y destruyeran excedentes (ganado, cultivos). Esto fue controversial pero logró subir los precios agrícolas, aunque perjudicó a los inquilinos y trabajadores agrícolas."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["reparaciones", "lausana", "fin-reparaciones"]
-tipo: mc
-enunciado: "¿Qué resultado clave tuvo la Conferencia de Lausana en 1932 respecto a las reparaciones alemanas?"
-opciones_explicitas:
-  - "Aumentó las reparaciones un 50%."
-  - "Suspendió efectivamente el pago de reparaciones de guerra, llevando a su cancelación de facto un año después."
-  - "Obligó a Alemania a hipotecar sus ferrocarriles."
-  - "Estableció un pago único definitivo de 10.000 millones de marcos."
-respuesta: "Suspendió efectivamente el pago de reparaciones de guerra, llevando a su cancelación de facto un año después."
-explicacion: "La Conferencia de Lausana suspendió los pagos de reparaciones. En 1933, se llegó a un acuerdo de facto donde Alemania no pagaría más reparaciones, liberándola de esa carga económica pero también aislándola financieramente de Occidente."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "entreguerras-y-crisis-de-1929"
-  nivel: "avanzado"
-  tags: ["new-deal", "vivienda", "fhla"]
-tipo: completar
-enunciado: "La _______ de Vivienda de Emergencia de 1933 creó la Federal Home Loan Bank para estabilizar el sector inmobiliario y facilitar el crédito hipotecario."
-respuesta: "Ley"
-respuestas_validas:
-  - "Ley"
-  - "ley"
-  - "Emergency Housing Act"
-  - "emergency housing act"
-explicacion: "Esta ley fue parte de los primeros días del New Deal, buscando evitar los desalojos masivos y la quiebra de los bancos hipotecarios, sentando las bases para la posterior creación de la FHLB y la regulación del mercado hipotecario."
-```
-
-## Sección: escalas-de-tiempo-profundo (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
+  tema: "explosion_cambrica"
   nivel: "basico"
-  tags: ["universo", "edad_del_universo"]
+  tags: ["geologia", "paleontologia", "canada"]
 
-respuesta: "13800"
+respuesta: "Canadá"
 tipo: completar
 respuestas_validas:
-  - "13800"
+  - "Canadá"
 
-enunciado: "Según los modelos cosmológicos actuales basados en la radiación de fondo de microondas, la edad estimada del universo es de aproximadamente ___ millones de años."
+enunciado: "El famoso yacimiento de Burgess Shale, que documenta la diversidad de la fauna del Cámbrico, se encuentra ubicado en el país de ___."
 
 explicacion: |
-  La edad del universo es de aproximadamente 13.800 millones de años. Esta escala es tan vasta que resulta imposible de imaginar para el cerebro humano, que evolucionó para entender ciclos diarios o estacionales.
+  El yacimiento de Burgess Shale está situado en las Montañas Rocosas de la provincia de Columbia Británica, en Canadá.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "basico"
-  tags: ["tierra", "formacion_planetaria"]
-
-respuesta: "4600 millones de años"
-tipo: completar
-respuestas_validas:
-  - "4600 millones de años"
-
-enunciado: "La formación de la Tierra ocurrió hace aproximadamente ___."
-
-explicacion: |
-  La Tierra se formó hace unos 4.600 millones de años, mucho después del Big Bang, pero mucho antes de la aparición de la vida compleja.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
+  tema: "explosion_cambrica"
   nivel: "intermedio"
-  tags: ["psicologia", "intuicion"]
+  tags: ["preservacion", "fofiles"]
 
-respuesta: "evolucionado"
-tipo: completar
-respuestas_validas:
-  - "evolucionado"
+variables:
+  tipo_preservacion: uno_de(["carbonización", "permineralización", "molde"])
 
-enunciado: "Nuestra intuición no está calibrada para las escalas de tiempo profundo porque nuestro cerebro ha ___ para sobrevivir en entornos de corto plazo."
-
-explicacion: |
-  La evolución humana priorizó la percepción de eventos inmediatos (depredadores, estaciones, ciclos de comida) sobre la comprensión de procesos geológicos o cósmicos que tardan eones en ocurrir.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "intermedio"
-  tags: ["comparacion", "tiempo"]
-
-respuesta: "4600"
-tipo: completar
-respuestas_validas:
-  - "4600"
-
-enunciado: "Si el universo tiene 13.800 millones de años, la Tierra tiene aproximadamente ___ millones de años."
-
-explicacion: |
-  La Tierra es significativamente más joven que el universo; se formó cuando el universo ya tenía casi 9.000 millones de años de existencia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "avanzado"
-  tags: ["antropoceno", "escala_humana"]
-
-respuesta: "insignificante"
-tipo: completar
-respuestas_validas:
-  - "insignificante"
-
-enunciado: "En comparación con la escala de tiempo de la formación de la corteza terrestre, la duración de la civilización humana es prácticamente ___."
-
-explicacion: |
-  La historia de la humanidad es un parpadeo en la escala del tiempo profundo. Mientras la Tierra tarda millones de años en cambiar sus continentes, la humanidad apenas lleva unos pocos milenios de historia escrita.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "basico"
-  tags: ["notacion_cientifica", "escala_longitud"]
-
-respuesta: "10^12"
+respuesta: "carbonización"
 tipo: mc
-opciones_explicitas: ["10^6", "10^9", "10^12", "10^15"]
+opciones_explicitas: ["carbonización", "permineralización", "molde"]
 
-enunciado: "En español (escala larga), cuando hablamos de un 'billón', nos referimos a una cantidad equivalente a un ___."
+enunciado: "La preservación excepcional de los tejidos blandos en Burgess Shale se debe principalmente a un proceso de ___ de la materia orgánica."
 
 explicacion: |
-  En español, el sistema de escala larga define el billón como un millón de millones, es decir, 10^12.
+  La formación de películas delgadas de carbono (carbonización) permitió la preservación de estructuras blandas que normalmente no se fosilizan.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "basico"
-  tags: ["notacion_cientifica", "traduccion"]
-
-respuesta: "10^9"
-tipo: mc
-opciones_explicitas: ["10^6", "10^9", "10^12", "10^15"]
-
-enunciado: "Si leés un texto de geología en inglés que menciona un 'billion' de años, ¿a qué potencia de 10 te referís en nuestra escala numérica?"
-
-explicacion: |
-  En inglés (escala corta), un 'billion' equivale a mil millones, es decir, 10^9.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
+  tema: "explosion_cambrica"
   nivel: "intermedio"
-  tags: ["notacion_cientifica", "comparacion"]
+  tags: ["cronologia", "eventos"]
 
-respuesta: "mil millones"
-tipo: completar
-respuestas_validas:
-  - "mil millones"
-
-enunciado: "El valor de un 'billion' en inglés es equivalente, en español, a ___."
-
-explicacion: |
-  El término 'billion' en inglés representa 10^9, lo cual en español llamamos 'mil millones'.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica", "geologia"]
-
-respuesta: "4.5 x 10^9"
-tipo: completar
-respuestas_validas:
-  - "4.5 x 10^9"
-  - "4.5x10^9"
-
-enunciado: "La edad estimada de la Tierra es de aproximadamente 4,5 mil millones de años. Expresá este número en notación científica (formato N x 10^x)."
-
-explicacion: |
-  4,5 mil millones se escribe como 4.500.000.000, lo que equivale a 4,5 x 10^9.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "avanzado"
-  tags: ["notacion_cientifica", "logica"]
-
-respuesta: "10^3"
-tipo: mc
-opciones_explicitas: ["10^2", "10^3", "10^6", "10^9"]
-
-enunciado: "Si dividimos un billón (español, 10^12) por un billion (inglés, 10^9), el resultado es una magnitud de ___."
-
-explicacion: |
-  10^12 / 10^9 = 10^(12-9) = 10^3. El resultado es mil.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "basico"
-  tags: ["calendario_cosmico", "big_bang"]
-
-enunciado: "Si comprimiéramos los 13.800 millones de años de la historia del universo en un solo año calendario, el evento del Big Bang ocurriría el día ___ de enero."
-
-respuestas_validas:
-  - "1"
-respuesta: "1"
-tipo: completar
-
-explicacion: |
-  En el calendario cósmico, el 1 de enero marca el inicio del tiempo y el espacio con el Big Bang.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "basico"
-  tags: ["tierra", "vida"]
-
-respuesta: "septiembre"
-tipo: completar
-respuestas_validas:
-  - "septiembre"
-
-enunciado: "Si el Big Bang es el 1 de enero, la formación de la Tierra ocurriría aproximadamente el 1° de ___."
-
-explicacion: |
-  La Tierra se formó hace unos 4.500 millones de años, lo que en nuestra escala corresponde a principios de septiembre.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "intermedio"
-  tags: ["dinosaurios", "extincion"]
-
-respuesta: "24 de diciembre"
-tipo: completar
-respuestas_validas:
-  - "24 de diciembre"
-
-enunciado: "La era de los dinosaurios (que terminó hace unos 66 millones de años) se ubicaría en el calendario cósmico alrededor del ___."
-
-explicacion: |
-  Los dinosaurios dominaron la Tierra durante gran parte del último mes del año cósmico, desapareciendo hacia la Navidad.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "avanzado"
-  tags: ["historia_humana", "tiempo_corto"]
-
-enunciado: "La historia de la humanidad escrita (desde la invención de la escritura) ocupa apenas unos segundos del día ___ de diciembre."
-
-respuestas_validas:
-  - "31"
-respuesta: "31"
-tipo: completar
-
-explicacion: |
-  A pesar de nuestra importancia cultural, la historia humana es un parpadeo insignificante comparado con la escala cósmica, ocurriendo en los últimos instantes del 31 de diciembre.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "intermedio"
-  tags: ["percepcion_temporal", "escala"]
-
-opciones_explicitas: ["Septiembre", "Diciembre", "Enero", "Julio"]
-respuesta: "Septiembre"
-tipo: mc
-
-enunciado: "Si el universo tiene 13.800 millones de años y la Tierra tiene aproximadamente 4.500 millones de años, ¿en qué mes del calendario cósmico se ubica la aparición de la Tierra?"
-
-explicacion: |
-  La Tierra se formó hace 4.500 millones de años, lo que sitúa su aparición en el mes de septiembre dentro de la escala de un año.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "basico"
-  tags: ["escala_temporal", "historia", "geologia"]
-
-enunciado: "Si comparamos la edad de la Tierra (aprox. 4500 millones de años) con la duración de la historia escrita (aprox. 5000 años), la historia escrita representa una fracción de tiempo que es:"
-
-opciones_explicitas: ["Una parte significativa", "Una fracción minúscula", "La mitad del tiempo terrestre", "Un tiempo equivalente"]
-
-respuesta: "Una fracción minúscula"
-tipo: mc
-
-explicacion: |
-  5.000 años frente a 4.500 millones de años es una proporción prácticamente nula — la historia escrita es apenas un instante en la escala geológica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "intermedio"
-  tags: ["homo_sapiens", "evolucion"]
-
-enunciado: "Considerando que el Homo sapiens moderno tiene aproximadamente 300.000 años de existencia, ¿cuál de las siguientes afirmaciones es correcta respecto a la escala geológica?"
-
-opciones_explicitas: ["Es casi tanto tiempo como la edad de la Tierra", "Es un parpadeo insignificante frente a la edad de la Tierra", "Es el tiempo que tardó la Tierra en formarse", "Es un tiempo extremadamente largo en términos geológicos"]
-
-respuesta: "Es un parpadeo insignificante frente a la edad de la Tierra"
-tipo: mc
-
-explicacion: |
-  300.000 años representan apenas una fracción de un 0,01% de los 4.600 millones de años de historia de la Tierra.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "intermedio"
-  tags: ["comparacion", "escala"]
-
-opciones_explicitas: ["Historia escrita", "Homo sapiens", "Edad de la Tierra"]
-respuesta_orden: ["Historia escrita", "Homo sapiens", "Edad de la Tierra"]
+opciones_explicitas: ["Explosión de la vida multicelular", "Aparición de los primeros organismos unicelulares", "Extinción masiva del Pérmico", "Aparición de las plantas terrestres"]
+respuesta_orden: ["Aparición de los primeros organismos unicelulares", "Explosión de la vida multicelular", "Aparición de las plantas terrestres", "Extinción masiva del Pérmico"]
 tipo: ordenar
 
-enunciado: "Ordená de MENOR a MAYOR duración estos 3 lapsos de tiempo:"
+enunciado: "Ordene cronológicamente los siguientes eventos biológicos/geológicos, desde el más antiguo al más reciente:"
 
 explicacion: |
-  La historia escrita (~5.000 años) es la más corta, seguida por la existencia del Homo sapiens (~300.000 años), y por último la edad de la Tierra (~4.600 millones de años), la más larga por lejos.
+  La vida comenzó con organismos unicelulares, seguida por la explosión de diversidad del Cámbrico, la colonización de la tierra por plantas y, mucho después, las grandes extinciones masivas.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-enunciado: "Para entender la 'Historia Profunda', debemos entender que la actividad humana es una escala de tiempo ___ en comparación con los procesos geológicos."
-
-respuestas_validas:
-  - "minúscula"
-  - "insignificante"
-  - "pequeña"
-
-respuesta: "minúscula"
-tipo: completar
-
-explicacion: |
-  Los procesos geológicos se miden en millones de años; la actividad humana, en siglos — una diferencia de varios órdenes de magnitud.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
+  tema: "explosion_cambrica"
   nivel: "avanzado"
-  tags: ["proporciones", "geologia"]
+  tags: ["anomalocaris", "depredador"]
 
-enunciado: "Si la historia de la humanidad (desde la escritura) fuera un día de 24 horas, la edad de la Tierra equivaldría aproximadamente a:"
+respuesta: verdadero
+tipo: vf
 
-opciones_explicitas: ["Unos pocos minutos", "Casi 24 horas", "Unos 10 años", "Un siglo"]
-
-respuesta: "Casi 24 horas"
-tipo: mc
+enunciado: "Basándonos en la morfología de *Anomalocaris canadensis* hallado en Burgess Shale, se considera que era un depredador de ápice."
 
 explicacion: |
-  Al invertir la comparación (poniendo lo corto como referencia de 24 horas), la escala geológica completa se estira a una duración enorme comparada con esa unidad — el punto es que la relación de magnitudes es abismal en cualquier dirección que se la mire.
+  *Anomalocaris* es uno de los depredadores más conocidos del Cámbrico, con apéndices frontales diseñados para capturar presas.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
+  tema: "explosion_cambrica"
+  nivel: "intermedio"
+  tags: ["biologia", "evolucion"]
+
+respuesta: "alta"
+tipo: completar
+respuestas_validas:
+  - "alta"
+
+pasos:
+  - "Identificar el periodo de la explosión cámbrica."
+  - "Determinar el nivel de diversidad biológica observado en Burgess Shale."
+
+enunciado: "La diversidad de filos animales documentada en Burgess Shale durante la explosión cámbrica se caracteriza por ser de una magnitud ___."
+
+explicacion: |
+  La explosión cámbrica representó un aumento drástico en la complejidad y diversidad de los cuerpos animales en el registro fósil.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
   nivel: "basico"
-  tags: ["geologia", "notacion_cientifica"]
+  tags: ["geologia", "paleontologia"]
 
-enunciado: "La edad estimada de la Tierra es de aproximadamente 4.540.000.000 años. ¿Cuál es la forma correcta de expresar este número en notación científica?"
-
-opciones_explicitas: ["4.54e9", "4.54e7", "45.4e8", "0.454e10"]
-respuesta: "4.54e9"
+respuesta: "Paleozoico"
 tipo: mc
+opciones_explicitas: ["Paleozoico", "Proterozoico", "Mesozoico", "Cenozoico"]
+
+enunciado: "La explosión cámbrica marca el inicio del eón Fanerozoico, específicamente de la era del ___."
 
 explicacion: |
-  4.540.000.000 equivale a 4,54 × 10⁹ en notación científica.
+  La explosión cámbrica ocurrió hace unos 541 millones de años, marcando el inicio del eón Fanerozoico y la era Paleozoica.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
+  tema: "explosion_cambrica"
   nivel: "intermedio"
-  tags: ["calendario_cosmico", "eventos"]
+  tags: ["escala_tiempo", "geologia"]
+
+respuesta: "Ediacárico"
+tipo: completar
+respuestas_validas:
+  - "Ediacárico"
+  - "Ediacarano"
+
+enunciado: "Si nos situamos inmediatamente antes de la explosión cámbrica, nos encontramos en el periodo ___."
+
+explicacion: |
+  El periodo Ediacárico precede a la explosión cámbrica, la cual da inicio al periodo Cámbrico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "explosion_cambrica"
+  nivel: "intermedio"
+  tags: ["orden", "escala_tiempo"]
 
 variables:
-  idx: uno_de([0, 1, 2])
-  escenario: [["1° de septiembre", "La formación del Sistema Solar"], ["finales de septiembre", "La aparición de la vida"], ["30 de diciembre", "La extinción de los dinosaurios"]]
+  secuencia: ["Ediacarano", "Cámbrico", "Ordovícico", "Silúrico"]
 
-enunciado: "En el calendario cósmico, {escenario[idx][0]} corresponde aproximadamente a ___."
+respuesta_orden: ["Ediacarano", "Cámbrico", "Ordovícico", "Silúrico"]
+tipo: ordenar
+opciones_explicitas: ["Ediacarano", "Cámbrico", "Ordovícico", "Silúrico"]
 
-opciones_explicitas: ["La formación del Sistema Solar", "La aparición de la vida", "La extinción de los dinosaurios"]
-respuesta: escenario[idx][1]
-tipo: mc
+enunciado: "Ordena cronológicamente los siguientes periodos/eras, comenzando desde el más antiguo antes de la explosión cámbrica:"
 
 explicacion: |
-  El calendario cósmico es una escala que comprime el tiempo universal en un año para facilitar su comprensión.
+  La secuencia correcta es: Ediacarano (Precambriano tardío), Cámbrico (inicio de la explosión), Ordovícico y Silúrico.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica", "cosmologia"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  valor: [[13800000000, "1.38e10"], [138000000000, "1.38e11"], [1380000000, "1.38e9"]]
-
-enunciado: "Un valor de {valor[idx][0]} años, ¿cómo se expresa correctamente en notación científica?"
-
-opciones_explicitas: ["1.38e10", "1.38e11", "1.38e9", "13.8e9"]
-respuesta: valor[idx][1]
-tipo: mc
-
-explicacion: |
-  Para pasar a notación científica se cuenta cuántos lugares hay que mover la coma decimal hacia la izquierda hasta dejar un solo dígito antes del punto.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
+  tema: "explosion_cambrica"
   nivel: "avanzado"
-  tags: ["geologia", "completar"]
+  tags: ["geologia", "eventos"]
 
-variables:
-  idx: uno_de([0, 1, 2])
-  eon_datos: [[1500000000, "1.5e9"], [2000000000, "2.0e9"], [2500000000, "2.5e9"]]
+respuesta: "Cambriano"
+tipo: mc
+opciones_explicitas: ["Cambriano", "Triásico", "Jurásico", "Permiano"]
 
-enunciado: "Un eón es una unidad de tiempo geológico muy larga. Si un período geológico duró {eon_datos[idx][0]} años, su valor en notación científica es ___ años."
-
-respuestas_validas:
-  - "1.5e9"
-  - "2.0e9"
-  - "2.5e9"
-respuesta: eon_datos[idx][1]
-tipo: completar
+enunciado: "La diversificación masiva de la vida animal, conocida como la explosión cámbrica, ocurrió hace aproximadamente 541 Ma, dando inicio al periodo ___."
 
 explicacion: |
-  Cada valor se expresa como N x 10⁹, manteniendo un solo dígito significativo antes del punto decimal.
+  La explosión cámbrica es el evento que define el inicio del periodo Cámbrico hace unos 541 millones de años.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "escalas_de_tiempo_profundo"
+  tema: "explosion_cambrica"
   nivel: "basico"
-  tags: ["comparacion", "notacion"]
+  tags: ["geologia"]
 
-variables:
-  idx: uno_de([0, 1, 2])
-  comparacion: [[1000000000, "1e9"], [100000000, "1e8"], [1000000, "1e6"]]
-
-enunciado: "Si un evento ocurrió hace {comparacion[idx][0]} años, la forma abreviada en notación científica es ___."
-
-respuestas_validas:
-  - "1e9"
-  - "1e8"
-  - "1e6"
-respuesta: comparacion[idx][1]
+respuesta: "Cámbrico"
 tipo: completar
+respuestas_validas:
+  - "Cámbrico"
+
+enunciado: "La explosión cámbrica es el evento fundacional del periodo ___."
 
 explicacion: |
-  La notación científica permite manejar grandes escalas de tiempo de forma eficiente, expresando el número como una potencia de 10.
+  La explosión cámbrica marca el inicio del periodo Cámbrico dentro de la era Paleozoica.
 ```
 

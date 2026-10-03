@@ -76,6 +76,8 @@ def parse_dependencias(materia: str):
         deps = set()
         for raw in TOKEN_RE.findall(cols[dep_idx]):
             raw = raw.strip()
+            if raw.startswith("./"):
+                raw = raw[2:]  # `./tema/` = misma carpeta; Química/Biología/Historia profunda lo escribían así
             if raw.startswith("..") or raw in ("", "—", "-"):
                 continue  # dependencia cruzada a otra materia, o raíz sin dependencia
             deps.add(raw)

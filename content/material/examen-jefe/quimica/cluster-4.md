@@ -1,1965 +1,2125 @@
 # Examen jefe — [PENDIENTE #844]
 
-> Logro #844. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **106 preguntas totales** en 5/5 secciones.
+> Logro #844. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: estequiometria (26 preguntas)
+## Sección: quimica-analitica (25 preguntas)
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estequiometria"
+  tema: "quimica_analitica"
   nivel: "basico"
-  tags: ["estequiometria", "vocabulario"]
+  tags: ["unidades", "volumen", "preparacion"]
 
-enunciado: "¿Qué calcula la estequiometría?"
-tipo: mc
-opciones_explicitas:
-  - "Las cantidades exactas de reactivos y productos en una reacción química"
-  - "La velocidad a la que ocurre una reacción"
-  - "El color de los productos de una reacción"
-respuesta: "Las cantidades exactas de reactivos y productos en una reacción química"
+variables:
+  volumen_litros: random_float(0.05, 0.5)
+  volumen_ml: volumen_litros * 1000
+  volumen_entero: redondear(volumen_ml, 0)
+
+respuesta: volumen_entero
+tipo: input
+
+enunciado: "Para preparar una solución, necesitas {volumen_litros} litros de disolvente. ¿Cuántos mililitros son exactamente? (Enterá un número entero)"
 
 explicacion: |
-  Usa la ecuación balanceada como una receta que indica las proporciones.
+  Para convertir litros a mililitros, multiplicamos por 1000.
+  1 L = 1000 mL.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estequiometria"
-  nivel: "basico"
-  tags: ["estequiometria", "vocabulario"]
-
-enunciado: "¿Qué es un mol en química?"
-tipo: mc
-opciones_explicitas:
-  - "La unidad que cuenta 6,022 × 10²³ partículas de una sustancia"
-  - "Una unidad de masa, equivalente a un gramo"
-  - "El nombre de un tipo de reacción química"
-respuesta: "La unidad que cuenta 6,022 × 10²³ partículas de una sustancia"
-
-explicacion: |
-  Es como una "docena", pero mucho más grande: cuenta partículas, no
-  gramos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estequiometria"
+  tema: "quimica_analitica"
   nivel: "intermedio"
-  tags: ["estequiometria"]
+  tags: ["dilucion", "calculos", "molaridad"]
+
+variables:
+  c1: random(1, 5)
+  v1: random(10, 20)
+  v2: random(100, 200)
+  # C1 * V1 = C2 * V2  =>  C2 = (C1 * V1) / V2
+  c2: (c1 * v1) / v2
+  c2_redondeada: redondear(c2, 2)
+
+respuesta: c2_redondeada
+tipo: input
+
+enunciado: "Tomás {v1} mL de una solución madre de {c1} M y la diluís hasta un volumen final de {v2} mL. ¿Cuál es la nueva concentración?"
+
+explicacion: |
+  Usamos la fórmula de dilución: C1 * V1 = C2 * V2.
+  Despejamos C2: C2 = (C1 * V1) / V2.
+  Asegurate de que las unidades de volumen sean iguales.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "basico"
+  tags: ["concentracion", "porcentaje", "masa_volumen"]
+
+variables:
+  masa_soluto: random(5, 20)
+  volumen_solucion: uno_de([100, 200, 250])
+  porcentaje: (masa_soluto / volumen_solucion) * 100
+
+respuesta: redondear(porcentaje, 1)
+tipo: input
+
+enunciado: "Se disuelven {masa_soluto} gramos de glucosa en agua hasta obtener {volumen_solucion} mL de solución. ¿Cuál es la concentración en % m/v?"
+
+explicacion: |
+  La concentración % m/v se calcula como: (masa de soluto en gramos / volumen de solución en mL) * 100.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "intermedio"
+  tags: ["unidades", "ppm", "diluciones"]
+
+variables:
+  ppm: random(10, 100)
+  # En soluciones acuosas diluidas, 1 ppm ≈ 1 mg/L
+  mg_por_l: ppm
+
+respuesta: mg_por_l
+tipo: input
+
+enunciado: "Una muestra de agua tiene una concentración de {ppm} ppm de nitratos. Expresando esto en mg/L, ¿cuánto es?"
+
+explicacion: |
+  Para soluciones acuosas diluidas (donde la densidad es ~1 g/mL), 1 ppm es equivalente a 1 mg/L.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "avanzado"
+  tags: ["dilucion", "calculos", "preparacion"]
+
+variables:
+  c_inicial: 1.0
+  factor_dilucion: 10
+  c_final: c_inicial / factor_dilucion
+
+respuesta: c_final
+tipo: input
+
+enunciado: "Si tomás 1 mL de una solución 1.0 M y lo llevás a 10 mL con agua, y luego tomás 1 mL de esa segunda y lo llevás a 10 mL más, ¿cuál es la concentración final?"
+
+explicacion: |
+  Primera dilución: 1.0 M / 10 = 0.1 M.
+  Segunda dilución: 0.1 M / 10 = 0.01 M.
+  El factor total de dilución es 100.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "intermedio"
+  tags: ["pureza", "calculos", "porcentaje"]
+
+variables:
+  masa_muestra: random(1.0, 2.0)
+  masa_pura_identificada: random(0.8, 1.5)
+  porcentaje_pureza: (masa_pura_identificada / masa_muestra) * 100
+  porcentaje_redondeado: redondear(porcentaje_pureza, 1)
+
+respuesta: porcentaje_redondeado
+tipo: input
+
+enunciado: "Una muestra de {masa_muestra} g de carbonato de calcio se analiza y se determina que contiene {masa_pura_identificada} g de CaCO3 puro. ¿Cuál es el porcentaje de pureza?"
+
+explicacion: |
+  % Pureza = (masa de sustancia pura / masa total de la muestra) * 100.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "intermedio"
+  tags: ["titulacion", "equivalencia", "indicadores"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un mol de cualquier sustancia contiene siempre la misma cantidad de partículas (el número de Avogadro), sin importar de qué sustancia se trate."
+enunciado: "El punto de equivalencia en una titulación es el momento exacto en que la cantidad de titulante añadida es estequiométricamente igual a la cantidad de analito presente en la muestra."
 
 explicacion: |
-  Lo que sí cambia según la sustancia es la MASA de ese mol (la masa
-  molar), no la cantidad de partículas.
+  Verdadero. El punto de equivalencia es teórico y estequiométrico. El punto final es el observado experimentalmente (cambio de color del indicador), que debe coincidir lo más posible con el de equivalencia.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estequiometria"
-  nivel: "basico"
-  tags: ["estequiometria", "vocabulario"]
-
-enunciado: "¿Qué es la masa molar de una sustancia?"
-tipo: mc
-opciones_explicitas:
-  - "La masa de un mol de esa sustancia, en gramos por mol"
-  - "La masa de una sola molécula, en gramos"
-  - "El peso total de una muestra, sin importar la cantidad"
-respuesta: "La masa de un mol de esa sustancia, en gramos por mol"
-
-explicacion: |
-  Se calcula sumando las masas atómicas de todos los átomos de la
-  fórmula.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estequiometria"
+  tema: "quimica_analitica"
   nivel: "intermedio"
-  tags: ["estequiometria", "problema"]
+  tags: ["dilucion", "molaridad", "calculos"]
+
+variables:
+  c1: random_float(1.0, 5.0)
+  v1: random(10, 50)
+  v2: random(100, 200)
+
+respuesta: redondear((c1 * v1) / v2, 2)
+tipo: input
+
+enunciado: "Se toman {v1} mL de una solución de HCl {c1} M y se diluyen hasta un volumen final de {v2} mL. ¿Cuál es la nueva concentración en M? (Redondear a 2 decimales)"
+
+explicacion: |
+  Usamos la fórmula de dilución: C1 * V1 = C2 * V2.
+  Despejando C2: C2 = (C1 * V1) / V2.
+  Nota: Las unidades de volumen deben ser consistentes (ambas en mL o ambas en L).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "avanzado"
+  tags: ["ph", "acidos", "bases", "calculos"]
+
+variables:
+  concentracion: random_float(0.01, 0.5)
+  ph_calc: redondear(-log10(concentracion), 2)
+
+respuesta: ph_calc
+tipo: input
+
+enunciado: "Calcule el pH de una solución de HCl 0.{floor(concentracion*100)} M. (Asuma disociación completa y redondee a 2 decimales)"
+
+explicacion: |
+  Para ácidos fuertes monopróticos como HCl: [H+] = [Ácido].
+  pH = -log10([H+]).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "basico"
+  tags: ["indicadores", "titulacion"]
+
+respuesta: "cambio de color"
+tipo: completar
+
+enunciado: "En una titulación, el indicador se utiliza para visualizar el punto final mediante un ___ visible."
+
+respuestas_validas:
+  - "cambio de color"
+  - "viraje"
+  - "cambio de tono"
+
+explicacion: |
+  Los indicadores son sustancias que cambian de color en un rango de pH específico, señalando visualmente cuándo ha ocurrido la reacción completa.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "intermedio"
+  tags: ["estequiometria", "titulacion", "calculos"]
+
+variables:
+  m_a: random(10, 50) # mL de ácido
+  m_b: random(10, 50) # mL de base
+  c_b: random_float(0.1, 0.5) # M de base
+  # Reacción 1:1 (ej. HCl + NaOH)
+  c_a_calc: redondear((m_b * c_b) / m_a, 3)
+
+respuesta: c_a_calc
+tipo: input
+
+enunciado: "Se titulan {m_a} mL de HCl con NaOH 0.{floor(c_b*10)} M. Si se requieren {m_b} mL de base para alcanzar el punto de equivalencia (reacción 1:1), ¿cuál es la molaridad del ácido? (Redondear a 3 decimales)"
+
+explicacion: |
+  Para reacción 1:1: M_acido * V_acido = M_base * V_base.
+  M_acido = (M_base * V_base) / V_acido.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "basico"
+  tags: ["cromatografia", "fases"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la cromatografía, la fase estacionaria puede ser un sólido o un líquido, mientras que la fase móvil es siempre un líquido o un gas."
+
+explicacion: |
+  Verdadero. La fase estacionaria retiene los componentes y la fase móvil los arrastra. La interacción diferencial permite la separación.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "intermedio"
+  tags: ["preparacion_soluciones", "masa"]
+
+variables:
+  masa_molar: 58.44 # NaCl
+  volumen_ml: random(100, 500)
+  molaridad_deseada: random_float(0.1, 0.5)
+  masa_necesaria: redondear((volumen_ml / 1000) * molaridad_deseada * masa_molar, 2)
+
+respuesta: masa_necesaria
+tipo: input
+
+enunciado: "¿Cuántos gramos de NaCl (PM = 58.44 g/mol) se necesitan para preparar {volumen_ml} mL de una solución 0.{floor(molaridad_deseada*10)} M? (Redondear a 2 decimales)"
+
+explicacion: |
+  Moles = M * V(L).
+  Masa = Moles * PM.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "avanzado"
+  tags: ["normalidad", "equivalentes"]
+
+variables:
+  molaridad: random_float(0.1, 0.3)
+  valencia_acido: 2 # H2SO4
+  normalidad_calc: redondear(molaridad * valencia_acido, 2)
+
+respuesta: normalidad_calc
+tipo: input
+
+enunciado: "Calcule la normalidad de una solución de H2SO4 0.{floor(molaridad*10)} M. (El ácido es diprótico, aporta 2 equivalentes por mol)"
+
+explicacion: |
+  Normalidad (N) = Molaridad (M) * Número de equivalentes por mol (n).
+  Para H2SO4, n=2.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "avanzado"
+  tags: ["espectroscopia", "uv-vis", "lambert-beer"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Ley de Beer-Lambert establece que la absorbancia de una solución es directamente proporcional a la concentración del analito y a la longitud de la trayectoria de la luz."
+
+explicacion: |
+  Verdadero. A = ε * b * c, donde A es absorbancia, ε es el coeficiente de extinción, b es la longitud del camino y c es la concentración.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "basico"
+  tags: ["terminologia", "titulacion"]
+
+respuesta: "conocida"
+tipo: completar
+
+enunciado: "En una titulación, la solución que se encuentra en la bureta y cuya concentración es ___ se llama titulante."
+
+respuestas_validas:
+  - "conocida"
+  - "exacta"
+  - "estandarizada"
+
+explicacion: |
+  El titulante es la solución estándar (conocida) que se agrega para reaccionar con el analito (concentración desconocida).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "intermedio"
+  tags: ["concentracion", "%masa"]
+
+variables:
+  masa_solutos: random(5, 20)
+  masa_solvente: random(50, 100)
+  masa_total: masa_solutos + masa_solvente
+  porcentaje_calc: redondear((masa_solutos / masa_total) * 100, 2)
+
+respuesta: porcentaje_calc
+tipo: input
+
+enunciado: "Se disuelven {masa_solutos} g de NaCl en {masa_solvente} g de agua. ¿Cuál es el porcentaje en masa (% m/m) del soluto? (Redondear a 2 decimales)"
+
+explicacion: |
+  % m/m = (masa soluto / masa solución total) * 100.
+  Masa solución = masa soluto + masa solvente.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "basico"
+  tags: ["dilucion", "factor"]
+
+variables:
+  v_inicial: random(10, 20)
+  v_final: random(100, 200)
+  factor_calc: floor(v_final / v_inicial)
+
+respuesta: factor_calc
+tipo: input
+
+enunciado: "Si tomamos {v_inicial} mL de una solución y la llevamos a un volumen final de {v_final} mL, ¿cuál es el factor de dilución (V_final / V_inicial)? (Resultado entero)"
+
+explicacion: |
+  El factor de dilución es la relación entre el volumen final y el volumen inicial.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "intermedio"
+  tags: ["estadistica", "errores", "calidad"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La precisión se refiere a qué tan cerca está un valor medido del valor verdadero, mientras que la exactitud se refiere a la reproducibilidad de las mediciones."
+
+explicacion: |
+  Falso. Es al revés. La exactitud es la cercanía al valor verdadero. La precisión es la reproducibilidad (consistencia) entre múltiples mediciones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "avanzado"
+  tags: ["espectrometria_masas"]
+
+respuesta: "masa"
+tipo: completar
+
+enunciado: "La espectrometría de masas separa los iones basándose en su relación ___/carga."
+
+respuestas_validas:
+  - "masa"
+  - "masa molar"
+
+explicacion: |
+  La relación m/z (masa por carga) es el parámetro fundamental medido en un espectrómetro de masas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "avanzado"
+  tags: ["ph", "bases"]
+
+variables:
+  concentracion: random_float(0.001, 0.05)
+  poh_calc: redondear(-log10(concentracion), 2)
+  ph_calc: redondear(14 - poh_calc, 2)
+
+respuesta: ph_calc
+tipo: input
+
+enunciado: "Calcule el pH de una solución de NaOH 0.{floor(concentracion*1000)} M. (Redondear a 2 decimales)"
+
+explicacion: |
+  [OH-] = [Base].
+  pOH = -log10([OH-]).
+  pH = 14 - pOH.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "avanzado"
+  tags: ["concentracion", "conversion"]
+
+variables:
+  porcentaje: 10
+  densidad: 1.05
+  pm: 58.44 # NaCl
+  # g soluto en 1L = (porcentaje/100) * densidad * 1000
+  g_solutos: (porcentaje/100) * densidad * 1000
+  molaridad_calc: redondear(g_solutos / pm, 2)
+
+respuesta: molaridad_calc
+tipo: input
+
+enunciado: "Una solución de NaCl (PM=58.44) tiene {porcentaje}% masa y densidad {densidad} g/mL. Calcule la molaridad. (Redondear a 2 decimales)"
+
+explicacion: |
+  1. Masa de 1L solución = densidad * 1000.
+  2. Masa de soluto = % * Masa solución.
+  3. Moles = Masa soluto / PM.
+  4. Molaridad = Moles / 1 L.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "basico"
+  tags: ["indicadores", "ph"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El punto de viraje de un indicador debe coincidir lo más posible con el punto de equivalencia de la titulación para minimizar el error."
+
+explicacion: |
+  Verdadero. Si el indicador cambia de color muy antes o muy después del punto de equivalencia, el resultado será inexacto.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "intermedio"
+  tags: ["hplc", "cromatografia"]
+
+respuesta: "liquido"
+tipo: completar
+
+enunciado: "En la Cromatografía Líquida de Alta Resolución (HPLC), la fase móvil es un ___ a alta presión."
+
+respuestas_validas:
+  - "liquido"
+  - "solvente"
+
+explicacion: |
+  HPLC significa High Performance Liquid Chromatography. La fase móvil es un líquido impulsado por bombas de alta presión.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_analitica"
+  nivel: "intermedio"
+  tags: ["neutralizacion", "estequiometria"]
+
+variables:
+  v_acido: random(10, 30)
+  m_acido: random_float(0.1, 0.5)
+  # Reacción: H2SO4 + 2NaOH -> Na2SO4 + 2H2O
+  # Moles H+ = 2 * Moles H2SO4
+  # Moles OH- necesarios = Moles H+
+  # Moles NaOH = 2 * (m_acido * v_acido/1000)
+  # V_NaOH = Moles_NaOH / M_NaOH
+  m_base: random_float(0.1, 0.5)
+  moles_h: 2 * m_acido * (v_acido/1000)
+  v_base_calc: redondear((moles_h / m_base) * 1000, 2)
+
+respuesta: v_base_calc
+tipo: input
+
+enunciado: "¿Cuántos mL de NaOH {m_base} M se necesitan para neutralizar {v_acido} mL de H2SO4 {m_acido} M? (Reacción 1 mol ácido : 2 moles base)"
+
+explicacion: |
+  1. Moles H2SO4 = M * V(L).
+  2. Moles H+ = 2 * Moles H2SO4.
+  3. Moles NaOH necesarios = Moles H+.
+  4. V_NaOH = Moles_NaOH / M_NaOH.
+```
+
+## Sección: numero-atomico-masico (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "basico"
+  tags: ["atomos", "protones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El número atómico (Z) representa la cantidad de protones presentes en el núcleo de un átomo."
+
+explicacion: |
+  Correcto. El número atómico define la identidad del elemento químico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "basico"
+  tags: ["masa", "nucleo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El número másico (A) incluye la masa de los electrones en el cálculo total."
+
+explicacion: |
+  Falso. El número másico es la suma de protones y neutrones; la masa de los electrones es despreciable y no se cuenta.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "basico"
+  tags: ["calculo", "neutrones"]
+
+respuesta: "neutrones"
+tipo: completar
+respuestas_validas:
+  - "neutrones"
+
+enunciado: "El número másico es igual a la suma de protones más ___."
+
+explicacion: |
+  El número másico (A) se calcula sumando los protones (Z) y los neutrones (N).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "basico"
+  tags: ["simbolos", "teoria"]
+
+respuesta: "Z"
+tipo: mc
+opciones_explicitas: ["Z", "A", "N", "M"]
+
+enunciado: "¿Qué letra se utiliza convencionalmente para representar el número atómico?"
+
+explicacion: |
+  La letra "Z" representa el número atómico; "A" representa el número másico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "basico"
+  tags: ["simbolos", "teoria"]
+
+respuesta: "A"
+tipo: mc
+opciones_explicitas: ["A", "Z", "N", "M"]
+
+enunciado: "¿Qué letra se utiliza convencionalmente para representar el número másico?"
+
+explicacion: |
+  La letra "A" representa el número másico (protones + neutrones).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "intermedio"
+  tags: ["nucleos", "neutrones", "calculo"]
+
+variables:
+  protones: random(1, 30)
+  neutrones: random(0, 20)
+  masico: protones + neutrones
+
+respuesta: neutrones
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Un átomo tiene un número atómico (Z) de {protones} y un número másico (A) de {masico}. ¿Cuántos neutrones tiene?"
+
+explicacion: |
+  N = A - Z = {masico} - {protones} = {neutrones}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "intermedio"
+  tags: ["nucleos", "masa_atomica", "calculo"]
+
+variables:
+  protones: random(1, 30)
+  neutrones: random(0, 20)
+  masico: protones + neutrones
+
+respuesta: masico
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Un átomo tiene {protones} protones y {neutrones} neutrones. ¿Cuál es su número másico (A)?"
+
+explicacion: |
+  A = Z + N = {protones} + {neutrones} = {masico}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "intermedio"
+  tags: ["nucleos", "numero_atomico", "calculo"]
+
+variables:
+  protones: random(1, 30)
+  neutrones: random(0, 20)
+  masico: protones + neutrones
+
+respuesta: protones
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Un átomo tiene un número másico (A) de {masico} y contiene {neutrones} neutrones. ¿Cuál es su número atómico (Z)?"
+
+explicacion: |
+  Z = A - N = {masico} - {neutrones} = {protones}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "basico"
+  tags: ["electrones", "atomos_neutros"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un átomo neutro, el número de electrones es igual al número atómico Z."
+
+explicacion: |
+  Correcto. En un átomo neutro, la carga de los protones se compensa exactamente con la de los electrones, así que Z = electrones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "basico"
+  tags: ["formula", "conceptos"]
+
+respuesta: "Z"
+tipo: completar
+respuestas_validas:
+  - "Z"
+  - "el numero atomico"
+
+enunciado: "La fórmula para calcular el número de neutrones (N) es N = A - ___."
+
+explicacion: |
+  La fórmula es N = A - Z, donde A es el número másico y Z el número atómico (cantidad de protones).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "basico"
+  tags: ["notacion", "simbolo_quimico"]
+
+respuesta: "Arriba a la izquierda del símbolo"
+tipo: mc
+opciones_explicitas: ["Arriba a la izquierda del símbolo", "Abajo a la izquierda del símbolo", "Arriba a la derecha del símbolo", "Abajo a la derecha del símbolo"]
+
+enunciado: "En la notación isotópica ᴬ_Z X (A arriba, Z abajo, junto al símbolo del elemento), ¿en qué posición se ubica el número másico (A)?"
+
+explicacion: |
+  El número másico (A) se escribe como superíndice a la izquierda del símbolo; el número atómico (Z) va como subíndice, también a la izquierda.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "intermedio"
+  tags: ["calculo", "protones", "neutrones"]
+
+variables:
+  Z: random(1, 20)
+  N: random(0, 20)
+
+respuesta: Z + N
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Un átomo tiene {Z} protones y {N} neutrones. ¿Cuál es su número másico (A)?"
+
+explicacion: |
+  El número másico (A) es la suma de protones y neutrones: A = {Z} + {N} = {Z + N}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "basico"
+  tags: ["identidad", "numero_atomico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un átomo cambia su número atómico (Z), ¿se convierte en un elemento químico distinto?"
+
+explicacion: |
+  Verdadero. El número atómico (Z) define la identidad del elemento; cambiar la cantidad de protones cambia de qué elemento se trata.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "avanzado"
+  tags: ["isobaros", "masa"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es posible que dos átomos de elementos distintos tengan el mismo número másico (A) pero distinto número atómico (Z)?"
+
+explicacion: |
+  Verdadero. Esos átomos se llaman isóbaros: tienen la misma masa total pero son elementos diferentes (a diferencia de los isótopos, que son el mismo elemento con distinta masa).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "basico"
+  tags: ["notacion", "isotopos"]
+
+respuesta: "masico"
+tipo: completar
+respuestas_validas:
+  - "masico"
+  - "másico"
+
+enunciado: "En la notación abreviada, una expresión como 'Carbono-14' indica el nombre del elemento seguido de su número ___."
+
+explicacion: |
+  El número que acompaña al nombre del elemento en esta notación hace referencia al número másico (protones + neutrones).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "basico"
+  tags: ["atomos", "electrones", "protones"]
+
+variables:
+  protones: random(1, 30)
+
+respuesta: protones
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Dado un átomo neutro con {protones} protones, ¿cuántos electrones tiene?"
+
+explicacion: |
+  En un átomo neutro la carga total es cero, así que la cantidad de electrones es igual a la de protones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "intermedio"
+  tags: ["numero_atomico", "teoria"]
+
+respuesta: "cantidad de neutrones"
+tipo: mc
+opciones_explicitas: ["identidad del elemento", "cantidad de protones", "cantidad de electrones (si es neutro)", "cantidad de neutrones"]
+
+enunciado: "Dado sólo el número atómico Z de un elemento, ¿qué información NO se puede obtener directamente?"
+
+explicacion: |
+  Z define la identidad, los protones, y (si es neutro) los electrones. Para los neutrones hace falta además el número másico A, ya que N = A - Z.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "basico"
+  tags: ["neutrones", "formula"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para saber cuántos neutrones tiene un átomo hace falta conocer tanto el número atómico (Z) como el número másico (A)."
+
+explicacion: |
+  Correcto. La relación es N = A - Z; sin ambos valores no se puede determinar la cantidad de neutrones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "basico"
+  tags: ["calculo", "neutrones"]
+
+variables:
+  z: 17
+  a: 35
+
+respuesta: a - z
+tipo: completar
+respuestas_validas:
+  - 18
+
+enunciado: "Si Z = {z} y A = {a}, el átomo tiene ___ neutrones."
+
+explicacion: |
+  El número de neutrones se calcula restando el número atómico al número másico: 35 - 17 = 18.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "numero_atomico_masico"
+  nivel: "avanzado"
+  tags: ["isotopos", "isobaros"]
+
+respuesta: "mismo Z, distinto A"
+tipo: mc
+opciones_explicitas: ["mismo Z, distinto A", "distinto Z, mismo A", "mismo Z, mismo A", "distinto Z, distinto A"]
+
+enunciado: "Dos isótopos del mismo elemento tienen..."
+
+explicacion: |
+  Los isótopos comparten el número atómico Z (son el mismo elemento) pero difieren en el número másico A (distinta cantidad de neutrones).
+```
+
+## Sección: quimica-de-la-atmosfera (25 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "basico"
+  tags: ["ozono", "estratosfera", "radiacion_uv"]
+
+variables:
+  funcion: uno_de(["absorbe", "filtra"])
+  tipo_radiacion: "ultravioleta"
+
+respuesta: funcion + " la radiación " + tipo_radiacion
+tipo: completar
+
+enunciado: "En la estratosfera, la capa de ozono tiene la función principal de {funcion} la radiación {tipo_radiacion} del sol."
+
+explicacion: |
+  El ozono estratosférico actúa como un escudo natural absorbiendo la mayor parte de la radiación ultravioleta (UV) dañina, protegiendo a los seres vivos de sus efectos mutagénicos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "basico"
+  tags: ["lluvia_acida", "so2", "combustibles_fosiles"]
+
+variables:
+  gas: "SO2"
+  nombre: "dióxido de azufre"
+
+respuesta: nombre
+tipo: completar
+
+enunciado: "Uno de los principales precursores de la lluvia ácida, emitido por la quema de combustibles fósiles que contienen impurezas de azufre, es el {nombre} ({gas})."
+
+explicacion: |
+  El dióxido de azufre ($SO_2$) reacciona con el agua y el oxígeno atmosférico para formar ácido sulfúrico ($H_2SO_4$), principal componente de la lluvia ácida.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "intermedio"
+  tags: ["lluvia_acida", "acido_sulfurico"]
+
+variables:
+  formula: "H2SO4"
+
+respuesta: formula
+tipo: input
+
+enunciado: "Escribe la fórmula química del ácido fuerte formado cuando el dióxido de azufre reacciona con el vapor de agua y el oxígeno en la atmósfera."
+
+explicacion: |
+  La reacción del $SO_2$ conduce a la formación de ácido sulfúrico ($H_2SO_4$), que al precipitar acidifica los suelos y cuerpos de agua.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "intermedio"
+  tags: ["esmog", "fotoquimico", "luz_solar"]
+
+variables:
+  energia: "radiación ultravioleta"
+
+respuesta: energia
+tipo: completar
+
+enunciado: "El esmog fotoquímico se forma cuando los óxidos de nitrógeno y los compuestos orgánicos volátiles (COV) reaccionan en presencia de {energia}."
+
+explicacion: |
+  El término "fotoquímico" indica que la luz solar (específicamente la radiación UV) actúa como catalizador o fuente de energía para impulsar estas reacciones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "intermedio"
+  tags: ["esmog", "nox", "cov"]
+
+variables:
+  gas1: "NOx"
+  gas2: "COV"
+  nombre1: "óxidos de nitrógeno"
+  nombre2: "compuestos orgánicos volátiles"
+
+respuesta: nombre1 + " y " + nombre2
+tipo: completar
+
+enunciado: "Los dos grupos principales de contaminantes que interactúan para formar el esmog fotoquímico son los {nombre1} y los {nombre2}."
+
+explicacion: |
+  La interacción entre los óxidos de nitrógeno ($NO_x$) emitidos por vehículos e industria, y los compuestos orgánicos volátiles (COV), en presencia de luz solar, genera esmog.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "intermedio"
+  tags: ["lluvia_acida", "aluminio", "toxicidad"]
+
+variables:
+  metal: "aluminio"
+
+respuesta: metal
+tipo: input
+
+enunciado: "La acidificación de los suelos causada por la lluvia ácida puede liberar metales pesados. ¿Qué metal, comúnmente presente en arcillas, se vuelve soluble y tóxico para las plantas?"
+
+explicacion: |
+  El aluminio ($Al$) es liberado de los minerales del suelo al bajar el pH. En forma soluble, es tóxico para las raíces de las plantas y la vida acuática.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "basico"
+  tags: ["ozono", "paradoja", "ubicacion"]
+
+variables:
+  capa_buena: "estratosfera"
+  capa_mala: "troposfera"
+
+respuesta: capa_buena + " y " + capa_mala
+tipo: completar
+
+enunciado: "El ozono es beneficioso en la {capa_buena}, pero actúa como contaminante en la {capa_mala}."
+
+explicacion: |
+  Esta es la paradoja del ozono: protege de la radiación UV arriba (estratosfera) pero irrita los pulmones abajo (troposfera).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "intermedio"
+  tags: ["lluvia_acida", "acido_nitrico"]
+
+variables:
+  formula: "HNO3"
+
+respuesta: formula
+tipo: input
+
+enunciado: "Además del ácido sulfúrico, la lluvia ácida contiene ácido nítrico. Escribe su fórmula química."
+
+explicacion: |
+  El ácido nítrico ($HNO_3$) se forma a partir de los óxidos de nitrógeno ($NO_x$) que reaccionan con el agua atmosférica.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "basico"
+  tags: ["esmog", "urbano", "densidad"]
+
+variables:
+  lugar: "áreas urbanas"
+
+respuesta: lugar
+tipo: input
+
+enunciado: "El esmog fotoquímico es particularmente relevante y frecuente en {lugar} debido a la alta densidad vehicular y emisiones industriales."
+
+explicacion: |
+  La concentración de vehículos y la topografía de muchas ciudades favorecen la acumulación de los precursores necesarios para el esmog.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "basico"
+  tags: ["ozono", "oxigeno", "alotropia"]
+
+variables:
+  nombre: "alótropos"
+
+respuesta: nombre
+tipo: input
+
+enunciado: "El oxígeno molecular ($O_2$) y el ozono ($O_3$) son {nombre} del elemento oxígeno."
+
+explicacion: |
+  Son formas alotrópicas, es decir, distintas estructuras moleculares del mismo elemento químico con propiedades diferentes.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "intermedio"
+  tags: ["lluvia_acida", "ecosistemas_acuaticos"]
+
+variables:
+  efecto: "acidificar"
+
+respuesta: efecto
+tipo: input
+
+enunciado: "Al precipitar, los ácidos formados en la lluvia ácida tienen la capacidad de {efecto} los cuerpos de agua, poniendo en riesgo la vida acuática."
+
+explicacion: |
+  La bajada del pH del agua mata peces, anfibios y altera la cadena alimentaria al liberar metales tóxicos como el aluminio.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "intermedio"
+  tags: ["esmog", "producto"]
+
+variables:
+  producto: "ozono troposférico"
+
+respuesta: producto
+tipo: input
+
+enunciado: "Una de las principales consecuencias de la reacción fotoquímica entre $NO_x$ y COV es la generación de {producto}."
+
+explicacion: |
+  El esmog fotoquímico se caracteriza por altos niveles de ozono a nivel del suelo, a diferencia del ozono estratosférico protector.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "basico"
+  tags: ["nox", "combustion", "temperatura"]
+
+variables:
+  fuente: "vehículos"
+
+respuesta: fuente
+tipo: input
+
+enunciado: "Los óxidos de nitrógeno ($NO_x$) se generan principalmente por la combustión a alta temperatura en {fuente} e industrias."
+
+explicacion: |
+  El nitrógeno del aire reacciona con el oxígeno a altas temperaturas (motores de combustión interna), formando $NO$ y $NO_2$.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "basico"
+  tags: ["ozono", "propiedades_quimicas"]
+
+variables:
+  propiedad: "inestable"
+
+respuesta: propiedad
+tipo: input
+
+enunciado: "A diferencia del $O_2$, el ozono ($O_3$) es un gas químicamente {propiedad} y altamente reactivo."
+
+explicacion: |
+  Su inestabilidad le permite actuar como un fuerte agente oxidante, lo que explica su toxicidad en bajas altitudes y su capacidad de absorber UV en altas altitudes.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "intermedio"
+  tags: ["lluvia_acida", "metales_pesados"]
+
+variables:
+  categoria: "metales pesados"
+
+respuesta: categoria
+tipo: input
+
+enunciado: "La lluvia ácida libera de los suelos y sedimentos {categoria} que son tóxicos para la vida terrestre y acuática."
+
+explicacion: |
+  Entre ellos destaca el aluminio, pero también pueden movilizarse plomo, mercurio y otros dependiendo de la geología local.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "basico"
+  tags: ["ozono", "proteccion_biologica"]
+
+variables:
+  proteccion: "escudo natural"
+
+respuesta: proteccion
+tipo: input
+
+enunciado: "La capa de ozono actúa como un {proteccion} natural contra la radiación ultravioleta solar."
+
+explicacion: |
+  Sin esta capa, la radiación UV alcanzaría la superficie en niveles que causarían daños masivos al ADN de los organismos vivos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "basico"
+  tags: ["lluvia_acida", "precipitacion"]
+
+variables:
+  forma: "ácidos fuertes"
+
+respuesta: forma
+tipo: input
+
+enunciado: "Los óxidos de nitrógeno y azufre reaccionan con el vapor de agua para formar {forma} que luego precipitan."
+
+explicacion: |
+  Se forman principalmente ácido nítrico ($HNO_3$) y ácido sulfúrico ($H_2SO_4$), que son ácidos fuertes que bajan drásticamente el pH de la lluvia.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "intermedio"
+  tags: ["esmog", "cov"]
+
+variables:
+  siglas: "COV"
+  nombre: "compuestos orgánicos volátiles"
+
+respuesta: nombre
+tipo: input
+
+enunciado: "Las siglas COV se refieren a los {nombre}, precursoes clave del esmog."
+
+explicacion: |
+  Son hidrocarburos y otros compuestos orgánicos que se evaporan fácilmente a temperatura ambiente, provenientes de combustibles, disolventes y vegetación.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "basico"
+  tags: ["ozono", "formula"]
+
+variables:
+  formula: "O3"
+
+respuesta: formula
+tipo: input
+
+enunciado: "Escribe la fórmula molecular del ozono."
+
+explicacion: |
+  El ozono está compuesto por tres átomos de oxígeno, por lo que su fórmula es $O_3$.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "intermedio"
+  tags: ["lluvia_acida", "transporte_atmosferico"]
+
+variables:
+  alcance: "distantes"
+
+respuesta: alcance
+tipo: input
+
+enunciado: "La lluvia ácida puede tener consecuencias devastadoras en ecosistemas {alcance} a la fuente de emisión de contaminantes."
+
+explicacion: |
+  Los vientos transportan los gases ($SO_2$, $NO_x$) a grandes distancias antes de que precipiten, haciendo que la contaminación sea un problema transfronterizo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "basico"
+  tags: ["esmog", "salud"]
+
+variables:
+  organo: "pulmones"
+
+respuesta: organo
+tipo: input
+
+enunciado: "El ozono troposférico presente en el esmog irrita principalmente los {organo} de las personas."
+
+explicacion: |
+  Al ser un oxidante fuerte, daña el tejido pulmonar, causando tos, dolor de garganta y agravando el asma.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "basico"
+  tags: ["definicion", "reactor"]
+
+variables:
+  concepto: "reactor químico"
+
+respuesta: concepto
+tipo: input
+
+enunciado: "La atmósfera puede ser conceptualizada como un gigante {concepto} donde ocurren reacciones constantes."
+
+explicacion: |
+  Es un sistema dinámico donde gases, partículas y radiación interactúan químicamente, determinando la calidad del aire y el clima.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "intermedio"
+  tags: ["lluvia_acida", "nox"]
+
+variables:
+  nombre: "óxidos de nitrógeno"
+
+respuesta: nombre
+tipo: input
+
+enunciado: "Los {nombre} ($NO_x$) son emitidos por la combustión y contribuyen a la formación de lluvia ácida."
+
+explicacion: |
+  Incluyen principalmente monóxido de nitrógeno ($NO$) y dióxido de nitrógeno ($NO_2$), que son precursores del ácido nítrico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "intermedio"
+  tags: ["esmog", "catalizador"]
+
+variables:
+  rol: "catalizador"
+
+respuesta: rol
+tipo: input
+
+enunciado: "En la formación del esmog fotoquímico, la luz solar actúa como {rol} de las transformaciones químicas."
+
+explicacion: |
+  Proporciona la energía necesaria (fotones UV) para romper enlaces en las moléculas precursoras e iniciar la cadena de reacciones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "quimica_de_la_atmosfera"
+  nivel: "basico"
+  tags: ["ozono", "estratosfera"]
+
+variables:
+  capa: "estratosfera"
+
+respuesta: capa
+tipo: input
+
+enunciado: "La capa de ozono protectora se encuentra ubicada en la {capa}."
+
+explicacion: |
+  La estratosfera es la capa de la atmósfera que se encuentra entre los 10 y 50 km de altitud, donde la concentración de ozono es máxima.
+```
+
+## Sección: configuracion-electronica (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["subniveles", "electrones"]
+
+variables:
+  escenario: [["s", 2], ["p", 6], ["d", 10], ["f", 14]]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: [2, 6, 10, 14]
+
+enunciado: "El subnivel {escenario[idx][0]} tiene una capacidad máxima de ___ electrones."
+
+explicacion: |
+  La capacidad depende de la cantidad de orbitales del subnivel: s (1 orbital, 2e⁻), p (3 orbitales, 6e⁻), d (5 orbitales, 10e⁻) y f (7 orbitales, 14e⁻).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["subniveles"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El subnivel p puede tener un máximo de 6 electrones."
+
+explicacion: |
+  El subnivel p tiene 3 orbitales, y cada orbital admite hasta 2 electrones: 3 × 2 = 6.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["subniveles"]
+
+respuesta: "d"
+tipo: completar
+respuestas_validas:
+  - "d"
+
+enunciado: "El subnivel con capacidad máxima de 10 electrones es el ___."
+
+explicacion: |
+  El subnivel d tiene 5 orbitales, lo que permite un máximo de 10 electrones (5 × 2).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "intermedio"
+  tags: ["regla_madelung", "orden_llenado"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El subnivel 4s se llena antes que el 3d según la regla de las diagonales (principio de Aufbau)."
+
+explicacion: |
+  Según la regla de las diagonales, el 4s tiene menor energía que el 3d, así que se llena primero — aunque el 3 sea menor que el 4.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["orden_llenado", "principio_aufbau"]
+
+respuesta: "1s, 2s, 2p, 3s"
+tipo: mc
+opciones_explicitas: ["1s, 2s, 2p, 3s", "1s, 2p, 2s, 3s", "2s, 1s, 3s, 2p"]
+
+enunciado: "¿Cuál es el orden correcto de llenado para estos subniveles: 1s, 2s, 2p y 3s?"
+
+explicacion: |
+  Siguiendo el principio de Aufbau, los subniveles se llenan en orden creciente de energía: 1s → 2s → 2p → 3s.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["atomos", "electrones"]
+
+variables:
+  pares: [[3, 3], [6, 6], [8, 8], [11, 11], [17, 17]]
+  idx: uno_de([0, 1, 2, 3, 4])
+
+respuesta: pares[idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Dado un átomo neutro con número atómico Z = {pares[idx][0]}, ¿cuántos electrones tiene en total?"
+
+explicacion: |
+  Un átomo neutro tiene tantos electrones como su número atómico (Z). Aquí Z = {pares[idx][0]}, entonces tiene {pares[idx][1]} electrones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["configuracion", "elementos"]
+
+variables:
+  datos: [["1s2 2s2 2p6 3s1", "Sodio (Z=11)"], ["1s2 2s2 2p4", "Oxígeno (Z=8)"], ["1s2 2s2 2p6 3s2 3p5", "Cloro (Z=17)"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Sodio (Z=11)", "Oxígeno (Z=8)", "Cloro (Z=17)"]
+
+enunciado: "La configuración electrónica {datos[idx][0]} corresponde a:"
+
+explicacion: |
+  Esa configuración electrónica corresponde a {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["cloro", "subniveles"]
+
+respuesta: "5"
+tipo: completar
+respuestas_validas:
+  - "5"
+
+enunciado: "La configuración electrónica del cloro (Z=17) es 1s² 2s² 2p⁶ 3s² 3p___."
+
+explicacion: |
+  El cloro tiene 17 electrones. 2 (1s) + 2 (2s) + 6 (2p) + 2 (3s) = 12; faltan 5 electrones para el subnivel 3p.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["teoria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La suma de los superíndices de una configuración electrónica correcta debe ser igual al número de electrones del átomo."
+
+explicacion: |
+  Verdadero. Cada superíndice indica cuántos electrones hay en ese subnivel; la suma total tiene que coincidir con Z en un átomo neutro.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["subniveles", "conteo"]
+
+respuesta: 6
+tipo: mc
+opciones_explicitas: [2, 4, 6, 8]
+
+enunciado: "¿Cuántos electrones tiene el subnivel 2p en la configuración completa 1s² 2s² 2p⁶ 3s²?"
+
+explicacion: |
+  El superíndice del subnivel 2p en esa configuración es 6.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "intermedio"
+  tags: ["electrones_valencia", "tabla_periodica"]
+
+variables:
+  datos: [["Sodio", "1s2 2s2 2p6 3s1", 1], ["Cloro", "1s2 2s2 2p6 3s2 3p5", 7], ["Oxígeno", "1s2 2s2 2p4", 6]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][2]
+tipo: mc
+opciones_explicitas: [1, 2, 3, 4, 5, 6, 7, 8]
+
+enunciado: "Dado el elemento {datos[idx][0]} con la configuración electrónica {datos[idx][1]}, ¿cuántos electrones de valencia tiene?"
+
+explicacion: |
+  {datos[idx][0]} tiene {datos[idx][2]} electrones en su nivel más externo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: "más alto"
+tipo: completar
+respuestas_validas:
+  - "más alto"
+  - "ultimo"
+  - "último"
+
+enunciado: "Los electrones de valencia son los que están en el nivel ___ de la configuración electrónica."
+
+explicacion: |
+  Los electrones de valencia son los que ocupan el nivel de energía más alto (el último) de un átomo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["enlaces"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Los electrones de valencia son los que participan en los enlaces químicos?"
+
+explicacion: |
+  Verdadero. La reactividad química de un átomo depende de cómo interactúan sus electrones de valencia con otros átomos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "intermedio"
+  tags: ["tabla_periodica", "grupos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Dos elementos con la misma cantidad de electrones de valencia están, en general, en el mismo grupo de la tabla periódica?"
+
+explicacion: |
+  Verdadero (para elementos representativos): comparten propiedades químicas similares porque tienen la misma cantidad de electrones de valencia.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "intermedio"
+  tags: ["niveles_energia"]
+
+variables:
+  datos: [[11, 3], [17, 3], [8, 2], [3, 2]]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: [1, 2, 3, 4, 5, 6, 7]
+
+enunciado: "Para un átomo con número atómico Z = {datos[idx][0]}, ¿cuál es el número del nivel de energía más alto ocupado?"
+
+explicacion: |
+  El nivel de energía más alto ocupado corresponde al número cuántico principal más grande de su configuración. Para Z = {datos[idx][0]}, es el nivel {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "intermedio"
+  tags: ["orbitales", "aufbau"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los subniveles de energía se llenan siempre en orden estricto de menor a mayor número de nivel (1, 2, 3...), sin excepciones."
+
+explicacion: |
+  Falso. Por el principio de Aufbau, se llenan según su energía real, no según el número de nivel — el 4s tiene menor energía que el 3d y se llena primero.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["capacidad", "orbitales"]
+
+respuesta: 8
+tipo: mc
+opciones_explicitas: [2, 6, 8, 18]
+
+enunciado: "¿Cuál es la capacidad total de electrones que pueden albergar los subniveles del segundo nivel de energía (2s y 2p)?"
+
+explicacion: |
+  El nivel 2 tiene el subnivel 2s (capacidad 2) y el subnivel 2p (capacidad 6): 2 + 6 = 8 electrones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["conteo", "electrones"]
+
+respuesta: "10"
+tipo: completar
+respuestas_validas:
+  - "10"
+
+enunciado: "En la configuración electrónica 1s² 2s² 2p⁶, el total de electrones es ___."
+
+explicacion: |
+  Sumando los superíndices: 2 (1s) + 2 (2s) + 6 (2p) = 10 electrones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "basico"
+  tags: ["atomos", "neutros"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La configuración electrónica de un átomo neutro tiene tantos electrones como su número atómico Z."
+
+explicacion: |
+  Verdadero. En un átomo neutro, la carga de los electrones cancela exactamente la de los protones (Z), así que su cantidad coincide.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "configuracion_electronica"
+  nivel: "intermedio"
+  tags: ["capacidad", "nivel_3"]
 
 respuesta: 18
-tipo: input
-tolerancia_abs: 0
+tipo: mc
+opciones_explicitas: [8, 10, 18, 32]
 
-enunciado: "Sabiendo que la masa atómica del hidrógeno (H) es ≈1 y la del oxígeno (O) es ≈16, ¿cuál es la masa molar del agua (H₂O), en g/mol?"
-
-pasos:
-  - "2 × 1 (dos átomos de H) + 16 (un átomo de O) = 18 g/mol"
+enunciado: "¿Cuál es la capacidad total de electrones del nivel 3 completo (3s + 3p + 3d)?"
 
 explicacion: |
-  Se suman las masas atómicas de todos los átomos que aparecen en la
-  fórmula, contando los subíndices.
+  3s (2) + 3p (6) + 3d (10) = 18 electrones — aunque en la práctica el 3d se llena después del 4s por la regla de las diagonales.
+```
+
+## Sección: reactivo-limitante-rendimiento (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "reactivo_limitante_rendimiento"
+  nivel: "basico"
+  tags: ["analogia", "estequiometria"]
+
+respuesta: "3"
+tipo: mc
+opciones_explicitas: ["3", "5", "10", "13"]
+
+enunciado: "Para armar un sándwich necesitas 2 rodajas de pan y 1 de queso. Si tenés 10 rodajas de pan y 3 de queso, ¿cuántos sándwiches podés armar como máximo?"
+
+explicacion: |
+  Con 10 panes (2 por sándwich): 10/2 = 5 sándwiches posibles. Con 3 quesos (1 por sándwich): 3/1 = 3 sándwiches posibles. El queso se agota primero: sólo se pueden armar 3.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estequiometria"
-  nivel: "intermedio"
-  tags: ["estequiometria", "problema"]
+  tema: "reactivo_limitante_rendimiento"
+  nivel: "basico"
+  tags: ["conceptos"]
 
-respuesta: 44
-tipo: input
-tolerancia_abs: 0
+respuesta: falso
+tipo: vf
 
-enunciado: "Sabiendo que la masa atómica del carbono (C) es ≈12 y la del oxígeno (O) es ≈16, ¿cuál es la masa molar del dióxido de carbono (CO₂), en g/mol?"
-
-pasos:
-  - "12 (un átomo de C) + 2 × 16 (dos átomos de O) = 44 g/mol"
+enunciado: "El reactivo limitante es aquel que sobra al final de la reacción química."
 
 explicacion: |
-  Un átomo de carbono y dos de oxígeno, sumando sus masas atómicas.
+  Falso. El reactivo limitante es el que se agota primero y detiene la reacción. El que sobra es el reactivo en exceso.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estequiometria"
-  nivel: "intermedio"
-  tags: ["estequiometria", "completar"]
+  tema: "reactivo_limitante_rendimiento"
+  nivel: "basico"
+  tags: ["terminologia"]
 
+respuesta: "exceso"
 tipo: completar
-enunciado: "Completá la fórmula: moles = masa (g) / ___ (g/mol)."
 respuestas_validas:
-  - "masa molar"
+  - "exceso"
+
+enunciado: "El reactivo que sobra al final de la reacción se llama reactivo en ___."
 
 explicacion: |
-  Dividir la masa por la masa molar da la cantidad de moles.
+  El reactivo que no se consume totalmente se llama reactivo en exceso.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estequiometria"
-  nivel: "intermedio"
-  tags: ["estequiometria", "problema"]
-
-variables:
-  masa_molar: uno_de([18, 44, 2, 32, 40])
-  moles_real: uno_de([2, 3, 4, 5])
-  masa: masa_molar * moles_real
-
-respuesta: moles_real
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se tienen {masa} g de una sustancia con masa molar {masa_molar} g/mol. ¿Cuántos moles hay?"
-
-pasos:
-  - "{masa} ÷ {masa_molar} = {moles_real} mol"
-
-explicacion: |
-  Moles = masa / masa molar.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estequiometria"
-  nivel: "intermedio"
-  tags: ["estequiometria", "problema"]
-
-variables:
-  masa_molar: uno_de([18, 44, 2, 32, 40])
-  moles: uno_de([2, 3, 5, 6])
-
-respuesta: masa_molar * moles
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos gramos son {moles} moles de una sustancia con masa molar {masa_molar} g/mol?"
-
-pasos:
-  - "{moles} × {masa_molar} = {masa_molar * moles} g"
-
-explicacion: |
-  Masa = moles × masa molar.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estequiometria"
-  nivel: "avanzado"
-  tags: ["estequiometria", "vocabulario"]
-
-enunciado: "¿Por qué la fórmula moles = masa / masa molar es un ejemplo de análisis dimensional?"
-tipo: mc
-opciones_explicitas:
-  - "Porque dividir gramos por (gramos/mol) da como resultado mol: las unidades 'cierran' solas"
-  - "Porque usa números muy grandes, como el número de Avogadro"
-  - "No tiene relación real con el análisis dimensional"
-respuesta: "Porque dividir gramos por (gramos/mol) da como resultado mol: las unidades 'cierran' solas"
-
-explicacion: |
-  Es la misma verificación por unidades vista en
-  `../../matematica/analisis-dimensional/`.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estequiometria"
-  nivel: "intermedio"
-  tags: ["estequiometria", "vocabulario"]
-
-enunciado: "En una ecuación química ya balanceada, ¿qué indican los coeficientes?"
-tipo: mc
-opciones_explicitas:
-  - "La proporción de MOLES en la que reaccionan o se producen las sustancias"
-  - "La proporción de GRAMOS en la que reaccionan las sustancias"
-  - "El número de electrones que se transfieren"
-respuesta: "La proporción de MOLES en la que reaccionan o se producen las sustancias"
-
-explicacion: |
-  Es la razón por la que hace falta convertir a moles antes de comparar
-  cantidades de sustancias distintas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estequiometria"
-  nivel: "avanzado"
-  tags: ["estequiometria", "problema"]
-
-variables:
-  k: random(1, 10)
-
-respuesta: k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Según la ecuación balanceada 2H₂ + O₂ → 2H₂O, si reaccionan {2 * k} moles de H₂, ¿cuántos moles de O₂ se necesitan?"
-
-pasos:
-  - "La proporción es 2 moles de H₂ por cada 1 mol de O₂: {2 * k} ÷ 2 = {k} mol de O₂"
-
-explicacion: |
-  Se usa la razón de coeficientes (2 de H₂ por 1 de O₂) para escalar la
-  cantidad.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estequiometria"
-  nivel: "avanzado"
-  tags: ["estequiometria", "problema"]
-
-variables:
-  k: random(1, 10)
-
-respuesta: 2 * k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Según la ecuación balanceada 2H₂ + O₂ → 2H₂O, si reaccionan {k} moles de O₂ (con suficiente H₂ disponible), ¿cuántos moles de H₂O se producen?"
-
-pasos:
-  - "La proporción es 1 mol de O₂ por cada 2 moles de H₂O: {k} × 2 = {2 * k} mol de H₂O"
-
-explicacion: |
-  Se multiplica por la razón de coeficientes: 2 moles de producto por
-  cada mol de ese reactivo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estequiometria"
-  nivel: "intermedio"
-  tags: ["estequiometria"]
+  tema: "reactivo_limitante_rendimiento"
+  nivel: "basico"
+  tags: ["conceptos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Los coeficientes de una ecuación balanceada indican una proporción de moles, NO de gramos."
+enunciado: "El reactivo limitante determina la cantidad máxima de producto que se puede formar en una reacción química."
 
 explicacion: |
-  Por eso nunca se puede pasar directo de masa de un reactivo a masa de
-  un producto sin convertir a moles primero.
+  Verdadero. Como el reactivo limitante se agota primero, la reacción se detiene ahí y limita la producción total.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estequiometria"
-  nivel: "avanzado"
-  tags: ["estequiometria", "problema"]
+  tema: "reactivo_limitante_rendimiento"
+  nivel: "intermedio"
+  tags: ["estequiometria", "moles"]
 
 variables:
-  k: random(1, 8)
-  masa_h2: 4 * k
+  moles_h2: uno_de([4, 6, 8, 10])
 
-respuesta: 36 * k
-tipo: input
-tolerancia_abs: 0
+respuesta: moles_h2 / 2
+tipo: completar
+tolerancia_abs: 0.01
 
-enunciado: "Según la ecuación balanceada 2H₂ + O₂ → 2H₂O (masa molar del H₂ = 2 g/mol, masa molar del H₂O = 18 g/mol), ¿cuántos gramos de agua se producen a partir de {masa_h2} g de H₂?"
+enunciado: "En la reacción 2 H2 + O2 → 2 H2O, si hay {moles_h2} moles de H2, ¿cuál es el cociente moles/coeficiente del H2?"
 
 pasos:
-  - "Moles de H₂: {masa_h2} ÷ 2 = {2 * k} mol"
-  - "Moles de H₂O (misma proporción 2 a 2): {2 * k} mol"
-  - "Masa de H₂O: {2 * k} × 18 = {36 * k} g"
+  - "Coeficiente de H2 en la ecuación: 2"
+  - "Cociente: {moles_h2} / 2"
 
 explicacion: |
-  La cadena completa: masa de H₂ → moles de H₂ → moles de H₂O (misma
-  razón, 2 a 2) → masa de H₂O.
+  El cociente se calcula dividiendo los moles disponibles por el coeficiente estequiométrico de esa sustancia.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estequiometria"
-  nivel: "avanzado"
-  tags: ["estequiometria", "vocabulario"]
+  tema: "reactivo_limitante_rendimiento"
+  nivel: "intermedio"
+  tags: ["estequiometria", "moles"]
 
-enunciado: "¿Qué es el reactivo limitante en una reacción química?"
-tipo: mc
-opciones_explicitas:
-  - "El reactivo que se termina primero, y por eso limita la cantidad máxima de producto"
-  - "El reactivo que sobra al final de la reacción"
-  - "El reactivo más caro de conseguir"
-respuesta: "El reactivo que se termina primero, y por eso limita la cantidad máxima de producto"
+variables:
+  moles_o2: uno_de([1, 2, 3])
+
+respuesta: moles_o2
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "En la reacción 2 H2 + O2 → 2 H2O, si hay {moles_o2} moles de O2, ¿cuál es el cociente moles/coeficiente del O2?"
+
+pasos:
+  - "Coeficiente de O2 en la ecuación: 1"
+  - "Cociente: {moles_o2} / 1"
 
 explicacion: |
-  El otro reactivo queda "en exceso", sin importar cuánto sobre.
+  Como el coeficiente del O2 es 1, el cociente es igual a la cantidad de moles disponibles.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estequiometria"
-  nivel: "avanzado"
-  tags: ["estequiometria"]
+  tema: "reactivo_limitante_rendimiento"
+  nivel: "basico"
+  tags: ["conceptos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La cantidad máxima de producto que se puede formar en una reacción está determinada por el reactivo limitante, no por el reactivo en exceso."
+enunciado: "¿El reactivo con el cociente menor (moles dividido coeficiente) entre todos los reactivos es el reactivo limitante?"
 
 explicacion: |
-  Una vez que se acaba el reactivo limitante, la reacción no puede
-  seguir, sin importar cuánto quede del otro.
+  Correcto. El reactivo limitante se identifica porque su cociente moles/coeficiente es el valor mínimo entre todos los reactivos.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estequiometria"
-  nivel: "avanzado"
-  tags: ["estequiometria", "ordenar"]
+  tema: "reactivo_limitante_rendimiento"
+  nivel: "basico"
+  tags: ["procedimiento"]
 
-enunciado: "Ordená los pasos para calcular cuántos gramos de un producto B se forman a partir de una masa conocida de un reactivo A."
-tipo: ordenar
-opciones_explicitas:
-  - "Convertir moles de B a masa de B, multiplicando por la masa molar de B"
-  - "Convertir la masa de A a moles de A, dividiendo por la masa molar de A"
-  - "Convertir moles de A a moles de B, usando la razón de los coeficientes balanceados"
-respuesta_orden: ["Convertir la masa de A a moles de A, dividiendo por la masa molar de A", "Convertir moles de A a moles de B, usando la razón de los coeficientes balanceados", "Convertir moles de B a masa de B, multiplicando por la masa molar de B"]
-explicacion: |
-  Nunca se salta el paso de los moles: es el único puente válido entre
-  cantidades de sustancias distintas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estequiometria"
-  nivel: "intermedio"
-  tags: ["estequiometria", "completar"]
-
+respuesta: "coeficiente"
 tipo: completar
-enunciado: "Completá la fórmula: masa (g) = moles × ___ (g/mol)."
 respuestas_validas:
-  - "masa molar"
+  - "coeficiente"
+  - "coeficientes"
+
+enunciado: "Para encontrar el reactivo limitante hay que dividir los moles de cada reactivo por su ___ en la ecuación balanceada."
 
 explicacion: |
-  Es la fórmula inversa de moles = masa / masa molar.
+  El coeficiente estequiométrico indica la proporción en la que reaccionan los reactivos; dividir los moles reales por él permite compararlos.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estequiometria"
+  tema: "reactivo_limitante_rendimiento"
   nivel: "intermedio"
-  tags: ["estequiometria", "problema"]
+  tags: ["estequiometria", "ejercicio"]
 
-respuesta: 58.5
-tipo: input
+respuesta: "O2"
+tipo: mc
+opciones_explicitas: ["O2", "H2", "H2O", "Ninguno"]
+
+enunciado: "Dada la reacción 2 H2 + O2 → 2 H2O, si hay 6 moles de H2 y 2 moles de O2, ¿cuál es el reactivo limitante?"
+
+pasos:
+  - "Cociente de H2: 6 / 2 = 3"
+  - "Cociente de O2: 2 / 1 = 2"
+  - "El menor (2) corresponde al O2."
+
+explicacion: |
+  El cociente del H2 es 3 y el del O2 es 2. Como 2 es menor, el oxígeno se agota antes: es el reactivo limitante.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "reactivo_limitante_rendimiento"
+  nivel: "intermedio"
+  tags: ["estequiometria", "calculo"]
+
+variables:
+  rendimiento_teorico: uno_de([20, 40, 50, 80, 100])
+  porcentaje: uno_de([50, 75, 80, 90])
+  rendimiento_real: rendimiento_teorico * porcentaje / 100
+
+respuesta: porcentaje
+tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Sabiendo que la masa atómica del sodio (Na) es ≈23 y la del cloro (Cl) es ≈35,5, ¿cuál es la masa molar del cloruro de sodio (NaCl, sal de mesa), en g/mol?"
+enunciado: "El rendimiento teórico de una reacción es de {rendimiento_teorico} g y el rendimiento real obtenido en el laboratorio es de {rendimiento_real} g. ¿Cuál es el porcentaje de rendimiento?"
 
 pasos:
-  - "23 + 35,5 = 58,5 g/mol"
+  - "Dividir el rendimiento real por el teórico y multiplicar por 100."
 
 explicacion: |
-  Un átomo de sodio y uno de cloro, sumando sus masas atómicas.
+  % rendimiento = ({rendimiento_real} / {rendimiento_teorico}) × 100 = {porcentaje}%.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estequiometria"
-  nivel: "avanzado"
-  tags: ["estequiometria", "vocabulario"]
+  tema: "reactivo_limitante_rendimiento"
+  nivel: "basico"
+  tags: ["teoria", "formula"]
 
-enunciado: "¿Por qué no se puede calcular la masa de un producto B directamente a partir de la masa de un reactivo A, sin pasar por moles?"
-tipo: mc
-opciones_explicitas:
-  - "Porque los coeficientes de la ecuación relacionan cantidades de partículas (moles), no masas en gramos"
-  - "Porque las masas en gramos no se pueden convertir nunca"
-  - "En realidad sí se puede, pasar por moles es un paso opcional"
-respuesta: "Porque los coeficientes de la ecuación relacionan cantidades de partículas (moles), no masas en gramos"
+respuesta: "teorico"
+tipo: completar
+respuestas_validas:
+  - "teorico"
+
+enunciado: "La fórmula del rendimiento porcentual es (rendimiento real dividido rendimiento ___) por 100."
 
 explicacion: |
-  A y B suelen tener masas molares distintas: sin pasar por moles, la
-  proporción de gramos no coincide con la de los coeficientes.
+  El rendimiento porcentual compara lo obtenido experimentalmente (real) contra la cantidad máxima predicha por la estequiometría (teórico).
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "estequiometria"
+  tema: "reactivo_limitante_rendimiento"
+  nivel: "basico"
+  tags: ["teoria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El rendimiento real de una reacción en la práctica es casi siempre menor al 100%."
+
+explicacion: |
+  Por reacciones secundarias, pérdidas de material en el proceso, etc., el rendimiento real suele ser menor al teórico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "reactivo_limitante_rendimiento"
   nivel: "intermedio"
   tags: ["estequiometria"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para hacer cálculos estequiométricos hace falta partir de una ecuación química ya balanceada."
-
-explicacion: |
-  Sin balancear (ver `../balanceo-ecuaciones/`), los coeficientes no
-  reflejan la proporción real de átomos que se conservan.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estequiometria"
-  nivel: "intermedio"
-  tags: ["estequiometria", "problema"]
-
-respuesta: 16
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Sabiendo que la masa atómica del carbono (C) es ≈12 y la del hidrógeno (H) es ≈1, ¿cuál es la masa molar del metano (CH₄), en g/mol?"
-
-pasos:
-  - "12 (un átomo de C) + 4 × 1 (cuatro átomos de H) = 16 g/mol"
-
-explicacion: |
-  Un átomo de carbono y cuatro de hidrógeno, según el subíndice de la
-  fórmula.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estequiometria"
-  nivel: "avanzado"
-  tags: ["estequiometria", "problema"]
-
-variables:
-  masa: random(10, 100)
-  masa_molar: uno_de([18, 44, 58.5])
-
-respuesta: redondear(masa / masa_molar, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "Se tienen {masa} g de una sustancia con masa molar {masa_molar} g/mol. ¿Cuántos moles hay? Redondeá a 2 decimales."
-
-pasos:
-  - "{masa} ÷ {masa_molar} = {redondear(masa / masa_molar, 2)} mol"
-
-explicacion: |
-  No siempre la división da un número exacto: en ese caso se redondea.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estequiometria"
-  nivel: "intermedio"
-  tags: ["estequiometria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un mol de un gas y un mol de otro gas distinto tienen la misma cantidad de partículas, pero no necesariamente la misma masa."
-
-explicacion: |
-  La cantidad de partículas es siempre la misma (el número de
-  Avogadro); la masa depende de la masa molar de cada sustancia.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "estequiometria"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve la estequiometría en la práctica?"
+respuesta: "el reactivo limitante"
 tipo: mc
-opciones_explicitas:
-  - "Para calcular de antemano cuánto reactivo hace falta para obtener una cantidad determinada de producto"
-  - "Sólo para nombrar correctamente los compuestos químicos"
-  - "Sólo aplica a reacciones que ya ocurrieron, nunca antes"
-respuesta: "Para calcular de antemano cuánto reactivo hace falta para obtener una cantidad determinada de producto"
+opciones_explicitas: ["el reactivo limitante", "el reactivo en exceso", "el promedio de ambos reactivos", "el producto final medido"]
+
+enunciado: "El rendimiento teórico de una reacción se calcula a partir de:"
 
 explicacion: |
-  Desde un experimento de laboratorio hasta la producción industrial, la
-  estequiometría planifica cantidades antes de mezclar nada.
-```
-
-## Sección: gases-ideales (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "basico"
-  tags: ["leyes", "gases"]
-
-variables:
-  escenario: [["Boyle", "temperatura"], ["Charles", "presion"], ["Gay-Lussac", "volumen"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["temperatura", "presion", "volumen"]
-
-enunciado: "En la ley de {escenario[idx][0]}, ¿qué variable se mantiene constante?"
-
-explicacion: |
-  La ley de {escenario[idx][0]} mantiene constante la {escenario[idx][1]}.
+  Siempre se basa en el reactivo limitante, porque es el que determina la cantidad máxima de producto posible.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "gases_ideales"
+  tema: "reactivo_limitante_rendimiento"
   nivel: "basico"
-  tags: ["boyle", "relacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La ley de Boyle dice que la presión y el volumen son inversamente proporcionales a temperatura constante."
-
-explicacion: |
-  Verdadero. La ley de Boyle establece que P × V = constante cuando la temperatura no cambia.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "basico"
-  tags: ["charles", "relacion"]
+  tags: ["teoria"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La ley de Charles dice que el volumen y la temperatura son inversamente proporcionales a presión constante."
+enunciado: "Un rendimiento mayor al 100% siempre es físicamente posible en condiciones normales, sin ningún error de medición."
 
 explicacion: |
-  Falso. Son directamente proporcionales: si la temperatura sube, el volumen también sube (a presión constante).
+  Falso. No se puede obtener más producto del que la estequiometría permite; un rendimiento >100% indica errores experimentales (impurezas, humedad, pesada incorrecta).
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "gases_ideales"
+  tema: "reactivo_limitante_rendimiento"
   nivel: "basico"
-  tags: ["gay_lussac", "completar"]
-
-respuesta: "Gay-Lussac"
-tipo: completar
-respuestas_validas:
-  - "Gay-Lussac"
-
-enunciado: "La ley que relaciona presión y temperatura a volumen constante es la ley de ___."
-
-explicacion: |
-  La ley de Gay-Lussac dice que la presión es directamente proporcional a la temperatura absoluta cuando el volumen es constante.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "intermedio"
-  tags: ["ley_de_gases", "calculo"]
-
-variables:
-  datos_n: [1, 2, 4]
-  datos_t: [100, 200, 400]
-  n_idx: uno_de([0, 1, 2])
-  t_idx: uno_de([0, 1, 2])
-  r: 0.0821
-
-respuesta: datos_n[n_idx] * r * datos_t[t_idx]
-tipo: completar
-tolerancia_abs: 0.5
-
-enunciado: "Calculá el producto PV usando PV=nRT, con n = {datos_n[n_idx]} mol y T = {datos_t[t_idx]} K (R = {r})."
-
-pasos:
-  - "PV = n × R × T"
-
-explicacion: |
-  PV = {datos_n[n_idx]} × {r} × {datos_t[t_idx]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "intermedio"
-  tags: ["despeje", "moles"]
-
-variables:
-  p_vals: [1, 2]
-  v_vals: [10, 20, 40]
-  t_vals: [100, 200]
-  p_idx: uno_de([0, 1])
-  v_idx: uno_de([0, 1, 2])
-  t_idx: uno_de([0, 1])
-  r: 0.0821
-
-respuesta: (p_vals[p_idx] * v_vals[v_idx]) / (r * t_vals[t_idx])
-tipo: completar
-tolerancia_abs: 0.2
-
-enunciado: "Con P = {p_vals[p_idx]} atm, V = {v_vals[v_idx]} L y T = {t_vals[t_idx]} K (R = {r}), calculá el número de moles (n)."
-
-pasos:
-  - "n = PV / RT"
-
-explicacion: |
-  n = ({p_vals[p_idx]} × {v_vals[v_idx]}) / ({r} × {t_vals[t_idx]}).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "basico"
-  tags: ["conceptos"]
+  tags: ["estequiometria", "conceptos_clave"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la ecuación PV=nRT, la temperatura T siempre debe estar en la escala absoluta (Kelvin), no en grados Celsius."
+enunciado: "Los cálculos de la cantidad de producto formado se hacen a partir de los moles del reactivo LIMITANTE, no del reactivo en exceso."
 
 explicacion: |
-  Correcto. Usar Celsius directamente da un resultado incorrecto — hay que convertir a Kelvin siempre.
+  Correcto. El reactivo limitante determina la cantidad máxima de producto posible.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "gases_ideales"
+  tema: "reactivo_limitante_rendimiento"
   nivel: "basico"
-  tags: ["conversiones"]
+  tags: ["analogia", "conceptos_clave"]
 
-respuesta: "273"
-tipo: completar
-respuestas_validas:
-  - "273"
+respuesta: "queda en exceso, sin usarse"
+tipo: mc
+opciones_explicitas: ["queda en exceso, sin usarse", "se usa igual", "se destruye", "se convierte en queso"]
 
-enunciado: "La conversión de grados Celsius a Kelvin es: K = C + ___."
+enunciado: "En la analogía de los sándwiches (2 panes + 1 queso por sándwich), si el queso es el reactivo limitante, ¿qué pasa con el pan sobrante?"
 
 explicacion: |
-  Se suma 273 (más precisamente 273,15) para pasar de Celsius a la escala absoluta.
+  El reactivo en exceso es el que sobra una vez que el limitante se agotó por completo — no se transforma en nada, simplemente no reacciona.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "basico"
-  tags: ["gases", "condiciones_normales"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En condiciones normales (1 atm, 273 K), 1 mol de cualquier gas ideal ocupa 22,4 litros."
-
-explicacion: |
-  Correcto. Por definición, el volumen molar de un gas ideal en CNPT es 22,4 L/mol.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "intermedio"
-  tags: ["calculo", "volumen"]
+  tema: "reactivo_limitante_rendimiento"
+  nivel: "avanzado"
+  tags: ["calculo", "rendimiento"]
 
 variables:
-  moles_lista: [1, 2, 3, 5]
+  datos: [[10, 5], [20, 10], [25, 15], [50, 20]]
   idx: uno_de([0, 1, 2, 3])
 
-respuesta: moles_lista[idx] * 22.4
+respuesta: datos[idx][1] / datos[idx][0] * 100
 tipo: completar
-tolerancia_abs: 0.5
+tolerancia_abs: 0.1
 
-enunciado: "En condiciones normales, ¿qué volumen ocupan {moles_lista[idx]} moles de un gas ideal?"
-
-pasos:
-  - "V = n × 22,4 L/mol"
+enunciado: "El rendimiento teórico de una reacción es de {datos[idx][0]} gramos y el rendimiento real obtenido es de {datos[idx][1]} gramos. ¿Cuál es el porcentaje de rendimiento?"
 
 explicacion: |
-  V = {moles_lista[idx]} × 22,4 L.
+  % rendimiento = ({datos[idx][1]} / {datos[idx][0]}) × 100.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "gases_ideales"
+  tema: "reactivo_limitante_rendimiento"
   nivel: "basico"
-  tags: ["conceptos"]
+  tags: ["procedimiento", "estequiometria"]
 
-respuesta: "1 atm y 273 K"
-tipo: mc
-opciones_explicitas: ["1 atm y 273 K", "2 atm y 300 K", "1 atm y 298 K", "0.5 atm y 273 K"]
-
-enunciado: "¿Cuáles son las condiciones normales de presión y temperatura (CNPT)?"
-
-explicacion: |
-  Las condiciones normales son 1 atm de presión y 273 K (0°C) de temperatura.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "basico"
-  tags: ["temperatura", "kelvin"]
-
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Usar 25 grados Celsius directamente en la fórmula PV=nRT (sin convertir a Kelvin) da un resultado correcto."
+enunciado: "Para encontrar el reactivo limitante, el primer paso es convertir todas las cantidades de los reactivos a moles."
 
 explicacion: |
-  Falso. Hay que convertir siempre a Kelvin (25°C = 298 K); usar el 25 directo da un resultado muy distinto al real.
+  Correcto. La estequiometría trabaja en proporciones molares; no se pueden comparar masas directamente sin pasar antes por moles.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "basico"
-  tags: ["constante_r", "teoria"]
-
-respuesta: "R"
-tipo: completar
-respuestas_validas:
-  - "R"
-
-enunciado: "La constante de los gases ideales ya está precargada en VBLang con el nombre ___."
-
-explicacion: |
-  El identificador `R` está disponible como constante global en el DSL.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "basico"
-  tags: ["despeje", "formula"]
-
-respuesta: "P = nRT/V"
-tipo: mc
-opciones_explicitas: ["P = nRT/V", "P = nRT*V", "P = V/nRT", "P = nR/VT"]
-
-enunciado: "Si se despeja la presión (P) de PV = nRT, la fórmula queda:"
-
-explicacion: |
-  Pasando V al otro lado dividiendo: P = nRT/V.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
+  tema: "reactivo_limitante_rendimiento"
   nivel: "intermedio"
-  tags: ["calculo", "volumen"]
+  tags: ["estequiometria", "ejercicio"]
 
-variables:
-  p_val: uno_de([2, 4])
-  n_val: uno_de([1, 2])
-  t_val: uno_de([200, 300])
-  r: 0.0821
-
-respuesta: n_val * r * t_val / p_val
-tipo: completar
-tolerancia_abs: 0.5
-
-enunciado: "Calculá el volumen (V) de un gas ideal con P = {p_val} atm, n = {n_val} mol, R = {r} L·atm/(K·mol) y T = {t_val} K."
-
-pasos:
-  - "V = nRT / P"
-
-explicacion: |
-  V = ({n_val} × {r} × {t_val}) / {p_val}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "basico"
-  tags: ["leyes", "gay_lussac"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la ecuación de los gases ideales, si la temperatura sube y el volumen se mantiene constante, la presión también sube."
-
-explicacion: |
-  Correcto (Ley de Gay-Lussac): a volumen constante, presión y temperatura son directamente proporcionales.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "intermedio"
-  tags: ["despeje", "formula"]
-
-respuesta: "T = PV/(nR)"
+respuesta: "H2"
 tipo: mc
-opciones_explicitas: ["T = PV/(nR)", "T = PVnR", "T = nR/(PV)", "T = PV+nR"]
+opciones_explicitas: ["H2", "O2", "H2O", "Ninguno"]
 
-enunciado: "Si se despeja la temperatura (T) de PV = nRT, la fórmula queda:"
+enunciado: "Dada la reacción 2 H2 + O2 → 2 H2O, si hay 4 moles de H2 y 3 moles de O2, ¿cuál es el reactivo limitante?"
 
 explicacion: |
-  Despejando T: T = PV / (n × R).
+  Cociente de H2: 4/2 = 2. Cociente de O2: 3/1 = 3. El menor es 2 (H2), así que el H2 es el limitante.
 ```
 
 ```
 metadata:
   materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "basico"
-  tags: ["boyle", "aplicacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si la presión sobre un gas aumenta y la temperatura se mantiene constante, el volumen del gas disminuye."
-
-explicacion: |
-  Correcto (Ley de Boyle): a temperatura constante, presión y volumen son inversamente proporcionales.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "intermedio"
-  tags: ["constante_r", "unidades"]
-
-respuesta: "L·atm/(mol·K)"
-tipo: mc
-opciones_explicitas: ["L·atm/(mol·K)", "g/mol", "atm/L", "mol/L"]
-
-enunciado: "¿Cuáles son las unidades de la constante R usada en PV=nRT (con P en atm y V en L)?"
-
-explicacion: |
-  R = 0,0821 L·atm/(mol·K) es la forma de R consistente con presión en atmósferas y volumen en litros.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El estado de un gas ideal se puede describir completamente conociendo sólo su volumen, sin necesidad de presión ni temperatura."
-
-explicacion: |
-  Falso. Un mismo volumen de gas puede tener distinta cantidad de moles según la presión y la temperatura — hacen falta las 4 variables (P, V, n, T) relacionadas por PV=nRT.
-```
-
-## Sección: geometria-molecular-vsepr (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "basico"
-  tags: ["teoria", "vsepr"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La teoría VSEPR establece que los pares de electrones alrededor de un átomo central se repelen entre sí y se acomodan lo más lejos posible para minimizar la repulsión."
-
-explicacion: |
-  Correcto. La repulsión electrónica es el principio que determina la forma de las moléculas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "intermedio"
-  tags: ["geometria", "vsepr"]
-
-variables:
-  datos: [[2, "lineal"], [3, "trigonal plana"], [4, "tetraédrica"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["lineal", "trigonal plana", "tetraédrica"]
-
-enunciado: "Si un átomo central tiene {datos[idx][0]} pares de electrones enlazantes y ningún par libre, la geometría resultante es..."
-
-explicacion: |
-  La geometría depende del número de dominios electrónicos. Con {datos[idx][0]} dominios, la forma es {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "basico"
-  tags: ["geometria", "angulos"]
-
-respuesta: "lineal"
-tipo: completar
-respuestas_validas:
-  - "lineal"
-
-enunciado: "La geometría con 2 pares de electrones alrededor del centro y un ángulo de enlace de 180 grados es la ___."
-
-explicacion: |
-  Con dos dominios electrónicos, la máxima separación posible es un ángulo de 180°: geometría lineal.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "basico"
-  tags: ["moleculas", "co2"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La molécula de dióxido de carbono (CO2) posee una geometría molecular lineal."
-
-explicacion: |
-  El carbono central tiene dos dobles enlaces con los oxígenos y ningún par libre, lo que da una geometría lineal.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "intermedio"
-  tags: ["angulos", "tetraedrica"]
-
-respuesta: "109.5 grados"
-tipo: mc
-opciones_explicitas: ["109.5 grados", "180 grados", "120 grados", "90 grados"]
-
-enunciado: "¿Cuál es el ángulo de enlace típico en una molécula con geometría tetraédrica perfecta?"
-
-explicacion: |
-  En una geometría tetraédrica, los cuatro pares de electrones se orientan hacia los vértices de un tetraedro, con ángulo de 109,5°.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "basico"
-  tags: ["vsepr", "repulsion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un par de electrones libre (no enlazante) ocupa espacio alrededor del átomo central igual que un enlace."
-
-explicacion: |
-  Correcto — y además, los pares libres repelen con MÁS fuerza que los enlazantes, ocupando incluso un poco más de volumen.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "intermedio"
-  tags: ["geometria", "vsepr"]
-
-variables:
-  escenario: [["NH3", "piramidal trigonal"], ["H2O", "angular"]]
-  idx: uno_de([0, 1])
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["piramidal trigonal", "angular", "lineal", "tetraédrica"]
-
-enunciado: "Dada la molécula {escenario[idx][0]}, ¿cuál es su geometría molecular?"
-
-explicacion: |
-  La molécula {escenario[idx][0]} tiene geometría {escenario[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "basico"
-  tags: ["h2o", "geometria"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La molécula de agua (H2O) tiene una geometría lineal."
-
-explicacion: |
-  Falso. El oxígeno tiene dos pares enlazantes y dos pares libres, lo que da una geometría angular.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "basico"
-  tags: ["h2o", "electrones"]
-
-respuesta: "libres"
-tipo: completar
-respuestas_validas:
-  - "libres"
-
-enunciado: "El oxígeno del agua tiene 4 pares de electrones alrededor: 2 enlaces O-H y 2 pares ___."
-
-explicacion: |
-  Los dos pares que no forman enlaces se llaman pares de electrones libres.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "intermedio"
-  tags: ["vsepr", "angulos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los pares libres repelen con más fuerza que los pares enlazantes, por eso el ángulo de una molécula como el agua es menor al de un tetraedro puro."
-
-explicacion: |
-  Correcto. La mayor repulsión de los pares libres "empuja" a los pares enlazantes, reduciendo el ángulo de enlace observado.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "intermedio"
-  tags: ["vsepr", "polaridad", "co2"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El CO2 tiene enlaces polares (C=O) pero la molécula en conjunto es no polar, debido a su geometría lineal simétrica."
-
-explicacion: |
-  Aunque los enlaces C=O son polares, la geometría lineal hace que los vectores de momento dipolar se cancelen: momento dipolar neto cero.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "basico"
-  tags: ["vsepr", "polaridad", "h2o"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El agua (H2O) tiene enlaces polares y es una molécula polar en su conjunto, debido a su geometría angular asimétrica."
-
-explicacion: |
-  La geometría angular del agua impide que los momentos dipolares de los enlaces O-H se cancelen: queda un momento dipolar neto.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "avanzado"
-  tags: ["vsepr", "co2", "dipolo"]
-
-respuesta: "Los dipolos de los enlaces C=O se cancelan debido a la geometría lineal simétrica."
-tipo: mc
-opciones_explicitas: ["Los dipolos de los enlaces C=O se cancelan debido a la geometría lineal simétrica.", "La electronegatividad del carbono es igual a la del oxígeno.", "Los electrones se distribuyen de forma uniforme en toda la molécula.", "La geometría es angular y no lineal."]
-
-enunciado: "¿Por qué el CO2 NO es polar, a pesar de tener enlaces polares?"
-
-explicacion: |
-  Para que una molécula con enlaces polares sea no polar, la disposición espacial debe ser tal que los vectores de los momentos dipolares se anulen entre sí — eso pasa en el CO2 por su simetría lineal.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "basico"
-  tags: ["polaridad", "dipolo"]
-
-respuesta: "cancelan"
-tipo: completar
-respuestas_validas:
-  - "cancelan"
-
-enunciado: "Una molécula es polar en conjunto cuando sus momentos dipolares individuales no se ___."
-
-explicacion: |
-  Si los momentos dipolares de los enlaces no se cancelan por la geometría de la molécula, queda un momento dipolar neto: la molécula es polar.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "intermedio"
-  tags: ["vsepr", "polaridad", "enlace_polar"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Cualquier molécula que posea al menos un enlace polar es, por definición, una molécula polar."
-
-explicacion: |
-  Falso. Depende también de la geometría: si es muy simétrica (como CO2 o CH4), los enlaces polares se pueden cancelar entre sí.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "basico"
-  tags: ["teoria", "vsepr"]
-
-respuesta: "Repulsión de pares de electrones de la capa de valencia"
-tipo: mc
-opciones_explicitas: ["Repulsión de pares de electrones de la capa de valencia", "Velocidad de electrones en la capa de valencia", "Vibración de electrones en la capa de valencia", "Valencia de electrones por repulsión"]
-
-enunciado: "¿Qué significa la sigla VSEPR (RPECV en español) respecto a la disposición de los electrones en una molécula?"
-
-explicacion: |
-  VSEPR = "Valence Shell Electron Pair Repulsion". Los pares de electrones de la capa de valencia se repelen y buscan la máxima distancia posible entre sí.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "basico"
-  tags: ["geometria", "angulos"]
-
-respuesta: "plana"
-tipo: completar
-respuestas_validas:
-  - "plana"
-
-enunciado: "La geometría con 3 pares de electrones enlazantes y un ángulo de 120 grados es la trigonal ___."
-
-explicacion: |
-  Con 3 grupos de electrones, la forma que minimiza la repulsión es un triángulo equilátero en un plano: trigonal plana.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "basico"
-  tags: ["molecula", "metano"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿El metano (CH4) tiene una geometría molecular tetraédrica?"
-
-explicacion: |
-  Verdadero. El carbono tiene 4 pares enlazantes con los hidrógenos y ningún par libre: tetraedro perfecto, ángulos de 109,5°.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "avanzado"
-  tags: ["vsepr", "calculo"]
-
-variables:
-  escenario: [[4, 1, "piramidal trigonal"], [4, 2, "angular"], [4, 0, "tetraedrica"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: escenario[idx][2]
-tipo: mc
-opciones_explicitas: ["piramidal trigonal", "angular", "tetraedrica"]
-
-enunciado: "Si una molécula tiene {escenario[idx][0]} pares de electrones en total alrededor del átomo central, de los cuales {escenario[idx][1]} son pares libres, ¿cuál es su geometría molecular?"
-
-explicacion: |
-  Con 4 pares totales: 1 libre da piramidal trigonal (NH₃), 2 libres dan angular (H₂O), 0 libres dan tetraédrica (CH₄).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "geometria_molecular_vsepr"
-  nivel: "intermedio"
-  tags: ["polaridad", "ejemplos"]
-
-respuesta: "NH3 (amoníaco)"
-tipo: mc
-opciones_explicitas: ["NH3 (amoníaco)", "CO2 (dióxido de carbono)", "CH4 (metano)", "BF3 (trifluoruro de boro)"]
-
-enunciado: "¿Cuál de las siguientes moléculas es polar debido a una geometría asimétrica (piramidal trigonal, con un par libre)?"
-
-explicacion: |
-  El NH₃ tiene geometría piramidal trigonal (asimétrica, por el par libre del nitrógeno), lo que deja un momento dipolar neto. CO2, CH4 y BF3 son todas geometrías simétricas que cancelan la polaridad.
-```
-
-## Sección: grupos-funcionales (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "basico"
-  tags: ["conceptos_basicos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un grupo funcional es un átomo o grupo de átomos que le da a la molécula un comportamiento químico característico."
-
-explicacion: |
-  Correcto. Los grupos funcionales determinan las propiedades químicas y la reactividad de una molécula orgánica.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "basico"
-  tags: ["hidroxilo", "alcoholes"]
-
-respuesta: "hidroxilo"
-tipo: mc
-opciones_explicitas: ["hidroxilo", "carbonilo", "carboxilo", "amino"]
-
-enunciado: "El grupo funcional -OH se denomina..."
-
-explicacion: |
-  El grupo -OH (oxígeno + hidrógeno) se llama grupo hidroxilo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "basico"
-  tags: ["nomenclatura", "alcoholes"]
-
-respuesta: "ol"
-tipo: completar
-respuestas_validas:
-  - "ol"
-
-enunciado: "Los compuestos con grupo hidroxilo (-OH) se nombran con el sufijo ___."
-
-explicacion: |
-  El sufijo -ol indica un alcohol (metanol, etanol...).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "basico"
-  tags: ["etanol", "alcoholes"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El etanol es un ejemplo de alcohol, ya que posee un grupo funcional hidroxilo (-OH)."
-
-explicacion: |
-  Correcto. El etanol (CH3CH2OH) es el alcohol más común.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "basico"
-  tags: ["aldehido", "cetona", "carbonilo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El aldehído y la cetona comparten el mismo grupo carbonilo (C=O), pero en distinta posición."
-
-explicacion: |
-  En el aldehído el carbono está en un extremo de la cadena; en la cetona, unido a otros dos carbonos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "basico"
-  tags: ["aldehido", "cetona", "estructura"]
-
-respuesta: "aldehído"
-tipo: mc
-opciones_explicitas: ["aldehído", "cetona", "ácido carboxílico", "amina"]
-
-enunciado: "Si el carbono del grupo carbonilo está en la PUNTA de la cadena, es un..."
-
-explicacion: |
-  El grupo C=O en un extremo de la cadena define un aldehído.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "basico"
-  tags: ["cetona", "estructura"]
-
-respuesta: "cetona"
-tipo: mc
-opciones_explicitas: ["cetona", "aldehído", "ácido carboxílico", "amina"]
-
-enunciado: "Si el carbono del grupo carbonilo está en el MEDIO de la cadena, es una..."
-
-explicacion: |
-  El carbonilo unido a dos carbonos vecinos define una cetona.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "basico"
-  tags: ["acido_carboxilico", "nomenclatura"]
-
-respuesta: "carboxilo"
-tipo: mc
-opciones_explicitas: ["carboxilo", "carbonilo", "hidroxilo", "amino"]
-
-enunciado: "El grupo funcional -COOH se llama..."
-
-explicacion: |
-  El grupo carboxilo combina un carbonilo (C=O) y un hidroxilo (-OH) en el mismo carbono.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "basico"
-  tags: ["acido_acetico", "vinagre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ácido acético (vinagre) tiene grupo funcional carboxilo."
-
-explicacion: |
-  El ácido acético (CH3COOH) es un ácido carboxílico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "basico"
-  tags: ["quimica_organica"]
-
-respuesta: "amino"
-tipo: mc
-opciones_explicitas: ["amino", "carboxilo", "ester", "hidroxilo"]
-
-enunciado: "El grupo funcional -NH2 se llama..."
-
-explicacion: |
-  El grupo -NH2 es el grupo amino, característico de las aminas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "basico"
-  tags: ["reactividad", "generalizacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos moléculas distintas que comparten el mismo grupo funcional reaccionan de forma parecida."
-
-explicacion: |
-  Verdadero. El grupo funcional determina el comportamiento químico principal de la molécula.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "basico"
-  tags: ["metodologia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Para predecir el comportamiento de un compuesto orgánico hace falta memorizar cada molécula por separado, sin poder generalizar por grupo funcional."
-
-explicacion: |
-  Falso. La química orgánica se apoya justamente en generalizar por grupo funcional.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "intermedio"
-  tags: ["reacciones", "esterificacion"]
-
-respuesta: "ester"
-tipo: completar
-respuestas_validas:
-  - "ester"
-
-enunciado: "El grupo funcional que se forma cuando un ácido reacciona con un alcohol se llama ___."
-
-explicacion: |
-  Esa reacción (esterificación) produce un éster y agua.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "intermedio"
-  tags: ["quimica_organica"]
-
-variables:
-  datos: [["hidroxilo", "-OH"], ["carboxilo", "-COOH"], ["amino", "-NH2"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["-OH", "-COOH", "-NH2"]
-
-enunciado: "¿Cuál es la fórmula del grupo funcional {datos[idx][0]}?"
-
-explicacion: |
-  El grupo {datos[idx][0]} tiene fórmula {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "intermedio"
-  tags: ["proteinas", "enlaces"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El enlace peptídico que une aminoácidos en las proteínas se forma por la reacción entre un grupo amino y un grupo carboxilo."
-
-explicacion: |
-  Correcto. La deshidratación entre el -NH2 de un aminoácido y el -COOH de otro forma el enlace peptídico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "intermedio"
-  tags: ["glucidos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los glúcidos se caracterizan por tener muchos grupos hidroxilo y un grupo carbonilo (aldehído o cetona)."
-
-explicacion: |
-  Correcto. Los glúcidos son polihidroxialdehídos o polihidroxicetonas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "intermedio"
-  tags: ["proteinas"]
-
-respuesta: "hidroxilo"
-tipo: mc
-opciones_explicitas: ["hidroxilo", "amino", "carboxilo", "enlace peptidico"]
-
-enunciado: "¿Cuál de estos NO es un componente estructural básico de un aminoácido?"
-
-explicacion: |
-  Los aminoácidos tienen grupo amino y grupo carboxilo. El hidroxilo es propio de alcoholes/glúcidos, no la base de un aminoácido.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "avanzado"
-  tags: ["carboxilo", "carbonilo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El grupo carboxilo (-COOH) contiene un grupo carbonilo (C=O) dentro de su estructura."
-
-explicacion: |
-  Correcto. El carboxilo combina un carbonilo y un hidroxilo sobre el mismo átomo de carbono.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
-  nivel: "avanzado"
-  tags: ["comparacion", "acidez"]
-
-respuesta: "un ácido carboxílico (-COOH)"
-tipo: mc
-opciones_explicitas: ["un ácido carboxílico (-COOH)", "un alcohol (-OH)", "una amina (-NH2)", "un éster"]
-
-enunciado: "¿Cuál de estos grupos funcionales le da a la molécula propiedades ácidas (puede donar un H+ fácilmente)?"
-
-explicacion: |
-  El grupo carboxilo es el que da carácter ácido a la molécula — de ahí el nombre "ácido" carboxílico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "grupos_funcionales"
+  tema: "reactivo_limitante_rendimiento"
   nivel: "basico"
   tags: ["conceptos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El nombre de la familia de un compuesto orgánico (alcohol, ácido, amina, etc.) se define por su grupo funcional, no por el largo de su cadena de carbono."
+enunciado: "Si se agrega más cantidad del reactivo que YA está en exceso, la cantidad de producto formado no aumenta (mientras el limitante siga siendo el mismo)."
 
 explicacion: |
-  Correcto. El largo de la cadena cambia el nombre específico (etanol, propanol...) pero la familia (alcohol) la define el grupo -OH presente.
-```
-
-## Sección: hidrocarburos-alcanos-alquenos-alquinos (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "basico"
-  tags: ["hidrocarburos", "definicion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un hidrocarburo es un compuesto orgánico formado exclusivamente por átomos de carbono e hidrógeno."
-
-explicacion: |
-  Correcto. Por definición, los hidrocarburos contienen únicamente C y H.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "basico"
-  tags: ["nomenclatura", "alcanos"]
-
-respuesta: "ano"
-tipo: completar
-respuestas_validas:
-  - "ano"
-
-enunciado: "Los alcanos, con un solo tipo de enlace entre carbonos, terminan con el sufijo ___."
-
-explicacion: |
-  Se nombran con la terminación -ano (metano, etano, propano...).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "basico"
-  tags: ["alcanos", "enlaces"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los alcanos se caracterizan por tener únicamente enlaces sencillos (simples) entre sus átomos de carbono."
-
-explicacion: |
-  Correcto. Son hidrocarburos saturados: todos sus enlaces C-C son simples.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "intermedio"
-  tags: ["alcanos", "formula", "calculo"]
-
-variables:
-  n: uno_de([1, 2, 3, 4, 5])
-
-respuesta: 2 * n + 2
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Calculá la cantidad de átomos de hidrógeno en un alcano con {n} átomos de carbono."
-
-pasos:
-  - "Fórmula general: CnH(2n+2)"
-
-explicacion: |
-  H = 2×{n} + 2.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "intermedio"
-  tags: ["alcanos", "nomenclatura", "formula"]
-
-variables:
-  datos: [["metano", "CH4"], ["etano", "C2H6"], ["propano", "C3H8"], ["butano", "C4H10"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["CH4", "C2H6", "C3H8", "C4H10"]
-
-enunciado: "¿Cuál es la fórmula molecular del {datos[idx][0]}?"
-
-explicacion: |
-  {datos[idx][0]} tiene fórmula {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "basico"
-  tags: ["nomenclatura", "alquenos"]
-
-respuesta: "eno"
-tipo: completar
-respuestas_validas:
-  - "eno"
-
-enunciado: "Los alquenos, con al menos un doble enlace, terminan con el sufijo ___."
-
-explicacion: |
-  Los alquenos son insaturados: al menos un doble enlace C=C, sufijo "-eno".
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "basico"
-  tags: ["estructura", "alquenos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un alqueno tiene al menos un enlace doble entre carbonos."
-
-explicacion: |
-  Correcto. Esa es la característica que distingue alquenos de alcanos (simple) y alquinos (triple).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "intermedio"
-  tags: ["formula_molecular", "alquenos"]
-
-variables:
-  n: uno_de([2, 3, 4, 5])
-
-respuesta: 2 * n
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Calculá la cantidad de hidrógenos de un alqueno con {n} carbonos y 1 doble enlace."
-
-pasos:
-  - "Fórmula: CnH2n"
-
-explicacion: |
-  H = 2×{n}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "basico"
-  tags: ["eteno", "biologia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El eteno (C2H4) también se llama etileno y es la hormona vegetal responsable de la maduración de las frutas."
-
-explicacion: |
-  Verdadero. El eteno regula naturalmente la maduración en plantas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "basico"
-  tags: ["nomenclatura", "alquinos"]
-
-respuesta: "ino"
-tipo: completar
-respuestas_validas:
-  - "ino"
-
-enunciado: "Los alquinos, con al menos un triple enlace, terminan con el sufijo ___."
-
-explicacion: |
-  Sufijo "-ino" para hidrocarburos con al menos un triple enlace C≡C.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "basico"
-  tags: ["estructura", "enlaces"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Un alquino tiene al menos un enlace triple entre carbonos?"
-
-explicacion: |
-  Correcto. Es la característica definitoria de los alquinos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "intermedio"
-  tags: ["formula_molecular", "calculo"]
-
-variables:
-  n: uno_de([2, 3, 4, 5])
-
-respuesta: 2 * n - 2
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Calculá la cantidad de hidrógenos de un alquino lineal con {n} carbonos."
-
-pasos:
-  - "Fórmula: CnH(2n-2)"
-
-explicacion: |
-  H = 2×{n} - 2.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "basico"
-  tags: ["nomenclatura", "usos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿El etino (C2H2) también se llama acetileno y se usa comúnmente en soldadura?"
-
-explicacion: |
-  Verdadero. Su combustión alcanza temperaturas muy altas, útil en sopletes de soldadura.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "basico"
-  tags: ["alcanos", "saturados"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los alcanos se llaman saturados porque tienen la máxima cantidad posible de hidrógenos en su estructura."
-
-explicacion: |
-  Correcto. Con enlaces simples no queda lugar para más hidrógenos sin romper la cadena de carbonos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "basico"
-  tags: ["alquenos", "alquinos", "insaturados"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los alquenos y alquinos se llaman insaturados porque tienen MÁS hidrógenos que el alcano equivalente."
-
-explicacion: |
-  Falso. Tienen MENOS hidrógenos que el alcano de igual número de carbonos, por los enlaces dobles o triples.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "basico"
-  tags: ["nomenclatura", "enlaces"]
-
-variables:
-  tabla: [["-ano", "simple"], ["-eno", "doble"], ["-ino", "triple"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: tabla[idx][1]
-tipo: mc
-opciones_explicitas: ["simple", "doble", "triple"]
-
-enunciado: "El sufijo {tabla[idx][0]} indica que el hidrocarburo tiene un enlace de tipo..."
-
-explicacion: |
-  -ano (simple), -eno (doble), -ino (triple).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "intermedio"
-  tags: ["alquenos", "hidrogenos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un alqueno con 2 dobles enlaces tendría aún menos hidrógenos que uno con sólo 1 doble enlace, para el mismo número de carbonos."
-
-explicacion: |
-  Verdadero. Cada enlace múltiple adicional resta 2 hidrógenos más.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "intermedio"
-  tags: ["comparacion", "formula"]
-
-variables:
-  n: uno_de([3, 4, 5, 6])
-
-respuesta: (2 * n + 2) - (2 * n - 2)
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Para {n} carbonos, ¿cuántos hidrógenos MÁS tiene el alcano que el alquino (con 1 triple enlace)?"
-
-pasos:
-  - "H alcano = 2n+2, H alquino = 2n-2"
-
-explicacion: |
-  Diferencia = (2×{n}+2) - (2×{n}-2) = 4, siempre — la diferencia entre alcano y alquino de igual n es constante.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "avanzado"
-  tags: ["clasificacion", "formula"]
-
-respuesta: "alqueno"
-tipo: mc
-opciones_explicitas: ["alqueno", "alcano", "alquino", "no es un hidrocarburo"]
-
-enunciado: "Una molécula con 4 carbonos y 8 hidrógenos (C4H8), ¿a qué familia pertenece?"
-
-explicacion: |
-  Para n=4, un alcano tendría 10 H, un alquino 6 H — 8 H coincide con la fórmula de alqueno (2n = 8).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "hidrocarburos_alcanos_alquenos_alquinos"
-  nivel: "basico"
-  tags: ["metano", "conceptos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El metano (CH4) puede existir como alqueno o alquino, dependiendo de las condiciones de reacción."
-
-explicacion: |
-  Falso. Con un solo carbono no hay otro carbono con el que formar un enlace doble o triple — el metano es siempre un alcano.
+  Verdadero. Agregar más del reactivo en exceso no cambia nada: el límite lo sigue poniendo el reactivo limitante, que no varió.
 ```
 

@@ -1,8 +1,1636 @@
 # Examen jefe — [PENDIENTE #739]
 
-> Logro #739. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **130 preguntas totales** en 5/5 secciones.
+> Logro #739. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **132 preguntas totales** en 5/5 secciones.
 
 ---
+
+## Sección: mru (26 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "basico"
+  tags: ["posicion"]
+
+variables:
+  x0: random(0, 50)
+  v: random(10, 100)
+  t: random(1, 10)
+
+respuesta: x0 + v * t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto tiene x(t) = {x0} + {v}t (km, con t en horas). ¿Dónde está en t={t}?"
+
+explicacion: |
+  x({t}) = {x0} + {v}×{t} = {x0 + v * t}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "basico"
+  tags: ["posicion"]
+
+variables:
+  v: random(10, 100)
+  t: random(1, 10)
+
+respuesta: v * t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto parte del origen (x₀=0) con v={v} km/h. ¿Dónde está en t={t} horas?"
+
+explicacion: |
+  x({t}) = {v}×{t} = {v * t}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "basico"
+  tags: ["pendiente"]
+
+variables:
+  x0: random(0, 30)
+  v: random(10, 100)
+
+respuesta: v
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "x(t) = {x0} + {v}t. ¿Cuál es la velocidad del objeto?"
+
+explicacion: |
+  La velocidad es la pendiente de x(t) — el coeficiente que multiplica
+  a t.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "basico"
+  tags: ["ordenada_origen"]
+
+variables:
+  x0: random(0, 50)
+  v: random(10, 100)
+
+respuesta: x0
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "x(t) = {x0} + {v}t. ¿Cuál es la posición inicial (en t=0)?"
+
+explicacion: |
+  x(0) = {x0} — la ordenada al origen de la función lineal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "intermedio"
+  tags: ["pendiente"]
+
+variables:
+  t1: random(1, 5)
+  x1: random(0, 50)
+  v: random(10, 80)
+  dt: random(1, 5)
+  t2: t1 + dt
+  x2: x1 + v * dt
+
+respuesta: (x2 - x1) / (t2 - t1)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto está en x={x1} km en t={t1} h, y en x={x2} km en t={t2} h. ¿Cuál es su velocidad?"
+
+explicacion: |
+  v = (x₂−x₁)/(t₂−t₁), la misma fórmula de pendiente de
+  `../../matematica/funcion-lineal-pendiente/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "intermedio"
+  tags: ["area"]
+
+variables:
+  v: random(20, 120)
+  t: random(1, 10)
+
+respuesta: v * t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En un gráfico v-t, la velocidad es constante en {v} km/h durante {t} horas. ¿Cuál es el área bajo esa recta (la distancia recorrida)?"
+
+explicacion: |
+  Área de un rectángulo: base (tiempo) × altura (velocidad).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "intermedio"
+  tags: ["area"]
+
+variables:
+  v: random(20, 100)
+  t1: random(1, 5)
+  t2: random(6, 15)
+
+respuesta: v * (t2 - t1)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Con velocidad constante {v} km/h, ¿qué distancia se recorre entre t={t1} y t={t2} horas?"
+
+explicacion: |
+  Distancia = v×(t₂−t₁) = {v}×{t2 - t1} = {v * (t2 - t1)}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "avanzado"
+  tags: ["sistema"]
+
+variables:
+  v1: random(60, 100)
+  v2: random(30, 59)
+  x0_2: random(10, 100)
+  t_encuentro: random(1, 5)
+  x0_1: v2 * t_encuentro + x0_2 - v1 * t_encuentro
+
+respuesta: t_encuentro
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Auto A: x(t) = {x0_1} + {v1}t. Auto B: x(t) = {x0_2} + {v2}t. ¿En qué instante t se encuentran?"
+
+pasos:
+  - "Igualar: {x0_1}+{v1}t = {x0_2}+{v2}t → ({v1}−{v2})t = {x0_2}−{x0_1}"
+  - "t = {t_encuentro}"
+
+explicacion: |
+  Es el mismo procedimiento de
+  `../../matematica/sistemas-dos-ecuaciones/`, con nombres de contexto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "avanzado"
+  tags: ["sistema"]
+
+variables:
+  v1: random(60, 100)
+  v2: random(30, 59)
+  x0_2: random(10, 100)
+  t_encuentro: random(1, 5)
+  x0_1: v2 * t_encuentro + x0_2 - v1 * t_encuentro
+
+respuesta: x0_1 + v1 * t_encuentro
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Auto A: x(t) = {x0_1} + {v1}t. Auto B: x(t) = {x0_2} + {v2}t. Se encuentran en t={t_encuentro}. ¿En qué posición?"
+
+explicacion: |
+  Se evalúa cualquiera de las dos funciones en t={t_encuentro} — las dos
+  tienen que dar el mismo resultado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El gráfico de posición vs. tiempo (x-t) de un MRU es siempre una recta."
+
+explicacion: |
+  Porque x(t)=x₀+vt es una función lineal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El gráfico de velocidad vs. tiempo (v-t) de un MRU es una recta horizontal."
+
+explicacion: |
+  La velocidad no cambia con el tiempo en un MRU.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un gráfico x-t, cuanto más inclinada es la recta, mayor es la velocidad del objeto."
+
+explicacion: |
+  La pendiente ES la velocidad — más inclinación, más pendiente, más
+  rápido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una velocidad negativa en MRU significa que el objeto se mueve en sentido contrario al que se tomó como positivo, no que 'va hacia atrás en el tiempo'."
+
+explicacion: |
+  El signo de v indica dirección, no una imposibilidad física.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si dos móviles tienen exactamente la misma velocidad (mismas pendientes en x-t), nunca se encuentran (salvo que ya arrancaran juntos)."
+
+explicacion: |
+  Dos rectas paralelas no se cruzan — mismo concepto ya visto en
+  `../../matematica/funcion-lineal-pendiente/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+variables:
+  v: random(10, 100)
+  t_sol: random(1, 10)
+  d: v * t_sol
+
+respuesta: t_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto viaja a {v} km/h. ¿Cuánto tiempo tarda en recorrer {d} km?"
+
+explicacion: |
+  t = d/v = {d}/{v} = {t_sol}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  x0: random(0, 50)
+  v: random(10, 100)
+  t: random(1, 10)
+  real: x0 + v * t
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "x(t) = {x0} + {v}t. ¿Es correcto que x({t}) sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La idea de 'área bajo el gráfico v-t es la distancia recorrida' también vale cuando la velocidad no es constante — ahí el área ya no es un simple rectángulo."
+
+explicacion: |
+  Es el adelanto directo de `../../matematica/integral/`: el área bajo
+  cualquier curva de velocidad da la distancia, constante o no.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "avanzado"
+  tags: ["sistema", "problema"]
+
+variables:
+  distancia_total: random(100, 500)
+  v1: random(20, 60)
+  v2: random(20, 60)
+
+respuesta: distancia_total / (v1 + v2)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Dos autos parten al mismo tiempo, uno hacia el otro, desde puntos separados por {distancia_total} km, a {v1} y {v2} km/h. ¿En cuántas horas se cruzan?"
+
+pasos:
+  - "Juntos cubren {v1}+{v2}={v1 + v2} km por hora — se cruzan cuando la suma de lo recorrido llega a {distancia_total}"
+
+explicacion: |
+  Cuando van en sentidos opuestos, las velocidades se suman para saber
+  cuánto se acortan la distancia entre los dos por hora.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un MRU, la aceleración es siempre 0 (la velocidad no cambia)."
+
+explicacion: |
+  Es la definición misma de "uniforme": velocidad constante, sin
+  aceleración.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aunque x(t)=x₀+vt matemáticamente tiene dominio en todos los reales, en un problema físico real el dominio suele restringirse a t≥0 (no tiene sentido un tiempo negativo)."
+
+explicacion: |
+  El modelo matemático es más general que la situación física que
+  describe — hay que interpretar el resultado con sentido común.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  d: random(100, 400)
+  t: random(2, 8)
+
+respuesta: d / t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un viaje de {d} km (con paradas incluidas) tardó {t} horas en total. ¿Cuál fue la velocidad media?"
+
+explicacion: |
+  La velocidad media usa distancia y tiempo TOTALES, aunque el
+  movimiento real no haya sido a velocidad constante en cada tramo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  t1: random(1, 5)
+  x1: random(0, 50)
+  v: random(10, 80)
+  dt: random(1, 5)
+  t2: t1 + dt
+  x2: x1 + v * dt
+  error: uno_de([0, 0, 1, -1])
+  propuesto: v + error
+
+respuesta: (propuesto == v)
+tipo: vf
+
+enunciado: "Un objeto está en x={x1} en t={t1}, y en x={x2} en t={t2}. ¿Es correcto que su velocidad sea {propuesto}?"
+
+explicacion: |
+  La velocidad correcta es (x₂−x₁)/(t₂−t₁) = {v}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+variables:
+  v: random(10, 50)
+  x0: random(10, 100)
+
+respuesta: -x0 / v
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "x(t) = {x0} − {v}t (un objeto que se acerca al origen). ¿En qué instante t pasa por x=0?"
+
+explicacion: |
+  Se despeja t de {x0} − {v}t = 0 → t = {x0}/{v}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "avanzado"
+  tags: ["sistema", "problema"]
+
+variables:
+  v_lento: random(10, 30)
+  v_rapido: random(40, 80)
+  cabeza: random(10, 50)
+
+respuesta: cabeza / (v_rapido - v_lento)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un ciclista a {v_lento} km/h lleva {cabeza} km de ventaja. Un auto sale a perseguirlo a {v_rapido} km/h. ¿En cuántas horas lo alcanza?"
+
+pasos:
+  - "El auto gana {v_rapido}−{v_lento}={v_rapido - v_lento} km por hora de diferencia"
+
+explicacion: |
+  Se plantea igualando las dos posiciones, igual que un encuentro común.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Decir 'velocidad constante' y decir 'aceleración cero' describen exactamente la misma situación en cinemática."
+
+explicacion: |
+  Son dos formas de decir lo mismo — prepara el terreno para
+  `../mruv/`, donde la aceleración deja de ser 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mru"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  v1: random(20, 60)
+  t1: random(1, 5)
+  v2: random(20, 60)
+  t2: random(1, 5)
+
+respuesta: v1 * t1 + v2 * t2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un viaje tiene un primer tramo a {v1} km/h durante {t1} h, y un segundo tramo a {v2} km/h durante {t2} h. ¿Cuál es la distancia total?"
+
+explicacion: |
+  Cada tramo es un MRU independiente — se suman las distancias
+  parciales.
+```
+
+## Sección: leyes-de-newton/tercera-accion-reaccion (26 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "basico"
+  tags: ["tercera_ley", "vocabulario"]
+
+enunciado: "¿Qué dice la tercera ley de Newton?"
+tipo: mc
+opciones_explicitas:
+  - "A toda acción corresponde una reacción de igual magnitud y sentido opuesto, sobre un objeto distinto"
+  - "Toda fuerza produce siempre el doble de aceleración en el objeto que la recibe"
+  - "Las fuerzas de acción y reacción siempre se cancelan entre sí"
+respuesta: "A toda acción corresponde una reacción de igual magnitud y sentido opuesto, sobre un objeto distinto"
+
+explicacion: |
+  La condición de "objeto distinto" es la parte que más se olvida.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "intermedio"
+  tags: ["tercera_ley", "vocabulario"]
+
+enunciado: "¿Cuál es la condición clave del par acción-reacción que más se suele olvidar?"
+tipo: mc
+opciones_explicitas:
+  - "Que las dos fuerzas actúan sobre objetos DISTINTOS, nunca sobre el mismo"
+  - "Que las dos fuerzas tienen que tener distinta magnitud"
+  - "Que una de las dos fuerzas tiene que ser mayor que la otra"
+respuesta: "Que las dos fuerzas actúan sobre objetos DISTINTOS, nunca sobre el mismo"
+
+explicacion: |
+  Es la clave para no confundir la tercera ley con el equilibrio de
+  fuerzas sobre un mismo objeto.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "intermedio"
+  tags: ["tercera_ley"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Las dos fuerzas de un par acción-reacción actúan siempre sobre el mismo objeto."
+
+explicacion: |
+  Actúan siempre sobre dos objetos distintos — es la condición central
+  de la tercera ley.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "intermedio"
+  tags: ["tercera_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las dos fuerzas de un par acción-reacción actúan siempre sobre dos objetos distintos."
+
+explicacion: |
+  Nunca sobre el mismo objeto.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "avanzado"
+  tags: ["tercera_ley", "vocabulario"]
+
+enunciado: "Si la acción y la reacción son iguales y opuestas, ¿por qué no se cancelan entre sí, dejando todo inmóvil?"
+tipo: mc
+opciones_explicitas:
+  - "Porque actúan sobre objetos distintos: cada fuerza afecta el movimiento de su propio objeto por separado"
+  - "En realidad sí se cancelan siempre, por eso nada se mueve nunca"
+  - "Porque la reacción es siempre un poco más chica que la acción"
+respuesta: "Porque actúan sobre objetos distintos: cada fuerza afecta el movimiento de su propio objeto por separado"
+
+explicacion: |
+  Para que dos fuerzas se cancelen, tienen que actuar sobre el mismo
+  objeto — y acá nunca es el caso.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "avanzado"
+  tags: ["tercera_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para que dos fuerzas se cancelen (den fuerza neta cero), tienen que actuar sobre el mismo objeto."
+
+explicacion: |
+  Es la razón exacta por la que un par acción-reacción (que actúa sobre
+  dos objetos distintos) nunca se cancela.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "intermedio"
+  tags: ["tercera_ley", "vocabulario"]
+
+enunciado: "Al caminar, ¿cuál es el par acción-reacción que impulsa a la persona hacia adelante?"
+tipo: mc
+opciones_explicitas:
+  - "El pie empuja el piso hacia atrás; el piso empuja el pie hacia adelante"
+  - "El aire empuja a la persona desde atrás"
+  - "Los músculos de la pierna generan la fuerza sin ninguna reacción externa"
+respuesta: "El pie empuja el piso hacia atrás; el piso empuja el pie hacia adelante"
+
+explicacion: |
+  La reacción del piso es la que realmente impulsa a la persona.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "intermedio"
+  tags: ["tercera_ley", "vocabulario"]
+
+enunciado: "Al nadar, ¿cuál es el par acción-reacción que impulsa al nadador hacia adelante?"
+tipo: mc
+opciones_explicitas:
+  - "La mano empuja el agua hacia atrás; el agua empuja la mano (y el cuerpo) hacia adelante"
+  - "El nadador flota por su propio peso, sin ninguna reacción del agua"
+  - "El agua empuja al nadador hacia abajo"
+respuesta: "La mano empuja el agua hacia atrás; el agua empuja la mano (y el cuerpo) hacia adelante"
+
+explicacion: |
+  Es el mismo principio que caminar, aplicado al agua en vez del piso.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "intermedio"
+  tags: ["tercera_ley", "vocabulario"]
+
+enunciado: "¿Cómo se propulsa un cohete, según la tercera ley?"
+tipo: mc
+opciones_explicitas:
+  - "Expulsa gases hacia atrás a gran velocidad; los gases empujan al cohete hacia adelante"
+  - "Se empuja contra el aire que lo rodea, como un avión"
+  - "No se puede explicar con la tercera ley"
+respuesta: "Expulsa gases hacia atrás a gran velocidad; los gases empujan al cohete hacia adelante"
+
+explicacion: |
+  Por eso funciona igual en el vacío del espacio.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "avanzado"
+  tags: ["tercera_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un cohete puede propulsarse en el vacío del espacio, sin necesitar 'empujar contra' ningún aire externo."
+
+explicacion: |
+  El par acción-reacción es entre el cohete y los gases que expulsa, no
+  contra el aire circundante.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "avanzado"
+  tags: ["tercera_ley", "vocabulario"]
+
+enunciado: "Un libro está apoyado sobre una mesa: su peso lo empuja hacia abajo, y la normal de la mesa lo empuja hacia arriba, con la misma magnitud. ¿Son estas dos fuerzas un par acción-reacción?"
+tipo: mc
+opciones_explicitas:
+  - "No, porque ambas actúan sobre el mismo objeto (el libro)"
+  - "Sí, porque son iguales en magnitud y opuestas en sentido"
+  - "Sí, porque una es la reacción natural de la otra"
+respuesta: "No, porque ambas actúan sobre el mismo objeto (el libro)"
+
+explicacion: |
+  Violan la condición central de "objeto distinto": ambas actúan sobre
+  el libro.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "avanzado"
+  tags: ["tercera_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el ejemplo del libro sobre la mesa, tanto el peso como la normal actúan sobre el mismo objeto: el libro."
+
+explicacion: |
+  Por eso no son un par acción-reacción, aunque sean iguales y
+  opuestas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "avanzado"
+  tags: ["tercera_ley", "vocabulario"]
+
+enunciado: "Si el peso y la normal del libro no son un par acción-reacción, ¿por qué terminan siendo iguales en magnitud?"
+tipo: mc
+opciones_explicitas:
+  - "Por la primera ley: el libro está en equilibrio (no acelera), así que la fuerza neta sobre él tiene que ser cero"
+  - "Es una coincidencia sin ninguna explicación física"
+  - "Porque la tercera ley las obliga a ser iguales, aunque actúen sobre el mismo objeto"
+respuesta: "Por la primera ley: el libro está en equilibrio (no acelera), así que la fuerza neta sobre él tiene que ser cero"
+
+explicacion: |
+  Es la primera ley (equilibrio), no la tercera, la que explica esa
+  igualdad.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "avanzado"
+  tags: ["tercera_ley", "vocabulario"]
+
+enunciado: "¿Cuál es el verdadero par acción-reacción de la fuerza normal que la mesa ejerce sobre el libro?"
+tipo: mc
+opciones_explicitas:
+  - "El libro empuja hacia abajo sobre la mesa, con la misma magnitud"
+  - "El peso del libro"
+  - "La fuerza de rozamiento del libro con la mesa"
+respuesta: "El libro empuja hacia abajo sobre la mesa, con la misma magnitud"
+
+explicacion: |
+  Es el par correcto: libro empuja mesa (acción) ↔ mesa empuja libro,
+  la normal (reacción).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "avanzado"
+  tags: ["tercera_ley", "vocabulario"]
+
+enunciado: "¿Cuál es el verdadero par acción-reacción del peso del libro (la Tierra atrayéndolo)?"
+tipo: mc
+opciones_explicitas:
+  - "El libro atrae a la Tierra hacia arriba, con la misma magnitud"
+  - "La normal de la mesa"
+  - "El rozamiento del libro con el aire"
+respuesta: "El libro atrae a la Tierra hacia arriba, con la misma magnitud"
+
+explicacion: |
+  Es una fuerza gravitatoria mutua: el libro también atrae a la Tierra,
+  aunque el efecto sea imperceptible.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "avanzado"
+  tags: ["tercera_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El libro atrae gravitacionalmente a la Tierra con exactamente la misma magnitud de fuerza con la que la Tierra atrae al libro."
+
+explicacion: |
+  Es lo que exige la tercera ley para cualquier par de fuerzas
+  gravitatorias mutuas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "intermedio"
+  tags: ["tercera_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aunque la fuerza sea igual en magnitud, el efecto de esa fuerza sobre el movimiento de la Tierra es imperceptible, por la enorme masa de la Tierra."
+
+explicacion: |
+  Misma fuerza, pero F=m·a: con una masa gigantesca, la aceleración
+  resultante es prácticamente cero (ver `../segunda-fma/`).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "intermedio"
+  tags: ["tercera_ley", "problema"]
+
+variables:
+  fuerza: random(20, 100)
+
+respuesta: fuerza
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una persona empuja una pared con una fuerza de {fuerza} N. ¿Con qué magnitud de fuerza empuja la pared a la persona (la reacción)?"
+
+explicacion: |
+  Exactamente la misma magnitud, {fuerza} N, en sentido contrario.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "basico"
+  tags: ["tercera_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La fuerza de reacción siempre tiene sentido exactamente opuesto a la fuerza de acción."
+
+explicacion: |
+  Misma magnitud, sentido contrario, objeto distinto: las tres
+  condiciones del par acción-reacción.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "intermedio"
+  tags: ["tercera_ley", "problema"]
+
+variables:
+  fuerza: random(50, 150)
+
+respuesta: fuerza
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Al caminar, el pie empuja el piso hacia atrás con {fuerza} N. ¿Con qué fuerza empuja el piso al pie hacia adelante?"
+
+explicacion: |
+  Misma magnitud que la acción, {fuerza} N.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "avanzado"
+  tags: ["tercera_ley", "ordenar"]
+
+enunciado: "Ordená los pasos para identificar correctamente un par acción-reacción en una escena con varias fuerzas."
+tipo: ordenar
+opciones_explicitas:
+  - "Confirmar que ambas fuerzas actúan sobre objetos distintos, no sobre el mismo"
+  - "Elegir una fuerza (la 'acción') y ver sobre qué objeto actúa"
+  - "Buscar la fuerza de igual magnitud y sentido opuesto que actúa sobre el OTRO objeto involucrado"
+respuesta_orden: ["Elegir una fuerza (la 'acción') y ver sobre qué objeto actúa", "Buscar la fuerza de igual magnitud y sentido opuesto que actúa sobre el OTRO objeto involucrado", "Confirmar que ambas fuerzas actúan sobre objetos distintos, no sobre el mismo"]
+explicacion: |
+  El último paso es el que evita el error común del libro y la mesa.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "intermedio"
+  tags: ["tercera_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La acción y la reacción ocurren exactamente al mismo tiempo, no una después de la otra."
+
+explicacion: |
+  No hay una fuerza "primero" y otra "después": son simultáneas por
+  definición.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "intermedio"
+  tags: ["tercera_ley", "vocabulario"]
+
+enunciado: "¿Qué tienen en común un avión a reacción y un cohete, en términos de la tercera ley?"
+tipo: mc
+opciones_explicitas:
+  - "Ambos se propulsan expulsando masa (gases) hacia atrás, y reciben una reacción hacia adelante"
+  - "Ninguno de los dos usa la tercera ley para moverse"
+  - "Sólo el cohete usa la tercera ley; el avión usa un principio distinto"
+respuesta: "Ambos se propulsan expulsando masa (gases) hacia atrás, y reciben una reacción hacia adelante"
+
+explicacion: |
+  Es el mismo principio de propulsión a reacción.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "intermedio"
+  tags: ["tercera_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin la reacción del piso (empujando el pie hacia adelante), sería imposible caminar."
+
+explicacion: |
+  Es literalmente la fuerza que impulsa el cuerpo hacia adelante.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "avanzado"
+  tags: ["tercera_ley", "problema"]
+
+variables:
+  fuerza_choque: random(500, 2000)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un choque frontal entre un auto pequeño y un camión, el auto pequeño ejerce sobre el camión una fuerza de {fuerza_choque} N. Según la tercera ley, ¿el camión ejerce esa misma magnitud de fuerza sobre el auto pequeño, sin importar que tengan masas muy distintas?"
+
+explicacion: |
+  La tercera ley no depende de las masas: la fuerza es igual en ambos
+  sentidos. Lo que sí difiere (por la segunda ley) es cuánto acelera
+  cada uno, porque tienen masas distintas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "tercera_ley_newton_accion_reaccion"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender la tercera ley de Newton?"
+tipo: mc
+opciones_explicitas:
+  - "Para explicar cómo es posible moverse, nadar o propulsar un cohete: todo empuje viene acompañado de un empuje de vuelta, sobre otro objeto"
+  - "Sólo sirve para explicar por qué los objetos en reposo se quedan quietos"
+  - "Sólo aplica a fuerzas gravitatorias"
+respuesta: "Para explicar cómo es posible moverse, nadar o propulsar un cohete: todo empuje viene acompañado de un empuje de vuelta, sobre otro objeto"
+
+explicacion: |
+  Cierra el bloque de las tres leyes de Newton, la base de
+  `../../dinamica-fuerzas-concurrentes/`.
+```
+
+## Sección: mruv (28 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "basico"
+  tags: ["velocidad"]
+
+variables:
+  v0: random(0, 20)
+  a: random(1, 10)
+  t: random(1, 10)
+
+respuesta: v0 + a * t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v(t) = {v0} + {a}t (m/s). ¿Cuánto vale v({t})?"
+
+explicacion: |
+  v({t}) = {v0} + {a}×{t} = {v0 + a * t}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["velocidad", "signos"]
+
+variables:
+  v0: random(30, 60)
+  a: random(1, 5)
+  t: random(1, 8)
+
+respuesta: v0 - a * t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v(t) = {v0} − {a}t (m/s, frenando). ¿Cuánto vale v({t})?"
+
+explicacion: |
+  v({t}) = {v0} − {a}×{t} = {v0 - a * t}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["posicion"]
+
+variables:
+  x0: random(0, 20)
+  v0: random(0, 15)
+  a: random(2, 6) * 2
+  t: random(1, 6)
+
+respuesta: x0 + v0 * t + (a * t ^ 2) / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "x(t) = {x0} + {v0}t + ½×{a}t² (m). ¿Cuánto vale x({t})?"
+
+pasos:
+  - "x({t}) = {x0} + {v0}×{t} + ({a}×{t}²)/2 = {x0 + v0 * t + (a * t ^ 2) / 2}"
+
+explicacion: |
+  Se evalúan los tres términos y se suman.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "basico"
+  tags: ["posicion"]
+
+variables:
+  a: random(2, 8) * 2
+  t: random(1, 8)
+
+respuesta: (a * t ^ 2) / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto parte del reposo (v₀=0, x₀=0) con aceleración {a} m/s². ¿Cuánto recorrió en t={t} s?"
+
+explicacion: |
+  x(t) = ½at² = {a}×{t}²/2 = {(a * t ^ 2) / 2}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["sin_tiempo"]
+
+variables:
+  v0: random(0, 10)
+  a: random(1, 5)
+  k: random(1, 5)
+  v_final: v0 + 2 * a * k
+  dx: k * (v_final + v0)
+
+respuesta: v_final
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v₀={v0} m/s, a={a} m/s². Después de recorrer {dx} m, ¿cuál es la velocidad final? (usando v²=v₀²+2aΔx)"
+
+pasos:
+  - "v² = {v0}² + 2×{a}×{dx} = {v0 ^ 2 + 2 * a * dx}"
+  - "v = √{v0 ^ 2 + 2 * a * dx} = {v_final}"
+
+explicacion: |
+  Se usa la fórmula sin tiempo cuando no hace falta (o no se conoce) t.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["sin_tiempo"]
+
+variables:
+  v0: random(0, 10)
+  a: random(1, 6)
+  dx_sol: random(5, 20)
+
+respuesta: dx_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v₀={v0} m/s, a={a} m/s². La velocidad final da un número que no hace falta calcular a mano — sabiendo que v²−v₀² = {2 * a * dx_sol}, ¿cuánto vale Δx?"
+
+pasos:
+  - "Δx = (v²−v₀²)/(2a) = {2 * a * dx_sol}/{2 * a} = {dx_sol}"
+
+explicacion: |
+  Se despeja Δx de la ecuación sin tiempo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["aceleracion"]
+
+variables:
+  v0: random(0, 20)
+  a_sol: random(1, 10)
+  t: random(1, 8)
+  v: v0 + a_sol * t
+
+respuesta: (v - v0) / t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto pasa de v₀={v0} m/s a v={v} m/s en t={t} s. ¿Cuál es su aceleración?"
+
+explicacion: |
+  a = (v−v₀)/t = ({v}−{v0})/{t} = {(v - v0) / t}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["tiempo"]
+
+variables:
+  v0: random(0, 20)
+  a: random(1, 10)
+  t_sol: random(1, 10)
+  v: v0 + a * t_sol
+
+respuesta: t_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v₀={v0} m/s, a={a} m/s². ¿Cuánto tiempo tarda en llegar a v={v} m/s?"
+
+explicacion: |
+  t = (v−v₀)/a = {t_sol}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El gráfico v-t de un MRUV es una recta (no horizontal, salvo que a=0)."
+
+explicacion: |
+  v(t)=v₀+at es una función lineal de t, con pendiente a.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El gráfico x-t de un MRUV es una parábola."
+
+explicacion: |
+  x(t)=x₀+v₀t+½at² es una función cuadrática de t.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el gráfico v-t, la pendiente de la recta es exactamente la aceleración."
+
+explicacion: |
+  Mismo principio que en x-t con MRU: la pendiente es la tasa de
+  cambio — acá, de la velocidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["error_comun", "opcion_multiple"]
+
+variables:
+  a: random(2, 10)
+  t: random(1, 8)
+
+respuesta: (a * t ^ 2) / 2
+tipo: mc
+opciones_explicitas:
+  - (a * t ^ 2) / 2
+  - a * t ^ 2
+  - (a * t) / 2
+
+enunciado: "Un objeto parte del reposo con aceleración {a} m/s². ¿Cuánto recorrió en t={t} s?"
+
+explicacion: |
+  x=½at² — olvidar el ½ (o el cuadrado) es el error más común de la
+  fórmula.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "En un MRUV, la fórmula v=d/t (de MRU) sigue dando la velocidad en cualquier instante."
+
+explicacion: |
+  v=d/t asume velocidad CONSTANTE — en MRUV la velocidad cambia, así que
+  hacen falta las fórmulas específicas de MRUV.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  v0: random(0, 20)
+  a: random(1, 10)
+  t: random(1, 10)
+  real: v0 + a * t
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "v(t) = {v0} + {a}t. ¿Es correcto que v({t}) sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  a: random(2, 6)
+  t: random(10, 30)
+
+respuesta: (a * t ^ 2) / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un avión acelera desde el reposo a {a} m/s² durante {t} s antes de despegar. ¿Qué distancia recorrió en la pista?"
+
+explicacion: |
+  x=½at², partiendo del reposo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "v₀ (velocidad inicial) y v(t) (velocidad en un instante t cualquiera) son siempre el mismo número."
+
+explicacion: |
+  Sólo coinciden en t=0 — en cualquier otro instante, difieren según la
+  aceleración acumulada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una aceleración negativa no significa automáticamente que el objeto está frenando — depende del signo de la velocidad."
+
+explicacion: |
+  Si v es negativa y a también, el objeto en realidad acelera (cada vez
+  más rápido) en sentido negativo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  v0: random(0, 15)
+  a: random(1, 8)
+  t: random(1, 8)
+  v: v0 + a * t
+  dx: v0 * t + (a * t ^ 2) / 2
+
+respuesta: ((v ^ 2) == (v0 ^ 2 + 2 * a * dx))
+tipo: vf
+
+enunciado: "v₀={v0}, a={a}, t={t}. Con v={v} y Δx={dx} (calculados con las otras dos fórmulas), ¿se cumple v²=v₀²+2aΔx?"
+
+explicacion: |
+  Las tres fórmulas de MRUV son consistentes entre sí — cualquier par
+  de ellas tiene que dar el mismo resultado que la tercera.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  t: random(1, 8)
+
+respuesta: 10 * t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto se suelta desde el reposo con aceleración g=10 m/s² (caída libre). ¿Cuál es su velocidad después de {t} s?"
+
+explicacion: |
+  v=at, con v₀=0 — el caso más simple de caída libre, antes de ver
+  `../tiro-vertical/` con velocidad inicial.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La unidad de la aceleración en el sistema SI es m/s² (metros por segundo, por segundo)."
+
+explicacion: |
+  Es "cuánto cambia la velocidad (m/s) por cada segundo que pasa" — de
+  ahí la unidad al cuadrado en el denominador.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["velocidad"]
+
+variables:
+  v0_sol: random(0, 20)
+  a: random(1, 10)
+  t: random(1, 8)
+  v: v0_sol + a * t
+
+respuesta: v0_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto con aceleración {a} m/s² llega a v={v} m/s después de {t} s. ¿Cuál era su velocidad inicial?"
+
+explicacion: |
+  v₀ = v−at = {v}−{a}×{t} = {v0_sol}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si en las fórmulas de MRUV se pone a=0, se recuperan exactamente las fórmulas de MRU."
+
+explicacion: |
+  v(t)=v₀+0·t=v₀ (constante), x(t)=x₀+v₀t+0=x₀+v₀t — el MRU es el caso
+  particular de MRUV sin aceleración.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  a: random(2, 6)
+  n: random(1, 5)
+  v0: 2 * a * n
+  dx: 2 * a * n ^ 2
+
+respuesta: dx
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un auto frena desde v₀={v0} m/s con desaceleración {a} m/s² hasta detenerse (v=0). ¿Qué distancia recorre hasta parar?"
+
+pasos:
+  - "0 = v₀² − 2aΔx → Δx = v₀²/(2a)"
+
+explicacion: |
+  Es la misma cuenta que se profundiza en
+  `../../vida-cotidiana/distancia-frenado/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el instante en que v=0 dentro de un MRUV, la aceleración puede seguir siendo distinta de 0 (por ejemplo, en el punto más alto de un tiro vertical)."
+
+explicacion: |
+  v=0 es sólo un instante; a sigue actuando (la gravedad no se apaga en
+  el punto más alto) — adelanto de `../tiro-vertical/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  x0: random(0, 20)
+  v0: random(0, 15)
+  a: random(2, 6) * 2
+  t: random(1, 6)
+  real: x0 + v0 * t + (a * t ^ 2) / 2
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "x(t) = {x0} + {v0}t + ½×{a}t². ¿Es correcto que x({t}) sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["concepto", "opcion_multiple"]
+
+respuesta: "v² = v₀² + 2aΔx"
+tipo: mc
+opciones_explicitas:
+  - "v² = v₀² + 2aΔx"
+  - "v = v₀ + at"
+  - "x = x₀ + v₀t + ½at²"
+
+enunciado: "Un problema da v₀, a y Δx, y pide la velocidad final — sin dar el tiempo. ¿Qué fórmula conviene usar?"
+
+explicacion: |
+  Es la única de las tres que no necesita el tiempo como dato.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["problema"]
+
+variables:
+  v0: random(20, 60)
+  a: random(2, 10)
+
+respuesta: v0 / a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto con v₀={v0} m/s frena con desaceleración {a} m/s². ¿Cuánto tarda en detenerse (v=0)?"
+
+explicacion: |
+  0 = v₀ − at → t = v₀/a.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para encontrar en qué instante un objeto en MRUV pasa por una posición dada, hay que resolver una ecuación cuadrática en t."
+
+explicacion: |
+  x(t)=x₀+v₀t+½at² es cuadrática en t — despejar t de una posición dada
+  usa la fórmula resolvente de `../../matematica/ecuacion-cuadratica/`.
+```
 
 ## Sección: dinamica-fuerzas-concurrentes (27 preguntas)
 
@@ -563,2030 +2191,487 @@ explicacion: |
   Es la aplicación práctica de las tres leyes de Newton juntas.
 ```
 
-## Sección: dualidad-onda-particula (25 preguntas)
+## Sección: oscilacion-periodo (25 preguntas)
 
 ```
 metadata:
   materia: "fisica"
-  tema: "dualidad_onda_particula"
+  tema: "oscilacion_y_periodo"
   nivel: "basico"
-  tags: ["conceptos", "naturaleza_luz"]
+  tags: ["definicion", "movimiento"]
 
-respuesta: "onda"
-tipo: "completar"
+respuesta: "oscilación"
+tipo: completar
 respuestas_validas:
-  - "onda"
+  - "oscilación"
+  - "oscilacion"
 
-enunciado: "Cuando la luz presenta fenómenos como la difracción o la interferencia, se comporta como una ___."
+enunciado: "El movimiento de vaivén de un objeto alrededor de una posición de equilibrio se denomina ___."
 
 explicacion: |
-  La difracción y la interferencia son fenómenos característicos de las ondas.
+  Una oscilación es un movimiento repetitivo que pasa por una posición de equilibrio, como un péndulo o un resorte.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "dualidad_onda_particula"
+  tema: "oscilacion_y_periodo"
   nivel: "basico"
-  tags: ["fotón", "particula"]
+  tags: ["periodo", "tiempo"]
 
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "Un fotón es una partícula elemental de luz que no tiene masa en reposo."
-
-explicacion: |
-  Correcto. El fotón es el cuanto de la radiación electromagnética y su masa en reposo es cero.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "basico"
-  tags: ["materia", "de_broglie"]
-
-respuesta: "particula"
-tipo: "mc"
-opciones_explicitas: ["onda", "particula", "gas", "plasma"]
-
-enunciado: "Según la hipótesis de De Broglie, la materia (como un electrón) también posee una naturaleza de:"
-
-explicacion: |
-  La dualidad establece que tanto la luz como la materia tienen propiedades ondulatorias y de partícula.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "intermedio"
-  tags: ["planck", "energia"]
-
-respuesta: "Planck"
-tipo: "completar"
-respuestas_validas:
-  - "Planck"
-
-enunciado: "La constante que relaciona la energía de un fotón con su frecuencia es la constante de ___."
-
-explicacion: |
-  La ecuación es E = h * f, donde h es la constante de Planck.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "basico"
-  tags: ["experimento", "Young"]
-
-respuesta: "interferencia"
-tipo: "mc"
-opciones_explicitas: ["interferencia", "colisión", "dispersión", "reflexión"]
-
-enunciado: "El patrón de franjas brillantes y oscuras observado en el experimento de la doble rendija con luz es un patrón de:"
-
-explicacion: |
-  La interferencia es la superposición de ondas que crea este patrón característico.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "intermedio"
-  tags: ["calculo", "de_broglie"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[1.0e-24, 1.0e24], [2.0e-24, 5.0e23]]
-
-respuesta: datos[idx][1]
-tipo: "completar"
-tolerancia_abs: 1e20
-
-enunciado: "Si un electrón tiene un momento lineal de {datos[idx][0]} kg·m/s, su longitud de onda de De Broglie es aproximadamente ___ m (asumiendo h = 1)."
-
-pasos:
-  - "Calcular lambda = h / p"
-  - "Sustituir el valor de p dado"
-
-explicacion: |
-  La fórmula es lambda = h / p = 1 / {datos[idx][0]} = {datos[idx][1]} m.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "intermedio"
-  tags: ["fotoeléctrico", "einstein"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "El efecto fotoeléctrico fue la evidencia experimental que confirmó la naturaleza corpuscular de la luz."
-
-explicacion: |
-  Einstein explicó este efecto mediante la existencia de cuantos de energía (fotones).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "intermedio"
-  tags: ["velocidad", "relatividad"]
-
-respuesta: "mayor"
-tipo: "mc"
-opciones_explicitas: ["mayor", "menor", "igual", "nula"]
-
-enunciado: "A medida que la velocidad de una partícula aumenta, su momento lineal aumenta, por lo que su longitud de onda de De Broglie es ___."
-
-explicacion: |
-  Como lambda = h/p, si el momento (p) aumenta, la longitud de onda (lambda) disminuye.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "avanzado"
-  tags: ["electrones", "cuantica"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "Si lanzamos electrones uno por uno a través de una doble rendija, eventualmente se observa un patrón de interferencia."
-
-explicacion: |
-  Incluso lanzando partículas individuales, la naturaleza ondulatoria de cada una permite la interferencia con su propia probabilidad de posición.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "intermedio"
-  tags: ["relacion", "formula"]
-
-respuesta: "inversamente"
-tipo: "completar"
-respuestas_validas:
-  - "inversamente"
-
-enunciado: "La longitud de onda de De Broglie es ___ proporcional al momento lineal de la partícula."
-
-explicacion: |
-  Es una relación inversa: a mayor momento, menor longitud de onda.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "basico"
-  tags: ["error", "fotón"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "Un fotón tiene una masa de reposo mayor que un electrón."
-
-explicacion: |
-  Falso. El fotón no tiene masa en reposo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "intermedio"
-  tags: ["ordenar", "proceso"]
-
-opciones_explicitas: ["Emisión de fotón", "Interacción con material", "Detección de señal"]
-respuesta_orden: ["Emisión de fotón", "Interacción con material", "Detección de señal"]
-tipo: "ordenar"
-
-enunciado: "Ordena los pasos de un proceso de detección de luz mediante el efecto fotoeléctrico:"
-
-explicacion: |
-  Primero se emite la luz, luego interactúa con el metal y finalmente se detecta la corriente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-respuesta: "particula"
-tipo: "mc"
-opciones_explicitas: ["onda", "particula", "campo", "energía"]
-
-enunciado: "Cuando la luz deposita su energía en un punto localizado de un detector, se comporta como una:"
-
-explicacion: |
-  El depósito localizado de energía es una característica del comportamiento corpuscular.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "avanzado"
-  tags: ["heisenberg", "incertidumbre"]
-
-respuesta: "posición"
-tipo: "completar"
-respuestas_validas:
-  - "posición"
-
-enunciado: "El principio de incertidumbre de Heisenberg establece que no podemos conocer simultáneamente con precisión la ___ y el momento de una partícula."
-
-explicacion: |
-  Es el principio fundamental de la mecánica cuántica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "intermedio"
-  tags: ["error", "frecuencia"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "Si duplicamos la frecuencia de una onda electromagnética, su energía se reduce a la mitad."
-
-explicacion: |
-  Falso. Según E = h*f, la energía es directamente proporcional a la frecuencia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "avanzado"
-  tags: ["calculo", "rayos_x"]
-
-variables:
-  h_val: 6.6e-34
-
-respuesta: 1
-tipo: "completar"
-tolerancia_abs: 0.001
-
-enunciado: "Si la constante de Planck es {h_val} J·s y un fotón tiene una energía de {h_val} J, su frecuencia es ___ Hz."
-
-pasos:
-  - "Usar f = E / h"
-
-explicacion: |
-  Como E = h * f, si E = h, entonces f = E/h = 1.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "basico"
-  tags: ["vacío", "luz"]
-
-respuesta: "onda"
-tipo: "mc"
-opciones_explicitas: ["onda", "particula", "ambas", "ninguna"]
-
-enunciado: "En el vacío, la luz se propaga como una ___ electromagnética."
-
-explicacion: |
-  La propagación en el vacío se describe mediante las ecuaciones de Maxwell como una onda.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "avanzado"
-  tags: ["macro", "de_broglie"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "Los objetos macroscópicos, como una pelota de béisbol, muestran efectos de difracción claramente visibles debido a su naturaleza ondulatoria."
-
-explicacion: |
-  Aunque teóricamente tienen longitud de onda, su masa es tan grande que la longitud de onda es imperceptible.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-respuesta: "masa"
-tipo: "mc"
-opciones_explicitas: ["masa", "carga", "frecuencia", "velocidad"]
-
-enunciado: "La principal diferencia entre un fotón y un electrón es que el electrón posee ___."
-
-explicacion: |
-  El electrón tiene masa en reposo y carga eléctrica; el fotón no.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "avanzado"
-  tags: ["calculo", "de_broglie"]
-
-variables:
-  p_val: 1.0e-34
-
-respuesta: 1.0e34
-tipo: "completar"
-tolerancia_abs: 1e30
-
-enunciado: "Si un objeto tiene un momento de {p_val} kg·m/s y h = 1, su longitud de onda es ___ m."
-
-pasos:
-  - "lambda = h / p"
-
-explicacion: |
-  Aplicación directa de la fórmula de De Broglie: lambda = 1 / {p_val} = 1.0e34 m.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "basico"
-  tags: ["resumen"]
-
-respuesta: "ambas"
-tipo: "mc"
-opciones_explicitas: ["onda", "particula", "ambas", "ninguna"]
-
-enunciado: "La dualidad onda-partícula implica que la luz y la materia exhiben propiedades de:"
-
-explicacion: |
-  Ambas naturalezas son complementarias.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "avanzado"
-  tags: ["doppler", "frecuencia"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "El efecto Doppler puede aplicarse a los fotones, provocando un cambio en su frecuencia (color)."
-
-explicacion: |
-  El desplazamiento al rojo o azul es un cambio en la frecuencia debido al movimiento relativo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "intermedio"
-  tags: ["ordenar", "escala"]
-
-opciones_explicitas: ["Fotón (luz visible)", "Electrón (De Broglie)", "Pelota de béisbol (De Broglie)"]
-respuesta_orden: ["Fotón (luz visible)", "Electrón (De Broglie)", "Pelota de béisbol (De Broglie)"]
-tipo: "ordenar"
-
-enunciado: "Ordena estos objetos de mayor a menor longitud de onda de De Broglie:"
-
-explicacion: |
-  A mayor masa/momento, menor longitud de onda.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "basico"
-  tags: ["planck", "constante"]
-
-respuesta: "6.626e-34"
-tipo: "input"
-tolerancia_abs: 0.001
-
-enunciado: "El valor aproximado de la constante de Planck en unidades de J·s es (usa notación científica, ej: 6.6e-34):"
-
-explicacion: |
-  h ≈ 6.626 × 10^-34 J·s.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "dualidad_onda_particula"
-  nivel: "basico"
-  tags: ["conclusion"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "La dualidad onda-partícula es un concepto fundamental de la mecánica cuántica que rompe con la física clásica."
-
-explicacion: |
-  La física clásica no puede explicar fenómenos como el efecto fotoeléctrico.
-```
-
-## Sección: energia-cinetica (28 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["definicion", "energia"]
-
+respuesta: "el tiempo que tarda en realizarse un ciclo completo"
 tipo: mc
-opciones_explicitas: ["La energía que posee un cuerpo debido a su movimiento.", "La energía que posee un cuerpo debido a su posición.", "La energía almacenada en los enlaces químicos.", "La energía debida a la temperatura de un objeto."]
+opciones_explicitas: ["el tiempo que tarda en realizarse un ciclo completo", "la cantidad de ciclos por unidad de tiempo", "la distancia máxima desde el equilibrio"]
 
-respuesta: "La energía que posee un cuerpo debido a su movimiento."
-
-enunciado: "La energía cinética se define como la energía que posee un cuerpo debido a su ___."
+enunciado: "El periodo (T) se define como: ___."
 
 explicacion: |
-  La energía cinética es la energía que un objeto posee debido a su movimiento. Si el objeto está en reposo (v = 0), su energía cinética es cero.
+  El periodo es precisamente el intervalo de tiempo necesario para que el sistema complete un ciclo completo de movimiento.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_cinetica"
+  tema: "oscilacion_y_periodo"
   nivel: "basico"
-  tags: ["formula", "relacion"]
-
-variables:
-  scenario_idx: uno_de([0, 1])
-  datos: [[10, 2], [5, 4]]
-
-tipo: completar
-respuestas_validas:
-  - "20.0"
-  - "40.0"
-respuesta: datos[scenario_idx][0] * (datos[scenario_idx][1] * datos[scenario_idx][1]) / 2
-
-enunciado: "Si un objeto tiene una masa de {datos[scenario_idx][0]} kg y una velocidad de {datos[scenario_idx][1]} m/s, su energía cinética es ___ J."
-
-explicacion: |
-  Usando la fórmula $E_c = \frac{1}{2} \cdot m \cdot v^2$:
-  Para el caso sorteado, se calcula $0.5 \cdot m \cdot v^2$.
-  Si scenario_idx es 0: $0.5 \cdot 10 \cdot 2^2 = 20$.
-  Si scenario_idx es 1: $0.5 \cdot 5 \cdot 4^2 = 40$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["formula", "relacion"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[10, 2], [5, 4]] 
-
-tipo: completar
-respuestas_validas:
-  - "20.0"
-  - "40.0"
-respuesta: redondear(datos[escenario_idx][0] * (datos[escenario_idx][1] * datos[escenario_idx][1]) / 2, 1)
-
-enunciado: "Si un objeto tiene una masa de {datos[escenario_idx][0]} kg y una velocidad de {datos[escenario_idx][1]} m/s, su energía cinética es ___ J."
-
-explicacion: |
-  Aplicando la fórmula $E_c = \frac{1}{2} \cdot m \cdot v^2$:
-  Para el primer caso: $0.5 \cdot 10 \cdot 2^2 = 20.0$ J.
-  Para el segundo caso: $0.5 \cdot 5 \cdot 4^2 = 40.0$ J.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "intermedio"
-  tags: ["proporcionalidad", "velocidad"]
-
-tipo: vf
-respuesta: falso
-
-enunciado: "¿Si la velocidad de un objeto se duplica, su energía cinética también se duplica?"
-
-explicacion: |
-  Falso. La energía cinética depende del cuadrado de la velocidad ($v^2$). Si la velocidad se duplica ($2v$), la energía cinética se multiplica por cuatro ($2^2 = 4$).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["unidades", "sistema_internacional"]
-
-tipo: mc
-opciones_explicitas: ["Newton (N)", "Kilogramo (kg)", "Julio (J)", "Metro por segundo (m/s)"]
-
-respuesta: "Julio (J)"
-
-enunciado: "En el Sistema Internacional de Unidades (SI), la energía cinética se mide en ___."
-
-explicacion: |
-  La unidad de energía en el SI es el Julio (J), que equivale a $kg \cdot m^2/s^2$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["formula", "componentes"]
-
-tipo: ordenar
-opciones_explicitas: ["Masa", "Velocidad", "Constante (1/2)"]
-respuesta_orden: ["Masa", "Velocidad", "Constante (1/2)"]
-
-enunciado: "Ordena los componentes de la fórmula de la energía cinética ($E_c = \\frac{1}{2} m v^2$) según aparecen en la expresión matemática de izquierda a derecha:"
-
-explicacion: |
-  La expresión es $\frac{1}{2}$ (constante) $\cdot m$ (masa) $\cdot v^2$ (velocidad al cuadrado).
-  *Nota: El orden en la lista de opciones debe reflejar la secuencia de la fórmula.*
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["formula", "componentes"]
-
-tipo: ordenar
-opciones_explicitas: ["Constante (1/2)", "Masa", "Velocidad"]
-respuesta_orden: ["Constante (1/2)", "Masa", "Velocidad"]
-
-enunciado: "Ordena los elementos de la fórmula $E_c = \\frac{1}{2} m v^2$ tal como aparecen de izquierda a derecha:"
-
-explicacion: |
-  El orden es: 1) El factor constante 1/2, 2) La masa (m) y 3) La velocidad (v).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["formula", "calculo"]
-
-variables:
-  m: 10
-  v: 4
-
-respuesta: 80.0
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Un objeto con una masa de {m} kg se desplaza con una velocidad constante de {v} m/s. ¿Cuál es su energía cinética en Joules?"
-
-pasos:
-  - "Identificar la masa (m = 10 kg) y la velocidad (v = 4 m/s)."
-  - "Aplicar la fórmula: Ec = 1/2 * m * v²."
-  - "Sustituir: Ec = 0.5 * 10 * (4)² = 0.5 * 10 * 16."
-  - "Resultado: Ec = 5 * 16 = 80 J."
-
-explicacion: |
-  La energía cinética se calcula con la fórmula $E_c = \frac{1}{2}mv^2$. 
-  En este caso: $0.5 \cdot 10 \cdot 4^2 = 0.5 \cdot 10 \cdot 16 = 80$ Joules.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "intermedio"
-  tags: ["relacion", "proporcionalidad"]
-
-respuesta: "se duplica"
-tipo: mc
-opciones_explicitas: ["se duplica", "se cuadruplica", "se mantiene igual", "se reduce a la mitad"]
-
-enunciado: "Si un objeto mantiene su velocidad pero su masa se duplica, su energía cinética ___."
-
-explicacion: |
-  Como la energía cinética es directamente proporcional a la masa ($E_c \propto m$), si la masa se multiplica por 2, la energía también se multiplica por 2. 
-  *Nota: Si la pregunta fuera sobre la velocidad, la relación sería cuadrática.*
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["concepto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Un objeto con velocidad cero posee energía cinética?"
-
-explicacion: |
-  Verdadero. Si $v = 0$, entonces $E_c = \frac{1}{2} \cdot m \cdot 0^2 = 0$. Un objeto en reposo no tiene energía cinética.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["formula"]
-
-respuestas_validas:
-  - "1/2"
-  - "0.5"
-  - "0,5"
-respuesta: "1/2"
-tipo: completar
-
-enunciado: "La expresión matemática para la energía cinética es Ec = ___ * m * v²."
-
-explicacion: |
-  La constante que acompaña al producto de la masa y el cuadrado de la velocidad es un medio (1/2 o 0.5).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "avanzado"
-  tags: ["velocidad", "calculo"]
-
-variables:
-  m: 2
-  v_inicial: 3
-  v_final: 6
-
-respuesta: 36.0
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Un cuerpo de {m} kg aumenta su velocidad de {v_inicial} m/s a {v_final} m/s. ¿Cuál es el cambio en su energía cinética (ΔEc) en Joules?"
-
-pasos:
-  - "Calcular Ec inicial: 0.5 * 2 * 3^2 = 9 J."
-  - "Calcular Ec final: 0.5 * 2 * 6^2 = 36 J."
-  - "Calcular la diferencia: 36 - 9 = 27 J."
-  - "Revisar: El enunciado pide el cambio (final - inicial)."
-
-explicacion: |
-  $\Delta E_c = E_{c,final} - E_{c,inicial}$
-  $\Delta E_c = (0.5 \cdot 2 \cdot 6^2) - (0.5 \cdot 2 \cdot 3^2) = 36 - 9 = 27$ Joules.
-  *(Nota: El valor en la variable respuesta es 27, corregido mentalmente para el cálculo real)*.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "avanzado"
-  tags: ["velocidad", "calculo"]
-
-variables:
-  m: 2
-  v_inicial: 3
-  v_final: 6
-
-respuesta: 27.0
-tipo: input
-tolerancia_abs: 0.1
-
-enunciado: "Un cuerpo de {m} kg aumenta su velocidad de {v_inicial} m/s a {v_final} m/s. ¿Cuál es el cambio en su energía cinética (ΔEc) en Joules?"
-
-pasos:
-  - "Calcular Ec inicial: 0.5 * 2 * 3^2 = 9 J."
-  - "Calcular Ec final: 0.5 * 2 * 6^2 = 36 J."
-  - "Calcular la diferencia: 36 - 9 = 27 J."
-
-explicacion: |
-  $\Delta E_c = E_{c,final} - E_{c,inicial}$
-  $\Delta E_c = (0.5 \cdot 2 \cdot 6^2) - (0.5 \cdot 2 \cdot 3^2) = 36 - 9 = 27$ Joules.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["energia_cinetica", "relacion_cuadratica"]
-
-variables:
-  datos: [[10, 2, 4], [5, 4, 32]]
-
-enunciado: "Si un objeto duplica su velocidad (v_final = 2 * v_inicial) sin cambiar su masa, su energía cinética final será ___ veces la inicial."
-
-respuesta: "4"
-tipo: completar
-respuestas_validas:
-  - "4"
-
-explicacion: |
-  La energía cinética depende del cuadrado de la velocidad ($E_c \propto v^2$). Si la velocidad se multiplica por 2, la energía se multiplica por $2^2 = 4$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "intermedio"
-  tags: ["errores_comunes", "proporcionalidad"]
-
-opciones_explicitas: ["Se duplica", "Se cuadruplica", "Se mantiene igual", "Se reduce a la mitad"]
-respuesta: "Se duplica"
-tipo: mc
-
-enunciado: "Un error común es pensar que si la masa de un objeto se duplica, su energía cinética se cuadruplica (confundiendo esta relación con la de la velocidad). Si la masa se duplica y la velocidad se mantiene constante, la energía cinética real se: ___"
-
-explicacion: |
-  La energía cinética es directamente proporcional a la masa ($E_c \propto m$). Si la masa se duplica, la energía cinética también se duplica. El error común suele ser confundir la relación de la masa con la de la velocidad (que sí es cuadrática).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["conceptos_fundamentales"]
+  tags: ["verdadero_falso"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Un objeto que posee energía potencial gravitatoria debido a su altura, pero se encuentra en reposo (v = 0), tiene una energía cinética mayor a cero."
+enunciado: "¿Un movimiento que solo se desplaza en una sola dirección sin volver nunca a su punto de origen es un movimiento oscilatorio?"
 
 explicacion: |
-  La energía cinética depende exclusivamente del movimiento ($v$). Si la velocidad es cero, la energía cinética es necesariamente cero, independientemente de la altura.
+  Falso. Para que sea oscilatorio, el objeto debe regresar a su posición de partida y repetir el ciclo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "intermedio"
-  tags: ["calculo", "despeje"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenarios: [[2, 10, 10], [5, 20, 20]]
-
-enunciado: "Calcula la velocidad de un objeto de {escenarios[idx][0]} kg que posee una energía cinética de {escenarios[idx][1]} J."
-
-pasos:
-  - "Identificar la fórmula: Ec = (1/2) · m · v²"
-  - "Despejar la velocidad: v = raíz(2 · Ec / m)"
-  - "Sustituir los valores y calcular"
-
-respuesta: sqrt(2 * escenarios[idx][1] / escenarios[idx][0])
-tipo: completar
-tolerancia_abs: 0.01
-
-explicacion: |
-  Usando la fórmula despejada v = raíz(2·Ec/m), obtenemos el resultado correcto.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
+  tema: "oscilacion_y_periodo"
   nivel: "basico"
   tags: ["unidades", "dimensiones"]
 
-opciones_explicitas: ["kg·m/s", "kg·m/s²", "kg·m²/s²", "kg/m"]
-respuesta: "kg·m²/s²"
+respuesta: "s"
 tipo: mc
+opciones_explicitas: ["s", "m", "Hz"]
 
-enunciado: "Al calcular la energía cinética en el Sistema Internacional, la combinación de unidades resultante es: ___"
+enunciado: "Dado que el periodo mide el tiempo de un ciclo, su unidad en el Sistema Internacional es ___."
 
 explicacion: |
-  La fórmula es 1/2 * masa * velocidad^2. En unidades SI esto es kg * (m/s)^2, lo que equivale a kg * m^2/s^2, también conocido como Joule (J).
+  El tiempo se mide en segundos (s) en el SI. El metro (m) es longitud y el Hertz (Hz) es frecuencia.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["energia", "conceptos"]
-
-respuesta: "cinetica"
-tipo: completar
-respuestas_validas:
-  - "cinetica"
-
-enunciado: "Mientras que la energía potencial es la energía que un objeto posee debido a su posición o configuración, la energía que un objeto posee debido a su movimiento se denomina energía ___."
-
-explicacion: |
-  La energía cinética es la energía asociada al movimiento de un cuerpo, definida como $E_c = \frac{1}{2}mv^2$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
+  tema: "oscilacion_y_periodo"
   nivel: "intermedio"
-  tags: ["relacion", "variables"]
+  tags: ["secuencia", "puntos_criticos"]
 
 variables:
-  escenario: uno_de([[2, 4], [5, 10], [10, 20]])
+  secuencia: ["Equilibrio", "Amplitud máxima positiva", "Equilibrio", "Amplitud máxima negativa", "Equilibrio"]
 
-respuesta: "cuadriplica"
-tipo: mc
-opciones_explicitas: ["se duplica", "se triplica", "cuadriplica", "se mantiene igual"]
+respuesta_orden: secuencia
+tipo: ordenar
+opciones_explicitas: ["Equilibrio", "Amplitud máxima positiva", "Equilibrio", "Amplitud máxima negativa", "Equilibrio"]
 
-enunciado: "Si un objeto aumenta su velocidad al doble (2x) manteniendo su masa constante, su energía cinética ___."
+enunciado: "Ordene los puntos de trayectoria de un objeto que oscila de forma simple, comenzando desde su posición de equilibrio:"
 
 explicacion: |
-  Como la fórmula es $E_c = \frac{1}{2}mv^2$, la velocidad está elevada al cuadrado. Si la velocidad se multiplica por 2, la energía se multiplica por $2^2 = 4$.
+  En una oscilación completa, el objeto pasa por el equilibrio, alcanza un extremo, vuelve al equilibrio, alcanza el extremo opuesto y regresa al equilibrio.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_cinetica"
+  tema: "oscilacion_y_periodo"
+  nivel: "basico"
+  tags: ["conceptos", "definiciones"]
+
+respuesta: "el tiempo que tarda en completarse un ciclo completo"
+tipo: completar
+respuestas_validas:
+  - "el tiempo que tarda en completarse un ciclo completo"
+  - "el tiempo de un ciclo completo"
+
+enunciado: "En un movimiento oscilatorio, el periodo se define como ___"
+
+explicacion: |
+  El periodo (T) es el intervalo de tiempo necesario para que un objeto complete un ciclo completo de movimiento y regrese a su posición inicial con la misma velocidad y dirección.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "oscilacion_y_periodo"
+  nivel: "basico"
+  tags: ["calculo", "frecuencia"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[0.5, 2.0], [0.2, 5.0]]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: [2.0, 5.0, 0.5, 1.0]
+
+enunciado: "Si un objeto realiza un ciclo completo en {datos[idx][0]} segundos, ¿cuál es su frecuencia en Hz?"
+
+pasos:
+  - "Identificar el periodo (T): T = {datos[idx][0]} s"
+  - "Usar la fórmula de la frecuencia: f = 1 / T"
+  - "Calcular: f = 1 / {datos[idx][0]} = {datos[idx][1]} Hz"
+
+explicacion: |
+  La frecuencia (f) es el inverso del periodo (T). Si T = {datos[idx][0]} s, entonces f = 1 / {datos[idx][0]} = {datos[idx][1]} Hz.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "oscilacion_y_periodo"
   nivel: "intermedio"
-  tags: ["teorema", "trabajo"]
+  tags: ["relacion", "frecuencia"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Según el teorema del trabajo y la energía, si el trabajo neto realizado sobre un objeto es cero, su energía cinética debe haber cambiado necesariamente."
+enunciado: "¿Es correcto afirmar que si la frecuencia de un oscilador aumenta, su periodo también aumenta?"
 
 explicacion: |
-  El teorema establece que el trabajo neto es igual al cambio en la energía cinética ($\Delta E_c$). Si el trabajo es cero, $\Delta E_c = 0$, lo que significa que la energía cinética se mantiene constante.
+  Falso. La relación es inversamente proporcional: T = 1/f. Si la frecuencia aumenta, el periodo disminuye (el ciclo es más rápido).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_cinetica"
+  tema: "oscilacion_y_periodo"
   nivel: "avanzado"
-  tags: ["calculo", "comparacion"]
+  tags: ["pendulo", "calculo"]
 
 variables:
-  datos: uno_de([[2.0, 10.0], [4.0, 5.0], [1.0, 20.0]])
-  resultado: 0.5 * datos[0] * datos[1] * datos[1]
+  idx: uno_de([0, 1])
+  longitudes: [1.0, 0.4]
 
-respuesta: resultado
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Un objeto de masa {datos[0]} kg se desplaza con una velocidad de {datos[1]} m/s. Calcula su energía cinética en Joules."
-
-pasos:
-  - "Identificar la masa: m = {datos[0]} kg"
-  - "Identificar la velocidad: v = {datos[1]} m/s"
-  - "Aplicar la fórmula: Ec = 0.5 * m * v^2"
-
-explicacion: |
-  Usando la fórmula Ec = 0.5 * m * v^2, el resultado es {resultado} J.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["energia_mecanica", "suma"]
-
-respuesta_orden: ["energia_cinetica", "energia_potencial"]
-tipo: ordenar
-
-opciones_explicitas: ["energia_cinetica", "energia_potencial"]
-
-enunciado: "En un sistema conservativo, la energía mecánica total es la suma de dos componentes fundamentales. Ordena estas dos componentes:"
-
-explicacion: |
-  La energía mecánica total ($E_m$) es la suma de la energía cinética (movimiento) y la energía potencial (posición).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["mecanica", "cinetica"]
-
-variables:
-  datos: [[1200, 25], [800, 20], [1500, 15]]
-  idx: uno_de([0, 1, 2])
-  m: datos[idx][0]
-  v: datos[idx][1]
-  ec: 0.5 * m * v * v
-
-respuestas_validas:
-  - ec
-respuesta: ec
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Un vehículo de {m} kg se desplaza con una velocidad constante de {v} m/s. ¿Cuál es su energía cinética en Joules?"
-
-pasos:
-  - "Identificar la masa: m = {m} kg"
-  - "Identificar la velocidad: v = {v} m/s"
-  - "Aplicar la fórmula: Ec = 1/2 * m * v²"
-  - "Calcular: 0.5 * {m} * ({v})^2"
-
-explicacion: |
-  La energía cinética se calcula con la fórmula $E_c = \frac{1}{2} m v^2$.
-  Para este caso: $0.5 \cdot {m} \cdot {v}^2 = {ec}$ J.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "intermedio"
-  tags: ["conceptos", "proporcionalidad"]
-
-variables:
-  datos: [["el doble", "4"], ["el triple", "9"], ["el cuádruple", "16"]]
-  idx: uno_de([0, 1, 2])
-  factor_m: datos[idx][0]
-  factor_ec: datos[idx][1]
-
-respuesta: factor_m
-tipo: mc
-opciones_explicitas: ["el doble", "el triple", "el cuádruple", "se mantiene igual"]
-
-enunciado: "Si un objeto aumenta su masa por {factor_m} manteniendo su velocidad constante, su energía cinética cambia por un factor de: ___"
-
-explicacion: |
-  Como la energía cinética es directamente proporcional a la masa ($E_c \propto m$), si la masa se multiplica por un factor, la energía cinética también se multiplica por ese mismo factor.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "avanzado"
-  tags: ["velocidad", "seguridad_vial"]
-
-variables:
-  datos: [["20", "40"], ["30", "60"], ["10", "20"]]
-  idx: uno_de([0, 1, 2])
-  v1: datos[idx][0]
-  v2: datos[idx][1]
-
-respuestas_validas:
-  - verdadero
-respuesta: verdadero
-
-tipo: completar
-enunciado: "Si un automóvil duplica su velocidad de {v1} m/s a {v2} m/s, ¿su energía cinética es mayor que el doble de la original? (verdadero/falso)"
-
-explicacion: |
-  Al duplicar la velocidad ($v \to 2v$), la energía cinética aumenta por el cuadrado de la velocidad: $(2v)^2 = 4v^2$. Por lo tanto, la energía es 4 veces mayor, lo cual es efectivamente mayor que el doble.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "intermedio"
-  tags: ["despeje", "velocidad"]
-
-variables:
-  datos: [[500, 10, 10], [1000, 5, 20], [100, 8, 5]]
-  idx: uno_de([0, 1, 2])
-  ec: datos[idx][0]
-  m: datos[idx][1]
-  v: datos[idx][2]
-
-respuesta: v
+respuesta: 2 * 3.14159 * sqrt(longitudes[idx] / 9.8)
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Un objeto de {m} kg posee una energía cinética de {ec} J. La velocidad del objeto es de ___ m/s."
-
-explicacion: |
-  Despejamos la velocidad de la fórmula Ec = 1/2 * m * v^2:
-  v^2 = (2 * Ec) / m
-  v = sqrt((2 * ec) / m)
-  v = {v} m/s.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_cinetica"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: "masa y velocidad"
-tipo: completar
-respuestas_validas:
-  - "masa y velocidad"
-  - "posición y masa"
-  - "altura y velocidad"
-
-enunciado: "La energía cinética de un cuerpo depende de dos variables principales: la ___ y la ___."
-
-explicacion: |
-  La fórmula $E_c = \frac{1}{2} m v^2$ muestra que la energía depende de la masa ($m$) y del cuadrado de la velocidad ($v$).
-```
-
-## Sección: energia-potencial-gravitatoria (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "basico"
-  tags: ["definicion", "energia"]
-
-respuesta: "energia_potencial_gravitatoria"
-tipo: completar
-respuestas_validas:
-  - "energia_potencial_gravitatoria"
-
-enunciado: "La capacidad de un cuerpo de realizar un trabajo debido a su posición en un campo gravitatorio se denomina ___."
-
-explicacion: |
-  La energía potencial gravitatoria depende de la masa, la aceleración de la gravedad y la altura respecto a un nivel de referencia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "basico"
-  tags: ["relacion", "masa"]
-
-variables:
-  caso: uno_de([[10, "10 kg"], [25, "25 kg"], [50, "50 kg"]])
-
-respuesta: "Se duplica"
-tipo: mc
-opciones_explicitas: ["Se duplica", "Se cuadruplica", "Se reduce a la mitad", "No cambia"]
-
-enunciado: "Si duplicamos la masa de un objeto manteniendo su altura y la gravedad constantes, la energía potencial gravitatoria de un objeto de {caso[1]} se..."
+enunciado: "Un péndulo simple tiene una longitud de {longitudes[idx]} metros. Calcula su periodo (T) usando la fórmula T = 2 * pi * sqrt(L / g). (Usa g = 9.8 m/s²)"
 
 pasos:
-  - "Identificar la masa inicial: {caso[1]}"
-  - "Aplicar la relación de proporcionalidad directa con la masa (Ep ∝ m)"
+  - "L = {longitudes[idx]} m"
+  - "T = 2 * pi * sqrt({longitudes[idx]} / 9.8)"
+  - "T = 2 * 3.14159 * sqrt({longitudes[idx] / 9.8})"
 
 explicacion: |
-  Como la fórmula es Ep = m · g · h, la energía es directamente proporcional a la masa. Si la masa se duplica, la energía se duplica.
+  Aplicando la fórmula: T = 2 * pi * sqrt(L / 9.8) ≈ {2 * 3.14159 * sqrt(longitudes[idx] / 9.8)} s.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
+  tema: "oscilacion_y_periodo"
   nivel: "basico"
-  tags: ["gravedad", "verdadero_falso"]
+  tags: ["movimiento", "secuencia"]
+
+respuesta_orden: ["Extremo A", "Punto de equilibrio", "Extremo B", "Punto de equilibrio"]
+tipo: ordenar
+opciones_explicitas: ["Extremo A", "Punto de equilibrio", "Extremo B", "Punto de equilibrio"]
+
+enunciado: "Ordena las posiciones que recorre un objeto en un ciclo completo de oscilación, partiendo desde el extremo derecho (A):"
+
+explicacion: |
+  Un ciclo completo implica ir de un extremo al otro y volver al punto de partida, pasando por el centro en cada tramo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "oscilacion_y_periodo"
+  nivel: "basico"
+  tags: ["conceptos_basicos", "periodo"]
+
+respuesta: "un ciclo completo"
+tipo: completar
+respuestas_validas:
+  - "un ciclo completo"
+  - "un ciclo"
+
+enunciado: "En un movimiento oscilatorio, el tiempo necesario para que el objeto complete ___ se denomina periodo."
+
+explicacion: |
+  El periodo es el intervalo de tiempo que transcurre entre dos instantes sucesivos en los que el sistema vuelve a pasar por el mismo estado (misma posición y misma dirección).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "oscilacion_y_periodo"
+  nivel: "basico"
+  tags: ["frecuencia", "periodo"]
+
+variables:
+  datos: [["0.5", "2"], ["2", "0.5"]]
+  idx: uno_de([0, 1])
+  periodo: datos[idx][0]
+  frecuencia_correcta: datos[idx][1]
+
+respuesta: frecuencia_correcta
+tipo: completar
+
+enunciado: "Si un objeto realiza un movimiento oscilatorio con un periodo de {periodo} segundos, su frecuencia es de ___."
+
+explicacion: |
+  La frecuencia (f) es el inverso del periodo (T), es decir, f = 1/T. Si T = 0.5s, f = 1/0.5 = 2 Hz. Si T = 2s, f = 1/2 = 0.5 Hz.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "oscilacion_y_periodo"
+  nivel: "intermedio"
+  tags: ["isocronismo", "veracidad"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La energía potencial gravitatoria de un objeto es la misma en la Tierra y en la Luna si el objeto se encuentra a la misma altura sobre su respectivo suelo."
+enunciado: "En un péndulo simple ideal (sin fricción), el periodo de oscilación depende de la amplitud del movimiento (si la amplitud es muy grande)."
 
 explicacion: |
-  Falso. La energía potencial depende de la aceleración de la gravedad (g). Como la gravedad en la Luna es menor que en la Tierra, la energía potencial también será menor.
+  Para ángulos pequeños, el péndulo es isócrono, lo que significa que su periodo es independiente de la amplitud. En el modelo ideal de física básica, asumimos que el periodo es constante sin importar la amplitud.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "basico"
-  tags: ["formula", "variables"]
+  tema: "oscilacion_y_periodo"
+  nivel: "intermedio"
+  tags: ["fase", "ciclo"]
 
-respuesta: "altura"
+respuesta: "punto de equilibrio"
 tipo: completar
 respuestas_validas:
-  - "altura"
+  - "punto de equilibrio"
+  - "posición de equilibrio"
 
-enunciado: "En la expresión matemática Ep = m · g · h, la variable 'h' representa la ___."
+enunciado: "Un ciclo completo de oscilación se define como el tiempo que tarda el objeto en ir desde el ___ hasta el extremo opuesto y regresar al mismo punto inicial."
 
 explicacion: |
-  En física, 'h' proviene del término 'height' (altura) y representa la distancia vertical respecto a un punto de referencia.
+  Un error común es pensar que el ciclo solo ocurre entre extremos. El ciclo es el recorrido completo que incluye pasar por el punto de equilibrio en ambas direcciones.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
+  tema: "oscilacion_y_periodo"
   nivel: "basico"
-  tags: ["calculo", "ejercicio"]
+  tags: ["secuencia", "movimiento"]
 
-variables:
-  escenario: uno_de([[2, 5, 9.8], [5, 2, 9.8], [10, 3, 9.8]])
-
-respuesta: escenario[0] * escenario[1] * escenario[2]
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Calcula la energía potencial gravitatoria de un objeto con masa de {escenario[0]} kg, situado a una altura de {escenario[1]} m, considerando una gravedad de {escenario[2]} m/s²."
-
-pasos:
-  - "Multiplicar la masa por la gravedad: {escenario[0]} * {escenario[2]}"
-  - "Multiplicar el resultado por la altura: ({escenario[0]} * {escenario[2]}) * {escenario[1]}"
-
-explicacion: |
-  El resultado se obtiene multiplicando directamente los tres valores: m · g · h.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "basico"
-  tags: ["conceptos", "definicion"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "Si un objeto con masa positiva se encuentra a una altura positiva sobre el nivel de referencia, su energía potencial gravitatoria será positiva."
-
-explicacion: |
-  La fórmula es Ep = m · g · h. Si la masa (m), la gravedad (g) y la altura (h) son todas positivas, el resultado es necesariamente positivo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "basico"
-  tags: ["calculo", "numerico"]
-
-variables:
-  escenario: uno_de([[2, "15", "5", 150], [3, "10", "4", 120], [4, "5", "10", 200]])
-  m: escenario[0]
-  h: escenario[1]
-  g: escenario[2]
-  resultado_esperado: escenario[3]
-
-respuesta: resultado_esperado
-tipo: "input"
-tolerancia_abs: 0.1
-
-enunciado: "Un objeto de {m} kg se encuentra a una altura de {h} metros. Calcula su energía potencial gravitatoria (usa g = {g} m/s²)."
-
-pasos:
-  - "Identificar los datos: masa (m) = {m} kg, altura (h) = {h} m, gravedad (g) = {g} m/s²."
-  - "Aplicar la fórmula: Ep = m · g · h."
-  - "Sustituir: Ep = {m} * {g} * {h} = {resultado_esperado} J."
-
-explicacion: |
-  La energía potencial se calcula multiplicando la masa por la gravedad por la altura. En este caso: {m} * {g} * {h} = {resultado_esperado} Joules.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "intermedio"
-  tags: ["proporcionalidad", "analisis"]
-
-respuesta: "se duplica"
-tipo: "mc"
-opciones_explicitas: ["se mantiene igual", "se reduce a la mitad", "se duplica", "se cuadruplica"]
-
-enunciado: "Si un objeto mantiene su masa constante pero se coloca a una altura que es el doble de la original, su energía potencial gravitatoria ____."
-
-explicacion: |
-  Como la energía potencial es directamente proporcional a la altura (Ep ∝ h), si la altura se multiplica por 2, la energía también se multiplica por 2.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "basico"
-  tags: ["unidades", "sistema_internacional"]
-
-respuesta: "Joules"
-tipo: "completar"
-respuestas_validas:
-  - "Joules"
-  - "J"
-  - "joules"
-
-enunciado: "En el Sistema Internacional de Unidades, la unidad para medir la energía potencial gravitatoria es el _________."
-
-explicacion: |
-  La unidad de energía (trabajo) es el Joule (J), que equivale a kg·m²/s².
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "intermedio"
-  tags: ["metodologia", "ordenar"]
-
+respuesta_orden: ["extremo", "punto de equilibrio", "extremo opuesto", "punto de equilibrio"]
 tipo: ordenar
-opciones_explicitas: ["identificar_datos", "aplicar_formula", "realizar_multiplicacion"]
-respuesta_orden: ["identificar_datos", "aplicar_formula", "realizar_multiplicacion"]
+opciones_explicitas: ["extremo", "punto de equilibrio", "extremo opuesto", "punto de equilibrio"]
 
-enunciado: "Ordena los pasos lógicos para resolver un problema de cálculo de energía potencial gravitatoria:"
+enunciado: "Ordena la secuencia de posiciones que recorre un objeto que oscila, partiendo desde un extremo hacia el otro y regresando:"
 
 explicacion: |
-  Para resolver problemas físicos de forma sistemática, primero debemos extraer los datos, luego plantear la ecuación y finalmente operar.
+  Para completar un ciclo completo, el objeto debe recorrer la distancia total de ida y vuelta, pasando por el centro (punto de equilibrio) en cada tramo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
+  tema: "oscilacion_y_periodo"
   nivel: "basico"
-  tags: ["conceptos", "energia"]
-
-respuesta: "h"
-tipo: completar
-respuestas_validas:
-  - "h"
-  - "la altura"
-  - "la posición vertical"
-
-enunciado: "En la fórmula de la energía potencial gravitatoria $E_p = m \\cdot g \\cdot h$, la variable $h$ representa la ___ respecto a un nivel de referencia."
-
-explicacion: |
-  La energía potencial gravitatoria depende de la posición vertical (altura) del objeto respecto a un punto de referencia elegido. Si cambias el nivel de referencia, la energía potencial cambia, aunque el objeto sea el mismo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "intermedio"
-  tags: ["conceptos", "relacion_variables"]
+  tags: ["periodo", "frecuencia", "conceptos_basicos"]
 
 variables:
-  escenario: uno_de([["un objeto de 2 kg", 2, "2 kg"], ["un objeto de 5 kg", 5, "5 kg"], ["un objeto de 10 kg", 10, "10 kg"]])
+  frecuencia_ejemplo: 5.0
 
+respuesta: "El tiempo que tarda en completarse un ciclo"
 tipo: mc
-opciones_explicitas: ["La energía es mayor", "La energía es menor", "La energía es igual"]
-respuesta: "La energía es mayor"
+opciones_explicitas: ["El tiempo que tarda en completarse un ciclo", "El número de ciclos por unidad de tiempo", "La distancia máxima desde el punto de equilibrio", "La velocidad máxima del objeto"]
 
-enunciado: "Si duplicamos la masa de {escenario[0]} manteniendo su altura y la gravedad constantes, la energía potencial gravitatoria será: ___"
+enunciado: "Si un péndulo realiza un movimiento repetitivo, ¿qué magnitud representa el tiempo necesario para que se complete un ciclo completo?"
 
 explicacion: |
-  Como la energía potencial es directamente proporcional a la masa ($E_p \propto m$), si la masa se duplica, la energía potencial también se duplica (es mayor).
+  El periodo (T) es el tiempo necesario para completar un ciclo, mientras que la frecuencia (f) es la cantidad de ciclos que ocurren en un segundo. Son inversamente proporcionales: f = 1/T.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "intermedio"
-  tags: ["conceptos", "trayectoria"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La energía potencial gravitatoria de un objeto depende de la trayectoria seguida para alcanzar su altura actual (por ejemplo, si subió en línea recta o en zigzag)."
-
-explicacion: |
-  La energía potencial es una función de estado, lo que significa que solo depende de la posición inicial y la posición final (la altura), no del camino recorrido.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "intermedio"
-  tags: ["calculo", "despeje"]
-
-variables:
-  datos: uno_de([[100, 9.8, 50], [50, 9.8, 20], [200, 9.8, 100]])
-
-respuesta: redondear(datos[2]/(datos[0]*datos[1]), 2)
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Un objeto de {datos[0]} kg tiene una energía potencial de {datos[2]} J. Si la aceleración de la gravedad es de {datos[1]} m/s², ¿a qué altura se encuentra?"
-
-pasos:
-  - "Identificar los valores: m = {datos[0]}, Ep = {datos[2]}, g = {datos[1]}"
-  - "Despejar la altura de la fórmula: h = Ep / (m * g)"
-  - "Calcular el resultado final."
-
-explicacion: |
-  Usando la fórmula $h = E_p / (m \cdot g)$, obtenemos: $h = {datos[2]} / ({datos[0]} \cdot {datos[1]}) = {redondear(datos[2]/(datos[0]*datos[1]), 2)}$ m.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
+  tema: "oscilacion_y_periodo"
   nivel: "basico"
-  tags: ["conceptos", "orden"]
-
-respuesta_orden: ["m", "g", "h"]
-tipo: ordenar
-
-opciones_explicitas: ["h", "g", "m"]
-
-enunciado: "Para calcular la energía potencial gravitatoria siguiendo la estructura de la fórmula $E_p = m \\cdot g \\cdot h$, el orden de los factores es:"
-
-explicacion: |
-  Aunque el orden de los factores no altera el producto, la fórmula estándar se presenta como Masa $\cdot$ Gravedad $\cdot$ Altura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "basico"
-  tags: ["energia", "conceptos"]
-
-respuesta: "cinetica"
-tipo: mc
-opciones_explicitas: ["potencial", "cinetica", "termica", "electromagnetica"]
-
-enunciado: "Mientras que la energía potencial gravitatoria depende de la posición de un objeto respecto a un campo gravitatorio, la energía ___ depende del estado de movimiento del objeto."
-
-explicacion: |
-  La energía cinética está asociada al movimiento (m · v²/2), mientras que la energía potencial gravitatoria está asociada a la posición en un campo gravitatorio (m · g · h).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "basico"
-  tags: ["propiedades", "relaciones"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[10, 9.8, 2, 196.0], [5, 9.8, 5, 245.0]]
-
-respuesta: datos[escenario_idx][3]
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Considera un objeto con masa de {datos[escenario_idx][0]} kg a una altura de {datos[escenario_idx][2]} m. Si la gravedad es {datos[escenario_idx][1]} m/s², la energía potencial gravitatoria es ___ J."
-
-pasos:
-  - "Multiplicar la masa por la aceleración de la gravedad (m · g)."
-  - "Multiplicar el resultado por la altura (h)."
-
-explicacion: |
-  La fórmula es Ep = m · g · h. Para el caso {datos[escenario_idx][0]} kg: {datos[escenario_idx][0]} * {datos[escenario_idx][1]} * {datos[escenario_idx][2]} = {datos[escenario_idx][3]} J.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "intermedio"
-  tags: ["conceptos", "conservacion"]
+  tags: ["ciclo", "movimiento_repetitivo"]
 
 respuesta: verdadero
 tipo: vf
-
-enunciado: "¿Es la energía potencial gravitatoria una forma de energía mecánica que puede transformarse en energía cinética en un sistema sin fricción?"
+enunciado: "En un movimiento oscilatorio, un 'ciclo completo' implica que el objeto regresa exactamente a su posición inicial con la misma dirección de movimiento que tenía al comenzar."
 
 explicacion: |
-  Verdadero. En un sistema ideal, la energía potencial se transforma íntegramente en cinética a medida que el objeto cae, conservando la energía mecánica total.
+  Correcto. Para que un movimiento sea considerado periódico y completar un ciclo, el sistema debe volver al mismo estado (posición y velocidad) para iniciar una nueva repetición.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
+  tema: "oscilacion_y_periodo"
   nivel: "intermedio"
-  tags: ["comparacion", "proporcionalidad"]
+  tags: ["calculo", "frecuencia", "periodo"]
 
 variables:
-  caso_idx: uno_de([0, 1])
-  objetos: [[10, 20], [5, 15]]
+  idx: uno_de([0, 1])
+  datos: [[2.0, 0.5], [0.5, 2.0]]
 
-respuesta: "El segundo objeto tiene más energía"
-tipo: mc
-opciones_explicitas: ["El primer objeto tiene más energía", "El segundo objeto tiene más energía", "Ambos tienen la misma energía", "No se puede determinar"]
-
-enunciado: "Si dos objetos están a la misma altura, pero el primero tiene {objetos[caso_idx][0]} kg y el segundo tiene {objetos[caso_idx][1]} kg, ¿cuál posee mayor energía potencial gravitatoria?"
-
-explicacion: |
-  Como la energía potencial es directamente proporcional a la masa (Ep ∝ m), el objeto con mayor masa tendrá mayor energía potencial si la altura y la gravedad son las mismas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "basico"
-  tags: ["formula", "variables"]
-
-respuesta_orden: ["masa", "gravedad", "altura"]
-tipo: ordenar
-
-opciones_explicitas: ["altura", "gravedad", "masa"]
-
-enunciado: "Ordena de menor a mayor las variables que determinan la magnitud de la energía potencial gravitatoria (Ep = m · g · h):"
-
-explicacion: |
-  La fórmula requiere tres componentes fundamentales: la masa (m), la aceleración de la gravedad (g) y la altura (h).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "basico"
-  tags: ["energia", "gravitacion"]
-
-variables:
-  escenario: uno_de([[0.5, 50], [1.5, 150], [2.0, 200]])
-  m: escenario[0]
-  h: escenario[1]
-  g: 9.8
-  ep: m * g * h
-
-respuesta: ep
+respuesta: datos[idx][1]
 tipo: completar
-tolerancia_abs: 0.1
+respuestas_validas:
+  - 0.5
+  - 2.0
 
-enunciado: "Un escalador de masa de {m} kg se encuentra a una altura de {h} metros sobre el suelo. ¿Cuál es su energía potencial gravitatoria en Joules?"
+enunciado: "Si el periodo de una oscilación es de {datos[idx][0]} segundos, la frecuencia de dicha oscilación es de ___ Hz."
 
 pasos:
-  - "Identificar la masa (m = {m} kg)"
-  - "Identificar la altura (h = {h} m)"
-  - "Identificar la aceleración de la gravedad (g = {g} m/s²)"
-  - "Aplicar la fórmula Ep = m * g * h"
+  - "Identificar el valor del periodo (T = {datos[idx][0]})"
+  - "Aplicar la fórmula de la frecuencia: f = 1 / T"
 
 explicacion: |
-  La energía potencial se calcula multiplicando la masa por la gravedad por la altura:
-  Ep = {m} kg * {g} m/s² * {h} m = {ep} J.
+  Utilizando la relación f = 1/T, si T = {datos[idx][0]}, entonces f = 1/{datos[idx][0]} = {datos[idx][1]} Hz.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "intermedio"
-  tags: ["energia", "logistica"]
-
-variables:
-  datos: [[10, 980], [20, 1960], [5, 490]]
-  idx: uno_de([0, 1, 2])
-  m: datos[idx][0]
-  ep: datos[idx][1]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "Un paquete de {m} kg se encuentra en un estante a 10 metros de altura. Si la energía potencial es de {ep} J, ¿es correcto afirmar que la gravedad aplicada fue de 9.8 m/s²?"
-
-explicacion: |
-  Para verificar: Ep = m * g * h => 9.8 = Ep / (m * h).
-  En este caso: {ep} / ({m} * 10) = {ep / (m * 10)}.
-  El resultado es {ep / (m * 10)} m/s².
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
+  tema: "oscilacion_y_periodo"
   nivel: "basico"
-  tags: ["energia", "mecanica"]
+  tags: ["amplitud", "periodo", "distincion"]
 
-respuesta: "aumenta"
+respuesta: "Amplitud"
 tipo: mc
-opciones_explicitas: ["aumenta", "disminuye", "se mantiene igual"]
+opciones_explicitas: ["Amplitud", "Frecuencia", "Aceleración", "Velocidad"]
 
-enunciado: "Si un elevador de carga sube desde el primer piso hasta el quinto piso, su energía potencial gravitatoria respecto al suelo: ___"
+enunciado: "Mientras que el periodo mide el tiempo de un ciclo, la ___ mide la distancia máxima desde la posición de equilibrio."
 
 explicacion: |
-  Al aumentar la altura (h) en la fórmula Ep = m * g * h, la energía potencial también aumenta.
+  La amplitud es una medida de longitud (distancia), mientras que el periodo es una medida de tiempo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
+  tema: "oscilacion_y_periodo"
   nivel: "intermedio"
-  tags: ["energia", "calculo"]
+  tags: ["secuencia", "ciclo", "posicion"]
 
-variables:
-  caso: uno_de([[2, 5, 98.0], [5, 2, 98.0], [10, 5, 490.0]])
-  m: caso[0]
-  h: caso[1]
-  ep: caso[2]
-
-respuesta_orden: ["m * g / h", "m / (g * h)", "g * h / m", "m * g * h"]
+respuesta_orden: ["Extremo derecho", "Punto de equilibrio", "Extremo izquierdo", "Punto de equilibrio", "Extremo derecho"]
 tipo: ordenar
+opciones_explicitas: ["Extremo derecho", "Punto de equilibrio", "Extremo izquierdo", "Punto de equilibrio", "Extremo derecho"]
 
-opciones_explicitas: ["m * g * h", "m * g / h", "m / (g * h)", "g * h / m"]
-
-enunciado: "Para un objeto de {m} kg a una altura de {h} m, ordena las expresiones de modo que la última sea la fórmula correcta para calcular su energía potencial (Ep = {ep} J):"
+enunciado: "Ordena las posiciones que recorre un objeto que oscila, comenzando desde su máxima elongación a la derecha, hasta completar un ciclo completo."
 
 explicacion: |
-  La fórmula correcta es el producto de la masa, la gravedad y la altura: m * g * h.
+  Un ciclo completo implica volver al punto de partida tras haber pasado por el centro y el extremo opuesto. La secuencia lógica es: Máximo (+A) -> Centro (0) -> Mínimo (-A) -> Centro (0) -> Regreso al Máximo (+A).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "energia_potencial_gravitatoria"
-  nivel: "intermedio"
-  tags: ["energia", "drones"]
+  tema: "oscilacion_y_periodo"
+  nivel: "basico"
+  tags: ["pendulo", "periodo"]
 
 variables:
-  escenario: uno_de([[2, 50], [5, 100], [1, 20]])
-  m: escenario[0]
-  h: escenario[1]
-
-respuesta: m * 10 * h
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Un dron de {m} kg vuela a una altura de {h} metros. Su energía potencial gravitatoria es de ___ Joules (usa g = 10 m/s²)."
-
-explicacion: |
-  Usando la fórmula Ep = m * g * h:
-  Ep = {m} kg * 10 m/s² * {h} m = {m * 10 * h} J.
-```
-
-## Sección: entropia-segunda-ley-termodinamica (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "basico"
-  tags: ["termodinamica", "entropia", "desorden"]
-
-respuesta: "desorden"
-tipo: completar
-respuestas_validas:
-  - "desorden"
-  - "caos"
-
-enunciado: "En términos macroscópicos, la entropía se asocia comúnmente con el grado de ___ de un sistema."
-
-explicacion: |
-  La entropía es una medida del desorden o la aleatoriedad de un sistema. Según la segunda ley, en un sistema aislado, la entropía tiende a aumentar con el tiempo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "basico"
-  tags: ["calor", "segunda_ley"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[100, 20], [50, 10]]
-
-opciones_explicitas: ["Del cuerpo más caliente al más frío", "Del cuerpo más frío al más caliente", "No hay flujo de calor"]
-
-respuesta: "Del cuerpo más caliente al más frío"
-tipo: mc
-
-enunciado: "Considerando un sistema con dos cuerpos a temperaturas de {datos[escenario_idx][0]}°C y {datos[escenario_idx][1]}°C, el calor fluirá espontáneamente ___."
-
-explicacion: |
-  El calor siempre fluye de forma espontánea desde el cuerpo con mayor temperatura al de menor temperatura, un proceso que incrementa la entropía total del universo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "intermedio"
-  tags: ["sistemas_aislados", "segunda_ley"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "En un sistema aislado, la entropía total puede disminuir espontáneamente durante un proceso irreversible."
-
-explicacion: |
-  Falso. La Segunda Ley de la Termodinámica establece que en un sistema aislado, la entropía siempre aumenta o permanece constante (en procesos reversibles), pero nunca disminuye.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "intermedio"
-  tags: ["entropia", "procesos"]
-
-opciones_explicitas: ["Hielo derritiéndose", "Agua líquida congelándose", "Vapor de agua condensándose"]
-
-respuesta_orden: ["Hielo derritiéndose", "Agua líquida congelándose", "Vapor de agua condensándose"]
-tipo: ordenar
-
-enunciado: "Ordena los siguientes procesos de mayor a menor desorden (entropía) de sus estados de agregación:"
-
-explicacion: |
-  El orden de desorden (entropía) es: Gas (Vapor) > Líquido (Agua) > Sólido (Hielo). El ejercicio pide ordenar los estados de mayor a menor desorden.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "avanzado"
-  tags: ["microestados", "probabilidad"]
-
-variables:
-  escenario: uno_de([["ordenado", "baja"], ["desordenado", "alta"]])
-
-respuesta: escenario[1]
-tipo: mc
-
-opciones_explicitas: ["baja", "alta", "nula"]
-
-enunciado: "Un estado con una configuración altamente {escenario[0]} tiene una probabilidad estadística más {escenario[1]} de ocurrir espontáneamente."
-
-explicacion: |
-  Los sistemas evolucionan hacia estados con mayor número de microestados posibles (mayor desorden), ya que estos son estadísticamente mucho más probables.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley"
-  nivel: "intermedio"
-  tags: ["termodinamica", "entropia", "calor"]
-
-variables:
-  Q: 5000.0
-  T_caliente: 400.0
-  T_frio: 300.0
-  delta_S: Q / T_frio - Q / T_caliente
-
-respuesta: delta_S
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Un foco caliente a {T_caliente} K cede {Q} J de calor a un foco frío a {T_frio} K. ¿Cuál es el cambio de entropía total del universo en este proceso? (Expresar en J/K)"
-
-pasos:
-  - "Calcular la entropía perdida por el foco caliente: ΔS_caliente = -Q / T_caliente"
-  - "Calcular la entropía ganada por el foco frío: ΔS_frio = +Q / T_frio"
-  - "Sumar ambos valores para obtener el cambio total: ΔS_total = ΔS_frio - ΔS_caliente en magnitud, es decir Q/T_frio - Q/T_caliente"
-
-explicacion: |
-  ΔS_caliente = -5000 / 400 = -12.5 J/K (el foco caliente pierde entropía al ceder calor).
-  ΔS_frio = +5000 / 300 = 16.666... J/K (el foco frío gana más entropía de la que pierde el caliente, por estar a menor temperatura).
-  ΔS_total = 16.666 - 12.5 = 4.166... J/K, un valor positivo, consistente con la Segunda Ley (la entropía del universo aumenta en un proceso espontáneo de transferencia de calor).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley"
-  nivel: "basico"
-  tags: ["termodinamica", "segunda_ley"]
-
-respuesta: "de caliente a frío"
-tipo: mc
-opciones_explicitas: ["de frío a caliente", "de caliente a frío", "de igual temperatura", "no tiene dirección"]
-
-enunciado: "Según la Segunda Ley de la Termodinámica, el calor fluye espontáneamente de un cuerpo ___ a otro cuerpo ___."
-
-explicacion: |
-  La entropía de un sistema aislado siempre aumenta en un proceso espontáneo. El flujo de calor de un cuerpo caliente a uno frío aumenta la entropía total del universo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley"
-  nivel: "basico"
-  tags: ["conceptos", "entropia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un sistema aislado, la entropía tiende a aumentar con el tiempo en todos los procesos espontáneos."
-
-explicacion: |
-  Correcto. Este es el enunciado fundamental de la Segunda Ley de la Termodinámica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley"
-  nivel: "intermedio"
-  tags: ["calculo", "termodinamica"]
-
-variables:
-  Q: 1200.0
-  T: 300.0
-  dS: Q / T
-
-respuesta: 4.0
-tipo: completar
-respuestas_validas:
-  - 4.0
-
-enunciado: "Si un sistema recibe ___ J de calor a una temperatura constante de ___ K, el cambio de entropía es de ___ J/K."
-
-explicacion: |
-  Usando la fórmula ΔS = Q / T:
-  ΔS = 1200 / 300 = 4.0 J/K.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley"
-  nivel: "intermedio"
-  tags: ["metodologia", "termodinamica"]
-
-opciones_explicitas: ["Calcular ΔS del sistema", "Calcular ΔS del entorno", "Sumar ΔS_sis + ΔS_ent", "Verificar si ΔS_total > 0"]
-
-respuesta_orden: ["Calcular ΔS del sistema", "Calcular ΔS del entorno", "Sumar ΔS_sis + ΔS_ent", "Verificar si ΔS_total > 0"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos para determinar si un proceso termodinámico es espontáneo analizando la entropía del universo:"
-
-explicacion: |
-  Para determinar la espontaneidad, primero calculamos los cambios individuales de entropía y luego su suma. Si la suma es mayor a cero, el proceso es espontáneo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "basico"
-  tags: ["termodinamica", "calor", "entropia"]
-
-tipo: completar
-enunciado: "En un sistema aislado, según la segunda ley de la termodinamica, el flujo espontáneo de calor ocurre siempre desde un cuerpo con mayor ___ hacia uno con menor ___."
-respuesta: "temperatura"
-explicacion: |
-  La segunda ley de la termodinámica establece que el calor fluye espontáneamente de los cuerpos con mayor temperatura a los de menor temperatura, aumentando la entropía total del universo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "intermedio"
-  tags: ["entropia", "desorden", "probabilidad"]
-
-tipo: vf
-respuesta: falso
-
-enunciado: "La entropía se puede definir estrictamente como una medida del 'desorden' visual de las partículas en un sistema."
-
-explicacion: |
-  Aunque coloquialmente se usa la palabra 'desorden', la entropía es una medida de la cantidad de estados microscópicos (microestados) compatibles con un estado macroscópico dado. El término 'desorden' es una analogía útil pero físicamente imprecisa.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "avanzado"
-  tags: ["entropia", "sistemas_abiertos", "orden"]
-
-tipo: completar
-respuestas_validas:
-  - "aumenta"
-respuesta: "aumenta"
-
-enunciado: "Si un sistema abierto (como un ser vivo) crea orden interno reduciendo su entropía local, la entropía total del universo ___ debido a la energía disipada en forma de calor."
-
-explicacion: |
-  Para que un sistema local disminuya su entropía (cree orden), debe realizar un trabajo o intercambiar energía con el entorno, lo que inevitablemente genera más entropía en el entorno de la que se reduce en el sistema.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "intermedio"
-  tags: ["ciclos", "entropia", "termodinamica"]
-
-tipo: mc
-opciones_explicitas: ["La entropía total del universo siempre disminuye en un ciclo ideal.", "La entropía total del universo aumenta en un ciclo real debido a la irreversibilidad.", "La entropía de un sistema cerrado se mantiene constante en cualquier proceso.", "La entropía de un sistema aumenta si el proceso es reversible."]
-enunciado: "En un motor real (irreversible), la variación de la entropía total del universo es siempre:"
-respuesta: "La entropía total del universo aumenta en un ciclo real debido a la irreversibilidad."
-explicacion: |
-  Debido a la irreversibilidad (fricción, turbulencias, transferencias de calor finitas), la entropía total del universo siempre aumenta en procesos reales.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "intermedio"
-  tags: ["entropia", "procesos", "termodinamica"]
-
-tipo: ordenar
-opciones_explicitas: ["Un gas se expande espontáneamente ocupando todo el recipiente.", "Un gas se comprime espontáneamente ocupando solo una esquina del recipiente."]
-
-respuesta_orden: ["Un gas se expande espontáneamente ocupando todo el recipiente.", "Un gas se comprime espontáneamente ocupando solo una esquina del recipiente."]
-
-enunciado: "Ordena los siguientes eventos según la probabilidad estadística y la tendencia natural hacia el aumento de la entropía (de lo más probable/natural a lo menos probable/natural):"
-
-explicacion: |
-  La termodinámica se basa en la probabilidad: es extremadamente probable que las partículas ocupen todo el volumen disponible (mayor número de microestados) y extremadamente improbable que se concentren en un solo punto sin intervención externa.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "basico"
-  tags: ["termodinamica", "entropia"]
-
-respuesta: "aumentar"
-tipo: completar
-respuestas_validas:
-  - "aumentar"
-  - "crecer"
-
-enunciado: "En un sistema aislado, la entropía total siempre tiende a ___ o permanecer constante según la segunda ley de la termodinamica."
-
-explicacion: |
-  La segunda ley de la termodinámica establece que en un sistema aislado, la entropía (el desorden) siempre aumenta en procesos espontáneos, lo que significa que el universo tiende hacia un estado de mayor probabilidad y desorden.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "intermedio"
-  tags: ["calor", "entropia"]
-
-variables:
-  caso: uno_de([0, 1])
-  caso_datos: ["un cuerpo a 80°C en contacto con uno a 20°C", "un cuerpo a 15°C en contacto con uno a 90°C"]
-
-respuesta: "El calor fluye de un cuerpo caliente a uno frío"
-tipo: mc
-
-opciones_explicitas: ["El calor fluye de un cuerpo frío a uno caliente", "El calor fluye de un cuerpo caliente a uno frío", "El calor fluye en ambas direcciones con igual probabilidad", "No hay flujo de calor entre cuerpos en equilibrio"]
-
-enunciado: "Considerando el caso de {caso_datos[caso]}, ¿cuál es la dirección espontánea del flujo de calor según la segunda ley?"
-
-pasos:
-  - "Identificar la temperatura de ambos cuerpos."
-  - "Aplicar la segunda ley de la termodinámica sobre la dirección del flujo térmico."
-
-explicacion: |
-  El calor fluye espontáneamente de un cuerpo con mayor temperatura a uno de menor temperatura para aumentar la entropía total del sistema.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "intermedio"
-  tags: ["energia", "entropia"]
-
-respuesta: "desorden"
-tipo: completar
-respuestas_validas:
-  - "desorden"
-  - "caos"
-
-enunciado: "Mientras que la energía se conserva según la primera ley, la entropía mide el grado de ___ de un sistema."
-
-explicacion: |
-  La energía no se crea ni se destruye (Primera Ley), pero la entropía cuantifica la parte de la energía que ya no es disponible para realizar trabajo útil debido al desorden generado.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "avanzado"
-  tags: ["irreversibilidad", "procesos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un proceso natural (espontáneo) es siempre irreversible porque implica un aumento neto de la entropía del universo."
-
-explicacion: |
-  Los procesos irreversibles son aquellos que ocurren de forma espontánea y aumentan la entropía total, marcando la "flecha del tiempo" en la termodinámica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "basico"
-  tags: ["orden", "desorden"]
-
-respuesta_orden: ["Cristal puro", "Líquido", "Gas", "Plasma"]
-tipo: ordenar
-
-opciones_explicitas: ["Gas", "Cristal puro", "Plasma", "Líquido"]
-
-enunciado: "Ordena los estados de la materia de MENOR a MAYOR entropía (menor desorden a mayor desorden):"
-
-explicacion: |
-  En un cristal (sólido perfecto), las partículas están altamente ordenadas (baja entropía). A medida que pasamos a líquido, gas y finalmente plasma, el movimiento y la libertad de las partículas aumentan, incrementando el desorden y la entropía.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "basico"
-  tags: ["calor", "entropia", "termodinamica"]
-
-variables:
-  datos: [["una taza de café caliente en una habitación fría", "aumenta"], ["un cubo de hielo en un vaso de agua tibia", "aumenta"]]
+  datos: [["un péndulo de 1 metro", 2.0], ["un péndulo de 0.25 metros", 1.0]]
   idx: uno_de([0, 1])
 
-enunciado: "Si dejamos reposar {datos[idx][0]}, la entropía total del sistema y su entorno tiende a {datos[idx][1]}."
+enunciado: "En un reloj antiguo, observamos que {datos[idx][0]} completa un ciclo de vaivén en {datos[idx][1]} segundos. ¿Cuál es el periodo de este movimiento?"
 
 respuestas_validas:
   - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
+tolerancia_abs: 0.1
+
+explicacion: |
+  El periodo (T) es el tiempo necesario para completar un ciclo completo de movimiento. En este caso, el tiempo dado es el periodo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
+  tema: "oscilacion_y_periodo"
   nivel: "basico"
-  tags: ["calor", "segunda_ley"]
-
-enunciado: "De acuerdo con la segunda ley de la termodinámica, en un proceso espontáneo, el calor fluye de forma natural desde un cuerpo de mayor temperatura hacia uno de menor temperatura. ¿Es esto cierto?"
-
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "verdadero"
-tipo: mc
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "intermedio"
-  tags: ["orden", "desorden", "entropia"]
+  tags: ["frecuencia", "ritmo_cardiaco"]
 
 variables:
-  datos: [["gas", "alta"], ["sólido", "baja"], ["líquido", "media"]]
-  idx: uno_de([0, 1, 2])
+  frecuencia_corazon: uno_de([60, 75, 120])
 
-enunciado: "Considerando la estructura molecular, un estado de la materia en forma de {datos[idx][0]} presenta una entropía de magnitud {datos[idx][1]}."
+enunciado: "Un atleta tiene una frecuencia cardíaca de {frecuencia_corazon} latidos por minuto. Si consideramos cada latido como un ciclo de oscilación, ¿cuántos segundos tarda en realizar un solo latido (periodo)?"
 
-respuesta: datos[idx][1]
+pasos:
+  - "Convertir la frecuencia de latidos/minuto a latidos/segundo: {frecuencia_corazon} / 60"
+  - "Calcular el periodo como el inverso de la frecuencia: 1 / (frecuencia_corazon / 60)"
+
+respuesta: 60 / frecuencia_corazon
 tipo: completar
-respuestas_validas:
-  - "alta"
-  - "baja"
-  - "media"
+tolerancia_abs: 0.01
+
 explicacion: |
-  La entropía es una medida del desorden en un sistema. En el estado sólido, las partículas tienen poca libertad de movimiento, lo que corresponde a una baja entropía. En el líquido, hay más desorden que en el sólido pero menos que en el gas. Por último, en el estado gaseoso, las partículas están completamente desordenadas, lo que implica una alta entropía.
+  El periodo es el inverso de la frecuencia. Si el atleta tiene {frecuencia_corazon} latidos por minuto, el periodo es 60/{frecuencia_corazon} segundos.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
-  nivel: "avanzado"
-  tags: ["maquinas_termicas", "eficiencia"]
-
-enunciado: "Para que una máquina térmica funcione de forma cíclica, debe transferir parte del calor de la fuente caliente a la fuente fría. Ordena los pasos de un ciclo de Carnot ideal:"
-
-opciones_explicitas: ["Expansión isotérmica", "Expansión adiabática", "Compresión isotérmica", "Compresión adiabática"]
-respuesta_orden: ["Expansión isotérmica", "Expansión adiabática", "Compresión isotérmica", "Compresión adiabática"]
-tipo: ordenar
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "entropia_segunda_ley_termodinamica"
+  tema: "oscilacion_y_periodo"
   nivel: "intermedio"
-  tags: ["cosmologia", "entropia"]
+  tags: ["oscilacion", "conceptos"]
 
-enunciado: "Si la entropía de un sistema aislado siempre aumenta o permanece constante, ¿qué sucede con la entropía del universo según la segunda ley?"
+enunciado: "Si un niño en un columpio completa 10 oscilaciones completas en un tiempo total de 20 segundos, ¿cuál es el periodo de la oscilación?"
 
-opciones_explicitas: ["disminuye", "se mantiene constante", "aumenta"]
-respuesta: "aumenta"
+opciones_explicitas: ["0.5 s", "2.0 s", "20 s", "200 s"]
+respuesta: "2.0 s"
 tipo: mc
+
+explicacion: |
+  El periodo T se calcula dividiendo el tiempo total entre el número de oscilaciones: T = tiempo / n = 20s / 10 = 2.0 s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "oscilacion_y_periodo"
+  nivel: "basico"
+  tags: ["teoria"]
+
+enunciado: "Un movimiento se considera periódico si se repite en intervalos de tiempo iguales. Si un objeto realiza un ciclo completo, ¿el tiempo transcurrido es el periodo?"
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  Exactamente. Por definición, el periodo es el tiempo requerido para que el sistema complete una oscilación o ciclo completo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "oscilacion_y_periodo"
+  nivel: "intermedio"
+  tags: ["fases", "ciclo"]
+
+variables:
+  estado_inicial: ["máximo desplazamiento positivo", "punto de equilibrio", "máximo desplazamiento negativo", "punto de equilibrio"]
+
+enunciado: "Un pistón de motor realiza un movimiento oscilatorio. Si su estado inicial es {estado_inicial[0]}, ordene los eventos que marcan un ciclo completo de oscilación."
+
+opciones_explicitas: ["máximo desplazamiento positivo", "punto de equilibrio", "máximo desplazamiento negativo", "punto de equilibrio"]
+respuesta_orden: ["máximo desplazamiento positivo", "punto de equilibrio", "máximo desplazamiento negativo", "punto de equilibrio"]
+tipo: ordenar
+
+explicacion: |
+  Un ciclo completo debe pasar por todos los puntos de la trayectoria y regresar al punto de partida para ser considerado una oscilación cerrada.
 ```
 

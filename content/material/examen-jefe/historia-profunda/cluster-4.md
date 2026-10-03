@@ -1,2328 +1,2385 @@
 # Examen jefe — [PENDIENTE #684]
 
-> Logro #684. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #684. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: civilizaciones-de-america-precolombinas (25 preguntas)
+## Sección: tabla-periodica-nivel2-cosmologico (25 preguntas)
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
   nivel: "intermedio"
-  tags: ["aztecas", "mexica", "tenochtitlan"]
-tipo: completar
-enunciado: "El centro ceremonial y político de la capital del Imperio Mexica, fundada en una isla del lago de Texcoco, se llamaba ___."
-respuesta: "tenochtitlan"
-respuestas_validas:
-  - "tenochtitlan"
-  - "Tenochtitlan"
-  - "Tenochtitlá"
-  - "Tenochtitlán"
-explicacion: "Tenochtitlan fue la capital azteca, construida sobre el lago de Texcoco y destruida por los conquistadores españoles en 1521."
-```
+  tags: ["big_bang", "hidrogeno", "helio"]
 
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["inca", "tawantinsuyu", "administracion"]
+respuesta: "Big Bang"
 tipo: mc
-enunciado: "¿Cómo se denominaba el imperio incaico, que significaba 'Las cuatro regiones' o 'Los cuatro suyus'?"
-opciones_explicitas:
-  - "Tawantinsuyu"
-  - "Mesoamérica"
-  - "Teotihuacán"
-  - "Chinampas"
-respuesta: "Tawantinsuyu"
-explicacion: "El nombre Tawantinsuyu refleja la división territorial del imperio en cuatro grandes regiones unidas por el Sapa Inca."
-```
 
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["aztecas", "codices", "escritura"]
-tipo: vf
-enunciado: "Los aztecas poseían un sistema de escritura fonético completo idéntico al alfabeto latino."
-respuesta: falso
-explicacion: "Los aztecas utilizaban un sistema mixto pictográfico e ideográfico, no un alfabeto fonético completo. La escritura fonética completa es característica de los mayas."
-```
+enunciado: "Los elementos más abundantes del universo, como el Hidrógeno y el Helio, se formaron principalmente durante el ___."
 
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["aztecas", "chinampas", "agricultura"]
-tipo: completar
-enunciado: "Los aztecas desarrollaron ___ para cultivar en las aguas poco profundas del lago de Texcoco."
-respuesta: "chinampas"
-respuestas_validas:
-  - "chinampas"
-  - "Chinampas"
-explicacion: "Las chinampas eran islas artificiales creadas para la agricultura intensiva, permitiendo hasta siete cosechas al año."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["mayas", "chichen-itzá", "equinoccio"]
-tipo: vf
-enunciado: "Durante los equinoccios, la sombra proyectada por la pirámide de Kukulcán en Chichén Itzá crea la ilusión de una serpiente descendiendo por la escalinata principal."
-respuesta: verdadero
-explicacion: "Este fenómeno óptico demuestra el avanzado conocimiento astronómico de los mayas y su integración con la arquitectura religiosa."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["mayas", "colapso", "clasico"]
-tipo: mc
-enunciado: "¿Cuál de los siguientes factores es ampliamente citado por los arqueólogos como una causa probable del colapso de las ciudades estado mayas del período Clásico?"
-opciones_explicitas:
-  - "Sequías prolongadas combinadas con deforestación"
-  - "Invasión masiva de ejércitos europeos"
-  - "Epidemia de viruela traída por los nativos"
-  - "Erupción volcánica que enterró Tikal"
-respuesta: "Sequías prolongadas combinadas con deforestación"
-explicacion: "Evidencias paleoclimáticas sugieren que sequías severas agravaron la presión social y ambiental sobre los recursos hídricos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["inca", "quechua", "lengua"]
-tipo: completar
-enunciado: "El imperio incaico promovió el uso del ___ como lengua franca para unir a los diversos pueblos conquistados."
-respuesta: "quechua"
-respuestas_validas:
-  - "quechua"
-  - "Quechua"
-  - "runa simi"
-  - "Runa Simi"
-explicacion: "El quechua fue impuesto y difundido como herramienta administrativa y cultural del estado incaico."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["mayas", "calendario", "tzolkin"]
-tipo: mc
-enunciado: "¿Qué calendario sagrado maya de 260 días se utilizaba principalmente para rituales y adivinación?"
-opciones_explicitas:
-  - "Tzolk'in"
-  - "Haab'"
-  - "Cuenta Larga"
-  - "Xul"
-respuesta: "Tzolk'in"
-explicacion: "El Tzolk'in era el calendario sagrado de 260 días, mientras que el Haab' era el solar de 365 días."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["aztecas", "sacrificio", "huitzilopochtli"]
-tipo: vf
-enunciado: "Los aztecas creían que el sacrificio humano era necesario para alimentar al sol y evitar que el mundo terminara."
-respuesta: verdadero
-explicacion: "La cosmovisión mexica exigía el 'nauxtlan' o sangre vital para mantener el ciclo cósmico y la posición de Huitzilopochtli."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["inca", "qhapaq_ñan", "vías"]
-tipo: completar
-enunciado: "El sistema de caminos principal del imperio inca, que conectaba todo el territorio desde Colombia hasta Chile, se llamaba ___."
-respuesta: "qhapaq ñan"
-respuestas_validas:
-  - "qhapaq ñan"
-  - "Qhapaq Ñan"
-  - "camino real"
-  - "Camino Real"
-explicacion: "El Qhapaq Ñan era una red de más de 30,000 km de caminos, algunos pavimentados, fundamentales para la logística imperial."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["mayas", "escritura", "jeroglíficos"]
-tipo: vf
-enunciado: "La escritura jeroglífica maya fue completamente descifrada en el siglo XX y permite leer textos históricos y dinásticos."
-respuesta: verdadero
-explicacion: "Avances en la epigrafía maya desde la segunda mitad del siglo XX permitieron descifrar la mayor parte de sus glifos, revelando su naturaleza logofonética."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["inca", "sapa_inca", "gobernante"]
-tipo: completar
-enunciado: "El emperador del imperio inca, considerado hijo del dios Sol, recibía el título de ___."
-respuesta: "sapa inca"
-respuestas_validas:
-  - "sapa inca"
-  - "Sapa Inca"
-  - "capac"
-  - "Capac"
-explicacion: "El Sapa Inca ('Inca Único') era la máxima autoridad política y religiosa, visto como un ser divino."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["aztecas", "triple_alianza", "tezcoco"]
-tipo: mc
-enunciado: "¿Qué dos ciudades-estado formaron la Triple Alianza junto con Tenochtitlan para dominar el Valle de México?"
-opciones_explicitas:
-  - "Texcoco y Tlacopan"
-  - "Teotihuacán y Cholula"
-  - "Tula y Xochicalco"
-  - "Monte Albán y Palenque"
-respuesta: "Texcoco y Tlacopan"
-explicacion: "La Triple Alianza (1428) unió a Tenochtitlan, Texcoco y Tlacopan, marcando el inicio del apogeo del poderío mexica."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["inca", "quipu", "registro"]
-tipo: completar
-enunciado: "Los incas utilizaban ___ para registrar datos numéricos, censos y posiblemente narrativas históricas mediante nudos en cuerdas."
-respuesta: "quipus"
-respuestas_validas:
-  - "quipus"
-  - "Quipus"
-  - "quipo"
-  - "Quipo"
-explicacion: "Los quipus eran dispositivos de registro basados en cuerdas y nudos, siendo la principal herramienta de administración del estado inca."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["mayas", "chichen-itzá", "astronomía"]
-tipo: mc
-enunciado: "¿En qué península se encuentra el sitio arqueológico de Chichén Itzá?"
-opciones_explicitas:
-  - "Yucatán"
-  - "Baja California"
-  - "Istmo de Tehuantepec"
-  - "Guerrero"
-respuesta: "Yucatán"
-explicacion: "Chichén Itzá está ubicada en la península de Yucatán, en el sureste de México, fue un importante centro maya y postclásico."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["mesoamerica", "definicion", "geografia"]
-tipo: vf
-enunciado: "Mesoamérica es una región cultural que incluye exclusivamente el territorio de lo que hoy es México."
-respuesta: falso
-explicacion: "Mesoamérica se extiende desde el centro de México hasta partes de Guatemala, Belice, El Salvador y Honduras, compartiendo rasgos culturales comunes."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["aztecas", "tlaxcala", "conquista"]
-tipo: mc
-enunciado: "¿Qué ciudad-estado mesoamericana, enemiga jurada de los aztecas, se alió con Hernán Cortés para derrotar a Tenochtitlan?"
-opciones_explicitas:
-  - "Tlaxcala"
-  - "Cholula"
-  - "Texcoco"
-  - "Tula"
-respuesta: "Tlaxcala"
-explicacion: "Tlaxcala resistió el dominio azteca durante décadas y su alianza fue crucial para la victoria española."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["inca", "machu_picchu", "patrimonio"]
-tipo: completar
-enunciado: "La ciudadela inca ubicada en una creasta montañosa a 2,430 metros de altura, conocida como la 'Ciudad Perdida', es ___."
-respuesta: "machu picchu"
-respuestas_validas:
-  - "machu picchu"
-  - "Machu Picchu"
-  - "machupicchu"
-explicacion: "Machu Picchu es un ejemplo magistral de ingeniería inca y arquitectura religiosa, probablemente una residencia real o santuario."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["mayas", "maiz", "agricultura"]
-tipo: mc
-enunciado: "¿Cuál era el cultivo básico y sagrado para la alimentación y la cosmología de las civilizaciones mayas?"
-opciones_explicitas:
-  - "Maíz"
-  - "Trigo"
-  - "Arroz"
-  - "Cebada"
-respuesta: "Maíz"
-explicacion: "El maíz era la base de la dieta y el tema central del Popol Vuh, donde los humanos fueron creados de masa de maíz."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["aztecas", "conquista", "1521"]
-tipo: vf
-enunciado: "La caída de Tenochtitlan ante las fuerzas de Hernán Cortés y sus aliados indígenas ocurrió en 1521."
-respuesta: verdadero
-explicacion: "El asedio final terminó el 13 de agosto de 1521, marcando el fin del Imperio Mexica."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["andino", "chavin", "pukara", "culturas"]
-tipo: mc
-enunciado: "¿Cuál de estas culturas andinas es considerada una 'cultura matriz' o madre de las civilizaciones posteriores en los Andes centrales?"
-opciones_explicitas:
-  - "Chavín"
-  - "Moche"
-  - "Nazca"
-  - "Wari"
-respuesta: "Chavín"
-explicacion: "La cultura Chavín (900-200 a.C.) estableció patrones religiosos y artísticos que influyeron en toda la región andina posterior."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["mayas", "calendario", "cuenta_larga"]
-tipo: completar
-enunciado: "Los mayas utilizaban el sistema de ___ para contar días históricos desde una fecha de origen mítica."
-respuesta: "cuenta larga"
-respuestas_validas:
-  - "cuenta larga"
-  - "Cuenta Larga"
-  - "cuenta larga maya"
-  - "Cuenta Larga Maya"
-explicacion: "La Cuenta Larga es un sistema de conteo acumulativo que registra el paso del tiempo en periodos de 20 días (winal) y otros."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["inca", "mitmaes", "politica"]
-tipo: mc
-enunciado: "¿Cómo se llamaba a las poblaciones trasladadas por los incas a nuevas regiones para asegurar la lealtad y difundir la cultura?"
-opciones_explicitas:
-  - "Mitmaes"
-  - "Yanaconas"
-  - "Ayllu"
-  - "Curacas"
-respuesta: "Mitmaes"
-explicacion: "Los mitmaes eran grupos reasentados estratégicamente por el estado inca para romper lealtades previas y controlar territorios."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["teotihuacan", "mesoamerica", "clasico"]
-tipo: vf
-enunciado: "Teotihuacán fue una gran ciudad del período Clásico temprano que alcanzó gran poder antes del ascenso de los aztecas."
-respuesta: verdadero
-explicacion: "Teotihuacán floreció entre el 100 y el 750 d.C., mucho antes de que los aztecas llegaran al valle y la nombraran 'el lugar donde los hombres se convierten en dioses'."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "civilizaciones-de-america-precolombinas"
-  nivel: "intermedio"
-  tags: ["inca", "yanaconas", "servidumbre"]
-tipo: completar
-enunciado: "Los ___ eran personas entregadas al servicio personal del Sapa Inca o del estado, con un estatus de servidumbre vitalicia."
-respuesta: "yanaconas"
-respuestas_validas:
-  - "yanaconas"
-  - "Yanaconas"
-explicacion: "Los yanaconas servían en las haciendas reales o templos, diferenciándose de la mayoría de la población organizada en ayllus."
-```
-
-## Sección: conquista-colonizacion-america (25 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "conquista_colonizacion_america"
-  nivel: "basico"
-  tags: ["encuentro", "columbus", "europa"]
-
-tipo: mc
-opciones_explicitas: ["América", "Asia", "África", "Oceanía"]
-respuesta: "Asia"
-
-enunciado: "En el año 1492, el viaje de Cristóbal Colón buscaba una ruta comercial hacia ___."
+opciones_explicitas: ["Big Bang", "Fusión Estelar"]
 
 explicacion: |
-  Colón buscaba una ruta hacia las Indias (Asia) navegando hacia el oeste, pero se encontró con un continente desconocido para los europeos.
+  El Big Bang ocurrió hace aproximadamente 13.800 millones de años, liberando protones y neutrones que formaron los núcleos de los elementos más ligeros.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "conquista_colonizacion_america"
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
   nivel: "intermedio"
-  tags: ["aztecas", "conquista", "mexico"]
+  tags: ["estrellas", "fusion"]
+
+respuesta: "fusión"
+tipo: completar
+respuestas_validas:
+  - "fusión"
+  - "fision"
+
+enunciado: "En el núcleo de una estrella, la combinación de núcleos ligeros para formar elementos más pesados se denomina proceso de ________."
+
+explicacion: |
+  La fusión nuclear es el proceso donde núcleos atómicos se unen para formar un núcleo más pesado, liberando una enorme cantidad de energía.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_supernova"
+  nivel: "avanzado"
+  tags: ["supernova", "elementos_pesados"]
+
+respuesta: "Supernovas"
+tipo: mc
+
+enunciado: "Los elementos más pesados que el hierro, como el oro o el uranio, se originan principalmente en eventos de ________."
+
+opciones_explicitas: ["Supernovas", "Enanas Blancas"]
+
+explicacion: |
+  Las explosiones de supernovas y la colisión de estrellas de neutrones proporcionan la energía necesaria para la nucleosíntesis de elementos muy pesados.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "avanzado"
+  tags: ["orden", "procesos"]
+
+respuesta_orden: ["Big Bang", "Fusión Estelar", "Supernovas"]
+tipo: ordenar
+opciones_explicitas: ["Big Bang", "Fusión Estelar", "Supernovas"]
+
+enunciado: "Ordena los procesos de nucleosíntesis según su orden cronológico en la historia del universo (del más antiguo al más reciente):"
+
+explicacion: |
+  Primero ocurrió el Big Bang (H, He), luego la fusión en el interior de las estrellas (C, O, Ne, etc.) y finalmente las explosiones estelares para elementos pesados.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "avanzado"
+  tags: ["hierro", "energia"]
+
+respuesta: 26
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "En una estrella masiva, la fusión de elementos se detiene cuando se llega al núcleo de hierro (Fe). ¿Cuál es el número atómico (Z) del hierro?"
+
+explicacion: |
+  El hierro tiene un número atómico de 26. La fusión de elementos más pesados que el hierro requiere un aporte neto de energía en lugar de liberarla, lo que lleva al colapso de la estrella.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "basico"
+  tags: ["big_bang", "hidrogeno", "helio"]
+
+respuesta: "Big Bang"
+tipo: completar
+respuestas_validas:
+  - "Big Bang"
+
+enunciado: "El hidrógeno y el helio son los elementos más abundantes del universo y su origen se remonta al ___."
+
+explicacion: |
+  En los primeros minutos del universo, la nucleosíntesis primordial produjo principalmente núcleos de hidrógeno y helio.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "intermedio"
+  tags: ["estrellas", "nucleosintesis", "elementos_pesados"]
 
 variables:
-  escenario: uno_de([["Hernán Cortés", "Tenochtitlán", "Mexicas"], ["Francisco Pizarro", "Cuzco", "Incas"]])
+  datos: [["estrellas", "elementos pesados"], ["big bang", "hidrógeno"], ["supernovas", "metales"]]
+  idx: uno_de([0,1,2])
 
-tipo: completar
-respuestas_validas:
-  - "Hernán Cortés"
-  - "Tenochtitlán"
-  - "Mexicas"
-
-enunciado: "El conquistador español que lideró la caída del imperio de los {escenario[2]} fue {escenario[0]}, tomando como centro la ciudad de {escenario[1]}."
-
-pasos:
-  - "Identificar al líder de la expedición."
-  - "Identificar el nombre de la capital del imperio conquistado."
-  - "Identificar el nombre del pueblo originario."
-
-explicacion: |
-  {escenario[0]} lideró la expedición que sometió al imperio de los {escenario[2]} en el territorio que hoy es México.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "conquista_colonizacion_america"
-  nivel: "avanzado"
-  tags: ["tratado", "espana", "portugal"]
-
+respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["España", "Portugal", "Inglaterra", "Francia"]
-respuesta: "Portugal"
+opciones_explicitas: ["elementos pesados", "hidrógeno", "metales"]
 
-enunciado: "El Tratado de Tordesillas (1494) dividió las zonas de exploración y conquista entre España y ___."
+enunciado: "Si el hidrógeno y el helio provienen del Big Bang, ¿de dónde proviene la mayoría de los elementos más complejos de la tabla periódica?"
 
 explicacion: |
-  El tratado estableció una línea de demarcación que otorgaba a Portugal las tierras al este de la línea (lo que luego sería Brasil) y a España las tierras al oeste.
+  Las estrellas actúan como reactores nucleares que fusionan elementos ligeros para crear elementos más pesados.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "conquista_colonizacion_america"
-  nivel: "intermedio"
-  tags: ["biologia", "enfermedades", "demografia"]
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "basico"
+  tags: ["abundancia", "hidrogeno", "helio"]
+
+variables:
+  datos: [["Hidrógeno", 1], ["Helio", 2]]
+  idx: uno_de([0,1])
+
+respuesta: datos[idx][0]
+tipo: mc
+opciones_explicitas: ["Hidrógeno", "Helio", "Carbono", "Oxígeno"]
+
+enunciado: "Considerando la abundancia en el universo, si el elemento seleccionado es el {datos[idx][0]}, este es el más abundante."
+
+explicacion: |
+  El hidrógeno es el elemento número uno en abundancia cósmica, seguido por el helio.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "avanzado"
+  tags: ["orden", "evolucion_estelar"]
+
+respuesta_orden: ["Big Bang", "Formación de estrellas", "Fusión estelar", "Supernovas"]
+tipo: ordenar
+opciones_explicitas: ["Big Bang", "Formación de estrellas", "Fusión estelar", "Supernovas"]
+
+enunciado: "Ordena cronológicamente los eventos que explican la presencia de elementos pesados en el universo:"
+
+explicacion: |
+  Primero surge la materia básica en el Big Bang, luego se forman las estrellas donde ocurre la fusión, y finalmente las explosiones estelares dispersan los elementos pesados.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "basico"
+  tags: ["atomo", "proton"]
+
+variables:
+  datos: [["Hidrógeno", 1], ["Helio", 2]]
+  idx: uno_de([0,1])
+
+respuestas_validas:
+  - datos[idx][1]
+respuesta: datos[idx][1]
 
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Además de las guerras, un factor determinante en la caída de la población indígena fue la llegada de enfermedades como la viruela. ¿El efecto demográfico fue de aumento o disminución? (Escribe 'aumento' o 'disminución')"
-
-respuesta: "disminución"
-respuestas_validas:
-  - "disminución"
+enunciado: "Un átomo de {datos[idx][0]} en su estado fundamental tiene exactamente {datos[idx][1]} protones en su núcleo."
 
 explicacion: |
-  La introducción de patógenos europeos causó una catástrofe demográfica en las poblaciones originarias.
+  El número atómico define la cantidad de protones. El hidrógeno tiene 1 y el helio tiene 2.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "conquista_colonizacion_america"
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
   nivel: "intermedio"
-  tags: ["cronologia", "procesos"]
-
-tipo: ordenar
-opciones_explicitas: ["Llegada de Colón", "Caída de Tenochtitlán", "Establecimiento del Virreinato del Perú"]
-
-enunciado: "Ordena cronológicamente los siguientes hitos de la conquista española en América:"
-
-explicacion: |
-  Primero ocurrió el viaje de Colón (1492), luego la conquista del Imperio Azteca (1521) y finalmente la organización administrativa de los territorios en virreinatos.
-respuesta_orden: ["Llegada de Colón", "Caída de Tenochtitlán", "Establecimiento del Virreinato del Perú"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "basico"
-  tags: ["demografia", "enfermedades"]
-
-respuesta: "viruela"
-tipo: completar
-respuestas_validas:
-  - "viruela"
-  - "viruela"
-  - "sarampión"
-  - "sarampión"
-
-enunciado: "Uno de los factores biológicos más devastadores durante la conquista fue la propagación de la ___, enfermedad que causó una mortalidad masiva en las poblaciones indígenas debido a la falta de inmunidad previa."
-
-explicacion: |
-  La viruela fue una de las principales causas del colapso demográfico, ya que los sistemas inmunológicos de los pueblos originarios no estaban preparados para virus provenientes de Eurasia y África.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "intermedio"
-  tags: ["causas", "colapso"]
-
-opciones_explicitas: ["Enfermedades", "Guerras de conquista", "Sistemas de explotación", "Todas las anteriores"]
-respuesta: "Todas las anteriores"
-tipo: mc
-
-enunciado: "¿Cuáles fueron los factores principales que contribuyeron al descenso drástico de la población indígena durante el proceso de colonización?"
-
-explicacion: |
-  El colapso fue multicausal: la introducción de patógenos (viruela, sarampión), la violencia directa de las campañas militares y la explotación laboral (como la mita o la encomienda) actuaron de forma sinérgica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "avanzado"
-  tags: ["proceso", "causas"]
-
-opciones_explicitas: ["Llegada de patógenos", "Desestructuración social", "Colapso demográfico masivo"]
-respuesta_orden: ["Llegada de patógenos", "Desestructuración social", "Colapso demográfico masivo"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente los procesos que explican la catástrofe demográfica en el continente americano:"
-
-explicacion: |
-  Primero llegaron los agentes biológicos que causaron epidemias rápidas; esto desarticuló la organización social y familiar (desestructuración), lo que finalmente derivó en una caída demográfica sin precedentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "intermedio"
-  tags: ["biologia", "historia"]
-
-enunciado: "En el escenario epidémico posterior a la conquista, la falta de memoria inmunológica de los pueblos originarios ante virus como el sarampión fue un factor determinante para la mortalidad."
-
-pasos:
-  - "Analizar la interacción entre patógeno y sistema inmune."
-  - "Relacionar la falta de inmunidad con la velocidad de propagación."
-
-respuesta: "sarampión"
-tipo: completar
-respuestas_validas:
-  - "sarampión"
-  - "sarampión"
-
-explicacion: |
-  Al ser virus nuevos para estas poblaciones, no existían anticuerpos previos, lo que permitía que la enfermedad se propagara de forma explosiva entre comunidades enteras.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "basico"
-  tags: ["explotacion", "demografia"]
-
-opciones_explicitas: ["Aumento de la natalidad", "Reducción de la población", "Migración masiva a Europa"]
-respuesta: "Reducción de la población"
-tipo: mc
-
-enunciado: "La combinación de enfermedades y los sistemas de trabajo forzado (como la encomienda) provocó principalmente una:"
-
-explicacion: |
-  La explotación extrema reducía la capacidad de recuperación de las poblaciones, agravando el impacto de las epidemias y llevando a una reducción poblacional constante.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "basico"
-  tags: ["encomienda", "mano_de_obra", "colonizacion"]
-
-respuesta: "tributo"
-tipo: "completar"
-respuestas_validas:
-  - "tributo"
-
-enunciado: "En el sistema de la encomienda, la Corona española otorgaba a un encomendero el derecho de recibir ___ en forma de trabajo o productos por parte de los indígenas a cambio de su evangelización."
-
-explicacion: |
-  La encomienda era una institución donde se asignaba un grupo de indígenas a un español (encomendero) para que este los protegiera y evangelizara, a cambio de tributos o trabajo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "intermedio"
-  tags: ["mita", "mineria", "potosi"]
+  tags: ["astrofisica", "elementos_pesados"]
 
 variables:
   escenario_idx: uno_de([0,1])
-  escenarios: [["Potosí", "Plata"], ["Huancavelica", "Mercurio"]]
+  escenarios: [["supernova", "colisión de estrellas de neutrones"], ["estrellas de neutrones", "supernovas"]]
 
-respuesta: escenarios[escenario_idx][1]
-tipo: "mc"
-opciones_explicitas: ["Plata", "Mercurio", "Oro", "Azogue"]
+enunciado: "Los elementos más pesados que el hierro, como el oro o el uranio, no se forman en estrellas comunes, sino que requieren eventos cataclísmicos como una {escenarios[escenario_idx][0]}."
 
-enunciado: "Durante la colonia, la mita fue un sistema de trabajo obligatorio para los indígenas. En el caso de la mita de {escenarios[escenario_idx][0]}, el recurso principal extraído era el/la {escenarios[escenario_idx][1]}."
-
-explicacion: |
-  La mita minera fue una adaptación de la mita incaica utilizada por los españoles para asegurar mano de obra en las minas de plata de Potosí y de mercurio en Huancavelica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "basico"
-  tags: ["mercantilismo", "metales_preciosos"]
-
-respuesta: "metrópolis"
-tipo: "mc"
-opciones_explicitas: ["metrópolis", "colonias", "comunidades", "indígenas"]
-
-enunciado: "El sistema extractivo colonial estaba diseñado para que la riqueza obtenida en América fluyera hacia la ___ europea."
-
-explicacion: |
-  El modelo económico era mercantilista y extractivista, cuyo objetivo principal era el enriquecimiento de las potencias coloniales (metrópolis) mediante la acumulación de metales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "avanzado"
-  tags: ["orden", "procesos_coloniales"]
-
-respuesta_orden: ["Conquista", "Encomienda", "Mita"]
-tipo: "ordenar"
-opciones_explicitas: ["Mita", "Conquista", "Encomienda"]
-
-enunciado: "Ordene cronológicamente las etapas de la organización del trabajo y control de población en el continente americano:"
-
-explicacion: |
-  Primero se produjo la Conquista militar, seguida por la Encomienda (control de tributo/evangelización) y finalmente la consolidación de sistemas de trabajo forzado como la Mita para la minería intensiva.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "intermedio"
-  tags: ["demografia", "explotacion"]
-
-respuesta: -15000000
-tipo: "input"
-tolerancia_abs: 5000000
-
-enunciado: "Debido a las enfermedades y las duras condiciones en los sistemas de trabajo como la mita, se estima que la población indígena sufrió una caída drástica. Si una población inicial era de 25.000.000 y tras la explotación quedó en 10.000.000, ¿cuántos millones de personas se perdieron aproximadamente? (Ingrese el número entero)"
-
-pasos:
-  - "Calcular la diferencia: 25.000.000 - 10.000.000"
-
-explicacion: |
-  El colapso demográfico fue uno de los efectos más devastadores de la colonización, causado por la combinación de epidemias y la sobreexplotación laboral en minas y haciendas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "basico"
-  tags: ["intercambio_colombino", "biologia", "historia"]
-
-variables:
-  escenario_idx: uno_de([0, 1, 2])
-  datos: [["maíz", "América", "Europa"], ["caballo", "Europa", "América"], ["viruela", "Europa", "América"]]
-
-enunciado: "Tras el contacto de 1492, el intercambio colombino permitió que el {datos[escenario_idx][0]} fuera llevado desde {datos[escenario_idx][1]} hacia {datos[escenario_idx][2]}."
-
-respuesta: datos[escenario_idx][2]
+respuesta: escenarios[escenario_idx][0]
 tipo: mc
-opciones_explicitas: ["América", "Europa", "África", "Asia"]
+opciones_explicitas: ["supernova", "estrellas de neutrones", "fusiones de helio", "fusión estelar ordinaria"]
 
 explicacion: |
-  El intercambio colombino fue el flujo masivo de plantas, animales y patógenos entre el Viejo y el Nuevo Mundo que transformó la ecología y la demografía global.
+  La nucleosíntesis de elementos más pesados que el hierro requiere un flujo masivo de neutrones (proceso r), algo que solo ocurre en eventos de altísima energía como supernovas o la fusión de estrellas de neutrones.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "intermedio"
-  tags: ["demografia", "enfermedades", "impacto"]
+  materia: "quimica"
+  tema: "tabla_periodica_cosmologica"
+  nivel: "basico"
+  tags: ["elementos", "pesados"]
 
-variables:
-  enfermedad_idx: uno_de([0, 1])
-  enfermedades: [["viruela", "catastrófico"], ["sarampión", "catastrófico"]]
+enunciado: "Completa la siguiente afirmación: El elemento con símbolo 'Au' es el ___."
 
-enunciado: "La llegada de la {enfermedades[enfermedad_idx][0]} a América tuvo un impacto ___ en la población indígena."
-
-respuesta: enfermedades[enfermedad_idx][1]
-tipo: completar
 respuestas_validas:
-  - "catastrófico"
+  - "oro"
+tipo: completar
 
 explicacion: |
-  Las poblaciones indígenas de América no tenían inmunidad contra enfermedades euroasiáticas como la viruela o el sarampión, lo que causó un colapso demográfico masivo.
+  El oro (Au) es un elemento pesado cuya formación requiere eventos de nucleosíntesis explosiva.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "intermedio"
-  tags: ["agricultura", "europa", "papa"]
-
-respuesta: "papa"
-tipo: mc
-opciones_explicitas: ["trigo", "papa", "arroz", "cebada"]
-
-enunciado: "Un cultivo fundamental proveniente de América que revolucionó la dieta europea y permitió un crecimiento poblacional en los siglos posteriores fue la ___."
-
-explicacion: |
-  La papa (Solanum tuberosum) proporcionó una densidad calórica alta que fue clave para evitar hambrunas en Europa.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "basico"
-  tags: ["animales", "transporte"]
-
-respuesta: "caballo"
-tipo: mc
-opciones_explicitas: ["vaca", "caballo", "oveja", "cerdo"]
-
-enunciado: "La introducción de este animal transformó la cultura de las tribus de las llanuras en América, facilitando el transporte y la caza: el ___."
-
-explicacion: |
-  El caballo fue introducido por los españoles y cambió radicalmente la movilidad y las tácticas de guerra de los pueblos nativos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
   nivel: "avanzado"
-  tags: ["procesos", "historia"]
+  tags: ["nucleosintesis", "proceso_r"]
 
-enunciado: "Ordená cronológicamente el proceso del intercambio colombino:"
-respuesta_orden: ["Llegada de Colón", "Introducción de especies", "Transformación ecológica"]
+enunciado: "Ordena cronológicamente los procesos de formación de elementos pesados en el universo, desde la formación de estrellas masivas hasta la formación de elementos extremadamente pesados en eventos cataclísmicos:"
+
+opciones_explicitas: ["Fusión de hidrógeno", "Fusión de elementos en núcleo estelar", "Explosión de supernova", "Fusión de estrellas de neutrones"]
+respuesta_orden: ["Fusión de hidrógeno", "Fusión de elementos en núcleo estelar", "Explosión de supernova", "Fusión de estrellas de neutrones"]
 tipo: ordenar
-opciones_explicitas: ["Introducción de especies", "Llegada de Colón", "Transformación ecológica"]
 
 explicacion: |
-  El proceso comenzó con el contacto inicial, seguido por la transferencia biológica de especies y culminó en una transformación ecológica y cultural permanente de ambos hemisferios.
+  La evolución estelar comienza con la fusión de hidrógeno, sigue con elementos más pesados en el núcleo, culmina en la supernova y, finalmente, los eventos más extremos como la fusión de estrellas de neutrones crean los elementos más pesados.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "basico"
-  tags: ["intercambio_colombino", "botanica"]
-
-variables:
-  escenario: [[ "maíz", "América" ], [ "trigo", "Eurasia" ], [ "papa", "América" ], [ "arroz", "Eurasia" ]]
-  idx: uno_de([0,1,2,3])
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["América", "Eurasia", "África", "Oceanía"]
-
-enunciado: "El {escenario[idx][0]} fue un producto fundamental que llegó al Viejo Mundo proveniente de _______."
-
-explicacion: |
-  El intercambio colombino permitió que productos como el {escenario[idx][0]} transformaran la dieta en Europa y Asia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "basico"
-  tags: ["intercambio_colombino", "animales"]
-
-variables:
-  escenario: [[ "caballo", "Eurasia" ], [ "pavo", "América" ], [ "cerdo", "Eurasia" ], [ "tomate", "América" ]]
-  idx: uno_de([0,1,2,3])
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["América", "Eurasia", "Oceanía", "África"]
-
-enunciado: "En el proceso de colonización, el {escenario[idx][0]} fue un elemento que llegó a América desde _______."
-
-explicacion: |
-  Los animales domésticos como el {escenario[idx][0]} fueron introducidos por los europeos y cambiaron el paisaje americano.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
   nivel: "intermedio"
-  tags: ["intercambio_colombino", "logica"]
+  tags: ["uranio", "astrofisica"]
+
+enunciado: "El uranio es un elemento que puede formarse mediante la fusión de helio en el núcleo de una estrella de la secuencia principal."
+
+respuesta: falso
+tipo: vf
+
+explicacion: |
+  Falso. El uranio es un elemento muy pesado que requiere procesos de captura rápida de neutrones (proceso r) en eventos energéticos, no la fusión de helio.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "intermedio"
+  tags: ["masa", "isotopos"]
 
 variables:
-  escenario: [[ "Cacao", "América" ], [ "Café", "Eurasia" ], [ "Azúcar", "Eurasia" ], [ "Tabaco", "América" ]]
-  idx: uno_de([0,1,2,3])
+  elemento_idx: uno_de([0,1])
+  datos: [[197, "oro"], [238, "uranio"]]
+
+enunciado: "Si un evento de estrella de neutrones produce un isótopo de {datos[elemento_idx][1]}, su masa atómica aproximada es de {datos[elemento_idx][0]} u."
+
+respuesta: datos[elemento_idx][0]
+tipo: completar
+tolerancia_abs: 0
+
+explicacion: |
+  El valor corresponde a la masa atómica aproximada del elemento seleccionado en el escenario.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "intermedio"
+  tags: ["astroquimica", "elementos"]
+
+variables:
+  elemento_idx: uno_de([0, 1, 2])
+  elementos: ["carbono", "oxígeno", "hierro"]
+
+respuesta: elementos[elemento_idx]
+tipo: mc
+opciones_explicitas: ["carbono", "oxígeno", "hierro", "helio"]
+
+enunciado: "El {elementos[elemento_idx]} que forma parte de las moléculas orgánicas de tu cuerpo se originó mediante la fusión en el núcleo de una estrella masiva."
+
+explicacion: |
+  La nucleosíntesis estelar es el proceso mediante el cual los elementos más pesados que el hidrógeno y el helio se crean por fusión en el interior de las estrellas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "avanzado"
+  tags: ["supernova", "nucleosintesis"]
+
+respuesta: "el hierro"
+tipo: completar
+respuestas_validas:
+  - "el hierro"
+
+enunciado: "Cuando una estrella masiva colapsa en una supernova, libera en el espacio elementos pesados como ___."
+
+explicacion: |
+  Las estrellas masivas sintetizan elementos hasta el hierro antes de explotar en una supernova, dispersando estos elementos por el cosmos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "basico"
+  tags: ["elementos", "polvo_de_estrellas"]
+
+tipo: completar
+respuesta: "fusión"
+enunciado: "Los átomos de los elementos pesados en nuestro cuerpo fueron creados mediante el proceso de ___ nuclear en el interior de estrellas antiguas."
+
+explicacion: |
+  La fusión nuclear es el proceso donde núcleos ligeros se unen para formar núcleos más pesados, liberando energía.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "avanzado"
+  tags: ["secuencia", "fusión"]
+
+opciones_explicitas: ["Hidrógeno -> Helio -> Carbono -> Oxígeno -> Hierro", "Helio -> Hidrógeno -> Carbono -> Hierro", "Hidrógeno -> Helio -> Oxígeno -> Carbono -> Hierro"]
+
+respuesta: "Hidrógeno -> Helio -> Carbono -> Oxígeno -> Hierro"
+tipo: mc
+
+enunciado: "Ordena la secuencia lógica de la nucleosíntesis estelar que permite la formación de elementos pesados en una estrella masiva:"
+
+explicacion: |
+  Las estrellas comienzan fusionando hidrógeno a helio, luego helio a carbono, y continúan con elementos cada vez más pesados hasta llegar al hierro.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "intermedio"
+  tags: ["hierro", "estrellas"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "Considerando que el hierro es un elemento producido por la fusión estelar, ¿es cierto que su origen es estelar?"
+
+explicacion: |
+  El hierro se forma exclusivamente mediante fusión en el interior de estrellas masivas, a diferencia del hidrógeno o el helio, que son mayoritariamente de origen primordial (Big Bang).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "basico"
+  tags: ["nucleosintesis", "big_bang"]
+
+variables:
+  escenario: [[ "Hidrógeno", "Big Bang" ]]
+  idx: uno_de([0])
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["Big Bang", "Fusión estelar", "Supernova"]
+
+enunciado: "El elemento {escenario[idx][0]} es el más abundante del universo y su origen principal se remonta al ___."
+
+explicacion: |
+  El Hidrógeno se formó durante la nucleosíntesis primordial, pocos minutos después del Big Bang.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "intermedio"
+  tags: ["fusion_estelar", "elementos"]
+
+variables:
+  escenario: [["Helio", "Big Bang"], ["Carbono", "Fusión estelar"], ["Hierro", "Fusión estelar"]]
+  idx: uno_de([0,1,2])
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["Big Bang", "Fusión estelar", "Supernova"]
+
+enunciado: "El elemento {escenario[idx][0]} se sintetiza principalmente mediante procesos de ___ en el núcleo de las estrellas."
+
+explicacion: |
+  La fusión estelar es el proceso donde elementos más ligeros se combinan para formar otros más pesados en el núcleo estelar.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "avanzado"
+  tags: ["supernova", "elementos_pesados"]
+
+variables:
+  escenario: [["Oro", "Supernova"], ["Plata", "Supernova"], ["Uranio", "Supernova"]]
+  idx: uno_de([0,1,2])
 
 respuesta: escenario[idx][1]
 tipo: completar
 respuestas_validas:
-  - "América"
-  - "Eurasia"
+  - "Supernova"
 
-enunciado: "El producto {escenario[idx][0]} es originario de _______."
+enunciado: "Los elementos muy pesados como el {escenario[idx][0]} se originan mayoritariamente durante una ___."
 
 explicacion: |
-  El intercambio fue bidireccional: el {escenario[idx][0]} fluyó de un continente al otro.
+  Las explosiones de supernova proporcionan la energía y el flujo de neutrones necesarios para la nucleosíntesis de elementos más allá del hierro.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "intermedio"
+  tags: ["procesos", "nucleosintesis"]
+
+respuesta_orden: ["Big Bang", "Fusión estelar", "Supernova"]
+tipo: ordenar
+opciones_explicitas: ["Big Bang", "Fusión estelar", "Supernova"]
+
+enunciado: "Ordena cronológicamente los procesos de nucleosíntesis según el orden de aparición de los elementos en el universo:"
+
+explicacion: |
+  Primero ocurrió la nucleosíntesis del Big Bang, luego la fusión en estrellas de la secuencia principal y finalmente las explosiones de supernova.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "avanzado"
+  tags: ["nucleosintesis", "identificacion"]
+
+variables:
+  escenario: uno_de([["Litio-7", "Big Bang"], ["Oxígeno", "Fusión estelar"], ["Plomo", "Supernova"]])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El origen del {escenario[0]} es la {escenario[1]}."
+
+explicacion: |
+  La afirmación es verdadera según el escenario seleccionado.
+```
+
+## Sección: tierra-primitiva-diferenciacion (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["acreción", "planetesimales"]
+
+tipo: mc
+opciones_explicitas: ["Acreción de planetesimales", "Colisión con un planeta gigante", "Condensación de gases estelares", "Fusión de un cometa"]
+
+enunciado: "La Tierra primitiva se formó hace aproximadamente 4600 millones de años mediante un proceso llamado ___."
+
+respuesta: "Acreción de planetesimales"
+
+explicacion: |
+  La Tierra se formó por la acumulación gravitatoria de cuerpos menores (planetesimales) en el disco protoplanetario.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["calor", "estado_fisico"]
+
+tipo: completar
+respuestas_validas:
+  - "fundido"
+
+enunciado: "Debido a los impactos constantes y el calor radiactivo, la Tierra primitiva se encontraba en un estado casi ___."
+
+respuesta: "fundido"
+
+explicacion: |
+  El calor generado por el bombardeo de planetesimales y la desintegración de isótopos radiactivos mantuvo el manto y el núcleo en un estado fundido o casi fundido.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "intermedio"
+  tags: ["calor_radiactivo", "impactos"]
+
+tipo: mc
+opciones_explicitas: ["Calor por impactos y calor radiactivo", "Calor por mareas lunares", "Calor por actividad volcánica superficial", "Calor por radiación solar directa"]
+
+enunciado: "¿Cuáles fueron las dos fuentes principales de calor que mantuvieron la Tierra primitiva en un estado fundido?"
+
+respuesta: "Calor por impactos y calor radiactivo"
+
+explicacion: |
+  La energía cinética de los impactos de planetesimales se transformó en calor, sumado al calor liberado por la desintegración de elementos radiactivos como el Al-26 y el U-235.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
   nivel: "avanzado"
-  tags: ["intercambio_colombino", "orden"]
+  tags: ["diferenciación", "núcleo", "manto"]
+
+tipo: ordenar
+opciones_explicitas: ["Fusión de la roca", "Separación de elementos densos (hierro)", "Formación del núcleo y manto", "Estabilización de la corteza"]
+
+enunciado: "Ordena cronológicamente los procesos que llevaron a la diferenciación planetaria:"
+
+respuesta_orden: ["Fusión de la roca", "Separación de elementos densos (hierro)", "Formación del núcleo y manto", "Estabilización de la corteza"]
+
+explicacion: |
+  Primero la roca debe fundirse; luego los elementos pesados como el hierro descienden al centro, formando el núcleo, mientras los ligeros forman el manto, culminando con la solidificación de la corteza.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "intermedio"
+  tags: ["elementos", "densidad"]
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [["Maíz, Trigo, Caballo", "América, Eurasia, Eurasia"], ["Papa, Trigo, Cerdo", "América, Eurasia, Eurasia"]]
+  datos: [["hierro", "núcleo"], ["silicatos", "manto"]]
 
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["América, Eurasia, Eurasia", "Eurasia, América, América", "Eurasia, Eurasia, América"]
-
-enunciado: "Para los siguientes productos: {escenario[idx][0]}, ¿cuál es la secuencia correcta de su continente de origen?"
-
-explicacion: |
-  La secuencia correcta refleja qué productos venían de América y cuáles de Eurasia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_colonizacion_america"
-  nivel: "intermedio"
-  tags: ["intercambio_colombino", "impacto"]
-
-variables:
-  escenario: [[ "Cebolla", "Eurasia" ], [ "Cacao", "América" ], [ "Girasol", "América" ], [ "Cabra", "Eurasia" ]]
-  idx: uno_de([0,1,2,3])
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["América", "Eurasia"]
-
-enunciado: "El {escenario[idx][0]} es un ejemplo de producto que se originó en _______."
-
-explicacion: |
-  El intercambio biológico alteró la demografía y la economía global.
-```
-
-## Sección: conquista-tierra-firme (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
-  nivel: "basico"
-  tags: ["evolucion", "plantas"]
-
-respuesta: "plantas"
 tipo: completar
 respuestas_validas:
-  - "plantas"
+  - "hierro"
+  - "silicatos"
+respuesta: datos[idx][1]
 
-enunciado: "Las primeras formas de vida en colonizar la tierra firme fueron las ___."
-
-explicacion: |
-  Hace aproximadamente 470 millones de años, las plantas fueron las pioneras en la transición del medio acuático al terrestre.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
-  nivel: "intermedio"
-  tags: ["cronologia", "evolucion"]
-
-variables:
-  escenario: uno_de([["plantas", "470"], ["artrópodos", "428"], ["tetrápodos", "365"]])
-
-respuesta: escenario[0]
-tipo: mc
-opciones_explicitas: ["plantas", "artrópodos", "tetrápodos"]
-
-enunciado: "De acuerdo con el registro fósil, ¿qué grupo colonizó la tierra firme hace aproximadamente {escenario[1]} millones de años?"
-
-explicacion: |
-  El orden de colonización fue: 1° Plantas (~470 Ma), 2° Artrópodos (~428 Ma) y 3° Tetrápodos (~365 Ma).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
-  nivel: "basico"
-  tags: ["tetrapodos", "evolucion"]
-
-respuesta: 370
-tipo: completar
-tolerancia_abs: 5
-
-enunciado: "Los primeros tetrápodos comenzaron su expansión por tierra firme hace aproximadamente ___ millones de años."
+enunciado: "Durante la diferenciación, los elementos más densos como el ___ migraron hacia el centro, mientras que los elementos más ligeros como los ___ formaron las capas superiores."
 
 pasos:
-  - "Identificar el grupo de vertebrados con cuatro extremidades."
-  - "Localizar su aparición en la línea de tiempo de la conquista terrestre."
+  - "Identificar el elemento que baja por densidad"
+  - "Identificar el material que queda en la superficie"
 
 explicacion: |
-  Los tetrápodos aparecieron en el registro fósil hace unos 370 millones de años, mucho después de las plantas y los artrópodos.
+  La gravedad separa los materiales por densidad: el hierro (denso) va al núcleo y los silicatos (menos densos) al manto y corteza.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
-  nivel: "avanzado"
-  tags: ["orden", "evolucion"]
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["diferenciacion", "nucleo", "densidad"]
 
-respuesta_orden: ["plantas", "artrópodos", "tetrápodos"]
-tipo: ordenar
-opciones_explicitas: ["plantas", "artrópodos", "tetrápodos"]
+respuesta: "hierro y níquel"
+tipo: completar
+respuestas_validas:
+  - "hierro y níquel"
+  - "hierro, níquel"
 
-enunciado: "Ordene cronológicamente los grupos que colonizaron la tierra firme, desde el más antiguo al más reciente:"
+enunciado: "Durante la etapa de océano de magma, los elementos más densos como el ___ se hundieron hacia el centro para formar el núcleo."
 
 explicacion: |
-  La secuencia correcta es: Plantas (470 Ma) -> Artrópodos -> Tetrápodos (370 Ma).
+  Debido a la gravedad, los materiales con mayor densidad (metales pesados) migraron hacia el centro del planeta, proceso conocido como diferenciación por gravedad.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["capas", "silicatos", "manto"]
+
+respuesta: "silicatos"
+tipo: mc
+opciones_explicitas: ["silicatos", "hierro", "níquel", "magnesio"]
+
+enunciado: "¿Qué tipo de materiales predominan en las capas externas (manto y corteza) debido a su baja densidad en comparación con los metales?"
+
+explicacion: |
+  Los silicatos son minerales menos densos que los metales, por lo que flotaron hacia la superficie durante la diferenciación planetaria.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
   nivel: "intermedio"
-  tags: ["comparacion", "tiempo"]
+  tags: ["proceso", "magma", "gravedad"]
+
+respuesta_orden: ["Estado fundido", "Diferenciación por densidad", "Formación de capas"]
+tipo: ordenar
+opciones_explicitas: ["Estado fundido", "Diferenciación por densidad", "Formación de capas"]
+
+enunciado: "Ordena cronológicamente los eventos que permitieron la estructura actual de la Tierra:"
+
+explicacion: |
+  Primero la Tierra debe estar fundida (oceano de magma), luego la gravedad actúa separando materiales por peso, resultando en la estructura de capas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "intermedio"
+  tags: ["densidad", "correlacion"]
 
 variables:
-  datos: uno_de([["plantas", "artrópodos"], ["artrópodos", "tetrápodos"], ["plantas", "tetrápodos"]])
+  escenario_idx: uno_de([0, 1])
+  datos: [["núcleo", "alta densidad", "hierro"], ["corteza", "baja densidad", "silicatos"]]
 
-respuesta: datos[1]
+respuesta: datos[escenario_idx][2]
 tipo: mc
-opciones_explicitas: ["plantas", "artrópodos", "tetrápodos"]
+opciones_explicitas: ["hierro", "silicatos", "magnesio", "aluminio"]
 
-enunciado: "Si las {datos[0]} colonizaron la tierra hace 470 millones de años, ¿qué grupo colonizó después de ellas pero antes que los tetrápodos?"
+enunciado: "Si analizamos la {datos[escenario_idx][0]}, que se caracteriza por tener una {datos[escenario_idx][1]}, el elemento principal que la compone es el ___."
 
 explicacion: |
-  El orden cronológico es: Plantas -> Artrópodos -> Tetrápodos.
+  La posición de un material en la Tierra primitiva dependía directamente de su densidad: lo más denso abajo, lo menos denso arriba.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "adaptaciones_terrestres"
-  nivel: "basico"
-  tags: ["cuticula", "deshidratacion"]
-
-respuesta: "cuticula"
-tipo: completar
-respuestas_validas:
-  - "cuticula"
-
-enunciado: "Para evitar la pérdida excesiva de agua por evaporación en ambientes terrestres, muchos organismos han desarrollado una capa protectora externa llamada ___."
-
-explicacion: |
-  La cutícula es una capa cerosa e impermeable que sella la superficie del organismo, permitiendo la vida en medios secos al minimizar la deshidratación.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adaptaciones_terrestres"
-  nivel: "intermedio"
-  tags: ["soporte", "esqueleto"]
-
-respuesta: "esqueleto interno"
-tipo: mc
-opciones_explicitas: ["esqueleto interno", "flotabilidad", "flotabilidad neutra", "soporte hidrostático"]
-
-enunciado: "En el medio acuático, el empuje compensa el peso. Sin embargo, al pasar a vivir en tierra firme, los organismos necesitan estructuras de soporte para vencer la gravedad, como un ___."
-
-explicacion: |
-  En tierra, la gravedad actúa directamente sobre el cuerpo sin la ayuda del empuje hidrostático, lo que requiere estructuras rígidas (como esqueletos) para mantener la forma y permitir el movimiento.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adaptaciones_terrestres"
-  nivel: "basico"
-  tags: ["respiracion", "pulmones"]
-
-respuesta: "pulmones"
-tipo: mc
-opciones_explicitas: ["branquias", "pulmones", "piel desnuda", "estomas"]
-
-enunciado: "A diferencia de las branquias, que extraen oxígeno disuelto en agua, los animales terrestres suelen desarrollar ___ para captar el oxígeno presente en el aire."
-
-explicacion: |
-  Los pulmones o estructuras similares (como los traqueal en insectos) permiten la difusión de gases en un medio gaseoso sin que las superficies respiratorias se colapsen por falta de soporte líquido.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adaptaciones_terrestres"
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
   nivel: "avanzado"
-  tags: ["evolucion", "respiracion"]
+  tags: ["estado_fisico", "condicion"]
 
-respuesta: "pulmones"
-tipo: completar
-respuestas_validas:
-  - "pulmones"
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Si un organismo evoluciona de un medio de agua a uno de aire, su sistema de intercambio gaseoso debe pasar de tener branquias a tener ___."
+enunciado: "¿Es verdadero o falso que la diferenciación planetaria requiere que la Tierra se encuentre en un estado fundido o parcialmente fundido para que los materiales se muevan por gravedad?"
 
 explicacion: |
-  La transición del agua al aire exige un cambio radical: de estructuras que dependen de la humedad constante (branquias) a órganos protegidos que eviten el colapso y la sequedad (pulmones).
+  Sin un estado líquido o viscoso (magma), los materiales sólidos no podrían migrar a través de la masa planetaria para separarse por densidad.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "adaptaciones_terrestres"
-  nivel: "avanzado"
-  tags: ["evolucion", "secuencia"]
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["geologia", "densidad"]
 
-respuesta_orden: ["cuticula", "soporte", "pulmones"]
+tipo: mc
+opciones_explicitas: ["Núcleo", "Manto", "Corteza"]
+
+enunciado: "Durante la diferenciación planetaria, los materiales más densos se hundieron hacia el centro de la Tierra, formando la capa más interna conocida como la ___."
+
+respuesta: "Núcleo"
+
+explicacion: |
+  La gravedad hizo que los elementos más pesados (como el hierro y el níquel) migraran hacia el centro, formando el núcleo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["densidad", "orden"]
+
 tipo: ordenar
-opciones_explicitas: ["cuticula", "soporte", "pulmones"]
+opciones_explicitas: ["Corteza", "Manto", "Núcleo"]
 
-enunciado: "Ordena las adaptaciones necesarias para colonizar la tierra firme, desde la prevención de la sequedad hasta la locomoción y la respiración:"
+enunciado: "Ordena las capas de la Tierra desde la menos densa (superficie) hasta la más densa (centro):"
+
+respuesta_orden: ["Corteza", "Manto", "Núcleo"]
+
+explicacion: |
+  La diferenciación por densidad organiza la Tierra en capas: la corteza es la más ligera, seguida por el manto y finalmente el núcleo en el centro.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "intermedio"
+  tags: ["densidad", "manto"]
+
+variables:
+  datos: [["manto", "mayor"], ["núcleo", "mayor"]]
+  idx: uno_de([0, 1])
+
+enunciado: "Considerando la estructura terrestre, la densidad del {datos[idx][0]} es {datos[idx][1]} que la densidad de la corteza."
+
+tipo: mc
+opciones_explicitas: ["mayor", "menor", "igual"]
+
+respuesta: datos[idx][1]
+
+explicacion: |
+  El {datos[idx][0]} se encuentra debajo de la corteza y posee una densidad {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "intermedio"
+  tags: ["geologia", "capas"]
+
+tipo: completar
+respuestas_validas:
+  - "manto"
+
+respuesta: "manto"
+
+enunciado: "La capa intermedia de la Tierra, situada entre la corteza y el núcleo, se denomina ___."
+
+explicacion: |
+  El manto es la capa intermedia que separa la corteza externa del núcleo central.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "avanzado"
+  tags: ["calculo", "densidad"]
+
+variables:
+  datos: [[5.5, 13.0], [3.3, 5.5], [2.7, 3.3]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Si la densidad de la capa A es {datos[idx][0]} g/cm³ y la densidad de la capa B es {datos[idx][1]} g/cm³, la diferencia de densidad entre la capa más densa y la menos densa de este par es de ___ g/cm³."
+
+tipo: completar
+respuesta: abs(datos[idx][1] - datos[idx][0])
+tolerancia_abs: 0.01
+
+explicacion: |
+  La diferencia se calcula restando la densidad menor de la mayor. En este caso, el resultado es {abs(datos[idx][1] - datos[idx][0])}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["astronomia", "teoria", "luna"]
+
+respuesta: "Theia"
+tipo: mc
+opciones_explicitas: ["Theia", "Gaia", "Venus", "Mars"]
+
+enunciado: "Según la hipótesis del Gran Impacto, la Luna se formó tras la colisión de la Tierra primitiva con un protoplaneta llamado _______."
+
+explicacion: |
+  La hipótesis del Gran Impacto sugiere que un objeto del tamaño de Marte, denominado Theia, colisionó con la Tierra, dejando un anillo de escombros que eventualmente se consolidó para formar la Luna.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "intermedio"
+  tags: ["fisica", "colision", "teoria"]
+
+tipo: completar
+respuestas_validas:
+  - "aumentó la rotación"
+respuesta: "aumentó la rotación"
+
+enunciado: "En el escenario de una colisión con un objeto de gran masa, la energía cinética transferida _______."
+
+explicacion: |
+  Una colisión de tal magnitud no solo habría aportado masa, sino que habría transferido una cantidad enorme de energía angular, afectando la velocidad de rotación de la Tierra primitiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "avanzado"
+  tags: ["quimica", "isótopos", "luna"]
+
+respuesta: "muy similar"
+tipo: mc
+opciones_explicitas: ["muy similar", "completamente distinta", "mucho más densa", "sin hierro"]
+
+enunciado: "Una de las pruebas de la hipótesis del Gran Impacto es que la composición isotópica de los silicatos lunares es _______ a la de la Tierra."
+
+explicacion: |
+  La similitud isotópica entre la Tierra y la Luna es un desafío para algunas versiones de la teoría, pero sugiere que la Luna se formó a partir de material que ya estaba mezclado con el manto terrestre.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "intermedio"
+  tags: ["procesos", "secuencia", "formacion"]
+
+respuesta_orden: ["Colisión de Theia", "Formación de disco de escombros", "Acreción de la Luna"]
+tipo: ordenar
+opciones_explicitas: ["Colisión de Theia", "Formación de disco de escombros", "Acreción de la Luna"]
+
+enunciado: "Ordena cronológicamente los eventos que llevaron a la formación del sistema Tierra-Luna según la hipótesis del Gran Impacto:"
+
+explicacion: |
+  Primero ocurre el impacto, luego el material expulsado forma un anillo o disco alrededor de la Tierra, y finalmente la gravedad hace que ese material se agrupe para formar la Luna.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "avanzado"
+  tags: ["termica", "magma", "oceano"]
+
+respuesta: 1200.0
+tipo: completar
+tolerancia_abs: 100.0
+
+enunciado: "Si la energía del impacto fue suficiente para fundir gran parte del manto, la Tierra habría estado cubierta por un océano de magma. Si estimamos que la temperatura de fusión media fue de 1200 °C, ¿cuántos Kelvin (K) representa esto aproximadamente? (Usa la fórmula K = C + 273.15)"
 
 pasos:
-  - "Primero: Evitar la deshidratación."
-  - "Segundo: Mantener la forma contra la gravedad."
-  - "Tercero: Obtener oxígeno del medio gaseoso."
+  - "Identificar la temperatura en Celsius: 1200"
+  - "Sumar la constante de conversión: 1200 + 273.15"
 
 explicacion: |
-  La colonización de la tierra requirió primero evitar la muerte por sequedad (cutícula), luego desarrollar estructuras que sostengan el peso (soporte/esqueleto) y finalmente optimizar la captura de oxígeno (pulmones).
+  La colisión habría generado temperaturas extremas, transformando la superficie terrestre en un océano de roca fundida (magma) durante un periodo prolongado.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "evolucion_vertebrados"
-  nivel: "intermedio"
-  tags: ["evolucion", "tetrapodos", "sarcopterigios"]
+  materia: "geologia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["diferenciacion", "densidad"]
 
-respuesta: "sarcopterigios"
+tipo: mc
+opciones_explicitas: ["núcleo", "manto", "corteza"]
+
+enunciado: "Durante la diferenciación planetaria, los elementos más densos como el hierro se hundieron hacia el centro, formando la capa conocida como ___."
+
+respuesta: "núcleo"
+
+explicacion: |
+  Los elementos más pesados (densos) como el hierro y el níquel migraron al centro debido a la gravedad, formando el núcleo.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "intermedio"
+  tags: ["composicion", "corteza"]
+
 tipo: completar
 respuestas_validas:
-  - "sarcopterigios"
-  - "peces de aletas lobuladas"
+  - "corteza"
 
-enunciado: "Los tetrápodos evolucionaron a partir de un grupo específico de peces con aletas lobuladas conocidos como ___."
+enunciado: "La capa más externa de la Tierra está compuesta principalmente por silicatos ligeros. ¿Cómo se llama esta capa?"
+
+respuesta: "corteza"
 
 explicacion: |
-  Los sarcopterigios (del griego 'sarcopteryx', aleta carnosa) son peces que poseen aletas con una estructura ósea similar a la de los miembros de los tetrápodos, lo que permitió la transición hacia la vida terrestre.
+  La corteza es la capa más superficial y está formada por materiales menos densos (silicatos) que flotaron sobre el manto.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "evolucion_vertebrados"
+  materia: "geologia"
+  tema: "tierra_primitiva_diferenciacion"
   nivel: "intermedio"
-  tags: ["tiktaalik", "transicion", "paleontologia"]
+  tags: ["estructura", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["Corteza", "Manto", "Núcleo"]
+respuesta_orden: ["Corteza", "Manto", "Núcleo"]
+
+enunciado: "Ordena las capas de la Tierra desde la superficie hacia el centro del planeta:"
+
+explicacion: |
+  La estructura terrestre se organiza por densidad: la corteza es la más externa, seguida por el manto y finalmente el núcleo en el centro.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["manto", "densidad"]
+
+tipo: mc
+opciones_explicitas: ["manto", "núcleo", "corteza"]
+
+enunciado: "La capa situada entre la corteza y el núcleo, compuesta por materiales de densidad intermedia, se denomina ___."
+
+respuesta: "manto"
+
+explicacion: |
+  El manto está compuesto por materiales con una densidad intermedia, situándose debajo de la corteza.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "avanzado"
+  tags: ["nucleo", "densidad"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si la densidad de la corteza es baja y la del manto es media, la densidad del núcleo es ___."
+
+respuesta: "muy alta"
+
+explicacion: |
+  Debido a la gravedad, los materiales con densidad muy alta (como el hierro) se acumularon en el centro del planeta.
+```
+
+## Sección: atmosfera-primitiva (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["geologia", "atmosfera"]
+
+tipo: mc
+opciones_explicitas: ["Oxígeno, Nitrógeno y Metano", "Vapor de agua, Dióxido de carbono y Metano", "Dióxido de azufre, Helio y Oxígeno", "Nitrógeno, Argón y Oxígeno"]
+respuesta: "Vapor de agua, Dióxido de carbono y Metano"
+
+enunciado: "Durante los inicios de la Tierra, la atmósfera primitiva estaba compuesta principalmente por una mezcla de gases de origen volcánico. ¿Cuál de las siguientes opciones describe mejor su composición?"
+
+explicacion: |
+  La atmósfera primitiva carecía de oxígeno libre (O2) y estaba dominada por gases de efecto invernadero y compuestos volcánicos como el CO2, el vapor de agua y el metano.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["ciclo_del_agua", "geologia"]
 
 variables:
-  escenario: uno_de([["Tiktaalik roseae", "un fósil que muestra una transición entre peces y anfibios"], ["Eusthenopteron", "un pez sarcopterigio más primitivo"], ["Panderichthys", "un pez que muestra características de transición"]])
+  escenario: [["El vapor de agua se condensó para formar océanos", "La atmósfera era extremadamente seca"], ["El vapor de agua permitió la formación de los mares", "El vapor de agua era inexistente"]]
+
+tipo: mc
+opciones_explicitas: ["Escenario A", "Escenario B"]
+respuesta: "Escenario A"
+
+enunciado: "Considerando la presencia masiva de vapor de agua en la atmósfera primitiva, {escenario[0][0]}."
+
+explicacion: |
+  La condensación del vapor de agua a medida que la Tierra se enfriaba fue el proceso fundamental que dio origen a los océanos primordiales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["quimica_antigua"]
+
+tipo: completar
+respuestas_validas:
+  - "anóxica"
+
+enunciado: "Debido a la ausencia de vida fotosintética en sus inicios, la atmósfera primitiva era una atmósfera ___________."
+
+explicacion: |
+  Se denomina atmósfera 'anóxica' a aquella que no posee oxígeno libre (O2), característica principal de la Tierra primitiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["volcanismo"]
+
+tipo: ordenar
+opciones_explicitas: ["Formación de la Tierra", "Actividad volcánica intensa", "Emisión de gases volcánicos", "Formación de la atmósfera primitiva"]
+
+enunciado: "Ordena cronológicamente los eventos que llevaron a la configuración de la atmósfera primitiva:"
+
+explicacion: |
+  La formación de la Tierra permitió la diferenciación de capas, seguida de un vulcanismo intenso que liberó los gases necesarios para crear la atmósfera original.
+respuesta_orden: ["Formación de la Tierra", "Actividad volcánica intensa", "Emisión de gases volcánicos", "Formación de la atmósfera primitiva"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "avanzado"
+  tags: ["quimica", "calculo"]
+
+variables:
+  datos: [[100, 50, 50], [80, 10, 10]]
+  idx: uno_de([0, 1])
+  cantidad_co2: datos[idx][0]
+  respuesta_correcta: cantidad_co2 * 0.4
+
+tipo: completar
+tolerancia_abs: 0.1
+respuesta: respuesta_correcta
+
+enunciado: "Si en un modelo de atmósfera primitiva de {cantidad_co2} unidades de gas, el 40% es Dióxido de carbono (CO2), ¿cuántas unidades de CO2 hay?"
+
+pasos:
+  - "Identificar el total de unidades de gas: {cantidad_co2}"
+  - "Calcular el 40% de ese valor: {cantidad_co2} * 0.4"
+
+explicacion: |
+  El cálculo se realiza multiplicando el total de unidades por el porcentaje expresado en decimal (0.4).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["biologia", "evolucion", "anaerobico"]
+
+respuesta: "anaeróbica"
+tipo: completar
+respuestas_validas:
+  - "anaeróbica"
+  - "anaerobia"
+
+enunciado: "Debido a la ausencia de oxígeno libre en la atmósfera primitiva, la vida temprana era de tipo ___."
+
+explicacion: |
+  La atmósfera primitiva era un ambiente reductor. Al no haber O2, los primeros organismos no podían realizar la respiración aeróbica y debían obtener energía mediante procesos anaeróbicos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["oxigeno", "metabolismo"]
+
+variables:
+  escenario: uno_de([["presencia de O2", "aeróbica"], ["ausencia de O2", "anaeróbica"]])
 
 respuesta: escenario[1]
 tipo: mc
-opciones_explicitas: ["un fósil que muestra una transición entre peces y anfibios", "un pez sarcopterigio más primitivo", "un pez que muestra características de transición"]
+opciones_explicitas: ["aeróbica", "anaeróbica"]
 
-enunciado: "El fósil {escenario[0]} es fundamental para la paleontología porque se considera {escenario[1]}."
-
-explicacion: |
-  Tiktaalik es un ejemplo clásico de morfología de transición, poseyendo características de peces (escamas, branquias) y de tetrápodos (cuello, articulaciones en las aletas para soportar peso).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "evolucion_vertebrados"
-  nivel: "avanzado"
-  tags: ["morfologia", "transicion"]
-
-respuesta: "falso"
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "¿Es correcto afirmar que los primeros tetrápodos aparecieron de forma súbita sin formas de transición con aletas lobuladas?"
-
-explicacion: |
-  La evidencia fósil demuestra una transición gradual donde las estructuras de soporte en las aletas de los sarcopterigios se modificaron para permitir el movimiento en ambientes poco profundos o terrestres.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "evolucion_vertebrados"
-  nivel: "intermedio"
-  tags: ["orden_evolutivo"]
-
-opciones_explicitas: ["Peces Actinopterigios", "Peces Sarcopterigios", "Tetrápodos"]
-respuesta_orden: ["Peces Actinopterigios", "Peces Sarcopterigios", "Tetrápodos"]
-tipo: ordenar
-
-enunciado: "Ordena cronológicamente la línea evolutiva que lleva de los peces comunes a los vertebrados con cuatro extremidades:"
+enunciado: "Si la atmósfera primitiva carecía de oxígeno libre, ¿qué tipo de metabolismo predominaba en los organismos de esa época?"
 
 pasos:
-  - "Identifica el grupo de peces con aletas radiadas (no lobuladas)."
-  - "Identifica el grupo con aletas carnosas (base de la evolución)."
-  - "Identifica el grupo con extremidades articuladas."
+  - "Identificar la condición atmosférica: ausencia de O2."
+  - "Relacionar la condición con el tipo de respiración celular."
 
 explicacion: |
-  La evolución muestra un paso de la radiación de las aletas (actinopterigios) hacia la especialización de la base de la aleta (sarcopterigios) y finalmente el desarrollo de miembros (tetrápodos).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "evolucion_vertebrados"
-  nivel: "basico"
-  tags: ["anatomia", "extremidades"]
-
-variables:
-  caracteristica: uno_de([["presencia de cuello", "permite mover la cabeza independientemente del tronco"], ["presencia de escamas", "protección contra la desecación"], ["presencia de branquias", "respiración acuática"]])
-
-respuesta: caracteristica[0]
-tipo: mc
-opciones_explicitas: ["presencia de cuello", "presencia de escamas", "presencia de branquias"]
-
-enunciado: "Una de las innovaciones morfológicas clave observada en fósiles de transición como Tiktaalik fue la {caracteristica}."
-
-explicacion: |
-  A diferencia de los peces, que tienen la cabeza fusionada al tronco, los primeros tetrápodos y sus ancestros de transición desarrollaron un cuello, permitiendo mayor movilidad para alimentarse y navegar en aguas someras.
+  La falta de oxígeno obligaba a los organismos a utilizar otras moléculas como aceptores de electrones, caracterizando un metabolismo anaeróbico.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
-  nivel: "intermedio"
-  tags: ["botanica", "paleoecologia", "ciclo_del_agua"]
-
-variables:
-  escenario: uno_de(["bosque_denso", "estepa_abierta"])
-  tipo_suelo: uno_de(["suelo_desnudo", "suelo_cubierto"])
-
-enunciado: "Durante la conquista de Tierra Firme, la expansión de la vegetación tipo {escenario} sobre un {tipo_suelo} modificó drásticamente la escorrentía superficial."
-
-opciones_explicitas:
-  - "Aumentó la escorrentía"
-  - "Disminuyó la escorrentía"
-  - "No hubo cambios"
-
-respuesta: "Disminuyó la escorrentía"
-tipo: mc
-
-explicacion: |
-  La presencia de plantas y la cobertura vegetal actúan como una barrera física que intercepta la lluvia y permite la infiltración en el suelo, reduciendo la velocidad del agua superficial y, por ende, la escorrentía.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
+  tema: "atmosfera_primitiva"
   nivel: "avanzado"
-  tags: ["carbono", "fotosintesis", "biomasa"]
+  tags: ["evolucion", "oxigeno"]
 
-variables:
-  valor_carbono: random_float(100.0, 500.0)
-
-enunciado: "Si una masa forestal emergente en Tierra Firme secuestra aproximadamente {valor_carbono} unidades de carbono por hectárea, el balance neto de la atmósfera durante este periodo de colonización vegetal fue de un valor ___ (positivo/negativo) en términos de almacenamiento de carbono."
-
-respuestas_validas:
-  - "positivo"
-
-respuesta: "positivo"
-tipo: completar
-
-explicacion: |
-  La colonización de las masas continentales por las plantas permitió un secuestro masivo de CO2 atmosférico en forma de biomasa orgánica, transformando el ciclo del carbono de un estado de equilibrio a uno de almacenamiento neto.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
-  nivel: "intermedio"
-  tags: ["ecologia", "sucesion", "animales"]
-
+respuesta_orden: ["Anaerobiosis", "Fotosíntesis oxigénica", "Acumulación de O2", "Respiración aeróbica"]
 tipo: ordenar
-opciones_explicitas: ["Aparición de plantas pioneras", "Estabilización del suelo y ciclo del agua", "Colonización por animales terrestres"]
-respuesta_orden: ["Aparición de plantas pioneras", "Estabilización del suelo y ciclo del agua", "Colonización por animales terrestres"]
-enunciado: "Ordená la secuencia correcta de la sucesión ecológica primaria."
+opciones_explicitas: ["Anaerobiosis", "Fotosíntesis oxigénica", "Acumulación de O2", "Respiración aeróbica"]
+
+enunciado: "Ordena cronológicamente los eventos relacionados con la transición de una atmósfera sin oxígeno a una con oxígeno:"
+
 explicacion: |
-  La sucesión ecológica comenzó con la colonización de sustratos desnudos por plantas pioneras, lo que permitió la formación de suelos y la regulación hídrica, creando finalmente el hábitat necesario para la fauna terrestre.
+  Primero existía la vida anaerobia. Luego, la aparición de organismos fotosintéticos (cianobacterias) comenzó a liberar O2, el cual se acumuló hasta permitir la evolución de la respiración aeróbica.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
+  tema: "atmosfera_primitiva"
   nivel: "basico"
-  tags: ["agua", "evapotranspiracion", "clima"]
+  tags: ["oxigeno", "logica"]
 
-enunciado: "El aumento de la cobertura vegetal en Tierra Firme incrementó la tasa de ___ (evapotranspiración/precipitación) hacia la atmósfera, alterando los patrones climáticos locales."
+respuesta: falso
+tipo: vf
 
-respuestas_validas:
-  - "evapotranspiración"
-
-respuesta: "evapotranspiración"
-tipo: completar
+enunciado: "La presencia de oxígeno libre en la atmósfera primitiva era un requisito indispensable para los primeros organismos vivos."
 
 explicacion: |
-  Las plantas no solo retienen agua en el suelo, sino que la devuelven a la atmósfera a través de la transpiración, un proceso clave que regula la humedad atmosférica en los nuevos continentes.
+  Falso. Los primeros organismos eran anaeróbicos, lo que significa que podían vivir y prosperar en un ambiente sin oxígeno.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
+  tema: "atmosfera_primitiva"
   nivel: "intermedio"
-  tags: ["fauna", "hábitat", "nutrientes"]
+  tags: ["metabolismo", "oxigeno"]
 
 variables:
-  factor_clave: uno_de(["nutrientes", "refugio", "alimento"])
+  datos: [["presencia", "aeróbica"], ["ausencia", "anaeróbica"]]
+  idx: uno_de([0,1])
+  estado: datos[idx][0]
 
-enunciado: "La transformación del paisaje mediante la vegetación proporcionó a los animales terrestres un factor crítico para su expansión: {factor_clave}."
-
-opciones_explicitas:
-  - "Nutrientes"
-  - "Refugio"
-  - "Alimento"
-
-respuesta: uno_de(["Nutrientes", "Refugio", "Alimento"])
+respuesta: datos[idx][1]
 tipo: mc
+opciones_explicitas: ["aeróbica", "anaeróbica"]
+
+enunciado: "Si la atmósfera primitiva se caracterizaba por la {estado} de oxígeno, el metabolismo de la vida temprana era ___."
 
 explicacion: |
-  La vegetación no solo provee alimento, sino que estabiliza el suelo (nutrientes) y crea estructuras físicas para la protección (refugio), permitiendo la diversificación de nichos para la fauna.
+  La ausencia de oxígeno (estado falso) define un ambiente donde solo la vida anaeróbica puede prosperar.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
-  nivel: "avanzado"
-  tags: ["artropodos", "silurico", "paleontologia"]
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["atmosfera", "oxigeno", "evolucion"]
 
-respuesta: "428"
-tipo: completar
-tolerancia_abs: 5
-
-enunciado: "El fósil de miriápodo Pneumodesmus newmani, considerado el animal terrestre que respira aire más antiguo conocido, data de hace aproximadamente ___ millones de años (período Silúrico)."
-
-explicacion: |
-  Los artrópodos colonizaron la tierra firme mucho antes que los tetrápodos, ya en el Silúrico (hace ~428 millones de años), no recién hacia el final del Devónico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
-  nivel: "intermedio"
-  tags: ["plantas", "briofitas", "evolucion"]
-
-respuesta: "falso"
 tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
+opciones_explicitas: ["Reductora (sin O2)", "Oxidante (rica en O2)", "Nitrogenada pura", "Ácida y gaseosa"]
+respuesta: "Reductora (sin O2)"
 
-enunciado: "¿Es correcto afirmar que las primeras plantas terrestres ya poseían raíces verdaderas y tejido vascular desarrollado, similares a los árboles actuales?"
+enunciado: "La atmósfera de la Tierra en sus inicios era de naturaleza ___________, debido a la ausencia de oxígeno libre."
 
 explicacion: |
-  Falso. Las primeras plantas terrestres eran simples, parecidas a musgos y hepáticas, sin raíces verdaderas ni sistema vascular complejo; estas estructuras se desarrollaron más tarde, en plantas vasculares posteriores.
+  La atmósfera primitiva era un ambiente reductor porque no existía el oxígeno molecular (O2) para oxidar los gases presentes.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
+  tema: "atmosfera_primitiva"
   nivel: "intermedio"
-  tags: ["plantas", "esporas", "reproduccion"]
+  tags: ["fotosintesis", "oxigeno", "biologia"]
 
-respuesta: "esporas"
+enunciado: "El factor principal que transformó la atmósfera primitiva hacia una atmósfera con oxígeno fue ___."
+
 tipo: completar
 respuestas_validas:
-  - "esporas"
-
-enunciado: "Las primeras plantas terrestres se reprodujeron principalmente mediante ___, estructuras resistentes a la desecación que les permitían dispersarse sin depender de un medio acuático constante."
+  - "la aparición de la fotosíntesis"
 
 explicacion: |
-  A diferencia de las semillas (una innovación posterior), las esporas fueron el mecanismo reproductivo de las plantas pioneras, permitiéndoles colonizar ambientes terrestres secos.
+  La fotosíntesis realizada por organismos antiguos (cianobacterias) liberó oxígeno como subproducto, cambiando la química global del planeta.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
+  tema: "atmosfera_primitiva"
   nivel: "basico"
-  tags: ["artropodos", "exoesqueleto", "adaptacion"]
+  tags: ["oxigeno", "porcentaje"]
 
-respuesta: "exoesqueleto"
 tipo: completar
-respuestas_validas:
-  - "exoesqueleto"
+tolerancia_abs: 0.1
 
-enunciado: "La estructura externa rígida y cerosa que permitió a los artrópodos resistir la deshidratación al colonizar la tierra firme se denomina ___."
-
-explicacion: |
-  El exoesqueleto de quitina, recubierto por una capa cerosa, reduce la pérdida de agua por evaporación, una de las principales amenazas para los primeros animales terrestres.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
-  nivel: "avanzado"
-  tags: ["tetrapodos", "diversificacion", "paleontologia"]
-
-respuesta: "falso"
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "¿Es correcto afirmar que, inmediatamente después de la aparición de los primeros tetrápodos en el Devónico, existe un registro fósil abundante y continuo de su diversificación en tierra?"
-
-explicacion: |
-  Falso. Existe un período con muy pocos fósiles de tetrápodos justo después de su aparición, conocido como el 'vacío de Romer' (Romer's Gap), que dificulta rastrear en detalle su diversificación temprana en el Carbonífero inicial.
-```
-
-## Sección: conquista-y-colonia-argentina (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "basico"
-  tags: ["conquista", "fundaciones"]
-
-variables:
-  escenario: uno_de([["Santiago del Estero", "1553"], ["Córdoba", "1609"], ["Buenos Aires (segunda)", "1580"]])
-
-respuesta: escenario[0]
-tipo: mc
-opciones_explicitas: ["Santiago del Estero", "Córdoba", "Buenos Aires (segunda)"]
-
-enunciado: "La ciudad de {escenario[0]} fue fundada en el año {escenario[1]}."
-
-explicacion: |
-  La fundación de {escenario[0]} en {escenario[1]} marcó un hito en la organización territorial de la región.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "intermedio"
-  tags: ["ordenar", "cronologia"]
-
-opciones_explicitas: ["Fundación de Santiago del Estero", "Segunda fundación de Buenos Aires", "Fundación de Córdoba"]
-
-respuesta_orden: ["Fundación de Santiago del Estero", "Segunda fundación de Buenos Aires", "Fundación de Córdoba"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente los siguientes eventos de la conquista y colonización:"
+enunciado: "Mientras que la atmósfera primitiva carecía de oxígeno, la atmósfera actual contiene aproximadamente un ___% de este gas."
 
 pasos:
-  - "Identificar la fecha de Santiago del Estero (1553)"
-  - "Identificar la fecha de la segunda Buenos Aires (1580)"
-  - "Identificar la fecha de Córdoba (1609)"
+  - "Identificar el porcentaje de O2 en la atmósfera actual."
+  - "Ingresar el valor numérico."
+
+respuesta: 21
 
 explicacion: |
-  El orden cronológico correcto es: Santiago del Estero (1553), Buenos Aires (1580) y Córdoba (1609).
+  La composición actual de la atmósfera se mantiene estable cerca del 21% de oxígeno.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "basico"
-  tags: ["buenos_aires", "conquista"]
+  tema: "atmosfera_primitiva"
+  nivel: "avanzado"
+  tags: ["secuencia", "evolucion"]
 
-respuesta: "Juan de Garay"
-tipo: completar
-respuestas_validas:
-  - "Juan de Garay"
+tipo: ordenar
+opciones_explicitas: ["Atmósfera primitiva reductora", "Aparición de fotosíntesis", "Acumulación de O2", "Atmósfera oxidante actual"]
 
-enunciado: "La segunda fundación de la ciudad de Buenos Aires en 1580 fue liderada por ___."
+enunciado: "Ordena cronológicamente los procesos que definieron la evolución de la atmósfera terrestre:"
+
+respuesta_orden: ["Atmósfera primitiva reductora", "Aparición de fotosíntesis", "Acumulación de O2", "Atmósfera oxidante actual"]
 
 explicacion: |
-  Tras el fracaso de la primera fundación de Pedro de Mendoza, Juan de Garay estableció la segunda fundación en 1580.
+  Primero existió una atmósfera sin O2, luego la vida fotosintética comenzó a producirlo, el O2 se acumuló y finalmente estableció la atmósfera oxidante que conocemos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["quimica", "oxigeno"]
+
+enunciado: "Si la atmósfera es la actual, su estado es ___. Si es la primitiva, su estado es reductora."
+
+tipo: mc
+opciones_explicitas: ["oxidante", "reductora"]
+
+respuesta: "oxidante"
+
+explicacion: |
+  La atmósfera actual es oxidante debido a la presencia masiva de O2, mientras que la primitiva era reductora por la falta de este gas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["condensacion", "oceanos", "agua"]
+
+respuesta: "condensación"
+tipo: completar
+respuestas_validas:
+  - "condensación"
+  - "condensacion"
+
+enunciado: "A medida que la Tierra se enfriaba, el vapor de agua presente en la atmósfera primitiva sufrió un proceso de ___ que dio lugar a las primeras lluvias y la formación de los océanos."
+
+explicacion: |
+  Cuando la superficie terrestre bajó de la temperatura crítica, el vapor de agua se transformó en líquido, llenando las cuencas oceánicas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["estado_materia", "vapor"]
+
+respuesta: "líquido"
+tipo: mc
+opciones_explicitas: ["sólido", "líquido", "gaseoso", "plasma"]
+
+enunciado: "Antes de la formación de los océanos, el agua se encontraba mayoritariamente en estado {estado_inicial}. Tras el enfriamiento, pasó a estado {estado_final}."
+
+variables:
+  estado_inicial: "gaseoso"
+  estado_final: "líquido"
+
+explicacion: |
+  El paso de gas a líquido es la transición clave que permitió la existencia de agua líquida en la superficie.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["secuencia", "enfriamiento"]
+
+enunciado: "Ordená cronológicamente los eventos que llevaron a la formación de los océanos primitivos:"
+respuesta_orden: ["Enfriamiento de la corteza", "Condensación del vapor", "Lluvias torrenciales", "Formación de océanos"]
+tipo: ordenar
+opciones_explicitas: ["Enfriamiento de la corteza", "Condensación del vapor", "Lluvias torrenciales", "Formación de océanos"]
+
+explicacion: |
+  El orden lógico es: primero la Tierra debe enfriarse lo suficiente para que el vapor no vuelva a evaporarse, luego ocurre la condensación, las lluvias y finalmente se estabilizan los océanos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["componente", "atmosfera"]
+
+respuesta: "verdadero"
+tipo: completar
+enunciado: "El vapor de agua fue uno de los componentes principales de la atmósfera primitiva que, al condensarse, permitió la aparición de los primeros mares."
+
+explicacion: |
+  La atmósfera primitiva era rica en gases de la actividad volcánica, incluyendo grandes cantidades de vapor de agua.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "avanzado"
+  tags: ["fisica", "condensacion"]
+
+variables:
+  temp_inicial: 1500
+  temp_final: 100
+  delta_t: temp_inicial - temp_final
+
+respuesta: 1400
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Si la temperatura de la atmósfera primitiva era de {temp_inicial}°C y se enfrió hasta los {temp_final}°C para permitir la condensación, ¿cuál fue el descenso térmico (ΔT) en grados Celsius?"
+
+pasos:
+  - "Identificar la temperatura inicial: 1500"
+  - "Identificar la temperatura final: 100"
+  - "Restar la temperatura final de la inicial: 1500 - 100"
+
+explicacion: |
+  El enfriamiento fue un proceso masivo que redujo la temperatura de la atmósfera en miles de grados.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["geologia", "atmosfera"]
+
+enunciado: "En la atmósfera primitiva, un componente dominante era el dióxido de carbono (CO2), mientras que en la atmósfera actual el componente predominante es el ___."
+
+respuesta: "Nitrógeno (N2)"
+tipo: mc
+opciones_explicitas: ["Dióxido de carbono (CO2)", "Metano (CH4)", "Oxígeno (O2)", "Nitrógeno (N2)"]
+
+explicacion: |
+  La atmósfera primitiva era una atmósfera reductora, rica en gases como CO2, CH4 y N2, pero carecía de oxígeno libre (O2) hasta la aparición de la fotosíntesis oxigénica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["evolucion", "oxigeno"]
+
+variables:
+  evento: [["Oxígeno (O2)", "Dióxido de carbono (CO2)"], ["Oxígeno (O2)", "Metano (CH4)"]]
+  idx: uno_de([0,1])
+  gas_liberado: evento[idx][0]
+  gas_abundante: evento[idx][1]
+
+enunciado: "La aparición de organismos fotosintéticos transformó la atmósfera al liberar {gas_liberado} en grandes cantidades, reemplazando la abundancia de {gas_abundante}."
+
+respuesta: gas_liberado
+tipo: completar
+respuestas_validas:
+  - "Oxígeno (O2)"
+  - "Dióxido de carbono (CO2)"
+  - "Metano (CH4)"
+  - "Nitrógeno (N2)"
+
+pasos:
+  - "Identificar el gas producido por la fotosíntesis."
+  - "Identificar el gas que era abundante antes de la fotosíntesis."
+
+explicacion: |
+  La Gran Oxidación fue un evento biológico que cambió la química planetaria, pasando de una atmósfera reductora a una oxidante.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "avanzado"
+  tags: ["quimica_atmosferica", "evolucion"]
+
+variables:
+  comparativa: [["Metano (CH4)", "Oxígeno (O2)"], ["Dióxido de carbono (CO2)", "Nitrógeno (N2)"], ["Vapor de agua (H2O)", "Argón (Ar)"]]
+  idx: uno_de([0,1,2])
+
+enunciado: "Si comparamos la concentración de gases, un gas que era muy abundante en la atmósfera primitiva pero es hoy un gas traza es el {comparativa[idx][0]}, mientras que el {comparativa[idx][1]} es mayormente estable en la actualidad."
+
+respuesta: comparativa[idx][0]
+tipo: mc
+opciones_explicitas: ["Metano (CH4)", "Dióxido de carbono (CO2)", "Vapor de agua (H2O)", "Oxígeno (O2)"]
+
+explicacion: |
+  Muchos gases que hoy son trazas (como el metano) eran componentes mayoritarios en la Tierra primitiva debido a la intensa actividad volcánica y la falta de sumideros oxidantes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["cronologia", "procesos"]
+
+enunciado: "Ordena la evolución de la composición atmosférica desde la Tierra primitiva hasta la actualidad:"
+
+opciones_explicitas: ["Atmósfera reductora (CH4, NH3, H2O)", "Atmósfera con presencia de O2 (Gran Oxidación)", "Atmósfera moderna (N2, O2, Ar)"]
+respuesta_orden: ["Atmósfera reductora (CH4, NH3, H2O)", "Atmósfera con presencia de O2 (Gran Oxidación)", "Atmósfera moderna (N2, O2, Ar)"]
+tipo: ordenar
+
+explicacion: |
+  La secuencia lógica comienza con gases volcánicos y de origen primordial, sigue con la revolución biológica del oxígeno y culmina con la composición actual.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["biologia", "oxigeno"]
+
+enunciado: "En la atmósfera actual, el porcentaje de oxígeno es aproximadamente del 0.21 (valor decimal), lo que equivale al ___ de la mezcla total."
+
+respuesta: "21%"
+tipo: completar
+tolerancia_abs: 0.01
+
+explicacion: |
+  El oxígeno es el segundo gas más abundante hoy en día, con una concentración cercana al 21%.
+```
+
+## Sección: minerales-estructura-cristalina (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["definicion", "geologia"]
+
+tipo: mc
+opciones_explicitas: ["Una sustancia sólida, inorgánica, de origen natural, con composición química definida y estructura cristalina ordenada.", "Una sustancia sólida, orgánica, de origen volcánico, con composición variable y estructura amorfa.", "Un compuesto químico formado exclusivamente por elementos metálicos en estado sólido.", "Cualquier material sólido encontrado en la corteza terrestre."]
+respuesta: "Una sustancia sólida, inorgánica, de origen natural, con composición química definida y estructura cristalina ordenada."
+enunciado: "Según la mineralogía clásica, ¿cuál es la definición científica de un mineral?"
+explicacion: |
+  Un mineral debe cumplir cinco condiciones: ser sólido, inorgánico, de origen natural, tener una fórmula química definida y una estructura atómica interna ordenada (cristalina).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["propiedades", "inorganico"]
+
+variables:
+  escenario: uno_de([["El carbón (formado por restos vegetales)", "falso"], ["El cuarzo (formado por silicatos de silicio y oxígeno)", "verdadero"]])
+
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "Considerando que un mineral debe ser inorgánico, ¿es la afirmación '{escenario[0]}' verdadera o falsa para la definición de mineral?"
+
+respuesta: escenario[1]
+
+explicacion: |
+  Los materiales de origen orgánico (como el carbón derivado de plantas) no se consideran minerales, aunque sean sólidos y naturales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["estructura", "cristalografia"]
+
+tipo: completar
+respuestas_validas:
+  - "cristalina"
+
+enunciado: "Para que una sustancia sea considerada mineral, sus átomos deben estar dispuestos en una estructura ___."
+
+respuesta: "cristalina"
+
+explicacion: |
+  La estructura cristalina es el ordenamiento tridimensional repetitivo de los átomos, lo que diferencia a un mineral de un vidrio (sólido amorfo).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["quimica", "composicion"]
+
+variables:
+  caso: uno_de([["El diamante (C)", "C"], ["La sal común (NaCl)", "NaCl"], ["La calcita (CaCO3)", "CaCO3"]])
+
+tipo: completar
+respuestas_validas:
+  - "C"
+  - "NaCl"
+  - "CaCO3"
+
+enunciado: "Un mineral debe tener una composición química definida. Si tomamos el caso de {caso[0]}, su fórmula química es ___."
+
+respuesta: caso[1]
+
+explicacion: |
+  Cada mineral tiene una proporción fija de elementos que determina su identidad química.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "avanzado"
+  tags: ["conceptos", "ordenamiento"]
+
+tipo: ordenar
+opciones_explicitas: ["Origen natural", "Sólido", "Estructura cristalina", "Composición química definida", "Inorgánico"]
+
+enunciado: "Ordena los criterios fundamentales que definen a un mineral, desde el origen hasta su organización interna:"
+
+respuesta_orden: ["Origen natural", "Sólido", "Inorgánico", "Composición química definida", "Estructura cristalina"]
+
+explicacion: |
+  La definición integral requiere la suma de estas cinco características esenciales para distinguir un mineral de otros materiales terrestres.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["cristalografía", "átomos"]
+
+respuesta: "arreglo geométrico repetitivo y ordenado de átomos/iones"
+tipo: completar
+respuestas_validas:
+  - "arreglo geométrico repetitivo y ordenado de átomos/iones"
+  - "un desorden total de partículas"
+  - "una estructura sin simetría"
+
+enunciado: "Una estructura cristalina se define como un ___."
+
+explicacion: |
+  Los cristales se caracterizan por tener un ordenamiento espacial de sus componentes (átomos, iones o moléculas) que se repite de forma periódica en las tres dimensiones del espacio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["amorfo", "cristalino"]
+
+variables:
+  escenario: uno_de([["vidrio", "amorfo"], ["cuarzo", "cristalino"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["cristalino", "amorfo"]
+
+enunciado: "Si un material como el {escenario[0]} carece de un ordenamiento de largo alcance en su estructura, se clasifica como un sólido ___."
+
+explicacion: |
+  Los sólidos amorfos, como el vidrio, carecen de la periodicidad característica de los cristales, presentando un desorden estructural a escala atómica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["átomos", "red_cristalina"]
+
+respuesta: "átomos, iones o moléculas"
+tipo: completar
+respuestas_validas:
+  - "átomos, iones o moléculas"
+
+enunciado: "La unidad básica que se repite para formar la red de un cristal está compuesta por ___."
+
+explicacion: |
+  Dependiendo de la naturaleza del mineral, los puntos de la red pueden ser átomos elementales, iones en compuestos iónicos o moléculas en sólidos moleculares.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["orden", "desorden"]
+
+respuesta: "orden"
+tipo: mc
+opciones_explicitas: ["orden", "desorden", "densidad", "color"]
+
+enunciado: "La diferencia fundamental entre un cristal y un sólido amorfo radica en la presencia de:"
+
+explicacion: |
+  El orden es la clave: los cristales tienen un patrón repetitivo (orden), mientras que los amorfos tienen un desorden estructural.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "avanzado"
+  tags: ["clasificación", "estructura"]
+
+variables:
+  ejemplo: uno_de([["diamante", "cristalino"], ["plástico", "amorfo"]])
+
+respuesta: ejemplo[1]
+tipo: mc
+opciones_explicitas: ["cristalino", "amorfo"]
+
+enunciado: "Considerando el caso del {ejemplo[0]}, su estructura interna es de tipo ___."
+
+explicacion: |
+  El diamante es el ejemplo clásico de un sólido con una estructura cristalina altamente ordenada de átomos de carbono.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["definiciones", "geologia"]
+
+tipo: mc
+opciones_explicitas: ["Un agregado de varios minerales", "Una sustancia pura con estructura cristalina definida", "Una mezcla de materia orgánica e inorgánica", "Un fragmento de corteza terrestre sin estructura"]
+respuesta: "Una sustancia pura con estructura cristalina definida"
+enunciado: "Desde una perspectiva geológica, ¿cuál es la definición fundamental de un mineral?"
+
+explicacion: |
+  Un mineral es una sustancia sólida, inorgánica, con una composición química definida y una estructura atómica ordenada (cristalina).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["clasificacion", "rocas"]
+
+variables:
+  escenario: uno_de([["Granito", "cuarzo", "feldespato", "mica"], ["Basalto", "olivino", "piroxeno", "plagioclasa"], ["Caliza", "calcita", "dolomita", "aragonito"]])
+
+tipo: completar
+respuesta: escenario[3]
+
+enunciado: "Si observamos una muestra de {escenario[0]}, estamos ante una roca compuesta por varios minerales, entre ellos {escenario[1]} y {escenario[2]}. Otro mineral típico de esta roca es ___."
+
+pasos:
+  - "Identifica si el material es una sustancia única o un agregado."
+  - "Observa los componentes individuales que forman el conjunto."
+
+explicacion: |
+  El {escenario[0]} es una roca porque es un agregado de los minerales listados.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["relaciones", "estructuras"]
+
+tipo: completar
+respuestas_validas:
+  - "mineral"
+  - "roca"
+
+enunciado: "Un ejemplar de cuarzo puro se clasifica como un ________, mientras que una masa de granito se clasifica como una ________."
+
+explicacion: |
+  El cuarzo es una sustancia individual (mineral), mientras que el granito es un agregado de varios minerales (roca).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["ordenar", "jerarquia"]
+
+tipo: ordenar
+opciones_explicitas: ["Átomos", "Cristales (Minerales)", "Rocas"]
+
+enunciado: "Ordena los siguientes elementos de menor a mayor complejidad estructural en la formación de la corteza terrestre:"
+
+explicacion: |
+  Los átomos se organizan en redes cristalinas para formar minerales, y los minerales se agrupan para formar rocas.
+respuesta_orden: ["Átomos", "Cristales (Minerales)", "Rocas"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "avanzado"
+  tags: ["analisis", "composicion"]
+
+variables:
+  caso: uno_de([["feldespato", "mineral"], ["granito", "roca"]])
+
+tipo: mc
+opciones_explicitas: ["mineral", "roca"]
+respuesta: caso[1]
+
+enunciado: "Considerando el elemento {caso[0]}, su clasificación técnica es: ________."
+
+explicacion: |
+  Según el caso seleccionado, {caso[0]} es un/a {caso[1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["dureza", "mohs"]
+
+variables:
+  mineral_datos: [["talco", "1"], ["yeso", "2"], ["calcita", "3"], ["fluorita", "4"], ["apatita", "5"]]
+  idx: uno_de([0,1,2,3,4])
+
+enunciado: "Si tenemos un mineral cuya dureza es la que corresponde al elemento {mineral_datos[idx][0]}, su valor en la escala de Mohs es ___."
+
+respuestas_validas:
+  - "1"
+  - "2"
+  - "3"
+  - "4"
+  - "5"
+respuesta: mineral_datos[idx][1]
+tipo: completar
+
+explicacion: |
+  La escala de Mohs es una escala de dureza relativa. El {mineral_datos[idx][0]} tiene un valor de {mineral_datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["brillo"]
+
+enunciado: "¿Cómo se denomina a la propiedad que describe la forma en que la luz se refleja en la superficie de un mineral?"
+
+opciones_explicitas: ["Transparencia", "Brillo", "Clivaje", "Dureza"]
+respuesta: "Brillo"
+tipo: mc
+
+explicacion: |
+  El brillo es la propiedad que indica la calidad de la reflexión de la luz en la superficie del mineral.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["raya", "color"]
+
+variables:
+  escenario: [["Hematita", "Rojo"], ["Pirita", "Negro"], ["Calcopirita", "Negro verdoso"], ["Malaquita", "Verde"]]
+  idx: uno_de([0, 1, 2, 3])
+
+enunciado: "Al realizar la prueba de la raya sobre una placa de porcelana sin esmaltar con el mineral {escenario[idx][0]}, el color resultante es ___."
+
+respuestas_validas:
+  - "Rojo"
+  - "Negro"
+  - "Negro verdoso"
+  - "Verde"
+respuesta: escenario[idx][1]
+tipo: completar
+
+explicacion: |
+  La raya es el color del polvo del mineral y es una propiedad más constante que el color externo del espécimen.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "avanzado"
+  tags: ["fractura", "clivaje"]
+
+enunciado: "Un mineral que se rompe siguiendo planos de debilidad cristalográfica bien definidos presenta ___."
+
+opciones_explicitas: ["Fractura concoidea", "Clivaje", "Dureza", "Brillo metálico"]
+respuesta: "Clivaje"
+tipo: mc
+
+explicacion: |
+  El clivaje ocurre cuando el mineral se rompe a lo largo de planos de debilidad en su estructura atómica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["mohs", "ordenar"]
+
+enunciado: "Ordene los siguientes minerales de menor a mayor dureza según la escala de Mohs:"
+
+opciones_explicitas: ["Talco", "Calcita", "Cuarzo", "Diamante"]
+respuesta_orden: ["Talco", "Calcita", "Cuarzo", "Diamante"]
+tipo: ordenar
+
+explicacion: |
+  La secuencia correcta es: Talco (1), Calcita (3), Cuarzo (7) y Diamante (10).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["dureza", "mohs"]
+
+variables:
+  escenario: [[4, "Fluorita"], [7, "Cuarzo"], [10, "Diamante"]]
+  idx: uno_de([0, 1, 2])
+  dureza_dada: escenario[idx][0]
+  nombre_mineral: escenario[idx][1]
+
+tipo: mc
+opciones_explicitas: ["Fluorita", "Cuarzo", "Diamante", "Talco"]
+
+enunciado: "Un geólogo encuentra un mineral cuya dureza en la escala de Mohs es de {dureza_dada}. ¿Qué mineral es?"
+
+respuesta: nombre_mineral
+
+explicacion: |
+  El mineral identificado es el {nombre_mineral}, que tiene una dureza de {dureza_dada} en la escala de Mohs.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["color", "espectro"]
+
+variables:
+  escenario: [["rojo", "Rubí"], ["azul", "Lapislázuli"], ["amarillo", "Azufre"]]
+  idx: uno_de([0, 1, 2])
+  color_descrito: escenario[idx][0]
+  mineral_nombre: escenario[idx][1]
+
+tipo: completar
+respuestas_validas:
+  - "Rubí"
+  - "Lapislázuli"
+  - "Azufre"
+
+enunciado: "Se observa un cristal de color ___ que presenta una estructura hexagonal característica."
+
+pasos:
+  - "Identificar el color mencionado en el registro."
+  - "Asociar el color con el mineral correspondiente."
+
+respuesta: mineral_nombre
+
+explicacion: |
+  El color {color_descrito} corresponde al mineral {mineral_nombre}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["brillo", "propiedades"]
+
+variables:
+  escenario: uno_de([["metálico", "Pirita"], ["vítreo", "Cuarzo"], ["nacarado", "Mica"]])
+  tipo_brillo: escenario[0]
+  mineral_id: escenario[1]
+
+tipo: mc
+opciones_explicitas: ["Pirita", "Cuarzo", "Mica", "Feldespato"]
+
+enunciado: "Un espécimen presenta un brillo de tipo {tipo_brillo}. ¿Cuál de estos minerales es el más probable?"
+
+respuesta: mineral_id
+
+explicacion: |
+  El brillo {tipo_brillo} es característico de la {mineral_id}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "avanzado"
+  tags: ["cristalización", "geología"]
+
+tipo: ordenar
+opciones_explicitas: ["Nucleación", "Crecimiento", "Terminación"]
+
+enunciado: "Ordene las etapas típicas de la formación de un cristal perfecto en una solución saturada:"
+
+respuesta_orden: ["Nucleación", "Crecimiento", "Terminación"]
+
+explicacion: |
+  El proceso de cristalización requiere primero la nucleación, luego el crecimiento de la red y finalmente la terminación de los bordes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["densidad", "propiedades_fisicas"]
+
+variables:
+  escenario: [[5.0, "Hematita"], [2.6, "Cuarzo"], [7.5, "Galena"]]
+  idx: uno_de([0, 1, 2])
+  valor_densidad: escenario[idx][0]
+  mineral_ref: escenario[idx][1]
+
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un mineral tiene una densidad relativa de {valor_densidad}. ¿Cuál es su valor numérico exacto?"
+
+respuesta: valor_densidad
+
+explicacion: |
+  La densidad es una propiedad intrínseca; en este caso, el valor es {valor_densidad} g/cm³.
+```
+
+## Sección: origen-de-la-vida (24 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "basico"
+  tags: ["abiogenesis", "hipotesis_oparin"]
+
+enunciado: "Según la hipótesis de Oparin y Haldane, la atmósfera primitiva de la Tierra carecía de ciertos gases que hoy son comunes. ¿Cuál de los siguientes gases NO formaba parte de esa atmósfera reductora?"
+
+opciones_explicitas: ["Metano", "Amoníaco", "Oxígeno", "Hidrógeno"]
+respuesta: "Oxígeno"
+tipo: "mc"
+
+explicacion: |
+  La atmósfera primitiva era reductora y carecía de oxígeno libre (O2), ya que este solo apareció masivamente después de la fotosíntesis oxigénica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["miller_urey", "aminoacidos"]
+
+enunciado: "En el famoso experimento de Miller y Urey, se simularon las condiciones de la Tierra primitiva mediante descargas eléctricas. ¿Cuál fue el resultado principal a partir de sustancias inorgánicas?"
+
+respuesta: "aminoácidos"
+tipo: "mc"
+opciones_explicitas: ["aminoácidos", "nucleótidos"]
+
+explicacion: |
+  El experimento demostró que la síntesis de moléculas orgánicas simples como los aminoácidos es posible a partir de gases inorgánicos y energía.
 ```
 
 ```
 metadata:
   materia: "historia_profucha"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "intermedio"
-  tags: ["cordoba", "fundacion"]
+  tema: "origen_de_la_vida"
+  nivel: "avanzado"
+  tags: ["rna_world", "genetica"]
 
-respuesta: "1609"
-tipo: completar
-tolerancia_abs: 0
+enunciado: "La hipótesis del 'Mundo del ARN' sugiere que antes de la aparición del ADN y las proteínas, el ___ cumplía la función de almacenar información genética y catalizar reacciones químicas."
 
-enunciado: "La ciudad de Córdoba fue fundada en el año ___."
+respuestas_validas:
+  - "ARN"
+respuesta: "ARN"
+tipo: "completar"
 
 explicacion: |
-  Córdoba fue fundada en 1609, convirtiéndose en un centro neurálgico para la educación y la administración colonial.
+  Se cree que el ARN fue la primera molécula autorreplicante debido a su capacidad de actuar tanto como material genético como enzima (ribozimas).
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["evolucion_quimica", "orden"]
+
+enunciado: "Ordena correctamente los procesos de la evolución química, desde la materia más simple hasta la vida:"
+
+opciones_explicitas: ["Moléculas inorgánicas", "Monómeros orgánicos", "Polímeros complejos", "Protobiontes"]
+respuesta_orden: ["Moléculas inorgánicas", "Monómeros orgánicos", "Polímeros complejos", "Protobiontes"]
+tipo: "ordenar"
+
+explicacion: |
+  La evolución química implica un aumento gradual de la complejidad: de átomos y gases a moléculas pequeñas, luego cadenas largas y finalmente estructuras con membrana.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "origen_de_la_vida"
+  nivel: "avanzado"
+  tags: ["quimiosintesis", "metabolismo"]
+
+enunciado: "En las fuentes hidrotermales del fondo oceánico, la vida pudo haber comenzado mediante un proceso de ___ que utilizaba la energía química de los minerales."
+
+tipo: completar
+respuesta: "quimiosíntesis"
+
+explicacion: |
+  Antes de la fotosíntesis, los primeros organismos probablemente obtenían energía de las reacciones redox de compuestos inorgánicos en las chimeneas hidrotermales.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
+  tema: "origen_de_la_vida"
   nivel: "basico"
-  tags: ["geografia_historica"]
+  tags: ["miller_urey", "sopa_primordial"]
+
+respuesta: "Miller-Urey"
+tipo: completar
+respuestas_validas:
+  - "Miller-Urey"
+  - "Miller-Urey"
+
+enunciado: "El experimento diseñado para probar la hipótesis de la 'sopa primordial' en charcos superficiales fue el de ___."
+
+explicacion: |
+  El experimento de Miller-Urey (1953) demostró que se podían formar moléculas orgánicas simples (aminoácidos) a partir de gases inorgánicos mediante descargas eléctricas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["fuentes_hidrotermales", "quimiosintesis"]
+
+respuesta: "protección de la radiación UV"
+tipo: mc
+opciones_explicitas: ["exposición a radiación UV", "protección de la radiación UV", "alta radiación solar", "ausencia de calor"]
+
+enunciado: "A diferencia de la hipótesis de la sopa primordial, la teoría de las fuentes hidrotermales sugiere que la vida pudo originarse en el fondo oceánico debido a la ___."
+
+explicacion: |
+  Las fuentes hidrotermales ofrecen un ambiente protegido de la radiación UV superficial y proporcionan gradientes térmicos y químicos esenciales para la síntesis de moléculas complejas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["hipotesis", "comparacion"]
+
+respuesta: "quimiosintesis"
+tipo: completar
+respuestas_validas:
+  - "quimiosintesis"
+  - "quimiosintesis"
+
+enunciado: "Mientras que la sopa primordial se basa en la energía solar y descargas, las fuentes hidrotermales proponen un metabolismo basado en la ___."
+
+explicacion: |
+  En las fuentes hidrotermales, la energía proviene de las reacciones químicas entre los fluidos alcalinos y el agua de mar, un proceso conocido como quimiosíntesis.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "basico"
+  tags: ["miller_urey", "moléculas"]
+
+respuesta_orden: ["Metano", "Amoníaco", "Hidrógeno", "Agua"]
+tipo: ordenar
+opciones_explicitas: ["Metano", "Amoníaco", "Hidrógeno", "Agua"]
+
+enunciado: "Ordene los componentes gaseosos y líquidos que se utilizaron en el aparato de Miller-Urey para simular la atmósfera y el océano primitivo:"
+
+explicacion: |
+  El experimento utilizó una mezcla de metano (CH4), amoníaco (NH3), hidrógeno (H2) y vapor de agua (H2O) para simular las condiciones de la Tierra primitiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "avanzado"
+  tags: ["energia", "hipotesis"]
+
+respuesta: "descargas eléctricas"
+tipo: mc
+opciones_explicitas: ["descargas eléctricas", "gradientes térmicos", "radiación gamma", "energía cinética"]
+
+enunciado: "En el modelo de la sopa primordial, ¿cuál es el motor energético propuesto para la síntesis de moléculas orgánicas?"
+
+explicacion: |
+  En el modelo de Miller-Urey, las descargas eléctricas (simulando rayos) proporcionan la energía necesaria para romper los enlaces de los gases y formar nuevas moléculas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "basico"
+  tags: ["biologia", "evolucion", "luca"]
+
+tipo: mc
+opciones_explicitas: ["Un organismo pluricelular complejo", "El último ancestro común de todos los organismos actuales", "Un organismo que vivió solo en la atmósfera", "La primera célula que apareció en la Tierra"]
+respuesta: "El último ancestro común de todos los organismos actuales"
+
+enunciado: "El término LUCA hace referencia a un concepto fundamental en la biología evolutiva. ¿Qué significa exactamente?"
+
+explicacion: |
+  LUCA (Last Universal Common Ancestor) no fue el primer ser vivo, sino el ancestro común más reciente del cual descendieron todas las formas de vida actuales (Arqueas, Bacterias y Eucariotas).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["biologia", "bioquimica"]
+
+tipo: completar
+respuestas_validas:
+  - "quimiosíntesis"
+respuesta: "quimiosíntesis"
+
+enunciado: "Se postula que LUCA habitaba en entornos extremos, como fuentes hidrotermales, y que su principal fuente de energía era la ___."
+
+explicacion: |
+  Debido a la ausencia de oxígeno en la Tierra primitiva, se cree que LUCA dependía de procesos químicos inorgánicos (quimiosíntesis) para obtener energía, antes de la aparición de la fotosíntesis.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["filogenia", "evolucion"]
+
+tipo: ordenar
+opciones_explicitas: ["LUCA", "Primeras células procariotas", "Células eucariotas", "Organismos pluricelulares"]
+
+enunciado: "Ordena cronológicamente estos hitos evolutivos, desde el ancestro común hasta la complejidad actual:"
+
+explicacion: |
+  La evolución biológica siguió una progresión desde un ancestro común unicelular, pasando por la especialización procariota y eucariota, hasta la complejidad de la pluricelularidad.
+respuesta_orden: ["LUCA", "Primeras células procariotas", "Células eucariotas", "Organismos pluricelulares"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "avanzado"
+  tags: ["genetica", "adn"]
 
 variables:
-  datos: [["Santiago del Estero", "1553"], ["Córdoba", "1609"], ["Buenos Aires", "1580"]]
+  mol_idx: uno_de([0, 1])
+  mol_datos: [["ATP", "energía celular"], ["ADN", "información genética"]]
+  mol_nombre: mol_datos[mol_idx][0]
+  mol_funcion: mol_datos[mol_idx][1]
+  respuesta_correcta: mol_datos[mol_idx][0]
+
+tipo: mc
+respuesta: respuesta_correcta
+opciones_explicitas: ["ATP", "ADN", "ARN", "Proteínas"]
+
+enunciado: "La existencia de {mol_nombre} en todos los dominios de la vida es una evidencia clave de que todos los seres vivos comparten un ancestro común, ya que cumple la función de {mol_funcion}."
+
+explicacion: |
+  El hecho de que todos los seres vivos utilicen la misma molécula para almacenar información genética (ADN/ARN) y la misma para transferir energía (ATP) es la prueba más fuerte de un origen común.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "basico"
+  tags: ["bioquimica", "evolucion"]
+
+tipo: mc
+opciones_explicitas: ["Almacenar información genética y actuar como catalizador", "Solo almacenar información genética", "Solo actuar como catalizador enzimático", "Transportar aminoácidos a los ribosomas"]
+respuesta: "Almacenar información genética y actuar como catalizador"
+
+enunciado: "La hipótesis del 'mundo de ARN' sugiere que esta molécula fue clave en el origen de la vida debido a que puede ___."
+
+explicacion: |
+  El ARN es una molécula versátil que puede realizar dos funciones críticas: almacenar la información genética (como el ADN) y actuar como una enzima (ribozima) para catalizar reacciones químicas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["adn", "arn", "proteinas"]
+
+tipo: completar
+respuestas_validas:
+  - "ADN"
+  - "proteínas"
+
+enunciado: "En la hipótesis del mundo de ARN, se postula que el ARN precedió tanto al ___ como a las ___ en la evolución biológica."
+
+explicacion: |
+  Se cree que el ARN fue la molécula central antes de que el ADN se especializara en el almacenamiento de información a largo plazo y las proteínas en la catálisis estructural y funcional.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["ribozima", "catalisis"]
+
+tipo: mc
+opciones_explicitas: ["Capacidad de catalizar reacciones químicas", "Capacidad de replicarse sin proteínas", "Capacidad de formar dobles hélices estables", "Capacidad de almacenar aminoácidos"]
+respuesta: "Capacidad de catalizar reacciones químicas"
+
+enunciado: "Una de las propiedades fundamentales que permite al ARN ser el protagonista del 'mundo de ARN' es su capacidad de actuar como una ___."
+
+explicacion: |
+  Las ribozimas son moléculas de ARN con actividad catalítica, lo que permite que el ARN pueda acelerar reacciones químicas sin necesidad de proteínas.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "origen_de_la_vida"
+  nivel: "avanzado"
+  tags: ["evolucion", "secuencia"]
+
+tipo: ordenar
+opciones_explicitas: ["ARN", "ADN", "Proteínas"]
+
+enunciado: "Según la hipótesis del mundo de ARN, ¿cuál sería el orden evolutivo más probable de las macromoléculas funcionales?"
+
+explicacion: |
+  El ARN habría servido como la molécula 'todo en uno' que permitió la aparición de la autorreplicación, antes de la especialización funcional del ADN y las proteínas.
+respuesta_orden: ["ARN", "ADN", "Proteínas"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "avanzado"
+  tags: ["paradoja", "evolucion"]
+
+variables:
+  escenario: uno_de(["plantilla", "catalizador"])
+
+tipo: mc
+opciones_explicitas: ["La estabilidad del ADN", "La velocidad de la proteína", "La dualidad funcional del ARN", "La complejidad del núcleo"]
+respuesta: "La dualidad funcional del ARN"
+
+enunciado: "El 'dilema de la replicación' se resuelve con el ARN porque este puede resolver la necesidad de un {escenario} mediante su estructura química."
+
+explicacion: |
+  Si el escenario es la necesidad de una plantilla, el ARN sirve como molde. Si es la necesidad de un catalizador, el ARN actúa como enzima. Esto permite que la vida comience sin depender de un sistema complejo de tres moléculas distintas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["quimica_prebiotica", "experimento", "miller_urey"]
+
+variables:
+  escenario: [[["metano", "amoniaco", "hidrogeno", "vapor de agua"], "aminoácidos"], [["metano", "amoniaco", "hidrogeno", "vapor de agua"], "azúcares"], [["metano", "amoniaco", "hidrogeno", "vapor de agua"], "lípidos"]]
   idx: uno_de([0,1,2])
 
-respuesta: datos[idx][1]
+respuesta: escenario[idx][1]
 tipo: mc
-opciones_explicitas: ["1553", "1609", "1580"]
+opciones_explicitas: ["aminoácidos", "azúcares", "lípidos"]
 
-enunciado: "Si nos referimos a la fundación de {datos[idx][0]}, el año correspondiente es ___."
+enunciado: "En el experimento de Miller-Urey, al aplicar descargas eléctricas a una mezcla de gases que simulaba la atmósfera primitiva, se obtuvo como producto principal la formación de ___."
 
 explicacion: |
-  La fecha correcta para la fundación de {datos[idx][0]} es {datos[idx][1]}.
+  El experimento demostró que la síntesis abiótica de moléculas orgánicas (como los aminoácidos) era posible bajo las condiciones atmosféricas propuestas.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
+  tema: "origen_de_la_vida"
   nivel: "basico"
-  tags: ["organizacion_colonial", "virreinatos"]
+  tags: ["atmosfera", "gases"]
 
-respuesta: "Perú"
+respuesta: "metano"
+tipo: mc
+opciones_explicitas: ["metano", "oxígeno", "nitrógeno"]
+
+enunciado: "Según el modelo de Miller-Urey, la atmósfera primitiva era rica en gases reductores. ¿Cuál de estos gases era uno de los componentes fundamentales en su montaje experimental?"
+
+explicacion: |
+  Miller utilizó metano (CH4), amoníaco (NH3), hidrógeno (H2) y vapor de agua (H2O) para simular la atmósfera reductora.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
+  nivel: "basico"
+  tags: ["energia", "descarga"]
+
+respuesta: "descargas eléctricas"
 tipo: completar
 respuestas_validas:
-  - "Perú"
+  - "descargas eléctricas"
 
-enunciado: "Antes de la creación del Virreinato del Río de la Plata, el territorio que hoy ocupa Argentina pertenecía al Virreinato del ___."
+enunciado: "Para simular la energía disponible en la atmósfera primitiva, el aparato de Miller utilizó ___ entre los gases."
 
 explicacion: |
-  Durante gran parte de la era colonial, las tierras rioplatenses dependían de la administración del Virreinato del Perú, con sede en Lima.
+  Las descargas eléctricas simulaban la actividad de los rayos durante las tormentas en la Tierra primitiva.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "basico"
-  tags: ["virreinatos", "reformas_borbonicas"]
-
-opciones_explicitas: ["Lima", "Buenos Aires", "Santiago", "Asunción"]
-respuesta: "Buenos Aires"
-tipo: mc
-
-enunciado: "Con la creación del Virreinato del Río de la Plata en 1776, ¿cuál se convirtió en la nueva capital administrativa?"
-
-explicacion: |
-  La creación del Virreinato del Río de la Plata buscaba mejorar la defensa del Atlántico y el control comercial, estableciendo a Buenos Aires como su centro de poder.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
+  materia: "historia_profucha"
+  tema: "origen_de_la_vida"
   nivel: "intermedio"
-  tags: ["orden_cronologico", "virreinatos"]
-
-opciones_explicitas: ["Virreinato del Perú", "Virreinato del Río de la Plata", "Estado Argentino"]
-respuesta_orden: ["Virreinato del Perú", "Virreinato del Río de la Plata", "Estado Argentino"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente las etapas de organización política del territorio que hoy es Argentina:"
-
-explicacion: |
-  La secuencia correcta comienza con la dependencia del Perú, sigue con la autonomía regional del Río de la Plata y culmina con la formación del Estado nacional.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "basico"
-  tags: ["capitales", "geografia_colonial"]
-
-respuesta: "Río de la Plata"
-tipo: completar
-respuestas_validas:
-  - "Río de la Plata"
-
-enunciado: "En el año 1776, se fundó el Virreinato del ___."
-
-explicacion: |
-  La reforma administrativa de 1776 fue fundamental para el desarrollo de la región del Plata.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "intermedio"
-  tags: ["reformas", "geopolitica"]
-
-opciones_explicitas: ["Perú", "Río de la Plata"]
-respuesta: "Río de la Plata"
-tipo: mc
-
-enunciado: "La creación de un nuevo virreinato en 1776 significó que el territorio pasó de depender del Virreinato del Perú a pertenecer al Virreinato del ___."
-
-explicacion: |
-  Este cambio permitió una gestión más directa de las rutas comerciales hacia el Atlántico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "basico"
-  tags: ["fundacion", "buenos_aires", "conquista"]
-
-tipo: mc
-opciones_explicitas: ["Pedro de Mendoza", "Juan de Garay", "Juan de Cabral", "Hernán de Magallanes"]
-
-enunciado: "La primera fundación de la ciudad de Buenos Aires, realizada en 1536, fue liderada por el cual de los siguientes exploradores?"
-
-respuesta: "Pedro de Mendoza"
-
-explicacion: |
-  La primera fundación fue un intento fallido liderado por Pedro de Mendoza en 1536, que terminó siendo abandonado debido a las condiciones extremas y los conflictos con los nativos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "basico"
-  tags: ["fundacion", "buenos_aires", "fracaso"]
-
-tipo: completar
-respuestas_validas:
-  - "fracasó"
-
-enunciado: "A diferencia de la segunda fundación, la expedición de Pedro de Mendoza en 1536 ___ y la ciudad fue posteriormente abandonada."
-
-respuesta: "fracasó"
-
-explicacion: |
-  La primera fundación de Buenos Aires fracasó debido a la hambruna y los ataques de los pueblos originarios, lo que obligó a los sobrevivientes a retirarse.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "intermedio"
-  tags: ["fundacion", "buenos_aires", "juan_de_garay"]
+  tags: ["ciclo_del_agua", "condensación"]
 
 variables:
-  datos: [["Juan de Garay", "Juan de Garay"], ["Pedro de Mendoza", "Pedro de Mendoza"]]
-  idx: uno_de([0, 1])
-  respuesta_correcta: datos[idx][1]
+  proceso: [["condensación", "evaporación"], ["condensación", "sublimación"], ["condensación", "fusión"]]
+  idx: uno_de([0,1,2])
 
-respuesta: respuesta_correcta
+respuesta: proceso[idx][0]
 tipo: mc
-opciones_explicitas: ["Juan de Garay", "Pedro de Mendoza"]
+opciones_explicitas: ["condensación", "evaporación", "sublimación", "fusión"]
 
-enunciado: "En el año 1580, la segunda fundación de Buenos Aires, que finalmente logró consolidarse y prosperar, fue llevada a cabo por: ___"
+enunciado: "En el montaje, el vapor de agua se enfriaba para que los compuestos orgánicos formados se disolvieran en el líquido. Este proceso físico es la ___."
 
 explicacion: |
-  Juan de Garay lideró la segunda fundación en 1580, estableciendo un asentamiento que sí logró perdurar en el tiempo, a diferencia del intento de 1536.
+  El enfriamiento del vapor permite la condensación, permitiendo que las moléculas orgánicas se concentren en la fase líquida.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "intermedio"
-  tags: ["cronologia", "fundaciones"]
-
-tipo: ordenar
-opciones_explicitas: ["Fundación de Mendoza (1536)", "Fundación de Garay (1580)", "Consolidación de la ciudad"]
-
-respuesta_orden: ["Fundación de Mendoza (1536)", "Fundación de Garay (1580)", "Consolidación de la ciudad"]
-
-enunciado: "Ordene cronológicamente los hitos de la fundación de Buenos Aires:"
-
-explicacion: |
-  El proceso comenzó con el intento fallido de Mendoza en 1536, seguido por el intento exitoso de Garay en 1580, lo que permitió la posterior consolidación de la ciudad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "conquista_y_colonia_argentina"
+  materia: "historia_profunda"
+  tema: "origen_de_la_vida"
   nivel: "avanzado"
-  tags: ["fundadores", "comparativa"]
+  tags: ["montaje", "componentes"]
 
-variables:
-  datos: [["Garay", "Garay"], ["Mendoza", "Mendoza"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][0]
-tipo: mc
-opciones_explicitas: ["Garay", "Mendoza"]
-
-enunciado: "Si comparamos los dos intentos de fundación de Buenos Aires, el líder que logró establecer un asentamiento próspero fue ___."
-
-explicacion: |
-  Mientras que Mendoza (1536) no logró establecer un asentamiento permanente, Juan de Garay (1580) fue el responsable de la fundación que prosperó.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "intermedio"
-  tags: ["mapuche", "resistencia", "territorio"]
-
-respuesta: "mapuches"
-tipo: mc
-
-opciones_explicitas: ["incas", "mapuches", "guaraníes", "diaguitas"]
-
-enunciado: "A diferencia de otros pueblos que fueron rápidamente sometidos, ¿qué grupo indígena mantuvo una resistencia activa y una autonomía territorial significativa frente a la expansión colonial en el sur hasta bien entrado el siglo XIX?"
-
-explicacion: |
-  El pueblo Mapuche mantuvo una estructura política y militar que les permitió resistir la expansión española y, posteriormente, la consolidación del Estado argentino durante gran parte del siglo XIX.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "basico"
-  tags: ["mestizaje", "sociedad", "colonia"]
-
-variables:
-  escenario: uno_de([["biológico", "cultural"], ["biológico", "político"], ["religioso", "militar"]])
-
-respuesta: escenario[1]
-tipo: completar
-
-respuestas_validas:
-  - "biológico"
-  - "cultural"
-  - "político"
-  - "religioso"
-  - "militar"
-
-enunciado: "El proceso de mestizaje en el Virreinato del Río de la Plata fue de carácter tanto ___ como ___."
-
-explicacion: |
-  El mestizaje no fue solo la unión biológica de españoles e indígenas, sino también un profundo intercambio de costumbres, lenguas y creencias (mestizaje cultural).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "intermedio"
-  tags: ["demografia", "impacto", "enfermedades"]
-
-respuesta: 0.7
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Se estima que, debido a las guerras de conquista y, fundamentalmente, a las epidemias traídas por los europeos, la población indígena sufrió una reducción drástica. Si una población original era de 100 personas, ¿cuántas personas (estimado decimal) quedarían tras una reducción del 70%?"
-
-pasos:
-  - "Calcular el 70% de la población original (100 * 0.70)."
-  - "Restar ese valor al total original (100 - 70)."
-
-explicacion: |
-  Las enfermedades como la viruela y el sarampión fueron agentes devastadores que causaron un colapso demográfico en los pueblos originarios.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "avanzado"
-  tags: ["encomienda", "sistema", "colonia"]
-
-respuesta_orden: ["encomienda", "mita", "reparto"]
+respuesta_orden: ["gases", "descargas", "condensación"]
 tipo: ordenar
+opciones_explicitas: ["gases", "descargas", "condensación"]
 
-opciones_explicitas: ["encomienda", "mita", "reparto"]
-
-enunciado: "Ordene los siguientes sistemas de trabajo/tributo utilizados por la corona española en América, desde el que se basaba en la asignación de indígenas a un español para evangelización, pasando por el trabajo forzado en minas, hasta el sistema de venta de productos a indígenas en zonas periféricas:"
-
-explicacion: |
-  La encomienda fue el sistema inicial de tutela y evangelización; la mita era el trabajo obligatorio en minas; y el reparto de mercancías fue una forma de explotación comercial en las zonas de frontera.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "intermedio"
-  tags: ["cosmovision", "religión", "impacto"]
-
-respuesta: "sincretismo"
-tipo: completar
-
-respuestas_validas:
-  - "sincretismo"
-  - "aislamiento"
-  - "extinción"
-
-enunciado: "La superposición de las creencias religiosas católicas sobre las prácticas espirituales de los pueblos originarios dio lugar a un fenómeno conocido como ___."
+enunciado: "Ordena los elementos o procesos según el flujo lógico de la síntesis química en el experimento de Miller:"
 
 explicacion: |
-  El sincretismo religioso es la fusión de elementos de distintas religiones, resultando en nuevas expresiones culturales y espirituales que persisten hoy en día.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "intermedio"
-  tags: ["conquista", "expediciones"]
-
-variables:
-  escenario: uno_de([["La expedición de Pedro de Mendoza (1536) se estableció en un asentamiento que luego fue abandonado debido a las condiciones climáticas y los ataques de los nativos.", "Asentamiento de Buenos Aires"], ["La expedición de Juan de Garay (1580) fue fundamental para la consolidación de la presencia española en la región.", "Fundación de la segunda Buenos Aires"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["Asentamiento de Buenos Aires", "Fundación de la segunda Buenos Aires", "Fundación de Asunción", "Expedición de Solís"]
-
-enunciado: "De acuerdo con la cronología de la conquista, ¿cuál fue el hito principal del escenario descrito: {escenario[0]}?"
-
-explicacion: |
-  El proceso de colonización fue errático. Mendoza fundó el primer asentamiento en 1536, pero fracasó, siendo Garay quien consolidó la presencia española años después.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "basico"
-  tags: ["instituciones", "virreinato"]
-
-variables:
-  caso: uno_de([["El Virreinato del Río de la Plata fue creado para mejorar la defensa y administración del territorio frente a las potencias europeas.", "España"], ["La administración de las colonias dependía directamente de la corona de...", "España"]])
-
-respuesta: caso[1]
-tipo: completar
-respuestas_validas:
-  - "España"
-
-enunciado: "Complete la siguiente afirmación basada en el contexto: {caso[0]}"
-
-explicacion: |
-  La creación del Virreinato del Río de la Plata en 1776 fue una respuesta de la corona española a las presiones de Portugal y Gran Bretaña en el Atlántico Sur.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "avanzado"
-  tags: ["cronologia", "conquista"]
-
-respuesta_orden: ["Llegada de los españoles al Atlántico", "Fundación de ciudades en el Tucumán", "Establecimiento de las rutas comerciales coloniales"]
-tipo: ordenar
-opciones_explicitas: ["Llegada de los españoles al Atlántico", "Fundación de ciudades en el Tucumán", "Establecimiento de las rutas comerciales coloniales"]
-
-enunciado: "Ordene cronológicamente los siguientes hitos del proceso de expansión y consolidación en el actual territorio argentino:"
-
-explicacion: |
-  Primero se exploró el litoral (Solís/Mendoza), luego se penetró el interior hacia el Tucumán y finalmente se consolidó la red de caminos y comercio colonial.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "intermedio"
-  tags: ["instituciones", "cabildo"]
-
-variables:
-  situacion: uno_de([["El órgano encargado de la administración de justicia y gobierno en las ciudades coloniales era el...", "Cabildo"], ["La institución de gobierno local más importante en las ciudades del Virreinato era el...", "Cabildo"]])
-
-respuesta: situacion[1]
-tipo: mc
-opciones_explicitas: ["Cabildo", "Real Audiencia", "Consejo de Indias", "Corregimiento"]
-
-enunciado: "Identifique la institución mencionada en el siguiente contexto: {situacion[0]}"
-
-explicacion: |
-  El Cabildo era la institución de gobierno local que permitía la participación de los vecinos en la administración de la ciudad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "conquista_y_colonia_argentina"
-  nivel: "intermedio"
-  tags: ["economia", "monopolio"]
-
-variables:
-  modelo: uno_de([["El sistema económico impuesto por la metrópoli que prohibía el comercio con otras naciones era el...", "Monopolio comercial"], ["La política de comercio exclusivo de España con sus colonias se denominaba...", "Monopolio comercial"]])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El sistema de {modelo[0]} fue el eje de la economía virreinal, limitando el crecimiento de puertos como Buenos Aires hasta la creación del Virreinato del Río de la Plata en 1776."
-
-explicacion: |
-  El monopolio comercial obligaba a que todo el comercio pasara por puertos autorizados (como Sevilla o Cádiz), lo que fomentó el contrabando en el Río de la Plata.
-```
-
-## Sección: corrimiento-al-rojo-expansion-universo (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "basico"
-  tags: ["astronomia", "luz", "doppler"]
-
-tipo: mc
-opciones_explicitas: ["El acortamiento de la longitud de onda de la luz", "El estiramiento de la longitud de onda de la luz", "El cambio de color de la luz hacia el azul", "La pérdida de intensidad de la luz"]
-respuesta: "El estiramiento de la longitud de onda de la luz"
-
-enunciado: "En astronomía, el corrimiento al rojo (redshift) se define como ___ de la luz de un objeto que se aleja de un observador."
-
-explicacion: |
-  El corrimiento al rojo ocurre cuando la longitud de onda de la radiación electromagnética emitida por un objeto se desplaza hacia valores más largos (hacia el rojo del espectro) debido a que la fuente se aleja.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "basico"
-  tags: ["analogia", "doppler"]
-
-tipo: completar
-respuestas_validas:
-  - "Efecto Doppler"
-  - "Efecto Doppler"
-
-enunciado: "El fenómeno del corrimiento al rojo es para la luz lo que el ___ es para el sonido."
-
-explicacion: |
-  Así como una ambulancia que se aleja produce un sonido más grave (menor frecuencia), la luz de una galaxia que se aleja presenta un corrimiento al rojo (menor frecuencia/mayor longitud de onda).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "intermedio"
-  tags: ["velocidad", "observacion"]
-
-variables:
-  escenario: uno_de([[10, "mayor"], [50, "mayor"], [100, "mayor"]])
-
-tipo: mc
-opciones_explicitas: ["menor", "mayor", "igual"]
-
-enunciado: "Si observamos que el corrimiento al rojo de una galaxia es de {escenario[0]} unidades, esto indica que su velocidad de alejamiento es ___ que la de una galaxia con corrimiento nulo."
-
-respuesta: escenario[1]
-
-explicacion: |
-  A mayor corrimiento al rojo, mayor es la velocidad a la que el objeto se está alejando de nosotros (según la ley de Hubble-Lemaître).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "intermedio"
-  tags: ["espectro", "longitud_de_onda"]
-
-tipo: ordenar
-opciones_explicitas: ["Violeta", "Verde", "Amarillo", "Rojo", "Infrarrojo"]
-
-enunciado: "Ordena las longitudes de onda de la luz en orden CRECIENTE (de menor a mayor longitud de onda) para entender cómo se desplaza el espectro hacia el rojo."
-
-respuesta_orden: ["Violeta", "Verde", "Amarillo", "Rojo", "Infrarrojo"]
-
-explicacion: |
-  El corrimiento al rojo consiste en desplazarse desde las longitudes de onda cortas (violeta/azul) hacia las longitudes de onda largas (rojo/infrarrojo).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "avanzado"
-  tags: ["calculo", "fisica"]
-
-variables:
-  datos: uno_de([[500, 510], [600, 610], [700, 710]])
-
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Una estrella emite luz en una longitud de onda de {datos[0]} nm. Debido al corrimiento al rojo, la longitud de onda observada es de ___ nm."
-
-respuesta: datos[1]
-
-explicacion: |
-  El corrimiento al rojo aumenta la longitud de onda observada respecto a la emitida. En este caso, el valor observado es el segundo elemento de nuestra tabla de datos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "basico"
-  tags: ["astronomia", "redshift", "expansion"]
-
-respuesta: "rojo"
-tipo: mc
-opciones_explicitas: ["azul", "rojo", "verde", "infrarrojo"]
-
-enunciado: "Cuando una fuente de luz se aleja de un observador, las longitudes de onda de la luz que recibe se estiran hacia el extremo del espectro visible de color ___."
-
-explicacion: |
-  El desplazamiento hacia longitudes de onda más largas (menor frecuencia) se conoce como corrimiento al rojo (redshift).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "intermedio"
-  tags: ["evidencia", "galaxias", "observacion"]
-
-respuesta: "se alejan"
-tipo: mc
-opciones_explicitas: ["se acercan", "se alejan", "están estables", "colapsan"]
-
-enunciado: "La observación de que las galaxias lejanas muestran un corrimiento al rojo indica que estas ___ de nosotros."
-
-explicacion: |
-  El hecho de que la mayoría de las galaxias distantes presenten corrimiento al rojo es la evidencia fundamental de que el universo se está expandiendo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "basico"
-  tags: ["definicion", "espectro"]
-
-respuesta: "alejamiento"
-tipo: completar
-respuestas_validas:
-  - "alejamiento"
-
-enunciado: "En el contexto de la cosmología, un corrimiento al rojo (redshift) es una medida que indica el ___ de una galaxia respecto al observador."
-
-explicacion: |
-  El corrimiento al rojo es el cambio hacia longitudes de onda más largas debido al movimiento de alejamiento.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "avanzado"
-  tags: ["ley_de_hubble", "expansion"]
-
-variables:
-  distancia_m: uno_de([10, 20, 30])
-  velocidad_m: [100, 200, 300]
-
-respuesta: velocidad_m[distancia_m/10 - 1]
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Si la constante de Hubble es de 10 km/s/Mpc y una galaxia está a una distancia de {distancia_m} Mpc, ¿cuál es su velocidad de recesión en km/s (v = H₀ × d)?"
-
-pasos:
-  - "Multiplicar la constante de Hubble (10 km/s/Mpc) por la distancia dada."
-
-explicacion: |
-  En un universo en expansión, la velocidad de alejamiento es proporcional a la distancia (Ley de Hubble).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "intermedio"
-  tags: ["orden", "logica"]
-
-tipo: ordenar
-respuesta_orden: ["observación de espectro", "detección de corrimiento al rojo", "conclusión de expansión"]
-opciones_explicitas: ["conclusión de expansión", "observación de espectro", "detección de corrimiento al rojo"]
-
-enunciado: "Ordena los pasos lógicos que llevaron a la conclusión de la expansión del universo:"
-
-explicacion: |
-  Primero se observa la luz (espectro), luego se detecta el desplazamiento (redshift) y finalmente se infiere la expansión.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "intermedio"
-  tags: ["cosmologia", "espacio_tiempo"]
-
-tipo: mc
-opciones_explicitas: ["Las galaxias se desplazan a través del espacio vacío", "El espacio mismo se está estirando entre las galaxias", "Las galaxias se mueven debido a una fuerza centrífuga", "El universo está colapsando hacia un punto central"]
-respuesta: "El espacio mismo se está estirando entre las galaxias"
-
-enunciado: "Según el modelo de expansión cósmica, el corrimiento al rojo observado en las galaxias lejanas indica que:"
-
-explicacion: |
-  Es un error común pensar que las galaxias viajan 'por' el espacio como proyectiles. En realidad, es la métrica del espacio-tiempo la que se expande, aumentando la distancia entre objetos que no están gravitacionalmente ligados.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "basico"
-  tags: ["analogia", "expansion"]
-
-tipo: completar
-respuestas_validas:
-  - "distancia creciente"
-
-enunciado: "Si imaginamos que las galaxias son puntos dibujados sobre la superficie de un globo que se infla, al aumentar el volumen del globo, la distancia constante entre los puntos se vuelve una ___."
-
-explicacion: |
-  La analogía del globo ilustra que no es el objeto el que se mueve por la superficie, sino que la superficie misma crece, separando los puntos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "avanzado"
-  tags: ["doppler", "redshift"]
-
-tipo: mc
-opciones_explicitas: ["Efecto Doppler", "Efecto Doppler Cosmológico", "Efecto Doppler Gravitacional", "Efecto Doppler de Lorentz"]
-respuesta: "Efecto Doppler Cosmológico"
-
-enunciado: "Aunque se parece al efecto Doppler acústico, el corrimiento al rojo debido a la expansión del universo se denomina:"
-
-explicacion: |
-  El efecto Doppler estándar ocurre por movimiento a través del medio, mientras que el cosmológico se debe a la expansión de la métrica del espacio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "intermedio"
-  tags: ["metrica", "espacio_tiempo"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si la expansión del universo es constante, la velocidad de recesión de una galaxia es proporcional a su distancia actual. ¿Cómo se denomina técnicamente la función a(t) que describe cómo cambia el tamaño del universo con el tiempo en la métrica de Friedmann-Lemaître-Robertson-Walker?"
-
-respuestas_validas:
-  - "factor de escala"
-
-respuesta: "factor de escala"
-
-explicacion: |
-  El factor de escala 'a(t)' es una función que describe la evolución del tamaño del universo con el tiempo en la métrica de Friedmann-Lemaître-Robertson-Walker.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "intermedio"
-  tags: ["evidencia", "historia_ciencia"]
-
-tipo: ordenar
-opciones_explicitas: ["Observación de espectros con corrimiento al rojo", "Formulación de la Ley de Hubble-Lemaître", "Descubrimiento de la expansión del universo"]
-
-enunciado: "Ordena cronológicamente los hitos que permitieron comprender que el universo se está expandiendo:"
-
-explicacion: |
-  Primero se observó el desplazamiento en las líneas espectrales (Slipher), luego se formuló la relación matemática (Hubble) y finalmente se consolidó el modelo de un universo en expansión.
-respuesta_orden: ["Observación de espectros con corrimiento al rojo", "Formulación de la Ley de Hubble-Lemaître", "Descubrimiento de la expansión del universo"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "basico"
-  tags: ["cosmologia", "big_bang", "evidencia"]
-
-tipo: mc
-opciones_explicitas: ["La expansión del espacio", "La rotación de las galaxias", "La formación de agujeros negros", "La existencia de la gravedad"]
-respuesta: "La expansión del espacio"
-
-enunciado: "El corrimiento al rojo cosmológico es una de las principales evidencias observacionales a favor de la teoría del Big Bang."
-
-explicacion: |
-  El corrimiento al rojo indica que las galaxias se alejan de nosotros, lo que implica que el universo se está expandiendo, una pieza clave para la teoría del Big Bang.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "intermedio"
-  tags: ["espectro", "luz", "redshift"]
-
-tipo: mc
-opciones_explicitas: ["se desplaza hacia el rojo", "se desplaza hacia el azul", "se mantiene constante", "cambia de intensidad"]
-respuesta: "se desplaza hacia el rojo"
-
-enunciado: "Cuando la luz de una galaxia se estira debido a la expansión del universo, su espectro ___."
-
-explicacion: |
-  Al expandirse el espacio, la longitud de onda de la luz se estira hacia la parte roja del espectro electromagnético.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "avanzado"
-  tags: ["hubble", "calculo", "expansion"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  datos: [[100, 700], [250, 1500]]
-  h0: redondear(datos[caso_idx][1] / datos[caso_idx][0], 2)
-
-tipo: completar
-tolerancia_abs: 0.1
-respuesta: h0
-
-enunciado: "Si una galaxia se encuentra a una distancia de {datos[caso_idx][0]} Mpc y su velocidad de recesión es de {datos[caso_idx][1]} km/s, ¿cuál es el valor aproximado de la constante de Hubble (H₀) en km/s/Mpc?"
-
-pasos:
-  - "Identificar la velocidad de recesión (v)"
-  - "Identificar la distancia (d)"
-  - "Aplicar la fórmula H₀ = v / d"
-
-explicacion: |
-  Usando la ley de Hubble: H₀ = v / d. Para el caso seleccionado: {datos[caso_idx][1]} / {datos[caso_idx][0]} = {h0} km/s/Mpc.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "intermedio"
-  tags: ["conceptos", "espacio", "tiempo"]
-
-tipo: ordenar
-opciones_explicitas: ["Gran explosión inicial", "Expansión del espacio-tiempo", "Corrimiento al rojo observado", "Universo actual"]
-
-enunciado: "Ordena cronológicamente los eventos relacionados con la expansión y la observación del universo:"
-
-explicacion: |
-  El Big Bang da origen a todo, seguido por la expansión, lo que genera el corrimiento al rojo que observamos hoy en las galaxias lejanas.
-respuesta_orden: ["Gran explosión inicial", "Expansión del espacio-tiempo", "Corrimiento al rojo observado", "Universo actual"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "intermedio"
-  tags: ["causa", "espacio", "redshift"]
-
-tipo: completar
-respuestas_validas:
-  - "espacio"
-  - "tejido"
-  - "espacio-tiempo"
-
-enunciado: "A diferencia del efecto Doppler clásico, el corrimiento al rojo cosmológico es causado por el estiramiento del propio ___ entre las galaxias."
-
-explicacion: |
-  En cosmología, no es solo que las galaxias se muevan "a través" del espacio, sino que es el espacio mismo el que se expande.
-```
-
-```
-metadata:
-  materia: "astronomia"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "basico"
-  tags: ["astronomia", "cosmologia"]
-
-variables:
-  datos: [["el espectro de la galaxia se desplaza hacia longitudes de onda más largas", "alejándose"], ["el espectro de la galaxia se desplaza hacia longitudes de onda más cortas", "acercándose"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["alejándose", "acercándose"]
-
-enunciado: "Si observamos que {datos[idx][0]}, esto indica que el objeto se está ___."
-
-explicacion: |
-  El corrimiento al rojo (redshift) ocurre cuando la longitud de onda de la luz se estira debido al movimiento de alejamiento, mientras que el corrimiento al azul (blueshift) ocurre cuando la longitud de onda se comprime debido al acercamiento.
-```
-
-```
-metadata:
-  materia: "astronomia"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "basico"
-  tags: ["espectroscopia", "astronomia"]
-
-variables:
-  datos: [["redshift", "alejándose"], ["blueshift", "acercándose"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "alejándose"
-  - "acercándose"
-
-enunciado: "Un astrónomo detecta un fenómeno de {datos[idx][0]} en una galaxia lejana. Esto significa que la galaxia está ___ del observador."
-
-explicacion: |
-  El término 'redshift' se asocia con el aumento de la longitud de onda (alejamiento) y 'blueshift' con la disminución (acercamiento).
-```
-
-```
-metadata:
-  materia: "astronomia"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "intermedio"
-  tags: ["galaxias", "cosmologia"]
-
-variables:
-  datos: [["Luz roja", "alejándose"], ["Luz azul", "acercándose"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["alejándose", "acercándose", "estacionaria"]
-
-enunciado: "Si la luz emitida por un objeto llega con un tono hacia el extremo rojo del espectro, el movimiento es de ___."
-
-explicacion: |
-  El corrimiento al rojo es la evidencia fundamental de la expansión del universo, indicando que las galaxias se alejan de nosotros.
-```
-
-```
-metadata:
-  materia: "astronomia"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: "alejándose"
-tipo: completar
-respuestas_validas:
-  - "alejándose"
-
-enunciado: "Cuando la longitud de onda de la luz de una estrella aumenta debido a su movimiento relativo, decimos que tiene un corrimiento al rojo, lo que significa que la estrella se está ___."
-
-explicacion: |
-  El aumento en la longitud de onda ($\lambda$) es la definición física del corrimiento al rojo.
-```
-
-```
-metadata:
-  materia: "astronomia"
-  tema: "corrimiento_al_rojo_expansion_universo"
-  nivel: "intermedio"
-  tags: ["espectro", "movimiento"]
-
-variables:
-  datos: [["azul", "acercándose"], ["rojo", "alejándose"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["acercándose", "alejándose"]
-
-enunciado: "Si la luz de un objeto se desplaza hacia el color {datos[idx][0]}, el objeto se está ___."
-
-explicacion: |
-  El color azul tiene longitudes de onda más cortas, indicando acercamiento; el rojo, longitudes más largas, indicando alejamiento.
+  El experimento requiere primero la mezcla de gases, luego la aplicación de energía (descargas) y finalmente la recuperación de productos mediante condensación.
 ```
 

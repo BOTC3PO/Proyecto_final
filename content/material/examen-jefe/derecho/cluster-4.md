@@ -1,1355 +1,8 @@
 # Examen jefe — [PENDIENTE #897]
 
-> Logro #897. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **149 preguntas totales** en 6/6 secciones.
+> Logro #897. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **150 preguntas totales** en 6/6 secciones.
 
 ---
-
-## Sección: investigacion-prueba-y-fiscalia (25 preguntas)
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "basico"
-  tags: ["fiscalia", "rol_fiscal"]
-
-respuesta: "dirigir"
-tipo: completar
-respuestas_validas:
-  - "dirigir"
-  - "dirigir la investigación"
-
-enunciado: "En el proceso penal, el Fiscal es el encargado de ___ la investigación para determinar la existencia de un delito y la responsabilidad de los autores."
-
-explicacion: |
-  El Fiscal tiene la carga de la prueba y la función de dirigir la investigación penal para asegurar que se recolecten los elementos necesarios para el juicio.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "basico"
-  tags: ["evidencia", "prueba"]
-
-respuesta: falso
-tipo: vf
-enunciado: "La evidencia recolectada durante la investigación es, por definición, una prueba por sí misma, independientemente de su valoración judicial."
-
-explicacion: |
-  La evidencia es un elemento material o digital hallado; la 'prueba' es el elemento que ha sido incorporado legalmente al proceso y ha sido valorado por el juez.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "basico"
-  tags: ["evidencia", "elementos"]
-
-respuesta: "evidencia material"
-tipo: mc
-opciones_explicitas: ["testimonio", "evidencia material", "opinión del fiscal", "presunción"]
-
-enunciado: "Un objeto encontrado en la escena del crimen que puede ser analizado para establecer la veracidad de un hecho se denomina:"
-
-explicacion: |
-  La evidencia material es todo objeto físico o elemento tangible que puede ser sometido a pericia para aportar conocimiento al proceso.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "intermedio"
-  tags: ["cadena_de_custodia", "procedimiento"]
-
-respuesta_orden: ["hallazgo", "recolección", "preservación", "traslado"]
-tipo: ordenar
-
-opciones_explicitas: ["hallazgo", "recolección", "preservación", "traslado"]
-
-enunciado: "Ordene cronológicamente los pasos lógicos para asegurar la integridad de un elemento de convicción desde que se encuentra en la escena:"
-
-explicacion: |
-  Para mantener la cadena de custodia, se debe seguir un orden estricto: primero se identifica el hallazgo, luego se recolecta, se preserva su estado y finalmente se traslada bajo protocolos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "intermedio"
-  tags: ["carga_de_la_prueba", "fiscalia"]
-
-respuesta: "presunción de inocencia"
-tipo: mc
-opciones_explicitas: ["presunción de culpabilidad", "presunción de inocencia", "inversión de la carga", "verdad real"]
-
-enunciado: "El principio que obliga al Fiscal a presentar pruebas suficientes para desvirtuar la ___ es la base del sistema acusatorio."
-
-explicacion: |
-  La carga de la prueba recae en la fiscalía porque el imputado goza de la presunción de inocencia hasta que se demuestre lo contrario.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "intermedio"
-  tags: ["carga_de_la_prueba", "fiscalia", "proceso_penal"]
-
-variables:
-  escenario: uno_de([["El fiscal acusa a Juan de robo, pero no presenta testigos ni cámaras.", "El fiscal no cumplió con su carga de prueba."], ["El fiscal presenta un video donde se ve a Juan robando, pero la defensa no aporta nada.", "El fiscal cumplió con su carga de prueba."]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["El fiscal no cumplió con su carga de prueba.", "El fiscal cumplió con su carga de prueba."]
-
-enunciado: "En un proceso penal, la carga de la prueba recae sobre la parte acusadora. Analice el siguiente escenario: {escenario[0]}"
-
-explicacion: |
-  En el proceso penal, rige el principio de presunción de inocencia. Corresponde al Fiscal (parte acusadora) la carga de probar la culpabilidad del imputado mediante evidencia suficiente y lícita. Si no logra desvirtuar la presunción de inocencia, el imputado debe ser absuelto.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "basico"
-  tags: ["rol_fiscal", "investigacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Fiscal tiene la obligación de investigar tanto los elementos que incriminan al imputado como aquellos que puedan exculparlo."
-
-explicacion: |
-  El principio de objetividad obliga al Fiscal a investigar la verdad real, lo que implica recolectar evidencia tanto de cargo (que demuestre el delito) como de descargo (que proteja al inocente).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "intermedio"
-  tags: ["etapas", "evidencia", "cadena_de_custodia"]
-
-opciones_explicitas: ["Preservación de la escena", "Recolección de elementos", "Fijación de la evidencia", "Traslado a depósito"]
-
-respuesta_orden: ["Preservación de la escena", "Fijación de la evidencia", "Recolección de elementos", "Traslado a depósito"]
-tipo: ordenar
-
-enunciado: "Un perito llega a la escena de un crimen. Ordene cronológicamente los pasos técnicos para asegurar la integridad de la evidencia:"
-
-explicacion: |
-  Para garantizar la cadena de custodia, primero se debe asegurar y preservar la escena, luego fijar (fotografiar/esquematizar) la posición de los objetos, después recolectarlos y finalmente trasladarlos siguiendo protocolos de seguridad.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "avanzado"
-  tags: ["prueba_ilícita", "derechos_fundamentales"]
-
-respuesta: "ilegal"
-tipo: completar
-respuestas_validas:
-  - "ilegal"
-
-enunciado: "Si la evidencia fue obtenida mediante la violación de un derecho fundamental (como la inviolabilidad del domicilio sin orden), su calificación jurídica es: ___"
-
-explicacion: |
-  La prueba obtenida con violación de garantías constitucionales es considerada "prueba ilícita" y debe ser excluida del proceso, ya que no puede ser utilizada para fundar una condena.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "avanzado"
-  tags: ["estandar_prueba", "acusacion"]
-
-respuesta: "más allá de toda duda razonable"
-tipo: mc
-opciones_explicitas: ["probabilidad simple", "más allá de toda duda razonable", "certeza absoluta", "indicios suficientes"]
-
-enunciado: "Para que un Fiscal pueda solicitar una sentencia condenatoria en un juicio oral, debe haber acreditado la culpabilidad del imputado con un estándar de prueba de:"
-
-explicacion: |
-  En el sistema penal, el estándar de convicción que debe alcanzar la fiscalía es el de 'más allá de toda duda razonable'. Si existe una duda lógica y fundada, debe aplicarse el principio 'in dubio pro reo'.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "intermedio"
-  tags: ["proceso_penal", "fiscalia", "investigacion"]
-
-respuesta: "recaudar y presentar"
-tipo: completar
-respuestas_validas:
-  - "recaudar y presentar"
-
-enunciado: "En la etapa de investigación de un proceso penal, la función principal del Fiscal es ___ la evidencia necesaria para sustentar la acusación ante el juez."
-
-explicacion: |
-  El Fiscal es el director de la investigación y tiene la carga de la prueba; su rol no es juzgar, sino recolectar elementos de convicción para demostrar la existencia de un delito y la responsabilidad del imputado.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "basico"
-  tags: ["carga_de_la_prueba", "presuncion_de_inocencia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es responsabilidad del imputado demostrar que es inocente durante la etapa de investigación?"
-
-explicacion: |
-  Falso. Debido al principio de presunción de inocencia, la carga de la prueba recae exclusivamente sobre la parte acusadora (el Fiscal). El imputado no tiene la obligación de probar su inocencia.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "avanzado"
-  tags: ["elementos_de_conviccion", "etapa_previa"]
-
-respuesta: "elementos de convicción"
-tipo: mc
-opciones_explicitas: ["elementos de convicción", "pruebas plenas", "sentencias anticipadas"]
-
-enunciado: "En la etapa de investigación, los hallazgos recolectados por la fiscalía que aún no han sido sometidos al debate en juicio oral se denominan técnicamente:"
-
-explicacion: |
-  En la etapa de investigación se recolectan 'elementos de convicción'. Estos solo se transforman en 'pruebas' una vez que son producidos ante un tribunal en el juicio oral bajo los principios de contradicción e inmediación.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "intermedio"
-  tags: ["procedimiento", "secuencia_fiscal"]
-
-respuesta_orden: ["recolección", "preservación", "cadena_de_custodia", "presentación"]
-tipo: ordenar
-opciones_explicitas: ["recolección", "preservación", "cadena_de_custodia", "presentación"]
-
-enunciado: "Para que la evidencia sea válida en un juicio, el fiscal y los peritos deben seguir un orden lógico de manejo de la evidencia. Ordene los pasos para asegurar la integridad de la prueba:"
-
-explicacion: |
-  El orden correcto es: 1. Recolección del elemento, 2. Preservación para evitar contaminación, 3. Mantenimiento de la cadena de custodia (registro de quién lo tuvo) y 4. Presentación ante el tribunal.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "avanzado"
-  tags: ["principio_oportunidad", "discrecionalidad"]
-
-tipo: mc
-opciones_explicitas: ["siempre debe acusar", "puede prescindir de la acción penal", "debe esperar siempre al juicio"]
-
-respuesta: "puede prescindir de la acción penal"
-
-enunciado: "El principio de oportunidad permite que el Fiscal, ante ciertos supuestos de política criminal, ___"
-
-explicacion: |
-  El principio de oportunidad es una facultad de la fiscalía para no ejercer la acción penal en casos específicos (como delitos menores o cuando el daño es mínimo), optimizando los recursos del Estado.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "intermedio"
-  tags: ["fiscalia", "investigacion", "proceso_penal"]
-
-respuesta: "reunir elementos de convicción"
-tipo: completar
-respuestas_validas:
-  - "reunir elementos de convicción"
-
-enunciado: "A diferencia del juez, cuya función es decidir sobre la aplicación de la ley, el rol principal del Fiscal durante la etapa de investigación es ___."
-
-explicacion: |
-  En el sistema acusatorio, el Fiscal es el director de la investigación y tiene la carga de la prueba, debiendo recolectar elementos de convicción para sustentar una acusación.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "avanzado"
-  tags: ["prueba", "evidencia", "fiscalia"]
-
-opciones_explicitas: ["La prueba es un elemento que se produce en el juicio oral, mientras que el elemento de convicción es el que se recaba en la etapa de investigación.", "La prueba y el elemento de convicción son términos sinónimos en cualquier etapa del proceso.", "El elemento de convicción solo lo puede recolectar el juez.", "La prueba es exclusiva de la defensa y el elemento de convicción de la fiscalía."]
-
-respuesta: "La prueba es un elemento que se produce en el juicio oral, mientras que el elemento de convicción es el que se recaba en la etapa de investigación."
-tipo: mc
-
-enunciado: "¿Cuál es la distinción técnica fundamental entre un elemento de convicción y una prueba?"
-
-explicacion: |
-  Los elementos de convicción son indicios recolectados durante la investigación que sirven para sustentar la acusación, pero solo adquieren la categoría de 'prueba' cuando son producidos y controvertidos ante un juez en el juicio oral.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "basico"
-  tags: ["carga_de_la_prueba", "presuncion_de_inocencia"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Debido a la presunción de inocencia, el imputado tiene la obligación de demostrar que no cometió el delito durante la investigación."
-
-explicacion: |
-  Falso. La carga de la prueba recae exclusivamente en la parte acusadora (Fiscalía). El imputado no tiene que probar su inocencia; es el Estado quien debe destruir la presunción de inocencia mediante pruebas de cargo.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "intermedio"
-  tags: ["procedimiento", "fiscalia", "investigacion"]
-
-opciones_explicitas: ["Recolección de indicios", "Planteamiento de la acusación", "Presentación de la teoría del caso"]
-
-respuesta_orden: ["Recolección de indicios", "Planteamiento de la acusación", "Presentación de la teoría del caso"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente las acciones que un Fiscal realiza desde el inicio de la investigación hasta la etapa intermedia:"
-
-explicacion: |
-  Primero se recolectan los indicios (elementos de convicción), luego se estructura la acusación formal y finalmente se presenta la teoría del caso para sostener la pretensión punitiva.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "intermedio"
-  tags: ["fiscalia", "juez_de_control", "controversia"]
-
-respuesta: "El Fiscal es una parte procesal que busca la verdad histórica para acusar."
-tipo: mc
-opciones_explicitas: ["El Fiscal es una parte procesal que busca la verdad histórica para acusar.", "El Juez de Control es una parte procesal que busca la verdad histórica para acusar.", "El Fiscal es un tercero imparcial que controla la legalidad.", "El Juez de Control es una parte que busca la verdad para acusar."]
-
-enunciado: "Para distinguir las funciones en el proceso penal, si consideramos que el Juez de Control es el garante de la legalidad, entonces el Fiscal es ___."
-
-explicacion: |
-  El Fiscal es una parte (sujeto procesal) con una función de persecución penal, mientras que el Juez es un tercero ajeno al conflicto que asegura que la investigación no vulnere derechos fundamentales.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "intermedio"
-  tags: ["proceso_penal", "fiscalia"]
-
-variables:
-  datos: [["El fiscal debe dirigir la investigación para recabar pruebas que sustenten la acusación", "verdadero"], ["El fiscal es el encargado de la defensa técnica del imputado", "falso"], ["El fiscal debe buscar tanto la prueba de cargo como la de descargo", "verdadero"]]
-  idx: uno_de([0, 1, 2])
-
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "En un proceso penal, ¿es correcto afirmar que: {datos[idx][0]}?"
-
-explicacion: |
-  El fiscal tiene el deber de objetividad, lo que implica que debe investigar no solo lo que incrimina al imputado, sino también aquello que pueda exculparlo.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "basico"
-  tags: ["evidencia", "clasificacion"]
-
-variables:
-  datos: [["Un testigo presencial que relata lo visto", "testimonio"], ["Un perito que analiza una huella dactilar", "pericial"], ["Un video de una cámara de seguridad", "documental"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["testimonio", "pericial", "documental"]
-
-enunciado: "En el marco de la investigación, el elemento descrito como '{datos[idx][0]}' se clasifica legalmente como una prueba de tipo: ___"
-
-explicacion: |
-  La clasificación de la prueba depende de la naturaleza del medio empleado para obtener la convicción del juez.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "intermedio"
-  tags: ["procedimiento", "cadena_de_custodia"]
-
-respuesta_orden: ["Preservación", "Recolección", "Embalaje", "Traslado"]
-tipo: ordenar
-opciones_explicitas: ["Preservación", "Recolección", "Embalaje", "Traslado"]
-
-enunciado: "Ordene cronológicamente los pasos críticos para asegurar la integridad de la evidencia física en la escena del crimen:"
-
-explicacion: |
-  La cadena de custodia requiere un orden estricto para evitar la contaminación o alteración de la prueba desde el hallazgo hasta el laboratorio.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "avanzado"
-  tags: ["carga_de_la_prueba", "fiscalia"]
-
-variables:
-  datos: [["La fiscalía no logra presentar pruebas suficientes para la condena", "improcedente"], ["El imputado debe probar su inocencia mediante pruebas directas", "improcedente"], ["El fiscal debe demostrar la culpabilidad más allá de toda duda razonable", "procedente"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["improcedente", "procedente"]
-
-enunciado: "Analice la siguiente premisa: {datos[idx][0]}. ¿Es esta afirmación jurídicamente ___?"
-
-explicacion: |
-  En el proceso penal rige el principio de presunción de inocencia, por lo que la carga de la prueba recae sobre la fiscalía.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "investigacion_prueba_y_fiscalia"
-  nivel: "basico"
-  tags: ["evidencia", "validez"]
-
-variables:
-  datos: [["La falta de registro en la cadena de custodia ___ la validez de la prueba", "anula"], ["El peritaje es ___ para la investigación", "esencial"], ["El fiscal es ___ de la escena del crimen", "responsable"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "anula"
-  - "esencial"
-  - "responsable"
-
-enunciado: "Complete la afirmación según el caso: {datos[idx][0]}."
-
-explicacion: |
-  La integridad de la evidencia es fundamental para que la prueba sea admitida y tenga valor probatorio en el juicio.
-```
-
-## Sección: juicio-oral (25 preguntas)
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "basico"
-  tags: ["proceso_penal", "definicion"]
-
-tipo: mc
-opciones_explicitas: ["La etapa de investigación donde se recolectan elementos de convicción.", "La etapa de debate público donde se presentan pruebas y argumentos para obtener un veredicto.", "La etapa de revisión de la sentencia por un tribunal superior.", "La fase de detención del imputado por parte de la policía."]
-
-respuesta: "La etapa de debate público donde se presentan pruebas y argumentos para obtener un veredicto."
-
-enunciado: "El juicio oral se define fundamentalmente como:"
-
-explicacion: |
-  El juicio oral es la etapa culminante del proceso penal, caracterizada por la oralidad, la inmediación y la publicidad, donde se debate la culpabilidad o inocencia.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "basico"
-  tags: ["sujetos_procesales", "juez"]
-
-tipo: vf
-enunciado: "En un juicio oral, el tribunal tiene la función de dictar una sentencia basada en las pruebas presentadas durante el debate."
-
-respuesta: verdadero
-
-explicacion: |
-  Correcto. El tribunal (juez o tribunal de enjuiciamiento) debe valorar las pruebas bajo las reglas de la sana crítica para emitir un fallo.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "intermedio"
-  tags: ["etapas", "orden_procesal"]
-
-tipo: ordenar
-opciones_explicitas: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Sentencia"]
-
-enunciado: "Ordene cronológicamente las etapas principales de un debate en juicio oral:"
-
-respuesta_orden: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Sentencia"]
-
-explicacion: |
-  El juicio comienza con la presentación de las teorías del caso (apertura), sigue con el examen de testigos y peritos (prueba), los alegatos finales (clausura) y concluye con el fallo (sentencia).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "basico"
-  tags: ["argumentacion", "terminos"]
-
-tipo: completar
-respuestas_validas:
-  - "clausura"
-  - "apertura"
-
-enunciado: "El alegato de ___ es la exposición final que realiza cada parte para convencer al tribunal de su teoría del caso tras la producción de la prueba."
-
-respuesta: "clausura"
-
-explicacion: |
-  El alegato de clausura es la oportunidad para la parte para realizar un análisis crítico de la prueba producida y reforzar su pretensión.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "intermedio"
-  tags: ["principios", "publicidad"]
-
-enunciado: "Si el juicio se realiza en una sala abierta al público y sin restricciones de acceso, se está cumpliendo con el principio de ___."
-
-pasos:
-  - "Identificar el principio relacionado con la visibilidad del acto."
-
-tipo: mc
-opciones_explicitas: ["Publicidad", "Inmediación", "Contradicción", "Oralidad"]
-
-respuesta: "Publicidad"
-
-explicacion: |
-  El principio de publicidad garantiza que los actos procesales sean conocidos por la sociedad, asegurando transparencia en la administración de justicia.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "basico"
-  tags: ["procedimiento", "pruebas"]
-
-respuesta: "testigo"
-tipo: completar
-respuestas_validas:
-  - "testigo"
-
-enunciado: "Durante la etapa de debate en el juicio oral, la persona que comparece para declarar sobre hechos que presenció se denomina ___."
-
-explicacion: |
-  En el juicio oral, el testigo es el sujeto que aporta información directa sobre los hechos objeto del proceso.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "intermedio"
-  tags: ["principios", "legalidad"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es posible que el tribunal dicte sentencia basándose en pruebas que no fueron producidas y debatidas durante la etapa de juicio oral?"
-
-explicacion: |
-  Falso. El principio de inmediación y contradicción exige que toda prueba utilizada para la sentencia haya sido debidamente producida en el juicio oral.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "intermedio"
-  tags: ["etapas", "procedimiento"]
-
-respuesta_orden: ["Alegato de apertura", "Producción de prueba", "Alegatos de clausura"]
-tipo: ordenar
-opciones_explicitas: ["Alegato de apertura", "Producción de prueba", "Alegatos de clausura"]
-
-enunciado: "Ordene cronológicamente las etapas fundamentales del debate en un juicio oral:"
-
-explicacion: |
-  El juicio comienza con la presentación de las teorías del caso (apertura), sigue con la incorporación de elementos de convicción (prueba) y finaliza con las conclusiones (clausura).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "basico"
-  tags: ["sentencia", "veredicto"]
-
-respuesta: "condena"
-tipo: mc
-opciones_explicitas: ["absolución", "condena"]
-
-enunciado: "Si tras la valoración de la prueba el tribunal determina que la culpabilidad ha sido acreditada más allá de toda duda razonable, el resultado es una ___."
-
-explicacion: |
-  La condena es el acto mediante el cual se impone una pena tras haber probado la responsabilidad penal.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "avanzado"
-  tags: ["derechos", "defensa"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el juicio oral, el derecho a la contradicción implica que las partes pueden objetar la prueba presentada por la contraparte. ¿Es este un derecho fundamental para asegurar un juicio justo?"
-
-explicacion: |
-  La contradicción es la facultad de controlar la prueba de la contraparte, permitiendo el control de la veracidad y legalidad de los elementos presentados.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "intermedio"
-  tags: ["procedimiento", "recursos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En un juicio oral, una vez que el tribunal dicta el veredicto o sentencia, esto significa que la decisión es definitiva y no puede ser revisada por una instancia superior mediante un recurso de apelación."
-
-explicacion: |
-  Falso. El principio de la doble instancia permite que las partes impugnen la sentencia ante un tribunal superior para que esta sea revisada, siempre que se cumplan los requisitos legales.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "basico"
-  tags: ["carga_de_la_prueba", "principios"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [[0, "El imputado debe demostrar su inocencia"], [1, "La fiscalía debe demostrar la culpabilidad"]]
-
-respuesta: escenarios[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["El imputado debe demostrar su inocencia", "La fiscalía debe demostrar la culpabilidad", "Ambas partes deben probar todo lo que aleguen", "El juez decide qué debe probarse"]
-
-enunciado: "En el marco del juicio oral y bajo el principio de presunción de inocencia, ¿cuál es la carga de la prueba respecto a la responsabilidad penal?"
-
-explicacion: |
-  La carga de la prueba recae sobre la parte acusadora (fiscalía/querella). El imputado no tiene la obligación de probar su inocencia; es el Estado quien debe destruir la presunción de inocencia mediante pruebas de cargo.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "basico"
-  tags: ["etapas", "procedimiento"]
-
-respuesta_orden: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
-tipo: ordenar
-opciones_explicitas: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
-
-enunciado: "Para que el juicio oral sea válido, se debe respetar un orden lógico y cronológico en sus etapas. Ordene las siguientes fases según el desarrollo estándar de un debate oral:"
-
-explicacion: |
-  El juicio comienza con la presentación de las teorías del caso (apertura), sigue con la recepción de evidencia (testigos, peritos, documentos), luego las conclusiones finales (clausura) y termina con la decisión del tribunal.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "intermedio"
-  tags: ["juez", "imparcialidad"]
-
-respuesta: "imparcial"
-tipo: completar
-respuestas_validas:
-  - "imparcial"
-
-enunciado: "Durante la etapa de producción de prueba en el juicio oral, el juez debe mantener un rol ___ y no debe proponer pruebas de oficio que no hayan sido solicitadas por las partes, para no vulnerar la imparcialidad."
-
-explicacion: |
-  El sistema acusatorio exige que el juez sea un tercero imparcial. Si el juez busca o propone pruebas, se rompe la igualdad de armas entre la acusación y la defensa.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "avanzado"
-  tags: ["pruebas", "limites"]
-
-respuesta: "excepcional"
-
-enunciado: "En un juicio oral, la regla general es la prohibición de introducir elementos de convicción que no hayan sido debidamente anunciados y admitidos en la etapa intermedia. Sin embargo, la incorporación de prueba nueva es ___ si se demuestra que es un elemento sobreviniente que no pudo ser conocido antes."
-
-tipo: mc
-opciones_explicitas: ["prohibido", "excepcional", "obligatorio", "imposible"]
-
-explicacion: |
-  Aunque el juicio oral se rige por la preclusión (lo que no se anunció antes, no entra), existe la excepción de la "prueba sobreviniente" para garantizar la búsqueda de la verdad real.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "basico"
-  tags: ["proceso_penal", "etapas"]
-
-respuesta: "audiencia"
-tipo: "completar"
-respuestas_validas:
-  - "audiencia"
-
-enunciado: "A diferencia de la etapa de instrucción, donde se recolectan elementos de convicción, el juicio oral se desarrolla mediante una ___ pública y contradictoria."
-
-explicacion: |
-  La etapa de instrucción tiene como fin la investigación y recolección de pruebas, mientras que el juicio oral es la etapa de debate y decisión.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "intermedio"
-  tags: ["principios_procesales", "inmediación"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "El principio de inmediación exige que el tribunal debe tener contacto directo con la producción de la prueba durante el juicio oral, sin intermediarios."
-
-explicacion: |
-  La inmediación es un pilar del juicio oral: el juez debe presenciar directamente la declaración de testigos y peritos para valorar la prueba.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "basico"
-  tags: ["caracteristicas", "debate"]
-
-respuesta: "Oralidad"
-tipo: "mc"
-opciones_explicitas: ["Oralidad", "Escrituriedad", "Secreto", "Inmediatez"]
-
-enunciado: "Si bien ambos procesos buscan la verdad, lo que distingue fundamentalmente al juicio oral de los sistemas escritos antiguos es la ___."
-
-explicacion: |
-  La oralidad permite la contradicción inmediata y la fluidez del debate, a diferencia de los sistemas donde solo se leen actas escritas.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "intermedio"
-  tags: ["procedimiento", "orden"]
-
-respuesta_orden: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura"]
-tipo: "ordenar"
-opciones_explicitas: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura"]
-
-enunciado: "Ordene cronológicamente las fases principales del debate en un juicio oral:"
-
-explicacion: |
-  El juicio comienza con la presentación de las teorías del caso (apertura), sigue con el examen de pruebas y finaliza con los argumentos finales (clausura).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "avanzado"
-  tags: ["pruebas", "argumentacion"]
-
-variables:
-  escenario: uno_de([0, 1])
-  datos: [["presentación de pruebas", "determinar culpabilidad"], ["argumentos", "convencer al juez"]]
-
-respuesta: datos[escenario][1]
-tipo: "mc"
-opciones_explicitas: ["presentación de pruebas", "argumentos", "determinar culpabilidad", "convencer al juez"]
-
-enunciado: "En el juicio oral, ¿cuál es el objetivo principal de la etapa de {datos[escenario][0]}?"
-
-explicacion: |
-  El objetivo de la producción probatoria es aportar elementos que permitan al tribunal alcanzar la certeza necesaria para dictar un veredicto.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "intermedio"
-  tags: ["proceso_penal", "fiscalia"]
-
-enunciado: "En el escenario donde el fiscal presenta un testigo que afirma haber visto al imputado cometiendo el robo, ¿qué parte está ejerciendo la carga de la prueba?"
-
-respuesta: "acusación"
-tipo: mc
-opciones_explicitas: ["acusación", "defensa", "tribunal", "testigo"]
-
-explicacion: |
-  En el proceso penal, la carga de la prueba recae sobre la parte acusadora (fiscalía) para desvirtuar la presunción de inocencia.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "basico"
-  tags: ["veredicto", "sentencia"]
-
-enunciado: "El veredicto es la decisión final que dicta el tribunal tras haber valorado las pruebas presentadas durante el juicio oral."
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  Correcto. El veredicto es el acto mediante el cual el juzgador comunica su decisión sobre la culpabilidad o inocencia del acusado.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "intermedio"
-  tags: ["etapas", "debate"]
-
-enunciado: "Ordene cronológicamente las etapas fundamentales de un juicio oral:"
-
-respuesta_orden: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
-tipo: ordenar
-opciones_explicitas: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
-
-explicacion: |
-  El juicio inicia con la presentación de las teorías del caso (apertura), sigue con la recepción de evidencia, concluye con los argumentos finales (clausura) y termina con la decisión del tribunal.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "avanzado"
-  tags: ["principios", "inmediación"]
-
-variables:
-  datos: [["El juez no estuvo presente durante el interrogatorio de un testigo clave.", "invalida"], ["El juez presenció toda la evacuación de la prueba de ADN.", "valida"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Si en un juicio {datos[idx][0]}, la validez del acto procesal se considera ___."
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - datos[idx][1]
-
-explicacion: |
-  El principio de inmediación exige que el tribunal esté en contacto directo con la producción de la prueba para poder valorarla correctamente.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "juicio_oral"
-  nivel: "intermedio"
-  tags: ["principios", "in dubio pro reo"]
-
-enunciado: "Si la prueba presentada por la fiscalía es insuficiente y surge una duda razonable, el juez debe dictar una sentencia de ___."
-
-respuesta: "absolución"
-tipo: mc
-opciones_explicitas: ["condena", "absolución", "anulación", "suspensión"]
-
-explicacion: |
-  Bajo el principio 'in dubio pro reo', ante la duda razonable o prueba insuficiente, la decisión debe favorecer al imputado mediante la absolución.
-```
-
-## Sección: norma-jerarquia-y-vigencia (24 preguntas)
-
-```
-metadata:
-  materia: "derecho"
-  tema: "norma_jerarquia_y_vigencia"
-  nivel: "basico"
-  tags: ["definicion", "norma"]
-
-tipo: mc
-opciones_explicitas: ["Un conjunto de reglas de conducta dictadas por una autoridad legítima para regular la convivencia social.", "Un conjunto de opiniones personales sobre lo que es justo o injusto.", "Una sugerencia de comportamiento que no conlleva sanción legal.", "Un conjunto de costumbres que se repiten en el tiempo sin necesidad de aprobación estatal."]
-
-enunciado: "Se define como norma jurídica a ___."
-
-respuesta: "Un conjunto de reglas de conducta dictadas por una autoridad legítima para regular la convivencia social."
-
-explicacion: |
-  La norma jurídica es un mandato dictado por un órgano competente que tiene como fin regular la conducta humana en sociedad, cuya observancia puede ser exigida mediante la aplicación de una sanción.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "norma_jerarquia_y_vigencia"
-  nivel: "basico"
-  tags: ["jerarquia", "kelsen"]
-
-tipo: ordenar
-opciones_explicitas: ["Constitución Nacional", "Leyes Nacionales", "Decretos del Poder Ejecutivo", "Reglamentos"]
-
-enunciado: "Ordene las siguientes normas de mayor a menor jerarquía según la doctrina de la Pirámide de Kelsen:"
-
-respuesta_orden: ["Constitución Nacional", "Leyes Nacionales", "Decretos del Poder Ejecutivo", "Reglamentos"]
-
-explicacion: |
-  En un sistema jurídico jerarquizado, la Constitución es la norma suprema. Las leyes nacionales se encuentran por debajo de la Constitución, seguidas por los decretos y, finalmente, los reglamentos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "norma_jerarquia_y_vigencia"
-  nivel: "intermedio"
-  tags: ["vigencia", "publicacion"]
-
-tipo: completar
-respuestas_validas:
-  - "publicación en el Boletín Oficial"
-
-enunciado: "Para que una norma sea obligatoria y tenga vigencia, es requisito indispensable su ___."
-
-respuesta: "publicación en el Boletín Oficial"
-
-explicacion: |
-  La vigencia de una norma comienza, por regla general, desde su publicación en el órgano oficial correspondiente (como el Boletín Oficial), permitiendo que sea conocida por todos los ciudadanos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "norma_jerarquia_y_vigencia"
-  nivel: "intermedio"
-  tags: ["validez", "jerarquia"]
-
-tipo: vf
-
-enunciado: "¿Puede un decreto del Poder Ejecutivo contradecir lo establecido en la Constitución Nacional sin perder su validez jurídica?"
-
-respuesta: falso
-
-explicacion: |
-  No. Debido al principio de jerarquía normativa, ninguna norma de inferior rango (como un decreto) puede contradecir o vulnerar lo establecido por una norma de rango superior (la Constitución).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "norma_jerarquia_y_vigencia"
-  nivel: "basico"
-  tags: ["sancion", "caracteristica"]
-
-tipo: mc
-opciones_explicitas: ["Coercibilidad", "Moralidad", "Costumbre", "Opinión"]
-
-enunciado: "La característica que permite al Estado imponer una consecuencia jurídica ante el incumplimiento de una norma se denomina ___."
-
-respuesta: "Coercibilidad"
-
-explicacion: |
-  La coercibilidad es la posibilidad legítima de aplicar la fuerza o la sanción por parte del Estado para asegurar el cumplimiento de la norma jurídica.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "jerarquia_normativa"
-  nivel: "basico"
-  tags: ["constitucion", "piramide_kelsen"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  escenarios: [["Una ley sancionada por el Congreso contradice un artículo de la Constitución Nacional.", "inconstitucional"], ["Un decreto presidencial contradice una ley vigente.", "ilegal"]]
-
-respuesta: escenarios[caso_idx][1]
-tipo: mc
-opciones_explicitas: ["constitucional", "inconstitucional", "ilegal", "nulo"]
-
-enunciado: "En el caso donde {escenarios[caso_idx][0]}, la norma de menor jerarquía es considerada ___."
-
-explicacion: |
-  Según el principio de supremacía constitucional, la Constitución es la norma de mayor jerarquía. Cualquier norma que la contradiga es inválida por ser inconstitucional.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "vigencia_normativa"
-  nivel: "basico"
-  tags: ["vigencia", "promulgacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Una norma jurídica adquiere vigencia obligatoria desde el momento exacto de su sanción por el legislativo, incluso antes de su publicación en el Boletín Oficial?"
-
-explicacion: |
-  Falso. Para que una norma sea obligatoria, debe cumplir con el proceso de promulgación y su posterior publicación en el Boletín Oficial para que sea conocida por todos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["orden", "jerarquia"]
-
-respuesta_orden: ["Constitución Nacional", "Tratados Internacionales", "Leyes", "Decretos", "Reglamentos"]
-tipo: ordenar
-
-enunciado: "Ordene de mayor a menor jerarquía el siguiente bloque normativo:"
-
-pasos:
-  - "Identifique la norma de máxima autoridad (Constitución)."
-  - "Ubique los tratados con jerarquía constitucional."
-  - "Coloque las leyes nacionales por debajo de los tratados."
-  - "Ubique los decretos del Poder Ejecutivo."
-  - "Finalice con las normas de menor rango (reglamentos)."
-
-opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales", "Leyes", "Decretos", "Reglamentos"]
-
-explicacion: |
-  La jerarquía normativa sigue la estructura de la Pirámide de Kelsen, donde las normas superiores validan la validez de las inferiores.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["decreto", "poder_ejecutivo"]
-
-respuesta: "decreto"
-tipo: completar
-respuestas_validas:
-  - "decreto"
-
-enunciado: "Si el Poder Ejecutivo dicta una norma para reglamentar una ley, estamos ante un ___."
-
-explicacion: |
-  Los decretos reglamentarios tienen como función facilitar la aplicación de una ley, pero siempre deben estar subordinados a ella y no pueden modificar su espíritu.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "vigencia_normativa"
-  nivel: "avanzado"
-  tags: ["irretroactividad", "vigencia"]
-
-tipo: mc
-opciones_explicitas: ["retroactiva", "prospectiva", "inaplicable", "nula"]
-
-respuesta: "retroactiva"
-
-enunciado: "Si una ley establece sanciones para hechos ocurridos antes de su entrada en vigencia, se trata de una norma ___."
-
-explicacion: |
-  Por regla general, las leyes son prospectivas (rigen hacia el futuro). La aplicación retroactiva es excepcional y suele estar limitada por la Constitución (especialmente en materia penal).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "jerarquia_normativa"
-  nivel: "basico"
-  tags: ["constitucion", "piramide_kelsen"]
-
-respuesta: "Constitución Nacional"
-tipo: "mc"
-opciones_explicitas: ["Constitución Nacional", "Ley Nacional", "Decreto del Poder Ejecutivo", "Resolución Ministerial"]
-
-enunciado: "En el ordenamiento jurídico, la norma de mayor jerarquía, que sirve de base para todas las demás y no puede ser contradicha por ninguna ley o decreto, es la _______."
-
-explicacion: |
-  Según la Pirámide de Kelsen, la Constitución Nacional es la norma suprema. Ninguna norma de inferior jerarquía (como una ley o un decreto) puede vulnerar lo establecido en ella.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "vigencia_normativa"
-  nivel: "intermedio"
-  tags: ["vigencia", "publicacion"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "Una norma jurídica entra en vigencia automáticamente desde el momento en que es redactada y firmada por la autoridad competente, sin necesidad de ser publicada."
-
-explicacion: |
-  Para que una norma sea obligatoria y tenga vigencia, debe ser publicada en el Boletín Oficial (o medio equivalente) para que sea del conocimiento público. La mera firma no garantiza la vigencia.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["ley", "decreto", "jerarquia"]
-
-tipo: "mc"
-opciones_explicitas: ["Ley", "Decreto", "Resolución"]
-
-respuesta: "Ley"
-
-enunciado: "Si un Decreto contradice lo establecido en una Ley, la norma de mayor jerarquía prevalece y el acto administrativo es inválido por jerarquía. ¿Cuál de las dos normas es la de mayor jerarquía?"
-
-explicacion: |
-  En la jerarquía normativa, la Ley (dictada por el Congreso) tiene un rango superior al Decreto (dictado por el Ejecutivo). Por lo tanto, un decreto no puede modificar ni contradecir una ley.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["orden", "jerarquia"]
-
-opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales con jerarquía constitucional", "Leyes", "Decretos", "Reglamentos"]
-respuesta_orden: ["Constitución Nacional", "Tratados Internacionales con jerarquía constitucional", "Leyes", "Decretos", "Reglamentos"]
-tipo: "ordenar"
-
-enunciado: "Ordene las siguientes normas desde la de mayor jerarquía a la de menor jerarquía, considerando el bloque de constitucionalidad y la normativa infralegal."
-
-explicacion: |
-  El orden correcto sigue la supremacía constitucional, seguida por las leyes nacionales, los actos del poder ejecutivo (decretos) y finalmente las normas de menor rango como reglamentos o resoluciones.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "jerarquia_normativa"
-  nivel: "basico"
-  tags: ["constitucion", "piramide_kelsen"]
-
-respuesta: "Constitución Nacional"
-tipo: completar
-respuestas_validas:
-  - "Constitución Nacional"
-  - "Constitución"
-
-enunciado: "En el sistema jurídico, la norma de mayor jerarquía que fundamenta la validez de todo el ordenamiento es la ___."
-
-explicacion: |
-  La Constitución Nacional se encuentra en la cúspide de la pirámide jurídica; ninguna norma inferior puede contrariar su contenido.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["ley", "decreto"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "En una comparación de jerarquía, una Ley sancionada por el Congreso tiene un rango superior a un Decreto emitido por el Poder Ejecutivo."
-
-explicacion: |
-  Correcto. Las leyes son dictadas por el Poder Legislativo y tienen una jerarquía superior a los decretos reglamentarios del Ejecutivo.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["orden_jerarquico", "normas"]
-
-opciones_explicitas: ["Constitución Nacional", "Leyes", "Decretos", "Reglamentos"]
-respuesta_orden: ["Constitución Nacional", "Leyes", "Decretos", "Reglamentos"]
-tipo: ordenar
-
-enunciado: "Ordene las siguientes normas de mayor a menor jerarquía jurídica:"
-
-pasos:
-  - "Identifique la norma suprema."
-  - "Ubique la norma dictada por el Congreso."
-  - "Ubique la norma de carácter administrativo del Ejecutivo."
-  - "Ubique la norma que desarrolla una ley previa."
-
-explicacion: |
-  El orden jerárquico descendente es: Constitución, Leyes, Decretos y Reglamentos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "vigencia_normativa"
-  nivel: "basico"
-  tags: ["vigencia", "publicacion"]
-
-tipo: mc
-opciones_explicitas: ["publicación en el Boletín Oficial", "sanción por el Congreso", "firma del Presidente", "debate parlamentario"]
-
-respuesta: "publicación en el Boletín Oficial"
-
-enunciado: "Para que una norma sea jurídicamente vigente y obligatoria para todos, es requisito indispensable su ___."
-
-explicacion: |
-  La sanción es un paso necesario, pero la vigencia (obligatoriedad) se perfecciona con la publicación oficial.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "jerarquia_normativa"
-  nivel: "avanzado"
-  tags: ["reglamento", "ley"]
-
-respuesta: falso
-tipo: vf
-enunciado: "A diferencia de la Ley, un Reglamento tiene la capacidad de crear derechos y obligaciones nuevos de manera autónoma, sin necesidad de una ley previa."
-
-explicacion: |
-  Falso. El reglamento es una norma de carácter secundario que tiene como función reglamentar (desarrollar) una ley existente, no crear derechos nuevos de forma autónoma.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["constitucion", "ley", "jerarquia"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["Una ley sancionada por el Congreso contradice un artículo de la Constitución Nacional.", "Constitución"], ["Un decreto presidencial contradice una Ley Nacional vigente.", "Ley Nacional"]]
-
-tipo: mc
-opciones_explicitas: ["Constitución", "Ley Nacional", "Decreto Presidencial", "Reglamento"]
-
-enunciado: "En el caso de un conflicto normativo donde {datos[escenario_idx][0]}, ¿qué norma prevalece según la jerarquía jurídica?"
-
-respuesta: datos[escenario_idx][1]
-
-explicacion: |
-  De acuerdo al principio de jerarquía normativa (Pirámide de Kelsen), la norma de mayor rango prevalece sobre las de menor rango. En este caso, la Constitución es la norma suprema.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "vigencia_normativa"
-  nivel: "basico"
-  tags: ["vigencia", "promulgacion"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "Una norma jurídica adquiere vigencia y es obligatoria para los ciudadanos una vez que ha sido debidamente promulgada y publicada en el Boletín Oficial."
-
-explicacion: |
-  La vigencia requiere que la norma sea conocida públicamente a través de la publicación oficial para que el principio de ignorancia de la ley no sea excusa.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["orden", "jerarquia"]
-
-tipo: ordenar
-opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales con jerarquía constitucional", "Leyes Nacionales", "Decretos Reglamentarios"]
-
-respuesta_orden: ["Constitución Nacional", "Tratados Internacionales con jerarquía constitucional", "Leyes Nacionales", "Decretos Reglamentarios"]
-
-enunciado: "Ordene de mayor a menor jerarquía el siguiente bloque normativo:"
-
-explicacion: |
-  La jerarquía establece que la Constitución y los Tratados con jerarquía constitucional están en la cima, seguidos por las leyes y, finalmente, los reglamentos o decretos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "jerarquia_normativa"
-  nivel: "basico"
-  tags: ["reglamento", "decreto"]
-
-tipo: completar
-respuestas_validas:
-  - "reglamentar"
-
-enunciado: "El objetivo principal de un decreto reglamentario es ___ la norma de jerarquía superior para facilitar su ejecución."
-
-respuesta: "reglamentar"
-
-explicacion: |
-  Los reglamentos y decretos no pueden modificar el espíritu de la ley, sino que su función es reglamentar o aplicar los detalles técnicos para su cumplimiento.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "vigencia_normativa"
-  nivel: "avanzado"
-  tags: ["validez", "vigencia", "derogacion"]
-
-variables:
-  situacion_idx: uno_de([0, 1])
-  situaciones: [["Una ley ha sido derogada por una nueva ley posterior.", "no tiene vigencia"], ["Una ley fue sancionada pero aún no se publicó en el Boletín Oficial.", "no tiene vigencia"]]
-
-tipo: mc
-opciones_explicitas: ["tiene vigencia", "no tiene vigencia", "es nula"]
-
-enunciado: "Si una norma se encuentra en la situación descrita: {situaciones[situacion_idx][0]}, ¿cuál es su estado respecto a la vigencia?"
-
-respuesta: situaciones[situacion_idx][1]
-
-explicacion: |
-  Para que una norma sea vigente debe estar publicada y no haber sido derogada por otra norma de igual o superior jerarquía.
-```
 
 ## Sección: politica-criminal-garantismo-mano-dura (25 preguntas)
 
@@ -1804,456 +457,471 @@ explicacion: |
   La política de mano dura suele enfocarse en la retribución y la disuasión mediante el endurecimiento del sistema carcelario.
 ```
 
-## Sección: ramas-del-derecho (25 preguntas)
+## Sección: argumentacion-juridica (25 preguntas)
 
 ```
 metadata:
   materia: "derecho"
-  tema: "ramas_del_derecho"
+  tema: "argumentacion_juridica"
   nivel: "basico"
-  tags: ["civil", "regulación"]
-
-respuesta: "personas y relaciones privadas"
-tipo: completar
-respuestas_validas:
-  - "personas y relaciones privadas"
-
-enunciado: "El Derecho Civil es la rama que regula las relaciones entre ___."
-
-explicacion: |
-  El Derecho Civil regula las relaciones de las personas (físicas o jurídicas) en su ámbito privado, como la familia, la propiedad y los contratos civiles.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "basico"
-  tags: ["penal", "delitos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿El objetivo principal del Derecho Penal es imponer sanciones o penas ante la comisión de delitos que afectan a la sociedad?"
-
-explicacion: |
-  Correcto. El Derecho Penal define las conductas consideradas delitos y establece las penas correspondientes para mantener el orden social.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "intermedio"
-  tags: ["comercial", "laboral", "administrativo"]
-
-respuesta: "comercial"
-tipo: mc
-opciones_explicitas: ["laboral", "comercial", "administrativo", "penal"]
-
-enunciado: "Si una disputa surge a raíz de un contrato de compraventa entre dos empresas, ¿qué rama del derecho regula este conflicto?"
-
-explicacion: |
-  Un contrato de compraventa entre empresas es un acto de comercio, por lo tanto la rama correspondiente es el Derecho Comercial.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "basico"
-  tags: ["administrativo", "estado"]
-
-respuesta: "Estado"
-tipo: completar
-respuestas_validas:
-  - "Estado"
-
-enunciado: "El Derecho Administrativo regula la organización y el funcionamiento del ___ y sus relaciones con los particulares."
-
-explicacion: |
-  El Derecho Administrativo es la rama que regula la actividad de la administración pública y el ejercicio de la función administrativa del Estado.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "intermedio"
-  tags: ["procedimiento", "orden"]
-
-respuesta_orden: ["delito", "investigación", "juicio", "sentencia"]
-tipo: ordenar
-opciones_explicitas: ["delito", "investigación", "juicio", "sentencia"]
-
-enunciado: "Ordene cronológicamente las etapas típicas de un proceso en el ámbito del Derecho Penal:"
-
-explicacion: |
-  El proceso penal comienza con la detección de un delito, seguido de la investigación, el juicio oral y finalmente la emisión de una sentencia.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "basico"
-  tags: ["civil", "contratos"]
-
-respuesta: "civil"
-tipo: mc
-opciones_explicitas: ["civil", "penal", "laboral", "comercial"]
-
-enunciado: "Juan firma un contrato de alquiler para vivir en un departamento. Si surge un conflicto sobre el pago de las expensas o la entrega de las llaves, la rama del derecho que regula esta relación es el derecho ___."
-
-explicacion: |
-  El derecho civil regula las relaciones privadas entre particulares, como los contratos de locación (alquiler), sucesiones y propiedad.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "basico"
-  tags: ["laboral", "trabajo"]
-
-respuesta: "laboral"
-tipo: completar
-respuestas_validas:
-  - "laboral"
-enunciado: "Un empleado es despedido sin causa y sin recibir la indemnización que establece la ley. El trabajador decide demandar para reclamar sus derechos. ¿Qué rama del derecho interviene en este caso? Derecho ___."
-
-explicacion: |
-  El derecho laboral regula el vínculo entre empleadores y empleados, protegiendo la parte más débil de la relación y regulando despidos y salarios.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "basico"
-  tags: ["penal", "delitos"]
-
-respuesta: "penal"
-tipo: completar
-respuestas_validas:
-  - "penal"
-
-enunciado: "Una persona entra a un supermercado y sustrae una mercadería sin pagar, siendo capturada por la seguridad. Dado que este acto constituye un delito contra la propiedad, la rama del derecho que debe intervenir es el derecho ___."
-
-explicacion: |
-  El derecho penal se encarga de definir las conductas que son consideradas delitos y de establecer las penas o sanciones correspondientes.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "intermedio"
-  tags: ["administrativo", "estado"]
-
-respuesta: "administrativo"
-tipo: mc
-opciones_explicitas: ["civil", "administrativo", "comercial", "penal"]
-
-enunciado: "El Estado decide multar a una empresa de transporte por incumplir las normas de seguridad vial. Para resolver la validez de esta multa, se debe recurrir al derecho ___."
-
-explicacion: |
-  El derecho administrativo regula la organización, funcionamiento y las facultades de la Administración Pública y sus relaciones con los ciudadanos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "intermedio"
-  tags: ["comercial", "ordenar"]
-
-respuesta_orden: ["oferta", "aceptación", "entrega de mercadería", "pago"]
-tipo: ordenar
-opciones_explicitas: ["oferta", "aceptación", "entrega de mercadería", "pago"]
-
-enunciado: "En una operación de compraventa entre dos empresas (acto de comercio), se deben seguir pasos lógicos para que la relación jurídica se consume. Ordena cronológicamente estos elementos:"
-
-pasos:
-  - "El vendedor propone el precio y el producto."
-  - "El comprador manifiesta su conformidad con la propuesta."
-  - "Se realiza la transferencia del bien."
-  - "Se efectúa la contraprestación económica."
-
-explicacion: |
-  El derecho comercial regula los actos de comercio y las relaciones entre comerciantes; el proceso sigue una secuencia de oferta, aceptación y ejecución.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "basico"
-  tags: ["civil", "regulacion"]
+  tags: ["conceptos_clave", "teoria_del_derecho"]
 
 tipo: mc
-opciones_explicitas: ["Las relaciones de trabajo entre empleador y empleado", "Las relaciones de familia, contratos y propiedad entre particulares", "Los delitos y las penas impuestas por el Estado", "Los conflictos entre el Estado y los ciudadanos"]
+opciones_explicitas: ["El proceso de justificación de una decisión mediante razones", "La aplicación mecánica de la ley sin razonamiento", "La imposición de la voluntad del juez sobre la norma", "Un conjunto de normas sin interpretación"]
 
-respuesta: "Las relaciones de familia, contratos y propiedad entre particulares"
+respuesta: "El proceso de justificación de una decisión mediante razones"
 
-enunciado: "Un error común es confundir el Derecho Civil con el Derecho Laboral. Mientras el segundo regula el trabajo, el Derecho Civil regula ___."
+enunciado: "La argumentación jurídica se define fundamentalmente como ___"
 
 explicacion: |
-  El Derecho Civil es el tronco común que regula las relaciones privadas entre personas (familia, contratos, sucesiones, propiedad), a diferencia del Laboral que es una rama especializada para el trabajo.
+  La argumentación jurídica no es una mera aplicación mecánica de la norma, sino un proceso de razonamiento orientado a justificar una decisión mediante la entrega de razones válidas.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "ramas_del_derecho"
+  tema: "argumentacion_juridica"
   nivel: "basico"
-  tags: ["administrativo", "confusion"]
+  tags: ["logica_juridica", "silogismo"]
 
 tipo: vf
-
 respuesta: falso
 
-enunciado: "Es un error pensar que el Derecho Administrativo regula los contratos entre dos empresas privadas; su función es regular la organización y el funcionamiento de la administración pública."
+enunciado: "En el silogismo jurídico, la premisa mayor es el hecho concreto ocurrido en la realidad, mientras que la premisa menor es la norma aplicable."
 
 explicacion: |
-  Falso. El Derecho Administrativo regula la actividad del Estado y sus relaciones con los particulares cuando el Estado actúa como poder público. Los contratos entre empresas privadas son materia del Derecho Comercial/Civil.
+  Es falso. En el silogismo jurídico, la premisa mayor es la norma (el precepto legal) y la premisa menor es el hecho (el caso concreto).
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "ramas_del_derecho"
+  tema: "argumentacion_juridica"
   nivel: "intermedio"
-  tags: ["penal", "delitos"]
+  tags: ["estructura", "precedentes"]
 
-respuesta: "penal"
+respuesta: "precedente"
 tipo: completar
 respuestas_validas:
-  - "penal"
+  - "precedente"
+  - "argumento de autoridad"
 
-enunciado: "Si una persona comete un delito, el Estado interviene para imponer una sanción punitiva; esta materia es regulada por el Derecho ___."
-
-explicacion: |
-  El Derecho Penal se encarga de las conductas que son consideradas delitos y las sanciones que el Estado impone. No debe confundirse con el Derecho Civil, que busca la reparación de daños pero no la pena criminal.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "basico"
-  tags: ["comercial", "civil"]
-
-tipo: mc
-opciones_explicitas: ["Derecho Comercial", "Derecho Civil", "Derecho Administrativo", "Derecho Penal"]
-
-respuesta: "Derecho Comercial"
-
-enunciado: "Un comerciante tiene un conflicto por una transacción de mercaderías con un proveedor. Aunque el Derecho Civil es la base, la regulación específica de los actos de comercio corresponde al ___."
-
-explicacion: |
-  El Derecho Comercial es una rama especializada que regula los actos de comercio y a los sujetos que se dedican a ellos, desprendiéndose del marco general del Derecho Civil.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "intermedio"
-  tags: ["laboral", "procedimiento"]
-
-tipo: ordenar
-opciones_explicitas: ["Identificar el vínculo laboral", "Determinar la normativa aplicable (Derecho Laboral)", "Calificar la sanción o indemnización"]
-
-respuesta_orden: ["Identificar el vínculo laboral", "Determinar la normativa aplicable (Derecho Laboral)", "Calificar la sanción o indemnización"]
-
-enunciado: "Ante un conflicto por un despido, el abogado debe seguir este orden lógico para aplicar correctamente el Derecho Laboral:"
-
-explicacion: |
-  Primero se debe verificar si existe una relación de dependencia (vínculo), luego aplicar las leyes específicas de trabajo (Laboral) y finalmente determinar la consecuencia jurídica (indemnización).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "basico"
-  tags: ["civil", "comercial"]
-
-respuesta: "comercial"
-tipo: mc
-opciones_explicitas: ["civil", "comercial", "penal", "laboral"]
-
-enunciado: "Mientras que el Derecho Civil regula las relaciones privadas de las personas en general, el Derecho ___ se especializa en los actos de comercio y la actividad de los comerciantes."
-
-explicacion: |
-  El Derecho Civil es la rama general que regula relaciones como la familia o sucesiones, mientras que el Derecho Comercial es una rama especial que se aplica específicamente a los actos de comercio.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "basico"
-  tags: ["penal", "civil"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia del Derecho Civil, que busca la reparación de un daño, el Derecho Penal tiene como fin principal la imposición de una sanción o pena por la comisión de un delito."
-
-explicacion: |
-  Es verdadero. El Derecho Civil es eminentemente reparatorio (indemnizaciones), mientras que el Derecho Penal es punitivo (penas de prisión, multas estatales, etc.).
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "intermedio"
-  tags: ["laboral", "civil"]
-
-respuesta: "subordinación"
-tipo: completar
-respuestas_validas:
-  - "subordinación"
-
-enunciado: "A diferencia de un contrato de locación de servicios (civil), donde prima la autonomía de la voluntad, el Derecho Laboral se distingue por la existencia de una relación de ___ entre las partes."
+enunciado: "Cuando un abogado utiliza una decisión previa de un tribunal superior para sustentar su postura, está recurriendo al ___."
 
 pasos:
-  - "Identificar la relación jurídica: ¿hay dependencia o es un servicio independiente?"
-  - "Comparar con el concepto de autonomía civil."
+  - "Identificar la fuente de la autoridad (jurisprudencia o precedente)."
+  - "Verificar la pertinencia del caso anterior con el caso actual."
 
 explicacion: |
-  El elemento distintivo del Derecho Laboral es la subordinación (dependencia técnica, económica y jurídica) del trabajador respecto al empleador.
+  El uso de decisiones previas es la base de la doctrina del precedente, permitiendo la predictibilidad del sistema jurídico.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "intermedio"
-  tags: ["administrativo", "civil"]
+  tema: "argumentacion_juridica"
+  nivel: "basico"
+  tags: ["terminologia"]
 
-respuesta: "Estado"
-tipo: mc
-opciones_explicitas: ["Estado", "Particulares", "Empresas", "Sociedades"]
-
-enunciado: "El Derecho Administrativo se distingue del Derecho Civil porque su sujeto principal es el ___ en el ejercicio de sus funciones públicas."
-
-explicacion: |
-  El Derecho Administrativo regula la organización y el funcionamiento de la administración pública y sus relaciones con los ciudadanos.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "avanzado"
-  tags: ["administrativo", "ordenamiento"]
-
-respuesta_orden: ["Constitución", "Ley", "Reglamento"]
 tipo: ordenar
+opciones_explicitas: ["Premisa Normativa", "Premisa Fáctica", "Conclusión"]
+respuesta_orden: ["Premisa Normativa", "Premisa Fáctica", "Conclusión"]
 
-opciones_explicitas: ["Constitución", "Ley", "Reglamento"]
-
-enunciado: "En el Derecho Administrativo, para verificar la validez de un acto, se debe seguir el orden jerárquico de normas. Ordene de mayor a menor jerarquía:"
+enunciado: "Ordene los elementos lógicos que componen la estructura de un argumento jurídico estándar:"
 
 explicacion: |
-  La jerarquía normativa establece que un Reglamento no puede contrariar una Ley, y una Ley no puede contrariar la Constitución.
+  La estructura lógica requiere primero la norma (Normativa), luego la verificación de los hechos (Fáctica) y finalmente la subsunción que lleva a la resolución (Conclusión).
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "basico"
-  tags: ["civil", "contratos"]
+  tema: "argumentacion_juridica"
+  nivel: "intermedio"
+  tags: ["logica", "validez"]
 
-variables:
-  datos: [["Juan firma un contrato de alquiler con un propietario para vivir en su casa.", "civil"], ["María es demandada por un accidente de tránsito.", "civil"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["civil", "penal", "laboral", "comercial"]
+opciones_explicitas: ["La coherencia lógica de la estructura del argumento", "La verdad material de los hechos presentados", "La opinión personal del juzgador", "La cantidad de leyes citadas"]
 
-enunciado: "{datos[idx][0]} ¿Qué rama del derecho regula este vínculo contractual?"
+respuesta: "La coherencia lógica de la estructura del argumento"
+
+enunciado: "En lógica jurídica, cuando un argumento sigue correctamente las reglas de inferencia pero sus premisas son cuestionables, se dice que el argumento es ___ pero no necesariamente ___."
 
 explicacion: |
-  El derecho civil regula las relaciones privadas entre personas, como los contratos de alquiler, el matrimonio o la propiedad.
+  Un argumento puede ser formalmente válido (lógicamente correcto) pero carecer de solidez si sus premisas fácticas o normativas son falsas o incorrectas.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "basico"
-  tags: ["penal", "delitos"]
+  tema: "argumentacion_juridica"
+  nivel: "intermedio"
+  tags: ["silogismo", "logica_juridica"]
 
-respuesta: verdadero
-tipo: vf
-enunciado: "Un individuo es detenido por sustraer mercadería de un comercio sin pagar. ¿Este hecho es regulado por el derecho penal?"
-
-explicacion: |
-  El derecho penal se encarga de las conductas que son consideradas delitos y las penas que el Estado impone a sus autores.
-```
-
-```
-metadata:
-  materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "basico"
-  tags: ["laboral", "trabajo"]
-
-respuesta: "laboral"
+respuesta: "premisa_mayor"
 tipo: completar
 respuestas_validas:
-  - "laboral"
+  - "premisa_mayor"
+  - "premisa_menor"
+  - "conclusión"
 
-enunciado: "Un empleado es despedido sin causa y reclama sus indemnizaciones. El conflicto se debe resolver ante el derecho ___."
+enunciado: "En un silogismo jurídico, la norma general o ley aplicable se denomina ___."
 
 explicacion: |
-  El derecho laboral regula las relaciones entre empleadores y trabajadores, incluyendo despidos, salarios y condiciones de trabajo.
+  El silogismo jurídico consta de tres partes: la premisa mayor (la norma), la premisa menor (el hecho probado) y la conclusión (la consecuencia jurídica resultante de aplicar la norma al hecho).
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "intermedio"
-  tags: ["comercial", "sociedades"]
+  tema: "argumentacion_juridica"
+  nivel: "avanzado"
+  tags: ["analogia", "interpretacion"]
 
 variables:
-  datos: [["Dos socios de una sociedad anónima discuten sobre la distribución de dividendos.", "comercial"], ["Un ciudadano reclama una multa de tránsito impuesta por la municipalidad.", "administrativo"]]
-  idx: uno_de([0, 1])
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["Se aplica una norma de un contrato de compraventa a uno de permuta por similitud de objeto.", "falso"], ["Se aplica una norma de derecho penal para sancionar una conducta no prevista por analogia in malam partem.", "falso"]]
 
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["civil", "penal", "comercial", "administrativo"]
-
-enunciado: "{datos[idx][0]} ¿Qué rama del derecho regula esta actividad?"
+respuesta: escenarios[escenario_idx][1]
+tipo: completar
+enunciado: "En el escenario donde {escenarios[escenario_idx][0]}, la aplicación analógica de la norma es jurídicamente válida para crear nuevas obligaciones."
 
 explicacion: |
-  El derecho comercial (o mercantil) regula los actos de comercio y las relaciones jurídicas derivadas de la actividad de los comerciantes y las sociedades.
+  La analogía es válida en derecho civil/administrativo para llenar lagunas, pero está prohibida en derecho penal cuando la interpretación es 'in malam partem' (perjudicial para el reo). En ambos casos presentados, la afirmación de validez es falsa según la doctrina general.
 ```
 
 ```
 metadata:
   materia: "derecho"
-  tema: "ramas_del_derecho"
-  nivel: "intermedio"
-  tags: ["ordenar", "conceptos"]
+  tema: "argumentacion_juridica"
+  nivel: "basico"
+  tags: ["jerarquia", "normas"]
 
-respuesta_orden: ["Derecho Civil", "Derecho Comercial", "Derecho Administrativo", "Derecho Penal"]
-tipo: ordenar
+respuesta: "Constitución Nacional"
+tipo: mc
+opciones_explicitas: ["Constitución Nacional", "Decreto Reglamentario", "Resolución Ministerial", "Contrato entre partes"]
 
-opciones_explicitas: ["Derecho Penal", "Derecho Civil", "Derecho Administrativo", "Derecho Comercial"]
-
-enunciado: "Ordena las siguientes ramas del derecho de mayor a menor amplitud en cuanto a la regulación de la vida cotidiana (desde la relación entre particulares hasta la relación con el Estado y el control social):"
+enunciado: "Si un juez debe resolver una contradicción entre una norma de rango constitucional y un decreto administrativo, debe priorizar la ___."
 
 explicacion: |
-  El orden lógico suele partir de la regulación de la vida privada (Civil), pasando por el comercio (Comercial), la relación con el Estado (Administrativo) y finalmente la sanción de conductas graves (Penal).
+  De acuerdo al principio de jerarquía normativa (Pirámide de Kelsen), la Constitución es la norma suprema y prevalece sobre cualquier norma de inferior rango.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "intermedio"
+  tags: ["precedente", "ratio_decidendi"]
+
+respuesta_orden: ["Identificación de los hechos relevantes", "Determinación de la ratio decidendi", "Extracción del principio jurídico", "Aplicación al caso actual"]
+tipo: ordenar
+
+opciones_explicitas: ["Identificación de los hechos relevantes", "Determinación de la ratio decidendi", "Extracción del principio jurídico", "Aplicación al caso actual"]
+
+enunciado: "Para utilizar un precedente judicial de forma sólida en un nuevo argumento, se debe seguir este orden lógico:"
+
+explicacion: |
+  Para aplicar un precedente no basta con citar la sentencia; se debe identificar primero los hechos (fáctico), luego el núcleo de la decisión (ratio decidendi), extraer la regla de derecho y finalmente aplicarla al nuevo caso.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "intermedio"
+  tags: ["carga_de_la_prueba", "argumentacion"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  casos: [["El demandado alega un hecho extintivo de la obligación.", "verdadero"], ["El actor afirma la existencia de un contrato verbal.", "falso"]]
+
+respuesta: casos[caso_idx][1]
+tipo: completar
+enunciado: "En el caso donde {casos[caso_idx][0]}, la carga de la prueba recae sobre el demandado (quien debe probar el hecho que afirma)."
+
+explicacion: |
+  Según la carga de la prueba, quien afirma un hecho debe probarlo. Sin embargo, si el demandado alega un hecho nuevo que extingue la obligación (ej. pago o prescripción), la carga de la prueba se traslada a él.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "intermedio"
+  tags: ["jerarquia", "normas", "argumentacion"]
+
+respuesta: "Constitución"
+tipo: completar
+respuestas_validas:
+  - "Constitución"
+
+enunciado: "En un sistema de argumentación jurídica basado en la jerarquía de Kelsen, ninguna norma puede contradecir a la ___."
+
+explicacion: |
+  La Constitución es la norma de máxima jerarquía (norma fundamental). Un argumento jurídico sólido debe respetar la supremacía constitucional para evitar la invalidez de la norma inferior.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "intermedio"
+  tags: ["precedente", "jurisprudencia", "fuentes"]
+
+tipo: mc
+opciones_explicitas: ["El precedente es una norma de aplicación general e inmediata para todos los casos futuros.", "El precedente es una guía interpretativa que debe ser analizada caso por caso según su ratio decidendi."]
+
+respuesta: "El precedente es una guía interpretativa que debe ser analizada caso por caso según su ratio decidendi."
+
+enunciado: "Al utilizar la jurisprudencia como fuente de argumentación, ¿cuál es el error más común al aplicar un precedente?"
+
+explicacion: |
+  No se debe aplicar un precedente de forma mecánica (subsunción automática). Un argumento sólido requiere identificar la 'ratio decidendi' (razón de la decisión) y verificar si los hechos del nuevo caso son sustancialmente similares.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "basico"
+  tags: ["falacias", "logica"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si un abogado cita la opinión de un jurista prestigioso para sustentar una tesis, el argumento es automáticamente válido y vinculante, independientemente de si la opinión es doctrina o jurisprudencia."
+
+explicacion: |
+  Falso. La opinión de un jurista es doctrina (autoridad científica), pero no tiene fuerza vinculante como la ley o la jurisprudencia. Citar autoridad sin conectar la razón jurídica con el caso constituye una falacia de autoridad.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "intermedio"
+  tags: ["silogismo", "estructura", "logica"]
+
+respuesta_orden: ["Premisa mayor", "Premisa menor", "Conclusión"]
+tipo: ordenar
+opciones_explicitas: ["Premisa mayor", "Premisa menor", "Conclusión"]
+
+enunciado: "Para construir un silogismo jurídico válido y evitar errores de lógica formal, se debe seguir este orden de construcción:"
+
+explicacion: |
+  1. Premisa mayor: La norma general. 2. Premisa menor: El hecho concreto encuadrado en la norma. 3. Conclusión: La consecuencia jurídica derivada de la subsunción.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "avanzado"
+  tags: ["analogia", "interpretacion"]
+
+tipo: mc
+opciones_explicitas: ["La analogía es válida siempre que la laguna legal sea absoluta y no existan normas de principios.", "La analogía solo es lícita si existe identidad de razón entre el caso regulado y el caso no regulado, evitando la analogía in malam partem en derecho penal."]
+
+respuesta: "La analogía solo es lícita si existe identidad de razón entre el caso regulado y el caso no regulado, evitando la analogía in malam partem en derecho penal."
+
+enunciado: "En un argumento basado en la analogía, ¿cuál es el límite fundamental para evitar la arbitrariedad?"
+
+explicacion: |
+  El límite es la 'identidad de razón'. Además, en materias como el derecho penal, está prohibida la analogía para crear delitos o penas (principio de legalidad), lo que se conoce como prohibición de analogía 'in malam partem'.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "basico"
+  tags: ["fundamentos", "logica"]
+
+respuesta: "argumento"
+tipo: "completar"
+respuestas_validas:
+  - "argumento"
+
+enunciado: "Mientras que una opinión es una manifestación subjetiva de un juicio de valor, un ___ se construye mediante el uso de premisas normativas y hechos probados para llegar a una conclusión jurídica."
+
+explicacion: |
+  La diferencia fundamental radica en la fundamentación. La opinión no requiere de una estructura lógica ni de la aplicación de una norma, mientras que el argumento jurídico debe derivar necesariamente de la norma aplicada al caso concreto.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "intermedio"
+  tags: ["silogismo", "estructura"]
+
+variables:
+  escenario: uno_de([["La norma prohíbe conducir ebrio", "El sujeto conducía con 0.8 g/l", "El sujeto es culpable"], ["La ley otorga propiedad a quien compra", "Juan compró la casa con escritura", "Juan es el dueño"], ["El contrato exige firma para validez", "El contrato no tiene firma", "El contrato es nulo"]])
+
+respuesta: "premisa_mayor"
+tipo: "mc"
+opciones_explicitas: ["premisa_mayor", "premisa_menor", "conclusión"]
+
+enunciado: "En el silogismo jurídico aplicado al escenario {escenario[0]}, la afirmación '{escenario[0]}' representa la: "
+
+explicacion: |
+  La estructura del silogismo jurídico consta de: 1) Premisa mayor (la norma), 2) Premisa menor (el hecho/subsunción) y 3) Conclusión (la consecuencia jurídica).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "avanzado"
+  tags: ["precedente", "doctrina"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "A diferencia de la doctrina (que es la opinión de los estudiosos del derecho), el precedente judicial es una decisión vinculante que establece una regla de interpretación para casos futuros similares."
+
+explicacion: |
+  La doctrina no tiene fuerza obligatoria por sí misma, mientras que el precedente (dependiendo del sistema jurídico, como el Common Law o la jurisprudencia vinculante en Civil Law) es una fuente de derecho que debe ser respetada por los jueces.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "avanzado"
+  tags: ["interpretacion", "logica"]
+
+respuesta: "a_contrario"
+tipo: "mc"
+opciones_explicitas: ["analogia", "a_contrario", "a_significatio"]
+
+enunciado: "Si un abogado sostiene que, dado que la norma prohíbe el ingreso de 'perros' a un recinto, se entiende que también se prohíbe el ingreso de 'gatos' por una similitud de naturaleza, está usando analogía. Si, por el contrario, sostiene que como la norma dice 'perros', se entiende que se permite todo lo que NO sea un perro, está utilizando el argumento: "
+
+explicacion: |
+  El argumento 'a contrario' establece que la norma es excluyente: si la ley regula una situación específica, se entiende que excluye a todas aquellas que no encajen en esa descripción.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "intermedio"
+  tags: ["subsuncion", "metodologia"]
+
+tipo: "ordenar"
+opciones_explicitas: ["enunciado_normativo", "enunciado_fáctico", "subsunción", "conclusión"]
+respuesta_orden: ["enunciado_normativo", "enunciado_fáctico", "subsunción", "conclusión"]
+
+enunciado: "Para construir un argumento sólido mediante la técnica de la subsunción, el jurista debe seguir este orden lógico de elementos:"
+
+explicacion: |
+  El proceso requiere primero identificar la norma (premisa mayor), luego los hechos probados (premisa menor), realizar el encuadre o subsunción (verificar si el hecho encaja en la norma) y finalmente dictar la consecuencia jurídica.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "intermedio"
+  tags: ["jerarquia_normativa", "constitucionalidad"]
+
+variables:
+  escenario: uno_de([["Una ley provincial contradice la Constitución Nacional.", "inconstitucional"], ["Un decreto reglamentario contradice la Ley Nacional.", "ilegal"], ["Un reglamento municipal contradice una Ley Provincial.", "inválido"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["inconstitucional", "ilegal", "inválido"]
+
+enunciado: "De acuerdo al principio de jerarquía normativa, si {escenario[0]}, el argumento jurídico debe concluir que la norma inferior es ___."
+
+explicacion: |
+  En el sistema jurídico, la norma de mayor rango (como la Constitución) prevalece sobre las de menor rango. Un argumento sólido debe identificar la norma superior para invalidar la inferior.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "logica_juridica"
+  nivel: "basico"
+  tags: ["silogismo", "premisa_mayor", "premisa_menor"]
+
+variables:
+  silogismo: uno_de([["La norma establece una sanción para el robo. Juan robó. Por tanto, Juan debe ser sancionado.", "Juan robó", "premisa_menor"], ["El contrato exige firma para ser válido. El contrato no tiene firma. Por tanto, es nulo.", "El contrato exige firma para ser válido", "premisa_mayor"], ["La ley prohíbe conducir sin licencia. Pedro no tiene licencia. Por tanto, Pedro infringe la ley.", "Pedro no tiene licencia", "premisa_menor"]])
+
+respuesta: silogismo[2]
+tipo: completar
+respuestas_validas:
+  - "premisa_menor"
+  - "premisa_mayor"
+enunciado: "En el siguiente silogismo: '{silogismo[0]}', el elemento '{silogismo[1]}' actúa como la ___ (la subsunción del hecho a la norma)."
+
+explicacion: |
+  El silogismo jurídico se compone de la premisa mayor (la norma), la premisa menor (el hecho) y la conclusión. La subsunción es el proceso de encuadrar el hecho en la norma.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "precedentes_judiciales"
+  nivel: "avanzado"
+  tags: ["stare_decisis", "argumentacion"]
+
+variables:
+  caso: uno_de([["Un fallo de la Corte Suprema sobre libertad de expresión.", "obligatorio"], ["Una sentencia de un juzgado de primera instancia sobre un contrato.", "persuasivo"], ["Un dictamen de un tribunal administrativo sobre un trámite.", "persuasivo"]])
+
+respuesta: caso[1]
+tipo: mc
+opciones_explicitas: ["obligatorio", "persuasivo", "irrelevante"]
+
+enunciado: "Al construir un argumento basado en la jurisprudencia, si se cita {caso[0]}, el valor del precedente para el juez es ___."
+
+explicacion: |
+  Los precedentes de tribunales superiores (como la Corte) suelen tener carácter obligatorio (stare decisis), mientras que los de instancias inferiores o administrativas sirven como argumento persuasivo.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "argumentacion_juridica"
+  nivel: "intermedio"
+  tags: ["argumentos", "autoridad", "razonamiento"]
+
+tipo: ordenar
+opciones_explicitas: ["Premisa Mayor", "Premisa Menor", "Conclusión"]
+respuesta_orden: ["Premisa Mayor", "Premisa Menor", "Conclusión"]
+
+enunciado: "Ordene los elementos necesarios para construir un argumento jurídico deductivo sólido, desde la norma general hasta el caso concreto:"
+
+pasos:
+  - "El hecho concreto aplicado a la norma."
+  - "La consecuencia jurídica derivada."
+  - "La norma o precepto legal general."
+
+explicacion: |
+  El orden lógico deductivo requiere primero la norma (mayor), luego el hecho (menor) y finalmente la consecuencia (conclusión).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "fallos_en_la_argumentacion"
+  nivel: "intermedio"
+  tags: ["falacias", "argumentacion_logica"]
+
+variables:
+  falacia: uno_de([["El abogado dice: 'Es culpable porque siempre miente'.", "ad_hominem"], ["El abogado dice: 'Es culpable porque todos los vecinos dicen que es malo'.", "ad_populum"]])
+
+respuesta: falacia[1]
+tipo: completar
+respuestas_validas:
+  - "ad_hominem"
+  - "ad_populum"
+
+enunciado: "Si un abogado argumenta que: '{falacia[0]}', está incurriendo en una falacia de tipo ___."
+
+explicacion: |
+  La falacia ad hominem ataca a la persona y no al argumento, mientras que la ad populum apela a la mayoría para validar una conclusión.
 ```
 
 ## Sección: resolucion-de-conflictos-y-sentencia (25 preguntas)
@@ -2713,5 +1381,1396 @@ enunciado: "Si la sentencia es de carácter {datos[idx][0]}, entonces se dice qu
 
 explicacion: |
   La sentencia definitiva es la que tiene autoridad de cosa juzgada, impidiendo que el mismo conflicto sea juzgado nuevamente.
+```
+
+## Sección: juicio-oral (25 preguntas)
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "basico"
+  tags: ["proceso_penal", "definicion"]
+
+tipo: mc
+opciones_explicitas: ["La etapa de investigación donde se recolectan elementos de convicción.", "La etapa de debate público donde se presentan pruebas y argumentos para obtener un veredicto.", "La etapa de revisión de la sentencia por un tribunal superior.", "La fase de detención del imputado por parte de la policía."]
+
+respuesta: "La etapa de debate público donde se presentan pruebas y argumentos para obtener un veredicto."
+
+enunciado: "El juicio oral se define fundamentalmente como:"
+
+explicacion: |
+  El juicio oral es la etapa culminante del proceso penal, caracterizada por la oralidad, la inmediación y la publicidad, donde se debate la culpabilidad o inocencia.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "basico"
+  tags: ["sujetos_procesales", "juez"]
+
+tipo: vf
+enunciado: "En un juicio oral, el tribunal tiene la función de dictar una sentencia basada en las pruebas presentadas durante el debate."
+
+respuesta: verdadero
+
+explicacion: |
+  Correcto. El tribunal (juez o tribunal de enjuiciamiento) debe valorar las pruebas bajo las reglas de la sana crítica para emitir un fallo.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "intermedio"
+  tags: ["etapas", "orden_procesal"]
+
+tipo: ordenar
+opciones_explicitas: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Sentencia"]
+
+enunciado: "Ordene cronológicamente las etapas principales de un debate en juicio oral:"
+
+respuesta_orden: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Sentencia"]
+
+explicacion: |
+  El juicio comienza con la presentación de las teorías del caso (apertura), sigue con el examen de testigos y peritos (prueba), los alegatos finales (clausura) y concluye con el fallo (sentencia).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "basico"
+  tags: ["argumentacion", "terminos"]
+
+tipo: completar
+respuestas_validas:
+  - "clausura"
+  - "apertura"
+
+enunciado: "El alegato de ___ es la exposición final que realiza cada parte para convencer al tribunal de su teoría del caso tras la producción de la prueba."
+
+respuesta: "clausura"
+
+explicacion: |
+  El alegato de clausura es la oportunidad para la parte para realizar un análisis crítico de la prueba producida y reforzar su pretensión.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "intermedio"
+  tags: ["principios", "publicidad"]
+
+enunciado: "Si el juicio se realiza en una sala abierta al público y sin restricciones de acceso, se está cumpliendo con el principio de ___."
+
+pasos:
+  - "Identificar el principio relacionado con la visibilidad del acto."
+
+tipo: mc
+opciones_explicitas: ["Publicidad", "Inmediación", "Contradicción", "Oralidad"]
+
+respuesta: "Publicidad"
+
+explicacion: |
+  El principio de publicidad garantiza que los actos procesales sean conocidos por la sociedad, asegurando transparencia en la administración de justicia.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "basico"
+  tags: ["procedimiento", "pruebas"]
+
+respuesta: "testigo"
+tipo: completar
+respuestas_validas:
+  - "testigo"
+
+enunciado: "Durante la etapa de debate en el juicio oral, la persona que comparece para declarar sobre hechos que presenció se denomina ___."
+
+explicacion: |
+  En el juicio oral, el testigo es el sujeto que aporta información directa sobre los hechos objeto del proceso.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "intermedio"
+  tags: ["principios", "legalidad"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es posible que el tribunal dicte sentencia basándose en pruebas que no fueron producidas y debatidas durante la etapa de juicio oral?"
+
+explicacion: |
+  Falso. El principio de inmediación y contradicción exige que toda prueba utilizada para la sentencia haya sido debidamente producida en el juicio oral.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "intermedio"
+  tags: ["etapas", "procedimiento"]
+
+respuesta_orden: ["Alegato de apertura", "Producción de prueba", "Alegatos de clausura"]
+tipo: ordenar
+opciones_explicitas: ["Alegato de apertura", "Producción de prueba", "Alegatos de clausura"]
+
+enunciado: "Ordene cronológicamente las etapas fundamentales del debate en un juicio oral:"
+
+explicacion: |
+  El juicio comienza con la presentación de las teorías del caso (apertura), sigue con la incorporación de elementos de convicción (prueba) y finaliza con las conclusiones (clausura).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "basico"
+  tags: ["sentencia", "veredicto"]
+
+respuesta: "condena"
+tipo: mc
+opciones_explicitas: ["absolución", "condena"]
+
+enunciado: "Si tras la valoración de la prueba el tribunal determina que la culpabilidad ha sido acreditada más allá de toda duda razonable, el resultado es una ___."
+
+explicacion: |
+  La condena es el acto mediante el cual se impone una pena tras haber probado la responsabilidad penal.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "avanzado"
+  tags: ["derechos", "defensa"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el juicio oral, el derecho a la contradicción implica que las partes pueden objetar la prueba presentada por la contraparte. ¿Es este un derecho fundamental para asegurar un juicio justo?"
+
+explicacion: |
+  La contradicción es la facultad de controlar la prueba de la contraparte, permitiendo el control de la veracidad y legalidad de los elementos presentados.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "intermedio"
+  tags: ["procedimiento", "recursos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En un juicio oral, una vez que el tribunal dicta el veredicto o sentencia, esto significa que la decisión es definitiva y no puede ser revisada por una instancia superior mediante un recurso de apelación."
+
+explicacion: |
+  Falso. El principio de la doble instancia permite que las partes impugnen la sentencia ante un tribunal superior para que esta sea revisada, siempre que se cumplan los requisitos legales.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "basico"
+  tags: ["carga_de_la_prueba", "principios"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [[0, "El imputado debe demostrar su inocencia"], [1, "La fiscalía debe demostrar la culpabilidad"]]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["El imputado debe demostrar su inocencia", "La fiscalía debe demostrar la culpabilidad", "Ambas partes deben probar todo lo que aleguen", "El juez decide qué debe probarse"]
+
+enunciado: "En el marco del juicio oral y bajo el principio de presunción de inocencia, ¿cuál es la carga de la prueba respecto a la responsabilidad penal?"
+
+explicacion: |
+  La carga de la prueba recae sobre la parte acusadora (fiscalía/querella). El imputado no tiene la obligación de probar su inocencia; es el Estado quien debe destruir la presunción de inocencia mediante pruebas de cargo.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "basico"
+  tags: ["etapas", "procedimiento"]
+
+respuesta_orden: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
+tipo: ordenar
+opciones_explicitas: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
+
+enunciado: "Para que el juicio oral sea válido, se debe respetar un orden lógico y cronológico en sus etapas. Ordene las siguientes fases según el desarrollo estándar de un debate oral:"
+
+explicacion: |
+  El juicio comienza con la presentación de las teorías del caso (apertura), sigue con la recepción de evidencia (testigos, peritos, documentos), luego las conclusiones finales (clausura) y termina con la decisión del tribunal.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "intermedio"
+  tags: ["juez", "imparcialidad"]
+
+respuesta: "imparcial"
+tipo: completar
+respuestas_validas:
+  - "imparcial"
+
+enunciado: "Durante la etapa de producción de prueba en el juicio oral, el juez debe mantener un rol ___ y no debe proponer pruebas de oficio que no hayan sido solicitadas por las partes, para no vulnerar la imparcialidad."
+
+explicacion: |
+  El sistema acusatorio exige que el juez sea un tercero imparcial. Si el juez busca o propone pruebas, se rompe la igualdad de armas entre la acusación y la defensa.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "avanzado"
+  tags: ["pruebas", "limites"]
+
+respuesta: "excepcional"
+
+enunciado: "En un juicio oral, la regla general es la prohibición de introducir elementos de convicción que no hayan sido debidamente anunciados y admitidos en la etapa intermedia. Sin embargo, la incorporación de prueba nueva es ___ si se demuestra que es un elemento sobreviniente que no pudo ser conocido antes."
+
+tipo: mc
+opciones_explicitas: ["prohibido", "excepcional", "obligatorio", "imposible"]
+
+explicacion: |
+  Aunque el juicio oral se rige por la preclusión (lo que no se anunció antes, no entra), existe la excepción de la "prueba sobreviniente" para garantizar la búsqueda de la verdad real.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "basico"
+  tags: ["proceso_penal", "etapas"]
+
+respuesta: "audiencia"
+tipo: "completar"
+respuestas_validas:
+  - "audiencia"
+
+enunciado: "A diferencia de la etapa de instrucción, donde se recolectan elementos de convicción, el juicio oral se desarrolla mediante una ___ pública y contradictoria."
+
+explicacion: |
+  La etapa de instrucción tiene como fin la investigación y recolección de pruebas, mientras que el juicio oral es la etapa de debate y decisión.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "intermedio"
+  tags: ["principios_procesales", "inmediación"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "El principio de inmediación exige que el tribunal debe tener contacto directo con la producción de la prueba durante el juicio oral, sin intermediarios."
+
+explicacion: |
+  La inmediación es un pilar del juicio oral: el juez debe presenciar directamente la declaración de testigos y peritos para valorar la prueba.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "basico"
+  tags: ["caracteristicas", "debate"]
+
+respuesta: "Oralidad"
+tipo: "mc"
+opciones_explicitas: ["Oralidad", "Escrituriedad", "Secreto", "Inmediatez"]
+
+enunciado: "Si bien ambos procesos buscan la verdad, lo que distingue fundamentalmente al juicio oral de los sistemas escritos antiguos es la ___."
+
+explicacion: |
+  La oralidad permite la contradicción inmediata y la fluidez del debate, a diferencia de los sistemas donde solo se leen actas escritas.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "intermedio"
+  tags: ["procedimiento", "orden"]
+
+respuesta_orden: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura"]
+tipo: "ordenar"
+opciones_explicitas: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura"]
+
+enunciado: "Ordene cronológicamente las fases principales del debate en un juicio oral:"
+
+explicacion: |
+  El juicio comienza con la presentación de las teorías del caso (apertura), sigue con el examen de pruebas y finaliza con los argumentos finales (clausura).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "avanzado"
+  tags: ["pruebas", "argumentacion"]
+
+variables:
+  escenario: uno_de([0, 1])
+  datos: [["presentación de pruebas", "determinar culpabilidad"], ["argumentos", "convencer al juez"]]
+
+respuesta: datos[escenario][1]
+tipo: "mc"
+opciones_explicitas: ["presentación de pruebas", "argumentos", "determinar culpabilidad", "convencer al juez"]
+
+enunciado: "En el juicio oral, ¿cuál es el objetivo principal de la etapa de {datos[escenario][0]}?"
+
+explicacion: |
+  El objetivo de la producción probatoria es aportar elementos que permitan al tribunal alcanzar la certeza necesaria para dictar un veredicto.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "intermedio"
+  tags: ["proceso_penal", "fiscalia"]
+
+enunciado: "En el escenario donde el fiscal presenta un testigo que afirma haber visto al imputado cometiendo el robo, ¿qué parte está ejerciendo la carga de la prueba?"
+
+respuesta: "acusación"
+tipo: mc
+opciones_explicitas: ["acusación", "defensa", "tribunal", "testigo"]
+
+explicacion: |
+  En el proceso penal, la carga de la prueba recae sobre la parte acusadora (fiscalía) para desvirtuar la presunción de inocencia.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "basico"
+  tags: ["veredicto", "sentencia"]
+
+enunciado: "El veredicto es la decisión final que dicta el tribunal tras haber valorado las pruebas presentadas durante el juicio oral."
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  Correcto. El veredicto es el acto mediante el cual el juzgador comunica su decisión sobre la culpabilidad o inocencia del acusado.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "intermedio"
+  tags: ["etapas", "debate"]
+
+enunciado: "Ordene cronológicamente las etapas fundamentales de un juicio oral:"
+
+respuesta_orden: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
+tipo: ordenar
+opciones_explicitas: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
+
+explicacion: |
+  El juicio inicia con la presentación de las teorías del caso (apertura), sigue con la recepción de evidencia, concluye con los argumentos finales (clausura) y termina con la decisión del tribunal.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "avanzado"
+  tags: ["principios", "inmediación"]
+
+variables:
+  datos: [["El juez no estuvo presente durante el interrogatorio de un testigo clave.", "invalida"], ["El juez presenció toda la evacuación de la prueba de ADN.", "valida"]]
+  idx: uno_de([0, 1])
+
+enunciado: "Si en un juicio {datos[idx][0]}, la validez del acto procesal se considera ___."
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - datos[idx][1]
+
+explicacion: |
+  El principio de inmediación exige que el tribunal esté en contacto directo con la producción de la prueba para poder valorarla correctamente.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "juicio_oral"
+  nivel: "intermedio"
+  tags: ["principios", "in dubio pro reo"]
+
+enunciado: "Si la prueba presentada por la fiscalía es insuficiente y surge una duda razonable, el juez debe dictar una sentencia de ___."
+
+respuesta: "absolución"
+tipo: mc
+opciones_explicitas: ["condena", "absolución", "anulación", "suspensión"]
+
+explicacion: |
+  Bajo el principio 'in dubio pro reo', ante la duda razonable o prueba insuficiente, la decisión debe favorecer al imputado mediante la absolución.
+```
+
+## Sección: apelacion-e-instancias (25 preguntas)
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "basico"
+  tags: ["proceso_civil", "recursos"]
+
+respuesta: "recurso de apelación"
+tipo: completar
+respuestas_validas:
+  - "recurso de apelación"
+  - "apelación"
+
+enunciado: "El medio de impugnación que permite a una parte solicitar que un tribunal superior revise la resolución dictada por un juez de primera instancia se denomina ___."
+
+explicacion: |
+  El recurso de apelación es la herramienta procesal mediante la cual la parte que se siente agraviada por una sentencia solicita su revisión ante un órgano jerárquicamente superior.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "basico"
+  tags: ["jerarquia", "tribunales"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["Juez de Primera Instancia", "Tribunal de Alzada"], ["Juez de Primera Instancia", "Corte Suprema"]]
+
+opciones_explicitas: ["Juez de Primera Instancia", "Tribunal de Alzada", "Corte Suprema"]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
+
+enunciado: "En un proceso judicial estándar, cuando se interpone un recurso contra la sentencia de un {escenarios[escenario_idx][0]}, el órgano que debe conocer la cuestión es el {escenarios[escenario_idx][1]}."
+
+explicacion: |
+  La estructura judicial se organiza en instancias; la revisión de una decisión de primera instancia corresponde al tribunal de alzada o segunda instancia.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "intermedio"
+  tags: ["efectos", "suspensivo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿El efecto suspensivo en un recurso de apelación implica que la ejecución de la sentencia queda detenida hasta que el tribunal superior resuelva?"
+
+explicacion: |
+  Correcto. El efecto suspensivo impide que la sentencia se cumpla mientras el recurso de apelación está pendiente de resolución.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "intermedio"
+  tags: ["requisitos", "agravio"]
+
+respuesta: "agravio"
+tipo: completar
+respuestas_validas:
+  - "agravio"
+  - "perjuicio"
+
+enunciado: "Para que un recurso de apelación sea admisible, la parte recurrente debe demostrar la existencia de un ___, es decir, un perjuicio real derivado de la decisión judicial."
+
+explicacion: |
+  Sin la existencia de un agravio (un daño o perjuicio jurídico o material causado por la resolución), el recurso carece de objeto y debe ser rechazado.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "intermedio"
+  tags: ["procedimiento", "pasos"]
+
+opciones_explicitas: ["Interposición del recurso", "Expresión de agravios", "Elevación a la segunda instancia", "Sentencia de Alzada"]
+
+respuesta_orden: ["Interposición del recurso", "Expresión de agravios", "Elevación a la segunda instancia", "Sentencia de Alzada"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente las etapas típicas de un proceso de apelación:"
+
+explicacion: |
+  Primero se interpone el recurso, luego se fundamentan los agravios, el expediente se eleva al tribunal superior y finalmente este dicta la sentencia de segunda instancia (Alzada).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "basico"
+  tags: ["recurso", "sentencia", "segunda_instancia"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["El demandante perdió el juicio", "El demandante"], ["El juez dictó una sentencia injusta", "El demandante"]]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["El demandante", "El demandado", "El juez", "El fiscal"]
+
+enunciado: "En un proceso civil, si {datos[idx][0]}, la parte afectada puede interponer un recurso de apelación para que un tribunal superior revise la resolución. ¿Quién es el sujeto que tiene legitimación para apelar en este caso?"
+
+explicacion: |
+  El recurso de apelación es un medio de impugnación que permite a la parte que se siente agraviada por una resolución judicial solicitar que un tribunal de jerarquía superior la revise, modifique o anule.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "intermedio"
+  tags: ["requisitos", "agravio", "proceso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es obligatorio que el apelante manifieste expresamente los agravios (los errores que considera que cometió el juez) para que el recurso de apelación sea admitido?"
+
+explicacion: |
+  Para que la apelación sea válida, no basta con la disconformidad; es indispensable la fundamentación del agravio, es decir, explicar por qué la sentencia es errónea en su aplicación de la ley o en la valoración de los hechos.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "intermedio"
+  tags: ["secuencia", "proceso_judicial"]
+
+opciones_explicitas: ["Dictado de la sentencia de primera instancia", "Interposición del recurso de apelación", "Expresión de agravios", "Resolución de la Cámara/Tribal Superior"]
+
+respuesta_orden: ["Dictado de la sentencia de primera instancia", "Interposición del recurso de apelación", "Expresión de agravios", "Resolución de la Cámara/Tribal Superior"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente las etapas de un proceso judicial que incluye la revisión por una segunda instancia:"
+
+explicacion: |
+  El proceso comienza con la resolución del juez de grado, seguido por la voluntad de la parte de apelar, la fundamentación técnica de sus quejas y, finalmente, el fallo del tribunal superior.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "avanzado"
+  tags: ["efectos", "suspension", "ejecucion"]
+
+respuesta: "suspensivo"
+tipo: mc
+opciones_explicitas: ["suspensivo", "devolutivo"]
+
+enunciado: "Si un recurso de apelación se admite con un efecto tal que la ejecución de la sentencia queda paralizada hasta que el superior resuelva, ¿cómo se denomina técnicamente a ese efecto?"
+
+explicacion: |
+  El efecto suspensivo detiene la ejecución de la resolución recurrida, mientras que el efecto devolutivo permite que la sentencia se cumpla a pesar de la apelación.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "basico"
+  tags: ["sentencia", "terminacion"]
+
+respuesta: "confirmar"
+tipo: completar
+respuestas_validas:
+  - "confirmar"
+  - "revocar"
+  - "anular"
+
+enunciado: "Si el tribunal de alzada (segunda instancia) coincide con el criterio del juez de primera instancia y considera que la sentencia es correcta, su decisión será ___ la sentencia original."
+
+explicacion: |
+  Cuando el tribunal superior ratifica la decisión del inferior, se dice que la sentencia ha sido 'confirmada'. Si la cambia, la 'revoca'; si la deja sin efecto por errores de forma, la 'anula'.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "intermedio"
+  tags: ["proceso_civil", "recursos"]
+
+enunciado: "En un proceso civil, si se interpone un recurso de apelación con efecto suspensivo, la ejecución de la sentencia ___."
+
+respuesta: "se suspende"
+tipo: completar
+respuestas_validas:
+  - "se suspende"
+  - "queda suspendida"
+
+explicacion: |
+  El efecto suspensivo detiene la ejecución de la sentencia hasta que el tribunal superior resuelva el recurso.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "avanzado"
+  tags: ["principios_procesales", "limitacion_tribunal"]
+
+respuesta: "El tribunal no puede resolver sobre temas no apelados"
+tipo: mc
+opciones_explicitas: ["El tribunal puede resolver sobre temas no apelados", "El tribunal no puede resolver sobre temas no apelados"]
+
+enunciado: "De acuerdo al principio de congruencia, en segunda instancia, ___."
+
+explicacion: |
+  El tribunal de alzada está limitado por la materia de la apelación (principio de congrucia), no pudiendo extender su conocimiento a cuestiones que no hayan sido objeto de impugnación.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "basico"
+  tags: ["garantias", "derechos_fundamentales"]
+
+enunciado: "El derecho a la doble instancia es considerado una garantía fundamental en los sistemas procesales modernos. ¿Es esto correcto?"
+
+respuesta: verdadero
+tipo: vf
+explicacion: |
+  La doble instancia permite que un órgano superior revise la aplicación de la ley o la valoración de la prueba realizada por el juez de primera instancia.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "intermedio"
+  tags: ["procedimiento", "etapas"]
+
+variables:
+  pasos_ordenados: ["Interposición del recurso", "Expresión de agravios", "Resolución de la Alzada"]
+
+enunciado: "Ordene cronológicamente las etapas típicas de un recurso de apelación:"
+
+pasos:
+  - "Interposición del recurso"
+  - "Expresión de agravios"
+  - "Resolución de la Alzada"
+
+respuesta_orden: ["Interposición del recurso", "Expresión de agravios", "Resolución de la Alzada"]
+tipo: ordenar
+opciones_explicitas: ["Interposición del recurso", "Expresión de agravios", "Resolución de la Alzada"]
+
+explicacion: |
+  Primero se presenta el recurso, luego se fundamentan los errores (agravios) y finalmente el tribunal superior decide.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "intermedio"
+  tags: ["agravios", "errores_comunes"]
+
+variables:
+  errores: ["reiterar los argumentos de la demanda sin criticar la sentencia", "presentar argumentos nuevos que no fueron debatidos en primera instancia"]
+  idx: uno_de([0, 1])
+
+enunciado: "Un error común que puede llevar a la improcedencia de un recurso de apelación es ___."
+
+respuesta: errores[idx]
+tipo: completar
+respuestas_validas:
+  - "reiterar los argumentos de la demanda sin criticar la sentencia"
+  - "presentar argumentos nuevos que no fueron debatidos en primera instancia"
+
+explicacion: |
+  La apelación requiere la crítica concreta y concreta de los fundamentos de la sentencia. Simplemente repetir lo dicho en la demanda no constituye un agravio jurídico.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "basico"
+  tags: ["recursos", "instancias", "proceso_civil"]
+
+respuesta: "revisión"
+tipo: completar
+respuestas_validas:
+  - "revisión"
+  - "revisar"
+  - "revisar la sentencia"
+
+enunciado: "A diferencia de la reposición, que busca que el mismo juez corrija su decisión, la apelación tiene como finalidad la ___ de la sentencia por un tribunal de jerarquía superior."
+
+explicacion: |
+  La apelación busca que un tribunal superior (segunda instancia) revise la resolución del juez de primera instancia para corregir posibles errores de hecho o de derecho.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "intermedio"
+  tags: ["instancia", "recurso", "jerarquia"]
+
+variables:
+  escenario: uno_de([["apelación", "recurso", "instancia"], ["reposición", "recurso", "instancia"], ["casación", "recurso", "instancia"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["recurso", "instancia", "sentencia"]
+
+enunciado: "En el sistema judicial, la apelación es un ___ que permite pasar de la primera a la segunda instancia."
+
+explicacion: |
+  La apelación es el medio o recurso procesal que habilita el ejercicio de la segunda instancia, permitiendo que un órgano superior revise lo decidido.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "avanzado"
+  tags: ["efectos", "suspensivo", "devolutivo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si un recurso de apelación se concede con efecto suspensivo, la ejecución de la sentencia queda paralizada hasta que el tribunal superior resuelva."
+
+explicacion: |
+  Es verdadero. El efecto suspensivo impide que la sentencia se cumpla mientras el recurso está pendiente, a diferencia del efecto devolutivo, que permite la ejecución pero deja la posibilidad de reparación posterior.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "basico"
+  tags: ["jerarquia", "tribunales"]
+
+respuesta_orden: ["Sentencia de Primera Instancia", "Sentencia de Segunda Instancia", "Sentencia de Casación"]
+tipo: ordenar
+opciones_explicitas: ["Sentencia de Primera Instancia", "Sentencia de Segunda Instancia", "Sentencia de Casación"]
+
+enunciado: "Ordene los niveles de revisión jerárquica de una controversia jurídica, desde el tribunal que dicta la resolución inicial hasta el tribunal de máxima instancia."
+
+explicacion: |
+  El proceso sigue un orden ascendente: primero el juez de grado (1ra instancia), luego el tribunal de alzada (2da instancia) y finalmente la Corte Suprema o Tribunal de Casación.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "intermedio"
+  tags: ["revisión", "hechos", "derecho"]
+
+respuesta: "derecho"
+tipo: completar
+respuestas_validas:
+  - "derecho"
+  - "norma"
+
+enunciado: "Mientras que la apelación en sede ordinaria permite revisar tanto los hechos como el ___ aplicado, la casación suele limitarse estrictamente a la correcta aplicación de la ley."
+
+explicacion: |
+  La apelación es un recurso amplio que permite la revisión de la valoración de la prueba (hechos) y de la aplicación de la norma (derecho), mientras que la casación es un recurso extraordinario de estricto derecho.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "intermedio"
+  tags: ["recurso", "instancia", "proceso"]
+
+variables:
+  datos: [["La sentencia de primera instancia fue desfavorables para el demandante", "apelacion"], ["El juez cometió un error de procedimiento en el juicio", "apelacion"], ["La contraparte presentó pruebas nuevas que no fueron valoradas", "apelacion"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "En el caso planteado, donde {datos[idx][0]}, la parte afectada decide interponer un recurso de {datos[idx][1]} para que un tribunal superior revise la resolución."
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "apelacion"
+
+explicacion: |
+  El recurso de apelación es el medio de impugnación que permite que un tribunal de jerarquía superior (segunda instancia) revise la resolución dictada por un juez de primera instancia, con el fin de que la modifique, revoque o anule.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "intermedio"
+  tags: ["efectos", "suspensivo", "devolutivo"]
+
+variables:
+  datos: [["suspensivo", "La ejecución de la sentencia se detiene hasta que el superior resuelva."], ["devolutivo", "La sentencia se puede ejecutar aunque se haya apelado."]]
+  idx: uno_de([0, 1])
+
+enunciado: "Si el recurso de apelación se admite con efecto {datos[idx][0]}, significa que {datos[idx][1]}"
+
+respuesta: datos[idx][0]
+tipo: mc
+opciones_explicitas: ["suspensivo", "devolutivo"]
+
+explicacion: |
+  El efecto suspensivo impide la ejecución de la sentencia mientras el tribunal superior decide. El efecto devolutivo permite que la sentencia se cumpla a pesar de la impugnación.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "basico"
+  tags: ["instancias", "jerarquia"]
+
+variables:
+  orden_instancias: [["Juzgado de Primera Instancia", "Tribunal de Alzada (Segunda Instancia)", "Corte Suprema"]]
+
+enunciado: "Ordene correctamente el flujo jerárquico de la revisión judicial desde el inicio del conflicto hasta la máxima autoridad."
+
+respuesta_orden: ["Juzgado de Primera Instancia", "Tribunal de Alzada (Segunda Instancia)", "Corte Suprema"]
+tipo: ordenar
+opciones_explicitas: ["Juzgado de Primera Instancia", "Tribunal de Alzada (Segunda Instancia)", "Corte Suprema"]
+
+explicacion: |
+  El sistema judicial se organiza en instancias: la primera instancia es donde se inicia el juicio y se dicta la primera sentencia; la segunda instancia (o alzada) es la revisión por un tribunal superior.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "basico"
+  tags: ["impugnacion", "derecho_defensa"]
+
+enunciado: "Si una sentencia ha sido dictada con violación al debido proceso, ¿es jurídicamente posible impugnarla mediante un recurso de apelación?"
+
+respuestas_validas:
+  - "se puede apelar"
+respuesta: "se puede apelar"
+tipo: completar
+explicacion: |
+  La apelación es un derecho fundamental derivado del principio de la doble instancia, que permite corregir errores de hecho o de derecho cometidos por el juez de primera instancia.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "apelacion_e_instancias"
+  nivel: "intermedio"
+  tags: ["tribunal", "alzada", "revisión"]
+
+variables:
+  datos: [["Tribunal de Alzada", "Tribunal de Segunda Instancia"], ["Tribunal de Alzada", "Corte de Apelaciones"]]
+  idx: uno_de([0, 1])
+
+enunciado: "El órgano encargado de revisar la sentencia dictada por el juez de primera instancia es conocido comúnmente como {datos[idx][0]}."
+
+respuesta: datos[idx][0]
+tipo: mc
+opciones_explicitas: ["Tribunal de Alzada", "Corte de Apelaciones", "Juzgado de Letras"]
+
+explicacion: |
+  El tribunal de alzada es el órgano colegiado que tiene la competencia para revisar lo actuado en la primera instancia, garantizando el derecho a la revisión judicial.
+```
+
+## Sección: ejecucion-de-la-sentencia (25 preguntas)
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "basico"
+  tags: ["proceso", "sentencia", "firmeza"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una sentencia queda 'firme' cuando ya no admite recursos contra ella y es de cumplimiento obligatorio."
+
+explicacion: |
+  La firmeza es el estado procesal que permite pasar de la etapa de conocimiento a la de ejecución.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "basico"
+  tags: ["ejecucion", "mandamiento"]
+
+tipo: mc
+opciones_explicitas: ["el mandamiento de ejecución", "la notificación de la sentencia", "el recurso de apelación", "la demanda inicial"]
+
+respuesta: "el mandamiento de ejecución"
+
+enunciado: "Si la sentencia ordena el pago de una suma de dinero y el demandado no lo hace, el actor debe solicitar el ___ para iniciar la vía de apremio."
+
+explicacion: |
+  El mandamiento de ejecución es la orden judicial que ordena cumplir lo decidido bajo apercibimiento de ejecución forzada.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "intermedio"
+  tags: ["título", "ejecución"]
+
+respuesta: "título ejecutivo"
+tipo: completar
+respuestas_validas:
+  - "título ejecutivo"
+
+enunciado: "Para iniciar la fase de ejecución, es requisito indispensable contar con un ___ que sea exigible y que esté debidamente firme."
+
+explicacion: |
+  Sin un título que contenga una obligación de dar, hacer o no hacer, y que esté firme, no se puede avanzar a la ejecución.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "intermedio"
+  tags: ["secuencia", "etapas"]
+
+respuesta_orden: ["notificación", "mandamiento", "embargo", "remate"]
+tipo: ordenar
+
+opciones_explicitas: ["notificación", "mandamiento", "embargo", "remate"]
+
+enunciado: "Ordene cronológicamente las etapas típicas de una ejecución de sentencia de dinero:"
+
+explicacion: |
+  Primero se notifica, luego se libra el mandamiento, se procede al embargo de bienes y finalmente al remate para convertir los bienes en dinero.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "basico"
+  tags: ["naturaleza", "proceso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La ejecución de sentencia es un proceso totalmente independiente y nuevo, que no guarda relación con el juicio de conocimiento anterior."
+
+explicacion: |
+  Es una continuación del proceso anterior (fase de ejecución) para hacer efectivo el derecho ya reconocido en la sentencia.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "intermedio"
+  tags: ["procedimiento", "firmeza"]
+
+variables:
+  escenario: uno_de([["La sentencia de alimentos fue dictada pero el demandado apeló y la cámara confirmó la resolución.", "firme"], ["El juez dictó sentencia, pero el plazo para interponer recursos venció sin que ninguna parte se presentara.", "firme"]])
+
+enunciado: "En el escenario descrito, la sentencia se considera {escenario[1]}."
+
+respuesta: escenario[1]
+tipo: completar
+explicacion: |
+  Una sentencia queda firme cuando ya no es susceptible de ser impugnada, ya sea porque se agotaron las instancias o porque los plazos para recurrir han vencido.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "intermedio"
+  tags: ["mandamiento", "oficial"]
+
+variables:
+  accion_tipo: uno_de([["el embargo de bienes", "embargo"], ["el desalojo del inmueble", "lanzamiento"]])
+
+enunciado: "Para hacer cumplir la sentencia que ordena {accion_tipo[0]}, el juez debe librar un mandamiento de {accion_tipo[1]}."
+
+pasos:
+  - "Se solicita la ejecución al juez."
+  - "El juez libra el mandamiento (orden judicial)."
+  - "El oficial de justicia diligencia el mandamiento para cumplir la orden."
+
+respuesta: accion_tipo[1]
+tipo: completar
+respuestas_validas:
+  - "embargo"
+  - "lanzamiento"
+
+explicacion: |
+  El mandamiento es el instrumento que ordena la ejecución forzada. Si es sobre bienes, es de embargo; si es sobre la posesión de un bien, es de lanzamiento o desalojo.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "avanzado"
+  tags: ["embargo", "medidas"]
+
+enunciado: "Si la sentencia ya está firme y el deudor no paga voluntariamente, la medida de embargo que se aplica es de carácter:"
+
+opciones_explicitas: ["preventivo", "ejecutivo", "cautelar"]
+
+respuesta: "ejecutivo"
+tipo: mc
+
+explicacion: |
+  El embargo preventivo busca asegurar bienes antes de la sentencia; el embargo ejecutivo busca la realización de esos bienes para satisfacer el crédito ya reconocido en una sentencia firme.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "intermedio"
+  tags: ["pasos", "procedimiento"]
+
+opciones_explicitas: ["Librar mandamiento de ejecución", "Traba de embargo sobre bienes", "Subasta pública de los bienes", "Entrega del dinero al acreedor"]
+respuesta_orden: ["Librar mandamiento de ejecución", "Traba de embargo sobre bienes", "Subasta pública de los bienes", "Entrega del dinero al acreedor"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente los pasos del proceso de ejecución de una sentencia que condena al pago de una suma de dinero:"
+
+explicacion: |
+  El proceso de ejecución sigue una lógica de: Orden judicial -> Aseguramiento de bienes -> Venta de bienes -> Pago al acreedor.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "avanzado"
+  tags: ["defensas", "excepciones"]
+
+variables:
+  defensa: uno_de([["El deudor alega que ya pagó la deuda antes de la sentencia.", "pago"], ["El deudor alega que la sentencia es nula por falta de notificación.", "nulidad"]])
+
+enunciado: "Si el deudor presenta una defensa basada en que {defensa[0]}, se está oponiendo mediante una excepción de {defensa[1]}."
+
+respuesta: defensa[1]
+tipo: completar
+respuestas_validas:
+  - "pago"
+  - "nulidad"
+
+explicacion: |
+  En la etapa de ejecución, el deudor puede oponer excepciones (defensas) limitadas, como el pago total o parcial, la prescripción o la nulidad del título/procedimiento.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "basico"
+  tags: ["procedimiento", "cosa_juzgada"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Una sentencia que aún puede ser apelada (es decir, que no ha quedado firme) puede ser objeto de ejecución forzada para el cumplimiento de la obligación principal?"
+
+explicacion: |
+  Para que una sentencia sea ejecutable de forma definitiva, debe haber quedado firme (cosa juzgada). Si bien existen medidas cautelares o ejecuciones provisionales en ciertos casos, la regla general es que la ejecución definitiva requiere que no existan recursos pendientes que puedan modificar el contenido de la decisión.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "intermedio"
+  tags: ["sujeto", "impulso_procesal"]
+
+variables:
+  escenario: uno_de([["El actor debe solicitar la ejecución", "El juez debe actuar de oficio"], ["El demandado debe pedir el cumplimiento", "El secretario debe iniciar el embargo"]])
+
+respuesta: escenario[0]
+tipo: mc
+opciones_explicitas: ["El actor debe solicitar la ejecución", "El juez debe actuar de oficio", "El demandado debe pedir el cumplimiento", "El secretario debe iniciar el embargo"]
+
+enunciado: "Una vez que la sentencia ha quedado firme, ¿cuál es la carga procesal respecto al inicio de la fase de ejecución?"
+
+explicacion: |
+  En el derecho procesal civil, rige el principio dispositivo. El juez no inicia la ejecución de la sentencia de oficio; es el actor (el vencedor) quien debe promover la ejecución para que se haga cumplir lo juzgado.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "intermedio"
+  tags: ["medidas_precautorias", "embargo"]
+
+respuesta: "Título Ejecutivo"
+tipo: completar
+respuestas_validas:
+  - "Título Ejecutivo"
+  - "Sentencia Firme"
+  - "Mandamiento"
+
+enunciado: "Para que el oficial de justicia pueda proceder al embargo de bienes del deudor, el acreedor debe presentar ante el juzgado el ___."
+
+explicacion: |
+  La ejecución requiere un título que sea hábil para permitir el mandamiento de ejecución y embargo. La sentencia firme constituye dicho título ejecutivo.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "avanzado"
+  tags: ["procedimiento", "secuencia"]
+
+respuesta_orden: ["Sentencia firme", "Mandamiento de ejecución", "Embargo de bienes", "Subasta judicial"]
+tipo: ordenar
+opciones_explicitas: ["Sentencia firme", "Mandamiento de ejecución", "Embargo de bienes", "Subasta judicial"]
+
+enunciado: "Ordene cronológicamente las etapas típicas de un proceso de ejecución de sentencia de cumplimiento dinerario:"
+
+explicacion: |
+  El proceso comienza con la firmeza de la sentencia, sigue con la orden judicial (mandamiento/intimación), la afectación de bienes (embargo) y finalmente la realización de los bienes para pagar la deuda (subasta).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "basico"
+  tags: ["cumplimiento", "plazos"]
+
+respuesta: "el plazo para el cumplimiento voluntario ha vencido"
+tipo: mc
+opciones_explicitas: ["el plazo para el cumplimiento voluntario ha vencido", "el demandado ha apelado la sentencia", "la sentencia es nula", "el juez ha dictado una medida cautelar"]
+
+enunciado: "Para que el acreedor pueda instar la ejecución forzada ante el incumplimiento, ¿qué condición debe cumplirse respecto al plazo de cumplimiento voluntario?"
+
+explicacion: |
+  La ejecución forzada es la vía subsidiaria que se activa precisamente cuando el plazo otorgado para el cumplimiento espontáneo ha expirado sin que el deudor haya satisfecho la prestación.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "intermedio"
+  tags: ["derecho_procesal", "cosa_juzgada"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando una sentencia ha quedado firme, adquiere la autoridad de cosa juzgada, lo que significa que no puede ser revisada por el mismo juez o tribunal en el mismo proceso."
+
+explicacion: |
+  La firmeza de la sentencia es el presupuesto necesario para la ejecución forzada, ya que la cosa juzgada garantiza la seguridad jurídica e impide la reiteración de litigios sobre el mismo objeto.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "basico"
+  tags: ["cumplimiento", "ejecucion"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["El deudor paga la deuda por su cuenta antes de que se pida el embargo.", "cumplimiento_voluntario"], ["El acreedor debe pedir al juez que intervenga para obligar al pago mediante embargo.", "ejecucion_forzada"]]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["cumplimiento_voluntario", "ejecucion_forzada"]
+
+enunciado: "Si el deudor se niega a cumplir la sentencia y el acreedor debe recurrir a la fuerza pública o medidas coercitivas para hacer efectiva su pretensión, estamos ante un caso de: ___"
+
+explicacion: |
+  El cumplimiento voluntario ocurre cuando la parte obligada satisface la prestación por su propia voluntad. La ejecución forzada es la respuesta ante la resistencia o el incumplimiento.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "intermedio"
+  tags: ["juez", "jurisdiccion"]
+
+respuesta: "el juez"
+tipo: completar
+respuestas_validas:
+  - "el juez"
+
+enunciado: "A diferencia de la etapa de conocimiento donde el juez decide el derecho, en la etapa de ejecución, ___ es quien debe dirigir las medidas para asegurar el cumplimiento de lo ordenado."
+
+explicacion: |
+  Aunque las partes impulsan el proceso, el juez mantiene el control de la legalidad de las medidas de ejecución (como embargos o lanzamientos) para evitar arbitrariedades.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "avanzado"
+  tags: ["requisitos", "sentencia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es necesario que la sentencia sea líquida (que el monto sea determinado) para poder proceder a un embargo preventivo o ejecutivo de inmediato?"
+
+explicacion: |
+  No necesariamente. Si la sentencia es ilíquida, primero debe pasar por una etapa de liquidación para determinar el monto exacto antes de la ejecución forzada del pago.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "intermedio"
+  tags: ["procedimiento", "etapas"]
+
+respuesta_orden: ["Sentencia firme", "Mandamiento de ejecución", "Embargo", "Remate"]
+tipo: ordenar
+opciones_explicitas: ["Sentencia firme", "Mandamiento de ejecución", "Embargo", "Remate"]
+
+enunciado: "Ordene cronológicamente las etapas típicas de un proceso de ejecución de sentencia de cumplimiento dinerario:"
+
+explicacion: |
+  Primero se requiere la firmeza (cosa juzgada), luego se emite el mandamiento (orden judicial), se procede al embargo de bienes y finalmente el remate para convertir los bienes en dinero.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "intermedio"
+  tags: ["proceso_civil", "sentencia_firme"]
+
+variables:
+  datos: [["La sentencia ordena el pago de $100.000", "Mandamiento de ejecución"], ["La sentencia ordena el desalojo de un inmueble", "Lanzamiento"], ["La sentencia ordena la entrega de un vehículo", "Secuestro"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Mandamiento de ejecución", "Lanzamiento", "Secuestro", "Embargo preventivo"]
+
+enunciado: "Una vez que la sentencia ha quedado firme y no admite más recursos, el actor debe iniciar la etapa de ejecución. Si el escenario es: {datos[idx][0]}, el acto procesal correspondiente es un: ___."
+
+explicacion: |
+  Cuando la sentencia está firme, se pasa de la etapa de conocimiento a la de ejecución. El instrumento que habilita el cumplimiento forzado depende de la naturaleza de la obligación (dar, hacer o no hacer).
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "basico"
+  tags: ["requisitos", "firmeza"]
+
+variables:
+  estados: ["firme", "apelada"]
+  valores: [verdadero, falso]
+  idx: uno_de([0,1])
+
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Para que una sentencia pueda ser ejecutada forzadamente, debe haber quedado firme, es decir, que no existan recursos pendientes de resolución. Si la sentencia se encuentra {estados[idx]}, ¿es posible iniciar la ejecución?"
+
+explicacion: |
+  La ejecución de una sentencia requiere la certeza del derecho, la cual se obtiene cuando la sentencia queda firme (cosa juzgada), impidiendo que la parte vencida pueda modificar la decisión mediante recursos ordinarios.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "intermedio"
+  tags: ["embargo", "bienes"]
+
+variables:
+  datos: [["Deuda de dinero", "embargo"], ["Restitución de un bien mueble", "secuestro"], ["Obligación de hacer", "apercibimiento"]]
+  idx: uno_de([0,1,2])
+
+respuestas_validas:
+  - datos[idx][1]
+respuesta: datos[idx][1]
+tipo: completar
+
+enunciado: "En el proceso de ejecución, si el objeto de la sentencia es el cumplimiento de una obligación de dar sumas de dinero y el deudor no paga voluntariamente, el acreedor puede solicitar un: ___."
+
+explicacion: |
+  El embargo es la medida cautelar ejecutiva que recae sobre bienes del deudor para asegurar el cumplimiento de una sentencia de pago de dinero.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "avanzado"
+  tags: ["secuencia", "procedimiento"]
+
+tipo: ordenar
+opciones_explicitas: ["Sentencia firme", "Mandamiento/Citación de ejecución", "Embargo", "Remate/Subasta"]
+respuesta_orden: ["Sentencia firme", "Mandamiento/Citación de ejecución", "Embargo", "Remate/Subasta"]
+
+enunciado: "Ordene cronológicamente las etapas necesarias para el cumplimiento forzado de una obligación de dar dinero:"
+
+explicacion: |
+  Primero se requiere la firmeza de la sentencia, luego se intima al cumplimiento mediante un mandamiento, se traban medidas sobre bienes (embargo) y finalmente se procede a la venta judicial (remate) para cobrar el crédito.
+```
+
+```
+metadata:
+  materia: "derecho"
+  tema: "ejecucion_de_la_sentencia"
+  nivel: "basico"
+  tags: ["autoridad_judicial"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "En la etapa de ejecución, el cumplimiento de la sentencia no es una facultad discrecional del acreedor, sino que requiere la intervención del órgano jurisdiccional para el uso de la fuerza pública si fuera necesario. ¿Es esto correcto?"
+
+explicacion: |
+  La ejecución es una actividad de imperio. Si el obligado no cumple voluntariamente, el Estado, a través del juez, debe intervenir para asegurar el cumplimiento de la decisión judicial.
 ```
 

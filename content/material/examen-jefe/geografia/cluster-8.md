@@ -4,532 +4,6 @@
 
 ---
 
-## Sección: recursos-hidricos-y-gestion (25 preguntas)
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "basico"
-  tags: ["agua_dulce", "distribucion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: Más del 50% del agua disponible en la Tierra es agua dulce accesible para el ser humano."
-
-explicacion: |
-  Falso. La inmensa mayoría del agua en la Tierra es salada (océanos). Solo alrededor del 2.5% es agua dulce, y de esa pequeña fracción, gran parte está inaccesible (congelada o muy profunda).
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "basico"
-  tags: ["definicion", "vida"]
-
-respuesta: "agua"
-tipo: completar
-
-enunciado: "El ______ es el elemento fundamental que sostiene la vida en nuestro planeta, pero su distribución es desigual."
-
-respuestas_validas:
-  - "agua"
-  - "El agua"
-
-explicacion: |
-  El agua es esencial para la vida y las actividades humanas. Aunque abundante en总量, su disponibilidad como recurso hídrico dulce es limitada y desigual.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "basico"
-  tags: ["conceptos_basicos", "finito"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: El agua es un bien finito y esencial para múltiples actividades económicas y sociales."
-
-explicacion: |
-  Verdadero. Aunque el agua se recicla naturalmente, la cantidad total de agua dulce utilizable en una región dada es limitada (finita) y crítica para la agricultura, industria y vida humana.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "basico"
-  tags: ["agua_subterranea", "definicion"]
-
-respuesta: "acuíferos"
-tipo: completar
-
-enunciado: "Las reservas de agua dulce subterráneas que pueden ser captadas se denominan ______."
-
-respuestas_validas:
-  - "acuíferos"
-  - "acuífero"
-
-explicacion: |
-  Los acuíferos son formaciones geológicas subterráneas que almacenan y transmiten agua dulce, constituyendo una reserva estratégica importante para el suministro humano.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "intermedio"
-  tags: ["gestion", "mitos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: Gestionar el agua ya es solo cuestión de construir represas para asegurar su sostenibilidad."
-
-explicacion: |
-  Falso. La gestión moderna del agua va más allá de la infraestructura física (represas) e incluye la protección de fuentes naturales, la conservación de ecosistemas y la regulación de usos para asegurar la sostenibilidad a largo plazo.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "basico"
-  tags: ["definicion", "agua_dulce"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: Los recursos hídricos incluyen tanto aguas superficiales (ríos, lagos) como subterráneas (acuíferos)."
-
-explicacion: |
-  Verdadero. La definición de recursos hídricos abarca todas las reservas de agua dulce accesibles, independientemente de si están en la superficie o bajo tierra.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "intermedio"
-  tags: ["contaminacion", "agroquímicos"]
-
-variables:
-  region: uno_de(["norte de Córdoba", "región pampeana"])
-
-respuesta: "degradación"
-tipo: mc
-
-enunciado: "En {region}, el uso excesivo de agroquímicos provoca la _____ de la calidad del agua."
-
-opciones_explicitas: ["mejora", "degradación", "purificación", "aumento"]
-
-explicacion: |
-  La intensa actividad agrícola en zonas como el norte de Córdoba o la región pampeana ha provocado la degradación de la calidad del agua por agroquímicos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "basico"
-  tags: ["energia", "hidroelectricidad"]
-
-variables:
-  fuente: "agua"
-
-respuesta: "energía"
-tipo: completar
-
-enunciado: "El agua es la base para la generación de _____ hidroeléctrica."
-
-respuestas_validas:
-  - "energía"
-  - "electricidad"
-
-explicacion: |
-  El agua es fundamental para la generación de energía hidroeléctrica, una fuente importante de poder en muchos países.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "basico"
-  tags: ["finito", "gestión"]
-
-variables:
-  bien: "agua"
-
-respuesta: "finito"
-tipo: completar
-
-enunciado: "El agua es un bien _____ y esencial para la vida."
-
-respuestas_validas:
-  - "finito"
-  - "limitado"
-
-explicacion: |
-  Aunque abundante en la Tierra, el agua dulce utilizable es un bien finito que requiere gestión cuidadosa.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "intermedio"
-  tags: ["cuenca", "paraná"]
-
-variables:
-  rio: "Paraná"
-
-respuesta: "Paraná"
-tipo: completar
-
-enunciado: "El caso práctico de gestión incluye la cuenca del río _____ y el Río de la Plata."
-
-respuestas_validas:
-  - "Paraná"
-  - "paraná"
-
-explicacion: |
-  La cuenca del río Paraná es un ejemplo clave de aplicación práctica en la gestión de recursos hídricos en Argentina.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "avanzado"
-  tags: ["sostenibilidad", "futuro"]
-
-variables:
-  objetivo: "sostenibilidad"
-
-respuesta: "sostenibilidad"
-tipo: completar
-
-enunciado: "Gestionar el agua implica asegurar su _____ para las futuras generaciones."
-
-respuestas_validas:
-  - "sostenibilidad"
-  - "sostenible"
-
-explicacion: |
-  La gestión moderna del agua busca proteger las fuentes naturales para garantizar su sostenibilidad a largo plazo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "intermedio"
-  tags: ["sobreexplotación", "napas"]
-
-variables:
-  accion: "extracción intensiva"
-
-respuesta: "disminución"
-tipo: mc
-
-enunciado: "La {accion} de napas subterráneas provoca la _____ de sus niveles."
-
-opciones_explicitas: ["aumento", "disminución", "estabilización", "purificación"]
-
-explicacion: |
-  La extracción intensiva de napas subterráneas ha provocado la disminución de sus niveles en varias regiones agrícolas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "basico"
-  tags: ["ecosistemas", "preservación"]
-
-variables:
-  funcion: "preservación"
-
-respuesta: "preservación"
-tipo: completar
-
-enunciado: "El agua es vital para la _____ de los ecosistemas."
-
-respuestas_validas:
-  - "preservación"
-  - "conservación"
-
-explicacion: |
-  Más allá del uso humano, el agua es esencial para mantener y preservar los ecosistemas naturales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "basico"
-  tags: ["uso_basico", "hidratación"]
-
-variables:
-  uso: "hidratación"
-
-respuesta: "hidratación"
-tipo: completar
-
-enunciado: "El agua es vital para la _____ y la higiene humana."
-
-respuestas_validas:
-  - "hidratación"
-
-explicacion: |
-  La hidratación y la higiene son usos básicos e insustituibles del agua para la supervivencia humana.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "intermedio"
-  tags: ["ejemplo", "córdoba"]
-
-variables:
-  lugar: "norte de Córdoba"
-
-respuesta: "contaminación"
-tipo: mc
-
-enunciado: "En {lugar}, la intensa actividad agrícola genera problemas de _____ del agua."
-
-opciones_explicitas: ["limpieza", "contaminación", "abundancia", "claridad"]
-
-explicacion: |
-  El norte de Córdoba es un ejemplo de zona donde la actividad agrícola intensa provoca contaminación del agua por agroquímicos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "avanzado"
-  tags: ["patagonia", "glaciares"]
-
-variables:
-  region: "Patagonia"
-
-respuesta: "deshielo"
-tipo: completar
-
-enunciado: "En {region}, el deshielo de los glaciares altera los caudales."
-
-respuestas_validas:
-  - "deshielo"
-  - "descongelamiento"
-
-explicacion: |
-  La Patagonia enfrenta cambios en sus caudales debido al deshielo de sus glaciares, afectado por el cambio climático.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "avanzado"
-  tags: ["geopolítica", "desafío"]
-
-variables:
-  desafio: "geopolítico"
-
-respuesta: "geopolítico"
-tipo: completar
-
-enunciado: "La gestión del agua en Argentina es un desafío _____ y ambiental constante."
-
-respuestas_validas:
-  - "geopolítico"
-  - "geopolitico"
-
-explicacion: |
-  La desigual distribución del agua convierte su gestión en un desafío geopolítico constante debido a las disputas entre provincias.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "intermedio"
-  tags: ["clima", "lluvia"]
-
-variables:
-  elemento: "patrones de lluvia"
-
-respuesta: "alterar"
-tipo: mc
-
-enunciado: "El cambio climático está tendiendo a _____ los patrones de lluvia."
-
-opciones_explicitas: ["estabilizar", "alterar", "eliminar", "aumentar uniformemente"]
-
-explicacion: |
-  El cambio climático altera los patrones de lluvia, haciendo más impredecible la disponibilidad de agua.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "basico"
-  tags: ["agricultura", "consumo"]
-
-variables:
-  sector: "agricultura"
-
-respuesta: "mayor"
-tipo: mc
-
-enunciado: "La agricultura consume la _____ parte del agua dulce."
-
-opciones_explicitas: ["menor", "mayor", "igual", "ninguna"]
-
-explicacion: |
-  La agricultura es el sector que consume la mayor parte del agua dulce disponible para las sociedades humanas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "intermedio"
-  tags: ["conflictos", "caudal"]
-
-variables:
-  aspecto: "derecho a usar el agua"
-
-respuesta: "disputas"
-tipo: completar
-
-enunciado: "Las cuencas que atraviesan múltiples provincias generan _____ sobre el derecho a usar el agua."
-
-respuestas_validas:
-  - "disputas"
-  - "conflictos"
-
-explicacion: |
-  La transfronteridad de las cuencas genera disputas entre provincias sobre quién tiene derecho a usar el agua.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "basico"
-  tags: ["disponibilidad", "fracción"]
-
-variables:
-  cantidad: "minúscula"
-
-respuesta: "minúscula"
-tipo: mc
-
-enunciado: "Solo una fracción _____ de agua es dulce y accesible."
-
-opciones_explicitas: ["grande", "minúscula", "igual", "infinita"]
-
-explicacion: |
-  Aunque la Tierra está cubierta de agua, solo una minúscula fracción es agua dulce accesible.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "intermedio"
-  tags: ["pampeana", "extracción"]
-
-variables:
-  region: "región pampeana"
-
-respuesta: "extracción"
-tipo: completar
-
-enunciado: "En {region}, la _____ intensiva de napas es un problema."
-
-respuestas_validas:
-  - "extracción"
-  - "extraccion"
-
-explicacion: |
-  La región pampeana enfrenta problemas de degradación del agua debido a la extracción intensiva de napas subterráneas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "intermedio"
-  tags: ["gestión", "marco_legal"]
-
-variables:
-  elemento: "políticas"
-
-respuesta: "políticas"
-tipo: completar
-
-enunciado: "La gestión incluye {elemento}, leyes y acciones técnicas."
-
-respuestas_validas:
-  - "políticas"
-  - "politicas"
-
-explicacion: |
-  La gestión de los recursos hídricos se refiere al conjunto de políticas, leyes y acciones técnicas para su planificación.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "basico"
-  tags: ["geografía_argentina", "selvas"]
-
-variables:
-  zona: "selvas subtropicales"
-
-respuesta: "abundante"
-tipo: mc
-
-enunciado: "En las {zona}, la disponibilidad de agua es generalmente abundante."
-
-opciones_explicitas: ["abundante", "escasa", "nula", "salada"]
-
-explicacion: |
-  Las selvas subtropicales en el norte de Argentina tienen una disponibilidad de agua generalmente abundante.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_hidricos_y_gestion"
-  nivel: "basico"
-  tags: ["geografía_argentina", "desiertos"]
-
-variables:
-  zona: "desiertos áridos"
-
-respuesta: "escasa"
-tipo: mc
-
-enunciado: "En los {zona}, la disponibilidad de agua es escasa."
-
-opciones_explicitas: ["abundante", "escasa", "neutral", "variable"]
-
-explicacion: |
-  Los desiertos áridos en Argentina presentan una disponibilidad de agua muy escasa, contrastando con otras regiones.
-```
-
 ## Sección: riesgos-naturales-argentinos (24 preguntas)
 
 ```
@@ -2565,5 +2039,476 @@ enunciado: "El turismo es una de las pocas actividades económicas presentes en 
 
 explicacion: |
   Desde las grandes ciudades hasta las áreas rurales más aisladas, la actividad turística tiene una presencia geográfica muy amplia.
+```
+
+## Sección: urbanizacion-migracion-ciudad (25 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["historia", "revolucion_industrial"]
+
+respuesta: "Revolución Industrial"
+tipo: completar
+respuestas_validas:
+  - "Revolución Industrial"
+
+enunciado: "El proceso de crecimiento acelerado de las ciudades, conocido como urbanización, se vio fuertemente impulsado por la ___."
+
+explicacion: |
+  La Revolución Industrial provocó un éxodo masivo del campo a la ciudad debido a la mecanización de la agricultura y la creación de fábricas en los núcleos urbanos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["migracion", "causas"]
+
+respuesta: "atracción por empleos industriales"
+tipo: mc
+opciones_explicitas: ["falta de tierras y mecanización agrícola", "atracción por empleos industriales", "Crecimiento natural de la población urbana", "Políticas de vivienda"]
+
+enunciado: "En un contexto de urbanización acelerada, un factor de \"atracción\" (pull) que impulsa la migración desde el campo hacia la ciudad es: ___."
+
+explicacion: |
+  La migración suele responder a un factor de "expulsión" (lo que sucede en el origen) y un factor de "atracción" (lo que ofrece el destino).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["demografia", "densidad"]
+
+respuesta: 85
+tipo: completar
+tolerancia_abs: 5
+
+enunciado: "Si una ciudad tiene una superficie de 100 km² y una población de 8500 habitantes, ¿cuál es su densidad de población (habitantes por km²)? (Redondea al entero más cercano)"
+
+pasos:
+  - "Identificar la población total: 8500"
+  - "Identificar la superficie: 100 km²"
+  - "Dividir población / superficie: 8500 / 100"
+
+explicacion: |
+  La densidad de población se calcula dividiendo el número total de habitantes por la superficie territorial: 8500 / 100 = 85 hab/km².
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "avanzado"
+  tags: ["procesos", "urbanismo"]
+
+respuesta_orden: ["Consolidación del núcleo urbano", "Crecimiento de la zona industrial", "Densificación del centro", "Expansión de la periferia"]
+tipo: ordenar
+opciones_explicitas: ["Expansión de la periferia", "Densificación del centro", "Crecimiento de la zona industrial", "Consolidación del núcleo urbano"]
+
+enunciado: "Ordena cronológicamente las fases típicas de una ciudad que experimenta un crecimiento acelerado por la industrialización:"
+
+explicacion: |
+  El proceso suele comenzar con un núcleo consolidado, seguido por la creación de zonas industriales, la densificación del centro para albergar trabajadores y, finalmente, la expansión hacia la periferia.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["consecuencias", "social"]
+
+respuesta: "Desigualdad social"
+tipo: mc
+opciones_explicitas: ["Crecimiento demográfico natural", "Desigualdad social", "Despoblación de las metrópolis", "Migración estacional"]
+
+enunciado: "Un efecto común de la urbanización rápida y descontrolada es: ___."
+
+explicacion: |
+  Cuando la población urbana crece más rápido que la capacidad de la ciudad para proveer servicios y vivienda, surgen problemas como el hacinamiento o la falta de infraestructura.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["migracion", "campo", "ciudad"]
+
+tipo: mc
+opciones_explicitas: ["Falta de servicios y empleo en el campo", "Exceso de recursos naturales en la ciudad", "Deseo de vivir en zonas con menos población"]
+respuesta: "Falta de servicios y empleo en el campo"
+enunciado: "Uno de los principales motores que impulsa el éxodo rural hacia las grandes urbes es la ___."
+explicacion: |
+  La migración rural-urbana suele ser motivada por factores de 'expulsión' en el campo (falta de trabajo, servicios o tierras) y factores de 'atracción' en la ciudad (ofertas laborales y mejores servicios).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["urbanizacion", "crecimiento"]
+
+tipo: mc
+opciones_explicitas: ["crecimiento_planificado", "crecimiento_desordenado"]
+respuesta: "crecimiento_desordenado"
+
+enunciado: "Cuando la migración hacia la ciudad es masiva y rápida, suele producirse un ___ que genera problemas de vivienda."
+
+explicacion: |
+  El crecimiento desordenado ocurre cuando la infraestructura urbana no puede seguir el ritmo de la llegada de nuevos habitantes, derivando en asentamientos informales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["demografia", "poblacion"]
+
+tipo: completar
+respuestas_validas:
+  - "industrialización"
+  - "agricultura"
+
+enunciado: "Históricamente, el proceso de migración del campo a la ciudad ha estado estrechamente vinculado al proceso de ___."
+
+explicacion: |
+  La Revolución Industrial demandó mano de obra masiva en las ciudades para las fábricas, lo que aceleró el traslado de la población rural al ámbito urbano.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["proceso", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["Búsqueda de empleo en la ciudad", "Dificultades económicas en el sector rural", "Asentamiento en la periferia urbana"]
+
+enunciado: "Ordena cronológicamente las etapas típicas de un proceso de migración rural-urbana:"
+
+explicacion: |
+  Primero surge la necesidad o dificultad en el origen (campo), luego se realiza el traslado buscando oportunidades y finalmente se establece la residencia en la zona de destino (ciudad).
+respuesta_orden: ["Dificultades económicas en el sector rural", "Búsqueda de empleo en la ciudad", "Asentamiento en la periferia urbana"]
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "avanzado"
+  tags: ["economia", "servicios"]
+
+tipo: mc
+opciones_explicitas: ["alta densidad", "baja densidad"]
+respuesta: "alta densidad"
+
+enunciado: "La llegada masiva de personas a las urbes provoca un aumento de la ___ en los centros urbanos."
+
+explicacion: |
+  La concentración de población en áreas limitadas aumenta la densidad demográfica, lo que puede sobrecargar los servicios públicos y el mercado laboral.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["servicios", "urbanismo"]
+
+respuesta: "saturación"
+tipo: completar
+respuestas_validas:
+  - "saturación"
+  - "colapso"
+
+enunciado: "Cuando la migración hacia las ciudades es más rápida de lo que el Estado puede planificar, se produce una ___ de los servicios públicos como el agua potable y el transporte."
+
+explicacion: |
+  La urbanización acelerada genera una demanda de infraestructura que supera la capacidad de respuesta de la ciudad, provocando la saturación de los servicios básicos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["consecuencias", "barrios_precarios"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["crecimiento de asentamientos informales", "falta de planificación urbana"], ["aumento de la contaminación", "congestión vehicular"]]
+
+respuesta: escenarios[escenario_idx][0]
+tipo: mc
+opciones_explicitas: ["crecimiento de asentamientos informales", "falta de planificación urbana", "aumento de la contaminación", "congestión vehicular"]
+
+enunciado: "La expansión descontrolada de la mancha urbana hacia las periferias suele derivar en ___."
+
+explicacion: |
+  La falta de regulación y el rápido crecimiento demográfico llevan a la formación de barrios precarios o asentamientos informales en zonas no planificadas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["oportunidades", "empleo"]
+
+respuesta: "empleo"
+tipo: mc
+opciones_explicitas: ["empleo", "aislamiento", "subsistencia", "degradación"]
+
+enunciado: "Uno de los principales motores de la migración campo-ciudad es la búsqueda de mejores oportunidades de _________ y acceso a servicios especializados."
+
+explicacion: |
+  Las ciudades concentran la mayor parte de la actividad económica, ofreciendo una mayor diversidad de empleo en comparación con las zonas rurales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["procesos", "secuencia"]
+
+respuesta_orden: ["migración rural", "crecimiento demográfico", "expansión urbana", "asentamientos informales"]
+tipo: ordenar
+opciones_explicitas: ["migración rural", "crecimiento demográfico", "expansión urbana", "asentamientos informales"]
+
+enunciado: "Ordena cronológicamente los elementos que suelen caracterizar un proceso de urbanización acelerada no planificada:"
+
+pasos:
+  - "Movimiento de personas desde el campo a la ciudad."
+  - "Aumento de la población en el área metropolitana."
+  - "Ocupación de terrenos periféricos por la ciudad."
+  - "Formación de barrios con servicios deficientes."
+
+explicacion: |
+  El proceso suele iniciar con la migración, seguido por el aumento de población, la expansión física de la ciudad y, finalmente, la consolidación de barrios precarios por la falta de servicios.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "avanzado"
+  tags: ["dualidad", "urbanismo"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  casos: [["positiva", "acceso a educación"], ["negativa", "hacinamiento"]]
+
+respuesta: casos[caso_idx][1]
+tipo: mc
+opciones_explicitas: ["positiva", "acceso a educación", "negativa", "hacinamiento"]
+
+enunciado: "La urbanización es un proceso dual: puede tener una consecuencia {casos[caso_idx][0]} como el ___."
+
+explicacion: |
+  La urbanización presenta una dualidad: por un lado, ofrece ventajas como el acceso a educación y salud; por otro, presenta desafíos como el hacinamiento y la falta de servicios.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["demografia", "urbanizacion"]
+
+respuesta: "urbana"
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Históricamente, la mayor parte de la población mundial vivía en entornos de carácter _____, pero en la actualidad la tendencia se ha invertido."
+
+explicacion: |
+  La transición de una sociedad mayoritariamente rural a una urbana es uno de los procesos demográficos más significativos de la historia moderna.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["poblacion", "ciudades"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[55, "más de la mitad"], [50, "exactamente la mitad"]]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["menos de la mitad", "exactamente la mitad", "más de la mitad", "casi la totalidad"]
+
+enunciado: "En la actualidad, la población mundial es, aproximadamente, ___ urbana."
+
+explicacion: |
+  Hoy en día, la tendencia global muestra que la población urbana ha superado el umbral del 50% de la población total del planeta.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["migracion", "causas"]
+
+respuesta_orden: ["Industrialización", "Migración rural", "Crecimiento natural urbano"]
+tipo: ordenar
+
+opciones_explicitas: ["Migración rural", "Industrialización", "Crecimiento natural urbano"]
+
+enunciado: "Ordene cronológicamente los factores que impulsaron el crecimiento de las ciudades en la era moderna:"
+
+explicacion: |
+  El proceso comenzó con la migración del campo a la ciudad por la industrialización, seguido por el crecimiento demográfico dentro de las propias ciudades.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["densidad", "urbanismo"]
+
+respuesta: "densidad"
+tipo: completar
+respuestas_validas:
+  - "densidad"
+  - "extensión"
+  - "clima"
+
+enunciado: "El fenómeno de la urbanización implica una mayor ___ de población en áreas delimitadas en comparación con las zonas rurales."
+
+explicacion: |
+  La concentración de personas en núcleos urbanos genera un aumento en la densidad poblacional, lo que requiere infraestructuras más complejas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "avanzado"
+  tags: ["proyecciones", "globalizacion"]
+
+respuesta: "aumentará"
+tipo: mc
+opciones_explicitas: ["aumentará", "disminuirá", "se mantendrá igual", "desaparecerá"]
+
+enunciado: "Según las proyecciones de la ONU, la proporción de la población mundial que vive en ciudades ___ en las próximas décadas."
+
+explicacion: |
+  Se espera que el proceso de urbanización continúe, especialmente en países en vías de desarrollo, llevando la cifra urbana aún más arriba del 60% o 70%.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["migracion", "causas"]
+
+variables:
+  datos: [["La falta de infraestructura sanitaria y servicios de salud en el campo", "Mejorar la calidad de vida"], ["La mecanización de la agricultura que reduce la demanda de mano de obra", "Búsqueda de empleo"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Mejorar la calidad de vida", "Búsqueda de empleo", "Aumento de la densidad poblacional", "Contaminación acústica"]
+
+enunciado: "En el siguiente caso: {datos[idx][0]}, ¿cuál es la causa principal que impulsa la migración hacia la ciudad?"
+
+explicacion: |
+  La migración suele ser motivada por factores de "expulsión" en el origen (falta de servicios o empleo) y factores de "atracción" en el destino.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["consecuencias", "urbanismo"]
+
+variables:
+  datos: [["El crecimiento descontrolado de la periferia urbana", "Crecimiento de asentamientos informales"], ["La llegada masiva de personas en un corto periodo", "Saturación de los servicios públicos"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Crecimiento de asentamientos informales", "Saturación de los servicios públicos", "Reducción de la contaminación", "Descentralización económica"]
+
+enunciado: "Analice el siguiente fenómeno: {datos[idx][0]}. ¿Cuál es una consecuencia directa de este proceso?"
+
+explicacion: |
+  Cuando la urbanización supera la capacidad de planificación de la ciudad, se producen problemas de infraestructura y servicios.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["factores_atracción"]
+
+respuesta: "oferta educativa"
+tipo: completar
+respuestas_validas:
+  - "oferta educativa"
+  - "centros de salud"
+  - "empleo industrial"
+
+enunciado: "Uno de los principales factores de atracción de las grandes urbes para la población joven es la mayor ___."
+
+explicacion: |
+  Las ciudades concentran instituciones de enseñanza superior y técnica que no están disponibles en zonas rurales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["procesos", "secuencia"]
+
+respuesta_orden: ["Éxodo rural", "Crecimiento de la ciudad", "Expansión de la periferia"]
+tipo: ordenar
+opciones_explicitas: ["Éxodo rural", "Crecimiento de la ciudad", "Expansión de la periferia"]
+
+enunciado: "Ordene cronológicamente los procesos que caracterizan un proceso de urbanización acelerado:"
+
+explicacion: |
+  Primero ocurre el movimiento de población (éxodo), luego la ciudad se densifica y finalmente se expande hacia los bordes.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "avanzado"
+  tags: ["impacto_ambiental"]
+
+variables:
+  datos: [["La impermeabilización de suelos por el asfalto", "Aumento de la temperatura urbana"], ["La concentración de vehículos en el centro", "Creación de islas de calor"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Aumento de la temperatura urbana", "Creación de islas de calor", "Disminución de la huella de carbono", "Aumento de la biodiversidad"]
+
+enunciado: "Si observamos que {datos[idx][0]}, el fenómeno climático urbano resultante es el/la ___."
+
+explicacion: |
+  La sustitución de vegetación por materiales urbanos retiene el calor, generando el efecto de isla de calor.
 ```
 

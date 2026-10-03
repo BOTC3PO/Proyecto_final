@@ -1,1416 +1,1286 @@
 # Examen jefe — [PENDIENTE #775]
 
-> Logro #775. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **71 preguntas totales** en 5/5 secciones.
+> Logro #775. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **65 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: productividad-produccion-insumos (25 preguntas)
+## Sección: sueldo-promedio-pais (20 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "productividad_produccion_insumos"
+  tema: "sueldo_promedio_pais"
   nivel: "basico"
-  tags: ["definicion", "productividad"]
+  tags: ["distribucion_ingresos", "vocabulario"]
 
-respuesta: "productividad"
-tipo: completar
-respuestas_validas:
-  - "productividad"
-
-enunciado: "La relación técnica entre la cantidad de productos obtenidos y la cantidad de recursos o insumos utilizados para su obtención se denomina ___."
-
-explicacion: |
-  La productividad mide la eficiencia con la que se transforman los insumos (materia prima, trabajo, capital) en bienes o servicios finales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "productividad_produccion_insumos"
-  nivel: "basico"
-  tags: ["insumos", "factores_produccion"]
-
-respuesta: "Insumo"
+enunciado: "¿Por qué la distribución de ingresos de un país real no es simétrica como una campana de Gauss?"
 tipo: mc
-opciones_explicitas: ["Materia prima", "Precio de venta", "Insumo", "Demanda"]
-
-enunciado: "De acuerdo a la definición de productividad, el factor utilizado en el proceso de transformación (como la materia prima) es un ___."
+opciones_explicitas:
+  - "Porque la mayoría gana ingresos bajos o medios, mientras que una minoría chica gana muchísimo más — una 'cola larga' hacia la derecha"
+  - "Porque todos los países tienen exactamente los mismos ingresos"
+  - "Porque los ingresos siempre se distribuyen de forma perfectamente simétrica"
+respuesta: "Porque la mayoría gana ingresos bajos o medios, mientras que una minoría chica gana muchísimo más — una 'cola larga' hacia la derecha"
 
 explicacion: |
-  Los insumos son todos aquellos elementos (materiales, energía, tiempo) que se consumen o utilizan en el proceso productivo.
+  Es la asimetría que hace que la media y la mediana difieran tanto en
+  ingresos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "productividad_produccion_insumos"
+  tema: "sueldo_promedio_pais"
   nivel: "intermedio"
-  tags: ["eficiencia", "calculo"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "Si una empresa mantiene su producción constante pero logra reducir la cantidad de insumos necesarios para obtenerla, ¿ha aumentado su productividad?"
-
-explicacion: |
-  La productividad es una relación inversa respecto al insumo: a menor insumo para la misma producción, mayor es la productividad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "productividad_produccion_insumos"
-  nivel: "basico"
-  tags: ["vocabulario"]
-
-respuesta: "eficiencia"
-tipo: completar
-respuestas_validas:
-  - "eficiencia"
-
-enunciado: "Cuando una empresa utiliza la menor cantidad de recursos posibles para alcanzar un nivel de producción determinado, se dice que está operando con ___."
-
-explicacion: |
-  La eficiencia es la capacidad de alcanzar un objetivo (producción) optimizando el uso de los recursos (insumos).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "productividad_produccion_insumos"
-  nivel: "basico"
-  tags: ["flujo_produccion"]
-
-respuesta_orden: ["Insumos", "Proceso", "Productos"]
-tipo: ordenar
-opciones_explicitas: ["Insumos", "Proceso", "Productos"]
-
-enunciado: "Ordene cronológicamente las etapas del ciclo de producción que determinan la productividad:"
-
-explicacion: |
-  El flujo lógico comienza con la entrada de recursos (insumos), pasa por la transformación (proceso) y culmina en la salida (productos).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "productividad_insumos"
-  nivel: "basico"
-  tags: ["productividad", "calculo"]
-
-variables:
-  produccion: 150
-  insumo: 30
-
-respuesta: 5.0
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Una fábrica produce {produccion} unidades de un producto utilizando {insumo} unidades de materia prima. ¿Cuál es el índice de productividad (producción por unidad de insumo)?"
-
-pasos:
-  - "Identificar la producción total: 150"
-  - "Identificar el insumo utilizado: 30"
-  - "Dividir la producción por el insumo: 150 / 30 = 5"
-
-explicacion: |
-  La productividad se calcula dividiendo la producción total entre la cantidad de insumos utilizados. En este caso: 150 / 30 = 5.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "productividad_insumos"
-  nivel: "intermedio"
-  tags: ["eficiencia", "comparacion"]
-
-variables:
-  caso_a: [["100 unidades / 20 insumos", "5"], ["200 unidades / 50 insumos", "4"]]
-  idx: uno_de([0, 1])
-  resultado_a: caso_a[idx][0]
-  resultado_b: "200 unidades / 40 insumos"
-  valor_b: "5"
-
-respuesta: "5"
-tipo: mc
-opciones_explicitas: ["4", "5", "6", "7"]
-
-enunciado: "Si el Caso A tiene una productividad de {resultado_a}, y el Caso B tiene una producción de 200 unidades con 40 unidades de insumo, ¿cuál es la productividad del Caso B?"
-
-explicacion: |
-  Para el Caso B: 200 / 40 = 5, independientemente de la productividad del Caso A.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "productividad_insumos"
-  nivel: "basico"
-  tags: ["conceptos"]
+  tags: ["distribucion_ingresos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Si una empresa logra producir la misma cantidad de bienes utilizando menos insumos, su productividad ha aumentado?"
+enunciado: "En una distribución de ingresos real (con cola larga hacia la derecha), la media siempre es mayor o igual que la mediana — nunca al revés."
 
 explicacion: |
-  Correcto. La productividad es una relación inversa entre insumos y producción para un mismo nivel de output; a menor insumo para el mismo producto, mayor productividad.
+  La cola de ingresos altos siempre 'tira' del promedio hacia arriba,
+  nunca hacia abajo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "productividad_insumos"
-  nivel: "intermedio"
-  tags: ["proceso", "ordenar"]
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["distribucion_ingresos", "problema"]
 
-opciones_explicitas: ["Medir la producción total", "Calcular la cantidad de insumos usados", "Dividir producción por insumos", "Analizar el índice de productividad"]
+variables:
+  sueldo_base: uno_de([400000, 500000])
+  cantidad_base: 9
+  sueldo_alto: uno_de([8000000, 10000000])
 
-respuesta_orden: ["Medir la producción total", "Calcular la cantidad de insumos usados", "Dividir producción por insumos", "Analizar el índice de productividad"]
-tipo: ordenar
+respuesta: redondear((sueldo_base * cantidad_base + sueldo_alto) / (cantidad_base + 1), 0)
+tipo: input
 
-enunciado: "Ordene los pasos lógicos para realizar un análisis de productividad en una línea de montaje:"
-
-explicacion: |
-  Primero se debe conocer qué se produjo, luego qué se gastó, luego realizar la operación matemática y finalmente interpretar el resultado obtenido.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "productividad_insumos"
-  nivel: "basico"
-  tags: ["teoria"]
-
-respuestas_validas:
-  - "relación"
-  - "razón"
-  - "proporción"
-respuesta: "relación"
-tipo: completar
-
-enunciado: "La productividad se define técnicamente como la ___ entre la cantidad de producto obtenido y la cantidad de recursos empleados."
-
-explicacion: |
-  La productividad es la relación (o razón) matemática que indica la eficiencia con la que se transforman los insumos en productos finales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "productividad_vs_produccion"
-  nivel: "basico"
-  tags: ["conceptos_clave", "eficiencia"]
-
-respuesta: "ineficiente"
-tipo: completar
-respuestas_validas:
-  - "ineficiente"
-
-enunciado: "Si una empresa aumenta su producción total pero su productividad (producción por unidad de insumo) disminuye, significa que la empresa es más ___."
+enunciado: "En un grupo de 10 personas, {cantidad_base} ganan ${sueldo_base} cada una, y 1 gana ${sueldo_alto}. ¿Cuál es la media de ingresos del grupo?"
 
 pasos:
-  - "Calcular producción total / insumos"
+  - "Media = ({cantidad_base}×{sueldo_base} + {sueldo_alto}) / 10 = {redondear((sueldo_base * cantidad_base + sueldo_alto) / (cantidad_base + 1), 0)}"
 
 explicacion: |
-  La productividad es una medida de eficiencia. Si la producción sube pero la productividad baja, significa que el aumento de producción se debe a un uso desproporcionadamente mayor de insumos, lo cual es ineficiente.
+  Una sola persona con un ingreso muy alto sube muchísimo el promedio
+  de todo el grupo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "productividad_marginal"
-  nivel: "intermedio"
-  tags: ["productividad_marginal", "rendimientos"]
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["distribucion_ingresos", "problema"]
 
 variables:
-  escenario: uno_de([[100, 10, 10], [120, 12, 10], [135, 15, 9]])
-  produccion: escenario[0]
-  insumo: escenario[1]
-  prod_marginal: escenario[2]
+  sueldo_base: 500000
+  cantidad_base: 9
+  sueldo_alto: 10000000
+  media: (sueldo_base * cantidad_base + sueldo_alto) / (cantidad_base + 1)
 
-respuesta: prod_marginal
-tipo: mc
-opciones_explicitas: [10, 12, 9, 15]
-
-enunciado: "Una empresa tiene una producción de {produccion} unidades usando {insumo} unidades de insumo. Si al agregar una unidad de insumo la producción total sube a {produccion + prod_marginal}, la productividad marginal es ___."
-
-explicacion: |
-  La productividad marginal es el cambio en la producción total resultante de añadir una unidad adicional de insumo: {produccion + prod_marginal} - {produccion} = {prod_marginal}.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "relacion_insumo_producto"
-  nivel: "basico"
-  tags: ["productividad_media"]
-
-variables:
-  datos: uno_de([[500, 50], [800, 100], [1000, 250]])
-  p_total: datos[0]
-  i_total: datos[1]
-  prod_media: datos[0] / datos[1]
-
-respuesta: prod_media
-tipo: completar
+respuesta: redondear(media / sueldo_base, 2)
+tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Si una fábrica produce {p_total} unidades utilizando {i_total} unidades de materia prima, la productividad media es ___."
+enunciado: "Con la media de ${redondear(media, 0)} calculada antes, ¿cuántas veces más grande es la media respecto del sueldo típico (${sueldo_base}, lo que gana el 90% del grupo)?"
+
+pasos:
+  - "Razón = {redondear(media, 0)} / {sueldo_base} = {redondear(media / sueldo_base, 2)}"
 
 explicacion: |
-  La productividad media se calcula dividiendo la producción total entre la cantidad de insumos utilizados: {p_total} / {i_total} = {prod_media}.
+  La media casi triplica lo que gana la mayoría real del grupo — no
+  representa a 'la persona típica'.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "ley_rendimientos_decrecientes"
+  tema: "sueldo_promedio_pais"
   nivel: "intermedio"
-  tags: ["productividad_marginal", "rendimientos"]
+  tags: ["deciles", "vocabulario"]
 
-respuesta: "Disminuye"
-tipo: completar
-respuestas_validas:
-  - "Disminuye"
-
-enunciado: "Según la ley de los rendimientos decrecientes, al añadir más de un factor variable (como trabajo) manteniendo los demás constantes, la productividad marginal eventualmente ___."
-
-explicacion: |
-  La ley de los rendimientos decrecientes establece que, a partir de cierto punto, cada unidad adicional de un insumo variable aporta menos a la producción total que la unidad anterior.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "analisis_productividad"
-  nivel: "intermedio"
-  tags: ["proceso", "metodologia"]
-
-variables:
-  pasos_orden: ["Medir producción total", "Contabilizar insumos utilizados", "Dividir producción entre insumos"]
-
-respuesta_orden: ["Medir producción total", "Contabilizar insumos utilizados", "Dividir producción entre insumos"]
-tipo: ordenar
-opciones_explicitas: ["Dividir producción entre insumos", "Medir producción total", "Contabilizar insumos utilizados"]
-
-enunciado: "Ordene los pasos necesarios para calcular la productividad de un proceso de producción:"
-
-explicacion: |
-  Para obtener la productividad, primero se debe saber cuánto se produjo (Producción Total), luego cuánto se gastó para lograrlo (Insumos) y finalmente realizar la división.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "productividad_vs_eficiencia"
-  nivel: "basico"
-  tags: ["conceptos_clave", "productividad"]
-
-respuesta: "eficiencia"
-tipo: "completar"
-respuestas_validas:
-  - "eficiencia"
-
-enunciado: "Mientras que la productividad se mide como la relación entre la producción obtenida y los insumos utilizados, la capacidad de lograr un objetivo utilizando la menor cantidad de recursos posible se define como ___."
-
-explicacion: |
-  La productividad es una medida de rendimiento (output/input), mientras que la eficiencia se refiere al aprovechamiento óptimo de los recursos para evitar desperdicios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "factores_productividad"
-  nivel: "intermedio"
-  tags: ["insumos", "teoria_produccion"]
-
+enunciado: "¿Para qué sirven los deciles al describir la distribución de ingresos de un país?"
 tipo: mc
-opciones_explicitas: ["Aumento de insumos", "Mejora de tecnología", "Mejora de capacitación"]
-respuesta: "Mejora de tecnología"
-
-enunciado: "Si una empresa logra producir lo mismo que el periodo anterior pero utilizando menos materia prima gracias a la implementación de maquinaria automatizada, ¿ante qué caso estamos?"
-
-pasos:
-  - "Identificar el cambio en la relación output/input."
-  - "Determinar si el cambio es por cantidad de insumos o por cambio tecnológico."
+opciones_explicitas:
+  - "Para comparar distintos puntos de la distribución (por ejemplo, el ingreso 'del medio' contra el del 10% que más gana), dando una imagen más completa que un solo promedio"
+  - "Para calcular directamente el sueldo promedio, sin necesitar ningún otro dato"
+  - "Sólo sirven para ordenar alfabéticamente los ingresos"
+respuesta: "Para comparar distintos puntos de la distribución (por ejemplo, el ingreso 'del medio' contra el del 10% que más gana), dando una imagen más completa que un solo promedio"
 
 explicacion: |
-  La automatización es un cambio tecnológico que permite desplazar la función de producción hacia arriba, aumentando la productividad.
+  Son la aplicación de `../../matematica/tablas-de-frecuencia-cuartiles-percentiles-y-varianza/`
+  a ingresos reales.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "productividad_marginal"
-  nivel: "avanzado"
-  tags: ["marginalidad", "rendimientos"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "¿Es correcto afirmar que si la productividad marginal es mayor que la productividad media, entonces la productividad media debe estar disminuyendo?"
-
-explicacion: |
-  Falso. Si la productividad marginal es mayor que la media, la media está aumentando (efecto de tracción).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "relacion_insumo_producto"
+  tema: "sueldo_promedio_pais"
   nivel: "intermedio"
-  tags: ["ley_rendimientos_decrecientes"]
+  tags: ["deciles", "vocabulario"]
 
-respuesta: "Ley de rendimientos decrecientes"
-tipo: "mc"
-opciones_explicitas: ["Ley de rendimientos constantes", "Ley de rendimientos decrecientes"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Cuando la adición de una unidad de insumo variable (como trabajo) produce un incremento en la producción total cada vez menor, ¿qué ley estamos observando?"
+enunciado: "El decil 5 de una distribución de ingresos (el punto que deja al 50% de la población por debajo) es exactamente lo mismo que la mediana."
 
 explicacion: |
-  La ley de rendimientos decrecientes indica que, en el corto plazo, añadir más de un factor variable a un factor fijo eventualmente reduce la productividad marginal.
+  Un decil es sólo otra forma de nombrar una posición relativa dentro
+  de los datos ordenados, igual que un percentil.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "fases_produccion"
-  nivel: "avanzado"
-  tags: ["etapas", "productividad"]
+  tema: "sueldo_promedio_pais"
+  nivel: "intermedio"
+  tags: ["gini", "vocabulario"]
 
-tipo: "ordenar"
-opciones_explicitas: ["Etapa I", "Etapa II", "Etapa III"]
-respuesta_orden: ["Etapa I", "Etapa II", "Etapa III"]
-
-enunciado: "Ordene las etapas de la producción según el comportamiento de la productividad marginal (PMg) respecto a la productividad media (PMe):"
-
-pasos:
-  - "Identificar cuándo la PMg es mayor que la PMe (Crecimiento)."
-  - "Identificar cuándo la PMg es igual que la PMe (Punto de máxima eficiencia media)."
-  - "Identificar cuándo la PMg es negativa (Decrecimiento)."
+enunciado: "¿Qué mide el coeficiente de Gini?"
+tipo: mc
+opciones_explicitas:
+  - "Qué tan desigual es una distribución de ingresos, en un único número entre 0 (igualdad perfecta) y 1 (desigualdad total)"
+  - "El ingreso promedio exacto de un país, en moneda local"
+  - "La cantidad total de personas que trabajan en un país"
+respuesta: "Qué tan desigual es una distribución de ingresos, en un único número entre 0 (igualdad perfecta) y 1 (desigualdad total)"
 
 explicacion: |
-  En la Etapa I la PMg > PMe. En la Etapa II la PMg < PMe pero es positiva. En la Etapa III la PMg es negativa.
+  Es la medida estándar internacional para comparar desigualdad de
+  ingresos entre países o a lo largo del tiempo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "productividad_insumos"
+  tema: "sueldo_promedio_pais"
   nivel: "basico"
-  tags: ["productividad", "calculo"]
+  tags: ["gini"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un coeficiente de Gini de 0 representa igualdad perfecta (todos ganan exactamente lo mismo), y un Gini de 1 representa desigualdad total (una sola persona concentra todo el ingreso)."
+
+explicacion: |
+  Son los dos casos extremos teóricos; los países reales están en
+  algún punto intermedio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["distribucion_ingresos", "problema"]
 
 variables:
-  datos: [[100, 20], [150, 30], [200, 25]]
-  idx: uno_de([0, 1, 2])
+  sueldo_parejo: 600000
+  sueldo_alto: 6000000
 
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
+respuesta: (sueldo_parejo * 9 + sueldo_alto) / 10 > sueldo_parejo
+tipo: vf
+
+enunciado: "Grupo A: 10 personas ganan ${sueldo_parejo} cada una (grupo homogéneo). Grupo B: 9 personas ganan ${sueldo_parejo} y 1 persona gana ${sueldo_alto}. ¿La media del Grupo B es MAYOR que la del Grupo A, aunque 9 de cada 10 personas ganen exactamente lo mismo en ambos grupos?"
+
+explicacion: |
+  Una sola persona con ingreso muy alto alcanza para subir la media
+  de todo el grupo, aunque no cambie nada para el resto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sueldo_promedio_pais"
+  nivel: "basico"
+  tags: ["distribucion_ingresos", "aplicacion"]
+
+enunciado: "Una noticia dice: 'el sueldo promedio del país subió 10% este año'. ¿Por qué esta afirmación puede ser matemáticamente cierta y, al mismo tiempo, no significar que la mayoría de la gente esté ganando más?"
+tipo: mc
+opciones_explicitas:
+  - "Porque un aumento grande en los ingresos más altos alcanza para subir el promedio, sin que el ingreso 'típico' (la mediana) se haya movido casi nada"
+  - "Porque las noticias sobre economía siempre mienten a propósito"
+  - "No hay ninguna forma de que esto pase: si el promedio sube, todos ganan más automáticamente"
+respuesta: "Porque un aumento grande en los ingresos más altos alcanza para subir el promedio, sin que el ingreso 'típico' (la mediana) se haya movido casi nada"
+
+explicacion: |
+  Es exactamente la trampa que `../../matematica/cual-miente-y-cuando/`
+  advierte en general, aplicada a un caso económico real.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["distribucion_ingresos", "problema"]
+
+variables:
+  sueldo_base: 500000
+
+respuesta: sueldo_base
+tipo: input
+
+enunciado: "En un grupo de 10 personas, 9 ganan ${sueldo_base} y 1 gana muchísimo más. ¿Cuál es la MEDIANA de ingresos del grupo (ordenando los 10 valores)?"
+
+explicacion: |
+  Con 9 de 10 valores iguales, la mediana (el valor del medio) sigue
+  siendo ${sueldo_base}, sin importar cuánto gane la décima persona.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["distribucion_ingresos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Agregar a un grupo una sola persona con un ingreso extremadamente alto sube mucho la media del grupo, pero casi no mueve la mediana."
+
+explicacion: |
+  Es la diferencia central entre ambas medidas frente a valores
+  atípicos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["distribucion_ingresos", "problema"]
+
+variables:
+  sueldo_base: 500000
+  sueldo_alto: uno_de([5000000, 50000000])
+
+respuesta: redondear((sueldo_base * 9 + sueldo_alto) / 10, 0)
+tipo: input
+
+enunciado: "Con 9 personas ganando ${sueldo_base} y 1 persona ganando ${sueldo_alto}, ¿cuál es la media del grupo de 10?"
+
+pasos:
+  - "Media = (9×{sueldo_base} + {sueldo_alto}) / 10 = {redondear((sueldo_base * 9 + sueldo_alto) / 10, 0)}"
+
+explicacion: |
+  Cuanto más extremo el ingreso atípico, más se aleja la media del
+  ingreso típico del resto del grupo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sueldo_promedio_pais"
+  nivel: "intermedio"
+  tags: ["distribucion_ingresos", "aplicacion"]
+
+enunciado: "¿Por qué las estadísticas de ingresos serias suelen reportar la mediana además del promedio?"
+tipo: mc
+opciones_explicitas:
+  - "Porque la mediana describe mejor lo que gana 'la persona típica', sin distorsionarse por los ingresos muy altos de una minoría"
+  - "Porque la mediana siempre da un número más alto que el promedio"
+  - "Porque el promedio es matemáticamente incorrecto y no debería usarse nunca"
+respuesta: "Porque la mediana describe mejor lo que gana 'la persona típica', sin distorsionarse por los ingresos muy altos de una minoría"
+
+explicacion: |
+  Ninguna de las dos medidas es 'incorrecta' — cada una responde una
+  pregunta distinta, como ya explicó
+  `../../matematica/cual-miente-y-cuando/`.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sueldo_promedio_pais"
+  nivel: "basico"
+  tags: ["distribucion_ingresos", "aplicacion"]
+
+enunciado: "¿Qué relación tiene este tema con `../../matematica/cual-miente-y-cuando/`?"
+tipo: mc
+opciones_explicitas:
+  - "Es la aplicación concreta de esa idea general (cuándo un promedio distorsiona) al caso real más citado: la distribución de ingresos de un país"
+  - "No tiene ninguna relación real"
+  - "Reemplaza por completo la necesidad de esa idea general"
+respuesta: "Es la aplicación concreta de esa idea general (cuándo un promedio distorsiona) al caso real más citado: la distribución de ingresos de un país"
+
+explicacion: |
+  El sueldo promedio de un país es, justamente, el ejemplo clásico
+  usado para explicar cuándo la media 'miente'.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["deciles", "problema"]
+
+variables:
+  decil5: uno_de([400000, 500000])
+  decil9: uno_de([2000000, 3000000])
+
+respuesta: redondear(decil9 / decil5, 2)
+tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Una empresa textil produce {datos[idx][0]} unidades de camisas utilizando {datos[idx][1]} horas de trabajo. ¿Cuál es la productividad de la mano de obra (unidades por hora)?"
+enunciado: "El ingreso del decil 5 (la mitad de la población) es ${decil5}, y el del decil 9 (el 10% que más gana) es ${decil9}. ¿Cuántas veces más gana el decil 9 respecto del decil 5?"
 
 pasos:
-  - "Identificar la producción total: {datos[idx][0]}"
-  - "Identificar el insumo utilizado: {datos[idx][1]} horas"
-  - "Dividir la producción por el insumo: {datos[idx][0]} / {datos[idx][1]}"
+  - "Razón = {decil9} / {decil5} = {redondear(decil9 / decil5, 2)}"
 
 explicacion: |
-  La productividad se calcula dividiendo la producción total entre la cantidad de insumos utilizados. En este caso: {datos[idx][0]} / {datos[idx][1]} = {datos[idx][0] / datos[idx][1]}.
+  Esta razón (a veces llamada 'ratio 90/50') es otra forma de medir
+  desigualdad, más específica que el coeficiente de Gini.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "productividad_insumos"
-  nivel: "basico"
-  tags: ["conceptos"]
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["gini", "distribucion_ingresos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si una empresa logra producir la misma cantidad de productos utilizando menos materia prima, se dice que la productividad de los insumos ha aumentado."
+enunciado: "Cuanto más alto es el coeficiente de Gini de un país (más desigualdad), mayor tiende a ser la distancia entre la media y la mediana de sus ingresos."
 
 explicacion: |
-  Correcto. La productividad es una relación inversa con los insumos para una producción constante: a menor insumo para el mismo output, mayor productividad.
+  Más desigualdad significa una cola de ingresos altos más 'estirada',
+  que separa más a la media de la mediana.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "productividad_insumos"
-  nivel: "intermedio"
-  tags: ["comparacion"]
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["distribucion_ingresos", "aplicacion"]
+
+enunciado: "Un gobierno diseña un beneficio social usando como referencia sólo 'el ingreso promedio del país', sin mirar la mediana ni la distribución completa. ¿Qué riesgo tiene este enfoque?"
+tipo: mc
+opciones_explicitas:
+  - "Puede fijar el umbral demasiado alto, dejando afuera a gran parte de la población que gana bien por debajo del promedio (arrastrado hacia arriba por los ingresos más altos)"
+  - "Ningún riesgo: el promedio siempre representa bien a toda la población"
+  - "El riesgo es que el beneficio le llegue a muy poca gente, sin ninguna razón estadística de por medio"
+respuesta: "Puede fijar el umbral demasiado alto, dejando afuera a gran parte de la población que gana bien por debajo del promedio (arrastrado hacia arriba por los ingresos más altos)"
+
+explicacion: |
+  Es una consecuencia práctica real de confundir 'promedio' con
+  'típico' al diseñar política pública.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["distribucion_ingresos", "problema"]
 
 variables:
-  idx: uno_de([0, 1, 2])
-  prod_a: [10, 50, 100]
-  ins_a: [2, 10, 20]
-  prod_b: [15, 60, 120]
-  ins_b: [5, 10, 20]
-  prod_c: [12, 40, 90]
-  ins_c: [3, 10, 10]
-  ganador: ["Escenario A", "Escenario B", "Escenario C"]
+  promedio: 1000000
+  mediana_pais_a: 900000
+  mediana_pais_b: 500000
 
-respuesta: ganador[idx]
-tipo: mc
+respuesta: mediana_pais_a > mediana_pais_b
+tipo: vf
 
-opciones_explicitas: ["Escenario A", "Escenario B", "Escenario C"]
-
-enunciado: "Considera los siguientes pares (Producción, Insumo):\n- Escenario A: ({prod_a[idx]}, {ins_a[idx]})\n- Escenario B: ({prod_b[idx]}, {ins_b[idx]})\n- Escenario C: ({prod_c[idx]}, {ins_c[idx]})\n¿Cuál de los escenarios presenta la mayor productividad?"
+enunciado: "País A y País B tienen el MISMO ingreso promedio (${promedio}), pero País A tiene mediana ${mediana_pais_a} y País B tiene mediana ${mediana_pais_b}. ¿Vive mejor 'la persona típica' del País A que la del País B, a pesar de que ambos países tengan el mismo promedio?"
 
 explicacion: |
-  La productividad se calcula dividiendo la producción por el insumo utilizado. El escenario con el cociente más alto es el más productivo.
+  Con el mismo promedio, el país con mediana más alta y más cercana al
+  promedio tiene una distribución de ingresos más pareja (menos
+  desigual).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "productividad_insumos"
+  tema: "sueldo_promedio_pais"
   nivel: "basico"
-  tags: ["formula"]
+  tags: ["cierre"]
 
-respuesta: "producción / insumo"
-tipo: completar
-respuestas_validas:
-  - "producción / insumo"
-  - "produccion / insumo"
-  - "produccion / insumo"
-
-enunciado: "La fórmula general para calcular la productividad es: ___"
-
-explicacion: |
-  La productividad es el cociente entre la producción obtenida y la cantidad de insumos (trabajo, capital, materia prima, etc.) utilizados para obtenerla.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "productividad_insumos"
-  nivel: "intermedio"
-  tags: ["ordenar"]
-
-respuesta_orden: ["P: 30, I: 10", "P: 20, I: 5", "P: 10, I: 2"]
-tipo: ordenar
-opciones_explicitas: ["P: 10, I: 2", "P: 20, I: 5", "P: 30, I: 10"]
-
-enunciado: "Ordene los siguientes casos de producción según su productividad, de MENOR a MAYOR productividad."
-
-explicacion: |
-  Calculando la relación P/I de cada caso: 30/10=3, 20/5=4, 10/2=5. De menor a mayor productividad: 3, 4, 5.
-```
-
-## Sección: fisiocracia (6 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "fisiocracia"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "Según la fisiocracia, ¿cuál es la única fuente real de riqueza?"
+enunciado: "¿Para qué sirve entender la diferencia entre media y mediana aplicada a los ingresos de un país?"
 tipo: mc
 opciones_explicitas:
-  - "La tierra y la agricultura"
-  - "El oro acumulado por el Estado"
-  - "El comercio internacional"
-respuesta: "La tierra y la agricultura"
+  - "Para leer con pensamiento crítico estadísticas de ingresos, sin confundir 'el promedio subió' con 'a la mayoría le está yendo mejor'"
+  - "Sólo sirve para calcular impuestos"
+  - "Sólo aplica a países con muy poca población"
+respuesta: "Para leer con pensamiento crítico estadísticas de ingresos, sin confundir 'el promedio subió' con 'a la mayoría le está yendo mejor'"
 
 explicacion: |
-  Para la fisiocracia, la industria y el comercio sólo transforman una
-  riqueza que ya generó la naturaleza a través del trabajo agrícola.
+  El ángulo de cómo esta cifra se usa (y a veces se tergiversa) en el
+  debate público sigue en `../../civica/sueldo-promedio-pais/`.
 ```
+
+## Sección: marxismo (11 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "fisiocracia"
+  tema: "marxismo"
   nivel: "intermedio"
   tags: ["corrientes", "vocabulario"]
 
-enunciado: "¿Qué lema resume la postura fisiócrata sobre la intervención del Estado en la economía?"
+enunciado: "¿Qué es la \"plusvalía\", concepto central del marxismo?"
 tipo: mc
 opciones_explicitas:
-  - "\"Laissez faire, laissez passer\" (dejar hacer, dejar pasar)"
-  - "\"El Estado ante todo\""
-  - "\"Balanza comercial favorable siempre\""
-respuesta: "\"Laissez faire, laissez passer\" (dejar hacer, dejar pasar)"
+  - "La diferencia entre el valor que un trabajador produce y el salario que recibe a cambio"
+  - "El impuesto que cobra el Estado sobre las ganancias"
+  - "La diferencia entre el precio de exportación e importación de un país"
+respuesta: "La diferencia entre el valor que un trabajador produce y el salario que recibe a cambio"
 
 explicacion: |
-  Defiende la mínima intervención estatal posible en la economía —una
-  postura opuesta al intervencionismo del mercantilismo.
+  Marx sostiene que esa diferencia queda en manos de quien es dueño
+  del medio de producción.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "fisiocracia"
-  nivel: "intermedio"
-  tags: ["corrientes", "autor"]
-
-enunciado: "¿Quién escribió el *Tableau économique* (1758), texto de referencia de la fisiocracia?"
-tipo: mc
-opciones_explicitas:
-  - "François Quesnay"
-  - "Thomas Mun"
-  - "Adam Smith"
-respuesta: "François Quesnay"
-
-explicacion: |
-  Quesnay, médico de la corte de Luis XV, hizo el primer intento
-  sistemático de representar cómo circula la riqueza entre sectores de
-  una economía.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "fisiocracia"
-  nivel: "avanzado"
-  tags: ["corrientes", "contexto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La fisiocracia surgió en Francia durante el siglo XVIII como reacción directa a las ideas mercantilistas que dominaban la política económica europea."
-
-explicacion: |
-  Frente al mercantilismo (riqueza = oro acumulado por intervención
-  estatal), la fisiocracia propone otra fuente de riqueza (la tierra)
-  y otra receta de política (mínima intervención).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "fisiocracia"
+  tema: "marxismo"
   nivel: "intermedio"
   tags: ["corrientes", "vocabulario"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para la fisiocracia, la industria y el comercio no crean riqueza nueva: sólo transforman o mueven una riqueza que ya generó la agricultura."
-
-explicacion: |
-  Es la consecuencia directa de considerar a la tierra como la única
-  fuente real de riqueza.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "fisiocracia"
-  nivel: "avanzado"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Qué representa por primera vez de forma sistemática el *Tableau économique* de Quesnay, y que hoy se considera un antecedente de la contabilidad macroeconómica?"
+enunciado: "Según el marxismo, ¿cuál es el motor de la historia económica?"
 tipo: mc
 opciones_explicitas:
-  - "Cómo circula la riqueza entre los distintos sectores de una economía"
-  - "El tipo de cambio entre distintas monedas europeas"
-  - "La cantidad de oro que debía acumular cada país"
-respuesta: "Cómo circula la riqueza entre los distintos sectores de una economía"
+  - "La lucha entre clases sociales"
+  - "La acumulación de oro y plata"
+  - "La libre competencia entre empresas"
+respuesta: "La lucha entre clases sociales"
 
 explicacion: |
-  Es considerado el primer intento sistemático de este tipo — un
-  antecedente directo de lo que hoy se conoce como cuentas nacionales.
-```
-
-## Sección: mercantilismo (6 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "mercantilismo"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Qué sostiene el mercantilismo sobre la riqueza de una nación?"
-tipo: mc
-opciones_explicitas:
-  - "Que se mide por la cantidad de oro y plata que acumula, y que el Estado debe fomentar exportaciones y restringir importaciones"
-  - "Que se mide sólo por la cantidad de tierra cultivada"
-  - "Que el Estado no debe intervenir nunca en el comercio"
-respuesta: "Que se mide por la cantidad de oro y plata que acumula, y que el Estado debe fomentar exportaciones y restringir importaciones"
-
-explicacion: |
-  Es la idea central del mercantilismo, dominante en Europa entre los
-  siglos XVI y XVIII durante la expansión colonial.
+  Específicamente, entre quienes poseen los medios de producción y
+  quienes sólo poseen su fuerza de trabajo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "mercantilismo"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "Para el mercantilismo, ¿qué significa tener una \"balanza comercial favorable\"?"
-tipo: mc
-opciones_explicitas:
-  - "Exportar más de lo que se importa"
-  - "Importar más de lo que se exporta"
-  - "Que las exportaciones e importaciones sean exactamente iguales"
-respuesta: "Exportar más de lo que se importa"
-
-explicacion: |
-  Un país que exporta más de lo que importa retiene más oro y plata,
-  que es lo que el mercantilismo considera riqueza.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "mercantilismo"
-  nivel: "intermedio"
-  tags: ["corrientes", "autor"]
-
-enunciado: "¿Quién escribió *England's Treasure by Foreign Trade* (1664), texto de referencia del mercantilismo?"
-tipo: mc
-opciones_explicitas:
-  - "Thomas Mun"
-  - "Adam Smith"
-  - "François Quesnay"
-respuesta: "Thomas Mun"
-
-explicacion: |
-  Mun era directivo de la Compañía Británica de las Indias Orientales y
-  defendía la balanza comercial favorable como objetivo central de la
-  política económica.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "mercantilismo"
-  nivel: "basico"
-  tags: ["corrientes", "contexto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El mercantilismo fue la corriente económica dominante en Europa durante la expansión colonial, entre los siglos XVI y XVIII."
-
-explicacion: |
-  Coincide con el período de mayor expansión colonial europea, cuando
-  acumular metales preciosos de las colonias era el objetivo central
-  de la política económica de las potencias europeas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "mercantilismo"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Qué herramienta usa el Estado, según el mercantilismo, para restringir las importaciones?"
-tipo: mc
-opciones_explicitas:
-  - "Aranceles"
-  - "Subsidios a productos importados"
-  - "Ninguna: el mercantilismo se opone a cualquier intervención estatal"
-respuesta: "Aranceles"
-
-explicacion: |
-  Los aranceles encarecen los productos importados, desalentando su
-  compra y protegiendo así la producción local.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "mercantilismo"
-  nivel: "avanzado"
-  tags: ["corrientes", "problema"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Para el mercantilismo, un país que importa más bienes de los que exporta se está enriqueciendo, sin importar qué reciba a cambio de ese comercio."
-
-explicacion: |
-  Falso. Para el mercantilismo ese país se está empobreciendo, porque
-  pierde oro y plata al pagar más de lo que cobra — la riqueza se mide
-  por el metal retenido, no por los bienes recibidos. Esta misma idea
-  es la que después critican tanto la fisiocracia como el liberalismo
-  clásico de Adam Smith.
-```
-
-## Sección: pbi-e-inflacion (22 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "basico"
-  tags: ["macroeconomia", "vocabulario"]
-
-enunciado: "¿Qué mide el Producto Bruto Interno (PBI)?"
-tipo: mc
-opciones_explicitas:
-  - "El valor total de todos los bienes y servicios finales producidos en un país durante un período"
-  - "El total de dinero que hay en los bancos de un país"
-  - "El sueldo promedio de los habitantes de un país"
-respuesta: "El valor total de todos los bienes y servicios finales producidos en un país durante un período"
-
-explicacion: |
-  Es la medida estándar del tamaño de la economía de un país.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "intermedio"
-  tags: ["macroeconomia", "vocabulario"]
-
-enunciado: "¿Por qué el PBI cuenta el pan terminado, pero no cuenta aparte la harina que se usó para hacerlo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque la harina ya está incluida en el valor del pan, y contarla aparte la contaría dos veces"
-  - "Porque la harina no se considera un producto"
-  - "Porque sólo se cuentan los productos importados"
-respuesta: "Porque la harina ya está incluida en el valor del pan, y contarla aparte la contaría dos veces"
-
-explicacion: |
-  El PBI cuenta bienes FINALES, justamente para evitar la doble
-  contabilización de los insumos intermedios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "intermedio"
-  tags: ["macroeconomia", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia principal entre PBI nominal y PBI real?"
-tipo: mc
-opciones_explicitas:
-  - "El real está ajustado quitando el efecto de la inflación; el nominal no"
-  - "El real sólo cuenta productos exportados; el nominal cuenta todo"
-  - "No hay ninguna diferencia real entre los dos"
-respuesta: "El real está ajustado quitando el efecto de la inflación; el nominal no"
-
-explicacion: |
-  Es la distinción central para saber si la economía realmente
-  produjo más, o si el número sólo subió por los precios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "avanzado"
-  tags: ["macroeconomia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Comparar el PBI nominal de dos años distintos, sin ajustar por inflación, puede hacer parecer que la economía \"creció\" cuando en realidad sólo subieron los precios."
-
-explicacion: |
-  Por eso las comparaciones serias siempre usan el PBI real, no el
-  nominal.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "basico"
-  tags: ["macroeconomia", "vocabulario"]
-
-enunciado: "¿Cómo se calcula el PBI per cápita?"
-tipo: mc
-opciones_explicitas:
-  - "PBI total dividido la población del país"
-  - "PBI total multiplicado por la población del país"
-  - "El sueldo mínimo dividido el PBI total"
-respuesta: "PBI total dividido la población del país"
-
-explicacion: |
-  Reparte el tamaño total de la economía entre la cantidad de
-  habitantes.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "intermedio"
-  tags: ["macroeconomia", "calculo"]
-
-variables:
-  poblacion: uno_de([2, 4, 5, 8, 10])
-  pbi_per_capita_real: random(5, 40) * 1000
-  pbi_total: poblacion * pbi_per_capita_real
-
-respuesta: pbi_total / poblacion
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un país tiene un PBI total de ${pbi_total} millones y una población de {poblacion} millones de habitantes. ¿Cuál es su PBI per cápita?"
-
-explicacion: |
-  PBI per cápita = PBI total / población.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "avanzado"
-  tags: ["macroeconomia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un país con mucha población puede tener un PBI total enorme y, aun así, un nivel de vida bajo por persona — por eso conviene mirar el PBI per cápita, no sólo el total."
-
-explicacion: |
-  El PBI total mide tamaño; el per cápita se acerca más al nivel de
-  vida promedio de cada habitante.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "basico"
-  tags: ["macroeconomia", "vocabulario"]
-
-enunciado: "A escala de todo un país, ¿qué es la inflación?"
-tipo: mc
-opciones_explicitas:
-  - "El aumento generalizado y sostenido de los precios de la economía en su conjunto"
-  - "El aumento del precio de un solo producto puntual"
-  - "La cantidad total de dinero que emite el banco central"
-respuesta: "El aumento generalizado y sostenido de los precios de la economía en su conjunto"
-
-explicacion: |
-  No es que un producto puntual suba: es que la MAYORÍA de los
-  precios sube de forma sostenida.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "intermedio"
-  tags: ["macroeconomia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Que un solo producto se ponga más caro por una razón puntual (por ejemplo, una mala cosecha) no es, por sí solo, inflación."
-
-explicacion: |
-  Inflación es un fenómeno generalizado del conjunto de precios, no un
-  solo producto aislado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "intermedio"
-  tags: ["macroeconomia", "vocabulario"]
-
-enunciado: "¿Con qué herramienta se mide oficialmente la inflación de un país?"
-tipo: mc
-opciones_explicitas:
-  - "Un índice de precios (como el IPC), que sigue el costo de una canasta representativa de bienes y servicios"
-  - "El sueldo promedio de los trabajadores"
-  - "El precio del dólar, exclusivamente"
-respuesta: "Un índice de precios (como el IPC), que sigue el costo de una canasta representativa de bienes y servicios"
-
-explicacion: |
-  El IPC (Índice de Precios al Consumidor) es el ejemplo estándar de
-  este tipo de índice.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "intermedio"
-  tags: ["macroeconomia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Por convención, un índice de precios arranca en un año base con valor 100, y a partir de ahí se compara cómo sube ese número."
-
-explicacion: |
-  Es la convención estándar de cualquier índice de precios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "avanzado"
-  tags: ["macroeconomia", "calculo"]
-
-variables:
-  ipc_base: 100
-  ipc_actual: 100 + random(5, 45)
-
-respuesta: (ipc_actual - ipc_base) / ipc_base * 100
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El índice de precios de un país arrancó el año en {ipc_base} (año base) y terminó en {ipc_actual}. ¿Cuál fue la tasa de inflación de ese período, en porcentaje?"
-
-pasos:
-  - "Variación: ({ipc_actual} - {ipc_base}) / {ipc_base}"
-  - "En porcentaje: × 100"
-
-explicacion: |
-  Tasa de inflación = (Índice actual - Índice anterior) / Índice
-  anterior × 100. Con año base 100, el resultado coincide con los
-  puntos que subió el índice.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "avanzado"
-  tags: ["macroeconomia", "calculo"]
-
-variables:
-  ipc_anterior: uno_de([100, 120, 200])
-  inflacion_pct: uno_de([5, 10, 20, 25, 50])
-
-respuesta: ipc_anterior + ipc_anterior * inflacion_pct / 100
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El índice de precios estaba en {ipc_anterior} y hubo una inflación del {inflacion_pct}% en el período siguiente. ¿En qué valor quedó el índice?"
-
-explicacion: |
-  Índice nuevo = Índice anterior + (Índice anterior × tasa de
-  inflación).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "avanzado"
-  tags: ["macroeconomia", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia entre este tema (PBI e inflación) y el tema de \"Plazo fijo vs. inflación\" visto antes?"
-tipo: mc
-opciones_explicitas:
-  - "Ese otro tema es la lectura PERSONAL de un dato de inflación ya conocido; este mide la inflación de todo el país desde cero, con un índice de precios"
-  - "Son exactamente el mismo tema repetido"
-  - "Este tema no tiene ninguna relación con la inflación"
-respuesta: "Ese otro tema es la lectura PERSONAL de un dato de inflación ya conocido; este mide la inflación de todo el país desde cero, con un índice de precios"
-
-explicacion: |
-  Misma palabra, dos escalas: personal (un ahorro puntual) vs.
-  macroeconómica (todo el país).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "intermedio"
-  tags: ["macroeconomia", "vocabulario"]
-
-enunciado: "Cuando un noticiero dice \"la economía creció 3% este año\", ¿a qué PBI se refiere normalmente?"
-tipo: mc
-opciones_explicitas:
-  - "Al PBI real (ya ajustado por inflación)"
-  - "Al PBI nominal (sin ajustar)"
-  - "Al PBI per cápita exclusivamente"
-respuesta: "Al PBI real (ya ajustado por inflación)"
-
-explicacion: |
-  Hablar de "crecimiento" implica que se produjo más, no que sólo
-  subieron los precios — por eso se usa el PBI real.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "avanzado"
-  tags: ["macroeconomia", "calculo"]
-
-variables:
-  pbi_anterior: random(1, 20) * 20 * 1000
-  crecimiento_pct: uno_de([5, 10, 15, 20, 25])
-  pbi_actual: pbi_anterior + pbi_anterior * crecimiento_pct / 100
-
-respuesta: (pbi_actual - pbi_anterior) / pbi_anterior * 100
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El PBI real de un país fue ${pbi_anterior} millones un año, y ${pbi_actual} millones el año siguiente. ¿Cuál fue la tasa de crecimiento del PBI, en porcentaje?"
-
-explicacion: |
-  Tasa de crecimiento = (PBI actual - PBI anterior) / PBI anterior ×
-  100 — la misma lógica que la tasa de inflación, aplicada al tamaño
-  de la economía en vez de a los precios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "intermedio"
-  tags: ["macroeconomia", "vocabulario"]
-
-enunciado: "¿Qué significa la \"I\" (Interno) del PBI?"
-tipo: mc
-opciones_explicitas:
-  - "Se cuenta lo producido DENTRO del país, sin importar la nacionalidad de quién lo produjo"
-  - "Se cuenta sólo lo producido por empresas del propio país en cualquier lugar del mundo"
-  - "Se cuenta sólo lo que se consume dentro del país"
-respuesta: "Se cuenta lo producido DENTRO del país, sin importar la nacionalidad de quién lo produjo"
-
-explicacion: |
-  Es un criterio geográfico (dónde se produce), no de nacionalidad de
-  quién produce.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "avanzado"
-  tags: ["macroeconomia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La palabra \"Bruto\" del PBI significa que no se descuenta el desgaste de las máquinas y edificios usados para producir."
-
-explicacion: |
-  Es lo que distingue al PBI Bruto de un cálculo Neto, que sí
-  descontaría esa depreciación.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "basico"
-  tags: ["macroeconomia", "vocabulario"]
-
-enunciado: "¿Qué tipo de organismo suele publicar el IPC oficial de un país?"
-tipo: mc
-opciones_explicitas:
-  - "Un organismo estatal de estadísticas (como el INDEC en Argentina)"
-  - "Un banco privado cualquiera"
-  - "Cada supermercado por separado"
-respuesta: "Un organismo estatal de estadísticas (como el INDEC en Argentina)"
-
-explicacion: |
-  Es una medición oficial, centralizada en un organismo estadístico
-  del Estado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "avanzado"
-  tags: ["macroeconomia", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos pasos de cómo se mide la inflación de un país."
-opciones_explicitas:
-  - "Se calcula la variación porcentual del índice entre dos períodos"
-  - "Se releva el precio de esa canasta mes a mes"
-  - "Se define una canasta representativa de bienes y servicios"
-  - "Se arma un índice de precios (base 100) con esos relevamientos"
-respuesta_orden: ["Se define una canasta representativa de bienes y servicios", "Se releva el precio de esa canasta mes a mes", "Se arma un índice de precios (base 100) con esos relevamientos", "Se calcula la variación porcentual del índice entre dos períodos"]
-
-explicacion: |
-  Cada paso es prerrequisito del siguiente: sin canasta no hay
-  relevamiento, sin relevamiento no hay índice, sin índice no hay
-  variación que calcular.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "intermedio"
-  tags: ["macroeconomia"]
-
-variables:
-  ipc_base: 100
-  ipc_actual: 100 + random(5, 45)
-  tasa: (ipc_actual - ipc_base) / ipc_base * 100
-
-tipo: completar
-enunciado: "Completá: Tasa de inflación = ({ipc_actual} - {ipc_base}) / {ipc_base} × 100 = ___ (tasa, en porcentaje)."
-respuestas_validas:
-  - tasa
-
-explicacion: |
-  Es la aplicación directa de la fórmula de tasa de inflación.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "pbi_e_inflacion"
-  nivel: "basico"
-  tags: ["macroeconomia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El PBI mide el tamaño de toda la economía de un país, y la inflación (a esta escala) mide el aumento generalizado de precios de todo el país, medido con un índice — distinto de la lectura personal de cuánto rinde un ahorro puntual."
-
-explicacion: |
-  Es la idea central de todo el tema.
-```
-
-## Sección: liberalismo-clasico-y-escuela-austriaca (12 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "liberalismo_clasico_y_escuela_austriaca"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Qué corriente introduce la idea de la \"mano invisible\": que el interés individual, en un mercado libre, termina beneficiando a la sociedad entera?"
-tipo: mc
-opciones_explicitas:
-  - "El liberalismo clásico (Adam Smith)"
-  - "El marxismo"
-  - "El keynesianismo"
-respuesta: "El liberalismo clásico (Adam Smith)"
-
-explicacion: |
-  Es el concepto central de *La riqueza de las naciones* (1776).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "liberalismo_clasico_y_escuela_austriaca"
+  tema: "marxismo"
   nivel: "basico"
   tags: ["corrientes", "autor"]
 
-enunciado: "¿Quién escribió *La riqueza de las naciones* (1776), texto fundacional del liberalismo clásico?"
+enunciado: "¿Quién escribió *El Capital* (1867), texto de referencia del marxismo?"
 tipo: mc
 opciones_explicitas:
-  - "Adam Smith"
   - "Karl Marx"
-  - "Milton Friedman"
-respuesta: "Adam Smith"
-
-explicacion: |
-  Es considerado el texto fundacional de la economía moderna como
-  disciplina.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "liberalismo_clasico_y_escuela_austriaca"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Qué sostiene la escuela austríaca sobre la planificación económica centralizada?"
-tipo: mc
-opciones_explicitas:
-  - "Que un Estado central no puede tener toda la información necesaria para planificar la economía; los precios libres coordinan mejor"
-  - "Que el Estado debe fijar todos los precios para evitar la inflación"
-  - "Que sólo la agricultura genera riqueza real"
-respuesta: "Que un Estado central no puede tener toda la información necesaria para planificar la economía; los precios libres coordinan mejor"
-
-explicacion: |
-  Es la crítica central de Hayek en *Camino de servidumbre* (1944) a
-  la planificación centralizada.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "liberalismo_clasico_y_escuela_austriaca"
-  nivel: "avanzado"
-  tags: ["corrientes", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para la escuela austríaca, cada precio de mercado resume información dispersa (qué escasea, qué se necesita, qué cuesta producir) que ningún planificador central podría reunir a tiempo."
-
-explicacion: |
-  Es el argumento del "problema del conocimiento": la información
-  necesaria para planificar una economía entera está repartida entre
-  millones de personas, no concentrada en ningún lugar.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "liberalismo_clasico_y_escuela_austriaca"
-  nivel: "intermedio"
-  tags: ["corrientes", "autor"]
-
-enunciado: "¿Quién escribió *Camino de servidumbre* (1944), texto de referencia de la escuela austríaca?"
-tipo: mc
-opciones_explicitas:
-  - "Friedrich Hayek"
-  - "Ludwig von Mises"
   - "Adam Smith"
-respuesta: "Friedrich Hayek"
+  - "John Maynard Keynes"
+respuesta: "Karl Marx"
 
 explicacion: |
-  Hayek argumenta que la planificación centralizada tiende a
-  concentrar un poder que termina erosionando las libertades
-  individuales.
+  *El Capital* es la obra central del marxismo como corriente
+  económica.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "liberalismo_clasico_y_escuela_austriaca"
+  tema: "marxismo"
   nivel: "avanzado"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "Para Ludwig von Mises, ¿cuál es la unidad básica de análisis de toda la economía?"
-tipo: mc
-opciones_explicitas:
-  - "La acción humana individual: elegir, valorar, intercambiar"
-  - "El Producto Bruto Interno del país"
-  - "La cantidad de oro que posee el Estado"
-respuesta: "La acción humana individual: elegir, valorar, intercambiar"
-
-explicacion: |
-  De ahí que la escuela austríaca desconfíe de tratar \"la economía\"
-  como una sola cosa medible desde arriba, en vez de millones de
-  decisiones individuales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "liberalismo_clasico_y_escuela_austriaca"
-  nivel: "intermedio"
   tags: ["corrientes", "problema"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia del mercantilismo, que veía el comercio como un juego de suma cero, Adam Smith sostiene que el intercambio libre y voluntario beneficia a ambas partes a la vez."
+enunciado: "¿Qué diferencia el marxismo (según se presenta a sí mismo) del socialismo utópico de Robert Owen?"
+tipo: mc
+opciones_explicitas:
+  - "Un análisis sistemático de las leyes del capitalismo como sistema, del que se desprende una estrategia de transformación a esa misma escala"
+  - "El marxismo no propone ningún cambio en la organización económica"
+  - "El marxismo, a diferencia de Owen, defiende la propiedad privada de los medios de producción"
+respuesta: "Un análisis sistemático de las leyes del capitalismo como sistema, del que se desprende una estrategia de transformación a esa misma escala"
 
 explicacion: |
-  Es la base de la defensa del libre comercio en el liberalismo
-  clásico: comprar y vender no es que uno gane lo que el otro pierde.
+  A diferencia de Owen (una fábrica, una comunidad como ejemplo), el
+  marxismo se presenta como un análisis del sistema entero y de cómo
+  transformarlo en esa escala.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "liberalismo_clasico_y_escuela_austriaca"
+  tema: "marxismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "problema"]
+
+enunciado: "¿Cuál es la objeción central que plantea Ludwig von Mises al marxismo en *El cálculo económico en el sistema socialista* (1920)?"
+tipo: mc
+opciones_explicitas:
+  - "Sin un mercado de medios de producción no hay precios reales para ellos, y sin precios no se puede calcular si un proceso productivo es eficiente"
+  - "Que la plusvalía no existe en ningún sistema económico"
+  - "Que la lucha de clases nunca ocurrió realmente en la historia"
+respuesta: "Sin un mercado de medios de producción no hay precios reales para ellos, y sin precios no se puede calcular si un proceso productivo es eficiente"
+
+explicacion: |
+  Es una objeción económica puntual, no política ni moral: sin mercado
+  de precios para maquinaria/materias primas/terrenos industriales, no
+  hay forma de comparar si un uso de esos recursos es más eficiente
+  que otro.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
   nivel: "avanzado"
   tags: ["corrientes", "vocabulario"]
 
-enunciado: "Según el argumento de Henry Hazlitt en *La economía en una lección* (1946), ¿cómo debe juzgarse una política económica?"
-tipo: mc
-opciones_explicitas:
-  - "Por sus efectos visibles inmediatos sobre un grupo Y por sus efectos indirectos menos visibles sobre todos los demás, a mediano y largo plazo"
-  - "Sólo por su efecto inmediato sobre el grupo que la política busca beneficiar"
-  - "Sólo por su costo fiscal en el primer año"
-respuesta: "Por sus efectos visibles inmediatos sobre un grupo Y por sus efectos indirectos menos visibles sobre todos los demás, a mediano y largo plazo"
-
-explicacion: |
-  Ejemplo del propio Hazlitt: un arancel protege visiblemente a una
-  industria, pero encarece ese producto para todos los consumidores y
-  resta recursos a otras industrias — efecto real, aunque menos
-  visible.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "liberalismo_clasico_y_escuela_austriaca"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "Según el liberalismo clásico, ¿a qué debe limitarse el Estado en materia económica?"
-tipo: mc
-opciones_explicitas:
-  - "A garantizar la propiedad privada, la justicia y algunas obras públicas, sin intervenir en precios ni comercio"
-  - "A fijar los precios de todos los bienes esenciales"
-  - "A ser el único empleador de la economía"
-respuesta: "A garantizar la propiedad privada, la justicia y algunas obras públicas, sin intervenir en precios ni comercio"
-
-explicacion: |
-  Es el rol mínimo que Smith reserva para el Estado, dejando el resto
-  a la coordinación espontánea del mercado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "liberalismo_clasico_y_escuela_austriaca"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
-
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Este bloque presenta cada corriente explicando qué sostiene, con la misma seriedad expositiva, sin marcar ninguna como \"la correcta\"."
+enunciado: "Según Mises, dentro de una empresa capitalista cada departamento puede comparar costos y calcular eficiencia porque existe un mercado de precios para todo lo que compra y vende."
 
 explicacion: |
-  Es el criterio central de todo el bloque de corrientes de
-  pensamiento económico: identificar argumentos, no adoctrinar con una
-  postura como la verdadera.
+  Ese mercado de precios (de materia prima, maquinaria, mano de obra)
+  es, para Mises, la herramienta que permite el cálculo económico —y
+  la que, según su argumento, desaparece sin propiedad privada de los
+  medios de producción.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "liberalismo_clasico_y_escuela_austriaca"
+  tema: "marxismo"
   nivel: "intermedio"
   tags: ["corrientes", "vocabulario"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Varias corrientes de este bloque conviven hoy y se siguen citando en debates de política económica actuales — no es una sucesión donde cada una \"reemplaza\" a la anterior."
+enunciado: "¿A qué corriente económica pertenece Ludwig von Mises, autor de la objeción al cálculo económico socialista?"
+tipo: mc
+opciones_explicitas:
+  - "La escuela austríaca"
+  - "El keynesianismo"
+  - "El socialismo utópico"
+respuesta: "La escuela austríaca"
 
 explicacion: |
-  Lo único estrictamente cronológico es cuándo apareció cada corriente,
-  no cuál es superior.
+  Ver `../liberalismo-clasico-y-escuela-austriaca/` — Mises es uno de
+  los autores centrales de esa corriente.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "liberalismo_clasico_y_escuela_austriaca"
+  tema: "marxismo"
   nivel: "avanzado"
   tags: ["corrientes", "contexto"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Entre la publicación de La riqueza de las naciones (1776) y el surgimiento de la escuela austríaca (desde finales del siglo XIX) pasó más de un siglo."
+enunciado: "Karl Marx murió en 1883, antes de que Mises formulara su objeción sobre el cálculo económico (1920), por lo que nunca respondió a ese argumento en particular."
 
 explicacion: |
-  Ambas comparten la confianza en el mercado libre, pero la escuela
-  austríaca la profundiza con un argumento propio sobre la información
-  dispersa en los precios, casi 100 años después de Smith.
+  Distintos economistas marxistas y socialistas del siglo XX
+  propusieron respuestas propias después de Marx (como mecanismos de
+  "precios sombra"), pero el propio Marx no llegó a hacerlo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "basico"
+  tags: ["corrientes", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Este tema describe tanto lo que sostiene el marxismo como la objeción de Mises con la misma seriedad, sin tomar partido sobre cuál de las dos posturas tiene razón."
+
+explicacion: |
+  Es el mismo criterio de neutralidad que se aplica a todo el bloque
+  de corrientes de pensamiento económico.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "basico"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "Según el marxismo, en el capitalismo, ¿entre quiénes se da la lucha de clases central?"
+tipo: mc
+opciones_explicitas:
+  - "Entre quienes poseen los medios de producción y quienes sólo poseen su fuerza de trabajo"
+  - "Entre los distintos países que compiten por el comercio internacional"
+  - "Entre el Estado y las empresas privadas"
+respuesta: "Entre quienes poseen los medios de producción y quienes sólo poseen su fuerza de trabajo"
+
+explicacion: |
+  Es la división de clases central del análisis marxista del
+  capitalismo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Según el argumento de Mises, los errores de cálculo dentro de una empresa capitalista son iguales de graves e insuperables que la ausencia total de cálculo económico que él atribuye al socialismo."
+
+explicacion: |
+  Falso. Mises distingue entre los errores normales de cálculo que
+  pueden ocurrir dentro de una empresa capitalista (acotados, dentro
+  de un sistema de precios real) y la imposibilidad total de calcular
+  que —según su argumento— se da cuando no existe ningún mercado de
+  precios para los medios de producción.
+```
+
+## Sección: tipo-cambio-fijo (20 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "basico"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Qué es el \"tipo de cambio\" de una moneda?"
+tipo: mc
+opciones_explicitas:
+  - "El precio de esa moneda expresado en otra moneda"
+  - "La cantidad total de esa moneda que emitió el banco central"
+  - "El porcentaje de inflación anual de un país"
+respuesta: "El precio de esa moneda expresado en otra moneda"
+
+explicacion: |
+  Por ejemplo, cuántos pesos cuesta un dólar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "basico"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Qué es un régimen de tipo de cambio fijo?"
+tipo: mc
+opciones_explicitas:
+  - "El banco central se compromete a sostener el valor de su moneda en un número exacto frente a otra"
+  - "El valor de la moneda lo determina libremente el mercado, sin ningún compromiso del banco central"
+  - "Un régimen donde no existe ninguna moneda extranjera"
+respuesta: "El banco central se compromete a sostener el valor de su moneda en un número exacto frente a otra"
+
+explicacion: |
+  Es la definición central del régimen fijo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "Si hay más gente que quiere comprar dólares que gente dispuesta a venderlos al precio fijado, ¿qué hace el banco central para sostener el tipo de cambio fijo?"
+tipo: mc
+opciones_explicitas:
+  - "Vende dólares de sus reservas para cubrir esa demanda extra"
+  - "Compra dólares con su propia moneda"
+  - "No hace nada: el precio sube libremente"
+respuesta: "Vende dólares de sus reservas para cubrir esa demanda extra"
+
+explicacion: |
+  Usa sus propias reservas para evitar que el precio suba por encima
+  del valor fijado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "Si hay más gente que quiere vender dólares que gente dispuesta a comprarlos al precio fijado, ¿qué hace el banco central?"
+tipo: mc
+opciones_explicitas:
+  - "Compra esos dólares con su propia moneda, para que el precio no baje"
+  - "Vende dólares de sus reservas"
+  - "Prohíbe vender dólares"
+respuesta: "Compra esos dólares con su propia moneda, para que el precio no baje"
+
+explicacion: |
+  Absorbe el exceso de oferta comprando, para sostener el piso del
+  valor fijado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "basico"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una ventaja del tipo de cambio fijo es que le da certeza a quien comercia o invierte con ese país sobre a qué valor va a poder cambiar su dinero."
+
+explicacion: |
+  Es la ventaja central: previsibilidad para el comercio y la
+  inversión.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un tipo de cambio fijo puede servir como \"ancla\" de las expectativas de inflación: si la gente confía en que el precio del dólar no se va a mover, tiende a esperar menos inflación en general."
+
+explicacion: |
+  Es uno de los argumentos a favor del régimen fijo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Qué necesita tener un banco central, en cantidad suficiente, para poder defender un tipo de cambio fijo?"
+tipo: mc
+opciones_explicitas:
+  - "Reservas"
+  - "Tasa de interés alta, sin importar las reservas"
+  - "Una ley que prohíba comprar dólares"
+respuesta: "Reservas"
+
+explicacion: |
+  Sin reservas suficientes, el banco central no puede comprar/vender
+  para sostener el valor fijado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si en algún momento las reservas de un banco central no alcanzan para seguir defendiendo el valor fijado, ese banco central no puede sostener la promesa del tipo de cambio fijo."
+
+explicacion: |
+  Es el límite estructural de cualquier régimen fijo: depende de la
+  disponibilidad de reservas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Qué pierde un país al adoptar un tipo de cambio fijo, en términos de política económica?"
+tipo: mc
+opciones_explicitas:
+  - "Independencia en su política monetaria: no puede usar libremente la tasa de interés o la emisión para otros objetivos"
+  - "El derecho a exportar productos al resto del mundo"
+  - "La posibilidad de tener un banco central propio"
+respuesta: "Independencia en su política monetaria: no puede usar libremente la tasa de interés o la emisión para otros objetivos"
+
+explicacion: |
+  Cualquier decisión que presione el tipo de cambio pone en riesgo el
+  compromiso de mantenerlo fijo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+enunciado: "¿Qué régimen cambiario tuvo Argentina entre 1991 y 2001, conocido como \"Convertibilidad\"?"
+tipo: mc
+opciones_explicitas:
+  - "Un tipo de cambio fijo, 1 peso = 1 dólar por ley"
+  - "Un tipo de cambio flotante sin ninguna intervención"
+  - "Argentina no tuvo moneda propia en ese período"
+respuesta: "Un tipo de cambio fijo, 1 peso = 1 dólar por ley"
+
+explicacion: |
+  Es el ejemplo histórico real citado en la teoría.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Convertibilidad terminó en 2001 porque, ante una salida sostenida de reservas, el país no pudo seguir defendiendo la paridad fijada."
+
+explicacion: |
+  Es la misma mecánica general (agotamiento de reservas) aplicada a
+  este caso histórico concreto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Hong Kong mantiene, desde 1983, un tipo de cambio fijo de su moneda frente al dólar estadounidense."
+
+explicacion: |
+  Es un ejemplo real de tipo de cambio fijo vigente hoy.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "intermedio"
+  tags: ["cambiario", "problema"]
+
+enunciado: "Un banco central vende dólares de sus reservas para frenar una suba del tipo de cambio. ¿Qué tipo de acción es esta?"
+tipo: mc
+opciones_explicitas:
+  - "Una intervención típica de un régimen de tipo de cambio fijo (o una variante administrada de uno flotante)"
+  - "Una acción que sólo existe bajo un régimen totalmente flotante y sin intervención"
+  - "Una devaluación"
+respuesta: "Una intervención típica de un régimen de tipo de cambio fijo (o una variante administrada de uno flotante)"
+
+explicacion: |
+  Es exactamente el mecanismo de defensa del valor fijado descripto en
+  la teoría.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "intermedio"
+  tags: ["cambiario", "problema"]
+
+enunciado: "Una empresa que planea una inversión a 5 años en un país prefiere que ese país tenga un tipo de cambio fijo antes que uno muy volátil. ¿Por qué le conviene?"
+tipo: mc
+opciones_explicitas:
+  - "Porque puede planificar sabiendo de antemano a qué valor va a poder cambiar su dinero"
+  - "Porque un tipo de cambio fijo siempre sube con el tiempo"
+  - "Porque elimina completamente el riesgo de cualquier inversión"
+respuesta: "Porque puede planificar sabiendo de antemano a qué valor va a poder cambiar su dinero"
+
+explicacion: |
+  Es la ventaja de previsibilidad, no una garantía de ganancia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "intermedio"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un país elige, en un momento dado, entre un régimen de tipo de cambio fijo o uno flotante: son dos alternativas distintas, no dos cosas que se aplican al mismo tiempo de la misma forma."
+
+explicacion: |
+  Son regímenes alternativos, aunque existen variantes intermedias
+  (flotación administrada) que combinan elementos de ambos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "avanzado"
+  tags: ["cambiario", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená esta secuencia de cómo un banco central defiende un tipo de cambio fijo ante una fuerte demanda de dólares."
+opciones_explicitas:
+  - "Si la demanda persiste y las reservas no alcanzan, el régimen fijo queda en riesgo"
+  - "Las reservas del banco central se reducen"
+  - "Sube la demanda de dólares al precio fijado"
+  - "El banco central vende dólares de sus reservas para cubrir esa demanda"
+respuesta_orden: ["Sube la demanda de dólares al precio fijado", "El banco central vende dólares de sus reservas para cubrir esa demanda", "Las reservas del banco central se reducen", "Si la demanda persiste y las reservas no alcanzan, el régimen fijo queda en riesgo"]
+
+explicacion: |
+  Cada paso es consecuencia del anterior: defender el precio fijado
+  consume reservas, y las reservas no son infinitas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "avanzado"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Bajo un tipo de cambio fijo, el banco central no puede usar la tasa de interés con total libertad para otros objetivos (como estimular el empleo), porque eso podría poner en riesgo el valor fijado."
+
+explicacion: |
+  Es la misma pérdida de independencia monetaria explicada en la
+  teoría.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "avanzado"
+  tags: ["cambiario", "problema"]
+
+enunciado: "Dos países tienen tipo de cambio fijo. Uno tiene reservas muy altas, el otro reservas muy bajas y en caída. ¿Cuál está en mejores condiciones de sostener su régimen fijo ante una corrida?"
+tipo: mc
+opciones_explicitas:
+  - "El de reservas altas"
+  - "El de reservas bajas"
+  - "Da exactamente igual el nivel de reservas"
+respuesta: "El de reservas altas"
+
+explicacion: |
+  La capacidad de sostener un tipo de cambio fijo depende
+  directamente de la disponibilidad de reservas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "basico"
+  tags: ["cambiario"]
+
+tipo: completar
+enunciado: "Completá: bajo un tipo de cambio fijo, el banco central se compromete a sostener el valor de su moneda usando sus ___ (lo que compra/vende para defenderlo)."
+respuestas_validas:
+  - "reservas"
+
+explicacion: |
+  Es la herramienta central para defender un tipo de cambio fijo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "tipo_cambio_fijo"
+  nivel: "basico"
+  tags: ["cambiario", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un tipo de cambio fijo le da previsibilidad a cambio de que el banco central necesite reservas suficientes para defenderlo, y de perder independencia en su política monetaria."
+
+explicacion: |
+  Es la idea central de todo el tema: ventaja y costo van juntos.
+```
+
+## Sección: economia-feminista-y-del-cuidado (6 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "economia_feminista_y_del_cuidado"
+  nivel: "intermedio"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "¿Qué señala la economía feminista y del cuidado sobre el PBI?"
+tipo: mc
+opciones_explicitas:
+  - "Que no cuenta el trabajo doméstico y de cuidado no remunerado, aunque sea un trabajo real que sostiene la economía"
+  - "Que cuenta dos veces el trabajo doméstico no remunerado"
+  - "Que sólo debería medirse en base al trabajo doméstico"
+respuesta: "Que no cuenta el trabajo doméstico y de cuidado no remunerado, aunque sea un trabajo real que sostiene la economía"
+
+explicacion: |
+  Es el señalamiento central de Marilyn Waring en *If Women Counted*
+  (1988): al no tener precio de mercado, ese trabajo queda invisible
+  en las estadísticas oficiales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "economia_feminista_y_del_cuidado"
+  nivel: "avanzado"
+  tags: ["corrientes", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El PBI (ver el tema de PBI e inflación) sólo cuenta la producción que pasa por el mercado, por eso el trabajo doméstico no remunerado queda fuera de esa medición."
+
+explicacion: |
+  Es la conexión directa entre este tema y `pbi-e-inflacion/`: el
+  mismo concepto de PBI, visto desde un ángulo distinto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "economia_feminista_y_del_cuidado"
+  nivel: "basico"
+  tags: ["corrientes", "autor"]
+
+enunciado: "¿Quién escribió *If Women Counted* (1988), texto de referencia de la economía feminista y del cuidado?"
+tipo: mc
+opciones_explicitas:
+  - "Marilyn Waring"
+  - "Rose Friedman"
+  - "Wilhelm Röpke"
+respuesta: "Marilyn Waring"
+
+explicacion: |
+  Plantea el señalamiento puntual sobre qué cuenta y qué no cuenta el
+  PBI, es la corriente más reciente de este bloque.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "economia_feminista_y_del_cuidado"
+  nivel: "avanzado"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "¿De qué dos corrientes anteriores de este bloque parte, como punto de partida crítico, la economía feminista y del cuidado?"
+tipo: mc
+opciones_explicitas:
+  - "El liberalismo clásico y el marxismo"
+  - "El mercantilismo y la fisiocracia"
+  - "El keynesianismo y el ordoliberalismo"
+respuesta: "El liberalismo clásico y el marxismo"
+
+explicacion: |
+  Del liberalismo clásico toma la crítica a cómo el mercado mide la
+  actividad económica; del marxismo, la idea de poner el foco en el
+  trabajo como fuente de valor.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "economia_feminista_y_del_cuidado"
+  nivel: "avanzado"
+  tags: ["corrientes", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estas corrientes de pensamiento económico según cuándo aparecieron, de la más antigua a la más reciente."
+opciones_explicitas:
+  - "Marxismo"
+  - "Mercantilismo"
+  - "Neoliberalismo"
+  - "Economía feminista y del cuidado"
+  - "Socialismo utópico"
+  - "Keynesianismo"
+  - "Liberalismo clásico"
+  - "Ordoliberalismo"
+  - "Fisiocracia"
+respuesta_orden: ["Mercantilismo", "Fisiocracia", "Liberalismo clásico", "Socialismo utópico", "Marxismo", "Keynesianismo", "Ordoliberalismo", "Neoliberalismo", "Economía feminista y del cuidado"]
+
+explicacion: |
+  Mercantilismo (s. XVI-XVIII), fisiocracia (1758), liberalismo
+  clásico (1776), socialismo utópico (1813-1816), marxismo (1867),
+  keynesianismo (1936), ordoliberalismo (1944), neoliberalismo (desde
+  los 80, con el monetarismo de 1962 como antecedente), economía
+  feminista y del cuidado (1988). Esto es cronología verificable, no
+  un ranking de cuál es mejor.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "economia_feminista_y_del_cuidado"
+  nivel: "basico"
+  tags: ["corrientes", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada corriente de este bloque ofrece una lógica interna propia y coherente para explicar cómo funciona la economía — conocerlas todas permite entender un debate económico actual, sin necesidad de adoptar una sola como la única válida."
+
+explicacion: |
+  Es la idea de cierre de todo el bloque de corrientes de pensamiento
+  económico (`E28a`-`E28i`).
+```
+
+## Sección: keynesianismo (8 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "keynesianismo"
+  nivel: "basico"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "¿Qué propone el keynesianismo frente a una crisis económica con desempleo alto?"
+tipo: mc
+opciones_explicitas:
+  - "Que el Estado aumente el gasto público para sostener la demanda y el empleo, aunque implique déficit fiscal temporal"
+  - "Que el Estado reduzca el gasto público al mínimo posible"
+  - "Que el Estado fije el precio de todos los bienes"
+respuesta: "Que el Estado aumente el gasto público para sostener la demanda y el empleo, aunque implique déficit fiscal temporal"
+
+explicacion: |
+  Surge como respuesta a la Gran Depresión de la década de 1930.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "keynesianismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "contexto"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El keynesianismo surgió como respuesta a la Gran Depresión, cuestionando la idea de que un mercado libre siempre se autorregula rápido frente a una crisis."
+
+explicacion: |
+  Es el contexto histórico que originó esta corriente.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "keynesianismo"
+  nivel: "basico"
+  tags: ["corrientes", "autor"]
+
+enunciado: "¿Quién escribió la *Teoría general del empleo, el interés y el dinero* (1936), texto de referencia del keynesianismo?"
+tipo: mc
+opciones_explicitas:
+  - "John Maynard Keynes"
+  - "Friedrich Hayek"
+  - "Thomas Mun"
+respuesta: "John Maynard Keynes"
+
+explicacion: |
+  Da nombre a la corriente: keynesianismo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "keynesianismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "Según el keynesianismo, ¿por qué una caída inicial del consumo puede retroalimentarse en una crisis prolongada?"
+tipo: mc
+opciones_explicitas:
+  - "Porque menos consumo lleva a menos producción, luego a menos empleo, y eso a su vez a todavía menos consumo"
+  - "Porque el Estado siempre sube los impuestos apenas empieza una crisis"
+  - "Porque el mercado siempre corrige esa caída en menos de un día"
+respuesta: "Porque menos consumo lleva a menos producción, luego a menos empleo, y eso a su vez a todavía menos consumo"
+
+explicacion: |
+  Es la espiral que, según el keynesianismo, nada dentro del propio
+  mercado frena por sí sola, y que justifica la intervención estatal.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "keynesianismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "problema"]
+
+enunciado: "Un gobierno aumenta fuertemente el gasto público durante una recesión, para sostener el empleo aunque eso genere déficit fiscal. ¿Con qué corriente se corresponde mejor esta decisión?"
+tipo: mc
+opciones_explicitas:
+  - "Keynesianismo"
+  - "Escuela austriaca"
+  - "Fisiocracia"
+respuesta: "Keynesianismo"
+
+explicacion: |
+  Es exactamente la receta central del keynesianismo frente a una
+  crisis.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "keynesianismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para el keynesianismo, el gasto público extra durante una crisis puede implicar que el Estado gaste más de lo que recauda en ese momento, con la idea de volver a un presupuesto más equilibrado cuando la economía se recupere."
+
+explicacion: |
+  Es la lógica del déficit fiscal temporal: gastar más ahora para
+  reactivar la demanda, no como política permanente.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "keynesianismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "problema"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El keynesianismo rechaza por completo la idea del liberalismo clásico de que el mercado es un mecanismo central de coordinación económica."
+
+explicacion: |
+  Falso. El keynesianismo no rechaza esa confianza en el mercado —
+  sólo cuestiona que funcione sin fallas en todo momento, y por eso
+  propone una intervención puntual en los momentos de crisis, no un
+  reemplazo del sistema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "keynesianismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "¿Qué dos corrientes de este bloque parten del keynesianismo, discutiendo cuánto y cómo debe intervenir el Estado el resto del tiempo (fuera de una crisis puntual)?"
+tipo: mc
+opciones_explicitas:
+  - "El ordoliberalismo y el neoliberalismo"
+  - "El mercantilismo y la fisiocracia"
+  - "El socialismo utópico y el marxismo"
+respuesta: "El ordoliberalismo y el neoliberalismo"
+
+explicacion: |
+  Ambas corrientes dialogan con el keynesianismo desde ángulos
+  distintos sobre el rol del Estado en la economía.
 ```
 

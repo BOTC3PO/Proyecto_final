@@ -1,844 +1,8 @@
 # Examen jefe — [PENDIENTE #799]
 
-> Logro #799. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **136 preguntas totales** en 5/5 secciones.
+> Logro #799. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **154 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: sig-imagenes-satelitales (20 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "basico"
-  tags: ["teledeteccion", "vocabulario"]
-
-enunciado: "¿Qué es una imagen satelital?"
-tipo: mc
-opciones_explicitas:
-  - "Una medición de energía reflejada o emitida por la superficie terrestre, captada por un satélite en órbita"
-  - "Una foto tomada por un avión a baja altura"
-  - "Un mapa dibujado a mano por un cartógrafo"
-respuesta: "Una medición de energía reflejada o emitida por la superficie terrestre, captada por un satélite en órbita"
-
-explicacion: |
-  La disciplina que estudia esto se llama teledetección: percibir algo
-  a distancia, sin tocarlo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["teledeteccion"]
-
-enunciado: "¿Cómo se llama la disciplina que estudia cómo captar información de la superficie terrestre a distancia, sin contacto directo?"
-tipo: mc
-opciones_explicitas:
-  - "Teledetección"
-  - "Trilateración"
-  - "Geocodificación"
-respuesta: "Teledetección"
-
-explicacion: |
-  Es el nombre técnico de "percibir algo a distancia" — cubre tanto
-  imágenes satelitales como aéreas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["bandas_espectrales"]
-
-enunciado: "¿En qué se diferencia un sensor satelital de una cámara de fotos común?"
-tipo: mc
-opciones_explicitas:
-  - "El sensor satelital suele captar además bandas de luz invisibles al ojo humano, como el infrarrojo"
-  - "El sensor satelital sólo capta blanco y negro"
-  - "No hay ninguna diferencia real"
-respuesta: "El sensor satelital suele captar además bandas de luz invisibles al ojo humano, como el infrarrojo"
-
-explicacion: |
-  Una cámara común capta sólo luz visible (rojo, verde, azul); los
-  satélites suelen sumar infrarrojo, térmico y microondas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["bandas_espectrales", "agricultura"]
-
-enunciado: "¿Por qué la banda de infrarrojo cercano es clave para medir la salud de un cultivo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque la vegetación sana la refleja mucho más que la vegetación enferma o el suelo desnudo"
-  - "Porque el infrarrojo cercano muestra el color real de las plantas"
-  - "Porque sólo detecta agua, no plantas"
-respuesta: "Porque la vegetación sana la refleja mucho más que la vegetación enferma o el suelo desnudo"
-
-explicacion: |
-  Esa diferencia de reflectancia entre vegetación sana y enferma es la
-  base de los índices de vegetación usados en agricultura de precisión.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["bandas_espectrales"]
-
-enunciado: "¿Qué mide la banda de infrarrojo térmico de un satélite?"
-tipo: mc
-opciones_explicitas:
-  - "La temperatura de la superficie"
-  - "El color visible del terreno"
-  - "La altitud del satélite"
-respuesta: "La temperatura de la superficie"
-
-explicacion: |
-  Es útil para detectar incendios activos, islas de calor urbano o
-  temperatura del mar.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["bandas_espectrales"]
-
-enunciado: "¿Qué ventaja tiene la banda de microondas (radar) frente a la luz visible o el infrarrojo?"
-tipo: mc
-opciones_explicitas:
-  - "Puede atravesar nubes y funcionar de noche"
-  - "Muestra colores más realistas"
-  - "Sólo funciona sobre el océano"
-respuesta: "Puede atravesar nubes y funcionar de noche"
-
-explicacion: |
-  Es clave para monitorear zonas con clima muy nublado (como la selva
-  amazónica) o hacer seguimiento constante sin depender de luz solar.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["bandas_espectrales"]
-
-enunciado: "¿Qué es una imagen \"falso color\" en teledetección?"
-tipo: mc
-opciones_explicitas:
-  - "Combinar bandas invisibles al ojo humano en una imagen para resaltar lo que se quiere estudiar"
-  - "Una imagen tomada de noche sin luz"
-  - "Un error de calibración del sensor"
-respuesta: "Combinar bandas invisibles al ojo humano en una imagen para resaltar lo que se quiere estudiar"
-
-explicacion: |
-  Ej.: mostrar vegetación en rojo intenso combinando bandas de
-  infrarrojo, para verla mejor que en color natural.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "basico"
-  tags: ["usos"]
-
-enunciado: "¿Cómo se mide deforestación con imágenes satelitales?"
-tipo: mc
-opciones_explicitas:
-  - "Comparando imágenes del mismo lugar en dos fechas distintas"
-  - "Contando la cantidad de satélites que pasan por la zona"
-  - "Midiendo la temperatura del aire"
-respuesta: "Comparando imágenes del mismo lugar en dos fechas distintas"
-
-explicacion: |
-  La diferencia entre las dos imágenes muestra cuánto bosque
-  desapareció en ese período.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "basico"
-  tags: ["usos"]
-
-enunciado: "¿Qué información usan los satélites meteorológicos como base del pronóstico del tiempo?"
-tipo: mc
-opciones_explicitas:
-  - "Imágenes de nubes, ciclones y frentes"
-  - "Sólo la posición GPS de las ciudades"
-  - "El color del cielo visto desde el suelo"
-respuesta: "Imágenes de nubes, ciclones y frentes"
-
-explicacion: |
-  Buena parte del pronóstico del tiempo depende de imágenes satelitales
-  actualizadas constantemente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["usos"]
-
-enunciado: "¿Para qué se usan las imágenes satelitales después de una inundación?"
-tipo: mc
-opciones_explicitas:
-  - "Para medir el área afectada comparando imágenes de antes y después"
-  - "Para calcular la posición GPS de las víctimas"
-  - "Para predecir el próximo terremoto"
-respuesta: "Para medir el área afectada comparando imágenes de antes y después"
-
-explicacion: |
-  Es el mismo principio que la detección de deforestación: comparar
-  el mismo lugar en dos momentos distintos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["usos"]
-
-enunciado: "¿Cómo se mide el crecimiento de una ciudad a lo largo de los años con imágenes satelitales?"
-tipo: mc
-opciones_explicitas:
-  - "Observando el cambio en la superficie construida entre imágenes de distintos años"
-  - "Contando la cantidad de satélites en órbita"
-  - "Midiendo sólo la temperatura del asfalto"
-respuesta: "Observando el cambio en la superficie construida entre imágenes de distintos años"
-
-explicacion: |
-  Es otro caso del mismo método de comparación temporal de imágenes.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["resolucion"]
-
-enunciado: "¿Qué indica la \"resolución espacial\" de una imagen satelital?"
-tipo: mc
-opciones_explicitas:
-  - "El tamaño real del área que representa cada píxel de la imagen"
-  - "La cantidad de colores que puede mostrar"
-  - "La velocidad del satélite en su órbita"
-respuesta: "El tamaño real del área que representa cada píxel de la imagen"
-
-explicacion: |
-  Un satélite de 10 metros de resolución no distingue nada más chico
-  que un cuadrado de 10 m de lado.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["resolucion"]
-
-enunciado: "Con un satélite de 10 metros de resolución, ¿qué pasa con dos autos estacionados uno al lado del otro?"
-tipo: mc
-opciones_explicitas:
-  - "Se ven como un solo punto, sin poder distinguirlos"
-  - "Se ven perfectamente separados y con detalle"
-  - "El satélite no puede fotografiar autos en absoluto"
-respuesta: "Se ven como un solo punto, sin poder distinguirlos"
-
-explicacion: |
-  Cada píxel de esa imagen representa un área de 10x10 m; dos autos
-  chicos caen dentro del mismo píxel.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["resolucion"]
-
-enunciado: "¿Qué compromiso suele existir entre resolución y frecuencia de paso de un satélite?"
-tipo: mc
-opciones_explicitas:
-  - "Un satélite que fotografía todo el planeta a diario suele tener menor resolución que uno especializado que pasa cada varias semanas"
-  - "No existe ningún compromiso, ambas cosas son independientes"
-  - "A mayor frecuencia de paso, siempre mayor resolución"
-respuesta: "Un satélite que fotografía todo el planeta a diario suele tener menor resolución que uno especializado que pasa cada varias semanas"
-
-explicacion: |
-  Es un trade-off real de ingeniería: cobertura amplia y frecuente vs.
-  detalle fino en un punto específico.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["cruce"]
-
-enunciado: "¿En qué se diferencia una imagen satelital del GPS?"
-tipo: mc
-opciones_explicitas:
-  - "La imagen satelital muestra una zona entera; el GPS sólo da una posición puntual"
-  - "Son exactamente la misma tecnología"
-  - "El GPS necesita cámaras y la imagen satelital no"
-respuesta: "La imagen satelital muestra una zona entera; el GPS sólo da una posición puntual"
-
-explicacion: |
-  Son dos usos distintos de satélites: uno da un punto (posición), el
-  otro da una imagen completa de una superficie.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["teledeteccion"]
-
-enunciado: "Para tomar una imagen satelital de una zona hace falta un receptor especial instalado en esa zona."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  A diferencia del GPS (que necesita un receptor calculando su
-  posición), la imagen satelital se capta desde el satélite sin
-  necesitar nada en tierra.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "basico"
-  tags: ["bandas_espectrales"]
-
-enunciado: "Un satélite de observación terrestre sólo puede captar luz visible, igual que el ojo humano."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  La mayoría de los satélites de observación captan además bandas
-  invisibles (infrarrojo, térmico, microondas), cada una útil para
-  medir algo distinto.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "basico"
-  tags: ["cruce"]
-
-enunciado: "En una app de mapas, ¿qué capa se construye directamente a partir de imágenes satelitales?"
-tipo: mc
-opciones_explicitas:
-  - "La vista \"satélite\""
-  - "La capa de tránsito en tiempo real"
-  - "La capa de límites políticos"
-respuesta: "La vista \"satélite\""
-
-explicacion: |
-  Es la capa que muestra el terreno tal como se ve desde el espacio,
-  distinta de la capa vectorial de calles.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["bandas_espectrales"]
-
-enunciado: "Para monitorear deforestación en la selva amazónica, con nubosidad casi constante, ¿qué banda es especialmente útil?"
-tipo: mc
-opciones_explicitas:
-  - "Microondas (radar), que atraviesa las nubes"
-  - "Luz visible únicamente"
-  - "Sólo infrarrojo térmico"
-respuesta: "Microondas (radar), que atraviesa las nubes"
-
-explicacion: |
-  El radar permite captar imágenes útiles incluso con cobertura de
-  nubes casi permanente, donde la luz visible o el infrarrojo cercano
-  quedarían bloqueados.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "De las 3 tecnologías del Sistema de Información Geográfica (mapas digitales, GPS, imágenes satelitales), ¿cuál da una imagen completa de una zona en vez de un punto o una capa de datos vectoriales?"
-tipo: mc
-opciones_explicitas:
-  - "Imágenes satelitales"
-  - "GPS"
-  - "Mapas digitales"
-respuesta: "Imágenes satelitales"
-
-explicacion: |
-  El GPS da un punto; el mapa digital organiza datos en capas
-  vectoriales (calles, edificios); la imagen satelital capta una
-  fotografía/medición completa de la superficie.
-```
-
-## Sección: recursos-actividades-economicas (22 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "basico"
-  tags: ["recursos", "vocabulario"]
-
-enunciado: "¿Qué es un recurso natural?"
-tipo: mc
-opciones_explicitas:
-  - "Cualquier elemento del ambiente que una sociedad puede aprovechar para producir bienes o servicios"
-  - "Cualquier producto fabricado en una industria"
-  - "El dinero disponible en un territorio"
-respuesta: "Cualquier elemento del ambiente que una sociedad puede aprovechar para producir bienes o servicios"
-
-explicacion: |
-  El relieve, clima y bioma de un territorio determinan qué recursos
-  existen ahí.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "basico"
-  tags: ["recursos"]
-
-enunciado: "¿Qué actividad económica depende directamente de tener suelo fértil, clima templado y lluvias moderadas?"
-tipo: mc
-opciones_explicitas:
-  - "Agricultura"
-  - "Minería"
-  - "Pesca"
-respuesta: "Agricultura"
-
-explicacion: |
-  Ejemplo real: la Pampa argentina, llanura con esas condiciones
-  climáticas exactas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "intermedio"
-  tags: ["renovables"]
-
-enunciado: "¿Qué distingue a un recurso renovable de uno no renovable?"
-tipo: mc
-opciones_explicitas:
-  - "El renovable se regenera a un ritmo comparable al que se consume; el no renovable existe en cantidad fija y se agota"
-  - "El renovable siempre es más barato de explotar"
-  - "El no renovable siempre es un recurso energético"
-respuesta: "El renovable se regenera a un ritmo comparable al que se consume; el no renovable existe en cantidad fija y se agota"
-
-explicacion: |
-  Agua de lluvia, viento y sol se regeneran constantemente; petróleo y
-  minerales, no.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "basico"
-  tags: ["renovables"]
-
-enunciado: "¿Cuál de estos es un recurso NO renovable?"
-tipo: mc
-opciones_explicitas:
-  - "Petróleo"
-  - "Viento"
-  - "Radiación solar"
-respuesta: "Petróleo"
-
-explicacion: |
-  Se forma en escalas de tiempo geológico, mucho más largas que
-  cualquier ritmo de consumo humano.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "avanzado"
-  tags: ["renovables"]
-
-enunciado: "¿Por qué el petróleo se clasifica como recurso no renovable a pesar de que técnicamente sigue formándose en la naturaleza?"
-tipo: mc
-opciones_explicitas:
-  - "Porque se forma en escalas de tiempo geológico, muchísimo más lentas que el ritmo al que se consume"
-  - "Porque no se puede volver a formar bajo ninguna circunstancia"
-  - "Porque no es un elemento natural"
-respuesta: "Porque se forma en escalas de tiempo geológico, muchísimo más lentas que el ritmo al que se consume"
-
-explicacion: |
-  En la práctica, para la escala de tiempo humana, es como si no se
-  regenerara.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "basico"
-  tags: ["sectores"]
-
-enunciado: "¿Qué caracteriza al sector primario de la economía?"
-tipo: mc
-opciones_explicitas:
-  - "Extrae recursos directamente de la naturaleza sin transformarlos demasiado"
-  - "Transforma recursos en productos manufacturados"
-  - "Presta servicios en vez de producir bienes físicos"
-respuesta: "Extrae recursos directamente de la naturaleza sin transformarlos demasiado"
-
-explicacion: |
-  Agricultura, ganadería, pesca, minería y explotación forestal son
-  ejemplos de sector primario.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "basico"
-  tags: ["sectores"]
-
-enunciado: "¿Qué hace el sector secundario de la economía?"
-tipo: mc
-opciones_explicitas:
-  - "Transforma recursos naturales en productos manufacturados"
-  - "Extrae recursos directamente de la naturaleza"
-  - "Presta servicios de salud y educación"
-respuesta: "Transforma recursos naturales en productos manufacturados"
-
-explicacion: |
-  Industria textil, alimenticia, metalúrgica y automotriz son ejemplos
-  de sector secundario.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "basico"
-  tags: ["sectores"]
-
-enunciado: "¿Qué caracteriza al sector terciario?"
-tipo: mc
-opciones_explicitas:
-  - "Presta servicios en vez de producir bienes físicos"
-  - "Extrae recursos naturales"
-  - "Es siempre el sector más chico de cualquier economía"
-respuesta: "Presta servicios en vez de producir bienes físicos"
-
-explicacion: |
-  Comercio, educación, salud, turismo, finanzas y transporte son
-  ejemplos de sector terciario.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "intermedio"
-  tags: ["sectores"]
-
-enunciado: "¿A qué sector económico pertenece la minería?"
-tipo: mc
-opciones_explicitas:
-  - "Sector primario"
-  - "Sector secundario"
-  - "Sector terciario"
-respuesta: "Sector primario"
-
-explicacion: |
-  Extrae un recurso mineral directamente de la naturaleza, sin
-  transformarlo en un producto manufacturado.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "intermedio"
-  tags: ["sectores"]
-
-enunciado: "¿A qué sector económico pertenece la industria automotriz?"
-tipo: mc
-opciones_explicitas:
-  - "Sector secundario"
-  - "Sector primario"
-  - "Sector terciario"
-respuesta: "Sector secundario"
-
-explicacion: |
-  Transforma materias primas (metal, plástico, vidrio) en un producto
-  manufacturado.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "intermedio"
-  tags: ["sectores"]
-
-enunciado: "¿A qué sector económico pertenece el turismo?"
-tipo: mc
-opciones_explicitas:
-  - "Sector terciario"
-  - "Sector primario"
-  - "Sector secundario"
-respuesta: "Sector terciario"
-
-explicacion: |
-  Presta un servicio (alojamiento, guía, transporte) en vez de
-  producir un bien físico.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "avanzado"
-  tags: ["sectores"]
-
-enunciado: "¿Qué sector económico suele crecer más, en proporción, a medida que una economía se desarrolla?"
-tipo: mc
-opciones_explicitas:
-  - "El sector terciario (servicios)"
-  - "El sector primario (extracción directa)"
-  - "Ninguno cambia su proporción con el desarrollo"
-respuesta: "El sector terciario (servicios)"
-
-explicacion: |
-  Es un patrón histórico observado en la mayoría de las economías que
-  se industrializan y luego se "terciarizan".
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "avanzado"
-  tags: ["sectores"]
-
-enunciado: "¿Por qué el sector secundario está \"menos atado\" al territorio local que el primario?"
-tipo: mc
-opciones_explicitas:
-  - "Porque una fábrica puede instalarse donde convenga logísticamente, no necesariamente donde está el recurso"
-  - "Porque el sector secundario no necesita ningún recurso natural"
-  - "Porque el sector secundario siempre se instala en la capital del país"
-respuesta: "Porque una fábrica puede instalarse donde convenga logísticamente, no necesariamente donde está el recurso"
-
-explicacion: |
-  A diferencia de la agricultura o la minería (atadas al lugar donde
-  está el recurso), una fábrica puede transportar la materia prima
-  desde otro lugar.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "intermedio"
-  tags: ["recursos"]
-
-enunciado: "Los recursos naturales de un territorio determinan de forma automática y única qué actividades económicas se desarrollan ahí, sin margen para otras decisiones."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  La tecnología, el capital disponible y las decisiones políticas
-  también influyen — el territorio pone un piso de condiciones reales,
-  no un destino inevitable.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "avanzado"
-  tags: ["recursos"]
-
-enunciado: "¿Qué significa que el territorio pone un \"piso de condiciones reales\" para la economía, en vez de determinarla del todo?"
-tipo: mc
-opciones_explicitas:
-  - "Que hay límites reales que el territorio impone (ej.: sin costa no hay pesca marítima), aunque no elimina toda decisión humana sobre cómo aprovecharlo"
-  - "Que la economía nunca depende del territorio en absoluto"
-  - "Que sólo el sector primario depende del territorio"
-respuesta: "Que hay límites reales que el territorio impone (ej.: sin costa no hay pesca marítima), aunque no elimina toda decisión humana sobre cómo aprovecharlo"
-
-explicacion: |
-  Es el matiz entre "condiciona" y "determina" que explica
-  `teoria.md`.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "basico"
-  tags: ["recursos"]
-
-enunciado: "¿Puede un país sin salida al mar desarrollar pesca marítima?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Es un ejemplo directo de cómo el territorio pone un límite real —
-  puede tener pesca de agua dulce (ríos, lagos), pero no marítima.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "avanzado"
-  tags: ["argentina", "cruce"]
-
-enunciado: "¿Qué combinación de relieve/clima/bioma explica el perfil agroexportador histórico de Argentina (cereales, oleaginosas, carne)?"
-tipo: mc
-opciones_explicitas:
-  - "Llanura, clima templado y pastizal con suelo fértil de la Pampa húmeda"
-  - "Cordillera con clima muy frío"
-  - "Selva tropical con suelo pobre"
-respuesta: "Llanura, clima templado y pastizal con suelo fértil de la Pampa húmeda"
-
-explicacion: |
-  Es la misma cadena relieve → clima → bioma que ya explicó
-  `../relieve-clima-biomas/`, aplicada acá a un caso económico
-  concreto.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "intermedio"
-  tags: ["recursos"]
-
-enunciado: "¿Para cuál de estos usos NO sirve típicamente el agua dulce como recurso?"
-tipo: mc
-opciones_explicitas:
-  - "Generación de energía nuclear"
-  - "Riego agrícola"
-  - "Generación de energía hidroeléctrica"
-respuesta: "Generación de energía nuclear"
-
-explicacion: |
-  La energía nuclear usa un combustible mineral (uranio), no el agua
-  como recurso energético directo (aunque el agua sí se use para
-  refrigerar la planta).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "intermedio"
-  tags: ["recursos", "cruce"]
-
-enunciado: "¿Por qué el relieve montañoso suele tener más yacimientos minerales que una llanura?"
-tipo: mc
-opciones_explicitas:
-  - "Por la historia geológica del territorio, ligada a la formación de las montañas"
-  - "Porque las montañas siempre tienen más lluvia"
-  - "Porque las llanuras nunca tuvieron actividad volcánica"
-respuesta: "Por la historia geológica del territorio, ligada a la formación de las montañas"
-
-explicacion: |
-  La ubicación de yacimientos minerales depende de procesos geológicos
-  de largo plazo, distintos de los que forman una llanura.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "intermedio"
-  tags: ["renovables", "cruce"]
-
-enunciado: "¿Por qué se dice que el potencial de energía solar o eólica de una zona está \"ligado directamente al clima\"?"
-tipo: mc
-opciones_explicitas:
-  - "Porque la cantidad de radiación solar o viento disponible depende directamente de las condiciones climáticas del lugar"
-  - "Porque el clima determina el precio de los paneles solares"
-  - "Porque sin clima no hay electricidad en ningún lugar"
-respuesta: "Porque la cantidad de radiación solar o viento disponible depende directamente de las condiciones climáticas del lugar"
-
-explicacion: |
-  A diferencia del petróleo o el gas (ligados a la historia geológica),
-  el potencial solar y eólico depende del clima actual del territorio.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "avanzado"
-  tags: ["sectores"]
-
-enunciado: "Ordená los tres sectores de más cercano al recurso natural (extrae directo) a más lejano (sólo servicios): Terciario, Primario, Secundario."
-tipo: ordenar
-opciones_explicitas:
-  - "Primario"
-  - "Secundario"
-  - "Terciario"
-respuesta_orden: ["Primario", "Secundario", "Terciario"]
-
-explicacion: |
-  Primario extrae directo; secundario transforma lo extraído;
-  terciario presta servicios sin producir un bien físico.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "recursos_actividades_economicas"
-  nivel: "intermedio"
-  tags: ["sectores", "cruce"]
-
-enunciado: "¿Por qué el sector primario es el más directamente dependiente del clima, relieve y bioma de un territorio?"
-tipo: mc
-opciones_explicitas:
-  - "Porque extrae recursos directamente de la naturaleza, sin la mediación de una fábrica que pueda instalarse en otro lado"
-  - "Porque el sector primario no usa ningún recurso natural"
-  - "Porque el sector primario siempre se ubica en la capital del país"
-respuesta: "Porque extrae recursos directamente de la naturaleza, sin la mediación de una fábrica que pueda instalarse en otro lado"
-
-explicacion: |
-  Es la razón por la que `recursos-actividades-economicas/` depende de
-  `../relieve-clima-biomas/`: sin saber qué clima/relieve/bioma tiene
-  un territorio, no se puede predecir qué recursos primarios ofrece.
-```
 
 ## Sección: regiones-naturales-de-argentina (24 preguntas)
 
@@ -2693,5 +1857,1201 @@ enunciado: "Aunque no es una tendencia nueva, la deslocalización {estado} en la
 
 explicacion: |
   La globalización reciente intensificó un fenómeno que existía desde antes, pero a otra escala.
+```
+
+## Sección: mineria-e-hidrocarburos-en-argentina (25 preguntas)
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "basico"
+  tags: ["litio", "recursos_minerales", "noroeste"]
+
+variables:
+  provincias_litio: uno_de(["Jujuy", "Salta", "Catamarca"])
+
+respuesta: "Jujuy, Salta y Catamarca"
+tipo: completar
+
+enunciado: "El 'Triángulo del Litio' argentino abarca territorios de las provincias de Jujuy, {provincias_litio} y Catamarca. ¿Cuáles son las tres provincias que conforman este eje estratégico?"
+
+explicacion: |
+  El Triángulo del Litio es una región geográfica que incluye partes de las provincias nordestinas de Jujuy, Salta y Catamarca, ricas en yacimientos de litio esenciales para la industria de baterías.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["hidrocarburos", "vaca_muerta", "neuquen"]
+
+variables:
+  formacion: "Vaca Muerta"
+
+respuesta: "Vaca Muerta"
+tipo: completar
+
+enunciado: "Aunque históricamente el Golfo San Jorge fue clave, hoy el epicentro de la extracción de petróleo y gas natural en Argentina es la formación geológica conocida como {formacion}."
+
+explicacion: |
+  Vaca Muerta, ubicada principalmente en Neuquén, se ha convertido en el principal polo de producción de hidrocarburos no convencionales del país.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "basico"
+  tags: ["santa_cruz", "carbón", "sur"]
+
+variables:
+  recurso_sc: "carbón"
+
+respuesta: "carbón"
+tipo: completar
+
+enunciado: "En la provincia de Santa Cruz, ubicada en el sur del país, destaca una larga tradición en la extracción de {recurso_sc}, aunque su producción ha fluctuado con el tiempo."
+
+explicacion: |
+  Santa Cruz es conocida por sus yacimientos de carbón térmico y metalúrgico, especialmente en la zona de Río Turbio.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["economia", "matriz_productiva"]
+
+variables:
+  sector_tradicional: "agro"
+
+respuesta: "agro"
+tipo: completar
+
+enunciado: "Históricamente, la economía argentina ha dependido mucho del sector {sector_tradicional}, pero los recursos del subsuelo representan una oportunidad para diversificar la matriz productiva."
+
+explicacion: |
+  La minería y los hidrocarburos buscan reducir la dependencia histórica del agro y generar nuevas cadenas de valor industriales y exportadoras.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "basico"
+  tags: ["distribucion", "noroeste", "sur"]
+
+variables:
+  region_minera: "noroeste"
+
+respuesta: "noroeste"
+tipo: completar
+
+enunciado: "La actividad minera en Argentina se distribuye de manera desigual, concentrándose principalmente en las provincias del {region_minera} y del sur."
+
+explicacion: |
+  El noroeste (Jujuy, Salta, Catamarca, etc.) y el sur (Santa Cruz) son los polos mineros principales, junto con Mendoza y San Juan.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "basico"
+  tags: ["oro", "plata", "noroeste"]
+
+variables:
+  metal1: "oro"
+  metal2: "plata"
+
+respuesta: "oro y plata"
+tipo: completar
+
+enunciado: "En el noroeste argentino, destaca la producción de metales preciosos como el {metal1} y el {metal2}."
+
+explicacion: |
+  Las provincias del NOA son históricamente productoras de oro y plata, además de litio y otros minerales.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["golfo_san_jorge", "historia"]
+
+variables:
+  region_historica: "Golfo San Jorge"
+
+respuesta: "Golfo San Jorge"
+tipo: completar
+
+enunciado: "Antes del auge de Vaca Muerta, la producción de hidrocarburos se concentraba tradicionalmente en el {region_historica} y en el norte antiguo."
+
+explicacion: |
+  El Golfo San Jorge, en Chubut y Santa Cruz, fue el centro histórico de la industria petrolera argentina.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["minería_no_metálica", "impacto_ambiental"]
+
+variables:
+  impacto: "menor"
+
+respuesta: "menor"
+tipo: completar
+
+enunciado: "La minería no metálica o industrial, que extrae materiales como sal o yeso, suele tener un impacto ambiental relativo {impacto} comparada con la minería metálica, aunque requiere gestión cuidadosa."
+
+explicacion: |
+  La teoría indica que la minería no metálica suele tener un menor impacto ambiental relativo, pero aún así exige cuidado con el agua y el suelo.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["vaca_muerta", "neuquen"]
+
+variables:
+  provincia_vm: "Neuquén"
+
+respuesta: "Neuquén"
+tipo: completar
+
+enunciado: "La formación de Vaca Muerta está ubicada principalmente en el noroeste de la provincia de {provincia_vm}."
+
+explicacion: |
+  Vaca Muerta se extiende principalmente por el noroeste de Neuquén, con extensiones en Río Negro.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["litio", "baterías", "transición_energética"]
+
+variables:
+  uso_litio: "baterías"
+
+respuesta: "baterías"
+tipo: completar
+
+enunciado: "El litio es vital a nivel mundial debido a la demanda de este metal para la fabricación de {uso_litio} y la transición energética global."
+
+explicacion: |
+  El litio es un componente clave en las baterías recargables para vehículos eléctricos y almacenamiento de energía.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["economía", "empleo"]
+
+variables:
+  sector_vinculado: "transporte"
+
+respuesta: "transporte"
+tipo: completar
+
+enunciado: "La minería no solo genera empleo directo, sino que también impulsa cadenas de valor vinculadas al {sector_vinculado}, la manufactura y la exportación."
+
+explicacion: |
+  La extracción de recursos requiere logística, transporte de carga y servicios conexos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["clasificación", "metálica", "no_metálica"]
+
+variables:
+  tipo1: "metálica"
+  tipo2: "no metálica"
+
+respuesta: "metálica"
+tipo: completar
+
+enunciado: "La minería en Argentina se divide en dos tipos: la minería {tipo1}, que busca obtener metales como cobre o zinc, y la minería no metálica."
+
+explicacion: |
+  La distinción fundamental es entre la obtención de metales (metálica) y materiales industriales/construcción (no metálica).
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "avanzado"
+  tags: ["estrategia", "inserción_global"]
+
+variables:
+  objetivo: "inserción"
+
+respuesta: "inserción"
+tipo: completar
+
+enunciado: "Los recursos del subsuelo son una oportunidad clave para el desarrollo industrial y la {objetivo} en los mercados globales."
+
+explicacion: |
+  La teoría destaca que estos recursos permiten a Argentina insertarse mejor en la economía global.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["hidrocarburos", "salta", "historia"]
+
+variables:
+  region_norte: "norte"
+
+respuesta: "norte"
+tipo: completar
+
+enunciado: "Históricamente, la producción de hidrocarburos se concentraba en el Golfo San Jorge y en el {region_norte} (Salta y la cuenca Neuquina convencional)."
+
+explicacion: |
+  Antes de Vaca Muerta, el norte argentino (Salta/Jujuy, cuenca del Noroeste — Aguaray, Campo Durán) tenía actividad petrolera significativa. (Tucumán, en cambio, no tiene historia petrolera relevante — su economía se asocia al azúcar, no a hidrocarburos.)
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "avanzado"
+  tags: ["ambiental", "agua", "gestión"]
+
+variables:
+  recurso_clave: "agua"
+
+respuesta: "agua"
+tipo: completar
+
+enunciado: "Tanto la minería metálica como la no metálica requieren una gestión cuidadosa del {recurso_clave} y del suelo."
+
+explicacion: |
+  El uso y contaminación del agua es un desafío ambiental central en la actividad minera.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "basico"
+  tags: ["carbón", "santa_cruz"]
+
+variables:
+  combustible: "carbón"
+
+respuesta: "carbón"
+tipo: completar
+
+enunciado: "En el sur de Argentina, la provincia de Santa Cruz tiene tradición en la extracción de {combustible}."
+
+explicacion: |
+  El carbón es el principal recurso minero histórico de Santa Cruz.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["economía", "diversificación"]
+
+variables:
+  matriz: "productiva"
+
+respuesta: "productiva"
+tipo: completar
+
+enunciado: "La importancia de la minería y los hidrocarburos radica en su capacidad para diversificar la matriz {matriz} del país."
+
+explicacion: |
+  La teoría enfatiza la diversificación de la matriz productiva como un beneficio estratégico.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "basico"
+  tags: ["mendoza", "yacimientos"]
+
+variables:
+  metal_mz: "oro"
+
+respuesta: "oro"
+tipo: completar
+
+enunciado: "Mendoza cuenta con yacimientos de {metal_mz} y plata de importancia histórica."
+
+explicacion: |
+  Mendoza tiene una larga historia de minería de oro y plata.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["vaca_muerta", "ri Negro"]
+
+variables:
+  provincia_vm2: "Río Negro"
+
+respuesta: "Río Negro"
+tipo: completar
+
+enunciado: "La formación de Vaca Muerta se extiende ha {provincia_vm2}, además de Neuquén."
+
+explicacion: |
+  Vaca Muerta es una formación geológica transfronteriza entre Neuquén y Río Negro.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "basico"
+  tags: ["litio", "jujuy"]
+
+variables:
+  provincia_litio1: "Jujuy"
+
+respuesta: "Jujuy"
+tipo: completar
+
+enunciado: "El 'Triángulo del Litio' incluye partes de {provincia_litio1}, Salta y Catamarca."
+
+explicacion: |
+  Jujuy es una de las tres provincias fundamentales del Triángulo del Litio.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["ambiental", "minería_no_metálica"]
+
+variables:
+  impacto: "menor"
+
+respuesta: "menor"
+tipo: completar
+
+enunciado: "La minería no metálica suele tener un impacto ambiental relativo {impacto} que la metálica."
+
+explicacion: |
+  Según la teoría, la minería no metálica tiene un impacto relativo menor, aunque no nulo.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "basico"
+  tags: ["hidrocarburos", "chubut"]
+
+variables:
+  provincia_gs: "Chubut"
+
+respuesta: "Chubut"
+tipo: completar
+
+enunciado: "Históricamente, el Golfo San Jorge abarcaba la producción de hidrocarburos en Chubut y {provincia_gs}."
+
+explicacion: |
+  El Golfo San Jorge incluye áreas de Chubut y Santa Cruz.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["minerales", "industriales"]
+
+variables:
+  mineral: "litio"
+
+respuesta: "litio"
+tipo: completar
+
+enunciado: "En el noroeste, destaca la producción de minerales industriales como el {mineral}."
+
+explicacion: |
+  El texto clasifica al litio como mineral industrial en el contexto de los salares nordestinos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "intermedio"
+  tags: ["desarrollo", "industria"]
+
+variables:
+  sector: "industrial"
+
+respuesta: "industrial"
+tipo: completar
+
+enunciado: "Los recursos del subsuelo representan una oportunidad clave para el desarrollo {sector} del país."
+
+explicacion: |
+  La teoría vincula los recursos del subsuelo con el desarrollo industrial.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "mineria_e_hidrocarburos_en_argentina"
+  nivel: "avanzado"
+  tags: ["espacio_geográfico", "organización"]
+
+variables:
+  espacio: "geográfico"
+
+respuesta: "geográfico"
+tipo: completar
+
+enunciado: "Comprender dónde se encuentran los recursos es esencial para entender la organización del espacio {espacio} nacional."
+
+explicacion: |
+  La distribución de la minería y hidrocarburos moldea la organización del espacio geográfico argentino.
+```
+
+## Sección: america-latina-industria-y-energia (35 preguntas)
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["hidroelectricidad", "energia", "industria"]
+
+variables:
+  caudal: random(2000, 5000)
+  altura: random(50, 150)
+  eficiencia: random_float(0.7, 0.9)
+  potencia_watts: caudal * altura * 9.8 * eficiencia
+  potencia_mw: redondear(potencia_watts / 1000000, 2)
+
+respuesta: potencia_mw
+tipo: input
+
+enunciado: "Una represa hipotética en la región tiene un caudal de {caudal} m³/s y un salto de agua de {altura} metros. Si la eficiencia de los generadores es del {redondear(eficiencia*100, 0)}%, ¿cuál es la potencia instalada aproximada en MW? (Fórmula: P = caudal * gravedad * altura * eficiencia, con g=9.8)"
+
+explicacion: |
+  La potencia hidroeléctrica depende del caudal, la altura del salto y la eficiencia. El cálculo muestra cómo la geografía física (caudal y desnivel) determina el potencial industrial energético.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["matriz_energetica", "renovable"]
+
+variables:
+  afirmacion_correcta: uno_de([verdadero, falso])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La matriz energética de América Latina es predominantemente renovable en comparación con otras regiones del mundo."
+
+explicacion: |
+  Verdadero. Gracias a la abundancia de recursos hídricos, solares y eólicos, la región tiene una de las matrices más limpias del planeta, lo que ofrece ventajas competitivas para industrias que buscan descarbonizar sus procesos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["hidrocarburos", "petroquimica", "reservas"]
+
+variables:
+  pais1: "Venezuela"
+  pais2: "Argentina"
+  pais3: "Brasil"
+  respuesta_correcta: pais1
+
+respuesta: respuesta_correcta
+tipo: completar
+
+enunciado: "Entre los países con grandes reservas de hidrocarburos que moldearon la industria petroquímica regional se encuentran {pais2}, {pais3} y {pais1}."
+
+respuestas_validas:
+  - "Venezuela"
+  - "venezuela"
+
+explicacion: |
+  Venezuela posee las mayores reservas probadas de petróleo convencional en la región, lo que históricamente impulsó su industria petroquímica, aunque con fluctuaciones en su producción.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "intermedio"
+  tags: ["costos", "competitividad", "energia"]
+
+variables:
+  costo_base: random_float(0.05, 0.15)
+  incremento_solar: random_float(0.01, 0.03)
+  costo_final: costo_base + incremento_solar
+  costo_formateado: redondear(costo_final, 3)
+
+respuesta: costo_formateado
+tipo: input
+
+enunciado: "Si una industria paga $0.12 por kWh de energía hidroeléctrica y decide instalar paneles solares para diversificar, aumentando el costo marginal en $0.025 por kWh, ¿cuál es el nuevo costo por kWh? (Redondear a 3 decimales)"
+
+explicacion: |
+  La transición energética implica costos iniciales. La diversificación hacia renovables como la solar busca competitividad a largo plazo, aunque pueda implicar ajustes en la estructura de costos inmediata.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "intermedio"
+  tags: ["riesgo", "sequia", "hidroelectricidad"]
+
+variables:
+  afirmacion: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La dependencia excesiva de la hidroelectricidad expone a la industria latinoamericana a la vulnerabilidad climática, como racionamientos por sequías."
+
+explicacion: |
+  Verdadero. Episdios recientes han demostrado que la falta de lluvia reduce la generación hidroeléctrica, poniendo en riesgo la continuidad operativa de industrias energívores.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "intermedio"
+  tags: ["eolica", "potencial", "renovable"]
+
+variables:
+  velocidad_viento: random_float(8, 15)
+  area_turbina: random_float(100, 200)
+  factor_capacidad: 0.35
+  potencia_kw: velocidad_viento * area_turbina * factor_capacidad
+  potencia_mw: redondear(potencia_kw / 1000, 2)
+
+respuesta: potencia_mw
+tipo: input
+
+enunciado: "Un parque eólico en la Patagonia tiene turbinas con un área de barrido de {area_turbina} m² y una velocidad media de viento de {velocidad_viento} m/s. Si el factor de capacidad es 0.35, ¿cuál es la potencia estimada en MW? (Fórmula simplificada: P = v * A * factor)"
+
+explicacion: |
+  La energía eólica es una fuente renovable clave para complementar la matriz hidroeléctrica, especialmente en regiones con vientos constantes como el sur de Argentina y Chile.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["heterogeneidad", "desarrollo", "industria"]
+
+variables:
+  afirmacion: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La industria latinoamericana es homogénea; todos los países tienen el mismo nivel de desarrollo tecnológico y de servicios."
+
+explicacion: |
+  Falso. La región es heterogénea. Mientras algunos países desarrollan sectores tecnológicos avanzados, otros mantienen estructuras basadas en agroindustria y minería.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "avanzado"
+  tags: ["eficiencia", "industria", "energia"]
+
+variables:
+  energia_total: random_float(100, 500)
+  energia_util: random_float(60, 90)
+  eficiencia: energia_util / energia_total
+  eficiencia_pct: redondear(eficiencia * 100, 1)
+
+respuesta: eficiencia_pct
+tipo: input
+
+enunciado: "Si una planta industrial consume {energia_total} GWh de energía total y de ella solo {energia_util} GWh son efectivamente útiles para el proceso productivo, ¿cuál es el porcentaje de eficiencia energética? (Redondear a 1 decimal)"
+
+explicacion: |
+  La eficiencia energética es crucial para la competitividad. Mejorarla reduce costos y dependencia de insumos energéticos externos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "intermedio"
+  tags: ["descarbonizacion", "sostenibilidad", "industria"]
+
+variables:
+  afirmacion: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La matriz energética renovable de América Latina constituye una oportunidad estratégica para descarbonizar la economía global."
+
+explicacion: |
+  Verdadero. En un mundo que busca reducir emisiones, la capacidad de la región para proveer energía limpia es una ventaja comparativa clave para la industria.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "avanzado"
+  tags: ["carbono", "huella", "renovable"]
+
+variables:
+  energia_renovable: random_float(1000, 5000)
+  factor_emision_carbono: 0.5
+  co2_evitado: energia_renovable * factor_emision_carbono
+  co2_formateado: redondear(co2_evitado, 0)
+
+respuesta: co2_formateado
+tipo: input
+
+enunciado: "Si una industria utiliza {energia_renovable} MWh de energía solar en lugar de carbón, y el factor de emisión del carbón es 0.5 kg CO2/MWh, ¿cuántos kg de CO2 evita emitir? (Redondear a entero)"
+
+explicacion: |
+  La transición a renovables no solo es ambiental, sino también económica, al reducir costos de carbono y mejorar la imagen corporativa global.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["agroindustria", "estructura", "productiva"]
+
+variables:
+  afirmacion: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Algunos países latinoamericanos mantienen una estructura productiva basada en la agroindustria y la minería."
+
+explicacion: |
+  Verdadero. A pesar de los avances, la heterogeneidad regional hace que la agroindustria y la minería sigan siendo pilares importantes en varias economías.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "avanzado"
+  tags: ["industria", "aluminio", "electricidad"]
+
+variables:
+  industria: "siderúrgica y de aluminio"
+  requisito: "grandes cantidades de electricidad"
+
+respuesta: requisito
+tipo: completar
+
+enunciado: "La instalación de industrias {industria} en países como Brasil y Paraguay ha sido posible gracias al acceso a grandes saltos de agua que permiten generar {requisito}."
+
+explicacion: |
+  La industria del aluminio y la siderurgia son intensivas en energía. La disponibilidad de hidroelectricidad barata en la región ha sido un factor clave para atraer este tipo de inversiones industriales.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "intermedio"
+  tags: ["hidrocarburos", "petroquímica", "Venezuela"]
+
+variables:
+  pais: uno_de(["Venezuela", "Argentina", "Brasil"])
+  industria: "petroquímica"
+
+respuesta: industria
+tipo: completar
+
+enunciado: "La presencia de grandes reservas de hidrocarburos en {pais} ha moldeado el desarrollo de la industria {industria} regional, permitiendo la producción de derivados del petróleo."
+
+explicacion: |
+  Países con grandes reservas de hidrocarburos han desarrollado industrias petroquímicas locales. Esto permite transformar la materia prima en productos de mayor valor agregado, aunque la dependencia de estos recursos también presenta desafíos económicos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["valor_agregado", "transformación", "materias_primas"]
+
+variables:
+  proceso: "transformar recursos en valor agregado"
+  factor: "procesos industriales intensivos en energía"
+
+respuesta: factor
+tipo: completar
+
+enunciado: "El desafío actual de América Latina es {proceso} mediante {factor}, pasando de ser un proveedor exclusivo de materias primas a un actor industrial relevante."
+
+explicacion: |
+  La región busca dejar atrás el modelo de exportación de materias primas sin procesar. La clave está en utilizar su energía y recursos para crear procesos industriales que generen mayor valor agregado.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["matriz", "renovable", "descarbonización"]
+
+variables:
+  tendencia: "descarbonizar"
+  oportunidad: "estratégica"
+
+respuesta: "oportunidad"
+tipo: completar
+
+enunciado: "La matriz energética predominantemente renovable de América Latina constituye una {oportunidad} estratégica en un mundo que busca {tendencia} su economía."
+
+explicacion: |
+  La transición energética global favorece a regiones con matrices limpias. América Latina puede posicionarse como un proveedor de energía verde y productos manufacturados con baja huella de carbono.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "intermedio"
+  tags: ["competitividad", "precios", "inversión"]
+
+variables:
+  requisito: "precios competitivos"
+  resultado: "atraer inversiones"
+
+respuesta: resultado
+tipo: completar
+
+enunciado: "Sin acceso a fuentes de energía confiables y a {requisito}, es imposible {resultado} industriales que compitan en el mercado mundial."
+
+explicacion: |
+  La energía es un costo crítico para la industria. Si los precios son altos o el suministro es inestable, las inversiones industriales se dirigen a otras regiones con mejores condiciones energéticas.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["zonas_franca", "comercio", "exportación"]
+
+variables:
+  fenomeno: "deslocalización"
+  consecuencia: "zonas francas"
+
+respuesta: consecuencia
+tipo: completar
+
+enunciado: "La {fenomeno} de empresas ha tenido un impacto dual, fomentando la instalación de maquiladoras y {consecuencia} en la región."
+
+explicacion: |
+  Las zonas francas son áreas designadas para incentivar la inversión extranjera y la exportación. Han surgido como respuesta a la deslocalización, permitiendo a las empresas operar con beneficios fiscales y aduaneros.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "intermedio"
+  tags: ["renovables", "solar", "eólica"]
+
+variables:
+  tipo1: "solar"
+  tipo2: "eólica"
+
+respuesta: tipo1 + " y " + tipo2
+tipo: completar
+
+enunciado: "Más recientemente, los centros de desarrollo industrial se han concentrado en áreas con potencial para energías renovables como la {tipo1} y la {tipo2}."
+
+explicacion: |
+  Además de la hidroelectricidad, la región está aprovechando su potencial para energías limpias alternativas. El noroeste de Argentina, Chile y Brasil tienen gran potencial para estas fuentes.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "avanzado"
+  tags: ["dependencia", "cadenas_suministro", "externas"]
+
+variables:
+  condicion: "dependencia de cadenas de suministro externas"
+  requisito: "matriz energética robusta"
+
+respuesta: requisito
+tipo: completar
+
+enunciado: "La deslocalización genera {condicion} que requiere una {requisito} y competitiva para ser sostenible."
+
+explicacion: |
+  Aunque las maquiladoras reducen costos laborales, su viabilidad depende de una logística y energía eficientes. Una matriz energética débil aumenta los costos logísticos y de producción, haciendo inviable la dependencia externa.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "intermedio"
+  tags: ["siderurgia", "hidroelectricidad", "localización"]
+
+variables:
+  industria: "siderúrgica"
+  recurso: "grandes saltos de agua"
+
+respuesta: recurso
+tipo: completar
+
+enunciado: "La generación hidroeléctrica ha sido fundamental para el desarrollo industrial de países como Brasil y Paraguay, permitiendo la instalación de industrias {industria} gracias al acceso a {recurso}."
+
+explicacion: |
+  La siderurgia requiere grandes volúmenes de energía. Los grandes ríos y saltos de agua en la región han permitido instalar plantas siderúrgicas cerca de la fuente de energía, reduciendo costos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "avanzado"
+  tags: ["racionamiento", "vulnerabilidad", "hidroelectricidad"]
+
+variables:
+  evento: "sequías prolongadas"
+  consecuencia: "racionamiento eléctrico"
+
+respuesta: consecuencia
+tipo: completar
+
+enunciado: "La dependencia de la hidroelectricidad expone a la región a la vulnerabilidad climática; {evento} pueden paralizar la producción industrial, como se ha observado en episodios recientes de {consecuencia}."
+
+explicacion: |
+  Los episodios de sequía en la Cuenca del Plata o en Brasil han demostrado que la falta de agua reduce la generación eléctrica, obligando a racionamientos que afectan gravemente a la industria.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["transformación", "productiva", "historia"]
+
+variables:
+  pasado: "proveedor exclusivo de materias primas"
+  presente: "actor industrial relevante"
+
+respuesta: presente
+tipo: completar
+
+enunciado: "América Latina ha transitado un camino complejo, pasando de ser un {pasado} a intentar posicionarse como un {presente}."
+
+explicacion: |
+  El cambio estructural busca diversificar la economía. Ya no basta con exportar recursos naturales; se busca participar en la cadena de valor industrial global.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "intermedio"
+  tags: ["energía", "habilitante", "industria"]
+
+variables:
+  rol: "factor habilitante crítico"
+  condición: "acceso a fuentes confiables"
+
+respuesta: rol
+tipo: completar
+
+enunciado: "En este contexto, la energía actúa como el {rol}. Sin {condición} y a precios competitivos, es imposible atraer inversiones industriales."
+
+explicacion: |
+  La energía no es solo un insumo, es un requisito previo para la industrialización. Sin ella, no hay producción manufacturada competitiva.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "intermedio"
+  tags: ["geografía_industrial", "disparidad", "localización"]
+
+variables:
+  fenómeno: "desarrollo industrial"
+  concentración: "zonas con acceso a hidrocarburos"
+
+respuesta: "{concentración}"
+tipo: completar
+
+enunciado: "La geografía industrial de la región refleja esta disparidad: los centros de {fenómeno} se concentran en {concentración}, grandes saltos de agua o áreas con potencial renovable."
+
+explicacion: |
+  La industria no se distribuye uniformemente. Se localiza donde hay acceso a recursos energéticos clave, ya sean fósiles, hidráulicos o renovables.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["impacto", "deslocalización", "dual"]
+
+variables:
+  positivo: "fomentado la instalación de maquiladoras"
+  negativo: "dependencia de cadenas externas"
+
+respuesta: negativo
+tipo: completar
+
+enunciado: "El impacto de la deslocalización ha sido dual: por un lado, {positivo}; por otro, ha generado {negativo}."
+
+explicacion: |
+  La deslocalización trae beneficios (empleo, inversión) pero también riesgos (dependencia tecnológica y logística). Es un equilibrio delicado para la soberanía industrial.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["recursos", "valor_agregado", "comparativa"]
+
+variables:
+  ventaja: "ventaja comparativa histórica"
+  recurso: "recursos naturales"
+
+respuesta: recurso
+tipo: completar
+
+enunciado: "La región posee una {ventaja} en {recurso}, pero su desafío actual radica en cómo transformarlos en valor agregado."
+
+explicacion: |
+  Tener recursos no es suficiente. La clave está en la capacidad de transformarlos industrialmente. Sin industria, el valor se queda en la extracción.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "intermedio"
+  tags: ["hidrocarburos", "reservas", "Venezuela"]
+
+variables:
+  país1: "Venezuela"
+  país2: "Argentina"
+  país3: "Brasil"
+
+respuesta: "{país1}, {país2} y {país3}"
+tipo: completar
+
+enunciado: "Grandes reservas de hidrocarburos se encuentran en {país1}, {país2} y {país3}, moldeando la industria petroquímica regional."
+
+explicacion: |
+  Estos países tienen la capacidad de extraer y refinar petróleo. Esto les permite desarrollar una industria petroquímica propia, reduciendo la dependencia de importaciones de derivados.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["matriz", "energética", "renovable"]
+
+variables:
+  característica: "predominantemente renovable"
+  oportunidad: "oportunidad estratégica"
+
+respuesta: oportunidad
+tipo: completar
+
+enunciado: "La matriz energética de América Latina es {característica}, lo que constituye una {oportunidad} en un mundo que busca descarbonizar su economía."
+
+explicacion: |
+  La transición energética global es una oportunidad para la región. Sus fuentes limpias pueden ser exportadas o utilizadas para producir bienes con baja huella de carbono.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["deslocalización", "corporaciones", "costos"]
+
+variables:
+  sujeto: "corporaciones"
+  acción: "trasladan su producción"
+  motivo: "menores costos operativos"
+
+respuesta: motivo
+tipo: completar
+
+enunciado: "La {sujeto} {acción} a países con {motivo}, fenómeno conocido como deslocalización."
+
+explicacion: |
+  La búsqueda de eficiencia impulsa a las multinacionales a moverse. América Latina compite ofreciendo costos laborales y energéticos atractivos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "avanzado"
+  tags: ["aluminio", "industria", "electricidad"]
+
+variables:
+  industria: "aluminio"
+  requisito: "grandes cantidades de electricidad"
+
+respuesta: requisito
+tipo: completar
+
+enunciado: "La generación hidroeléctrica ha permitido la instalación de industrias de {industria} que requieren {requisito}."
+
+explicacion: |
+  El aluminio es uno de los productos más intensivos en energía. La hidroelectricidad barata de Brasil y Paraguay ha sido clave para su desarrollo en la región.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "intermedio"
+  tags: ["vulnerabilidad", "clima", "hidroelectricidad"]
+
+variables:
+  causa: "dependencia de la hidroelectricidad"
+  efecto: "vulnerabilidad climática"
+
+respuesta: efecto
+tipo: completar
+
+enunciado: "La {causa} expone a la región a la {efecto}; sequías prolongadas pueden paralizar la producción industrial."
+
+explicacion: |
+  El cambio climático es un riesgo real. Si los patrones de lluvia cambian, la generación hidroeléctrica se ve afectada, impactando directamente a la industria.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["tecnología", "servicios", "desarrollo"]
+
+variables:
+  sector: "tecnológicos y de servicios avanzados"
+  estructura: "agroindustria y minería"
+
+respuesta: estructura
+tipo: completar
+
+enunciado: "Mientras algunos países han logrado desarrollar sectores {sector}, otros mantienen una estructura productiva basada en {estructura}."
+
+explicacion: |
+  La heterogeneidad es la norma. Algunos países han logrado saltar la trampa de la renta media diversificando su economía, mientras otros siguen atrapados en la extracción.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "intermedio"
+  tags: ["precios", "competitividad", "energía"]
+
+variables:
+  requisito: "precios competitivos"
+  resultado: "atraer inversiones industriales"
+
+respuesta: resultado
+tipo: completar
+
+enunciado: "Sin acceso a fuentes de energía confiables y a {requisito}, es imposible {resultado} que compitan en el mercado mundial."
+
+explicacion: |
+  La energía es un costo fijo. Si es caro, el producto final es caro. Para competir globalmente, se necesita energía barata y confiable.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "basico"
+  tags: ["zonas_franca", "maquiladora", "exportación"]
+
+variables:
+  tipo1: "maquiladoras"
+  tipo2: "zonas francas"
+
+respuesta: tipo2
+tipo: completar
+
+enunciado: "La deslocalización ha fomentado la instalación de {tipo1} y {tipo2} en la región."
+
+explicacion: |
+  Las zonas francas son instrumentos de política económica para atraer inversión. Ofrecen beneficios fiscales y aduaneros para facilitar la exportación.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "america_latina_industria_y_energia"
+  nivel: "avanzado"
+  tags: ["transformación", "recursos", "valor"]
+
+variables:
+  acción: "transformar recursos en valor agregado"
+  medio: "procesos industriales intensivos en energía"
+
+respuesta: medio
+tipo: completar
+
+enunciado: "El desafío actual radica en {acción} mediante {medio}."
+
+explicacion: |
+  La clave del desarrollo industrial es la transformación. Sin procesos industriales que usen energía para agregar valor, los recursos naturales se exportan baratos y se importan caros.
 ```
 

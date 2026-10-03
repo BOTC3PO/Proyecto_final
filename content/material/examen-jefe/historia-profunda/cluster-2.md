@@ -4,2174 +4,2378 @@
 
 ---
 
-## Sección: antiguo-egipto (25 preguntas)
+## Sección: corrimiento-al-rojo-expansion-universo (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["geografia", "nilo", "civilizacion"]
-tipo: vf
-enunciado: "La inundación anual del río Nilo depositaba un limo fértil que era fundamental para la agricultura y la supervivencia del Antiguo Egipto."
-respuesta: verdadero
-explicacion: "El ciclo de inundación (Akhet), crecimiento (Peret) y cosecha (Shemu) era la base económica y social de Egipto, permitiendo excedentes de grano que sostuvieron la población y el estado."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["capital", "imperio-nuevo", "tebas"]
-tipo: mc
-enunciado: "¿Cuál fue la capital religiosa y política de Egipto durante el Imperio Nuevo?"
-opciones_explicitas:
-  - "Menfis"
-  - "Tebas"
-  - "Alejandría"
-  - "Abidos"
-respuesta: "Tebas"
-explicacion: "Durante el Imperio Nuevo (c. 1550-1070 a.C.), Tebas (la moderna Luxor) se convirtió en la capital religiosa y política, sede del poder de los faraones como Hatshepsut y Ramsés II."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["amarna", "aten", "religion"]
-tipo: completar
-enunciado: "El faraón ________ intentó imponer el monoteísmo del disco solar Atén, suprimiendo el culto a Amón."
-respuestas_validas:
-  - "amenhotep iv"
-  - "amenhotep iv"
-  - "amenofi"
-  - "amenofi iv"
-  - "akhenaton"
-  - "akhenaton"
-explicacion: "Ajenatón (originalmente Amenhotep IV) trasladó la capital a Amarna y promovió el culto exclusivo a Atén, un cambio religioso radical que fue revertido tras su muerte."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["epigrafia", "descifrado", "champollion"]
-tipo: vf
-enunciado: "La Piedra de Rosetta permitió el desciframiento de los jeroglíficos gracias a su inscripción en tres scripts: jeroglífico, demótico y griego antiguo."
-respuesta: verdadero
-explicacion: "Encontrada en 1799, la piedra contenía el mismo decreto en tres escritura, permitiendo a Champollion y otros usar el griego conocido para descifrar el sistema jeroglífico egipcio."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["guerra", "kadesh", "ramses"]
-tipo: mc
-enunciado: "¿Contra quién libró Ramsés II la Batalla de Kadesh, una de las batallas más grandes de la Antigüedad?"
-opciones_explicitas:
-  - "Contra los hititas bajo Muwatalli II"
-  - "Contra los asirios bajo Tiglath-Pileser I"
-  - "Contra los libios bajo Meshwesh"
-  - "Contra los nubios bajo Kashta"
-respuesta: "Contra los hititas bajo Muwatalli II"
-explicacion: "La Batalla de Kadesh (c. 1274 a.C.) fue librada por Ramsés II contra el Imperio Hitita. Terminó en un empate táctico pero llevó al primer tratado de paz conocido de la historia."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["escritura", "papiro", "soporte"]
-tipo: completar
-enunciado: "El principal material de escritura en Egipto, hecho de la planta Cyperus papyrus, se llamaba ________."
-respuestas_validas:
-  - "papiro"
-  - "papiro"
-  - "papir"
-explicacion: "El papiro se producía en las marismas del delta del Nilo y era exportado por todo el Mediterráneo. Era flexible y duradero, ideal para rollos de texto."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["monumento", "keops", "guiza"]
-tipo: mc
-enunciado: "¿Cuál es el nombre del monumento con cuerpo de león y cabeza humana ubicado junto a las pirámides de Guiza?"
-opciones_explicitas:
-  - "La Gran Esfinge de Guiza"
-  - "La Esfinge de Luxor"
-  - "La Esfinge de Karnak"
-  - "La Esfinge de Menfis"
-respuesta: "La Gran Esfinge de Guiza"
-explicacion: "La Gran Esfinge, con cuerpo de león y cabeza humana (posiblemente de Kefrén), está ubicada junto a las pirámides de Guiza y es uno de los monumentos más emblemáticos de Egipto."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["segundo-periodo-intermedio", "hicsos", "invasion"]
-tipo: vf
-enunciado: "Los Hicsos, un pueblo de origen semita, establecieron el Decimocuarto Dinastía en el delta del Nilo durante el Segundo Periodo Intermedio."
-respuesta: verdadero
-explicacion: "Los Hicsos controlaron el Bajo Egipto desde Avaris, introduciendo el caballo y el carro de guerra, hasta que Ahmose I los expulsó, iniciando el Imperio Nuevo."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["religion", "osiris", "muerte"]
-tipo: completar
-enunciado: "El dios ________ preside el tribunal de los muertos y representa la resurrección y la vida eterna."
-respuestas_validas:
-  - "osiris"
-  - "osiris"
-  - "oscar"
-  - "oscar"
-explicacion: "Osiris, asesinado por su hermano Set, se convirtió en el señor del inframundo (Duat) y en el modelo de resurrección para los faraones y los creyentes."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["18-dinastia", "ahmose", "unificacion"]
-tipo: mc
-enunciado: "¿Qué faraón completó la expulsión de los Hicsos de Egipto, fundando la XVIII Dinastía?"
-opciones_explicitas:
-  - "Ahmose I"
-  - "Tutmosis I"
-  - "Kamose"
-  - "Seqenenre Tao"
-respuesta: "Ahmose I"
-explicacion: "Ahmose I, fundador de la XVIII Dinastía, completó la expulsión de los Hicsos de la fortaleza de Sharuhen, unificando Egipto y comenzando la era del Imperio Nuevo."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["reina", "hatshepsut", "comercio"]
-tipo: vf
-enunciado: "Hatshepsut fue una faraona mujer que ordenó una famosa expedición comercial al país de Punt."
-respuesta: verdadero
-explicacion: "Durante su reinado, Hatshepsut envió una flota a Punt (posiblemente en la costa de Somalia/Eritrea) para obtener incienso, mirra y animales exóticos, consolidando su legitimidad."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["escritura", "tinta", "materiales"]
-tipo: completar
-enunciado: "Los escribas egipcios utilizaban una tinta negra hecha de hollín mezclada con goma arábiga y una tinta roja para títulos y encabezados llamada tinta ________."
-respuestas_validas:
-  - "roja"
-  - "roja"
-  - "rojo"
-  - "rojo"
-explicacion: "La tinta roja se usaba a menudo para marcar errores o para iniciar secciones importantes, mientras que la negra era el estándar para el cuerpo del texto."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["arquitectura", "ramses", "abusembel"]
-tipo: mc
-enunciado: "¿Qué se sabe sobre el origen del Templo de Abu Simbel?"
-opciones_explicitas:
-  - "Fue construido por Ramsés II en la Nubia conquistada"
-  - "Fue erigido por Tutankamón en Tebas"
-  - "Fue diseñado por Imhotep en Saqqara"
-  - "Fue mandado construir por Cleopatra en Alejandría"
-respuesta: "Fue construido por Ramsés II en la Nubia conquistada"
-explicacion: "Los templos de Abu Simbel, tallados en la roca, fueron dedicados a Ramsés II y al dios Ra. Su alineación solar es un logro astronómico y arquitectónico notable."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["religion", "libro-muertos", "ritual"]
-tipo: vf
-enunciado: "El Libro de los Muertos era una colección de hechizos y fórmulas destinados a guiar al difunto por el inframundo y asegurar su paso a la vida eterna."
-respuesta: verdadero
-explicacion: "No era un libro único, sino una selección personalizada de capítulos (hechizos) colocados en la tumba para ayudar al alma en su juicio y viaje por el Duat."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["ptolemaica", "alexandria", "helenistico"]
-tipo: completar
-enunciado: "Tras la muerte de Alejandro Magno, ________ estableció una dinastía griega en Egipto con capital en Alejandría."
-respuestas_validas:
-  - "ptolemeo"
-  - "ptolemeo i"
-  - "ptolemy"
-  - "ptolemy i"
-explicacion: "Ptolomeo I Sóter, uno de los generales de Alejandro, se autoproclamó faraón, iniciando un período de sincretismo cultural entre Grecia y Egipto."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["religion", "juicio", "corazon"]
-tipo: mc
-enunciado: "Según la mitología egipcia, ¿en qué consistía el juicio del alma en el más allá?"
-opciones_explicitas:
-  - "El corazón del difano era pesado contra la pluma de Maat"
-  - "El alma era juzgada por Anubis con una balanza de agua"
-  - "El cuerpo era quemado para purificar el ka"
-  - "Los dioses lanzaban rayos contra el malvado"
-respuesta: "El corazón del difano era pesado contra la pluma de Maat"
-explicacion: "En el juicio, el corazón (ij) se pesaba contra la pluma de avestruz de Maat (verdad/justicia). Si el corazón era más pesado por los pecados, era devorado por Ammit."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["tutankamon", "carter", "descubrimiento"]
-tipo: vf
-enunciado: "Howard Carter descubrió la tumba casi intacta de Tutankamón en el Valle de los Reyes en 1922."
-respuesta: verdadero
-explicacion: "El descubrimiento de Carter reveló un tesoro sin precedentes de objetos funerarios, proporcionando una visión única de la riqueza y el arte del Imperio Nuevo."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["religion", "ra", "sol"]
-tipo: completar
-enunciado: "________ era el dios sol supremo, cuyo barco solar (Mandet) cruzaba el cielo de día y el inframundo de noche."
-respuestas_validas:
-  - "ra"
-  - "ra"
-  - "re"
-  - "re"
-explicacion: "Ra era central en la cosmología egipcia. Se fusionó con otros dioses como Amón (Amón-Ra) y Horus (Jepri-Ra-Atum) en diferentes periodos teológicos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["guerra", "naves", "pueblos-mar"]
-tipo: mc
-enunciado: "¿Contra quién luchó Egipto en la gran batalla documentada en Medinet Habu, a finales de la Edad del Bronce?"
-opciones_explicitas:
-  - "Contra los Pueblos del Mar bajo Ramsés III"
-  - "Contra los filisteos bajo Seti I"
-  - "Contra los fenicios bajo Tutmosis III"
-  - "Contra los persas bajo Cambises II"
-respuesta: "Contra los Pueblos del Mar bajo Ramsés III"
-explicacion: "Ramsés III documentó en Medinet Habu su victoria contra una gran coalición de \"Pueblos del Mar\" que amenazaban el Levante y Egipto a finales del Bronce Final."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["escritura", "demotico", "evolucion"]
-tipo: vf
-enunciado: "El script demótico surgió como una forma cursiva simplificada del jeroglífico para uso administrativo y cotidiano, no como un idioma diferente."
-respuesta: verdadero
-explicacion: "El demótico (literalmente \"escritura popular\") se desarrolló durante el periodo tardío y se usó junto con el griego en la época ptolomaica y romana."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["tumbas", "valle-reyes", "imperio-nuevo"]
-tipo: completar
-enunciado: "Durante el Imperio Nuevo, los faraones comenzaron a ser enterrados en el Valle de los Reyes, un valle oculto en las cercanías de ________."
-respuestas_validas:
-  - "tebas"
-  - "tebas"
-  - "luxor"
-  - "luxor"
-explicacion: "El Valle de los Reyes (Wady el-Muluk) cerca de Tebas fue la necrópolis real del Imperio Nuevo, elegido por su aislamiento y protección natural contra saqueadores."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["arquitectura", "imhotep", "saqqara"]
-tipo: mc
-enunciado: "¿Quién fue Imhotep, visir del faraón Djoser?"
-opciones_explicitas:
-  - "Arquitecto de la Pirámide Escalonada de Saqqara"
-  - "Constructor de la Gran Pirámide de Guiza"
-  - "Diseñador del Templo de Karnak"
-  - "Inventor de la escritura jeroglífica"
-respuesta: "Arquitecto de la Pirámide Escalonada de Saqqara"
-explicacion: "Imhotep, visir de Djoser, diseñó la Pirámide Escalonada, la primera gran estructura de piedra de la historia, innovando la arquitectura monumental."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["religion", "cristianismo", "declive"]
-tipo: vf
-enunciado: "El cierre de los templos egipcios y la prohibición de los rituales tradicionales ocurrió principalmente bajo el emperador romano Teodosio I."
-respuesta: verdadero
-explicacion: "En el año 391 d.C., Teodosio I emitió edictos que prohibían el paganismo y cerraron los templos, marcando el fin oficial de la religión egipcia antigua."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["arte", "nefertiti", "amarna"]
-tipo: completar
-enunciado: "La famosa busto de ________ se encuentra en el Museo de Berlín y es un ícono del arte del periodo de Amarna."
-respuestas_validas:
-  - "nefertiti"
-  - "nefertiti"
-  - "nefer-titi"
-explicacion: "El busto de Nefertiti, esposa de Ajenatón, es conocido por su belleza y estilo realista del periodo amarniano, encontrado por Ludwig Borchardt en 1912."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "antiguo-egipto"
-  nivel: "intermedio"
-  tags: ["imperio-persa", "cambises", "dominio"]
-tipo: mc
-enunciado: "¿Qué ocurrió durante la invasión persa de Egipto en el siglo VI a.C.?"
-opciones_explicitas:
-  - "Cambises II conquistó Egipto en el 525 a.C."
-  - "Darío I invadió Egipto en el 332 a.C."
-  - "Jerjes I destruyó las pirámides"
-  - "Ciro el Grande unió Egipto con Babilonia"
-respuesta: "Cambises II conquistó Egipto en el 525 a.C."
-explicacion: "Cambises II, hijo de Ciro, derrotó al faraón Psamético III en la Batalla de Pelusio, incorporando Egipto como satrapía del Imperio Aqueménida."
-```
-
-## Sección: atmosfera-primitiva (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
+  tema: "corrimiento_al_rojo_expansion_universo"
   nivel: "basico"
-  tags: ["geologia", "atmosfera"]
+  tags: ["astronomia", "luz", "doppler"]
 
 tipo: mc
-opciones_explicitas: ["Oxígeno, Nitrógeno y Metano", "Vapor de agua, Dióxido de carbono y Metano", "Dióxido de azufre, Helio y Oxígeno", "Nitrógeno, Argón y Oxígeno"]
-respuesta: "Vapor de agua, Dióxido de carbono y Metano"
+opciones_explicitas: ["El acortamiento de la longitud de onda de la luz", "El estiramiento de la longitud de onda de la luz", "El cambio de color de la luz hacia el azul", "La pérdida de intensidad de la luz"]
+respuesta: "El estiramiento de la longitud de onda de la luz"
 
-enunciado: "Durante los inicios de la Tierra, la atmósfera primitiva estaba compuesta principalmente por una mezcla de gases de origen volcánico. ¿Cuál de las siguientes opciones describe mejor su composición?"
+enunciado: "En astronomía, el corrimiento al rojo (redshift) se define como ___ de la luz de un objeto que se aleja de un observador."
 
 explicacion: |
-  La atmósfera primitiva carecía de oxígeno libre (O2) y estaba dominada por gases de efecto invernadero y compuestos volcánicos como el CO2, el vapor de agua y el metano.
+  El corrimiento al rojo ocurre cuando la longitud de onda de la radiación electromagnética emitida por un objeto se desplaza hacia valores más largos (hacia el rojo del espectro) debido a que la fuente se aleja.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "basico"
+  tags: ["analogia", "doppler"]
+
+tipo: completar
+respuestas_validas:
+  - "Efecto Doppler"
+  - "Efecto Doppler"
+
+enunciado: "El fenómeno del corrimiento al rojo es para la luz lo que el ___ es para el sonido."
+
+explicacion: |
+  Así como una ambulancia que se aleja produce un sonido más grave (menor frecuencia), la luz de una galaxia que se aleja presenta un corrimiento al rojo (menor frecuencia/mayor longitud de onda).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "corrimiento_al_rojo_expansion_universo"
   nivel: "intermedio"
-  tags: ["ciclo_del_agua", "geologia"]
+  tags: ["velocidad", "observacion"]
 
 variables:
-  escenario: [["El vapor de agua se condensó para formar océanos", "La atmósfera era extremadamente seca"], ["El vapor de agua permitió la formación de los mares", "El vapor de agua era inexistente"]]
+  escenario: uno_de([[10, "mayor"], [50, "mayor"], [100, "mayor"]])
 
 tipo: mc
-opciones_explicitas: ["Escenario A", "Escenario B"]
-respuesta: "Escenario A"
+opciones_explicitas: ["menor", "mayor", "igual"]
 
-enunciado: "Considerando la presencia masiva de vapor de agua en la atmósfera primitiva, {escenario[0][0]}."
-
-explicacion: |
-  La condensación del vapor de agua a medida que la Tierra se enfriaba fue el proceso fundamental que dio origen a los océanos primordiales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "basico"
-  tags: ["quimica_antigua"]
-
-tipo: completar
-respuestas_validas:
-  - "anóxica"
-
-enunciado: "Debido a la ausencia de vida fotosintética en sus inicios, la atmósfera primitiva era una atmósfera ___________."
-
-explicacion: |
-  Se denomina atmósfera 'anóxica' a aquella que no posee oxígeno libre (O2), característica principal de la Tierra primitiva.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "intermedio"
-  tags: ["volcanismo"]
-
-tipo: ordenar
-opciones_explicitas: ["Formación de la Tierra", "Actividad volcánica intensa", "Emisión de gases volcánicos", "Formación de la atmósfera primitiva"]
-
-enunciado: "Ordena cronológicamente los eventos que llevaron a la configuración de la atmósfera primitiva:"
-
-explicacion: |
-  La formación de la Tierra permitió la diferenciación de capas, seguida de un vulcanismo intenso que liberó los gases necesarios para crear la atmósfera original.
-respuesta_orden: ["Formación de la Tierra", "Actividad volcánica intensa", "Emisión de gases volcánicos", "Formación de la atmósfera primitiva"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "avanzado"
-  tags: ["quimica", "calculo"]
-
-variables:
-  datos: [[100, 50, 50], [80, 10, 10]]
-  idx: uno_de([0, 1])
-  cantidad_co2: datos[idx][0]
-  respuesta_correcta: cantidad_co2 * 0.4
-
-tipo: completar
-tolerancia_abs: 0.1
-respuesta: respuesta_correcta
-
-enunciado: "Si en un modelo de atmósfera primitiva de {cantidad_co2} unidades de gas, el 40% es Dióxido de carbono (CO2), ¿cuántas unidades de CO2 hay?"
-
-pasos:
-  - "Identificar el total de unidades de gas: {cantidad_co2}"
-  - "Calcular el 40% de ese valor: {cantidad_co2} * 0.4"
-
-explicacion: |
-  El cálculo se realiza multiplicando el total de unidades por el porcentaje expresado en decimal (0.4).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "basico"
-  tags: ["biologia", "evolucion", "anaerobico"]
-
-respuesta: "anaeróbica"
-tipo: completar
-respuestas_validas:
-  - "anaeróbica"
-  - "anaerobia"
-
-enunciado: "Debido a la ausencia de oxígeno libre en la atmósfera primitiva, la vida temprana era de tipo ___."
-
-explicacion: |
-  La atmósfera primitiva era un ambiente reductor. Al no haber O2, los primeros organismos no podían realizar la respiración aeróbica y debían obtener energía mediante procesos anaeróbicos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "intermedio"
-  tags: ["oxigeno", "metabolismo"]
-
-variables:
-  escenario: uno_de([["presencia de O2", "aeróbica"], ["ausencia de O2", "anaeróbica"]])
+enunciado: "Si observamos que el corrimiento al rojo de una galaxia es de {escenario[0]} unidades, esto indica que su velocidad de alejamiento es ___ que la de una galaxia con corrimiento nulo."
 
 respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["aeróbica", "anaeróbica"]
-
-enunciado: "Si la atmósfera primitiva carecía de oxígeno libre, ¿qué tipo de metabolismo predominaba en los organismos de esa época?"
-
-pasos:
-  - "Identificar la condición atmosférica: ausencia de O2."
-  - "Relacionar la condición con el tipo de respiración celular."
 
 explicacion: |
-  La falta de oxígeno obligaba a los organismos a utilizar otras moléculas como aceptores de electrones, caracterizando un metabolismo anaeróbico.
+  A mayor corrimiento al rojo, mayor es la velocidad a la que el objeto se está alejando de nosotros (según la ley de Hubble-Lemaître).
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "avanzado"
-  tags: ["evolucion", "oxigeno"]
-
-respuesta_orden: ["Anaerobiosis", "Fotosíntesis oxigénica", "Acumulación de O2", "Respiración aeróbica"]
-tipo: ordenar
-opciones_explicitas: ["Anaerobiosis", "Fotosíntesis oxigénica", "Acumulación de O2", "Respiración aeróbica"]
-
-enunciado: "Ordena cronológicamente los eventos relacionados con la transición de una atmósfera sin oxígeno a una con oxígeno:"
-
-explicacion: |
-  Primero existía la vida anaerobia. Luego, la aparición de organismos fotosintéticos (cianobacterias) comenzó a liberar O2, el cual se acumuló hasta permitir la evolución de la respiración aeróbica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "basico"
-  tags: ["oxigeno", "logica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La presencia de oxígeno libre en la atmósfera primitiva era un requisito indispensable para los primeros organismos vivos."
-
-explicacion: |
-  Falso. Los primeros organismos eran anaeróbicos, lo que significa que podían vivir y prosperar en un ambiente sin oxígeno.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
+  tema: "corrimiento_al_rojo_expansion_universo"
   nivel: "intermedio"
-  tags: ["metabolismo", "oxigeno"]
+  tags: ["espectro", "longitud_de_onda"]
+
+tipo: ordenar
+opciones_explicitas: ["Violeta", "Verde", "Amarillo", "Rojo", "Infrarrojo"]
+
+enunciado: "Ordena las longitudes de onda de la luz en orden CRECIENTE (de menor a mayor longitud de onda) para entender cómo se desplaza el espectro hacia el rojo."
+
+respuesta_orden: ["Violeta", "Verde", "Amarillo", "Rojo", "Infrarrojo"]
+
+explicacion: |
+  El corrimiento al rojo consiste en desplazarse desde las longitudes de onda cortas (violeta/azul) hacia las longitudes de onda largas (rojo/infrarrojo).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "avanzado"
+  tags: ["calculo", "fisica"]
 
 variables:
-  datos: [["presencia", "aeróbica"], ["ausencia", "anaeróbica"]]
-  idx: uno_de([0,1])
-  estado: datos[idx][0]
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["aeróbica", "anaeróbica"]
-
-enunciado: "Si la atmósfera primitiva se caracterizaba por la {estado} de oxígeno, el metabolismo de la vida temprana era ___."
-
-explicacion: |
-  La ausencia de oxígeno (estado falso) define un ambiente donde solo la vida anaeróbica puede prosperar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "basico"
-  tags: ["atmosfera", "oxigeno", "evolucion"]
-
-tipo: mc
-opciones_explicitas: ["Reductora (sin O2)", "Oxidante (rica en O2)", "Nitrogenada pura", "Ácida y gaseosa"]
-respuesta: "Reductora (sin O2)"
-
-enunciado: "La atmósfera de la Tierra en sus inicios era de naturaleza ___________, debido a la ausencia de oxígeno libre."
-
-explicacion: |
-  La atmósfera primitiva era un ambiente reductor porque no existía el oxígeno molecular (O2) para oxidar los gases presentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "intermedio"
-  tags: ["fotosintesis", "oxigeno", "biologia"]
-
-enunciado: "El factor principal que transformó la atmósfera primitiva hacia una atmósfera con oxígeno fue ___."
-
-tipo: completar
-respuestas_validas:
-  - "la aparición de la fotosíntesis"
-
-explicacion: |
-  La fotosíntesis realizada por organismos antiguos (cianobacterias) liberó oxígeno como subproducto, cambiando la química global del planeta.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "basico"
-  tags: ["oxigeno", "porcentaje"]
+  datos: uno_de([[500, 510], [600, 610], [700, 710]])
 
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Mientras que la atmósfera primitiva carecía de oxígeno, la atmósfera actual contiene aproximadamente un ___% de este gas."
+enunciado: "Una estrella emite luz en una longitud de onda de {datos[0]} nm. Debido al corrimiento al rojo, la longitud de onda observada es de ___ nm."
 
-pasos:
-  - "Identificar el porcentaje de O2 en la atmósfera actual."
-  - "Ingresar el valor numérico."
-
-respuesta: 21
+respuesta: datos[1]
 
 explicacion: |
-  La composición actual de la atmósfera se mantiene estable cerca del 21% de oxígeno.
+  El corrimiento al rojo aumenta la longitud de onda observada respecto a la emitida. En este caso, el valor observado es el segundo elemento de nuestra tabla de datos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "avanzado"
-  tags: ["secuencia", "evolucion"]
-
-tipo: ordenar
-opciones_explicitas: ["Atmósfera primitiva reductora", "Aparición de fotosíntesis", "Acumulación de O2", "Atmósfera oxidante actual"]
-
-enunciado: "Ordena cronológicamente los procesos que definieron la evolución de la atmósfera terrestre:"
-
-respuesta_orden: ["Atmósfera primitiva reductora", "Aparición de fotosíntesis", "Acumulación de O2", "Atmósfera oxidante actual"]
-
-explicacion: |
-  Primero existió una atmósfera sin O2, luego la vida fotosintética comenzó a producirlo, el O2 se acumuló y finalmente estableció la atmósfera oxidante que conocemos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "intermedio"
-  tags: ["quimica", "oxigeno"]
-
-enunciado: "Si la atmósfera es la actual, su estado es ___. Si es la primitiva, su estado es reductora."
-
-tipo: mc
-opciones_explicitas: ["oxidante", "reductora"]
-
-respuesta: "oxidante"
-
-explicacion: |
-  La atmósfera actual es oxidante debido a la presencia masiva de O2, mientras que la primitiva era reductora por la falta de este gas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
+  tema: "corrimiento_al_rojo_expansion_universo"
   nivel: "basico"
-  tags: ["condensacion", "oceanos", "agua"]
+  tags: ["astronomia", "redshift", "expansion"]
 
-respuesta: "condensación"
+respuesta: "rojo"
+tipo: mc
+opciones_explicitas: ["azul", "rojo", "verde", "infrarrojo"]
+
+enunciado: "Cuando una fuente de luz se aleja de un observador, las longitudes de onda de la luz que recibe se estiran hacia el extremo del espectro visible de color ___."
+
+explicacion: |
+  El desplazamiento hacia longitudes de onda más largas (menor frecuencia) se conoce como corrimiento al rojo (redshift).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "intermedio"
+  tags: ["evidencia", "galaxias", "observacion"]
+
+respuesta: "se alejan"
+tipo: mc
+opciones_explicitas: ["se acercan", "se alejan", "están estables", "colapsan"]
+
+enunciado: "La observación de que las galaxias lejanas muestran un corrimiento al rojo indica que estas ___ de nosotros."
+
+explicacion: |
+  El hecho de que la mayoría de las galaxias distantes presenten corrimiento al rojo es la evidencia fundamental de que el universo se está expandiendo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "basico"
+  tags: ["definicion", "espectro"]
+
+respuesta: "alejamiento"
 tipo: completar
 respuestas_validas:
-  - "condensación"
-  - "condensacion"
+  - "alejamiento"
 
-enunciado: "A medida que la Tierra se enfriaba, el vapor de agua presente en la atmósfera primitiva sufrió un proceso de ___ que dio lugar a las primeras lluvias y la formación de los océanos."
+enunciado: "En el contexto de la cosmología, un corrimiento al rojo (redshift) es una medida que indica el ___ de una galaxia respecto al observador."
 
 explicacion: |
-  Cuando la superficie terrestre bajó de la temperatura crítica, el vapor de agua se transformó en líquido, llenando las cuencas oceánicas.
+  El corrimiento al rojo es el cambio hacia longitudes de onda más largas debido al movimiento de alejamiento.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "basico"
-  tags: ["estado_materia", "vapor"]
-
-respuesta: "líquido"
-tipo: mc
-opciones_explicitas: ["sólido", "líquido", "gaseoso", "plasma"]
-
-enunciado: "Antes de la formación de los océanos, el agua se encontraba mayoritariamente en estado {estado_inicial}. Tras el enfriamiento, pasó a estado {estado_final}."
-
-variables:
-  estado_inicial: "gaseoso"
-  estado_final: "líquido"
-
-explicacion: |
-  El paso de gas a líquido es la transición clave que permitió la existencia de agua líquida en la superficie.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "intermedio"
-  tags: ["secuencia", "enfriamiento"]
-
-enunciado: "Ordená cronológicamente los eventos que llevaron a la formación de los océanos primitivos:"
-respuesta_orden: ["Enfriamiento de la corteza", "Condensación del vapor", "Lluvias torrenciales", "Formación de océanos"]
-tipo: ordenar
-opciones_explicitas: ["Enfriamiento de la corteza", "Condensación del vapor", "Lluvias torrenciales", "Formación de océanos"]
-
-explicacion: |
-  El orden lógico es: primero la Tierra debe enfriarse lo suficiente para que el vapor no vuelva a evaporarse, luego ocurre la condensación, las lluvias y finalmente se estabilizan los océanos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "intermedio"
-  tags: ["componente", "atmosfera"]
-
-respuesta: "verdadero"
-tipo: completar
-enunciado: "El vapor de agua fue uno de los componentes principales de la atmósfera primitiva que, al condensarse, permitió la aparición de los primeros mares."
-
-explicacion: |
-  La atmósfera primitiva era rica en gases de la actividad volcánica, incluyendo grandes cantidades de vapor de agua.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
+  tema: "corrimiento_al_rojo_expansion_universo"
   nivel: "avanzado"
-  tags: ["fisica", "condensacion"]
+  tags: ["ley_de_hubble", "expansion"]
 
 variables:
-  temp_inicial: 1500
-  temp_final: 100
-  delta_t: temp_inicial - temp_final
+  distancia_m: uno_de([10, 20, 30])
+  velocidad_m: [100, 200, 300]
 
-respuesta: 1400
+respuesta: velocidad_m[distancia_m/10 - 1]
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Si la temperatura de la atmósfera primitiva era de {temp_inicial}°C y se enfrió hasta los {temp_final}°C para permitir la condensación, ¿cuál fue el descenso térmico (ΔT) en grados Celsius?"
+enunciado: "Si la constante de Hubble es de 10 km/s/Mpc y una galaxia está a una distancia de {distancia_m} Mpc, ¿cuál es su velocidad de recesión en km/s (v = H₀ × d)?"
 
 pasos:
-  - "Identificar la temperatura inicial: 1500"
-  - "Identificar la temperatura final: 100"
-  - "Restar la temperatura final de la inicial: 1500 - 100"
+  - "Multiplicar la constante de Hubble (10 km/s/Mpc) por la distancia dada."
 
 explicacion: |
-  El enfriamiento fue un proceso masivo que redujo la temperatura de la atmósfera en miles de grados.
+  En un universo en expansión, la velocidad de alejamiento es proporcional a la distancia (Ley de Hubble).
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "basico"
-  tags: ["geologia", "atmosfera"]
-
-enunciado: "En la atmósfera primitiva, un componente dominante era el dióxido de carbono (CO2), mientras que en la atmósfera actual el componente predominante es el ___."
-
-respuesta: "Nitrógeno (N2)"
-tipo: mc
-opciones_explicitas: ["Dióxido de carbono (CO2)", "Metano (CH4)", "Oxígeno (O2)", "Nitrógeno (N2)"]
-
-explicacion: |
-  La atmósfera primitiva era una atmósfera reductora, rica en gases como CO2, CH4 y N2, pero carecía de oxígeno libre (O2) hasta la aparición de la fotosíntesis oxigénica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
+  tema: "corrimiento_al_rojo_expansion_universo"
   nivel: "intermedio"
-  tags: ["evolucion", "oxigeno"]
-
-variables:
-  evento: [["Oxígeno (O2)", "Dióxido de carbono (CO2)"], ["Oxígeno (O2)", "Metano (CH4)"]]
-  idx: uno_de([0,1])
-  gas_liberado: evento[idx][0]
-  gas_abundante: evento[idx][1]
-
-enunciado: "La aparición de organismos fotosintéticos transformó la atmósfera al liberar {gas_liberado} en grandes cantidades, reemplazando la abundancia de {gas_abundante}."
-
-respuesta: gas_liberado
-tipo: completar
-respuestas_validas:
-  - "Oxígeno (O2)"
-  - "Dióxido de carbono (CO2)"
-  - "Metano (CH4)"
-  - "Nitrógeno (N2)"
-
-pasos:
-  - "Identificar el gas producido por la fotosíntesis."
-  - "Identificar el gas que era abundante antes de la fotosíntesis."
-
-explicacion: |
-  La Gran Oxidación fue un evento biológico que cambió la química planetaria, pasando de una atmósfera reductora a una oxidante.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "avanzado"
-  tags: ["quimica_atmosferica", "evolucion"]
-
-variables:
-  comparativa: [["Metano (CH4)", "Oxígeno (O2)"], ["Dióxido de carbono (CO2)", "Nitrógeno (N2)"], ["Vapor de agua (H2O)", "Argón (Ar)"]]
-  idx: uno_de([0,1,2])
-
-enunciado: "Si comparamos la concentración de gases, un gas que era muy abundante en la atmósfera primitiva pero es hoy un gas traza es el {comparativa[idx][0]}, mientras que el {comparativa[idx][1]} es mayormente estable en la actualidad."
-
-respuesta: comparativa[idx][0]
-tipo: mc
-opciones_explicitas: ["Metano (CH4)", "Dióxido de carbono (CO2)", "Vapor de agua (H2O)", "Oxígeno (O2)"]
-
-explicacion: |
-  Muchos gases que hoy son trazas (como el metano) eran componentes mayoritarios en la Tierra primitiva debido a la intensa actividad volcánica y la falta de sumideros oxidantes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "intermedio"
-  tags: ["cronologia", "procesos"]
-
-enunciado: "Ordena la evolución de la composición atmosférica desde la Tierra primitiva hasta la actualidad:"
-
-opciones_explicitas: ["Atmósfera reductora (CH4, NH3, H2O)", "Atmósfera con presencia de O2 (Gran Oxidación)", "Atmósfera moderna (N2, O2, Ar)"]
-respuesta_orden: ["Atmósfera reductora (CH4, NH3, H2O)", "Atmósfera con presencia de O2 (Gran Oxidación)", "Atmósfera moderna (N2, O2, Ar)"]
-tipo: ordenar
-
-explicacion: |
-  La secuencia lógica comienza con gases volcánicos y de origen primordial, sigue con la revolución biológica del oxígeno y culmina con la composición actual.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "atmosfera_primitiva"
-  nivel: "basico"
-  tags: ["biologia", "oxigeno"]
-
-enunciado: "En la atmósfera actual, el porcentaje de oxígeno es aproximadamente del 0.21 (valor decimal), lo que equivale al ___ de la mezcla total."
-
-respuesta: "21%"
-tipo: completar
-tolerancia_abs: 0.01
-
-explicacion: |
-  El oxígeno es el segundo gas más abundante hoy en día, con una concentración cercana al 21%.
-```
-
-## Sección: baja-edad-media-y-crisis (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["peste-negra", "sanidad", "demografia"]
-tipo: mc
-enunciado: "¿Cuál fue la principal vía de transmisión biológica reconocida por la historiografía moderna para la propagación de la Peste Negra en Europa durante el siglo XIV?"
-opciones_explicitas:
-  - "A través del aire por la tos de los infectados"
-  - "Por picaduras de pulgas de las ratas negras (Xenopsylla cheopis)"
-  - "Por consumo de agua contaminada con cadáveres"
-  - "Por contacto directo con la piel de los enfermos"
-respuesta: "Por picaduras de pulgas de las ratas negras (Xenopsylla cheopis)"
-explicacion: "La evidencia científica y histórica actual descarta el contagio aéreo directo como causa primaria, confirmando que el vector principal fue la pulga de las ratas, que saltaba a los humanos cuando las poblaciones de roedores morían."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["guerra-cien-anos", "francia", "inglaterra"]
-tipo: completar
-enunciado: "El Tratado de _______ (1360) fue un momento de tregua en la Guerra de los Cien Años, donde el rey de Francia, Juan II, cedió gran parte del suroeste de Francia a Eduardo III de Inglaterra a cambio de su libertad."
-respuesta: "Bretigny"
-respuestas_validas:
-  - "bretigny"
-  - "Bretigny"
-  - "Bretigney"
-explicacion: "El tratado estableció la soberanía inglesa sobre Aquitania, Calais y Ponthieu, marcando el punto álgido del poderio inglés temporal en el continente antes de la recuperación francesa."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["revueltas", "francia", "juan-ii"]
-tipo: vf
-enunciado: "La Revuelta de los Pastores (1358) fue un movimiento organizado y liderado por la nobleza francesa para oponerse a los impuestos reales de Juan II."
-respuesta: falso
-explicacion: "Fue una revuelta popular espontánea de campesinos y burgueses pobres en la Isla de Francia, motivada por la crisis económica y la captura del rey en Poitiers, no por la nobleza."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["religion", "iglesia", "lollardos"]
-tipo: mc
-enunciado: "John Wycliffe, precursor de la Reforma Protestante, es conocido principalmente por su crítica a la autoridad papal y por:"
-opciones_explicitas:
-  - "Fundar la orden de los Franciscanos"
-  - "Traducir la Biblia al inglés medio"
-  - "Presidir el Concilio de Constanza"
-  - "Escribir la 'Summa Theologica'"
-respuesta: "Traducir la Biblia al inglés medio"
-explicacion: "Wycliffe argumentaba que la autoridad final debía ser la Escritura, no el Papa, y promovió la traducción de la Biblia al vernáculo para que los laicos pudieran leerla."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["bizancio", "justiniano", "peste-antigua"]
-tipo: completar
-enunciado: "La primera gran pandemia de peste bubónica, que diezmó el Imperio Bizantino y debilitó la capacidad de reconquista de _______ I, ocurrió entre 541 y 549 d.C."
-respuesta: "Justiniano"
-respuestas_validas:
-  - "justiniano"
-  - "Justiniano"
-  - "justiniano i"
-  - "Justiniano I"
-explicacion: "Esta epidemia redujo la población del imperio en un tercio, afectando gravemente la recaudación fiscal y la capacidad militar de Justiniano para restaurar el Mediterráneo romano."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["guerra-cien-anos", "armas", "tactica"]
-tipo: mc
-enunciado: "En la Batalla de Crécy (1346), la victoria inglesa decisiva se debió principalmente al uso efectivo de:"
-opciones_explicitas:
-  - "La caballería pesada feudal"
-  - "Los ballesteros genoveses"
-  - "Los arqueros de arco largo (longbowmen)"
-  - "La artillería de pólvora temprana"
-respuesta: "Los arqueros de arco largo (longbowmen)"
-explicacion: "Los arqueros ingleses lograron detener las cargas de caballería francesa con una lluvia de flechas, demostrando el declive de la caballería pesada como arma invencible."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["italia", "condottieri", "milan"]
-tipo: completar
-enunciado: "La Guerra de las Camisetas (1385) fue un breve conflicto en Lombardía entre la familia Visconti de Milán y los mercenarios de la _______ Blanca, liderados por John Hawkwood."
-respuesta: "Compañía"
-respuestas_validas:
-  - "compañia"
-  - "compagnia"
-  - "compania"
-  - "Compania"
-  - "Compañia"
-explicacion: "El nombre proviene de que los mercenarios se negaron a pelear sin pagar sus salarios atrasados, vistiendo solo camisetas mientras protestaban."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["francia", "religion", "guerras-religion"]
-tipo: vf
-enunciado: "El Edicto de Nantes fue promulgado en 1598 por Enrique IV de Francia para poner fin a las Guerras de Religión y otorgar derechos a los hugonotes."
-respuesta: verdadero
-explicacion: "Este edicto estableció la coexistencia religiosa entre católicos y protestantes en Francia, marcando el fin de un siglo de conflictos civiles devastadores. (Nota: Aunque es finales del siglo XVI, se incluye en la transición hacia la crisis final de la Edad Media y el inicio de la Edad Moderna)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["hambruna", "clima", "agricultura"]
-tipo: mc
-enunciado: "Antes de la Peste Negra, Europa sufrió una grave hambruna generalizada iniciada en 1315. ¿Qué factor climático fue la causa principal?"
-opciones_explicitas:
-  - "Una sequía prolongada de diez años"
-  - "Lluvias excesivas y frío constante por la Pequeña Edad de Hielo"
-  - "Erupciones volcánicas masivas en los Andes"
-  - "Un cambio en la corriente del Golfo"
-respuesta: "Lluvias excesivas y frío constante por la Pequeña Edad de Hielo"
-explicacion: "Las lluvias interminables impidieron la cosecha y la siega, mientras que el frío temprano mató a los animales de granja, llevando a la inanición masiva."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["iglesia", "conciliarismo", "gran-cisma"]
-tipo: completar
-enunciado: "Juan de Gerson, canciller de la Universidad de París, fue un líder clave en el movimiento conciliarista durante el Gran Cisma de Occidente, argumentando que la autoridad residía en un _______ general y no solo en el Papa."
-respuesta: "Concilio"
-respuestas_validas:
-  - "concilio"
-  - "Concilio"
-  - "consejo"
-  - "Consejo"
-explicacion: "El conciliarismo sostenía que un concilio general tenía autoridad superior al Papa para resolver la división de la Iglesia."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["portugal", "independencia", "guerra-cien-anos"]
-tipo: mc
-enunciado: "La Batalla de Aljubarrota (1385) fue crucial para Portugal porque:"
-opciones_explicitas:
-  - "Permitió la conquista de Marruecos"
-  - "Consolidó la independencia portuguesa frente a Castilla"
-  - "Abrió la ruta marítima a la India"
-  - "Derrotó a los musulmanes en la Península Ibérica"
-respuesta: "Consolidó la independencia portuguesa frente a Castilla"
-explicacion: "La victoria portuguesa, con ayuda inglesa, aseguró la dinastía de Avis y la soberanía de Portugal, evitando su anexión por la Corona de Castilla."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["peste-negra", "muerte", "demografia"]
-tipo: completar
-enunciado: "Se estima que la Peste Negra de 1348-1350 mató aproximadamente a _______ de la población europea, una de las mayores catástrofes demográficas de la historia."
-respuesta: "un tercio"
-respuestas_validas:
-  - "un tercio"
-  - "unthird"
-  - "33%"
-  - "33 por ciento"
-  - "30%"
-  - "30 por ciento"
-explicacion: "Las cifras varían, pero el consenso histórico sitúa la mortalidad entre un 30% y un 50%, siendo \"un tercio\" la estimación clásica más citada."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["francia", "revueltas", "campesinas"]
-tipo: mc
-enunciado: "La Jacquerie (1358) fue una revuelta campesina en Francia que recibió su nombre por la despectiva referencia a los campesinos como:"
-opciones_explicitas:
-  - "Jacobos"
-  - "Jacques Bonhomme"
-  - "Hombres del campo"
-  - "Siervos del rey"
-respuesta: "Jacques Bonhomme"
-explicacion: "\"Jacques Bonhomme\" era un término genérico y despectivo para un campesino francés, similar a \"Juan Llaneras\" en España."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["iglesia", "heresia", "jan-hus"]
-tipo: completar
-enunciado: "El Concilio de Constanza (1414-1418) logró poner fin al Gran Cisma de Occidente y condenó a la hoguera a _______ de Bohemia por herejía."
-respuesta: "Jan Hus"
-respuestas_validas:
-  - "jan hus"
-  - "Jan Hus"
-  - "huss"
-  - "Huss"
-explicacion: "La ejecución de Hus provocó las Guerras Husitas en Bohemia y mostró la tensión entre la autoridad imperial y la reforma religiosa."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["exploracion", "colonizacion", "portugal", "castilla"]
-tipo: vf
-enunciado: "El Tratado de Tordesillas (1494) dividió el mundo extraeuropeo entre España y Portugal a lo largo de un meridiano 370 leguas al oeste de las islas de Cabo Verde."
-respuesta: verdadero
-explicacion: "Este tratado estableció la esfera de influencia portuguesa hacia la India y Brasil, y la española hacia el resto de América, marcando el inicio de la globalización colonial."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["guerra-cien-anos", "cronologia"]
-tipo: mc
-enunciado: "La fase inicial de la Guerra de los Cien Años, caracterizada por grandes victorias inglesas como Crécy y Poitiers, se conoce como:"
-opciones_explicitas:
-  - "Guerra de la Rosa"
-  - "Guerra Eduardiana"
-  - "Guerra Carlosiana"
-  - "Guerra de los Mil Días"
-respuesta: "Guerra Eduardiana"
-explicacion: "Lleva el nombre del rey Eduardo III de Inglaterra, quien inició las demandas territoriales y logró sus mayores triunfos militares en esta etapa."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["bizancio", "otomano", "fin-edad-media"]
-tipo: completar
-enunciado: "La caída de Constantinopla en 1453 a manos de los otomanos bajo _______ II marcó tradicionalmente el fin de la Edad Media y el Imperio Romano de Oriente."
-respuesta: "Mehmed"
-respuestas_validas:
-  - "mehmed"
-  - "Mehmed"
-  - "mehmet"
-  - "Mehmet"
-  - "mahometo"
-  - "Mahometo"
-explicacion: "Mehmed II, de apenas 21 años, conquistó la capital bizantina, consolidando el poder otomano y provocando la huida de eruditos griegos hacia Italia, impulsando el Renacimiento."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["inglaterra", "religion", "pre-reforma"]
-tipo: mc
-enunciado: "El movimiento lollardo en Inglaterra fue una secta religiosa que influenció posteriormente a los husitas, caracterizada por:"
-opciones_explicitas:
-  - "La adoración de la Virgen María"
-  - "La oposición a la transubstanciación y los sacramentos clericales"
-  - "La defensa del poder temporal del Papa"
-  - "El uso exclusivo del latín en la liturgia"
-respuesta: "La oposición a la transubstanciación y los sacramentos clericales"
-explicacion: "Los lollardos, seguidores de Wycliffe, criticaban la riqueza de la Iglesia y la doctrina de la transubstanciación, promoviendo una fe más simple y textual."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["peste-negra", "recurrencia", "demografia"]
-tipo: completar
-enunciado: "La segunda gran oleada de la peste bubónica, conocida como la Peste de 1361 (o Peste de los Niños), afectó especialmente a las generaciones nacidas después de la primera epidemia porque:"
-opciones_explicitas:
-  - "Tenían peor nutrición"
-  - "No habían desarrollado inmunidad previa"
-  - "Vivían en ciudades más grandes"
-  - "Eran más propensos a las pulgas"
-respuesta: "No habían desarrollado inmunidad previa"
-explicacion: "Al ser una nueva generación sin exposición previa al patógeno, la mortalidad fue extremadamente alta entre los jóvenes y niños de esta cohorte."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["economia", "mercado", "castilla"]
-tipo: vf
-enunciado: "Las ferias de Medina del Campo en Castilla fueron un centro financiero crucial en la Baja Edad Media, donde se desarrollaron instrumentos crediticios avanzados similares a los de Italia."
-respuesta: verdadero
-explicacion: "Estas ferias permitieron la conexión entre las rutas textiles flamencas y los mercados ibéricos, fomentando el uso de letras de cambio y la banca temprana."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["cruzada", "otomano", "europa"]
-tipo: mc
-enunciado: "La Batalla de Nicópolis (1396) resultó en una decisiva derrota para:"
-opciones_explicitas:
-  - "El Imperio Otomano"
-  - "La Cruzada europea liderada por Segismundo de Hungría"
-  - "El Imperio Bizantino"
-  - "Los mongoles"
-respuesta: "La Cruzada europea liderada por Segismundo de Hungría"
-explicacion: "Fue la última gran cruzada medieval de éxito limitado, y su fracaso consolidó la expansión otomana en los Balcanes, dejando a Europa central vulnerable."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["economia", "leyes", "inglaterra", "peste"]
-tipo: completar
-enunciado: "El Estatuto de los Trabajadores de 1351 en Inglaterra fue una respuesta real a la escasez de mano de obra tras la Peste Negra, intentando congelar los salarios en los niveles de:"
-opciones_explicitas:
-  - "1348"
-  - "1300"
-  - "1350"
-  - "1360"
-respuesta: "1348"
-explicacion: "El gobierno intentó evitar la inflación salarial impidiendo que los trabajadores cobraran más debido a su escasez, lo que generó gran resentimiento social."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["francia", "locura", "guerra-cien-anos"]
-tipo: mc
-enunciado: "El reinado de Carlos VI de Francia se caracterizó por su progresiva locura, lo que llevó a:"
-opciones_explicitas:
-  - "La unificación de Francia"
-  - "La guerra civil entre Armagnac y Borgoña"
-  - "La conquista de Inglaterra"
-  - "La abolición de la monarquía"
-respuesta: "La guerra civil entre Armagnac y Borgoña"
-explicacion: "El vacío de poder debido a la enfermedad del rey permitió a los duques de Borgoña y los condes de Armagnac luchar por el control de la corte y la influencia real."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["peste-negra", "recurrencia", "europa"]
-tipo: completar
-enunciado: "La epidemia de peste de 1400-1401 fue particularmente virulenta en _______ y causó una nueva ola de mortalidad que impidió la recuperación demográfica completa."
-respuesta: "Italia"
-respuestas_validas:
-  - "italia"
-  - "Italia"
-  - "la peninsula italiana"
-  - "peninsula italiana"
-explicacion: "Italia, siendo un nodo comercial clave, fue especialmente susceptible a las recurrencias de la peste debido a la continua llegada de barcos infectados."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "baja-edad-media-y-crisis"
-  nivel: "intermedio"
-  tags: ["religion", "mistica", "teologia"]
-tipo: mc
-enunciado: "Además de su rol político, Juan de Gerson fue un importante teólogo místico que enfatizó la importancia de:"
-opciones_explicitas:
-  - "La riqueza de la Iglesia"
-  - "La experiencia personal y directa con Dios"
-  - "El poder del Papa sobre los reyes"
-  - "La guerra santa"
-respuesta: "La experiencia personal y directa con Dios"
-explicacion: "Su obra \"De Mystica Theologia\" influyó en la devoción moderna, promoviendo una espiritualidad interior que precedió a algunas ideas de la Reforma."
-```
-
-## Sección: caida-de-roma-y-alta-edad-media (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["imperio-romano", "caida", "fecha-clave"]
-tipo: vf
-enunciado: "El año 476 d.C. marca tradicionalmente el fin del Imperio Romano de Occidente con la deposición del último emperador."
-respuesta: verdadero
-explicacion: "En el 476 d.C., el general germánico Odoacro depuso a Rómulo Augústulo, el último emperador romano de Occidente, poniendo fin de facto al imperio en esa mitad."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["odocaro", "germanos", "roma"]
-tipo: completar
-enunciado: "El líder de los hérulos que depuso a Rómulo Augústulo en 476 fue ______."
-respuesta: "Odoacro"
-respuestas_validas:
-  - "Odoacro"
-  - "Odoacri"
-  - "Odovacri"
-  - "Odacri"
-explicacion: "Odoacro (o Odovacri) fue el caudillo herulo que tomó el control de Italia tras la caída de Roma, gobernando como rey sin reconocer la autoridad imperial de Oriente."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["economia", "inflacion", "romana"]
-tipo: mc
-enunciado: "¿Cuál fue una grave consecuencia de la devaluación de la moneda romana en los siglos III y IV?"
-opciones_explicitas:
-  - "Aumento del comercio transcontinental"
-  - "Desaceleración de la actividad económica y el comercio"
-  - "Fortalecimiento de la clase media urbana"
-  - "Estabilidad en los precios de los granos"
-respuesta: "Desaceleración de la actividad económica y el comercio"
-explicacion: "La devaluación de la moneda (reducción del contenido de plata) generó inflación, desconfianza en el dinero y una desaceleración general del comercio y la economía monetaria."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["carolingios", "verdun", "particion"]
-tipo: completar
-enunciado: "El Tratado de Verdún de 843 dividió el Imperio Carolingio en tres reinos, uno de los cuales fue ______."
-respuesta: "Francia"
-respuestas_validas:
-  - "Francia"
-  - "francia"
-  - "Francia Occidental"
-  - "francia occidental"
-explicacion: "El tratado dividió el imperio entre los nietos de Carlomagno: Luis el Germánico (Este), Lotario I (Centro) y Carlos el Calvo (Occidente, futura Francia)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["visigodos", "alarico", "saqueo"]
-tipo: mc
-enunciado: "¿Qué pueblo germánico saqueó Roma en el año 410 d.C.?"
-opciones_explicitas:
-  - "Vándalos"
-  - "Ostrogodos"
-  - "Visigodos"
-  - "Francos"
-respuesta: "Visigodos"
-explicacion: "Bajo el mando de Alarico I, los visigodos saquearon Roma en el 410, un evento shock para la mentalidad romana que simbolizó la vulnerabilidad del imperio."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["feudalismo", "vasallaje", "estructura-social"]
-tipo: completar
-enunciado: "En el sistema feudal, el lazo jurídico y militar entre un señor y un noble se llamaba ______."
-respuesta: "vasallaje"
-respuestas_validas:
-  - "vasallaje"
-  - "vasallage"
-  - "lazo de vasallaje"
-  - "vinculo de vasallaje"
-explicacion: "El vasallaje era el contrato personal donde el vasallo juraba fidelidad y servicio militar a cambio de protección y un feudo (tierras)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["carlomagno", "papa", "coronacion"]
-tipo: mc
-enunciado: "¿Qué Papa coronó a Carlomagno como Emperador en Navidad del año 800?"
-opciones_explicitas:
-  - "Papa Gregorio I"
-  - "Papa León III"
-  - "Papa Urbano II"
-  - "Papa Adriano I"
-respuesta: "Papa León III"
-explicacion: "El Papa León III coronó a Carlomagno en el año 800, restableciendo el título imperial en Occidente y estrechando los lazos entre la corona franca y la Iglesia."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["vikingos", "invasiones", "navegacion"]
-tipo: vf
-enunciado: "Los vikingos se distinguían por atacar principalmente por tierra, evitando los ríos."
-respuesta: falso
-explicacion: "Los vikingos eran expertos navegantes que utilizaban sus barcos de fondo plano para remontar ríos y atacar monasterios y ciudades del interior, evitando el combate terrestre directo cuando era posible."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["cisma", "iglesia", "roma", "constantinopla"]
-tipo: completar
-enunciado: "El Cisma de 1054 provocó la ruptura definitiva entre la Iglesia de Roma y la Iglesia de ______."
-respuesta: "Constantinopla"
-respuestas_validas:
-  - "Constantinopla"
-  - "constantinopla"
-  - "Bizancio"
-  - "bizancio"
-  - "iglesia ortodoxa"
-  - "Iglesia Ortodoxa"
-explicacion: "El cisma separó el cristianismo en dos ramas: la católica romana (Occidente) y la ortodoxa oriental (con sede en Constantinopla)."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["bizancio", "turcos", "otomanos", "final"]
-tipo: mc
-enunciado: "¿Qué poder conquistó Constantinopla en 1453, poniendo fin al Imperio Romano de Oriente?"
-opciones_explicitas:
-  - "Los Francos"
-  - "Los Otomanos"
-  - "Los Mongoles"
-  - "Los Venedicos"
-respuesta: "Los Otomanos"
-explicacion: "El sultán Mehmed II conquistó Constantinopla en 1453, marcando el fin oficial del Imperio Bizantino y el fin simbólico de la Edad Media."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["agricultura", "tecnologia", "arado"]
-tipo: completar
-enunciado: "La invención del ______ de vertedera permitió arar los suelos pesados y húmedos del norte de Europa."
-respuesta: "arado"
-respuestas_validas:
-  - "arado"
-  - "arado de vertedera"
-  - "arado pesado"
-  - "arado de ruedas"
-explicacion: "El arado de vertedera (con ruedas y cuchilla de hierro) revoluciona la agricultura medieval, permitiendo cultivar tierras fértiles pero pesadas del norte."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["iglesia", "cultura", "manuscritos"]
-tipo: vf
-enunciado: "Durante los primeros siglos de la Alta Edad Media, los monasterios fueron los principales centros de copia y conservación de textos clásicos."
-respuesta: verdadero
-explicacion: "Con el colapso de las estructuras civiles, los monasterios se convirtieron en refugios de saber, donde los monjes copiaban manuscritos latinos y cristianos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["francos", "musulmanes", "poitiers", "cartujo"]
-tipo: mc
-enunciado: "¿Quién lideró a los francos en la victoria contra los musulmanes en la Batalla de Poitiers en 732?"
-opciones_explicitas:
-  - "Carlomagno"
-  - "Carlos Martel"
-  - "Pipino el Breve"
-  - "Clodoveo"
-respuesta: "Carlos Martel"
-explicacion: "Carlos Martel detuvo la expansión musulmana hacia el norte de Europa en Poitiers, consolidando el poder de los Carolingios y su alianza con la Iglesia."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["feudalismo", "poder", "fragmentacion"]
-tipo: completar
-enunciado: "La debilidad de los reyes carolingios llevó a una fragmentación del poder político en favor de la nobleza local, fenómeno conocido como ______."
-respuesta: "feudalismo"
-respuestas_validas:
-  - "feudalismo"
-  - "sistema feudal"
-  - "regimen feudal"
-  - "orden feudal"
-explicacion: "La incapacidad de los reyes para mantener el orden público generó que los señores locales asumieran funciones judiciales y militares, consolidando el feudalismo."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["reconquista", "covadonga", "asturias"]
-tipo: vf
-enunciado: "La batalla de Covadonga, tradicionalmente datada en 722, marca el inicio simbólico de la Reconquista en la península ibérica."
-respuesta: verdadero
-explicacion: "Pelayo lideró a los astures contra los omeyas en Covadonga, estableciendo el Reino de Asturias y marcando el comienzo de la lenta expansión cristiana hacia el sur."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["cruzadas", "jerusalen", "urbe"]
-tipo: mc
-enunciado: "¿Qué Papa convocó la Primera Cruzada en 1095 en el Concilio de Clermont?"
-opciones_explicitas:
-  - "Papa Urbano II"
-  - "Papa Inocencio III"
-  - "Papa Gregorio VII"
-  - "Papa León X"
-respuesta: "Papa Urbano II"
-explicacion: "Urbano II llamó a la cruzada para liberar Tierra Santa del control seléucida y ayudar al Imperio Bizantino, movilizando a la nobleza europea."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["peste", "bubonica", "muerte"]
-tipo: completar
-enunciado: "La Peste Negra del siglo XIV fue causada por la bacteria ______, transmitida principalmente por pulgas de ratas."
-respuesta: "Yersinia pestis"
-respuestas_validas:
-  - "Yersinia pestis"
-  - "yersinia pestis"
-  - "Yersinia"
-  - "pestis"
-explicacion: "La bacteria Yersinia pestis fue el agente causal de la peste bubónica, que diezmó la población europea entre 1347 y 1351."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["francia", "capetos", "centralizacion"]
-tipo: mc
-enunciado: "¿Qué dinastía comenzó a consolidar el poder real en Francia a partir del siglo X, reduciendo el poder de los señores feudales?"
-opciones_explicitas:
-  - "Carolingios"
-  - "Capetos"
-  - "Valois"
-  - "Plantagenets"
-respuesta: "Capetos"
-explicacion: "Los Capetos, empezando con Hugo Capet, lograron una lenta pero constante centralización del poder en Francia, sentando las bases del Estado nacional."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["siervos", "trabajo", "diferencia"]
-tipo: completar
-enunciado: "A diferencia de los esclavos romanos, los siervos medievales tenían derecho a ______ y a poseer herramientas propias."
-respuesta: "matrimonio"
-respuestas_validas:
-  - "matrimonio"
-  - "casamiento"
-  - "familia"
-  - "herencia"
-  - "tierra"
-explicacion: "Los siervos estaban ligados a la tierra pero no eran propiedad del señor; podían tener familia, heredar bienes y usar sus propias herramientas, aunque debían trabajo al señor."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["sacro-império", "germania", "otón"]
-tipo: mc
-enunciado: "¿Qué rey alemán fue coronado emperador en 962, fundando el Sacro Imperio Romano Germánico?"
-opciones_explicitas:
-  - "Federico I Barbarroja"
-  - "Otón I"
-  - "Enrique IV"
-  - "Carlomagno"
-respuesta: "Otón I"
-explicacion: "Otón I fue coronado emperador en 962, reviviendo el título imperial en Germania y estableciendo el Sacro Imperio Romano Germánico."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["cisma", "avignon", "papado"]
-tipo: vf
-enunciado: "Durante el Gran Cisma de Occidente (1378-1417), hubo dos papas rivales, uno en Roma y otro en Aviñón."
-respuesta: verdadero
-explicacion: "Este cisma dividió la cristiandad occidental con dos papas simultáneos, debilitando la autoridad moral y política del papado hasta su resolución en el Concilio de Constanza."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["mongoles", "genghis", "invasión"]
-tipo: completar
-enunciado: "El líder que unificó a las tribus mongolas y comenzó la mayor expansión terrestre de la historia fue ______."
-respuesta: "Genghis Khan"
-respuestas_validas:
-  - "Genghis Khan"
-  - "Gengis Khan"
-  - "Chingis Khan"
-  - "Temujin"
-explicacion: "Temujin, conocido como Genghis Khan, unificó a los mongoles en 1206 y lanzó campañas que extendieron el imperio desde Asia Central hasta Europa del Este."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["japon", "shogun", "samurai"]
-tipo: mc
-enunciado: "En el feudalismo japonés, ¿quién era el líder militar que ejercía el poder real mientras el emperador era una figura ceremonial?"
-opciones_explicitas:
-  - "Daimyo"
-  - "Shogun"
-  - "Samurai"
-  - "Kami"
-respuesta: "Shogun"
-explicacion: "El Shogun era el dictador militar, mientras el emperador permanecía en Kyoto como símbolo sagrado pero sin poder político efectivo durante gran parte del periodo feudal japonés."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["cultura", "carlomagno", "educación"]
-tipo: completar
-enunciado: "El intento de Carlomagno de revivir la cultura y el aprendizaje clásico se conoce como el ______."
-respuesta: "Renacimiento Carolingio"
-respuestas_validas:
-  - "Renacimiento Carolingio"
-  - "renacimiento carolingio"
-  - "Renacimiento de Carlomagno"
-  - "renacimiento de carlomagno"
-explicacion: "Fue un período de renovación cultural y educativa en la corte de Carlomagno, promoviendo el uso correcto del latín y la copia de textos antiguos."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "caida-de-roma-y-alta-edad-media"
-  nivel: "intermedio"
-  tags: ["tordesillas", "colonización", "mundo-nuevo"]
-tipo: mc
-enunciado: "¿Qué potencia europea perdió la disputa de zonas de influencia en el Tratado de Tordesillas frente a Portugal?"
-opciones_explicitas:
-  - "Francia"
-  - "España"
-  - "Inglaterra"
-  - "Italia"
-respuesta: "España"
-explicacion: "España y Portugal firmaron el tratado para dividir el mundo no europeo por un meridiano, otorgando a Portugal las rutas hacia la India y África, y a España las Américas (aunque inicialmente hubo disputas sobre la longitud exacta)."
-```
-
-## Sección: cambio-climatico-linea-base-historica (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "basico"
-  tags: ["metodologia", "climatologia"]
-
-tipo: mc
-opciones_explicitas: ["Establecer un punto de comparación para distinguir variaciones naturales de antropogénicas", "Determinar la temperatura exacta del núcleo de la Tierra", "Calcular la velocidad de la rotación terrestre", "Predecir el fin de la vida en el planeta"]
-
-enunciado: "Para determinar si el calentamiento actual es una anomalía, los científicos necesitan establecer una ___ que permita comparar el clima presente con los registros del pasado."
-
-respuesta: "Establecer un punto de comparación para distinguir variaciones naturales de antropogénicas"
-
-explicacion: |
-  Sin una línea de base histórica (paleoclimatología), no podríamos saber si las fluctuaciones actuales están dentro de los rangos de variabilidad natural o si representan una desviación estadística significativa.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "intermedio"
-  tags: ["milankovitch", "astronomia"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["excentricidad", "cambios en la forma de la órbita terrestre"], ["oblicuidad", "cambios en la inclinación del eje terrestre"]]
-
-tipo: completar
-respuestas_validas:
-  - "excentricidad"
-  - "oblicuidad"
-
-enunciado: "Los ciclos de Milankovitch explican las glaciaciones a través de variaciones en la órbita. El primer factor es la {escenario[idx][0]}, que se refiere a los {escenario[idx][1]}."
-
-respuesta: escenario[idx][0]
-
-explicacion: |
-  Los ciclos de Milankovitch incluyen la excentricidad (órbita), la oblicuidad (inclinación) y la precesión (balanceo). Estos procesos naturales operan en escalas de decenas de miles de años.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "avanzado"
-  tags: ["ritmos", "velocidad"]
+  tags: ["orden", "logica"]
 
 tipo: ordenar
-opciones_explicitas: ["Ciclos de Milankovitch (escala de milenios)", "Variaciones volcánicas menores (escala de años/décadas)", "Emisiones de gases de efecto invernadero actuales (escala de décadas)"]
+respuesta_orden: ["observación de espectro", "detección de corrimiento al rojo", "conclusión de expansión"]
+opciones_explicitas: ["conclusión de expansión", "observación de espectro", "detección de corrimiento al rojo"]
 
-enunciado: "Ordena los procesos de abajo hacia arriba según la escala temporal en la que influyen en el sistema climático (de mayor duración a menor duración):"
-
-respuesta_orden: ["Ciclos de Milankovitch (escala de milenios)", "Variaciones volcánicas menores (escala de años/décadas)", "Emisiones de gases de efecto invernadero actuales (escala de décadas)"]
+enunciado: "Ordena los pasos lógicos que llevaron a la conclusión de la expansión del universo:"
 
 explicacion: |
-  La diferencia fundamental entre el cambio climático natural histórico y el actual no es solo la dirección del cambio, sino la velocidad (ritmo) a la que ocurre el forzamiento radiativo.
+  Primero se observa la luz (espectro), luego se detecta el desplazamiento (redshift) y finalmente se infiere la expansión.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
+  tema: "corrimiento_al_rojo_expansion_universo"
   nivel: "intermedio"
-  tags: ["paleoclimatologia", "hielo"]
+  tags: ["cosmologia", "espacio_tiempo"]
 
 tipo: mc
-opciones_explicitas: ["isótopos de oxígeno", "isótopos de carbono", "niveles de salinidad", "densidad del aire"]
+opciones_explicitas: ["Las galaxias se desplazan a través del espacio vacío", "El espacio mismo se está estirando entre las galaxias", "Las galaxias se mueven debido a una fuerza centrífuga", "El universo está colapsando hacia un punto central"]
+respuesta: "El espacio mismo se está estirando entre las galaxias"
 
-enunciado: "Para reconstruir la temperatura de hace miles de años, los científicos analizan los ___ atrapados en el hielo de los núcleos glaciares."
-
-respuesta: "isótopos de oxígeno"
+enunciado: "Según el modelo de expansión cósmica, el corrimiento al rojo observado en las galaxias lejanas indica que:"
 
 explicacion: |
-  Los isótopos de oxígeno (especialmente la relación entre 18O y 16O) en el hielo actúan como un termómetro paleoclimático muy preciso.
+  Es un error común pensar que las galaxias viajan 'por' el espacio como proyectiles. En realidad, es la métrica del espacio-tiempo la que se expande, aumentando la distancia entre objetos que no están gravitacionalmente ligados.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "avanzado"
-  tags: ["anomalia", "datos"]
-
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Si la temperatura media global histórica (línea de base) fuera de 14.0°C y la actual es de 15.5°C, ¿cuál es la magnitud de la anomalía térmica en grados Celsius?"
-
-respuesta: 1.5
-
-explicacion: |
-  La anomalía se calcula restando el valor de la línea de base al valor actual: 15.5 - 14.0 = 1.5.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
+  tema: "corrimiento_al_rojo_expansion_universo"
   nivel: "basico"
-  tags: ["velocidad", "comparacion"]
-
-tipo: mc
-opciones_explicitas: ["El ritmo de cambio es similar en ambos casos", "El cambio actual es mucho más rápido que los naturales", "El cambio actual es más lento debido a la tecnología", "No hay diferencia medible en la velocidad"]
-respuesta: "El cambio actual es mucho más rápido que los naturales"
-enunciado: "Al comparar el cambio climático actual con los ciclos naturales del pasado, la diferencia fundamental radica en la ____."
-explicacion: |
-  Mientras que los cambios climáticos naturales (como las glaciaciones) suelen ocurrir a lo largo de miles de años, el cambio climático antropogénico actual está ocurriendo en cuestión de décadas, una velocidad sin precedentes en la historia geológica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "intermedio"
-  tags: ["escala_temporal", "comparacion"]
-
-variables:
-  datos: [["Natural", "milenios"], ["Actual", "décadas"]]
-  idx: uno_de([0, 1])
+  tags: ["analogia", "expansion"]
 
 tipo: completar
 respuestas_validas:
-  - "milenios"
-  - "décadas"
-respuesta: datos[idx][1]
+  - "distancia creciente"
 
-enunciado: "Si un cambio climático natural suele manifestarse en un periodo de {datos[idx][0]}, el cambio climático actual se manifiesta en un periodo de ___."
+enunciado: "Si imaginamos que las galaxias son puntos dibujados sobre la superficie de un globo que se infla, al aumentar el volumen del globo, la distancia constante entre los puntos se vuelve una ___."
 
 explicacion: |
-  La escala temporal es la clave: pasar de escalas de milenios a escalas de décadas es lo que impide que los ecosistemas se adapten naturalmente.
+  La analogía del globo ilustra que no es el objeto el que se mueve por la superficie, sino que la superficie misma crece, separando los puntos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "basico"
-  tags: ["ritmo", "comparacion"]
-
-tipo: ordenar
-opciones_explicitas: ["Ciclos climáticos naturales (lentos)", "Cambio climático antropogénico (rápido)"]
-respuesta_orden: ["Ciclos climáticos naturales (lentos)", "Cambio climático antropogénico (rápido)"]
-
-enunciado: "Ordena los procesos de menor a mayor velocidad de cambio climático:"
-
-explicacion: |
-  El orden correcto refleja la aceleración del proceso: desde los cambios geológicos lentos hasta la aceleración actual causada por la actividad humana.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
+  tema: "corrimiento_al_rojo_expansion_universo"
   nivel: "avanzado"
-  tags: ["geologia", "velocidad"]
+  tags: ["doppler", "redshift"]
 
-variables:
-  datos: [["10000", "10"], ["5000", "50"], ["2000", "100"]]
-  idx: uno_de([0, 1, 2])
+tipo: mc
+opciones_explicitas: ["Efecto Doppler", "Efecto Doppler Cosmológico", "Efecto Doppler Gravitacional", "Efecto Doppler de Lorentz"]
+respuesta: "Efecto Doppler Cosmológico"
+
+enunciado: "Aunque se parece al efecto Doppler acústico, el corrimiento al rojo debido a la expansión del universo se denomina:"
+
+explicacion: |
+  El efecto Doppler estándar ocurre por movimiento a través del medio, mientras que el cosmológico se debe a la expansión de la métrica del espacio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "intermedio"
+  tags: ["metrica", "espacio_tiempo"]
 
 tipo: completar
 tolerancia_abs: 0
-respuesta: datos[idx][1]
 
-enunciado: "En un escenario donde un cambio natural tarda {datos[idx][0]} años, el cambio actual se estima que ocurre en aproximadamente ___ años."
+enunciado: "Si la expansión del universo es constante, la velocidad de recesión de una galaxia es proporcional a su distancia actual. ¿Cómo se denomina técnicamente la función a(t) que describe cómo cambia el tamaño del universo con el tiempo en la métrica de Friedmann-Lemaître-Robertson-Walker?"
 
-pasos:
-  - "Identificar la escala de tiempo natural proporcionada."
-  - "Comparar con la escala de tiempo del cambio actual (décadas)."
-
-explicacion: |
-  El valor ingresado representa la escala de décadas que caracteriza la crisis climática actual frente a la escala de milenios de los procesos naturales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "basico"
-  tags: ["velocidad", "veracidad"]
-
-tipo: mc
-opciones_explicitas: ["Verdadero", "Falso"]
-respuesta: "Verdadero"
-
-enunciado: "La característica distintiva del cambio climático actual frente a los eventos naturales del pasado es que su velocidad de ejecución es órdenes de magnitud mayor. ¿Es esto verdadero o falso?"
-
-explicacion: |
-  Es verdadero. La rapidez del calentamiento actual es el factor que genera la mayor preocupación para la biodiversidad y la estabilidad de la civilización.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "intermedio"
-  tags: ["paleoclimatologia", "nucleos_de_hielo"]
-
-respuesta: "CO2"
-tipo: mc
-opciones_explicitas: ["CO2", "O2", "N2"]
-
-enunciado: "Al analizar núcleos de hielo extraídos de la Antártida, los científicos analizan las burbujas de aire atrapadas en las capas de nieve para determinar la concentración histórica de ___ en la atmósfera."
-
-explicacion: |
-  Las burbujas de aire atrapadas en el hielo actúan como cápsulas del tiempo, permitiendo medir la composición química de la atmósfera de hace cientos de miles de años.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "basico"
-  tags: ["dendrocronologia", "anillos_de_arboles"]
-
-respuesta: "ancho del anillo"
-tipo: completar
 respuestas_validas:
-  - "ancho del anillo"
-  - "color del anillo"
-  - "textura de la corteza"
+  - "factor de escala"
 
-enunciado: "En la dendrocronología, la variabilidad climática (como la temperatura o la precipitación) se refleja principalmente en el ___ de cada anillo anual."
+respuesta: "factor de escala"
 
 explicacion: |
-  Un anillo más ancho suele indicar condiciones de crecimiento favorables (más lluvia o temperaturas óptimas), mientras que uno estrecho indica condiciones de estrés ambiental.
+  El factor de escala 'a(t)' es una función que describe la evolución del tamaño del universo con el tiempo en la métrica de Friedmann-Lemaître-Robertson-Walker.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "intermedio"
+  tags: ["evidencia", "historia_ciencia"]
+
+tipo: ordenar
+opciones_explicitas: ["Observación de espectros con corrimiento al rojo", "Formulación de la Ley de Hubble-Lemaître", "Descubrimiento de la expansión del universo"]
+
+enunciado: "Ordena cronológicamente los hitos que permitieron comprender que el universo se está expandiendo:"
+
+explicacion: |
+  Primero se observó el desplazamiento en las líneas espectrales (Slipher), luego se formuló la relación matemática (Hubble) y finalmente se consolidó el modelo de un universo en expansión.
+respuesta_orden: ["Observación de espectros con corrimiento al rojo", "Formulación de la Ley de Hubble-Lemaître", "Descubrimiento de la expansión del universo"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "basico"
+  tags: ["cosmologia", "big_bang", "evidencia"]
+
+tipo: mc
+opciones_explicitas: ["La expansión del espacio", "La rotación de las galaxias", "La formación de agujeros negros", "La existencia de la gravedad"]
+respuesta: "La expansión del espacio"
+
+enunciado: "El corrimiento al rojo cosmológico es una de las principales evidencias observacionales a favor de la teoría del Big Bang."
+
+explicacion: |
+  El corrimiento al rojo indica que las galaxias se alejan de nosotros, lo que implica que el universo se está expandiendo, una pieza clave para la teoría del Big Bang.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "intermedio"
+  tags: ["espectro", "luz", "redshift"]
+
+tipo: mc
+opciones_explicitas: ["se desplaza hacia el rojo", "se desplaza hacia el azul", "se mantiene constante", "cambia de intensidad"]
+respuesta: "se desplaza hacia el rojo"
+
+enunciado: "Cuando la luz de una galaxia se estira debido a la expansión del universo, su espectro ___."
+
+explicacion: |
+  Al expandirse el espacio, la longitud de onda de la luz se estira hacia la parte roja del espectro electromagnético.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "corrimiento_al_rojo_expansion_universo"
   nivel: "avanzado"
-  tags: ["sedimentos", "oceanografia"]
+  tags: ["hubble", "calculo", "expansion"]
 
 variables:
-  isocapa: uno_de([0, 1])
+  caso_idx: uno_de([0, 1])
+  datos: [[100, 700], [250, 1500]]
+  h0: redondear(datos[caso_idx][1] / datos[caso_idx][0], 2)
 
-respuesta_orden: ["Sedimentación de materia orgánica", "Acumulación de conchas de foraminíferos", "Deposición de partículas terrígenas"]
-tipo: ordenar
-opciones_explicitas: ["Sedimentación de materia orgánica", "Acumulación de conchas de foraminíferos", "Deposición de partículas terrígenas"]
-
-enunciado: "Para reconstruir un perfil climático en un núcleo de sedimentos oceánicos, se deben analizar los eventos en orden cronológico. Ordena los procesos de formación de un estrato típico (de lo más antiguo a lo más reciente):"
-
-explicacion: |
-  El proceso implica la caída de partículas, la acumulación de restos biológicos y la sedimentación continua que forma las capas que luego se estudian.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "avanzado"
-  tags: ["isótopos", "oxigeno"]
-
-respuesta: "18O"
-tipo: mc
-opciones_explicitas: ["12C", "14C", "18O", "16O"]
-
-enunciado: "En paleoclimatología, la relación entre los isótopos de oxígeno de las conchas de foraminíferos en el fondo marino es un indicador clave de la temperatura global. El isótopo más pesado utilizado es el ___."
-
-explicacion: |
-  La proporción entre el oxígeno-18 (pesado) y el oxígeno-16 (ligero) en los sedimentos marinos permite calcular las temperaturas de los antiguos océanos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "basico"
-  tags: ["proxies", "metodologia"]
-
-respuesta: "proxy"
 tipo: completar
-respuestas_validas:
-  - "proxy"
-  - "sensor"
-  - "registro"
+tolerancia_abs: 0.1
+respuesta: h0
 
-enunciado: "Dado que no existían termómetros en el pasado remoto, los científicos utilizan indicadores indirectos como los anillos de los árboles o los núcleos de hielo, denominados técnicamente como ___."
+enunciado: "Si una galaxia se encuentra a una distancia de {datos[caso_idx][0]} Mpc y su velocidad de recesión es de {datos[caso_idx][1]} km/s, ¿cuál es el valor aproximado de la constante de Hubble (H₀) en km/s/Mpc?"
+
+pasos:
+  - "Identificar la velocidad de recesión (v)"
+  - "Identificar la distancia (d)"
+  - "Aplicar la fórmula H₀ = v / d"
 
 explicacion: |
-  Un 'proxy' es una variable física, química o biológica que actúa como un sustituto de una variable climática que no se puede medir directamente.
+  Usando la ley de Hubble: H₀ = v / d. Para el caso seleccionado: {datos[caso_idx][1]} / {datos[caso_idx][0]} = {h0} km/s/Mpc.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "basico"
-  tags: ["paleoclimatologia", "co2"]
-
-respuesta: "800000"
-tipo: completar
-respuestas_validas:
-  - "800000"
-
-enunciado: "Los registros obtenidos de núcleos de hielo indican que los niveles actuales de CO2 atmosférico son más altos que en cualquier momento de los últimos ___ años."
-
-explicacion: |
-  Los núcleos de hielo de la Antártida permiten reconstruir la composición atmosférica de eras pasadas. Los datos muestran que las concentraciones actuales superan los máximos de los últimos 800.000 años.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
+  tema: "corrimiento_al_rojo_expansion_universo"
   nivel: "intermedio"
-  tags: ["co2", "comparacion"]
+  tags: ["conceptos", "espacio", "tiempo"]
 
-respuesta: "Superior"
-tipo: mc
-opciones_explicitas: ["Superior", "Inferior"]
+tipo: ordenar
+opciones_explicitas: ["Gran explosión inicial", "Expansión del espacio-tiempo", "Corrimiento al rojo observado", "Universo actual"]
 
-enunciado: "Considerando que los niveles de CO2 actuales son de aproximadamente 420 ppm y que los niveles históricos preindustriales eran de ~280 ppm, la situación actual es ________ respecto al pasado geológico reciente."
+enunciado: "Ordena cronológicamente los eventos relacionados con la expansión y la observación del universo:"
 
 explicacion: |
-  La concentración actual de CO2 es significativamente más alta que los niveles estables de los últimos milenios, rompiendo el ciclo natural de los últimos 800.000 años.
+  El Big Bang da origen a todo, seguido por la expansión, lo que genera el corrimiento al rojo que observamos hoy en las galaxias lejanas.
+respuesta_orden: ["Gran explosión inicial", "Expansión del espacio-tiempo", "Corrimiento al rojo observado", "Universo actual"]
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "basico"
-  tags: ["metodologia", "paleoclimatologia"]
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "intermedio"
+  tags: ["causa", "espacio", "redshift"]
 
-respuesta: "núcleos de hielo"
 tipo: completar
 respuestas_validas:
-  - "núcleos de hielo"
+  - "espacio"
+  - "tejido"
+  - "espacio-tiempo"
 
-enunciado: "Para determinar la concentración de gases atmosféricos en el pasado remoto, los científicos analizan las burbujas de aire atrapadas en los ___."
+enunciado: "A diferencia del efecto Doppler clásico, el corrimiento al rojo cosmológico es causado por el estiramiento del propio ___ entre las galaxias."
 
 explicacion: |
-  Los núcleos de hielo actúan como cápsulas del tiempo que preservan muestras directas de la atmósfera de hace cientos de miles de años.
+  En cosmología, no es solo que las galaxias se muevan "a través" del espacio, sino que es el espacio mismo el que se expande.
+```
+
+```
+metadata:
+  materia: "astronomia"
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "basico"
+  tags: ["astronomia", "cosmologia"]
+
+variables:
+  datos: [["el espectro de la galaxia se desplaza hacia longitudes de onda más largas", "alejándose"], ["el espectro de la galaxia se desplaza hacia longitudes de onda más cortas", "acercándose"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["alejándose", "acercándose"]
+
+enunciado: "Si observamos que {datos[idx][0]}, esto indica que el objeto se está ___."
+
+explicacion: |
+  El corrimiento al rojo (redshift) ocurre cuando la longitud de onda de la luz se estira debido al movimiento de alejamiento, mientras que el corrimiento al azul (blueshift) ocurre cuando la longitud de onda se comprime debido al acercamiento.
+```
+
+```
+metadata:
+  materia: "astronomia"
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "basico"
+  tags: ["espectroscopia", "astronomia"]
+
+variables:
+  datos: [["redshift", "alejándose"], ["blueshift", "acercándose"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "alejándose"
+  - "acercándose"
+
+enunciado: "Un astrónomo detecta un fenómeno de {datos[idx][0]} en una galaxia lejana. Esto significa que la galaxia está ___ del observador."
+
+explicacion: |
+  El término 'redshift' se asocia con el aumento de la longitud de onda (alejamiento) y 'blueshift' con la disminución (acercamiento).
+```
+
+```
+metadata:
+  materia: "astronomia"
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "intermedio"
+  tags: ["galaxias", "cosmologia"]
+
+variables:
+  datos: [["Luz roja", "alejándose"], ["Luz azul", "acercándose"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["alejándose", "acercándose", "estacionaria"]
+
+enunciado: "Si la luz emitida por un objeto llega con un tono hacia el extremo rojo del espectro, el movimiento es de ___."
+
+explicacion: |
+  El corrimiento al rojo es la evidencia fundamental de la expansión del universo, indicando que las galaxias se alejan de nosotros.
+```
+
+```
+metadata:
+  materia: "astronomia"
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: "alejándose"
+tipo: completar
+respuestas_validas:
+  - "alejándose"
+
+enunciado: "Cuando la longitud de onda de la luz de una estrella aumenta debido a su movimiento relativo, decimos que tiene un corrimiento al rojo, lo que significa que la estrella se está ___."
+
+explicacion: |
+  El aumento en la longitud de onda ($\lambda$) es la definición física del corrimiento al rojo.
+```
+
+```
+metadata:
+  materia: "astronomia"
+  tema: "corrimiento_al_rojo_expansion_universo"
+  nivel: "intermedio"
+  tags: ["espectro", "movimiento"]
+
+variables:
+  datos: [["azul", "acercándose"], ["rojo", "alejándose"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["acercándose", "alejándose"]
+
+enunciado: "Si la luz de un objeto se desplaza hacia el color {datos[idx][0]}, el objeto se está ___."
+
+explicacion: |
+  El color azul tiene longitudes de onda más cortas, indicando acercamiento; el rojo, longitudes más largas, indicando alejamiento.
+```
+
+## Sección: agujeros-negros (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "basico"
+  tags: ["estrellas", "supernova", "gravedad"]
+
+respuesta: "supernova"
+tipo: completar
+respuestas_validas:
+  - "supernova"
+
+enunciado: "Un agujero negro se forma cuando una estrella muy masiva colapsa gravitacionalmente tras agotar su combustible nuclear y explotar como una ___."
+
+explicacion: |
+  Cuando las estrellas masivas agotan su combustible, la presión hacia afuera cesa y la gravedad gana la batalla, provocando una explosión catastrófica llamada supernova.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "avanzado"
-  tags: ["secuencia", "co2"]
+  tema: "agujeros_negros"
+  nivel: "intermedio"
+  tags: ["gravedad", "fuerza", "colapso"]
 
-respuesta_orden: ["Preindustrial", "Máximo glacial", "Actualidad"]
-tipo: ordenar
-opciones_explicitas: ["Preindustrial", "Máximo glacial", "Actualidad"]
+respuesta: "gravedad"
+tipo: mc
+opciones_explicitas: ["gravedad", "electromagnetismo", "fuerza nuclear fuerte"]
 
-enunciado: "Ordene cronológicamente (de lo más antiguo a lo más reciente) los estados de la concentración de CO2 según el registro de los últimos 800.000 años, considerando que el nivel actual es el más alto."
+enunciado: "Durante el colapso de una estrella masiva que da origen a un agujero negro, ¿qué fuerza es la responsable de vencer la presión de la fusión nuclear y comprimir la materia?"
 
 explicacion: |
-  La secuencia refleja el aumento drástico desde los niveles preindustriales, pasando por las fluctuaciones de los periodos glaciares, hasta el pico antropogénico actual.
+  La gravedad es la fuerza fundamental que, al no encontrar resistencia por la falta de fusión nuclear, colapsa el núcleo de la estrella hacia un punto de densidad infinita.
 ```
 
 ```
 metadata:
-  materia: "historia_profucha"
-  tema: "cambio_climatico_linea_base_historica"
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "intermedio"
+  tags: ["ciclo_estelar", "combustible"]
+
+respuesta: "agotado"
+tipo: completar
+respuestas_validas:
+  - "agotado"
+
+enunciado: "El proceso de formación de un agujero negro comienza cuando el combustible nuclear de la estrella se ha ___."
+
+explicacion: |
+  Sin la energía de la fusión nuclear que empuja hacia afuera, la estrella pierde su equilibrio hidrostático y colapsa.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
   nivel: "basico"
-  tags: ["co2", "verdad_falso"]
+  tags: ["secuencia", "supernova", "colapso"]
+
+respuesta_orden: ["colapso gravitacional", "supernova", "agujero negro"]
+tipo: ordenar
+opciones_explicitas: ["colapso gravitacional", "supernova", "agujero negro"]
+
+enunciado: "Ordena cronológicamente los eventos que llevan a la formación de un agujero negro a partir de una estrella masiva:"
+
+explicacion: |
+  Primero ocurre el colapso del núcleo, seguido de la explosión de la capa externa (supernova) y finalmente la formación del remanente denso (agujero negro).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "avanzado"
+  tags: ["masa", "estrellas", "supernova"]
+
+variables:
+  es_masiva: uno_de([verdadero, falso])
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "Para que una estrella termine su vida como un agujero negro tras una supernova, ¿es necesario que su masa sea muy grande (masiva)?"
+
+explicacion: |
+  Solo las estrellas con una masa lo suficientemente grande pueden generar la presión gravitatoria necesaria para colapsar en un agujero negro; las estrellas pequeñas terminan como enanas blancas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "basico"
+  tags: ["astronomia", "gravedad"]
+
+respuesta: "horizonte de eventos"
+tipo: completar
+respuestas_validas:
+  - "horizonte de eventos"
+
+enunciado: "El límite esférico alrededor de un agujero negro más allá del cual la velocidad de escape es mayor que la velocidad de la luz se denomina ___."
+
+explicacion: |
+  El horizonte de eventos marca la frontera física donde la gravedad es tan intensa que nada, ni siquiera la radiación electromagnética (luz), puede escapar.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "intermedio"
+  tags: ["fisica", "luz"]
+
+opciones_explicitas: ["menor que la velocidad de la luz", "igual a la velocidad de la luz", "mayor que la velocidad de la luz"]
+
+respuesta: "mayor que la velocidad de la luz"
+tipo: mc
+
+enunciado: "Para que un objeto pueda escapar de un agujero negro tras cruzar su horizonte de eventos, su velocidad debería ser..."
+
+explicacion: |
+  Por definición, el horizonte de eventos es la región donde la velocidad de escape necesaria supera la velocidad de la luz ($c$), haciendo que el escape sea físicamente imposible.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "avanzado"
+  tags: ["estructura", "singularidad"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [["un agujero negro de masa estelar", "se forma por el colapso de una estrella masiva"], ["un agujero negro supermasivo", "reside en el centro de las galaxias"]]
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["se forma por el colapso de una estrella masiva", "reside en el centro de las galaxias"]
+
+enunciado: "Si estamos analizando {escenario[idx][0]}, es correcto afirmar que este {escenario[idx][1]}."
+
+explicacion: |
+  El horizonte de eventos es una propiedad geométrica del espacio-tiempo que depende de la masa del objeto, ya sea que provenga del colapso estelar o de procesos galácticos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "basico"
+  tags: ["luz", "gravedad"]
 
 respuesta: "falso"
 tipo: mc
 opciones_explicitas: ["verdadero", "falso"]
 
-enunciado: "Es verdadero o falso que los niveles de CO2 actuales se encuentran dentro de los rangos naturales observados en los últimos 800.000 años registrados en los núcleos de hielo."
+enunciado: "¿Es posible que un fotón (partícula de luz) escape de la atracción gravitatoria una vez que ha cruzado el horizonte de eventos?"
 
 explicacion: |
-  Es falso. Los niveles actuales han sobrepasado los límites naturales establecidos por los ciclos de hielo y deshielo de los últimos 800.000 años.
+  No. La luz es la entidad más rápida del universo y, aun así, queda atrapada por la curvatura extrema del espacio-tiempo en el horizonte de eventos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
+  tema: "agujeros_negros"
   nivel: "intermedio"
-  tags: ["paleoclimatologia", "velocidad"]
+  tags: ["proceso", "caida"]
 
-variables:
-  escenario: uno_de([["un aumento de 2°C en 10,000 años", "0.0002"], ["un aumento de 2°C en 5,000 años", "0.0004"], ["un aumento de 2°C en 2,000 años", "0.001"]])
+opciones_explicitas: ["Aproximación orbital", "Cruzar el horizonte de eventos", "Colapso hacia la singularidad"]
 
-enunciado: "Considerando el escenario de un aumento de temperatura de {escenario[0]}, ¿cuál es la tasa de cambio anual aproximada en grados Celsius por año (expresada como decimal)?"
+respuesta_orden: ["Aproximación orbital", "Cruzar el horizonte de eventos", "Colapso hacia la singularidad"]
+tipo: ordenar
+
+enunciado: "Ordena cronológicamente los eventos que experimentaría una partícula que cae hacia un agujero negro:"
 
 pasos:
-  - "Identificar el cambio total de temperatura (2°C)."
-  - "Dividir el cambio total por la cantidad de años para obtener la tasa anual."
+  - "La partícula se acerca siguiendo una trayectoria curva."
+  - "La partícula atraviesa la frontera de no retorno."
+  - "La partícula es comprimida hacia el centro matemático de densidad infinita."
+
+explicacion: |
+  Primero la partícula orbita o se acerca, luego cruza el horizonte de eventos (sin que un observador externo vea el paso instantáneo, pero para la partícula es un límite real) y finalmente cae hacia la singularidad.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "basico"
+  tags: ["estrellas", "evolucion_estelar"]
+
+variables:
+  escenario: uno_de([["una estrella de baja masa", "enana blanca"], ["una estrella masiva", "estrella de neutrones"], ["una estrella supermasiva", "agujero negro"]])
+
+enunciado: "Dependiendo de su masa inicial, el destino de una estrella varía. Una {escenario[0]} puede evolucionar hacia una {escenario[1]}."
 
 respuesta: escenario[1]
-tipo: completar
-tolerancia_abs: 0.00001
+tipo: mc
+opciones_explicitas: ["enana blanca", "estrella de neutrones", "agujero negro"]
 
 explicacion: |
-  La tasa se calcula dividiendo el cambio de temperatura entre el tiempo transcurrido. En el escenario actual, la velocidad es órdenes de magnitud superior a los cambios naturales de los periodos interglaciares.
+  Las estrellas pequeñas como nuestro Sol terminan su vida como enanas blancas. Solo las estrellas con masas extremadamente altas pueden colapsar hasta formar objetos más densos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "basico"
-  tags: ["magnitud", "comparacion"]
+  tema: "agujeros_negros"
+  nivel: "intermedio"
+  tags: ["masa", "colapso"]
 
-variables:
-  datos: [["Ciclos de Milankovitch", "natural"], ["Erupciones volcánicas masivas", "natural"], ["Actividad antropogénica actual", "antropogénico"]]
-  idx: uno_de([0, 1, 2])
+enunciado: "Si el núcleo remanente de una supernova supera el límite de Tolman-Oppenheimer-Volkoff, el colapso gravitatorio no se detiene y se forma un/a ___."
 
-enunciado: "El fenómeno de {datos[idx][0]} se clasifica históricamente como un cambio de tipo ___________."
-
-respuesta: datos[idx][1]
+respuesta: "agujero negro"
 tipo: completar
 respuestas_validas:
-  - "natural"
-  - "antropogénico"
+  - "agujero negro"
 
 explicacion: |
-  Los ciclos orbitales (Milankovitch) y el vulcanismo son procesos naturales que han moldeado el clima por millones de años, a diferencia del forzamiento actual.
+  Cuando la presión de degeneración de neutrones no puede contrarrestar la gravedad, el objeto colapsa indefinidamente hacia una singularidad, formando un agujero negro.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
+  tema: "agujeros_negros"
   nivel: "intermedio"
-  tags: ["co2", "geologia"]
+  tags: ["secuencia", "evolucion"]
 
-variables:
-  caso: uno_de([["Paleoceno-Eoceno (PETM)", "máximo"], ["Glaciaciones del Pleistoceno", "mínimo"], ["Periodo Cretácico", "moderado"]])
-
-enunciado: "En el contexto del {caso[0]}, el aumento de CO2 provocó un cambio de magnitud ___________ en comparación con la variabilidad climática estándar del Holoceno."
-
-respuesta: caso[1]
-tipo: mc
-opciones_explicitas: ["máximo", "mínimo", "moderado"]
-
-explicacion: |
-  Eventos como el PETM muestran cambios rápidos de carbono, pero la velocidad actual de emisión de CO2 es excepcionalmente alta comparada con esos registros geológicos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "avanzado"
-  tags: ["causalidad", "procesos"]
-
-enunciado: "Ordene cronológicamente los factores que han dominado la variabilidad climática de la Tierra, desde el más lento al más rápido en su impacto actual:"
+enunciado: "Ordena el proceso de evolución de una estrella masiva que termina en un agujero negro:"
 
 pasos:
-  - "Identificar el ciclo de mayor duración (orbital)."
-  - "Identificar el ciclo de duración media (tectónica/volcánica)."
-  - "Identificar el factor de cambio instantáneo/decadal (antropogénico)."
+  - "Secuencia principal (fusión de hidrógeno)"
+  - "Supernova (colapso del núcleo)"
+  - "Agujero negro (singularidad)"
 
-opciones_explicitas: ["Ciclos de Milankovitch", "Actividad Volcánica", "Emisiones de GEI"]
-respuesta_orden: ["Ciclos de Milankovitch", "Actividad Volcánica", "Emisiones de GEI"]
+opciones_explicitas: ["Secuencia principal (fusión de hidrógeno)", "Supernova (colapso del núcleo)", "Agujero negro (singularidad)"]
+
+respuesta_orden: ["Secuencia principal (fusión de hidrógeno)", "Supernova (colapso del núcleo)", "Agujero negro (singularidad)"]
 tipo: ordenar
 
 explicacion: |
-  Los ciclos orbitales actúan en escalas de miles de años, el vulcanismo en años/décadas, y las emisiones actuales en escalas de décadas, superando la velocidad de ajuste natural.
+  La evolución sigue un orden lógico: la fusión mantiene el equilibrio, la supernova es el evento explosivo de muerte y el agujero negro es el remanente final.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "cambio_climatico_linea_base_historica"
-  nivel: "intermedio"
-  tags: ["co2", "concentracion"]
+  tema: "agujeros_negros"
+  nivel: "basico"
+  tags: ["remanentes"]
 
-variables:
-  escenario_co2: uno_de([["420 ppm", "280"], ["300 ppm", "280"], ["280 ppm", "280"]])
+enunciado: "Si una estrella tiene una masa inicial moderada (menor que el límite para una supernova masiva), el remanente final será una ___."
 
-enunciado: "Si la concentración actual de CO2 es de {escenario_co2[0]}, ¿cuál era la concentración promedio aproximada durante el periodo preindustrial (base de comparación histórica)?"
-
-respuesta: "280 ppm"
-tipo: mc
-opciones_explicitas: ["280 ppm", "350 ppm", "400 ppm"]
+respuesta: "enana blanca"
+tipo: completar
+respuestas_validas:
+  - "enana blanca"
 
 explicacion: |
-  El nivel de 280 ppm es el estándar utilizado para representar el estado de equilibrio preindustrial antes de la era de la industrialización masiva.
+  Las estrellas de masa baja o media expulsan sus capas externas y dejan un núcleo denso llamado enana blanca.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "avanzado"
+  tags: ["clasificacion", "densidad"]
+
+respuesta: "agujero negro"
+tipo: mc
+opciones_explicitas: ["enana blanca", "estrella de neutrones", "agujero negro"]
+
+enunciado: "El objeto con la mayor densidad teórica, donde la gravedad impide incluso la salida de la luz, es el/la ___."
+
+explicacion: |
+  El agujero negro representa el límite extremo de la densidad, donde la curvatura del espacio-tiempo es infinita en la singularidad.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "basico"
+  tags: ["galaxias", "centro_galactico"]
+
+respuesta: "supermasivo"
+tipo: completar
+respuestas_validas:
+  - "supermasivo"
+
+enunciado: "A diferencia de los agujeros negros estelares, aquellos que residen en el centro de la mayoría de las galaxias, incluida la nuestra, se denominan agujeros negros ___."
+
+explicacion: |
+  Los agujeros negros supermasivos se encuentran en el núcleo de casi todas las galaxias grandes y poseen masas de millones o miles de millones de soles.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "intermedio"
+  tags: ["masa", "comparacion"]
+
+variables:
+  escenario: uno_de([["estelar", "pequeño"], ["supermasivo", "gigante"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["pequeño", "gigante"]
+
+enunciado: "Considerando la escala de masa, si comparamos un agujero negro estelar con uno situado en el centro de una galaxia, el segundo es un objeto de tamaño ___."
+
+explicacion: |
+  Los agujeros negros supermasivos son órdenes de magnitud más masivos que sus contrapartes estelares.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "basico"
+  tags: ["via_lactea", "ubicacion"]
+
+respuesta: "Sagitario A*"
+tipo: mc
+opciones_explicitas: ["Sagitario A*", "Sirio", "Betelgeuse", "Polaris"]
+
+enunciado: "¿Cómo se denomina al agujero negro supermasivo situado en el centro de nuestra galaxia, la Vía Láctea?"
+
+explicacion: |
+  El objeto masivo en el centro de la Vía Láctea es conocido como Sagitario A*.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "avanzado"
+  tags: ["evolucion", "masa"]
+
+respuesta: 1000000
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si un agujero negro estelar típico tiene una masa de aproximadamente 10 veces la masa solar, un agujero negro supermasivo promedio en una galaxia espiral puede tener aproximadamente ___ masas solares. Escribe el valor numérico (sin unidades)."
+
+explicacion: |
+  Los agujeros negros supermasivos superan con creces las escalas estelares, alcanzando millones de masas solares.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "intermedio"
+  tags: ["clasificacion", "origen"]
+
+respuesta: "supermasivo"
+tipo: mc
+opciones_explicitas: ["estelar", "supermasivo", "primordial"]
+
+enunciado: "Los agujeros negros que se forman por el colapso de estrellas masivas se conocen como estelares. ¿Cuál es la clasificación de aquellos que habitan en el centro de las galaxias y poseen masas extremas?"
+
+explicacion: |
+  La distinción principal radica en su masa y su ubicación en el núcleo galáctico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "intermedio"
+  tags: ["astronomia", "estrellas"]
+
+variables:
+  escenario: uno_de([["8 masas solares", "enana blanca"], ["15 masas solares", "estrella de neutrones"], ["40 masas solares", "agujero negro"]])
+  masa_inicial: escenario[0]
+  resultado_final: escenario[1]
+
+tipo: mc
+opciones_explicitas: ["enana blanca", "estrella de neutrones", "agujero negro"]
+respuesta: resultado_final
+
+enunciado: "Una estrella con una masa inicial de {masa_inicial} evolucionará, tras agotar su combustible, convirtiéndose en un/a ___."
+
+explicacion: |
+  El destino de una estrella depende de su masa remanente. Una estrella de {masa_inicial} terminará como un/a {resultado_final}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "avanzado"
+  tags: ["fisica_estelar"]
+
+variables:
+  caso: uno_de([["1.4", "enana blanca"], ["2.5", "estrella de neutrones"], ["5.0", "agujero negro"]])
+  valor: caso[0]
+  destino: caso[1]
+
+tipo: completar
+respuestas_validas:
+  - destino
+
+enunciado: "Si el núcleo remanente de una estrella tiene una masa de {valor} masas solares, el objeto resultante será una ___."
+
+explicacion: |
+  El límite de Chandrasekhar (~1.4 M☉) determina si un remanente se convierte en enana blanca o colapsa más allá. En este caso, con {valor} M☉, el destino es {destino}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "intermedio"
+  tags: ["evolucion_estelar"]
+
+tipo: ordenar
+opciones_explicitas: ["Secuencia principal", "Supernova", "Remanente compacto"]
+respuesta_orden: ["Secuencia principal", "Supernova", "Remanente compacto"]
+
+enunciado: "Ordena las etapas evolutivas de una estrella masiva que culminará en un agujero negro:"
+
+explicacion: |
+  Las estrellas masivas pasan por la secuencia principal, explotan como supernova y dejan un remanente (agujero negro si la masa es suficiente).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "basico"
+  tags: ["astronomia"]
+
+variables:
+  datos: [["enana blanca", "presión de degeneración electrónica"], ["estrella de neutrones", "presión de degeneración de neutrones"], ["agujero negro", "colapso gravitatorio total"]]
+  idx: uno_de([0, 1, 2])
+  objeto: datos[idx][0]
+  causa: datos[idx][1]
+  respuesta_correcta: datos[idx][1]
+
+tipo: mc
+opciones_explicitas: ["presión de degeneración electrónica", "presión de degeneración de neutrones", "colapso gravitatorio total"]
+respuesta: respuesta_correcta
+
+enunciado: "Un/a {objeto} se mantiene estable gracias a la {causa}."
+
+explicacion: |
+  El mecanismo de soporte depende de la masa: la {causa} es lo que define al/a {objeto}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "agujeros_negros"
+  nivel: "avanzado"
+  tags: ["densidad", "gravedad"]
+
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "El límite de Tolman-Oppenheimer-Volkoff, la masa máxima que puede sostener la presión de degeneración de neutrones antes de colapsar en un agujero negro, es de aproximadamente ___ masas solares."
+
+pasos:
+  - "Recordar el rango aceptado para el límite de Tolman-Oppenheimer-Volkoff (aprox 2-3 M☉)"
+
+respuesta: 3
+
+explicacion: |
+  Al superar el límite crítico de ~3 M☉, la presión de degeneración de neutrones ya no puede contrarrestar la gravedad, y el objeto colapsa en un agujero negro.
+```
+
+## Sección: formacion-del-sistema-solar (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "intermedio"
+  tags: ["nube_molecular", "estrellas_previas"]
+
+enunciado: "Antes de la formación del Sol, el sistema solar se originó a partir de una ___ de gas y polvo que contenía elementos pesados fabricados por estrellas anteriores."
+respuestas_validas:
+  - "nube molecular"
+respuesta: "nube molecular"
+tipo: completar
+
+explicacion: |
+  La materia que nos compone no es sólo hidrógeno y helio; contiene elementos más pesados (metales en astronomía) que fueron sintetizados en el núcleo de estrellas que existieron antes que nuestro Sol.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "basico"
+  tags: ["supernova", "colapso"]
+
+enunciado: "El colapso de la nube molecular que dio origen al sistema solar fue provocado por la onda de choque de una cercana ___."
+respuestas_validas:
+  - "supernova"
+respuesta: "supernova"
+tipo: completar
+
+explicacion: |
+  Una supernova es la explosión cataclísmica de una estrella masiva al final de su vida. La energía liberada puede comprimir una nube de gas cercana, iniciando el proceso de formación estelar.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "basico"
+  tags: ["gravedad", "colapso"]
+
+enunciado: "Una vez que la nube molecular se comprimió, la ___ fue la fuerza principal que causó el colapso continuo hacia un centro común."
+respuestas_validas:
+  - "gravedad"
+respuesta: "gravedad"
+tipo: completar
+
+explicacion: |
+  La gravedad es la fuerza de atracción que hace que la materia se agrupe. A medida que la nube se hacía más densa, la atracción gravitatoria aumentaba, acelerando el colapso.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "intermedio"
+  tags: ["acrecion", "planetesimales"]
+
+enunciado: "Durante el proceso de formación, las partículas de polvo y hielo comenzaron a chocar y pegarse entre sí mediante un proceso llamado ___."
+respuestas_validas:
+  - "acreción"
+  - "acrecion"
+respuesta: "acreción"
+tipo: completar
+
+explicacion: |
+  La acreción es el proceso de crecimiento de cuerpos celestes mediante la acumulación de material circundante. Así se formaron desde granos de polvo hasta planetesimales y, finalmente, planetas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "avanzado"
+  tags: ["secuencia", "colapso"]
+
+enunciado: "En la secuencia lógica del origen de nuestro sistema solar, el evento astronómico que perturbó la nube molecular con su onda de choque fue una ___."
+respuestas_validas:
+  - "supernova"
+respuesta: "supernova"
+tipo: completar
+
+explicacion: |
+  El proceso es una reacción en cadena: la explosión (supernova) genera la perturbación necesaria para que la gravedad venza la presión interna de la nube y provoque el colapso.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "basico"
+  tags: ["disco_protoplanetario", "sol"]
+
+respuesta: "Sol"
+tipo: completar
+respuestas_validas:
+  - "Sol"
+
+enunciado: "Durante la formación del sistema solar, aproximadamente el 99% de la masa del disco protoplanetario se concentró en el centro para formar el ___."
+
+explicacion: |
+  La gran mayoría de la masa de la nebulosa solar colapsó hacia el centro gravitatorio, dando origen al Sol, mientras que el resto formó el disco de polvo y gas donde nacieron los planetas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "basico"
+  tags: ["masa", "distribucion"]
+
+respuesta: "Sol"
+tipo: mc
+opciones_explicitas: ["Sol", "Planetas"]
+
+enunciado: "Si analizamos la distribución de la masa en el sistema solar recién formado, ¿en qué cuerpo se concentró la mayor parte de la materia?"
+
+explicacion: |
+  El Sol contiene casi toda la masa del sistema, lo que explica su enorme influencia gravitatoria sobre el resto de los cuerpos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "intermedio"
+  tags: ["temperatura", "condensacion"]
+
+respuesta: "rocosos"
+tipo: completar
+respuestas_validas:
+  - "rocosos"
+
+enunciado: "Debido a la alta temperatura cerca del Sol, sólo los materiales con alto punto de fusión pudieron condensarse allí, dando lugar a la formación de planetas ___."
+
+explicacion: |
+  Cerca de la protoestrella, el calor era tan intenso que los elementos volátiles (gases y hielos) no podían permanecer en estado sólido, permitiendo sólo la acumulación de silicatos y metales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "intermedio"
+  tags: ["gaseosos", "temperatura"]
+
+respuesta: "lejos"
+tipo: mc
+opciones_explicitas: ["cerca", "lejos"]
+
+enunciado: "Los planetas gaseosos (gigantes) se formaron en las regiones ___ del disco protoplanetario, donde las temperaturas eran lo suficientemente bajas para que los gases y el hielo se condensaran."
+
+explicacion: |
+  Más allá de la "línea de nieve", los materiales volátiles se volvieron sólidos, permitiendo que los núcleos planetarios crecieran lo suficiente como para capturar grandes cantidades de gas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "intermedio"
+  tags: ["materiales", "condensacion"]
+
+respuesta: "gaseosos"
+tipo: completar
+respuestas_validas:
+  - "gaseosos"
+
+enunciado: "Los planetas que pudieron retener grandes capas de hidrógeno y helio en su atmósfera debido a la baja temperatura en su zona de formación son los planetas ___."
+
+explicacion: |
+  La baja temperatura en el sistema solar externo permitió la condensación de hielos y la retención de gases ligeros, resultando en planetas de gran tamaño y composición gaseosa.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "basico"
+  tags: ["acreción", "polvo_cósmico"]
+
+respuesta: "polvo"
+tipo: completar
+respuestas_validas:
+  - "polvo"
+
+enunciado: "En las etapas iniciales de la formación del sistema solar, pequeñas partículas de ___ cósmico comenzaron a colisionar entre sí debido a la gravedad."
+
+explicacion: |
+  El proceso comenzó con partículas microscópicas de polvo y hielo que, al chocar, se adherían mediante fuerzas electrostáticas y luego gravitatorias.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "intermedio"
+  tags: ["planetesimales", "gravedad"]
+
+respuesta: "planetesimales"
+tipo: completar
+respuestas_validas:
+  - "planetesimales"
+
+enunciado: "Cuando las partículas de polvo crecen lo suficiente por acreción, forman objetos de mayor tamaño llamados ___."
+
+explicacion: |
+  Los planetesimales son los bloques de construcción fundamentales que, al agruparse, dan origen a los protoplanetas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "basico"
+  tags: ["tiempo", "escala"]
+
+respuesta: "millones"
+tipo: completar
+respuestas_validas:
+  - "millones"
+
+enunciado: "El proceso de acreción que transformó el disco protoplanetario en el sistema solar actual duró decenas de ___ de años."
+
+explicacion: |
+  La formación planetaria no es un evento instantáneo, sino un proceso que toma escalas de tiempo vastas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "avanzado"
+  tags: ["secuencia", "acreción"]
+
+respuesta_orden: ["polvo", "planetesimales", "protoplanetas", "planetas"]
+tipo: ordenar
+opciones_explicitas: ["polvo", "planetesimales", "protoplanetas", "planetas"]
+
+enunciado: "Ordená cronológicamente las etapas de la formación de un planeta mediante el proceso de acreción:"
+
+explicacion: |
+  La jerarquía de la acreción va desde lo microscópico (polvo) hasta la consolidación de cuerpos masivos (planetas).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "intermedio"
+  tags: ["gravedad", "colisión"]
+
+respuesta: "acreción"
+tipo: completar
+respuestas_validas:
+  - "acreción"
+  - "acrecion"
+
+enunciado: "El proceso físico mediante el cual la gravedad atrae materia para formar cuerpos cada vez más grandes se denomina ___."
+
+explicacion: |
+  La acreción es el mecanismo principal por el cual la materia se aglutina para formar estructuras planetarias.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "basico"
+  tags: ["asteroides", "marte", "jupiter"]
+
+tipo: mc
+opciones_explicitas: ["Entre la Tierra y Marte", "Entre Marte y Júpiter", "Más allá de Neptuno", "En el centro del Sol"]
+respuesta: "Entre Marte y Júpiter"
+
+enunciado: "¿Dónde se localiza principalmente el cinturón de asteroides, compuesto por restos rocosos que nunca llegaron a formar un planeta?"
+
+explicacion: |
+  El cinturón de asteroides se encuentra en el espacio situado entre las órbitas de Marte y Júpiter. Su presencia se debe a la enorme gravedad de Júpiter que impidió la formación de un planeta en esa zona.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "intermedio"
+  tags: ["cometas", "kuiper", "oort"]
+
+respuesta: "Cinturón de Kuiper y Nube de Oort"
+tipo: mc
+opciones_explicitas: ["Cinturón de asteroides", "Cinturón de Kuiper y Nube de Oort", "El Sol", "La Luna"]
+
+enunciado: "Los cometas que visitan el sistema solar interno provienen mayoritariamente de las regiones más externas, específicamente del ___."
+
+explicacion: |
+  Los cometas son cuerpos compuestos de hielo y polvo que provienen del cinturón de Kuiper (más allá de Neptuno) y de la nube de Oort (la región más externa y difusa del sistema solar).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "basico"
+  tags: ["kuiper", "neptuno"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "El cinturón de Kuiper se encuentra situado más allá de la órbita de Neptuno."
+
+explicacion: |
+  Correcto. El cinturón de Kuiper es una región de objetos helados que se extiende desde la órbita de Neptuno hacia el espacio exterior.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "avanzado"
+  tags: ["oort", "cometas"]
+
+tipo: mc
+opciones_explicitas: ["Cinturón de asteroides", "Cinturón de Kuiper", "Nube de Oort", "Disco protoplanetario"]
+respuesta: "Nube de Oort"
+
+enunciado: "La región esférica y extremadamente lejana que rodea al sistema solar y que contiene una enorme cantidad de cometas de largo período se denomina:"
+
+explicacion: |
+  La nube de Oort es la frontera más externa del sistema solar, una zona teórica de objetos helados que orbitan muy lejos del Sol.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "basico"
+  tags: ["planetas", "restos"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "Los asteroides del cinturón principal son restos de gases que no pudieron condensarse debido al calor del Sol."
+
+explicacion: |
+  Falso. Los asteroides son restos de materiales rocosos y metálicos que no pudieron agruparse para formar un planeta debido a la perturbación gravitatoria de Júpiter.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "basico"
+  tags: ["planetas", "distancia", "sol"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [["zona interna", "rocoso"], ["zona externa", "gaseoso"]]
+
+tipo: mc
+opciones_explicitas: ["rocoso", "gaseoso"]
+respuesta: escenario[idx][1]
+
+enunciado: "En la fase de acreción del disco protoplanetario, los materiales en la {escenario[idx][0]} tienden a formar un planeta de tipo ___."
+
+explicacion: |
+  Cerca del Sol, el calor impide la condensación de gases y hielos, dejando sólo materiales con alto punto de fusión como silicatos y metales, formando planetas rocosos; lejos, ocurre lo contrario.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "intermedio"
+  tags: ["gas", "hielo", "distancia"]
+
+variables:
+  idx: uno_de([0, 1])
+  caso: [["Júpiter", "hidrógeno y helio"], ["Urano", "hielos y gases ligeros"]]
+
+tipo: mc
+opciones_explicitas: ["hidrógeno y helio", "hielos y gases ligeros", "roca y metal"]
+respuesta: caso[idx][1]
+
+enunciado: "Considerando la línea de congelación, un planeta como {caso[idx][0]} habrá acumulado principalmente ___."
+
+explicacion: |
+  Más allá de la línea de congelación, los volátiles (hielos) pueden condensarse, permitiendo que los núcleos crezcan lo suficiente para capturar grandes cantidades de gas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "avanzado"
+  tags: ["materiales", "condensación"]
+
+respuesta: "hielos volátiles"
+tipo: completar
+respuestas_validas:
+  - "hielos volátiles"
+  - "hielos volatiles"
+
+enunciado: "Si la temperatura del disco protoplanetario permite la condensación de ___ en grandes cantidades, el planeta resultante será un gigante gaseoso."
+
+explicacion: |
+  La disponibilidad de materiales (hielos vs. silicatos) determina si el planeta será un mundo pequeño y denso o un gigante masivo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "intermedio"
+  tags: ["linea_nieve", "condensación"]
+
+respuesta: "gaseoso"
+tipo: mc
+opciones_explicitas: ["rocoso", "gaseoso"]
+
+enunciado: "Un objeto que se forma por encima de la línea de nieve tendrá una composición predominantemente ___."
+
+explicacion: |
+  La línea de nieve marca el punto donde los compuestos volátiles se congelan, cambiando drásticamente la masa disponible para la acreción.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "formacion_del_sistema_solar"
+  nivel: "avanzado"
+  tags: ["acreción", "masa", "gas"]
+
+respuesta: "gaseoso"
+tipo: completar
+respuestas_validas:
+  - "gaseoso"
+
+enunciado: "Si la acreción resulta en un núcleo de unas 10 masas terrestres, el planeta podrá capturar rápidamente la atmósfera del disco, resultando en un planeta ___."
+
+explicacion: |
+  Existe un umbral crítico de masa (aprox. 10 masas terrestres) que permite que la gravedad retenga el hidrógeno y el helio antes de que el viento solar los disperse.
+```
+
+## Sección: ley-de-hubble (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "basico"
+  tags: ["astronomia", "cosmologia"]
+
+respuesta: "alejamiento"
+tipo: completar
+respuestas_validas:
+  - "alejamiento"
+  - "expansión"
+
+enunciado: "La Ley de Hubble establece que la velocidad de ___ de las galaxias es proporcional a su distancia respecto a la Tierra."
+
+explicacion: |
+  La ley de Hubble-Lemaître indica que cuanto más lejana es una galaxia, mayor es la velocidad con la que se aleja de nosotros, lo que sugiere la expansión del universo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: "mayor"
+tipo: mc
+opciones_explicitas: ["menor", "mayor", "igual", "nula"]
+
+enunciado: "Si una galaxia A está al doble de distancia que una galaxia B, según la Ley de Hubble, la velocidad de la galaxia A será ___ que la de la galaxia B."
+
+explicacion: |
+  Como la velocidad es directamente proporcional a la distancia ($v \propto d$), si la distancia se duplica, la velocidad también se duplica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "intermedio"
+  tags: ["calculo"]
+
+variables:
+  distancia: 100000000
+  hubble: 70
+
+respuesta: 7000000000
+tipo: completar
+tolerancia_abs: 1
+
+enunciado: "Una galaxia se encuentra a una distancia de {distancia} Mpc. Si la constante de Hubble es $H_0 = {hubble}$ km/s/Mpc, ¿cuál es la velocidad de recesión en km/s? (Usa la fórmula $v = H_0 \\cdot d$)"
+
+pasos:
+  - "Identificar la distancia ($d$) y la constante de Hubble ($H_0$)."
+  - "Multiplicar la constante de Hubble por la distancia: $v = 70 \\cdot 100.000.000$."
+
+explicacion: |
+  Aplicando la fórmula $v = H_0 \cdot d$: $70 \times 100.000.000 = 7.000.000.000$ km/s.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "basico"
+  tags: ["formula"]
+
+respuesta: "distancia"
+tipo: completar
+respuestas_validas:
+  - "distancia"
+  - "velocidad"
+  - "constante"
+
+enunciado: "En la expresión matemática $v = H_0 \\cdot d$, la variable $d$ representa la ___ de la galaxia."
+
+explicacion: |
+  En la ecuación de Hubble, $v$ es la velocidad de recesión, $H_0$ es la constante de Hubble y $d$ es la distancia.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "avanzado"
+  tags: ["teoria"]
+
+respuesta: "verdadero"
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "¿Es correcto afirmar que la Ley de Hubble implica que el universo se está expandiendo?"
+
+explicacion: |
+  Sí, el hecho de que todas las galaxias presenten un corrimiento al rojo (redshift) proporcional a su distancia es la evidencia fundamental de la expansión del tejido espacio-temporal.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "basico"
+  tags: ["astronomia", "hubble", "expansion"]
+
+respuesta: "expansión"
+tipo: completar
+respuestas_validas:
+  - "expansión"
+  - "expansion"
+
+enunciado: "En 1929, Edwin Hubble observó que las galaxias lejanas se alejan de nosotros, lo que proporcionó evidencia fundamental de la ___ del universo."
+
+explicacion: |
+  Hubble descubrió que el universo no es estático, sino que está en constante expansión, lo que cambió nuestra comprensión del cosmos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "intermedio"
+  tags: ["ley_de_hubble", "velocidad", "distancia"]
+
+variables:
+  escenario: uno_de([["10 Mpc", "200 km/s"], ["20 Mpc", "400 km/s"], ["50 Mpc", "1000 km/s"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["100 km/s", "200 km/s", "300 km/s", "400 km/s", "1000 km/s"]
+
+enunciado: "Si aplicamos la lógica de la Ley de Hubble, donde la velocidad de recesión es proporcional a la distancia, ¿cuál es la velocidad aproximada de una galaxia situada a {escenario[0]} de distancia?"
+
+pasos:
+  - "Identificar la distancia proporcionada."
+  - "Relacionar la distancia con la velocidad según el escenario asignado."
+
+explicacion: |
+  La Ley de Hubble establece que $v = H_0 \cdot d$. En este ejercicio, se ha asignado un valor de velocidad proporcional a la distancia dada en el escenario.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "basico"
+  tags: ["efecto_doppler", "redshift"]
+
+respuesta: "corrimiento al rojo"
+tipo: completar
+respuestas_validas:
+  - "corrimiento al rojo"
+  - "redshift"
+
+enunciado: "El fenómeno mediante el cual la luz de las galaxias lejanas se desplaza hacia longitudes de onda más largas debido al alejamiento es conocido como ___."
+
+explicacion: |
+  Este fenómeno, llamado 'redshift' o corrimiento al rojo, es la base observacional que permitió a Hubble concluir que las galaxias se alejan.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "intermedio"
+  tags: ["cosmologia", "modelo_estatico"]
+
+respuesta: "falso"
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "Antes de los descubrimientos de Hubble, la creencia predominante en la comunidad científica era que el universo era estático. ¿Es correcto afirmar que la Ley de Hubble refuta esta idea? "
+
+explicacion: |
+  Correcto. La observación de que las galaxias se alejan invalidó el modelo de un universo estático y dio paso al modelo del Big Bang.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "avanzado"
+  tags: ["metodologia", "evidencia"]
+
+respuesta_orden: ["observación del redshift", "cálculo de la velocidad de recesión", "conclusión de la expansión universal"]
+tipo: ordenar
+opciones_explicitas: ["observación del redshift", "cálculo de la velocidad de recesión", "conclusión de la expansión universal"]
+
+enunciado: "Ordena cronológicamente los pasos lógicos que llevaron a Hubble a concluir la expansión del universo:"
+
+pasos:
+  - "Detectar el cambio de color en el espectro de las galaxias."
+  - "Determinar qué tan rápido se alejan según su distancia."
+  - "Deducir que el espacio mismo se está expandiendo."
+
+explicacion: |
+  Primero se observa el desplazamiento espectral (redshift), luego se cuantifica la velocidad de alejamiento y finalmente se interpreta como una expansión del tejido del universo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "basico"
+  tags: ["astronomia", "cosmologia"]
+
+enunciado: "Según la Ley de Hubble, la velocidad de alejamiento (v) de una galaxia es directamente proporcional a su distancia (d). Esto se expresa mediante la fórmula v = H0 * d. Si una galaxia se encuentra a una distancia mayor, su velocidad de alejamiento será ___."
+
+opciones_explicitas: ["menor", "mayor", "igual", "nula"]
+respuesta: "mayor"
+tipo: "mc"
+
+explicacion: |
+  La Ley de Hubble establece una relación de proporcionalidad directa: a mayor distancia, mayor es la velocidad con la que la galaxia se aleja de nosotros.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "intermedio"
+  tags: ["calculo", "astronomia"]
+
+variables:
+  distancia_m: 100000000
+  h0_valor: 70
+
+enunciado: "Utilizando una constante de Hubble H0 de {h0_valor} km/s/Mpc, calcula la velocidad de alejamiento de una galaxia situada a {distancia_m} Mpc."
+
+pasos:
+  - "Identificar la constante H0: 70 km/s/Mpc"
+  - "Identificar la distancia: 100,000,000 Mpc"
+  - "Multiplicar H0 por la distancia: 70 * 100,000,000"
+
+respuesta: 7000000000
+tipo: "input"
+tolerancia_abs: 0
+
+explicacion: |
+  La velocidad se obtiene multiplicando la constante de Hubble por la distancia: 70 * 10^8 = 7 * 10^9 km/s.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "avanzado"
+  tags: ["cosmologia", "tiempo"]
+
+variables:
+  datos: [[70, "13.8"], [50, "20.0"]]
+  idx: uno_de([0, 1])
+  h0: datos[idx][0]
+  edad: datos[idx][1]
+
+enunciado: "La edad aproximada del universo se puede estimar mediante el inverso de la constante de Hubble (1/H0). Si tomamos un valor de H0 de {h0} km/s/Mpc, la edad estimada es de aproximadamente ___ miles de millones de años."
+
+respuestas_validas:
+  - "13.8"
+  - "20.0"
+respuesta: edad
+tipo: "completar"
+
+explicacion: |
+  El tiempo estimado (edad del universo) es inversamente proporcional a H0. A mayor valor de la constante, menor es la edad estimada del universo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+enunciado: "Ordena los elementos según la lógica de la expansión del universo descrita por Edwin Hubble, desde la causa hasta el efecto observado:"
+
+opciones_explicitas: ["Expansión del espacio", "Aumento de la distancia entre galaxias", "Aumento de la velocidad de alejamiento"]
+respuesta_orden: ["Expansión del espacio", "Aumento de la distancia entre galaxias", "Aumento de la velocidad de alejamiento"]
+tipo: "ordenar"
+
+explicacion: |
+  La expansión del espacio provoca que las galaxias se alejen (aumenta la distancia), lo cual se traduce en una velocidad de alejamiento mayor según la Ley de Hubble.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+enunciado: "¿Es correcto afirmar que si la constante de Hubble (H0) fuera mayor, el universo sería más joven?"
+
+opciones_explicitas: ["Verdadero", "Falso"]
+respuesta: "Verdadero"
+tipo: "mc"
+
+explicacion: |
+  Verdadero. Como la edad es aproximadamente 1/H0, un valor de H0 más grande implica un tiempo (edad) menor.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "intermedio"
+  tags: ["cosmologia", "hubble", "observacion"]
+
+respuesta: "principio_cosmologico"
+tipo: mc
+
+opciones_explicitas: ["principio_cosmologico", "teoria_geocentrica", "teoria_estatica", "modelo_de_hubble"]
+
+enunciado: "El hecho de que todas las galaxias parezcan alejarse de nosotros debido a la expansión del universo no significa que la Tierra sea el centro. Este concepto de que el universo se ve igual para cualquier observador está ligado al..."
+
+explicacion: |
+  El principio cosmológico establece que, a gran escala, el universo es homogéneo e isotrópico. La expansión es una propiedad del espacio mismo, por lo que cualquier observador en cualquier galaxia vería el mismo efecto de alejamiento.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "basico"
+  tags: ["expansion", "observacion"]
+
+respuesta: "se alejan"
+tipo: completar
+
+respuestas_validas:
+  - "se alejan"
+  - "se acercan"
+  - "estacionarias"
+
+enunciado: "Si un observador se situara en una galaxia muy lejana, en lugar de la Tierra, vería que las demás galaxias del universo ___ de la misma forma que nosotros."
+
+explicacion: |
+  La expansión del universo no es una explosión que ocurre desde un punto central, sino una expansión del tejido mismo del espacio. Por lo tanto, desde cualquier punto, la observación es la misma.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "intermedio"
+  tags: ["geometria", "espacio"]
+
+respuesta: "falso"
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
+enunciado: "¿Es correcto afirmar que la Ley de Hubble implica que existe un punto central en el universo desde el cual todas las galaxias se expanden en forma radial, situando a la Tierra en un lugar privilegiado?"
+
+explicacion: |
+  Falso. La expansión es local en cada punto del espacio. Es similar a la superficie de un globo inflándose: todos los puntos se alejan de todos los demás, sin que haya un centro en la superficie.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "avanzado"
+  tags: ["isotropia", "observador"]
+
+respuesta: "isotropico"
+tipo: completar
+
+respuestas_validas:
+  - "isotropico"
+  - "anisotropico"
+  - "central"
+
+enunciado: "Debido a la naturaleza de la expansión, el universo es ___ para cualquier observador, ya sea uno situado en la Vía Láctea o uno en una galaxia lejana, lo que significa que las leyes físicas y la apariencia de la expansión no dependen de la posición del observador."
+
+explicacion: |
+  La isotropía significa que las propiedades del universo son las mismas en todas las direcciones. Esto garantiza que no haya un "centro" observable.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "intermedio"
+  tags: ["logica", "historia"]
+
+opciones_explicitas: ["observacion_galaxias", "conclusion_expansion", "implicacion_no_centro"]
+respuesta_orden: ["observacion_galaxias", "conclusion_expansion", "implicacion_no_centro"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos que llevaron a la comprensión moderna del universo tras el descubrimiento de Hubble:"
+
+pasos:
+  - "Se observa el corrimiento al rojo en galaxias lejanas."
+  - "Se concluye que el universo se está expandiendo."
+  - "Se comprende que la expansión es una propiedad del espacio y no un alejamiento desde un centro."
+
+explicacion: |
+  Primero se detecta el fenómeno (redshift), luego se interpreta como expansión y finalmente se entiende que esto no requiere un centro geométrico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "basico"
+  tags: ["astronomia", "calculo"]
+
+variables:
+  escenario: uno_de([[10, 70], [25, 75], [50, 65]])
+  distancia: escenario[0]
+  h0: escenario[1]
+  velocidad: distancia * h0
+
+respuesta: velocidad
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Una galaxia se encuentra a una distancia de {distancia} Mpc. Si la constante de Hubble es H0 = {h0} (km/s)/Mpc, ¿cuál es su velocidad de alejamiento en km/s?"
+
+explicacion: |
+  Según la Ley de Hubble: v = H0 * d.
+  En este caso: {distancia} * {h0} = {velocidad} km/s.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: "tasa de expansión"
+tipo: completar
+respuestas_validas:
+  - "tasa de expansión"
+  - "velocidad de la luz"
+  - "masa galáctica"
+
+enunciado: "La constante de Hubble representa la ___ del universo."
+
+explicacion: |
+  La constante de Hubble (H0) mide qué tan rápido se expande el universo en relación a la distancia.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "intermedio"
+  tags: ["conceptos", "observacion"]
+
+respuesta: "se aleja"
+tipo: mc
+opciones_explicitas: ["se acerca", "se aleja", "está estática", "colapsa"]
+
+enunciado: "Si observamos un redshift (desplazamiento al rojo) en una galaxia, según la Ley de Hubble, esto indica que la galaxia ___ de nosotros."
+
+explicacion: |
+  El redshift es la prueba observacional de que las galaxias se están alejando, lo cual es la base de la expansión del universo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "avanzado"
+  tags: ["calculo", "inverso"]
+
+respuesta: 20
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Si una galaxia tiene una velocidad de alejamiento de 1400 km/s y asumimos una constante de Hubble de 70 (km/s)/Mpc, ¿a qué distancia se encuentra en Mpc?"
+
+pasos:
+  - "Identificar la velocidad (v) y la constante (H0)."
+  - "Despejar la distancia de la fórmula v = H0 * d, obteniendo d = v / H0."
+
+explicacion: |
+  Para hallar la distancia, dividimos la velocidad por la constante de Hubble: 1400 / 70 = 20 Mpc.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ley_de_hubble"
+  nivel: "intermedio"
+  tags: ["orden", "conceptos"]
+
+respuesta_orden: ["Observación de Redshift", "Cálculo de Velocidad", "Aplicación de Ley de Hubble"]
+tipo: ordenar
+opciones_explicitas: ["Observación de Redshift", "Cálculo de Velocidad", "Aplicación de Ley de Hubble"]
+
+enunciado: "Ordena los pasos lógicos para determinar la distancia de una galaxia usando la Ley de Hubble a partir de la observación astronómica."
+
+explicacion: |
+  Primero se observa el desplazamiento (redshift), luego se calcula la velocidad a partir de ese desplazamiento y finalmente se usa la Ley de Hubble para hallar la distancia.
+```
+
+## Sección: movimiento-rotacion-traslacion (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["astronomia", "conceptos_basicos"]
+
+tipo: completar
+respuestas_validas:
+  - "rotación"
+  - "rotacion"
+respuesta: "rotación"
+
+enunciado: "El movimiento que realiza la Tierra sobre su propio eje se denomina ___."
+
+explicacion: |
+  La rotación es el giro de la Tierra sobre su eje imaginario, lo que determina la sucesión del día y la noche.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["tiempo", "ciclo_dia"]
+
+tipo: completar
+respuestas_validas:
+  - "24 horas"
+respuesta: "24 horas"
+
+enunciado: "Un giro completo de la Tierra sobre su propio eje tarda aproximadamente ___."
+
+explicacion: |
+  Este ciclo de aproximadamente 24 horas es lo que marca el ritmo de un día completo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["fenomenos_naturales"]
+
+tipo: completar
+respuestas_validas:
+  - "día y la noche"
+  - "dia y la noche"
+respuesta: "día y la noche"
+
+enunciado: "La rotación terrestre es el fenómeno responsable de la alternancia entre el ___."
+
+explicacion: |
+  Debido a que la Tierra es una esfera, una cara recibe luz solar mientras la otra queda en sombra, creando el ciclo de luz y oscuridad.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "perspectiva"]
+
+tipo: completar
+respuestas_validas:
+  - "Sol"
+
+respuesta: "Sol"
+
+enunciado: "Un error común de la percepción humana es pensar que es el ___ el que gira alrededor de la Tierra."
+
+explicacion: |
+  Históricamente, el modelo geocéntrico creía que el Sol orbitaba la Tierra, pero hoy sabemos que es la Tierra la que rota.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["eje_terrestre"]
+
+tipo: completar
+respuestas_validas:
+  - "eje"
+respuesta: "eje"
+
+enunciado: "La Tierra gira sobre una línea imaginaria que atraviesa los polos, llamada ___."
+
+explicacion: |
+  Este eje imaginario es el punto central sobre el cual se produce el movimiento de rotación.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["astronomia", "calendario"]
+
+tipo: mc
+opciones_explicitas: ["El tiempo que tarda la Tierra en dar una vuelta sobre su eje", "El tiempo que tarda la Tierra en completar una órbita alrededor del Sol", "El tiempo que tarda la Luna en rodear la Tierra", "El tiempo que tarda el Sol en rodear la Tierra"]
+
+respuesta: "El tiempo que tarda la Tierra en completar una órbita alrededor del Sol"
+
+enunciado: "En términos astronómicos, ¿qué define la duración de un año?"
+
+explicacion: |
+  Un año es, por definición, el tiempo que le toma a la Tierra completar una vuelta entera alrededor del Sol (traslación).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["geometria", "orbita"]
+
+tipo: completar
+respuestas_validas:
+  - "elipse"
+
+respuesta: "elipse"
+
+enunciado: "Aunque a menudo se simplifica, la trayectoria que sigue la Tierra alrededor del Sol no es un círculo perfecto, sino una ___."
+
+explicacion: |
+  La órbita terrestre es una elipse ligeramente achatada, con el Sol ubicado en uno de sus dos focos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["tiempo", "calendario"]
+
+tipo: mc
+opciones_explicitas: ["24 horas", "28 días", "aproximadamente 365 días", "12 meses de 30 días"]
+
+respuesta: "aproximadamente 365 días"
+
+enunciado: "El movimiento de traslación terrestre completa su ciclo en un período de aproximadamente ___."
+
+explicacion: |
+  La Tierra tarda aproximadamente 365 días (más un cuarto) en completar una vuelta completa alrededor del Sol.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "intermedio"
+  tags: ["conceptos"]
+
+tipo: mc
+opciones_explicitas: ["La traslación causa las estaciones del año", "La traslación causa el día y la noche", "La traslación es el movimiento sobre su propio eje", "La rotación es el movimiento alrededor del Sol"]
+
+respuesta: "La traslación causa las estaciones del año"
+
+enunciado: "¿Cuál de las siguientes afirmaciones describe correctamente la relación entre los movimientos terrestres y sus efectos?"
+
+explicacion: |
+  La traslación (combinada con la inclinación del eje) es la que causa las estaciones del año; la rotación causa el día y la noche.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "intermedio"
+  tags: ["estaciones", "traslacion"]
+
+tipo: completar
+respuestas_validas:
+  - "traslación"
+  - "traslacion"
+
+respuesta: "traslación"
+
+enunciado: "El cambio de las estaciones del año es una consecuencia directa del movimiento de ___ de la Tierra."
+
+explicacion: |
+  El cambio de estaciones surge de la combinación entre la traslación y la inclinación constante del eje terrestre.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["astronomia", "estaciones"]
+
+respuesta: "23.5"
+tipo: completar
+respuestas_validas:
+  - "23.5"
+  - "23,5"
+
+enunciado: "La inclinación del eje de la Tierra respecto al plano de su órbita es de aproximadamente ___ grados."
+
+explicacion: |
+  La inclinación de ~23,5° es fundamental para la distribución de la radiación solar a lo largo del año.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["estabilidad", "traslacion"]
+
+respuesta: "se mantiene constante"
+tipo: completar
+respuestas_validas:
+  - "se mantiene constante"
+
+enunciado: "Durante el proceso de traslación alrededor del Sol, la inclinación del eje de la Tierra ___."
+
+explicacion: |
+  El hecho de que el eje apunte siempre hacia la misma dirección (hacia la estrella polar) permite la periodicidad de las estaciones.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "intermedio"
+  tags: ["estaciones", "inclinacion"]
+
+respuestas_validas:
+  - "la inclinación del eje"
+  - "la inclinacion del eje"
+respuesta: "la inclinación del eje"
+tipo: completar
+
+enunciado: "La causa principal de la sucesión de las estaciones del año es ___."
+
+explicacion: |
+  La inclinación hace que la luz solar incida con diferentes ángulos y duraciones sobre el hemisferio norte y sur a lo largo del año.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "intermedio"
+  tags: ["ecliptic", "geometria"]
+
+respuesta: "plano orbital"
+tipo: completar
+respuestas_validas:
+  - "plano orbital"
+  - "plano de la eclíptica"
+
+enunciado: "El eje de rotación de la Tierra forma un ángulo de 23,5 grados con respecto al ___."
+
+explicacion: |
+  Este plano se conoce también como plano de la eclíptica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "avanzado"
+  tags: ["hemisferios", "solsticio"]
+
+respuestas_validas:
+  - "verano"
+respuesta: "verano"
+tipo: completar
+
+enunciado: "Cuando el hemisferio norte está inclinado hacia el Sol, en esa región se experimenta el ___."
+
+explicacion: |
+  Al estar inclinado hacia el Sol, los rayos caen más perpendicularmente, aumentando la intensidad del calor.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["rotacion", "dia_noche"]
+
+tipo: mc
+opciones_explicitas: ["El movimiento de traslación de la Tierra", "El movimiento de rotación de la Tierra", "La inclinación del eje terrestre", "La presencia de la Luna"]
+
+respuesta: "El movimiento de rotación de la Tierra"
+
+enunciado: "El fenómeno de la sucesión de los días y las noches en nuestro planeta se debe principalmente al movimiento de ___."
+
+explicacion: |
+  La rotación es el giro de la Tierra sobre su propio eje, lo que permite que la luz solar afecte a diferentes partes del planeta de forma sucesiva, creando el ciclo día/noche.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["traslacion", "estaciones"]
+
+tipo: completar
+respuestas_validas:
+  - "traslación"
+  - "traslacion"
+respuesta: "traslación"
+
+enunciado: "El movimiento de ___ es el responsable de que el año tenga estaciones y de que la Tierra complete su órbita alrededor del Sol."
+
+explicacion: |
+  La traslación es el movimiento de la Tierra alrededor del Sol. Junto con la inclinación del eje terrestre, este movimiento determina las estaciones del año.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "intermedio"
+  tags: ["dia_solar", "tiempo"]
+
+tipo: mc
+opciones_explicitas: ["24 horas exactas", "23 horas y 56 minutos", "23 horas y 30 minutos", "24 horas y 4 minutos"]
+
+respuesta: "23 horas y 56 minutos"
+
+enunciado: "Debido a que la Tierra se desplaza en su órbita mientras rota, el tiempo que tarda en volver a la misma posición respecto a las estrellas lejanas (día sidéreo) es aproximadamente de ___."
+
+explicacion: |
+  El día sidéreo dura aproximadamente 23h 56min. La diferencia con el día solar de 24h se debe a que la Tierra debe rotar un poco más para compensar su avance en la órbita alrededor del Sol.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "intermedio"
+  tags: ["año_bisiesto", "calendario"]
+
+tipo: mc
+opciones_explicitas: ["365 días", "365.25 días", "366 días", "365.5 días"]
+
+respuesta: "365.25 días"
+
+enunciado: "Para que el calendario coincida con el ciclo real de la traslación terrestre, se considera que un año dura aproximadamente ___."
+
+explicacion: |
+  Como el año real es de unos 365,25 días, cada cuatro años se suma un día extra (29 de febrero) para corregir la diferencia acumulada.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["movimientos", "simultaneidad"]
+
+tipo: completar
+respuestas_validas:
+  - "simultáneos"
+  - "simultaneos"
+respuesta: "simultáneos"
+
+enunciado: "Los movimientos de rotación y traslación ocurren de forma ___; es decir, suceden al mismo tiempo sin que uno detenga al otro."
+
+explicacion: |
+  La Tierra realiza ambos movimientos de manera constante y simultánea: gira sobre su eje mientras orbita alrededor del Sol.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["astronomia", "basico"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [["El sol sale por el este cada mañana", "rotación"], ["El sol se pone por el oeste cada tarde", "rotación"]]
+
+enunciado: "El fenómeno descrito en el siguiente escenario es causado por el movimiento de: {escenario[idx][0]}"
+
+opciones_explicitas: ["rotación", "traslación"]
+respuesta: escenario[idx][1]
+tipo: mc
+
+explicacion: |
+  El movimiento de rotación de la Tierra sobre su propio eje es lo que genera la sucesión del día y la noche.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "intermedio"
+  tags: ["astronomia", "estaciones"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [["La llegada del invierno en el hemisferio sur", "traslación"], ["El verano en el hemisferio norte", "traslación"]]
+
+enunciado: "El fenómeno de {escenario[idx][0]} se explica principalmente por la ___ de la Tierra alrededor del Sol (considerando la inclinación del eje)."
+
+respuesta: escenario[idx][1]
+tipo: completar
+respuestas_validas:
+  - "traslación"
+  - "traslacion"
+
+explicacion: |
+  La traslación, junto con la inclinación del eje terrestre, determina la duración de las estaciones del año.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "basico"
+  tags: ["astronomia", "calendario"]
+
+opciones_explicitas: ["rotación", "traslación"]
+respuesta: "traslación"
+tipo: mc
+
+enunciado: "El paso de un año completo (un ciclo de un año solar) es efecto de la ___ terrestre."
+
+explicacion: |
+  Un año es el tiempo que tarda la Tierra en completar una órbita completa alrededor del Sol (traslación).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "intermedio"
+  tags: ["astronomia", "observacion"]
+
+respuesta: "rotación"
+tipo: completar
+respuestas_validas:
+  - "rotación"
+  - "rotacion"
+
+enunciado: "El cambio de posición de la sombra de un reloj de sol a lo largo del día se debe a la ___ de la Tierra."
+
+explicacion: |
+  El movimiento aparente de las sombras durante el día es consecuencia directa de la rotación terrestre sobre su eje.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "movimiento_rotacion_traslacion"
+  nivel: "avanzado"
+  tags: ["astronomia", "estrellas"]
+
+opciones_explicitas: ["rotación", "traslación"]
+respuesta: "traslación"
+tipo: mc
+
+enunciado: "El hecho de que veamos distintas constelaciones visibles en el cielo nocturno según la época del año se debe al movimiento de ___ de nuestro planeta."
+
+explicacion: |
+  Al movernos alrededor del Sol, nuestra perspectiva hacia las estrellas cambia, permitiéndonos ver diferentes constelaciones en distintas épocas del año.
 ```
 

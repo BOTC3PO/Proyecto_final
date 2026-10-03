@@ -1,813 +1,8 @@
 # Examen jefe — [PENDIENTE #866]
 
-> Logro #866. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
+> Logro #866. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **109 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: necesidades-basicas-seres-vivos (20 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["conceptos_fundamentales", "supervivencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una necesidad básica es algo que un ser vivo tiene que conseguir del ambiente para poder seguir vivo."
-
-explicacion: |
-  Correcto. Las necesidades básicas son esenciales para mantener la vida.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["conceptos_fundamentales"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Las necesidades básicas son opcionales, como un 'gusto' que no afecta la supervivencia."
-
-explicacion: |
-  Falso. Si es "básica", su ausencia pone en riesgo la vida del ser vivo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["elementos_vitales"]
-
-respuesta: "agua, aire y alimento"
-tipo: mc
-opciones_explicitas: ["agua, aire y alimento", "luz, temperatura y espacio", "dinero, tecnología y ropa", "solo el alimento"]
-
-enunciado: "¿Cuáles son las tres necesidades básicas universales de los seres vivos?"
-
-explicacion: |
-  Agua, aire y alimento son las 3 necesidades universales, sin excepción.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["supervivencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si a un ser vivo le falta agua, aire o alimento por mucho tiempo, muere."
-
-explicacion: |
-  Correcto. Sin ellas no se pueden sostener los procesos vitales.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["agua", "composicion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El cuerpo humano está compuesto mayormente de agua (aproximadamente 60%)."
-
-explicacion: |
-  Correcto. El agua es el componente principal de células y fluidos corporales.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["agua"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El agua es el medio donde ocurren las reacciones químicas internas del cuerpo."
-
-explicacion: |
-  Correcto. El agua actúa como solvente donde ocurren los procesos metabólicos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["agua", "supervivencia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un ser humano puede sobrevivir meses sin tomar agua."
-
-explicacion: |
-  Falso. La deshidratación severa puede ser mortal en pocos días.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["agua", "funciones"]
-
-respuesta: "medio para reacciones químicas, transporte y regulación de temperatura"
-tipo: mc
-opciones_explicitas: ["medio para reacciones químicas, transporte y regulación de temperatura", "solo dar sabor a las comidas", "solo limpiar la piel", "ninguna función vital"]
-
-enunciado: "El agua cumple funciones de..."
-
-explicacion: |
-  Es medio de reacciones químicas, transporta nutrientes y regula la temperatura corporal.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["oxigeno", "respiracion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La mayoría de los seres vivos necesitan oxígeno del aire para la respiración celular."
-
-explicacion: |
-  Correcto — ver ../fotosintesis-respiracion-celular/.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["aire", "supervivencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La falta de aire es la más urgente de las 3 necesidades básicas: se sobrevive apenas unos minutos sin ella."
-
-explicacion: |
-  Correcto, mucho más urgente que la falta de agua o alimento.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["alimento", "energia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El alimento aporta materia para crecer y energía para que el organismo funcione."
-
-explicacion: |
-  Correcto, esas son las dos funciones principales del alimento.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["supervivencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Se puede sobrevivir sin comer más tiempo que sin tomar agua."
-
-explicacion: |
-  Correcto: semanas sin comida vs. sólo pocos días sin agua.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["respiracion", "energia"]
-
-respuesta: "celular"
-tipo: completar
-respuestas_validas:
-  - "celular"
-
-enunciado: "El proceso que usa el oxígeno del aire para liberar la energía guardada en el alimento se llama respiración ___."
-
-explicacion: |
-  La respiración celular transforma la energía química de los nutrientes en energía usable.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "intermedio"
-  tags: ["supervivencia", "repaso"]
-
-variables:
-  escenario: [["aire", "pocos minutos"], ["agua", "pocos días"], ["alimento", "semanas"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["pocos minutos", "pocos días", "semanas", "meses"]
-
-enunciado: "Si un ser vivo carece de {escenario[idx][0]}, ¿cuánto tiempo puede sobrevivir aproximadamente?"
-
-explicacion: |
-  Sin {escenario[idx][0]}, la vida se compromete en {escenario[idx][1]}.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["factores_ambientales"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Además de agua, aire y alimento, hay otras cosas que un ser vivo necesita, como luz y un rango de temperatura tolerable."
-
-explicacion: |
-  Correcto, aunque esas 3 son las únicas verdaderamente universales.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["caracteristicas_vida"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Agua, aire y alimento se consideran necesidades universales porque todo ser vivo conocido las requiere de alguna forma."
-
-explicacion: |
-  Correcto, desde bacterias hasta animales complejos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "basico"
-  tags: ["conceptos_fundamentales"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las necesidades básicas son la base para definir qué elementos hacen falta para que algo sea considerado 'vivo'."
-
-explicacion: |
-  Correcto — ver ../ser-vivo-caracteristicas/.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "intermedio"
-  tags: ["adaptacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Todos los seres vivos consiguen sus necesidades básicas exactamente de la misma manera (ej. todos comen lo mismo, todos respiran de la misma forma)."
-
-explicacion: |
-  Falso. La NECESIDAD es universal, pero la FORMA de conseguirla varía mucho según el ser vivo y su hábitat — ver ../habitats-adaptacion/.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "intermedio"
-  tags: ["supervivencia", "aplicacion"]
-
-respuesta: "el aire, porque es la necesidad más urgente"
-tipo: mc
-opciones_explicitas: ["el aire, porque es la necesidad más urgente", "el alimento, porque da más energía", "el agua, porque pesa más", "cualquiera, no importa el orden"]
-
-enunciado: "Si una persona quedara sin acceso a agua, aire y alimento al mismo tiempo, ¿cuál sería la carencia más urgente de resolver?"
-
-explicacion: |
-  El aire es la más urgente: sin él, la supervivencia se mide en minutos, no días ni semanas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "necesidades_basicas_seres_vivos"
-  nivel: "intermedio"
-  tags: ["plantas", "aplicacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las plantas también necesitan agua, aire (CO2 y O2) y \"alimento\" (que ellas mismas fabrican por fotosíntesis), aunque no coman como los animales."
-
-explicacion: |
-  Correcto. Las 3 necesidades son universales, aunque cada tipo de ser vivo las consiga de forma distinta — las plantas fabrican su propio alimento en vez de buscarlo.
-```
-
-## Sección: nicho-ecologico (25 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "basico"
-  tags: ["conceptos_clave", "ecologia"]
-
-tipo: completar
-
-enunciado: "El conjunto de condiciones ambientales y recursos que utiliza una especie para sobrevivir y reproducirse se denomina ___."
-
-respuestas_validas:
-  - "nicho ecológico"
-  - "nicho ecologico"
-respuesta: "nicho ecológico"
-
-explicacion: |
-  El nicho ecológico no es un lugar, sino la "profesión" o el rol que desempeña una especie en su ecosistema (qué come, a qué hora sale, etc.).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "basico"
-  tags: ["diferencias"]
-
-tipo: completar
-
-enunciado: "Si el hábitat es la 'dirección' de un organismo, el nicho ecológico es su ___."
-
-respuestas_validas:
-  - "profesión"
-  - "profesion"
-respuesta: "profesión"
-
-explicacion: |
-  Es una analogía común: el hábitat es el lugar físico donde vive (la casa), mientras que el nicho es su función o modo de vida (su trabajo).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "intermedio"
-  tags: ["competencia", "recursos"]
-
-tipo: completar
-
-enunciado: "Cuando dos especies tienen exactamente el mismo nicho ecológico en un mismo hábitat, ocurre una ___ que suele llevar a la exclusión de una de ellas."
-
-respuestas_validas:
-  - "competencia"
-respuesta: "competencia"
-
-explicacion: |
-  El principio de exclusión competitiva establece que dos especies no pueden ocupar el mismo nicho de forma indefinida; una terminará desplazando a la otra.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "intermedio"
-  tags: ["factores_abioticos"]
-
-tipo: completar
-
-enunciado: "El nicho ecológico incluye tanto factores bióticos (como la alimentación) como factores ___ (como la temperatura o la humedad)."
-
-respuestas_validas:
-  - "abióticos"
-  - "abioticos"
-respuesta: "abióticos"
-
-explicacion: |
-  El nicho es multidimensional: incluye las interacciones con otros seres vivos (bióticos) y las condiciones físicas del entorno (abióticos).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "intermedio"
-  tags: ["ejemplos"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["un león en la sabana africana", "depredador de grandes herbívoros"], ["un búho en un bosque", "depredador nocturno de pequeños roedores"]]
-
-opciones_explicitas: ["depredador de grandes herbívoros", "depredador nocturno de pequeños roedores"]
-respuesta: escenarios[escenario_idx][1]
-tipo: mc
-
-enunciado: "En el caso de {escenarios[escenario_idx][0]}, ¿cuál de estas opciones describe mejor su nicho ecológico?"
-
-explicacion: |
-  El nicho ecológico combina qué come una especie, cuándo está activa y qué rol cumple en la cadena trófica — no sólo "dónde vive".
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "basico"
-  tags: ["conceptos_fundamentales", "ecologia"]
-
-tipo: mc
-opciones_explicitas: ["El lugar físico donde vive una especie", "La función o rol que desempeña una especie en su ecosistema", "El número total de individuos de una población", "La cantidad de comida disponible en un ambiente"]
-respuesta: "La función o rol que desempeña una especie en su ecosistema"
-
-enunciado: "En ecología, el término 'nicho ecológico' se refiere a: ___"
-
-explicacion: |
-  El nicho ecológico no es solo el lugar (eso es el hábitat), sino el conjunto de condiciones y recursos que permiten que una especie sobreviva y se reproduzca (su "profesión" en el ecosistema).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "intermedio"
-  tags: ["competencia", "recursos"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "Si dos especies tienen nichos ecológicos idénticos en un mismo ambiente, la competencia por los recursos será intensa y eventualmente una de ellas será desplazada."
-
-explicacion: |
-  Según el principio de exclusión competitiva, dos especies no pueden ocupar exactamente el mismo nicho en un mismo hábitat por tiempo indefinido; una terminará desplazando a la otra o ambas deberán evolucionar para diferenciar sus nichos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "avanzado"
-  tags: ["capacidad_de_carga", "recursos"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["leones", "carnívoros", "grandes"], ["insectos", "herbívoros", "pequeños"]]
-
-tipo: mc
-opciones_explicitas: ["Porque todas las especies consumen exactamente la misma cantidad de biomasa", "Porque cada especie utiliza los recursos de manera distinta, afectando la capacidad de soporte", "Porque el ambiente siempre tiene recursos infinitos para todos", "Porque la capacidad de carga solo depende del clima y no de la especie"]
-respuesta: "Porque cada especie utiliza los recursos de manera distinta, afectando la capacidad de soporte"
-
-enunciado: "Considerando que los {datos[escenario_idx][0]} tienen un nicho de tipo {datos[escenario_idx][2]}, ¿por qué la capacidad de carga varía entre especies en un mismo ambiente?"
-
-explicacion: |
-  La capacidad de carga es el número máximo de individuos que un ambiente puede sostener. Como cada especie tiene un nicho diferente (usa distintos recursos, a diferentes ritmos y de distintas formas), el impacto sobre el ambiente y el límite de población varía para cada una.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "basico"
-  tags: ["diferenciacion", "conceptos"]
-
-tipo: mc
-opciones_explicitas: ["El hábitat es la función y el nicho es el lugar", "El hábitat es el lugar físico y el nicho es la función/rol", "Son términos sinónimos en ecología", "El nicho se refiere al clima y el hábitat a la dieta"]
-respuesta: "El hábitat es el lugar físico y el nicho es la función/rol"
-
-enunciado: "Diferencia correctamente entre hábitat y nicho: ___"
-
-explicacion: |
-  Un ejemplo clásico: el hábitat es el bosque (donde vive el oso), mientras que el nicho es su dieta, sus hábitos de actividad (diurno/nocturno) y su papel en la cadena trófica.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "intermedio"
-  tags: ["especializacion", "supervivencia"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "La especialización de un nicho (por ejemplo, un ave que sólo come un tipo de semilla) reduce la competencia directa con otras especies pero hace a la especie más vulnerable si ese recurso específico desaparece."
-
-explicacion: |
-  Es verdadero. Al especializar el nicho, la especie evita la competencia (lo cual es una ventaja), pero pierde la flexibilidad de usar otros recursos si su nicho particular se ve alterado.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "basico"
-  tags: ["ecologia", "competencia"]
-
-enunciado: "Según el principio de exclusión competitiva, si dos especies compiten por exactamente el mismo recurso limitado, una de ellas será desplazada o se extinguirá. Este proceso se conoce como la ___ de Gause."
-
-respuestas_validas:
-  - "regla"
-respuesta: "regla"
-tipo: completar
-
-explicacion: |
-  El principio de exclusión competitiva, también conocido como la Regla de Gause, establece que dos especies con nichos ecológicos idénticos no pueden coexistir en un entorno estable.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "intermedio"
-  tags: ["competencia", "nicho"]
-
-variables:
-  escenario: uno_de([["especie A", "especie B"], ["leones", "hienas"], ["plantas A", "plantas B"]])
-
-enunciado: "En un ecosistema, la {escenario[0]} y la {escenario[1]} compiten por la misma fuente de alimento y el mismo espacio de caza. Si la {escenario[0]} es más eficiente capturando presas, a largo plazo la {escenario[1]} sufrirá una ___ de su nicho o desaparecerá del área."
-
-respuestas_validas:
-  - "exclusión"
-  - "exclusion"
-respuesta: "exclusión"
-tipo: completar
-
-explicacion: |
-  Cuando la competencia es intensa y los recursos son limitados, la especie con la ventaja competitiva termina excluyendo a la otra de su nicho ecológico.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "intermedio"
-  tags: ["coexistencia", "particion"]
-
-enunciado: "Para evitar la exclusión competitiva y permitir la coexistencia de especies similares, las poblaciones suelen recurrir a la ___ de nicho, donde utilizan diferentes partes del recurso o diferentes horarios de actividad."
-
-respuestas_validas:
-  - "partición"
-  - "particion"
-respuesta: "partición"
-tipo: completar
-
-explicacion: |
-  La partición de nicho permite que especies con necesidades similares coexistan al especializarse en diferentes aspectos de su entorno (por ejemplo, diferentes alturas en un árbol o diferentes horas de alimentación).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "basico"
-  tags: ["definicion", "nicho"]
-
-enunciado: "El nicho ecológico no es sólo el lugar donde vive una especie (hábitat), sino también la ___ de funciones y recursos que desempeña en ese ecosistema."
-
-respuestas_validas:
-  - "función"
-  - "funcion"
-respuesta: "función"
-tipo: completar
-
-explicacion: |
-  Mientras que el hábitat es la "dirección" de una especie, el nicho ecológico es su "profesión" o el rol que cumple en la comunidad.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "avanzado"
-  tags: ["competencia", "evolucion"]
-
-enunciado: "Si dos especies compiten por el mismo nicho, la especie que logre obtener más energía con menos gasto metabólico tendrá una ventaja ___ que le permitirá dominar el recurso."
-
-respuestas_validas:
-  - "adaptativa"
-respuesta: "adaptativa"
-tipo: completar
-
-explicacion: |
-  La ventaja adaptativa permite que la especie dominante se reproduzca más y mantenga su población, mientras que la otra especie disminuye su fitness hasta ser excluida.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "basico"
-  tags: ["ecologia", "nicho_fundamental"]
-
-tipo: mc
-opciones_explicitas: ["El rango de condiciones ambientales y recursos que una especie puede utilizar sin la presencia de competidores", "El conjunto de condiciones que una especie ocupa debido a la presencia de depredadores", "La suma de todos los recursos que una especie consume en un ecosistema", "El lugar físico donde vive una especie"]
-
-respuesta: "El rango de condiciones ambientales y recursos que una especie puede utilizar sin la presencia de competidores"
-
-enunciado: "El concepto de nicho fundamental se refiere a..."
-
-explicacion: |
-  El nicho fundamental representa el potencial máximo de una especie, es decir, todas las condiciones ambientales y recursos que podría aprovechar si no tuviera competencia ni depredación.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "intermedio"
-  tags: ["nicho_fundamental", "nicho_realizado"]
-
-tipo: completar
-respuestas_validas:
-  - "nicho realizado"
-respuesta: "nicho realizado"
-
-enunciado: "Cuando una especie se enfrenta a la competencia con otras especies por el mismo recurso, el espacio de recursos que efectivamente logra utilizar se denomina ___."
-
-explicacion: |
-  La presencia de competencia interespecífica restringe el uso de recursos, reduciendo el nicho fundamental al nicho realizado.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "intermedio"
-  tags: ["competencia", "nicho_realizado"]
-
-tipo: mc
-opciones_explicitas: ["El nicho realizado es siempre igual al nicho fundamental", "El nicho realizado suele ser más pequeño que el nicho fundamental", "El nicho fundamental es más pequeño que el nicho realizado", "No existe relación entre ambos conceptos"]
-
-respuesta: "El nicho realizado suele ser más pequeño que el nicho fundamental"
-
-enunciado: "En un ecosistema con alta competencia por alimento, se espera que..."
-
-explicacion: |
-  La competencia actúa como una limitación que impide que la especie ocupe todo su nicho potencial (fundamental), obligándola a adaptarse a un nicho más restringido (realizado).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "avanzado"
-  tags: ["relacion_nichos"]
-
-tipo: completar
-respuestas_validas:
-  - "un subconjunto"
-respuesta: "un subconjunto"
-
-enunciado: "Desde un punto de vista teórico, el nicho realizado es ___ del nicho fundamental."
-
-explicacion: |
-  El nicho realizado está contenido dentro de los límites del nicho fundamental, pero con menos dimensiones de recursos efectivamente aprovechados.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "intermedio"
-  tags: ["competencia", "nicho_realizado"]
-
-tipo: mc
-opciones_explicitas: ["La especie se extingue", "El nicho realizado se expande", "El nicho realizado se contrae", "El nicho fundamental desaparece"]
-
-respuesta: "El nicho realizado se contrae"
-
-enunciado: "Si una especie de aves tiene un nicho fundamental que incluye semillas grandes y pequeñas, pero una especie competidora consume todas las semillas pequeñas, el nicho realizado de la primera especie será..."
-
-explicacion: |
-  La competencia por las semillas pequeñas restringe la dieta de la primera especie, haciendo que su nicho realizado se limite principalmente a las semillas grandes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "basico"
-  tags: ["ecologia", "competencia", "nicho"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["El búho", "nocturno", "diurno", "el halcón"], ["El halcón", "diurno", "nocturno", "el búho"]]
-
-opciones_explicitas: ["nocturno", "diurno"]
-
-respuesta: escenarios[escenario_idx][1]
-tipo: mc
-
-enunciado: "En un mismo bosque, {escenarios[escenario_idx][0]} es predominantemente ___, mientras que su competidor potencial, {escenarios[escenario_idx][3]}, es {escenarios[escenario_idx][2]}. Esta diferencia de horario permite la coexistencia mediante la partición temporal del nicho."
-
-explicacion: |
-  La partición temporal es una estrategia donde especies con recursos similares se dividen el tiempo de uso del hábitat para evitar la competencia directa.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "intermedio"
-  tags: ["estratificación", "nicho", "aves"]
-
-opciones_explicitas: ["troncos de los árboles", "el suelo del bosque", "las copas de los árboles", "el aire"]
-
-respuesta: "el suelo del bosque"
-tipo: mc
-
-enunciado: "Dos especies de aves pueden compartir el mismo bosque sin competir por alimento si el carpintero busca larvas en los troncos, mientras que el picamontes de suelo busca su alimento en ___."
-
-explicacion: |
-  La estratificación vertical en el hábitat permite que diferentes especies ocupen distintos niveles de altura, reduciendo la competencia por el mismo recurso en el mismo espacio.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "intermedio"
-  tags: ["dieta", "nicho", "especialista"]
-
-variables:
-  par_de_aves: [["un colibrí y un carpintero", "néctar", "insectos"], ["un zorro y un conejo", "carne", "vegetales"], ["un oso y un pez", "frutas", "proteína animal"]]
-  idx: uno_de([0, 1, 2])
-
-opciones_explicitas: ["néctar", "insectos", "carne", "vegetales", "frutas", "proteína animal"]
-
-respuesta: par_de_aves[idx][1]
-tipo: mc
-
-enunciado: "Dos especies pueden coexistir si tienen dietas distintas. Si analizamos a {par_de_aves[idx][0]}, la primera especie se especializa en consumir ___."
-
-explicacion: |
-  La especialización en el tipo de presa (recurso alimentario) es una forma de partición del nicho que evita que dos especies compitan por la misma fuente de energía.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "basico"
-  tags: ["definicion", "conceptos"]
-
-opciones_explicitas: ["el lugar físico donde vive", "la función y rol de la especie", "el grupo de animales similares", "el clima de una región"]
-
-respuesta: "la función y rol de la especie"
-tipo: mc
-
-enunciado: "Mientras que el hábitat es el lugar donde vive una especie, el nicho ecológico se define como ___."
-
-explicacion: |
-  El nicho ecológico incluye no sólo el lugar, sino también el comportamiento, la dieta, el periodo de actividad y cómo la especie interactúa con su entorno.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nicho_ecologico"
-  nivel: "intermedio"
-  tags: ["competencia", "coexistencia"]
-
-opciones_explicitas: ["competencia", "exclusión", "coexistencia", "adaptación"]
-
-respuesta: "coexistencia"
-tipo: mc
-
-enunciado: "Cuando dos especies en un mismo ecosistema desarrollan características que les permiten utilizar recursos de manera diferente (por ejemplo, comiendo a distintas horas o en distintas alturas), logran la ___."
-
-explicacion: |
-  La partición de recursos es el mecanismo que permite la coexistencia, evitando que la competencia sea tan intensa que una especie termine desplazando a la otra (Principio de Exclusión Competitiva).
-```
 
 ## Sección: partes-planta-germinacion (20 preguntas)
 
@@ -1490,440 +685,1179 @@ explicacion: |
   Correcto. Como la energía siempre disminuye en cada transferencia (ley de la termodinámica), la pirámide de energía es la más consistente de las tres.
 ```
 
-## Sección: presion-arterial (25 preguntas)
+## Sección: quimiosintesis (22 preguntas)
 
 ```
 metadata:
   materia: "biologia"
-  tema: "presion_arterial_conceptos"
+  tema: "quimiosintesis"
   nivel: "basico"
-  tags: ["definicion", "circulacion"]
-
-respuesta: "fuerza"
-tipo: completar
-respuestas_validas:
-  - "fuerza"
-
-enunciado: "La presión arterial es la ___ que ejerce la sangre contra las paredes de las arterias."
-
-explicacion: |
-  La presión arterial es la fuerza ejercida por la sangre contra las paredes de las arterias mientras el corazón bombea sangre a través de ellas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "presion_arterial_conceptos"
-  nivel: "basico"
-  tags: ["sistolica", "corazon"]
-
-respuesta: "sistólica"
-tipo: mc
-opciones_explicitas: ["sistólica", "diastólica", "media", "pulsátil"]
-
-enunciado: "El valor de la presión arterial que representa la presión en las arterias cuando el corazón se contrae se denomina presión _______."
-
-explicacion: |
-  La presión sistólica ocurre durante la contracción del ventrículo izquierdo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "presion_arterial_conceptos"
-  nivel: "basico"
-  tags: ["diastolica", "corazon"]
-
-respuesta: "diastólica"
-tipo: mc
-opciones_explicitas: ["sistólica", "diastólica", "capilar", "venosa"]
-
-enunciado: "El valor de la presión arterial que representa la presión en las arterias cuando el corazón está en reposo entre latidos se denomina presión _______."
-
-explicacion: |
-  La presión diastólica es la presión mínima en las arterias durante el periodo de relajación cardíaca.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "presion_arterial_unidades"
-  nivel: "basico"
-  tags: ["unidades", "medicion"]
-
-respuesta: "mmHg"
-tipo: completar
-respuestas_validas:
-  - "mmHg"
-  - "mm Hg"
-  - "milímetros de mercurio"
-
-enunciado: "La presión arterial se mide comúnmente en unidades de _______."
-
-explicacion: |
-  La unidad estándar es el milímetro de mercurio (mmHg).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "presion_arterial_conceptos"
-  nivel: "basico"
-  tags: ["lectura"]
-
-respuesta: "120/80"
-tipo: mc
-opciones_explicitas: ["120/80", "80/120", "120/120", "80/80"]
-
-enunciado: "Si una persona tiene una presión de 120/80 mmHg, ¿cuál es la forma correcta de expresar sus valores sistólico y diastólico?"
-
-explicacion: |
-  El primer valor es la sistólica y el segundo es la diastólica.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "procedimiento_medicion"
-  nivel: "intermedio"
-  tags: ["pasos", "esfigmomanometro"]
-
-respuesta_orden: ["inflar el manguito", "desinflar lentamente", "escuchar ruidos de Korotkoff"]
-tipo: ordenar
-opciones_explicitas: ["inflar el manguito", "desinflar lentamente", "escuchar ruidos de Korotkoff"]
-
-enunciado: "Ordena los pasos lógicos para la toma de presión arterial manual:"
-
-explicacion: |
-  Primero se infla el manguito para ocluir la arteria, luego se desinfla para permitir el flujo y se escuchan los sonidos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fisiologia_presion"
-  nivel: "intermedio"
-  tags: ["resistencia", "vasos"]
-
-respuesta: "aumenta"
-tipo: completar
-respuestas_validas:
-  - "aumenta"
-  - "disminuye"
-
-enunciado: "Si el diámetro de las arterias se reduce (vasoconstricción), la resistencia periférica _______ y, por lo tanto, la presión arterial aumenta."
-
-explicacion: |
-  A menor diámetro, mayor es la resistencia al flujo sanguíneo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "fisiologia_presion"
-  nivel: "intermedio"
-  tags: ["gasto_cardiaco"]
+  tags: ["definicion", "organismos"]
 
 respuesta: verdadero
 tipo: vf
-enunciado: "Un aumento en el volumen de sangre expulsado por el corazón en cada latido (volumen sistólico) tiende a elevar la presión arterial."
+
+enunciado: "La quimiosíntesis es un proceso mediante el cual ciertos organismos producen materia orgánica utilizando la energía de reacciones químicas inorgánicas, en lugar de la luz solar."
 
 explicacion: |
-  Mayor volumen de sangre circulando bajo la misma resistencia eleva la presión.
+  La quimiosíntesis se define precisamente por el uso de energía química (oxidación de sustratos inorgánicos) para fijar carbono, a diferencia de la fotosíntesis que usa luz.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "factores_externos"
+  tema: "quimiosintesis"
+  nivel: "basico"
+  tags: ["bacterias", "arqueas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las bacterias y las arqueas son los principales organismos capaces de realizar quimiosíntesis."
+
+explicacion: |
+  Estos procariotas son los productores primarios en ecosistemas quimiosintéticos. Los eucariotas no realizan este proceso directamente.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "basico"
+  tags: ["ecosistemas", "fuentes_hidrotermales"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las fuentes hidrotermales del fondo oceánico son un ejemplo clásico de ecosistema donde predomina la quimiosíntesis."
+
+explicacion: |
+  En estas profundidades no llega la luz solar, por lo que la vida depende completamente de la energía química liberada por las bacterias quimiosintéticas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
   nivel: "intermedio"
-  tags: ["error", "medicion"]
+  tags: ["ciclo_nitrogeno", "fertilidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las bacterias quimiosintéticas nitrificantes transforman el nitrógeno en formas que las plantas pueden absorber, contribuyendo a la fertilidad del suelo."
+
+explicacion: |
+  Al convertir amoníaco en nitrato, hacen el nitrógeno disponible para la absorción radicular por parte de las plantas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "intermedio"
+  tags: ["calvin", "fijacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La fijación de carbono en la quimiosíntesis ocurre mediante un proceso similar al ciclo de Calvin utilizado en la fotosíntesis."
+
+explicacion: |
+  Ambas usan el ciclo de Calvin para incorporar CO2 en moléculas orgánicas, diferenciándose solo en la fuente de energía (ATP/NADPH de luz vs. de química).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "basico"
+  tags: ["ambientes", "oscuridad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La quimiosíntesis permite la vida en ambientes donde la luz solar no llega."
+
+explicacion: |
+  Es fundamental en cuevas profundas, fondos oceánicos y subsuelo, demostrando la independencia del sol para la biosfera.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "intermedio"
+  tags: ["ciclos", "regulacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las bacterias quimiosintéticas juegan un papel vital en la regulación de elementos como el nitrógeno, el azufre y el hierro."
+
+explicacion: |
+  Al oxidar estos elementos, los transforman entre sus diferentes estados de oxidación, manteniendo los ciclos biogeoquímicos en movimiento.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "basico"
+  tags: ["autotrofo", "independencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La quimiosíntesis demuestra que la energía química puede sostener ecosistemas completos de manera independiente del sol."
+
+explicacion: |
+  Es la prueba biológica de que la vida no requiere necesariamente la fotosíntesis para existir.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "intermedio"
+  tags: ["biodiversidad", "habitats"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin las bacterias quimiosintéticas, muchos hábitats profundos y aislados serían incapaces de sostener vida compleja."
+
+explicacion: |
+  Son la base trófica exclusiva en estos ambientes, permitiendo la existencia de gusanos tubícolas, crustáceos y otros organismos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "intermedio"
+  tags: ["calvin", "mecanismo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La fijación de carbono en la quimiosíntesis utiliza un mecanismo bioquímicamente similar al ciclo de Calvin de la fotosíntesis."
+
+explicacion: |
+  La enzima RuBisCO y el camino metabólico son esencialmente los mismos; la diferencia radica en la fuente de poder (ATP/NADPH).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "basico"
+  tags: ["global", "significado"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La quimiosíntesis es fundamental para la comprensión de la biodiversidad y los ciclos biogeoquímicos globales."
+
+explicacion: |
+  Contribuye a la fertilidad del suelo, la calidad del agua y la existencia de vida en condiciones extremas, impactando el planeta entero.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "basico"
+  tags: ["definicion", "organismos"]
+
+respuesta: "bacterias y arqueas"
+tipo: completar
+respuestas_validas:
+  - "bacterias y arqueas"
+  - "bacterias"
+  - "arqueas"
+
+enunciado: "La quimiosíntesis es un proceso llevado a cabo principalmente por ___ que producen su propio alimento."
+
+explicacion: |
+  A diferencia de los organismos fotosintéticos, las bacterias y arqueas quimiosintéticas utilizan energía química inorgánica para sintetizar materia orgánica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "basico"
+  tags: ["energia", "comparacion"]
+
+respuesta: "reacciones químicas inorgánicas"
+tipo: completar
+
+enunciado: "Mientras la fotosíntesis usa luz solar, la quimiosíntesis obtiene energía de ___."
+
+explicacion: |
+  La clave de la quimiosíntesis es la oxidación de compuestos inorgánicos (como sulfuro de hidrógeno o amoníaco) para obtener la energía necesaria para fijar el carbono.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "intermedio"
+  tags: ["ecologia", "productores"]
+
+respuesta: "productores primarios"
+tipo: completar
+
+enunciado: "En ecosistemas extremos sin luz, las bacterias quimiosintéticas actúan como ___."
+
+explicacion: |
+  Estas bacterias forman la base de la cadena alimentaria en hábitats como las fuentes hidrotermales, al igual que las plantas en ecosistemas terrestres.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "intermedio"
+  tags: ["sustratos", "azufre"]
+
+respuesta: "sulfuro de hidrógeno"
+tipo: input
+
+enunciado: "¿Qué compuesto oxidan las bacterias sulfurosas para obtener energía? (Escribe el nombre químico)"
+
+explicacion: |
+  Las bacterias sulfurosas oxidan el sulfuro de hidrógeno ($H_2S$) produciendo ácido sulfúrico como subproducto.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "intermedio"
+  tags: ["nitrificacion", "nitrogeno"]
+
+respuesta: "nitrato"
+tipo: input
+respuestas_validas:
+  - "nitrato"
+  - "NO3-"
+  - "NO3"
+
+enunciado: "En la nitrificación, las bacterias oxidan primero amoníaco ($NH_3$) a nitrito ($NO_2^-$) y luego a ___."
+
+explicacion: |
+  El primer paso de la nitrificación convierte amoníaco en nitrito ($NO_2^-$). El segundo paso convierte nitrito en nitrato ($NO_3^-$).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "basico"
+  tags: ["habitat", "hidrotermal"]
+
+respuesta: "fuentes hidrotermales"
+tipo: input
+
+enunciado: "¿En qué tipo de ambiente se encuentra comúnmente la quimiosíntesis? (Escribe el nombre del ambiente)"
+
+explicacion: |
+  Las fuentes hidrotermales del fondo oceánico son el ejemplo clásico donde la luz solar no llega y la quimiosíntesis sostiene la vida.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "intermedio"
+  tags: ["ATP", "bioquimica"]
+
+respuesta: "ATP"
+tipo: input
+
+enunciado: "La energía liberada en la oxidación inorgánica se almacena temporalmente en moléculas de ___."
+
+explicacion: |
+  Similar a la fotosíntesis, la energía química se convierte en ATP para ser utilizada en la fijación de carbono.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "basico"
+  tags: ["carbono", "comparacion"]
+
+respuesta: "dióxido de carbono"
+tipo: input
+
+enunciado: "Tanto la fotosíntesis como la quimiosíntesis utilizan ___ como fuente de carbono."
+
+explicacion: |
+  Ambas procesos fijan el carbono inorgánico ($CO_2$) para producir materia orgánica, pero difieren en la fuente de energía.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "avanzado"
+  tags: ["ciclo", "calvin"]
+
+respuesta: "Calvin"
+tipo: input
+
+enunciado: "La fijación de carbono en bacterias quimiosintéticas ocurre mediante un mecanismo similar al ciclo de ___ de las plantas."
+
+explicacion: |
+  El ciclo de Calvin es utilizado para convertir $CO_2$ en glucosa, utilizando el ATP y NADPH generados por la oxidación inorgánica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "intermedio"
+  tags: ["crecimiento", "comparacion"]
+
+respuesta: "lenta"
+tipo: input
+
+enunciado: "Las comunidades quimiosintéticas suelen tener tasas de crecimiento ___ comparadas con las fotosintéticas."
+
+explicacion: |
+  La energía obtenida de la oxidación de compuestos inorgánicos es menor que la de la fotosíntesis, lo que resulta en crecimiento más lento.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "quimiosintesis"
+  nivel: "basico"
+  tags: ["ecologia", "base"]
+
+respuesta: 1
+tipo: input
+
+enunciado: "En un ecosistema quimiosintético, ¿cuántos tipos de productores primarios existen típicamente (solo bacterias/quimiosíntesis)?"
+
+explicacion: |
+  En estos ecosistemas extremos, las bacterias quimiosintéticas son los únicos productores primarios (1 tipo principal).
+```
+
+## Sección: seleccion-natural (25 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "basico"
+  tags: ["evolucion", "darwinismo"]
+
+respuesta: "proceso mediante el cual los organismos mejor adaptados a su entorno tienen mayores probabilidades de sobrevivir y reproducirse"
+tipo: completar
+respuestas_validas:
+  - "proceso mediante el cual los organismos mejor adaptados a su entorno tienen mayores probabilidades de sobrevivir y reproducirse"
+
+enunciado: "La selección natural es el ___ que permite la evolución de las poblaciones."
+
+explicacion: |
+  La selección natural no es un proceso consciente, sino un mecanismo donde las variaciones que favorecen la supervivencia se vuelven más comunes en las siguientes generaciones.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "basico"
+  tags: ["variacion", "herencia"]
+
+respuesta: "variación heredable"
+tipo: completar
+respuestas_validas:
+  - "variación heredable"
+  - "variación genética"
+
+enunciado: "Para que la selección natural actúe, debe existir una ___ entre los individuos de una misma población, la cual debe poder transmitirse a la descendencia."
+
+explicacion: |
+  Si los rasgos adquiridos durante la vida (como el músculo de un atleta) no son heredables, no pueden ser seleccionados por la evolución.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "intermedio"
+  tags: ["presion_ambiental", "adaptacion"]
+
+variables:
+  escenario: uno_de([["un cambio brusco en la temperatura del clima", "el calor extremo"], ["la presencia de un nuevo depredador en el bosque", "la depredación"], ["la escasez de un tipo específico de alimento", "la falta de alimento"]])
+
+respuesta: "presión ambiental"
+tipo: completar
+respuestas_validas:
+  - "presión ambiental"
+
+enunciado: "Cuando ocurre {escenario[0]}, se genera una ___ que actúa como filtro sobre las características de los individuos."
+
+explicacion: |
+  La presión ambiental es el factor externo (clima, depredadores, comida) que determina qué rasgos son ventajosos y cuáles no.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "intermedio"
+  tags: ["reproduccion", "fitness"]
+
+respuesta: "reproducción diferencial"
+tipo: completar
+respuestas_validas:
+  - "reproducción diferencial"
+
+enunciado: "El éxito de la selección natural depende de la ___: la capacidad de ciertos individuos para dejar más descendencia que otros."
+
+explicacion: |
+  No basta con sobrevivir; el objetivo biológico es pasar los genes a la siguiente generación. Si un individuo vive mucho pero no tiene hijos, su ventaja evolutiva es nula.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "avanzado"
+  tags: ["mecanismo", "resumen"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El mecanismo de la selección natural requiere de tres condiciones fundamentales: variación heredable, presión ambiental y reproducción diferencial."
+
+explicacion: |
+  Sin estos tres elementos, el proceso evolutivo por selección natural no puede ocurrir. La combinación de estos factores es lo que impulsa la adaptación.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "basico"
+  tags: ["evolucion", "variacion"]
 
 respuesta: falso
 tipo: vf
-enunciado: "Realizar una toma de presión con el brazo por debajo del nivel del corazón no afecta el resultado de la lectura."
+
+enunciado: "¿La selección natural es el mecanismo que crea nuevas variaciones genéticas en una población para que los individuos se adapten?"
 
 explicacion: |
-  La posición del brazo respecto al corazón es crítica; si el brazo está bajo el nivel del corazón, la lectura será falsamente alta.
+  Falso. La selección natural actúa sobre la variación ya existente (causada por mutaciones y recombinación). La selección no "crea" rasgos nuevos, solo "filtra" los que ya están presentes.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "fisiologia_presion"
-  nivel: "intermedio"
-  tags: ["componentes"]
+  tema: "seleccion_natural"
+  nivel: "basico"
+  tags: ["evolucion", "adaptacion"]
 
-respuesta: "corazón"
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Los individuos cambian sus características físicas de forma voluntaria o por esfuerzo para adaptarse mejor a su entorno?"
+
+explicacion: |
+  Falso. La adaptación no es un proceso consciente ni voluntario. Los individuos nacen con ciertas características; aquellos que tienen rasgos favorables para su ambiente tienen más éxito reproductivo, pero no "deciden" cambiar.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "intermedio"
+  tags: ["evolucion", "fitness"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿En el contexto de la selección natural, ser 'el más apto' significa necesariamente ser el individuo más fuerte y agresivo del grupo?"
+
+explicacion: |
+  Falso. El concepto biológico de "fitness" o aptitud se refiere a la capacidad de un organismo para sobrevivir y, fundamentalmente, dejar descendencia con éxito. A veces, ser el más pequeño o el más discreto es lo que permite sobrevivir y reproducirse.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "intermedio"
+  tags: ["evolucion", "teleologia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿La selección natural tiene como objetivo final alcanzar la perfección biológica de una especie?"
+
+explicacion: |
+  Falso. La evolución no tiene un objetivo ni busca la "perfección". Es un proceso reactivo a las condiciones ambientales actuales. Lo que es "bueno" hoy puede dejar de serlo si el clima o los depredadores cambian mañana.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "basico"
+  tags: ["evolucion", "herencia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿La selección natural actúa directamente sobre los genes de un individuo para modificarlos durante su vida?"
+
+explicacion: |
+  Falso. La selección natural actúa sobre el fenotipo (la expresión de los rasgos) de los individuos. Los cambios en la frecuencia de los genes ocurren a través de las generaciones, no mediante la modificación de los genes de un individuo que ya ha nacido.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "basico"
+  tags: ["darwin", "pinzones", "evolucion"]
+
+opciones_explicitas: ["picos más grandes y fuertes", "picos más largos y finos", "picos más cortos y planos", "picos de colores brillantes"]
+respuesta: "picos más grandes y fuertes"
+tipo: mc
+
+enunciado: "En una isla donde la principal fuente de alimento son las semillas grandes y duras, ¿qué característica de los pinzones presentará una ventaja adaptativa para la supervivencia?"
+
+explicacion: |
+  Los individuos con picos más grandes y fuertes pueden romper las semillas duras, obteniendo energía de una fuente que otros no pueden aprovechar. Esto aumenta su probabilidad de sobrevivir y reproducirse.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "intermedio"
+  tags: ["mecanismos", "evolucion"]
+
+opciones_explicitas: ["Variabilidad", "Selección natural", "Herencia"]
+respuesta_orden: ["Variabilidad", "Selección natural", "Herencia"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos que permiten que la selección natural actúe sobre una población de pinzones para que aparezca una nueva adaptación:"
+
+explicacion: |
+  Primero debe existir variabilidad (diferentes picos), luego la selección natural actúa sobre esa variabilidad según el ambiente, y finalmente la herencia permite que los rasgos exitosos pasen a la siguiente generación.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "basico"
+  tags: ["ambiente", "supervivencia"]
+
+opciones_explicitas: ["determina", "causa", "crea", "provoca"]
+respuesta: "determina"
+tipo: mc
+
+enunciado: "El tipo de alimento disponible en una isla de Galápagos ___ la presión selectiva sobre la forma del pico de los pinzones."
+
+explicacion: |
+  El ambiente no "crea" la mutación, sino que "determina" qué rasgos existentes son ventajosos o desfavorables para la supervivencia en ese contexto específico.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "intermedio"
+  tags: ["terminologia", "adaptacion"]
+
+respuesta: "adaptación"
 tipo: completar
 respuestas_validas:
-  - "corazón"
-  - "pulmones"
+  - "adaptación"
+  - "adaptacion"
 
-enunciado: "La presión arterial depende principalmente del gasto del _______ y la resistencia de los vasos sanguíneos."
+enunciado: "Cuando un grupo de pinzones desarrolla un pico especializado para un tipo de semilla predominante en su isla, se dice que la población ha desarrollado una ___."
 
 explicacion: |
-  El corazón actúa como la bomba que genera el flujo y la presión.
+  Una adaptación es un rasgo heredado que aumenta la capacidad de un organismo para sobrevivir y reproducirse en un ambiente determinado.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "valores_clinicos"
-  nivel: "intermedio"
-  tags: ["normalidad"]
-
-respuesta: "120/80"
-tipo: mc
-opciones_explicitas: ["120/80", "140/90", "110/70", "130/85"]
-
-enunciado: "Según las guías generales, un valor de presión arterial considerado óptimo o normal es aproximadamente:"
-
-explicacion: |
-  Aunque varía según la edad, 120/80 mmHg es el estándar de referencia para normalidad.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "patologia_presion"
+  tema: "seleccion_natural"
   nivel: "avanzado"
-  tags: ["hipertension"]
+  tags: ["conceptos_clave", "reproduccion"]
 
-respuesta: "hipertensión"
+variables:
+  caso: uno_de([["picos finos", "semillas pequeñas"], ["picos gruesos", "semillas grandes"]])
+
+opciones_explicitas: ["falla", "éxito", "mutación", "estancamiento"]
+respuesta: "éxito"
+tipo: mc
+
+enunciado: "Si en una isla predominan las {caso[1]}, los pinzones con picos tipo {caso[0]} tendrán un ___ reproductivo mayor debido a la disponibilidad de alimento."
+
+explicacion: |
+  El éxito reproductivo (fitness) se define por la capacidad de un individuo para sobrevivir y dejar descendencia con las características ventajosas en su entorno.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "basico"
+  tags: ["evolucion", "adaptacion", "biston_betularia"]
+
+respuesta: "claro"
 tipo: completar
 respuestas_validas:
-  - "hipertensión"
+  - "claro"
 
-enunciado: "Cuando la presión sistólica es consistentemente mayor a 140 mmHg, se diagnostica _______."
+enunciado: "En las poblaciones de la polilla Biston betularia antes de la Revolución Industrial, la mayoría de los individuos presentaban un color ___ debido a que los troncos de los árboles estaban cubiertos de líquenes claros."
 
 explicacion: |
-  La hipertensión se define por valores elevados de presión en el sistema arterial.
+  Antes de la industrialización, los líquenes claros en los árboles proporcionaban un camuflaje ideal para las polillas de color claro, permitiéndoles evitar a los depredadores.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "patologia_presion"
+  tema: "seleccion_natural"
   nivel: "intermedio"
-  tags: ["hipotension"]
+  tags: ["seleccion_natural", "camuflaje", "biston_betularia"]
 
-respuesta: "baja"
+opciones_explicitas: ["El aumento de la temperatura", "La mayor visibilidad de las polillas claras ante los depredadores", "La desaparición de los depredadores", "La mutación espontánea por el hollín"]
+respuesta: "La mayor visibilidad de las polillas claras ante los depredadores"
 tipo: mc
-opciones_explicitas: ["baja", "alta", "estable", "irregular"]
 
-enunciado: "La hipotensión se caracteriza por tener una presión arterial _______."
+enunciado: "Durante la Revolución Industrial, la contaminación por hollín oscureció los troncos de los árboles. ¿Cuál fue el principal factor de cambio en la población de polillas?"
 
 explicacion: |
-  Hipotensión es la disminución de la presión arterial por debajo de los niveles normales.
+  El hollín eliminó el camuflaje de las polillas claras, haciendo que los pájaros las detectaran y devoraran con mayor facilidad. Esto es un ejemplo de presión de selección ambiental.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "calculo_presion"
-  nivel: "avanzado"
-  tags: ["calculo"]
+  tema: "seleccion_natural"
+  nivel: "intermedio"
+  tags: ["supervivencia", "reproduccion", "biston_betularia"]
 
-respuesta: 40
+respuesta: "oscuro"
 tipo: completar
-tolerancia_abs: 0
+respuestas_validas:
+  - "oscuro"
 
-enunciado: "Si una persona tiene una presión de 120/80 mmHg, ¿cuál es su presión de pulso (diferencia entre sistólica y diastólica)?"
+enunciado: "En un ambiente con troncos oscurecidos por el hollín, las polillas de color ___ tienen una mayor probabilidad de sobrevivir y reproducirse."
+
+explicacion: |
+  La supervivencia diferencial es clave: los individuos con el fenotipo que mejor se camufla en el nuevo ambiente tienen más éxito reproductivo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "avanzado"
+  tags: ["frecuencia_alelica", "evolucion"]
+
+opciones_explicitas: ["Disminuye", "Se mantiene constante", "Aumenta", "Desaparece"]
+respuesta: "Aumenta"
+tipo: mc
+
+enunciado: "Si la supervivencia de las polillas oscuras aumenta debido al camuflaje en árboles contaminados, ¿qué sucede con la frecuencia de sus genes en la siguiente generación?"
+
+explicacion: |
+  La evolución se define como el cambio en las frecuencias alélicas de una población a lo largo del tiempo. Al sobrevivir más, las polillas oscuras pasan más genes a su descendencia.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "basico"
+  tags: ["conceptos_clave"]
+
+respuesta: "fenotipos"
+tipo: completar
+respuestas_validas:
+  - "fenotipos"
+  - "fenotipo"
+
+enunciado: "La selección natural actúa sobre los ___ de los individuos, permitiendo que aquellos con rasgos ventajosos sobrevivan mejor en un ambiente determinado."
+
+explicacion: |
+  La selección natural no actúa directamente sobre los genes, sino sobre el fenotipo (la expresión física de los rasgos), que es lo que los depredadores ven y lo que determina la supervivencia.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "basico"
+  tags: ["evolucion", "antibioticos"]
+
+respuesta: "selección"
+tipo: completar
+respuestas_validas:
+  - "selección"
+  - "seleccion"
+
+enunciado: "La resistencia a los antibióticos es un ejemplo de ___ natural, donde el fármaco actúa como un factor de presión ambiental."
+
+explicacion: |
+  La selección natural no crea la resistencia, sino que actúa sobre variaciones preexistentes. Los individuos que ya poseen mutaciones que les permiten sobrevivir al antibiótico son los que logran reproducirse, transmitiendo esa característica a la siguiente generación.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
+  nivel: "intermedio"
+  tags: ["mutacion", "genetica"]
+
+respuesta: "mutación previa"
+tipo: completar
+respuestas_validas:
+  - "mutación previa"
+  - "mutacion previa"
+
+enunciado: "En un entorno con presencia de antibióticos, la supervivencia de una población bacteriana depende de una ___ que ocurrió antes del contacto con el fármaco."
 
 pasos:
-  - "Restar la presión diastólica de la sistólica (120 - 80)."
+  - "Identificar si la mutación ocurre por necesidad o por azar."
+  - "Relacionar la mutación con la capacidad de supervivencia en el entorno actual."
 
 explicacion: |
-  La presión de pulso es la diferencia entre la presión sistólica y la diastólica.
+  Es un error común pensar que las bacterias "se adaptan" para sobrevivir al antibiótico. La mutación es un evento aleatorio que ocurre antes de la presión selectiva. El antibiótico solo "selecciona" a los que ya eran resistentes.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "factores_biologicos"
+  tema: "seleccion_natural"
   nivel: "intermedio"
-  tags: ["edad"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "La rigidez de las arterias asociada al envejecimiento suele provocar un aumento en la presión sistólica."
-
-explicacion: |
-  Con la edad, las arterias pierden elasticidad, lo que incrementa la presión sistólica.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "comparacion_vasos"
-  nivel: "intermedio"
-  tags: ["arterias", "venas"]
-
-respuesta: "arterias"
-tipo: completar
-respuestas_validas:
-  - "arterias"
-  - "venas"
-
-enunciado: "La presión arterial es significativamente más alta en las _______ que en las venas."
-
-explicacion: |
-  Las arterias transportan sangre a alta presión desde el corazón, mientras que las venas lo hacen a baja presión.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "factores_estres"
-  nivel: "intermedio"
-  tags: ["estres", "adrenalina"]
+  tags: ["poblacion", "supervivencia"]
 
 respuesta: "aumenta"
-tipo: mc
-opciones_explicitas: ["aumenta", "disminuye", "se mantiene", "desaparece"]
-
-enunciado: "Durante una situación de estrés agudo, la liberación de adrenalina provoca que la presión arterial _______."
-
-explicacion: |
-  La adrenalina causa vasoconstricción y aumenta la frecuencia cardíaca, elevando la presión.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "error_medicion"
-  nivel: "avanzado"
-  tags: ["manguito", "tamaño"]
-
-respuesta: "falsamente alta"
 tipo: completar
 respuestas_validas:
-  - "falsamente alta"
-  - "falsamente baja"
-
-enunciado: "Si el manguito es demasiado pequeño para el brazo del paciente, la lectura será _______."
-
-explicacion: |
-  Un manguito pequeño requiere más presión para ocluir la arteria, dando un valor erróneo superior al real.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "comparacion"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "La presión sistólica es siempre mayor que la presión diastólica."
-
-explicacion: |
-  Por definición, la sistólica es el pico de presión y la diastólica es el mínimo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ejercicio_fisico"
-  nivel: "intermedio"
-  tags: ["ejercicio"]
-
-respuesta: "aumenta"
-tipo: mc
-opciones_explicitas: ["aumenta", "disminuye", "se estabiliza", "cae"]
-
-enunciado: "Durante el ejercicio físico intenso, la presión arterial sistólica suele _______."
-
-explicacion: |
-  El aumento del gasto cardíaco durante el ejercicio eleva la presión sistólica.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "escenario_clinico"
-  nivel: "avanzado"
-  tags: ["deshidratacion", "volumen"]
-
-respuesta: "disminuye"
-tipo: completar
-respuestas_validas:
-  - "disminuye"
   - "aumenta"
 
-enunciado: "En un paciente con deshidratación severa, el volumen sanguíneo total disminuye, lo que causa que la presión arterial _______."
+enunciado: "Si un pesticida elimina a todos los insectos sensibles pero no a los que poseen una mutación de resistencia, la frecuencia de genes de resistencia en la siguiente generación ___."
 
 explicacion: |
-  Menos volumen de fluido en el sistema circulatorio reduce la presión ejercida contra las paredes.
+  Al morir los individuos no resistentes, los sobrevivientes (que portan el gen de resistencia) son los únicos que dejan descendencia. Por lo tanto, la proporción de individuos con esa característica aumenta en la población.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "escenario_clinico"
+  tema: "seleccion_natural"
+  nivel: "basico"
+  tags: ["pesticidas", "presion_selectiva"]
+
+respuesta: "agente"
+tipo: completar
+respuestas_validas:
+  - "agente"
+  - "causa"
+
+enunciado: "En el proceso de evolución por selección natural, el antibiótico actúa como un ___ de selección que determina qué individuos logran reproducirse."
+
+explicacion: |
+  El antibiótico no es la causa de la mutación, sino el agente que ejerce la presión ambiental, filtrando a los individuos menos aptos para ese entorno específico.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural"
   nivel: "avanzado"
-  tags: ["vasodilatacion"]
+  tags: ["mitos_evolutivos", "resistencia"]
 
-respuesta: "baja"
-tipo: mc
-opciones_explicitas: ["baja", "sube", "se mantiene", "oscila"]
+respuesta: falso
+tipo: vf
 
-enunciado: "Si un fármaco produce una vasodilatación masiva en las arterias, la presión arterial _______."
+enunciado: "El uso excesivo de antibióticos provoca que las bacterias muten específicamente para volverse resistentes."
 
 explicacion: |
-  La vasodilatación reduce la resistencia periférica, lo que disminuye la presión.
+  Es falso. Las mutaciones son eventos aleatorios. El antibiótico no "induce" la mutación hacia la resistencia; simplemente elimina a los que no la tienen, permitiendo que la población cambie su composición genética hacia la resistencia.
 ```
+
+## Sección: sistemas-cuerpo-humano (22 preguntas)
 
 ```
 metadata:
   materia: "biologia"
-  tema: "sustancias_estimulantes"
-  nivel: "intermedio"
-  tags: ["cafeina", "estimulante"]
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["organizacion", "biologia_celular"]
 
 respuesta: verdadero
 tipo: vf
-enunciado: "El consumo de grandes cantidades de cafeína puede provocar un aumento temporal de la presión arterial."
+
+enunciado: "El orden de los niveles de organización biológica, desde lo más pequeño a lo más grande, es: célula, tejido, órgano, sistema y organismo."
 
 explicacion: |
-  La cafeína es un estimulante que puede elevar la presión arterial y la frecuencia cardíaca.
+  Correcto. La jerarquía biológica comienza con la unidad básica de la vida (célula) y se va complejizando mediante la agrupación de sus componentes.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "escenario_clinico"
-  nivel: "avanzado"
-  tags: ["postura"]
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["tejido", "celulas"]
 
-respuesta: "incorrecta"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un tejido se define como un grupo de células similares que trabajan juntas para cumplir una misma función."
+
+explicacion: |
+  Exacto. La especialización de las células permite que se agrupen en tejidos con funciones específicas (epitelial, muscular, nervioso, conectivo).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["organo", "celula"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un órgano es una estructura biológica compuesta por una sola célula altamente especializada."
+
+explicacion: |
+  Falso. Un órgano es una estructura compleja formada por la integración de diversos tejidos que colaboran para una función determinada.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "intermedio"
+  tags: ["corazon", "tejidos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El corazón es un órgano que combina tejidos muscular, nervioso y conectivo para cumplir su función de bombeo."
+
+explicacion: |
+  Verdadero. Para funcionar, el corazón requiere tejido muscular (miocardio), tejido nervioso (para la conducción eléctrica) y tejido conectivo (válvulas y estructura).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "intermedio"
+  tags: ["organizacion", "definiciones"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  datos: [["tejido", "grupo de celulas similares con la misma funcion"], ["organo", "combinacion de distintos tejidos con un proposito"], ["sistema", "conjunto de organos que colaboran en una funcion general"]]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["grupo de celulas similares con la misma funcion", "combinacion de distintos tejidos con un proposito", "conjunto de organos que colaboran en una funcion general"]
+
+enunciado: "Identifica la definición correcta para el nivel de organización: {datos[idx][0]}"
+
+explicacion: |
+  La respuesta correcta corresponde a la definición del nivel seleccionado en este intento.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["sistemas", "fisiologia"]
+
+variables:
+  idx: uno_de([0, 1, 2, 3])
+  escenario: [["digestivo", "descomponer alimento y absorber nutrientes"], ["respiratorio", "intercambio de gases oxigeno y dioxido de carbono"], ["circulatorio", "transportar sangre, nutrientes y gases"], ["nervioso", "recibir y procesar informacion, controlar el cuerpo"]]
+
+opciones_explicitas: ["descomponer alimento y absorber nutrientes", "intercambio de gases oxigeno y dioxido de carbono", "transportar sangre, nutrientes y gases", "recibir y procesar informacion, controlar el cuerpo"]
+
+respuesta: escenario[idx][1]
+tipo: mc
+
+enunciado: "La función principal del sistema {escenario[idx][0]} es: ___"
+
+explicacion: |
+  El sistema seleccionado es el {escenario[idx][0]}, cuya función es {escenario[idx][1]}.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["respiratorio", "gases"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sistema respiratorio se encarga del intercambio de gases entre el cuerpo y el aire."
+
+explicacion: |
+  Verdadero. El sistema respiratorio permite la entrada de oxígeno y la eliminación de dióxido de carbono.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["circulatorio", "sangre"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sistema circulatorio transporta sangre por todo el cuerpo."
+
+explicacion: |
+  Verdadero. A través de la sangre, el sistema circulatorio distribuye nutrientes y oxígeno a todas las células.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["digestivo", "nervioso"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El sistema digestivo se encarga de procesar información nerviosa."
+
+explicacion: |
+  Falso. El procesamiento de la información nerviosa es función del sistema nervioso; el digestivo se encarga de la nutrición.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["sistemas", "anatomia"]
+
+variables:
+  escenario: [["oseo", "huesos"], ["muscular", "musculos"], ["excretor", "riñones"], ["endocrino", "tiroides o pancreas"]]
+  idx: uno_de([0, 1, 2, 3])
+  sistema_actual: escenario[idx][0]
+  organo_correcto: escenario[idx][1]
+
+tipo: mc
+opciones_explicitas: ["huesos", "musculos", "riñones", "tiroides o pancreas"]
+
+enunciado: "El sistema {sistema_actual} tiene como órgano clave a los ___."
+
+respuesta: organo_correcto
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["sistema_oseo", "funciones"]
+
+tipo: vf
+
+enunciado: "El sistema óseo cumple la función de sostén y protección."
+
+respuesta: verdadero
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["sistema_muscular", "movimiento"]
+
+tipo: vf
+
+enunciado: "El sistema muscular es responsable del movimiento del cuerpo."
+
+respuesta: verdadero
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["sistema_excretor", "riñones"]
+
+tipo: vf
+
+enunciado: "El sistema excretor filtra y elimina desechos, teniendo a los riñones como órgano clave."
+
+respuesta: verdadero
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["integracion", "sistemas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ningún sistema del cuerpo humano trabaja de forma completamente aislada; todos funcionan de manera coordinada."
+
+explicacion: |
+  El cuerpo humano es un sistema complejo donde la interacción entre órganos y sistemas es fundamental para mantener la homeostasis.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "intermedio"
+  tags: ["musculo", "nervioso", "circulatorio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para que un músculo realice un movimiento, es necesaria la señal eléctrica proveniente del sistema nervioso y el suministro de oxígeno transportado por el sistema circulatorio."
+
+explicacion: |
+  El sistema nervioso envía el impulso para la contracción, mientras que el sistema circulatorio provee el oxígeno necesario para el metabolismo celular muscular.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["especializacion", "integracion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La especialización de cada sistema (digestivo, excretor, nervioso, etc.) significa que sus funciones son completamente independientes entre sí."
+
+explicacion: |
+  Aunque cada sistema tiene funciones especializadas, todos están integrados. La especialización permite la eficiencia, pero la interdependencia es necesaria para la vida.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["respiratorio", "circulatorio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sistema respiratorio es el encargado de capturar el oxígeno del medio externo, el cual es posteriormente transportado por la sangre a través del sistema circulatorio."
+
+explicacion: |
+  Existe una dependencia directa: el sistema respiratorio realiza el intercambio gaseoso en los alvéolos y el sistema circulatorio actúa como el vehículo de distribución.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["homeostasis", "equilibrio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La homeostasis es el equilibrio interno del cuerpo (temperatura, pH, azúcar en sangre), aunque el ambiente externo cambie."
+
+explicacion: |
+  La homeostasis es el proceso mediante el cual los organismos mantienen un ambiente interno estable a pesar de las variaciones en el entorno.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["homeostasis", "sistemas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Todos los sistemas del cuerpo, en conjunto, trabajan para mantener la homeostasis."
+
+explicacion: |
+  La homeostasis no depende de un solo órgano, sino de la interacción coordinada de múltiples sistemas (nervioso, endocrino, excretor, etc.).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["sistema_inmunitario", "defensa"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sistema inmunitario se encarga de la defensa del organismo contra patógenos."
+
+explicacion: |
+  El sistema inmunitario identifica y destruye agentes extraños como bacterias, virus y parásitos para proteger al cuerpo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["sistema_reproductor", "reproduccion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sistema reproductor tiene como función principal la producción de descendencia para asegurar la supervivencia de la especie."
+
+explicacion: |
+  A diferencia de otros sistemas que mantienen la vida del individuo, el sistema reproductor permite la continuidad de la vida a nivel poblacional.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "sistemas_cuerpo_humano"
+  nivel: "basico"
+  tags: ["homeostasis", "completar"]
+
+respuesta: "homeostasis"
 tipo: completar
 respuestas_validas:
-  - "incorrecta"
-  - "correcta"
+  - "homeostasis"
 
-enunciado: "Si el paciente tiene las piernas cruzadas durante la toma de presión, la lectura obtenida será _______."
-
-explicacion: |
-  Cruzar las piernas aumenta la presión arterial sistólica en la medición.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "nutricion_presion"
-  nivel: "intermedio"
-  tags: ["sodio", "dieta"]
-
-respuesta: "aumenta"
-tipo: mc
-opciones_explicitas: ["aumenta", "disminuye", "no cambia", "baja"]
-
-enunciado: "Una dieta con un contenido muy elevado de sodio (sal) tiende a _______ la presión arterial a largo plazo."
+enunciado: "El equilibrio interno del cuerpo que se mantiene aunque el ambiente externo cambie se llama ___."
 
 explicacion: |
-  El sodio retiene agua en el torrente sanguíneo, aumentando el volumen y la presión.
+  El término correcto es homeostasis, que proviene del griego 'homoios' (similar) y 'stasis' (estabilidad).
 ```
 

@@ -3,71 +3,71 @@
   "id": 766,
   "cluster": 1,
   "temas": [
-   "balanza-comercial",
    "blockchain-claves-wallet",
-   "business-model-canvas",
    "capitalismo-industrial-trabajo-asalariado",
-   "comercio-internacional-ventaja-comparativa"
+   "contratos-inteligentes",
+   "costo-marginal",
+   "debe-haber-balance"
   ],
-  "preguntas": 114
+  "preguntas": 116
  },
  {
   "id": 767,
   "cluster": 2,
   "temas": [
-   "contratos-inteligentes",
-   "control-de-gestion-e-indicadores",
-   "cooperativismo-y-mutualismo",
-   "coordinar-personas-y-recursos",
-   "costo-de-oportunidad"
+   "detectar-una-oportunidad-de-negocio",
+   "elasticidad",
+   "estructura-del-patrimonio",
+   "estructura-productiva-dependencia",
+   "ecuacion-contable-fundamental"
   ],
-  "preguntas": 126
+  "preguntas": 120
  },
  {
   "id": 768,
   "cluster": 3,
   "temas": [
-   "costo-marginal",
-   "debe-haber-balance",
-   "detectar-una-oportunidad-de-negocio",
-   "dex-swap",
-   "division-formal-microeconomia-macroeconomia"
+   "interes-simple",
+   "iva",
+   "interes-compuesto",
+   "origen-excedente-moneda-mercado",
+   "cft-vs-tasa-nominal"
   ],
-  "preguntas": 114
+  "preguntas": 120
  },
  {
   "id": 769,
   "cluster": 4,
   "temas": [
-   "elasticidad",
-   "economia-positiva-y-normativa",
-   "estado-de-resultados",
-   "estructura-del-patrimonio",
-   "estructura-productiva-dependencia"
+   "cuota-credito-frances",
+   "dex-swap",
+   "interes-compuesto-funcion",
+   "partida-doble",
+   "plazo-fijo-vs-inflacion"
   ],
-  "preguntas": 116
+  "preguntas": 111
  },
  {
   "id": 770,
   "cluster": 5,
   "temas": [
-   "ecuacion-contable-fundamental",
-   "interes-simple",
-   "iva",
-   "interes-compuesto",
-   "margenes-bruto-y-neto"
+   "libro-diario-mayor",
+   "pools-liquidez-amm",
+   "estados-contables",
+   "precio-final",
+   "contabilidad-ambiental"
   ],
-  "preguntas": 124
+  "preguntas": 114
  },
  {
   "id": 771,
   "cluster": 6,
   "temas": [
-   "cft-vs-tasa-nominal",
-   "cuota-credito-frances",
-   "interes-compuesto-funcion",
-   "mejora-continua",
-   "mvp-producto-minimo-viable"
+   "contabilidad-como-sistema-de-informacion",
+   "costo-de-oportunidad",
+   "indices-financieros",
+   "division-formal-microeconomia-macroeconomia",
+   "oferta-y-demanda"
   ],
   "preguntas": 120
  },
@@ -75,121 +75,121 @@
   "id": 772,
   "cluster": 7,
   "temas": [
-   "objetivos-y-metas",
-   "origen-excedente-moneda-mercado",
-   "partida-doble",
-   "pitch-a-inversores",
-   "libro-diario-mayor"
-  ],
-  "preguntas": 117
- },
- {
-  "id": 773,
-  "cluster": 8,
-  "temas": [
-   "planificacion-administrativa",
-   "estados-contables",
-   "plazo-fijo-vs-inflacion",
-   "contabilidad-ambiental",
-   "contabilidad-como-sistema-de-informacion"
-  ],
-  "preguntas": 120
- },
- {
-  "id": 774,
-  "cluster": 9,
-  "temas": [
-   "indices-financieros",
-   "pools-liquidez-amm",
-   "precio-final",
-   "presupuesto-administrativo",
-   "oferta-y-demanda"
-  ],
-  "preguntas": 115
- },
- {
-  "id": 775,
-  "cluster": 10,
-  "temas": [
-   "productividad-produccion-insumos",
+   "economia-positiva-y-normativa",
    "fisiocracia",
    "mercantilismo",
    "pbi-e-inflacion",
    "liberalismo-clasico-y-escuela-austriaca"
   ],
-  "preguntas": 71
+  "preguntas": 68
+ },
+ {
+  "id": 773,
+  "cluster": 8,
+  "temas": [
+   "balanza-comercial",
+   "recibo-de-sueldo/general",
+   "comercio-internacional-ventaja-comparativa",
+   "recibo-de-sueldo/argentina",
+   "sectores-economicos"
+  ],
+  "preguntas": 108
+ },
+ {
+  "id": 774,
+  "cluster": 9,
+  "temas": [
+   "descuentos-obligatorios/jubilacion",
+   "descuentos-obligatorios/obra-social",
+   "jubilacion-sistema-previsional",
+   "monotributo",
+   "socialismo-utopico"
+  ],
+  "preguntas": 94
+ },
+ {
+  "id": 775,
+  "cluster": 10,
+  "temas": [
+   "sueldo-promedio-pais",
+   "marxismo",
+   "tipo-cambio-fijo",
+   "economia-feminista-y-del-cuidado",
+   "keynesianismo"
+  ],
+  "preguntas": 65
  },
  {
   "id": 776,
   "cluster": 11,
   "temas": [
-   "punto-de-equilibrio",
-   "recibo-de-sueldo/general",
-   "sectores-economicos",
-   "recibo-de-sueldo/argentina",
-   "socialismo-utopico"
+   "tipo-cambio-flotante",
+   "neoliberalismo",
+   "devaluacion",
+   "ordoliberalismo",
+   "reservas-banco-central"
   ],
-  "preguntas": 101
+  "preguntas": 83
  },
  {
   "id": 777,
   "cluster": 12,
   "temas": [
-   "descuentos-obligatorios/jubilacion",
-   "descuentos-obligatorios/obra-social",
-   "jubilacion-sistema-previsional",
-   "marxismo",
-   "monotributo"
+   "tipos-de-organizaciones",
+   "deuda-publica-externa",
+   "deuda-publica-interna",
+   "elementos-de-las-organizaciones",
+   "default-deuda"
   ],
-  "preguntas": 95
+  "preguntas": 113
  },
  {
   "id": 778,
   "cluster": 13,
   "temas": [
-   "economia-feminista-y-del-cuidado",
-   "keynesianismo",
-   "sueldo-promedio-pais",
-   "neoliberalismo",
-   "ordoliberalismo"
+   "ambiente-interno-y-externo-organizacion",
+   "cultura-organizacional",
+   "estructura-organizacional",
+   "objetivos-y-metas",
+   "tipos-de-proyecto"
   ],
-  "preguntas": 55
+  "preguntas": 139
  },
  {
   "id": 779,
   "cluster": 14,
   "temas": [
-   "tipo-cambio-fijo",
-   "tipo-cambio-flotante",
-   "tipos-de-organizaciones",
-   "devaluacion",
-   "elementos-de-las-organizaciones"
+   "cooperativismo-y-mutualismo",
+   "planificacion-administrativa",
+   "tipos-de-sociedades",
+   "coordinar-personas-y-recursos",
+   "presupuesto-administrativo"
   ],
-  "preguntas": 113
+  "preguntas": 127
  },
  {
   "id": 780,
   "cluster": 15,
   "temas": [
-   "reservas-banco-central",
-   "ambiente-interno-y-externo-organizacion",
-   "cultura-organizacional",
-   "deuda-publica-externa",
-   "deuda-publica-interna"
+   "validar-con-clientes-construir-medir-aprender",
+   "control-de-gestion-e-indicadores",
+   "estado-de-resultados",
+   "mejora-continua",
+   "margenes-bruto-y-neto"
   ],
-  "preguntas": 111
+  "preguntas": 126
  },
  {
   "id": 781,
   "cluster": 16,
   "temas": [
-   "estructura-organizacional",
-   "default-deuda",
-   "tipos-de-proyecto",
-   "tipos-de-sociedades",
-   "validar-con-clientes-construir-medir-aprender"
+   "mvp-producto-minimo-viable",
+   "productividad-produccion-insumos",
+   "business-model-canvas",
+   "punto-de-equilibrio",
+   "pitch-a-inversores"
   ],
-  "preguntas": 137
+  "preguntas": 125
  },
  {
   "id": 782,

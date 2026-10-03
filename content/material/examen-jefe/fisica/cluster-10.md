@@ -1,1614 +1,525 @@
 # Examen jefe — [PENDIENTE #745]
 
-> Logro #745. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **130 preguntas totales** en 5/5 secciones.
+> Logro #745. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: momento-lineal (26 preguntas)
+## Sección: semivida-desintegracion-exponencial (25 preguntas)
 
 ```
 metadata:
   materia: "fisica"
-  tema: "momento_lineal"
+  tema: "semivida_desintegracion_exponencial"
   nivel: "basico"
-  tags: ["definicion", "cantidad_de_movimiento"]
+  tags: ["radiactividad", "conceptos_clave"]
 
-respuesta: "p = m * v"
+respuesta: "semivida"
 tipo: completar
 respuestas_validas:
-  - "p = m * v"
-  - "p = m*v"
-  - "p = m·v"
+  - "semivida"
+  - "vida media"
 
-enunciado: "La expresión matemática que define la cantidad de movimiento (o momento lineal) de un objeto en función de su masa (m) y su velocidad (v) es ___."
+enunciado: "El tiempo necesario para que la actividad de una muestra radiactiva se reduzca a la mitad de su valor inicial se denomina ___."
 
 explicacion: |
-  El momento lineal es una magnitud vectorial que se define como el producto de la masa de un objeto por su velocidad.
+  La semivida (o vida media, $T_{1/2}$) es el intervalo de tiempo en el cual la cantidad de núcleos radiactivos presentes en una muestra se reduce exactamente a la mitad.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["relacion", "proporcionalidad"]
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "intermedio"
+  tags: ["calculo", "constante_de_desintegracion"]
 
 variables:
-  datos: [["se duplica", "aumenta"], ["se mantiene igual", "se mantiene igual"]]
   idx: uno_de([0, 1])
+  datos: [[10, 0.0693], [20, 0.0347]]
 
 respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["disminuye", "aumenta", "se mantiene igual"]
-
-enunciado: "Si un objeto mantiene su velocidad constante pero su masa se duplica, su momento lineal ___."
-
-explicacion: |
-  Dado que $p = m \cdot v$, si la velocidad es constante, el momento es directamente proporcional a la masa. Al duplicar la masa, el momento también se duplica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["vectorial", "escalar"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿El momento lineal es una magnitud vectorial, ya que posee dirección y sentido?"
-
-explicacion: |
-  Correcto. Al ser el producto de un escalar (masa) por un vector (velocidad), el momento lineal resultante es un vector.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["unidades", "si"]
-
-respuesta: "kg·m/s"
 tipo: completar
-respuestas_validas:
-  - "kg·m/s"
-  - "kg m/s"
-  - "kg*m/s"
+tolerancia_abs: 0.001
 
-enunciado: "En el Sistema Internacional de Unidades (SI), la unidad de medida del momento lineal es ___."
-
-explicacion: |
-  La unidad se deriva directamente de la fórmula: masa (kg) multiplicada por velocidad (m/s), resultando en kg·m/s.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["componentes"]
-
-respuesta: "10"
-tipo: completar
-respuestas_validas:
-  - "10"
-
-enunciado: "Si un objeto tiene una masa de 5 kg y una velocidad de 2 m/s, su momento lineal es ___ kg·m/s."
-
-explicacion: |
-  Calculamos el producto: 5 kg * 2 m/s = 10 kg·m/s.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["definicion", "formula"]
-
-respuesta: "m·v"
-tipo: completar
-respuestas_validas:
-  - "m·v"
-  - "m*v"
-  - "p=m*v"
-
-enunciado: "La cantidad de movimiento o momento lineal de un objeto se define matemáticamente como el producto de su masa por su ___."
-
-explicacion: |
-  El momento lineal ($p$) es una magnitud vectorial que se define como el producto de la masa ($m$) por la velocidad ($v$): $p = m \cdot v$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["calculo", "numerico"]
-
-variables:
-  escenario: uno_de([[10, 5], [20, 2], [5, 10]])
-
-respuesta: escenario[0] * escenario[1]
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Un objeto tiene una masa de {escenario[0]} kg y se desplaza con una velocidad constante de {escenario[1]} m/s. ¿Cuál es su momento lineal en kg·m/s?"
+enunciado: "Si la semivida de un isótopo es de {datos[idx][0]} años, ¿cuál es su constante de desintegración (λ) aproximada?"
 
 pasos:
-  - "Identificar la masa: m = {escenario[0]} kg"
-  - "Identificar la velocidad: v = {escenario[1]} m/s"
-  - "Aplicar la fórmula: p = m * v = {escenario[0]} * {escenario[1]}"
+  - "Calcular λ = ln(2) / T½"
+  - "Usar ln(2) ≈ 0.693"
 
 explicacion: |
-  El cálculo es: {escenario[0]} kg * {escenario[1]} m/s = {escenario[0] * escenario[1]} kg·m/s.
+  La relación entre la semivida (T½) y la constante de desintegración (λ) está dada por la fórmula: λ = ln(2) / T½.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "intermedio"
-  tags: ["proporcionalidad"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "Si un objeto duplica su velocidad pero mantiene su masa constante, su momento lineal también se duplica."
-
-explicacion: |
-  Como $p = m \cdot v$, el momento es directamente proporcional a la velocidad. Si $v' = 2v$, entonces $p' = m \cdot (2v) = 2(m \cdot v) = 2p$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-variables:
-  idx: uno_de([0, 1])
-  b_vel: [2, 8]
-  ganador: ["A", "B"]
-
-respuesta: ganador[idx]
-tipo: mc
-opciones_explicitas: ["A", "B"]
-
-enunciado: "Considera dos objetos: el Objeto A tiene 2 kg a 10 m/s. El Objeto B tiene 5 kg a {b_vel[idx]} m/s. ¿Cuál de ellos posee un mayor momento lineal?"
-
-explicacion: |
-  Calculamos ambos:
-  p_A = 2 kg * 10 m/s = 20 kg·m/s.
-  p_B = 5 kg * {b_vel[idx]} m/s = {5 * b_vel[idx]} kg·m/s.
-  Por lo tanto, el objeto con mayor momento lineal es el {ganador[idx]}.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-respuesta: "A"
-tipo: mc
-opciones_explicitas: ["A", "B"]
-
-enunciado: "Si el Objeto A tiene 2 kg a 10 m/s y el Objeto B tiene 5 kg a 2 m/s, ¿cuál tiene mayor momento lineal?"
-
-explicacion: |
-  p_A = 2 * 10 = 20 kg·m/s.
-  p_B = 5 * 2 = 10 kg·m/s.
-  Por lo tanto, el objeto A tiene mayor momento.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
+  tema: "semivida_desintegracion_exponencial"
   nivel: "basico"
-  tags: ["unidades"]
-
-respuesta: "kg·m/s"
-tipo: completar
-respuestas_validas:
-  - "kg*m/s"
-  - "kg m/s"
-  - "kg·m/s"
-
-enunciado: "En el Sistema Internacional (SI), la unidad de medida del momento lineal es ___."
-
-explicacion: |
-  Dado que el momento es masa (kg) multiplicado por velocidad (m/s), su unidad resultante es kg·m/s.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["conceptos_clave", "relacion_proporcional"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[2.0, 5.0], [10.0, 2.0]]
-
-enunciado: "Si un objeto tiene una masa de {datos[idx][0]} kg y una velocidad de {datos[idx][1]} m/s, su momento lineal es de ___ kg·m/s."
-
-respuesta: datos[idx][0] * datos[idx][1]
-tipo: completar
-tolerancia_abs: 0.01
-
-explicacion: |
-  El momento lineal (p) se define como el producto de la masa por la velocidad (p = m · v). En este caso, el cálculo es {datos[idx][0]} * {datos[idx][1]} = {datos[idx][0] * datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "intermedio"
-  tags: ["errores_comunes", "conceptos"]
-
-enunciado: "Un camión de gran masa se desplaza a una velocidad muy baja, mientras que una pelota de tenis se desplaza a una velocidad muy alta. ¿Es posible que ambos tengan el mismo momento lineal?"
-
-opciones_explicitas:
-  - "Sí, el momento depende de ambos factores y pueden compensarse."
-  - "No, el camión siempre tendrá más momento por su gran masa."
-  - "No, la velocidad de la pelota es siempre mayor que la del camión."
-  - "Sí, siempre que la aceleración sea la misma."
-
-respuesta: "Sí, el momento depende de ambos factores y pueden compensarse."
-tipo: mc
-
-explicacion: |
-  Un error común es pensar que la masa es el único factor determinante. Sin embargo, como p = m · v, una masa muy grande con una velocidad muy pequeña puede resultar en el mismo momento que una masa muy pequeña con una velocidad muy grande.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["vectores", "direccion"]
-
-enunciado: "Si consideramos que la dirección hacia la derecha es positiva, un objeto que se mueve hacia la izquierda con una masa de 5 kg y una velocidad de 3 m/s tiene un momento lineal de ___ kg·m/s."
-
-respuestas_validas:
-  - "-15"
-
-tipo: completar
-
-explicacion: |
-  El momento lineal es una magnitud vectorial. Si el objeto se mueve hacia la izquierda (dirección negativa), el signo del momento debe ser negativo: p = 5 kg * (-3 m/s) = -15 kg·m/s.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "intermedio"
-  tags: ["dinamica", "fuerza"]
-
-enunciado: "Si la velocidad de un objeto aumenta mientras su masa permanece constante, ¿qué sucede con su momento lineal?"
-
-opciones_explicitas:
-  - "El momento lineal aumenta."
-  - "El momento lineal disminuye."
-  - "El momento lineal permanece constante."
-  - "El momento lineal se vuelve cero."
-
-respuesta: "El momento lineal aumenta."
-tipo: mc
-
-explicacion: |
-  Dado que p = m · v, si la masa (m) es constante y la velocidad (v) aumenta, el producto resultante (p) debe aumentar proporcionalmente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["unidades", "dimensiones"]
-
-enunciado: "La unidad resultante de multiplicar la unidad de masa (kg) por la unidad de velocidad (m/s) es:"
-
-opciones_explicitas:
-  - "kg·m/s"
-  - "kg·m/s²"
-  - "kg/m·s"
-  - "N·m"
-
-respuesta: "kg·m/s"
-tipo: mc
-
-explicacion: |
-  Por definición de la fórmula p = m · v, las unidades se combinan multiplicando kilogramos (kg) por metros por segundo (m/s), resultando en kg·m/s.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["conceptos", "definicion"]
+  tags: ["comportamiento", "exponencial"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El momento lineal de un objeto depende únicamente de su masa, independientemente de su velocidad."
+enunciado: "¿Es correcto afirmar que después de pasar exactamente dos semividas, la cantidad de núcleos radiactivos remanentes es el 50% de la cantidad inicial?"
 
 explicacion: |
-  El momento lineal se define como el producto de la masa por la velocidad ($p = m \cdot v$). Por lo tanto, la velocidad es un factor determinante.
+  Falso. Después de una semivida queda el 50%. Después de dos semividas, queda el 50% del 50%, es decir, el 25% de la muestra original.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["comparacion"]
-
-variables:
-  idx: uno_de([0, 1])
-  masas: [10, 5]
-  velocidades: [2, 4]
-  descripciones: ["un objeto A de 10 kg a 2 m/s", "un objeto B de 5 kg a 4 m/s"]
-
-respuesta: masas[idx] * velocidades[idx]
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Calcula el módulo del momento lineal para {descripciones[idx]}."
-
-pasos:
-  - "Identificar la masa (m) y la velocidad (v) del objeto."
-  - "Multiplicar la masa por la velocidad (p = m · v)."
-
-explicacion: |
-  El momento lineal es una magnitud vectorial que depende tanto de la masa como de la velocidad. En el caso seleccionado, el resultado es {masas[idx] * velocidades[idx]} kg·m/s.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
+  tema: "semivida_desintegracion_exponencial"
   nivel: "basico"
   tags: ["terminologia"]
 
-respuesta: "cantidad de movimiento"
-tipo: completar
-respuestas_validas:
-  - "cantidad de movimiento"
-  - "cantidad de movimiento"
-
-enunciado: "En muchos contextos académicos, el concepto de momento lineal es sinónimo de ___."
-
-explicacion: |
-  Tanto 'momento lineal' como 'cantidad de movimiento' se refieren a la misma magnitud física ($p = m \cdot v$).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "intermedio"
-  tags: ["comparacion", "dimensiones"]
-
-respuesta: "vectorial"
+respuesta: "exponencial"
 tipo: mc
-opciones_explicitas: ["escalar", "vectorial", "unidades de fuerza", "aceleración"]
+opciones_explicitas: ["lineal", "exponencial", "logarítmica", "constante"]
 
-enunciado: "A diferencia de la masa, que es una magnitud escalar, el momento lineal es una magnitud ___."
+enunciado: "La disminución de la actividad de una muestra radiactiva a lo largo del tiempo sigue un decaimiento de tipo ___."
 
 explicacion: |
-  El momento lineal posee dirección y sentido (definidos por el vector velocidad), por lo que es una magnitud vectorial.
+  La ley de desintegración radiactiva establece que la tasa de desintegración es proporcional al número de núcleos presentes, lo que resulta en una función de decaimiento exponencial.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "momento_lineal"
+  tema: "semivida_desintegracion_exponencial"
   nivel: "intermedio"
-  tags: ["teorema", "impulso"]
+  tags: ["secuencia", "fracciones"]
 
-variables:
-  caso: uno_de([["un choque de alta velocidad", "un objeto con gran masa en reposo"], ["un objeto con gran masa en reposo", "un choque de alta velocidad"]])
-
-respuesta: "impulso"
-tipo: completar
-respuestas_validas:
-  - "impulso"
-
-enunciado: "El cambio en el momento lineal de un objeto es igual al ___ aplicado sobre dicho objeto."
-
-explicacion: |
-  Según el teorema del impulso, el cambio en la cantidad de movimiento ($\Delta p$) es igual al impulso ($J = F \cdot \Delta t$). En el caso de {caso[0]}, se observa este principio.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["cantidad_de_movimiento", "cinematica"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[1500, 20, 30000], [1200, 10, 12000]]
-
-enunciado: "Un vehículo de masa de {datos[escenario_idx][0]} kg se desplaza con una velocidad de {datos[escenario_idx][1]} m/s. ¿Cuál es su cantidad de movimiento (p, en kg·m/s)?"
-
-opciones_explicitas: [30000, 12000, 25000, 45000]
-respuesta: datos[escenario_idx][2]
-tipo: mc
-
-explicacion: |
-  El momento lineal se calcula con la fórmula p = m · v.
-  En este caso: {datos[escenario_idx][0]} kg * {datos[escenario_idx][1]} m/s = {datos[escenario_idx][2]} kg·m/s.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "intermedio"
-  tags: ["comparacion", "masa", "velocidad"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: [[10, 5, 50], [5, 10, 50]]
-
-enunciado: "Si un objeto A tiene masa {escenario[escenario_idx][0]} kg y velocidad {escenario[escenario_idx][1]} m/s, y un objeto B tiene la misma cantidad de movimiento que A, ¿cuál es su valor (en kg·m/s)?"
-
-opciones_explicitas: [50, 10, 100, 25]
-respuesta: escenario[escenario_idx][2]
-tipo: mc
-
-explicacion: |
-  El momento lineal es el producto de la masa por la velocidad. 
-  Para el escenario seleccionado: {escenario[escenario_idx][0]} * {escenario[escenario_idx][1]} = {escenario[escenario_idx][2]}.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["teoria", "concepto"]
-
-enunciado: "Si un objeto con masa constante aumenta su velocidad, su cantidad de movimiento ___."
-
-respuestas_validas:
-  - "aumenta"
-respuesta: "aumenta"
-tipo: completar
-
-explicacion: |
-  Dado que p = m · v, si la masa (m) es constante y la velocidad (v) aumenta, el producto p debe aumentar proporcionalmente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "avanzado"
-  tags: ["calculo", "impacto"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[0.05, 400], [0.02, 600]]
-
-enunciado: "Una bala de masa {datos[escenario_idx][0]} kg viaja a una velocidad de {datos[escenario_idx][1]} m/s. Al impactar un bloque, su velocidad se reduce a 5 m/s. ¿Cuál es la magnitud del cambio en su momento lineal (Δp)?"
-
-pasos:
-  - "Calcular el momento inicial: p_inicial = m * v_inicial"
-  - "Calcular el momento final: p_final = m * v_final"
-  - "Calcular la diferencia: Δp = p_inicial - p_final"
-
-respuesta: datos[escenario_idx][0] * (datos[escenario_idx][1] - 5)
-tipo: completar
-tolerancia_abs: 0.01
-
-explicacion: |
-  Δp = m(v_i - v_f).
-  Para este caso: {datos[escenario_idx][0]} * ({datos[escenario_idx][1]} - 5) = {datos[escenario_idx][0] * (datos[escenario_idx][1] - 5)}.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_lineal"
-  nivel: "basico"
-  tags: ["verdadero_falso", "propiedades"]
-
-enunciado: "Si dos objetos tienen la misma masa pero el doble de velocidad, el segundo objeto tiene el doble de cantidad de movimiento que el primero. ¿Es esto verdadero?"
-
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "verdadero"
-tipo: mc
-
-explicacion: |
-  Como p es directamente proporcional a la velocidad (p ∝ v), si la masa es constante y la velocidad se duplica, el momento lineal también se duplica.
-```
-
-## Sección: movimiento-circular-y-fuerza-centripeta (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "basico"
-  tags: ["mcu", "vocabulario"]
-
-enunciado: "¿Qué caracteriza al movimiento circular uniforme (MCU)?"
-tipo: mc
-opciones_explicitas:
-  - "Un objeto recorre una circunferencia manteniendo su rapidez (magnitud de la velocidad) constante"
-  - "Un objeto recorre una circunferencia acelerando cada vez más rápido"
-  - "Un objeto se mueve en línea recta a velocidad constante"
-respuesta: "Un objeto recorre una circunferencia manteniendo su rapidez (magnitud de la velocidad) constante"
-
-explicacion: |
-  La rapidez no cambia, pero la dirección de la velocidad sí — por eso
-  igual hay aceleración.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "intermedio"
-  tags: ["mcu"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En el movimiento circular uniforme, la velocidad (como vector, con magnitud y dirección) es constante."
-
-explicacion: |
-  La magnitud no cambia, pero la dirección sí (siempre tangente a la
-  circunferencia) — por eso el vector velocidad no es constante.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "intermedio"
-  tags: ["mcu"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el movimiento circular uniforme, la rapidez (la magnitud de la velocidad, sin importar la dirección) es constante."
-
-explicacion: |
-  Es justamente lo que lo hace "uniforme" — la palabra se refiere a la
-  rapidez, no a la velocidad completa.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "basico"
-  tags: ["mcu", "completar"]
-
-tipo: completar
-enunciado: "Completá: el tiempo que tarda un objeto en dar una vuelta completa se llama ___ (símbolo T)."
-respuestas_validas:
-  - "período"
-  - "periodo"
-
-explicacion: |
-  Se mide en segundos.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "basico"
-  tags: ["mcu", "completar"]
-
-tipo: completar
-enunciado: "Completá: la cantidad de vueltas por segundo, f=1/T, se llama ___ (unidad Hz)."
-respuestas_validas:
-  - "frecuencia"
-
-explicacion: |
-  Frecuencia y período son inversos entre sí.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "intermedio"
-  tags: ["mcu", "problema"]
-
-variables:
-  T: uno_de([2, 4, 5, 8, 10])
-
-respuesta: redondear(1 / T, 3)
-tipo: input
-tolerancia_abs: 0.01
-unidad: "Hz"
-
-enunciado: "Un objeto en MCU completa una vuelta cada {T} s. ¿Cuál es su frecuencia?"
-
-pasos:
-  - "f = 1 / T = 1 / {T} = {redondear(1 / T, 3)} Hz"
-
-explicacion: |
-  f y T son inversos: a mayor período, menor frecuencia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "intermedio"
-  tags: ["mcu", "problema"]
-
-variables:
-  f: uno_de([0.1, 0.2, 0.25, 0.5, 2, 4])
-
-respuesta: redondear(1 / f, 3)
-tipo: input
-tolerancia_abs: 0.01
-unidad: "s"
-
-enunciado: "Un objeto en MCU gira con una frecuencia de {f} Hz. ¿Cuál es su período?"
-
-pasos:
-  - "T = 1 / f = 1 / {f} = {redondear(1 / f, 3)} s"
-
-explicacion: |
-  T y f son inversos: a mayor frecuencia, menor período.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "avanzado"
-  tags: ["mcu", "problema"]
-
-variables:
-  T: uno_de([2, 4, 5, 8, 10])
-
-respuesta: redondear(2 * pi / T, 3)
-tipo: input
-tolerancia_abs: 0.02
-unidad: "rad/s"
-
-enunciado: "Un objeto en MCU completa una vuelta cada {T} s. ¿Cuál es su velocidad angular ω?"
-
-pasos:
-  - "ω = 2π / T = 2×π / {T} = {redondear(2 * pi / T, 3)} rad/s"
-
-explicacion: |
-  Una vuelta completa equivale a un ángulo de 2π radianes.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "intermedio"
-  tags: ["mcu", "problema"]
-
-variables:
-  omega: uno_de([1, 2, 3, 4, 5])
-  r: random(1, 5)
-
-respuesta: omega * r
-tipo: input
-unidad: "m/s"
-
-enunciado: "Un objeto gira con velocidad angular ω={omega} rad/s en un círculo de radio {r} m. ¿Cuál es su velocidad tangencial?"
-
-pasos:
-  - "v = ω × r = {omega} × {r} = {omega * r} m/s"
-
-explicacion: |
-  La velocidad tangencial es directamente proporcional al radio, para
-  una misma velocidad angular.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "avanzado"
-  tags: ["mcu", "problema"]
-
-variables:
-  r: random(1, 5)
-  T: uno_de([2, 4, 5, 8, 10])
-
-respuesta: redondear(2 * pi * r / T, 2)
-tipo: input
-tolerancia_abs: 0.05
-unidad: "m/s"
-
-enunciado: "Un objeto recorre un círculo de radio {r} m, completando una vuelta cada {T} s. ¿Cuál es su velocidad tangencial?"
-
-pasos:
-  - "v = 2π×r / T = 2×π×{r} / {T} = {redondear(2 * pi * r / T, 2)} m/s"
-
-explicacion: |
-  En una vuelta recorre el perímetro de la circunferencia (2π×r), en
-  un tiempo T.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "avanzado"
-  tags: ["mcu", "problema"]
-
-variables:
-  v: random(2, 20)
-  r: random(1, 10)
-
-respuesta: redondear(v ^ 2 / r, 2)
-tipo: input
-tolerancia_abs: 0.1
-unidad: "m/s²"
-
-enunciado: "Un objeto en MCU tiene una velocidad tangencial de {v} m/s en un círculo de radio {r} m. ¿Cuál es su aceleración centrípeta?"
-
-pasos:
-  - "a_c = v² / r = {v}² / {r} = {redondear(v ^ 2 / r, 2)} m/s²"
-
-explicacion: |
-  Apunta siempre hacia el centro del círculo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "avanzado"
-  tags: ["mcu", "problema"]
-
-variables:
-  m: random(1, 10)
-  v: random(2, 20)
-  r: random(1, 10)
-
-respuesta: redondear(m * v ^ 2 / r, 2)
-tipo: input
-tolerancia_abs: 0.2
-unidad: "N"
-
-enunciado: "Un objeto de {m} kg gira con velocidad tangencial {v} m/s en un círculo de radio {r} m. ¿Cuál es la fuerza centrípeta necesaria?"
-
-pasos:
-  - "F_c = m × v² / r = {m} × {v}² / {r} = {redondear(m * v ^ 2 / r, 2)} N"
-
-explicacion: |
-  Es la fuerza neta (real) que debe apuntar hacia el centro para
-  mantener esa trayectoria circular.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "basico"
-  tags: ["mcu"]
-
-enunciado: "¿Hacia dónde apunta la aceleración centrípeta en cada instante?"
-tipo: mc
-opciones_explicitas:
-  - "Hacia el centro del círculo"
-  - "En la misma dirección que la velocidad"
-  - "Hacia afuera del círculo"
-respuesta: "Hacia el centro del círculo"
-
-explicacion: |
-  Es lo que constantemente "curva" la trayectoria, cambiando la
-  dirección de la velocidad sin cambiar su magnitud.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "avanzado"
-  tags: ["mcu"]
-
-enunciado: "¿Qué es exactamente la 'fuerza centrípeta'?"
-tipo: mc
-opciones_explicitas:
-  - "El nombre que se le da a la fuerza neta (real) cuando su resultante apunta hacia el centro de una trayectoria circular"
-  - "Un tipo de fuerza física distinto de la gravedad, la tensión o el rozamiento"
-  - "Una fuerza que sólo existe en el espacio, sin gravedad"
-respuesta: "El nombre que se le da a la fuerza neta (real) cuando su resultante apunta hacia el centro de una trayectoria circular"
-
-explicacion: |
-  No se suma a las demás fuerzas — es cómo se llama a la resultante de
-  las fuerzas reales que ya actúan, cuando el objeto se mueve en
-  círculo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "intermedio"
-  tags: ["mcu", "aplicacion"]
-
-enunciado: "En un auto que toma una curva a velocidad constante, ¿qué fuerza real actúa como fuerza centrípeta?"
-tipo: mc
-opciones_explicitas:
-  - "El rozamiento entre las ruedas y el asfalto"
-  - "El peso del auto"
-  - "La fuerza del motor"
-respuesta: "El rozamiento entre las ruedas y el asfalto"
-
-explicacion: |
-  Si el asfalto está mojado o helado (rozamiento muy bajo), el auto no
-  logra la fuerza centrípeta necesaria y se sale de la curva.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "intermedio"
-  tags: ["mcu", "aplicacion"]
-
-enunciado: "En un satélite en órbita circular alrededor de la Tierra, ¿qué fuerza real actúa como fuerza centrípeta?"
-tipo: mc
-opciones_explicitas:
-  - "La gravedad de la Tierra"
-  - "El rozamiento con la atmósfera"
-  - "Los motores del satélite, funcionando constantemente"
-respuesta: "La gravedad de la Tierra"
-
-explicacion: |
-  Es la misma gravedad de `../gravitacion-universal/`, actuando ahora
-  como la fuerza que mantiene la órbita circular.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "basico"
-  tags: ["mcu", "aplicacion"]
-
-enunciado: "Al hacer girar una piedra atada a una cuerda, ¿qué fuerza real actúa como fuerza centrípeta?"
-tipo: mc
-opciones_explicitas:
-  - "La tensión de la cuerda"
-  - "El peso de la piedra"
-  - "El rozamiento del aire"
-respuesta: "La tensión de la cuerda"
-
-explicacion: |
-  La cuerda tira de la piedra hacia el centro, todo el tiempo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "intermedio"
-  tags: ["mcu"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si se corta la cuerda de una piedra que gira, la piedra sigue moviéndose en círculo por inercia."
-
-explicacion: |
-  Sin la tensión (la fuerza centrípeta), ya no hay nada que la
-  desvíe hacia el centro — sale disparada en línea recta, tangente al
-  punto donde se cortó la cuerda (primera ley de Newton).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "avanzado"
-  tags: ["mcu", "ordenar"]
-
-enunciado: "Ordená los pasos para calcular la fuerza centrípeta, sabiendo la masa, el radio y el período."
+respuesta_orden: ["100%", "50%", "25%", "12.5%"]
 tipo: ordenar
-opciones_explicitas:
-  - "Multiplicar por la masa para obtener la fuerza: F_c = m × a_c"
-  - "Calcular la velocidad tangencial: v = 2π×r / T"
-  - "Calcular la aceleración centrípeta: a_c = v² / r"
-respuesta_orden: ["Calcular la velocidad tangencial: v = 2π×r / T", "Calcular la aceleración centrípeta: a_c = v² / r", "Multiplicar por la masa para obtener la fuerza: F_c = m × a_c"]
+opciones_explicitas: ["100%", "50%", "25%", "12.5%"]
+
+enunciado: "Ordene de mayor a menor la cantidad de muestra radiactiva restante tras transcurrir 0, 1, 2 y 3 semividas respectivamente."
+
 explicacion: |
-  Cada paso usa el resultado del anterior.
+  Cada semivida reduce la muestra a la mitad:
+  - 0 semividas: 100%
+  - 1 semivida: 50%
+  - 2 semividas: 25%
+  - 3 semividas: 12.5%
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "avanzado"
-  tags: ["mcu"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si la velocidad tangencial se mantiene igual pero el radio del círculo es mayor, la aceleración centrípeta es menor."
-
-explicacion: |
-  a_c = v²/r: con v fijo, a mayor r, menor a_c (relación inversa).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "avanzado"
-  tags: ["mcu"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el radio se mantiene igual, duplicar la velocidad tangencial más que duplica la aceleración centrípeta (la cuadruplica)."
-
-explicacion: |
-  a_c = v²/r: la velocidad entra al cuadrado, así que duplicarla
-  multiplica a_c por 2² = 4.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "avanzado"
-  tags: ["mcu", "problema"]
-
-variables:
-  m: random(1, 5)
-  r: random(1, 4)
-  T: uno_de([2, 4, 5])
-  v: redondear(2 * pi * r / T, 3)
-
-respuesta: redondear(m * v ^ 2 / r, 2)
-tipo: input
-tolerancia_abs: 0.3
-unidad: "N"
-
-enunciado: "Un objeto de {m} kg gira en un círculo de radio {r} m, completando una vuelta cada {T} s (su velocidad tangencial es v={v} m/s). ¿Cuál es la fuerza centrípeta necesaria?"
-
-pasos:
-  - "v = 2π×r / T = {v} m/s"
-  - "F_c = m × v² / r = {m} × {v}² / {r} = {redondear(m * v ^ 2 / r, 2)} N"
-
-explicacion: |
-  Combina las dos fórmulas: primero la velocidad tangencial a partir
-  del período, después la fuerza centrípeta a partir de esa velocidad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
+  tema: "semivida_desintegracion_exponencial"
   nivel: "basico"
-  tags: ["mcu", "aplicacion"]
+  tags: ["radiactividad", "conceptos"]
 
-enunciado: "¿Por qué las curvas de las rutas y autódromos suelen tener 'peralte' (una inclinación hacia el centro de la curva)?"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La semivida (o vida media) es el tiempo necesario para que la cantidad de núcleos radiactivos de una muestra se reduzca a la mitad de su valor inicial."
+
+explicacion: |
+  Esta es exactamente la definición de semivida: el tiempo que tarda una muestra radiactiva en reducirse a la mitad de su cantidad inicial de núcleos.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "intermedio"
+  tags: ["formula", "constante_desintegracion"]
+
+respuesta: "ln(2)"
 tipo: mc
-opciones_explicitas:
-  - "Para que parte del peso del auto ayude a generar la fuerza centrípeta necesaria, sin depender sólo del rozamiento"
-  - "Para que los autos vayan más lento"
-  - "El peralte no tiene relación con la física del movimiento circular"
-respuesta: "Para que parte del peso del auto ayude a generar la fuerza centrípeta necesaria, sin depender sólo del rozamiento"
+opciones_explicitas: ["ln(2)", "1", "e", "0"]
+
+enunciado: "La relación entre la constante de desintegración λ y la semivida T½ está dada por la expresión λ = ___ / T½."
 
 explicacion: |
-  Con la pista inclinada, la componente del peso hacia el centro suma
-  a la fuerza centrípeta, permitiendo tomar la curva a más velocidad de
-  forma segura.
+  La relación matemática es λ = ln(2) / T½. Por lo tanto, T½ = ln(2) / λ.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "basico"
-  tags: ["mcu", "aplicacion"]
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "intermedio"
+  tags: ["calculo", "masa"]
 
-enunciado: "¿Cómo separa el agua de la ropa una centrifugadora de lavarropas?"
-tipo: mc
-opciones_explicitas:
-  - "El tambor gira rápido y sólo la ropa (sujeta a las paredes) recibe suficiente fuerza centrípeta; el agua, más libre, se escapa por los agujeros en línea recta"
-  - "El agua es atraída hacia el centro por gravedad"
-  - "El calor del motor evapora el agua"
-respuesta: "El tambor gira rápido y sólo la ropa (sujeta a las paredes) recibe suficiente fuerza centrípeta; el agua, más libre, se escapa por los agujeros en línea recta"
+variables:
+  escenario: uno_de([[100, 2], [80, 3], [50, 1]])
+
+respuesta: escenario[0] / 4
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Una muestra de un isótopo radiactivo tiene una masa inicial de {escenario[0]} g. Si la semivida del isótopo es de {escenario[1]} años, ¿cuántos gramos de la muestra permanecerán después de {escenario[1] * 2} años?"
+
+pasos:
+  - "Calcular el número de periodos de semivida transcurridos: $n = t / T_{1/2}$"
+  - "Aplicar la fórmula de desintegración: $N = N_0 \\cdot (1/2)^n$"
 
 explicacion: |
-  Es la misma idea que la piedra sin cuerda: sin suficiente fuerza
-  hacia el centro, un objeto sigue en línea recta (tangente) en vez de
-  la trayectoria circular.
+  1. El tiempo transcurrido es 2 veces la semivida ($n = 2$).
+  2. La masa remanente es $N_0 \cdot (1/2)^2 = N_0 \cdot 1/4$.
+  3. Si $N_0 = {escenario[0]}$, el resultado es {escenario[0] / 4} g.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "movimiento_circular_y_fuerza_centripeta"
-  nivel: "basico"
-  tags: ["cierre"]
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "avanzado"
+  tags: ["logaritmos", "tiempo"]
 
-enunciado: "¿Para qué sirve entender el movimiento circular y la fuerza centrípeta?"
+variables:
+  caso: uno_de([[100, 25, 50], [200, 10, 100], [120, 20, 60]])
+
+respuesta: caso[1]
+tipo: completar
+respuestas_validas:
+  - "25"
+  - "10"
+  - "20"
+
+enunciado: "Una muestra de sustancia radiactiva tiene una masa inicial de {caso[0]} g y una semivida de {caso[1]} años. Si actualmente la muestra tiene una masa de {caso[2]} g, ¿cuántos años han transcurrido?"
+
+explicacion: |
+  Para que la masa pase de {caso[0]} a {caso[2]}, la muestra debe haberse reducido a la mitad. 
+  Esto ocurre exactamente después de 1 periodo de semivida. 
+  Por lo tanto, han transcurrido {caso[1]} años.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "basico"
+  tags: ["ordenar", "proceso"]
+
+respuesta_orden: ["Muestra inicial", "50% de la muestra", "25% de la muestra", "12.5% de la muestra"]
+tipo: ordenar
+opciones_explicitas: ["Muestra inicial", "50% de la muestra", "25% de la muestra", "12.5% de la muestra"]
+
+enunciado: "Ordene los eventos según la cantidad de masa remanente de una muestra radiactiva a medida que transcurren periodos sucesivos de semivida (de mayor a menor masa)."
+
+explicacion: |
+  En cada semivida, la cantidad de material se reduce a la mitad:
+  1. Inicio: 100%
+  2. 1ra semivida: 50%
+  3. 2da semivida: 25%
+  4. 3ra semivida: 12.5%
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "intermedio"
+  tags: ["radiactividad", "exponencial", "constante"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[0.5, 1.386], [0.3, 2.31]]
+
+enunciado: "La semivida ($T_{1/2}$) y la constante de desintegración ($\\lambda$) están relacionadas mediante una fórmula logarítmica. Si la semivida de una muestra es de {datos[idx][0]} unidades de tiempo, el valor de la constante $\\lambda$ es aproximadamente ___."
+
+respuesta: datos[idx][1]
+tipo: completar
+tolerancia_abs: 0.01
+
+explicacion: |
+  La relación es $\lambda = \ln(2) / T_{1/2}$.
+  Para el caso de $T_{1/2} = {datos[idx][0]}$, $\lambda = 0.693/{datos[idx][0]} = {datos[idx][1]}$.
+  La confusión común es intentar multiplicar en lugar de dividir o usar $\log_{10}$ en lugar de $\ln$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "basico"
+  tags: ["concepto", "porcentaje"]
+
+opciones_explicitas: ["50%", "25%", "75%", "0%"]
+
+enunciado: "Un error conceptual frecuente es pensar que después de dos semividas la muestra ha desaparecido por completo. Si una muestra tiene una actividad inicial de $A_0$, ¿qué fracción de la actividad original queda exactamente después de transcurrir un periodo de una semivida?"
+
+respuesta: "50%"
 tipo: mc
-opciones_explicitas:
-  - "Para describir cualquier trayectoria circular (período, velocidad, aceleración) y saber qué fuerza real la mantiene en ese círculo"
-  - "Sólo aplica a objetos que giran atados con una cuerda"
-  - "Sólo aplica en el espacio, sin gravedad"
-respuesta: "Para describir cualquier trayectoria circular (período, velocidad, aceleración) y saber qué fuerza real la mantiene en ese círculo"
 
 explicacion: |
-  Desde un satélite hasta una curva de ruta, la misma matemática
-  (T, ω, v, a_c, F_c) describe cualquier movimiento circular.
-```
-
-## Sección: mru (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "basico"
-  tags: ["posicion"]
-
-variables:
-  x0: random(0, 50)
-  v: random(10, 100)
-  t: random(1, 10)
-
-respuesta: x0 + v * t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto tiene x(t) = {x0} + {v}t (km, con t en horas). ¿Dónde está en t={t}?"
-
-explicacion: |
-  x({t}) = {x0} + {v}×{t} = {x0 + v * t}.
+  Por definición, la semivida es el tiempo necesario para que la cantidad de núcleos radiactivos se reduzca a la mitad (50%) de su valor inicial.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "basico"
-  tags: ["posicion"]
-
-variables:
-  v: random(10, 100)
-  t: random(1, 10)
-
-respuesta: v * t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto parte del origen (x₀=0) con v={v} km/h. ¿Dónde está en t={t} horas?"
-
-explicacion: |
-  x({t}) = {v}×{t} = {v * t}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "basico"
-  tags: ["pendiente"]
-
-variables:
-  x0: random(0, 30)
-  v: random(10, 100)
-
-respuesta: v
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x(t) = {x0} + {v}t. ¿Cuál es la velocidad del objeto?"
-
-explicacion: |
-  La velocidad es la pendiente de x(t) — el coeficiente que multiplica
-  a t.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "basico"
-  tags: ["ordenada_origen"]
-
-variables:
-  x0: random(0, 50)
-  v: random(10, 100)
-
-respuesta: x0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x(t) = {x0} + {v}t. ¿Cuál es la posición inicial (en t=0)?"
-
-explicacion: |
-  x(0) = {x0} — la ordenada al origen de la función lineal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
   nivel: "intermedio"
-  tags: ["pendiente"]
+  tags: ["concepto", "limite"]
 
-variables:
-  t1: random(1, 5)
-  x1: random(0, 50)
-  v: random(10, 80)
-  dt: random(1, 5)
-  t2: t1 + dt
-  x2: x1 + v * dt
+respuesta: falso
+tipo: vf
 
-respuesta: (x2 - x1) / (t2 - t1)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto está en x={x1} km en t={t1} h, y en x={x2} km en t={t2} h. ¿Cuál es su velocidad?"
+enunciado: "En un modelo de desintegración exponencial, la cantidad de núcleos radiactivos llega exactamente a cero después de un número finito de semividas."
 
 explicacion: |
-  v = (x₂−x₁)/(t₂−t₁), la misma fórmula de pendiente de
-  `../../matematica/funcion-lineal-pendiente/`.
+  Matemáticamente, la función exponencial N(t) = N0 e^(-lambda t) es una función asintótica al eje t, lo que significa que nunca llega a cero, aunque físicamente la muestra se agote cuando queda un solo átomo.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "intermedio"
-  tags: ["area"]
-
-variables:
-  v: random(20, 120)
-  t: random(1, 10)
-
-respuesta: v * t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En un gráfico v-t, la velocidad es constante en {v} km/h durante {t} horas. ¿Cuál es el área bajo esa recta (la distancia recorrida)?"
-
-explicacion: |
-  Área de un rectángulo: base (tiempo) × altura (velocidad).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "intermedio"
-  tags: ["area"]
-
-variables:
-  v: random(20, 100)
-  t1: random(1, 5)
-  t2: random(6, 15)
-
-respuesta: v * (t2 - t1)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Con velocidad constante {v} km/h, ¿qué distancia se recorre entre t={t1} y t={t2} horas?"
-
-explicacion: |
-  Distancia = v×(t₂−t₁) = {v}×{t2 - t1} = {v * (t2 - t1)}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
   nivel: "avanzado"
-  tags: ["sistema"]
+  tags: ["calculo", "masa"]
 
 variables:
-  v1: random(60, 100)
-  v2: random(30, 59)
-  x0_2: random(10, 100)
-  t_encuentro: random(1, 5)
-  x0_1: v2 * t_encuentro + x0_2 - v1 * t_encuentro
+  idx: uno_de([0, 1])
+  escenario: [[100, 2, 50], [80, 3, 40]]
 
-respuesta: t_encuentro
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Auto A: x(t) = {x0_1} + {v1}t. Auto B: x(t) = {x0_2} + {v2}t. ¿En qué instante t se encuentran?"
+enunciado: "Se tiene una muestra de {escenario[idx][0]} gramos de un isótopo con una semivida de {escenario[idx][1]} años. ¿Cuántos gramos de la muestra original quedan después de {escenario[idx][1]} años (exactamente una semivida)?"
 
 pasos:
-  - "Igualar: {x0_1}+{v1}t = {x0_2}+{v2}t → ({v1}−{v2})t = {x0_2}−{x0_1}"
-  - "t = {t_encuentro}"
+  - "Calcular cuántas semividas han transcurrido: n = t / T½ = 1"
+  - "Aplicar la fórmula de reducción: M_final = M_inicial · (1/2)^n"
+
+respuesta: escenario[idx][2]
+tipo: completar
+tolerancia_abs: 0.1
 
 explicacion: |
-  Es el mismo procedimiento de
-  `../../matematica/sistemas-dos-ecuaciones/`, con nombres de contexto.
+  En el primer caso: 100 · (1/2)^1 = 50.
+  En el segundo caso: 80 · (1/2)^1 = 40.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "avanzado"
-  tags: ["sistema"]
-
-variables:
-  v1: random(60, 100)
-  v2: random(30, 59)
-  x0_2: random(10, 100)
-  t_encuentro: random(1, 5)
-  x0_1: v2 * t_encuentro + x0_2 - v1 * t_encuentro
-
-respuesta: x0_1 + v1 * t_encuentro
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Auto A: x(t) = {x0_1} + {v1}t. Auto B: x(t) = {x0_2} + {v2}t. Se encuentran en t={t_encuentro}. ¿En qué posición?"
-
-explicacion: |
-  Se evalúa cualquiera de las dos funciones en t={t_encuentro} — las dos
-  tienen que dar el mismo resultado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El gráfico de posición vs. tiempo (x-t) de un MRU es siempre una recta."
-
-explicacion: |
-  Porque x(t)=x₀+vt es una función lineal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El gráfico de velocidad vs. tiempo (v-t) de un MRU es una recta horizontal."
-
-explicacion: |
-  La velocidad no cambia con el tiempo en un MRU.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
   nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["comparacion", "estabilidad"]
 
-respuesta: verdadero
-tipo: vf
+opciones_explicitas: ["Semivida larga $\\rightarrow$ Menor actividad $\\rightarrow$ Mayor estabilidad", "Semivida corta $\\rightarrow$ Mayor actividad $\\rightarrow$ Menor estabilidad"]
 
-enunciado: "En un gráfico x-t, cuanto más inclinada es la recta, mayor es la velocidad del objeto."
+enunciado: "Para comparar la estabilidad de dos isótopos basándonos en su semivida y su actividad, ordena la siguiente relación lógica de menor a mayor estabilidad:"
+
+respuesta_orden: ["Semivida corta $\\rightarrow$ Mayor actividad $\\rightarrow$ Menor estabilidad", "Semivida larga $\\rightarrow$ Menor actividad $\\rightarrow$ Mayor estabilidad"]
+tipo: ordenar
 
 explicacion: |
-  La pendiente ES la velocidad — más inclinación, más pendiente, más
-  rápido.
+  Un isótopo con semivida corta desintegra sus núcleos muy rápido (alta actividad), lo que significa que es muy inestable. Un isótopo con semivida larga tarda mucho en desintegrar su masa, siendo más estable.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mru"
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
   nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["radiactividad", "conceptos_clave"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "lambda"
+tipo: completar
+respuestas_validas:
+  - "lambda"
+  - "lambda_constante"
 
-enunciado: "Una velocidad negativa en MRU significa que el objeto se mueve en sentido contrario al que se tomó como positivo, no que 'va hacia atrás en el tiempo'."
+enunciado: "En el modelo de desintegración radiactiva, mientras que la semivida ($T_{1/2}$) es el tiempo necesario para que la actividad se reduzca a la mitad, la ___ representa la probabilidad de desintegración por unidad de tiempo."
 
 explicacion: |
-  El signo de v indica dirección, no una imposibilidad física.
+  La constante de desintegración ($\lambda$) y la semivida ($T_{1/2}$) están relacionadas inversamente por la expresión: $\lambda = \ln(2) / T_{1/2}$.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si dos móviles tienen exactamente la misma velocidad (mismas pendientes en x-t), nunca se encuentran (salvo que ya arrancaran juntos)."
-
-explicacion: |
-  Dos rectas paralelas no se cruzan — mismo concepto ya visto en
-  `../../matematica/funcion-lineal-pendiente/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
   nivel: "basico"
-  tags: ["aplicacion"]
+  tags: ["propiedades", "exponencial"]
 
 variables:
-  v: random(10, 100)
-  t_sol: random(1, 10)
-  d: v * t_sol
+  idx: uno_de([0, 1])
+  datos: [["100", "50", "25"], ["80", "40", "20"]]
 
-respuesta: t_sol
-tipo: input
-tolerancia_abs: 0
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["100", "50", "25", "80", "40", "20"]
 
-enunciado: "Un objeto viaja a {v} km/h. ¿Cuánto tiempo tarda en recorrer {d} km?"
+enunciado: "Si una muestra radiactiva tiene una actividad inicial de {datos[idx][0]} Bq y su semivida es de 10 años, ¿cuál será su actividad tras transcurrir exactamente un periodo de semivida?"
 
 explicacion: |
-  t = d/v = {d}/{v} = {t_sol}.
+  Por definición, tras transcurrir una semivida, la actividad de la muestra se reduce exactamente a la mitad de su valor inicial.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mru"
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "basico"
+  tags: ["teoria", "booleano"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La cantidad de núcleos radiactivos remanentes en una muestra disminuye de forma lineal con respecto al tiempo transcurrido."
+
+explicacion: |
+  La desintegración es un proceso estocástico que sigue una ley exponencial decreciente, no una función lineal.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
   nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
+  tags: ["comparacion", "orden"]
 
-variables:
-  x0: random(0, 50)
-  v: random(10, 100)
-  t: random(1, 10)
-  real: x0 + v * t
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
+respuesta_orden: ["vida_media_larga", "vida_media_corta"]
+tipo: ordenar
+opciones_explicitas: ["vida_media_larga", "vida_media_corta"]
 
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "x(t) = {x0} + {v}t. ¿Es correcto que x({t}) sea {propuesto}?"
+enunciado: "Ordena estos conceptos de mayor a menor duración temporal (de la que tarda más en reducirse a la mitad a la que tarda menos):"
 
 explicacion: |
-  El valor correcto es {real}.
+  La semivida es una medida de la estabilidad del isótopo; a mayor semivida, mayor es el tiempo necesario para que la muestra decaiga significativamente.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mru"
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
   nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La idea de 'área bajo el gráfico v-t es la distancia recorrida' también vale cuando la velocidad no es constante — ahí el área ya no es un simple rectángulo."
-
-explicacion: |
-  Es el adelanto directo de `../../matematica/integral/`: el área bajo
-  cualquier curva de velocidad da la distancia, constante o no.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "avanzado"
-  tags: ["sistema", "problema"]
+  tags: ["calculo", "exponencial"]
 
 variables:
-  distancia_total: random(100, 500)
-  v1: random(20, 60)
-  v2: random(20, 60)
+  idx: uno_de([0, 1])
+  escenario: [[20, 2, 5], [80, 3, 10]]
 
-respuesta: distancia_total / (v1 + v2)
-tipo: input
-tolerancia_abs: 0
+respuesta: escenario[idx][2]
+tipo: mc
+opciones_explicitas: [5, 10, 20, 2.5]
 
-enunciado: "Dos autos parten al mismo tiempo, uno hacia el otro, desde puntos separados por {distancia_total} km, a {v1} y {v2} km/h. ¿En cuántas horas se cruzan?"
+enunciado: "Considerando un escenario donde una muestra de {escenario[idx][0]} átomos tiene una semivida de 5 años, ¿cuántos átomos quedarán después de transcurrir {escenario[idx][1]} semividas?"
 
 pasos:
-  - "Juntos cubren {v1}+{v2}={v1 + v2} km por hora — se cruzan cuando la suma de lo recorrido llega a {distancia_total}"
+  - "Identificar la cantidad inicial de núcleos."
+  - "Calcular el factor de reducción: (1/2)^n, donde n es el número de semividas."
+  - "Multiplicar la cantidad inicial por dicho factor."
 
 explicacion: |
-  Cuando van en sentidos opuestos, las velocidades se suman para saber
-  cuánto se acortan la distancia entre los dos por hora.
+  Tras n semividas, la cantidad de núcleos es N = N0 · (1/2)^n. En este caso: {escenario[idx][0]} · (0.5)^{escenario[idx][1]} = {escenario[idx][2]}.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mru"
+  materia: "fisica"
+  tema: "desintegracion_exponencial"
+  nivel: "intermedio"
+  tags: ["radiactividad", "carbono-14", "datacion"]
+
+variables:
+  t_medio: uno_de([5730, 8000, 1200])
+  masa_inicial: 100
+  masa_final: 25
+  n_periodos: 2
+
+respuesta: n_periodos
+tipo: mc
+opciones_explicitas: [1, 2, 3, 4]
+
+enunciado: "Una muestra de Carbono-14 tiene una semivida de {t_medio} años. Si inicialmente tenemos una masa de {masa_inicial} g, ¿cuántos periodos de semivida han transcurrido si la masa final es de {masa_final} g?"
+
+explicacion: |
+  La masa se reduce a la mitad en cada periodo de semivida. 
+  100g -> 50g (1 periodo) -> 25g (2 periodos).
+  El número de periodos es log2(masa_inicial / masa_final).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "desintegracion_exponencial"
+  nivel: "avanzado"
+  tags: ["medicina_nuclear", "isótopos"]
+
+variables:
+  datos: [[300, 150], [100, 50], [400, 200]]
+  idx: uno_de([0, 1, 2])
+  m_inicial: datos[idx][0]
+  m_final: datos[idx][1]
+  t_medio: 6
+
+respuesta: m_final
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un radiofármaco con una semivida de {t_medio} horas se inyecta en un paciente con una actividad de {m_inicial} MBq. Tras transcurrir un tiempo equivalente a una semivida, la actividad medida es de ___ MBq."
+
+explicacion: |
+  Por definición, tras un periodo de semivida, la actividad se reduce exactamente a la mitad.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "desintegracion_exponencial"
   nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["conceptos", "teoria"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "En un MRU, la aceleración es siempre 0 (la velocidad no cambia)."
+enunciado: "En un proceso de desintegración exponencial, la cantidad de sustancia radiactiva disminuye de forma lineal con respecto al tiempo."
 
 explicacion: |
-  Es la definición misma de "uniforme": velocidad constante, sin
-  aceleración.
+  Falso. La disminución es exponencial, no lineal. La tasa de desintegración es proporcional a la cantidad de núcleos presentes.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mru"
+  materia: "fisica"
+  tema: "desintegracion_exponencial"
   nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["proceso", "secuencia"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  t_medio: 10
+  m_0: 80
 
-enunciado: "Aunque x(t)=x₀+vt matemáticamente tiene dominio en todos los reales, en un problema físico real el dominio suele restringirse a t≥0 (no tiene sentido un tiempo negativo)."
+respuesta_orden: ["80", "40", "20", "10", "5"]
+tipo: ordenar
+opciones_explicitas: ["80", "40", "20", "10", "5"]
+
+enunciado: "Ordena las masas resultantes de una muestra de {m_0} g tras transcurrir 1, 2, 3, 4 y 5 periodos de semivida (de mayor a menor):"
 
 explicacion: |
-  El modelo matemático es más general que la situación física que
-  describe — hay que interpretar el resultado con sentido común.
+  Cada paso divide la masa por 2: 80 -> 40 -> 20 -> 10 -> 5.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mru"
+  materia: "fisica"
+  tema: "desintegracion_exponencial"
   nivel: "avanzado"
-  tags: ["problema"]
+  tags: ["calculo", "exponencial"]
 
 variables:
-  d: random(100, 400)
-  t: random(2, 8)
+  escenario: uno_de([[100, 50, 10], [200, 100, 25], [80, 40, 20]])
+  m_i: escenario[0]
+  m_f: escenario[1]
+  t_medio: 10
+  t_total: 20
+  respuesta_correcta: m_i / 4
 
-respuesta: d / t
-tipo: input
-tolerancia_abs: 0
+respuesta: respuesta_correcta
+tipo: completar
+tolerancia_abs: 0.1
 
-enunciado: "Un viaje de {d} km (con paradas incluidas) tardó {t} horas en total. ¿Cuál fue la velocidad media?"
-
-explicacion: |
-  La velocidad media usa distancia y tiempo TOTALES, aunque el
-  movimiento real no haya sido a velocidad constante en cada tramo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  t1: random(1, 5)
-  x1: random(0, 50)
-  v: random(10, 80)
-  dt: random(1, 5)
-  t2: t1 + dt
-  x2: x1 + v * dt
-  error: uno_de([0, 0, 1, -1])
-  propuesto: v + error
-
-respuesta: (propuesto == v)
-tipo: vf
-
-enunciado: "Un objeto está en x={x1} en t={t1}, y en x={x2} en t={t2}. ¿Es correcto que su velocidad sea {propuesto}?"
+enunciado: "Una muestra de {m_i} g de un isótopo tiene una semivida de {t_medio} años. ¿Cuántos gramos de la muestra quedarán después de {t_total} años?"
 
 explicacion: |
-  La velocidad correcta es (x₂−x₁)/(t₂−t₁) = {v}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-variables:
-  v: random(10, 50)
-  x0: random(10, 100)
-
-respuesta: -x0 / v
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x(t) = {x0} − {v}t (un objeto que se acerca al origen). ¿En qué instante t pasa por x=0?"
-
-explicacion: |
-  Se despeja t de {x0} − {v}t = 0 → t = {x0}/{v}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "avanzado"
-  tags: ["sistema", "problema"]
-
-variables:
-  v_lento: random(10, 30)
-  v_rapido: random(40, 80)
-  cabeza: random(10, 50)
-
-respuesta: cabeza / (v_rapido - v_lento)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un ciclista a {v_lento} km/h lleva {cabeza} km de ventaja. Un auto sale a perseguirlo a {v_rapido} km/h. ¿En cuántas horas lo alcanza?"
-
-pasos:
-  - "El auto gana {v_rapido}−{v_lento}={v_rapido - v_lento} km por hora de diferencia"
-
-explicacion: |
-  Se plantea igualando las dos posiciones, igual que un encuentro común.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Decir 'velocidad constante' y decir 'aceleración cero' describen exactamente la misma situación en cinemática."
-
-explicacion: |
-  Son dos formas de decir lo mismo — prepara el terreno para
-  `../mruv/`, donde la aceleración deja de ser 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mru"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-variables:
-  v1: random(20, 60)
-  t1: random(1, 5)
-  v2: random(20, 60)
-  t2: random(1, 5)
-
-respuesta: v1 * t1 + v2 * t2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un viaje tiene un primer tramo a {v1} km/h durante {t1} h, y un segundo tramo a {v2} km/h durante {t2} h. ¿Cuál es la distancia total?"
-
-explicacion: |
-  Cada tramo es un MRU independiente — se suman las distancias
-  parciales.
+  Usamos la fórmula N(t) = N0 * (1/2)^(t/t_medio).
+  N(20) = {m_i} * (1/2)^(20/10) = {m_i} * (1/2)^2 = {m_i} / 4.
+  En el caso seleccionado: {m_i} / 4 = {respuesta_correcta}.
 ```
 
 ## Sección: ojo-humano-instrumento-optico (25 preguntas)
@@ -1996,596 +907,1408 @@ respuestas_validas:
 enunciado: "La pérdida de la capacidad de acomodación del cristalino debido a la edad se conoce como ___."
 ```
 
-## Sección: mruv (28 preguntas)
+## Sección: sonido-timbre-altura-intensidad (26 preguntas)
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mruv"
+  materia: "fisica"
+  tema: "sonido_propiedades_basicas"
   nivel: "basico"
-  tags: ["velocidad"]
+  tags: ["acustica", "conceptos"]
 
-variables:
-  v0: random(0, 20)
-  a: random(1, 10)
-  t: random(1, 10)
+respuesta: "frecuencia"
+tipo: completar
+respuestas_validas:
+  - "frecuencia"
 
-respuesta: v0 + a * t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "v(t) = {v0} + {a}t (m/s). ¿Cuánto vale v({t})?"
+enunciado: "La propiedad del sonido que nos permite distinguir si un tono es agudo o grave se denomina ___."
 
 explicacion: |
-  v({t}) = {v0} + {a}×{t} = {v0 + a * t}.
+  La frecuencia (medida en Hertz) determina la altura del sonido. A mayor frecuencia, sonido más agudo; a menor frecuencia, sonido más grave.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["velocidad", "signos"]
-
-variables:
-  v0: random(30, 60)
-  a: random(1, 5)
-  t: random(1, 8)
-
-respuesta: v0 - a * t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "v(t) = {v0} − {a}t (m/s, frenando). ¿Cuánto vale v({t})?"
-
-explicacion: |
-  v({t}) = {v0} − {a}×{t} = {v0 - a * t}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["posicion"]
-
-variables:
-  x0: random(0, 20)
-  v0: random(0, 15)
-  a: random(2, 6) * 2
-  t: random(1, 6)
-
-respuesta: x0 + v0 * t + (a * t ^ 2) / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x(t) = {x0} + {v0}t + ½×{a}t² (m). ¿Cuánto vale x({t})?"
-
-pasos:
-  - "x({t}) = {x0} + {v0}×{t} + ({a}×{t}²)/2 = {x0 + v0 * t + (a * t ^ 2) / 2}"
-
-explicacion: |
-  Se evalúan los tres términos y se suman.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
+  materia: "fisica"
+  tema: "sonido_intensidad"
   nivel: "basico"
-  tags: ["posicion"]
+  tags: ["acustica", "amplitud"]
 
 variables:
-  a: random(2, 8) * 2
-  t: random(1, 8)
-
-respuesta: (a * t ^ 2) / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto parte del reposo (v₀=0, x₀=0) con aceleración {a} m/s². ¿Cuánto recorrió en t={t} s?"
-
-explicacion: |
-  x(t) = ½at² = {a}×{t}²/2 = {(a * t ^ 2) / 2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["sin_tiempo"]
-
-variables:
-  v0: random(0, 10)
-  a: random(1, 5)
-  k: random(1, 5)
-  v_final: v0 + 2 * a * k
-  dx: k * (v_final + v0)
-
-respuesta: v_final
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "v₀={v0} m/s, a={a} m/s². Después de recorrer {dx} m, ¿cuál es la velocidad final? (usando v²=v₀²+2aΔx)"
-
-pasos:
-  - "v² = {v0}² + 2×{a}×{dx} = {v0 ^ 2 + 2 * a * dx}"
-  - "v = √{v0 ^ 2 + 2 * a * dx} = {v_final}"
-
-explicacion: |
-  Se usa la fórmula sin tiempo cuando no hace falta (o no se conoce) t.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["sin_tiempo"]
-
-variables:
-  v0: random(0, 10)
-  a: random(1, 6)
-  dx_sol: random(5, 20)
-
-respuesta: dx_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "v₀={v0} m/s, a={a} m/s². La velocidad final da un número que no hace falta calcular a mano — sabiendo que v²−v₀² = {2 * a * dx_sol}, ¿cuánto vale Δx?"
-
-pasos:
-  - "Δx = (v²−v₀²)/(2a) = {2 * a * dx_sol}/{2 * a} = {dx_sol}"
-
-explicacion: |
-  Se despeja Δx de la ecuación sin tiempo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["aceleracion"]
-
-variables:
-  v0: random(0, 20)
-  a_sol: random(1, 10)
-  t: random(1, 8)
-  v: v0 + a_sol * t
-
-respuesta: (v - v0) / t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto pasa de v₀={v0} m/s a v={v} m/s en t={t} s. ¿Cuál es su aceleración?"
-
-explicacion: |
-  a = (v−v₀)/t = ({v}−{v0})/{t} = {(v - v0) / t}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["tiempo"]
-
-variables:
-  v0: random(0, 20)
-  a: random(1, 10)
-  t_sol: random(1, 10)
-  v: v0 + a * t_sol
-
-respuesta: t_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "v₀={v0} m/s, a={a} m/s². ¿Cuánto tiempo tarda en llegar a v={v} m/s?"
-
-explicacion: |
-  t = (v−v₀)/a = {t_sol}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
+  es_grande: uno_de([verdadero, falso])
 
 respuesta: verdadero
 tipo: vf
-
-enunciado: "El gráfico v-t de un MRUV es una recta (no horizontal, salvo que a=0)."
+enunciado: "Si la amplitud de una onda sonora aumenta, la intensidad (volumen) del sonido es mayor. ¿Es esto verdadero?"
 
 explicacion: |
-  v(t)=v₀+at es una función lineal de t, con pendiente a.
+  Verdadero. La amplitud de la onda está directamente relacionada con la energía de la onda y, por lo tanto, con la intensidad sonora percibida.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
+  materia: "fisica"
+  tema: "sonido_timbre"
+  nivel: "basico"
+  tags: ["acustica", "armonicos"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El gráfico x-t de un MRUV es una parábola."
-
-explicacion: |
-  x(t)=x₀+v₀t+½at² es una función cuadrática de t.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el gráfico v-t, la pendiente de la recta es exactamente la aceleración."
-
-explicacion: |
-  Mismo principio que en x-t con MRU: la pendiente es la tasa de
-  cambio — acá, de la velocidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["error_comun", "opcion_multiple"]
-
-variables:
-  a: random(2, 10)
-  t: random(1, 8)
-
-respuesta: (a * t ^ 2) / 2
+respuesta: "timbre"
 tipo: mc
-opciones_explicitas:
-  - (a * t ^ 2) / 2
-  - a * t ^ 2
-  - (a * t) / 2
+opciones_explicitas: ["tono", "timbre", "intensidad"]
 
-enunciado: "Un objeto parte del reposo con aceleración {a} m/s². ¿Cuánto recorrió en t={t} s?"
+enunciado: "Si dos instrumentos diferentes (por ejemplo, un piano y un violín) tocan la misma nota con la misma intensidad, la cualidad que nos permite distinguir qué instrumento es cada uno se llama:"
 
 explicacion: |
-  x=½at² — olvidar el ½ (o el cuadrado) es el error más común de la
-  fórmula.
+  El timbre depende de la forma de la onda y de la combinación de armónicos que componen el sonido, permitiendo distinguir fuentes sonoras con la misma frecuencia e intensidad.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mruv"
+  materia: "fisica"
+  tema: "sonido_altura_frecuencia"
+  nivel: "basico"
+  tags: ["acustica", "frecuencia"]
+
+variables:
+  caso: uno_de([0, 1])
+  datos: [[440, "grave"], [880, "agudo"]]
+  frecuencia: datos[caso][0]
+  altura: datos[caso][1]
+
+respuesta: altura
+tipo: mc
+opciones_explicitas: ["agudo", "grave"]
+
+enunciado: "Si un sonido tiene una frecuencia de {frecuencia} Hz, su altura es ___."
+
+pasos:
+  - "Identificar la frecuencia dada."
+  - "Comparar con el concepto de altura (frecuencia alta = agudo, frecuencia baja = grave)."
+
+explicacion: |
+  En este caso, la frecuencia de {frecuencia} Hz se clasifica como {altura} según la escala de altura.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_altura_frecuencia"
+  nivel: "basico"
+  tags: ["acustica", "frecuencia"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["440", "grave"], ["880", "agudo"]]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["agudo", "grave"]
+
+enunciado: "Si un sonido tiene una frecuencia de {datos[idx][0]} Hz, su altura es ___."
+
+explicacion: |
+  La frecuencia determina la altura: frecuencias altas son agudas y frecuencias bajas son graves.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_orden_cualidades"
+  nivel: "basico"
+  tags: ["acustica", "orden"]
+
+respuesta_orden: ["tono", "timbre", "intensidad"]
+tipo: ordenar
+opciones_explicitas: ["tono", "timbre", "intensidad"]
+
+enunciado: "Ordena las siguientes cualidades del sonido de acuerdo a la propiedad física que representan (de la que depende la altura, a la que depende el timbre, y finalmente la que depende la amplitud):"
+
+explicacion: |
+  1. Tono (Frecuencia)
+  2. Timbre (Forma de onda/Armónicos)
+  3. Intensidad (Amplitud)
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_propiedades"
+  nivel: "basico"
+  tags: ["frecuencia", "tono"]
+
+variables:
+  f_ejemplo: 440
+
+respuesta: f_ejemplo
+tipo: completar
+respuestas_validas:
+  - 440
+
+enunciado: "La altura de un sonido depende de su frecuencia. Si una nota musical tiene una frecuencia de {f_ejemplo} Hz, la altura de dicho sonido es de ___ Hz."
+
+explicacion: |
+  La altura está directamente relacionada con la frecuencia. A mayor frecuencia, sonido más agudo; a menor frecuencia, sonido más grave.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_propiedades"
   nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
+  tags: ["intensidad", "amplitud"]
+
+variables:
+  amplitudes: [[0.5, 0.8], [0.3, 0.9]]
+  idx: uno_de([0, 1])
+  amplitud_a: amplitudes[idx][0]
+  amplitud_b: amplitudes[idx][1]
+
+respuesta: "Mayor"
+tipo: mc
+opciones_explicitas: ["Mayor", "Menor"]
+
+enunciado: "Si comparamos dos ondas sonoras, una con amplitud {amplitud_a} y otra con amplitud {amplitud_b} (mayor que la primera), la onda con mayor amplitud tendrá una intensidad sonora ___."
+
+explicacion: |
+  La intensidad sonora depende del cuadrado de la amplitud de la onda. A mayor amplitud, mayor intensidad (volumen).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_propiedades"
+  nivel: "intermedio"
+  tags: ["frecuencia", "periodo"]
+
+variables:
+  f_onda: 500
+
+respuesta: 0.002
+tipo: completar
+tolerancia_abs: 0.0001
+
+enunciado: "El periodo (T) es el inverso de la frecuencia (f), es decir, T = 1/f. Si una onda sonora tiene una frecuencia de {f_onda} Hz, ¿cuál es su periodo en segundos?"
+
+pasos:
+  - "Identificar la frecuencia: f = 500 Hz"
+  - "Aplicar la fórmula: T = 1 / 500"
+  - "Resultado: T = 0.002 s"
+
+explicacion: |
+  El periodo es el tiempo que tarda una onda en completar un ciclo completo. Al ser el inverso de la frecuencia, a mayor frecuencia, menor periodo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_propiedades"
+  nivel: "basico"
+  tags: ["timbre", "forma_onda"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿El timbre es la cualidad que nos permite distinguir dos sonidos de igual frecuencia e intensidad pero de distinta fuente?"
+
+explicacion: |
+  Verdadero. El timbre depende de la forma de la onda (armónicos) y es lo que nos permite distinguir, por ejemplo, un piano de un violín tocando la misma nota.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_propiedades"
+  nivel: "basico"
+  tags: ["proceso_sonido"]
+
+respuesta_orden: ["Vibración de la fuente", "Propagación por el medio", "Recepción en el oído"]
+tipo: ordenar
+opciones_explicitas: ["Vibración de la fuente", "Propagación por el medio", "Recepción en el oído"]
+
+enunciado: "Ordena cronológicamente los pasos necesarios para que un sonido sea percibido por un ser humano:"
+
+explicacion: |
+  Primero se genera la vibración, luego la onda viaja por el aire (medio) y finalmente llega al sistema auditivo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_intensidad_amplitud"
+  nivel: "basico"
+  tags: ["sonido", "amplitud", "intensidad"]
+
+variables:
+  amplitud_onda: uno_de([0.1, 0.5, 0.9])
+
+enunciado: "Si duplicamos la amplitud de una onda sonora, la intensidad percibida aumenta, pero la ___ de la onda sonora también cambia."
+
+opciones_explicitas: ["frecuencia", "amplitud", "longitud"]
+respuesta: "amplitud"
+tipo: completar
+
+explicacion: |
+  La amplitud de la onda está directamente relacionada con la intensidad (volumen). Un aumento en la amplitud significa un sonido más fuerte. La frecuencia determina el tono, no la intensidad.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_tono_frecuencia"
+  nivel: "basico"
+  tags: ["sonido", "tono", "frecuencia"]
+
+variables:
+  frecuencia_hz: uno_de([200, 500, 1000])
+
+enunciado: "Un sonido con una frecuencia de {frecuencia_hz} Hz se percibe como un tono más ___ que uno de {frecuencia_hz / 2} Hz."
+
+opciones_explicitas: ["agudo", "grave", "fuerte"]
+respuesta: "agudo"
+tipo: mc
+
+explicacion: |
+  La frecuencia determina el tono (altura). A mayor frecuencia, el sonido es más agudo; a menor frecuencia, es más grave. El volumen (intensidad) depende de la amplitud, no de la frecuencia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_timbre_forma_onda"
+  nivel: "intermedio"
+  tags: ["sonido", "timbre", "armonicos"]
+
+variables:
+  instrumento_a: uno_de(["piano", "violín"])
+  instrumento_b: uno_de(["piano", "violín"])
+
+enunciado: "Si dos instrumentos distintos tocan la misma nota con la misma intensidad, la diferencia en su ___ se debe a la forma de su onda y la presencia de armónicos."
+
+opciones_explicitas: ["altura", "tono", "timbre"]
+respuesta: "timbre"
+tipo: mc
+
+explicacion: |
+  El timbre es la cualidad que nos permite distinguir dos sonidos de igual frecuencia e intensidad. Depende de la forma de la onda y de los armónicos que la componen.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_naturaleza_intensidad"
+  nivel: "intermedio"
+  tags: ["sonido", "intensidad", "magnitud"]
+
+enunciado: "¿La intensidad de un sonido es una magnitud escalar o vectorial?"
+
+opciones_explicitas: ["escalar", "vectorial"]
+respuesta: "escalar"
+tipo: mc
+
+explicacion: |
+  La intensidad sonora se define como la energía por unidad de tiempo y área, es una magnitud escalar ya que no tiene una dirección asociada en el espacio.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_frecuencia_periodo"
+  nivel: "intermedio"
+  tags: ["sonido", "frecuencia", "periodo"]
+
+variables:
+  f_valor: uno_de([100, 200, 500])
+
+enunciado: "Si un sonido tiene una frecuencia de {f_valor} Hz, su periodo de oscilación es de ___ segundos."
+
+pasos:
+  - "Calcular el periodo usando la fórmula T = 1/f"
+
+respuesta: 1 / f_valor
+tipo: completar
+tolerancia_abs: 0.001
+
+explicacion: |
+  El periodo (T) es el inverso de la frecuencia (f). Si la frecuencia es {f_valor} Hz, el tiempo que tarda una onda en completar un ciclo es 1/{f_valor} segundos.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "propiedades_del_sonido"
+  nivel: "basico"
+  tags: ["sonido", "frecuencia", "amplitud"]
+
+respuesta: "frecuencia"
+tipo: "completar"
+respuestas_validas:
+  - "frecuencia"
+
+enunciado: "La altura de un sonido depende de la ___ del onda sonora, mientras que la intensidad depende de su amplitud."
+
+explicacion: |
+  La altura (tono) está determinada por la frecuencia (número de vibraciones por segundo), mientras que la intensidad (volumen) está relacionada con la amplitud de la onda.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "propiedades_del_sonido"
+  nivel: "intermedio"
+  tags: ["timbre", "onda", "armonicos"]
+
+opciones_explicitas: ["La amplitud de la onda", "La frecuencia de la onda", "La forma de la onda", "La velocidad de la onda"]
+respuesta: "La forma de la onda"
+tipo: "mc"
+
+enunciado: "Si dos instrumentos diferentes tocan la misma nota con la misma intensidad, lo que permite distinguirlos es el timbre, el cual depende de:"
+
+explicacion: |
+  El timbre es la cualidad que nos permite distinguir sonidos de la misma frecuencia y amplitud, dependiendo de la forma de la onda (presencia de armónicos).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "propiedades_del_sonido"
+  nivel: "basico"
+  tags: ["intensidad", "amplitud", "volumen"]
+
+variables:
+  es_mayor: "amplitud_A > amplitud_B"
+  amplitud_A: 0.8
+  amplitud_B: 0.3
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "Si comparamos dos ondas sonoras donde la onda A tiene una amplitud de {amplitud_A} y la onda B tiene una amplitud de {amplitud_B}, ¿es la onda A más intensa que la onda B?"
+
+explicacion: |
+  A mayor amplitud de la onda, mayor es la energía transportada y, por lo tanto, mayor es la intensidad sonora (volumen).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "propiedades_del_sonido"
+  nivel: "basico"
+  tags: ["orden", "conceptos"]
+
+opciones_explicitas: ["Frecuencia", "Amplitud", "Forma de onda"]
+respuesta_orden: ["Frecuencia", "Amplitud", "Forma de onda"]
+tipo: ordenar
+
+enunciado: "Ordena las propiedades del sonido de acuerdo a la característica física que las determina: 1. Altura, 2. Intensidad, 3. Timbre."
+
+explicacion: |
+  La altura se asocia a la frecuencia, la intensidad a la amplitud y el timbre a la forma de la onda (armónicos).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "propiedades_del_sonido"
+  nivel: "intermedio"
+  tags: ["frecuencia", "tono", "agudo"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [[440, "La nota es más aguda"], [100, "La nota es más grave"]]
+
+respuesta: escenario[idx][1]
+tipo: "mc"
+opciones_explicitas: ["La nota es más aguda", "La nota es más grave"]
+
+enunciado: "Si un sonido tiene una frecuencia de {escenario[idx][0]} Hz y otro tiene una frecuencia de 200 Hz, para el primer caso la nota es: ___"
+
+explicacion: |
+  A mayor frecuencia, el sonido es percibido como más agudo. A menor frecuencia, es más grave.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_propiedades"
+  nivel: "basico"
+  tags: ["frecuencia", "tono", "sonido"]
+
+variables:
+  escenarios: [["La nota La central (A4) tiene una frecuencia de 440 Hz.", 440], ["La nota La una octava arriba tiene una frecuencia de 880 Hz.", 880], ["La nota La una octava abajo tiene una frecuencia de 220 Hz.", 220]]
+  idx: uno_de([0, 1, 2])
+  frecuencia_actual: escenarios[idx][1]
+  respuesta_correcta: escenarios[idx][1]
+
+tipo: completar
+tolerancia_abs: 0.1
+enunciado: "Si escuchamos una nota musical cuya frecuencia es de {frecuencia_actual} Hz, ¿cuál es su valor numérico en Hz?"
+respuesta: respuesta_correcta
+
+explicacion: |
+  La altura o tono de un sonido depende directamente de su frecuencia (medida en Hz). A mayor frecuencia, mayor es el tono percibido.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_propuestas"
+  nivel: "intermedio"
+  tags: ["intensidad", "amplitud", "volumen"]
+
+variables:
+  casos: [["un sonido suave", "baja"], ["un sonido fuerte", "alta"]]
+  idx: uno_de([0, 1])
+  tipo_sonido: casos[idx][0]
+  amplitud_relativa: casos[idx][1]
+
+tipo: mc
+opciones_explicitas: ["baja", "alta", "nula", "infinita"]
+respuesta: amplitud_relativa
+enunciado: "Si escuchamos {tipo_sonido}, la amplitud de la onda sonora es de carácter ________."
+
+explicacion: |
+  La intensidad sonora (perceptualmente volumen) está relacionada con la amplitud de la onda. Una mayor amplitud implica un sonido más fuerte.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_propiedades"
+  nivel: "basico"
+  tags: ["timbre", "forma_onda", "armonicos"]
+
+tipo: vf
+enunciado: "El timbre es la cualidad que nos permite distinguir dos sonidos de igual frecuencia e intensidad, pero emitidos por fuentes distintas (por ejemplo, un piano y una flauta)."
+
+respuesta: verdadero
+
+explicacion: |
+  El timbre depende de la forma de la onda, la cual es determinada por la combinación de la frecuencia fundamental y los armónicos presentes.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_propiedades"
+  nivel: "intermedio"
+  tags: ["frecuencia", "amplitud", "intensidad"]
+
+variables:
+  relaciones: [["frecuencia", "tono"], ["amplitud", "intensidad"], ["forma_onda", "timbre"]]
+  idx: uno_de([0, 1, 2])
+  propiedad: relaciones[idx][0]
+  caracteristica: relaciones[idx][1]
+
+tipo: completar
+respuesta: caracteristica
+enunciado: "Si modificamos la {propiedad}, estamos alterando la característica auditiva conocida como ________."
+
+explicacion: |
+  Cada propiedad física de la onda sonora se traduce en una percepción auditiva distinta: frecuencia -> tono; amplitud -> intensidad; forma de onda -> timbre.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sonido_propiedades"
+  nivel: "avanzado"
+  tags: ["frecuencia", "amplitud", "forma_onda"]
+
+tipo: ordenar
+opciones_explicitas: ["Frecuencia", "Amplitud", "Forma de la onda"]
+respuesta_orden: ["Frecuencia", "Amplitud", "Forma de la onda"]
+enunciado: "Ordene las propiedades físicas de una onda sonora según su correspondencia con la percepción humana (Tono, Intensidad, Timbre):"
+
+explicacion: |
+  1. Frecuencia -> Tono (Altura).
+  2. Amplitud -> Intensidad (Volumen).
+  3. Forma de la onda -> Timbre.
+```
+
+## Sección: temperatura-equilibrio-termico (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "definicion_temperatura"
+  nivel: "basico"
+  tags: ["conceptos", "energia"]
+
+respuesta: "energia_cinetica_media"
+tipo: completar
+respuestas_validas:
+  - "energia_cinetica_media"
+
+enunciado: "La temperatura es una magnitud física que mide la ___ de las partículas de un cuerpo."
+
+explicacion: |
+  La temperatura no mide la energía total, sino el promedio de la energía cinética de las partículas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "equilibrio_termico"
+  nivel: "basico"
+  tags: ["conceptos", "flujo_calorico"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "Cuando dos cuerpos en contacto alcanzan el equilibrio térmico, sus temperaturas son iguales."
+
+explicacion: |
+  Por definición, el equilibrio térmico se alcanza cuando cesa el flujo neto de calor debido a la igualdad de temperaturas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "escalas_termometricas"
+  nivel: "basico"
+  tags: ["unidades", "kelvin"]
+
+respuesta: 273.15
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "En la escala Kelvin, el cero absoluto equivale a ___ K."
+
+explicacion: |
+  El cero absoluto es la temperatura teórica donde el movimiento molecular es mínimo, equivalente a -273.15 °C.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "diferencia_calor_temp"
+  nivel: "intermedio"
+  tags: ["conceptos"]
+
+respuesta: "calor"
+tipo: completar
+respuestas_validas:
+  - "calor"
+
+enunciado: "Mientras que la temperatura mide el estado térmico, el ___ es la energía en tránsito entre cuerpos."
+
+explicacion: |
+  El calor es energía que fluye de un cuerpo con mayor temperatura a uno de menor temperatura.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "flujo_calorico"
+  nivel: "basico"
+  tags: ["ley_cero"]
+
+respuesta: "mayor_a_menor"
+tipo: completar
+respuestas_validas:
+  - "mayor_a_menor"
+
+enunciado: "El calor fluye espontáneamente de un cuerpo con temperatura ___ a uno con temperatura ___."
+
+explicacion: |
+  El flujo de calor siempre ocurre desde el cuerpo más caliente hacia el más frío hasta alcanzar el equilibrio.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conversion_escalas"
+  nivel: "basico"
+  tags: ["calculo"]
+
+variables:
+  idx: uno_de([0,1])
+  datos: [[20, 293.15], [100, 373.15]]
+
+respuesta: datos[idx][1]
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Si un objeto tiene una temperatura de {datos[idx][0]} °C, ¿cuál es su valor en Kelvin?"
+
+explicacion: |
+  La fórmula es T(K) = T(°C) + 273.15.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cero_absoluto"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: "falso"
+tipo: completar
+enunciado: "Es posible alcanzar el cero absoluto (0 K) mediante procesos térmicos convencionales."
+
+explicacion: |
+  La tercera ley de la termodinámica establece que el cero absoluto es inalcanzable en un número finito de pasos.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sensacion_termica"
+  nivel: "intermedio"
+  tags: ["error_comun"]
+
+respuesta: "falso"
+tipo: completar
+enunciado: "La sensación térmica de una persona es una medida exacta de la temperatura termodinámica de un objeto."
+
+explicacion: |
+  La sensación térmica depende de factores como la humedad, el viento y la conductividad térmica de la piel, no solo de la temperatura.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "sistemas_termicos"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: "sistema_abierto"
+tipo: completar
+respuestas_validas:
+  - "sistema_abierto"
+
+enunciado: "Un sistema que intercambia energía y materia con su entorno se denomina ___."
+
+explicacion: |
+  Un sistema abierto permite el intercambio tanto de calor como de masa con el medio ambiente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "equilibrio_termico"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: "igualdad_temperaturas"
+tipo: mc
+opciones_explicitas: ["igualdad_temperaturas", "igualdad_masas", "igualdad_volumenes", "igualdad_presiones"]
+
+enunciado: "Al alcanzar el equilibrio térmico, ¿qué propiedad se iguala entre los cuerpos?"
+
+explicacion: |
+  El equilibrio térmico implica que no hay transferencia neta de calor porque las temperaturas se han igualado.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_especifico"
+  nivel: "intermedio"
+  tags: ["propiedades"]
+
+respuesta: "capacidad_para_cambiar_temperatura"
+tipo: completar
+respuestas_validas:
+  - "capacidad_para_cambiar_temperatura"
+
+enunciado: "El calor específico es la propiedad que mide la ___ de una sustancia."
+
+explicacion: |
+  Es la cantidad de calor necesaria para elevar un grado la temperatura de una unidad de masa.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "comparacion_materiales"
+  nivel: "intermedio"
+  tags: ["propiedades"]
+
+respuesta: "agua"
+tipo: mc
+opciones_explicitas: ["agua", "hierro", "arena", "aluminio"]
+
+enunciado: "De los siguientes materiales, ¿cuál tiene un calor específico mucho más alto (tarda más en calentarse)?"
+
+explicacion: |
+  El agua tiene un calor específico muy elevado (~4186 J/kg·K), lo que la hace un excelente regulador térmico.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "pasos_calentamiento"
+  nivel: "intermedio"
+  tags: ["procedimiento"]
+
+respuesta_orden: ["medir_temp_inicial", "suministrar_calor", "medir_temp_final"]
+tipo: ordenar
+opciones_explicitas: ["medir_temp_inicial", "suministrar_calor", "medir_temp_final"]
+
+enunciado: "Ordena los pasos para realizar un experimento de transferencia de calor:"
+
+explicacion: |
+  Primero se establece el estado inicial, luego se aplica la energía y finalmente se observa el estado final.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "modos_transferencia"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: "conduccion"
+tipo: completar
+respuestas_validas:
+  - "conduccion"
+
+enunciado: "La transferencia de calor a través del contacto directo entre sólidos se llama ___."
+
+explicacion: |
+  La conducción es el mecanismo principal en materiales sólidos.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "diferencia_calor_temp"
+  nivel: "intermedio"
+  tags: ["conceptos"]
+
+respuesta: "calor"
+tipo: mc
+opciones_explicitas: ["calor", "temperatura", "entalpía", "entropía"]
+
+enunciado: "Si un bloque de metal se calienta, la energía que absorbe se llama ___."
+
+explicacion: |
+  La energía absorbida o transferida se define como calor.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "equilibrio_termico_calculo"
+  nivel: "avanzado"
+  tags: ["calculo"]
+
+variables:
+  idx: uno_de([0,1])
+  datos: [[100, 50], [20, 80]] 
+  # datos[idx][0] es T_inicial, datos[idx][1] es T_final
+
+respuesta: (datos[idx][0] + datos[idx][1]) / 2
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "En un sistema ideal de calor específico iguales, si se mezclan dos masas iguales, la temperatura de equilibrio será la media de {datos[idx][0]} y {datos[idx][1]} °C. ¿Cuál es el resultado?"
+
+explicacion: |
+  (100 + 50) / 2 = 75. (20 + 80) / 2 = 50.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_especifico"
+  nivel: "intermedio"
+  tags: ["calculo"]
+
+respuesta: 4186
+tipo: completar
+tolerancia_abs: 10
+
+enunciado: "El calor específico del agua es aproximadamente ___ J/(kg·K)."
+
+explicacion: |
+  Es un valor estándar utilizado en termodinámica.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cambio_fase"
+  nivel: "intermedio"
+  tags: ["cambio_fase"]
 
 respuesta: falso
-
 tipo: vf
-
-enunciado: "En un MRUV, la fórmula v=d/t (de MRU) sigue dando la velocidad en cualquier instante."
+enunciado: "Durante un cambio de fase (como la fusión del hielo), la temperatura del sistema aumenta aunque se siga suministrando calor."
 
 explicacion: |
-  v=d/t asume velocidad CONSTANTE — en MRUV la velocidad cambia, así que
-  hacen falta las fórmulas específicas de MRUV.
+  Falso. Durante el cambio de fase, la temperatura permanece constante mientras se rompen los enlaces moleculares.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mruv"
+  materia: "fisica"
+  tema: "sistemas_termicos"
   nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
+  tags: ["conceptos"]
 
-variables:
-  v0: random(0, 20)
-  a: random(1, 10)
-  t: random(1, 10)
-  real: v0 + a * t
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
+respuesta: "sistema_cerrado"
+tipo: completar
+respuestas_validas:
+  - "sistema_cerrado"
 
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "v(t) = {v0} + {a}t. ¿Es correcto que v({t}) sea {propuesto}?"
+enunciado: "Un sistema que intercambia energía pero no materia con su entorno se llama ___."
 
 explicacion: |
-  El valor correcto es {real}.
+  En un sistema cerrado, la masa permanece constante pero la energía puede entrar o salir.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-variables:
-  a: random(2, 6)
-  t: random(10, 30)
-
-respuesta: (a * t ^ 2) / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un avión acelera desde el reposo a {a} m/s² durante {t} s antes de despegar. ¿Qué distancia recorrió en la pista?"
-
-explicacion: |
-  x=½at², partiendo del reposo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
+  materia: "fisica"
+  tema: "escalas_termometricas"
   nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["unidades"]
 
-respuesta: falso
+respuesta: "absoluta"
+tipo: mc
+opciones_explicitas: ["absoluta", "relativa", "celcius", "fahrenheit"]
 
-tipo: vf
-
-enunciado: "v₀ (velocidad inicial) y v(t) (velocidad en un instante t cualquiera) son siempre el mismo número."
+enunciado: "La escala Kelvin es conocida como la escala ___."
 
 explicacion: |
-  Sólo coinciden en t=0 — en cualquier otro instante, difieren según la
-  aceleración acumulada.
+  Se llama absoluta porque parte del cero absoluto, donde no hay energía térmica.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mruv"
+  materia: "fisica"
+  tema: "calor_especifico"
+  nivel: "intermedio"
+  tags: ["calculo"]
+
+respuesta: "proporcional"
+tipo: completar
+respuestas_validas:
+  - "proporcional"
+
+enunciado: "La cantidad de calor necesaria para elevar la temperatura de un cuerpo es ___ a su masa."
+
+explicacion: |
+  A mayor masa, se requiere más calor para producir el mismo cambio de temperatura (Q = m·c·ΔT).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "equilibrio_termico"
   nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["flujo_calorico"]
 
 respuesta: verdadero
 tipo: vf
-
-enunciado: "Una aceleración negativa no significa automáticamente que el objeto está frenando — depende del signo de la velocidad."
+enunciado: "Si un objeto caliente se coloca en un ambiente frío, el calor fluirá del objeto al ambiente hasta que sus temperaturas se igualen."
 
 explicacion: |
-  Si v es negativa y a también, el objeto en realidad acelera (cada vez
-  más rápido) en sentido negativo.
+  Este es el proceso natural de transferencia de energía hacia el equilibrio térmico.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mruv"
+  materia: "fisica"
+  tema: "ley_cero"
   nivel: "avanzado"
-  tags: ["verificacion", "verdadero_falso"]
+  tags: ["leyes_termodinamica"]
 
-variables:
-  v0: random(0, 15)
-  a: random(1, 8)
-  t: random(1, 8)
-  v: v0 + a * t
-  dx: v0 * t + (a * t ^ 2) / 2
+respuesta: "termómetro"
+tipo: completar
+respuestas_validas:
+  - "termómetro"
 
-respuesta: ((v ^ 2) == (v0 ^ 2 + 2 * a * dx))
-tipo: vf
-
-enunciado: "v₀={v0}, a={a}, t={t}. Con v={v} y Δx={dx} (calculados con las otras dos fórmulas), ¿se cumple v²=v₀²+2aΔx?"
+enunciado: "La Ley Cero de la Termodinámica permite el uso de un tercer cuerpo (como un ___) para medir la temperatura de otros dos."
 
 explicacion: |
-  Las tres fórmulas de MRUV son consistentes entre sí — cualquier par
-  de ellas tiene que dar el mismo resultado que la tercera.
+  Si A=C y B=C, entonces A=B. El termómetro actúa como el cuerpo C.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["problema"]
+  materia: "fisica"
+  tema: "microscopico_temperatura"
+  nivel: "intermedio"
+  tags: ["moleculas"]
 
-variables:
-  t: random(1, 8)
+respuesta: "mayor"
+tipo: completar
+respuestas_validas:
+  - "mayor"
 
-respuesta: 10 * t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto se suelta desde el reposo con aceleración g=10 m/s² (caída libre). ¿Cuál es su velocidad después de {t} s?"
+enunciado: "A una temperatura más alta, las partículas de un gas tienen una energía cinética ___."
 
 explicacion: |
-  v=at, con v₀=0 — el caso más simple de caída libre, antes de ver
-  `../tiro-vertical/` con velocidad inicial.
+  La temperatura es una medida directa de la agitación térmica de las partículas.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mruv"
+  materia: "fisica"
+  tema: "equilibrio_termico"
   nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["conceptos"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "0"
+tipo: mc
+opciones_explicitas: ["0", "positivo", "negativo", "infinito"]
 
-enunciado: "La unidad de la aceleración en el sistema SI es m/s² (metros por segundo, por segundo)."
+enunciado: "Cuando dos cuerpos están en equilibrio térmico, el flujo neto de calor entre ellos es ___."
 
 explicacion: |
-  Es "cuánto cambia la velocidad (m/s) por cada segundo que pasa" — de
-  ahí la unidad al cuadrado en el denominador.
+  En equilibrio, la energía que sale de uno es igual a la que entra al otro, por lo que el flujo neto es cero.
 ```
+
+## Sección: decibeles-richter (24 preguntas)
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["velocidad"]
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "basico"
+  tags: ["decibeles", "vocabulario"]
 
-variables:
-  v0_sol: random(0, 20)
-  a: random(1, 10)
-  t: random(1, 8)
-  v: v0_sol + a * t
-
-respuesta: v0_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto con aceleración {a} m/s² llega a v={v} m/s después de {t} s. ¿Cuál era su velocidad inicial?"
-
-explicacion: |
-  v₀ = v−at = {v}−{a}×{t} = {v0_sol}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si en las fórmulas de MRUV se pone a=0, se recuperan exactamente las fórmulas de MRU."
-
-explicacion: |
-  v(t)=v₀+0·t=v₀ (constante), x(t)=x₀+v₀t+0=x₀+v₀t — el MRU es el caso
-  particular de MRUV sin aceleración.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-variables:
-  a: random(2, 6)
-  n: random(1, 5)
-  v0: 2 * a * n
-  dx: 2 * a * n ^ 2
-
-respuesta: dx
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un auto frena desde v₀={v0} m/s con desaceleración {a} m/s² hasta detenerse (v=0). ¿Qué distancia recorre hasta parar?"
-
-pasos:
-  - "0 = v₀² − 2aΔx → Δx = v₀²/(2a)"
-
-explicacion: |
-  Es la misma cuenta que se profundiza en
-  `../../vida-cotidiana/distancia-frenado/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el instante en que v=0 dentro de un MRUV, la aceleración puede seguir siendo distinta de 0 (por ejemplo, en el punto más alto de un tiro vertical)."
-
-explicacion: |
-  v=0 es sólo un instante; a sigue actuando (la gravedad no se apaga en
-  el punto más alto) — adelanto de `../tiro-vertical/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  x0: random(0, 20)
-  v0: random(0, 15)
-  a: random(2, 6) * 2
-  t: random(1, 6)
-  real: x0 + v0 * t + (a * t ^ 2) / 2
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "x(t) = {x0} + {v0}t + ½×{a}t². ¿Es correcto que x({t}) sea {propuesto}?"
-
-explicacion: |
-  El valor correcto es {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["concepto", "opcion_multiple"]
-
-respuesta: "v² = v₀² + 2aΔx"
+enunciado: "¿Qué mide la escala de decibeles (dB)?"
 tipo: mc
 opciones_explicitas:
-  - "v² = v₀² + 2aΔx"
-  - "v = v₀ + at"
-  - "x = x₀ + v₀t + ½at²"
-
-enunciado: "Un problema da v₀, a y Δx, y pide la velocidad final — sin dar el tiempo. ¿Qué fórmula conviene usar?"
+  - "La intensidad de un sonido, comparada con una intensidad de referencia"
+  - "La frecuencia de un sonido (agudo o grave)"
+  - "La duración de un sonido"
+respuesta: "La intensidad de un sonido, comparada con una intensidad de referencia"
 
 explicacion: |
-  Es la única de las tres que no necesita el tiempo como dato.
+  Es una escala de intensidad relativa, no de frecuencia ni de
+  duración.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "mruv"
+  materia: "fisica"
+  tema: "decibeles_richter"
   nivel: "intermedio"
-  tags: ["problema"]
-
-variables:
-  v0: random(20, 60)
-  a: random(2, 10)
-
-respuesta: v0 / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto con v₀={v0} m/s frena con desaceleración {a} m/s². ¿Cuánto tarda en detenerse (v=0)?"
-
-explicacion: |
-  0 = v₀ − at → t = v₀/a.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["decibeles", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Para encontrar en qué instante un objeto en MRUV pasa por una posición dada, hay que resolver una ecuación cuadrática en t."
+enunciado: "La fórmula del nivel de intensidad sonora es dB = 10 × log₁₀(I / I₀), con I₀ una intensidad de referencia fija."
 
 explicacion: |
-  x(t)=x₀+v₀t+½at² es cuadrática en t — despejar t de una posición dada
-  usa la fórmula resolvente de `../../matematica/ecuacion-cuadratica/`.
+  Es una escala logarítmica, no lineal.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "intermedio"
+  tags: ["decibeles", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un aumento de 10 dB representa 10 veces más intensidad física del sonido."
+
+explicacion: |
+  Es consecuencia directa de que la escala usa un logaritmo en base 10.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "intermedio"
+  tags: ["decibeles", "calculo"]
+
+variables:
+  exponente: random(1, 8)
+  razon: 10 ^ exponente
+
+respuesta: 10 * log10(razon)
+tipo: input
+tolerancia_abs: 0.1
+
+enunciado: "Un sonido tiene una intensidad {razon} veces mayor que la intensidad de referencia. ¿Cuántos decibeles representa?"
+
+pasos:
+  - "dB = 10 × log₁₀({razon})"
+
+explicacion: |
+  Se aplica la fórmula del decibel sobre la razón de intensidades dada.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "avanzado"
+  tags: ["decibeles", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aunque un aumento de 10 dB representa 10 veces más intensidad física, el oído humano lo percibe aproximadamente como el doble de fuerte."
+
+explicacion: |
+  La percepción de sonoridad tiene su propia escala, distinta de la
+  intensidad física medida.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "avanzado"
+  tags: ["decibeles", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un aumento de aproximadamente 3 dB ya representa el doble de intensidad física del sonido."
+
+explicacion: |
+  10 elevado a (3/10) da aproximadamente 2 — de ahí sale esa
+  aproximación tan citada.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "intermedio"
+  tags: ["decibeles", "comparacion"]
+
+variables:
+  db_a: random(40, 70)
+  db_b: random(80, 120)
+
+respuesta: (db_b > db_a)
+tipo: vf
+
+enunciado: "Sonido A: {db_a} dB. Sonido B: {db_b} dB. ¿El sonido B tiene mayor intensidad física que el sonido A?"
+
+explicacion: |
+  A mayor cantidad de decibeles, mayor la intensidad física del sonido.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "avanzado"
+  tags: ["decibeles", "calculo"]
+
+variables:
+  db: uno_de([10, 20, 30, 40, 50, 60])
+
+respuesta: 10 ^ (db / 10)
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Un sonido tiene un nivel de {db} dB. ¿Cuántas veces más intenso es que la intensidad de referencia?"
+
+explicacion: |
+  Se despeja la razón de intensidades invirtiendo la fórmula del
+  decibel.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "basico"
+  tags: ["decibeles", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos sonidos de menor a mayor intensidad, según su nivel en decibeles."
+opciones_explicitas:
+  - "Una conversación normal (60 dB)"
+  - "Un susurro (30 dB)"
+  - "Un avión despegando (130 dB)"
+respuesta_orden: ["Un susurro (30 dB)", "Una conversación normal (60 dB)", "Un avión despegando (130 dB)"]
+
+explicacion: |
+  A mayor número de decibeles, mayor la intensidad del sonido.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "intermedio"
+  tags: ["decibeles", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La escala de decibeles comprime un rango enorme de intensidades físicas (de billones de veces de diferencia) en una escala de números manejables."
+
+explicacion: |
+  Es la razón de fondo por la que se usa una escala logarítmica en vez
+  de la intensidad física directa.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "intermedio"
+  tags: ["decibeles", "verificacion"]
+
+variables:
+  exponente: random(1, 8)
+  razon: 10 ^ exponente
+  correcto: 10 * log10(razon)
+  error: uno_de([0, 0, 0, 10, -10])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 1)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? Un sonido {razon} veces más intenso que la referencia, nivel informado: {mostrado} dB."
+
+explicacion: |
+  Se vuelve a calcular con la fórmula del decibel y se compara con el
+  valor informado.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "basico"
+  tags: ["richter", "vocabulario"]
+
+enunciado: "¿Qué mide la escala Richter?"
+tipo: mc
+opciones_explicitas:
+  - "La magnitud de un terremoto, relacionada con la energía liberada"
+  - "La duración de un terremoto"
+  - "La cantidad de réplicas de un terremoto"
+respuesta: "La magnitud de un terremoto, relacionada con la energía liberada"
+
+explicacion: |
+  Es una medida de magnitud, no de duración ni de cantidad de eventos.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "basico"
+  tags: ["richter", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La escala Richter es una escala logarítmica, igual que los decibeles y el pH."
+
+explicacion: |
+  Los tres usan la misma herramienta matemática: un logaritmo de una
+  razón.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "intermedio"
+  tags: ["richter", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada punto entero de magnitud Richter representa una amplitud de onda sísmica 10 veces mayor."
+
+explicacion: |
+  Es el mismo tipo de salto (factor de 10) que en la escala de pH.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "avanzado"
+  tags: ["richter", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada punto entero de magnitud Richter representa, aproximadamente, 31,6 veces más energía liberada (10 elevado a 1,5)."
+
+explicacion: |
+  Es un factor distinto al de la amplitud (10 veces): la energía crece
+  más rápido que la amplitud por cada punto.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "avanzado"
+  tags: ["richter", "calculo"]
+
+variables:
+  diferencia_magnitud: random(1, 4)
+
+respuesta: 10 ^ diferencia_magnitud
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Dos terremotos difieren en {diferencia_magnitud} puntos de magnitud Richter. ¿Cuántas veces más amplitud de onda sísmica tiene el más fuerte?"
+
+explicacion: |
+  Se eleva 10 a la cantidad de puntos de diferencia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "avanzado"
+  tags: ["richter", "calculo"]
+
+variables:
+  diferencia_magnitud: random(1, 3)
+
+respuesta: 10 ^ (1.5 * diferencia_magnitud)
+tipo: input
+tolerancia_abs: 5
+
+enunciado: "Dos terremotos difieren en {diferencia_magnitud} puntos de magnitud Richter. ¿Aproximadamente cuántas veces más energía liberó el más fuerte?"
+
+pasos:
+  - "10^(1,5 × {diferencia_magnitud})"
+
+explicacion: |
+  Se usa el factor de energía por punto (10^1,5 ≈ 31,6), elevado a la
+  cantidad de puntos de diferencia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "intermedio"
+  tags: ["richter", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un terremoto de magnitud 7 libera muchísima más energía que uno de magnitud 5 — no el doble, sino cientos de veces más."
+
+explicacion: |
+  Dos puntos de diferencia son aproximadamente 31,6 × 31,6 ≈ 1.000 veces
+  más energía.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "basico"
+  tags: ["richter", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos terremotos de menor a mayor energía liberada, según su magnitud Richter."
+opciones_explicitas:
+  - "Magnitud 7,0"
+  - "Magnitud 4,0"
+  - "Magnitud 5,5"
+respuesta_orden: ["Magnitud 4,0", "Magnitud 5,5", "Magnitud 7,0"]
+
+explicacion: |
+  A mayor magnitud, mayor la energía liberada — el orden de magnitud
+  coincide con el orden de energía.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "avanzado"
+  tags: ["richter", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La fórmula log₁₀(E) = 4,8 + 1,5 × M relaciona la magnitud Richter (M) con la energía liberada (E, en joules) — de ahí sale el factor de aproximadamente 31,6 veces por punto."
+
+explicacion: |
+  10 elevado a 1,5 (el coeficiente de M en la fórmula) es,
+  aproximadamente, 31,6.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "avanzado"
+  tags: ["richter"]
+
+variables:
+  diferencia_magnitud: uno_de([1, 2, 3])
+  amplitud_veces: 10 ^ diferencia_magnitud
+
+tipo: completar
+enunciado: "Dos terremotos tienen una diferencia de amplitud de {amplitud_veces} veces. Completá: ___ (diferencia de magnitud Richter) = log₁₀({amplitud_veces})."
+respuestas_validas:
+  - diferencia_magnitud
+
+explicacion: |
+  Se despeja la diferencia de magnitud tomando logaritmo en base 10 de
+  la razón de amplitudes.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "intermedio"
+  tags: ["decibeles", "richter", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Decibeles, escala Richter y pH comparten la misma lógica matemática: un logaritmo de una razón respecto a un valor de referencia, aplicado a fenómenos físicos distintos."
+
+explicacion: |
+  Cambia el fenómeno (sonido, energía sísmica, concentración de iones),
+  no la herramienta matemática.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "intermedio"
+  tags: ["decibeles", "richter", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El motivo de usar escalas logarítmicas como decibeles o Richter es comprimir rangos de valores físicos enormes en números chicos y manejables."
+
+explicacion: |
+  Sin el logaritmo, habría que manejar directamente números con muchos
+  ceros de diferencia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "decibeles_richter"
+  nivel: "basico"
+  tags: ["decibeles", "richter", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los decibeles miden intensidad de sonido (dB = 10×log₁₀(I/I₀)) y la escala Richter mide magnitud sísmica (cada punto ≈ 10x amplitud, ≈31,6x energía) — dos aplicaciones distintas de la misma herramienta logarítmica."
+
+explicacion: |
+  Es la idea central de todo el tema.
 ```
 

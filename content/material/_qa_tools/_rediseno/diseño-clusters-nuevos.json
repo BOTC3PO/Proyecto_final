@@ -1,0 +1,14 @@
+[
+ {
+  "id": 950,
+  "cluster": 1,
+  "temas": [
+   "usabilidad-heuristicas-de-nielsen",
+   "accesibilidad-wcag-contraste-lectores-de-pantalla",
+   "jerarquia-visual-e-informacion",
+   "prototipado-wireframe-mockup-prototipo-interactivo",
+   "pruebas-de-usuario"
+  ],
+  "preguntas": 125
+ }
+]

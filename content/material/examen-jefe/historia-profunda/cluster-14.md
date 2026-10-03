@@ -4,491 +4,367 @@
 
 ---
 
-## Sección: internet-redes-globalizacion-digital (25 preguntas)
+## Sección: imperio-bizantino (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "basico"
-  tags: ["arpanet", "eeuu", "militar"]
-
-tipo: mc
-opciones_explicitas: ["Una red civil para usuarios domésticos", "Un proyecto de investigación militar y académico de EE.UU.", "Una red de televisión satelital", "Un sistema de mensajería privada para gobiernos"]
-respuesta: "Un proyecto de investigación militar y académico de EE.UU."
-
-enunciado: "ARPANET, el precursor de la internet moderna, fue concebida originalmente como ___."
-
-explicacion: |
-  ARPANET fue creada por la ARPA (Advanced Research Projects Agency) del Departamento de Defensa de EE.UU. para permitir la comunicación entre computadoras de distintas universidades y centros de investigación.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
+  tema: "imperio-bizantino"
   nivel: "intermedio"
-  tags: ["protocolo", "tcp_ip", "estandar"]
-
+  tags: ["constantinopla", "fundacion", "capital"]
 tipo: completar
+enunciado: "Tras la reorganización del estado romano por Constantino I, la antigua Bizancio fue renombrada como Nueva Roma, pero históricamente se la conoce por su nombre original transformado, que se convirtió en la capital del imperio durante más de mil años. ¿Cuál es ese nombre?"
+respuesta: "Constantinopla"
 respuestas_validas:
-  - "TCP/IP"
-
-enunciado: "Para que la red pasara de ser un conjunto de redes aisladas a una red global interconectada, se estandarizó el uso del protocolo ___."
-
-explicacion: |
-  El conjunto de protocolos TCP/IP permitió que redes heterogéneas se comunicaran entre sí, estableciendo el lenguaje común que permitió la expansión de la internet global.
+  - "Constantinopla"
+  - "Constantinopla."
+  - "constantinopla"
+  - "constantinopla."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
+  tema: "imperio-bizantino"
   nivel: "intermedio"
-  tags: ["world_wide_web", "tim_berners_lee", "evolucion"]
-
-tipo: ordenar
-opciones_explicitas: ["Creación de ARPANET", "Desarrollo de la World Wide Web (WWW)", "Masificación de la internet comercial"]
-
-enunciado: "Ordena cronológicamente los hitos clave en la evolución de la red:"
-
-explicacion: |
-  Primero surgió la infraestructura de ARPANET (años 60-70), luego Tim Berners-Lee desarrolló la WWW en el CERN (principios de los 90), y finalmente la red se convirtió en un servicio comercial masivo para el público general.
-respuesta_orden: ["Creación de ARPANET", "Desarrollo de la World Wide Web (WWW)", "Masificación de la internet comercial"]
+  tags: ["cisma", "iglesia", "1054"]
+tipo: vf
+enunciado: "El Cisma de 1054 marcó la división definitiva entre la Iglesia de Roma y la Iglesia de Constantinopla, separando el cristianismo en las ramas católica romana y ortodoxa oriental."
+respuesta: verdadero
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "avanzado"
-  tags: ["web_2.0", "globalizacion", "interaccion"]
-
-variables:
-  tipo_web: uno_de([["Web 1.0 (Estática)", "Web 2.0 (Social/Interactiva)"]])
-
-tipo: mc
-respuesta: tipo_web[1]
-opciones_explicitas: ["Web 1.0 (Estática)", "Web 2.0 (Social/Interactiva)"]
-
-enunciado: "La transición de una red de solo lectura a una red donde el usuario es creador de contenido se conoce como la era de la {tipo_web[1]}."
-
-explicacion: |
-  La Web 2.0 permitió la democratización de la creación de contenido a través de redes sociales, blogs y wikis, cambiando el paradigma de la comunicación digital.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
+  tema: "imperio-bizantino"
   nivel: "intermedio"
-  tags: ["globalizacion", "impacto"]
-
+  tags: ["justiniano", "derecho", "corpus"]
 tipo: completar
-tolerancia_abs: 0
-respuesta: 7
-
-enunciado: "Si consideramos que la globalización digital ha reducido las distancias, ¿cuántos continentes están conectados hoy por la infraestructura de internet?"
-
-explicacion: |
-  Aunque la infraestructura no es perfecta en todas las zonas, la red de internet es considerada una red global que conecta los 7 continentes del planeta.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "basico"
-  tags: ["tim_berners_lee", "www"]
-
-tipo: mc
-opciones_explicitas: ["Un sistema de correo electrónico", "Un sistema de páginas e hipervínculos", "Un protocolo de transferencia de archivos", "Una red de satélites"]
-
-enunciado: "La World Wide Web, propuesta por Tim Berners-Lee entre 1989 y 1991, se define fundamentalmente como un ___ que permitió la navegación masiva por la información."
-
-respuesta: "Un sistema de páginas e hipervínculos"
-
-explicacion: |
-  Tim Berners-Lee desarrolló la Web para facilitar el intercambio de información entre científicos, utilizando hipervínculos para conectar documentos digitales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "intermedio"
-  tags: ["protocolos", "html"]
-
-tipo: completar
+enunciado: "El emperador Justiniano I encargó la recopilación y sistematización del derecho romano en una obra monumental que sentó las bases del derecho civil moderno. Esta colección se conoce comúnmente como el _____ de Justiniano."
+respuesta: "Corpus Juris Civilis"
 respuestas_validas:
-  - "HTML"
-
-enunciado: "Para que la Web funcione, se requiere de un lenguaje de marcado para estructurar el contenido llamado ___, un protocolo de transferencia llamado HTTP y un sistema de localización llamado URL."
-
-respuesta: "HTML"
-
-explicacion: |
-  La arquitectura de la Web se basa en tres pilares: HTML (lenguaje), HTTP (protocolo) y URL (identificador).
+  - "Corpus Juris Civilis"
+  - "corpus juris civilis"
+  - "Corpus iuris civilis"
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "avanzado"
-  tags: ["internet_vs_web"]
-
-tipo: mc
-opciones_explicitas: ["Internet es la infraestructura y la Web es el servicio", "La Web es la infraestructura y Internet es el servicio", "Son términos sinónimos", "La Web es el hardware y Internet el software"]
-
-enunciado: "Es fundamental distinguir que ___."
-
-respuesta: "Internet es la infraestructura y la Web es el servicio"
-
-explicacion: |
-  Internet es la red global de redes (infraestructura de cables, routers, etc.), mientras que la Web es uno de los muchos servicios que corren sobre ella.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
+  tema: "imperio-bizantino"
   nivel: "intermedio"
-  tags: ["navegadores", "mosaic"]
+  tags: ["lengua", "griego", "administracion"]
+tipo: mc
+enunciado: "A diferencia de las fases tempranas del Imperio Romano de Oriente, durante el reinado de Heraclio (siglo VII) la lengua oficial de la administración y la cultura imperial cambió definitivamente. ¿Cuál fue esa lengua?"
+opciones_explicitas:
+  - "Latín"
+  - "Griego"
+  - "Sirio"
+  - "Copto"
+respuesta: "Griego"
+```
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  nombres: ["Mosaic", "WorldWideWeb"]
-  descripcion: ["el primer navegador gráfico popular que impulsó la Web masiva", "el primer navegador desarrollado por Tim Berners-Lee"]
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["peste", "justiniano", "demografia"]
+tipo: vf
+enunciado: "La Peste de Justiniano, que azotó al Imperio Bizantino entre los años 541 y 549 d.C., fue causada por la bacteria Yersinia pestis y contribuyó significativamente al declive económico y demográfico del imperio en el siglo VI."
+respuesta: verdadero
+```
 
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["iconoclasia", "leo", "arte"]
 tipo: completar
+enunciado: "El emperador León III el Isaurio impulsó en el siglo VIII una política de destrucción de imágenes sagradas conocida como _____, un conflicto interno que debilitó la unidad religiosa del imperio."
+respuesta: "Iconoclasia"
 respuestas_validas:
-  - "Mosaic"
-  - "WorldWideWeb"
-
-enunciado: "En la historia de la navegación, {nombres[escenario_idx]} fue {descripcion[escenario_idx]}."
-
-respuesta: nombres[escenario_idx]
-
-explicacion: |
-  Mosaic fue crucial para la democratización de la Web al introducir imágenes integradas, mientras que WorldWideWeb fue el primer navegador/editor de Berners-Lee.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "intermedio"
-  tags: ["cronologia", "hitos"]
-
-tipo: ordenar
-opciones_explicitas: ["Propuesta de la Web (1989)", "Primer servidor web (1990)", "Lanzamiento de Mosaic (1993)"]
-
-respuesta_orden: ["Propuesta de la Web (1989)", "Primer servidor web (1990)", "Lanzamiento de Mosaic (1993)"]
-
-enunciado: "Ordena cronológicamente los hitos que marcaron el inicio y la explosión de la World Wide Web:"
-
-explicacion: |
-  Primero fue la idea teórica de Berners-Lee, luego la implementación técnica del primer servidor y finalmente la llegada de navegadores gráficos que permitieron su uso masivo.
+  - "Iconoclasia"
+  - "iconoclasia"
+  - "La iconoclasia"
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "basico"
-  tags: ["comunicacion", "globalizacion"]
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["manzikert", "seldjukos", "anatolia"]
+tipo: mc
+enunciado: "La derrota bizantina frente a los selyúcidas en la batalla de Manzikert en 1071, bajo el emperador Romano IV Diógenes, tuvo como consecuencia inmediata más grave:"
+opciones_explicitas:
+  - "La pérdida del control sobre Anatolia y su apertura a la turquización."
+  - "La caída inmediata de Constantinopla en manos musulmanas."
+  - "El inicio de las Cruzadas en Europa Occidental como respuesta directa."
+  - "La independencia total de la Iglesia Ortodoxa de Constantinopla."
+respuesta: "La pérdida del control sobre Anatolia y su apertura a la turquización."
+```
 
-respuesta: "instantánea"
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["varangianos", "guardia", "vikings"]
 tipo: completar
+enunciado: "La guardia imperial de élite del emperador de Constantinopla, compuesta originalmente por guerreros nórdicos y anglosajones, era conocida como la Guardia _____."
+respuesta: "Varangiana"
 respuestas_validas:
-  - "instantánea"
-  - "inmediata"
-
-enunciado: "La transición de la comunicación analógica a la digital permitió que la transmisión de información entre continentes fuera de carácter ___________."
-
-explicacion: |
-  Internet eliminó las barreras temporales, permitiendo la comunicación en tiempo real, lo que es un pilar de la globalización moderna.
+  - "Varangiana"
+  - "guardia varangiana"
+  - "La guardia varangiana"
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
+  tema: "imperio-bizantino"
   nivel: "intermedio"
-  tags: ["comercio", "economia"]
-
-variables:
-  escenario: uno_de([["Amazon", "gigante del retail"], ["Alibaba", "líder en B2B"], ["eBay", "pionero de subastas"]])
-
-respuesta: escenario[0]
+  tags: ["cisma", "filioque", "teologia"]
 tipo: mc
-opciones_explicitas: ["Amazon", "Alibaba", "eBay"]
-
-enunciado: "El comercio electrónico permitió que empresas como {escenario[0]} ({escenario[1]}) facilitaran el acceso a mercados globales, transformando la economía mundial."
-
-explicacion: |
-  El e-commerce permitió que pequeñas y grandes empresas vendieran productos sin fronteras físicas, acelerando la integración de mercados.
+enunciado: "Uno de los principales puntos de controversia teológica que llevó al Cisma de 1054 fue la inclusión del término 'Filioque' en el Credo por parte de la Iglesia de Roma. ¿Qué afirmaba este término?"
+opciones_explicitas:
+  - "Que el Espíritu Santo procede del Padre y del Hijo."
+  - "Que el Espíritu Santo procede solo del Padre."
+  - "Que el Hijo es inferior al Padre."
+  - "Que el Padre es la única fuente de la divinidad."
+respuesta: "Que el Espíritu Santo procede del Padre y del Hijo."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
+  tema: "imperio-bizantino"
   nivel: "intermedio"
-  tags: ["redes_sociales", "sociedad"]
-
-respuesta: "social"
-tipo: mc
-opciones_explicitas: ["social", "política", "económica"]
-
-enunciado: "Más allá de lo comercial, las redes sociales crearon una nueva dimensión de interconexión de tipo ___________, permitiendo movimientos culturales transnacionales."
-
-explicacion: |
-  Las redes sociales permitieron que la cultura y las ideas se difundieran globalmente de forma orgánica, creando una identidad digital compartida.
+  tags: ["cuarta-cruzada", "saqueo", "latin"]
+tipo: vf
+enunciado: "Durante la Cuarta Cruzada, las tropas cristianas occidentales desviaron su objetivo y saquearon Constantinopla en 1204, estableciendo temporalmente el Imperio Latino en la ciudad."
+respuesta: verdadero
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "avanzado"
-  tags: ["procesos", "digitalizacion"]
-
-respuesta_orden: ["Conectividad", "Plataformas", "Ecosistemas"]
-tipo: ordenar
-opciones_explicitas: ["Conectividad", "Plataformas", "Ecosistemas"]
-
-enunciado: "Ordena cronológicamente la evolución de la digitalización en la globalización: primero la infraestructura, luego los servicios y finalmente la integración total."
-
-explicacion: |
-  La globalización digital siguió un orden: primero cables y satélites (conectividad), luego sitios web y apps (plataformas) y finalmente la integración de la vida cotidiana en la red (ecosistemas).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
+  tema: "imperio-bizantino"
   nivel: "intermedio"
-  tags: ["economia", "costos"]
-
-respuesta: "cero"
+  tags: ["santa-sofia", "arquitectura", "justiniano"]
 tipo: completar
-tolerancia_abs: 0
-
-enunciado: "En términos teóricos de economía digital, la capacidad de replicar y transmitir información a través de internet ha tendido hacia un costo marginal de ___________."
-
-explicacion: |
-  La digitalización reduce drásticamente el costo de distribución de información, lo que permite que la globalización sea extremadamente eficiente.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "basico"
-  tags: ["brecha_digital", "desigualdad"]
-
-respuesta: "brecha digital"
-tipo: completar
+enunciado: "Construida entre 532 y 537 d.C. por los arquitectos Antemio de Tralles e Isidoro de Mileto bajo orden de Justiniano, la grandiosa catedral de Constantinopla se llama Basílica de _____."
+respuesta: "Santa Sofía"
 respuestas_validas:
-  - "brecha digital"
-
-enunciado: "El término que describe la desigualdad en el acceso, uso y capacidades para utilizar las Tecnologías de la Información y la Comunicación (TIC) se denomina ___."
-
-explicacion: |
-  La brecha digital no solo se refiere a la falta de infraestructura física (hardware/conexión), sino también a la falta de habilidades digitales (brecha de uso) y de calidad en el aprovechamiento de la información.
+  - "Santa Sofía"
+  - "santa sofía"
+  - "Hagia Sophia"
 ```
 
 ```
 metadata:
-  materia: "historia_profucha"
-  tema: "internet_redes_globalizacion_digital"
+  materia: "historia-profunda"
+  tema: "imperio-bizantino"
   nivel: "intermedio"
-  tags: ["dimensiones", "tecnologia"]
-
-respuesta: "Brecha de uso"
+  tags: ["nimea", "lascaris", "estado-exilio"]
 tipo: mc
-opciones_explicitas: ["Brecha de acceso", "Brecha de uso", "Brecha de competencias"]
-
-enunciado: "Cuando una persona tiene un dispositivo y conexión, pero no posee las habilidades cognitivas para navegar de forma crítica o productiva en la red, estamos ante una: ___"
-
-explicacion: |
-  La brecha de uso o de competencias se refiere a la capacidad real de transformar la información digital en conocimiento útil, independientemente de tener o no el dispositivo.
+enunciado: "Tras la caída de Constantinopla en 1204, el Imperio Bizantino fue sucesoriamente restaurado por tres estados griegos. ¿Cuál de ellos logró finalmente reconquistar la capital en 1261?"
+opciones_explicitas:
+  - "El Imperio de Nicea."
+  - "El Despotado de Epiro."
+  - "El Reino de Trebisonda."
+  - "El Estado de Tesalónica."
+respuesta: "El Imperio de Nicea."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "avanzado"
-  tags: ["globalizacion", "desarrollo"]
-
-variables:
-  caso: uno_de([["países en desarrollo", "aumenta la desigualdad"], ["países desarrollados", "se consolida su ventaja"]])
-
-respuesta: caso[1]
-tipo: mc
-opciones_explicitas: ["aumenta la desigualdad", "se consolida su ventaja"]
-
-enunciado: "En el contexto de la globalización digital, la asimetría tecnológica suele provocar que, en los {caso[0]}, el efecto de la brecha tecnológica sea que:"
-
-explicacion: |
-  La globalización digital puede actuar como un motor de desarrollo o como un mecanismo de exclusión, dependiendo de la capacidad de integración tecnológica de cada nación.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
+  tema: "imperio-bizantino"
   nivel: "intermedio"
-  tags: ["factores", "sociedad"]
-
-respuesta: "Todas las anteriores"
-tipo: mc
-opciones_explicitas: ["Geográfica", "Económica", "Social", "Todas las anteriores"]
-
-enunciado: "¿Cuál de los siguientes factores es un determinante clave en la creación de la brecha digital?"
-
-pasos:
-  - "Analizar la infraestructura disponible en la zona."
-  - "Considerar el poder adquisitivo de la población."
-  - "Evaluar el nivel educativo y acceso a servicios básicos."
-
-explicacion: |
-  La brecha digital es un fenómeno multidimensional que involucra factores geográficos (zonas rurales vs urbanas), económicos (costo de equipos/datos) y sociales (educación).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "intermedio"
-  tags: ["evolucion", "historia"]
-
-respuesta_orden: ["Brecha de infraestructura", "Brecha de acceso", "Brecha de uso", "Brecha de apropiación"]
-tipo: ordenar
-opciones_explicitas: ["Brecha de infraestructura", "Brecha de acceso", "Brecha de uso", "Brecha de apropiación"]
-
-enunciado: "Ordena cronológicamente las etapas en las que se ha manifestado la brecha digital a medida que la tecnología avanzaba en la sociedad global:"
-
-explicacion: |
-  Primero la brecha se centraba en la existencia de cables y redes (infraestructura), luego en quién podía pagar el servicio (acceso), después en quién sabía usarlo (uso) y finalmente en quién puede generar valor con ello (apropiación).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "intermedio"
-  tags: ["arpanet", "historia"]
-
-variables:
-  datos: [["ARPANET", "1969"], ["TCP/IP", "1983"], ["WWW", "1989"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["1969", "1983", "1989"]
-
-enunciado: "El hito tecnológico representado por {datos[idx][0]} ocurrió en el año ___."
-
-explicacion: |
-  El año de {datos[idx][0]} marcó un punto de inflexión en la historia de las telecomunicaciones.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "intermedio"
-  tags: ["protocolos", "tcp_ip"]
-
-variables:
-  datos: [["TCP/IP", "estandarizar la comunicación"], ["HTTP", "navegar por la web"], ["DNS", "resolver nombres"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+  tags: ["paleologo", "reconquista", "1261"]
 tipo: completar
+enunciado: "El emperador _____ reconquistó Constantinopla en 1261, poniendo fin al Imperio Latino y restaurando el Imperio Bizantino, dando inicio a la dinastía Paleóloga."
+respuesta: "Miguel VIII"
 respuestas_validas:
-  - "estandarizar la comunicación"
-  - "navegar por la web"
-  - "resolver nombres"
-
-enunciado: "La implementación de {datos[idx][0]} tuvo como objetivo principal ___."
-
-explicacion: |
-  {datos[idx][0]} fue fundamental para el funcionamiento de la red tal como la conocemos.
+  - "Miguel VIII"
+  - "miguel viii"
+  - "Miguel Palaeologus"
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "basico"
-  tags: ["web", "tim_berners_lee"]
-
-variables:
-  datos: [["La creación de la World Wide Web", "Tim Berners-Lee"], ["La llegada de Google", "Larry Page"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Tim Berners-Lee", "Larry Page"]
-
-enunciado: "¿Quién es el autor de {datos[idx][0]}?"
-
-explicacion: |
-  {datos[idx][0]} fue impulsada por {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
-  nivel: "avanzado"
-  tags: ["ordenar", "historia"]
-
-variables:
-  secuencia: [["ARPANET", "TCP/IP", "WWW", "Redes Sociales"]]
-
-respuesta_orden: secuencia[0]
-tipo: ordenar
-opciones_explicitas: ["ARPANET", "TCP/IP", "WWW", "Redes Sociales"]
-
-enunciado: "Ordena cronológicamente los siguientes hitos de la era digital:"
-
-pasos:
-  - "Identifica el primer paquete de datos enviado."
-  - "Ubica la estandarización de protocolos."
-  - "Ubica la creación de la web."
-  - "Ubica el auge de la interacción social."
-
-explicacion: |
-  El orden correcto refleja la evolución desde la infraestructura militar hasta la cultura social.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "internet_redes_globalizacion_digital"
+  tema: "imperio-bizantino"
   nivel: "intermedio"
-  tags: ["tecnologia", "acceso"]
+  tags: ["fuego-griego", "naval", "arma"]
+tipo: mc
+enunciado: "El arma naval secreta bizantina, una sustancia incendiaria líquida que ardía en el agua y se usaba principalmente contra las flotas enemigas, era conocida como:"
+opciones_explicitas:
+  - "Fuego griego."
+  - "Petra ignis."
+  - "Llama eterna."
+  - "Azufre volátil."
+respuesta: "Fuego griego."
+```
 
-variables:
-  datos: [["Dial-up", "lenta"], ["Banda Ancha", "rápida"]]
-  idx: uno_de([0, 1])
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["yarmuk", "arabes", "perdida"]
+tipo: vf
+enunciado: "La batalla de Yarmuk en 636 d.C. resultó en la pérdida definitiva de las provincias sirias y palestinas del Imperio Bizantino ante el expanding Califato Rashidun."
+respuesta: verdadero
+```
 
-respuesta: datos[idx][1]
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["comneno", "renacimiento", "justo"]
 tipo: completar
+enunciado: "El emperador _____ (r. 1118–1143), hijo de Alejo I, es conocido por su piadosa gestión y por haber evitado que el imperio se endeudara con las repúblicas italianas, marcando el apogeo de la dinastía Comnena."
+respuesta: "Juan II"
 respuestas_validas:
-  - "lenta"
-  - "rápida"
+  - "Juan II"
+  - "juan ii"
+  - "Juan Comneno"
+```
 
-enunciado: "La conexión de tipo {datos[idx][0]} se caracterizaba por ser ___."
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["andonico", "reformas", "muerte"]
+tipo: mc
+enunciado: "Andrónico I Comneno, conocido por sus drásticas y brutales reformas para combatir la corrupción y el poder de la nobleza, terminó su reinado siendo:"
+opciones_explicitas:
+  - "Linchado por la multitud en Constantinopla."
+  - "Abdicando y retirándose a un monasterio."
+  - "Asesinado por sus propios generales en Anatolia."
+  - "Exiliado a Venecia."
+respuesta: "Linchado por la multitud en Constantinopla."
+```
 
-explicacion: |
-  La transición hacia la {datos[idx][0]} transformó el consumo de contenido global.
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["paleologo", "ultima-dinastia", "1453"]
+tipo: completar
+enunciado: "La última dinastía reinante en el Imperio Bizantino, que gobernó desde la reconquista de 1261 hasta la caída final de 1453, fue la dinastía _____."
+respuesta: "Paleóloga"
+respuestas_validas:
+  - "Paleóloga"
+  - "paleologa"
+  - "Palaiologos"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["constantino-xi", "caida", "1453"]
+tipo: vf
+enunciado: "El último emperador bizantino, Constantino XI Paleólogo, murió combatiendo personalmente en las murallas de Constantinopla durante el asedio otomano de 1453."
+respuesta: verdadero
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["concilio", "unificacion", "iglesia"]
+tipo: mc
+enunciado: "El emperador Juan VIII Paleólogo asistió al Concilio de Florencia en 1439 con el objetivo principal de:"
+opciones_explicitas:
+  - "Lograr la unificación de las iglesias ortodoxa y católica para obtener ayuda militar contra los otomanos."
+  - "Distribuir las riquezas del tesoro imperial entre los cardenales europeos."
+  - "Proclamar al Papa como jefe supremo de todas las iglesias orientales sin condiciones."
+  - "Establecer una alianza comercial con las repúblicas italianas."
+respuesta: "Lograr la unificación de las iglesias ortodoxa y católica para obtener ayuda militar contra los otomanos."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["basilio-ii", "bulgaros", "apogeo"]
+tipo: completar
+enunciado: "El emperador _____ (r. 976–1025) consolidó las fronteras del imperio y derrotó al Primer Imperio Búlgaro, ganándose el sobrenombre de 'Bulgaroctono' (Matador de búlgaros)."
+respuesta: "Basilio II"
+respuestas_validas:
+  - "Basilio II"
+  - "basilio ii"
+  - "Basileios II"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["literatura", "grecia", "clasicismo"]
+tipo: mc
+enunciado: "Durante el Renacimiento Paleólogo (siglos XIII-XV), los eruditos bizantinos jugaron un papel crucial en la transmisión de textos clásicos griegos a Occidente. ¿Cuál de los siguientes textos fue preservado y estudiado intensamente por estos eruditos?"
+opciones_explicitas:
+  - "La Ilíada y la Odisea de Homero."
+  - "Las obras completas de Aristófanes."
+  - "Los Diálogos de Platón."
+  - "Todas las anteriores."
+respuesta: "Todas las anteriores."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["polvora", "siege", "tecnologia"]
+tipo: vf
+enunciado: "El Imperio Bizantino desarrolló y utilizó armas de fuego y pólvora de manera nativa y exclusiva antes que cualquier otra potencia europea durante el siglo XIV."
+respuesta: falso
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["tema", "militar", "anatolia"]
+tipo: completar
+enunciado: "El sistema administrativo y militar bizantino se basaba en las divisiones territoriales llamadas _____. El Tema de los Anatólicos fue uno de los más grandes y importantes, ubicado en el norte de Anatolia."
+respuesta: "temas"
+respuestas_validas:
+  - "temas"
+  - "el tema"
+  - "Themata"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperio-bizantino"
+  nivel: "intermedio"
+  tags: ["motin", "nika", "hipodromo"]
+tipo: mc
+enunciado: "En 532 d.C., Justiniano I estuvo a punto de ser depuesto durante un motín popular conocido como la Revuelta de Nika. ¿Cuál fue el desenlace de este motín?"
+opciones_explicitas:
+  - "Fue suprimido con gran violencia por Belisario y Mundus en el Hipódromo."
+  - "Justiniano abdicó y huyó de la ciudad."
+  - "Se negoció una paz que otorgó más poderes al Senado."
+  - "Los motines se resolvieron con la construcción de nuevas iglesias."
+respuesta: "Fue suprimido con gran violencia por Belisario y Mundus en el Hipódromo."
 ```
 
 ## Sección: islam-y-expansion-arabe (25 preguntas)
@@ -891,1362 +767,1243 @@ respuesta: verdadero
 explicacion: "La peste negra diezmó la población en Egipto, Siria e Irán, debilitando la base fiscal y militar de los estados islámicos de la época, facilitando posteriormente su declive o conquista por otras potencias."
 ```
 
-## Sección: ley-de-hubble (25 preguntas)
+## Sección: edad-media-plena (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "basico"
-  tags: ["astronomia", "cosmologia"]
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["tratado", "verdun", "francia", "alemania", "italia"]
+tipo: mc
+enunciado: "El Tratado de Verdún, firmado en el año 843, dividió el Imperio Carolingio entre los nietos de Carlomagno. ¿Cuál de las siguientes opciones describe correctamente el territorio asignado a Luis el Germánico?"
+respuesta: "El reino de Francia Oriental, que sentó las bases de lo que luego sería el Sacro Imperio Romano Germánico"
+opciones_explicitas:
+  - "El reino de Francia Occidental, que evolucionaría hacia el reino de Francia moderno"
+  - "El reino de Francia Oriental, que sentó las bases de lo que luego sería el Sacro Imperio Romano Germánico"
+  - "El reino de Italia, que permaneció bajo el control directo del emperador"
+  - "Un reino central que incluía la Borgoña y el norte de Italia"
+explicacion: "El Tratado de Verdún dividió el impero en tres partes: Luis el Germánico recibió la Franconia y territorios al este del Rin (Francia Oriental); Lotario I recibió el título imperial y una franja central (Francia Media); y Carlos el Calvo recibió la Aquitania y territorios al oeste del Rin (Francia Occidental)."
+```
 
-respuesta: "alejamiento"
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["iglesia", "gregorio-vii", "investidura", "laicato"]
 tipo: completar
+enunciado: "Durante el siglo XI, el papa Gregorio VII impulsó la Reforma Gregoriana para afirmar la independencia de la Iglesia frente al poder secular. Uno de sus objetivos principales fue eliminar la práctica de la __________, mediante la cual los monarcas y nobles nombraban a los obispos y abades."
+respuesta: "investidura"
 respuestas_validas:
-  - "alejamiento"
-  - "expansión"
-
-enunciado: "La Ley de Hubble establece que la velocidad de ___ de las galaxias es proporcional a su distancia respecto a la Tierra."
-
-explicacion: |
-  La ley de Hubble-Lemaître indica que cuanto más lejana es una galaxia, mayor es la velocidad con la que se aleja de nosotros, lo que sugiere la expansión del universo.
+  - "investidura"
+  - "Investidura"
+  - "INVESTIDURA"
+explicacion: "La lucha por las investiduras fue el conflicto central entre el papado y el imperio (y otros monarcas) en el siglo XI y XII. La Reforma Gregoriana buscaba que solo la Iglesia pudiera nombrar a sus clérigos, eliminando el control laico sobre los cargos eclesiásticos."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: "mayor"
-tipo: mc
-opciones_explicitas: ["menor", "mayor", "igual", "nula"]
-
-enunciado: "Si una galaxia A está al doble de distancia que una galaxia B, según la Ley de Hubble, la velocidad de la galaxia A será ___ que la de la galaxia B."
-
-explicacion: |
-  Como la velocidad es directamente proporcional a la distancia ($v \propto d$), si la distancia se duplica, la velocidad también se duplica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["calculo"]
-
-variables:
-  distancia: 100000000
-  hubble: 70
-
-respuesta: 7000000000
-tipo: completar
-tolerancia_abs: 1
-
-enunciado: "Una galaxia se encuentra a una distancia de {distancia} Mpc. Si la constante de Hubble es $H_0 = {hubble}$ km/s/Mpc, ¿cuál es la velocidad de recesión en km/s? (Usa la fórmula $v = H_0 \\cdot d$)"
-
-pasos:
-  - "Identificar la distancia ($d$) y la constante de Hubble ($H_0$)."
-  - "Multiplicar la constante de Hubble por la distancia: $v = 70 \\cdot 100.000.000$."
-
-explicacion: |
-  Aplicando la fórmula $v = H_0 \cdot d$: $70 \times 100.000.000 = 7.000.000.000$ km/s.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "basico"
-  tags: ["formula"]
-
-respuesta: "distancia"
-tipo: completar
-respuestas_validas:
-  - "distancia"
-  - "velocidad"
-  - "constante"
-
-enunciado: "En la expresión matemática $v = H_0 \\cdot d$, la variable $d$ representa la ___ de la galaxia."
-
-explicacion: |
-  En la ecuación de Hubble, $v$ es la velocidad de recesión, $H_0$ es la constante de Hubble y $d$ es la distancia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "avanzado"
-  tags: ["teoria"]
-
-respuesta: "verdadero"
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "¿Es correcto afirmar que la Ley de Hubble implica que el universo se está expandiendo?"
-
-explicacion: |
-  Sí, el hecho de que todas las galaxias presenten un corrimiento al rojo (redshift) proporcional a su distancia es la evidencia fundamental de la expansión del tejido espacio-temporal.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "basico"
-  tags: ["astronomia", "hubble", "expansion"]
-
-respuesta: "expansión"
-tipo: completar
-respuestas_validas:
-  - "expansión"
-  - "expansion"
-
-enunciado: "En 1929, Edwin Hubble observó que las galaxias lejanas se alejan de nosotros, lo que proporcionó evidencia fundamental de la ___ del universo."
-
-explicacion: |
-  Hubble descubrió que el universo no es estático, sino que está en constante expansión, lo que cambió nuestra comprensión del cosmos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "intermedio"
-  tags: ["ley_de_hubble", "velocidad", "distancia"]
-
-variables:
-  escenario: uno_de([["10 Mpc", "200 km/s"], ["20 Mpc", "400 km/s"], ["50 Mpc", "1000 km/s"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["100 km/s", "200 km/s", "300 km/s", "400 km/s", "1000 km/s"]
-
-enunciado: "Si aplicamos la lógica de la Ley de Hubble, donde la velocidad de recesión es proporcional a la distancia, ¿cuál es la velocidad aproximada de una galaxia situada a {escenario[0]} de distancia?"
-
-pasos:
-  - "Identificar la distancia proporcionada."
-  - "Relacionar la distancia con la velocidad según el escenario asignado."
-
-explicacion: |
-  La Ley de Hubble establece que $v = H_0 \cdot d$. En este ejercicio, se ha asignado un valor de velocidad proporcional a la distancia dada en el escenario.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "basico"
-  tags: ["efecto_doppler", "redshift"]
-
-respuesta: "corrimiento al rojo"
-tipo: completar
-respuestas_validas:
-  - "corrimiento al rojo"
-  - "redshift"
-
-enunciado: "El fenómeno mediante el cual la luz de las galaxias lejanas se desplaza hacia longitudes de onda más largas debido al alejamiento es conocido como ___."
-
-explicacion: |
-  Este fenómeno, llamado 'redshift' o corrimiento al rojo, es la base observacional que permitió a Hubble concluir que las galaxias se alejan.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "intermedio"
-  tags: ["cosmologia", "modelo_estatico"]
-
-respuesta: "falso"
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "Antes de los descubrimientos de Hubble, la creencia predominante en la comunidad científica era que el universo era estático. ¿Es correcto afirmar que la Ley de Hubble refuta esta idea? "
-
-explicacion: |
-  Correcto. La observación de que las galaxias se alejan invalidó el modelo de un universo estático y dio paso al modelo del Big Bang.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "avanzado"
-  tags: ["metodologia", "evidencia"]
-
-respuesta_orden: ["observación del redshift", "cálculo de la velocidad de recesión", "conclusión de la expansión universal"]
-tipo: ordenar
-opciones_explicitas: ["observación del redshift", "cálculo de la velocidad de recesión", "conclusión de la expansión universal"]
-
-enunciado: "Ordena cronológicamente los pasos lógicos que llevaron a Hubble a concluir la expansión del universo:"
-
-pasos:
-  - "Detectar el cambio de color en el espectro de las galaxias."
-  - "Determinar qué tan rápido se alejan según su distancia."
-  - "Deducir que el espacio mismo se está expandiendo."
-
-explicacion: |
-  Primero se observa el desplazamiento espectral (redshift), luego se cuantifica la velocidad de alejamiento y finalmente se interpreta como una expansión del tejido del universo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "basico"
-  tags: ["astronomia", "cosmologia"]
-
-enunciado: "Según la Ley de Hubble, la velocidad de alejamiento (v) de una galaxia es directamente proporcional a su distancia (d). Esto se expresa mediante la fórmula v = H0 * d. Si una galaxia se encuentra a una distancia mayor, su velocidad de alejamiento será ___."
-
-opciones_explicitas: ["menor", "mayor", "igual", "nula"]
-respuesta: "mayor"
-tipo: "mc"
-
-explicacion: |
-  La Ley de Hubble establece una relación de proporcionalidad directa: a mayor distancia, mayor es la velocidad con la que la galaxia se aleja de nosotros.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "intermedio"
-  tags: ["calculo", "astronomia"]
-
-variables:
-  distancia_m: 100000000
-  h0_valor: 70
-
-enunciado: "Utilizando una constante de Hubble H0 de {h0_valor} km/s/Mpc, calcula la velocidad de alejamiento de una galaxia situada a {distancia_m} Mpc."
-
-pasos:
-  - "Identificar la constante H0: 70 km/s/Mpc"
-  - "Identificar la distancia: 100,000,000 Mpc"
-  - "Multiplicar H0 por la distancia: 70 * 100,000,000"
-
-respuesta: 7000000000
-tipo: "input"
-tolerancia_abs: 0
-
-explicacion: |
-  La velocidad se obtiene multiplicando la constante de Hubble por la distancia: 70 * 10^8 = 7 * 10^9 km/s.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "avanzado"
-  tags: ["cosmologia", "tiempo"]
-
-variables:
-  datos: [[70, "13.8"], [50, "20.0"]]
-  idx: uno_de([0, 1])
-  h0: datos[idx][0]
-  edad: datos[idx][1]
-
-enunciado: "La edad aproximada del universo se puede estimar mediante el inverso de la constante de Hubble (1/H0). Si tomamos un valor de H0 de {h0} km/s/Mpc, la edad estimada es de aproximadamente ___ miles de millones de años."
-
-respuestas_validas:
-  - "13.8"
-  - "20.0"
-respuesta: edad
-tipo: "completar"
-
-explicacion: |
-  El tiempo estimado (edad del universo) es inversamente proporcional a H0. A mayor valor de la constante, menor es la edad estimada del universo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-enunciado: "Ordena los elementos según la lógica de la expansión del universo descrita por Edwin Hubble, desde la causa hasta el efecto observado:"
-
-opciones_explicitas: ["Expansión del espacio", "Aumento de la distancia entre galaxias", "Aumento de la velocidad de alejamiento"]
-respuesta_orden: ["Expansión del espacio", "Aumento de la distancia entre galaxias", "Aumento de la velocidad de alejamiento"]
-tipo: "ordenar"
-
-explicacion: |
-  La expansión del espacio provoca que las galaxias se alejen (aumenta la distancia), lo cual se traduce en una velocidad de alejamiento mayor según la Ley de Hubble.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-enunciado: "¿Es correcto afirmar que si la constante de Hubble (H0) fuera mayor, el universo sería más joven?"
-
-opciones_explicitas: ["Verdadero", "Falso"]
-respuesta: "Verdadero"
-tipo: "mc"
-
-explicacion: |
-  Verdadero. Como la edad es aproximadamente 1/H0, un valor de H0 más grande implica un tiempo (edad) menor.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "intermedio"
-  tags: ["cosmologia", "hubble", "observacion"]
-
-respuesta: "principio_cosmologico"
-tipo: mc
-
-opciones_explicitas: ["principio_cosmologico", "teoria_geocentrica", "teoria_estatica", "modelo_de_hubble"]
-
-enunciado: "El hecho de que todas las galaxias parezcan alejarse de nosotros debido a la expansión del universo no significa que la Tierra sea el centro. Este concepto de que el universo se ve igual para cualquier observador está ligado al..."
-
-explicacion: |
-  El principio cosmológico establece que, a gran escala, el universo es homogéneo e isotrópico. La expansión es una propiedad del espacio mismo, por lo que cualquier observador en cualquier galaxia vería el mismo efecto de alejamiento.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "basico"
-  tags: ["expansion", "observacion"]
-
-respuesta: "se alejan"
-tipo: completar
-
-respuestas_validas:
-  - "se alejan"
-  - "se acercan"
-  - "estacionarias"
-
-enunciado: "Si un observador se situara en una galaxia muy lejana, en lugar de la Tierra, vería que las demás galaxias del universo ___ de la misma forma que nosotros."
-
-explicacion: |
-  La expansión del universo no es una explosión que ocurre desde un punto central, sino una expansión del tejido mismo del espacio. Por lo tanto, desde cualquier punto, la observación es la misma.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "intermedio"
-  tags: ["geometria", "espacio"]
-
-respuesta: "falso"
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-enunciado: "¿Es correcto afirmar que la Ley de Hubble implica que existe un punto central en el universo desde el cual todas las galaxias se expanden en forma radial, situando a la Tierra en un lugar privilegiado?"
-
-explicacion: |
-  Falso. La expansión es local en cada punto del espacio. Es similar a la superficie de un globo inflándose: todos los puntos se alejan de todos los demás, sin que haya un centro en la superficie.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "avanzado"
-  tags: ["isotropia", "observador"]
-
-respuesta: "isotropico"
-tipo: completar
-
-respuestas_validas:
-  - "isotropico"
-  - "anisotropico"
-  - "central"
-
-enunciado: "Debido a la naturaleza de la expansión, el universo es ___ para cualquier observador, ya sea uno situado en la Vía Láctea o uno en una galaxia lejana, lo que significa que las leyes físicas y la apariencia de la expansión no dependen de la posición del observador."
-
-explicacion: |
-  La isotropía significa que las propiedades del universo son las mismas en todas las direcciones. Esto garantiza que no haya un "centro" observable.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "intermedio"
-  tags: ["logica", "historia"]
-
-opciones_explicitas: ["observacion_galaxias", "conclusion_expansion", "implicacion_no_centro"]
-respuesta_orden: ["observacion_galaxias", "conclusion_expansion", "implicacion_no_centro"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos que llevaron a la comprensión moderna del universo tras el descubrimiento de Hubble:"
-
-pasos:
-  - "Se observa el corrimiento al rojo en galaxias lejanas."
-  - "Se concluye que el universo se está expandiendo."
-  - "Se comprende que la expansión es una propiedad del espacio y no un alejamiento desde un centro."
-
-explicacion: |
-  Primero se detecta el fenómeno (redshift), luego se interpreta como expansión y finalmente se entiende que esto no requiere un centro geométrico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "basico"
-  tags: ["astronomia", "calculo"]
-
-variables:
-  escenario: uno_de([[10, 70], [25, 75], [50, 65]])
-  distancia: escenario[0]
-  h0: escenario[1]
-  velocidad: distancia * h0
-
-respuesta: velocidad
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Una galaxia se encuentra a una distancia de {distancia} Mpc. Si la constante de Hubble es H0 = {h0} (km/s)/Mpc, ¿cuál es su velocidad de alejamiento en km/s?"
-
-explicacion: |
-  Según la Ley de Hubble: v = H0 * d.
-  En este caso: {distancia} * {h0} = {velocidad} km/s.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: "tasa de expansión"
-tipo: completar
-respuestas_validas:
-  - "tasa de expansión"
-  - "velocidad de la luz"
-  - "masa galáctica"
-
-enunciado: "La constante de Hubble representa la ___ del universo."
-
-explicacion: |
-  La constante de Hubble (H0) mide qué tan rápido se expande el universo en relación a la distancia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "intermedio"
-  tags: ["conceptos", "observacion"]
-
-respuesta: "se aleja"
-tipo: mc
-opciones_explicitas: ["se acerca", "se aleja", "está estática", "colapsa"]
-
-enunciado: "Si observamos un redshift (desplazamiento al rojo) en una galaxia, según la Ley de Hubble, esto indica que la galaxia ___ de nosotros."
-
-explicacion: |
-  El redshift es la prueba observacional de que las galaxias se están alejando, lo cual es la base de la expansión del universo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "avanzado"
-  tags: ["calculo", "inverso"]
-
-respuesta: 20
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Si una galaxia tiene una velocidad de alejamiento de 1400 km/s y asumimos una constante de Hubble de 70 (km/s)/Mpc, ¿a qué distancia se encuentra en Mpc?"
-
-pasos:
-  - "Identificar la velocidad (v) y la constante (H0)."
-  - "Despejar la distancia de la fórmula v = H0 * d, obteniendo d = v / H0."
-
-explicacion: |
-  Para hallar la distancia, dividimos la velocidad por la constante de Hubble: 1400 / 70 = 20 Mpc.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ley_de_hubble"
-  nivel: "intermedio"
-  tags: ["orden", "conceptos"]
-
-respuesta_orden: ["Observación de Redshift", "Cálculo de Velocidad", "Aplicación de Ley de Hubble"]
-tipo: ordenar
-opciones_explicitas: ["Observación de Redshift", "Cálculo de Velocidad", "Aplicación de Ley de Hubble"]
-
-enunciado: "Ordena los pasos lógicos para determinar la distancia de una galaxia usando la Ley de Hubble a partir de la observación astronómica."
-
-explicacion: |
-  Primero se observa el desplazamiento (redshift), luego se calcula la velocidad a partir de ese desplazamiento y finalmente se usa la Ley de Hubble para hallar la distancia.
-```
-
-## Sección: materia-energia-oscura (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "basico"
-  tags: ["materia_oscura", "luz", "gravedad"]
-
-respuesta: "invisible"
-tipo: completar
-respuestas_validas:
-  - "invisible"
-
-enunciado: "Debido a que la materia oscura no emite, refleja ni absorbe radiación electromagnética, su naturaleza es ___________ para nuestros instrumentos ópticos tradicionales."
-
-explicacion: |
-  La materia oscura es invisible al espectro electromagnético (luz, radio, rayos X, etc.), lo que impide su detección directa mediante telescopios convencionales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "intermedio"
-  tags: ["galaxias", "rotación", "gravedad"]
-
-respuesta: "La velocidad de rotación se mantiene constante o aumenta en la periferia"
-tipo: mc
-opciones_explicitas: ["La velocidad de rotación disminuye conforme nos alejamos del centro", "La velocidad de rotación se mantiene constante o aumenta en la periferia", "Las galaxias colapsarían por falta de masa", "La gravedad es nula en los bordes de la galaxia"]
-
-enunciado: "Al observar las curvas de rotación de las galaxias espirales, se detecta que las estrellas en la periferia se mueven a una velocidad que contradice la masa visible. ¿Cuál es la observación real?"
-
-explicacion: |
-  Si solo existiera la materia visible, las estrellas externas deberían girar más lento. El hecho de que mantengan velocidades altas sugiere la presencia de una masa adicional (materia oscura) que proporciona la gravedad necesaria.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "basico"
-  tags: ["gravedad", "masa"]
-
-respuesta: "gravitacionales"
-tipo: completar
-respuestas_validas:
-  - "gravitacionales"
-
-enunciado: "Dado que no podemos ver la materia oscura, su existencia se infiere únicamente a través de sus efectos ___________ sobre la materia bariónica (visible)."
-
-explicacion: |
-  La materia oscura interactúa principalmente a través de la gravedad, alterando el movimiento de las estrellas y la luz (lentes gravitacionales).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "intermedio"
-  tags: ["composición", "universo"]
-
-respuesta: "Materia oscura"
-tipo: mc
-opciones_explicitas: ["Materia bariónica", "Materia oscura", "Energía oscura", "Radiación de fondo"]
-
-enunciado: "La masa adicional necesaria para explicar la cohesión de los cúmulos de galaxias y las curvas de rotación galáctica se conoce como ___________."
-
-explicacion: |
-  La materia oscura constituye aproximadamente el 27% del universo, mientras que la materia ordinaria (bariónica) es solo un 5%.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "avanzado"
-  tags: ["metodología", "evidencia"]
-
-respuesta: "masa_visible"
-tipo: completar
-respuestas_validas:
-  - "masa_visible"
-
-enunciado: "La discrepancia observada entre la velocidad de rotación galáctica y la cantidad de ___ es la principal prueba de la existencia de la materia oscura."
-
-explicacion: |
-  La falta de masa visible suficiente para explicar la velocidad de las galaxias es la evidencia fundamental que llevó a la hipótesis de la materia oscura.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "basico"
-  tags: ["cosmologia", "expansion_universo"]
-
-tipo: mc
-opciones_explicitas: ["Materia oscura", "Energía oscura", "Materia bariónica", "Radiación cósmica"]
-respuesta: "Energía oscura"
-
-enunciado: "A finales de la década de 1990, se descubrió que el universo no solo se expande, sino que lo hace de forma acelerada. El fenómeno responsable de esta aceleración es la ________."
-
-explicacion: |
-  La energía oscura es una forma de energía que permea todo el espacio y actúa como una fuerza repulsiva que acelera la expansión del universo, diferenciándose de la materia oscura que actúa principalmente mediante la gravedad.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "intermedio"
-  tags: ["hitos", "astronomia"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[1998, "el descubrimiento de la expansión acelerada"], [2011, "el otorgamiento del Premio Nobel de Física por dicho descubrimiento"]]
-
-tipo: completar
-respuestas_validas:
-  - "1998"
-  - "2011"
-
-enunciado: "La evidencia observacional que cambió la cosmología moderna y señaló la existencia de la energía oscura fue publicada en el año {escenario[idx][0]}, marcando {escenario[idx][1]}."
-
-explicacion: |
-  En 1998, las observaciones de supernovas lejanas demostraron que la expansión del universo se está acelerando, lo que llevó a la inclusión de la energía oscura en el modelo estándar de la cosmología.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "avanzado"
-  tags: ["materia_oscura", "energia_oscura"]
-
-tipo: mc
-opciones_explicitas: ["Atrae la materia mediante gravedad", "Repele el espacio mediante presión negativa", "Es visible mediante espectroscopia", "Es una partícula subatómica conocida"]
-respuesta: "Repele el espacio mediante presión negativa"
-
-enunciado: "Mientras que la materia oscura ejerce una atracción gravitatoria que ayuda a la formación de estructuras, la energía oscura se caracteriza por su capacidad de ________."
-
-explicacion: |
-  La energía oscura posee una presión negativa que contrarresta la gravedad a escalas cosmogónicas, provocando que la expansión del universo sea acelerada en lugar de frenarse.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "intermedio"
-  tags: ["teoria", "futuro_universo"]
-
-tipo: mc
-opciones_explicitas: ["Big Crunch", "Big Freeze", "Big Bounce", "Punto de equilibrio"]
-respuesta: "Big Freeze"
-
-enunciado: "Si la energía oscura continúa dominando la expansión del universo de manera constante, el escenario más probable para el destino final del cosmos es el ________."
-
-explicacion: |
-  El 'Big Freeze' (Gran Congelamiento) ocurre cuando la expansión es tan rápida que las galaxias se alejan tanto que el universo se enfría hasta alcanzar un estado de entropía máxima donde no puede haber más procesos físicos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "intermedio"
-  tags: ["cronologia", "hitos"]
-
-tipo: ordenar
-opciones_explicitas: ["Modelo de materia oscura fría", "Descubrimiento de la expansión acelerada", "Aceptación del modelo Lambda-CDM"]
-
-respuesta_orden: ["Modelo de materia oscura fría", "Descubrimiento de la expansión acelerada", "Aceptación del modelo Lambda-CDM"]
-
-enunciado: "Ordena cronológicamente estos hitos que permitieron consolidar la visión actual del universo dominado por componentes oscuros:"
-
-explicacion: |
-  Primero se postuló la existencia de la materia oscura para explicar la rotación galáctica; en 1998 se descubrió la aceleración (energía oscura); finalmente, esto llevó a la adopción del modelo Lambda-CDM (materia oscura fría + constante cosmológica/energía oscura).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "basico"
-  tags: ["cosmologia", "composicion"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  datos: [["5%", "materia ordinaria"], ["27%", "materia oscura"], ["68%", "energía oscura"]]
-
-opciones_explicitas: ["5%", "27%", "68%"]
-respuesta: datos[idx][0]
-tipo: mc
-
-enunciado: "Según el modelo estándar de la cosmología, la fracción del universo compuesta por {datos[idx][1]} es aproximadamente del ___."
-
-explicacion: |
-  La composición estimada del universo es: 5% materia ordinaria, 27% materia oscura y 68% energía oscura.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "basico"
-  tags: ["energia_oscura"]
-
-respuesta: "energía oscura"
-tipo: completar
-respuestas_validas:
-  - "energía oscura"
-
-enunciado: "El componente que constituye aproximadamente el 68% del universo y es responsable de la expansión acelerada se denomina ___."
-
-explicacion: |
-  La energía oscura es el componente dominante del universo, representando cerca del 68% de su densidad total.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "intermedio"
-  tags: ["orden", "densidad"]
-
-opciones_explicitas: ["Materia ordinaria", "Materia oscura", "Energía oscura"]
-respuesta_orden: ["Materia ordinaria", "Materia oscura", "Energía oscura"]
-tipo: ordenar
-
-enunciado: "Ordena los componentes del universo de menor a mayor abundancia (porcentaje de densidad):"
-
-explicacion: |
-  El orden correcto de menor a mayor es: Materia ordinaria (5%), Materia oscura (27%) y Energía oscura (68%).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "intermedio"
-  tags: ["calculo", "porcentajes"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  escenario: [["5", "materia ordinaria"], ["27", "materia oscura"], ["68", "energía oscura"]]
-
-respuesta: escenario[idx][0]
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Si el universo tiene una densidad total de 100 unidades, ¿cuántas unidades corresponden a la {escenario[idx][1]}?"
-
-pasos:
-  - "Identificar el porcentaje correspondiente al componente mencionado."
-  - "Multiplicar el porcentaje por la densidad total (100)."
-
-explicacion: |
-  El valor corresponde al porcentaje asignado a la {escenario[idx][1]} en el modelo cosmológico actual.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "avanzado"
-  tags: ["conceptos"]
-
-variables:
-  caso: [["verdadero", "La energía oscura es el componente más abundante."], ["falso", "La materia oscura es el componente más abundante."]]
-  seleccionada: uno_de(caso)
-
-respuesta: seleccionada[0]
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "Analiza la siguiente afirmación: {seleccionada[1]}. ¿Es correcta?"
-
-explicacion: |
-  La afirmación es {seleccionada[1]}. La materia ordinaria solo representa el 5%, mientras que la energía oscura es la mayoritaria con un 68%.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "basico"
-  tags: ["cosmologia", "misterio"]
-
-respuesta: "materia_oscura"
-tipo: mc
-opciones_explicitas: ["materia_oscura", "energia_oscura", "materia_bariónica", "radiación_cósmica"]
-
-enunciado: "Aunque no podemos verla directamente, sabemos que existe la ___ debido a su influencia gravitatoria en las galaxias."
-
-explicacion: |
-  La materia oscura no emite, absorbe ni refleja luz, lo que la hace invisible, pero su gravedad es fundamental para mantener unidas a las galaxias.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "intermedio"
-  tags: ["expansion", "energia_oscura"]
-
-respuesta: "Big Freeze"
-tipo: mc
-opciones_explicitas: ["Big Crunch", "Big Freeze", "Big Rip", "Big Bounce"]
-
-enunciado: "Si la energía oscura domina y acelera la expansión del universo de manera constante e indefinida, el destino más probable del universo es el ___."
-
-explicacion: |
-  La energía oscura actúa como una fuerza repulsiva que acelera la expansión del universo. Dependiendo de su densidad, el universo podría terminar en un enfriamiento eterno (Big Freeze) o un desgarro final (Big Rip).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "avanzado"
-  tags: ["gravedad", "evidencia"]
-
-respuesta: 5
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Si la materia visible representa aproximadamente el 5% del universo, y la materia oscura el 27%, ¿qué porcentaje aproximado del universo corresponde a la energía oscura?"
-
-pasos:
-  - "Sumar el porcentaje de materia visible y materia oscura: 5 + 27 = 32"
-  - "Restar ese total al 100% del universo: 100 - 32 = 68"
-
-explicacion: |
-  Según el modelo estándar de cosmología (Lambda-CDM), la energía oscura constituye aproximadamente el 68% del contenido energético-material del universo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "basico"
-  tags: ["terminologia"]
-
-respuesta_orden: ["materia_oscura", "energia_oscura", "materia_visible"]
-tipo: ordenar
-opciones_explicitas: ["materia_oscura", "energia_oscura", "materia_visible"]
-
-enunciado: "Ordena estos componentes del universo de mayor a menor abundancia (según el modelo actual):"
-
-explicacion: |
-  El orden correcto de abundancia es: Energía Oscura (~68%), Materia Oscura (~27%) y Materia Visible (~5%).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "intermedio"
-  tags: ["fisica_particulas"]
-
-respuesta: "es_desconocida"
-tipo: completar
-respuestas_validas:
-  - "es_desconocida"
-  - "es_desconocida"
-
-enunciado: "A pesar de las décadas de investigación, la naturaleza exacta de la energía oscura ___."
-
-explicacion: |
-  Aunque detectamos su efecto en la expansión acelerada del cosmos, la identidad de la partícula o campo que la compone sigue siendo uno de los mayores misterios de la ciencia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "intermedio"
-  tags: ["astronomia", "materia_oscura"]
-
-variables:
-  datos: [["curvas_rotacion", "materia_oscura"], ["expansion_acelerada", "energia_oscura"], ["lentes_gravitacionales", "materia_oscura"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["materia_oscura", "energia_oscura"]
-
-enunciado: "Se observa que las galaxias rotan mucho más rápido de lo que la masa visible permitiría, sugiriendo la presencia de una masa no visible. Este fenómeno de {datos[idx][0]} es una evidencia de:"
-
-explicacion: |
-  La materia oscura proporciona la masa extra necesaria para explicar las velocidades orbitales de las estrellas en las galaxias y la distorsión de la luz por lente gravitacional.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "avanzado"
-  tags: ["cosmologia", "energia_oscura"]
-
-variables:
-  datos: [["aceleracion_expansion", "energia_oscura"], ["colapso_gravitacional", "materia_oscura"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["materia_oscura", "energia_oscura"]
-
-enunciado: "La observación de supernovas tipo Ia indica que la expansión del universo se está acelerando. Este efecto de {datos[idx][0]} es causado por la:"
-
-explicacion: |
-  La energía oscura actúa como una presión negativa que contrarresta la gravedad a escalas cosmológicas, impulsando la expansión acelerada del espacio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "intermedio"
-  tags: ["cosmologia", "estructura_cosmica"]
-
-respuesta: "energia_oscura"
-tipo: completar
-respuestas_validas:
-  - "energia_oscura"
-
-enunciado: "Mientras que la materia oscura ayuda a la formación de galaxias mediante su atracción gravitatoria, la responsable de la repulsión espacial que separa los cúmulos de galaxias es la ___."
-
-explicacion: |
-  La materia oscura es atractiva (favorece la agrupación de materia), mientras que la energía oscura es repulsiva (favorece la expansión).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "basico"
-  tags: ["lentes_gravitacionales", "materia_oscura"]
-
-variables:
-  datos: [["distorsion_luz", "materia_oscura"], ["expansión_lineal", "energia_oscura"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["materia_oscura", "energia_oscura"]
-
-enunciado: "La detección de la {datos[idx][0]} en cúmulos de galaxias permite mapear la distribución de la:"
-
-explicacion: |
-  La luz se curva al pasar cerca de grandes masas. Como la masa observada no es suficiente para causar la curvatura detectada, se infiere la presencia de materia oscura.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "materia_energia_oscura"
-  nivel: "avanzado"
-  tags: ["modelo_estandar", "cosmologia"]
-
-respuesta: "materia_oscura"
-tipo: completar
-respuestas_validas:
-  - "materia_oscura"
-
-enunciado: "En el modelo estándar de cosmología, la energía oscura es la fuerza que domina la expansión, mientras que la ___ es la componente que permite la formación de estructuras a gran escala."
-
-explicacion: |
-  Es un error conceptual común: la energía oscura domina la expansión (dinámica global), la materia oscura domina la formación de estructuras (dinámica local/regional).
-```
-
-## Sección: mesopotamia (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "mesopotamia"
-  nivel: "intermedio"
-  tags: ["leyes", "babylon", "justicia"]
+  tags: ["bizancio", "selyucidas", "anatolia", "1071"]
 tipo: vf
-enunciado: "El Código de Hammurabi, promulgado en el siglo XVIII a.C., se caracterizaba por aplicar el principio de la ley del talión (ojo por ojo) de manera uniforme e igualitaria para todas las clases sociales de Babilonia, sin distinción entre nobles, libres y esclavos."
+enunciado: "La derrota del emperador romano de oriente Manuel I Comneno en la batalla de Manzikert en 1071 abrió Anatolia a la invasión turca."
 respuesta: falso
-explicacion: "Aunque el código establecía castigos físicos proporcionales al delito, las penas variaban significativamente según la condición social del ofendido y del ofensor; los nobles recibían penas más leves o monetarias que los plebeyos o esclavos por el mismo delito."
+explicacion: "La batalla de Manzikert ocurrió en 1071, pero el emperador bizantino derrotado fue Romano IV Diógenes, no Manuel I Comneno (quien reinó mucho después, entre 1143 y 1180)."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["escritura", "sumeria", "economía"]
-tipo: completar
-enunciado: "La escritura cuneiforme surgió inicialmente en Sumeria no con fines literarios o religiosos, sino como una herramienta administrativa para registrar ______ de granos, ganado y bienes comerciales en los templos."
-respuesta: "transacciones"
-respuestas_validas:
-  - "transacciones"
-  - "transacción"
-  - "transacciones de"
-  - "transacción de"
-explicacion: "La necesidad de llevar cuentas de las contribuciones y redistribuciones en la economía templaria fue el motor principal para el desarrollo de los primeros signos pictográficos que evolucionaron hacia la cuneiforme."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "mesopotamia"
-  nivel: "intermedio"
-  tags: ["geografía", "ríos", "fundación"]
+  tags: ["cisma", "iglesia", "roma", "constantinopla"]
 tipo: mc
-enunciado: "¿Qué par de ríos delimita la región geográfica conocida como Mesopotamia, cuyo nombre significa \"tierra entre ríos\"?"
+enunciado: "El Cisma de 1054 marcó la ruptura definitiva entre la Iglesia de Roma y la Iglesia de Constantinopla. ¿Cuál fue la principal causa teológica y política de este cisma?"
+respuesta: "El desacuerdo sobre la autoridad del Papa y el uso del filioque en el Credo"
 opciones_explicitas:
-  - "Nilo y el Tigris"
-  - "Éufrates y el Tigris"
-  - "Indo y el Ganges"
-  - "Danubio y el Rin"
-respuesta: "Éufrates y el Tigris"
-explicacion: "Mesopotamia se sitúa entre el río Éufrates y el río Tigris, en lo que hoy es principalmente Irak, permitiendo el desarrollo de la agricultura de riego."
+  - "La disputa sobre la validez de los sacramentos administrados por sacerdotes casados"
+  - "El desacuerdo sobre la autoridad del Papa y el uso del filioque en el Credo"
+  - "La negativa del Patriarca de Constantinopla a pagar impuestos al Emperador Bizantino"
+  - "La invasión normanda de Italia meridional y el apoyo papal a los normandos"
+explicacion: "Las tensiones acumuladas por diferencias litúrgicas, culturales y políticas, culminando en la excomunión mutua de los legados papales y el Patriarca Miguel I Cerulario, se centraron en la primacía papal y la cláusula del filioque (que el Espíritu Santo procede del Padre y del Hijo) añadida en el occidente al Credo."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["arquitectura", "religión", "sumeria"]
+  tags: ["cruzadas", "urbeles", "jerusalen", "1096"]
 tipo: completar
-enunciado: "La ______ era una estructura monumental escalonada que servía como base para el templo dedicado al dios patrón de la ciudad, simbolizando la montaña sagrada que conectaba el cielo con la tierra."
-respuesta: "ziggurat"
+enunciado: "En el Concilio de Clermont de 1095, el papa Urbano II llamó a la Primera Cruzada. El objetivo principal declarado era recuperar la ciudad santa de __________ del control musulmán."
+respuesta: "jerusalen"
 respuestas_validas:
-  - "ziggurat"
-  - "zigurate"
-  - "Ziggurat"
-  - "Zigurate"
-explicacion: "Las ziggurats, como la Gran Ziggurat de Ur, no eran templos en sí mismos, sino plataformas elevadas donde se ubicaba el santuario al que solo los sacerdotes podían acceder."
+  - "jerusalen"
+  - "jerusalén"
+  - "Jerusalen"
+  - "Jerusalén"
+  - "JERUSALEN"
+  - "JERUSALÉN"
+explicacion: "La recuperación de Jerusalén, donde según la tradición cristiana murió y resucitó Jesucristo, era el objetivo central de la Primera Cruzada, lograda en 1099 con la captura de la ciudad por los cruzados."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["acad", "imperio", "sargón"]
+  tags: ["cluny", "monasterio", "reforma", "siglo-x"]
+tipo: mc
+enunciado: "La abadía de Cluny, fundada en 910, jugó un papel crucial en la renovación religiosa de la Edad Media. ¿Cuál era su característica distintiva respecto a la mayoría de los monasterios de la época?"
+respuesta: "Su independencia directa del poder local de los laicos y su influencia en la uniformización de la regla benedictina"
+opciones_explicitas:
+  - "Su adopción de la regla agustina en lugar de la benedictina"
+  - "Su independencia directa del poder local de los laicos y su influencia en la uniformización de la regla benedictina"
+  - "Su enfoque exclusivo en la predicación urbana y la vida activa"
+  - "Su rechazo total a la propiedad territorial y la acumulación de riquezas"
+explicacion: "Cluny fue pionera en liberarse del control de los señores locales (laicos) al poner el monasterio directamente bajo la protección del Papa. Esto le permitió mantener la disciplina monástica original y extender su reforma a cientos de monasterios afiliados."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["paz-de-dios", "iglesia", "violencia", "campesinos"]
 tipo: vf
-enunciado: "Sargón I, conocido como Sargón el Grande, fue el fundador del Primer Imperio de Acad, logrando unificar por primera vez las ciudades-estado sumerias bajo un único gobierno centralizado."
+enunciado: "La Paz de Dios fue un movimiento promovido por la Iglesia en el siglo X que buscaba proteger a los no combatientes (clérigos, campesinos, mercaderes) de la violencia feudal."
 respuesta: verdadero
-explicacion: "Sargón de Acad conquistó las ciudades-estado sumerias como Uruk y Ur, creando una burocracia centralizada y estableciendo la capital en Acad (Agade), marcando el inicio de la historia imperial en la región."
+explicacion: "La Paz de Dios (Pax Dei) fue un intento de la Iglesia para limitar la violencia feudal, prohibiendo a los caballeros atacar a ciertos grupos vulnerables bajo pena de excomunión. Posteriormente, se complementó con la Tregua de Dios."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["literatura", "epopeya", "muerte"]
-tipo: mc
-enunciado: "La Epopeya de Gilgamesh, una de las obras literarias más antiguas, gira principalmente en torno a la búsqueda del héroe de Uruk por:"
-opciones_explicitas:
-  - "La inmortalidad física tras la muerte de su amigo Enkidu"
-  - "La conquista de todo el mundo conocido"
-  - "La construcción del primer gran ziggurat"
-  - "El amor imposible con la diosa Ishtar"
-respuesta: "La inmortalidad física tras la muerte de su amigo Enkidu"
-explicacion: "El núcleo de la epopeya es el duelo de Gilgamesh ante la mortalidad humana, llevándolo a buscar a Utnapishtim (el superviviente del diluvio) para aprender el secreto de la vida eterna, el cual finalmente no obtiene."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "mesopotamia"
-  nivel: "intermedio"
-  tags: ["agricultura", "cebada", "economía"]
+  tags: ["tregua-de-dios", "domingos", "adviento", "cuaresma"]
 tipo: completar
-enunciado: "Debido a la salinización progresiva de los suelos en el sur de Mesopotamia, los agricultores sumerios y babilonios promovieron el cultivo de ______ como cereal principal por su mayor resistencia a la sal."
-respuesta: "cebada"
+enunciado: "Junto a la Paz de Dios, la Iglesia promovió la Tregua de Dios, que prohibía la guerra en días específicos. ¿Cuáles eran los días principales en los que estaba prohibida la violencia según esta norma?"
+respuesta: "domingos, festivos y tiempos litúrgicos como adviento y cuaresma"
 respuestas_validas:
-  - "cebada"
-  - "Cebada"
-  - "la cebada"
-explicacion: "La cebada era el cultivo básico, utilizado también como moneda de cambio y para la elaboración de cerveza, mientras que otros cultivos como el trigo requerían suelos menos salinizados."
+  - "domingos, festivos y tiempos litúrgicos como adviento y cuaresma"
+  - "Domingos, festivos y tiempos litúrgicos como adviento y cuaresma"
+  - "DOMINGOS, FESTIVOS Y TIEMPOS LITURGICOS COMO ADVIENTO Y CUARESMA"
+explicacion: "La Tregua de Dios intentaba reducir los días de combate al prohibir la guerra desde el miércoles al viernes y durante todo el adviento y la cuaresma, reservando el tiempo para la oración y la paz religiosa."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["babylon", "nabucodonosor", "arquitectura"]
+  tags: ["inglaterra", "normandos", "guillermo-conquistador", "1066"]
 tipo: mc
-enunciado: "Bajo el reinado de Nabucodonosor II, ¿qué obra arquitectónica de Babilonia fue considerada una de las Siete Maravillas del Mundo Antiguo?"
+enunciado: "La Batalla de Hastings en 1066 fue decisiva para la historia de Inglaterra. ¿Quién fue el vencedor y qué consecuencia inmediata tuvo?"
+respuesta: "Guillermo el Conquistador, lo que llevó a la conquista normanda y la introducción del feudalismo anglonormando"
 opciones_explicitas:
-  - "El Coliseo Romano"
-  - "Los Jardines Colgantes de Babilonia"
-  - "El Partenón"
-  - "Las Murallas de Jericó"
-respuesta: "Los Jardines Colgantes de Babilonia"
-explicacion: "Los Jardines Colgantes fueron un complejo sistema de terrazas irrigadas, atribuido a Nabucodonosor II para complacer a su esposa Amitis, quien extrañaba las montañas de su tierra natal."
+  - "Harold II Godwinson, consolidando la dinastía anglosajona"
+  - "Guillermo el Conquistador, lo que llevó a la conquista normanda y la introducción del feudalismo anglonormando"
+  - "Los daneses, estableciendo el Reino de Danelaw"
+  - "Los escoceses, uniendo temporalmente las coronas de Escocia e Inglaterra"
+explicacion: "Guillermo, duque de Normandía, derrotó al rey anglosajón Harold II. Esta victoria instaló una nueva élite normanda en Inglaterra, transformando su estructura política, social y lingüística, y conectándola más con el continente europeo que con Escandinavia."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["cronología", "acad", "duración"]
+  tags: ["otón-i", "coronación", "962", "imperio"]
+tipo: completar
+enunciado: "En el año 962, el rey otón I fue coronado emperador por el papa Juan XII, fundando de facto el __________."
+respuesta: "sacro imperio romano germánico"
+respuestas_validas:
+  - "sacro imperio romano germánico"
+  - "Sacro Imperio Romano Germánico"
+  - "SACRO IMPERIO ROMANO GERMÁNICO"
+explicacion: "La coronación de Otón I revivió la idea del imperio en Occidente, diferenciándose del Imperio Carolingio anterior y estableciendo la estrecha relación (y conflicto) entre el poder imperial alemán y el papado."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["tomás-de-aquino", "filosofía", "fe", "razón", "siglo-xiii"]
+tipo: mc
+enunciado: "Tomás de Aquino, figura central de la escolástica del siglo XIII, intentó reconciliar la fe cristiana con la filosofía de Aristóteles. ¿Cuál fue su contribución principal en este sentido?"
+respuesta: "Sostener que la fe y la razón son complementarias y no contradictorias, ya que ambas provienen de Dios"
+opciones_explicitas:
+  - "Sostener que la fe y la razón son complementarias y no contradictorias, ya que ambas provienen de Dios"
+  - "Defender que la razón debe someterse totalmente a la revelación divina sin excepción"
+  - "Proponer que la filosofía aristotélica era pagana y debía ser descartada por los cristianos"
+  - "Argumentar que la Iglesia no debía involucrarse en asuntos filosóficos ni científicos"
+explicacion: "La Suma Teológica de Tomás de Aquino integró la lógica aristotélica con la teología cristiana, argumentando que la verdad revelada y la verdad natural (racional) no pueden contradecirse porque Dios es la fuente de ambas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["peste-negra", "1347", "muerte", "demografía"]
 tipo: vf
-enunciado: "El Imperio de Acad, fundado por Sargón, mantuvo su hegemonía política ininterrumpida durante más de cinco siglos hasta ser absorbido por los persas."
+enunciado: "La Peste Negra llegó a Europa por primera vez en 1347, causando una drástica reducción de la población en las décadas siguientes."
+respuesta: verdadero
+explicacion: "La peste bubónica, traída probablemente por ratas en barcos mercantes desde Asia, llegó a Messina en 1347 y se extendió rápidamente por toda Europa, matando entre un tercio y la mitad de la población en varias regiones."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["juan-sin-tierra", "1215", "barones", "ley"]
+tipo: completar
+enunciado: "En 1215, el rey Juan de Inglaterra fue obligado por sus barones rebeldes a firmar la Carta Magna, que establecía que el rey estaba sujeto a la __________."
+respuesta: "ley"
+respuestas_validas:
+  - "ley"
+  - "Ley"
+  - "LEY"
+explicacion: "La Carta Magna fue un documento fundamental que limitó el poder absoluto del monarca, estableciendo que nadie, ni siquiera el rey, estaba por encima de la ley, y protegiendo ciertos derechos feudales y libertades eclesiásticas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["caballeros-teutones", "báltico", "prusianos", "lituania"]
+tipo: mc
+enunciado: "Además de las Cruzadas a Tierra Santa, la Iglesia promovió cruzadas en otras regiones. ¿Cuál fue el objetivo principal de las Cruzadas del Norte en el Báltico?"
+respuesta: "Cristianizar a los pueblos paganos del Báltico y expandir la influencia germánica"
+opciones_explicitas:
+  - "Cristianizar a los pueblos paganos del Báltico y expandir la influencia germánica"
+  - "Recuperar Jerusalén del control de los mamelucos"
+  - "Derrocar al Emperador Bizantino y tomar Constantinopla"
+  - "Combatir a los cátaros en el sur de Francia"
+explicacion: "Los Caballeros Teutónicos y otros órdenes militares se dirigieron al Báltico para conquistar y convertir a los prusianos, lituanos y otros pueblos bálticos, estableciendo un estado monástico en la región."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["cisma-occidente", "avignon", "papado", "1378"]
+tipo: completar
+enunciado: "El Cisma de Occidente (1378-1417) fue un período en el que la cristiandad latina tuvo simultáneamente a dos o tres papas rivales, uno en Roma y otro en __________."
+respuesta: "avignon"
+respuestas_validas:
+  - "avignon"
+  - "Avignon"
+  - "AVIGNON"
+  - "avignón"
+  - "Avignón"
+explicacion: "Tras el regreso del papado a Roma, la elección de Urbano VI provocó que un grupo de cardenales eligiera a un antipapa en Avignon. Este cisma debilitó la autoridad papal hasta que el Concilio de Constanza resolvió la situación."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["guerra-pucel", "inglaterra", "francia", "1297"]
+tipo: vf
+enunciado: "La Batalla de las Esporas fue un enfrentamiento naval entre Inglaterra y Francia en 1340, decisivo para el control del canal de la Mancha."
 respuesta: falso
-explicacion: "El Imperio de Acad fue relativamente breve; colapsó alrededor del 2150 a.C., poco después de un siglo de existencia, debido a invasiones de los gutis y conflictos internos, seguido de un renacimiento sumerio (Tercera Dinastía de Ur)."
+explicacion: "La Batalla de las Esporas (1297) fue un combate caballeril fuera de las murallas de Furnes (Flanders), no una batalla naval. La gran batalla naval contra Inglaterra fue la Batalla de Sluys en 1340."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["escritura", "técnica", "arcilla"]
+  tags: ["feudalismo", "vasallaje", "beneficio", "siglo-x"]
+tipo: mc
+enunciado: "El sistema feudal se basaba en relaciones de dependencia personal. ¿Cuál era el vínculo central que unía al señor con su vasallo?"
+respuesta: "El juramento de homenaje y lealtad a cambio de un beneficio (generalmente tierra)"
+opciones_explicitas:
+  - "El juramento de homenaje y lealtad a cambio de un beneficio (generalmente tierra)"
+  - "Un contrato de arrendamiento mercantil firmado ante notario"
+  - "La propiedad plena de la tierra por parte del vasallo"
+  - "La obligación de servicio militar pago en dinero al rey"
+explicacion: "El feudalismo se estructuraba sobre la base del vasallaje: un hombre (vasallo) juraba fidelidad a otro (señor) a cambio de protección y un feudo (tierra o derechos), obligándose a prestar servicio, generalmente militar."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["peste-negra", "consecuencias", "trabajo", "salarios"]
 tipo: completar
-enunciado: "Los escribas mesopotámicos utilizaban una caña cortada en triángulo, conocida como estilete, para presionar signos en tablas de arcilla húmeda, creando marcas con forma de ______."
-respuesta: "cuña"
+enunciado: "Tras la Peste Negra, la escasez de mano de obra en Europa tuvo como consecuencia económica principal el aumento del poder de negociación de los __________."
+respuesta: "campesinos"
 respuestas_validas:
-  - "cuña"
-  - "cuñas"
-  - "Cuña"
-  - "Cuñas"
-explicacion: "La forma de las marcas, que se asemejan a cuñas o clavos, es la que da nombre a la escritura cuneiforme, evolucionando desde pictogramas simples hasta signos abstractos y fonéticos."
+  - "campesinos"
+  - "Campesinos"
+  - "CAMPESENOS"
+  - "siervos"
+  - "Siervos"
+explicacion: "La muerte de gran parte de la población hizo que el trabajo escaseara, permitiendo a los campesinos supervivientes exigir mejores condiciones, salarios más altos o la liberación de la servidumbre, debilitando el sistema feudal."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["leyes", "ur", "ur-nammu"]
+  tags: ["latran-iv", "inocencio-iii", "cristianismo", "1215"]
 tipo: mc
-enunciado: "¿Qué rey de la Tercera Dinastía de Ur promulgó el código de leyes más antiguo conocido, anterior al Código de Hammurabi?"
+enunciado: "El Concilio de Letrán IV, convocado en 1215 por el papa Inocencio III, fue uno de los más importantes de la Edad Media. ¿Cuál de sus decretos fue fundamental para la vida religiosa cotidiana?"
+respuesta: "La obligatoriedad de la confesión anual para todos los fieles"
 opciones_explicitas:
-  - "Gilgamesh"
-  - "Ur-Nammu"
-  - "Sargón de Acad"
-  - "Naram-Sin"
-respuesta: "Ur-Nammu"
-explicacion: "El Código de Ur-Nammu, datado circa 2100-2050 a.C., es el más antiguo conservado, aunque fragmentario; establece multas en plata en lugar de la ley del talión física aplicada luego por Hammurabi."
+  - "La obligatoriedad de la confesión anual para todos los fieles"
+  - "La prohibición absoluta de cualquier comercio con musulmanes"
+  - "La creación de un ejército permanente bajo mando papal"
+  - "La abolición de la jerarquía episcopal en favor de los obispos electos"
+explicacion: "El Concilio estableció que todo fiel que hubiera alcanzado la edad de discreción debía confesar sus pecados al menos una vez al año a su propio párroco, reforzando el control pastoral de la Iglesia sobre la sociedad."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["asiria", "militar", "hierro"]
-tipo: vf
-enunciado: "El ejército asirio fue famoso por ser el primero en utilizar extensivamente armas de hierro y por emplear técnicas de asedio avanzadas, incluyendo torres de asedio y arietes, para conquistar ciudades fortificadas."
-respuesta: verdadero
-explicacion: "La superioridad militar asiria, basada en la metalurgia del hierro y la organización profesional del ejército, fue clave para la expansión del Imperio Neoasirio y su reputación de terror militar."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "mesopotamia"
-  nivel: "intermedio"
-  tags: ["religión", "comparativa", "egipto"]
-tipo: mc
-enunciado: "En contraste con la visión mesopotámica de un universo hostil y caprichoso, la religión del antiguo Egipto se centraba en el concepto de:"
-opciones_explicitas:
-  - "El Ma'at (orden cósmico y verdad)"
-  - "El Karma (reencarnación)"
-  - "El Monoteísmo absoluto"
-  - "El Animismo tribal"
-respuesta: "El Ma'at (orden cósmico y verdad)"
-explicacion: "Mientras los mesopotámicos veían a los dioses como impredecibles y a la naturaleza como un peligro, los egipcios buscaban mantener el Ma'at, el equilibrio y orden divino que garantizaba la continuidad del universo."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "mesopotamia"
-  nivel: "intermedio"
-  tags: ["nínive", "biblioteca", "asurbanipal"]
+  tags: ["templarios", "jerusalen", "banca", "1307"]
 tipo: completar
-enunciado: "La famosa biblioteca de ______, fundada por el rey asirio Asurbanipal, contenía miles de tablillas que preservaron textos como la Epopeya de Gilgamesh y conocimientos astronómicos."
-respuesta: "nínive"
+enunciado: "La Orden de los Pobres Compañeros de Cristo del Templo de Salomón, conocidos como templarios, fueron fundados en Jerusalén alrededor de 1119 y se disolvieron oficialmente en 1312 tras la persecución liderada por el rey __________ de Francia."
+respuesta: "filipe"
 respuestas_validas:
-  - "nínive"
-  - "ninive"
-  - "Nínive"
-  - "Ninive"
-explicacion: "Asurbanipal recopiló sistemáticamente textos de toda Mesopotamia en su palacio de Nínive, permitiendo la conservación de gran parte del conocimiento literario y científico del antiguo Oriente Próximo."
+  - "filipe"
+  - "Filipe"
+  - "FILIPE"
+  - "filipe-iv"
+  - "Filipe IV"
+explicacion: "El rey Felipe IV de Francia, conocido como Felipe el Hermoso, acusó a los templarios de herejía y otros cargos para confiscar sus riquezas y cancelar las deudas que debía a la orden, siendo arrestados masivamente en 1307."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["astronomía", "calendario", "sumeria"]
+  tags: ["guerra-cien-anos", "edward-iii", "filipe-iv", "reclamación"]
 tipo: mc
-enunciado: "El calendario mesopotámico básico se basaba en el ciclo de:"
+enunciado: "La Guerra de los Cien Años (1337-1453) fue un conflicto prolongado entre Inglaterra y Francia. ¿Cuál fue la causa dinástica principal que la inició?"
+respuesta: "La reclamación del trono francés por parte del rey inglés Eduardo III"
 opciones_explicitas:
-  - "La rotación de la Tierra sobre su eje (día solar)"
-  - "Las fases de la Luna (mes lunar)"
-  - "El movimiento de Saturno"
-  - "La precesión de los equinoccios"
-respuesta: "Las fases de la Luna (mes lunar)"
-explicacion: "Los mesopotámicos dividían el año en 12 meses lunares, añadiendo meses intercalares periódicamente para sincronizar el calendario lunar con las estaciones agrícolas solares."
+  - "La reclamación del trono francés por parte del rey inglés Eduardo III"
+  - "La invasión normanda de Inglaterra en 1066"
+  - "El deseo de los papas de Avignon de recuperar los estados pontificios"
+  - "La disputa comercial sobre la región de Flandes"
+explicacion: "Al morir Carlos IV de Francia sin heredero varón, su primo Eduardo III de Inglaterra (hijo de Isabel de Francia) reclamó la corona, lo que fue rechazado por los nobles franceses que aplicaron la Ley Sálica, iniciando la guerra."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["sumeria", "eridu", "origen"]
+  tags: ["peste-negra", "iglesia", "crisis", "autoridad"]
 tipo: vf
-enunciado: "Según la Lista Real Sumeria y las tradiciones posteriores, Eridu era considerada la primera ciudad fundada por los dioses antes de que la realeza bajara del cielo, marcando el inicio de la civilización urbana."
-respuesta: verdadero
-explicacion: "Eridu, situada en el extremo sur de Mesopotamia, es vista en la mitología sumeria como la primera ciudad, hogar del dios Enki, y el lugar donde comenzó la civilización antes de propagarse a Ur, Uruk y Nippur."
+enunciado: "La Peste Negra fortaleció inmediatamente la autoridad y la moral de la Iglesia Católica, ya que los clérigos murieron menos que la población general."
+respuesta: falso
+explicacion: "La alta mortalidad entre el clero (que atendía a los enfermos) y la incapacidad de la Iglesia para explicar o detener la peste minaron su autoridad moral y espiritual, generando movimientos de penitencia extrema y cuestionamientos futuros."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["comercio", "lapislázuli", "afganistán"]
+  tags: ["renacimiento-xii", "universidades", "aristóteles", "traducción"]
 tipo: completar
-enunciado: "Mesopotamia carecía de recursos minerales como madera y piedra preciosa, por lo que importaba el ______ desde las montañas de Afganistán (Bactria) a través de largas rutas comerciales."
-respuesta: "lapislázuli"
+enunciado: "El llamado Renacimiento del siglo XII se caracterizó por un florecimiento cultural y intelectual, impulsado en gran parte por la traducción al latín de obras científicas y filosóficas desde el árabe y el griego, lo que llevó al surgimiento de las primeras __________."
+respuesta: "universidades"
 respuestas_validas:
-  - "lapislázuli"
-  - "lapis lazuli"
-  - "Lapislázuli"
-  - "Lapis lazuli"
-explicacion: "El lapislázuli era extremadamente valorado para joyería y adornos de estatuarias divinas, y su adquisición requería una red comercial que se extendía hasta el norte de la India."
+  - "universidades"
+  - "Universidades"
+  - "UNIVERSIDADES"
+explicacion: "El interés por el conocimiento clásico y el derecho canónico llevó a la formación de escuelas catedralicias que evolucionaron hacia universidades, como las de Bolonia, París y Oxford, institucionalizando el aprendizaje superior."
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "mesopotamia"
+  materia: "historia-profunda"
+  tema: "edad-media-plena"
   nivel: "intermedio"
-  tags: ["acad", "naram-sin", "divinidad"]
-tipo: mc
-enunciado: "¿Qué rey de Acad fue el primero en autoproclamarse \"Dios\" en sus inscripciones, elevando la autoridad real por encima de la tradicional mediación sacerdotal?"
-opciones_explicitas:
-  - "Sargón I"
-  - "Naram-Sin"
-  - "Gudea"
-  - "Ur-Nanshe"
-respuesta: "Naram-Sin"
-explicacion: "Naram-Sin, nieto de Sargón, adoptó el título de \"Rey de los Cuatro Rumbos\" y se divinizó en vida, un precedente político-teológico que luego sería retomado por otros reyes orientales."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "mesopotamia"
-  nivel: "intermedio"
-  tags: ["lagash", "gudea", "arte"]
+  tags: ["leanto", "otomano", "liga-santa", "1571"]
 tipo: vf
-enunciado: "Gudea, gobernante de la ciudad de Lagash, es conocido por sus numerosas estatuas de diorita que lo representan con una bandeja de cestas en la cabeza, simbolizando su papel de constructor de templos y su humildad piadosa."
-respuesta: verdadero
-explicacion: "Las estatuas de Gudea, como la del Louvre, son icónicas por su detalle en el plegado de la ropa y su expresión serena, reflejando la ideología de un gobernante que se veía como el mayordomo del dios Ningirsu."
+enunciado: "La Batalla de Lepanto, donde la Liga Santa derrotó a la flota otomana, tuvo lugar en 1571, marcando el fin de la Edad Media."
+respuesta: falso
+explicacion: "La Batalla de Lepanto ocurrió en 1571, en la Edad Moderna, no en la Edad Media. La Edad Media generalmente se considera que termina a finales del siglo XV (1453 o 1492)."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["francisco-de-asis", "pobreza", "mendicidad", "siglo-xiii"]
+tipo: mc
+enunciado: "San Francisco de Asís fundó la Orden de los Frailes Menores en el siglo XIII. ¿Cuál era el principio central de su vida religiosa?"
+respuesta: "La pobreza evangélica literal y la imitación de la vida de Cristo"
+opciones_explicitas:
+  - "La pobreza evangélica literal y la imitación de la vida de Cristo"
+  - "El estudio académico avanzado en las universidades"
+  - "La acumulación de riquezas para construir catedrales"
+  - "La vida contemplativa en monasterios cerrados y aislados"
+explicacion: "Francisco de Asís rechazó la riqueza y el estatus social, promoviendo una vida de pobreza radical y predicación itinerante, inspirada en el Evangelio, lo que contrastaba con la riqueza de otras órdenes y la Iglesia institucional."
+```
+
+## Sección: baja-edad-media-y-crisis (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["peste-negra", "sanidad", "demografia"]
+tipo: mc
+enunciado: "¿Cuál fue la principal vía de transmisión biológica reconocida por la historiografía moderna para la propagación de la Peste Negra en Europa durante el siglo XIV?"
+opciones_explicitas:
+  - "A través del aire por la tos de los infectados"
+  - "Por picaduras de pulgas de las ratas negras (Xenopsylla cheopis)"
+  - "Por consumo de agua contaminada con cadáveres"
+  - "Por contacto directo con la piel de los enfermos"
+respuesta: "Por picaduras de pulgas de las ratas negras (Xenopsylla cheopis)"
+explicacion: "La evidencia científica y histórica actual descarta el contagio aéreo directo como causa primaria, confirmando que el vector principal fue la pulga de las ratas, que saltaba a los humanos cuando las poblaciones de roedores morían."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "baja-edad-media-y-crisis"
   nivel: "intermedio"
-  tags: ["astrología", "ciencia", "presagio"]
+  tags: ["guerra-cien-anos", "francia", "inglaterra"]
 tipo: completar
-enunciado: "En Mesopotamia, la observación de los astros no tenía fines puramente astronómicos, sino que se utilizaba para la ______, interpretando los movimientos celestes como mensajes divinos sobre el futuro del rey y el estado."
-respuesta: "astrología"
+enunciado: "El Tratado de _______ (1360) fue un momento de tregua en la Guerra de los Cien Años, donde el rey de Francia, Juan II, cedió gran parte del suroeste de Francia a Eduardo III de Inglaterra a cambio de su libertad."
+respuesta: "Bretigny"
 respuestas_validas:
-  - "astrología"
-  - "astrológica"
-  - "Astrología"
-  - "Astrológica"
-explicacion: "Los astrólogos (barû) buscaban patrones en el cielo (lunas, eclipses, posiciones de planetas) para predecir eventos terrestres, estableciendo una conexión directa entre el cosmos y la política."
+  - "bretigny"
+  - "Bretigny"
+  - "Bretigney"
+explicacion: "El tratado estableció la soberanía inglesa sobre Aquitania, Calais y Ponthieu, marcando el punto álgido del poderio inglés temporal en el continente antes de la recuperación francesa."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "baja-edad-media-y-crisis"
   nivel: "intermedio"
-  tags: ["mitología", "diluvio", "utnapishtim"]
-tipo: mc
-enunciado: "En la Epopeya de Gilgamesh, ¿quién es el personaje que construye una gran barca para sobrevivir al diluvio enviado por los dioses, inspirando posteriormente el relato bíblico de Noé?"
-opciones_explicitas:
-  - "Ziusudra"
-  - "Utnapishtim"
-  - "Enkidu"
-  - "Gilgamesh"
-respuesta: "Utnapishtim"
-explicacion: "Utnapishtim (cuyo equivalente en la versión sumeria es Ziusudra) es advertido por el dios Ea (Enki) para construir un barco, sobreviviendo al diluvio y recibiendo la inmortalidad como recompensa."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "mesopotamia"
-  nivel: "intermedio"
-  tags: ["babylon", "caída", "persia"]
+  tags: ["revueltas", "francia", "juan-ii"]
 tipo: vf
-enunciado: "El Imperio Neo-Babilónico cayó definitivamente en el año 539 a.C. cuando Nabonido fue derrotado por las fuerzas del rey persa Ciro el Grande en la batalla de Opis."
-respuesta: verdadero
-explicacion: "La conquista de Babilonia por Ciro II marcó el fin de la independencia mesopotamia antigua y su integración dentro del vasto Imperio Aqueménida, respetando inicialmente las instituciones locales."
+enunciado: "La Revuelta de los Pastores (1358) fue un movimiento organizado y liderado por la nobleza francesa para oponerse a los impuestos reales de Juan II."
+respuesta: falso
+explicacion: "Fue una revuelta popular espontánea de campesinos y burgueses pobres en la Isla de Francia, motivada por la crisis económica y la captura del rey en Poitiers, no por la nobleza."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "baja-edad-media-y-crisis"
   nivel: "intermedio"
-  tags: ["educación", "escriba", "edubba"]
+  tags: ["religion", "iglesia", "lollardos"]
+tipo: mc
+enunciado: "John Wycliffe, precursor de la Reforma Protestante, es conocido principalmente por su crítica a la autoridad papal y por:"
+opciones_explicitas:
+  - "Fundar la orden de los Franciscanos"
+  - "Traducir la Biblia al inglés medio"
+  - "Presidir el Concilio de Constanza"
+  - "Escribir la 'Summa Theologica'"
+respuesta: "Traducir la Biblia al inglés medio"
+explicacion: "Wycliffe argumentaba que la autoridad final debía ser la Escritura, no el Papa, y promovió la traducción de la Biblia al vernáculo para que los laicos pudieran leerla."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["bizancio", "justiniano", "peste-antigua"]
 tipo: completar
-enunciado: "La educación de los futuros escribas tenía lugar en la ______, una escuela donde los estudiantes memorizaban listas de signos, gramática y literatura mediante la repetitiva copia de tablillas."
-respuesta: "edubba"
+enunciado: "La primera gran pandemia de peste bubónica, que diezmó el Imperio Bizantino y debilitó la capacidad de reconquista de _______ I, ocurrió entre 541 y 549 d.C."
+respuesta: "Justiniano"
 respuestas_validas:
-  - "edubba"
-  - "edubba"
-  - "Edubba"
-  - "La edubba"
-explicacion: "La edubba (\"casa de la tablilla\") era el centro educativo donde se formaba la élite administrativa; el aprendizaje era duro y se basaba en la memorización y la caligrafía precisa."
+  - "justiniano"
+  - "Justiniano"
+  - "justiniano i"
+  - "Justiniano I"
+explicacion: "Esta epidemia redujo la población del imperio en un tercio, afectando gravemente la recaudación fiscal y la capacidad militar de Justiniano para restaurar el Mediterráneo romano."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "baja-edad-media-y-crisis"
   nivel: "intermedio"
-  tags: ["agricultura", "salinización", "declive"]
+  tags: ["guerra-cien-anos", "armas", "tactica"]
 tipo: mc
-enunciado: "El exceso de riego en Mesopotamia causó la salinización del suelo, lo que llevó a:"
+enunciado: "En la Batalla de Crécy (1346), la victoria inglesa decisiva se debió principalmente al uso efectivo de:"
 opciones_explicitas:
-  - "Un aumento de la producción de trigo"
-  - "El desplazamiento del centro de gravedad agrícola hacia el norte"
-  - "La invención del arado de vertedera"
-  - "La disminución de la población urbana"
-respuesta: "El desplazamiento del centro de gravedad agrícola hacia el norte"
-explicacion: "A medida que el sur se salinizaba y la producción de cereal caía, el poder económico y político se desplazó gradualmente hacia las regiones más al norte (Acad y luego Babilonia) donde los suelos eran más fértiles."
+  - "La caballería pesada feudal"
+  - "Los ballesteros genoveses"
+  - "Los arqueros de arco largo (longbowmen)"
+  - "La artillería de pólvora temprana"
+respuesta: "Los arqueros de arco largo (longbowmen)"
+explicacion: "Los arqueros ingleses lograron detener las cargas de caballería francesa con una lluvia de flechas, demostrando el declive de la caballería pesada como arma invencible."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "mesopotamia"
+  tema: "baja-edad-media-y-crisis"
   nivel: "intermedio"
-  tags: ["persia", "ciro", "tolerancia"]
+  tags: ["italia", "condottieri", "milan"]
+tipo: completar
+enunciado: "La Guerra de las Camisetas (1385) fue un breve conflicto en Lombardía entre la familia Visconti de Milán y los mercenarios de la _______ Blanca, liderados por John Hawkwood."
+respuesta: "Compañía"
+respuestas_validas:
+  - "compañia"
+  - "compagnia"
+  - "compania"
+  - "Compania"
+  - "Compañia"
+explicacion: "El nombre proviene de que los mercenarios se negaron a pelear sin pagar sus salarios atrasados, vistiendo solo camisetas mientras protestaban."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["francia", "religion", "guerras-religion"]
 tipo: vf
-enunciado: "Tras conquistar Babilonia, Ciro el Grande emitió un decreto que permitía a los pueblos subyugados, incluidos los judíos, regresar a sus tierras y reconstruir sus templos, promoviendo una política de tolerancia religiosa."
+enunciado: "El Edicto de Nantes fue promulgado en 1598 por Enrique IV de Francia para poner fin a las Guerras de Religión y otorgar derechos a los hugonotes."
 respuesta: verdadero
-explicacion: "El Cilindro de Ciro, considerado un charter de derechos humanos, muestra su política de restaurar los cultos locales y devolver a los exiliados a sus ciudades, consolidando su control mediante el respeto a las tradiciones locales."
+explicacion: "Este edicto estableció la coexistencia religiosa entre católicos y protestantes en Francia, marcando el fin de un siglo de conflictos civiles devastadores. (Nota: Aunque es finales del siglo XVI, se incluye en la transición hacia la crisis final de la Edad Media y el inicio de la Edad Moderna)."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["hambruna", "clima", "agricultura"]
+tipo: mc
+enunciado: "Antes de la Peste Negra, Europa sufrió una grave hambruna generalizada iniciada en 1315. ¿Qué factor climático fue la causa principal?"
+opciones_explicitas:
+  - "Una sequía prolongada de diez años"
+  - "Lluvias excesivas y frío constante por la Pequeña Edad de Hielo"
+  - "Erupciones volcánicas masivas en los Andes"
+  - "Un cambio en la corriente del Golfo"
+respuesta: "Lluvias excesivas y frío constante por la Pequeña Edad de Hielo"
+explicacion: "Las lluvias interminables impidieron la cosecha y la siega, mientras que el frío temprano mató a los animales de granja, llevando a la inanición masiva."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["iglesia", "conciliarismo", "gran-cisma"]
+tipo: completar
+enunciado: "Juan de Gerson, canciller de la Universidad de París, fue un líder clave en el movimiento conciliarista durante el Gran Cisma de Occidente, argumentando que la autoridad residía en un _______ general y no solo en el Papa."
+respuesta: "Concilio"
+respuestas_validas:
+  - "concilio"
+  - "Concilio"
+  - "consejo"
+  - "Consejo"
+explicacion: "El conciliarismo sostenía que un concilio general tenía autoridad superior al Papa para resolver la división de la Iglesia."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["portugal", "independencia", "guerra-cien-anos"]
+tipo: mc
+enunciado: "La Batalla de Aljubarrota (1385) fue crucial para Portugal porque:"
+opciones_explicitas:
+  - "Permitió la conquista de Marruecos"
+  - "Consolidó la independencia portuguesa frente a Castilla"
+  - "Abrió la ruta marítima a la India"
+  - "Derrotó a los musulmanes en la Península Ibérica"
+respuesta: "Consolidó la independencia portuguesa frente a Castilla"
+explicacion: "La victoria portuguesa, con ayuda inglesa, aseguró la dinastía de Avis y la soberanía de Portugal, evitando su anexión por la Corona de Castilla."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["peste-negra", "muerte", "demografia"]
+tipo: completar
+enunciado: "Se estima que la Peste Negra de 1348-1350 mató aproximadamente a _______ de la población europea, una de las mayores catástrofes demográficas de la historia."
+respuesta: "un tercio"
+respuestas_validas:
+  - "un tercio"
+  - "unthird"
+  - "33%"
+  - "33 por ciento"
+  - "30%"
+  - "30 por ciento"
+explicacion: "Las cifras varían, pero el consenso histórico sitúa la mortalidad entre un 30% y un 50%, siendo \"un tercio\" la estimación clásica más citada."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["francia", "revueltas", "campesinas"]
+tipo: mc
+enunciado: "La Jacquerie (1358) fue una revuelta campesina en Francia que recibió su nombre por la despectiva referencia a los campesinos como:"
+opciones_explicitas:
+  - "Jacobos"
+  - "Jacques Bonhomme"
+  - "Hombres del campo"
+  - "Siervos del rey"
+respuesta: "Jacques Bonhomme"
+explicacion: "\"Jacques Bonhomme\" era un término genérico y despectivo para un campesino francés, similar a \"Juan Llaneras\" en España."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["iglesia", "heresia", "jan-hus"]
+tipo: completar
+enunciado: "El Concilio de Constanza (1414-1418) logró poner fin al Gran Cisma de Occidente y condenó a la hoguera a _______ de Bohemia por herejía."
+respuesta: "Jan Hus"
+respuestas_validas:
+  - "jan hus"
+  - "Jan Hus"
+  - "huss"
+  - "Huss"
+explicacion: "La ejecución de Hus provocó las Guerras Husitas en Bohemia y mostró la tensión entre la autoridad imperial y la reforma religiosa."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["exploracion", "colonizacion", "portugal", "castilla"]
+tipo: vf
+enunciado: "El Tratado de Tordesillas (1494) dividió el mundo extraeuropeo entre España y Portugal a lo largo de un meridiano 370 leguas al oeste de las islas de Cabo Verde."
+respuesta: verdadero
+explicacion: "Este tratado estableció la esfera de influencia portuguesa hacia la India y Brasil, y la española hacia el resto de América, marcando el inicio de la globalización colonial."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["guerra-cien-anos", "cronologia"]
+tipo: mc
+enunciado: "La fase inicial de la Guerra de los Cien Años, caracterizada por grandes victorias inglesas como Crécy y Poitiers, se conoce como:"
+opciones_explicitas:
+  - "Guerra de la Rosa"
+  - "Guerra Eduardiana"
+  - "Guerra Carlosiana"
+  - "Guerra de los Mil Días"
+respuesta: "Guerra Eduardiana"
+explicacion: "Lleva el nombre del rey Eduardo III de Inglaterra, quien inició las demandas territoriales y logró sus mayores triunfos militares en esta etapa."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["bizancio", "otomano", "fin-edad-media"]
+tipo: completar
+enunciado: "La caída de Constantinopla en 1453 a manos de los otomanos bajo _______ II marcó tradicionalmente el fin de la Edad Media y el Imperio Romano de Oriente."
+respuesta: "Mehmed"
+respuestas_validas:
+  - "mehmed"
+  - "Mehmed"
+  - "mehmet"
+  - "Mehmet"
+  - "mahometo"
+  - "Mahometo"
+explicacion: "Mehmed II, de apenas 21 años, conquistó la capital bizantina, consolidando el poder otomano y provocando la huida de eruditos griegos hacia Italia, impulsando el Renacimiento."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["inglaterra", "religion", "pre-reforma"]
+tipo: mc
+enunciado: "El movimiento lollardo en Inglaterra fue una secta religiosa que influenció posteriormente a los husitas, caracterizada por:"
+opciones_explicitas:
+  - "La adoración de la Virgen María"
+  - "La oposición a la transubstanciación y los sacramentos clericales"
+  - "La defensa del poder temporal del Papa"
+  - "El uso exclusivo del latín en la liturgia"
+respuesta: "La oposición a la transubstanciación y los sacramentos clericales"
+explicacion: "Los lollardos, seguidores de Wycliffe, criticaban la riqueza de la Iglesia y la doctrina de la transubstanciación, promoviendo una fe más simple y textual."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["peste-negra", "recurrencia", "demografia"]
+tipo: completar
+enunciado: "La segunda gran oleada de la peste bubónica, conocida como la Peste de 1361 (o Peste de los Niños), afectó especialmente a las generaciones nacidas después de la primera epidemia porque:"
+opciones_explicitas:
+  - "Tenían peor nutrición"
+  - "No habían desarrollado inmunidad previa"
+  - "Vivían en ciudades más grandes"
+  - "Eran más propensos a las pulgas"
+respuesta: "No habían desarrollado inmunidad previa"
+explicacion: "Al ser una nueva generación sin exposición previa al patógeno, la mortalidad fue extremadamente alta entre los jóvenes y niños de esta cohorte."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["economia", "mercado", "castilla"]
+tipo: vf
+enunciado: "Las ferias de Medina del Campo en Castilla fueron un centro financiero crucial en la Baja Edad Media, donde se desarrollaron instrumentos crediticios avanzados similares a los de Italia."
+respuesta: verdadero
+explicacion: "Estas ferias permitieron la conexión entre las rutas textiles flamencas y los mercados ibéricos, fomentando el uso de letras de cambio y la banca temprana."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["cruzada", "otomano", "europa"]
+tipo: mc
+enunciado: "La Batalla de Nicópolis (1396) resultó en una decisiva derrota para:"
+opciones_explicitas:
+  - "El Imperio Otomano"
+  - "La Cruzada europea liderada por Segismundo de Hungría"
+  - "El Imperio Bizantino"
+  - "Los mongoles"
+respuesta: "La Cruzada europea liderada por Segismundo de Hungría"
+explicacion: "Fue la última gran cruzada medieval de éxito limitado, y su fracaso consolidó la expansión otomana en los Balcanes, dejando a Europa central vulnerable."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["economia", "leyes", "inglaterra", "peste"]
+tipo: completar
+enunciado: "El Estatuto de los Trabajadores de 1351 en Inglaterra fue una respuesta real a la escasez de mano de obra tras la Peste Negra, intentando congelar los salarios en los niveles de:"
+opciones_explicitas:
+  - "1348"
+  - "1300"
+  - "1350"
+  - "1360"
+respuesta: "1348"
+explicacion: "El gobierno intentó evitar la inflación salarial impidiendo que los trabajadores cobraran más debido a su escasez, lo que generó gran resentimiento social."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["francia", "locura", "guerra-cien-anos"]
+tipo: mc
+enunciado: "El reinado de Carlos VI de Francia se caracterizó por su progresiva locura, lo que llevó a:"
+opciones_explicitas:
+  - "La unificación de Francia"
+  - "La guerra civil entre Armagnac y Borgoña"
+  - "La conquista de Inglaterra"
+  - "La abolición de la monarquía"
+respuesta: "La guerra civil entre Armagnac y Borgoña"
+explicacion: "El vacío de poder debido a la enfermedad del rey permitió a los duques de Borgoña y los condes de Armagnac luchar por el control de la corte y la influencia real."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["peste-negra", "recurrencia", "europa"]
+tipo: completar
+enunciado: "La epidemia de peste de 1400-1401 fue particularmente virulenta en _______ y causó una nueva ola de mortalidad que impidió la recuperación demográfica completa."
+respuesta: "Italia"
+respuestas_validas:
+  - "italia"
+  - "Italia"
+  - "la peninsula italiana"
+  - "peninsula italiana"
+explicacion: "Italia, siendo un nodo comercial clave, fue especialmente susceptible a las recurrencias de la peste debido a la continua llegada de barcos infectados."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["religion", "mistica", "teologia"]
+tipo: mc
+enunciado: "Además de su rol político, Juan de Gerson fue un importante teólogo místico que enfatizó la importancia de:"
+opciones_explicitas:
+  - "La riqueza de la Iglesia"
+  - "La experiencia personal y directa con Dios"
+  - "El poder del Papa sobre los reyes"
+  - "La guerra santa"
+respuesta: "La experiencia personal y directa con Dios"
+explicacion: "Su obra \"De Mystica Theologia\" influyó en la devoción moderna, promoviendo una espiritualidad interior que precedió a algunas ideas de la Reforma."
+```
+
+## Sección: renacimiento-y-reforma (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["renacimiento", "economia", "burguesia"]
+tipo: mc
+enunciado: "¿Cuál de los siguientes factores económicos fue fundamental para el surgimiento del mecenazgo artístico en las ciudades italianas del siglo XV?"
+opciones_explicitas:
+  - "El colapso del comercio marítimo en el Mediterráneo"
+  - "La acumulación de capital por parte de las familias mercantiles y banqueras"
+  - "La imposición de impuestos eclesiásticos sobre la nobleza feudal"
+  - "La escasez de mano de obra debido a la Peste Negra"
+respuesta: "La acumulación de capital por parte de las familias mercantiles y banqueras"
+explicacion: "El auge del comercio y la banca (ej. los Médici) generó una nueva clase rica que buscaba legitimidad social y religiosa a través del mecenazgo, financiando artistas y humanistas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["reforma", "luteranismo", "teologia"]
+tipo: completar
+enunciado: "En 1517, Martín Lutero publicó sus tesis en Wittenberg, cuestionando la venta de este documento que prometía la reducción del purgatorio."
+variables:
+  documento: uno_de(["indulgencias", "indulgencia"])
+respuesta: "indulgencias"
+respuestas_validas:
+  - "indulgencias"
+  - "indulgencia"
+  - "Indulgencias"
+  - "Indulgencia"
+explicacion: "Las indulgencias eran certificados vendidos por la Iglesia Católica que, según la doctrina de la época, reducían el tiempo de castigo en el purgatorio. Lutero rechazó esta práctica como una distorsión de la fe."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["humanismo", "filosofia", "antropocentrismo"]
+tipo: vf
+enunciado: "El antropocentrismo, concepto central del humanismo renacentista, sostiene que el ser humano es la medida de todas las cosas y el centro de interés y preocupación del pensamiento humanista."
+respuesta: verdadero
+explicacion: "A diferencia del teocentrismo medieval, el humanismo puso al ser humano en el centro, valorando la razón, la libertad y el potencial individual sin negar necesariamente la religión, sino reinterpretándola."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arte", "pintura", "tecnicas"]
+tipo: completar
+enunciado: "Leonardo da Vinci perfeccionó la técnica de aplicar capas finas de pintura sobre una base para lograr transiciones suaves de color y luz, conocida como {{técnica}}."
+variables:
+  tecnica: uno_de(["sfumato", "Sfumato"])
+respuesta: "sfumato"
+respuestas_validas:
+  - "sfumato"
+  - "Sfumato"
+  - "SFUMATO"
+explicacion: "El sfumato (del italiano 'sfumare', difuminar) elimina los contornos duros, creando una atmósfera neblinosa y realista, visible en obras como la Mona Lisa."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["contrarreforma", "iglesia", "concilios"]
+tipo: mc
+enunciado: "¿Cuál fue el principal objetivo del Concilio de Trento (1545-1563) convocado por la Iglesia Católica?"
+opciones_explicitas:
+  - "Promover la traducción de la Biblia a las lenguas vernáculas"
+  - "Negociar la paz con los príncipes protestantes"
+  - "Definir la doctrina católica y reformar los abusos internos"
+  - "Establecer el calvinismo como religión oficial de Europa"
+respuesta: "Definir la doctrina católica y reformar los abusos internos"
+explicacion: "El Concilio de Trento fue la respuesta de la Iglesia Católica a la Reforma Protestante, reafirmando dogmas como la autoridad del Papa, la validez de los sacramentos y la necesidad de fe y obras, mientras se implementaban reformas disciplinarias."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["tecnologia", "imprenta", "difusion"]
+tipo: vf
+enunciado: "La invención de la imprenta de tipos móviles por Johannes Gutenberg alrededor de 1450 permitió la difusión masiva y barata de textos, acelerando tanto el Renacimiento como la Reforma."
+respuesta: verdadero
+explicacion: "Antes de la imprenta, los libros eran manuscritos costosos y raros. La reproducción mecánica permitió que las ideas humanistas y los escritos de Lutero circulasen rápidamente por toda Europa."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arte", "norte-europa", "realismo"]
+tipo: mc
+enunciado: "¿Qué característica distingue principalmente al Renacimiento del Norte de Europa (ej. Dürer, Van Eyck) respecto al italiano?"
+opciones_explicitas:
+  - "El uso exclusivo de la perspectiva lineal geométrica"
+  - "El enfoque detallado en el realismo doméstico y la naturaleza"
+  - "La ausencia total de temas religiosos"
+  - "La preferencia por la escultura en mármol sobre la pintura"
+respuesta: "El enfoque detallado en el realismo doméstico y la naturaleza"
+explicacion: "Los artistas del norte, como Jan van Eyck o Albrecht Dürer, se destacaron por su atención meticulosa al detalle, la textura y la luz natural, a menudo integrando lo espiritual en lo cotidiano."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["politica", "maquiavelo", "principe"]
+tipo: completar
+enunciado: "Nicolás Maquiavelo escribió \"El Príncipe\", una obra que analiza la adquisición y mantenimiento del poder político, separando la ética cristiana de la ___ política."
+respuesta: "virtu"
+respuestas_validas:
+  - "virtu"
+  - "virtù"
+  - "Virtu"
+  - "Virtù"
+explicacion: "Para Maquiavelo, la 'virtù' no es la bondad moral, sino la habilidad, la energía y la astucia del gobernante para adaptarse a la fortuna (fortuna) y mantener el estado."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["calvinismo", "etica", "economia"]
+tipo: mc
+enunciado: "Según el sociólogo Max Weber, ¿qué concepto calvinista se asocia con el surgimiento del espíritu del capitalismo?"
+opciones_explicitas:
+  - "La justificación por la fe sola"
+  - "La predestinación y el ascetismo en el mundo"
+  - "La veneración de las reliquias santas"
+  - "El celibato obligatorio para el clero"
+respuesta: "La predestinación y el ascetismo en el mundo"
+explicacion: "La ansiedad por la salvación (predestinación) llevó a los calvinos a ver el éxito laboral y la riqueza (ganada sin lujos innecesarios) como posibles signos de la gracia divina, fomentando la acumulación de capital."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arte", "miguel-angel", "escultura"]
+tipo: vf
+enunciado: "La escultura \"David\" de Miguel Ángel representa al héroe bíblico en el momento anterior a la batalla con Goliat, exaltando la tensión muscular y la concentración humana."
+respuesta: verdadero
+explicacion: "A diferencia de versiones anteriores que mostraban a David ya victorioso con la cabeza de Goliat, Miguel Ángel captura el instante de preparación, simbolizando la defensa de la libertad republicana frente a tiranos."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["guerras", "paz", "religion"]
+tipo: completar
+enunciado: "La Paz de Augsburgo de 1555 estableció el principio de {{cuius regio, eius religio}}, permitiendo a los príncipes alemanes elegir entre catolicismo y luteranismo."
+variables:
+  principio: uno_de(["cuius regio, eius religio", "cuiusregio", "eius religio"])
+respuesta: "cuius regio, eius religio"
+respuestas_validas:
+  - "cuius regio, eius religio"
+  - "cuiusregio"
+  - "eius religio"
+  - "Cuius regio, eius religio"
+explicacion: "Este principio latino significa \"cuyo es el reino, de él es la religión\", legalizando la división religiosa en el Sacro Imperio Romano Germánico y reconociendo solo a católicos y luteranos."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["literatura", "maquiavelo", "principe"]
+tipo: mc
+enunciado: "¿Qué obra de Nicolás Maquiavelo analiza la historia romana para extraer lecciones sobre la virtud cívica y la república?"
+opciones_explicitas:
+  - "El Príncipe"
+  - "Los Discursos sobre la primera década de Tito Livio"
+  - "La Mandrágora"
+  - "El Cortesano"
+respuesta: "Los Discursos sobre la primera década de Tito Livio"
+explicacion: "Mientras \"El Príncipe\" se centra en la monarquía y la adquisición del poder, los \"Discursos\" defienden la república y la libertad política basándose en el ejemplo de la Roma antigua."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["reforma", "zwinglio", "suiza"]
+tipo: completar
+enunciado: "Ulrico Zwinglio lideró la Reforma en Zürich, eliminando las imágenes religiosas y la música de la liturgia, influido por el humanismo y la lectura directa de {{autor}}."
+variables:
+  autor: uno_de(["pablo", "San Pablo", "paulo", "San Paulo"])
+respuesta: "pablo"
+respuestas_validas:
+  - "pablo"
+  - "San Pablo"
+  - "paulo"
+  - "San Paulo"
+  - "Pablo"
+  - "San Pablo"
+explicacion: "Zwinglio, al igual que Lutero, se basó en la autoridad de las Escrituras, pero fue aún más radical en la iconoclastia y la interpretación literal de los textos del apóstol Pablo sobre la justificación."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arquitectura", "filarete", "domingo"]
+tipo: mc
+enunciado: "¿Cuál de los siguientes elementos arquitectónicos es característico de la transición del Gótico al Renacimiento en la Catedral de Santa María del Fiore en Florencia?"
+opciones_explicitas:
+  - "La bóveda de crucería compleja"
+  - "La enorme cúpula diseñada por Brunelleschi"
+  - "Los arcos apuntados de estilo ojival"
+  - "Las torres gemelas de piedra caliza"
+respuesta: "La enorme cúpula diseñada por Brunelleschi"
+explicacion: "Filippo Brunelleschi resolvió el problema de cubrir la nave central con una cúpula de doble capa y estilo clásico (romano), marcando el inicio de la arquitectura renacentista moderna."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["guerra", "europa", "religion"]
+tipo: vf
+enunciado: "La Guerra de los Treinta Años (1618-1648) comenzó como un conflicto religioso entre católicos y protestantes en el Sacro Imperio, pero evolucionó hacia una lucha geopolítica por la hegemonía europea."
+respuesta: verdadero
+explicacion: "Aunque el detonante fue la Defenestración de Praga (conflicto religioso), potencias católicas como Francia se aliaron con protestantes contra los Habsburgo, priorizando el interés estatal sobre la fe."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["literatura", "castiglione", "ideal"]
+tipo: completar
+enunciado: "Baldassare Castiglione escribió \"El Cortesano\", definiendo el ideal del hombre renacentista que debe poseer la {{grazia}} o gracia natural en todas sus acciones."
+variables:
+  grazia: uno_de(["grazia", "grace", "gracia", "Grazia"])
+respuesta: "grazia"
+respuestas_validas:
+  - "grazia"
+  - "grace"
+  - "gracia"
+  - "Grazia"
+  - "Grace"
+  - "Gracia"
+explicacion: "La 'sprezzatura' o gracia natural era esencial: hacer cosas difíciles parecer fáciles y naturales, demostrando nobleza sin esfuerzo aparente, combinando armas y letras."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["reforma", "iconoclastia", "arte"]
+tipo: mc
+enunciado: "¿Qué fenómeno artístico ocurrió en Flandes y otras regiones calvinistas durante la Reforma?"
+opciones_explicitas:
+  - "El florecimiento de la pintura de retratos nobles"
+  - "La destrucción masiva de imágenes religiosas en las iglesias"
+  - "La construcción de catedrales góticas gigantes"
+  - "El patrocinio público de esculturas mitológicas"
+respuesta: "La destrucción masiva de imágenes religiosas en las iglesias"
+explicacion: "Los reformadores calvinos consideraban las imágenes como idolatría prohibida por los mandamientos bíblicos, lo que llevó a la 'Beeldenstorm' (tormenta de imágenes) en los Países Bajos."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["humanismo", "erasmo", "cristianismo"]
+tipo: completar
+enunciado: "Erasmo de Rotterdam, conocido como \"el príncipe de los humanistas\", criticó los abusos de la Iglesia desde dentro, abogando por un {{cristianismo}} simple y basado en los textos originales."
+variables:
+  cristianismo: uno_de(["cristianismo filosófico", "cristianismo humano", "filosofia christi", "christianismo"])
+respuesta: "cristianismo filosófico"
+respuestas_validas:
+  - "cristianismo filosófico"
+  - "cristianismo humano"
+  - "filosofia christi"
+  - "christianismo"
+  - "Cristianismo filosófico"
+  - "Cristianismo humano"
+  - "Filosofia Christi"
+  - "Christianismo"
+explicacion: "Erasmo buscaba una reforma moral y educativa basada en el estudio de la Biblia y los Padres de la Iglesia, influenciando a Lutero inicialmente antes de distanciarse por temas teológicos."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arte", "perspectiva", " Brunelleschi"]
+tipo: vf
+enunciado: "La invención de la perspectiva lineal matemática permitió a los artistas renacentistas representar el espacio tridimensional en un plano bidimensional de manera científica y coherente."
+respuesta: verdadero
+explicacion: "Desarrollada por Brunelleschi y teorizada por Alberti, la perspectiva utiliza un punto de fuga y líneas convergentes para crear la ilusión de profundidad, revolucionando la pintura."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["reforma", "inglaterra", "henry"]
+tipo: completar
+enunciado: "Enrique VIII de Inglaterra rompió con la Iglesia Católica principalmente por razones políticas y dinásticas al buscar la anulación de su matrimonio con {{esposa}}."
+variables:
+  esposa: uno_de(["Catalina de Aragón", "catalina de aragon", "Catherine of Aragon", "catalina"])
+respuesta: "Catalina de Aragón"
+respuestas_validas:
+  - "Catalina de Aragón"
+  - "catalina de aragon"
+  - "Catherine of Aragon"
+  - "catalina"
+  - "Catalina"
+  - "Catalina de Aragon"
+explicacion: "La necesidad de un heredero varón llevó a Enrique a buscar la anulación, lo que le llevó a proclamarse Jefe Supremo de la Iglesia de Inglaterra mediante el Acta de Supremacía (1534)."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["humanismo", "norte-europa", "educacion"]
+tipo: mc
+enunciado: "¿Qué enfoque caracterizó al humanismo del Norte de Europa en comparación con el italiano?"
+opciones_explicitas:
+  - "El interés exclusivo por la mitología clásica pagana"
+  - "La fusión del humanismo clásico con la devoción religiosa cristiana"
+  - "El rechazo total de la religión en favor del materialismo"
+  - "La priorización de la escultura sobre la literatura"
+respuesta: "La fusión del humanismo clásico con la devoción religiosa cristiana"
+explicacion: "Humanistas como Erasmo y Tomás Moro utilizaron la filología clásica para estudiar la Biblia y los Padres de la Iglesia, buscando una reforma religiosa basada en el conocimiento y la piedad personal."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arte", "venecia", "color"]
+tipo: completar
+enunciado: "Los pintores venecianos como Tiziano se distinguieron por su uso magistral del {{color} en lugar del dibujo lineal (disegno) predominante en Florencia."
+variables:
+  color: uno_de(["color", "colore", "colour", "Color"])
+respuesta: "color"
+respuestas_validas:
+  - "color"
+  - "colore"
+  - "colour"
+  - "Color"
+  - "Colore"
+  - "Colour"
+explicacion: "En Venecia, la riqueza de los colores y la luz reflejada en el agua eran prioritarias (colore), mientras que en Florencia y Roma se valoraba más el diseño y la estructura (disegno)."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["francia", "guerras", "hugonotes"]
+tipo: vf
+enunciado: "El Edicto de Nantes (1598) promulgado por Enrique IV puso fin a las guerras de religión en Francia otorgando ciertos derechos a los hugonotes (protestantes)."
+respuesta: verdadero
+explicacion: "Fue un edicto de tolerancia que permitía la libertad de culto en lugares específicos para los protestantes, estableciendo una coexistencia precaria pero crucial en un país mayoritariamente católico."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arte", "manierismo", "estilo"]
+tipo: mc
+enunciado: "¿Qué característica define al Manierismo, fase final del Renacimiento?"
+opciones_explicitas:
+  - "El equilibrio perfecto y la claridad clásica"
+  - "La distorsión de la figura humana y la composición inestable"
+  - "El realismo fotográfico y el detalle hiperdetallado"
+  - "El uso exclusivo de colores pasteles suaves"
+respuesta: "La distorsión de la figura humana y la composición inestable"
+explicacion: "Artistas como Pontormo y Parmigianino buscaban la elegancia artificial, la complejidad y la tensión emocional, rompiendo con las reglas armónicas del Alto Renacimiento."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["jesuitas", "ignacio", "mision"]
+tipo: completar
+enunciado: "San Ignacio de Loyza fundó la Compañía de Jesús, un orden religiosa dedicada a la {{educacion}} y la misión, que se convirtió en la principal arma de la Iglesia Católica contra la Reforma."
+variables:
+  educacion: uno_de(["educacion", "educación", "education", "enseñanza", "instruction"])
+respuesta: "educacion"
+respuestas_validas:
+  - "educacion"
+  - "educación"
+  - "education"
+  - "enseñanza"
+  - "instruction"
+  - "Educacion"
+  - "Educación"
+  - "Education"
+  - "Enseñanza"
+  - "Instruction"
+explicacion: "Los jesuitas establecieron colegios y universidades en toda Europa y el mundo, formando a las élites y contrarrestando la influencia protestante a través de la educación y la obediencia al Papa."
 ```
 

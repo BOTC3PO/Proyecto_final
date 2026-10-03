@@ -1,8 +1,1489 @@
 # Examen jefe — [PENDIENTE #846]
 
-> Logro #846. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
+> Logro #846. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
 
 ---
+
+## Sección: geometria-molecular-vsepr (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "basico"
+  tags: ["teoria", "vsepr"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La teoría VSEPR establece que los pares de electrones alrededor de un átomo central se repelen entre sí y se acomodan lo más lejos posible para minimizar la repulsión."
+
+explicacion: |
+  Correcto. La repulsión electrónica es el principio que determina la forma de las moléculas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "intermedio"
+  tags: ["geometria", "vsepr"]
+
+variables:
+  datos: [[2, "lineal"], [3, "trigonal plana"], [4, "tetraédrica"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["lineal", "trigonal plana", "tetraédrica"]
+
+enunciado: "Si un átomo central tiene {datos[idx][0]} pares de electrones enlazantes y ningún par libre, la geometría resultante es..."
+
+explicacion: |
+  La geometría depende del número de dominios electrónicos. Con {datos[idx][0]} dominios, la forma es {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "basico"
+  tags: ["geometria", "angulos"]
+
+respuesta: "lineal"
+tipo: completar
+respuestas_validas:
+  - "lineal"
+
+enunciado: "La geometría con 2 pares de electrones alrededor del centro y un ángulo de enlace de 180 grados es la ___."
+
+explicacion: |
+  Con dos dominios electrónicos, la máxima separación posible es un ángulo de 180°: geometría lineal.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "basico"
+  tags: ["moleculas", "co2"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La molécula de dióxido de carbono (CO2) posee una geometría molecular lineal."
+
+explicacion: |
+  El carbono central tiene dos dobles enlaces con los oxígenos y ningún par libre, lo que da una geometría lineal.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "intermedio"
+  tags: ["angulos", "tetraedrica"]
+
+respuesta: "109.5 grados"
+tipo: mc
+opciones_explicitas: ["109.5 grados", "180 grados", "120 grados", "90 grados"]
+
+enunciado: "¿Cuál es el ángulo de enlace típico en una molécula con geometría tetraédrica perfecta?"
+
+explicacion: |
+  En una geometría tetraédrica, los cuatro pares de electrones se orientan hacia los vértices de un tetraedro, con ángulo de 109,5°.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "basico"
+  tags: ["vsepr", "repulsion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un par de electrones libre (no enlazante) ocupa espacio alrededor del átomo central igual que un enlace."
+
+explicacion: |
+  Correcto — y además, los pares libres repelen con MÁS fuerza que los enlazantes, ocupando incluso un poco más de volumen.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "intermedio"
+  tags: ["geometria", "vsepr"]
+
+variables:
+  escenario: [["NH3", "piramidal trigonal"], ["H2O", "angular"]]
+  idx: uno_de([0, 1])
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["piramidal trigonal", "angular", "lineal", "tetraédrica"]
+
+enunciado: "Dada la molécula {escenario[idx][0]}, ¿cuál es su geometría molecular?"
+
+explicacion: |
+  La molécula {escenario[idx][0]} tiene geometría {escenario[idx][1]}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "basico"
+  tags: ["h2o", "geometria"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La molécula de agua (H2O) tiene una geometría lineal."
+
+explicacion: |
+  Falso. El oxígeno tiene dos pares enlazantes y dos pares libres, lo que da una geometría angular.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "basico"
+  tags: ["h2o", "electrones"]
+
+respuesta: "libres"
+tipo: completar
+respuestas_validas:
+  - "libres"
+
+enunciado: "El oxígeno del agua tiene 4 pares de electrones alrededor: 2 enlaces O-H y 2 pares ___."
+
+explicacion: |
+  Los dos pares que no forman enlaces se llaman pares de electrones libres.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "intermedio"
+  tags: ["vsepr", "angulos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los pares libres repelen con más fuerza que los pares enlazantes, por eso el ángulo de una molécula como el agua es menor al de un tetraedro puro."
+
+explicacion: |
+  Correcto. La mayor repulsión de los pares libres "empuja" a los pares enlazantes, reduciendo el ángulo de enlace observado.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "intermedio"
+  tags: ["vsepr", "polaridad", "co2"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El CO2 tiene enlaces polares (C=O) pero la molécula en conjunto es no polar, debido a su geometría lineal simétrica."
+
+explicacion: |
+  Aunque los enlaces C=O son polares, la geometría lineal hace que los vectores de momento dipolar se cancelen: momento dipolar neto cero.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "basico"
+  tags: ["vsepr", "polaridad", "h2o"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El agua (H2O) tiene enlaces polares y es una molécula polar en su conjunto, debido a su geometría angular asimétrica."
+
+explicacion: |
+  La geometría angular del agua impide que los momentos dipolares de los enlaces O-H se cancelen: queda un momento dipolar neto.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "avanzado"
+  tags: ["vsepr", "co2", "dipolo"]
+
+respuesta: "Los dipolos de los enlaces C=O se cancelan debido a la geometría lineal simétrica."
+tipo: mc
+opciones_explicitas: ["Los dipolos de los enlaces C=O se cancelan debido a la geometría lineal simétrica.", "La electronegatividad del carbono es igual a la del oxígeno.", "Los electrones se distribuyen de forma uniforme en toda la molécula.", "La geometría es angular y no lineal."]
+
+enunciado: "¿Por qué el CO2 NO es polar, a pesar de tener enlaces polares?"
+
+explicacion: |
+  Para que una molécula con enlaces polares sea no polar, la disposición espacial debe ser tal que los vectores de los momentos dipolares se anulen entre sí — eso pasa en el CO2 por su simetría lineal.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "basico"
+  tags: ["polaridad", "dipolo"]
+
+respuesta: "cancelan"
+tipo: completar
+respuestas_validas:
+  - "cancelan"
+
+enunciado: "Una molécula es polar en conjunto cuando sus momentos dipolares individuales no se ___."
+
+explicacion: |
+  Si los momentos dipolares de los enlaces no se cancelan por la geometría de la molécula, queda un momento dipolar neto: la molécula es polar.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "intermedio"
+  tags: ["vsepr", "polaridad", "enlace_polar"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Cualquier molécula que posea al menos un enlace polar es, por definición, una molécula polar."
+
+explicacion: |
+  Falso. Depende también de la geometría: si es muy simétrica (como CO2 o CH4), los enlaces polares se pueden cancelar entre sí.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "basico"
+  tags: ["teoria", "vsepr"]
+
+respuesta: "Repulsión de pares de electrones de la capa de valencia"
+tipo: mc
+opciones_explicitas: ["Repulsión de pares de electrones de la capa de valencia", "Velocidad de electrones en la capa de valencia", "Vibración de electrones en la capa de valencia", "Valencia de electrones por repulsión"]
+
+enunciado: "¿Qué significa la sigla VSEPR (RPECV en español) respecto a la disposición de los electrones en una molécula?"
+
+explicacion: |
+  VSEPR = "Valence Shell Electron Pair Repulsion". Los pares de electrones de la capa de valencia se repelen y buscan la máxima distancia posible entre sí.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "basico"
+  tags: ["geometria", "angulos"]
+
+respuesta: "plana"
+tipo: completar
+respuestas_validas:
+  - "plana"
+
+enunciado: "La geometría con 3 pares de electrones enlazantes y un ángulo de 120 grados es la trigonal ___."
+
+explicacion: |
+  Con 3 grupos de electrones, la forma que minimiza la repulsión es un triángulo equilátero en un plano: trigonal plana.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "basico"
+  tags: ["molecula", "metano"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿El metano (CH4) tiene una geometría molecular tetraédrica?"
+
+explicacion: |
+  Verdadero. El carbono tiene 4 pares enlazantes con los hidrógenos y ningún par libre: tetraedro perfecto, ángulos de 109,5°.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "avanzado"
+  tags: ["vsepr", "calculo"]
+
+variables:
+  escenario: [[4, 1, "piramidal trigonal"], [4, 2, "angular"], [4, 0, "tetraedrica"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: escenario[idx][2]
+tipo: mc
+opciones_explicitas: ["piramidal trigonal", "angular", "tetraedrica"]
+
+enunciado: "Si una molécula tiene {escenario[idx][0]} pares de electrones en total alrededor del átomo central, de los cuales {escenario[idx][1]} son pares libres, ¿cuál es su geometría molecular?"
+
+explicacion: |
+  Con 4 pares totales: 1 libre da piramidal trigonal (NH₃), 2 libres dan angular (H₂O), 0 libres dan tetraédrica (CH₄).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "intermedio"
+  tags: ["polaridad", "ejemplos"]
+
+respuesta: "NH3 (amoníaco)"
+tipo: mc
+opciones_explicitas: ["NH3 (amoníaco)", "CO2 (dióxido de carbono)", "CH4 (metano)", "BF3 (trifluoruro de boro)"]
+
+enunciado: "¿Cuál de las siguientes moléculas es polar debido a una geometría asimétrica (piramidal trigonal, con un par libre)?"
+
+explicacion: |
+  El NH₃ tiene geometría piramidal trigonal (asimétrica, por el par libre del nitrógeno), lo que deja un momento dipolar neto. CO2, CH4 y BF3 son todas geometrías simétricas que cancelan la polaridad.
+```
+
+## Sección: hidrocarburos-alcanos-alquenos-alquinos (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "basico"
+  tags: ["hidrocarburos", "definicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un hidrocarburo es un compuesto orgánico formado exclusivamente por átomos de carbono e hidrógeno."
+
+explicacion: |
+  Correcto. Por definición, los hidrocarburos contienen únicamente C y H.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "basico"
+  tags: ["nomenclatura", "alcanos"]
+
+respuesta: "ano"
+tipo: completar
+respuestas_validas:
+  - "ano"
+
+enunciado: "Los alcanos, con un solo tipo de enlace entre carbonos, terminan con el sufijo ___."
+
+explicacion: |
+  Se nombran con la terminación -ano (metano, etano, propano...).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "basico"
+  tags: ["alcanos", "enlaces"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los alcanos se caracterizan por tener únicamente enlaces sencillos (simples) entre sus átomos de carbono."
+
+explicacion: |
+  Correcto. Son hidrocarburos saturados: todos sus enlaces C-C son simples.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "intermedio"
+  tags: ["alcanos", "formula", "calculo"]
+
+variables:
+  n: uno_de([1, 2, 3, 4, 5])
+
+respuesta: 2 * n + 2
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Calculá la cantidad de átomos de hidrógeno en un alcano con {n} átomos de carbono."
+
+pasos:
+  - "Fórmula general: CnH(2n+2)"
+
+explicacion: |
+  H = 2×{n} + 2.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "intermedio"
+  tags: ["alcanos", "nomenclatura", "formula"]
+
+variables:
+  datos: [["metano", "CH4"], ["etano", "C2H6"], ["propano", "C3H8"], ["butano", "C4H10"]]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["CH4", "C2H6", "C3H8", "C4H10"]
+
+enunciado: "¿Cuál es la fórmula molecular del {datos[idx][0]}?"
+
+explicacion: |
+  {datos[idx][0]} tiene fórmula {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "basico"
+  tags: ["nomenclatura", "alquenos"]
+
+respuesta: "eno"
+tipo: completar
+respuestas_validas:
+  - "eno"
+
+enunciado: "Los alquenos, con al menos un doble enlace, terminan con el sufijo ___."
+
+explicacion: |
+  Los alquenos son insaturados: al menos un doble enlace C=C, sufijo "-eno".
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "basico"
+  tags: ["estructura", "alquenos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un alqueno tiene al menos un enlace doble entre carbonos."
+
+explicacion: |
+  Correcto. Esa es la característica que distingue alquenos de alcanos (simple) y alquinos (triple).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "intermedio"
+  tags: ["formula_molecular", "alquenos"]
+
+variables:
+  n: uno_de([2, 3, 4, 5])
+
+respuesta: 2 * n
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Calculá la cantidad de hidrógenos de un alqueno con {n} carbonos y 1 doble enlace."
+
+pasos:
+  - "Fórmula: CnH2n"
+
+explicacion: |
+  H = 2×{n}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "basico"
+  tags: ["eteno", "biologia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El eteno (C2H4) también se llama etileno y es la hormona vegetal responsable de la maduración de las frutas."
+
+explicacion: |
+  Verdadero. El eteno regula naturalmente la maduración en plantas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "basico"
+  tags: ["nomenclatura", "alquinos"]
+
+respuesta: "ino"
+tipo: completar
+respuestas_validas:
+  - "ino"
+
+enunciado: "Los alquinos, con al menos un triple enlace, terminan con el sufijo ___."
+
+explicacion: |
+  Sufijo "-ino" para hidrocarburos con al menos un triple enlace C≡C.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "basico"
+  tags: ["estructura", "enlaces"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Un alquino tiene al menos un enlace triple entre carbonos?"
+
+explicacion: |
+  Correcto. Es la característica definitoria de los alquinos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "intermedio"
+  tags: ["formula_molecular", "calculo"]
+
+variables:
+  n: uno_de([2, 3, 4, 5])
+
+respuesta: 2 * n - 2
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Calculá la cantidad de hidrógenos de un alquino lineal con {n} carbonos."
+
+pasos:
+  - "Fórmula: CnH(2n-2)"
+
+explicacion: |
+  H = 2×{n} - 2.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "basico"
+  tags: ["nomenclatura", "usos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿El etino (C2H2) también se llama acetileno y se usa comúnmente en soldadura?"
+
+explicacion: |
+  Verdadero. Su combustión alcanza temperaturas muy altas, útil en sopletes de soldadura.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "basico"
+  tags: ["alcanos", "saturados"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los alcanos se llaman saturados porque tienen la máxima cantidad posible de hidrógenos en su estructura."
+
+explicacion: |
+  Correcto. Con enlaces simples no queda lugar para más hidrógenos sin romper la cadena de carbonos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "basico"
+  tags: ["alquenos", "alquinos", "insaturados"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los alquenos y alquinos se llaman insaturados porque tienen MÁS hidrógenos que el alcano equivalente."
+
+explicacion: |
+  Falso. Tienen MENOS hidrógenos que el alcano de igual número de carbonos, por los enlaces dobles o triples.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "basico"
+  tags: ["nomenclatura", "enlaces"]
+
+variables:
+  tabla: [["-ano", "simple"], ["-eno", "doble"], ["-ino", "triple"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: tabla[idx][1]
+tipo: mc
+opciones_explicitas: ["simple", "doble", "triple"]
+
+enunciado: "El sufijo {tabla[idx][0]} indica que el hidrocarburo tiene un enlace de tipo..."
+
+explicacion: |
+  -ano (simple), -eno (doble), -ino (triple).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "intermedio"
+  tags: ["alquenos", "hidrogenos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un alqueno con 2 dobles enlaces tendría aún menos hidrógenos que uno con sólo 1 doble enlace, para el mismo número de carbonos."
+
+explicacion: |
+  Verdadero. Cada enlace múltiple adicional resta 2 hidrógenos más.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "intermedio"
+  tags: ["comparacion", "formula"]
+
+variables:
+  n: uno_de([3, 4, 5, 6])
+
+respuesta: (2 * n + 2) - (2 * n - 2)
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Para {n} carbonos, ¿cuántos hidrógenos MÁS tiene el alcano que el alquino (con 1 triple enlace)?"
+
+pasos:
+  - "H alcano = 2n+2, H alquino = 2n-2"
+
+explicacion: |
+  Diferencia = (2×{n}+2) - (2×{n}-2) = 4, siempre — la diferencia entre alcano y alquino de igual n es constante.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "avanzado"
+  tags: ["clasificacion", "formula"]
+
+respuesta: "alqueno"
+tipo: mc
+opciones_explicitas: ["alqueno", "alcano", "alquino", "no es un hidrocarburo"]
+
+enunciado: "Una molécula con 4 carbonos y 8 hidrógenos (C4H8), ¿a qué familia pertenece?"
+
+explicacion: |
+  Para n=4, un alcano tendría 10 H, un alquino 6 H — 8 H coincide con la fórmula de alqueno (2n = 8).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "hidrocarburos_alcanos_alquenos_alquinos"
+  nivel: "basico"
+  tags: ["metano", "conceptos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El metano (CH4) puede existir como alqueno o alquino, dependiendo de las condiciones de reacción."
+
+explicacion: |
+  Falso. Con un solo carbono no hay otro carbono con el que formar un enlace doble o triple — el metano es siempre un alcano.
+```
+
+## Sección: nanotecnologia (22 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "basico"
+  tags: ["comparacion", "escala"]
+
+variables:
+  escala: uno_de(["macro", "micro", "nano"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Las propiedades de los materiales a nanoescala son idénticas a las que observamos a escala macroscópica."
+
+explicacion: |
+  Falso. A nanoescala, los materiales exhiben propiedades físicas, químicas y biológicas únicas debido a efectos cuánticos y al aumento drástico de la relación superficie-volumen.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "intermedio"
+  tags: ["aplicaciones", "catalisis"]
+
+variables:
+  rol: "catalizador"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las nanopartículas se utilizan frecuentemente en catálisis porque su alta superficie específica permite acelerar reacciones sin consumirse en el proceso."
+
+explicacion: |
+  Verdadero. La mayor área superficial facilita el contacto con los reactivos, aumentando la eficiencia de la reacción sin alterar la naturaleza del catalizador.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "avanzado"
+  tags: ["fuerzas", "fisica"]
+
+variables:
+  fuerza_gravedad: "dominante"
+  fuerza_electrica: "dominante"
+
+respuesta: fuerza_electrica
+tipo: input
+
+enunciado: "A escalas nanométricas, las fuerzas de Van der Waals y las interacciones electrostáticas dominan sobre la ___."
+
+explicacion: |
+  Gravedad. A esta escala, la masa es tan pequeña que las fuerzas gravitatorias son insignificantes comparadas con las interacciones electromagnéticas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "intermedio"
+  tags: ["diseño", "ingenieria"]
+
+variables:
+  enfoque: "naturaleza"
+  enfoque_nano: "a_medida"
+
+respuesta: enfoque_nano
+tipo: input
+
+enunciado: "La nanotecnología permite diseñar materiales ___ en lugar de buscar propiedades existentes en la naturaleza."
+
+explicacion: |
+  A medida (o a la medida). Los científicos pueden construir materiales átomo por átomo para obtener características específicas como conductividad o resistencia.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "basico"
+  tags: ["definicion", "escala"]
+
+variables:
+  nano: 1000000000
+  micro: 1000000
+
+respuesta: 1000
+tipo: input
+
+enunciado: "¿Cuántas veces más pequeña es una escala nanométrica (1 nm) comparada con una micrométrica (1 µm)?"
+
+explicacion: |
+  1000 veces. Un micrómetro es $10^{-6}$ m y un nanómetro es $10^{-9}$ m. La diferencia es un factor de $10^3$.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "intermedio"
+  tags: ["aplicaciones", "medicina"]
+
+variables:
+  vehiculo: "nanoparticulas_lipidicas"
+
+respuesta: vehiculo
+tipo: input
+
+enunciado: "En el ámbito médico, se investigan las ___ para administrar fármacos de manera dirigida y eficiente."
+
+explicacion: |
+  Nanopartículas lipídicas. Estas estructuras pueden encapsular fármacos y liberarlos en sitios específicos del cuerpo, reduciendo efectos secundarios.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "avanzado"
+  tags: ["propiedades", "opticas"]
+
+variables:
+  fenomeno: "resonancia_plasmon_superficial"
+
+respuesta: fenomeno
+tipo: input
+
+enunciado: "El cambio de color en nanopartículas metálicas se explica mediante el fenómeno de resonancia de plasmón ___."
+
+explicacion: |
+  Superficial. Es la oscilación colectiva de los electrones libres en la superficie del metal cuando interactúan con la luz.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "intermedio"
+  tags: ["propiedades", "opticas"]
+
+variables:
+  electrones: "superficie"
+  electrones_bulk: "interior"
+
+respuesta: electrones
+tipo: input
+
+enunciado: "La resonancia de plasmón superficial implica la interacción de la luz con los electrones de la ___ de la nanopartícula."
+
+explicacion: |
+  Superficie. A diferencia de los metales macroscópicos donde los electrones están confinados en el volumen, en la nanoescala los de superficie son clave para la respuesta óptica.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "intermedio"
+  tags: ["aplicaciones", "catalisis"]
+
+variables:
+  area: "alta"
+  area: "baja"
+
+respuesta: area
+tipo: input
+
+enunciado: "Las nanopartículas son excelentes catalizadores porque poseen un área superficial ___ en relación con su volumen."
+
+explicacion: |
+  Alta. Un mayor área superficial expone más sitios activos para que ocurran las reacciones químicas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "basico"
+  tags: ["definicion", "escala"]
+
+variables:
+  atomos: random(10, 100)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una nanopartícula típicamente contiene entre 100 y 100.000 átomos."
+
+explicacion: |
+  Verdadero. La definición de nanopartícula suele abarcar estructuras que van desde unos pocos átomos hasta unos pocos cientos de nanómetros de diámetro.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "avanzado"
+  tags: ["fuerzas", "interacciones"]
+
+variables:
+  fuerza: "Van_der_Waals"
+
+respuesta: fuerza
+tipo: input
+
+enunciado: "A nanoescala, las fuerzas de ___ juegan un papel crucial en la estabilidad y agregación de las partículas."
+
+explicacion: |
+  Van der Waals. Estas fuerzas de atracción débiles, normalmente insignificantes a gran escala, se vuelven dominantes cuando la masa es pequeña.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "intermedio"
+  tags: ["aplicaciones", "industria"]
+
+variables:
+  sector: "agro"
+  sector: "farmaceutico"
+
+respuesta: sector
+tipo: input
+
+enunciado: "En Argentina, la nanotecnología tiene aplicaciones relevantes en el sector agroindustrial, por ejemplo en la liberación controlada de ___."
+
+explicacion: |
+  Fertilizantes o pesticidas. Las nanopartículas permiten una entrega más eficiente y menos contaminante de insumos agrícolas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "intermedio"
+  tags: ["propiedades", "electricas"]
+
+variables:
+  propiedad: "conductividad"
+
+respuesta: propiedad
+tipo: input
+
+enunciado: "La nanotecnología permite modificar la ___ eléctrica de los materiales, creando nuevos conductores o aislantes."
+
+explicacion: |
+  Conductividad. Al cambiar la estructura y el tamaño, se altera el comportamiento de los electrones, modificando cómo fluye la corriente.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "intermedio"
+  tags: ["propiedades", "mecanicas"]
+
+variables:
+  propiedad: "resistencia"
+
+respuesta: propiedad
+tipo: input
+
+enunciado: "Los nanomateriales como los nanotubos de carbono se destacan por su extrema ___ mecánica."
+
+explicacion: |
+  Resistencia. La estructura atómica ordenada y la falta de defectos macroscópicos les confieren una resistencia muy superior a la del acero.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "basico"
+  tags: ["matematica", "conversion"]
+
+variables:
+  nm: 5
+  um: 0.005
+
+respuesta: um
+tipo: input
+
+enunciado: "5 nanómetros equivalen a ___ micrómetros."
+
+explicacion: |
+  0.005. Para convertir nanómetros a micrómetros, se divide por 1000 ($5 / 1000 = 0.005$).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "avanzado"
+  tags: ["fuerzas", "estabilidad"]
+
+variables:
+  fuerza: "electrostatica"
+
+respuesta: fuerza
+tipo: input
+
+enunciado: "La repulsión ___ entre nanopartículas cargadas ayuda a evitar su agregación y mantiene la suspensión estable."
+
+explicacion: |
+  Electrostatica. Las cargas superficiales generan fuerzas de repulsión que contrarrestan las fuerzas de atracción de Van der Waals.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "basico"
+  tags: ["definicion", "concepto"]
+
+variables:
+  campo: "nanotecnologia"
+
+respuesta: campo
+tipo: input
+
+enunciado: "La ___ es el campo que manipula la materia a escala nanométrica."
+
+explicacion: |
+  Nanotecnología. Se define por la capacidad de controlar la materia átomo por átomo o molécula por molécula.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "intermedio"
+  tags: ["propiedades", "opticas"]
+
+variables:
+  propiedad: "color"
+
+respuesta: propiedad
+tipo: input
+
+enunciado: "Un ejemplo clásico de propiedad única a nanoescala es el cambio de ___ en el oro."
+
+explicacion: |
+  Color. El oro nano puede ser rojo, púrpura o azul, a diferencia del amarillo macroscópico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "intermedio"
+  tags: ["aplicaciones", "filtracion"]
+
+variables:
+  aplicacion: "filtracion_agua"
+
+respuesta: aplicacion
+tipo: input
+
+enunciado: "Las membranas con nanocanales se utilizan para la ___ de contaminantes y virus."
+
+explicacion: |
+  Filtración de agua. Los poros a escala nanométrica permiten el paso del agua pero retienen impurezas y microorganismos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "avanzado"
+  tags: ["fisica", "cuantica"]
+
+variables:
+  efecto: "cuantico"
+
+respuesta: efecto
+tipo: input
+
+enunciado: "A escalas muy pequeñas, los efectos ___ comienzan a dominar el comportamiento de los materiales."
+
+explicacion: |
+  Cuánticos. La física clásica deja de ser suficiente para describir el comportamiento de la materia a esta escala.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "intermedio"
+  tags: ["diseño", "ingenieria"]
+
+variables:
+  metodo: "atomico"
+
+respuesta: metodo
+tipo: input
+
+enunciado: "La nanotecnología permite construir materiales ___ por átomo o molécula."
+
+explicacion: |
+  A medida. Esto permite obtener características específicas que no existen en la naturaleza.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nanotecnologia"
+  nivel: "intermedio"
+  tags: ["propiedades", "superficie"]
+
+variables:
+  razon: "superficie"
+
+respuesta: razon
+tipo: input
+
+enunciado: "La alta reactividad de las nanopartículas se debe a que una gran fracción de átomos está en la ___."
+
+explicacion: |
+  Superficie. Las reacciones químicas ocurren en la superficie, por lo que más superficie significa mayor reactividad.
+```
+
+## Sección: grupos-funcionales (20 preguntas)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "basico"
+  tags: ["conceptos_basicos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un grupo funcional es un átomo o grupo de átomos que le da a la molécula un comportamiento químico característico."
+
+explicacion: |
+  Correcto. Los grupos funcionales determinan las propiedades químicas y la reactividad de una molécula orgánica.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "basico"
+  tags: ["hidroxilo", "alcoholes"]
+
+respuesta: "hidroxilo"
+tipo: mc
+opciones_explicitas: ["hidroxilo", "carbonilo", "carboxilo", "amino"]
+
+enunciado: "El grupo funcional -OH se denomina..."
+
+explicacion: |
+  El grupo -OH (oxígeno + hidrógeno) se llama grupo hidroxilo.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "basico"
+  tags: ["nomenclatura", "alcoholes"]
+
+respuesta: "ol"
+tipo: completar
+respuestas_validas:
+  - "ol"
+
+enunciado: "Los compuestos con grupo hidroxilo (-OH) se nombran con el sufijo ___."
+
+explicacion: |
+  El sufijo -ol indica un alcohol (metanol, etanol...).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "basico"
+  tags: ["etanol", "alcoholes"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El etanol es un ejemplo de alcohol, ya que posee un grupo funcional hidroxilo (-OH)."
+
+explicacion: |
+  Correcto. El etanol (CH3CH2OH) es el alcohol más común.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "basico"
+  tags: ["aldehido", "cetona", "carbonilo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El aldehído y la cetona comparten el mismo grupo carbonilo (C=O), pero en distinta posición."
+
+explicacion: |
+  En el aldehído el carbono está en un extremo de la cadena; en la cetona, unido a otros dos carbonos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "basico"
+  tags: ["aldehido", "cetona", "estructura"]
+
+respuesta: "aldehído"
+tipo: mc
+opciones_explicitas: ["aldehído", "cetona", "ácido carboxílico", "amina"]
+
+enunciado: "Si el carbono del grupo carbonilo está en la PUNTA de la cadena, es un..."
+
+explicacion: |
+  El grupo C=O en un extremo de la cadena define un aldehído.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "basico"
+  tags: ["cetona", "estructura"]
+
+respuesta: "cetona"
+tipo: mc
+opciones_explicitas: ["cetona", "aldehído", "ácido carboxílico", "amina"]
+
+enunciado: "Si el carbono del grupo carbonilo está en el MEDIO de la cadena, es una..."
+
+explicacion: |
+  El carbonilo unido a dos carbonos vecinos define una cetona.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "basico"
+  tags: ["acido_carboxilico", "nomenclatura"]
+
+respuesta: "carboxilo"
+tipo: mc
+opciones_explicitas: ["carboxilo", "carbonilo", "hidroxilo", "amino"]
+
+enunciado: "El grupo funcional -COOH se llama..."
+
+explicacion: |
+  El grupo carboxilo combina un carbonilo (C=O) y un hidroxilo (-OH) en el mismo carbono.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "basico"
+  tags: ["acido_acetico", "vinagre"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El ácido acético (vinagre) tiene grupo funcional carboxilo."
+
+explicacion: |
+  El ácido acético (CH3COOH) es un ácido carboxílico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "basico"
+  tags: ["quimica_organica"]
+
+respuesta: "amino"
+tipo: mc
+opciones_explicitas: ["amino", "carboxilo", "ester", "hidroxilo"]
+
+enunciado: "El grupo funcional -NH2 se llama..."
+
+explicacion: |
+  El grupo -NH2 es el grupo amino, característico de las aminas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "basico"
+  tags: ["reactividad", "generalizacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos moléculas distintas que comparten el mismo grupo funcional reaccionan de forma parecida."
+
+explicacion: |
+  Verdadero. El grupo funcional determina el comportamiento químico principal de la molécula.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "basico"
+  tags: ["metodologia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para predecir el comportamiento de un compuesto orgánico hace falta memorizar cada molécula por separado, sin poder generalizar por grupo funcional."
+
+explicacion: |
+  Falso. La química orgánica se apoya justamente en generalizar por grupo funcional.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "intermedio"
+  tags: ["reacciones", "esterificacion"]
+
+respuesta: "ester"
+tipo: completar
+respuestas_validas:
+  - "ester"
+
+enunciado: "El grupo funcional que se forma cuando un ácido reacciona con un alcohol se llama ___."
+
+explicacion: |
+  Esa reacción (esterificación) produce un éster y agua.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "intermedio"
+  tags: ["quimica_organica"]
+
+variables:
+  datos: [["hidroxilo", "-OH"], ["carboxilo", "-COOH"], ["amino", "-NH2"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["-OH", "-COOH", "-NH2"]
+
+enunciado: "¿Cuál es la fórmula del grupo funcional {datos[idx][0]}?"
+
+explicacion: |
+  El grupo {datos[idx][0]} tiene fórmula {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "intermedio"
+  tags: ["proteinas", "enlaces"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El enlace peptídico que une aminoácidos en las proteínas se forma por la reacción entre un grupo amino y un grupo carboxilo."
+
+explicacion: |
+  Correcto. La deshidratación entre el -NH2 de un aminoácido y el -COOH de otro forma el enlace peptídico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "intermedio"
+  tags: ["glucidos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los glúcidos se caracterizan por tener muchos grupos hidroxilo y un grupo carbonilo (aldehído o cetona)."
+
+explicacion: |
+  Correcto. Los glúcidos son polihidroxialdehídos o polihidroxicetonas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "intermedio"
+  tags: ["proteinas"]
+
+respuesta: "hidroxilo"
+tipo: mc
+opciones_explicitas: ["hidroxilo", "amino", "carboxilo", "enlace peptidico"]
+
+enunciado: "¿Cuál de estos NO es un componente estructural básico de un aminoácido?"
+
+explicacion: |
+  Los aminoácidos tienen grupo amino y grupo carboxilo. El hidroxilo es propio de alcoholes/glúcidos, no la base de un aminoácido.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "avanzado"
+  tags: ["carboxilo", "carbonilo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El grupo carboxilo (-COOH) contiene un grupo carbonilo (C=O) dentro de su estructura."
+
+explicacion: |
+  Correcto. El carboxilo combina un carbonilo y un hidroxilo sobre el mismo átomo de carbono.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "avanzado"
+  tags: ["comparacion", "acidez"]
+
+respuesta: "un ácido carboxílico (-COOH)"
+tipo: mc
+opciones_explicitas: ["un ácido carboxílico (-COOH)", "un alcohol (-OH)", "una amina (-NH2)", "un éster"]
+
+enunciado: "¿Cuál de estos grupos funcionales le da a la molécula propiedades ácidas (puede donar un H+ fácilmente)?"
+
+explicacion: |
+  El grupo carboxilo es el que da carácter ácido a la molécula — de ahí el nombre "ácido" carboxílico.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "grupos_funcionales"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El nombre de la familia de un compuesto orgánico (alcohol, ácido, amina, etc.) se define por su grupo funcional, no por el largo de su cadena de carbono."
+
+explicacion: |
+  Correcto. El largo de la cadena cambia el nombre específico (etanol, propanol...) pero la familia (alcohol) la define el grupo -OH presente.
+```
 
 ## Sección: nomenclatura-compuestos (20 preguntas)
 
@@ -361,1902 +1842,5 @@ enunciado: "El compuesto CaCl2 se nombra como un óxido de calcio, porque el cal
 
 explicacion: |
   Falso. CaCl2 combina calcio con cloro (no con oxígeno), así que es una sal binaria: "cloruro de calcio", no un óxido.
-```
-
-## Sección: numero-atomico-masico (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "basico"
-  tags: ["atomos", "protones"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El número atómico (Z) representa la cantidad de protones presentes en el núcleo de un átomo."
-
-explicacion: |
-  Correcto. El número atómico define la identidad del elemento químico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "basico"
-  tags: ["masa", "nucleo"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El número másico (A) incluye la masa de los electrones en el cálculo total."
-
-explicacion: |
-  Falso. El número másico es la suma de protones y neutrones; la masa de los electrones es despreciable y no se cuenta.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "basico"
-  tags: ["calculo", "neutrones"]
-
-respuesta: "neutrones"
-tipo: completar
-respuestas_validas:
-  - "neutrones"
-
-enunciado: "El número másico es igual a la suma de protones más ___."
-
-explicacion: |
-  El número másico (A) se calcula sumando los protones (Z) y los neutrones (N).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "basico"
-  tags: ["simbolos", "teoria"]
-
-respuesta: "Z"
-tipo: mc
-opciones_explicitas: ["Z", "A", "N", "M"]
-
-enunciado: "¿Qué letra se utiliza convencionalmente para representar el número atómico?"
-
-explicacion: |
-  La letra "Z" representa el número atómico; "A" representa el número másico.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "basico"
-  tags: ["simbolos", "teoria"]
-
-respuesta: "A"
-tipo: mc
-opciones_explicitas: ["A", "Z", "N", "M"]
-
-enunciado: "¿Qué letra se utiliza convencionalmente para representar el número másico?"
-
-explicacion: |
-  La letra "A" representa el número másico (protones + neutrones).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "intermedio"
-  tags: ["nucleos", "neutrones", "calculo"]
-
-variables:
-  protones: random(1, 30)
-  neutrones: random(0, 20)
-  masico: protones + neutrones
-
-respuesta: neutrones
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Un átomo tiene un número atómico (Z) de {protones} y un número másico (A) de {masico}. ¿Cuántos neutrones tiene?"
-
-explicacion: |
-  N = A - Z = {masico} - {protones} = {neutrones}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "intermedio"
-  tags: ["nucleos", "masa_atomica", "calculo"]
-
-variables:
-  protones: random(1, 30)
-  neutrones: random(0, 20)
-  masico: protones + neutrones
-
-respuesta: masico
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Un átomo tiene {protones} protones y {neutrones} neutrones. ¿Cuál es su número másico (A)?"
-
-explicacion: |
-  A = Z + N = {protones} + {neutrones} = {masico}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "intermedio"
-  tags: ["nucleos", "numero_atomico", "calculo"]
-
-variables:
-  protones: random(1, 30)
-  neutrones: random(0, 20)
-  masico: protones + neutrones
-
-respuesta: protones
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Un átomo tiene un número másico (A) de {masico} y contiene {neutrones} neutrones. ¿Cuál es su número atómico (Z)?"
-
-explicacion: |
-  Z = A - N = {masico} - {neutrones} = {protones}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "basico"
-  tags: ["electrones", "atomos_neutros"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un átomo neutro, el número de electrones es igual al número atómico Z."
-
-explicacion: |
-  Correcto. En un átomo neutro, la carga de los protones se compensa exactamente con la de los electrones, así que Z = electrones.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "basico"
-  tags: ["formula", "conceptos"]
-
-respuesta: "Z"
-tipo: completar
-respuestas_validas:
-  - "Z"
-  - "el numero atomico"
-
-enunciado: "La fórmula para calcular el número de neutrones (N) es N = A - ___."
-
-explicacion: |
-  La fórmula es N = A - Z, donde A es el número másico y Z el número atómico (cantidad de protones).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "basico"
-  tags: ["notacion", "simbolo_quimico"]
-
-respuesta: "Arriba a la izquierda del símbolo"
-tipo: mc
-opciones_explicitas: ["Arriba a la izquierda del símbolo", "Abajo a la izquierda del símbolo", "Arriba a la derecha del símbolo", "Abajo a la derecha del símbolo"]
-
-enunciado: "En la notación isotópica ᴬ_Z X (A arriba, Z abajo, junto al símbolo del elemento), ¿en qué posición se ubica el número másico (A)?"
-
-explicacion: |
-  El número másico (A) se escribe como superíndice a la izquierda del símbolo; el número atómico (Z) va como subíndice, también a la izquierda.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "intermedio"
-  tags: ["calculo", "protones", "neutrones"]
-
-variables:
-  Z: random(1, 20)
-  N: random(0, 20)
-
-respuesta: Z + N
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Un átomo tiene {Z} protones y {N} neutrones. ¿Cuál es su número másico (A)?"
-
-explicacion: |
-  El número másico (A) es la suma de protones y neutrones: A = {Z} + {N} = {Z + N}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "basico"
-  tags: ["identidad", "numero_atomico"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un átomo cambia su número atómico (Z), ¿se convierte en un elemento químico distinto?"
-
-explicacion: |
-  Verdadero. El número atómico (Z) define la identidad del elemento; cambiar la cantidad de protones cambia de qué elemento se trata.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "avanzado"
-  tags: ["isobaros", "masa"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es posible que dos átomos de elementos distintos tengan el mismo número másico (A) pero distinto número atómico (Z)?"
-
-explicacion: |
-  Verdadero. Esos átomos se llaman isóbaros: tienen la misma masa total pero son elementos diferentes (a diferencia de los isótopos, que son el mismo elemento con distinta masa).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "basico"
-  tags: ["notacion", "isotopos"]
-
-respuesta: "masico"
-tipo: completar
-respuestas_validas:
-  - "masico"
-  - "másico"
-
-enunciado: "En la notación abreviada, una expresión como 'Carbono-14' indica el nombre del elemento seguido de su número ___."
-
-explicacion: |
-  El número que acompaña al nombre del elemento en esta notación hace referencia al número másico (protones + neutrones).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "basico"
-  tags: ["atomos", "electrones", "protones"]
-
-variables:
-  protones: random(1, 30)
-
-respuesta: protones
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Dado un átomo neutro con {protones} protones, ¿cuántos electrones tiene?"
-
-explicacion: |
-  En un átomo neutro la carga total es cero, así que la cantidad de electrones es igual a la de protones.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "intermedio"
-  tags: ["numero_atomico", "teoria"]
-
-respuesta: "cantidad de neutrones"
-tipo: mc
-opciones_explicitas: ["identidad del elemento", "cantidad de protones", "cantidad de electrones (si es neutro)", "cantidad de neutrones"]
-
-enunciado: "Dado sólo el número atómico Z de un elemento, ¿qué información NO se puede obtener directamente?"
-
-explicacion: |
-  Z define la identidad, los protones, y (si es neutro) los electrones. Para los neutrones hace falta además el número másico A, ya que N = A - Z.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "basico"
-  tags: ["neutrones", "formula"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para saber cuántos neutrones tiene un átomo hace falta conocer tanto el número atómico (Z) como el número másico (A)."
-
-explicacion: |
-  Correcto. La relación es N = A - Z; sin ambos valores no se puede determinar la cantidad de neutrones.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "basico"
-  tags: ["calculo", "neutrones"]
-
-variables:
-  z: 17
-  a: 35
-
-respuesta: a - z
-tipo: completar
-respuestas_validas:
-  - 18
-
-enunciado: "Si Z = {z} y A = {a}, el átomo tiene ___ neutrones."
-
-explicacion: |
-  El número de neutrones se calcula restando el número atómico al número másico: 35 - 17 = 18.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "numero_atomico_masico"
-  nivel: "avanzado"
-  tags: ["isotopos", "isobaros"]
-
-respuesta: "mismo Z, distinto A"
-tipo: mc
-opciones_explicitas: ["mismo Z, distinto A", "distinto Z, mismo A", "mismo Z, mismo A", "distinto Z, distinto A"]
-
-enunciado: "Dos isótopos del mismo elemento tienen..."
-
-explicacion: |
-  Los isótopos comparten el número atómico Z (son el mismo elemento) pero difieren en el número másico A (distinta cantidad de neutrones).
-```
-
-## Sección: oxidacion-reduccion (20 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "basico"
-  tags: ["redox", "electrones"]
-
-respuesta: "pierde electrones"
-tipo: mc
-opciones_explicitas: ["pierde electrones", "gana electrones", "ni pierde ni gana", "pierde protones"]
-
-enunciado: "En química, la oxidación es el proceso en el que un átomo o ion..."
-
-explicacion: |
-  La oxidación es la pérdida de electrones.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "basico"
-  tags: ["redox", "electrones"]
-
-respuesta: "gana electrones"
-tipo: mc
-opciones_explicitas: ["gana electrones", "pierde electrones", "ni pierde ni gana", "gana protones"]
-
-enunciado: "En química, la reducción es el proceso en el que un átomo o ion..."
-
-explicacion: |
-  La reducción es la ganancia de electrones.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "basico"
-  tags: ["redox", "numero_de_oxidacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al oxidarse, el número de oxidación de un elemento aumenta (se vuelve más positivo)."
-
-explicacion: |
-  Como pierde cargas negativas (electrones), su número de oxidación sube.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "basico"
-  tags: ["redox", "numero_de_oxidacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Al reducirse, el número de oxidación de un elemento aumenta (se vuelve más positivo)."
-
-explicacion: |
-  Falso. Al ganar electrones, su número de oxidación DISMINUYE.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "basico"
-  tags: ["redox", "conceptos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La oxidación y la reducción siempre ocurren juntas en una reacción redox."
-
-explicacion: |
-  Si una especie se oxida (pierde electrones), otra debe reducirse (ganarlos): se conserva la carga total.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "basico"
-  tags: ["mnemotecnica"]
-
-respuesta: "Gain"
-tipo: completar
-respuestas_validas:
-  - "Gain"
-
-enunciado: "OIL RIG: Oxidation Is Loss, Reduction Is ___."
-
-explicacion: |
-  OIL RIG: Oxidation Is Loss (de electrones), Reduction Is Gain (de electrones).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "basico"
-  tags: ["agente_oxidante"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El agente oxidante es la sustancia que provoca que otra sustancia se oxide."
-
-explicacion: |
-  Correcto. El agente oxidante acepta electrones de la otra sustancia, provocando su oxidación.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "intermedio"
-  tags: ["agente_oxidante"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El agente oxidante, durante la reacción, se oxida a sí mismo."
-
-explicacion: |
-  Falso. El agente oxidante gana electrones, así que se REDUCE a sí mismo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "intermedio"
-  tags: ["agente_reductor"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El agente reductor es la sustancia que provoca que otra se reduzca, y en el proceso se oxida a sí mismo."
-
-explicacion: |
-  Correcto. Cede electrones (se oxida) para que la otra sustancia se reduzca.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "intermedio"
-  tags: ["nomenclatura", "agentes"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El nombre 'agente oxidante' describe lo que le sucede a la sustancia misma, no lo que le hace al otro reactivo."
-
-explicacion: |
-  Falso. El nombre describe la acción que ejerce sobre el otro reactivo (lo oxida), aunque él mismo se reduzca.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "intermedio"
-  tags: ["redox", "estado_de_oxidacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En Zn + Cu2+ -> Zn2+ + Cu, el zinc pasa de número de oxidación 0 a +2: se oxida."
-
-explicacion: |
-  Pierde electrones, sube su número de oxidación: se oxida.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "intermedio"
-  tags: ["redox", "estado_de_oxidacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En Zn + Cu2+ -> Zn2+ + Cu, el cobre pasa de +2 a 0: se reduce."
-
-explicacion: |
-  Gana electrones, baja su número de oxidación: se reduce.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "intermedio"
-  tags: ["redox", "agente_reductor"]
-
-respuesta: "Zn"
-tipo: mc
-opciones_explicitas: ["Zn", "Cu2+", "Zn2+", "Cu"]
-
-enunciado: "En Zn + Cu2+ -> Zn2+ + Cu, ¿quién es el agente reductor?"
-
-explicacion: |
-  El Zn se oxida y provoca la reducción del Cu2+: es el agente reductor.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "intermedio"
-  tags: ["redox", "agente_oxidante"]
-
-respuesta: "Cu2+"
-tipo: mc
-opciones_explicitas: ["Cu2+", "Zn", "Zn2+", "Cu"]
-
-enunciado: "En Zn + Cu2+ -> Zn2+ + Cu, ¿quién es el agente oxidante?"
-
-explicacion: |
-  El Cu2+ se reduce y provoca la oxidación del Zn: es el agente oxidante.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "intermedio"
-  tags: ["redox", "electrones"]
-
-variables:
-  carga_inicial: 0
-  carga_final: uno_de([2, 3])
-
-respuesta: carga_final - carga_inicial
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Si un átomo pasa de una carga de {carga_inicial} a {carga_final}, ¿cuántos electrones perdió?"
-
-explicacion: |
-  Electrones perdidos = {carga_final} - {carga_inicial}.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "basico"
-  tags: ["redox", "electrones"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los electrones que un elemento pierde al oxidarse son exactamente los que otro elemento gana al reducirse."
-
-explicacion: |
-  Los electrones cedidos por el agente reductor igualan a los aceptados por el agente oxidante.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "basico"
-  tags: ["pilas", "espontaneidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las pilas aprovechan una reacción redox espontánea para generar corriente eléctrica."
-
-explicacion: |
-  Correcto — ver ../pilas-celdas-galvanicas/.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "basico"
-  tags: ["electrolisis", "energia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La electrólisis usa corriente eléctrica para forzar una reacción redox que no ocurriría sola."
-
-explicacion: |
-  Correcto — ver ../electrolisis/, requiere energía externa (proceso no espontáneo).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "basico"
-  tags: ["redox", "electrones"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En una reacción redox, los electrones simplemente desaparecen, no se transfieren de un elemento a otro."
-
-explicacion: |
-  Falso. Por conservación de la carga, los electrones se transfieren, no desaparecen.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "oxidacion_reduccion"
-  nivel: "intermedio"
-  tags: ["redox", "identificacion"]
-
-variables:
-  escenario: [["+3 a +2", "reduccion"], ["-1 a 0", "oxidacion"], ["0 a +1", "oxidacion"], ["+4 a +1", "reduccion"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["oxidacion", "reduccion"]
-
-enunciado: "Si el número de oxidación de un elemento pasa de {escenario[idx][0]}, ¿ese elemento se oxidó o se redujo?"
-
-explicacion: |
-  Si el número de oxidación sube, es oxidación; si baja, es reducción.
-```
-
-## Sección: petroleo-como-recurso-energetico (40 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["hidrocarburos", "composicion"]
-
-variables:
-  elemento1: "uno_de(['carbono', 'hidrogeno'])"
-  elemento2: "uno_de(['carbono', 'hidrogeno'])"
-
-respuesta: "hidrocarburos"
-tipo: completar
-
-enunciado: "El petróleo es una mezcla compleja compuesta principalmente por átomos de {elemento1} y {elemento2}. La denominación química general para estos compuestos es: ___"
-
-explicacion: |
-  El petróleo está formado por hidrocarburos, que son compuestos orgánicos formados esencialmente por carbono e hidrógeno.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["origen", "materia_organica"]
-
-variables:
-  origen: "uno_de(['plancton', 'minerales', 'metales'])"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El petróleo se origina a partir de la acumulación y transformación de materia orgánica como {origen} y algas en mares antiguos."
-
-explicacion: |
-  El petróleo proviene de la descomposición de materia orgánica (plancton, algas) bajo altas presiones y temperaturas durante millones de años.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["refinamiento", "destilacion"]
-
-variables:
-  propiedad: "uno_de(['temperatura de ebullicion', 'densidad', 'pH'])"
-
-respuesta: "temperatura de ebullicion"
-tipo: completar
-
-enunciado: "En la torre de refinamiento, la separación de los componentes del crudo se basa en la diferencia de su {propiedad}."
-
-explicacion: |
-  La destilación fraccionada separa los hidrocarburos según sus diferentes temperaturas de ebullición.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["renovable", "clasificacion"]
-
-variables:
-  recurso: "uno_de(['petroleo', 'energia solar', 'energia eolica'])"
-
-respuesta: "no renovable"
-tipo: completar
-
-enunciado: "El {recurso} es considerado un recurso energético de tipo '___' porque su formación tarda millones de años."
-
-explicacion: |
-  A diferencia de las energías renovables, el petróleo no se regenera a escala humana, por lo que es no renovable.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["alcanos", "estructura"]
-
-variables:
-  estructura: "uno_de(['cadena lineal', 'anillo', 'cadena ramificada'])"
-
-respuesta: "cadena lineal"
-tipo: completar
-
-enunciado: "Los alcanos presentes en el petróleo pueden tener estructura de {estructura} o ramificada, a diferencia de los cicloalcanos que forman anillos."
-
-explicacion: |
-  Los alcanos son hidrocarburos saturados que pueden presentarse como cadenas lineales o ramificadas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["fracking", "extraccion"]
-
-variables:
-  yacimiento: "uno_de(['convencional', 'no convencional'])"
-
-respuesta: "fracking"
-tipo: completar
-
-enunciado: "Para extraer petróleo de yacimientos {yacimiento} atrapados en rocas impermeables, se utiliza la técnica de ___."
-
-explicacion: |
-  El fracking (fracturamiento hidráulico) es necesario para liberar hidrocarburos de rocas impermeables en yacimientos no convencionales.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "avanzado"
-  tags: ["aromaticos", "benceno"]
-
-variables:
-  compuesto: "uno_de(['benceno', 'metano', 'etano'])"
-
-respuesta: "benceno"
-tipo: completar
-
-enunciado: "Un ejemplo clásico de hidrocarburo aromático encontrado en el petróleo es el {compuesto}, que posee una estructura de anillo con deslocalización electrónica."
-
-explicacion: |
-  El benceno es un hidrocarburo aromático clave presente en el crudo, distinto a los alcanos y cicloalcanos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["argentina", "vaca_muerta"]
-
-variables:
-  provincia: "uno_de(['Neuquen', 'Buenos Aires', 'Cordoba'])"
-
-respuesta: "Neuquen"
-tipo: completar
-
-enunciado: "La importante formación de petróleo no convencional y gas conocida como Vaca Muerta se encuentra en la provincia de {provincia}."
-
-explicacion: |
-  Vaca Muerta es una formación geológica en Neuquén, Argentina, rica en hidrocarburos no convencionales.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "avanzado"
-  tags: ["alcanos", "saturacion"]
-
-variables:
-  tipo_hc: "uno_de(['alcanos', 'alquenos', 'alquinos'])"
-
-respuesta: "alcanos"
-tipo: completar
-
-enunciado: "Los {tipo_hc} son hidrocarburos saturados, es decir, contienen solo enlaces simples entre átomos de carbono."
-
-explicacion: |
-  Los alcanos son los hidrocarburos más simples y saturados, con fórmula general CnH2n+2.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["quimica_aplicada", "fracking"]
-
-variables:
-  componente: "uno_de(['agua', 'arena', 'glicerina'])"
-
-respuesta: "agua"
-tipo: completar
-
-enunciado: "El fracking consiste en inyectar {componente} a alta presión junto con aditivos químicos para crear grietas en la roca."
-
-explicacion: |
-  La mezcla principal para la fracturación hidráulica es agua a alta presión, arena (proppant) y químicos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["geopolitica", "importancia"]
-
-variables:
-  pais: "uno_de(['Arabia Saudita', 'Argentina', 'Uruguay'])"
-
-respuesta: "Arabia Saudita"
-tipo: completar
-
-enunciado: "Entre los países con las mayores reservas probadas de petróleo se encuentra {pais}."
-
-explicacion: |
-  Arabia Saudita es uno de los principales productores y poseedores de reservas de petróleo mundial.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["origen", "biologia"]
-
-variables:
-  organismo: "uno_de(['plancton', 'dinosaurios', 'arboles'])"
-
-respuesta: "plancton"
-tipo: completar
-
-enunciado: "La materia orgánica que dio origen al petróleo incluía principalmente {organismo} y algas de mares antiguos."
-
-explicacion: |
-  El plancton marino es la fuente principal de la materia orgánica que se transformó en petróleo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "avanzado"
-  tags: ["quimica_organica", "benceno"]
-
-variables:
-  atomo_c: "random(6,6)"
-  atomo_h: "random(6,6)"
-
-respuesta: "C6H6"
-tipo: input
-
-enunciado: "La fórmula molecular del benceno, un hidrocarburo aromático clave, es {atomo_c} carbonos y {atomo_h} hidrógenos. Escribela como C6H6:"
-
-explicacion: |
-  El benceno tiene la fórmula C6H6, con un anillo hexagonal de carbonos e hidrógenos unidos.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["geopolitica", "paises"]
-
-variables:
-  pais: "uno_de(['Rusia', 'España', 'Chile'])"
-
-respuesta: "Rusia"
-tipo: completar
-
-enunciado: "Además de Arabia Saudita y Estados Unidos, {pais} posee una de las mayores reservas probadas de petróleo."
-
-explicacion: |
-  Rusia es uno de los tres principales poseedores de reservas de petróleo a nivel mundial.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["hidrocarburos", "composicion"]
-
-variables:
-  elementos: uno_de(["carbono e hidrogeno", "carbono y oxigeno", "hidrogeno y nitrogeno", "azufre y oxigeno"])
-
-respuesta: "carbono e hidrogeno"
-tipo: mc
-opciones_explicitas: ["carbono e hidrogeno", "carbono y oxigeno", "hidrogeno y nitrogeno", "azufre y oxigeno"]
-
-enunciado: "El petróleo es una mezcla compleja de hidrocarburos. ¿Cuáles son los dos elementos químicos principales que lo componen?"
-
-explicacion: |
-  Los hidrocarburos, por definición, están formados principalmente por átomos de carbono e hidrógeno. El petróleo es una mezcla de este tipo de compuestos.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["origen", "materia_organica"]
-
-variables:
-  origen: uno_de(["plancton y algas", "restos de dinosaurios", "minerales volcánicos", "raíces de árboles gigantes"])
-
-respuesta: "plancton y algas"
-tipo: mc
-opciones_explicitas: ["plancton y algas", "restos de dinosaurios", "minerales volcánicos", "raíces de árboles gigantes"]
-
-enunciado: "El petróleo se origina a partir de la acumulación y transformación de materia orgánica. ¿Qué organismos fueron los principales contribuyentes?"
-
-explicacion: |
-  El petróleo proviene de la acumulación de plancton y algas marinos que vivieron en mares antiguos hace millones de años, no de dinosaurios o vegetación terrestre.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["refinamiento", "destilacion"]
-
-variables:
-  propiedad: "temperatura de ebullicion"
-
-respuesta: "temperatura de ebullicion"
-tipo: input
-
-enunciado: "El proceso clave para separar los componentes del crudo es la destilación fraccionada. ¿Qué propiedad física de los hidrocarburos aprovecha este proceso para separarlos?"
-
-explicacion: |
-  La destilación fraccionada separa los hidrocarburos aprovechando sus diferentes temperaturas de ebullicion. Al calentar el crudo, cada fracción se vaporiza a una temperatura distinta.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["argentina", "yacimientos", "vaca_muerta"]
-
-variables:
-  provincia: "neuquen"
-
-respuesta: "neuquen"
-tipo: input
-
-enunciado: "En Argentina, ¿en qué provincia se encuentra la formación de Vaca Muerta, una de las reservas de petróleo no convencional (shale oil) y gas más importantes del mundo?"
-
-explicacion: |
-  La formación de Vaca Muerta se ubica en la provincia de Neuquén. Su explotación ha transformado la matriz energética nacional en las últimas décadas.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["fracking", "explotacion", "no_convencional"]
-
-variables:
-  tecnica: "fracturamiento_hidraulico"
-
-respuesta: "fracturamiento_hidraulico"
-tipo: input
-
-enunciado: "Para extraer petróleo atrapado en rocas impermeables (yacimientos no convencionales), se utiliza una técnica que inyecta agua a alta presión con aditivos químicos. ¿Cómo se llama esta técnica?"
-
-explicacion: |
-  La técnica se llama fracturamiento hidráulico (fracking). Consiste en crear grietas en la roca para liberar el hidrocarburo atrapado.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["sostenibilidad", "clasificacion"]
-
-variables:
-  clasificacion: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El petróleo es considerado un recurso energético renovable porque se regenera rápidamente en la naturaleza."
-
-explicacion: |
-  Falso. El petróleo es un recurso no renovable porque su formación toma millones de años, a un ritmo mucho más lento que su consumo actual.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["reservas", "definicion"]
-
-variables:
-  concepto: "reservas"
-
-respuesta: "reservas"
-tipo: input
-
-enunciado: "¿Qué término se utiliza para definir las cantidades de petróleo que pueden extraerse económicamente con la tecnología actual?"
-
-explicacion: |
-  Se utilizan las "reservas" probadas. Este concepto depende tanto de la existencia física del recurso como de la viabilidad económica y tecnológica de su extracción.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["composicion", "aromaticos"]
-
-variables:
-  ejemplo: "benceno"
-
-respuesta: "benceno"
-tipo: input
-
-enunciado: "Entre los componentes químicos del petróleo se encuentran los hidrocarburos aromáticos. ¿Cuál es un ejemplo clásico de este tipo de compuesto?"
-
-explicacion: |
-  El benceno es un ejemplo clásico de hidrocarburo aromático, caracterizado por tener un anillo de átomos de carbono con enlaces dobles conjugados.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["uso", "transporte"]
-
-variables:
-  razon: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El petróleo ha sido la columna vertebral del transporte mundial principalmente porque es una energía renovable y limpia."
-
-explicacion: |
-  Falso. Su importancia en el transporte se debe a su alta densidad energética y facilidad de almacenamiento y transporte, no a ser renovable o limpio.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["clasificacion", "calidad"]
-
-variables:
-  factor: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La proporción de alcanos, cicloalcanos y aromáticos determina si el petróleo es ligero o pesado, pero no afecta su calidad para ser refinado."
-
-explicacion: |
-  Falso. La proporción de estos componentes determina tanto la densidad (ligero/pesado) como la calidad y facilidad para ser refinado en productos útiles.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["explotacion", "convencional"]
-
-variables:
-  mecanismo: "presion_interna"
-
-respuesta: "presion_interna"
-tipo: input
-
-enunciado: "En los yacimientos convencionales, el petróleo suele fluir naturalmente hacia los pozos. ¿Qué fuerza principal impulsa este flujo sin necesidad de técnicas complejas de extracción?"
-
-explicacion: |
-  La presión interna del yacimiento es la fuerza principal. Esta presión natural empuja el crudo hacia la superficie cuando se perfora el pozo.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "avanzado"
-  tags: ["geopolitica", "reservas"]
-
-variables:
-  pais: "arabia_saudita"
-
-respuesta: "arabia_saudita"
-tipo: input
-
-enunciado: "¿Qué país posee una de las mayores reservas probadas de petróleo a nivel mundial, siendo un actor clave en la geopolítica energética global?"
-
-explicacion: |
-  Arabia Saudita es uno de los países con las mayores reservas probadas de petróleo, lo que le otorga una gran influencia en el mercado energético mundial.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["propiedades", "energia"]
-
-variables:
-  ventaja: "verdadero"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia de muchas energías renovables intermitentes, el petróleo puede almacenarse y transportarse con relativa facilidad."
-
-explicacion: |
-  Verdadero. El petróleo es un líquido denso en energía que se puede almacenar en tanques y transportar por oleoductos o barcos cisterna de manera eficiente.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["composicion", "cicloalcanos"]
-
-variables:
-  estructura: "anillos"
-
-respuesta: "anillos"
-tipo: input
-
-enunciado: "Los cicloalcanos son uno de los tipos de hidrocarburos presentes en el petróleo. ¿Cómo se describen sus estructuras químicas?"
-
-explicacion: |
-  Los cicloalcanos se describen como hidrocarburos cuyas cadenas de carbono forman anillos cerrados.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["shale", "no_convencional"]
-
-variables:
-  traduccion: "petroleo_de_esquistos"
-
-respuesta: "petroleo_de_esquistos"
-tipo: input
-
-enunciado: "El término inglés 'shale oil' se refiere al petróleo extraído de rocas impermeables. ¿Cómo se traduce comúnmente al español en el contexto energético?"
-
-explicacion: |
-  Se traduce como "petróleo de esquistos". Es un tipo de petróleo no convencional que requiere técnicas como el fracking para su extracción.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["propiedades", "energia"]
-
-variables:
-  caracteristica: "densa"
-
-respuesta: "densa"
-tipo: input
-
-enunciado: "El petróleo es una fuente de energía ______. ¿Qué palabra describe su capacidad de almacenar mucha energía en un volumen pequeño?"
-
-explicacion: |
-  El petróleo es una fuente de energía densa. Esto significa que libera una gran cantidad de energía por unidad de masa o volumen al quemarse.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["fracking", "quimica"]
-
-variables:
-  componente: "agua"
-
-respuesta: "agua"
-tipo: input
-
-enunciado: "El fracturamiento hidráulico consiste en inyectar ______ a alta presión con aditivos químicos para crear grietas en la roca. ¿Cuál es el líquido principal utilizado?"
-
-explicacion: |
-  El líquido principal es el agua. Se mezcla con arena y aditivos químicos para mantener las grietas abiertas y facilitar el flujo del hidrocarburo.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["reservas", "distribucion"]
-
-variables:
-  distribucion: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Las reservas de petróleo están distribuidas uniformemente en todo el planeta."
-
-explicacion: |
-  Falso. Las reservas no están distribuidas uniformemente; se concentran en regiones específicas como Medio Oriente, Rusia y América del Sur.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["refinamiento", "equipos"]
-
-variables:
-  equipo: "torre"
-
-respuesta: "torre"
-tipo: input
-
-enunciado: "Durante la refinación, el crudo se calienta en una ______ de destilación. ¿Cómo se llama el equipo vertical principal donde ocurre la separación por fracciones?"
-
-explicacion: |
-  Se llama torre de destilación. Es un equipo vertical donde los vapores se condensan a diferentes alturas según su temperatura de ebullición.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["origen", "tiempo_geologico"]
-
-variables:
-  periodo: "millones_de_anos"
-
-respuesta: "millones_de_anos"
-tipo: input
-
-enunciado: "La materia orgánica que originó el petróleo vivió en mares antiguos hace ______. ¿Qué escala de tiempo describe la formación del petróleo?"
-
-explicacion: |
-  Hace millones de años. La transformación de la materia orgánica en petróleo es un proceso geológico extremadamente lento.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["fracking", "fisica"]
-
-variables:
-  condicion: "alta"
-
-respuesta: "alta"
-tipo: input
-
-enunciado: "Para fracturar la roca impermeable en yacimientos no convencionales, el agua se inyecta a presión ______. ¿Qué adjetivo describe la magnitud de la presión necesaria?"
-
-explicacion: |
-  La presión debe ser alta. Solo con presiones muy elevadas se pueden generar las grietas necesarias en la roca dura.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["definicion", "quimica"]
-
-variables:
-  definicion: "hidrocarburos"
-
-respuesta: "hidrocarburos"
-tipo: input
-
-enunciado: "El petróleo es una mezcla compleja de ______. ¿Cómo se llaman los compuestos químicos formados por carbono e hidrógeno?"
-
-explicacion: |
-  Se llaman hidrocarburos. Son los compuestos orgánicos básicos que constituyen la mayor parte del petróleo crudo.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["propiedades_fisicas"]
-
-variables:
-  estado: "viscoso"
-
-respuesta: "viscoso"
-tipo: input
-
-enunciado: "El petróleo es un líquido ______ y oscuro que se encuentra en el subsuelo. ¿Qué palabra describe su resistencia a fluir?"
-
-explicacion: |
-  El petróleo es viscoso. Esta propiedad física varía según la composición, pero generalmente es más espeso que el agua.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["uso", "industria"]
-
-variables:
-  sector: "quimica"
-
-respuesta: "quimica"
-tipo: input
-
-enunciado: "El petróleo no solo es fuente de energía, sino también la columna vertebral de la industria ______. ¿Qué sector industrial depende del petróleo como materia prima?"
-
-explicacion: |
-  La industria química. El petróleo es la materia prima para producir plásticos, fertilizantes, medicamentos y muchos otros productos.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "intermedio"
-  tags: ["refinamiento", "proceso"]
-
-variables:
-  principio: "verdadero"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La destilación fraccionada separa los componentes del petróleo calentándolo y aprovechando que cada hidrocarburo se vaporiza a una temperatura distinta."
-
-explicacion: |
-  Verdadero. Este es el principio fundamental de la destilación fraccionada: la separación se basa en las diferentes temperaturas de ebullición.
-```
-
-```
-metadata:
-  materia: "Química"
-  tema: "petroleo_como_recurso_energetico"
-  nivel: "basico"
-  tags: ["clasificacion", "sostenibilidad"]
-
-variables:
-  clasificacion: "no_renovable"
-
-respuesta: "no_renovable"
-tipo: input
-
-enunciado: "El petróleo es un recurso ______. ¿Qué término indica que su tasa de consumo es mucho mayor que su tasa de formación natural?"
-
-explicacion: |
-  Es un recurso no renovable. Esto significa que una vez agotado, no puede ser reemplazado en un plazo de tiempo humano útil.
-```
-
-## Sección: ph-poh (23 preguntas)
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "basico"
-  tags: ["ph", "vocabulario"]
-
-enunciado: "¿Qué mide el pH de una solución?"
-tipo: mc
-opciones_explicitas:
-  - "Qué tan ácida o básica es, a partir de la concentración de iones hidrógeno (H+)"
-  - "La temperatura de la solución"
-  - "Cuánta sal tiene disuelta la solución"
-respuesta: "Qué tan ácida o básica es, a partir de la concentración de iones hidrógeno (H+)"
-
-explicacion: |
-  Es una medida de acidez/basicidad, no de temperatura ni de salinidad.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "basico"
-  tags: ["ph", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El pH se calcula como pH = -log₁₀[H⁺], el logaritmo en base 10 de la concentración de H⁺, con el signo cambiado."
-
-explicacion: |
-  Es la fórmula que conecta el pH con la concentración real de iones
-  hidrógeno.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "basico"
-  tags: ["ph", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La escala de pH va de 0 a 14."
-
-explicacion: |
-  Es el rango habitual usado para clasificar soluciones acuosas.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "basico"
-  tags: ["ph", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una solución con pH menor a 7 es ácida."
-
-explicacion: |
-  A menor pH, mayor concentración de H⁺, más ácida.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "basico"
-  tags: ["ph", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una solución con pH igual a 7 es neutra, como el agua pura a 25°C."
-
-explicacion: |
-  Es el punto medio de la escala de 0 a 14.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "basico"
-  tags: ["ph", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una solución con pH mayor a 7 es básica (o alcalina)."
-
-explicacion: |
-  A mayor pH, menor concentración de H⁺.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "intermedio"
-  tags: ["ph", "calculo"]
-
-variables:
-  exponente: random(1, 6)
-  concentracion_h: 1 / 10 ^ exponente
-
-respuesta: -log10(concentracion_h)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Una solución tiene una concentración de H⁺ de {concentracion_h} mol/L. ¿Cuál es su pH?"
-
-pasos:
-  - "pH = -log₁₀({concentracion_h})"
-
-explicacion: |
-  Se aplica la fórmula del pH directamente sobre la concentración dada.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "basico"
-  tags: ["ph", "vocabulario"]
-
-enunciado: "¿Qué mide el pOH de una solución?"
-tipo: mc
-opciones_explicitas:
-  - "La concentración de iones hidroxilo (OH-), con la misma lógica logarítmica que el pH"
-  - "Lo mismo que el pH, con otro nombre"
-  - "La cantidad de oxígeno disuelto"
-respuesta: "La concentración de iones hidroxilo (OH-), con la misma lógica logarítmica que el pH"
-
-explicacion: |
-  Es la contraparte del pH, para el otro ion relevante del agua.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "intermedio"
-  tags: ["ph", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El pOH se calcula como pOH = -log₁₀[OH⁻]."
-
-explicacion: |
-  Misma estructura que la fórmula del pH, aplicada al ion hidroxilo.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "intermedio"
-  tags: ["ph", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A 25°C, el pH y el pOH de cualquier solución acuosa siempre suman 14."
-
-explicacion: |
-  Conociendo uno de los dos, el otro se obtiene directamente sin
-  necesitar la concentración de iones.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "intermedio"
-  tags: ["ph", "calculo"]
-
-variables:
-  ph: random(1, 13)
-
-respuesta: 14 - ph
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una solución tiene un pH de {ph}. ¿Cuál es su pOH?"
-
-explicacion: |
-  Se resta el pH de 14.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "intermedio"
-  tags: ["ph", "calculo"]
-
-variables:
-  poh: random(1, 13)
-
-respuesta: 14 - poh
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una solución tiene un pOH de {poh}. ¿Cuál es su pH?"
-
-explicacion: |
-  Se resta el pOH de 14.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "intermedio"
-  tags: ["ph", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada unidad de diferencia en el pH representa un cambio de 10 veces en la concentración de H⁺."
-
-explicacion: |
-  Es consecuencia directa de que la escala de pH es logarítmica en base
-  10.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "avanzado"
-  tags: ["ph", "calculo"]
-
-enunciado: "Una solución de pH 3 comparada con una de pH 5 (dos unidades más de pH), ¿cuántas veces más concentración de H⁺ tiene la de pH 3?"
-tipo: mc
-opciones_explicitas:
-  - "100 veces más"
-  - "2 veces más"
-  - "10 veces más"
-respuesta: "100 veces más"
-
-explicacion: |
-  Dos unidades de diferencia son 10 × 10 = 100 veces, no una simple
-  resta.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "avanzado"
-  tags: ["ph", "calculo"]
-
-variables:
-  ph: random(1, 8)
-
-respuesta: 1 / 10 ^ ph
-tipo: input
-tolerancia_abs: 0.001
-
-enunciado: "Una solución tiene un pH de {ph}. ¿Cuál es su concentración de H⁺, en mol/L?"
-
-pasos:
-  - "[H⁺] = 10^(-{ph})"
-
-explicacion: |
-  Se despeja la concentración invirtiendo la fórmula del pH.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "basico"
-  tags: ["ph", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El agua pura tiene un pH cercano a 7, a 25°C — el punto neutro de la escala."
-
-explicacion: |
-  Es el ejemplo de referencia más habitual para \"neutro\".
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "intermedio"
-  tags: ["ph", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La relación entre pH y concentración de H⁺ es inversa: a menor pH, mayor concentración de H⁺ (más ácido)."
-
-explicacion: |
-  Es por el signo negativo en la fórmula del pH — un punto que suele
-  confundir si no se lo tiene en cuenta.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "basico"
-  tags: ["ph", "comparacion"]
-
-variables:
-  ph_a: random(1, 4)
-  ph_b: random(8, 13)
-
-respuesta: (ph_a < ph_b)
-tipo: vf
-
-enunciado: "Una solución con pH {ph_a} y otra con pH {ph_b}: ¿la primera es más ácida que la segunda?"
-
-explicacion: |
-  Cuanto menor el número de pH, más ácida es la solución.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "basico"
-  tags: ["ph", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estas sustancias de menor a mayor pH (de más ácida a más básica)."
-opciones_explicitas:
-  - "Agua pura (pH 7)"
-  - "Lejía (pH 13)"
-  - "Jugo de limón (pH 2)"
-respuesta_orden: ["Jugo de limón (pH 2)", "Agua pura (pH 7)", "Lejía (pH 13)"]
-
-explicacion: |
-  A menor pH, más ácida; a mayor pH, más básica.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "intermedio"
-  tags: ["ph", "verificacion"]
-
-variables:
-  ph: random(1, 13)
-  correcto: 14 - ph
-  error: uno_de([0, 0, 0, 2, -2])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 0.5)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? pH de {ph}, pOH informado: {mostrado}."
-
-explicacion: |
-  Se vuelve a calcular 14 - pH y se compara con el valor informado.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "intermedio"
-  tags: ["ph"]
-
-variables:
-  ph: random(1, 13)
-  poh: 14 - ph
-
-tipo: completar
-enunciado: "Una solución tiene pH {ph}. Completá: ___ (pOH) = 14 - {ph}."
-respuestas_validas:
-  - poh
-
-explicacion: |
-  Se resta el pH de 14 para obtener el pOH.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "intermedio"
-  tags: ["ph", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La escala de pH es logarítmica, no lineal: \"bajar 2 puntos de pH\" es un cambio de 100 veces en la concentración de H⁺, no un cambio chico."
-
-explicacion: |
-  Es el mismo tipo de escala logarítmica que aparece en decibeles y en
-  la escala Richter.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "ph_poh"
-  nivel: "basico"
-  tags: ["ph", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El pH mide la acidez con una escala logarítmica de 0 a 14, el pOH hace lo mismo con el ion hidroxilo, y ambos suman siempre 14 a 25°C."
-
-explicacion: |
-  Es la idea central de todo el tema.
 ```
 

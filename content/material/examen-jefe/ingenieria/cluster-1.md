@@ -1,508 +1,1009 @@
-# Examen jefe — Maestro del Diseño y la Comunicación
+# Examen jefe — [PENDIENTE #918]
 
-> Logro #183. Completaste el parcial integrando diseño conceptual, investigación y comunicación de soluciones. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **125 preguntas totales** en 5/5 secciones.
+> Logro #918. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: comunicar-la-solucion (25 preguntas)
+## Sección: modelizacion-matematica (25 preguntas)
 
 ```
 metadata:
   materia: "ingenieria"
-  tema: "comunicar_la_solucion"
+  tema: "modelizacion_matematica"
   nivel: "basico"
-  tags: ["documentacion", "propósito"]
+  tags: ["definicion", "conceptos_clave"]
 
-respuesta: "transmitir información técnica de manera precisa y estandarizada para permitir la fabricación o implementación del diseño"
-tipo: completar
-respuestas_validas: ["transmitir información técnica de manera precisa y estandarizada para permitir la fabricación o implementación del diseño"]
+respuesta: "representacion"
+tipo: "completar"
+respuestas_validas:
+  - "representacion"
+  - "representación"
 
-enunciado: "El objetivo principal de la documentación técnica en ingeniería es ___."
+enunciado: "Un modelo matemático es una ___ de un sistema o fenómeno de la realidad mediante el uso de lenguaje matemático."
 
 explicacion: |
-  La documentación no es solo un registro, es el medio para que otros puedan replicar, entender y ejecutar la solución diseñada sin ambigüedades.
+  La modelización consiste en crear una representación simplificada de la realidad para entenderla, predecirla o controlarla.
 ```
 
 ```
 metadata:
   materia: "ingenieria"
-  tema: "comunicar_la_solucion"
+  tema: "modelizacion_matematica"
   nivel: "basico"
-  tags: ["planos", "elementos"]
+  tags: ["componentes", "variables"]
 
-opciones_explicitas: ["Cotas y tolerancias", "Esquema de colores artísticos", "Biografía del diseñador", "Presupuesto de marketing"]
-respuesta: "Cotas y tolerancias"
+opciones_explicitas: ["Parámetros", "Variables de estado", "Incertidumbre"]
+respuesta: "Variables de estado"
+tipo: "mc"
+
+enunciado: "En la modelización de un sistema dinámico, las magnitudes que describen el estado del sistema en un instante dado se denominan:"
+
+explicacion: |
+  Las variables de estado son las incógnitas que definen la condición del sistema en un momento específico.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "basico"
+  tags: ["naturaleza_del_modelo"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "¿Un modelo matemático es siempre una representación exacta y completa de la realidad física?"
+
+explicacion: |
+  Falso. Todo modelo es una simplificación de la realidad. Si un modelo fuera idéntico a la realidad, sería tan complejo como la propia realidad y perdería su utilidad para el análisis.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "intermedio"
+  tags: ["metodologia", "pasos"]
+
+opciones_explicitas: ["Observación y simplificación", "Formulación matemática", "Validación y análisis"]
+respuesta_orden: ["Observación y simplificación", "Formulación matemática", "Validación y análisis"]
+tipo: "ordenar"
+
+enunciado: "Ordene las etapas lógicas del proceso de modelización:"
+
+explicacion: |
+  El proceso comienza identificando el problema (observación), luego se traduce a lenguaje matemático (formulación) y finalmente se comprueba si el modelo funciona (validación).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "basico"
+  tags: ["clasificacion"]
+
+variables:
+  datos: [["continuo", "depende del tiempo de forma ininterrumpida"], ["discreto", "cambia solo en instantes específicos"]]
+  idx: uno_de([0, 1])
+  tipo_modelo: datos[idx][0]
+  descripcion: datos[idx][1]
+
+respuesta: tipo_modelo
+tipo: "mc"
+opciones_explicitas: ["continuo", "discreto"]
+
+enunciado: "Si un modelo describe un sistema donde las variables cambian de forma ininterrumpida en el tiempo, estamos ante un modelo de tipo {tipo_modelo}."
+
+explicacion: |
+  Los modelos continuos utilizan funciones que se definen para todos los valores de un intervalo, mientras que los discretos operan sobre pasos o momentos específicos.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "intermedio"
+  tags: ["fisica", "cinematica"]
+
+variables:
+  escenario: uno_de([15.0, 25.0, 40.0])
+  g: 9.81
+
+respuesta: sqrt(2 * escenario / g)
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Se suelta un objeto desde una altura de {escenario} metros. Considerando la aceleración de la gravedad como {g} m/s², ¿cuánto tiempo tardará en tocar el suelo? (Use la fórmula t = sqrt(2h/g))"
+
+pasos:
+  - "Identificar la altura h = {escenario} m."
+  - "Identificar la gravedad g = {g} m/s²."
+  - "Sustituir en la fórmula: t = sqrt(2 * {escenario} / {g})."
+
+explicacion: |
+  El tiempo de caída libre se calcula despejando t de la ecuación de posición: h = 0.5 * g * t². 
+  Para el caso de {escenario} m, el resultado es {sqrt(2 * escenario / g)} segundos.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "basico"
+  tags: ["modelos", "lineal"]
+
+variables:
+  datos: uno_de([[100, 150, 200], [50, 80, 110], [200, 250, 300]])
+
+respuesta: datos[1] - datos[0]
+tipo: completar
+
+enunciado: "Un tanque de agua comienza con {datos[0]} litros y después de una hora tiene {datos[1]} litros. Si el llenado es lineal, la tasa de cambio (litros por hora) es de ___ litros/h."
+
+explicacion: |
+  En un modelo lineal y de tasa constante, la pendiente m es (y2 - y1) / (x2 - x1).
+  En este caso: ({datos[1]} - {datos[0]}) / (1 - 0) = {datos[1] - datos[0]}.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "intermedio"
+  tags: ["finanzas", "exponencial"]
+
+variables:
+  capital: 1000.0
+  tasa: 0.05
+  monto: capital * (1 + tasa)
+  opciones_validas: ["1050.0", "1100.0", "1500.0", "1005.0"]
+
+tipo: mc
+opciones_explicitas: ["1050.0", "1100.0", "1500.0", "1005.0"]
+respuesta: "1050.0"
+
+enunciado: "Se invierte un capital inicial de ${capital} con una tasa de interés compuesto anual del {tasa * 100}%. ¿Cuál será el monto total al finalizar el primer año?"
+
+explicacion: |
+  La fórmula del monto es M = C * (1 + i). 
+  Para ${capital} con i = 0.05, el monto es ${monto}.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "basico"
+  tags: ["quimica", "modelos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si modelamos la concentración de sal en un tanque donde entra salmuera con una concentración constante y el volumen de líquido es constante, la ecuación diferencial que describe la cantidad de sal será de primer orden lineal."
+
+explicacion: |
+  Verdadero. Con volumen constante, la variación de sal respecto al tiempo depende linealmente de la cantidad de sal presente (tasa de salida) y de un término constante (tasa de entrada), lo cual da una ecuación diferencial ordinaria de primer orden lineal.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "avanzado"
+  tags: ["calculo", "metodologia"]
+
+variables:
+  pasos_correctos: ["Definir la función objetivo", "Establecer las restricciones", "Calcular la derivada", "Igualar la derivada a cero"]
+
+respuesta_orden: pasos_correctos
+tipo: ordenar
+opciones_explicitas: ["Definir la función objetivo", "Establecer las restricciones", "Calcular la derivada", "Igualar la derivada a cero"]
+
+enunciado: "Ordene los pasos lógicos para resolver un problema de optimización matemática (maximizar/minimizar una función):"
+
+explicacion: |
+  Para modelizar y resolver un problema de optimización, primero se debe definir qué se quiere optimizar (función objetivo) y qué limitaciones existen (restricciones). Luego, se aplica el cálculo diferencial para hallar puntos críticos.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "basico"
+  tags: ["conceptos", "variables"]
+
+variables:
+  escenario: uno_de([["La temperatura de un motor sube con el tiempo", "tiempo"], ["El volumen de un gas aumenta con la presión", "presión"], ["El costo de producción baja al aumentar la escala", "escala"]])
+
+enunciado: "En un modelo matemático, si queremos representar cómo {escenario[0]} afecta a la variable principal, la variable que cambia como consecuencia directa es la variable ___."
+
+respuestas_validas:
+  - "dependiente"
+
+respuesta: "dependiente"
+tipo: completar
+
+explicacion: |
+  En la modelización, la variable dependiente es aquella cuyo valor "depende" de los cambios en la variable independiente (explicativa).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "basico"
+  tags: ["filosofia_modelado", "limitaciones"]
+
+enunciado: "Un modelo matemático es una representación simplificada de la realidad. ¿Es posible que un modelo sea 100% exacto y capture todos los fenómenos físicos de un sistema complejo?"
+
+opciones_explicitas: ["verdadero", "falso"]
+
+respuesta: "falso"
 tipo: mc
 
-enunciado: "En un plano técnico de ingeniería, ¿cuál de los siguientes elementos es fundamental para asegurar que la pieza sea fabricada con las dimensiones correctas?"
-
 explicacion: |
-  Las cotas definen las medidas y las tolerancias permiten el margen de error aceptable en la fabricación.
+  Todo modelo implica una simplificación (asunciones). Si un modelo fuera tan complejo como la realidad misma, dejaría de ser un modelo útil para la ingeniería.
 ```
 
 ```
 metadata:
   materia: "ingenieria"
-  tema: "comunicar_la_solucion"
+  tema: "modelizacion_matematica"
+  nivel: "intermedio"
+  tags: ["relaciones", "proporcionalidad"]
+
+variables:
+  caso: uno_de([["El área de un círculo respecto a su radio", "area_radio"], ["La fuerza centrífuga respecto a la velocidad angular", "fuerza_omega"], ["La energía cinética respecto a la velocidad", "energia_v"]])
+
+enunciado: "Analizando el caso de {caso[0]}, la relación matemática entre la variable dependiente y la independiente es de tipo ___."
+
+opciones_explicitas: ["lineal", "cuadrática", "inversa", "exponencial"]
+
+respuesta: "cuadrática"
+tipo: mc
+
+explicacion: |
+  En el caso de {caso[0]}, la relación sigue la forma $y = k \cdot x^2$, lo cual es una relación cuadrática.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "intermedio"
+  tags: ["metodologia", "pasos"]
+
+enunciado: "Ordena los pasos lógicos para desarrollar un modelo matemático de un sistema físico:"
+
+opciones_explicitas: ["Observación del fenómeno", "Identificación de variables", "Establecimiento de relaciones matemáticas", "Validación del modelo con datos reales"]
+
+respuesta_orden: ["Observación del fenómeno", "Identificación de variables", "Establecimiento de relaciones matemáticas", "Validación del modelo con datos reales"]
+tipo: ordenar
+
+explicacion: |
+  El proceso comienza con la observación, sigue con la definición de qué mediremos (variables), cómo se relacionan (ecuaciones) y termina verificando si el modelo predice bien la realidad (validación).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "avanzado"
+  tags: ["validacion", "errores"]
+
+variables:
+  rango: uno_de([["[0, 10] para un experimento de tensión"], ["[20, 50] para el flujo de un fluido"], ["[600, 900] para la carga de una viga"]])
+
+enunciado: "Si un modelo ha sido validado experimentalmente solo en el rango {rango[0]}, aplicar el modelo para predecir el comportamiento en el rango [100, 200] sin nueva validación se denomina error de ___."
+
+opciones_explicitas: ["extrapolación", "interpolación", "discretización", "normalización"]
+
+respuesta: "extrapolación"
+tipo: mc
+
+explicacion: |
+  La extrapolación consiste en predecir valores fuera del rango de los datos conocidos. Es altamente riesgosa porque el modelo puede dejar de ser válido (por ejemplo, por cambios de fase o efectos no lineales) fuera del rango observado.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "intermedio"
+  tags: ["modelos", "probabilidad", "determinismo"]
+
+enunciado: "Un modelo que predice un resultado único y exacto ante las mismas condiciones iniciales se denomina modelo determinista. Por el contrario, un modelo que incluye variables aleatorias para representar la incertidumbre se denomina modelo ________."
+
+respuestas_validas:
+  - "estocástico"
+  - "estocastico"
+respuesta: "estocástico"
+tipo: completar
+explicacion: |
+  El modelo determinista no contiene elementos de azar; sus resultados son predecibles al 100% si se conocen las condiciones iniciales. El modelo estocástico incorpora la probabilidad para modelar la variabilidad natural de los sistemas reales.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
   nivel: "basico"
-  tags: ["presentaciones", "comunicacion"]
+  tags: ["modelos", "simplificacion", "precision"]
+
+opciones_explicitas: ["Aumentar la complejidad para ganar precisión absoluta", "Reducir la complejidad para facilitar la resolución y comprensión", "Eliminar todas las variables para obtener un resultado constante", "Añadir ruido para que el modelo sea más realista"]
+
+respuesta: "Reducir la complejidad para facilitar la resolución y comprensión"
+tipo: mc
+
+enunciado: "En la modelización matemática, la simplificación es un proceso crítico. ¿Cuál es la principal distinción entre un modelo matemático y la realidad física que se busca representar?"
+
+explicacion: |
+  Un modelo nunca es una réplica exacta de la realidad; es una representación simplificada. El objetivo es capturar los fenómenos esenciales manteniendo una complejidad manejable para el análisis matemático.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "intermedio"
+  tags: ["variables", "parametros", "dinamica"]
+
+enunciado: "En un sistema dinámico, las variables de estado son aquellas que cambian con el tiempo durante la evolución del proceso, mientras que los ________ son valores que permanecen constantes durante el análisis del modelo."
+
+respuestas_validas:
+  - "parámetros"
+respuesta: "parámetros"
+tipo: completar
+
+explicacion: |
+  Las variables de estado describen el estado del sistema en un instante dado (ej. posición, velocidad), mientras que los parámetros definen las propiedades del sistema o del entorno (ej. masa, gravedad) y no cambian durante la simulación.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "basico"
+  tags: ["tiempo", "sistemas", "estatica"]
+
+enunciado: "Un modelo que describe un sistema en un momento específico, sin considerar la evolución temporal de sus variables, se considera un modelo estático, mientras que uno que describe la evolución de las variables respecto al tiempo es un modelo ________."
+
+respuestas_validas:
+  - "dinámico"
+respuesta: "dinámico"
+tipo: completar
+
+explicacion: |
+  La distinción fundamental radica en la dependencia explícita del tiempo. Los modelos estáticos se usan para equilibrio o relaciones instantáneas; los dinámicos para procesos evolutivos.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "intermedio"
+  tags: ["metodologia", "proceso", "validacion"]
+
+opciones_explicitas: ["Identificación del problema", "Formulación de ecuaciones", "Resolución matemática", "Validación y verificación"]
+
+respuesta_orden: ["Identificación del problema", "Formulación de ecuaciones", "Resolución matemática", "Validación y verificación"]
+tipo: ordenar
+
+enunciado: "Ordene correctamente las etapas del proceso de modelización matemática, desde el contacto con el problema real hasta la obtención de conclusiones fiables."
+
+explicacion: |
+  El proceso es cíclico: se identifica el problema, se traduce a lenguaje matemático (formulación), se resuelve el modelo y finalmente se comprueba si el modelo representa fielmente la realidad (validación).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "intermedio"
+  tags: ["modelos_exponenciales", "biotecnologia"]
+
+variables:
+  escenario: uno_de([[100, 2, 0.5], [500, 3, 0.2], [250, 2, 0.8]])
+  p_inicial: escenario[0]
+  tasa: escenario[1]
+  tiempo: escenario[2]
+
+respuesta: p_inicial * (1 + tasa)^tiempo
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un cultivo de bacterias crece exponencialmente según el modelo P(t) = P₀ * (1 + r)ᵗ. Si la población inicial es de {p_inicial} unidades, la tasa de crecimiento es del {tasa * 100}% por hora, ¿cuál será la población tras {tiempo} horas?"
+
+pasos:
+  - "Identificar la población inicial P₀ = {p_inicial}"
+  - "Identificar la tasa r = {tasa}"
+  - "Identificar el tiempo t = {tiempo}"
+  - "Aplicar la fórmula: {p_inicial} * (1 + {tasa})^{tiempo}"
+
+explicacion: |
+  El modelo exponencial se aplica cuando el crecimiento es proporcional a la población actual. En este caso, tras {tiempo} horas, la población es de {p_inicial * (1 + tasa)^tiempo}.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "avanzado"
+  tags: ["termodinamica", "ecuaciones_diferenciales"]
+
+respuesta: "A la temperatura ambiente (T_amb)"
+tipo: mc
+opciones_explicitas: ["A la temperatura ambiente (T_amb)", "A la temperatura inicial del objeto (T_obj)", "A 0°C siempre", "A una temperatura que depende únicamente de k"]
+
+enunciado: "La temperatura de un objeto sigue la ley de enfriamiento de Newton: T(t) = T_amb + (T_obj - T_amb) * e^(-k*t). ¿A qué temperatura tenderá el objeto cuando el tiempo t tiende a infinito (t → ∞)?"
+
+explicacion: |
+  A medida que el tiempo transcurre, el término exponencial e^(-k*t) tiende a cero, por lo que la temperatura del objeto se iguala a la temperatura ambiente T_amb.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "basico"
+  tags: ["costos", "lineal"]
+
+variables:
+  costos: uno_de([[500, 5], [800, 12], [300, 8]])
+  fijo: costos[0]
+  variable: costos[1]
+
+respuesta_orden: ["Costo Fijo", "Costo Variable", "Costo Total"]
+tipo: ordenar
+
+opciones_explicitas: ["Costo Fijo", "Costo Variable", "Costo Total"]
+
+enunciado: "Un proceso industrial presenta un costo fijo de ${fijo} y un costo variable de ${variable} por unidad producida. Ordene los componentes de la función de costo total C(x) = {fijo} + {variable} * x de mayor a menor importancia en el costo total cuando la producción es muy baja."
+
+explicacion: |
+  Cuando la producción (x) es cercana a cero, el componente dominante es el costo fijo. A medida que x aumenta, el costo variable toma relevancia.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "intermedio"
+  tags: ["mecanica", "ley_de_hooke"]
+
+variables:
+  par: uno_de([[100, 200], [500, 50], [250, 100]])
+  fuerza: par[0]
+  k: par[1]
+
+respuesta: fuerza / k
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Según la Ley de Hooke, la deformación x de un resorte está dada por F = k * x. Si se aplica una fuerza de {fuerza} N sobre un resorte con constante elástica k = {k} N/m, la deformación es de ___ m."
+
+explicacion: |
+  Despejando la fórmula para la deformación: x = F / k. En este caso, {fuerza} / {k} = {fuerza / k}.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "modelizacion_matematica"
+  nivel: "basico"
+  tags: ["probabilidad", "eficiencia"]
+
+variables:
+  escenario: uno_de([[0.95, 0.05], [0.98, 0.02], [0.90, 0.10]])
+  p_filtro: escenario[0]
+  p_error: escenario[1]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un sistema de filtrado tiene una probabilidad de éxito (capturar partícula) de {p_filtro} y una probabilidad de error (dejar pasar) de {p_error}. ¿Es la suma de las probabilidades de los eventos complementarios igual a 1.0?"
+
+explicacion: |
+  En cualquier modelo probabilístico, la suma de la probabilidad de un evento y su complemento debe ser exactamente 1. En este caso, {p_filtro} + {p_error} = 1.0.
+```
+
+## Sección: problema-y-restricciones (25 preguntas)
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "basico"
+  tags: ["definicion", "conceptos_clave"]
+
+respuesta: "solución"
+tipo: "completar"
+respuestas_validas:
+  - "solución"
+  - "solucion"
+
+enunciado: "En ingeniería, el objetivo del proceso de diseño es encontrar una ___ que satisfaga todos los requisitos establecidos."
+
+explicacion: |
+  Una solución es la respuesta técnica o el producto que resuelve el problema planteado cumpliendo con las condiciones impuestas.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "basico"
+  tags: ["requisitos", "clasificacion"]
+
+variables:
+  datos_caso: uno_de([["Requisito", "Requisito"], ["Restricción", "Restricción"]])
+
+respuesta: datos_caso[1]
+tipo: "mc"
+opciones_explicitas: ["Requisito", "Restricción", "Optimización", "Variable"]
+
+enunciado: "Si un cliente exige que un puente soporte exactamente 50 toneladas, esto se clasifica como un: {datos_caso[0]}"
+
+explicacion: |
+  Los requisitos definen qué debe hacer la solución, mientras que las restricciones limitan el espacio de búsqueda de soluciones posibles.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "basico"
+  tags: ["restricciones", "verdadero_falso"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "¿Una restricción de presupuesto (límite de costo) es un ejemplo de un requisito de rendimiento?"
+
+explicacion: |
+  Falso. El presupuesto es una restricción de recursos; los requisitos de rendimiento se refieren a la funcionalidad o capacidad del sistema.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "intermedio"
+  tags: ["proceso", "ordenar"]
+
+respuesta_orden: ["Identificación del problema", "Definición de restricciones", "Generación de alternativas", "Selección de la mejor solución"]
+tipo: "ordenar"
+opciones_explicitas: ["Generación de alternativas", "Identificación del problema", "Selección de la mejor solución", "Definición de restricciones"]
+
+enunciado: "Ordene las etapas lógicas del proceso de ingeniería para abordar un problema:"
+
+explicacion: |
+  Primero se entiende el problema, luego se delimita qué se puede y no se puede hacer (restricciones), se crean opciones y finalmente se elige la mejor.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "intermedio"
+  tags: ["viabilidad", "recursos"]
+
+tipo: "mc"
+opciones_explicitas: ["Viable", "Inviable", "Óptimo", "Indeterminado"]
+
+enunciado: "Si un diseño cumple con todos los requisitos funcionales pero excede el presupuesto máximo disponible, ¿cómo se clasifica la solución?"
+
+respuesta: "Inviable"
+
+explicacion: |
+  Si una solución no cumple con una restricción crítica (como el presupuesto), se considera inviable, aunque sea técnicamente funcional.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "basico"
+  tags: ["presupuesto", "gestion"]
+
+variables:
+  escenario: uno_de([["Proyecto A", 5000, 4500], ["Proyecto B", 12000, 11500]])
+
+enunciado: "En un proyecto de ingeniería, el presupuesto asignado es de {escenario[1]} USD. Si el costo estimado de la solución propuesta es de {escenario[2]} USD, la restricción de presupuesto se cumple."
+
+respuesta: verdadero
+tipo: vf
+explicacion: |
+  Para que una solución sea viable, el costo debe ser menor o igual al presupuesto disponible. En este caso, {escenario[2]} <= {escenario[1]} es verdadero.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "intermedio"
+  tags: ["requisitos", "especificaciones"]
+
+opciones_explicitas: ["Requisito de rendimiento", "Restricción de material", "Restricción de tiempo"]
+
+enunciado: "Un cliente solicita que un puente debe soportar una carga de 50 toneladas. Esta especificación técnica se clasifica como una:"
+
+respuesta: "Requisito de rendimiento"
+tipo: mc
+
+explicacion: |
+  Los requisitos de rendimiento definen la capacidad operativa o funcionalidad que la solución debe alcanzar para satisfacer la necesidad del cliente.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "basico"
+  tags: ["metodologia", "proceso"]
+
+opciones_explicitas: ["Definir el problema", "Identificar restricciones", "Generar soluciones", "Evaluar resultados"]
+
+respuesta_orden: ["Definir el problema", "Identificar restricciones", "Generar soluciones", "Evaluar resultados"]
+tipo: ordenar
+
+enunciado: "Ordene las etapas lógicas para abordar un problema de ingeniería de manera sistemática:"
+
+explicacion: |
+  El proceso comienza con la comprensión del problema, seguido de la delimitación de los límites (restricciones), la creación de alternativas y finalmente la validación de la mejor opción.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "intermedio"
+  tags: ["materiales", "viabilidad"]
+
+variables:
+  nombres: ["Acero", "Aluminio"]
+  densidades: [7.8, 2.7]
+  limites: [5.0, 3.0]
+  resultados: [falso, verdadero]
+  idx: uno_de([0, 1])
+
+enunciado: "Se requiere un componente con una densidad máxima de {limites[idx]} g/cm³. El material seleccionado es {nombres[idx]} con una densidad de {densidades[idx]} g/cm³. ¿Es viable este material según la restricción de densidad?"
+
+pasos:
+  - "Identificar la densidad del material propuesto."
+  - "Comparar la densidad del material con el límite máximo permitido."
+
+respuesta: resultados[idx]
+tipo: vf
+explicacion: |
+  La solución es viable si la propiedad física del material no excede el límite impuesto por la restricción de diseño. En este caso, {densidades[idx]} g/cm³ frente al límite de {limites[idx]} g/cm³.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "basico"
+  tags: ["tiempo", "cronograma"]
+
+variables:
+  nombres_fase: ["diseño", "prototipado", "pruebas"]
+  tiempos: [15, 30, 10]
+  plazos: [20, 25, 12]
+  idx: uno_de([0, 1, 2])
+  nombre_fase: nombres_fase[idx]
+  tiempo_estimado: tiempos[idx]
+  plazo_maximo: plazos[idx]
+
+enunciado: "Para la fase de {nombre_fase}, el tiempo estimado es de {tiempo_estimado} días, mientras que el plazo máximo permitido es de {plazo_maximo} días. ¿Se cumple con el plazo establecido?"
+
+respuesta: tiempo_estimado <= plazo_maximo
+tipo: vf
+
+explicacion: |
+  Se cumple el plazo cuando el tiempo estimado no supera el plazo máximo permitido. En este caso: {tiempo_estimado} días frente al límite de {plazo_maximo} días.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "basico"
+  tags: ["conceptos_fundamentales", "definiciones"]
+
+respuesta: "restricción"
+tipo: mc
+opciones_explicitas: ["requisito", "restricción", "objetivo", "variable"]
+
+enunciado: "En el diseño de un sistema, un elemento que limita las opciones de solución (como un presupuesto máximo o un límite de peso) se denomina ________."
+
+explicacion: |
+  Un requisito describe lo que el sistema DEBE hacer (funcionalidad), mientras que una restricción impone límites sobre cómo debe ser construido o qué recursos puede consumir (presupuesto, tiempo, materiales).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "intermedio"
+  tags: ["optimizacion", "errores_comunes"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "¿Es correcto afirmar que una presentación de diseño para clientes debe contener exclusivamente detalles matemáticos complejos y fórmulas, omitiendo la visualización del producto final?"
+enunciado: "¿Es correcto afirmar que la 'solución óptima' es siempre aquella que maximiza el rendimiento técnico, ignorando las restricciones de costo y tiempo?"
 
 explicacion: |
-  Falso. Una presentación efectiva debe equilibrar el rigor técnico con la claridad visual, permitiendo que los stakeholders entiendan la funcionalidad y el valor de la solución.
+  Falso. En ingeniería, la solución óptima es un compromiso (trade-off) que satisface todos los requisitos y respeta todas las restricciones. Una solución técnicamente superior pero que excede el presupuesto es una solución inviable.
 ```
 
 ```
 metadata:
   materia: "ingenieria"
-  tema: "comunicar_la_solucion"
+  tema: "problema_y_restricciones"
   nivel: "intermedio"
-  tags: ["informes", "estructura"]
+  tags: ["gestion_de_proyectos", "priorizacion"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    ["Resumen Ejecutivo", "Introducción", "Metodología", "Resultados", "Conclusiones"],
-    ["Objetivos", "Marco Teórico", "Desarrollo", "Análisis de Resultados", "Recomendaciones"]
-  ]
+  escenarios: [["El cliente exige un color específico (estético)", "El puente debe soportar 50 toneladas (seguridad)"], ["El software debe ser azul (estético)", "El software no debe colapsar con 100 usuarios (estabilidad)"]]
 
-respuesta: datos[escenario_idx][0
-tipo: completar
-respuestas_validas: ["Resumen Ejecutivo", "Objetivos"]
+respuesta: "seguridad"
+tipo: mc
+opciones_explicitas: ["estética", "seguridad", "costo", "tiempo"]
 
-enunciado: "En la estructura estándar de un informe técnico profesional, la sección que ofrece una visión general de todo el documento para una lectura rápida se denomina ___."
+enunciado: "Dada la situación: {escenarios[escenario_idx][1]}, si las restricciones de presupuesto se ven comprometidas, ¿qué tipo de restricción debe priorizarse siempre para garantizar la viabilidad del proyecto?"
 
 explicacion: |
-  El Resumen Ejecutivo (o Abstract) es vital para que los tomadores de decisiones comprendan el alcance y los resultados sin leer todo el documento.
+  Las restricciones de seguridad y estabilidad son críticas e innegociables. Si una solución no cumple con la seguridad, no es una solución válida, independientemente de su costo o estética.
 ```
 
 ```
 metadata:
   materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "intermedio"
-  tags: ["presentacion", "orden"]
+  tema: "problema_y_restricciones"
+  nivel: "avanzado"
+  tags: ["metodologia", "proceso_de_diseño"]
 
-opciones_explicitas: ["Definición del problema", "Propuesta de solución", "Demostración/Pruebas", "Conclusión y próximos pasos"]
-respuesta: ["Definición del problema", "Propuesta de solución", "Demostración/Pruebas", "Conclusión y próximos pasos"]
+respuesta_orden: ["Identificación", "Análisis", "Cumplimiento", "Validación"]
 tipo: ordenar
 
-enunciado: "Ordene lógicamente los pasos para realizar una presentación técnica efectiva ante un comité de revisión:"
+opciones_explicitas: ["Cumplimiento", "Identificación", "Validación", "Análisis"]
+
+enunciado: "Ordene cronológicamente las etapas lógicas en el manejo de restricciones durante el proceso de diseño de un producto:"
 
 explicacion: |
-  Una presentación debe seguir una narrativa lógica: primero se establece el contexto (problema), luego la propuesta, se valida con evidencia (pruebas) y se cierra con la síntesis.
+  Primero se identifican las limitaciones (Identificación), luego se estudia cómo afectan al diseño (Análisis), se diseña respetando esos límites (Cumplimiento) y finalmente se comprueba que se cumplieron (Validación).
 ```
 
 ```
 metadata:
   materia: "ingenieria"
-  tema: "comunicar_la_solucion"
+  tema: "problema_y_restricciones"
   nivel: "intermedio"
-  tags: ["documentacion", "informes"]
+  tags: ["definicion_problema", "errores_comunes"]
+
+respuesta: "explícitas"
+tipo: completar
+respuestas_validas:
+  - "explícitas"
+
+enunciado: "Las restricciones que no son mencionadas directamente por el cliente pero que son obligatorias por ley o normas técnicas se conocen como restricciones implícitas, mientras que las comunicadas directamente son ________."
+
+explicacion: |
+  Las restricciones explícitas son las dadas por el cliente (ej. "quiero que sea rojo"). Las implícitas son aquellas que el ingeniero debe conocer por conocimiento profesional (ej. normas de seguridad eléctrica o leyes ambientales).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "basico"
+  tags: ["conceptos_fundamentales", "definiciones"]
+
+tipo: mc
+opciones_explicitas: ["Un requisito define qué debe hacer el sistema, mientras que una restricción limita cómo debe hacerse.", "Un requisito es una limitación de recursos, mientras que una restricción es una funcionalidad deseada.", "Ambos términos son sinónimos en el diseño de ingeniería.", "El requisito es una limitación de tiempo y la restricción es una meta de rendimiento."]
+
+enunciado: "En el contexto de la ingeniería de sistemas, ¿cuál es la distinción fundamental entre un requisito y una restricción?"
+
+respuesta: "Un requisito define qué debe hacer el sistema, mientras que una restricción limita cómo debe hacerse."
+
+explicacion: |
+  Los requisitos describen las funciones o capacidades que el producto debe poseer (el "qué"), mientras que las restricciones imponen límites o condiciones de diseño que deben respetarse (el "cómo", como presupuesto, tiempo o normativas).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "basico"
+  tags: ["conceptos_fundamentales"]
+
+tipo: vf
+enunciado: "Las restricciones de diseño, como el presupuesto o la disponibilidad de materiales, son elementos que el ingeniero puede ignorar si la solución técnica es superior."
+
+respuesta: falso
+
+explicacion: |
+  Las restricciones son límites inamovibles. Si una solución técnica es excelente pero excede el presupuesto o viola una norma de seguridad (restricción), la solución no es válida para el problema planteado.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "intermedio"
+  tags: ["clasificacion", "requisitos"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["El sistema debe procesar 100 transacciones por segundo.", "Funcional"], ["El sistema debe ser de color azul.", "No Funcional"]]
+
+tipo: completar
+enunciado: "Considerando el escenario: '{escenarios[escenario_idx][0]}', este se clasifica como un requisito de tipo ___."
+respuestas_validas:
+  - "Funcional"
+  - "No Funcional"
+respuesta: escenarios[escenario_idx][1]
+
+explicacion: |
+  Los requisitos funcionales definen acciones o comportamientos específicos del sistema (lo que hace), mientras que los no funcionales (como peso, color o temperatura) definen atributos o cualidades de la solución.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "intermedio"
+  tags: ["metodologia", "proceso"]
+
+tipo: ordenar
+opciones_explicitas: ["Definición del problema y sus restricciones", "Generación de alternativas de solución", "Evaluación de soluciones bajo criterios de diseño", "Selección de la solución óptima"]
+
+enunciado: "Ordene cronológicamente las etapas lógicas del proceso de diseño de ingeniería para abordar un problema con restricciones dadas:"
+
+explicacion: |
+  No se puede diseñar sin entender primero las limitaciones (restricciones). Una vez definido el problema, se exploran opciones, se comparan contra las restricciones y finalmente se elige la mejor.
+respuesta_orden: ["Definición del problema y sus restricciones", "Generación de alternativas de solución", "Evaluación de soluciones bajo criterios de diseño", "Selección de la solución óptima"]
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "avanzado"
+  tags: ["optimizacion", "toma_de_decisiones"]
 
 variables:
   caso_idx: uno_de([0, 1])
-  escenarios: [
-    ["El informe debe centrarse en el análisis de cargas y materiales.", "El informe debe centrarse en el análisis de cargas y materiales."],
-    ["El informe debe centrarse en la gestión del presupuesto y tiempos.", "El informe debe centrarse en la gestión del presupuesto y tiempos."]
-  ]
-
-enunciado: "Al redactar el informe técnico final para un proyecto de infraestructura civil, el enfoque principal debe ser {escenarios[caso_idx][0]}"
-
-respuesta: escenarios[caso_idx][1
-tipo: completar
-respuestas_validas: ["El informe debe centrarse en el análisis de cargas y materiales.", "El informe debe centrarse en la gestión del presupuesto y tiempos."]
-
-explicacion: |
-  Un informe técnico de ingeniería debe priorizar la integridad estructural y los datos técnicos del diseño para garantizar la seguridad y la viabilidad del proyecto.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "basico"
-  tags: ["planos", "dibujo_tecnico"]
-
-enunciado: "En un plano de ingeniería mecánica, la escala es la relación entre la dimensión del dibujo y la dimensión real. Si un componente mide 50mm en el plano y su tamaño real es 500mm, la escala representada es:"
-
-opciones_explicitas: ["1:1", "1:10", "10:1", "1:100"]
-respuesta: "1:10"
-tipo: mc
-
-explicacion: |
-  La escala se calcula como Dimensión Dibujo / Dimensión Real. En este caso: 50 / 500 = 1/10, lo que se expresa como 1:10.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "basico"
-  tags: ["documentacion", "normas"]
-
-enunciado: "¿Es correcto afirmar que la documentación de un diseño debe ser lo suficientemente clara para que un ingeniero externo pueda replicar el proceso de fabricación sin necesidad de consultas adicionales?"
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  La reproducibilidad es un pilar fundamental de la documentación técnica de ingeniería. Si el diseño no es replicable, la documentación ha fallado.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "intermedio"
-  tags: ["presentacion", "metodologia"]
-
-enunciado: "Ordene los pasos lógicos para realizar una presentación efectiva de una solución de ingeniería ante un cliente:"
-
-opciones_explicitas: ["Presentar el problema y necesidades", "Exponer la solución técnica y diseño", "Mostrar análisis de costos y beneficios", "Sesión de preguntas y conclusiones"]
-respuesta: ["Presentar el problema y necesidades", "Exponer la solución técnica y diseño", "Mostrar análisis de costos y beneficios", "Sesión de preguntas y conclusiones"]
-tipo: ordenar
-
-explicacion: |
-  Una presentación profesional debe seguir un flujo narrativo: Contexto (Problema) -> Propuesta (Solución) -> Viabilidad (Costos) -> Cierre (Feedback).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "avanzado"
-  tags: ["planos", "estandarizacion"]
-
-variables:
-  tipo_plano: uno_de([0, 1])
-  datos: [
-    ["un plano eléctrico", "un plano eléctrico"],
-    ["un plano de tuberías", "un plano de tuberías"]
-  ]
-
-enunciado: "En {datos[tipo_plano][0]}, el uso de símbolos estandarizados (como la norma ISO o ANSI) es _________ para evitar errores de interpretación en la obra."
-
-respuesta: "crítico"
-tipo: completar
-respuestas_validas: ["crítico", "esencial", "fundamental"]
-
-explicacion: |
-  La estandarización de la simbología asegura que el lenguaje técnico sea universal entre diseñadores, fabricantes y constructores.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar-la-solucion"
-  nivel: "basico"
-  tags: ["documentacion", "comunicacion"]
+  casos: [["Aumentar la velocidad de un motor", "Reducir el costo de fabricación"], ["Mejorar la durabilidad de un material", "Reducir el peso de una estructura"]]
+  objetivo: ["Optimizar el rendimiento", "Optimizar la economía"]
+  conflicto: ["El costo de los materiales aumenta", "La resistencia estructural disminuye"]
 
 tipo: mc
-opciones_explicitas: ["Registrar la historia del proyecto para fines legales", "Servir como una guía detallada para la implementación y mantenimiento", "Reemplazar la necesidad de reuniones con el cliente", "Ser un documento estético para marketing"]
+opciones_explicitas: ["El cumplimiento de la restricción suele entrar en conflicto con la optimización del objetivo.", "La restricción es el objetivo principal del ingeniero.", "Las restricciones eliminan la necesidad de optimizar.", "No existe conflicto entre objetivos y restricciones."]
+respuesta: "El cumplimiento de la restricción suele entrar en conflicto con la optimización del objetivo."
 
-enunciado: "Un error común es creer que la documentación técnica tiene como fin principal la estética o el marketing. En realidad, el objetivo fundamental de un informe de diseño es ___."
-
-respuesta: "Servir como una guía detallada para la implementación y mantenimiento"
+enunciado: "Al intentar '{objetivo[caso_idx]}' en el caso de '{casos[caso_idx][0]}', es común que surja un conflicto con la restricción de '{conflicto[caso_idx]}'. ¿Cómo se define esta relación?"
 
 explicacion: |
-  La documentación técnica debe ser funcional. Su propósito es permitir que otros ingenieros (o el mismo equipo en el futuro) puedan entender, replicar, mantener o reparar el sistema diseñado sin ambigüedades.
+  En ingeniería, la optimización de un parámetro (ej. velocidad) suele penalizar otro (ej. costo o peso). El diseño consiste en encontrar el equilibrio óptimo dentro de las restricciones impuestas.
 ```
 
 ```
 metadata:
   materia: "ingenieria"
-  tema: "comunicar-la-solucion"
-  nivel: "basico"
-  tags: ["veracidad", "errores"]
-
-tipo: vf
-
-enunciado: "Es verdadero que un plano técnico debe ser lo suficientemente claro para que un profesional capacitado pueda interpretar las dimensiones y especificaciones sin necesidad de consultar al diseñador original para cada detalle."
-
-respuesta: verdadero
-
-explicacion: |
-  Si un plano requiere consultas constantes al autor para ser interpretado, el diseño ha fallado en su objetivo de comunicación técnica. La autonomía del lector es un indicador de calidad.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar-la-solucion"
+  tema: "problema_y_restricciones"
   nivel: "intermedio"
-  tags: ["proceso", "presentacion"]
-
-tipo: ordenar
-opciones_explicitas: ["Recopilación de datos y cálculos", "Elaboración de planos y diagramas", "Redacción del informe técnico final", "Presentación de la solución al cliente"]
-
-respuesta: ["Recopilación de datos y cálculos", "Elaboración de planos y diagramas", "Redacción del informe técnico final", "Presentación de la solución al cliente"]
-
-enunciado: "Para asegurar una comunicación efectiva y coherente de la solución, se debe seguir un orden lógico en la preparación de los entregables. Ordene los pasos:"
-
-explicacion: |
-  No se pueden dibujar planos sin haber validado los cálculos previos, y no se puede presentar una solución al cliente sin haber consolidado toda la información en un informe técnico que respalde los diagramas.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar-la-solucion"
-  nivel: "intermedio"
-  tags: ["presentacion", "errores"]
+  tags: ["recursos", "optimizacion"]
 
 variables:
-  escenario: uno_de([
-    ["Presentación con exceso de texto y tablas pequeñas", "El cliente se distrae leyendo y no escucha al orador"],
-    ["Presentación con gráficos abstractos sin ejes", "El cliente no puede interpretar los datos presentados"],
-    ["Presentación con lenguaje excesivamente técnico para un cliente no experto", "El cliente no comprende el valor de la solución"]
-  ])
+  escenario: [150, 200, 350]
+  idx: uno_de([0, 1, 2])
+  límite: escenario[idx]
 
-tipo: mc
-opciones_explicitas: ["Falta de claridad visual", "Falta de rigor técnico", "Exceso de información técnica para la audiencia"]
-
-enunciado: "Un error crítico al presentar una solución ante un cliente que no es especialista en el área es: {escenario[0]}."
-
-respuesta: "Exceso de información técnica para la audiencia"
-
-explicacion: |
-  La comunicación debe adaptarse al receptor. Un error común es asumir que el cliente entiende la terminología técnica profunda, lo que genera una desconexión entre la solución propuesta y la comprensión del cliente.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar-la-solucion"
-  nivel: "avanzado"
-  tags: ["informe", "estructura"]
-
-variables:
-  datos: uno_de([
-    ["Memoria de cálculo", "Resumen ejecutivo"],
-    ["Planos de conjunto", "Lista de materiales"],
-    ["Análisis de riesgos", "Conclusiones"]
-  ])
-
-tipo: completar
-respuestas_validas: ["Memoria de cálculo", "Resumen ejecutivo", "Planos de conjunto", "Lista de materiales", "Análisis de riesgos", "Conclusiones"]
-
-enunciado: "En un informe de ingeniería profesional, el apartado que contiene el desarrollo matemático y la justificación de las decisiones de diseño se denomina ___."
-
-respuesta: "Memoria de cálculo"
-
-explicacion: |
-  La memoria de cálculo es el pilar que sostiene la validez de la solución. Sin ella, el diseño es solo una idea; con ella, es una solución técnica verificable y justificable.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "basico"
-  tags: ["documentacion", "comunicacion"]
-
-respuesta: "especificaciones_tecnicas"
-tipo: completar
-respuestas_validas: ["especificaciones_tecnicas"]
-
-enunciado: "Mientras que el manual de usuario está orientado al cliente final para la operación del producto, la documentación que detalla los parámetros de diseño, materiales y tolerancias para otros ingenieros se denomina ___."
-
-explicacion: |
-  Las especificaciones técnicas son documentos de ingeniería destinados a la fabricación y validación, a diferencia de los manuales de usuario que son guías de uso operativo.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "basico"
-  tags: ["planos", "dibujo_tecnico"]
-
-variables:
-  es_informativo: true
-
-respuesta: es_informativo
-tipo: completar
-enunciado: "¿El objetivo principal de un plano técnico es proporcionar una representación visual inequívoca que permita la fabricación exacta de una pieza, distinguiéndose de un boceto conceptual por su precisión y normalización?"
-
-explicacion: |
-  Un plano técnico sigue normas internacionales (como ISO o ANSI) para asegurar que cualquier fabricante pueda interpretar las dimensiones y tolerancias sin ambigüedad, a diferencia de un boceto.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "intermedio"
-  tags: ["presentacion", "soft_skills"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["presentar_ante_inversores", "enfoque_negocio_y_viabilidad"],
-    ["presentar_ante_equipo_de_fabricacion", "enfoque_tecnico_y_materiales"]
-  ]
-
-respuesta: escenarios[escenario_idx][1
-tipo: mc
-opciones_explicitas: ["enfoque_negocio_y_viabilidad", "enfoque_tecnico_y_materiales"]
-
-enunciado: "Si el objetivo de la presentación es para {escenarios[escenario_idx][0]}, el enfoque principal debe ser el {escenarios[escenario_idx][1]}, diferenciándose de una reunión de revisión de diseño técnica."
-
-explicacion: |
-  La audiencia determina el lenguaje y el contenido: los inversores buscan retorno de inversión y viabilidad, mientras que los técnicos buscan detalles de implementación.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "intermedio"
-  tags: ["informes", "orden"]
-
-respuesta: ["memoria_descriptiva", "planos_detallados", "manual_de_mantenimiento"]
-tipo: ordenar
-
-opciones_explicitas: ["memoria_descriptiva", "planos_detallados", "manual_de_mantenimiento"]
-
-enunciado: "Ordene los documentos de un proyecto de ingeniería desde la fase de diseño conceptual hasta la fase de post-implementación:"
-
-explicacion: |
-  Primero se describe la solución (memoria), luego se detalla para producción (planos) y finalmente se entrega al usuario para su cuidado (manual).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "avanzado"
-  tags: ["informes", "memoria_descriptiva"]
-
-respuesta: "justificar_decisiones"
-tipo: completar
-respuestas_validas: ["justificar_decisiones"]
-
-enunciado: "A diferencia de un informe de resultados que describe qué sucedió, la memoria descriptiva de un diseño tiene como función primordial ___ de las soluciones adoptadas."
-
-explicacion: |
-  La memoria descriptiva no solo dice qué se hizo, sino el porqué (la lógica de diseño), permitiendo entender la trazabilidad de las decisiones técnicas frente a alternativas.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "basico"
-  tags: ["planos", "documentacion"]
-
-variables:
-  escenario: uno_de([
-    ["Un plano de conjunto de una pieza mecánica", "ISO"],
-    ["Un esquema de un circuito electrónico", "IEC"],
-    ["Un diagrama de flujo de un proceso químico", "ANSI"]
-  ])
-
-enunciado: "Para asegurar la interoperabilidad internacional, un ingeniero debe seguir la normativa {escenario[0]} al presentar el diseño de {escenario[0]}."
-
-respuesta: escenario[1
-tipo: mc
-opciones_explicitas: ["ISO", "IEC", "ANSI", "DIN"]
-
-explicacion: |
-  La normativa seleccionada para {escenario[0]} es {escenario[1]}. Es fundamental utilizar el estándar correcto para evitar errores de fabricación o interpretación en proyectos globales.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "intermedio"
-  tags: ["informes", "veracidad"]
-
-variables:
-  caso: uno_de([
-    ["Un informe técnico que incluye datos experimentales sin citar la fuente de los instrumentos", falso],
-    ["Un manual de usuario que especifica las tolerancias de montaje según el fabricante", verdadero]
-  ])
-
-enunciado: "En el contexto de la documentación de ingeniería, ¿es correcto afirmar que: {caso[0]}?"
-
-respuesta: caso[1
-tipo: completar
-explicacion: |
-  La veracidad y la trazabilidad son pilares de la ingeniería. {caso[1]} es la respuesta correcta porque {caso[0]} es {caso[1]}.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "intermedio"
-  tags: ["informes", "estructura"]
-
-enunciado: "Ordene los elementos de un informe técnico de diseño final de la forma más lógica y profesional:"
+enunciado: "Se debe diseñar un soporte estructural cuyo peso total no puede exceder los {límite} kg. Si el material seleccionado tiene una densidad de 5 kg/m³, ¿cuál es el volumen máximo permitido para cumplir con esta restricción?"
 
 pasos:
-  - "Resumen ejecutivo"
-  - "Cuerpo del diseño (cálculos y especificaciones)"
-  - "Conclusiones y recomendaciones"
-  - "Anexos (planos y hojas de datos)"
+  - "Identificar el límite de masa: {límite} kg"
+  - "Utilizar la fórmula de densidad: Volumen = Masa / Densidad"
+  - "Calcular: {límite} / 5"
 
-opciones_explicitas: ["Resumen ejecutivo", "Cuerpo del diseño (cálculos y especificaciones)", "Conclusiones y recomendaciones", "Anexos (planos y hojas de datos)"]
-respuesta: ["Resumen ejecutivo", "Cuerpo del diseño (cálculos y especificaciones)", "Conclusiones y recomendaciones", "Anexos (planos y hojas de datos)"]
+respuesta: redondear(límite / 5, 2)
+tipo: completar
+tolerancia_abs: 0.01
+
+explicacion: |
+  Para cumplir con la restricción de masa, el volumen debe ser igual o menor al resultado del cálculo. El volumen máximo es de {redondear(límite / 5, 2)} m³.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "basico"
+  tags: ["tiempo", "restricciones"]
+
+variables:
+  proyecto: [[120, "120 días"], [180, "180 días"], [240, "240 días"]]
+  idx: uno_de([0, 1, 2])
+  plazo_total: proyecto[idx][0]
+  unidad_plazo: proyecto[idx][1]
+
+enunciado: "Un proyecto de infraestructura tiene un plazo de entrega estricto de {plazo_total} {unidad_plazo}. Si la fase de cimentación dura 45 días y la fase de estructura dura 100 días, ¿se cumple con la restricción de tiempo si la fase de acabado requiere 100 días adicionales?"
+
+respuesta: falso
+tipo: vf
+
+explicacion: |
+  La suma de las fases es 45 + 100 + 100 = 245 días. Como 245 > {plazo_total}, la restricción de tiempo se viola.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "intermedio"
+  tags: ["costos", "presupuesto"]
+
+variables:
+  datos: [[500, "500 USD"], [800, "800 USD"], [1200, "1200 USD"]]
+  idx: uno_de([0, 1, 2])
+  presupuesto: datos[idx][0]
+  moneda: datos[idx][1]
+
+enunciado: "El presupuesto asignado para un prototipo es de {presupuesto} {moneda}. Se deben comprar 3 sensores de $150 cada uno y un controlador de $400. El costo total de los componentes es: ___"
+
+respuesta: "850 USD"
+tipo: completar
+respuestas_validas:
+  - "850 USD"
+
+explicacion: |
+  El cálculo es (3 * 150) + 400 = 450 + 400 = 850. El costo total es 850 USD.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "problema_y_restricciones"
+  nivel: "basico"
+  tags: ["procesos", "orden"]
+
+enunciado: "Para asegurar la integridad estructural de un puente, se deben seguir estrictamente las siguientes fases de construcción. Ordene las etapas de forma lógica:"
+
+opciones_explicitas: ["Cimentación", "Estructura principal", "Colocación de tableros", "Acabados y señalización"]
+respuesta_orden: ["Cimentación", "Estructura principal", "Colocación de tableros", "Acabados y señalización"]
 tipo: ordenar
 
 explicacion: |
-  Un informe profesional debe fluir desde una visión general (resumen) hacia el detalle técnico (cuerpo), cerrar con el juicio del ingeniero (conclusiones) y terminar con el soporte documental (anexos).
+  En ingeniería civil, la secuencia lógica siempre comienza por la base (cimentación), sigue con el esqueleto (estructura), la superficie de rodamiento (tableros) y finalmente los detalles (acabados).
 ```
 
 ```
 metadata:
   materia: "ingenieria"
-  tema: "comunicar_la_solucion"
+  tema: "problema_y_restricciones"
   nivel: "avanzado"
-  tags: ["presentaciones", "comunicacion"]
+  tags: ["seguridad", "carga"]
 
 variables:
-  presentacion: uno_de([
-    ["Presentación ante un comité de inversión", "costos"],
-    ["Presentación ante un equipo de mantenimiento", "operación"],
-    ["Presentación ante un equipo de fabricación", "tolerancias"]
-  ])
+  carga_max: [5000, 8000, 10000]
+  idx: uno_de([0, 1, 2])
+  valor_max: carga_max[idx]
+  es_segura: ["falso", "verdadero", "verdadero"][idx]
+  comparacion_texto: ["6750 > 5000", "6750 <= 8000", "6750 <= 10000"][idx]
 
-enunciado: "Al realizar una presentación para {presentacion[0]}, el enfoque principal de la comunicación debe centrarse en {presentacion[1]}."
+enunciado: "Una viga tiene una capacidad de carga máxima de {valor_max} N. Si se aplica una carga de 4500 N y un factor de seguridad de 1.5, ¿la estructura es segura (el esfuerzo aplicado * factor de seguridad <= carga máxima)?"
 
-respuesta: presentación[1]
-tipo: completar
-respuestas_validas: ["costos", "operación", "tolerancias"]
+respuesta: es_segura
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
 
 explicacion: |
-  El enfoque de la comunicación técnica debe adaptarse a la audiencia. Para {presentacion[0]}, lo crítico es discutir {presentacion[1]}.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "comunicar_la_solucion"
-  nivel: "basico"
-  tags: ["documentacion", "control_de_revisiones"]
-
-variables:
-  revision: uno_de([
-    ["El plano muestra la versión 'Rev. 02' pero el índice del informe dice 'Rev. 01'", falso],
-    ["El plano y el informe coinciden en la fecha y el número de revisión", verdadero]
-  ])
-
-enunciado: "En un proceso de auditoría de diseño, se detecta que: {revision[0]}"
-
-respuesta: revision[1
-tipo: completar
-explicacion: |
-  La consistencia entre planos e informes es vital. Si hay discrepancias como en el caso {revision[0]}, la documentación se considera no válida. Por tanto, la afirmación es {revision[1]}.
+  Calculamos el esfuerzo de diseño: 4500 * 1.5 = 6750 N. 
+  Si la carga máxima es de {valor_max} N, comparamos: 
+  {comparacion_texto}
 ```
 
 ## Sección: disciplinas-de-la-ingenieria (25 preguntas)
@@ -532,17 +1033,8 @@ metadata:
   nivel: "basico"
   tags: ["quimica", "procesos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-
-variables:
-  datos: [
-    ["transformación de materias primas en productos útiles mediante procesos químicos", "procesos químicos"],
-    ["diseño de circuitos integrados y microchips", "procesos electrónicos"]
-  ]
-
 tipo: vf
-enunciado: "La ingeniería química se centra en la transformación de materias primas en productos útiles mediante {datos[escenario_idx][0]}."
+enunciado: "La ingeniería química se centra en la transformación de materias primas en productos útiles mediante procesos químicos."
 
 respuesta: verdadero
 
@@ -558,7 +1050,9 @@ metadata:
   tags: ["mecanica", "maquinas"]
 
 tipo: completar
-respuestas_validas: ["sistemas de máquinas", "sistemas de máquinas", "motores térmicos"]
+respuestas_validas:
+  - "sistemas de máquinas"
+  - "motores térmicos"
 
 enunciado: "La ingeniería mecánica se dedica al estudio y diseño de ___ y sistemas de movimiento."
 
@@ -596,7 +1090,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Aeroespacial", "Biomédica", "Eléctrica", "Mecánica"]
 
-respuesta: ["Aeroespacial", "Biomédica", "Eléctrica", "Mecánica"]
+respuesta_orden: ["Aeroespacial", "Biomédica", "Eléctrica", "Mecánica"]
 
 enunciado: "Ordena las siguientes disciplinas de acuerdo a su escala de aplicación, desde la que opera en el espacio exterior hasta la que aplica tecnología en el cuerpo humano:"
 
@@ -613,7 +1107,8 @@ metadata:
 
 enunciado: "Un equipo debe diseñar el esqueleto de un puente colgante para soportar el peso de camiones pesados. El profesional encargado de calcular las cargas, la resistencia de los materiales y la estabilidad de la estructura es el ingeniero ___."
 
-respuestas_validas: ["civil"]
+respuestas_validas:
+  - "civil"
 tipo: completar
 
 explicacion: |
@@ -629,10 +1124,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [
-    ["optimizar la línea de ensamblaje de una fábrica de autos", "reducir costos de producción"],
-    ["gestionar el flujo de inventario en un centro logístico", "mejorar la eficiencia de la cadena de suministro"]
-  ]
+  datos: [["optimizar la línea de ensamblaje de una fábrica de autos", "reducir costos de producción"], ["gestionar el flujo de inventario en un centro logístico", "mejorar la eficiencia de la cadena de suministro"]]
 
 enunciado: "Un profesional es contratado para {datos[idx][0]} con el fin de {datos[idx][1]}. ¿Qué disciplina está aplicando principalmente?"
 
@@ -669,14 +1161,12 @@ metadata:
 
 variables:
   reaccion_idx: uno_de([0, 1])
-  reacciones: [
-    ["la conversión de petróleo crudo en gasolina", "la producción de polímeros a partir de gas natural"],
-    ["la obtención de fertilizantes mediante procesos térmicos", "la síntesis de fármacos complejos"]
-  ]
+  reacciones: [["la conversión de petróleo crudo en gasolina", "la producción de polímeros a partir de gas natural"], ["la obtención de fertilizantes mediante procesos térmicos", "la síntesis de fármacos complejos"]]
 
 enunciado: "Para llevar a cabo {reacciones[reaccion_idx][0]}, se requiere un ingeniero que comprenda las transformaciones moleculares y las reacciones termodinámicas. Este es un ingeniero ___."
 
-respuestas_validas: ["químico"]
+respuestas_validas:
+  - "químico"
 tipo: completar
 
 explicacion: |
@@ -693,7 +1183,7 @@ metadata:
 enunciado: "Para desarrollar un brazo robótico controlado por señales neuronales, se deben seguir estos pasos en orden lógico:"
 
 opciones_explicitas: ["Entender la señal biológica", "Diseñar el componente mecánico", "Integrar el software de control", "Probar el prototipo en un entorno clínico"]
-respuesta: ["Entender la señal biológica", "Diseñar el componente mecánico", "Integrar el software de control", "Probar el prototipo en un entorno clínico"]
+respuesta_orden: ["Entender la señal biológica", "Diseñar el componente mecánico", "Integrar el software de control", "Probar el prototipo en un entorno clínico"]
 tipo: ordenar
 
 explicacion: |
@@ -714,7 +1204,7 @@ opciones_explicitas: ["civil", "mecanica", "electrica", "quimica"]
 enunciado: "Un error común es pensar que el diseño de maquinaria con partes móviles y sistemas de combustión es competencia de la ingeniería {idx_disciplina[1]}, cuando en realidad pertenece a la ingeniería _________."
 
 variables:
-  idx_disciplina: uno_de([[0, "civil"], [1, "mecanica"], [2, "electrica"], [3, "quimica"]])
+  idx_disciplina: uno_de([[0, "civil"], [2, "electrica"], [3, "quimica"]])
 
 explicacion: |
   La ingeniería civil se enfoca principalmente en infraestructuras estáticas (puentes, carreteras, edificios), mientras que la ingeniería mecánica se especializa en sistemas con movimiento y transformación de energía.
@@ -743,12 +1233,10 @@ metadata:
   nivel: "intermedio"
   tags: ["industrial", "procesos", "optimizacion"]
 
-variables:
-  escenario: uno_de([[0, "optimizar la cadena de suministro", "optimizar la cadena de suministro"], [1, "diseñar circuitos integrados", "diseñar circuitos integrados"], [2, "diseñar motores de reacción", "diseñar motores de reacción"]])
-
 respuesta: "optimizar la cadena de suministro"
 tipo: completar
-respuestas_validas: ["optimizar la cadena de suministro", "diseñar circuitos integrados", "diseñar motores de reacción"]
+respuestas_validas:
+  - "optimizar la cadena de suministro"
 
 enunciado: "A menudo se confunde la ingeniería industrial con la administración pura; sin embargo, la ingeniería industrial busca _________ para mejorar la productividad de un sistema."
 
@@ -780,7 +1268,7 @@ metadata:
   nivel: "avanzado"
   tags: ["aeroespacial", "secuencia", "desarrollo"]
 
-respuesta: ["diseño de la aerodinámica", "construcción de la estructura", "integración de sistemas de propulsión"]
+respuesta_orden: ["diseño de la aerodinámica", "construcción de la estructura", "integración de sistemas de propulsión"]
 tipo: ordenar
 opciones_explicitas: ["diseño de la aerodinámica", "construcción de la estructura", "integración de sistemas de propulsión"]
 
@@ -804,7 +1292,9 @@ metadata:
 
 respuesta: "optimizacion"
 tipo: completar
-respuestas_validas: ["optimizacion", "eficiencia"]
+respuestas_validas:
+  - "optimizacion"
+  - "eficiencia"
 
 enunciado: "Mientras que la ingeniería mecánica se enfoca en el diseño de sistemas físicos y máquinas, la ingeniería industrial se centra primordialmente en la ___ de procesos, personas y recursos dentro de una organización."
 
@@ -819,11 +1309,8 @@ metadata:
   nivel: "basico"
   tags: ["quimica", "civil"]
 
-variables:
-  es_quimica: falso
-
-respuesta: es_quimica
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si el objetivo principal de un proyecto es la transformación de la materia a nivel molecular mediante reacciones químicas, estamos ante el campo de la ingeniería química y no de la ingeniería civil."
 
 explicacion: |
@@ -839,10 +1326,10 @@ metadata:
 
 opciones_explicitas: ["flujo de electrones y energía", "diseño de motores de combustión", "estructuras de concreto", "procesos biológicos"]
 
-respuesta: uno_de([0,1,2,3])[0]
+respuesta: "flujo de electrones y energía"
 tipo: mc
 
-enunciado: "La disciplina que se distingue por el estudio y aplicación del ___ es la ingeniería eléctrica."
+enunciado: "¿Cuál es el fenómeno físico central que estudia y aplica la ingeniería eléctrica?"
 
 explicacion: |
   La ingeniería eléctrica se especializa en el control y la distribución de la energía eléctrica y el flujo de electrones en sistemas de potencia y circuitos.
@@ -855,12 +1342,11 @@ metadata:
   nivel: "intermedio"
   tags: ["biomedica", "medicina"]
 
-variables:
-  escenario: uno_de([0,1])
+tipo: mc
+opciones_explicitas: ["La creación de prótesis y dispositivos médicos", "El diseño de motores de alta potencia"]
+respuesta: "La creación de prótesis y dispositivos médicos"
 
-respuesta: escenario_datos[escenario][1
-
-enunciado: "En un contexto de aplicación tecnológica, la ingeniería biomédica se diferencia de otras ingenierías por su objetivo principal: {escenario_datos[escenario][0]}."
+enunciado: "En un contexto de aplicación tecnológica, ¿cuál es el objetivo principal que distingue a la ingeniería biomédica de otras ingenierías?"
 
 pasos:
   - "Identificar la aplicación principal de la ingeniería biomédica."
@@ -868,10 +1354,6 @@ pasos:
 
 explicacion: |
   La ingeniería biomédica aplica principios de la ingeniería para resolver problemas en el ámbito de la medicina y la biología.
-
-variables_contexto:
-  escenario_datos: [["la creación de prótesis y dispositivos médicos", "el diseño de motores de alta potencia"], ["la creación de prótesis y dispositivos médicos", "el diseño de motores de alta potencia"]]
-  escenario: uno_de([0,1])
 ```
 
 ```
@@ -883,7 +1365,7 @@ metadata:
 
 opciones_explicitas: ["Diseño de aerodinámica", "Propulsión del vehículo", "Integración de sistemas de navegación"]
 
-respuesta: ["Diseño de aerodinámica", "Propulsión del vehículo", "Integración de sistemas de navegación"]
+respuesta_orden: ["Diseño de aerodinámica", "Propulsión del vehículo", "Integración de sistemas de navegación"]
 tipo: ordenar
 
 enunciado: "Para el desarrollo de un vehículo aeroespacial, el ingeniero debe seguir un orden lógico de prioridades de diseño técnico:"
@@ -926,7 +1408,10 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["Civil", "Química", "Eléctrica"]
+respuestas_validas:
+  - "Civil"
+  - "Química"
+  - "Eléctrica"
 
 enunciado: "El proyecto consiste en la construcción de ___ y túneles para mejorar la conectividad de una ciudad."
 
@@ -942,16 +1427,16 @@ metadata:
   tags: ["industrial", "logistica"]
 
 variables:
-  datos: [["optimizar una línea de producción", "Industrial"], ["diseñar un satélite", "Aeroespacial"], ["crear una prótesis", "Biomédica"]]
+  textos: ["optimizar una línea de producción", "diseñar un satélite", "crear una prótesis"]
+  valores: [verdadero, falso, falso]
   idx: uno_de([0, 1, 2])
 
-respuestas_validas: [datos[idx][0]]
-respuesta: datos[idx][0]
-tipo: completar
-enunciado: "Un ingeniero es contratado para {datos[idx][0]} en una fábrica de automóviles para reducir desperdicios y tiempos de espera. ¿Es esta una tarea típica de la Ingeniería Industrial?"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Un ingeniero es contratado para {textos[idx]}. ¿Es esta una tarea típica de la Ingeniería Industrial?"
 
 explicacion: |
-  Verdadero. La Ingeniería Industrial se enfoca en la optimización de procesos, sistemas y recursos para mejorar la eficiencia.
+  La Ingeniería Industrial se enfoca en la optimización de procesos, sistemas y recursos para mejorar la eficiencia — como optimizar una línea de producción. Diseñar un satélite es tarea de la Ingeniería Aeroespacial, y crear una prótesis es tarea de la Ingeniería Biomédica.
 ```
 
 ```
@@ -985,7 +1470,7 @@ metadata:
 variables:
   pasos_orden: ["Diseño de la aerodinámica", "Construcción de la estructura", "Lanzamiento del vehículo"]
 
-respuesta: pasos_orden
+respuesta_orden: pasos_orden
 tipo: ordenar
 opciones_explicitas: ["Diseño de la aerodinámica", "Construcción de la estructura", "Lanzamiento del vehículo"]
 
@@ -993,1003 +1478,6 @@ enunciado: "Ordena cronológicamente las etapas lógicas para el desarrollo de u
 
 explicacion: |
   Primero se debe diseñar la aerodinámica, luego construir la estructura física y finalmente realizar el lanzamiento.
-```
-
-## Sección: diseno-conceptual (25 preguntas)
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "basico"
-  tags: ["definicion", "etapas_proyecto"]
-
-respuesta: "diseño conceptual"
-tipo: completar
-respuestas_validas: ["diseño conceptual", "diseño conceptual"]
-
-enunciado: "La etapa en la que se establece la idea general de la solución, definiendo el enfoque y los principios básicos antes de entrar en detalles técnicos profundos, se denomina ___."
-
-explicacion: |
-  El diseño conceptual es la fase donde se abstrae el problema para proponer una solución lógica y funcional sin considerar aún materiales específicos o tolerancias mecánicas.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "basico"
-  tags: ["objetivos", "metodologia"]
-
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1
-tipo: mc
-opciones_explicitas: ["A", "B", "C", "D"]
-
-enunciado: "Según el enfoque de diseño seleccionado, ¿cuál es el objetivo principal de esta fase? {datos[idx][0]}"
-
-variables:
-  datos: [
-    ["Definir la arquitectura general y la funcionalidad de la solución.", "A"],
-    ["Realizar el modelado matemático detallado de cada componente.", "B"],
-    ["Seleccionar los proveedores de materia prima.", "C"],
-    ["Realizar pruebas de fatiga en prototipos finales.", "D"]
-  ]
-
-explicacion: |
-  El diseño conceptual busca la arquitectura funcional. El modelado detallado, la selección de proveedores y las pruebas de fatiga pertenecen a etapas posteriores (diseño detallado y validación).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "basico"
-  tags: ["abstraccion", "conceptos"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "En el diseño conceptual, la abstracción es una herramienta clave para simplificar el problema y centrarse en la lógica de la solución en lugar de en los detalles constructivos."
-
-explicacion: |
-  Correcto. La abstracción permite ignorar detalles irrelevantes en esta etapa para asegurar que la solución propuesta realmente resuelva el problema fundamental.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "intermedio"
-  tags: ["secuencia", "metodologia"]
-
-respuesta: ["Diseño conceptual", "Diseño detallado", "Prototipado y validación"]
-tipo: ordenar
-
-opciones_explicitas: ["Diseño conceptual", "Diseño detallado", "Prototipado y validación", "Selección de materiales de descarte"]
-
-enunciado: "Ordene las siguientes etapas de un proceso de desarrollo de ingeniería desde la concepción hasta la validación:"
-
-explicacion: |
-  El flujo lógico comienza con la idea (conceptual), sigue con el detalle técnico (detallado) y termina con la verificación de la solución (prototipado).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "basico"
-  tags: ["componentes", "requisitos"]
-
-respuesta: "requisitos"
-tipo: completar
-respuestas_validas: ["requisitos", "requisitos"]
-
-enunciado: "El diseño conceptual debe basarse primordialmente en los ___ del cliente y las restricciones del problema."
-
-explicacion: |
-  Los requisitos son la base de cualquier diseño; si el diseño conceptual no satisface los requisitos, el proyecto fallará independientemente de qué tan buen detalle técnico tenga después.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "basico"
-  tags: ["metodologia", "definicion"]
-
-respuesta: "definicion_problema"
-tipo: "mc"
-opciones_explicitas: ["definicion_problema", "seleccion_materiales", "prototipado_rapido", "analisis_de_costos"]
-
-enunciado: "Antes de proponer una solución técnica detallada, es fundamental realizar la ___ para entender qué se debe resolver."
-
-explicacion: |
-  El diseño conceptual comienza con la definición clara del problema. Sin entender la necesidad real, cualquier solución técnica posterior corre el riesgo de ser irrelevante o ineficiente.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "intermedio"
-  tags: ["restricciones", "requisitos"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  escenarios: [
-    ["Un dron de carga debe elevar 5kg", "5"],
-    ["Un sensor de temperatura debe operar a -20°C", "-20"]
-  ]
-
-respuesta: escenarios[caso_idx][1
-tipo: "input"
-tolerancia_abs: 0.1
-
-enunciado: "En el diseño conceptual de un sistema de transporte de carga, si el requisito principal es que el dispositivo debe ser capaz de levantar una masa de {escenarios[caso_idx][0]}, ¿cuál es el valor numérico de la carga de diseño en kg?"
-
-pasos:
-  - "Identificar el requisito de carga útil en el enunciado."
-  - "Extraer el valor numérico asociado a la capacidad de carga."
-
-explicacion: |
-  En la fase conceptual, los requisitos de rendimiento (como la carga útil) se establecen como parámetros de diseño que guiarán la selección de motores y estructuras en la fase técnica.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "basico"
-  tags: ["conceptos_clave"]
-
-respuesta: falso
-
-tipo: "vf"
-
-enunciado: "El diseño conceptual se encarga de especificar las dimensiones exactas de cada tornillo y el código de programación final de los componentes."
-
-explicacion: |
-  Falso. El diseño conceptual se centra en la arquitectura general, la lógica de funcionamiento y la solución macro. La especificación de detalles como tornillos o líneas de código pertenece a la fase de diseño detallado o ingeniería de detalle.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "intermedio"
-  tags: ["proceso", "flujo"]
-
-respuesta: ["identificacion_necesidad", "brainstorming_soluciones", "seleccion_arquitectura", "analisis_viabilidad"]
-tipo: "ordenar"
-opciones_explicitas: ["identificacion_necesidad", "brainstorming_soluciones", "seleccion_arquitectura", "analisis_viabilidad", "fabricacion_final"]
-
-enunciado: "Ordene las etapas del proceso de diseño desde la concepción inicial hasta la validación de la idea antes de la fabricación."
-
-explicacion: |
-  El flujo lógico comienza con la necesidad, sigue con la generación de ideas (brainstorming), se elige una arquitectura de solución y se valida su viabilidad. La fabricación es una etapa posterior al diseño.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "avanzado"
-  tags: ["toma_de_decisiones", "arquitectura"]
-
-variables:
-  opcion_idx: uno_de([0, 1])
-  casos: [
-    ["un sistema de frenado mecánico", "hidraulico"],
-    ["un sistema de transmisión de energía", "electrico"]
-  ]
-
-respuesta: casos[opcion_idx][1
-tipo: "completar"
-respuestas_validas: ["hidraulico", "electrico"]
-
-enunciado: "Si estamos en la fase conceptual de un vehículo de transporte pesado y decidimos que la transferencia de fuerza se hará mediante fluidos a presión, la arquitectura seleccionada es de tipo ___."
-
-explicacion: |
-  La elección de la arquitectura (mecánica, hidráulica, eléctrica) es la decisión principal del diseño conceptual. Una vez elegida, se procede a realizar los cálculos de ingeniería detallados para esa arquitectura específica.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "basico"
-  tags: ["metodologia", "etapas_proyecto"]
-
-respuesta: "detalles_tecnicos"
-tipo: mc
-opciones_explicitas: ["detalles_tecnicos", "materiales_especificos", "costos_de_fabricacion", "planos_de_ensamblaje"]
-
-enunciado: "Un error común en la gestión de proyectos es saltar directamente a la definición de {detalles_tecnicos} sin haber consolidado primero la idea general de la solución. ¿Qué etapa se está omitiendo?"
-
-explicacion: |
-  El diseño conceptual debe establecer la arquitectura y funcionalidad general. Si se salta directamente a los detalles técnicos (como dimensiones exactas o materiales específicos), se corre el riesgo de optimizar componentes de una solución que podría ser inherentemente errónea para el problema original.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "intermedio"
-  tags: ["errores_comunes", "definicion"]
-
-variables:
-  es_tecnico: uno_de([verdadero, falso])
-
-respuesta: es_tecnico
-tipo: completar
-enunciado: "Si el diseño conceptual se centra en la selección de tornillos, aleaciones específicas y tolerancias de fabricación, ¿se está cumpliendo estrictamente con la fase de diseño conceptual? (Respuesta: verdadero o falso)"
-
-explicacion: |
-  Falso. El diseño conceptual debe responder al 'qué' y al 'por qué' de la solución a nivel macro. La selección de componentes específicos y tolerancias pertenece al diseño detallado.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "intermedio"
-  tags: ["prototipado", "confusion"]
-
-respuesta: "el_concepto_es_la_solucion"
-tipo: completar
-respuestas_validas: ["el_concepto_es_la_solucion"]
-
-enunciado: "Un error conceptual frecuente es creer que un prototipo funcional de baja fidelidad es lo mismo que el diseño conceptual. Sin embargo, el diseño conceptual es ___."
-
-explicacion: |
-  El diseño conceptual es una representación abstracta o lógica de la solución, mientras que el prototipo es una realización física o digital para validar hipótesis. No son sinónimos.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "basico"
-  tags: ["flujo_trabajo"]
-
-respuesta: ["identificacion_problema", "diseno_conceptual", "diseno_detallado", "fabricacion"]
-tipo: ordenar
-
-opciones_explicitas: ["identificacion_problema", "diseno_conceptual", "diseno_detallado", "fabricacion", "pruebas_de_usuario"]
-
-enunciado: "Ordene las etapas de un proceso de ingeniería de la más general a la más específica, evitando el error de saltar pasos críticos."
-
-explicacion: |
-  El flujo lógico requiere primero entender el problema, luego idear la solución general (conceptual), luego definir sus componentes exactos (detallado) y finalmente producirlo.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "avanzado"
-  tags: ["riesgo", "optimizacion"]
-
-variables:
-  escenario: uno_de([0, 1])
-
-respuesta: "optimizar_detalles"
-tipo: mc
-opciones_explicitas: ["optimizar_detalles", "validar_requisitos", "definir_presupuesto", "analizar_competencia"]
-
-enunciado: "En la fase de diseño conceptual, el mayor riesgo de error es intentar {escenario_texto} antes de haber validado si la idea general satisface las necesidades del usuario."
-
-variables:
-  escenario_texto: uno_de(["optimizar_detalles", "validar_requisitos", "definir_presupuesto", "analizar_competencia"])
-
-explicacion: |
-  Intentar optimizar detalles técnicos (como reducir el peso de una pieza en gramos) cuando la arquitectura general del sistema aún no es válida es una pérdida de recursos conocida como 'optimización prematura'.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "basico"
-  tags: ["definicion", "fases_proyecto"]
-
-respuesta: "diseño detallado"
-tipo: completar
-respuestas_validas: ["diseño detallado", "diseño de detalle", "diseño técnico"]
-
-enunciado: "Mientras que el diseño conceptual se centra en la idea general y la viabilidad de la solución, el ___ se enfoca en las especificaciones técnicas precisas y la selección de materiales exactos."
-
-explicacion: |
-  El diseño conceptual es la fase de abstracción donde se define el 'qué' y el 'por qué', mientras que el diseño detallado define el 'cómo' técnico para la fabricación o implementación.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "basico"
-  tags: ["objetivo", "proposito"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["un sistema de filtración de agua", "identificar la arquitectura básica"],
-    ["un nuevo modelo de smartphone", "definir la experiencia de usuario y funciones clave"]
-  ]
-
-respuesta: uno_de(escenarios)[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["definir la arquitectura técnica final", "identificar la arquitectura básica", "definir la experiencia de usuario y funciones clave", "seleccionar proveedores de componentes"]
-
-enunciado: "En el caso de {uno_de(escenarios)[escenario_idx][0]}, el objetivo principal del diseño conceptual es ___."
-
-explicacion: |
-  El diseño conceptual no busca detalles de implementación, sino establecer la estructura lógica y los principios fundamentales que guiarán la solución.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "basico"
-  tags: ["naturaleza", "proceso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El diseño conceptual es un proceso lineal y único que se completa antes de pasar a cualquier otra fase del proyecto."
-
-explicacion: |
-  Falso. El diseño conceptual es altamente iterativo; las ideas se refinan, se descartan o se modifican constantemente a medida que se comprenden mejor las restricciones del problema.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "intermedio"
-  tags: ["componentes", "jerarquia"]
-
-respuesta: ["Identificación del problema", "Generación de ideas", "Selección de la mejor alternativa", "Definición de la arquitectura"]
-tipo: ordenar
-opciones_explicitas: ["Identificación del problema", "Generación de ideas", "Selección de la mejor alternativa", "Definición de la arquitectura"]
-
-enunciado: "Ordene cronológicamente las etapas de un proceso de diseño conceptual estándar:"
-
-explicacion: |
-  Un proceso lógico comienza entendiendo la necesidad (problema), explorando soluciones (ideas), eligiendo la más viable (selección) y estructurando la solución (arquitectura).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "intermedio"
-  tags: ["prototipado", "comparacion"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [
-    ["un motor de combustión", "un software de gestión"],
-    ["un puente colgante", "una aplicación móvil"]
-  ]
-
-respuesta: "el prototipo es una manifestación física o funcional de la idea"
-tipo: completar
-respuestas_validas: ["el prototipo es una manifestación física o funcional de la idea", "el prototipo es un dibujo"]
-
-enunciado: "Si el diseño conceptual es la representación mental o esquemática de la solución para {uno_de(casos)[caso_idx][0]}, entonces ___."
-
-explicacion: |
-  El diseño conceptual es el concepto abstracto; el prototipo es la materialización (física o digital) para validar si ese concepto funciona en la realidad.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "basico"
-  tags: ["definicion", "alcance"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["un sistema de purificación de agua para una comunidad rural", "un motor de combustión de alta eficiencia"], ["priorizar la simplicidad y el costo", "priorizar la potencia máxima y el rendimiento"]]
-
-enunciado: "En la fase de diseño conceptual para {escenarios[escenario_idx][0]}, el objetivo principal es {escenarios[escenario_idx][1]}."
-
-respuesta: "priorizar la simplicidad y el costo"
-tipo: mc
-opciones_explicitas: ["priorizar la simplicidad y el costo", "priorizar la potencia máxima y el rendimiento", "definir el presupuesto detallado de materiales", "realizar pruebas de fatiga de materiales"]
-
-explicacion: |
-  El diseño conceptual se enfoca en la solución general y la viabilidad de la idea, no en los detalles técnicos o materiales específicos.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "basico"
-  tags: ["fases_proyecto"]
-
-enunciado: "El diseño conceptual se realiza después de haber definido los requerimientos del cliente pero antes de la creación de los planos de fabricación detallados."
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  Correcto. El diseño conceptual actúa como el puente entre la necesidad (requerimiento) y la solución técnica detallada.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "intermedio"
-  tags: ["componentes", "arquitectura"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  datos: [["un puente peatonal", "un software de gestión hospitalaria"], ["la estructura principal y el flujo de carga", "la arquitectura de la base de datos y la interfaz de usuario"]]
-
-enunciado: "Para el diseño conceptual de {datos[caso_idx][0]}, el ingeniero debe definir principalmente {datos[caso_idx][1]}."
-
-respuesta: "la estructura principal y el flujo de carga"
-tipo: completar
-respuestas_validas: ["la estructura principal y el flujo de carga", "el acabado estético de los materiales", "el costo de la mano de obra"]
-
-explicacion: |
-  El diseño conceptual define la arquitectura funcional o estructural básica que permitirá cumplir con los requerimientos.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "intermedio"
-  tags: ["flujo_trabajo"]
-
-enunciado: "Ordene las etapas del proceso de diseño de un nuevo producto desde la concepción hasta la producción:"
-
-opciones_explicitas: ["Identificación de la necesidad", "Diseño conceptual", "Diseño detallado", "Prototipado y pruebas"]
-respuesta: ["Identificación de la necesidad", "Diseño conceptual", "Diseño detallado", "Prototipado y pruebas"]
-tipo: ordenar
-
-explicacion: |
-  El proceso sigue un flujo lógico: primero se entiende el problema, luego se propone la idea general (conceptual), se detallan las medidas y finalmente se valida con prototipos.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "diseno_conceptual"
-  nivel: "avanzado"
-  tags: ["evaluacion", "riesgo"]
-
-variables:
-  problema_idx: uno_de([0, 1])
-  problemas: [["un sistema de frenado para un tren de alta velocidad", "un nuevo tipo de envase biodegradable para alimentos"]]
-
-enunciado: "Durante el diseño conceptual de {problemas[problema_idx][0]}, si se detecta que la solución propuesta es físicamente imposible, ¿cuál es la acción correcta?"
-
-respuesta: "Reevaluar la idea o buscar una alternativa conceptual"
-tipo: mc
-opciones_explicitas: ["Reevaluar la idea o buscar una alternativa conceptual", "Continuar con el diseño detallado para ver si se soluciona", "Ignorar el problema y esperar a la fase de prototipado", "Aumentar el presupuesto de materiales"]
-
-explicacion: |
-  El diseño conceptual es la etapa ideal para detectar inviabilidades técnicas; intentar avanzar a detalles con un concepto erróneo es un error costoso.
-```
-
-## Sección: ensayo-y-medicion (25 preguntas)
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "basico"
-  tags: ["definicion", "prototipo"]
-
-respuesta: "ensayo"
-tipo: completar
-respuestas_validas: ["ensayo", "ensayo de desempeño"]
-
-enunciado: "El proceso de someter un prototipo a condiciones controladas para evaluar su comportamiento se denomina ___."
-
-explicacion: |
-  El ensayo es la acción de probar un objeto o sistema bajo condiciones específicas para observar su respuesta.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "basico"
-  tags: ["medicion", "variables"]
-
-opciones_explicitas: ["Variables dependientes", "Variables independientes", "Variables de ruido", "Variables de error"]
-respuesta: "Variables independientes"
-tipo: mc
-
-enunciado: "En un ensayo controlado, las condiciones que el experimentador manipula deliberadamente para observar un efecto se conocen como ___."
-
-explicacion: |
-  Las variables independientes son aquellas que se modifican para medir cómo afectan a la variable dependiente (el resultado).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "basico"
-  tags: ["precision", "veracidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La precisión se refiere a qué tan cerca está un valor medido del valor real o verdadero de la magnitud."
-
-explicacion: |
-  Falso. La cercanía al valor real es la 'exactitud'. La 'precisión' se refiere a la repetibilidad o concordancia entre mediciones sucesivas.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "intermedio"
-  tags: ["metodologia", "orden"]
-
-opciones_explicitas: ["Preparación del entorno", "Ejecución de la prueba", "Análisis de resultados", "Documentación de hallazgos"]
-respuesta: ["Preparación del entorno", "Ejecución de la prueba", "Análisis de resultados", "Documentación de hallazgos"]
-tipo: ordenar
-
-enunciado: "Ordene lógicamente las etapas de un protocolo de ensayo de prototipo:"
-
-explicacion: |
-  Un proceso de ingeniería requiere primero preparar las condiciones, luego ejecutar, analizar los datos obtenidos y finalmente documentar el proceso.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "intermedio"
-  tags: ["error", "medicion"]
-
-variables:
-  escenario: uno_de([[10.5, 0.1], [25.2, 0.5], [100.0, 2.0]])
-
-respuesta: "10.5"
-tipo: completar
-respuestas_validas: ["10.5", "25.2", "100.0"]
-
-enunciado: "Si se realiza una medición de un componente y el valor obtenido es {escenario[0]}, pero existe una incertidumbre asociada de {escenario[1]}, el valor reportado es ___."
-
-pasos:
-  - "Identificar el valor nominal medido."
-  - "Asociar la incertidumbre al valor obtenido."
-
-explicacion: |
-  En metrología, el valor medido es el punto de partida para reportar la magnitud con su respectiva tolerancia o incertidumbre.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "intermedio"
-  tags: ["metrologia", "incertidumbre"]
-
-variables:
-  mediciones: [10.02, 10.05, 10.03, 10.04, 10.06]
-  valor_nominal: 10.04
-
-respuesta: promedio(mediciones)
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Se realizan 5 mediciones de la longitud de un prototipo de eje bajo condiciones controladas. Si el valor nominal es {valor_nominal} mm, ¿cuál es el valor promedio de las mediciones obtenidas?"
-
-pasos:
-  - "Sumar todos los valores de la serie de mediciones."
-  - "Dividir la suma total por la cantidad de mediciones (5)."
-
-explicacion: |
-  El promedio se calcula sumando las mediciones (10.02 + 10.05 + 10.03 + 10.04 + 10.06 = 50.20) y dividiendo por el número de muestras (50.20 / 5 = 10.04).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "basico"
-  tags: ["errores", "calibracion"]
-
-variables:
-  es_desviacion_constante: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Durante un ensayo de tensión, se detecta que un sensor de carga tiene un error de calibración que siempre suma 0.5N a la lectura real, independientemente de la carga aplicada. ¿Este es un ejemplo de error sistemático?"
-
-explicacion: |
-  Los errores sistemáticos son aquellos que se repiten de manera constante o predecible en cada medición, como un error de offset en un sensor.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "intermedio"
-  tags: ["protocolo", "procedimiento"]
-
-variables:
-  pasos_correctos: ["Calibrar instrumentos", "Configurar parámetros de prueba", "Ejecutar ensayo", "Registrar datos y analizar"]
-
-respuesta: ["Calibrar instrumentos", "Configurar parámetros de prueba", "Ejecutar ensayo", "Registrar datos y analizar"]
-tipo: ordenar
-
-opciones_explicitas: ["Registrar datos y analizar", "Calibrar instrumentos", "Ejecutar ensayo", "Configurar parámetros de prueba"]
-
-enunciado: "Para garantizar la repetibilidad en la medición del desempeño de un prototipo, ordene los pasos lógicos de un protocolo de ensayo estándar."
-
-explicacion: |
-  Un protocolo científico requiere primero asegurar la precisión de los instrumentos (calibración), definir las condiciones (configuración), realizar la acción (ensayo) y finalmente procesar la información (registro y análisis).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "avanzado"
-  tags: ["tolerancia", "control_calidad"]
-
-variables:
-  dim_min: 24.95
-  dim_max: 25.05
-  medida_actual: 25.08
-
-respuesta: "fuera de rango"
-tipo: completar
-
-opciones_explicitas: ["dentro de rango", "fuera de rango"]
-
-enunciado: "Un prototipo de componente mecánico tiene una tolerancia especificada entre {dim_min} mm y {dim_max} mm. Si la medición obtenida en el ensayo es de {medida_actual} mm, el componente se encuentra ___."
-
-explicacion: |
-  Como 25.08 es mayor que el límite superior de 25.05, la pieza no cumple con las especificaciones de diseño.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "intermedio"
-  tags: ["precision", "repetibilidad"]
-
-variables:
-  error_max: 0.002
-  error_min: 0.001
-
-respuesta: "alta"
-tipo: mc
-
-opciones_explicitas: ["alta", "baja", "nula"]
-
-enunciado: "Si al repetir un ensayo de medición de presión 10 veces sobre el mismo prototipo, la dispersión de los resultados es extremadamente pequeña (variación de {error_min} a {error_max} bar), podemos decir que la repetibilidad es ___."
-
-explicacion: |
-  Una baja dispersión entre mediciones sucesivas bajo las mismas condiciones indica una alta repetibilidad (precisión).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "intermedio"
-  tags: ["metrologia", "error_de_medicion"]
-
-variables:
-  error_sistema: uno_de(["positivo", "negativo"])
-
-enunciado: "Si un sensor de presión siempre marca 5 kPa por encima del valor real debido a una mala calibración, el instrumento presenta un error de tipo {error_sistema} y tiene una baja precisión."
-
-respuesta: error_sistema
-tipo: mc
-opciones_explicitas: ["positivo", "negativo"]
-
-explicacion: |
-  El error sistemático (o sesgo) es una desviación constante. Si el error siempre suma un valor constante al valor real, es un error positivo. La precisión se refiere a la repetibilidad de las medidas, no a su cercanía al valor real.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "avanzado"
-  tags: ["incertidumbre", "incertidumbre_tipo_a"]
-
-variables:
-  datos: [[10.1, 10.2, 10.1, 10.3, 10.2], [5.0, 5.1, 4.9, 5.0, 5.0]]
-  idx: uno_de([0, 1])
-
-enunciado: "Se realizan mediciones repetidas de un componente. El conjunto de datos obtenidos es: {datos[idx]}."
-
-pasos:
-  - "Calcular el promedio de las mediciones."
-  - "Calcular la desviación estándar de la muestra."
-
-respuesta: redondear(sqrt(sumar(map(lambda x: (x - promedio(datos[idx]))^2, datos[idx])) / (largo(datos[idx]) - 1), 2))
-tipo: completar
-tolerancia_abs: 0.01
-
-explicacion: |
-  La incertidumbre de tipo A se estima mediante el análisis estadístico de una serie de mediciones, siendo la desviación estándar de la media una de las formas de representarla.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "basico"
-  tags: ["metodologia", "variables_controladas"]
-
-enunciado: "En un ensayo de fatiga de materiales, si no se controlan las variables ambientales (como la temperatura), los resultados obtenidos pueden tener una alta variabilidad y no ser comparables con otros ensayos."
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  Para que un ensayo sea válido y reproducible, las condiciones ambientales deben mantenerse constantes o ser registradas, ya que factores como la temperatura afectan las propiedades mecánicas de los materiales.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "intermedio"
-  tags: ["procedimiento", "calibracion"]
-
-variables:
-  pasos_correctos: ["Limpiar el instrumento", "Comparar con patrón trazable", "Ajustar desviaciones", "Registrar certificado"]
-
-enunciado: "Ordene los pasos lógicos para realizar el proceso de calibración de un instrumento de medición en un laboratorio."
-
-opciones_explicitas: ["Limpiar el instrumento", "Comparar con patrón trazable", "Ajustar desviaciones", "Registrar certificado"]
-respuesta: ["Limpiar el instrumento", "Comparar con patrón trazable", "Ajustar desviaciones", "Registrar certificado"]
-tipo: ordenar
-
-explicacion: |
-  El proceso debe seguir un orden lógico: primero asegurar la limpieza, luego la comparación contra un estándar, proceder al ajuste si es necesario y finalmente documentar el resultado.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "basico"
-  tags: ["error_humano", "lectura"]
-
-variables:
-  error_tipo: uno_de(["paralaje", "redondeo", "calibracion"])
-
-enunciado: "Al leer un manómetro analógico, si el observador no se posiciona perpendicularmente a la escala, comete un error de ___."
-
-respuesta: error_tipo
-tipo: mc
-opciones_explicitas: ["paralaje", "redondeo", "calibracion"]
-
-explicacion: |
-  El error de paralaje ocurre cuando la línea de visión no es perpendicular a la escala graduada, provocando una lectura incorrecta de la posición de la aguja o el menisco.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "basico"
-  tags: ["medicion", "metrologia"]
-
-respuesta: "precisión"
-tipo: "completar"
-respuestas_validas: ["precisión", "exactitud"]
-
-enunciado: "En metrología, mientras que la exactitud se refiere a qué tan cerca está el valor medido del valor real, la ___ se refiere a la repetibilidad de las mediciones bajo las mismas condiciones."
-
-explicacion: |
-  La exactitud mide la ausencia de error sistemático (cercanía al valor real), mientras que la precisión mide la dispersión de los resultados (repetibilidad).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "intermedio"
-  tags: ["calibracion", "ajuste"]
-
-variables:
-  tipo_accion: uno_de(["calibracion", "ajuste"])
-
-respuesta: "calibracion"
-tipo: "mc"
-opciones_explicitas: ["calibracion", "ajuste", "estandarización", "mantenimiento"]
-
-enunciado: "El proceso de comparar un instrumento de medición contra un patrón de referencia para determinar la desviación es la {tipo_accion}."
-
-explicacion: |
-  La calibración establece la relación entre los valores indicados por el instrumento y los valores de un patrón. El ajuste es la acción de corregir el instrumento para que coincida con el patrón.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "intermedio"
-  tags: ["incertidumbre", "medicion"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "La incertidumbre de medida es un parámetro que cuantifica la dispersión de los valores que podrían ser atribuidos al objeto de medición."
-
-explicacion: |
-  Verdadero. A diferencia del error (que es una cantidad única), la incertidumbre describe el rango de duda razonable sobre el resultado de una medición.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "intermedio"
-  tags: ["protocolo", "ensayo"]
-
-respuesta: ["definir_variables", "preparar_prototipo", "ejecutar_ensayo", "analizar_datos"]
-tipo: "ordenar"
-opciones_explicitas: ["ejecutar_ensayo", "analizar_datos", "definir_variables", "preparar_prototipo"]
-
-enunciado: "Ordene los pasos lógicos para llevar a cabo un ensayo de desempeño controlado en un prototipo:"
-
-pasos:
-  - "Establecer qué se va a medir (variables)."
-  - "Configurar el equipo y el prototipo."
-  - "Realizar las pruebas físicas."
-  - "Procesar los resultados obtenidos."
-
-explicacion: |
-  Un ensayo sistemático requiere primero la planificación (definición), luego la preparación, la ejecución y finalmente el análisis de los datos recolectados.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "avanzado"
-  tags: ["sensibilidad", "resolucion"]
-
-respuesta: "sensibilidad"
-tipo: "mc"
-opciones_explicitas: ["sensibilidad", "resolucion", "rango", "linealidad"]
-
-enunciado: "La propiedad que describe la relación entre el cambio en la indicación del instrumento y el cambio en la magnitud medida es la ___."
-
-explicacion: |
-  La sensibilidad es la pendiente de la curva de calibración (cambio de salida / cambio de entrada). La resolución es el cambio más pequeño que el instrumento puede detectar y mostrar.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "intermedio"
-  tags: ["calibracion", "sensores", "error"]
-
-variables:
-  datos: [["10.5", "10.2"], ["25.0", "24.8"], ["50.2", "49.9"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas: [datos[idx][1]]
-
-enunciado: "Se realiza una prueba de calibración en un prototipo de sensor de presión. El valor nominal de referencia es {datos[idx][0]} kPa, pero la lectura obtenida del sensor es {datos[idx][1]} kPa. El error absoluto medido es ___ kPa."
-
-pasos:
-  - "Identificar el valor nominal (referencia)."
-  - "Identificar la lectura medida."
-  - "Calcular la diferencia absoluta entre ambos valores."
-
-explicacion: |
-  El error absoluto se define como |Valor_Referencia - Valor_Medido|. 
-  En este caso: |{datos[idx][0]} - {datos[idx][1]}| = {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "avanzado"
-  tags: ["estadistica", "fatiga", "desviacion"]
-
-variables:
-  datos: [["100", "105", "95", "100"], ["50", "52", "48", "50"], ["200", "210", "190", "200"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: 5.0
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Se realizan 4 ensayos de fatiga en un componente estructural. Los resultados de ciclos hasta la falla son: {datos[idx][0]}, {datos[idx][1]}, {datos[idx][2]} y {datos[idx][3]}. Calcule la desviación estándar poblacional de este conjunto de datos."
-
-explicacion: |
-  Primero calculamos el promedio (media): ({datos[idx][0]} + {datos[idx][1]} + {datos[idx][2]} + {datos[idx][3]}) / 4 = 100.
-  Luego la varianza: ((100-100)^2 + (105-100)^2 + (95-100)^2 + (100-100)^2) / 4 = (0 + 25 + 25 + 0) / 4 = 12.5.
-  Finalmente, la desviación estándar es la raíz cuadrada de 12.5, que es aproximadamente 3.53. 
-  Nota: Si se pide la desviación poblacional con los datos proporcionados, el resultado es 5.0 para el primer set.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "basico"
-  tags: ["tolerancia", "calidad", "verificacion"]
-
-variables:
-  especificacion: [["10.00", "10.05"], ["5.00", "5.02"], ["100.0", "100.1"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El prototipo de una pieza mecánica debe tener un diámetro de {especificacion[idx][0]} mm con una tolerancia de ±{especificacion[idx][1]} mm. Si la medición obtenida es {especificacion[idx][0]} mm, ¿cumple la pieza con la especificación técnica?"
-
-explicacion: |
-  La pieza mide exactamente el valor nominal, por lo tanto, está dentro del rango permitido.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "basico"
-  tags: ["metodologia", "protocolo", "orden"]
-
-respuesta: ["Preparar el entorno", "Configurar el instrumento", "Ejecutar la prueba", "Registrar resultados"]
-tipo: ordenar
-
-opciones_explicitas: ["Preparar el entorno", "Configurar el instrumento", "Ejecutar la prueba", "Registrar resultados"]
-
-enunciado: "Ordene los pasos lógicos para realizar un ensayo de medición controlado sobre un prototipo de motor:"
-
-explicacion: |
-  Para asegurar la repetibilidad, primero se debe asegurar el entorno, luego calibrar/configurar el equipo, proceder a la prueba y finalmente recolectar los datos.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "ensayo_y_medicion"
-  nivel: "intermedio"
-  tags: ["metrologia", "precision", "exactitud"]
-
-variables:
-  caso: [["Alta precisión, baja exactitud", "Baja precisión, alta exactitud", "Alta precisión, alta exactitud", "Baja precisión, baja exactitud"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: caso[idx
-tipo: mc
-
-opciones_explicitas: ["Alta precisión, baja exactitud", "Baja precisión, alta exactitud", "Alta precisión, alta exactitud", "Baja precisión, baja exactitud"]
-
-enunciado: "Un prototipo de sensor de temperatura entrega los siguientes valores ante una referencia constante de 100°C: {caso[idx]}. ¿Qué característica define este comportamiento?"
-
-explicacion: |
-  La precisión se refiere a la repetibilidad (qué tan cerca están los valores entre sí), mientras que la exactitud se refiere a qué tan cerca están del valor real.
 ```
 
 ## Sección: investigar-soluciones-existentes (25 preguntas)
@@ -2003,7 +1491,8 @@ metadata:
 
 respuesta: "no reinventar la rueda"
 tipo: completar
-respuestas_validas: ["no reinventar la rueda", "no reinventar la rueda", "no reinventar la rueda"]
+respuestas_validas:
+  - "no reinventar la rueda"
 
 enunciado: "En ingeniería, una de las reglas de oro para optimizar tiempos y recursos es ___."
 
@@ -2052,7 +1541,7 @@ metadata:
   tags: ["metodologia", "pasos"]
 
 opciones_explicitas: ["Identificar problemas de la solución actual", "Documentar hallazgos", "Analizar arquitectura técnica", "Evaluar pros y contras"]
-respuesta: ["Identificar problemas de la solución actual", "Analizar arquitectura técnica", "Evaluar pros y contras", "Documentar hallazgos"]
+respuesta_orden: ["Identificar problemas de la solución actual", "Analizar arquitectura técnica", "Evaluar pros y contras", "Documentar hallazgos"]
 tipo: ordenar
 
 enunciado: "Ordene lógicamente los pasos para realizar un análisis de una solución existente antes de iniciar un nuevo diseño:"
@@ -2107,16 +1596,20 @@ metadata:
   tags: ["estandar", "benchmarking"]
 
 variables:
-  estandar_nombre: uno_de(["ISO-9001", "IEEE-802.11", "ASTM-E12"])
-  estandar_valor: uno_de(["Calidad", "Conectividad", "Materiales"])
+  estandares: [["ISO-9001", "Calidad"], ["IEEE-802.11", "Conectividad"], ["ASTM-E12", "Materiales"]]
+  idx: uno_de([0, 1, 2])
+  estandar_nombre: estandares[idx][0]
+  estandar_valor: estandares[idx][1]
 
-enunciado: "Al diseñar un sistema de comunicación inalámbrica, el ingeniero consulta el estándar ${estandar_nombre} para evitar errores de compatibilidad. El objetivo principal de este estándar es asegurar la: ___"
+enunciado: "Al diseñar un sistema de comunicación inalámbrica, el ingeniero consulta el estándar {estandar_nombre} para evitar errores de compatibilidad. El objetivo principal de este estándar es asegurar la: ___"
 
-respuestas_validas: ["{estandar_valor}"]
+respuesta: estandar_valor
+respuestas_validas:
+  - estandar_valor
 tipo: completar
 
 explicacion: |
-  Consultar estándares como el ${estandar_nombre} permite que el diseño sea compatible con el ecosistema existente, evitando el error de 'reinventar' protocolos de comunicación.
+  Consultar estándares como el {estandar_nombre} permite que el diseño sea compatible con el ecosistema existente, evitando el error de 'reinventar' protocolos de comunicación.
 ```
 
 ```
@@ -2125,9 +1618,6 @@ metadata:
   tema: "investigar_soluciones_existentes"
   nivel: "avanzado"
   tags: ["propiedad_intelectual", "riesgo"]
-
-variables:
-  patente_valida: uno_de([verdadero, falso])
 
 enunciado: "Un ingeniero encuentra una solución técnica que resuelve el problema del diseño actual, pero descubre que existe una patente vigente para ese mecanismo específico. ¿Es legalmente seguro implementar esta solución sin una licencia?"
 
@@ -2149,7 +1639,7 @@ metadata:
 enunciado: "Ordena los pasos lógicos para integrar una solución existente en un nuevo proyecto de ingeniería:"
 
 opciones_explicitas: ["Identificar el problema", "Buscar soluciones existentes", "Evaluar precedentes", "Adaptar solución al diseño"]
-respuesta: ["Identificar el problema", "Buscar soluciones existentes", "Evaluar precedentes", "Adaptar solución al diseño"]
+respuesta_orden: ["Identificar el problema", "Buscar soluciones existentes", "Evaluar precedentes", "Adaptar solución al diseño"]
 tipo: ordenar
 
 explicacion: |
@@ -2162,9 +1652,6 @@ metadata:
   tema: "investigar_soluciones_existentes"
   nivel: "basico"
   tags: ["mentalidad", "eficiencia"]
-
-variables:
-  es_eficiente: uno_de([verdadero, falso])
 
 enunciado: "Si un ingeniero dedica el 40% del tiempo de un proyecto a documentar soluciones que ya han sido resueltas en la industria para evitar errores previos, ¿esta práctica se considera eficiente en la gestión de ingeniería?"
 
@@ -2201,12 +1688,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0,1])
-  escenarios: [
-    ["Un ingeniero diseña un sistema de frenado ignorando normativas de seguridad previas.", "retrabajo_costoso"],
-    ["Un ingeniero desarrolla un motor sin estudiar la termodinámica aplicada en modelos anteriores.", "fallo_estructural"]
-  ]
+  escenarios: [["Un ingeniero diseña un sistema de frenado ignorando normativas de seguridad previas.", "retrabajo_costoso"], ["Un ingeniero desarrolla un motor sin estudiar la termodinámica aplicada en modelos anteriores.", "fallo_estructural"]]
 
-respuesta: escenario_idx[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 
 opciones_explicitas: ["retrabajo_costoso", "fallo_estructural", "optimización_de_costos", "aceleración_de_prototipado"]
@@ -2214,7 +1698,7 @@ opciones_explicitas: ["retrabajo_costoso", "fallo_estructural", "optimización_d
 enunciado: "Si un equipo de ingeniería decide omitir la fase de investigación de soluciones existentes para 'ahorrar tiempo', el resultado más probable en un proyecto complejo es: ___"
 
 explicacion: |
-  La falta de precedentes aumenta drásticamente la probabilidad de cometer errores técnicos que ya han sido documentados en la industria, lo que deriva en un {escenario_idx[escenario_idx][1]}.
+  La falta de precedentes aumenta drásticamente la probabilidad de cometer errores técnicos que ya han sido documentados en la industria, lo que deriva en un {escenarios[escenario_idx][1]}.
 ```
 
 ```
@@ -2224,7 +1708,7 @@ metadata:
   nivel: "intermedio"
   tags: ["metodología", "pasos_diseño"]
 
-respuesta: ["Identificar problemas", "Buscar soluciones existentes", "Analizar ventajas y desventajas", "Seleccionar la mejor base para el diseño"]
+respuesta_orden: ["Identificar problemas", "Buscar soluciones existentes", "Analizar ventajas y desventajas", "Seleccionar la mejor base para el diseño"]
 tipo: ordenar
 
 opciones_explicitas: ["Identificar problemas", "Buscar soluciones existentes", "Analizar ventajas y desventajas", "Seleccionar la mejor base para el diseño"]
@@ -2245,7 +1729,11 @@ metadata:
 respuesta: "mejora"
 tipo: completar
 
-respuestas_validas: ["mejora", "réplica", "plagio", "error"]
+respuestas_validas:
+  - "mejora"
+  - "réplica"
+  - "plagio"
+  - "error"
 
 enunciado: "Cuando un ingeniero estudia una solución existente para entender sus limitaciones y aplicarlas en un nuevo contexto, no está realizando una simple réplica, sino buscando una ___ del sistema original."
 
@@ -2316,8 +1804,10 @@ metadata:
   tags: ["metodologia", "pasos"]
 
 opciones_explicitas: ["Identificar necesidades", "Analizar soluciones existentes", "Evaluar precedentes", "Seleccionar arquitectura"]
-respuesta: ["Identificar necesidades", "Analizar soluciones existentes", "Evaluar precedentes", "Seleccionar arquitectura"]
+respuesta_orden: ["Identificar necesidades", "Analizar soluciones existentes", "Evaluar precedentes", "Seleccionar arquitectura"]
 tipo: "ordenar"
+
+enunciado: "Ordene lógicamente los pasos para investigar soluciones existentes antes de definir la arquitectura de un nuevo diseño:"
 
 explicacion: |
   Antes de diseñar, se debe entender qué se necesita, buscar qué se ha hecho antes (análisis), entender por qué funcionó o falló (evaluar) y finalmente elegir el camino a seguir.
@@ -2334,11 +1824,13 @@ variables:
   idx: uno_de([0, 1])
   terminos: [["Estado del Arte", "Prototipo"], ["Revisión de literatura", "Modelo físico experimental"]]
 
-enunciado: "La investigación de soluciones existentes se basa principalmente en el {terminos[idx][0]}, mientras que la validación de una nueva idea propia se realiza mediante un {terminos[idx][1]}."
+enunciado: "La investigación de soluciones existentes se basa principalmente en el {terminos[idx][0]}, mientras que la validación de una nueva idea propia se realiza mediante un ___."
 
-respuesta: [terminos[idx][0], terminos[idx][1]
+respuesta: terminos[idx][1]
 tipo: "completar"
-respuestas_validas: [terminos[idx][0], terminos[idx][1]]
+respuestas_validas:
+  - "Prototipo"
+  - "Modelo físico experimental"
 
 explicacion: |
   El Estado del Arte es el conocimiento actual acumulado en la disciplina, mientras que el prototipo es la materialización física o digital de la nueva propuesta del ingeniero.
@@ -2351,14 +1843,13 @@ metadata:
   nivel: "intermedio"
   tags: ["riesgo", "diseño"]
 
-variables:
-  riesgo_alto: verdadero
-
 enunciado: "Si un ingeniero omite la fase de investigación de soluciones existentes, el riesgo de cometer errores de diseño ya superados por la industria es ___."
 
 respuesta: "alto"
 tipo: "completar"
-respuestas_validas: ["alto", "muy alto"]
+respuestas_validas:
+  - "alto"
+  - "muy alto"
 
 explicacion: |
   La falta de estudio de precedentes incrementa exponencialmente la probabilidad de repetir fallos técnicos o de gestión que ya fueron resueltos en proyectos anteriores.
@@ -2372,18 +1863,13 @@ metadata:
   tags: ["metodologia", "eficiencia"]
 
 variables:
-  escenario: uno_de([
-    ["Se requiere un sistema de filtrado de agua para una comunidad rural.", "reutilizar"],
-    ["Se busca optimizar un motor de combustión interna.", "analizar_precedentes"],
-    ["Se necesita diseñar un puente peatonal de madera.", "estudiar_estándares"]
-  ])
+  escenario: uno_de([["Se requiere un sistema de filtrado de agua para una comunidad rural.", "reutilizar"], ["Se busca optimizar un motor de combustión interna.", "analizar_precedentes"], ["Se necesita diseñar un puente peatonal de madera.", "estudiar_estándares"]])
 
-respuesta: escenario[idx][1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["reutilizar", "analizar_precedentes", "estudiar_estándares", "inventar_todo"]
-idx: uno_de([0,1,2])
 
-enunciado: "Ante el escenario: '{escenario[idx][0]}', la acción más eficiente para evitar la 'reinvención de la rueda' es: ___"
+enunciado: "Ante el escenario: '{escenario[0]}', la acción más eficiente para evitar la 'reinvención de la rueda' es: ___"
 
 explicacion: |
   Investigar soluciones existentes permite aprovechar conocimientos probados, ahorrando tiempo y recursos.
@@ -2412,10 +1898,10 @@ metadata:
   nivel: "intermedio"
   tags: ["metodologia"]
 
-respuesta: ["Búsqueda de antecedentes", "Análisis de fallos previos", "Selección de solución base", "Diseño de prototipo"]
+respuesta_orden: ["Búsqueda de antecedentes", "Análisis de fallos previos", "Selección de solución base", "Diseño de prototipo"]
 tipo: ordenar
 
-opciones_explicitas: ["Búsqueda de antecedentes", "Análisis de fallos previos", "Selección de solución base", "Diseño de prototipo", "Construcción final"]
+opciones_explicitas: ["Búsqueda de antecedentes", "Análisis de fallos previos", "Selección de solución base", "Diseño de prototipo"]
 
 enunciado: "Ordene los pasos lógicos para aplicar el aprendizaje de precedentes en un nuevo proyecto de ingeniería:"
 
@@ -2431,17 +1917,15 @@ metadata:
   tags: ["gestion_proyectos"]
 
 variables:
-  caso: uno_de([
-    ["Caso A: Implementar un software de gestión ya existente.", "200"],
-    ["Caso B: Desarrollar un software de gestión desde cero.", "1500"]
-  ])
+  caso: uno_de([["Caso A: Implementar un software de gestión ya existente.", "200"], ["Caso B: Desarrollar un software de gestión desde cero.", "1500"]])
 
-respuesta: caso[idx][1
+respuesta: caso[1]
 tipo: completar
-respuestas_validas: ["200", "1500"]
-idx: uno_de([0,1])
+respuestas_validas:
+  - "200"
+  - "1500"
 
-enunciado: "Si el presupuesto para el '{caso[idx][0]}' es de $1000, ¿cuál es el costo estimado (en dólares) según el escenario planteado?"
+enunciado: "Si el presupuesto para el '{caso[0]}' es de $1000, ¿cuál es el costo estimado (en dólares) según el escenario planteado?"
 
 explicacion: |
   La investigación de soluciones existentes suele reducir drásticamente los costos de desarrollo inicial.
@@ -2455,19 +1939,485 @@ metadata:
   tags: ["patrones", "optimizacion"]
 
 variables:
-  patron: uno_de([
-    ["Modularidad", "Escalabilidad"],
-    ["Redundancia", "Robustez"],
-    ["Simplicidad", "Mantenibilidad"]
-  ])
+  patron: uno_de([["Modularidad", "Escalabilidad"], ["Redundancia", "Robustez"], ["Simplicidad", "Mantenibilidad"]])
 
-respuesta: patron[idx][0
+respuesta: patron[1]
 tipo: mc
 opciones_explicitas: ["Modularidad", "Escalabilidad", "Redundancia", "Robustez", "Simplicidad", "Mantenibilidad"]
-idx: uno_de([0,1,2])
 
-enunciado: "Al estudiar un sistema de ingeniería previo, se observa que su principal fortaleza es la {patron[idx][0]}. Si el nuevo diseño busca replicar exactamente esta característica, el objetivo principal es la: ___"
+enunciado: "Al estudiar un sistema de ingeniería previo, se observa que su principal fortaleza es la {patron[0]}. Esta característica le aporta directamente al sistema una mayor: ___"
 
 explicacion: |
   Identificar la característica clave de una solución exitosa permite replicar su éxito en nuevos contextos.
 ```
+
+## Sección: diseno-conceptual (25 preguntas)
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "basico"
+  tags: ["definicion", "etapas_proyecto"]
+
+respuesta: "diseño conceptual"
+tipo: completar
+respuestas_validas:
+  - "diseño conceptual"
+
+enunciado: "La etapa en la que se establece la idea general de la solución, definiendo el enfoque y los principios básicos antes de entrar en detalles técnicos profundos, se denomina ___."
+
+explicacion: |
+  El diseño conceptual es la fase donde se abstrae el problema para proponer una solución lógica y funcional sin considerar aún materiales específicos o tolerancias mecánicas.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "basico"
+  tags: ["objetivos", "metodologia"]
+
+tipo: mc
+opciones_explicitas: ["Definir la arquitectura general y la funcionalidad de la solución.", "Realizar el modelado matemático detallado de cada componente.", "Seleccionar los proveedores de materia prima.", "Realizar pruebas de fatiga en prototipos finales."]
+
+respuesta: "Definir la arquitectura general y la funcionalidad de la solución."
+
+enunciado: "¿Cuál es el objetivo principal de la fase de diseño conceptual?"
+
+explicacion: |
+  El diseño conceptual busca la arquitectura funcional. El modelado detallado, la selección de proveedores y las pruebas de fatiga pertenecen a etapas posteriores (diseño detallado y validación).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "basico"
+  tags: ["abstraccion", "conceptos"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "En el diseño conceptual, la abstracción es una herramienta clave para simplificar el problema y centrarse en la lógica de la solución en lugar de en los detalles constructivos."
+
+explicacion: |
+  Correcto. La abstracción permite ignorar detalles irrelevantes en esta etapa para asegurar que la solución propuesta realmente resuelva el problema fundamental.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "intermedio"
+  tags: ["secuencia", "metodologia"]
+
+respuesta_orden: ["Diseño conceptual", "Diseño detallado", "Prototipado y validación"]
+tipo: ordenar
+
+opciones_explicitas: ["Diseño conceptual", "Diseño detallado", "Prototipado y validación"]
+
+enunciado: "Ordene las siguientes etapas de un proceso de desarrollo de ingeniería desde la concepción hasta la validación:"
+
+explicacion: |
+  El flujo lógico comienza con la idea (conceptual), sigue con el detalle técnico (detallado) y termina con la verificación de la solución (prototipado).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "basico"
+  tags: ["componentes", "requisitos"]
+
+respuesta: "requisitos"
+tipo: completar
+respuestas_validas:
+  - "requisitos"
+
+enunciado: "El diseño conceptual debe basarse primordialmente en los ___ del cliente y las restricciones del problema."
+
+explicacion: |
+  Los requisitos son la base de cualquier diseño; si el diseño conceptual no satisface los requisitos, el proyecto fallará independientemente de qué tan buen detalle técnico tenga después.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "basico"
+  tags: ["metodologia", "definicion"]
+
+respuesta: "definicion_problema"
+tipo: "mc"
+opciones_explicitas: ["definicion_problema", "seleccion_materiales", "prototipado_rapido", "analisis_de_costos"]
+
+enunciado: "Antes de proponer una solución técnica detallada, es fundamental realizar la ___ para entender qué se debe resolver."
+
+explicacion: |
+  El diseño conceptual comienza con la definición clara del problema. Sin entender la necesidad real, cualquier solución técnica posterior corre el riesgo de ser irrelevante o ineficiente.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "intermedio"
+  tags: ["restricciones", "requisitos"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  escenarios: [["Un dron de carga debe elevar 5kg", "5"], ["Un sensor de temperatura debe operar a -20°C", "-20"]]
+
+respuesta: escenarios[caso_idx][1]
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "En el diseño conceptual de un sistema de transporte de carga, si el requisito principal es que el dispositivo debe ser capaz de levantar una masa de {escenarios[caso_idx][0]}, ¿cuál es el valor numérico de la carga de diseño en kg?"
+
+pasos:
+  - "Identificar el requisito de carga útil en el enunciado."
+  - "Extraer el valor numérico asociado a la capacidad de carga."
+
+explicacion: |
+  En la fase conceptual, los requisitos de rendimiento (como la carga útil) se establecen como parámetros de diseño que guiarán la selección de motores y estructuras en la fase técnica.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "basico"
+  tags: ["conceptos_clave"]
+
+respuesta: falso
+
+tipo: "vf"
+
+enunciado: "El diseño conceptual se encarga de especificar las dimensiones exactas de cada tornillo y el código de programación final de los componentes."
+
+explicacion: |
+  Falso. El diseño conceptual se centra en la arquitectura general, la lógica de funcionamiento y la solución macro. La especificación de detalles como tornillos o líneas de código pertenece a la fase de diseño detallado o ingeniería de detalle.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "intermedio"
+  tags: ["proceso", "flujo"]
+
+tipo: ordenar
+opciones_explicitas: ["identificacion_necesidad", "brainstorming_soluciones", "seleccion_arquitectura", "analisis_viabilidad", "fabricacion_final"]
+respuesta_orden: ["identificacion_necesidad", "brainstorming_soluciones", "seleccion_arquitectura", "analisis_viabilidad", "fabricacion_final"]
+
+enunciado: "Ordene las etapas del proceso de diseño desde la concepción inicial hasta la validación de la idea antes de la fabricación."
+
+explicacion: |
+  El flujo lógico comienza con la necesidad, sigue con la generación de ideas (brainstorming), se elige una arquitectura de solución y se valida su viabilidad. La fabricación es una etapa posterior al diseño.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "avanzado"
+  tags: ["toma_de_decisiones", "arquitectura"]
+
+variables:
+  opcion_idx: uno_de([0, 1])
+  casos: [["un sistema de frenado mecánico", "hidraulico"], ["un sistema de transmisión de energía", "electrico"]]
+
+respuesta: casos[opcion_idx][1]
+tipo: "completar"
+respuestas_validas:
+  - "hidraulico"
+  - "electrico"
+
+enunciado: "Si estamos en la fase conceptual de un vehículo de transporte pesado y decidimos que la transferencia de fuerza se hará mediante fluidos a presión, la arquitectura seleccionada es de tipo ___."
+
+explicacion: |
+  La elección de la arquitectura (mecánica, hidráulica, eléctrica) es la decisión principal del diseño conceptual. Una vez elegida, se procede a realizar los cálculos de ingeniería detallados para esa arquitectura específica.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "basico"
+  tags: ["metodologia", "etapas_proyecto"]
+
+respuesta: "idea_general"
+tipo: completar
+
+enunciado: "Un error común en la gestión de proyectos es saltar directamente a la definición de detalles técnicos sin haber consolidado primero la ___ de la solución. ¿Qué etapa se está omitiendo?"
+
+explicacion: |
+  El diseño conceptual debe establecer la arquitectura y funcionalidad general. Si se salta directamente a los detalles técnicos (como dimensiones exactas o materiales específicos), se corre el riesgo de optimizar componentes de una solución que podría ser inherentemente errónea para el problema original.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "definicion"]
+
+respuesta: falso
+tipo: vf
+enunciado: "Si el diseño conceptual se centra en la selección de tornillos, aleaciones específicas y tolerancias de fabricación, ¿se está cumpliendo estrictamente con la fase de diseño conceptual?"
+
+explicacion: |
+  Falso. El diseño conceptual debe responder al 'qué' y al 'por qué' de la solución a nivel macro. La selección de componentes específicos y tolerancias pertenece al diseño detallado.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "intermedio"
+  tags: ["prototipado", "confusion"]
+
+respuesta: "el_concepto_es_la_solucion"
+tipo: completar
+respuestas_validas:
+  - "el_concepto_es_la_solucion"
+
+enunciado: "Un error conceptual frecuente es creer que un prototipo funcional de baja fidelidad es lo mismo que el diseño conceptual. Sin embargo, el diseño conceptual es ___."
+
+explicacion: |
+  El diseño conceptual es una representación abstracta o lógica de la solución, mientras que el prototipo es una realización física o digital para validar hipótesis. No son sinónimos.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "basico"
+  tags: ["flujo_trabajo"]
+
+respuesta_orden: ["identificacion_problema", "diseno_conceptual", "diseno_detallado", "fabricacion"]
+tipo: ordenar
+
+opciones_explicitas: ["identificacion_problema", "diseno_conceptual", "diseno_detallado", "fabricacion"]
+
+enunciado: "Ordene las etapas de un proceso de ingeniería de la más general a la más específica, evitando el error de saltar pasos críticos."
+
+explicacion: |
+  El flujo lógico requiere primero entender el problema, luego idear la solución general (conceptual), luego definir sus componentes exactos (detallado) y finalmente producirlo.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "avanzado"
+  tags: ["riesgo", "optimizacion"]
+
+respuesta: "optimizar_detalles"
+tipo: mc
+opciones_explicitas: ["optimizar_detalles", "validar_requisitos", "definir_presupuesto", "analizar_competencia"]
+
+enunciado: "En la fase de diseño conceptual, ¿cuál es el mayor riesgo de error antes de haber validado si la idea general satisface las necesidades del usuario?"
+
+explicacion: |
+  Intentar optimizar detalles técnicos (como reducir el peso de una pieza en gramos) cuando la arquitectura general del sistema aún no es válida es una pérdida de recursos conocida como 'optimización prematura'.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "basico"
+  tags: ["definicion", "fases_proyecto"]
+
+respuesta: "diseño detallado"
+tipo: completar
+respuestas_validas:
+  - "diseño detallado"
+  - "diseño de detalle"
+  - "diseño técnico"
+
+enunciado: "Mientras que el diseño conceptual se centra en la idea general y la viabilidad de la solución, el ___ se enfoca en las especificaciones técnicas precisas y la selección de materiales exactos."
+
+explicacion: |
+  El diseño conceptual es la fase de abstracción donde se define el 'qué' y el 'por qué', mientras que el diseño detallado define el 'cómo' técnico para la fabricación o implementación.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "basico"
+  tags: ["objetivo", "proposito"]
+
+variables:
+  escenarios: [["un sistema de filtración de agua", "identificar la arquitectura básica"], ["un nuevo modelo de smartphone", "definir la experiencia de usuario y funciones clave"]]
+  escenario: uno_de(escenarios)
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["definir la arquitectura técnica final", "identificar la arquitectura básica", "definir la experiencia de usuario y funciones clave", "seleccionar proveedores de componentes"]
+
+enunciado: "En el caso de {escenario[0]}, el objetivo principal del diseño conceptual es ___."
+
+explicacion: |
+  El diseño conceptual no busca detalles de implementación, sino establecer la estructura lógica y los principios fundamentales que guiarán la solución.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "basico"
+  tags: ["naturaleza", "proceso"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El diseño conceptual es un proceso lineal y único que se completa antes de pasar a cualquier otra fase del proyecto."
+
+explicacion: |
+  Falso. El diseño conceptual es altamente iterativo; las ideas se refinan, se descartan o se modifican constantemente a medida que se comprenden mejor las restricciones del problema.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "intermedio"
+  tags: ["componentes", "jerarquia"]
+
+respuesta_orden: ["Identificación del problema", "Generación de ideas", "Selección de la mejor alternativa", "Definición de la arquitectura"]
+tipo: ordenar
+opciones_explicitas: ["Identificación del problema", "Generación de ideas", "Selección de la mejor alternativa", "Definición de la arquitectura"]
+
+enunciado: "Ordene cronológicamente las etapas de un proceso de diseño conceptual estándar:"
+
+explicacion: |
+  Un proceso lógico comienza entendiendo la necesidad (problema), explorando soluciones (ideas), eligiendo la más viable (selección) y estructurando la solución (arquitectura).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "intermedio"
+  tags: ["prototipado", "comparacion"]
+
+variables:
+  casos: [["un motor de combustión", "un software de gestión"], ["un puente colgante", "una aplicación móvil"]]
+  caso_idx: uno_de([0, 1])
+  caso_elegido: casos[caso_idx][0]
+
+respuesta: "el prototipo es una manifestación física o funcional de la idea"
+tipo: completar
+respuestas_validas:
+  - "el prototipo es una manifestación física o funcional de la idea"
+  - "el prototipo es un dibujo"
+
+enunciado: "Si el diseño conceptual es la representación mental o esquemática de la solución para {caso_elegido}, entonces ___."
+
+explicacion: |
+  El diseño conceptual es el concepto abstracto; el prototipo es la materialización (física o digital) para validar si ese concepto funciona en la realidad.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "basico"
+  tags: ["definicion", "alcance"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["un sistema de purificación de agua para una comunidad rural", "priorizar la simplicidad y el costo"], ["un motor de combustión de alta eficiencia", "priorizar la potencia máxima y el rendimiento"]]
+
+enunciado: "En la fase de diseño conceptual para {escenarios[escenario_idx][0]}, el objetivo principal es {escenarios[escenario_idx][1]}."
+
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["priorizar la simplicidad y el costo", "priorizar la potencia máxima y el rendimiento", "definir el presupuesto detallado de materiales", "realizar pruebas de fatiga de materiales"]
+
+explicacion: |
+  El diseño conceptual se enfoca en la solución general y la viabilidad de la idea, no en los detalles técnicos o materiales específicos.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "basico"
+  tags: ["fases_proyecto"]
+
+enunciado: "El diseño conceptual se realiza después de haber definido los requerimientos del cliente pero antes de la creación de los planos de fabricación detallados."
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  Correcto. El diseño conceptual actúa como el puente entre la necesidad (requerimiento) y la solución técnica detallada.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "intermedio"
+  tags: ["componentes", "arquitectura"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  datos: [["un puente peatonal", "la estructura principal y el flujo de carga"], ["un software de gestión hospitalaria", "la arquitectura de la base de datos y la interfaz de usuario"]]
+
+enunciado: "Para el diseño conceptual de {datos[caso_idx][0]}, el ingeniero debe definir principalmente {datos[caso_idx][1]}."
+
+respuesta: datos[caso_idx][1]
+tipo: completar
+respuestas_validas:
+  - "la estructura principal y el flujo de carga"
+  - "la arquitectura de la base de datos y la interfaz de usuario"
+
+explicacion: |
+  El diseño conceptual define la arquitectura funcional o estructural básica que permitirá cumplir con los requerimientos.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "intermedio"
+  tags: ["flujo_trabajo"]
+
+enunciado: "Ordene las etapas del proceso de diseño de un nuevo producto desde la concepción hasta la producción:"
+
+opciones_explicitas: ["Identificación de la necesidad", "Diseño conceptual", "Diseño detallado", "Prototipado y pruebas"]
+respuesta_orden: ["Identificación de la necesidad", "Diseño conceptual", "Diseño detallado", "Prototipado y pruebas"]
+tipo: ordenar
+
+explicacion: |
+  El proceso sigue un flujo lógico: primero se entiende el problema, luego se propone la idea general (conceptual), se detallan las medidas y finalmente se valida con prototipos.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "diseno_conceptual"
+  nivel: "avanzado"
+  tags: ["evaluacion", "riesgo"]
+
+variables:
+  problema_idx: uno_de([0, 1])
+  problemas: ["un sistema de frenado para un tren de alta velocidad", "un nuevo tipo de envase biodegradable para alimentos"]
+
+enunciado: "Durante el diseño conceptual de {problemas[problema_idx]}, si se detecta que la solución propuesta es físicamente imposible, ¿cuál es la acción correcta?"
+
+respuesta: "Reevaluar la idea o buscar una alternativa conceptual"
+tipo: mc
+opciones_explicitas: ["Reevaluar la idea o buscar una alternativa conceptual", "Continuar con el diseño detallado para ver si se soluciona", "Ignorar el problema y esperar a la fase de prototipado", "Aumentar el presupuesto de materiales"]
+
+explicacion: |
+  El diseño conceptual es la etapa ideal para detectar inviabilidades técnicas; intentar avanzar a detalles con un concepto erróneo es un error costoso.
+```
+

@@ -1,6 +1,6 @@
-# Examen jefe — Modelado y Optimización
+# Examen jefe — [PENDIENTE #919]
 
-> Logro #184. Resolviste el parcial integrando modelado matemático, optimización y resistencia de materiales con criterio ingenieril. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas. **150 preguntas totales** en 6/6 secciones.
+> Logro #919. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **150 preguntas totales** en 6/6 secciones.
 
 ---
 
@@ -15,7 +15,9 @@ metadata:
 
 respuesta: "matematico"
 tipo: "completar"
-respuestas_validas: ["matematico", "matemático"]
+respuestas_validas:
+  - "matematico"
+  - "matemático"
 
 enunciado: "Un modelo ___ es una representación abstracta de un sistema o fenómeno físico mediante el uso de lenguaje matemático para predecir su comportamiento."
 
@@ -47,14 +49,12 @@ metadata:
   nivel: "intermedio"
   tags: ["variables", "parametros"]
 
-variables:
-  escenario: uno_de([[0, "variable", "cambia durante el proceso"], [1, "parámetro", "se mantiene constante"]])
-
-respuesta: escenario[1
 tipo: "mc"
 opciones_explicitas: ["variable", "parámetro"]
 
-enunciado: "En el contexto de un modelo, si un valor cambia a medida que el sistema evoluciona, se denomina {escenario[0]}. Si el valor permanece constante durante el análisis, se denomina {escenario[1]}."
+enunciado: "En el contexto de un modelo, si un valor cambia a medida que el sistema evoluciona, se denomina variable. Si el valor permanece constante durante el análisis, se denomina ___."
+
+respuesta: "parámetro"
 
 explicacion: |
   Las variables representan las incógnitas del sistema (como la posición o el tiempo), mientras que los parámetros son valores que definen las propiedades del sistema (como la gravedad o la densidad).
@@ -67,7 +67,7 @@ metadata:
   nivel: "basico"
   tags: ["proceso", "ordenar"]
 
-respuesta: ["Observación", "Formulación", "Resolución", "Validación"]
+respuesta_orden: ["Observación", "Formulación", "Resolución", "Validación"]
 tipo: "ordenar"
 opciones_explicitas: ["Observación", "Formulación", "Resolución", "Validación"]
 
@@ -84,14 +84,12 @@ metadata:
   nivel: "intermedio"
   tags: ["determinismo", "probabilidad"]
 
-variables:
-  caso: uno_de([[0, "determinista", "no tiene incertidumbre"], [1, "estocástico", "incluye elementos aleatorios"]])
-
-respuesta: caso[1
 tipo: "mc"
 opciones_explicitas: ["determinista", "estocástico"]
 
-enunciado: "Si un modelo matemático incluye variables aleatorias y la incertidumbre en sus resultados, estamos ante un modelo {caso[0]}. Si el resultado es único y predecible para las mismas condiciones iniciales, es un modelo {caso[1]}."
+enunciado: "Si un modelo matemático incluye variables aleatorias y la incertidumbre en sus resultados, estamos ante un modelo estocástico. Si el resultado es único y predecible para las mismas condiciones iniciales, es un modelo ___."
+
+respuesta: "determinista"
 
 explicacion: |
   Los modelos deterministas no consideran la probabilidad, mientras que los estocásticos (o probabilísticos) modelan sistemas donde existe el azar.
@@ -111,7 +109,7 @@ variables:
   longitud: datos[idx][1]
   distancia_apoyo: datos[idx][2]
 
-enunciado: "Para diseñar una viga de soporte, se modela la carga puntual $P$ en el centro de una viga de longitud $L$. Si la carga es de {carga} N y la longitud es de {longitud} m, el momento flector máximo $M_{max}$ se calcula como $(P \cdot L) / 4$."
+enunciado: "Para diseñar una viga de soporte, se modela la carga puntual P en el centro de una viga de longitud L. Si la carga es de {carga} N y la longitud es de {longitud} m, el momento flector máximo M_max se calcula como (P · L) / 4."
 
 pasos:
   - "Identificar la carga $P$ y la longitud $L$ del modelo."
@@ -123,7 +121,7 @@ tipo: completar
 tolerancia_abs: 0.1
 
 explicacion: |
-  El modelado matemático permite predecir el esfuerzo interno. En este caso, $M_{max} = ({carga} \cdot {longitud}) / 4 = {redondear((carga * longitud) / 4, 2)}$ N·m.
+  El modelado matemático permite predecir el esfuerzo interno. En este caso, M_max = ({carga} · {longitud}) / 4 = {redondear((carga * longitud) / 4, 2)} N·m.
 ```
 
 ```
@@ -133,15 +131,12 @@ metadata:
   nivel: "basico"
   tags: ["termodinamica", "modelado"]
 
-variables:
-  escenarios: [["se expande", "se contrae", "no cambia"], ["aumenta", "disminuye", "se mantiene"]]
-  idx: uno_de([0,1,2])
-
 enunciado: "En el modelado de un material sometido a un incremento de temperatura constante, si el coeficiente de dilatación es positivo, el componente físico ___."
 
-respuesta: ["se expande", "se contrae", "no cambia"][idx]
+respuesta: "se expande"
 tipo: completar
-respuestas_validas: ["se expande", "se contrae", "no cambia"]
+respuestas_validas:
+  - "se expande"
 
 explicacion: |
   El modelo matemático $L = L_0(1 + \alpha \cdot \Delta T)$ indica que si $\Delta T > 0$ y $\alpha > 0$, la longitud final es mayor a la inicial.
@@ -173,7 +168,7 @@ metadata:
 enunciado: "Antes de la construcción física de un puente, se debe seguir un orden lógico de modelado y validación. Ordene las siguientes etapas:"
 
 opciones_explicitas: ["Definición de requerimientos", "Modelado matemático", "Simulación computacional", "Pruebas de prototipo a escala"]
-respuesta: ["Definición de requerimientos", "Modelado matemático", "Simulación computacional", "Pruebas de prototipo a escala"]
+respuesta_orden: ["Definición de requerimientos", "Modelado matemático", "Simulación computacional", "Pruebas de prototipo a escala"]
 tipo: ordenar
 
 explicacion: |
@@ -193,7 +188,7 @@ variables:
   fuerza: casos[idx][0]
   area: casos[idx][1]
 
-enunciado: "En el modelado de esfuerzos mecánicos, el esfuerzo normal $\sigma$ se define como la fuerza aplicada $F$ dividida por el área de la sección transversal $A$. Si aplicamos una fuerza de {fuerza} N sobre un área de {area} m², el esfuerzo resultante es:"
+enunciado: "En el modelado de esfuerzos mecánicos, el esfuerzo normal $\\sigma$ se define como la fuerza aplicada $F$ dividida por el área de la sección transversal $A$. Si aplicamos una fuerza de {fuerza} N sobre un área de {area} m², el esfuerzo resultante es:"
 
 respuesta: fuerza / area
 tipo: completar
@@ -212,7 +207,10 @@ metadata:
 
 enunciado: "Un error crítico en el modelado físico es ignorar la escala. Si un ingeniero escala un modelo de un puente a la mitad de su tamaño lineal (factor 1:2), la resistencia de los materiales (que depende del área de la sección transversal) se escala por un factor de ___."
 
-respuestas_validas: ["0.25", "1/4", "0.5"]
+respuestas_validas:
+  - "0.25"
+  - "1/4"
+  - "0.5"
 respuesta: "0.25"
 tipo: completar
 
@@ -229,9 +227,8 @@ metadata:
 
 enunciado: "¿Es correcto afirmar que un modelo matemático es una representación exacta y absoluta de la realidad física?"
 
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 explicacion: |
   Todo modelo es una simplificación de la realidad. Un modelo matemático omite variables (como la fricción del aire o imperfecciones del material) para facilitar el cálculo. Por definición, un modelo es una aproximación, no la realidad misma.
 ```
@@ -246,7 +243,7 @@ metadata:
 enunciado: "Para evitar errores de diseño costosos, se debe seguir un orden lógico en el desarrollo de un proyecto de ingeniería. Ordene los siguientes pasos desde la fase inicial hasta la construcción:"
 
 opciones_explicitas: ["Definición del problema", "Modelado matemático", "Simulación y validación", "Construcción del prototipo"]
-respuesta: ["Definición del problema", "Modelado matemático", "Simulación y validación", "Construcción del prototipo"]
+respuesta_orden: ["Definición del problema", "Modelado matemático", "Simulación y validación", "Construcción del prototipo"]
 tipo: ordenar
 
 explicacion: |
@@ -260,11 +257,7 @@ metadata:
   nivel: "avanzado"
   tags: ["sensibilidad", "incertidumbre"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["error_bajo", "error_alto"], ["error_bajo", "error_alto"]]
-
-enunciado: "En un modelo de simulación, si un pequeño cambio en una variable de entrada produce un cambio desproporcionadamente grande en el resultado, decimos que el modelo tiene una sensibilidad de tipo {datos[idx][0]}."
+enunciado: "En un modelo de simulación, si un pequeño cambio en una variable de entrada produce un cambio desproporcionadamente grande en el resultado, decimos que el modelo tiene una sensibilidad ___."
 
 opciones_explicitas: ["baja", "alta"]
 respuesta: "alta"
@@ -300,7 +293,9 @@ metadata:
 
 respuesta: "aproximacion"
 tipo: "completar"
-respuestas_validas: ["aproximacion", "modelo"]
+respuestas_validas:
+  - "aproximacion"
+  - "modelo"
 
 enunciado: "Un modelo matemático es una ___ de un sistema físico real, lo que implica que siempre existe un margen de error entre la solución calculada y el comportamiento del objeto construido."
 
@@ -315,10 +310,7 @@ metadata:
   nivel: "intermedio"
   tags: ["fidelidad", "complejidad"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-
-respuesta: uno_de([0, 1])[1]
+respuesta: "Un modelo más complejo es siempre más preciso pero más costoso de resolver"
 tipo: "mc"
 opciones_explicitas: ["Un modelo más complejo es siempre más preciso pero más costoso de resolver", "Un modelo más simple es siempre más preciso pero más difícil de implementar"]
 
@@ -335,7 +327,7 @@ metadata:
   nivel: "intermedio"
   tags: ["determinismo", "estocastico"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "¿Un modelo determinista se distingue de un modelo estocástico en que sus resultados son siempre los mismos ante las mismas condiciones iniciales, sin intervención de variables aleatorias?"
@@ -351,7 +343,7 @@ metadata:
   nivel: "basico"
   tags: ["proceso", "secuencia"]
 
-respuesta: ["Definición del problema", "Abstracción matemática", "Simulación numérica", "Construcción física"]
+respuesta_orden: ["Definición del problema", "Abstracción matemática", "Simulación numérica", "Construcción física"]
 tipo: "ordenar"
 opciones_explicitas: ["Definición del problema", "Abstracción matemática", "Simulación numérica", "Construcción física"]
 
@@ -368,10 +360,7 @@ metadata:
   nivel: "avanzado"
   tags: ["linealidad", "complejidad"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-
-respuesta: uno_de([0, 1])[0]
+respuesta: "Los modelos lineales permiten usar el principio de superposición"
 tipo: "mc"
 opciones_explicitas: ["Los modelos lineales permiten usar el principio de superposición", "Los modelos no lineales son más fáciles de resolver analíticamente"]
 
@@ -389,13 +378,13 @@ metadata:
   tags: ["estructuras", "calculo"]
 
 variables:
-  escenario: [[150, "150"], [220, "220"], [310, "310"]]
+  escenario: [[150, 200], [220, 280], [310, 400]]
   idx: uno_de([0, 1, 2])
   carga: escenario[idx][0]
   resistencia_critica: escenario[idx][1]
 
-respuesta: carga < resistencia_critica
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Un pilar de soporte en una estructura debe soportar una carga de {carga} kN. El modelo matemático indica que la resistencia crítica del material es de {resistencia_critica} kN. ¿Es la estructura segura bajo este modelo?"
 
 explicacion: |
@@ -410,7 +399,7 @@ metadata:
   tags: ["hidraulica", "modelado"]
 
 variables:
-  datos: [[5.0, "5.0"], [12.5, "12.5"], [8.2, "8.2"]]
+  datos: [[5.0, 2.0], [12.5, 2.5], [8.2, 2.0]]
   idx: uno_de([0, 1, 2])
   volumen_requerido: datos[idx][0]
   area_base: datos[idx][1]
@@ -436,7 +425,8 @@ metadata:
   nivel: "basico"
   tags: ["gestion_proyectos", "metodologia"]
 
-respuesta: ["Definición del problema", "Modelado matemático", "Simulación computacional", "Construcción del prototipo"]
+opciones_explicitas: ["Definición del problema", "Modelado matemático", "Simulación computacional", "Construcción del prototipo"]
+respuesta_orden: ["Definición del problema", "Modelado matemático", "Simulación computacional", "Construcción del prototipo"]
 tipo: ordenar
 
 enunciado: "Ordene las etapas lógicas de un proceso de ingeniería desde la concepción hasta la ejecución física:"
@@ -453,12 +443,13 @@ metadata:
   tags: ["materiales", "seguridad"]
 
 variables:
-  test: [[0.85, "0.85"], [1.15, "1.15"], [0.95, "0.95"]]
+  valores_factor: [0.85, 1.15, 0.95]
+  es_seguro: [falso, verdadero, falso]
   idx: uno_de([0, 1, 2])
-  factor_seguridad: test[idx][0]
+  factor_seguridad: valores_factor[idx]
 
-respuesta: factor_seguridad > 1.0
-tipo: completar
+respuesta: es_seguro[idx]
+tipo: vf
 enunciado: "En el modelado de un componente mecánico, se calcula un factor de seguridad de {factor_seguridad}. ¿Es el diseño considerado seguro según los estándares de ingeniería (donde factor > 1)?"
 
 explicacion: |
@@ -473,1566 +464,18 @@ metadata:
   tags: ["presupuesto", "modelado"]
 
 variables:
-  materiales: [[450, "450"], [1200, "1200"], [850, "850"]]
+  materiales: [450, 1200, 850]
   idx: uno_de([0, 1, 2])
-  cantidad: materiales[idx][0]
+  cantidad: materiales[idx]
   precio_unitario: 15.5
 
 respuesta: cantidad * precio_unitario
 tipo: completar
-respuestas_validas: [6975.0, 18600.0, 13175.0]
 
 enunciado: "Para el presupuesto de una obra, el modelo de costos indica que se requieren {cantidad} unidades de un componente. Si el precio unitario es de {precio_unitario} USD, el costo total estimado es de ___ USD."
 
 explicacion: |
   El modelado económico es crucial para la viabilidad del proyecto. El cálculo es: {cantidad} * {precio_unitario}.
-```
-
-## Sección: modelizacion-matematica (25 preguntas)
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "basico"
-  tags: ["definicion", "conceptos_clave"]
-
-respuesta: "representacion"
-tipo: "completar"
-respuestas_validas: ["representacion", "representación"]
-
-enunciado: "Un modelo matemático es una ___ de un sistema o fenómeno de la realidad mediante el uso de lenguaje matemático."
-
-explicacion: |
-  La modelización consiste en crear una representación simplificada de la realidad para entenderla, predecirla o controlarla.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "basico"
-  tags: ["componentes", "variables"]
-
-opciones_explicitas: ["Parámetros", "Variables de estado", "Incertidumbre"]
-respuesta: "Variables de estado"
-tipo: "mc"
-
-enunciado: "En la modelización de un sistema dinámico, las magnitudes que describen el estado del sistema en un instante dado se denominan:"
-
-explicacion: |
-  Las variables de estado son las incógnitas que definen la condición del sistema en un momento específico.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "basico"
-  tags: ["naturaleza_del_modelo"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "¿Un modelo matemático es siempre una representación exacta y completa de la realidad física?"
-
-explicacion: |
-  Falso. Todo modelo es una simplificación de la realidad. Si un modelo fuera idéntico a la realidad, sería tan complejo como la propia realidad y perdería su utilidad para el análisis.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "intermedio"
-  tags: ["metodologia", "pasos"]
-
-opciones_explicitas: ["Observación y simplificación", "Formulación matemática", "Validación y análisis"]
-respuesta: ["Observación y simplificación", "Formulación matemática", "Validación y análisis"]
-tipo: "ordenar"
-
-enunciado: "Ordene las etapas lógicas del proceso de modelización:"
-
-explicacion: |
-  El proceso comienza identificando el problema (observación), luego se traduce a lenguaje matemático (formulación) y finalmente se comprueba si el modelo funciona (validación).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "basico"
-  tags: ["clasificacion"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [
-    ["continuo", "depende del tiempo de forma ininterrumpida"],
-    ["discreto", "cambia solo en instantes específicos"]
-  ]
-
-respuesta: datos[idx][1
-tipo: "mc"
-opciones_explicitas: ["continuo", "discreto"]
-
-enunciado: "Si un modelo describe un sistema donde las variables cambian de forma ininterrumpida en el tiempo, estamos ante un modelo de tipo {datos[idx][0]}."
-
-explicacion: |
-  Los modelos continuos utilizan funciones que se definen para todos los valores de un intervalo, mientras que los discretos operan sobre pasos o momentos específicos.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "intermedio"
-  tags: ["fisica", "cinematica"]
-
-variables:
-  escenario: uno_de([
-    [15.0, "15.0"],
-    [25.0, "25.0"],
-    [40.0, "40.0"]
-  ])
-  g: 9.81
-
-respuesta: sqrt(2 * g * escenario[0])
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Se suelta un objeto desde una altura de {escenario[0]} metros. Considerando la aceleración de la gravedad como {g} m/s², ¿cuánto tiempo tardará en tocar el suelo? (Use la fórmula t = sqrt(2h/g))"
-
-pasos:
-  - "Identificar la altura h = {escenario[0]} m."
-  - "Identificar la gravedad g = {g} m/s²."
-  - "Sustituir en la fórmula: t = sqrt(2 * {escenario[0]} / {g})."
-
-explicacion: |
-  El tiempo de caída libre se calcula despejando t de la ecuación de posición: h = 0.5 * g * t². 
-  Para el caso de {escenario[0]} m, el resultado es {sqrt(2 * g * escenario[0])} segundos.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "basico"
-  tags: ["modelos", "lineal"]
-
-variables:
-  datos: uno_de([
-    [100, 150, 200],
-    [50, 80, 110],
-    [200, 250, 300]
-  ])
-
-respuesta: datos[0][1] - datos[0][0]
-tipo: completar
-respuestas_validas: [10, 20, 30, 40, 50]
-
-enunciado: "Un tanque de agua comienza con {datos[0][0]} litros y después de una hora tiene {datos[0][1]} litros. Si el llenado es lineal, la tasa de cambio (litros por hora) es de ___ litros/h."
-
-explicacion: |
-  En un modelo lineal y de tasa constante, la pendiente m es (y2 - y1) / (x2 - x1).
-  En este caso: ({datos[0][1]} - {datos[0][0]}) / (1 - 0) = {datos[0][1] - datos[0][0]}.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "intermedio"
-  tags: ["finanzas", "exponencial"]
-
-variables:
-  capital: uno_de([
-    [1000.0, "1000.0"],
-    [5000.0, "5000.0"]
-  ])
-  tasa: 0.05
-
-respuesta: capital[0] * (1 + tasa)
-
-tipo: mc
-opciones_explicitas: ["1050.0", "1100.0", "1500.0", "1005.0"]
-
-enunciado: "Se invierte un capital inicial de ${capital[0]} con una tasa de interés compuesto anual del {tasa * 100}%. ¿Cuál será el monto total al finalizar el primer año?"
-
-explicacion: |
-  La fórmula del monto es M = C * (1 + i). 
-  Para ${capital[0]} con i = 0.05, el monto es ${capital[0] * (1 + tasa)}.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "basico"
-  tags: ["quimica", "modelos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si modelamos la concentración de sal en un tanque donde entra salmuera con una concentración constante y el volumen de líquido es constante, la ecuación diferencial que describe la cantidad de sal será de primer orden lineal."
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "avanzado"
-  tags: ["calculo", "metodologia"]
-
-variables:
-  pasos_correctos: ["Definir la función objetivo", "Establecer las restricciones", "Calcular la derivada", "Igualar la derivada a cero"]
-
-respuesta: pasos_correctos
-tipo: ordenar
-opciones_explicitas: ["Definir la función objetivo", "Establecer las restricciones", "Calcular la derivada", "Igualar la derivada a cero", "Verificar la segunda derivada"]
-
-enunciado: "Ordene los pasos lógicos para resolver un problema de optimización matemática (maximizar/minimizar una función):"
-
-explicacion: |
-  Para modelizar y resolver un problema de optimización, primero se debe definir qué se quiere optimizar (función objetivo) y qué limitaciones existen (restricciones). Luego, se aplica el cálculo diferencial para hallar puntos críticos.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "basico"
-  tags: ["conceptos", "variables"]
-
-variables:
-  escenario: uno_de([
-    ["La temperatura de un motor sube con el tiempo", "tiempo"],
-    ["El volumen de un gas aumenta con la presión", "presión"],
-    ["El costo de producción baja al aumentar la escala", "escala"]
-  ])
-
-enunciado: "En un modelo matemático, si queremos representar cómo {escenario[0]} afecta a la variable principal, la variable que cambia como consecuencia directa es la variable ___."
-
-respuestas_validas: ["dependiente"]
-
-respuesta: "dependiente"
-tipo: completar
-
-explicacion: |
-  En la modelización, la variable dependiente es aquella cuyo valor "depende" de los cambios en la variable independiente (explicativa).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "basico"
-  tags: ["filosofia_modelado", "limitaciones"]
-
-enunciado: "Un modelo matemático es una representación simplificada de la realidad. ¿Es posible que un modelo sea 100% exacto y capture todos los fenómenos físicos de un sistema complejo?"
-
-opciones_explicitas: ["verdadero", "falso"]
-
-respuesta: "falso"
-tipo: mc
-
-explicacion: |
-  Todo modelo implica una simplificación (asunciones). Si un modelo fuera tan complejo como la realidad misma, dejaría de ser un modelo útil para la ingeniería.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "intermedio"
-  tags: ["relaciones", "proporcionalidad"]
-
-variables:
-  caso: uno_de([
-    ["El área de un círculo respecto a su radio", "area_radio"],
-    ["La fuerza centrífuga respecto a la velocidad angular", "fuerza_omega"],
-    ["La energía cinética respecto a la velocidad", "energia_v"]
-  ])
-
-enunciado: "Analizando el caso de {caso[0]}, la relación matemática entre la variable dependiente y la independiente es de tipo ___."
-
-opciones_explicitas: ["lineal", "cuadrática", "inversa", "exponencial"]
-
-respuesta: "cuadrática"
-tipo: mc
-
-explicacion: |
-  En el caso de {caso[0]}, la relación sigue la forma $y = k \cdot x^2$, lo cual es una relación cuadrática.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "intermedio"
-  tags: ["metodologia", "pasos"]
-
-enunciado: "Ordena los pasos lógicos para desarrollar un modelo matemático de un sistema físico:"
-
-opciones_explicitas: ["Observación del fenómeno", "Identificación de variables", "Establecimiento de relaciones matemáticas", "Validación del modelo con datos reales"]
-
-respuesta: ["Observación del fenómeno", "Identificación de variables", "Establecimiento de relaciones matemáticas", "Validación del modelo con datos reales"]
-tipo: ordenar
-
-explicacion: |
-  El proceso comienza con la observación, sigue con la definición de qué mediremos (variables), cómo se relacionan (ecuaciones) y termina verificando si el modelo predice bien la realidad (validación).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "avanzado"
-  tags: ["validacion", "errores"]
-
-variables:
-  rango: uno_de([
-    ["[0, 10] para un experimento de tensión"],
-    ["[20, 50] para el flujo de un fluido"],
-    ["[100, 500] para la carga de una viga"]
-  ])
-
-enunciado: "Si un modelo ha sido validado experimentalmente solo en el rango {rango[0]}, aplicar el modelo para predecir el comportamiento en el rango [100, 200] sin nueva validación se denomina error de ___."
-
-opciones_explicitas: ["extrapolación", "interpolación", "discretización", "normalización"]
-
-respuesta: "extrapolación"
-tipo: mc
-
-explicacion: |
-  La extrapolación consiste en predecir valores fuera del rango de los datos conocidos. Es altamente riesgosa porque el modelo puede dejar de ser válido (por ejemplo, por cambios de fase o efectos no lineales) fuera del rango observado.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "intermedio"
-  tags: ["modelos", "probabilidad", "determinismo"]
-
-variables:
-  es_estocastico: uno_de([verdadero, falso])
-
-enunciado: "Un modelo que predice un resultado único y exacto ante las mismas condiciones iniciales se denomina modelo determinista. Por el contrario, un modelo que incluye variables aleatorias para representar la incertidumbre se denomina modelo {es_estocastico}."
-
-respuesta: es_estocastico
-tipo: completar
-explicacion: |
-  El modelo determinista no contiene elementos de azar; sus resultados son predecibles al 100% si se conocen las condiciones iniciales. El modelo estocástico incorpora la probabilidad para modelar la variabilidad natural de los sistemas reales.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "basico"
-  tags: ["modelos", "simplificacion", "precision"]
-
-opciones_explicitas: ["Aumentar la complejidad para ganar precisión absoluta", "Reducir la complejidad para facilitar la resolución y comprensión", "Eliminar todas las variables para obtener un resultado constante", "Añadir ruido para que el modelo sea más realista"]
-
-respuesta: "Reducir la complejidad para facilitar la resolución y comprensión"
-tipo: mc
-
-enunciado: "En la modelización matemática, la simplificación es un proceso crítico. ¿Cuál es la principal distinción entre un modelo matemático y la realidad física que se busca representar?"
-
-explicacion: |
-  Un modelo nunca es una réplica exacta de la realidad; es una representación simplificada. El objetivo es capturar los fenómenos esenciales manteniendo una complejidad manejable para el análisis matemático.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "intermedio"
-  tags: ["variables", "parametros", "dinamica"]
-
-variables:
-  tipo_elemento: uno_de(["estado", "parametro"])
-
-enunciado: "En un sistema dinámico, las variables de {tipo_elemento} son aquellas que cambian con el tiempo durante la evolución del proceso, mientras que los ________ son valores que permanecen constantes durante el análisis del modelo."
-
-respuestas_validas: ["parámetros"]
-respuesta: "parámetros"
-tipo: completar
-
-explicacion: |
-  Las variables de estado describen el estado del sistema en un instante dado (ej. posición, velocidad), mientras que los parámetros definen las propiedades del sistema o del entorno (ej. masa, gravedad) y no cambian durante la simulación.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "basico"
-  tags: ["tiempo", "sistemas", "estatica"]
-
-enunciado: "Un modelo que describe un sistema en un momento específico, sin considerar la evolución temporal de sus variables, se considera un modelo ________, mientras que uno que describe la evolución de las variables respecto al tiempo es un modelo ________."
-
-respuestas_validas: ["estático", "dinámico"]
-respuesta: "estático"
-tipo: completar
-
-explicacion: |
-  La distinción fundamental radica en la dependencia explícita del tiempo. Los modelos estáticos se usan para equilibrio o relaciones instantáneas; los dinámicos para procesos evolutivos.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "intermedio"
-  tags: ["metodologia", "proceso", "validacion"]
-
-opciones_explicitas: ["Identificación del problema", "Formulación de ecuaciones", "Resolución matemática", "Validación y verificación"]
-
-respuesta: ["Identificación del problema", "Formulación de ecuaciones", "Resolución matemática", "Validación y verificación"]
-tipo: ordenar
-
-enunciado: "Ordene correctamente las etapas del proceso de modelización matemática, desde el contacto con el problema real hasta la obtención de conclusiones fiables."
-
-explicacion: |
-  El proceso es cíclico: se identifica el problema, se traduce a lenguaje matemático (formulación), se resuelve el modelo y finalmente se comprueba si el modelo representa fielmente la realidad (validación).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "intermedio"
-  tags: ["modelos_exponenciales", "biotecnologia"]
-
-variables:
-  escenario: uno_de([[100, 2, 0.5], [500, 3, 0.2], [250, 2, 0.8]])
-  p_inicial: escenario[0]
-  tasa: escenario[1]
-  tiempo: escenario[2]
-
-respuesta: p_inicial * (1 + tasa)**tiempo
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Un cultivo de bacterias crece exponencialmente según el modelo P(t) = P₀ * (1 + r)ᵗ. Si la población inicial es de {p_inicial} unidades, la tasa de crecimiento es del {tasa * 100}% por hora, ¿cuál será la población tras {tiempo} horas?"
-
-pasos:
-  - "Identificar la población inicial P₀ = {p_inicial}"
-  - "Identificar la tasa r = {tasa}"
-  - "Identificar el tiempo t = {tiempo}"
-  - "Aplicar la fórmula: {p_inicial} * (1 + {tasa})^{tiempo}"
-
-explicacion: |
-  El modelo exponencial se aplica cuando el crecimiento es proporcional a la población actual. En este caso, tras {tiempo} horas, la población es de {p_inicial * (1 + tasa)**tiempo}.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "avanzado"
-  tags: ["termodinamica", "ecuaciones_diferenciales"]
-
-variables:
-  datos: uno_de([[25, 100, 20], [30, 80, 25], [20, 120, 15]])
-  temp_obj: datos[0]
-  temp_amb: datos[1]
-  k: datos[2]
-
-respuesta: temp_amb
-tipo: mc
-opciones_explicitas: ["25°C", "100°C", "20°C", "0°C"]
-
-enunciado: "La temperatura de un objeto sigue la ley de enfriamiento de Newton: T(t) = T_amb + (T_obj - T_amb) * e^(-k*t). ¿Cuál será la temperatura del objeto cuando el tiempo t tiende a infinito (t → ∞)?"
-
-explicacion: |
-  A medida que el tiempo transcurre, el término exponencial e^(-k*t) tiende a cero, por lo que la temperatura del objeto se iguala a la temperatura ambiente ({temp_amb}°C).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "basico"
-  tags: ["costos", "lineal"]
-
-variables:
-  costos: uno_de([[500, 5], [800, 12], [300, 8]])
-  fijo: costos[0]
-  variable: costos[1]
-
-respuesta: ["Costo Fijo", "Costo Variable", "Costo Total"]
-tipo: ordenar
-
-opciones_explicitas: ["Costo Fijo", "Costo Variable", "Costo Total"]
-
-enunciado: "Un proceso industrial presenta un costo fijo de ${fijo} y un costo variable de ${variable} por unidad producida. Ordene los componentes de la función de costo total C(x) = {fijo} + {variable} * x de mayor a menor importancia en el costo total cuando la producción es muy baja."
-
-explicacion: |
-  Cuando la producción (x) es cercana a cero, el componente dominante es el costo fijo. A medida que x aumenta, el costo variable toma relevancia.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "intermedio"
-  tags: ["mecanica", "ley_de_hooke"]
-
-variables:
-  par: uno_de([[100, 200], [500, 50], [250, 100]])
-  fuerza: par[0]
-  k: par[1]
-
-respuesta: "2.5"
-tipo: completar
-respuestas_validas: ["2.5", "2,5"]
-
-enunciado: "Según la Ley de Hooke, la deformación x de un resorte está dada por F = k * x. Si se aplica una fuerza de {fuerza} N sobre un resorte con constante elástica k = {k} N/m, la deformación es de ___ m."
-
-explicacion: |
-  Despejando la fórmula para la deformación: x = F / k. En este caso, {fuerza} / {k} = 2.5.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "modelizacion_matematica"
-  nivel: "basico"
-  tags: ["probabilidad", "eficiencia"]
-
-variables:
-  escenario: uno_de([[0.95, 0.05], [0.98, 0.02], [0.90, 0.10]])
-  p_filtro: escenario[0]
-  p_error: escenario[1]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un sistema de filtrado tiene una probabilidad de éxito (capturar partícula) de {p_filtro} y una probabilidad de error (dejar pasar) de {p_error}. ¿Es la suma de las probabilidades de los eventos complementarios igual a 1.0?"
-
-explicacion: |
-  En cualquier modelo probabilístico, la suma de la probabilidad de un evento y su complemento debe ser exactamente 1. En este caso, {p_filtro} + {p_error} = 1.0.
-```
-
-## Sección: optimizacion-e-iteracion (25 preguntas)
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "basico"
-  tags: ["definiciones", "ciclos"]
-
-respuesta: "iteración"
-tipo: completar
-respuestas_validas: ["iteración"]
-
-enunciado: "El proceso de repetir un conjunto de pasos o un algoritmo para acercarse a una solución óptima se denomina ___."
-
-explicacion: |
-  La iteración es la repetición de un proceso con el objetivo de mejorar la calidad de una solución o alcanzar un criterio de parada.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "basico"
-  tags: ["objetivo", "optimización"]
-
-variables:
-  escenario: uno_de([["minimizar", "costo"], ["maximizar", "eficiencia"]])
-
-respuesta: escenario[1
-tipo: mc
-opciones_explicitas: ["minimizar", "maximizar", "estabilizar", "ignorar"]
-
-enunciado: "En un problema de optimización, si el objetivo es reducir el uso de materiales, estamos intentando ___ el costo."
-
-explicacion: |
-  Dependiendo de la función objetivo, buscamos el valor máximo o el valor mínimo de una variable.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "intermedio"
-  tags: ["convergencia", "criterio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es correcto afirmar que un proceso iterativo se considera 'convergente' cuando la diferencia entre dos soluciones sucesivas es menor a un umbral de tolerancia definido?"
-
-explicacion: |
-  La convergencia ocurre cuando la solución se estabiliza y deja de cambiar significativamente, indicando que hemos alcanzado un resultado aceptable.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "basico"
-  tags: ["secuencia", "metodologia"]
-
-respuesta: ["Evaluar", "Ajustar", "Implementar", "Verificar"]
-tipo: ordenar
-opciones_explicitas: ["Evaluar", "Ajustar", "Implementar", "Verificar"]
-
-enunciado: "Ordene los pasos lógicos de un ciclo de optimización iterativa tras haber obtenido un resultado inicial:"
-
-explicacion: |
-  El ciclo típico consiste en evaluar el resultado, ajustar los parámetros, implementar el cambio y verificar la mejora.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "intermedio"
-  tags: ["error", "tolerancia"]
-
-variables:
-  datos: [[0.001, "muy bajo"], [0.5, "alto"], [10.0, "excesivo"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1
-tipo: mc
-opciones_explicitas: ["muy bajo", "alto", "excesivo", "nulo"]
-
-enunciado: "Si el error residual en la iteración actual es de {datos[idx][0]}, se considera que el error es ___."
-
-explicacion: |
-  La magnitud del error determina si el proceso debe continuar o si se ha alcanzado la tolerancia permitida.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "basico"
-  tags: ["metodologia", "ciclos"]
-
-respuesta: "converger"
-tipo: "completar"
-respuestas_validas: ["converger", "convergencia"]
-
-enunciado: "En un proceso de optimización iterativo, el objetivo es realizar ajustes sucesivos en las variables de diseño para que la función objetivo logre ___ hacia un valor óptimo."
-
-explicacion: |
-  La optimización iterativa busca reducir el error o la diferencia entre la solución actual y la solución óptima. Cuando la diferencia se vuelve despreciable, decimos que el algoritmo ha convergido.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "intermedio"
-  tags: ["evaluacion", "error"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[0.85, "mejora"], [0.98, "mejora"]]
-
-respuesta: escenario[idx][1
-tipo: "mc"
-opciones_explicitas: ["mejora", "empeoramiento", "sin cambios"]
-
-enunciado: "Se realiza un ensayo de diseño. El valor de la función objetivo en la iteración $n$ es $f(x_n) = 100$ y en la iteración $n+1$ es $f(x_{n+1}) = 85$. Si el objetivo es minimizar la función, el resultado del ensayo representa una ___."
-
-explicacion: |
-  Al pasar de 100 a 85 en un problema de minimización, el valor de la función ha disminuido, lo que indica que la iteración ha sido exitosa en mejorar la solución.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "intermedio"
-  tags: ["criterio_parada", "convergencia"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "Si la diferencia absoluta entre la solución actual $x_{i}$ y la solución de la iteración anterior $x_{i-1}$ es menor que una tolerancia $\epsilon$ predefinida, se considera que se ha cumplido el criterio de parada por convergencia."
-
-explicacion: |
-  El criterio de parada es fundamental para evitar ciclos infinitos. Cuando el cambio entre iteraciones es menor que la tolerancia, se asume que el algoritmo ha encontrado un punto estable.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "basico"
-  tags: ["secuencia", "pasos"]
-
-respuesta: ["Definir objetivo", "Ejecutar ensayo", "Analizar error", "Ajustar parámetros"]
-tipo: "ordenar"
-opciones_explicitas: ["Definir objetivo", "Ejecutar ensayo", "Analizar error", "Ajustar parámetros"]
-
-enunciado: "Ordene los pasos lógicos para un ciclo de optimización industrial basado en ensayos experimentales:"
-
-explicacion: |
-  El proceso comienza con la definición de qué se quiere optimizar, luego se realiza el ensayo físico o numérico, se evalúa la desviación respecto al objetivo y, finalmente, se modifican los parámetros para la siguiente iteración.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "avanzado"
-  tags: ["calculo", "error"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[10.5, 10.0], [5.0, 4.8]]
-
-respuesta: datos[idx][0
-
-enunciado: "En la iteración actual, el valor óptimo estimado es {datos[idx][0]} y el valor obtenido en el ensayo es {datos[idx][1]}. Calcule el error absoluto de la iteración (asumiendo error = |valor_estimado - valor_obtenido|)."
-tipo: "input"
-tolerancia_abs: 0.001
-
-explicacion: |
-  El error absoluto mide la magnitud de la desviación. En este caso, el resultado es la diferencia absoluta entre el valor de referencia y el obtenido en el ensayo.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "intermedio"
-  tags: ["convergencia", "criterio_parada"]
-
-variables:
-  idx: uno_de([0, 1])
-  error_actual: uno_de([0.001, 0.0001])
-  error_previo: uno_de([0.005, 0.0005])
-
-respuesta: error_actual < error_previo
-tipo: completar
-enunciado: "En un proceso iterativo de optimización, si el error absoluto en la iteración {error_actual} es menor que el error de la iteración anterior {error_previo}, ¿se está cumpliendo un criterio de convergencia?"
-
-explicacion: |
-  Para que un método iterativo sea considerado convergente en una etapa dada, el error debe disminuir en cada paso sucesivo. Si el error aumenta, el método está divergiendo o está en una zona de inestabilidad.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "avanzado"
-  tags: ["errores", "precision"]
-
-variables:
-  escenario: uno_de(["truncamiento", "redondeo"])
-
-respuesta: "truncamiento"
-
-tipo: mc
-opciones_explicitas: ["truncamiento", "redondeo", "redondeo_estocastico"]
-
-enunciado: "Si un algoritmo de optimización se detiene prematuramente porque se decidió cortar los decimales de una variable sin considerar el valor del siguiente dígito, ¿qué tipo de error se está introduciendo predominantemente?"
-
-explicacion: |
-  El error de truncamiento ocurre cuando se limitan los términos de una serie o los decimales de un número, mientras que el error de redondeo surge por la incapacidad de la máquina para representar números reales con precisión infinita.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "basico"
-  tags: ["flujo_trabajo", "iteracion"]
-
-respuesta: ["Evaluar_resultado", "Comparar_con_objetivo", "Ajustar_parametros", "Repetir_ensayo"]
-tipo: ordenar
-
-opciones_explicitas: ["Evaluar_resultado", "Comparar_con_objetivo", "Ajustar_parametros", "Repetir_ensayo"]
-
-enunciado: "Ordene los pasos lógicos de un ciclo de optimización iterativa para mejorar una solución técnica:"
-
-explicacion: |
-  La optimización es un ciclo cerrado: primero se obtiene el resultado del ensayo, luego se compara con la meta (objetivo), se realizan los ajustes necesarios en los parámetros de entrada y finalmente se vuelve a ejecutar el ensayo.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "intermedio"
-  tags: ["convergencia", "tolerancia"]
-
-variables:
-  tol: uno_de([0.00001, 0.0000001])
-
-respuesta: "infinitas"
-
-tipo: completar
-respuestas_validas: ["infinitas", "finitas"]
-
-enunciado: "Si un programador establece una tolerancia de error de ___ para un problema que tiene una precisión de máquina limitada, el algoritmo podría entrar en un ciclo de iteraciones ___."
-
-explicacion: |
-  Si la tolerancia exigida es menor que la precisión que la computadora puede representar para ese número (debido al error de punto flotante), el error nunca llegará a ser menor que la tolerancia y el bucle será infinito.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "intermedio"
-  tags: ["gradiente", "optimizacion"]
-
-variables:
-  valor_f: uno_de([10.5, 12.2])
-  valor_f_prev: uno_de([11.2, 11.5])
-
-respuesta: valor_f < valor_f_prev
-
-tipo: completar
-enunciado: "En un problema de minimización, si el valor de la función objetivo en la iteración actual es de {valor_f} y en la anterior era de {valor_f_prev}, ¿se ha logrado una mejora en la solución?"
-
-explicacion: |
-  En problemas de optimización de mínimos, una "mejora" se define como una disminución en el valor de la función objetivo. Si el valor actual es menor que el anterior, el algoritmo se está acercando al mínimo.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "intermedio"
-  tags: ["iteracion", "convergencia", "algoritmos"]
-
-respuesta: "convergencia"
-tipo: "completar"
-respuestas_validas: ["convergencia"]
-
-enunciado: "Mientras que la iteración se refiere al proceso repetitivo de aplicar un algoritmo para refinar una solución, la ________ es el estado en el que la solución obtenida se aproxima a un valor límite o solución óptima."
-
-explicacion: |
-  La iteración es la acción de repetir el ciclo, mientras que la convergencia es la propiedad matemática de que dichas repeticiones se acercan cada vez más al objetivo.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "avanzado"
-  tags: ["gradiente", "busqueda", "optimizacion"]
-
-variables:
-  escenario: uno_de([0, 1])
-
-respuesta: uno_de([escenario_datos[0], escenario_datos[1]])
-tipo: "mc"
-opciones_explicitas: ["El descenso de gradiente utiliza información de la derivada para dirigir la búsqueda, mientras que la búsqueda exhaustiva prueba todos los puntos posibles."]
-  # Nota: Para cumplir la regla de una sola llamada a uno_de, reestructuramos:
-  # En realidad, como es una pregunta de contraste fijo, no uso uno_de para la respuesta si la pregunta es teórica.
-  # Re-haciendo para seguir la regla de "Si la respuesta no depende de sorteo, no usar variables".
-
-# Versión corregida para pregunta teórica fija:
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "avanzado"
-  tags: ["gradiente", "busqueda", "optimizacion"]
-
-respuesta: "El descenso de gradiente utiliza información de la derivada para dirigir la búsqueda, mientras que la búsqueda exhaustiva prueba todos los puntos posibles."
-tipo: "mc"
-opciones_explicitas: [
-  "El descenso de gradiente utiliza información de la derivada para dirigir la búsqueda, mientras que la búsqueda exhaustiva prueba todos los puntos posibles.",
-  "El descenso de gradiente es un método de fuerza bruta, mientras que la búsqueda exhaustiva es un método basado en derivadas.",
-  "Ambos métodos son idénticos en su forma de navegar el espacio de búsqueda.",
-  "La búsqueda exhaustiva es siempre más eficiente que el descenso de gradiente en espacios continuos."
-]
-
-explicacion: |
-  El descenso de gradiente es un método iterativo que utiliza el gradiente (derivada) para encontrar la dirección de máximo descenso, optimizando el tiempo de cómputo frente a una búsqueda exhaustiva que es computacionalmente costosa.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "basico"
-  tags: ["criterio_parada", "iteracion"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "El criterio de parada es el proceso de realizar iteraciones sucesivas para mejorar una solución."
-
-explicacion: |
-  Falso. El criterio de parada es la condición que determina cuándo detener el proceso iterativo (por ejemplo, cuando el error es menor a una tolerancia), no es el proceso de iteración en sí mismo.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "intermedio"
-  tags: ["flujo", "iteracion", "optimización"]
-
-respuesta: ["Evaluación de la función", "Cálculo del error/gradiente", "Actualización de la variable", "Verificación del criterio de parada"]
-tipo: "ordenar"
-opciones_explicitas: [
-  "Evaluación de la función",
-  "Cálculo del error/gradiente",
-  "Actualización de la variable",
-  "Verificación del criterio de parada"
-]
-
-enunciado: "Ordene los pasos lógicos de un ciclo de optimización iterativa estándar, desde el inicio de la evaluación hasta la decisión de continuar o detenerse."
-
-explicacion: |
-  Un ciclo típico comienza evaluando la función en el punto actual, calculando cuánto nos hemos alejado del óptimo (error/gradiente), moviendo la variable hacia la mejora y finalmente comprobando si ya estamos lo suficientemente cerca para parar.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "avanzado"
-  tags: ["condicion_inicial", "convergencia"]
-
-variables:
-  caso: uno_de([0, 1])
-  datos: [["Método de Newton-Raphson", "Muy sensible"], ["Método de Bisección", "Poco sensible"]]
-
-respuesta: datos[caso][1
-tipo: "mc"
-opciones_explicitas: [
-  "Muy sensible",
-  "Poco sensible",
-  "No depende de la condición inicial",
-  "Depende únicamente del número de iteraciones"
-]
-
-enunciado: "En un proceso de optimización iterativa, el {datos[caso][0]} se caracteriza por ser {datos[caso][1]} a la elección del punto de partida inicial."
-
-explicacion: |
-  Los métodos de orden superior (como Newton-Raphson) suelen tener una convergencia cuadrática pero pueden divergir si el punto inicial es malo, a diferencia de métodos más robustos como la bisección.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "intermedio"
-  tags: ["procesos", "iteracion"]
-
-variables:
-  escenario: [[150, 0.85], [220, 0.70], [310, 0.60]]
-  idx: uno_de([0, 1, 2])
-  costo_actual: escenario[idx][0]
-  eficiencia_actual: escenario[idx][1]
-
-enunciado: "En un proceso de fundición, se ha obtenido una mezcla con un costo de ${costo_actual} USD y una eficiencia del {eficiencia_actual * 100}%. Si el objetivo es reducir el costo un 10% manteniendo la misma eficiencia, ¿cuál debería ser el nuevo costo objetivo?"
-
-pasos:
-  - "Calcular el 10% del costo actual: {costo_actual * 0.10}"
-  - "Restar ese valor al costo actual: {costo_actual - (costo_actual * 0.10)}"
-
-respuesta: costo_actual * 0.9
-tipo: completar
-tolerancia_abs: 0.01
-
-explicacion: |
-  En optimización de procesos, el ciclo iterativo busca reducir el costo objetivo. 
-  El cálculo fue: ${costo_actual} * 0.9 = ${redondear(costo_actual * 0.9, 2)}.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "avanzado"
-  tags: ["convergencia", "iteracion"]
-
-variables:
-  iteraciones: [[0.05, 0.02, 0.001], [0.12, 0.08, 0.05], [0.01, 0.005, 0.0001]]
-  idx: uno_de([0, 1, 2])
-  error_iter: iteraciones[idx]
-
-enunciado: "Se está ejecutando un método de Newton-Raphson para hallar la raíz de una función. El error absoluto en la iteración actual es {error_iter[2]}. Si el criterio de parada es un error menor a 0.001, ¿se ha cumplido la condición de convergencia?"
-
-respuesta: falso
-tipo: vf
-
-explicacion: |
-  El error actual es {error_iter[2]}, el cual no es estrictamente menor a 0.001 en el caso seleccionado.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "basico"
-  tags: ["metodologia", "pasos"]
-
-enunciado: "Ordene los pasos lógicos para un ciclo de optimización de un sistema de control de temperatura:"
-
-opciones_explicitas: ["Medir la variable", "Comparar con el setpoint", "Actuar sobre el sistema", "Analizar desviación"]
-respuesta: ["Medir la variable", "Comparar con el setpoint", "Analizar desviación", "Actuar sobre el sistema"]
-tipo: ordenar
-
-explicacion: |
-  La secuencia lógica es: 1. Medición, 2. Comparación, 3. Análisis del error/desviación y 4. Acción correctiva.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "intermedio"
-  tags: ["parametros", "ajuste"]
-
-variables:
-  ajuste: [["K_p: 1.5", "K_i: 0.5", "K_d: 0.1"], ["K_p: 2.0", "K_i: 1.0", "K_d: 0.2"], ["K_p: 0.5", "K_i: 0.1", "K_d: 0.05"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Tras un ensayo de respuesta transitoria, se observa un sobreimpulso excesivo. ¿Cuál de los siguientes conjuntos de parámetros debería probarse en la siguiente iteración para reducir el sobreimpulso (asumiendo un control PID estándar)?"
-
-opciones_explicitas: ["Reducir K_p", "Aumentar K_p", "Eliminar K_d"]
-respuesta: "Reducir K_p"
-tipo: mc
-
-explicacion: |
-  Un exceso de sobreimpulso suele indicar una ganancia proporcional (K_p) demasiado alta. La iteración debe buscar un valor menor para estabilizar el sistema.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "optimizacion_e_iteracion"
-  nivel: "intermedio"
-  tags: ["error", "iteracion"]
-
-variables:
-  datos: [[10.5, 10.45], [25.2, 25.18], [5.0, 4.99]]
-  idx: uno_de([0, 1, 2])
-  val_actual: datos[idx][0]
-  val_previo: datos[idx][1]
-
-enunciado: "En un proceso de optimización por descenso de gradiente, la diferencia entre el valor de la función en la iteración actual y la anterior es de ___."
-
-respuesta_validas: ["0.05", "0.02", "0.01"]
-respuesta: "0.05"
-tipo: completar
-
-explicacion: |
-  El error o cambio entre iteraciones se calcula como |{val_actual} - {val_previo}|. En este caso: {abs(val_actual - val_previo)}.
-```
-
-## Sección: problema-y-restricciones (25 preguntas)
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "basico"
-  tags: ["definicion", "conceptos_clave"]
-
-respuesta: "solución"
-tipo: "completar"
-respuestas_validas: ["solución", "solucion"]
-
-enunciado: "En ingeniería, el objetivo del proceso de diseño es encontrar una ___ que satisfaga todos los requisitos establecidos."
-
-explicacion: |
-  Una solución es la respuesta técnica o el producto que resuelve el problema planteado cumpliendo con las condiciones impuestas.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "basico"
-  tags: ["requisitos", "clasificacion"]
-
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: datos_caso[idx][1
-tipo: "mc"
-opciones_explicitas: ["Requisito", "Restricción", "Optimización", "Variable"]
-
-enunciado: "Si un cliente exige que un puente soporte exactamente 50 toneladas, esto se clasifica como un: {datos_caso[idx][0]}"
-
-datos_caso: [["Requisito", "Requisito"], ["Restricción", "Restricción"]]
-
-explicacion: |
-  Los requisitos definen qué debe hacer la solución, mientras que las restricciones limitan el espacio de búsqueda de soluciones posibles.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "basico"
-  tags: ["restricciones", "verdadero_falso"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "¿Una restricción de presupuesto (límite de costo) es un ejemplo de un requisito de rendimiento?"
-
-explicacion: |
-  Falso. El presupuesto es una restricción de recursos; los requisitos de rendimiento se refieren a la funcionalidad o capacidad del sistema.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "intermedio"
-  tags: ["proceso", "ordenar"]
-
-respuesta: ["Identificación del problema", "Definición de restricciones", "Generación de alternativas", "Selección de la mejor solución"]
-tipo: "ordenar"
-opciones_explicitas: ["Generación de alternativas", "Identificación del problema", "Selección de la mejor solución", "Definición de restricciones"]
-
-enunciado: "Ordene las etapas lógicas del proceso de ingeniería para abordar un problema:"
-
-explicacion: |
-  Primero se entiende el problema, luego se delimita qué se puede y no se puede hacer (restricciones), se crean opciones y finalmente se elige la mejor.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "intermedio"
-  tags: ["viabilidad", "recursos"]
-
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: datos_viabilidad[idx][1
-tipo: "mc"
-opciones_explicitas: ["Viable", "Inviable", "Óptimo", "Indeterminado"]
-
-enunciado: "Si un diseño cumple con todos los requisitos funcionales pero excede el presupuesto máximo disponible, la solución es: {datos_viabilidad[idx][0]}"
-
-datos_viabilidad: [["Viable", "Inviable"], ["Inviable", "Viable"]]
-
-explicacion: |
-  Si una solución no cumple con una restricción crítica (como el presupuesto), se considera inviable, aunque sea técnicamente funcional.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "basico"
-  tags: ["presupuesto", "gestion"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: uno_de([
-    ["Proyecto A", 5000, 4500],
-    ["Proyecto B", 12000, 11500]
-  ])
-
-enunciado: "En un proyecto de ingeniería, el presupuesto asignado es de {escenario[idx][1]} USD. Si el costo estimado de la solución propuesta es de {escenario[idx][2]} USD, la restricción de presupuesto se cumple."
-
-respuesta: escenario[idx][1] >= escenario[idx][2]
-tipo: completar
-explicacion: |
-  Para que una solución sea viable, el costo debe ser menor o igual al presupuesto disponible. En este caso, {escenario[idx][2]} <= {escenario[idx][1]} es verdadero.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "intermedio"
-  tags: ["requisitos", "especificaciones"]
-
-opciones_explicitas: ["Requisito de rendimiento", "Restricción de material", "Restricción de tiempo"]
-
-enunciado: "Un cliente solicita que un puente debe soportar una carga de 50 toneladas. Esta especificación técnica se clasifica como una:"
-
-respuesta: "Requisito de rendimiento"
-tipo: mc
-
-explicacion: |
-  Los requisitos de rendimiento definen la capacidad operativa o funcionalidad que la solución debe alcanzar para satisfacer la necesidad del cliente.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "basico"
-  tags: ["metodologia", "proceso"]
-
-opciones_explicitas: ["Definir el problema", "Identificar restricciones", "Generar soluciones", "Evaluar resultados"]
-
-respuesta: ["Definir el problema", "Identificar restricciones", "Generar soluciones", "Evaluar resultados"]
-tipo: ordenar
-
-enunciado: "Ordene las etapas lógicas para abordar un problema de ingeniería de manera sistemática:"
-
-explicacion: |
-  El proceso comienza con la comprensión del problema, seguido de la delimitación de los límites (restricciones), la creación de alternativas y finalmente la validación de la mejor opción.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "intermedio"
-  tags: ["materiales", "viabilidad"]
-
-variables:
-  material_data: uno_de([
-    ["Acero", 7.8, 5.0],
-    ["Aluminio", 2.7, 2.0]
-  ])
-
-enunciado: "Se requiere un componente con una densidad máxima de {material_data[idx][2]} g/cm³. El material seleccionado es {material_data[idx][0]} con una densidad de {material_data[idx][1]} g/cm³."
-
-pasos:
-  - "Identificar la densidad del material propuesto."
-  - "Comparar la densidad del material con el límite máximo permitido."
-
-respuesta: material_data[idx][1] <= material_data[idx][2]
-tipo: completar
-explicacion: |
-  La solución es viable si la propiedad física del material no excede el límite impuesto por la restricción de diseño.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "basico"
-  tags: ["tiempo", "cronograma"]
-
-variables:
-  datos: uno_de([
-    ["Fase de diseño", 15, 20],
-    ["Fase de prototipado", 30, 25],
-    ["Fase de pruebas", 10, 12]
-  ])
-
-enunciado: "Para la fase de ___ , el tiempo estimado es de {datos[idx][1]} días, mientras que el plazo máximo permitido es de {datos[idx][2]} días."
-
-respuestas_validas: ["diseño", "prototipado", "pruebas"]
-tipo: completar
-
-explicacion: |
-  El usuario debe completar el nombre de la fase según el índice sorteado. En el caso de {datos[idx][0]}, el tiempo es {datos[idx][1]} y el límite es {datos[idx][2]}.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "basico"
-  tags: ["conceptos_fundamentales", "definiciones"]
-
-respuesta: "restricción"
-tipo: mc
-opciones_explicitas: ["requisito", "restricción", "objetivo", "variable"]
-
-enunciado: "En el diseño de un sistema, un elemento que limita las opciones de solución (como un presupuesto máximo o un límite de peso) se denomina ________."
-
-explicacion: |
-  Un requisito describe lo que el sistema DEBE hacer (funcionalidad), mientras que una restricción impone límites sobre cómo debe ser construido o qué recursos puede consumir (presupuesto, tiempo, materiales).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "intermedio"
-  tags: ["optimizacion", "errores_comunes"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es correcto afirmar que la 'solución óptima' es siempre aquella que maximiza el rendimiento técnico, ignorando las restricciones de costo y tiempo?"
-
-explicacion: |
-  Falso. En ingeniería, la solución óptima es un compromiso (trade-off) que satisface todos los requisitos y respeta todas las restricciones. Una solución técnicamente superior pero que excede el presupuesto es una solución inviable.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "intermedio"
-  tags: ["gestion_de_proyectos", "priorizacion"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["El cliente exige un color específico (estético)", "El puente debe soportar 50 toneladas (seguridad)"],
-    ["El software debe ser azul (estético)", "El software no debe colapsar con 100 usuarios (estabilidad)"]
-  ]
-
-respuesta: "seguridad"
-tipo: mc
-opciones_explicitas: ["estética", "seguridad", "costo", "tiempo"]
-
-enunciado: "Dada la situación: {escenarios[escenario_idx][1]}, si las restricciones de presupuesto se ven comprometidas, ¿qué tipo de restricción debe priorizarse siempre para garantizar la viabilidad del proyecto?"
-
-explicacion: |
-  Las restricciones de seguridad y estabilidad son críticas e innegociables. Si una solución no cumple con la seguridad, no es una solución válida, independientemente de su costo o estética.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "avanzado"
-  tags: ["metodologia", "proceso_de_diseño"]
-
-respuesta: ["Identificación", "Análisis", "Cumplimiento", "Validación"]
-tipo: ordenar
-
-opciones_explicitas: ["Cumplimiento", "Identificación", "Validación", "Análisis"]
-
-enunciado: "Ordene cronológicamente las etapas lógicas en el manejo de restricciones durante el proceso de diseño de un producto:"
-
-explicacion: |
-  Primero se identifican las limitaciones (Identificación), luego se estudia cómo afectan al diseño (Análisis), se diseña respetando esos límites (Cumplimiento) y finalmente se comprueba que se cumplieron (Validación).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "intermedio"
-  tags: ["definicion_problema", "errores_comunes"]
-
-respuesta: ["implícitas", "explícitas"]
-tipo: completar
-respuestas_validas: ["implícitas", "explícitas"]
-
-enunciado: "Las restricciones que no son mencionadas directamente por el cliente pero que son obligatorias por ley o normas técnicas se conocen como restricciones ________, mientras que las comunicadas directamente son ________."
-
-explicacion: |
-  Las restricciones explícitas son las dadas por el cliente (ej. "quiero que sea rojo"). Las implícitas son aquellas que el ingeniero debe conocer por conocimiento profesional (ej. normas de seguridad eléctrica o leyes ambientales).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "basico"
-  tags: ["conceptos_fundamentales", "definiciones"]
-
-tipo: mc
-opciones_explicitas: ["Un requisito define qué debe hacer el sistema, mientras que una restricción limita cómo debe hacerse.", "Un requisito es una limitación de recursos, mientras que una restricción es una funcionalidad deseada.", "Ambos términos son sinónimos en el diseño de ingeniería.", "El requisito es una limitación de tiempo y la restricción es una meta de rendimiento."]
-
-enunciado: "En el contexto de la ingeniería de sistemas, ¿cuál es la distinción fundamental entre un requisito y una restricción?"
-
-explicacion: |
-  Los requisitos describen las funciones o capacidades que el producto debe poseer (el "qué"), mientras que las restricciones imponen límites o condiciones de diseño que deben respetarse (el "cómo", como presupuesto, tiempo o normativas).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "basico"
-  tags: ["conceptos_fundamentales"]
-
-tipo: vf
-enunciado: "Las restricciones de diseño, como el presupuesto o la disponibilidad de materiales, son elementos que el ingeniero puede ignorar si la solución técnica es superior."
-
-respuesta: falso
-
-explicacion: |
-  Las restricciones son límites inamovibles. Si una solución técnica es excelente pero excede el presupuesto o viola una norma de seguridad (restricción), la solución no es válida para el problema planteado.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "intermedio"
-  tags: ["clasificacion", "requisitos"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["El sistema debe procesar 100 transacciones por segundo.", "El sistema debe pesar menos de 5kg."],
-    ["El sistema debe ser de color azul.", "El sistema debe operar entre 0°C y 50°C."]
-  ]
-  tipos: ["Funcional", "No Funcional"]
-
-tipo: completar
-enunciado: "Considerando el escenario: '{escenarios[escenario_idx][0]}', este se clasifica como un requisito de tipo {tipos[0]}."
-respuestas_validas: ["Funcional", "No Funcional"]
-respuesta: "Funcional"
-
-explicacion: |
-  Los requisitos funcionales definen acciones o comportamientos específicos del sistema (lo que hace), mientras que los no funcionales (como peso, color o temperatura) definen atributos o cualidades de la solución.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "intermedio"
-  tags: ["metodologia", "proceso"]
-
-tipo: ordenar
-opciones_explicitas: ["Definición del problema y sus restricciones", "Generación de alternativas de solución", "Evaluación de soluciones bajo criterios de diseño", "Selección de la solución óptima"]
-
-enunciado: "Ordene cronológicamente las etapas lógicas del proceso de diseño de ingeniería para abordar un problema con restricciones dadas:"
-
-explicacion: |
-  No se puede diseñar sin entender primero las limitaciones (restricciones). Una vez definido el problema, se exploran opciones, se comparan contra las restricciones y finalmente se elige la mejor.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "avanzado"
-  tags: ["optimizacion", "toma_de_decisiones"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [
-    ["Aumentar la velocidad de un motor", "Reducir el costo de fabricación"],
-    ["Mejorar la durabilidad de un material", "Reducir el peso de una estructura"]
-  ]
-  objetivo: ["Optimizar el rendimiento", "Optimizar la economía"]
-  conflicto: ["El costo de los materiales aumenta", "La resistencia estructural disminuye"]
-
-tipo: mc
-opciones_explicitas: ["El cumplimiento de la restricción suele entrar en conflicto con la optimización del objetivo.", "La restricción es el objetivo principal del ingeniero.", "Las restricciones eliminan la necesidad de optimizar.", "No existe conflicto entre objetivos y restricciones."]
-
-enunciado: "Al intentar '{objetivo[caso_idx]}' en el caso de '{casos[caso_idx][0]}', es común que surja un conflicto con la restricción de '{conflicto[caso_idx]}'. ¿Cómo se define esta relación?"
-
-explicacion: |
-  En ingeniería, la optimización de un parámetro (ej. velocidad) suele penalizar otro (ej. costo o peso). El diseño consiste en encontrar el equilibrio óptimo dentro de las restricciones impuestas.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "intermedio"
-  tags: ["recursos", "optimizacion"]
-
-variables:
-  escenario: [[150, "150 kg"], [200, "200 kg"], [350, "350 kg"]]
-  idx: uno_de([0, 1, 2])
-  límite: escenario[idx][0]
-  unidad: escenario[idx][1]
-
-enunciado: "Se debe diseñar un soporte estructural cuyo peso total no puede exceder los {límite} {unidad}. Si el material seleccionado tiene una densidad de 5 kg/m³, ¿cuál es el volumen máximo permitido para cumplir con esta restricción?"
-
-pasos:
-  - "Identificar el límite de masa: {límite} {unidad}"
-  - "Utilizar la fórmula de densidad: Volumen = Masa / Densidad"
-  - "Calcular: {límite} / 5"
-
-respuesta: redondear(límite / 5, 2)
-tipo: completar
-tolerancia_abs: 0.01
-
-explicacion: |
-  Para cumplir con la restricción de masa, el volumen debe ser igual o menor al resultado del cálculo. El volumen máximo es de {redondear(límite / 5, 2)} m³.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "basico"
-  tags: ["tiempo", "restricciones"]
-
-variables:
-  proyecto: [[120, "120 días"], [180, "180 días"], [240, "240 días"]]
-  idx: uno_de([0, 1, 2])
-  plazo_total: proyecto[idx][0]
-  unidad_plazo: proyecto[idx][1]
-
-enunciado: "Un proyecto de infraestructura tiene un plazo de entrega estricto de {plazo_total} {unidad_plazo}. Si la fase de cimentación dura 45 días y la fase de estructura dura 100 días, ¿se cumple con la restricción de tiempo si la fase de acabado requiere 100 días adicionales?"
-
-respuesta: falso
-tipo: vf
-
-explicacion: |
-  La suma de las fases es 45 + 100 + 100 = 245 días. Como 245 > {plazo_total}, la restricción de tiempo se viola.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "intermedio"
-  tags: ["costos", "presupuesto"]
-
-variables:
-  datos: [[500, "500 USD"], [800, "800 USD"], [1200, "1200 USD"]]
-  idx: uno_de([0, 1, 2])
-  presupuesto: datos[idx][0]
-  moneda: datos[idx][1]
-
-enunciado: "El presupuesto asignado para un prototipo es de {presupuesto} {moneda}. Se deben comprar 3 sensores de $150 cada uno y un controlador de $400. El costo total de los componentes es: ___"
-
-respuesta: "850 USD"
-tipo: completar
-respuestas_validas: ["850 USD"]
-
-explicacion: |
-  El cálculo es (3 * 150) + 400 = 450 + 400 = 850. El costo total es 850 USD.
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "basico"
-  tags: ["procesos", "orden"]
-
-enunciado: "Para asegurar la integridad estructural de un puente, se deben seguir estrictamente las siguientes fases de construcción. Ordene las etapas de forma lógica:"
-
-opciones_explicitas: ["Cimentación", "Estructura principal", "Colocación de tableros", "Acabados y señalización"]
-respuesta: ["Cimentación", "Estructura principal", "Colocación de tableros", "Acabados y señalización"]
-tipo: ordenar
-
-explicacion: |
-  En ingeniería civil, la secuencia lógica siempre comienza por la base (cimentación), sigue con el esqueleto (estructura), la superficie de rodamiento (tableros) y finalmente los detalles (acabados).
-```
-
-```
-metadata:
-  materia: "ingenieria"
-  tema: "problema_y_restricciones"
-  nivel: "avanzado"
-  tags: ["seguridad", "carga"]
-
-variables:
-  carga_max: [[5000, "5000 N"], [8000, "8000 N"], [10000, "10000 N"]]
-  idx: uno_de([0, 1, 2])
-  valor_max: carga_max[idx][0]
-  unidad_max: carga_max[idx][1]
-
-enunciado: "Una viga tiene una capacidad de carga máxima de {valor_max} {unidad_max}. Si se aplica una carga de 4500 N y un factor de seguridad de 1.5, ¿la estructura es segura (el esfuerzo aplicado * factor de seguridad <= carga máxima)?"
-
-respuesta: uno_de(["verdadero", "falso"])
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-
-explicacion: |
-  Calculamos el esfuerzo de diseño: 4500 * 1.5 = 6750 N. 
-  Si la carga máxima es de {valor_max} N, comparamos: 
-  {if(6750 <= valor_max, "6750 <= " + string(valor_max), "6750 > " + string(valor_max))}
 ```
 
 ## Sección: prototipo (25 preguntas)
@@ -2046,7 +489,8 @@ metadata:
 
 respuesta: "versión preliminar y simplificada de la solución para probar ideas antes de la versión final"
 tipo: completar
-respuestas_validas: ["versión preliminar y simplificada de la solución para probar ideas antes de la versión final"]
+respuestas_validas:
+  - "versión preliminar y simplificada de la solución para probar ideas antes de la versión final"
 
 enunciado: "Un prototipo se define como una ___."
 
@@ -2080,17 +524,13 @@ metadata:
   tags: ["fidelidad", "low_fidelity", "high_fidelity"]
 
 variables:
-  idx: uno_de([0, 1])
-  escenario: [
-    ["Baja fidelidad", "se enfoca en la estructura y flujo básico, con pocos detalles visuales"],
-    ["Alta fidelidad", "se parece mucho al producto final en apariencia y funcionalidad"]
-  ]
+  escenario: uno_de([["Baja fidelidad", "se enfoca en la estructura y flujo básico, con pocos detalles visuales"], ["Alta fidelidad", "se parece mucho al producto final en apariencia y funcionalidad"]])
 
-respuesta: escenario[idx][1
+respuesta: escenario[0]
 tipo: mc
 opciones_explicitas: ["Baja fidelidad", "Alta fidelidad"]
 
-enunciado: "Un prototipo de {escenario[idx][0]} es aquel que {escenario[idx][1]}."
+enunciado: "Un prototipo de {escenario[0]} es aquel que {escenario[1]}."
 
 explicacion: |
   La fidelidad se refiere al nivel de detalle y realismo del prototipo. Los de baja fidelidad son rápidos y baratos, mientras que los de alta fidelidad son casi indistinguibles del producto final.
@@ -2121,7 +561,7 @@ metadata:
 
 opciones_explicitas: ["Definir requisitos", "Construir prototipo", "Probar prototipo", "Analizar resultados"]
 
-respuesta: ["Definir requisitos", "Construir prototipo", "Probar prototipo", "Analizar resultados"]
+respuesta_orden: ["Definir requisitos", "Construir prototipo", "Probar prototipo", "Analizar resultados"]
 tipo: ordenar
 
 enunciado: "Ordene las etapas lógicas de un ciclo de prototipado funcional:"
@@ -2157,7 +597,7 @@ metadata:
 variables:
   pasos_orden: ["Identificar necesidad", "Construir prototipo", "Testear con usuarios", "Iterar diseño"]
 
-respuesta: ["Identificar necesidad", "Construir prototipo", "Testear con usuarios", "Iterar diseño"]
+respuesta_orden: ["Identificar necesidad", "Construir prototipo", "Testear con usuarios", "Iterar diseño"]
 tipo: ordenar
 opciones_explicitas: ["Identificar necesidad", "Construir prototipo", "Testear con usuarios", "Iterar diseño"]
 
@@ -2190,18 +630,11 @@ metadata:
   nivel: "avanzado"
   tags: ["costos", "riesgo"]
 
-variables:
-  escenario: [
-    ["detectar error en prototipo", "10"],
-    ["detectar error en producción", "1000"]
-  ]
-  idx: uno_de([0, 1])
-
-respuesta: escenario[idx][1
+respuesta: 990
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si el costo de corregir un error en fase de prototipado es de ${escenario[idx][0]} y en fase de producción es de ${escenario[idx][1]}, ¿cuál es la diferencia de costo (en unidades monetarias) entre ambos escenarios según el caso actual?"
+enunciado: "Si el costo de corregir un error en fase de prototipado es de $10 y en fase de producción es de $1000, ¿cuál es la diferencia de costo (en unidades monetarias) entre ambos escenarios?"
 
 pasos:
   - "Identificar el costo en prototipado: 10"
@@ -2221,7 +654,8 @@ metadata:
 
 respuesta: "funcionalidad"
 tipo: completar
-respuestas_validas: ["funcionalidad", "estetica", "marketing"]
+respuestas_validas:
+  - "funcionalidad"
 
 enunciado: "En un prototipo de concepto (Proof of Concept), el enfoque principal no es la estética del producto, sino validar su _______ principal."
 
@@ -2238,7 +672,10 @@ metadata:
 
 respuesta: "validar"
 tipo: "completar"
-respuestas_validas: ["validar", "verificar", "probar"]
+respuestas_validas:
+  - "validar"
+  - "verificar"
+  - "probar"
 
 enunciado: "El objetivo principal de crear un prototipo no es construir el producto final, sino _______ las hipótesis de diseño y la funcionalidad de la solución."
 
@@ -2253,10 +690,7 @@ metadata:
   nivel: "basico"
   tags: ["error_comun", "gestion_proyectos"]
 
-variables:
-  es_final: uno_de([verdadero, falso])
-
-respuesta: es_final
+respuesta: falso
 tipo: "vf"
 
 enunciado: "Un prototipo funcional que permite probar la lógica de un sistema, pero que utiliza materiales de baja fidelidad y no es apto para la venta al público, es considerado una versión final del producto."
@@ -2278,12 +712,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Baja fidelidad", "rápido y económico"],
-    ["Alta fidelidad", "detallado y costoso"]
-  ]
+  escenarios: [["Baja fidelidad", "rápido y económico"], ["Alta fidelidad", "detallado y costoso"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: "mc"
 opciones_explicitas: ["rápido y económico", "detallado y costoso", "solo para marketing", "no tiene utilidad"]
 
@@ -2300,7 +731,7 @@ metadata:
   nivel: "intermedio"
   tags: ["metodologia", "iteracion"]
 
-respuesta: ["Construir prototipo", "Probar prototipo", "Analizar resultados", "Refinar diseño"]
+respuesta_orden: ["Construir prototipo", "Probar prototipo", "Analizar resultados", "Refinar diseño"]
 tipo: "ordenar"
 opciones_explicitas: ["Construir prototipo", "Probar prototipo", "Analizar resultados", "Refinar diseño"]
 
@@ -2317,8 +748,8 @@ metadata:
   nivel: "avanzado"
   tags: ["eficiencia", "gestion_recursos"]
 
-respuesta: "falso"
-tipo: "vf"
+respuesta: falso
+tipo: vf
 
 enunciado: "Es un error común en la gestión de proyectos dedicar demasiado tiempo y recursos a que un prototipo sea estéticamente perfecto antes de haber validado su funcionalidad básica."
 
@@ -2335,7 +766,10 @@ metadata:
 
 respuesta: "verificar la viabilidad de una idea"
 tipo: completar
-respuestas_validas: ["verificar la viabilidad de una idea", "validar conceptos", "probar ideas"]
+respuestas_validas:
+  - "verificar la viabilidad de una idea"
+  - "validar conceptos"
+  - "probar ideas"
 
 enunciado: "A diferencia del producto final, cuyo objetivo es la producción en serie y la satisfacción del cliente, el propósito principal de un prototipo es ___."
 
@@ -2350,15 +784,12 @@ metadata:
   nivel: "basico"
   tags: ["conceptos"]
 
-variables:
-  es_final: uno_de([verdadero, falso])
-
-respuesta: es_final
-tipo: completar
-enunciado: "Un prototipo es una versión preliminar y simplificada de la solución que busca probar ideas antes de la versión final. ¿Es el prototipo la versión definitiva del diseño? {es_final}"
+respuesta: falso
+tipo: vf
+enunciado: "Un prototipo es una versión preliminar y simplificada de la solución que busca probar ideas antes de la versión final. ¿Es el prototipo la versión definitiva del diseño?"
 
 explicacion: |
-  Si la variable sorteada es falso, la respuesta es falso. El prototipo es una etapa de experimentación, no el resultado final.
+  Falso. El prototipo es una etapa de experimentación, no el resultado final.
 ```
 
 ```
@@ -2385,7 +816,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procesos"]
 
-respuesta: ["definir requerimientos", "construir prototipo", "evaluar resultados", "iterar diseño"]
+respuesta_orden: ["definir requerimientos", "construir prototipo", "evaluar resultados", "iterar diseño"]
 tipo: ordenar
 opciones_explicitas: ["definir requerimientos", "construir prototipo", "evaluar resultados", "iterar diseño"]
 
@@ -2402,12 +833,9 @@ metadata:
   nivel: "avanzado"
   tags: ["especificaciones"]
 
-variables:
-  es_alta_fidelidad: uno_de([verdadero, falso])
-
-respuesta: es_alta_fidelidad
-tipo: completar
-enunciado: "Un prototipo de alta fidelidad se distingue de uno de baja fidelidad porque posee una apariencia y funcionalidad muy cercanas al producto final. ¿Es esto correcto? {es_alta_fidelidad}"
+respuesta: verdadero
+tipo: vf
+enunciado: "Un prototipo de alta fidelidad se distingue de uno de baja fidelidad porque posee una apariencia y funcionalidad muy cercanas al producto final. ¿Es esto correcto?"
 
 explicacion: |
   La fidelidad se refiere a qué tan cerca está el prototipo del producto real en términos de estética, interacción y precisión técnica.
@@ -2422,13 +850,15 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0,1])
-  escenarios: [["un sensor de temperatura para un invernadero", "un nuevo diseño de ala para un dron"], ["validar la precisión de la lectura", "probar la estabilidad aerodinámica"]]
+  escenarios: [["un sensor de temperatura para un invernadero", "validar la precisión de la lectura"], ["un nuevo diseño de ala para un dron", "probar la estabilidad aerodinámica"]]
 
-respuesta: "___"
+respuesta: escenarios[escenario_idx][1]
 tipo: completar
-respuestas_validas: ["validar la precisión de la lectura", "probar la estabilidad aerodinámica"]
+respuestas_validas:
+  - "validar la precisión de la lectura"
+  - "probar la estabilidad aerodinámica"
 
-enunciado: "En el desarrollo de {escenarios[escenario_idx][0]}, el objetivo principal de crear un prototipo es {escenarios[escenario_idx][1]}."
+enunciado: "En el desarrollo de {escenarios[escenario_idx][0]}, el objetivo principal de crear un prototipo es ___."
 
 explicacion: |
   Un prototipo es una versión preliminar que permite testear hipótesis específicas antes de la producción masiva.
@@ -2443,11 +873,11 @@ metadata:
 
 variables:
   tipo_prototipo_idx: uno_de([0,1])
-  datos: [["baja fidelidad", "alta fidelidad"], ["rápido y económico", "lento y costoso"]]
+  datos: [["baja fidelidad", "rápido y económico"], ["alta fidelidad", "lento y costoso"]]
 
-respuesta: datos[tipo_prototipo_idx][1
+respuesta: datos[tipo_prototipo_idx][1]
 tipo: mc
-opciones_explicitas: ["rápido y económico", "lento y costoso", "extremadamente preciso", "imposible de modificar"]]
+opciones_explicitas: ["rápido y económico", "lento y costoso", "extremadamente preciso", "imposible de modificar"]
 
 enunciado: "Si estamos construyendo un prototipo de {datos[tipo_prototipo_idx][0]}, su principal ventaja es que es ___."
 
@@ -2460,11 +890,11 @@ metadata:
   materia: "ingenieria"
   tema: "prototipo_iteracion"
   nivel: "intermedio"
-  tags: ["proceso", "iteracion"]]
+  tags: ["proceso", "iteracion"]
 
-respuesta: ["Diseño", "Prototipado", "Pruebas", "Análisis"]
 tipo: ordenar
 opciones_explicitas: ["Diseño", "Prototipado", "Pruebas", "Análisis", "Descarte"]
+respuesta_orden: ["Diseño", "Prototipado", "Pruebas", "Análisis", "Descarte"]
 
 enunciado: "Ordene las etapas lógicas para mejorar un prototipo tras un testeo fallido:"
 
@@ -2477,7 +907,7 @@ metadata:
   materia: "ingenieria"
   tema: "prototipo_diferencias"
   nivel: "basico"
-  tags: ["falso", "conceptos"]]
+  tags: ["falso", "conceptos"]
 
 respuesta: falso
 
@@ -2494,17 +924,18 @@ metadata:
   materia: "ingenieria"
   tema: "prototipo_evaluacion"
   nivel: "intermedio"
-  tags: ["metricas", "decision"]]
+  tags: ["metricas", "decision"]
 
 variables:
   caso_idx: uno_de([0,1])
-  casos: [["El prototipo falló en la prueba de carga", "El prototipo superó las pruebas de carga"], ["revisar el diseño estructural", "proceder a la fase de producción"]]
+  descripcion: ["El prototipo falló en la prueba de carga", "El prototipo superó las pruebas de carga"]
+  accion: ["revisar el diseño estructural", "proceder a la fase de producción"]
 
-respuesta: casos[caso_idx][1
+respuesta: accion[caso_idx]
 tipo: mc
-opciones_explicitas: ["revisar el diseño estructural", "proceder a la fase de producción", "cancelar el proyecto", "aumentar el presupuesto"]]
+opciones_explicitas: ["revisar el diseño estructural", "proceder a la fase de producción", "cancelar el proyecto", "aumentar el presupuesto"]
 
-enunciado: "Si tras las pruebas el prototipo presenta un comportamiento de: {casos[caso_idx][0]}, la acción inmediata debe ser ___."
+enunciado: "Si tras las pruebas el prototipo presenta un comportamiento de: {descripcion[caso_idx]}, la acción inmediata debe ser ___."
 
 explicacion: |
   La fase de pruebas del prototipo sirve para tomar decisiones: si falla, se itera (se vuelve a diseñar); si tiene éxito, se avanza hacia la versión final.
@@ -2521,7 +952,10 @@ metadata:
 
 respuesta: "fuerza / area"
 tipo: completar
-respuestas_validas: ["fuerza / area", "fuerza / área", "F/A", "F/A"]
+respuestas_validas:
+  - "fuerza / area"
+  - "fuerza / área"
+  - "F/A"
 
 enunciado: "La tensión (o esfuerzo) se define matemáticamente como la relación entre la ___ aplicada sobre una sección transversal y el ___ de dicha sección."
 
@@ -2539,7 +973,7 @@ metadata:
 variables:
   escenario: uno_de([["un pistón que empuja un bloque", "compresión"], ["un cable de acero que sostiene una lámpara", "tensión"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["compresión", "tensión", "cizalladura", "torsión"]
 
@@ -2572,7 +1006,7 @@ metadata:
   nivel: "basico"
   tags: ["armadura", "nodos", "barras"]
 
-respuesta: ["Nodos", "Barras", "Cargas"]
+respuesta_orden: ["Nodos", "Barras", "Cargas"]
 tipo: ordenar
 
 opciones_explicitas: ["Nodos", "Barras", "Cargas"]
@@ -2596,13 +1030,13 @@ metadata:
   tags: ["calculo", "tension", "area"]
 
 variables:
-  datos: [[100, 20], [50, 10], [200, 50]]
+  datos: uno_de([[100, 20], [50, 10], [200, 50]])
 
-respuesta: datos[idx][0] / datos[idx][1]
+respuesta: datos[0] / datos[1]
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Si una barra soporta una fuerza de {datos[idx][0]} N y tiene un área de sección transversal de {datos[idx][1]} mm², ¿cuál es el valor de la tensión en MPa?"
+enunciado: "Si una barra soporta una fuerza de {datos[0]} N y tiene un área de sección transversal de {datos[1]} mm², ¿cuál es el valor de la tensión en MPa?"
 
 pasos:
   - "Identificar la fuerza aplicada (F)"
@@ -2628,12 +1062,12 @@ respuesta: fuerza / area
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Un perno de acero de sección transversal de {area} mm² está sujeto a una fuerza de tracción axial de {fuerza} N. Calcule la tensión normal ($\sigma$) en MPa."
+enunciado: "Un perno de acero de sección transversal de {area} mm² está sujeto a una fuerza de tracción axial de {fuerza} N. Calcule la tensión normal ($\\sigma$) en MPa."
 
 pasos:
   - "Identificar la fuerza aplicada: $F = 5000$ N"
   - "Identificar el área de la sección: $A = 25$ mm²"
-  - "Aplicar la fórmula de tensión: $\sigma = F / A$"
+  - "Aplicar la fórmula de tensión: $\\sigma = F / A$"
 
 explicacion: |
   La tensión normal se define como la fuerza aplicada dividida por el área de la sección transversal: $\sigma = F / A$.
@@ -2649,7 +1083,6 @@ metadata:
 
 variables:
   esfuerzo: 150
-  area: 100
 
 respuesta: verdadero
 tipo: vf
@@ -2667,14 +1100,11 @@ metadata:
   nivel: "basico"
   tags: ["geometria", "estructuras"]
 
-variables:
-  opciones: ["Cuadrilátero", "Triángulo", "Pentágono"]
-
 respuesta: "Triángulo"
 tipo: mc
 opciones_explicitas: ["Cuadrilátero", "Triángulo", "Pentágono"]
 
-enunciado: "En el diseño de cerchas (trusses), se utiliza la geometría del {uno_de(opciones)} porque es la única forma geométrica que es intrínsecamente rígida, es decir, sus ángulos no cambian sin que cambien las longitudes de sus lados."
+enunciado: "En el diseño de cerchas (trusses), se utiliza la geometría del triángulo porque es la única forma geométrica que es intrínsecamente rígida, es decir, sus ángulos no cambian sin que cambien las longitudes de sus lados."
 
 explicacion: |
   El triángulo es la unidad básica de las estructuras rígidas porque sus propiedades geométricas están determinadas únicamente por la longitud de sus tres lados.
@@ -2690,7 +1120,7 @@ metadata:
 variables:
   pasos_correctos: ["Identificar carga", "Calcular área", "Dividir carga por área"]
 
-respuesta: ["Identificar carga", "Calcular área", "Dividir carga por área"]
+respuesta_orden: ["Identificar carga", "Calcular área", "Dividir carga por área"]
 tipo: ordenar
 opciones_explicitas: ["Dividir carga por área", "Identificar carga", "Calcular área"]
 
@@ -2707,20 +1137,15 @@ metadata:
   nivel: "intermedio"
   tags: ["relacion", "tension"]
 
-variables:
-  fuerza: 1000
-  area: 50
-  tension_calculada: 20
-
-respuesta: "20"
+respuesta: "doble"
 tipo: completar
-respuestas_validas: ["20"]
+respuestas_validas:
+  - "doble"
 
 enunciado: "Si duplicamos la carga aplicada a una barra manteniendo su área constante, la tensión resultante será el ___ de la tensión original."
 
 explicacion: |
-  Como la tensión $\sigma = F / A$ es directamente proporcional a la fuerza, si la fuerza se duplica, la tensión también se duplica.
-  En este ejemplo: $1000 / 50 = 20$.
+  Como la tensión $\sigma = F / A$ es directamente proporcional a la fuerza, si la fuerza se duplica (manteniendo el área constante), la tensión también se duplica.
 ```
 
 ```
@@ -2766,9 +1191,12 @@ metadata:
 variables:
   escenario: uno_de([[100, "acortamiento"], [50, "acortamiento"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: completar
-respuestas_validas: ["acortamiento", "estiramiento", "torsion"]
+respuestas_validas:
+  - "acortamiento"
+  - "estiramiento"
+  - "torsion"
 
 enunciado: "Cuando un material está sometido exclusivamente a esfuerzos de compresión axial, el efecto principal esperado en su dimensión longitudinal es el ___."
 
@@ -2784,22 +1212,23 @@ metadata:
   tags: ["calculo", "tension_axial"]
 
 variables:
-  datos: [[1200, 0.02, 0.05], [800, 0.03, 0.04]]
+  datos: [[1200, 0.02], [800, 0.03]]
+  idx: uno_de([0, 1])
 
-respuesta: datos[0][0] / datos[0][1]
+respuesta: datos[idx][0] / datos[idx][1]
 
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Se aplica una carga axial de 1200 N sobre una barra de sección transversal de 0.02 m². ¿Cuál es el valor del esfuerzo normal (en Pascales)?"
+enunciado: "Se aplica una carga axial de {datos[idx][0]} N sobre una barra de sección transversal de {datos[idx][1]} m². ¿Cuál es el valor del esfuerzo normal (en Pascales)?"
 
 pasos:
-  - "Identificar la carga (P = 1200 N)"
-  - "Identificar el área (A = 0.02 m²)"
+  - "Identificar la carga (P)"
+  - "Identificar el área (A)"
   - "Calcular el esfuerzo usando la fórmula σ = P / A"
 
 explicacion: |
-  El esfuerzo normal σ se calcula dividiendo la fuerza aplicada (N) por el área de la sección transversal (m²). En este caso: 1200 / 0.02 = 60000 Pa.
+  El esfuerzo normal σ se calcula dividiendo la fuerza aplicada (N) por el área de la sección transversal (m²): σ = {datos[idx][0]} / {datos[idx][1]} = {redondear(datos[idx][0] / datos[idx][1], 2)} Pa.
 ```
 
 ```
@@ -2809,9 +1238,9 @@ metadata:
   nivel: "avanzado"
   tags: ["metodologia", "analisis"]
 
-respuesta: ["Carga", "Esfuerzo", "Deformación"]
+respuesta_orden: ["Carga", "Esfuerzo", "Deformación"]
 tipo: ordenar
-opciones_explicitas: ["Esfuerzo", "Deformación", "Carga", "Reacción"]
+opciones_explicitas: ["Esfuerzo", "Deformación", "Carga"]
 
 enunciado: "Ordene la secuencia lógica de causalidad en el análisis de resistencia de materiales, desde la acción externa hasta el efecto físico en el cuerpo."
 
@@ -2826,11 +1255,8 @@ metadata:
   nivel: "basico"
   tags: ["tension", "esfuerzo", "conceptos"]
 
-variables:
-  es_distinguido: verdadero
-
-respuesta: es_distinguido
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En ingeniería, la tensión se define como la fuerza interna por unidad de área, mientras que el concepto de esfuerzo suele referirse a la carga aplicada externamente sobre una sección transversal. ¿Es esta distinción conceptualmente válida para diferenciar la respuesta interna del material de la carga externa?"
 
 explicacion: |
@@ -2847,7 +1273,7 @@ metadata:
 variables:
   caso: uno_de([[1, "acortar"], [2, "alargar"], [3, "cortar"]])
 
-respuesta: caso[idx][1
+respuesta: caso[1]
 tipo: mc
 opciones_explicitas: ["acortar", "alargar", "cortar"]
 
@@ -2869,9 +1295,9 @@ metadata:
   tags: ["geometria", "estructuras", "triangulo"]
 
 variables:
-  forma: uno_de([[0, "cuadrado"], [1, "triangulo"]])
+  forma: uno_de(["cuadrado", "triangulo"])
 
-respuesta: forma[idx][1
+respuesta: forma
 tipo: mc
 opciones_explicitas: ["cuadrado", "triangulo"]
 
@@ -2888,7 +1314,7 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso", "carga"]
 
-respuesta: ["Aplicación de carga externa", "Generación de esfuerzos internos", "Deformación del elemento"]
+respuesta_orden: ["Aplicación de carga externa", "Generación de esfuerzos internos", "Deformación del elemento"]
 tipo: ordenar
 opciones_explicitas: ["Aplicación de carga externa", "Generación de esfuerzos internos", "Deformación del elemento"]
 
@@ -2908,7 +1334,7 @@ metadata:
 variables:
   tipo_t: uno_de([[0, "paralela"], [1, "perpendicular"]])
 
-respuesta: tipo_t[idx][1
+respuesta: tipo_t[1]
 tipo: completar
 opciones_explicitas: ["paralela", "perpendicular"]
 
@@ -2988,9 +1414,9 @@ metadata:
   nivel: "basico"
   tags: ["triangulo", "elementos"]
 
-respuesta: ["Vértice", "Vértice", "Vértice"]
+respuesta_orden: ["Vértice", "Lado", "Superficie"]
 tipo: ordenar
-opciones_explicitas: ["Vértice", "Vértice", "Vértice"]
+opciones_explicitas: ["Vértice", "Lado", "Superficie"]
 
 enunciado: "Ordene los elementos de un triángulo según su jerarquía de construcción (puntos de unión, líneas de conexión, espacio interno):"
 
@@ -3016,16 +1442,1453 @@ variables:
   deformacion: casos[idx][0]
   tipo_deformacion: casos[idx][1]
 
-respuesta: tabla_deformacion[idx][1
+respuesta: tipo_deformacion
 tipo: completar
 
-variables_extra:
-  tabla_deformacion: [["0.005", "elongacion"], ["0.002", "elongacion"]]
-
-respuestas_validas: ["elongacion"]
+respuestas_validas:
+  - "elongacion"
 
 enunciado: "Si un material experimenta una deformación unitaria de {deformacion}, el fenómeno físico observado es una ___."
 
 explicacion: |
   La deformación unitaria ($\epsilon$) positiva indica un aumento en la longitud del elemento, lo que se conoce como elongación.
 ```
+
+## Sección: ensayo-y-medicion (25 preguntas)
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "basico"
+  tags: ["definicion", "prototipo"]
+
+respuesta: "ensayo"
+tipo: completar
+respuestas_validas:
+  - "ensayo"
+  - "ensayo de desempeño"
+
+enunciado: "El proceso de someter un prototipo a condiciones controladas para evaluar su comportamiento se denomina ___."
+
+explicacion: |
+  El ensayo es la acción de probar un objeto o sistema bajo condiciones específicas para observar su respuesta.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "basico"
+  tags: ["medicion", "variables"]
+
+opciones_explicitas: ["Variables dependientes", "Variables independientes", "Variables de ruido", "Variables de error"]
+respuesta: "Variables independientes"
+tipo: mc
+
+enunciado: "En un ensayo controlado, las condiciones que el experimentador manipula deliberadamente para observar un efecto se conocen como ___."
+
+explicacion: |
+  Las variables independientes son aquellas que se modifican para medir cómo afectan a la variable dependiente (el resultado).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "basico"
+  tags: ["precision", "veracidad"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La precisión se refiere a qué tan cerca está un valor medido del valor real o verdadero de la magnitud."
+
+explicacion: |
+  Falso. La cercanía al valor real es la 'exactitud'. La 'precisión' se refiere a la repetibilidad o concordancia entre mediciones sucesivas.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "intermedio"
+  tags: ["metodologia", "orden"]
+
+opciones_explicitas: ["Preparación del entorno", "Ejecución de la prueba", "Análisis de resultados", "Documentación de hallazgos"]
+respuesta_orden: ["Preparación del entorno", "Ejecución de la prueba", "Análisis de resultados", "Documentación de hallazgos"]
+tipo: ordenar
+
+enunciado: "Ordene lógicamente las etapas de un protocolo de ensayo de prototipo:"
+
+explicacion: |
+  Un proceso de ingeniería requiere primero preparar las condiciones, luego ejecutar, analizar los datos obtenidos y finalmente documentar el proceso.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "intermedio"
+  tags: ["error", "medicion"]
+
+variables:
+  escenario: uno_de([[10.5, 0.1], [25.2, 0.5], [100.0, 2.0]])
+
+respuesta: escenario[0]
+tipo: completar
+respuestas_validas:
+  - "10.5"
+  - "25.2"
+  - "100.0"
+
+enunciado: "Si se realiza una medición de un componente y el valor obtenido es {escenario[0]}, pero existe una incertidumbre asociada de {escenario[1]}, el valor reportado es ___."
+
+pasos:
+  - "Identificar el valor nominal medido."
+  - "Asociar la incertidumbre al valor obtenido."
+
+explicacion: |
+  En metrología, el valor medido es el punto de partida para reportar la magnitud con su respectiva tolerancia o incertidumbre.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "intermedio"
+  tags: ["metrologia", "incertidumbre"]
+
+variables:
+  mediciones: [10.02, 10.05, 10.03, 10.04, 10.06]
+  valor_nominal: 10.04
+
+respuesta: promedio(mediciones)
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Se realizan 5 mediciones de la longitud de un prototipo de eje bajo condiciones controladas. Si el valor nominal es {valor_nominal} mm, ¿cuál es el valor promedio de las mediciones obtenidas?"
+
+pasos:
+  - "Sumar todos los valores de la serie de mediciones."
+  - "Dividir la suma total por la cantidad de mediciones (5)."
+
+explicacion: |
+  El promedio se calcula sumando las mediciones (10.02 + 10.05 + 10.03 + 10.04 + 10.06 = 50.20) y dividiendo por el número de muestras (50.20 / 5 = 10.04).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "basico"
+  tags: ["errores", "calibracion"]
+
+variables:
+  es_desviacion_constante: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Durante un ensayo de tensión, se detecta que un sensor de carga tiene un error de calibración que siempre suma 0.5N a la lectura real, independientemente de la carga aplicada. ¿Este es un ejemplo de error sistemático?"
+
+explicacion: |
+  Los errores sistemáticos son aquellos que se repiten de manera constante o predecible en cada medición, como un error de offset en un sensor.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "intermedio"
+  tags: ["protocolo", "procedimiento"]
+
+variables:
+  pasos_correctos: ["Calibrar instrumentos", "Configurar parámetros de prueba", "Ejecutar ensayo", "Registrar datos y analizar"]
+
+respuesta_orden: ["Calibrar instrumentos", "Configurar parámetros de prueba", "Ejecutar ensayo", "Registrar datos y analizar"]
+tipo: ordenar
+
+opciones_explicitas: ["Registrar datos y analizar", "Calibrar instrumentos", "Ejecutar ensayo", "Configurar parámetros de prueba"]
+
+enunciado: "Para garantizar la repetibilidad en la medición del desempeño de un prototipo, ordene los pasos lógicos de un protocolo de ensayo estándar."
+
+explicacion: |
+  Un protocolo científico requiere primero asegurar la precisión de los instrumentos (calibración), definir las condiciones (configuración), realizar la acción (ensayo) y finalmente procesar la información (registro y análisis).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "avanzado"
+  tags: ["tolerancia", "control_calidad"]
+
+variables:
+  dim_min: 24.95
+  dim_max: 25.05
+  medida_actual: 25.08
+
+respuesta: "fuera de rango"
+tipo: completar
+
+opciones_explicitas: ["dentro de rango", "fuera de rango"]
+
+enunciado: "Un prototipo de componente mecánico tiene una tolerancia especificada entre {dim_min} mm y {dim_max} mm. Si la medición obtenida en el ensayo es de {medida_actual} mm, el componente se encuentra ___."
+
+explicacion: |
+  Como 25.08 es mayor que el límite superior de 25.05, la pieza no cumple con las especificaciones de diseño.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "intermedio"
+  tags: ["precision", "repetibilidad"]
+
+variables:
+  error_max: 0.002
+  error_min: 0.001
+
+respuesta: "alta"
+tipo: mc
+
+opciones_explicitas: ["alta", "baja", "nula"]
+
+enunciado: "Si al repetir un ensayo de medición de presión 10 veces sobre el mismo prototipo, la dispersión de los resultados es extremadamente pequeña (variación de {error_min} a {error_max} bar), podemos decir que la repetibilidad es ___."
+
+explicacion: |
+  Una baja dispersión entre mediciones sucesivas bajo las mismas condiciones indica una alta repetibilidad (precisión).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "intermedio"
+  tags: ["metrologia", "error_de_medicion"]
+
+enunciado: "Si un sensor de presión siempre marca 5 kPa por encima del valor real debido a una mala calibración, el instrumento presenta un error de tipo ___."
+
+respuesta: "positivo"
+tipo: mc
+opciones_explicitas: ["positivo", "negativo"]
+
+explicacion: |
+  El error sistemático (o sesgo) es una desviación constante. Si el error siempre suma un valor constante al valor real, es un error positivo. La precisión se refiere a la repetibilidad de las medidas, no a su cercanía al valor real.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "avanzado"
+  tags: ["incertidumbre", "incertidumbre_tipo_a"]
+
+variables:
+  datos: [[[10.1, 10.2, 10.1, 10.3, 10.2], 0.24], [[5.0, 5.1, 4.9, 5.0, 5.0], 0.07]]
+  idx: uno_de([0, 1])
+
+enunciado: "Se realizan mediciones repetidas de un componente. El conjunto de datos obtenidos es: {datos[idx][0]}."
+
+pasos:
+  - "Calcular el promedio de las mediciones."
+  - "Calcular la desviación estándar de la muestra."
+
+respuesta: datos[idx][1]
+tipo: completar
+tolerancia_abs: 0.01
+
+explicacion: |
+  La incertidumbre de tipo A se estima mediante el análisis estadístico de una serie de mediciones, siendo la desviación estándar de la media una de las formas de representarla.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "basico"
+  tags: ["metodologia", "variables_controladas"]
+
+enunciado: "En un ensayo de fatiga de materiales, si no se controlan las variables ambientales (como la temperatura), los resultados obtenidos pueden tener una alta variabilidad y no ser comparables con otros ensayos."
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  Para que un ensayo sea válido y reproducible, las condiciones ambientales deben mantenerse constantes o ser registradas, ya que factores como la temperatura afectan las propiedades mecánicas de los materiales.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "intermedio"
+  tags: ["procedimiento", "calibracion"]
+
+variables:
+  pasos_correctos: ["Limpiar el instrumento", "Comparar con patrón trazable", "Ajustar desviaciones", "Registrar certificado"]
+
+enunciado: "Ordene los pasos lógicos para realizar el proceso de calibración de un instrumento de medición en un laboratorio."
+
+opciones_explicitas: ["Limpiar el instrumento", "Comparar con patrón trazable", "Ajustar desviaciones", "Registrar certificado"]
+respuesta_orden: ["Limpiar el instrumento", "Comparar con patrón trazable", "Ajustar desviaciones", "Registrar certificado"]
+tipo: ordenar
+
+explicacion: |
+  El proceso debe seguir un orden lógico: primero asegurar la limpieza, luego la comparación contra un estándar, proceder al ajuste si es necesario y finalmente documentar el resultado.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "basico"
+  tags: ["error_humano", "lectura"]
+
+enunciado: "Al leer un manómetro analógico, si el observador no se posiciona perpendicularmente a la escala, comete un error de ___."
+
+respuesta: "paralaje"
+tipo: mc
+opciones_explicitas: ["paralaje", "redondeo", "calibracion"]
+
+explicacion: |
+  El error de paralaje ocurre cuando la línea de visión no es perpendicular a la escala graduada, provocando una lectura incorrecta de la posición de la aguja o el menisco.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "basico"
+  tags: ["medicion", "metrologia"]
+
+respuesta: "precisión"
+tipo: "completar"
+respuestas_validas:
+  - "precisión"
+  - "exactitud"
+
+enunciado: "En metrología, mientras que la exactitud se refiere a qué tan cerca está el valor medido del valor real, la ___ se refiere a la repetibilidad de las mediciones bajo las mismas condiciones."
+
+explicacion: |
+  La exactitud mide la ausencia de error sistemático (cercanía al valor real), mientras que la precisión mide la dispersión de los resultados (repetibilidad).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "intermedio"
+  tags: ["calibracion", "ajuste"]
+
+respuesta: "calibracion"
+tipo: "mc"
+opciones_explicitas: ["calibracion", "ajuste", "estandarización", "mantenimiento"]
+
+enunciado: "El proceso de comparar un instrumento de medición contra un patrón de referencia para determinar la desviación se denomina:"
+
+explicacion: |
+  La calibración establece la relación entre los valores indicados por el instrumento y los valores de un patrón. El ajuste es la acción de corregir el instrumento para que coincida con el patrón.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "intermedio"
+  tags: ["incertidumbre", "medicion"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "La incertidumbre de medida es un parámetro que cuantifica la dispersión de los valores que podrían ser atribuidos al objeto de medición."
+
+explicacion: |
+  Verdadero. A diferencia del error (que es una cantidad única), la incertidumbre describe el rango de duda razonable sobre el resultado de una medición.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "intermedio"
+  tags: ["protocolo", "ensayo"]
+
+tipo: ordenar
+opciones_explicitas: ["definir_variables", "preparar_prototipo", "ejecutar_ensayo", "analizar_datos"]
+respuesta_orden: ["definir_variables", "preparar_prototipo", "ejecutar_ensayo", "analizar_datos"]
+
+enunciado: "Ordene los pasos lógicos para llevar a cabo un ensayo de desempeño controlado en un prototipo:"
+
+explicacion: |
+  Un ensayo sistemático requiere primero la planificación (definición), luego la preparación, la ejecución y finalmente el análisis de los datos recolectados.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "avanzado"
+  tags: ["sensibilidad", "resolucion"]
+
+respuesta: "sensibilidad"
+tipo: "mc"
+opciones_explicitas: ["sensibilidad", "resolucion", "rango", "linealidad"]
+
+enunciado: "La propiedad que describe la relación entre el cambio en la indicación del instrumento y el cambio en la magnitud medida es la ___."
+
+explicacion: |
+  La sensibilidad es la pendiente de la curva de calibración (cambio de salida / cambio de entrada). La resolución es el cambio más pequeño que el instrumento puede detectar y mostrar.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "intermedio"
+  tags: ["calibracion", "sensores", "error"]
+
+variables:
+  datos: [["10.5", "10.2", "0.3"], ["25.0", "24.8", "0.2"], ["50.2", "49.9", "0.3"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][2]
+tipo: completar
+respuestas_validas:
+  - datos[idx][2]
+
+enunciado: "Se realiza una prueba de calibración en un prototipo de sensor de presión. El valor nominal de referencia es {datos[idx][0]} kPa, pero la lectura obtenida del sensor es {datos[idx][1]} kPa. El error absoluto medido es ___ kPa."
+
+pasos:
+  - "Identificar el valor nominal (referencia)."
+  - "Identificar la lectura medida."
+  - "Calcular la diferencia absoluta entre ambos valores."
+
+explicacion: |
+  El error absoluto se define como |Valor_Referencia - Valor_Medido|. 
+  En este caso: |{datos[idx][0]} - {datos[idx][1]}| = {datos[idx][2]}.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "avanzado"
+  tags: ["estadistica", "fatiga", "desviacion"]
+
+variables:
+  series: ["100, 105, 95 y 100", "50, 52, 48 y 50", "200, 210, 190 y 200"]
+  resultados: ["3.54", "1.41", "7.07"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: resultados[idx]
+tipo: completar
+tolerancia_abs: 0.05
+
+enunciado: "Se realizan 4 ensayos de fatiga en un componente estructural. Los resultados de ciclos hasta la falla son: {series[idx]}. Calcule la desviación estándar poblacional de este conjunto de datos."
+
+explicacion: |
+  Primero se calcula el promedio de los 4 valores. Luego, la varianza poblacional es el promedio de los cuadrados de las desviaciones respecto a la media (dividiendo por N=4, no por N-1). Finalmente, la desviación estándar poblacional es la raíz cuadrada de esa varianza.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "basico"
+  tags: ["tolerancia", "calidad", "verificacion"]
+
+variables:
+  especificacion: [["10.00", "10.05"], ["5.00", "5.02"], ["100.0", "100.1"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El prototipo de una pieza mecánica debe tener un diámetro de {especificacion[idx][0]} mm con una tolerancia de ±{especificacion[idx][1]} mm. Si la medición obtenida es {especificacion[idx][0]} mm, ¿cumple la pieza con la especificación técnica?"
+
+explicacion: |
+  La pieza mide exactamente el valor nominal, por lo tanto, está dentro del rango permitido.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "basico"
+  tags: ["metodologia", "protocolo", "orden"]
+
+respuesta_orden: ["Preparar el entorno", "Configurar el instrumento", "Ejecutar la prueba", "Registrar resultados"]
+tipo: ordenar
+
+opciones_explicitas: ["Preparar el entorno", "Configurar el instrumento", "Ejecutar la prueba", "Registrar resultados"]
+
+enunciado: "Ordene los pasos lógicos para realizar un ensayo de medición controlado sobre un prototipo de motor:"
+
+explicacion: |
+  Para asegurar la repetibilidad, primero se debe asegurar el entorno, luego calibrar/configurar el equipo, proceder a la prueba y finalmente recolectar los datos.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "ensayo_y_medicion"
+  nivel: "intermedio"
+  tags: ["metrologia", "precision", "exactitud"]
+
+variables:
+  caso: uno_de([["98.1°C, 98.2°C, 98.1°C, 98.2°C", "Alta precisión, baja exactitud"], ["97.5°C, 102.3°C, 99.8°C, 100.4°C", "Baja precisión, alta exactitud"], ["99.9°C, 100.1°C, 100.0°C, 100.0°C", "Alta precisión, alta exactitud"], ["95.0°C, 103.0°C, 90.0°C, 108.0°C", "Baja precisión, baja exactitud"]])
+
+respuesta: caso[1]
+tipo: mc
+
+opciones_explicitas: ["Alta precisión, baja exactitud", "Baja precisión, alta exactitud", "Alta precisión, alta exactitud", "Baja precisión, baja exactitud"]
+
+enunciado: "Un prototipo de sensor de temperatura entrega los siguientes valores ante una referencia constante de 100°C: {caso[0]}. ¿Qué característica define este comportamiento?"
+
+explicacion: |
+  La precisión se refiere a la repetibilidad (qué tan cerca están los valores entre sí), mientras que la exactitud se refiere a qué tan cerca están del valor real.
+```
+
+## Sección: optimizacion-e-iteracion (25 preguntas)
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "basico"
+  tags: ["definiciones", "ciclos"]
+
+respuesta: "iteración"
+tipo: completar
+respuestas_validas:
+  - "iteración"
+
+enunciado: "El proceso de repetir un conjunto de pasos o un algoritmo para acercarse a una solución óptima se denomina ___."
+
+explicacion: |
+  La iteración es la repetición de un proceso con el objetivo de mejorar la calidad de una solución o alcanzar un criterio de parada.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "basico"
+  tags: ["objetivo", "optimización"]
+
+respuesta: "minimizar"
+tipo: mc
+opciones_explicitas: ["minimizar", "maximizar", "estabilizar", "ignorar"]
+
+enunciado: "En un problema de optimización, si el objetivo es reducir el uso de materiales, estamos intentando ___ el costo."
+
+explicacion: |
+  Dependiendo de la función objetivo, buscamos el valor máximo o el valor mínimo de una variable.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "intermedio"
+  tags: ["convergencia", "criterio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que un proceso iterativo se considera 'convergente' cuando la diferencia entre dos soluciones sucesivas es menor a un umbral de tolerancia definido?"
+
+explicacion: |
+  La convergencia ocurre cuando la solución se estabiliza y deja de cambiar significativamente, indicando que hemos alcanzado un resultado aceptable.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "basico"
+  tags: ["secuencia", "metodologia"]
+
+respuesta_orden: ["Evaluar", "Ajustar", "Implementar", "Verificar"]
+tipo: ordenar
+opciones_explicitas: ["Evaluar", "Ajustar", "Implementar", "Verificar"]
+
+enunciado: "Ordene los pasos lógicos de un ciclo de optimización iterativa tras haber obtenido un resultado inicial:"
+
+explicacion: |
+  El ciclo típico consiste en evaluar el resultado, ajustar los parámetros, implementar el cambio y verificar la mejora.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "intermedio"
+  tags: ["error", "tolerancia"]
+
+variables:
+  datos: [[0.001, "muy bajo"], [0.5, "alto"], [10.0, "excesivo"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["muy bajo", "alto", "excesivo", "nulo"]
+
+enunciado: "Si el error residual en la iteración actual es de {datos[idx][0]}, se considera que el error es ___."
+
+explicacion: |
+  La magnitud del error determina si el proceso debe continuar o si se ha alcanzado la tolerancia permitida.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "basico"
+  tags: ["metodologia", "ciclos"]
+
+respuesta: "converger"
+tipo: "completar"
+respuestas_validas:
+  - "converger"
+  - "convergencia"
+
+enunciado: "En un proceso de optimización iterativo, el objetivo es realizar ajustes sucesivos en las variables de diseño para que la función objetivo logre ___ hacia un valor óptimo."
+
+explicacion: |
+  La optimización iterativa busca reducir el error o la diferencia entre la solución actual y la solución óptima. Cuando la diferencia se vuelve despreciable, decimos que el algoritmo ha convergido.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "intermedio"
+  tags: ["evaluacion", "error"]
+
+respuesta: "mejora"
+tipo: "mc"
+opciones_explicitas: ["mejora", "empeoramiento", "sin cambios"]
+
+enunciado: "Se realiza un ensayo de diseño. El valor de la función objetivo en la iteración n es f(xₙ) = 100 y en la iteración n+1 es f(xₙ₊₁) = 85. Si el objetivo es minimizar la función, el resultado del ensayo representa una ___."
+
+explicacion: |
+  Al pasar de 100 a 85 en un problema de minimización, el valor de la función ha disminuido, lo que indica que la iteración ha sido exitosa en mejorar la solución.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "intermedio"
+  tags: ["criterio_parada", "convergencia"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "Si la diferencia absoluta entre la solución actual xᵢ y la solución de la iteración anterior xᵢ₋₁ es menor que una tolerancia ε predefinida, se considera que se ha cumplido el criterio de parada por convergencia."
+
+explicacion: |
+  El criterio de parada es fundamental para evitar ciclos infinitos. Cuando el cambio entre iteraciones es menor que la tolerancia, se asume que el algoritmo ha encontrado un punto estable.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "basico"
+  tags: ["secuencia", "pasos"]
+
+respuesta_orden: ["Definir objetivo", "Ejecutar ensayo", "Analizar error", "Ajustar parámetros"]
+tipo: "ordenar"
+opciones_explicitas: ["Definir objetivo", "Ejecutar ensayo", "Analizar error", "Ajustar parámetros"]
+
+enunciado: "Ordene los pasos lógicos para un ciclo de optimización industrial basado en ensayos experimentales:"
+
+explicacion: |
+  El proceso comienza con la definición de qué se quiere optimizar, luego se realiza el ensayo físico o numérico, se evalúa la desviación respecto al objetivo y, finalmente, se modifican los parámetros para la siguiente iteración.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "avanzado"
+  tags: ["calculo", "error"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[10.5, 10.0], [5.0, 4.8]]
+
+respuesta: abs(datos[idx][0] - datos[idx][1])
+
+enunciado: "En la iteración actual, el valor óptimo estimado es {datos[idx][0]} y el valor obtenido en el ensayo es {datos[idx][1]}. Calcule el error absoluto de la iteración (asumiendo error = |valor_estimado - valor_obtenido|)."
+tipo: completar
+tolerancia_abs: 0.001
+
+explicacion: |
+  El error absoluto mide la magnitud de la desviación. En este caso, el resultado es la diferencia absoluta entre el valor de referencia y el obtenido en el ensayo.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "intermedio"
+  tags: ["convergencia", "criterio_parada"]
+
+variables:
+  error_actual: uno_de([0.001, 0.0001])
+  error_previo: uno_de([0.005, 0.0005])
+
+respuesta: error_actual < error_previo
+tipo: vf
+enunciado: "En un proceso iterativo de optimización, si el error absoluto en la iteración {error_actual} es menor que el error de la iteración anterior {error_previo}, ¿se está cumpliendo un criterio de convergencia?"
+
+explicacion: |
+  Para que un método iterativo sea considerado convergente en una etapa dada, el error debe disminuir en cada paso sucesivo. Si el error aumenta, el método está divergiendo o está en una zona de inestabilidad.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "avanzado"
+  tags: ["errores", "precision"]
+
+respuesta: "truncamiento"
+
+tipo: mc
+opciones_explicitas: ["truncamiento", "redondeo", "redondeo_estocastico"]
+
+enunciado: "Si un algoritmo de optimización se detiene prematuramente porque se decidió cortar los decimales de una variable sin considerar el valor del siguiente dígito, ¿qué tipo de error se está introduciendo predominantemente?"
+
+explicacion: |
+  El error de truncamiento ocurre cuando se limitan los términos de una serie o los decimales de un número, mientras que el error de redondeo surge por la incapacidad de la máquina para representar números reales con precisión infinita.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "basico"
+  tags: ["flujo_trabajo", "iteracion"]
+
+respuesta_orden: ["Evaluar_resultado", "Comparar_con_objetivo", "Ajustar_parametros", "Repetir_ensayo"]
+tipo: ordenar
+
+opciones_explicitas: ["Evaluar_resultado", "Comparar_con_objetivo", "Ajustar_parametros", "Repetir_ensayo"]
+
+enunciado: "Ordene los pasos lógicos de un ciclo de optimización iterativa para mejorar una solución técnica:"
+
+explicacion: |
+  La optimización es un ciclo cerrado: primero se obtiene el resultado del ensayo, luego se compara con la meta (objetivo), se realizan los ajustes necesarios en los parámetros de entrada y finalmente se vuelve a ejecutar el ensayo.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "intermedio"
+  tags: ["convergencia", "tolerancia"]
+
+respuesta: "infinitas"
+
+tipo: completar
+respuestas_validas:
+  - "infinitas"
+
+enunciado: "Si un programador establece una tolerancia de error extremadamente pequeña (por debajo de la precisión de punto flotante de la máquina) para un problema con precisión de máquina limitada, el algoritmo podría entrar en un ciclo de iteraciones ___."
+
+explicacion: |
+  Si la tolerancia exigida es menor que la precisión que la computadora puede representar para ese número (debido al error de punto flotante), el error nunca llegará a ser menor que la tolerancia y el bucle será infinito.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "intermedio"
+  tags: ["gradiente", "optimizacion"]
+
+variables:
+  valor_f: uno_de([10.5, 12.2])
+  valor_f_prev: uno_de([11.2, 11.5])
+
+respuesta: valor_f < valor_f_prev
+
+tipo: vf
+enunciado: "En un problema de minimización, si el valor de la función objetivo en la iteración actual es de {valor_f} y en la anterior era de {valor_f_prev}, ¿se ha logrado una mejora en la solución?"
+
+explicacion: |
+  En problemas de optimización de mínimos, una "mejora" se define como una disminución en el valor de la función objetivo. Si el valor actual es menor que el anterior, el algoritmo se está acercando al mínimo.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "intermedio"
+  tags: ["iteracion", "convergencia", "algoritmos"]
+
+respuesta: "convergencia"
+tipo: "completar"
+respuestas_validas:
+  - "convergencia"
+
+enunciado: "Mientras que la iteración se refiere al proceso repetitivo de aplicar un algoritmo para refinar una solución, la ________ es el estado en el que la solución obtenida se aproxima a un valor límite o solución óptima."
+
+explicacion: |
+  La iteración es la acción de repetir el ciclo, mientras que la convergencia es la propiedad matemática de que dichas repeticiones se acercan cada vez más al objetivo.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "avanzado"
+  tags: ["gradiente", "busqueda", "optimizacion"]
+
+respuesta: "El descenso de gradiente utiliza información de la derivada para dirigir la búsqueda, mientras que la búsqueda exhaustiva prueba todos los puntos posibles."
+tipo: "mc"
+opciones_explicitas: ["El descenso de gradiente utiliza información de la derivada para dirigir la búsqueda, mientras que la búsqueda exhaustiva prueba todos los puntos posibles.", "El descenso de gradiente es un método de fuerza bruta, mientras que la búsqueda exhaustiva es un método basado en derivadas.", "Ambos métodos son idénticos en su forma de navegar el espacio de búsqueda.", "La búsqueda exhaustiva es siempre más eficiente que el descenso de gradiente en espacios continuos."]
+
+enunciado: "¿Cuál es la principal diferencia entre el descenso de gradiente y la búsqueda exhaustiva como métodos de optimización?"
+
+explicacion: |
+  El descenso de gradiente es un método iterativo que utiliza el gradiente (derivada) para encontrar la dirección de máximo descenso, optimizando el tiempo de cómputo frente a una búsqueda exhaustiva que es computacionalmente costosa.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "basico"
+  tags: ["criterio_parada", "iteracion"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "El criterio de parada es el proceso de realizar iteraciones sucesivas para mejorar una solución."
+
+explicacion: |
+  Falso. El criterio de parada es la condición que determina cuándo detener el proceso iterativo (por ejemplo, cuando el error es menor a una tolerancia), no es el proceso de iteración en sí mismo.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "intermedio"
+  tags: ["flujo", "iteracion", "optimización"]
+
+respuesta_orden: ["Evaluación de la función", "Cálculo del error/gradiente", "Actualización de la variable", "Verificación del criterio de parada"]
+tipo: "ordenar"
+opciones_explicitas: ["Evaluación de la función", "Cálculo del error/gradiente", "Actualización de la variable", "Verificación del criterio de parada"]
+
+enunciado: "Ordene los pasos lógicos de un ciclo de optimización iterativa estándar, desde el inicio de la evaluación hasta la decisión de continuar o detenerse."
+
+explicacion: |
+  Un ciclo típico comienza evaluando la función en el punto actual, calculando cuánto nos hemos alejado del óptimo (error/gradiente), moviendo la variable hacia la mejora y finalmente comprobando si ya estamos lo suficientemente cerca para parar.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "avanzado"
+  tags: ["condicion_inicial", "convergencia"]
+
+variables:
+  caso: uno_de([0, 1])
+  datos: [["Método de Newton-Raphson", "Muy sensible"], ["Método de Bisección", "Poco sensible"]]
+
+respuesta: datos[caso][1]
+tipo: "mc"
+opciones_explicitas: ["Muy sensible", "Poco sensible", "No depende de la condición inicial", "Depende únicamente del número de iteraciones"]
+
+enunciado: "En un proceso de optimización iterativa, el {datos[caso][0]} se caracteriza por ser {datos[caso][1]} a la elección del punto de partida inicial."
+
+explicacion: |
+  Los métodos de orden superior (como Newton-Raphson) suelen tener una convergencia cuadrática pero pueden divergir si el punto inicial es malo, a diferencia de métodos más robustos como la bisección.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "intermedio"
+  tags: ["procesos", "iteracion"]
+
+variables:
+  escenario: [[150, 0.85], [220, 0.70], [310, 0.60]]
+  idx: uno_de([0, 1, 2])
+  costo_actual: escenario[idx][0]
+  eficiencia_actual: escenario[idx][1]
+
+enunciado: "En un proceso de fundición, se ha obtenido una mezcla con un costo de ${costo_actual} USD y una eficiencia del {eficiencia_actual * 100}%. Si el objetivo es reducir el costo un 10% manteniendo la misma eficiencia, ¿cuál debería ser el nuevo costo objetivo?"
+
+pasos:
+  - "Calcular el 10% del costo actual: {costo_actual * 0.10}"
+  - "Restar ese valor al costo actual: {costo_actual - (costo_actual * 0.10)}"
+
+respuesta: costo_actual * 0.9
+tipo: completar
+tolerancia_abs: 0.01
+
+explicacion: |
+  En optimización de procesos, el ciclo iterativo busca reducir el costo objetivo. 
+  El cálculo fue: ${costo_actual} * 0.9 = ${redondear(costo_actual * 0.9, 2)}.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "avanzado"
+  tags: ["convergencia", "iteracion"]
+
+variables:
+  iteraciones: [[0.05, 0.02, 0.001], [0.12, 0.08, 0.05], [0.01, 0.005, 0.0001]]
+  idx: uno_de([0, 1, 2])
+  error_iter: iteraciones[idx]
+
+enunciado: "Se está ejecutando un método de Newton-Raphson para hallar la raíz de una función. El error absoluto en la iteración actual es {error_iter[2]}. Si el criterio de parada es un error menor a 0.001, ¿se ha cumplido la condición de convergencia?"
+
+respuesta: error_iter[2] < 0.001
+tipo: vf
+
+explicacion: |
+  El criterio de parada exige que el error absoluto sea estrictamente menor a 0.001. En este caso, el error de la iteración actual es {error_iter[2]}.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "basico"
+  tags: ["metodologia", "pasos"]
+
+enunciado: "Ordene los pasos lógicos para un ciclo de optimización de un sistema de control de temperatura:"
+
+opciones_explicitas: ["Medir la variable", "Comparar con el setpoint", "Actuar sobre el sistema", "Analizar desviación"]
+respuesta_orden: ["Medir la variable", "Comparar con el setpoint", "Analizar desviación", "Actuar sobre el sistema"]
+tipo: ordenar
+
+explicacion: |
+  La secuencia lógica es: 1. Medición, 2. Comparación, 3. Análisis del error/desviación y 4. Acción correctiva.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "intermedio"
+  tags: ["parametros", "ajuste"]
+
+enunciado: "Tras un ensayo de respuesta transitoria, se observa un sobreimpulso excesivo. ¿Cuál de los siguientes conjuntos de parámetros debería probarse en la siguiente iteración para reducir el sobreimpulso (asumiendo un control PID estándar)?"
+
+opciones_explicitas: ["Reducir K_p", "Aumentar K_p", "Eliminar K_d"]
+respuesta: "Reducir K_p"
+tipo: mc
+
+explicacion: |
+  Un exceso de sobreimpulso suele indicar una ganancia proporcional (K_p) demasiado alta. La iteración debe buscar un valor menor para estabilizar el sistema.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "optimizacion_e_iteracion"
+  nivel: "intermedio"
+  tags: ["error", "iteracion"]
+
+variables:
+  datos: [[10.5, 10.45], [25.2, 25.18], [5.0, 4.99]]
+  idx: uno_de([0, 1, 2])
+  val_actual: datos[idx][0]
+  val_previo: datos[idx][1]
+  diferencia: abs(val_actual - val_previo)
+
+enunciado: "En un proceso de optimización por descenso de gradiente, ¿cuál es la diferencia entre el valor de la función en la iteración actual ({val_actual}) y la anterior ({val_previo})?"
+
+respuesta: diferencia
+tipo: completar
+tolerancia_abs: 0.001
+
+explicacion: |
+  El error o cambio entre iteraciones se calcula como |{val_actual} - {val_previo}|. En este caso: {diferencia}.
+```
+
+## Sección: comunicar-la-solucion (25 preguntas)
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "basico"
+  tags: ["documentacion", "propósito"]
+
+respuesta: "transmitir información técnica de manera precisa y estandarizada para permitir la fabricación o implementación del diseño"
+tipo: completar
+respuestas_validas:
+  - "transmitir información técnica de manera precisa y estandarizada para permitir la fabricación o implementación del diseño"
+
+enunciado: "El objetivo principal de la documentación técnica en ingeniería es ___."
+
+explicacion: |
+  La documentación no es solo un registro, es el medio para que otros puedan replicar, entender y ejecutar la solución diseñada sin ambigüedades.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "basico"
+  tags: ["planos", "elementos"]
+
+opciones_explicitas: ["Cotas y tolerancias", "Esquema de colores artísticos", "Biografía del diseñador", "Presupuesto de marketing"]
+respuesta: "Cotas y tolerancias"
+tipo: mc
+
+enunciado: "En un plano técnico de ingeniería, ¿cuál de los siguientes elementos es fundamental para asegurar que la pieza sea fabricada con las dimensiones correctas?"
+
+explicacion: |
+  Las cotas definen las medidas y las tolerancias permiten el margen de error aceptable en la fabricación.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "basico"
+  tags: ["presentaciones", "comunicacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que una presentación de diseño para clientes debe contener exclusivamente detalles matemáticos complejos y fórmulas, omitiendo la visualización del producto final?"
+
+explicacion: |
+  Falso. Una presentación efectiva debe equilibrar el rigor técnico con la claridad visual, permitiendo que los stakeholders entiendan la funcionalidad y el valor de la solución.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "intermedio"
+  tags: ["informes", "estructura"]
+
+respuesta: "Resumen Ejecutivo"
+tipo: completar
+respuestas_validas:
+  - "Resumen Ejecutivo"
+
+enunciado: "En la estructura estándar de un informe técnico profesional, la sección que ofrece una visión general de todo el documento para una lectura rápida se denomina ___."
+
+explicacion: |
+  El Resumen Ejecutivo (o Abstract) es vital para que los tomadores de decisiones comprendan el alcance y los resultados sin leer todo el documento.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "intermedio"
+  tags: ["presentacion", "orden"]
+
+opciones_explicitas: ["Definición del problema", "Propuesta de solución", "Demostración/Pruebas", "Conclusión y próximos pasos"]
+respuesta_orden: ["Definición del problema", "Propuesta de solución", "Demostración/Pruebas", "Conclusión y próximos pasos"]
+tipo: ordenar
+
+enunciado: "Ordene lógicamente los pasos para realizar una presentación técnica efectiva ante un comité de revisión:"
+
+explicacion: |
+  Una presentación debe seguir una narrativa lógica: primero se establece el contexto (problema), luego la propuesta, se valida con evidencia (pruebas) y se cierra con la síntesis.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "intermedio"
+  tags: ["documentacion", "informes"]
+
+tipo: mc
+opciones_explicitas: ["El análisis de cargas y materiales (seguridad estructural)", "La gestión del presupuesto y los tiempos"]
+
+enunciado: "Al redactar el informe técnico final para un proyecto de infraestructura civil (por ejemplo, un puente), ¿en qué debe centrarse principalmente el enfoque del informe?"
+
+respuesta: "El análisis de cargas y materiales (seguridad estructural)"
+
+explicacion: |
+  Un informe técnico de ingeniería debe priorizar la integridad estructural y los datos técnicos del diseño para garantizar la seguridad y la viabilidad del proyecto.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "basico"
+  tags: ["planos", "dibujo_tecnico"]
+
+enunciado: "En un plano de ingeniería mecánica, la escala es la relación entre la dimensión del dibujo y la dimensión real. Si un componente mide 50mm en el plano y su tamaño real es 500mm, la escala representada es:"
+
+opciones_explicitas: ["1:1", "1:10", "10:1", "1:100"]
+respuesta: "1:10"
+tipo: mc
+
+explicacion: |
+  La escala se calcula como Dimensión Dibujo / Dimensión Real. En este caso: 50 / 500 = 1/10, lo que se expresa como 1:10.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "basico"
+  tags: ["documentacion", "normas"]
+
+enunciado: "¿Es correcto afirmar que la documentación de un diseño debe ser lo suficientemente clara para que un ingeniero externo pueda replicar el proceso de fabricación sin necesidad de consultas adicionales?"
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  La reproducibilidad es un pilar fundamental de la documentación técnica de ingeniería. Si el diseño no es replicable, la documentación ha fallado.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "intermedio"
+  tags: ["presentacion", "metodologia"]
+
+enunciado: "Ordene los pasos lógicos para realizar una presentación efectiva de una solución de ingeniería ante un cliente:"
+
+opciones_explicitas: ["Presentar el problema y necesidades", "Exponer la solución técnica y diseño", "Mostrar análisis de costos y beneficios", "Sesión de preguntas y conclusiones"]
+respuesta_orden: ["Presentar el problema y necesidades", "Exponer la solución técnica y diseño", "Mostrar análisis de costos y beneficios", "Sesión de preguntas y conclusiones"]
+tipo: ordenar
+
+explicacion: |
+  Una presentación profesional debe seguir un flujo narrativo: Contexto (Problema) -> Propuesta (Solución) -> Viabilidad (Costos) -> Cierre (Feedback).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "avanzado"
+  tags: ["planos", "estandarizacion"]
+
+variables:
+  tipo_plano: uno_de([0, 1])
+  datos: [["un plano eléctrico", "un plano eléctrico"], ["un plano de tuberías", "un plano de tuberías"]]
+
+enunciado: "En {datos[tipo_plano][0]}, el uso de símbolos estandarizados (como la norma ISO o ANSI) es _________ para evitar errores de interpretación en la obra."
+
+respuesta: "crítico"
+tipo: completar
+respuestas_validas:
+  - "crítico"
+  - "esencial"
+  - "fundamental"
+
+explicacion: |
+  La estandarización de la simbología asegura que el lenguaje técnico sea universal entre diseñadores, fabricantes y constructores.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar-la-solucion"
+  nivel: "basico"
+  tags: ["documentacion", "comunicacion"]
+
+tipo: mc
+opciones_explicitas: ["Registrar la historia del proyecto para fines legales", "Servir como una guía detallada para la implementación y mantenimiento", "Reemplazar la necesidad de reuniones con el cliente", "Ser un documento estético para marketing"]
+
+enunciado: "Un error común es creer que la documentación técnica tiene como fin principal la estética o el marketing. En realidad, el objetivo fundamental de un informe de diseño es ___."
+
+respuesta: "Servir como una guía detallada para la implementación y mantenimiento"
+
+explicacion: |
+  La documentación técnica debe ser funcional. Su propósito es permitir que otros ingenieros (o el mismo equipo en el futuro) puedan entender, replicar, mantener o reparar el sistema diseñado sin ambigüedades.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar-la-solucion"
+  nivel: "basico"
+  tags: ["veracidad", "errores"]
+
+tipo: vf
+
+enunciado: "Es verdadero que un plano técnico debe ser lo suficientemente claro para que un profesional capacitado pueda interpretar las dimensiones y especificaciones sin necesidad de consultar al diseñador original para cada detalle."
+
+respuesta: verdadero
+
+explicacion: |
+  Si un plano requiere consultas constantes al autor para ser interpretado, el diseño ha fallado en su objetivo de comunicación técnica. La autonomía del lector es un indicador de calidad.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar-la-solucion"
+  nivel: "intermedio"
+  tags: ["proceso", "presentacion"]
+
+tipo: ordenar
+opciones_explicitas: ["Recopilación de datos y cálculos", "Elaboración de planos y diagramas", "Redacción del informe técnico final", "Presentación de la solución al cliente"]
+
+respuesta_orden: ["Recopilación de datos y cálculos", "Elaboración de planos y diagramas", "Redacción del informe técnico final", "Presentación de la solución al cliente"]
+
+enunciado: "Para asegurar una comunicación efectiva y coherente de la solución, se debe seguir un orden lógico en la preparación de los entregables. Ordene los pasos:"
+
+explicacion: |
+  No se pueden dibujar planos sin haber validado los cálculos previos, y no se puede presentar una solución al cliente sin haber consolidado toda la información en un informe técnico que respalde los diagramas.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar-la-solucion"
+  nivel: "intermedio"
+  tags: ["presentacion", "errores"]
+
+variables:
+  escenario: uno_de([["Presentación con exceso de texto y tablas pequeñas", "Falta de claridad visual"], ["Presentación con gráficos abstractos sin ejes", "Falta de claridad visual"], ["Presentación con lenguaje excesivamente técnico para un cliente no experto", "Exceso de información técnica para la audiencia"]])
+
+tipo: mc
+opciones_explicitas: ["Falta de claridad visual", "Falta de rigor técnico", "Exceso de información técnica para la audiencia"]
+
+enunciado: "Un error crítico al presentar una solución ante un cliente que no es especialista en el área es: {escenario[0]}."
+
+respuesta: escenario[1]
+
+explicacion: |
+  La comunicación debe adaptarse al receptor. Un error común es asumir que el cliente entiende la terminología técnica profunda, lo que genera una desconexión entre la solución propuesta y la comprensión del cliente.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar-la-solucion"
+  nivel: "avanzado"
+  tags: ["informe", "estructura"]
+
+tipo: completar
+respuestas_validas:
+  - "Memoria de cálculo"
+
+enunciado: "En un informe de ingeniería profesional, el apartado que contiene el desarrollo matemático y la justificación de las decisiones de diseño se denomina ___."
+
+respuesta: "Memoria de cálculo"
+
+explicacion: |
+  La memoria de cálculo es el pilar que sostiene la validez de la solución. Sin ella, el diseño es solo una idea; con ella, es una solución técnica verificable y justificable.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "basico"
+  tags: ["documentacion", "comunicacion"]
+
+respuesta: "especificaciones_tecnicas"
+tipo: completar
+respuestas_validas:
+  - "especificaciones_tecnicas"
+
+enunciado: "Mientras que el manual de usuario está orientado al cliente final para la operación del producto, la documentación que detalla los parámetros de diseño, materiales y tolerancias para otros ingenieros se denomina ___."
+
+explicacion: |
+  Las especificaciones técnicas son documentos de ingeniería destinados a la fabricación y validación, a diferencia de los manuales de usuario que son guías de uso operativo.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "basico"
+  tags: ["planos", "dibujo_tecnico"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "¿El objetivo principal de un plano técnico es proporcionar una representación visual inequívoca que permita la fabricación exacta de una pieza, distinguiéndose de un boceto conceptual por su precisión y normalización?"
+
+explicacion: |
+  Un plano técnico sigue normas internacionales (como ISO o ANSI) para asegurar que cualquier fabricante pueda interpretar las dimensiones y tolerancias sin ambigüedad, a diferencia de un boceto.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "intermedio"
+  tags: ["presentacion", "soft_skills"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["presentar_ante_inversores", "enfoque_negocio_y_viabilidad"], ["presentar_ante_equipo_de_fabricacion", "enfoque_tecnico_y_materiales"]]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["enfoque_negocio_y_viabilidad", "enfoque_tecnico_y_materiales"]
+
+enunciado: "Si el objetivo de la presentación es para {escenarios[escenario_idx][0]}, el enfoque principal debe ser el {escenarios[escenario_idx][1]}, diferenciándose de una reunión de revisión de diseño técnica."
+
+explicacion: |
+  La audiencia determina el lenguaje y el contenido: los inversores buscan retorno de inversión y viabilidad, mientras que los técnicos buscan detalles de implementación.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "intermedio"
+  tags: ["informes", "orden"]
+
+respuesta_orden: ["memoria_descriptiva", "planos_detallados", "manual_de_mantenimiento"]
+tipo: ordenar
+
+opciones_explicitas: ["memoria_descriptiva", "planos_detallados", "manual_de_mantenimiento"]
+
+enunciado: "Ordene los documentos de un proyecto de ingeniería desde la fase de diseño conceptual hasta la fase de post-implementación:"
+
+explicacion: |
+  Primero se describe la solución (memoria), luego se detalla para producción (planos) y finalmente se entrega al usuario para su cuidado (manual).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "avanzado"
+  tags: ["informes", "memoria_descriptiva"]
+
+respuesta: "justificar_decisiones"
+tipo: completar
+respuestas_validas:
+  - "justificar_decisiones"
+
+enunciado: "A diferencia de un informe de resultados que describe qué sucedió, la memoria descriptiva de un diseño tiene como función primordial ___ de las soluciones adoptadas."
+
+explicacion: |
+  La memoria descriptiva no solo dice qué se hizo, sino el porqué (la lógica de diseño), permitiendo entender la trazabilidad de las decisiones técnicas frente a alternativas.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "basico"
+  tags: ["planos", "documentacion"]
+
+variables:
+  escenario: uno_de([["Un plano de conjunto de una pieza mecánica", "ISO"], ["Un esquema de un circuito electrónico", "IEC"], ["Un diagrama de flujo de un proceso químico", "ANSI"]])
+
+enunciado: "Para asegurar la interoperabilidad internacional, un ingeniero debe seguir la normativa {escenario[1]} al presentar el diseño de {escenario[0]}."
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["ISO", "IEC", "ANSI", "DIN"]
+
+explicacion: |
+  La normativa seleccionada para {escenario[0]} es {escenario[1]}. Es fundamental utilizar el estándar correcto para evitar errores de fabricación o interpretación en proyectos globales.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "intermedio"
+  tags: ["informes", "veracidad"]
+
+variables:
+  textos: ["Un informe técnico que incluye datos experimentales sin citar la fuente de los instrumentos", "Un manual de usuario que especifica las tolerancias de montaje según el fabricante"]
+  valores: [falso, verdadero]
+  idx: uno_de([0, 1])
+
+enunciado: "En el contexto de la documentación de ingeniería, ¿es correcto afirmar que: {textos[idx]}?"
+
+respuesta: valores[idx]
+tipo: vf
+explicacion: |
+  La veracidad y la trazabilidad son pilares de la ingeniería: un dato experimental sin citar la fuente del instrumento no es trazable (incorrecto), mientras que un manual que especifica tolerancias según el fabricante sí lo es (correcto).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "intermedio"
+  tags: ["informes", "estructura"]
+
+enunciado: "Ordene los elementos de un informe técnico de diseño final de la forma más lógica y profesional:"
+
+pasos:
+  - "Resumen ejecutivo"
+  - "Cuerpo del diseño (cálculos y especificaciones)"
+  - "Conclusiones y recomendaciones"
+  - "Anexos (planos y hojas de datos)"
+
+opciones_explicitas: ["Resumen ejecutivo", "Cuerpo del diseño (cálculos y especificaciones)", "Conclusiones y recomendaciones", "Anexos (planos y hojas de datos)"]
+respuesta_orden: ["Resumen ejecutivo", "Cuerpo del diseño (cálculos y especificaciones)", "Conclusiones y recomendaciones", "Anexos (planos y hojas de datos)"]
+tipo: ordenar
+
+explicacion: |
+  Un informe profesional debe fluir desde una visión general (resumen) hacia el detalle técnico (cuerpo), cerrar con el juicio del ingeniero (conclusiones) y terminar con el soporte documental (anexos).
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "avanzado"
+  tags: ["presentaciones", "comunicacion"]
+
+variables:
+  presentacion: uno_de([["Presentación ante un comité de inversión", "costos"], ["Presentación ante un equipo de mantenimiento", "operación"], ["Presentación ante un equipo de fabricación", "tolerancias"]])
+
+enunciado: "Al realizar una presentación para {presentacion[0]}, el enfoque principal de la comunicación debe centrarse en {presentacion[1]}."
+
+respuesta: presentacion[1]
+tipo: completar
+respuestas_validas:
+  - "costos"
+  - "operación"
+  - "tolerancias"
+
+explicacion: |
+  El enfoque de la comunicación técnica debe adaptarse a la audiencia. Para {presentacion[0]}, lo crítico es discutir {presentacion[1]}.
+```
+
+```
+metadata:
+  materia: "ingenieria"
+  tema: "comunicar_la_solucion"
+  nivel: "basico"
+  tags: ["documentacion", "control_de_revisiones"]
+
+variables:
+  textos: ["El plano muestra la versión 'Rev. 02' pero el índice del informe dice 'Rev. 01', y aun así se considera consistente", "El plano y el informe coinciden en la fecha y el número de revisión, por lo que se consideran consistentes"]
+  valores: [falso, verdadero]
+  idx: uno_de([0, 1])
+
+enunciado: "En un proceso de auditoría de diseño, se detecta que: {textos[idx]}. ¿Es correcta esta afirmación?"
+
+respuesta: valores[idx]
+tipo: vf
+explicacion: |
+  La consistencia entre planos e informes es vital. Si hay discrepancias en la versión o revisión, la documentación se considera no válida, aunque describa el mismo diseño.
+```
+

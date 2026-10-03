@@ -1,2577 +1,1491 @@
 # Examen jefe — [PENDIENTE #750]
 
-> Logro #750. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **180 preguntas totales** en 7/7 secciones.
+> Logro #750. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **178 preguntas totales** en 7/7 secciones.
 
 ---
 
-## Sección: tension-diferencia-potencial (25 preguntas)
+## Sección: generador-motor-transformador (25 preguntas)
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tension_electrica"
+  tema: "generador_motor_transformador"
   nivel: "basico"
-  tags: ["voltaje", "potencial", "definicion"]
+  tags: ["electromagnetismo", "motor"]
 
-tipo: mc
-opciones_explicitas: ["La diferencia de energía potencial por unidad de carga", "La velocidad de los electrones en un cable", "La resistencia que ofrece un material al paso de corriente", "La cantidad de electrones en un conductor"]
-
-respuesta: "La diferencia de energía potencial por unidad de carga"
-
-enunciado: "La diferencia de potencial eléctrico entre dos puntos se define físicamente como ___."
-
-explicacion: |
-  La diferencia de potencial (V) es el trabajo realizado por unidad de carga para mover una carga de prueba desde un punto a otro.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tension_electrica"
-  nivel: "basico"
-  tags: ["unidades", "voltios"]
-
+respuesta: "convertir energía eléctrica en energía mecánica"
 tipo: completar
 respuestas_validas:
-  - "Voltio"
-  - "Volt"
+  - "convertir energía eléctrica en energía mecánica"
+  - "transformar electricidad en movimiento"
 
-respuesta: "Voltio"
-
-enunciado: "La unidad de medida de la diferencia de potencial en el Sistema Internacional es el ___."
+enunciado: "La función principal de un motor eléctrico es ___."
 
 explicacion: |
-  El Voltio (V) es la unidad estándar para medir la tensión o diferencia de potencial eléctrico.
+  Un motor eléctrico utiliza la fuerza de Lorentz (interacción entre un campo magnético y una corriente) para producir movimiento a partir de electricidad.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tension_electrica"
-  nivel: "intermedio"
-  tags: ["trabajo", "carga", "formula"]
-
-variables:
-  escenario: uno_de([[10, 20], [50, 100]])
-
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Se realiza un trabajo de {escenario[0]} Joules para mover una carga de {escenario[1]} Coulombs entre dos puntos. ¿Cuál es la diferencia de potencial en Voltios?"
-
-pasos:
-  - "Identificar el trabajo (W) y la carga (Q)."
-  - "Aplicar la fórmula V = W / Q."
-
-respuesta: escenario[0] / escenario[1]
-
-explicacion: |
-  Usando la fórmula V = W/Q: {escenario[0]}J / {escenario[1]}C = {escenario[0]/escenario[1]} V.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tension_electrica"
+  tema: "generador_motor_transformador"
   nivel: "basico"
-  tags: ["movimiento", "cargas"]
+  tags: ["transformador", "inducion"]
 
-tipo: vf
-
-enunciado: "Para que exista una corriente eléctrica en un conductor, debe existir una diferencia de potencial entre sus extremos."
-
-respuesta: verdadero
-
-explicacion: |
-  Verdadero. La diferencia de potencial es la "fuerza" o presión que impulsa a las cargas a moverse a través del circuito.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tension_electrica"
-  nivel: "basico"
-  tags: ["conceptos", "vocabulario"]
-
+opciones_explicitas: ["Aumenta o disminuye el voltaje", "Convierte corriente continua en alterna", "Produce movimiento mecánico"]
+respuesta: "Aumenta o disminuye el voltaje"
 tipo: mc
-opciones_explicitas: ["Voltaje", "Resistencia", "Intensidad"]
 
-respuesta: "Voltaje"
-
-enunciado: "En el lenguaje cotidiano, el término ___ se utiliza frecuentemente como sinónimo de diferencia de potencial eléctrica."
+enunciado: "¿Cuál es la función principal de un transformador ideal?"
 
 explicacion: |
-  Aunque técnicamente son conceptos distintos, en el uso común se emplea 'voltaje' para referirse a la tensión eléctrica.
+  El transformador opera mediante inducción electromagnética para cambiar los niveles de tensión (voltaje) y corriente, manteniendo la frecuencia constante.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tension_electrica"
+  tema: "generador_motor_transformador"
   nivel: "basico"
-  tags: ["voltaje", "potencial", "teoria"]
-
-respuesta: "V"
-tipo: mc
-opciones_explicitas: ["A", "V", "W", "Ω"]
-
-enunciado: "La unidad de medida de la diferencia de potencial eléctrico en el Sistema Internacional es el ___."
-
-explicacion: |
-  La diferencia de potencial (tensión) se mide en Voltios (V), que representa la energía por unidad de carga.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tension_electrica"
-  nivel: "intermedio"
-  tags: ["carga", "energia", "calculo"]
-
-variables:
-  voltajes: [12, 24, 36]
-  escenario: uno_de(voltajes)
-  valor_carga: 3
-  resultado_energia: valor_carga * escenario
-
-respuesta: resultado_energia
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Si una carga de {valor_carga} C se desplaza entre dos puntos con una diferencia de potencial de {escenario} V, ¿cuánta energía eléctrica (en Joules) realiza el campo sobre la carga?"
-
-pasos:
-  - "Identificar la fórmula: Trabajo (Energía) = Carga (Q) × Diferencia de Potencial (V)"
-  - "Sustituir valores: W = {valor_carga} C × {escenario} V"
-  - "Calcular el producto: {valor_carga} * {escenario} = {resultado_energia} J"
-
-explicacion: |
-  La energía (W) es el producto de la carga (Q) por el potencial (V). En este caso, {valor_carga} * {escenario} = {resultado_energia} Joules.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tension_electrica"
-  nivel: "basico"
-  tags: ["polaridad", "teoria"]
+  tags: ["generador", "inducion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Si una carga positiva se mueve de un punto A (10V) a un punto B (25V), el campo eléctrico realiza un trabajo positivo sobre la carga?"
+enunciado: "Un generador eléctrico transforma energía mecánica en energía eléctrica mediante la inducción electromagnética."
 
 explicacion: |
-  Verdadero. Al moverse de un potencial menor a uno mayor, la carga gana energía potencial, lo que implica que el campo realiza un trabajo positivo sobre ella.
+  Correcto. El movimiento de un conductor dentro de un campo magnético (o viceversa) induce una fuerza electromotriz (FEM) según la Ley de Faraday.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tension_electrica"
+  tema: "generador_motor_transformador"
   nivel: "intermedio"
-  tags: ["calculo", "potencial"]
+  tags: ["componentes", "motor"]
+
+opciones_explicitas: ["Estator y Rotor", "Primario y Secundario", "Bobina y Núcleo"]
+respuesta: "Estator y Rotor"
+tipo: mc
+
+enunciado: "En un motor eléctrico, las partes fijas y móviles se denominan respectivamente:"
+
+explicacion: |
+  El estator es la parte que permanece inmóvil, mientras que el rotor es la parte que gira para producir el trabajo mecánico.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "basico"
+  tags: ["energia", "flujo"]
 
 variables:
-  puntos: [[10, 50], [5, 20], [100, 10]]
   idx: uno_de([0, 1, 2])
-  v_a: puntos[idx][0]
-  v_b: puntos[idx][1]
-  v_diff: abs(v_a - v_b)
+  escenario: [["Generador", "Mecánica -> Eléctrica"], ["Motor", "Eléctrica -> Mecánica"], ["Transformador", "Eléctrica -> Eléctrica"]]
 
-respuesta: v_diff
-tipo: completar
-tolerancia_abs: 0.01
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["Mecánica -> Eléctrica", "Eléctrica -> Mecánica", "Eléctrica -> Eléctrica"]
 
-enunciado: "Se tienen dos puntos en un campo eléctrico con potenciales de {v_a} V y {v_b} V respectivamente. ¿Cuál es la magnitud de la diferencia de potencial entre ambos puntos?"
-
-pasos:
-  - "Restar los valores de potencial: |{v_a} - {v_b}|"
-  - "Calcular la diferencia absoluta: {v_diff} V"
+enunciado: "Si estamos ante un {escenario[idx][0]}, el flujo de energía es: ___."
 
 explicacion: |
-  La diferencia de potencial es la resta de los potenciales: |{v_a} - {v_b}| = {v_diff} V.
+  Cada dispositivo tiene una conversión de energía distinta: el generador produce electricidad, el motor la consume para moverse, y el transformador solo cambia sus niveles.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tension_electrica"
+  tema: "generador_electrico"
+  nivel: "intermedio"
+  tags: ["ley_de_faraday", "generador"]
+
+variables:
+  N: 150
+  phi: 0.02
+  dt: 0.05
+  em: N * phi / dt
+
+respuesta: em
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un generador tiene una bobina con {N} espiras. El flujo magnético a través de cada espira cambia de 0 a {phi} Wb en un intervalo de tiempo de {dt} segundos. ¿Cuál es la magnitud de la fuerza electromotriz (FEM) inducida?"
+
+pasos:
+  - "Calcular el cambio de flujo total: ΔΦ_total = N * Δφ"
+  - "Aplicar la Ley de Faraday: ε = ΔΦ_total / Δt"
+
+explicacion: |
+  La Ley de Faraday establece que la FEM inducida es igual a la tasa de cambio del flujo magnético.
+  ΔΦ = 150 * 0.02 = 3 Wb.
+  ε = 3 / 0.05 = 60 V.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "transformador"
+  nivel: "basico"
+  tags: ["transformador", "relacion_de_vueltas"]
+
+variables:
+  Vp: 220
+  Vs: 11
+  Np: 1000
+  Ns: 50
+
+respuesta: "11"
+tipo: mc
+opciones_explicitas: ["11", "110", "2200", "55"]
+
+enunciado: "En un transformador ideal, la relación entre el voltaje primario (Vp) y el secundario (Vs) es igual a la relación entre el número de espiras del primario (Np) y el secundario (Ns). Si Vp = {Vp} V y Np = {Np} espiras, y Ns = {Ns} espiras, ¿cuál es el voltaje de salida Vs?"
+
+explicacion: |
+  Usamos la relación: Vs = Vp * (Ns / Np)
+  Vs = 220 * (50 / 1000) = 220 * 0.05 = 11 V.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "motor_electrico"
+  nivel: "intermedio"
+  tags: ["motor", "torque", "fuerza_lorentz"]
+
+variables:
+  B: 0.5
+  L: 0.2
+  I: 10
+  tau: B * L * I
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un motor eléctrico, la fuerza que actúa sobre un conductor de longitud {L} metros, inmerso en un campo magnético uniforme de {B} Teslas con una corriente de {I} Amperios, genera un torque si la fuerza es perpendicular al eje de rotación. ¿Es la fuerza magnética resultante sobre el conductor de 1.0 N?"
+
+explicacion: |
+  La fuerza magnética es F = I * L * B * sin(θ).
+  Asumiendo perpendicularidad (sin(90) = 1):
+  F = 10 * 0.2 * 0.5 = 1.0 N.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "motor_electrico"
+  nivel: "basico"
+  tags: ["componentes", "motor"]
+
+respuesta_orden: ["Escobillas", "Colector", "Armadura"]
+tipo: ordenar
+
+opciones_explicitas: ["Escobillas", "Colector", "Armadura"]
+
+enunciado: "Ordene los componentes de un motor de corriente continua (DC) desde la parte que recibe la corriente de la fuente externa hasta la parte que interactúa directamente con el campo magnético para generar movimiento."
+
+explicacion: |
+  El flujo de energía/movimiento sigue este orden:
+  1. Escobillas (reciben la corriente).
+  2. Colector (conecta las escobillas con las espiras).
+  3. Armadura (las espiras donde ocurre la fuerza).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "transformador"
   nivel: "avanzado"
-  tags: ["trabajo", "carga", "completo"]
+  tags: ["potencia", "transformador"]
 
 variables:
-  datos: [[2, 10, 20], [5, 4, 20], [10, 2, 20]]
-  idx: uno_de([0, 1, 2])
-  q: datos[idx][0]
-  v: datos[idx][1]
-  w: datos[idx][2]
+  Vp: 120
+  Ip: 5
+  Ns: 12
+  Is: 50
 
-respuesta: v
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Si una carga de {q} C requiere un trabajo de {w} J para ser trasladada entre dos puntos, la diferencia de potencial entre dichos puntos es de ___ V."
-
-explicacion: |
-  Usando la fórmula V = W / Q, tenemos {w} / {q} = {v} V.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tension_electrica"
-  nivel: "basico"
-  tags: ["voltaje", "concepto"]
-
-respuesta: "trabajo"
+respuesta: "50"
 tipo: completar
 respuestas_validas:
-  - "trabajo"
+  - "50"
 
-enunciado: "La diferencia de potencial eléctrico entre dos puntos se define como el ___ realizado por unidad de carga para mover una carga desde un punto a otro."
+enunciado: "En un transformador ideal, la potencia de entrada es igual a la potencia de salida (Pin = Pout). Si el voltaje primario es de {Vp} V con una corriente de {Ip} A, y el voltaje secundario es de {Ns} V, ¿cuál es el valor de la corriente secundaria Is en Amperios?"
 
 explicacion: |
-  La diferencia de potencial (voltaje) es la energía o trabajo por unidad de carga necesaria para mover una carga entre dos puntos del campo eléctrico.
+  P_primaria = Vp * Ip = 120 * 5 = 600 W.
+  Como es ideal, P_secundaria = 600 W.
+  Is = P_secundaria / Vs = 600 / 12 = 50 A.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tension_electrica"
+  tema: "generador_motor_transformador"
+  nivel: "basico"
+  tags: ["electromagnetismo", "inducido"]
+
+enunciado: "Para que un generador eléctrico produzca corriente continua o alterna, es indispensable que exista un ___ campo magnético que cambie respecto a las bobinas para inducir una fuerza electromotriz."
+
+respuestas_validas:
+  - "variación"
+  - "cambio"
+  - "movimiento"
+tipo: completar
+
+explicacion: |
+  Para que ocurra la inducción electromagnética (Ley de Faraday), no basta con tener un campo magnético constante; el flujo magnético debe variar en el tiempo o el conductor debe moverse a través del campo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
   nivel: "intermedio"
-  tags: ["corriente", "voltaje", "analogia"]
+  tags: ["transformador", "corriente_continua"]
+
+variables:
+  es_ac: uno_de([verdadero, falso])
+
+enunciado: "Un transformador ideal conectado a una fuente de corriente continua (DC) con voltaje constante, ¿podrá transferir energía de forma eficiente al secundario?"
+
+opciones_explicitas: ["Si, funciona igual que en AC", "No, porque el flujo magnético no varía"]
+respuesta: "No, porque el flujo magnético no varía"
+tipo: mc
+
+explicacion: |
+  Los transformadores funcionan basados en la variación del flujo magnético (Ley de Faraday). En CC, el flujo es constante, por lo que no se induce voltaje en la bobina secundaria.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "basico"
+  tags: ["motor_electrico", "energia"]
+
+enunciado: "En un motor eléctrico, la transformación de energía principal es de energía ___ a energía ___."
+
+opciones_explicitas: ["eléctrica a mecánica", "mecánica a eléctrica", "química a eléctrica"]
+respuesta: "eléctrica a mecánica"
+tipo: mc
+
+explicacion: |
+  El motor consume energía eléctrica para producir movimiento (trabajo mecánico), mientras que el generador hace lo opuesto.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "intermedio"
+  tags: ["motor", "componentes"]
+
+enunciado: "En un motor de corriente continua, ¿cuál es el componente encargado de conmutar la corriente para mantener el movimiento rotatorio?"
+
+opciones_explicitas: ["El conmutador (colector)", "El núcleo de hierro", "El inducido"]
+respuesta: "El conmutador (colector)"
+tipo: mc
+
+explicacion: |
+  El conmutador (o colector) invierte la dirección de la corriente en las bobinas del inducido en el momento justo para que el torque sea siempre en la misma dirección.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "intermedio"
+  tags: ["secuencia", "generador"]
+
+enunciado: "Ordena los pasos que ocurren en una central hidroeléctrica para obtener electricidad en un hogar:"
+
+opciones_explicitas: ["Energía cinética del agua", "Rotación del eje del generador", "Inducción de corriente eléctrica", "Distribución por líneas de alta tensión"]
+respuesta_orden: ["Energía cinética del agua", "Rotación del eje del generador", "Inducción de corriente eléctrica", "Distribución por líneas de alta tensión"]
+tipo: ordenar
+
+explicacion: |
+  La secuencia lógica es: la caída del agua mueve la turbina (energía cinética), la turbina mueve el generador (energía mecánica), el generador induce electricidad (energía eléctrica) y esta se transporta.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "basico"
+  tags: ["electromagnetismo", "motor"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un motor eléctrico, la energía eléctrica se transforma en energía mecánica."
+
+explicacion: |
+  Es verdadero. En un motor, la energía eléctrica se transforma en energía mecánica mediante la fuerza de Lorentz sobre los conductores con corriente dentro de un campo magnético.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "basico"
+  tags: ["generador", "energia"]
+
+variables:
+  escenario: ["mecánica", "eléctrica"]
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["mecánica", "eléctrica"]
+
+enunciado: "Un generador eléctrico realiza el proceso inverso a un motor: transforma la energía {escenario[0]} en energía {escenario[1]}."
+
+explicacion: |
+  El generador utiliza movimiento (energía mecánica) para inducir una corriente eléctrica (energía eléctrica) mediante la ley de Faraday.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "intermedio"
+  tags: ["transformador", "inducion"]
+
+respuesta: "campo magnético variable"
+tipo: completar
+respuestas_validas:
+  - "campo magnético variable"
+  - "corriente continua"
+  - "resistencia"
+
+enunciado: "A diferencia de un motor o generador que requiere movimiento físico, el transformador funciona mediante la variación de un ___ entre dos bobinas."
+
+explicacion: |
+  El transformador opera por inducción electromagnética, pero requiere que el flujo magnético sea variable (corriente alterna) para inducir voltaje en el secundario.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "intermedio"
+  tags: ["corriente_alterna", "transformador"]
+
+respuesta: "alterna"
+tipo: mc
+opciones_explicitas: ["continua", "alterna", "estática"]
+
+enunciado: "Un transformador solo puede funcionar con corriente de tipo ___ para poder inducir voltaje en el devanado secundario."
+
+explicacion: |
+  El transformador requiere un flujo magnético variable, lo cual solo se logra con corriente alterna (AC). La corriente continua (DC) produce un campo constante que no induce voltaje en el secundario.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "avanzado"
+  tags: ["comparacion", "energia"]
+
+variables:
+  datos: [["Generador", "Mecánica -> Eléctrica"], ["Motor", "Eléctrica -> Mecánica"], ["Transformador", "Eléctrica -> Eléctrica"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Mecánica -> Eléctrica", "Eléctrica -> Mecánica", "Eléctrica -> Eléctrica"]
+
+enunciado: "Considerando el dispositivo seleccionado: {datos[idx][0]}, su función principal es la conversión de: ___"
+
+explicacion: |
+  Cada dispositivo tiene una dirección de conversión de energía específica: el generador produce electricidad, el motor la consume para producir movimiento, y el transformador solo cambia sus niveles de tensión.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "basico"
+  tags: ["electromagnetismo", "motor"]
+
+variables:
+  escenario_idx: uno_de([0,1])
+  dispositivos: ["un ventilador de techo", "un taladro de mano"]
+  entrada_energia: "energía eléctrica"
+
+respuesta: entrada_energia
+tipo: mc
+opciones_explicitas: ["energía eléctrica", "energía mecánica", "energía térmica"]
+
+enunciado: "Un motor eléctrico, como el de {dispositivos[escenario_idx]}, funciona transformando {entrada_energia} en energía mecánica."
+
+explicacion: |
+  El motor eléctrico consume energía eléctrica para producir movimiento (energía mecánica).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "intermedio"
+  tags: ["transformador", "voltaje"]
+
+variables:
+  caso_idx: uno_de([0,1])
+  info: [["bajar el voltaje", "aumentar el voltaje"], ["bajar el voltaje", "aumentar el voltaje"]]
+
+respuesta: info[caso_idx][0]
+tipo: mc
+opciones_explicitas: ["aumentar el voltaje", "bajar el voltaje", "cambiar la frecuencia"]
+
+enunciado: "Un transformador conectado a una red de alta tensión se utiliza principalmente para {info[caso_idx][0]} antes de distribuirla a las casas."
+
+explicacion: |
+  Los transformadores permiten elevar o disminuir el voltaje para optimizar la transmisión y el uso doméstico.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "avanzado"
+  tags: ["induccion", "generador"]
+
+variables:
+  tipo_gen: 0
+  principio: [["movimiento mecánico", "energía eléctrica"]]
+
+respuesta: principio[tipo_gen][1]
+tipo: completar
+enunciado: "En un generador eléctrico, la conversión de {principio[tipo_gen][0]} en {principio[tipo_gen][1]} se basa en la inducción electromagnética."
+
+explicacion: |
+  El generador convierte energía mecánica (movimiento) en energía eléctrica mediante un campo magnético variable.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "basico"
+  tags: ["componentes", "transformador"]
+
+respuesta_orden: ["Bobina primaria", "Núcleo ferromagnético", "Bobina secundaria"]
+tipo: ordenar
+
+opciones_explicitas: ["Núcleo ferromagnético", "Bobina primaria", "Bobina secundaria"]
+
+enunciado: "Ordena los componentes esenciales de un transformador ideal desde el que recibe la energía hasta el que la entrega, pasando por el medio de transmisión:"
+
+explicacion: |
+  La energía entra por la bobina primaria, se transmite a través del núcleo ferromagnético y sale por la bobina secundaria.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "generador_motor_transformador"
+  nivel: "intermedio"
+  tags: ["flujo_energia"]
+
+variables:
+  tipo_dispositivo: uno_de([0,1])
+  flujo: [["Eléctrica $\\rightarrow$ Mecánica", "Mecánica $\\rightarrow$ Eléctrica"], ["Eléctrica $\\rightarrow$ Mecánica", "Mecánica $\\rightarrow$ Eléctrica"]]
+
+respuesta: flujo[tipo_dispositivo][0]
+tipo: completar
+respuestas_validas:
+  - "Eléctrica $\\rightarrow$ Mecánica"
+  - "Mecánica $\\rightarrow$ Eléctrica"
+
+enunciado: "La dirección del flujo de energía en un motor es ___."
+
+explicacion: |
+  El motor toma electricidad y la convierte en movimiento. El generador hace lo opuesto.
+```
+
+## Sección: choques-elasticos-inelasticos (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "basico"
+  tags: ["conservacion", "momento", "energia"]
+
+respuesta: "momento"
+tipo: completar
+respuestas_validas:
+  - "momento"
+  - "cantidad_de_movimiento"
+
+enunciado: "En cualquier tipo de choque (elástico o inelástico), la _______ lineal del sistema se conserva siempre, siempre que no actúen fuerzas externas netas."
+
+explicacion: |
+  La cantidad de movimiento (o momento lineal) se conserva en todos los choques si la suma de fuerzas externas es cero.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "basico"
+  tags: ["energia_cinetica", "elastico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un choque perfectamente elástico, la energía cinética total del sistema antes del impacto es igual a la energía cinética total después del impacto."
+
+explicacion: |
+  Por definición, un choque es elástico si no hay pérdida de energía cinética (la energía se transforma en otras formas, pero la suma de las cinéticas se mantiene).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "basico"
+  tags: ["clasificacion", "choque_inelastico"]
+
+respuesta: "Inelástico"
+tipo: mc
+opciones_explicitas: ["Elástico", "Inelástico"]
+
+enunciado: "Si tras un choque dos objetos quedan pegados y se mueven con la misma velocidad, ¿qué tipo de choque ha ocurrido según la descripción del escenario?"
+
+pasos:
+  - "Identificar si hubo deformación permanente o pérdida de energía."
+  - "Observar si los objetos permanecen unidos."
+
+explicacion: |
+  Cuando los objetos quedan unidos tras el impacto, el choque es perfectamente inelástico, ya que se ha perdido la mayor parte de la energía cinética en la deformación.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "intermedio"
+  tags: ["energia", "inelastico"]
 
 respuesta: falso
 tipo: vf
-enunciado: "Si una batería tiene una diferencia de potencial (voltaje) de 12V, esto significa que siempre hay una corriente fluyendo a través de cualquier cable conectado a ella, incluso si el circuito está abierto."
+
+enunciado: "En un choque perfectamente inelástico, la energía cinética del sistema se conserva íntegramente."
 
 explicacion: |
-  Falso. El voltaje es la "presión" o potencial disponible, pero la corriente requiere un camino cerrado (circuito) para fluir. En un circuito abierto, el voltaje existe pero la corriente es cero.
+  Falso. En los choques inelásticos, parte de la energía cinética se transforma en calor, sonido o energía de deformación.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tension_electrica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "basico"
+  tags: ["vocabulario"]
+
+respuesta: "Inelástico"
+tipo: mc
+opciones_explicitas: ["Elástico", "Inelástico", "Superelástico"]
+
+enunciado: "Se denomina choque _______ aquel en el cual la energía cinética del sistema no se conserva, transformándose en otras formas de energía."
+
+explicacion: |
+  El término correcto es choque inelástico. En este proceso, la energía cinética se disipa.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "basico"
+  tags: ["conservacion", "energia", "impulso"]
+
+tipo: vf
+respuesta: falso
+enunciado: "En un choque perfectamente inelástico, la energía cinética total del sistema se conserva."
+
+explicacion: |
+  En un choque inelástico, la energía cinética no se conserva porque parte de ella se transforma en calor o deformación. Lo que siempre se conserva es el momento lineal (cantidad de movimiento).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: "Elástico"
+tipo: mc
+opciones_explicitas: ["Elástico", "Inelástico"]
+
+enunciado: "Si tras una colisión la energía cinética total es igual a la energía cinética inicial, el choque es: ___"
+
+explicacion: |
+  Si la energía cinética se mantiene constante (sin pérdidas por calor o deformación), el choque es clasificado como elástico.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
   nivel: "intermedio"
-  tags: ["calculo", "potencial"]
+  tags: ["calculo", "momento_lineal"]
 
 variables:
-  escenario: uno_de([[10.0, 5.0], [20.0, 10.0], [5.0, 2.0]])
+  m1: uno_de([2.0, 5.0])
+  v1: uno_de([10.0, 4.0])
+  m2: uno_de([3.0, 2.0])
+  v2: 0.0
 
-respuesta: escenario[0] / escenario[1]
+respuesta: m1 * v1 + m2 * v2
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Se requiere realizar un trabajo de {escenario[0]} Joules para mover una carga de {escenario[1]} Coulombs entre dos puntos de un conductor. ¿Cuál es la diferencia de potencial en Voltios?"
+enunciado: "Un objeto de masa {m1} kg se mueve a {v1} m/s y colisiona con otro objeto de masa {m2} kg que está en reposo ({v2} m/s). ¿Cuál es el momento lineal total del sistema antes del choque?"
 
 pasos:
-  - "Calcular el voltaje usando la fórmula: V = W / q"
+  - "Calcular el momento del primer objeto: p1 = m1 * v1"
+  - "Calcular el momento del segundo objeto: p2 = m2 * v2"
+  - "Sumar ambos momentos para obtener el momento total del sistema."
 
 explicacion: |
-  Usando la fórmula V = W/q: {escenario[0]} J / {escenario[1]} C = {escenario[0]/escenario[1]} V.
+  El momento lineal total es la suma de los momentos individuales: p_total = {m1}*{v1} + {m2}*{v2} = {m1 * v1 + m2 * v2} kg·m/s.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tension_electrica"
-  nivel: "basico"
-  tags: ["voltaje", "medicion"]
-
-respuesta: "en_paralelo"
-tipo: mc
-opciones_explicitas: ["en_serie", "en_paralelo", "en_circuito_abierto"]
-
-enunciado: "Para medir correctamente la diferencia de potencial entre dos puntos de un componente, un voltímetro debe conectarse ___ al componente."
-
-explicacion: |
-  El voltímetro tiene una resistencia interna muy alta y debe conectarse en paralelo para medir la caída de potencial sin desviar la corriente del circuito principal.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tension_electrica"
-  nivel: "basico"
-  tags: ["ordenar", "conceptos"]
-
-respuesta_orden: ["Fuente de potencial", "Conductor", "Carga/Resistencia"]
-tipo: ordenar
-opciones_explicitas: ["Carga/Resistencia", "Fuente de potencial", "Conductor"]
-
-enunciado: "Ordena los elementos de un sistema de flujo de carga desde que se genera el potencial hasta que se consume la energía:"
-
-explicacion: |
-  El flujo comienza en la fuente (diferencia de potencial), viaja a través de los conductores y finalmente entrega energía al componente o carga.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tension_electrica"
+  tema: "choques_elasticos_inelasticos"
   nivel: "intermedio"
-  tags: ["potencial", "campo_electrico"]
+  tags: ["metodologia"]
 
-respuesta: "campo_electrico"
-tipo: mc
-opciones_explicitas: ["potencial_electrico", "campo_electrico", "corriente_electrica", "resistencia"]
+opciones_explicitas: ["Calcular momentos iniciales", "Aplicar conservación de energía", "Calcular momentos finales", "Resolver sistema de ecuaciones"]
 
-enunciado: "Mientras que la diferencia de potencial describe la energía por unidad de carga entre dos puntos, el concepto que describe la fuerza por unidad de carga que actúa sobre una carga puntual en un punto del espacio es el ___."
+respuesta_orden: ["Calcular momentos iniciales", "Aplicar conservación de energía", "Calcular momentos finales", "Resolver sistema de ecuaciones"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para resolver un choque elástico donde se busca la velocidad final de dos cuerpos:"
 
 explicacion: |
-  La diferencia de potencial (voltaje) es una medida escalar relacionada con la energía, mientras que el campo eléctrico es una magnitud vectorial que indica la fuerza ejercida sobre una carga.
+  Para resolver choques elásticos se requiere usar la conservación del momento lineal y la conservación de la energía cinética, lo que genera un sistema de ecuaciones para hallar las incógnitas.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tension_electrica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "avanzado"
+  tags: ["energia_cinetica", "calculo"]
+
+variables:
+  m1: 2.0
+  v1: 4.0
+  m2: 2.0
+  v2: 6.0
+
+respuesta: 52.0
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Dos masas de {m1} kg cada una se mueven en la misma dirección. La primera a {v1} m/s y la segunda a {v2} m/s. ¿Cuál es la energía cinética total inicial del sistema?"
+
+pasos:
+  - "Calcular la energía cinética de la primera masa: Ek1 = 0.5 * m1 * v1^2"
+  - "Calcular la energía cinética de la segunda masa: Ek2 = 0.5 * m2 * v2^2"
+  - "Sumar ambas energías: Ek_total = Ek1 + Ek2"
+
+explicacion: |
+  Ek1 = 0.5 * 2 * 4^2 = 16 J.
+  Ek2 = 0.5 * 2 * 6^2 = 36 J.
+  Ek_total = 16 + 36 = 52 J.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
   nivel: "basico"
-  tags: ["trabajo", "potencial"]
+  tags: ["conservacion", "energia", "momento"]
+
+respuesta: "momento_lineal"
+tipo: "mc"
+opciones_explicitas: ["energia_cinetica", "momento_lineal", "energia_potencial", "impulso"]
+
+enunciado: "En un choque perfectamente inelástico, donde los objetos quedan pegados tras la colisión, ¿qué magnitud física se conserva siempre?"
+
+explicacion: |
+  En cualquier sistema donde no actúen fuerzas externas netas, el momento lineal (p = m * v) se conserva. Sin embargo, en choques inelásticos, parte de la energía cinética se transforma en calor o deformación, por lo que la energía cinética NO se conserva.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "intermedio"
+  tags: ["energia_cinetica", "choque_elastico"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "En un choque perfectamente elástico entre dos partículas, la energía cinética total del sistema se conserva."
+
+explicacion: |
+  Por definición, un choque es elástico si la energía cinética del sistema antes del choque es igual a la energía cinética después del choque. Por lo tanto, la afirmación es verdadera.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "intermedio"
+  tags: ["clasificacion", "energia"]
+
+respuesta: "inelástico"
+tipo: "completar"
+
+enunciado: "Si en una colisión la energía cinética total se reduce tras el impacto, el choque es de tipo ___."
+
+respuestas_validas:
+  - "inelástico"
+
+explicacion: |
+  Si hay pérdida de energía cinética (que se transforma en otra forma de energía), el choque es inelástico. Si la energía cinética se mantiene constante, es elástico.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "avanzado"
+  tags: ["conservacion", "leyes"]
+
+respuesta_orden: ["momento_lineal", "energia_cinetica"]
+tipo: "ordenar"
+opciones_explicitas: ["momento_lineal", "energia_cinetica"]
+
+enunciado: "Al plantear las ecuaciones de un choque perfectamente elástico, ordena estas dos magnitudes conservadas según el orden habitual en que se escriben sus ecuaciones de conservación:"
+
+explicacion: |
+  En un choque elástico se conservan tanto el momento lineal como la energía cinética. La masa total es una propiedad de la materia y no es una magnitud que se "conserve" mediante una ecuación de colisión como las otras dos.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "basico"
+  tags: ["energia", "calor"]
+
+respuesta: "se_pierde"
+tipo: "mc"
+opciones_explicitas: ["se_pierde", "se_conserva", "se_duplica", "no_cambia"]
+
+enunciado: "En un choque inelástico, la energía cinética que no se conserva se transforma principalmente en:"
+
+explicacion: |
+  En los choques inelásticos, la energía cinética "perdida" no desaparece, sino que se transforma en energía térmica (calor), energía sonora o trabajo para deformar los cuerpos.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "basico"
+  tags: ["mecanica", "conservacion"]
+
+respuesta: "momento_lineal"
+tipo: completar
+respuestas_validas:
+  - "momento_lineal"
+
+enunciado: "En cualquier tipo de choque (elástico o inelástico) entre dos cuerpos que interactúan, la propiedad que siempre se conserva es el ___."
+
+explicacion: |
+  En un sistema aislado, la cantidad de movimiento (o momento lineal) se conserva siempre, independientemente de si el choque es elástico o inelástico.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "basico"
+  tags: ["energia", "choques"]
+
+respuesta: "elástico"
+tipo: mc
+opciones_explicitas: ["elástico", "inelástico"]
+
+enunciado: "Si en un sistema de dos partículas se observa que la energía cinética total se mantiene constante antes y después del impacto, podemos afirmar que el choque es: ___"
+
+explicacion: |
+  La característica distintiva del choque elástico es que la energía cinética se conserva. En el inelástico, parte de esa energía se transforma en calor o deformación.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "basico"
+  tags: ["energia", "conceptos"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "¿Es posible que en un choque perfectamente inelástico la energía cinética total del sistema se mantenga constante?"
+
+explicacion: |
+  Falso. En un choque inelástico, la energía cinética se pierde (se transforma en otras formas de energía), aunque el momento lineal se siga conservando.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "intermedio"
+  tags: ["propiedades", "comparacion"]
+
+respuesta: verdadero
+
+tipo: vf
+enunciado: "Si comparamos un choque elástico con uno inelástico, el choque elástico se distingue porque la energía cinética se conserva."
+
+explicacion: |
+  Efectivamente, la conservación de la energía cinética es el criterio que define la elasticidad de un choque.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "intermedio"
+  tags: ["metodologia", "analisis"]
+
+opciones_explicitas: ["Calcular momento lineal inicial", "Determinar si hay pérdida de energía cinética", "Calcular momento lineal final", "Verificar si el choque fue elástico"]
+
+respuesta_orden: ["Calcular momento lineal inicial", "Calcular momento lineal final", "Determinar si hay pérdida de energía cinética", "Verificar si el choque fue elástico"]
+tipo: ordenar
+
+enunciado: "Para analizar un choque y determinar su naturaleza, se deben seguir estos pasos lógicos:"
+
+explicacion: |
+  Primero se aplican las leyes de conservación (momento) para hallar las velocidades finales, luego se compara la energía cinética inicial con la final para clasificar el choque.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "basico"
+  tags: ["conservacion", "momento", "energia"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [[0.5, 2.0], [1.5, 5.0]]
+  datos: [["colision_elástica", "se conserva"], ["colision_inelástica", "no se conserva"]]
+
+enunciado: "En una {datos[escenario_idx][0]}, la energía cinética total del sistema ___."
 
 respuesta: datos[escenario_idx][1]
 tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Se requiere mover una carga de {datos[escenario_idx][0]} C de un punto A a un punto B. Si la diferencia de potencial entre ambos puntos es de {datos[escenario_idx][1]} V, el trabajo eléctrico realizado es de ___ J."
-
-pasos:
-  - "Calcular el trabajo usando la fórmula W = q * ΔV"
-  - "Sustituir la carga q = {datos[escenario_idx][0]} C y el voltaje ΔV = {datos[escenario_idx][1]} V"
-
-explicacion: |
-  El trabajo eléctrico es el producto de la carga por la diferencia de potencial: W = q * ΔV. En este caso, {datos[escenario_idx][0]} * {datos[escenario_idx][1]} = {datos[escenario_idx][0] * datos[escenario_idx][1]}.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tension_electrica"
-  nivel: "basico"
-  tags: ["ley_ohm", "corriente"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si se mantiene constante la resistencia de un conductor, un aumento en la diferencia de potencial (tensión) provocará un aumento en la intensidad de la corriente eléctrica."
-
-explicacion: |
-  Según la Ley de Ohm (I = V/R), la corriente es directamente proporcional a la diferencia de potencial cuando la resistencia permanece constante.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tension_electrica"
-  nivel: "intermedio"
-  tags: ["circuito_serie", "voltaje"]
-
-respuesta_orden: ["Pila", "Interruptor", "Resistencia", "Cable"]
-tipo: ordenar
-
-opciones_explicitas: ["Pila", "Interruptor", "Resistencia", "Cable"]
-
-enunciado: "Ordena los elementos de un circuito simple desde la fuente de energía hasta el dispositivo de carga, siguiendo el flujo de la corriente:"
-
-explicacion: |
-  En un circuito básico, la energía sale de la fuente (Pila), pasa por el control (Interruptor), atraviesa el elemento de consumo (Resistencia) y cierra el camino mediante los conductores (Cable).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tension_electrica"
-  nivel: "avanzado"
-  tags: ["conductor", "equilibrio"]
-
-respuesta: "cero"
-tipo: completar
-
 respuestas_validas:
-  - "cero"
-  - "0"
-  - "0.0"
-
-enunciado: "En un conductor metálico en equilibrio electrostático, la diferencia de potencial entre cualquier par de puntos del mismo conductor es ___."
+  - "se conserva"
+  - "no se conserva"
 
 explicacion: |
-  En equilibrio electrostático, el campo eléctrico dentro del conductor es nulo, lo que implica que el potencial eléctrico es constante en todo el volumen del conductor. Por lo tanto, la diferencia de potencial es cero.
+  En un choque elástico la energía cinética se conserva. En un choque inelástico parte de la energía se transforma en calor o deformación, por lo que no se conserva.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tension_electrica"
+  tema: "choques_elasticos_inelasticos"
   nivel: "basico"
-  tags: ["voltaje", "electronica", "aplicacion"]
+  tags: ["energia_cinetica"]
 
-variables:
-  escenario: uno_de([5.0, 9.0, 12.0])
+enunciado: "¿Qué sucede con la energía cinética total en un choque perfectamente inelástico donde los objetos quedan pegados?"
 
-enunciado: "Un cargador de carga rápida suministra una diferencia de potencial de {escenario} voltios a un dispositivo móvil. ¿Cuál es el valor de la tensión eléctrica suministrada (en voltios)?"
+opciones_explicitas: ["Se mantiene constante", "Se conserva parcialmente", "Se pierde (se transforma en otra forma de energía)", "Aumenta debido a la fricción"]
 
-opciones_explicitas: [4.5, 5.0, 9.0, 12.0]
-respuesta: escenario
+respuesta: "Se pierde (se transforma en otra forma de energía)"
 tipo: mc
 
 explicacion: |
-  La diferencia de potencial (tensión) se mide en voltios (V) y representa la energía por unidad de carga que impulsa a los electrones a través de un circuito.
+  En los choques inelásticos, la energía cinética no se conserva; se transforma en energía térmica, sonido o energía de deformación.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tension_electrica"
-  nivel: "basico"
-  tags: ["circuito", "interruptor"]
-
-variables:
-  estado: uno_de(["hay_paso", "no_hay_paso"])
-
-enunciado: "En un circuito de una lámpara, si el interruptor está abierto, la diferencia de potencial entre los terminales de la bombilla es de ___ voltios si no hay corriente circulando por el resto del circuito cerrado."
-
-respuestas_validas:
-  - "0"
-respuesta: "0"
-tipo: completar
-
-explicacion: |
-  Si el circuito está abierto, no hay flujo de carga y la diferencia de potencial medida a través de los componentes en serie puede ser cero o la tensión de la fuente dependiendo de la configuración, pero en un interruptor abierto que interrumpe el paso principal, la corriente es nula.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tension_electrica"
+  tema: "choques_elasticos_inelasticos"
   nivel: "intermedio"
-  tags: ["pilas", "voltaje"]
+  tags: ["momento_lineal"]
 
-variables:
-  idx: uno_de([0, 1, 2])
-  cantidades: [3, 2, 2]
-  voltajes: [1.5, 9, 1.5]
+enunciado: "Si dos bolas de billar chocan, independientemente de si el choque es elástico o inelástico, la cantidad de movimiento (momento lineal) total del sistema se ___."
 
-enunciado: "Se conectan {cantidades[idx]} pilas en serie, cada una con una tensión de {voltajes[idx]}V. ¿Cuál es la tensión total del conjunto?"
+opciones_explicitas: ["conserva", "pierde", "transforma en energía"]
 
-opciones_explicitas: [4.5, 18, 3.0, 6.0]
-respuesta: cantidades[idx] * voltajes[idx]
+respuesta: "conserva"
 tipo: mc
 
 explicacion: |
-  En una conexión en serie, las diferencias de potencial de cada componente se suman para obtener la tensión total del circuito.
+  La cantidad de movimiento lineal se conserva en todos los choques (siempre que no actúen fuerzas externas netas), ya sea elástico o inelástico.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tension_electrica"
+  tema: "choques_elasticos_inelasticos"
   nivel: "intermedio"
-  tags: ["carga", "energia"]
+  tags: ["energia", "momento"]
 
-variables:
-  idx: uno_de([0, 1, 2])
-  trabajos: [0.004, 0.025, 0.1]
-  cargas: [0.002, 0.005, 0.010]
-  w: trabajos[idx]
-  q: cargas[idx]
+enunciado: "Un accidente de tránsito donde los vehículos quedan trabados tras el impacto es un ejemplo de choque inelástico. En este caso, la energía cinética ___."
 
-enunciado: "Si se realiza un trabajo de {w} Joules para mover una carga de {q} Coulombs entre dos puntos, la diferencia de potencial es de ___ voltios."
-
-respuesta: w / q
+respuesta: "no se conserva la energía cinética"
 tipo: completar
-tolerancia_abs: 0.01
-
-explicacion: |
-  La diferencia de potencial (V) se define como el trabajo (W) realizado por unidad de carga (Q): V = W / Q.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tension_electrica"
-  nivel: "basico"
-  tags: ["bateria", "voltaje"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "Si la tensión del cargador es de 5V y la tensión de la batería es de 3.7V, ¿es la tensión del cargador mayor que la de la batería?"
-
-explicacion: |
-  Para que la carga fluya hacia la batería, la diferencia de potencial del cargador debe ser superior a la de la batería.
-```
-
-## Sección: tiro-oblicuo (26 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "basico"
-  tags: ["tiro_oblicuo", "vocabulario"]
-
-enunciado: "¿Qué es un tiro oblicuo?"
-tipo: mc
-opciones_explicitas:
-  - "Un lanzamiento con velocidad inicial que forma un ángulo con la horizontal (ni 0° ni 90°)"
-  - "Un lanzamiento estrictamente vertical"
-  - "Un lanzamiento estrictamente horizontal desde el piso"
-respuesta: "Un lanzamiento con velocidad inicial que forma un ángulo con la horizontal (ni 0° ni 90°)"
-
-explicacion: |
-  Combina avance horizontal (MRU) con subida y bajada (MRUV), a
-  diferencia del tiro vertical o el MRU puro.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "intermedio"
-  tags: ["tiro_oblicuo", "completar"]
-
-tipo: completar
-enunciado: "Completá: la componente horizontal de la velocidad inicial es v₀ₓ = v₀ × ___(θ)."
 respuestas_validas:
-  - "cos"
-  - "coseno"
+  - "no se conserva la energía cinética"
 
 explicacion: |
-  Es la parte de v₀ que apunta en la dirección de avance.
+  Al quedar los cuerpos unidos, se trata de un choque inelástico, donde la energía cinética no se conserva.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "intermedio"
-  tags: ["tiro_oblicuo", "completar"]
+  tema: "choques_elasticos_inelasticos"
+  nivel: "basico"
+  tags: ["teoria"]
 
-tipo: completar
-enunciado: "Completá: la componente vertical de la velocidad inicial es v₀ᵥ = v₀ × ___(θ)."
-respuestas_validas:
-  - "sen"
-  - "seno"
+enunciado: "¿Es posible que en un choque inelástico la energía cinética total del sistema sea mayor que la energía cinética inicial?"
 
-explicacion: |
-  Es la parte de v₀ que hace que el objeto suba antes de empezar a caer.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "intermedio"
-  tags: ["tiro_oblicuo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ignorando la resistencia del aire, la componente horizontal de la velocidad se mantiene constante durante todo el vuelo."
-
-explicacion: |
-  Nada la acelera ni la frena en ese eje — es MRU puro.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "intermedio"
-  tags: ["tiro_oblicuo"]
+opciones_explicitas: [falso, verdadero]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La componente vertical de la velocidad se mantiene constante durante todo el vuelo."
-
 explicacion: |
-  La gravedad la frena en la subida y la acelera en la bajada — es
-  MRUV con a=−g.
+  La energía cinética no puede aumentar espontáneamente en un choque; en los choques inelásticos, la energía cinética siempre disminuye o se mantiene (si fuera elástico).
 ```
+
+## Sección: energia-potencial-gravitatoria (25 preguntas)
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tiro_oblicuo"
+  tema: "energia_potencial_gravitatoria"
   nivel: "basico"
-  tags: ["tiro_oblicuo"]
+  tags: ["definicion", "energia"]
 
-enunciado: "¿Qué tipo de movimiento describe el eje horizontal en un tiro oblicuo?"
-tipo: mc
-opciones_explicitas:
-  - "MRU (velocidad constante)"
-  - "MRUV (aceleración constante)"
-  - "Ninguno, el eje horizontal no se mueve"
-respuesta: "MRU (velocidad constante)"
+respuesta: "energia_potencial_gravitatoria"
+tipo: completar
+respuestas_validas:
+  - "energia_potencial_gravitatoria"
+
+enunciado: "La capacidad de un cuerpo de realizar un trabajo debido a su posición en un campo gravitatorio se denomina ___."
 
 explicacion: |
-  x(t) = v₀ₓ × t, la misma fórmula del MRU.
+  La energía potencial gravitatoria depende de la masa, la aceleración de la gravedad y la altura respecto a un nivel de referencia.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tiro_oblicuo"
+  tema: "energia_potencial_gravitatoria"
   nivel: "basico"
-  tags: ["tiro_oblicuo"]
-
-enunciado: "¿Qué tipo de movimiento describe el eje vertical en un tiro oblicuo?"
-tipo: mc
-opciones_explicitas:
-  - "MRUV con a=−g (igual que un tiro vertical)"
-  - "MRU (velocidad constante)"
-  - "No tiene aceleración"
-respuesta: "MRUV con a=−g (igual que un tiro vertical)"
-
-explicacion: |
-  y(t) = v₀ᵥ×t − ½×g×t², exactamente el caso de `../tiro-vertical/`.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "avanzado"
-  tags: ["tiro_oblicuo", "problema"]
+  tags: ["relacion", "masa"]
 
 variables:
-  v0: random(20, 50)
-  angulo: uno_de([30, 37, 45, 53, 60])
+  caso: uno_de([[10, "10 kg"], [25, "25 kg"], [50, "50 kg"]])
 
-respuesta: redondear(v0 * cos_deg(angulo), 2)
-tipo: input
+respuesta: "Se duplica"
+tipo: mc
+opciones_explicitas: ["Se duplica", "Se cuadruplica", "Se reduce a la mitad", "No cambia"]
+
+enunciado: "Si duplicamos la masa de un objeto manteniendo su altura y la gravedad constantes, la energía potencial gravitatoria de un objeto de {caso[1]} se..."
+
+pasos:
+  - "Identificar la masa inicial: {caso[1]}"
+  - "Aplicar la relación de proporcionalidad directa con la masa (Ep ∝ m)"
+
+explicacion: |
+  Como la fórmula es Ep = m · g · h, la energía es directamente proporcional a la masa. Si la masa se duplica, la energía se duplica.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "basico"
+  tags: ["gravedad", "verdadero_falso"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La energía potencial gravitatoria de un objeto es la misma en la Tierra y en la Luna si el objeto se encuentra a la misma altura sobre su respectivo suelo."
+
+explicacion: |
+  Falso. La energía potencial depende de la aceleración de la gravedad (g). Como la gravedad en la Luna es menor que en la Tierra, la energía potencial también será menor.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "basico"
+  tags: ["formula", "variables"]
+
+respuesta: "altura"
+tipo: completar
+respuestas_validas:
+  - "altura"
+
+enunciado: "En la expresión matemática Ep = m · g · h, la variable 'h' representa la ___."
+
+explicacion: |
+  En física, 'h' proviene del término 'height' (altura) y representa la distancia vertical respecto a un punto de referencia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "basico"
+  tags: ["calculo", "ejercicio"]
+
+variables:
+  escenario: uno_de([[2, 5, 9.8], [5, 2, 9.8], [10, 3, 9.8]])
+
+respuesta: escenario[0] * escenario[1] * escenario[2]
+tipo: completar
 tolerancia_abs: 0.1
-unidad: "m/s"
 
-enunciado: "Un proyectil se lanza a {v0} m/s con un ángulo de {angulo}° sobre la horizontal. ¿Cuál es la componente horizontal de su velocidad inicial?"
+enunciado: "Calcula la energía potencial gravitatoria de un objeto con masa de {escenario[0]} kg, situado a una altura de {escenario[1]} m, considerando una gravedad de {escenario[2]} m/s²."
 
 pasos:
-  - "v₀ₓ = v₀ × cos(θ) = {v0} × cos({angulo}°) = {redondear(v0 * cos_deg(angulo), 2)} m/s"
+  - "Multiplicar la masa por la gravedad: {escenario[0]} * {escenario[2]}"
+  - "Multiplicar el resultado por la altura: ({escenario[0]} * {escenario[2]}) * {escenario[1]}"
 
 explicacion: |
-  Se descompone v₀ con coseno para el eje horizontal.
+  El resultado se obtiene multiplicando directamente los tres valores: m · g · h.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "avanzado"
-  tags: ["tiro_oblicuo", "problema"]
+  tema: "energia_potencial_gravitatoria"
+  nivel: "basico"
+  tags: ["conceptos", "definicion"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "Si un objeto con masa positiva se encuentra a una altura positiva sobre el nivel de referencia, su energía potencial gravitatoria será positiva."
+
+explicacion: |
+  La fórmula es Ep = m · g · h. Si la masa (m), la gravedad (g) y la altura (h) son todas positivas, el resultado es necesariamente positivo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "basico"
+  tags: ["calculo", "numerico"]
 
 variables:
-  v0: random(20, 50)
-  angulo: uno_de([30, 37, 45, 53, 60])
+  escenario: uno_de([[2, "15", "5", 150], [3, "10", "4", 120], [4, "5", "10", 200]])
+  m: escenario[0]
+  h: escenario[1]
+  g: escenario[2]
+  resultado_esperado: escenario[3]
 
-respuesta: redondear(v0 * sin_deg(angulo), 2)
-tipo: input
+respuesta: resultado_esperado
+tipo: "input"
 tolerancia_abs: 0.1
-unidad: "m/s"
 
-enunciado: "Un proyectil se lanza a {v0} m/s con un ángulo de {angulo}° sobre la horizontal. ¿Cuál es la componente vertical de su velocidad inicial?"
+enunciado: "Un objeto de {m} kg se encuentra a una altura de {h} metros. Calcula su energía potencial gravitatoria (usa g = {g} m/s²)."
 
 pasos:
-  - "v₀ᵥ = v₀ × sen(θ) = {v0} × sen({angulo}°) = {redondear(v0 * sin_deg(angulo), 2)} m/s"
+  - "Identificar los datos: masa (m) = {m} kg, altura (h) = {h} m, gravedad (g) = {g} m/s²."
+  - "Aplicar la fórmula: Ep = m · g · h."
+  - "Sustituir: Ep = {m} * {g} * {h} = {resultado_esperado} J."
 
 explicacion: |
-  Se descompone v₀ con seno para el eje vertical.
+  La energía potencial se calcula multiplicando la masa por la gravedad por la altura. En este caso: {m} * {g} * {h} = {resultado_esperado} Joules.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "avanzado"
-  tags: ["tiro_oblicuo", "problema"]
-
-variables:
-  v0: random(20, 50)
-  angulo: uno_de([30, 37, 45, 53, 60])
-  v0y: redondear(v0 * sin_deg(angulo), 2)
-
-respuesta: redondear(v0y / 10, 2)
-tipo: input
-tolerancia_abs: 0.2
-unidad: "s"
-
-enunciado: "Un proyectil se lanza a {v0} m/s con un ángulo de {angulo}° (g=10 m/s²). Su componente vertical de velocidad inicial es v₀ᵥ={v0y} m/s. ¿Cuánto tarda en llegar a la altura máxima?"
-
-pasos:
-  - "t_subida = v₀ᵥ / g = {v0y} ÷ 10 = {redondear(v0y / 10, 2)} s"
-
-explicacion: |
-  La altura máxima ocurre cuando la velocidad vertical llega a cero.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "avanzado"
-  tags: ["tiro_oblicuo", "problema"]
-
-variables:
-  v0: random(20, 50)
-  angulo: uno_de([30, 37, 45, 53, 60])
-  v0y: redondear(v0 * sin_deg(angulo), 2)
-
-respuesta: redondear(v0y ^ 2 / (2 * 10), 2)
-tipo: input
-tolerancia_abs: 0.5
-unidad: "m"
-
-enunciado: "Un proyectil se lanza a {v0} m/s con un ángulo de {angulo}° (g=10 m/s²). Su componente vertical de velocidad inicial es v₀ᵥ={v0y} m/s. ¿Cuál es la altura máxima que alcanza?"
-
-pasos:
-  - "h_max = v₀ᵥ² / (2×g) = {v0y}² / 20 = {redondear(v0y ^ 2 / (2 * 10), 2)} m"
-
-explicacion: |
-  Es la misma fórmula que la altura máxima de un tiro vertical, usando
-  sólo la componente vertical de la velocidad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "avanzado"
-  tags: ["tiro_oblicuo", "problema"]
-
-variables:
-  v0: random(20, 50)
-  angulo: uno_de([30, 37, 45, 53, 60])
-  v0y: redondear(v0 * sin_deg(angulo), 2)
-
-respuesta: redondear(2 * v0y / 10, 2)
-tipo: input
-tolerancia_abs: 0.3
-unidad: "s"
-
-enunciado: "Un proyectil se lanza a {v0} m/s con un ángulo de {angulo}° (g=10 m/s²) y cae a la misma altura de la que salió. Su componente vertical de velocidad inicial es v₀ᵥ={v0y} m/s. ¿Cuánto dura todo el vuelo?"
-
-pasos:
-  - "t_vuelo = 2 × v₀ᵥ / g = 2 × {v0y} ÷ 10 = {redondear(2 * v0y / 10, 2)} s"
-
-explicacion: |
-  Por simetría, el tiempo de bajada es igual al de subida — el tiempo
-  total es el doble del tiempo de subida.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "avanzado"
-  tags: ["tiro_oblicuo", "problema"]
-
-variables:
-  v0: random(20, 50)
-  angulo: uno_de([30, 37, 45, 53, 60])
-  v0x: redondear(v0 * cos_deg(angulo), 2)
-  v0y: redondear(v0 * sin_deg(angulo), 2)
-  t_vuelo: redondear(2 * v0y / 10, 2)
-
-respuesta: redondear(v0x * t_vuelo, 2)
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Un proyectil se lanza a {v0} m/s con un ángulo de {angulo}° (g=10 m/s²), con v₀ₓ={v0x} m/s y un tiempo de vuelo total de {t_vuelo} s. ¿Cuál es su alcance horizontal?"
-
-pasos:
-  - "alcance = v₀ₓ × t_vuelo = {v0x} × {t_vuelo} = {redondear(v0x * t_vuelo, 2)} m"
-
-explicacion: |
-  El alcance combina lo que avanza (eje horizontal, constante) con
-  cuánto tiempo pasa en el aire (que depende del eje vertical).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
+  tema: "energia_potencial_gravitatoria"
   nivel: "intermedio"
-  tags: ["tiro_oblicuo"]
+  tags: ["proporcionalidad", "analisis"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "se duplica"
+tipo: "mc"
+opciones_explicitas: ["se mantiene igual", "se reduce a la mitad", "se duplica", "se cuadruplica"]
 
-enunciado: "Si el proyectil cae a la misma altura de la que salió, el tiempo que tarda en subir hasta el punto más alto es igual al tiempo que tarda en bajar desde ahí."
+enunciado: "Si un objeto mantiene su masa constante pero se coloca a una altura que es el doble de la original, su energía potencial gravitatoria ____."
 
 explicacion: |
-  Es la misma simetría que ya se vio en tiro vertical.
+  Como la energía potencial es directamente proporcional a la altura (Ep ∝ h), si la altura se multiplica por 2, la energía también se multiplica por 2.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "intermedio"
-  tags: ["tiro_oblicuo"]
-
-enunciado: "Para una misma rapidez inicial v₀, ¿con qué ángulo se logra el mayor alcance horizontal?"
-tipo: mc
-opciones_explicitas:
-  - "45°"
-  - "90°"
-  - "0°"
-respuesta: "45°"
-
-explicacion: |
-  Ni tan horizontal (poco tiempo en el aire) ni tan vertical (poco
-  avance) — 45° reparte v₀ por igual entre los dos ejes.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "intermedio"
-  tags: ["tiro_oblicuo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el ángulo de lanzamiento es 90° (tiro vertical), el alcance horizontal es cero."
-
-explicacion: |
-  A 90°, v₀ₓ = v₀ × cos(90°) = 0 — no hay avance horizontal.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "intermedio"
-  tags: ["tiro_oblicuo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el ángulo de lanzamiento es 0° (tiro horizontal puro), la altura máxima adicional por encima del punto de lanzamiento es cero."
-
-explicacion: |
-  A 0°, v₀ᵥ = v₀ × sen(0°) = 0 — el objeto empieza a caer de
-  inmediato, sin fase de ascenso.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "avanzado"
-  tags: ["tiro_oblicuo", "ordenar"]
-
-enunciado: "Ordená los pasos típicos para resolver un problema de tiro oblicuo."
-tipo: ordenar
-opciones_explicitas:
-  - "Combinar el tiempo obtenido con v₀ₓ para calcular el alcance horizontal"
-  - "Descomponer v₀ en v₀ₓ (coseno) y v₀ᵥ (seno)"
-  - "Resolver el eje vertical con las fórmulas de MRUV (tiempo de subida, altura máxima o tiempo de vuelo)"
-respuesta_orden: ["Descomponer v₀ en v₀ₓ (coseno) y v₀ᵥ (seno)", "Resolver el eje vertical con las fórmulas de MRUV (tiempo de subida, altura máxima o tiempo de vuelo)", "Combinar el tiempo obtenido con v₀ₓ para calcular el alcance horizontal"]
-explicacion: |
-  El eje horizontal y el vertical se resuelven por separado y se
-  combinan sólo al final, a través del tiempo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
+  tema: "energia_potencial_gravitatoria"
   nivel: "basico"
-  tags: ["tiro_oblicuo", "aplicacion"]
+  tags: ["unidades", "sistema_internacional"]
 
-enunciado: "¿Cuál de estos es un ejemplo real de tiro oblicuo?"
-tipo: mc
-opciones_explicitas:
-  - "Un lanzamiento de bala en atletismo"
-  - "Una piedra que cae en caída libre desde el reposo"
-  - "Un auto que viaja en línea recta a velocidad constante"
-respuesta: "Un lanzamiento de bala en atletismo"
-
-explicacion: |
-  Se lanza con un ángulo y una velocidad inicial — combina avance y
-  subida/bajada, el caso general de tiro oblicuo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "avanzado"
-  tags: ["tiro_oblicuo", "problema"]
-
-variables:
-  v0: random(20, 40)
-  angulo: uno_de([30, 45, 60])
-
-respuesta: redondear(v0 ^ 2 * sin_deg(2 * angulo) / 10, 2)
-tipo: input
-tolerancia_abs: 1
-unidad: "m"
-
-enunciado: "Usando la fórmula compacta alcance = v₀² × sen(2θ) / g, con v₀={v0} m/s, θ={angulo}° y g=10 m/s², ¿cuál es el alcance?"
-
-pasos:
-  - "alcance = v₀² × sen(2×{angulo}°) / g = {v0}² × sen({2 * angulo}°) / 10 = {redondear(v0 ^ 2 * sin_deg(2 * angulo) / 10, 2)} m"
-
-explicacion: |
-  Es la misma fórmula de siempre (v₀ₓ × t_vuelo) reescrita en una sola
-  expresión usando la identidad sen(2θ) = 2×sen(θ)×cos(θ).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "intermedio"
-  tags: ["tiro_oblicuo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La trayectoria de un tiro oblicuo (posición y en función de x) tiene forma de parábola."
-
-explicacion: |
-  Sale de combinar x(t) lineal en t con y(t) cuadrático en t —
-  despejando t de la primera y reemplazando en la segunda, y queda
-  como función cuadrática de x.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "intermedio"
-  tags: ["tiro_oblicuo", "completar"]
-
-tipo: completar
-enunciado: "Completá: un tiro oblicuo con θ = 90° es exactamente el caso ya visto en el módulo de tiro ___."
+respuesta: "Joules"
+tipo: "completar"
 respuestas_validas:
-  - "vertical"
+  - "Joules"
+  - "J"
+  - "joules"
+
+enunciado: "En el Sistema Internacional de Unidades, la unidad para medir la energía potencial gravitatoria es el _________."
 
 explicacion: |
-  Sin componente horizontal, es tiro vertical puro.
+  La unidad de energía (trabajo) es el Joule (J), que equivale a kg·m²/s².
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tiro_oblicuo"
+  tema: "energia_potencial_gravitatoria"
   nivel: "intermedio"
-  tags: ["tiro_oblicuo", "completar"]
-
-tipo: completar
-enunciado: "Completá: un tiro oblicuo con θ = 0° tiene, en el eje horizontal, exactamente el movimiento ya visto en el módulo de ___."
-respuestas_validas:
-  - "MRU"
-
-explicacion: |
-  Sin componente vertical inicial, el eje horizontal es MRU puro (y el
-  objeto cae en caída libre desde ese instante).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "basico"
-  tags: ["tiro_oblicuo"]
-
-enunciado: "En muchos problemas de secundaria se usa g=10 m/s² en vez del valor real (≈9,8 m/s²). ¿Por qué?"
-tipo: mc
-opciones_explicitas:
-  - "Simplifica las cuentas manuales sin cambiar el razonamiento del problema"
-  - "Porque 9,8 m/s² es un valor incorrecto"
-  - "Porque la gravedad terrestre real es exactamente 10 m/s²"
-respuesta: "Simplifica las cuentas manuales sin cambiar el razonamiento del problema"
-
-explicacion: |
-  Es una convención pedagógica frecuente; en un cálculo de precisión
-  real se usa 9,8 m/s² (o el valor local exacto).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "intermedio"
-  tags: ["tiro_oblicuo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El movimiento horizontal y el movimiento vertical de un proyectil son independientes entre sí: lo que pasa en un eje no afecta lo que pasa en el otro."
-
-explicacion: |
-  Es la clave que permite resolver cada eje por separado con las
-  fórmulas de MRU y MRUV ya conocidas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tiro_oblicuo"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve entender el tiro oblicuo?"
-tipo: mc
-opciones_explicitas:
-  - "Para predecir la trayectoria, el alcance y el tiempo de vuelo de cualquier objeto lanzado con un ángulo"
-  - "Sólo aplica a objetos lanzados exactamente hacia arriba"
-  - "Sólo aplica si no hay gravedad"
-respuesta: "Para predecir la trayectoria, el alcance y el tiempo de vuelo de cualquier objeto lanzado con un ángulo"
-
-explicacion: |
-  Es la combinación de MRU y MRUV (visto por separado antes) aplicada
-  en simultáneo a los dos ejes de un mismo movimiento.
-```
-
-## Sección: tiro-vertical (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "basico"
-  tags: ["velocidad"]
-
-variables:
-  v0: random(2, 10) * 5
-  g: 10
-  t: random(1, 3)
-
-respuesta: v0 - g * t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s (g=10 m/s²). ¿Cuál es su velocidad en t={t} s?"
-
-explicacion: |
-  v(t) = {v0} − {g}×{t} = {v0 - g * t}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "intermedio"
-  tags: ["velocidad", "verdadero_falso"]
-
-variables:
-  v0: random(4, 10) * 5
-  g: 10
-  t: random(1, 4)
-
-respuesta: ((v0 - g * t) < 0)
-tipo: vf
-
-enunciado: "v₀={v0} m/s (g=10 m/s²). ¿Ya está bajando el objeto en t={t} s (o sea, v(t) es negativa)?"
-
-explicacion: |
-  v(t) = {v0}−{g}×{t} = {v0 - g * t} — negativa significa que ya pasó el
-  punto más alto y está descendiendo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "intermedio"
-  tags: ["tiempo_subida"]
-
-variables:
-  g: 10
-  t_sol: random(1, 8)
-  v0: g * t_sol
-
-respuesta: t_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s (g=10 m/s²). ¿Cuánto tarda en llegar a la altura máxima?"
-
-pasos:
-  - "t_subida = v₀/g = {v0}/{g} = {t_sol}"
-
-explicacion: |
-  En la altura máxima, v=0 — se despeja el tiempo de esa condición.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "avanzado"
-  tags: ["altura_maxima"]
-
-variables:
-  g: 10
-  t_sol: random(1, 8)
-  v0: g * t_sol
-
-respuesta: (v0 ^ 2) / (2 * g)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s (g=10 m/s²), desde el nivel del piso. ¿Cuál es la altura máxima?"
-
-pasos:
-  - "y_max = v₀²/(2g) = {v0 ^ 2}/{2 * g} = {(v0 ^ 2) / (2 * g)}"
-
-explicacion: |
-  y_max = v₀²/(2g).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "avanzado"
-  tags: ["altura_maxima"]
-
-variables:
-  g: 10
-  t_sol: random(1, 6)
-  v0: g * t_sol
-  y0: random(1, 20)
-
-respuesta: y0 + (v0 ^ 2) / (2 * g)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s desde una altura y₀={y0} m (g=10 m/s²). ¿Cuál es la altura máxima total?"
-
-explicacion: |
-  Se suma la altura inicial a lo que sube: y₀ + v₀²/(2g).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "intermedio"
-  tags: ["tiempo_vuelo"]
-
-variables:
-  g: 10
-  t_subida: random(1, 8)
-  v0: g * t_subida
-
-respuesta: 2 * t_subida
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s (g=10 m/s²), y vuelve al mismo nivel de partida. ¿Cuánto tiempo está en el aire en total?"
-
-pasos:
-  - "Por simetría, tiempo total = 2×tiempo de subida = 2×{t_subida} = {2 * t_subida}"
-
-explicacion: |
-  El tiempo de bajada es igual al de subida, si vuelve al mismo nivel.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "intermedio"
-  tags: ["velocidad"]
-
-variables:
-  v0: random(10, 50)
-
-respuesta: -v0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s, y vuelve al mismo nivel de partida. ¿Cuál es su velocidad justo al volver?"
-
-explicacion: |
-  Misma magnitud que la inicial, pero de signo opuesto (ahora bajando):
-  −{v0}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "basico"
-  tags: ["caida_libre"]
-
-variables:
-  g: 10
-  t: random(1, 8)
-
-respuesta: -g * t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto se suelta desde el reposo (g=10 m/s²). ¿Cuál es su velocidad en t={t} s?"
-
-explicacion: |
-  v(t) = −gt = −{g}×{t} = {-g * t} (negativa: cae, hacia abajo).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "intermedio"
-  tags: ["caida_libre"]
-
-variables:
-  g: 10
-  t: random(1, 6)
-
-respuesta: (g * t ^ 2) / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto se suelta desde el reposo (g=10 m/s²). ¿Qué distancia cayó en t={t} s?"
-
-explicacion: |
-  distancia = ½gt² = {g}×{t}²/2 = {(g * t ^ 2) / 2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "avanzado"
-  tags: ["caida_libre"]
-
-variables:
-  g: 10
-  t_sol: random(1, 2) * 2
-  y0: (g * t_sol ^ 2) / 2
-
-respuesta: t_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto se suelta desde {y0} m de altura (g=10 m/s²). ¿Cuánto tarda en llegar al piso?"
-
-pasos:
-  - "{y0} = ½×{g}×t² → t² = {2 * y0 / g} → t = {t_sol}"
-
-explicacion: |
-  Se despeja t de la fórmula de caída libre.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el punto más alto de un tiro vertical, la velocidad vertical del objeto es 0."
-
-explicacion: |
-  Es el instante exacto en que deja de subir y empieza a bajar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "En el punto más alto, tanto la velocidad como la aceleración del objeto son 0."
-
-explicacion: |
-  Sólo la velocidad es 0 ahí — la aceleración de la gravedad sigue
-  actuando todo el tiempo, incluido ese instante.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "El tiempo de subida y el tiempo total de vuelo (hasta volver al punto de partida) son siempre el mismo número."
-
-explicacion: |
-  El tiempo total es el DOBLE del tiempo de subida (por la simetría
-  subida/bajada), no el mismo número.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El tiro vertical es exactamente un MRUV, con a=−g."
-
-explicacion: |
-  Usa las mismas fórmulas de `../mruv/`, con la aceleración fija en −g.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la convención 'arriba positivo', la aceleración de la gravedad se escribe con signo negativo (−g)."
-
-explicacion: |
-  La gravedad siempre tira hacia abajo, en sentido contrario a la
-  convención elegida como positiva.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  g: 10
-  t_sol: random(1, 8)
-  v0: g * t_sol
-  real: (v0 ^ 2) / (2 * g)
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "Se lanza un objeto con v₀={v0} m/s (g=10 m/s²). ¿Es correcto que la altura máxima sea {propuesto} m?"
-
-explicacion: |
-  La altura máxima correcta es v₀²/(2g) = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "avanzado"
-  tags: ["posicion"]
-
-variables:
-  g: 10
-  v0: random(20, 60)
-  t: random(1, 3)
-
-respuesta: v0 * t - (g * t ^ 2) / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se lanza un objeto hacia arriba con v₀={v0} m/s desde el piso (g=10 m/s²). ¿A qué altura está en t={t} s?"
-
-pasos:
-  - "y(t) = {v0}t − ½×{g}t² = {v0 * t} − {(g * t ^ 2) / 2}"
-
-explicacion: |
-  Se usa la fórmula completa de posición del MRUV, con a=−g.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un objeto en tiro vertical pasa por la misma altura dos veces (una subiendo, otra bajando), con la misma rapidez (magnitud de velocidad) en las dos, pero sentidos opuestos."
-
-explicacion: |
-  Es una consecuencia de la simetría del movimiento respecto al punto
-  más alto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La fórmula t_total=2v₀/g sólo vale si el objeto vuelve exactamente al mismo nivel desde el que se lanzó — si cae más abajo (o más arriba), hay que resolver la ecuación cuadrática completa."
-
-explicacion: |
-  El atajo de la simetría no aplica cuando el punto de llegada es
-  distinto del de partida.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-variables:
-  g: 10
-  k: random(1, 5)
-  v0: g * k
-  subida: (v0 ^ 2) / (2 * g)
-  altura_balcon: random(5, 30)
-
-respuesta: subida + (subida + altura_balcon)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Desde un balcón de {altura_balcon} m se lanza un objeto hacia arriba con v₀={v0} m/s. Sube, y después cae hasta el piso (nivel 0). ¿Qué distancia TOTAL recorrió (subida + bajada), sumando ambos tramos?"
-
-pasos:
-  - "Sube {subida} m hasta el punto más alto"
-  - "Desde ahí baja {subida}+{altura_balcon} m hasta el piso (el punto más alto queda a {subida}+{altura_balcon} m del piso)"
-  - "Total: {subida} + ({subida}+{altura_balcon}) = {subida + (subida + altura_balcon)}"
-
-explicacion: |
-  La distancia TOTAL recorrida suma los dos tramos por separado — no es
-  lo mismo que el desplazamiento neto (balcón hasta el piso), que sería
-  sólo {altura_balcon} m.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-variables:
-  v0: random(10, 50)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si se lanza un objeto hacia arriba con v₀={v0} m/s y vuelve a pasar por el punto de lanzamiento, su rapidez en ese instante vuelve a ser {v0} m/s (aunque el sentido sea el opuesto)."
-
-explicacion: |
-  La energía se conserva en ausencia de rozamiento — la rapidez al
-  volver al mismo nivel es igual a la inicial.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  g: 10
-  t: random(1, 6)
-  real: (g * t ^ 2) / 2
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "Un objeto cae libremente durante {t} s (g=10 m/s²). ¿Es correcto que cayó {propuesto} m?"
-
-explicacion: |
-  La distancia correcta es ½gt² = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En ausencia de resistencia del aire, dos objetos de distinta masa soltados desde la misma altura llegan al piso al mismo tiempo."
-
-explicacion: |
-  La aceleración de la gravedad no depende de la masa del objeto — es
-  el mismo g para cualquiera.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "intermedio"
-  tags: ["problema"]
-
-variables:
-  g: 10
-  t_subida: random(1, 6)
-  v0: g * t_subida
-
-respuesta: 2 * t_subida
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una pelota pateada hacia arriba con v₀={v0} m/s vuelve al mismo nivel del piso. ¿Cuánto tiempo estuvo en el aire?"
-
-explicacion: |
-  Mismo cálculo de siempre: t_total = 2v₀/g.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "avanzado"
-  tags: ["verdadero_falso"]
-
-variables:
-  v0_a: random(10, 30)
-  v0_b: random(31, 60)
-
-respuesta: ((v0_b ^ 2) > (v0_a ^ 2))
-tipo: vf
-
-enunciado: "Un objeto se lanza con v₀={v0_a} m/s, y otro con v₀={v0_b} m/s. ¿Alcanza mayor altura el segundo?"
-
-explicacion: |
-  La altura máxima crece con el CUADRADO de v₀ — mayor velocidad
-  inicial siempre da mayor altura.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tiro_vertical"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para saber en qué instante(s) un objeto en tiro vertical pasa por una altura específica (que no sea la máxima), hay que resolver una ecuación cuadrática en t, que en general tiene dos soluciones (subiendo y bajando)."
-
-explicacion: |
-  y(t)=y₀+v₀t−½gt² es cuadrática en t — la fórmula resolvente de
-  `../../matematica/ecuacion-cuadratica/` da las dos soluciones (dos
-  instantes distintos a la misma altura).
-```
-
-## Sección: tormentas-y-fenomenos-severos (24 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "basico"
-  tags: ["fenomenos_severos", "vocabulario"]
-
-enunciado: "¿Qué tienen en común las tormentas eléctricas, los tornados, los huracanes y el granizo severo?"
-tipo: mc
-opciones_explicitas:
-  - "Una gran cantidad de energía atmosférica se concentra en un área chica y se libera de golpe"
-  - "Todos ocurren únicamente en invierno"
-  - "Ninguno tiene relación con la temperatura del aire"
-respuesta: "Una gran cantidad de energía atmosférica se concentra en un área chica y se libera de golpe"
-
-explicacion: |
-  Cuanta más energía concentrada, más severo el fenómeno.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "basico"
-  tags: ["tormenta_electrica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una tormenta eléctrica se forma dentro de un cumulonimbo, una nube de desarrollo vertical muy intensa."
-
-explicacion: |
-  Las corrientes de aire fuertes dentro de esa nube son la base del
-  mecanismo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "intermedio"
-  tags: ["tormenta_electrica", "cargas_electricas"]
-
-enunciado: "¿Qué hace que se separen las cargas eléctricas dentro de un cumulonimbo?"
-tipo: mc
-opciones_explicitas:
-  - "La fricción entre gotitas de agua y cristales de hielo, arrastrados por corrientes de aire fuertes"
-  - "El calor del suelo directamente"
-  - "La luz del sol reflejada en las gotas"
-respuesta: "La fricción entre gotitas de agua y cristales de hielo, arrastrados por corrientes de aire fuertes"
-
-explicacion: |
-  La parte superior de la nube queda cargada positiva, la inferior
-  negativa.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "basico"
-  tags: ["tormenta_electrica"]
-
-enunciado: "¿Qué es el rayo?"
-tipo: mc
-opciones_explicitas:
-  - "La descarga eléctrica que ocurre cuando la diferencia de carga en la nube es suficiente"
-  - "El sonido que produce una tormenta"
-  - "Un tipo de granizo muy grande"
-respuesta: "La descarga eléctrica que ocurre cuando la diferencia de carga en la nube es suficiente"
-
-explicacion: |
-  El trueno es el sonido de esa misma descarga, no un fenómeno aparte.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "intermedio"
-  tags: ["tormenta_electrica"]
-
-enunciado: "¿Qué es el trueno?"
-tipo: mc
-opciones_explicitas:
-  - "El sonido de la descarga del rayo, que calienta y expande el aire violentamente"
-  - "Un segundo rayo que ocurre después del primero"
-  - "El viento que genera la tormenta"
-respuesta: "El sonido de la descarga del rayo, que calienta y expande el aire violentamente"
-
-explicacion: |
-  El calentamiento casi instantáneo del aire alrededor del rayo genera
-  la onda sonora.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "basico"
-  tags: ["tornado"]
-
-enunciado: "¿Qué es un tornado?"
-tipo: mc
-opciones_explicitas:
-  - "Una columna de aire en rotación muy violenta que conecta la base de un cumulonimbo con el suelo"
-  - "Un tipo de huracán muy pequeño"
-  - "Un frente frío que se mueve muy rápido"
-respuesta: "Una columna de aire en rotación muy violenta que conecta la base de un cumulonimbo con el suelo"
-
-explicacion: |
-  Se forma por cizalladura del viento dentro de la tormenta.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "avanzado"
-  tags: ["tornado"]
-
-enunciado: "¿Qué es la cizalladura del viento, clave en la formación de un tornado?"
-tipo: mc
-opciones_explicitas:
-  - "Una fuerte diferencia de velocidad o dirección del viento entre distintas alturas"
-  - "El viento que sopla siempre en la misma dirección a toda altura"
-  - "La ausencia total de viento dentro de la tormenta"
-respuesta: "Una fuerte diferencia de velocidad o dirección del viento entre distintas alturas"
-
-explicacion: |
-  Hace girar horizontalmente una masa de aire, que luego una corriente
-  ascendente fuerte puede inclinar hasta la vertical.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "basico"
-  tags: ["tornado", "escalas"]
-
-enunciado: "¿Con qué escala se mide la intensidad de un tornado?"
-tipo: mc
-opciones_explicitas:
-  - "La escala Fujita mejorada (EF), de EF0 a EF5"
-  - "La escala Saffir-Simpson, de categoría 1 a 5"
-  - "La escala Richter"
-respuesta: "La escala Fujita mejorada (EF), de EF0 a EF5"
-
-explicacion: |
-  Saffir-Simpson es para huracanes; Richter es para terremotos.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "avanzado"
-  tags: ["tornado", "escalas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La escala Fujita mejorada estima la velocidad del viento de un tornado a partir del daño causado en construcciones y árboles, no midiendo el viento directamente."
-
-explicacion: |
-  Es indirecta: se observa el daño después del paso del tornado.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "intermedio"
-  tags: ["tornado", "escalas"]
+  tags: ["metodologia", "ordenar"]
 
 tipo: ordenar
-opciones_explicitas:
-  - "EF0 (daño leve)"
-  - "EF2 (daño significativo)"
-  - "EF5 (daño increíble)"
-respuesta_orden: ["EF0 (daño leve)", "EF2 (daño significativo)", "EF5 (daño increíble)"]
-enunciado: "Ordená estas categorías de tornado de menor a mayor intensidad."
+opciones_explicitas: ["identificar_datos", "aplicar_formula", "realizar_multiplicacion"]
+respuesta_orden: ["identificar_datos", "aplicar_formula", "realizar_multiplicacion"]
+
+enunciado: "Ordena los pasos lógicos para resolver un problema de cálculo de energía potencial gravitatoria:"
 
 explicacion: |
-  La escala EF va de EF0 (más leve) a EF5 (más severo).
+  Para resolver problemas físicos de forma sistemática, primero debemos extraer los datos, luego plantear la ecuación y finalmente operar.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
+  tema: "energia_potencial_gravitatoria"
   nivel: "basico"
-  tags: ["huracan"]
+  tags: ["conceptos", "energia"]
 
-enunciado: "¿Qué es un huracán?"
-tipo: mc
-opciones_explicitas:
-  - "Un sistema de tormentas organizado en espiral alrededor de un centro de baja presión, alimentado por un océano cálido"
-  - "Un tornado que ocurre sobre el mar"
-  - "Una tormenta eléctrica sin lluvia"
-respuesta: "Un sistema de tormentas organizado en espiral alrededor de un centro de baja presión, alimentado por un océano cálido"
-
-explicacion: |
-  Necesita agua tibia como combustible, por eso nunca se forma sobre
-  tierra ni sobre agua fría.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "intermedio"
-  tags: ["huracan"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Huracán, tifón y ciclón tropical son exactamente el mismo fenómeno físico, y sólo cambia el nombre según la región del mundo donde ocurre."
-
-explicacion: |
-  Huracán en América, tifón en Asia (Pacífico noroccidental), ciclón en
-  el Índico y Pacífico sur.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "intermedio"
-  tags: ["huracan"]
-
-enunciado: "¿En qué región se le llama \"tifón\" a este mismo fenómeno?"
-tipo: mc
-opciones_explicitas:
-  - "El Pacífico noroccidental (Asia)"
-  - "El océano Atlántico"
-  - "El sur de Europa"
-respuesta: "El Pacífico noroccidental (Asia)"
-
-explicacion: |
-  En América se llama huracán, en el Índico/Pacífico sur se llama
-  ciclón.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "basico"
-  tags: ["huracan", "escalas"]
-
-enunciado: "¿Con qué escala se mide la categoría de un huracán?"
-tipo: mc
-opciones_explicitas:
-  - "La escala Saffir-Simpson, de categoría 1 a 5"
-  - "La escala Fujita mejorada, de EF0 a EF5"
-  - "La escala Richter"
-respuesta: "La escala Saffir-Simpson, de categoría 1 a 5"
-
-explicacion: |
-  Se basa en la velocidad sostenida del viento del huracán.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "intermedio"
-  tags: ["huracan", "escalas"]
-
-enunciado: "¿A partir de qué categoría Saffir-Simpson se considera \"huracán mayor\" por su potencial de daño?"
-tipo: mc
-opciones_explicitas:
-  - "Categoría 3"
-  - "Categoría 1"
-  - "Categoría 5 únicamente"
-respuesta: "Categoría 3"
-
-explicacion: |
-  Las categorías 3 a 5 se consideran huracán mayor.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "intermedio"
-  tags: ["huracan", "escalas"]
-
-variables:
-  viento_huracan_a: random(120, 150)
-  viento_huracan_b: random(210, 250)
-
-respuesta: "el huracán B"
-tipo: mc
-opciones_explicitas:
-  - "el huracán B"
-  - "el huracán A"
-  - "los dos son de la misma categoría"
-
-enunciado: "El huracán A tiene vientos sostenidos de {viento_huracan_a} km/h y el huracán B de {viento_huracan_b} km/h. ¿Cuál de los dos es de mayor categoría en la escala Saffir-Simpson?"
-
-explicacion: |
-  A mayor velocidad sostenida del viento, mayor categoría.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "intermedio"
-  tags: ["granizo"]
-
-enunciado: "¿Cuándo se considera \"severo\" el granizo?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando las piedras superan aproximadamente los 2 cm de diámetro"
-  - "Cuando cae junto con lluvia"
-  - "Sólo si dura más de una hora"
-respuesta: "Cuando las piedras superan aproximadamente los 2 cm de diámetro"
-
-explicacion: |
-  Indica que las corrientes internas de la tormenta son muy intensas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "avanzado"
-  tags: ["granizo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para que una piedra de granizo crezca mucho, la tormenta necesita corrientes internas muy intensas que la sostengan en el aire el tiempo suficiente."
-
-explicacion: |
-  Es el mismo mecanismo de capas sucesivas visto en Precipitación,
-  llevado al extremo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "basico"
-  tags: ["huracan", "vocabulario"]
-
+respuesta: "h"
 tipo: completar
 respuestas_validas:
-  - "ciclón"
-  - "ciclon"
-  - "ciclón tropical"
+  - "h"
+  - "la altura"
+  - "la posición vertical"
 
-enunciado: "En el océano Índico y el Pacífico sur, a este mismo fenómeno (huracán/tifón) se le llama ____."
+enunciado: "En la fórmula de la energía potencial gravitatoria $E_p = m \\cdot g \\cdot h$, la variable $h$ representa la ___ respecto a un nivel de referencia."
 
 explicacion: |
-  Es el mismo sistema de tormentas en espiral, con nombre regional
-  distinto.
+  La energía potencial gravitatoria depende de la posición vertical (altura) del objeto respecto a un punto de referencia elegido. Si cambias el nivel de referencia, la energía potencial cambia, aunque el objeto sea el mismo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "avanzado"
-  tags: ["huracan"]
+  tema: "energia_potencial_gravitatoria"
+  nivel: "intermedio"
+  tags: ["conceptos", "relacion_variables"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  escenario: uno_de([["un objeto de 2 kg", 2, "2 kg"], ["un objeto de 5 kg", 5, "5 kg"], ["un objeto de 10 kg", 10, "10 kg"]])
 
-enunciado: "Un huracán se alimenta del calor y la humedad de un océano cálido, por eso nunca se forma sobre tierra ni sobre agua fría."
-
-explicacion: |
-  Al perder esa fuente de energía (por ejemplo, al tocar tierra), el
-  huracán se debilita.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "avanzado"
-  tags: ["fenomenos_severos", "cambio_climatico"]
-
-enunciado: "¿Por qué los eventos severos (huracanes, tornados, granizo) se usan como dato para el estudio del cambio climático?"
 tipo: mc
-opciones_explicitas:
-  - "Un cambio en su frecuencia o intensidad promedio a lo largo de muchos años es una señal de que el clima cambió"
-  - "Porque cada evento puntual, individualmente, prueba que el clima ya cambió"
-  - "No tienen ninguna relación con el estudio del clima"
-respuesta: "Un cambio en su frecuencia o intensidad promedio a lo largo de muchos años es una señal de que el clima cambió"
+opciones_explicitas: ["La energía es mayor", "La energía es menor", "La energía es igual"]
+respuesta: "La energía es mayor"
+
+enunciado: "Si duplicamos la masa de {escenario[0]} manteniendo su altura y la gravedad constantes, la energía potencial gravitatoria será: ___"
 
 explicacion: |
-  Un solo evento no prueba nada por la variabilidad natural; el promedio
-  a largo plazo sí es una señal relevante.
+  Como la energía potencial es directamente proporcional a la masa ($E_p \propto m$), si la masa se duplica, la energía potencial también se duplica (es mayor).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "avanzado"
-  tags: ["fenomenos_severos", "cambio_climatico"]
+  tema: "energia_potencial_gravitatoria"
+  nivel: "intermedio"
+  tags: ["conceptos", "trayectoria"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Cada tornado o huracán puntual que ocurre es, por sí solo, prueba directa de que el cambio climático ya está pasando."
+enunciado: "La energía potencial gravitatoria de un objeto depende de la trayectoria seguida para alcanzar su altura actual (por ejemplo, si subió en línea recta o en zigzag)."
 
 explicacion: |
-  La variabilidad natural del clima siempre existió; lo que se analiza
-  es la tendencia de frecuencia/intensidad a largo plazo.
+  La energía potencial es una función de estado, lo que significa que solo depende de la posición inicial y la posición final (la altura), no del camino recorrido.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
+  tema: "energia_potencial_gravitatoria"
   nivel: "intermedio"
-  tags: ["fenomenos_severos", "sintesis"]
+  tags: ["calculo", "despeje"]
 
-enunciado: "¿Por qué tormentas eléctricas, tornados, huracanes y granizo severo se agrupan en un solo tema, en vez de separarse en módulos distintos?"
-tipo: mc
-opciones_explicitas:
-  - "Porque todos son ejemplos de la misma categoría: energía atmosférica concentrada que se libera violentamente"
-  - "Porque en realidad son el mismo fenómeno físico exacto"
-  - "Porque ninguno tiene relación con las masas de aire y frentes"
-respuesta: "Porque todos son ejemplos de la misma categoría: energía atmosférica concentrada que se libera violentamente"
+variables:
+  datos: uno_de([[100, 9.8, 50], [50, 9.8, 20], [200, 9.8, 100]])
 
-explicacion: |
-  Son variantes de un mismo principio, no habilidades separables como
-  las tres leyes de Newton.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "tormentas_y_fenomenos_severos"
-  nivel: "avanzado"
-  tags: ["fenomenos_severos", "sintesis"]
-
-enunciado: "¿Cuál resume mejor la diferencia entre un tornado y un huracán?"
-tipo: mc
-opciones_explicitas:
-  - "El tornado es una columna de aire en rotación conectada a un cumulonimbo puntual; el huracán es un sistema de tormentas en espiral, mucho más grande, alimentado por un océano cálido"
-  - "Son exactamente el mismo fenómeno, sólo cambia el nombre según el país"
-  - "El huracán siempre es menos intenso que un tornado"
-respuesta: "El tornado es una columna de aire en rotación conectada a un cumulonimbo puntual; el huracán es un sistema de tormentas en espiral, mucho más grande, alimentado por un océano cálido"
-
-explicacion: |
-  A diferencia de huracán/tifón/ciclón (que sí son el mismo fenómeno con
-  distinto nombre), tornado y huracán son fenómenos distintos entre sí.
-```
-
-## Sección: trabajo-de-una-fuerza (26 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "basico"
-  tags: ["trabajo", "vocabulario"]
-
-enunciado: "¿Qué es el trabajo de una fuerza, en física?"
-tipo: mc
-opciones_explicitas:
-  - "La transferencia de energía que ocurre cuando una fuerza actúa sobre un objeto que se desplaza"
-  - "El esfuerzo muscular necesario para sostener algo"
-  - "Otro nombre para la fuerza misma"
-respuesta: "La transferencia de energía que ocurre cuando una fuerza actúa sobre un objeto que se desplaza"
-
-explicacion: |
-  Sin desplazamiento, no hay trabajo físico, aunque haya esfuerzo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "basico"
-  tags: ["trabajo", "vocabulario"]
-
-enunciado: "¿En qué unidad se mide el trabajo?"
-tipo: mc
-opciones_explicitas:
-  - "Joule (J)"
-  - "Newton (N)"
-  - "Kilogramo (kg)"
-respuesta: "Joule (J)"
-
-explicacion: |
-  1 J = 1 N × 1 m.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["trabajo", "completar"]
-
+respuesta: redondear(datos[2]/(datos[0]*datos[1]), 2)
 tipo: completar
-enunciado: "Completá: 1 Joule = 1 Newton × 1 ___."
-respuestas_validas:
-  - "metro"
-  - "m"
+tolerancia_abs: 0.1
 
-explicacion: |
-  Es el trabajo de 1 N desplazando un objeto 1 m en su misma dirección.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["trabajo", "problema"]
-
-variables:
-  fuerza: uno_de([10, 20, 30])
-  distancia: uno_de([5, 10])
-
-respuesta: fuerza * distancia
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una fuerza de {fuerza} N actúa exactamente en la misma dirección que el desplazamiento de {distancia} m. ¿Cuál es el trabajo realizado?"
+enunciado: "Un objeto de {datos[0]} kg tiene una energía potencial de {datos[2]} J. Si la aceleración de la gravedad es de {datos[1]} m/s², ¿a qué altura se encuentra?"
 
 pasos:
-  - "{fuerza} × {distancia} × cos(0°) = {fuerza} × {distancia} × 1 = {fuerza * distancia} J"
+  - "Identificar los valores: m = {datos[0]}, Ep = {datos[2]}, g = {datos[1]}"
+  - "Despejar la altura de la fórmula: h = Ep / (m * g)"
+  - "Calcular el resultado final."
 
 explicacion: |
-  Con ángulo 0°, cos(0°) = 1: el trabajo es simplemente fuerza por
-  distancia.
+  Usando la fórmula $h = E_p / (m \cdot g)$, obtenemos: $h = {datos[2]} / ({datos[0]} \cdot {datos[1]}) = {redondear(datos[2]/(datos[0]*datos[1]), 2)}$ m.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["trabajo", "problema"]
-
-variables:
-  fuerza: uno_de([20, 40])
-  distancia: uno_de([5, 10])
-  cos_60: 0.5
-
-respuesta: fuerza * distancia * cos_60
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Una fuerza de {fuerza} N forma un ángulo de 60° con el desplazamiento de {distancia} m (cos 60° = 0,5). ¿Cuál es el trabajo realizado?"
-
-pasos:
-  - "{fuerza} × {distancia} × 0,5 = {fuerza * distancia * cos_60} J"
-
-explicacion: |
-  Sólo la componente de la fuerza en la dirección del movimiento
-  contribuye al trabajo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["trabajo", "problema"]
-
-variables:
-  fuerza: random(10, 100)
-  distancia: random(1, 20)
-
-respuesta: 0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una fuerza de {fuerza} N actúa exactamente perpendicular al desplazamiento de {distancia} m. ¿Cuál es el trabajo realizado?"
-
-pasos:
-  - "{fuerza} × {distancia} × cos(90°) = {fuerza} × {distancia} × 0 = 0 J"
-
-explicacion: |
-  Una fuerza perpendicular al desplazamiento nunca hace trabajo, sin
-  importar cuán grande sea.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["trabajo", "vocabulario"]
-
-enunciado: "¿Cuándo el trabajo de una fuerza es positivo?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando la fuerza tiene una componente en la misma dirección que el desplazamiento (ángulo menor a 90°)"
-  - "Siempre que la fuerza sea muy grande"
-  - "Sólo cuando la fuerza es vertical"
-respuesta: "Cuando la fuerza tiene una componente en la misma dirección que el desplazamiento (ángulo menor a 90°)"
-
-explicacion: |
-  La fuerza "ayuda" al movimiento.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["trabajo", "vocabulario"]
-
-enunciado: "¿Cuándo el trabajo de una fuerza es negativo?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando la fuerza se opone al desplazamiento (ángulo mayor a 90°)"
-  - "Cuando la fuerza es muy chica"
-  - "El trabajo nunca puede ser negativo"
-respuesta: "Cuando la fuerza se opone al desplazamiento (ángulo mayor a 90°)"
-
-explicacion: |
-  Como el rozamiento, que siempre se opone al movimiento.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["trabajo", "vocabulario"]
-
-enunciado: "¿Cuándo el trabajo de una fuerza es exactamente cero?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando la fuerza es perpendicular al desplazamiento, o cuando no hay desplazamiento"
-  - "Sólo cuando la fuerza vale cero"
-  - "El trabajo nunca puede ser cero si hay una fuerza actuando"
-respuesta: "Cuando la fuerza es perpendicular al desplazamiento, o cuando no hay desplazamiento"
-
-explicacion: |
-  Son dos casos distintos que dan trabajo nulo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
+  tema: "energia_potencial_gravitatoria"
   nivel: "basico"
-  tags: ["trabajo"]
+  tags: ["conceptos", "orden"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin ningún desplazamiento, no hay trabajo físico, sin importar cuán grande sea la fuerza aplicada."
-
-explicacion: |
-  d = 0 hace que W = F×d×cos(θ) sea siempre 0.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["trabajo", "problema"]
-
-variables:
-  fuerza: random(50, 200)
-
-respuesta: 0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una persona sostiene una bolsa de {fuerza} N parada, sin moverse durante 2 minutos. ¿Cuánto trabajo físico realiza sobre la bolsa?"
-
-explicacion: |
-  Sin desplazamiento (d = 0), el trabajo es cero, aunque la persona se
-  canse.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["trabajo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El cansancio muscular de sostener algo quieto no es lo mismo que el trabajo físico definido en Física: ese trabajo mecánico sobre el objeto sostenido es cero."
-
-explicacion: |
-  El cuerpo gasta energía biológica internamente, pero no transfiere
-  trabajo mecánico al objeto si éste no se desplaza.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["trabajo", "problema"]
-
-variables:
-  fuerza: random(30, 100)
-  distancia: random(5, 20)
-
-respuesta: 0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una persona camina en línea recta horizontal {distancia} m, sosteniendo una bolsa con una fuerza vertical de {fuerza} N (para no dejarla caer). ¿Cuál es el trabajo que esa fuerza vertical realiza sobre la bolsa?"
-
-explicacion: |
-  La fuerza (vertical) es perpendicular al desplazamiento (horizontal):
-  el trabajo de esa fuerza es cero, aunque la bolsa se traslade.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["trabajo", "vocabulario"]
-
-enunciado: "¿Por qué la fuerza centrípeta, que mantiene a un objeto girando en círculo, no realiza trabajo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque es siempre perpendicular a la velocidad del objeto en cada instante"
-  - "Porque los objetos en movimiento circular no tienen energía cinética"
-  - "En realidad sí hace trabajo, y por eso el objeto frena con el tiempo"
-respuesta: "Porque es siempre perpendicular a la velocidad del objeto en cada instante"
-
-explicacion: |
-  Por eso el movimiento circular uniforme mantiene la rapidez constante,
-  aunque la dirección cambie todo el tiempo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["trabajo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un movimiento circular uniforme, la energía cinética del objeto no cambia, porque la fuerza centrípeta no realiza trabajo."
-
-explicacion: |
-  Sin trabajo neto, no hay cambio de energía cinética (teorema
-  trabajo-energía).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["trabajo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La fuerza de rozamiento, al oponerse siempre al movimiento, realiza trabajo negativo sobre un objeto que se desliza."
-
-explicacion: |
-  El ángulo entre el rozamiento y el desplazamiento es siempre 180°:
-  cos(180°) = -1.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["trabajo", "problema"]
-
-variables:
-  friccion: uno_de([10, 20, 30])
-  distancia: uno_de([5, 10])
-
-respuesta: 0 - (friccion * distancia)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto se desliza {distancia} m, con una fuerza de rozamiento de {friccion} N oponiéndose al movimiento en todo momento. ¿Cuál es el trabajo realizado por el rozamiento?"
-
-pasos:
-  - "{friccion} × {distancia} × cos(180°) = {friccion} × {distancia} × (-1) = {0 - (friccion * distancia)} J"
-
-explicacion: |
-  El signo negativo indica que el rozamiento le quita energía al
-  movimiento.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["trabajo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El trabajo total sobre un objeto se puede calcular sumando el trabajo de cada fuerza por separado, o calculando directamente el trabajo de la fuerza neta — ambos caminos dan el mismo resultado."
-
-explicacion: |
-  Es consecuencia de que el trabajo (como producto escalar) se
-  distribuye sobre sumas de vectores.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["trabajo", "vocabulario"]
-
-enunciado: "¿Qué dice el teorema trabajo-energía?"
-tipo: mc
-opciones_explicitas:
-  - "El trabajo neto sobre un objeto es igual al cambio en su energía cinética"
-  - "El trabajo siempre es igual a la energía potencial del objeto"
-  - "No existe ninguna relación entre trabajo y energía"
-respuesta: "El trabajo neto sobre un objeto es igual al cambio en su energía cinética"
-
-explicacion: |
-  W_neto = Ec_final − Ec_inicial.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["trabajo", "problema"]
-
-variables:
-  ec_inicial: uno_de([50, 100, 150])
-  trabajo_neto: uno_de([20, 30, 50])
-
-respuesta: ec_inicial + trabajo_neto
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto tiene una energía cinética inicial de {ec_inicial} J. Sobre él se realiza un trabajo neto de {trabajo_neto} J. ¿Cuál es su energía cinética final?"
-
-pasos:
-  - "{ec_inicial} + {trabajo_neto} = {ec_inicial + trabajo_neto} J"
-
-explicacion: |
-  Ec_final = Ec_inicial + W_neto.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["trabajo", "ordenar"]
-
-enunciado: "Ordená los pasos para calcular el trabajo de una fuerza sobre un objeto que se desplaza."
+respuesta_orden: ["m", "g", "h"]
 tipo: ordenar
-opciones_explicitas:
-  - "El resultado, en Joule, es el trabajo realizado"
-  - "Identificar el ángulo entre la fuerza y el desplazamiento"
-  - "Multiplicar la fuerza, la distancia y el coseno de ese ángulo"
-respuesta_orden: ["Identificar el ángulo entre la fuerza y el desplazamiento", "Multiplicar la fuerza, la distancia y el coseno de ese ángulo", "El resultado, en Joule, es el trabajo realizado"]
+
+opciones_explicitas: ["h", "g", "m"]
+
+enunciado: "Para calcular la energía potencial gravitatoria siguiendo la estructura de la fórmula $E_p = m \\cdot g \\cdot h$, el orden de los factores es:"
+
 explicacion: |
-  W = F × d × cos(θ).
+  Aunque el orden de los factores no altera el producto, la fórmula estándar se presenta como Masa $\cdot$ Gravedad $\cdot$ Altura.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["trabajo", "problema"]
+  tema: "energia_potencial_gravitatoria"
+  nivel: "basico"
+  tags: ["energia", "conceptos"]
+
+respuesta: "cinetica"
+tipo: mc
+opciones_explicitas: ["potencial", "cinetica", "termica", "electromagnetica"]
+
+enunciado: "Mientras que la energía potencial gravitatoria depende de la posición de un objeto respecto a un campo gravitatorio, la energía ___ depende del estado de movimiento del objeto."
+
+explicacion: |
+  La energía cinética está asociada al movimiento (m · v²/2), mientras que la energía potencial gravitatoria está asociada a la posición en un campo gravitatorio (m · g · h).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "basico"
+  tags: ["propiedades", "relaciones"]
 
 variables:
-  fuerza: uno_de([20, 40])
-  distancia: uno_de([5, 10])
-  cos_120: -0.5
+  escenario_idx: uno_de([0, 1])
+  datos: [[10, 9.8, 2, 196.0], [5, 9.8, 5, 245.0]]
 
-respuesta: fuerza * distancia * cos_120
-tipo: input
-tolerancia_abs: 1
+respuesta: datos[escenario_idx][3]
+tipo: completar
+tolerancia_abs: 0.1
 
-enunciado: "Una fuerza de {fuerza} N forma un ángulo de 120° con el desplazamiento de {distancia} m (cos 120° = -0,5). ¿Cuál es el trabajo realizado?"
+enunciado: "Considera un objeto con masa de {datos[escenario_idx][0]} kg a una altura de {datos[escenario_idx][2]} m. Si la gravedad es {datos[escenario_idx][1]} m/s², la energía potencial gravitatoria es ___ J."
 
 pasos:
-  - "{fuerza} × {distancia} × (-0,5) = {fuerza * distancia * cos_120} J"
+  - "Multiplicar la masa por la aceleración de la gravedad (m · g)."
+  - "Multiplicar el resultado por la altura (h)."
 
 explicacion: |
-  Con un ángulo obtuso, el trabajo da negativo: la fuerza frena más de
-  lo que ayuda al movimiento.
+  La fórmula es Ep = m · g · h. Para el caso {datos[escenario_idx][0]} kg: {datos[escenario_idx][0]} * {datos[escenario_idx][1]} * {datos[escenario_idx][2]} = {datos[escenario_idx][3]} J.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
+  tema: "energia_potencial_gravitatoria"
   nivel: "intermedio"
-  tags: ["trabajo"]
+  tags: ["conceptos", "conservacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El trabajo es una magnitud escalar (un número con signo), no una magnitud vectorial."
+enunciado: "¿Es la energía potencial gravitatoria una forma de energía mecánica que puede transformarse en energía cinética en un sistema sin fricción?"
 
 explicacion: |
-  Es consecuencia directa de ser un producto escalar entre dos
-  vectores.
+  Verdadero. En un sistema ideal, la energía potencial se transforma íntegramente en cinética a medida que el objeto cae, conservando la energía mecánica total.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["trabajo", "problema"]
+  tema: "energia_potencial_gravitatoria"
+  nivel: "intermedio"
+  tags: ["comparacion", "proporcionalidad"]
 
 variables:
-  trabajo_motor: uno_de([100, 200, 300])
-  trabajo_friccion: uno_de([20, 40, 60])
+  caso_idx: uno_de([0, 1])
+  objetos: [[10, 20], [5, 15]]
 
-respuesta: trabajo_motor - trabajo_friccion
-tipo: input
-tolerancia_abs: 0
+respuesta: "El segundo objeto tiene más energía"
+tipo: mc
+opciones_explicitas: ["El primer objeto tiene más energía", "El segundo objeto tiene más energía", "Ambos tienen la misma energía", "No se puede determinar"]
 
-enunciado: "Un auto recibe un trabajo de {trabajo_motor} J de parte del motor, mientras el rozamiento le realiza un trabajo de -{trabajo_friccion} J. ¿Cuál es el trabajo neto sobre el auto?"
+enunciado: "Si dos objetos están a la misma altura, pero el primero tiene {objetos[caso_idx][0]} kg y el segundo tiene {objetos[caso_idx][1]} kg, ¿cuál posee mayor energía potencial gravitatoria?"
+
+explicacion: |
+  Como la energía potencial es directamente proporcional a la masa (Ep ∝ m), el objeto con mayor masa tendrá mayor energía potencial si la altura y la gravedad son las mismas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "basico"
+  tags: ["formula", "variables"]
+
+respuesta_orden: ["masa", "gravedad", "altura"]
+tipo: ordenar
+
+opciones_explicitas: ["altura", "gravedad", "masa"]
+
+enunciado: "Ordena de menor a mayor las variables que determinan la magnitud de la energía potencial gravitatoria (Ep = m · g · h):"
+
+explicacion: |
+  La fórmula requiere tres componentes fundamentales: la masa (m), la aceleración de la gravedad (g) y la altura (h).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "basico"
+  tags: ["energia", "gravitacion"]
+
+variables:
+  escenario: uno_de([[0.5, 50], [1.5, 150], [2.0, 200]])
+  m: escenario[0]
+  h: escenario[1]
+  g: 9.8
+  ep: m * g * h
+
+respuesta: ep
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un escalador de masa de {m} kg se encuentra a una altura de {h} metros sobre el suelo. ¿Cuál es su energía potencial gravitatoria en Joules?"
 
 pasos:
-  - "{trabajo_motor} + (-{trabajo_friccion}) = {trabajo_motor - trabajo_friccion} J"
+  - "Identificar la masa (m = {m} kg)"
+  - "Identificar la altura (h = {h} m)"
+  - "Identificar la aceleración de la gravedad (g = {g} m/s²)"
+  - "Aplicar la fórmula Ep = m * g * h"
 
 explicacion: |
-  Se suman los trabajos de todas las fuerzas, respetando su signo.
+  La energía potencial se calcula multiplicando la masa por la gravedad por la altura:
+  Ep = {m} kg * {g} m/s² * {h} m = {ep} J.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
+  tema: "energia_potencial_gravitatoria"
   nivel: "intermedio"
-  tags: ["trabajo", "vocabulario"]
+  tags: ["energia", "logistica"]
 
-enunciado: "Al levantar una caja verticalmente hacia arriba, ¿por qué el trabajo que se realiza sobre ella es positivo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque la fuerza aplicada (hacia arriba) tiene la misma dirección que el desplazamiento (hacia arriba)"
-  - "Porque toda fuerza vertical siempre hace trabajo positivo, sin excepción"
-  - "El trabajo de levantar algo en realidad siempre es negativo"
-respuesta: "Porque la fuerza aplicada (hacia arriba) tiene la misma dirección que el desplazamiento (hacia arriba)"
+variables:
+  datos: [[10, 980], [20, 1960], [5, 490]]
+  idx: uno_de([0, 1, 2])
+  m: datos[idx][0]
+  ep: datos[idx][1]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "Un paquete de {m} kg se encuentra en un estante a 10 metros de altura. Si la energía potencial es de {ep} J, ¿es correcto afirmar que la gravedad aplicada fue de 9.8 m/s²?"
 
 explicacion: |
-  θ = 0° entre fuerza y desplazamiento: cos(0°) = 1, trabajo máximo
-  positivo para esa fuerza y distancia.
+  Para verificar: Ep = m * g * h => 9.8 = Ep / (m * h).
+  En este caso: {ep} / ({m} * 10) = {ep / (m * 10)}.
+  El resultado es {ep / (m * 10)} m/s².
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "trabajo_de_una_fuerza"
+  tema: "energia_potencial_gravitatoria"
   nivel: "basico"
-  tags: ["cierre"]
+  tags: ["energia", "mecanica"]
 
-enunciado: "¿Para qué sirve el concepto de trabajo de una fuerza?"
+respuesta: "aumenta"
 tipo: mc
-opciones_explicitas:
-  - "Para calcular cuánta energía transfiere una fuerza a un objeto que se desplaza, conectando fuerza, movimiento y energía"
-  - "Sólo sirve para medir el esfuerzo muscular de una persona"
-  - "Sólo aplica a fuerzas que actúan durante un movimiento circular"
-respuesta: "Para calcular cuánta energía transfiere una fuerza a un objeto que se desplaza, conectando fuerza, movimiento y energía"
+opciones_explicitas: ["aumenta", "disminuye", "se mantiene igual"]
+
+enunciado: "Si un elevador de carga sube desde el primer piso hasta el quinto piso, su energía potencial gravitatoria respecto al suelo: ___"
 
 explicacion: |
-  Es el puente directo hacia el estudio de la energía, que se retoma en
-  módulos futuros.
+  Al aumentar la altura (h) en la fórmula Ep = m * g * h, la energía potencial también aumenta.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "intermedio"
+  tags: ["energia", "calculo"]
+
+variables:
+  caso: uno_de([[2, 5, 98.0], [5, 2, 98.0], [10, 5, 490.0]])
+  m: caso[0]
+  h: caso[1]
+  ep: caso[2]
+
+respuesta_orden: ["m * g / h", "m / (g * h)", "g * h / m", "m * g * h"]
+tipo: ordenar
+
+opciones_explicitas: ["m * g * h", "m * g / h", "m / (g * h)", "g * h / m"]
+
+enunciado: "Para un objeto de {m} kg a una altura de {h} m, ordena las expresiones de modo que la última sea la fórmula correcta para calcular su energía potencial (Ep = {ep} J):"
+
+explicacion: |
+  La fórmula correcta es el producto de la masa, la gravedad y la altura: m * g * h.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "intermedio"
+  tags: ["energia", "drones"]
+
+variables:
+  escenario: uno_de([[2, 50], [5, 100], [1, 20]])
+  m: escenario[0]
+  h: escenario[1]
+
+respuesta: m * 10 * h
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un dron de {m} kg vuela a una altura de {h} metros. Su energía potencial gravitatoria es de ___ Joules (usa g = 10 m/s²)."
+
+explicacion: |
+  Usando la fórmula Ep = m * g * h:
+  Ep = {m} kg * 10 m/s² * {h} m = {m * 10 * h} J.
 ```
 
 ## Sección: transmision-calor-conduccion-conveccion-radiacion (27 preguntas)
@@ -3109,6 +2023,525 @@ enunciado: "Una superficie con una propiedad de absorción/emisión de tipo {pro
 
 explicacion: |
   Los cuerpos negros son los mejores emisores y absorbedores de radiación térmica. Las superficies blancas o brillantes reflejan la mayor parte de la energía.
+```
+
+## Sección: conservacion-energia-mecanica (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "basico"
+  tags: ["definicion", "energia_cinetica", "energia_potencial"]
+
+respuesta: "energia_mecanica"
+tipo: mc
+opciones_explicitas: ["energia_cinetica", "energia_potencial", "energia_mecanica", "energia_termica"]
+
+enunciado: "La suma de la energía cinética y la energía potencial de un sistema se denomina ___."
+
+explicacion: |
+  La energía mecánica es la suma de las energías de movimiento (cinética) y de posición (potencial).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "basico"
+  tags: ["leyes_de_conservacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un sistema donde no actúan fuerzas no conservativas (como la fricción), la energía mecánica total permanece constante durante el movimiento."
+
+explicacion: |
+  Si no hay fricción ni resistencia del aire, la energía mecánica se conserva.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "basico"
+  tags: ["componentes"]
+
+respuesta: ["energia_cinetica", "energia_potencial"]
+tipo: completar
+respuestas_validas:
+  - "energia_cinetica"
+  - "energia_potencial"
+
+enunciado: "La energía mecánica de un objeto en movimiento se compone de la ___ y la ___."
+
+explicacion: |
+  La energía mecánica es la suma de la cinética (movimiento) y la potencial (posición/configuración).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "basico"
+  tags: ["energia_potencial"]
+
+respuesta: "aumenta"
+tipo: mc
+opciones_explicitas: ["aumenta", "disminuye", "se mantiene igual", "es cero"]
+
+enunciado: "Si un objeto aumenta su altura respecto a un nivel de referencia sin cambiar su masa, su energía potencial ___."
+
+explicacion: |
+  La energía potencial gravitatoria es $E_p = m \cdot g \cdot h$. A mayor $h$, mayor $E_p$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "basico"
+  tags: ["energia_cinetica"]
+
+respuesta: "aumenta"
+tipo: mc
+opciones_explicitas: ["aumenta", "disminuye", "se mantiene igual", "es cero"]
+
+enunciado: "Si la velocidad de un objeto aumenta, su energía cinética ___."
+
+explicacion: |
+  La energía cinética depende del cuadrado de la velocidad ($E_c = \frac{1}{2} m \cdot v^2$).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["calculo", "energia_cinetica"]
+
+variables:
+  m: 10
+  v: 5
+
+respuesta: 125
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Calcula la energía cinética de un objeto de {m} kg que se desplaza a una velocidad de {v} m/s."
+
+pasos:
+  - "Identificar la masa (m = 10 kg) y la velocidad (v = 5 m/s)."
+  - "Aplicar la fórmula $E_c = \\frac{1}{2} \\cdot m \\cdot v^2$."
+
+explicacion: |
+  $E_c = 0.5 \cdot 10 \cdot 5^2 = 0.5 \cdot 10 \cdot 25 = 125$ Joules.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["calculo", "energia_potencial"]
+
+variables:
+  m: 2
+  h: 10
+  g: 9.8
+
+respuesta: 196
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Calcula la energía potencial gravitatoria de un objeto de {m} kg situado a una altura de {h} metros. (usa g = {g})"
+
+pasos:
+  - "Identificar masa (m=2) y altura (h=10)."
+  - "Usar la fórmula $E_p = m \\cdot g \\cdot h$."
+
+explicacion: |
+  $E_p = 2 \cdot 9.8 \cdot 10 = 196$ Joules.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["calculo", "energia_total"]
+
+variables:
+  m: 5
+  v: 4
+  h: 10
+  g: 9.8
+
+respuesta: 530
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un objeto de {m} kg se encuentra a una altura de {h} metros con una velocidad de {v} m/s. ¿Cuál es su energía mecánica total?"
+
+pasos:
+  - "Calcular Ec = 0.5 * {m} * {v}^2 = 40 J."
+  - "Calcular Ep = {m} * {g} * {h} = 490 J."
+  - "Sumar Ec + Ep = 40 + 490 = 530."
+
+explicacion: |
+  La energía mecánica total es la suma de la energía cinética y la potencial.
+  Ec = 0.5 * m * v^2 = 0.5 * 5 * 16 = 40 J
+  Ep = m * g * h = 5 * 9.8 * 10 = 490 J
+  Et = 40 + 490 = 530 J
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["friccion", "error"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si un objeto desliza por un plano inclinado con mucha fricción, la energía mecánica total se mantiene constante."
+
+explicacion: |
+  Falso. La fricción convierte la energía mecánica en energía térmica (calor).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["transformacion"]
+
+respuesta: "cinetica"
+tipo: mc
+opciones_explicitas: ["cinetica", "potencial", "termica", "nuclear"]
+
+enunciado: "Cuando un objeto que estaba en reposo a una altura $h$ cae libremente, la energía potencial se transforma principalmente en energía ___."
+
+explicacion: |
+  A medida que baja, la altura disminuye (menor $E_p$) y la velocidad aumenta (mayor $E_c$).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["error", "relacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si duplicamos la masa de un objeto, su energía cinética se duplica para una misma velocidad."
+
+explicacion: |
+  Verdadero. $E_c = 0.5 \cdot m \cdot v^2$, por lo tanto es directamente proporcional a la masa.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "avanzado"
+  tags: ["comparacion"]
+
+variables:
+  idx: uno_de([0,1])
+  escenario: [[10, 5], [5, 10]]
+
+respuesta: "el_objeto_con_mas_energia"
+tipo: mc
+opciones_explicitas: ["el_objeto_con_mas_energia", "ambos_tienen_la_misma"]
+
+enunciado: "Si comparamos un objeto A con datos {escenario[idx][0]} kg y 5 m/s, contra un objeto B con 5 kg y 10 m/s, ¿cuál tiene mayor energía cinética?"
+
+explicacion: |
+  Se debe calcular $0.5 \cdot m \cdot v^2$ para ambos.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "avanzado"
+  tags: ["aplicacion", "montaña_rusa"]
+
+variables:
+  h_inicial: 50
+  v_inicial: 0
+  m: 100
+  g: 9.8
+
+respuesta: 49000
+tipo: completar
+tolerancia_abs: 1
+
+enunciado: "En una montaña rusa, un carrito de {m} kg parte del reposo desde una altura de {h_inicial} m. ¿Cuál es su energía mecánica total en ese punto?"
+
+pasos:
+  - "Como está en reposo, E_c = 0."
+  - "Calcular E_p = m * g * h = 100 * 9.8 * 50."
+
+explicacion: "E_total = 49000 J."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "basico"
+  tags: ["energia_mecanica", "conservacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La energía mecánica total (Ec + Ep) se conserva en ausencia de fuerzas no conservativas como la fricción."
+
+explicacion: |
+  La energía mecánica total se conserva cuando sólo actúan fuerzas conservativas (como la gravedad o un resorte ideal), sin pérdidas de calor, sonido u otras formas de disipación.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["pendulo", "transformacion_energia"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  datos: [[1.5, "5.42"], [2.0, "6.26"], [3.0, "7.67"]]
+
+enunciado: "Un péndulo se suelta desde una altura de {datos[idx][0]} metros. ¿Cuál es la velocidad (en m/s) al pasar por el punto más bajo? (g = 9.8 m/s²)"
+
+pasos:
+  - "Usar conservación de energía mecánica: Ep_inicial = Ec_final"
+  - "m·g·h = (1/2)·m·v² → v = sqrt(2·g·h)"
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - datos[idx][1]
+tolerancia_abs: 0.1
+
+explicacion: |
+  La energía potencial gravitatoria se transforma íntegramente en cinética al pasar por el punto más bajo: v = sqrt(2·g·h).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["friccion", "comparacion"]
+
+opciones_explicitas: ["sí se conserva", "no se conserva", "depende de la masa"]
+respuesta: "no se conserva"
+tipo: mc
+
+enunciado: "En un sistema donde actúa fricción, ¿se conserva la energía mecánica total?"
+
+explicacion: |
+  La fricción es una fuerza no conservativa que disipa energía en forma de calor. Por lo tanto, la energía mecánica total no se conserva en presencia de fricción.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "avanzado"
+  tags: ["caida_libre", "calculo"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  datos: [[17, "14.74"], [20, "20.41"], [23, "26.99"]]
+
+enunciado: "Una pelota se lanza hacia arriba con velocidad inicial {datos[idx][0]} m/s. ¿A qué altura máxima (en metros) alcanzará? (g = 9.8 m/s²)"
+
+pasos:
+  - "Usar conservación de energía mecánica: Ec_inicial = Ep_final"
+  - "m·v²/2 = m·g·h → h = v²/(2·g)"
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - datos[idx][1]
+tolerancia_abs: 0.1
+
+explicacion: |
+  La energía cinética inicial se transforma completamente en potencial gravitatoria: h = v²/(2g).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "basico"
+  tags: ["fuerzas_conservativas", "vf"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La gravedad es una fuerza conservativa."
+
+explicacion: |
+  Las fuerzas conservativas son aquellas donde el trabajo realizado no depende de la trayectoria seguida (como la gravedad o la fuerza elástica). La gravedad sí es conservativa.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["montana_rusa", "calculo"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  datos: [[30, "24.25"], [45, "29.70"], [60, "34.29"]]
+
+enunciado: "Una montaña rusa parte desde una altura de {datos[idx][0]} metros con velocidad inicial cero. ¿Cuál es su velocidad (en m/s) en el punto más bajo? (g = 9.8 m/s²)"
+
+pasos:
+  - "Usar conservación de energía mecánica: Ep_inicial = Ec_final"
+  - "m·g·h = (1/2)·m·v² → v = sqrt(2·g·h)"
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - datos[idx][1]
+tolerancia_abs: 0.1
+
+explicacion: |
+  La energía potencial inicial se transforma en cinética: v = sqrt(2·g·h). La masa del vehículo no afecta el resultado.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "basico"
+  tags: ["comparacion", "resorte"]
+
+opciones_explicitas: ["sí se conserva", "no se conserva"]
+respuesta: "sí se conserva"
+tipo: mc
+
+enunciado: "En un resorte ideal sin fricción, ¿se conserva la energía mecánica total?"
+
+explicacion: |
+  Un resorte ideal es un sistema conservativo. La energía se transforma entre cinética y potencial elástica, pero no hay pérdidas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["friccion", "calculo"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  datos: [[150, "7.25"], [200, "8.37"], [250, "9.35"]]
+  m: 4
+
+enunciado: "Un bloque de {m} kg se desliza por una superficie con fricción, perdiendo el 30% de su energía mecánica. Si inicialmente tiene {datos[idx][0]} J de energía cinética, ¿cuál es su velocidad final (en m/s)?"
+
+pasos:
+  - "Energía restante = 70% de la energía cinética inicial"
+  - "Ec_final = (m·v²)/2 → v = sqrt(2·0.7·Ec_inicial/m)"
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - datos[idx][1]
+tolerancia_abs: 0.1
+
+explicacion: |
+  La fricción disipa el 30% de la energía, dejando el 70% disponible como energía cinética final.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "avanzado"
+  tags: ["comparacion", "vf"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un sistema con fricción, la energía mecánica total disminuye con el tiempo."
+
+explicacion: |
+  La fricción convierte parte de la energía mecánica en calor, reduciendo la suma total (Ec + Ep) con el tiempo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["pendulo", "completar"]
+
+respuestas_validas:
+  - "máximo"
+  - "maximo"
+respuesta: "máximo"
+tipo: completar
+
+enunciado: "En un péndulo, la energía cinética es ___ cuando pasa por el punto más bajo."
+
+explicacion: |
+  El punto más bajo corresponde a la máxima velocidad y, por lo tanto, a la máxima energía cinética. La energía potencial es mínima allí.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "avanzado"
+  tags: ["calculo", "caida_libre"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  datos: [[15, "17.15"], [20, "19.80"], [25, "22.14"]]
+
+enunciado: "¿Con qué velocidad inicial (en m/s) debe lanzarse un objeto hacia arriba para alcanzar una altura de {datos[idx][0]} metros? (g = 9.8 m/s²)"
+
+pasos:
+  - "Usar conservación de energía mecánica: Ec_inicial = Ep_final"
+  - "m·v²/2 = m·g·h → v = sqrt(2·g·h)"
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - datos[idx][1]
+tolerancia_abs: 0.1
+
+explicacion: |
+  Toda la energía cinética inicial debe transformarse en potencial gravitatoria: v = sqrt(2·g·h).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "basico"
+  tags: ["sistema_conservativo", "vf"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un sistema donde sólo actúan fuerzas conservativas (como la gravedad) es un ejemplo de conservación de la energía mecánica."
+
+explicacion: |
+  En sistemas ideales donde sólo actúan fuerzas conservativas, la energía mecánica total (Ec + Ep) se mantiene constante.
 ```
 
 ## Sección: velocidad-aceleracion-instantaneas (26 preguntas)
@@ -3656,5 +3089,531 @@ enunciado: "Posición, velocidad y aceleración forman una cadena de derivadas: 
 
 explicacion: |
   x(t) → (derivar) → v(t) → (derivar) → a(t).
+```
+
+## Sección: potencia-mecanica (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["definicion", "trabajo", "tiempo"]
+
+tipo: mc
+opciones_explicitas: ["El trabajo realizado por unidad de tiempo", "La energía almacenada en un sistema", "La fuerza aplicada sobre un objeto", "El cambio en la velocidad de un cuerpo"]
+respuesta: "El trabajo realizado por unidad de tiempo"
+enunciado: "La potencia mecánica se define físicamente como ___."
+
+explicacion: |
+  La potencia mide la rapidez con la que se realiza un trabajo o se transfiere energía. Su fórmula es P = W/t.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["unidades", "sistema_internacional"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "¿La unidad de potencia en el Sistema Internacional de Unidades (SI) es el Joule (J)?"
+
+explicacion: |
+  Falso. El Joule (J) es la unidad de trabajo o energía. La unidad de potencia es el Vatio (W), que equivale a 1 Joule por segundo (1 J/s).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["relacion", "proporcionalidad"]
+
+variables:
+  escenario: uno_de([[100, 10], [200, 20], [50, 5]])
+
+tipo: completar
+respuestas_validas:
+  - 10.0
+  - 10.0
+  - 10.0
+respuesta: escenario[0] / escenario[1]
+
+enunciado: "Si un motor realiza un trabajo de {escenario[0]} J en un tiempo de {escenario[1]} s, la potencia mecánica resultante es de ___ W."
+
+pasos:
+  - "Identificar el trabajo (W): {escenario[0]} J"
+  - "Identificar el tiempo (t): {escenario[1]} s"
+  - "Aplicar la fórmula P = W / t"
+
+explicacion: |
+  Dividiendo el trabajo entre el tiempo obtenemos: {escenario[0]} / {escenario[1]} = {escenario[0]/escenario[1]} W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["proporcionalidad", "conceptos"]
+
+tipo: mc
+opciones_explicitas: ["Directamente proporcional al trabajo realizado", "Inversamente proporcional al tiempo", "Inversamente proporcional al trabajo realizado", "Directamente proporcional al tiempo"]
+respuesta: "Directamente proporcional al trabajo realizado"
+
+enunciado: "Si mantenemos el tiempo constante, la relación entre la potencia y el trabajo realizado es: ___."
+
+explicacion: |
+  Según la fórmula P = W/t: si W aumenta, P aumenta (directamente proporcional). Si t aumenta, P disminuye (inversamente proporcional).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["procesos", "conceptos"]
+
+tipo: ordenar
+opciones_explicitas: ["Aplicar una fuerza", "Desplazar un objeto", "Realizar un trabajo", "Calcular la potencia"]
+
+enunciado: "Ordene lógicamente los pasos para determinar la potencia mecánica en un proceso físico:"
+
+explicacion: |
+  Primero debe existir una fuerza que cause un desplazamiento, lo cual genera un trabajo (W). Una vez obtenido el trabajo y el tiempo, se puede calcular la potencia (P).
+respuesta_orden: ["Aplicar una fuerza", "Desplazar un objeto", "Realizar un trabajo", "Calcular la potencia"]
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["definicion", "trabajo", "tiempo"]
+
+respuesta: "trabajo / tiempo"
+tipo: completar
+respuestas_validas:
+  - "trabajo / tiempo"
+  - "W / t"
+  - "trabajo dividido tiempo"
+
+enunciado: "La potencia mecánica se define matemáticamente como el ___ realizado por un objeto por unidad de tiempo."
+
+explicacion: |
+  La potencia (P) mide la rapidez con la que se realiza un trabajo (W). Su fórmula es P = W / t.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["calculo", "unidades"]
+
+variables:
+  escenario: uno_de([[100, 10, 10], [500, 5, 100], [1200, 20, 60]])
+
+respuesta: escenario[2]
+
+tipo: mc
+opciones_explicitas: [10, 100, 60, 50]
+
+enunciado: "Un motor realiza un trabajo de {escenario[0]} Joules en un tiempo de {escenario[1]} segundos. ¿Cuál es su potencia mecánica (en watts)?"
+
+pasos:
+  - "Identificar el trabajo (W): {escenario[0]} J"
+  - "Identificar el tiempo (t): {escenario[1]} s"
+  - "Aplicar la fórmula: P = W / t"
+  - "Calcular: {escenario[0]} / {escenario[1]} = {escenario[2]}"
+
+explicacion: |
+  La potencia se calcula dividiendo el trabajo total por el tiempo empleado. En este caso: 100J / 10s = 10 W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["unidades", "si_sistema"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "¿La unidad de potencia en el Sistema Internacional (SI) es el Vatio (Watt), que equivale a 1 Julio por segundo?"
+
+explicacion: |
+  Correcto. 1 W = 1 J/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["relacion", "tiempo"]
+
+variables:
+  caso: uno_de([[10, 2], [20, 5], [30, 3]])
+
+respuesta: caso[0] / caso[1]
+
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Si un sistema realiza un trabajo de {caso[0]} J en {caso[1]} segundos, ¿cuántos Watts de potencia está desarrollando?"
+
+pasos:
+  - "Datos: W = {caso[0]} J, t = {caso[1]} s"
+  - "Fórmula: P = W / t"
+  - "Cálculo: {caso[0]} / {caso[1]}"
+
+explicacion: |
+  Dividiendo el trabajo entre el tiempo obtenemos la potencia: {caso[0]} / {caso[1]} = {caso[0] / caso[1]} W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["procedimiento", "pasos"]
+
+respuesta_orden: ["Identificar el trabajo realizado (W) en Joules", "Identificar el tiempo transcurrido (t) en segundos", "Dividir el trabajo por el tiempo (W/t) para obtener Watts"]
+tipo: ordenar
+opciones_explicitas: ["Dividir el trabajo por el tiempo (W/t) para obtener Watts", "Identificar el trabajo realizado (W) en Joules", "Identificar el tiempo transcurrido (t) en segundos"]
+
+enunciado: "Ordena los pasos lógicos para calcular la potencia mecánica de un objeto dado un trabajo y un tiempo."
+
+explicacion: |
+  Para resolver problemas de potencia, primero debemos asegurar que tenemos las magnitudes de trabajo y tiempo en unidades SI, y luego aplicar la división.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["conceptos_fundamentales", "trabajo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si un objeto realiza el mismo trabajo que otro, pero lo hace en la mitad del tiempo, ambos han desarrollado la misma potencia mecánica."
+
+explicacion: |
+  La potencia se define como $P = W/t$. Si el tiempo disminuye, la potencia aumenta. Por lo tanto, quien realiza el mismo trabajo en menos tiempo es más potente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["unidades", "dimensiones"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  trabajos: [100, 50, 10]
+  tiempos: [5, 2, 10]
+
+respuesta: trabajos[idx] / tiempos[idx]
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Calcula la potencia mecánica realizada por un motor que efectúa un trabajo de {trabajos[idx]} J en un tiempo de {tiempos[idx]} s."
+
+pasos:
+  - "Identifica el trabajo realizado (W): {trabajos[idx]} J"
+  - "Identifica el tiempo empleado (t): {tiempos[idx]} s"
+  - "Aplica la fórmula P = W / t"
+
+explicacion: |
+  La potencia se calcula dividiendo el trabajo (Joules) por el tiempo (segundos), resultando en Watts (W).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["dinamica", "conceptos"]
+
+respuesta: "La potencia mecánica depende de la fuerza aplicada y la velocidad."
+tipo: mc
+opciones_explicitas: ["La potencia mecánica depende únicamente de la fuerza aplicada.", "La potencia mecánica depende únicamente de la velocidad del objeto.", "La potencia mecánica depende de la fuerza aplicada y la velocidad.", "La potencia mecánica no depende de la fuerza si la velocidad es constante."]
+
+enunciado: "Un error común es pensar que si un objeto se mueve a velocidad constante, la potencia es cero. ¿Cuál es la relación correcta entre potencia, fuerza y velocidad?"
+
+explicacion: |
+  Para un objeto en movimiento, la potencia instantánea se puede expresar como $P = F \cdot v$. Aunque el trabajo neto sea cero en un ciclo cerrado, la potencia mecánica de la fuerza aplicada puede ser distinta de cero.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["analisis_dimensional"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "Si duplicamos la fuerza aplicada a un objeto y también duplicamos su velocidad, la potencia mecánica resultante se cuadruplica."
+
+explicacion: |
+  Dado que $P = F \cdot v$, si $F' = 2F$ y $v' = 2v$, entonces $P' = (2F) \cdot (2v) = 4(F \cdot v)$, es decir, $4P$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "avanzado"
+  tags: ["procedimiento", "calculo"]
+
+variables:
+  datos: uno_de([["1000 N", "5 m/s", "2 s"], ["500 N", "10 m/s", "5 s"], ["200 N", "2 m/s", "10 s"]])
+
+respuesta_orden: ["Calcular el trabajo realizado (W = F * d)", "Identificar el tiempo total (t)", "Dividir el trabajo por el tiempo (P = W / t)"]
+tipo: ordenar
+opciones_explicitas: ["Calcular el trabajo realizado (W = F * d)", "Identificar el tiempo total (t)", "Dividir el trabajo por el tiempo (P = W / t)"]
+
+enunciado: "Para calcular la potencia mecánica de un motor que levanta una carga de {datos[0]} con una velocidad de {datos[1]} durante {datos[2]}, ¿cuál es el orden lógico de resolución?"
+
+explicacion: |
+  Primero debemos obtener la energía transferida (Trabajo) o usar la relación directa de potencia instantánea, y finalmente dividir por el intervalo de tiempo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["conceptos", "definiciones"]
+
+respuesta: "velocidad"
+tipo: completar
+respuestas_validas:
+  - "velocidad"
+  - "rapidez"
+  - "aceleracion"
+
+enunciado: "Mientras que el trabajo describe la transferencia de energía en un proceso, la potencia describe la ___ con la que se realiza dicho trabajo."
+
+explicacion: |
+  La potencia es la rapidez con la que se realiza un trabajo o se transfiere energía. Se define matemáticamente como el trabajo realizado dividido por el tiempo empleado ($P = W/t$).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["relacion", "proporcionalidad"]
+
+variables:
+  escenario: uno_de([[100, 2, 50], [100, 5, 20], [100, 10, 10]])
+  valor_w: escenario[0]
+  valor_t: escenario[1]
+  valor_p: escenario[2]
+
+respuesta: valor_p
+tipo: mc
+opciones_explicitas: [20, 50, 10, 100]
+
+enunciado: "Si un sistema realiza un trabajo de {valor_w} Joules en un tiempo de {valor_t} segundos, su potencia mecánica es de ___ Watts."
+
+explicacion: |
+  Aplicando la fórmula $P = W/t$, tenemos que $P = {valor_w} / {valor_t} = {valor_p}$ W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["conceptos", "tiempo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si se realiza el mismo trabajo en el doble de tiempo, la potencia mecánica resultante será el doble de la potencia original."
+
+explicacion: |
+  Falso. Como la potencia es inversamente proporcional al tiempo ($P \propto 1/t$), si el tiempo se duplica, la potencia se reduce a la mitad.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["unidades", "sistema_internacional"]
+
+respuesta: "W"
+tipo: mc
+opciones_explicitas: ["J", "W", "N", "m/s"]
+
+enunciado: "En el Sistema Internacional (SI), la unidad de potencia mecánica es el ___ (Watt), que equivale a un Joule por segundo."
+
+explicacion: |
+  El Watt (W) es la unidad derivada que combina la unidad de trabajo (Joule) y la de tiempo (segundo).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["comparacion", "calculo"]
+
+variables:
+  caso: uno_de([[100, 2, 50], [200, 5, 40], [50, 10, 5]])
+  w: caso[0]
+  t: caso[1]
+  p: caso[2]
+
+respuesta: p
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Un motor realiza un trabajo de {w} J en un intervalo de tiempo de {t} s. ¿Cuál es su potencia en Watts?"
+
+pasos:
+  - "Identificar el trabajo (W) y el tiempo (t)."
+  - "Dividir el trabajo por el tiempo: P = W / t."
+
+explicacion: |
+  El cálculo realizado es $P = {w} / {t} = {p}$ W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["trabajo", "tiempo", "potencia"]
+
+variables:
+  escenario: uno_de([[1000, 500, 2000], [2500, 1000, 400], [1500, 800, 600]])
+  w: escenario[0]
+  t: escenario[1]
+  p: escenario[2]
+
+respuesta: w / t
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un motor realiza un trabajo de {w} J para elevar una carga durante un tiempo de {t} s. ¿Cuál es la potencia mecánica desarrollada por el motor en Watts?"
+
+pasos:
+  - "Identificar el trabajo realizado (W = {w} J)"
+  - "Identificar el tiempo transcurrido (t = {t} s)"
+  - "Aplicar la fórmula de potencia: P = W / t"
+
+explicacion: |
+  La potencia mecánica se define como la rapidez con la que se realiza un trabajo. 
+  En este caso: P = {w} J / {t} s = {redondear(w/t, 2)} W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["conceptos", "unidades"]
+
+respuesta: "W"
+tipo: mc
+opciones_explicitas: ["J", "W", "N", "m/s"]
+
+enunciado: "Si un objeto realiza un trabajo de 500 Joules en 10 segundos, la unidad de medida de la potencia resultante es la unidad de..."
+
+explicacion: |
+  La potencia es la relación entre trabajo (J) y tiempo (s). 
+  J/s es equivalente a la unidad de potencia, el Watt (W).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["comparacion", "calculo"]
+
+variables:
+  datos: [[100, 5, 1000, 20], [50, 2, 500, 50], [200, 10, 100, 5]]
+  idx: uno_de([0, 1, 2])
+  w1: datos[idx][0]
+  t1: datos[idx][1]
+  w2: datos[idx][2]
+  t2: datos[idx][3]
+  p1: w1 / t1
+  p2: w2 / t2
+
+respuesta: p1 > p2
+tipo: vf
+enunciado: "Se comparan dos máquinas. La máquina A realiza {w1} J en {t1} s. La máquina B realiza {w2} J en {t2} s. ¿Es la potencia de la máquina A mayor que la de la máquina B?"
+
+explicacion: |
+  Calculamos las potencias:
+  P_A = {w1} / {t1} = {redondear(p1, 2)} W
+  P_B = {w2} / {t2} = {redondear(p2, 2)} W
+  La afirmación es {p1 > p2}.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["despeje", "tiempo"]
+
+variables:
+  escenario: uno_de([[500, 100], [1200, 300], [400, 50]])
+  w: escenario[0]
+  p: escenario[1]
+  t: w / p
+
+respuesta: t
+tipo: completar
+respuestas_validas:
+  - 5
+  - 4
+  - 8
+
+enunciado: "Una máquina tiene una potencia constante de {p} W. ¿Cuántos segundos tardará en realizar un trabajo de {w} J? La respuesta es ___ s."
+
+explicacion: |
+  Para hallar el tiempo, despejamos la fórmula de potencia:
+  P = W / t  =>  t = W / P
+  t = {w} / {p} = {t} s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["metodologia"]
+
+opciones_explicitas: ["Calcular el trabajo realizado", "Dividir el trabajo por el tiempo", "Identificar los datos de trabajo y tiempo"]
+respuesta_orden: ["Identificar los datos de trabajo y tiempo", "Calcular el trabajo realizado", "Dividir el trabajo por el tiempo"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para resolver un problema donde se pide la potencia, pero solo se conocen la fuerza, la distancia y el tiempo."
+
+pasos:
+  - "Paso 1: Identificar los datos de trabajo y tiempo"
+  - "Paso 2: Calcular el trabajo realizado (W = F * d)"
+  - "Paso 3: Dividir el trabajo por el tiempo (P = W / t)"
+
+explicacion: |
+  Primero debemos obtener el trabajo (W) usando la fuerza y la distancia, y luego aplicar la definición de potencia dividiendo por el tiempo.
 ```
 

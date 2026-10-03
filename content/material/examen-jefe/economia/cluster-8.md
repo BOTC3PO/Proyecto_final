@@ -1,2343 +1,2140 @@
 # Examen jefe — [PENDIENTE #773]
 
-> Logro #773. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
+> Logro #773. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **108 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: planificacion-administrativa (25 preguntas)
+## Sección: balanza-comercial (21 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "planificacion_administrativa"
+  tema: "balanza_comercial"
   nivel: "basico"
-  tags: ["conceptos_basicos", "gestion"]
+  tags: ["comercio_internacional", "vocabulario"]
 
+enunciado: "¿Qué mide la balanza comercial de un país?"
 tipo: mc
-opciones_explicitas: ["El proceso de tomar decisiones anticipadas para alcanzar objetivos", "La ejecución de tareas diarias sin un orden previo", "El análisis de los resultados obtenidos tras una crisis", "La asignación de recursos basada en la intuición"]
-respuesta: "El proceso de tomar decisiones anticipadas para alcanzar objetivos"
-
-enunciado: "La planificación administrativa se define como ___________."
+opciones_explicitas:
+  - "La diferencia entre lo que exporta y lo que importa"
+  - "El total de dinero que tiene el banco central"
+  - "El PBI total del país"
+respuesta: "La diferencia entre lo que exporta y lo que importa"
 
 explicacion: |
-  La planificación es la función administrativa que consiste en establecer metas y elegir los medios para alcanzarlas, actuando de forma anticipada.
+  Balanza comercial = Exportaciones - Importaciones.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "planificacion_administrativa"
+  tema: "balanza_comercial"
   nivel: "basico"
-  tags: ["elementos", "objetivos"]
+  tags: ["comercio_internacional", "vocabulario"]
 
-respuesta: "objetivos"
-tipo: completar
-respuestas_validas:
-  - "objetivos"
-
-enunciado: "Para que una planificación sea efectiva, debe definir claramente los ___________ que se desean alcanzar, así como las estrategias para lograrlos y los recursos necesarios para llevar a cabo las acciones."
+enunciado: "¿Qué es una exportación?"
+tipo: mc
+opciones_explicitas:
+  - "Un bien o servicio producido dentro del país, vendido a compradores de otros países"
+  - "Un bien producido en otro país, comprado por residentes locales"
+  - "Cualquier producto que se vende dentro del propio país"
+respuesta: "Un bien o servicio producido dentro del país, vendido a compradores de otros países"
 
 explicacion: |
-  La planificación requiere de objetivos (el qué), estrategias (el cómo) y recursos (con qué).
+  Se produce adentro, se vende afuera.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "planificacion_administrativa"
+  tema: "balanza_comercial"
   nivel: "basico"
-  tags: ["temporalidad", "cronograma"]
+  tags: ["comercio_internacional", "vocabulario"]
 
-tipo: vf
-enunciado: "La planificación implica determinar el momento exacto (cuándo) en que deben ejecutarse las acciones para asegurar la eficiencia operativa."
-
-respuesta: verdadero
+enunciado: "¿Qué es una importación?"
+tipo: mc
+opciones_explicitas:
+  - "Un bien o servicio producido en otro país, comprado por residentes del propio país"
+  - "Un bien producido dentro del país, vendido afuera"
+  - "Cualquier producto fabricado por una empresa extranjera, sin importar dónde se vende"
+respuesta: "Un bien o servicio producido en otro país, comprado por residentes del propio país"
 
 explicacion: |
-  La dimensión temporal es fundamental; sin un cronograma o tiempos definidos, la planificación carece de control y seguimiento.
+  Se produce afuera, se compra adentro.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "intermedio"
-  tags: ["proceso_administrativo", "orden"]
+  tema: "balanza_comercial"
+  nivel: "basico"
+  tags: ["comercio_internacional", "vocabulario"]
 
-tipo: ordenar
-opciones_explicitas: ["Establecer objetivos", "Analizar la situación actual", "Desarrollar planes de acción", "Implementar y controlar"]
-
-enunciado: "Ordene cronológicamente las etapas lógicas de un proceso de planificación administrativa:"
-
-respuesta_orden: ["Establecer objetivos", "Analizar la situación actual", "Desarrollar planes de acción", "Implementar y controlar"]
+enunciado: "¿Cuándo un país tiene superávit comercial?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando sus exportaciones son mayores que sus importaciones"
+  - "Cuando sus importaciones son mayores que sus exportaciones"
+  - "Cuando su PBI crece más del 3% anual"
+respuesta: "Cuando sus exportaciones son mayores que sus importaciones"
 
 explicacion: |
-  Aunque los modelos varían, la lógica administrativa requiere primero saber a dónde ir (objetivos), dónde estamos (diagnóstico), cómo llegaremos (planes) y cómo nos aseguramos de haber llegado (control).
+  La balanza da un resultado positivo cuando exporta más de lo que
+  importa.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "planificacion_administrativa"
+  tema: "balanza_comercial"
+  nivel: "basico"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Cuándo un país tiene déficit comercial?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando sus importaciones son mayores que sus exportaciones"
+  - "Cuando sus exportaciones son mayores que sus importaciones"
+  - "Cuando su moneda se devalúa"
+respuesta: "Cuando sus importaciones son mayores que sus exportaciones"
+
+explicacion: |
+  La balanza da un resultado negativo cuando importa más de lo que
+  exporta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "balanza_comercial"
   nivel: "intermedio"
-  tags: ["niveles", "estrategia"]
+  tags: ["comercio_internacional", "calculo"]
 
 variables:
-  datos: [["estratégica", "largo plazo"], ["operativa", "corto plazo"]]
-  idx: uno_de([0, 1])
-  tipo_planificacion: datos[idx][0]
-  horizonte: datos[idx][1]
+  exportaciones: random(300, 800) * 1000
+  importaciones: random(100, 250) * 1000
 
-tipo: completar
-respuesta: tipo_planificacion
-respuestas_validas:
-  - tipo_planificacion
-enunciado: "La planificación que se realiza a nivel de alta dirección, enfocándose en la organización como un todo y con un horizonte de {horizonte}, es la planificación ___."
+respuesta: exportaciones - importaciones
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un país exportó ${exportaciones} millones y le importó ${importaciones} millones en un año. ¿Cuál fue su balanza comercial de ese período?"
+
 explicacion: |
-  La planificación estratégica es global y de largo plazo, mientras que la operativa es específica y de corto plazo.
+  Balanza = Exportaciones - Importaciones.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "basico"
-  tags: ["gestion", "procesos"]
-
-respuesta: "establecer objetivos"
-tipo: completar
-respuestas_validas:
-  - "establecer objetivos"
-  - "definir metas"
-
-enunciado: "La primera etapa fundamental de la planificación administrativa consiste en ___ para saber hacia dónde se dirige la organización."
-
-explicacion: |
-  La planificación comienza con la definición de los objetivos o metas. Sin un norte claro, los demás pasos (cómo, cuándo y con qué recursos) carecen de propósito.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
+  tema: "balanza_comercial"
   nivel: "intermedio"
-  tags: ["toma_de_decisiones", "estrategia"]
+  tags: ["comercio_internacional", "calculo"]
 
-respuesta: "aumentar costos fijos"
-tipo: mc
-opciones_explicitas: ["aumentar costos fijos", "reducir costos de envío", "maximizar beneficios", "reducir personal"]
-
-enunciado: "Una empresa decide expandirse mediante la apertura de una nueva sucursal física. Según la planificación estratégica, esta acción implica principalmente: ___"
-
-explicacion: |
-  Al abrir una sucursal física, la empresa está planificando un crecimiento que conlleva un aumento en sus costos fijos (alquiler, servicios, salarios fijos), como se indica en la opción seleccionada.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "basico"
-  tags: ["conceptos"]
+variables:
+  exportaciones: random(100, 300) * 1000
+  importaciones: random(300, 600) * 1000
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La planificación administrativa es un proceso estático que, una vez definido, no debe ser revisado aunque el entorno cambie."
+enunciado: "Un país exportó ${exportaciones} millones e importó ${importaciones} millones en un año. ¿Es correcto decir que tuvo superávit comercial?"
 
 explicacion: |
-  Falso. La planificación debe ser flexible. Si el entorno (economía, competencia, leyes) cambia, la planificación debe ajustarse para asegurar el cumplimiento de los objetivos.
+  Como importó más de lo que exportó, tuvo déficit, no superávit.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "intermedio"
-  tags: ["pasos", "metodologia"]
-
-respuesta_orden: ["Definir metas", "Determinar acciones", "Asignar recursos", "Establecer cronograma"]
-tipo: ordenar
-opciones_explicitas: ["Definir metas", "Determinar acciones", "Asignar recursos", "Establecer cronograma"]
-
-enunciado: "Para implementar un nuevo proyecto de producción, un gerente debe seguir un orden lógico de planificación. Ordene los siguientes pasos de forma secuencial:"
-
-explicacion: |
-  Primero se define el 'qué' (metas), luego el 'cómo' (acciones), después el 'con qué' (recursos) y finalmente el 'cuándo' (cronograma). La evaluación es un paso posterior al proceso de ejecución.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "intermedio"
-  tags: ["presupuesto", "calculo"]
-
-variables:
-  datos: [[5000, 1200, 3000], [8000, 2500, 5500], [3000, 900, 2100]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][0] - datos[idx][1] - datos[idx][2]
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "En la fase de planificación de presupuesto, una empresa proyecta los siguientes valores para el próximo trimestre: Ingresos estimados: ${datos[idx][0]}, Gastos operativos: ${datos[idx][1]}, Impuestos proyectados: ${datos[idx][2]}. ¿Cuál es el beneficio neto planificado?"
-
-pasos:
-  - "Identificar los ingresos proyectados."
-  - "Restar los gastos operativos."
-  - "Restar los impuestos proyectados del resultado anterior."
-
-explicacion: |
-  El beneficio neto planificado se obtiene restando todos los costos y gastos proyectados de los ingresos totales previstos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "basico"
-  tags: ["procesos", "administracion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La planificación es un proceso que ocurre exclusivamente después de la ejecución de las actividades para corregir errores."
-
-explicacion: |
-  La planificación es un proceso proactivo que se realiza antes de la acción. El proceso de comparar lo ejecutado con lo planificado es lo que se denomina 'control'.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "intermedio"
-  tags: ["elementos", "objetivos"]
-
-variables:
-  datos: [["definir el rumbo", "qué hacer"], ["establecer métodos", "cómo hacerlo"], ["fijar plazos", "cuándo hacerlo"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "qué hacer"
-  - "cómo hacerlo"
-  - "cuándo hacerlo"
-
-enunciado: "En la etapa de planificación, cuando una empresa decide establecer los procedimientos y recursos necesarios para alcanzar sus metas, está definiendo ___."
-
-explicacion: |
-  La planificación implica determinar las acciones (qué), los métodos (cómo) y los tiempos (cuándo).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "intermedio"
-  tags: ["flexibilidad", "errores"]
-
-respuesta: "Planificación excesivamente rígida"
-tipo: mc
-opciones_explicitas: ["Planificación excesivamente rígida", "Falta de objetivos", "Exceso de control", "Delegación ineficiente"]
-
-enunciado: "Un error común en la planificación es diseñar planes que no permiten ajustes ante cambios en el entorno, lo que se conoce como:"
-
-explicacion: |
-  Una planificación efectiva debe ser flexible para adaptarse a las contingencias del mercado sin perder de vista el objetivo final.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "basico"
-  tags: ["procesos", "orden"]
-
-respuesta_orden: ["Planificación", "Organización", "Dirección", "Control"]
-tipo: ordenar
-opciones_explicitas: ["Planificación", "Organización", "Dirección", "Control"]
-
-enunciado: "Ordene las etapas del proceso administrativo en su secuencia lógica estándar:"
-
-explicacion: |
-  El proceso administrativo comienza con la planificación (establecer metas), seguido de la organización (asignar recursos), la dirección (ejecutar/guiar) y el control (evaluar).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
+  tema: "balanza_comercial"
   nivel: "avanzado"
-  tags: ["incertidumbre", "riesgo"]
-
-variables:
-  caso: uno_de([[0.90, "baja"], [0.50, "moderada"], [0.15, "alta"]])
-
-respuesta: caso[1]
-tipo: mc
-opciones_explicitas: ["alta", "baja", "moderada"]
-
-enunciado: "Si una empresa planifica basándose en un entorno con una probabilidad de éxito del {caso[0]}, la incertidumbre asociada a su planificación es ___."
-
-explicacion: |
-  A mayor probabilidad de éxito o mayor control sobre las variables, menor es la incertidumbre. Sin embargo, la planificación siempre busca reducir la incertidumbre, pero nunca puede eliminarla por completo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "basico"
-  tags: ["procesos_administrativos", "gestion"]
-
-respuesta: "control"
-tipo: "completar"
-respuestas_validas:
-  - "control"
-  - "Control"
-
-enunciado: "Mientras que la planificación establece los objetivos y los medios para alcanzarlos, el proceso de ___ se encarga de verificar que las actividades se realicen conforme a lo planeado."
-
-explicacion: |
-  La planificación es la fase de diseño y establecimiento de metas, mientras que el control es la fase de monitoreo y corrección de desviaciones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "basico"
-  tags: ["conceptos_clave"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "La planificación administrativa se caracteriza por ser un proceso reactivo que solo se inicia una vez que los problemas han ocurrido en la organización."
-
-explicacion: |
-  Falso. La planificación es un proceso proactivo y preventivo que busca anticipar situaciones y establecer un curso de acción antes de que los eventos ocurran.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "intermedio"
-  tags: ["elementos", "metas"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["establecer un objetivo", "definir el camino"], ["determinar una meta", "asignar recursos"]]
-
-respuesta: datos[escenario_idx][1]
-tipo: "mc"
-opciones_explicitas: [datos[escenario_idx][0], datos[escenario_idx][1], "evaluar resultados", "ejecutar órdenes"]
-
-enunciado: "En el proceso de planificación, una vez que se ha logrado {datos[escenario_idx][0]}, la siguiente etapa lógica es {datos[escenario_idx][1]}."
-
-explicacion: |
-  La planificación requiere primero la definición del 'qué' (objetivo) y luego el 'cómo' (estrategia o asignación de recursos).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "intermedio"
-  tags: ["jerarquia", "niveles"]
-
-respuesta_orden: ["Planificación Estratégica", "Planificación Táctica", "Planificación Operativa"]
-tipo: "ordenar"
-opciones_explicitas: ["Planificación Estratégica", "Planificación Táctica", "Planificación Operativa"]
-
-enunciado: "Ordene los niveles de planificación de la organización desde el alcance más global y a largo plazo hasta el más específico y de corto plazo:"
-
-explicacion: |
-  La jerarquía administrativa comienza con la Estratégica (toda la empresa/largo plazo), sigue con la Táctica (departamentos/mediano plazo) y finaliza con la Operativa (tareas específicas/corto plazo).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "intermedio"
-  tags: ["procesos_administrativos"]
-
-respuesta: "organizar"
-tipo: "completar"
-respuestas_validas:
-  - "organizar"
-  - "Organizar"
-
-enunciado: "La planificación determina qué se va a hacer y qué recursos se necesitan; por el contrario, la función de ___ se encarga de distribuir esos recursos y asignar responsabilidades entre los miembros de la empresa."
-
-explicacion: |
-  La planificación es el diseño de la acción, mientras que la organización es la estructura que permite ejecutar dicha acción mediante la asignación de tareas y autoridad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "basico"
-  tags: ["gestion", "procesos"]
-
-respuesta: "definir_metas"
-tipo: mc
-opciones_explicitas: ["definir_metas", "distribuir_insumos", "fijar_tiempos", "evaluar_desempeño"]
-
-enunciado: "En el proceso de planificación, el primer paso fundamental consiste en ___."
-
-explicacion: |
-  La planificación comienza con la definición de objetivos o metas que la organización desea alcanzar.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "basico"
-  tags: ["conceptos"]
+  tags: ["comercio_internacional", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La planificación administrativa implica decidir por adelantado qué se va a hacer, cómo se va a hacer y cuándo se va a hacer."
+enunciado: "Un país puede tener déficit comercial por estar importando maquinaria para invertir en su propia producción futura — el número solo, sin contexto, no alcanza para juzgar si es \"bueno\" o \"malo\"."
 
 explicacion: |
-  Correcto. La esencia de la planificación es la anticipación de acciones para alcanzar objetivos.
+  Es la aclaración central del tema: el signo del resultado no dice
+  todo por sí solo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "intermedio"
-  tags: ["procesos", "orden"]
-
-respuesta_orden: ["Diagnóstico", "Objetivos", "Estrategias", "Control"]
-tipo: ordenar
-opciones_explicitas: ["Diagnóstico", "Objetivos", "Estrategias", "Control"]
-
-enunciado: "Ordene cronológicamente las etapas de un proceso de planificación estándar:"
-
-explicacion: |
-  La secuencia lógica siempre parte del análisis de la situación actual para luego proyectar metas y acciones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "intermedio"
-  tags: ["componentes"]
-
-variables:
-  datos: [["recursos_humanos", "personal"], ["presupuesto", "dinero"], ["maquinaria", "equipos"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "personal"
-  - "dinero"
-  - "equipos"
-
-enunciado: "Para ejecutar el plan de producción, la empresa debe planificar la asignación de ___."
-
-explicacion: |
-  La planificación requiere la asignación de recursos (humanos, financieros o materiales) para que los planes sean realizables.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "planificacion_administrativa"
-  nivel: "basico"
-  tags: ["tiempo", "cronograma"]
-
-variables:
-  datos: [["corto plazo", "1 año"], ["mediano plazo", "3 años"], ["largo plazo", "5 años"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["1 año", "3 años", "5 años", "10 años"]
-
-enunciado: "Si una empresa está realizando una planificación de {datos[idx][0]}, su horizonte temporal suele ser de ___."
-
-explicacion: |
-  El horizonte temporal define si la planificación es operativa (corto), táctica (mediano) o estratégica (largo).
-```
-
-## Sección: estados-contables (22 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Qué es el ciclo contable?"
-tipo: mc
-opciones_explicitas:
-  - "La secuencia completa de pasos desde que ocurre un movimiento económico hasta que aparece en los estados contables finales"
-  - "El período de un año calendario, sin más"
-  - "El nombre de un software de contabilidad"
-respuesta: "La secuencia completa de pasos desde que ocurre un movimiento económico hasta que aparece en los estados contables finales"
-
-explicacion: |
-  Conecta todos los pasos ya vistos por separado (asiento, Diario,
-  Mayor) con los estados contables finales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos pasos del ciclo contable, del primero al último."
-opciones_explicitas:
-  - "Se arman los estados contables"
-  - "Ocurre el hecho económico"
-  - "Se pasa la información al Libro Mayor"
-  - "Se registra el asiento en el Libro Diario"
-respuesta_orden: ["Ocurre el hecho económico", "Se registra el asiento en el Libro Diario", "Se pasa la información al Libro Mayor", "Se arman los estados contables"]
-
-explicacion: |
-  Cada paso depende del anterior: sin el hecho económico no hay
-  asiento, sin asiento no hay mayor, sin mayor no hay estados
-  contables.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Qué muestra el Estado de Situación Patrimonial?"
-tipo: mc
-opciones_explicitas:
-  - "Una foto de un instante puntual: qué tiene y qué debe la empresa en esa fecha"
-  - "Todo lo que ganó y gastó la empresa durante un período completo"
-  - "Sólo las cuentas de Caja y Bancos"
-respuesta: "Una foto de un instante puntual: qué tiene y qué debe la empresa en esa fecha"
-
-explicacion: |
-  Es una fotografía, no una película: describe un momento, no un
-  período.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Qué muestra el Estado de Resultados?"
-tipo: mc
-opciones_explicitas:
-  - "Todo lo que ganó y gastó la empresa durante un período completo"
-  - "Una foto de un instante puntual de la empresa"
-  - "Sólo los préstamos pendientes de pago"
-respuesta: "Todo lo que ganó y gastó la empresa durante un período completo"
-
-explicacion: |
-  Es una película de un período (un mes, un año), no una foto de un
-  instante.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
+  tema: "balanza_comercial"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El Estado de Situación Patrimonial se arma con la misma ecuación ya vista en Debe y Haber: Activo = Pasivo + Patrimonio Neto."
+enunciado: "Un país puede tener superávit comercial simplemente porque atraviesa una recesión que hace caer fuerte sus importaciones — no necesariamente porque su economía esté fuerte."
 
 explicacion: |
-  Es la misma ecuación contable fundamental, aplicada acá como
-  producto final del ciclo.
+  Es el mismo principio de la pregunta anterior, visto desde el otro
+  signo: superávit tampoco es automáticamente una buena noticia.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estados_contables"
+  tema: "balanza_comercial"
   nivel: "intermedio"
-  tags: ["contabilidad", "calculo"]
+  tags: ["comercio_internacional", "problema"]
+
+enunciado: "Un país sube los aranceles a los productos importados, para que sea más caro comprarlos desde afuera. ¿Qué busca lograr con esto, en términos de balanza comercial?"
+tipo: mc
+opciones_explicitas:
+  - "Reducir sus importaciones, para mejorar (o achicar el déficit de) su balanza comercial"
+  - "Aumentar sus importaciones, para mejorar su balanza comercial"
+  - "No tiene ninguna relación con la balanza comercial"
+respuesta: "Reducir sus importaciones, para mejorar (o achicar el déficit de) su balanza comercial"
+
+explicacion: |
+  Encarecer lo importado busca, justamente, que se compre menos desde
+  afuera.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "balanza_comercial"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Cuál es la relación entre la balanza comercial y la balanza de pagos?"
+tipo: mc
+opciones_explicitas:
+  - "La balanza comercial es sólo una parte (bienes y servicios) de un cuadro más amplio, la balanza de pagos, que también incluye inversiones y préstamos"
+  - "Son exactamente lo mismo, dos nombres para un mismo concepto"
+  - "La balanza de pagos sólo existe para países sin moneda propia"
+respuesta: "La balanza comercial es sólo una parte (bienes y servicios) de un cuadro más amplio, la balanza de pagos, que también incluye inversiones y préstamos"
+
+explicacion: |
+  La balanza comercial es la pieza más citada, pero no es todo el
+  cuadro de las relaciones económicas de un país con el resto del
+  mundo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "balanza_comercial"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un país que depende de exportar mayormente un solo producto tiene una balanza comercial muy sensible al precio internacional de ese producto puntual."
+
+explicacion: |
+  Si ese precio cae, las exportaciones caen con él, afectando directo
+  el resultado de la balanza.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "balanza_comercial"
+  nivel: "basico"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Cuándo se dice que la balanza comercial de un país está \"equilibrada\"?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando exportaciones e importaciones son iguales"
+  - "Cuando las exportaciones son el doble de las importaciones"
+  - "Cuando no hay ningún comercio internacional"
+respuesta: "Cuando exportaciones e importaciones son iguales"
+
+explicacion: |
+  Es el caso intermedio entre superávit y déficit.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "balanza_comercial"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "calculo"]
 
 variables:
-  activo: random(500, 900) * 1000
-  pasivo: random(100, 400) * 1000
+  exportaciones: random(300, 800) * 1000
+  balanza: random(-100, 100) * 1000
 
-respuesta: activo - pasivo
+respuesta: exportaciones - balanza
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Una empresa tiene un Activo de ${activo} y un Pasivo de ${pasivo}. ¿Cuál es su Patrimonio Neto?"
-
-explicacion: |
-  Patrimonio Neto = Activo - Pasivo, despejando la ecuación contable.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "calculo"]
-
-variables:
-  pasivo: random(100, 400) * 1000
-  patrimonio_neto: random(200, 600) * 1000
-
-respuesta: pasivo + patrimonio_neto
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una empresa tiene un Pasivo de ${pasivo} y un Patrimonio Neto de ${patrimonio_neto}. ¿Cuál es su Activo total?"
-
-explicacion: |
-  Activo = Pasivo + Patrimonio Neto, aplicando la ecuación directo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Cuándo una empresa tiene ganancia en el Estado de Resultados?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando los Ingresos son mayores que los Gastos"
-  - "Cuando el Activo es mayor que el Pasivo"
-  - "Cuando el Pasivo es igual a cero"
-respuesta: "Cuando los Ingresos son mayores que los Gastos"
-
-explicacion: |
-  Resultado = Ingresos - Gastos; si da positivo, es ganancia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "calculo"]
-
-variables:
-  ingresos: random(300, 700) * 1000
-  gastos: random(100, 250) * 1000
-
-respuesta: ingresos - gastos
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Durante el mes, una empresa tuvo Ingresos por ${ingresos} y Gastos por ${gastos}. ¿Cuál es su resultado del período?"
-
-explicacion: |
-  Resultado = Ingresos - Gastos. Un número positivo es ganancia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "calculo"]
-
-variables:
-  ingresos: random(100, 400) * 1000
-  gastos: random(300, 700) * 1000
-  resultado: ingresos - gastos
-
-respuesta: (resultado < 0)
-tipo: vf
-
-enunciado: "Una empresa tuvo Ingresos de ${ingresos} y Gastos de ${gastos} en el período. ¿Es correcto decir que tuvo una pérdida?"
-
-explicacion: |
-  Se compara Ingresos contra Gastos: si Gastos es mayor, el resultado
-  es negativo, o sea pérdida.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Para qué sirve el balance de comprobación, dentro del ciclo contable?"
-tipo: mc
-opciones_explicitas:
-  - "Para verificar que la suma de todos los saldos deudores coincida con la suma de todos los saldos acreedores del Mayor"
-  - "Para calcular el impuesto a las ganancias del período"
-  - "Para registrar un nuevo asiento contable"
-respuesta: "Para verificar que la suma de todos los saldos deudores coincida con la suma de todos los saldos acreedores del Mayor"
-
-explicacion: |
-  Es un control: si no coinciden, hay un error de carga en algún
-  asiento del período.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Qué son los ajustes de cierre, en el ciclo contable?"
-tipo: mc
-opciones_explicitas:
-  - "Correcciones que reconocen algo que ya pasó pero no se había registrado todavía (por ejemplo, la depreciación de una máquina)"
-  - "Los primeros asientos que se cargan al empezar un ejercicio"
-  - "Un tipo de impuesto que paga la empresa"
-respuesta: "Correcciones que reconocen algo que ya pasó pero no se había registrado todavía (por ejemplo, la depreciación de una máquina)"
-
-explicacion: |
-  No vienen de un movimiento nuevo, sino de reconocer contablemente
-  algo que ya venía ocurriendo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "avanzado"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al cerrar el ejercicio, el resultado del período (ganancia o pérdida) pasa a formar parte del Patrimonio Neto."
-
-explicacion: |
-  Es el punto donde se conectan los dos estados contables: lo que
-  ganó o perdió la empresa modifica lo que le queda a los dueños.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una empresa tiene ganancia en un período, su Patrimonio Neto aumenta al cerrar el ejercicio."
-
-explicacion: |
-  La ganancia se suma al Patrimonio Neto en el cierre.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una empresa tiene pérdida en un período, su Patrimonio Neto se reduce al cerrar el ejercicio."
-
-explicacion: |
-  La pérdida se resta del Patrimonio Neto en el cierre.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "avanzado"
-  tags: ["contabilidad", "calculo"]
-
-variables:
-  patrimonio_inicial: random(500, 900) * 1000
-  ingresos: random(200, 500) * 1000
-  gastos: random(50, 180) * 1000
-
-respuesta: patrimonio_inicial + (ingresos - gastos)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una empresa arrancó el período con un Patrimonio Neto de ${patrimonio_inicial}. Durante el período tuvo Ingresos de ${ingresos} y Gastos de ${gastos}. ¿Cuál es su Patrimonio Neto al cierre?"
+enunciado: "Un país exportó ${exportaciones} millones en un año, y su balanza comercial de ese período fue de ${balanza} millones. ¿Cuánto importó?"
 
 pasos:
-  - "Resultado del período: {ingresos} - {gastos} = {ingresos - gastos}"
-  - "Patrimonio final: {patrimonio_inicial} + {ingresos - gastos}"
+  - "Balanza = Exportaciones - Importaciones"
+  - "Importaciones = Exportaciones - Balanza = {exportaciones} - ({balanza})"
 
 explicacion: |
-  El Patrimonio Neto final es el inicial más el resultado del
-  período (que puede ser positivo o negativo).
+  Se despeja Importaciones de la fórmula de la balanza comercial.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estados_contables"
+  tema: "balanza_comercial"
   nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
+  tags: ["comercio_internacional", "vocabulario"]
 
-enunciado: "¿Cuál de estas comparaciones describe mejor la diferencia entre el Estado de Situación Patrimonial y el Estado de Resultados?"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando una noticia dice \"récord de exportaciones\" o \"el déficit comercial se amplió\", está hablando directamente del resultado de la balanza comercial."
+
+explicacion: |
+  Es el mismo concepto de este tema, en el lenguaje habitual de las
+  noticias económicas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "balanza_comercial"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "problema"]
+
+enunciado: "Una empresa local le vende software a clientes de otro país. ¿Cómo se registra esa venta en la balanza comercial del país donde está la empresa?"
 tipo: mc
 opciones_explicitas:
-  - "El Patrimonial es una foto de un instante; el de Resultados es una película de un período"
-  - "El Patrimonial es mensual y el de Resultados es siempre anual"
-  - "No hay ninguna diferencia real entre los dos"
-respuesta: "El Patrimonial es una foto de un instante; el de Resultados es una película de un período"
+  - "Como una exportación"
+  - "Como una importación"
+  - "No se registra: los servicios no cuentan en la balanza comercial"
+respuesta: "Como una exportación"
 
 explicacion: |
-  Es la metáfora central del tema: uno describe un momento, el otro
-  describe un tramo de tiempo.
+  Se produjo dentro del país y se vendió a un comprador de otro país:
+  es exactamente la definición de exportación (y los servicios sí
+  cuentan, no sólo bienes físicos).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "problema"]
-
-enunciado: "Un banco quiere saber qué tiene y qué debe una empresa HOY antes de decidir si le da un crédito. ¿Qué estado contable conviene consultar?"
-tipo: mc
-opciones_explicitas:
-  - "El Estado de Situación Patrimonial"
-  - "El Estado de Resultados"
-  - "El balance de comprobación únicamente"
-respuesta: "El Estado de Situación Patrimonial"
-
-explicacion: |
-  Es la foto del instante presente: exactamente lo que necesita el
-  banco para esa decisión.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "problema"]
-
-enunciado: "Un inversor quiere saber si una empresa gana o pierde plata de forma sostenida en los últimos años. ¿Qué estado contable conviene consultar?"
-tipo: mc
-opciones_explicitas:
-  - "El Estado de Resultados de varios períodos"
-  - "El Estado de Situación Patrimonial de un solo día"
-  - "El Libro Diario del último mes"
-respuesta: "El Estado de Resultados de varios períodos"
-
-explicacion: |
-  Muestra la evolución de ganancias y pérdidas período a período, que
-  es justo lo que necesita evaluar.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
+  tema: "balanza_comercial"
   nivel: "basico"
-  tags: ["contabilidad"]
+  tags: ["comercio_internacional", "vocabulario"]
 
-variables:
-  ingresos: random(200, 600) * 1000
-  gastos: random(50, 150) * 1000
-  resultado: ingresos - gastos
+respuesta: verdadero
+tipo: vf
 
-tipo: completar
-enunciado: "Completá: Resultado = {ingresos} - {gastos} = ___ (resultado)."
-respuestas_validas:
-  - resultado
+enunciado: "La balanza comercial se mide durante un período determinado (normalmente un año), no como una foto de un instante puntual."
 
 explicacion: |
-  Es la aplicación directa de la fórmula del Estado de Resultados.
+  Es una medida de flujo (a lo largo de un tiempo), no de stock (en un
+  momento puntual).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estados_contables"
+  tema: "balanza_comercial"
   nivel: "avanzado"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ciclo contable completo es el PROCESO, y los estados contables (patrimonio y resultados) son el PRODUCTO de ese proceso: por eso se enseñan como un solo tema."
-
-explicacion: |
-  Es la idea central que conecta las dos partes del título de este
-  tema.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ciclo contable completo va desde que ocurre un movimiento económico (asiento, Diario, Mayor) hasta que se arman los estados contables finales de la empresa."
-
-explicacion: |
-  Es el resumen de todo el recorrido de esta sub-rama de Contabilidad.
-```
-
-## Sección: plazo-fijo-vs-inflacion (22 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "basico"
-  tags: ["rendimiento_real", "vocabulario"]
-
-enunciado: "¿Qué es el rendimiento real de una inversión?"
-tipo: mc
-opciones_explicitas:
-  - "Cuánto creció el poder adquisitivo del dinero, descontando la inflación del período"
-  - "La tasa de interés que informa el banco, sin ajustar por nada más"
-  - "La diferencia entre dos bancos distintos que ofrecen la misma inversión"
-respuesta: "Cuánto creció el poder adquisitivo del dinero, descontando la inflación del período"
-
-explicacion: |
-  Es la diferencia entre "cuántos pesos más tengo" (nominal) y "cuánto
-  más puedo comprar con esos pesos" (real).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "basico"
-  tags: ["rendimiento_real", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La tasa nominal es la que informa el banco: cuántos pesos de más da la inversión, sin ajustar por la inflación del período."
-
-explicacion: |
-  Es el punto de partida del cálculo, pero por sí sola no dice si el
-  dinero ganó o perdió poder de compra.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "intermedio"
-  tags: ["rendimiento_real", "calculo"]
-
-variables:
-  tasa_nominal: random(20, 150)
-  inflacion: random(20, 150)
-
-respuesta: ((1 + tasa_nominal / 100) / (1 + inflacion / 100) - 1) * 100
-tipo: input
-tolerancia_abs: 0.3
-
-enunciado: "Un plazo fijo pagó una tasa nominal anual del {tasa_nominal}%, en un año con una inflación del {inflacion}%. ¿Cuál fue el rendimiento real, en porcentaje?"
-
-pasos:
-  - "rendimiento_real = (1 + {tasa_nominal/100}) / (1 + {inflacion/100}) - 1"
-
-explicacion: |
-  Se aplica la ecuación de Fisher: se divide (1 + tasa nominal) por
-  (1 + inflación), y se le resta 1.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "intermedio"
-  tags: ["rendimiento_real", "vocabulario"]
-
-variables:
-  inflacion: random(50, 150)
-  tasa_nominal: random(20, 49)
-
-respuesta: (((1 + tasa_nominal / 100) / (1 + inflacion / 100) - 1) < 0)
-tipo: vf
-
-enunciado: "Un plazo fijo pagó una tasa nominal anual del {tasa_nominal}%, en un año con una inflación del {inflacion}%. ¿El rendimiento real fue negativo?"
-
-explicacion: |
-  Cuando la inflación supera a la tasa nominal, el rendimiento real
-  siempre da negativo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "intermedio"
-  tags: ["rendimiento_real", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es posible tener un rendimiento real negativo aunque el saldo en pesos de la cuenta haya crecido: el dinero es \"más\" en pesos, pero compra menos que antes."
-
-explicacion: |
-  Eso es justamente lo que revela el rendimiento real, que la sola tasa
-  nominal no muestra.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "intermedio"
-  tags: ["rendimiento_real"]
-
-enunciado: "¿Cuál es la fórmula correcta del rendimiento real (ecuación de Fisher)?"
-tipo: mc
-opciones_explicitas:
-  - "(1 + tasa_nominal) / (1 + inflación) - 1"
-  - "tasa_nominal / inflación"
-  - "tasa_nominal + inflación"
-respuesta: "(1 + tasa_nominal) / (1 + inflación) - 1"
-
-explicacion: |
-  La segunda y la tercera opción no son la fórmula de Fisher: no
-  reflejan cómo se combinan tasa nominal e inflación.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "intermedio"
-  tags: ["rendimiento_real", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"Rendimiento real ≈ tasa nominal − inflación\" es sólo una aproximación de la ecuación de Fisher, válida cuando ambas tasas son chicas — no es el cálculo exacto."
-
-explicacion: |
-  El cálculo exacto es (1 + tasa_nominal) / (1 + inflación) - 1, no la
-  resta directa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "avanzado"
-  tags: ["rendimiento_real", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Con tasas de interés e inflación altas (como suele pasar en Argentina), la aproximación \"tasa nominal − inflación\" se aleja bastante del resultado exacto de la ecuación de Fisher."
-
-explicacion: |
-  La aproximación ignora el término que divide por (1 + inflación); ese
-  error se vuelve grande cuando la inflación no es chica.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "avanzado"
-  tags: ["rendimiento_real", "calculo"]
-
-variables:
-  tasa_nominal: random(60, 150)
-  inflacion: random(60, 150)
-
-respuesta: (tasa_nominal - inflacion) - ((1 + tasa_nominal / 100) / (1 + inflacion / 100) - 1) * 100
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Con una tasa nominal del {tasa_nominal}% y una inflación del {inflacion}%, ¿cuántos puntos porcentuales de diferencia hay entre la aproximación simple (resta directa) y el resultado exacto de Fisher?"
-
-pasos:
-  - "Aproximación: {tasa_nominal} - {inflacion} = {tasa_nominal - inflacion}"
-  - "Exacto: (1 + {tasa_nominal/100}) / (1 + {inflacion/100}) - 1, en porcentaje"
-
-explicacion: |
-  Con tasas de esta magnitud, la diferencia entre ambos cálculos ya no
-  es despreciable.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "intermedio"
-  tags: ["rendimiento_real", "comparacion"]
-
-variables:
-  tasa_nominal: random(20, 150)
-  inflacion_a: random(20, 60)
-  inflacion_b: random(61, 150)
-
-respuesta: (((1 + tasa_nominal / 100) / (1 + inflacion_b / 100) - 1) < ((1 + tasa_nominal / 100) / (1 + inflacion_a / 100) - 1))
-tipo: vf
-
-enunciado: "Con la misma tasa nominal del {tasa_nominal}%, ¿una inflación del {inflacion_b}% da un rendimiento real menor que una inflación del {inflacion_a}%?"
-
-explicacion: |
-  A mayor inflación, con la misma tasa nominal, menor el rendimiento
-  real — la inflación erosiona más el poder de compra.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "intermedio"
-  tags: ["rendimiento_real", "comparacion"]
-
-variables:
-  inflacion: random(20, 150)
-  tasa_a: random(20, 60)
-  tasa_b: random(61, 150)
-
-respuesta: (((1 + tasa_b / 100) / (1 + inflacion / 100) - 1) > ((1 + tasa_a / 100) / (1 + inflacion / 100) - 1))
-tipo: vf
-
-enunciado: "Con la misma inflación del {inflacion}%, ¿una tasa nominal del {tasa_b}% da un rendimiento real mayor que una del {tasa_a}%?"
-
-explicacion: |
-  A igual inflación, a mayor tasa nominal, mayor el rendimiento real.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "avanzado"
-  tags: ["rendimiento_real", "calculo"]
-
-variables:
-  inflacion: random(20, 150)
-
-respuesta: inflacion
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Si la inflación de un año fue del {inflacion}%, ¿qué tasa nominal anual necesitaba pagar una inversión para que el rendimiento real diera exactamente 0%?"
-
-explicacion: |
-  Por la ecuación de Fisher, el rendimiento real da 0% sólo cuando la
-  tasa nominal es exactamente igual a la inflación.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "avanzado"
-  tags: ["rendimiento_real", "calculo"]
-
-variables:
-  inflacion: random(30, 150)
-  rendimiento_real_objetivo: random(5, 20)
-  tasa_nominal: (1 + rendimiento_real_objetivo / 100) * (1 + inflacion / 100) * 100 - 100
-
-respuesta: tasa_nominal
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "En un año con {inflacion}% de inflación, ¿qué tasa nominal anual hace falta para lograr un rendimiento real del {rendimiento_real_objetivo}%?"
-
-pasos:
-  - "tasa_nominal = (1 + rendimiento_real) × (1 + inflación) - 1"
-
-explicacion: |
-  Se despeja la tasa nominal de la ecuación de Fisher: (1 + tasa_nominal)
-  = (1 + rendimiento_real) × (1 + inflación).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "avanzado"
-  tags: ["rendimiento_real", "problema"]
-
-variables:
-  capital: random(100, 1000) * 1000
-  tasa_nominal: random(30, 150)
-  inflacion: random(30, 150)
-  monto_nominal: capital * (1 + tasa_nominal / 100)
-
-respuesta: monto_nominal / (1 + inflacion / 100)
-tipo: input
-tolerancia_abs: 5
-
-enunciado: "Un capital de ${capital} se puso a plazo fijo un año, a una tasa nominal anual del {tasa_nominal}%, en un año con {inflacion}% de inflación. El monto nominal al final es ${redondear(monto_nominal, 2)}. ¿Cuánto vale eso en poder de compra de hoy (valor real, en los pesos de hace un año)?"
-
-pasos:
-  - "Valor real = monto nominal ÷ (1 + inflación) = {redondear(monto_nominal, 2)} ÷ {1 + inflacion/100}"
-
-explicacion: |
-  Se divide el monto nominal final por (1 + inflación) para expresarlo
-  en el poder de compra del momento en que se empezó a invertir.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "intermedio"
-  tags: ["rendimiento_real", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Elegir un plazo fijo sólo por tener la tasa nominal más alta, sin comparar contra la inflación esperada, puede llevar a un resultado real peor que otra opción con tasa nominal más baja pero rendimiento real mayor."
-
-explicacion: |
-  Lo mismo que ya pasaba al comparar créditos por CFT en vez de por TNA:
-  el número nominal más llamativo no siempre es el mejor dato para
-  decidir.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "intermedio"
-  tags: ["rendimiento_real"]
-
-variables:
-  tasa_nominal: random(20, 60)
-  inflacion: random(20, 60)
-  aproximado: tasa_nominal - inflacion
-
-tipo: completar
-enunciado: "Con una tasa nominal del {tasa_nominal}% y una inflación del {inflacion}%, completá la aproximación simple: {tasa_nominal} (tasa nominal) - {inflacion} (inflación) = ___ (rendimiento real aproximado, en puntos porcentuales)."
-respuestas_validas:
-  - aproximado
-
-explicacion: |
-  Es la aproximación simple (válida sólo con tasas chicas) — no la
-  ecuación de Fisher exacta.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "basico"
-  tags: ["rendimiento_real", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La inflación reduce el rendimiento real de una inversión, incluso si esa inversión paga intereses positivos."
-
-explicacion: |
-  Los intereses suman pesos; la inflación resta poder de compra a esos
-  mismos pesos — el resultado neto es lo que mide el rendimiento real.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "intermedio"
-  tags: ["rendimiento_real", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Que el rendimiento real dé exactamente 0% es un caso muy puntual: sólo pasa cuando la tasa nominal coincide exactamente con la inflación del mismo período."
-
-explicacion: |
-  Cualquier diferencia entre ambas, para cualquier lado, ya da un
-  rendimiento real distinto de cero.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "basico"
-  tags: ["rendimiento_real", "orden"]
+  tags: ["comercio_internacional", "orden"]
 
 tipo: ordenar
-enunciado: "Con una inflación anual del 50% fija, ordená estos rendimientos nominales de menor a mayor rendimiento real."
+enunciado: "Ordená esta secuencia de razonamiento sobre un arancel a productos importados."
 opciones_explicitas:
-  - "Nominal 80%"
-  - "Nominal 40%"
-  - "Nominal 60%"
-respuesta_orden: ["Nominal 40%", "Nominal 60%", "Nominal 80%"]
+  - "Baja la cantidad importada de ese producto"
+  - "La balanza comercial mejora (o su déficit se achica), sólo por ese efecto puntual"
+  - "El gobierno sube el arancel a un producto importado"
+  - "Ese producto se vuelve más caro para los consumidores locales"
+respuesta_orden: ["El gobierno sube el arancel a un producto importado", "Ese producto se vuelve más caro para los consumidores locales", "Baja la cantidad importada de ese producto", "La balanza comercial mejora (o su déficit se achica), sólo por ese efecto puntual"]
 
 explicacion: |
-  A igual inflación, a mayor tasa nominal, mayor rendimiento real — el
-  orden de la tasa nominal es el mismo que el del rendimiento real.
+  Cada paso es consecuencia del anterior: el arancel encarece, el
+  precio más alto reduce la cantidad comprada, y eso mejora el
+  resultado de la balanza.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "intermedio"
-  tags: ["rendimiento_real", "verificacion"]
+  tema: "balanza_comercial"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La balanza comercial es la pieza más mencionada en el debate público, pero es sólo una parte del cuadro completo de las relaciones económicas de un país con el resto del mundo (la balanza de pagos)."
+
+explicacion: |
+  Es la aclaración de alcance del tema: no se confunde con el cuadro
+  completo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "balanza_comercial"
+  nivel: "basico"
+  tags: ["comercio_internacional"]
 
 variables:
-  tasa_nominal: random(20, 150)
-  inflacion: random(20, 150)
-  correcto: ((1 + tasa_nominal / 100) / (1 + inflacion / 100) - 1) * 100
-  error: uno_de([0, 0, 0, 5, -5])
-  mostrado: correcto + error
+  exportaciones: random(300, 800) * 1000
+  importaciones: random(100, 250) * 1000
+  balanza: exportaciones - importaciones
 
-respuesta: (abs(mostrado - correcto) < 0.5)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? Tasa nominal {tasa_nominal}%, inflación {inflacion}%, rendimiento real informado: {redondear(mostrado, 2)}%."
+tipo: completar
+enunciado: "Completá: Balanza comercial = {exportaciones} - {importaciones} = ___ (balanza, en millones)."
+respuestas_validas:
+  - balanza
 
 explicacion: |
-  Se vuelve a aplicar la ecuación de Fisher y se compara con el valor
-  informado.
+  Es la aplicación directa de la fórmula de la balanza comercial.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
+  tema: "balanza_comercial"
   nivel: "basico"
-  tags: ["rendimiento_real", "vocabulario"]
+  tags: ["comercio_internacional", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un aumento de sueldo que queda por debajo de la inflación del mismo período es, en términos reales, una pérdida de poder adquisitivo — aunque el número en el recibo de sueldo sea más alto que antes."
-
-explicacion: |
-  Es el mismo concepto de rendimiento real aplicado a un sueldo en vez
-  de a una inversión.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "plazo_fijo_vs_inflacion"
-  nivel: "basico"
-  tags: ["rendimiento_real", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El rendimiento real se calcula con (1 + tasa nominal) / (1 + inflación) - 1: mide cuánto cambió el poder de compra del dinero, no sólo cuántos pesos de más hay."
+enunciado: "La balanza comercial mide la diferencia entre exportaciones e importaciones de un país, y ni el superávit ni el déficit son, por sí solos, automáticamente buenos o malos."
 
 explicacion: |
   Es la idea central de todo el tema.
 ```
 
-## Sección: contabilidad-ambiental (25 preguntas)
+## Sección: recibo-de-sueldo/general (22 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["calculos", "externalidades"]
-
-variables:
-  costo_externo: random(1000, 5000)
-  costo_privado: random(2000, 8000)
-
-respuesta: "{costo_privado + costo_externo}"
-tipo: input
-
-enunciado: "Una empresa tiene un costo privado de producción de {costo_privado} pesos y genera una externalidad negativa valorizada en {costo_externo} pesos. Según la contabilidad ambiental, ¿cuál es el costo económico total real de esta actividad?"
-
-explicacion: |
-  El costo económico total es la suma del costo privado (pagado por la empresa) más el costo externo (impuesto a la sociedad). Internalizar la externalidad implica reconocer esta suma como el costo real de la actividad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["eficiencia", "calculos"]
-
-variables:
-  ingreso_bruto: random(100000, 200000)
-  costo_operativo: random(40000, 60000)
-  costo_ambiental: random(10000, 30000)
-
-respuesta: "{ingreso_bruto - costo_operativo - costo_ambiental}"
-tipo: input
-
-enunciado: "Una empresa tiene un ingreso bruto de {ingreso_bruto}, costos operativos de {costo_operativo} y un costo ambiental internalizado de {costo_ambiental}. ¿Cuál es su beneficio económico real ajustado?"
-
-explicacion: |
-  El beneficio real se calcula restando tanto los costos operativos tradicionales como los costos ambientales internalizados. Esto muestra la verdadera sostenibilidad financiera de la actividad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["carbono", "calculos"]
-
-variables:
-  emisiones_co2: random(100, 1000)
-  precio_carbono: random(10, 50)
-
-respuesta: "{emisiones_co2 * precio_carbono}"
-tipo: input
-
-enunciado: "Si una fábrica emite {emisiones_co2} toneladas de CO2 y el precio social del carbono es de {precio_carbono} pesos por tonelada, ¿cuál es el costo ambiental total de estas emisiones?"
-
-explicacion: |
-  El costo ambiental se calcula multiplicando la cantidad de emisiones por el precio social del carbono, que representa el daño económico estimado por cada unidad emitida.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["suelos", "recuperacion"]
-
-variables:
-  costo_recuperacion: random(10000, 50000)
-  vida_util: random(5, 10)
-
-respuesta: "{costo_recuperacion / vida_util}"
-tipo: input
-
-enunciado: "Si el costo total de recuperación de un suelo degradado es de {costo_recuperacion} pesos y la vida útil estimada de la recuperación es de {vida_util} años, ¿cuál es el costo anualizado?"
-
-explicacion: |
-  El costo anualizado permite distribuir el gasto de recuperación a lo largo del tiempo, facilitando su comparación con los beneficios anuales de la actividad productiva que causó el daño.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["eficiencia", "recursos"]
-
-variables:
-  valor_produccion: random(100000, 300000)
-  consumo_recursos: random(1000, 5000)
-
-respuesta: "{valor_produccion / consumo_recursos}"
-tipo: input
-
-enunciado: "Si una empresa genera {valor_produccion} pesos de valor con {consumo_recursos} unidades de recurso natural, ¿cuál es su eficiencia de recursos (valor por unidad de recurso)?"
-
-explicacion: |
-  La eficiencia de recursos mide cuánta valor económico se genera por cada unidad de recurso consumido. Un valor más alto indica una gestión más sostenible y eficiente.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["daños", "estimacion"]
-
-variables:
-  daño_directo: random(5000, 20000)
-  daño_indirecto: random(10000, 40000)
-
-respuesta: "{daño_directo + daño_indirecto}"
-tipo: input
-
-enunciado: "Si un derrame causa un daño directo de {daño_directo} y un daño indirecto (pérdida de turismo, etc.) de {daño_indirecto}, ¿cuál es el costo total del incidente?"
-
-explicacion: |
-  El costo total de un incidente ambiental incluye tanto los daños directos (limpieza, multas) como los indirectos (pérdida de ingresos para otros sectores, salud pública), reflejando el impacto completo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["externalidades", "costos"]
-
-variables:
-  a: random(10, 50)
-  b: random(1, 10)
-  costo_total: a + b
-
-respuesta: costo_total
-tipo: input
-
-enunciado: "Si una fábrica genera un beneficio privado de {a} millones pero traslada un costo de salud pública de {b} millones a la comunidad, ¿cuál es el costo social total no internalizado inicialmente?"
-
-explicacion: |
-  La externalidad negativa traslada el costo a terceros. El costo social total es la suma del beneficio privado (que no refleja el daño) más el costo del daño. En este contexto de cálculo simple de impacto, sumamos las magnitudes dadas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["riesgo", "sostenibilidad"]
-
-variables:
-  a: random(1, 5)
-  b: random(1, 5)
-
-respuesta: "{max(a, b)}"
-tipo: input
-
-enunciado: "Si ignoramos los costos ocultos, el riesgo financiero asociado al cambio climático se subestima. Si el riesgo directo es {a} y el indirecto es {b}, ¿cuál es el valor máximo de riesgo individual considerado en la evaluación básica?"
-
-explicacion: |
-  Se pide el máximo de dos valores de riesgo hipotéticos para evaluar la comprensión de la magnitud del impacto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["calculos", "emisiones"]
-
-variables:
-  a: random(100, 500)
-  b: random(100, 500)
-  c: random(100, 500)
-  promedio: redondear((a + b + c) / 3, 2)
-
-respuesta: promedio
-tipo: input
-
-enunciado: "Si una empresa emitió {a} toneladas en Q1, {b} en Q2 y {c} en Q3, ¿cuál fue la emisión promedio trimestral?"
-
-explicacion: |
-  Se calcula el promedio aritmético de las emisiones para entender la magnitud del impacto ambiental anual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["costos", "suelos"]
-
-variables:
-  a: random(10, 100)
-  b: random(1, 10)
-  costo: a * b
-
-respuesta: costo
-tipo: input
-
-enunciado: "Si el costo de recuperación por hectárea es de {a} mil pesos y se degradaron {b} hectáreas, ¿cuál es el costo total de recuperación?"
-
-explicacion: |
-  Multiplicación simple para estimar el costo financiero de la restauración ambiental mencionada en la teoría.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["precios", "GEE"]
-
-variables:
-  a: random(5, 20)
-  b: random(100, 1000)
-  costo_total: a * b
-
-respuesta: costo_total
-tipo: input
-
-enunciado: "Si el precio por tonelada de CO2 es de {a} dólares y la empresa emite {b} toneladas, ¿cuál es el costo total de las emisiones?"
-
-explicacion: |
-  Cálculo del costo interno que la empresa debería asumir si internalizara el costo de las emisiones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["costos", "limpieza"]
-
-variables:
-  a: random(50, 200)
-  b: random(10, 50)
-  total: a + b
-
-respuesta: total
-tipo: input
-
-enunciado: "Si el costo de limpieza del río es {a} millones y el de salud pública es {b} millones, ¿cuál es el costo total trasladado a la comunidad?"
-
-explicacion: |
-  Suma de los costos externos generados por la contaminación, que la contabilidad ambiental busca internalizar.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["huella_carbono", "calculos"]
-
-variables:
-  a: random(10, 50)
-  b: random(10, 50)
-  c: random(10, 50)
-  total: a + b + c
-
-respuesta: total
-tipo: input
-
-enunciado: "Si las fuentes fijas emiten {a}, las móviles {b} y los residuos {c}, ¿cuál es la huella total de emisiones?"
-
-explicacion: |
-  Suma de las emisiones directas e indirectas para determinar el impacto ambiental total.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["costo_oportunidad", "decisiones"]
-
-variables:
-  a: random(100, 500)
-  b: random(10, 50)
-  ratio: redondear(a / b, 2)
-
-respuesta: ratio
-tipo: input
-
-enunciado: "Si el beneficio privado es {a} y el costo ambiental es {b}, ¿cuál es la relación beneficio/costo ambiental?"
-
-explicacion: |
-  Cálculo de la relación para evaluar la eficiencia económica ignorando el impacto ambiental.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
+  tema: "recibo_de_sueldo_general"
   nivel: "basico"
-  tags: ["capital_natural", "recursos"]
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+enunciado: "¿Qué es el sueldo básico?"
+tipo: mc
+opciones_explicitas:
+  - "El monto acordado en el contrato o convenio, antes de cualquier ajuste"
+  - "Lo que efectivamente se cobra al final"
+  - "El total de los descuentos"
+respuesta: "El monto acordado en el contrato o convenio, antes de cualquier ajuste"
+
+explicacion: |
+  Es el punto de partida, antes de sumar adicionales o restar
+  descuentos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+enunciado: "¿Qué es el sueldo bruto?"
+tipo: mc
+opciones_explicitas:
+  - "El básico más los adicionales, antes de descontar nada"
+  - "Lo que efectivamente se cobra"
+  - "Sólo los descuentos"
+respuesta: "El básico más los adicionales, antes de descontar nada"
+
+explicacion: |
+  Bruto = Básico + Adicionales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+enunciado: "¿Qué es el sueldo neto?"
+tipo: mc
+opciones_explicitas:
+  - "Lo que efectivamente se cobra, después de los descuentos"
+  - "El monto acordado en el contrato"
+  - "El bruto sin ningún ajuste"
+respuesta: "Lo que efectivamente se cobra, después de los descuentos"
+
+explicacion: |
+  Neto = Bruto − Descuentos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "calculo"]
 
 variables:
-  recurso: "uno_de(['agua potable', 'aire limpio', 'fertilidad del suelo'])"
+  basico: random(20, 90) * 1000
+  adicional: random(2, 20) * 1000
+
+respuesta: basico + adicional
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El básico es ${basico} y los adicionales suman ${adicional}. ¿Cuál es el sueldo bruto?"
+
+explicacion: |
+  Se suma el básico más los adicionales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "calculo"]
+
+variables:
+  bruto: random(30, 150) * 1000
+  descuentos: random(3, 25) * 1000
+
+respuesta: bruto - descuentos
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El sueldo bruto es ${bruto} y los descuentos suman ${descuentos}. ¿Cuál es el sueldo neto?"
+
+explicacion: |
+  Se resta el total de descuentos al bruto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "calculo"]
+
+variables:
+  bruto: random(30, 150) * 1000
+  neto: bruto - random(3, 25) * 1000
+
+respuesta: bruto - neto
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El sueldo bruto es ${bruto} y el neto es ${neto}. ¿Cuánto suman los descuentos?"
+
+explicacion: |
+  Descuentos = Bruto − Neto (la misma resta, mirada al revés).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "calculo"]
+
+variables:
+  bruto: random(30, 150) * 1000
+  porcentaje: uno_de([5, 10, 15, 20])
+
+respuesta: bruto * porcentaje / 100
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "El sueldo bruto es ${bruto} y un descuento puntual es del {porcentaje}%. ¿Cuánto es ese descuento en pesos?"
+
+explicacion: |
+  Se calcula el porcentaje del bruto, igual que cualquier cálculo de
+  porcentaje.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "calculo"]
+
+variables:
+  basico: random(20, 90) * 1000
+  antiguedad: random(1, 10) * 1000
+  presentismo: random(1, 8) * 1000
+
+respuesta: basico + antiguedad + presentismo
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Básico ${basico}, más antigüedad ${antiguedad}, más presentismo ${presentismo}. ¿Cuál es el sueldo bruto?"
+
+explicacion: |
+  Se suman todos los componentes: básico y cada adicional.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El {recurso} es considerado un bien gratuito e infinito en los modelos económicos tradicionales, pero tiene un valor económico real en la contabilidad ambiental."
+enunciado: "El sueldo bruto es la suma del básico más todos los adicionales."
 
 explicacion: |
-  Falso en la teoría moderna/ambiental. La contabilidad ambiental sostiene que estos recursos tienen valor económico real y no son infinitos, por lo que deben ser cuantificados.
+  Es la fórmula central del primer paso del recibo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_ambiental"
+  tema: "recibo_de_sueldo_general"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sueldo neto es el bruto menos todos los descuentos."
+
+explicacion: |
+  Es la fórmula central del segundo paso del recibo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sueldo neto nunca puede ser mayor que el sueldo bruto."
+
+explicacion: |
+  Los descuentos restan (o, como mucho, no restan nada): el neto nunca
+  supera al bruto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando alguien dice \"gano tanto por mes\", casi siempre se refiere al sueldo neto (lo que ve reflejado en su cuenta)."
+
+explicacion: |
+  El bruto es más el número que figura en ofertas de trabajo o
+  negociaciones, no el que la gente usa en la conversación cotidiana.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
   nivel: "intermedio"
-  tags: ["internalizacion", "mecanismos"]
+  tags: ["recibo_de_sueldo"]
 
 variables:
-  agente: "uno_de(['quien contamina', 'el consumidor', 'el estado'])"
+  bruto: random(30, 150) * 1000
+  descuentos: random(3, 25) * 1000
+  correcto: bruto - descuentos
 
-respuesta: "quien contamina"
+respuesta: correcto
+tipo: mc
+opciones_explicitas:
+  - correcto
+  - bruto + descuentos
+  - descuentos - bruto
+
+enunciado: "Bruto ${bruto}, descuentos ${descuentos}. ¿Cuál es el neto?"
+
+explicacion: |
+  Las otras opciones suman en vez de restar, o restan al revés.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "verificacion"]
+
+variables:
+  bruto: random(30, 150) * 1000
+  descuentos: random(3, 25) * 1000
+  correcto: bruto - descuentos
+  error: uno_de([0, 0, 0, 1000, -1000])
+  mostrado: correcto + error
+
+respuesta: (mostrado == correcto)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? Bruto ${bruto}, descuentos ${descuentos}, neto ${mostrado}."
+
+explicacion: |
+  Se vuelve a restar y se compara.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo"]
+
+variables:
+  basico: random(20, 90) * 1000
+  adicional: random(2, 20) * 1000
+  bruto: basico + adicional
+
 tipo: completar
-
-enunciado: "El principio de 'quien contamina paga' busca que el costo de la degradación ambiental sea asumido por {agente}."
-
+enunciado: "Completá: ___ (básico) + ${adicional} (adicionales) = ${bruto} (bruto)."
 respuestas_validas:
-  - "quien contamina"
-  - "el contaminador"
+  - basico
 
 explicacion: |
-  La internalización de costos implica que el agente que genera la externalidad negativa debe asumir el costo económico del daño causado.
+  Se despeja restando: bruto − adicionales = básico.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["servicios_ecosistemicos", "valoracion"]
+  tema: "recibo_de_sueldo_general"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "problema"]
 
 variables:
-  valor_polinizacion: random(10000, 20000)
-  valor_purificacion_agua: random(5000, 10000)
-  porcentaje_perdida: uno_de([0.1, 0.2, 0.3])
+  bruto: random(30, 150) * 1000
+  porcentaje: uno_de([10, 15, 20])
 
-respuesta: redondear((valor_polinizacion + valor_purificacion_agua) * porcentaje_perdida, 0)
+respuesta: bruto * (1 - porcentaje / 100)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "El sueldo bruto es ${bruto}, y los descuentos suman un {porcentaje}% del bruto. ¿Cuál es el neto?"
+
+pasos:
+  - "{bruto} × (1 - {porcentaje}/100) = {bruto * (1 - porcentaje / 100)}"
+
+explicacion: |
+  Descontar un porcentaje es multiplicar por (1 − porcentaje/100).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "avanzado"
+  tags: ["recibo_de_sueldo", "problema"]
+
+variables:
+  bruto: random(30, 150) * 1000
+  p1: uno_de([5, 10])
+  p2: uno_de([3, 5])
+
+respuesta: bruto - (bruto * p1 / 100) - (bruto * p2 / 100)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "El sueldo bruto es ${bruto}, con dos descuentos calculados por separado sobre el bruto: uno del {p1}% y otro del {p2}%. ¿Cuál es el neto?"
+
+pasos:
+  - "{bruto} - ({bruto}×{p1}/100) - ({bruto}×{p2}/100) = {bruto - (bruto * p1 / 100) - (bruto * p2 / 100)}"
+
+explicacion: |
+  Cuando cada descuento se calcula sobre el bruto (no en cadena), se
+  pueden restar por separado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "comparacion"]
+
+variables:
+  a: random(30, 150) * 1000
+  b: random(30, 150) * 1000
+
+restricciones:
+  - a != b
+
+respuesta: (a > b)
+tipo: vf
+
+enunciado: "¿Es ${a} de sueldo bruto mayor que ${b}?"
+
+explicacion: |
+  Se comparan directamente los montos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos sueldos netos de menor a mayor."
+opciones_explicitas:
+  - "$85.000"
+  - "$62.000"
+  - "$120.000"
+  - "$45.000"
+respuesta_orden: ["$45.000", "$62.000", "$85.000", "$120.000"]
+
+explicacion: |
+  Se ordenan como cualquier lista de montos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los descuentos del sueldo suelen financiar sistemas colectivos (como jubilación futura o cobertura de salud), no son sólo \"plata perdida\"."
+
+explicacion: |
+  El detalle concreto de qué se financia varía según el país y el
+  sistema — pero la lógica de fondo es esa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Qué adicionales tiene un sueldo (antigüedad, presentismo, horas extra...) depende de cada trabajo y convenio puntual, no es igual en todos los empleos."
+
+explicacion: |
+  Lo universal es la fórmula (básico + adicionales = bruto), no la lista
+  específica de adicionales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_general"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Básico, bruto y neto son tres números distintos de un mismo sueldo, y confundirlos es un error común."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+## Sección: comercio-internacional-ventaja-comparativa (21 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "basico"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Qué explica la teoría de la ventaja comparativa?"
+tipo: mc
+opciones_explicitas:
+  - "Por qué un país se especializa en producir ciertos bienes y comercia con otros países, en vez de producir todo por su cuenta"
+  - "Cómo se calcula el tipo de cambio de una moneda"
+  - "Cómo funciona el banco central de un país"
+respuesta: "Por qué un país se especializa en producir ciertos bienes y comercia con otros países, en vez de producir todo por su cuenta"
+
+explicacion: |
+  Es la pregunta central que responde este tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "basico"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Quién formuló la teoría de la ventaja comparativa, en 1817?"
+tipo: mc
+opciones_explicitas:
+  - "David Ricardo"
+  - "Adam Smith"
+  - "John Maynard Keynes"
+respuesta: "David Ricardo"
+
+explicacion: |
+  Es el economista que formuló esta teoría específica.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Qué es tener \"ventaja absoluta\" en la producción de un bien?"
+tipo: mc
+opciones_explicitas:
+  - "Producirlo con menos horas de trabajo que otro país, en términos absolutos"
+  - "Tener menor costo de oportunidad al producirlo, sin importar las horas totales"
+  - "Ser el único país que produce ese bien en el mundo"
+respuesta: "Producirlo con menos horas de trabajo que otro país, en términos absolutos"
+
+explicacion: |
+  Es la idea intuitiva (y limitada) que la ventaja comparativa viene a
+  superar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un país fuera mejor que otro produciendo TODOS los bienes en términos absolutos, la lógica de la ventaja absoluta sugeriría, incorrectamente, que no le conviene comerciar con nadie."
+
+explicacion: |
+  Es justamente el problema que Ricardo resolvió con el concepto de
+  costo de oportunidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "En el contexto de la ventaja comparativa, ¿qué es el costo de oportunidad de producir un bien?"
+tipo: mc
+opciones_explicitas:
+  - "Cuánto hay que dejar de producir de otro bien para producir una unidad más del primero"
+  - "El precio en dólares de ese bien"
+  - "El impuesto que paga ese bien al exportarse"
+respuesta: "Cuánto hay que dejar de producir de otro bien para producir una unidad más del primero"
+
+explicacion: |
+  Es el concepto central que reemplaza a la comparación absoluta de
+  horas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Cuándo tiene un país \"ventaja comparativa\" en un bien?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando su costo de oportunidad de producir ese bien es MENOR que el de otro país"
+  - "Cuando produce ese bien con menos horas en términos absolutos que otro país"
+  - "Cuando es el único país que exporta ese bien"
+respuesta: "Cuando su costo de oportunidad de producir ese bien es MENOR que el de otro país"
+
+explicacion: |
+  Es la definición central del tema: comparar costos de oportunidad,
+  no horas absolutas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "En el ejemplo clásico de Ricardo (Inglaterra y Portugal, tela y vino), ¿qué característica tiene Portugal en términos absolutos?"
+tipo: mc
+opciones_explicitas:
+  - "Es absolutamente mejor produciendo las dos cosas (tela y vino), necesita menos horas para ambas"
+  - "Es absolutamente peor produciendo las dos cosas"
+  - "Sólo puede producir vino, no tela"
+respuesta: "Es absolutamente mejor produciendo las dos cosas (tela y vino), necesita menos horas para ambas"
+
+explicacion: |
+  Es el punto de partida del ejemplo: Portugal gana en términos
+  absolutos en ambos bienes.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "En el ejemplo clásico de Ricardo, aunque Portugal sea absolutamente mejor en todo, ¿quién termina teniendo ventaja comparativa en tela?"
+tipo: mc
+opciones_explicitas:
+  - "Inglaterra, porque su costo de oportunidad de producir tela (en términos de vino) es menor que el de Portugal"
+  - "Portugal, porque produce tela con menos horas en términos absolutos"
+  - "Ninguno de los dos: la ventaja comparativa no aplica en este ejemplo"
+respuesta: "Inglaterra, porque su costo de oportunidad de producir tela (en términos de vino) es menor que el de Portugal"
+
+explicacion: |
+  Es el resultado central y contraintuitivo del ejemplo: la ventaja
+  comparativa no depende de quién es mejor en términos absolutos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "calculo"]
+
+variables:
+  horas_vino: random(2, 8)
+  multiplicador: uno_de([2, 3, 4])
+  horas_tela: horas_vino * multiplicador
+
+respuesta: horas_tela / horas_vino
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En un país, producir una unidad de tela lleva {horas_tela} horas, y producir una unidad de vino lleva {horas_vino} horas. ¿Cuántas unidades de vino se sacrifican (costo de oportunidad) por producir una unidad de tela?"
+
+explicacion: |
+  Costo de oportunidad de la tela (en vino) = horas de tela / horas de
+  vino.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "calculo"]
+
+variables:
+  horas_tela_pais1: random(50, 150)
+  horas_vino_pais1: random(50, 150)
+  horas_tela_pais2: random(50, 150)
+  horas_vino_pais2: random(50, 150)
+
+respuesta: (horas_tela_pais1 / horas_vino_pais1 < horas_tela_pais2 / horas_vino_pais2)
+tipo: vf
+
+enunciado: "País 1: {horas_tela_pais1} horas por tela, {horas_vino_pais1} horas por vino. País 2: {horas_tela_pais2} horas por tela, {horas_vino_pais2} horas por vino. ¿Tiene el País 1 ventaja comparativa en tela (menor costo de oportunidad de tela que el País 2)?"
+
+explicacion: |
+  Se compara el costo de oportunidad de tela (horas de tela / horas de
+  vino) de cada país; el menor tiene la ventaja comparativa en tela.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Según la teoría de la ventaja comparativa, si cada país se especializa en el bien donde tiene ventaja comparativa y comercian entre sí, los dos pueden terminar con más de ambos bienes que si cada uno hubiera intentado producir todo por su cuenta."
+
+explicacion: |
+  Es la conclusión central de la teoría: la especialización y el
+  comercio generan una ganancia conjunta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un país muy desarrollado, con salarios altos, puede seguir teniendo ventaja comparativa en ciertos productos frente a un país con salarios mucho más bajos, porque lo que importa es el costo de oportunidad relativo, no el nivel absoluto de desarrollo."
+
+explicacion: |
+  Es una consecuencia directa de que la ventaja comparativa se define
+  en términos relativos dentro de cada país, no en comparación
+  absoluta de niveles de desarrollo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Qué tipo de razonamiento comparte la ventaja comparativa con el \"punto de equilibrio\" de Administración?"
+tipo: mc
+opciones_explicitas:
+  - "El de \"por qué esta decisión y no otra\", comparando costos relativos en vez de valores absolutos"
+  - "Los dos calculan exactamente la misma fórmula matemática"
+  - "No comparten ningún tipo de razonamiento"
+respuesta: "El de \"por qué esta decisión y no otra\", comparando costos relativos en vez de valores absolutos"
+
+explicacion: |
+  Es la analogía que hace la teoría del MAPA para explicar por qué
+  esta idea cruza con Administración.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "problema"]
+
+enunciado: "Un país con mucha tierra fértil pero poca industria pesada exporta productos agrícolas e importa maquinaria, en vez de fabricar su propia maquinaria con mucho esfuerzo relativo. ¿Qué principio explica mejor esta decisión?"
+tipo: mc
+opciones_explicitas:
+  - "Ventaja comparativa: le conviene especializarse donde su costo de oportunidad es menor"
+  - "Devaluación de su moneda"
+  - "Déficit de su balanza comercial"
+respuesta: "Ventaja comparativa: le conviene especializarse donde su costo de oportunidad es menor"
+
+explicacion: |
+  Es una aplicación directa del concepto central del tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando se argumenta a favor del libre comercio diciendo que \"cada país debería producir lo que sabe hacer mejor, en términos relativos\", se está citando, en esencia, la ventaja comparativa."
+
+explicacion: |
+  Es la aplicación más habitual de esta teoría en el debate de
+  política comercial.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená esta secuencia de razonamiento sobre la ventaja comparativa entre dos países."
+opciones_explicitas:
+  - "Los países comercian entre sí, terminando con más de ambos bienes que produciendo todo por su cuenta"
+  - "Cada país se especializa en producir ese bien"
+  - "Se calcula el costo de oportunidad de cada bien en cada país"
+  - "Se identifica en qué bien tiene cada país el menor costo de oportunidad"
+respuesta_orden: ["Se calcula el costo de oportunidad de cada bien en cada país", "Se identifica en qué bien tiene cada país el menor costo de oportunidad", "Cada país se especializa en producir ese bien", "Los países comercian entre sí, terminando con más de ambos bienes que produciendo todo por su cuenta"]
+
+explicacion: |
+  Es el proceso completo de razonamiento detrás de la teoría de la
+  ventaja comparativa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia central entre \"ventaja absoluta\" y \"ventaja comparativa\"?"
+tipo: mc
+opciones_explicitas:
+  - "La absoluta compara horas totales por unidad; la comparativa compara el costo de oportunidad relativo entre bienes"
+  - "Son exactamente lo mismo, con nombres distintos"
+  - "La comparativa sólo aplica quiénes tienen tipo de cambio fijo"
+respuesta: "La absoluta compara horas totales por unidad; la comparativa compara el costo de oportunidad relativo entre bienes"
+
+explicacion: |
+  Es la distinción central de todo el tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el ejemplo clásico de Ricardo, Portugal termina con ventaja comparativa en vino, aunque sea absolutamente mejor que Inglaterra en ambos bienes."
+
+explicacion: |
+  Es el resultado complementario al de la tela (que quedaba en manos
+  de Inglaterra).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aunque la teoría de la ventaja comparativa se formuló en 1817, sigue siendo el argumento central que se usa hoy para explicar por qué los países se especializan y comercian entre sí."
+
+explicacion: |
+  Es una teoría económica clásica que sigue vigente en el debate
+  actual sobre comercio internacional.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "basico"
+  tags: ["comercio_internacional"]
+
+tipo: completar
+enunciado: "Completá: un país tiene ventaja comparativa en un bien cuando su costo de ___ (lo que sacrifica de otro bien) de producirlo es menor que el de otro país."
+respuestas_validas:
+  - "oportunidad"
+
+explicacion: |
+  Es el concepto central de todo el tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "basico"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ventaja comparativa explica por qué a un país le conviene especializarse y comerciar según su costo de oportunidad relativo, incluso si otro país es absolutamente mejor produciendo todo."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+## Sección: recibo-de-sueldo/argentina (24 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+enunciado: "¿Cuáles son los tres aportes obligatorios del empleado en Argentina (sector privado)?"
+tipo: mc
+opciones_explicitas:
+  - "Jubilación, obra social y PAMI"
+  - "IVA, ganancias y bienes personales"
+  - "Sindicato, presentismo y antigüedad"
+respuesta: "Jubilación, obra social y PAMI"
+
+explicacion: |
+  Son los tres aportes personales que se descuentan del bruto en
+  cualquier recibo de sueldo en blanco.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo"]
+
+respuesta: 17
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Jubilación 11% + obra social 3% + PAMI 3%. ¿Qué porcentaje total del bruto representan los tres aportes juntos?"
+
+explicacion: |
+  11 + 3 + 3 = 17% del bruto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "calculo"]
+
+variables:
+  bruto: random(50, 300) * 1000
+
+respuesta: bruto * 0.11
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Con un sueldo bruto de ${bruto}, ¿cuánto se descuenta por jubilación (11%)?"
+
+explicacion: |
+  Es el aporte más grande de los tres.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "calculo"]
+
+variables:
+  bruto: random(50, 300) * 1000
+
+respuesta: bruto * 0.03
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Con un sueldo bruto de ${bruto}, ¿cuánto se descuenta por obra social (3%)?"
+
+explicacion: |
+  Financia la cobertura de salud del trabajador y su familia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "calculo"]
+
+variables:
+  bruto: random(50, 300) * 1000
+
+respuesta: bruto * 0.03
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Con un sueldo bruto de ${bruto}, ¿cuánto se descuenta por PAMI/INSSJP (3%)?"
+
+explicacion: |
+  Financia la cobertura de salud de los jubilados.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "calculo"]
+
+variables:
+  bruto: random(50, 300) * 1000
+
+respuesta: bruto * 0.17
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Con un sueldo bruto de ${bruto}, ¿cuánto suman los tres aportes obligatorios juntos (17%)?"
+
+explicacion: |
+  Jubilación (11%) + obra social (3%) + PAMI (3%) = 17% del bruto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "calculo"]
+
+variables:
+  bruto: random(50, 300) * 1000
+
+respuesta: bruto * 0.83
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Con un sueldo bruto de ${bruto}, y sin otros descuentos, ¿cuál es el neto después de los tres aportes obligatorios?"
+
+pasos:
+  - "{bruto} × (1 - 0,17) = {bruto} × 0,83 = {bruto * 0.83}"
+
+explicacion: |
+  Se descuenta el 17% total: queda el 83% del bruto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los aportes del empleado y las contribuciones patronales son exactamente lo mismo, sólo que con otro nombre."
+
+explicacion: |
+  Los aportes los paga el empleado (se ven en su recibo); las
+  contribuciones patronales las paga el empleador, aparte, sobre el mismo
+  bruto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las contribuciones patronales las paga el empleador, no se descuentan del sueldo del empleado."
+
+explicacion: |
+  Por eso no aparecen restadas en el recibo del trabajador, aunque sí
+  forman parte del costo laboral total para la empresa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "avanzado"
+  tags: ["recibo_de_sueldo", "problema"]
+
+variables:
+  bruto: random(50, 300) * 1000
+  sindicato: uno_de([1, 2, 3])
+
+respuesta: bruto * (1 - 0.17 - sindicato / 100)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Sueldo bruto ${bruto}, con los aportes obligatorios (17%) más una cuota sindical del {sindicato}%. ¿Cuál es el neto?"
+
+pasos:
+  - "{bruto} × (1 - 0,17 - {sindicato}/100) = {bruto * (1 - 0.17 - sindicato / 100)}"
+
+explicacion: |
+  Se suman todos los porcentajes de descuento y se restan juntos del
+  bruto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "aguinaldo"]
+
+variables:
+  mejor_sueldo: random(50, 300) * 1000
+
+respuesta: mejor_sueldo / 2
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "El mejor sueldo bruto del semestre fue ${mejor_sueldo}. ¿Cuánto corresponde de aguinaldo (SAC) ese semestre?"
+
+explicacion: |
+  El aguinaldo es la mitad del mejor sueldo del semestre.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "aguinaldo"]
+
+respuesta: 13
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Contando los 12 sueldos mensuales más el aguinaldo (medio sueldo dos veces al año, o sea un sueldo completo repartido en dos pagos), ¿a cuántos sueldos equivale el total cobrado en un año?"
+
+explicacion: |
+  12 sueldos mensuales + el equivalente a 1 sueldo más de aguinaldo (dos
+  mitades) = 13 sueldos por año.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "avanzado"
+  tags: ["recibo_de_sueldo", "problema", "aguinaldo"]
+
+variables:
+  sueldo_mensual: random(50, 300) * 1000
+
+respuesta: sueldo_mensual * 13
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Alguien cobra ${sueldo_mensual} de bruto todos los meses del año, sin cambios. Contando el aguinaldo, ¿cuánto cobra de bruto en todo el año?"
+
+pasos:
+  - "{sueldo_mensual} × 13 = {sueldo_mensual * 13}"
+
+explicacion: |
+  12 sueldos mensuales más el equivalente a 1 sueldo de aguinaldo (medio
+  sueldo en junio, medio en diciembre).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "verificacion"]
+
+variables:
+  bruto: random(50, 300) * 1000
+  correcto: bruto * 0.17
+  error: uno_de([0, 0, 0, 1000, -1000])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 1)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? Con bruto ${bruto}, los aportes obligatorios (17%) dan ${mostrado}."
+
+explicacion: |
+  Se vuelve a calcular el 17% del bruto y se compara.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo"]
+
+variables:
+  bruto: random(50, 300) * 1000
+  correcto: bruto * 0.83
+
+respuesta: correcto
+tipo: mc
+opciones_explicitas:
+  - correcto
+  - bruto * 0.17
+  - bruto * 1.17
+
+enunciado: "Sueldo bruto ${bruto}, sólo con los tres aportes obligatorios (17%). ¿Cuál es el neto?"
+
+explicacion: |
+  La segunda opción es el DESCUENTO, no el neto; la tercera suma en vez
+  de restar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "avanzado"
+  tags: ["recibo_de_sueldo"]
+
+variables:
+  bruto: random(50, 300) * 1000
+  neto: bruto * 0.83
+
+tipo: completar
+enunciado: "Un trabajador cobra ${neto} de neto, después de los aportes obligatorios (17%) y sin otros descuentos. Completá cuál era el sueldo bruto."
+respuestas_validas:
+  - neto / 0.83
+
+explicacion: |
+  bruto = neto ÷ 0,83 (deshacer el descuento del 17%).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "comparacion"]
+
+variables:
+  a: random(50, 300) * 1000
+  b: random(50, 300) * 1000
+
+restricciones:
+  - a != b
+
+respuesta: ((a * 0.17) > (b * 0.17))
+tipo: vf
+
+enunciado: "¿Descuenta más de aportes obligatorios un bruto de ${a} que uno de ${b}?"
+
+explicacion: |
+  A mayor bruto, mayor el monto de aportes (el porcentaje es el mismo,
+  17%, pero se aplica sobre una base más grande).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "avanzado"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para el empleador, el costo real de un empleado es mayor que el sueldo bruto, porque además paga las contribuciones patronales aparte."
+
+explicacion: |
+  El bruto es lo que ve reflejado el empleado en su recibo; el empleador
+  paga ese bruto MÁS las contribuciones patronales, que no se descuentan
+  del sueldo del trabajador.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "De los tres aportes obligatorios, la jubilación (11%) es el más grande — más que obra social y PAMI juntos (3%+3%=6%)."
+
+explicacion: |
+  11% es más que 6%: la jubilación es, por lejos, el aporte más grande.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos tres aportes de menor a mayor porcentaje (puede haber empate)."
+opciones_explicitas:
+  - "Jubilación"
+  - "PAMI"
+  - "Obra social"
+respuesta_orden: ["PAMI", "Obra social", "Jubilación"]
+
+explicacion: |
+  PAMI y obra social empatan en 3% cada uno; jubilación es 11%, el más
+  grande de los tres.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "intermedio"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de jubilación, obra social y PAMI (obligatorios en todo el país), la cuota sindical depende de cada actividad y convenio."
+
+explicacion: |
+  No todos los trabajos tienen sindicato con cuota, ni el porcentaje es
+  el mismo en todos los gremios.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "avanzado"
+  tags: ["recibo_de_sueldo", "aguinaldo", "problema"]
+
+variables:
+  sueldo1: random(50, 200) * 1000
+  sueldo2: sueldo1 + random(10, 50) * 1000
+
+respuesta: sueldo2 / 2
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "En un semestre, alguien cobró ${sueldo1} un mes y ${sueldo2} otro (el resto igual o menos). ¿Cuánto le corresponde de aguinaldo ese semestre?"
+
+explicacion: |
+  El aguinaldo se calcula sobre el MEJOR sueldo del semestre, no sobre un
+  promedio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "aguinaldo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El aguinaldo (SAC) se cobra en dos pagos al año: uno en junio y otro en diciembre."
+
+explicacion: |
+  Cada pago es la mitad del mejor sueldo del semestre correspondiente.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "recibo_de_sueldo_argentina"
+  nivel: "basico"
+  tags: ["recibo_de_sueldo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En Argentina, un empleado en blanco del sector privado tiene tres aportes obligatorios sobre el bruto: jubilación (11%), obra social (3%) y PAMI (3%)."
+
+explicacion: |
+  Es la idea central de este módulo: la aplicación concreta del concepto
+  general de \"descuentos\" a la legislación laboral argentina.
+```
+
+## Sección: sectores-economicos (20 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "sectores_economicos"
+  nivel: "basico"
+  tags: ["sector_primario", "clasificacion"]
+
+variables:
+  actividad: uno_de(["agricultura", "ganadería", "pesca", "minería"])
+  descripcion: |
+    Si {actividad} == "agricultura" entonces "cultivo de plantas"
+    elif {actividad} == "ganadería" entonces "cría de animales"
+    elif {actividad} == "pesca" entonces "captura de peces"
+    else "extracción de minerales"
+
+respuesta: "sector_primario"
 tipo: input
 
-enunciado: "Si el valor anual de los servicios de polinización es {valor_polinizacion} y de purificación de agua es {valor_purificacion_agua}, y un proyecto destruye el {porcentaje_perdida} de estos servicios, ¿cuál es el costo económico de la pérdida?"
+enunciado: "La actividad de {actividad}, que implica {descripcion}, se clasifica dentro del sector económico:"
 
 explicacion: |
-  Se calcula sumando los valores de los servicios ecosistémicos y aplicando el porcentaje de daño causado por la actividad humana.
+  El sector primario comprende las actividades que extraen recursos naturales directamente del medio ambiente sin transformarlos significativamente.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_ambiental"
+  tema: "sectores_economicos"
   nivel: "basico"
-  tags: ["externalidades", "definicion"]
+  tags: ["sector_secundario", "industria"]
 
 variables:
-  tipo_ext: "una externalidad negativa"
+  producto: uno_de(["automóvil", "camisa", "cemento"])
+  proceso: uno_de(["ensamblaje", "tejido", "mezclado"])
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una {tipo_ext} ocurre cuando una actividad económica afecta a terceros sin compensación monetaria."
-
-explicacion: |
-  Correcto. Las externalidades negativas son costos impuestos a terceros que no figuran en los precios de mercado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "basico"
-  tags: ["sostenibilidad", "gestion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contabilidad ambiental permite tomar decisiones que consideren la sostenibilidad futura, no solo la rentabilidad inmediata."
-
-explicacion: |
-  Correcto. Al integrar variables ecológicas, se evalúa el impacto a largo plazo de las decisiones económicas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["eficiencia", "recursos"]
-
-variables:
-  input_total: random(1000, 5000)
-  output_util: random(600, 4000)
-
-respuesta: redondear((output_util / input_total) * 100, 2)
+respuesta: "sector_secundario"
 tipo: input
 
-enunciado: "Si una empresa utiliza {input_total} unidades de recurso para generar {output_util} unidades de producto útil, ¿cuál es el porcentaje de eficiencia de uso?"
+enunciado: "La fabricación de un {producto} mediante el proceso de {proceso} corresponde al sector:"
 
 explicacion: |
-  La eficiencia se calcula como (producto útil / insumo total) * 100.
+  El sector secundario transforma las materias primas en bienes manufacturados, agregando valor mediante la industria o la construcción.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "basico"
-  tags: ["salud", "externalidades"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contaminación industrial puede generar costos de salud pública que deben ser considerados en la contabilidad ambiental."
-
-explicacion: |
-  Correcto. Los impactos en la salud de la comunidad son externalidades negativas que tienen un costo económico.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "basico"
-  tags: ["incentivos", "practicas_limpias"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Asignar un precio a la contaminación crea incentivos económicos para favorecer prácticas más limpias."
-
-explicacion: |
-  Correcto. Al internalizar el costo, las empresas tienen un incentivo financiero para reducir su impacto ambiental.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
+  tema: "sectores_economicos"
   nivel: "avanzado"
-  tags: ["sensibilidad", "riesgo"]
+  tags: ["evolucion", "historia_economica"]
 
 variables:
-  costo_base: random(10000, 50000)
-  factor_riesgo: uno_de([1.1, 1.2, 1.5, 2.0])
+  etapa: uno_de(["preindustrial", "industrial", "postindustrial"])
+  sector_dominante: |
+    si etapa == "preindustrial" entonces "primario"
+    si etapa == "industrial" entonces "secundario"
+    si etapa == "postindustrial" entonces "terciario"
 
-respuesta: redondear(costo_base * factor_riesgo, 0)
+respuesta: sector_dominante
 tipo: input
 
-enunciado: "Si el costo base de un proyecto es {costo_base} y se aplica un factor de riesgo ambiental del {factor_riesgo}, ¿cuál es el costo ajustado por riesgo?"
+enunciado: "En la etapa de {etapa}, el sector económico con mayor peso en el empleo y el PIB suele ser el sector {sector_dominante}."
 
 explicacion: |
-  El costo ajustado se obtiene multiplicando el costo base por el factor de riesgo ambiental seleccionado.
+  Las economías evolucionan desde la dependencia del sector primario, pasando por la industrialización (secundario), hasta predominar los servicios (terciario) en etapas avanzadas.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["agua", "costos"]
+  tema: "sectores_economicos"
+  nivel: "basico"
+  tags: ["argentina", "primario"]
 
 variables:
-  litros_usados: random(1000, 10000)
-  costo_por_litro: random(0.1, 1.0)
+  recurso: uno_de(["soja", "trigo", "carne", "petróleo"])
 
-respuesta: redondear(litros_usados * costo_por_litro, 2)
+respuesta: "sector_primario"
 tipo: input
 
-enunciado: "Si una industria utiliza {litros_usados} litros de agua y el costo económico del recurso es {costo_por_litro} por litro, ¿cuál es el costo total del agua utilizada?"
+enunciado: "La exportación de {recurso} es una actividad típica del sector económico:"
 
 explicacion: |
-  El costo total se calcula multiplicando el volumen de agua por su costo económico unitario.
+  La producción y exportación de materias primas agrícolas o energéticas corresponde al sector primario, base de la economía argentina.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "basico"
-  tags: ["visibilidad", "transparencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contabilidad ambiental busca dar visibilidad a los costos ocultos que los modelos tradicionales ignoran."
-
-explicacion: |
-  Correcto. Su objetivo es revelar el verdadero impacto económico de las actividades productivas sobre el medio ambiente.
-```
-
-## Sección: contabilidad-como-sistema-de-informacion (26 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["sistema_informacion", "definicion"]
-
-variables:
-  analogia: uno_de(["sistema nervioso", "corazón", "estómago"])
-
-respuesta: "sistema nervioso"
-tipo: completar
-
-enunciado: "En la analogía corporativa, la contabilidad funciona como el {analogia} de la empresa, llevando información vital a quienes toman decisiones."
-
-explicacion: |
-  La contabilidad se compara con el sistema nervioso y circulatorio porque transporta datos financieros cruciales para la "salud" y decisión empresarial.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["objetivo", "informacion"]
-
-variables:
-  dato_crudo: random(1, 100)
-  conocimiento: redondear(dato_crudo / 10, 1)
-
-respuesta: "conocimiento"
-tipo: completar
-
-enunciado: "La contabilidad transforma datos crudos como ventas o compras en {conocimiento} útil para la gestión."
-
-explicacion: |
-  El proceso clave es la transformación de datos operativos en información procesada que permite la toma de decisiones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["ciclo_comercial", "comercio"]
-
-variables:
-  ejemplo: uno_de(["supermercado", "fábrica de autos", "panadería"])
-  accion: "compra y venta de bienes ya terminados"
-
-respuesta: "compra y venta de bienes ya terminados"
-tipo: completar
-
-enunciado: "En el ciclo comercial, típico de empresas como {ejemplo}, la actividad central es la {accion}."
-
-explicacion: |
-  El ciclo comercial implica intermediación: comprar productos terminados y venderlos sin alterar su forma física.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
+  tema: "sectores_economicos"
   nivel: "avanzado"
-  tags: ["costos", "industrial"]
+  tags: ["sector_cuaternario", "tecnologia"]
 
 variables:
-  costo1: "materiales directos"
-  costo2: "mano de obra directa"
-  costo3: "gastos generales de fabricación"
+  actividad: uno_de(["investigación científica", "desarrollo de software", "consultoría estratégica"])
 
-respuesta: "gastos generales de fabricación"
-tipo: completar
+respuesta: "sector_cuaternario"
+tipo: input
 
-enunciado: "La contabilidad industrial rastrea materiales directos, mano de obra directa y {costo3}."
+enunciado: "La actividad de {actividad} se clasifica tradicionalmente en el sector cuaternario o de conocimiento."
 
 explicacion: |
-  Los tres componentes esenciales del costo de producción son materiales, mano de obra y gastos indirectos o generales.
+  El sector cuaternario es una extensión del terciario que se enfoca en el conocimiento, la información y la tecnología, siendo clave en economías modernas.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
+  tema: "sectores_economicos"
   nivel: "basico"
-  tags: ["informes", "balance"]
+  tags: ["sector_terciario", "ejemplos"]
 
 variables:
-  informe: "Balance General"
+  negocio: uno_de(["restaurante", "banco", "hospital", "empresa de transporte"])
 
-respuesta: "Balance General"
-tipo: completar
+respuesta: "sector_terciario"
+tipo: input
 
-enunciado: "Uno de los principales informes que actúan como 'informes médicos' de la compañía es el {informe}."
+enunciado: "Un {negocio} pertenece al sector económico:"
 
 explicacion: |
-  El Balance General muestra la situación patrimonial (activos, pasivos y patrimonio) en un momento dado.
+  Los negocios que ofrecen servicios (comida, dinero, salud, movimiento) pertenecen al sector terciario.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["informes", "resultados"]
-
-variables:
-  informe: "Estado de Resultados"
-
-respuesta: "Estado de Resultados"
-tipo: completar
-
-enunciado: "El {informe} muestra la capacidad de generar ganancias o pérdidas en un período."
-
-explicacion: |
-  El Estado de Resultados (o de Ganancias y Pérdidas) resume ingresos y egresos del periodo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "intermedio"
-  tags: ["comercio", "inventario"]
-
-variables:
-  foco: "control de inventarios"
-
-respuesta: "control de inventarios"
-tipo: completar
-
-enunciado: "En el ciclo comercial, la contabilidad se centra en el {foco} de mercadería."
-
-explicacion: |
-  Para los comerciantes, el manejo preciso del stock es vital para calcular el margen de ganancia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["ejemplos", "industria"]
-
-variables:
-  ejemplo: uno_de(["fábrica de muebles", "supermercado", "agencia de viajes"])
-
-respuesta: "fábrica de muebles"
-tipo: completar
-
-enunciado: "Un ejemplo clásico de ciclo industrial es una {ejemplo}."
-
-explicacion: |
-  Las fábricas transforman madera en muebles, requiriendo contabilidad de costos compleja.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["ejemplos", "comercio"]
-
-variables:
-  ejemplo: uno_de(["tienda de ropa", "planta de alimentos", "taller mecánico"])
-
-respuesta: "tienda de ropa"
-tipo: completar
-
-enunciado: "Un ejemplo clásico de ciclo comercial es una {ejemplo}."
-
-explicacion: |
-  Las tiendas de ropa compran prendas terminadas y las venden, sin manufacturarlas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["definicion", "sistema_informacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contabilidad se define fundamentalmente como un sistema de información diseñado para captar, procesar y comunicar datos económicos, más que como un simple conjunto de cálculos numéricos."
-
-explicacion: |
-  Correcto. La contabilidad funciona como el 'sistema nervioso' de la empresa, transformando datos crudos en información útil para la toma de decisiones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "intermedio"
-  tags: ["clasificacion", "ciclo_industrial"]
-
-variables:
-  caso: uno_de(["fabrica_de_muebles", "planta_de_alimentos", "taller_de_autos"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una {caso} opera bajo el ciclo industrial porque transforma materias primas en productos terminados."
-
-explicacion: |
-  Correcto. La transformación física del producto es la marca distintiva del ciclo industrial frente al comercial.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
+  tema: "sectores_economicos"
   nivel: "avanzado"
-  tags: ["gastos", "industrial"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El alquiler de un galpón de producción se considera un gasto general de fabricación en el ciclo industrial."
-
-explicacion: |
-  Correcto. Los gastos indirectos necesarios para la producción, como el alquiler de la fábrica, son gastos generales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "avanzado"
-  tags: ["materia_prima", "industrial"]
+  tags: ["desarrollo", "estructura_economica"]
 
 variables:
-  materia: uno_de(["madera", "cuero", "harina"])
+  pais_tipo: uno_de(["desarrollado", "en desarrollo"])
+  peso_terciario: |
+    si pais_tipo == "desarrollado" entonces "mayor"
+    si pais_tipo == "en desarrollo" entonces "menor"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "sector_terciario"
+tipo: input
 
-enunciado: "{materia} es un ejemplo de materia prima directa en una fábrica de muebles."
+enunciado: "En un país {pais_tipo}, el sector con mayor peso relativo en el PIB suele ser el sector {peso_terciario} (nota: completar con el nombre del sector que predomina)."
 
 explicacion: |
-  La madera es el insumo principal que se transforma en el producto final en una carpintería.
+  En economías desarrolladas, el sector terciario (y cuaternario) domina la estructura económica, mientras que en las en desarrollo el primario o secundario tienen mayor peso relativo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["analogia", "comunicacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la analogía, la contabilidad también funciona como el sistema circulatorio, distribuyendo la información a los stakeholders."
-
-explicacion: |
-  La analogía completa incluye el sistema nervioso (captación) y circulatorio (distribución) de la información.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["accountability", "ética"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contabilidad facilita la rendición de cuentas (accountability) a dueños e inversores."
-
-explicacion: |
-  Permite verificar que los recursos se usen conforme a lo esperado y reportar resultados reales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
+  tema: "sectores_economicos"
   nivel: "intermedio"
-  tags: ["ejemplo", "industrial"]
+  tags: ["transformacion", "secundario"]
 
 variables:
-  planta: uno_de(["planta_de_alimentos", "fábrica_de_textiles", "fundición"])
+  materia: uno_de(["leche", "caña de azúcar", "trigo"])
+  producto: uno_de(["queso", "etanol", "harina"])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "sector_secundario"
+tipo: input
 
-enunciado: "{planta} es un ejemplo de entidad que opera en el ciclo industrial."
+enunciado: "La transformación de {materia} en {producto} es una actividad del sector:"
 
 explicacion: |
-  Estas plantas transforman materias primas en productos finales mediante procesos productivos.
+  La industrialización de productos primarios (leche a queso, caña a etanol) corresponde al sector secundario.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
+  tema: "sectores_economicos"
   nivel: "basico"
-  tags: ["transparencia", "confianza"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La transparencia financiera promovida por la contabilidad ayuda a atraer socios e inversores."
-
-explicacion: |
-  Los inversores confían en empresas con informes claros y auditables.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["definicion", "sistema_informacion"]
+  tags: ["clasificacion", "ejercicios"]
 
 variables:
-  pass: 1
+  actividad: uno_de(["extracción de petróleo", "construcción de puentes", "enseñanza universitaria"])
+  sector_correcto: |
+    si actividad == "extracción de petróleo" entonces "primario"
+    si actividad == "construcción de puentes" entonces "secundario"
+    si actividad == "enseñanza universitaria" entonces "terciario"
 
-respuesta: verdadero
-tipo: vf
+respuesta: sector_correcto
+tipo: input
 
-enunciado: "La contabilidad se define fundamentalmente como un sistema de información diseñado para captar, procesar y comunicar datos económicos, más que como un mero conjunto de cálculos numéricos."
+enunciado: "La actividad '{actividad}' corresponde al sector:"
 
 explicacion: |
-  La contabilidad es el sistema nervioso de la empresa. Su función principal es transformar datos crudos en información útil para la toma de decisiones, asegurando transparencia y rendición de cuentas.
+  Se debe identificar si la actividad extrae recursos (primario), transforma/construye (secundario) o presta un servicio (terciario).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["analogia", "funcion"]
-
-variables:
-  pass: 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la analogía propuesta, la contabilidad funciona como el sistema nervioso y circulatorio de la empresa, llevando información vital sobre su salud financiera a los decisores."
-
-explicacion: |
-  Sin este flujo de información, dueños e inversores navegarían a ciegas. La contabilidad permite saber si hay ganancias, cuánto se debe y cómo se usan los recursos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
+  tema: "sectores_economicos"
   nivel: "intermedio"
-  tags: ["comparacion"]
+  tags: ["bienes_capital", "industria"]
 
 variables:
-  pass: 1
+  bien: uno_de(["maquinaria agrícola", "computadora industrial", "ladrillo"])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "sector_secundario"
+tipo: input
 
-enunciado: "La diferencia estructural clave entre ciclo comercial e industrial es la existencia de un proceso de transformación de materias primas en el industrial."
+enunciado: "La fabricación de {bien} es una actividad del sector secundario, ya sea como bien de consumo o de capital."
 
 explicacion: |
-  El comercial solo mueve bienes terminados. El industrial los crea, lo que exige un sistema de costos más complejo.
+  El sector secundario produce tanto bienes de consumo final como bienes de capital necesarios para otras industrias.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
+  tema: "sectores_economicos"
   nivel: "basico"
-  tags: ["transparencia"]
+  tags: ["definicion", "servicios"]
 
 variables:
-  pass: 1
+  concepto: "servicios"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "sector_terciario"
+tipo: input
 
-enunciado: "La contabilidad es la herramienta básica para la transparencia y la rendición de cuentas en el mundo de los negocios."
+enunciado: "El sector que se dedica a la prestación de {concepto} en lugar de la producción de bienes físicos es el:"
 
 explicacion: |
-  Permite a los externos (inversores, bancos) y internos verificar el estado real de la organización y la gestión de los recursos.
+  El sector terciario se define por la generación de servicios intangibles.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "avanzado"
-  tags: ["complejidad"]
-
-variables:
-  pass: 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contabilidad del ciclo industrial es más compleja que la del ciclo comercial debido al rastreo de tres tipos de costos."
-
-explicacion: |
-  La necesidad de imputar costos indirectos y calcular el costo de producción hace que el sistema contable industrial sea más robusto y detallado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
+  tema: "sectores_economicos"
   nivel: "intermedio"
-  tags: ["impacto"]
+  tags: ["seguridad_alimentaria", "primario"]
 
 variables:
-  pass: 1
+  producto: uno_de(["granos", "carne", "leche"])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "sector_primario"
+tipo: input
 
-enunciado: "La claridad en los informes contables determina la capacidad de la empresa para conseguir créditos y atraer socios."
+enunciado: "La producción de {producto} es crucial para la seguridad alimentaria y pertenece al sector:"
 
 explicacion: |
-  Los terceros externos confían en la información contable para evaluar el riesgo y la solvencia de la empresa antes de prestar dinero o invertir.
+  La base de la alimentación proviene del sector primario (agricultura y ganadería).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["consecuencias"]
-
-variables:
-  pass: 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin el sistema de información contable, los dueños e inversores navegarían a ciegas respecto a la salud financiera."
-
-explicacion: |
-  La falta de información impide detectar problemas a tiempo, optimizar recursos o justificar la gestión ante los stakeholders.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
+  tema: "sectores_economicos"
   nivel: "avanzado"
-  tags: ["estructura_costos"]
+  tags: ["cuaternario", "investigacion"]
 
 variables:
-  pass: 1
+  area: uno_de(["biotech", "finanzas algorítmicas", "consultoría ambiental"])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "sector_cuaternario"
+tipo: input
 
-enunciado: "En el ciclo industrial, la diferencia clave es la necesidad de rastrear materiales directos, mano de obra y gastos generales."
+enunciado: "La actividad en el área de {area} se clasifica en el sector cuaternario."
 
 explicacion: |
-  Esta triple estructura de costos es lo que distingue contablemente a la industria del comercio puro.
+  El sector cuaternario engloba actividades basadas en el conocimiento especializado y la innovación.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
+  tema: "sectores_economicos"
   nivel: "basico"
-  tags: ["definicion"]
+  tags: ["empleo", "terciario"]
 
 variables:
-  pass: 1
+  pais: uno_de(["Argentina", "Alemania", "Japón"])
+  sector_empleo: "terciario"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "sector_terciario"
+tipo: input
 
-enunciado: "La contabilidad NO es simplemente una obligación tributaria, sino un sistema de información clave."
+enunciado: "En la mayoría de las economías modernas, incluido {pais}, el sector que genera más empleo es el sector:"
 
 explicacion: |
-  Aunque tiene fines fiscales, su esencia es la gestión interna y la comunicación externa de la realidad económica de la empresa.
+  La terciarización de la economía implica que la mayoría de la fuerza laboral se dedica a servicios.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sectores_economicos"
+  nivel: "basico"
+  tags: ["minería", "primario"]
+
+variables:
+  mineral: uno_de(["cobre", "oro", "litio"])
+
+respuesta: "sector_primario"
+tipo: input
+
+enunciado: "La extracción de {mineral} es una actividad del sector primario."
+
+explicacion: |
+  La minería es la extracción de recursos minerales del subsuelo, parte del sector primario.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sectores_economicos"
+  nivel: "basico"
+  tags: ["construccion", "secundario"]
+
+variables:
+  obra: uno_de(["edificio", "carretera", "puente"])
+
+respuesta: "sector_secundario"
+tipo: input
+
+enunciado: "La construcción de un {obra} pertenece al sector secundario."
+
+explicacion: |
+  La construcción es la actividad manufacturera que crea infraestructura y bienes inmuebles.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sectores_economicos"
+  nivel: "intermedio"
+  tags: ["turismo", "terciario"]
+
+variables:
+  destino: uno_de(["Bariloche", "Mendoza", "Mar del Plata"])
+
+respuesta: "sector_terciario"
+tipo: input
+
+enunciado: "El turismo en {destino} es una actividad económica del sector terciario."
+
+explicacion: |
+  El turismo implica servicios de alojamiento, transporte y entretenimiento, todos del sector terciario.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sectores_economicos"
+  nivel: "avanzado"
+  tags: ["educacion", "cuaternario"]
+
+variables:
+  institucion: "universidad de investigación"
+
+respuesta: "sector_cuaternario"
+tipo: input
+
+enunciado: "La generación de nuevo conocimiento en una {institucion} se asocia al sector cuaternario."
+
+explicacion: |
+  La educación superior e investigación básica aplicada es la base del sector cuaternario.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sectores_economicos"
+  nivel: "intermedio"
+  tags: ["finanzas", "terciario"]
+
+variables:
+  servicio: "banca comercial"
+
+respuesta: "sector_terciario"
+tipo: input
+
+enunciado: "La {servicio} es una actividad del sector terciario."
+
+explicacion: |
+  Los servicios financieros intermediarios pertenecen al sector terciario.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "sectores_economicos"
+  nivel: "intermedio"
+  tags: ["evolucion_economica", "historia"]
+
+variables:
+  etapa: uno_de(["preindustrial", "industrial", "postindustrial"])
+
+respuesta: "primario"
+tipo: completar
+
+enunciado: "En las economías {etapa}, el sector primario suele tener el peso relativo más alto en el empleo y el PIB."
+
+explicacion: |
+  En las etapas preindustriales o en países en desarrollo, la economía depende fuertemente del sector primario. A medida que avanza el desarrollo, el peso relativo disminuye frente al secundario y terciario.
 ```
 

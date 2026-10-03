@@ -1,2314 +1,888 @@
 # Examen jefe — [PENDIENTE #697]
 
-> Logro #697. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
+> Logro #697. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: origen-de-la-vida (24 preguntas)
+## Sección: revolucion-de-mayo (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "origen_de_la_vida"
+  tema: "revolucion_de_mayo"
   nivel: "basico"
-  tags: ["abiogenesis", "hipotesis_oparin"]
+  tags: ["mayo_1810", "virrey", "independencia"]
 
-enunciado: "Según la hipótesis de Oparin y Haldane, la atmósfera primitiva de la Tierra carecía de ciertos gases que hoy son comunes. ¿Cuál de los siguientes gases NO formaba parte de esa atmósfera reductora?"
-
-opciones_explicitas: ["Metano", "Amoníaco", "Oxígeno", "Hidrógeno"]
-respuesta: "Oxígeno"
-tipo: "mc"
-
-explicacion: |
-  La atmósfera primitiva era reductora y carecía de oxígeno libre (O2), ya que este solo apareció masivamente después de la fotosíntesis oxigénica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "intermedio"
-  tags: ["miller_urey", "aminoacidos"]
-
-enunciado: "En el famoso experimento de Miller y Urey, se simularon las condiciones de la Tierra primitiva mediante descargas eléctricas. ¿Cuál fue el resultado principal a partir de sustancias inorgánicas?"
-
-respuesta: "aminoácidos"
-tipo: "mc"
-opciones_explicitas: ["aminoácidos", "nucleótidos"]
-
-explicacion: |
-  El experimento demostró que la síntesis de moléculas orgánicas simples como los aminoácidos es posible a partir de gases inorgánicos y energía.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "origen_de_la_vida"
-  nivel: "avanzado"
-  tags: ["rna_world", "genetica"]
-
-enunciado: "La hipótesis del 'Mundo del ARN' sugiere que antes de la aparición del ADN y las proteínas, el ___ cumplía la función de almacenar información genética y catalizar reacciones químicas."
-
-respuestas_validas:
-  - "ARN"
-respuesta: "ARN"
-tipo: "completar"
-
-explicacion: |
-  Se cree que el ARN fue la primera molécula autorreplicante debido a su capacidad de actuar tanto como material genético como enzima (ribozimas).
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "origen_de_la_vida"
-  nivel: "intermedio"
-  tags: ["evolucion_quimica", "orden"]
-
-enunciado: "Ordena correctamente los procesos de la evolución química, desde la materia más simple hasta la vida:"
-
-opciones_explicitas: ["Moléculas inorgánicas", "Monómeros orgánicos", "Polímeros complejos", "Protobiontes"]
-respuesta_orden: ["Moléculas inorgánicas", "Monómeros orgánicos", "Polímeros complejos", "Protobiontes"]
-tipo: "ordenar"
-
-explicacion: |
-  La evolución química implica un aumento gradual de la complejidad: de átomos y gases a moléculas pequeñas, luego cadenas largas y finalmente estructuras con membrana.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "origen_de_la_vida"
-  nivel: "avanzado"
-  tags: ["quimiosintesis", "metabolismo"]
-
-enunciado: "En las fuentes hidrotermales del fondo oceánico, la vida pudo haber comenzado mediante un proceso de ___ que utilizaba la energía química de los minerales."
-
-tipo: completar
-respuesta: "quimiosíntesis"
-
-explicacion: |
-  Antes de la fotosíntesis, los primeros organismos probablemente obtenían energía de las reacciones redox de compuestos inorgánicos en las chimeneas hidrotermales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "basico"
-  tags: ["miller_urey", "sopa_primordial"]
-
-respuesta: "Miller-Urey"
+respuesta: "Baltasar Hidalgo de Cisneros"
 tipo: completar
 respuestas_validas:
-  - "Miller-Urey"
-  - "Miller-Urey"
+  - "Baltasar Hidalgo de Cisneros"
 
-enunciado: "El experimento diseñado para probar la hipótesis de la 'sopa primordial' en charcos superficiales fue el de ___."
+enunciado: "El virrey que fue depuesto tras la Revolución de Mayo fue ___."
 
 explicacion: |
-  El experimento de Miller-Urey (1953) demostró que se podían formar moléculas orgánicas simples (aminoácidos) a partir de gases inorgánicos mediante descargas eléctricas.
+  La Junta de Gobierno de 1810 decidió que el poder español ya no era legítimo ante la captura del Rey Fernando VII por Napoleón, lo que llevó a la destitución de Cisneros.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "origen_de_la_vida"
+  tema: "revolucion_de_mayo"
   nivel: "intermedio"
-  tags: ["fuentes_hidrotermales", "quimiosintesis"]
-
-respuesta: "protección de la radiación UV"
-tipo: mc
-opciones_explicitas: ["exposición a radiación UV", "protección de la radiación UV", "alta radiación solar", "ausencia de calor"]
-
-enunciado: "A diferencia de la hipótesis de la sopa primordial, la teoría de las fuentes hidrotermales sugiere que la vida pudo originarse en el fondo oceánico debido a la ___."
-
-explicacion: |
-  Las fuentes hidrotermales ofrecen un ambiente protegido de la radiación UV superficial y proporcionan gradientes térmicos y químicos esenciales para la síntesis de moléculas complejas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "intermedio"
-  tags: ["hipotesis", "comparacion"]
-
-respuesta: "quimiosintesis"
-tipo: completar
-respuestas_validas:
-  - "quimiosintesis"
-  - "quimiosintesis"
-
-enunciado: "Mientras que la sopa primordial se basa en la energía solar y descargas, las fuentes hidrotermales proponen un metabolismo basado en la ___."
-
-explicacion: |
-  En las fuentes hidrotermales, la energía proviene de las reacciones químicas entre los fluidos alcalinos y el agua de mar, un proceso conocido como quimiosíntesis.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "basico"
-  tags: ["miller_urey", "moléculas"]
-
-respuesta_orden: ["Metano", "Amoníaco", "Hidrógeno", "Agua"]
-tipo: ordenar
-opciones_explicitas: ["Metano", "Amoníaco", "Hidrógeno", "Agua"]
-
-enunciado: "Ordene los componentes gaseosos y líquidos que se utilizaron en el aparato de Miller-Urey para simular la atmósfera y el océano primitivo:"
-
-explicacion: |
-  El experimento utilizó una mezcla de metano (CH4), amoníaco (NH3), hidrógeno (H2) y vapor de agua (H2O) para simular las condiciones de la Tierra primitiva.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "avanzado"
-  tags: ["energia", "hipotesis"]
-
-respuesta: "descargas eléctricas"
-tipo: mc
-opciones_explicitas: ["descargas eléctricas", "gradientes térmicos", "radiación gamma", "energía cinética"]
-
-enunciado: "En el modelo de la sopa primordial, ¿cuál es el motor energético propuesto para la síntesis de moléculas orgánicas?"
-
-explicacion: |
-  En el modelo de Miller-Urey, las descargas eléctricas (simulando rayos) proporcionan la energía necesaria para romper los enlaces de los gases y formar nuevas moléculas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "basico"
-  tags: ["biologia", "evolucion", "luca"]
-
-tipo: mc
-opciones_explicitas: ["Un organismo pluricelular complejo", "El último ancestro común de todos los organismos actuales", "Un organismo que vivió solo en la atmósfera", "La primera célula que apareció en la Tierra"]
-respuesta: "El último ancestro común de todos los organismos actuales"
-
-enunciado: "El término LUCA hace referencia a un concepto fundamental en la biología evolutiva. ¿Qué significa exactamente?"
-
-explicacion: |
-  LUCA (Last Universal Common Ancestor) no fue el primer ser vivo, sino el ancestro común más reciente del cual descendieron todas las formas de vida actuales (Arqueas, Bacterias y Eucariotas).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "intermedio"
-  tags: ["biologia", "bioquimica"]
-
-tipo: completar
-respuestas_validas:
-  - "quimiosíntesis"
-respuesta: "quimiosíntesis"
-
-enunciado: "Se postula que LUCA habitaba en entornos extremos, como fuentes hidrotermales, y que su principal fuente de energía era la ___."
-
-explicacion: |
-  Debido a la ausencia de oxígeno en la Tierra primitiva, se cree que LUCA dependía de procesos químicos inorgánicos (quimiosíntesis) para obtener energía, antes de la aparición de la fotosíntesis.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "intermedio"
-  tags: ["filogenia", "evolucion"]
-
-tipo: ordenar
-opciones_explicitas: ["LUCA", "Primeras células procariotas", "Células eucariotas", "Organismos pluricelulares"]
-
-enunciado: "Ordena cronológicamente estos hitos evolutivos, desde el ancestro común hasta la complejidad actual:"
-
-explicacion: |
-  La evolución biológica siguió una progresión desde un ancestro común unicelular, pasando por la especialización procariota y eucariota, hasta la complejidad de la pluricelularidad.
-respuesta_orden: ["LUCA", "Primeras células procariotas", "Células eucariotas", "Organismos pluricelulares"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "avanzado"
-  tags: ["genetica", "adn"]
+  tags: ["primera_junta", "gobierno"]
 
 variables:
-  mol_idx: uno_de([0, 1])
-  mol_datos: [["ATP", "energía celular"], ["ADN", "información genética"]]
-  mol_nombre: mol_datos[mol_idx][0]
-  mol_funcion: mol_datos[mol_idx][1]
-  respuesta_correcta: mol_datos[mol_idx][0]
-
-tipo: mc
-respuesta: respuesta_correcta
-opciones_explicitas: ["ATP", "ADN", "ARN", "Proteínas"]
-
-enunciado: "La existencia de {mol_nombre} en todos los dominios de la vida es una evidencia clave de que todos los seres vivos comparten un ancestro común, ya que cumple la función de {mol_funcion}."
-
-explicacion: |
-  El hecho de que todos los seres vivos utilicen la misma molécula para almacenar información genética (ADN/ARN) y la misma para transferir energía (ATP) es la prueba más fuerte de un origen común.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "basico"
-  tags: ["bioquimica", "evolucion"]
-
-tipo: mc
-opciones_explicitas: ["Almacenar información genética y actuar como catalizador", "Solo almacenar información genética", "Solo actuar como catalizador enzimático", "Transportar aminoácidos a los ribosomas"]
-respuesta: "Almacenar información genética y actuar como catalizador"
-
-enunciado: "La hipótesis del 'mundo de ARN' sugiere que esta molécula fue clave en el origen de la vida debido a que puede ___."
-
-explicacion: |
-  El ARN es una molécula versátil que puede realizar dos funciones críticas: almacenar la información genética (como el ADN) y actuar como una enzima (ribozima) para catalizar reacciones químicas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "intermedio"
-  tags: ["adn", "arn", "proteinas"]
-
-tipo: completar
-respuestas_validas:
-  - "ADN"
-  - "proteínas"
-
-enunciado: "En la hipótesis del mundo de ARN, se postula que el ARN precedió tanto al ___ como a las ___ en la evolución biológica."
-
-explicacion: |
-  Se cree que el ARN fue la molécula central antes de que el ADN se especializara en el almacenamiento de información a largo plazo y las proteínas en la catálisis estructural y funcional.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "intermedio"
-  tags: ["ribozima", "catalisis"]
-
-tipo: mc
-opciones_explicitas: ["Capacidad de catalizar reacciones químicas", "Capacidad de replicarse sin proteínas", "Capacidad de formar dobles hélices estables", "Capacidad de almacenar aminoácidos"]
-respuesta: "Capacidad de catalizar reacciones químicas"
-
-enunciado: "Una de las propiedades fundamentales que permite al ARN ser el protagonista del 'mundo de ARN' es su capacidad de actuar como una ___."
-
-explicacion: |
-  Las ribozimas son moléculas de ARN con actividad catalítica, lo que permite que el ARN pueda acelerar reacciones químicas sin necesidad de proteínas.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "origen_de_la_vida"
-  nivel: "avanzado"
-  tags: ["evolucion", "secuencia"]
-
-tipo: ordenar
-opciones_explicitas: ["ARN", "ADN", "Proteínas"]
-
-enunciado: "Según la hipótesis del mundo de ARN, ¿cuál sería el orden evolutivo más probable de las macromoléculas funcionales?"
-
-explicacion: |
-  El ARN habría servido como la molécula 'todo en uno' que permitió la aparición de la autorreplicación, antes de la especialización funcional del ADN y las proteínas.
-respuesta_orden: ["ARN", "ADN", "Proteínas"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "avanzado"
-  tags: ["paradoja", "evolucion"]
-
-variables:
-  escenario: uno_de(["plantilla", "catalizador"])
-
-tipo: mc
-opciones_explicitas: ["La estabilidad del ADN", "La velocidad de la proteína", "La dualidad funcional del ARN", "La complejidad del núcleo"]
-respuesta: "La dualidad funcional del ARN"
-
-enunciado: "El 'dilema de la replicación' se resuelve con el ARN porque este puede resolver la necesidad de un {escenario} mediante su estructura química."
-
-explicacion: |
-  Si el escenario es la necesidad de una plantilla, el ARN sirve como molde. Si es la necesidad de un catalizador, el ARN actúa como enzima. Esto permite que la vida comience sin depender de un sistema complejo de tres moléculas distintas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "intermedio"
-  tags: ["quimica_prebiotica", "experimento", "miller_urey"]
-
-variables:
-  escenario: [[["metano", "amoniaco", "hidrogeno", "vapor de agua"], "aminoácidos"], [["metano", "amoniaco", "hidrogeno", "vapor de agua"], "azúcares"], [["metano", "amoniaco", "hidrogeno", "vapor de agua"], "lípidos"]]
-  idx: uno_de([0,1,2])
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["aminoácidos", "azúcares", "lípidos"]
-
-enunciado: "En el experimento de Miller-Urey, al aplicar descargas eléctricas a una mezcla de gases que simulaba la atmósfera primitiva, se obtuvo como producto principal la formación de ___."
-
-explicacion: |
-  El experimento demostró que la síntesis abiótica de moléculas orgánicas (como los aminoácidos) era posible bajo las condiciones atmosféricas propuestas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "basico"
-  tags: ["atmosfera", "gases"]
-
-respuesta: "metano"
-tipo: mc
-opciones_explicitas: ["metano", "oxígeno", "nitrógeno"]
-
-enunciado: "Según el modelo de Miller-Urey, la atmósfera primitiva era rica en gases reductores. ¿Cuál de estos gases era uno de los componentes fundamentales en su montaje experimental?"
-
-explicacion: |
-  Miller utilizó metano (CH4), amoníaco (NH3), hidrógeno (H2) y vapor de agua (H2O) para simular la atmósfera reductora.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "basico"
-  tags: ["energia", "descarga"]
-
-respuesta: "descargas eléctricas"
-tipo: completar
-respuestas_validas:
-  - "descargas eléctricas"
-
-enunciado: "Para simular la energía disponible en la atmósfera primitiva, el aparato de Miller utilizó ___ entre los gases."
-
-explicacion: |
-  Las descargas eléctricas simulaban la actividad de los rayos durante las tormentas en la Tierra primitiva.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "origen_de_la_vida"
-  nivel: "intermedio"
-  tags: ["ciclo_del_agua", "condensación"]
-
-variables:
-  proceso: [["condensación", "evaporación"], ["condensación", "sublimación"], ["condensación", "fusión"]]
-  idx: uno_de([0,1,2])
-
-respuesta: proceso[idx][0]
-tipo: mc
-opciones_explicitas: ["condensación", "evaporación", "sublimación", "fusión"]
-
-enunciado: "En el montaje, el vapor de agua se enfriaba para que los compuestos orgánicos formados se disolvieran en el líquido. Este proceso físico es la ___."
-
-explicacion: |
-  El enfriamiento del vapor permite la condensación, permitiendo que las moléculas orgánicas se concentren en la fase líquida.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_de_la_vida"
-  nivel: "avanzado"
-  tags: ["montaje", "componentes"]
-
-respuesta_orden: ["gases", "descargas", "condensación"]
-tipo: ordenar
-opciones_explicitas: ["gases", "descargas", "condensación"]
-
-enunciado: "Ordena los elementos o procesos según el flujo lógico de la síntesis química en el experimento de Miller:"
-
-explicacion: |
-  El experimento requiere primero la mezcla de gases, luego la aplicación de energía (descargas) y finalmente la recuperación de productos mediante condensación.
-```
-
-## Sección: origen-del-universo (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "basico"
-  tags: ["conceptos_clave", "espacio_tiempo"]
-
-tipo: completar
-
-enunciado: "Una idea errónea común es que el Big Bang fue una explosión de materia en un espacio vacío preexistente. Sin embargo, la teoría científica actual establece que el Big Bang fue la expansión del propio ___."
-
-respuestas_validas:
-  - "espacio-tiempo"
-  - "espacio y tiempo"
-
-respuesta: "espacio-tiempo"
-
-explicacion: |
-  El Big Bang no fue una explosión de materia en un lugar, sino el estiramiento del tejido mismo del espacio y el tiempo. No hubo un "punto" en el espacio que explotara, sino que el espacio mismo comenzó a expandirse.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "intermedio"
-  tags: ["geometria_universo", "expansion"]
-
-tipo: completar
-
-enunciado: "Dado que el Big Bang fue una expansión del espacio-tiempo en todos los puntos simultáneamente, el universo ___ tiene un centro único o un punto de origen espacial."
-
-respuestas_validas:
-  - "no"
-  - "no posee"
-
-respuesta: "no"
-
-explicacion: |
-  Como el espacio se expande en todas direcciones al mismo tiempo, no hay un punto central desde donde todo se aleja. Cualquier punto en el universo puede considerarse un centro de expansión, pero no existe un "centro absoluto".
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "avanzado"
-  tags: ["cosmologia", "dimensiones"]
-
-tipo: completar
-
-enunciado: "Si el Big Bang creó el espacio-tiempo, esto implica que el universo no se está expandiendo hacia un espacio vacío que ya existía, por lo tanto, no existe un ___ que el universo esté ocupando."
-
-respuestas_validas:
-  - "afuera"
-  - "exterior"
-
-respuesta: "afuera"
-
-explicacion: |
-  Al ser el espacio-tiempo algo que surge y se expande, no hay un "contenedor" externo. El concepto de "afuera" requiere una dimensión espacial preexistente que la teoría del Big Bang no contempla.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "basico"
-  tags: ["analogias", "expansion"]
-
-tipo: completar
-
-enunciado: "Para entender que el espacio se estira, se suele usar la analogía de la superficie de un globo que se infla. En este modelo, las galaxias se alejan entre sí porque el ___ entre ellas aumenta, no porque se desplacen por un espacio vacío."
-
-respuestas_validas:
-  - "espacio"
-  - "distancia"
-
-respuesta: "espacio"
-
-explicacion: |
-  En la analogía del globo, la superficie representa el espacio-tiempo. Al inflar el globo, la superficie se estira, aumentando la distancia entre puntos, tal como sucede con el universo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "intermedio"
-  tags: ["tiempo", "causalidad"]
-
-tipo: completar
-
-enunciado: "Si el Big Bang marca el inicio del espacio-tiempo, esto significa que el ___ no existía antes de este evento, invalidando la idea de un 'antes' en términos temporales clásicos."
-
-respuestas_validas:
-  - "tiempo"
-
-respuesta: "tiempo"
-
-explicacion: |
-  Si el tiempo es una dimensión que surgió con el Big Bang, preguntar qué hubo "antes" es como preguntar qué hay al norte del Polo Norte; la pregunta carece de sentido físico porque la dimensión temporal no existía.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "basico"
-  tags: ["big_bang", "expansion"]
-
-tipo: mc
-opciones_explicitas: ["Una contracción inmediata", "Una expansión extremadamente rápida", "Un estado estático sin cambios", "Un enfriamiento instantáneo sin movimiento"]
-respuesta: "Una expansión extremadamente rápida"
-
-enunciado: "Inmediatamente después del Big Bang, el universo experimentó un proceso conocido como inflación, que consistió en una ___."
-
-explicacion: |
-  La inflación es el período de expansión exponencial que ocurrió en las fracciones de segundo iniciales, permitiendo que el universo se volviera homogéneo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "basico"
-  tags: ["particulas", "temperatura"]
-
-tipo: completar
-respuestas_validas:
-  - "enfriamiento"
-respuesta: "enfriamiento"
-
-enunciado: "A medida que el universo se expandía tras el Big Bang, la temperatura descendía, permitiendo el ___ del cosmos y la formación de estructuras."
-
-explicacion: |
-  La expansión del espacio provoca que la densidad de energía disminuya, lo que se traduce en un descenso de la temperatura cósmica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "intermedio"
-  tags: ["particulas", "subatomicas"]
-
-tipo: mc
-opciones_explicitas: ["Átomos de carbono", "Partículas subatómicas como protones y neutrones", "Moléculas de agua", "Planetas rocosos"]
-respuesta: "Partículas subatómicas como protones y neutrones"
-
-enunciado: "Antes de que existieran los átomos, el universo estaba compuesto por un plasma de partículas elementales. ¿Cuál de estas apareció tras el enfriamiento inicial?"
-
-explicacion: |
-  Antes de la formación de átomos neutros, el universo era una "sopa" de partículas subatómicas como protones, neutrones y electrones.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "intermedio"
-  tags: ["elementos", "hidrogeno"]
-
-tipo: mc
-opciones_explicitas: ["Sólo Helio", "Sólo Oxígeno", "Hidrógeno y Helio", "Hierro y Carbono"]
-respuesta: "Hidrógeno y Helio"
-
-enunciado: "Durante los primeros minutos del universo, la nucleosíntesis primordial permitió la formación de los primeros elementos químicos. ¿Cuáles fueron los principales?"
-
-explicacion: |
-  La abundancia de elementos en el universo temprano estaba compuesta mayoritariamente por hidrógeno (aprox. 75%) y helio (aprox. 25%).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "basico"
-  tags: ["estrellas", "galaxias"]
-
-tipo: completar
-respuestas_validas:
-  - "estrellas"
-respuesta: "estrellas"
-
-enunciado: "Mucho tiempo después de la formación de los primeros átomos, la gravedad agrupó las nubes de gas para dar origen a las primeras ___."
-
-explicacion: |
-  La gravedad actuó sobre las densidades de gas (hidrógeno y helio) para colapsar las nubes y encender la fusión nuclear, creando las primeras estrellas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "basico"
-  tags: ["big_bang", "expansión", "redshift"]
-
-respuesta: "corrimiento al rojo"
-tipo: completar
-respuestas_validas:
-  - "corrimiento al rojo"
-
-enunciado: "El fenómeno observado en la luz de galaxias lejanas que indica que el universo se está expandiendo se conoce como ___."
-
-explicacion: |
-  El corrimiento al rojo (redshift) ocurre cuando la luz de un objeto se desplaza hacia longitudes de onda más largas (el rojo) debido a que el espacio entre nosotros y la fuente se está expandiendo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "intermedio"
-  tags: ["cmb", "radiación_fondo", "evidencia"]
-
-respuesta: "380000"
-tipo: completar
-respuestas_validas:
-  - "380000"
-  - "380.000"
-
-enunciado: "La Radiación Cósmica de Fondo de Microondas (CMB) se originó aproximadamente ___ años después del Big Bang, cuando el universo se volvió transparente."
-
-explicacion: |
-  Antes de este momento, el universo era un plasma opaco. Al enfriarse hasta los 380.000 años, los electrones y protones formaron átomos neutros, permitiendo que los fotones viajaran libremente.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "intermedio"
-  tags: ["elementos", "hidrógeno", "helio"]
-
-respuesta: "hidrógeno"
-tipo: completar
-respuestas_validas:
-  - "hidrógeno"
-  - "hidrogeno"
-
-enunciado: "Según el modelo del Big Bang, el elemento más abundante creado en las primeras etapas del universo (junto con el helio) fue el ___."
-
-explicacion: |
-  La nucleosíntesis primordial predice una abundancia de aproximadamente 75% de hidrógeno y 25% de helio, lo cual coincide con las observaciones astronómicas actuales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "basico"
-  tags: ["redshift", "luz"]
-
-respuesta: "rojo"
-tipo: completar
-respuestas_validas:
-  - "rojo"
-
-enunciado: "Cuando una galaxia se aleja de un observador, la luz que emite se desplaza hacia el extremo ___ del espectro electromagnético."
-
-explicacion: |
-  Este desplazamiento hacia longitudes de onda mayores es la base para medir la velocidad de recesión de las galaxias y confirmar la expansión cósmica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "avanzado"
-  tags: ["cmb", "evidencia", "microondas"]
-
-respuesta: "radiación cósmica de fondo de microondas"
-tipo: completar
-respuestas_validas:
-  - "radiación cósmica de fondo de microondas"
-  - "radiación de fondo"
-
-enunciado: "La evidencia que consiste en un resplandor térmico que llena todo el universo y es un 'eco' del Big Bang se denomina ___."
-
-explicacion: |
-  La radiación cósmica de fondo de microondas es la prueba más sólida del estado caliente y denso que tuvo el universo en sus inicios.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "basico"
-  tags: ["fred_hoyle", "terminologia"]
-
-opciones_explicitas: ["Un término descriptivo científico", "Un término despectivo usado para burlarse", "Un nombre propuesto por Einstein", "Un nombre acuñado por la NASA"]
-
-respuesta: "Un término despectivo usado para burlarse"
-tipo: mc
-
-enunciado: "El término 'Big Bang' no fue acuñado para describir el evento de forma neutral, sino que fue propuesto por el astrónomo Fred Hoyle con una intención de burlarse de la teoría de la expansión. ¿Cuál era la intención de la expresión?"
-
-explicacion: |
-  Fred Hoyle, defensor de la teoría del Estado Estacionario, utilizó el término 'Big Bang' durante una transmisión de radio en 1949 para ridiculizar la idea de una singularidad inicial, considerándola poco científica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "intermedio"
-  tags: ["acustica", "vacio"]
-
-opciones_explicitas: ["Sí, fue una explosión sonora masiva", "No, porque en el vacío no se propaga el sonido", "Sí, debido a la liberación de energía", "No, porque el universo era demasiado grande"]
-
-respuesta: "No, porque en el vacío no se propaga el sonido"
-tipo: mc
-
-enunciado: "Desde un punto de vista físico, el nombre 'Big Bang' es engañoso respecto a la acústica del evento. ¿Por qué no hubo un sonido como el de una explosión convencional?"
-
-explicacion: |
-  El sonido requiere un medio material (como aire o agua) para propagarse a través de ondas de presión. La idea de una "explosión" implica una onda expansiva en un medio preexistente, algo que no aplica al origen del espacio-tiempo mismo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "avanzado"
-  tags: ["expansion", "explosion"]
-
-opciones_explicitas: ["Una explosión de materia en un espacio vacío", "Una expansión acelerada del propio espacio-tiempo", "Una detonación química de gases", "Un choque de galaxias"]
-
-respuesta: "Una expansión acelerada del propio espacio-tiempo"
-tipo: mc
-
-enunciado: "El concepto de 'explosión' sugiere que algo explota 'dentro' de un espacio ya existente. Sin embargo, la cosmología moderna describe el Big Bang como una ___ del espacio mismo."
-
-explicacion: |
-  A diferencia de una bomba que expande materia en un lugar vacío, el Big Bang fue la expansión del tejido mismo del espacio-tiempo, creando el espacio y el tiempo a medida que se expandía.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "basico"
-  tags: ["luz", "radiacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Es correcto afirmar que el Big Bang fue un evento visible como una explosión de luz brillante que iluminó el universo instantáneamente."
-
-explicacion: |
-  Falso. Durante los primeros instantes, el universo era un plasma opaco para la luz. La luz no pudo viajar libremente hasta que ocurrió la "recombinación" (unos 380.000 años después), liberando la radiación de fondo de microondas que detectamos hoy.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "intermedio"
-  tags: ["terminologia", "historia_ciencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Se considera que el nombre 'Big Bang' es semánticamente engañoso para describir el proceso de expansión del universo."
-
-explicacion: |
-  Verdadero. El término sugiere un evento puntual y violento de materia en un espacio vacío, mientras que la realidad física es una expansión métrica del espacio-tiempo que no requiere un centro ni un medio de propagación para el sonido.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "basico"
-  tags: ["astronomia", "evidencia"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenarios: [["Observamos que la luz de las galaxias lejanas se desplaza hacia longitudes de onda más largas (rojas).", "corrimiento al rojo"], ["Observamos que las galaxias se alejan de nosotros a velocidades proporcionales a su distancia.", "corrimiento al rojo"]]
-
-opciones_explicitas: ["corrimiento al rojo", "corrimiento al azul", "estacionarismo galáctico"]
-
-respuesta: escenarios[idx][1]
-tipo: mc
-
-enunciado: "Si un astrónomo detecta que {escenarios[idx][0]}, ¿a qué fenómeno se refiere este hallazgo?"
-
-explicacion: |
-  El corrimiento al rojo (redshift) es la evidencia fundamental de que el universo se está expandiendo, tal como predijo la Relatividad General y observó Hubble.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "intermedio"
-  tags: ["cosmologia", "radiacion"]
-
-variables:
-  idx: uno_de([0, 1])
-  evidencias: [["un resplandor de microondas que llena todo el cielo de forma casi uniforme", "radiación de fondo de microondas"], ["una temperatura residual de aproximadamente 2.7 Kelvin presente en todo el espacio", "radiación de fondo de microondas"]]
-
-opciones_explicitas: ["radiación de fondo de microondas", "luz visible de estrellas", "nebulosas de gas"]
-
-respuesta: evidencias[idx][1]
-tipo: mc
-
-enunciado: "La detección de {evidencias[idx][0]} es considerada la 'prueba reina' de que el universo tuvo un inicio caliente y denso. ¿Cómo se llama este fenómeno?"
-
-explicacion: |
-  La Radiación Cósmica de Fondo de Microondas (CMB) es la luz remanente del Big Bang, liberada cuando el universo se volvió transparente.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "avanzado"
-  tags: ["nucleosintesis", "elementos"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["la proporción observada de helio y deuterio en el universo temprano", "nucleosíntesis primordial"], ["la cantidad de helio-4 presente en las nubes de gas más antiguas", "nucleosíntesis primordial"]]
-
-opciones_explicitas: ["nucleosíntesis estelar", "nucleosíntesis primordial", "fusión de agujeros negros"]
+  idx: uno_de([0, 1, 2])
+  datos: [["Cornelio Saavedra", "Presidente"], ["Mariano Moreno", "Secretario"], ["Juan José Paso", "Secretario"]]
 
 respuesta: datos[idx][1]
 tipo: mc
+opciones_explicitas: ["Presidente", "Secretario", "Vocal"]
 
-enunciado: "El hecho de que los niveles de {datos[idx][0]} coincidan con los modelos teóricos apoya la teoría del Big Bang. ¿Qué proceso explica esto?"
+enunciado: "En la Primera Junta de Gobierno, el rol de {datos[idx][0]} era el de ___."
 
 explicacion: |
-  La nucleosíntesis primordial ocurrió en los primeros minutos del universo, creando los núcleos de los elementos más ligeros antes de que existieran las estrellas.
+  La Primera Junta estaba integrada por un presidente y varios secretarios y vocales. {datos[idx][0]} ocupaba el cargo de {datos[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "basico"
-  tags: ["expansion", "espacio"]
+  tema: "revolucion_de_mayo"
+  nivel: "intermedio"
+  tags: ["causas", "contexto"]
 
-respuesta: "expansión"
+respuesta: "Napoleón Bonaparte"
 tipo: completar
 respuestas_validas:
-  - "expansión"
-  - "expansion"
+  - "Napoleón Bonaparte"
 
-enunciado: "Según la evidencia del corrimiento al rojo, el universo no es estático, sino que se encuentra en un proceso de ___ constante."
+enunciado: "Un factor externo crucial que aceleró la crisis de legitimidad en el Virreinato fue la invasión de ___ a España."
 
 explicacion: |
-  La expansión del espacio-tiempo implica que las galaxias se separan entre sí, aumentando el volumen del universo observable.
+  La invasión napoleónica a la península ibérica y la captura del Rey Fernando VII crearon un vacío de poder que las colonias utilizaron para reclamar autonomía.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "origen_del_universo"
-  nivel: "intermedio"
-  tags: ["big_bang", "singularidad"]
-
-respuesta: "singularidad"
-tipo: completar
-respuestas_validas:
-  - "singularidad"
-
-enunciado: "La teoría del Big Bang postula que el universo comenzó a partir de un estado de densidad y temperatura infinitas llamado ___."
-
-explicacion: |
-  La singularidad es el punto teórico donde las leyes de la física actual no pueden describir el estado del universo en el tiempo t=0.
-```
-
-## Sección: paleoclima-glaciaciones (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "basico"
-  tags: ["definicion", "introduccion"]
-
-respuesta: "paleoclima"
-tipo: completar
-respuestas_validas:
-  - "paleoclima"
-
-enunciado: "El estudio de los climas de la Tierra en el pasado geológico se denomina ___."
-
-explicacion: |
-  El paleoclima es la ciencia que reconstruye las condiciones climáticas de épocas pasadas utilizando diversos indicadores naturales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "intermedio"
-  tags: ["metodos", "reconstruccion"]
-
-respuesta: "núcleos de hielo"
-tipo: mc
-opciones_explicitas: ["núcleos de hielo", "sedimentos marinos", "anillos de árboles", "fósiles de insectos"]
-
-enunciado: "Un método común para reconstruir el paleoclima mediante el análisis de capas de precipitación congelada es el uso de ___."
-
-explicacion: |
-  Los núcleos de hielo almacenan burbujas de aire y partículas que permiten conocer la composición atmosférica de hace miles de años.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "intermedio"
-  tags: ["indicadores", "fósiles"]
-
-respuesta: "fósiles"
-tipo: mc
-opciones_explicitas: ["fósiles", "satélites", "termómetros", "instrumentos de medición"]
-
-enunciado: "Cuando no hay hielo o sedimentos disponibles, los científicos utilizan ___ de especies extintas para inferir temperaturas antiguas."
-
-explicacion: |
-  Los fósiles (como corales o plantas) actúan como indicadores biológicos de las condiciones ambientales en las que vivieron.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
+  tema: "revolucion_de_mayo"
   nivel: "avanzado"
-  tags: ["metodologia", "proceso"]
+  tags: ["cronologia", "eventos"]
 
-respuesta_orden: ["extracción", "datación", "análisis químico"]
+respuesta_orden: ["Cabildo Abierto", "Junta de Gobierno", "Primera Junta"]
 tipo: ordenar
-opciones_explicitas: ["extracción", "datación", "análisis químico"]
+opciones_explicitas: ["Cabildo Abierto", "Junta de Gobierno", "Primera Junta"]
 
-enunciado: "Ordena los pasos típicos para reconstruir un clima antiguo a partir de una muestra de sedimento:"
+enunciado: "Ordene cronológicamente los hitos de la semana de mayo de 1810:"
+
+explicacion: |
+  Primero se debatió en el Cabildo Abierto, luego se conformó la Junta de Gobierno y finalmente se consolidó la Primera Junta con sus miembros.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_de_mayo"
+  nivel: "basico"
+  tags: ["caracter", "gobierno"]
+
+respuesta: "fiel"
+tipo: mc
+opciones_explicitas: ["fiel", "rebelde", "monárquico"]
+
+enunciado: "Inicialmente, la Primera Junta proclamó su autoridad como ___ a la soberanía de Fernando VII (la llamada 'máscara de Fernando')."
+
+explicacion: |
+  Se utilizó la estrategia de la "máscara de Fernando VII", donde se gobernaba en nombre del rey cautivo para evitar represalias directas de España mientras se ganaba autonomía.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_de_mayo"
+  nivel: "basico"
+  tags: ["contexto", "napoleon", "monarquia"]
+
+respuesta: "Napoleón Bonaparte"
+tipo: completar
+respuestas_validas:
+  - "Napoleón Bonaparte"
+  - "Napoleón"
+
+enunciado: "La invasión de ___ a España en 1808 provocó una crisis de legitimidad que debilitó el control sobre las colonias americanas."
+
+explicacion: |
+  La invasión napoleónica a España y la captura del rey Fernando VII crearon un vacío de poder que las élites criollas utilizaron para cuestionar la autoridad colonial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_de_mayo"
+  nivel: "intermedio"
+  tags: ["causas", "autoridad", "colonia"]
+
+opciones_explicitas: ["Se fortaleció el control absoluto de la metrópoli", "Se produjo un debilitamiento de la autoridad real sobre las colonias", "Se unificaron los ejércitos de España y América"]
+respuesta: "Se produjo un debilitamiento de la autoridad real sobre las colonias"
+tipo: mc
+
+enunciado: "¿Cuál fue la consecuencia directa de la crisis de la monarquía española en 1808 respecto a sus territorios en América?"
+
+explicacion: |
+  Al no haber un rey legítimo en el trono, las autoridades coloniales perdieron su fuente de legitimidad, lo que permitió que los cabildos empezaran a reclamar autonomía.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "revolucion_de_mayo"
+  nivel: "intermedio"
+  tags: ["cronologia", "causas"]
+
+opciones_explicitas: ["Invasión napoleónica", "Crisis de la monarquía española", "Revolución de Mayo"]
+respuesta_orden: ["Invasión napoleónica", "Crisis de la monarquía española", "Revolución de Mayo"]
+tipo: ordenar
+
+enunciado: "Ordena cronológicamente los sucesos que desencadenaron el proceso revolucionario:"
+
+explicacion: |
+  Primero ocurrió la invasión de Napoleón, esto generó la crisis de legitimidad en España y finalmente ese vacío de poder facilitó la Revolución de Mayo en el Virreinato.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_de_mayo"
+  nivel: "avanzado"
+  tags: ["soberania", "derecho"]
+
+respuesta: "La soberanía recae en el pueblo"
+tipo: mc
+
+opciones_explicitas: ["La autoridad reside en el Rey", "La soberanía recae en el pueblo"]
+
+enunciado: "Ante la ausencia del rey, los criollos aplicaron la idea de que la soberanía debe volver al ___."
+
+explicacion: |
+  El concepto de 'retroversión de la soberanía' sostenía que, ante la falta del monarca, el poder volvía al pueblo, lo que justificó la formación de juntas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_de_mayo"
+  nivel: "basico"
+  tags: ["causas", "impacto"]
+
+respuesta: 1
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si la invasión napoleónica debilitó la autoridad de España, la probabilidad de una revolución en América fue (0: nula / 1: alta). Indica el número de la opción correcta."
+
+explicacion: |
+  La debilidad de la metrópoli fue el catalizador fundamental que permitió que las aspiraciones de autonomía se transformaran en una revolución política.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_de_mayo"
+  nivel: "basico"
+  tags: ["primera_junta", "saavedra", "mayo"]
+
+respuesta: "Cornelio Saavedra"
+tipo: completar
+respuestas_validas:
+  - "Cornelio Saavedra"
+
+enunciado: "La Primera Junta, conformada tras la Revolución de Mayo, fue presidida por ___."
+
+explicacion: |
+  La Primera Junta fue el primer gobierno patrio, presidido por Cornelio Saavedra, quien representaba el ala más conservadora del cabildo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_de_mayo"
+  nivel: "basico"
+  tags: ["moreno", "secretario"]
+
+opciones_explicitas: ["Mariano Moreno", "Juan José Paso", "Manuel Belgrano", "Fidencio de la Riva"]
+respuesta: "Mariano Moreno"
+tipo: mc
+
+enunciado: "En la Primera Junta, ¿quién ocupaba el cargo de secretario?"
+
+explicacion: |
+  Mariano Moreno fue el secretario de la Primera Junta, conocido por su pensamiento radical y su influencia en la redacción de documentos políticos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_de_mayo"
+  nivel: "intermedio"
+  tags: ["mascara_de_fecundidad", "fernando_vii"]
+
+respuesta: "Fernando VII"
+tipo: completar
+respuestas_validas:
+  - "Fernando VII"
+
+enunciado: "Debido a la estrategia política de la época, la Primera Junta gobernaba en nombre del rey depuesto, un fenómeno conocido como la 'máscara de ___'."
+
+explicacion: |
+  La 'máscara de Fernando VII' era una maniobra política para reconocer la autoridad del rey cautivo ante las potencias europeas, mientras se ejercía el autogobierno local.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_de_mayo"
+  nivel: "intermedio"
+  tags: ["integrantes", "primera_junta"]
+
+variables:
+  idx: uno_de([0, 1])
+  tabla: [["Cornelio Saavedra", "Cornelio Saavedra"], ["Mariano Moreno", "Mariano Moreno"]]
+
+respuesta: tabla[idx][1]
+tipo: mc
+opciones_explicitas: ["Cornelio Saavedra", "Mariano Moreno", "Juan José Paso", "Domingo Saavedra"]
+
+enunciado: "Seleccione el nombre del integrante de la Primera Junta que corresponde al escenario actual."
 
 pasos:
-  - "Obtención de la muestra del terreno."
-  - "Determinación de la edad de la capa sedimentaria."
-  - "Estudio de la composición de la muestra en laboratorio."
+  - "Identifique el nombre del presidente o secretario según el caso sorteado."
 
 explicacion: |
-  Primero se extrae el material, luego se determina su edad (datación) y finalmente se analizan sus componentes químicos.
+  La Primera Junta estaba integrada por miembros del cabildo y militares; Saavedra era el presidente y Moreno el secretario.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "intermedio"
-  tags: ["dendrocronologia", "anillos"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  escenarios: ["ancho", "estrecho"]
-  resultado: ["clima favorable", "clima adverso"]
-
-respuesta: resultado[caso_idx]
-tipo: mc
-opciones_explicitas: ["clima favorable", "clima adverso"]
-
-enunciado: "En dendrocronología, si un anillo de crecimiento es {escenarios[caso_idx]}, esto suele indicar un {resultado[caso_idx]} durante ese año."
-
-explicacion: |
-  Anillos anchos sugieren condiciones óptimas de temperatura y humedad, mientras que anillos estrechos indican estrés ambiental.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "intermedio"
-  tags: ["astronomia", "clima", "milankovitch"]
-
-respuesta: "excentricidad"
-tipo: mc
-
-enunciado: "La variación en la forma de la órbita terrestre alrededor del Sol, que oscila entre una forma casi circular y una elíptica, se denomina:"
-
-opciones_explicitas: ["oblicuidad", "precesión", "excentricidad", "nutación"]
-
-explicacion: |
-  La excentricidad describe qué tan "achatada" es la órbita terrestre. Este ciclo tiene periodos de aproximadamente 100,000 y 400,000 años y afecta la cantidad de radiación solar que llega a la Tierra.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
+  tema: "revolucion_de_mayo"
   nivel: "avanzado"
-  tags: ["oblicuidad", "inclinacion", "clima"]
+  tags: ["orden_gobiernos", "etapas"]
 
-respuesta: 22.1
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "La inclinación del eje terrestre (oblicuidad) varía periódicamente entre aproximadamente 22.1° y 24.5°. Si la inclinación aumenta hacia el valor máximo de 24.5 grados, ¿cuál es el valor aproximado de la inclinación mínima que alcanza en el ciclo?"
-
-pasos:
-  - "Identificar el valor máximo de inclinación proporcionado."
-  - "Identificar el valor mínimo de inclinación del ciclo real (22.1°-24.5°)."
-
-explicacion: |
-  La oblicuidad influye en la estacionalidad. Una mayor inclinación genera estaciones más marcadas, mientras que una menor inclinación (22.1 grados) tiende a favorecer la glaciación al hacer los veranos menos intensos en las altas latitudes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "intermedio"
-  tags: ["precesion", "eje_terrestre"]
-
-respuesta: "el eje de rotación"
-tipo: completar
-respuestas_validas:
-  - "el eje de rotación"
-  - "la órbita"
-  - "el sol"
-
-enunciado: "La precesión es el movimiento de bamboleo de ___ terrestre, similar al de un trompo, que cambia la orientación de los polos respecto a la eclíptica."
-
-explicacion: |
-  La precesión afecta la dirección en la que apunta la Tierra respecto a las estrellas y determina en qué época del año ocurre el solsticio o el equinoccio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "basico"
-  tags: ["causas", "glaciaciones"]
-
-respuesta_orden: ["excentricidad", "oblicuidad", "precesión"]
+opciones_explicitas: ["Primera Junta", "Junta Grande", "Directorio"]
+respuesta_orden: ["Primera Junta", "Junta Grande", "Directorio"]
 tipo: ordenar
 
-opciones_explicitas: ["excentricidad", "oblicuidad", "precesión"]
-
-enunciado: "Ordene los tres ciclos de Milankovitch desde el que tiene el periodo de duración más largo al más corto:"
+enunciado: "Ordene cronológicamente las etapas de los gobiernos patrios tras la Revolución de Mayo, desde el primero hasta el último de esta lista."
 
 explicacion: |
-  El orden correcto de duración es: Excentricidad (~100k-400k años), Oblicuidad (~41k años) y Precesión (~21k-26k años).
+  El proceso comenzó con la Primera Junta (1810), siguió con la Junta Grande (tras la incorporación de diputados del interior) y culminó con el Directorio (poder ejecutivo unipersonal).
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "intermedio"
-  tags: ["radiacion", "insolacion"]
-
-respuesta: "glaciación"
-tipo: mc
-
-enunciado: "Si los ciclos de Milankovitch provocan que la insolación estival en las altas latitudes sea significativamente menor, el efecto resultante en el clima global es una:"
-
-opciones_explicitas: ["glaciación", "interglaciar", "estabilidad térmica"]
-
-explicacion: |
-  Para que se formen grandes capas de hielo, los veranos deben ser lo suficientemente frescos como para que la nieve del invierno no se derrita completamente, permitiendo la acumulación de hielo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
+  tema: "revolucion_de_mayo"
   nivel: "basico"
-  tags: ["precambrico", "glaciacion", "teoria"]
+  tags: ["revolucion_de_mayo", "independencia", "procesos_historicos"]
 
-respuesta: "Tierra bola de nieve"
-tipo: completar
-respuestas_validas:
-  - "Tierra bola de nieve"
-  - "Snowball Earth"
-
-enunciado: "La hipótesis que propone que, durante el Precámbrico, la Tierra estuvo casi totalmente cubierta por capas de hielo se denomina ___."
-
-explicacion: |
-  La hipótesis de la 'Tierra bola de nieve' sugiere que el planeta experimentó periodos de glaciación global donde incluso el ecuador estaba cubierto de hielo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "intermedio"
-  tags: ["evidencia", "sedimentos"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  evidencias: [["diamictitas", "depósitos de tilita"], ["capas de carbonatos", "depósitos de hierro bandeado"]]
-  respuesta_correcta: evidencias[escenario_idx][0]
-
-respuesta: respuesta_correcta
-tipo: mc
-opciones_explicitas: ["diamictitas", "capas de carbonatos", "depósitos de hierro bandeado", "depósitos de tilita"]
-
-enunciado: "En el registro geológico, la presencia de ___ es una evidencia clave que sugiere la existencia de glaciaciones intensas en latitudes bajas durante el Precámbrico."
-
-pasos:
-  - "Identificar el tipo de sedimento glacial."
-  - "Relacionar el sedimento con la hipótesis de congelamiento global."
-
-explicacion: |
-  Las diamictitas (o tilitas) son rocas sedimentarias con matriz de grano fino que contiene clastos de diversos tamaños, características de la erosión glacial.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "avanzado"
-  tags: ["albedo", "retroalimentacion", "clima"]
-
-respuesta: "albedo"
-tipo: completar
-respuestas_validas:
-  - "albedo"
-  - "efecto invernadero"
-
-enunciado: "El principal mecanismo de retroalimentación positiva que acelera el enfriamiento en la hipótesis de la Tierra bola de nieve es el aumento del ___ terrestre."
-
-explicacion: |
-  Al extenderse el hielo, la superficie refleja más radiación solar (mayor albedo) en lugar de absorberla, lo que reduce la temperatura y permite que el hielo crezca aún más.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "intermedio"
-  tags: ["volcanismo", "co2", "deshielo"]
-
-respuesta: "volcanismo"
-tipo: mc
-opciones_explicitas: ["tectónica de placas", "volcanismo", "actividad solar", "cambios en la órbita"]
-
-enunciado: "¿Qué proceso geológico se considera el principal responsable de liberar grandes cantidades de CO2 para romper el estado de 'bola de nieve' y provocar un efecto invernadero extremo?"
-
-explicacion: |
-  El vulcanismo continuo durante el periodo de congelación acumula gases de efecto invernadero en la atmósfera, ya que el ciclo de carbonato-silicato (que normalmente consume CO2) se detiene por la falta de meteorización líquida.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "avanzado"
-  tags: ["secuencia", "clima", "precambrico"]
-
-respuesta_orden: ["Glaciación global", "Acumulación de gases volcánicos", "Efecto invernadero extremo", "Deshielo masivo"]
-tipo: ordenar
-opciones_explicitas: ["Glaciación global", "Acumulación de gases volcánicos", "Efecto invernadero extremo", "Deshielo masivo"]
-
-enunciado: "Ordena cronológicamente los eventos que llevan a la transición de una Tierra bola de nieve a un estado de clima cálido."
-
-pasos:
-  - "Establecer el estado inicial de congelamiento."
-  - "Identificar la fuente de gases en la atmósfera."
-  - "Determinar la consecuencia térmica."
-  - "Indicar el resultado final del proceso."
-
-explicacion: |
-  La secuencia comienza con la glaciación, sigue con la acumulación de CO2 por vulcanismo (al no haber meteorización), lo que genera un efecto invernadero que finalmente provoca el deshielo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "basico"
-  tags: ["cuaternario", "glaciaciones"]
-
-respuesta: "Pleistoceno"
-tipo: completar
-respuestas_validas:
-  - "Pleistoceno"
-
-enunciado: "El periodo geológico que comprende la mayor parte del Cuaternario y que se caracteriza por ciclos de glaciaciones es el ___________."
-
-explicacion: |
-  El Pleistoceno abarca desde hace aproximadamente 2.58 millones de años hasta hace 11,700 años, marcando la era de las grandes glaciaciones.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "basico"
-  tags: ["glaciacion", "tiempo"]
-
-respuesta: 11700
-tipo: completar
-tolerancia_abs: 500
-
-enunciado: "La última glaciación (LGM - Last Glacial Maximum) terminó hace aproximadamente ________ años, dando inicio al Holoceno."
-
-explicacion: |
-  Hace unos 11,700 años el clima se estabilizó, permitiendo el florecimiento de las civilizaciones humanas actuales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "avanzado"
-  tags: ["milankovitch", "ciclos"]
-
-tipo: mc
-opciones_explicitas: ["Excentricidad", "Precesión", "Oblicuidad", "Efecto Coriolis"]
-respuesta: "Excentricidad"
-
-enunciado: "El ciclo de Milankovitch que altera la forma de la órbita terrestre, haciéndola pasar de casi circular a más elíptica y viceversa a lo largo de miles de años, se conoce como:"
-
-explicacion: |
-  La Excentricidad es uno de los tres ciclos astronómicos principales (junto con la Precesión y la Oblicuidad) que modulan la insolación terrestre, con un período aproximado de 100.000 años.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "intermedio"
-  tags: ["secuencia", "clima"]
-
-respuesta_orden: ["Interglaciar actual (Holoceno)", "Enfriamiento gradual", "Máximo glacial", "Deshielo hacia el siguiente interglaciar"]
-tipo: ordenar
-opciones_explicitas: ["Interglaciar actual (Holoceno)", "Enfriamiento gradual", "Máximo glacial", "Deshielo hacia el siguiente interglaciar"]
-
-enunciado: "Ordena las etapas de un ciclo climático típico del Cuaternario, comenzando desde el interglaciar actual:"
-
-explicacion: |
-  El Cuaternario se caracteriza por la alternancia entre periodos fríos (glaciaciones) y periodos cálidos (interglaciares).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "basico"
-  tags: ["holoceno", "clima"]
-
-respuesta: "Holoceno"
-tipo: mc
-opciones_explicitas: ["Pleistoceno", "Holoceno", "Eoceno", "Mioceno"]
-
-enunciado: "El periodo interglaciar actual, en el que nos encontramos y que comenzó tras la última gran glaciación, se denomina:"
-
-explicacion: |
-  El Holoceno es el periodo de clima estable y cálido que ha permitido el desarrollo de la agricultura y la civilización humana.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "intermedio"
-  tags: ["milankovitch", "astronomia"]
-
-respuesta: "cambios en la órbita terrestre"
-tipo: mc
-opciones_explicitas: ["cambios en la órbita terrestre", "inclinación del eje terrestre", "balanceo del eje terrestre"]
-
-enunciado: "La variación en la forma de la órbita terrestre alrededor del Sol, conocida como ciclo de excentricidad, consiste en:"
-
-explicacion: |
-  La excentricidad describe qué tan elíptica es la órbita, afectando la distancia promedio al Sol.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "basico"
-  tags: ["volcanes", "clima"]
-
-respuesta: "enfriamiento"
-tipo: mc
-opciones_explicitas: ["enfriamiento", "calentamiento"]
-
-enunciado: "Una erupción volcánica masiva inyecta ceniza y aerosoles en la estratosfera. El efecto inmediato de estas partículas sobre la temperatura global es de ___."
-
-explicacion: |
-  Las erupciones grandes suelen causar enfriamiento temporal debido al efecto albedo de los aerosoles.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "avanzado"
-  tags: ["carbono", "geoquimica"]
-
-respuesta: "secuestro de CO2"
-tipo: completar
-respuestas_validas:
-  - "secuestro de CO2"
-
-enunciado: "Durante un periodo de glaciación, la actividad biológica y la sedimentación oceánica provocan una ___ de carbono atmosférico."
-
-explicacion: |
-  El secuestro de carbono en el fondo marino reduce el efecto invernadero, favoreciendo el enfriamiento.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "intermedio"
-  tags: ["secuencia", "procesos"]
-
-respuesta_orden: ["Aumento de radiación solar", "Derretimiento de glaciares", "Aumento del nivel del mar"]
-tipo: ordenar
-opciones_explicitas: ["Aumento de radiación solar", "Derretimiento de glaciares", "Aumento del nivel del mar"]
-
-enunciado: "Ordene cronológicamente la reacción en cadena ante un aumento en la insolación solar:"
-
-explicacion: |
-  El aumento de radiación calienta la superficie, lo que derrite el hielo y finalmente eleva el nivel del mar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleoclima_glaciaciones"
-  nivel: "basico"
-  tags: ["escalas", "tiempo"]
-
-respuesta: "Ciclos orbitales"
-tipo: mc
-opciones_explicitas: ["Ciclos orbitales", "Variaciones milenarias"]
-
-enunciado: "Las variaciones climáticas de escala geológica, como las glaciaciones, están impulsadas principalmente por los ciclos de Milankovitch, es decir, por:"
-
-explicacion: |
-  Los ciclos de Milankovitch operan en escalas de decenas de miles de años.
-```
-
-## Sección: paleolitico (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "basico"
-  tags: ["prehistoria", "etapas"]
-
-respuesta: "Paleolítico"
-tipo: completar
-respuestas_validas:
-  - "Paleolítico"
-
-enunciado: "La etapa más larga de la prehistoria humana, caracterizada por el uso de herramientas de piedra tallada, se denomina ___."
-
-explicacion: |
-  El Paleolítico (del griego 'paleo', antiguo y 'lithos', piedra) es la primera etapa de la historia de la humanidad.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "basico"
-  tags: ["economia", "nomadismo"]
-
-respuesta: "nómadas"
-tipo: mc
-opciones_explicitas: ["nómadas", "sedentarios", "urbanos"]
-
-enunciado: "Durante el Paleolítico, las sociedades humanas basaban su economía en la caza y la recolección, lo que las obligaba a ser ___."
-
-explicacion: |
-  Al no producir su propio alimento (agricultura), los grupos humanos debían desplazarse constantemente en busca de recursos, adoptando un estilo de vida nómada.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "intermedio"
-  tags: ["tecnologia", "piedra"]
-
-respuesta: "piedra tallada"
-tipo: completar
-respuestas_validas:
-  - "piedra tallada"
-
-enunciado: "A diferencia del Neolítico donde la piedra se pulía, en el Paleolítico la principal técnica de fabricación consistía en la ___."
-
-explicacion: |
-  La tecnología paleolítica se define por la talla de la piedra (percusión) para crear bordes cortantes en herramientas como bifaces o lascas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "intermedio"
-  tags: ["evolucion", "orden"]
-
-respuesta_orden: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
-tipo: ordenar
-opciones_explicitas: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
-
-enunciado: "Ordene cronológicamente los siguientes homínidos, desde el más antiguo al más reciente:"
-
-explicacion: |
-  La evolución humana no fue lineal, pero este orden representa una secuencia temporal de aparición de los géneros y especies principales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "avanzado"
-  tags: ["cultura", "fuego"]
-
-tipo: mc
-opciones_explicitas: ["socialización", "cocción", "iluminación"]
-respuesta: "cocción"
-
-enunciado: "El control del fuego fue un hito crucial. Además de la luz y el calor, su uso permitió principalmente la ___."
-
-explicacion: |
-  El control del fuego permitió cocinar los alimentos, lo que facilitó la digestión y la absorción de nutrientes, favoreciendo el desarrollo cerebral.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "basico"
-  tags: ["fuego", "evolucion", "supervivencia"]
-
-respuesta: "cocinar"
-tipo: completar
-respuestas_validas:
-  - "cocinar"
-  - "la cocción"
-
-enunciado: "El control del fuego permitió a los homínidos ___ los alimentos, lo que facilitó la digestión y aumentó la ingesta calórica."
-
-explicacion: |
-  La cocción de alimentos permitió que la energía fuera más fácil de absorber, favoreciendo el desarrollo cerebral.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "basico"
-  tags: ["fuego", "supervivencia"]
-
-opciones_explicitas: ["Ahuyentar depredadores", "Fabricar herramientas de piedra", "Navegación marítima"]
-respuesta: "Ahuyentar depredadores"
-tipo: mc
-
-enunciado: "Además de calentar y cocinar, una función vital del fuego para la seguridad de los grupos de homínidos era:"
-
-explicacion: |
-  El fuego actuaba como una barrera protectora contra los grandes depredadores durante la noche.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "intermedio"
-  tags: ["fuego", "adaptacion"]
-
-variables:
-  beneficio_idx: uno_de([0, 1, 2])
-  escenario: [["iluminar", "permitió extender las horas de actividad social y exploración en cuevas"], ["calentar", "permitió la migración hacia climas más fríos"], ["cocinar", "permitió el desarrollo de mandíbulas más pequeñas y cerebros más grandes"]]
-
-tipo: mc
-opciones_explicitas: ["permitió extender las horas de actividad social y exploración en cuevas", "permitió la migración hacia climas más fríos", "permitió el desarrollo de mandíbulas más pequeñas y cerebros más grandes"]
-respuesta: escenario[beneficio_idx][1]
-
-enunciado: "El control del fuego sirvió, entre otras cosas, para {escenario[beneficio_idx][0]}. ¿Cuál fue la consecuencia principal de este uso?"
-
-explicacion: |
-  {escenario[beneficio_idx][1]}
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "intermedio"
-  tags: ["fuego", "social", "comunicacion"]
-
-respuesta: "social"
-tipo: completar
-respuestas_validas:
-  - "social"
-  - "comunitaria"
-
-enunciado: "El uso del fuego alrededor de la hoguera fomentó la cohesión ___ de los grupos de homínidos."
-
-explicacion: |
-  La hoguera se convirtió en el centro de la comunicación y el intercambio de información.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "avanzado"
-  tags: ["fuego", "causa_efecto"]
-
-opciones_explicitas: ["Fuego", "Cocción", "Mejor nutrición", "Cerebro más grande"]
-respuesta_orden: ["Fuego", "Cocción", "Mejor nutrición", "Cerebro más grande"]
-tipo: ordenar
-
-enunciado: "Ordena la secuencia lógica de causa y efecto iniciada por el control del fuego:"
-
-explicacion: |
-  El control del fuego permitió la cocción, lo que mejoró la nutrición y, a largo plazo, el desarrollo cerebral.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "basico"
-  tags: ["nomadismo", "supervivencia"]
-
-variables:
-  escenario: uno_de([["el movimiento de las manadas de renos", "el movimiento de las manadas de renos"], ["la maduración de frutos silvestres", "la maduración de frutos silvestres"], ["el ciclo de vida de los grandes mamíferos", "el ciclo de vida de los grandes mamíferos"]])
-
-enunciado: "En el Paleolítico, los grupos humanos se desplazaban siguiendo {escenario[0]} para asegurar su subsistencia."
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["el movimiento de las manadas de renos", "la maduración de frutos silvestres", "el ciclo de vida de los grandes mamíferos"]
-
-explicacion: |
-  El nomadismo era una estrategia de supervivencia basada en el seguimiento de los ciclos naturales de los recursos disponibles.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "basico"
-  tags: ["asentamientos", "nomadismo"]
-
-enunciado: "A diferencia de los grupos nómadas, los asentamientos fijos no existían en el Paleolítico; los grupos humanos se movían constantemente de un lugar a otro."
-
-respuesta: "no existían"
-tipo: completar
-respuestas_validas:
-  - "no existían"
-  - "no existían"
-  - "no existían"
-
-explicacion: |
-  La falta de agricultura obligaba a los grupos humanos a desplazarse constantemente para no agotar los recursos de una zona.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "intermedio"
-  tags: ["recoleccion", "caza"]
-
-enunciado: "La economía del Paleolítico se basaba principalmente en la caza de animales y la recolección de plantas. Ordena estas actividades:"
-
-respuesta_orden: ["la caza", "la recolección"]
-tipo: ordenar
-opciones_explicitas: ["la caza", "la recolección"]
-
-explicacion: |
-  La subsistencia dependía de una combinación de actividades de caza y recolección para garantizar una dieta variada.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "intermedio"
-  tags: ["estacionalidad", "clima"]
-
-enunciado: "Los cambios estacionales asociados al invierno afectaban la disponibilidad de alimento, obligando a los grupos a migrar hacia zonas más favorables debido al ___."
-
-respuesta: "el frío"
-tipo: mc
-opciones_explicitas: ["el frío", "el calor"]
-
-explicacion: |
-  Las variaciones climáticas estacionales determinaban el movimiento de los animales y el crecimiento de las plantas, dictando la ruta de los nómadas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "avanzado"
-  tags: ["sociedad", "movilidad"]
-
-variables:
-  grupo: uno_de([["pequeños grupos familiares", "pequeños grupos familiares"], ["grandes tribus sedentarias", "grandes tribus sedentarias"]])
-
-enunciado: "La vida nómada era compatible con la organización en ___ debido a la necesidad de movilidad constante."
-
-respuesta: "pequeños grupos familiares"
-tipo: completar
-respuestas_validas:
-  - "pequeños grupos familiares"
-  - "pequeños grupos familiares"
-
-explicacion: |
-  Los grupos eran pequeños para facilitar el desplazamiento rápido y evitar el agotamiento de los recursos en un mismo territorio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "basico"
-  tags: ["tecnologia", "piedra"]
-
-respuesta: "Olduvayense"
-tipo: completar
-respuestas_validas:
-  - "Olduvayense"
-
-enunciado: "La industria lítica más antigua conocida, caracterizada por el uso de percutores para obtener filos rudimentarios, se denomina industria ___."
-
-explicacion: |
-  La industria Olduvayense (o Oldowaense) representa las primeras formas de tecnología lítica, donde los homínidos golpeaban una piedra contra otra para crear bordes cortantes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "basico"
-  tags: ["uso", "herramientas"]
-
-opciones_explicitas: ["Cazar grandes mamíferos", "Procesar carne y pieles", "Recolectar frutos y raíces", "Fabricar ropa"]
-respuesta: "Procesar carne y pieles"
-tipo: mc
-
-enunciado: "Aunque las herramientas de piedra tenían múltiples usos, una de las funciones principales de los filos de las lascas en el Paleolítico era ___."
-
-explicacion: |
-  Las lascas de piedra proporcionaban bordes extremadamente afilados, ideales para el desollado de animales y el corte de tejidos orgánicos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "intermedio"
-  tags: ["evolucion", "tecnologia"]
-
-respuesta: "Bifaces"
-tipo: mc
-opciones_explicitas: ["Choppers", "Bifaces", "Láminas"]
-
-enunciado: "En la cultura Acheulense, la herramienta característica que presenta una forma simétrica y ha sido trabajada por ambas caras se conoce como ___."
-
-explicacion: |
-  El bifaz es la herramienta emblemática del Paleolítico inferior, mostrando una planificación cognitiva superior al simple percutaje de lascas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "avanzado"
-  tags: ["proceso", "fabricacion"]
-
-opciones_explicitas: ["Selección de materia prima", "Percutaje/Talla", "Afilado/Retoque final"]
-respuesta_orden: ["Selección de materia prima", "Percutaje/Talla", "Afilado/Retoque final"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos que un homínido debía seguir para fabricar una herramienta de piedra tallada:"
-
-explicacion: |
-  La fabricación lítica requiere primero identificar la piedra adecuada (sílex, cuarcita), luego darle forma mediante golpes y finalmente refinar el filo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "intermedio"
-  tags: ["impacto", "alimentacion"]
-
-respuesta: 55
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Si un grupo de homínidos utilizaba una técnica de percutaje que permitía obtener un 10% más de filo útil por cada kilogramo de piedra, y tenían 50kg de sílex, ¿cuántos kg de material efectivo de corte obtendrían en total?"
-
-pasos:
-  - "Calcular el 10% de 50kg"
-  - "Sumar el material base y el excedente de filo"
-
-explicacion: |
-  El cálculo es: 50 kg + (50 kg * 0.10) = 55 kg de material efectivo de corte.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "basico"
-  tags: ["tecnologia", "herramientas"]
-
-variables:
-  idx: uno_de([0,1,2])
-  datos: [["hacha de mano de piedra tallada", "bifaz"], ["lanzas de piedra", "punta de proyectil"], ["raspadores de piedra tallada", "raspador"]]
-
-enunciado: "Durante el Paleolítico, los homínidos utilizaban diversas herramientas de piedra. Si encontramos un objeto con la forma de un {datos[idx][0]}, estamos ante un/a ___."
-
-respuestas_validas:
-  - "bifaz"
-  - "punta de proyectil"
-  - "raspador"
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  El {datos[idx][0]} es una herramienta característica del Paleolítico, fabricada mediante la técnica de percusión para obtener un filo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "basico"
-  tags: ["subsistencia", "nómada"]
-
-enunciado: "La principal actividad económica en el Paleolítico era la recolección de frutos y la caza, lo que obligaba a los grupos humanos a tener un estilo de vida ___."
-
-opciones_explicitas: ["nómada", "sedentario"]
-respuesta: "nómada"
-tipo: mc
-
-explicacion: |
-  Al depender de los ciclos naturales y la migración de animales, los grupos debían desplazarse constantemente, siendo nómadas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "intermedio"
-  tags: ["arte", "rupestre"]
-
-enunciado: "El estilo artístico característico del Paleolítico, que consistía en pinturas en el interior de cuevas, se denomina ___."
-
-opciones_explicitas: ["arte rupestre", "arte clásico", "arte romano"]
-respuesta: "arte rupestre"
-tipo: mc
-
-explicacion: |
-  Las pinturas en el interior de cuevas son la expresión máxima del arte rupestre, utilizada para representar animales y escenas de caza.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "intermedio"
-  tags: ["tecnologia", "evolucion"]
-
-variables:
-  idx: uno_de([0,1,2])
-  datos: [["piedra tallada", "Paleolítico"], ["piedra pulida", "Neolítico"], ["metal", "Edad de los Metales"]]
-
-enunciado: "Ordena las siguientes etapas de la evolución tecnológica humana de la más antigua a la más reciente:"
-
-opciones_explicitas: ["Paleolítico", "Neolítico", "Edad de los Metales"]
-respuesta_orden: ["Paleolítico", "Neolítico", "Edad de los Metales"]
-tipo: ordenar
-
-explicacion: |
-  La secuencia correcta es: Paleolítico (piedra tallada), Neolítico (piedra pulida) y Edad de los Metales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "paleolitico"
-  nivel: "basico"
-  tags: ["fuego", "supervivencia"]
-
-enunciado: "El dominio del fuego fue un hito fundamental en el Paleolítico que proporcionó ___."
-
-respuestas_validas:
-  - "protección y calor"
-respuesta: "protección y calor"
-tipo: completar
-
-explicacion: |
-  El dominio del fuego permitió a los homínidos cocinar alimentos, calentarse y ahuyentar depredadores.
-```
-
-## Sección: peronismo-derechos-sociales (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "basico"
-  tags: ["peronismo", "politica", "argentina"]
-
-respuesta: "Juan Domingo Perón"
-tipo: completar
-respuestas_validas:
-  - "Juan Domingo Perón"
-
-enunciado: "El líder que encabezó el movimiento que transformó la estructura política y social de Argentina a partir de 1946 fue ___."
-
-explicacion: |
-  Juan Domingo Perón consolidó su poder mediante una fuerte alianza con los sectores obreros, transformando la relación entre el Estado y la clase trabajadora.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "basico"
-  tags: ["clase_obrera", "movimiento_sustitutivo"]
-
-opciones_explicitas: ["La oligarquía terrateniente", "La clase trabajadora", "La burguesía industrial", "La clase media profesional"]
-respuesta: "La clase trabajadora"
-tipo: mc
-
-enunciado: "¿Cuál fue el principal sector social que brindó el sustento político y electoral al peronismo en sus inicios?"
-
-explicacion: |
-  El peronismo se caracterizó por la integración política de la clase trabajadora, que hasta entonces había sido marginada de los procesos de decisión estatal.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "intermedio"
-  tags: ["justicia_social", "derechos_laborales"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["vacaciones pagas", "la implementación de las vacaciones pagas"], ["aguinaldo", "la instauración del aguinaldo"]]
-  respuestas: [["vacaciones pagas", "la implementación de las vacaciones pagas"], ["aguinaldo", "la instauración del aguinaldo"]]
-
-respuesta: "la implementación de las vacaciones pagas"
-tipo: completar
-respuestas_validas:
-  - "la implementación de las vacaciones pagas"
-  - "la instauración del aguinaldo"
-
-enunciado: "Uno de los grandes hitos de la justicia social peronista fue {escenarios[escenario_idx][1]}."
-
-explicacion: |
-  La extensión de derechos como las vacaciones pagas o el aguinaldo permitió una redistribución de la riqueza hacia el consumo interno.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "intermedio"
-  tags: ["doctrina", "peronismo"]
-
-opciones_explicitas: ["Justicia Social, Independencia Económica y Soberanía Política", "Libertad de mercado, Propiedad privada y Globalización", "Estado ausente, Libre comercio y Individualismo", "Autoritarismo, Centralismo y Proteccionismo"]
-respuesta: "Justicia Social, Independencia Económica y Soberanía Política"
-tipo: mc
-
-enunciado: "¿Cuáles son las tres columnas fundamentales de la doctrina peronista?"
-
-explicacion: |
-  Estas tres consignas definieron el programa político de Perón durante sus mandatos, buscando un equilibrio entre el capital y el trabajo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "avanzado"
-  tags: ["proceso_historico", "ordenar"]
-
-opciones_explicitas: ["Surgimiento del movimiento obrero", "Llegada al poder en 1946", "Consolidación de derechos sociales", "Expansión de la industria nacional"]
-respuesta_orden: ["Surgimiento del movimiento obrero", "Llegada al poder en 1946", "Consolidación de derechos sociales", "Expansión de la industria nacional"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente los procesos que permitieron el ascenso y consolidación del peronismo:"
-
-explicacion: |
-  El proceso comenzó con la organización de los sindicatos, seguido por la victoria electoral, la implementación de medidas de bienestar y el fomento de la industria para sostener dicho modelo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "peronismo_derechos_sociales"
-  nivel: "basico"
-  tags: ["derechos_laborales", "peronismo"]
-
-respuesta: "Sueldo Anual Complementario"
-tipo: completar
-respuestas_validas:
-  - "Sueldo Anual Complementario"
-  - "sueldo anual complementario"
-  - "Aguinaldo"
-
-enunciado: "El beneficio laboral que consiste en la percepción de una parte del sueldo en dos cuotas durante el año se conoce formalmente como ___."
-
-explicacion: |
-  El aguinaldo, o Sueldo Anual Complementario (SAC), fue consolidado como un derecho adquirido para asegurar una compensación extra al trabajador.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "peronismo_derechos_sociales"
-  nivel: "basico"
-  tags: ["derechos_laborales", "vacaciones"]
-
-opciones_explicitas: ["Vacaciones pagas", "Licencia por enfermedad", "Día de la familia", "Feriado religioso"]
-respuesta: "Vacaciones pagas"
-tipo: mc
-
-enunciado: "Durante los primeros gobiernos peronistas, se garantizó el derecho al descanso mediante la implementación de las:"
-
-explicacion: |
-  Las vacaciones pagas permitieron que el trabajador disfrutara de su tiempo libre sin perder su remuneración, un pilar de la justicia social.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "peronismo_derechos_sociales"
-  nivel: "intermedio"
-  tags: ["sindicatos", "derechos_laborales"]
-
-tipo: completar
-enunciado: "Uno de los pilares de la reforma laboral peronista fue el ___ sindical, que dio a los trabajadores mayor poder de negociación colectiva."
-respuesta: "fortalecimiento"
-respuestas_validas:
-  - "fortalecimiento"
-  - "fortalecimiento sindical"
-
-explicacion: |
-  El fortalecimiento de los sindicatos permitió que los trabajadores tuvieran una voz institucionalizada en la negociación de sus condiciones de vida.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "peronismo_derechos_sociales"
-  nivel: "intermedio"
-  tags: ["jubilaciones", "seguridad_social"]
-
-tipo: mc
-opciones_explicitas: ["seguros de vida", "jubilaciones", "créditos hipotecarios", "asistencia escolar"]
-respuesta: "jubilaciones"
-
-enunciado: "La ampliación de la cobertura de la seguridad social se manifestó principalmente en la expansión de las ___ para la clase trabajadora."
-
-explicacion: |
-  La universalización de las jubilaciones permitió que una gran parte de la población pudiera acceder a una vejez digna y protegida por el Estado.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "peronismo_derechos_sociales"
-  nivel: "avanzado"
-  tags: ["ordenar", "derechos_laborales"]
-
-opciones_explicitas: ["Preexistencia de leyes", "Promulgación de leyes de protección", "Consolidación de derechos sociales"]
-respuesta_orden: ["Preexistencia de leyes", "Promulgación de leyes de protección", "Consolidación de derechos sociales"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente la evolución de la situación de los derechos laborales en Argentina durante el proceso de transformación social de mediados del siglo XX:"
-
-explicacion: |
-  El proceso comenzó con la existencia de leyes previas, continuó con una intensa actividad legislativa de protección y culminó con la consolidación de un sistema de derechos sociales robusto.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "basico"
-  tags: ["derechos", "voto_femenino", "eva_peron"]
-
-respuesta: "1947"
-tipo: "completar"
-respuestas_validas:
-  - "1947"
-
-enunciado: "La Ley de Sufragio Femenino en Argentina, que garantizó el derecho político de las mujeres, fue sancionada en el año ___."
-
-explicacion: |
-  La Ley 13.010 fue sancionada el 9 de septiembre de 1947, marcando un hito en la democracia argentina.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "basico"
-  tags: ["eva_peron", "liderazgo"]
-
-respuesta: "Eva Perón"
-tipo: "mc"
-opciones_explicitas: ["Eva Perón", "Isabel Perón", "Alicia Moreau de Justo", "Victoria Ocampo"]
-
-enunciado: "¿Qué figura política fue la principal impulsora y referente del reclamo por el voto femenino durante el primer peronismo?"
-
-explicacion: |
-  Eva Perón (Evita) fue la líder indiscutida del movimiento sufragista, logrando que el proyecto fuera una política de Estado.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "intermedio"
-  tags: ["elecciones", "hitos"]
-
-variables:
-  escenario: uno_de([["1951", "primeras elecciones con voto femenino"]])
-
-respuesta: "1951"
+respuesta: "1810"
 tipo: "input"
 tolerancia_abs: 0
 
-enunciado: "Si bien la ley se sancionó en 1947, las mujeres argentinas ejercieron el derecho al voto por primera vez en las elecciones de el año {escenario[0]}."
+enunciado: "Aunque la independencia se declaró formalmente en 1816, la Revolución de Mayo ocurrió en el año ____."
 
 explicacion: |
-  En 1951, las mujeres votaron por primera vez en elecciones nacionales, incluyendo a las candidatas a diputadas y senadoras.
+  La Revolución de Mayo de 1810 marcó el inicio del proceso de ruptura con el poder colonial, pero no fue el fin del camino hacia la soberanía.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
+  tema: "revolucion_de_mayo"
   nivel: "intermedio"
-  tags: ["derechos_civiles", "ciudadania"]
-
-respuesta_orden: ["Ley 13.010", "Sufragio Femenino", "Ciudadanía Plena"]
-tipo: "ordenar"
-opciones_explicitas: ["Ley 13.010", "Sufragio Femenino", "Ciudadanía Plena"]
-
-enunciado: "Ordena cronológicamente los procesos que permitieron la integración política de la mujer en Argentina:"
-
-explicacion: |
-  Primero se sanciona la ley, luego se implementa el sufragio y finalmente se consolida la ciudadanía plena de la mujer.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "avanzado"
-  tags: ["democracia", "participacion"]
-
-respuesta: "se amplió la base electoral"
-tipo: mc
-opciones_explicitas: ["se amplió la base electoral", "se redujo la participación"]
-
-enunciado: "Considerando el impacto del voto femenino en la democracia argentina, ¿qué ocurrió con la participación política?"
-
-explicacion: |
-  La incorporación de las mujeres como electoras amplió significativamente la base de representatividad del sistema democrático.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "intermedio"
-  tags: ["polarizacion", "sociedad"]
+  tags: ["cabildo_abierto", "soberania"]
 
 variables:
-  idx: uno_de([0,1])
-  escenario: [["El peronismo generó una división entre sectores que lo veían como una herramienta de justicia social y sectores que lo veían como una amenaza a las instituciones.", "La polarización fue un rasgo distintivo del periodo."], ["El apoyo masivo de los trabajadores consolidó una nueva base política, mientras que la oposición se concentró en las clases medias y élites.", "La base social del movimiento fue transformadora."]]
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["La Primera Junta", "el gobierno de la Junta"], ["El Primer Congreso", "la autoridad del Congreso"]]
 
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["La polarización fue un rasgo distintivo del periodo.", "La base social del movimiento fue transformadora."]
+opciones_explicitas: ["gobernanza local", "soberanía absoluta", "restitución de la monarquía española", "subordinación a la corona británica"]
+respuesta: "gobernanza local"
+tipo: "mc"
 
-enunciado: "{escenario[idx][0]}"
+enunciado: "Tras la Revolución de Mayo, el objetivo inmediato de las autoridades locales era establecer la {escenarios[escenario_idx][0]} para gestionar los asuntos de la región, pero esto no significaba una independencia total inmediata."
 
 explicacion: |
-  El peronismo introdujo una nueva dinámica de participación política que fracturó la estructura social tradicional argentina, creando una división que ha persistido en la cultura política del país.
+  En 1810 se buscaba la autonomía para gobernarse a sí mismos (frente a la crisis de la corona), pero legalmente se mantenía una ambigüedad respecto a la soberanía absoluta que se alcanzaría en 1816.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "basico"
-  tags: ["clases_sociales", "trabajadores"]
-
-respuesta: "clase_obrera"
-tipo: completar
-respuestas_validas:
-  - "clase_obrera"
-  - "clase trabajadora"
-
-enunciado: "El principal sector social que brindó el apoyo masivo y sostenido al movimiento peronista fue la ___."
-
-explicacion: |
-  La incorporación de la clase obrera a la vida política activa fue el pilar fundamental del movimiento, otorgándole un poder de movilización sin precedentes en la historia argentina.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
+  tema: "revolucion_de_mayo"
   nivel: "intermedio"
-  tags: ["oposición", "sectores_sociales"]
+  tags: ["cronologia", "procesos"]
 
-variables:
-  opcion_correcta: uno_de(["clases_medias_urbanas", "sectores_rurales_oligárquicos", "sindicatos_tradicionales"])
-  opcion_incorrecta_1: "sectores_rurales_oligárquicos"
-  opcion_incorrecta_2: "sindicatos_tradicionales"
-
-respuesta: opcion_correcta
-tipo: mc
-opciones_explicitas: ["clases_medias_urbanas", "sectores_rurales_oligárquicos", "sindicatos_tradicionales"]
-
-enunciado: "Históricamente, uno de los sectores que manifestó una oposición más estructurada y constante a la hegemonía peronista fue el de las ___."
-
-explicacion: |
-  La oposición peronista fue heterogénea, pero las clases medias urbanas y la élite tradicional conformaron los núcleos de resistencia más significativos durante el periodo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "avanzado"
-  tags: ["legado", "politica_argentina"]
-
-respuesta: "identidad_politica"
-tipo: completar
-respuestas_validas:
-  - "identidad_politica"
-  - "identidad política"
-
-enunciado: "El peronismo no solo fue un gobierno, sino que configuró una nueva ___ que sigue siendo un eje central en la política argentina contemporánea."
-
-explicacion: |
-  La capacidad de la identidad peronista para reorganizarse y permanecer como un actor central demuestra la profundidad de su impacto en la estructura política nacional.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "intermedio"
-  tags: ["proceso_historico", "derechos"]
-
-respuesta_orden: ["Reivindicación de derechos laborales", "Fortalecimiento del rol sindical", "Polarización de la estructura social"]
 tipo: ordenar
-opciones_explicitas: ["Reivindicación de derechos laborales", "Fortalecimiento del rol sindical", "Polarización de la estructura social"]
+opciones_explicitas: ["Revolución de Mayo", "Congreso de Tucumán", "Declaración de la Independencia"]
+respuesta_orden: ["Revolución de Mayo", "Congreso de Tucumán", "Declaración de la Independencia"]
 
-enunciado: "Ordene cronológicamente los efectos sociales derivados del ascenso del peronismo en la Argentina:"
+enunciado: "Ordena cronológicamente los hitos del proceso de emancipación argentina:"
 
 explicacion: |
-  El proceso comenzó con la conquista de derechos, continuó con la institucionalización de la fuerza sindical y culminó en una división social profunda entre partidarios y detractores.
+  El proceso fue gradual: primero la ruptura del vínculo con España (1810), luego la organización política en el Congreso (1816) y finalmente la declaración formal de la independencia.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "basico"
-  tags: ["derechos_laborales", "peronismo"]
+  tema: "revolucion_de_mayo"
+  nivel: "avanzado"
+  tags: ["causas", "consecuencias"]
+
+respuesta: "proceso"
+tipo: "completar"
+respuestas_validas:
+  - "proceso"
+  - "etapa"
+  - "punto de partida"
+
+enunciado: "La Revolución de Mayo no debe entenderse como el fin de la lucha, sino como el ___ que dio inicio a una compleja serie de conflictos y debates políticos."
+
+explicacion: |
+  Es un error histórico considerar a mayo de 1810 como la independencia definitiva; fue el motor que desencadenó un proceso de décadas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_de_mayo"
+  nivel: "avanzado"
+  tags: ["soberania", "debate"]
 
 variables:
-  datos: [["implementacion_vacaciones", "descanso_pago"], ["seguro_vida", "proteccion_familia"], ["estatuto_obrero", "estabilidad_laboral"]]
-  idx: uno_de([0, 1, 2])
+  caso_idx: uno_de([0, 1])
+  casos: [["la legitimidad del Rey", "la autoridad de las juntas"], ["la soberanía popular", "la voluntad de los pueblos"]]
+  respuestas: [["la legitimidad del Rey", "la autoridad de las juntas"], ["la soberanía popular", "la voluntad de los pueblos"]]
+
+opciones_explicitas: ["la legitimidad del Rey", "la autoridad de las juntas", "la soberanía popular", "la voluntad de los pueblos"]
+respuesta: "la autoridad de las juntas"
+tipo: "mc"
+
+enunciado: "En el debate post-revolucionario, la gran incógnita era si la soberanía residía en {casos[caso_idx][0]} o si, ante la ausencia del monarca, la autoridad pasaba a ser de {casos[caso_idx][1]}."
+
+explicacion: |
+  El debate entre la 'retroversión de la soberanía' (el poder vuelve al pueblo) y la lealtad a la corona fue el eje central de las discusiones iniciadas en mayo de 1810.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_de_mayo"
+  nivel: "basico"
+  tags: ["cabildo", "mayo_1810"]
+
+respuesta: "Juan José Castelli"
+tipo: mc
+opciones_explicitas: ["Juan José Castelli", "Cornelio Saavedra", "Mariano Moreno", "Manuel Belgrano"]
+
+enunciado: "En el Cabildo Abierto del 22 de mayo de 1810, ¿qué figura fue uno de los principales oradores defendiendo la soberanía del pueblo frente al virreinato?"
+
+explicacion: |
+  Juan José Castelli fue conocido como 'el orador de la Revolución', defendiendo la postura de que el poder volvía al pueblo ante la caída de la Junta de Sevilla.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_de_mayo"
+  nivel: "basico"
+  tags: ["primera_junta", "gobierno"]
+
+variables:
+  datos: [["Presidente", "Cornelio Saavedra"], ["Secretario", "Mariano Moreno"], ["Secretario", "Juan José Paso"]]
+  idx: uno_de([0,1,2])
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["descanso_pago", "proteccion_familia", "estabilidad_laboral"]
+opciones_explicitas: ["Cornelio Saavedra", "Mariano Moreno", "Juan José Paso", "Baltasar Hidalgo de Cisneros"]
 
-enunciado: "Durante el primer peronismo, la legislación laboral garantizó que los trabajadores tuvieran derecho a un periodo de ___."
+enunciado: "La Primera Junta de Gobierno, establecida tras la Revolución de Mayo, tenía una estructura con un Presidente y dos Secretarios. Si el rol seleccionado es {datos[idx][0]}, ¿quién ocupaba dicho cargo?"
 
 explicacion: |
-  La Ley de Vacaciones Pagas fue uno de los pilares de la justicia social, permitiendo el descanso remunerado de la clase obrera.
+  La Primera Junta estaba integrada por Saavedra (Presidente), Moreno y Paso (Secretarios), junto a Castelli, Belgrano y otros como vocales.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "intermedio"
-  tags: ["voto_femenino", "derechos_civiles"]
+  materia: "historia"
+  tema: "revolucion_de_mayo"
+  nivel: "basico"
+  tags: ["virrey", "cisneros"]
 
-respuesta: "voto_femenino"
+respuesta: "Baltasar Hidalgo de Cisneros"
 tipo: completar
 respuestas_validas:
-  - "voto_femenino"
+  - "Baltasar Hidalgo de Cisneros"
+  - "Cisneros"
 
-enunciado: "La promulgación de la Ley 13.010 en 1947 permitió que las mujeres ejercieran su derecho al ___ en Argentina."
+enunciado: "El proceso revolucionario de mayo de 1810 culminó con la destitución de ___. "
 
 explicacion: |
-  La Ley de Sufragio Femenino fue fundamental para la integración de la mujer a la vida política y ciudadana del país.
+  Baltasar Hidalgo de Cisneros fue el último virrey enviado por la corona española que gobernó el territorio antes de la formación de la Primera Junta.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_de_mayo"
+  nivel: "intermedio"
+  tags: ["cronologia", "mayo"]
+
+respuesta_orden: ["Llegada de la Primera Junta", "Establecimiento de la Junta de Gobierno", "Cabildo Abierto del 22 de mayo", "Junta de los 25 de mayo"]
+tipo: ordenar
+opciones_explicitas: ["Llegada de la Primera Junta", "Establecimiento de la Junta de Gobierno", "Cabildo Abierto del 22 de mayo", "Junta de los 25 de mayo"]
+
+enunciado: "Ordena cronológicamente los hitos clave de la Semana de Mayo de 1810:"
+
+explicacion: |
+  La secuencia comenzó con la crisis de legitimidad, el debate en el Cabildo, la formación de la Junta de Gobierno y finalmente la instauración de la Primera Junta.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_de_mayo"
+  nivel: "avanzado"
+  tags: ["prensa", "ideologia"]
+
+respuesta: "La Gazeta de Buenos Ayres"
+tipo: completar
+respuestas_validas:
+  - "La Gazeta de Buenos Ayres"
+  - "La Gaceta de Buenos Aires"
+
+enunciado: "Durante el proceso revolucionario, la difusión de ideas fue vital. Se destaca que la principal publicación de ideas revolucionarias fue la ___. "
+
+explicacion: |
+  La Gazeta de Buenos Ayres fue el primer periódico de la ciudad, utilizado para difundir los ideales de la revolución.
+```
+
+## Sección: electrificacion-fabrica-hogar (23 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "basico"
+  tags: ["revolucion_industrial", "energia"]
+
+respuesta: "motor eléctrico"
+tipo: completar
+respuestas_validas:
+  - "motor eléctrico"
+
+enunciado: "A finales del siglo XIX, la transición de la energía de vapor a la energía eléctrica en las fábricas fue posible gracias a la invención y adopción masiva del ___."
+
+explicacion: |
+  El motor eléctrico permitió que la energía no tuviera que transmitirse mediante complejos sistemas de correas y ejes conectados a una única máquina de vapor central, permitiendo una distribución más flexible de la fuerza motriz.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
+  tema: "electrificacion_fabrica_hogar"
   nivel: "basico"
-  tags: ["justicia_social", "distribucion_riqueza"]
+  tags: ["iluminacion", "hogar"]
+
+respuesta: "luz de gas"
+tipo: mc
+opciones_explicitas: ["luz de gas", "luz eléctrica", "luz de vela"]
+
+enunciado: "Antes de la llegada de la red eléctrica doméstica, ¿cuál era la fuente de iluminación principal en los hogares urbanos de finales del siglo XIX?"
+
+explicacion: |
+  La llegada de la luz eléctrica en los hogares cambió drásticamente los hábitos de vida, permitiendo actividades nocturnas seguras y eliminando el riesgo de incendios por llamas abiertas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "intermedio"
+  tags: ["secuencia", "desarrollo"]
+
+respuesta_orden: ["máquinas de vapor", "motores eléctricos industriales", "iluminación doméstica", "electrodomésticos"]
+tipo: ordenar
+opciones_explicitas: ["máquinas de vapor", "motores eléctricos industriales", "iluminación doméstica", "electrodomésticos"]
+
+enunciado: "Ordene cronológicamente la evolución del uso de la energía en la sociedad desde la Primera Revolución Industrial hasta la consolidación del hogar moderno:"
+
+explicacion: |
+  La electrificación comenzó en la industria para optimizar la producción, luego se extendió a la iluminación urbana y doméstica, y finalmente permitió la aparición de los electrodomésticos que definieron la vida moderna.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "avanzado"
+  tags: ["corrientes", "tesla", "edison"]
+
+tipo: mc
+opciones_explicitas: ["Corriente Continua (DC)", "Corriente Alterna (AC)"]
+respuesta: "Corriente Continua (DC)"
+
+enunciado: "En la 'Guerra de las Corrientes', ¿qué tipo de corriente defendía Thomas Edison para su sistema de distribución?"
+
+explicacion: |
+  Edison promovía la Corriente Continua (DC), mientras que Tesla y Westinghouse impulsaban la Corriente Alterna (AC), que permitía transportar electricidad a largas distancias con menos pérdida de energía.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "intermedio"
+  tags: ["hogar", "tecnologia"]
+
+respuesta: "iluminación"
+tipo: completar
+respuestas_validas:
+  - "iluminación"
+
+enunciado: "El primer gran cambio que experimentaron los hogares con la llegada de la red eléctrica fue la ___."
+
+explicacion: |
+  Aunque hoy asociamos la electricidad con la cocina o el lavado, el primer uso masivo y transformador en las viviendas fue la sustitución de la luz de gas o aceite por la luz eléctrica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "basico"
+  tags: ["revolucion_industrial", "energia"]
+
+respuesta: "centralizada"
+tipo: completar
+respuestas_validas:
+  - "centralizada"
+
+enunciado: "A diferencia de los motores eléctricos que permiten una distribución flexible, el sistema de máquinas de vapor dependía de una fuente de energía ___."
+
+explicacion: |
+  Las máquinas de vapor requerían una ubicación centralizada y un complejo sistema de ejes y correas para transmitir movimiento a toda la fábrica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "intermedio"
+  tags: ["eficiencia", "motores"]
+
+respuesta: "mayor flexibilidad"
+tipo: mc
+opciones_explicitas: ["mayor flexibilidad", "mayor eficiencia", "menor costo de instalación"]
+
+enunciado: "Al reemplazar la transmisión por correas de cuero de una máquina de vapor por motores eléctricos individuales en cada máquina, se logra principalmente:"
+
+explicacion: |
+  La electrificación permitió que cada máquina tuviera su propio motor, eliminando la necesidad de mantener todo el sistema funcionando si solo una máquina se necesitaba.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "intermedio"
+  tags: ["transicion", "tecnologia"]
+
+respuesta: "eléctrica"
+tipo: completar
+respuestas_validas:
+  - "eléctrica"
+
+enunciado: "La transición de la energía mecánica a la energía ___ permitió que las fábricas dejaran de depender de la proximidad de fuentes de agua o carbón masivo para sus ejes de transmisión."
+
+explicacion: |
+  La electricidad permitió que la energía se transportara a través de cables, permitiendo que las fábricas se ubicaran en cualquier lugar, no solo cerca de ríos o minas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "avanzado"
+  tags: ["cronologia", "procesos"]
+
+opciones_explicitas: ["Implementación de máquinas de vapor", "Instalación de redes eléctricas", "Uso de motores eléctricos individuales", "Sistemas de correas y ejes centrales"]
+respuesta_orden: ["Implementación de máquinas de vapor", "Sistemas de correas y ejes centrales", "Instalación de redes eléctricas", "Uso de motores eléctricos individuales"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente la evolución de la potencia industrial desde la Primera hasta la Segunda Revolución Industrial:"
+
+explicacion: |
+  Primero se usaba el vapor directamente, luego se intentó distribuir ese movimiento mediante correas (lo cual era ineficiente), y finalmente la electricidad permitió la independencia de cada máquina.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "intermedio"
+  tags: ["arquitectura", "espacio"]
+
+respuesta: "espacios más abiertos y seguros"
+tipo: mc
+opciones_explicitas: ["espacios más abiertos y seguros", "espacios saturados de ejes y correas", "espacios con mayor ruido mecánico"]
+
+enunciado: "Comparado con el sistema de vapor, el uso de motores eléctricos individuales en cada máquina resultó en:"
+
+explicacion: |
+  Al eliminar los enormes ejes de transmisión que atravesaban los techos y suelos de las fábricas, el espacio se volvió más seguro, limpio y versátil.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_hogar"
+  nivel: "basico"
+  tags: ["iluminacion", "siglo_XX"]
+
+respuesta: "bombilla"
+tipo: mc
+opciones_explicitas: ["vela", "lámpara de aceite", "bombilla", "gas"]
+
+enunciado: "Antes de la electrificación masiva, la iluminación nocturna en los hogares dependía de fuentes de combustión. La llegada de la _______ permitió extender las actividades humanas durante la noche de forma segura."
+
+explicacion: |
+  La bombilla incandescente permitió que los hogares dejaran de depender de la luz de gas o aceite, reduciendo riesgos de incendio y mejorando la calidad del aire interior.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_hogar"
+  nivel: "intermedio"
+  tags: ["electrodomesticos", "vida_cotidiana"]
 
 variables:
-  datos: [["reparto_ganancias", "justicia_social"], ["salario_minimo", "poder_pobres"], ["seguridad_social", "bienestar_general"]]
-  idx: uno_de([0, 1, 2])
+  escenario_idx: uno_de([0, 1])
+  escenario: [["lavadora", "lavado de ropa"], ["refrigerador", "conservación de alimentos"]]
+
+respuesta: escenario[escenario_idx][1]
+tipo: completar
+respuestas_validas:
+  - "lavado de ropa"
+  - "conservación de alimentos"
+
+enunciado: "La adopción de la {escenario[escenario_idx][0]} transformó radicalmente el ___."
+
+pasos:
+  - "Identifica el electrodoméstico seleccionado."
+  - "Determina qué actividad doméstica fue impactada directamente."
+
+explicacion: |
+  La {escenario[escenario_idx][0]} fue clave para la automatización de tareas que antes requerían mucho esfuerzo manual o tiempo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_hogar"
+  nivel: "intermedio"
+  tags: ["secuencia", "tecnologia"]
+
+respuesta_orden: ["iluminación", "refrigeración", "comunicación"]
+tipo: ordenar
+opciones_explicitas: ["iluminación", "refrigeración", "comunicación"]
+
+enunciado: "Ordena cronológicamente la adopción masiva de tecnologías eléctricas en los hogares del siglo XX, desde la más temprana a la más tardía."
+
+explicacion: |
+  Primero se electrificaron las ciudades para la luz (iluminación), luego los grandes electrodomésticos de cocina (refrigeración) y finalmente los dispositivos de entretenimiento y comunicación.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "basico"
+  tags: ["edison", "corriente_continua"]
+
+respuesta: "corriente continua"
+tipo: completar
+respuestas_validas:
+  - "corriente continua"
+
+enunciado: "Thomas Edison impulsó un sistema de distribución basado en la ___."
+
+explicacion: |
+  Edison defendía la corriente continua (DC), que era difícil de transportar a largas distancias debido a la caída de tensión.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "intermedio"
+  tags: ["tesla", "westinghouse", "corriente_alterna"]
+
+respuesta: "Tesla y Westinghouse"
+tipo: mc
+opciones_explicitas: ["Tesla y Westinghouse", "Edison y General Electric"]
+
+enunciado: "El sistema de corriente alterna, que finalmente se impuso para la distribución a larga distancia, fue promovido principalmente por ___."
+
+explicacion: |
+  Nikola Tesla y George Westinghouse desarrollaron el sistema de corriente alterna (AC), permitiendo elevar la tensión con transformadores para el transporte eficiente.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "intermedio"
+  tags: ["tecnologia", "distribucion"]
+
+respuesta: "transformador"
+tipo: completar
+respuestas_validas:
+  - "transformador"
+
+enunciado: "La principal ventaja técnica de la corriente alterna sobre la continua en el siglo XIX era la capacidad de modificar el voltaje mediante el uso de un ___."
+
+explicacion: |
+  El transformador permite elevar el voltaje para reducir las pérdidas por calor en los cables durante el transporte a largas distancias.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "basico"
+  tags: ["personajes"]
+
+respuesta_orden: ["Edison", "Tesla", "Westinghouse"]
+tipo: ordenar
+
+opciones_explicitas: ["Edison", "Tesla", "Westinghouse"]
+
+enunciado: "Ordena cronológicamente la relevancia de estos actores en el desarrollo de los estándares de corriente (de la corriente continua a la alterna dominante):"
+
+explicacion: |
+  Edison fue el pionero de la DC, mientras que Tesla y Westinghouse lideraron la revolución de la AC que permitió la electrificación masiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "avanzado"
+  tags: ["tecnologia", "comparativa"]
+
+variables:
+  datos: [[0, "Alterna", "Larga distancia"], [1, "Continua", "Corta distancia"]]
+  idx: uno_de([0, 1])
+  tipo_corriente: datos[idx][1]
+  distancia: datos[idx][2]
+
+respuesta: distancia
+tipo: mc
+opciones_explicitas: ["Larga distancia", "Corta distancia"]
+
+enunciado: "Si comparamos el sistema de {tipo_corriente}, este fue históricamente preferido para la distribución de ___."
+
+explicacion: |
+  La corriente alterna (AC) permite el uso de transformadores para elevar la tensión, lo que minimiza pérdidas y permite llevar energía a ciudades lejanas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "basico"
+  tags: ["industria", "motor"]
+
+variables:
+  datos: [["motor de inducción", "fábrica"], ["bombilla incandescente", "hogar"], ["telar eléctrico", "fábrica"]]
+  idx: uno_de([0,1,2])
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["justicia_social", "poder_pobres", "bienestar_general"]
+opciones_explicitas: ["fábrica", "hogar"]
 
-enunciado: "El objetivo central de la política de redistribución de la riqueza durante este periodo era alcanzar la ___."
+enunciado: "La implementación del {datos[idx][0]} transformó radicalmente el ámbito de la: ___"
 
 explicacion: |
-  El peronismo promovió la idea de que la riqueza debe ser distribuida para garantizar una vida digna a los sectores trabajadores.
+  El {datos[idx][0]} fue un pilar fundamental para la automatización en la {datos[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
-  nivel: "avanzado"
-  tags: ["secuencia_historica", "derechos"]
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "basico"
+  tags: ["hogar", "iluminacion"]
 
-variables:
-  orden_correcta: ["Estatuto del Peón", "Ley de Vacaciones", "Voto Femenino", "Seguros de Vida"]
+respuesta: "hogar"
+tipo: completar
+respuestas_validas:
+  - "hogar"
 
-respuesta_orden: orden_correcta
-tipo: ordenar
-opciones_explicitas: ["Estatuto del Peón", "Ley de Vacaciones", "Voto Femenino", "Seguros de Vida"]
-
-enunciado: "Ordene cronológicamente las siguientes conquistas sociales del ámbito de los derechos laborales y civiles durante el primer peronismo:"
+enunciado: "La llegada de la luz eléctrica permitió extender las actividades nocturnas en el ___."
 
 explicacion: |
-  La secuencia refleja la expansión de derechos desde el ámbito rural y laboral hacia la plena ciudadanía política.
+  La luz eléctrica permitió que el hogar cambiara sus hábitos de descanso y ocio.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "peronismo_derechos_sociales"
+  tema: "electrificacion_fabrica_hogar"
   nivel: "intermedio"
-  tags: ["trabajo", "dignidad"]
+  tags: ["produccion", "transicion"]
+
+respuesta: "fábrica"
+tipo: mc
+opciones_explicitas: ["fábrica", "hogar"]
+
+enunciado: "La electrificación de la línea de montaje fue clave para la producción en serie en la: ___"
+
+explicacion: |
+  La línea de montaje es un ejemplo clásico de la mecanización en la fábrica.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "avanzado"
+  tags: ["orden", "progreso"]
+
+respuesta_orden: ["generación central", "distribución en la red", "consumo final"]
+tipo: ordenar
+opciones_explicitas: ["generación central", "distribución en la red", "consumo final"]
+
+enunciado: "Ordena el proceso técnico necesario para que la electricidad llegue desde la central hasta un electrodoméstico:"
+
+explicacion: |
+  El flujo eléctrico sigue la secuencia: generación central -> distribución en la red -> consumo final.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "electrificacion_fabrica_hogar"
+  nivel: "intermedio"
+  tags: ["tecnologia", "clasificacion"]
 
 variables:
-  datos: [["salario_justo", "dignidad"], ["jornada_8h", "salud"], ["afiliacion_sindicato", "poder"]]
-  idx: uno_de([0, 1, 2])
+  datos: [["electrodoméstico", "hogar"], ["transformador industrial", "fábrica"], ["enchufe doméstico", "hogar"]]
+  idx: uno_de([0,1,2])
 
 respuestas_validas:
   - datos[idx][1]
@@ -2316,9 +890,1423 @@ respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Para el peronismo, el trabajo no era solo una mercancía, sino un medio para alcanzar la ___ del trabajador."
+enunciado: "Un {datos[idx][0]} es un invento destinado principalmente al ___."
 
 explicacion: |
-  La noción de 'dignidad' fue el eje transversal de todas las reformas laborales impulsadas por el Estado.
+  El uso de un {datos[idx][0]} es típico del ámbito del {datos[idx][1]}.
+```
+
+## Sección: guerras-de-independencia-argentina (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "basico"
+  tags: ["tucuman", "independencia"]
+
+tipo: mc
+opciones_explicitas: ["San Martín", "Manuel Belgrano", "José de San Martín", "Juan Martín de Pueyrredón"]
+respuesta: "Juan Martín de Pueyrredón"
+
+enunciado: "En el Congreso de Tucumán de 1816, ¿qué importante figura política fue elegida Director Supremo para liderar el proceso revolucionario?"
+
+explicacion: |
+  El Congreso de Tucumán eligió a Juan Martín de Pueyrredón como Director Supremo para consolidar la autoridad del gobierno central.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "basico"
+  tags: ["declaracion", "tucuman"]
+
+tipo: completar
+respuestas_validas:
+  - "Provincias Unidas en Sudamérica"
+
+enunciado: "El acta de la independencia proclamada el 9 de julio de 1816 declaró la emancipación de las ___."
+
+explicacion: |
+  El acta proclamó la independencia de las Provincias Unidas en Sudamérica respecto a la monarquía española.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "intermedio"
+  tags: ["contexto", "monarquia"]
+
+tipo: mc
+opciones_explicitas: ["Monarquía Española", "República Francesa", "Imperio Británico", "Monarquía Absoluta"]
+respuesta: "Monarquía Española"
+
+enunciado: "La declaración de independencia buscaba romper definitivamente los vínculos de dependencia con la ___."
+
+explicacion: |
+  El objetivo principal era la ruptura total con la corona española y su sistema monárquico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "intermedio"
+  tags: ["belgrano", "congreso"]
+
+tipo: mc
+opciones_explicitas: ["Manuel Belgrano", "Mariano Moreno", "Cornelio Saavedra", "Bernardino Rivadavia"]
+respuesta: "Manuel Belgrano"
+
+enunciado: "¿Qué importante militar y creador de la bandera fue convocado por el Congreso de Tucumán para exponer su opinión sobre la forma de gobierno a adoptar?"
+
+explicacion: |
+  Manuel Belgrano no era diputado del Congreso, pero fue invitado a dar su testimonio; allí propuso una monarquía constitucional con un descendiente de los incas, una idea que finalmente no prosperó.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "avanzado"
+  tags: ["orden", "procesos"]
+
+tipo: ordenar
+opciones_explicitas: ["Revolución de Mayo", "Primer Triunvirato", "Batalla de San Lorenzo", "Congreso de Tucumán"]
+
+enunciado: "Ordena cronológicamente los siguientes hitos clave del proceso de independencia argentina:"
+
+explicacion: |
+  El orden correcto es: Revolución de Mayo (1810), Primer Triunvirato (1812), Batalla de San Lorenzo (febrero de 1813) y Congreso de Tucumán (1816).
+
+respuesta_orden: ["Revolución de Mayo", "Primer Triunvirato", "Batalla de San Lorenzo", "Congreso de Tucumán"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "basico"
+  tags: ["san_martin", "cruce_de_los_andes", "independencia"]
+
+respuesta: "Chile"
+tipo: mc
+opciones_explicitas: ["Chile", "Perú", "Bolivia", "Uruguay"]
+
+enunciado: "El General José de San Martín organizó el Cruce de los Andes con el objetivo principal de liberar el territorio de {pais} para asegurar la independencia de las Provincias Unidas."
+
+variables:
+  pais: "Chile"
+
+explicacion: |
+  La estrategia de San Martín consistía en cruzar la cordillera para liberar Chile y, desde allí, organizar una campaña marítima hacia el Perú, el centro del poder realista en Sudamérica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "intermedio"
+  tags: ["logistica", "ejercito_de_los_andes"]
+
+respuesta: 5000
+tipo: completar
+tolerancia_abs: 500
+
+enunciado: "Se estima que el Ejército de los Andes contaba con aproximadamente {cantidad} soldados durante la campaña de 1817."
+
+pasos:
+  - "Calcular el número aproximado de efectivos según las crónicas históricas."
+
+variables:
+  cantidad: "5000"
+
+explicacion: |
+  El Ejército de los Andes estaba compuesto por aproximadamente 5000 hombres, entre soldados, oficiales y auxiliares, que enfrentaron condiciones climáticas extremas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "avanzado"
+  tags: ["estrategia", "plan_continental"]
+
+respuesta_orden: ["Guerra de Zapa", "Cruce de los Andes", "Batalla de Chacabuco"]
+tipo: ordenar
+opciones_explicitas: ["Guerra de Zapa", "Cruce de los Andes", "Batalla de Chacabuco"]
+
+enunciado: "Ordene cronológicamente las fases de la campaña libertadora de San Martín hacia el oeste:"
+
+explicacion: |
+  Primero se realizó la 'Guerra de Zapa' (espionaje y desinformación), luego el cruce físico de la cordillera y finalmente el enfrentamiento decisivo en la Batalla de Chacabuco.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "intermedio"
+  tags: ["plan_continental", "peru"]
+
+respuesta: "Perú"
+tipo: completar
+respuestas_validas:
+  - "Perú"
+
+enunciado: "Tras la liberación de Chile, San Martín comprendió que la independencia de la región solo sería segura si lograba expulsar a los españoles de ___."
+
+explicacion: |
+  El Plan Continental de San Martín contemplaba que el núcleo del poder español estaba en el Virreinato del Perú, por lo que la campaña debía dirigirse hacia ese territorio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "basico"
+  tags: ["batalla_de_chacabuco", "victoria"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "La victoria en la Batalla de Chacabuco (12 de febrero de 1817) fue una consecuencia directa del éxito del Cruce de los Andes."
+
+explicacion: |
+  Efectivamente, el éxito de la maniobra de cruce permitió sorprender a las fuerzas realistas y asegurar la victoria en Chacabuco, abriendo el camino para la independencia de Chile.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "intermedio"
+  tags: ["san_martin", "estrategia", "independencia"]
+
+respuesta: "Cruce de los Andes"
+tipo: completar
+respuestas_validas:
+  - "Cruce de los Andes"
+
+enunciado: "Para asegurar la independencia de las Provincias Unidas, San Martín diseñó una estrategia para evitar el avance realista por el Alto Perú, optando por el ___."
+
+explicacion: |
+  San Martín comprendió que la vía terrestre hacia el norte (Alto Perú) era demasiado costosa y estaba fuertemente defendida. Su plan consistió en cruzar la cordillera hacia Chile para luego atacar el núcleo del poder español en el Pacífico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "basico"
+  tags: ["san_martin", "chile", "batalla"]
+
+respuesta: "Batalla de Maipú"
+tipo: mc
+opciones_explicitas: ["Batalla de Maipú", "Batalla de Chacabuco", "Batalla de San Francisco", "Batalla de Yungay"]
+
+enunciado: "Tras la victoria en Chacabuco, la consolidación definitiva de la independencia de Chile fue sellada en la ___."
+
+explicacion: |
+  La Batalla de Maipú (1818) fue el enfrentamiento decisivo que consolidó la independencia de Chile y permitió a San Martín preparar la expedición al Perú.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "intermedio"
+  tags: ["san_martin", "peru", "logistica"]
+
+respuesta: "Protector"
+tipo: mc
+opciones_explicitas: ["Dictador", "Protector", "Presidente", "Libertador"]
+
+enunciado: "Al llegar al Perú y establecerse en Lima, San Martín asumió un gobierno provisional con el título de ___."
+
+explicacion: |
+  San Martín asumió el cargo de Protector del Perú para organizar la transición hacia la independencia y consolidar el apoyo político y militar necesario.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "avanzado"
+  tags: ["san_martin", "orden_cronologico"]
+
+respuesta_orden: ["Cruce de los Andes", "Batalla de Maipú", "Expedición al Perú"]
+tipo: ordenar
+opciones_explicitas: ["Cruce de los Andes", "Batalla de Maipú", "Expedición al Perú"]
+
+enunciado: "Ordene cronológicamente los hitos de la estrategia continental de San Martín:"
+
+explicacion: |
+  La secuencia lógica fue: 1. El cruce de la cordillera para liberar Chile; 2. La consolidación en Chile (Maipú); 3. El desembarco y campaña en el Perú.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "intermedio"
+  tags: ["san_martin", "bolivar", "guayaquil"]
+
+respuesta: 1822
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "La famosa entrevista entre José de San Martín y Simón Bolívar, donde se discutió el futuro de la independencia americana, tuvo lugar en el año {año}."
+
+variables:
+  año: 1822
+
+explicacion: |
+  La Entrevista de Guayaquil en 1822 es uno de los eventos más enigmáticos de la historia, donde se definieron los pasos finales para la liberación definitiva del continente.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "basico"
+  tags: ["revolucion_de_mayo", "cabildo_abierto"]
+
+respuesta: "25 de mayo de 1810"
+tipo: completar
+respuestas_validas:
+  - "25 de mayo de 1810"
+
+enunciado: "La Primera Junta de Gobierno fue establecida el ___ tras el Cabildo Abierto."
+
+explicacion: |
+  La Revolución de Mayo de 1810 marcó el inicio del proceso de independencia, desplazando al Virrey Cisneros.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "intermedio"
+  tags: ["declaracion_independencia", "congreso_tucuman"]
+
+respuesta: "Congreso de Tucumán"
+tipo: mc
+opciones_explicitas: ["Congreso de Buenos Aires", "Congreso de Tucumán", "Consejo de Regencia", "Junta de San Martín"]
+
+enunciado: "La Declaración de la Independencia de las Provincias Unidas del Río de la Plata se realizó en el ___."
+
+explicacion: |
+  El Congreso de Tucumán de 1816 formalizó la ruptura definitiva con la monarquía española.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "intermedio"
+  tags: ["cronologia", "procesos_historicos"]
+
+respuesta_orden: ["Revolución de Mayo", "Guerras de Independencia", "Declaración de la Independencia", "Cruce de los Andes"]
+tipo: ordenar
+opciones_explicitas: ["Revolución de Mayo", "Guerras de Independencia", "Declaración de la Independencia", "Cruce de los Andes"]
+
+enunciado: "Ordene cronológicamente los siguientes hitos del proceso emancipador:"
+
+explicacion: |
+  La secuencia correcta comienza con la formación del primer gobierno patrio (1810), sigue con la lucha armada, la formalización política (1816) y la campaña libertadora de San Martín (1817).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "avanzado"
+  tags: ["san_martin", "cruce_de_los_andes"]
+
+variables:
+  datos: [["Cruce de los Andes", "1817"], ["Batalla de San Lorenzo", "1813"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["1810", "1813", "1817", "1824"]
+
+enunciado: "El año en que se llevó a cabo el ___ fue el año {datos[idx][0]}."
+
+explicacion: |
+  El Cruce de los Andes fue la gesta militar liderada por San Martín para liberar Chile y posteriormente Perú.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "basico"
+  tags: ["soberania", "consecuencias"]
+
+respuesta: "soberana"
+tipo: completar
+respuestas_validas:
+  - "soberana"
+  - "autónoma"
+
+enunciado: "Tras la declaración de 1816, las Provincias Unidas buscaron consolidar su condición de nación ___."
+
+explicacion: |
+  La independencia política era el paso necesario para la soberanía territorial frente a las potencias europeas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "basico"
+  tags: ["revolucion_mayo", "fechas"]
+
+respuesta: "25 de mayo"
+tipo: mc
+opciones_explicitas: ["25 de mayo", "9 de julio", "20 de junio", "12 de octubre"]
+
+enunciado: "La Revolución de Mayo, hito fundamental del proceso de independencia, tuvo lugar el día ___ de 1810."
+
+explicacion: |
+  El proceso de independencia comenzó con la Revolución de Mayo el 25 de mayo de 1810, que llevó a la formación del primer gobierno patrio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "basico"
+  tags: ["congreso_tucuman", "independencia"]
+
+variables:
+  hitos: [["Congreso de Tucumán", "9 de julio de 1816"], ["Revolución de Mayo", "25 de mayo de 1810"]]
+  idx: uno_de([0, 1])
+
+respuesta: hitos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "9 de julio de 1816"
+  - "25 de mayo de 1810"
+
+enunciado: "El hito conocido como {hitos[idx][0]} se consolidó formalmente el día ___."
+
+explicacion: |
+  El Congreso de Tucumán declaró la independencia de las Provincias Unidas en 1816.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "intermedio"
+  tags: ["cronologia", "procesos"]
+
+respuesta_orden: ["Revolución de Mayo", "Establecimiento del Directorio", "Declaración de la Independencia"]
+tipo: ordenar
+opciones_explicitas: ["Revolución de Mayo", "Establecimiento del Directorio", "Declaración de la Independencia"]
+
+enunciado: "Ordena cronológicamente los siguientes hitos del proceso de independencia:"
+
+explicacion: |
+  Primero ocurrió la Revolución de Mayo (1810), luego la creación del Directorio (1812) y finalmente la Declaración de la Independencia (1816).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "avanzado"
+  tags: ["batallas", "san martin"]
+
+variables:
+  batallas: [["San Lorenzo", "1813"], ["Maipú", "1818"], ["Chacabuco", "1817"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: batallas[idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "La batalla de {batallas[idx][0]} fue un enfrentamiento clave ocurrido en el año ___."
+
+explicacion: |
+  Cada una de estas batallas fue fundamental para consolidar la independencia en distintos frentes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_de_independencia_argentina"
+  nivel: "intermedio"
+  tags: ["san_martin", "campana_libertadora"]
+
+variables:
+  campañas: [["Campaña de los Andes", "liberar Chile"], ["Campaña del Norte", "defender la frontera"]]
+  idx: uno_de([0, 1])
+
+respuesta: campañas[idx][1]
+tipo: mc
+opciones_explicitas: ["liberar Chile", "defender la frontera", "conquistar el Perú", "expulsar a los realistas de Buenos Aires"]
+
+enunciado: "El objetivo principal de la {campañas[idx][0]} liderada por San Martín era ___."
+
+explicacion: |
+  San Martín diseñó el plan continental para asegurar la independencia de las Provincias Unidas mediante la liberación de Chile y luego Perú.
+```
+
+## Sección: huella-humana-en-el-clima-inicio (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "basico"
+  tags: ["revolucion_industrial", "co2", "carbón"]
+
+respuesta: "Revolución Industrial"
+tipo: completar
+respuestas_validas:
+  - "Revolución Industrial"
+
+enunciado: "El aumento sostenido de la concentración de CO2 en la atmósfera debido a la actividad humana comenzó con la ___."
+
+explicacion: |
+  La Revolución Industrial marcó el inicio del uso masivo de combustibles fósiles (principalmente carbón) para alimentar máquinas de vapor, alterando el ciclo natural del carbono.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "basico"
+  tags: ["combustibles_fosiles", "carbón"]
+
+respuesta: "carbón"
+tipo: mc
+opciones_explicitas: ["carbón", "petróleo", "gas natural", "biomasa"]
+
+enunciado: "Durante la primera etapa de la Revolución Industrial, ¿cuál fue el principal combustible fósil que impulsó el aumento de la huella de carbono?"
+
+explicacion: |
+  El carbón fue el combustible que impulsó la primera fase de la industrialización; el petróleo se convirtió en el motor de la segunda fase, con la expansión del automovilismo y la química sintética.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "intermedio"
+  tags: ["co2", "gas_efecto_invernadero"]
+
+respuesta: "aumentar"
+tipo: completar
+respuestas_validas:
+  - "aumentar"
+  - "elevar"
+  - "incrementar"
+
+enunciado: "La quema masiva de combustibles fósiles desde el siglo XVIII tiene como efecto principal ___ la concentración de gases de efecto invernadero en la atmósfera."
+
+explicacion: |
+  El aumento de la concentración de CO2 atrapa más calor en la atmósfera, intensificando el efecto invernadero.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "intermedio"
+  tags: ["historia", "combustibles"]
+
+opciones_explicitas: ["Carbón -> Petróleo -> Gas natural", "Petróleo -> Carbón -> Gas natural", "Gas natural -> Carbón -> Petróleo", "Carbón -> Gas natural -> Petróleo"]
+respuesta: "Carbón -> Petróleo -> Gas natural"
+tipo: mc
+
+enunciado: "Ordena cronológicamente el predominio de los combustibles fósiles que han marcado la huella humana en la escala temporal de la industrialización:"
+
+explicacion: |
+  Primero el carbón (siglo XVIII-XIX), luego el petróleo (siglo XX) y finalmente el gas natural (finales del XX - actualidad).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "avanzado"
+  tags: ["geologia", "antropoceno"]
+
+respuesta: "positivo"
+tipo: mc
+opciones_explicitas: ["positivo", "negativo", "neutro", "nulo"]
+
+enunciado: "Desde el inicio de la Revolución Industrial, la tendencia de la concentración de CO2 en la atmósfera ha sido de un cambio ___."
+
+explicacion: |
+  Se considera un cambio positivo porque la cantidad de CO2 en la atmósfera ha crecido de manera sostenida, no ha disminuido ni se ha mantenido constante.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "basico"
+  tags: ["preindustrial", "agricultura", "deforestacion"]
+
+respuesta: "local"
+tipo: mc
+
+opciones_explicitas: ["global", "local", "nulo", "atmosferico"]
+
+enunciado: "A diferencia de la era industrial, el impacto climático derivado de la deforestación para la agricultura en las sociedades preindustriales se caracterizaba por ser de escala ___."
+
+explicacion: |
+  Las sociedades preindustriales alteraban el ecosistema de su entorno inmediato (deforestación, erosión), pero sus emisiones de gases de efecto invernadero no eran suficientes para alterar el balance térmico global de la atmósfera.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "intermedio"
+  tags: ["combustibles_fosiles", "industrializacion", "co2"]
+
+respuesta: 135
+tipo: completar
+tolerancia_abs: 10
+
+enunciado: "Considerando que la concentración de CO2 en la atmósfera era de aproximadamente 280 ppm antes de la industrialización masiva, y que tras la quema masiva de combustibles fósiles ha superado las 415 ppm, ¿cuál es el incremento aproximado en ppm (redondeado al entero más cercano)?"
+
+pasos:
+  - "Identificar la concentración preindustrial (aprox. 280 ppm)."
+  - "Identificar la concentración actual (aprox. 415-420 ppm)."
+  - "Restar la concentración preindustrial de la actual."
+
+explicacion: |
+  La quema de combustibles fósiles liberó carbono que estuvo secuestrado durante millones de años, aumentando la concentración de CO2 de ~280 ppm a niveles superiores a 415 ppm, rompiendo el ciclo natural del carbono.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "basico"
+  tags: ["causas", "gas_efecto_invernadero"]
+
+respuesta: "CO2"
+tipo: completar
+respuestas_validas:
+  - "CO2"
+  - "CH4"
+  - "N2O"
+
+enunciado: "Mientras que la agricultura preindustrial afectaba el uso del suelo, la industrialización introdujo una quema masiva de combustibles fósiles que aumentó la concentración de ___ en la atmósfera."
+
+explicacion: |
+  El dióxido de carbono (CO2) es el principal gas de efecto invernadero emitido por la combustión de carbón, petróleo y gas natural, siendo el principal responsable del forzamiento radiativo antropogénico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "avanzado"
+  tags: ["escala", "comparacion"]
+
+respuesta_orden: ["Deforestación local", "Cambio en el uso del suelo", "Emisiones globales de GEI"]
+tipo: ordenar
+
+opciones_explicitas: ["Deforestación local", "Cambio en el uso del suelo", "Emisiones globales de GEI"]
+
+enunciado: "Ordene los siguientes fenómenos de menor a mayor escala de impacto climático global, según la evolución histórica de la huella humana:"
+
+explicacion: |
+  La escala comenzó con la modificación de paisajes locales (deforestación), continuó con cambios sistemáticos en el uso del suelo (agricultura intensiva) y culminó con la alteración química global de la atmósfera (emisiones de GEI).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "intermedio"
+  tags: ["tiempo", "ciclo_carbono"]
+
+respuesta: "ciclo_largo"
+tipo: mc
+
+opciones_explicitas: ["ciclo_corto", "ciclo_largo"]
+
+enunciado: "La agricultura preindustrial se basaba en ciclos biológicos rápidos. La industrialización, al extraer carbono de depósitos fósiles, introdujo carbono en el ___ ciclo del carbono."
+
+explicacion: |
+  El carbono en los combustibles fósiles forma parte del ciclo geológico (largo plazo). Al quemarlo, la humanidad está moviendo carbono de un reservorio de millones de años a la atmósfera de forma casi instantánea.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "basico"
+  tags: ["geologia", "antropoceno", "conceptos"]
+
+tipo: mc
+opciones_explicitas: ["Una era de predominio de la vida vegetal", "Una época geológica definida por el impacto humano medible", "Un periodo de estabilidad climática absoluta", "La era de la formación de los continentes"]
+respuesta: "Una época geológica definida por el impacto humano medible"
+
+enunciado: "El término 'Antropoceno' se utiliza para describir una propuesta de nueva época geológica caracterizada por ___."
+
+explicacion: |
+  El Antropoceno propone que la actividad humana se ha convertido en una fuerza geológica dominante, capaz de dejar marcas permanentes en los estratos sedimentarios, el clima y la biodiversidad de la Tierra.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "intermedio"
+  tags: ["evidencias", "sedimentos", "huella_geologica"]
+
+tipo: completar
+respuestas_validas:
+  - "sedimentos artificiales"
+respuesta: "sedimentos artificiales"
+
+enunciado: "En el registro geológico del Antropoceno, se busca identificar marcadores como los plásticos y el hormigón que se consolidan como ___."
+
+explicacion: |
+  Los materiales sintéticos como los plásticos, el hormigón y los isótopos radiactivos actúan como 'tecnofósiles' que permiten identificar nuestra era en el futuro.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "intermedio"
+  tags: ["clima", "gases_efecto_invernadero"]
+
+tipo: mc
+opciones_explicitas: ["Aumento de la radiación solar", "Cambios en la composición de la atmósfera por gases de efecto invernadero", "Desplazamiento de las placas tectónicas", "Variaciones en el campo magnético terrestre"]
+respuesta: "Cambios en la composición de la atmósfera por gases de efecto invernadero"
+
+enunciado: "Uno de los principales motores del cambio climático en el Antropoceno es la alteración de la atmósfera mediante ___."
+
+explicacion: |
+  La quema de combustibles fósiles y la deforestación han incrementado la concentración de gases como el CO2, alterando el balance térmico del planeta.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "avanzado"
+  tags: ["biodiversidad", "extinciones"]
+
+tipo: mc
+opciones_explicitas: ["la sexta extinción masiva", "la era de hielo", "la expansión de los continentes", "el ciclo de las mareas"]
+respuesta: "la sexta extinción masiva"
+
+enunciado: "El Antropoceno se asocia con una crisis biológica sin precedentes conocida como ___."
+
+explicacion: |
+  La tasa actual de extinción de especies es significativamente superior a la tasa natural, lo cual es una característica distintiva de la huella humana sobre la biosfera.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "avanzado"
+  tags: ["causa_efecto", "procesos"]
+
+tipo: ordenar
+opciones_explicitas: ["Emisión masiva de gases de efecto invernadero", "Aumento de la temperatura global", "Alteración de los ciclos biogeoquímicos", "Cambios en la composición de los sedimentos futuros"]
+
+enunciado: "Ordena cronológicamente los procesos que caracterizan la huella humana en la Tierra:"
+
+explicacion: |
+  La actividad industrial genera gases, estos alteran el clima, lo que modifica los ciclos naturales (como el del carbono) y finalmente deja una marca física en los sedimentos.
+respuesta_orden: ["Emisión masiva de gases de efecto invernadero", "Aumento de la temperatura global", "Alteración de los ciclos biogeoquímicos", "Cambios en la composición de los sedimentos futuros"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "intermedio"
+  tags: ["paleoclimatologia", "co2", "glaciares"]
+
+enunciado: "Al analizar los núcleos de hielo, se observa que durante los periodos preindustriales los niveles de CO2 se mantenían en torno a los 280 ppm, pero tras la Revolución Industrial, los valores saltaron a aproximadamente 420 ppm."
+
+respuesta: 420
+tipo: completar
+tolerancia_abs: 5
+
+explicacion: |
+  Los núcleos de hielo actúan como cápsulas del tiempo. Mientras que la variabilidad natural mantenía el CO2 en niveles estables (alrededor de 280-300 ppm), la quema de combustibles fósiles disparó la concentración actual.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "basico"
+  tags: ["co2", "industrializacion"]
+
+enunciado: "Antes de la era industrial, las fluctuaciones de CO2 en los núcleos de hielo seguían ciclos naturales. Sin embargo, la actividad humana ha provocado un cambio en la tendencia hacia un estado:"
+
+opciones_explicitas: ["estacionario", "ascendente", "descendente", "cíclico"]
+
+respuesta: "ascendente"
+tipo: mc
+
+explicacion: |
+  La curva de los núcleos de hielo muestra un ascenso abrupto y lineal que no coincide con los ciclos naturales de los últimos 800,000 años, marcando el inicio de la huella humana.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "intermedio"
+  tags: ["metodologia", "paleoclimatologia"]
+
+enunciado: "Para reconstruir la atmósfera del pasado, los científicos extraen burbujas de aire atrapadas en el hielo. El proceso para entender el clima antiguo sigue este orden lógico:"
+
+opciones_explicitas: ["Extracción de núcleos", "Análisis de burbujas de aire", "Medición de gases de efecto invernadero", "Comparación con datos actuales"]
+
+respuesta_orden: ["Extracción de núcleos", "Análisis de burbujas de aire", "Medición de gases de efecto invernadero", "Comparación con datos actuales"]
+tipo: ordenar
+
+explicacion: |
+  Primero se extrae el cilindro de hielo, luego se liberan las burbujas atrapadas para medir la composición química y finalmente se compara con los niveles actuales para identificar la anomalía industrial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "avanzado"
+  tags: ["co2", "quimica_atmosferica"]
+
+enunciado: "Si comparamos la variabilidad natural (V) con el registro post-industrial (I), la diferencia fundamental es que la magnitud de la desviación de I respecto a V es ___."
+
+respuestas_validas:
+  - "significativa"
+  - "nula"
+  - "inversa"
+
+respuesta: "significativa"
+tipo: completar
+
+explicacion: |
+  La magnitud del aumento de CO2 tras la industrialización es órdenes de magnitud superior a las variaciones naturales observadas en los registros de hielo de periodos interglaciares.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "basico"
+  tags: ["co2", "revolucion_industrial"]
+
+enunciado: "¿Cuál de los siguientes factores es el principal responsable del salto observado en los niveles de CO2 en los núcleos de hielo durante el siglo XIX y XX?"
+
+opciones_explicitas: ["Erupciones volcánicas", "Ciclos orbitales terrestres", "Quema de combustibles fósiles", "Variaciones de la radiación solar"]
+
+respuesta: "Quema de combustibles fósiles"
+tipo: mc
+
+explicacion: |
+  Aunque los volcanes y los ciclos orbitales afectan el clima, la velocidad y magnitud del aumento de CO2 detectado en el hielo coinciden exactamente con el inicio de la combustión masiva de carbón y petróleo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "basico"
+  tags: ["clima", "historia", "carbono"]
+
+variables:
+  datos: [["Era Preindustrial", "bajo"], ["Era Industrial", "alto"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["bajo", "medio", "alto"]
+
+enunciado: "Si analizamos la etapa de la {datos[idx][0]}, el nivel de impacto climático global se considera ____."
+
+explicacion: |
+  La era preindustrial se caracterizaba por un uso de biomasa y combustibles fósiles muy limitado, resultando en un impacto climático bajo comparado con la era industrial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "intermedio"
+  tags: ["emisiones", "carbono", "historia"]
+
+variables:
+  datos: [["1750", "10"], ["1950", "5000"], ["2020", "36000"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "En el año {datos[idx][0]}, la tasa de emisión global de CO2 (en millones de toneladas) era aproximadamente de ____."
+
+pasos:
+  - "Identificar el año en la cronología histórica."
+  - "Asociar el valor de emisiones correspondiente a dicho año."
+
+explicacion: |
+  La escala de emisiones creció exponencialmente desde el año {datos[idx][0]} debido a la intensificación de la actividad económica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_clima_evolucion"
+  nivel: "intermedio"
+  tags: ["cronologia", "impacto"]
+
+respuesta_orden: ["Era Preindustrial", "Revolución Industrial", "Era de la Información"]
+tipo: ordenar
+opciones_explicitas: ["Era Preindustrial", "Revolución Industrial", "Era de la Información"]
+
+enunciado: "Ordena cronológicamente las etapas de la humanidad según el aumento progresivo de su huella climática:"
+
+explicacion: |
+  La secuencia muestra cómo la complejidad tecnológica y el uso de combustibles fósiles aumentaron la huella de carbono de forma escalonada.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "avanzado"
+  tags: ["aceleracion", "antropoceno"]
+
+variables:
+  datos: [["antes de 1950", "estacionario"], ["después de 1950", "acelerado"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "estacionario"
+  - "acelerado"
+
+enunciado: "El impacto climático se describe como ____ en el periodo {datos[idx][0]}."
+
+explicacion: |
+  El periodo después de 1950, conocido como 'El Gran Aceleramiento', muestra un crecimiento exponencial en el impacto humano sobre la biosfera.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "huella_humana_clima_inicio"
+  nivel: "basico"
+  tags: ["comparativa", "clima"]
+
+variables:
+  comparativa: [["Preindustrial", "Baja"], ["Industrial", "Alta"]]
+  idx: uno_de([0, 1])
+
+respuesta: comparativa[idx][1]
+tipo: mc
+opciones_explicitas: ["Baja", "Media", "Alta"]
+
+enunciado: "La huella de carbono de la era {comparativa[idx][0]} es de magnitud ____."
+
+explicacion: |
+  La magnitud depende directamente de la fuente de energía predominante en cada periodo histórico.
+```
+
+## Sección: guerras-civiles-unitarios-federales (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "basico"
+  tags: ["politica", "argentina"]
+
+respuesta: "Unitarios"
+tipo: mc
+opciones_explicitas: ["Unitarios", "Federales", "Anarquistas", "Monárquicos"]
+
+enunciado: "El grupo político que defendía un gobierno centralizado con sede en Buenos Aires y la centralización del poder era el de los ___."
+
+explicacion: |
+  Los Unitarios buscaban un Estado centralizado donde las provincias perdieran su autonomía en favor de un poder central fuerte, generalmente controlado por la élite porteña.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "basico"
+  tags: ["federalismo", "provincias"]
+
+respuesta: "Federales"
+tipo: mc
+opciones_explicitas: ["Unitarios", "Federales", "Centralistas", "Conservadores"]
+
+enunciado: "Aquellos que luchaban por la autonomía de las provincias y la distribución de la renta aduanera entre todas las jurisdicciones eran los ___."
+
+explicacion: |
+  El federalismo proponía que cada provincia mantuviera su soberanía y autonomía para autogobernarse, oponiéndose al control absoluto de Buenos Aires.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "intermedio"
+  tags: ["economia", "aduana"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["Buenos Aires", "centralizar la recaudación de la aduana para el gobierno central"], ["Las provincias", "repartir los ingresos de la aduana de forma equitativa"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: completar
+respuestas_validas:
+  - "centralizar la recaudación de la aduana para el gobierno central"
+  - "repartir los ingresos de la aduana de forma equitativa"
+
+enunciado: "En el conflicto por la renta aduanera, el principal punto de discordia era que las provincias exigían ___."
+
+explicacion: |
+  La disputa económica era clave: Buenos Aires quería controlar la aduana (recaudación de impuestos de importación/exportación), mientras las provincias querían una distribución justa de esos fondos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "intermedio"
+  tags: ["orden", "conceptos"]
+
+respuesta_orden: ["Centralismo", "Autonomía provincial", "Guerras civiles"]
+tipo: ordenar
+opciones_explicitas: ["Centralismo", "Autonomía provincial", "Guerras civiles"]
+
+enunciado: "Ordene los conceptos desde la causa política hasta la consecuencia histórica resultante del conflicto:"
+
+pasos:
+  - "Causa: El deseo de control central (Unitarios)"
+  - "Contrapeso: El deseo de soberanía local (Federales)"
+  - "Resultado: El conflicto armado prolongado"
+
+explicacion: |
+  La tensión entre el centralismo unitario y la autonomía federal derivó en un periodo de constantes guerras civiles en el territorio argentino.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "avanzado"
+  tags: ["economia", "causas"]
+
+variables:
+  valor_base: 1820
+  inflacion_estimada: 1.5
+
+respuesta: redondear(valor_base * inflacion_estimada, 0)
+tipo: completar
+tolerancia_abs: 1
+
+enunciado: "Si un conflicto de la era de las guerras civiles incrementara los costos de guerra en un factor de {inflacion_estimada} sobre una base de ${valor_base} pesos, ¿cuál sería el nuevo costo total?"
+
+pasos:
+  - "Multiplicar el valor base por el factor de incremento."
+
+explicacion: |
+  El costo de mantener ejércitos permanentes durante las guerras civiles era altísimo para las arcas de las provincias y de la ciudad de Buenos Aires.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "basico"
+  tags: ["politica", "siglo_XIX"]
+
+tipo: completar
+enunciado: "Durante las guerras civiles argentinas del siglo XIX, las dos facciones políticas principales que se enfrentaron por el modelo de organización del Estado fueron los ___ y los ___."
+respuesta: "Unitarios, Federales"
+explicacion: |
+  Los Unitarios buscaban un gobierno centralizado en Buenos Aires, mientras que los Federales defendían la autonomía de las provincias.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "intermedio"
+  tags: ["modelo_estatal", "centralismo"]
+
+variables:
+  escenario: uno_de([["centralismo", "Buenos Aires"], ["federalismo", "Provincias"]])
+
+tipo: completar
+respuestas_validas:
+  - "centralismo"
+  - "federalismo"
+respuesta: escenario[0]
+
+enunciado: "Si un grupo político propone que todas las leyes y decisiones administrativas deben emanar exclusivamente de un gobierno central en la capital, está defendiendo el ___."
+
+explicacion: |
+  El centralismo es la característica principal del pensamiento unitario, que buscaba la concentración del poder en un solo núcleo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "avanzado"
+  tags: ["economia", "aduana"]
+
+tipo: mc
+opciones_explicitas: ["la libre navegación de los ríos", "la nacionalización de la aduana", "la eliminación de los impuestos", "la unión aduanera"]
+respuesta: "la nacionalización de la aduana"
+
+enunciado: "Uno de los principales focos de conflicto económico entre las provincias y Buenos Aires fue ___."
+
+explicacion: |
+  Las provincias federales exigían la nacionalización de los ingresos de la aduana de Buenos Aires y la libre navegación de los ríos interiores, mientras que Buenos Aires quería retener la renta aduanera.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "intermedio"
+  tags: ["proceso_historico"]
+
+tipo: ordenar
+opciones_explicitas: ["Caos de las guerras civiles", "Lucha por la organización constitucional", "Consolidación del Estado Nacional"]
+
+enunciado: "Ordene cronológicamente los procesos que marcaron la transición desde la desintegración post-independencia hasta la formación del Estado moderno:"
+
+explicacion: |
+  Primero hubo un largo periodo de guerras civiles, luego el debate constitucional de 1853 y finalmente la consolidación del Estado bajo la presidencia de Mitre, Sarmiento y Avellaneda.
+respuesta_orden: ["Caos de las guerras civiles", "Lucha por la organización constitucional", "Consolidación del Estado Nacional"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "intermedio"
+  tags: ["soberania", "provincias"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "El federalismo buscaba que cada provincia mantuviera su propia autonomía y autoridades locales, sin estar subordinada totalmente al poder central."
+
+explicacion: |
+  Verdadero. El federalismo se basaba en el respeto a la soberanía de las entidades provinciales preexistentes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "intermedio"
+  tags: ["rosas", "federales", "confederacion"]
+
+respuesta: "gobernador de Buenos Aires"
+tipo: mc
+opciones_explicitas: ["gobernador de Buenos Aires", "presidente de la Confederación", "dictador de la nación"]
+
+enunciado: "Durante el período de la Confederación Argentina, ¿qué cargo ocupaba formalmente Juan Manuel de Rosas, aunque en la práctica ejercía una hegemonía sobre el resto de las provincias?"
+
+explicacion: |
+  Aunque Rosas era el líder de facto de la Confederación, formalmente su cargo era el de Gobernador de la Provincia de Buenos Aires, cargo desde el cual ejercía una hegemonía política y económica sobre las demás provincias.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "basico"
+  tags: ["relaciones", "federales", "unitarios"]
+
+respuesta: "unitarios"
+tipo: completar
+respuestas_validas:
+  - "unitarios"
+
+enunciado: "En el contexto de las guerras civiles, el proyecto político de Rosas se alineaba con el bando ___ , enfrentándose a las aspiraciones de centralismo de los opositores."
+
+explicacion: |
+  Rosas era el máximo exponente del federalismo, lo que lo colocaba en constante conflicto con los unitarios, quienes buscaban un gobierno centralizado en Buenos Aires.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "intermedio"
+  tags: ["economia", "aduana", "rosas"]
+
+respuesta: "Aduana"
+tipo: mc
+opciones_explicitas: ["Aduana", "Aduana de Montevideo", "Impuesto de libre navegación"]
+
+enunciado: "El control de la ___ de Buenos Aires fue la principal herramienta de Rosas para asegurar la supremacía de su provincia sobre la Confederación."
+
+explicacion: |
+  La recaudación de los derechos de importación y exportación de la Aduana de Buenos Aires permitía a la provincia controlar la economía nacional y limitar la autonomía de las provincias del interior.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "avanzado"
+  tags: ["orden", "etapas", "rosas"]
+
+variables:
+  etapa_idx: uno_de([0,1,2])
+
+respuesta_orden: ["Surgimiento del caudillismo", "Llegada al poder con facultades extraordinarias", "Consolidación del orden rosista"]
+tipo: ordenar
+opciones_explicitas: ["Surgimiento del caudillismo", "Llegada al poder con facultades extraordinarias", "Consolidación del orden rosista"]
+
+enunciado: "Ordene cronológicamente los procesos que permitieron la consolidación del poder de Rosas en la Confederación:"
+
+pasos:
+  - "El ascenso de los caudillos locales en el interior."
+  - "La concesión de facultades extraordinarias por parte de la legislatura."
+  - "El establecimiento de un orden basado en la sumisión de las provincias."
+
+explicacion: |
+  El proceso comenzó con el ascenso de caudillos, seguido por la necesidad de orden que llevó a la delegación de poderes en Rosas, culminando en un régimen de hegemonía federal.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "basico"
+  tags: ["simbolos", "color", "rosas"]
+
+respuesta: "rojo"
+tipo: mc
+opciones_explicitas: ["rojo", "azul", "blanco"]
+
+enunciado: "Para demostrar la lealtad al régimen de Rosas, se utilizaba el color ___ en la vestimenta y en las insignias."
+
+explicacion: |
+  El uso de la 'divisa punzó' (una cinta roja) era obligatorio para demostrar la adhesión al bando federal de Rosas y marcar la distinción frente a los unitarios.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "basico"
+  tags: ["caseros", "urquiza", "rosas"]
+
+respuesta: "Justo José de Urquiza"
+tipo: mc
+opciones_explicitas: ["Juan Manuel de Rosas", "Justo José de Urquiza", "Facundo Quiroga", "Manuel Dorrego"]
+
+enunciado: "En la batalla de Caseros, ocurrida en 1852, el líder del Ejército Grande que derrotó a Juan Manuel de Rosas fue ___."
+
+explicacion: |
+  La victoria de Urquiza en Caseros puso fin al régimen de Rosas y permitió el inicio del proceso de organización constitucional de la Argentina.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "intermedio"
+  tags: ["organización_nacional", "constitucion"]
+
+respuesta: "Constitución Nacional"
+tipo: completar
+respuestas_validas:
+  - "Constitución Nacional"
+  - "Constitución de 1853"
+
+enunciado: "La derrota de Rosas en Caseros permitió la convocatoria al Congreso Constituyente de 1853, que dio como resultado la primera ___."
+
+explicacion: |
+  Tras la caída de la hegemonía rosista, se abrió un periodo de institucionalización que culminó con la sanción de la Constitución de 1853.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "basico"
+  tags: ["urquiza", "ejercito_grande"]
+
+respuesta: "Ejército Grande"
+tipo: mc
+opciones_explicitas: ["Ejército de Granaderos", "Ejército Grande", "Ejército de Orientales", "Ejército de Montoneras"]
+
+enunciado: "El contingente militar liderado por Urquiza para enfrentar a Rosas fue conocido como el ___."
+
+explicacion: |
+  El Ejército Grande estaba compuesto por fuerzas de diversas provincias y también por apoyo de fuerzas internacionales.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "intermedio"
+  tags: ["rosas", "caída"]
+
+respuesta: "exilio"
+tipo: completar
+respuestas_validas:
+  - "exilio"
+
+enunciado: "Tras la derrota en la batalla de Caseros, Juan Manuel de Rosas se vio obligado a partir hacia el ___."
+
+explicacion: |
+  Rosas se retiró hacia Inglaterra, donde pasó el resto de sus días.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "avanzado"
+  tags: ["cronologia", "procesos"]
+
+opciones_explicitas: ["Tratado de San Justo", "Batalla de Caseros", "Sanción de la Constitución Nacional"]
+respuesta_orden: ["Tratado de San Justo", "Batalla de Caseros", "Sanción de la Constitución Nacional"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente los siguientes hitos relacionados con el fin del rosismo y la organización nacional:"
+
+pasos:
+  - "1. El pacto entre Urquiza y los colorados de Buenos Aires."
+  - "2. El enfrentamiento militar decisivo."
+  - "3. La consolidación institucional del país."
+
+explicacion: |
+  Primero se pactó la alianza (Tratado de San Justo), luego se combatió (Caseros) y finalmente se organizó el Estado (Constitución).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "basico"
+  tags: ["politica", "argentina"]
+
+variables:
+  escenario: uno_de([["Un grupo de caudillos busca que cada provincia mantenga su propia autonomía y leyes locales.", "federal"], ["Un gobierno centralizado busca concentrar todo el poder político y económico en Buenos Aires.", "unitario"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["federal", "unitario"]
+
+enunciado: "En el contexto de las guerras civiles argentinas, si se propone que {escenario[0]}, ¿qué postura se está defendiendo?"
+
+explicacion: |
+  El Federalismo defendía la autonomía de las provincias, mientras que el Unitarismo buscaba un mando centralizado en Buenos Aires.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "intermedio"
+  tags: ["economia", "aduana"]
+
+variables:
+  caso: uno_de([["La libre navegación de los ríos interiores es una demanda clave de las provincias.", "federal"], ["El control exclusivo de la renta aduanera por parte del gobierno central es la prioridad.", "unitario"]])
+
+respuesta: caso[1]
+tipo: mc
+opciones_explicitas: ["federal", "unitario"]
+
+enunciado: "Analizando la estructura económica de la época, si el objetivo es {caso[0]}, ¿qué modelo se está representando?"
+
+explicacion: |
+  Los federales necesitaban la libre navegación para comerciar por sus propios ríos; los unitarios buscaban centralizar las rentas de la aduana.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "avanzado"
+  tags: ["constitucion", "poder"]
+
+variables:
+  modelo: uno_de([["Un gobierno central con un poder ejecutivo fuerte que designa a los gobernadores.", "unitario"], ["Un sistema donde las provincias eligen a sus propios gobernadores de forma autónoma.", "federal"]])
+
+tipo: completar
+respuestas_validas:
+  - "unitario"
+  - "federal"
+
+enunciado: "Si el diseño institucional busca que {modelo[0]}, el modelo de gobierno es de tipo ___."
+
+explicacion: |
+  La designación de autoridades provinciales por parte del centro es la característica principal del centralismo unitario.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "intermedio"
+  tags: ["causas"]
+
+variables:
+  conflicto: uno_de([["La disputa por la distribución de los ingresos de la aduana de Buenos Aires.", "federal"], ["La lucha por la hegemonía política entre la élite porteña y los caudillos.", "unitario"]])
+
+respuesta: conflicto[1]
+tipo: mc
+opciones_explicitas: ["federal", "unitario"]
+
+enunciado: "Si el núcleo del conflicto es {conflicto[0]}, la demanda principal es de carácter ___."
+
+explicacion: |
+  La distribución de la renta aduanera era el principal punto de fricción entre la autonomía provincial y el control central.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "guerras_civiles_unitarios_federales"
+  nivel: "intermedio"
+  tags: ["orden"]
+
+variables:
+  idx: uno_de([0, 1])
+  modelos: ["federal", "unitario"]
+  descripciones: ["La soberanía reside en las provincias, que delegan facultades a la nación", "La nación es la fuente de autoridad y las provincias dependen de ella"]
+
+respuesta: descripciones[idx]
+tipo: mc
+opciones_explicitas: ["La soberanía reside en las provincias, que delegan facultades a la nación", "La nación es la fuente de autoridad y las provincias dependen de ella"]
+
+enunciado: "Según el modelo {modelos[idx]}, ¿cómo se organiza la jerarquía de poder entre la nación y las provincias?"
+
+explicacion: |
+  En el federalismo la soberanía reside en las provincias que delegan facultades a la nación; en el unitarismo la nación es la fuente de autoridad sobre las provincias.
 ```
 

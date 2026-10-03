@@ -1,2370 +1,2270 @@
 # Examen jefe — [PENDIENTE #690]
 
-> Logro #690. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #690. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: guerra-fria-descolonizacion (26 preguntas)
+## Sección: division-del-trabajo (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
+  tema: "division_del_trabajo"
   nivel: "basico"
-  tags: ["geopolitica", "orden_mundial"]
+  tags: ["conceptos_basicos", "economia"]
 
-respuesta: "bipolar"
-tipo: mc
-opciones_explicitas: ["unipolar", "bipolar", "multipolar", "unilateral"]
+respuesta: "especialización"
+tipo: completar
+respuestas_validas:
+  - "especialización"
 
-enunciado: "Debido a la hegemonía de las dos superpotencias (EEUU y la URSS), el sistema internacional durante la Guerra Fría se caracterizó por ser un mundo de carácter ________."
+enunciado: "La división del trabajo consiste en la ___ de distintas personas o grupos en tareas específicas, en lugar de que todos realicen todas las actividades."
 
 explicacion: |
-  El término 'bipolar' se refiere a la existencia de dos centros de poder político, económico y militar contrapuestos que dominaron la escena internacional.
+  La división del trabajo permite que cada individuo se enfoque en una tarea concreta, aumentando la eficiencia y la destreza en la producción.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
+  tema: "division_del_trabajo"
+  nivel: "basico"
+  tags: ["eficiencia", "produccion"]
+
+opciones_explicitas: ["Aumento de la producción", "Reducción de la calidad", "Aumento del tiempo de trabajo", "Desperdicio de materiales"]
+
+respuesta: "Aumento de la producción"
+tipo: mc
+
+enunciado: "De acuerdo con los principios de la división del trabajo, ¿cuál es uno de sus principales beneficios económicos?"
+
+explicacion: |
+  Al especializarse, el trabajador gana rapidez y precisión, lo que permite producir una mayor cantidad de bienes en el mismo tiempo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
   nivel: "intermedio"
-  tags: ["economia", "doctrinas"]
+  tags: ["historia_economica", "procesos"]
 
-respuesta: "Plan Marshall"
-tipo: mc
-opciones_explicitas: ["Plan Marshall", "COMECON", "Tratado de Varsovia", "Plan Molotov"]
+enunciado: "En un escenario de fábrica moderna, donde cada operario realiza una sola tarea repetitiva en una línea de montaje, el modelo de producción se caracteriza por ser: ___"
 
-enunciado: "En el marco de la contención del comunismo, la estrategia de Estados Unidos para reconstruir las economías de Europa Occidental fue el ___."
+pasos:
+  - "Identificar el escenario seleccionado."
+  - "Analizar si el trabajador realiza todo el proceso o solo una parte."
+
+respuestas_validas:
+  - "fragmentado"
+respuesta: "fragmentado"
+tipo: completar
 
 explicacion: |
-  El Plan Marshall fue el programa de asistencia económica de EE.UU. para la reconstrucción de Europa tras la Segunda Guerra Mundial, diseñado para evitar el avance del comunismo.
+  En la industria moderna, el proceso se fragmenta en tareas mínimas para maximizar la velocidad, a diferencia del modelo artesanal integral.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "avanzado"
-  tags: ["crisis", "nucleares"]
+  tema: "division_del_trabajo"
+  nivel: "intermedio"
+  tags: ["logica_procesos"]
 
-respuesta: 1962
+opciones_explicitas: ["Extracción de materia prima", "Transformación especializada", "Distribución del producto final"]
+
+respuesta_orden: ["Extracción de materia prima", "Transformación especializada", "Distribución del producto final"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente las etapas de una cadena de producción altamente dividida:"
+
+explicacion: |
+  La división del trabajo permite que cada etapa de la cadena de suministro sea ejecutada por especialistas distintos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "avanzado"
+  tags: ["habilidades", "educacion"]
+
+opciones_explicitas: ["Mayor versatilidad del trabajador", "Mayor destreza en tareas específicas", "Menor necesidad de entrenamiento", "Aumento de la autonomía técnica"]
+
+respuesta: "Mayor destreza en tareas específicas"
+tipo: mc
+
+enunciado: "La especialización extrema derivada de la división del trabajo tiene como consecuencia directa en el trabajador:"
+
+explicacion: |
+  Si bien aumenta la destreza técnica en una tarea puntual, también puede llevar a la monotonía y a la pérdida de la visión global del proceso productivo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "basico"
+  tags: ["agricultura", "excedente", "especializacion"]
+
+respuesta: "excedente agrícola"
+tipo: completar
+respuestas_validas:
+  - "excedente agrícola"
+  - "excedente"
+
+enunciado: "La división del trabajo surgió históricamente como una consecuencia directa de la aparición del ___."
+
+explicacion: |
+  Cuando las sociedades lograron producir más alimento del que necesitaban para su subsistencia inmediata (excedente), no todos los individuos tuvieron que dedicarse a la agricultura. Esto permitió que otros se especializaran en otras tareas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "basico"
+  tags: ["roles", "sociedad", "especializacion"]
+
+variables:
+  rol_idx: uno_de([0, 1, 2])
+  roles: [["artesanos", "comerciantes", "sacerdotes"], ["artesanos", "comerciantes", "sacerdotes"], ["artesanos", "comerciantes", "sacerdotes"]]
+
+opciones_explicitas: ["artesanos", "comerciantes", "sacerdotes", "agricultores"]
+respuesta: roles[rol_idx][2]
+tipo: mc
+
+enunciado: "Gracias al excedente de alimentos, algunas personas pudieron dedicarse a funciones no productoras de comida, como es el caso de los {roles[rol_idx][2]}."
+
+explicacion: |
+  La especialización permitió la aparición de roles como artesanos, comerciantes, sacerdotes o gobernantes, liberando a una parte de la población de la tarea de producir alimento.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "intermedio"
+  tags: ["causalidad", "economia_antigua"]
+
+respuesta: "verdadero"
+tipo: completar
+enunciado: "¿Es correcto afirmar que la división del trabajo es una consecuencia de la capacidad de producir excedentes agrícolas?"
+
+explicacion: |
+  Correcto. Sin un excedente que alimentar a quienes no cultivan, la especialización laboral sería imposible, ya que todos deberían dedicarse a la obtención de alimentos para sobrevivir.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "avanzado"
+  tags: ["jerarquia", "especializacion", "sociedad"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["artesanos, comerciantes y sacerdotes", "artesanos, comerciantes y sacerdotes"], ["artesanos, comerciantes y sacerdotes", "artesanos, comerciantes y sacerdotes"]]
+
+opciones_explicitas: ["agricultores y guerreros", "artesanos, comerciantes y sacerdotes", "cazadores y recolectores", "nómadas y pastores"]
+respuesta: escenarios[escenario_idx][0]
+tipo: mc
+
+enunciado: "Al producirse un excedente agrícola, la estructura social se vuelve más compleja, pasando de ser mayoritariamente agricultores a incluir roles como ___."
+
+explicacion: |
+  La complejidad social aumenta cuando la población se diversifica en funciones que no están ligadas directamente a la extracción de recursos primarios.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "intermedio"
+  tags: ["proceso", "causalidad"]
+
+opciones_explicitas: ["Agricultura de subsistencia", "Producción de excedentes", "División del trabajo"]
+respuesta_orden: ["Agricultura de subsistencia", "Producción de excedentes", "División del trabajo"]
+tipo: ordenar
+
+enunciado: "Ordena los siguientes procesos históricos que permitieron la aparición de la especialización laboral:"
+
+pasos:
+  - "Se desarrolla la agricultura para el autoconsumo."
+  - "Se produce más comida de la necesaria (excedente)."
+  - "Surgen artesanos, sacerdotes y gobernantes."
+
+explicacion: |
+  El proceso es causal: primero la agricultura permite el excedente, y el excedente permite que la sociedad se divida en diferentes profesiones.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "basico"
+  tags: ["economia", "productividad"]
+
+respuesta: "eficiencia"
+tipo: completar
+respuestas_validas:
+  - "eficiencia"
+  - "productividad"
+
+enunciado: "Cuando un proceso se divide en tareas simples y cada trabajador se especializa en una de ellas, se logra una mayor ___ en la producción total."
+
+explicacion: |
+  La especialización permite que el trabajador perfeccione su técnica en una tarea específica, reduciendo el tiempo de transición entre actividades y aumentando la eficiencia general.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "basico"
+  tags: ["productividad", "especializacion"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["taller de costura", "un sastre"], ["fábrica de clavos", "un operario"]]
+  resultado: [["mayor rapidez", "un sastre"], ["mayor volumen", "un operario"]]
+
+respuesta: resultado[escenario_idx][0]
+tipo: mc
+opciones_explicitas: ["mayor rapidez", "mayor volumen", "menor calidad", "más costos"]
+
+enunciado: "En un {datos[escenario_idx][0]}, la especialización de {datos[escenario_idx][1]} permite obtener un {resultado[escenario_idx][0]} en la producción."
+
+explicacion: |
+  La división del trabajo transforma la producción artesanal en procesos masivos, aumentando drásticamente el volumen de bienes disponibles.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "intermedio"
+  tags: ["productividad", "habilidad"]
+
+respuesta: "perfeccionamiento de la destreza"
+tipo: mc
+opciones_explicitas: ["perfeccionamiento de la destreza", "pérdida de autonomía", "aumento de la fatiga mental", "reducción de la velocidad"]
+
+enunciado: "Una de las principales ventajas teóricas de la división del trabajo es el ___ del trabajador en su tarea asignada."
+
+explicacion: |
+  Al repetir una acción específica, el trabajador adquiere una destreza mecánica y técnica que no podría lograr si realizara todo el proceso de principio a fin.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "intermedio"
+  tags: ["orden", "proceso"]
+
+respuesta_orden: ["materias primas", "tareas especializadas", "producto terminado"]
+tipo: ordenar
+opciones_explicitas: ["materias primas", "tareas especializadas", "producto terminado"]
+
+enunciado: "Ordena la secuencia lógica de un proceso basado en la división del trabajo industrial:"
+
+pasos:
+  - "Se recolectan los insumos básicos."
+  - "Cada trabajador realiza una parte específica del ensamblaje."
+  - "Se obtiene el bien final listo para el mercado."
+
+explicacion: |
+  La división del trabajo requiere un flujo ordenado: primero la entrada de materiales, luego la ejecución fragmentada y finalmente la salida del producto.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "avanzado"
+  tags: ["productividad", "economia"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  valores: [[10, 50], [5, 100]]
+  total: [500, 1000]
+
+respuesta: total[caso_idx]
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "La crisis de los misiles en Cuba, el momento de mayor tensión nuclear entre las superpotencias, ocurrió en el año ________."
+enunciado: "Si en un escenario de división del trabajo, un trabajador produce {valores[caso_idx][0]} unidades en una hora sin especializar, pero con la especialización produce {valores[caso_idx][1]} unidades, ¿cuál es la producción total en 10 horas si solo contamos la producción especializada?"
+
+pasos:
+  - "Identificar la producción por hora con especialización: {valores[caso_idx][1]}"
+  - "Multiplicar por el número de horas: {valores[caso_idx][1]} * 10"
 
 explicacion: |
-  En octubre de 1962, la instalación de misiles soviéticos en Cuba llevó al mundo al borde de una guerra nuclear total.
+  La especialización actúa como un multiplicador de la productividad, permitiendo que la producción total crezca exponencialmente respecto al trabajo no especializado.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "intermedio"
-  tags: ["alemania", "fronteras"]
-
-respuesta_orden: ["RFA (Alemania Occidental)", "RDA (Alemania Oriental)"]
-tipo: ordenar
-opciones_explicitas: ["RFA (Alemania Occidental)", "RDA (Alemania Oriental)"]
-
-enunciado: "Ordena las entidades políticas resultantes de la división alemana, desde la capitalista hacia la socialista:"
-
-explicacion: |
-  La República Federal de Alemania (RFA), es decir Alemania Occidental, representaba al bloque capitalista, mientras que la República Democrática Alemana (RDA), es decir Alemania Oriental, representaba al bloque soviético.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "intermedio"
-  tags: ["descolonizacion", "asiatismo"]
-
-variables:
-  tabla: [["No alineados", "No alineados"], ["Aliados", "Aliados"]]
-
-respuesta: tabla[0][1]
-tipo: completar
-opciones_explicitas: ["No alineados", "Aliados"]
-
-enunciado: "Durante la Guerra Fría, los países que decidieron no sumarse ni al bloque de EE.UU. ni al de la URSS se conocieron como países ________."
-
-explicacion: |
-  El Movimiento de Países No Alineados surgió para buscar una vía neutral frente a la polarización de la Guerra Fría.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
+  tema: "division_del_trabajo"
   nivel: "basico"
-  tags: ["descolonizacion", "postguerra"]
+  tags: ["sociologia", "desigualdad"]
 
+respuesta: "prestigio"
 tipo: mc
-opciones_explicitas: ["El fortalecimiento de las potencias europeas", "El debilitamiento de las potencias europeas tras la Segunda Guerra Mundial", "La unión de todas las colonias bajo un mando único", "El apoyo de las colonias a los regímenes coloniales"]
-respuesta: "El debilitamiento de las potencias europeas tras la Segunda Guerra Mundial"
-enunciado: "Tras la Segunda Guerra Mundial, ¿cuál fue el principal factor que impulsó los procesos de independencia en África y Asia?"
+opciones_explicitas: ["prestigio", "esfuerzo", "tiempo", "herramientas"]
+
+enunciado: "Con la especialización de tareas, no todas las labores adquirieron el mismo nivel de ______, lo que permitió la jerarquización social."
+
 explicacion: |
-  La Segunda Guerra Mundial dejó a las potencias coloniales tradicionales (como Reino Unido y Francia) agotadas económica y militarmente, lo que facilitó los movimientos de liberación nacional.
+  La especialización permitió que algunas tareas fueran valoradas socialmente por encima de otras, otorgando a quienes las realizaban mayor estatus y control sobre los recursos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "basico"
-  tags: ["conceptos", "soberania"]
-
-tipo: completar
-opciones_explicitas: ["soberanía", "colonialismo", "imperialismo"]
-respuestas_validas:
-  - "soberanía"
-
-enunciado: "El proceso de descolonización permitió que las antiguas colonias recuperaran su ___________ política y económica."
-
-explicacion: |
-  La soberanía es el derecho de un Estado a autogobernarse sin la interferencia de potencias extranjeras.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
+  tema: "division_del_trabajo"
   nivel: "intermedio"
-  tags: ["onu", "diplomacia"]
+  tags: ["economia", "recursos"]
 
-tipo: mc
-opciones_explicitas: ["La Carta de las Naciones Unidas", "El Pacto de Varsovia", "La Liga de las Naciones", "El Tratado de Versalles"]
-respuesta: "La Carta de las Naciones Unidas"
-
-enunciado: "En el contexto de la descolonización, ___ fue fundamental porque promovió el principio de autodeterminación de los pueblos."
-
-explicacion: |
-  La ONU, a través de su principio de autodeterminación de los pueblos, dio un marco jurídico internacional que legitimó los movimientos de independencia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "avanzado"
-  tags: ["geopolitica", "guerra_fria"]
-
-tipo: mc
-opciones_explicitas: ["Se unificaron en un solo bloque", "Se convirtieron en escenarios de disputa entre las superpotencias", "Eliminaron el capitalismo de sus territorios", "Se volvieron potencias nucleares de inmediato"]
-respuesta: "Se convirtieron en escenarios de disputa entre las superpotencias"
-
-enunciado: "Debido a la Guerra Fría, la descolonización en Asia y África provocó que estos nuevos estados ___."
-
-explicacion: |
-  Muchos nuevos estados independientes se convirtieron en "campos de batalla" por delegación (proxy wars) debido a la polarización de la Guerra Fría.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "intermedio"
-  tags: ["cronologia", "procesos"]
-
-tipo: ordenar
-opciones_explicitas: ["Agotamiento de potencias europeas", "Surgimiento de movimientos de liberación", "Declaración de independencia de las colonias", "Consolidación de nuevos Estados-Nación"]
-
-enunciado: "Ordena cronológicamente las etapas típicas de un proceso de descolonización:"
-
-explicacion: |
-  Primero ocurre el debilitamiento de la metrópoli, luego la organización de movimientos locales, la ruptura formal y finalmente la formación del nuevo Estado.
-respuesta_orden: ["Agotamiento de potencias europeas", "Surgimiento de movimientos de liberación", "Declaración de independencia de las colonias", "Consolidación de nuevos Estados-Nación"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "intermedio"
-  tags: ["guerra_fria", "descolonizacion", "no_alineados"]
-
-variables:
-  escenario: uno_de([["Egipto de Nasser", "movimiento de no alineación", "Egipto de Nasser", "Egipto de Nasser"], ["Yugoslavia de Tito", "movimiento de no alineación", "Yugoslavia de Tito", "Yugoslavia de Tito"], ["India de Nehru", "movimiento de no alineación", "India de Nehru", "India de Nehru"]])
-
-enunciado: "Durante la descolonización, muchos países intentaron evitar la lógica de bloques mediante la creación del ___."
-
-opciones_explicitas: ["movimiento de no alineación", "Pacto de Varsovia", "OTAN"]
-respuesta: "movimiento de no alineación"
-tipo: mc
-
-explicacion: |
-  Tras la Segunda Guerra Mundial, líderes de países recién independizados buscaron mantener su soberanía evitando alinearse con EE.UU. o la URSS, dando origen al Movimiento de Países No Alineados.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "intermedio"
-  tags: ["geopolitica", "bloques"]
-
-enunciado: "Un país recién independizado que decide aceptar ayuda financiera masiva de la URSS para su industrialización pesada, corre el riesgo de alinearse con el bloque ___."
-
-respuestas_validas:
-  - "comunista"
-  - "capitalista"
-  - "neutral"
-respuesta: "comunista"
-tipo: completar
-
-explicacion: |
-  La ayuda económica y técnica era una herramienta de influencia geopolítica; la dependencia de modelos de desarrollo soviéticos solía arrastrar a los nuevos estados al bloque socialista.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "basico"
-  tags: ["terminologia", "geopolitica"]
-
-enunciado: "En el contexto de la Guerra Fría, el término 'Tercer Mundo' se utilizaba para referirse a:"
-
-opciones_explicitas: ["países alineados con EE.UU.", "países alineados con la URSS", "países no alineados o en vías de desarrollo"]
-respuesta: "países no alineados o en vías de desarrollo"
-tipo: mc
-
-explicacion: |
-  Mientras el Primer Mundo era el bloque capitalista y el Segundo el socialista, el término 'Tercer Mundo' designaba a las naciones que no pertenecían a ninguno de estos dos polos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "avanzado"
-  tags: ["intervencionismo", "soberania"]
-
-enunciado: "Ordena los factores que explican la intervención de las superpotencias en procesos de descolonización de menor a mayor impacto en la soberanía de los nuevos estados:"
-
-opciones_explicitas: ["Intereses económicos por recursos naturales", "Propagación de ideologías políticas", "Control de puntos estratégicos militares"]
-respuesta_orden: ["Intereses económicos por recursos naturales", "Propagación de ideologías políticas", "Control de puntos estratégicos militares"]
-tipo: ordenar
-
-explicacion: |
-  Aunque los tres factores interactuaban, la lucha por el control de bases militares y puntos estratégicos (como el Canal de Suez) era el factor determinante para la soberanía nacional.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "intermedio"
-  tags: ["vietnam", "conflicto_proxy"]
-
-variables:
-  caso: uno_de([["Vietnam del Sur", "apoyado por EE.UU.", "Vietnam del Sur", "Vietnam del Sur"], ["Vietnam del Norte", "apoyado por la URSS", "Vietnam del Norte", "Vietnam del Norte"]])
-
-enunciado: "En el conflicto de Vietnam, el país que era {caso[1]} fue el principal escenario de la lucha entre las ideologías de la Guerra Fría."
-
-opciones_explicitas: ["apoyado por EE.UU.", "apoyado por la URSS", "neutral"]
-respuesta: caso[1]
-tipo: mc
-
-explicacion: |
-  Vietnam se convirtió en un conflicto de proxy war, donde la descolonización se vio truncada por la lucha de las superpotencias por expandir sus esferas de influencia.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "basico"
-  tags: ["berlin", "simbolo"]
-
-tipo: mc
-opciones_explicitas: ["La caída del Muro de Berlín", "La Revolución Rusa", "La Crisis de los Misiles", "La Guerra de Vietnam"]
-respuesta: "La caída del Muro de Berlín"
-
-enunciado: "El evento ocurrido en 1989 que simbolizó el fin de la división de Europa y el colapso del bloque socialista fue ___."
-
-explicacion: |
-  La caída del Muro de Berlín en noviembre de 1989 marcó el inicio del fin de la Guerra Fría, permitiendo la reunificación de Alemania y el colapso de los regímenes comunistas en Europa del Este.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "intermedio"
-  tags: ["urss", "geopolitica"]
-
-respuesta: "1991"
+respuesta: "excedente"
 tipo: completar
 respuestas_validas:
-  - "1991"
+  - "excedente"
 
-enunciado: "La disolución formal de la URSS ocurrió en el año ___."
+enunciado: "En los primeros asentamientos sedentarios, la división del trabajo permitió que ciertos grupos controlaran el excedente, consolidando la desigualdad."
 
 explicacion: |
-  La desintegración de la Unión Soviética en 1991 puso fin a la existencia de la superpotencia que lideraba el bloque socialista, consolidando el orden mundial unipolar liderado por EE.UU.
+  El control sobre el excedente de producción (como el grano) o sobre procesos técnicos específicos permitió que ciertos individuos acumularan poder sobre el resto de la comunidad.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "guerra_fria_descolonizacion"
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
   nivel: "avanzado"
-  tags: ["gorbachev", "reformas"]
+  tags: ["estructura_social", "clases"]
 
-tipo: mc
-opciones_explicitas: ["Glasnost y Perestroika", "El Plan Marshall", "La Doctrina Monroe", "La Doctrina Truman"]
-respuesta: "Glasnost y Perestroika"
-
-enunciado: "Las reformas políticas y económicas implementadas por Mijaíl Gorbachachev que aceleraron el fin de la URSS fueron la ___."
-
-explicacion: |
-  La Perestroika (reestructuración económica) y la Glasnost (apertura política) fueron los motores de cambio que, aunque buscaban modernizar el sistema, terminaron por desestabilizar el control centralizado de la URSS.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "intermedio"
-  tags: ["cronologia", "eventos"]
-
+respuesta_orden: ["Especialización técnica", "Producción de subsistencia", "Servicio doméstico"]
 tipo: ordenar
-opciones_explicitas: ["Caída del Muro de Berlín", "Tratado de Malta", "Reunificación de Alemania", "Disolución de la URSS"]
 
-enunciado: "Ordena cronológicamente los siguientes eventos que marcaron el fin de la Guerra Fría:"
+opciones_explicitas: ["Especialización técnica", "Producción de subsistencia", "Servicio doméstico"]
+
+enunciado: "Ordene las actividades desde la que históricamente ha generado mayor acumulación de recursos y estatus hasta la de menor estatus en una sociedad estratificada:"
 
 explicacion: |
-  La secuencia correcta es: caída del muro (noviembre de 1989), Cumbre de Malta (diciembre de 1989, donde EE.UU. y la URSS declararon el fin simbólico de la Guerra Fría), reunificación alemana (octubre de 1990) y, finalmente, la disolución total de la URSS (diciembre de 1991).
-respuesta_orden: ["Caída del Muro de Berlín", "Tratado de Malta", "Reunificación de Alemania", "Disolución de la URSS"]
+  La jerarquización social se basa en la complejidad de la tarea y el control de los medios de producción; las tareas de especialización técnica suelen estar en la cima de la pirámide de prestigio.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "basico"
-  tags: ["geopolitica", "superpotencias"]
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "intermedio"
+  tags: ["poder", "sociedad"]
 
+respuesta: "desigualdad"
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Tras la caída de la URSS, el mundo dejó de ser bipolar para convertirse en un sistema ___."
-
-respuesta: "unipolar"
+enunciado: "La asignación desigual de tareas y el acceso diferenciado a los bienes producidos sentaron las bases de la _______ social."
 
 explicacion: |
-  Con la desaparición de la URSS como superpotencia, el equilibrio de poder se desplazó hacia un modelo donde una sola nación (EE.UU.) dominaba la escena internacional, conocido como unipolaridad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "basico"
-  tags: ["geopolitica", "superpotencias"]
-
-tipo: mc
-opciones_explicitas: ["unipolar", "bipolar", "tripolar", "multipolar"]
-respuesta: "unipolar"
-
-enunciado: "Tras la caída de la URSS, el mundo dejó de ser bipolar para convertirse en un sistema ___."
-
-explicacion: |
-  Con la desaparición de la URSS como superpotencia, el equilibrio de poder se desplazó hacia un modelo donde una sola nación (EE.UU.) dominaba la escena internacional, conocido como unipolaridad.
+  Al no ser todas las tareas equivalentes en términos de acceso a la riqueza, se crearon estratos sociales permanentes.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "basico"
-  tags: ["geopolitica", "guerra_fria"]
+  tema: "division_del_trabajo"
+  nivel: "avanzado"
+  tags: ["recursos", "propiedad"]
 
 variables:
-  datos: [["Un país con un sistema de partido único y economía centralizada bajo la influencia de la URSS", "Bloque del Este"], ["Un país con una economía de mercado y alianzas militares como la OTAN", "Bloque Occidental"]]
-  idx: uno_de([0, 1])
+  caso_idx: uno_de([0, 1])
+  casos: [["tierras", "dueños"], ["herramientas", "maestros"]]
+
+respuesta: casos[caso_idx][1]
+
+tipo: mc
+opciones_explicitas: ["dueños", "maestros", "trabajadores", "esclavos"]
+
+enunciado: "Cuando la división del trabajo se vinculó con la propiedad de los medios de producción (como {casos[caso_idx][0]}), surgieron grupos de ___ que controlaban a los demás."
+
+explicacion: |
+  La combinación de la especialización con la propiedad privada de los recursos (tierra o herramientas) es el motor fundamental de la estratificación de clases.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "basico"
+  tags: ["especializacion", "prehistoria"]
+
+respuesta: "alfarero"
+tipo: mc
+opciones_explicitas: ["cazador", "curtidor", "alfarero", "agricultor"]
+
+enunciado: "En las sociedades con división del trabajo incipiente, un individuo que se dedica exclusivamente a la fabricación de vasijas de arcilla es un: ___"
+
+explicacion: |
+  La especialización ocurre cuando un individuo se dedica a una tarea específica, permitiendo un aumento en la calidad y cantidad de la producción.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "intermedio"
+  tags: ["jerarquia", "especializacion"]
+
+respuesta: "registrador"
+tipo: completar
+respuestas_validas:
+  - "registrador"
+
+enunciado: "Si en una civilización antigua la función principal de un escriba es llevar el control de los granos, su rol especializado es el de ___."
+
+explicacion: |
+  El escriba es un ejemplo de especialización administrativa necesaria en sociedades complejas con excedentes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "intermedio"
+  tags: ["procesos", "especializacion"]
+
+respuesta_orden: ["pastoreo", "hilado", "tejido", "confección"]
+tipo: ordenar
+opciones_explicitas: ["pastoreo", "hilado", "tejido", "confección"]
+
+enunciado: "Ordena los pasos de la cadena de producción textil en una sociedad con división del trabajo técnica:"
+
+explicacion: |
+  La división del trabajo permite que cada etapa de la producción sea realizada por un especialista distinto, optimizando el proceso.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "avanzado"
+  tags: ["excedente", "sociedad"]
+
+respuesta: "religioso"
+tipo: mc
+opciones_explicitas: ["religioso", "militar", "herrero", "comerciante"]
+
+enunciado: "Cuando la agricultura genera excedentes, surge la especialización no productiva. Si el excedente se usa para sostener a un grupo dedicado al ritual, el rol es: ___"
+
+explicacion: |
+  El excedente agrícola es la condición necesaria para que existan profesiones que no producen alimento directamente.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "division_del_trabajo"
+  nivel: "basico"
+  tags: ["oficios", "identificacion"]
+
+respuesta: "agrimensor"
+tipo: completar
+respuestas_validas:
+  - "agrimensor"
+
+enunciado: "Un individuo cuya tarea principal es medir los límites de las tierras para la distribución de impuestos es un ___."
+
+explicacion: |
+  La especialización técnica (como la agrimensura) es fundamental para la gestión de los recursos en estados organizados.
+```
+
+## Sección: metalurgia-cobre-hierro (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "basico"
+  tags: ["tecnologia", "prehistoria"]
+
+respuesta: "metalurgia"
+tipo: completar
+respuestas_validas:
+  - "metalurgia"
+
+enunciado: "El proceso de extracción y transformación de minerales para obtener metales se denomina ___."
+
+explicacion: |
+  La metalurgia permitió la creación de herramientas más duraderas y precisas que las de piedra, marcando el inicio de nuevas eras tecnológicas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "intermedio"
+  tags: ["cobre", "propiedades"]
+
+respuesta: "cobre"
+tipo: mc
+opciones_explicitas: ["cobre", "hierro", "bronce"]
+
+enunciado: "Un material blando y de color rojizo, ampliamente usado antes de alearse con estaño, es el ___."
+
+explicacion: |
+  El cobre fue uno de los primeros metales utilizados debido a su relativa abundancia y su capacidad para ser moldeado en frío o mediante fundición.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "avanzado"
+  tags: ["fundicion", "tecnologia"]
+
+respuesta: 1850
+tipo: completar
+tolerancia_abs: 1
+
+enunciado: "Si un fundidor necesita alcanzar una temperatura de 1000 grados para el cobre y requiere un incremento adicional de 850 grados para alcanzar el punto de fusión de una aleación específica, ¿a qué temperatura total debe llegar el horno?"
+
+pasos:
+  - "Identificar la temperatura inicial: 1000 grados."
+  - "Sumar el incremento necesario: 850 grados."
+  - "Calcular el total: 1000 + 850."
+
+explicacion: |
+  El control de la temperatura fue el desafío técnico más crítico para los antiguos metalúrgicos, requiriendo hornos cada vez más sofisticados.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "intermedio"
+  tags: ["cronologia", "edades"]
+
+respuesta_orden: ["cobre", "bronce", "hierro"]
+tipo: ordenar
+opciones_explicitas: ["cobre", "bronce", "hierro"]
+
+enunciado: "Ordena cronológicamente las etapas de la Edad de los Metales según su uso predominante en la tecnología de transformación:"
+
+explicacion: |
+  La evolución tecnológica fue: primero metales nativos (cobre), luego aleaciones (bronce) y finalmente metales con mayor punto de fusión y dureza (hierro).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "intermedio"
+  tags: ["hierro", "impacto"]
+
+respuesta: "más resistente"
+tipo: mc
+opciones_explicitas: ["más resistente", "más blando", "más caro"]
+
+enunciado: "Debido a que el hierro es ___ que el cobre, su uso permitió un mayor alcance de conquista."
+
+explicacion: |
+  La disponibilidad y dureza del hierro permitieron una producción masiva de herramientas y armas, transformando la agricultura y la guerra.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "basico"
+  tags: ["Edad_del_Cobre", "metalurgia"]
+
+enunciado: "Durante la Edad del Cobre, los seres humanos comenzaron a utilizar este metal para fabricar objetos, siendo el cobre puro un material más ___ que el hierro."
+
+respuestas_validas:
+  - "blando"
+tipo: completar
+
+explicacion: |
+  El cobre es un metal relativamente blando en comparación con el hierro, lo que limitaba su uso para herramientas de corte duraderas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "intermedio"
+  tags: ["Edad_del_Bronce", "aleaciones"]
+
+enunciado: "La Edad del Bronce se caracteriza por el uso de una aleación. ¿Cuál es la composición principal de este material?"
+
+opciones_explicitas: ["Cobre y Hierro", "Cobre y Estaño", "Hierro y Carbono", "Estaño y Plomo"]
+respuesta: "Cobre y Estaño"
+tipo: mc
+
+explicacion: |
+  El bronce es una aleación de cobre y estaño que resultó ser mucho más resistente y dura que el cobre puro.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "basico"
+  tags: ["Edad_del_Bronce", "tecnologia"]
+
+enunciado: "El paso de la Edad del Cobre a la Edad del Bronce supuso una mejora tecnológica debido a la ___ de las herramientas y armas."
+
+respuestas_validas:
+  - "resistencia"
+tipo: completar
+
+explicacion: |
+  Al añadir estaño al cobre, se obtenía bronce, un material con una dureza superior, ideal para la guerra y la agricultura.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "intermedio"
+  tags: ["secuencia_temporal"]
+
+opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
+respuesta_orden: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
+tipo: ordenar
+
+enunciado: "Ordena cronológicamente las edades de la metalurgia según la evolución de la complejidad de los materiales utilizados:"
+
+explicacion: |
+  La secuencia lógica es primero el uso de metales nativos (Cobre), luego aleaciones (Bronce) y finalmente metales más duros (Hierro).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "avanzado"
+  tags: ["propiedades_materiales"]
+
+enunciado: "Si comparamos el cobre puro con el bronce, el cobre es notablemente más ___."
+
+respuesta: "Blando"
+respuestas_validas:
+  - "Blando"
+tipo: completar
+
+explicacion: |
+  El cobre puro es más blando que el bronce, que gana dureza gracias a la aleación con estaño.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "basico"
+  tags: ["metalurgia", "temperatura", "edad_del_hierro"]
+
+enunciado: "A diferencia del bronce, el hierro requiere temperaturas de fundición mucho más ___ que el cobre para ser procesado."
+
+opciones_explicitas: ["bajas", "altas", "moderadas"]
+
+respuesta: "altas"
+tipo: mc
+
+explicacion: |
+  El hierro tiene un punto de fusión mucho más elevado que el cobre y el estaño, lo que exigió un desarrollo tecnológico mayor en los hornos de fundición para alcanzar las temperaturas necesarias.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "basico"
+  tags: ["recursos", "abundancia"]
+
+variables:
+  dato_enunciado: uno_de(["el hierro es más abundante que el bronce", "el hierro, aunque más difícil de fundir, resulta mucho más duro que el bronce una vez trabajado"])
+
+enunciado: "En la Edad del Hierro, la ventaja principal sobre la Edad del Bronce es que {dato_enunciado} y, una vez dominada la técnica, produce herramientas más resistentes."
+
+respuesta: "produce herramientas más resistentes"
+tipo: mc
+opciones_explicitas: ["produce herramientas más resistentes", "produce herramientas más frágiles", "es menos duradero"]
+
+explicacion: |
+  Aunque el hierro es más difícil de fundir, su abundancia en la corteza terrestre permitió una democratización de las herramientas, y su dureza revolucionó la agricultura y la guerra.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "intermedio"
+  tags: ["resistencia", "herramientas"]
+
+enunciado: "Si comparamos la durabilidad de las herramientas de la Edad del Bronce con las de la Edad del Hierro, las de hierro son notablemente más ___."
+
+respuestas_validas:
+  - "resistentes"
+
+respuesta: "resistentes"
+tipo: completar
+
+explicacion: |
+  La capacidad de las herramientas de hierro para mantener el filo y resistir el impacto permitió una expansión de las actividades productivas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "intermedio"
+  tags: ["orden", "tecnologia"]
+
+enunciado: "Ordena los procesos tecnológicos según su complejidad térmica creciente (de menor a mayor temperatura de fundición):"
+
+opciones_explicitas: ["Cobre", "Bronce", "Hierro"]
+
+respuesta_orden: ["Cobre", "Bronce", "Hierro"]
+tipo: ordenar
+
+explicacion: |
+  El cobre tiene el punto de fusión más bajo, seguido por la aleación de bronce, y finalmente el hierro, que requiere los hornos más avanzados.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "avanzado"
+  tags: ["economía", "recursos"]
+
+enunciado: "La transición a la Edad del Hierro se vio favorecida porque el hierro es más abundante que los componentes del bronce."
+
+respuesta: "más abundante"
+tipo: mc
+opciones_explicitas: ["más abundante", "menos abundante", "igual de escaso"]
+
+explicacion: |
+  La disponibilidad casi universal de los minerales de hierro permitió que las sociedades no dependieran tanto de las rutas comerciales de estaño, que eran muy limitadas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "basico"
+  tags: ["prehistoria", "metales"]
+
+respuesta: "Cobre"
+tipo: completar
+respuestas_validas:
+  - "Cobre"
+
+enunciado: "La primera etapa de la Edad de los Metales, caracterizada por el uso de metales nativos y la posterior fundición de aleaciones simples, es la Edad del ___."
+
+explicacion: |
+  La Edad del Cobre (Calcolítico) precede a la Edad del Bronce.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "intermedio"
+  tags: ["metalurgia", "aleaciones"]
+
+opciones_explicitas: ["Estaño", "Zinc", "Níquel", "Plomo"]
+respuesta: "Estaño"
+tipo: mc
+
+enunciado: "El bronce es una aleación metálica compuesta principalmente por cobre y un segundo elemento clave, que es el ___."
+
+explicacion: |
+  El bronce se obtiene al fundir cobre con estaño, lo que permite obtener un metal más duro y resistente.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "basico"
+  tags: ["cronologia", "edades"]
+
+opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
+respuesta_orden: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
+tipo: ordenar
+
+enunciado: "Ordena cronológicamente las edades de los metales, desde la más antigua hasta la más reciente."
+
+explicacion: |
+  El orden correcto es Cobre (Calcolítico), Bronce (Aleación) e Hierro (Metal más duro y abundante).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "intermedio"
+  tags: ["tecnologia", "hierro"]
+
+respuesta: "Edad del Hierro"
+tipo: mc
+opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
+
+enunciado: "La etapa que se caracteriza por la aparición de herramientas y armas mucho más resistentes y duraderas debido a la alta temperatura necesaria para su fundición es la ___."
+
+explicacion: |
+  El hierro requiere temperaturas de fundición mucho más elevadas que el cobre o el bronce, marcando un salto tecnológico importante.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "basico"
+  tags: ["metalurgia"]
+
+respuesta: "Bronce"
+tipo: mc
+opciones_explicitas: ["Cobre puro", "Bronce", "Acero"]
+
+enunciado: "Si mezclamos (aleamos) cobre y estaño, ¿qué material obtenemos, el que da nombre a la edad tecnológica posterior a la del cobre?"
+
+explicacion: |
+  La aleación de cobre y estaño define la Edad del Bronce.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "basico"
+  tags: ["prehistoria", "metalurgia"]
+
+variables:
+  datos: [["El descubrimiento de la fundición de cobre permitió la creación de las primeras herramientas duraderas.", "Edad del Cobre"], ["El uso de aleaciones de cobre con estaño dio origen a objetos más resistentes.", "Edad del Bronce"], ["La metalurgia de este metal permitió la creación de armas y herramientas de gran dureza.", "Edad del Hierro"]]
+  idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["Bloque del Este", "Bloque Occidental", "Países No Alineados"]
+opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
 
-enunciado: "En el contexto de la Guerra Fría, se describe a un país con las siguientes características: {datos[idx][0]}. ¿A qué bloque pertenecía?"
+enunciado: "Un arqueólogo encuentra una pieza cuya característica principal es: {datos[idx][0]}"
 
 explicacion: |
-  La división del mundo en dos grandes bloques ideológicos y económicos definió la Guerra Fría: el Bloque del Este (comunista) y el Bloque Occidental (capitalista).
+  La respuesta correcta es {datos[idx][1]}. La transición entre edades se define por el metal predominante en la tecnología de la época.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
+  tema: "metalurgia_cobre_hierro"
   nivel: "intermedio"
-  tags: ["descolonizacion", "no_alineados"]
+  tags: ["transicion", "tecnologia"]
 
 variables:
-  datos: [["India", "Jawaharlal Nehru"], ["Egipto", "Gamal Abdel Nasser"], ["Yugoslavia", "Josip Broz Tito"]]
+  datos: [["Cobre", "Edad del Cobre"], ["Bronce", "Edad del Bronce"], ["Hierro", "Edad del Hierro"]]
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][1]
 tipo: completar
 respuestas_validas:
-  - "Jawaharlal Nehru"
-  - "Gamal Abdel Nasser"
-  - "Josip Broz Tito"
+  - "Edad del Cobre"
+  - "Edad del Bronce"
+  - "Edad del Hierro"
 
-enunciado: "Durante la descolonización, algunos líderes buscaron la neutralidad frente a las superpotencias. El líder que representó a {datos[idx][0]} en el Movimiento de Países No Alineados fue ___."
+enunciado: "Si un yacimiento presenta una abundancia de herramientas hechas de {datos[idx][0]}, estamos ante la ___."
 
 explicacion: |
-  Líderes como Nehru (India), Nasser (Egipto) y Tito (Yugoslavia) fueron piezas clave para establecer una 'tercera vía' que no se alineara ni con EE.UU. ni con la URSS.
+  El uso de {datos[idx][0]} es el indicador clave de la {datos[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "avanzado"
-  tags: ["crisis", "misiles"]
-
-respuesta: "1962"
-tipo: mc
-opciones_explicitas: ["1953", "1962", "1961", "1979"]
-
-enunciado: "La crisis de los misiles en Cuba llevó al mundo al borde de una guerra nuclear en el año ___."
-
-explicacion: |
-  La Crisis de los Misiles de Cuba (octubre de 1962) representó el momento de mayor tensión nuclear de la Guerra Fría. (No confundir con la Crisis de Berlín de 1961, que no fue una 'crisis de misiles' sino el episodio de la construcción del Muro de Berlín.)
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
-  nivel: "intermedio"
-  tags: ["independencia", "africa"]
+  tema: "metalurgia_cobre_hierro"
+  nivel: "basico"
+  tags: ["cronologia", "edades"]
 
 variables:
-  eventos: [["La independencia de Argelia de Francia", "Guerra de Argelia"], ["La independencia de Ghana del Reino Unido", "Movimiento independentista liderado por Nkrumah"]]
-  idx: uno_de([0, 1])
-  evento_actual: eventos[idx]
+  orden_correcto: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
 
-respuesta_orden: [evento_actual[1], evento_actual[0]]
+respuesta_orden: orden_correcto
 tipo: ordenar
-opciones_explicitas: [evento_actual[1], evento_actual[0]]
+opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
 
-enunciado: "Identifica el orden cronológico de los procesos de descolonización mencionados: {evento_actual[0]} y {evento_actual[1]}."
+enunciado: "Ordena cronológicamente las edades de los metales, desde la más antigua a la más reciente:"
 
 explicacion: |
-  La descolonización fue un proceso heterogéneo: en África subsahariana fue mayormente política (Ghana, 1957) y en el norte de África fue frecuentemente violenta (Argelia, 1954-1962).
+  El orden correcto es: {orden_correcto}.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "guerra_fria_descolonizacion"
+  tema: "metalurgia_cobre_hierro"
   nivel: "avanzado"
-  tags: ["doctrina", "contencion"]
+  tags: ["propiedades", "quimica_antigua"]
 
 variables:
-  datos: [["Contención del comunismo", "Truman"], ["Contención del comunismo", "Eisenhower"]]
-  idx: uno_de([0, 1])
+  datos: [["La baja temperatura de fusión del cobre facilitó su primer uso.", "Cobre"], ["La necesidad de alear estaño con cobre para obtener mayor dureza.", "Bronce"], ["La abundancia de este metal y su gran dureza tras la fundición.", "Hierro"]]
+  idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Cobre", "Bronce", "Hierro"]
+
+enunciado: "Identifica el metal asociado al siguiente proceso: {datos[idx][0]}"
+
+explicacion: |
+  El proceso descrito corresponde al uso de {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "metalurgia_cobre_hierro"
+  nivel: "intermedio"
+  tags: ["impacto_social", "hierro"]
+
+variables:
+  datos: [["La democratización de las herramientas debido a la abundancia del metal.", "Edad del Hierro"], ["El auge del comercio de estaño para la aleación.", "Edad del Bronce"], ["El inicio de la metalurgia con metales nativos.", "Edad del Cobre"]]
+  idx: uno_de([0, 1, 2])
+
+respuestas_validas:
+  - datos[idx][1]
+respuesta: datos[idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "El fenómeno de {datos[idx][0]} es característico de la ___."
+
+explicacion: |
+  La descripción corresponde a la {datos[idx][1]}.
+```
+
+## Sección: propiedad-jerarquia-estado (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "basico"
+  tags: ["sedentarismo", "excedente", "propiedad_privada"]
+
+respuesta: "excedente"
+tipo: "completar"
+respuestas_validas:
+  - "excedente"
+
+enunciado: "El paso de la vida nómada a la sedentaria permitió la acumulación de un ___ agrícola, lo cual fue el motor para el surgimiento de la propiedad privada sobre la tierra."
+
+explicacion: |
+  La capacidad de producir más alimento del que se consume inmediatamente (excedente) permitió que algunos individuos acumularan riqueza, diferenciándose de otros y dando origen a la propiedad privada.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "intermedio"
+  tags: ["revolucion_neolitica", "acumulacion"]
+
+respuesta: "propiedad privada"
+tipo: "mc"
+opciones_explicitas: ["propiedad colectiva", "propiedad privada"]
+
+enunciado: "En un sistema de asentamientos fijos con excedentes, la organización social tiende a transicionar de una propiedad colectiva (típica de comunidades nómadas) hacia una ___."
+
+explicacion: |
+  El control sobre el excedente y la tierra delimita territorios y derechos de uso, consolidando la propiedad privada frente al modelo de uso común de las tribus nómadas.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "avanzado"
+  tags: ["estado", "burocracia", "tributo"]
+
+respuesta: "Estado"
+tipo: "completar"
+respuestas_validas:
+  - "Estado"
+
+enunciado: "Para gestionar la propiedad de la tierra y asegurar la recaudación de tributos sobre el excedente, surge una estructura de poder centralizada denominada ___."
+
+explicacion: |
+  El Estado surge como el ente encargado de codificar las leyes de propiedad y administrar la fuerza para garantizar la recaudación y la defensa de los bienes acumulados.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "intermedio"
+  tags: ["secuencia", "desarrollo_social"]
+
+respuesta_orden: ["Sedentarismo", "Excedente", "Propiedad Privada", "Estratificación"]
+tipo: "ordenar"
+opciones_explicitas: ["Sedentarismo", "Excedente", "Propiedad Privada", "Estratificación"]
+
+enunciado: "Ordena cronológicamente los procesos que permitieron el surgimiento de las sociedades de clases:"
+
+pasos:
+  - "Establecimiento de asentamientos permanentes."
+  - "Producción de alimento más allá del consumo inmediato."
+  - "Delimitación de derechos de posesión sobre la tierra y bienes."
+  - "División de la sociedad en grupos con distintos niveles de riqueza."
+
+explicacion: |
+  La secuencia lógica parte de la estabilidad del asentamiento, que genera excedente, lo que permite la propiedad privada y, finalmente, la división social en clases (estratificación).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "avanzado"
+  tags: ["derecho", "propiedad"]
+
+respuesta: "delito"
+tipo: "mc"
+opciones_explicitas: ["acto social", "delito"]
+
+enunciado: "En una sociedad con propiedad privada consolidada, el acto de apropiarse de la tierra de otro sin permiso es considerado un ___ bajo el código del Estado."
+
+explicacion: |
+  La creación de leyes penales es fundamental para proteger la propiedad privada, transformando la apropiación de bienes ajenos en un delito contra el orden establecido.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "basico"
+  tags: ["excedente", "jerarquia", "sociedad"]
+
+respuesta: "excedente"
+tipo: "completar"
+respuestas_validas:
+  - "excedente"
+
+enunciado: "La transición de economías de subsistencia a sociedades complejas fue impulsada por la acumulación de ___ , lo que permitió que ciertos grupos controlaran recursos para sostener a otros."
+
+explicacion: |
+  Cuando una sociedad produce más de lo que consume inmediatamente (excedente), ese sobrante puede ser almacenado y controlado, permitiendo la aparición de élites que gestionan dicho recurso.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "intermedio"
+  tags: ["excedente", "poder", "clases_sociales"]
+
+opciones_explicitas: ["el control de la tierra", "el control de la fuerza", "el control de la religión", "el control de la tecnología"]
+
+respuesta: "el control de la tierra"
+tipo: "mc"
+
+enunciado: "En las primeras sociedades con excedente agrícola, la jerarquía social se consolidó principalmente a través de ___."
+
+explicacion: |
+  La propiedad de la tierra (medio de producción) permitió a unas familias acumular riqueza, mientras que la capacidad de ejercer fuerza o autoridad religiosa legitimaba ese control sobre el resto de la población.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "avanzado"
+  tags: ["proceso", "estratificacion", "jerarquia"]
+
+tipo: ordenar
+opciones_explicitas: ["Producción de excedente", "Acumulación de propiedad", "Estratificación social", "Formación del Estado"]
+respuesta_orden: ["Producción de excedente", "Acumulación de propiedad", "Estratificación social", "Formación del Estado"]
+
+enunciado: "Ordene cronológicamente los procesos que explican la aparición de las jerarquías estatales:"
+
+explicacion: |
+  Primero se genera el excedente, luego ese excedente se convierte en propiedad privada/acumulada, lo que crea divisiones de clase (estratificación) y finalmente requiere un aparato institucional (Estado) para regular la propiedad y la fuerza.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "basico"
+  tags: ["propiedad", "desigualdad"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  datos: [["Familia A posee tierras y herramientas, mientras que Familia B posee sólo su fuerza de trabajo", "dominante"], ["Familia C posee excedentes almacenados, mientras que Familia D posee tierras comunales", "dominante"]]
+
+enunciado: "Considerando que {datos[caso_idx][0]}, la relación social resultante para la familia que posee más recursos es de carácter ___."
+
+respuesta: datos[caso_idx][1]
+tipo: "mc"
+
+opciones_explicitas: ["dominante", "subordinada"]
+
+explicacion: |
+  La posesión de los medios de producción (tierra, herramientas, excedente) establece una relación asimétrica de poder entre quienes poseen y quienes solo pueden ofrecer su trabajo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "intermedio"
+  tags: ["estado", "legitimacion", "jerarquia"]
+
+respuesta: "protección"
+tipo: "completar"
+respuestas_validas:
+  - "protección"
+  - "legitimación"
+
+enunciado: "El Estado temprano surge para garantizar la ___ de la propiedad acumulada y la gestión del excedente mediante la institucionalización de la fuerza."
+
+explicacion: |
+  El Estado actúa como el garante de las reglas de propiedad, asegurando que el excedente acumulado por las élites sea respetado y gestionado de manera centralizada.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "basico"
+  tags: ["sociologia", "estado", "organizacion"]
+
+respuesta: "recaudar excedente"
 tipo: completar
 respuestas_validas:
-  - "Truman"
-  - "Eisenhower"
+  - "recaudar excedente"
 
-enunciado: "La política estadounidense de frenar la expansión del comunismo durante la Guerra Fría se conoció como la doctrina de ___."
-
-explicacion: |
-  La Doctrina Truman (1947) estableció el principio de apoyo a los pueblos libres que se resistían al intento de sometimiento por minorías armadas o presiones externas.
-```
-
-## Sección: guerras-civiles-unitarios-federales (25 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "basico"
-  tags: ["politica", "argentina"]
-
-respuesta: "Unitarios"
-tipo: mc
-opciones_explicitas: ["Unitarios", "Federales", "Anarquistas", "Monárquicos"]
-
-enunciado: "El grupo político que defendía un gobierno centralizado con sede en Buenos Aires y la centralización del poder era el de los ___."
+enunciado: "Uno de los propósitos fundamentales de la formación de las estructuras estatales fue la capacidad de ___ para financiar la administración y la burocracia."
 
 explicacion: |
-  Los Unitarios buscaban un Estado centralizado donde las provincias perdieran su autonomía en favor de un poder central fuerte, generalmente controlado por la élite porteña.
+  El surgimiento de sociedades complejas permitió la acumulación de excedentes agrícolas, lo que permitió la creación de una clase administrativa y militar que no producía sus propios alimentos.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "basico"
-  tags: ["federalismo", "provincias"]
-
-respuesta: "Federales"
-tipo: mc
-opciones_explicitas: ["Unitarios", "Federales", "Centralistas", "Conservadores"]
-
-enunciado: "Aquellos que luchaban por la autonomía de las provincias y la distribución de la renta aduanera entre todas las jurisdicciones eran los ___."
-
-explicacion: |
-  El federalismo proponía que cada provincia mantuviera su soberanía y autonomía para autogobernarse, oponiéndose al control absoluto de Buenos Aires.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras_civiles_unitarios_federales"
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
   nivel: "intermedio"
-  tags: ["economia", "aduana"]
+  tags: ["funciones", "justicia", "defensa"]
+
+variables:
+  escenario_idx: uno_de([0, 1, 2])
+  escenarios: [["gestión de conflictos entre ciudadanos", "administrar justicia"], ["protección de las fronteras ante invasores", "organizar defensa"], ["construcción de canales y caminos", "obras públicas"]]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["administrar justicia", "organizar defensa", "obras públicas", "todas las anteriores"]
+
+enunciado: "Si el Estado se enfoca en '{escenarios[escenario_idx][0]}', está ejerciendo la función de: ___"
+
+explicacion: |
+  El Estado centraliza funciones que las comunidades pequeñas resolvían de forma tribal para permitir la convivencia en sociedades de gran escala.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "intermedio"
+  tags: ["complejidad", "sociedad"]
+
+respuesta: "complejas"
+tipo: completar
+respuestas_validas:
+  - "complejas"
+
+enunciado: "El Estado surge como una respuesta institucional a la transición de sociedades tribales hacia sociedades más ___."
+
+explicacion: |
+  A medida que la población crece y la división del trabajo se especializa, la coordinación requiere una autoridad centralizada.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "avanzado"
+  tags: ["jerarquia", "orden"]
+
+respuesta_orden: ["recaudación de tributos", "imposición de normas", "mantenimiento del orden"]
+tipo: ordenar
+opciones_explicitas: ["imposición de normas", "recaudación de tributos", "mantenimiento del orden"]
+
+enunciado: "Ordene los procesos que consolidan la autoridad de un Estado centralizado, desde la base económica hasta la cohesión social:"
+
+explicacion: |
+  Primero se extrae el excedente (tributos), luego se establecen reglas (normas) y finalmente se asegura la estabilidad (orden).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "basico"
+  tags: ["obras", "infraestructura"]
+
+respuesta: "obras públicas"
+tipo: mc
+opciones_explicitas: ["recaudación de tributos", "obras públicas", "defensa militar", "administración de justicia"]
+
+enunciado: "La organización de grandes proyectos como sistemas de riego o calzadas es una función característica de la administración de: ___"
+
+explicacion: |
+  Las obras públicas requieren una coordinación de mano de obra masiva y recursos que solo una estructura estatal puede movilizar.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "basico"
+  tags: ["agricultura", "excedente"]
+
+enunciado: "El paso fundamental que permitió la acumulación de riqueza y el fin del nomadismo fue la generación de un ___."
+
+respuestas_validas:
+  - "excedente agrícola"
+tipo: completar
+
+explicacion: |
+  La capacidad de producir más alimento del que se consume inmediatamente (excedente) permitió que algunos individuos dejaran de producir comida para dedicarse a otras tareas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "intermedio"
+  tags: ["propiedad_privada", "desigualdad"]
+
+enunciado: "Según el proceso de transición histórica, la aparición de la propiedad privada es la consecuencia directa de la acumulación de excedentes, que permitió que la tierra y los bienes pasaran de ser de uso común a ser de uso individual."
+
+opciones_explicitas: ["propiedad común", "propiedad privada", "propiedad estatal"]
+respuesta: "propiedad privada"
+tipo: mc
+
+explicacion: |
+  Al existir un exceso de producción, surge la necesidad de delimitar quién es dueño de qué, transformando el acceso a los recursos en un derecho de propiedad privada.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "intermedio"
+  tags: ["jerarquia", "clases_sociales"]
+
+enunciado: "Cuando la propiedad privada genera disparidades en la riqueza, surge una estructura de ___ para organizar a la población según su estatus y funciones."
+
+respuestas_validas:
+  - "jerarquía social"
+tipo: completar
+
+explicacion: |
+  La división del trabajo y la diferencia de riqueza crean estratos sociales: quienes controlan el excedente y quienes lo producen.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "intermedio"
+  tags: ["secuencia", "procesos"]
+
+enunciado: "Ordena la secuencia lógica de la transición hacia las sociedades complejas:"
+
+opciones_explicitas: ["Excedente agrícola", "Propiedad privada", "Jerarquía social", "Estado organizado"]
+respuesta_orden: ["Excedente agrícola", "Propiedad privada", "Jerarquía social", "Estado organizado"]
+tipo: ordenar
+
+explicacion: |
+  La secuencia lógica parte de la producción (excedente), que permite la apropiación (propiedad), que genera desigualdad (jerarquía) y finalmente requiere una autoridad que regule todo (Estado).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "avanzado"
+  tags: ["estado", "poder"]
+
+enunciado: "En el proceso histórico estudiado, la fase final de la organización social compleja es la aparición del Estado organizado, que surge para proteger la propiedad y administrar la fuerza."
+
+opciones_explicitas: ["comunidad tribal", "Estado organizado", "anarquía"]
+respuesta: "Estado organizado"
+tipo: mc
+
+explicacion: |
+  El Estado surge como la institución que institucionaliza la jerarquía, establece leyes para la propiedad y administra el excedente y la defensa.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "intermedio"
+  tags: ["sociologia", "estado", "propiedad"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["Buenos Aires", "centralizar la recaudación de la aduana para el gobierno central"], ["Las provincias", "repartir los ingresos de la aduana de forma equitativa"]]
+  datos: [["La consolidación de la propiedad privada", "la necesidad de un aparato estatal para protegerla"], ["El fin de las estructuras comunales", "la emergencia de la jerarquía de clases"]]
+
+enunciado: "En el proceso de transición hacia la sociedad de clases, {datos[escenario_idx][0]} fue el motor de {datos[escenario_idx][1]}."
+
+respuesta: datos[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["la necesidad de un aparato estatal para protegerla", "la emergencia de la jerarquía de clases", "la desaparición de la división del trabajo", "el retorno al estado de naturaleza"]
+
+explicacion: |
+  La propiedad privada requiere de una fuerza coercitiva (el Estado) que garantice los límites de la posesión y sancione su transgresión.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "basico"
+  tags: ["jerarquia", "clases", "poder"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["La acumulación de excedentes en manos de una élite", "la estratificación social"], ["El control de los medios de producción", "la consolidación de la jerarquía"]]
+
+enunciado: "Históricamente, {datos[escenario_idx][0]} ha conducido directamente a {datos[escenario_idx][1]}."
+
+respuesta: datos[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["la estratificación social", "la consolidación de la jerarquía", "la igualdad de derechos", "la disolución del poder central"]
+
+explicacion: |
+  La desigualdad en la distribución de recursos permite que ciertos grupos ejerzan un poder de mando sobre otros, creando jerarquías.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
+  nivel: "intermedio"
+  tags: ["estado", "soberania", "orden"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["El monopolio de la violencia legítima", "el control del territorio"], ["La delimitación de fronteras claras", "la soberanía territorial"]]
+
+enunciado: "Según la teoría clásica, {datos[escenario_idx][0]} es la característica que define {datos[escenario_idx][1]}."
 
 respuesta: datos[escenario_idx][1]
 tipo: completar
 respuestas_validas:
-  - "centralizar la recaudación de la aduana para el gobierno central"
-  - "repartir los ingresos de la aduana de forma equitativa"
-
-enunciado: "En el conflicto por la renta aduanera, el principal punto de discordia era que las provincias exigían ___."
+  - "el control del territorio"
+  - "la soberanía territorial"
 
 explicacion: |
-  La disputa económica era clave: Buenos Aires quería controlar la aduana (recaudación de impuestos de importación/exportación), mientras las provincias querían una distribución justa de esos fondos.
+  El Estado se define por su capacidad de ejercer autoridad sobre un territorio y una población mediante el uso de la fuerza institucionalizada.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "intermedio"
-  tags: ["orden", "conceptos"]
-
-respuesta_orden: ["Centralismo", "Autonomía provincial", "Guerras civiles"]
-tipo: ordenar
-opciones_explicitas: ["Centralismo", "Autonomía provincial", "Guerras civiles"]
-
-enunciado: "Ordene los conceptos desde la causa política hasta la consecuencia histórica resultante del conflicto:"
-
-pasos:
-  - "Causa: El deseo de control central (Unitarios)"
-  - "Contrapeso: El deseo de soberanía local (Federales)"
-  - "Resultado: El conflicto armado prolongado"
-
-explicacion: |
-  La tensión entre el centralismo unitario y la autonomía federal derivó en un periodo de constantes guerras civiles en el territorio argentino.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras_civiles_unitarios_federales"
+  materia: "historia_profunda"
+  tema: "propiedad_jerarquia_estado"
   nivel: "avanzado"
-  tags: ["economia", "causas"]
-
-variables:
-  valor_base: 1820
-  inflacion_estimada: 1.5
-
-respuesta: redondear(valor_base * inflacion_estimada, 0)
-tipo: completar
-tolerancia_abs: 1
-
-enunciado: "Si un conflicto de la era de las guerras civiles incrementara los costos de guerra en un factor de {inflacion_estimada} sobre una base de ${valor_base} pesos, ¿cuál sería el nuevo costo total?"
-
-pasos:
-  - "Multiplicar el valor base por el factor de incremento."
-
-explicacion: |
-  El costo de mantener ejércitos permanentes durante las guerras civiles era altísimo para las arcas de las provincias y de la ciudad de Buenos Aires.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "basico"
-  tags: ["politica", "siglo_XIX"]
-
-tipo: completar
-enunciado: "Durante las guerras civiles argentinas del siglo XIX, las dos facciones políticas principales que se enfrentaron por el modelo de organización del Estado fueron los ___ y los ___."
-respuesta: "Unitarios, Federales"
-explicacion: |
-  Los Unitarios buscaban un gobierno centralizado en Buenos Aires, mientras que los Federales defendían la autonomía de las provincias.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "intermedio"
-  tags: ["modelo_estatal", "centralismo"]
-
-variables:
-  escenario: uno_de([["centralismo", "Buenos Aires"], ["federalismo", "Provincias"]])
-
-tipo: completar
-respuestas_validas:
-  - "centralismo"
-  - "federalismo"
-respuesta: escenario[0]
-
-enunciado: "Si un grupo político propone que todas las leyes y decisiones administrativas deben emanar exclusivamente de un gobierno central en la capital, está defendiendo el ___."
-
-explicacion: |
-  El centralismo es la característica principal del pensamiento unitario, que buscaba la concentración del poder en un solo núcleo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "avanzado"
-  tags: ["economia", "aduana"]
-
-tipo: mc
-opciones_explicitas: ["la libre navegación de los ríos", "la nacionalización de la aduana", "la eliminación de los impuestos", "la unión aduanera"]
-respuesta: "la nacionalización de la aduana"
-
-enunciado: "Uno de los principales focos de conflicto económico entre las provincias y Buenos Aires fue ___."
-
-explicacion: |
-  Las provincias federales exigían la nacionalización de los ingresos de la aduana de Buenos Aires y la libre navegación de los ríos interiores, mientras que Buenos Aires quería retener la renta aduanera.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "intermedio"
-  tags: ["proceso_historico"]
-
-tipo: ordenar
-opciones_explicitas: ["Caos de las guerras civiles", "Lucha por la organización constitucional", "Consolidación del Estado Nacional"]
-
-enunciado: "Ordene cronológicamente los procesos que marcaron la transición desde la desintegración post-independencia hasta la formación del Estado moderno:"
-
-explicacion: |
-  Primero hubo un largo periodo de guerras civiles, luego el debate constitucional de 1853 y finalmente la consolidación del Estado bajo la presidencia de Mitre, Sarmiento y Avellaneda.
-respuesta_orden: ["Caos de las guerras civiles", "Lucha por la organización constitucional", "Consolidación del Estado Nacional"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "intermedio"
-  tags: ["soberania", "provincias"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "El federalismo buscaba que cada provincia mantuviera su propia autonomía y autoridades locales, sin estar subordinada totalmente al poder central."
-
-explicacion: |
-  Verdadero. El federalismo se basaba en el respeto a la soberanía de las entidades provinciales preexistentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "intermedio"
-  tags: ["rosas", "federales", "confederacion"]
-
-respuesta: "gobernador de Buenos Aires"
-tipo: mc
-opciones_explicitas: ["gobernador de Buenos Aires", "presidente de la Confederación", "dictador de la nación"]
-
-enunciado: "Durante el período de la Confederación Argentina, ¿qué cargo ocupaba formalmente Juan Manuel de Rosas, aunque en la práctica ejercía una hegemonía sobre el resto de las provincias?"
-
-explicacion: |
-  Aunque Rosas era el líder de facto de la Confederación, formalmente su cargo era el de Gobernador de la Provincia de Buenos Aires, cargo desde el cual ejercía una hegemonía política y económica sobre las demás provincias.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "basico"
-  tags: ["relaciones", "federales", "unitarios"]
-
-respuesta: "unitarios"
-tipo: completar
-respuestas_validas:
-  - "unitarios"
-
-enunciado: "En el contexto de las guerras civiles, el proyecto político de Rosas se alineaba con el bando ___ , enfrentándose a las aspiraciones de centralismo de los opositores."
-
-explicacion: |
-  Rosas era el máximo exponente del federalismo, lo que lo colocaba en constante conflicto con los unitarios, quienes buscaban un gobierno centralizado en Buenos Aires.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "intermedio"
-  tags: ["economia", "aduana", "rosas"]
-
-respuesta: "Aduana"
-tipo: mc
-opciones_explicitas: ["Aduana", "Aduana de Montevideo", "Impuesto de libre navegación"]
-
-enunciado: "El control de la ___ de Buenos Aires fue la principal herramienta de Rosas para asegurar la supremacía de su provincia sobre la Confederación."
-
-explicacion: |
-  La recaudación de los derechos de importación y exportación de la Aduana de Buenos Aires permitía a la provincia controlar la economía nacional y limitar la autonomía de las provincias del interior.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "avanzado"
-  tags: ["orden", "etapas", "rosas"]
-
-variables:
-  etapa_idx: uno_de([0,1,2])
-
-respuesta_orden: ["Surgimiento del caudillismo", "Llegada al poder con facultades extraordinarias", "Consolidación del orden rosista"]
-tipo: ordenar
-opciones_explicitas: ["Surgimiento del caudillismo", "Llegada al poder con facultades extraordinarias", "Consolidación del orden rosista"]
-
-enunciado: "Ordene cronológicamente los procesos que permitieron la consolidación del poder de Rosas en la Confederación:"
-
-pasos:
-  - "El ascenso de los caudillos locales en el interior."
-  - "La concesión de facultades extraordinarias por parte de la legislatura."
-  - "El establecimiento de un orden basado en la sumisión de las provincias."
-
-explicacion: |
-  El proceso comenzó con el ascenso de caudillos, seguido por la necesidad de orden que llevó a la delegación de poderes en Rosas, culminando en un régimen de hegemonía federal.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "basico"
-  tags: ["simbolos", "color", "rosas"]
-
-respuesta: "rojo"
-tipo: mc
-opciones_explicitas: ["rojo", "azul", "blanco"]
-
-enunciado: "Para demostrar la lealtad al régimen de Rosas, se utilizaba el color ___ en la vestimenta y en las insignias."
-
-explicacion: |
-  El uso de la 'divisa punzó' (una cinta roja) era obligatorio para demostrar la adhesión al bando federal de Rosas y marcar la distinción frente a los unitarios.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "basico"
-  tags: ["caseros", "urquiza", "rosas"]
-
-respuesta: "Justo José de Urquiza"
-tipo: mc
-opciones_explicitas: ["Juan Manuel de Rosas", "Justo José de Urquiza", "Facundo Quiroga", "Manuel Dorrego"]
-
-enunciado: "En la batalla de Caseros, ocurrida en 1852, el líder del Ejército Grande que derrotó a Juan Manuel de Rosas fue ___."
-
-explicacion: |
-  La victoria de Urquiza en Caseros puso fin al régimen de Rosas y permitió el inicio del proceso de organización constitucional de la Argentina.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "intermedio"
-  tags: ["organización_nacional", "constitucion"]
-
-respuesta: "Constitución Nacional"
-tipo: completar
-respuestas_validas:
-  - "Constitución Nacional"
-  - "Constitución de 1853"
-
-enunciado: "La derrota de Rosas en Caseros permitió la convocatoria al Congreso Constituyente de 1853, que dio como resultado la primera ___."
-
-explicacion: |
-  Tras la caída de la hegemonía rosista, se abrió un periodo de institucionalización que culminó con la sanción de la Constitución de 1853.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "basico"
-  tags: ["urquiza", "ejercito_grande"]
-
-respuesta: "Ejército Grande"
-tipo: mc
-opciones_explicitas: ["Ejército de Granaderos", "Ejército Grande", "Ejército de Orientales", "Ejército de Montoneras"]
-
-enunciado: "El contingente militar liderado por Urquiza para enfrentar a Rosas fue conocido como el ___."
-
-explicacion: |
-  El Ejército Grande estaba compuesto por fuerzas de diversas provincias y también por apoyo de fuerzas internacionales.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "intermedio"
-  tags: ["rosas", "caída"]
-
-respuesta: "exilio"
-tipo: completar
-respuestas_validas:
-  - "exilio"
-
-enunciado: "Tras la derrota en la batalla de Caseros, Juan Manuel de Rosas se vio obligado a partir hacia el ___."
-
-explicacion: |
-  Rosas se retiró hacia Inglaterra, donde pasó el resto de sus días.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "avanzado"
-  tags: ["cronologia", "procesos"]
-
-opciones_explicitas: ["Tratado de San Justo", "Batalla de Caseros", "Sanción de la Constitución Nacional"]
-respuesta_orden: ["Tratado de San Justo", "Batalla de Caseros", "Sanción de la Constitución Nacional"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente los siguientes hitos relacionados con el fin del rosismo y la organización nacional:"
-
-pasos:
-  - "1. El pacto entre Urquiza y los colorados de Buenos Aires."
-  - "2. El enfrentamiento militar decisivo."
-  - "3. La consolidación institucional del país."
-
-explicacion: |
-  Primero se pactó la alianza (Tratado de San Justo), luego se combatió (Caseros) y finalmente se organizó el Estado (Constitución).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "basico"
-  tags: ["politica", "argentina"]
-
-variables:
-  escenario: uno_de([["Un grupo de caudillos busca que cada provincia mantenga su propia autonomía y leyes locales.", "federal"], ["Un gobierno centralizado busca concentrar todo el poder político y económico en Buenos Aires.", "unitario"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["federal", "unitario"]
-
-enunciado: "En el contexto de las guerras civiles argentinas, si se propone que {escenario[0]}, ¿qué postura se está defendiendo?"
-
-explicacion: |
-  El Federalismo defendía la autonomía de las provincias, mientras que el Unitarismo buscaba un mando centralizado en Buenos Aires.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "intermedio"
-  tags: ["economia", "aduana"]
-
-variables:
-  caso: uno_de([["La libre navegación de los ríos interiores es una demanda clave de las provincias.", "federal"], ["El control exclusivo de la renta aduanera por parte del gobierno central es la prioridad.", "unitario"]])
-
-respuesta: caso[1]
-tipo: mc
-opciones_explicitas: ["federal", "unitario"]
-
-enunciado: "Analizando la estructura económica de la época, si el objetivo es {caso[0]}, ¿qué modelo se está representando?"
-
-explicacion: |
-  Los federales necesitaban la libre navegación para comerciar por sus propios ríos; los unitarios buscaban centralizar las rentas de la aduana.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "avanzado"
-  tags: ["constitucion", "poder"]
-
-variables:
-  modelo: uno_de([["Un gobierno central con un poder ejecutivo fuerte que designa a los gobernadores.", "unitario"], ["Un sistema donde las provincias eligen a sus propios gobernadores de forma autónoma.", "federal"]])
-
-tipo: completar
-respuestas_validas:
-  - "unitario"
-  - "federal"
-
-enunciado: "Si el diseño institucional busca que {modelo[0]}, el modelo de gobierno es de tipo ___."
-
-explicacion: |
-  La designación de autoridades provinciales por parte del centro es la característica principal del centralismo unitario.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "intermedio"
-  tags: ["causas"]
-
-variables:
-  conflicto: uno_de([["La disputa por la distribución de los ingresos de la aduana de Buenos Aires.", "federal"], ["La lucha por la hegemonía política entre la élite porteña y los caudillos.", "unitario"]])
-
-respuesta: conflicto[1]
-tipo: mc
-opciones_explicitas: ["federal", "unitario"]
-
-enunciado: "Si el núcleo del conflicto es {conflicto[0]}, la demanda principal es de carácter ___."
-
-explicacion: |
-  La distribución de la renta aduanera era el principal punto de fricción entre la autonomía provincial y el control central.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_civiles_unitarios_federales"
-  nivel: "intermedio"
-  tags: ["orden"]
-
-variables:
-  idx: uno_de([0, 1])
-  modelos: ["federal", "unitario"]
-  descripciones: ["La soberanía reside en las provincias, que delegan facultades a la nación", "La nación es la fuente de autoridad y las provincias dependen de ella"]
-
-respuesta: descripciones[idx]
-tipo: mc
-opciones_explicitas: ["La soberanía reside en las provincias, que delegan facultades a la nación", "La nación es la fuente de autoridad y las provincias dependen de ella"]
-
-enunciado: "Según el modelo {modelos[idx]}, ¿cómo se organiza la jerarquía de poder entre la nación y las provincias?"
-
-explicacion: |
-  En el federalismo la soberanía reside en las provincias que delegan facultades a la nación; en el unitarismo la nación es la fuente de autoridad sobre las provincias.
-```
-
-## Sección: guerras-de-independencia-argentina (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "basico"
-  tags: ["tucuman", "independencia"]
-
-tipo: mc
-opciones_explicitas: ["San Martín", "Manuel Belgrano", "José de San Martín", "Juan Martín de Pueyrredón"]
-respuesta: "Juan Martín de Pueyrredón"
-
-enunciado: "En el Congreso de Tucumán de 1816, ¿qué importante figura política fue elegida Director Supremo para liderar el proceso revolucionario?"
-
-explicacion: |
-  El Congreso de Tucumán eligió a Juan Martín de Pueyrredón como Director Supremo para consolidar la autoridad del gobierno central.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "basico"
-  tags: ["declaracion", "tucuman"]
-
-tipo: completar
-respuestas_validas:
-  - "Provincias Unidas en Sudamérica"
-
-enunciado: "El acta de la independencia proclamada el 9 de julio de 1816 declaró la emancipación de las ___."
-
-explicacion: |
-  El acta proclamó la independencia de las Provincias Unidas en Sudamérica respecto a la monarquía española.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "intermedio"
-  tags: ["contexto", "monarquia"]
-
-tipo: mc
-opciones_explicitas: ["Monarquía Española", "República Francesa", "Imperio Británico", "Monarquía Absoluta"]
-respuesta: "Monarquía Española"
-
-enunciado: "La declaración de independencia buscaba romper definitivamente los vínculos de dependencia con la ___."
-
-explicacion: |
-  El objetivo principal era la ruptura total con la corona española y su sistema monárquico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "intermedio"
-  tags: ["belgrano", "congreso"]
-
-tipo: mc
-opciones_explicitas: ["Manuel Belgrano", "Mariano Moreno", "Cornelio Saavedra", "Bernardino Rivadavia"]
-respuesta: "Manuel Belgrano"
-
-enunciado: "¿Qué importante militar y creador de la bandera fue convocado por el Congreso de Tucumán para exponer su opinión sobre la forma de gobierno a adoptar?"
-
-explicacion: |
-  Manuel Belgrano no era diputado del Congreso, pero fue invitado a dar su testimonio; allí propuso una monarquía constitucional con un descendiente de los incas, una idea que finalmente no prosperó.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "avanzado"
-  tags: ["orden", "procesos"]
-
-tipo: ordenar
-opciones_explicitas: ["Revolución de Mayo", "Primer Triunvirato", "Batalla de San Lorenzo", "Congreso de Tucumán"]
-
-enunciado: "Ordena cronológicamente los siguientes hitos clave del proceso de independencia argentina:"
-
-explicacion: |
-  El orden correcto es: Revolución de Mayo (1810), Primer Triunvirato (1812), Batalla de San Lorenzo (febrero de 1813) y Congreso de Tucumán (1816).
-
-respuesta_orden: ["Revolución de Mayo", "Primer Triunvirato", "Batalla de San Lorenzo", "Congreso de Tucumán"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "basico"
-  tags: ["san_martin", "cruce_de_los_andes", "independencia"]
-
-respuesta: "Chile"
-tipo: mc
-opciones_explicitas: ["Chile", "Perú", "Bolivia", "Uruguay"]
-
-enunciado: "El General José de San Martín organizó el Cruce de los Andes con el objetivo principal de liberar el territorio de {pais} para asegurar la independencia de las Provincias Unidas."
-
-variables:
-  pais: "Chile"
-
-explicacion: |
-  La estrategia de San Martín consistía en cruzar la cordillera para liberar Chile y, desde allí, organizar una campaña marítima hacia el Perú, el centro del poder realista en Sudamérica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "intermedio"
-  tags: ["logistica", "ejercito_de_los_andes"]
-
-respuesta: 5000
-tipo: completar
-tolerancia_abs: 500
-
-enunciado: "Se estima que el Ejército de los Andes contaba con aproximadamente {cantidad} soldados durante la campaña de 1817."
-
-pasos:
-  - "Calcular el número aproximado de efectivos según las crónicas históricas."
-
-variables:
-  cantidad: "5000"
-
-explicacion: |
-  El Ejército de los Andes estaba compuesto por aproximadamente 5000 hombres, entre soldados, oficiales y auxiliares, que enfrentaron condiciones climáticas extremas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "avanzado"
-  tags: ["estrategia", "plan_continental"]
-
-respuesta_orden: ["Guerra de Zapa", "Cruce de los Andes", "Batalla de Chacabuco"]
-tipo: ordenar
-opciones_explicitas: ["Guerra de Zapa", "Cruce de los Andes", "Batalla de Chacabuco"]
-
-enunciado: "Ordene cronológicamente las fases de la campaña libertadora de San Martín hacia el oeste:"
-
-explicacion: |
-  Primero se realizó la 'Guerra de Zapa' (espionaje y desinformación), luego el cruce físico de la cordillera y finalmente el enfrentamiento decisivo en la Batalla de Chacabuco.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "intermedio"
-  tags: ["plan_continental", "peru"]
-
-respuesta: "Perú"
-tipo: completar
-respuestas_validas:
-  - "Perú"
-
-enunciado: "Tras la liberación de Chile, San Martín comprendió que la independencia de la región solo sería segura si lograba expulsar a los españoles de ___."
-
-explicacion: |
-  El Plan Continental de San Martín contemplaba que el núcleo del poder español estaba en el Virreinato del Perú, por lo que la campaña debía dirigirse hacia ese territorio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "basico"
-  tags: ["batalla_de_chacabuco", "victoria"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "La victoria en la Batalla de Chacabuco (12 de febrero de 1817) fue una consecuencia directa del éxito del Cruce de los Andes."
-
-explicacion: |
-  Efectivamente, el éxito de la maniobra de cruce permitió sorprender a las fuerzas realistas y asegurar la victoria en Chacabuco, abriendo el camino para la independencia de Chile.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "intermedio"
-  tags: ["san_martin", "estrategia", "independencia"]
-
-respuesta: "Cruce de los Andes"
-tipo: completar
-respuestas_validas:
-  - "Cruce de los Andes"
-
-enunciado: "Para asegurar la independencia de las Provincias Unidas, San Martín diseñó una estrategia para evitar el avance realista por el Alto Perú, optando por el ___."
-
-explicacion: |
-  San Martín comprendió que la vía terrestre hacia el norte (Alto Perú) era demasiado costosa y estaba fuertemente defendida. Su plan consistió en cruzar la cordillera hacia Chile para luego atacar el núcleo del poder español en el Pacífico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "basico"
-  tags: ["san_martin", "chile", "batalla"]
-
-respuesta: "Batalla de Maipú"
-tipo: mc
-opciones_explicitas: ["Batalla de Maipú", "Batalla de Chacabuco", "Batalla de San Francisco", "Batalla de Yungay"]
-
-enunciado: "Tras la victoria en Chacabuco, la consolidación definitiva de la independencia de Chile fue sellada en la ___."
-
-explicacion: |
-  La Batalla de Maipú (1818) fue el enfrentamiento decisivo que consolidó la independencia de Chile y permitió a San Martín preparar la expedición al Perú.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "intermedio"
-  tags: ["san_martin", "peru", "logistica"]
-
-respuesta: "Protector"
-tipo: mc
-opciones_explicitas: ["Dictador", "Protector", "Presidente", "Libertador"]
-
-enunciado: "Al llegar al Perú y establecerse en Lima, San Martín asumió un gobierno provisional con el título de ___."
-
-explicacion: |
-  San Martín asumió el cargo de Protector del Perú para organizar la transición hacia la independencia y consolidar el apoyo político y militar necesario.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "avanzado"
-  tags: ["san_martin", "orden_cronologico"]
-
-respuesta_orden: ["Cruce de los Andes", "Batalla de Maipú", "Expedición al Perú"]
-tipo: ordenar
-opciones_explicitas: ["Cruce de los Andes", "Batalla de Maipú", "Expedición al Perú"]
-
-enunciado: "Ordene cronológicamente los hitos de la estrategia continental de San Martín:"
-
-explicacion: |
-  La secuencia lógica fue: 1. El cruce de la cordillera para liberar Chile; 2. La consolidación en Chile (Maipú); 3. El desembarco y campaña en el Perú.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "intermedio"
-  tags: ["san_martin", "bolivar", "guayaquil"]
-
-respuesta: 1822
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "La famosa entrevista entre José de San Martín y Simón Bolívar, donde se discutió el futuro de la independencia americana, tuvo lugar en el año {año}."
-
-variables:
-  año: 1822
-
-explicacion: |
-  La Entrevista de Guayaquil en 1822 es uno de los eventos más enigmáticos de la historia, donde se definieron los pasos finales para la liberación definitiva del continente.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "basico"
-  tags: ["revolucion_de_mayo", "cabildo_abierto"]
-
-respuesta: "25 de mayo de 1810"
-tipo: completar
-respuestas_validas:
-  - "25 de mayo de 1810"
-
-enunciado: "La Primera Junta de Gobierno fue establecida el ___ tras el Cabildo Abierto."
-
-explicacion: |
-  La Revolución de Mayo de 1810 marcó el inicio del proceso de independencia, desplazando al Virrey Cisneros.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "intermedio"
-  tags: ["declaracion_independencia", "congreso_tucuman"]
-
-respuesta: "Congreso de Tucumán"
-tipo: mc
-opciones_explicitas: ["Congreso de Buenos Aires", "Congreso de Tucumán", "Consejo de Regencia", "Junta de San Martín"]
-
-enunciado: "La Declaración de la Independencia de las Provincias Unidas del Río de la Plata se realizó en el ___."
-
-explicacion: |
-  El Congreso de Tucumán de 1816 formalizó la ruptura definitiva con la monarquía española.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "intermedio"
-  tags: ["cronologia", "procesos_historicos"]
-
-respuesta_orden: ["Revolución de Mayo", "Guerras de Independencia", "Declaración de la Independencia", "Cruce de los Andes"]
-tipo: ordenar
-opciones_explicitas: ["Revolución de Mayo", "Guerras de Independencia", "Declaración de la Independencia", "Cruce de los Andes"]
-
-enunciado: "Ordene cronológicamente los siguientes hitos del proceso emancipador:"
-
-explicacion: |
-  La secuencia correcta comienza con la formación del primer gobierno patrio (1810), sigue con la lucha armada, la formalización política (1816) y la campaña libertadora de San Martín (1817).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "avanzado"
-  tags: ["san_martin", "cruce_de_los_andes"]
-
-variables:
-  datos: [["Cruce de los Andes", "1817"], ["Batalla de San Lorenzo", "1813"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["1810", "1813", "1817", "1824"]
-
-enunciado: "El año en que se llevó a cabo el ___ fue el año {datos[idx][0]}."
-
-explicacion: |
-  El Cruce de los Andes fue la gesta militar liderada por San Martín para liberar Chile y posteriormente Perú.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "basico"
-  tags: ["soberania", "consecuencias"]
-
-respuesta: "soberana"
-tipo: completar
-respuestas_validas:
-  - "soberana"
-  - "autónoma"
-
-enunciado: "Tras la declaración de 1816, las Provincias Unidas buscaron consolidar su condición de nación ___."
-
-explicacion: |
-  La independencia política era el paso necesario para la soberanía territorial frente a las potencias europeas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "basico"
-  tags: ["revolucion_mayo", "fechas"]
-
-respuesta: "25 de mayo"
-tipo: mc
-opciones_explicitas: ["25 de mayo", "9 de julio", "20 de junio", "12 de octubre"]
-
-enunciado: "La Revolución de Mayo, hito fundamental del proceso de independencia, tuvo lugar el día ___ de 1810."
-
-explicacion: |
-  El proceso de independencia comenzó con la Revolución de Mayo el 25 de mayo de 1810, que llevó a la formación del primer gobierno patrio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "basico"
-  tags: ["congreso_tucuman", "independencia"]
-
-variables:
-  hitos: [["Congreso de Tucumán", "9 de julio de 1816"], ["Revolución de Mayo", "25 de mayo de 1810"]]
-  idx: uno_de([0, 1])
-
-respuesta: hitos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "9 de julio de 1816"
-  - "25 de mayo de 1810"
-
-enunciado: "El hito conocido como {hitos[idx][0]} se consolidó formalmente el día ___."
-
-explicacion: |
-  El Congreso de Tucumán declaró la independencia de las Provincias Unidas en 1816.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "intermedio"
-  tags: ["cronologia", "procesos"]
-
-respuesta_orden: ["Revolución de Mayo", "Establecimiento del Directorio", "Declaración de la Independencia"]
-tipo: ordenar
-opciones_explicitas: ["Revolución de Mayo", "Establecimiento del Directorio", "Declaración de la Independencia"]
-
-enunciado: "Ordena cronológicamente los siguientes hitos del proceso de independencia:"
-
-explicacion: |
-  Primero ocurrió la Revolución de Mayo (1810), luego la creación del Directorio (1812) y finalmente la Declaración de la Independencia (1816).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "avanzado"
-  tags: ["batallas", "san martin"]
-
-variables:
-  batallas: [["San Lorenzo", "1813"], ["Maipú", "1818"], ["Chacabuco", "1817"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: batallas[idx][1]
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "La batalla de {batallas[idx][0]} fue un enfrentamiento clave ocurrido en el año ___."
-
-explicacion: |
-  Cada una de estas batallas fue fundamental para consolidar la independencia en distintos frentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_de_independencia_argentina"
-  nivel: "intermedio"
-  tags: ["san_martin", "campana_libertadora"]
-
-variables:
-  campañas: [["Campaña de los Andes", "liberar Chile"], ["Campaña del Norte", "defender la frontera"]]
-  idx: uno_de([0, 1])
-
-respuesta: campañas[idx][1]
-tipo: mc
-opciones_explicitas: ["liberar Chile", "defender la frontera", "conquistar el Perú", "expulsar a los realistas de Buenos Aires"]
-
-enunciado: "El objetivo principal de la {campañas[idx][0]} liderada por San Martín era ___."
-
-explicacion: |
-  San Martín diseñó el plan continental para asegurar la independencia de las Provincias Unidas mediante la liberación de Chile y luego Perú.
-```
-
-## Sección: guerras-mundiales (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "causas_primera_guerra"
-  nivel: "basico"
-  tags: ["causas", "nacionalismo", "imperialismo"]
-
-respuesta: "Francisco Fernando"
-tipo: completar
-respuestas_validas:
-  - "Francisco Fernando"
-
-enunciado: "El asesinato del archiduque ___ en Sarajevo fue el detonante que activó el sistema de alianzas en Europa en 1914."
-
-explicacion: |
-  El asesinato del heredero al trono austrohúngaro, Francisco Fernando, por un nacionalista serbio, desencadenó la crisis de julio que llevó a la guerra.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "alianzas_guerra"
-  nivel: "intermedio"
-  tags: ["alianzas", "triple_entente"]
-
-variables:
-  idx: uno_de([0, 1])
-  tabla: [["Triple Entente", "Triple Entente"], ["Triple Alianza", "Triple Alianza"]]
-
-respuesta: tabla[idx][1]
-tipo: mc
-opciones_explicitas: ["Triple Entente", "Triple Alianza"]
-
-enunciado: "Si consideramos el bloque de potencias formado por Francia, Gran Bretaña y Rusia, estamos hablando de la {tabla[idx][0]}."
-
-pasos:
-  - "Identificar los miembros del bloque mencionado."
-  - "Diferenciar entre la Triple Entente y la Triple Alianza."
-
-explicacion: |
-  La Triple Entente estaba compuesta por Francia, Reino Unido y Rusia, mientras que la Triple Alianza (Potencias Centrales) incluía a Alemania, Austria-Hungría e Italia (inicialmente).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_trincheras"
-  nivel: "basico"
-  tags: ["trench_warfare", "estancamiento"]
-
-respuesta: "estancamiento"
-tipo: mc
-opciones_explicitas: ["movimiento", "estancamiento", "guerra_relampago"]
-
-enunciado: "El predominio de la defensa sobre la ofensiva y el uso de redes de trincheras provocaron un ___ táctico en el frente occidental."
-
-explicacion: |
-  La guerra de trincheras impidió avances significativos durante años, convirtiendo el conflicto en una guerra de desgaste y posiciones estáticas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "tecnologia_militar"
-  nivel: "intermedio"
-  tags: ["tecnologia", "tanques", "guerra_quimica"]
-
-respuesta: "tanques"
-tipo: mc
-opciones_explicitas: ["tanques", "aviones de combate", "submarinos", "guerra química"]
-
-enunciado: "Para romper el estancamiento de las trincheras, los británicos introdujeron nuevos blindados conocidos como ___."
-
-explicacion: |
-  Aunque los tanques no ganaron la guerra por sí solos, fueron un intento tecnológico clave para cruzar el terreno devastado de las trincheras.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "causas_guerra"
-  nivel: "avanzado"
-  tags: ["ordenar", "causas"]
-
-respuesta_orden: ["Imperialismo", "Nacionalismo", "Asesinato de Francisco Fernando"]
-tipo: ordenar
-opciones_explicitas: ["Nacionalismo", "Imperialismo", "Asesinato de Francisco Fernando"]
-
-enunciado: "Ordena cronológicamente las tensiones que llevaron a la guerra, desde las causas estructurales de largo plazo hasta el evento detonante."
-
-explicacion: |
-  Primero existieron las tensiones imperialistas y nacionalistas (causas estructurales) y finalmente el asesinato en Sarajevo (causa inmediata).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ascenso_regimenes_totalitarios"
-  nivel: "basico"
-  tags: ["nazismo", "historia", "segunda_guerra"]
-
-respuesta: "Alemania"
-tipo: completar
-respuestas_validas:
-  - "Alemania"
-
-enunciado: "El régimen nazi, liderado por Adolf Hitler, tomó el poder político en ___ en 1933, consolidando un sistema totalitario."
-
-explicacion: |
-  El ascenso de Hitler al poder fue un proceso que culminó en 1933, transformando la República de Weimar en un Estado totalitario.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "ascenso_regimenes_totalitarios"
-  nivel: "basico"
-  tags: ["fascismo", "nazismo", "ideologia"]
-
-opciones_explicitas: ["Fascismo", "Comunismo", "Democracia Liberal", "Socialdemocracia"]
-respuesta: "Fascismo"
-tipo: mc
-
-enunciado: "El régimen de Benito Mussolini en Italia es el ejemplo característico de la ideología conocida como:"
-
-explicacion: |
-  El fascismo italiano fue el precursor de otros regímenes totalitarios de derecha en Europa durante el periodo de entreguerras.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "holocausto"
-  nivel: "intermedio"
-  tags: ["holocausto", "genocidio", "segunda_guerra"]
-
-variables:
-  datos: [["genocidio", "Holocausto"], ["exterminio", "Holocausto"], ["persecución", "Holocausto"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "Holocausto"
-
-enunciado: "El asesinato sistemático y organizado de millones de judíos y otros grupos por parte del régimen nazi se conoce históricamente como el ___."
-
-explicacion: |
-  El Holocausto (Shoah) fue el genocidio sistemático llevado a cabo por la Alemania nazi durante la Segunda Guerra Mundial.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "armas_nucleares"
-  nivel: "intermedio"
-  tags: ["atomica", "hiroshima", "nagasaki"]
-
-respuesta: "Fat Man"
-tipo: mc
-opciones_explicitas: ["Little Boy", "Fat Man", "Enola Gay", "B-29"]
-
-enunciado: "En el segundo ataque atómico de la historia, ocurrido en la ciudad de Nagasaki, se utilizó la bomba llamada ___."
-
-explicacion: |
-  El 9 de agosto de 1945, la bomba 'Fat Man' fue lanzada sobre Nagasaki, marcando el segundo uso de armas nucleares en combate.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "cronologia_guerra"
-  nivel: "avanzado"
-  tags: ["cronologia", "eventos_clave"]
-
-opciones_explicitas: ["Invasión de Polonia", "Ataque a Pearl Harbor", "Desarme de Japón"]
-respuesta_orden: ["Invasión de Polonia", "Ataque a Pearl Harbor", "Desarme de Japón"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente los siguientes eventos clave de la Segunda Guerra Mundial, desde el inicio hasta el fin:"
-
-explicacion: |
-  La guerra comenzó con la invasión de Polonia (1939), escaló con la entrada de EE.UU. tras Pearl Harbor (1941) y terminó con la rendición de Japón (1945).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "intermedio"
-  tags: ["versalles", "alemania", "causas"]
-
-tipo: mc
-opciones_explicitas: ["La pérdida de territorios y reparaciones económicas", "La creación de la Sociedad de Naciones", "El ascenso del comunismo en Europa", "La firma del Pacto Molotov-Ribbentrop"]
-respuesta: "La pérdida de territorios y reparaciones económicas"
-
-enunciado: "Uno de los factores principales que generó un profundo resentimiento en la población alemana tras la Primera Guerra Mundial fue ___."
-
-explicacion: |
-  El Tratado de Versalles impuso a Alemania la "cláusula de culpa de guerra", obligándola a pagar reparaciones astronómicas y ceder territorios estratégicos, lo que desestabilizó su economía y política.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "intermedio"
-  tags: ["economia", "reparaciones", "inflacion"]
-
-variables:
-  escenario: uno_de([["reparaciones económicas", "hiperinflación"], ["pérdida de territorio", "expansionismo"], ["cláusula de culpa", "revanchismo"]])
-
-tipo: completar
-respuestas_validas:
-  - "reparaciones económicas"
-  - "pérdida de territorio"
-  - "cláusula de culpa"
-
-enunciado: "Las duras condiciones impuestas por el tratado de Versalles, específicamente las ___ , provocaron una crisis económica sin precedentes en la República de Weimar."
-
-pasos:
-  - "Analizar cómo la deuda externa afectó la estabilidad de la moneda alemana."
-  - "Relacionar la crisis económica con el ascenso de movimientos extremistas."
-
-explicacion: |
-  La imposición de reparaciones económicas masivas impidió la recuperación de Alemania, facilitando el ascenso de ideologías radicales que prometían restaurar la gloria nacional.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "basico"
-  tags: ["sociedad_naciones", "diplomacia"]
-
-tipo: completar
-enunciado: "El organismo internacional creado tras la Primera Guerra Mundial para mantener la paz, pero que demostró ser incapaz de evitar la Segunda Guerra Mundial, fue la ___."
-respuesta: "Sociedad de Naciones"
-explicacion: |
-  La Sociedad de Naciones carecía de fuerza militar y de la participación de potencias clave como EE.UU., lo que la hizo ineficaz para frenar el expansionismo de Alemania, Italia y Japón.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "avanzado"
-  tags: ["causas", "geopolitica", "orden"]
-
-tipo: ordenar
-opciones_explicitas: ["Firma del Tratado de Versalles", "Crisis económica de 1929", "Ascenso del Partido Nazi al poder", "Invasión de Polonia"]
-
-enunciado: "Ordene cronológicamente los eventos que contribuyeron al estallido de la Segunda Guerra Mundial, partiendo de las consecuencias de la Gran Guerra."
-
-explicacion: |
-  La secuencia muestra cómo el orden impuesto en 1919 se desmoronó debido a la crisis económica, permitiendo el ascenso de regímenes totalitarios que finalmente desafiaron el orden internacional con la invasión de Polonia.
-respuesta_orden: ["Firma del Tratado de Versalles", "Crisis económica de 1929", "Ascenso del Partido Nazi al poder", "Invasión de Polonia"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "intermedio"
-  tags: ["terminologia", "alemania"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "En Alemania, el Tratado de Versalles fue visto por muchos sectores políticos no como un acuerdo de paz, sino como un ___ (término alemán que significa 'imposición')."
-
-respuesta: "Diktat"
-
-explicacion: |
-  El término 'Diktat' fue utilizado por los políticos alemanes para denunciar que el tratado no fue negociado, sino impuesto por las potencias vencedoras, alimentando el sentimiento nacionalista.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "basico"
-  tags: ["primera_guerra", "cronologia"]
-
-tipo: mc
-opciones_explicitas: ["1914", "1918", "1939", "1945"]
-
-enunciado: "El asesinato del archiduque Francisco Fernando en Sarajevo desencadenó la Primera Guerra Mundial en el año ___."
-
-respuesta: "1914"
-
-explicacion: |
-  El atentado de Sarajevo ocurrió el 28 de junio de 1914, activando el sistema de alianzas que llevó a Europa a la guerra.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "basico"
-  tags: ["tratado_versalles", "geopolitica"]
-
-tipo: mc
-opciones_explicitas: ["El Tratado de Versalles", "El Pacto Molotov-Ribbentrop", "El Plan Marshall", "La Conferencia de Yalta"]
-
-enunciado: "¿Qué evento marcó el fin formal de la Primera Guerra Mundial y redefinió el mapa de Europa?"
-
-respuesta: "El Tratado de Versalles"
-
-explicacion: |
-  El Tratado de Versalles (1919) impuso duras condiciones a Alemania y estableció un nuevo orden mundial que influiría en el periodo de entreguerras.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "intermedio"
-  tags: ["crisis_economica", "entreguerras"]
+  tags: ["evolucion", "sociedad", "orden"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["La Gran Depresión", "El ascenso de los regímenes totalitarios"], ["La crisis económica de 1929", "La inestabilidad política europea"]]
+  datos: [["Comunidades igualitarias", "Propiedad privada", "Estado centralizado"], ["Sociedades tribales", "Desigualdad de estatus", "Sistemas de castas"]]
 
-tipo: completar
-respuestas_validas:
-  - "La Gran Depresión"
-  - "La crisis económica de 1929"
-
-enunciado: "Durante el periodo de entreguerras, el mundo sufrió un colapso financiero conocido como ___."
-
-respuesta: escenarios[escenario_idx][0]
-
-explicacion: |
-  El crack de 1929 y la posterior Gran Depresión generaron un clima de inestabilidad que facilitó el ascenso de ideologías extremistas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "intermedio"
-  tags: ["orden_cronologico", "historia"]
-
-tipo: ordenar
-opciones_explicitas: ["Primera Guerra Mundial", "Crisis de 1929", "Segunda Guerra Mundial"]
-
-respuesta_orden: ["Primera Guerra Mundial", "Crisis de 1929", "Segunda Guerra Mundial"]
-
-enunciado: "Ordena cronológicamente los siguientes eventos históricos, desde el más antiguo al más reciente."
-
-explicacion: |
-  La secuencia correcta es: Gran Guerra (1914-1918), Crisis económica (1929) y Segunda Guerra Mundial (1939-1945).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "basico"
-  tags: ["segunda_guerra", "consecuencias"]
-
-tipo: mc
-opciones_explicitas: ["La creación de la ONU", "La caída del Muro de Berlín", "La Revolución Rusa", "El Tratado de Versalles"]
-
-enunciado: "Como consecuencia directa del fin de la Segunda Guerra Mundial, se fundó para mantener la paz internacional la ___."
-
-respuesta: "La creación de la ONU"
-
-explicacion: |
-  La Organización de las Naciones Unidas (ONU) fue establecida en 1945 para reemplazar a la fallida Sociedad de Naciones.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "basico"
-  tags: ["historia", "conflictos"]
-
-variables:
-  datos: [["El asesinato del archiduque Francisco Fernando en Sarajevo desencadenó el conflicto.", "Primera Guerra Mundial"], ["La invasión de Polonia por parte de la Alemania nazi fue el detonante.", "Segunda Guerra Mundial"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Primera Guerra Mundial", "Segunda Guerra Mundial"]
-
-enunciado: "Identifica a qué conflicto histórico corresponde el siguiente evento: {datos[idx][0]}"
-
-explicacion: |
-  El evento descrito marca el inicio de la {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "intermedio"
-  tags: ["tecnologia", "armamento"]
-
-variables:
-  datos: [["El uso masivo de gases venenosos en las trincheras.", "Primera Guerra Mundial"], ["El desarrollo y uso de la bomba atómica en Hiroshima y Nagasaki.", "Segunda Guerra Mundial"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Primera Guerra Mundial", "Segunda Guerra Mundial"]
-
-enunciado: "Analiza la característica tecnológica: {datos[idx][0]}. ¿A qué guerra pertenece?"
-
-explicacion: |
-  La característica mencionada es propia de la {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "avanzado"
-  tags: ["geopolitica", "tratados"]
-
-variables:
-  datos: [["La firma del Tratado de Versalles para redefinir fronteras europeas.", "Primera Guerra Mundial"], ["La creación de la Organización de las Naciones Unidas (ONU) para mantener la paz.", "Segunda Guerra Mundial"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: completar
-
-enunciado: "El evento '{datos[idx][0]}' es un hito fundamental de la ___."
-respuestas_validas:
-  - "Primera Guerra Mundial"
-  - "Segunda Guerra Mundial"
-
-explicacion: |
-  El hito mencionado ocurrió durante la {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "intermedio"
-  tags: ["alianzas", "bloques"]
-
-variables:
-  datos: [["La Triple Entente (Francia, Gran Bretaña y Rusia) contra las Potencias Centrales.", "Primera Guerra Mundial"], ["El Eje (Alemania, Italia y Japón) contra los Aliados.", "Segunda Guerra Mundial"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Primera Guerra Mundial", "Segunda Guerra Mundial"]
-
-enunciado: "Dada la formación de bloques: {datos[idx][0]}. ¿A qué guerra corresponde?"
-
-explicacion: |
-  Corresponde a la {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerras_mundiales"
-  nivel: "avanzado"
-  tags: ["cronologia", "eventos"]
-
-respuesta_orden: ["La guerra de movimientos", "El Tratado de Versalles", "La creación de la Sociedad de Naciones"]
-tipo: ordenar
-opciones_explicitas: ["La guerra de movimientos", "El Tratado de Versalles", "La creación de la Sociedad de Naciones"]
-
-enunciado: "Ordena cronológicamente los siguientes hitos de la Primera Guerra Mundial y su posguerra:"
-
-explicacion: |
-  La secuencia correcta representa la cronología: primero la guerra de movimientos (1914), luego el Tratado de Versalles (1919) que puso fin al conflicto, y finalmente la creación de la Sociedad de Naciones (1920).
-```
-
-## Sección: herramientas-arte-rupestre (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "basico"
-  tags: ["paleolitico", "tecnologia"]
-
-enunciado: "En la industria lítica, una lasca se define como un/a ___."
-
-respuestas_validas:
-  - "fragmento desprendido de un núcleo"
-tipo: completar
-
-explicacion: |
-  En la tecnología de la talla, las lascas son los fragmentos que se desprenden de una piedra núcleo al ser golpeada, siendo fundamentales para la producción de herramientas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "intermedio"
-  tags: ["paleolitico", "ordenar"]
-
-opciones_explicitas: ["Olduvayense", "Achelense", "Musteriense"]
-
-enunciado: "Ordene las siguientes tecnologías de la más antigua a la más reciente:"
-
-tipo: ordenar
-respuesta_orden: ["Olduvayense", "Achelense", "Musteriense"]
-
-explicacion: |
-  La secuencia evolutiva comienza con el Olduvayense (choppers simples), sigue con el Achelense (bifaces elaborados) y continúa con el Musteriense (técnicas de lasca más complejas).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "intermedio"
-  tags: ["tecnologia", "evolucion"]
-
-enunciado: "El bifaz es una herramienta característica del Paleolítico Inferior que se diferencia de las lascas simples por su técnica de fabricación. ¿Cuál es su principal característica?"
-
-opciones_explicitas: ["Es tallado por ambas caras para lograr simetría", "Es un fragmento accidental de una piedra", "Se fabrica únicamente mediante percusión blanda"]
-tipo: mc
-respuesta: "Es tallado por ambas caras para lograr simetría"
-
-explicacion: |
-  El bifaz representa un salto cognitivo importante, ya que el homínido debe prever la forma final de la herramienta en la piedra antes de empezar a tallar ambas caras.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "avanzado"
-  tags: ["especializacion", "paleolitico"]
-
-enunciado: "Un raspador es una herramienta especializada cuya función principal es ___."
-
-respuestas_validas:
-  - "usado para tratar pieles"
-tipo: completar
-
-explicacion: |
-  La especialización de las herramientas (como el buril o el raspador) indica una mayor complejidad en la organización social y una explotación más eficiente de los recursos naturales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "avanzado"
-  tags: ["tecnologia", "calculo"]
-
-enunciado: "Si un arqueólogo encuentra un conjunto de 12 herramientas líticas con bulbos de percusión pronunciados y plataformas anchas, ¿qué técnica de talla se utilizó probablemente?"
-
-tipo: mc
-opciones_explicitas: ["percusión", "presión"]
-respuesta: "percusión"
-
-explicacion: |
-  La técnica de presión permite obtener lascas muy finas y controladas, mientras que la percusión (especialmente con percutor duro) es la forma más primaria de obtener lascas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "basico"
-  tags: ["arte_rupestre", "paleolitico"]
-
-tipo: mc
-opciones_explicitas: ["Paredes de piedra", "Lienzos de tela", "Pieles de animales", "Tablas de madera"]
-respuesta: "Paredes de piedra"
-
-enunciado: "En el arte rupestre de cuevas como Altamira o Lascaux, ¿cuál era el soporte principal utilizado para las pinturas?"
-
-explicacion: |
-  El arte rupestre se caracteriza por utilizar las paredes de las cuevas (soporte pétreo) como lienzo para sus representaciones.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "intermedio"
-  tags: ["grabado", "tecnicas"]
-
-tipo: completar
-respuestas_validas:
-  - "grabado"
-
-enunciado: "Si un artista prehistórico utiliza una piedra afilada para realizar una incisión profunda en la roca, está realizando un ___."
+enunciado: "Ordene la secuencia lógica de la evolución de la complejidad política y económica:"
 
 pasos:
-  - "Identificar la acción: incisión en la roca."
-  - "Relacionar la acción con la técnica correspondiente."
+  - "Paso 1: Surgimiento de la propiedad"
+  - "Paso 2: Formación de jerarquías"
+  - "Paso 3: Institucionalización del Estado"
+
+respuesta_orden: ["Comunidades igualitarias", "Propiedad privada", "Estado centralizado"]
+tipo: ordenar
+opciones_explicitas: ["Comunidades igualitarias", "Propiedad privada", "Estado centralizado"]
 
 explicacion: |
-  El término técnico para la marca dejada por una incisión en una superficie sólida es el grabado.
+  La secuencia clásica sugiere que la propiedad genera excedentes, los excedentes generan jerarquías y las jerarquías requieren un Estado para su mantenimiento.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "intermedio"
-  tags: ["pigmentos", "quimica_prehistorica"]
+  tema: "propiedad_jerarquia_estado"
+  nivel: "basico"
+  tags: ["causa", "efecto", "poder"]
 
 variables:
-  par: uno_de([["ocre", "óxido de hierro"], ["negro", "carbón vegetal"]])
+  escenario_idx: uno_de([0, 1])
+  datos: [["La especialización del trabajo", "la división de funciones"], ["La gestión de recursos excedentes", "la creación de burocracias"]]
 
-tipo: mc
-opciones_explicitas: ["óxido de hierro", "carbón vegetal", "arcilla blanca", "sangre de animal"]
+enunciado: "La aparición de la ___ fue una consecuencia directa de la gestión de recursos excedentes."
 
-enunciado: "Para obtener el color {par[0]} muy común en las pinturas de la Cueva de las Manos, los humanos utilizaban:"
-
-respuesta: par[1]
-
-explicacion: |
-  Los pigmentos se obtenían de minerales (como el óxido de hierro para rojos/ocres) o de materia orgánica quemada (carbón para el negro).
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "herramientas_arte_rupestre"
-  nivel: "avanzado"
-  tags: ["simbolismo", "homo_sapiens"]
-
-tipo: mc
-opciones_explicitas: ["Capacidad de abstracción", "Necesidad de decorar", "Falta de herramientas", "Supervivencia alimentaria"]
-respuesta: "Capacidad de abstracción"
-
-enunciado: "La presencia de signos abstractos y manos en negativo en las cuevas sugiere que el Homo sapiens ya poseía ___."
-
-explicacion: |
-  La capacidad de representar conceptos no tangibles o símbolos es una prueba clave del desarrollo del pensamiento simbólico y el lenguaje complejo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "intermedio"
-  tags: ["procesos", "arte"]
-
-tipo: ordenar
-opciones_explicitas: ["Preparación del soporte", "Preparación del pigmento", "Aplicación de la pintura", "Agotamiento de la luz"]
-
-enunciado: "Ordena el proceso lógico que seguiría un artista en una cueva profunda para realizar una pintura rupestre:"
-
-explicacion: |
-  El artista primero debe asegurar la superficie, luego crear la mezcla de color y finalmente aplicarla, todo esto gestionando la limitada luz de la cueva.
-respuesta_orden: ["Preparación del soporte", "Preparación del pigmento", "Aplicación de la pintura", "Agotamiento de la luz"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "basico"
-  tags: ["prehistoria", "arte_rupestre"]
-
-tipo: mc
-opciones_explicitas: ["Animales de caza", "Paisajes urbanos", "Figuras geométricas abstractas", "Retratos de reyes"]
-respuesta: "Animales de caza"
-
-enunciado: "En el arte rupestre del Paleolítico, ¿qué tipo de figuras eran las representadas con mayor frecuencia en las paredes de las cuevas?"
-
-explicacion: |
-  Las pinturas rupestres más comunes representaban animales que formaban parte de la dieta o el entorno inmediato de los grupos humanos, como bisontes, caballos y ciervos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "basico"
-  tags: ["simbolismo", "manos"]
-
-tipo: mc
-opciones_explicitas: ["Siluetas de manos", "Escenas de guerra", "Instrumentos musicales", "Mapas estelares"]
-respuesta: "Siluetas de manos"
-
-enunciado: "Además de animales, es muy común encontrar en las cuevas la técnica de la estarcido para representar ___."
-
-explicacion: |
-  Las siluetas de manos (ya sean en positivo o negativo) son uno de los elementos más icónicos y recurrentes del arte rupestre mundial.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "herramientas_arte_rupestre"
-  nivel: "intermedio"
-  tags: ["escenas", "caza"]
-
-tipo: mc
-opciones_explicitas: ["escenas de caza", "mapas de navegación", "diagramas matemáticos", "dibujos arquitectónicos"]
-respuesta: "escenas de caza"
-
-enunciado: "Cuando los artistas prehistóricos representaban la interacción entre humanos y animales, solían plasmar ___."
-
-explicacion: |
-  Las escenas de caza muestran la dinámica de la supervivencia, representando a los cazadores con lanzas o arcos frente a sus presas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "basico"
-  tags: ["identificacion"]
-
+respuesta: "la creación de burocracias"
 tipo: completar
 respuestas_validas:
-  - "animales"
-  - "manos"
-  - "escenas"
-
-enunciado: "El arte rupestre suele clasificarse en tres grandes categorías temáticas: ___, siluetas de ___ y ___."
+  - "la creación de burocracias"
 
 explicacion: |
-  Estas tres categorías cubren la mayoría de los hallazgos en el registro arqueológico de las pinturas rupestres.
+  La necesidad de administrar el excedente y la propiedad requiere de un cuerpo administrativo (burocracia) que es la base del aparato estatal.
+```
+
+## Sección: escritura-primeras-ciudades (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "escritura_primeras_ciudades"
+  nivel: "basico"
+  tags: ["mesopotamia", "sumerios", "cuneiforme"]
+
+respuesta: "Mesopotamia"
+tipo: completar
+respuestas_validas:
+  - "Mesopotamia"
+
+enunciado: "La escritura surgió en la región de ___ hace aproximadamente 5000 años."
+
+explicacion: |
+  La escritura se desarrolló en Mesopotamia, en la región de Sumer, para satisfacer necesidades de registro.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "intermedio"
-  tags: ["observacion", "estudio"]
+  materia: "historia"
+  tema: "escritura_primeras_ciudades"
+  nivel: "basico"
+  tags: ["contabilidad", "administracion"]
 
-tipo: ordenar
-opciones_explicitas: ["Identificar el pigmento", "Observar la figura", "Analizar el contexto de la cueva", "Interpretar el significado"]
+respuesta: "administrativos"
+tipo: mc
+opciones_explicitas: ["poéticos", "administrativos", "religiosos", "militares"]
 
-enunciado: "Un arqueólogo sigue un proceso lógico para estudiar una pintura rupestre. Ordena estos pasos de forma coherente:"
+enunciado: "Originalmente, la escritura no se inventó para la literatura, sino para llevar registros ___."
 
 explicacion: |
-  El método científico en arqueología comienza con la observación directa y el análisis material antes de pasar a la interpretación teórica.
-respuesta_orden: ["Observar la figura", "Identificar el pigmento", "Analizar el contexto de la cueva", "Interpretar el significado"]
+  Las primeras tablillas se utilizaban principalmente para la contabilidad y la administración de recursos en las ciudades-estado.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
+  materia: "historia"
+  tema: "escritura_primeras_ciudades"
   nivel: "intermedio"
-  tags: ["cognicion", "simbolismo", "hominidos"]
+  tags: ["cuneiforme", "sumerios"]
 
 variables:
-  escenario: uno_de([["pintura de manos en negativo", "capacidad de representación simbólica"], ["herramientas de piedra tallada", "planificación técnica avanzada"], ["adornos con conchas marinas", "pensamiento abstracto y estético"]])
+  datos: [["sumerios", "cuneiforme"], ["egipcios", "jeroglíficos"], ["fenicios", "alfabeto"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["cuneiforme", "jeroglíficos", "alfabeto"]
+
+enunciado: "El pueblo de {datos[idx][0]} desarrolló el sistema de escritura conocido como {datos[idx][1]}."
+
+explicacion: |
+  Los sumerios en Mesopotamia crearon la escritura cuneiforme, caracterizada por marcas en forma de cuña sobre arcilla.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escritura_primeras_ciudades"
+  nivel: "intermedio"
+  tags: ["proceso", "evolucion"]
+
+respuesta_orden: ["Pictogramas", "Ideogramas", "Fonogramas"]
+tipo: ordenar
+opciones_explicitas: ["Pictogramas", "Ideogramas", "Fonogramas"]
+
+enunciado: "Ordena cronológicamente la evolución conceptual de los signos en la escritura antigua:"
+
+explicacion: |
+  La escritura evolucionó desde dibujos de objetos (pictogramas), pasando por conceptos (ideogramas), hasta representar sonidos (fonogramas).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escritura_primeras_ciudades"
+  nivel: "basico"
+  tags: ["tiempo", "mesopotamia"]
+
+respuesta: 5000
+tipo: completar
+tolerancia_abs: 100
+
+enunciado: "Se estima que la escritura surgió hace aproximadamente ___ años."
+
+explicacion: |
+  La invención de la escritura en Mesopotamia se sitúa hace unos 5000 años, marcando el inicio de la Edad Antigua.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escritura_primeras_ciudades"
+  nivel: "basico"
+  tags: ["escritura", "prehistoria", "historia"]
+
+respuesta: "historia"
+tipo: completar
+respuestas_validas:
+  - "historia"
+
+enunciado: "La aparición de la escritura marca la transición de la prehistoria al inicio de la ___."
+
+explicacion: |
+  La prehistoria se define por la ausencia de registros escritos. Con la invención de la escritura, los seres humanos pueden dejar testimonios directos de sus leyes, mitos y transacciones, permitiendo el estudio de la historia documentada.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escritura_primeras_ciudades"
+  nivel: "intermedio"
+  tags: ["arqueologia", "metodologia"]
+
+variables:
+  escenario: uno_de([["restos materiales (huesos, herramientas)", "arqueología"], ["registros escritos (tablillas, papiros)", "historia"]])
 
 respuesta: escenario[1]
 tipo: mc
-opciones_explicitas: ["capacidad de representación simbólica", "planificación técnica avanzada", "pensamiento abstracto y estético"]
+opciones_explicitas: ["arqueología", "historia"]
 
-enunciado: "La presencia de {escenario[0]} en cuevas prehistóricas es una evidencia fundamental de la {escenario[1]} del Homo sapiens."
+enunciado: "Si un investigador encuentra una serie de tablillas de arcilla con nombres y cantidades de grano, está estudiando principalmente la ___."
 
 explicacion: |
-  El uso de pigmentos para dejar la huella de la mano indica que el individuo no solo interactuaba con el entorno, sino que proyectaba su identidad, un signo claro de pensamiento simbólico.
+  El uso de registros escritos permite pasar de la reconstrucción basada en restos materiales (arqueología) al análisis de la historia documentada.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "basico"
-  tags: ["tecnologia", "evolucion"]
+  tema: "escritura_primeras_ciudades"
+  nivel: "intermedio"
+  tags: ["cronologia", "transicion"]
 
-respuesta: "Homo sapiens"
+respuesta: "verdadero"
+tipo: completar
+enunciado: "¿La escritura permite conocer la mentalidad de una civilización de forma directa, a diferencia de los restos materiales que requieren interpretación indirecta?"
+
+explicacion: |
+  Verdadero. Los objetos nos dicen qué tenían o cómo vivían, pero los textos nos dicen qué pensaban, qué leyes tenían y cómo se llamaban a sí mismos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escritura_primeras_ciudades"
+  nivel: "avanzado"
+  tags: ["metodologia", "transicion"]
+
+respuesta: "documental"
 tipo: completar
 respuestas_validas:
-  - "Homo sapiens"
-  - "Homo sapiens sapiens"
+  - "documental"
 
-enunciado: "A diferencia de otros homínidos, el ___ desarrolló una capacidad de abstracción que le permitió crear herramientas complejas y arte rupestre."
+enunciado: "Cuando un historiador utiliza textos antiguos para reconstruir un evento, está realizando un análisis de tipo ___."
 
 explicacion: |
-  Aunque otros homínidos usaron herramientas, la combinación de arte complejo y tecnología diversificada es característica del Homo sapiens.
+  El análisis documental se basa en el uso de fuentes escritas (documentos) para la reconstrucción de procesos sociales y políticos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "intermedio"
-  tags: ["proceso", "arte_rupestre"]
-
-opciones_explicitas: ["Preparación del soporte", "Preparación de pigmentos", "Aplicación del color", "Grabado de contornos"]
-
-respuesta_orden: ["Preparación del soporte", "Preparación de pigmentos", "Grabado de contornos", "Aplicación del color"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos que un artista del Paleolítico Superior seguiría para realizar una pintura de gran formato en una pared de la cueva:"
-
-explicacion: |
-  Primero se debe elegir y limpiar la pared, luego fabricar la pintura con minerales, trazar la figura y finalmente aplicar el pigmento.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
+  tema: "escritura_primeras_ciudades"
   nivel: "avanzado"
-  tags: ["cognicion", "herramientas"]
+  tags: ["evidencia", "metodologia"]
+
+respuesta_orden: ["restos materiales", "escritura", "historia documentada"]
+tipo: ordenar
+opciones_explicitas: ["restos materiales", "escritura", "historia documentada"]
+
+enunciado: "Ordena los niveles de evidencia según el grado de complejidad en la reconstrucción de la vida social, desde lo más material hasta lo más intelectual/directo:"
+
+explicacion: |
+  La escala comienza con la cultura material (objetos), sigue con la capacidad de registrar (escritura) y culmina en la capacidad de estudiar la historia a través de testimonios directos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escritura_primeras_ciudades"
+  nivel: "basico"
+  tags: ["mesopotamia", "escritura", "uruk"]
+
+respuesta: "excedente"
+tipo: "completar"
+respuestas_validas:
+  - "excedente"
+
+enunciado: "El surgimiento de las primeras ciudades en Mesopotamia, como Uruk, estuvo estrechamente ligado a la capacidad de producir un ___ agrícola que permitía sostener a poblaciones no dedicadas a la agricultura."
+
+explicacion: |
+  La capacidad de producir más alimento del que se consume inmediatamente (excedente) permitió que parte de la población se especializara en otras tareas (artesanos, escribas, sacerdotes), dando origen a la estructura urbana y la necesidad de registrar estas cantidades mediante la escritura.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escritura_primeras_ciudades"
+  nivel: "intermedio"
+  tags: ["causalidad", "sociedad"]
+
+respuesta: "excedente agrícola"
+tipo: "mc"
+opciones_explicitas: ["excedente agrícola", "escritura", "estratificación social"]
+
+enunciado: "En el contexto de las primeras ciudades mesopotámicas, la aparición de la escritura fue una respuesta directa a la necesidad de gestionar el ___."
+
+explicacion: |
+  La escritura no nació como un medio de expresión literaria, sino como una herramienta contable para registrar el excedente agrícola y los bienes que entraban en los templos o palacios.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escritura_primeras_ciudades"
+  nivel: "avanzado"
+  tags: ["estado", "jerarquia"]
+
+respuesta: "estatal"
+tipo: "completar"
+respuestas_validas:
+  - "estatal"
+
+enunciado: "La gestión de los recursos excedentes y la redistribución de bienes exigieron una organización ___ compleja, lo que consolidó el poder de las élites en las primeras ciudades."
+
+explicacion: |
+  La complejidad de la vida urbana y la gestión de excedentes impulsaron la creación de estructuras de poder centralizadas o estados primordiales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escritura_primeras_ciudades"
+  nivel: "intermedio"
+  tags: ["contabilidad", "uruk"]
+
+respuesta: "contabilidad"
+tipo: "completar"
+respuestas_validas:
+  - "contabilidad"
+
+enunciado: "Antes de convertirse en un sistema de escritura fonética, los primeros signos en las ciudades de Mesopotamia servían para la ___ de bienes y ganado."
+
+explicacion: |
+  Los proto-escrituras (tokens o fichas de arcilla) eran herramientas de contabilidad para llevar el control de los inventarios en los centros de redistribución.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escritura_primeras_ciudades"
+  nivel: "intermedio"
+  tags: ["secuencia", "causalidad"]
+
+respuesta_orden: ["excedente agrícola", "especialización del trabajo", "aparición de la escritura"]
+tipo: "ordenar"
+opciones_explicitas: ["excedente agrícola", "especialización del trabajo", "aparición de la escritura"]
+
+enunciado: "Ordena cronológicamente los fenómenos que permitieron el desarrollo de la civilización urbana en Mesopotamia:"
+
+explicacion: |
+  Primero se produce el excedente (producción de más comida de la necesaria), esto permite que no todos tengan que cultivar (especialización), y esa especialización genera la necesidad de registrar la producción (escritura).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escritura_primeras_ciudades"
+  nivel: "basico"
+  tags: ["escritura", "sociedad", "memoria"]
+
+tipo: mc
+opciones_explicitas: ["Permitió la transmisión de conocimiento más allá de la memoria oral", "Eliminó la necesidad de la comunicación verbal", "Redujo el tamaño de las poblaciones", "Hizo que la historia fuera irrelevante"]
+respuesta: "Permitió la transmisión de conocimiento más allá de la memoria oral"
+
+enunciado: "La invención de la escritura en las primeras civilizaciones permitió que el conocimiento fuera ___________."
+
+explicacion: |
+  La escritura permitió que la información no dependiera únicamente de la memoria de los individuos, facilitando la acumulación de saber a través de las generaciones.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escritura_primeras_ciudades"
+  nivel: "intermedio"
+  tags: ["administracion", "burocracia", "estado"]
+
+tipo: completar
+respuestas_validas:
+  - "administrar"
+  - "controlar"
+
+enunciado: "El desarrollo de sistemas de escritura fue fundamental para poder ___________ las excedentes de producción y los tributos en sociedades cada vez más complejas."
+
+explicacion: |
+  La complejidad social de las primeras ciudades requería un registro preciso de recursos, lo que impulsó la creación de sistemas de contabilidad y administración.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escritura_primeras_ciudades"
+  nivel: "basico"
+  tags: ["evolucion", "comunicacion"]
+
+tipo: ordenar
+opciones_explicitas: ["Tradición oral", "Signos pictográficos", "Escritura fonética"]
+
+enunciado: "Ordena cronológicamente la evolución de los sistemas de registro de información en las primeras civilizaciones:"
+
+explicacion: |
+  La evolución comenzó con la comunicación oral, pasó por representaciones de objetos (pictogramas) y finalmente hacia sistemas que representaban sonidos (fonética).
+respuesta_orden: ["Tradición oral", "Signos pictográficos", "Escritura fonética"]
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escritura_primeras_ciudades"
+  nivel: "avanzado"
+  tags: ["estado", "leyes", "orden"]
+
+tipo: mc
+respuesta: "Estabilidad y orden social"
+opciones_explicitas: ["Estabilidad y orden social", "Inestabilidad constante", "Desigualdad extrema"]
+
+enunciado: "Cuando las sociedades pasaron de leyes orales a leyes escritas, el resultado principal fue la ___________."
+
+explicacion: |
+  La codificación de leyes por escrito permitió una aplicación más uniforme y predecible de la justicia, contribuyendo a la estabilidad del Estado.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escritura_primeras_ciudades"
+  nivel: "intermedio"
+  tags: ["memoria", "registro", "tiempo"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Antes de la escritura, la historia dependía de la memoria. Con la escritura, la historia se convierte en un ___ que trasciende el tiempo."
+
+respuesta: "registro"
+
+explicacion: |
+  La escritura transformó la memoria humana en un registro físico, permitiendo que la historia fuera un objeto de estudio permanente y no algo sujeto al olvido biológico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escritura_primeras_ciudades"
+  nivel: "basico"
+  tags: ["mesopotamia", "sumerios"]
+
+respuesta: "Mesopotamia"
+tipo: mc
+opciones_explicitas: ["Mesopotamia", "Egipto", "China", "India"]
+
+enunciado: "El sistema de escritura basado en marcas en forma de cuña (cuneiforme) se desarrolló en la región de ___."
+
+explicacion: |
+  La escritura cuneiforme fue desarrollada por los sumerios en la antigua Mesopotamia alrededor del 3200 a.C.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escritura_primeras_ciudades"
+  nivel: "basico"
+  tags: ["egipto", "jeroglíficos"]
+
+respuesta: "Egipto"
+tipo: mc
+opciones_explicitas: ["Egipto", "Mesopotamia", "Fenicia", "China"]
+
+enunciado: "Los jeroglíficos fueron utilizados por las civilizaciones del valle del Nilo."
+
+explicacion: |
+  Los jeroglíficos egipcios combinaban logogramas y signos fonéticos para representar el lenguaje.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escritura_primeras_ciudades"
+  nivel: "intermedio"
+  tags: ["cronologia", "origen"]
 
 variables:
-  caso: uno_de([["un bifaz perfectamente simétrico", "estética y precisión"], ["un propulsor de lanza", "ingeniería y cálculo de trayectoria"], ["un raspador de hueso", "especialización funcional"]])
+  datos: [["Mesopotamia", "Sumerios"], ["Egipto", "Egipcios"]]
+  idx: uno_de([0,1])
 
-respuesta: caso[1]
+respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["estética y precisión", "ingeniería y cálculo de trayectoria", "especialización funcional"]
+opciones_explicitas: ["Sumerios", "Egipcios"]
 
-enunciado: "La fabricación de {caso[0]} sugiere que el homínido no solo buscaba utilidad, sino también {caso[1]}."
+enunciado: "La escritura en la región de {datos[idx][0]} fue desarrollada originalmente por los {datos[idx][1]}."
 
 explicacion: |
-  La simetría en herramientas de piedra que no es estrictamente necesaria para el corte indica una búsqueda de orden y belleza, propia de la mente moderna.
+  La transición de la proto-escritura a sistemas complejos fue fundamental para la administración de las primeras ciudades-estado.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "intermedio"
-  tags: ["simbolismo", "evolucion"]
+  tema: "escritura_primeras_ciudades"
+  nivel: "avanzado"
+  tags: ["orden", "evolucion"]
 
-respuesta: verdadero
+respuesta_orden: ["Tokens", "Escritura Cuneiforme", "Tablillas"]
+tipo: ordenar
+opciones_explicitas: ["Tokens", "Escritura Cuneiforme", "Tablillas"]
+
+enunciado: "Ordena la evolución de los soportes y formas de registro en el contexto de Mesopotamia:"
+
+explicacion: |
+  El proceso comenzó con objetos de arcilla (tokens) para contar, evolucionando hacia signos abstractos en tablillas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "escritura_primeras_ciudades"
+  nivel: "intermedio"
+  tags: ["fenicia", "alfabeto"]
+
+respuesta: "Fenicia"
+tipo: mc
+opciones_explicitas: ["Fenicia", "China", "Mesopotamia", "Egipto"]
+
+enunciado: "A diferencia de los sistemas complejos, el sistema alfabético fue perfeccionado por los fenicios en la región de ___."
+
+explicacion: |
+  El alfabeto fenicio fue un sistema fonético que facilitó el comercio y fue la base de muchos alfabetos modernos.
+```
+
+## Sección: antigua-grecia (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["guerra", "atenas", "esparta"]
+tipo: mc
+enunciado: "El conflicto que marcó el declive de la hegemonía ateniense y reconfiguró el mapa político griego en el siglo V a.C. fue causado principalmente por el temor de los estados del Peloponeso a:"
+opciones_explicitas:
+  - "El crecimiento económico de Corinto"
+  - "El poder naval y político de Atenas"
+  - "La invasión persa de 480 a.C."
+  - "La alianza de Tebas con Esparta"
+respuesta: "El poder naval y político de Atenas"
+explicacion: "La Guerra del Peloponeso (431-404 a.C.) estalló debido al miedo de Esparta y sus aliados al creciente poder de Atenas, especialmente después de la formación de la Liga de Delos."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["batalla", "naval", "salamina"]
 tipo: vf
-
-enunciado: "¿Es correcto afirmar que el arte rupestre representa un salto cualitativo en la cognición debido a su naturaleza no utilitaria inmediata?"
-
-explicacion: |
-  Correcto. El arte no tiene una función de supervivencia directa (como buscar comida), sino que cumple funciones sociales, rituales o de comunicación.
+enunciado: "La Batalla de Salamina (480 a.C.) fue una victoria decisiva de la flota griega unida sobre la armada persa, evitando la conquista de Grecia continental por Jerjes I."
+respuesta: verdadero
+explicacion: "La batalla de Salamina frenó el avance persa y permitió a los griegos consolidar su resistencia, siendo un punto de inflexión crucial en las Guerras Médicas."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "basico"
-  tags: ["arte_rupestre", "tecnicas"]
-
-variables:
-  datos: [["pigmentos mezclados con grasa animal aplicados con los dedos", "Pintura con los dedos"], ["grabados realizados con piedras duras sobre la roca", "Petroglifos"], ["dibujos realizados con carbón vegetal sobre superficies claras", "Dibujo al carbón"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Pintura con los dedos", "Petroglifos", "Dibujo al carbón"]
-
-enunciado: "Se ha descubierto una cueva con las siguientes características: {datos[idx][0]}. ¿A qué técnica pertenece?"
-
-explicacion: |
-  La descripción corresponde a {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
+  tema: "antigua-grecia"
   nivel: "intermedio"
-  tags: ["herramientas", "grabado"]
-
-variables:
-  datos: [["piedra de sílex", "percutor"], ["hueso endurecido", "estilete"], ["punta de madera", "incisores"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+  tags: ["esparta", "agoge", "sociedad"]
 tipo: completar
+enunciado: "En Esparta, el sistema educativo y militar obligatorio para los varones ciudadanos desde los 7 años se denominaba __________."
+respuesta: "agoge"
 respuestas_validas:
-  - "percutor"
-  - "estilete"
-  - "incisores"
-
-enunciado: "Para grabar la roca a partir de {datos[idx][0]}, el artista necesitó un/a ___."
-
-explicacion: |
-  El instrumento utilizado para la acción descrita es un/a {datos[idx][1]}.
+  - "Agoge"
+  - "agoge"
+  - "AGOGE"
+explicacion: "El Agoge era el programa de entrenamiento físico y moral diseñado para crear soldados disciplinados y leales al estado espartano."
 ```
 
 ```
 metadata:
-  materia: "historia_profucha"
-  tema: "herramientas_arte_rupestre"
-  nivel: "avanzado"
-  tags: ["quimica_antigua", "pigmentos"]
-
-variables:
-  datos: [["óxido de hierro", "rojo"], ["óxido de manganeso", "negro"], ["arcilla blanca", "blanco"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["rojo", "negro", "blanco"]
-
-enunciado: "Un arqueólogo encuentra restos de coloración {datos[idx][0]} en una pared. ¿Cuál es el pigmento probable?"
-
-explicacion: |
-  El pigmento utilizado para obtener el color {datos[idx][1]} es el {datos[idx][0]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
   nivel: "intermedio"
-  tags: ["procesos", "orden"]
-
-respuesta_orden: ["Preparación de la superficie", "Aplicación del pigmento", "Sellado con grasa"]
-tipo: ordenar
-opciones_explicitas: ["Preparación de la superficie", "Aplicación del pigmento", "Sellado con grasa"]
-
-enunciado: "Ordene los pasos lógicos para la creación de una pintura mural rupestre duradera:"
-
-explicacion: |
-  El proceso estándar requiere primero limpiar la roca, luego aplicar el color y finalmente protegerlo con un aglutinante como la grasa.
+  tags: ["filosofia", "socrates", "etica"]
+tipo: mc
+enunciado: "¿Qué filósofo ateniense es conocido por su método de interrogatorio dialéctico (mayéutica) y su ejecución por impiedad en 399 a.C.?"
+opciones_explicitas:
+  - "Platón"
+  - "Aristóteles"
+  - "Sócrates"
+  - "Diógenes"
+respuesta: "Sócrates"
+explicacion: "Sócrates no escribió obras propias; su pensamiento se conoce a través de sus discípulos, principalmente Platón. Fue condenado a beber cicuta."
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "herramientas_arte_rupestre"
-  nivel: "basico"
-  tags: ["soporte", "arqueologia"]
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["sociedad", "atenas", "mujeres"]
+tipo: completar
+enunciado: "En la democracia ateniense clásica, las mujeres, los esclavos y los metecos (extranjeros residentes) estaban __________ del proceso político directo."
+respuesta: "excluidos"
+respuestas_validas:
+  - "excluidos"
+  - "Excluidos"
+  - "EXCLUIDOS"
+explicacion: "Solo los varones adultos hijos de padres atenienses tenían derechos políticos plenos, a pesar de que Atenas es considerada la cuna de la democracia."
+```
 
-variables:
-  datos: [["pared de piedra", "pared"], ["banco de roca", "pared"], ["techo de la cueva", "techo"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["arte", "partenon", "pericles"]
 tipo: mc
-opciones_explicitas: ["pared", "techo", "suelo"]
+enunciado: "Durante el gobierno de Pericles, ¿qué arquitecto supervisó la construcción del Partenón en la Acrópolis de Atenas?"
+opciones_explicitas:
+  - "Fidias"
+  - "Ictino"
+  - "Calícrates"
+  - "Praxíteles"
+respuesta: "Ictino"
+explicacion: "Ictino, junto con Calícrates, diseñó el Partenón, mientras que Fidias supervisó las esculturas y la estatua crisoelefantina de Atenea."
+```
 
-enunciado: "La obra se encuentra plasmada sobre un/a {datos[idx][0]}. Por lo tanto, el soporte es un/a ___."
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["mitologia", "troya", "homero"]
+tipo: vf
+enunciado: "La Ilíada de Homero narra principalmente los últimos días de la guerra de Troya, centrada en la cólera del héroe Aquiles, no toda la guerra."
+respuesta: verdadero
+explicacion: "La Ilíada se concentra en la \"cólera de Aquiles\" durante un breve periodo al final de la guerra, dejando otros eventos fuera de su narrativa inmediata."
+```
 
-explicacion: |
-  En arqueología, la ubicación física define el soporte: {datos[idx][1]}.
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["termopilas", "leonidas", "persas"]
+tipo: completar
+enunciado: "El rey __________ de Esparta lideró a un pequeño grupo de hoplitas y aliados en la defensa del Paso de las Termópilas contra el ejército persa de Jerjes."
+respuesta: "leonidas"
+respuestas_validas:
+  - "Leonidas"
+  - "leonidas"
+  - "LEONIDAS"
+explicacion: "Leonidas I murió junto con sus 300 espartanos (y otros aliados) en 480 a.C., simbolizando la resistencia heroica contra la invasión persa."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["filosofia", "aristoteles", "logica"]
+tipo: mc
+enunciado: "¿Quién fue el fundador del Liceo y sistematizó la lógica formal, siendo discípulo de Platón?"
+opciones_explicitas:
+  - "Sócrates"
+  - "Aristóteles"
+  - "Epicuro"
+  - "Zenón de Citio"
+respuesta: "Aristóteles"
+explicacion: "Aristóteles amplió el conocimiento en biología, física, metafísica y ética, estableciendo las bases del pensamiento lógico occidental."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["democracia", "eklesia", "atenas"]
+tipo: completar
+enunciado: "La asamblea popular ateniense, donde los ciudadanos votaban directamente las leyes y decisiones de estado, se llamaba __________."
+respuesta: "ekklesia"
+respuestas_validas:
+  - "ekklesia"
+  - "Ekklesia"
+  - "EKKELESIA"
+explicacion: "La Ekklesia era el órgano soberano de la democracia ateniense, reunida regularmente en la Pnice para deliberar."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["guerra", "derrota", "atenas"]
+tipo: vf
+enunciado: "Atenas perdió la Guerra del Peloponeso en 404 a.C. debido al bloqueo naval espartano liderado por Lisandro, que cortó su suministro de grano de Hellesponto."
+respuesta: verdadero
+explicacion: "La flota ateniense fue destruida en la batalla de Egospótamos, lo que llevó al asedio y rendición de Atenas, poniendo fin a la guerra."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["politica", "demagogos", "atenas"]
+tipo: mc
+enunciado: "¿Qué político ateniense fue considerado un demagogo influyente que promovió el empoderamiento de la Asamblea sobre el Areópago?"
+opciones_explicitas:
+  - "Címon"
+  - "Mirónides"
+  - "Efialtes"
+  - "Temístocles"
+respuesta: "Efialtes"
+explicacion: "Efialtes, junto con Pericles, redujo el poder del Areópago (aristocracia) y fortaleció la democracia radical en Atenas."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["arte", "escultura", "mirón"]
+tipo: completar
+enunciado: "La escultura __________, que representa a un atleta lanzando un disco, es una obra maestra del periodo clásico de Mirón, conocida por su contrapposto inicial."
+respuesta: "discóbolo"
+respuestas_validas:
+  - "discóbolo"
+  - "Discóbolo"
+  - "DISCOBOLO"
+explicacion: "El Discóbolo de Mirón captura el momento de máxima tensión antes del lanzamiento, mostrando movimiento y equilibrio."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["filosofia", "estoicismo", "zenon"]
+tipo: mc
+enunciado: "¿Quién fundó la escuela estoica en Atenas, enseñando que la virtud es el único bien y que se debe vivir conforme a la naturaleza?"
+opciones_explicitas:
+  - "Epicuro"
+  - "Zenón de Citio"
+  - "Pitágoras"
+  - "Heráclito"
+respuesta: "Zenón de Citio"
+explicacion: "Zenón de Citio estableció el estoicismo en el Pórtico Pintado (Stoa Poikile) de Atenas tras el 300 a.C. aproximadamente."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["batalla", "maraton", "miltiades"]
+tipo: completar
+enunciado: "La primera invasión persa de Grecia fue detenida por los atenienses en la Batalla de __________ en 490 a.C., bajo el mando de Miltíades."
+respuesta: "maratón"
+respuestas_validas:
+  - "maratón"
+  - "Maraton"
+  - "MARATON"
+explicacion: "La victoria en Maratón demostró que los persas podían ser derrotados y consolidó la confianza de Atenas en su poder naval."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["teatro", "tragedia", "esquilo"]
+tipo: mc
+enunciado: "¿Qué dramaturgo es considerado el padre de la tragedia griega y escribió la obra \"Los persas\", la única tragedia que sobrevive con tema contemporáneo a su autor?"
+opciones_explicitas:
+  - "Sófocles"
+  - "Eurípides"
+  - "Esquilo"
+  - "Aristófanes"
+respuesta: "Esquilo"
+explicacion: "Esquilo introdujo el segundo actor, permitiendo el diálogo dramático. \"Los persas\" se basa en la batalla de Salamina."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["alianza", "delos", "tesoro"]
+tipo: completar
+enunciado: "La __________ de Delos era una alianza militar de ciudades griegas liderada por Atenas, cuyo tesoro estaba originalmente en la isla de Delos."
+respuesta: "liga"
+respuestas_validas:
+  - "liga"
+  - "Liga"
+  - "LIGA"
+explicacion: "La Liga de Delos evolucionó hacia el primer imperio ateniense, con el tesoro trasladado a Atenas y los fondos usados para construir el Partenón."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["filosofia", "pitagoras", "matematica"]
+tipo: mc
+enunciado: "¿Qué filósofo y matemático fundó una escuela en Crotona que combinaba matemáticas, música y misticismo, y es famoso por el teorema que lleva su nombre?"
+opciones_explicitas:
+  - "Tales de Mileto"
+  - "Pitágoras"
+  - "Anaximandro"
+  - "Parménides"
+respuesta: "Pitágoras"
+explicacion: "Pitágoras y su secta creían que la realidad es fundamentalmente matemática y practicaban la metempsicosis (reencarnación)."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["batalla", "filipo", "macedonia"]
+tipo: vf
+enunciado: "La Batalla de Queronea (338 a.C.) puso fin a la independencia de las polis griegas y estableció la hegemonía de Filipo II de Macedonia."
+respuesta: verdadero
+explicacion: "La victoria macedonia en Queronea obligó a las ciudades griegas a unirse en la Liga de Corinto bajo liderazgo macedonio."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["historiografia", "herodoto", "persas"]
+tipo: completar
+enunciado: "__________, conocido como el padre de la Historia, escribió \"Historias\" detallando las Guerras Médicas y describiendo las costumbres de los pueblos conocidos."
+respuesta: "Herodoto"
+respuestas_validas:
+  - "Herodoto"
+  - "herodoto"
+  - "HERODOTO"
+explicacion: "Herodoto recopiló relatos orales y observaciones para documentar el conflicto entre Grecia y Persia, aunque a veces incluía mitos."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["filosofia", "talos", "agua"]
+tipo: mc
+enunciado: "¿Qué filósofo de Mileto fue considerado el primer pensador occidental al proponer que el agua es el arjé (principio) de todas las cosas?"
+opciones_explicitas:
+  - "Anaxímenes"
+  - "Tales de Mileto"
+  - "Anaximandro"
+  - "Heráclito"
+respuesta: "Tales de Mileto"
+explicacion: "Tales buscó una explicación natural y material para el origen del universo, alejándose de las explicaciones mitológicas."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["batalla", "temistocles", "estrategia"]
+tipo: completar
+enunciado: "El almirante ateniense __________ persuadió a los griegos de luchar en las estrechas aguas de Salamina, neutralizando la ventaja numérica persa."
+respuesta: "temistocles"
+respuestas_validas:
+  - "temistocles"
+  - "Temistocles"
+  - "TEMISTOCLES"
+explicacion: "Temístocles, creador de la flota ateniense, argumentó que el estrecho canal impediría la maniobra de la flota persa más grande."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["filosofia", "epicuro", "placer"]
+tipo: mc
+enunciado: "¿Qué filósofo fundó una escuela en su jardín en Atenas, enseñando que el fin último de la vida es la búsqueda del placer (aponía) y la ausencia de dolor?"
+opciones_explicitas:
+  - "Zenón"
+  - "Epicuro"
+  - "Aristóteles"
+  - "Platón"
+respuesta: "Epicuro"
+explicacion: "Epicuro promovía una vida sencilla y tranquila, evitando el miedo a los dioses y a la muerte, definiendo el placer como la ausencia de sufrimiento."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["guerra", "inicio", "431"]
+tipo: completar
+enunciado: "La Guerra del Peloponeso comenzó oficialmente en el año __________ a.C., tras una serie de incidentes diplomáticos y la disputa por Corcira y Potidea."
+respuesta: 431
+respuestas_validas:
+  - 431
+  - "431 a.C."
+  - "431 AC"
+explicacion: "El año 431 a.C. marca el inicio formal del conflicto, aunque las tensiones habían crecido durante décadas."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "antigua-grecia"
+  nivel: "intermedio"
+  tags: ["filosofia", "heraclito", "cambio"]
+tipo: mc
+enunciado: "¿Qué filósofo de Éfeso es famoso por su doctrina de que \"todo fluye\" y que \"no te puedes bañar dos veces en el mismo río\"?"
+opciones_explicitas:
+  - "Parménides"
+  - "Heráclito"
+  - "Demócrito"
+  - "Empédocles"
+respuesta: "Heráclito"
+explicacion: "Heráclito enfatizaba el cambio constante y el conflicto como la fuente de toda realidad, opuesto a la estática de Parménides."
 ```
 

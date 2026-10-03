@@ -1,0 +1,26 @@
+[
+ {
+  "id": 924,
+  "cluster": 1,
+  "temas": [
+   "psicologia-modernidad-y-el-yo",
+   "autoconocimiento-como-busqueda-humana",
+   "dependencia-del-otro-cultura-como-herencia",
+   "memoria-y-olvido-represion-inconsciente",
+   "psicologia-cognitiva-percepcion-memoria-atencion"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 925,
+  "cluster": 2,
+  "temas": [
+   "lenguaje-pensamiento-y-creatividad",
+   "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
+   "edades-del-ser-humano-ninez-pubertad-identidad",
+   "salud-mental-ansiedad-depresion-pedir-ayuda",
+   "sesgos-cognitivos-heuristicas-error-sistematico"
+  ],
+  "preguntas": 125
+ }
+]

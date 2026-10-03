@@ -3,23 +3,23 @@
   "id": 721,
   "cluster": 1,
   "temas": [
-   "conquista-del-desierto-y-campana-al-chaco",
    "crisis-de-2001",
-   "guerra-civil-espanola-1936-1939",
-   "guerra-del-paraguay-y-triple-alianza",
-   "interpretar-una-fuente-historica"
+   "interpretar-una-fuente-historica",
+   "linea-de-tiempo-y-antes-despues",
+   "reforma-universitaria-1918",
+   "decada-siglo-milenio"
   ],
-  "preguntas": 124
+  "preguntas": 103
  },
  {
   "id": 722,
   "cluster": 2,
   "temas": [
-   "linea-de-tiempo-y-antes-despues",
-   "reforma-universitaria-1918",
-   "decada-siglo-milenio",
-   "revolucion-mexicana-1910-1920",
-   "antes-y-despues-de-cristo"
+   "semana-tragica-1919",
+   "antes-y-despues-de-cristo",
+   "industrializacion-por-sustitucion-de-importaciones-isi",
+   "periodizacion-historica",
+   "causa-y-consecuencia"
   ],
   "preguntas": 109
  },
@@ -27,39 +27,39 @@
   "id": 723,
   "cluster": 3,
   "temas": [
-   "rosas-y-la-confederacion",
-   "periodizacion-historica",
-   "economias-regionales-tempranas",
-   "causa-y-consecuencia",
-   "semana-tragica-1919"
+   "significancia-historica",
+   "cambio-y-continuidad",
+   "evidencia",
+   "dimension-etica",
+   "multicausalidad"
   ],
-  "preguntas": 114
+  "preguntas": 100
  },
  {
   "id": 724,
   "cluster": 4,
   "temas": [
-   "cambio-y-continuidad",
-   "evidencia",
-   "dimension-etica",
-   "industrializacion-por-sustitucion-de-importaciones-isi",
-   "multicausalidad"
+   "escuela-de-los-annales",
+   "historia-cultural",
+   "materialismo-historico",
+   "positivismo",
+   "revoluciones"
   ],
-  "preguntas": 102
+  "preguntas": 100
  },
  {
   "id": 725,
   "cluster": 5,
   "temas": [
-   "significancia-historica",
-   "escuela-de-los-annales",
-   "historia-cultural",
-   "materialismo-historico",
-   "positivismo",
-   "revoluciones",
    "independencias",
-   "guerras"
+   "revolucion-mexicana-1910-1920",
+   "guerras",
+   "guerra-civil-espanola-1936-1939",
+   "guerra-del-paraguay-y-triple-alianza",
+   "rosas-y-la-confederacion",
+   "conquista-del-desierto-y-campana-al-chaco",
+   "economias-regionales-tempranas"
   ],
-  "preguntas": 160
+  "preguntas": 197
  }
 ]

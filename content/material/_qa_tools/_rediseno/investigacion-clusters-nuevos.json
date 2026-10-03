@@ -3,26 +3,26 @@
   "id": 912,
   "cluster": 1,
   "temas": [
-   "analisis-estadistico-de-resultados",
-   "argumentar-desde-evidencia",
-   "conclusion-y-comunicacion-de-resultados",
+   "observacion-y-pregunta-investigable",
+   "hipotesis-buena-o-mala",
+   "metodologia-cualitativa-vs-cuantitativa",
    "construir-y-usar-un-modelo-cientifico",
-   "corrientes-filosofia-de-la-ciencia"
+   "trabajo-de-campo-enfoque-socioantropologico"
   ],
-  "preguntas": 125
+  "preguntas": 118
  },
  {
   "id": 913,
   "cluster": 2,
   "temas": [
+   "corrientes-filosofia-de-la-ciencia",
    "diseno-experimental-variables-y-control",
-   "hipotesis-buena-o-mala",
-   "observacion-y-pregunta-investigable",
+   "tecnicas-de-investigacion-social",
    "recoleccion-de-datos",
-   "metodologia-cualitativa-vs-cuantitativa",
-   "trabajo-de-campo-enfoque-socioantropologico",
-   "tecnicas-de-investigacion-social"
+   "analisis-estadistico-de-resultados",
+   "conclusion-y-comunicacion-de-resultados",
+   "argumentar-desde-evidencia"
   ],
-  "preguntas": 168
+  "preguntas": 175
  }
 ]

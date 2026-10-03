@@ -4,2291 +4,2371 @@
 
 ---
 
-## Sección: poblamiento-planeta-america (25 preguntas)
+## Sección: revoluciones-burguesas-liberalismo (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
+  tema: "revoluciones_burguesas_liberalismo"
   nivel: "basico"
-  tags: ["origen", "africa", "homo_sapiens"]
+  tags: ["revolucion_francesa", "burguesia"]
 
-respuesta: "África"
+respuesta: "burguesía"
 tipo: completar
 respuestas_validas:
-  - "África"
+  - "burguesía"
+  - "la burguesía"
 
-enunciado: "Según la teoría 'Out of Africa', el Homo sapiens se originó en el continente de ___."
+enunciado: "Durante el siglo XVIII, la clase social que lideró el desafío al Antiguo Régimen, buscando mayor participación política y la eliminación de los privilegios feudales, fue la ___."
 
 explicacion: |
-  La evidencia genética y fósil sostiene que los humanos modernos surgieron en África y luego migraron hacia el resto del mundo.
+  La burguesía, compuesta por comerciantes, banqueros y profesionales, poseía poder económico pero carecía de poder político, lo que impulsó las revoluciones liberales.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
+  tema: "revoluciones_burguesas_liberalismo"
   nivel: "intermedio"
-  tags: ["migracion", "teoria"]
+  tags: ["derechos_humanos", "liberalismo"]
 
 variables:
-  escenario: uno_de([["África", "Asia", "Europa", "América"], ["África", "Asia", "Europa", "Oceanía"]])
+  es_derecho_natural: uno_de([verdadero, falso])
 
-respuesta: escenario[0]
-tipo: mc
-opciones_explicitas: ["África", "Asia", "Europa", "América"]
-
-enunciado: "De acuerdo con la teoría del origen africano, ¿desde qué continente partieron las primeras migraciones de Homo sapiens para colonizar el resto del planeta?"
-
-explicacion: |
-  La migración comenzó desde África hacia Asia y luego se expandió hacia otros continentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "avanzado"
-  tags: ["secuencia", "migracion"]
-
-respuesta_orden: ["África", "Asia", "Europa", "América"]
-tipo: ordenar
-opciones_explicitas: ["África", "Asia", "Europa", "América"]
-
-enunciado: "Ordena cronológicamente la expansión global del Homo sapiens según la teoría predominante:"
-
-explicacion: |
-  Primero se consolidó en África, luego migró hacia Asia/Europa y finalmente llegó al continente americano.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "intermedio"
-  tags: ["america", "estrecho_de_bering"]
-
-variables:
-  datos: [["Bering", "Asia"], ["Magallanes", "América"]]
-
-respuesta: datos[0][0]
-tipo: completar
-respuestas_validas:
-  - "Bering"
-
-enunciado: "La teoría más aceptada sugiere que el paso de los primeros humanos hacia América se realizó a través del estrecho de ___."
-
-explicacion: |
-  El Estrecho de Bering permitió el tránsito desde el noreste de Asia hacia Alaska durante las glaciaciones.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "basico"
-  tags: ["teoria", "out_of_africa"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿La teoría 'Out of Africa' propone que el Homo sapiens es originario de Europa y luego migró a África?"
-
-explicacion: |
-  Falso. La teoría postula exactamente lo contrario: el origen es africano y la migración fue hacia afuera.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "basico"
-  tags: ["prehistoria", "migracion"]
-
-respuesta: "Asia"
-tipo: completar
-respuestas_validas:
-  - "Asia"
-
-enunciado: "Se cree que los primeros grupos humanos llegaron al continente americano cruzando el puente terrestre de Beringia desde ________."
-
-explicacion: |
-  La teoría más aceptada sugiere que durante las glaciaciones, el descenso del nivel del mar permitió la formación de un puente de tierra entre Asia y América.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "basico"
-  tags: ["geografia", "migracion"]
-
-respuesta: "puente terrestre"
-tipo: mc
-opciones_explicitas: ["puente terrestre", "paso marítimo", "ruta costera"]
-
-enunciado: "El corredor que permitió el paso de humanos y megafauna desde Asia hacia América se conoce como Beringia. ¿Qué tipo de corredor era?"
-
-explicacion: |
-  El puente de Beringia era una masa de tierra que conectaba los dos continentes durante los periodos de máximo glaciar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "intermedio"
-  tags: ["cronologia", "teorias"]
-
-respuesta: 15000
-tipo: completar
-tolerancia_abs: 5000
-
-enunciado: "Aunque las fechas varían según la teoría, se estima que el poblamiento masivo comenzó hace aproximadamente ___ años."
-
-pasos:
-  - "Considerar el final de la última glaciación."
-  - "Estimar el inicio de las migraciones hacia el sur del continente."
-
-explicacion: |
-  Si bien hay debates sobre teorías más antiguas (como la de Monte Verde), el consenso general sitúa las migraciones principales hace decenas de miles de años.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "intermedio"
-  tags: ["secuencia", "migracion"]
-
-respuesta_orden: ["Asia", "Beringia", "América"]
-tipo: ordenar
-opciones_explicitas: ["Asia", "Beringia", "América"]
-
-enunciado: "Ordena la secuencia lógica del poblamiento de América según la teoría del Estrecho de Bering:"
-
-explicacion: |
-  La secuencia implica el punto de origen (Asia), el medio de tránsito (Beringia) y el destino (América).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "avanzado"
-  tags: ["clima", "fauna"]
-
-respuesta: "descenso del nivel del mar"
-tipo: mc
-opciones_explicitas: ["descenso del nivel del mar", "aumento de temperatura", "cambio en la vegetación"]
-
-enunciado: "La formación del puente de Beringia fue posible gracias a la glaciación, lo que provocó un ___."
-
-explicacion: |
-  Durante las glaciaciones, el agua se acumulaba en los glaciares, haciendo que el nivel del mar bajara y expusiera el suelo marino.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "basico"
-  tags: ["poblamiento", "geografia_humana"]
-
-respuesta: "América"
-tipo: completar
-respuestas_validas:
-  - "América"
-
-enunciado: "Considerando la cronología del poblamiento humano global, ___ fue el último continente habitado por seres humanos (con excepción de la Antártida)."
-
-explicacion: |
-  Mientras que África fue la cuna de la humanidad y los otros continentes fueron alcanzados hace decenas de miles de años, América fue colonizada mucho más recientemente en la escala temporal evolutiva.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "intermedio"
-  tags: ["cronologia", "comparativa"]
-
-variables:
-  escenario: uno_de([["África", "Asia", "Europa", "Oceanía"], ["América", "Antártida"]])
-  es_america: escenario[0] == "América"
-
-respuesta: "último"
-tipo: mc
-opciones_explicitas: ["primero", "segundo", "último"]
-
-enunciado: "Comparado con África, Asia, Europa y Oceanía, el continente americano fue el ___ en ser poblado por humanos."
-
-explicacion: |
-  La evidencia arqueológica y genética indica que el poblamiento de América es un evento mucho más tardío en comparación con el resto de las masas continentales habitables.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "intermedio"
-  tags: ["orden", "secuencia"]
-
-respuesta_orden: ["África", "Asia", "Europa", "Oceanía", "América"]
-tipo: ordenar
-opciones_explicitas: ["África", "Asia", "Europa", "Oceanía", "América"]
-
-enunciado: "Ordena cronológicamente los continentes (de mayor a menor antigüedad en su poblamiento humano) según el consenso científico actual:"
-
-explicacion: |
-  El patrón de expansión humana muestra una salida desde África hacia Asia, luego hacia Europa y Oceanía, dejando a América como el último gran territorio en ser integrado a la red de asentamientos humanos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "basico"
-  tags: ["teoria", "verdad_falso"]
-
-respuesta: falso
-tipo: mc
-opciones_explicitas: [verdadero, falso]
-
-enunciado: "¿Es correcto afirmar que América fue uno de los primeros continentes en ser habitado por los primeros homínidos que salieron de África?"
-
-explicacion: |
-  Es falso. América fue el último continente en ser poblado, mucho después de que los humanos ya hubieran colonizado el resto de los continentes habitables.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "avanzado"
-  tags: ["excepcion", "geografia"]
-
-respuesta: 1
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si América es el último continente poblado, y la Antártida es la única excepción que no fue poblada por humanos de forma permanente, ¿cuántos continentes de los 7 totales fueron poblados después de África, Europa, Asia y Oceanía?"
-
-pasos:
-  - "Identificar los continentes ya poblados: África, Asia, Europa, Oceanía (4)"
-  - "Identificar los continentes restantes: América y Antártida (2)"
-  - "Descontar la Antártida por no estar poblada: 2 - 1 = 1"
-
-explicacion: |
-  La respuesta es 1, refiriéndose únicamente a América. La Antártida no cuenta como continente poblado por humanos en la historia antigua/prehistórica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "basico"
-  tags: ["arqueologia", "clovis", "tecnologia"]
-
-respuesta: "puntas de lanza"
-tipo: completar
-respuestas_validas:
-  - "puntas de lanza"
-
-enunciado: "La cultura Clovis se caracteriza por la fabricación de ___ de piedra con una hendidura característica en la base."
-
-explicacion: |
-  La cultura Clovis (aprox. 13,000 años atrás) es conocida por sus herramientas de piedra altamente especializadas, especialmente sus puntas de lanza con una ranura basal.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "intermedio"
-  tags: ["teoria", "geografia", "bering"]
-
-respuesta: "Beringia"
-tipo: mc
-opciones_explicitas: ["Beringia", "Pacífico", "Atlántico"]
-
-enunciado: "Según la teoría más aceptada, el primer gran corredor de poblamiento hacia América fue el puente terrestre llamado ___."
-
-explicacion: |
-  Durante la última glaciación, el descenso del nivel del mar permitió la existencia de Beringia, un puente terrestre que conectaba Siberia con Alaska.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "avanzado"
-  tags: ["genetica", "adn", "migracion"]
-
-respuesta: "Asia"
-tipo: mc
-opciones_explicitas: ["Asia", "Europa", "Oceanía", "África"]
-
-enunciado: "Estudios de ADN mitocondrial en poblaciones indígenas americanas muestran una fuerte conexión genética con grupos provenientes de ___."
-
-explicacion: |
-  La evidencia genética actual confirma que las poblaciones originarias de América comparten ancestros comunes con poblaciones del este de Asia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "intermedio"
-  tags: ["secuencia", "teorias", "migracion"]
-
-respuesta_orden: ["Ruta de Bering", "Corredor libre de hielo", "Ruta costera"]
-tipo: ordenar
-opciones_explicitas: ["Ruta de Bering", "Corredor libre de hielo", "Ruta costera"]
-
-enunciado: "Ordene las etapas probables de una migración terrestre desde el norte de Asia hacia el interior del continente americano:"
-
-explicacion: |
-  El modelo clásico sugiere primero el cruce por Beringia, luego el paso por un corredor libre de hielo entre las glaciaciones, y finalmente la dispersión hacia el sur.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "avanzado"
-  tags: ["arqueologia", "chile", "monte_verde"]
-
-respuesta: "anterior"
-tipo: mc
-opciones_explicitas: ["anterior", "posterior", "contemporánea"]
-
-enunciado: "El hallazgo del sitio arqueológico Monte Verde en Chile desafió la teoría Clovis porque sus restos son ___ a la cultura Clovis."
-
-explicacion: |
-  Monte Verde presenta evidencia de asentamientos humanos que datan de hace más de 14,500 años, lo que sugiere que hubo migraciones antes de la expansión de la cultura Clovis.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "basico"
-  tags: ["teorias", "migracion"]
-
-respuesta: "Teoría de la Ruta Costera"
-tipo: mc
-opciones_explicitas: ["Teoría de Beringia", "Teoría de la Ruta Costera"]
-
-enunciado: "Según la evidencia arqueológica más aceptada para el poblamiento temprano, ¿cuál de estas rutas sugiere que los humanos llegaron bordeando la costa del Pacífico?"
-
-explicacion: |
-  La teoría de la ruta costera propone que los primeros migrantes utilizaron embarcaciones para bordear el Pacífico, lo que explicaría la rápida llegada a Sudamérica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "intermedio"
-  tags: ["cronologia", "continentes"]
-
-tipo: ordenar
-opciones_explicitas: ["Asia", "Oceanía", "Europa", "América"]
-respuesta_orden: ["Asia", "Oceanía", "Europa", "América"]
-
-enunciado: "Ordena los siguientes continentes desde el que fue poblado primero por el Homo sapiens hasta el último, basándote en las cronologías arqueológicas generales."
-
-explicacion: |
-  El orden general de poblamiento sugiere que la humanidad salió de África y se expandió primero por Asia y Oceanía, luego Europa y finalmente América.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "basico"
-  tags: ["geografia", "migracion"]
-
-respuesta: "el estrecho de Bering"
-tipo: completar
-respuestas_validas:
-  - "el estrecho de Bering"
-
-enunciado: "Para entrar al continente americano desde Asia durante la última glaciación, los grupos humanos debieron cruzar ___."
-
-explicacion: |
-  El puente de Beringia permitió el paso de grupos de cazadores-recolectores desde Siberia hacia Alaska.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "intermedio"
-  tags: ["teorias", "rutas"]
-
-respuesta: "La ruta marítima"
-tipo: mc
-opciones_explicitas: ["La ruta terrestre", "La ruta marítima"]
-
-enunciado: "Si consideramos que los humanos no solo usaron puentes de tierra, sino también balsas para bordear continentes, ¿a qué tipo de migración nos referimos?"
-
-explicacion: |
-  La migración marítima o costera es una de las teorías fundamentales para explicar el poblamiento rápido de las costas americanas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "poblamiento_planeta_america"
-  nivel: "avanzado"
-  tags: ["secuencia", "poblamiento"]
-
-tipo: ordenar
-opciones_explicitas: ["África", "Asia", "Oceanía", "América"]
-respuesta_orden: ["África", "Asia", "Oceanía", "América"]
-
-enunciado: "Establece el orden cronológico correcto de la expansión global del Homo sapiens, considerando el poblamiento de América como el evento más reciente de la lista."
-
-explicacion: |
-  La expansión comenzó en África, siguió por Asia y Oceanía, y finalmente llegó a América hace aproximadamente 15,000-20,000 años.
-```
-
-## Sección: primera-guerra-mundial-y-revolucion-rusa (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["casus-belli", "sarajevo"]
-enunciado: "El asesinato de {{ uno_de([personaje_1, personaje_2 ]) }} en Sarajevo el 28 de junio de 1914 fue el detonante directo que activó el sistema de alianzas y llevó al estallido de la Primera Guerra Mundial."
-variables:
-  personaje_1: "Archiduque Francisco Fernando"
-  personaje_2: "Francisco Fernando de Austria"
-tipo: completar
-respuesta: "Archiduque Francisco Fernando"
-respuestas_validas:
-  - "Archiduque Francisco Fernando"
-  - "Archiduque Francisco Fernando de Austria"
-  - "Francisco Fernando"
-  - "Archiduque Francisco Fernando"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["paz", "versalles"]
-enunciado: "¿Cuál fue el tratado de paz principal que puso fin oficialmente a la Primera Guerra Mundial entre las Potencias Aliadas y Alemania?"
-opciones_explicitas:
-  - "Tratado de Trianón"
-  - "Tratado de Versalles"
-  - "Tratado de Saint-Germain"
-  - "Tratado de Neuilly"
-respuesta: "Tratado de Versalles"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["febrero", "abdicacion"]
-enunciado: "La Revolución de Febrero de 1917 en Rusia provocó la abdicación del último zar de la dinastía Romanov. ¿Quién fue este monarca?"
-opciones_explicitas:
-  - "Pedro I el Grande"
-  - "Alejandro II"
-  - "Nicolás II"
-  - "Alejandro III"
-respuesta: "Nicolás II"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["mar", "bloqueo"]
-enunciado: "La estrategia naval británica consistió en un {{ uno_de([bloqueo_1, bloqueo_2 ]) }} de las costas alemanas para impedir la entrada de suministros y materias primas, debilitando gravemente la economía del Imperio Alemán."
-variables:
-  bloqueo_1: "bloqueo"
-  bloqueo_2: "cerco"
-tipo: completar
-respuesta: "bloqueo"
-respuestas_validas:
-  - "bloqueo"
-  - "cerco"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["rusia", "paz", "bolchevique"]
-enunciado: "La nueva gobierno bolchevique firmó el {{ uno_de([tratado_1, tratado_2 ]) }} con las Potencias Centrales en marzo de 1918, saliendo oficialmente de la guerra a costa de enormes pérdidas territoriales."
-variables:
-  tratado_1: "Tratado de Brest-Litovsk"
-  tratado_2: "Paz de Brest-Litovsk"
-tipo: completar
-respuesta: "Tratado de Brest-Litovsk"
-respuestas_validas:
-  - "Tratado de Brest-Litovsk"
-  - "Paz de Brest-Litovsk"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["armisticio", "compiene"]
-enunciado: "El armisticio que detuvo los combates en el frente occidental se firmó en un vagón de ferrocarril en el bosque de Compiègne. ¿En qué mes de 1918 ocurrió?"
-opciones_explicitas:
-  - "Noviembre"
-  - "Diciembre"
-  - "Octubre"
-  - "Septiembre"
-respuesta: "Noviembre"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["octubre", "lenin"]
-enunciado: "Fue el líder principal de la Revolución de Octubre de 1917 y el primer jefe de gobierno de la Rusia Soviética. ¿Quién fue?"
-opciones_explicitas:
-  - "León Trotsky"
-  - "Iósif Stalin"
-  - "Vladimir Lenin"
-  - "Grigori Zinóviev"
-respuesta: "Vladimir Lenin"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["frente", "rusia"]
-enunciado: "A diferencia del frente occidental, caracterizado por la guerra de trincheras estática, el {{ uno_de([frente_1, frente_2 ]) }} fue más móvil y amplio, lo que facilitó la posterior ruptura del ejército ruso."
-variables:
-  frente_1: "frente oriental"
-  frente_2: "frente ruso"
-tipo: completar
-respuesta: "frente oriental"
-respuestas_validas:
-  - "frente oriental"
-  - "frente ruso"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["submarino", "guerra_no_limitada"]
-enunciado: "Alemania reanudó la guerra submarina sin restricciones en 1917, atacando barcos neutrales, lo que fue un factor clave para la entrada en la guerra de {{ uno_de([pais_1, pais_2 ]) }}."
-variables:
-  pais_1: "Estados Unidos"
-  pais_2: "USA"
-tipo: completar
-respuesta: "Estados Unidos"
-respuestas_validas:
-  - "Estados Unidos"
-  - "USA"
-  - "Estados Unidos de América"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["genocidio", "imperio_otomano"]
-enunciado: "Durante la Primera Guerra Mundial, el gobierno del Imperio Otomano llevó a cabo la deportación y masacre sistemática de su población {{ uno_de([grupo_1, grupo_2 ]) }}, considerada por muchos historiadores como el primer genocidio moderno."
-variables:
-  grupo_1: "armenia"
-  grupo_2: "armenios"
-tipo: completar
-respuesta: "armenia"
-respuestas_validas:
-  - "armenia"
-  - "armenios"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["verdun", "sangre"]
-enunciado: "La batalla de Verdún, librada entre alemanes y franceses en 1916, es conocida por su {{ uno_de([caract_1, caract_2 ]) }} extrema, con cientos de miles de muertos y heridos sin cambios significativos en el frente."
-variables:
-  caract_1: "carnicería"
-  caract_2: "sangría"
-tipo: completar
-respuesta: "carnicería"
-respuestas_validas:
-  - "carnicería"
-  - "sangría"
-  - "masacre"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["trotsky", "ejercito_rojo"]
-enunciado: "{{ uno_de([nombre_1, nombre_2 ]) }} fue el comisario de Guerra que organizó y dirigió el Ejército Rojo durante la guerra civil rusa posterior a la revolución."
-variables:
-  nombre_1: "León Trotsky"
-  nombre_2: "Leon Trotsky"
-tipo: completar
-respuesta: "León Trotsky"
-respuestas_validas:
-  - "León Trotsky"
-  - "Leon Trotsky"
-  - "Trotsky"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["trincheras", "tactica"]
-enunciado: "La característica táctica definitoria del frente occidental fue la guerra de {{ uno_de([tipo_1, tipo_2 ]) }}, donde los soldados vivían en fosos excavados en la tierra protegidos por alambre de espino."
-variables:
-  tipo_1: "trincheras"
-  tipo_2: "trinchera"
-tipo: completar
-respuesta: "trincheras"
-respuestas_validas:
-  - "trincheras"
-  - "trinchera"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["octubre", "fecha"]
-enunciado: "La Revolución de Octubre en Rusia ocurrió según el calendario juliano en uso en Rusia en ese momento, pero corresponde al {{ uno_de([mes_1, mes_2 ]) }} de 1917 en el calendario gregoriano."
-variables:
-  mes_1: "noviembre"
-  mes_2: "Noviembre"
-tipo: completar
-respuesta: "noviembre"
-respuestas_validas:
-  - "noviembre"
-  - "Noviembre"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["wilson", "paz"]
-enunciado: "El presidente de Estados Unidos {{ uno_de([nombre_1, nombre_2 ]) }} presentó los \"Catorce Puntos\" como un programa de paz y base para la posterior creación de la Sociedad de Naciones."
-variables:
-  nombre_1: "Woodrow Wilson"
-  nombre_2: "Woodrow"
-tipo: completar
-respuesta: "Woodrow Wilson"
-respuestas_validas:
-  - "Woodrow Wilson"
-  - "Woodrow"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["artilleria", "armas"]
-enunciado: "Alemania utilizó artillería pesada de largo alcance, como los cañones {{ uno_de([modelo_1, modelo_2 ]) }}, para bombardear fortalezas belgas y francesas desde gran distancia."
-variables:
-  modelo_1: "Big Bertha"
-  modelo_2: "Big Bertha"
-tipo: completar
-respuesta: "Big Bertha"
-respuestas_validas:
-  - "Big Bertha"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["austria", "desmembramiento"]
-enunciado: "El Tratado de Saint-Germain en 1919 disolvió el Imperio Austrohúngico y reconoció la independencia de {{ uno_de([pais_1, pais_2 ]) }}, entre otras nuevas naciones."
-variables:
-  pais_1: "Austria"
-  pais_2: "austria"
-tipo: completar
-respuesta: "Austria"
-respuestas_validas:
-  - "Austria"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["gas", "ypr"]
-enunciado: "La primera gran utilización de gas venenoso en el campo de batalla por parte de Alemania ocurrió en la {{ uno_de([batalla_1, batalla_2 ]) }} de Ypres."
-variables:
-  batalla_1: "segunda batalla"
-  batalla_2: "Segunda batalla"
-tipo: completar
-respuesta: "segunda batalla"
-respuestas_validas:
-  - "segunda batalla"
-  - "Segunda batalla"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["guerra_civil", "almirante"]
-enunciado: "Durante la guerra civil rusa, el almirante {{ uno_de([nombre_1, nombre_2 ]) }} lideró a las fuerzas blancas en Siberia contra los bolcheviques."
-variables:
-  nombre_1: "Kolchak"
-  nombre_2: "Alexander Kolchak"
-tipo: completar
-respuesta: "Kolchak"
-respuestas_validas:
-  - "Kolchak"
-  - "Alexander Kolchak"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["escaperoal", "naval"]
-enunciado: "La escuadra alemana del Alto Mar se autohundió en ___ en 1919 para evitar que la flota fuera repartida entre las potencias aliadas, un acto de desobediencia ordenado por sus propios oficiales."
-tipo: completar
-respuesta: "Scapa Flow"
-respuestas_validas:
-  - "Scapa Flow"
-  - "scapa flow"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["weimar", "república"]
-enunciado: "La República de Weimar, establecida tras la abdicación del káiser Guillermo II, fue la forma de gobierno de Alemania entre 1919 y 1933."
 respuesta: verdadero
 tipo: vf
-```
 
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["internacional", "tercera"]
-enunciado: "Lenin y Trotsky impulsaron la creación de la {{ uno_de([int_1, int_2 ]) }}, también conocida como la Komintern, para promover la revolución mundial."
-variables:
-  int_1: "Tercera Internacional"
-  int_2: "Comintern"
-tipo: completar
-respuesta: "Tercera Internacional"
-respuestas_validas:
-  - "Tercera Internacional"
-  - "Comintern"
-  - "Komintern"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["jutlandia", "naval"]
-enunciado: "La única gran batalla naval entre las flotas británica y alemana durante la Primera Guerra Mundial ocurrió en el {{ uno_de([mar_1, mar_2 ]) }} del Norte."
-variables:
-  mar_1: "mar del Norte"
-  mar_2: "Mar del Norte"
-tipo: completar
-respuesta: "mar del Norte"
-respuestas_validas:
-  - "mar del Norte"
-  - "Mar del Norte"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["domingo_sangriento", "1905"]
-enunciado: "El \"Domingo Sangriento\" de 1905, donde la guardia imperial disparó contra manifestantes pacíficos en San Petersburgo, fue un precursor clave de la revolución de 1917."
-respuesta: verdadero
-tipo: vf
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["hungria", "desmembramiento"]
-enunciado: "El Tratado de Trianón en 1920 redujo drásticamente el territorio de {{ uno_de([pais_1, pais_2 ]) }}, creando el estado de Hungría moderna y cediendo territorios a Rumania, Checoslovaquia y Yugoslavia."
-variables:
-  pais_1: "Hungria"
-  pais_2: "Hungría"
-tipo: completar
-respuesta: "Hungria"
-respuestas_validas:
-  - "Hungria"
-  - "Hungría"
-```
-
-## Sección: procariotas (25 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "procariotas"
-  nivel: "basico"
-  tags: ["origen", "evolucion"]
-
-respuesta: 3800000000
-tipo: completar
-tolerancia_abs: 100000000
-
-enunciado: "Se estima que las primeras formas de vida procariota aparecieron hace aproximadamente ___ años."
+enunciado: "En el contexto de la Revolución Francesa, el principio de que los hombres nacen y permanecen libres e iguales en derechos es un pilar del liberalismo. ¿Se considera este un derecho natural según la filosofía ilustrada que impulsó la revolución?"
 
 explicacion: |
-  Los registros fósiles y evidencia química sugieren que la vida procariota surgió hace unos 3800 millones de años.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "procariotas"
-  nivel: "basico"
-  tags: ["estructura", "celula"]
-
-opciones_explicitas: ["con núcleo definido y organelas", "sin núcleo definido ni organelas membranosas", "con núcleo definido pero sin organelas", "sin núcleo definido pero con organelas"]
-
-respuesta: "sin núcleo definido ni organelas membranosas"
-tipo: mc
-
-enunciado: "Una característica fundamental que define a las células procariotas es que carecen de:"
-
-explicacion: |
-  A diferencia de las eucariotas, los procariotas no poseen un núcleo delimitado por una membrana ni organelas complejas como mitocondrias o cloroplastos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "procariotas"
-  nivel: "intermedio"
-  tags: ["clasificacion", "eucariotas"]
-
-respuesta: "procariota"
-tipo: completar
-respuestas_validas:
-  - "procariota"
-
-enunciado: "Si observamos una célula que no posee un núcleo definido, estamos ante una célula de tipo ___."
-
-explicacion: |
-  La presencia o ausencia de un núcleo definido es el criterio principal para distinguir entre células procariotas y eucariotas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "procariotas"
-  nivel: "basico"
-  tags: ["evolucion", "orden"]
-
-opciones_explicitas: ["Procariotas", "Eucariotas", "Multicelulares"]
-
-respuesta_orden: ["Procariotas", "Eucariotas", "Multicelulares"]
-tipo: ordenar
-
-enunciado: "Ordena cronológicamente la aparición de las siguientes formas de vida, de la más antigua a la más reciente:"
-
-explicacion: |
-  La evolución biológica comenzó con organismos procariotas unicelulares, seguidos por células eucariotas más complejas y, finalmente, la vida multicelular.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "procariotas"
-  nivel: "basico"
-  tags: ["estructura", "membranas"]
-
-opciones_explicitas: ["Verdadero", "Falso"]
-
-respuesta: "Verdadero"
-tipo: mc
-
-enunciado: "¿Es correcto afirmar que las células procariotas poseen organelas membranosas como el retículo endoplasmático?"
-
-explicacion: |
-  Es falso. Las organelas membranosas son una característica exclusiva de las células eucariotas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dominios_procariotas"
-  nivel: "basico"
-  tags: ["biologia", "taxonomia", "procariotas"]
-
-tipo: mc
-opciones_explicitas: ["Bacterias y Arqueas", "Bacterias y Eucariotas", "Arqueas y Eucariotas", "Procariotas y Eucariotas"]
-respuesta: "Bacterias y Arqueas"
-
-enunciado: "Aunque ambos son organismos procariotas, la vida se divide en tres dominios. Los dos dominios que agrupan a los procariotas son ___ y ___."
-
-explicacion: |
-  Los procariotas se dividen en dos dominios distintos: Bacteria y Archaea. Aunque comparten la ausencia de núcleo, sus composiciones químicas y genéticas son muy diferentes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "bioquimica_celular"
-  nivel: "intermedio"
-  tags: ["membrana", "arqueas", "bacterias"]
-
-variables:
-  escenario: uno_de([["enlaces éter", "enlaces éster"], ["enlaces éster", "enlaces éter"]])
-
-tipo: completar
-respuestas_validas:
-  - "enlaces éter"
-  - "enlaces éster"
-
-enunciado: "Una diferencia fundamental en la composición de la membrana plasmática es que las Arqueas poseen lípidos unidos por ___ , mientras que las Bacterias utilizan ___ ."
-
-pasos:
-  - "Identificar el tipo de enlace en Arqueas"
-  - "Identificar el tipo de enlace en Bacterias"
-
-explicacion: |
-  Las Arqueas presentan enlaces éter en sus lípidos de membrana, lo que les otorga mayor estabilidad (especialmente en ambientes extremos), mientras que las Bacterias poseen enlaces éster.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "genetica_procariota"
-  nivel: "intermedio"
-  tags: ["adn", "transcripcion", "arqueas"]
-
-tipo: mc
-opciones_explicitas: ["Más similar a las Eucariotas", "Más similar a las Bacterias", "No tiene similitudes con ningún dominio"]
-respuesta: "Más similar a las Eucariotas"
-enunciado: "A pesar de su morfología procariota, el proceso de transcripción y replicación del ADN en las Arqueas es molecularmente ___ ."
-explicacion: |
-  Aunque son procariotas, las Arqueas comparten maquinaria de replicación y transcripción mucho más cercana a la de las Eucariotas que a la de las Bacterias.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "taxonomia_procariota"
-  nivel: "basico"
-  tags: ["clasificacion", "taxonomia"]
-
-tipo: ordenar
-opciones_explicitas: ["Dominio Bacteria", "Dominio Archaea", "Dominio Eukarya"]
-
-enunciado: "Ordena los tres dominios de la vida de menor a mayor complejidad estructural (considerando la presencia de núcleo y organelos):"
-
-explicacion: |
-  El orden correcto es Bacteria y Archaea (ambos procariotas, sin núcleo) seguidos por Eukarya (eucariotas, con núcleo complejo).
-respuesta_orden: ["Dominio Bacteria", "Dominio Archaea", "Dominio Eukarya"]
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "ecologia_microbiana"
-  nivel: "avanzado"
-  tags: ["arqueas", "extremofilos"]
-
-variables:
-  caso: uno_de([["un ambiente con pH extremo", "temperaturas de ebullición"], ["temperaturas de ebullición", "un ambiente con pH extremo"]])
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si un organismo procariota es capaz de sobrevivir en {caso[0]}, es muy probable que pertenezca al dominio ___ ."
-
-respuestas_validas:
-  - "Archaea"
-  - "Arqueas"
-
-explicacion: |
-  Las Arqueas son famosas por ser extremófilas, capaces de habitar en condiciones de salinidad, temperatura o pH que serían letales para la mayoría de las Bacterias.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "procariotas"
-  nivel: "basico"
-  tags: ["estromatolitos", "cianobacterias", "fósiles"]
-
-tipo: mc
-opciones_explicitas: ["Estructuras minerales formadas por la actividad de colonias de microorganismos", "Restos fósiles de animales marinos del periodo Cámbrico", "Células procariotas individuales preservadas en ámbar", "Depósitos de azufre volcánico de origen abiótico"]
-respuesta: "Estructuras minerales formadas por la actividad de colonias de microorganismos"
-
-enunciado: "Los estromatolitos se definen como ___."
-
-explicacion: |
-  Los estromatolitos son estructuras sedimentarias compuestas por capas de carbonato de calcio, formadas por la actividad de comunidades de microorganismos, principalmente cianobacterias, que atrapan sedimentos y precipitan minerales.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "procariotas"
-  nivel: "intermedio"
-  tags: ["evidencia", "fósiles", "precámbrico"]
-
-respuesta: "Estructuras laminares de carbonato"
-tipo: mc
-opciones_explicitas: ["Estructuras laminares de carbonato", "Huellas de trilobites", "Fósiles de plantas vasculares", "Células con núcleo definido"]
-
-enunciado: "En el registro fósil, ¿cuál es una de las principales evidencias de la existencia de vida procariota en la Tierra primitiva?"
-
-pasos:
-  - "Identificar el tipo de estructura fósil mencionada."
-  - "Relacionar la estructura con el tipo de organismo que la originó."
-
-explicacion: |
-  Las estructuras laminares de carbonato (estromatolitos) son la evidencia más antigua de actividad biológica, indicando la presencia de organismos fotosintéticos en el Precámbrico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "procariotas"
-  nivel: "intermedio"
-  tags: ["fotosíntesis", "oxígeno", "atmósfera"]
-
-tipo: completar
-respuestas_validas:
-  - "oxígeno"
-  - "CO2"
-  - "nitrógeno"
-
-enunciado: "La actividad fotosintética de las cianobacterias en los estromatolitos fue responsable de la acumulación de ___ en la atmósfera primitiva."
-
-explicacion: |
-  La fotosíntesis oxigénica realizada por las cianobacterias permitió la Gran Oxidación, cambiando la composición química de la atmósfera terrestre.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "procariotas"
-  nivel: "avanzado"
-  tags: ["cronología", "evolución", "estromatolitos"]
-
-tipo: ordenar
-opciones_explicitas: ["Aparición de vida procariota", "Formación de los primeros estromatolitos", "Gran Oxidación atmosférica", "Aparición de células eucariotas"]
-
-enunciado: "Ordene cronológicamente los siguientes eventos en la historia de la vida procariota y la atmósfera:"
-
-explicacion: |
-  La secuencia correcta comienza con la vida procariota simple, seguida de la formación de estromatolitos que permitieron la fotosíntesis masiva, lo que llevó a la Gran Oxidación, permitiendo finalmente la evolución de células más complejas.
-respuesta_orden: ["Aparición de vida procariota", "Formación de los primeros estromatolitos", "Gran Oxidación atmosférica", "Aparición de células eucariotas"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "procariotas"
-  nivel: "intermedio"
-  tags: ["composición", "biología", "geología"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si un estromatolito está compuesto por una matriz de carbonato de calcio y una capa de sedimentos, ¿cuántos componentes principales se mencionan en esta descripción simple? (Responda con el número entero)"
-
-explicacion: |
-  En la descripción se mencionan dos componentes: carbonato de calcio y sedimentos.
-
-respuesta: 2
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "organización_celular"
-  nivel: "basico"
-  tags: ["procariota", "eucariota", "nucleo"]
-
-respuesta: "sin núcleo"
-tipo: completar
-respuestas_validas:
-  - "sin núcleo"
-  - "sin nucleo"
-
-enunciado: "La principal diferencia estructural es que una célula procariota se caracteriza por no poseer ___."
-
-explicacion: |
-  Las células procariotas carecen de una envoltura nuclear, por lo que su material genético se encuentra libre en el citoplasma (en una región llamada nucleoide).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "organización_celular"
-  nivel: "basico"
-  tags: ["clasificacion", "eucariota", "procariota"]
-
-respuesta: "eucariota"
-tipo: mc
-opciones_explicitas: ["procariota", "eucariota"]
-
-enunciado: "Si observamos una célula con un núcleo definido y organelos membranosos, estamos ante una célula de tipo:"
-
-explicacion: |
-  Las células eucariotas (como las animales o vegetales) poseen un núcleo que contiene el ADN, a diferencia de las procariotas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "organización_celular"
-  nivel: "intermedio"
-  tags: ["organelos", "membranas", "procariota"]
-
-respuesta: "menor complejidad"
-tipo: mc
-opciones_explicitas: ["mayor complejidad", "menor complejidad", "igual complejidad"]
-
-enunciado: "En términos de organización interna y presencia de organelos membranosos, la célula procariota presenta una ___ en comparación con la eucariota."
-
-explicacion: |
-  Las procariotas son mucho más simples y no poseen organelos rodeados por membranas como mitocondrias o cloroplastos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "organización_celular"
-  nivel: "intermedio"
-  tags: ["evolucion", "orden", "estructuras"]
-
-respuesta_orden: ["nucleoide", "citoplasma", "membrana"]
-tipo: ordenar
-opciones_explicitas: ["nucleoide", "citoplasma", "membrana"]
-
-enunciado: "Ordena las estructuras de una célula procariota desde el área donde se encuentra el material genético hacia el límite externo de la célula:"
-
-explicacion: |
-  En una procariota, el ADN está en el nucleoide, rodeado por el citoplasma, y todo está contenido por la membrana plasmática.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "organización_celular"
-  nivel: "avanzado"
-  tags: ["diagnostico", "nucleo", "organelos"]
-
-variables:
-  caso: uno_de([["tiene núcleo", "eucariota"], ["no tiene núcleo", "procariota"]])
-
-respuesta: caso[1]
-tipo: mc
-opciones_explicitas: ["eucariota", "procariota"]
-
-enunciado: "Si al analizar una muestra celular se determina que la célula {caso[0]}, su clasificación es:"
-
-explicacion: |
-  La presencia o ausencia de un núcleo definido es el criterio fundamental para distinguir entre procariotas y eucariotas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "clasificacion_celular"
-  nivel: "basico"
-  tags: ["procariotas", "eucariotas"]
-
-variables:
-  datos: [["Bacillus subtilis", "procariota"], ["Saccharomyces cerevisiae", "eucariota"], ["Escherichia coli", "procariota"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "El organismo {datos[idx][0]} presenta una organización celular caracterizada por ser {datos[idx][1]}."
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["procariota", "eucariota"]
-
-explicacion: |
-  Los organismos procariotas carecen de un núcleo definido, mientras que los eucariotas poseen un núcleo rodeado por una membrana.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "estructura_celular"
-  nivel: "intermedio"
-  tags: ["adn", "nucleo"]
-
-variables:
-  datos: [["ADN circular libre en el citoplasma", "procariota"], ["ADN lineal dentro de un núcleo", "eucariota"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Si observamos un organismo cuyo material genético es {datos[idx][0]}, podemos clasificarlo como un organismo ___."
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "procariota"
-  - "eucariota"
-
-explicacion: |
-  La presencia de un núcleo con ADN lineal es la característica distintiva de las células eucariotas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "organelos"
-  nivel: "basico"
-  tags: ["organelos", "mitocondria"]
-
-variables:
-  datos: [["presencia de mitocondrias", "eucariota"], ["ausencia de organelos membranosos", "procariota"]]
-  idx: uno_de([0, 1])
-
-enunciado: "La {datos[idx][0]} es un indicador de que la célula es de tipo ___."
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["eucariota", "procariota"]
-
-explicacion: |
-  Las células procariotas no poseen organelos rodeados por membranas como las mitocondrias o el retículo endoplasmático.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "morfologia_celular"
-  nivel: "basico"
-  tags: ["tamaño", "complejidad"]
-
-variables:
-  datos: [["1.0 micrometros", "procariota"], ["100 micrometros", "eucariota"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Un organismo con un diámetro de {datos[idx][0]} suele ser un organismo ___."
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "procariota"
-  - "eucariota"
-
-explicacion: |
-  Las células procariotas son generalmente mucho más pequeñas (1-5 µm) que las eucariotas (10-100 µm).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "evolucion_celular"
-  nivel: "avanzado"
-  tags: ["evolucion", "linajes"]
-
-enunciado: "Ordena los niveles de complejidad biológica desde el más simple al más complejo según la escala evolutiva:"
-
-respuesta_orden: ["Procariota", "Eucariota", "Multicelularidad"]
-tipo: ordenar
-opciones_explicitas: ["Procariota", "Eucariota", "Multicelularidad"]
-
-explicacion: |
-  La evolución biológica muestra una progresión desde células simples sin núcleo (procariotas) hacia células complejas (eucariotas) y finalmente organismos multicelulares.
-```
-
-## Sección: propiedad-jerarquia-estado (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "basico"
-  tags: ["sedentarismo", "excedente", "propiedad_privada"]
-
-respuesta: "excedente"
-tipo: "completar"
-respuestas_validas:
-  - "excedente"
-
-enunciado: "El paso de la vida nómada a la sedentaria permitió la acumulación de un ___ agrícola, lo cual fue el motor para el surgimiento de la propiedad privada sobre la tierra."
-
-explicacion: |
-  La capacidad de producir más alimento del que se consume inmediatamente (excedente) permitió que algunos individuos acumularan riqueza, diferenciándose de otros y dando origen a la propiedad privada.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "intermedio"
-  tags: ["revolucion_neolitica", "acumulacion"]
-
-respuesta: "propiedad privada"
-tipo: "mc"
-opciones_explicitas: ["propiedad colectiva", "propiedad privada"]
-
-enunciado: "En un sistema de asentamientos fijos con excedentes, la organización social tiende a transicionar de una propiedad colectiva (típica de comunidades nómadas) hacia una ___."
-
-explicacion: |
-  El control sobre el excedente y la tierra delimita territorios y derechos de uso, consolidando la propiedad privada frente al modelo de uso común de las tribus nómadas.
+  La Ilustración promovió la idea de que la libertad y la igualdad son derechos inherentes al ser humano, rompiendo con la idea de que los derechos eran concesiones del monarca.
 ```
 
 ```
 metadata:
   materia: "historia_profucha"
-  tema: "propiedad_jerarquia_estado"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "intermedio"
+  tags: ["causas", "monarquia_absoluta"]
+
+respuesta: "Absolutismo"
+tipo: mc
+opciones_explicitas: ["Absolutismo", "Feudalismo", "Democracia", "Teocracia"]
+
+enunciado: "El sistema político que la burguesía buscaba derrocar mediante la implementación de constituciones y la división de poderes era el:"
+
+explicacion: |
+  El absolutismo concentraba todo el poder en la figura del monarca, impidiendo la representación de los sectores económicos emergentes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
   nivel: "avanzado"
-  tags: ["estado", "burocracia", "tributo"]
+  tags: ["procesos", "etapas"]
+
+respuesta_orden: ["Estados Generales", "Asamblea Nacional", "Convención Nacional", "Directorio"]
+tipo: ordenar
+opciones_explicitas: ["Estados Generales", "Asamblea Nacional", "Convención Nacional", "Directorio"]
+
+enunciado: "Ordene cronológicamente las siguientes etapas o instituciones de la Revolución Francesa, desde el estallido de la crisis hasta la consolidación del orden burgués:"
+
+explicacion: |
+  La revolución transitó desde la crisis de los Estados Generales hacia la soberanía de la Asamblea, la radicalización de la Convención y finalmente el orden moderado del Directorio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "intermedio"
+  tags: ["economia", "liberalismo"]
+
+respuesta: "Libre mercado"
+tipo: completar
+respuestas_validas:
+  - "Libre mercado"
+  - "el libre mercado"
+
+enunciado: "La burguesía, al consolidar su poder político, promovió la eliminación de las aduanas internas y los gremios, abogando por la libertad de comercio y el ___."
+
+explicacion: |
+  El liberalismo económico buscaba eliminar las trabas corporativas y estatales para permitir la libre competencia y la expansión del capitalismo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "basico"
+  tags: ["liberalismo", "derechos"]
+
+respuesta: "igualdad ante la ley"
+tipo: completar
+respuestas_validas:
+  - "igualdad ante la ley"
+  - "igualdad jurídica"
+
+enunciado: "El liberalismo político postula que todos los ciudadanos deben ser tratados de la misma forma por el Estado, principio conocido como ___."
+
+explicacion: |
+  La igualdad ante la ley (o igualdad jurídica) es el pilar que busca eliminar los privilegios de la nobleza y el clero, estableciendo que la ley es la misma para todos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "intermedio"
+  tags: ["poderes", "montesquieu"]
+
+respuesta: "separación de poderes"
+tipo: mc
+opciones_explicitas: ["centralización absoluta", "separación de poderes", "supremacía monárquica", "gobierno de facciones"]
+
+enunciado: "Para evitar la tiranía, el liberalismo clásico propone dividir el poder del Estado en órganos independientes (Ejecutivo, Legislativo y Judicial). Este mecanismo se conoce como:"
+
+explicacion: |
+  La separación de poderes (Ejecutivo, Legislativo y Judicial) busca que ninguna entidad concentre todo el control del Estado.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "intermedio"
+  tags: ["soberanía", "democracia"]
+
+respuesta: "soberanía popular"
+tipo: mc
+opciones_explicitas: ["derecho divino", "soberanía popular", "voluntad del monarca", "orden natural"]
+
+enunciado: "A diferencia del absolutismo, donde el poder emanaba de Dios hacia el Rey, el liberalismo sostiene que el poder reside en el pueblo, concepto denominado ___."
+
+explicacion: |
+  La soberanía popular establece que la legitimidad de un gobierno proviene del consentimiento de los gobernados.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "avanzado"
+  tags: ["derechos", "individuo"]
+
+respuesta_orden: ["libertad", "propiedad", "seguridad"]
+tipo: ordenar
+opciones_explicitas: ["libertad", "propiedad", "seguridad"]
+
+enunciado: "Según la tradición de las declaraciones de derechos de la era revolucionaria, se deben proteger los derechos naturales del individuo. Ordene los siguientes conceptos según la secuencia clásica de la Declaración de Derechos del Hombre y del Ciudadano (en orden de mención):"
+
+explicacion: |
+  La Declaración de 1789 establece que los hombres nacen y permanecen libres e iguales en derechos, mencionando la libertad, la propiedad, la seguridad y la resistencia a la opresión.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "intermedio"
+  tags: ["estado", "derechos"]
+
+respuesta: "derechos individuales"
+tipo: mc
+opciones_explicitas: ["derechos individuales", "bienestar colectivo", "interés de la corona", "estabilidad social"]
+
+enunciado: "El objetivo principal del Estado liberal es la protección de los ___ frente a la arbitrariedad del poder público."
+
+explicacion: |
+  El liberalismo pone al individuo y sus derechos naturales (libertad, propiedad, etc.) como el fin último de la organización política.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "basico"
+  tags: ["revolucion_francesa", "lema"]
+
+tipo: mc
+opciones_explicitas: ["Libertad, Igualdad, Fraternidad", "Libertad, Igualdad, Propiedad", "Igualdad, Justicia, Libertad", "Libertad, Orden, Progreso"]
+respuesta: "Libertad, Igualdad, Fraternidad"
+
+enunciado: "El lema que sintetiza los ideales de la Revolución Francesa es:"
+
+explicacion: |
+  El lema 'Libertad, Igualdad, Fraternidad' (Liberté, Égalité, Fraternité) fue el pilar ideológico que impulsó la caída del Antiguo Régimen.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "intermedio"
+  tags: ["derechos_humanos", "declaracion_1789"]
+
+tipo: completar
+respuestas_validas:
+  - "1789"
+
+enunciado: "La Declaración de los Derechos del Hombre y del Ciudadano fue adoptada por la Asamblea Nacional Constituyente en el año ____."
+
+explicacion: |
+  La Declaración de 1789 es uno de los documentos fundacionales de la democracia moderna, estableciendo que los hombres nacen y permanecen libres e iguales en derechos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "avanzado"
+  tags: ["derechos_humanos", "soberania"]
+
+variables:
+  datos: [["La soberanía reside en la Nación", "La ley es la expresión de la voluntad general"], ["La ley es la expresión de la voluntad general", "La soberanía reside en la Nación"]]
+
+tipo: mc
+opciones_explicitas: ["La soberanía reside en la Nación", "La soberanía reside en el Monarca", "La soberanía reside en la Iglesia", "La soberanía reside en la Aristocracia"]
+
+enunciado: "Según la Declaración de 1789, el principio de soberanía establece que: {datos[0][0]}"
+
+respuesta: "La soberanía reside en la Nación"
+
+explicacion: |
+  El Artículo 3 de la Declaración establece que "El principio de toda soberanía reside esencialmente en la Nación".
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "intermedio"
+  tags: ["cronologia", "eventos"]
+
+tipo: ordenar
+opciones_explicitas: ["Toma de la Bastilla", "Declaración de los Derechos del Hombre", "Ejecución de Luis XVI"]
+
+enunciado: "Ordena cronológicamente los siguientes hitos de la Revolución Francesa:"
+
+explicacion: |
+  La Bastilla cayó en julio de 1789, la Declaración se aprobó en agosto de 1789 y la ejecución del Rey ocurrió en enero de 1793.
+respuesta_orden: ["Toma de la Bastilla", "Declaración de los Derechos del Hombre", "Ejecución de Luis XVI"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "intermedio"
+  tags: ["igualdad", "derechos"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "La Declaración de 1789 establece que los hombres nacen y permanecen libres e ____ en derechos."
+
+explicacion: |
+  El concepto de igualdad ante la ley fue fundamental para desmantelar los privilegios estamentales del feudalismo.
+
+respuesta: "iguales"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "basico"
+  tags: ["absolutismo", "soberania"]
+
+respuesta: "soberanía_nacional"
+tipo: completar
+respuestas_validas:
+  - "soberanía_nacional"
+
+enunciado: "Con el ascenso de las revoluciones burguesas, el principio de la ___ desplazó al concepto de la soberanía de derecho divino del monarca."
+
+explicacion: |
+  Las revoluciones burguesas (como la Revolución Francesa) trasladaron el origen del poder del monarca a la nación o al pueblo, estableciendo la soberanía nacional como base del Estado moderno.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "intermedio"
+  tags: ["ciudadania", "estamentos"]
+
+variables:
+  escenario: uno_de([["El sistema de estamentos", "La sociedad de ciudadanos"], ["El absolutismo monárquico", "El constitucionalismo liberal"]])
+
+tipo: completar
+respuesta: escenario[1]
+
+enunciado: "La burguesía buscaba reemplazar {escenario[0]} por ___."
+
+explicacion: |
+  El paso fundamental fue la transición de una sociedad dividida por privilegios de nacimiento (estamentos) a una sociedad de individuos con derechos iguales ante la ley (ciudadanía).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "intermedio"
+  tags: ["constitucion", "derechos"]
+
+respuesta_orden: ["Constitución", "División de poderes", "Derechos individuales"]
+tipo: ordenar
+opciones_explicitas: ["Constitución", "División de poderes", "Derechos individuales"]
+
+enunciado: "Ordena los pilares del Estado Liberal que surgieron para limitar el poder absoluto:"
+
+explicacion: |
+  El orden lógico y funcional del Estado Liberal implica primero una norma suprema (Constitución), la fragmentación del poder para evitar la tiranía (División de poderes) y la protección de las libertades (Derechos individuales).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "avanzado"
+  tags: ["economia", "propiedad"]
+
+variables:
+  valor_propiedad: 1
+  es_derecho_fundamental: valor_propiedad == 1
+
+respuesta: verdadero
+tipo: vf
+opciones_explicitas: [verdadero, falso]
+
+enunciado: "En el marco de las revoluciones burguesas, la propiedad privada se consolidó como un derecho natural e inviolable, oponiéndose a las trabas feudales."
+
+explicacion: |
+  La protección de la propiedad privada fue un motor clave de la burguesía para eliminar los derechos señoriales y los impuestos arbitrarios de la nobleza.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "intermedio"
+  tags: ["parlamento", "representacion"]
+
+respuesta: "censitario"
+tipo: mc
+opciones_explicitas: ["universal", "censitario"]
+
+enunciado: "Aunque las revoluciones burguesas promovieron la representación, en la práctica inicial, la mayoría de los regímenes liberales aplicaron un sufragio ___ (basado en la renta o propiedad)."
+
+explicacion: |
+  Si bien el ideal era la igualdad, el liberalismo clásico fue inicialmente 'censitario', limitando el derecho al voto a aquellos con propiedades o ingresos suficientes, excluyendo a las masas trabajadoras.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "basico"
+  tags: ["liberalismo", "poder"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["Un sistema donde el Rey dicta las leyes, las ejecuta y las juzga a su voluntad.", "Separación de poderes"], ["Un sistema donde el Rey tiene el control total de la justicia, el legislativo y el ejecutivo.", "Separación de poderes"]]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["Igualdad", "Libertad", "Separación de poderes"]
+
+enunciado: "En el contexto de las revoluciones burguesas, un sistema donde {escenarios[escenario_idx][0]} representa una violación de qué principio liberal fundamental?"
+
+explicacion: |
+  El liberalismo político busca evitar la tiranía mediante la división de funciones del Estado en órganos distintos e independientes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "basico"
+  tags: ["liberalismo", "derechos"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  casos: [["la nobleza tiene privilegios legales que el campesino no posee", "Igualdad"], ["el nacimiento determina los derechos civiles de una persona", "Igualdad"]]
+
+respuesta: casos[caso_idx][1]
+tipo: mc
+opciones_explicitas: ["Igualdad", "Libertad", "Propiedad"]
+
+enunciado: "Si en una sociedad {casos[caso_idx][0]}, se está negando el principio de ___."
+
+explicacion: |
+  La igualdad ante la ley (isonomía) es un pilar del liberalismo que busca eliminar los estamentos y privilegios de la aristocracia.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "intermedio"
+  tags: ["liberalismo", "derechos"]
+
+variables:
+  situacion_idx: uno_de([0, 1])
+  situaciones: [["el Estado prohíbe la libre circulación de mercancías", "Libertad"], ["el Estado impone censura previa a las ideas publicadas", "Libertad"]]
+
+respuesta: situaciones[situacion_idx][1]
+tipo: completar
+respuestas_validas:
+  - "Libertad"
+
+enunciado: "Cuando el Estado interviene de forma arbitraria, como cuando {situaciones[situacion_idx][0]}, se está vulnerando el principio de ___."
+
+explicacion: |
+  El liberalismo defiende un ámbito de acción individual (libertad de culto, expresión, comercio) donde el Estado no debe interferir.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "intermedio"
+  tags: ["liberalismo", "conceptos"]
+
+respuesta_orden: ["Igualdad", "Libertad", "Propiedad"]
+tipo: ordenar
+opciones_explicitas: ["Propiedad", "Igualdad", "Libertad"]
+
+enunciado: "Ordena los siguientes pilares del pensamiento liberal clásico, desde el que busca la justicia social ante el privilegio, pasando por la autonomía individual, hasta la base económica burguesa:"
+
+explicacion: |
+  La tríada clásica suele entender la igualdad ante la ley, la libertad individual y el derecho a la propiedad privada como ejes de la modernidad liberal.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revoluciones_burguesas_liberalismo"
+  nivel: "avanzado"
+  tags: ["liberalismo", "soberania"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["la soberanía reside en el monarca por derecho divino", "Libertad"], ["el poder emana del pueblo a través de la ley", "Libertad"]]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["Igualdad", "Libertad", "Propiedad"]
+
+enunciado: "Si en una constitución se establece que {escenarios[escenario_idx][0]}, se está rompiendo con el principio de ___ política (entendida como la capacidad de autodeterminación)."
+
+explicacion: |
+  La transición de la soberanía de Dios/Rey a la soberanía nacional es el paso fundamental hacia la libertad política moderna.
+```
+
+## Sección: organizacion-nacional-constitucion-1853 (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "basico"
+  tags: ["constitucion", "argentina", "federalismo"]
+
+respuesta: "1853"
+tipo: completar
+
+enunciado: "La Constitución Nacional Argentina fue sancionada en el año ___."
+
+explicacion: |
+  Tras la caída de Juan Manuel de Rosas en la batalla de Caseros, se procedió a la organización institucional del país, culminando con la sanción de la Constitución en 1853.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "basico"
+  tags: ["forma_de_gobierno", "republica", "federal"]
+
+respuesta: "República Federal"
+tipo: "mc"
+
+opciones_explicitas: ["Monarquía Unitaria", "República Federal", "Confederación Centralista", "Dictadura Provisoria"]
+
+enunciado: "La Constitución de 1853 estableció que la forma de gobierno de la Nación Argentina es una:"
+
+explicacion: |
+  La Constitución de 1853 adoptó la forma Republicana y el sistema Federal, garantizando la autonomía de las provincias pero bajo un gobierno central.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "intermedio"
+  tags: ["poderes", "legislativo", "ejecutivo", "judicial"]
+
+variables:
+  orden_correcta: ["Ejecutivo", "Legislativo", "Judicial"]
+
+respuesta_orden: ["Ejecutivo", "Legislativo", "Judicial"]
+tipo: "ordenar"
+
+opciones_explicitas: ["Ejecutivo", "Legislativo", "Judicial"]
+
+enunciado: "Ordene los tres poderes del Estado establecidos por la Constitución de 1853, partiendo desde el poder que ejerce la función administrativa/política principal:"
+
+explicacion: |
+  La división de poderes es un principio fundamental de la democracia republicana adoptada en 1853 para evitar la concentración del mando.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "intermedio"
+  tags: ["provincias", "autonomia"]
+
+variables:
+  escenario: uno_de([["autónomas", "tienen sus propias autoridades y leyes"], ["dependientes", "están subordinadas totalmente al gobierno central"]])
+
+respuesta: "autónomas"
+tipo: "completar"
+
+respuestas_validas:
+  - "autónomas"
+
+enunciado: "Según el sistema federal adoptado, las provincias argentinas son ___ porque ___."
+
+explicacion: |
+  El federalismo implica que las provincias conservan todo el poder no delegado a la Nación, manteniendo su propia autonomía.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "avanzado"
+  tags: ["sanacion", "congreso", "constituyente"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["Sanctioned", "Sancionada"], ["Promulgated", "Promulgada"]]
+
+respuesta: "Sancionada"
+tipo: "mc"
+
+opciones_explicitas: ["Sancionada", "Promulgada", "Derogada", "Reformada"]
+
+enunciado: "El proceso de la Constitución de 1853 comenzó cuando la Carta Magna fue ___ por el Congreso Constituyente en Santa Fe."
+
+explicacion: |
+  La Constitución fue sancionada por el Congreso Constituyente en Santa Fe en 1853, marcando el inicio de la organización institucional definitiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "intermedio"
+  tags: ["buenos_aires", "confederacion", "constitucion"]
+
+respuesta: "separada"
+tipo: completar
+
+enunciado: "Tras la sanción de la Constitución Nacional en 1853, la provincia de Buenos Aires se mantuvo ___ de la Confederación Argentina."
+
+explicacion: |
+  Buenos Aires no participó en el proceso constituyente de 1853 y mantuvo su autonomía, formando un Estado separado de la Confederación Argentina durante varios años.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "intermedio"
+  tags: ["batalla_de_pavon", "reincorporacion", "unificacion"]
+
+variables:
+  escenario: uno_de([["1861", "Batalla de Pavón"], ["1853", "Sanción de la Constitución"]])
+  año: escenario[0]
+  evento: escenario[1]
+
+respuesta: "1861"
+tipo: "mc"
+opciones_explicitas: ["1853", "1861", "1880", "1916"]
+
+enunciado: "La reincorporación definitiva de Buenos Aires a la unidad nacional se produjo en el año {año}, tras el desenlace de la {evento}."
+
+explicacion: |
+  La Batalla de Pavón en 1861 fue el hito que permitió la unificación política y la integración de Buenos Aires al resto de las provincias argentinas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "avanzado"
+  tags: ["ordenar", "cronologia"]
+
+opciones_explicitas: ["Sanción de la Constitución Nacional", "Separación de Buenos Aires", "Batalla de Pavón", "Reincorporación de Buenos Aires"]
+respuesta_orden: ["Sanción de la Constitución Nacional", "Separación de Buenos Aires", "Batalla de Pavón", "Reincorporación de Buenos Aires"]
+tipo: "ordenar"
+
+enunciado: "Ordena cronológicamente los siguientes hechos históricos de la organización nacional:"
+
+explicacion: |
+  La secuencia correcta comienza con la sanción de la Constitución (1853), la consecuente separación de Buenos Aires, la batalla que definió el rumbo político (Pavón, 1861) y la posterior integración.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "intermedio"
+  tags: ["pavon", "unificacion"]
+
+respuesta: "reincorporación"
+tipo: "completar"
+respuestas_validas:
+  - "reincorporación"
+  - "unificación"
+
+enunciado: "El desenlace de la Batalla de Pavón facilitó la ___ de la provincia de Buenos Aires a la unidad nacional."
+
+explicacion: |
+  La victoria/desenlace de Pavón permitió que Buenos Aires dejara de ser un estado separado y se integrara al proceso de organización nacional.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "basico"
+  tags: ["buenos_aires", "constitucion"]
+
+respuesta: "no"
+tipo: "mc"
+opciones_explicitas: ["si", "no", "tal vez", "parcialmente"]
+
+enunciado: "¿Firmó la provincia de Buenos Aires la Constitución Nacional de 1853?"
+
+explicacion: |
+  No, Buenos Aires se opuso a la Constitución de 1853, manteniendo su propia organización y separándose de la Confederación Argentina.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "basico"
+  tags: ["constitucion", "forma_de_gobierno"]
+
+respuesta: "republicana"
+tipo: "mc"
+opciones_explicitas: ["monárquica", "republicana", "parlamentaria", "teocrática"]
+
+enunciado: "Según la Constitución de 1853, la forma de gobierno adoptada para la Nación Argentina es ___."
+
+explicacion: |
+  La Constitución establece en su primer artículo que la Nación adopta para su gobierno la forma REPRESENTATIVA, REPUBLICANA y FEDERAL.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "intermedio"
+  tags: ["poderes", "division_de_poderes"]
+
+variables:
+  datos: [["Presidente", "Administra el país"], ["Congreso", "Legisla las leyes"], ["Corte Suprema", "Juzga las causas"]]
+  idx: uno_de([0, 1, 2])
+  poder_en_idx: datos[idx][0]
+  respuesta_en_idx: datos[idx][1]
+
+respuesta: respuesta_en_idx
+tipo: "completar"
+respuestas_validas:
+  - datos[0][1]
+  - datos[1][1]
+  - datos[2][1]
+
+enunciado: "En el sistema de división de poderes, la función de {poder_en_idx} es ___."
+
+explicacion: |
+  La división de poderes busca evitar la concentración de autoridad, asignando funciones específicas al Poder Ejecutivo, Legislativo y Judicial.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "intermedio"
+  tags: ["federalismo", "provincias"]
+
+respuesta: "federal"
+tipo: "mc"
+opciones_explicitas: ["centralista", "federal", "unitarista", "confederal"]
+
+enunciado: "El principio que garantiza la autonomía de las provincias y su participación en el gobierno nacional se denomina sistema ___."
+
+explicacion: |
+  El federalismo permite que las provincias mantengan su autonomía (dictan sus propias leyes y eligen sus autoridades) mientras forman parte de un Estado Nacional único.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "avanzado"
+  tags: ["representacion", "sufragio"]
+
+respuesta: "representativa"
+tipo: "completar"
+respuestas_validas:
+  - "representativa"
+
+enunciado: "La Constitución de 1853 establece que el gobierno es ___ porque el pueblo ejerce su soberanía a través de sus representantes."
+
+explicacion: |
+  El carácter representativo implica que el poder emana del pueblo, pero este lo delega en representantes elegidos para la toma de decisiones políticas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "intermedio"
+  tags: ["jerarquia", "poderes"]
+
+respuesta_orden: ["Legislativo", "Ejecutivo", "Judicial"]
+tipo: "ordenar"
+opciones_explicitas: ["Ejecutivo", "Legislativo", "Judicial"]
+
+enunciado: "Ordene los tres poderes del Estado según su orden de mención tradicional en la estructura de la división de poderes (según la jerarquía de la función de creación, ejecución y control de leyes):"
+
+explicacion: |
+  La división clásica de Montesquieu, adoptada por la Constitución, separa las funciones en: Legislativa (hacer leyes), Ejecutiva (ejecutar leyes) y Judicial (juzgar el cumplimiento de las leyes).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "basico"
+  tags: ["constitucion", "norma_suprema"]
+
+respuesta: "Constitución Nacional"
+tipo: completar
+respuestas_validas:
+  - "Constitución Nacional"
+
+enunciado: "La norma suprema que rige el sistema de gobierno de la República Argentina es la ___."
+
+explicacion: |
+  La Constitución Nacional es la ley fundamental del Estado, de donde emanan todas las demás leyes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "intermedio"
+  tags: ["reforma", "1994"]
+
+respuesta: "incorporar la jerarquía de los tratados internacionales de derechos humanos"
+tipo: mc
+opciones_explicitas: ["eliminar la figura del Presidente", "incorporar la jerarquía de los tratados internacionales de derechos humanos", "cambiar la capital a Córdoba", "abolir el Senado"]
+
+enunciado: "La reforma constitucional de 1994 tuvo como uno de sus hitos principales el hecho de ___."
+
+explicacion: |
+  La reforma de 1994 otorgó jerarquía constitucional a los tratados internacionales de derechos humanos con jerarquía superior a las leyes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "basico"
+  tags: ["sistema_de_gobierno"]
+
+respuesta: "representativa, republicana y federal"
+tipo: mc
+opciones_explicitas: ["monárquica, centralista y unitaria", "representativa, republicana y federal", "presidencialista, autoritaria y federal", "parlamentaria, unitaria y federal"]
+
+enunciado: "Según el Artículo 1°, la forma de gobierno adoptada por la Nación Argentina es ___."
+
+explicacion: |
+  La Constitución establece un sistema representativo (el pueblo gobierna por medio de representantes), republicano (división de poderes) y federal (autonomía de las provincias).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "intermedio"
+  tags: ["poder_judicial", "corte_suprema"]
+
+respuesta: "Corte Suprema de Justicia de la Nación"
+tipo: completar
+respuestas_validas:
+  - "Corte Suprema de Justicia de la Nación"
+
+enunciado: "El órgano máximo del Poder Judicial de la Nación es la ___."
+
+explicacion: |
+  La Corte Suprema es el tribunal de última instancia y el máximo exponente del Poder Judicial en el sistema federal argentino.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "avanzado"
+  tags: ["jerarquia_normativa", "piramide_kelsen"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  jerarquia: [["Constitución y Tratados de DDHH", "Tratados Internacionales", "Leyes Nacionales"]]
+
+respuesta_orden: ["Constitución y Tratados de DDHH", "Tratados Internacionales", "Leyes Nacionales"]
+tipo: ordenar
+opciones_explicitas: ["Constitución y Tratados de DDHH", "Tratados Internacionales", "Leyes Nacionales"]
+
+enunciado: "Ordene de mayor a menor jerarquía normativa el siguiente bloque de normas en el sistema argentino actual:"
+
+pasos:
+  - "Identifique la norma suprema (Bloque de Constitucionalidad)"
+  - "Identifique los tratados con jerarquía superior a las leyes"
+  - "Identifique las leyes comunes"
+
+explicacion: |
+  Tras la reforma de 1994, la jerarquía se establece con la Constitución y los Tratados de DDHH en la cima, seguidos por los tratados internacionales, y luego las leyes nacionales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "intermedio"
+  tags: ["constitucion", "gobierno"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["Un ciudadano propone que el poder debe dividirse en Ejecutivo, Legislativo y Judicial para evitar abusos.", "división de poderes"], ["Un grupo de provincias exige que el gobierno central no interfiera en sus leyes locales.", "federalismo"]]
+
+enunciado: "En el contexto de la organización nacional, si se observa que {datos[escenario_idx][0]}, el principio constitucional que se está aplicando es la {datos[escenario_idx][1]}."
+
+respuesta: datos[escenario_idx][1]
+tipo: completar
+respuestas_validas:
+  - "división de poderes"
+  - "federalismo"
+
+explicacion: |
+  La Constitución de 1853 establece la división de poderes como base del sistema republicano para garantizar la libertad y evitar la tiranía.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "basico"
+  tags: ["relaciones_exteriores", "soberania"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  casos: [["El Presidente firma un tratado con Francia para fomentar el comercio.", "relaciones_exteriores"], ["La Corte Suprema resuelve un conflicto entre dos provincias.", "jurisdiccion_federal"]]
+
+enunciado: "Si el Poder Ejecutivo actúa en el marco de la facultad de concertar tratados con otras potencias, está ejerciendo la competencia de {casos[caso_idx][1]}."
+
+respuesta: casos[caso_idx][1]
+tipo: mc
+opciones_explicitas: ["relaciones_exteriores", "jurisdiccion_federal", "legislacion_provincial"]
+
+explicacion: |
+  Según el Art. 99, inciso 11, es facultad del Presidente de la Nación celebrar tratados con otras potencias extranjeras.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "intermedio"
+  tags: ["derechos", "libertad"]
+
+variables:
+  derecho_idx: uno_de([0, 1])
+  derechos: [["La libertad de culto es garantizada por la Constitución.", "libertad_religiosa"], ["El derecho de transitar libremente por el territorio.", "libertad_transito"]]
+
+enunciado: "La Constitución de 1853 garantiza que ___ de culto es un derecho fundamental."
+
+respuesta: "libertad_religiosa"
+tipo: completar
+respuestas_validas:
+  - "libertad_religiosa"
+
+explicacion: |
+  El Art. 20 establece que la religión de culto de la nación es la católica, pero garantiza la libertad de culto a los habitantes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "avanzado"
+  tags: ["federalismo", "provincias"]
+
+variables:
+  provincia_idx: uno_de([0, 1])
+  puntos: [["Las provincias conservan todo el poder no delegado a la Nación.", "autonomia"], ["El gobierno nacional tiene facultades delegadas por las provincias.", "delegacion"]]
+
+enunciado: "En un sistema federal como el de 1853, las provincias mantienen su ___ sobre los poderes que no han sido expresamente delegados a la Nación."
+
+respuesta: "autonomia"
+tipo: mc
+opciones_explicitas: ["autonomia", "delegacion", "soberania_total"]
+
+explicacion: |
+  El principio de autonomía provincial es clave: las provincias mantienen todo el poder que no han delegado al gobierno federal.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "organizacion_nacional_constitucion_1853"
+  nivel: "intermedio"
+  tags: ["jerarquia", "leyes"]
+
+enunciado: "Ordene la jerarquía de las normas en el orden correcto, desde la más importante a la menos importante, según el espíritu constitucional de 1853:"
+
+pasos:
+  - "Identificar la norma suprema."
+  - "Identificar la norma que emana del Congreso."
+  - "Identificar la norma de aplicación local."
+
+respuesta_orden: ["Constitución Nacional", "Leyes Nacionales", "Constituciones Provinciales"]
+tipo: ordenar
+opciones_explicitas: ["Constitución Nacional", "Leyes Nacionales", "Constituciones Provinciales"]
+
+explicacion: |
+  La Constitución es la ley suprema; de ella emanan las leyes nacionales y, en el sistema federal, las constituciones provinciales deben adecuarse a la nacional.
+```
+
+## Sección: estados-nacionales (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "basico"
+  tags: ["definicion", "politica"]
+
+tipo: mc
+opciones_explicitas: ["Una organización política sin fronteras definidas ni cultura común.", "Una organización política con territorio, población y gobierno, con una identidad nacional compartida.", "Un grupo de personas que comparten una lengua pero no tienen un gobierno propio.", "Un sistema de comercio internacional basado en tratados de libre cambio."]
+enunciado: "Un Estado Nacional se define fundamentalmente como:"
+respuesta: "Una organización política con territorio, población y gobierno, con una identidad nacional compartida."
+explicacion: |
+  El Estado Nacional es una organización política que posee un territorio delimitado, una población asentada en él y un gobierno soberano, todo esto unido por una identidad cultural, histórica o lingüística común.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "basico"
+  tags: ["componentes", "territorio"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["Francia", "populacion_fr"], ["Japón", "populacion_jp"]]
+
+tipo: completar
+respuestas_validas:
+  - "territorio"
+  - "población"
+  - "gobierno"
+
+enunciado: "Para que el país {datos[escenario_idx][0]} funcione como un Estado Nacional, requiere de un _________ delimitado, una _________ asentada y un _________ que ejerza la soberanía."
+
+pasos:
+  - "Identificar los tres pilares de la estructura estatal."
+  - "Completar los espacios con los conceptos técnicos correctos."
+
+explicacion: |
+  Los tres elementos constitutivos son: territorio, población y gobierno. Sin la combinación de estos, no se puede hablar de un Estado Nacional moderno.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "intermedio"
+  tags: ["identidad", "cultura"]
+
+tipo: mc
+opciones_explicitas: ["La lengua y la historia común ayudan a crear el sentimiento de pertenencia.", "La fuerza militar es el único factor que define a una nación.", "El territorio es lo único que importa, la cultura es irrelevante.", "Un Estado Nacional no requiere de una identidad compartida."]
+respuesta: "La lengua y la historia común ayudan a crear el sentimiento de pertenencia."
+
+enunciado: "¿Cuál es el papel de la lengua, la cultura y la historia en la formación de un Estado Nacional?"
+
+explicacion: |
+  A diferencia del Estado como estructura puramente administrativa, el concepto de 'Nación' aporta el componente de identidad (lengua, historia, cultura) que cohesiona a la población.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "avanzado"
+  tags: ["proceso", "historia"]
+
+tipo: ordenar
+opciones_explicitas: ["Consolidación de fronteras territoriales", "Surgimiento de una identidad cultural común", "Centralización del poder y gobierno"]
+
+enunciado: "Ordena cronológicamente los procesos típicos en la formación de un Estado Nacional moderno (desde la base cultural hasta la estructura política):"
+
+explicacion: |
+  Aunque los procesos varían, históricamente la identidad cultural suele preceder o acompañar la centralización del poder y la delimitación formal de las fronteras.
+respuesta_orden: ["Surgimiento de una identidad cultural común", "Centralización del poder y gobierno", "Consolidación de fronteras territoriales"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "intermedio"
+  tags: ["conceptos", "diferencias"]
+
+variables:
+  casos: [["nación", "estado"]]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si nos encontramos ante el caso de nación, estamos ante una _________ que no ha logrado constituirse como un Estado Nacional."
+
+respuesta: "nación"
+
+explicacion: |
+  Cuando existe una nación (identidad compartida) pero carece de soberanía territorial o gobierno propio, se dice que es una nación sin Estado.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "basico"
+  tags: ["conceptos", "siglo_xix"]
+
+respuesta: "soberanía"
+tipo: completar
+respuestas_validas:
+  - "soberanía"
+
+enunciado: "El surgimiento del Estado-Nación implica la consolidación de un territorio delimitado donde el poder supremo reside en una entidad política que ejerce la ___ sobre su población."
+
+explicacion: |
+  La soberanía es el principio fundamental que define a un Estado moderno, permitiéndole ejercer autoridad exclusiva sobre un territorio y su población, sin interferencias externas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "intermedio"
+  tags: ["unificacion", "italia"]
+
+respuesta: "Cavour"
+tipo: mc
+opciones_explicitas: ["Cavour", "Garibaldi", "Mazzini", "Bismarck"]
+
+enunciado: "Durante el proceso de unificación italiana (Risorgimento), el líder político que fue clave desde el Reino de Piamonte-Cerdeña fue ___."
+
+explicacion: |
+  El proceso de unificación fue complejo: mientras Garibaldi lideraba las campañas militares, figuras como Cavour (desde el Piamonte) gestionaban la diplomacia para consolidar el nuevo Estado.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "intermedio"
+  tags: ["unificacion", "alemania"]
+
+respuesta: "Prusia"
+tipo: mc
+opciones_explicitas: ["Prusia", "Austria", "Baviera", "Sajonia"]
+
+enunciado: "A diferencia de la unificación italiana, la unificación alemana de 1871 fue liderada por la potencia militar de ___."
+
+explicacion: |
+  Bajo el liderazgo de Otto von Bismarck, Prusia utilizó la diplomacia y la guerra (como la guerra franco-prusiana) para unificar los estados alemanes bajo su corona.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "avanzado"
+  tags: ["consecuencias", "geopolitica"]
+
+respuesta: "Imperio Austro-Húngaro"
+tipo: mc
+opciones_explicitas: ["Imperio Austro-Húngaro", "Imperio Británico", "Imperio Otomano", "Imperio Ruso"]
+
+enunciado: "El auge de los movimientos nacionalistas en el siglo XIX representó una amenaza directa para la integridad territorial de los imperios multiétnicos, como el ___."
+
+explicacion: |
+  Los imperios multiétnicos, donde convivían diversas lenguas y culturas bajo una misma corona, sufrieron tensiones constantes debido a que los grupos étnicos buscaban su propia independencia nacional.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "avanzado"
+  tags: ["cronologia", "unificacion"]
+
+respuesta_orden: ["Unificación Italiana", "Unificación Alemana", "Fragmentación del Imperio Otomano"]
+tipo: ordenar
+opciones_explicitas: ["Unificación Italiana", "Unificación Alemana", "Fragmentación del Imperio Otomano"]
+
+enunciado: "Ordene cronológicamente los siguientes procesos de transformación del mapa europeo en el siglo XIX, desde el más temprano al más tardío:"
+
+pasos:
+  - "Identifique la fecha de consolidación de la Italia unificada (1861)."
+  - "Identifique la fecha de la proclamación del Imperio Alemán (1871)."
+  - "Considere el declive de los Balcanes y el Imperio Otomano hacia finales del siglo."
+
+explicacion: |
+  La unificación italiana se consolidó formalmente en 1861, seguida por la unificación alemana en 1871. El declive otomano y las tensiones nacionalistas en los Balcanes fueron procesos continuos que culminarían con mayor intensidad tras la Primera Guerra Mundial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "basico"
+  tags: ["nacionalismo", "identidad"]
 
 respuesta: "Estado"
 tipo: "completar"
 respuestas_validas:
   - "Estado"
 
-enunciado: "Para gestionar la propiedad de la tierra y asegurar la recaudación de tributos sobre el excedente, surge una estructura de poder centralizada denominada ___."
+enunciado: "El nacionalismo sostiene que una nación, entendida como un grupo con identidad cultural, lengua o historia común, debe tener su propio ___."
 
 explicacion: |
-  El Estado surge como el ente encargado de codificar las leyes de propiedad y administrar la fuerza para garantizar la recaudación y la defensa de los bienes acumulados.
+  El nacionalismo es la ideología que vincula la identidad de un grupo cultural (nación) con la estructura política de un territorio soberano (Estado).
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
+  tema: "estados_nacionales"
   nivel: "intermedio"
-  tags: ["secuencia", "desarrollo_social"]
+  tags: ["ideologia", "componentes"]
 
-respuesta_orden: ["Sedentarismo", "Excedente", "Propiedad Privada", "Estratificación"]
-tipo: "ordenar"
-opciones_explicitas: ["Sedentarismo", "Excedente", "Propiedad Privada", "Estratificación"]
+respuesta: "Lengua común, historia compartida y territorio definido"
+tipo: mc
+opciones_explicitas: ["Lengua común, historia compartida y territorio definido", "Religión única, monarquía absoluta y sistema feudal", "Clase obrera, lucha de clases y plusvalía"]
 
-enunciado: "Ordena cronológicamente los procesos que permitieron el surgimiento de las sociedades de clases:"
-
-pasos:
-  - "Establecimiento de asentamientos permanentes."
-  - "Producción de alimento más allá del consumo inmediato."
-  - "Delimitación de derechos de posesión sobre la tierra y bienes."
-  - "División de la sociedad en grupos con distintos niveles de riqueza."
+enunciado: "¿Cuál de los siguientes conjuntos de elementos ha servido históricamente como pilar para la construcción de una identidad nacional según el nacionalismo romántico?"
 
 explicacion: |
-  La secuencia lógica parte de la estabilidad del asentamiento, que genera excedente, lo que permite la propiedad privada y, finalmente, la división social en clases (estratificación).
+  Para que un grupo se reconozca como nación, suele requerir elementos de cohesión como la lengua, la historia y un territorio.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "avanzado"
-  tags: ["derecho", "propiedad"]
-
-respuesta: "delito"
-tipo: "mc"
-opciones_explicitas: ["acto social", "delito"]
-
-enunciado: "En una sociedad con propiedad privada consolidada, el acto de apropiarse de la tierra de otro sin permiso es considerado un ___ bajo el código del Estado."
-
-explicacion: |
-  La creación de leyes penales es fundamental para proteger la propiedad privada, transformando la apropiación de bienes ajenos en un delito contra el orden establecido.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
+  tema: "estados_nacionales"
   nivel: "basico"
-  tags: ["excedente", "jerarquia", "sociedad"]
+  tags: ["geopolitica"]
 
-respuesta: "excedente"
+respuesta: "fragmentación"
+tipo: "mc"
+opciones_explicitas: ["unificación", "fragmentación", "globalización", "feudalización"]
+
+enunciado: "El auge de los nacionalismos en el siglo XIX provocó la ___ de imperios multiétnicos que contenían diversas naciones sin identidad propia."
+
+explicacion: |
+  Al buscar cada grupo su propio Estado, los grandes imperios (como el Austriaco o el Otomano) sufrieron procesos de fragmentación territorial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "intermedio"
+  tags: ["soberania"]
+
+respuesta: "soberanía"
 tipo: "completar"
 respuestas_validas:
-  - "excedente"
+  - "soberanía"
 
-enunciado: "La transición de economías de subsistencia a sociedades complejas fue impulsada por la acumulación de ___ , lo que permitió que ciertos grupos controlaran recursos para sostener a otros."
+enunciado: "El proyecto del Estado-Nación busca que el poder político sea ejercido por una nación que posee ___ sobre su territorio."
 
 explicacion: |
-  Cuando una sociedad produce más de lo que consume inmediatamente (excedente), ese sobrante puede ser almacenado y controlado, permitiendo la aparición de élites que gestionan dicho recurso.
+  La soberanía es el derecho de un Estado a autogobernarse sin interferencias externas, un concepto clave para la legitimidad nacionalista.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "intermedio"
-  tags: ["excedente", "poder", "clases_sociales"]
-
-opciones_explicitas: ["el control de la tierra", "el control de la fuerza", "el control de la religión", "el control de la tecnología"]
-
-respuesta: "el control de la tierra"
-tipo: "mc"
-
-enunciado: "En las primeras sociedades con excedente agrícola, la jerarquía social se consolidó principalmente a través de ___."
-
-explicacion: |
-  La propiedad de la tierra (medio de producción) permitió a unas familias acumular riqueza, mientras que la capacidad de ejercer fuerza o autoridad religiosa legitimaba ese control sobre el resto de la población.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
+  tema: "estados_nacionales"
   nivel: "avanzado"
-  tags: ["proceso", "estratificacion", "jerarquia"]
+  tags: ["teoria_politica"]
 
-tipo: ordenar
-opciones_explicitas: ["Producción de excedente", "Acumulación de propiedad", "Estratificación social", "Formación del Estado"]
-respuesta_orden: ["Producción de excedente", "Acumulación de propiedad", "Estratificación social", "Formación del Estado"]
+variables:
+  caso_idx: uno_de([0, 1])
+  casos: [["Un grupo con cultura propia pero sin fronteras claras."], ["Un Estado con fronteras claras pero con múltiples etnias sin cohesión."]]
+  respuestas: ["Nación sin Estado", "Estado sin Nación"]
 
-enunciado: "Ordene cronológicamente los procesos que explican la aparición de las jerarquías estatales:"
+respuesta: respuestas[caso_idx]
+tipo: "mc"
+opciones_explicitas: ["Nación sin Estado", "Estado sin Nación"]
+
+enunciado: "Analice el siguiente escenario: {casos[caso_idx][0]} ¿Qué situación describe mejor la tensión nacionalista?"
 
 explicacion: |
-  Primero se genera el excedente, luego ese excedente se convierte en propiedad privada/acumulada, lo que crea divisiones de clase (estratificación) y finalmente requiere un aparato institucional (Estado) para regular la propiedad y la fuerza.
+  La tensión surge precisamente cuando la delimitación de la 'nación' (identidad) no coincide con la delimitación del 'Estado' (fronteras políticas).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "intermedio"
+  tags: ["italia", "risorgimento", "siglo_xix"]
+
+enunciado: "Durante el proceso de unificación italiana, el liderazgo político y diplomático fue fundamental. El personaje que actuó como el cerebro diplomático del Reino de Piamonte-Cerdeña fue ___."
+
+respuesta: "Cavour"
+tipo: mc
+opciones_explicitas: ["Cavour", "Garibaldi", "Mazzini", "Vittorio Emanuele II"]
+
+explicacion: |
+  Camillo Benso, conde de Cavour, fue el arquitecto de la unificación italiana a través de la diplomacia y la modernización del Reino de Piamonte-Cerdeña.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "intermedio"
+  tags: ["alemania", "bismarck", "prusia"]
+
+enunciado: "La unificación alemana se consolidó tras la victoria en la Guerra Franco-Prusiana, lo que llevó a la firma del ___ en el año 1871."
+
+respuesta: "Tratado de Frankfurt"
+tipo: mc
+opciones_explicitas: ["Congreso de Viena", "Tratado de Frankfurt", "Tratado de Versalles", "Paz de Westfalia"]
+
+explicacion: |
+  El Tratado de Frankfurt puso fin a la guerra contra Francia y consolidó la creación del Segundo Imperio Alemán bajo el liderazgo de Prusia.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "basico"
+  tags: ["conceptos", "soberania"]
+
+respuesta: "soberanía"
+tipo: completar
+respuestas_validas:
+  - "soberanía"
+  - "soberania"
+
+enunciado: "Un elemento esencial de la formación de los Estados nacionales en el siglo XIX fue la consolidación de la ___ territorial y política sobre un conjunto de poblaciones con una identidad común."
+
+explicacion: |
+  La soberanía es la autoridad suprema que ejerce el Estado sobre su territorio y población, permitiendo la independencia frente a otras potencias.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "avanzado"
+  tags: ["causas", "economia", "nacionalismo"]
+
+enunciado: "Un factor determinante para la cohesión de los estados alemanes antes de la unificación política fue la creación de la Zollverein, que facilitó el libre comercio entre los estados miembros."
+
+respuesta: "Zollverein"
+tipo: mc
+opciones_explicitas: ["Zollverein", "Confederación Germánica", "Unión Europea", "Liga Hanseática"]
+
+explicacion: |
+  El Zollverein fue una unión aduanera que eliminó las barreras comerciales entre los estados alemanes, fortaleciendo el poder de Prusia y preparando el terreno para la unificación política.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "intermedio"
+  tags: ["procesos", "guerras"]
+
+respuesta_orden: ["Guerra de los Ducados", "Guerra Austro-Prusiana", "Guerra Franco-Prusiana"]
+tipo: ordenar
+opciones_explicitas: ["Guerra de los Ducados", "Guerra Austro-Prusiana", "Guerra Franco-Prusiana"]
+
+enunciado: "El proceso de unificación liderado por Otto von Bismarck se desarrolló a través de una serie de conflictos bélicos estratégicos. Ordene cronológicamente estas guerras:"
+
+explicacion: |
+  Bismarck utilizó la política de 'sangre y hierro' a través de tres guerras clave: contra Dinamarca (1864), contra Austria (1866) y contra Francia (1870-1871).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "basico"
+  tags: ["teoria_politica", "elementos_estado"]
+
+variables:
+  escenario: uno_de([["Un grupo de personas sin fronteras definidas ni leyes comunes.", "No es un Estado"], ["Un territorio con población, gobierno y leyes, pero sin identidad cultural única.", "Es un Estado"], ["Un grupo con identidad, territorio y gobierno, pero sin población.", "No es un Estado"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["No es un Estado", "Es un Estado"]
+
+enunciado: "Analiza el siguiente caso: {escenario[0]} ¿Se puede considerar un Estado Nacional según la teoría clásica?"
+
+explicacion: |
+  Para que exista un Estado Nacional se requiere la coexistencia de territorio, población, gobierno y, frecuentemente, una identidad compartida.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "intermedio"
+  tags: ["territorio", "soberania"]
+
+variables:
+  caso: uno_de([["La delimitación de fronteras físicas y jurídicas.", "Territorio"], ["El conjunto de individuos que habitan el país.", "Población"], ["El conjunto de normas que rigen la convivencia.", "Gobierno"]])
+
+respuesta: caso[1]
+tipo: mc
+opciones_explicitas: ["Territorio", "Población", "Gobierno"]
+
+enunciado: "Un elemento fundamental de los Estados modernos es la delimitación de fronteras físicas y jurídicas. Este concepto se define como: ___"
+
+explicacion: |
+  El territorio es el espacio geográfico donde el Estado ejerce su soberanía.
 ```
 
 ```
 metadata:
   materia: "historia_profucha"
-  tema: "propiedad_jerarquia_estado"
+  tema: "estados_nacionales"
+  nivel: "avanzado"
+  tags: ["identidad", "nacionalismo"]
+
+tipo: completar
+respuesta: "Identidad"
+respuestas_validas:
+  - "Identidad"
+
+enunciado: "En el proceso de formación de los Estados nacionales, la creación de un sentimiento de pertenencia común a través de símbolos y lengua se conoce como ___."
+
+explicacion: |
+  La identidad nacional es el lazo simbólico que une a la población con el Estado.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
   nivel: "basico"
-  tags: ["propiedad", "desigualdad"]
+  tags: ["orden_logico", "elementos"]
+
+respuesta_orden: ["Población", "Territorio", "Gobierno", "Identidad"]
+tipo: ordenar
+opciones_explicitas: ["Población", "Territorio", "Gobierno", "Identidad"]
+
+enunciado: "Ordena los elementos que tradicionalmente se consideran necesarios para la consolidación de un Estado Nacional, desde el elemento humano hasta el elemento simbólico."
+
+explicacion: |
+  El orden lógico parte de la base humana (población), el espacio (territorio), la estructura de mando (gobierno) y el cohesión cultural (identidad).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "estados_nacionales"
+  nivel: "intermedio"
+  tags: ["gobierno", "soberania"]
 
 variables:
-  caso_idx: uno_de([0, 1])
-  datos: [["Familia A posee tierras y herramientas, mientras que Familia B posee sólo su fuerza de trabajo", "dominante"], ["Familia C posee excedentes almacenados, mientras que Familia D posee tierras comunales", "dominante"]]
+  situacion: uno_de([["Un territorio sin una autoridad central que dicte leyes.", "Falta Gobierno"], ["Un pueblo con leyes pero sin un territorio asignado.", "Falta Territorio"], ["Una nación con identidad pero sin población real.", "Falta Población"]])
 
-enunciado: "Considerando que {datos[caso_idx][0]}, la relación social resultante para la familia que posee más recursos es de carácter ___."
+respuesta: situacion[1]
+tipo: mc
+opciones_explicitas: ["Falta Gobierno", "Falta Territorio", "Falta Población"]
 
-respuesta: datos[caso_idx][1]
-tipo: "mc"
-
-opciones_explicitas: ["dominante", "subordinada"]
+enunciado: "Considera este escenario: {situacion[0]} ¿Qué elemento esencial del Estado está ausente?"
 
 explicacion: |
-  La posesión de los medios de producción (tierra, herramientas, excedente) establece una relación asimétrica de poder entre quienes poseen y quienes solo pueden ofrecer su trabajo.
+  Sin un gobierno (autoridad política), no hay capacidad de ejercer soberanía ni de organizar a la población.
 ```
+
+## Sección: modelo-agroexportador-inmigracion (25 preguntas)
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "intermedio"
-  tags: ["estado", "legitimacion", "jerarquia"]
-
-respuesta: "protección"
-tipo: "completar"
-respuestas_validas:
-  - "protección"
-  - "legitimación"
-
-enunciado: "El Estado temprano surge para garantizar la ___ de la propiedad acumulada y la gestión del excedente mediante la institucionalización de la fuerza."
-
-explicacion: |
-  El Estado actúa como el garante de las reglas de propiedad, asegurando que el excedente acumulado por las élites sea respetado y gestionado de manera centralizada.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
+  materia: "historia"
+  tema: "modelo_agroexportador"
   nivel: "basico"
-  tags: ["sociologia", "estado", "organizacion"]
+  tags: ["economia", "exportacion"]
 
-respuesta: "recaudar excedente"
+tipo: mc
+opciones_explicitas: ["Manufacturas industriales", "Materias primas agropecuarias", "Productos tecnológicos", "Servicios financieros"]
+respuesta: "Materias primas agropecuarias"
+
+enunciado: "El modelo agroexportador argentino, consolidado a fines del siglo XIX, se basaba fundamentalmente en la exportación de ___."
+
+explicacion: |
+  El modelo agroexportador consistía en la exportación de productos de la naturaleza (carne, cereales, lana) e importación de productos manufacturados de Europa.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "modelo_agroexportador"
+  nivel: "intermedio"
+  tags: ["capital", "infraestructura"]
+
+variables:
+  inversion_tipo: uno_de(["Inversión extranjera en infraestructura", "Inversión nacional en industria"])
+
+tipo: mc
+opciones_explicitas: ["Inversión extranjera en infraestructura", "Inversión nacional en industria", "Préstamos de organismos internacionales", "Donaciones estatales"]
+respuesta: "Inversión extranjera en infraestructura"
+
+enunciado: "Para sostener el modelo agroexportador, fue fundamental la llegada de Inversión extranjera en infraestructura."
+
+explicacion: |
+  La gran inversión extranjera (principalmente británica) se destinó a la construcción de ferrocarriles y puertos para facilitar la salida de productos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "inmigracion_masiva"
+  nivel: "basico"
+  tags: ["demografia", "inmigracion"]
+
 tipo: completar
 respuestas_validas:
-  - "recaudar excedente"
+  - "Europa"
 
-enunciado: "Uno de los propósitos fundamentales de la formación de las estructuras estatales fue la capacidad de ___ para financiar la administración y la burocracia."
+enunciado: "Durante el periodo agroexportador, la mayoría de la corriente migratoria hacia la Argentina provenía de ___."
 
 explicacion: |
-  El surgimiento de sociedades complejas permitió la acumulación de excedentes agrícolas, lo que permitió la creación de una clase administrativa y militar que no producía sus propios alimentos.
+  El flujo migratorio masivo de finales del siglo XIX y principios del XX estuvo compuesto mayoritariamente por inmigrantes europeos (italianos y españoles principalmente).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "modelo_agroexportador"
+  nivel: "intermedio"
+  tags: ["causalidad", "procesos"]
+
+tipo: ordenar
+opciones_explicitas: ["Expansión de la frontera agrícola", "Llegada de ferrocarriles", "Aumento de la demanda europea", "Consolidación del modelo agroexportador"]
+
+enunciado: "Ordene cronológicamente los procesos que permitieron la consolidación del modelo agroexportador:"
+
+explicacion: |
+  Primero se expandió la frontera (con la conquista del desierto), luego se conectó con trenes, lo que permitió responder a la demanda europea y consolidar el modelo.
+respuesta_orden: ["Expansión de la frontera agrícola", "Llegada de ferrocarriles", "Aumento de la demanda europea", "Consolidación del modelo agroexportador"]
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "modelo_agroexportador"
+  nivel: "avanzado"
+  tags: ["estado", "politica"]
+
+tipo: mc
+opciones_explicitas: ["Un proceso de autosuficiencia", "Un motor de dependencia externa", "Un sistema de comercio cerrado", "Una economía de subsistencia"]
+
+enunciado: "En el contexto del modelo agroexportador, la dinámica comercial argentina con Europa se caracterizó fundamentalmente por ser:"
+
+explicacion: |
+  El modelo generó una fuerte dependencia de los mercados externos (Europa) y de la tecnología/capital extranjero, integrando a Argentina al mercado mundial como proveedor de materias primas.
+
+respuesta: "Un motor de dependencia externa"
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "basico"
+  tags: ["inmigracion", "economia", "modelo_agroexportador"]
+
+respuesta: "modelo agroexportador"
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "La expansión del _______ fue el principal factor que impulsó la llegada masiva de inmigrantes europeos a la Argentina durante las últimas décadas del siglo XIX."
+
+explicacion: |
+  El modelo agroexportador, basado en la exportación de materias primas (carnes y cereales) hacia Europa, demandó una gran cantidad de mano de obra que fue provista por la inmigración masiva.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "basico"
+  tags: ["nacionalidades", "europa"]
+
+respuesta: "italianos"
+tipo: mc
+opciones_explicitas: ["italianos", "españoles", "alemanes", "franceses"]
+
+enunciado: "Si bien hubo diversas corrientes migratorias, el grupo de nacionalidad más numeroso en la inmigración masiva a la Argentina (por delante de los españoles) fue el de los _______."
+
+explicacion: |
+  La gran mayoría de los inmigrantes que llegaron entre 1880 y 1914 provenían de Italia y España, aunque también hubo presencia de otras nacionalidades europeas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "intermedio"
+  tags: ["causas", "europa"]
+
+respuesta: "crisis económica y demográfica"
+tipo: completar
+respuestas_validas:
+  - "crisis económica y demográfica"
+
+enunciado: "Los inmigrantes europeos huían de Europa debido a la _______ que afectaba sus países de origen."
+
+explicacion: |
+  Las crisis económicas, las guerras de unificación y el crecimiento demográfico en Europa generaron un excedente de población que buscaba nuevas oportunidades en el continente americano.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "intermedio"
+  tags: ["politica_migratoria", "leyes"]
+
+respuesta: "Ley Avellaneda"
+tipo: mc
+opciones_explicitas: ["Ley Avellaneda", "Ley de Residencia", "Constitución de 1853", "Ley de Educación"]
+
+enunciado: "Para fomentar la llegada de trabajadores, el Estado argentino sancionó un marco legal conocido como la _______."
+
+explicacion: |
+  La Ley Avellaneda (1876) facilitó el ingreso de inmigrantes, garantizando sus derechos y promoviendo su asentamiento en el territorio nacional.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "avanzado"
+  tags: ["causalidad", "procesos"]
+
+respuesta_orden: ["Demanda de mano de obra", "Expansión de la frontera agrícola", "Llegada masiva de inmigrantes"]
+tipo: ordenar
+opciones_explicitas: ["Demanda de mano de obra", "Expansión de la frontera agrícola", "Llegada masiva de inmigrantes"]
+
+enunciado: "Ordene cronológicamente la lógica de causalidad que permitió el proceso migratorio:"
+
+pasos:
+  - "El modelo agroexportador requiere más trabajadores."
+  - "Se expanden las tierras para la agricultura y ganadería."
+  - "Se produce el flujo migratorio masivo hacia el país."
+
+explicacion: |
+  La lógica fue circular: la demanda de trabajo impulsó la expansión de la frontera, lo que a su vez atrajo a la población europea que buscaba empleo.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "basico"
+  tags: ["economia", "demanda"]
+
+opciones_explicitas: ["Europa", "Asia", "Estados Unidos", "África"]
+
+respuesta: "Europa"
+tipo: "mc"
+
+enunciado: "El modelo agroexportador argentino se consolidó gracias a la creciente demanda de materias primas y alimentos provenientes de ________."
+
+explicacion: |
+  La Revolución Industrial en Europa generó una necesidad masiva de alimentos (carne, cereales) que Argentina satisfizo mediante su modelo exportador.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
-  tags: ["funciones", "justicia", "defensa"]
+  tags: ["transporte", "ferrocarriles"]
+
+opciones_explicitas: ["Navegación a vapor", "Ferrocarriles", "Carretas", "Ferrocarriles de montaña"]
+
+respuesta: "Ferrocarriles"
+tipo: "mc"
+
+enunciado: "Para conectar las zonas de producción con los puertos de exportación, se realizó una gran inversión en la construcción de ________."
+
+explicacion: |
+  El ferrocarril fue la columna vertebral del modelo, permitiendo el traslado rápido y masivo de granos y carne hacia el puerto de Buenos Aires.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "avanzado"
+  tags: ["frontera", "territorio"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["Conquista del Desierto", "expansión de la frontera agrícola"], ["Guerra de la Triple Alianza", "consolidación de fronteras norteñas"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: "completar"
+respuestas_validas:
+  - "expansión de la frontera agrícola"
+  - "consolidación de fronteras norteñas"
+
+enunciado: "La denominada {datos[escenario_idx][0]} permitió la {datos[escenario_idx][1]} para el modelo agroexportador."
+
+explicacion: |
+  La ocupación de territorios indígenas fue fundamental para incorporar nuevas tierras al circuito productivo de exportación.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "intermedio"
+  tags: ["inversion", "britania"]
+
+opciones_explicitas: ["Francia", "Alemania", "Reino Unido", "España"]
+
+respuesta: "Reino Unido"
+tipo: "mc"
+
+enunciado: "La mayor parte de la inversión extranjera destinada a infraestructura y servicios en este periodo fue de origen ________."
+
+explicacion: |
+  El capital británico fue el principal motor de la inversión en ferrocarriles, bancos y servicios públicos durante la segunda mitad del siglo XIX y principios del XX.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "avanzado"
+  tags: ["logica", "procesos"]
+
+opciones_explicitas: ["Demanda europea", "Expansión de frontera", "Ferrocarriles", "Inversión británica"]
+
+respuesta_orden: ["Demanda europea", "Expansión de frontera", "Inversión británica", "Ferrocarriles"]
+tipo: "ordenar"
+
+enunciado: "Ordene cronológicamente los factores que permitieron la consolidación del modelo (desde el estímulo externo hasta la infraestructura de transporte):"
+
+explicacion: |
+  El proceso comenzó con la necesidad de alimentos en Europa, seguida por la ocupación de tierras, la llegada de capitales para infraestructura y finalmente la red ferroviaria que integró el sistema.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "intermedio"
+  tags: ["demografia", "inmigracion"]
+
+respuesta: "el flujo masivo de inmigrantes europeos"
+tipo: mc
+opciones_explicitas: ["el flujo masivo de inmigrantes europeos", "la llegada de colonias agrícolas", "el crecimiento de la población nativa", "la migración interna desde el interior"]
+
+enunciado: "Durante el modelo agroexportador, la principal causa de la transformación demográfica en el litoral argentino fue el flujo masivo de inmigrantes europeos."
+
+explicacion: |
+  La gran escala de la inmigración europea (principalmente italianos y españoles) alteró radicalmente la proporción de población extranjera en las zonas portuarias y de exportación.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "basico"
+  tags: ["cultura", "lenguaje"]
+
+respuesta: "lunfardo"
+tipo: completar
+respuestas_validas:
+  - "lunfardo"
+
+enunciado: "La convivencia de diversas lenguas y modismos de los inmigrantes en los conventillos de Buenos Aires dio origen a un léxico popular conocido como ___."
+
+explicacion: |
+  El lunfardo surgió como una mezcla de términos de varios idiomas (italiano, español, francés, etc.) que los inmigrantes utilizaban en el ámbito urbano.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "intermedio"
+  tags: ["urbanismo", "geografia"]
+
+respuesta_orden: ["Buenos Aires", "Rosario", "Santa Fe"]
+tipo: ordenar
+opciones_explicitas: ["Buenos Aires", "Rosario", "Santa Fe"]
+
+enunciado: "Ordene de mayor a menor importancia en términos de volumen de asentamiento inmigrante y actividad portuaria durante el auge agroexportador:"
+
+explicacion: |
+  El eje Buenos Aires-Rosario-Santa Fe concentró la mayor densidad demográfica debido a su conexión directa con el comercio mundial de granos y carnes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "avanzado"
+  tags: ["clases_sociales", "urbanismo"]
+
+variables:
+  perfil: uno_de(["la clase media urbana", "la oligarquía terrateniente"])
+
+respuesta: "la clase media urbana"
+tipo: mc
+opciones_explicitas: ["la clase media urbana", "la oligarquía terrateniente", "el campesinado indígena", "la aristocracia colonial"]
+
+enunciado: "A diferencia de la estructura de la oligarquía, la inmigración masiva favoreció el surgimiento de {perfil} en los centros urbanos."
+
+explicacion: |
+  La llegada de inmigrantes con oficios diversos permitió la consolidación de una clase media compuesta por pequeños comerciantes, empleados y profesionales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "basico"
+  tags: ["vivienda", "cultura"]
+
+respuesta: 100
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "En el contexto de la inmigración, si un conventillo tiene 4 habitaciones y cada una alberga a 25 personas, ¿cuántas personas viven en total en el conventillo?"
+
+pasos:
+  - "Multiplicar el número de habitaciones por la cantidad de personas por habitación."
+
+explicacion: |
+  Los conventillos eran viviendas colectivas con alta densidad poblacional, típicas de los barrios de inmigrantes en Buenos Aires.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "basico"
+  tags: ["economia", "exportacion"]
+
+variables:
+  datos: [["trigo", "cereales"], ["carne", "ganadería"], ["lana", "ovinos"]]
+  idx: uno_de([0, 1, 2])
+  producto: datos[idx][0]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["cereales", "ganadería", "ovinos"]
+
+enunciado: "Durante el modelo agroexportador, la economía argentina se centró en la exportación de productos primarios. El {producto} pertenece al rubro de la ___."
+
+explicacion: |
+  El modelo agroexportador se basó en la exportación de materias primas hacia Europa, siendo el {producto} uno de los pilares fundamentales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "basico"
+  tags: ["inmigracion", "demografia"]
+
+variables:
+  datos_migratorios: [["italianos", "Europa"], ["españoles", "Europa"], ["alemanes", "Europa"]]
+  idx: uno_de([0, 1, 2])
+  nacionalidad: datos_migratorios[idx][0]
+
+respuesta: datos_migratorios[idx][1]
+tipo: mc
+opciones_explicitas: ["Europa", "Asia", "América", "África"]
+
+enunciado: "La gran inmigración fue clave para la mano de obra en el campo. El grupo de los {nacionalidad} llegó a la Argentina proveniente del continente: ___"
+
+explicacion: |
+  La llegada masiva de inmigrantes de Europa (principalmente italianos y españoles) fue esencial para la expansión de la frontera agrícola.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "intermedio"
+  tags: ["transporte", "infraestructura"]
+
+respuesta: "ferrocarril"
+tipo: completar
+respuestas_validas:
+  - "ferrocarril"
+
+enunciado: "Para integrar los centros de producción con los puertos, se construyó una red de ___ fundamental para el modelo."
+
+explicacion: |
+  El ferrocarril permitió el traslado masivo de cargas desde el interior hacia los puertos de exportación de manera eficiente.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "intermedio"
+  tags: ["puertos", "comercio"]
+
+respuesta: "Buenos Aires"
+tipo: mc
+opciones_explicitas: ["Buenos Aires", "Rosario", "Bahía Blanca", "Córdoba"]
+
+enunciado: "El sistema agroexportador dependía de la salida hacia el mundo a través de puertos específicos. ¿Cuál fue el principal puerto de salida de la producción agroexportadora argentina?"
+
+explicacion: |
+  Los puertos eran el punto de conexión vital entre la producción interna y el mercado mundial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "modelo_agroexportador_inmigracion"
+  nivel: "avanzado"
+  tags: ["proceso", "logistica"]
+
+respuesta_orden: ["Producción", "Transporte", "Exportación"]
+tipo: ordenar
+opciones_explicitas: ["Producción", "Transporte", "Exportación"]
+
+enunciado: "Ordene el proceso lógico de una mercancía en el modelo agroexportador: desde la cosecha hasta la salida del país."
+
+explicacion: |
+  El ciclo comenzaba con la producción en el campo, seguía con el transporte ferroviario y terminaba con la exportación en el puerto.
+```
+
+## Sección: imperialismo (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "intermedio"
+  tags: ["africa", "conferencia_de_berlin"]
+
+enunciado: "El proceso de reparto de África entre las potencias europeas se formalizó durante la Conferencia de Berlín en el año ___."
+
+respuesta: "1884"
+tipo: completar
+respuestas_validas:
+  - "1884"
+  - "1885"
+
+explicacion: |
+  La Conferencia de Berlín (1884-1885) estableció las reglas para la ocupación de África, evitando conflictos directos entre potencias europeas pero ignorando las realidades étnicas del continente.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "basico"
+  tags: ["japon", "asia"]
+
+enunciado: "A finales del siglo XIX, ¿qué país asiático logró modernizarse rápidamente y expandir su influencia imperialista tras la guerra ruso-japonesa?"
+
+opciones_explicitas: ["China", "Japón", "Tailandia", "Vietnam"]
+respuesta: "Japón"
+tipo: mc
+
+explicacion: |
+  Japón, tras la Restauración Meiji, se transformó en una potencia industrial y militar, derrotando a Rusia en 1905 y consolidando su control sobre Corea y partes de China.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "avanzado"
+  tags: ["ideologia", "darwinismo_social"]
+
+enunciado: "El concepto de '___' fue utilizado para justificar la expansión colonial mediante la idea de la supervivencia del más apto aplicada a los pueblos y naciones."
+
+respuesta: "Darwinismo Social"
+tipo: completar
+respuestas_validas:
+  - "Darwinismo Social"
+
+explicacion: |
+  El Darwinismo Social aplicó erróneamente las leyes de la selección natural de la biología a las sociedades humanas para legitimar la superioridad de las potencias occidentales sobre las colonias.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "basico"
+  tags: ["oceania", "australia"]
+
+enunciado: "Durante el siglo XIX, la expansión de Gran Bretaña en Oceanía se caracterizó por la ocupación de territorios que antes eran habitados por pueblos indígenas, como los..."
+
+opciones_explicitas: ["Maoríes", "Aborígenes", "Polinesios", "Melanesios"]
+respuesta: "Aborígenes"
+tipo: mc
+
+explicacion: |
+  La colonización británica en Australia se basó en la doctrina de 'Terra Nullius' (tierra de nadie), ignorando la soberanía de los pueblos aborígenes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "intermedio"
+  tags: ["cronologia", "potencias"]
+
+enunciado: "Ordena cronológicamente estos procesos de expansión imperialista, desde el más temprano al más tardío:"
+
+opciones_explicitas: ["Expansión Británica en África", "Expansión Japonesa en Asia", "Expansión de EE.UU. en el Pacífico"]
+respuesta_orden: ["Expansión Británica en África", "Expansión Japonesa en Asia", "Expansión de EE.UU. en el Pacífico"]
+tipo: ordenar
+
+explicacion: |
+  El auge del imperialismo europeo (África) precedió a la consolidación del imperialismo japonés en Asia, mientras que la expansión de EE.UU. en el Pacífico se intensificó tras la guerra hispano-estadounidense (1898).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "basico"
+  tags: ["economia", "materias_primas", "mercados"]
+
+respuesta: "materias_primas"
+tipo: completar
+respuestas_validas:
+  - "materias_primas"
+
+enunciado: "Durante el siglo XIX, la Revolución Industrial impulsó a las potencias europeas a buscar en África y Asia un suministro constante de ___ para alimentar sus fábricas."
+
+explicacion: |
+  La necesidad de materias primas (como caucho, algodón o minerales) fue un motor central del imperialismo para sostener el crecimiento industrial europeo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "intermedio"
+  tags: ["politica", "prestigio", "competencia"]
+
+respuesta: "prestigio"
+tipo: mc
+opciones_explicitas: ["prestigio", "recursos", "religión"]
+
+enunciado: "La expansión colonial no solo buscaba beneficios económicos, sino también aumentar el estatus internacional de la nación frente a sus rivales europeos. Esta motivación se clasifica como de tipo ___."
+
+explicacion: |
+  La competencia por el poder político y el estatus internacional (prestigio) llevó a las potencias a disputarse territorios estratégicos para demostrar su dominio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "avanzado"
+  tags: ["ideologia", "darwinismo_social", "superioridad"]
+
+respuesta: "darwinismo social"
+tipo: completar
+respuestas_validas:
+  - "darwinismo social"
+
+enunciado: "Para justificar la dominación sobre otros pueblos, muchas potencias utilizaron la idea de la superioridad racial, concepto erróneamente aplicado de la biología a la sociedad, conocido como ___."
+
+explicacion: |
+  El darwinismo social fue una distorsión de la teoría de la evolución que se utilizó para legitimar el control colonial bajo la premisa de que ciertas razas eran "naturalmente" superiores.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "intermedio"
+  tags: ["causas", "clasificacion"]
+
+tipo: ordenar
+
+enunciado: "Ordena las siguientes motivaciones del imperialismo desde la más materialista (recursos) hasta la más abstracta (creencias):"
+
+pasos:
+  - "Búsqueda de nuevos mercados y materias primas"
+  - "Competencia por el prestigio y control territorial"
+  - "Nociones de superioridad cultural o misión civilizadora"
+
+opciones_explicitas: ["económicas", "políticas", "ideológicas"]
+
+respuesta_orden: ["económicas", "políticas", "ideológicas"]
+
+explicacion: |
+  El imperialismo fue un fenómeno multidimensional: comenzó con la necesidad económica, se intensificó por la rivalidad política y se legitimó mediante ideologías culturales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "basico"
+  tags: ["economia", "mercados"]
+
+respuesta: "nuevos mercados"
+tipo: mc
+opciones_explicitas: ["nuevos mercados", "mano de obra barata", "territorio para el descanso"]
+
+enunciado: "Además de extraer recursos, las potencias buscaban establecer ___ para colocar el exceso de producción de sus industrias."
+
+explicacion: |
+  La creación de mercados cautivos en las colonias permitía a las metrópolis vender sus productos manufacturados sin competencia, asegurando el ciclo de acumulación de capital.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "intermedio"
+  tags: ["reparto_de_africa", "conferencia_berlin"]
+
+enunciado: "La Conferencia de Berlín (1884-1885) fue el evento clave donde las potencias europeas establecieron las reglas para la ocupación de África. ¿Cuál fue una de las consecuencias más críticas de este proceso respecto a la organización territorial del continente?"
+
+opciones_explicitas:
+  - "Se respetaron las fronteras étnicas y lingüísticas preexistentes."
+  - "Se trazaron fronteras artificiales que ignoraron la realidad cultural de las poblaciones."
+  - "Se promovió la independencia inmediata de los estados africanos."
+  - "Se estableció un sistema de protectorados basado en el consenso local."
+
+respuesta: "Se trazaron fronteras artificiales que ignoraron la realidad cultural de las poblaciones."
+tipo: mc
+
+explicacion: |
+  El Reparto de África se caracterizó por la creación de fronteras arbitrarias trazadas en mapas por potencias europeas, lo que agrupó a grupos étnicos rivales en un mismo estado o dividió a comunidades unidas, sembrando las bases de conflictos futuros.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "avanzado"
+  tags: ["congo", "leopoldo_ii", "explotacion"]
+
+enunciado: "En el contexto del imperialismo, el caso del Estado Libre del Congo es recordado por la gestión de Leopoldo II, cuyo régimen se caracterizó por la ___."
+
+respuesta: "explotación extrema de caucho y marfil"
+tipo: completar
+respuestas_validas:
+  - "explotación extrema de caucho y marfil"
+
+explicacion: |
+  El Estado Libre del Congo no era una colonia de Bélgica inicialmente, sino propiedad privada de Leopoldo II, donde se implementó un sistema de terror para la extracción de recursos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "basico"
+  tags: ["causas", "economia"]
+
+enunciado: "Durante el siglo XIX, la Revolución Industrial impulsó la necesidad de las potencias europeas de obtener nuevas fuentes de materias primas y nuevos mercados para sus productos. Completa la siguiente afirmación: El imperialismo fue impulsado por una combinación de factores económicos, _______ y políticos."
+
+respuesta: "ideológicos"
+tipo: completar
+respuestas_validas:
+  - "ideológicos"
+
+explicacion: |
+  Además de la necesidad económica, existieron justificaciones ideológicas (como la supuesta "misión civilizadora") y ambiciones políticas de prestigio nacional.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "intermedio"
+  tags: ["berlin", "diplomacia"]
+
+enunciado: "Ordena cronológicamente los procesos que definieron la dinámica del imperialismo africano:"
+
+opciones_explicitas:
+  - "Conferencia de Berlín para regular la ocupación."
+  - "Expansión de las potencias europeas en el continente."
+  - "Consolidación de fronteras coloniales y resistencia local."
+
+respuesta_orden: ["Conferencia de Berlín para regular la ocupación.", "Expansión de las potencias europeas en el continente.", "Consolidación de fronteras coloniales y resistencia local."]
+tipo: ordenar
+
+explicacion: |
+  Primero se establecieron las reglas diplomáticas (Berlín), luego se produjo la ocupación efectiva del territorio y finalmente se consolidaron las estructuras coloniales que enfrentaron resistencias.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "avanzado"
+  tags: ["ideologia", "darwinismo_social"]
+
+enunciado: "El imperialismo se justificó en gran medida mediante el uso del 'Darwinismo Social'. ¿Qué premisa defendía esta idea para legitimar el dominio europeo?"
+
+opciones_explicitas:
+  - "La igualdad natural entre todas las razas humanas."
+  - "La idea de que las naciones 'más aptas' tenían el derecho de dominar a las 'menos aptas'."
+  - "La necesidad de cooperación económica entre continentes."
+  - "El respeto a la soberanía de las naciones no europeas."
+
+respuesta: "La idea de que las naciones 'más aptas' tenían el derecho de dominar a las 'menos aptas'."
+tipo: mc
+
+explicacion: |
+  El darwinismo social fue una distorsión de la teoría de la evolución aplicada a la sociedad, utilizada para justificar el colonialismo como un proceso "natural" de superioridad.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "intermedio"
+  tags: ["geopolitica", "africa", "fronteras"]
+
+enunciado: "Durante el siglo XIX, la delimitación de la Conferencia de Berlín ignoró las realidades étnicas locales, lo que ha generado tensiones geopolíticas que persisten en la actualidad."
+
+respuesta: "la división de África"
+tipo: completar
+respuestas_validas:
+  - "la división de África"
+
+explicacion: |
+  La Conferencia de Berlín (1884-1885) repartió el continente africano entre potencias europeas mediante líneas rectas que no respetaban la distribución de grupos étnicos o lingüísticos, provocando conflictos internos constantes en la era post-colonial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "intermedio"
+  tags: ["economia", "teoria_dependencia", "recursos"]
+
+opciones_explicitas: ["Modelo de extracción", "Modelo de integración", "Modelo de autarquía", "Modelo de libre comercio"]
+
+enunciado: "El imperialismo consolidó un modelo económico basado en la extracción de materias primas de las colonias para abastecer a las metrópolis. Este sistema, que aún influye en la estructura de muchas economías periféricas, se conoce como:"
+
+respuesta: "Modelo de extracción"
+tipo: mc
+
+explicacion: |
+  La estructura económica colonial fue diseñada para la exportación de recursos naturales, lo que impidió el desarrollo de industrias locales en las colonias y perpetuó la dependencia económica de las antiguas metrópolis.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "avanzado"
+  tags: ["etnia", "conflictos", "herencia_colonial"]
+
+enunciado: "Una de las consecuencias sociales más persistentes es el legado del uso de la política de 'divide y vencerás', donde las potencias coloniales utilizaban tácticas de división para mantener el control, exacerbando las divisiones entre grupos que hoy derivan en conflictos civiles."
+
+respuesta: "tácticas de división"
+tipo: completar
+respuestas_validas:
+  - "tácticas de división"
+
+explicacion: |
+  Al favorecer a un grupo étnico sobre otro para facilitar el control administrativo, las potencias coloniales crearon resentimientos profundos que han estallado en guerras civiles tras la independencia.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "intermedio"
+  tags: ["procesos", "descolonizacion", "orden"]
+
+opciones_explicitas: ["Consolidación del control colonial", "Movimientos de liberación nacional", "Independencia política y crisis de fronteras"]
+
+enunciado: "Ordena cronológicamente los procesos que explican la situación actual de muchas naciones post-coloniales:"
+
+respuesta_orden: ["Consolidación del control colonial", "Movimientos de liberación nacional", "Independencia política y crisis de fronteras"]
+tipo: ordenar
+
+explicacion: |
+  El proceso comenzó con la explotación sistemática (control colonial), seguido por la resistencia organizada (movimientos de liberación) y culminó en independencias que, al no redefinir las fronteras, dejaron problemas estructurales vigentes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "basico"
+  tags: ["soberania", "politica"]
+
+enunciado: "¿Cuál de los siguientes es un efecto directo de la delimitación arbitraria de fronteras en la soberanía de los estados modernos?"
+
+opciones_explicitas: ["Conflictos por la delimitación territorial", "Aumento de la riqueza industrial", "Unificación cultural inmediata", "Estabilidad política garantizada"]
+
+respuesta: "Conflictos por la delimitación territorial"
+tipo: mc
+
+explicacion: |
+  Las fronteras que no coinciden con las realidades demográficas obligan a estados modernos a gestionar poblaciones que no se sienten representadas o que se encuentran divididas entre dos o más naciones.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "basico"
+  tags: ["economia", "recursos"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["La búsqueda de nuevos mercados para productos industriales excedentes", "económica"], ["El control de yacimientos de caucho y oro en África", "económica"]]
+
+enunciado: "Un país europeo busca asegurar el acceso a materias primas baratas para su industria. La motivación principal es: ___"
+
+respuestas_validas:
+  - "económica"
+
+respuesta: datos[escenario_idx][1]
+tipo: completar
+
+explicacion: |
+  El imperialismo fue impulsado por la necesidad de las potencias industriales de obtener recursos naturales y mercados para sus productos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "intermedio"
+  tags: ["geopolitica", "poder"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["La competencia por establecer bases navales estratégicas en el Pacífico", "política"], ["La expansión territorial para aumentar el prestigio nacional", "política"]]
+
+enunciado: "El control de territorios para fortalecer el poderío militar y la posición geopolítica responde a una motivación: ___"
+
+respuestas_validas:
+  - "política"
+
+respuesta: datos[escenario_idx][1]
+tipo: completar
+
+explicacion: |
+  La competencia entre potencias por el prestigio y el control de rutas estratégicas fue un motor político clave.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "intermedio"
+  tags: ["ideologia", "darwinismo_social"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["La creencia en la superioridad de la civilización occidental", "ideológica"], ["La misión de 'civilizar' a pueblos considerados atrasados", "ideológica"]]
+
+enunciado: "El uso de teorías como el darwinismo social para justificar el dominio sobre otros pueblos es una motivación de tipo: ___"
+
+opciones_explicitas: ["económica", "política", "ideológica"]
+
+respuesta: datos[escenario_idx][1]
+tipo: mc
+
+explicacion: |
+  Las justificaciones morales, religiosas o pseudocientíficas que validaban el dominio extranjero pertenecen al ámbito ideológico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "imperialismo"
+  nivel: "avanzado"
+  tags: ["clasificacion", "analisis"]
 
 variables:
   escenario_idx: uno_de([0, 1, 2])
-  escenarios: [["gestión de conflictos entre ciudadanos", "administrar justicia"], ["protección de las fronteras ante invasores", "organizar defensa"], ["construcción de canales y caminos", "obras públicas"]]
+  datos: [["Control de rutas comerciales", "económica"], ["Prestigio nacional", "política"], ["Misión civilizadora", "ideológica"]]
 
-respuesta: escenarios[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["administrar justicia", "organizar defensa", "obras públicas", "todas las anteriores"]
+enunciado: "Identifica la clasificación correcta para el escenario: {datos[escenario_idx][0]}"
 
-enunciado: "Si el Estado se enfoca en '{escenarios[escenario_idx][0]}', está ejerciendo la función de: ___"
-
-explicacion: |
-  El Estado centraliza funciones que las comunidades pequeñas resolvían de forma tribal para permitir la convivencia en sociedades de gran escala.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "intermedio"
-  tags: ["complejidad", "sociedad"]
-
-respuesta: "complejas"
-tipo: completar
-respuestas_validas:
-  - "complejas"
-
-enunciado: "El Estado surge como una respuesta institucional a la transición de sociedades tribales hacia sociedades más ___."
-
-explicacion: |
-  A medida que la población crece y la división del trabajo se especializa, la coordinación requiere una autoridad centralizada.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "avanzado"
-  tags: ["jerarquia", "orden"]
-
-respuesta_orden: ["recaudación de tributos", "imposición de normas", "mantenimiento del orden"]
-tipo: ordenar
-opciones_explicitas: ["imposición de normas", "recaudación de tributos", "mantenimiento del orden"]
-
-enunciado: "Ordene los procesos que consolidan la autoridad de un Estado centralizado, desde la base económica hasta la cohesión social:"
-
-explicacion: |
-  Primero se extrae el excedente (tributos), luego se establecen reglas (normas) y finalmente se asegura la estabilidad (orden).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "basico"
-  tags: ["obras", "infraestructura"]
-
-respuesta: "obras públicas"
-tipo: mc
-opciones_explicitas: ["recaudación de tributos", "obras públicas", "defensa militar", "administración de justicia"]
-
-enunciado: "La organización de grandes proyectos como sistemas de riego o calzadas es una función característica de la administración de: ___"
-
-explicacion: |
-  Las obras públicas requieren una coordinación de mano de obra masiva y recursos que solo una estructura estatal puede movilizar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "basico"
-  tags: ["agricultura", "excedente"]
-
-enunciado: "El paso fundamental que permitió la acumulación de riqueza y el fin del nomadismo fue la generación de un ___."
-
-respuestas_validas:
-  - "excedente agrícola"
-tipo: completar
-
-explicacion: |
-  La capacidad de producir más alimento del que se consume inmediatamente (excedente) permitió que algunos individuos dejaran de producir comida para dedicarse a otras tareas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "intermedio"
-  tags: ["propiedad_privada", "desigualdad"]
-
-enunciado: "Según el proceso de transición histórica, la aparición de la propiedad privada es la consecuencia directa de la acumulación de excedentes, que permitió que la tierra y los bienes pasaran de ser de uso común a ser de uso individual."
-
-opciones_explicitas: ["propiedad común", "propiedad privada", "propiedad estatal"]
-respuesta: "propiedad privada"
-tipo: mc
-
-explicacion: |
-  Al existir un exceso de producción, surge la necesidad de delimitar quién es dueño de qué, transformando el acceso a los recursos en un derecho de propiedad privada.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "intermedio"
-  tags: ["jerarquia", "clases_sociales"]
-
-enunciado: "Cuando la propiedad privada genera disparidades en la riqueza, surge una estructura de ___ para organizar a la población según su estatus y funciones."
-
-respuestas_validas:
-  - "jerarquía social"
-tipo: completar
-
-explicacion: |
-  La división del trabajo y la diferencia de riqueza crean estratos sociales: quienes controlan el excedente y quienes lo producen.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "intermedio"
-  tags: ["secuencia", "procesos"]
-
-enunciado: "Ordena la secuencia lógica de la transición hacia las sociedades complejas:"
-
-opciones_explicitas: ["Excedente agrícola", "Propiedad privada", "Jerarquía social", "Estado organizado"]
-respuesta_orden: ["Excedente agrícola", "Propiedad privada", "Jerarquía social", "Estado organizado"]
-tipo: ordenar
-
-explicacion: |
-  La secuencia lógica parte de la producción (excedente), que permite la apropiación (propiedad), que genera desigualdad (jerarquía) y finalmente requiere una autoridad que regule todo (Estado).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "avanzado"
-  tags: ["estado", "poder"]
-
-enunciado: "En el proceso histórico estudiado, la fase final de la organización social compleja es la aparición del Estado organizado, que surge para proteger la propiedad y administrar la fuerza."
-
-opciones_explicitas: ["comunidad tribal", "Estado organizado", "anarquía"]
-respuesta: "Estado organizado"
-tipo: mc
-
-explicacion: |
-  El Estado surge como la institución que institucionaliza la jerarquía, establece leyes para la propiedad y administra el excedente y la defensa.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "intermedio"
-  tags: ["sociologia", "estado", "propiedad"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["La consolidación de la propiedad privada", "la necesidad de un aparato estatal para protegerla"], ["El fin de las estructuras comunales", "la emergencia de la jerarquía de clases"]]
-
-enunciado: "En el proceso de transición hacia la sociedad de clases, {datos[escenario_idx][0]} fue el motor de {datos[escenario_idx][1]}."
+opciones_explicitas: ["económica", "política", "ideológica"]
 
 respuesta: datos[escenario_idx][1]
 tipo: mc
-opciones_explicitas: ["la necesidad de un aparato estatal para protegerla", "la emergencia de la jerarquía de clases", "la desaparición de la división del trabajo", "el retorno al estado de naturaleza"]
 
 explicacion: |
-  La propiedad privada requiere de una fuerza coercitiva (el Estado) que garantice los límites de la posesión y sancione su transgresión.
+  Cada escenario representa una de las tres dimensiones fundamentales del imperialismo decimonónico.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "basico"
-  tags: ["jerarquia", "clases", "poder"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["La acumulación de excedentes en manos de una élite", "la estratificación social"], ["El control de los medios de producción", "la consolidación de la jerarquía"]]
-
-enunciado: "Históricamente, {datos[escenario_idx][0]} ha conducido directamente a {datos[escenario_idx][1]}."
-
-respuesta: datos[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["la estratificación social", "la consolidación de la jerarquía", "la igualdad de derechos", "la disolución del poder central"]
-
-explicacion: |
-  La desigualdad en la distribución de recursos permite que ciertos grupos ejerzan un poder de mando sobre otros, creando jerarquías.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "intermedio"
-  tags: ["estado", "soberania", "orden"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["El monopolio de la violencia legítima", "el control del territorio"], ["La delimitación de fronteras claras", "la soberanía territorial"]]
-
-enunciado: "Según la teoría clásica, {datos[escenario_idx][0]} es la característica que define {datos[escenario_idx][1]}."
-
-respuesta: datos[escenario_idx][1]
-tipo: completar
-respuestas_validas:
-  - "el control del territorio"
-  - "la soberanía territorial"
-
-explicacion: |
-  El Estado se define por su capacidad de ejercer autoridad sobre un territorio y una población mediante el uso de la fuerza institucionalizada.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
+  tema: "imperialismo"
   nivel: "avanzado"
-  tags: ["evolucion", "sociedad", "orden"]
+  tags: ["secuencia", "causalidad"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["Comunidades igualitarias", "Propiedad privada", "Estado centralizado"], ["Sociedades tribales", "Desigualdad de estatus", "Sistemas de castas"]]
+opciones_explicitas: ["Revolución Industrial", "Búsqueda de materias primas", "Control de nuevos mercados", "Dominio territorial"]
 
-enunciado: "Ordene la secuencia lógica de la evolución de la complejidad política y económica:"
-
-pasos:
-  - "Paso 1: Surgimiento de la propiedad"
-  - "Paso 2: Formación de jerarquías"
-  - "Paso 3: Institucionalización del Estado"
-
-respuesta_orden: ["Comunidades igualitarias", "Propiedad privada", "Estado centralizado"]
+respuesta_orden: ["Revolución Industrial", "Búsqueda de materias primas", "Control de nuevos mercados", "Dominio territorial"]
 tipo: ordenar
-opciones_explicitas: ["Comunidades igualitarias", "Propiedad privada", "Estado centralizado"]
+
+enunciado: "Ordena cronológicamente la cadena causal que impulsó el imperialismo: La industrialización genera necesidad de recursos, esto lleva a la búsqueda de suministros, lo que requiere nuevos mercados y culmina en el control territorial."
 
 explicacion: |
-  La secuencia clásica sugiere que la propiedad genera excedentes, los excedentes generan jerarquías y las jerarquías requieren un Estado para su mantenimiento.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "propiedad_jerarquia_estado"
-  nivel: "basico"
-  tags: ["causa", "efecto", "poder"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["La especialización del trabajo", "la división de funciones"], ["La gestión de recursos excedentes", "la creación de burocracias"]]
-
-enunciado: "La aparición de la ___ fue una consecuencia directa de la gestión de recursos excedentes."
-
-respuesta: "la creación de burocracias"
-tipo: completar
-respuestas_validas:
-  - "la creación de burocracias"
-
-explicacion: |
-  La necesidad de administrar el excedente y la propiedad requiere de un cuerpo administrativo (burocracia) que es la base del aparato estatal.
-```
-
-## Sección: pueblos-originarios-territorio-argentino (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "basico"
-  tags: ["diaguitas", "norte", "geografia"]
-
-tipo: mc
-opciones_explicitas: ["Noroeste (valles y montañas)", "Litoral (ríos)", "Patagonia (estepa)", "Pampa (llanura)"]
-respuesta: "Noroeste (valles y montañas)"
-
-enunciado: "Los pueblos de cultura Diaguita se asentaban principalmente en la zona del ______."
-
-explicacion: |
-  Los diaguitas habitaban los valles calchaquíes y zonas montañosas del actual Noroeste Argentino, desarrollando una agricultura avanzada en terrazas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "basico"
-  tags: ["tehuelches", "patagonia", "nómadas"]
-
-tipo: mc
-opciones_explicitas: ["Agricultores sedentarios", "Cazadores-recolectores nómadas", "Pescadores de gran escala", "Comerciantes de seda"]
-respuesta: "Cazadores-recolectores nómadas"
-
-enunciado: "Los Tehuelches, habitantes de la Patagonia, se caracterizaban por su estilo de vida de:"
-
-explicacion: |
-  Eran grupos nómadas que se desplazaban siguiendo los ciclos de caza de guanacos y choiques, además de la recolección de frutos silvestres.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "intermedio"
-  tags: ["guaraníes", "litoral", "agricultura"]
-
-variables:
-  escenario: uno_de([["Guaraníes", "agricultura de roza y quema", "selva/ríos"], ["Mapuches", "caza y recolección con agricultura limitada", "zonas templadas"], ["Selk'nam", "caza terrestre de guanacos", "Tierra del Fuego"]])
-
-tipo: completar
-respuestas_validas:
-  - "agricultura de roza y quema"
-  - "caza y recolección con agricultura limitada"
-  - "caza terrestre de guanacos"
-respuesta: escenario[1]
-enunciado: "Los pueblos {escenario[2]} se destacaban por su técnica de {escenario[1]}."
-
-explicacion: |
-  Los guaraníes utilizaban la técnica de roza y quema para la agricultura en las zonas de selva y ríos del Litoral.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "avanzado"
-  tags: ["ordenar", "geografia"]
-
-tipo: ordenar
-opciones_explicitas: ["Diaguitas", "Guaraníes", "Mapuches", "Tehuelches"]
-respuesta_orden: ["Diaguitas", "Guaraníes", "Mapuches", "Tehuelches"]
-
-enunciado: "Ordene los siguientes pueblos de Norte a Sur (desde el Noroeste hacia la Patagonia):"
-
-explicacion: |
-  El orden geográfico de norte a sur es: Diaguitas (Noroeste), Guaraníes (Litoral/Noreste), Mapuches (Zona Centro/Sur) y Tehuelches (Patagonia).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "intermedio"
-  tags: ["mapuches", "sur", "territorio"]
-
-tipo: completar
-tolerancia_abs: 0
-
-variables:
-  datos: uno_de([["mapuches", "sur", "Pampa"], ["diaguitas", "noroeste", "Noroeste"], ["tehuelches", "patagonia", "Patagonia"]])
-
-enunciado: "Los pueblos ______ habitaban principalmente en la zona ______ de Argentina."
-
-respuesta: "mapuches"
-
-explicacion: |
-  Los mapuches ocupaban territorios que se extendían desde el centro-sur de la actual Argentina hacia el oeste (Chile).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "basico"
-  tags: ["diaguitas", "agricultura", "sedentarismo"]
-
-respuesta: "sedentaria"
-tipo: completar
-respuestas_validas:
-  - "sedentaria"
-
-enunciado: "A diferencia de los grupos nómadas, los pueblos como los diaguitas desarrollaron una organización social ___ basada en la agricultura y el control de terrazas de cultivo."
-
-explicacion: |
-  Los diaguitas, al establecerse en valles y zonas montañosas, desarrollaron una agricultura avanzada que requería asentamientos permanentes, lo que define a una sociedad sedentaria.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "basico"
-  tags: ["tehuelches", "nómadas", "caza"]
-
-variables:
-  escenario: uno_de([["Tehuelches", "Patagonia"], ["Guaraníes", "Litoral"]])
-  tipo_sociedad: uno_de(["nómada", "sedentaria"])
-
-respuesta: "nómada"
-tipo: mc
-opciones_explicitas: ["nómada", "sedentaria"]
-
-enunciado: "Los {escenario[0]} se caracterizaban por un estilo de vida {tipo_sociedad}, desplazándose constantemente para la caza y la recolección."
-
-explicacion: |
-  Los pueblos de la Patagonia, como los tehuelches, dependían de la migración estacional de la fauna para su subsistencia, lo que impedía el sedentarismo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "intermedio"
-  tags: ["diaguitas", "inca", "influencia"]
-
-respuesta: "incaica"
-tipo: mc
-opciones_explicitas: ["incaica", "maya", "azteca", "guaraní"]
-
-enunciado: "La organización política y técnica de muchos pueblos del Noroeste Argentino, como los diaguitas, estuvo fuertemente influenciada por la expansión del imperio ___."
-
-explicacion: |
-  La expansión del Tahuantinsuyo (Imperio Inca) dejó una huella profunda en la organización social, el uso de terrazas y la administración de recursos en el actual territorio argentino.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "avanzado"
-  tags: ["organización", "social", "secuencia"]
-
-respuesta_orden: ["Cazadores-recolectores", "Pastores seminómadas", "Sociedades agrícolas complejas"]
-tipo: ordenar
-opciones_explicitas: ["Cazadores-recolectores", "Pastores seminómadas", "Sociedades agrícolas complejas"]
-
-enunciado: "Ordene de menor a mayor complejidad en la organización social y permanencia en el territorio:"
-
-explicacion: |
-  La complejidad social suele estar ligada a la capacidad de producir excedentes alimentarios: desde la recolección (nómadas) hasta la agricultura intensiva (sedentarios con jerarquías).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "intermedio"
-  tags: ["nómadas", "sedentarios", "comparación"]
-
-variables:
-  caso: uno_de([["nómadas", "caza y recolección"], ["sedentarios", "agricultura y excedente"]])
-
-respuesta: "caza y recolección"
-tipo: mc
-opciones_explicitas: ["caza y recolección", "agricultura y excedente"]
-
-enunciado: "Las sociedades con un modo de vida {caso[0]} se basaban principalmente en la {caso[1]}."
-
-explicacion: |
-  Los grupos nómadas dependen de los ciclos naturales de los recursos disponibles en el entorno, moviéndose según la disponibilidad de presas o frutos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "basico"
-  tags: ["incas", "collasuyo", "noroeste_argentino"]
-
-respuesta: "Collasuyo"
-tipo: completar
-respuestas_validas:
-  - "Collasuyo"
-
-enunciado: "La región del noroeste argentino, que incluía partes de las actuales Salta y Jujuy, formaba parte de la división territorial del Imperio Inca conocida como ___."
-
-explicacion: |
-  El Imperio Inca se dividía en cuatro regiones o 'suyos'. La región sur, que comprendía gran parte del actual territorio argentino, se denominaba Collasuyo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "intermedio"
-  tags: ["incas", "administracion", "territorio"]
-
-variables:
-  escenario: uno_de([["control_administrativo", "el control de los recursos mediante el sistema de mitas"], ["control_mita", "el control de los recursos mediante el sistema de mitas"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["el control de los recursos mediante el sistema de mitas", "la construcción de grandes pirámides de piedra", "la navegación de los ríos de montaña", "el uso exclusivo del idioma quechua en todos los pueblos"]
-
-enunciado: "Para consolidar su dominio en el noroeste argentino, el Imperio Inca implementó una estrategia de {escenario[1]} para asegurar la lealtad de los pueblos locales y la producción de excedentes."
-
-explicacion: |
-  El sistema de la 'mita' era un trabajo por turnos que permitía al Estado Inca movilizar grandes cantidades de mano de obra para obras públicas y agricultura, asegurando el control sobre los territorios conquistados.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "basico"
-  tags: ["caminos", "qhapaq_ñan", "incas"]
-
-respuesta: "Qhapaq Ñan"
-tipo: completar
-respuestas_validas:
-  - "Qhapaq Ñan"
-
-enunciado: "La red de caminos que conectaba los centros administrativos del imperio, permitiendo el tránsito de ejércitos y mensajeros por el noroeste argentino, se denominaba ___."
-
-explicacion: |
-  El Qhapaq Ñan (Camino del Inca) era una red vial altamente sofisticada que conectaba todo el imperio, facilitando la comunicación y el control territorial.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "intermedio"
-  tags: ["agricultura", "terrazas", "tecnologia"]
-
-respuesta: "terrazas"
-tipo: mc
-opciones_explicitas: ["terrazas", "canales de riego por inundación", "campos de cultivo de llanura", "sistemas de rotación de cultivos"]
-
-enunciado: "Debido a la geografía montañosa de Jujuy y Salta, los Incas perfeccionaron una técnica agrícola de escalonamiento de las laderas para maximizar la superficie cultivable y evitar la erosión. Esta técnica se conoce como ___."
-
-explicacion: |
-  Las terrazas de cultivo permitían aprovechar las pendientes de los cerros, optimizando el uso del agua y evitando que la lluvia lavara los nutrientes del suelo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "avanzado"
-  tags: ["expansion", "etapas", "incas"]
-
-respuesta_orden: ["Diplomacia/Alianzas", "Conquista militar", "Asentamiento administrativo"]
-tipo: ordenar
-opciones_explicitas: ["Diplomacia/Alianzas", "Conquista militar", "Asentamiento administrativo"]
-
-enunciado: "El proceso de expansión del Imperio Inca sobre los pueblos del noroeste argentino seguía generalmente un orden lógico de integración. Ordena las etapas de este proceso:"
-
-pasos:
-  - "Primero se buscaba la integración mediante regalos o alianzas."
-  - "Si la diplomacia fallaba, se procedía a la acción militar."
-  - "Finalmente, se establecían centros para la administración y el control."
-
-explicacion: |
-  La expansión incaica no era puramente militar; preferían la diplomacia y el intercambio de bienes de prestigio. Si los pueblos locales se resistían, utilizaban la fuerza, para luego establecer una estructura administrativa (como los mitimaes) para asegurar el control.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "basico"
-  tags: ["mapuches", "geografia"]
-
-tipo: mc
-opciones_explicitas: ["Norte", "Litoral", "Sur y Cordillera", "Cuyo"]
-
-enunciado: "La región geográfica principal asociada históricamente al pueblo Mapuche en el territorio argentino es la zona de: ___"
-
-respuesta: "Sur y Cordillera"
-
-explicacion: |
-  El pueblo Mapuche se asentó principalmente en las regiones del sur y la zona de la cordillera de los Andes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "basico"
-  tags: ["guaraníes", "litoral"]
-
-tipo: completar
-respuestas_validas:
-  - "Litoral/Noreste"
-
-enunciado: "Los pueblos Guaraníes se desarrollaron predominantemente en la región del ___."
-
-respuesta: "Litoral/Noreste"
-
-explicacion: |
-  Los guaraníes habitaban las zonas de selva y ríos, principalmente en el Litoral y el Noreste argentino.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "basico"
-  tags: ["diaguitas", "noroeste"]
-
-tipo: mc
-opciones_explicitas: ["Patagonia", "Noroeste", "Pampa", "Mesopotamia"]
-
-enunciado: "Si un historiador estudia las culturas de los Diaguitas, debe centrar su investigación en la región del: ___"
-
-respuesta: "Noroeste"
-
-explicacion: |
-  Los diaguitas habitaron las zonas montañosas del Noroeste argentino.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "basico"
-  tags: ["tehuelches", "patagonia"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "El pueblo Tehuelche habitaba históricamente la región de la ___."
-
-respuesta: "Patagonia"
-
-explicacion: |
-  Los tehuelches eran pueblos nómadas que recorrían las estepas de la Patagonia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "intermedio"
-  tags: ["repaso", "geografia"]
-
-variables:
-  idx: uno_de([0, 1, 2, 3])
-  datos: [["Mapuches", "Sur/Cordillera"], ["Guaraníes", "Litoral/Noreste"], ["Diaguitas", "Noroeste"], ["Tehuelches", "Patagonia"]]
-
-tipo: mc
-opciones_explicitas: ["Sur/Cordillera", "Litoral/Noreste", "Noroeste", "Patagonia"]
-
-enunciado: "De acuerdo a la información histórica, el pueblo {datos[idx][0]} se asocia con la región de: ___"
-
-respuesta: datos[idx][1]
-
-explicacion: |
-  La respuesta correcta corresponde a la región geográfica donde se asentó el pueblo seleccionado.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "basico"
-  tags: ["geografia", "etnias"]
-
-variables:
-  escenario: [[ "Los Selk'nam habitaban la región de la Tierra del Fuego", "Tierra del Fuego" ], [ "Los Guaraníes se asentaban principalmente en el noreste", "Noreste" ], [ "Los Mapuches ocupaban gran parte de la zona andina y central", "Zona Andina" ]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["Tierra del Fuego", "Noreste", "Zona Andina", "Pampa"]
-
-enunciado: "Identificá la región geográfica correspondiente al pueblo mencionado: {escenario[idx][0]}."
-
-explicacion: |
-  El pueblo mencionado se caracteriza por habitar la región de {escenario[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "intermedio"
-  tags: ["estilos_de_vida", "antropologia"]
-
-variables:
-  idx: uno_de([0, 1])
-  pueblos: ["Tehuelches", "Diaguitas"]
-  modos: ["nómadas", "sedentarios"]
-
-tipo: completar
-respuesta: modos[idx]
-
-enunciado: "Considerando el modo de vida de los {pueblos[idx]}, su organización social era de tipo ___."
-
-explicacion: |
-  Los {pueblos[idx]} se definían por ser {modos[idx]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "basico"
-  tags: ["cultura"]
-
-respuesta: "agricultura"
-tipo: mc
-opciones_explicitas: ["caza", "agricultura", "pesca", "recolección"]
-
-enunciado: "Los pueblos de la región de los Andes Centrales, como los Diaguitas, basaban su economía principalmente en la ___."
-
-explicacion: |
-  La agricultura fue la base de la economía de los pueblos sedentarios de la zona andina.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "avanzado"
-  tags: ["cronologia", "territorio"]
-
-respuesta_orden: ["Selk'nam", "Tehuelches", "Guaraníes"]
-tipo: ordenar
-opciones_explicitas: ["Selk'nam", "Tehuelches", "Guaraníes"]
-
-enunciado: "Ordená estos pueblos de Sur a Norte según su ubicación geográfica predominante en el territorio argentino."
-
-explicacion: |
-  El orden correcto de Sur a Norte es: Selk'nam (Tierra del Fuego), Tehuelches (Patagonia) y Guaraníes (Noreste).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "pueblos_originarios_territorio_argentino"
-  nivel: "intermedio"
-  tags: ["geografia"]
-
-variables:
-  pueblo_datos: [[ "Qom", "Chaco" ], [ "Mapuche", "Patagonia/Andes" ], [ "Selk'nam", "Tierra del Fuego" ]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: pueblo_datos[idx][1]
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Escribí el nombre de la región donde habita el pueblo {pueblo_datos[idx][0]}."
-
-explicacion: |
-  El pueblo {pueblo_datos[idx][0]} se asocia con la región de {pueblo_datos[idx][1]}.
+  La Revolución Industrial fue el motor inicial que desencadenó la necesidad de expansión económica y, finalmente, el control político de territorios.
 ```
 

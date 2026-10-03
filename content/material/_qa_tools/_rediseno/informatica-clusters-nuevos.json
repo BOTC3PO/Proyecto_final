@@ -4,135 +4,135 @@
   "cluster": 1,
   "temas": [
    "algebra-booleana",
-   "algoritmo-secuencia-de-pasos",
-   "algoritmos-busqueda-ordenamiento",
-   "almacenamiento-volatil-vs-no-volatil",
-   "archivos-y-persistencia"
+   "complejidad-asintotica",
+   "ofimatica-planilla-de-calculo",
+   "que-es-la-tecnica-y-la-tecnologia",
+   "revolucion-informatica"
   ],
-  "preguntas": 120
+  "preguntas": 116
  },
  {
   "id": 817,
   "cluster": 2,
   "temas": [
-   "buses-y-entrada-salida",
-   "ciclo-de-instruccion-fetch-decode-execute",
-   "complejidad-asintotica",
-   "control-de-versiones",
-   "cpu-unidad-de-control-y-alu"
+   "medios-tecnicos-extension-capacidades-humanas",
+   "historia-y-evolucion-de-los-sistemas-operativos",
+   "procesos-tecnicos-artesanales-e-industriales",
+   "arranque-de-la-computadora-boot",
+   "sistemas-numeracion"
   ],
-  "preguntas": 126
+  "preguntas": 121
  },
  {
   "id": 818,
   "cluster": 3,
   "temas": [
-   "criptografia-clave-simetrica-asimetrica-hash",
-   "direccionamiento-ip-dns",
-   "diseno-y-arquitectura-de-software",
-   "estructuras-de-control-bucles",
-   "estructuras-de-control-condicionales"
+   "tipos-de-so-por-dispositivo",
+   "cpu-unidad-de-control-y-alu",
+   "unidades-almacenamiento",
+   "ciclo-de-instruccion-fetch-decode-execute",
+   "memoria-ram-cache-jerarquia"
   ],
-  "preguntas": 126
+  "preguntas": 119
  },
  {
   "id": 819,
   "cluster": 4,
   "temas": [
-   "estructuras-de-datos-listas-pilas-colas",
-   "etica-de-la-ia-sesgo-privacidad",
-   "funciones-y-modularidad",
-   "historia-y-evolucion-de-los-sistemas-operativos",
-   "inteligencia-artificial-reglas-a-aprendizaje"
+   "algoritmo-secuencia-de-pasos",
+   "almacenamiento-volatil-vs-no-volatil",
+   "buses-y-entrada-salida",
+   "variables-y-tipos-de-dato",
+   "estructuras-de-control-condicionales"
   ],
-  "preguntas": 124
+  "preguntas": 125
  },
  {
   "id": 820,
   "cluster": 5,
   "temas": [
-   "arranque-de-la-computadora-boot",
-   "mantenimiento-y-deuda-tecnica",
-   "memoria-asignacion-memoria-virtual",
-   "memoria-ram-cache-jerarquia",
-   "modelo-relacional-tabla-registro-clave-primaria"
+   "estructuras-de-control-bucles",
+   "funciones-y-modularidad",
+   "estructuras-de-datos-listas-pilas-colas",
+   "poo-clases-y-objetos",
+   "algoritmos-busqueda-ordenamiento"
   ],
-  "preguntas": 127
+  "preguntas": 126
  },
  {
   "id": 821,
   "cluster": 6,
   "temas": [
-   "normalizacion-bases-datos",
-   "ofimatica-planilla-de-calculo",
-   "paginacion",
-   "patrones-y-buenas-practicas",
-   "permisos-y-usuarios"
+   "archivos-y-persistencia",
+   "inteligencia-artificial-reglas-a-aprendizaje",
+   "modelo-relacional-tabla-registro-clave-primaria",
+   "etica-de-la-ia-sesgo-privacidad",
+   "criptografia-clave-simetrica-asimetrica-hash"
   ],
-  "preguntas": 121
+  "preguntas": 125
  },
  {
   "id": 822,
   "cluster": 7,
   "temas": [
-   "planificacion-de-procesos",
-   "poo-clases-y-objetos",
-   "interrupciones",
+   "direccionamiento-ip-dns",
    "proceso-programa-en-ejecucion",
-   "protocolo-http-peticion-respuesta"
+   "protocolo-http-peticion-respuesta",
+   "comunicacion-entre-procesos",
+   "memoria-asignacion-memoria-virtual"
   ],
-  "preguntas": 125
+  "preguntas": 122
  },
  {
   "id": 823,
   "cluster": 8,
   "temas": [
-   "comunicacion-entre-procesos",
-   "pruebas-unitarias-integracion",
-   "que-es-la-tecnica-y-la-tecnologia",
+   "planificacion-de-procesos",
+   "paginacion",
+   "interrupciones",
    "recursividad",
-   "medios-tecnicos-extension-capacidades-humanas"
+   "relaciones-y-claves-foraneas"
   ],
-  "preguntas": 116
+  "preguntas": 120
  },
  {
   "id": 824,
   "cluster": 9,
   "temas": [
-   "relaciones-y-claves-foraneas",
-   "procesos-tecnicos-artesanales-e-industriales",
    "requisitos-funcionales-no-funcionales",
-   "revolucion-informatica",
-   "segmentacion"
+   "normalizacion-bases-datos",
+   "diseno-y-arquitectura-de-software",
+   "segmentacion",
+   "control-de-versiones"
   ],
-  "preguntas": 120
+  "preguntas": 123
  },
  {
   "id": 825,
   "cluster": 10,
   "temas": [
-   "seguridad-de-red-firewall-vpn-cifrado",
-   "seguridad-informatica",
+   "patrones-y-buenas-practicas",
+   "pruebas-unitarias-integracion",
    "sistema-de-archivos",
-   "sistemas-numeracion",
-   "sistema-de-archivos-por-bitacora"
+   "mantenimiento-y-deuda-tecnica",
+   "permisos-y-usuarios"
   ],
-  "preguntas": 120
+  "preguntas": 126
  },
  {
   "id": 826,
   "cluster": 11,
   "temas": [
+   "sistema-de-archivos-por-bitacora",
    "sql-consultas-joins-agregaciones",
    "subsistema-de-entrada-y-salida",
    "tcp-ip-capas-enrutamiento",
    "tipos-de-licencias-de-software",
-   "tipos-de-so-por-dispositivo",
+   "seguridad-de-red-firewall-vpn-cifrado",
    "transacciones-acid",
-   "unidades-almacenamiento",
-   "variables-y-tipos-de-dato",
+   "seguridad-informatica",
    "virtualizacion-maquina-virtual-contenedor"
   ],
-  "preguntas": 213
+  "preguntas": 215
  }
 ]

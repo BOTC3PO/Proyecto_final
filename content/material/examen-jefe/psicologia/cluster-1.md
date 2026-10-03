@@ -1,8 +1,475 @@
-# Examen jefe — Explorador de la Mente
+# Examen jefe — [PENDIENTE #924]
 
-> Logro #207. Completaste el examen sobre las corrientes psicológicas, el desarrollo humano y la construcción del autoconocimiento. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **125 preguntas totales** en 5/5 secciones.
+> Logro #924. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
+
+## Sección: psicologia-modernidad-y-el-yo (25 preguntas)
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "basico"
+  tags: ["sujeto", "modernidad", "individualismo"]
+
+respuesta: "individualismo"
+tipo: mc
+opciones_explicitas: ["colectivismo", "individualismo", "dualismo", "determinismo"]
+
+enunciado: "La modernidad promovió la idea de que la identidad se construye a partir de un ___ creciente, desplazando las identidades grupales o estamentales."
+
+explicacion: |
+  La modernidad se caracteriza por el surgimiento del individuo como unidad básica de la sociedad, con derechos y una conciencia propia, separada de su comunidad o estamento.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "basico"
+  tags: ["historia", "sujeto"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "La noción de un 'yo' o sujeto individual y autónomo es una construcción histórica que se consolidó con la modernidad, y no ha existido de la misma forma en todas las épocas de la humanidad."
+
+explicacion: |
+  Históricamente, en muchas culturas premodernas, la identidad estaba definida por el rol social, la familia o la religión, y no por una esencia interna e individualista.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "intermedio"
+  tags: ["autonomia", "razon"]
+
+variables:
+  concepto_idx: uno_de([0, 1])
+  conceptos: ["autonomía", "razón"]
+
+respuesta: conceptos[concepto_idx]
+tipo: completar
+respuestas_validas:
+  - "autonomía"
+  - "razón"
+
+enunciado: "En el pensamiento moderno, uno de los pilares que define al sujeto moderno es su capacidad de ___."
+
+explicacion: |
+  La modernidad sitúa a la razón y la autonomía como los pilares que permiten al individuo desprenderse de las imposiciones externas para ser dueño de sus actos.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "intermedio"
+  tags: ["historia", "orden"]
+
+respuesta_orden: ["Sujeto comunitario/estamental", "Sujeto racional/moderno", "Sujeto fragmentado/posmoderno"]
+tipo: ordenar
+opciones_explicitas: ["Sujeto comunitario/estamental", "Sujeto racional/moderno", "Sujeto fragmentado/posmoderno"]
+
+enunciado: "Ordene cronológicamente la evolución de la noción de identidad/sujeto en la historia occidental:"
+
+explicacion: |
+  La historia muestra una transición desde la identidad fija por pertenencia grupal, pasando por el individuo soberano de la modernidad, hasta la identidad fluida y múltiple de la posmodernidad.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "avanzado"
+  tags: ["introspeccion", "conciencia"]
+
+respuesta: 1
+
+tipo: mc
+opciones_explicitas: [0, 1]
+
+enunciado: "En el contexto de la modernidad, ¿es la introspección una herramienta fundamental para el descubrimiento del 'yo' interior?\n(0 = No, 1 = Sí)"
+
+explicacion: |
+  La modernidad fomenta la idea de que el sujeto puede conocerse a sí mismo mediante la observación de sus propios procesos mentales y sentimientos internos.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "intermedio"
+  tags: ["historia", "modernidad", "subjetividad"]
+
+respuesta: "colectivo"
+tipo: completar
+respuestas_validas:
+  - "colectivo"
+enunciado: "En la transición de la Edad Media al Renacimiento, la noción de identidad se desplaza desde un sentido ___ hacia la idea de un sujeto autónomo."
+
+explicacion: |
+  Históricamente, la modernidad marca el paso de un sujeto definido por su posición en un orden social y religioso (colectivo) a un 'yo' centrado en la introspección y la autonomía individual.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "avanzado"
+  tags: ["filosofia", "subjetividad"]
+
+respuesta: "Pienso, luego existo"
+tipo: mc
+
+opciones_explicitas: ["Pienso, luego existo", "El yo es una construcción social", "El yo es una ilusión", "El yo es una función del lenguaje"]
+
+enunciado: "Consideremos el caso del pensamiento de Descartes. Si aplicamos su método de duda metódica para encontrar una base sólida para el conocimiento, la conclusión fundamental sobre el 'yo' es: ___"
+
+pasos:
+  - "Dudar de todo lo que pueda ser falso."
+  - "Encontrar una verdad que sea indudable."
+  - "Identificar el acto de dudar como prueba de la existencia del sujeto."
+
+explicacion: |
+  Descartes establece que el acto de pensar requiere un sujeto que piense, consolidando la idea del 'yo' como una entidad separada y racional.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "basico"
+  tags: ["historia", "identidad"]
+
+respuesta_orden: ["Identidad colectiva/estamental", "Identidad basada en la razón", "Identidad psicológica/subjetiva"]
+tipo: ordenar
+
+opciones_explicitas: ["Identidad colectiva/estamental", "Identidad basada en la razón", "Identidad psicológica/subjetiva"]
+
+enunciado: "Ordena cronológicamente la evolución de la noción de 'yo' desde la pre-modernidad hasta la consolidación de la subjetividad moderna:"
+
+explicacion: |
+  La trayectoria va desde la pertenencia a un grupo/estamento, pasando por la razón ilustrada, hasta llegar al énfasis moderno en la psique y la historia personal.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "intermedio"
+  tags: ["postmodernidad", "sujeto"]
+
+respuesta: "cambiante y construida"
+
+tipo: completar
+
+enunciado: "En la modernidad tardía y la posmodernidad, el 'yo' deja de ser visto como una entidad estable y esencial, y pasa a entenderse como algo ___."
+
+respuestas_validas:
+  - "cambiante y construida"
+
+explicacion: |
+  La modernidad temprana creía en un 'yo' esencial y permanente; la visión contemporánea lo entiende como un proceso dinámico y situado.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "basico"
+  tags: ["autonomia", "moral"]
+
+respuesta: "Sujeto autónomo"
+tipo: mc
+
+opciones_explicitas: ["Sujeto autónomo", "Sujeto heterónomo", "Sujeto colectivo", "Sujeto biológico"]
+
+enunciado: "Si un individuo toma decisiones basadas exclusivamente en sus propias leyes internas y su razón, independientemente de las presiones externas, estamos ante un modelo de: ___"
+
+explicacion: |
+  La noción de autonomía es el pilar del 'yo' moderno: la capacidad del sujeto para ser legislador de su propia conducta.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "intermedio"
+  tags: ["historia", "subjetividad", "modernidad"]
+
+tipo: mc
+opciones_explicitas: ["La noción de un 'yo' individual y autónomo es una construcción histórica de la modernidad.", "El concepto de 'yo' ha sido inmutable y constante en toda la historia de la humanidad.", "El 'yo' es una entidad biológica que no depende de contextos culturales.", "La psicología moderna descubrió el 'yo', pero este siempre existió de la misma forma."]
+
+enunciado: "Un error común es creer que la experiencia de la individualidad es una constante biológica. Sin embargo, la noción de un 'yo' centrado en la autonomía y la introspección es:"
+
+respuesta: "La noción de un 'yo' individual y autónomo es una construcción histórica de la modernidad."
+
+explicacion: |
+  La modernidad, con el giro subjetivo (Descartes, etc.), consolidó la idea de un sujeto separado del cosmos y de la comunidad, algo que no era la norma en las cosmologías pre-modernas.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "basico"
+  tags: ["subjetividad", "esencia"]
+
+tipo: vf
+
+enunciado: "Desde la perspectiva de la psicología moderna y la construcción del sujeto, se considera que el 'yo' es una esencia inmutable y preexistente que la psicología debe 'descubrir'."
+
+respuesta: falso
+
+explicacion: |
+  La psicología moderna entiende al 'yo' como un proceso dinámico y una construcción, no como una esencia fija o una sustancia metafísica que permanece igual a lo largo de la vida.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "avanzado"
+  tags: ["historia", "subjetividad"]
+
+tipo: ordenar
+opciones_explicitas: ["La subjetividad pre-moderna", "La subjetividad moderna"]
+respuesta_orden: ["La subjetividad pre-moderna", "La subjetividad moderna"]
+
+enunciado: "Ordene cronológicamente los modelos de subjetividad según la evolución histórica del concepto de 'yo':"
+
+pasos:
+  - "Identifique el modelo basado en la pertenencia a un orden social/cósmico."
+  - "Identifique el modelo basado en la autonomía del individuo."
+
+explicacion: |
+  En la pre-modernidad, el sujeto se definía por su lugar en un orden dado (Dios, la naturaleza, la comunidad). La modernidad desplaza ese centro hacia el individuo autónomo.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "intermedio"
+  tags: ["errores_conceptuales", "cultura"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  casos: [["un sujeto medieval", "se define por su rol en la comunidad y la tradición"], ["un sujeto contemporáneo", "se define por su identidad personal y deseos internos"]]
+
+tipo: completar
+respuestas_validas:
+  - "se define por su rol en la comunidad y la tradición"
+  - "se define por su identidad personal y deseos internos"
+respuesta: casos[caso_idx][1]
+
+enunciado: "Para entender el error de la universalización del 'yo': mientras que {casos[caso_idx][0]} ___."
+
+explicacion: |
+  Confundir la psicología moderna con una verdad universal es un error: lo que hoy llamamos 'identidad' es un producto de la modernidad y no necesariamente una constante humana universal.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "avanzado"
+  tags: ["modernidad", "sujeto"]
+
+tipo: mc
+opciones_explicitas: ["La idea de un 'yo' totalmente aislado de la cultura.", "La idea de que el 'yo' es una construcción social e histórica.", "La idea de que el 'yo' es una entidad puramente biológica.", "La idea de que la psicología no tiene relación con la historia."]
+
+enunciado: "Un error conceptual frecuente en la psicología es tratar al sujeto como si su identidad fuera independiente de su contexto histórico. Esto implica ignorar que el 'yo' es:"
+
+respuesta: "La idea de que el 'yo' es una construcción social e histórica."
+
+explicacion: |
+  La noción de individuo es un producto histórico. No se puede estudiar la psicología ignorando que las categorías de 'persona' y 'sujeto' cambian según la época.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "intermedio"
+  tags: ["modernidad", "identidad", "historia_psicologia"]
+
+respuesta: "individualismo"
+tipo: "completar"
+respuestas_validas:
+  - "individualismo"
+
+enunciado: "Mientras que en la era premoderna la identidad estaba definida por el estatus social y el grupo, la modernidad introdujo la noción de un yo basado en el ___________."
+
+explicacion: |
+  La modernidad desplazó la identidad colectiva (estatus, linaje, gremio) hacia una identidad centrada en el individuo autónomo y su subjetividad interna.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "basico"
+  tags: ["autonomia", "sujeto"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "La noción moderna de 'yo' presupone que el individuo es un agente autónomo capaz de autogobernarse, diferenciándose de la visión medieval donde el orden era dictado por la tradición y la divinidad."
+
+explicacion: |
+  La autonomía es un pilar de la modernidad; el sujeto se reconoce como origen de sus propias leyes y decisiones.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "avanzado"
+  tags: ["identidad", "comparacion"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["identidad colectiva", "identidad individual"], ["orden social estático", "orden social dinámico"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: "mc"
+opciones_explicitas: ["identidad colectiva", "identidad individual", "orden social estático", "orden social dinámico"]
+
+enunciado: "En el contexto de la transición a la modernidad, el cambio fundamental radica en el paso de {datos[escenario_idx][0]} a {datos[escenario_idx][1]}."
+
+explicacion: |
+  El paso de lo colectivo a lo individual es el núcleo del cambio en la construcción del 'yo' moderno.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "intermedio"
+  tags: ["procesos", "historia"]
+
+respuesta_orden: ["Identidad colectiva/estática", "Surgimiento del individuo", "Autonomía del yo moderno"]
+tipo: "ordenar"
+opciones_explicitas: ["Identidad colectiva/estática", "Surgimiento del individuo", "Autonomía del yo moderno"]
+
+enunciado: "Ordene cronológicamente la evolución de la noción de identidad según el proceso de modernización:"
+
+explicacion: |
+  La secuencia lógica parte de la pertenencia al grupo, pasa por el proceso de individuación y culmina en la autonomía del sujeto moderno.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "basico"
+  tags: ["tradicion", "modernidad"]
+
+respuesta: "La modernidad enfatiza la subjetividad interna, mientras que la tradición enfatiza el rol social externo."
+tipo: "mc"
+opciones_explicitas: ["La modernidad enfatiza la subjetividad interna, mientras que la tradición enfatiza el rol social externo.", "La tradición enfatiza la subjetividad interna, mientras que la modernidad enfatiza el rol social externo.", "Ambos conceptos consideran que la identidad es puramente externa.", "La modernidad y la tradición son conceptos idénticos en la psicología."]
+
+enunciado: "¿Cuál es el contraste principal entre la concepción tradicional y la moderna de la identidad?"
+
+explicacion: |
+  El contraste principal es que la modernidad "interioriza" la identidad, buscando la verdad en el yo, mientras que la tradición la encontraba en el lugar que el individuo ocupaba en el orden social.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "intermedio"
+  tags: ["historia", "identidad"]
+
+enunciado: "Según la transición de la modernidad, el paso de un yo definido por la comunidad a un yo basado en la ___ marca el nacimiento de la subjetividad moderna."
+
+respuesta: "subjetividad"
+tipo: completar
+respuestas_validas:
+  - "subjetividad"
+
+explicacion: |
+  La modernidad desplaza el eje de la identidad desde el grupo (familia, gremio, religión) hacia el individuo como centro de su propio universo psíquico.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "basico"
+  tags: ["modernidad", "sujeto"]
+
+enunciado: "¿Es la noción de un 'yo' individual y autónomo una característica que ha existido de la misma forma en todas las épocas de la historia humana?"
+
+respuesta: falso
+tipo: vf
+
+explicacion: |
+  Históricamente, la identidad estaba ligada a la pertenencia a un cuerpo social. El 'yo' individual es una construcción de la modernidad.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "intermedio"
+  tags: ["identidad", "sociedad"]
+
+enunciado: "En un análisis histórico, si comparamos un sistema basado en la identidad ligada a la tradición con uno basado en la identidad ligada a la elección personal, el segundo representa el ideal de la modernidad: ___"
+
+respuesta: "individualismo"
+tipo: mc
+opciones_explicitas: ["colectivismo", "individualismo"]
+
+explicacion: |
+  El individualismo moderno postula que el sujeto es el arquitecto de su propia identidad, separándose de las estructuras predeterminadas.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "avanzado"
+  tags: ["historia", "filosofia"]
+
+enunciado: "Ordena cronológicamente las etapas que influyeron en la consolidación del 'yo' moderno, desde la estructura más externa a la más interna:"
+
+pasos:
+  - "Estructuras comunitarias y religiosas medievales"
+  - "Surgimiento de la razón individualista"
+  - "Consolidación de la subjetividad psicológica"
+
+respuesta_orden: ["Estructuras comunitarias y religiosas medievales", "Surgimiento de la razón individualista", "Consolidación de la subjetividad psicológica"]
+tipo: ordenar
+opciones_explicitas: ["Estructuras comunitarias y religiosas medievales", "Surgimiento de la razón individualista", "Consolidación de la subjetividad psicológica"]
+
+explicacion: |
+  La evolución va desde la pertenencia a un orden social dado hacia la introspección y la autonomía del sujeto.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_modernidad_y_el_yo"
+  nivel: "intermedio"
+  tags: ["sujeto", "autonomia"]
+
+enunciado: "En la psicología moderna, el concepto central es la autonomía, donde el individuo se percibe como un ___ de su propia historia."
+
+respuesta: "agente"
+tipo: completar
+respuestas_validas:
+  - "agente"
+
+explicacion: |
+  La modernidad introduce la idea de agencia, donde el sujeto tiene la capacidad de decidir y actuar sobre su propio destino psíquico.
+```
 
 ## Sección: autoconocimiento-como-busqueda-humana (25 preguntas)
 
@@ -29,13 +496,11 @@ metadata:
   nivel: "basico"
   tags: ["vocabulario", "introspeccion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["la observación de los propios pensamientos", "la introspección"], ["el análisis de las reacciones ajenas", "la proyección"]]
-
-respuesta: datos[escenario_idx][0
+respuesta: "la observación de los propios pensamientos"
 tipo: completar
-respuestas_validas: ["la observación de los propios pensamientos", "la introspección"]
+respuestas_validas:
+  - "la observación de los propios pensamientos"
+  - "la introspección"
 
 enunciado: "El proceso mediante el cual una persona dirige su atención hacia su propio mundo interno para comprender sus emociones y pensamientos se denomina ___."
 
@@ -67,7 +532,7 @@ metadata:
   nivel: "basico"
   tags: ["componentes", "identidad"]
 
-respuesta: ["Valores", "Emociones", "Creencias", "Capacidades"]
+respuesta_orden: ["Valores", "Emociones", "Creencias", "Capacidades"]
 tipo: ordenar
 
 opciones_explicitas: ["Valores", "Emociones", "Creencias", "Capacidades"]
@@ -91,15 +556,13 @@ metadata:
   nivel: "intermedio"
   tags: ["dinamismo", "evolucion"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["un proceso de transformación constante", "un dato estático y definitivo"]]
-
-respuesta: casos[caso_idx][0
-tipo: completar
-respuestas_validas: ["un proceso de transformación constante", "un dato estático y definitivo"]
+respuesta: "un proceso de transformación constante"
 
 enunciado: "Debido a que el ser humano es un ser histórico y cambiante, el autoconocimiento debe entenderse como ___."
+
+tipo: completar
+respuestas_validas:
+  - "un proceso de transformación constante"
 
 explicacion: |
   Dado que nuestras circunstancias y madurez cambian, el autoconocimiento no es un destino, sino un camino de exploración permanente.
@@ -129,10 +592,9 @@ metadata:
   tags: ["valores", "evolucion", "identidad"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[["Julián valoraba el éxito profesional por el estatus.", "estatus"], ["Julián valoraba la estabilidad para su familia.", "familia"]]]
+  escenario: uno_de([["Julián valoraba el éxito profesional por el estatus.", "estatus"], ["Julián valoraba la estabilidad para su familia.", "familia"]])
 
-enunciado: "Consideremos el caso de una persona cuyas prioridades cambian con el tiempo. Si Julián hoy siente que su motivación principal es {datos[escenario_idx][0]}, su autoconocimiento es un proceso que refleja su evolución actual."
+enunciado: "Consideremos el caso de una persona cuyas prioridades cambian con el tiempo. Si Julián hoy siente que su motivación principal es {escenario[0]}, su autoconocimiento es un proceso que refleja su evolución actual."
 
 pasos:
   - "Identificar el valor predominante en la etapa actual."
@@ -154,7 +616,7 @@ metadata:
   tags: ["metodologia", "introspeccion", "pasos"]
 
 opciones_explicitas: ["Observar una emoción", "Analizar el origen de la emoción", "Integrar el aprendizaje en la conducta"]
-respuesta: ["Observar una emoción", "Analizar el origen de la emoción", "Integrar el aprendizaje en la conducta"]
+respuesta_orden: ["Observar una emoción", "Analizar el origen de la emoción", "Integrar el aprendizaje en la conducta"]
 tipo: ordenar
 
 enunciado: "Para que el autoconocimiento sea efectivo en un proceso terapéutico o de crecimiento, se suele seguir una secuencia lógica de profundización. Ordena estos pasos de lo más superficial a lo más profundo:"
@@ -193,7 +655,10 @@ metadata:
 
 respuesta: "un proceso"
 tipo: completar
-respuestas_validas: ["un proceso", "un camino", "una búsqueda"]
+respuestas_validas:
+  - "un proceso"
+  - "un camino"
+  - "una búsqueda"
 
 enunciado: "Dado que el ser humano está en constante interacción con un entorno cambiante, el autoconocimiento no puede ser considerado un dato, sino que debe entenderse como ___."
 
@@ -226,10 +691,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Soy una persona extremadamente tímida y siempre lo seré.", "Soy una persona muy ansiosa ante el estrés."],
-    ["Soy un líder nato y no puedo cambiar mi forma de actuar.", "Soy alguien que siempre reacciona con ira."]
-  ]
+  escenarios: [["Soy una persona extremadamente tímida y siempre lo seré.", "Soy una persona muy ansiosa ante el estrés."], ["Soy un líder nato y no puedo cambiar mi forma de actuar.", "Soy alguien que siempre reacciona con ira."]]
 
 enunciado: "Un error común en la búsqueda del autoconocimiento es confundir un rasgo o comportamiento actual con una etiqueta inmutable. Por ejemplo: {escenarios[escenario_idx][0]}"
 
@@ -258,7 +720,7 @@ opciones_explicitas:
   - "Identificación de patrones de conducta"
   - "Aceptación de la propia historia"
 
-respuesta: ["Reconocimiento de emociones", "Identificación de patrones de conducta", "Juicio crítico y autocrítica", "Aceptación de la propia historia"]
+respuesta_orden: ["Reconocimiento de emociones", "Identificación de patrones de conducta", "Juicio crítico y autocrítica", "Aceptación de la propia historia"]
 tipo: ordenar
 
 enunciado: "Para que el autoconocimiento sea un proceso de crecimiento y no una simple observación superficial, se requiere integrar ciertos elementos en un orden de profundidad psicológica (de lo más inmediato a lo más estructural):"
@@ -276,7 +738,8 @@ metadata:
 
 respuesta: "construcción"
 tipo: completar
-respuestas_validas: ["construcción"]
+respuestas_validas:
+  - "construcción"
 
 enunciado: "A diferencia de la visión esencialista que sugiere que debemos 'encontrar' un yo preexistente, la psicología contemporánea sugiere que la identidad es una ___ constante a través de la experiencia y la interacción."
 
@@ -291,14 +754,13 @@ metadata:
   nivel: "intermedio"
   tags: ["dualidad", "identidad", "crecimiento"]
 
-respuesta: "ambos"
+enunciado: "¿Cómo se conceptualiza el autoconocimiento en esta perspectiva?"
 tipo: mc
-
+respuesta: "Es ambos: descubrimos potencialidades y creamos nuevas formas de ser."
 opciones_explicitas:
   - "Es solo un descubrimiento de lo que ya está ahí."
   - "Es solo una creación de lo que queremos ser."
   - "Es ambos: descubrimos potencialidades y creamos nuevas formas de ser."
-
 explicacion: |
   El autoconocimiento es una danza entre lo que descubrimos (nuestro temperamento, historia y predisposiciones) y lo que creamos (nuestra voluntad, valores y la forma en que decidimos actuar frente a nuestra naturaleza).
 ```
@@ -312,7 +774,9 @@ metadata:
 
 respuesta: "proceso"
 tipo: "completar"
-respuestas_validas: ["proceso", "dinámico"]
+respuestas_validas:
+  - "proceso"
+  - "dinámico"
 
 enunciado: "A diferencia de un dato fijo o una etiqueta estática, el autoconocimiento se define como un ___ continuo y evolutivo."
 
@@ -329,12 +793,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["La persona cambia sus valores tras una crisis", "evolución"],
-    ["La persona descubre un nuevo talento en la adultez", "evolución"]
-  ]
+  escenarios: [["La persona cambia sus valores tras una crisis", "evolución"], ["La persona descubre un nuevo talento en la adultez", "evolución"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: "mc"
 opciones_explicitas: ["estatismo", "evolución", "determinismo", "esencia fija"]
 
@@ -367,9 +828,9 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "reflexion", "acción"]
 
-respuesta: ["Observación de reacciones", "Reflexión sobre motivos", "Integración de aprendizajes"]
+respuesta_orden: ["Observación de reacciones", "Reflexión sobre motivos", "Integración de aprendizajes"]
 tipo: "ordenar"
-opciones_explicitas: ["Observación de reacciones", "Reflexión sobre motivos", "Integración de aprendizajes", "Reacción impulsiva"]
+opciones_explicitas: ["Observación de reacciones", "Reflexión sobre motivos", "Integración de aprendizajes"]
 
 enunciado: "Ordena las etapas de un proceso de autoconocimiento reflexivo, partiendo desde la experiencia inmediata hasta la consolidación del saber personal:"
 
@@ -384,8 +845,8 @@ metadata:
   nivel: "basico"
   tags: ["experiencia", "conocimiento", "cambio"]
 
-respuesta: "verdadero"
-tipo: "vf"
+tipo: vf
+respuesta: verdadero
 
 enunciado: "Dado que el ser humano es un sujeto en constante cambio debido a la interacción con el entorno, el autoconocimiento requiere una revisión periódica de la propia identidad."
 
@@ -427,7 +888,9 @@ variables:
 
 enunciado: "Considerando el caso de {casos[caso_idx][0]}, el autoconocimiento se manifiesta como un proceso de ___."
 
-respuestas_validas: ["evolución", "cambio"]
+respuestas_validas:
+  - "evolución"
+  - "cambio"
 respuesta: "evolución"
 tipo: completar
 
@@ -444,9 +907,8 @@ metadata:
 
 enunciado: "¿Es el autoconocimiento un estado final de iluminación donde se llega a conocer todo sobre uno mismo?"
 
-opciones_explicitas: ["Verdadero", "Falso"]
-respuesta: "Falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 explicacion: |
   Dado que el ser humano es un proyecto en constante construcción, el autoconocimiento es una búsqueda inacabada, no un destino final.
 ```
@@ -461,7 +923,7 @@ metadata:
 enunciado: "Ordene las etapas de un proceso de autoconocimiento profundo, desde la percepción inicial hasta la integración:"
 
 opciones_explicitas: ["Percepción de emociones", "Análisis de patrones", "Integración de la identidad"]
-respuesta: ["Percepción de emociones", "Análisis de patrones", "Integración de la identidad"]
+respuesta_orden: ["Percepción de emociones", "Análisis de patrones", "Integración de la identidad"]
 tipo: ordenar
 
 explicacion: |
@@ -477,493 +939,17 @@ metadata:
 
 variables:
   ejemplo_idx: uno_de([0, 1])
-  ejemplos: [["'Soy una persona ansiosa' (como etiqueta definitiva)", "etiqueta"], ["'Siento ansiedad en este momento' (como estado temporal)", "estado"]]
+  ejemplos: ["'Soy una persona ansiosa' (como etiqueta definitiva)", "'Siento ansiedad en este momento' (como estado temporal)"]
 
-enunciado: "Si una persona dice: '{ejemplos[ejemplo_idx][0]}', está cometiendo el error de confundir su ___ con su ___."
+enunciado: "Si una persona dice: '{ejemplos[ejemplo_idx]}', está cometiendo el error de confundir un estado temporal con su ___."
 
-respuestas_validas: ["esencia", "estado"]
+respuestas_validas:
+  - "esencia"
 respuesta: "esencia"
 tipo: completar
 
 explicacion: |
   Confundir un estado transitorio con la esencia del ser es el principal obstáculo para entender el autoconocimiento como un proceso fluido.
-```
-
-## Sección: corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo (25 preguntas)
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "basico"
-  tags: ["psicoanalisis", "inconsciente"]
-
-respuesta: "psicoanalisis"
-tipo: completar
-respuestas_validas: ["psicoanalisis"]
-
-enunciado: "La corriente psicológica que postula la existencia de procesos mentales inconscientes que determinan la conducta humana se denomina ___."
-
-explicacion: |
-  El psicoanálisis, fundado por Sigmund Freud, sostiene que gran parte de nuestra conducta está impulsada por deseos, recuerdos y conflictos alojados en el inconsciente.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "basico"
-  tags: ["conductismo", "estímulo", "respuesta"]
-
-variables:
-  escenario: uno_de([["estímulo", "respuesta"], ["estímulo", "reacción"], ["estímulo", "consecuencia"]])
-  opcion_correcta: "estímulo"
-  opcion_incorrecta: "respuesta"
-
-respuesta: "estímulo"
-tipo: mc
-opciones_explicitas: ["estímulo", "respuesta", "pensamiento", "emoción"]
-
-enunciado: "En el conductismo radical, la unidad básica de análisis es la relación entre un ___ y una respuesta observada."
-
-explicacion: |
-  El conductismo se centra en la conducta observable y la relación entre un estímulo (E) y una respuesta (R), dejando de lado los procesos mentales internos por no ser medibles.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "basico"
-  tags: ["humanismo", "autorrealizacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿El humanismo psicológico se caracteriza por centrarse en el potencial de crecimiento personal y la autorrealización del individuo?"
-
-explicacion: |
-  A diferencia de otras corrientes, el humanismo (Maslow, Rogers) tiene una visión positiva del ser humano, enfocándose en su capacidad de alcanzar su máximo potencial.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "intermedio"
-  tags: ["cognitivismo", "metáfora", "computación"]
-
-respuesta: "metáfora del ordenador"
-tipo: completar
-respuestas_validas: ["metáfora del ordenador", "metáfora de la máquina"]
-enunciado: "El cognitivismo utiliza la ___ para explicar cómo la mente recibe, codifica, almacena y recupera la información."
-
-explicacion: |
-  La psicología cognitiva surge con la idea de que la mente funciona de manera análoga a un procesador de información, utilizando la metáfora del ordenador.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "intermedio"
-  tags: ["historia", "orden"]
-
-respuesta: ["conductismo", "cognitivismo", "humanismo"]
-tipo: ordenar
-opciones_explicitas: ["conductismo", "cognitivismo", "humanismo"]
-
-enunciado: "Ordena cronológicamente estas corrientes según su predominio o surgimiento principal en la historia de la psicología moderna (del más antiguo al más reciente):"
-
-pasos:
-  - "Identifica el predominio del conductismo en la primera mitad del siglo XX."
-  - "Ubica la revolución cognitiva a mediados del siglo XX."
-  - "Considera el auge del enfoque humanista como la 'tercera fuerza'."
-
-explicacion: |
-  El conductismo dominó la primera mitad del siglo XX; el cognitivismo surgió como respuesta a sus limitaciones en los años 50/60; y el humanismo se consolidó como la 'tercera fuerza' alternativa a ambos.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "basico"
-  tags: ["conductismo", "condicionamiento"]
-
-variables:
-  escenario: uno_de([
-    ["Un niño asocia el sonido de un timbre con un pinchazo en el brazo.", "condicionamiento_clasico"],
-    ["Un estudiante estudia solo cuando hay silencio absoluto para evitar distracciones.", "condicionamiento_operante"],
-    ["Un perro busca comida porque sabe que al sonar una campana recibirá un premio.", "condicionamiento_operante"]
-  ])
-
-enunciado: "En el caso de que {escenario[0]}, estamos ante un ejemplo de {escenario[1]}."
-
-respuesta: escenario[1
-tipo: mc
-opciones_explicitas: ["condicionamiento_clasico", "condicionamiento_operante", "procesos_inconscientes"]
-
-explicacion: |
-  El conductismo clásico (Pavlov) se centra en la asociación de estímulos, mientras que el operante (Skinner) se centra en la consecuencia de la conducta.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "intermedio"
-  tags: ["psicoanalisis", "inconsciente"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Desde la perspectiva del psicoanálisis, un síntoma como un olvido repentino de un nombre importante puede ser interpretado como una manifestación de un deseo o conflicto reprimido en el inconsciente."
-
-explicacion: |
-  El psicoanálisis postula que gran parte de la conducta humana está determinada por procesos inconscientes y conflictos no resueltos.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "intermedio"
-  tags: ["cognitivismo", "metáfora_computacional"]
-
-variables:
-  ejemplo_cognitivo: uno_de([
-    ["La forma en que una persona interpreta un gesto de un amigo como un insulto.", "interpretacion"],
-    ["La forma en que un conductor procesa señales de tráfico para evitar un choque.", "procesamiento"]
-  ])
-
-enunciado: "En el modelo del cognitivismo, la mente es comparada con una computadora. Si analizamos {ejemplo_cognitivo[0]}, nos centramos en el ___ de la información."
-
-respuesta: "procesamiento"
-tipo: completar
-respuestas_validas: ["procesamiento"]
-
-explicacion: |
-  El cognitivismo estudia los procesos mentales internos (percepción, memoria, lenguaje) como flujos de información similares al procesamiento de datos.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "basico"
-  tags: ["humanismo", "maslow"]
-
-variables:
-  caso_humanista: uno_de([
-    ["Un paciente busca terapia para alcanzar su máximo potencial personal.", "autorrealizacion"],
-    ["Un paciente busca terapia para mejorar su autoestima y sentirse aceptado.", "pertenencia"]
-  ])
-
-enunciado: "Según el enfoque humanista, si el objetivo principal de una persona es {caso_humanista[0]}, está buscando la ___."
-
-respuesta: "autorrealizacion"
-tipo: completar
-respuestas_validas: ["autorrealizacion"]
-
-explicacion: |
-  El humanismo se enfoca en la autorrealización y el crecimiento personal, viendo al individuo como alguien con tendencia innata hacia la plenitud.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "avanzado"
-  tags: ["metodologia", "comparativa"]
-
-variables:
-  metodo_orden: uno_de([
-    ["Observar la conducta, identificar el estímulo, analizar la respuesta", "paso1_paso2_paso3"],
-    ["Escuchar el sueño, analizar el lapsus, buscar el trauma", "paso1_paso2_paso3"]
-  ])
-
-enunciado: "Para realizar un estudio clínico, un psicólogo debe seguir una secuencia lógica de pasos. Ordena los siguientes elementos según el enfoque conductista: 1. Estímulo, 2. Respuesta, 3. Consecuencia."
-
-respuesta: ["Estímulo", "Respuesta", "Consecuencia"]
-tipo: ordenar
-opciones_explicitas: ["Estímulo", "Respuesta", "Consecuencia", "Inconsciente", "Trauma"]
-
-explicacion: |
-  El modelo conductista se basa en la secuencia E-R-C (Estímulo-Respuesta-Consecuencia).
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "basico"
-  tags: ["psicoanalisis", "concepto"]
-
-respuesta: "inconsciente"
-tipo: completar
-respuestas_validas: ["inconsciente"]
-
-enunciado: "A diferencia de otras corrientes que se centran en la conducta observable, el psicoanálisis postula que el motor principal de la conducta humana son los procesos del ___."
-
-explicacion: |
-  El psicoanálisis, fundado por Freud, sostiene que la mayor parte de nuestra vida mental ocurre en el inconsciente, influyendo en nuestras decisiones y emociones sin que nos demos cuenta.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "intermedio"
-  tags: ["conductismo", "cognitivismo"]
-
-variables:
-  es_conductista: uno_de([verdadero, falso])
-
-respuesta: es_conductista == falso
-tipo: completar
-enunciado: "Un psicólogo conductista clásico se centraría exclusivamente en los procesos mentales internos (como el pensamiento o la memoria) para explicar la conducta, ignorando el estímulo y la respuesta."
-
-explicacion: |
-  Falso. El conductismo se centra en la conducta observable y la relación entre estímulo y respuesta, rechazando (en sus versiones más estrictas) el estudio de los procesos mentales internos por no ser medibles objetivamente.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "basico"
-  tags: ["humanismo", "enfoque"]
-
-opciones_explicitas: ["Determinismo biológico/ambiental", "Autorrealización y potencial humano", "Procesamiento de información"]
-
-respuesta: opciones_explicitas[1
-tipo: mc
-
-enunciado: "El humanismo se distingue de otras corrientes por su visión optimista del ser humano, centrándose en la capacidad de ___."
-
-explicacion: |
-  A diferencia del psicoanálisis (motivado por impulsos inconscientes) o el conductismo (motivado por el entorno), el humanismo pone el foco en la capacidad de crecimiento y autorrealización del individuo.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "intermedio"
-  tags: ["cognitivismo", "metáfora"]
-
-respuesta: "procesamiento de información"
-tipo: completar
-respuestas_validas: ["procesamiento de información"]
-
-enunciado: "La revolución cognitiva introdujo la metáfora del ordenador para entender la mente, comparando la actividad mental con el ___."
-
-explicacion: |
-  El cognitivismo estudia cómo la mente codifica, almacena y recupera la información, de manera análoga a como un ordenador procesa datos.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "basico"
-  tags: ["historia", "cronologia"]
-
-opciones_explicitas: ["Psicoanálisis", "Conductismo", "Humanismo", "Cognitivismo"]
-
-respuesta: ["Psicoanálisis", "Conductismo", "Humanismo", "Cognitivismo"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente las corrientes psicológicas según su surgimiento y predominio en la historia de la psicología:"
-
-explicacion: |
-  El Psicoanálisis surgió a finales del siglo XIX; el Conductismo dominó la primera mitad del XX; el Humanismo emergió a mediados del XX como reacción al determinismo; y el Cognitivismo se consolidó en la segunda mitad del siglo XX.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "psicoanalisis"
-  nivel: "basico"
-  tags: ["psicoanalisis", "inconsciente"]
-
-respuesta: "inconsciente"
-tipo: completar
-respuestas_validas: ["inconsciente"]
-
-enunciado: "A diferencia de la psicología de la conciencia, el psicoanálisis postula que la mayor parte de la actividad mental ocurre en el ___."
-
-explicacion: |
-  El psicoanálisis, fundado por Freud, se centra en los procesos mentales que no son accesibles a la conciencia inmediata, denominándolos procesos inconscientes.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "conductismo"
-  nivel: "basico"
-  tags: ["conductismo", "conducta"]
-
-variables:
-  es_conductismo: verdadero
-
-respuesta: es_conductismo
-tipo: completar
-enunciado: "El conductismo radical se distingue de otras corrientes por centrarse exclusivamente en la conducta observable, rechazando el estudio de los procesos mentales internos como objeto de la psicología científica."
-
-explicacion: |
-  El conductismo (especialmente el de Watson) sostiene que para que la psicología sea una ciencia objetiva, debe limitarse al estudio de la conducta observable y su relación con el entorno, evitando la introspección.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "humanismo"
-  nivel: "intermedio"
-  tags: ["humanismo", "psicoanalisis", "comparacion"]
-
-variables:
-  escenario: uno_de([
-    ["visión determinista del pasado", "visión optimista del potencial humano"],
-    ["énfasis en la patología", "énfasis en el crecimiento personal"],
-    ["foco en los impulsos reprimidos", "foco en la autorrealización"]
-  ])
-
-respuesta: escenario[0][1
-tipo: mc
-opciones_explicitas: [escenario[0][0], escenario[0][1]]
-
-enunciado: "Mientras que el psicoanálisis suele tener una visión determinista basada en los conflictos del pasado, el humanismo se distingue por una ___."
-
-explicacion: |
-  El humanismo (Rogers, Maslow) se enfoca en la capacidad del individuo para el crecimiento y la autorrealización, contrastando con el enfoque clínico-patológico del psicoanálisis.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "cognitivismo"
-  nivel: "intermedio"
-  tags: ["cognitivismo", "metáfora-computacional"]
-
-respuesta: "procesamiento de información"
-tipo: completar
-respuestas_validas: ["procesamiento de información"]
-
-enunciado: "El cognitivismo se diferencia del conductismo al proponer que entre el estímulo y la respuesta existen procesos mentales complejos, utilizando la metáfora del ___."
-
-explicacion: |
-  La psicología cognitiva utiliza la analogía de la computadora para explicar cómo la mente recibe, codifica, almacena y recupera información.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "evolucion_corrientes"
-  nivel: "avanzado"
-  tags: ["historia", "conductismo", "cognitivismo"]
-
-respuesta: ["Conductismo", "Cognitivismo", "Neurociencia Cognitiva"]
-tipo: ordenar
-opciones_explicitas: ["Conductismo", "Cognitivismo", "Neurociencia Cognitiva"]
-
-enunciado: "Ordene cronológicamente el predominio de estas corrientes/enfoques en la psicología científica, desde el inicio del siglo XX hasta la actualidad:"
-
-explicacion: |
-  El conductismo dominó la primera mitad del siglo XX; la revolución cognitiva surgió en los años 50-60; y la neurociencia cognitiva es el enfoque contemporáneo que integra procesos mentales con bases biológicas.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "basico"
-  tags: ["conductismo", "aprendizaje"]
-
-variables:
-  datos: [["Un niño recibe un dulce cada vez que recoge sus juguetes.", "refuerzo positivo"], ["Un estudiante deja de jugar videojuegos tras recibir un regaño constante.", "castigo"]]
-  idx: uno_de([0, 1])
-
-enunciado: "En el escenario donde {datos[idx][0]}, estamos ante un proceso de {datos[idx][1]} según el conductismo."
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas: ["refuerzo positivo", "castigo"]
-
-explicacion: |
-  El conductismo se enfoca en la relación entre estímulos y respuestas. En este caso, la consecuencia aumenta la probabilidad de la conducta (refuerzo) o la disminuye (castigo).
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "intermedio"
-  tags: ["psicoanalisis", "inconsciente"]
-
-enunciado: "Un terapeuta que busca interpretar los sueños de un paciente y analizar los lapsus linguae para acceder a contenidos reprimidos está aplicando el método de:"
-
-opciones_explicitas: ["Conductismo", "Psicoanálisis", "Humanismo", "Cognitivismo"]
-respuesta: "Psicoanalisis"
-tipo: mc
-
-explicacion: |
-  El psicoanálisis, fundado por Freud, sostiene que la conducta humana está determinada por impulsos y deseos inconscientes.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "basico"
-  tags: ["humanismo", "maslow"]
-
-enunciado: "¿Es el enfoque humanista una corriente que se centra en la capacidad de crecimiento personal y la autorrealización del individuo?"
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  El humanismo (Rogers, Maslow) se diferencia por su visión optimista del ser humano y su enfoque en la autorrealización.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "intermedio"
-  tags: ["cognitivismo", "procesos_mentales"]
-
-variables:
-  datos: [["Cómo la memoria almacena datos", "procesamiento"], ["Cómo el lenguaje decodifica símbolos", "procesamiento"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Si un psicólogo estudia {datos[idx][0]}, su enfoque principal es el {datos[idx][1]} de la información."
-
-respuesta: "procesamiento"
-tipo: completar
-respuestas_validas: ["procesamiento"]
-
-explicacion: |
-  El cognitivismo utiliza la metáfora del ordenador para entender cómo la mente codifica, almacena y recupera la información.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "corrientes_psicologicas"
-  nivel: "avanzado"
-  tags: ["historia", "orden_cronologico"]
-
-enunciado: "Ordena cronológicamente estas corrientes desde su surgimiento histórico (del más antiguo al más reciente):"
-
-opciones_explicitas: ["Psicoanálisis", "Conductismo", "Humanismo", "Cognitivismo"]
-respuesta: ["Psicoanálisis", "Conductismo", "Humanismo", "Cognitivismo"]
-tipo: ordenar
-
-explicacion: |
-  El Psicoanálisis (finales XIX), el Conductismo (principios XX), el Humanismo (mediados XX) y el Cognitivismo (revolución cognitiva años 50-60).
 ```
 
 ## Sección: dependencia-del-otro-cultura-como-herencia (25 preguntas)
@@ -977,7 +963,8 @@ metadata:
 
 respuesta: "socializacion"
 tipo: "completar"
-respuestas_validas: ["socializacion"]
+respuestas_validas:
+  - "socializacion"
 
 enunciado: "El proceso mediante el cual el individuo interioriza las normas, valores y costumbres de su grupo social, permitiéndole integrarse a la cultura heredada, se denomina ___."
 
@@ -1010,13 +997,13 @@ metadata:
   nivel: "basico"
   tags: ["dependencia", "herencia"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: "vf"
 
-enunciado: "¿Es falso que la cultura actúe como una 'herencia social' que condiciona la percepción que tenemos de la realidad?"
+enunciado: "¿Es correcto afirmar que la cultura actúa como una 'herencia social' que condiciona la percepción que tenemos de la realidad?"
 
 explicacion: |
-  La afirmación es falsa porque la cultura SÍ actúa como una herencia social. La pregunta está formulada de modo que, al ser la premisa "la cultura condiciona la realidad" algo verdadero, la respuesta a la pregunta "¿Es falso que...?" debe ser 'falso'.
+  Verdadero. La cultura actúa como una herencia social que transmite valores, normas y marcos de referencia que condicionan cómo percibimos e interpretamos la realidad.
 ```
 
 ```
@@ -1044,9 +1031,9 @@ metadata:
   nivel: "intermedio"
   tags: ["socializacion", "primaria", "secundaria"]
 
-opciones_explicitas: ["Socialización secundaria", "Socialización primaria", "Socialización terciaria"]
+opciones_explicitas: ["Socialización secundaria", "Socialización primaria"]
 
-respuesta: ["Socialización primaria", "Socialización secundaria"]
+respuesta_orden: ["Socialización primaria", "Socialización secundaria"]
 tipo: "ordenar"
 
 enunciado: "Ordene cronológicamente las etapas de la socialización en la vida de un individuo:"
@@ -1063,14 +1050,11 @@ metadata:
   tags: ["identidad", "cultura", "socializacion"]
 
 variables:
-  escenario: uno_de([
-    ["Juan creció en una cultura donde el éxito se mide por la riqueza individual.", "individualismo"],
-    ["Ana creció en una cultura donde el éxito se mide por la armonía del grupo.", "colectivismo"]
-  ])
+  escenario: uno_de([["Juan creció en una cultura donde el éxito se mide por la riqueza individual.", "individualismo"], ["Ana creció en una cultura donde el éxito se mide por la armonía del grupo.", "colectivismo"]])
 
 enunciado: "Si una persona es formada bajo los valores de {escenario[0]}, su construcción de identidad estará marcada por el {escenario[1]}."
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["individualismo", "colectivismo"]
 
@@ -1085,10 +1069,7 @@ metadata:
   nivel: "intermedio"
   tags: ["socializacion", "agentes_socializadores"]
 
-variables:
-  agente: uno_de(["la familia", "la escuela", "el grupo de pares"])
-
-enunciado: "El proceso mediante el cual un individuo internaliza las normas y valores de su entorno se denomina socialización. Si el primer contacto con estas normas ocurre en {agente}, estamos ante la socialización primaria."
+enunciado: "El proceso mediante el cual un individuo internaliza las normas y valores de su entorno se denomina socialización. Si el primer contacto con estas normas ocurre en la familia, estamos ante la socialización primaria."
 
 respuesta: verdadero
 tipo: vf
@@ -1111,7 +1092,10 @@ pasos:
   - "2. El entorno social interactúa con el individuo."
   - "3. El individuo internaliza estas interacciones para formar su ___."
 
-respuesta_validas: ["identidad", "self", "yo"]
+respuestas_validas:
+  - "identidad"
+  - "self"
+  - "yo"
 respuesta: "identidad"
 tipo: completar
 
@@ -1127,16 +1111,14 @@ metadata:
   tags: ["determinismo", "cultura", "herencia"]
 
 variables:
-  caso: uno_de([
-    ["Un individuo intenta vivir de forma totalmente aislada de cualquier norma cultural.", "aislamiento"],
-    ["Un individuo adopta las tradiciones de sus padres sin cuestionarlas.", "implantacion"]
-  ])
+  caso: uno_de([["Un individuo intenta vivir de forma totalmente aislada de cualquier norma cultural.", "aislamiento"], ["Un individuo adopta las tradiciones de sus padres sin cuestionarlas.", "implantacion"]])
 
 enunciado: "En el caso de {caso[0]}, el individuo sigue operando bajo estructuras lingüísticas y cognitivas heredadas de la cultura, lo que demuestra que la dependencia cultural es:"
 
-respuesta: "inevitables"
+respuesta: "inevitable"
 tipo: completar
-respuestas_validas: ["inevitables", "nulas", "mínimas"]
+respuestas_validas:
+  - "inevitable"
 
 explicacion: |
   Incluso en el intento de aislamiento, el pensamiento está mediado por el lenguaje y las categorías conceptuales que la cultura nos ha proporcionado. No existe un 'yo' puro sin la mediación cultural.
@@ -1151,12 +1133,8 @@ metadata:
 
 enunciado: "Ordena las etapas del desarrollo de la identidad en relación con la herencia cultural, desde la recepción pasiva hasta la autonomía crítica:"
 
-opciones_explicitas: [
-  "Internalización de normas culturales",
-  "Interacción con grupos sociales diversos",
-  "Reevaluación crítica de la herencia cultural"
-]
-respuesta: ["Internalización de normas culturales", "Interacción con grupos sociales diversos", "Reevaluación crítica de la herencia cultural"]
+opciones_explicitas: ["Internalización de normas culturales", "Interacción con grupos sociales diversos", "Reevaluación crítica de la herencia cultural"]
+respuesta_orden: ["Internalización de normas culturales", "Interacción con grupos sociales diversos", "Reevaluación crítica de la herencia cultural"]
 tipo: ordenar
 
 explicacion: |
@@ -1186,16 +1164,10 @@ metadata:
   nivel: "intermedio"
   tags: ["herencia", "socializacion", "identidad"]
 
-variables:
-  escenario: uno_de([
-    ["el lenguaje", "la comunicación"],
-    ["las normas", "la conducta"],
-    ["los valores", "la moral"]
-  ])
-
-respuesta: escenario[0
+respuesta: "el lenguaje"
 tipo: completar
-respuestas_validas: ["el lenguaje", "la comunicación", "las normas", "la conducta", "los valores", "la moral"]
+respuestas_validas:
+  - "el lenguaje"
 
 enunciado: "La cultura se transmite a través de la socialización; por ejemplo, mediante ___ es como el sujeto internaliza la estructura del lenguaje de su comunidad."
 
@@ -1227,7 +1199,7 @@ metadata:
   nivel: "intermedio"
   tags: ["socializacion", "etapas", "identidad"]
 
-respuesta: ["Internalización de normas", "Interacción con agentes sociales", "Formación de la identidad"]
+respuesta_orden: ["Internalización de normas", "Interacción con agentes sociales", "Formación de la identidad"]
 tipo: ordenar
 opciones_explicitas: ["Internalización de normas", "Interacción con agentes sociales", "Formación de la identidad"]
 
@@ -1244,17 +1216,12 @@ metadata:
   nivel: "avanzado"
   tags: ["identidad", "otredad", "cultura"]
 
-variables:
-  caso: uno_de([
-    ["el individuo", "la cultura"],
-    ["el sujeto", "la sociedad"]
-  ])
-
-respuesta: caso[1
+respuesta: "cultura"
 tipo: completar
-respuestas_validas: ["el individuo", "la cultura", "el sujeto", "la sociedad"]
+respuestas_validas:
+  - "cultura"
 
-enunciado: "Para que un ___ pueda desarrollar una identidad única, paradójicamente, debe primero estar profundamente arraigado en una ___ que le provea símbolos y significados."
+enunciado: "Para que un individuo pueda desarrollar una identidad única, paradójicamente, debe primero estar profundamente arraigado en una ___ que le provea símbolos y significados."
 
 explicacion: |
   La paradoja de la identidad radica en que para ser "único" necesitamos un marco común (cultura) que nos permita distinguirnos de los demás.
@@ -1269,7 +1236,8 @@ metadata:
 
 respuesta: "interactividad"
 tipo: completar
-respuestas_validas: ["interactividad"]
+respuestas_validas:
+  - "interactividad"
 
 enunciado: "A diferencia de la herencia biológica que se transmite por genes, la formación de la identidad a través de la cultura se da mediante la ___________ con los otros significativos."
 
@@ -1285,12 +1253,9 @@ metadata:
   tags: ["socializacion", "individuo"]
 
 variables:
-  escenario: uno_de([
-    ["Proceso de aprendizaje de normas", "socialización"],
-    ["Sentido de pertenencia y rasgos únicos", "identidad"]
-  ])
+  escenario: uno_de([["Proceso de aprendizaje de normas", "socialización"], ["Sentido de pertenencia y rasgos únicos", "identidad"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["socialización", "identidad", "instinto", "genética"]
 
@@ -1323,7 +1288,7 @@ metadata:
   nivel: "avanzado"
   tags: ["procesos", "cultura"]
 
-respuesta: ["Internalización de normas", "Identificación con modelos", "Construcción de la subjetividad"]
+respuesta_orden: ["Internalización de normas", "Identificación con modelos", "Construcción de la subjetividad"]
 tipo: ordenar
 opciones_explicitas: ["Internalización de normas", "Identificación con modelos", "Construcción de la subjetividad"]
 
@@ -1340,13 +1305,7 @@ metadata:
   nivel: "basico"
   tags: ["biologia", "cultura"]
 
-variables:
-  caso: uno_de([
-    ["el color de ojos", "biológico"],
-    ["el uso de utensilios", "cultural"]
-  ])
-
-respuesta: caso[1
+respuesta: "cultural"
 tipo: mc
 opciones_explicitas: ["biológico", "cultural", "innato", "instintivo"]
 
@@ -1385,14 +1344,14 @@ metadata:
   tags: ["subjetivacion", "herencia", "otro"]
 
 variables:
-  datos: [["La cultura nos proporciona el lenguaje y las normas para pensar.", true], ["El individuo es una isla totalmente independiente de la cultura.", false]]
   idx: uno_de([0, 1])
+  afirmaciones: ["La cultura nos proporciona el lenguaje y las normas para pensar, constituyendo al individuo como sujeto.", "El individuo es una entidad totalmente independiente de la estructura cultural que lo rodea."]
+  es_correcta: [verdadero, falso]
 
-enunciado: "Considerando que la cultura es una herencia que nos constituye, ¿es correcto afirmar que el individuo es una entidad totalmente independiente de la estructura cultural? {datos[idx][0]}"
+enunciado: "{afirmaciones[idx]}"
 
-respuestas_validas: [datos[idx][1]]
-respuesta: datos[idx][1]
-tipo: completar
+respuesta: es_correcta[idx]
+tipo: vf
 explicacion: |
   No es posible una subjetivación sin el "Otro". La cultura es la matriz que nos permite, paradójicamente, ser sujetos; nos da las herramientas (lenguaje, símbolos) para construir nuestra propia identidad.
 ```
@@ -1410,7 +1369,7 @@ variables:
 enunciado: "Ordene los siguientes elementos de la herencia cultural desde el más estructural (base del pensamiento) hasta el más específico (práctica cotidiana):"
 
 opciones_explicitas: ["Lenguaje", "Normas sociales", "Valores morales", "Costumbres religiosas"]
-respuesta: ["Lenguaje", "Normas sociales", "Valores morales", "Costumbres religiosas"]
+respuesta_orden: ["Lenguaje", "Normas sociales", "Valores morales", "Costumbres religiosas"]
 tipo: ordenar
 
 explicacion: |
@@ -1424,14 +1383,11 @@ metadata:
   nivel: "intermedio"
   tags: ["lenguaje", "simbolico", "herencia"]
 
-variables:
-  datos: [["El lenguaje permite la distinción entre el 'yo' y el 'otro'.", "permite"], ["El lenguaje es solo un código de comunicación sin impacto en la identidad.", "no permite"]]
-  idx: uno_de([0, 1])
-
 enunciado: "En el proceso de formación de la persona, el lenguaje como herencia cultural es aquello que ___ la distinción entre el sujeto y el mundo externo."
 
-respuestas_validas: ["permite", "no permite"]
-respuesta: datos[idx][1]
+respuestas_validas:
+  - "permite"
+respuesta: "permite"
 tipo: completar
 
 explicacion: |
@@ -1445,1032 +1401,952 @@ metadata:
   nivel: "avanzado"
   tags: ["identidad", "cultura", "subjetividad"]
 
-variables:
-  datos: [["La cultura es una limitación que impide la libertad.", "limitacion"], ["La cultura es la condición de posibilidad de la subjetividad.", "condicion"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Desde una perspectiva psicológica, la relación entre cultura y sujeto se comprende mejor si entendemos que la cultura es la: {datos[idx][0]}"
-
-opciones_explicitas: ["limitacion", "condicion"]
-respuesta: datos[idx][1]
+respuesta: "condicion"
 tipo: mc
+opciones_explicitas: ["limitacion", "condicion"]
+
+enunciado: "Desde una perspectiva psicológica, la relación entre cultura y sujeto se comprende mejor si entendemos que la cultura es la:"
 
 explicacion: |
   Aunque la cultura impone marcos de referencia, también es la "condición de posibilidad": sin la herencia cultural (símbolos, lenguaje, otros), no habría un sujeto con quien procesar la realidad.
 ```
 
-## Sección: edades-del-ser-humano-ninez-pubertad-identidad (25 preguntas)
+## Sección: memoria-y-olvido-represion-inconsciente (25 preguntas)
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "edades_del_ser_humano"
+  tema: "memoria_y_olvido_represion_inconsciente"
   nivel: "basico"
-  tags: ["desarrollo", "etapas"]
+  tags: ["psicoanalisis", "inconsciente"]
 
-tipo: mc
-opciones_explicitas: ["Niñez", "Pubertad", "Adultez", "Senectud"]
-
-enunciado: "La etapa caracterizada por el crecimiento físico acelerado y la maduración de los órganos reproductores se denomina ________."
-
-respuesta: "Pubertad"
-
-explicacion: |
-  La pubertad es el periodo de transición entre la niñez y la edad adulta, marcado por cambios hormonales y físicos significativos.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "cambios_fisicos"
-  nivel: "basico"
-  tags: ["biologia", "pubertad"]
-
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Durante la pubertad, los cambios físicos son exclusivamente externos y no afectan el sistema endocrino."
-
-respuesta: falso
+enunciado: "En el psicoanálisis, el inconsciente se define como el conjunto de contenidos mentales que, aunque no son accesibles a la conciencia de forma inmediata, ejercen influencia sobre la conducta."
 
 explicacion: |
-  Falso. La pubertad es impulsada precisamente por cambios en el sistema endocrino (hormonas) que provocan cambios tanto internos como externos.
+  Efectivamente, para el psicoanálisis, el inconsciente no es solo lo que "no sabemos", sino una estructura dinámica con contenidos reprimidos que afectan nuestra vida psíquica.
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "identidad_adolescente"
-  nivel: "intermedio"
-  tags: ["identidad", "psicologia_evolutiva"]
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "basico"
+  tags: ["represion", "defensa"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["Búsqueda de pertenencia a grupos", "Construcción de la autonomía personal"], ["Dependencia de la opinión parental", "Definición de valores propios"]]
+  datos: [["un deseo conflictivo", "represión"], ["un recuerdo traumático", "represión"]]
 
-tipo: completar
-respuestas_validas: ["pertenencia", "autonomía", "dependencia", "valores"]
+respuesta: datos[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["proyección", "sublimación", "represión", "negación"]
 
-enunciado: "En la etapa de la adolescencia, el individuo suele transitar desde una etapa de {escenarios[escenario_idx][0]} hacia una fase de {escenarios[escenario_idx][1]}."
-
-respuesta: "autonomía"
+enunciado: "Cuando el aparato psíquico expulsa de la conciencia un pensamiento o impulso que resulta intolerable para el yo, está utilizando el mecanismo de la {datos[escenario_idx][0]}."
 
 explicacion: |
-  La identidad se construye mediante el proceso de diferenciación de las figuras de autoridad y la búsqueda de un sentido de autonomía.
+  La represión es el proceso mediante el cual se desplazan contenidos de la conciencia al inconsciente para evitar el malestar.
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "secuencia_desarrollo"
-  nivel: "basico"
-  tags: ["orden", "etapas"]
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "intermedio"
+  tags: ["represion", "terminologia"]
 
+respuesta: "represión"
+tipo: completar
+respuestas_validas:
+  - "represión"
+
+enunciado: "El proceso de ___ consiste en el desplazamiento de contenidos hacia el inconsciente para evitar el dolor, lo que genera un olvido que no es por falta de capacidad de almacenamiento, sino por una barrera psíquica."
+
+pasos:
+  - "Identificar el mecanismo de defensa."
+  - "Identificar el lugar donde se alojan los contenidos."
+  - "Identificar la consecuencia en la conciencia."
+
+explicacion: |
+  La represión es el mecanismo que envía contenidos al inconsciente, resultando en un olvido que no es amnésico (biológico), sino dinámico (psicológico).
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "basico"
+  tags: ["inconsciente", "conceptos"]
+
+respuesta: "dinámico"
+tipo: mc
+opciones_explicitas: ["estático", "dinámico", "pasivo", "inexistente"]
+
+enunciado: "A diferencia de una simple 'falta de conciencia', el inconsciente psicoanalítico es considerado ________ porque está en constante movimiento y lucha con las fuerzas de la conciencia."
+
+explicacion: |
+  Se considera dinámico porque los contenidos reprimidos intentan emerger constantemente, generando tensión psíquica.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "intermedio"
+  tags: ["proceso", "represion"]
+
+respuesta_orden: ["Conflicto", "Represión", "Síntoma"]
 tipo: ordenar
-opciones_explicitas: ["Infancia", "Niñez", "Pubertad", "Adultez"]
+opciones_explicitas: ["Conflicto", "Represión", "Síntoma"]
 
-enunciado: "Ordene cronológicamente las etapas del desarrollo humano desde el nacimiento hasta la madurez."
-
-respuesta: ["Infancia", "Niñez", "Pubertad", "Adultez"]
+enunciado: "Ordene la secuencia lógica de la formación de un síntoma desde la perspectiva psicoanalítica:"
 
 explicacion: |
-  El desarrollo humano sigue una secuencia biológica y psicológica predecible de etapas sucesivas.
+  Primero surge un conflicto (deseo vs. moral), luego el yo utiliza la represión para alejar el deseo, y finalmente el deseo reprimido retorna de forma deformada como un síntoma.
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "identidad_personal"
+  tema: "memoria_y_olvido_represion_inconsciente"
   nivel: "intermedio"
-  tags: ["identidad", "autoconcepto"]
+  tags: ["psicoanalisis", "represion", "inconsciente"]
 
-tipo: mc
-opciones_explicitas: ["Autoconcepto", "Identidad", "Personalidad", "Temperamento"]
-
-enunciado: "El proceso mediante el cual una persona reconoce sus propios rasgos, valores y la continuidad de su 'yo' a través del tiempo se conoce como ________."
-
-respuesta: "Identidad"
-
-explicacion: |
-  La identidad es la conciencia de ser uno mismo y la integración de los cambios experimentados durante el desarrollo.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "niñez"
-  nivel: "basico"
-  tags: ["desarrollo", "niñez"]
-
-enunciado: "Durante la niñez, el desarrollo se caracteriza por un crecimiento físico constante y el perfeccionamiento de habilidades motoras. Si un niño de 7 años desarrolla la capacidad de seguir reglas complejas en un juego, estamos observando un avance en su desarrollo ___."
-
-respuestas_validas: ["cognitivo", "motor", "emocional"]
-
-respuesta: "cognitivo"
+respuesta: "represion"
 tipo: completar
+respuestas_validas:
+  - "represion"
+  - "represión"
+
+enunciado: "En el psicoanálisis, cuando un pensamiento o deseo resulta intolerable para el yo, el aparato psíquico utiliza un mecanismo de defensa para alejarlo de la conciencia. Este proceso se denomina ___."
 
 explicacion: |
-  El desarrollo cognitivo se refiere a la evolución de los procesos mentales como el pensamiento, la lógica y la comprensión de reglas.
+  La represión es el mecanismo mediante el cual el sujeto desplaza contenidos psíquicos (impulsos, recuerdos traumáticos) hacia el inconsciente para evitar el malestar o la angustia.
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "pubertad"
-  nivel: "intermedio"
-  tags: ["cambios_fisicos", "hormonas"]
-
-variables:
-  escenario: uno_de([
-    ["Aumento de estatura y vello corporal", "cambios físicos"],
-    ["Cambios en el tono de voz y estructura ósea", "cambios físicos"],
-    ["Desarrollo de caracteres sexuales secundarios", "cambios físicos"]
-  ])
-
-enunciado: "En la pubertad, el sistema endocrino libera hormonas que provocan el proceso descrito como: {escenario[0]}."
-
-opciones_explicitas: ["cambios físicos", "cambios psicológicos", "cambios sociales"]
-
-respuesta: escenario[1
-tipo: mc
-
-explicacion: |
-  La pubertad es la etapa de transición biológica donde las hormonas activan los caracteres sexuales secundarios.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "identidad"
+  tema: "memoria_y_olvido_represion_inconsciente"
   nivel: "avanzado"
-  tags: ["identidad", "adolescencia"]
+  tags: ["sintoma", "inconsciente", "psicoanalisis"]
 
 variables:
-  caso: uno_de([
-    ["Un adolescente que busca activamente sus valores y metas", "identidad_estable"],
-    ["Un adolescente que experimenta crisis de roles constantes", "identidad_en_crisis"],
-    ["Un adolescente que adopta la identidad de sus padres sin cuestionar", "identidad_difusa"]
-  ])
+  caso_idx: uno_de([0, 1])
+  casos: [["Un individuo olvida el nombre de una persona que le causó un trauma severo.", "olvido_selectivo"], ["Un paciente presenta un lapsus linguae (error al hablar) que revela un deseo reprimido.", "lapsus"]]
 
-enunciado: "Analizamos el caso de un individuo que se encuentra en la etapa de formación de la identidad. Según el modelo de desarrollo, el perfil de: {caso[0]} se clasifica como ___."
-
-opciones_explicitas: ["identidad_estable", "identidad_en_crisis", "identidad_difusa"]
-
-respuesta: caso[1
+respuesta: casos[caso_idx][1]
 tipo: mc
+opciones_explicitas: ["olvido_selectivo", "lapsus", "amnesia anterógrada", "olvido por interferencia"]
+
+enunciado: "Analicemos el siguiente escenario: {casos[caso_idx][0]}. Según la teoría psicoanalítica, este fenómeno es una manifestación de:"
 
 explicacion: |
-  La formación de la identidad implica la integración de la personalidad y la exploración de valores propios frente a los sociales.
+  El síntoma o el error (como el lapsus) es la forma en que el contenido reprimido intenta retornar a la conciencia, aunque sea de manera disfrazada.
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "etapas_desarrollo"
+  tema: "memoria_y_olvido_represion_inconsciente"
   nivel: "basico"
-  tags: ["secuencia", "etapas"]
-
-opciones_explicitas: ["Infancia", "Niñez", "Pubertad", "Adultez"]
-
-respuesta: ["Infancia", "Niñez", "Pubertad", "Adultez"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente las etapas del desarrollo humano según la psicología evolutiva:"
-
-explicacion: |
-  El desarrollo humano sigue una secuencia biológica y psicológica predecible desde el nacimiento hasta la madurez.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "identidad"
-  nivel: "basico"
-  tags: ["identidad", "falso"]
-
-enunciado: "La identidad es un concepto estático que se define completamente al finalizar la niñez y no sufre cambios durante la adolescencia."
+  tags: ["inconsciente", "teoria"]
 
 respuesta: falso
 tipo: vf
 
+enunciado: "¿Es correcto afirmar que, para el psicoanálisis, el inconsciente es simplemente un conjunto de recuerdos que la persona ha olvidado por falta de atención o por el paso del tiempo?"
+
 explicacion: |
-  La identidad es un proceso dinámico y continuo que se reconfigura constantemente, especialmente durante la transición de la pubertad a la adolescencia.
+  Falso. El inconsciente psicoanalítico no es solo "olvido", sino un sistema dinámico de contenidos reprimidos que ejercen presión sobre la conciencia y buscan retornar a través de síntomas.
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "desarrollo_identidad"
-  nivel: "basico"
-  tags: ["pubertad", "identidad", "desarrollo"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Es correcto afirmar que la identidad personal se consolida completamente durante la pubertad debido a los cambios hormonales, sin necesidad de procesos cognitivos posteriores."
-
-explicacion: |
-  La identidad es un proceso continuo que se extiende durante la adolescencia y la adultez joven. Si bien la pubertad aporta cambios biológicos que influyen en la autopercepción, la consolidación de la identidad requiere procesos psicológicos y sociales complejos que trascienden lo hormonal.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "etapas_desarrollo"
+  tema: "memoria_y_olvido_represion_inconsciente"
   nivel: "intermedio"
-  tags: ["niñez", "pubertad", "secuencia"]
+  tags: ["proceso", "represion", "conciencia"]
 
-variables:
-  etapas: ["Niñez", "Pubertad", "Adolescencia"]
-  orden_correcto: ["Niñez", "Pubertad", "Adolescencia"]
-
-opciones_explicitas:
-  - ["Niñez", "Pubertad", "Adolescencia"]
-  - ["Pubertad", "Niñez", "Adolescencia"]
-  - ["Niñez", "Adolescencia", "Pubertad"]
-
-respuesta: ["Niñez", "Pubertad", "Adolescencia"]
+respuesta_orden: ["Conflicto psíquico", "Represión", "Retorno de lo reprimido"]
 tipo: ordenar
 
-enunciado: "Ordena las siguientes etapas del desarrollo humano de acuerdo a su aparición cronológica típica, considerando los cambios biológicos y la maduración de la identidad."
+opciones_explicitas: ["Conflicto psíquico", "Represión", "Retorno de lo reprimido"]
+
+enunciado: "Ordene la secuencia lógica de un proceso de formación de síntoma desde la perspectiva psicoanalítica, partiendo desde la aparición del impulso hasta su manifestación clínica:"
 
 explicacion: |
-  El desarrollo sigue una secuencia biológica y psicológica: primero la niñez (desarrollo motor y cognitivo básico), luego la pubertad (estirón y maduración sexual) y finalmente la adolescencia (reorganización de la identidad y pensamiento abstracto).
+  1. El conflicto psíquico surge entre el deseo y la defensa.
+  2. La represión actúa para alejar el deseo de la conciencia.
+  3. El contenido reprimido retorna de forma disfrazada (síntoma, sueño, lapsus).
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "pubertad_cambios"
-  nivel: "basico"
-  tags: ["pubertad", "cambios_fisicos"]
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "intermedio"
+  tags: ["angustia", "defensa", "represion"]
 
 variables:
-  escenario: [
-    ["el aumento de la estatura y vello corporal", "cambios físicos"],
-    ["la búsqueda de autonomía y pertenencia grupal", "cambios psicosociales"]
-  ]
+  escenario_idx: uno_de([0, 1])
+  escenarios: ["Un trauma infantil es bloqueado por la mente.", "Un deseo prohibido es enviado al inconsciente."]
+
+respuesta: "angustia"
+tipo: mc
+opciones_explicitas: ["angustia", "placer", "olvido absoluto", "memoria episódica"]
+
+enunciado: "Considerando el siguiente caso: {escenarios[escenario_idx]}. El motor que activa el mecanismo de defensa es la aparición de la ___."
+
+explicacion: |
+  La angustia actúa como una señal de alarma que advierte al Yo sobre la proximidad de un impulso que no puede ser integrado, disparando así la represión.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "intermedio"
+  tags: ["psicoanalisis", "represion", "inconsciente"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Según el concepto de represión en el psicoanálisis, los contenidos reprimidos son recuerdos que han sido borrados permanentemente de la mente y que nunca podrán volver a la conciencia."
+
+explicacion: |
+  La represión no es un borrado definitivo, sino un mecanismo de defensa que desplaza los contenidos traumáticos o inaceptables fuera de la conciencia hacia el inconsciente. Sin embargo, estos contenidos siguen activos y pueden emerger a través de sueños, actos fallidos o síntomas.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  tema_secundario: "confusiones_conceptuales"
+  nivel: "basico"
+  tags: ["inconsciente", "memoria", "confusion"]
+
+respuesta: "represión"
+tipo: completar
+respuestas_validas:
+  - "represión"
+
+enunciado: "Cuando un individuo experimenta un evento traumático que su psiquismo considera inaceptable, el mecanismo de defensa que actúa para alejarlo de la conciencia se denomina ___."
+
+explicacion: |
+  Es común confundir el olvido natural o la falla de memoria con la represión. La represión implica una acción activa del aparato psíquico para mantener un contenido fuera de la conciencia debido a su carga afectiva conflictiva.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "basico"
+  tags: ["inconsciente", "psicoanalisis"]
+
+enunciado: "Según el psicoanálisis, ¿cuál es la naturaleza de los contenidos inconscientes?"
+
+tipo: mc
+opciones_explicitas: ["Los contenidos inconscientes son estáticos y no afectan el comportamiento.", "Los contenidos inconscientes son dinámicos y buscan retornar a la conciencia.", "El inconsciente es simplemente una falta de atención momentánea.", "El inconsciente es equivalente a la memoria a corto plazo."]
+
+respuesta: "Los contenidos inconscientes son dinámicos y buscan retornar a la conciencia."
+
+explicacion: |
+  Para el psicoanálisis, el inconsciente no es un depósito pasivo de información olvidada, sino un sistema dinámico donde los contenidos reprimidos luchan constantemente por manifestarse.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "intermedio"
+  tags: ["represion", "mecanismos_defensa"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el marco del psicoanálisis, el olvido por represión se diferencia del olvido fisiológico en que el primero es un proceso activo de defensa del yo."
+
+explicacion: |
+  El olvido fisiológico es una falla en la codificación o recuperación de la información, mientras que la represión es un proceso dinámico donde el sujeto "hace" algo para evitar el acceso a un contenido doloroso.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "intermedio"
+  tags: ["estructura_psiquica", "inconsciente"]
+
+respuesta_orden: ["Inconsciente", "Preconsciente", "Consciente"]
+tipo: ordenar
+opciones_explicitas: ["Inconsciente", "Preconsciente", "Consciente"]
+
+enunciado: "Ordene los niveles de la estructura psíquica de Freud, desde el que tiene mayor contenido reprimido (más profundo) hacia el que tiene mayor acceso inmediato a la conciencia:"
+
+explicacion: |
+  El modelo topográfico de Freud establece que el Inconsciente es el nivel más profundo y dinámico, el Preconsciente contiene elementos que no están en la conciencia pero pueden ser evocados fácilmente, y la Conciencia es el nivel de percepción inmediata.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "intermedio"
+  tags: ["psicoanalisis", "represion", "inconsciente"]
+
+respuesta: "represion"
+tipo: "completar"
+respuestas_validas:
+  - "represion"
+  - "represión"
+
+enunciado: "Mientras que el olvido común es un proceso de pérdida de información por falta de consolidación o interferencia, la ________ es un mecanismo de defensa que consiste en la expulsión de contenidos dolorosos de la conciencia hacia el inconsciente."
+
+explicacion: |
+  La represión es un proceso dinámico donde el yo intenta mantener fuera de la conciencia aquellos pensamientos o impulsos que resultan inaceptables o angustiantes.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "basico"
+  tags: ["inconsciente", "represion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Según el psicoanálisis, los contenidos reprimidos permanecen en el inconsciente y pueden manifestarse a través de síntomas o sueños, manteniendo su carga afectiva."
+
+explicacion: |
+  Correcto. El contenido reprimido no es simplemente "olvidado", sino que permanece activo en la psique, buscando una vía de expresión.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "avanzado"
+  tags: ["inconsciente", "preconsciente", "freud"]
+
+opciones_explicitas: ["El preconsciente es accesible con esfuerzo, mientras que el inconsciente es inaccesible por naturaleza.", "El inconsciente es solo memoria a corto plazo.", "El preconsciente y el inconsciente son términos sin distinción funcional."]
+
+respuesta: "El preconsciente es accesible con esfuerzo, mientras que el inconsciente es inaccesible por naturaleza."
+tipo: "mc"
+
+enunciado: "¿Cuál es la principal distinción entre el contenido preconsciente y el contenido inconsciente en la teoría freudiana?"
+
+explicacion: |
+  El preconsciente contiene información que no está en la conciencia en este momento pero que puede ser recuperada fácilmente (como un número de teléfono), mientras que el inconsciente contiene contenidos reprimidos de difícil acceso.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "intermedio"
+  tags: ["mecanismos_de_defensa", "represion"]
+
+respuesta: "represion"
+tipo: "completar"
+respuestas_validas:
+  - "represion"
+  - "represión"
+
+enunciado: "Cuando un individuo experimenta angustia debido a un conflicto entre un impulso y una norma moral, el yo utiliza la ________ para evitar el malestar."
+
+pasos:
+  - "Identificar el conflicto psíquico."
+  - "Reconocer la función de defensa del yo."
+
+explicacion: |
+  La represión actúa como un escudo ante la angustia que produciría la consciencia de un deseo incompatible con la moralidad.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "intermedio"
+  tags: ["procesos", "inconsciente", "represion"]
+
+opciones_explicitas: ["Represión", "Inconsciente", "Síntoma"]
+
+respuesta_orden: ["Represión", "Inconsciente", "Síntoma"]
+tipo: "ordenar"
+
+enunciado: "Ordene la secuencia lógica del proceso dinámico que explica cómo un trauma se manifiesta en la clínica psicoanalítica:"
+
+explicacion: |
+  El proceso comienza con la represión del trauma (envío al inconsciente), lo que genera un conflicto que finalmente se manifiesta a través de un síntoma.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "intermedio"
+  tags: ["psicoanalisis", "represion", "inconsciente"]
+
+variables:
+  escenario: uno_de([["Un trauma infantil severo que el sujeto no recuerda pero que genera ansiedad constante.", "represion"], ["Un nombre olvidado momentáneamente durante una conversación.", "olvido_comun"], ["La incapacidad de recordar un evento traumático por una lesión cerebral.", "amnesia_organica"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["represion", "olvido_comun", "amnesia_organica"]
+
+enunciado: "En un proceso psicoanalítico, si un sujeto presenta {escenario[0]}, el mecanismo de defensa que ha actuado para mantener ese contenido fuera de la conciencia es la ___."
+
+explicacion: |
+  La represión es un mecanismo de defensa que consiste en excluir de la conciencia aquellos pensamientos, impulsos o recuerdos que resultan perturbadores o dolorosos para el yo.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "basico"
+  tags: ["inconsciente", "teoria_psicoanalitica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Desde la perspectiva psicoanalítica, el inconsciente es un sistema dinámico que contiene contenidos mentales (deseos, impulsos, recuerdos reprimidos) que, aunque inaccesibles a la conciencia de forma directa, ejercen influencia en la conducta y la vida psíquica."
+
+explicacion: |
+  Para el psicoanálisis, el inconsciente no es solo un depósito pasivo, sino un sistema activo que presiona constantemente hacia la conciencia.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "avanzado"
+  tags: ["retorno_de_lo_reprimido", "sintoma"]
+
+variables:
+  caso: uno_de([["Un lapsus linguae (error al hablar) que revela un deseo oculto.", "lapsus"], ["Un sueño recurrente con un tema conflictivo.", "sueño"], ["Un síntoma físico sin causa médica aparente.", "sintoma"]])
+
+respuesta: caso[1]
+tipo: completar
+respuestas_validas:
+  - "lapsus"
+  - "sueño"
+  - "sintoma"
+
+enunciado: "Cuando un contenido reprimido intenta manifestarse en la conciencia de forma distorsionada, se produce el 'retorno de lo reprimido'. Un ejemplo de esto es el ___."
+
+explicacion: |
+  Los lapsus, los sueños y los síntomas son formas en las que el contenido inconsciente logra burlar la censura para manifestarse.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "intermedio"
+  tags: ["olvido", "represion"]
+
+variables:
+  textos: ["El olvido es un proceso de pérdida de información, mientras que la represión es un proceso de exclusión activa.", "El olvido es un proceso de exclusión activa, mientras que la represión es un proceso de pérdida de información."]
+  valores: [verdadero, falso]
   idx: uno_de([0, 1])
 
-respuesta: "cambios físicos"
-tipo: mc
+respuesta: valores[idx]
+tipo: vf
 
-opciones_explicitas:
-  - "cambios físicos"
-  - "cambios psicosociales"
-  - "cambios cognitivos"
-
-enunciado: "Un error común es confundir los procesos biológicos con los procesos de identidad. Si un individuo experimenta {escenario[idx][0]}, está atravesando principalmente ___."
+enunciado: "Respecto a la distinción entre olvido y represión, ¿es correcto afirmar que: {textos[idx]}?"
 
 explicacion: |
-  Es fundamental distinguir entre la maduración biológica (pubertad/cambios físicos) y la maduración de la identidad y el rol social (adolescencia/cambios psicosociales).
+  El olvido suele ser un fallo en la recuperación o almacenamiento, mientras que la represión implica una lucha del Yo contra un impulso que busca ser reprimido.
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "niñez_identidad"
-  nivel: "intermedio"
-  tags: ["niñez", "identidad", "autoestima"]
+  tema: "memoria_y_olvido_represion_inconsciente"
+  nivel: "avanzado"
+  tags: ["metodo_psicoanalitico", "secuencia"]
 
-respuesta: "en construcción"
+respuesta_orden: ["Conflicto", "Represión", "Manifestación"]
+tipo: ordenar
+opciones_explicitas: ["Conflicto", "Represión", "Manifestación"]
+
+enunciado: "Ordene la secuencia lógica de la formación de un síntoma desde la perspectiva del conflicto psíquico:"
+
+pasos:
+  - "El conflicto surge entre el impulso y la defensa."
+  - "La defensa actúa para mantener el impulso fuera de la conciencia."
+  - "El contenido reprimido aparece de forma distorsionada."
+
+explicacion: |
+  La secuencia implica: 1. Conflicto (impulso vs censura), 2. Represión (la acción de excluir) y 3. Manifestación (el síntoma o retorno de lo reprimido).
+```
+
+## Sección: psicologia-cognitiva-percepcion-memoria-atencion (25 preguntas)
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_cognitiva_percepcion"
+  nivel: "basico"
+  tags: ["percepcion", "procesos_mentales"]
+
+respuesta: "percepción"
 tipo: completar
+respuestas_validas:
+  - "percepción"
+  - "percepcion"
+
+enunciado: "El proceso mediante el cual el cerebro organiza e interpreta la información sensorial para darle un significado es la ___."
+
+explicacion: |
+  La percepción no es solo recibir estímulos (sensación), sino el proceso cognitivo de interpretación de esos datos.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_cognitiva_memoria"
+  nivel: "basico"
+  tags: ["memoria", "modelo_multialmacen"]
+
+opciones_explicitas: ["Memoria Sensorial", "Memoria a Corto Plazo", "Memoria a Largo Plazo"]
+respuesta: "Memoria a Corto Plazo"
+tipo: mc
+
+enunciado: "Según el modelo de Atkinson y Shiffrin, el sistema que permite retener una cantidad limitada de información durante un periodo breve es la ___."
+
+explicacion: |
+  La memoria a corto plazo actúa como un espacio de trabajo temporal antes de que la información sea consolidada en la memoria a largo plazo.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_cognitiva_atencion"
+  nivel: "intermedio"
+  tags: ["atencion", "foco"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿La atención selectiva es la capacidad de concentrarse en un estímulo específico ignorando otros estímulos irrelevantes?"
+
+explicacion: |
+  Efectivamente, la atención selectiva permite filtrar la información para evitar la sobrecarga cognitiva.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_cognitiva_memoria"
+  nivel: "intermedio"
+  tags: ["codificacion", "almacenamiento", "recuperacion"]
+
+opciones_explicitas: ["Codificación", "Almacenamiento", "Recuperación"]
+respuesta_orden: ["Codificación", "Almacenamiento", "Recuperación"]
+tipo: ordenar
+
+enunciado: "Ordene las fases del proceso de memoria desde la entrada del estímulo hasta su salida:"
+
+explicacion: |
+  El ciclo de la memoria requiere primero transformar el estímulo (codificación), guardarlo (almacenamiento) y luego acceder a él (recuperación).
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "psicologia_cognitiva_aprendizaje"
+  nivel: "basico"
+  tags: ["aprendizaje", "cambio"]
+
+tipo: mc
+
+opciones_explicitas: ["Un cambio relativamente permanente en la conducta o las representaciones mentales como resultado de la experiencia", "Un cambio temporal debido a la fatiga o el estado de ánimo", "Una respuesta puramente refleja sin participación cognitiva", "Un proceso exclusivamente biológico sin relación con la experiencia"]
+
+pasos:
+  - "Identificar la definición clásica de aprendizaje."
+
+enunciado: "En psicología cognitiva, ¿cómo se define fundamentalmente el aprendizaje?"
+
+respuesta: "Un cambio relativamente permanente en la conducta o las representaciones mentales como resultado de la experiencia"
+
+explicacion: |
+  El aprendizaje implica un cambio relativamente permanente en la conducta o en las representaciones mentales como resultado de la experiencia.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_trabajo"
+  nivel: "intermedio"
+  tags: ["cognicion", "memoria"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["El sujeto debe retener una secuencia de números para realizar una operación mental.", "retener"], ["El sujeto debe manipular mentalmente una lista de palabras para categorizarlas.", "manipular"]]
+
+enunciado: "Un estudiante está realizando una tarea de {datos[escenario_idx][0]}. En este proceso, la capacidad de mantener la información activa para su procesamiento inmediato se denomina memoria de trabajo. La función principal de este componente es ___ la información."
 
 respuestas_validas:
-  - "en construcción"
-  - "en desarrollo"
-
-enunciado: "A diferencia de la identidad consolidada del adulto, la identidad en la etapa de la niñez se encuentra ___."
-
-explicacion: |
-  En la niñez, la identidad es fluida y se construye principalmente a través de la interacción con los cuidadores primarios y el juego, siendo una base que se transformará profundamente en la pubertad.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "pubertad_percepcion"
-  nivel: "avanzado"
-  tags: ["pubertad", "autoimagen", "psicologia"]
-
-variables:
-  casos: [
-    ["La percepción de la imagen corporal se vuelve más crítica y sensible.", "verdadero"],
-    ["La identidad se vuelve independiente de la opinión de los pares.", "falso"]
-  ]
-  idx: uno_de([0, 1])
-
-respuesta: "verdadero"
+  - "manipular"
+  - "procesar"
+respuesta: "manipular"
 tipo: completar
-enunciado: "Durante la pubertad, debido a los cambios en la imagen corporal, es común que la percepción de la autopercepción se vuelva más crítica y sensible. ¿Es esto cierto?"
 
 explicacion: |
-  La combinación de cambios físicos rápidos y el desarrollo de la capacidad de pensamiento abstracto (metacognición) hace que el individuo sea mucho más consciente de su apariencia y de cómo es visto por los demás.
+  La memoria de trabajo no es solo un almacén pasivo, sino un sistema dinámico que permite la manipulación de la información necesaria para tareas cognitivas complejas.
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "desarrollo_infantil"
-  nivel: "basico"
-  tags: ["niñez", "pubertad", "desarrollo"]
-
-respuesta: "pubertad"
-tipo: mc
-opciones_explicitas: ["niñez", "pubertad", "adolescencia", "vejez"]
-
-enunciado: "Mientras que la niñez se caracteriza por un crecimiento físico y cognitivo constante, la etapa que se distingue principalmente por la maduración de los órganos reproductivos es la ___."
-
-explicacion: |
-  La pubertad es el proceso biológico de cambios físicos y hormonales que marca el inicio de la capacidad reproductiva, diferenciándose de la niñez en su enfoque en la maduración sexual.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "identidad_adolescente"
+  tema: "percepcion_procesamiento"
   nivel: "intermedio"
-  tags: ["identidad", "psicologia_evolutiva"]
+  tags: ["percepcion", "atencion"]
 
 variables:
-  es_identidad_estable: uno_de([verdadero, falso])
+  caso_idx: uno_de([0, 1])
+  ejemplos: [["Ver una mancha roja en un papel blanco y reconocerla como una manzana debido a la experiencia previa.", "top-down"], ["Detectar el color rojo de un objeto basándose únicamente en la estimulación de los fotorreceptores.", "bottom-up"]]
 
-respuesta: es_identidad_estable
-tipo: completar
-enunciado: "Durante la transición de la pubertad a la adolescencia, la identidad del individuo suele ser un proceso dinámico y en constante búsqueda, por lo tanto, ¿es la identidad un constructo estático e inmutable durante este periodo? {es_identidad_estable}"
+enunciado: "Analicemos el siguiente caso: {ejemplos[caso_idx][0]}. Este tipo de procesamiento, donde los conocimientos previos y las expectativas influyen en la interpretación de los estímulos, se denomina procesamiento ___."
+
+opciones_explicitas: ["top-down", "bottom-up", "perceptual", "sensorial"]
+respuesta: "top-down"
+tipo: mc
 
 explicacion: |
-  La identidad en la adolescencia es un proceso de exploración. No es un estado fijo, sino una construcción que se moldea a través de la interacción social y la introspección.
+  El procesamiento top-down (de arriba hacia abajo) ocurre cuando nuestros procesos cognitivos de alto nivel (conocimiento, expectativas) guían la percepción de los estímulos sensoriales.
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "etapas_del_desarrollo"
+  tema: "atencion_selectiva"
   nivel: "basico"
-  tags: ["secuencia", "etapas"]
+  tags: ["atencion", "interferencia"]
 
-opciones_explicitas: ["Infancia", "Pubertad", "Adultez"]
-respuesta: ["Infancia", "Pubertad", "Adultez"]
+enunciado: "En el Test de Stroop, se presenta la palabra 'AZUL' escrita en tinta de color rojo. El sujeto debe decir el color de la tinta, no leer la palabra. Esto genera una interferencia porque la lectura es un proceso automático que compite con la atención selectiva al color. ¿Es verdadero que este fenómeno demuestra la existencia de procesos automáticos que interfieren con procesos controlados?"
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  El efecto Stroop es un ejemplo clásico de cómo la automatización de procesos (como la lectura) puede dificultar la ejecución de una tarea controlada (nombrar el color).
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "aprendizaje_memoria"
+  nivel: "avanzado"
+  tags: ["aprendizaje", "codificacion"]
+
+enunciado: "Para que un aprendizaje sea consolidado, la información debe atravesar una serie de etapas secuenciales. Ordene el proceso desde que el estímulo llega al sistema hasta que se estabiliza en la memoria a largo plazo:"
+
+opciones_explicitas: ["Codificación", "Almacenamiento", "Recuperación"]
+respuesta_orden: ["Codificación", "Almacenamiento", "Recuperación"]
 tipo: ordenar
 
-enunciado: "Ordene cronológicamente las siguientes etapas del desarrollo humano, desde la más temprana a la más tardía:"
-
-pasos:
-  - "Identificar la etapa de dependencia y aprendizaje motor."
-  - "Identificar la etapa de cambios hormonales y búsqueda de autonomía."
-  - "Identificar la etapa de consolidación de la identidad y roles sociales."
-
 explicacion: |
-  El desarrollo humano sigue una secuencia biológica y psicológica predecible: primero la infancia (crecimiento), luego la pubertad (maduración sexual) y finalmente la adultez (estabilidad).
+  El proceso de memoria sigue una secuencia lógica: primero se codifica la información (transformación del estímulo), luego se almacena (mantenimiento) y finalmente se recupera (acceso a la información).
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "maduracion_biologica"
+  tema: "modelos_memoria"
   nivel: "intermedio"
-  tags: ["maduracion", "crecimiento"]
+  tags: ["memoria", "procesamiento"]
 
 variables:
-  caso_estudio: uno_de([0, 1])
+  tarea_idx: uno_de([0, 1])
+  escenarios: ["el reflejo visual que queda unos milisegundos tras ver un flash de luz", "el eco de un sonido que persiste apenas un instante después de escucharlo"]
 
-respuesta: tabla[caso_estudio][1
-tipo: completar
+enunciado: "Un sujeto experimenta {escenarios[tarea_idx]}. Si el sujeto no presta atención a este estímulo, la información se pierde casi instantáneamente de la memoria ___."
 
-enunciado: "En el contexto del desarrollo, el crecimiento se refiere al aumento de tamaño físico, mientras que la ___ se refiere a la adquisición de funciones complejas a través de la maduración del sistema nervioso. El caso analizado es: {caso_estudio}."
-
-pasos:
-  - "Diferenciar entre aumento cuantitativo (crecimiento) y aumento cualitativo (maduración)."
-
-variables_contexto:
-  tabla: [
-    ["maduración", "maduración"]
-  ]
+opciones_explicitas: ["sensorial", "a corto plazo", "a largo plazo", "semántica"]
+respuesta: "sensorial"
+tipo: mc
 
 explicacion: |
-  La maduración es un proceso cualitativo que permite la aparición de nuevas capacidades (como el lenguaje o el razonamiento abstracto), mientras que el crecimiento es cuantitativo.
+  La memoria sensorial es el primer nivel de procesamiento; retiene la información física del estímulo por un tiempo extremadamente breve (milisegundos a segundos) antes de que pase a la memoria de corto plazo mediante la atención.
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "identidad_y_cuerpo"
-  nivel: "avanzado"
-  tags: ["identidad", "cambios_fisicos"]
-
-variables:
-  es_centrado_en_el_otro: uno_de([verdadero, falso])
-
-respuesta: es_centrado_en_el_otro
-tipo: completar
-enunciado: "Durante la pubertad, el egocentrismo adolescente suele aumentar, lo que lleva al individuo a sentir que es el centro de atención de los demás (el 'público imaginario'). ¿Es este fenómeno una característica distintiva de la identidad en esta etapa? {es_centrado_en_el_otro}"
-
-explicacion: |
-  El egocentrismo adolescente es un fenómeno psicológico donde el joven siente que sus experiencias y su apariencia son observadas constantemente por los demás, marcando un cambio en su autoconcepto.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "cambios_fisicos_pubertad"
+  tema: "percepcion_sensacion"
   nivel: "basico"
-  tags: ["desarrollo", "pubertad"]
+  tags: ["percepcion", "procesos_mentales"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La percepción es un proceso puramente fisiológico que ocurre exclusivamente en los órganos sensoriales, sin intervención de los procesos mentales superiores."
+
+explicacion: |
+  La sensación es el proceso fisiológico de captar estímulos, mientras que la percepción es el proceso psicológico de organizar e interpretar dicha información sensorialmente captada.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_procesos"
+  nivel: "intermedio"
+  tags: ["memoria", "errores_comunes"]
+
+opciones_explicitas: ["memoria_sensorial", "memoria_de_trabajo", "memoria_a_largo_plazo", "memoria_episodica"]
+
+respuesta: "memoria_sensorial"
+tipo: mc
+
+enunciado: "Si una persona es capaz de retener una imagen visual por apenas unos milisegundos antes de que se desvanezca, ¿qué tipo de memoria está utilizando?"
+
+explicacion: |
+  La memoria sensorial es el sistema que retiene la información sensorial por un periodo muy breve (milisegundos) antes de que sea procesada o perdida.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "atencion_selectiva"
+  nivel: "intermedio"
+  tags: ["atencion", "filtro"]
+
+respuesta: "El filtro atencional"
+tipo: completar
+respuestas_validas:
+  - "El filtro atencional"
+  - "Filtro atencional"
+  - "filtro atencional"
+
+enunciado: "En el modelo de atención de Broadbent, la capacidad de procesar solo una parte de la información sensorial mientras se ignoran otros estímulos se debe a la existencia de ___."
+
+explicacion: |
+  El modelo de filtro sugiere que existe un mecanismo que selecciona la información relevante y bloquea el resto para evitar la sobrecarga cognitiva.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "aprendizaje_procesamiento"
+  nivel: "avanzado"
+  tags: ["aprendizaje", "memoria"]
+
+opciones_explicitas: ["Codificación", "Almacenamiento", "Recuperación"]
+respuesta_orden: ["Codificación", "Almacenamiento", "Recuperación"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente las etapas necesarias para que un proceso de aprendizaje sea efectivo en el sistema de memoria:"
+
+explicacion: |
+  El aprendizaje requiere primero codificar la información, luego almacenarla en la memoria y, finalmente, ser capaz de recuperarla cuando sea necesario.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_reconstruccion"
+  nivel: "intermedio"
+  tags: ["memoria", "errores"]
+
+respuesta: "falso"
+tipo: completar
+enunciado: "La memoria humana funciona como una grabación de video exacta que permite reproducir los eventos pasados sin alteraciones ni distorsiones."
+
+explicacion: |
+  La memoria es un proceso reconstructivo, no reproductivo. Esto significa que cada vez que recordamos, reconstruimos la información, lo que la hace susceptible a errores, sesgos y falsos recuerdos.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "percepcion_sensacion"
+  nivel: "basico"
+  tags: ["percepcion", "sensacion", "procesos_mentales"]
+
+tipo: mc
+opciones_explicitas: ["La sensación es la interpretación de los estímulos, mientras que la percepción es la recepción de energía física.", "La percepción es la interpretación de los estímulos, mientras que la sensación es la recepción de energía física.", "Ambos términos son sinónimos en la psicología cognitiva.", "La sensación requiere procesos cognitivos superiores y la percepción es puramente fisiológica."]
+
+respuesta: "La percepción es la interpretación de los estímulos, mientras que la sensación es la recepción de energía física."
+
+enunciado: "En psicología cognitiva, ¿cuál es la distinción fundamental entre sensación y percepción?"
+
+explicacion: |
+  La sensación es el proceso fisiológico de recibir estímulos a través de los receptores sensoriales, mientras que la percepción es el proceso psicológico de organizar e interpretar esa información para darle significado.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "memoria_cognitiva"
+  nivel: "intermedio"
+  tags: ["memoria", "atencion", "carga_cognitiva"]
 
 variables:
-  datos: [["Mateo experimenta un cambio en su voz y un aumento de estatura repentino", "pubertad"], ["Lucía siente una mayor sensibilidad emocional y cambios en su ciclo menstrual", "pubertad"], ["Santi nota un crecimiento acelerado y la aparición de acné", "pubertad"]]
-  idx: uno_de([0,1,2])
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["manteniendo activamente en mente el número de teléfono de un amigo mientras lo marca", "memoria de trabajo"], ["recordando el nombre de la capital de un país que aprendió hace años", "memoria a largo plazo"]]
 
-enunciado: "Un adolescente presenta el siguiente caso: {datos[idx][0]}. Este conjunto de cambios biológicos caracteriza la etapa de la {datos[idx][1]}."
+tipo: completar
+respuestas_validas:
+  - "memoria de trabajo"
+  - "memoria a largo plazo"
+respuesta: escenarios[escenario_idx][1]
+
+enunciado: "Si una persona está {escenarios[escenario_idx][0]}, el proceso mental predominante que está utilizando para gestionar esa información es la ___."
+
+explicacion: |
+  La memoria de trabajo es un sistema de capacidad limitada que mantiene y manipula la información necesaria para tareas cognitivas complejas en el momento presente.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "atencion_procesos"
+  nivel: "basico"
+  tags: ["atencion", "filtro", "multitarea"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "¿Es cierto que la atención dividida es la capacidad de procesar un único estímulo de manera profunda mientras se ignoran otros estímulos irrelevantes?"
+
+explicacion: |
+  Falso. La capacidad de enfocarse en un solo estímulo ignorando otros es la atención selectiva. La atención dividida es la capacidad de procesar múltiples fuentes de información o realizar dos o más tareas simultáneamente.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "aprendizaje_conductual"
+  nivel: "intermedio"
+  tags: ["aprendizaje", "condicionamiento", "conducta"]
+
+tipo: mc
+opciones_explicitas: ["El clásico se basa en la asociación de estímulos, mientras que el operante se basa en las consecuencias de la conducta.", "El operante se basa en la asociación de estímulos, mientras que el clásico se basa en las consecuencias de la conducta.", "El clásico requiere refuerzos para ocurrir, mientras que el operante es automático.", "Ambos requieren la presencia de un estímulo incondicionado."]
+
+respuesta: "El clásico se basa en la asociación de estímulos, mientras que el operante se basa en las consecuencias de la conducta."
+
+enunciado: "Al comparar ambos procesos, ¿qué distingue fundamentalmente al condicionamiento operante del condicionamiento clásico?"
+
+explicacion: |
+  En el condicionamiento clásico, el sujeto es pasivo y aprende por asociación de estímulos; en el operante, el sujeto es activo y la probabilidad de la conducta cambia según las consecuencias (refuerzos o castigos) que le siguen.
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "procesamiento_informacion"
+  nivel: "avanzado"
+  tags: ["memoria", "codificacion", "recuperacion"]
+
+tipo: ordenar
+opciones_explicitas: ["Codificación", "Almacenamiento", "Recuperación"]
+respuesta_orden: ["Codificación", "Almacenamiento", "Recuperación"]
+
+enunciado: "Ordene cronológicamente las etapas del proceso de memoria según el modelo de procesamiento de la información:"
+
+explicacion: |
+  El proceso comienza con la codificación (transformación del estímulo en un código mental), seguido del almacenamiento (mantenimiento de la información en el sistema) y finaliza con la recuperación (acceso a la información almacenada).
+```
+
+```
+metadata:
+  materia: "psicologia"
+  tema: "atencion_selectiva"
+  nivel: "intermedio"
+  tags: ["atencion", "percepcion"]
+
+variables:
+  datos: [["Estás en una fiesta ruidosa y logras seguir la conversación de tu amigo", "atencion_selectiva"], ["Estás leyendo un libro y de repente escuchas tu nombre a lo lejos", "atencion_involuntaria"], ["Estás buscando tus llaves en una mesa desordenada", "atencion_sostenida"]]
+  idx: uno_de([0,1,2])
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["pubertad"]
+enunciado: "En el escenario donde {datos[idx][0]}, el proceso cognitivo predominante es la ___."
 
 explicacion: |
-  La pubertad es la etapa de transición donde ocurren cambios hormonales significativos que derivan en el desarrollo de caracteres sexuales secundarios.
+  La atención selectiva permite filtrar estímulos irrelevantes para concentrarse en uno específico, como en el efecto 'cocktail party'.
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "identidad_adolescencia"
+  tema: "memoria_trabajo"
   nivel: "intermedio"
-  tags: ["identidad", "psicologia_evolutiva"]
+  tags: ["memoria", "carga_cognitiva"]
 
-variables:
-  datos: [["Busca grupos sociales con intereses similares para reafirmar quién es", "identidad"], ["Se siente confundido sobre su rol en el mundo y sus valores", "identidad"], ["Experimenta crisis de pertenencia y prueba diferentes estilos de vestimenta", "identidad"]]
-  idx: uno_de([0,1,2])
-
-enunciado: "En el desarrollo de la personalidad, cuando un individuo se encuentra en el proceso de {datos[idx][0]}, está trabajando activamente en la formación de su ________."
-
-respuesta: "identidad"
+respuesta: "7"
 tipo: completar
-respuestas_validas: ["identidad"]
+respuestas_validas:
+  - "7"
+  - "7 ± 2"
+  - "5 a 9"
+
+enunciado: "Según el 'número mágico' propuesto por Miller, la capacidad promedio de elementos que la memoria de trabajo puede retener simultáneamente es de ___ (más o menos 2)."
 
 explicacion: |
-  Según Erikson, la búsqueda de identidad es la tarea central de la adolescencia, donde el individuo integra sus experiencias para formar un sentido del 'yo'.
+  La memoria de trabajo tiene una capacidad limitada: el número mágico de Miller es 7 ± 2 elementos.
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "etapas_desarrollo_infantil"
-  nivel: "basico"
-  tags: ["niñez", "hitos"]
-
-enunciado: "¿Es correcto afirmar que durante la niñez temprana el pensamiento es predominantemente egocéntrico y centrado en el 'aquí y ahora'?"
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  En la etapa de la niñez temprana (según Piaget), el niño tiene dificultades para ver las perspectivas de los demás, centrando su percepción en su propia experiencia.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "secuencia_crecimiento"
-  nivel: "intermedio"
-  tags: ["crecimiento", "desarrollo"]
-
-opciones_explicitas: ["Crecimiento cefalocaudal", "Crecimiento proximodistal", "Maduración de la identidad"]
-
-enunciado: "Ordena los procesos de desarrollo físico y psicológico en el orden cronológico/direccional correcto para un ser humano en desarrollo:"
-
-pasos:
-  - "El desarrollo ocurre de la cabeza hacia los pies."
-  - "El desarrollo ocurre del centro del cuerpo hacia las extremidades."
-  - "La consolidación de la personalidad adulta."
-
-respuesta: ["Crecimiento cefalocaudal", "Crecimiento proximodistal", "Maduración de la identidad"]
-tipo: ordenar
-
-explicacion: |
-  El desarrollo humano sigue patrones biológicos (cefalocaudal y proximodistal) antes de llegar a la maduración psicológica compleja.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "socializacion_adolescencia"
-  nivel: "intermedio"
-  tags: ["socializacion", "grupo_pares"]
-
-variables:
-  datos: [["El grupo de amigos se vuelve el referente principal de normas", "amigos"], ["La familia sigue siendo el núcleo de valores absolutos", "familia"], ["El individuo se aísla de toda influencia externa", "aislamiento"]]
-  idx: uno_de([0,1,2])
-
-enunciado: "En la transición de la niñez a la adolescencia, el foco de influencia social suele cambiar. Si observamos que {datos[idx][0]}, esto indica un desplazamiento hacia el grupo de ________."
-
-respuesta: "{datos[idx][1]}"
-tipo: completar
-respuestas_validas: ["amigos", "familia", "aislamiento"]
-
-explicacion: |
-  Durante la adolescencia, el grupo de pares (amigos) adquiere una relevancia crucial para la socialización, compitiendo con la autoridad familiar en la formación de la identidad.
-```
-
-## Sección: lenguaje-pensamiento-y-creatividad (25 preguntas)
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "basico"
-  tags: ["simbolismo", "semiotica"]
-
-respuesta: "simbólico"
-tipo: completar
-respuestas_validas: ["simbólico", "simbolico"]
-
-enunciado: "El lenguaje es un sistema de signos cuya función principal es representar la realidad de manera ___, permitiendo que el pensamiento se desprenda de la inmediatez de los objetos físicos."
-
-explicacion: |
-  El carácter simbólico permite que una palabra (significante) represente un concepto (significado) sin que exista una conexión física necesaria, permitiendo la abstracción.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "intermedio"
-  tags: ["relativismo_linguistico", "determinismo"]
-
-variables:
-  escenario: uno_de([["el lenguaje determina el pensamiento", "el lenguaje influye en el pensamiento"], ["la estructura del lenguaje limita la cognición", "el lenguaje moldea la percepción"]])
-
-respuesta: uno_de(escenario)
-tipo: mc
-opciones_explicitas: ["el lenguaje determina el pensamiento", "el lenguaje influye en el pensamiento", "el lenguaje es un producto secundario del pensamiento", "no existe relación entre ambos"]
-
-enunciado: "Según la versión fuerte del relativismo lingüístico (determinismo), la idea principal es que ___."
-
-explicacion: |
-  El determinismo lingüístico sostiene que la estructura de la lengua que hablamos determina y limita las categorías de nuestro pensamiento.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "basico"
-  tags: ["relacion_cognitiva"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El pensamiento puede ocurrir de forma independiente al lenguaje (por ejemplo, en la actividad mental de un recién nacido o en el pensamiento visual), aunque el lenguaje facilita su estructuración y complejidad."
-
-explicacion: |
-  Aunque están íntimamente ligados, existen procesos cognitivos (como la inteligencia espacial o el pensamiento pre-verbal) que operan sin necesidad de estructuras lingüísticas complejas.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "basico"
-  tags: ["semiotica", "signo"]
-
-respuesta: "significante"
-tipo: completar
-respuestas_validas: ["significante", "significado"]
-
-enunciado: "En la teoría del signo lingüístico, la forma física o acústica de la palabra se denomina ___, mientras que el concepto mental que evoca se denomina significado."
-
-explicacion: |
-  Saussure define el signo como la unión de un significante (la imagen acústica/escrita) y un significado (el concepto).
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "intermedio"
-  tags: ["creatividad", "pensamiento_divergente"]
-
-respuesta: ["Pensamiento Divergente", "Pensamiento Convergente", "Producción Creativa"]
-tipo: ordenar
-
-opciones_explicitas: ["Pensamiento Divergente", "Pensamiento Convergente", "Producción Creativa"]
-
-enunciado: "Ordene los procesos cognitivos según una secuencia lógica en un proceso de resolución creativa de problemas: primero se exploran múltiples soluciones posibles, luego se evalúa la mejor opción y finalmente se ejecuta la idea."
-
-explicacion: |
-  La creatividad suele implicar un movimiento desde la divergencia (generación de ideas) hacia la convergencia (selección y refinamiento) para llegar a un producto final.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "intermedio"
-  tags: ["hipotesis_relativismo_linguistico", "categorizacion"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  escenarios: [
-    ["Un hablante de un idioma que tiene una sola palabra para 'azul' y 'verde'", "color_unico"],
-    ["Un hablante de un idioma que distingue claramente entre 'azul' y 'celeste'", "distincion_clara"]
-  ]
-
-enunciado: "Según la hipótesis de Sapir-Whorf, si una persona pertenece al escenario {escenarios[caso_idx][0]}, su capacidad para categorizar y recordar matices cromáticos estará influenciada por su estructura lingüística. Esto sugiere que el lenguaje ___ el pensamiento."
-
-pasos:
-  - "Analizar cómo la falta de términos específicos afecta la percepción de los límites de color."
-  - "Relacionar la estructura gramatical con la organización mental de los estímulos."
-
-opciones_explicitas: ["restringe", "no tiene", "potencia", "ignora"]
-respuesta: "restringe"
-tipo: "mc"
-
-explicacion: |
-  El relativismo lingüístico sugiere que las categorías lingüísticas actúan como filtros que estructuran la percepción y la memoria de los estímulos sensoriales.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "basico"
-  tags: ["determinismo_linguistico", "teoria"]
-
-enunciado: "El determinismo lingüístico fuerte sostiene que el lenguaje determina absolutamente la forma en que pensamos, haciendo imposible pensar conceptos para los cuales no existen palabras."
-
-respuesta: falso
-tipo: "vf"
-
-explicacion: |
-  La psicología moderna distingue entre el determinismo (fuerte y hoy mayormente descartado) y el relativismo (débil), que postula que el lenguaje influye o facilita ciertos patrones de pensamiento, pero no los limita de forma absoluta.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "intermedio"
-  tags: ["creatividad", "pensamiento_divergente"]
-
-enunciado: "Para resolver un problema de pensamiento divergente, como encontrar usos alternativos para un ladrillo, el sujeto debe seguir una secuencia lógica de procesamiento creativo. Ordene los pasos desde el inicio hasta la producción de la idea original:"
-
-opciones_explicitas: ["Fluidez de ideas", "Preparación del problema", "Evaluación de la respuesta", "Incubación"]
-respuesta: ["Preparación del problema", "Fluidez de ideas", "Incubación", "Evaluación de la respuesta"]
-tipo: "ordenar"
-
-explicacion: |
-  El proceso creativo implica primero entender el reto (preparación), generar múltiples opciones sin juzgar (fluidez/divergencia), permitir un periodo de descanso mental (incubación) y finalmente seleccionar la mejor opción (evaluación).
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
+  tema: "percepcion_procesamiento"
   nivel: "avanzado"
-  tags: ["simbolismo", "representacion_mental"]
+  tags: ["percepcion", "procesamiento"]
 
-variables:
-  ejemplo_idx: uno_de([0, 1])
-  ejemplos: [
-    ["La palabra 'perro' representa al animal sin necesidad de verlo", "simbolo_abstracto"],
-    ["El gesto de señalar un objeto para identificarlo", "gesto_referencial"]
-  ]
-
-enunciado: "En el desarrollo cognitivo, el paso hacia el pensamiento simbólico permite que el sujeto utilice un ___ para representar objetos ausentes. En el caso de '{ejemplos[ejemplo_idx][0]}', estamos ante una representación mental de alto nivel."
-
-respuestas_validas: ["símbolo", "signo"]
-tipo: "completar"
-
-explicacion: |
-  El pensamiento simbólico permite la representación mental de objetos, personas o eventos que no están presentes en el entorno inmediato, permitiendo el pensamiento abstracto y el lenguaje.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "intermedio"
-  tags: ["interaccion_lenguaje_pensamiento"]
-
-variables:
-  caso_tipo: uno_de([0, 1])
-  casos: [
-    ["El lenguaje es una herramienta que expresa pensamientos ya formados", "reflejo"],
-    ["El lenguaje es un proceso que moldea la estructura del pensamiento", "moldeador"]
-  ]
-
-enunciado: "Si adoptamos la postura de que el lenguaje es un ___ de la cognición, entonces el pensamiento es previo al lenguaje. Si adoptamos la postura de que el lenguaje es un ___ de la cognición, entonces el lenguaje estructura el pensamiento."
-
-pasos:
-  - "Identificar la postura de 'reflejo' (el lenguaje solo comunica)."
-  - "Identificar la postura de 'moldeador' (el lenguaje estructura)."
-
-opciones_explicitas: ["reflejo, moldeador", "moldeador, reflejo", "reflejo, reflejo", "moldeador, moldeador"]
-respuesta: "reflejo, moldeador"
-tipo: "mc"
-
-explicacion: |
-  Existen dos corrientes principales: la que ve al lenguaje como un mero vehículo de comunicación de procesos mentales preexistentes (reflejo), y la que sostiene que la estructura del lenguaje condiciona la organización de esos procesos (moldeador).
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "intermedio"
-  tags: ["determinismo_linguistico", "hipotesis_sapir_whorf"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Según la versión fuerte de la hipótesis de Sapir-Whorf (determinismo lingüístico), el lenguaje determina de manera absoluta y restrictiva los límites del pensamiento humano."
-
-explicacion: |
-  Aunque el lenguaje influye en la percepción y la categorización (relativismo lingüístico), la psicología cognitiva moderna sostiene que el pensamiento puede ocurrir sin lenguaje (como en bebés o animales) y que el determinismo absoluto es una postura descartada.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "basico"
-  tags: ["simbolos", "representacion_mental"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [[["el color rojo", "una señal de pare"], ["el concepto de justicia", "una balanza"]]]
-
-opciones_explicitas: ["Representación simbólica", "Percepción sensorial pura", "Reflejo instintivo"]
-
-respuesta: "Representación simbólica"
-tipo: mc
-
-enunciado: "Cuando un individuo asocia {escenarios[escenario_idx][0]} con {escenarios[escenario_idx][1]}, está operando mediante una {respuesta_tipo}."
-
-pasos:
-  - "Identificar el estímulo sensorial."
-  - "Reconocer el significado arbitrario asignado por la cultura."
-  - "Conectar el símbolo con el concepto mental."
-
-explicacion: |
-  El pensamiento simbólico permite que un estímulo (sonido, imagen, objeto) represente algo que no está presente, permitiendo la abstracción.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "intermedio"
-  tags: ["procesos_cognitivos", "estructuracion"]
-
-opciones_explicitas: ["El lenguaje es una consecuencia del pensamiento", "El lenguaje es el único motor del pensamiento", "El pensamiento y el lenguaje son procesos independientes que no se influyen"]
-
-respuesta: "El lenguaje es una consecuencia del pensamiento"
-tipo: mc
-
-enunciado: "Desde una perspectiva constructivista, se argumenta que el lenguaje es una herramienta que ayuda a estructurar y dar forma a procesos de pensamiento que ya existen de manera pre-verbal."
-
-explicacion: |
-  Si bien el lenguaje estructura el pensamiento (facilitando la complejidad), el pensamiento precede al lenguaje en el desarrollo cognitivo temprano.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "basico"
-  tags: ["semiotica", "signo"]
-
-respuestas_validas: ["significante", "significado"]
-
-respuesta: ["significante", "significado"]
+respuesta: "top_down"
+respuestas_validas:
+  - "top_down"
+  - "top-down"
 tipo: completar
-
-enunciado: "En la estructura del signo lingüístico, la forma física o acústica (el sonido de la palabra) se denomina ___ y el concepto mental que esta evoca se denomina ___."
+enunciado: "Si el sujeto está interpretando una sombra como un animal debido a sus expectativas o estados emocionales previos, el procesamiento es de tipo ___."
 
 explicacion: |
-  Saussure definió el signo como la unión de una parte material (significante) y una parte conceptual (significado).
+  El procesamiento Top-down (de arriba hacia abajo) ocurre cuando los conocimientos previos, expectativas o motivaciones influyen en la percepción.
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "avanzado"
-  tags: ["creatividad", "modelo_wallas"]
+  tema: "aprendizaje_memoria"
+  nivel: "intermedio"
+  tags: ["aprendizaje", "memoria"]
 
-opciones_explicitas: ["Preparación", "Incubación", "Iluminación", "Verificación"]
-
-respuesta: ["Preparación", "Incubación", "Iluminación", "Verificación"]
+respuesta_orden: ["Codificación", "Almacenamiento", "Recuperación"]
 tipo: ordenar
+opciones_explicitas: ["Codificación", "Almacenamiento", "Recuperación"]
 
-enunciado: "Ordene las fases del proceso creativo propuestas por Graham Wallas:"
+enunciado: "Ordena correctamente las etapas del proceso de memoria que permiten el aprendizaje de una nueva habilidad:"
 
 explicacion: |
-  El proceso creativo comienza con la inmersión en el problema (preparación), seguido de un periodo de procesamiento inconsciente (incubación), la aparición de la idea (iluminación) y finalmente la validación de la misma (verificación).
+  Para que ocurra el aprendizaje, la información debe ser codificada (transformada), almacenada (mantenida) y finalmente recuperada (evocada).
 ```
 
 ```
 metadata:
   materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "intermedio"
-  tags: ["lenguaje", "pensamiento", "hipotesis_linguistica"]
-
-respuesta: "hipotesis_linguistica"
-tipo: completar
-respuestas_validas: ["hipotesis_linguistica", "determinismo_linguistico"]
-
-enunciado: "La teoría que sostiene que la estructura del lenguaje que hablamos determina o limita las categorías de nuestro pensamiento se conoce como ___."
-
-explicacion: |
-  La hipótesis de Sapir-Whorf (o determinismo lingüístico) sugiere que el lenguaje no solo comunica el pensamiento, sino que lo estructura y limita.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
+  tema: "percepcion_reconocimiento"
   nivel: "basico"
-  tags: ["comunicacion", "lenguaje", "simbolismo"]
+  tags: ["percepcion", "gestalt"]
 
 variables:
-  es_comunicacion_solo: uno_de([verdadero, falso])
+  datos: [["una letra 'A' formada por líneas separadas", "ley_cierre"], ["un círculo perfecto", "ley_continuidad"]]
+  idx: uno_de([0,1])
 
-respuesta: es_comunicacion_solo
-tipo: completar
-enunciado: "Si una persona emite un grito de dolor para pedir ayuda, está realizando un acto de comunicación, pero no necesariamente un acto de lenguaje simbólico."
-
-explicacion: |
-  La comunicación es el intercambio de información (puede ser instintiva o gestual), mientras que el lenguaje implica el uso de sistemas de signos arbitrarios y simbólicos con reglas gramaticales.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "intermedio"
-  tags: ["simbolismo", "signo", "semiotica"]
-
-variables:
-  escenario: uno_de([
-    ["la palabra 'perro'", "significante"],
-    ["la imagen mental de un perro", "significado"],
-    ["el concepto abstracto de canino", "concepto"]
-  ])
-
-respuesta: escenario[idx][1
+respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["significante", "significado", "concepto"]
+opciones_explicitas: ["ley_cierre", "ley_continuidad", "ley_figura_fondo"]
 
-enunciado: "En el proceso de representación mental, la parte del signo que es la forma física (sonidos o letras) se denomina ___."
-
-explicacion: |
-  Según la semiótica, el signo se divide en significante (la forma material) y significado (el concepto mental).
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "avanzado"
-  tags: ["creatividad", "pensamiento_divergente", "pensamiento_convergente"]
-
-respuesta: ["pensamiento_divergente", "pensamiento_convergente"]
-tipo: ordenar
-
-opciones_explicitas: ["pensamiento_divergente", "pensamiento_convergente"]
-
-enunciado: "Ordene los siguientes procesos según la secuencia lógica de la resolución creativa de problemas: primero se generan múltiples ideas sin restricciones y luego se selecciona la mejor solución."
+enunciado: "Si el sujeto percibe {datos[idx][0]} como una unidad completa a pesar de que los elementos no estén conectados, está aplicando la {datos[idx][1]}."
 
 explicacion: |
-  La creatividad suele seguir un flujo que va desde la divergencia (generación de opciones) hacia la convergencia (evaluación y selección).
+  La Ley de Cierre de la Gestalt establece que nuestra mente tiende a completar figuras incompletas para darles sentido.
 ```
 
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "intermedio"
-  tags: ["cognicion", "lenguaje"]
-
-variables:
-  caso: uno_de([
-    ["el pensamiento puede existir sin lenguaje", "verdadero"],
-    ["el lenguaje es una herramienta del pensamiento", "falso"]
-  ])
-
-respuesta: caso[idx][0
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "De acuerdo con las teorías cognitivas modernas, ¿es posible que existan procesos de pensamiento (como la rotación mental) que no dependan del lenguaje verbal?"
-
-explicacion: |
-  La evidencia sugiere que el pensamiento no es dependiente exclusivamente del lenguaje; existen procesos cognitivos no verbales, como la inteligencia visoespacial.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "intermedio"
-  tags: ["hipotesis_relativismo", "linguistica", "cognicion"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [
-    ["Un hablante de una lengua que tiene múltiples términos para distintos tipos de 'nieve', percibe diferencias sutiles en la textura del hielo de forma más rápida.", "percepción"],
-    ["Un hablante de una lengua que solo usa la palabra 'nieve' para todo, requiere más tiempo de procesamiento para distinguir texturas de hielo.", "percepción"]
-  ]
-
-enunciado: "Según la hipótesis del relativismo lingüístico, la estructura del lenguaje de una persona puede influir en su {datos[escenario_idx][1]}."
-
-respuesta: datos[escenario_idx][1
-tipo: mc
-opciones_explicitas: ["percepción", "memoria", "emoción", "motricidad"]
-
-explicacion: |
-  El relativismo lingüístico sugiere que las categorías lingüísticas que utilizamos actúan como marcos que facilitan o dificultan la distinción de ciertos aspectos del mundo físico.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "basico"
-  tags: ["conceptos", "categorizacion"]
-
-variables:
-  ejemplo_idx: uno_de([0, 1])
-  ejemplos: [
-    ["El concepto de 'perro' permite agrupar a un caniche, un labrador y un bulldog.", "perro"],
-    ["El concepto de 'fruta' permite agrupar a una manzana, una pera y una uva.", "fruta"]
-  ]
-
-enunciado: "Cuando una persona utiliza una palabra para agrupar diversos objetos con características comunes, está utilizando un ___ para organizar su pensamiento."
-
-respuesta: ejemplos[ejemplo_idx][1
-tipo: completar
-respuestas_validas: ["concepto", "símbolo", "etiqueta"]
-
-explicacion: |
-  Los conceptos son representaciones mentales que nos permiten categorizar el mundo, ahorrando energía cognitiva al no tener que procesar cada objeto como algo totalmente nuevo.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "basico"
-  tags: ["simbolismo", "representacion_mental"]
-
-enunciado: "El lenguaje es una forma de representación simbólica porque los sonidos o grafemas utilizados no tienen una relación física directa con el objeto que representan."
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  La arbitrariedad del signo lingüístico es una característica fundamental: la palabra "mesa" no se parece a una mesa; es una convención simbólica.
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "avanzado"
-  tags: ["creatividad", "procesos_cognitivos"]
-
-enunciado: "Ordene las etapas del proceso creativo según el modelo tradicional de Wallas:"
-
-opciones_explicitas: ["Preparación", "Incubación", "Iluminación", "Verificación"]
-respuesta: ["Preparación", "Incubación", "Iluminación", "Verificación"]
-tipo: ordenar
-
-explicacion: |
-  El proceso creativo suele seguir una secuencia que va desde la inmersión en el problema (preparación), el procesamiento inconsciente (incubación), el momento del 'eureka' (iluminación) y la validación del resultado (verificación).
-```
-
-```
-metadata:
-  materia: "psicologia"
-  tema: "lenguaje_pensamiento_y_creatividad"
-  nivel: "intermedio"
-  tags: ["resolucion_problemas", "heuristicos"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [
-    ["Un arquitecto que usa planos para visualizar una estructura antes de construirla.", "representacion"],
-    ["Un matemático que utiliza fórmulas para resolver una ecuación compleja.", "representacion"]
-  ]
-
-enunciado: "En el caso de {casos[caso_idx][0]}, el uso de símbolos y lenguaje técnico sirve como una herramienta de ___ mental para resolver problemas."
-
-respuesta: representacion
-tipo: mc
-opciones_explicitas: ["representacion", "inhibicion", "impresion", "reaccion"]
-
-explicacion: |
-  El lenguaje permite la representación mental, lo que nos permite manipular ideas y objetos en nuestra mente sin necesidad de tenerlos presentes físicamente.
-```

@@ -1,1960 +1,2228 @@
 # Examen jefe — [PENDIENTE #861]
 
-> Logro #861. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **113 preguntas totales** en 5/5 secciones.
+> Logro #861. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **117 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: adn-gen-proteina (20 preguntas)
+## Sección: crecimiento-poblacional (26 preguntas)
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
   nivel: "basico"
-  tags: ["adn", "estructura"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La molécula de ADN tiene una estructura de doble hélice."
-
-explicacion: |
-  Correcto, dos hebras enrolladas entre sí.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "basico"
-  tags: ["nucleotidos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ADN está compuesto por unidades llamadas nucleótidos."
-
-explicacion: |
-  Cada nucleótido tiene un fosfato, un azúcar y una base nitrogenada.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "intermedio"
-  tags: ["bases_nitrogenadas"]
+  tags: ["modelo_exponencial"]
 
 variables:
-  tabla: [["Adenina", "Timina"], ["Timina", "Adenina"], ["Guanina", "Citosina"], ["Citosina", "Guanina"]]
-  idx: uno_de([0, 1, 2, 3])
+  p0: random(50, 500)
+  t: random(1, 6)
 
-respuesta: tabla[idx][1]
-tipo: mc
-opciones_explicitas: ["Adenina", "Timina", "Guanina", "Citosina"]
+respuesta: p0 * 2 ^ t
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "Si en una hebra de ADN hay {tabla[idx][0]}, ¿con qué base se empareja en la hebra complementaria?"
+enunciado: "Un cultivo de bacterias empieza con {p0} y se duplica cada hora. ¿Cuántas hay después de {t} horas?"
 
 explicacion: |
-  {tabla[idx][0]} se empareja con {tabla[idx][1]}.
+  P(t) = {p0}×2^{t} = {p0 * 2 ^ t}.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
   nivel: "basico"
-  tags: ["bases"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Las bases del ADN se emparejan al azar, cualquiera con cualquiera."
-
-explicacion: |
-  Falso. Siempre A con T, y G con C.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "basico"
-  tags: ["gen"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un gen es un fragmento de ADN que contiene la información para fabricar una proteína en particular."
-
-explicacion: |
-  Correcto, es la unidad funcional de la herencia.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "basico"
-  tags: ["genoma"]
-
-respuesta: "genoma"
-tipo: completar
-respuestas_validas:
-  - "genoma"
-
-enunciado: "El ADN completo de un organismo se llama ___."
-
-explicacion: |
-  Se llama genoma.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "basico"
-  tags: ["genoma", "genes"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El genoma de un organismo contiene un solo gen."
-
-explicacion: |
-  Falso, contiene miles de genes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "basico"
-  tags: ["gen", "proteina"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Cada gen contiene la información para todas las proteínas del organismo a la vez."
-
-explicacion: |
-  Falso. Cada gen es para una proteína en particular.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "basico"
-  tags: ["transcripcion"]
-
-respuesta: "transcripcion"
-tipo: completar
-respuestas_validas:
-  - "transcripcion"
-
-enunciado: "El proceso de copiar un gen de ADN a ARN mensajero se llama ___."
-
-explicacion: |
-  Es la transcripción, primer paso del dogma central.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "basico"
-  tags: ["traduccion"]
-
-respuesta: "traduccion"
-tipo: completar
-respuestas_validas:
-  - "traduccion"
-
-enunciado: "El proceso de leer el ARN mensajero y ensamblar aminoácidos se llama ___."
-
-explicacion: |
-  Es la traducción, segundo paso del dogma central.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "basico"
-  tags: ["ribosoma"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿La traducción ocurre en el ribosoma?"
-
-explicacion: |
-  Correcto — ver ../celula-organelas/.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "basico"
-  tags: ["dogma_central"]
-
-respuesta: "ADN -> ARN -> proteina"
-tipo: mc
-opciones_explicitas: ["ADN -> ARN -> proteina", "ARN -> ADN -> proteina", "proteina -> ADN -> ARN", "ADN -> proteina -> ARN"]
-
-enunciado: "¿Cuál es el orden correcto del flujo de información genética (dogma central)?"
-
-explicacion: |
-  ADN (almacenamiento) → ARN (mensaje) → proteína (función).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "intermedio"
-  tags: ["transcripcion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿La transcripción copia el gen para no arriesgar el ADN original al sacar la información fuera del núcleo?"
-
-explicacion: |
-  Correcto, la copia de ARN viaja al citoplasma sin exponer al ADN original.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "intermedio"
-  tags: ["genetica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El gen determina qué proteína se fabrica, y la proteína determina en gran parte un rasgo observable del organismo."
-
-explicacion: |
-  Correcto — la base de ../genetica-mendeliana-punnett/.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "basico"
-  tags: ["mutacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una mutación es un cambio en la secuencia de bases del ADN."
-
-explicacion: |
-  Correcto, es la definición de mutación.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "intermedio"
-  tags: ["mutacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Todas las mutaciones son siempre dañinas para el organismo."
-
-explicacion: |
-  Falso. Pueden ser silenciosas, dañinas o beneficiosas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "intermedio"
-  tags: ["evolucion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las mutaciones son la fuente última de la variación genética que alimenta la evolución."
-
-explicacion: |
-  Correcto — ver ../seleccion-natural/.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "basico"
-  tags: ["bases"]
-
-respuesta: 4
-tipo: mc
-opciones_explicitas: [2, 4, 6, 8]
-
-enunciado: "¿Cuántas bases nitrogenadas distintas tiene el ADN?"
-
-explicacion: |
-  Cuatro: Adenina, Timina, Guanina, Citosina.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "avanzado"
-  tags: ["proteinas", "conceptos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada proteína tiene una forma específica que le permite cumplir un trabajo específico en la célula (estructural, enzimático, etc.)."
-
-explicacion: |
-  Correcto, la forma de la proteína (determinada por el orden de aminoácidos) determina su función.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "adn_gen_proteina"
-  nivel: "avanzado"
-  tags: ["mutacion", "herencia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Todas las mutaciones que ocurren en el cuerpo de una persona se transmiten automáticamente a sus hijos."
-
-explicacion: |
-  Falso. Sólo las mutaciones que ocurren en las células reproductivas (gametos) pueden heredarse; las que ocurren en otras células del cuerpo (somáticas) no pasan a la descendencia.
-```
-
-## Sección: biodiversidad-indices (25 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "basico"
-  tags: ["conceptos_basicos", "niveles"]
-
-enunciado: "La biodiversidad se manifiesta en tres niveles principales: la diversidad de ecosistemas, la diversidad de especies y la diversidad ___."
-
-respuestas_validas:
-  - "genetica"
-  - "genética"
-respuesta: "genetica"
-tipo: completar
-
-explicacion: |
-  La biodiversidad abarca la variedad de formas de vida en tres escalas: la diversidad genética (dentro de una población), la diversidad de especies (en una comunidad) y la diversidad de ecosistemas (en una región).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "basico"
-  tags: ["especies", "definicion"]
-
-enunciado: "Cuando contamos el número de especies distintas que habitan en un área determinada, estamos midiendo la diversidad de ___."
-
-respuestas_validas:
-  - "especies"
-respuesta: "especies"
-tipo: completar
-
-explicacion: |
-  La diversidad de especies se refiere a la variedad de organismos diferentes que coexisten en un lugar y tiempo dados.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "intermedio"
-  tags: ["conceptos_clave", "riqueza"]
-
-enunciado: "El conteo del número total de especies distintas presentes en un ecosistema, sin importar cuántos individuos tiene cada una, se denomina ___."
-
-respuestas_validas:
-  - "riqueza de especies"
-  - "riqueza"
-respuesta: "riqueza de especies"
-tipo: completar
-
-explicacion: |
-  La riqueza de especies es el número total de especies presentes en una comunidad, independientemente de su abundancia relativa.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "intermedio"
-  tags: ["abundancia", "conceptos"]
-
-enunciado: "La diversidad de especies no sólo depende de cuántas especies hay (riqueza), sino también de la ___ de cada una de ellas en el ecosistema."
-
-respuestas_validas:
-  - "abundancia"
-respuesta: "abundancia"
-tipo: completar
-
-explicacion: |
-  La abundancia se refiere al número de individuos de cada especie. Un ecosistema con muchas especies pero donde una sola domina a todas las demás tiene una diversidad menor que uno con abundancias equilibradas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "avanzado"
-  tags: ["genetica", "resiliencia"]
-
-enunciado: "Si una población tiene una alta diversidad ___, los individuos tienen mayor probabilidad de sobrevivir a cambios ambientales bruscos."
-
-respuestas_validas:
-  - "genetica"
-  - "genética"
-respuesta: "genetica"
-tipo: completar
-
-explicacion: |
-  La diversidad genética proporciona la materia prima para la adaptación. A mayor variabilidad en los genes, mayor es la capacidad de una población para evolucionar y resistir enfermedades o cambios climáticos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "basico"
-  tags: ["conceptos", "riqueza"]
-
-tipo: mc
-opciones_explicitas: ["El número total de especies distintas presentes en un ecosistema", "La abundancia de un solo individuo en el ecosistema", "La cantidad de individuos que componen una población", "La variedad de hábitats en una región"]
-respuesta: "El número total de especies distintas presentes en un ecosistema"
-
-enunciado: "Si en un bosque contamos que existen 15 especies diferentes de árboles, ¿a qué concepto de biodiversidad nos referimos?"
-
-explicacion: |
-  La riqueza de especies es simplemente el conteo del número de especies distintas en un área determinada, sin importar cuántos individuos hay de cada una.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "basico"
-  tags: ["conceptos", "equitatividad"]
-
-tipo: mc
-opciones_explicitas: ["El número de especies presentes", "La uniformidad en la abundancia de individuos entre las especies", "La velocidad de reproducción de una especie", "La cantidad de biomasa total del ecosistema"]
-respuesta: "La uniformidad en la abundancia de individuos entre las especies"
-
-enunciado: "La equitatividad (o equidad) se refiere a la ___ de los individuos entre las especies presentes en una comunidad."
-
-explicacion: |
-  Mientras que la riqueza cuenta cuántas especies hay, la equitatividad mide si los individuos están repartidos de forma equilibrada o si una especie domina claramente sobre las demás.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "intermedio"
-  tags: ["comparacion", "riqueza", "equitatividad"]
+  tags: ["modelo_exponencial"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["10 especies, todas con 10 individuos cada una", "Alta equitatividad"], ["10 especies, una con 91 individuos y las otras 9 con 1 individuo cada una", "Baja equitatividad"]]
+  p0: random(10, 100)
+  t: random(1, 5)
 
-tipo: mc
-opciones_explicitas: ["Alta equitatividad", "Baja equitatividad"]
-respuesta: datos[escenario_idx][1]
+respuesta: p0 * 3 ^ t
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "Un ecosistema tiene {datos[escenario_idx][0]}. ¿Cuál es la característica de equitatividad de ese escenario?"
+enunciado: "Una población de insectos empieza con {p0} y se triplica cada generación. ¿Cuántos hay después de {t} generaciones?"
 
 explicacion: |
-  Cuando los individuos están repartidos parejo entre las especies, hay alta equitatividad. Cuando una especie domina y el resto tiene poquísimos individuos, hay baja equitatividad.
+  P(t) = {p0}×3^{t} = {p0 * 3 ^ t}.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
   nivel: "intermedio"
-  tags: ["indices", "identificacion"]
-
-tipo: completar
-respuestas_validas:
-  - "riqueza"
-respuesta: "riqueza"
-
-enunciado: "Si en un estudio de campo se determina que un arrecife de coral tiene 50 especies de peces, pero la mayoría de los ejemplares observados pertenecen a una sola especie de pez cirujano, el valor de la ___ es alta, aunque la equitatividad sea baja."
-
-explicacion: |
-  Al haber 50 especies distintas, la riqueza es alta. Sin embargo, al estar los individuos concentrados en una sola especie, la equitatividad es baja.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "avanzado"
-  tags: ["indices", "comparacion"]
-
-tipo: mc
-opciones_explicitas: ["El ecosistema 1 tiene más riqueza que el 2", "El ecosistema 2 tiene más riqueza que el 1", "El ecosistema 1 tiene más equitatividad que el 2", "El ecosistema 2 tiene más equitatividad que el 1"]
-respuesta: "El ecosistema 1 tiene más equitatividad que el 2"
-
-enunciado: "Considera estos datos: Ecosistema 1 (3 especies: 33, 33, 34 individuos) y Ecosistema 2 (3 especies: 98, 1, 1 individuos). ¿Cuál de estas afirmaciones es correcta?"
-
-explicacion: |
-  El Ecosistema 1 tiene una distribución muy pareja (alta equitatividad), mientras que el Ecosistema 2 está dominado por una especie (baja equitatividad). Ambos tienen la misma riqueza (3 especies).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "basico"
-  tags: ["riqueza", "equitatividad", "biodiversidad"]
-
-enunciado: "Si un ecosistema A tiene 3 especies con 33% de abundancia cada una, y un ecosistema B tiene 3 especies pero una de ellas representa el 98% de la población, el ecosistema con mayor equitatividad es el ___."
-
-respuestas_validas:
-  - "A"
-respuesta: "A"
-tipo: completar
-
-explicacion: |
-  La riqueza es el número de especies presentes, pero la equitatividad mide qué tan balanceadas están sus abundancias. El ecosistema A es más diverso porque sus individuos están distribuidos equitativamente.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "intermedio"
-  tags: ["dominancia", "equitatividad", "ecosistemas"]
+  tags: ["duplicacion"]
 
 variables:
-  escenario: uno_de([["Ecosistema X", "alta"], ["Ecosistema Y", "alta"]])
+  p0: random(10, 50)
+  n: random(1, 5)
 
-enunciado: "En el {escenario[0]}, donde una sola especie controla casi toda la biomasa, decimos que existe una ___ dominancia."
+respuesta: n
+tipo: input
+tolerancia_abs: 0
 
-respuestas_validas:
-  - "alta"
-respuesta: escenario[1]
-tipo: completar
-
-explicacion: |
-  La dominancia ocurre cuando una especie es mucho más abundante que las demás, lo que reduce la equitatividad y, por ende, la diversidad real del sistema.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "intermedio"
-  tags: ["indices", "simpson", "riqueza"]
-
-enunciado: "Dos bosques tienen la misma riqueza de especies (10 especies cada uno). Sin embargo, el Bosque 1 tiene abundancias muy desiguales y el Bosque 2 tiene abundancias muy similares entre especies. El índice de diversidad de Simpson será mayor en el ___."
-
-respuestas_validas:
-  - "Bosque 2"
-respuesta: "Bosque 2"
-tipo: completar
-
-explicacion: |
-  El índice de diversidad (como el de Simpson o Shannon) penaliza la falta de equitatividad. A mayor igualdad en la abundancia de las especies, mayor es el valor del índice.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "avanzado"
-  tags: ["abundancia", "equitatividad", "calculo"]
-
-variables:
-  datos: [["especie 1: 50, especie 2: 50", "alta"], ["especie 1: 99, especie 2: 1", "baja"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Considerando los datos de {datos[idx][0]}, la equitatividad es ___."
-
-respuestas_validas:
-  - "alta"
-  - "baja"
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  La equitatividad se refiere a la uniformidad en la abundancia de los individuos de cada especie. Si las proporciones son similares, la equitatividad es alta.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "basico"
-  tags: ["definicion", "riqueza", "equitatividad"]
-
-enunciado: "La biodiversidad no se mide sólo por la riqueza (número de especies), sino por la combinación de la riqueza y la ___."
-
-respuestas_validas:
-  - "equitatividad"
-respuesta: "equitatividad"
-tipo: completar
-
-explicacion: |
-  Para que un ecosistema sea considerado realmente diverso, no basta con que haya muchas especies; estas deben estar presentes en proporciones que permitan un equilibrio en el ecosistema.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "basico"
-  tags: ["conceptos_basicos", "ecosistemas"]
-
-tipo: mc
-opciones_explicitas: ["Calcular el número exacto de especies en un área", "Comparar la diversidad entre diferentes ecosistemas o en el tiempo", "Contar cuántos individuos tiene una sola especie dominante", "Determinar la edad de los organismos en un hábitat"]
-
-respuesta: "Comparar la diversidad entre diferentes ecosistemas o en el tiempo"
-
-enunciado: "Si un ecólogo quiere saber si un bosque es más diverso que una pradera, ¿cuál es la función principal de utilizar un índice de biodiversidad?"
-
-explicacion: |
-  Los índices de biodiversidad son herramientas matemáticas que permiten cuantificar la diversidad de un ecosistema, permitiendo comparaciones objetivas entre distintos lugares o el seguimiento de un mismo lugar a través del tiempo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "intermedio"
-  tags: ["perturbaciones", "comparacion_temporal"]
-
-tipo: completar
-respuestas_validas:
-  - "disminuye"
-  - "baja"
-respuesta: "disminuye"
-
-enunciado: "Considerando un ecosistema que sufre un incendio forestal, la biodiversidad medida por un índice de diversidad suele pasar de un estado de mayor diversidad a uno donde el índice ___ (comparando el antes y el después)."
-
-explicacion: |
-  Un incendio actúa como una perturbación que suele reducir la riqueza de especies y alterar la equidad, resultando en una disminución de los índices de biodiversidad.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "intermedio"
-  tags: ["especies_invasoras", "equidad"]
-
-tipo: mc
-opciones_explicitas: ["Aumentar la equidad de las especies", "Disminuir la riqueza de especies nativas", "Aumentar la biomasa total sin afectar la diversidad", "Hacer que todas las especies tengan la misma abundancia"]
-
-respuesta: "Disminuir la riqueza de especies nativas"
-
-enunciado: "La llegada de una especie invasora que desplaza a las nativas suele provocar que los índices de biodiversidad disminuyan debido a que:"
-
-explicacion: |
-  Las especies invasoras suelen volverse dominantes, lo que reduce la 'equidad' (la igualdad en la abundancia de especies) y puede reducir la 'riqueza' (el número total de especies) al extinguir localmente a las nativas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "basico"
-  tags: ["comparacion", "ecologia"]
-
-tipo: completar
-respuestas_validas:
-  - "mayor"
-respuesta: "mayor"
-
-enunciado: "Si el índice de Shannon de un arrecife de coral es 4.5 y el de un estanque es 1.2, podemos afirmar que el arrecife tiene una biodiversidad ___ que el estanque."
-
-explicacion: |
-  En la mayoría de los índices de diversidad (como Shannon o Simpson), valores más altos indican una mayor complejidad, riqueza y equidad en la comunidad biológica.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "avanzado"
-  tags: ["conceptos_clave"]
-
-tipo: mc
-opciones_explicitas: ["El número total de especies presentes en una comunidad", "La abundancia relativa de los individuos de cada especie", "La velocidad de reproducción de las especies", "La cantidad de biomasa por metro cuadrado"]
-
-respuesta: "La abundancia relativa de los individuos de cada especie"
-
-enunciado: "Cuando un índice de biodiversidad considera la 'equidad' (evenness), se refiere principalmente a:"
-
-explicacion: |
-  Mientras que la 'riqueza' se refiere simplemente al conteo de especies, la 'equidad' mide qué tan equilibradas están las poblaciones de esas especies; es decir, si hay una especie que domina claramente a las demás o si todas tienen abundancias similares.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "intermedio"
-  tags: ["diversidad", "ecosistemas", "riqueza"]
-
-opciones_explicitas: ["Ecosistema A", "Ecosistema B", "Ambos son iguales", "Ninguno de los anteriores"]
-respuesta: "Ecosistema A"
-tipo: mc
-
-enunciado: "En un estudio de biodiversidad, se comparan dos ecosistemas con la misma riqueza de especies (mismo número de especies). Sin embargo, en el Ecosistema A, las poblaciones están equilibradas, mientras que en el Ecosistema B, una sola especie es altamente dominante. ¿Cuál de los dos ecosistemas presenta una mayor diversidad biológica?"
-
-explicacion: |
-  La diversidad biológica no depende sólo de la riqueza (número de especies), sino también de la equidad (qué tan balanceadas están las abundancias). Un ecosistema con abundancias equilibradas tiene mayor diversidad que uno donde una especie domina claramente.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "intermedio"
-  tags: ["abundancia", "calculo", "ecologia"]
-
-variables:
-  datos: [[10, 40, "20"], [5, 45, "10"]]
-  idx: uno_de([0, 1])
-
-enunciado: "En un ecosistema se observan dos especies. La especie 1 tiene {datos[idx][0]} individuos y la especie 2 tiene {datos[idx][1]} individuos. ¿Cuál es la abundancia relativa de la especie 1 expresada en porcentaje?"
+enunciado: "Una población de {p0} se duplica cada período. ¿Cuántos períodos tardan en llegar a {p0 * (2 ^ n)}?"
 
 pasos:
-  - "Sumar el total de individuos de todas las especies."
-  - "Dividir la cantidad de individuos de la especie 1 por el total."
-  - "Multiplicar el resultado por 100 para obtener el porcentaje."
-
-respuesta: datos[idx][2]
-tipo: completar
-respuestas_validas:
-  - "20"
-  - "10"
+  - "{p0}×2^t = {p0 * (2 ^ n)} → 2^t = {2 ^ n} → t = {n}"
 
 explicacion: |
-  Para hallar la abundancia relativa: (individuos de la especie 1 / total de individuos) × 100. Con 10 y 40: 10/50×100 = 20%. Con 5 y 45: 5/50×100 = 10%.
+  Se reconoce el factor de duplicación acumulado.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
   nivel: "basico"
-  tags: ["equidad", "conceptos"]
-
-enunciado: "Si un bosque tiene 10 especies de árboles y cada especie tiene exactamente 10 individuos, decimos que el ecosistema tiene una alta ___."
-
-respuestas_validas:
-  - "equidad"
-respuesta: "equidad"
-tipo: completar
-
-explicacion: |
-  Cuando los individuos se distribuyen de manera uniforme entre las especies presentes, el ecosistema presenta una alta equidad o uniformidad.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "basico"
-  tags: ["riqueza", "conteo"]
+  tags: ["tasa_neta"]
 
 variables:
-  conteo: [[5, 2, "5"], [3, 4, "4"]]
-  idx: uno_de([0, 1])
+  natalidad: random(20, 50)
+  mortalidad: random(5, 19)
 
-enunciado: "Se realizan muestreos en dos parcelas. En la parcela 1 se encuentran {conteo[idx][0]} especies diferentes. En la parcela 2 se encuentran {conteo[idx][1]} especies diferentes. El número de especies presentes en la parcela con mayor riqueza es ___."
+respuesta: natalidad - mortalidad
+tipo: input
+tolerancia_abs: 0
 
-respuesta: conteo[idx][2]
-tipo: completar
-respuestas_validas:
-  - "5"
-  - "4"
+enunciado: "En una población, la tasa de natalidad es {natalidad} por mil, y la de mortalidad es {mortalidad} por mil. ¿Cuál es la tasa neta de crecimiento (por mil)?"
 
 explicacion: |
-  La riqueza de especies es simplemente el conteo total de especies distintas presentes en un área, independientemente de cuántos individuos haya de cada una.
+  Tasa neta = natalidad − mortalidad.
 ```
 
 ```
 metadata:
-  materia: "biologia"
-  tema: "biodiversidad_indices"
-  nivel: "avanzado"
-  tags: ["simpson", "indices", "comparacion"]
-
-variables:
-  valores: [[0.85, 0.40, "0.40"], [0.70, 0.55, "0.55"]]
-  caso: uno_de([0, 1])
-
-enunciado: "Se calculan los índices de diversidad de dos ecosistemas. El Ecosistema 1 tiene un índice de {valores[caso][0]} y el Ecosistema 2 tiene un índice de {valores[caso][1]}. Si el índice es mayor cuanto más diversa es la comunidad, ¿cuál es el índice del ecosistema con MENOR diversidad?"
-
-opciones_explicitas: ["0.85", "0.40", "0.70", "0.55"]
-respuesta: valores[caso][2]
-tipo: mc
-
-explicacion: |
-  El valor menor entre los dos índices comparados corresponde al ecosistema con menor diversidad.
-```
-
-## Sección: biotecnologia-pcr-crispr (24 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "basico"
-  tags: ["pcr", "adn"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La PCR permite hacer millones de copias de un fragmento específico de ADN."
-
-explicacion: |
-  Correcto. Es la técnica de amplificación de ADN más usada.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "basico"
-  tags: ["pcr", "sensibilidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La PCR puede amplificar ADN partiendo de una cantidad mínima, incluso de una sola molécula."
-
-explicacion: |
-  Correcto, es extremadamente sensible.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "basico"
-  tags: ["pcr", "ciclos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La PCR funciona con ciclos repetidos de calentamiento y enfriamiento."
-
-explicacion: |
-  Correcto, esos ciclos separan y vuelven a copiar la doble hélice.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
   nivel: "intermedio"
-  tags: ["pcr", "exponencial"]
+  tags: ["tasa_neta", "verdadero_falso"]
+
+variables:
+  natalidad: random(5, 15)
+  mortalidad: random(16, 30)
+
+respuesta: ((natalidad - mortalidad) < 0)
+tipo: vf
+
+enunciado: "Natalidad {natalidad} por mil, mortalidad {mortalidad} por mil. ¿Está esta población en declive (tasa neta negativa)?"
+
+explicacion: |
+  Con mortalidad mayor que natalidad, la tasa neta da negativa — la
+  población decrece.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "intermedio"
+  tags: ["tasa_vs_cantidad"]
+
+variables:
+  poblacion: random(10, 100) * 1000
+  tasa_por_mil: random(5, 40)
+
+respuesta: (poblacion * tasa_por_mil) / 1000
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una población de {poblacion} crece a una tasa de {tasa_por_mil} por mil. ¿Cuántos individuos se suman?"
+
+explicacion: |
+  {poblacion}×{tasa_por_mil}/1000 = {(poblacion * tasa_por_mil) / 1000}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos poblaciones con la misma tasa de crecimiento (el mismo porcentaje) pueden sumar una cantidad de individuos muy distinta, si su tamaño de partida es distinto."
+
+explicacion: |
+  Una población de 1.000.000 con 2% suma 20.000; una de 100 con el mismo
+  2% suma sólo 2 — misma tasa, cantidades muy distintas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El modelo exponencial simple (P=P₀rᵗ) predice un crecimiento sin ningún límite, sin importar cuánto tiempo pase."
+
+explicacion: |
+  Es justamente su limitación: en la realidad, ningún ambiente sostiene
+  eso para siempre.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La capacidad de carga (K) es la cantidad máxima de individuos que un ambiente puede sostener de forma estable."
+
+explicacion: |
+  Es el límite real que el modelo exponencial simple no tiene en
+  cuenta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El gráfico del crecimiento logístico tiene forma de 'S': crece casi como una exponencial al principio, y se aplana al acercarse a la capacidad de carga."
+
+explicacion: |
+  Es la versión más realista del crecimiento poblacional, a diferencia
+  del modelo exponencial puro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando una población está muy por debajo de la capacidad de carga, su crecimiento se parece mucho al modelo exponencial simple."
+
+explicacion: |
+  El freno por escasez de recursos recién se nota cuando la población
+  ya está cerca del límite K.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "basico"
+  tags: ["concepto", "opcion_multiple"]
+
+respuesta: "Escasez de alimento o espacio, depredación, enfermedad"
+tipo: mc
+opciones_explicitas:
+  - "Escasez de alimento o espacio, depredación, enfermedad"
+  - "La cantidad de individuos que nacieron el año pasado"
+  - "El color de la especie"
+
+enunciado: "¿Cuáles son ejemplos típicos de factores limitantes del crecimiento poblacional?"
+
+explicacion: |
+  Son las causas reales por las que una población deja de crecer
+  exponencialmente cerca de su capacidad de carga.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Además de nacimientos y muertes, la migración (entrada y salida de individuos) también afecta la tasa neta de crecimiento de una población."
+
+explicacion: |
+  Tasa neta = natalidad − mortalidad ± migración.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  p0: random(50, 500)
+  t: random(1, 5)
+  real: p0 * 2 ^ t
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "Un cultivo de {p0} bacterias se duplica cada hora. ¿Es correcto que después de {t} horas haya {propuesto}?"
+
+explicacion: |
+  El valor correcto es {p0}×2^{t} = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "avanzado"
+  tags: ["modelo_exponencial"]
+
+variables:
+  p0: random(20, 100)
+  r: random(2, 4)
+
+respuesta: r
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una población pasa de {p0} a {p0 * r} en un solo período. ¿Cuál es el factor de crecimiento r?"
+
+explicacion: |
+  r = población nueva / población anterior = {p0 * r}/{p0} = {r}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el factor de crecimiento r=1, la población se mantiene estable (ni crece ni decrece)."
+
+explicacion: |
+  P(t)=P₀×1ᵗ=P₀ para cualquier t — no cambia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el factor de crecimiento r está entre 0 y 1 (por ejemplo, r=0.9), la población decrece con el tiempo."
+
+explicacion: |
+  Es el mismo caso de decaimiento exponencial ya visto en
+  `../../matematica/familias-exponencial-logaritmica/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "avanzado"
+  tags: ["modelo_exponencial", "problema"]
+
+variables:
+  p0: random(100, 1000)
+  t: random(1, 3)
+
+respuesta: p0 * 2 ^ t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una colonia de {p0} individuos crece un 100% cada período (o sea, se duplica). ¿Cuántos hay después de {t} períodos?"
+
+explicacion: |
+  Crecer 100% es lo mismo que duplicarse: r=2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la naturaleza, el crecimiento estrictamente exponencial de una población suele ser sólo una fase temporal (por ejemplo, al colonizar un ambiente nuevo con recursos abundantes), no algo que dure para siempre."
+
+explicacion: |
+  Tarde o temprano, los factores limitantes empiezan a actuar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "avanzado"
+  tags: ["verdadero_falso"]
+
+variables:
+  p0: random(50, 200)
+  t: random(2, 5)
+  r1: 2
+  r2: 3
+
+respuesta: ((p0 * r2 ^ t) > (p0 * r1 ^ t))
+tipo: vf
+
+enunciado: "Dos poblaciones parten de {p0}: una con r=2 (se duplica) y otra con r=3 (se triplica) cada período. ¿Es mayor la de r=3 después de {t} períodos?"
+
+explicacion: |
+  Un factor de crecimiento mayor siempre termina superando a uno menor,
+  a igualdad de punto de partida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La capacidad de carga de un ambiente no es un número fijo para siempre — puede cambiar si cambian los recursos disponibles (por ejemplo, una sequía la reduce)."
+
+explicacion: |
+  K depende de las condiciones reales del ambiente, no es una constante
+  universal de la especie.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El modelo exponencial de crecimiento poblacional es la misma solución de la ecuación diferencial dP/dt=kP ya vista en `../../matematica/ecuaciones-diferenciales/`, aplicada a una población en vez de un capital o una muestra radiactiva."
+
+explicacion: |
+  Distintos fenómenos, misma estructura matemática de fondo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "intermedio"
+  tags: ["duplicacion"]
+
+variables:
+  p0: random(10, 50)
+  n: random(1, 4)
+
+respuesta: n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una población de {p0} se triplica cada período. ¿Cuántos períodos tardan en llegar a {p0 * (3 ^ n)}?"
+
+explicacion: |
+  Se reconoce el factor 3^{n} acumulado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Distintas especies tienen distintas tasas de crecimiento — las bacterias se duplican en minutos u horas, mientras que poblaciones de mamíferos grandes tardan años en duplicarse."
+
+explicacion: |
+  El modelo matemático es el mismo, pero r y la escala de tiempo cambian
+  muchísimo según la especie.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  natalidad: random(20, 50)
+  mortalidad: random(5, 19)
+  real: natalidad - mortalidad
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "Natalidad {natalidad} por mil, mortalidad {mortalidad} por mil. ¿Es correcto que la tasa neta sea {propuesto} por mil?"
+
+explicacion: |
+  La tasa neta correcta es natalidad − mortalidad = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "crecimiento_poblacional"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El modelo exponencial simple sirve para predicciones de corto plazo o poblaciones lejos de su capacidad de carga; para el largo plazo (o cerca de K), el modelo logístico da una descripción más realista."
+
+explicacion: |
+  Es el resumen central del tema: ningún modelo es "el correcto"
+  siempre — depende de la escala y el contexto.
+```
+
+## Sección: genetica-mendeliana-punnett (20 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "basico"
+  tags: ["punnett", "vocabulario"]
+
+enunciado: "¿Qué es un cuadro de Punnett?"
+tipo: mc
+opciones_explicitas:
+  - "Una tabla que cruza los alelos que puede aportar cada progenitor, para predecir las proporciones de genotipos posibles en la descendencia"
+  - "Un instrumento de laboratorio para medir ADN"
+  - "Un gráfico de barras que muestra la cantidad de hijos por familia"
+respuesta: "Una tabla que cruza los alelos que puede aportar cada progenitor, para predecir las proporciones de genotipos posibles en la descendencia"
+
+explicacion: |
+  Es una herramienta visual, no un instrumento de laboratorio.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "basico"
+  tags: ["vocabulario"]
+
+enunciado: "¿Cuál es la diferencia entre un alelo dominante y uno recesivo?"
+tipo: mc
+opciones_explicitas:
+  - "El dominante se manifiesta en el fenotipo con una sola copia presente; el recesivo sólo se manifiesta si están las dos copias"
+  - "El dominante siempre es más común en la población que el recesivo"
+  - "No hay ninguna diferencia real, son dos nombres para lo mismo"
+respuesta: "El dominante se manifiesta en el fenotipo con una sola copia presente; el recesivo sólo se manifiesta si están las dos copias"
+
+explicacion: |
+  Un heterocigota `Aa` muestra el fenotipo dominante, aunque tenga una
+  copia recesiva 'escondida'.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "basico"
+  tags: ["vocabulario"]
+
+enunciado: "¿Cuál es la diferencia entre genotipo y fenotipo?"
+tipo: mc
+opciones_explicitas:
+  - "El genotipo es la combinación de alelos que tiene un individuo; el fenotipo es cómo se expresa/ve esa combinación"
+  - "Son exactamente lo mismo, sólo cambia el nombre"
+  - "El fenotipo es siempre visible al microscopio, el genotipo no"
+respuesta: "El genotipo es la combinación de alelos que tiene un individuo; el fenotipo es cómo se expresa/ve esa combinación"
+
+explicacion: |
+  `AA` y `Aa` son genotipos distintos, pero pueden compartir el mismo
+  fenotipo dominante.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "basico"
+  tags: ["vocabulario"]
+
+enunciado: "¿Qué es un individuo heterocigota?"
+tipo: mc
+opciones_explicitas:
+  - "El que tiene un alelo de cada tipo (por ejemplo, Aa)"
+  - "El que tiene las dos copias iguales (AA o aa)"
+  - "El que no tiene ningún alelo para ese gen"
+respuesta: "El que tiene un alelo de cada tipo (por ejemplo, Aa)"
+
+explicacion: |
+  Homocigota es lo opuesto: las dos copias iguales (AA o aa).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "avanzado"
+  tags: ["punnett", "problema"]
+
+respuesta: 0.25
+tipo: input
+
+enunciado: "En un cruce Aa × Aa, ¿cuál es la probabilidad de que un hijo tenga genotipo aa (homocigota recesivo)?"
+
+pasos:
+  - "P(a del padre) = 1/2, P(a de la madre) = 1/2, independientes"
+  - "P(aa) = 1/2 × 1/2 = 0,25"
+
+explicacion: |
+  Es exactamente la casilla 'aa' del cuadro de Punnett: 1 de 4.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "avanzado"
+  tags: ["punnett", "problema"]
+
+respuesta: 0.75
+tipo: input
+
+enunciado: "En un cruce Aa × Aa (A dominante), ¿cuál es la probabilidad de que un hijo tenga fenotipo DOMINANTE (AA o Aa)?"
+
+pasos:
+  - "De las 4 combinaciones (AA, Aa, Aa, aa), 3 muestran fenotipo dominante"
+  - "P(dominante) = 3/4 = 0,75"
+
+explicacion: |
+  Es la proporción clásica 3:1 de Mendel.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "avanzado"
+  tags: ["punnett", "problema"]
+
+respuesta: 0.5
+tipo: input
+
+enunciado: "Se cruza un heterocigota Aa con un homocigota recesivo aa (testcross). ¿Cuál es la probabilidad de que un hijo tenga genotipo aa?"
+
+pasos:
+  - "El progenitor aa siempre aporta 'a'; el Aa aporta 'A' o 'a' con 1/2 de probabilidad cada uno"
+  - "P(aa) = 1 × 1/2 = 0,5"
+
+explicacion: |
+  Un testcross siempre da una proporción 1:1 entre los dos genotipos
+  posibles, cuando uno de los progenitores es homocigota recesivo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "intermedio"
+  tags: ["punnett", "problema"]
+
+respuesta: 1
+tipo: input
+
+enunciado: "Se cruza un homocigota dominante AA con un homocigota recesivo aa. ¿Qué proporción de los hijos será heterocigota Aa?"
+
+pasos:
+  - "El progenitor AA sólo puede aportar 'A'; el aa sólo puede aportar 'a'"
+  - "Todos los hijos son Aa: proporción = 1 (100%)"
+
+explicacion: |
+  Sin variabilidad en los alelos que puede aportar cada progenitor, el
+  resultado es un único genotipo posible.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "avanzado"
+  tags: ["punnett", "probabilidad_compuesta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada casilla del cuadro de Punnett es, literalmente, el producto de las probabilidades del alelo del padre y del alelo de la madre (probabilidad compuesta de eventos independientes)."
+
+explicacion: |
+  Heredar cada alelo es un evento independiente, así que las
+  probabilidades se multiplican.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "intermedio"
+  tags: ["probabilidad_compuesta", "aplicacion"]
+
+enunciado: "¿Qué relación tiene el cuadro de Punnett con `../../matematica/probabilidad-compuesta/`?"
+tipo: mc
+opciones_explicitas:
+  - "Es exactamente probabilidad compuesta (eventos independientes que se multiplican), con una notación visual de cuadraditos en vez de una fórmula"
+  - "No tiene ninguna relación real con la probabilidad"
+  - "El cuadro de Punnett reemplaza por completo la necesidad de calcular probabilidades"
+respuesta: "Es exactamente probabilidad compuesta (eventos independientes que se multiplican), con una notación visual de cuadraditos en vez de una fórmula"
+
+explicacion: |
+  Es el cruce que más rinde de todo el bloque de probabilidad y
+  estadística, según `troncos.md`.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "intermedio"
+  tags: ["punnett", "problema"]
+
+respuesta: 1
+tipo: input
+
+enunciado: "En el cuadro de Punnett de un cruce Aa × Aa (4 casillas: AA, Aa, Aa, aa), ¿cuántas casillas muestran fenotipo RECESIVO?"
+
+explicacion: |
+  Sólo la casilla 'aa' — las otras tres (AA, Aa, Aa) muestran fenotipo
+  dominante.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "intermedio"
+  tags: ["punnett"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La proporción fenotípica clásica 3:1 (3 dominantes por cada 1 recesivo) aparece en un cruce monohíbrido entre dos heterocigotas (Aa × Aa)."
+
+explicacion: |
+  Es el resultado más citado de los experimentos originales de Mendel
+  con arvejas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "Mendel cruzó arvejas de semilla lisa (heterocigotas, Ll) entre sí y obtuvo, aproximadamente, 3/4 de semillas lisas y 1/4 de semillas rugosas. ¿Qué explica esta proporción?"
+tipo: mc
+opciones_explicitas:
+  - "'Lisa' es el fenotipo dominante — un cruce Ll × Ll da genotipos 1 LL : 2 Ll : 1 ll, y tanto LL como Ll muestran el fenotipo dominante (liso)"
+  - "Las semillas lisas son genéticamente idénticas entre sí, sin variación posible"
+  - "Es un resultado que no tiene ninguna explicación genética conocida"
+respuesta: "'Lisa' es el fenotipo dominante — un cruce Ll × Ll da genotipos 1 LL : 2 Ll : 1 ll, y tanto LL como Ll muestran el fenotipo dominante (liso)"
+
+explicacion: |
+  Es el experimento histórico real que originó las leyes de Mendel.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "avanzado"
+  tags: ["punnett", "problema"]
+
+respuesta: 0.5
+tipo: input
+
+enunciado: "Se cruza un heterocigota Aa con un homocigota dominante AA. ¿Cuál es la probabilidad de que un hijo sea heterocigota Aa?"
+
+pasos:
+  - "El progenitor AA siempre aporta 'A'; el Aa aporta 'A' o 'a' con 1/2 cada uno"
+  - "P(Aa) = 1 × 1/2 = 0,5 (y P(AA) = 1 × 1/2 = 0,5, ninguno es aa)"
+
+explicacion: |
+  Con un progenitor homocigota dominante, ningún hijo puede ser
+  recesivo — sólo se reparten entre AA y Aa.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "avanzado"
+  tags: ["punnett"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El cuadro de Punnett asume que cada progenitor transmite uno de sus dos alelos al azar, de forma independiente de qué alelo transmite el otro progenitor."
+
+explicacion: |
+  Es la ley de la segregación independiente de Mendel, y es lo que
+  justifica multiplicar las probabilidades en vez de sumarlas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "avanzado"
+  tags: ["punnett", "problema"]
+
+respuesta: redondear(0.75 * 0.75, 4)
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "En un cruce dihíbrido AaBb × AaBb (dos genes independientes entre sí), ¿cuál es la probabilidad de que un hijo muestre AMBOS fenotipos dominantes (para el gen A y para el gen B)?"
+
+pasos:
+  - "P(dominante en A) = 3/4; P(dominante en B) = 3/4, genes independientes"
+  - "P(ambos dominantes) = 3/4 × 3/4 = {redondear(0.75 * 0.75, 4)}"
+
+explicacion: |
+  Es la misma multiplicación de probabilidad compuesta, ahora aplicada
+  a dos genes en vez de a un único gen.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "intermedio"
+  tags: ["testcross", "vocabulario"]
+
+enunciado: "¿Para qué sirve un 'testcross' (cruzar con un homocigota recesivo conocido)?"
+tipo: mc
+opciones_explicitas:
+  - "Para determinar el genotipo desconocido de un individuo con fenotipo dominante (podría ser AA o Aa)"
+  - "Para aumentar la cantidad de hijos con fenotipo recesivo"
+  - "Para eliminar por completo un alelo recesivo de una población"
+respuesta: "Para determinar el genotipo desconocido de un individuo con fenotipo dominante (podría ser AA o Aa)"
+
+explicacion: |
+  Si aparece algún hijo con fenotipo recesivo, el individuo original
+  era heterocigota (Aa).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "avanzado"
+  tags: ["testcross", "problema"]
+
+enunciado: "Se cruza un individuo de fenotipo dominante (genotipo desconocido) con un homocigota recesivo, y aparece al menos un hijo con fenotipo recesivo. ¿Cuál era el genotipo del individuo original?"
+tipo: mc
+opciones_explicitas:
+  - "Aa (heterocigota) — sólo así puede transmitir el alelo recesivo que aparece en la descendencia"
+  - "AA (homocigota dominante) — no puede transmitir ningún alelo recesivo"
+respuesta: "Aa (heterocigota) — sólo así puede transmitir el alelo recesivo que aparece en la descendencia"
+
+explicacion: |
+  Un AA nunca podría producir un hijo aa, sin importar el genotipo del
+  otro progenitor recesivo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué se dice que el cuadro de Punnett es 'probabilidad compuesta dibujada'?"
+tipo: mc
+opciones_explicitas:
+  - "Porque cada una de sus casillas representa una combinación específica de alelos, con una probabilidad que es el producto de las probabilidades de cada alelo por separado"
+  - "Porque fue inventado por el mismo matemático que descubrió la probabilidad compuesta"
+  - "Porque no tiene ninguna base matemática real, es sólo una convención visual"
+respuesta: "Porque cada una de sus casillas representa una combinación específica de alelos, con una probabilidad que es el producto de las probabilidades de cada alelo por separado"
+
+explicacion: |
+  Permite calcular probabilidades genéticas sin necesitar escribir
+  ninguna fórmula, sólo llenando los cuadraditos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_mendeliana_punnett"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve el cuadro de Punnett?"
+tipo: mc
+opciones_explicitas:
+  - "Para predecir, en términos de probabilidad, cómo se van a repartir los genotipos y fenotipos posibles en la descendencia de un cruce"
+  - "Para determinar con certeza absoluta el genotipo de cada hijo antes de que nazca"
+  - "Sólo se usa para estudiar plantas, no otros organismos"
+respuesta: "Para predecir, en términos de probabilidad, cómo se van a repartir los genotipos y fenotipos posibles en la descendencia de un cruce"
+
+explicacion: |
+  Es la base de `../herencia-ligada-al-sexo/` y `../grupos-sanguineos/`,
+  que aplican la misma lógica a mecanismos genéticos más específicos.
+```
+
+## Sección: grupos-sanguineos (20 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "basico"
+  tags: ["abo", "vocabulario"]
+
+enunciado: "¿Cuántos alelos posibles tiene el gen del sistema ABO, y cuántos tiene cada persona?"
+tipo: mc
+opciones_explicitas:
+  - "Hay 3 alelos posibles (Iᴬ, Iᴮ, i) en la población, pero cada persona sólo tiene 2 (uno de cada progenitor)"
+  - "Hay exactamente 2 alelos posibles, igual que cualquier otro gen"
+  - "Cada persona tiene los 3 alelos a la vez"
+respuesta: "Hay 3 alelos posibles (Iᴬ, Iᴮ, i) en la población, pero cada persona sólo tiene 2 (uno de cada progenitor)"
+
+explicacion: |
+  Es el ejemplo clásico de 'alelos múltiples' en genética humana.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "intermedio"
+  tags: ["codominancia", "vocabulario"]
+
+enunciado: "¿Qué es la codominancia entre Iᴬ e Iᴮ?"
+tipo: mc
+opciones_explicitas:
+  - "Que si una persona tiene ambos alelos, LOS DOS se expresan a la vez (fenotipo AB), sin que ninguno tape al otro"
+  - "Que Iᴬ siempre domina sobre Iᴮ, tapándolo por completo"
+  - "Que ninguno de los dos alelos se expresa nunca en el fenotipo"
+respuesta: "Que si una persona tiene ambos alelos, LOS DOS se expresan a la vez (fenotipo AB), sin que ninguno tape al otro"
+
+explicacion: |
+  Es distinto de la dominancia simple de
+  `../genetica-mendeliana-punnett/`, donde el dominante sí tapa al
+  recesivo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "intermedio"
+  tags: ["abo", "problema"]
+
+enunciado: "¿Cuáles son los DOS genotipos posibles que dan fenotipo tipo A?"
+tipo: mc
+opciones_explicitas:
+  - "IᴬIᴬ (homocigota) o Iᴬi (heterocigota)"
+  - "Sólo IᴬIᴬ, no existe otra combinación posible"
+  - "IᴬIᴮ o Iᴬi"
+respuesta: "IᴬIᴬ (homocigota) o Iᴬi (heterocigota)"
+
+explicacion: |
+  Como Iᴬ es dominante sobre i, ambos genotipos dan el mismo fenotipo
+  A.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "intermedio"
+  tags: ["abo", "problema"]
+
+enunciado: "¿Cuál es el ÚNICO genotipo posible para el fenotipo AB?"
+tipo: mc
+opciones_explicitas:
+  - "IᴬIᴮ — es la única combinación que produce el fenotipo AB, por codominancia"
+  - "IᴬIᴬ o IᴮIᴮ, indistintamente"
+  - "ii, porque O es la base de AB"
+respuesta: "IᴬIᴮ — es la única combinación que produce el fenotipo AB, por codominancia"
+
+explicacion: |
+  A diferencia de A o B (que tienen 2 genotipos posibles cada uno), AB
+  sólo tiene un genotipo posible.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "avanzado"
+  tags: ["abo", "problema"]
+
+respuesta: 0.5
+tipo: input
+
+enunciado: "Padre tipo AB (IᴬIᴮ) × madre tipo O (ii). ¿Cuál es la probabilidad de que un hijo sea tipo A?"
+
+pasos:
+  - "El padre aporta Iᴬ o Iᴮ (1/2 cada uno); la madre sólo puede aportar i"
+  - "P(hijo Iᴬi, tipo A) = 1/2"
+
+explicacion: |
+  La otra mitad de los hijos es tipo B (Iᴮi) — ningún hijo puede ser
+  AB ni O en este cruce.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "avanzado"
+  tags: ["abo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un cruce entre un padre tipo AB y una madre tipo O, ningún hijo puede resultar tipo AB ni tipo O."
+
+explicacion: |
+  La madre sólo puede aportar 'i', así que ningún hijo puede recibir
+  dos alelos i (para ser O) ni recibir Iᴬ e Iᴮ juntos de un mismo
+  progenitor combinados con el otro (para ser AB).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "avanzado"
+  tags: ["codominancia"]
+
+enunciado: "¿En qué se diferencia la codominancia (Iᴬ e Iᴮ) de la dominancia simple (A y a de `../genetica-mendeliana-punnett/`)?"
+tipo: mc
+opciones_explicitas:
+  - "En dominancia simple, el heterocigota se ve igual que el homocigota dominante (la copia recesiva queda 'tapada'); en codominancia, el heterocigota muestra un fenotipo NUEVO donde se ven ambos alelos"
+  - "No hay ninguna diferencia real entre ambos mecanismos"
+  - "La codominancia sólo aplica a plantas, nunca a animales"
+respuesta: "En dominancia simple, el heterocigota se ve igual que el homocigota dominante (la copia recesiva queda 'tapada'); en codominancia, el heterocigota muestra un fenotipo NUEVO donde se ven ambos alelos"
+
+explicacion: |
+  AB es un fenotipo distinto de A y de B — no 'se parece' a ninguno de
+  los dos por separado.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "avanzado"
+  tags: ["abo", "problema"]
+
+respuesta: 0.25
+tipo: input
+
+enunciado: "Padre tipo A, heterocigota (Iᴬi) × madre tipo B, heterocigota (Iᴮi). ¿Cuál es la probabilidad de que un hijo sea tipo O?"
+
+pasos:
+  - "El padre aporta Iᴬ o i (1/2 cada uno); la madre aporta Iᴮ o i (1/2 cada uno)"
+  - "P(hijo ii, tipo O) = 1/2 × 1/2 = 0,25"
+
+explicacion: |
+  Aunque ninguno de los padres sea tipo O, ambos pueden ser portadores
+  del alelo 'i' sin saberlo (por ser heterocigotas).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué es importante conocer el grupo sanguíneo ABO antes de una transfusión?"
+tipo: mc
+opciones_explicitas:
+  - "Porque transfundir sangre de un grupo incompatible puede provocar una reacción inmunológica grave, ya que el sistema inmune reconoce como 'extraños' los antígenos A o B que no tiene"
+  - "El grupo sanguíneo no tiene ninguna relevancia médica real"
+  - "Sólo importa la cantidad de sangre transfundida, no el grupo"
+respuesta: "Porque transfundir sangre de un grupo incompatible puede provocar una reacción inmunológica grave, ya que el sistema inmune reconoce como 'extraños' los antígenos A o B que no tiene"
+
+explicacion: |
+  Es la aplicación médica directa de este sistema genético.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "intermedio"
+  tags: ["rh", "vocabulario"]
+
+enunciado: "¿Qué es el factor Rh?"
+tipo: mc
+opciones_explicitas:
+  - "Un gen DISTINTO del sistema ABO, con herencia de dominancia simple (Rh+ dominante sobre Rh−)"
+  - "Otro nombre para el mismo gen del sistema ABO"
+  - "Un cuarto alelo del sistema ABO, además de Iᴬ, Iᴮ e i"
+respuesta: "Un gen DISTINTO del sistema ABO, con herencia de dominancia simple (Rh+ dominante sobre Rh−)"
+
+explicacion: |
+  El grupo sanguíneo completo (por ejemplo 'A+') combina ambos
+  sistemas genéticos por separado.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "intermedio"
+  tags: ["rh"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El alelo Rh+ es dominante sobre el alelo Rh−, así que una persona Rh+Rh− (heterocigota) es Rh positivo."
+
+explicacion: |
+  Es dominancia simple clásica, a diferencia de la codominancia del
+  sistema ABO.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "avanzado"
+  tags: ["abo", "aplicacion"]
+
+enunciado: "Un hijo es tipo O (ii). ¿Puede uno de sus padres biológicos ser tipo AB (IᴬIᴮ)?"
+tipo: mc
+opciones_explicitas:
+  - "No: un padre AB sólo puede aportar Iᴬ o Iᴮ, nunca 'i' — no puede tener un hijo ii"
+  - "Sí, es perfectamente posible sin ninguna restricción"
+respuesta: "No: un padre AB sólo puede aportar Iᴬ o Iᴮ, nunca 'i' — no puede tener un hijo ii"
+
+explicacion: |
+  Es un uso real de la genética de grupos sanguíneos en casos legales
+  de determinación de paternidad (para excluir, no para confirmar con
+  certeza absoluta).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "avanzado"
+  tags: ["abo", "problema"]
+
+respuesta: 0.5
+tipo: input
+
+enunciado: "Un padre es tipo A, pero no se sabe si es IᴬIᴬ o Iᴬi (50% de probabilidad cada uno). Si es Iᴬi y la madre es tipo O (ii), ¿cuál es la probabilidad de que un hijo sea tipo O?"
+
+pasos:
+  - "Si el padre es Iᴬi: aporta Iᴬ o i (1/2 cada uno); la madre sólo aporta i"
+  - "P(hijo ii | padre es Iᴬi) = 1/2"
+
+explicacion: |
+  Si en cambio el padre fuera IᴬIᴬ, ningún hijo podría ser tipo O — el
+  genotipo exacto del padre (no sólo su fenotipo) cambia el cálculo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "basico"
+  tags: ["abo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aunque existan 3 alelos posibles para el gen ABO en la población (Iᴬ, Iᴮ, i), cada persona individual sólo tiene 2 de esos tres (uno heredado de cada progenitor)."
+
+explicacion: |
+  'Alelos múltiples' se refiere a la variedad en la POBLACIÓN, no a
+  que un individuo tenga más de 2 copias de un gen.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué a una persona tipo O se la suele llamar 'donante universal'?"
+tipo: mc
+opciones_explicitas:
+  - "Porque su sangre no tiene ni el antígeno A ni el B, así que en general no genera el mismo tipo de rechazo inmunológico al ser transfundida a personas de otros grupos ABO"
+  - "Porque puede recibir sangre de cualquier grupo sin ningún riesgo"
+  - "Porque el tipo O es el grupo sanguíneo más común en todo el mundo, sin ninguna otra razón"
+respuesta: "Porque su sangre no tiene ni el antígeno A ni el B, así que en general no genera el mismo tipo de rechazo inmunológico al ser transfundida a personas de otros grupos ABO"
+
+explicacion: |
+  Es consecuencia directa del genotipo ii, que no produce ninguno de
+  los dos antígenos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "avanzado"
+  tags: ["abo", "problema"]
+
+respuesta: 0.25
+tipo: input
+
+enunciado: "Padre tipo A (Iᴬi) × madre tipo A (Iᴬi), ambos heterocigotas. ¿Cuál es la probabilidad de que un hijo sea tipo O?"
+
+pasos:
+  - "Ambos padres aportan Iᴬ o i (1/2 cada uno)"
+  - "P(hijo ii) = 1/2 × 1/2 = 0,25"
+
+explicacion: |
+  Es el mismo patrón matemático que un cruce Aa × Aa de
+  `../genetica-mendeliana-punnett/`, sólo que acá 'aa' se llama 'ii' y
+  el fenotipo se llama 'tipo O' en vez de 'recesivo'.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "intermedio"
+  tags: ["probabilidad_condicional", "aplicacion"]
+
+enunciado: "¿Qué relación tiene calcular el grupo sanguíneo posible de un hijo con `../../matematica/probabilidad-condicional/`?"
+tipo: mc
+opciones_explicitas:
+  - "La probabilidad del genotipo del hijo depende de qué se conoce (o no) del genotipo exacto de los padres — es una probabilidad condicionada a esa información disponible"
+  - "No tiene ninguna relación real con la probabilidad condicional"
+  - "El grupo sanguíneo de un hijo nunca depende del genotipo de sus padres"
+respuesta: "La probabilidad del genotipo del hijo depende de qué se conoce (o no) del genotipo exacto de los padres — es una probabilidad condicionada a esa información disponible"
+
+explicacion: |
+  Es la misma idea general que en `../herencia-ligada-al-sexo/`, ahora
+  aplicada a un mecanismo de alelos múltiples y codominancia.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "avanzado"
+  tags: ["rh", "abo", "problema"]
+
+respuesta: 0.125
+tipo: input
+
+enunciado: "Un hijo tiene 1/2 de probabilidad de ser tipo A (sistema ABO) y, de forma independiente, 1/4 de probabilidad de ser Rh negativo (sistema Rh). ¿Cuál es la probabilidad de que sea A Y Rh negativo a la vez?"
+
+pasos:
+  - "Son dos sistemas genéticos independientes entre sí (genes distintos)"
+  - "P(A y Rh−) = 1/2 × 1/4 = 0,125"
+
+explicacion: |
+  Al ser genes ubicados en cromosomas distintos, se aplica la regla
+  del producto de `../../matematica/probabilidad-compuesta/`.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "intermedio"
+  tags: ["rh", "abo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El factor Rh y el sistema ABO son genes distintos, heredados de forma independiente entre sí — el genotipo de uno no determina el genotipo del otro."
+
+explicacion: |
+  Por eso existen 8 combinaciones posibles de grupo sanguíneo completo
+  (A+, A−, B+, B−, AB+, AB−, O+, O−).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "grupos_sanguineos"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender la genética de los grupos sanguíneos?"
+tipo: mc
+opciones_explicitas:
+  - "Para entender la compatibilidad en transfusiones, calcular probabilidades de herencia, y como aplicación real de alelos múltiples y codominancia"
+  - "Sólo tiene aplicación teórica, sin ningún uso médico o legal real"
+  - "Sólo sirve para clasificar tipos de sangre, sin relación con genética"
+respuesta: "Para entender la compatibilidad en transfusiones, calcular probabilidades de herencia, y como aplicación real de alelos múltiples y codominancia"
+
+explicacion: |
+  Junto con `../herencia-ligada-al-sexo/`, completa las dos mitades
+  del nodo `B3` del MAPA — dos mecanismos genéticos distintos, ambos
+  resueltos con probabilidad condicional.
+```
+
+## Sección: cruce-dihibrido (31 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "mendel"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un cruce monohíbrido se estudia la herencia de un solo gen a la vez."
+
+explicacion: |
+  Correcto. "Mono" indica un solo par de alelos bajo estudio.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "mendel"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un cruce dihíbrido es aquel en el que se estudian dos genes distintos simultáneamente."
+
+explicacion: |
+  Correcto, el prefijo "di-" indica dos genes a la vez.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "mendel"]
+
+respuesta: "color y forma de la semilla"
+tipo: mc
+opciones_explicitas: ["color y forma de la semilla", "solo el color de la semilla", "solo la forma de la semilla", "ningún rasgo"]
+
+enunciado: "Si se estudia la herencia del color Y la forma de la semilla al mismo tiempo, ¿qué tipo de cruce es?"
+
+explicacion: |
+  Dos características a la vez: cruce dihíbrido.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "mendel"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El crecimiento de las copias de ADN durante los ciclos de una PCR es lineal."
+enunciado: "El cruce dihíbrido es más simple que el cruce monohíbrido porque involucra menos genes."
 
 explicacion: |
-  Falso, es exponencial: se duplica en cada ciclo.
+  Falso, es más complejo: involucra dos pares de genes en vez de uno.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
+  tema: "cruce_dihibrido"
   nivel: "basico"
-  tags: ["pcr", "terminologia"]
+  tags: ["genetica", "mendel"]
 
-respuesta: "polimerasa"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si dos genes están en cromosomas distintos, se heredan de forma independiente uno del otro."
+
+explicacion: |
+  Correcto. Segundo principio de Mendel.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "mendel"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Que un descendiente reciba el alelo dominante del gen 1 influye en el alelo que recibe del gen 2."
+
+explicacion: |
+  Falso, si los genes son independientes no se influyen.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "mendel"]
+
+respuesta: "independiente"
 tipo: completar
 respuestas_validas:
-  - "polimerasa"
+  - "independiente"
 
-enunciado: "La sigla PCR significa Reacción en Cadena de la ___."
+enunciado: "La ley que dice que los genes en cromosomas distintos se heredan sin influirse entre sí se llama ley de segregación ___."
 
 explicacion: |
-  Polymerase Chain Reaction.
+  Ley de segregación independiente (2ª ley de Mendel).
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "intermedio"
-  tags: ["pcr", "aplicaciones"]
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "probabilidad"]
 
-variables:
-  escenarios: [["diagnostico", "detectar si hay suficiente ADN de un virus o patogeno"], ["pruebas de paternidad", "comparar ADN entre personas"], ["medicina forense", "amplificar el poco ADN de una escena de crimen"]]
-  idx: uno_de([0, 1, 2])
+respuesta: verdadero
+tipo: vf
 
-respuesta: escenarios[idx][1]
+enunciado: "La segregación independiente permite tratar cada gen como un sorteo aparte y combinar sus probabilidades multiplicándolas."
+
+explicacion: |
+  Correcto, es la regla del producto para eventos independientes.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "gametos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un individuo con genotipo AaBb puede producir 4 tipos de gametos diferentes."
+
+explicacion: |
+  Combina A/a con B/b: AB, Ab, aB, ab.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "gametos"]
+
+respuesta: "AB, Ab, aB, ab"
 tipo: mc
-opciones_explicitas: ["detectar si hay suficiente ADN de un virus o patogeno", "comparar ADN entre personas", "amplificar el poco ADN de una escena de crimen"]
+opciones_explicitas: ["AB, Ab, aB, ab", "Solo AB y ab", "Aa y Bb", "AABB y aabb"]
 
-enunciado: "¿En qué consiste el uso de la PCR para {escenarios[idx][0]}?"
+enunciado: "Un individuo AaBb produce los siguientes tipos de gametos:"
 
 explicacion: |
-  Para {escenarios[idx][0]}: {escenarios[idx][1]}.
+  Las 4 combinaciones posibles: AB, Ab, aB, ab.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "gametos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un individuo AABB (homocigota para ambos genes) produce un solo tipo de gameto (AB)."
+
+explicacion: |
+  Al ser homocigota, todos sus gametos llevan A y B.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
   nivel: "intermedio"
-  tags: ["pcr", "calculo"]
+  tags: ["genetica", "combinatoria"]
 
 variables:
-  ciclos: uno_de([1, 2, 3, 4])
+  genes: uno_de([1, 2, 3])
 
-respuesta: 2 ^ ciclos
+respuesta: 2 ^ genes
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Partiendo de 1 copia de ADN, si la PCR duplica en cada ciclo, ¿cuántas copias hay después de {ciclos} ciclos?"
+enunciado: "Un individuo heterocigoto para {genes} genes produce 2 elevado a n tipos de gametos. ¿Cuántos tipos produce?"
 
 pasos:
-  - "N = 2^n, con n = {ciclos}"
+  - "2^n, con n = {genes}"
 
 explicacion: |
-  2^{ciclos}.
+  2^{genes}.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
+  tema: "cruce_dihibrido"
   nivel: "basico"
-  tags: ["pcr", "forense"]
+  tags: ["genetica", "punnett"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La PCR es útil en medicina forense porque amplifica el poco ADN encontrado en una escena de crimen."
+enunciado: "El cuadro de Punnett para un cruce dihíbrido tiene 16 casillas (matriz 4×4)."
 
 explicacion: |
-  Correcto, permite obtener suficiente material para analizar.
+  Cada progenitor aporta 4 tipos de gametos: 4×4=16.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
+  tema: "cruce_dihibrido"
   nivel: "basico"
-  tags: ["adn_recombinante"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ADN recombinante se construye cortando y pegando ADN de distintas fuentes."
-
-explicacion: |
-  Correcto, usando enzimas de corte y ligasas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "basico"
-  tags: ["bacterias", "clonacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para insertar un gen de interés en otro organismo, se suele usar una bacteria porque se reproduce rápido y es fácil de cultivar."
-
-explicacion: |
-  Correcto, las bacterias son el vector clásico.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "intermedio"
-  tags: ["expresion_genica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El organismo receptor de un gen insertado queda 'programado' para fabricar la proteína de ese gen."
-
-explicacion: |
-  Correcto, si tiene las secuencias reguladoras necesarias.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "intermedio"
-  tags: ["insulina"]
+  tags: ["genetica", "punnett"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La insulina humana usada para tratar diabetes se extrae siempre de páncreas de cerdos y vacas."
+enunciado: "El cuadro de Punnett para un cruce monohíbrido tiene 16 casillas, igual que el dihíbrido."
 
 explicacion: |
-  Falso. Hoy se fabrica con bacterias modificadas con el gen humano de insulina.
+  Falso. El monohíbrido tiene 4 casillas (2×2); 16 es exclusivo del dihíbrido.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "basico"
-  tags: ["crispr"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "CRISPR permite editar el ADN directamente, no sólo insertar un gen extra."
-
-explicacion: |
-  Correcto, permite cortes precisos para editar, eliminar o insertar material genético.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "basico"
-  tags: ["crispr", "arn_guia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "CRISPR usa una molécula guía que busca la secuencia exacta a editar."
-
-explicacion: |
-  Correcto, el ARN guía dirige la edición al lugar correcto.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
+  tema: "cruce_dihibrido"
   nivel: "intermedio"
-  tags: ["crispr", "cas9"]
+  tags: ["genetica", "punnett"]
 
-respuesta: "Cas9"
+respuesta: "Cada progenitor produce 4 tipos de gametos diferentes"
+tipo: mc
+opciones_explicitas: ["Cada progenitor produce 4 tipos de gametos diferentes", "Hay 4 alelos en total en el sistema", "El cruce siempre produce 4 hijos en la descendencia", "No tiene una razón particular, es una convención"]
+
+enunciado: "¿Por qué el cuadro de Punnett de un cruce dihíbrido tiene 4 filas y 4 columnas?"
+
+explicacion: |
+  Porque cada progenitor produce 4 tipos de gametos posibles.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "mendel"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al cruzar AaBb × AaBb, la proporción fenotípica clásica es 9:3:3:1."
+
+explicacion: |
+  Correcto, es la proporción clásica del cruce dihíbrido.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "mendel"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la proporción 9:3:3:1, el 9/16 corresponde a dominante en ambos genes."
+
+explicacion: |
+  Correcto, es el grupo mayoritario.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "mendel"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la proporción 9:3:3:1, el 1/16 corresponde a dominante en ambos genes."
+
+explicacion: |
+  Falso, el 1/16 es recesivo en ambos genes.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "mendel"]
+
+respuesta: "1"
 tipo: completar
 respuestas_validas:
-  - "Cas9"
+  - "1"
+  - "un"
 
-enunciado: "La proteína que corta el ADN en el punto indicado por la guía de CRISPR se llama ___."
+enunciado: "En la proporción 9:3:3:1, la fracción recesiva en ambos genes es ___ dieciseisavos."
 
 explicacion: |
-  Cas9, la "tijera molecular" del sistema.
+  1/16 es la fracción doble recesiva.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
+  tema: "cruce_dihibrido"
+  nivel: "basico"
+  tags: ["genetica", "mendel"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La suma de las 4 fracciones de la proporción 9:3:3:1 (9+3+3+1) da 16."
+
+explicacion: |
+  Correcto, es el total de casillas del cuadro dihíbrido.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
   nivel: "intermedio"
-  tags: ["crispr", "precision"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "CRISPR es una técnica menos precisa que el ADN recombinante clásico."
-
-explicacion: |
-  Falso, es más precisa: edita un punto exacto en vez de insertar al azar.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "basico"
-  tags: ["historia"]
-
-respuesta: "PCR, ADN recombinante, CRISPR"
-tipo: mc
-opciones_explicitas: ["PCR, ADN recombinante, CRISPR", "CRISPR, PCR, ADN recombinante", "ADN recombinante, CRISPR, PCR", "no tienen un orden particular"]
-
-enunciado: "¿Cuál es el orden cronológico de aparición de estas 3 técnicas?"
-
-explicacion: |
-  PCR (80s), ADN recombinante consolidado después, CRISPR-Cas9 mucho más reciente.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "basico"
-  tags: ["pcr"]
+  tags: ["mendel", "probabilidad"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La PCR es necesaria para obtener suficiente ADN con el que trabajar en otras técnicas."
+enunciado: "Como los genes son independientes, se puede resolver cada gen por separado (3:1) y multiplicar, en vez de armar las 16 casillas."
 
 explicacion: |
-  Correcto, amplifica la cantidad de material disponible.
+  Correcto, es un atajo válido por la segregación independiente.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "basico"
-  tags: ["adn_recombinante"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ADN recombinante demostró que es posible modificar el material genético de un organismo insertando genes de otro."
-
-explicacion: |
-  Correcto.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
+  tema: "cruce_dihibrido"
   nivel: "intermedio"
-  tags: ["crispr"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "CRISPR permitió pasar de 'insertar genes en cualquier parte' (ADN recombinante clásico) a 'editar el punto exacto' del genoma."
-
-explicacion: |
-  Correcto, gracias al ARN guía de alta especificidad.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "basico"
-  tags: ["adn", "fundamentos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las 3 técnicas (PCR, ADN recombinante, CRISPR) requieren conocer la estructura del ADN antes de poder entenderlas."
-
-explicacion: |
-  Correcto, todas operan sobre el ADN.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "basico"
-  tags: ["genetica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La biotecnología moderna es completamente independiente de la genética y el ADN."
-
-explicacion: |
-  Falso. Se basa directamente en la manipulación de la información genética.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "intermedio"
-  tags: ["tecnicas"]
+  tags: ["probabilidad", "genetica"]
 
 variables:
-  tabla: [["PCR", "copia/amplifica ADN"], ["ADN recombinante", "inserta un gen de un organismo en otro"], ["CRISPR", "edita el ADN en un punto exacto"]]
-  idx: uno_de([0, 1, 2])
+  p1: uno_de([3, 1])
+  p2: uno_de([3, 1])
 
-respuesta: tabla[idx][1]
-tipo: mc
-opciones_explicitas: ["copia/amplifica ADN", "inserta un gen de un organismo en otro", "edita el ADN en un punto exacto"]
-
-enunciado: "¿Cuál es la función principal de {tabla[idx][0]}?"
-
-explicacion: |
-  {tabla[idx][0]}: {tabla[idx][1]}.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "biotecnologia_pcr_crispr"
-  nivel: "avanzado"
-  tags: ["etica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La capacidad de cortar y editar ADN con CRISPR podría usarse tanto para corregir enfermedades genéticas como para otros fines controvertidos, lo que genera debate ético."
-
-explicacion: |
-  Correcto — ver ../transgenicos-bioetica/.
-```
-
-## Sección: cadenas-redes-troficas (24 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "intermedio"
-  tags: ["niveles_troficos"]
-
-variables:
-  tabla: [["1", "productores/autotrofos"], ["2", "consumidores primarios/herbivoros"], ["3", "consumidores secundarios/carnivoros que comen herbivoros"], ["4", "consumidores terciarios/carnivoros que comen carnivoros"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: tabla[idx][1]
-tipo: mc
-opciones_explicitas: ["productores/autotrofos", "consumidores primarios/herbivoros", "consumidores secundarios/carnivoros que comen herbivoros", "consumidores terciarios/carnivoros que comen carnivoros"]
-
-enunciado: "Un organismo que ocupa el nivel trófico {tabla[idx][0]}, ¿cómo se le denomina?"
-
-explicacion: |
-  El nivel trófico {tabla[idx][0]} corresponde a: {tabla[idx][1]}.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["productores"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los productores ocupan el nivel trófico 1."
-
-explicacion: |
-  Correcto, inician la cadena.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["consumidores"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un conejo que se alimenta de pasto es un consumidor primario."
-
-explicacion: |
-  Correcto, se alimenta directo de un productor.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["consumidores"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un zorro que come conejos es un consumidor primario, igual que el conejo."
-
-explicacion: |
-  Falso, es consumidor secundario (come al herbívoro).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["conceptos_basicos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una cadena trófica es una secuencia lineal de quién come a quién."
-
-explicacion: |
-  Correcto, representa un flujo lineal de energía.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["flujo_energia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En pasto → conejo → zorro, cada flecha indica la dirección del flujo de energía."
-
-explicacion: |
-  Correcto, del organismo comido hacia el que come.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "intermedio"
-  tags: ["red_trofica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una cadena trófica se caracteriza por presentar ramificaciones y cruces complejos entre múltiples especies."
-
-explicacion: |
-  Falso, eso describe una red trófica. La cadena es lineal.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["ejemplos"]
-
-respuesta: "cadena"
+respuesta: (p1 / 4) * (p2 / 4)
 tipo: completar
-respuestas_validas:
-  - "cadena"
+tolerancia_abs: 0.01
 
-enunciado: "La secuencia pasto → conejo → zorro → águila es un ejemplo de ___ trófica."
+enunciado: "En AaBb × AaBb, P(dominante gen1) = {p1}/4 y P(dominante gen2) = {p2}/4. ¿Cuál es la probabilidad combinada?"
+
+pasos:
+  - "Multiplicar ambas probabilidades"
 
 explicacion: |
-  Es lineal y unidireccional: una cadena trófica.
+  ({p1}/4) × ({p2}/4).
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cadenas_redes_troficas"
+  tema: "cruce_dihibrido"
   nivel: "basico"
-  tags: ["alimentacion"]
+  tags: ["probabilidad"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la realidad, casi ningún organismo come una sola cosa o es comido por un solo depredador."
+enunciado: "Multiplicar probabilidades de eventos independientes es la misma lógica de la probabilidad compuesta."
 
 explicacion: |
-  Correcto, la mayoría tiene dietas más variadas.
+  Correcto — ver ../../matematica/probabilidad-compuesta/.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cadenas_redes_troficas"
+  tema: "cruce_dihibrido"
   nivel: "basico"
-  tags: ["red_trofica"]
+  tags: ["mendel", "monohibridismo"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una red trófica es el conjunto de varias cadenas tróficas entrecruzadas."
-
-explicacion: |
-  Correcto, representa mejor la complejidad de un ecosistema real.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "intermedio"
-  tags: ["estabilidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una red trófica es más estable que una cadena aislada, porque hay rutas alternativas si desaparece una especie."
-
-explicacion: |
-  Correcto, la redundancia da resiliencia.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "intermedio"
-  tags: ["flujo_energia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En una cadena trófica simple, si se elimina un eslabón del medio, esto no afecta el flujo de energía hacia los niveles superiores."
-
-explicacion: |
-  Falso, corta el flujo hacia los niveles siguientes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["descomponedores"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los descomponedores (hongos, bacterias) se alimentan de materia orgánica muerta."
-
-explicacion: |
-  Correcto.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["nutrientes"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los descomponedores devuelven nutrientes simples al ambiente, disponibles de nuevo para los productores."
-
-explicacion: |
-  Correcto, cierran el ciclo de la materia.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["ciclo_nutrientes"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin descomponedores, los nutrientes quedarían atrapados para siempre en los cuerpos de los organismos muertos."
-
-explicacion: |
-  Correcto, el ciclo de la materia se detendría.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "intermedio"
-  tags: ["clasificacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los descomponedores encajan exactamente en el nivel trófico 2, igual que los herbívoros."
-
-explicacion: |
-  Falso, no encajan en los niveles 1-4 tradicionales; procesan materia de cualquier nivel.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["flujo_energia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La flecha en un diagrama trófico indica la dirección en la que se mueve la energía."
-
-explicacion: |
-  Correcto.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["flujo_energia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La flecha va desde la presa (que tenía la energía) hacia el depredador (que la absorbe al comerla)."
-
-explicacion: |
-  Correcto.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La flecha en un diagrama trófico indica jerarquía de poder o 'quién manda', no flujo de energía."
-
-explicacion: |
-  Falso, indica flujo de energía, no dominancia.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["ejemplos"]
-
-respuesta: "hacia el conejo, porque la energia va del pasto al conejo"
+respuesta: "3/4"
 tipo: mc
-opciones_explicitas: ["hacia el conejo, porque la energia va del pasto al conejo", "hacia el pasto", "no tiene direccion", "indica quien es mas fuerte"]
+opciones_explicitas: ["3/4", "1/4", "1/2", "1"]
 
-enunciado: "En pasto → conejo, ¿hacia dónde apunta la flecha?"
+enunciado: "En Aa × Aa, ¿cuál es la probabilidad de fenotipo dominante en un descendiente?"
 
 explicacion: |
-  La energía fluye del productor al consumidor: la flecha apunta hacia el conejo.
+  AA (1/4) + Aa (2/4) = 3/4 con fenotipo dominante.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cadenas_redes_troficas"
+  tema: "cruce_dihibrido"
   nivel: "intermedio"
-  tags: ["ejemplos"]
+  tags: ["genetica", "probabilidad"]
 
 variables:
-  escenario: [["pasto", "productor"], ["conejo", "consumidor primario"], ["zorro", "consumidor secundario"], ["hongo descomponiendo un tronco", "descomponedor"]]
-  idx: uno_de([0, 1, 2, 3])
+  total: uno_de([16, 32, 48, 64])
 
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["productor", "consumidor primario", "consumidor secundario", "descomponedor"]
+respuesta: total * 9 / 16
+tipo: completar
+tolerancia_abs: 0.01
 
-enunciado: "¿Cuál es el nivel trófico de {escenario[idx][0]}?"
+enunciado: "En AaBb × AaBb con {total} descendientes totales, ¿cuántos se esperan con fenotipo dominante en ambos genes?"
 
 explicacion: |
-  {escenario[idx][0]} es: {escenario[idx][1]}.
+  {total} × 9/16.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cadenas_redes_troficas"
+  tema: "cruce_dihibrido"
   nivel: "intermedio"
-  tags: ["ser_humano"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ser humano puede ocupar distintos niveles tróficos según su dieta."
-
-explicacion: |
-  Correcto, es omnívoro: primario si come plantas, secundario o más si come carne.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "basico"
-  tags: ["redes_troficas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una red trófica representa mejor un ecosistema real que una sola cadena trófica aislada."
-
-explicacion: |
-  Correcto, es un modelo más realista.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cadenas_redes_troficas"
-  nivel: "intermedio"
-  tags: ["energia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los niveles tróficos y el flujo de energía están directamente conectados: cada nivel recibe menos energía que el anterior."
-
-explicacion: |
-  Correcto — ver ../flujo-materia-energia/ (regla del 10%).
-```
-
-## Sección: celula-organelas (20 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["celula", "teoria_celular"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La célula es la unidad básica de la vida."
-
-explicacion: |
-  La teoría celular establece que la célula es la unidad estructural, funcional y de origen de todos los seres vivos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["unicelular", "clasificacion"]
-
-respuesta: "unicelular"
-tipo: mc
-opciones_explicitas: ["unicelular", "pluricelular", "multicelular", "acelular"]
-
-enunciado: "Un organismo formado por una sola célula se llama..."
-
-explicacion: |
-  Se llama unicelular (bacterias, protozoos).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["pluricelular"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las plantas y los animales son organismos pluricelulares."
-
-explicacion: |
-  Correcto, están compuestos por múltiples células especializadas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["bacterias"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Las bacterias son organismos pluricelulares complejos."
-
-explicacion: |
-  Falso. Son unicelulares procariotas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["procariota", "nucleo"]
-
-respuesta: "no tener nucleo definido"
-tipo: mc
-opciones_explicitas: ["no tener nucleo definido", "tener nucleo definido", "no tener membrana", "no tener citoplasma"]
-
-enunciado: "La célula procariota se caracteriza por..."
-
-explicacion: |
-  Su material genético está disperso en el citoplasma, sin membrana propia.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["eucariota", "nucleo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La célula eucariota tiene el material genético encerrado en una membrana propia (el núcleo)."
-
-explicacion: |
-  Correcto, es la característica principal que la diferencia de la procariota.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["bacterias", "procariota"]
-
-respuesta: "procariotas"
-tipo: mc
-opciones_explicitas: ["procariotas", "eucariotas", "ninguna de las dos", "ambas a la vez"]
-
-enunciado: "Las bacterias son células..."
-
-explicacion: |
-  Son procariotas: estructura simple, sin núcleo definido.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["eucariota"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Las células de plantas y animales son procariotas."
-
-explicacion: |
-  Falso, son eucariotas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "intermedio"
-  tags: ["organelas"]
+  tags: ["genetica", "probabilidad"]
 
 variables:
-  datos: [["nucleo", "guarda el ADN y controla la actividad de la celula"], ["mitocondria", "produce energia"], ["ribosoma", "fabrica proteinas"], ["cloroplasto", "hace la fotosintesis"]]
-  idx: uno_de([0, 1, 2, 3])
+  total: uno_de([16, 32, 48, 64])
 
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["guarda el ADN y controla la actividad de la celula", "produce energia", "fabrica proteinas", "hace la fotosintesis"]
+respuesta: total * 1 / 16
+tipo: completar
+tolerancia_abs: 0.01
 
-enunciado: "¿Cuál es la función de {datos[idx][0]}?"
+enunciado: "En AaBb × AaBb con {total} descendientes totales, ¿cuántos se esperan con fenotipo recesivo en ambos genes?"
 
 explicacion: |
-  La función de {datos[idx][0]} es: {datos[idx][1]}.
+  {total} × 1/16.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["golgi"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El aparato de Golgi empaqueta y distribuye proteínas."
-
-explicacion: |
-  Correcto, procesa, empaqueta y distribuye proteínas y lípidos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["reticulo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El retículo endoplasmático transporta sustancias dentro de la célula."
-
-explicacion: |
-  Correcto, funciona como sistema de transporte y síntesis.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["vacuola"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La vacuola es más grande en las células animales que en las vegetales."
-
-explicacion: |
-  Falso. Es mucho más grande en las vegetales.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["pared_celular"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La célula vegetal posee pared celular, mientras que la célula animal no la tiene."
-
-explicacion: |
-  Correcto, es una diferencia clave entre ambas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["cloroplastos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los cloroplastos están presentes tanto en células animales como vegetales."
-
-explicacion: |
-  Falso, son exclusivos de células vegetales y algas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["pared_celular"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La pared celular da rigidez extra y protección, y está presente en plantas, hongos y bacterias, pero no en animales."
-
-explicacion: |
-  Correcto.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
+  tema: "cruce_dihibrido"
   nivel: "intermedio"
-  tags: ["sistema_celular"]
+  tags: ["genetica", "probabilidad"]
 
-respuesta: falso
-tipo: vf
+variables:
+  total: uno_de([16, 32, 48, 64])
 
-enunciado: "Cada organela funciona de forma totalmente aislada, sin relación con las demás."
+respuesta: total * 3 / 16
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "En AaBb × AaBb con {total} descendientes totales, ¿cuántos se esperan con fenotipo dominante en el gen 1 y recesivo en el gen 2?"
 
 explicacion: |
-  Falso. Trabajan como sistema integrado (ej: retículo→Golgi para las proteínas).
+  {total} × 3/16.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "celula_organelas"
+  tema: "cruce_dihibrido"
   nivel: "basico"
-  tags: ["ribosomas"]
+  tags: ["mendel"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El ribosoma fabrica proteínas utilizando la información del ADN."
+enunciado: "Mendel usó guisantes con forma de semilla (lisa/rugosa) y color (amarillo/verde) como los 2 genes de su cruce dihíbrido clásico."
 
 explicacion: |
-  Correcto — ver ../adn-gen-proteina/.
+  Correcto, es el experimento clásico de Mendel.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "celula_organelas"
-  nivel: "basico"
-  tags: ["membrana"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La membrana celular envuelve la célula y controla qué entra y sale de ella."
-
-explicacion: |
-  Correcto, es selectivamente permeable.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "celula_organelas"
+  tema: "cruce_dihibrido"
   nivel: "intermedio"
-  tags: ["mitocondria"]
+  tags: ["mendel", "proporciones"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La mitocondria se conoce como la 'central de energía' de la célula porque produce la energía necesaria para sus procesos."
+enunciado: "La semilla lisa y amarilla (dominante en ambos) es el fenotipo más común, con 9/16 de la descendencia."
 
 explicacion: |
-  Correcto, mediante la respiración celular.
+  Correcto, es la proporción mayoritaria.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "celula_organelas"
+  tema: "cruce_dihibrido"
+  nivel: "intermedio"
+  tags: ["mendel", "proporciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La semilla rugosa y verde (recesiva en ambos) es la menos común, con 1/16 de la descendencia."
+
+explicacion: |
+  Correcto, es la proporción minoritaria.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "cruce_dihibrido"
   nivel: "avanzado"
-  tags: ["comparacion"]
+  tags: ["mendel", "segregacion_independiente"]
 
-respuesta: "pared celular, cloroplastos y vacuola grande central"
-tipo: mc
-opciones_explicitas: ["pared celular, cloroplastos y vacuola grande central", "núcleo y mitocondria", "membrana celular y ribosomas", "citoplasma y retículo endoplasmático"]
+respuesta: falso
+tipo: vf
 
-enunciado: "¿Cuáles son las 3 estructuras que tiene la célula vegetal y que la célula animal NO tiene?"
+enunciado: "El cruce dihíbrido de Mendel confirmó que los genes de forma y color se heredan de manera dependiente entre sí."
 
 explicacion: |
-  Núcleo, mitocondria, membrana, citoplasma, ribosomas y retículo están en ambas — lo exclusivo de la vegetal es pared celular, cloroplastos y la vacuola grande central.
+  Falso. Confirmó que se heredan de forma INDEPENDIENTE.
+```
+
+## Sección: herencia-ligada-al-sexo (20 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "basico"
+  tags: ["ligado_x", "vocabulario"]
+
+enunciado: "¿Qué significa que un gen esté 'ligado al X'?"
+tipo: mc
+opciones_explicitas:
+  - "Que el gen está ubicado en el cromosoma X, así que su herencia depende de cuántas copias de X tiene cada sexo"
+  - "Que el gen sólo existe en mujeres, nunca en varones"
+  - "Que el gen determina directamente el sexo biológico del individuo"
+respuesta: "Que el gen está ubicado en el cromosoma X, así que su herencia depende de cuántas copias de X tiene cada sexo"
+
+explicacion: |
+  Mujeres tienen XX (2 copias); varones tienen XY (1 sola copia de X).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "intermedio"
+  tags: ["ligado_x"]
+
+enunciado: "¿Por qué un varón (XY) expresa un rasgo recesivo ligado al X con una sola copia del alelo recesivo, mientras que una mujer necesita dos?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el varón sólo tiene un cromosoma X — no hay un segundo X con una copia dominante que pueda 'tapar' al recesivo"
+  - "Porque los alelos recesivos son más fuertes en varones que en mujeres"
+  - "No hay ninguna diferencia real entre varones y mujeres para estos genes"
+respuesta: "Porque el varón sólo tiene un cromosoma X — no hay un segundo X con una copia dominante que pueda 'tapar' al recesivo"
+
+explicacion: |
+  Es la razón cromosómica detrás de toda la asimetría de este tema.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "intermedio"
+  tags: ["ligado_x"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los rasgos recesivos ligados al X (como hemofilia o daltonismo) son mucho más comunes en varones que en mujeres."
+
+explicacion: |
+  Una mujer necesita las dos copias recesivas; un varón, sólo una.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "intermedio"
+  tags: ["portadora", "vocabulario"]
+
+enunciado: "¿Qué es una mujer 'portadora' de un rasgo recesivo ligado al X?"
+tipo: mc
+opciones_explicitas:
+  - "Una mujer heterocigota (XᴬXᵃ): no expresa el rasgo (tiene la copia dominante), pero puede transmitir el alelo recesivo a su descendencia"
+  - "Una mujer que ya expresa el rasgo de forma visible"
+  - "Una mujer que no puede tener hijos"
+respuesta: "Una mujer heterocigota (XᴬXᵃ): no expresa el rasgo (tiene la copia dominante), pero puede transmitir el alelo recesivo a su descendencia"
+
+explicacion: |
+  Es la aplicación de 'heterocigota' de `../genetica-mendeliana-punnett/`
+  a un gen ligado al X.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "avanzado"
+  tags: ["ligado_x", "problema"]
+
+respuesta: 0.5
+tipo: input
+
+enunciado: "Padre no afectado (XᴬY) × madre portadora (XᴬXᵃ). ¿Cuál es la probabilidad de que un hijo VARÓN esté afectado (P(afectado | varón))?"
+
+pasos:
+  - "Entre los hijos varones (XᴬY o XᵃY, cada uno 1/2 de probabilidad), la mitad está afectada"
+  - "P(afectado | varón) = 0,5"
+
+explicacion: |
+  El padre sólo aporta Y a los varones; el alelo decisivo lo aporta la
+  madre, que es portadora (1/2 de probabilidad de aportar el recesivo).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "avanzado"
+  tags: ["ligado_x", "problema"]
+
+respuesta: 0
+tipo: input
+
+enunciado: "Con el mismo cruce (padre XᴬY, madre XᴬXᵃ), ¿cuál es la probabilidad de que una hija MUJER esté afectada (P(afectada | mujer))?"
+
+pasos:
+  - "El padre siempre aporta Xᴬ a sus hijas — ninguna hija puede recibir dos copias recesivas"
+  - "P(afectada | mujer) = 0"
+
+explicacion: |
+  Con un padre no afectado, ninguna hija puede estar afectada por este
+  gen, sin importar el genotipo de la madre.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "avanzado"
+  tags: ["ligado_x", "problema"]
+
+respuesta: 0.5
+tipo: input
+
+enunciado: "Con el mismo cruce (padre XᴬY, madre XᴬXᵃ), ¿cuál es la probabilidad de que una hija sea PORTADORA (P(portadora | mujer))?"
+
+pasos:
+  - "Entre las hijas (XᴬXᴬ o XᴬXᵃ, cada una 1/2), la mitad es portadora"
+  - "P(portadora | mujer) = 0,5"
+
+explicacion: |
+  La condición 'portadora' depende de qué alelo aportó la madre —
+  50/50, igual que cualquier alelo heterocigota.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "avanzado"
+  tags: ["probabilidad_condicional"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "P(afectado | hijo varón) y P(afectado | hija mujer) son dos probabilidades condicionales DISTINTAS sobre el mismo cruce — condicionar sobre el sexo del hijo cambia el resultado."
+
+explicacion: |
+  Es la aplicación directa de `../../matematica/probabilidad-condicional/`
+  a este mecanismo genético: en el ejemplo de la teoría, una da 1/2 y
+  la otra da 0.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Cuáles son ejemplos reales de rasgos recesivos ligados al X en humanos?"
+tipo: mc
+opciones_explicitas:
+  - "Hemofilia y daltonismo (dificultad para distinguir colores)"
+  - "Estatura y color de ojos"
+  - "Grupo sanguíneo y factor Rh"
+respuesta: "Hemofilia y daltonismo (dificultad para distinguir colores)"
+
+explicacion: |
+  Ambos son mucho más frecuentes en varones que en mujeres, por el
+  mecanismo de este módulo. Los grupos sanguíneos son otro sistema,
+  ver `../grupos-sanguineos/`.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "avanzado"
+  tags: ["ligado_x", "problema"]
+
+respuesta: 1
+tipo: input
+
+enunciado: "Madre AFECTADA (XᵃXᵃ) × padre no afectado (XᴬY). ¿Cuál es la probabilidad de que un hijo VARÓN esté afectado?"
+
+pasos:
+  - "La madre sólo puede aportar Xᵃ (es lo único que tiene); el padre aporta Y a sus hijos varones"
+  - "Todos los hijos varones son XᵃY: P(afectado | varón) = 1"
+
+explicacion: |
+  Con una madre afectada, TODOS los hijos varones heredan el alelo
+  recesivo — patrón clásico de la herencia ligada al X.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "avanzado"
+  tags: ["ligado_x", "problema"]
+
+respuesta: 0
+tipo: input
+
+enunciado: "Con el mismo cruce (madre XᵃXᵃ, padre XᴬY), ¿cuál es la probabilidad de que una hija esté afectada?"
+
+pasos:
+  - "El padre siempre aporta Xᴬ a sus hijas; la madre sólo puede aportar Xᵃ"
+  - "Todas las hijas son XᴬXᵃ (portadoras, no afectadas): P(afectada | mujer) = 0"
+
+explicacion: |
+  Aunque la madre esté afectada, ninguna hija lo está — pero todas
+  quedan portadoras.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué el daltonismo (dificultad para distinguir colores) es mucho más común en varones que en mujeres?"
+tipo: mc
+opciones_explicitas:
+  - "Porque es un rasgo recesivo ligado al X: un varón lo expresa con una sola copia del alelo, mientras que una mujer necesita las dos copias"
+  - "Porque los ojos de los varones tienen una estructura biológica distinta a la de las mujeres"
+  - "El daltonismo es igual de común en ambos sexos, no hay ninguna diferencia real"
+respuesta: "Porque es un rasgo recesivo ligado al X: un varón lo expresa con una sola copia del alelo, mientras que una mujer necesita las dos copias"
+
+explicacion: |
+  Es la aplicación directa del mecanismo de este módulo a un caso
+  real y común.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "avanzado"
+  tags: ["ligado_x", "problema"]
+
+respuesta: 0.25
+tipo: input
+
+enunciado: "Padre no afectado (XᴬY) × madre portadora (XᴬXᵃ). Sin condicionar sobre el sexo, ¿cuál es la probabilidad de que un hijo (varón o mujer, cualquiera) nazca afectado?"
+
+pasos:
+  - "De las 4 combinaciones igual de probables (XᴬXᴬ, XᴬXᵃ, XᴬY, XᵃY), sólo 1 está afectada (XᵃY)"
+  - "P(afectado) = 1/4 = 0,25"
+
+explicacion: |
+  Esta es la probabilidad SIN condicionar sobre el sexo — muy distinta
+  de P(afectado|varón)=0,5 y P(afectado|mujer)=0 calculadas antes.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "intermedio"
+  tags: ["ligado_x"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una mujer necesita las DOS copias recesivas (XᵃXᵃ) para expresar un rasgo ligado al X, porque tiene dos cromosomas X y la copia dominante en cualquiera de los dos alcanza para tapar al recesivo."
+
+explicacion: |
+  Es la misma lógica de dominancia/recesividad de
+  `../genetica-mendeliana-punnett/`, aplicada a un gen ligado al X.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "avanzado"
+  tags: ["ligado_x", "problema"]
+
+respuesta: 0
+tipo: input
+
+enunciado: "Padre AFECTADO (XᵃY) × madre homocigota dominante, no portadora (XᴬXᴬ). ¿Cuál es la probabilidad de que un hijo VARÓN esté afectado?"
+
+pasos:
+  - "El padre sólo aporta Y a sus hijos varones (nunca su Xᵃ); la madre sólo puede aportar Xᴬ"
+  - "Todos los hijos varones son XᴬY: P(afectado | varón) = 0"
+
+explicacion: |
+  Un padre nunca transmite su cromosoma X a sus hijos varones (les
+  transmite el Y) — por eso un padre afectado no puede 'pasarle'
+  directamente el rasgo a un hijo varón.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "avanzado"
+  tags: ["ligado_x", "problema"]
+
+respuesta: 1
+tipo: input
+
+enunciado: "Con el mismo cruce (padre XᵃY afectado, madre XᴬXᴬ), ¿cuál es la probabilidad de que una hija sea portadora?"
+
+pasos:
+  - "El padre siempre aporta Xᵃ a sus hijas; la madre siempre aporta Xᴬ"
+  - "Todas las hijas son XᴬXᵃ: P(portadora | mujer) = 1"
+
+explicacion: |
+  Un padre afectado transmite el alelo recesivo a TODAS sus hijas
+  (nunca a sus hijos varones) — todas quedan portadoras.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "intermedio"
+  tags: ["ligado_x"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un padre siempre transmite su cromosoma Y (no su X) a sus hijos varones — por eso un rasgo ligado al X del padre nunca pasa directamente de padre a hijo varón."
+
+explicacion: |
+  El hijo varón recibe su único X de la madre, no del padre.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "Una familia con antecedentes de hemofilia quiere estimar el riesgo de que un futuro hijo esté afectado. ¿Qué información hace falta, además de si los padres son portadores o no?"
+tipo: mc
+opciones_explicitas:
+  - "El sexo del futuro hijo, porque la probabilidad de estar afectado es distinta según sea varón o mujer"
+  - "El sexo no importa: la probabilidad de estar afectado es siempre la misma para cualquier hijo"
+  - "Ningún dato adicional es necesario más allá del genotipo de los padres"
+respuesta: "El sexo del futuro hijo, porque la probabilidad de estar afectado es distinta según sea varón o mujer"
+
+explicacion: |
+  Es la aplicación real del asesoramiento genético: condicionar sobre
+  el sexo cambia el riesgo calculado.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "avanzado"
+  tags: ["ligado_x", "problema"]
+
+respuesta: 0.5
+tipo: input
+
+enunciado: "Padre AFECTADO (XᵃY) × madre PORTADORA (XᴬXᵃ). ¿Cuál es la probabilidad de que una hija esté afectada (XᵃXᵃ)?"
+
+pasos:
+  - "El padre siempre aporta Xᵃ a sus hijas; la madre aporta Xᴬ o Xᵃ con 1/2 cada uno"
+  - "P(hija XᵃXᵃ) = 1 × 1/2 = 0,5"
+
+explicacion: |
+  Es el único tipo de cruce donde SÍ puede haber hijas afectadas: hace
+  falta que el padre esté afectado Y que la madre aporte el recesivo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "herencia_ligada_al_sexo"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender la herencia ligada al sexo?"
+tipo: mc
+opciones_explicitas:
+  - "Para explicar por qué ciertas condiciones genéticas afectan de forma desigual a varones y mujeres, y para calcular el riesgo real de un hijo según su sexo"
+  - "Sólo tiene aplicación en plantas, no en humanos"
+  - "Sólo sirve para determinar el sexo biológico de un futuro hijo"
+respuesta: "Para explicar por qué ciertas condiciones genéticas afectan de forma desigual a varones y mujeres, y para calcular el riesgo real de un hijo según su sexo"
+
+explicacion: |
+  Es la aplicación de `../../matematica/probabilidad-condicional/` a
+  un mecanismo genético real — `../grupos-sanguineos/` sigue con otro
+  mecanismo distinto, también condicional.
 ```
 

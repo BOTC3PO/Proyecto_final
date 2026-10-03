@@ -4,2262 +4,2240 @@
 
 ---
 
-## Sección: movimiento-rotacion-traslacion (25 preguntas)
+## Sección: absolutismo-europeo (25 preguntas)
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["astronomia", "conceptos_basicos"]
-
-tipo: completar
-respuestas_validas:
-  - "rotación"
-  - "rotacion"
-respuesta: "rotación"
-
-enunciado: "El movimiento que realiza la Tierra sobre su propio eje se denomina ___."
-
-explicacion: |
-  La rotación es el giro de la Tierra sobre su eje imaginario, lo que determina la sucesión del día y la noche.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["tiempo", "ciclo_dia"]
-
-tipo: completar
-respuestas_validas:
-  - "24 horas"
-respuesta: "24 horas"
-
-enunciado: "Un giro completo de la Tierra sobre su propio eje tarda aproximadamente ___."
-
-explicacion: |
-  Este ciclo de aproximadamente 24 horas es lo que marca el ritmo de un día completo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["fenomenos_naturales"]
-
-tipo: completar
-respuestas_validas:
-  - "día y la noche"
-  - "dia y la noche"
-respuesta: "día y la noche"
-
-enunciado: "La rotación terrestre es el fenómeno responsable de la alternancia entre el ___."
-
-explicacion: |
-  Debido a que la Tierra es una esfera, una cara recibe luz solar mientras la otra queda en sombra, creando el ciclo de luz y oscuridad.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["errores_comunes", "perspectiva"]
-
-tipo: completar
-respuestas_validas:
-  - "Sol"
-
-respuesta: "Sol"
-
-enunciado: "Un error común de la percepción humana es pensar que es el ___ el que gira alrededor de la Tierra."
-
-explicacion: |
-  Históricamente, el modelo geocéntrico creía que el Sol orbitaba la Tierra, pero hoy sabemos que es la Tierra la que rota.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["eje_terrestre"]
-
-tipo: completar
-respuestas_validas:
-  - "eje"
-respuesta: "eje"
-
-enunciado: "La Tierra gira sobre una línea imaginaria que atraviesa los polos, llamada ___."
-
-explicacion: |
-  Este eje imaginario es el punto central sobre el cual se produce el movimiento de rotación.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["astronomia", "calendario"]
-
+  tags: ["inglaterra", "estuardo", "parlamento"]
 tipo: mc
-opciones_explicitas: ["El tiempo que tarda la Tierra en dar una vuelta sobre su eje", "El tiempo que tarda la Tierra en completar una órbita alrededor del Sol", "El tiempo que tarda la Luna en rodear la Tierra", "El tiempo que tarda el Sol en rodear la Tierra"]
-
-respuesta: "El tiempo que tarda la Tierra en completar una órbita alrededor del Sol"
-
-enunciado: "En términos astronómicos, ¿qué define la duración de un año?"
-
-explicacion: |
-  Un año es, por definición, el tiempo que le toma a la Tierra completar una vuelta entera alrededor del Sol (traslación).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["geometria", "orbita"]
-
-tipo: completar
-respuestas_validas:
-  - "elipse"
-
-respuesta: "elipse"
-
-enunciado: "Aunque a menudo se simplifica, la trayectoria que sigue la Tierra alrededor del Sol no es un círculo perfecto, sino una ___."
-
-explicacion: |
-  La órbita terrestre es una elipse ligeramente achatada, con el Sol ubicado en uno de sus dos focos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["tiempo", "calendario"]
-
-tipo: mc
-opciones_explicitas: ["24 horas", "28 días", "aproximadamente 365 días", "12 meses de 30 días"]
-
-respuesta: "aproximadamente 365 días"
-
-enunciado: "El movimiento de traslación terrestre completa su ciclo en un período de aproximadamente ___."
-
-explicacion: |
-  La Tierra tarda aproximadamente 365 días (más un cuarto) en completar una vuelta completa alrededor del Sol.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "intermedio"
-  tags: ["conceptos"]
-
-tipo: mc
-opciones_explicitas: ["La traslación causa las estaciones del año", "La traslación causa el día y la noche", "La traslación es el movimiento sobre su propio eje", "La rotación es el movimiento alrededor del Sol"]
-
-respuesta: "La traslación causa las estaciones del año"
-
-enunciado: "¿Cuál de las siguientes afirmaciones describe correctamente la relación entre los movimientos terrestres y sus efectos?"
-
-explicacion: |
-  La traslación (combinada con la inclinación del eje) es la que causa las estaciones del año; la rotación causa el día y la noche.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "intermedio"
-  tags: ["estaciones", "traslacion"]
-
-tipo: completar
-respuestas_validas:
-  - "traslación"
-  - "traslacion"
-
-respuesta: "traslación"
-
-enunciado: "El cambio de las estaciones del año es una consecuencia directa del movimiento de ___ de la Tierra."
-
-explicacion: |
-  El cambio de estaciones surge de la combinación entre la traslación y la inclinación constante del eje terrestre.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["astronomia", "estaciones"]
-
-respuesta: "23.5"
-tipo: completar
-respuestas_validas:
-  - "23.5"
-  - "23,5"
-
-enunciado: "La inclinación del eje de la Tierra respecto al plano de su órbita es de aproximadamente ___ grados."
-
-explicacion: |
-  La inclinación de ~23,5° es fundamental para la distribución de la radiación solar a lo largo del año.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["estabilidad", "traslacion"]
-
-respuesta: "se mantiene constante"
-tipo: completar
-respuestas_validas:
-  - "se mantiene constante"
-
-enunciado: "Durante el proceso de traslación alrededor del Sol, la inclinación del eje de la Tierra ___."
-
-explicacion: |
-  El hecho de que el eje apunte siempre hacia la misma dirección (hacia la estrella polar) permite la periodicidad de las estaciones.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "intermedio"
-  tags: ["estaciones", "inclinacion"]
-
-respuestas_validas:
-  - "la inclinación del eje"
-  - "la inclinacion del eje"
-respuesta: "la inclinación del eje"
-tipo: completar
-
-enunciado: "La causa principal de la sucesión de las estaciones del año es ___."
-
-explicacion: |
-  La inclinación hace que la luz solar incida con diferentes ángulos y duraciones sobre el hemisferio norte y sur a lo largo del año.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "intermedio"
-  tags: ["ecliptic", "geometria"]
-
-respuesta: "plano orbital"
-tipo: completar
-respuestas_validas:
-  - "plano orbital"
-  - "plano de la eclíptica"
-
-enunciado: "El eje de rotación de la Tierra forma un ángulo de 23,5 grados con respecto al ___."
-
-explicacion: |
-  Este plano se conoce también como plano de la eclíptica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "avanzado"
-  tags: ["hemisferios", "solsticio"]
-
-respuestas_validas:
-  - "verano"
-respuesta: "verano"
-tipo: completar
-
-enunciado: "Cuando el hemisferio norte está inclinado hacia el Sol, en esa región se experimenta el ___."
-
-explicacion: |
-  Al estar inclinado hacia el Sol, los rayos caen más perpendicularmente, aumentando la intensidad del calor.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["rotacion", "dia_noche"]
-
-tipo: mc
-opciones_explicitas: ["El movimiento de traslación de la Tierra", "El movimiento de rotación de la Tierra", "La inclinación del eje terrestre", "La presencia de la Luna"]
-
-respuesta: "El movimiento de rotación de la Tierra"
-
-enunciado: "El fenómeno de la sucesión de los días y las noches en nuestro planeta se debe principalmente al movimiento de ___."
-
-explicacion: |
-  La rotación es el giro de la Tierra sobre su propio eje, lo que permite que la luz solar afecte a diferentes partes del planeta de forma sucesiva, creando el ciclo día/noche.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["traslacion", "estaciones"]
-
-tipo: completar
-respuestas_validas:
-  - "traslación"
-  - "traslacion"
-respuesta: "traslación"
-
-enunciado: "El movimiento de ___ es el responsable de que el año tenga estaciones y de que la Tierra complete su órbita alrededor del Sol."
-
-explicacion: |
-  La traslación es el movimiento de la Tierra alrededor del Sol. Junto con la inclinación del eje terrestre, este movimiento determina las estaciones del año.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "intermedio"
-  tags: ["dia_solar", "tiempo"]
-
-tipo: mc
-opciones_explicitas: ["24 horas exactas", "23 horas y 56 minutos", "23 horas y 30 minutos", "24 horas y 4 minutos"]
-
-respuesta: "23 horas y 56 minutos"
-
-enunciado: "Debido a que la Tierra se desplaza en su órbita mientras rota, el tiempo que tarda en volver a la misma posición respecto a las estrellas lejanas (día sidéreo) es aproximadamente de ___."
-
-explicacion: |
-  El día sidéreo dura aproximadamente 23h 56min. La diferencia con el día solar de 24h se debe a que la Tierra debe rotar un poco más para compensar su avance en la órbita alrededor del Sol.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "intermedio"
-  tags: ["año_bisiesto", "calendario"]
-
-tipo: mc
-opciones_explicitas: ["365 días", "365.25 días", "366 días", "365.5 días"]
-
-respuesta: "365.25 días"
-
-enunciado: "Para que el calendario coincida con el ciclo real de la traslación terrestre, se considera que un año dura aproximadamente ___."
-
-explicacion: |
-  Como el año real es de unos 365,25 días, cada cuatro años se suma un día extra (29 de febrero) para corregir la diferencia acumulada.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["movimientos", "simultaneidad"]
-
-tipo: completar
-respuestas_validas:
-  - "simultáneos"
-  - "simultaneos"
-respuesta: "simultáneos"
-
-enunciado: "Los movimientos de rotación y traslación ocurren de forma ___; es decir, suceden al mismo tiempo sin que uno detenga al otro."
-
-explicacion: |
-  La Tierra realiza ambos movimientos de manera constante y simultánea: gira sobre su eje mientras orbita alrededor del Sol.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["astronomia", "basico"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["El sol sale por el este cada mañana", "rotación"], ["El sol se pone por el oeste cada tarde", "rotación"]]
-
-enunciado: "El fenómeno descrito en el siguiente escenario es causado por el movimiento de: {escenario[idx][0]}"
-
-opciones_explicitas: ["rotación", "traslación"]
-respuesta: escenario[idx][1]
-tipo: mc
-
-explicacion: |
-  El movimiento de rotación de la Tierra sobre su propio eje es lo que genera la sucesión del día y la noche.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "intermedio"
-  tags: ["astronomia", "estaciones"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["La llegada del invierno en el hemisferio sur", "traslación"], ["El verano en el hemisferio norte", "traslación"]]
-
-enunciado: "El fenómeno de {escenario[idx][0]} se explica principalmente por la ___ de la Tierra alrededor del Sol (considerando la inclinación del eje)."
-
-respuesta: escenario[idx][1]
-tipo: completar
-respuestas_validas:
-  - "traslación"
-  - "traslacion"
-
-explicacion: |
-  La traslación, junto con la inclinación del eje terrestre, determina la duración de las estaciones del año.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "basico"
-  tags: ["astronomia", "calendario"]
-
-opciones_explicitas: ["rotación", "traslación"]
-respuesta: "traslación"
-tipo: mc
-
-enunciado: "El paso de un año completo (un ciclo de un año solar) es efecto de la ___ terrestre."
-
-explicacion: |
-  Un año es el tiempo que tarda la Tierra en completar una órbita completa alrededor del Sol (traslación).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "intermedio"
-  tags: ["astronomia", "observacion"]
-
-respuesta: "rotación"
-tipo: completar
-respuestas_validas:
-  - "rotación"
-  - "rotacion"
-
-enunciado: "El cambio de posición de la sombra de un reloj de sol a lo largo del día se debe a la ___ de la Tierra."
-
-explicacion: |
-  El movimiento aparente de las sombras durante el día es consecuencia directa de la rotación terrestre sobre su eje.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "movimiento_rotacion_traslacion"
-  nivel: "avanzado"
-  tags: ["astronomia", "estrellas"]
-
-opciones_explicitas: ["rotación", "traslación"]
-respuesta: "traslación"
-tipo: mc
-
-enunciado: "El hecho de que veamos distintas constelaciones visibles en el cielo nocturno según la época del año se debe al movimiento de ___ de nuestro planeta."
-
-explicacion: |
-  Al movernos alrededor del Sol, nuestra perspectiva hacia las estrellas cambia, permitiéndonos ver diferentes constelaciones en distintas épocas del año.
-```
-
-## Sección: multicelularidad (25 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad"
-  nivel: "basico"
-  tags: ["celulas", "organismos"]
-
-respuesta: "cooperan y se especializan en funciones distintas"
-tipo: completar
-respuestas_validas:
-  - "cooperan y se especializan en funciones distintas"
-
-enunciado: "La multicelularidad se define como la organización de organismos formados por múltiples células que ___ en vez de vivir cada una de forma independiente."
-
-explicacion: |
-  En los organismos multicelulares, las células no solo coexisten, sino que trabajan juntas y desarrollan funciones específicas para asegurar la supervivencia del individuo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad"
-  nivel: "basico"
-  tags: ["comparacion", "unicelulares"]
-
-opciones_explicitas: ["Las células funcionan de forma totalmente independiente", "Las células cooperan y se especializan", "Las células son siempre idénticas", "Las células no tienen ADN"]
-
-respuesta: "Las células cooperan y se especializan"
-tipo: mc
-
-enunciado: "¿Cuál es la característica principal que distingue a un organismo multicelular de uno unicelular?"
-
-explicacion: |
-  A diferencia de los unicelulares, donde una sola célula realiza todas las funciones vitales, los multicelulares dividen el trabajo mediante la especialización celular.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad"
-  nivel: "intermedio"
-  tags: ["jerarquia", "organos"]
-
-opciones_explicitas: ["Célula -> Tejido -> Órgano -> Sistema"]
-
-respuesta_orden: ["Célula -> Tejido -> Órgano -> Sistema"]
-tipo: ordenar
-
-enunciado: "Ordena correctamente los niveles de organización biológica que surgen gracias a la especialización en organismos multicelulares complejos:"
-
-explicacion: |
-  La especialización permite que las células se agrupen en tejidos, los tejidos en órganos, y los órganos en sistemas de órganos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad"
-  nivel: "intermedio"
-  tags: ["especializacion", "funciones"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["un grupo de 100 células que solo se dividen", "reproducción"], ["un grupo de 100 células con formas distintas", "especialización"]]
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["reproducción", "especialización"]
-
-enunciado: "Si en un organismo multicelular las células han adquirido formas y funciones diferentes para optimizar el trabajo del individuo, estamos ante un proceso de {escenario[idx][0]}."
-
-explicacion: |
-  La especialización es el pilar de la multicelularidad, permitiendo que el organismo sea más eficiente que una colonia de células independientes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es correcto afirmar que en un organismo multicelular cada célula puede realizar todas las funciones vitales de manera totalmente independiente de las demás?"
-
-explicacion: |
-  Falso. Aunque algunas células pueden ser versátiles, la esencia de la multicelularidad es la interdependencia y la división de funciones.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad_evolutiva"
-  nivel: "intermedio"
-  tags: ["evolucion", "linajes"]
-
-respuesta: "independiente"
-tipo: completar
-respuestas_validas:
-  - "independiente"
-
-enunciado: "La evidencia filogenética sugiere que la multicelularidad evolucionó de forma ___ en distintos linajes de la vida."
-
-explicacion: |
-  La multicelularidad no es un rasgo que surgió una sola vez en un ancestro común de todos los eucariotas; en su lugar, ocurrió múltiples veces de forma convergente en animales, plantas, hongos y algas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad_evolutiva"
-  nivel: "basico"
-  tags: ["linajes", "taxonomia"]
-
-variables:
-  escenario: uno_de([["Animales", "Metazoa", "con células especializadas"], ["Plantas", "Viridiplantae", "con paredes de celulosa"], ["Hongos", "Fungi", "con paredes de quitina"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["Metazoa", "Viridiplantae", "Fungi", "Protista"]
-
-enunciado: "Si observamos el linaje de las {escenario[0]}, este se caracteriza por la presencia de {escenario[2]}."
-
-explicacion: |
-  Cada uno de estos grupos representa un evento de transición hacia la multicelularidad en un momento distinto de la historia evolutiva.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad_evolutiva"
-  nivel: "basico"
-  tags: ["convergencia", "evolucion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La multicelularidad es un carácter derivado único que define a todos los organismos complejos en un solo evento evolutivo."
-
-explicacion: |
-  Esto es falso. La evolución de la multicelularidad es un ejemplo clásico de evolución convergente, donde diferentes grupos resolvieron el mismo problema biológico por separado.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad_evolutiva"
-  nivel: "intermedio"
-  tags: ["algas", "organismos"]
-
-respuesta_orden: ["Animales", "Plantas", "Hongos", "Algas"]
-tipo: ordenar
-
-opciones_explicitas: ["Animales", "Plantas", "Hongos", "Algas"]
-
-enunciado: "Ordena los siguientes grupos según su capacidad de haber desarrollado multicelularidad de forma independiente (de mayor a menor complejidad estructural común en la historia evolutiva):"
-
-pasos:
-  - "Identificar los linajes clave"
-  - "Reconocer la independencia de sus orígenes"
-
-explicacion: |
-  Aunque todos son multicelulares, cada uno pertenece a un supergrupo eucariota distinto, lo que confirma que la transición ocurrió de forma independiente.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad_evolutiva"
-  nivel: "avanzado"
-  tags: ["algas", "evolucion"]
-
-variables:
-  caso: uno_de([["rojas", "Rhodophyta"], ["verdes", "Chlorophyta"]])
-
-respuesta: caso[1]
-tipo: mc
-opciones_explicitas: ["Rhodophyta", "Chlorophyta", "Oomycota"]
-
-enunciado: "El nombre científico (taxón) del linaje de las algas {caso[0]} es:"
-
-explicacion: |
-  Incluso dentro de los grupos que parecen similares, como las algas, la multicelularidad ha surgido en múltiples linajes distintos (algas rojas, verdes, pardas, etc.).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "multicelularidad"
-  nivel: "basico"
-  tags: ["biologia", "evolucion"]
-
-tipo: mc
-opciones_explicitas: ["Mayor tamaño corporal", "Menor consumo de energía", "Aumento de la superficie de contacto con el medio", "Simplificación de procesos metabólicos"]
-respuesta: "Mayor tamaño corporal"
-
-enunciado: "Una de las principales ventajas evolutivas de la multicelularidad es que permite a los organismos alcanzar un ___."
-
-explicacion: |
-  El aumento de tamaño corporal permite una mejor interacción con el entorno y una mayor capacidad de almacenamiento de recursos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "multicelularidad"
-  nivel: "intermedio"
-  tags: ["biologia", "evolucion"]
-
-variables:
-  escenario: uno_de([["digestión", "digestiva"], ["movimiento", "motora"], ["sensorial", "sensorial"]])
-
-tipo: completar
-respuestas_validas:
-  - "digestiva"
-  - "motora"
-  - "sensorial"
-respuesta: escenario[1]
-
-enunciado: "La división del trabajo permite que existan células con funciones específicas. Si un grupo de células se especializa en el movimiento, se dice que tiene una función ___."
-
-explicacion: |
-  La especialización celular permite que diferentes tejidos realicen tareas distintas de manera eficiente, permitiendo la complejidad biológica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "multicelularidad"
-  nivel: "basico"
-  tags: ["biologia", "evolucion"]
-
-tipo: mc
-opciones_explicitas: ["Ser más visibles para los depredadores", "Ser más difíciles de ingerir para los depredadores", "Reducir la necesidad de alimento", "Aumentar la tasa de evaporación"]
-respuesta: "Ser más difíciles de ingerir para los depredadores"
-
-enunciado: "El incremento en el tamaño corporal derivado de la multicelularidad ofrece una ventaja de supervivencia relacionada con:"
-
-explicacion: |
-  Los organismos más grandes suelen ser más difíciles de consumir para depredadores de pequeño tamaño, lo que aumenta sus posibilidades de supervivencia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "multicelularidad"
-  nivel: "avanzado"
-  tags: ["biologia", "evolucion"]
-
-tipo: ordenar
-opciones_explicitas: ["Célula unicelular", "Agregación de células", "Colonia de células", "Organismo multicelular especializado"]
-
-respuesta_orden: ["Célula unicelular", "Agregación de células", "Colonia de células", "Organismo multicelular especializado"]
-
-enunciado: "Ordena los niveles de organización biológica desde la forma más simple hasta la más compleja en el proceso evolutivo de la multicelularidad:"
-
-explicacion: |
-  La evolución hacia la multicelularidad implica pasar de células aisladas a agrupaciones que luego desarrollan una división de funciones coordinada.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "multicelularidad"
-  nivel: "intermedio"
-  tags: ["biologia", "evolucion"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "En un organismo multicelular, la división del trabajo implica que las células ya no pueden realizar todas las funciones por sí mismas. Este proceso de especialización se conoce como ___."
-
-respuesta: "diferenciación"
-
-explicacion: |
-  La diferenciación celular es el proceso mediante el cual las células adquieren formas y funciones específicas dentro de un organismo complejo.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad"
-  nivel: "basico"
-  tags: ["adhesion", "evolucion"]
-
-tipo: mc
-opciones_explicitas: ["proteínas de adhesión", "paredes celulares rígidas", "flagelos de locomoción", "vacuolas contráctiles"]
-respuesta: "proteínas de adhesión"
-
-enunciado: "Para que un grupo de células pase de ser una colonia a un organismo multicelular, es indispensable el desarrollo de mecanismos de ___ que permitan mantener la cohesión entre ellas."
-
-explicacion: |
-  La multicelularidad requiere que las células se mantengan unidas físicamente mediante proteínas de adhesión (como cadherinas o integrinas), algo que no es necesario en organismos unicelulares independientes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad"
-  nivel: "intermedio"
-  tags: ["comunicacion", "señalización"]
-
-tipo: mc
-opciones_explicitas: ["comunicación química", "reproducción asexual", "fotosíntesis", "quimiotaxis"]
-respuesta: "comunicación química"
-
-enunciado: "En un organismo multicelular, para que exista una división del trabajo, las células deben coordinar sus procesos. Esto se logra mediante la ___."
-
-explicacion: |
-  A diferencia de los unicelulares que responden a estímulos externos, los multicelulares necesitan comunicarse entre sí (comunicación química/señalización) para actuar como una unidad funcional.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad"
-  nivel: "basico"
-  tags: ["unicelulares", "multicelulares"]
-
-tipo: completar
-opciones_explicitas: ["adhesión", "comunicación", "metabolismo", "respiración"]
-respuestas_validas:
-  - "adhesión"
-  - "comunicación"
-
-enunciado: "Mientras que un organismo unicelular es una unidad autónoma, la multicelularidad requiere mecanismos de ___ y de ___ para funcionar como un todo integrado."
-
-explicacion: |
-  La transición a la multicelularidad implica dos pilares: la capacidad de pegarse (adhesión) y la capacidad de hablarse (comunicación).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad"
-  nivel: "avanzado"
-  tags: ["evolucion", "procesos"]
-
-tipo: ordenar
-opciones_explicitas: ["Agrupamiento de células", "Especialización celular", "Diferenciación de tejidos", "Organización de órganos"]
-
-enunciado: "Ordena los procesos evolutivos que permiten pasar de una colonia de células idénticas a un organismo complejo:"
-
-explicacion: |
-  Primero las células deben estar juntas (agrupamiento), luego adquieren funciones distintas (especialización/diferenciación) y finalmente se organizan en estructuras mayores (tejidos/órganos).
-respuesta_orden: ["Agrupamiento de células", "Especialización celular", "Diferenciación de tejidos", "Organización de órganos"]
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "multicelularidad"
-  nivel: "intermedio"
-  tags: ["proteinas", "adhesion"]
-
-variables:
-  datos: [["cadherina", "unión célula-célula"], ["integrina", "unión célula-matriz"]]
-  idx: uno_de([0, 1])
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si una célula utiliza una {datos[idx][0]} para adherirse a su entorno, está ejerciendo una función de ___."
-
-explicacion: |
-  Las cadherinas median la unión célula-célula, mientras que las integrinas median la unión célula-matriz extracelular; ambas son clave para la cohesión de los tejidos en organismos multicelulares.
-
-respuesta: datos[idx][1]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "multicelularidad"
-  nivel: "basico"
-  tags: ["biologia", "clasificacion"]
-
-variables:
-  datos: [["Amoeba proteus", "unicelular"], ["Homo sapiens", "multicelular"]]
-  idx: uno_de([0, 1])
-
-enunciado: "El organismo {datos[idx][0]} se caracteriza por ser un organismo ___________."
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["unicelular", "multicelular"]
-
-explicacion: |
-  Los organismos unicelulares están formados por una sola célula que realiza todas las funciones vitales, mientras que los multicelulares están formados por múltiples células especializadas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "multicelularidad"
-  nivel: "intermedio"
-  tags: ["evolucion", "celulas"]
-
-variables:
-  datos: [["un grupo de algas verdes", "multicelulares"], ["una bacteria extremófila", "unicelulares"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Considerando el ejemplo de {datos[idx][0]}, podemos clasificar a este grupo como ___________."
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "unicelulares"
-  - "multicelulares"
-
-explicacion: |
-  La multicelularidad implica la especialización celular y la división de funciones, algo que no ocurre en los organismos unicelulares.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "multicelularidad"
-  nivel: "basico"
-  tags: ["biologia", "taxonomia"]
-
-variables:
-  datos: [["Paramecium", "unicelular"], ["Fungi (hongo)", "multicelular"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Si observamos un {datos[idx][0]}, su estructura es ___________."
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["unicelular", "multicelular"]
-
-explicacion: |
-  La distinción fundamental radica en el número de células que componen el individuo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "multicelularidad"
-  nivel: "avanzado"
-  tags: ["evolucion", "orden"]
-
-enunciado: "Ordena los niveles de organización biológica desde el más simple al más complejo:"
-
-pasos:
-  - "Organismo unicelular"
-  - "Colonia de células"
-  - "Organismo multicelular con tejidos"
-
-respuesta_orden: ["Organismo unicelular", "Colonia de células", "Organismo multicelular con tejidos"]
-tipo: ordenar
-opciones_explicitas: ["Organismo unicelular", "Colonia de células", "Organismo multicelular con tejidos"]
-
-explicacion: |
-  La evolución hacia la multicelularidad implica pasar de células aisladas a agrupaciones con comunicación y especialización.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "multicelularidad"
-  nivel: "intermedio"
-  tags: ["laboratorio", "observacion"]
-
-variables:
-  datos: [["una muestra de levadura", "unicelular"], ["una muestra de musgo", "multicelular"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Al analizar {datos[idx][0]} bajo el microscopio, determinamos que es ___________."
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "unicelular"
-  - "multicelular"
-
-explicacion: |
-  La observación microscópica permite identificar si la unidad funcional es una célula individual o un conjunto de ellas organizadas.
-```
-
-## Sección: navegacion (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "navegacion"
-  nivel: "intermedio"
-  tags: ["era_de_descubrimientos", "circunnavegacion"]
-variables:
-  lider: uno_de(["Fernando de Magallanes", "Juan Sebastián Elcano"])
-tipo: vf
-enunciado: "La expedición liderada por {lider} fue la primera en completar exitosamente una circunnavegación del globo terráqueo, demostrando la esféricidad del planeta y la unidad de los océanos."
-respuesta: verdadero
-explicacion: "Aunque Magallanes murió en Filipinas, la expedición continuó bajo Elcano y completó el viaje, regresando a España en 1522."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "navegacion"
-  nivel: "intermedio"
-  tags: ["colonizacion", "diplomacia"]
-tipo: completar
-enunciado: "El Tratado de Tordesillas (1494) estableció una línea de demarcación a ___ al oeste de las islas de Cabo Verde, dividiendo las zonas de influencia entre Castilla y Portugal."
-respuesta: "370 leguas"
-respuestas_validas:
-  - "370 leguas"
-  - "370 leguas al oeste"
-  - "370 leguas hacia el oeste"
-  - "370 leguas oeste"
-explicacion: "Esta línea otorgó a Portugal las rutas hacia Asia y África, y a Castilla las tierras al oeste, incluyendo América."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "navegacion"
-  nivel: "intermedio"
-  tags: ["colon", "tecnologia_naval"]
-tipo: mc
-enunciado: "¿Cuáles fueron las tres naves que Cristóbal Colón utilizó en su primer viaje de 1492?"
+enunciado: "Durante el siglo XVII, el conflicto entre la corona y el parlamento en Inglaterra culminó con la Gloriosa Revolución de 1688, estableciendo un precedente crucial para el sistema político británico. ¿Qué documento legal fue impuesto a Guillermo III y María II para limitar los poderes reales y consolidar la supremacía parlamentaria?"
 opciones_explicitas:
-  - "Santa Maria, Pinta y Niña"
-  - "Victoria, Trinidad y Concepción"
-  - "San Felipe y Santiago"
-  - "Endeavour y Resolution"
-respuesta: "Santa Maria, Pinta y Niña"
-explicacion: "Estas fueron las tres naves utilizadas en el primer viaje de Cristóbal Colón en 1492. La Santa María era la nao capitana, y la Pinta y la Niña eran carabelas."
+  - "La Declaración de Derechos (Bill of Rights)"
+  - "La Carta Magna"
+  - "El Acta de Supremacía"
+  - "El Edicto de Nantes"
+respuesta: "La Declaración de Derechos (Bill of Rights)"
+explicacion: "La Bill of Rights de 1689 estableció que el monarca no podía suspender leyes ni cobrar impuestos sin el consentimiento del Parlamento, marcando el fin del absolutismo divino en Inglaterra y el inicio del constitucionalismo."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "navegacion"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["portugal", "asia"]
+  tags: ["jacobitismo", "teoria", "monarquia"]
 tipo: completar
-enunciado: "El navegante ___ logró abrir la ruta marítima directa hacia la India en 1498, rodeando el Cabo de Buena Esperanza y evitando el control árabe y veneciano del comercio de especias."
-respuesta: "Vasco da Gama"
+enunciado: "En Francia, los monarcas absolutos sustentaban su poder en la doctrina del derecho divino de los reyes, sosteniendo que su autoridad provenía directamente de Dios y no de ningún cuerpo secular como el parlamento o la nobleza. Según esta teoría, el rey es responsable únicamente ante ___, lo que le otorga la capacidad de legislar sin restricciones humanas."
+respuesta: "Dios"
 respuestas_validas:
-  - "Vasco da Gama"
-  - "vasco da gama"
-explicacion: "Este logro rompió el monopolio comercial de las rutas terrestres y otorgó a Portugal una ventaja económica crucial."
+  - "Dios"
+  - "dios"
+  - "Dios."
+  - "dios."
+explicacion: "La justificación teológica del absolutismo francés afirmaba que el rey era el 'vicario de Dios' en la tierra, por lo que resistir al rey equivalía a resistir a la voluntad divina."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "navegacion"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["magallanes", "oceano_pacifico"]
-tipo: completar
-enunciado: "___ fue quien bautizó como \"Pacífico\" al vasto océano que cruzó en 1521, debido a la calma de sus aguas en comparación con el Atlántico tormentoso."
-respuesta: "Magallanes"
-respuestas_validas:
-  - "Fernando de Magallanes"
-  - "Fernando de Magalhães"
-  - "Magallanes"
-  - "el capitán Magallanes"
-explicacion: "El nombre es irónico, ya que la travesía posterior fue extremadamente dura por la falta de provisiones."
+  tags: ["henri iv", "edicto", "protestantes"]
+tipo: vf
+enunciado: "El Edicto de Nantes, promulgado por Enrique IV de Francia en 1598, fue un acto de tolerancia religiosa que otorgaba derechos civiles y libertad de culto a los hugonotes (protestantes franceses)."
+respuesta: verdadero
+explicacion: "El Edicto de Nantes fue un hito de tolerancia que puso fin a las guerras de religión en Francia. Fue revocado posteriormente por Luis XIV con el Edicto de Fontainebleau en 1685."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "navegacion"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["instrumentos", "astronomia"]
+  tags: ["luis xiv", "versalles", "nobleza"]
 tipo: mc
-enunciado: "¿Qué combinación de instrumentos era típica de la navegación de altura en los siglos XV y XVI, para mantener el rumbo y estimar la latitud a partir de la altura de los astros?"
+enunciado: "Luis XIV transformó el pequeño pabellón de caza de Versalles en una inmensa residencia real. ¿Cuál fue la principal función política de este palacio en el contexto del absolutismo francés?"
 opciones_explicitas:
-  - "Astrolabio y sextante"
-  - "Brújula y cuadrante"
-  - "Cronómetro y teodolito"
-  - "Ballestilla y astrolabio"
-respuesta: "Brújula y cuadrante"
-explicacion: "La brújula permitía mantener la dirección cardinal y el cuadrante (o astrolabio marino) medía la altura de los astros para estimar la latitud. El sextante y cronómetro son posteriores."
+  - "Centralizar el poder nobiliario bajo la vigilancia directa del rey"
+  - "Servir como refugio militar contra invasiones extranjeras"
+  - "Ser el sede permanente del Parlamento de París"
+  - "Almacenar los impuestos recaudados de las colonias"
+respuesta: "Centralizar el poder nobiliario bajo la vigilancia directa del rey"
+explicacion: "Al obligar a la alta nobleza a residir en Versalles, Luis XIV la despojó de su poder político regional y la convirtió en competidora por los favores cortesanos, asegurando su lealtad y control."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "navegacion"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["tecnologia_naval", "portugal"]
+  tags: ["guerra de los treinta años", "soberania", "europa"]
 tipo: vf
-enunciado: "La carabela fue un diseño naval desarrollado principalmente por los portugueses, caracterizado por su velocidad, maniobrabilidad y capacidad para navegar a la contra del viento (bolina), ideal para la exploración costera."
+enunciado: "La Paz de Westfalia de 1648 consolidó el principio de soberanía estatal y sentó las bases del sistema internacional moderno, debilitando la autoridad universal del Sacro Imperio Romano Germánico y del Papa."
 respuesta: verdadero
-explicacion: "Su estructura ligera y velamen latino/cuadrado la hacía superior a las naos para la exploración en aguas poco profundas y vientos cambiantes."
+explicacion: "Las Paz de Westfalia pusieron fin a la Guerra de los Treinta Años y establecieron el concepto de que cada soberano tiene derecho a determinar la religión de su estado (cuius regio, eius religio), marcando el declive del poder imperial y papal."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "navegacion"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["portugal", "rutas_africanas"]
-tipo: vf
-enunciado: "El descubrimiento del archipiélago de Cabo Verde por Diogo Gomes en 1456 fue crucial para establecer una escala estratégica en la ruta de circunnavegación de África hacia la India."
-respuesta: verdadero
-explicacion: "Estas islas sirvieron como punto de referencia y abastecimiento vital para las expediciones portuguesas que descendían por la costa africana."
+  tags: ["economia", "colbert", "mercantilismo"]
+tipo: completar
+enunciado: "Jean-Baptiste Colbert, ministro de finanzas de Luis XIV, implementó una política económica nacionalista conocida como ___, que buscaba aumentar la riqueza del estado mediante la exportación masiva y la restricción de importaciones."
+respuesta: "mercantilismo"
+respuestas_validas:
+  - "mercantilismo"
+  - "Mercantilismo"
+  - "mercantilismo."
+  - "Mercantilismo."
+explicacion: "El mercantilismo fue la doctrina económica predominante en la época del absolutismo, donde la potencia del estado se medía por su acumulación de metales preciosos y el saldo comercial positivo."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "navegacion"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["comercio", "portugal"]
+  tags: ["burbon", "espana", "sucesion"]
 tipo: mc
-enunciado: "¿Quién fue el navegante portugués cuyo primer objetivo comercial en Calicut (1498) era establecer contacto directo con los mercaderes de especias locales, rompiendo la cadena de intermediarios otomanos y venecianos?"
+enunciado: "La muerte sin descendencia de Carlos II, el último rey de la dinastía de los Austrias en España, desencadenó una guerra europea por la sucesión. ¿Qué dinastía francesa ascendió al trono español tras la Guerra de Sucesión Española?"
 opciones_explicitas:
-  - "Vasco da Gama"
-  - "Pedro Álvares Cabral"
-  - "Alfonso de Albuquerque"
-  - "Bartolomeu Dias"
-respuesta: "Vasco da Gama"
-explicacion: "Aunque el encuentro inicial fue hostil, el viaje sentó las bases del Estado da Índia portugués."
+  - "La dinastía Borbón"
+  - "La dinastía Habsburgo"
+  - "La dinastía Trastámara"
+  - "La dinastía Plantagenet"
+respuesta: "La dinastía Borbón"
+explicacion: "Felipe de Anjou, nieto de Luis XIV, fue nombrado rey como Felipe V, introduciendo en España las estructuras administrativas y el modelo de estado centralizado propio del absolutismo francés."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "navegacion"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["tecnologia", "china"]
-tipo: completar
-enunciado: "La brújula magnética, fundamental para la navegación de altura, fue introducida en Europa desde ___ durante la Edad Media, revolucionando la capacidad de los navegantes para orientarse en mar abierto."
-respuesta: "China"
-respuestas_validas:
-  - "China"
-  - "china"
-explicacion: "Aunque los chinos la usaban para adivinación y geomancia, fue la adaptación náutica europea lo que permitió la expansión marítima."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "navegacion"
-  nivel: "intermedio"
-  tags: ["portugal", "cabo_buena_esperanza"]
-tipo: completar
-enunciado: "___ fue el primer europeo en doblar el Cabo de Buena Esperanza en 1488, demostrando que el Océano Atlántico y el Índico estaban conectados."
-respuesta: "Bartolomeu Dias"
-respuestas_validas:
-  - "Bartolomeu Dias"
-  - "Bartolomeu Diaz"
-  - "Bartolomeu"
-explicacion: "Inicialmente lo llamó \"Cabo das Tormentas\", pero el rey Juan II de Portugal lo renombró \"Cabo da Boa Esperança\"."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "navegacion"
-  nivel: "intermedio"
-  tags: ["colon", "naufragio"]
+  tags: ["inglaterra", "jacobos", "constitucionalismo"]
 tipo: vf
-enunciado: "La nao capitana de Cristóbal Colón, la Santa María, se encalló y naufragó en la costa de Haití en 1502, obligando a los supervivientes a construir el Fuerte Navidad con sus restos."
-respuesta: verdadero
-explicacion: "Este evento marcó el primer asentamiento europeo permanente en las Américas, aunque efímero."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "navegacion"
-  nivel: "intermedio"
-  tags: ["magallanes", "estrecho"]
-tipo: completar
-enunciado: "La expedición de Magallanes encontró la ruta hacia el Pacífico a través de un laberinto de canales y montañas en el extremo sur de Sudamérica, conocido como el ___."
-respuesta: "estrecho de Magallanes"
-respuestas_validas:
-  - "estrecho de Magallanes"
-  - "Estrecho de Magallanes"
-  - "Estrecho de Magalhães"
-  - "estrecho de Magalhães"
-explicacion: "Este paso natural permitió a la flota pasar del Atlántico al Pacífico sin tener que rodear completamente el continente."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "navegacion"
-  nivel: "intermedio"
-  tags: ["tecnologia_naval", "castilla"]
-tipo: vf
-enunciado: "Las naos, a diferencia de las carabelas, eran barcos más pequeños, rápidos y maniobrables, diseñados específicamente para la exploración costera y la navegación a la contra del viento."
+enunciado: "La Revolución Gloriosa de 1688 en Inglaterra fue un intento exitoso de Jaime II de restaurar el absolutismo católico y eliminar el poder del Parlamento."
 respuesta: falso
-explicacion: "Las naos eran más grandes, lentas y de mayor capacidad de carga, utilizadas para el transporte de mercancías y tropas, no tanto para la exploración ágil."
+explicacion: "La Revolución Gloriosa fue el fracaso de Jaime II para imponer su voluntad absoluta y católica. Resultó en su destitución y la ascensión de Guillermo de Orange, reforzando el poder parlamentario y protestante."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "navegacion"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["colonizacion", "asia"]
-tipo: completar
-enunciado: "El Tratado de Zaragoza, firmado en ___, estableció la línea de demarcación opuesta a la de Tordesillas para resolver los conflictos en las Molucas y el Pacífico entre España y Portugal."
-respuesta: "1529"
-respuestas_validas:
-  - "1529"
-  - "mil quinientos veintinueve"
-explicacion: "Este tratado dividió el mundo en dos hemisferios de influencia, aunque su aplicación práctica fue limitada."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "navegacion"
-  nivel: "intermedio"
-  tags: ["espana", "comercio"]
-tipo: completar
-enunciado: "El sistema de flotas español para el transporte de plata y mercancías entre América y Europa tenía como principales puertos de salida en el Nuevo Mundo a ___ y Portobelo (Panamá)."
-respuesta: "Veracruz y Cartagena"
-respuestas_validas:
-  - "Veracruz y Cartagena"
-  - "Veracruz y Portobelo"
-  - "Veracruz y Cartagena de Indias"
-  - "Veracruz y Santa Marta"
-explicacion: "Veracruz era el puerto principal de la Nueva España y Cartagena de Indias el de la Nueva Granada, conectados por caminos terrestres a los puertos del Caribe."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "navegacion"
-  nivel: "intermedio"
-  tags: ["brasil", "portugal"]
-tipo: completar
-enunciado: "En 1500, Pedro Álvares Cabral, mientras buscaba la ruta a la India, llegó a la costa de ___, afirmando la posesión de este territorio para Portugal."
-respuesta: "Brasil"
-respuestas_validas:
-  - "Brasil"
-  - "brasil"
-explicacion: "El descubrimiento fue probablemente accidental debido a la desviación hacia el oeste en el Atlántico Sur."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "navegacion"
-  nivel: "intermedio"
-  tags: ["tecnologia", "estrategia"]
-tipo: vf
-enunciado: "Durante los primeros siglos de la era de los descubrimientos, la navegación de cabotaje (siguiendo la costa) era la técnica predominante porque permitía el avituallamiento constante y la orientación segura."
-respuesta: verdadero
-explicacion: "La navegación de altura, que se alejaba de la costa, se desarrolló posteriormente gracias a mejores instrumentos y conocimiento de los vientos y corrientes."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "navegacion"
-  nivel: "intermedio"
-  tags: ["tecnologia", "longitud"]
+  tags: ["rusia", "modernizacion", "occidentalizacion"]
 tipo: mc
-enunciado: "¿Quién inventó el cronómetro marino (el H4) que resolvió el problema de determinar la longitud en el mar durante el siglo XVIII?"
+enunciado: "Pedro I el Grande de Rusia implementó un programa de occidentalización radical para modernizar su imperio. ¿Cuál fue su principal logro territorial que le permitió a Rusia proyectar su poder absolutista hacia el oeste?"
 opciones_explicitas:
-  - "John Harrison"
-  - "Isaac Newton"
-  - "Galileo Galilei"
-  - "Tycho Brahe"
-respuesta: "John Harrison"
-explicacion: "Harrison inventó el cronómetro marino H4, resolviendo el problema de la determinación de la longitud en el mar, un avance crucial para la navegación segura en el siglo XVIII."
+  - "La conquista de la salida al Mar Báltico"
+  - "La anexión de Siberia hasta el Pacífico"
+  - "La toma de Constantinopla"
+  - "La expansión hacia el Cáucaso"
+respuesta: "La conquista de la salida al Mar Báltico"
+explicacion: "Tras ganar la Gran Guerra del Norte, Rusia obtuvo territorios en la costa del Báltico, fundando San Petersburgo como 'ventana a Europa' y consolidando su estatus como potencia europea absolutista."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "navegacion"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["europa_norte", "comercio"]
+  tags: ["rusia", "pugachev", "campesinos"]
 tipo: vf
-enunciado: "Antes de la era de los descubrimientos oceánicos, la Liga Hanseática dominó el comercio y la navegación en el Mar Báltico y el Mar del Norte, estableciendo una red comercial que precedió a las potencias atlánticas."
+enunciado: "La rebelión de Yemelyan Pugachev (1773-1775) fue un gran levantamiento de campesinos y cosacos contra la aristocracia y la monarquía absolutista de Catalina la Grande en Rusia."
 respuesta: verdadero
-explicacion: "Esta liga de ciudades comerciales controlaba las rutas de la madera, el grano y las especias en el norte de Europa."
+explicacion: "Pugachev se hizo pasar por el difunto Pedro III y lideró la mayor rebelión popular de la Rusia imperial, lo que llevó a Catalina la Grande a fortalecer el control estatal y la burocracia para prevenir futuros levantamientos."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "navegacion"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["geografia", "explotacion"]
+  tags: ["luis xiv", "hugonotes", "tolerancia"]
 tipo: completar
-enunciado: "El primer paso registrado por el estrecho que lleva su nombre fue realizado por la expedición de ___ en 1520, tras una difícil navegación por canales y tormentas."
-respuesta: "Magallanes"
+enunciado: "En 1685, Luis XIV promulgó el Edicto de ___, que revocó el Edicto de Nantes y prohibió el culto protestante en Francia, forzando a cientos de miles de hugonotes al exilio."
+respuesta: "Fontainebleau"
 respuestas_validas:
-  - "Fernando de Magallanes"
-  - "Magallanes"
-  - "Elcano"
-  - "Juan Sebastián Elcano"
-explicacion: "Aunque Magallanes lideraba la expedición, fue Elcano quien completó la circunnavegación, pero el estrecho fue descubierto y cruzado por la flota magallánica."
+  - "Fontainebleau"
+  - "fontainebleau"
+  - "Fontainebleau."
+  - "fontainebleau."
+explicacion: "La revocación del Edicto de Nantes fue un error económico y social grave que empobreció a Francia al perder mano de obra cualificada y alienó a las potencias protestantes europeas."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "navegacion"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["tecnologia_naval", "castilla"]
+  tags: ["carlos v", "sacro imperio", "protestantismo"]
 tipo: vf
-enunciado: "Las carabelas de redonda eran naves más grandes y pesadas que las carabelas de vela latina, diseñadas para la guerra y el transporte de carga pesada en lugar de la exploración rápida."
+enunciado: "Carlos V, emperador del Sacro Imperio Romano Germánico, logró imponer el absolutismo centralizado en todos los estados alemanes antes del inicio de la Reforma Protestante."
 respuesta: falso
-explicacion: "El término \"carabela de redonda\" es confuso; generalmente se distinguían entre carabelas (ligeras) y naos (grandes). Las carabelas no eran \"redondas\"."
+explicacion: "Carlos V luchó constantemente contra la fragmentación política del Sacro Imperio y no pudo imponer su autoridad absoluta sobre los príncipes alemanes, especialmente tras la difusión del luteranismo."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "navegacion"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["expansion", "asia"]
-tipo: completar
-enunciado: "Aunque el primer contacto europeo con Japón en 1543 se debió a comerciantes portugueses varados en Tanegashima, la primera misión jesuita sostenida en Japón, a partir de 1549, fue liderada por ___."
-respuesta: "Francisco Xavier"
-respuestas_validas:
-  - "Francisco Xavier"
-  - "Francisco Javier"
-explicacion: "El primer contacto en 1543 en Tanegashima fue accidental, protagonizado por mercaderes portugueses. Fue Francisco Javier quien, a partir de 1549, estableció la primera misión jesuita sostenida en Japón, iniciando la evangelización del país."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "navegacion"
-  nivel: "intermedio"
-  tags: ["tecnologia", "vela"]
-tipo: completar
-enunciado: "Las naos utilizaban principalmente velas ___ en el trinquete y la mayor, lo que las hacía eficientes con el viento de popa pero difíciles de manejar contra el viento."
-respuesta: "cuadradas"
-respuestas_validas:
-  - "cuadradas"
-  - "cuadrada"
-explicacion: "La combinación de velas cuadradas (para velocidad con viento de popa) y latinas (para maniobrabilidad) fue común en las naos posteriores."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "navegacion"
-  nivel: "intermedio"
-  tags: ["colonizacion", "brasil"]
-tipo: vf
-enunciado: "El Tratado de Tordesillas de 1494 asignó inmediatamente la totalidad del territorio que hoy es Brasil a España, ya que la línea de demarcación pasaba al este de la costa americana."
-respuesta: falso
-explicacion: "La línea pasaba a 370 leguas de Cabo Verde, lo que dejaba la proyección oriental de Sudamérica (Brasil) en la zona portuguesa, aunque esto no fue claro hasta el descubrimiento de Cabral en 1500."
-```
-
-## Sección: nucleosintesis (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "basico"
-  tags: ["big_bang", "hidrogeno"]
-
-enunciado: "Durante la nucleosíntesis primordial, el elemento más abundante tras el Big Bang fue el ___."
-
-respuestas_validas:
-  - "hidrógeno"
-  - "hidrogeno"
-respuesta: "hidrógeno"
-tipo: completar
-
-explicacion: |
-  El hidrógeno es el elemento más simple y abundante, representando aproximadamente el 75% de la masa de la materia bariónica inicial.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "basico"
-  tags: ["helio", "big_bang"]
-
-enunciado: "La abundancia de helio-4 resultante de los primeros minutos del universo es de aproximadamente un ___ %."
-
-respuestas_validas:
-  - "25"
-respuesta: "25"
-tipo: completar
-
-explicacion: |
-  La nucleosíntesis primordial produjo aproximadamente un 25% de helio en masa, junto con trazas de otros elementos livianos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "intermedio"
-  tags: ["litio", "elementos_livianos"]
-
-enunciado: "Además de hidrógeno y helio, la nucleosíntesis primordial dejó trazas de un tercer elemento liviano llamado ___."
-
-respuestas_validas:
-  - "litio"
-respuesta: "litio"
-tipo: completar
-
-explicacion: |
-  El litio es el tercer elemento más ligero producido en este proceso, aunque en cantidades mucho menores que el hidrógeno y el helio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "intermedio"
-  tags: ["proceso", "tiempo"]
-
-enunciado: "La nucleosíntesis primordial ocurrió durante los primeros ___ minutos después del Big Bang."
-
-respuestas_validas:
-  - "20"
-respuesta: "20"
-tipo: completar
-
-explicacion: |
-  El proceso de nucleosíntesis fue muy breve, ocurriendo aproximadamente entre los 3 y los 20 minutos tras la expansión inicial.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "avanzado"
-  tags: ["abundancia", "proporciones"]
-
-enunciado: "Si el hidrógeno representa el 75% de la masa, el helio representa el ___%."
-
-respuestas_validas:
-  - "25"
-respuesta: "25"
-tipo: completar
-
-explicacion: |
-  En el modelo estándar de la nucleosíntesis primordial, la masa se distribuye aproximadamente en un 75% de hidrógeno y un 25% de helio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "basico"
-  tags: ["fusion", "hidrogeno", "estrellas"]
-
+  tags: ["richelieu", "cardenal", "fortalezas"]
 tipo: mc
-opciones_explicitas: ["Fusión de helio", "Fusión de hidrógeno", "Fisión de uranio", "Fusión de carbono"]
-respuesta: "Fusión de hidrógeno"
-
-enunciado: "¿Cuál es el proceso de nucleosíntesis que sostiene a una estrella en la secuencia principal durante la mayor parte de su vida?"
-
-explicacion: |
-  La fusión de hidrógeno en helio es el proceso fundamental que libera la energía que permite a una estrella brillar.
+enunciado: "El cardenal Richelieu, primer ministro de Luis XIII, trabajó para debilitar el poder de la nobleza y de las minorías religiosas que desafían a la corona. ¿Qué medida militar tomó contra los hugonotes tras el sitio de La Rochelle (1628)?"
+opciones_explicitas:
+  - "Abolir sus privilegios políticos y militares, manteniendo la libertad de culto"
+  - "Exiliar a toda la población hugonote a América"
+  - "Permitir la creación de un estado hugonote independiente"
+  - "Ejecutar públicamente a todos los líderes protestantes"
+respuesta: "Abolir sus privilegios políticos y militares, manteniendo la libertad de culto"
+explicacion: "Richelieu entendía que la tolerancia religiosa era necesaria por paz, pero que las 'ciudades de seguridad' hugonotes eran un estado dentro del estado que debía ser eliminado políticamente."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "nucleosintesis"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["hierro", "energia", "limite"]
-
+  tags: ["colonias", "espana", "administracion"]
 tipo: vf
-respuesta: falso
-
-enunciado: "La fusión de elementos más pesados que el hierro (Fe) es un proceso que libera energía neta para la estrella, permitiéndole seguir brillando por más tiempo."
-
-explicacion: |
-  Falso. El hierro es el límite de la nucleosíntesis estelar porque la fusión de elementos más pesados que el hierro consume energía en lugar de liberarla, lo que lleva al colapso del núcleo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "avanzado"
-  tags: ["secuencia", "elementos", "estelar"]
-
-tipo: ordenar
-opciones_explicitas: ["Hidrógeno", "Helio", "Carbono", "Hierro"]
-respuesta_orden: ["Hidrógeno", "Helio", "Carbono", "Hierro"]
-
-enunciado: "Ordená cronológicamente los elementos que se forman mediante la fusión en el interior de una estrella masiva, desde su fase de secuencia principal hasta el final de su vida estelar:"
-
-explicacion: |
-  Las estrellas masivas queman sucesivamente elementos más pesados a medida que su núcleo se contrae y calienta: hidrógeno → helio → carbono → ... hasta llegar al hierro.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "basico"
-  tags: ["helio", "carbono", "procesos"]
-
-tipo: mc
-opciones_explicitas: ["Oxígeno", "Carbono", "Neón", "Magnesio"]
-respuesta: "Carbono"
-
-enunciado: "Cuando una estrella agota su hidrógeno, comienza la fusión de helio en su núcleo, produciendo principalmente el elemento ___."
-
-explicacion: |
-  El proceso triple alfa permite la fusión de tres núcleos de helio para formar un núcleo de carbono.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "intermedio"
-  tags: ["hierro", "energia", "colapso"]
-
-tipo: vf
+enunciado: "Las Leyes de Indias fueron un cuerpo legal promulgado por la corona española para organizar la administración de sus colonias en América, reflejando la idea de que la soberanía absoluta residía en el monarca."
 respuesta: verdadero
-
-enunciado: "El hierro es considerado el 'límite de la nucleosíntesis' porque su núcleo es extremadamente estable y la fusión de elementos más pesados que él requiere un aporte de energía en lugar de liberarla."
-
-explicacion: |
-  Verdadero. Debido a la alta estabilidad del núcleo de hierro, la fusión subsiguiente no puede sostener la presión térmica necesaria para contrarrestar la gravedad, provocando el colapso estelar.
+explicacion: "Las Leyes de Indias sistematizaron el gobierno colonial, estableciendo virreinatos y audiencias que respondían directamente al rey, demostrando la extensión del absolutismo monárquico más allá de Europa."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "basico"
-  tags: ["estrellas", "hierro"]
-
-enunciado: "En el ciclo de vida de una estrella masiva, la fusión nuclear es un proceso que libera energía hasta que se llega a un elemento que no puede fusionarse para liberar más energía. Este elemento es el ___."
-
-respuestas_validas:
-  - "hierro"
-respuesta: "hierro"
-tipo: completar
-
-explicacion: |
-  El hierro-56 es el elemento más estable; fusionar elementos más pesados que el hierro requiere energía en lugar de liberarla, lo que marca el fin de la fusión estelar normal.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["supernova", "oro"]
-
-enunciado: "Los elementos más pesados que el hierro, como el oro, no se forman en la fusión estelar cotidiana, sino en eventos catastróficos. Uno de estos eventos es la explosión de una ___."
-
-respuestas_validas:
-  - "supernova"
-respuesta: "supernova"
-tipo: completar
-
-explicacion: |
-  Las supernovas proporcionan el flujo masivo de neutrones necesario para que los núcleos capturen partículas y crezcan más allá del hierro.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "avanzado"
-  tags: ["estrellas_de_neutrones", "uranio"]
-
-enunciado: "La síntesis de elementos extremadamente pesados como el uranio ocurre principalmente durante la ___."
-
-respuestas_validas:
-  - "colisión de estrellas de neutrones"
-  - "colision de estrellas de neutrones"
-respuesta: "colisión de estrellas de neutrones"
-tipo: completar
-
-explicacion: |
-  Las colisiones de estrellas de neutrones (kilonovas) son sitios ideales para el proceso r (captura rápida de neutrones), creando elementos como el uranio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "intermedio"
-  tags: ["proceso_r", "neutrones"]
-
-enunciado: "Para que un núcleo atómico crezca y se convierta en un elemento pesado como el uranio, debe capturar rápidamente una gran cantidad de ___."
-
-respuestas_validas:
-  - "neutrones"
-respuesta: "neutrones"
-tipo: completar
-
-explicacion: |
-  El proceso r (rápido) implica que los núcleos capturan neutrones más rápido de lo que pueden decaer, permitiendo la creación de elementos muy pesados.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "basico"
-  tags: ["elementos", "pesados"]
-
-enunciado: "Si un elemento tiene un número atómico mayor al del hierro, su origen probable es un evento de nucleosíntesis ___."
-
-respuestas_validas:
-  - "explosiva"
-respuesta: "explosiva"
-tipo: completar
-
-explicacion: |
-  La nucleosíntesis explosiva ocurre durante eventos de alta energía como supernovas o colisiones de objetos compactos, permitiendo superar la barrera de estabilidad del hierro.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "basico"
-  tags: ["estrellas", "hierro", "origen"]
-
+  tags: ["prusia", "ilustracion", "despotismo"]
 tipo: mc
-opciones_explicitas: ["Fusión de hidrógeno", "Fusión de helio", "Fusión de elementos pesados en núcleos estelares", "Espacio vacío"]
-
-respuesta: "Fusión de elementos pesados en núcleos estelares"
-
-enunciado: "El hierro presente en nuestra sangre (hemoglobina) no se creó en el Sistema Solar, sino en estrellas masivas mucho antes de que existiera el Sol. ¿Cuál es el proceso principal responsable de su formación?"
-
-explicacion: |
-  Los elementos más pesados que el hierro se forman en explosiones de supernovas, mientras que el hierro se produce en las etapas finales de la vida de estrellas masivas mediante la fusión nuclear.
+enunciado: "Federico II de Prusia es conocido por aplicar el concepto de 'despotismo ilustrado'. ¿Cuál de las siguientes acciones mejor ejemplifica esta fusión entre absolutismo y ideas de la Ilustración?"
+opciones_explicitas:
+  - "Abolir la tortura y promover la tolerancia religiosa mientras fortalecía el ejército"
+  - "Convocar una asamblea democrática para aprobar nuevos impuestos"
+  - "Delegar el poder judicial en los campesinos locales"
+  - "Renunciar al trono en favor de un consejo regente"
+respuesta: "Abolir la tortura y promover la tolerancia religiosa mientras fortalecía el ejército"
+explicacion: "El despotismo ilustrado mantuvo la estructura autoritaria del estado pero utilizó la razón y la reforma administrativa para modernizar el país, siendo Federico II un ejemplo clave de este modelo en Prusia."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "nucleosintesis"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["tabla_periodica", "elementos", "historia"]
-
+  tags: ["holanda", "independencia", "espana"]
 tipo: vf
+enunciado: "La Guerra de los Ochenta Años fue el conflicto armado entre las Provincias Unidas de los Países Bajos y España que resultó en la independencia de una república mercantil, contraria al modelo absolutista español."
 respuesta: verdadero
-
-enunciado: "Si la tabla periódica es un inventario de los elementos que componen la materia, la mayoría de los elementos más pesados que el litio se formaron en el interior de las estrellas."
-
-explicacion: |
-  Verdadero. El Big Bang sólo produjo hidrógeno, helio y trazas de litio. Todos los demás elementos (carbono, oxígeno, calcio, etc.) requieren procesos estelares para su formación.
+explicacion: "La independencia de las Provincias Unidas estableció una república oligárquica y protestante, ofreciendo un contraste directo con el absolutismo católico y centralizado de la monarquía hispánica."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "basico"
-  tags: ["supernova", "elementos", "polvo"]
-
-tipo: mc
-opciones_explicitas: ["La formación de un planeta", "La explosión de una supernova", "La formación de una nebulosa", "El enfriamiento del Sol"]
-
-respuesta: "La explosión de una supernova"
-
-enunciado: "Para que los elementos pesados fabricados en el núcleo de una estrella puedan dispersarse por el universo y formar nuevos sistemas solares como el nuestro, ¿qué evento astronómico es necesario?"
-
-explicacion: |
-  Las supernovas actúan como mecanismos de dispersión, lanzando los elementos sintetizados al medio interestelar, donde eventualmente se condensan en planetas y vida.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["calcio", "biologia_estelar", "origen"]
+  tags: ["francia", "guerras de religion", "regencia"]
+tipo: completar
+enunciado: "Catalina de Médici, reina madre y regente de Francia durante las guerras de religión, intentó mantener la unidad del reino mediante la tolerancia temporal. Sin embargo, su mandato se vio marcado por la masacre de la ___, un punto de inflexión en la violencia religiosa."
+respuesta: "noche de san bartolome"
+respuestas_validas:
+  - "noche de san bartolome"
+  - "Noche de San Bartolome"
+  - "noche de san bartolome."
+  - "Noche de San Bartolome."
+explicacion: "La Masacre de la Noche de San Bartolomé (1572) fue un intento de eliminar a los líderes hugonotes, pero exacerbó el odio religioso y prolongó los conflictos internos que debilitaron la corona francesa antes del ascenso de Enrique IV."
+```
 
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "absolutismo-europeo"
+  nivel: "intermedio"
+  tags: ["austria", "ilustracion", "reformas"]
+tipo: mc
+enunciado: "José II, emperador del Sacro Imperio Romano Germánico, fue un monarca absolutista con ambiciones reformistas radicales. ¿Qué medida provocó la oposición feroz de la nobleza húngara y austríaca?"
+opciones_explicitas:
+  - "El Edicto de Tolerancia y la secularización de bienes eclesiásticos"
+  - "La creación de una armada naval poderosa"
+  - "La abolición total de la burocracia imperial"
+  - "La declaración de guerra contra el Imperio Otomano"
+respuesta: "El Edicto de Tolerancia y la secularización de bienes eclesiásticos"
+explicacion: "José II intentó imponer reformas ilustradas desde arriba, incluyendo la libertad religiosa y la reducción del poder de la Iglesia, lo que generó resistencia porque se percibía como una intrusión en las tradiciones locales y el poder noble."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "absolutismo-europeo"
+  nivel: "intermedio"
+  tags: ["sucesion", "equilibrio", "inglaterra"]
 tipo: vf
+enunciado: "El Tratado de Utrecht (1713) puso fin a la Guerra de Sucesión Española y estableció el principio de equilibrio de poder en Europa, impidiendo que Francia y España se unieran bajo un solo monarca absolutista."
 respuesta: verdadero
-
-enunciado: "Considerando que el calcio es un elemento esencial para la estructura ósea humana, cada átomo de calcio en nuestro cuerpo fue creado en una estrella que existió antes que el Sol."
-
-explicacion: |
-  Es cierto. El calcio es un elemento pesado que requiere procesos de nucleosíntesis estelar (como la captura de partículas alfa) para existir.
+explicacion: "Las potencias europeas temían la hegemonía de los Borbones. Utrecht impuso condiciones que separaban las coronas francesa y española, consolidando a Inglaterra como la nueva potencia naval y comercial predominante."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "avanzado"
-  tags: ["tiempo_cosmico", "elementos", "genealogia"]
-
-tipo: mc
-opciones_explicitas: ["Los elementos se crean simultáneamente al Sol", "Los elementos pesados se crean después de la Tierra", "Los elementos pesados se crearon en generaciones estelares previas", "Los elementos no cambian con el tiempo"]
-
-respuesta: "Los elementos pesados se crearon en generaciones estelares previas"
-
-enunciado: "Desde una perspectiva de 'historia profunda', la composición química de la Tierra es un registro de eventos astronómicos pasados. ¿Cuál es la relación correcta entre la creación de elementos pesados y nuestro sistema solar?"
-
-explicacion: |
-  La materia que nos compone es el resultado de ciclos de vida y muerte estelar previos. El sistema solar se formó a partir de nubes de gas y polvo que ya contenían los elementos fabricados por estrellas anteriores.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "basico"
-  tags: ["big_bang", "hidrogeno"]
-
-opciones_explicitas: ["Big Bang", "Fusión estelar", "Supernova"]
-respuesta: "Big Bang"
-tipo: mc
-
-enunciado: "El hidrógeno es el elemento más abundante del universo. ¿Cuál fue el proceso responsable de su formación?"
-
-explicacion: |
-  El hidrógeno es el elemento más simple y abundante, formado durante la nucleosíntesis primordial en los primeros minutos tras el Big Bang.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["estrellas", "carbono"]
-
-opciones_explicitas: ["Fusión estelar (proceso triple alfa)", "Big Bang", "Supernova"]
-respuesta: "Fusión estelar (proceso triple alfa)"
+  tags: ["mazarino", "fronda", "parlamento"]
 tipo: mc
-
-enunciado: "Para la formación del carbono, ¿cuál es el mecanismo principal?"
-
-explicacion: |
-  El carbono se forma en el núcleo de estrellas de la secuencia principal mediante el proceso de triple alfa (fusión de tres núcleos de helio).
+enunciado: "Durante la minoría de edad de Luis XIV, Francia sufrió una serie de guerras civiles conocidas como la Fronda. ¿Cuál fue la consecuencia política principal de este conflicto para el futuro absolutismo?"
+opciones_explicitas:
+  - "Luis XIV juró nunca nombrar a un primer ministro poderoso y centralizó el poder"
+  - "El Parlamento de París obtuvo la soberanía nacional"
+  - "La nobleza recuperó sus feudales derechos de guerra"
+  - "Francia se dividió en estados independientes"
+respuesta: "Luis XIV juró nunca nombrar a un primer ministro poderoso y centralizó el poder"
+explicacion: "La experiencia traumática de la Fronda convenció a Luis XIV de que la autoridad real debía ser incontestable y que la nobleza debía ser controlada, no confiada con poder militar o político."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "nucleosintesis"
-  nivel: "avanzado"
-  tags: ["oro", "supernova"]
-
-opciones_explicitas: ["Fusión estelar", "Big Bang", "Colisión de estrellas de neutrones o supernova"]
-respuesta: "Colisión de estrellas de neutrones o supernova"
-tipo: mc
-
-enunciado: "Si buscamos identificar el origen del oro, ¿hacia qué tipo de evento debemos mirar?"
-
-explicacion: |
-  Elementos más pesados que el hierro, como el oro, requieren eventos cataclísmicos como supernovas o la fusión de estrellas de neutrones para su formación.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "nucleosintesis"
+  tema: "absolutismo-europeo"
   nivel: "intermedio"
-  tags: ["helio", "fusión"]
+  tags: ["sucesion", "francia", "mujeres"]
+tipo: vf
+enunciado: "La Ley Sálica, aplicada en Francia, prohibía a las mujeres heredar el trono y transmitirla a través de la línea femenina, lo que fue utilizado para justificar la exclusión de pretendientes rivales y asegurar la sucesión absoluta masculina."
+respuesta: verdadero
+explicacion: "La interpretación estricta de la Ley Sálica fue crucial para la legitimidad de la dinastía de los Borbones en Francia y también jugó un papel en las disputas de sucesión en otros reinos europeos."
+```
 
-enunciado: "En una estrella de la secuencia principal, el paso del hidrógeno al helio ocurre mediante el proceso de ___."
-
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "absolutismo-europeo"
+  nivel: "intermedio"
+  tags: ["inglaterra", "guillermo", "maria"]
+tipo: completar
+enunciado: "Invitado por el Parlamento inglés, Guillermo de Orange, estatúder de las Provincias Unidas, invadió Inglaterra en 1688. Junto a su esposa María II, aceptó el trono bajo la condición de firmar la ___, que limitaba sus poderes."
+respuesta: "declaracion de derechos"
 respuestas_validas:
-  - "fusión nuclear"
-  - "fusion nuclear"
-respuesta: "fusión nuclear"
-tipo: completar
-
-explicacion: |
-  Las estrellas fusionan núcleos de hidrógeno para crear helio, liberando la energía que las hace brillar.
+  - "declaracion de derechos"
+  - "Declaracion de Derechos"
+  - "declaracion de derechos."
+  - "Declaracion de Derechos."
+explicacion: "La Declaración de Derechos (Bill of Rights) de 1689 estableció que el monarca no podía suspender leyes ni cobrar impuestos sin el consentimiento del Parlamento, marcando el fin del absolutismo divino en Inglaterra."
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "nucleosintesis"
+  tema: "absolutismo-europeo"
+  nivel: "intermedio"
+  tags: ["rusia", "costumbre", "occidentalizacion"]
+tipo: vf
+enunciado: "Pedro I de Rusia impuso reformas culturales radicales, incluyendo la obligación de que la nobleza rusa se afeitara la barba y vistiera ropa occidental, como parte de su política de modernización forzada del estado absolutista."
+respuesta: verdadero
+explicacion: "Estas reformas no eran solo estéticas, sino políticas: buscaban romper con el aislamiento tradicional de Rusia y forzar a la nobleza a adoptar las costumbres y la disciplina de las cortes europeas modernas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "absolutismo-europeo"
+  nivel: "intermedio"
+  tags: ["henri iv", "espana", "paz"]
+tipo: mc
+enunciado: "Enrique IV, el primer rey Borbón de Francia, puso fin a las guerras de religión y consolidó la autoridad real. ¿Qué tratado firmó con España en 1598 que también reconocía su legitimidad internacional?"
+opciones_explicitas:
+  - "La Paz de Vervins"
+  - "La Paz de Westfalia"
+  - "El Tratado de Utrecht"
+  - "La Paz de los Pirineos"
+respuesta: "La Paz de Vervins"
+explicacion: "La Paz de Vervins restableció la paz entre Francia y España, confirmando los términos anteriores y permitiendo a Enrique IV enfocarse en reconstruir Francia internamente y fortalecer la monarquía absoluta."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "absolutismo-europeo"
+  nivel: "intermedio"
+  tags: ["carlos iii", "bosques", "jesuitas"]
+tipo: vf
+enunciado: "Carlos III de España implementó reformas borbónicas inspiradas por el despotismo ilustrado, incluyendo la expulsión de la Compañía de Jesús y la modernización de la administración colonial, sin cuestionar la autoridad absoluta del monarca."
+respuesta: verdadero
+explicacion: "Las reformas de Carlos III buscaban modernizar el estado y la economía desde arriba, aumentando la eficiencia fiscal y militar, pero manteniendo intacta la estructura política absolutista y la supremacía de la corona."
+```
+
+## Sección: conquista-y-colonia-argentina (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_y_colonia_argentina"
   nivel: "basico"
-  tags: ["hierro", "nucleosintesis"]
-
-enunciado: "En el ciclo de vida de una estrella masiva, la formación de hierro marca el límite de la ___ antes de la explosión."
-
-respuestas_validas:
-  - "fusión estelar"
-  - "fusion estelar"
-respuesta: "fusión estelar"
-tipo: completar
-
-explicacion: |
-  El hierro es el elemento más estable; una vez que el núcleo estelar se convierte en hierro, la fusión que libera energía cesa y la estrella colapsa.
-```
-
-## Sección: organizacion-nacional-constitucion-1853 (25 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "basico"
-  tags: ["constitucion", "argentina", "federalismo"]
-
-respuesta: "1853"
-tipo: completar
-
-enunciado: "La Constitución Nacional Argentina fue sancionada en el año ___."
-
-explicacion: |
-  Tras la caída de Juan Manuel de Rosas en la batalla de Caseros, se procedió a la organización institucional del país, culminando con la sanción de la Constitución en 1853.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "basico"
-  tags: ["forma_de_gobierno", "republica", "federal"]
-
-respuesta: "República Federal"
-tipo: "mc"
-
-opciones_explicitas: ["Monarquía Unitaria", "República Federal", "Confederación Centralista", "Dictadura Provisoria"]
-
-enunciado: "La Constitución de 1853 estableció que la forma de gobierno de la Nación Argentina es una:"
-
-explicacion: |
-  La Constitución de 1853 adoptó la forma Republicana y el sistema Federal, garantizando la autonomía de las provincias pero bajo un gobierno central.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "intermedio"
-  tags: ["poderes", "legislativo", "ejecutivo", "judicial"]
+  tags: ["conquista", "fundaciones"]
 
 variables:
-  orden_correcta: ["Ejecutivo", "Legislativo", "Judicial"]
+  escenario: uno_de([["Santiago del Estero", "1553"], ["Córdoba", "1609"], ["Buenos Aires (segunda)", "1580"]])
 
-respuesta_orden: ["Ejecutivo", "Legislativo", "Judicial"]
-tipo: "ordenar"
+respuesta: escenario[0]
+tipo: mc
+opciones_explicitas: ["Santiago del Estero", "Córdoba", "Buenos Aires (segunda)"]
 
-opciones_explicitas: ["Ejecutivo", "Legislativo", "Judicial"]
-
-enunciado: "Ordene los tres poderes del Estado establecidos por la Constitución de 1853, partiendo desde el poder que ejerce la función administrativa/política principal:"
-
-explicacion: |
-  La división de poderes es un principio fundamental de la democracia republicana adoptada en 1853 para evitar la concentración del mando.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "intermedio"
-  tags: ["provincias", "autonomia"]
-
-variables:
-  escenario: uno_de([["autónomas", "tienen sus propias autoridades y leyes"], ["dependientes", "están subordinadas totalmente al gobierno central"]])
-
-respuesta: "autónomas"
-tipo: "completar"
-
-respuestas_validas:
-  - "autónomas"
-
-enunciado: "Según el sistema federal adoptado, las provincias argentinas son ___ porque ___."
+enunciado: "La ciudad de {escenario[0]} fue fundada en el año {escenario[1]}."
 
 explicacion: |
-  El federalismo implica que las provincias conservan todo el poder no delegado a la Nación, manteniendo su propia autonomía.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "avanzado"
-  tags: ["sanacion", "congreso", "constituyente"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Sanctioned", "Sancionada"], ["Promulgated", "Promulgada"]]
-
-respuesta: "Sancionada"
-tipo: "mc"
-
-opciones_explicitas: ["Sancionada", "Promulgada", "Derogada", "Reformada"]
-
-enunciado: "El proceso de la Constitución de 1853 comenzó cuando la Carta Magna fue ___ por el Congreso Constituyente en Santa Fe."
-
-explicacion: |
-  La Constitución fue sancionada por el Congreso Constituyente en Santa Fe en 1853, marcando el inicio de la organización institucional definitiva.
+  La fundación de {escenario[0]} en {escenario[1]} marcó un hito en la organización territorial de la región.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
+  tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
-  tags: ["buenos_aires", "confederacion", "constitucion"]
-
-respuesta: "separada"
-tipo: completar
-
-enunciado: "Tras la sanción de la Constitución Nacional en 1853, la provincia de Buenos Aires se mantuvo ___ de la Confederación Argentina."
-
-explicacion: |
-  Buenos Aires no participó en el proceso constituyente de 1853 y mantuvo su autonomía, formando un Estado separado de la Confederación Argentina durante varios años.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "intermedio"
-  tags: ["batalla_de_pavon", "reincorporacion", "unificacion"]
-
-variables:
-  escenario: uno_de([["1861", "Batalla de Pavón"], ["1853", "Sanción de la Constitución"]])
-  año: escenario[0]
-  evento: escenario[1]
-
-respuesta: "1861"
-tipo: "mc"
-opciones_explicitas: ["1853", "1861", "1880", "1916"]
-
-enunciado: "La reincorporación definitiva de Buenos Aires a la unidad nacional se produjo en el año {año}, tras el desenlace de la {evento}."
-
-explicacion: |
-  La Batalla de Pavón en 1861 fue el hito que permitió la unificación política y la integración de Buenos Aires al resto de las provincias argentinas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "avanzado"
   tags: ["ordenar", "cronologia"]
 
-opciones_explicitas: ["Sanción de la Constitución Nacional", "Separación de Buenos Aires", "Batalla de Pavón", "Reincorporación de Buenos Aires"]
-respuesta_orden: ["Sanción de la Constitución Nacional", "Separación de Buenos Aires", "Batalla de Pavón", "Reincorporación de Buenos Aires"]
-tipo: "ordenar"
+opciones_explicitas: ["Fundación de Santiago del Estero", "Segunda fundación de Buenos Aires", "Fundación de Córdoba"]
 
-enunciado: "Ordena cronológicamente los siguientes hechos históricos de la organización nacional:"
+respuesta_orden: ["Fundación de Santiago del Estero", "Segunda fundación de Buenos Aires", "Fundación de Córdoba"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente los siguientes eventos de la conquista y colonización:"
+
+pasos:
+  - "Identificar la fecha de Santiago del Estero (1553)"
+  - "Identificar la fecha de la segunda Buenos Aires (1580)"
+  - "Identificar la fecha de Córdoba (1609)"
 
 explicacion: |
-  La secuencia correcta comienza con la sanción de la Constitución (1853), la consecuente separación de Buenos Aires, la batalla que definió el rumbo político (Pavón, 1861) y la posterior integración.
+  El orden cronológico correcto es: Santiago del Estero (1553), Buenos Aires (1580) y Córdoba (1609).
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "intermedio"
-  tags: ["pavon", "unificacion"]
-
-respuesta: "reincorporación"
-tipo: "completar"
-respuestas_validas:
-  - "reincorporación"
-  - "unificación"
-
-enunciado: "El desenlace de la Batalla de Pavón facilitó la ___ de la provincia de Buenos Aires a la unidad nacional."
-
-explicacion: |
-  La victoria/desenlace de Pavón permitió que Buenos Aires dejara de ser un estado separado y se integrara al proceso de organización nacional.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
+  tema: "conquista_y_colonia_argentina"
   nivel: "basico"
-  tags: ["buenos_aires", "constitucion"]
+  tags: ["buenos_aires", "conquista"]
 
-respuesta: "no"
-tipo: "mc"
-opciones_explicitas: ["si", "no", "tal vez", "parcialmente"]
-
-enunciado: "¿Firmó la provincia de Buenos Aires la Constitución Nacional de 1853?"
-
-explicacion: |
-  No, Buenos Aires se opuso a la Constitución de 1853, manteniendo su propia organización y separándose de la Confederación Argentina.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "basico"
-  tags: ["constitucion", "forma_de_gobierno"]
-
-respuesta: "republicana"
-tipo: "mc"
-opciones_explicitas: ["monárquica", "republicana", "parlamentaria", "teocrática"]
-
-enunciado: "Según la Constitución de 1853, la forma de gobierno adoptada para la Nación Argentina es ___."
-
-explicacion: |
-  La Constitución establece en su primer artículo que la Nación adopta para su gobierno la forma REPRESENTATIVA, REPUBLICANA y FEDERAL.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "intermedio"
-  tags: ["poderes", "division_de_poderes"]
-
-variables:
-  datos: [["Presidente", "Administra el país"], ["Congreso", "Legisla las leyes"], ["Corte Suprema", "Juzga las causas"]]
-  idx: uno_de([0, 1, 2])
-  poder_en_idx: datos[idx][0]
-  respuesta_en_idx: datos[idx][1]
-
-respuesta: respuesta_en_idx
-tipo: "completar"
+respuesta: "Juan de Garay"
+tipo: completar
 respuestas_validas:
-  - datos[0][1]
-  - datos[1][1]
-  - datos[2][1]
+  - "Juan de Garay"
 
-enunciado: "En el sistema de división de poderes, la función de {poder_en_idx} es ___."
+enunciado: "La segunda fundación de la ciudad de Buenos Aires en 1580 fue liderada por ___."
 
 explicacion: |
-  La división de poderes busca evitar la concentración de autoridad, asignando funciones específicas al Poder Ejecutivo, Legislativo y Judicial.
+  Tras el fracaso de la primera fundación de Pedro de Mendoza, Juan de Garay estableció la segunda fundación en 1580.
 ```
 
 ```
 metadata:
   materia: "historia_profucha"
-  tema: "organizacion_nacional_constitucion_1853"
+  tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
-  tags: ["federalismo", "provincias"]
+  tags: ["cordoba", "fundacion"]
 
-respuesta: "federal"
-tipo: "mc"
-opciones_explicitas: ["centralista", "federal", "unitarista", "confederal"]
-
-enunciado: "El principio que garantiza la autonomía de las provincias y su participación en el gobierno nacional se denomina sistema ___."
-
-explicacion: |
-  El federalismo permite que las provincias mantengan su autonomía (dictan sus propias leyes y eligen sus autoridades) mientras forman parte de un Estado Nacional único.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "avanzado"
-  tags: ["representacion", "sufragio"]
-
-respuesta: "representativa"
-tipo: "completar"
-respuestas_validas:
-  - "representativa"
-
-enunciado: "La Constitución de 1853 establece que el gobierno es ___ porque el pueblo ejerce su soberanía a través de sus representantes."
-
-explicacion: |
-  El carácter representativo implica que el poder emana del pueblo, pero este lo delega en representantes elegidos para la toma de decisiones políticas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "intermedio"
-  tags: ["jerarquia", "poderes"]
-
-respuesta_orden: ["Legislativo", "Ejecutivo", "Judicial"]
-tipo: "ordenar"
-opciones_explicitas: ["Ejecutivo", "Legislativo", "Judicial"]
-
-enunciado: "Ordene los tres poderes del Estado según su orden de mención tradicional en la estructura de la división de poderes (según la jerarquía de la función de creación, ejecución y control de leyes):"
-
-explicacion: |
-  La división clásica de Montesquieu, adoptada por la Constitución, separa las funciones en: Legislativa (hacer leyes), Ejecutiva (ejecutar leyes) y Judicial (juzgar el cumplimiento de las leyes).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "basico"
-  tags: ["constitucion", "norma_suprema"]
-
-respuesta: "Constitución Nacional"
+respuesta: "1609"
 tipo: completar
-respuestas_validas:
-  - "Constitución Nacional"
+tolerancia_abs: 0
 
-enunciado: "La norma suprema que rige el sistema de gobierno de la República Argentina es la ___."
+enunciado: "La ciudad de Córdoba fue fundada en el año ___."
 
 explicacion: |
-  La Constitución Nacional es la ley fundamental del Estado, de donde emanan todas las demás leyes.
+  Córdoba fue fundada en 1609, convirtiéndose en un centro neurálgico para la educación y la administración colonial.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "intermedio"
-  tags: ["reforma", "1994"]
-
-respuesta: "incorporar la jerarquía de los tratados internacionales de derechos humanos"
-tipo: mc
-opciones_explicitas: ["eliminar la figura del Presidente", "incorporar la jerarquía de los tratados internacionales de derechos humanos", "cambiar la capital a Córdoba", "abolir el Senado"]
-
-enunciado: "La reforma constitucional de 1994 tuvo como uno de sus hitos principales el hecho de ___."
-
-explicacion: |
-  La reforma de 1994 otorgó jerarquía constitucional a los tratados internacionales de derechos humanos con jerarquía superior a las leyes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
+  tema: "conquista_y_colonia_argentina"
   nivel: "basico"
-  tags: ["sistema_de_gobierno"]
-
-respuesta: "representativa, republicana y federal"
-tipo: mc
-opciones_explicitas: ["monárquica, centralista y unitaria", "representativa, republicana y federal", "presidencialista, autoritaria y federal", "parlamentaria, unitaria y federal"]
-
-enunciado: "Según el Artículo 1°, la forma de gobierno adoptada por la Nación Argentina es ___."
-
-explicacion: |
-  La Constitución establece un sistema representativo (el pueblo gobierna por medio de representantes), republicano (división de poderes) y federal (autonomía de las provincias).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "intermedio"
-  tags: ["poder_judicial", "corte_suprema"]
-
-respuesta: "Corte Suprema de Justicia de la Nación"
-tipo: completar
-respuestas_validas:
-  - "Corte Suprema de Justicia de la Nación"
-
-enunciado: "El órgano máximo del Poder Judicial de la Nación es la ___."
-
-explicacion: |
-  La Corte Suprema es el tribunal de última instancia y el máximo exponente del Poder Judicial en el sistema federal argentino.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "avanzado"
-  tags: ["jerarquia_normativa", "piramide_kelsen"]
+  tags: ["geografia_historica"]
 
 variables:
-  idx: uno_de([0, 1, 2])
-  jerarquia: [["Constitución y Tratados de DDHH", "Tratados Internacionales", "Leyes Nacionales"]]
+  datos: [["Santiago del Estero", "1553"], ["Córdoba", "1609"], ["Buenos Aires", "1580"]]
+  idx: uno_de([0,1,2])
 
-respuesta_orden: ["Constitución y Tratados de DDHH", "Tratados Internacionales", "Leyes Nacionales"]
-tipo: ordenar
-opciones_explicitas: ["Constitución y Tratados de DDHH", "Tratados Internacionales", "Leyes Nacionales"]
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["1553", "1609", "1580"]
 
-enunciado: "Ordene de mayor a menor jerarquía normativa el siguiente bloque de normas en el sistema argentino actual:"
-
-pasos:
-  - "Identifique la norma suprema (Bloque de Constitucionalidad)"
-  - "Identifique los tratados con jerarquía superior a las leyes"
-  - "Identifique las leyes comunes"
+enunciado: "Si nos referimos a la fundación de {datos[idx][0]}, el año correspondiente es ___."
 
 explicacion: |
-  Tras la reforma de 1994, la jerarquía se establece con la Constitución y los Tratados de DDHH en la cima, seguidos por los tratados internacionales, y luego las leyes nacionales.
+  La fecha correcta para la fundación de {datos[idx][0]} es {datos[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "basico"
+  tags: ["organizacion_colonial", "virreinatos"]
+
+respuesta: "Perú"
+tipo: completar
+respuestas_validas:
+  - "Perú"
+
+enunciado: "Antes de la creación del Virreinato del Río de la Plata, el territorio que hoy ocupa Argentina pertenecía al Virreinato del ___."
+
+explicacion: |
+  Durante gran parte de la era colonial, las tierras rioplatenses dependían de la administración del Virreinato del Perú, con sede en Lima.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "basico"
+  tags: ["virreinatos", "reformas_borbonicas"]
+
+opciones_explicitas: ["Lima", "Buenos Aires", "Santiago", "Asunción"]
+respuesta: "Buenos Aires"
+tipo: mc
+
+enunciado: "Con la creación del Virreinato del Río de la Plata en 1776, ¿cuál se convirtió en la nueva capital administrativa?"
+
+explicacion: |
+  La creación del Virreinato del Río de la Plata buscaba mejorar la defensa del Atlántico y el control comercial, estableciendo a Buenos Aires como su centro de poder.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
-  tags: ["constitucion", "gobierno"]
+  tags: ["orden_cronologico", "virreinatos"]
+
+opciones_explicitas: ["Virreinato del Perú", "Virreinato del Río de la Plata", "Estado Argentino"]
+respuesta_orden: ["Virreinato del Perú", "Virreinato del Río de la Plata", "Estado Argentino"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente las etapas de organización política del territorio que hoy es Argentina:"
+
+explicacion: |
+  La secuencia correcta comienza con la dependencia del Perú, sigue con la autonomía regional del Río de la Plata y culmina con la formación del Estado nacional.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "basico"
+  tags: ["capitales", "geografia_colonial"]
+
+respuesta: "Río de la Plata"
+tipo: completar
+respuestas_validas:
+  - "Río de la Plata"
+
+enunciado: "En el año 1776, se fundó el Virreinato del ___."
+
+explicacion: |
+  La reforma administrativa de 1776 fue fundamental para el desarrollo de la región del Plata.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "intermedio"
+  tags: ["reformas", "geopolitica"]
+
+opciones_explicitas: ["Perú", "Río de la Plata"]
+respuesta: "Río de la Plata"
+tipo: mc
+
+enunciado: "La creación de un nuevo virreinato en 1776 significó que el territorio pasó de depender del Virreinato del Perú a pertenecer al Virreinato del ___."
+
+explicacion: |
+  Este cambio permitió una gestión más directa de las rutas comerciales hacia el Atlántico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "basico"
+  tags: ["fundacion", "buenos_aires", "conquista"]
+
+tipo: mc
+opciones_explicitas: ["Pedro de Mendoza", "Juan de Garay", "Juan de Cabral", "Hernán de Magallanes"]
+
+enunciado: "La primera fundación de la ciudad de Buenos Aires, realizada en 1536, fue liderada por el cual de los siguientes exploradores?"
+
+respuesta: "Pedro de Mendoza"
+
+explicacion: |
+  La primera fundación fue un intento fallido liderado por Pedro de Mendoza en 1536, que terminó siendo abandonado debido a las condiciones extremas y los conflictos con los nativos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "basico"
+  tags: ["fundacion", "buenos_aires", "fracaso"]
+
+tipo: completar
+respuestas_validas:
+  - "fracasó"
+
+enunciado: "A diferencia de la segunda fundación, la expedición de Pedro de Mendoza en 1536 ___ y la ciudad fue posteriormente abandonada."
+
+respuesta: "fracasó"
+
+explicacion: |
+  La primera fundación de Buenos Aires fracasó debido a la hambruna y los ataques de los pueblos originarios, lo que obligó a los sobrevivientes a retirarse.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "intermedio"
+  tags: ["fundacion", "buenos_aires", "juan_de_garay"]
+
+variables:
+  datos: [["Juan de Garay", "Juan de Garay"], ["Pedro de Mendoza", "Pedro de Mendoza"]]
+  idx: uno_de([0, 1])
+  respuesta_correcta: datos[idx][1]
+
+respuesta: respuesta_correcta
+tipo: mc
+opciones_explicitas: ["Juan de Garay", "Pedro de Mendoza"]
+
+enunciado: "En el año 1580, la segunda fundación de Buenos Aires, que finalmente logró consolidarse y prosperar, fue llevada a cabo por: ___"
+
+explicacion: |
+  Juan de Garay lideró la segunda fundación en 1580, estableciendo un asentamiento que sí logró perdurar en el tiempo, a diferencia del intento de 1536.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "intermedio"
+  tags: ["cronologia", "fundaciones"]
+
+tipo: ordenar
+opciones_explicitas: ["Fundación de Mendoza (1536)", "Fundación de Garay (1580)", "Consolidación de la ciudad"]
+
+respuesta_orden: ["Fundación de Mendoza (1536)", "Fundación de Garay (1580)", "Consolidación de la ciudad"]
+
+enunciado: "Ordene cronológicamente los hitos de la fundación de Buenos Aires:"
+
+explicacion: |
+  El proceso comenzó con el intento fallido de Mendoza en 1536, seguido por el intento exitoso de Garay en 1580, lo que permitió la posterior consolidación de la ciudad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "avanzado"
+  tags: ["fundadores", "comparativa"]
+
+variables:
+  datos: [["Garay", "Garay"], ["Mendoza", "Mendoza"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][0]
+tipo: mc
+opciones_explicitas: ["Garay", "Mendoza"]
+
+enunciado: "Si comparamos los dos intentos de fundación de Buenos Aires, el líder que logró establecer un asentamiento próspero fue ___."
+
+explicacion: |
+  Mientras que Mendoza (1536) no logró establecer un asentamiento permanente, Juan de Garay (1580) fue el responsable de la fundación que prosperó.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "intermedio"
+  tags: ["mapuche", "resistencia", "territorio"]
+
+respuesta: "mapuches"
+tipo: mc
+
+opciones_explicitas: ["incas", "mapuches", "guaraníes", "diaguitas"]
+
+enunciado: "A diferencia de otros pueblos que fueron rápidamente sometidos, ¿qué grupo indígena mantuvo una resistencia activa y una autonomía territorial significativa frente a la expansión colonial en el sur hasta bien entrado el siglo XIX?"
+
+explicacion: |
+  El pueblo Mapuche mantuvo una estructura política y militar que les permitió resistir la expansión española y, posteriormente, la consolidación del Estado argentino durante gran parte del siglo XIX.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "basico"
+  tags: ["mestizaje", "sociedad", "colonia"]
+
+variables:
+  escenario: uno_de([["biológico", "cultural"], ["biológico", "político"], ["religioso", "militar"]])
+
+respuesta: escenario[1]
+tipo: completar
+
+respuestas_validas:
+  - "biológico"
+  - "cultural"
+  - "político"
+  - "religioso"
+  - "militar"
+
+enunciado: "El proceso de mestizaje en el Virreinato del Río de la Plata fue de carácter tanto ___ como ___."
+
+explicacion: |
+  El mestizaje no fue solo la unión biológica de españoles e indígenas, sino también un profundo intercambio de costumbres, lenguas y creencias (mestizaje cultural).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "intermedio"
+  tags: ["demografia", "impacto", "enfermedades"]
+
+respuesta: 0.7
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Se estima que, debido a las guerras de conquista y, fundamentalmente, a las epidemias traídas por los europeos, la población indígena sufrió una reducción drástica. Si una población original era de 100 personas, ¿cuántas personas (estimado decimal) quedarían tras una reducción del 70%?"
+
+pasos:
+  - "Calcular el 70% de la población original (100 * 0.70)."
+  - "Restar ese valor al total original (100 - 70)."
+
+explicacion: |
+  Las enfermedades como la viruela y el sarampión fueron agentes devastadores que causaron un colapso demográfico en los pueblos originarios.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "avanzado"
+  tags: ["encomienda", "sistema", "colonia"]
+
+respuesta_orden: ["encomienda", "mita", "reparto"]
+tipo: ordenar
+
+opciones_explicitas: ["encomienda", "mita", "reparto"]
+
+enunciado: "Ordene los siguientes sistemas de trabajo/tributo utilizados por la corona española en América, desde el que se basaba en la asignación de indígenas a un español para evangelización, pasando por el trabajo forzado en minas, hasta el sistema de venta de productos a indígenas en zonas periféricas:"
+
+explicacion: |
+  La encomienda fue el sistema inicial de tutela y evangelización; la mita era el trabajo obligatorio en minas; y el reparto de mercancías fue una forma de explotación comercial en las zonas de frontera.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "intermedio"
+  tags: ["cosmovision", "religión", "impacto"]
+
+respuesta: "sincretismo"
+tipo: completar
+
+respuestas_validas:
+  - "sincretismo"
+  - "aislamiento"
+  - "extinción"
+
+enunciado: "La superposición de las creencias religiosas católicas sobre las prácticas espirituales de los pueblos originarios dio lugar a un fenómeno conocido como ___."
+
+explicacion: |
+  El sincretismo religioso es la fusión de elementos de distintas religiones, resultando en nuevas expresiones culturales y espirituales que persisten hoy en día.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "intermedio"
+  tags: ["conquista", "expediciones"]
+
+variables:
+  escenario: uno_de([["La expedición de Pedro de Mendoza (1536) se estableció en un asentamiento que luego fue abandonado debido a las condiciones climáticas y los ataques de los nativos.", "Asentamiento de Buenos Aires"], ["La expedición de Juan de Garay (1580) fue fundamental para la consolidación de la presencia española en la región.", "Fundación de la segunda Buenos Aires"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["Asentamiento de Buenos Aires", "Fundación de la segunda Buenos Aires", "Fundación de Asunción", "Expedición de Solís"]
+
+enunciado: "De acuerdo con la cronología de la conquista, ¿cuál fue el hito principal del escenario descrito: {escenario[0]}?"
+
+explicacion: |
+  El proceso de colonización fue errático. Mendoza fundó el primer asentamiento en 1536, pero fracasó, siendo Garay quien consolidó la presencia española años después.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "basico"
+  tags: ["instituciones", "virreinato"]
+
+variables:
+  caso: uno_de([["El Virreinato del Río de la Plata fue creado para mejorar la defensa y administración del territorio frente a las potencias europeas.", "España"], ["La administración de las colonias dependía directamente de la corona de...", "España"]])
+
+respuesta: caso[1]
+tipo: completar
+respuestas_validas:
+  - "España"
+
+enunciado: "Complete la siguiente afirmación basada en el contexto: {caso[0]}"
+
+explicacion: |
+  La creación del Virreinato del Río de la Plata en 1776 fue una respuesta de la corona española a las presiones de Portugal y Gran Bretaña en el Atlántico Sur.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "avanzado"
+  tags: ["cronologia", "conquista"]
+
+respuesta_orden: ["Llegada de los españoles al Atlántico", "Fundación de ciudades en el Tucumán", "Establecimiento de las rutas comerciales coloniales"]
+tipo: ordenar
+opciones_explicitas: ["Llegada de los españoles al Atlántico", "Fundación de ciudades en el Tucumán", "Establecimiento de las rutas comerciales coloniales"]
+
+enunciado: "Ordene cronológicamente los siguientes hitos del proceso de expansión y consolidación en el actual territorio argentino:"
+
+explicacion: |
+  Primero se exploró el litoral (Solís/Mendoza), luego se penetró el interior hacia el Tucumán y finalmente se consolidó la red de caminos y comercio colonial.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "intermedio"
+  tags: ["instituciones", "cabildo"]
+
+variables:
+  situacion: uno_de([["El órgano encargado de la administración de justicia y gobierno en las ciudades coloniales era el...", "Cabildo"], ["La institución de gobierno local más importante en las ciudades del Virreinato era el...", "Cabildo"]])
+
+respuesta: situacion[1]
+tipo: mc
+opciones_explicitas: ["Cabildo", "Real Audiencia", "Consejo de Indias", "Corregimiento"]
+
+enunciado: "Identifique la institución mencionada en el siguiente contexto: {situacion[0]}"
+
+explicacion: |
+  El Cabildo era la institución de gobierno local que permitía la participación de los vecinos en la administración de la ciudad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_y_colonia_argentina"
+  nivel: "intermedio"
+  tags: ["economia", "monopolio"]
+
+variables:
+  modelo: uno_de([["El sistema económico impuesto por la metrópoli que prohibía el comercio con otras naciones era el...", "Monopolio comercial"], ["La política de comercio exclusivo de España con sus colonias se denominaba...", "Monopolio comercial"]])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sistema de {modelo[0]} fue el eje de la economía virreinal, limitando el crecimiento de puertos como Buenos Aires hasta la creación del Virreinato del Río de la Plata en 1776."
+
+explicacion: |
+  El monopolio comercial obligaba a que todo el comercio pasara por puertos autorizados (como Sevilla o Cádiz), lo que fomentó el contrabando en el Río de la Plata.
+```
+
+## Sección: ilustracion (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["filosofia_politica", "contrato_social"]
+tipo: mc
+enunciado: "En su obra \"El contrato social\", Jean-Jacques Rousseau propone que la legitimidad del estado reside en:"
+opciones_explicitas:
+  - "El derecho divino del rey"
+  - "La voluntad general del pueblo"
+  - "La fuerza militar del monarca"
+  - "La tradición religiosa"
+respuesta: "La voluntad general del pueblo"
+explicacion: "Rousseau argumenta que la soberanía reside en el pueblo y que las leyes deben reflejar la voluntad general para ser legítimas, oponiéndose al absolutismo."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["enciclopedia", "diderot", "d Alembert"]
+tipo: completar
+enunciado: "La obra monumental editada por Denis Diderot y Jean le Rond d'Alembert, que buscaba compilar todo el conocimiento humano de la época bajo criterios racionales, se titula la __________."
+respuesta: "Enciclopedia"
+respuestas_validas:
+  - "Enciclopedia"
+  - "enciclopedia"
+  - "Enciclopedie"
+  - "enciclopedie"
+explicacion: "La Enciclopedia (1751-1772) fue el proyecto clave de los enciclopedistas para diseminar la Ilustración y criticar las instituciones tradicionales."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["montesquieu", "separacion_de_poderes"]
+tipo: vf
+enunciado: "Verdadero o Falso: Montesquieu, en \"El espíritu de las leyes\", abogaba por la concentración de todos los poderes del estado en una sola persona para garantizar la eficiencia."
+respuesta: falso
+explicacion: "Montesquieu defendía la separación de poderes (ejecutivo, legislativo y judicial) como mecanismo para prevenir la tiranía y proteger la libertad política."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["voltaire", "gobierno_ingles"]
+tipo: completar
+enunciado: "Voltaire, tras su exilio en Inglaterra, escribió las \"Cartas filosóficas\" admirando el sistema político y religioso de este país, contrastándolo con el absolutismo de __________."
+respuesta: "Francia"
+respuestas_validas:
+  - "Francia"
+  - "francia"
+  - "el Reino de Francia"
+  - "frances"
+explicacion: "Voltaire vio en Inglaterra un ejemplo de tolerancia religiosa y libertad de expresión que faltaba en la Francia absolutista de su tiempo."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["adam_smith", "economia", "libre_mercado"]
+tipo: mc
+enunciado: "En \"La riqueza de las naciones\" (1776), Adam Smith defiende que la economía funciona mejor cuando:"
+opciones_explicitas:
+  - "El estado controla todos los precios"
+  - "Existe la libertad de mercado y la mano invisible"
+  - "Se prohíbe el comercio internacional"
+  - "La iglesia regula la producción"
+respuesta: "Existe la libertad de mercado y la mano invisible"
+explicacion: "Smith argumenta contra el mercantilismo, proponiendo que la búsqueda del interés individual, guiada por la \"mano invisible\", beneficia al conjunto de la sociedad."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["locke", "empirismo", "tabula_rasa"]
+tipo: completar
+enunciado: "John Locke, padre del empirismo, sostenía que la mente humana al nacer es una __________, es decir, una página en blanco sin ideas innatas."
+respuesta: "tabula rasa"
+respuestas_validas:
+  - "tabula rasa"
+  - "Tabula rasa"
+  - "tablarasa"
+  - "Tablarasa"
+explicacion: "Esta teoría contrastaba con el racionalismo cartesiano y sugiere que todo conocimiento proviene de la experiencia sensorial."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["locke", "tolerancia", "carta_sobre_tolerancia"]
+tipo: mc
+enunciado: "En su \"Carta sobre la tolerancia\", John Locke argumenta que la fuerza militar no debe usarse para:"
+opciones_explicitas:
+  - "Defender la propiedad privada"
+  - "Salvar las almas de los individuos"
+  - "Mantener el orden público"
+  - "Recaudar impuestos"
+respuesta: "Salvar las almas de los individuos"
+explicacion: "Locke sostenía que la creencia religiosa no puede ser impuesta por la fuerza, ya que la fe requiere convicción interna, no coerción externa."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["bentham", "utilitarismo", "principio_utilidad"]
+tipo: completar
+enunciado: "Jeremy Bentham, filósofo utilitarista, propuso que la base de la moral y la ley debe ser el principio de __________, que busca la mayor felicidad para el mayor número."
+respuesta: "utilidad"
+respuestas_validas:
+  - "utilidad"
+  - "Utilidad"
+  - "el principio de utilidad"
+  - "principio de utilidad"
+explicacion: "El utilitarismo evalúa las acciones por sus consecuencias, buscando maximizar el placer y minimizar el dolor."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["dholbach", "ateismo", "sistema_de_la_naturaleza"]
+tipo: vf
+enunciado: "Verdadero o Falso: Baron d'Holbach, en \"El sistema de la naturaleza\", promovía el deísmo como la forma más elevada de religión racional."
+respuesta: falso
+explicacion: "D'Holbach fue un materialista ateo radical que atacaba directamente la religión revelada y la superstición, no promoviendo el deísmo."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["kant", "juego", "sublime"]
+tipo: completar
+enunciado: "En su \"Crítica del juicio\", Immanuel Kant define el arte y la belleza como un __________ libre, donde la imaginación y el entendimiento se armonizan sin un concepto determinado."
+respuesta: "juego"
+respuestas_validas:
+  - "juego"
+  - "Juego"
+  - "juego libre"
+  - "Juego libre"
+explicacion: "Kant distingue lo bello de lo útil o lo moral, afirmando que el placer estético es desinteresado y universal."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["ilustracion_escocesa", "smellie", "sentido_comun"]
+tipo: mc
+enunciado: "Thomas Reid, líder de la Escuela del Sentido Común en la Ilustración escocesa, criticó el escepticismo de Hume argumentando que:"
+opciones_explicitas:
+  - "Nada se puede conocer con certeza"
+  - "Existen principios básicos de sentido común innatos"
+  - "La razón es la única fuente de verdad"
+  - "La experiencia es una ilusión"
+respuesta: "Existen principios básicos de sentido común innatos"
+explicacion: "Reid buscaba fundamentar el conocimiento en principios evidentes que el sentido común reconoce inmediatamente, evitando el escepticismo radical."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["leibniz", "optimismo", "teodicea"]
+tipo: completar
+enunciado: "Gottfried Wilhelm Leibniz, cuya filosofía influyó en la Ilustración temprana, defendía que este es el __________ de los mundos posibles, creado por un Dios perfecto."
+respuesta: "mejor"
+respuestas_validas:
+  - "mejor"
+  - "el mejor"
+  - "Best"
+  - "best"
+explicacion: "Esta idea, satirizada por Voltaire en \"Cándido\", asumía que la armonía preestablecida garantiza que todo ocurre por la mejor de las razones."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["condorcet", "progreso", "mejorabilidad_infinita"]
+tipo: mc
+enunciado: "Marqués de Condorcet, en su \"Esbozo de un cuadro histórico de los progresos del espíritu humano\", sostenía que:"
+opciones_explicitas:
+  - "La historia está cíclica y repetitiva"
+  - "El progreso humano es infinito y perfectible"
+  - "La humanidad está destinada a la decadencia"
+  - "La ciencia no tiene valor moral"
+respuesta: "El progreso humano es infinito y perfectible"
+explicacion: "Condorcet fue un optimista radical que creía en la capacidad de la razón y la ciencia para mejorar indefinidamente la condición humana."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["buffon", "historia_natural", "tierra"]
+tipo: completar
+enunciado: "Georges-Louis Leclerc, Conde de Buffon, en su \"Historia Natural\", propuso una edad de la tierra mucho más antigua que la bíblica, basándose en __________ y observaciones geológicas."
+respuesta: "cálculos"
+respuestas_validas:
+  - "cálculos"
+  - "calculos"
+  - "los cálculos"
+  - "los calculos"
+explicacion: "Buffon utilizó métodos científicos para estimar la edad de la Tierra, desafiando la cronología bíblica de Ussher."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["quesnay", "fisiocracia", "produit_net"]
+tipo: mc
+enunciado: "François Quesnay, líder de los fisiócratas, afirmaba que la única fuente de riqueza era:"
+opciones_explicitas:
+  - "El comercio internacional"
+  - "La agricultura"
+  - "La manufactura"
+  - "La minería"
+respuesta: "La agricultura"
+explicacion: "Los fisiócratas creían que solo la tierra producía un \"producto neto\" verdadero, mientras que la industria solo transformaba materiales sin añadir valor neto."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["proudhon", "propiedad", "robo"]
+tipo: completar
+enunciado: "Aunque posterior, Pierre-Joseph Proudhon radicalizó el pensamiento ilustrado al declarar en \"¿Qué es la propiedad?\" que \"la propiedad es __________\"."
+respuesta: "robo"
+respuestas_validas:
+  - "robo"
+  - "El robo"
+  - "ROBO"
+  - "el robo"
+explicacion: "Proudhon argumentaba que la propiedad privada excluía a los trabajadores de los frutos de su labor, una crítica derivada de las discusiones ilustradas sobre justicia."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["voltaire", "deismo", "relojero"]
+tipo: vf
+enunciado: "Verdadero o Falso: Voltaire era un ateo convencido que rechazaba la existencia de cualquier ser supremo o creador."
+respuesta: falso
+explicacion: "Voltaire era deísta; creía en un \"Gran Arquitecto\" o relojero que creó el universo pero no intervenía en él, rechazando la religión revelada."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["beccaria", "castigos", "proporcionalidad"]
+tipo: completar
+enunciado: "Cesare Beccaria, en \"De los delitos y las penas\", abogaba por que los castigos debían ser __________ a los delitos, no excesivamente severos."
+respuesta: "proporcionales"
+respuestas_validas:
+  - "proporcionales"
+  - "proporcional"
+  - "la proporción"
+  - "proporcionalidad"
+explicacion: "Beccaria criticaba la tortura y la pena de muerte, argumentando que la certeza de la pena, no su crueldad, disuade mejor el crimen."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["descartes", "duda", "cogito"]
+tipo: mc
+enunciado: "René Descartes, considerado precursor de la Ilustración, estableció su filosofía partiendo de:"
+opciones_explicitas:
+  - "La fe en la tradición"
+  - "La duda metódica"
+  - "La autoridad de la iglesia"
+  - "La experiencia sensorial"
+respuesta: "La duda metódica"
+explicacion: "Descartes buscaba una base indudable para el conocimiento mediante la duda radical, llegando al \"Cogito, ergo sum\"."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["pestalozzi", "educacion", "cabana"]
+tipo: completar
+enunciado: "Johann Heinrich Pestalozzi, influido por Rousseau, desarrolló un método educativo basado en la observación directa y la __________ del niño."
+respuesta: "naturaleza"
+respuestas_validas:
+  - "naturaleza"
+  - "Naturaleza"
+  - "la naturaleza"
+  - "LA NATURALEZA"
+explicacion: "Pestalozzi creía que la educación debía seguir el desarrollo natural del niño, promoviendo el aprendizaje a través de la experiencia y la vida cotidiana."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["lamettrie", "hombre_maquina", "dualismo"]
+tipo: vf
+enunciado: "Verdadero o Falso: Julien Offray de La Mettrie, en \"El hombre máquina\", defendía el dualismo cartesiano separando alma y cuerpo."
+respuesta: falso
+explicacion: "La Mettrie era materialista y negaba la existencia del alma inmaterial, argumentando que el hombre es una máquina compleja gobernada por leyes físicas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["humboldt", "correlacion", "naturaleza"]
+tipo: completar
+enunciado: "Alexander von Humboldt, científico ilustrado, demostró que los fenómenos naturales están interconectados en una __________ global de la naturaleza."
+respuesta: "red"
+respuestas_validas:
+  - "red"
+  - "Red"
+  - "la red"
+  - "LA RED"
+explicacion: "Humboldt pioneered la ecología y la geografía física, mostrando cómo el clima, el terreno y la vida están relacionados en un todo unitario."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["kant", "raza", "definicion"]
+tipo: mc
+enunciado: "En sus escritos antropológicos, Kant intentó clasificar las razas humanas basándose en:"
+opciones_explicitas:
+  - "La cultura y el idioma"
+  - "Características físicas hereditarias invariables"
+  - "El nivel de riqueza"
+  - "La religión practicada"
+respuesta: "Características físicas hereditarias invariables"
+explicacion: "A pesar de su ética universal, Kant cayó en prejuicios raciales, definiendo razas por rasgos físicos fijos, lo cual fue criticado posteriormente."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["federalistas", "constitucion", "union"]
+tipo: completar
+enunciado: "Los Federalistas, como Hamilton y Madison, aplicaron ideas ilustradas para defender una __________ fuerte que equilibrara la libertad con el orden."
+respuesta: "union"
+respuestas_validas:
+  - "union"
+  - "Unión"
+  - "una union"
+  - "una unión"
+explicacion: "El Federalismo buscaba crear un gobierno nacional robusto pero con controles y equilibrios, inspirado en la teoría política de la Ilustración."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "ilustracion"
+  nivel: "intermedio"
+  tags: ["newton", "leyes", "universo"]
+tipo: mc
+enunciado: "Isaac Newton, cuya obra fue la base científica de la Ilustración, demostró que el universo funciona según:"
+opciones_explicitas:
+  - "Caprichos divinos inescrutables"
+  - "Leyes matemáticas universales"
+  - "La voluntad del pueblo"
+  - "El azar absoluto"
+respuesta: "Leyes matemáticas universales"
+explicacion: "Las leyes de Newton mostraron que el cosmos era predecible y regido por la razón matemática, inspirando a los filósofos a buscar leyes sociales similares."
+```
+
+## Sección: virreinato-y-comercio (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "basico"
+  tags: ["reformas_borbonicas", "geopolitica"]
+
+respuesta: "1776"
+tipo: completar
+respuestas_validas:
+  - "1776"
+
+enunciado: "La creación del Virreinato del Río de la Plata ocurrió en el año ___."
+
+explicacion: |
+  Mediante las Reformas Borbónicas, la Corona española decidió crear este nuevo virreinato en 1776 para mejorar la administración y defensa del territorio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["comercio", "defensa"]
+
+opciones_explicitas: ["Controlar el comercio y mejorar la defensa", "Fomentar la independencia de las colonias", "Establecer una nueva religión", "Unificar la moneda con el Perú"]
+
+respuesta: "Controlar el comercio y mejorar la defensa"
+tipo: mc
+
+enunciado: "¿Cuál fue una de las razones principales para la creación del Virreinato del Río de la Plata?"
+
+explicacion: |
+  La expansión portuguesa y el contrabando en el Atlántico obligaron a España a fortalecer la defensa y centralizar el control comercial en Buenos Aires.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "basico"
+  tags: ["geografia_colonial"]
+
+respuesta: "Buenos Aires"
+tipo: mc
+opciones_explicitas: ["Lima", "Potosí", "Buenos Aires", "Montevideo"]
+
+enunciado: "Con la creación del nuevo virreinato, la ciudad de ___ fue designada como la capital administrativa."
+
+explicacion: |
+  Buenos Aires desplazó la importancia política que antes tenía el eje andino, convirtiéndose en el centro administrativo y comercial del nuevo territorio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "avanzado"
+  tags: ["geopolitica", "administracion"]
+
+respuesta: "Perú"
+
+tipo: completar
+respuestas_validas:
+  - "Perú"
+
+enunciado: "Antes de 1776, el territorio que hoy comprende gran parte del Cono Sur pertenecía al Virreinato del ___."
+
+pasos:
+  - "Identificar la dependencia administrativa previa a la reforma borbónica."
+
+explicacion: |
+  Antes de la división, la mayor parte de la administración colonial estaba centralizada en el Virreinato del Perú, con Lima como sede principal.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["comercio", "contrabando"]
+
+opciones_explicitas: ["Aumento del contrabando", "Centralización del comercio en Buenos Aires", "Fin de la ruta de la plata", "Aislamiento de la región"]
+
+respuesta: "Centralización del comercio en Buenos Aires"
+tipo: mc
+
+enunciado: "La creación del virreinato permitió la ___."
+
+explicacion: |
+  Al tener una administración propia, el comercio legal se canalizó a través de Buenos Aires, restando importancia a las rutas que pasaban por el Alto Perú.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "basico"
+  tags: ["monopolio", "españa", "comercio"]
+
+respuesta: "monopolio"
+tipo: completar
+respuestas_validas:
+  - "monopolio"
+
+enunciado: "El sistema mediante el cual las colonias americanas solo podían comerciar con la metrópoli española se denominaba sistema de ___."
+
+explicacion: |
+  El monopolio comercial obligaba a las colonias a comprar y vender exclusivamente a España, limitando el crecimiento económico local.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["puertos", "comercio", "españa"]
+
+respuesta: "Cádiz"
+tipo: mc
+opciones_explicitas: ["Sevilla", "Cádiz", "Barcelona", "Valencia"]
+
+enunciado: "La Casa de Contratación, que monopolizaba el comercio con las Indias, se estableció originalmente en Sevilla en 1503, pero en 1717 su sede y el puerto único autorizado se trasladaron a ___."
+
+explicacion: |
+  El traslado a Cádiz se debió principalmente al progresivo azolvamiento (acumulación de sedimentos) del río Guadalquivir, que dificultaba la navegación de barcos grandes hasta Sevilla.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["contrabando", "descontento", "economía"]
+
+respuesta: "contrabando"
+tipo: mc
+opciones_explicitas: ["contrabando", "libre comercio", "proteccionismo", "mercantilismo"]
+
+enunciado: "Debido a las altas restricciones y los altos costos del monopolio, surgió una práctica ilegal muy común en los puertos americanos conocida como ___."
+
+explicacion: |
+  El contrabando permitió la entrada de productos de otras potencias (como Inglaterra o Portugal) de manera ilegal, evadiendo los impuestos españoles.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "avanzado"
+  tags: ["buenos_aires", "contrabando", "descontento"]
+
+respuesta: "descontento"
+tipo: mc
+opciones_explicitas: ["descontento", "prosperidad", "estabilidad", "indiferencia"]
+
+enunciado: "En el Virreinato del Río de la Plata, la imposición del monopolio español sobre la región de Buenos Aires favoreció el contrabando y generó, entre los comerciantes locales, un profundo:"
+
+explicacion: |
+  Buenos Aires, al ser una zona de paso para el comercio ilegal, sufrió las restricciones del monopolio, lo que alimentó el malestar que más tarde impulsaría los movimientos de independencia.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["flujo", "comercio", "ruta"]
+
+respuesta_orden: ["España", "Puerto autorizado en América", "Mercado local"]
+tipo: ordenar
+opciones_explicitas: ["España", "Puerto autorizado en América", "Mercado local"]
+
+enunciado: "Ordena el flujo legal de las mercancías dentro del sistema de monopolio español, desde su origen hasta el consumidor final en la colonia:"
+
+pasos:
+  - "La metrópoli envía el producto."
+  - "El producto llega al puerto legal establecido."
+  - "El producto se distribuye en la región."
+
+explicacion: |
+  El sistema estaba diseñado para que el flujo fuera estrictamente controlado: Metrópoli -> Puerto autorizado -> Consumidor colonial.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["comercio", "reformas_borbonicas", "virreinato"]
+
+tipo: mc
+opciones_explicitas: ["Eliminó por completo el monopolio español", "Amplió el número de puertos autorizados", "Prohibió el comercio con Inglaterra", "Estableció el sistema de flotas y galeones"]
+respuesta: "Amplió el número de puertos autorizados"
+enunciado: "El Reglamento de Libre Comercio de 1778 tuvo como objetivo principal..."
+explicacion: |
+  El reglamento no eliminó el monopolio, sino que flexibilizó el sistema permitiendo que más puertos (como Buenos Aires) participaran en el comercio transatlántico, aunque manteniendo el control de la metrópoli.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["buenos_aires", "puertos", "comercio"]
+
+variables:
+  escenario: uno_de([["puerto de Cádiz", "puerto de Buenos Aires"], ["comercio restringido", "comercio ampliado"]])
+
+tipo: completar
+respuestas_validas:
+  - "puerto de Buenos Aires"
+
+enunciado: "Gracias a las reformas borbonicas, el ___ obtuvo un rol protagónico como salida de productos hacia el Atlántico."
+
+explicacion: |
+  La apertura de nuevos puertos allowed que Buenos Aires creciera económicamente al dejar de depender exclusivamente del sistema de flotas hacia un solo puerto en España.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "virreinato_y_comercio"
+  nivel: "basico"
+  tags: ["monopolio", "reformas"]
+
+tipo: vf
+
+enunciado: "¿El Reglamento de Libre Comercio de 1778 significó la desaparición total del monopolio comercial español en América?"
+
+respuesta: falso
+
+explicacion: |
+  Falso. El sistema de monopolio persistió, solo se expandió la red de puertos y rutas permitidas; el control de la Corona sobre el comercio seguía siendo la norma.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "virreinato_y_comercio"
+  nivel: "avanzado"
+  tags: ["procesos", "reformas_borbonicas"]
+
+tipo: ordenar
+opciones_explicitas: ["Monopolio de flotas y galeones", "Reglamento de Libre Comercio", "Apertura de puertos de Buenos Aires"]
+
+enunciado: "Ordene cronológicamente la evolución del sistema comercial en el Virreinato del Río de la Plata:"
+
+explicacion: |
+  Primero existía el monopolio estricto de flotas; luego el Reglamento de 1778 permitió el libre comercio entre puertos españoles; y finalmente esto consolidó a Buenos Aires como puerto principal.
+respuesta_orden: ["Monopolio de flotas y galeones", "Reglamento de Libre Comercio", "Apertura de puertos de Buenos Aires"]
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["economía", "impuestos"]
+
+variables:
+  valor_impuesto: uno_de(["aumento", "disminución"])
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "La implementación de nuevos puertos y la mayor actividad comercial trajeron un {valor_impuesto} en la recaudación de aduanas para la Corona."
+
+respuesta: "aumento"
+
+explicacion: |
+  Al haber más barcos y más puertos operando legalmente, el volumen de mercancías aumentó, lo que derivó en un aumento de la recaudación de impuestos (alcabala y derechos de puerto).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["monopolio", "espana", "comercio"]
+
+respuesta: "monopolio"
+tipo: completar
+respuestas_validas:
+  - "monopolio"
+
+enunciado: "El sistema impuesto por la corona española que obligaba a las colonias a comerciar exclusivamente con la metrópoli se denominaba ________."
+
+explicacion: |
+  El monopolio comercial impedía que Buenos Aires comerciara con otras potencias (como Gran Bretaña), limitando el crecimiento de la élite criolla.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "basico"
+  tags: ["puerto", "aduana", "impuestos"]
+
+variables:
+  escenario: uno_de([["Monopolio Español", "Libre Comercio"], ["Restricción", "Apertura"]])
+  respuesta_correcta: uno_de(["Monopolio Español", "Libre Comercio"])
+
+respuesta: "Monopolio Español"
+tipo: mc
+opciones_explicitas: ["Monopolio Español", "Libre Comercio"]
+
+enunciado: "Si un comerciante de Buenos Aires desea vender sus productos directamente a Inglaterra sin pasar por España, se enfrenta a la prohibición del sistema de Monopolio Español."
+
+explicacion: |
+  La imposición del monopolio generaba un enorme descontento en los comerciantes locales, quienes veían perder oportunidades de lucro con el libre comercio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["causas", "revolucion", "economia"]
+
+respuesta: "Libre Comercio"
+tipo: mc
+opciones_explicitas: ["Libre Comercio", "Proteccionismo Español", "Aumento de la Minería", "Unión con Portugal"]
+
+enunciado: "La principal demanda económica de la élite criolla de Buenos Aires que alimentó el descontento hacia el Virreinato fue la instauración del:"
+
+explicacion: |
+  La apertura de los puertos al libre comercio era la aspiración de los sectores comerciales que buscaban eliminar los altos costos y la exclusividad española.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "avanzado"
+  tags: ["secuencia", "tensiones", "revolucion"]
+
+respuesta_orden: ["Monopolio", "Contrabando", "Libre Comercio", "Revolución"]
+tipo: ordenar
+opciones_explicitas: ["Monopolio", "Contrabando", "Libre Comercio", "Revolución"]
+
+enunciado: "Ordena cronológicamente los factores y consecuencias que explican la crisis del sistema colonial en el Río de la Plata:"
+
+explicacion: |
+  El monopolio fomentó el contrabando como vía de escape; la presión por el libre comercio aumentó con las invasiones inglesas y la crisis de la corona, culminando en la Revolución.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["invasiones_inglesas", "comercio"]
+
+variables:
+  datos: [["Inglesas", "Libre Comercio"], ["Españolas", "Monopolio"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Libre Comercio", "Monopolio"]
+
+enunciado: "Las invasiones inglesas demostraron la vulnerabilidad de España y abrieron la posibilidad de un sistema de ________ en el puerto de Buenos Aires."
+
+explicacion: |
+  Al ver que Gran Bretaña podía desembarcar en el Río de la Plata, los criollos comprendieron que el monopolio español ya no era sostenible ni seguro.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["economía", "monopolio", "rebelión"]
+
+variables:
+  datos: [["El sistema de flotas y galeones permitía que solo ciertos puertos españoles comerciaran con América.", "monopolio"], ["El sistema de flotas y galeones prohibía el comercio con potencias extranjeras como Inglaterra.", "exclusivismo"], ["El sistema de flotas y galeones imponía altos aranceles a los productos locales.", "aranceles"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["monopolio", "exclusivismo", "aranceles"]
+
+enunciado: "Una de las principales causas del descontento en el Río de la Plata fue el sistema de {datos[idx][0]}."
+
+explicacion: |
+  El control estricto de la metrópoli sobre los puertos y productos generó un gran malestar en las élites criollas que buscaban el libre comercio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "basico"
+  tags: ["impuestos", "fisco", "revolución"]
+
+variables:
+  datos: [["La Alcabala", "Alcabala"], ["La Alcabala", "Aduana"], ["La Alcabala", "Avería"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "Alcabala"
+  - "Aduana"
+  - "Avería"
+
+enunciado: "El aumento de la presión fiscal, especialmente sobre el impuesto de la ___, fue un detonante del descontento económico."
+
+explicacion: |
+  La Alcabala era un impuesto a las ventas que afectaba directamente el flujo comercial de las provincias del sur.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["contrabando", "comercio_ilegal"]
+
+variables:
+  datos: [["La prohibición de comerciar con Inglaterra", "prohibición"], ["La falta de productos manufacturados", "escasez"], ["La alta competencia de productos españoles", "competencia"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["prohibición", "escasez", "competencia"]
+
+enunciado: "El descontento creció debido a la {datos[idx][0]} de productos extranjeros, lo que fomentó el contrabando."
+
+explicacion: |
+  Al no poder importar libremente de otras naciones, los comerciantes locales recurrían al comercio ilegal para abastecerse.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "avanzado"
+  tags: ["orden", "procesos"]
+
+respuesta_orden: ["Reformas Borbónicas", "Aumento de la presión fiscal", "Expulsión de los Jesuitas", "Insurrecciones locales"]
+tipo: ordenar
+opciones_explicitas: ["Reformas Borbónicas", "Aumento de la presión fiscal", "Expulsión de los Jesuitas", "Insurrecciones locales"]
+
+enunciado: "Ordene cronológicamente los factores que intensificaron el descontento económico en el Virreinato:"
+
+explicacion: |
+  Las reformas borbónicas buscaron mayor control y recaudación, lo que aumentó los impuestos y tensionó la estructura social y económica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "virreinato_y_comercio"
+  nivel: "intermedio"
+  tags: ["aduana", "puerto", "recaudación"]
+
+variables:
+  datos: [["Buenos Aires", "Buenos Aires"], ["Montevideo", "Montevideo"], ["Asunción", "Asunción"]]
+  idx: uno_de([0, 1, 2])
+
+respuestas_validas:
+  - datos[idx][0]
+respuesta: datos[idx][0]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "El control de la aduana de {datos[idx][0]} fue un punto de conflicto clave por la recaudación de derechos de importación."
+
+explicacion: |
+  La disputa por los ingresos aduaneros entre Buenos Aires y otras regiones era un motor constante de tensión económica.
+```
+
+## Sección: revolucion-industrial (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "basico"
+  tags: ["tecnologia", "energia"]
+
+enunciado: "La Revolución Industrial en Inglaterra se caracterizó por el uso masivo de carbón como fuente de energía para impulsar la nueva ___."
+
+respuesta: "máquina de vapor"
+tipo: mc
+opciones_explicitas: ["máquina de vapor", "motor de combustión", "molino de viento", "motor eléctrico"]
+
+explicacion: |
+  El uso del carbón mineral permitió el funcionamiento de la máquina de vapor de James Watt, motor fundamental de la Primera Revolución Industrial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "intermedio"
+  tags: ["social", "economia"]
+
+enunciado: "El paso del 'putting-out system' (producción doméstica) al ___ supuso la concentración de trabajadores en grandes edificios llamados fábricas."
+
+respuesta: "factory system"
+tipo: mc
+opciones_explicitas: ["factory system", "domestic system", "guild system", "corporative system"]
+
+explicacion: |
+  El 'factory system' o sistema de fábrica centralizó la producción, la maquinaria y la mano de obra en un mismo lugar, rompiendo con la producción artesanal en el hogar.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "basico"
+  tags: ["urbanismo", "sociedad"]
+
+respuesta: "urbanización"
+tipo: completar
+respuestas_validas:
+  - "urbanización"
+  - "ruralización"
+  - "industrialización"
+
+enunciado: "El desplazamiento masivo de población desde el campo hacia las ciudades para trabajar en las nuevas industrias provocó un acelerado proceso de ___."
+
+explicacion: |
+  La necesidad de mano de obra en las fábricas generó un éxodo rural sin precedentes, transformando las ciudades en centros densamente poblados.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "intermedio"
+  tags: ["procesos", "cronologia"]
+
+enunciado: "Ordena cronológicamente los elementos que caracterizaron la transición hacia la producción mecanizada:"
+
+pasos:
+  - "Producción artesanal en talleres pequeños"
+  - "Introducción de maquinaria textil mecánica"
+  - "Consolidación del sistema de fábricas y ferrocarril"
+
+respuesta_orden: ["Producción artesanal en talleres pequeños", "Introducción de maquinaria textil mecánica", "Consolidación del sistema de fábricas y ferrocarril"]
+tipo: ordenar
+opciones_explicitas: ["Producción artesanal en talleres pequeños", "Introducción de maquinaria textil mecánica", "Consolidación del sistema de fábricas y ferrocarril"]
+
+explicacion: |
+  La transición fue un proceso gradual que comenzó con la mejora de herramientas manuales, siguió con la mecanización de la industria textil y culminó con la expansión del transporte ferroviario.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "avanzado"
+  tags: ["clases_sociales", "lucha_de_clases"]
+
+variables:
+  clase_obrera: uno_de(["proletariado", "burguesía"])
+
+enunciado: "La nueva clase social surgida de la Revolución Industrial, compuesta por quienes solo poseían su fuerza de trabajo, se denomina ___."
+
+respuesta: "proletariado"
+tipo: mc
+opciones_explicitas: ["proletariado", "burguesía", "aristocracia", "campesinado"]
+
+explicacion: |
+  El proletariado urbano surgió como la clase trabajadora industrial, diferenciándose de la burguesía, que era la dueña de los medios de producción.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "basico"
+  tags: ["tecnologia", "james_watt"]
+
+respuesta: "James Watt"
+tipo: completar
+respuestas_validas:
+  - "James Watt"
+
+enunciado: "El perfeccionamiento de la máquina de vapor por ___ fue el motor tecnológico que permitió la transición hacia la producción mecanizada."
+
+explicacion: |
+  James Watt no inventó la máquina de vapor, pero sus mejoras (como el condensador separado) la hicieron eficiente para la industria.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "intermedio"
+  tags: ["geografia_industrial", "energia"]
+
+variables:
+  fuente_tradicional: uno_de(["agua", "animal", "humana"])
+
+respuesta: fuente_tradicional
+tipo: mc
+opciones_explicitas: ["agua", "animal", "humana", "viento"]
+
+enunciado: "Antes de la máquina de vapor, las fábricas dependían principalmente de la fuerza de {fuente_tradicional} o de la fuerza muscular. La máquina de vapor permitió que las fábricas se ubicaran lejos de las corrientes de {fuente_tradicional}."
+
+explicacion: |
+  La energía hidráulica obligaba a las fábiles a estar junto a ríos; la máquina de vapor permitió la urbanización industrial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "basico"
+  tags: ["mecanizacion", "produccion"]
+
+respuesta: "mecanización"
+tipo: completar
+respuestas_validas:
+  - "mecanización"
+
+enunciado: "La implementación de la tecnología de Watt facilitó la ___ de procesos que anteriormente se realizaban de forma manual o artesanal."
+
+explicacion: |
+  La mecanización permitió aumentar la escala de producción y reducir los tiempos de fabricación de manera exponencial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "avanzado"
+  tags: ["procesos", "causalidad"]
+
+respuesta_orden: ["Revolución Agraria", "Máquina de Vapor", "Expansión de Ferrocarriles", "Urbanización Masiva"]
+tipo: ordenar
+opciones_explicitas: ["Revolución Agraria", "Máquina de Vapor", "Expansión de Ferrocarriles", "Urbanización Masiva"]
+
+enunciado: "Ordena cronológicamente los procesos que impulsaron la Revolución Industrial:"
+
+explicacion: |
+  La revolución agrícola aumentó la oferta de alimentos; la máquina de vapor mecanizó la industria y el transporte; esto finalmente provocó un éxodo rural hacia las ciudades.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "intermedio"
+  tags: ["energia", "carbón"]
+
+respuesta: "verdadero"
+tipo: completar
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "¿La máquina de vapor permitió que la producción industrial dejara de depender exclusivamente de fuentes de energía naturales y renovables como el viento o el agua?"
+
+explicacion: |
+  Es verdadero. Al usar carbón para generar vapor, la industria ganó autonomía respecto a las condiciones climáticas o geográficas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_industrial"
+  nivel: "basico"
+  tags: ["urbanizacion", "migracion"]
+
+variables:
+  escenario: uno_de([["el cercamiento de tierras", "la búsqueda de empleo en las fábricas"], ["la mecanización de la agricultura", "la oferta de salarios en los centros urbanos"], ["la crisis de la industria artesanal", "la promesa de una vida mejor en la ciudad"]])
+
+respuesta: escenario[1]
+tipo: completar
+
+enunciado: "La Revolución Industrial provocó una migración masiva desde el campo hacia las ciudades, impulsada principalmente por {escenario[0]} y {escenario[1]}."
+
+pasos:
+  - "Analizar el proceso de cercamiento de tierras (enclosures)."
+  - "Identificar la necesidad de mano de obra en las nuevas fábricas textiles y siderúrgicas."
+
+explicacion: |
+  La mecanización del campo y los cercamientos dejaron a muchos campesinos sin tierras, obligándolos a migrar a las ciudades para trabajar en las nuevas industrias.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_industrial"
+  nivel: "basico"
+  tags: ["clases_sociales", "proletariado"]
+
+variables:
+  clase_social: uno_de(["proletariado", "burguesía", "aristocracia"])
+
+respuesta: "proletariado"
+tipo: mc
+
+opciones_explicitas: ["proletariado", "burguesía", "aristocracia"]
+
+enunciado: "El grupo social que surgió con la Revolución Industrial, compuesto por personas que solo poseían su fuerza de trabajo para vender a cambio de un salario, se denomina ________."
+
+explicacion: |
+  El proletariado es la clase trabajadora urbana que surgió como consecuencia directa de la industrialización y la pérdida de medios de producción propios.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_industrial"
+  nivel: "intermedio"
+  tags: ["condiciones_laborales", "jornada"]
+
+respuesta: 14
+tipo: completar
+tolerancia_abs: 1
+
+enunciado: "Durante el apogeo de la Revolución Industrial, las jornadas laborales en las fábricas textiles eran extremadamente extensas. Si un obrero trabajaba de 06:00 a 20:00 con una hora de descanso para comer, ¿cuántas horas trabajaba efectivamente por día?"
+
+pasos:
+  - "Calcular el tiempo total transcurrido desde las 06:00 hasta las 20:00."
+  - "Restar la hora de descanso."
+
+explicacion: |
+  Las jornadas de 12 a 16 horas eran la norma en la primera fase de la Revolución Industrial, lo que generaba un agotamiento extremo en la clase obrera.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_industrial"
+  nivel: "intermedio"
+  tags: ["urbanizacion", "causas"]
+
+respuesta_orden: ["Mecanización agrícola", "Cercamientos de tierras", "Crecimiento de fábricas"]
+tipo: ordenar
+
+opciones_explicitas: ["Mecanización agrícola", "Cercamientos de tierras", "Crecimiento de fábricas"]
+
+enunciado: "Ordene los siguientes procesos según su secuencia lógica en el fenómeno de la urbanización industrial (desde la causa rural hasta el efecto urbano):"
+
+explicacion: |
+  Primero la mecanización y cercamientos expulsan al campesino; luego, el crecimiento de fábricas en ciudades atrae a esa población desplazada.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_industrial"
+  nivel: "avanzado"
+  tags: ["salud_publica", "hacinamiento"]
+
+variables:
+  problema: uno_de([["el hacinamiento en barrios obreros", "la falta de sistemas de alcantarillado"], ["la contaminación del aire", "la falta de agua potable"]])
+
+respuesta: problema[0]
+tipo: mc
+
+opciones_explicitas: ["el hacinamiento en barrios obreros", "la falta de sistemas de alcantarillado", "la contaminación del aire", "la falta de agua potable"]
+
+enunciado: "Uno de los problemas sociales y sanitarios más graves de las ciudades industriales fue {problema[0]}."
+
+explicacion: |
+  El crecimiento descontrolado de las ciudades atrajo a tanta gente que se crearon barrios obreros con condiciones de hacinamiento extremo, facilitando la propagación de enfermedades.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "basico"
+  tags: ["tecnologia", "economia"]
+
+tipo: completar
+enunciado: "La invención y perfeccionamiento de la ___ fue el motor tecnológico fundamental que impulsó la Primera Revolución Industrial."
+respuesta: "Máquina de vapor"
+explicacion: |
+  La máquina de vapor, perfeccionada por James Watt, permitió mecanizar la producción y revolucionar el transporte, siendo el pilar del cambio industrial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "intermedio"
+  tags: ["capitalismo", "economia"]
+
+tipo: completar
+respuestas_validas:
+  - "capitalismo industrial"
+
+enunciado: "La Revolución Industrial transformó la economía mundial, sentando las bases del ___ moderno."
+
+explicacion: |
+  El paso de una economía agraria y artesanal a una basada en la propiedad privada de los medios de producción y el trabajo asalariado definió el capitalismo industrial.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "basico"
+  tags: ["produccion", "manufactura"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si una fábrica artesanal producía 10 unidades por día y, tras la industrialización, su capacidad se multiplica por 150, ¿cuántas unidades produce ahora?"
+
+pasos:
+  - "Identificar la producción inicial: 10"
+  - "Multiplicar por el factor de escala: 10 * 150"
+
+respuesta: 1500
+
+explicacion: |
+  La mecanización permitió un aumento exponencial en la capacidad de producción, pasando de escalas manuales a escalas masivas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "avanzado"
+  tags: ["sociedad", "urbanizacion"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["Un ciudadano propone que el poder debe dividirse en Ejecutivo, Legislativo y Judicial para evitar abusos.", "división de poderes"], ["Un grupo de provincias exige que el gobierno central no interfiera en sus leyes locales.", "federalismo"]]
+  datos: [["urbanización", "crecimiento"], ["proletariado", "clase obrera"]]
 
-enunciado: "En el contexto de la organización nacional, si se observa que {datos[escenario_idx][0]}, el principio constitucional que se está aplicando es la {datos[escenario_idx][1]}."
+tipo: mc
+opciones_explicitas: ["urbanización y crecimiento", "proletariado y clase obrera", "feudalismo y campesinado", "monarquía y aristocracia"]
 
-respuesta: datos[escenario_idx][1]
-tipo: completar
-respuestas_validas:
-  - "división de poderes"
-  - "federalismo"
+enunciado: "La Revolución Industrial provocó un proceso de {datos[escenario_idx][0]} y {datos[escenario_idx][1]} sin precedentes en las ciudades europeas."
 
+respuesta: datos[escenario_idx][0] + " y " + datos[escenario_idx][1]
 explicacion: |
-  La Constitución de 1853 establece la división de poderes como base del sistema republicano para garantizar la libertad y evitar la tiranía.
+  El desplazamiento de la población del campo a la ciudad (éxodo rural) transformó la demografía y la estructura social.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
+  tema: "revolucion_industrial"
+  nivel: "intermedio"
+  tags: ["procesos", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["Revolución Agraria", "Mecanización Textil", "Expansión del Ferrocarril", "Segunda Revolución Industrial"]
+
+enunciado: "Ordena cronológicamente los hitos que permitieron la consolidación de la era industrial:"
+
+respuesta_orden: ["Revolución Agraria", "Mecanización Textil", "Expansión del Ferrocarril", "Segunda Revolución Industrial"]
+
+explicacion: |
+  Primero la agricultura permitió alimentar a más gente; luego la industria textil se mecanizó; el ferrocarril conectó mercados y finalmente la segunda fase introdujo la electricidad y el acero.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
   nivel: "basico"
-  tags: ["relaciones_exteriores", "soberania"]
+  tags: ["inventos", "transporte"]
 
 variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["El Presidente firma un tratado con Francia para fomentar el comercio.", "relaciones_exteriores"], ["La Corte Suprema resuelve un conflicto entre dos provincias.", "jurisdiccion_federal"]]
+  datos: [["Máquina de vapor de Watt", "Revolución del transporte terrestre"], ["Telar mecánico", "Producción textil masiva"]]
+  idx: uno_de([0, 1])
 
-enunciado: "Si el Poder Ejecutivo actúa en el marco de la facultad de concertar tratados con otras potencias, está ejerciendo la competencia de {casos[caso_idx][1]}."
-
-respuesta: casos[caso_idx][1]
+respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["relaciones_exteriores", "jurisdiccion_federal", "legislacion_provincial"]
+opciones_explicitas: ["Revolución del transporte terrestre", "Producción textil masiva", "Comunicación instantánea", "Iluminación urbana"]
+
+enunciado: "El impacto principal de la {datos[idx][0]} fue la {datos[idx][1]}."
 
 explicacion: |
-  Según el Art. 99, inciso 11, es facultad del Presidente de la Nación celebrar tratados con otras potencias extranjeras.
+  La {datos[idx][0]} transformó la economía al permitir la {datos[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
+  tema: "revolucion_industrial"
   nivel: "intermedio"
-  tags: ["derechos", "libertad"]
+  tags: ["comunicacion", "tecnologia"]
 
 variables:
-  derecho_idx: uno_de([0, 1])
-  derechos: [["La libertad de culto es garantizada por la Constitución.", "libertad_religiosa"], ["El derecho de transitar libremente por el territorio.", "libertad_transito"]]
+  datos: [["Telégrafo", "Comunicación a larga distancia"], ["Ferrocarril", "Movilidad de mercancías"], ["Máquina de coser", "Producción de indumentaria"]]
+  idx: uno_de([0, 1, 2])
 
-enunciado: "La Constitución de 1853 garantiza que ___ de culto es un derecho fundamental."
-
-respuesta: "libertad_religiosa"
+respuesta: datos[idx][1]
 tipo: completar
 respuestas_validas:
-  - "libertad_religiosa"
+  - "Comunicación a larga distancia"
+  - "Movilidad de mercancías"
+  - "Producción de indumentaria"
 
-explicacion: |
-  El Art. 20 establece que la religión de culto de la nación es la católica, pero garantiza la libertad de culto a los habitantes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "avanzado"
-  tags: ["federalismo", "provincias"]
-
-variables:
-  provincia_idx: uno_de([0, 1])
-  puntos: [["Las provincias conservan todo el poder no delegado a la Nación.", "autonomia"], ["El gobierno nacional tiene facultades delegadas por las provincias.", "delegacion"]]
-
-enunciado: "En un sistema federal como el de 1853, las provincias mantienen su ___ sobre los poderes que no han sido expresamente delegados a la Nación."
-
-respuesta: "autonomia"
-tipo: mc
-opciones_explicitas: ["autonomia", "delegacion", "soberania_total"]
-
-explicacion: |
-  El principio de autonomía provincial es clave: las provincias mantienen todo el poder que no han delegado al gobierno federal.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "organizacion_nacional_constitucion_1853"
-  nivel: "intermedio"
-  tags: ["jerarquia", "leyes"]
-
-enunciado: "Ordene la jerarquía de las normas en el orden correcto, desde la más importante a la menos importante, según el espíritu constitucional de 1853:"
+enunciado: "El invento del ___ permitió la ___."
 
 pasos:
-  - "Identificar la norma suprema."
-  - "Identificar la norma que emana del Congreso."
-  - "Identificar la norma de aplicación local."
-
-respuesta_orden: ["Constitución Nacional", "Leyes Nacionales", "Constituciones Provinciales"]
-tipo: ordenar
-opciones_explicitas: ["Constitución Nacional", "Leyes Nacionales", "Constituciones Provinciales"]
+  - "Identificar el invento seleccionado."
+  - "Relacionar con su consecuencia social o económica."
 
 explicacion: |
-  La Constitución es la ley suprema; de ella emanan las leyes nacionales y, en el sistema federal, las constituciones provinciales deben adecuarse a la nacional.
+  El {datos[idx][0]} fue fundamental para la {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "avanzado"
+  tags: ["procesos", "orden"]
+
+opciones_explicitas: ["Máquina de vapor", "Locomotora de vapor", "Expansión ferroviaria"]
+
+respuesta_orden: ["Máquina de vapor", "Locomotora de vapor", "Expansión ferroviaria"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente la evolución tecnológica que impulsó el transporte en la Revolución Industrial:"
+
+explicacion: |
+  Primero se perfeccionó la máquina de vapor, luego se aplicó al transporte con la locomotora y finalmente se consolidó la red ferroviaria.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "basico"
+  tags: ["industria", "textil"]
+
+variables:
+  datos: [["Mecanización", "Aumento de la productividad"], ["Artesanía", "Producción lenta y manual"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Aumento de la productividad", "Producción lenta y manual", "Reducción de costos", "Desaparición de talleres"]
+
+enunciado: "Al comparar la {datos[idx][0]} con el modelo anterior, el resultado fue un {datos[idx][1]}."
+
+explicacion: |
+  La transición hacia la {datos[idx][0]} significó un {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_industrial"
+  nivel: "intermedio"
+  tags: ["energia", "carbón"]
+
+variables:
+  datos: [["Carbón mineral", "Combustible fósil"], ["Madera", "Biomasa"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "Combustible fósil"
+  - "Biomasa"
+
+enunciado: "El uso masivo de ___ permitió el acceso a un ___."
+
+explicacion: |
+  La transición hacia el uso de {datos[idx][0]} fue el motor que proporcionó el {datos[idx][1]} necesario para las fábricas.
 ```
 

@@ -1,2700 +1,8 @@
 # Examen jefe — [PENDIENTE #725]
 
-> Logro #725. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 8 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **160 preguntas totales** en 8/8 secciones.
+> Logro #725. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 8 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **197 preguntas totales** en 8/8 secciones.
 
 ---
-
-## Sección: significancia-historica (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "basico"
-  tags: ["significancia_historica", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La significancia histórica es el criterio que usan los historiadores para decidir qué hechos merecen ser estudiados, recordados y enseñados."
-
-pasos:
-  - "Nadie puede estudiar cada detalle de todo lo que ocurrió en el pasado."
-
-explicacion: |
-  Verdadero: es la definición central de significancia histórica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["significancia_historica", "seleccion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todo lo que ocurrió en el pasado es, en sentido literal, \"historia\", pero nadie puede ni querría estudiar cada detalle de cada día de cada persona que vivió alguna vez."
-
-pasos:
-  - "Es la razón por la que hace falta un criterio de selección."
-
-explicacion: |
-  Verdadero: es el punto de partida de por qué existe este concepto.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["criterios", "impacto_profundo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "impacto profundo"
-tipo: mc
-opciones_explicitas: ["impacto profundo", "alcance amplio", "duración de los efectos"]
-
-enunciado: "El criterio que evalúa si un hecho afectó a las personas de forma significativa (una guerra mundial vs. una discusión de vecinos) se llama..."
-
-pasos:
-  - "Es uno de los cinco criterios de significancia mencionados en la teoría."
-
-explicacion: |
-  El impacto profundo evalúa la intensidad del efecto de un hecho
-  sobre las personas afectadas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["criterios", "alcance_amplio"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "alcance amplio"
-tipo: mc
-opciones_explicitas: ["impacto profundo", "alcance amplio", "resonancia hoy"]
-
-enunciado: "El criterio que evalúa si un hecho afectó a muchas personas o regiones, o sólo a un grupo muy chico y localizado, se llama..."
-
-pasos:
-  - "Es otro de los cinco criterios de significancia mencionados en la teoría."
-
-explicacion: |
-  El alcance amplio evalúa cuántas personas o regiones se vieron
-  afectadas por un hecho.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["criterios", "duracion_de_efectos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "duración de los efectos"
-tipo: mc
-opciones_explicitas: ["duración de los efectos", "alcance amplio", "revela algo más general"]
-
-enunciado: "El criterio que evalúa si las consecuencias de un hecho se sintieron sólo un momento, o durante generaciones, se llama..."
-
-pasos:
-  - "Es otro de los cinco criterios de significancia mencionados en la teoría."
-
-explicacion: |
-  La duración de los efectos evalúa por cuánto tiempo se sintieron
-  las consecuencias de un hecho.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["criterios", "resonancia_hoy"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "resonancia/relevancia hoy"
-tipo: mc
-opciones_explicitas: ["resonancia/relevancia hoy", "impacto profundo", "alcance amplio"]
-
-enunciado: "El criterio que evalúa si un hecho ayuda a entender el presente o problemas actuales se llama..."
-
-pasos:
-  - "Es otro de los cinco criterios de significancia mencionados en la teoría."
-
-explicacion: |
-  La resonancia/relevancia hoy evalúa si el hecho sigue siendo útil
-  para entender problemas actuales.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["criterios", "revela_algo_general"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "revela algo más general"
-tipo: mc
-opciones_explicitas: ["revela algo más general", "duración de los efectos", "impacto profundo"]
-
-enunciado: "El criterio que evalúa si un hecho es un ejemplo que ilumina un proceso más amplio, aunque en sí mismo sea un episodio menor, se llama..."
-
-pasos:
-  - "Es el quinto criterio de significancia mencionado en la teoría."
-
-explicacion: |
-  Un hecho puede ser significativo no por su magnitud propia, sino
-  por lo que revela sobre un proceso histórico más general.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["significancia_cambiante"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un mismo hecho puede considerarse muy significativo en un momento histórico y perder relevancia después, o al revés."
-
-pasos:
-  - "La significancia histórica cambia según qué preguntas le interesan a cada generación."
-
-explicacion: |
-  Verdadero: es un matiz central sobre la naturaleza no fija de la
-  significancia histórica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["historiografia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La historia política tradicional prioriza reyes y batallas como significativos; la historia social prioriza la vida cotidiana de la gente común."
-
-pasos:
-  - "Ver `../../filosofia/historia-de-la-filosofia-y-corrientes/`: distintas corrientes historiográficas eligen distinto tipo de hechos como significativos."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de cómo la corriente
-  historiográfica influye en qué se considera significativo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["no_es_gusto_personal"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Decir \"me interesa la historia militar, así que sólo eso es significativo\" es un juicio válido y suficiente de significancia histórica."
-
-pasos:
-  - "La significancia se argumenta con criterios (impacto, alcance, duración, resonancia), no es una simple cuestión de gusto individual."
-
-explicacion: |
-  Falso: la significancia histórica no es una preferencia personal
-  sin fundamento, requiere argumentación con criterios objetivos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["hecho_pequeno_significativo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El asesinato de un solo archiduque puede desencadenar consecuencias enormes (una guerra mundial), volviéndolo altamente significativo pese a su escala aparentemente menor en el momento en que ocurrió."
-
-pasos:
-  - "El tamaño aparente de un hecho no determina por sí solo su significancia."
-
-explicacion: |
-  Verdadero: es el ejemplo central de por qué la magnitud aparente de
-  un hecho no es el único criterio de significancia.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["criterios", "practica"]
-
-variables:
-  hechos: ["una reforma que cambió cómo funciona una sociedad durante siglos", "un evento que ayuda a entender debates políticos actuales"]
-  criterios: ["duración de los efectos", "resonancia/relevancia hoy"]
-  idx: uno_de([0, 1])
-
-respuesta: criterios[idx]
-tipo: mc
-opciones_explicitas: ["impacto profundo", "alcance amplio", "duración de los efectos", "resonancia/relevancia hoy"]
-
-enunciado: "\"{hechos[idx]}\" se evalúa principalmente con el criterio de..."
-
-pasos:
-  - "Cada descripción corresponde principalmente a uno de los criterios de significancia estudiados."
-
-explicacion: |
-  Reconocer qué criterio aplica a un caso concreto es la práctica
-  central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Decidir qué del pasado vale la pena estudiar presupone ya tener un marco de períodos organizado donde ubicar esa selección."
-
-pasos:
-  - "Ver `../periodizacion-historica/`: es el prerrequisito directo de este tema."
-
-explicacion: |
-  Verdadero: es la conexión central entre este tema y su
-  prerrequisito.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["big_six"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Significancia histórica es uno de los 6 conceptos del marco \"Big Six\" de pensamiento histórico, junto a causa/consecuencia y cambio/continuidad."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/` y `../cambio-y-continuidad/`: son los otros conceptos de ese marco ya cubiertos en la cadena."
-
-explicacion: |
-  Verdadero: es el mismo marco teórico ya mencionado en temas
-  anteriores de esta cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["criterios", "combinacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Evaluar la significancia de un hecho suele combinar varios de los cinco criterios a la vez (impacto, alcance, duración, resonancia, revelar algo general), no basta con aplicar sólo uno."
-
-pasos:
-  - "Un hecho puede ser significativo por varias razones combinadas al mismo tiempo."
-
-explicacion: |
-  Verdadero: es una aplicación práctica de cómo se usan estos
-  criterios en conjunto, no de forma aislada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["significancia_cambiante", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un hecho que en su momento pareció menor puede ganar significancia histórica más adelante, si se descubre que anticipaba o explicaba un proceso posterior importante."
-
-pasos:
-  - "Es la aplicación concreta de que la significancia cambia con el tiempo."
-
-explicacion: |
-  Verdadero: es la aplicación práctica del principio de significancia
-  no fija estudiado en la teoría.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["seleccion", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cualquier programa de estudio de historia, incluida esta cadena de Tronco 6, aplica implícitamente criterios de significancia al decidir qué temas incluir y cuáles dejar afuera."
-
-pasos:
-  - "Es la aplicación reflexiva de este concepto a la propia estructura del material de estudio."
-
-explicacion: |
-  Verdadero: es una aplicación autorreferencial de por qué este
-  concepto es relevante más allá de la teoría abstracta.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["significancia_historica", "metodo"]
-
-enunciado: "Ordená los pasos para evaluar si un hecho histórico es significativo."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar el hecho y a quiénes afectó directamente"
-  - "Evaluar impacto profundo y alcance amplio de ese efecto"
-  - "Evaluar la duración de los efectos y su resonancia en el presente"
-  - "Concluir si, combinando esos criterios, el hecho merece un lugar en el estudio histórico"
-respuesta_orden: ["Identificar el hecho y a quiénes afectó directamente", "Evaluar impacto profundo y alcance amplio de ese efecto", "Evaluar la duración de los efectos y su resonancia en el presente", "Concluir si, combinando esos criterios, el hecho merece un lugar en el estudio histórico"]
-explicacion: |
-  El proceso va de identificar el hecho a evaluar los distintos
-  criterios combinados de significancia.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["significancia_historica", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Distintos historiadores pueden argumentar distinta significancia para un mismo hecho, según qué criterios prioricen o desde qué corriente historiográfica trabajen, sin que exista una respuesta única y absoluta."
-
-pasos:
-  - "Es la síntesis de por qué la significancia es un juicio argumentado, no un hecho fijo."
-
-explicacion: |
-  Verdadero: es la conclusión central de este tema sobre la
-  naturaleza del concepto de significancia histórica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["significancia_historica", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al proponer un tema histórico para estudiar, conviene poder justificar su significancia con criterios concretos (impacto, alcance, duración, resonancia), en vez de sólo decir que \"parece interesante\"."
-
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema al proponer o
-  justificar el estudio de un hecho histórico.
-```
-
-## Sección: escuela-de-los-annales (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "basico"
-  tags: ["escuela_de_los_annales", "criterio_central"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales propone mirar la historia a través de estructuras de larga duración: clima, geografía, demografía, economía."
-
-pasos:
-  - "En vez de centrarse en sucesos puntuales de reyes y batallas."
-
-explicacion: |
-  Verdadero: es el criterio central de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales se llama así por la revista académica Annales donde publicaban sus fundadores, en Francia, durante el siglo XX."
-
-pasos:
-  - "Es el origen del nombre de esta corriente historiográfica."
-
-explicacion: |
-  Verdadero: es el origen del nombre de esta escuela.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["marc_bloch"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Bloch"
-tipo: completar
-
-enunciado: "Uno de los fundadores de la Escuela de los Annales, autor de \"Apología para la historia\", se apellida..."
-
-pasos:
-  - "Marc Bloch es uno de los referentes centrales de esta corriente."
-
-explicacion: |
-  Bloch es autor central de esta corriente historiográfica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["marc_bloch", "contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"Apología para la historia\" de Marc Bloch se publicó póstumamente en 1949, después de que Bloch fuera fusilado por la resistencia francesa contra la ocupación nazi."
-
-pasos:
-  - "Es un dato histórico sobre las circunstancias de publicación de esta obra clásica."
-
-explicacion: |
-  Verdadero: es el contexto histórico de la publicación de esta obra
-  fundamental de la corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["fernand_braudel"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Braudel"
-tipo: completar
-
-enunciado: "El historiador de la Escuela de los Annales que propuso distinguir tres ritmos distintos de cambio histórico se apellida..."
-
-pasos:
-  - "Fernand Braudel es otro referente central de esta corriente."
-
-explicacion: |
-  Braudel es autor central de esta corriente, referente de los tres
-  niveles de tiempo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["larga_duracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "larga duración"
-tipo: mc
-opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
-
-enunciado: "El nivel de tiempo histórico que abarca estructuras casi inmóviles (geografía, clima) que cambian en siglos o milenios se llama..."
-
-pasos:
-  - "Es el nivel más lento de los tres propuestos por Braudel."
-
-explicacion: |
-  La larga duración es el nivel de cambio más lento de los tres
-  ritmos propuestos por Braudel.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["coyunturas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "coyunturas"
-tipo: mc
-opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
-
-enunciado: "El nivel de tiempo histórico que abarca ciclos económicos y sociales de mediano plazo (décadas) se llama..."
-
-pasos:
-  - "Es el nivel intermedio de los tres propuestos por Braudel."
-
-explicacion: |
-  Las coyunturas son el nivel intermedio de cambio, de duración
-  media (décadas).
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["acontecimientos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "acontecimientos"
-tipo: mc
-opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
-
-enunciado: "El nivel de tiempo histórico que abarca los hechos puntuales (batallas, tratados), llamado por Braudel la \"espuma\" de la historia, se llama..."
-
-pasos:
-  - "Es el nivel más rápido y visible, pero según Braudel menos determinante."
-
-explicacion: |
-  Los acontecimientos son el nivel más rápido y visible, pero para
-  Braudel el menos determinante de los tres.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["acontecimientos", "metafora"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Braudel describió a los acontecimientos como la \"espuma\" superficial de la historia: la parte más visible pero menos determinante."
-
-pasos:
-  - "Es la metáfora central usada por Braudel para describir la relación entre los tres niveles de tiempo."
-
-explicacion: |
-  Verdadero: es la metáfora central que usa Braudel para jerarquizar
-  los tres niveles de tiempo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["niveles_de_tiempo", "orden"]
-
-enunciado: "Ordená los tres niveles de tiempo histórico de Braudel, del más lento al más rápido."
-tipo: ordenar
-opciones_explicitas:
-  - "Larga duración"
-  - "Coyunturas"
-  - "Acontecimientos"
-respuesta_orden: ["Larga duración", "Coyunturas", "Acontecimientos"]
-explicacion: |
-  El orden va de las estructuras casi inmóviles (siglos/milenios) a
-  los ciclos de mediano plazo (décadas) y finalmente a los hechos
-  puntuales (días/años).
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["estructuras"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según la Escuela de los Annales, el clima, la geografía y la demografía de una región condicionan durante siglos qué es posible o probable en esa sociedad, más allá de qué rey gobierne en un momento dado."
-
-pasos:
-  - "Es la justificación central de por qué esta corriente prioriza las estructuras de larga duración."
-
-explicacion: |
-  Verdadero: es la razón central por la que esta corriente considera
-  más determinantes las estructuras que los sucesos puntuales.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["materialismo_historico", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico prioriza específicamente relaciones de clase y producción; la Escuela de los Annales incluye también factores geográficos y climáticos, no ligados directamente al conflicto de clases."
-
-pasos:
-  - "Ver `../materialismo-historico/`: es la diferencia de foco entre estas dos corrientes que ambas miran \"estructuras\"."
-
-explicacion: |
-  Verdadero: aunque ambas corrientes miran estructuras en vez de
-  grandes figuras, difieren en qué tipo de estructuras priorizan.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["materialismo_historico", "positivismo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Tanto el materialismo histórico como la Escuela de los Annales se apartan del foco en grandes figuras y hechos puntuales, propio del positivismo."
-
-pasos:
-  - "Ver `../positivismo/`: es el contraste común de ambas corrientes con la primera de la subrama."
-
-explicacion: |
-  Verdadero: ambas corrientes comparten esa distancia respecto del
-  enfoque positivista, aunque prioricen estructuras distintas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["niveles_de_tiempo", "practica"]
-
-variables:
-  ejemplos: ["la firma de un tratado de paz en un año específico", "el clima de una región que condicionó su agricultura durante siglos"]
-  niveles: ["acontecimientos", "larga duración"]
-  idx: uno_de([0, 1])
-
-respuesta: niveles[idx]
-tipo: mc
-opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
-
-enunciado: "\"{ejemplos[idx]}\" corresponde al nivel de tiempo histórico de..."
-
-pasos:
-  - "Un hecho puntual es acontecimiento; un factor que cambia en siglos es larga duración."
-
-explicacion: |
-  Clasificar un ejemplo según su ritmo de cambio (siglos, décadas o
-  puntual) es la aplicación central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["acontecimientos", "matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales no ignora por completo los acontecimientos puntuales, sino que los considera menos determinantes que las estructuras de fondo, sin eliminarlos del análisis."
-
-pasos:
-  - "Es un matiz importante: la jerarquía entre los tres niveles no significa descartar por completo el nivel de los acontecimientos."
-
-explicacion: |
-  Verdadero: es un matiz importante sobre la relación entre los tres
-  niveles de tiempo propuestos por Braudel.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la misma conexión conceptual ya vista en las
-  corrientes anteriores de esta subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["larga_duracion", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Que un pueblo se haya desarrollado alrededor de un río navegable durante siglos, condicionando su comercio y su forma de organización social, es un ejemplo de análisis desde la larga duración de los Annales."
-
-pasos:
-  - "Es la aplicación práctica del foco en geografía como estructura de larga duración."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de análisis desde la perspectiva
-  de la larga duración de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["escuela_de_los_annales", "metodo"]
-
-enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque de la Escuela de los Annales."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si el foco está en estructuras de larga duración (clima, geografía, demografía)"
-  - "Identificar si se distinguen distintos ritmos de cambio (larga duración, coyunturas, acontecimientos)"
-  - "Revisar si los sucesos puntuales se tratan como menos determinantes que las estructuras de fondo"
-  - "Concluir si el texto corresponde al enfoque de la Escuela de los Annales"
-respuesta_orden: ["Revisar si el foco está en estructuras de larga duración (clima, geografía, demografía)", "Identificar si se distinguen distintos ritmos de cambio (larga duración, coyunturas, acontecimientos)", "Revisar si los sucesos puntuales se tratan como menos determinantes que las estructuras de fondo", "Concluir si el texto corresponde al enfoque de la Escuela de los Annales"]
-explicacion: |
-  El análisis va del foco temático a la jerarquía de niveles de
-  tiempo, para concluir si corresponde a esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales es la tercera de las cuatro corrientes historiográficas de esta subrama, hermana de positivismo, materialismo histórico e historia cultural."
-
-pasos:
-  - "Ver `../positivismo/`, `../materialismo-historico/` y `../historia-cultural/`: los cuatro nodos hermanos dependen de `../multicausalidad/`."
-
-explicacion: |
-  Verdadero: es la relación entre este tema y los otros tres de la
-  subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["escuela_de_los_annales", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer un libro de historia centrado en cómo el clima y la geografía de una región condicionaron su desarrollo económico y social a lo largo de siglos, conviene reconocer que está aplicando un enfoque cercano a la Escuela de los Annales."
-
-pasos:
-  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema para reconocer el
-  enfoque historiográfico de un texto real.
-```
-
-## Sección: historia-cultural (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "basico"
-  tags: ["historia_cultural", "criterio_central"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La historia cultural propone analizar un caso chico y aparentemente insignificante en profundidad, mostrando que puede revelar toda una estructura social, mental o cultural de su época."
-
-pasos:
-  - "Invierte la lógica de escala de las corrientes que priorizan lo macro (Annales, positivismo)."
-
-explicacion: |
-  Verdadero: es el criterio central de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["microhistoria"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La historia cultural también se asocia con el nombre \"microhistoria\", por su foco en casos individuales y localizados."
-
-pasos:
-  - "Ambos nombres se usan para referirse a esta misma corriente historiográfica."
-
-explicacion: |
-  Verdadero: es la relación entre los dos nombres usados para esta
-  corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["carlo_ginzburg"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Ginzburg"
-tipo: completar
-
-enunciado: "El historiador italiano referente central de la historia cultural/microhistoria se apellida..."
-
-pasos:
-  - "Carlo Ginzburg es el autor central asociado a esta corriente."
-
-explicacion: |
-  Ginzburg es autor central de esta corriente historiográfica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["carlo_ginzburg", "obra_clave"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La obra más famosa de Ginzburg, \"El queso y los gusanos\" (1976), reconstruye el caso de un molinero friulano del siglo XVI, juzgado por la Inquisición por sus ideas heterodoxas sobre el origen del mundo."
-
-pasos:
-  - "Es la obra clave que ejemplifica el método de la microhistoria."
-
-explicacion: |
-  Verdadero: es la obra fundamental de referencia de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["carlo_ginzburg", "obra_clave"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ginzburg usa el caso individual del molinero para iluminar la mentalidad popular de toda una época, algo que las fuentes oficiales rara vez documentan."
-
-pasos:
-  - "Es el propósito central del uso de un caso micro para revelar algo macro."
-
-explicacion: |
-  Verdadero: es la conclusión central de por qué un caso individual
-  puede tener valor histórico más allá de sí mismo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["fuentes_no_convencionales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las fuentes oficiales (el foco del positivismo) rara vez documentan la vida cotidiana y la mentalidad de la gente común."
-
-pasos:
-  - "Es la razón por la que la historia cultural recurre a otro tipo de fuentes."
-
-explicacion: |
-  Verdadero: es la razón central de por qué esta corriente amplía
-  qué cuenta como fuente legítima.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["fuentes_no_convencionales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La historia cultural suele recurrir a actas de juicios de personas comunes, diarios personales y objetos cotidianos, en vez de sólo tratados y decretos oficiales."
-
-pasos:
-  - "Son las fuentes no convencionales mencionadas en la teoría, distintas del archivo oficial priorizado por el positivismo."
-
-explicacion: |
-  Verdadero: son las fuentes típicas de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["objeto_de_estudio", "mentalidades"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las mentalidades (cómo la gente entendía el mundo) son uno de los objetos de estudio centrales de la historia cultural."
-
-pasos:
-  - "Es uno de los tres objetos de estudio mencionados en la teoría."
-
-explicacion: |
-  Verdadero: las mentalidades son un objeto central de estudio de
-  esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["objeto_de_estudio", "practicas_cotidianas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las prácticas cotidianas (rituales, costumbres) son otro de los objetos de estudio centrales de la historia cultural."
-
-pasos:
-  - "Es otro de los tres objetos de estudio mencionados en la teoría."
-
-explicacion: |
-  Verdadero: las prácticas cotidianas son otro objeto central de
-  estudio de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["objeto_de_estudio", "cultura_popular"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La cultura popular (no sólo la cultura de elite) es otro de los objetos de estudio centrales de la historia cultural."
-
-pasos:
-  - "Es el tercero de los objetos de estudio mencionados en la teoría."
-
-explicacion: |
-  Verdadero: la cultura popular es otro objeto central de estudio de
-  esta corriente, ampliando el foco tradicional en la elite.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["objeto_de_estudio"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia de las corrientes anteriores, la historia cultural amplía qué cuenta como objeto legítimo de estudio histórico, incluyendo mentalidades, prácticas cotidianas y cultura popular."
-
-pasos:
-  - "Es la conclusión central sobre la amplitud de foco de esta corriente."
-
-explicacion: |
-  Verdadero: es una de las contribuciones centrales de esta corriente
-  a la disciplina.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["escuela_de_los_annales", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales mira grandes estructuras de larga duración; la historia cultural invierte la escala, mirando casos individuales chicos para revelar algo general."
-
-pasos:
-  - "Ver `../escuela-de-los-annales/`: es el contraste de escala entre estas dos corrientes."
-
-explicacion: |
-  Verdadero: es la diferencia central de escala entre estas dos
-  corrientes de la subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["positivismo", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo se centra en grandes figuras y documentos oficiales; la historia cultural se centra en personas comunes y fuentes no convencionales."
-
-pasos:
-  - "Ver `../positivismo/`: es el contraste de foco entre estas dos corrientes."
-
-explicacion: |
-  Verdadero: es la diferencia central de foco entre estas dos
-  corrientes de la subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["historia_cultural", "practica"]
-
-variables:
-  analisis: ["estudiar el diario personal de una campesina para entender cómo pensaba la gente común de su época", "estudiar un tratado firmado entre dos reyes"]
-  corrientes: ["historia cultural", "positivismo"]
-  idx: uno_de([0, 1])
-
-respuesta: corrientes[idx]
-tipo: mc
-opciones_explicitas: ["historia cultural", "positivismo", "materialismo histórico", "Escuela de los Annales"]
-
-enunciado: "\"{analisis[idx]}\" corresponde principalmente al enfoque de..."
-
-pasos:
-  - "Fuente no convencional (diario personal) + caso individual = historia cultural. Documento oficial + grandes figuras = positivismo."
-
-explicacion: |
-  Reconocer el tipo de fuente y de sujeto estudiado permite
-  identificar la corriente historiográfica aplicada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["historia_cultural", "valor_del_caso_micro"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según la historia cultural, la magnitud aparente de un caso (una sola persona, un solo juicio) no determina su valor histórico: un caso bien documentado puede revelar mucho sobre una época entera."
-
-pasos:
-  - "Es coherente con el ejemplo de Ginzburg sobre el molinero friulano."
-
-explicacion: |
-  Verdadero: es la conclusión central sobre el valor de los casos
-  micro en esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la misma conexión conceptual ya vista en las
-  corrientes anteriores de esta subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["neutralidad", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Positivismo, materialismo histórico, Escuela de los Annales e historia cultural son cuatro lentes distintas y legítimas para hacer historia, ninguna reemplaza del todo a las demás."
-
-pasos:
-  - "Ver `../positivismo/`, `../materialismo-historico/` y `../escuela-de-los-annales/`: mismo criterio de neutralidad aplicado a las cuatro."
-
-explicacion: |
-  Verdadero: es la síntesis del principio de neutralidad aplicado a
-  toda la subrama de corrientes historiográficas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["historia_cultural", "metodo"]
-
-enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque de la historia cultural."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si el foco está en un caso individual chico, no en grandes estructuras o figuras"
-  - "Identificar si usa fuentes no convencionales (diarios, juicios de personas comunes)"
-  - "Revisar si el objeto de estudio incluye mentalidades, prácticas cotidianas o cultura popular"
-  - "Concluir si el texto corresponde al enfoque de la historia cultural"
-respuesta_orden: ["Revisar si el foco está en un caso individual chico, no en grandes estructuras o figuras", "Identificar si usa fuentes no convencionales (diarios, juicios de personas comunes)", "Revisar si el objeto de estudio incluye mentalidades, prácticas cotidianas o cultura popular", "Concluir si el texto corresponde al enfoque de la historia cultural"]
-explicacion: |
-  El análisis va de la escala del caso estudiado al tipo de fuentes y
-  objeto de estudio, para concluir si corresponde a esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La historia cultural cierra la subrama de corrientes historiográficas: hechos y figuras (positivismo) → clases y producción (materialismo histórico) → estructuras de larga duración (Annales) → lo micro que revela lo macro (historia cultural)."
-
-pasos:
-  - "Ver `../positivismo/`, `../materialismo-historico/` y `../escuela-de-los-annales/`: es el recorrido completo de las cuatro corrientes de esta subrama."
-
-explicacion: |
-  Verdadero: es la síntesis del recorrido completo de la subrama de
-  corrientes historiográficas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["historia_cultural", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer un libro de historia centrado en el diario de una sola persona común, usado para entender cómo se vivía y pensaba en su época, conviene reconocer que está aplicando un enfoque cercano a la historia cultural."
-
-pasos:
-  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema para reconocer el
-  enfoque historiográfico de un texto real.
-```
-
-## Sección: materialismo-historico (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "basico"
-  tags: ["materialismo_historico", "criterio_central"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico sostiene que lo que mueve la historia son las condiciones materiales de producción, no las ideas o decisiones de grandes individuos."
-
-pasos:
-  - "Ver `../positivismo/`: es un criterio opuesto al de esa corriente, que sí prioriza grandes figuras."
-
-explicacion: |
-  Verdadero: es el criterio central del materialismo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["marx"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Marx"
-tipo: completar
-
-enunciado: "El pensador que desarrolló el materialismo histórico como método para explicar la historia se apellida..."
-
-pasos:
-  - "Karl Marx es el autor central asociado a esta corriente."
-
-explicacion: |
-  Marx es el autor central del materialismo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["condiciones_materiales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las condiciones materiales de producción son cómo una sociedad produce lo que necesita para vivir, y cómo se organiza el trabajo y la propiedad alrededor de esa producción."
-
-pasos:
-  - "Es la definición central de este concepto en el materialismo histórico."
-
-explicacion: |
-  Verdadero: es la definición central de condiciones materiales de
-  producción.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["lucha_de_clases"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según el materialismo histórico, la historia avanza a través del conflicto entre clases sociales con intereses económicos opuestos."
-
-pasos:
-  - "Es el mecanismo central del cambio histórico según esta corriente."
-
-explicacion: |
-  Verdadero: la lucha de clases es el motor central del cambio
-  histórico según esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["lucha_de_clases", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Señores feudales vs. siervos, y burguesía vs. proletariado, son ejemplos de conflictos entre clases sociales mencionados en la teoría."
-
-pasos:
-  - "Son los ejemplos concretos de conflictos de clase mencionados en la teoría."
-
-explicacion: |
-  Verdadero: son ejemplos de conflictos de clase citados en la
-  teoría de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["lucha_de_clases", "politica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según el materialismo histórico, los cambios políticos e ideológicos son, en gran medida, reflejo de los conflictos materiales de fondo, no su causa."
-
-pasos:
-  - "Es una diferencia central con corrientes que priorizan la política o las ideas como causa principal."
-
-explicacion: |
-  Verdadero: es la relación causal central que propone esta
-  corriente entre lo material y lo político/ideológico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["materialismo_historico", "positivismo", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Donde el positivismo mira grandes figuras y hechos políticos puntuales, el materialismo histórico mira estructuras económicas y grupos sociales."
-
-pasos:
-  - "Ver `../positivismo/`: es la diferencia de foco central entre ambas corrientes."
-
-explicacion: |
-  Verdadero: es la diferencia de foco entre estas dos corrientes
-  historiográficas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["materialismo_historico", "positivismo", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Analizar un tratado firmado por un rey preguntando \"qué relaciones de producción sostenían el poder de ese rey y de la clase que representaba\" es un ejemplo del enfoque del materialismo histórico, en vez de simplemente narrar las cláusulas del tratado (enfoque positivista)."
-
-pasos:
-  - "Es la aplicación práctica del contraste de foco descrito en la teoría."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de cómo cambia el análisis según
-  la corriente historiográfica aplicada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["metodo_vs_programa_politico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico como método historiográfico (una forma de explicar el pasado) es distinto del marxismo como corriente político-económica (una postura sobre cómo debería organizarse la sociedad hoy)."
-
-pasos:
-  - "Ver `../../filosofia/historia-de-la-filosofia-y-corrientes/`: el marxismo aparece ahí como corriente político-económica, con un foco distinto."
-
-explicacion: |
-  Verdadero: es la aclaración central de este tema para no confundir
-  dos usos distintos del mismo pensamiento.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["metodo_vs_programa_politico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un historiador puede usar el método del materialismo histórico (analizar condiciones económicas de fondo) sin necesariamente compartir el programa político marxista, y viceversa."
-
-pasos:
-  - "Es la aclaración central de que método historiográfico y postura política son cosas distintas."
-
-explicacion: |
-  Verdadero: es un matiz importante para separar el uso metodológico
-  del compromiso ideológico personal.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["aporte_metodologico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Independientemente de su origen en el pensamiento de Marx, el materialismo histórico introdujo un aporte que muchos historiadores de corrientes distintas siguen usando: prestar atención a las condiciones económicas y sociales de fondo."
-
-pasos:
-  - "Es la conclusión sobre la influencia metodológica de esta corriente más allá de su origen ideológico."
-
-explicacion: |
-  Verdadero: es la síntesis del aporte metodológico duradero de esta
-  corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["influencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La atención del materialismo histórico a las condiciones económicas y sociales de fondo se nota, por ejemplo, en la Escuela de los Annales, otra corriente de esta subrama."
-
-pasos:
-  - "Ver `../escuela-de-los-annales/`: es la conexión mencionada en la teoría entre estas dos corrientes."
-
-explicacion: |
-  Verdadero: es la influencia metodológica del materialismo histórico
-  sobre otra corriente posterior de esta subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["neutralidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico es una de varias corrientes historiográficas legítimas, no la única forma correcta de hacer historia."
-
-pasos:
-  - "Es coherente con el principio de neutralidad aplicado a las cuatro corrientes de esta subrama."
-
-explicacion: |
-  Verdadero: cada corriente es una lente distinta, ninguna se
-  presenta como la única correcta.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["materialismo_historico", "practica"]
-
-variables:
-  analisis: ["estudiar cómo se organizaba la producción agrícola y quién controlaba la tierra en una sociedad feudal", "estudiar la biografía y las decisiones diplomáticas de un rey medieval"]
-  corrientes: ["materialismo histórico", "positivismo"]
-  idx: uno_de([0, 1])
-
-respuesta: corrientes[idx]
-tipo: mc
-opciones_explicitas: ["materialismo histórico", "positivismo"]
-
-enunciado: "\"{analisis[idx]}\" corresponde principalmente al enfoque de..."
-
-pasos:
-  - "Foco en producción/propiedad = materialismo histórico. Foco en biografía/decisiones de una figura = positivismo."
-
-explicacion: |
-  Reconocer el foco temático (estructuras materiales vs. grandes
-  figuras) permite identificar la corriente historiográfica aplicada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la misma conexión conceptual ya vista en
-  `../positivismo/`.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["lucha_de_clases"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según el materialismo histórico, distintas clases sociales tienen intereses económicos opuestos entre sí, lo que genera tensión y conflicto."
-
-pasos:
-  - "Es la base del concepto de lucha de clases como motor del cambio histórico."
-
-explicacion: |
-  Verdadero: la oposición de intereses económicos entre clases es la
-  base del conflicto que esta corriente identifica como motor
-  histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico no ignora por completo la política, sino que la analiza como reflejo de conflictos materiales de fondo, no como causa autónoma independiente de esas condiciones."
-
-pasos:
-  - "Es un matiz importante: no se trata de ignorar la política, sino de explicarla a partir de otra causa de fondo."
-
-explicacion: |
-  Verdadero: es un matiz importante sobre cómo esta corriente
-  incorpora (no ignora) el análisis político.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["materialismo_historico", "metodo"]
-
-enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque del materialismo histórico."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si el foco está en condiciones económicas y de producción, no en biografías individuales"
-  - "Identificar si se analizan clases sociales con intereses opuestos"
-  - "Revisar si los cambios políticos se explican como reflejo de esos conflictos materiales"
-  - "Concluir si el texto corresponde al enfoque del materialismo histórico"
-respuesta_orden: ["Revisar si el foco está en condiciones económicas y de producción, no en biografías individuales", "Identificar si se analizan clases sociales con intereses opuestos", "Revisar si los cambios políticos se explican como reflejo de esos conflictos materiales", "Concluir si el texto corresponde al enfoque del materialismo histórico"]
-explicacion: |
-  El análisis va del foco temático a la relación causal propuesta
-  entre lo material y lo político, para concluir si corresponde a
-  esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico es la segunda de las cuatro corrientes historiográficas de esta subrama, hermana de positivismo, Escuela de los Annales e historia cultural."
-
-pasos:
-  - "Ver `../positivismo/`, `../escuela-de-los-annales/` y `../historia-cultural/`: los cuatro nodos hermanos dependen de `../multicausalidad/`."
-
-explicacion: |
-  Verdadero: es la relación entre este tema y los otros tres de la
-  subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["materialismo_historico", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer un libro de historia centrado en las condiciones de trabajo, la propiedad de la tierra y los conflictos entre grupos sociales de una época, conviene reconocer que está aplicando un enfoque cercano al materialismo histórico."
-
-pasos:
-  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema para reconocer el
-  enfoque historiográfico de un texto real.
-```
-
-## Sección: positivismo (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "basico"
-  tags: ["positivismo", "criterio_central"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo histórico sostiene que el trabajo del historiador es contar \"lo que realmente pasó\", reconstruyendo los hechos con la mayor objetividad posible a partir de documentos de archivo."
-
-pasos:
-  - "Es la frase clásica atribuida al historiador Leopold von Ranke."
-
-explicacion: |
-  Verdadero: es el criterio central del positivismo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["ranke"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Ranke"
-tipo: completar
-
-enunciado: "El historiador alemán del siglo XIX asociado a la frase \"contar lo que realmente pasó\" (wie es eigentlich gewesen) se apellida..."
-
-pasos:
-  - "Leopold von Ranke es el referente clásico del positivismo histórico."
-
-explicacion: |
-  Ranke es el autor central asociado a esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["hechos_y_figuras"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo se centra en hechos verificables (fechas, tratados, batallas) como objeto central de estudio."
-
-pasos:
-  - "Es uno de los dos focos centrales de esta corriente, junto a las grandes figuras."
-
-explicacion: |
-  Verdadero: los hechos verificables son un foco central del
-  positivismo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["hechos_y_figuras"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo considera a las grandes figuras (reyes, generales, estadistas) como protagonistas centrales del cambio histórico."
-
-pasos:
-  - "Es el otro foco central de esta corriente, junto a los hechos verificables."
-
-explicacion: |
-  Verdadero: las grandes figuras son un foco central del positivismo
-  histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["archivo_como_verdad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para el positivismo, el documento de archivo (una carta oficial, un tratado, un registro estatal) es la fuente privilegiada, casi la única fuente confiable."
-
-pasos:
-  - "Se considera que refleja los hechos de forma directa, sin la mediación de interpretaciones posteriores."
-
-explicacion: |
-  Verdadero: el archivo como fuente privilegiada es central en el
-  método positivista.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["neutralidad_del_historiador"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo aspira a que el historiador sea un observador neutral, que se limita a reportar lo que los documentos dicen, sin imponer una interpretación propia."
-
-pasos:
-  - "Es un ideal de objetividad científica aplicado a la historia."
-
-explicacion: |
-  Verdadero: la neutralidad del historiador es un ideal metodológico
-  central del positivismo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["criticas", "neutralidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Corrientes posteriores cuestionan que sea posible una neutralidad total del historiador, presentado como parte del debate historiográfico, no como veredicto final."
-
-pasos:
-  - "Es una crítica mencionada con neutralidad, sin declarar cuál corriente tiene razón."
-
-explicacion: |
-  Verdadero: es una crítica frecuente al positivismo, presentada de
-  forma neutral como parte del debate entre corrientes.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["criticas", "exclusion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Otra crítica al positivismo es que centrarse sólo en política y grandes figuras deja afuera a la mayoría de la población, sin registro en archivos oficiales."
-
-pasos:
-  - "Es otra crítica mencionada con neutralidad, sin declarar veredicto final."
-
-explicacion: |
-  Verdadero: es otra crítica frecuente al positivismo, presentada
-  con el mismo criterio de neutralidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["neutralidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo es una lente real con la que se sigue escribiendo historia hoy, no una etapa superada por las corrientes que surgieron después."
-
-pasos:
-  - "Es el criterio de neutralidad central de todo este bloque de corrientes historiográficas."
-
-explicacion: |
-  Verdadero: es el principio de neutralidad explícito aplicado a
-  esta corriente, coherente con el resto del mapa.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las corrientes que siguen a esta subrama (materialismo histórico, Escuela de los Annales, historia cultural) se definen en buena medida en relación a lo que el positivismo prioriza y a lo que deja afuera."
-
-pasos:
-  - "Ver `../materialismo-historico/`, `../escuela-de-los-annales/`, `../historia-cultural/`: las tres corrientes siguientes de la subrama."
-
-explicacion: |
-  Verdadero: es la relación central entre el positivismo y las otras
-  corrientes historiográficas hermanas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo histórico surge en el siglo XIX."
-
-pasos:
-  - "Es la corriente historiográfica más antigua de las cuatro estudiadas en esta subrama."
-
-explicacion: |
-  Verdadero: es el contexto histórico del surgimiento de esta
-  corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["hechos_y_figuras", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "positivismo"
-tipo: mc
-opciones_explicitas: ["positivismo", "materialismo histórico", "historia cultural"]
-
-enunciado: "Un análisis histórico centrado en un tratado de paz firmado por dos reyes, con foco en las fechas y las cláusulas exactas del documento, corresponde principalmente al enfoque de..."
-
-pasos:
-  - "Foco en documento de archivo + grandes figuras (reyes) + hechos verificables (fechas) = positivismo."
-
-explicacion: |
-  El foco en documentos oficiales, fechas y figuras de poder es
-  característico del enfoque positivista.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["hechos_y_figuras", "distincion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El positivismo prioriza estructuras de larga duración (clima, demografía, economía) por sobre reyes y batallas."
-
-pasos:
-  - "Esa prioridad corresponde a la Escuela de los Annales, no al positivismo (que prioriza hechos puntuales y grandes figuras)."
-
-explicacion: |
-  Falso: es exactamente la prioridad opuesta a la del positivismo,
-  corresponde a otra corriente historiográfica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["archivo_como_verdad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un historiador positivista, al estudiar una guerra, priorizaría revisar tratados, correspondencia diplomática oficial y registros militares antes que testimonios orales de soldados comunes."
-
-pasos:
-  - "Coherente con el foco en el archivo oficial como fuente privilegiada del método positivista."
-
-explicacion: |
-  Verdadero: es la aplicación práctica del método positivista a un
-  caso concreto de investigación histórica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es, en el fondo, un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la conexión conceptual explícita entre corrientes
-  historiográficas y multicausalidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["neutralidad_del_historiador"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El nombre \"positivismo\" refleja la aspiración de aplicar a la historia un ideal de objetividad y método propio de las ciencias naturales."
-
-pasos:
-  - "Es coherente con el ideal de neutralidad del historiador descrito en la teoría."
-
-explicacion: |
-  Verdadero: el positivismo busca aplicar rigor científico al
-  trabajo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["neutralidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo es una de varias corrientes historiográficas legítimas, no la única forma correcta de hacer historia."
-
-pasos:
-  - "Es coherente con el principio de neutralidad aplicado a las cuatro corrientes de esta subrama."
-
-explicacion: |
-  Verdadero: cada corriente es una lente distinta, ninguna se
-  presenta como la única correcta.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["positivismo", "metodo"]
-
-enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque positivista."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si el foco está en hechos verificables y grandes figuras, no en estructuras de larga duración"
-  - "Revisar qué tipo de fuentes usa principalmente (documentos de archivo oficiales)"
-  - "Revisar si el autor busca reportar \"lo que pasó\" sin imponer una interpretación teórica explícita"
-  - "Concluir si el texto corresponde al enfoque positivista"
-respuesta_orden: ["Revisar si el foco está en hechos verificables y grandes figuras, no en estructuras de larga duración", "Revisar qué tipo de fuentes usa principalmente (documentos de archivo oficiales)", "Revisar si el autor busca reportar \"lo que pasó\" sin imponer una interpretación teórica explícita", "Concluir si el texto corresponde al enfoque positivista"]
-explicacion: |
-  El análisis va del foco temático a las fuentes usadas y al estilo
-  interpretativo, para concluir si corresponde al enfoque
-  positivista.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo es la primera de las cuatro corrientes historiográficas de esta subrama, hermana de materialismo histórico, Escuela de los Annales e historia cultural."
-
-pasos:
-  - "Ver `../materialismo-historico/`, `../escuela-de-los-annales/` y `../historia-cultural/`: los cuatro nodos hermanos dependen de `../multicausalidad/`."
-
-explicacion: |
-  Verdadero: es la relación entre este tema y los otros tres de la
-  subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["positivismo", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer un libro de historia centrado en biografías de líderes políticos y en la cronología exacta de tratados y batallas, conviene reconocer que está aplicando un enfoque cercano al positivismo, con sus fortalezas (rigor documental) y sus límites (qué deja afuera)."
-
-pasos:
-  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema para reconocer el
-  enfoque historiográfico de un texto real.
-```
-
-## Sección: revoluciones (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "basico"
-  tags: ["revoluciones", "vocabulario"]
-
-enunciado: "¿Qué es una revolución, en el sentido histórico?"
-tipo: mc
-opciones_explicitas:
-  - "Un cambio rápido y profundo en la estructura política, social o económica de una sociedad"
-  - "Cualquier cambio de gobierno, sin importar su alcance"
-  - "Un tratado internacional entre dos países"
-respuesta: "Un cambio rápido y profundo en la estructura política, social o económica de una sociedad"
-
-explicacion: |
-  Rompe con el orden anterior en vez de reformarlo gradualmente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["revoluciones", "vocabulario"]
-
-enunciado: "¿En qué se diferencia una revolución de una reforma?"
-tipo: mc
-opciones_explicitas:
-  - "La reforma es un cambio gradual dentro del sistema existente; la revolución rompe con la estructura de fondo"
-  - "Son exactamente lo mismo"
-  - "La reforma siempre es más violenta que la revolución"
-respuesta: "La reforma es un cambio gradual dentro del sistema existente; la revolución rompe con la estructura de fondo"
-
-explicacion: |
-  La velocidad y la profundidad del cambio son lo que distingue a una
-  de otra.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["revoluciones", "vocabulario"]
-
-enunciado: "¿Qué distingue a una revolución de un golpe de Estado?"
-tipo: mc
-opciones_explicitas:
-  - "El golpe puede cambiar quién manda sin transformar la estructura social o económica de fondo; la revolución sí la cambia"
-  - "El golpe siempre dura más tiempo que una revolución"
-  - "No hay ninguna diferencia entre los dos conceptos"
-respuesta: "El golpe puede cambiar quién manda sin transformar la estructura social o económica de fondo; la revolución sí la cambia"
-
-explicacion: |
-  Un golpe puede reemplazar a un gobernante sin cambiar cómo funciona
-  el sistema; una revolución cambia las reglas de fondo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["revoluciones", "multicausalidad"]
-
-enunciado: "¿Una revolución suele tener una única causa clara y aislada?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Es el ejemplo de manual de multicausalidad: factores económicos,
-  políticos, sociales y un detonante puntual suelen combinarse.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["multicausalidad"]
-
-enunciado: "¿Cuál es la diferencia entre el \"detonante puntual\" de una revolución y sus causas de fondo?"
-tipo: mc
-opciones_explicitas:
-  - "El detonante es el evento concreto que precipita lo que ya venía acumulándose, no la causa profunda en sí"
-  - "El detonante siempre es más importante que las causas de fondo"
-  - "No hay diferencia, son sinónimos"
-respuesta: "El detonante es el evento concreto que precipita lo que ya venía acumulándose, no la causa profunda en sí"
-
-explicacion: |
-  Sin las causas de fondo ya acumuladas, un mismo detonante no
-  hubiera generado una revolución.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["revolucion_de_mayo", "argentina"]
-
-enunciado: "¿Cuál fue el detonante puntual de la Revolución de Mayo de 1810?"
-tipo: mc
-opciones_explicitas:
-  - "La noticia de la caída de la Junta Central española ante la invasión napoleónica"
-  - "La independencia de Estados Unidos"
-  - "Un terremoto en Buenos Aires"
-respuesta: "La noticia de la caída de la Junta Central española ante la invasión napoleónica"
-
-explicacion: |
-  Esa noticia dejó sin autoridad reconocida al Virreinato del Río de
-  la Plata.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["revolucion_de_mayo", "argentina"]
-
-enunciado: "Además del detonante puntual, ¿qué causas más profundas venían acumulándose antes de 1810?"
-tipo: mc
-opciones_explicitas:
-  - "Ideas ilustradas circulando entre la élite criolla y tensiones comerciales por el monopolio español"
-  - "Una alianza militar con Francia"
-  - "La abolición previa de la esclavitud en el Virreinato"
-respuesta: "Ideas ilustradas circulando entre la élite criolla y tensiones comerciales por el monopolio español"
-
-explicacion: |
-  Son las causas de fondo típicas de una revolución: ideas nuevas
-  circulando y desigualdad económica/comercial acumulada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["revolucion_de_mayo", "argentina"]
-
-enunciado: "¿Qué precedente importante mostraron las Invasiones Inglesas de 1806-1807 antes de la Revolución de Mayo?"
-tipo: mc
-opciones_explicitas:
-  - "Que Buenos Aires podía organizarse militarmente sin depender de la corona española"
-  - "Que España tenía un ejército invencible"
-  - "Que Gran Bretaña había conquistado el Virreinato"
-respuesta: "Que Buenos Aires podía organizarse militarmente sin depender de la corona española"
-
-explicacion: |
-  Esa autonomía militar demostrada fue un antecedente clave de la
-  autonomía política que vendría después.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "basico"
-  tags: ["revolucion_de_mayo", "argentina"]
-
-enunciado: "¿En qué año ocurrió la Revolución de Mayo?"
-tipo: input
-respuesta: 1810
-
-explicacion: |
-  Es el punto de partida de la cadena histórica argentina (`AH4` de
-  Tronco 8.c).
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Una revolución es siempre sinónimo de una guerra prolongada?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  El proceso revolucionario (cambio de régimen) y la guerra que puede
-  seguirle (si el poder derrocado resiste con las armas) son procesos
-  distintos, aunque a menudo encadenados.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué se dice que las causas económicas de una revolución cruzan con la estructura económica de un territorio (Geografía)?"
-tipo: mc
-opciones_explicitas:
-  - "Porque las tensiones comerciales o de desigualdad muchas veces nacen de qué actividades económicas domina ese territorio"
-  - "Porque la Geografía determina el resultado militar de la revolución"
-  - "Porque no hay ninguna relación real entre economía y revolución"
-respuesta: "Porque las tensiones comerciales o de desigualdad muchas veces nacen de qué actividades económicas domina ese territorio"
-
-explicacion: |
-  Es la razón por la que `revoluciones/` cruza con
-  `../../geografia/recursos-actividades-economicas/` en
-  `../dependencias.md`.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["multicausalidad"]
-
-enunciado: "¿Qué tipo de tensión social suele combinarse con las causas de una revolución?"
-tipo: mc
-opciones_explicitas:
-  - "Un grupo social que gana peso económico pero no tiene representación política proporcional"
-  - "Un exceso de representación política sin ningún peso económico"
-  - "La ausencia total de cualquier grupo social organizado"
-respuesta: "Un grupo social que gana peso económico pero no tiene representación política proporcional"
-
-explicacion: |
-  Ejemplo real: la burguesía criolla americana frente a la corona
-  española, con peso económico creciente pero sin poder político
-  proporcional.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["revoluciones"]
-
-enunciado: "Una revolución sólo cambia quién gobierna, sin tocar la estructura de propiedad ni el sistema social."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Una revolución cambia las reglas de fondo — puede afectar quién
-  tiene el poder, cómo se organiza la propiedad, o ambas cosas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["multicausalidad"]
-
-enunciado: "¿Qué tipo de causa representa \"ideas ilustradas circulando entre la élite\" en el análisis de una revolución?"
-tipo: mc
-opciones_explicitas:
-  - "Una causa política/ideológica"
-  - "Un detonante puntual"
-  - "Una causa exclusivamente económica"
-respuesta: "Una causa política/ideológica"
-
-explicacion: |
-  Las ideas nuevas circulando (ilustración, liberalismo) son un factor
-  político/ideológico que se suma a los económicos y sociales.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["multicausalidad"]
-
-enunciado: "Para analizar correctamente una revolución según la herramienta de \"multicausalidad\", ¿qué hay que evitar?"
-tipo: mc
-opciones_explicitas:
-  - "Reducirla a una sola causa, ignorando que varios factores se combinaron"
-  - "Mencionar el detonante puntual"
-  - "Considerar factores económicos"
-respuesta: "Reducirla a una sola causa, ignorando que varios factores se combinaron"
-
-explicacion: |
-  Es exactamente el error que la herramienta de `../multicausalidad/`
-  busca evitar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["multicausalidad"]
-
-enunciado: "¿Qué tipo de causa política suele preceder a una revolución exitosa?"
-tipo: mc
-opciones_explicitas:
-  - "Pérdida de legitimidad del poder existente o un vacío de poder"
-  - "Un aumento repentino de la legitimidad del gobierno"
-  - "La ausencia total de cualquier idea política nueva"
-respuesta: "Pérdida de legitimidad del poder existente o un vacío de poder"
-
-explicacion: |
-  Sin ese debilitamiento previo del poder, un detonante puntual
-  difícilmente escala a una revolución.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["revolucion_de_mayo"]
-
-enunciado: "Ordená estos hechos en la secuencia real que llevó a la Revolución de Mayo: Invasión napoleónica a España, Invasiones Inglesas, Revolución de Mayo."
-tipo: ordenar
-opciones_explicitas:
-  - "Invasiones Inglesas"
-  - "Invasión napoleónica a España"
-  - "Revolución de Mayo"
-respuesta_orden: ["Invasiones Inglesas", "Invasión napoleónica a España", "Revolución de Mayo"]
-
-explicacion: |
-  Las Invasiones Inglesas (1806-1807) fueron el precedente militar; la
-  invasión napoleónica a España (1808) generó el vacío de poder; la
-  Revolución de Mayo (1810) fue la consecuencia final.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué `revoluciones/` depende de `../multicausalidad/` como prerrequisito?"
-tipo: mc
-opciones_explicitas:
-  - "Porque analizar correctamente una revolución exige ya poder combinar varias causas sin reducirla a una sola"
-  - "Porque multicausalidad enseña fechas de revoluciones específicas"
-  - "Porque no hay ninguna relación real entre ambos temas"
-respuesta: "Porque analizar correctamente una revolución exige ya poder combinar varias causas sin reducirla a una sola"
-
-explicacion: |
-  Es la herramienta de pensamiento histórico que este tema aplica de
-  lleno a un proceso concreto.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "basico"
-  tags: ["revoluciones"]
-
-enunciado: "¿Qué distingue mejor a una revolución de un simple cambio de gobierno?"
-tipo: mc
-opciones_explicitas:
-  - "Que cambia las reglas de fondo (poder, propiedad, o ambas), no sólo la persona que gobierna"
-  - "Que siempre involucra un ejército extranjero"
-  - "Que dura exactamente un año"
-respuesta: "Que cambia las reglas de fondo (poder, propiedad, o ambas), no sólo la persona que gobierna"
-
-explicacion: |
-  Es el criterio central que separa "revolución" de "reforma" o "golpe
-  de Estado".
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué el nodo `H2a` de Tronco 6 remite su desarrollo real a `AH4` de Tronco 8.c, en vez de duplicar el contenido de la Revolución de Mayo en dos lugares?"
-tipo: mc
-opciones_explicitas:
-  - "Para no escribir el mismo tema histórico dos veces con distintos IDs, el mismo criterio ya usado con \"Memoria: terrorismo de Estado\" y `AH12`/`AH13`"
-  - "Porque Tronco 8.c no tiene ninguna relación con revoluciones"
-  - "Porque `H2a` y `AH4` son conceptos completamente distintos"
-respuesta: "Para no escribir el mismo tema histórico dos veces con distintos IDs, el mismo criterio ya usado con \"Memoria: terrorismo de Estado\" y `AH12`/`AH13`"
-
-explicacion: |
-  Es el mismo patrón de "duplicación resuelta" (agregado v2.4) que ya
-  usa el MAPA en otro punto de esta misma cadena.
-```
 
 ## Sección: independencias (20 preguntas)
 
@@ -3089,6 +397,522 @@ respuesta: "Para no duplicar el mismo contenido con dos IDs distintos — acá s
 explicacion: |
   Mismo criterio de "no repetir el mismo tema dos veces" que ya usa el
   MAPA en varios puntos (ver nota v2.4 sobre `AH12`/`AH13`).
+```
+
+## Sección: revolucion-mexicana-1910-1920 (27 preguntas)
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["porfiriato", "causas", "madero"]
+
+variables:
+  anio_postulacion: random(1908, 1910)
+
+respuesta: "re-election"
+tipo: completar
+
+enunciado: "Durante el Porfiriato, el líder {anio_postulacion} anunció su intención de volver a postularse, rompiendo la promesa de no reelección. ¿Qué concepto central buscaba defender Francisco I. Madero con su lema 'Sufragio efectivo, no ___'?"
+
+explicacion: |
+  El lema de Madero era "Sufragio efectivo, no reelección". La reelección perpetua era el símbolo del autoritarismo porfirista.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["zapata", "plan_de_ayala", "tierra"]
+
+variables:
+  lider: uno_de(["Emiliano Zapata", "Pancho Villa"])
+
+respuesta: "La tierra es de quien la trabaja"
+tipo: completar
+
+enunciado: "Si el líder revolucionario es {lider}, ¿cuál fue su principal consigna agraria plasmada en el Plan de Ayala?"
+
+explicacion: |
+  Emiliano Zapata redactó el Plan de Ayala. Su consigna principal era que la tierra pertenecía a quien la trabajaba, exigiendo la devolución de tierras comunales.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["villa", "division_del_norte", "ejercito"]
+
+variables:
+  caudillo: uno_de(["Francisco Villa", "Francisco I. Madero"])
+
+respuesta: "División del Norte"
+tipo: completar
+
+enunciado: "El general {caudillo} comandaba una fuerza militar masiva conocida como la _______________."
+
+explicacion: |
+  Pancho Villa lideraba la División del Norte, un ejército popular con gran capacidad de movilización en el norte de México.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["porfiriato", "modernizacion", "ferrocarriles"]
+
+variables:
+  sector: uno_de(["ferrocarriles", "minas", "puertos"])
+
+respuesta: "ferrocarriles"
+tipo: completar
+
+enunciado: "Durante el Porfiriato, el gobierno invirtió fuertemente en la expansión de los _______________ para conectar las regiones productivas con los puertos de exportación."
+
+explicacion: |
+  La construcción de ferrocarriles fue clave para la modernización económica, aunque benefició principalmente a las élites y a inversionistas extranjeros.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["madero", "diaz", "caida"]
+
+variables:
+  dictador: "Porfirio Díaz"
+
+respuesta: "democracia"
+tipo: completar
+
+enunciado: "Francisco I. Madero buscaba instaurar la _______________ como respuesta al largo régimen dictatorial de {dictador}."
+
+explicacion: |
+  Madero representaba la clase media liberal que exigía el fin de la dictadura y el establecimiento de un régimen democrático.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["alianzas", "traicion", "madero"]
+
+variables:
+  evento: "Traición de la Decena Trágica"
+
+respuesta: "frágil"
+tipo: completar
+
+enunciado: "El gobierno de Madero fue breve y _______________ porque antiguos aliados, como Victoriano Huerta, terminaron traicionándolo."
+
+explicacion: |
+  La coalición anti-díaz se desintegró rápidamente. Madero no pudo controlar a los caudillos revolucionarios ni a los conservadores, llevando a su asesinato.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "avanzado"
+  tags: ["zapata", "plan_de_ayala", "fechas"]
+
+variables:
+  mes: uno_de(["febrero", "marzo", "abril"])
+  dia: random(28, 30)
+
+respuesta: "1911"
+tipo: input
+
+enunciado: "El Plan de Ayala fue proclamado en {mes} de {dia}. ¿En qué año se emitió este documento?"
+
+explicacion: |
+  El Plan de Ayala se proclamó en marzo de 1911, cuando Zapata rompió con Madero al no cumplirse la reforma agraria prometida.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["tierra", "ejidos", "comunidades"]
+
+variables:
+  grupo: uno_de(["campesinos", "indígenas", "trabajadores"])
+
+respuesta: "comunales"
+tipo: completar
+
+enunciado: "Bajo el Porfiriato, las tierras {grupo} fueron despojadas y concentradas en latifundios. La revolución buscaba restituirlas como _______________."
+
+explicacion: |
+  La demanda central era la recuperación de las tierras comunales que habían sido expropiadas ilegalmente durante el Porfiriato.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["villa", "origen", "norte"]
+
+variables:
+  region: "norte"
+
+respuesta: "norte"
+tipo: completar
+
+enunciado: "Francisco Villa era originario de la región del _______________, lo que definió el perfil social y militar de su ejército."
+
+explicacion: |
+  Villa representaba los intereses de los campesinos y trabajadores del norte, con un carácter más popular y menos ideológico que Zapata.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["zapata", "origen", "sur"]
+
+variables:
+  estado: "Morelos"
+
+respuesta: "Morelos"
+tipo: completar
+
+enunciado: "Emiliano Zapata lideró la revolución desde el estado de _______________, donde la presión de las compañías azucareras era mayor."
+
+explicacion: |
+  Morelos era un estado altamente industrializado para la época (azúcar), lo que generaba un conflicto intenso entre campesinos y terratenientes.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["madero", "elecciones", "democracia"]
+
+variables:
+  concepto: "Sufragio efectivo"
+
+respuesta: "no reelección"
+tipo: completar
+
+enunciado: "El lema de Madero incluía 'Sufragio efectivo' y la promesa de _______________."
+
+explicacion: |
+  La no reelección era la propuesta concreta para evitar la perpetuidad en el poder que caracterizó al Porfiriato.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["naturaleza", "guerra_civil", "conflicto"]
+
+variables:
+  tipo_conflicto: "guerra civil"
+
+respuesta: "guerra civil"
+tipo: completar
+
+enunciado: "La Revolución Mexicana evolucionó de un levantamiento político a una _______________ entre diversos caudillos y facciones."
+
+explicacion: |
+  Al fracasar Madero en mediar entre las demandas, el conflicto se tornó en una guerra civil por el control del Estado y la tierra.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["porfiriato", "elite", "desigualdad"]
+
+variables:
+  grupo_beneficiado: "élite terrateniente"
+
+respuesta: "extranjeros"
+tipo: completar
+
+enunciado: "El crecimiento económico del Porfiriato benefició a la élite local y a inversionistas _______________."
+
+explicacion: |
+  La economía porfirista dependía mucho del capital extranjero, especialmente de EE.UU. y Europa, para explotar recursos naturales.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "avanzado"
+  tags: ["madero", "plan_san_luis", "levantamiento"]
+
+variables:
+  lider: "Madero"
+
+respuesta: "20 de noviembre"
+tipo: completar
+
+enunciado: "Francisco I. Madero firmó el Plan de San Luis para iniciar el levantamiento armado el _______________ de 1910."
+
+explicacion: |
+  El Plan de San Luis llamaba a las armas el 20 de noviembre de 1910, fecha que luego se convirtió en la fiesta patria de México.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["huerta", "traicion", "decena_tragica"]
+
+variables:
+  traidor: "Victoriano Huerta"
+
+respuesta: "asesinato"
+tipo: completar
+
+enunciado: "El general {traidor} fue responsable del _______________ de Madero durante la Decena Trágica."
+
+explicacion: |
+  Huerta, leal a Díaz, traicionó a Madero y lo obligó a renunciar y morir, instaurando una dictadura militar.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "avanzado"
+  tags: ["constitucion", "articulo_27", "tierra"]
+
+variables:
+  articulo: 27
+
+respuesta: "tierra"
+tipo: completar
+
+enunciado: "El artículo {articulo} de la Constitución de 1917 establecía que la propiedad originaria de la _______________ correspondía a la Nación."
+
+explicacion: |
+  El Art. 27 permitía al Estado redistribuir la tierra y expropiarlatifundios, cumpliendo una de las principales demandas zapatistas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["villa", "batalla", "celaya"]
+
+variables:
+  batalla: "Celaya"
+
+respuesta: "derrota"
+tipo: completar
+
+enunciado: "En la batalla de {batalla}, las fuerzas de Villa sufrieron una crucial _______________ frente a las tropas de Álvaro Obregón."
+
+explicacion: |
+  La derrota en Celaya (1915) marcó el declive militar de Villa y consolidó el poder de Obregón y Carranza.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["obregon", "general", "victoria"]
+
+variables:
+  general: "Álvaro Obregón"
+
+respuesta: "Obregón"
+tipo: completar
+
+enunciado: "El general _______________ fue clave para derrotar a Villa y luego se convirtió en presidente."
+
+explicacion: |
+  Obregón fue el estratega militar más exitoso de la fase final de la revolución y luego presidente de México.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["zapata", "plan_de_ayala", "lema"]
+
+variables:
+  lema: "La tierra es de quien la trabaja"
+
+respuesta: "Zapata"
+tipo: completar
+
+enunciado: "El lema '{lema}' fue promovido por _______________."
+
+explicacion: |
+  Este lema resumía la filosofía agraria de Zapata: la legitimidad de la posesión viene del trabajo directo sobre la tierra.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["porfiriato", "estabilidad", "autoritarismo"]
+
+variables:
+  periodo: "Porfiriato"
+
+respuesta: "autoritaria"
+tipo: completar
+
+enunciado: "El {periodo} se caracterizó por una estabilidad _______________ pero marcada por la desigualdad social."
+
+explicacion: |
+  La estabilidad se lograba mediante la represión política y la exclusión de la participación democrática real.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["madero", "clase_media", "politico"]
+
+variables:
+  clase: "clase media"
+
+respuesta: "liberal"
+tipo: completar
+
+enunciado: "Madero representaba a la _______________ mexicana que quería modernizar el país sin destruir la estructura social existente."
+
+explicacion: |
+  Madero era un político liberal de clase media, preocupado por la democracia pero menos radical en la reforma social que Zapata o Villa.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["fin", "1920", "constitucion"]
+
+variables:
+  anio_fin: 1920
+
+respuesta: "1920"
+tipo: input
+
+enunciado: "Aunque la violencia continuó, se considera que la fase principal de la Revolución Mexicana concluyó alrededor del año _______________."
+
+explicacion: |
+  Con la muerte de Zapata (1919) y la caída y asesinato de Carranza (1920, tras el Plan de Agua Prieta), se cierra la fase armada principal, ya bajo la Constitución de 1917 vigente.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "avanzado"
+  tags: ["zapata", "muerte", "1919"]
+
+variables:
+  lider: "Emiliano Zapata"
+
+respuesta: "emboscada"
+tipo: completar
+
+enunciado: "Emiliano Zapata fue asesinado en una _______________ organizada por las fuerzas gubernamentales."
+
+explicacion: |
+  La muerte de Zapata fue un golpe duro para el movimiento agrarista, aunque sus ideales perduraron en la constitución.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["villa", "exilio", "fin"]
+
+variables:
+  lider: "Pancho Villa"
+
+respuesta: "exilio"
+tipo: completar
+
+enunciado: "Tras su derrota militar, Villa aceptó un acuerdo y se retiró al _______________ antes de volver brevemente a la política."
+
+explicacion: |
+  Villa fue pacificado inicialmente, recibiendo una hacienda, pero su poder militar fue desmantelado.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "avanzado"
+  tags: ["constitucion", "articulo_123", "trabajo"]
+
+variables:
+  articulo: 123
+
+respuesta: "trabajo"
+tipo: completar
+
+enunciado: "El artículo {articulo} de la Constitución de 1917 estableció los derechos de los _______________."
+
+explicacion: |
+  El Art. 123 fue pionero en derechos laborales: jornada máxima, salario mínimo, derecho de huelga y descanso dominical.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["madero", "lema", "sufragio"]
+
+variables:
+  parte1: "Sufragio efectivo"
+
+respuesta: "no reelección"
+tipo: completar
+
+enunciado: "Completa el lema: '{parte1}', _______________."
+
+explicacion: |
+  El lema completo era "Sufragio efectivo, no reelección", enfocándose en la democracia política.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "avanzado"
+  tags: ["internacional", "eeuu", "intervencion"]
+
+variables:
+  pais: "Estados Unidos"
+
+respuesta: "intervencion"
+tipo: completar
+
+enunciado: "La relación con {pais} fue complicada, ya que este país temía una _______________ extranjera en sus intereses económicos."
+
+explicacion: |
+  EE.UU. tuvo una postura ambigua, a veces apoyando a Madero o a Huerta según sus intereses, pero temiendo la inestabilidad en su frontera.
 ```
 
 ## Sección: guerras (20 preguntas)
@@ -3487,5 +1311,2350 @@ explicacion: |
   Comparten estructura de análisis aunque el contenido y los actores
   sean distintos — por eso el MAPA los agrupó como 3 nodos hermanos
   (`H2a`/`H2b`/`H2c`) en vez de tratarlos como temas sin relación.
+```
+
+## Sección: guerra-civil-espanola-1936-1939 (26 preguntas)
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "basico"
+  tags: ["causas", "polarizacion"]
+
+variables:
+  anio_estallido: 1936
+
+respuesta: "1936"
+tipo: input
+
+enunciado: "En qué año comenzó oficialmente el conflicto armado interno conocido como la Guerra Civil Española?"
+
+explicacion: |
+  El conflicto estalló tras el intento de golpe de Estado en julio de 1936, marcando el fin de la Segunda República.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "basico"
+  tags: ["bandos", "nacionalistas"]
+
+variables:
+  lider: uno_de(["Francisco Franco", "José Sanjurjo"])
+
+respuesta: "Francisco Franco"
+tipo: input
+
+enunciado: "¿Quién lideró finalmente al bando sublevado o nacionalista hasta el final de la guerra?"
+
+explicacion: |
+  Aunque José Sanjurjo fue clave inicialmente, murió en un accidente aéreo. Francisco Franco se consolidó como el líder supremo del bando nacionalista.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["diplomacia", "occidente"]
+
+variables:
+  pais: uno_de(["Reino Unido", "Francia", "Estados Unidos"])
+
+respuesta: "no intervención"
+tipo: input
+
+enunciado: "¿Qué política adoptaron las democracias liberales como {pais} ante el conflicto?"
+
+explicacion: |
+  Estas potencias adoptaron una política de "no intervención", lo que dejó a la República en desventaja frente a los apoyos extranjeros a los nacionalistas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "basico"
+  tags: ["bandos", "republica"]
+
+variables:
+  nombre_bando: "republicano"
+
+respuesta: "republicano"
+tipo: input
+
+enunciado: "¿Cómo se denominaba al bando que defendía al gobierno legítimo de la Segunda República?"
+
+explicacion: |
+  El bando republicano o leal defendía la legalidad constitucional frente al golpe de Estado.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["batallas", "madrid"]
+
+variables:
+  ciudad: "Madrid"
+
+respuesta: "Madrid"
+tipo: input
+
+enunciado: "¿Qué capital resistió heroicamente durante años bajo asedio nacionalista?"
+
+explicacion: |
+  Madrid fue un símbolo de la resistencia republicana y permaneció en manos republicanas hasta el final de la guerra.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["sociedad", "polarizacion"]
+
+variables:
+  grupo_opositor: uno_de(["derecha conservadora", "jerarquía católica", "gran parte del ejército"])
+
+respuesta: "derecha conservadora"
+tipo: input
+
+enunciado: "¿Qué sector vio las reformas republicanas como una amenaza existencial al 'España tradicional'?"
+
+explicacion: |
+  La derecha conservadora, la jerarquía católica y gran parte del ejército se opusieron a las reformas progresistas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "basico"
+  tags: ["politica", "frente_popular"]
+
+variables:
+  alianza: "Frente Popular"
+
+respuesta: "Frente Popular"
+tipo: input
+
+enunciado: "¿Cómo se llamaba la coalición de izquierdas que apoyaba las reformas progresistas antes de la guerra?"
+
+explicacion: |
+  El Frente Popular ganó las elecciones en 1936, representando a quienes apoyaban la modernización y las reformas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["estrategia", "frentes"]
+
+variables:
+  tipo_guerra: "desgaste"
+
+respuesta: "desgaste"
+tipo: input
+
+enunciado: "¿Qué tipo de guerra caracterizó al frente de batalla, además de la brutalidad de ambos bandos?"
+
+explicacion: |
+  Fue una guerra de desgaste donde el control territorial se perdió progresivamente para la República.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["territorio", "autonomias"]
+
+variables:
+  region: uno_de(["Cataluña", "País Vasco"])
+
+respuesta: "Cataluña"
+tipo: input
+
+enunciado: "¿Qué región recibió reconocimiento de autonomía por parte del gobierno republicano, lo que generó resistencia conservadora?"
+
+explicacion: |
+  Cataluña y el País Vasco fueron regiones clave que buscaron o recibieron mayores autonomías, vistas como amenazas por la derecha.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["reformas", "iglesia"]
+
+variables:
+  reforma: "secularización"
+
+respuesta: "secularización"
+tipo: input
+
+enunciado: "¿Qué medida de modernización del gobierno republicano fue vista como una amenaza por la jerarquía católica?"
+
+explicacion: |
+  La secularización implicaba separar la iglesia del estado, reducir su influencia educativa y legal, lo que enfureció a los conservadores.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["reformas", "tierra"]
+
+variables:
+  reforma: "reforma agraria"
+
+respuesta: "reforma agraria"
+tipo: input
+
+enunciado: "¿Qué medida buscaba redistribuir la tierra y fue defendida por el Frente Popular?"
+
+explicacion: |
+  La reforma agraria era una de las principales demandas de la izquierda para modernizar el campo español.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "basico"
+  tags: ["inicio", "golpe"]
+
+variables:
+  evento: "golpe de Estado"
+
+respuesta: "golpe de Estado"
+tipo: input
+
+enunciado: "¿Qué evento desencadenó directamente la guerra civil tras ser parcialmente fallido?"
+
+explicacion: |
+  El intento de golpe de Estado en julio de 1936 no logró tomar el poder inmediatamente, derivando en conflicto armado.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "basico"
+  tags: ["final", "cronologia"]
+
+variables:
+  anio_fin: 1939
+
+respuesta: "1939"
+tipo: input
+
+enunciado: "¿En qué año terminó la Guerra Civil Española con la victoria del bando nacionalista?"
+
+explicacion: |
+  La guerra terminó en 1939, iniciando la dictadura de Franco que duraría hasta 1975.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["brutalidad", "guerra_aerea"]
+
+variables:
+  evento: "Guernica"
+
+respuesta: "Guernica"
+tipo: input
+
+enunciado: "¿Qué pueblo fue bombardeado por la Legión Cóndor alemana, convirtiéndose en símbolo de la brutalidad aérea?"
+
+explicacion: |
+  El bombardeo de Guernica fue un ataque indiscriminado que inspiró la famosa pintura de Picasso.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["intervencion", "internacional"]
+
+variables:
+  bando: "republicano"
+
+respuesta: "republicano"
+tipo: input
+
+enunciado: "¿A qué bando se unieron voluntarios internacionales conocidos como las Brigadas Internacionales?"
+
+explicacion: |
+  Las Brigadas Internacionales apoyaron principalmente al bando republicano, aunque la "no intervención" oficial dificultó su llegada.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["ideologia", "conflicto"]
+
+variables:
+  tipo_division: "ideológica"
+
+respuesta: "ideológica"
+tipo: input
+
+enunciado: "¿Qué tipo de división, más allá de la política, transformó la disputa electoral en una lucha por la supervivencia nacional?"
+
+explicacion: |
+  La división fue ideológica y cultural, entre dos visiones incompatibles de la nación: la moderna y la tradicional.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["contexto", "segunda_republica"]
+
+variables:
+  factor: "inestabilidad institucional"
+
+respuesta: "inestabilidad institucional"
+tipo: input
+
+enunciado: "¿Qué factor previo creó un clima de violencia latente en la Segunda República?"
+
+explicacion: |
+  La inestabilidad institucional, sumada a huelgas y enfrentamientos, preparó el terreno para la guerra.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["sociedad", "huelgas"]
+
+variables:
+  fenomeno: "huelgas generalizadas"
+
+respuesta: "huelgas generalizadas"
+tipo: input
+
+enunciado: "¿Qué fenómeno social caracterizó la intensa polarización antes de la guerra?"
+
+explicacion: |
+  Las huelgas generalizadas reflejaban el conflicto laboral y social entre obreros y patronos.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["economia", "conservadurismo"]
+
+variables:
+  valor: "propiedad privada"
+
+respuesta: "propiedad privada"
+tipo: input
+
+enunciado: "¿Qué valor defendían los sublevados como parte del orden tradicional?"
+
+explicacion: |
+  Los nacionalistas defendían la propiedad privada y el orden tradicional contra las reformas republicanas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["iglesia", "religion"]
+
+variables:
+  institucion: "Iglesia"
+
+respuesta: "Iglesia"
+tipo: input
+
+enunciado: "¿Qué institución tuvo a la jerarquía católica como opositora clave de las reformas republicanas?"
+
+explicacion: |
+  La jerarquía católica vio las reformas secularizadoras como una amenaza existencial.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["ejercito", "sublevacion"]
+
+variables:
+  actor: "ejército"
+
+respuesta: "ejército"
+tipo: input
+
+enunciado: "¿Qué institución fue clave en la sublevación contra la República?"
+
+explicacion: |
+  Gran parte del ejército se sublevó, liderando el inicio del conflicto armado.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["estrategia", "no_intervencion"]
+
+variables:
+  consecuencia: "desventaja estratégica"
+
+respuesta: "desventaja estratégica"
+tipo: input
+
+enunciado: "¿Qué consecuencia tuvo la política de no intervención para la República?"
+
+explicacion: |
+  La no intervención dejó a la República en desventaja, mientras los apoyos a los nacionalistas fluían sin obstáculos.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["frentes", "avance"]
+
+variables:
+  proceso: "progresivamente"
+
+respuesta: "progresivamente"
+tipo: input
+
+enunciado: "¿Cómo fue controlado el resto del país por las tropas nacionalistas?"
+
+explicacion: |
+  El país fue controlado progresivamente, mientras Madrid resistía aislada.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["causas", "historia_larga"]
+
+variables:
+  causa_raiz: "luchas por el poder"
+
+respuesta: "luchas por el poder"
+tipo: input
+
+enunciado: "¿De qué fenómeno fueron resultado las décadas de tensión que precedieron al estallido del conflicto?"
+
+explicacion: |
+  Décadas de luchas por el poder y la identidad nacional precedieron al estallido.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["identidad", "nacion"]
+
+variables:
+  concepto: "identidad nacional"
+
+respuesta: "identidad nacional"
+tipo: input
+
+enunciado: "¿Qué concepto estaba en disputa entre quienes modernizaban y quienes defendían la tradición?"
+
+explicacion: |
+  La identidad nacional era el núcleo del conflicto: una visión moderna frente a una tradicional.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["importancia", "siglo_xx"]
+
+variables:
+  importancia: "punto de inflexión"
+
+respuesta: "punto de inflexión"
+tipo: input
+
+enunciado: "¿Qué representó la Guerra Civil Española en la historia del siglo XX?"
+
+explicacion: |
+  Fue un punto de inflexión que prefiguró los conflictos ideológicos de la Segunda Guerra Mundial.
+```
+
+## Sección: guerra-del-paraguay-y-triple-alianza (33 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["lideres", "solano_lopez"]
+
+respuesta: "Francisco Solano López"
+tipo: completar
+respuestas_validas:
+  - "Francisco Solano López"
+  - "Solano López"
+  - "López"
+
+enunciado: "El líder de Paraguay durante la Guerra de la Triple Alianza fue ___."
+
+explicacion: |
+  Francisco Solano López dirigió al Paraguay durante todo el conflicto hasta su muerte en 1870.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["lideres", "mitre"]
+
+respuesta: "Bartolomé Mitre"
+tipo: completar
+respuestas_validas:
+  - "Bartolomé Mitre"
+  - "Mitre"
+
+enunciado: "El presidente argentino que firmó el tratado de alianza fue ___."
+
+explicacion: |
+  Bartolomé Mitre fue el presidente de la Nación Argentina que firmó el Tratado de la Triple Alianza.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["tratados", "navegacion"]
+
+respuesta: "navegación libre"
+tipo: completar
+respuestas_validas:
+  - "navegación libre"
+  - "libre navegación"
+  - "libre navegacion"
+
+enunciado: "Uno de los objetivos del Tratado de la Triple Alianza era garantizar la ___ de los ríos Paraná y Uruguay."
+
+explicacion: |
+  La libre navegación de los ríos interiores era un objetivo clave para los aliados, especialmente para Brasil y Argentina.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["causas", "economia"]
+
+respuesta: "cuenca del Río de la Plata"
+tipo: completar
+respuestas_validas:
+  - "cuenca del Río de la Plata"
+  - "cuenca del rio de la plata"
+
+enunciado: "Brasil y las provincias argentinas buscaban expandir su influencia en la ___, creando tensión con Paraguay."
+
+explicacion: |
+  El control de la cuenca del Río de la Plata y sus ríos navegables era estratégico para el comercio regional.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["fin", "solano_lopez"]
+
+respuesta: "muerte de Solano López"
+tipo: completar
+respuestas_validas:
+  - "muerte de Solano López"
+  - "muerte de solano lopez"
+  - "muerte de Francisco Solano López"
+
+enunciado: "La guerra finalizó en 1870 con el ___."
+
+explicacion: |
+  La muerte del presidente Francisco Solano López en la batalla de Cerro Corá marcó el fin efectivo de la guerra.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["navegacion", "tratados"]
+
+respuesta: "Paraná y Uruguay"
+tipo: completar
+respuestas_validas:
+  - "Paraná y Uruguay"
+  - "parana y uruguay"
+  - "Paraná y el Uruguay"
+
+enunciado: "El tratado prometía garantizar la navegación libre de los ríos ___."
+
+explicacion: |
+  Los ríos Paraná y Uruguay eran las vías fluviales principales para el comercio y la logística militar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["tratados", "fronteras"]
+
+respuesta: "beneficiara a los aliados"
+tipo: completar
+respuestas_validas:
+  - "beneficiara a los aliados"
+
+enunciado: "El tratado buscaba definir las fronteras de manera que ___."
+
+explicacion: |
+  Los aliados buscaban redefinir las fronteras a su favor, lo que generó disputas posteriores.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["brasil", "contraataque"]
+
+respuesta: "invadiendo el norte"
+tipo: completar
+respuestas_validas:
+  - "invadiendo el norte"
+  - "invadiendo el norte del paraguay"
+
+enunciado: "Brasil respondió a la invasión paraguaya ___ del Paraguay."
+
+explicacion: |
+  Tras la invasión al Mato Grosso, Brasil lanzó una contraofensiva invadiendo el norte de Paraguay.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["estrategia", "superioridad"]
+
+respuesta: "numérica y logística"
+tipo: completar
+respuestas_validas:
+  - "numérica y logística"
+  - "superioridad numérica y logística"
+
+enunciado: "Con el tiempo, la superioridad ___ de la Triple Alianza comenzó a pesar contra Paraguay."
+
+explicacion: |
+  La combinación de más hombres y mejor suministro permitió a los aliados avanzar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["causas", "clima_politico"]
+
+respuesta: "desconfianza mutua"
+tipo: completar
+respuestas_validas:
+  - "desconfianza mutua"
+  - "desconfianza"
+
+enunciado: "La rivalidad creó un clima de ___ que terminó estallando en guerra."
+
+explicacion: |
+  La falta de confianza entre los estados de la región fue un factor subyacente importante.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["cronologia", "duracion"]
+
+respuesta: "6"
+tipo: input
+
+enunciado: "La guerra duró ___ años, desde 1864 hasta 1870."
+
+explicacion: |
+  El conflicto abarcó seis años completos de combate intenso.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["alianza", "participantes"]
+
+respuesta: "Brasil"
+tipo: completar
+
+enunciado: "La Triple Alianza estuvo conformada por el Imperio de ___, la Nación Argentina y la República Oriental del Uruguay."
+
+explicacion: |
+  La coalición aliada enfrentó al Paraguay y estaba integrada por Brasil, Argentina y Uruguay.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["lideres", "solano_lopez"]
+
+respuesta: "Francisco Solano López"
+tipo: completar
+
+enunciado: "El Paraguay, en ese entonces un país industrializado para su época, estaba bajo el mando de ___."
+
+explicacion: |
+  Francisco Solano López lideró al Paraguay durante la guerra, manteniendo una política de aislamiento relativo pero con desarrollo industrial interno.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["causas", "uruguay"]
+
+respuesta: "intervención de Brasil en los asuntos internos de Uruguay"
+tipo: completar
+
+enunciado: "El detonante final fue la ___, lo que el Paraguay vio como una amenaza a su soberanía."
+
+explicacion: |
+  Brasil apoyó a los colorados uruguayos, lo que llevó a Solano López a intervenir y comenzar las hostilidades.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["invasion", "mato_grosso"]
+
+respuesta: "Mato Grosso"
+tipo: completar
+
+enunciado: "En diciembre de 1864, Solano López invadió el territorio de ___, iniciando las hostilidades."
+
+explicacion: |
+  La invasión del Mato Grosso fue la primera acción militar concreta de la guerra en diciembre de 1864.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["tratado", "alianza"]
+
+respuesta: "mayo de 1865"
+tipo: completar
+
+enunciado: "Ante la invasión brasileña al norte del Paraguay, el gobierno argentino liderado por Bartolomé Mitre firmó el Tratado de la Triple Alianza en ___."
+
+explicacion: |
+  El tratado se firmó en mayo de 1865 para derrotar a Solano López y garantizar la navegación libre de los ríos.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["objetivos", "navegacion"]
+
+respuesta: "garantizar la navegación libre de los ríos Paraná y Uruguay"
+tipo: completar
+
+enunciado: "Uno de los compromisos del tratado era ___."
+
+explicacion: |
+  La libre navegación de los ríos fue un objetivo clave para los aliados, especialmente para Brasil y Argentina.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["economia", "industrializacion"]
+
+respuesta: "aislado pero industrializado"
+tipo: completar
+
+enunciado: "Para entender el conflicto, hay que notar que el Paraguay era un país ___ para sus estándares de la época."
+
+explicacion: |
+  A pesar de su aislamiento político, Paraguay tenía ferrocarriles, astilleros y fábricas de pólvora.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["causas", "hegemonia"]
+
+respuesta: "control de los ríos navegables y los territorios fronterizos"
+tipo: completar
+
+enunciado: "La tensión previa a la guerra se debía a la rivalidad por el ___ en la cuenca del Río de la Plata."
+
+explicacion: |
+  La disputa por el control territorial y comercial fue la raíz profunda del conflicto.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "avanzado"
+  tags: ["batallas", "humaita"]
+
+respuesta: "Curupayty"
+tipo: completar
+
+enunciado: "Inicialmente, los paraguayos lograron victorias tácticas, como el rechazo del asalto aliado en la batalla de ___ (1866)."
+
+explicacion: |
+  En Curupayty, los paraguayos rechazaron un asalto aliado infligiendo bajas enormes al atacante — una de las pocas victorias tácticas significativas iniciales de los paraguayos. Humaitá, en cambio, era la fortaleza paraguaya que resistió un largo asedio y cayó ante los aliados en 1868.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["ejercito", "demografia"]
+
+respuesta: "campesinos"
+tipo: completar
+
+enunciado: "El ejército paraguayo, que en su mayoría estaba compuesto por ___, enfrentó una superioridad logística adversa."
+
+explicacion: |
+  La fuerza principal del ejército paraguayo provenía del campesinado, lo que afectaba su logística comparada con los aliados.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["invasion", "mato_grosso"]
+
+variables:
+  territorio: "Mato Grosso"
+
+respuesta: "Mato Grosso"
+tipo: mc
+opciones: 4
+
+enunciado: "¿Qué territorio invadió Solano López en diciembre de 1864 para iniciar la guerra?"
+opciones_explicitas: ["Mato Grosso", "Corrientes", "Rio Grande do Sul", "Paraná"]
+
+explicacion: |
+  La primera acción fue la invasión al Mato Grosso, territorio brasileño.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["tratado", "fechas"]
+
+variables:
+  fecha: "mayo de 1865"
+
+respuesta: "mayo de 1865"
+tipo: mc
+opciones: 4
+
+enunciado: "¿En qué momento se firmó el Tratado de la Triple Alianza?"
+opciones_explicitas: ["mayo de 1865", "diciembre de 1864", "enero de 1866", "octubre de 1867"]
+
+explicacion: |
+  El tratado se firmó en mayo de 1865, después de que Paraguay invadiera Corrientes (territorio argentino) al no obtener paso libre hacia Rio Grande do Sul, lo que sumó a la Argentina al conflicto.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["lideres"]
+
+variables:
+  lider: "Francisco Solano López"
+
+respuesta: "Francisco Solano López"
+tipo: mc
+opciones: 4
+
+enunciado: "¿Quién era el líder del Paraguay durante la guerra?"
+opciones_explicitas: ["Francisco Solano López", "José Gaspar Rodríguez de Francia", "Juan Manuel de Rosas", "Bartolomé Mitre"]
+
+explicacion: |
+  Francisco Solano López fue el presidente y líder militar del Paraguay en este conflicto.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["alianza"]
+
+variables:
+  pais: "Uruguay"
+
+respuesta: "Uruguay"
+tipo: mc
+opciones: 4
+
+enunciado: "¿Cuál de los siguientes países formó parte de la Triple Alianza?"
+opciones_explicitas: ["Uruguay", "Bolivia", "Chile", "Paraguay"]
+
+explicacion: |
+  La Triple Alianza estaba compuesta por Brasil, Argentina y Uruguay.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["economia"]
+
+variables:
+  caracteristica: "industrializado"
+
+respuesta: "industrializado"
+tipo: mc
+opciones: 4
+
+enunciado: "¿Cómo se describe la economía del Paraguay previo al conflicto?"
+opciones_explicitas: ["industrializado", "exclusivamente agrícola", "dependiente del comercio exterior", "basado en la minería"]
+
+explicacion: |
+  Paraguay tenía ferrocarriles, astilleros y fábricas de pólvora, lo que lo hacía industrializado para la región.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["causas"]
+
+variables:
+  causa: "intervención de Brasil en Uruguay"
+
+respuesta: "intervención de Brasil en Uruguay"
+tipo: mc
+opciones: 4
+
+enunciado: "¿Qué evento fue el detonante final del conflicto?"
+opciones_explicitas: ["intervención de Brasil en Uruguay", "invasión argentina a Corrientes", "rebelión en Mato Grosso", "bloqueo naval a Buenos Aires"]
+
+explicacion: |
+  La intervención de Brasil en los asuntos internos de Uruguay fue el detonante directo.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["geografia", "navegacion"]
+
+variables:
+  rios: "Paraná y Uruguay"
+
+respuesta: "Paraná y Uruguay"
+tipo: mc
+opciones: 4
+
+enunciado: "El tratado prometía garantizar la navegación libre de los ríos:"
+opciones_explicitas: ["Paraná y Uruguay", "Amazonas y Madeira", "De la Plata y Uruguay", "Paraná y Paraguay"]
+
+explicacion: |
+  La libre navegación de los ríos Paraná y Uruguay era un objetivo clave de la alianza.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["ejercito"]
+
+variables:
+  composicion: "campesinos"
+
+respuesta: "campesinos"
+tipo: mc
+opciones: 4
+
+enunciado: "¿De qué grupo social provenía la mayoría del ejército paraguayo?"
+opciones_explicitas: ["campesinos", "oficiales profesionales europeos", "esclavizados liberados", "nobles locales"]
+
+explicacion: |
+  La fuerza militar paraguaya estaba mayoritariamente compuesta por campesinos.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "avanzado"
+  tags: ["batallas"]
+
+variables:
+  batalla: "Curupayty"
+
+respuesta: "Curupayty"
+tipo: mc
+opciones_explicitas: ["Curupayty", "Humaitá", "Tuyutí", "Piribebuy"]
+
+enunciado: "¿En qué batalla rechazaron los paraguayos un asalto aliado con enormes bajas para el atacante, al inicio de la guerra?"
+
+explicacion: |
+  En Curupayty (1866) los paraguayos rechazaron el asalto aliado — una victoria táctica importante para Paraguay al inicio de la guerra. Humaitá era su fortaleza, y cayó ante los aliados recién en 1868, tras un largo asedio.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["cronologia"]
+
+variables:
+  anio: 1864
+
+respuesta: 1864
+tipo: input
+
+enunciado: "¿En qué año comenzó la Guerra del Paraguay con la invasión al Mato Grosso?"
+
+explicacion: |
+  El conflicto comenzó en 1864.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["cronologia"]
+
+variables:
+  anio: 1870
+
+respuesta: 1870
+tipo: input
+
+enunciado: "¿En qué año finalizó la Guerra del Paraguay?"
+
+explicacion: |
+  El conflicto terminó en 1870.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["alianza"]
+
+variables:
+  pais1: "Brasil"
+  pais2: "Argentina"
+  pais3: "Uruguay"
+
+respuesta: "Uruguay"
+tipo: input
+
+enunciado: "Completa el nombre del tercer país que formó parte de la Triple Alianza junto a {pais1} y {pais2}."
+
+explicacion: |
+  Los tres miembros de la Triple Alianza fueron Brasil, Argentina y Uruguay.
+```
+
+## Sección: rosas-y-la-confederacion (24 preguntas)
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["confederacion", "urquiza", "constitucion"]
+
+variables:
+  anio_constitucion: 1853
+  provincia_congreso: "Santa Fe"
+
+respuesta: "1853"
+tipo: input
+
+enunciado: "Tras la batalla de Caseros, Urquiza convocó al Congreso Constituyente en {provincia_congreso}. ¿En qué año se promulgó la nueva Constitución?"
+
+explicacion: |
+  La Constitución de 1853 fue el resultado directo de la convocatoria de Urquiza para organizar la nación tras la caída de Rosas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["unitarios", "federales", "caseros"]
+
+variables:
+  lider_coalicion: "Justo José de Urquiza"
+  lider_federal: "Juan Manuel de Rosas"
+
+respuesta: "Justo José de Urquiza"
+tipo: input
+
+enunciado: "¿Quién lideró el 'Ejército Grande' que derrotó al ejército de {lider_federal} en Caseros?"
+
+explicacion: |
+  Justo José de Urquiza, gobernador federal de Entre Ríos, lideró la coalición (con Brasil, Uruguay y Corrientes) contra Rosas — una ruptura dentro del propio federalismo, no un regreso de los unitarios al poder.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["soberania", "intervencion", "obligado"]
+
+variables:
+  pais_a: "Gran Bretaña"
+  pais_b: "Francia"
+
+respuesta: "Gran Bretaña y Francia"
+tipo: input
+
+enunciado: "En la batalla de la Vuelta de Obligado (1845), las fuerzas rosistas enfrentaron a una flota conjunta de {pais_a} y {pais_b}."
+
+explicacion: |
+  La intervención anglo-francesa buscaba abrir el comercio del Paraná. La resistencia simbolizó la defensa de la soberanía nacional.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["causas", "alianzas", "caseros"]
+
+variables:
+  factor_interno: "disidencia provincial"
+  factor_externo: "intervencion extranjera"
+
+respuesta: "disidencia provincial"
+tipo: input
+
+enunciado: "La caída de Rosas se debió a una alianza entre fuerzas internas motivadas por el {factor_interno} y la presión externa."
+
+explicacion: |
+  El descontento de las provincias interiores con la hegemonía porteña fue clave para que Urquiza, al frente del Ejército Grande, pudiera vencer a Rosas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "avanzado"
+  tags: ["simbolismo", "soberania"]
+
+variables:
+  concepto_clave: "defensa de la soberanía"
+
+respuesta: "defensa de la soberanía"
+tipo: input
+
+enunciado: "Aunque fue una derrota militar, la Vuelta de Obligado se recuerda principalmente por su valor simbólico de {concepto_clave} frente al intervencionismo."
+
+explicacion: |
+  El sacrificio de las tropas rosistas elevó la causa de la independencia nacional a un símbolo patrio, trascendiendo el resultado táctico.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["unidad", "fragmentacion"]
+
+variables:
+  resultado_politico: "profundizó la división"
+
+respuesta: "profundizó la división"
+tipo: input
+
+enunciado: "¿Cuál fue el efecto político inmediato de la victoria de Urquiza en Caseros: la unificación nacional o {resultado_politico}?"
+
+explicacion: |
+  La victoria no trajo unidad inmediata; por el contrario, aisló a Buenos Aires y profundizó la brecha entre la provincia y el resto del país.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["batallas", "soberania"]
+
+variables:
+  fecha_correcta: "20 de noviembre de 1845"
+  fecha_falsa: "3 de febrero de 1852"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La batalla de la Vuelta de Obligado, un símbolo de la resistencia contra la intervención anglo-francesa, ocurrió el {fecha_correcta}."
+
+explicacion: |
+  La Vuelta de Obligado se libró el 20 de noviembre de 1845 — fecha que hoy se conmemora en Argentina como el Día de la Soberanía Nacional. La fecha mencionada en el enunciado es correcta.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["constitucion", "fechas"]
+
+variables:
+  anio: 1853
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Constitución Nacional argentina fue sancionada en el año {anio} como resultado del proceso iniciado tras la batalla de Caseros."
+
+explicacion: |
+  Es correcto. La Constitución de 1853 fue la primera carta magna nacional, aunque Buenos Aires no adhirió inicialmente.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["intervencion", "diplomacia"]
+
+variables:
+  paises: "Inglaterra y Francia"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La flota que fue resistida en la Vuelta de Obligado estaba compuesta por fuerzas de {paises}."
+
+explicacion: |
+  Es correcto. La intervención anglo-francesa buscaba abrir los ríos interiores al comercio libre, lo que Rosas consideraba una violación de la soberanía.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["caseros", "fechas"]
+
+variables:
+  fecha: "3 de febrero de 1852"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La batalla de Caseros, que marcó el fin del segundo gobierno de Rosas, se libró el {fecha}."
+
+explicacion: |
+  Es correcto. El 3 de febrero de 1852 es la fecha oficial de la batalla.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["obligado", "soberania", "intervencion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La batalla de la Vuelta de Obligado se interpretó históricamente como un acto de defensa de la soberanía nacional frente al intervencionismo anglo-francés."
+
+explicacion: |
+  Aunque hubo derrotas militares, el sacrificio de las tropas rosistas se convirtió en un símbolo de resistencia contra la injerencia extranjera en el río Paraná.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["caseros", "cronologia"]
+
+variables:
+  dia: 3
+  mes: 2
+
+respuesta: "3 de febrero"
+tipo: completar
+
+enunciado: "La batalla de Caseros, que marcó el fin del gobierno de Rosas, ocurrió el {dia} de {mes}."
+
+explicacion: |
+  La fecha exacta de la batalla es el 3 de febrero de 1852.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["obligado", "alianzas", "guerra"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la batalla de la Vuelta de Obligado, las fuerzas argentinas contaron con el apoyo logístico de Brasil y Uruguay."
+
+explicacion: |
+  Fue al revés: Brasil y Uruguay formaban parte de la coalición anglo-francesa que invadía el río Paraná, mientras que las fuerzas de Rosas las combatían.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["obligado", "cronologia"]
+
+variables:
+  dia: 20
+  mes: 11
+
+respuesta: "20"
+tipo: input
+
+enunciado: "La batalla de la Vuelta de Obligado ocurrió el día {dia} del mes {mes} de 1845. Escribe solo el número del día."
+
+explicacion: |
+  La fecha es 20 de noviembre de 1845.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "avanzado"
+  tags: ["constitucion", "buenos_aires", "integracion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La provincia de Buenos Aires se integró inmediatamente al resto del país tras la sanción de la Constitución de 1853."
+
+explicacion: |
+  Buenos Aires se separó de la Confederación Argentina entre 1852 y 1861, manteniendo un estado propio hasta su reincorporación posterior.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["constitucion", "objetivo", "unidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Uno de los objetivos principales de la Constitución de 1853 era superar la fragmentación territorial y lograr la unidad nacional."
+
+explicacion: |
+  El texto constitucional buscaba establecer un régimen federal que integrara a las provincias, aunque Buenos Aires se mantuvo al margen inicialmente.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["cronologia", "caseros"]
+
+variables:
+  anio: 1852
+
+respuesta: "1852"
+tipo: input
+
+enunciado: "Juan Manuel de Rosas cayó del poder en el año {anio}."
+
+explicacion: |
+  La batalla de Caseros ocurrió en 1852, poniendo fin al gobierno de Rosas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["gobierno", "centralizacion", "buenos_aires"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Durante el gobierno de Rosas, la provincia de Buenos Aires ejerció un dominio hegemónico sobre el resto del país."
+
+explicacion: |
+  Rosas gestionaba las relaciones exteriores y el comercio portuario, centralizando el poder económico y político en Buenos Aires.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["caseros", "consecuencias", "fractura"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La victoria en Caseros trajo consigo la unificación inmediata del país bajo la Constitución de 1853."
+
+explicacion: |
+  La victoria de Caseros profundizó la división, llevando a la separación de Buenos Aires de la Confederación durante casi una década.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["cronologia", "caseros"]
+
+variables:
+  mes: 2
+
+respuesta: "2"
+tipo: input
+
+enunciado: "La batalla de Caseros ocurrió en el mes {mes} del año 1852."
+
+explicacion: |
+  La fecha es 3 de febrero de 1852.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["politica", "provincias", "resentimiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las provincias interiores sentían que sus intereses estaban subordinados a los de Buenos Aires durante el gobierno de Rosas."
+
+explicacion: |
+  El control portuario y las aduanas por parte de Buenos Aires generaba un fuerte resentimiento en las provincias del interior.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["obligado", "identidad", "sacrificio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A pesar de la derrota militar, la batalla de la Vuelta de Obligado dejó una huella profunda en la identidad nacional como símbolo de sacrificio."
+
+explicacion: |
+  El heroísmo de las tropas y civiles en Obligado fue reinterpretado como un acto de defensa de la soberanía.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["cronologia", "constitucion"]
+
+variables:
+  anio: 1853
+
+respuesta: "1853"
+tipo: input
+
+enunciado: "La Constitución Nacional fue sancionada en el año {anio}."
+
+explicacion: |
+  La primera Constitución Nacional de Argentina se sancionó en 1853.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["caseros", "inestabilidad", "guerra_civil"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La caída de Rosas no trajo la unidad nacional deseada, sino que abrió la puerta a un período de inestabilidad y guerra civil."
+
+explicacion: |
+  Tras Caseros, Argentina vivió una larga etapa de fragmentación política y conflictos entre Buenos Aires y la Confederación.
+```
+
+## Sección: conquista-del-desierto-y-campana-al-chaco (24 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "basico"
+  tags: ["conquista_del_desierto", "julio_arentino_roca"]
+
+variables:
+  anio: 1879
+
+respuesta: "1879"
+tipo: input
+
+enunciado: "¿En qué año se lanzó oficialmente la campaña de la Conquista del Desierto bajo el mando del general Julio Argentino Roca?"
+
+explicacion: |
+  La Conquista del Desierto fue una campaña militar iniciada en 1879 por el gobierno de Nicolás Avellaneda, comandada por el general Julio Argentino Roca, con el objetivo de ocupar los territorios pampeanos y patagónicos habitados por pueblos originarios.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "basico"
+  tags: ["conquista_del_desierto", "pueblos_originarios"]
+
+variables:
+  pueblos: ["mapuches", "pehuenches", "ranqueles", "querandíes"]
+  correctos: ["mapuches", "pehuenches", "ranqueles"]
+
+respuesta: |
+  mapuches
+  pehuenches
+  ranqueles
+tipo: completar
+
+enunciado: "Nombra tres de los pueblos originarios que habitaban la Pampa y la Patagonia y fueron afectados por la Conquista del Desierto."
+
+explicacion: |
+  Los mapuches, pehuenches y ranqueles, entre otros, eran los habitantes principales de la región que fue objeto de la campaña militar de 1879.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "intermedio"
+  tags: ["campana_al_chaco", "cronologia"]
+
+respuesta: "1884-1885"
+tipo: input
+
+enunciado: "¿Entre qué dos años se desarrolló principalmente la Campaña al Chaco, dirigida a asegurar las fronteras del norte? (formato: aaaa-aaaa)"
+
+explicacion: |
+  Aunque hubo acciones previas y posteriores, el periodo clave de la Campaña al Chaco bajo el gobierno de Julio A. Roca fue entre 1884 y 1885.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "intermedio"
+  tags: ["campana_al_chaco", "gobierno"]
+
+variables:
+  presidente: "Julio A. Roca"
+
+respuesta: "Julio A. Roca"
+tipo: input
+
+enunciado: "¿Qué presidente estaba en el cargo durante el desarrollo principal de la Campaña al Chaco (1884-1885)?"
+
+explicacion: |
+  La Campaña al Chaco se llevó a cabo durante el gobierno de Julio A. Roca, buscando consolidar el control estatal en el norte argentino.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "intermedio"
+  tags: ["consecuencias", "demografia"]
+
+respuesta: "desplazamiento o muerte de miles de personas"
+tipo: input
+
+enunciado: "Una de las consecuencias humanas inmediatas de la Conquista del Desierto fue el ___."
+
+explicacion: |
+  La campaña militar provocó el desalojo forzado, la muerte o la reducción a la servidumbre de miles de indígenas, alterando radicalmente la demografía regional.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "basico"
+  tags: ["conquista_del_desierto", "fechas", "roca"]
+
+variables:
+  fecha: 1879
+
+respuesta: 1879
+tipo: input
+
+enunciado: "¿En qué año comenzó oficialmente la campaña militar conocida como la Conquista del Desierto, liderada por el general Julio A. Roca?"
+
+explicacion: |
+  La Conquista del Desierto se inició en 1879. Fue una campaña militar organizada por el gobierno nacional para ocupar los territorios del sur y oeste argentino, habitados por pueblos originarios.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "basico"
+  tags: ["roca", "liderazgo", "militar"]
+
+respuesta: "Julio Argentino Roca"
+tipo: completar
+
+enunciado: "La campaña de la Conquista del Desierto fue comandada por el general ___."
+
+explicacion: |
+  Julio Argentino Roca fue el general que lideró la expedición de 1879. Su éxito en esta campaña consolidó su posición política y lo llevó a la presidencia posteriormente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "intermedio"
+  tags: ["territorio", "patagonia", "pampa"]
+
+respuesta: "Pampa Patagónica"
+tipo: completar
+
+enunciado: "El objetivo geográfico principal de la Conquista del Desierto era avanzar sobre la ___."
+
+explicacion: |
+  La campaña buscaba someter a los pueblos mapuches, pehuenches y ranqueles que habitaban la Pampa y la Patagonia, integrando estas tierras al Estado nacional.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "intermedio"
+  tags: ["pueblos_originarios", "mapuche", "pehuenche"]
+
+respuesta: "mapuches, pehuenches y ranqueles"
+tipo: completar
+
+enunciado: "Los principales pueblos originarios que habitaban los territorios conquistados en la campaña del sur eran los ___."
+
+explicacion: |
+  Estos grupos mantenían una organización social y económica autónoma en la región pampeana y patagónica antes de la intervención militar estatal.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "avanzado"
+  tags: ["ideologia", "civilizacion", "barbarie"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La expansión territorial se justificó políticamente bajo la dicotomía de 'civilización' frente a 'barbarie', promoviendo valores europeos."
+
+explicacion: |
+  El discurso de la época presentaba a los pueblos originarios como obstáculos para el progreso y la ley, legitimando la ocupación militar como un acto de 'civilización'.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "basico"
+  tags: ["chaco", "fechas", "cronologia"]
+
+variables:
+  inicio: 1884
+
+respuesta: 1884
+tipo: input
+
+enunciado: "¿En qué año comenzó principalmente la Campaña al Chaco, paralela a la consolidación de la frontera sur?"
+
+explicacion: |
+  La Campaña al Chaco se desarrolló principalmente entre 1884 y 1885, bajo el gobierno de Julio A. Roca, para asegurar la frontera norte.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "intermedio"
+  tags: ["juarez_celman", "presidencia", "gobierno"]
+
+respuesta: "Julio A. Roca"
+tipo: completar
+
+enunciado: "La Campaña al Chaco se llevó a cabo durante el gobierno de ___."
+
+explicacion: |
+  Julio A. Roca fue presidente de Argentina en su primer mandato entre 1880 y 1886 (tuvo un segundo mandato entre 1898 y 1904). Durante ese primer gobierno se intensificó la expansión hacia el norte del país.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "basico"
+  tags: ["violencia", "militar", "realidad"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La Conquista del Desierto fue un proceso completamente pacífico sin víctimas mortales."
+
+explicacion: |
+  Falso. La campaña implicó operaciones militares violentas, batallas y el desalojo forzado de poblaciones originarias.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "basico"
+  tags: ["cronologia", "chaco"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Campaña al Chaco tuvo lugar principalmente entre 1884 y 1885."
+
+explicacion: |
+  Correcto. Aunque hubo conflictos anteriores y posteriores, este período marca el inicio de la ocupación sistemática del norte bajo el gobierno de Roca.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "intermedio"
+  tags: ["derecho", "propiedad", "originales"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los pueblos originarios mantuvieron la propiedad legal de sus tierras ancestrales tras la conquista."
+
+explicacion: |
+  Falso. La conquista resultó en la pérdida de sus tierras, que fueron incorporadas al dominio público y luego privatizadas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "intermedio"
+  tags: ["economia", "exportacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La incorporación de tierras permitió impulsar la exportación de carne y trigo."
+
+explicacion: |
+  Correcto. La nueva tierra disponible fue clave para el modelo agroexportador que caracterizó a la Argentina de finales del siglo XIX.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "avanzado"
+  tags: ["roca", "politica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Julio A. Roca se convirtió en presidente de la Nación gracias en parte al éxito de esta campaña."
+
+explicacion: |
+  Correcto. El prestigio obtenido por la Conquista del Desierto fue fundamental para su ascenso político y su primera presidencia (1880-1886).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "intermedio"
+  tags: ["estado", "soberania"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El gobierno nacional consideraba a estas regiones un 'vacío administrativo' antes de la conquista."
+
+explicacion: |
+  Correcto. Desde la perspectiva del Estado liberal, la falta de instituciones estatales formales se interpretaba como ausencia de soberania efectiva.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "intermedio"
+  tags: ["inmigracion", "demografia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La tierra conquistada facilitó la llegada masiva de inmigrantes europeos."
+
+explicacion: |
+  Correcto. Las tierras liberadas fueron colonizadas por europeos, transformando la demografía y la cultura del país.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "intermedio"
+  tags: ["soberania", "indigena"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La victoria militar significó el fin de la soberanía indígena en la región pampeana y patagónica."
+
+explicacion: |
+  Correcto. Los pueblos originarios perdieron su capacidad de autogobierno y fueron desplazados a reservas o marginados socialmente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "avanzado"
+  tags: ["comparacion", "objetivos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los objetivos de la Conquista del Desierto y la Campaña al Chaco eran idénticos en todos sus aspectos."
+
+explicacion: |
+  Falso. Aunque ambas buscaban expansión, el sur se centró en tierras agrícolas y el norte en fronteras geopolíticas y recursos específicos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "avanzado"
+  tags: ["herencia", "desigualdad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La marginación social y económica de los pueblos originarios derivada de la conquista persiste hasta hoy."
+
+explicacion: |
+  Correcto. Las consecuencias estructurales de la pérdida de tierras y derechos siguen afectando a las comunidades indígenas argentinas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "intermedio"
+  tags: ["economia", "inversion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La conquista permitió una masiva entrada de capital extranjero al país."
+
+explicacion: |
+  Correcto. La seguridad territorial y la disponibilidad de tierras incentivaron la inversión extranjera, especialmente británica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "conquista_del_desierto_y_campana_al_chaco"
+  nivel: "intermedio"
+  tags: ["historia", "contacto"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Antes de la conquista, los pueblos originarios estaban completamente aislados de las provincias argentinas."
+
+explicacion: |
+  Falso. Mantenían intercambios comerciales y relaciones políticas con las provincias, aunque fuera de la estructura estatal nacional.
+```
+
+## Sección: economias-regionales-tempranas (23 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["ley_aduanas", "urquiza", "proteccionismo"]
+
+variables:
+  anio: 1854
+
+respuesta: "proteger la producción local"
+tipo: completar
+
+enunciado: "La Ley de Aduanas promulgada en {anio} por el gobierno de Justo José de Urquiza tenía como objetivo principal:"
+
+explicacion: |
+  La ley buscaba proteger la industria naciente y la producción local frente a la competencia extranjera, especialmente la británica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["comercio_exterior", "britanicos"]
+
+respuesta: "británica"
+tipo: completar
+
+enunciado: "La Ley de Aduanas de 1854 buscaba proteger la producción local frente a la competencia de la industria ___."
+
+explicacion: |
+  La industria británica era la principal competidora en el mercado argentino de la época.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["litoral", "entre_rios", "corrientes"]
+
+variables:
+  regiones: "Entre Ríos y Corrientes"
+
+respuesta: "Entre Ríos y Corrientes"
+tipo: completar
+
+enunciado: "Las provincias que más resistieron la Ley de Aduanas por considerar que amenazaba su autonomía económica fueron:"
+
+explicacion: |
+  Las provincias del Litoral, especialmente Entre Ríos y Corrientes, dependían más del comercio internacional y menos de la protección arancelaria.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["economia_litoral", "comercio"]
+
+respuesta: "abierta"
+tipo: completar
+
+enunciado: "La economía de las provincias del Litoral se caracterizaba por ser más ___ al comercio internacional."
+
+explicacion: |
+  A diferencia del centro del país, el Litoral tenía una economía más integrada y dependiente del comercio exterior.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["conflicto_armado", "causas"]
+
+respuesta: "Ley de Aduanas"
+tipo: completar
+
+enunciado: "La resistencia a la ___ se convirtió en el detonante de una nueva guerra civil entre la Confederación y el Litoral."
+
+explicacion: |
+  La aplicación estricta de la ley por Urquiza provocó la reacción armada de los caudillos litorales.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["ideologia", "descentralizacion"]
+
+respuesta: "descentralizada"
+tipo: completar
+
+enunciado: "Los rebeldes del Litoral defendían una visión política más ___, donde las provincias tendrían mayor control sobre sus recursos."
+
+explicacion: |
+  Los caudillos litorales argumentaban a favor de una mayor autonomía provincial frente al centralismo confederado.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["exportaciones", "carne"]
+
+respuesta: "carne salada y cueros"
+tipo: completar
+
+enunciado: "En la década de 1850, las exportaciones de ___ seguían siendo vitales para la economía argentina."
+
+explicacion: |
+  Aunque la industria nacía, la ganadería y sus derivados seguían siendo la base de las exportaciones.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["fiscalidad", "estado"]
+
+respuesta: "asegurar ingresos"
+tipo: completar
+
+enunciado: "Además de proteger la industria, la Ley de Aduanas buscaba ___ para el Estado nacional."
+
+explicacion: |
+  El Estado nacional necesitaba recursos fiscales para estructurarse tras la caída de Rosas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["soberania", "comercio"]
+
+respuesta: "soberanía sobre el comercio exterior"
+tipo: completar
+
+enunciado: "Mientras la Confederación buscaba consolidar la ___, los rebeldes defendían la autonomía provincial."
+
+explicacion: |
+  El conflicto fue también una disputa sobre quién controlaba las tarifas y el comercio exterior.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["confederacion", "estructuracion"]
+
+respuesta: "recién comenzaba a estructurarse"
+tipo: completar
+
+enunciado: "La Ley de Aduanas se promulgó cuando el Estado nacional ___ tras la caída de Rosas."
+
+explicacion: |
+  El nuevo orden constitucional estaba frágil y necesitaba consolidar su autoridad fiscal.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["percepcion", "amenaza"]
+
+respuesta: "amenaza directa"
+tipo: completar
+
+enunciado: "Los caudillos litorales percibieron la Ley de Aduanas como una ___ a su autonomía y prosperidad."
+
+explicacion: |
+  La ley fue vista no como una medida técnica, sino como un ataque político y económico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["consecuencias", "guerra"]
+
+respuesta: "no se resolvió con una victoria clara inmediata"
+tipo: completar
+
+enunciado: "La guerra entre la Confederación y el Litoral ___, dejando un legado de desconfianza."
+
+explicacion: |
+  El conflicto prolongado debilitó la legitimidad del gobierno de Urquiza sin definir una supremacía clara de inmediato.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["acuerdos", "federalismo"]
+
+respuesta: "violaba los acuerdos federales"
+tipo: completar
+
+enunciado: "Los rebeldes argumentaban que la ley ___ y perjudicaba sus economías locales."
+
+explicacion: |
+  La imposición unilateral de tarifas fue vista como una violación de los pactos federativos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["diplomacia", "conflicto"]
+
+respuesta: "rompimiento de relaciones"
+tipo: completar
+
+enunciado: "La situación escaló rápidamente, llevando al ___ diplomáticas entre el gobierno nacional y el Litoral."
+
+explicacion: |
+  La tensión económica derivó en una crisis política y diplomática abierta.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["rosas", "urquiza", "control"]
+
+respuesta: "control absoluto"
+tipo: completar
+
+enunciado: "La tensión se generó aunque la capital ya no tuviera el ___ que había tenido bajo Rosas."
+
+explicacion: |
+  Urquiza intentaba centralizar el poder que Rosas había ejercido desde Buenos Aires, pero con menos fuerza coercitiva inicial.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["constitucion", "fragilidad"]
+
+respuesta: "fragilidad del nuevo orden constitucional"
+tipo: completar
+
+enunciado: "El conflicto puso de manifiesto la ___ y la dificultad de integrar intereses dispares."
+
+explicacion: |
+  La incapacidad de resolver el conflicto fiscal mostró los límites del nuevo marco legal.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["integracion", "economia"]
+
+respuesta: "integrar intereses económicos tan dispares"
+tipo: completar
+
+enunciado: "El gran desafío del momento era ___ bajo un mismo marco legal."
+
+explicacion: |
+  Los intereses de Buenos Aires/Confederación y los del Litoral eran económicamente antagónicos en términos arancelarios.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["tarifas", "proteccionismo"]
+
+respuesta: "tarifas altas"
+tipo: completar
+
+enunciado: "La Ley de Aduanas imponía ___ a las importaciones para proteger la industria local."
+
+explicacion: |
+  El proteccionismo se lograba mediante barreras arancelarias elevadas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["regulacion", "comercio_exterior"]
+
+respuesta: "regular el comercio exterior"
+tipo: completar
+
+enunciado: "Además de las tarifas, la ley buscaba ___ bajo el control del Estado nacional."
+
+explicacion: |
+  La centralización del comercio exterior era clave para la soberanía nacional.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["litoral", "economia"]
+
+variables:
+  valor: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Las provincias del Litoral dependían más de la protección arancelaria que el centro del país."
+
+explicacion: |
+  Falso. El Litoral tenía una economía más abierta y dependía menos de la protección que el centro.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["guerra", "resultado"]
+
+variables:
+  valor: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La guerra entre la Confederación y el Litoral se resolvió con una victoria clara inmediata."
+
+explicacion: |
+  Falso. El conflicto dejó un legado de desconfianza y no tuvo un ganador claro de inmediato.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["urquiza", "aplicacion"]
+
+variables:
+  valor: "verdadero"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Justo José de Urquiza intentó aplicar la Ley de Aduanas de manera estricta."
+
+explicacion: |
+  Verdadero. Su estricta aplicación fue el detonante de la rebelión litoraleña.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["industria", "proteccion"]
+
+variables:
+  valor: "verdadero"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Ley de Aduanas buscaba fomentar la industria naciente argentina."
+
+explicacion: |
+  Verdadero. El proteccionismo arancelario tenía como fin desarrollar la manufactura local.
 ```
 

@@ -1,2357 +1,2385 @@
 # Examen jefe — [PENDIENTE #689]
 
-> Logro #689. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #689. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: galaxias-tipos-escala (25 preguntas)
+## Sección: seleccion-natural-evidencias-nivel2 (25 preguntas)
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "intermedio"
+  tags: ["fosiles", "evolucion", "registro_fosil"]
+
+variables:
+  escenario: uno_de([["Archaeopteryx", "ave", "reptil"], ["Tiktaalik", "pez", "tetrápodo"], ["Ambulocetus", "mamífero", "anfibio"]])
+
+enunciado: "El hallazgo de un fósil que presenta características de dos grupos distintos, como el caso de {escenario[0]}, es una evidencia clave de la evolución. Este tipo de organismo se denomina forma ___."
+
+respuestas_validas:
+  - "transicional"
+tipo: completar
+
+explicacion: |
+  Las formas transicionales muestran características intermedias entre grupos de organismos, permitiendo reconstruir la historia evolutiva de linajes como el de las aves o los mamíferos acuáticos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "intermedio"
+  tags: ["caballos", "evidencia", "lineaje"]
+
+variables:
+  secuencia_correcta: ["Eohippus", "Mesohippus", "Merychippus", "Equus"]
+
+enunciado: "El registro fósil de los équidos muestra una progresión clara en el tamaño y la morfología de los dientes y las extremidades. Ordene cronológicamente los siguientes géneros desde el más antiguo al más reciente:"
+
+opciones_explicitas: ["Eohippus", "Mesohippus", "Merychippus", "Equus"]
+respuesta_orden: ["Eohippus", "Mesohippus", "Merychippus", "Equus"]
+tipo: ordenar
+
+explicacion: |
+  La evolución de los caballos muestra una transición desde animales pequeños de varios dedos hacia animales más grandes con un solo dedo (equino), adaptándose a cambios en el hábitat de bosque a pradera.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "avanzado"
+  tags: ["tetrapodos", "transicion", "fofiles"]
+
+variables:
+  caso: uno_de([["Tiktaalik", "posee escamas y aletas lobuladas con estructuras óseas de extremidades"], ["Acanthostega", "presenta dedos pero mantiene una morfología muy acuática"], ["Ichthyostega", "muestra una columna vertebral más robusta para soportar peso"]])
+
+enunciado: "Analice el siguiente caso fósil: {caso[0]}. Según la evidencia del registro fósil, este organismo representa una etapa de transición hacia la vida terrestre porque ___."
+
+opciones_explicitas: ["posee escamas y aletas lobuladas con estructuras óseas de extremidades", "presenta dedos pero mantiene una morfología muy acuática", "muestra una columna vertebral más robusta para soportar peso"]
+respuesta: "posee escamas y aletas lobuladas con estructuras óseas de extremidades"
+tipo: mc
+
+explicacion: |
+  Los peces de aletas lobuladas como Tiktaalik poseen estructuras óseas en sus extremidades que son homólogas a los huesos de los miembros de los tetrápodos modernos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "avanzado"
+  tags: ["ballenas", "evolucion", "transicion"]
+
+variables:
+  etapa: uno_de([["Pakicetus", "un mamífero terrestre con oídos adaptados para el agua"], ["Ambulocetus", "un mamífero con extremidades adaptadas para la natación"], ["Basilosaurus", "un cetáceo con extremidades traseras vestigiales"]])
+
+enunciado: "La transición de mamíferos terrestres a cetáceos está documentada por el registro fósil. Un ejemplo es {etapa[0]}, que se caracteriza por ser ___."
+
+respuestas_validas:
+  - "un mamífero terrestre con oídos adaptados para el agua"
+  - "un mamífero con extremidades adaptadas para la natación"
+  - "un cetáceo con extremidades traseras vestigiales"
+tipo: completar
+
+explicacion: |
+  El registro fósil de las ballenas es uno de los más completos, mostrando la reducción de extremidades traseras y la modificación de los miembros anteriores en aletas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
   nivel: "basico"
-  tags: ["definicion", "astronomia"]
+  tags: ["registro_fosil", "conceptos"]
+
+enunciado: "Si el registro fósil muestra que una especie X aparece en estratos geológicos antiguos y una especie Y aparece en estratos más jóvenes con estructuras similares pero más complejas, esto sugiere que ___."
+
+opciones_explicitas: ["ha ocurrido un proceso de cambio evolutivo a través del tiempo", "las especies se crearon de forma independiente sin relación", "el registro fósil es incompleto y no permite conclusiones"]
+respuesta: "ha ocurrido un proceso de cambio evolutivo a través del tiempo"
+tipo: mc
+
+explicacion: |
+  La sucesión de formas en el registro fósil permite observar la transformación de linajes biológicos a lo largo de la escala temporal geológica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "intermedio"
+  tags: ["evolucion", "especiacion", "adaptacion"]
+
+respuesta: "radiacion_adaptativa"
+tipo: mc
+
+opciones_explicitas: ["extincion_masiva", "radiacion_adaptativa", "mutacion_espontanea", "deriva_genetica"]
+
+enunciado: "Cuando un grupo de organismos coloniza un nuevo entorno con múltiples nichos ecológicos vacíos, se observa un proceso de diversificación rápida conocido como ___."
+
+explicacion: |
+  La radiación adaptativa ocurre cuando un linaje ancestral se diversifica rápidamente en una variedad de formas que permiten colonizar diferentes nichos ecológicos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "intermedio"
+  tags: ["fosiles", "tiempo_geologico"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [[["Paleozoico", "explosión de vida"], ["Mesozoico", "dominio de reptiles"]], [["Paleozoico", "vida marina diversa"], ["Mesozoico", "aparición de aves"]]]
+
+respuesta: datos[escenario_idx][0][0]
+tipo: completar
+respuestas_validas:
+  - "Paleozoico"
+  - "Mesozoico"
+
+enunciado: "El registro fósil muestra que la selección natural ha moldeado la vida a través de eras geológicas. Un ejemplo es el ___, donde se observa una gran diversificación de formas de vida marinas."
+
+explicacion: |
+  El registro fósil es una evidencia clave que permite observar cómo la selección natural actúa sobre patrones de diversificación a lo largo de millones de años.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "avanzado"
+  tags: ["homologia", "anatomia_comparada"]
+
+respuesta: "estructuras_homologas"
+tipo: mc
+
+opciones_explicitas: ["estructuras_anlogas", "estructuras_homologas", "mutaciones_neutrales", "aislamiento_reproductivo"]
+
+enunciado: "La selección natural actúa sobre estructuras que derivan de un ancestro común, aunque sus funciones hayan cambiado. Estas estructuras se denominan ___."
+
+explicacion: |
+  Las estructuras homólogas (como el brazo de un humano y la aleta de una ballena) son evidencia de que la selección natural ha adaptado un mismo plan corporal a diferentes funciones.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "intermedio"
+  tags: ["procesos", "evolucion"]
+
+opciones_explicitas: ["Variabilidad", "Selección Natural", "Adaptación", "Especiación"]
+respuesta_orden: ["Variabilidad", "Selección Natural", "Adaptación", "Especiación"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos que explican cómo la selección natural conduce a la diversificación de nuevas especies a lo largo del tiempo:"
+
+explicacion: |
+  Primero debe existir variabilidad genética; luego la selección natural actúa sobre esas variaciones en un entorno dado, resultando en adaptaciones que, acumuladas, llevan a la especiación.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "avanzado"
+  tags: ["extincion", "nichos"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  escenarios: [["extinciones_masivas", "liberan_nichos"], ["extinciones_masivas", "reducen_la_diversidad"]]
+
+respuesta: escenarios[caso_idx][1]
+tipo: completar
+respuestas_validas:
+  - "liberan_nichos"
+  - "reducen_la_diversidad"
+
+enunciado: "Un patrón observado en la historia de la vida es que las ___ suelen actuar como catalizadores para nuevas radiaciones adaptativas porque ___."
+
+explicacion: |
+  Las extinciones masivas eliminan competidores y ocupantes de nichos, permitiendo que los supervivientes se diversifiquen rápidamente mediante la selección natural en los espacios vacíos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "intermedio"
+  tags: ["extincion", "evolucion", "nichos"]
+
+respuesta: "radiacion_adaptativa"
+tipo: completar
+respuestas_validas:
+  - "radiacion_adaptativa"
+  - "radiacion_adaptativa"
+
+enunciado: "Cuando ocurre una extinción masiva, se eliminan la mayoría de los taxones dominantes, lo que permite que los supervivientes ocupen los nichos vacíos mediante un proceso conocido como ___."
+
+explicacion: |
+  Las extinciones masivas actúan como un 'reset' al eliminar la competencia de los grupos dominantes, permitiendo que los linajes supervivientes se diversifiquen rápidamente para ocupar los nuevos espacios ecológicos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "avanzado"
+  tags: ["permico", "trias", "evolucion"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [[ "la gran extinción", "el gran reset" ], [ "el fin de la vida", "la gran diversificación" ]]
+
+opciones_explicitas:
+  - "Aumentar la competencia"
+  - "Reducir la diversidad y abrir nuevos nichos"
+  - "Detener la selección natural"
+
+respuesta: "Reducir la diversidad y abrir nuevos nichos"
+tipo: mc
+
+enunciado: "La extinción masiva del Pérmico-Triásico es considerada un evento de 'reset' evolutivo porque su principal efecto en la biodiversidad fue ___."
+
+explicacion: |
+  Al eliminar hasta el 95% de las especies, se eliminaron las barreras biológicas y la competencia de los grupos que dominaban el Paleozoico, permitiendo el surgimiento de los dinosaurios en el Mesozoico.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "intermedio"
+  tags: ["nichos", "seleccion_natural"]
 
 tipo: mc
-opciones_explicitas: ["Un conjunto de planetas que orbitan una estrella", "Un sistema masivo de estrellas, gas, polvo y materia oscura unidos por la gravedad", "Un cúmulo de agujeros negros en el centro del universo", "Una nube de gas que colapsa para formar una estrella"]
-respuesta: "Un sistema masivo de estrellas, gas, polvo y materia oscura unidos por la gravedad"
-enunciado: "En términos astronómicos, ¿qué constituye fundamentalmente una galaxia?"
+opciones_explicitas:
+  - "Los supervivientes se adaptan a los nuevos nichos vacíos"
+  - "La selección natural se detiene por falta de especies"
+  - "La diversidad aumenta instantáneamente sin cambios genéticos"
+
+respuesta: "Los supervivientes se adaptan a los nuevos nichos vacíos"
+
+enunciado: "Tras un evento de extinción masiva, ¿cuál es el papel de la selección natural en la reconstrucción de la biosfera?"
+
 explicacion: |
-  Una galaxia es un sistema masivo que contiene estrellas, gas, polvo y una gran cantidad de materia oscura, todo mantenido unido por la fuerza de la gravedad.
+  La selección natural no se detiene; de hecho, se acelera en términos de divergencia morfológica, ya que los supervivientes se adaptan rápidamente a las nuevas condiciones y nichos disponibles.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "intermedio"
+  tags: ["secuencia", "evolucion"]
+
+opciones_explicitas:
+  - "Extinción masiva"
+  - "Vaciamiento de nichos"
+  - "Radiación adaptativa"
+
+respuesta_orden: ["Extinción masiva", "Vaciamiento de nichos", "Radiación adaptativa"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente los eventos que caracterizan un ciclo de 'reset' evolutivo tras una crisis biológica:"
+
+explicacion: |
+  Primero ocurre el evento de extinción, luego quedan nichos ecológicos sin ocupar (vaciamiento), y finalmente los supervivientes evolucionan para llenarlos (radiación).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
   nivel: "basico"
-  tags: ["via_lactea", "ubicacion"]
+  tags: ["diversidad", "extincion"]
+
+variables:
+  valor_diversidad: uno_de([0, 1])
+  datos: [[0.1, "baja"], [0.9, "alta"]]
+
+respuesta: "baja"
+tipo: mc
+opciones_explicitas:
+  - "baja"
+  - "alta"
+  - "constante"
+
+enunciado: "Inmediatamente después de una extinción masiva, la diversidad biológica global es ___ en comparación con el periodo anterior."
+
+explicacion: |
+  Las extinciones masivas se definen precisamente por una caída drástica y rápida en la riqueza de especies y la diversidad funcional del ecosistema.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "intermedio"
+  tags: ["homologia", "evolucion", "anatomia_comparada"]
+
+tipo: mc
+opciones_explicitas: ["Estructuras con diferente origen embrionario y función similar", "Estructuras con mismo origen embrionario pero diferente función", "Estructuras que cumplen la misma función pero tienen distinto origen", "Estructuras que han surgido de forma independiente por presión ambiental"]
+respuesta: "Estructuras con mismo origen embrionario pero diferente función"
+enunciado: "La homología se define como la presencia de estructuras en diferentes especies que, aunque pueden tener funciones distintas, comparten un mismo origen evolutivo y embriológico. ¿Cuál de las siguientes opciones describe mejor este concepto?"
+explicacion: |
+  Las estructuras homólogas (como el brazo de un humano y el ala de un murciélago) tienen el mismo plan estructural básico debido a un ancestro común, aunque la selección natural las haya adaptado para funciones diferentes (manipular objetos vs. volar).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "intermedio"
+  tags: ["vertebrados", "homologia", "anatomia"]
+
+variables:
+  escenario: uno_de([["el ala de un ave", "el brazo de un humano", "la aleta de una ballena"], ["la pata de un gato", "el ala de un murciélago", "el brazo de un humano"], ["la aleta de un delfín", "el ala de un ave", "la pata de un caballo"]])
 
 tipo: completar
 respuestas_validas:
-  - "Vía Láctea"
-  - "Andrómeda"
-  - "Sagitario"
+  - "huesos"
+  - "músculos"
+  - "tejido"
+respuesta: "huesos"
 
-enunciado: "El nombre de nuestra galaxia, el sistema donde se encuentra el Sistema Solar, es la ___."
+enunciado: "Si comparamos {escenario[0]}, {escenario[1]} y {escenario[2]}, observamos que presentan una organización similar de ___ óseos, lo que evidencia un ancestro común para los tetrápodos."
 
 explicacion: |
-  Nosotros habitamos la Vía Láctea, una galaxia de tipo espiral.
+  La disposición de los huesos (húmero, radio, cúbito, carpos) es un ejemplo clásico de homología que demuestra que estas especies derivan de un mismo plan corporal ancestral.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "intermedio"
-  tags: ["componentes", "gravedad"]
-
-variables:
-  componentes: ["estrellas", "gas", "polvo", "materia oscura"]
-
-tipo: mc
-opciones_explicitas: ["Solo estrellas y planetas", "Estrellas, gas, polvo y materia oscura", "Solo materia oscura y agujeros negros", "Solo gas y polvo estelar"]
-respuesta: "Estrellas, gas, polvo y materia oscura"
-
-enunciado: "Considerando los componentes de una galaxia: {componentes[0]}, {componentes[1]}, {componentes[2]}, ¿cuál es el cuarto elemento esencial que aporta la mayor parte de la masa?"
-
-explicacion: |
-  La materia oscura es un componente fundamental que no emite luz pero ejerce la gravedad necesaria para mantener la estructura galáctica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
   nivel: "avanzado"
-  tags: ["orden", "jerarquia"]
-
-tipo: ordenar
-opciones_explicitas: ["Planeta", "Sistema Solar", "Galaxia", "Universo"]
-
-enunciado: "Ordena los siguientes objetos astronómicos de menor a mayor escala jerárquica:"
-
-explicacion: |
-  La jerarquía correcta va desde el cuerpo celeste individual (planeta), pasando por su sistema de órbitas, el conjunto de sistemas (galaxia), hasta la totalidad del cosmos (universo).
-respuesta_orden: ["Planeta", "Sistema Solar", "Galaxia", "Universo"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "basico"
-  tags: ["gravedad", "fuerzas"]
+  tags: ["divergencia", "adaptacion", "homologia"]
 
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "La fuerza fundamental que mantiene unidos a los componentes de una galaxia (estrellas, gas, polvo) es la ___."
+enunciado: "Cuando estructuras homólogas se adaptan a diferentes nichos ecológicos, el proceso se denomina divergencia evolutiva. Si la estructura es similar por origen pero muy distinta en función, estamos ante una homología. Si la estructura es similar en función pero de origen distinto, el término es ___."
 
-pasos:
-  - "Identificar la fuerza que actúa a escala macroscópica en el espacio."
-
-explicacion: |
-  La gravedad es la fuerza de atracción que permite que la materia se agrupe en estructuras masivas como las galaxias.
-
-respuesta: "gravedad"
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "basico"
-  tags: ["astronomia", "galaxias"]
-
-respuesta: "espiral"
-tipo: mc
-opciones_explicitas: ["elíptica", "espiral", "irregular"]
-
-enunciado: "Las galaxias que presentan una estructura de disco con brazos que se curvan desde un núcleo central se denominan galaxias ___."
-
-explicacion: |
-  Las galaxias espirales, como la Vía Láctea, se caracterizan por tener un núcleo brillante y brazos espirales donde se forman nuevas estrellas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "basico"
-  tags: ["astronomia", "galaxias"]
-
-respuesta: "elíptica"
-tipo: mc
-opciones_explicitas: ["espiral", "elíptica", "irregular"]
-
-enunciado: "Las galaxias que tienen una forma ovalada o esférica y carecen de una estructura de brazos definida se conocen como galaxias ___."
-
-explicacion: |
-  Las galaxias elípticas suelen contener poblaciones de estrellas viejas y tienen poco gas o polvo para formar nuevas estrellas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "basico"
-  tags: ["astronomia", "galaxias"]
-
-respuesta: "irregular"
-tipo: mc
-opciones_explicitas: ["espiral", "elíptica", "irregular"]
-
-enunciado: "Aquellas galaxias que no poseen una forma geométrica definida ni un núcleo central claro se clasifican como galaxias ___."
-
-explicacion: |
-  Las galaxias irregulares suelen ser el resultado de interacciones gravitatorias entre otras galaxias o son galaxias pequeñas en formación.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "intermedio"
-  tags: ["astronomia", "galaxias"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  escenario: [["espiral", "brazos"], ["elíptica", "forma ovalada"], ["irregular", "sin forma definida"]]
-
-respuesta: escenario[idx][0]
-tipo: mc
-opciones_explicitas: ["espiral", "elíptica", "irregular"]
-
-enunciado: "Se observa una galaxia con una estructura de {escenario[idx][1]}, ¿qué tipo de galaxia es?"
-
-explicacion: |
-  Una galaxia con esa característica es de tipo {escenario[idx][0]}. La propia Vía Láctea, en particular, es de tipo espiral.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "intermedio"
-  tags: ["astronomia", "galaxias"]
-
-respuesta: "espiral, elíptica, irregular"
-tipo: completar
 respuestas_validas:
-  - "espiral, elíptica, irregular"
-  - "espiral, irregular, elíptica"
-
-enunciado: "El orden de los tres principales tipos de galaxias según su morfología es: 1) ___, 2) ___ y 3) ___."
+  - "analogía"
+respuesta: "analogía"
 
 explicacion: |
-  La clasificación morfológica clásica divide a las galaxias principalmente en espirales, elípticas e irregulares.
+  Es vital no confundir homología (mismo origen, distinta función) con analogía (distinto origen, misma función, como el ala de un insecto y el ala de un ave).
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
   nivel: "basico"
-  tags: ["astronomia", "unidades"]
-
-tipo: mc
-opciones_explicitas: ["Año luz", "Kilómetro", "Milla náutica", "Unidad Astronómica"]
-respuesta: "Año luz"
-
-enunciado: "Debido a que las distancias entre las galaxias son inmensas, los kilómetros resultan inmanejables. ¿Cuál es la unidad de medida que representa la distancia que recorre la luz en un año?"
-
-explicacion: |
-  El año luz es la unidad estándar para medir distancias interestelares e intergalácticas, ya que un kilómetro es una medida demasiado pequeña para escalas cósmicas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "intermedio"
-  tags: ["calculo", "luz"]
-
-variables:
-  velocidad_luz_km_s: 299792
-  segundos_en_un_dia: 86400
-  dias_en_un_anio: 365.25
-  distancia_anio_luz_km: 9460730472580.8
-
-tipo: completar
-tolerancia_abs: 1000000000000
-
-enunciado: "Si la luz viaja a aproximadamente {velocidad_luz_km_s} km/s, ¿cuántos kilómetros recorre aproximadamente en un año (considerando {dias_en_un_anio} días)? (Calcula el valor aproximado en km)"
-
-pasos:
-  - "Multiplica la velocidad de la luz por los segundos en un día."
-  - "Multiplica el resultado por la cantidad de días en un año."
-
-respuesta: distancia_anio_luz_km
-
-explicacion: |
-  La distancia es: 299792 * 86400 * 365.25 ≈ 9.46 * 10^12 km.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-tipo: completar
-respuestas_validas:
-  - "inmanejables"
-  - "imposibles"
-  - "infinitas"
-
-enunciado: "El uso de unidades como el año luz es necesario porque las distancias en kilómetros son ________ para el estudio de la escala galáctica."
-
-explicacion: |
-  En astronomía, las escalas humanas (como el km) pierden utilidad práctica cuando se trata de distancias entre sistemas estelares.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-tipo: mc
-opciones_explicitas: ["distancia corta", "distancia larga"]
-
-enunciado: "Dependiendo de la escala, la distancia a la Luna se mide en kilómetros, mientras que la distancia a Andrómeda se mide en ________."
-
-respuesta: "distancia larga"
-
-explicacion: |
-  La Luna está a unos 384,400 km (escala local), mientras que la Galaxia de Andrómeda está a millones de años luz (escala galáctica).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "avanzado"
-  tags: ["orden", "jerarquia"]
+  tags: ["metodologia", "evidencia"]
 
 tipo: ordenar
-opciones_explicitas: ["Sistema Solar", "Galaxia", "Universo Observable"]
+opciones_explicitas: ["Observación de la morfología externa", "Identificación de estructuras homólogas", "Conclusión sobre el ancestro común"]
 
-enunciado: "Ordena las siguientes estructuras de la escala más pequeña a la más grande:"
+enunciado: "Para establecer la evidencia de la homología en un estudio comparativo, ¿cuál es el orden lógico de los pasos científicos?"
 
 explicacion: |
-  El orden correcto es: primero el Sistema Solar, luego la Galaxia (que contiene miles de millones de estrellas) y finalmente el Universo Observable.
-respuesta_orden: ["Sistema Solar", "Galaxia", "Universo Observable"]
+  Primero se observa la morfología, luego se comparan las estructuras internas para hallar la homología y finalmente se infiere la relación filogenética.
+respuesta_orden: ["Observación de la morfología externa", "Identificación de estructuras homólogas", "Conclusión sobre el ancestro común"]
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "basico"
-  tags: ["vía_láctea", "estrellas"]
-
-respuesta: "cientos de miles de millones"
-tipo: completar
-respuestas_validas:
-  - "cientos de miles de millones"
-
-enunciado: "Se estima que nuestra galaxia, la Vía Láctea, contiene ___ de estrellas."
-
-explicacion: |
-  La Vía Láctea es una galaxia espiral que alberga una cantidad masiva de astros, estimándose en cientos de miles de millones de estrellas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "basico"
-  tags: ["universo", "galaxias"]
-
-respuesta: "cientos de miles de millones"
-tipo: mc
-opciones_explicitas: ["cientos de miles de millones", "pocos miles", "un millón"]
-
-enunciado: "En el universo observable se estima que existen ___ de galaxias."
-
-explicacion: |
-  La escala del universo es inmensa; la cantidad de galaxias es comparable en orden de magnitud a la cantidad de estrellas en nuestra propia galaxia.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
   nivel: "intermedio"
-  tags: ["comparacion", "magnitud"]
+  tags: ["anatomia", "evolucion"]
 
-respuesta: "mayor"
+variables:
+  caso: uno_de([["un brazo humano y una aleta de foca"], ["una pata de perro y una aleta de ballena"], ["un brazo humano y una pata de gato"]])
+
 tipo: mc
-opciones_explicitas: ["mayor", "menor", "igual"]
+opciones_explicitas: ["Son estructuras análogas", "Son estructuras homólogas", "Son estructuras vestigiales", "Son estructuras de origen independiente"]
 
-enunciado: "Si comparamos la cantidad de estrellas en la Vía Láctea con la cantidad de galaxias en el universo observable, la cantidad de estrellas es ___ que la de galaxias."
+enunciado: "Considerando el par de estructuras: {caso}. ¿Cuál es la conclusión correcta desde el punto de vista de la anatomía comparada?"
+
+respuesta: "Son estructuras homólogas"
 
 explicacion: |
-  Aunque ambas cifras son de "cientos de miles de millones", la escala de estrellas en una sola galaxia es comparable a la escala de galaxias en el universo, pero matemáticamente la cantidad de estrellas es órdenes de magnitud superior a la de galaxias.
+  Al compartir el mismo patrón esquelético básico a pesar de sus funciones, se clasifican como homólogas.
 ```
 
 ```
 metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "avanzado"
-  tags: ["jerarquia", "escala"]
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "intermedio"
+  tags: ["evidencias", "evolucion"]
 
-respuesta_orden: ["Estrellas", "Galaxias", "Universo"]
+variables:
+  datos: [["Las alas de un murciélago y las aletas de una ballena tienen la misma estructura ósea básica pero funciones distintas.", "homologia"], ["Las alas de una mariposa y las alas de un ave cumplen la misma función pero tienen estructuras de origen distinto.", "analogia"], ["Se encuentran restos óseos de un animal extinto que muestra una transición entre reptiles y aves.", "fosil"]]
+  idx: uno_de([0,1,2])
+
+enunciado: "El ejemplo descrito: '{datos[idx][0]}' representa una evidencia de tipo: ___"
+
+respuestas_validas:
+  - "homologia"
+  - "analogia"
+  - "fosil"
+respuesta: datos[idx][1]
+tipo: completar
+
+explicacion: |
+  La respuesta correcta es {datos[idx][1]}. 
+  - Homología: estructuras con origen común pero distinta función.
+  - Analogía: estructuras con función similar pero origen distinto (convergencia).
+  - Fósiles: restos de organismos que vivieron en el pasado.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "intermedio"
+  tags: ["homologia", "analogia"]
+
+variables:
+  datos: [["alas de insectos vs alas de aves", "analogia"], ["brazo humano vs pata de gato", "homologia"]]
+  idx: uno_de([0,1])
+
+enunciado: "Si comparamos {datos[idx][0]}, estamos ante un caso de: ___"
+
+respuestas_validas:
+  - "analogia"
+  - "homologia"
+respuesta: datos[idx][1]
+tipo: completar
+
+explicacion: |
+  La relación entre {datos[idx][0]} es de {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "basico"
+  tags: ["evidencias"]
+
+variables:
+  datos: [["Órganos vestigiales", "anatomia"], ["Pruebas moleculares (ADN)", "molecular"], ["Restos de impresiones en roca", "paleontologia"]]
+  idx: uno_de([0,1,2])
+
+enunciado: "El ejemplo '{datos[idx][0]}' pertenece a la categoría de evidencia: ___"
+
+respuestas_validas:
+  - "anatomia"
+  - "molecular"
+  - "paleontologia"
+respuesta: datos[idx][1]
+tipo: completar
+
+explicacion: |
+  La clasificación para {datos[idx][0]} es {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "intermedio"
+  tags: ["analogia"]
+
+variables:
+  datos: [["Aletas de delfín y aletas de tiburón", "analogia"], ["Pata de caballo y ala de murciélago", "homologia"]]
+  idx: uno_de([0,1])
+
+enunciado: "Analizando {datos[idx][0]}, el concepto evolutivo es: ___"
+
+opciones_explicitas: ["analogia", "homologia"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  Se ha identificado el caso como {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "seleccion_natural_evidencias_nivel2"
+  nivel: "avanzado"
+  tags: ["procesos"]
+
+variables:
+  pasos_correctos: ["variacion", "presion_ambiental", "reproduccion_diferencial", "adaptacion"]
+
+enunciado: "Ordena correctamente las etapas de un proceso de selección natural:"
+
+opciones_explicitas: ["variacion", "presion_ambiental", "reproduccion_diferencial", "adaptacion"]
+respuesta_orden: ["variacion", "presion_ambiental", "reproduccion_diferencial", "adaptacion"]
 tipo: ordenar
 
-opciones_explicitas: ["Estrellas", "Galaxias", "Universo"]
+explicacion: |
+  El proceso sigue la secuencia: 1. {pasos_correctos[0]}, 2. {pasos_correctos[1]}, 3. {pasos_correctos[2]} y finalmente 4. {pasos_correctos[3]}.
+```
 
-enunciado: "Ordena estos conceptos de menor a mayor escala de agrupación de materia:"
+## Sección: herramientas-arte-rupestre (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "basico"
+  tags: ["paleolitico", "tecnologia"]
+
+enunciado: "En la industria lítica, una lasca se define como un/a ___."
+
+respuestas_validas:
+  - "fragmento desprendido de un núcleo"
+tipo: completar
+
+explicacion: |
+  En la tecnología de la talla, las lascas son los fragmentos que se desprenden de una piedra núcleo al ser golpeada, siendo fundamentales para la producción de herramientas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "intermedio"
+  tags: ["paleolitico", "ordenar"]
+
+opciones_explicitas: ["Olduvayense", "Achelense", "Musteriense"]
+
+enunciado: "Ordene las siguientes tecnologías de la más antigua a la más reciente:"
+
+tipo: ordenar
+respuesta_orden: ["Olduvayense", "Achelense", "Musteriense"]
+
+explicacion: |
+  La secuencia evolutiva comienza con el Olduvayense (choppers simples), sigue con el Achelense (bifaces elaborados) y continúa con el Musteriense (técnicas de lasca más complejas).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "intermedio"
+  tags: ["tecnologia", "evolucion"]
+
+enunciado: "El bifaz es una herramienta característica del Paleolítico Inferior que se diferencia de las lascas simples por su técnica de fabricación. ¿Cuál es su principal característica?"
+
+opciones_explicitas: ["Es tallado por ambas caras para lograr simetría", "Es un fragmento accidental de una piedra", "Se fabrica únicamente mediante percusión blanda"]
+tipo: mc
+respuesta: "Es tallado por ambas caras para lograr simetría"
+
+explicacion: |
+  El bifaz representa un salto cognitivo importante, ya que el homínido debe prever la forma final de la herramienta en la piedra antes de empezar a tallar ambas caras.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "avanzado"
+  tags: ["especializacion", "paleolitico"]
+
+enunciado: "Un raspador es una herramienta especializada cuya función principal es ___."
+
+respuestas_validas:
+  - "usado para tratar pieles"
+tipo: completar
+
+explicacion: |
+  La especialización de las herramientas (como el buril o el raspador) indica una mayor complejidad en la organización social y una explotación más eficiente de los recursos naturales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "avanzado"
+  tags: ["tecnologia", "calculo"]
+
+enunciado: "Si un arqueólogo encuentra un conjunto de 12 herramientas líticas con bulbos de percusión pronunciados y plataformas anchas, ¿qué técnica de talla se utilizó probablemente?"
+
+tipo: mc
+opciones_explicitas: ["percusión", "presión"]
+respuesta: "percusión"
+
+explicacion: |
+  La técnica de presión permite obtener lascas muy finas y controladas, mientras que la percusión (especialmente con percutor duro) es la forma más primaria de obtener lascas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "basico"
+  tags: ["arte_rupestre", "paleolitico"]
+
+tipo: mc
+opciones_explicitas: ["Paredes de piedra", "Lienzos de tela", "Pieles de animales", "Tablas de madera"]
+respuesta: "Paredes de piedra"
+
+enunciado: "En el arte rupestre de cuevas como Altamira o Lascaux, ¿cuál era el soporte principal utilizado para las pinturas?"
+
+explicacion: |
+  El arte rupestre se caracteriza por utilizar las paredes de las cuevas (soporte pétreo) como lienzo para sus representaciones.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "intermedio"
+  tags: ["grabado", "tecnicas"]
+
+tipo: completar
+respuestas_validas:
+  - "grabado"
+
+enunciado: "Si un artista prehistórico utiliza una piedra afilada para realizar una incisión profunda en la roca, está realizando un ___."
 
 pasos:
-  - "Identifica la unidad básica en este contexto"
-  - "Identifica el conjunto que contiene a las estrellas"
-  - "Identifica el todo que contiene a las galaxias"
+  - "Identificar la acción: incisión en la roca."
+  - "Relacionar la acción con la técnica correspondiente."
 
 explicacion: |
-  La jerarquía estructural comienza con las estrellas, las cuales se agrupan en galaxias, y estas forman parte de la estructura del universo.
+  El término técnico para la marca dejada por una incisión en una superficie sólida es el grabado.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "basico"
-  tags: ["verdadero_falso"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "Es correcto afirmar que el universo observable contiene cientos de miles de millones de galaxias."
-
-explicacion: |
-  Las estimaciones astronómicas actuales sitúan la cantidad de galaxias en el universo observable en el orden de cientos de miles de millones.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "basico"
-  tags: ["astronomia", "galaxias"]
-
-variables:
-  escenario: [[ "Una galaxia con un núcleo brillante y brazos curvos llenos de gas y polvo.", "Espiral" ], [ "Una galaxia con forma de disco pero sin brazos definidos.", "Lenticular" ], [ "Una galaxia con forma de esfera sin estructura de brazos.", "Elíptica" ]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: escenario[idx][1]
-tipo: mc
-opciones_explicitas: ["Espiral", "Lenticular", "Elíptica"]
-
-enunciado: "Se observa una estructura galáctica con las siguientes características: {escenario[idx][0]}"
-
-explicacion: |
-  La morfología de una galaxia se determina por su estructura visual. En este caso, la presencia de brazos y gas es característica de la tipo {escenario[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "basico"
-  tags: ["astronomia", "galaxias"]
-
-respuesta: "Elíptica"
-tipo: mc
-opciones_explicitas: ["Espiral", "Elíptica"]
-
-enunciado: "Si una galaxia presenta una forma ovoide, carece de brazos espirales y tiene una cantidad mínima de gas interestelar, ¿qué tipo de galaxia es?"
-
-explicacion: |
-  Las galaxias elípticas se caracterizan por su falta de estructura de brazos y su forma redondeada u ovoide.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
+  tema: "herramientas_arte_rupestre"
   nivel: "intermedio"
-  tags: ["astronomia", "galaxias"]
+  tags: ["pigmentos", "quimica_prehistorica"]
 
 variables:
-  escenario: uno_de([["Presenta un disco prominente pero carece de brazos espirales.", "Lenticular"], ["Presenta brazos espirales muy marcados.", "Espiral"]])
+  par: uno_de([["ocre", "óxido de hierro"], ["negro", "carbón vegetal"]])
+
+tipo: mc
+opciones_explicitas: ["óxido de hierro", "carbón vegetal", "arcilla blanca", "sangre de animal"]
+
+enunciado: "Para obtener el color {par[0]} muy común en las pinturas de la Cueva de las Manos, los humanos utilizaban:"
+
+respuesta: par[1]
+
+explicacion: |
+  Los pigmentos se obtenían de minerales (como el óxido de hierro para rojos/ocres) o de materia orgánica quemada (carbón para el negro).
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "herramientas_arte_rupestre"
+  nivel: "avanzado"
+  tags: ["simbolismo", "homo_sapiens"]
+
+tipo: mc
+opciones_explicitas: ["Capacidad de abstracción", "Necesidad de decorar", "Falta de herramientas", "Supervivencia alimentaria"]
+respuesta: "Capacidad de abstracción"
+
+enunciado: "La presencia de signos abstractos y manos en negativo en las cuevas sugiere que el Homo sapiens ya poseía ___."
+
+explicacion: |
+  La capacidad de representar conceptos no tangibles o símbolos es una prueba clave del desarrollo del pensamiento simbólico y el lenguaje complejo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "intermedio"
+  tags: ["procesos", "arte"]
+
+tipo: ordenar
+opciones_explicitas: ["Preparación del soporte", "Preparación del pigmento", "Aplicación de la pintura", "Agotamiento de la luz"]
+
+enunciado: "Ordena el proceso lógico que seguiría un artista en una cueva profunda para realizar una pintura rupestre:"
+
+explicacion: |
+  El artista primero debe asegurar la superficie, luego crear la mezcla de color y finalmente aplicarla, todo esto gestionando la limitada luz de la cueva.
+respuesta_orden: ["Preparación del soporte", "Preparación del pigmento", "Aplicación de la pintura", "Agotamiento de la luz"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "basico"
+  tags: ["prehistoria", "arte_rupestre"]
+
+tipo: mc
+opciones_explicitas: ["Animales de caza", "Paisajes urbanos", "Figuras geométricas abstractas", "Retratos de reyes"]
+respuesta: "Animales de caza"
+
+enunciado: "En el arte rupestre del Paleolítico, ¿qué tipo de figuras eran las representadas con mayor frecuencia en las paredes de las cuevas?"
+
+explicacion: |
+  Las pinturas rupestres más comunes representaban animales que formaban parte de la dieta o el entorno inmediato de los grupos humanos, como bisontes, caballos y ciervos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "basico"
+  tags: ["simbolismo", "manos"]
+
+tipo: mc
+opciones_explicitas: ["Siluetas de manos", "Escenas de guerra", "Instrumentos musicales", "Mapas estelares"]
+respuesta: "Siluetas de manos"
+
+enunciado: "Además de animales, es muy común encontrar en las cuevas la técnica de la estarcido para representar ___."
+
+explicacion: |
+  Las siluetas de manos (ya sean en positivo o negativo) son uno de los elementos más icónicos y recurrentes del arte rupestre mundial.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "herramientas_arte_rupestre"
+  nivel: "intermedio"
+  tags: ["escenas", "caza"]
+
+tipo: mc
+opciones_explicitas: ["escenas de caza", "mapas de navegación", "diagramas matemáticos", "dibujos arquitectónicos"]
+respuesta: "escenas de caza"
+
+enunciado: "Cuando los artistas prehistóricos representaban la interacción entre humanos y animales, solían plasmar ___."
+
+explicacion: |
+  Las escenas de caza muestran la dinámica de la supervivencia, representando a los cazadores con lanzas o arcos frente a sus presas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "basico"
+  tags: ["identificacion"]
+
+tipo: completar
+respuestas_validas:
+  - "animales"
+  - "manos"
+  - "escenas"
+
+enunciado: "El arte rupestre suele clasificarse en tres grandes categorías temáticas: ___, siluetas de ___ y ___."
+
+explicacion: |
+  Estas tres categorías cubren la mayoría de los hallazgos en el registro arqueológico de las pinturas rupestres.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "intermedio"
+  tags: ["observacion", "estudio"]
+
+tipo: ordenar
+opciones_explicitas: ["Identificar el pigmento", "Observar la figura", "Analizar el contexto de la cueva", "Interpretar el significado"]
+
+enunciado: "Un arqueólogo sigue un proceso lógico para estudiar una pintura rupestre. Ordena estos pasos de forma coherente:"
+
+explicacion: |
+  El método científico en arqueología comienza con la observación directa y el análisis material antes de pasar a la interpretación teórica.
+respuesta_orden: ["Observar la figura", "Identificar el pigmento", "Analizar el contexto de la cueva", "Interpretar el significado"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "intermedio"
+  tags: ["cognicion", "simbolismo", "hominidos"]
+
+variables:
+  escenario: uno_de([["pintura de manos en negativo", "capacidad de representación simbólica"], ["herramientas de piedra tallada", "planificación técnica avanzada"], ["adornos con conchas marinas", "pensamiento abstracto y estético"]])
 
 respuesta: escenario[1]
 tipo: mc
-opciones_explicitas: ["Lenticular", "Espiral"]
+opciones_explicitas: ["capacidad de representación simbólica", "planificación técnica avanzada", "pensamiento abstracto y estético"]
 
-enunciado: "Al analizar la morfología de la galaxia {escenario[0]}, ¿qué tipo de galaxia estamos observando?"
+enunciado: "La presencia de {escenario[0]} en cuevas prehistóricas es una evidencia fundamental de la {escenario[1]} del Homo sapiens."
 
 explicacion: |
-  Las galaxias lenticulares son un caso intermedio: tienen la forma de un disco como las espirales, pero no poseen los brazos característicos.
+  El uso de pigmentos para dejar la huella de la mano indica que el individuo no solo interactuaba con el entorno, sino que proyectaba su identidad, un signo claro de pensamiento simbólico.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "intermedio"
-  tags: ["astronomia", "galaxias"]
-
-variables:
-  escenario: [[ "Espiral", "brazos curvos" ], [ "Elíptica", "forma esférica" ], [ "Lenticular", "disco sin brazos" ]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: escenario[idx][1]
-tipo: completar
-respuestas_validas:
-  - escenario[idx][1]
-
-enunciado: "Una galaxia de tipo {escenario[idx][0]} se caracteriza principalmente por tener ___."
-
-explicacion: |
-  La descripción de la galaxia {escenario[idx][0]} corresponde a la característica de {escenario[idx][1]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "galaxias_tipos_escala"
-  nivel: "avanzado"
-  tags: ["astronomia", "galaxias"]
-
-variables:
-  orden_correcto: ["Elíptica", "Lenticular", "Espiral"]
-
-respuesta_orden: orden_correcto
-tipo: ordenar
-opciones_explicitas: ["Elíptica", "Lenticular", "Espiral"]
-
-enunciado: "Ordene los siguientes tipos de galaxias de menor a mayor complejidad estructural (desde la más simple/esférica a la más compleja/con brazos):"
-
-explicacion: |
-  La secuencia correcta es {orden_correcto}, partiendo de la forma más simple (elíptica) hasta la más estructurada (espiral).
-```
-
-## Sección: globalizacion-era-digital (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
+  tema: "herramientas_arte_rupestre"
   nivel: "basico"
-  tags: ["definicion", "interconexion"]
+  tags: ["tecnologia", "evolucion"]
 
-respuesta: "interconexión"
+respuesta: "Homo sapiens"
 tipo: completar
 respuestas_validas:
-  - "interconexión"
-  - "interconexion"
+  - "Homo sapiens"
+  - "Homo sapiens sapiens"
 
-enunciado: "La globalización se define como el proceso de creciente ___ económica, cultural y tecnológica entre los países del mundo."
+enunciado: "A diferencia de otros homínidos, el ___ desarrolló una capacidad de abstracción que le permitió crear herramientas complejas y arte rupestre."
 
 explicacion: |
-  La globalización implica una integración de mercados y sociedades a escala mundial.
+  Aunque otros homínidos usaron herramientas, la combinación de arte complejo y tecnología diversificada es característica del Homo sapiens.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
+  tema: "herramientas_arte_rupestre"
   nivel: "intermedio"
-  tags: ["tecnologia", "comunicacion"]
+  tags: ["proceso", "arte_rupestre"]
+
+opciones_explicitas: ["Preparación del soporte", "Preparación de pigmentos", "Aplicación del color", "Grabado de contornos"]
+
+respuesta_orden: ["Preparación del soporte", "Preparación de pigmentos", "Grabado de contornos", "Aplicación del color"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos que un artista del Paleolítico Superior seguiría para realizar una pintura de gran formato en una pared de la cueva:"
+
+explicacion: |
+  Primero se debe elegir y limpiar la pared, luego fabricar la pintura con minerales, trazar la figura y finalmente aplicar el pigmento.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "avanzado"
+  tags: ["cognicion", "herramientas"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["la llegada de Internet", "la digitalización de la información"], ["el desarrollo de la telefonía móvil", "la inmediatez de la comunicación"]]
-  respuestas_correctas: [["la llegada de Internet", "la digitalización de la información"], ["el desarrollo de la telefonía móvil", "la inmediatez de la comunicación"]]
+  caso: uno_de([["un bifaz perfectamente simétrico", "estética y precisión"], ["un propulsor de lanza", "ingeniería y cálculo de trayectoria"], ["un raspador de hueso", "especialización funcional"]])
 
-respuesta: escenarios[escenario_idx][1]
+respuesta: caso[1]
 tipo: mc
-opciones_explicitas: ["la llegada de Internet", "la digitalización de la información", "el desarrollo de la telefonía móvil", "la inmediatez de la comunicación"]
+opciones_explicitas: ["estética y precisión", "ingeniería y cálculo de trayectoria", "especialización funcional"]
 
-enunciado: "En el contexto de la era digital, {escenarios[escenario_idx][0]} fue un factor clave que impulsó {escenarios[escenario_idx][1]}."
+enunciado: "La fabricación de {caso[0]} sugiere que el homínido no solo buscaba utilidad, sino también {caso[1]}."
 
 explicacion: |
-  La tecnología ha sido el motor que ha permitido que la interconexión sea instantánea y global.
+  La simetría en herramientas de piedra que no es estrictamente necesaria para el corte indica una búsqueda de orden y belleza, propia de la mente moderna.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
+  tema: "herramientas_arte_rupestre"
   nivel: "intermedio"
-  tags: ["economia", "comercio"]
+  tags: ["simbolismo", "evolucion"]
 
-respuesta: "transnacionales"
-tipo: mc
-opciones_explicitas: ["nacionales", "transnacionales", "locales", "estatales"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "La globalización económica ha permitido el auge de las empresas ________, que operan en múltiples países simultáneamente."
+enunciado: "¿Es correcto afirmar que el arte rupestre representa un salto cualitativo en la cognición debido a su naturaleza no utilitaria inmediata?"
 
 explicacion: |
-  Las empresas transnacionales son actores centrales en la economía globalizada.
+  Correcto. El arte no tiene una función de supervivencia directa (como buscar comida), sino que cumple funciones sociales, rituales o de comunicación.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "avanzado"
-  tags: ["cronologia", "tecnologia"]
+  tema: "herramientas_arte_rupestre"
+  nivel: "basico"
+  tags: ["arte_rupestre", "tecnicas"]
 
-respuesta_orden: ["Internet", "Comercio electrónico", "Redes sociales", "Internet de las cosas"]
-tipo: ordenar
-opciones_explicitas: ["Internet", "Comercio electrónico", "Redes sociales", "Internet de las cosas"]
+variables:
+  datos: [["pigmentos mezclados con grasa animal aplicados con los dedos", "Pintura con los dedos"], ["grabados realizados con piedras duras sobre la roca", "Petroglifos"], ["dibujos realizados con carbón vegetal sobre superficies claras", "Dibujo al carbón"]]
+  idx: uno_de([0,1,2])
 
-enunciado: "Ordene cronológicamente estos hitos tecnológicos que han profundizado la globalización:"
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Pintura con los dedos", "Petroglifos", "Dibujo al carbón"]
+
+enunciado: "Se ha descubierto una cueva con las siguientes características: {datos[idx][0]}. ¿A qué técnica pertenece?"
 
 explicacion: |
-  La secuencia muestra cómo la infraestructura (Internet) permitió el comercio, luego la interacción social masiva y finalmente la hiperconectividad de objetos.
+  La descripción corresponde a {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "herramientas_arte_rupestre"
+  nivel: "intermedio"
+  tags: ["herramientas", "grabado"]
+
+variables:
+  datos: [["piedra de sílex", "percutor"], ["hueso endurecido", "estilete"], ["punta de madera", "incisores"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "percutor"
+  - "estilete"
+  - "incisores"
+
+enunciado: "Para grabar la roca a partir de {datos[idx][0]}, el artista necesitó un/a ___."
+
+explicacion: |
+  El instrumento utilizado para la acción descrita es un/a {datos[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "historia_profucha"
-  tema: "globalizacion_era_digital"
+  tema: "herramientas_arte_rupestre"
   nivel: "avanzado"
-  tags: ["desigualdad", "brecha_digital"]
-
-respuesta: "la homogeneización cultural"
-tipo: mc
-opciones_explicitas: ["la homogeneización cultural", "la reducción de la brecha digital"]
-
-enunciado: "Si se analiza la globalización desde una perspectiva crítica, un efecto cultural negativo común es ___."
-
-explicacion: |
-  La homogeneización cultural se refiere a la pérdida de identidades locales frente a una cultura global dominante.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "basico"
-  tags: ["transporte", "comercio"]
-
-enunciado: "La caída drástica en los costos de transporte marítimo durante el siglo XX fue impulsada principalmente por la estandarización de los contenedores. ¿Qué tipo de transporte permitió esta revolución?"
-
-opciones_explicitas: ["Aéreo", "Marítimo", "Ferroviario", "Terrestre"]
-respuesta: "Marítimo"
-tipo: "mc"
-
-explicacion: |
-  La contenedorización permitió cargar y descargar barcos de forma masiva y rápida, reduciendo costos y tiempos de espera, lo que fue clave para la globalización.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "intermedio"
-  tags: ["telecomunicaciones", "internet"]
-
-enunciado: "La globalización en la era digital se vio potenciada por el desarrollo de ___, que permitió la transferencia de datos instantánea entre continentes."
-
-respuesta: "Internet"
-tipo: "completar"
-respuestas_validas:
-  - "Internet"
-
-explicacion: |
-  Mientras que el telégrafo fue el precursor, fue la llegada de Internet lo que permitió la globalización de los servicios y la economía digital actual.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "intermedio"
-  tags: ["tratados", "politica"]
-
-enunciado: "Los tratados de libre comercio buscan la eliminación de barreras para el intercambio de bienes. ¿Cuál es el objetivo principal de un tratado de este tipo?"
-
-opciones_explicitas: ["Aumentar aranceles", "Eliminar aranceles", "Cerrar fronteras", "Controlar precios"]
-respuesta: "Eliminar aranceles"
-tipo: "mc"
-
-explicacion: |
-  Los tratados de libre comercio (TLC) buscan reducir o eliminar impuestos (aranceles) a la importación/exportación para facilitar el flujo comercial.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "avanzado"
-  tags: ["procesos", "historia"]
-
-enunciado: "Ordene cronológicamente estos hitos que impulsaron la integración global:"
-
-opciones_explicitas: ["Revolución Industrial (vapor)", "Expansión del Telégrafo", "Revolución Digital (Internet)"]
-respuesta_orden: ["Revolución Industrial (vapor)", "Expansión del Telégrafo", "Revolución Digital (Internet)"]
-tipo: "ordenar"
-
-explicacion: |
-  La globalización ha sido un proceso acumulativo: primero la máquina de vapor, luego la velocidad de la información con el telégrafo y finalmente la interconectividad digital.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "intermedio"
-  tags: ["economia", "digital"]
-
-enunciado: "En un mundo altamente globalizado digitalmente, el costo marginal de enviar información tiende a ser ___."
-
-pasos:
-  - "Considerar la digitalización de bits vs el transporte físico de papel."
-
-tipo: "completar"
-respuesta: "nulo"
-respuestas_validas:
-  - "nulo"
-  - "cero"
-
-explicacion: |
-  La digitalización permite que el costo marginal de transmitir información sea prácticamente cero, acelerando el comercio global.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "basico"
-  tags: ["internet", "comunicacion", "globalizacion"]
-
-respuesta: "instantánea"
-tipo: completar
-respuestas_validas:
-  - "instantánea"
-  - "inmediata"
-
-enunciado: "La llegada de internet transformó la escala de los intercambios humanos, permitiendo que la comunicación entre personas en distintos continentes sea de carácter ___."
-
-explicacion: |
-  La digitalización eliminó las barreras temporales y geográficas, permitiendo el flujo de información en tiempo real, un pilar fundamental de la globalización moderna.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "intermedio"
-  tags: ["comercio", "e-commerce", "economia"]
-
-respuesta: "comercio electrónico"
-tipo: mc
-opciones_explicitas: ["comercio electrónico", "transacciones bancarias", "servicios en la nube", "todos los anteriores"]
-
-enunciado: "La era digital ha facilitado la expansión del comercio electrónico a nivel mundial, permitiendo que pequeñas empresas accedan a mercados globales sin necesidad de presencia física."
-
-explicacion: |
-  El e-commerce es uno de los motores más visibles de la globalización digital, permitiendo la integración de mercados de consumo de manera global y directa.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "avanzado"
-  tags: ["brecha_digital", "desigualdad", "sociedad"]
-
-respuesta: "brecha digital"
-tipo: completar
-respuestas_validas:
-  - "brecha digital"
-  - "desigualdad tecnológica"
-
-enunciado: "A pesar de la conectividad global, la distribución desigual de la infraestructura tecnológica ha generado una ___ que separa a las naciones desarrolladas de las que están en vías de desarrollo."
-
-explicacion: |
-  La brecha digital es un fenómeno crítico donde la falta de acceso a internet y tecnologías de la información profundiza las desigualdades económicas y sociales preexistentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "intermedio"
-  tags: ["historia", "tecnologia", "evolucion"]
-
-respuesta_orden: ["telegrafía", "computación personal", "internet de banda ancha", "redes móviles 5G"]
-tipo: ordenar
-opciones_explicitas: ["telegrafía", "computación personal", "internet de banda ancha", "redes móviles 5G"]
-
-enunciado: "Ordene cronológicamente los hitos tecnológicos que han acelerado la integración global:"
-
-explicacion: |
-  La globalización ha sido un proceso de aceleración constante: desde la transmisión de señales eléctricas (telegrafía) hasta la hiperconectividad móvil actual.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "basico"
-  tags: ["teoria", "sociedad", "cultura"]
-
-respuesta: "Marshall McLuhan"
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "El concepto de 'Aldea Global', que describe cómo la tecnología digital ha encogido el mundo, fue acuñado por el teórico de la comunicación ___."
-
-explicacion: |
-  McLuhan predijo que los medios de comunicación electrónicos transformarían el mundo en una unidad interconectada donde todos estaríamos presentes en la vida de los demás.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "intermedio"
-  tags: ["cultura", "homogeneizacion"]
+  tags: ["quimica_antigua", "pigmentos"]
 
 variables:
-  escenario: uno_de(["occidentalización", "estandarización"])
+  datos: [["óxido de hierro", "rojo"], ["óxido de manganeso", "negro"], ["arcilla blanca", "blanco"]]
+  idx: uno_de([0,1,2])
 
-respuesta: escenario
+respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["occidentalización", "estandarización", "diversificación", "aislamiento"]
+opciones_explicitas: ["rojo", "negro", "blanco"]
 
-enunciado: "En el contexto de la globalización digital, la difusión masiva de contenidos de un único polo cultural dominante suele provocar un proceso de {escenario} cultural."
+enunciado: "Un arqueólogo encuentra restos de coloración {datos[idx][0]} en una pared. ¿Cuál es el pigmento probable?"
 
 explicacion: |
-  La globalización digital facilita que patrones culturales (música, cine, valores) de potencias tecnológicas se expandan globalmente, lo que puede llevar a la pérdida de particularidades locales en favor de un modelo único.
+  El pigmento utilizado para obtener el color {datos[idx][1]} es el {datos[idx][0]}.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "avanzado"
-  tags: ["economia", "desigualdad"]
-
-respuesta: "Aumenta"
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si la brecha digital se ensancha, la desigualdad económica entre países con alta y baja conectividad tiende a ___."
-
-pasos:
-  - "Analizar la relación entre acceso a tecnología y productividad económica."
-  - "Considerar el impacto de la automatización y el flujo de capitales digitales."
-
-explicacion: |
-  La falta de infraestructura digital en regiones en desarrollo impide que participen equitativamente en la economía global, exacerbando la brecha de riqueza existente.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "basico"
-  tags: ["cultura", "intercambio"]
-
-respuesta: "hibridación"
-tipo: completar
-respuestas_validas:
-  - "hibridación"
-
-enunciado: "Cuando elementos de diferentes culturas se mezclan a través de las redes sociales para crear nuevas formas de expresión, ocurre un proceso de ___ cultural."
-
-explicacion: |
-  La globalización no solo homogeneiza; también permite la 'hibridación', donde lo local y lo global se fusionan para crear identidades nuevas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
+  tema: "herramientas_arte_rupestre"
   nivel: "intermedio"
   tags: ["procesos", "orden"]
 
-respuesta_orden: ["Interconexión", "Estandarización", "Desigualdad"]
+respuesta_orden: ["Preparación de la superficie", "Aplicación del pigmento", "Sellado con grasa"]
 tipo: ordenar
-opciones_explicitas: ["Interconexión", "Estandarización", "Desigualdad"]
+opciones_explicitas: ["Preparación de la superficie", "Aplicación del pigmento", "Sellado con grasa"]
 
-enunciado: "Ordena los efectos de la globalización digital desde el proceso de comunicación hasta su impacto socioeconómico:"
+enunciado: "Ordene los pasos lógicos para la creación de una pintura mural rupestre duradera:"
 
 explicacion: |
-  Primero ocurre la interconexión técnica, lo que permite la estandarización de consumos y, finalmente, puede derivar en nuevas formas de desigualdad estructural.
+  El proceso estándar requiere primero limpiar la roca, luego aplicar el color y finalmente protegerlo con un aglutinante como la grasa.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
-  nivel: "avanzado"
-  tags: ["tecnologia", "poder"]
-
-respuesta: "monopolio"
-
-tipo: mc
-opciones_explicitas: ["monopolio", "competencia", "cooperación", "neutralidad"]
-
-enunciado: "La concentración de datos en pocas corporaciones tecnológicas globales tiende a fomentar un ___ de información."
-
-explicacion: |
-  La economía de plataformas a menudo crea estructuras de poder centralizadas donde unos pocos actores controlan el flujo de información global.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
+  tema: "herramientas_arte_rupestre"
   nivel: "basico"
-  tags: ["economia", "comercio"]
+  tags: ["soporte", "arqueologia"]
 
 variables:
-  datos: [["La firma de un tratado de libre comercio entre dos bloques continentales", "globalización económica"], ["La difusión masiva de una serie de televisión coreana en todo el mundo", "globalización cultural"], ["La creación de una nueva red de protocolos de comunicación para internet", "globalización tecnológica"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Un ejemplo de {datos[idx][0]} es un fenómeno de {datos[idx][1]}."
+  datos: [["pared de piedra", "pared"], ["banco de roca", "pared"], ["techo de la cueva", "techo"]]
+  idx: uno_de([0,1,2])
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["globalización económica", "globalización cultural", "globalización tecnológica"]
+opciones_explicitas: ["pared", "techo", "suelo"]
+
+enunciado: "La obra se encuentra plasmada sobre un/a {datos[idx][0]}. Por lo tanto, el soporte es un/a ___."
 
 explicacion: |
-  El escenario describe la integración de mercados, la difusión de contenidos o la estandarización de redes, pilares de la globalización según su dimensión.
+  En arqueología, la ubicación física define el soporte: {datos[idx][1]}.
+```
+
+## Sección: poblamiento-planeta-america (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
+  nivel: "basico"
+  tags: ["origen", "africa", "homo_sapiens"]
+
+respuesta: "África"
+tipo: completar
+respuestas_validas:
+  - "África"
+
+enunciado: "Según la teoría 'Out of Africa', el Homo sapiens se originó en el continente de ___."
+
+explicacion: |
+  La evidencia genética y fósil sostiene que los humanos modernos surgieron en África y luego migraron hacia el resto del mundo.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
+  tema: "poblamiento_planeta_america"
   nivel: "intermedio"
-  tags: ["tecnologia", "comunicacion"]
+  tags: ["migracion", "teoria"]
 
 variables:
-  datos: [["El uso de una misma aplicación de mensajería instantánea en todos los continentes", "tecnológica"], ["La adopción de modas estéticas globales a través de influencers", "cultural"], ["La fragmentación de las cadenas de suministro globales", "económica"]]
-  idx: uno_de([0, 1, 2])
+  escenario: uno_de([["África", "Asia", "Europa", "América"], ["África", "Asia", "Europa", "Oceanía"]])
 
-enunciado: "La adopción de {datos[idx][0]} representa una dimensión {datos[idx][1]} de la globalización."
-
-respuesta: datos[idx][1]
+respuesta: escenario[0]
 tipo: mc
-opciones_explicitas: ["tecnológica", "cultural", "económica"]
+opciones_explicitas: ["África", "Asia", "Europa", "América"]
+
+enunciado: "De acuerdo con la teoría del origen africano, ¿desde qué continente partieron las primeras migraciones de Homo sapiens para colonizar el resto del planeta?"
 
 explicacion: |
-  La digitalización permite que las herramientas, las costumbres o los flujos de capital se muevan de forma casi instantánea por el planeta.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "globalizacion_era_digital"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-enunciado: "La capacidad de transmitir datos de forma instantánea a través de satélites es un ejemplo de globalización ___."
-
-respuestas_validas:
-  - "tecnológica"
-respuesta: "tecnológica"
-tipo: completar
-
-explicacion: |
-  La infraestructura tecnológica es el soporte físico y digital que permite que las otras dimensiones (económica y cultural) operen a escala global.
+  La migración comenzó desde África hacia Asia y luego se expandió hacia otros continentes.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
+  tema: "poblamiento_planeta_america"
   nivel: "avanzado"
-  tags: ["procesos", "economia"]
+  tags: ["secuencia", "migracion"]
 
-enunciado: "Ordena el proceso de integración de un mercado digital global:"
-
-pasos:
-  - "Desarrollo de infraestructura de fibra óptica y satélites"
-  - "Creación de plataformas de comercio electrónico transfronterizo"
-  - "Consolidación de un mercado de consumo global interconectado"
-
-opciones_explicitas: ["Desarrollo de infraestructura de fibra óptica y satélites", "Creación de plataformas de comercio electrónico transfronterizo", "Consolidación de un mercado de consumo global interconectado"]
-respuesta_orden: ["Desarrollo de infraestructura de fibra óptica y satélites", "Creación de plataformas de comercio electrónico transfronterizo", "Consolidación de un mercado de consumo global interconectado"]
+respuesta_orden: ["África", "Asia", "Europa", "América"]
 tipo: ordenar
+opciones_explicitas: ["África", "Asia", "Europa", "América"]
+
+enunciado: "Ordena cronológicamente la expansión global del Homo sapiens según la teoría predominante:"
 
 explicacion: |
-  Primero se requiere el medio (tecnología), luego la herramienta de intercambio (plataforma) y finalmente el resultado sistémico (mercado global).
+  Primero se consolidó en África, luego migró hacia Asia/Europa y finalmente llegó al continente americano.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "globalizacion_era_digital"
+  tema: "poblamiento_planeta_america"
   nivel: "intermedio"
-  tags: ["cultura", "consumo"]
+  tags: ["america", "estrecho_de_bering"]
 
 variables:
-  datos: [["La estandarización de los menús de comida rápida en países con dietas tradicionales", "cultural"], ["El flujo de capitales especulativos entre bolsas de valores", "económica"], ["La exportación de software de código abierto para uso mundial", "tecnológica"]]
-  idx: uno_de([0, 1, 2])
+  datos: [["Bering", "Asia"], ["Magallanes", "América"]]
 
-enunciado: "El fenómeno de {datos[idx][0]} es un ejemplo de globalización ___."
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["cultural", "económica", "tecnológica"]
-
-explicacion: |
-  Cuando los hábitos de consumo o valores se vuelven homogéneos a pesar de las diferencias locales, estamos ante la globalización cultural.
-```
-
-## Sección: golpes-de-estado-interrupciones (26 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "basico"
-  tags: ["definicion", "politica"]
-
-tipo: mc
-opciones_explicitas: ["La toma del poder mediante procesos electorales y respeto a la constitución.", "La toma ilegítima e inconstitucional del poder político, generalmente por las fuerzas armadas.", "Un cambio de gobierno derivado de una crisis económica sin violencia.", "La renuncia voluntaria de un presidente por motivos de salud."]
-
-enunciado: "Un golpe de Estado se define fundamentalmente como:"
-
-respuesta: "La toma ilegítima e inconstitucional del poder político, generalmente por las fuerzas armadas."
-
-explicacion: |
-  Un golpe de Estado es una ruptura del orden constitucional donde se toma el poder de forma ilegítima, interrumpiendo el mandato de las autoridades electas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "intermedio"
-  tags: ["caracteristicas", "instituciones"]
-
-variables:
-  escenarios: [["El uso de la fuerza militar para deponer al ejecutivo.", "La ocupación de edificios gubernamentales y la suspensión de la Constitución."], ["La movilización social masiva para exigir nuevas elecciones.", "La renuncia del gabinete ministerial ante una crisis parlamentaria."]]
-  escenario: uno_de(escenarios)
-
-tipo: mc
-opciones_explicitas: ["Uso de mecanismos legales para cambiar al presidente.", "Uso de la fuerza o la ruptura de la legalidad para tomar el control estatal.", "Un proceso de transición democrática supervisado."]
-
-enunciado: "En un escenario de {escenario[0]}, el elemento central que caracteriza al golpe es:"
-
-respuesta: "Uso de la fuerza o la ruptura de la legalidad para tomar el control estatal."
-
-explicacion: |
-  La característica distintiva es la ruptura del marco legal preestablecido y el uso de medios no previstos por la norma constitucional.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "intermedio"
-  tags: ["secuencia", "orden"]
-
-tipo: ordenar
-opciones_explicitas: ["Crisis política o social", "Acción de las fuerzas armadas o grupos de poder", "Suspensión de la Constitución", "Establecimiento de un gobierno de facto"]
-
-enunciado: "Ordene cronológicamente los pasos típicos de una interrupción institucional clásica:"
-
-explicacion: |
-  Un golpe suele comenzar con una crisis que debilita al gobierno, seguido de la acción directa que rompe el orden legal y culmina con la instauración de un régimen no electo.
-respuesta_orden: ["Crisis política o social", "Acción de las fuerzas armadas o grupos de poder", "Suspensión de la Constitución", "Establecimiento de un gobierno de facto"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "avanzado"
-  tags: ["consecuencias", "derecho"]
-
+respuesta: datos[0][0]
 tipo: completar
 respuestas_validas:
-  - "inconstitucional"
-  - "ilegitima"
+  - "Bering"
 
-enunciado: "Un golpe de Estado es un acto ___ que rompe con la legitimidad ___ del mandato popular."
+enunciado: "La teoría más aceptada sugiere que el paso de los primeros humanos hacia América se realizó a través del estrecho de ___."
 
 explicacion: |
-  Al ignorar las reglas establecidas en la Carta Magna, la acción es inconstitucional y carece de legitimidad democrática.
+  El Estrecho de Bering permitió el tránsito desde el noreste de Asia hacia Alaska durante las glaciaciones.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
+  tema: "poblamiento_planeta_america"
   nivel: "basico"
-  tags: ["comparacion"]
-
-tipo: mc
-opciones_explicitas: ["El cambio de gobierno es legal y sigue las leyes; el golpe es una ruptura de estas.", "Ambos son procesos de la misma naturaleza pero con distinta duración.", "El golpe siempre es pacífico y el cambio de gobierno es violento.", "No existe diferencia técnica entre ambos conceptos."]
-respuesta: "El cambio de gobierno es legal y sigue las leyes; el golpe es una ruptura de estas."
-
-enunciado: "¿Cuál es la diferencia fundamental entre un cambio de gobierno democrático y un golpe de Estado?"
-
-explicacion: |
-  La diferencia radica en el respeto a la legalidad: el primero ocurre dentro del marco de la ley, el segundo lo destruye.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "basico"
-  tags: ["argentina", "siglo_xx", "democracia"]
-
-tipo: ordenar
-opciones_explicitas: ["1930", "1943", "1955", "1966", "1976"]
-respuesta_orden: ["1930", "1943", "1955", "1966", "1976"]
-
-enunciado: "Ordená cronológicamente los siguientes golpes de Estado que afectaron la institucionalidad argentina en el siglo XX:"
-
-explicacion: |
-  La secuencia cronológica de las interrupciones al orden constitucional fue: 1930, 1943, 1955, 1966 y 1976.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "basico"
-  tags: ["historia", "argentina"]
-
-tipo: mc
-opciones_explicitas: ["1930", "1945", "1955", "1976"]
-respuesta: "1930"
-
-enunciado: "¿En qué año se produjo el primer golpe de Estado que interrumpió el orden constitucional en la Argentina del siglo XX?"
-
-explicacion: |
-  El golpe de Estado de 1930 derrocó al presidente Hipólito Yrigoyen, marcando el inicio de una era de inestabilidad institucional.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "intermedio"
-  tags: ["historia", "argentina"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["1955", "la Revolución Libertadora"], ["1966", "la Revolución Argentina"]]
-
-tipo: mc
-opciones_explicitas: ["1955", "1962", "1966", "1976"]
-respuesta: escenarios[escenario_idx][0]
-
-enunciado: "Identificá el año correspondiente al golpe conocido como {escenarios[escenario_idx][1]}."
-
-explicacion: |
-  El escenario seleccionado fue el de {escenarios[escenario_idx][1]}, que ocurrió en el año {escenarios[escenario_idx][0]}.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "intermedio"
-  tags: ["historia", "argentina"]
-
-tipo: completar
-respuestas_validas:
-  - "1976"
-respuesta: "1976"
-
-enunciado: "El golpe de Estado más violento y de mayor duración en términos de represión sistemática ocurrió en el año ___."
-
-explicacion: |
-  El golpe de Estado de 1976 dio inicio al proceso de dictadura militar más sangriento de la historia argentina.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "avanzado"
-  tags: ["historia", "argentina", "estadistica"]
-
-variables:
-  lista_golpes: ["1930", "1943", "1955", "1962", "1966", "1976"]
-
-tipo: completar
-respuesta: 6
-
-enunciado: "Considerando la lista de golpes mencionados en el texto: {lista_golpes}, ¿cuántas interrupciones al orden democrático se enumeran en total?"
-
-pasos:
-  - "Identificar cada año mencionado en el enunciado."
-  - "Contar la cantidad de elementos en la lista proporcionada."
-
-explicacion: |
-  Se enumeran 6 golpes de Estado en la lista: 1930, 1943, 1955, 1962, 1966 y 1976.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "intermedio"
-  tags: ["argentina", "democracia", "irrigoyen"]
-
-respuesta: "1930"
-tipo: "completar"
-respuestas_validas:
-  - "1930"
-
-enunciado: "El primer golpe de Estado del siglo XX en Argentina, que derrocó al presidente Hipólito Yrigoyen, ocurrió en el año ___."
-
-explicacion: |
-  El golpe de 1930 marcó el inicio de un ciclo de interrupciones al orden constitucional en Argentina, rompiendo la estabilidad de la Ley Sáenz Peña.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "basico"
-  tags: ["patrones", "militarismo"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["El golpe de 1930 inició un ___ de intervenciones militares recurrentes.", "patrón"], ["El derrocamiento de Yrigoyen inauguró un ___ de inestabilidad política.", "ciclo"]]
-
-respuesta: escenarios[escenario_idx][1]
-tipo: "mc"
-opciones_explicitas: ["patrón", "ciclo", "acuerdo", "proceso"]
-
-enunciado: "{escenarios[escenario_idx][0]}"
-
-explicacion: |
-  El golpe de 1930 no fue un evento aislado, sino que inauguró un patrón de intervenciones militares que se repetiría durante gran parte del siglo XX.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "intermedio"
-  tags: ["contexto", "crisis"]
-
-respuesta: "crisis económica mundial"
-tipo: "mc"
-opciones_explicitas: ["crisis económica mundial", "guerra civil", "revolución industrial", "independencia"]
-
-enunciado: "El golpe de Estado de 1930 se produjo en un contexto de profunda ___ que afectó la estabilidad del gobierno de Yrigoyen."
-
-explicacion: |
-  La crisis económica de 1929 (Gran Depresión) debilitó la estructura política y social, facilitando el levantamiento militar contra el radicalismo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "avanzado"
-  tags: ["secuencia", "orden"]
-
-respuesta_orden: ["Ley Sáenz Peña", "Derrocamiento de Yrigoyen", "Intervención militar"]
-tipo: "ordenar"
-opciones_explicitas: ["Ley Sáenz Peña", "Derrocamiento de Yrigoyen", "Intervención militar"]
-
-enunciado: "Ordene cronológicamente los siguientes hitos relacionados con la estabilidad democrática argentina del siglo XX:"
-
-explicacion: |
-  Primero se establece la democracia con la Ley Sáenz Peña (1912), luego ocurre el primer golpe (1930) y esto deriva en la práctica de intervenciones militares.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "intermedio"
-  tags: ["consecuencias", "democracia"]
+  tags: ["teoria", "out_of_africa"]
 
 respuesta: falso
-tipo: "vf"
+tipo: vf
 
-enunciado: "¿El golpe de 1930 fue un evento aislado que no influyó en la política argentina posterior?"
+enunciado: "¿La teoría 'Out of Africa' propone que el Homo sapiens es originario de Europa y luego migró a África?"
 
 explicacion: |
-  Falso. El golpe de 1930 fue el primer eslabón de una serie de interrupciones que marcaron la historia política argentina durante décadas.
+  Falso. La teoría postula exactamente lo contrario: el origen es africano y la migración fue hacia afuera.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "golpes_de_estado_interrupciones"
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
   nivel: "basico"
-  tags: ["argentina", "dictadura", "1976"]
+  tags: ["prehistoria", "migracion"]
 
-respuesta: "24 de marzo de 1976"
+respuesta: "Asia"
 tipo: completar
 respuestas_validas:
-  - "24 de marzo de 1976"
+  - "Asia"
 
-enunciado: "El golpe de Estado que dio inicio a la última dictadura militar en Argentina ocurrió el día ___."
+enunciado: "Se cree que los primeros grupos humanos llegaron al continente americano cruzando el puente terrestre de Beringia desde ________."
 
 explicacion: |
-  El 24 de marzo de 1976 se produjo el golpe de Estado que instauró un proceso de autodenominado 'Reorganización Nacional', marcando el inicio del período dictatorial más prolongado y violento de la historia argentina reciente.
+  La teoría más aceptada sugiere que durante las glaciaciones, el descenso del nivel del mar permitió la formación de un puente de tierra entre Asia y América.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "intermedio"
-  tags: ["derechos_humanos", "terrorismo_de_estado"]
-
-opciones_explicitas: ["Violación sistemática de derechos humanos", "Retorno inmediato a la democracia", "Estabilidad económica sostenida", "Pluralismo político"]
-
-respuesta: "Violación sistemática de derechos humanos"
-tipo: mc
-
-enunciado: "Una de las características centrales y más graves del proceso de la última dictadura militar (1976-1983) fue la:"
-
-explicacion: |
-  El Estado implementó un plan sistemático de represión que incluyó la desaparición forzada de personas, la tortura y el robo de bebés, constituyendo un crimen de lesa humanidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "golpes_de_estado_interrupciones"
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
   nivel: "basico"
-  tags: ["fechas", "periodo"]
+  tags: ["geografia", "migracion"]
 
-respuesta_orden: ["Inicio del golpe de Estado", "Guerra de Malvinas", "Fin de la dictadura militar", "Retorno a la democracia"]
-tipo: ordenar
-opciones_explicitas: ["Inicio del golpe de Estado", "Fin de la dictadura militar", "Guerra de Malvinas", "Retorno a la democracia"]
+respuesta: "puente terrestre"
+tipo: mc
+opciones_explicitas: ["puente terrestre", "paso marítimo", "ruta costera"]
 
-enunciado: "Ordená cronológicamente los siguientes hitos relacionados con el período 1976-1983:"
+enunciado: "El corredor que permitió el paso de humanos y megafauna desde Asia hacia América se conoce como Beringia. ¿Qué tipo de corredor era?"
+
+explicacion: |
+  El puente de Beringia era una masa de tierra que conectaba los dos continentes durante los periodos de máximo glaciar.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
+  nivel: "intermedio"
+  tags: ["cronologia", "teorias"]
+
+respuesta: 15000
+tipo: completar
+tolerancia_abs: 5000
+
+enunciado: "Aunque las fechas varían según la teoría, se estima que el poblamiento masivo comenzó hace aproximadamente ___ años."
 
 pasos:
-  - "Identificar el año de inicio del golpe."
-  - "Identificar el año del fin del proceso dictatorial."
+  - "Considerar el final de la última glaciación."
+  - "Estimar el inicio de las migraciones hacia el sur del continente."
 
 explicacion: |
-  El proceso comenzó en 1976 y finalizó en 1983, tras la derrota en la Guerra de Malvinas y la crisis del régimen.
+  Si bien hay debates sobre teorías más antiguas (como la de Monte Verde), el consenso general sitúa las migraciones principales hace decenas de miles de años.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "basico"
-  tags: ["fechas", "periodo"]
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
+  nivel: "intermedio"
+  tags: ["secuencia", "migracion"]
 
-respuesta_orden: ["Inicio del golpe de Estado", "Guerra de Malvinas", "Fin de la dictadura militar"]
+respuesta_orden: ["Asia", "Beringia", "América"]
 tipo: ordenar
-opciones_explicitas: ["Inicio del golpe de Estado", "Guerra de Malvinas", "Fin de la dictadura militar"]
+opciones_explicitas: ["Asia", "Beringia", "América"]
 
-enunciado: "Ordená cronológicamente los eventos del período dictatorial:"
+enunciado: "Ordena la secuencia lógica del poblamiento de América según la teoría del Estrecho de Bering:"
 
 explicacion: |
-  El orden correcto es: Inicio del golpe (1976), Guerra de Malvinas (1982) y Fin de la dictadura (1983).
+  La secuencia implica el punto de origen (Asia), el medio de tránsito (Beringia) y el destino (América).
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "golpes_de_estado_interrupciones"
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
   nivel: "avanzado"
-  tags: ["conceptos", "derechos_humanos"]
+  tags: ["clima", "fauna"]
+
+respuesta: "descenso del nivel del mar"
+tipo: mc
+opciones_explicitas: ["descenso del nivel del mar", "aumento de temperatura", "cambio en la vegetación"]
+
+enunciado: "La formación del puente de Beringia fue posible gracias a la glaciación, lo que provocó un ___."
+
+explicacion: |
+  Durante las glaciaciones, el agua se acumulaba en los glaciares, haciendo que el nivel del mar bajara y expusiera el suelo marino.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
+  nivel: "basico"
+  tags: ["poblamiento", "geografia_humana"]
+
+respuesta: "América"
+tipo: completar
+respuestas_validas:
+  - "América"
+
+enunciado: "Considerando la cronología del poblamiento humano global, ___ fue el último continente habitado por seres humanos (con excepción de la Antártida)."
+
+explicacion: |
+  Mientras que África fue la cuna de la humanidad y los otros continentes fueron alcanzados hace decenas de miles de años, América fue colonizada mucho más recientemente en la escala temporal evolutiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
+  nivel: "intermedio"
+  tags: ["cronologia", "comparativa"]
 
 variables:
-  escenario: uno_de([0,1])
-  datos: [["El uso de la estructura estatal para la represión ilegal", "terrorismo de Estado"], ["La participación en elecciones libres", "democracia representativa"]]
+  escenario: uno_de([["África", "Asia", "Europa", "Oceanía"], ["América", "Antártida"]])
+  es_america: escenario[0] == "América"
 
-respuesta: datos[escenario][1]
+respuesta: "último"
 tipo: mc
-opciones_explicitas: ["terrorismo de Estado", "democracia representativa"]
+opciones_explicitas: ["primero", "segundo", "último"]
 
-enunciado: "Cuando el Estado utiliza sus instituciones y fuerzas de seguridad para cometer delitos contra la población, como la desaparición de personas, se denomina:"
+enunciado: "Comparado con África, Asia, Europa y Oceanía, el continente americano fue el ___ en ser poblado por humanos."
 
 explicacion: |
-  El término 'terrorismo de Estado' describe la acción de los gobiernos de facto para sembrar terror en la sociedad mediante la represión sistemática.
+  La evidencia arqueológica y genética indica que el poblamiento de América es un evento mucho más tardío en comparación con el resto de las masas continentales habitables.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "basico"
-  tags: ["duracion", "fechas"]
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
+  nivel: "intermedio"
+  tags: ["orden", "secuencia"]
 
-respuesta: 7
+respuesta_orden: ["África", "Asia", "Europa", "Oceanía", "América"]
+tipo: ordenar
+opciones_explicitas: ["África", "Asia", "Europa", "Oceanía", "América"]
+
+enunciado: "Ordena cronológicamente los continentes (de mayor a menor antigüedad en su poblamiento humano) según el consenso científico actual:"
+
+explicacion: |
+  El patrón de expansión humana muestra una salida desde África hacia Asia, luego hacia Europa y Oceanía, dejando a América como el último gran territorio en ser integrado a la red de asentamientos humanos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
+  nivel: "basico"
+  tags: ["teoria", "verdad_falso"]
+
+respuesta: falso
+tipo: mc
+opciones_explicitas: [verdadero, falso]
+
+enunciado: "¿Es correcto afirmar que América fue uno de los primeros continentes en ser habitado por los primeros homínidos que salieron de África?"
+
+explicacion: |
+  Es falso. América fue el último continente en ser poblado, mucho después de que los humanos ya hubieran colonizado el resto de los continentes habitables.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
+  nivel: "avanzado"
+  tags: ["excepcion", "geografia"]
+
+respuesta: 1
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si la última dictadura militar en Argentina duró desde 1976 hasta 1983, ¿cuántos años duró aproximadamente este proceso de interrupción democrática?"
-
-explicacion: |
-  El proceso duró 7 años, desde el golpe de 1976 hasta la asunción de la presidencia de Raúl Alfonsín en 1983.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "intermedio"
-  tags: ["argentina", "siglo_xx", "dictadura"]
-
-variables:
-  datos: [["José Félix Uriburu", "1930"], ["Agustín P. Justo", "1932"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][0]
-tipo: mc
-opciones_explicitas: ["José Félix Uriburu", "Agustín P. Justo", "Juan Perón", "Arturo Illia"]
-
-enunciado: "El primer golpe de Estado que interrumpió el orden constitucional en Argentina durante el siglo XX fue liderado por {datos[idx][0]} en el año {datos[idx][1]}."
-
-explicacion: |
-  El golpe de 1930 derrocó a Hipólito Yrigoyen, marcando el inicio de la denominada "Década Infame".
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "avanzado"
-  tags: ["ordenar", "cronologia"]
-
-respuesta_orden: ["Revolución Libertadora", "Revolución Argentina", "Onganía"]
-tipo: ordenar
-opciones_explicitas: ["Revolución Libertadora", "Revolución Argentina", "Onganía"]
-
-enunciado: "Ordene cronológicamente los siguientes procesos/dictaduras que interrumpieron la democracia argentina entre 1955 y 1976:"
+enunciado: "Si América es el último continente poblado, y la Antártida es la única excepción que no fue poblada por humanos de forma permanente, ¿cuántos continentes de los 7 totales fueron poblados después de África, Europa, Asia y Oceanía?"
 
 pasos:
-  - "Identifique el golpe que derrocó a Perón en 1955."
-  - "Identifique el proceso iniciado por Onganía en 1966."
+  - "Identificar los continentes ya poblados: África, Asia, Europa, Oceanía (4)"
+  - "Identificar los continentes restantes: América y Antártida (2)"
+  - "Descontar la Antártida por no estar poblada: 2 - 1 = 1"
 
 explicacion: |
-  La secuencia cronológica correcta es: Revolución Libertadora (1955), Revolución Argentina (1966) y el gobierno de facto de Onganía.
+  La respuesta es 1, refiriéndose únicamente a América. La Antártida no cuenta como continente poblado por humanos en la historia antigua/prehistórica.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
+  tema: "poblamiento_planeta_america"
   nivel: "basico"
-  tags: ["dictadura", "proceso"]
+  tags: ["arqueologia", "clovis", "tecnologia"]
 
-respuesta: "Proceso de Reorganización Nacional"
+respuesta: "puntas de lanza"
 tipo: completar
 respuestas_validas:
-  - "Proceso de Reorganización Nacional"
+  - "puntas de lanza"
 
-enunciado: "El golpe de Estado iniciado el 24 de marzo de 1976 fue autodenominado por la junta militar como el ___."
+enunciado: "La cultura Clovis se caracteriza por la fabricación de ___ de piedra con una hendidura característica en la base."
 
 explicacion: |
-  El Proceso de Reorganización Nacional fue la dictadura más sangrienta de la historia argentina.
+  La cultura Clovis (aprox. 13,000 años atrás) es conocida por sus herramientas de piedra altamente especializadas, especialmente sus puntas de lanza con una ranura basal.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
+  tema: "poblamiento_planeta_america"
   nivel: "intermedio"
-  tags: ["liderazgo", "militar"]
+  tags: ["teoria", "geografia", "bering"]
 
-variables:
-  datos: [["Videla", "1976"], ["Anaya", "1981"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][0]
+respuesta: "Beringia"
 tipo: mc
-opciones_explicitas: ["Videla", "Anaya", "Galtieri", "Borda"]
+opciones_explicitas: ["Beringia", "Pacífico", "Atlántico"]
 
-enunciado: "El líder de la junta militar durante el inicio del golpe de {datos[idx][1]} fue {datos[idx][0]}."
+enunciado: "Según la teoría más aceptada, el primer gran corredor de poblamiento hacia América fue el puente terrestre llamado ___."
 
 explicacion: |
-  Jorge Rafael Videla encabezó la dictadura que comenzó en 1976.
+  Durante la última glaciación, el descenso del nivel del mar permitió la existencia de Beringia, un puente terrestre que conectaba Siberia con Alaska.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "golpes_de_estado_interrupciones"
-  nivel: "basico"
-  tags: ["democracia", "retorno"]
-
-respuesta: "Alfonsín"
-tipo: mc
-opciones_explicitas: ["Alfonsín", "Menem", "Duhalde", "De la Rúa"]
-
-enunciado: "Tras la caída de la dictadura militar en 1983, el primer presidente elegido fue ___."
-
-explicacion: |
-  Raúl Alfonsín asumió la presidencia en 1983, marcando el retorno a la democracia tras la dictadura.
-```
-
-## Sección: gran-oxidacion (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "basico"
-  tags: ["biologia", "atmosfera"]
-
-tipo: mc
-opciones_explicitas: ["Cianobacterias", "Dinosaurios", "Volcanes", "Asteroides"]
-respuesta: "Cianobacterias"
-
-enunciado: "La Gran Oxidación fue causada por la actividad de un grupo de organismos fotosintéticos conocidos como ___."
-
-explicacion: |
-  Las cianobacterias fueron los primeros organismos capaces de realizar la fotosíntesis oxigénica, liberando oxígeno como subproducto.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "intermedio"
-  tags: ["geologia", "quimica"]
-
-tipo: mc
-opciones_explicitas: ["reaccionó con el hierro disuelto en los océanos", "se acumuló rápidamente en la atmósfera"]
-
-enunciado: "Durante el inicio de la Gran Oxidación, el oxígeno liberado no fue a la atmósfera inmediatamente. ¿Qué sucedió primero con él?"
-
-respuesta: "reaccionó con el hierro disuelto en los océanos"
-
-explicacion: |
-  Antes de que el oxígeno se acumulara en la atmósfera, reaccionó con el hierro disuelto en los océanos, depositándolo en el fondo marino como hierro bandeado.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
+  tema: "poblamiento_planeta_america"
   nivel: "avanzado"
-  tags: ["clima", "extincion"]
+  tags: ["genetica", "adn", "migracion"]
 
-tipo: completar
-respuestas_validas:
-  - "Glaciación"
-  - "calentamiento"
+respuesta: "Asia"
+tipo: mc
+opciones_explicitas: ["Asia", "Europa", "Oceanía", "África"]
 
-enunciado: "La acumulación de oxígeno en la atmósfera provocó la oxidación del metano (un potente gas de efecto invernadero), lo que derivó en una de las mayores ___ de la historia de la Tierra."
+enunciado: "Estudios de ADN mitocondrial en poblaciones indígenas americanas muestran una fuerte conexión genética con grupos provenientes de ___."
 
 explicacion: |
-  La reducción de gases de efecto invernadero como el metano provocó un enfriamiento global extremo, conocido como la Glaciación Huronesiana.
+  La evidencia genética actual confirma que las poblaciones originarias de América comparten ancestros comunes con poblaciones del este de Asia.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "gran_oxidacion"
+  tema: "poblamiento_planeta_america"
   nivel: "intermedio"
-  tags: ["cronologia"]
+  tags: ["secuencia", "teorias", "migracion"]
+
+respuesta_orden: ["Ruta de Bering", "Corredor libre de hielo", "Ruta costera"]
+tipo: ordenar
+opciones_explicitas: ["Ruta de Bering", "Corredor libre de hielo", "Ruta costera"]
+
+enunciado: "Ordene las etapas probables de una migración terrestre desde el norte de Asia hacia el interior del continente americano:"
+
+explicacion: |
+  El modelo clásico sugiere primero el cruce por Beringia, luego el paso por un corredor libre de hielo entre las glaciaciones, y finalmente la dispersión hacia el sur.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
+  nivel: "avanzado"
+  tags: ["arqueologia", "chile", "monte_verde"]
+
+respuesta: "anterior"
+tipo: mc
+opciones_explicitas: ["anterior", "posterior", "contemporánea"]
+
+enunciado: "El hallazgo del sitio arqueológico Monte Verde en Chile desafió la teoría Clovis porque sus restos son ___ a la cultura Clovis."
+
+explicacion: |
+  Monte Verde presenta evidencia de asentamientos humanos que datan de hace más de 14,500 años, lo que sugiere que hubo migraciones antes de la expansión de la cultura Clovis.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
+  nivel: "basico"
+  tags: ["teorias", "migracion"]
+
+respuesta: "Teoría de la Ruta Costera"
+tipo: mc
+opciones_explicitas: ["Teoría de Beringia", "Teoría de la Ruta Costera"]
+
+enunciado: "Según la evidencia arqueológica más aceptada para el poblamiento temprano, ¿cuál de estas rutas sugiere que los humanos llegaron bordeando la costa del Pacífico?"
+
+explicacion: |
+  La teoría de la ruta costera propone que los primeros migrantes utilizaron embarcaciones para bordear el Pacífico, lo que explicaría la rápida llegada a Sudamérica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
+  nivel: "intermedio"
+  tags: ["cronologia", "continentes"]
 
 tipo: ordenar
-opciones_explicitas: ["Fotosíntesis oxigénica", "Oxidación de hierro disuelto", "Acumulación de O2 atmosférico", "Glaciación global"]
+opciones_explicitas: ["Asia", "Oceanía", "Europa", "América"]
+respuesta_orden: ["Asia", "Oceanía", "Europa", "América"]
 
-enunciado: "Ordena cronológicamente los eventos que caracterizaron el periodo de la Gran Oxidación:"
+enunciado: "Ordena los siguientes continentes desde el que fue poblado primero por el Homo sapiens hasta el último, basándote en las cronologías arqueológicas generales."
 
 explicacion: |
-  Primero surge la fotosíntesis, luego el oxígeno reacciona con el hierro (BIF), luego el oxígeno llega a la atmósfera y finalmente causa el enfriamiento global.
-respuesta_orden: ["Fotosíntesis oxigénica", "Oxidación de hierro disuelto", "Acumulación de O2 atmosférico", "Glaciación global"]
+  El orden general de poblamiento sugiere que la humanidad salió de África y se expandió primero por Asia y Oceanía, luego Europa y finalmente América.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "gran_oxidacion"
+  tema: "poblamiento_planeta_america"
   nivel: "basico"
-  tags: ["atmosfera"]
+  tags: ["geografia", "migracion"]
+
+respuesta: "el estrecho de Bering"
+tipo: completar
+respuestas_validas:
+  - "el estrecho de Bering"
+
+enunciado: "Para entrar al continente americano desde Asia durante la última glaciación, los grupos humanos debieron cruzar ___."
+
+explicacion: |
+  El puente de Beringia permitió el paso de grupos de cazadores-recolectores desde Siberia hacia Alaska.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
+  nivel: "intermedio"
+  tags: ["teorias", "rutas"]
+
+respuesta: "La ruta marítima"
+tipo: mc
+opciones_explicitas: ["La ruta terrestre", "La ruta marítima"]
+
+enunciado: "Si consideramos que los humanos no solo usaron puentes de tierra, sino también balsas para bordear continentes, ¿a qué tipo de migración nos referimos?"
+
+explicacion: |
+  La migración marítima o costera es una de las teorías fundamentales para explicar el poblamiento rápido de las costas americanas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "poblamiento_planeta_america"
+  nivel: "avanzado"
+  tags: ["secuencia", "poblamiento"]
+
+tipo: ordenar
+opciones_explicitas: ["África", "Asia", "Oceanía", "América"]
+respuesta_orden: ["África", "Asia", "Oceanía", "América"]
+
+enunciado: "Establece el orden cronológico correcto de la expansión global del Homo sapiens, considerando el poblamiento de América como el evento más reciente de la lista."
+
+explicacion: |
+  La expansión comenzó en África, siguió por Asia y Oceanía, y finalmente llegó a América hace aproximadamente 15,000-20,000 años.
+```
+
+## Sección: revolucion-neolitica (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_neolitica"
+  nivel: "basico"
+  tags: ["agricultura", "sedentarismo"]
+
+tipo: mc
+opciones_explicitas: ["Caza y recolección", "Agricultura y ganadería", "Comercio de especias", "Metalurgia del hierro"]
+
+enunciado: "La Revolución Neolítica se define fundamentalmente por el paso de una economía de subsistencia basada en la caza y la recolección hacia una basada en la..."
+
+respuesta: "Agricultura y ganadería"
+
+explicacion: |
+  El Neolítico marca la transición de la dependencia de los recursos naturales espontáneos al control de la producción de alimentos mediante la domesticación de plantas y animales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_neolitica"
+  nivel: "basico"
+  tags: ["estilo_de_vida", "asentamientos"]
+
+variables:
+  escenario: uno_de([["nómadas", "se desplazan constantemente"], ["sedentarios", "se establecen en un lugar fijo"]])
+
+tipo: completar
+respuestas_validas:
+  - "nómadas"
+  - "sedentarios"
+
+enunciado: "Antes de la agricultura, los grupos humanos eran principalmente {escenario[0]}, pero con la domesticación de especies se volvieron {escenario[1]}."
+
+respuesta: escenario[1]
+
+explicacion: |
+  Al tener cultivos y ganado que cuidar, los grupos humanos ya no necesitaban desplazarse constantemente, dando origen a los primeros asentamientos permanentes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_neolitica"
+  nivel: "intermedio"
+  tags: ["sociedad", "excedente"]
+
+tipo: mc
+opciones_explicitas: ["Desigualdad social", "Igualdad absoluta", "Desaparición de la propiedad", "Retorno a la caza"]
+
+enunciado: "La capacidad de producir un excedente de alimentos permitió la especialización del trabajo y, consecuentemente, el surgimiento de..."
+
+respuesta: "Desigualdad social"
+
+explicacion: |
+  El excedente alimentario permitió que no todos tuvieran que producir comida, lo que llevó a la división del trabajo y a la aparición de estructuras de poder y jerarquías sociales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_neolitica"
+  nivel: "basico"
+  tags: ["tiempo", "cronologia"]
+
+tipo: ordenar
+opciones_explicitas: ["Paleolítico", "Revolución Neolítica", "Edad de los Metales"]
+
+respuesta_orden: ["Paleolítico", "Revolución Neolítica", "Edad de los Metales"]
+
+enunciado: "Ordena cronológicamente las etapas de la historia humana según el uso de herramientas y tecnología de subsistencia:"
+
+explicacion: |
+  La Revolución Neolítica es el puente entre el Paleolítico (piedra tallada/caza) y el desarrollo de las civilizaciones complejas que usarían metales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_neolitica"
+  nivel: "avanzado"
+  tags: ["demografia", "salud"]
 
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Antes de la Gran Oxidación, la atmósfera terrestre era predominantemente ________ (escribe 'anóxica' o 'rica' según corresponda)."
+enunciado: "Se estima que hace aproximadamente 12000 años, la transición hacia la agricultura provocó que la población mundial ___ de forma drástica."
 
-respuesta: "anóxica"
+respuesta: "aumentó"
 
 explicacion: |
-  La atmósfera primordial era anóxica, es decir, carecía de niveles significativos de oxígeno libre.
+  La agricultura permitió una mayor densidad de población por unidad de superficie, aunque también trajo nuevos desafíos como enfermedades zoonóticas y carencias nutricionales específicas.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "gran_oxidacion"
+  tema: "revolucion_neolitica"
   nivel: "basico"
-  tags: ["extincion", "oxigeno", "anaerobico"]
+  tags: ["agricultura", "cereales"]
 
-respuesta: "extinción masiva"
-tipo: completar
+variables:
+  escenario: uno_de([["Creciente Fértil", "trigo y cebada"], ["Mesoamérica", "maíz"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["trigo y cebada", "maíz", "papa", "arroz"]
+
+enunciado: "En la región del {escenario[0]}, los primeros agricultores se especializaron en el cultivo de {escenario[1]}."
+
+explicacion: |
+  En el Creciente Fértil (Mesopotamia y Levante), el trigo y la cebada fueron los pilares de la agricultura neolítica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_neolitica"
+  nivel: "basico"
+  tags: ["ganaderia", "animales"]
+
+respuesta: "oveja"
+tipo: mc
+opciones_explicitas: ["oveja", "vaca", "cerdo", "caballo"]
+
+enunciado: "Uno de los animales más importantes para la obtención de lana y carne en el Neolítico fue la ___."
+
+explicacion: |
+  La domesticación de la oveja permitió no solo alimento, sino también fibras textiles para la vestimenta.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_neolitica"
+  nivel: "intermedio"
+  tags: ["america", "papa"]
+
+respuesta: "papa"
 respuestas_validas:
-  - "extinción masiva"
+  - "papa"
+tipo: completar
 
-enunciado: "El aumento repentino de oxígeno en la atmósfera terrestre durante la Gran Oxidación es considerado la primera ___ de la historia."
+enunciado: "A diferencia de los cereales de Eurasia, en la región de los Andes el cultivo fundamental fue la ___."
 
 explicacion: |
-  La acumulación de oxígeno, producto de la fotosíntesis oxigénica, fue letal para la mayoría de los organismos anaeróbicos que dominaban la Tierra primitiva.
+  La papa fue el cultivo base de las civilizaciones andinas, permitiendo el asentamiento en zonas de altura.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "basico"
-  tags: ["anaerobico", "oxigeno"]
+  tema: "revolucion_neolitica"
+  nivel: "avanzado"
+  tags: ["procesos", "orden"]
 
-tipo: mc
-opciones_explicitas: ["anaeróbicos", "aeróbicos", "fotosintéticos", "eucariotas"]
-respuesta: "anaeróbicos"
-
-enunciado: "Antes de la Gran Oxidación, la atmósfera era rica en gases reductores. ¿Qué tipo de organismos dominaba la vida en ese entonces?"
-
-explicacion: |
-  Los organismos anaeróbicos no poseen mecanismos para neutralizar el oxígeno, por lo que este actuó como un veneno oxidante para ellos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "intermedio"
-  tags: ["fotosintesis", "cianobacterias"]
-
-respuesta: "cianobacterias"
-tipo: mc
-opciones_explicitas: ["cianobacterias", "volcanes", "asteroides", "metano"]
-
-enunciado: "La principal causa biológica del aumento de oxígeno atmosférico fue la aparición de las:"
-
-explicacion: |
-  Las cianobacterias desarrollaron la fotosíntesis oxigénica, liberando oxígeno como subproducto, lo que alteró la química global del planeta.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "intermedio"
-  tags: ["secuencia", "oxigeno", "vida"]
-
+respuesta_orden: ["Recolección de granos silvestres", "Selección de semillas", "Cultivo de campos"]
 tipo: ordenar
-respuesta_orden: ["producción de oxígeno", "acumulación de oxígeno", "extinción de anaerobios", "aparición de la vida aeróbica"]
-opciones_explicitas: ["producción de oxígeno", "acumulación de oxígeno", "extinción de anaerobios", "aparición de la vida aeróbica"]
+opciones_explicitas: ["Recolección de granos silvestres", "Selección de semillas", "Cultivo de campos"]
 
-enunciado: "Ordena cronológicamente los eventos que caracterizaron la Gran Oxidación:"
+enunciado: "Ordena los pasos que permitieron la transición de la recolección a la agricultura intensiva:"
 
 explicacion: |
-  Primero se produjo el oxígeno, luego se acumuló en la atmósfera tras saturar los sumideros químicos, provocando la muerte masiva de anaerobios y permitiendo finalmente la evolución de la respiración aeróbica.
+  Primero se recolectaban granos, luego se seleccionaban las mejores semillas para la siguiente siembra, consolidando el cultivo.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "avanzado"
-  tags: ["quimica_atmosferica", "oxigeno"]
+  tema: "revolucion_neolitica"
+  nivel: "intermedio"
+  tags: ["consecuencias", "poblacion"]
 
-respuesta: "tóxico"
+respuesta: "aumento"
 tipo: mc
-opciones_explicitas: ["tóxico", "vital", "neutro", "incoloro"]
+opciones_explicitas: ["aumento", "disminución", "estancamiento", "variación"]
 
-enunciado: "Para la vida predominante en el Arcaico, el oxígeno atmosférico no era un elemento vital, sino un agente ___."
+enunciado: "La capacidad de producir excedentes alimentarios provocó un ___ de la población humana."
 
 explicacion: |
-  Debido a la ausencia de enzimas antioxidantes en los organismos de la época, el oxígeno libre causaba daños oxidativos letales en sus estructuras celulares.
+  La agricultura permitió alimentar a más personas en un mismo territorio, lo que derivó en un crecimiento demográfico sostenido.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "gran_oxidacion"
+  tema: "revolucion_neolitica"
   nivel: "basico"
-  tags: ["evolucion", "oxigeno"]
+  tags: ["agricultura", "origen", "neolitico"]
 
-respuesta: "aeróbicos"
+tipo: mc
+opciones_explicitas: ["En un único punto geográfico", "De forma independiente en diversas regiones", "Fue un proceso importado de Europa", "Ocurrió solo en el Creciente Fértil"]
+respuesta: "De forma independiente en diversas regiones"
+enunciado: "Sobre el surgimiento de la agricultura durante la Revolución Neolítica, es correcto afirmar que esta ocurrió ___."
+explicacion: |
+  La agricultura no fue un evento único y global, sino que surgió de manera independiente en múltiples focos como el Creciente Fértil, China, Mesoamérica y los Andes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_neolitica"
+  nivel: "intermedio"
+  tags: ["regiones", "centros_de_origen"]
+
+variables:
+  idx: uno_de([0, 1, 2, 3])
+  datos: [["Creciente Fértil", "trigo y cebada"], ["China", "arroz y mijo"], ["Mesoamérica", "maíz y calabaza"], ["Andes", "papa y quinoa"]]
+
+respuesta: datos[idx][1]
 tipo: completar
 respuestas_validas:
-  - "aeróbicos"
+  - "trigo y cebada"
+  - "arroz y mijo"
+  - "maíz y calabaza"
+  - "papa y quinoa"
 
-enunciado: "La acumulación de oxígeno en la atmósfera tras la Gran Oxidación permitió la evolución de organismos de tipo ___."
+enunciado: "En la región de {datos[idx][0]}, los primeros cultivos domesticados fueron principalmente {datos[idx][1]}."
 
 explicacion: |
-  La presencia de oxígeno libre permitió que los organismos desarrollaran la respiración aeróbica, un proceso mucho más eficiente para obtener energía que la fermentación.
+  Cada región desarrolló sus propios cultivos base de forma autónoma: {datos[idx][0]} se centró en {datos[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "intermedio"
-  tags: ["complejidad", "oxigeno"]
-
-opciones_explicitas: ["Organismos unicelulares simples", "Formas de vida más complejas y de mayor tamaño", "Vida basada exclusivamente en el metano", "Ausencia total de vida orgánica"]
-
-respuesta: "Formas de vida más complejas y de mayor tamaño"
-tipo: mc
-
-enunciado: "El oxígeno liberado durante la Gran Oxidación sentó las bases para el surgimiento de:"
-
-explicacion: |
-  Al ser la respiración aeróbica mucho más eficiente energéticamente, permitió que los organismos tuvieran el excedente de energía necesario para mantener estructuras corporales más grandes y complejas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "avanzado"
-  tags: ["metabolismo", "oxigeno"]
-
-respuesta: "Aumento de la eficiencia energética"
-tipo: mc
-opciones_explicitas: ["Limitación energética", "Aumento de la eficiencia energética", "Reducción del tamaño celular", "Extinción de la vida multicelular"]
-
-enunciado: "Considerando el impacto metabólico de la Gran Oxidación, ¿qué efecto tuvo el oxígeno sobre el metabolismo de los organismos que pudieron utilizarlo?"
-
-pasos:
-  - "Analizar la diferencia entre metabolismo anaeróbico y aeróbico."
-  - "Relacionar la eficiencia energética con el tamaño del organismo."
-
-explicacion: |
-  La oxidación de la glucosa en presencia de oxígeno produce muchísima más energía (ATP) que los procesos anaeróbicos, permitiendo la multicelularidad.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
+  tema: "revolucion_neolitica"
   nivel: "intermedio"
   tags: ["proceso", "secuencia"]
 
-opciones_explicitas: ["Producción de oxígeno", "Acumulación de oxígeno en la atmósfera", "Evolución de organismos aeróbicos", "Aparición de vida compleja"]
-
-respuesta_orden: ["Producción de oxígeno", "Acumulación de oxígeno en la atmósfera", "Evolución de organismos aeróbicos", "Aparición de vida compleja"]
 tipo: ordenar
+opciones_explicitas: ["Recolección de granos silvestres", "Domesticación de plantas", "Sedentarismo", "Aumento de la densidad poblacional"]
 
-enunciado: "Ordena cronológicamente los eventos derivados de la actividad de los cianobacterias:"
+enunciado: "Ordena cronológicamente las etapas que generalmente preceden a la consolidación de las sociedades agrícolas:"
 
 explicacion: |
-  Primero se produce el oxígeno por fotosíntesis, luego este se acumula en la atmósfera al saturarse los sumideros químicos, lo que permite la respiración aeróbica y finalmente la complejidad biológica.
+  El proceso comienza con la recolección, seguido de la selección de semillas (domesticación), lo que permite asentarse (sedentarismo) y finalmente permite que la población crezca.
+respuesta_orden: ["Recolección de granos silvestres", "Domesticación de plantas", "Sedentarismo", "Aumento de la densidad poblacional"]
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "basico"
-  tags: ["atmosfera", "oxigeno"]
-
-respuesta: "oxígeno"
-tipo: completar
-respuestas_validas:
-  - "oxígeno"
-
-enunciado: "El gas liberado masivamente que transformó la química de la Tierra fue el ___."
-
-explicacion: |
-  La liberación de oxígeno por parte de los organismos fotosintéticos cambió la composición química de la atmósfera primitiva.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "basico"
-  tags: ["geologia", "oxigeno"]
-
-tipo: mc
-opciones_explicitas: ["Formaciones de hierro bandeado (BIF)", "Capas de esquisto negro", "Depósitos de carbón", "Calizas de magnesio"]
-respuesta: "Formaciones de hierro bandeado (BIF)"
-
-enunciado: "¿En qué evidencias geológicas se manifiestan principalmente los efectos de la Gran Oxidación?"
-
-explicacion: |
-  Las Formaciones de Hierro Bandeado (BIF, por sus siglas en inglés) son capas de roca ricas en óxidos de hierro que se depositaron cuando el oxígeno liberado por la fotosíntesis reaccionó con el hierro disuelto en los océanos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "intermedio"
-  tags: ["quimica_prebiotica", "oceanos"]
-
-tipo: completar
-respuestas_validas:
-  - "hierro disuelto"
-
-enunciado: "Durante la Gran Oxidación, el ___ en los océanos reaccionó con el oxígeno molecular, provocando su precipitación en el fondo marino."
-
-explicacion: |
-  El hierro estaba disuelto en los océanos en forma de Fe(II). Al aparecer el oxígeno (O2), este oxidó el hierro a Fe(III), el cual es insoluble y precipitó como óxido de hierro.
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "gran_oxidacion"
+  tema: "revolucion_neolitica"
   nivel: "avanzado"
-  tags: ["secuencia", "geologia"]
-
-tipo: ordenar
-opciones_explicitas: ["Producción de O2 por cianobacterias", "Oxidación de hierro disuelto en el océano", "Precipitación de óxidos de hierro (BIF)", "Aumento de la oxigenación atmosférica"]
-
-enunciado: "Ordena cronológicamente los eventos que llevaron a la formación de los depósitos de hierro bandeado y la oxigenación atmosférica:"
-
-explicacion: |
-  Primero la vida fotosintética produce oxígeno; luego este oxida el hierro disponible en el agua; esto genera los depósitos BIF; finalmente, una vez saturado el sumidero de hierro, el oxígeno comienza a acumularse en la atmósfera.
-respuesta_orden: ["Producción de O2 por cianobacterias", "Oxidación de hierro disuelto en el océano", "Precipitación de óxidos de hierro (BIF)", "Aumento de la oxigenación atmosférica"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "intermedio"
-  tags: ["sumideros", "oxigeno"]
+  tags: ["geografia", "determinismo"]
 
 tipo: vf
 
-enunciado: "La formación de las BIF actuó como un 'sumidero' que retrasó la acumulación masiva de oxígeno en la atmósfera durante millones de años."
+enunciado: "La existencia de múltiples centros de origen de la agricultura sugiere que el clima y la disponibilidad de especies silvestres fueron factores clave en diferentes partes del mundo."
 
 respuesta: verdadero
 
 explicacion: |
-  Verdadero. El oxígeno producido se consumía rápidamente oxidando el hierro y otros compuestos en el océano antes de poder escapar a la atmósfera.
+  Es verdadero. La diversidad de cultivos en distintas regiones demuestra que la transición neolítica fue una respuesta adaptativa a entornos locales específicos.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "avanzado"
-  tags: ["geoquimica", "oxigeno"]
-
-tipo: completar
-tolerancia_abs: 0.001
-
-enunciado: "Si la concentración de oxígeno en el océano es de 0.02 moles/m³ y el umbral de saturación de los sumideros de hierro es de 0.05 moles/m³, ¿cuál es la diferencia respecto al umbral?"
-
-pasos:
-  - "Calcular la diferencia absoluta entre el umbral y la concentración actual."
-
-explicacion: |
-  La diferencia es el margen que faltaba para que el oxígeno comenzara a acumularse en la atmósfera tras saturar los sumideros químicos: 0.05 - 0.02 = 0.03 moles/m³.
-
-respuesta: 0.03
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "basico"
-  tags: ["biologia", "atmosfera"]
-
-enunciado: "El evento conocido como la Gran Oxidación fue impulsado por la aparición de organismos capaces de realizar la fotosíntesis."
-
-respuesta: "fotosíntesis"
-tipo: mc
-opciones_explicitas: ["fotosíntesis", "quimiosíntesis", "respiración", "fermentación"]
-
-explicacion: |
-  Las cianobacterias fueron los primeros organismos en desarrollar la fotosíntesis oxigénica, liberando oxígeno como subproducto.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
+  tema: "revolucion_neolitica"
   nivel: "intermedio"
-  tags: ["quimica", "oxigeno"]
-
-enunciado: "La acumulación de oxígeno en la atmósfera provocó la ___ de gases reductores como el metano."
-
-respuesta: "oxidación de metano"
-tipo: completar
-respuestas_validas:
-  - "oxidación de metano"
-
-explicacion: |
-  El oxígeno atmosférico reaccionó con el metano (un gas de efecto invernadero), alterando la química global.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "intermedio"
-  tags: ["extincion", "biologia"]
-
-enunciado: "Para los organismos anaerobios de la época, el aumento de oxígeno en la atmósfera representó una ___."
-
-respuesta: "extinción masiva"
-tipo: mc
-opciones_explicitas: ["extinción masiva", "explosión de vida", "estabilidad climática", "mutación acelerada"]
-
-explicacion: |
-  El oxígeno era tóxico para la mayoría de las formas de vida predominantes en ese entonces, causando una extinción masiva.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "avanzado"
-  tags: ["secuencia", "procesos"]
+  tags: ["regiones", "identificacion"]
 
 variables:
-  pasos_correctos: ["Fotosíntesis oxigénica", "Saturación de sumideros de hierro", "Liberación de O2 a la atmósfera"]
+  idx: uno_de([0, 1])
+  datos: [["Mesoamérica", "Maíz"], ["Andes", "Papa"]]
 
-enunciado: "Ordene los eventos que llevaron a la Gran Oxidación:"
-
-respuesta_orden: ["Fotosíntesis oxigénica", "Saturación de sumideros de hierro", "Liberación de O2 a la atmósfera"]
-tipo: ordenar
-opciones_explicitas: ["Fotosíntesis oxigénica", "Saturación de sumideros de hierro", "Liberación de O2 a la atmósfera"]
-
-explicacion: |
-  Primero se produjo el oxígeno, luego este fue absorbido por minerales (hierro) y finalmente se acumuló en la atmósfera.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "gran_oxidacion"
-  nivel: "avanzado"
-  tags: ["quimica", "atmosfera"]
-
-enunciado: "La transición de una atmósfera reductora a una oxidante fue causada por la liberación de oxígeno, que actuó como un potente ___."
-
-respuesta: "oxidante"
-tipo: completar
-respuestas_validas:
-  - "oxidante"
-
-explicacion: |
-  El oxígeno es un agente oxidante fuerte que cambió radicalmente el potencial redox de la atmósfera terrestre.
-```
-
-## Sección: guerra-de-malvinas (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "basico"
-  tags: ["conflictos", "soberania", "1982"]
-
-respuesta: "Argentina"
-tipo: "mc"
-opciones_explicitas: ["Reino Unido", "Argentina", "Chile", "Francia"]
-
-enunciado: "La Guerra de Malvinas, iniciada en 1982, fue un conflicto armado entre ___ y el Reino Unido por la soberanía de las islas."
-
-explicacion: |
-  El conflicto se desató tras la invasión de las fuerzas argentinas a las islas, lo que provocó la respuesta militar británica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "intermedio"
-  tags: ["cronologia", "eventos"]
-
-variables:
-  eventos: [["Invasión de las islas", "Fuerzas argentinas ocupan las islas"], ["Desembarco en San Carlos", "Fuerzas británicas desembarcan en la isla"], ["Rendición argentina", "Fuerzas argentinas se rinden en Puerto Argentino"]]
-
-respuesta_orden: ["Invasión de las islas", "Desembarco en San Carlos", "Rendición argentina"]
-tipo: "ordenar"
-opciones_explicitas: ["Invasión de las islas", "Desembarco en San Carlos", "Rendición argentina"]
-
-enunciado: "Ordene cronológicamente los eventos clave del conflicto:"
-
-explicacion: |
-  La secuencia lógica fue la ocupación inicial, el desembarco de la Task Force británica y la rendición final.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "avanzado"
-  tags: ["naval", "tactic"]
-
-respuesta: 200
-tipo: "input"
-tolerancia_abs: 1
-
-enunciado: "El crucero ARA General Belgrano fue hundido por un submarino británico el 2 de mayo de 1982. Si, hipotéticamente, el submarino se encontraba a una profundidad de 200 metros y el crucero estaba en la superficie, ¿cuál sería la distancia vertical (en metros) entre ambos?"
-
-pasos:
-  - "Identificar la profundidad del submarino: 200m"
-  - "Identificar la posición del crucero: 0m"
-  - "Calcular la diferencia: 200 - 0 = 200"
-
-explicacion: |
-  La distancia vertical es la diferencia entre la superficie (0m) y la profundidad del submarino (200m).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "intermedio"
-  tags: ["diplomacia", "soberania"]
-
-respuesta: "soberanía"
-tipo: "completar"
-respuestas_validas:
-  - "soberanía"
-  - "territorio"
-  - "recursos"
-
-enunciado: "El reclamo argentino por las islas se fundamenta en el principio de ___ territorial."
-
-explicacion: |
-  Argentina sostiene su derecho basado en la integridad territorial y la herencia de la corona española.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "intermedio"
-  tags: ["politica", "dictadura"]
-
-respuesta: "Junta Militar"
-tipo: "mc"
-opciones_explicitas: ["Gobierno Democrático", "Junta Militar", "Frente Popular", "Estado de Sitio"]
-
-enunciado: "En 1982, la guerra se desarrolló bajo el mando de la ___ en Argentina."
-
-explicacion: |
-  El país se encontraba bajo un proceso de dictadura militar liderado por la Junta Militar en aquel entonces.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "basico"
-  tags: ["soberania", "historia", "argentina"]
-
-tipo: mc
-opciones_explicitas: ["1833", "1982", "1776", "1810"]
-respuesta: "1833"
-
-enunciado: "El Reino Unido ocupó las Islas Malvinas de forma efectiva en el año ___."
-
-explicacion: |
-  La ocupación británica de las islas comenzó en 1833, interrumpiendo la presencia argentina en el archipiélago.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "basico"
-  tags: ["derecho_internacional", "soberania"]
-
-tipo: mc
-opciones_explicitas: ["Territorial", "Económica", "Religiosa", "Cultural"]
-respuesta: "Territorial"
-
-enunciado: "El reclamo argentino sobre las Islas Malvinas es de carácter ___."
-
-explicacion: |
-  Argentina sostiene un reclamo de soberanía territorial basado en la herencia de los estados sucesores de España y la continuidad geográfica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "intermedio"
-  tags: ["cronologia", "conflictos"]
-
-variables:
-  escenario: uno_de(["A", "B"])
-  datos: [["1833", "Ocupación británica", "Inicio de la disputa"], ["1982", "Conflicto bélico", "Guerra de Malvinas"]]
-
-tipo: ordenar
-opciones_explicitas: ["1833", "1982", "Actualidad"]
-
-enunciado: "Ordene cronológicamente los hitos clave de la disputa por las islas:"
-
-explicacion: |
-  La cronología marca desde la ocupación británica en 1833, pasando por el conflicto armado en 1982, hasta el reclamo diplomático actual.
-respuesta_orden: ["1833", "1982", "Actualidad"]
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "avanzado"
-  tags: ["derecho_internacional", "onu"]
-
-tipo: completar
-respuestas_validas:
-  - "integridad"
-
-enunciado: "Argentina sostiene que el principio de ___ territorial debe prevalecer sobre el principio de autodeterminación en el caso de las Malvinas."
-
-explicacion: |
-  Argentina argumenta que la población actual es una población implantada, por lo que el principio de autodeterminación no es aplicable, debiendo prevalecer la integridad territorial.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "intermedio"
-  tags: ["guerra", "1982"]
-
-tipo: mc
-opciones_explicitas: ["desembarco", "cese", "tratado", "armisticio"]
-respuesta: "cese"
-
-enunciado: "El conflicto bélico de 1982 se caracterizó por el cese de las tropas argentinas en las islas."
-
-explicacion: |
-  El conflicto terminó con el cese de las hostilidades y la rendición de las fuerzas argentinas en junio de 1982.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "basico"
-  tags: ["dictadura", "contexto"]
-
-respuesta: "dictadura militar"
-tipo: completar
-respuestas_validas:
-  - "dictadura militar"
-
-enunciado: "En 1982, Argentina se encontraba bajo el gobierno de una ___ que enfrentaba una profunda crisis interna."
-
-explicacion: |
-  La última dictadura militar argentina buscaba recuperar legitimidad mediante una acción bélica ante el desgaste social y económico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "intermedio"
-  tags: ["legitimidad", "objetivos"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: [[ "reforzar la legitimidad", "recuperar el apoyo popular" ], [ "distraer de la crisis", "ocultar el malestar social" ]]
-
-respuesta: escenario[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["reforzar la legitimidad", "recuperar el apoyo popular", "ocultar el malestar social", "evitar la crisis económica"]
-
-enunciado: "Uno de los objetivos estratégicos de la junta militar al ordenar el desembarco en las islas era ___."
-
-explicacion: |
-  La dictadura intentó utilizar el conflicto bélico para generar un sentimiento de unidad nacional y así recuperar el apoyo popular que había perdido por la crisis económica y la represión.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "intermedio"
-  tags: ["cronologia", "fechas"]
-
-respuesta_orden: ["Crisis interna de la dictadura", "Orden de desembarco", "Inicio de la guerra"]
-tipo: ordenar
-opciones_explicitas: ["Crisis interna de la dictadura", "Orden de desembarco", "Inicio de la guerra"]
-
-enunciado: "Ordene cronológicamente los hechos que llevaron al conflicto de 1982:"
-
-explicacion: |
-  Primero existió una crisis de legitimidad, luego la junta ordenó el desembarco en abril y finalmente se inició el conflicto armado.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "avanzado"
-  tags: ["causas", "crisis"]
-
-respuesta: "crisis"
-tipo: mc
-opciones_explicitas: ["crisis", "estabilidad", "bonanza", "prosperidad"]
-
-enunciado: "El contexto socio-político de Argentina en abril de 1982 se caracterizaba por una profunda ___."
-
-explicacion: |
-  La crisis política y económica de la dictadura fue un motor fundamental para la decisión de iniciar el conflicto en las islas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "intermedio"
-  tags: ["junta_militar", "decisión"]
-
-respuesta: "abril 1982"
-tipo: completar
-respuestas_validas:
-  - "abril 1982"
-
-enunciado: "La orden de desembarco en las islas Malvinas se produjo en ___."
-
-explicacion: |
-  El desembarco ocurrió en abril de 1982, marcando el inicio de la disputa armada con el Reino Unido.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "intermedio"
-  tags: ["politica", "dictadura", "democracia"]
-
-respuesta: "aceleró"
-tipo: completar
-respuestas_validas:
-  - "aceleró"
-  - "acelerar"
-  - "aceleración"
-
-enunciado: "La derrota militar argentina en la guerra de Malvinas en junio de 1982 ___ el proceso de deslegitimación de la Junta Militar y ___ el retorno a la democracia en 1983."
-
-explicacion: |
-  La derrota bélica destruyó el prestigio de la Junta Militar, que había iniciado el conflicto para consolidar su poder, acelerando la crisis del régimen y la transición democrática.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "basico"
-  tags: ["consecuencias", "dictadura"]
-
-opciones_explicitas: ["Consolidación de la dictadura", "Crisis del régimen militar", "Guerra civil inmediata", "Alianza con el Reino Unido"]
-respuesta: "Crisis del régimen militar"
-tipo: mc
-
-enunciado: "¿Cuál fue la principal consecuencia política interna de la derrota en Malvinas para el gobierno de facto?"
-
-explicacion: |
-  La pérdida de la guerra expuso la incapacidad de gestión de la dictadura, provocando una crisis de autoridad que hizo insostenible la continuidad del mando militar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "intermedio"
-  tags: ["democracia", "elecciones"]
-
-variables:
-  datos: [["Dictadura", "Democracia"]]
-
-respuesta: datos[0][1]
-tipo: mc
-opciones_explicitas: ["Dictadura", "Democracia"]
-
-enunciado: "Tras la derrota en Malvinas, el proceso político argentino se desplazó desde el mando de una {datos[0][0]} hacia la restauración de la {datos[0][1]} en 1983."
-
-pasos:
-  - "Analizar el cambio de régimen tras la crisis de junio de 1982."
-  - "Identificar el sistema de gobierno que se restauró en 1983."
-
-explicacion: |
-  La transición democrática fue impulsada por el vacío de poder y la presión social surgida tras el fracaso bélico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "avanzado"
-  tags: ["orden", "cronologia"]
-
-opciones_explicitas: ["Conflicto bélico", "Retorno a la democracia", "Inicio de la dictadura"]
-respuesta_orden: ["Inicio de la dictadura", "Conflicto bélico", "Retorno a la democracia"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente los siguientes hitos de la historia argentina reciente:"
-
-explicacion: |
-  La secuencia correcta es: Golpe de Estado (1976), Guerra de Malvinas (1982) y Elecciones de 1983.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "intermedio"
-  tags: ["legitimidad", "juicio"]
-
-respuesta: 0
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "En una escala del 0 al 10, donde 0 es 'nula' y 10 es 'total', ¿cómo se podría calificar la legitimidad política que la Junta Militar intentó recuperar tras la derrota? (Responda con el número 0 para indicar que fue nula)"
+enunciado: "Si estamos en la región de {datos[idx][0]}, el cultivo fundamental para el desarrollo de la agricultura fue la {datos[idx][1]}."
+
+pasos:
+  - "Identificar la región según el escenario."
+  - "Relacionar la región con su cultivo principal."
 
 explicacion: |
-  La derrota eliminó cualquier base de apoyo social para la Junta, dejando su legitimidad en un nivel prácticamente nulo (0).
+  En {datos[idx][0]}, la domesticación de la {datos[idx][1]} fue el motor del cambio neolítico.
+
+respuesta: datos[idx][1]
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
+  tema: "revolucion_neolitica"
   nivel: "basico"
-  tags: ["cronologia", "conflicto"]
+  tags: ["agricultura", "excedente"]
 
-respuesta: "2 de abril de 1982"
+respuesta: "excedente"
 tipo: completar
 respuestas_validas:
-  - "2 de abril de 1982"
+  - "excedente"
 
-enunciado: "La operación de desembarco de las fuerzas argentinas en las islas Malvinas tuvo lugar el ___."
+enunciado: "La capacidad de producir más alimento del que se consume inmediatamente se denomina ___."
 
 explicacion: |
-  El desembarco de las fuerzas argentinas en las islas Malvinas ocurrió el 2 de abril de 1982, marcando el inicio del conflicto bélico.
+  Este fenómeno permitió que no todas las personas tuvieran que dedicarse a la recolección o caza, permitiendo la especialización del trabajo.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
+  tema: "revolucion_neolitica"
+  nivel: "basico"
+  tags: ["sedentarismo", "agricultura"]
+
+respuesta: "sedentarismo"
+tipo: mc
+opciones_explicitas: ["sedentarismo", "desplazamiento constante", "nomadismo extremo", "migración estacional"]
+
+enunciado: "La adopción de la agricultura estable permitió que los grupos humanos abandonaran el nomadismo, dando paso al ___."
+
+explicacion: |
+  Al tener una fuente de alimento constante y predecible, las poblaciones pudieron establecer asentamientos permanentes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_neolitica"
   nivel: "intermedio"
-  tags: ["hechos", "maritimo"]
+  tags: ["demografia", "neolitico"]
 
-respuesta: "2 de mayo de 1982"
-tipo: completar
-respuestas_validas:
-  - "2 de mayo de 1982"
+respuesta: "aumento"
+tipo: mc
+opciones_explicitas: ["aumento", "disminución", "estancamiento", "inestabilidad"]
 
-enunciado: "El hundimiento del crucero ARA General Belgrano por parte de un submarino británico ocurrió el ___."
+enunciado: "La disponibilidad de excedentes alimentarios provocó un ___ de la población humana."
 
 explicacion: |
-  El ataque al crucero General Belgrano fue uno de los eventos más significativos del conflicto, ocurrido el 2 de mayo de 1982.
+  La mayor disponibilidad de calorías y la estabilidad de los asentamientos permitieron un crecimiento demográfico sostenido.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
+  tema: "revolucion_neolitica"
+  nivel: "intermedio"
+  tags: ["secuencia", "transicion"]
+
+respuesta_orden: ["agricultura", "excedente", "sedentarismo", "especialización"]
+tipo: ordenar
+opciones_explicitas: ["agricultura", "excedente", "sedentarismo", "especialización"]
+
+enunciado: "Ordena la siguiente secuencia lógica de la Revolución Neolítica:"
+
+pasos:
+  - "Primero, la domesticación de plantas y animales."
+  - "Segundo, la acumulación de comida sobrante."
+  - "Tercero, el establecimiento de asentamientos permanentes."
+  - "Cuarto, la aparición de artesanos y guerreros."
+
+explicacion: |
+  La secuencia muestra cómo la producción de alimentos (agricultura) genera excedentes, lo que permite el sedentarismo y, finalmente, la división del trabajo (especialización).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "revolucion_neolitica"
   nivel: "avanzado"
-  tags: ["ordenar", "cronologia"]
+  tags: ["causalidad", "sociedad"]
+
+respuesta: "sedentarismo"
+tipo: mc
+opciones_explicitas: ["sedentarismo", "nomadismo", "migración", "recolección"]
+
+enunciado: "Si la agricultura genera un excedente, la consecuencia social directa es el ___."
+
+explicacion: |
+  El excedente permite que la sociedad deje de moverse constantemente en busca de comida, fijando la población en un territorio.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_neolitica"
+  nivel: "basico"
+  tags: ["agricultura", "origen"]
+
+respuesta: "Oriente Próximo"
+tipo: mc
+opciones_explicitas: ["Oriente Próximo", "Río Amarillo", "México"]
+
+enunciado: "La domesticación de cereales como el trigo y la cebada ocurrió principalmente en la región del Creciente Fértil, también conocida como ___."
+
+explicacion: |
+  La región del Creciente Fértil fue el núcleo de la revolución neolítica, permitiendo el sedentarismo gracias al cultivo de cereales.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_neolitica"
+  nivel: "basico"
+  tags: ["america", "maiz"]
 
 variables:
-  orden_correcta: ["Desembarco en las islas", "Hundimiento del Belgrano", "Rendición argentina"]
+  datos: [["Mesoamérica", "maíz"], ["Andes", "papa"], ["China", "arroz"]]
+  idx: uno_de([0,1,2])
 
-respuesta_orden: orden_correcta
-tipo: ordenar
-opciones_explicitas: ["Desembarco en las islas", "Hundimiento del Belgrano", "Rendición argentina"]
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["maíz", "papa", "arroz"]
 
-enunciado: "Ordene cronológicamente los siguientes hitos de la guerra:"
+enunciado: "En la región de {datos[idx][0]}, el cultivo fundamental que transformó la dieta humana fue el ___."
 
 explicacion: |
-  La secuencia correcta es: Desembarco (2 de abril), Hundimiento del Belgrano (2 de mayo) y la Rendición (14 de junio).
+  El maíz es el pilar de la agricultura en Mesoamérica, derivado del teosinte.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_neolitica"
+  nivel: "intermedio"
+  tags: ["nomadismo", "sedentarismo"]
+
+respuesta: "agricultores"
+tipo: completar
+respuestas_validas:
+  - "agricultores"
+
+enunciado: "Antes de la revolución neolítica, los grupos humanos eran mayoritariamente nómadas y recolectores; tras la domesticación de plantas, se convirtieron en ___."
+
+explicacion: |
+  La capacidad de producir alimento permitió que los grupos humanos dejaran de desplazarse constantemente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_neolitica"
+  nivel: "avanzado"
+  tags: ["geografia", "cultivos"]
+
+respuesta: "papa"
+tipo: mc
+opciones_explicitas: ["arroz", "papa", "trigo"]
+
+enunciado: "Si un arqueólogo encuentra restos de tubérculos domesticados en la zona de los Andes, lo más probable es que se trate de ___."
+
+explicacion: |
+  La domesticación de la papa es un proceso clave que ocurrió en la región andina.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "revolucion_neolitica"
+  nivel: "intermedio"
+  tags: ["procesos", "orden"]
+
+respuesta_orden: ["Recolección", "Domesticación", "Sedentarismo", "Excedente"]
+tipo: ordenar
+opciones_explicitas: ["Recolección", "Domesticación", "Sedentarismo", "Excedente"]
+
+enunciado: "Ordena cronológicamente los procesos que definen la transición del Paleolítico al Neolítico:"
+
+explicacion: |
+  Primero se recolectaba, luego se domesticó la especie, lo que permitió el sedentarismo y finalmente la creación de excedentes que permitieron la especialización del trabajo.
+```
+
+## Sección: sedentarizacion-excedente (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "basico"
+  tags: ["sedentarizacion", "agricultura"]
+
+respuesta: "sedentarios"
+tipo: completar
+respuestas_validas:
+  - "sedentarios"
+
+enunciado: "Al depender de la agricultura y la domesticación de plantas, los grupos humanos dejaron de ser nómadas para convertirse en ___."
+
+explicacion: |
+  La capacidad de producir alimento de forma controlada permitió que los grupos humanos se establecieran en un lugar fijo, dando inicio a la sedentarización.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "basico"
+  tags: ["causas", "agricultura"]
+
+respuesta: "la agricultura"
+tipo: mc
+opciones_explicitas: ["la caza", "la agricultura", "la recolección", "la migración"]
+
+enunciado: "La domesticación de plantas fue el motor principal de la sedentarización, un proceso conocido como ___."
+
+explicacion: |
+  El paso de una economía de subsistencia basada en la recolección a una basada en la producción agrícola permitió la permanencia en un territorio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "intermedio"
+  tags: ["excedente", "especializacion"]
+
+respuesta: "especialización"
+tipo: completar
+respuestas_validas:
+  - "especialización"
+  - "especializacion"
+
+enunciado: "La generación de un excedente agrícola permitió que no todos los individuos tuvieran que dedicarse a la producción de alimentos, dando lugar a la ___ del trabajo."
+
+explicacion: |
+  El excedente alimentario permitió que surgieran otros roles sociales (artesanos, guerreros, sacerdotes), rompiendo la igualdad de la economía de subsistencia.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "intermedio"
+  tags: ["procesos", "ordenar"]
+
+respuesta_orden: ["Domesticación de plantas", "Producción de excedentes", "Asentamientos permanentes", "Especialización social"]
+tipo: ordenar
+opciones_explicitas: ["Domesticación de plantas", "Producción de excedentes", "Asentamientos permanentes", "Especialización social"]
+
+enunciado: "Ordena cronológicamente los procesos que permitieron el surgimiento de las primeras civilizaciones:"
+
+explicacion: |
+  Primero se domestican las especies, lo que genera comida de sobra (excedente), lo que permite quedarse en un lugar (sedentarismo) y finalmente permite que la sociedad se divida en clases o profesiones.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "avanzado"
+  tags: ["territorio", "geografia_humana"]
+
+respuesta: verdadero
+tipo: vf
+opciones_explicitas: [verdadero, falso]
+
+enunciado: "Los asentamientos permanentes fueron una consecuencia directa de la necesidad de cuidar los cultivos."
+
+explicacion: |
+  La agricultura requiere una inversión de tiempo y cuidado constante en el mismo terreno, lo que obliga a la población a permanecer en un radio cercano a sus campos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "basico"
+  tags: ["agricultura", "conceptos"]
+
+tipo: mc
+opciones_explicitas: ["La producción total de alimentos de una comunidad", "La producción de alimento por encima de lo necesario para la subsistencia", "El proceso de transformar granos en harina", "El intercambio de semillas entre comunidades"]
+respuesta: "La producción de alimento por encima de lo necesario para la subsistencia"
+
+enunciado: "En el contexto de la Revolución Neolítica, ¿qué se define como excedente agrícola?"
+
+explicacion: |
+  El excedente es la cantidad de alimento que sobra después de haber cubierto las necesidades básicas de supervivencia de la población. Este sobrante es la base de la especialización del trabajo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "intermedio"
+  tags: ["sociedad", "especializacion"]
+
+variables:
+  escenarios: [["comerciar con otros grupos", "alimentar a artesanos y sacerdotes"], ["almacenar para tiempos de sequía", "permitir la aparición de jerarquías sociales"]]
+  escenario: uno_de(escenarios)
+
+tipo: mc
+opciones_explicitas: ["Reducir el tamaño de las poblaciones", "Fomentar la autosuficiencia absoluta", "Permitir la especialización del trabajo", "Eliminar la necesidad de agricultura"]
+
+enunciado: "La existencia de un excedente agrícola permitió que parte de la población pudiera dedicarse a actividades distintas a la producción de alimentos, como {escenario[0]} o {escenario[1]}. ¿A qué proceso social dio lugar esto?"
+
+respuesta: "Permitir la especialización del trabajo"
+
+explicacion: |
+  Al no tener que producir comida todos los días, surgieron especialistas (artesanos, guerreros, administradores) y se consolidaron las estructuras sociales complejas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "basico"
+  tags: ["nomadismo", "sedentarismo"]
+
+tipo: ordenar
+opciones_explicitas: ["Domesticación de plantas y animales", "Producción de excedente agrícola", "Formación de asentamientos permanentes", "Aparición de la división social del trabajo"]
+
+enunciado: "Ordena cronológicamente los procesos que permitieron la transición del nomadismo al sedentarismo complejo:"
+
+explicacion: |
+  Primero se domestican especies, lo que permite producir más de lo que se consume; esto permite quedarse en un lugar (sedentarismo) y finalmente permite que no todos trabajen en el campo.
+respuesta_orden: ["Domesticación de plantas y animales", "Producción de excedente agrícola", "Formación de asentamientos permanentes", "Aparición de la división social del trabajo"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "intermedio"
+  tags: ["economia_antigua"]
+
+tipo: completar
+respuestas_validas:
+  - "comercio"
+  - "intercambio"
+
+enunciado: "El excedente agrícola no solo servía para el almacenamiento, sino que también facilitó el ________ con otros grupos humanos."
+
+explicacion: |
+  El sobrante de productos permite que una comunidad obtenga otros bienes que no produce, dando origen a las primeras redes de intercambio o comercio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "avanzado"
+  tags: ["logica", "economia"]
+
+variables:
+  datos: [[100, 70], [250, 180], [50, 45]]
+  idx: uno_de([0, 1, 2])
+  produccion: datos[idx][0]
+  consumo: datos[idx][1]
+  excedente: produccion - consumo
+
+tipo: completar
+enunciado: "Si una comunidad agrícola produce {produccion} sacos de grano y el consumo necesario para su subsistencia es de {consumo} sacos, ¿cuántos sacos representan el excedente?"
+
+respuesta: excedente
+
+pasos:
+  - "Identificar la producción total"
+  - "Identificar el consumo de subsistencia"
+  - "Restar el consumo de la producción para hallar el sobrante"
+
+explicacion: |
+  El excedente se calcula mediante la resta: Producción - Consumo. En este caso, el resultado es {excedente}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "basico"
+  tags: ["sedentarizacion", "excedente", "division_del_trabajo"]
+
+tipo: mc
+opciones_explicitas: ["La agricultura de subsistencia", "La acumulación de excedente", "La caza y recolección", "El nomadismo"]
+respuesta: "La acumulación de excedente"
+
+enunciado: "El fenómeno que permitió, por primera vez, que ciertos grupos humanos se dedicaran a tareas distintas a la obtención de alimento fue..."
+
+explicacion: |
+  El excedente agrícola permitió que no toda la población tuviera que producir comida, dando lugar a la especialización del trabajo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "intermedio"
+  tags: ["clases_sociales", "especializacion"]
+
+variables:
+  escenario: uno_de([["artesanos", "creadores de herramientas y objetos"], ["sacerdotes", "encargados de rituales y la cosmogonía"], ["gobernantes", "encargados de la administración y defensa"]])
+
+tipo: completar
+respuesta: escenario[0]
+
+enunciado: "Gracias al excedente, surgieron roles sociales especializados. A quienes eran {escenario[1]} se los denominaba ___."
+
+pasos:
+  - "Identificar la función social descrita."
+  - "Relacionar la función con el término correspondiente."
+
+explicacion: |
+  La división del trabajo permitió la aparición de especialistas en la producción, la religión y la política.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "intermedio"
+  tags: ["division_del_trabajo", "jerarquia"]
+
+tipo: ordenar
+opciones_explicitas: ["Producción de excedente", "Sedentarismo", "División del trabajo", "Especialización social"]
+
+enunciado: "Ordena cronológicamente los procesos que permitieron la aparición de las primeras civilizaciones complejas:"
+
+explicacion: |
+  Primero se establece el sedentarismo, lo que permite producir excedentes; esto a su vez permite la división del trabajo y finalmente la especialización de roles sociales.
+respuesta_orden: ["Producción de excedente", "Sedentarismo", "División del trabajo", "Especialización social"]
 ```
 
 ```
 metadata:
   materia: "historia_profucha"
-  tema: "guerra_de_malvinas"
+  tema: "sedentarizacion_excedente"
   nivel: "basico"
-  tags: ["final", "rendicion"]
+  tags: ["excedente", "base_social"]
 
-respuesta: "14 de junio de 1982"
-tipo: completar
-respuestas_validas:
-  - "14 de junio de 1982"
+tipo: mc
+opciones_explicitas: ["La escasez de recursos", "La división del trabajo", "El excedente de producción", "La guerra constante"]
+respuesta: "El excedente de producción"
 
-enunciado: "La firma de la rendición de las fuerzas argentinas en las islas Malvinas se produjo el ___."
+enunciado: "La base fundamental que permitió la división del trabajo en las sociedades neolíticas fue..."
 
 explicacion: |
-  El conflicto terminó formalmente el 14 de junio de 1982 con la rendición de las fuerzas argentinas ante las británicas.
+  Sin un excedente de alimentos, cada individuo debe dedicar la mayor parte de su tiempo a asegurar la supervivencia alimentaria.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "guerra_de_malvinas"
-  nivel: "intermedio"
-  tags: ["inicio", "fecha"]
+  tema: "sedentarizacion_excedente"
+  nivel: "avanzado"
+  tags: ["especializacion", "clases_sociales"]
 
-variables:
-  escenario: uno_de([[0, "2 de abril de 1982"], [1, "1 de mayo de 1982"]])
-  fecha_inicio: escenario[1]
-
-respuesta: "2 de abril de 1982"
 tipo: mc
-opciones_explicitas: ["2 de abril de 1982", "1 de mayo de 1982", "2 de mayo de 1982", "14 de junio de 1982"]
+opciones_explicitas: ["artesano", "sacerdote", "gobernante"]
+respuesta: "gobernante"
 
-enunciado: "¿En qué fecha se produjo el desembarco argentino que dio inicio al conflicto?"
+enunciado: "Si una sociedad cuenta con excedentes y surge una clase dedicada exclusivamente a la gestión del orden y la defensa, estamos ante la figura del:"
 
 explicacion: |
-  El conflicto bélico comenzó con el desembarco argentino el 2 de abril de 1982.
+  La gestión del poder es una de las especializaciones más tempranas derivadas de la organización de sociedades con excedentes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "basico"
+  tags: ["sedentarizacion", "poblacion"]
+
+respuesta: "crecimiento"
+tipo: completar
+respuestas_validas:
+  - "crecimiento"
+
+enunciado: "La transición de la vida nómada a la sedentarización favoreció el ___ poblacional debido a la estabilidad en el suministro de alimentos."
+
+explicacion: |
+  Al establecerse en un lugar fijo y cultivar alimentos, las comunidades pudieron asegurar un suministro constante, lo que permitió que la población creciera de forma sostenida.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "basico"
+  tags: ["aldeas", "asentamientos"]
+
+opciones_explicitas: ["Asentamientos temporales", "Aldeas permanentes", "Migraciones constantes"]
+respuesta: "Aldeas permanentes"
+tipo: mc
+
+enunciado: "La capacidad de producir excedentes agrícolas permitió que los grupos humanos abandonaran el nomadismo y fundaran:"
+
+explicacion: |
+  El excedente de comida permitió que las personas no tuvieran que desplazarse constantemente en busca de alimento, dando origen a las primeras aldeas permanentes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "intermedio"
+  tags: ["nutrición", "recursos"]
+
+variables:
+  escenarios: [["estabilidad de recursos", "una mejor nutrición en cantidad"], ["excedente de granos", "la reducción de la mortalidad infantil"]]
+  idx: uno_de([0, 1])
+  factor: escenarios[idx][1]
+
+enunciado: "Considerando el escenario de {escenarios[idx][0]}, el factor principal que impulsó el aumento de la población fue {factor}."
+
+respuesta: factor
+tipo: mc
+opciones_explicitas: ["una mejor nutrición en cantidad", "la reducción de la mortalidad infantil"]
+
+explicacion: |
+  La estabilidad en el suministro de recursos y una nutrición más constante son pilares fundamentales para el crecimiento demográfico en la era neolítica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "intermedio"
+  tags: ["proceso", "causa_efecto"]
+
+opciones_explicitas: ["Agricultura", "Excedente de alimentos", "Aldeas permanentes"]
+respuesta_orden: ["Agricultura", "Excedente de alimentos", "Aldeas permanentes"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente los procesos que permitieron la transición hacia la vida sedentaria:"
+
+explicacion: |
+  Primero se desarrolla la agricultura, esto genera un excedente de comida, lo que finalmente permite que los asentamientos se vuelvan permanentes.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "avanzado"
+  tags: ["excedente", "sociedad"]
+
+respuesta: "verdadero"
+tipo: completar
+enunciado: "¿El excedente de alimentos permitió que no todos los miembros de la aldea tuvieran que dedicarse a la agricultura, dando paso a la especialización del trabajo?"
+
+explicacion: |
+  Exacto. Al haber comida de sobra (excedente), algunas personas pudieron dedicarse a otras tareas como la alfarería, la metalurgia o la administración.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "basico"
+  tags: ["agricultura", "sedentarismo"]
+
+variables:
+  datos: [["el cultivo de cereales permitió almacenar comida", "la sedentarización"], ["la domesticación de animales generó excedentes", "el aumento de la población"], ["el control del riego aseguró cosechas", "la formación de los primeros asentamientos"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["la sedentarización", "el aumento de la población", "la formación de los primeros asentamientos"]
+
+enunciado: "Si consideramos que {datos[idx][0]}, el efecto directo fue ___."
+
+explicacion: |
+  La capacidad de producir más alimento del que se consume inmediatamente (excedente) permitió que los grupos humanos dejaran de ser nómadas y se establecieran en lugares fijos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "intermedio"
+  tags: ["excedente", "especializacion"]
+
+variables:
+  datos: [["excedente alimentario", "especialización del trabajo"], ["excedente alimentario", "aparición de jerarquías"], ["excedente alimentario", "desarrollo del comercio"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["especialización del trabajo", "aparición de jerarquías", "desarrollo del comercio"]
+
+enunciado: "Cuando una sociedad logra un {datos[idx][0]}, surge como consecuencia la ___."
+
+explicacion: |
+  Al no tener que dedicar todo el tiempo a la búsqueda de alimento, algunos individuos pudieron dedicarse a otras tareas como la artesanía, la metalurgia o la administración.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "intermedio"
+  tags: ["secuencia", "neolitico"]
+
+respuesta_orden: ["Domesticación de plantas", "Producción de excedentes", "Sedentarización", "Estratificación social"]
+tipo: ordenar
+opciones_explicitas: ["Domesticación de plantas", "Producción de excedentes", "Sedentarización", "Estratificación social"]
+
+enunciado: "Ordena cronológicamente los procesos que permitieron el surgimiento de las primeras civilizaciones:"
+
+explicacion: |
+  La secuencia lógica comienza con la transformación de la dieta (domesticación), que genera sobras de comida (excedente), lo que permite vivir en un sitio fijo (sedentarización) y finalmente la división de clases (estratificación).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "basico"
+  tags: ["sedentarismo", "poblacion"]
+
+variables:
+  datos: [["el sedentarismo", "aumento de la densidad poblacional"], ["la agricultura", "aumento de la densidad poblacional"], ["el excedente", "aumento de la densidad poblacional"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "aumento de la densidad poblacional"
+
+enunciado: "La transición de la caza-recolección hacia {datos[idx][0]} provocó un ___."
+
+explicacion: |
+  La estabilidad de las fuentes de alimento permitió que las tasas de natalidad aumentaran y la mortalidad disminuyera, incrementando la densidad de habitantes en un mismo territorio.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "sedentarizacion_excedente"
+  nivel: "avanzado"
+  tags: ["economia_prehistorica", "causalidad"]
+
+variables:
+  datos: [["excedente", "comercio"], ["excedente", "burocracia"], ["excedente", "urbanismo"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["comercio", "burocracia", "urbanismo"]
+
+enunciado: "El control y la gestión del {datos[idx][0]} fue el motor que impulsó el desarrollo de la ___."
+
+explicacion: |
+  La necesidad de contabilizar y distribuir el excedente obligó a las sociedades a crear sistemas de registro y administración, dando origen a las primeras estructuras burocráticas.
 ```
 

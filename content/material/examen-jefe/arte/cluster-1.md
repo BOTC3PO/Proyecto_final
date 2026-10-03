@@ -1,6 +1,6 @@
 # Examen jefe — [PENDIENTE #904]
 
-> Logro #904. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
+> Logro #904. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **132 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -500,473 +500,6 @@ explicacion: |
   Casi todos los instrumentos musicales poseen un cuerpo resonador (caja de madera, parche o tubo) que amplifica las vibraciones para que sean audibles.
 ```
 
-## Sección: armonia-basica-acordes-tonalidad (25 preguntas)
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "basico"
-  tags: ["armonia", "teoria_musical"]
-
-tipo: mc
-opciones_explicitas: ["La sucesión de notas que se escuchan una tras otra", "La combinación de tres o más notas que suenan simultáneamente", "La velocidad a la que se interpretan las notas", "La intensidad con la que suena un instrumento"]
-
-respuesta: "La combinación de tres o más notas que suenan simultáneamente"
-
-enunciado: "En la teoría musical, un acorde se define como ___."
-
-explicacion: |
-  Un acorde es la superposición de tres o más notas musicales que suenan al mismo tiempo, creando una sonoridad específica (dos notas simultáneas forman un intervalo, no un acorde).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "basico"
-  tags: ["tonalidad", "centro_tonal"]
-
-tipo: vf
-
-enunciado: "La tonalidad de una pieza musical es el sistema de relaciones que establece una jerarquía entre las notas, donde una nota específica actúa como el centro de gravedad o 'casa'."
-
-respuesta: verdadero
-
-explicacion: |
-  Correcto. La tonalidad organiza el lenguaje musical mediante una jerarquía donde la tónica es el punto de reposo principal.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "intermedio"
-  tags: ["acordes", "intervalos"]
-
-tipo: completar
-respuesta: "mayor"
-respuestas_validas:
-  - "mayor"
-
-enunciado: "Si un acorde está formado por la raíz, una tercera mayor y una quinta justa, se trata de un acorde ___."
-
-explicacion: |
-  La estructura de un acorde mayor se define por tener una tercera mayor (4 semitonos) entre la raíz y la tercera, y una quinta justa (7 semitonos) entre la raíz y la quinta.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "basico"
-  tags: ["terminologia", "acordes"]
-
-tipo: ordenar
-opciones_explicitas: ["Raíz", "Tercera", "Quinta"]
-
-respuesta_orden: ["Raíz", "Tercera", "Quinta"]
-
-enunciado: "Ordena los elementos de un acorde básico (tríada) desde la nota más grave a la más aguda:"
-
-explicacion: |
-  En una tríada estándar, la raíz es la nota fundamental, la tercera define la cualidad del acorde y la quinta es la nota más alta de la tríada básica.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "basico"
-  tags: ["tonalidad", "percepcion"]
-
-tipo: mc
-opciones_explicitas: ["Establecer la escala de notas que se utilizará", "Determinar el volumen de la música", "Indicar el ritmo de la pieza", "Definir el género musical"]
-
-respuesta: "Establecer la escala de notas que se utilizará"
-
-enunciado: "La principal función de la tonalidad en una composición es ___."
-
-explicacion: |
-  La tonalidad proporciona un marco de referencia que determina qué notas son naturales, accidentadas o de tensión dentro de una obra.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "basico"
-  tags: ["armonia", "acordes", "intervalos"]
-
-respuesta: "mayor"
-tipo: mc
-opciones_explicitas: ["mayor", "menor", "disminuido"]
-
-enunciado: "Un acorde mayor se construye mediante la superposición de dos intervalos. Si tomamos una nota fundamental y le sumamos una tercera mayor (4 semitonos) y luego una quinta justa (7 semitonos desde la fundamental), el acorde resultante es de tipo ___."
-
-explicacion: |
-  Un acorde mayor se define por su estructura de intervalos: 1 - 3 mayor - 5 justa. En semitonos: 0 - 4 - 7.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "basico"
-  tags: ["tonalidad", "escala", "teoria"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "Si una pieza musical utiliza exclusivamente las notas de la escala de Do Mayor (Do, Re, Mi, Fa, Sol, La, Si) y sus acordes derivados, ¿es correcto afirmar que la pieza está en la tonalidad de Do Mayor?"
-
-explicacion: |
-  La tonalidad está determinada por la escala que sirve como centro tonal y marco de referencia para la melodía y la armonía.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "intermedio"
-  tags: ["acordes", "semitonos"]
-
-variables:
-  base: uno_de(["Do", "Re", "Mi"])
-
-respuesta: "3"
-tipo: completar
-respuestas_validas:
-  - "3"
-
-enunciado: "Para transformar un acorde mayor en un acorde menor, debemos reducir la tercera mayor a una tercera menor. Si partimos de la nota fundamental {base}, debemos sumar exactamente ___ semitonos para obtener la tercera menor."
-
-pasos:
-  - "Identificar la nota fundamental: {base}"
-  - "Calcular la distancia de la tercera mayor (4 semitonos)"
-  - "Restar 1 semitono para obtener la tercera menor (4 - 1 = 3 semitonos)"
-
-explicacion: |
-  La diferencia fundamental entre un acorde mayor y uno menor es la tercera. El acorde menor tiene la tercera menor (3 semitonos), mientras que el mayor tiene la tercera mayor (4 semitonos).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "basico"
-  tags: ["acordes", "teoria"]
-
-respuesta_orden: ["Fundamental", "Tercera", "Quinta"]
-tipo: ordenar
-
-opciones_explicitas: ["Fundamental", "Tercera", "Quinta"]
-
-enunciado: "Ordena los elementos de una tríade musical desde la nota más grave (la base) hasta la más aguda, siguiendo la estructura estándar de un acorde."
-
-explicacion: |
-  Una tríada básica se compone de tres notas: la fundamental (la raíz), la tercera (que determina el modo) y la quinta (que da estabilidad).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "intermedio"
-  tags: ["intervalos", "calculo"]
-
-variables:
-  nota_base: uno_de(["Do", "Re", "Mi", "Fa"])
-
-respuesta: "7"
-tipo: completar
-respuestas_validas:
-  - "7"
-
-enunciado: "En el sistema de semitonos, una quinta justa siempre requiere un total de 7 semitonos desde la fundamental. Si partimos de la nota {nota_base}, ¿cuántos semitonos debemos subir para llegar a la quinta justa?"
-
-explicacion: |
-  El tamaño del intervalo de quinta justa (7 semitonos) es siempre el mismo, sin importar cuál sea la nota fundamental de partida.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "basico"
-  tags: ["teoria_musical", "acordes"]
-
-respuesta: "un conjunto de tres o más notas que suenan simultáneamente"
-tipo: completar
-respuestas_validas:
-  - "un conjunto de tres o más notas que suenan simultáneamente"
-  - "un conjunto de notas que suenan al mismo tiempo"
-
-enunciado: "En teoría musical, un acorde se define como ___."
-
-explicacion: |
-  Un acorde no es simplemente cualquier grupo de notas, sino la superposición de tres o más notas que crean una sonoridad específica (como mayor, menor o disminuido).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "intermedio"
-  tags: ["tonalidad", "escala"]
-
-respuesta: "tonalidad"
-tipo: completar
-respuestas_validas:
-  - "tonalidad"
-enunciado: "La escala es el conjunto de notas que forman la base de una ___."
-
-explicacion: |
-  Es un error común confundir escala con tonalidad. La escala es la sucesión de notas (el "mapa"), mientras que la tonalidad es el sistema de relaciones jerárquicas que se establece alrededor de una nota fundamental (el "territorio").
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "basico"
-  tags: ["tonalidad", "tonica"]
-
-variables:
-  escenario: uno_de([["Do mayor", "Do"], ["Sol mayor", "Sol"], ["La menor", "La"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["Do", "Sol", "La", "Fa"]
-
-enunciado: "Si una pieza musical está en la tonalidad de {escenario[0]}, la nota que actúa como centro de gravedad y reposo es ___."
-
-explicacion: |
-  La tónica es la nota fundamental de la tonalidad. Es el punto de máxima estabilidad hacia el cual tiende la música para sentir que ha "llegado a casa".
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "intermedio"
-  tags: ["intervalos", "acordes"]
-
-respuesta: "tercera mayor, tercera menor, quinta justa"
-tipo: completar
-respuestas_validas:
-  - "tercera mayor, tercera menor, quinta justa"
-
-enunciado: "Para construir un acorde mayor estándar, se requiere la fundamental, una ___ y una ___."
-
-explicacion: |
-  Un acorde mayor se construye con intervalos de tercera mayor (4 semitonos) respecto a la fundamental y quinta justa (7 semitonos).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "intermedio"
-  tags: ["jerarquia", "funcionalidad"]
-
-respuesta_orden: ["Tónica", "Subdominante", "Dominante"]
-tipo: ordenar
-opciones_explicitas: ["Tónica", "Subdominante", "Dominante"]
-
-enunciado: "Ordena los grados de una escala de mayor según su función de estabilidad, desde la que tiene mayor reposo a la que genera mayor tensión:"
-
-explicacion: |
-  La Tónica es el reposo absoluto; la Subdominante es una tensión media que prepara el camino; la Dominante es la máxima tensión que exige volver a la tónica.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "basico"
-  tags: ["armonia", "acordes"]
-
-respuesta: "acorde"
-tipo: mc
-opciones_explicitas: ["melodia", "acorde", "ritmo", "timbre"]
-
-enunciado: "Mientras que la melodía es una sucesión de notas en el tiempo, un ___ es la combinación de tres o más notas sonando de forma simultánea."
-
-explicacion: |
-  Un acorde se define por la superposición de diferentes alturas (notas) al mismo tiempo, creando una sonoridad específica.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "intermedio"
-  tags: ["tonalidad", "escala"]
-
-respuesta: "tonalidad"
-tipo: completar
-respuestas_validas:
-  - "tonalidad"
-enunciado: "Si una pieza musical utiliza un conjunto de notas que actúan como centro gravitacional, estableciendo una jerarquía de tensión y reposo, ¿podemos decir que la pieza posee una ___?"
-
-explicacion: |
-  La tonalidad es el sistema de organización que utiliza una escala como centro de gravedad. Si no hay un centro tonal, la música es atonal.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "intermedio"
-  tags: ["acordes", "intervalos"]
-
-variables:
-  es_mayor: verdadero
-
-respuesta: "mayor"
-tipo: completar
-respuestas_validas:
-  - "mayor"
-  - "menor"
-
-enunciado: "Un acorde se diferencia de una tríada de dos notas (intervalo) por tener tres notas. Si la distancia entre la primera y la tercera nota es de dos tonos enteros, el acorde es de tipo ___."
-
-explicacion: |
-  La tercera mayor es la que define la sonoridad brillante del acorde mayor.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "basico"
-  tags: ["armonia", "melodia"]
-
-respuesta_orden: ["melodia", "armonia", "ritmo"]
-tipo: ordenar
-
-opciones_explicitas: ["melodia", "armonia", "ritmo"]
-
-enunciado: "Ordena los elementos fundamentales de la música, desde la dimensión horizontal (sucesión) hacia la dimensión vertical (simultaneidad):"
-
-explicacion: |
-  La melodía es horizontal (una nota tras otra), la armonía es vertical (notas a la vez) y el ritmo es la duración de ambas.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes_tonalidad"
-  nivel: "intermedio"
-  tags: ["consonancia", "disonancia"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "En el contexto de la armonía, cuando un acorde produce una sensación de estabilidad y reposo, se dice que es una consonancia. ¿Es esto cierto?"
-
-explicacion: |
-  La consonancia es la cualidad de los intervalos o acordes que suenan estables y no requieren resolución inmediata.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes"
-  nivel: "basico"
-  tags: ["armonia", "teoria_musical"]
-
-variables:
-  datos: [["Do-Mi-Sol", "tríada de Do"], ["Re-Fa-La", "tríada de Re"], ["Mi-Sol-Si", "tríada de Mi"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Un músico está practicando una escala y toca las notas {datos[idx][0]}. Según la teoría musical, este conjunto de notas forma una {datos[idx][1]}."
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "tríada de Do"
-  - "tríada de Re"
-  - "tríada de Mi"
-
-explicacion: |
-  Un acorde se forma al superponer tres o más notas distintas. En este caso, las notas pertenecen a la estructura de una tríada básica.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_tonalidad"
-  nivel: "basico"
-  tags: ["tonalidad", "teoria_musical"]
-
-variables:
-  datos: [["La menor", "la menor"], ["Sol mayor", "Sol mayor"], ["Do mayor", "Do mayor"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Una pieza musical suena melancólica y su nota de reposo (tónica) es {datos[idx][0]}. ¿En qué tonalidad se encuentra la pieza?"
-
-opciones_explicitas: ["la menor", "Sol mayor", "Do mayor"]
-respuesta: datos[idx][1]
-tipo: mc
-
-explicacion: |
-  La tonalidad está determinada por la nota fundamental (tónica) que actúa como centro gravitacional de la obra.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes"
-  nivel: "intermedio"
-  tags: ["intervalos", "acordes"]
-
-enunciado: "Si un acorde se construye con la raíz, su tercera y su quinta, y la tercera es una tercera mayor, ¿el acorde es mayor?"
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  La relación entre la primera y la tercera nota define si el acorde es mayor o menor. Si la tercera es mayor, el acorde es mayor.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_acordes"
-  nivel: "basico"
-  tags: ["armonia", "teoria_musical"]
-
-enunciado: "Para construir un acorde de Do Mayor de forma ascendente, ¿cuál es el orden correcto de sus notas?"
-
-opciones_explicitas: ["Do, Mi, Sol", "Sol, Mi, Do", "Do, Sol, Mi"]
-respuesta: "Do, Mi, Sol"
-tipo: mc
-
-explicacion: |
-  Un acorde se construye por intervalos superpuestos (terceras) partiendo desde la nota raíz hacia arriba.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "armonia_basica_tonalidad"
-  nivel: "basico"
-  tags: ["tonalidad", "teoria_musical"]
-
-variables:
-  datos: [["La pieza termina en Do", "Do mayor"], ["La pieza termina en Sol", "Sol mayor"], ["La pieza termina en Fa", "Fa mayor"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "En una composición, {datos[idx][0]}. Si la última nota es la tónica, ¿cuál es la tonalidad probable?"
-
-opciones_explicitas: ["Do mayor", "Sol mayor", "Fa mayor"]
-respuesta: datos[idx][1]
-tipo: mc
-
-explicacion: |
-  La resolución final en la tónica es el indicador más fuerte para identificar la tonalidad de una pieza musical.
-```
-
 ## Sección: composicion-y-proporcion (24 preguntas)
 
 ```
@@ -1437,490 +970,465 @@ explicacion: |
   `../principios-de-diseno/`) se apoyan en esta base.
 ```
 
-## Sección: danza-ritmo-tiempo-expresion-corporal (25 preguntas)
+## Sección: origen-del-arte (25 preguntas)
 
 ```
 metadata:
   materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
+  tema: "origen_del_arte"
   nivel: "basico"
-  tags: ["ritmo", "definicion"]
+  tags: ["prehistoria", "paleolitico", "simbolismo"]
 
-tipo: mc
-opciones_explicitas: ["La repetición de movimientos en el tiempo", "La velocidad constante de un bailarín", "La expresión de sentimientos mediante gestos", "El uso de música para acompañar un baile"]
-
-respuesta: "La repetición de movimientos en el tiempo"
-
-enunciado: "En el contexto de la danza, el ritmo se define fundamentalmente como:"
-
-explicacion: |
-  El ritmo es la organización de los movimientos en el tiempo, creando patrones de acentos y pausas que estructuran la danza.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
-  nivel: "basico"
-  tags: ["tiempo", "duracion"]
-
-tipo: vf
-
-enunciado: "¿El tiempo en la danza se refiere exclusivamente a la duración de una pieza musical?"
-
-respuesta: falso
-
-explicacion: |
-  Falso. El tiempo en la danza involucra la duración, el tempo, el ritmo y la relación del cuerpo con la temporalidad de la acción.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
-  nivel: "intermedio"
-  tags: ["expresion_corporal", "lenguaje"]
-
+respuesta: "Paleolítico"
 tipo: completar
 respuestas_validas:
-  - "gesto"
+  - "Paleolítico"
 
-enunciado: "La expresión corporal utiliza el ________ como unidad mínima de comunicación para transmitir significados."
-
-respuesta: "gesto"
+enunciado: "El arte rupestre se asocia con la aparición del pensamiento simbólico durante el periodo ___."
 
 explicacion: |
-  El gesto es la unidad básica de la expresión corporal que permite comunicar estados de ánimo o ideas sin necesidad de palabras.
+  El paso del pensamiento concreto al simbólico permitió al Homo sapiens representar su realidad en las paredes de las cuevas durante el Paleolítico.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
+  tema: "origen_del_arte"
   nivel: "basico"
-  tags: ["secuencia", "orden"]
+  tags: ["arte_rupestre", "pintura_cavernica"]
 
+enunciado: "En las pinturas rupestres del Paleolítico, ¿cuál es uno de los motivos más frecuentes que se representa?"
+
+respuesta: "animales"
+tipo: mc
+opciones_explicitas: ["animales", "paisajes urbanos", "deidades griegas", "geometría abstracta"]
+
+explicacion: |
+  Aunque existen otros elementos, la fauna (bisontes, caballos, ciervos) y las manos (en negativo o positivo) son los motivos predominantes.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["cronologia", "prehistoria"]
+
+variables:
+  orden_correcta: ["Paleolítico", "Mesolítico", "Neolítico"]
+
+respuesta_orden: ["Paleolítico", "Mesolítico", "Neolítico"]
 tipo: ordenar
-opciones_explicitas: ["Inspiración", "Movimiento", "Expresión", "Postura"]
+opciones_explicitas: ["Paleolítico", "Mesolítico", "Neolítico"]
 
-respuesta_orden: ["Inspiración", "Movimiento", "Postura", "Expresión"]
-
-enunciado: "Ordene los elementos según la progresión lógica de una acción corporal expresiva, desde la preparación hasta el resultado final:"
+enunciado: "Ordena cronológicamente los periodos de la prehistoria, desde el surgimiento del arte rupestre más temprano hasta el desarrollo de la agricultura:"
 
 explicacion: |
-  La danza comienza con la preparación (inspiración), sigue con la ejecución (movimiento), la estabilización (postura) y culmina en la intención comunicativa (expresión).
+  El arte rupestre surge en el Paleolítico, se mantiene en el Mesolítico y adquiere nuevas formas en el Neolítico con el sedentarismo.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
-  nivel: "intermedio"
-  tags: ["ritmo", "pulso"]
-
-tipo: completar
-respuestas_validas:
-  - "pulso"
-
-enunciado: "Si el ________ es la unidad básica y constante de la música, el ritmo es la organización de acentos sobre esa base."
-
-respuesta: "pulso"
-
-explicacion: |
-  El pulso es la unidad de medida constante, mientras que el ritmo es la combinación de duraciones que crea un patrón sobre ese pulso.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "danza_ritmo_tiempo"
-  nivel: "basico"
-  tags: ["ritmo", "tempo", "pulso"]
-
-variables:
-  bpm: 120
-
-respuesta: 0.5
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Si una pieza musical tiene un tempo de {bpm} pulsos por minuto (BPM), ¿cuántos segundos transcurren entre cada pulso?"
-
-pasos:
-  - "Convertir BPM a pulsos por segundo: 120 / 60 = 2 pulsos por segundo."
-  - "Calcular el tiempo de un pulso (periodo): 1 / 2 = 0.5 segundos."
-
-explicacion: |
-  El tempo indica la velocidad de los pulsos. Para hallar el tiempo en segundos de un solo pulso, dividimos 60 segundos por la cantidad de pulsos por minuto. 60 / 120 = 0.5 segundos.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "danza_ritmo_tiempo"
-  nivel: "intermedio"
-  tags: ["compas", "ritmo"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[4, "cuaternario"], [3, "ternario"]]
-
-respuesta: "cuaternario"
-tipo: mc
-opciones_explicitas: ["cuaternario", "ternario", "binario"]
-
-enunciado: "Un bailarín ejecuta una secuencia rítmica basada en un compás de {escenario[idx][1]}. ¿Cuál es la estructura métrica predominante?"
-
-explicacion: |
-  El compás determina la organización de los pulsos. Un compás de 4/4 es cuaternario, mientras que uno de 3/4 es ternario.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "danza_ritmo_tiempo"
-  nivel: "intermedio"
-  tags: ["ritmo", "compas"]
-
-variables:
-  compases: 8
-  bpm: 60
-
-respuesta: "32"
-tipo: completar
-respuestas_validas:
-  - "32"
-
-enunciado: "Si una coreografía dura exactamente {compases} compases de 4/4 y el tempo es de {bpm} BPM, ¿cuántos pulsos totales ha ejecutado el bailarín?"
-
-pasos:
-  - "Cada compás de 4/4 tiene 4 pulsos."
-  - "Multiplicar el número de compases por los pulsos por compás: 8 * 4 = 32."
-
-explicacion: |
-  En un compás de 4/4, cada unidad de tiempo (pulso) se repite 4 veces. Por lo tanto, 8 compases * 4 pulsos/compás = 32 pulsos.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "danza_ritmo_tiempo"
+  tema: "origen_del_arte"
   nivel: "avanzado"
-  tags: ["subdivision", "ritmo"]
-
-variables:
-  tempo: 100
+  tags: ["simbolismo", "antropologia"]
 
 respuesta: verdadero
 tipo: vf
-
-enunciado: "Si el tempo es de {tempo} BPM, una subdivisión de corcheas (dos notas por pulso) implica que el bailarín realiza 200 movimientos por minuto."
+enunciado: "¿Es cierto que la capacidad de crear arte rupestre implica que el ser humano ya posee la capacidad de abstracción y pensamiento simbólico?"
 
 explicacion: |
-  Verdadero. Si hay 100 pulsos por minuto y cada pulso se divide en 2 corcheas, el total de movimientos es 100 * 2 = 200.
+  El arte no es solo una copia de la realidad, sino una representación que requiere que el individuo pueda pensar en algo que no está presente físicamente.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "danza_ritmo_tiempo"
-  nivel: "basico"
-  tags: ["expresion", "lenguaje"]
-
-respuesta_orden: ["Respiración", "Gesto", "Movimiento", "Danza"]
-tipo: ordenar
-opciones_explicitas: ["Respiración", "Gesto", "Movimiento", "Danza"]
-
-enunciado: "Ordene los elementos desde la unidad mínima de expresión corporal hasta la unidad artística completa:"
-
-explicacion: |
-  La danza comienza con la respiración, que desencadena el gesto, el cual se expande en el movimiento corporal, conformando finalmente la danza como lenguaje artístico.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
-  nivel: "basico"
-  tags: ["ritmo", "pulso", "conceptos_basicos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En la danza, el ritmo y el pulso son conceptos idénticos que se mueven siempre de la misma manera en el tiempo."
-
-explicacion: |
-  Falso. El pulso es la unidad básica de tiempo (el latido constante), mientras que el ritmo es la organización de acentos y silencios sobre ese pulso. El ritmo puede ser complejo y cambiar, mientras que el pulso suele ser la referencia constante.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
+  tema: "origen_del_arte"
   nivel: "intermedio"
-  tags: ["expresion_corporal", "lenguaje_artistico"]
+  tags: ["tecnologia_prehistorica", "pigmentos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Un bailarín que solo mueve los brazos sin mirar al público", "una expresión mecánica"], ["Un bailarín que utiliza todo su cuerpo para transmitir una emoción", "una comunicación efectiva"]]
+enunciado: "Para realizar sus pinturas, los artistas del Paleolítico utilizaban pigmentos naturales como el óxido de hierro (ocre)."
 
-respuesta: escenarios[escenario_idx][1]
+respuesta: "óxido de hierro"
 tipo: mc
-opciones_explicitas: ["una comunicación efectiva", "una expresión mecánica", "un error de coordinación", "una falta de técnica"]
-
-enunciado: "Si un bailarín realiza el siguiente movimiento: {escenarios[escenario_idx][0]}, esto se considera ___."
+opciones_explicitas: ["óxido de hierro", "azul de ultramar", "tinta china", "acrílico"]
 
 explicacion: |
-  La expresión corporal requiere la integración de todo el cuerpo y la intención comunicativa para ser considerada un lenguaje artístico completo.
+  El uso de minerales como el ocre (óxido de hierro) y el carbón permitió la fijación de colores rojos, negros y amarillos en las paredes de las cuevas.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
+  tema: "origen_del_arte"
+  nivel: "basico"
+  tags: ["prehistoria", "ritual"]
+
+tipo: mc
+opciones_explicitas: ["Decoración estética", "Magia de caza", "Registro de eventos históricos", "Expresión de identidad"]
+
+enunciado: "Se cree que muchas pinturas rupestres de animales no tenían un fin decorativo, sino que formaban parte de un ritual para asegurar el éxito en la obtención de alimento. ¿Qué función describe mejor esta creencia?"
+
+respuesta: "Magia de caza"
+
+explicacion: |
+  La teoría de la 'magia simpática' sugiere que pintar al animal era un acto ritual para controlarlo y facilitar la caza real.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
   nivel: "intermedio"
-  tags: ["secuencia", "percepcion", "ritmo"]
+  tags: ["registro", "comunicación"]
 
-opciones_explicitas: ["Escuchar el sonido", "Sentir el pulso", "Ejecutar el movimiento rítmico"]
-respuesta_orden: ["Escuchar el sonido", "Sentir el pulso", "Ejecutar el movimiento rítmico"]
-tipo: ordenar
+tipo: completar
+respuestas_validas:
+  - "registrar eventos sociales"
 
-enunciado: "Ordena los pasos lógicos que sigue un bailarín para interpretar una pieza musical de forma rítmica:"
+enunciado: "Si un grupo de homínidos utilizaba el arte para dejar constancia de lo ocurrido en su comunidad, el arte estaría cumpliendo la función de ___."
+
+respuesta: "registrar eventos sociales"
 
 explicacion: |
-  Primero se debe percibir el estímulo sonoro, luego internalizar la pulsación (pulso) para luego poder traducir eso en movimiento coordinado.
+  El arte también funcionó como un sistema de registro para preservar la memoria de eventos o la identidad de quienes habitaban un lugar.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
+  tema: "origen_del_arte"
+  nivel: "basico"
+  tags: ["identidad", "social"]
+
+tipo: mc
+opciones_explicitas: ["Identidad grupal", "Uso utilitario", "Ritual de fertilidad", "Decoración de refugio"]
+
+enunciado: "El uso de símbolos o marcas específicas en las cuevas que permitían a diferentes bandas reconocer el territorio de otros sugiere una función de:"
+
+respuesta: "Identidad grupal"
+
+explicacion: |
+  Los símbolos compartidos ayudan a fortalecer la cohesión del grupo y a diferenciar la identidad de una comunidad frente a otra.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
   nivel: "avanzado"
-  tags: ["tiempo_musical", "acento", "ritmo"]
+  tags: ["teoria", "evolucion"]
+
+tipo: ordenar
+opciones_explicitas: ["Ritual/Magia", "Registro de eventos", "Expresión de identidad", "Estética pura"]
+
+respuesta_orden: ["Ritual/Magia", "Registro de eventos", "Expresión de identidad", "Estética pura"]
+
+enunciado: "Ordena las siguientes teorías sobre la evolución de la función del arte, desde la más ligada a la supervivencia inmediata hasta la más abstracta/contemplativa:"
+
+explicacion: |
+  Históricamente, se debate si el arte comenzó con propósitos mágicos-supervivencia, pasó a ser un registro social y finalmente se convirtió en un objeto de contemplación estética.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["magia", "supervivencia"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si el arte rupestre se utilizaba para realizar un ritual de fertilidad de la fauna, su función principal era asegurar la ___."
+
+respuesta: "supervivencia"
+
+explicacion: |
+  Al intentar influir en la naturaleza mediante el arte, el ser humano primitivo buscaba asegurar la continuidad de su propia subsistencia.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "basico"
+  tags: ["escultura", "prehistoria"]
+
+respuesta: "Venus de Willendorf"
+tipo: completar
+respuestas_validas:
+  - "Venus de Willendorf"
+
+enunciado: "Una de las esculturas más famosas del Paleolítico Superior, que destaca por enfatizar la fertilidad, es la ___."
+
+explicacion: |
+  Las Venus paleolíticas son pequeñas estatuillas femeninas que suelen presentar rasgos sexuales muy exagerados, lo que sugiere un simbolismo relacionado con la fertilidad o la maternidad.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["musica", "prehistoria"]
 
 variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["El acento cae en el tiempo débil", "un ritmo irregular"], ["El acento cae en el tiempo fuerte", "un ritmo regular"]]
+  escenario: uno_de([["una flauta de hueso de ave", "hueso"], ["un ritmo de percusión con piedras", "piedra"], ["un silbato de concha marina", "concha"]])
 
-respuesta: casos[caso_idx][1]
-tipo: completar
-respuestas_validas:
-  - casos[caso_idx][1]
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["hueso", "piedra", "concha", "madera"]
 
-enunciado: "Si en una danza {casos[caso_idx][0]}, estamos ante ___."
+enunciado: "En el registro arqueológico, se han encontrado restos que sugieren el uso de {escenario[0]} como primer instrumento musical."
 
 explicacion: |
-  La regularidad rítmica depende de la consistencia de los acentos en los tiempos fuertes. Si el acento se desplaza, la percepción del tiempo cambia.
+  Se han hallado flautas hechas de hueso de animales (como buitres o ciervos) en yacimientos como la cueva de Hohle Fels, lo que demuestra que la música es una expresión artística muy temprana.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
+  tema: "origen_del_arte"
   nivel: "basico"
-  tags: ["expresion_corporal", "lenguaje"]
+  tags: ["ornamento", "joyeria"]
 
-respuesta: "lenguaje"
-tipo: completar
-respuestas_validas:
-  - "lenguaje"
-  - "ruido"
-  - "movimiento"
-  - "instinto"
+respuesta: "collares"
+tipo: mc
+opciones_explicitas: ["collares", "cuadros", "estatuas", "murales"]
 
-enunciado: "Cuando la danza utiliza el cuerpo para transmitir ideas, emociones o conceptos sin necesidad de palabras, el cuerpo actúa como un ___ artístico."
+enunciado: "El uso de conchas, dientes de animales o piedras perforadas para crear ___ es una de las formas más antiguas de expresión estética personal."
 
 explicacion: |
-  La expresión corporal es la capacidad del cuerpo para funcionar como un sistema de comunicación no verbal, transformando el movimiento en lenguaje.
+  La ornamentación personal indica no solo una función estética, sino también la construcción de identidad y estatus dentro de los grupos humanos primitivos.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
-  nivel: "basico"
-  tags: ["ritmo", "danza", "musica"]
+  tema: "origen_del_arte"
+  nivel: "avanzado"
+  tags: ["secuencia", "prehistoria"]
 
-tipo: abierta
-enunciado: "En la danza, ¿cuál es la diferencia fundamental entre el ritmo y la melodía?"
+respuesta_orden: ["pintura rupestre", "escultura pequeña", "instrumentos musicales"]
+tipo: ordenar
+opciones_explicitas: ["pintura rupestre", "escultura pequeña", "instrumentos musicales"]
+
+enunciado: "Ordena las siguientes manifestaciones artísticas según su aparición o prevalencia en el registro arqueológico temprano (de la más antigua/difusa a la más compleja):"
+
+pasos:
+  - "Identifica la manifestación más primitiva"
+  - "Ubica la escultura de pequeña escala"
+  - "Considera la especialización de instrumentos"
 
 explicacion: |
-  El ritmo se refiere a la duración y acentuación de los sonidos en el tiempo, mientras que la melodía es la sucesión de notas con diferentes alturas que forman una frase musical.
+  Aunque el arte es un proceso complejo, la arqueología muestra una transición desde la expresión simbólica en paredes (pintura), pasando por objetos portátiles (escultura/Venus), hasta la especialización de herramientas sonoras.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
+  tema: "origen_del_arte"
   nivel: "intermedio"
-  tags: ["tiempo", "ritmo"]
+  tags: ["escultura", "materiales"]
+
+respuesta: 12.5
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Si una pequeña estatuilla de piedra pesa 12.5 gramos y se encuentra en un yacimiento donde el 50% de los objetos son de este material, ¿cuántos gramos de piedra representan el total de la muestra analizada de 25 gramos?"
+
+pasos:
+  - "Identificar el peso del objeto (12.5g)"
+  - "Calcular el peso total de la muestra (25g)"
+  - "Determinar la parte proporcional de la piedra"
+
+explicacion: |
+  El estudio del peso y la densidad de los materiales es crucial para que los arqueólogos determinen el origen de las piezas escultóricas.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["evolucion", "cognicion", "simbolismo"]
+
+respuesta: "simbólico"
+tipo: completar
+respuestas_validas:
+  - "simbólico"
+
+enunciado: "El arte requiere la capacidad de realizar un salto ___ para representar algo que no está presente físicamente en el entorno inmediato."
+
+explicacion: |
+  Representar un objeto ausente (como un animal en una cueva) requiere que el cerebro humano procese conceptos abstractos y símbolos, marcando un hito en la evolución cognitiva.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "basico"
+  tags: ["cognicion", "evolucion"]
 
 tipo: vf
 respuesta: verdadero
 
-enunciado: "Si un bailarín mantiene un movimiento con una duración de pulsos idéntica y regular, ¿se dice que está siguiendo un ritmo constante?"
+enunciado: "La aparición de representaciones pictóricas en el registro arqueológico es evidencia de una capacidad cognitiva avanzada. ¿Es esto cierto?"
 
 explicacion: |
-  Un ritmo constante implica una regularidad en la subdivisión del tiempo, permitiendo una estructura predecible para el movimiento.
+  La capacidad de proyectar una imagen mental sobre una superficie física demuestra que el Homo sapiens ya poseía pensamiento simbólico.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["abstraccion", "evolucion"]
+
+variables:
+  escenario: uno_de(["un bisonte", "un paisaje", "una herramienta de piedra"])
+
+respuesta: "ausente"
+tipo: mc
+opciones_explicitas: ["ausente", "presente", "en movimiento"]
+
+enunciado: "Si un artista prehistórico pinta {escenario}, está demostrando la capacidad de representar algo que está ___ en el momento de crear la obra."
+
+explicacion: |
+  El arte no es solo imitación, es la capacidad de traer a la mente un objeto ausente para darle un significado nuevo.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
   nivel: "avanzado"
-  tags: ["expresion_corporal", "mimo"]
+  tags: ["procesos_mentales", "abstraccion"]
 
-tipo: completar
-respuestas_validas:
-  - "gestualidad"
-  - "mimo"
-
-enunciado: "Mientras que el ___ se basa principalmente en la pantomima y la ausencia de palabras para narrar, la expresión corporal en la danza utiliza el movimiento total del cuerpo para comunicar estados emocionales."
-
-explicacion: |
-  El mimo es una disciplina técnica de gestualidad específica, mientras que la expresión corporal es un lenguaje más amplio que integra la intención emocional con el movimiento.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
-  nivel: "intermedio"
-  tags: ["ritmo", "estructura"]
-
-opciones_explicitas: ["Pulso", "Acento", "Ritmo"]
-
+respuesta_orden: ["Percepción del objeto real", "Procesamiento mental/abstracción", "Representación simbólica en soporte"]
 tipo: ordenar
-respuesta_orden: ["Pulso", "Acento", "Ritmo"]
+opciones_explicitas: ["Percepción del objeto real", "Procesamiento mental/abstracción", "Representación simbólica en soporte"]
 
-enunciado: "Ordene los elementos de la estructura rítmica desde la unidad más básica y constante hasta la organización compleja que genera el movimiento:"
+enunciado: "Ordena cronológicamente los procesos cognitivos necesarios para que un humano primitivo cree una pintura rupestre:"
 
 explicacion: |
-  El pulso es la unidad básica, el acento es el énfasis en ciertos pulsos y el ritmo es la combinación de duraciones y acentos.
+  Primero se percibe el mundo, luego el cerebro abstrae la esencia del objeto y finalmente se ejecuta la acción de representar ese concepto.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "danza_ritmo_tiempo_expresion_corporal"
+  tema: "origen_del_arte"
   nivel: "basico"
-  tags: ["espacio", "movimiento"]
+  tags: ["simbolismo", "evolucion"]
 
-tipo: abierta
-enunciado: "¿Cuál es la distinción principal entre movimiento y espacio en la danza?"
-
-explicacion: |
-  El movimiento es la acción dinámica del cuerpo, mientras que el espacio es el entorno (kinesférico o escénico) que el bailarín ocupa y recorre.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "danza_ritmo_tiempo"
-  nivel: "basico"
-  tags: ["ritmo", "compas", "tiempo"]
-
-variables:
-  datos: [["un vals en 3/4", "3/4"], ["un tango en 4/4", "4/4"], ["un reggaetón en 4/4", "4/4"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Un coreógrafo está preparando una pieza basada en {datos[idx][0]}. Para que el movimiento sea armónico, el bailarín debe seguir la métrica de {datos[idx][1]}."
-
-respuesta: datos[idx][1]
+respuesta: "representar ideas o entidades ausentes"
 tipo: completar
 respuestas_validas:
-  - datos[idx][1]
+  - "representar ideas o entidades ausentes"
+
+enunciado: "El objetivo principal del arte como fenómeno cognitivo es ___."
 
 explicacion: |
-  El ritmo en la danza está determinado por la métrica musical. El vals se caracteriza por un compás ternario (3/4), mientras que el tango y el reggaetón usan compases binarios/cuaternarios (4/4).
+  El arte permite que la mente humana trascienda el "aquí y ahora", permitiendo la comunicación de ideas, mitos y conceptos abstractos a través del tiempo.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "danza_expresion_corporal"
+  tema: "origen_del_arte"
+  nivel: "basico"
+  tags: ["prehistoria", "pintura"]
+
+respuesta: "pintura rupestre"
+tipo: mc
+opciones_explicitas: ["pintura rupestre", "escultura megalitica", "grabado"]
+
+enunciado: "Se han encontrado restos de pigmentos rojos y negros aplicados sobre las paredes de una cueva profunda. ¿A qué forma de arte corresponde esta descripción?"
+
+explicacion: |
+  La descripción corresponde a la pintura rupestre: pigmentos aplicados directamente sobre la roca de una cueva.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
   nivel: "intermedio"
-  tags: ["expresion", "lenguaje", "cuerpo"]
+  tags: ["escultura", "paleolitico"]
+
+respuesta: "Venus"
+tipo: mc
+opciones_explicitas: ["Venus", "Zoomorfos", "Manos"]
+
+enunciado: "Se descubre una pequeña estatuilla de piedra que enfatiza la fertilidad mediante formas redondeadas. Se trata de una ___."
+
+explicacion: |
+  Las pequeñas figuras femeninas con rasgos sexuales muy acentuados se denominan Venus paleolíticas.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "avanzado"
+  tags: ["cronologia", "periodos"]
 
 variables:
-  datos: [["un movimiento fluido y continuo", "fluidez"], ["un movimiento cortado y seco", "staccato"]]
-  idx: uno_de([0, 1])
+  orden_correcto: ["Paleolítico", "Mesolítico", "Neolítico"]
 
-enunciado: "Si un bailarín de danza contemporánea utiliza {datos[idx][0]}, está trabajando la calidad de movimiento tipo {datos[idx][1]}."
+respuesta_orden: ["Paleolítico", "Mesolítico", "Neolítico"]
+tipo: ordenar
+opciones_explicitas: ["Paleolítico", "Mesolítico", "Neolítico"]
+
+enunciado: "Ordena cronológicamente los periodos de la prehistoria, desde el más antiguo al más reciente:"
+
+explicacion: |
+  El orden correcto es: {orden_correcto[0]}, luego {orden_correcto[1]} y finalmente {orden_correcto[2]}.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "basico"
+  tags: ["tecnica", "materiales"]
+
+respuesta: "grabado"
+tipo: completar
+respuestas_validas:
+  - "grabado"
+
+enunciado: "En arqueología, cuando la decoración consiste en incidir líneas o diseños sobre un soporte duro (piedra, hueso o madera), la técnica se denomina genéricamente ___."
+
+explicacion: |
+  El término genérico es "grabado", sin importar si el soporte es piedra, hueso o madera.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["teoria", "prehistoria"]
+
+variables:
+  datos: [["magia", "ritual"], ["comunicación", "lenguaje"]]
+  idx: uno_de([0, 1])
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["fluidez", "staccato"]
+opciones_explicitas: ["ritual", "estética", "lenguaje"]
+
+enunciado: "Muchos arqueólogos sostienen que el arte en el Paleolítico no era decorativo, sino que tenía una función de ___."
 
 explicacion: |
-  La expresión corporal utiliza la calidad del movimiento (fluidez vs. staccato) para comunicar emociones y estados de ánimo sin necesidad de palabras.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "danza_ritmo_tiempo"
-  nivel: "intermedio"
-  tags: ["secuencia", "orden", "tiempo"]
-
-enunciado: "Para realizar una secuencia coreográfica de improvisación guiada, el bailarín debe seguir un orden lógico de desarrollo temporal para mantener la coherencia narrativa:"
-
-pasos:
-  - "Exploración del espacio y el ritmo base"
-  - "Desarrollo de frases de movimiento"
-  - "Clímax de la expresión corporal"
-  - "Resolución o cierre de la secuencia"
-
-respuesta_orden: ["Exploración del espacio y el ritmo base", "Desarrollo de frases de movimiento", "Clímax de la expresión corporal", "Resolución o cierre de la secuencia"]
-tipo: ordenar
-opciones_explicitas: ["Exploración del espacio y el ritmo base", "Desarrollo de frases de movimiento", "Clímax de la expresión corporal", "Resolución o cierre de la secuencia"]
-
-explicacion: |
-  Una estructura coreográfica requiere una progresión temporal: desde la preparación (exploración), pasando por el desarrollo, el punto de mayor intensidad (clímax) y el cierre.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "danza_ritmo_tiempo"
-  nivel: "basico"
-  tags: ["tempo", "velocidad", "percepcion"]
-
-variables:
-  datos: [["un adagio lento", "lento"], ["un allegro rápido", "rápido"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Si la música de la pieza es {datos[idx][0]}, el tempo de la danza será percibido como {datos[idx][1]}."
-
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
-explicacion: |
-  El tempo es la velocidad del pulso musical. Un 'adagio' es una indicación de tempo lento, mientras que un 'allegro' indica un tempo rápido.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "danza_expresion_corporal"
-  nivel: "avanzado"
-  tags: ["elementos", "espacio", "cuerpo"]
-
-variables:
-  datos: [["el uso de niveles (alto, medio, bajo)", "espacio"], ["la tensión muscular", "energía"], ["el ritmo del pulso", "tiempo"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "En la danza, el concepto de {datos[idx][0]} se clasifica fundamentalmente como un elemento del ___."
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - datos[idx][1]
-
-explicacion: |
-  Los elementos de la danza incluyen el cuerpo, el espacio (niveles, direcciones), el tiempo (ritmo, duración) y la energía (tensión, peso).
+  Se cree que su función principal era el {datos[idx][1]}.
 ```
 
 ## Sección: elementos-del-arte (28 preguntas)
@@ -2437,5 +1945,555 @@ respuesta: "Para tener el vocabulario preciso con el que describir, analizar o p
 explicacion: |
   Aplican por igual a pintura, escultura, fotografía, diseño gráfico o
   audiovisual.
+```
+
+## Sección: principios-de-diseno (30 preguntas)
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["principios", "vocabulario"]
+
+enunciado: "¿Qué son los principios de diseño, a diferencia de los elementos del arte?"
+tipo: mc
+opciones_explicitas:
+  - "Las reglas de organización que indican CÓMO combinar los elementos del arte dentro de una obra"
+  - "Los materiales físicos con los que se hace una obra"
+  - "Otro nombre para los mismos 7 elementos del arte"
+respuesta: "Las reglas de organización que indican CÓMO combinar los elementos del arte dentro de una obra"
+
+explicacion: |
+  Los elementos (`../elementos-del-arte/`) son el vocabulario; los
+  principios son las reglas de uso de ese vocabulario.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["contraste", "vocabulario"]
+
+enunciado: "¿Qué es el contraste, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "Una diferencia marcada entre elementos (color, tamaño, forma, textura) que genera interés visual"
+  - "El uso de un solo color en toda la obra"
+  - "La repetición exacta de un mismo elemento"
+respuesta: "Una diferencia marcada entre elementos (color, tamaño, forma, textura) que genera interés visual"
+
+explicacion: |
+  Puede ser de color, tamaño, forma o textura.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["contraste"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin ningún contraste entre sus elementos, una obra tiende a verse plana o monótona."
+
+explicacion: |
+  El contraste es lo que genera puntos de interés dentro de la
+  composición.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["equilibrio", "vocabulario"]
+
+enunciado: "¿Qué es el equilibrio, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "La distribución del 'peso visual' de los elementos dentro de la obra"
+  - "El uso de la misma cantidad de cada color"
+  - "Que la obra tenga exactamente el mismo tamaño que su marco"
+respuesta: "La distribución del 'peso visual' de los elementos dentro de la obra"
+
+explicacion: |
+  Puede lograrse de varias formas, no sólo con simetría exacta.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["equilibrio", "vocabulario"]
+
+enunciado: "¿Cuáles son los tres tipos de equilibrio en una composición?"
+tipo: mc
+opciones_explicitas:
+  - "Simétrico, asimétrico y radial"
+  - "Cálido, frío y neutro"
+  - "Primario, secundario y terciario"
+respuesta: "Simétrico, asimétrico y radial"
+
+explicacion: |
+  Cada uno logra el balance visual de una forma distinta.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["equilibrio", "vocabulario"]
+
+enunciado: "¿Cuál de estos es un ejemplo típico de equilibrio radial?"
+tipo: mc
+opciones_explicitas:
+  - "Un rosetón, organizado alrededor de un centro"
+  - "Un retrato con la cara exactamente en el medio, mirando de frente"
+  - "Una foto con un objeto grande a la izquierda y varios chicos a la derecha"
+respuesta: "Un rosetón, organizado alrededor de un centro"
+
+explicacion: |
+  El equilibrio radial se organiza alrededor de un punto central, como
+  en `../rosetones-y-simetria/`.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["proporcion", "vocabulario"]
+
+enunciado: "¿Qué es la proporción, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "La relación de tamaño entre las partes de la obra, ajustada para que se vea coherente"
+  - "La cantidad total de elementos usados"
+  - "El costo relativo de los materiales usados"
+respuesta: "La relación de tamaño entre las partes de la obra, ajustada para que se vea coherente"
+
+explicacion: |
+  Ya se presentó en `../composicion-y-proporcion/`; acá se retoma como
+  herramienta activa de diseño.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["ritmo", "vocabulario"]
+
+enunciado: "¿Qué es el ritmo, como principio de diseño visual?"
+tipo: mc
+opciones_explicitas:
+  - "La repetición de elementos de forma que crea una sensación de movimiento organizado"
+  - "La velocidad a la que se hizo la obra"
+  - "El uso exclusivo de líneas curvas"
+respuesta: "La repetición de elementos de forma que crea una sensación de movimiento organizado"
+
+explicacion: |
+  Es la misma idea del ritmo musical, trasladada al espacio visual.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["ritmo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El ritmo visual se logra repitiendo una línea, forma o color con cierta regularidad."
+
+explicacion: |
+  Sin repetición no hay ritmo, de la misma forma que no hay ritmo
+  musical sin patrón temporal.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["unidad", "vocabulario"]
+
+enunciado: "¿Qué es la unidad, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "La sensación de que todos los elementos de la obra pertenecen juntos, formando un todo coherente"
+  - "El uso de un único elemento en toda la obra"
+  - "Que la obra mida exactamente 1 metro por lado"
+respuesta: "La sensación de que todos los elementos de la obra pertenecen juntos, formando un todo coherente"
+
+explicacion: |
+  Sin unidad, la obra se ve como piezas sueltas sin relación entre sí.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["enfasis", "vocabulario"]
+
+enunciado: "¿Qué es el énfasis, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "Destacar una parte de la obra como la más importante"
+  - "Repetir el mismo elemento varias veces"
+  - "Usar sólo colores oscuros"
+respuesta: "Destacar una parte de la obra como la más importante"
+
+explicacion: |
+  Se logra con contraste, posición o tamaño.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["enfasis"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El énfasis, como principio de diseño, está directamente relacionado con el concepto de punto focal."
+
+explicacion: |
+  Ambos apuntan a lo mismo: qué parte de la obra capta primero la
+  atención.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["movimiento", "vocabulario"]
+
+enunciado: "¿Qué es el movimiento, como principio de diseño en una obra estática (como una pintura)?"
+tipo: mc
+opciones_explicitas:
+  - "La sensación de acción, o la forma en que la composición guía la mirada a través de la obra"
+  - "Un movimiento físico real de la obra"
+  - "El desplazamiento del artista mientras trabaja"
+respuesta: "La sensación de acción, o la forma en que la composición guía la mirada a través de la obra"
+
+explicacion: |
+  En una obra estática, el movimiento es sugerido, no real.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["movimiento"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El movimiento, como principio de diseño, siempre implica que la obra tenga animación real (como un video)."
+
+explicacion: |
+  En una pintura o foto estática, el movimiento es sugerido por líneas,
+  disposición de elementos o dirección de las miradas.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["patron", "vocabulario"]
+
+enunciado: "¿Qué es un patrón, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "La repetición regular de un elemento o motivo"
+  - "Un solo elemento único, sin repetir"
+  - "La mezcla de todos los colores primarios"
+respuesta: "La repetición regular de un elemento o motivo"
+
+explicacion: |
+  Como un empapelado, un mosaico o un estampado de tela.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "avanzado"
+  tags: ["patron"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un patrón visual es el mismo concepto que la traslación repetida (ver `../../matematica/transformaciones-geometricas/traslacion/`), aplicado como recurso de diseño."
+
+explicacion: |
+  El mismo motivo se repite deslizándose siempre el mismo vector.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["variedad", "vocabulario"]
+
+enunciado: "¿Qué es la variedad, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "El uso de elementos diferentes entre sí, para evitar la monotonía"
+  - "La cantidad total de colores disponibles en una paleta"
+  - "Otro nombre para el contraste"
+respuesta: "El uso de elementos diferentes entre sí, para evitar la monotonía"
+
+explicacion: |
+  Funciona en tensión directa con la unidad.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "avanzado"
+  tags: ["unidad", "variedad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La unidad y la variedad están en tensión: un diseño efectivo tiene que balancear ambas, no maximizar una a costa de la otra."
+
+explicacion: |
+  Demasiada unidad sin variedad aburre; demasiada variedad sin unidad
+  se ve caótico.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["escala", "vocabulario"]
+
+enunciado: "¿Qué es la escala, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "El tamaño de un elemento en relación con otros elementos o con el espectador"
+  - "La cantidad de veces que se repite un elemento"
+  - "El tamaño físico total de la obra, sin comparar con nada más"
+respuesta: "El tamaño de un elemento en relación con otros elementos o con el espectador"
+
+explicacion: |
+  Es siempre una comparación, no un tamaño absoluto.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["escala", "vocabulario"]
+
+enunciado: "¿Cuál de estos es un ejemplo de usar la escala deliberadamente para llamar la atención?"
+tipo: mc
+opciones_explicitas:
+  - "Dibujar un objeto cotidiano (como una taza) mucho más grande de lo esperado"
+  - "Usar siempre el mismo tamaño para todos los elementos"
+  - "Elegir un formato de obra cuadrado"
+respuesta: "Dibujar un objeto cotidiano (como una taza) mucho más grande de lo esperado"
+
+explicacion: |
+  Romper la escala esperada de algo genera un efecto visual fuerte.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "avanzado"
+  tags: ["equilibrio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El equilibrio simétrico se basa en el mismo concepto de reflexión (eje de simetría) ya visto en geometría."
+
+explicacion: |
+  Los elementos de un lado del eje son, en esencia, el reflejo de los
+  del otro lado.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "avanzado"
+  tags: ["equilibrio", "ordenar"]
+
+enunciado: "Ordená los pasos para lograr un equilibrio asimétrico (sin usar simetría exacta) en una composición."
+tipo: ordenar
+opciones_explicitas:
+  - "Revisar que ningún lado 'pese' visualmente mucho más que el otro"
+  - "Ubicar un elemento grande o de mucho contraste de un lado de la composición"
+  - "Compensarlo con varios elementos más chicos, o con espacio negativo, del otro lado"
+respuesta_orden: ["Ubicar un elemento grande o de mucho contraste de un lado de la composición", "Compensarlo con varios elementos más chicos, o con espacio negativo, del otro lado", "Revisar que ningún lado 'pese' visualmente mucho más que el otro"]
+explicacion: |
+  El equilibrio no exige espejo exacto: exige que el peso visual total
+  quede balanceado.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["unidad", "variedad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una obra con mucha unidad pero sin nada de variedad tiende a verse aburrida o monótona."
+
+explicacion: |
+  Es el extremo opuesto de una obra caótica por exceso de variedad sin
+  unidad.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["unidad", "variedad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una obra con mucha variedad pero sin ninguna unidad tiende a verse caótica o desordenada."
+
+explicacion: |
+  El diseño efectivo busca el balance entre ambos extremos.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["patron", "completar"]
+
+tipo: completar
+enunciado: "Completá: la repetición regular de un elemento o motivo se llama ___."
+respuestas_validas:
+  - "patrón"
+  - "patron"
+
+explicacion: |
+  Es distinto del ritmo, que es la sensación de movimiento que genera
+  esa repetición.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "avanzado"
+  tags: ["ritmo", "patron", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia entre ritmo y patrón?"
+tipo: mc
+opciones_explicitas:
+  - "El patrón es la repetición en sí; el ritmo es la sensación de movimiento que esa repetición genera"
+  - "Son exactamente lo mismo, dos nombres para un solo concepto"
+  - "El ritmo sólo aplica a la música, nunca a las artes visuales"
+respuesta: "El patrón es la repetición en sí; el ritmo es la sensación de movimiento que esa repetición genera"
+
+explicacion: |
+  Están relacionados, pero no son lo mismo: uno es la estructura, el
+  otro es el efecto que produce.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["enfasis", "contraste"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Uno de los recursos para lograr énfasis en una composición es usar contraste (de color, tamaño o forma) en la zona que se quiere destacar."
+
+explicacion: |
+  Contraste y énfasis suelen trabajar juntos.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["principios"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los 10 principios de diseño se pueden aplicar tanto a una pintura como a un afiche, una interfaz digital o un video."
+
+explicacion: |
+  Son principios generales de organización visual, no exclusivos de
+  ninguna técnica.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["principios"]
+
+respuesta: 10
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos principios de diseño distintos se presentan en este módulo?"
+
+explicacion: |
+  Contraste, equilibrio, proporción, ritmo, unidad, énfasis, movimiento,
+  patrón, variedad y escala.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve conocer los principios de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "Para tener herramientas concretas con las que describir, evaluar y aplicar la composición en cualquier obra visual"
+  - "Sólo sirven para criticar el trabajo de otros artistas"
+  - "Sólo aplican si la obra ya tiene los 7 elementos del arte presentes"
+respuesta: "Para tener herramientas concretas con las que describir, evaluar y aplicar la composición en cualquier obra visual"
+
+explicacion: |
+  Cualquier decisión de diseño se puede analizar en términos de estos
+  10 principios.
 ```
 

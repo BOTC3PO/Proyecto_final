@@ -1,930 +1,826 @@
 # Examen jefe — [PENDIENTE #736]
 
-> Logro #736. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
+> Logro #736. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **115 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: calor-q-m-c-deltat (25 preguntas)
+## Sección: cargas-electricas (22 preguntas)
 
 ```
 metadata:
   materia: "fisica"
-  tema: "calor_q_m_c_deltat"
+  tema: "cargas_electricas"
   nivel: "basico"
-  tags: ["conceptos_basicos", "energia"]
+  tags: ["cargas_electricas", "vocabulario"]
 
+enunciado: "¿Qué es la carga eléctrica?"
 tipo: mc
-opciones_explicitas: ["Transferencia de energía térmica", "Temperatura de un cuerpo", "Energía cinética de las partículas", "Capacidad de un cuerpo para calentarse"]
-respuesta: "Transferencia de energía térmica"
-
-enunciado: "El calor se define físicamente como la ________ que fluye entre dos cuerpos con diferente temperatura."
-
-explicacion: |
-  El calor es la energía en tránsito que se transfiere de un objeto con mayor temperatura a uno con menor temperatura. No es una propiedad de los cuerpos, sino un proceso de transferencia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_q_m_c_deltat"
-  nivel: "basico"
-  tags: ["propiedades_materia"]
-
-tipo: vf
-respuesta: falso
-
-enunciado: "¿El calor específico de una sustancia es una propiedad intensiva que depende de la cantidad de masa presente en el objeto?"
-
-explicacion: |
-  Falso. El calor específico es una propiedad intensiva (no depende de la masa). La propiedad que depende de la masa es la capacidad calorífica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_q_m_c_deltat"
-  nivel: "intermedio"
-  tags: ["formula", "analisis"]
-
-variables:
-  datos: [[100, "aumenta", "mayor"], [50, "disminuye", "menor"]]
-  escenario_idx: uno_de([0, 1])
-  accion: datos[escenario_idx][1]
-  resultado: datos[escenario_idx][2]
-
-tipo: mc
-opciones_explicitas: ["Proporcional", "Inversamente proporcional", "No tiene relación", "Exponencial"]
-respuesta: "Proporcional"
-
-enunciado: "Si mantenemos la masa y el calor específico constantes, la cantidad de calor (Q) es ________ a la variación de temperatura (ΔT). En nuestro caso, si la temperatura {accion}, el calor {resultado}."
-
-explicacion: |
-  Según la fórmula Q = m·c·ΔT, la cantidad de calor es directamente proporcional a la variación de temperatura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_q_m_c_deltat"
-  nivel: "basico"
-  tags: ["unidades"]
-
-tipo: completar
-respuestas_validas:
-  - "calorías"
-  - "Joules"
-
-enunciado: "En el sistema internacional (SI), la unidad de energía térmica es el ________, mientras que en el sistema termoquímico se utiliza la ________."
-
-explicacion: |
-  El Joule (J) es la unidad de energía en el SI, mientras que la caloría (cal) es la unidad tradicional basada en el calentamiento del agua.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_q_m_c_deltat"
-  nivel: "intermedio"
-  tags: ["proceso", "termodinamica"]
-
-tipo: ordenar
-opciones_explicitas: ["Medir temperaturas iniciales", "Calcular la diferencia de temperatura", "Multiplicar por masa y calor específico", "Determinar el calor transferido"]
-
-enunciado: "Para resolver un problema práctico de transferencia de calor usando la fórmula Q = m·c·ΔT, el orden lógico de los pasos es:"
-
-explicacion: |
-  Primero se deben conocer los estados iniciales y finales para hallar ΔT, luego se aplican las constantes de la sustancia y la masa para obtener el resultado final.
-respuesta_orden: ["Medir temperaturas iniciales", "Calcular la diferencia de temperatura", "Multiplicar por masa y calor específico", "Determinar el calor transferido"]
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "basico"
-  tags: ["calor", "propiedades_materia"]
-
-enunciado: "El calor específico de una sustancia es una propiedad intensiva que indica la cantidad de calor necesaria para aumentar en 1 °C la temperatura de 1 kg de dicha sustancia. Si una sustancia tiene un calor específico muy alto, significa que requiere ___ energía para cambiar su temperatura."
-
-respuestas_validas:
-  - "mayor"
-  - "menor"
-respuesta: "mayor"
-tipo: completar
-
-explicacion: |
-  El calor específico ($c$) es directamente proporcional a la cantidad de calor ($Q$) necesaria para un cambio de temperatura ($\Delta T$). A mayor $c$, más calor se requiere para calentar la sustancia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calculo_calor_sensible"
-  nivel: "intermedio"
-  tags: ["calor", "calculo"]
-
-variables:
-  escenario: uno_de([[100, 0.5, 20], [250, 2.0, 10], [50, 4.18, 5]])
-  m: escenario[0]
-  c: escenario[1]
-  dt: escenario[2]
-
-enunciado: "Calcula la cantidad de calor (Q) necesaria para calentar una masa de {m} g de una sustancia con calor específico de {c} J/(g·°C) desde una temperatura inicial de 20 °C hasta una temperatura final de {dt + 20} °C."
-
-pasos:
-  - "Identificar la masa (m = {m} g), el calor específico (c = {c} J/g°C) y la variación de temperatura (delta T = {dt} °C)."
-  - "Aplicar la fórmula Q = m * c * delta T."
-  - "Multiplicar: {m} * {c} * {dt}."
-
-respuesta: m * c * dt
-tipo: completar
-tolerancia_abs: 0.01
-
-explicacion: |
-  Usando la fórmula Q = m * c * delta T:
-  Q = {m} g * {c} J/(g·°C) * {dt} °C = {m * c * dt} J.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "variacion_temperatura"
-  nivel: "intermedio"
-  tags: ["calor", "algebrac"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  datos: [[1000, 2, 100], [2000, 2, 100], [4000, 2, 100]]
-  q: datos[idx][0]
-  c: datos[idx][1]
-  m: datos[idx][2]
-  resultados_texto: ["5 °C", "10 °C", "20 °C"]
-
-enunciado: "Si se suministran {q} J de calor a una masa de {m} g de una sustancia con calor específico de {c} J/(g·°C), ¿cuál será la variación de temperatura (ΔT) experimentada?"
-
-opciones_explicitas: ["5 °C", "10 °C", "20 °C", "25 °C"]
-respuesta: resultados_texto[idx]
-tipo: mc
-
-explicacion: |
-  Despejamos ΔT de la fórmula Q = m · c · ΔT:
-  ΔT = Q / (m · c)
-  Para este caso: ΔT = {q} / ({m} · {c}) = {resultados_texto[idx]}.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "comparacion_calor_especifico"
-  nivel: "avanzado"
-  tags: ["calor", "propiedades"]
-
-enunciado: "Considera dos bloques de la misma masa ($m$) y el mismo $\\Delta T$. El bloque A tiene un calor específico $c_A$ y el bloque B tiene $c_B$. Si $c_A > c_B$, ¿es verdadero que el bloque A absorbe más calor que el bloque B?"
-
-opciones_explicitas: [verdadero, falso]
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  Como $Q = m \cdot c \cdot \Delta T$ y la masa y la variación de temperatura son iguales, el calor $Q$ es directamente proporcional al calor específico $c$. Por lo tanto, si $c_A > c_B$, entonces $Q_A > Q_B$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "metodologia_calculo"
-  nivel: "basico"
-  tags: ["metodo", "pasos"]
-
-enunciado: "Ordena los pasos lógicos para resolver un problema donde se pide hallar la temperatura final ($T_f$) de una sustancia tras recibir calor."
-
-opciones_explicitas: ["Calcular la variación de temperatura ($\\Delta T$) usando $\\Delta T = Q / (m \\cdot c)$", "Identificar los datos de masa, calor específico y calor suministrado", "Sumar la variación obtenida a la temperatura inicial ($T_f = T_i + \\Delta T$)"]
-respuesta_orden: ["Identificar los datos de masa, calor específico y calor suministrado", "Calcular la variación de temperatura ($\\Delta T$) usando $\\Delta T = Q / (m \\cdot c)$", "Sumar la variación obtenida a la temperatura inicial ($T_f = T_i + \\Delta T$)"]
-tipo: ordenar
-
-explicacion: |
-  Para resolver problemas de termodinámica es fundamental: 1. Extraer datos, 2. Despejar la incógnita de la fórmula principal, 3. Realizar la operación final para hallar la temperatura absoluta o relativa.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "basico"
-  tags: ["conceptos_basicos", "calor_vs_temperatura"]
-
-respuesta: "calor"
-tipo: "completar"
-respuestas_validas:
-  - "calor"
-
-enunciado: "La energía transferida entre dos cuerpos debido a una diferencia de temperatura se denomina ___."
-
-explicacion: |
-  Es un error común confundir temperatura (medida de la energía cinética promedio de las partículas) con calor (energía en tránsito).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "intermedio"
-  tags: ["relaciones_proporcionales"]
-
-variables:
-  escenario: uno_de([["un bloque de hierro de 1 kg", 1], ["un bloque de hierro de 5 kg", 5]])
-
-respuesta: "mayor"
-tipo: "mc"
-opciones_explicitas: ["menor", "mayor", "igual"]
-
-enunciado: "Si comparamos dos bloques del mismo material, el que tiene una masa {escenario[0]} requerirá una cantidad de energía ___ para alcanzar la misma variación de temperatura $\\Delta T$."
-
-explicacion: |
-  Como $Q = m \cdot c \cdot \Delta T$, la cantidad de calor es directamente proporcional a la masa. A mayor masa, mayor calor necesario.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "basico"
-  tags: ["signo_delta_t"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si un cuerpo absorbe calor de su entorno, la variación de temperatura Delta T (temperatura final menos temperatura inicial) debe ser un valor negativo."
-
-explicacion: |
-  Si se absorbe calor, la temperatura aumenta, por lo tanto Delta T = T_f - T_i > 0. Un Delta T negativo indica pérdida de calor.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "intermedio"
-  tags: ["calor_especifico"]
-
-variables:
-  materiales: [["Agua", 4186, "mayor"], ["Hierro", 450, "menor"]]
-  idx: uno_de([0, 1])
-
-respuesta: materiales[idx][2]
-tipo: "mc"
-opciones_explicitas: ["mayor", "menor"]
-
-enunciado: "Considerando el material {materiales[idx][0]}, su capacidad para resistir cambios de temperatura (calor específico) es ___ que la del otro material mencionado."
-
-explicacion: |
-  El calor específico es una propiedad intensiva. El agua tiene un calor específico muy alto, lo que significa que requiere mucha energía para cambiar su temperatura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "intermedio"
-  tags: ["metodologia_calculo"]
-
-opciones_explicitas: ["Determinar la masa del cuerpo", "Calcular la diferencia de temperaturas ΔT", "Multiplicar los valores por el calor específico c"]
-respuesta_orden: ["Determinar la masa del cuerpo", "Calcular la diferencia de temperaturas ΔT", "Multiplicar los valores por el calor específico c"]
-tipo: "ordenar"
-
-enunciado: "Ordena los pasos lógicos para calcular la cantidad de calor Q necesaria para calentar un objeto:"
-
-explicacion: |
-  Para resolver Q = m · c · ΔT de forma correcta, primero se deben identificar los datos (masa y ΔT) y finalmente realizar la multiplicación con la constante c.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_temperatura"
-  nivel: "basico"
-  tags: ["termodinamica", "conceptos_basicos"]
-
-respuesta: "energia"
-tipo: completar
-respuestas_validas:
-  - "energia"
-  - "transferencia de energía"
-  - "energía"
-
-enunciado: "Mientras que la temperatura es una medida de la energía cinética promedio de las partículas de un cuerpo, el calor se define como la ___ transferida entre dos sistemas debido a una diferencia de temperatura."
-
-explicacion: |
-  La temperatura es una propiedad intensiva que mide el nivel de agitación térmica, mientras que el calor es la energía en tránsito que fluye del cuerpo de mayor temperatura al de menor temperatura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "intermedio"
-  tags: ["calor_especifico", "propiedades_materia"]
-
-variables:
-  tipo_sustancia: uno_de(["agua", "hierro"])
-
 opciones_explicitas:
-  - "Es una propiedad extensiva (depende de la masa)."
-  - "Es una propiedad intensiva (no depende de la masa)."
-  - "Es la cantidad de calor necesaria para elevar 1°C a todo el objeto."
-
-respuesta: "Es una propiedad intensiva (no depende de la masa)."
-tipo: mc
-
-enunciado: "Si comparamos dos bloques de {tipo_sustancia} de diferentes masas pero del mismo material, el calor específico de ambos será igual. Esto se debe a que el calor específico es una propiedad ________."
+  - "Una propiedad fundamental de la materia, que puede ser positiva o negativa"
+  - "La cantidad de energía que gasta un aparato eléctrico"
+  - "La velocidad a la que se mueve la corriente eléctrica"
+respuesta: "Una propiedad fundamental de la materia, que puede ser positiva o negativa"
 
 explicacion: |
-  El calor específico es una propiedad intensiva porque solo depende de la naturaleza del material y no de la cantidad de sustancia presente.
+  Es una propiedad, no una cantidad de energía ni una velocidad.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cambios_de_estado"
-  nivel: "intermedio"
-  tags: ["calor_sensible", "calor_latente"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Durante un cambio de estado (como la fusión del hielo), la temperatura del sistema aumenta a medida que se le suministra calor latente."
-
-explicacion: |
-  Falso. Durante un cambio de fase, el calor suministrado se utiliza para romper los enlaces intermoleculares (calor latente) y no para aumentar la energía cinética (temperatura), por lo que la temperatura permanece constante.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_sensible"
+  tema: "cargas_electricas"
   nivel: "basico"
-  tags: ["calculo", "calor_especifico"]
+  tags: ["cargas_electricas", "vocabulario"]
 
-variables:
-  masa_kg: uno_de([0.5, 2.0])
-  ce: uno_de([4186, 1340])
-  dt: uno_de([10, 20])
-
-pasos:
-  - "Identificar la masa (m): {masa_kg} kg"
-  - "Identificar el calor específico (c): {ce} J/(kg·K)"
-  - "Identificar la variación de temperatura (ΔT): {dt} °C"
-  - "Calcular Q = m * c * ΔT"
-
-respuesta: masa_kg * ce * dt
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Calcula la cantidad de calor (en Joules) necesaria para elevar la temperatura de {masa_kg} kg de una sustancia con un calor específico de {ce} J/(kg·K) en {dt} °C."
-
-explicacion: |
-  Usando la fórmula Q = m · c · ΔT:
-  Q = {masa_kg} * {ce} * {dt} = {masa_kg * ce * dt} J.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "transferencia_calor"
-  nivel: "intermedio"
-  tags: ["procesos", "termodinamica"]
-
+enunciado: "¿Qué partícula del átomo tiene carga positiva?"
+tipo: mc
 opciones_explicitas:
-  - "Aumento de la energía cinética molecular (Temperatura)."
-  - "Transferencia de energía por contacto directo (Conducción)."
-  - "Transferencia de energía por ondas electromagnéticas (Radiación)."
-
-respuesta_orden: ["Aumento de la energía cinética molecular (Temperatura).", "Transferencia de energía por contacto directo (Conducción).", "Transferencia de energía por ondas electromagnéticas (Radiación)."]
-tipo: ordenar
-
-enunciado: "Ordena los siguientes conceptos desde el que describe un estado interno de la materia hasta los mecanismos de transferencia de energía hacia el exterior:"
+  - "El protón"
+  - "El electrón"
+  - "El neutrón"
+respuesta: "El protón"
 
 explicacion: |
-  Primero se describe el estado térmico interno (temperatura) y luego los mecanismos físicos (conducción, convección o radiación) por los cuales el calor se desplaza.
+  Está en el núcleo del átomo, junto con el neutrón.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "calor_especifico"
+  tema: "cargas_electricas"
   nivel: "basico"
-  tags: ["calorimetria", "calor_especifico"]
+  tags: ["cargas_electricas", "vocabulario"]
 
-variables:
-  datos: [[500, 1500], [250, 400], [1000, 2500]]
-  idx: uno_de([0,1,2])
-  m: datos[idx][0]
-  dT: datos[idx][1]
-  c_agua: 4186
-
-respuestas_validas:
-  - m * c_agua * dT / 1000
-respuesta: m * c_agua * dT / 1000
-
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Se desea calentar una masa de {m} g de agua desde una temperatura inicial hasta una temperatura final tal que la diferencia de temperatura sea de {dT} °C. ¿Cuántos Joules de calor se requieren? (Use c_agua = 4186 J/kg·K)"
-
-pasos:
-  - "Identificar la masa (m) en kg: m/1000"
-  - "Calcular el cambio de temperatura (ΔT)"
-  - "Aplicar la fórmula Q = m * c * ΔT"
-
-explicacion: |
-  La fórmula utilizada es Q = m · c · ΔT. 
-  Para el caso seleccionado: Q = {m}/1000 * 4186 * {dT} = {m * c_agua * dT / 1000} J.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "intermedio"
-  tags: ["calorimetria", "comparacion"]
-
-variables:
-  nombres: ["hierro", "aluminio"]
-  ces: [450, 900]
-  idx: uno_de([0, 1])
-  nombre: nombres[idx]
-  ce: ces[idx]
-
-respuesta: ce > 500
-
-tipo: vf
-enunciado: "El calor específico del {nombre} ({ce} J/kg·K) es mayor a 500 J/kg·K."
-
-explicacion: |
-  El calor específico del {nombre} es {ce} J/kg·K.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "intermedio"
-  tags: ["calorimetria", "identificacion"]
-
-variables:
-  datos: [["oro", 129], ["cobre", 385], ["plomo", 128]]
-  idx: uno_de([0,1,2])
-  ce_medido: datos[idx][1]
-  nombre_real: datos[idx][0]
-
-respuesta: datos[idx][0]
-opciones_explicitas: ["oro", "cobre", "plomo"]
-respuestas_validas:
-  - datos[idx][0]
-tipo: completar
-
-enunciado: "En un experimento, se suministra calor a una muestra desconocida y se observa que su calor específico es de {ce_medido} J/kg·K. La sustancia es ___."
-
-explicacion: |
-  Al comparar el valor medido de {ce_medido} J/kg·K con las tablas de materiales, identificamos que es {nombre_real}.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "basico"
-  tags: ["conceptos", "transferencia"]
-
-respuesta: "absorbe calor"
-opciones_explicitas: ["absorbe calor", "libera calor", "no cambia su temperatura"]
-respuestas_validas:
-  - "absorbe calor"
+enunciado: "¿Qué partícula del átomo tiene carga negativa?"
 tipo: mc
-
-enunciado: "Si una sustancia aumenta su temperatura de 20 °C a 50 °C, significa que la sustancia ___."
-
-explicacion: |
-  Un aumento en la temperatura implica que la sustancia ha ganado energía térmica, es decir, ha absorbido calor.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calor_especifico"
-  nivel: "basico"
-  tags: ["metodologia", "procedimiento"]
-
-respuesta_orden: ["Medir la masa", "Medir el cambio de temperatura", "Calcular la energía térmica"]
-opciones_explicitas: ["Medir la masa", "Medir el cambio de temperatura", "Calcular la energía térmica"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos para determinar el calor específico de una sustancia mediante calorimetría, partiendo de que ya conocemos la energía Q suministrada:"
+opciones_explicitas:
+  - "El electrón"
+  - "El protón"
+  - "El neutrón"
+respuesta: "El electrón"
 
 explicacion: |
-  Para hallar 'c' en la fórmula Q = m·c·ΔT, primero necesitamos conocer la masa (m) y la variación de temperatura (ΔT).
-```
-
-## Sección: cambios-de-estado-calor-latente (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "basico"
-  tags: ["conceptos", "calor_latente"]
-
-tipo: mc
-opciones_explicitas: ["Energía para cambiar la temperatura", "Energía para cambiar el estado sin cambiar la temperatura", "Energía para aumentar la masa", "Energía para cambiar la presión"]
-
-enunciado: "El calor latente es la energía necesaria para que una sustancia cambie de estado sin que su ____ cambie."
-
-respuesta: "Energía para cambiar el estado sin cambiar la temperatura"
+  Orbita alrededor del núcleo del átomo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
+  tema: "cargas_electricas"
   nivel: "basico"
-  tags: ["definiciones"]
-
-tipo: vf
-enunciado: "Durante un cambio de fase, el calor absorbido se utiliza para romper las fuerzas de atracción intermoleculares en lugar de aumentar la energía cinética de las moléculas."
+  tags: ["cargas_electricas", "vocabulario"]
 
 respuesta: verdadero
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "basico"
-  tags: ["formula"]
-
-tipo: completar
-respuestas_validas:
-  - "Q = m * L"
-  - "Q = m * c * ΔT"
-  - "Q = m * g * h"
-
-enunciado: "La expresión matemática para calcular el calor latente transferido es: ____"
-
-respuesta: "Q = m * L"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "basico"
-  tags: ["proporcionalidad"]
-
-tipo: mc
-opciones_explicitas: ["Directamente proporcional", "Inversamente proporcional", "No tiene relación", "Depende de la temperatura inicial"]
-
-enunciado: "Si duplicamos la masa de una sustancia que está cambiando de estado, la cantidad de calor necesaria para completar el proceso es ____ veces mayor."
-
-respuesta: "Directamente proporcional"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "basico"
-  tags: ["temperatura"]
-
-tipo: mc
-opciones_explicitas: ["Aumenta", "Disminuye", "Se mantiene constante", "Oscila"]
-
-enunciado: "En un vaso de precipitados con hielo fundiéndose a 0°C, la temperatura del sistema durante todo el proceso de fusión será:"
-
-respuesta: "Se mantiene constante"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "intermedio"
-  tags: ["calculo", "fusion"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[2.0, 334000], [5.0, 334000]]
-
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Calcula el calor necesario para fundir {datos[idx][0]} kg de hielo. (Dato: L_fusión = {datos[idx][1]} J/kg)"
-
-pasos:
-  - "Identificar la masa (m)"
-  - "Identificar el calor latente (L)"
-  - "Multiplicar m * L"
-
-respuesta: datos[idx][1] * datos[idx][0]
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "basico"
-  tags: ["unidades"]
-
-tipo: mc
-opciones_explicitas: ["J/kg", "J/kg·°C", "Cal/g", "kg/J"]
-
-enunciado: "En el Sistema Internacional, la unidad del calor latente de fusión es:"
-
-respuesta: "J/kg"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "intermedio"
-  tags: ["proporcionalidad"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[10, 5000], [20, 10000]]
-
-tipo: completar
-respuestas_validas:
-  - "500"
-
-enunciado: "Si para fundir {escenario[idx][0]} g de una sustancia se requieren {escenario[idx][1]} J, ¿cuánto calor se requiere para fundir 1 g?"
-
-respuesta: escenario[idx][1] / escenario[idx][0]
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "basico"
-  tags: ["termodinamica"]
-
-tipo: mc
-opciones_explicitas: ["Positivo (absorbe calor)", "Negativo (libera calor)", "Cero", "Variable"]
-
-enunciado: "Cuando un líquido se convierte en gas (evaporación), el sistema está realizando un proceso endotérmico. Esto significa que el calor latente es:"
-
-respuesta: "Positivo (absorbe calor)"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-tipo: mc
-opciones_explicitas: ["Fusión", "Condensación", "Sublimación", "Solidificación"]
-
-enunciado: "El proceso inverso a la fusión (paso de sólido a líquido) es la ____, la cual libera calor latente."
-
-respuesta: "Solidificación"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "intermedio"
-  tags: ["error_comun"]
-
 tipo: vf
-enunciado: "Si añado más calor a una mezcla de agua y hielo que está a 0°C, la temperatura del agua subirá inmediatamente por encima de 0°C."
 
-respuesta: falso
+enunciado: "El neutrón no tiene carga eléctrica: es neutro."
+
+explicacion: |
+  Por eso se llama \"neutrón\" — ni positivo ni negativo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "avanzado"
-  tags: ["microscopico"]
-
-tipo: mc
-opciones_explicitas: ["Aumenta la energía cinética", "Aumenta la energía potencial molecular", "Aumenta la velocidad de las moléculas", "Disminuye la energía interna"]
-
-enunciado: "Durante un cambio de estado, el calor latente se utiliza principalmente para aumentar la ____ de las moléculas, permitiendo que se separen."
-
-respuesta: "Aumenta la energía potencial molecular"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "intermedio"
-  tags: ["diferencia"]
-
-tipo: mc
-opciones_explicitas: ["Calor latente", "Calor específico", "Capacidad calorífica", "Temperatura"]
-
-enunciado: "La cantidad de calor necesaria para elevar 1°C la temperatura de 1 kg de una sustancia se denomina ____."
-
-respuesta: "Calor específico"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "avanzado"
-  tags: ["graficos"]
-
-tipo: mc
-opciones_explicitas: ["La pendiente es mayor", "La pendiente es cero (horizontal)", "La pendiente es infinita", "La pendiente es negativa"]
-
-enunciado: "En un gráfico de Temperatura vs. Tiempo, el proceso de cambio de estado se representa como una línea:"
-
-respuesta: "La pendiente es cero (horizontal)"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
+  tema: "cargas_electricas"
   nivel: "basico"
-  tags: ["estado"]
-
-tipo: completar
-respuestas_validas:
-  - "Gaseoso"
-
-enunciado: "Si una sustancia ha absorbido su calor latente de vaporización y se encuentra a la temperatura de ebullición, su estado es ____."
-
-respuesta: "Gaseoso"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[0.5, 2260000], [2.0, 2260000]]
-
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Calcula el calor necesario para evaporar {escenario[idx][0]} kg de agua. (L_vaporización = {escenario[idx][1]} J/kg)"
-
-respuesta: escenario[idx][0] * escenario[idx][1]
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "avanzado"
-  tags: ["termodinamica"]
-
-tipo: mc
-opciones_explicitas: ["Aumenta", "Disminuye", "Se mantiene constante", "Depende de la presión"]
-
-enunciado: "Durante la fusión de un sólido, la entropía del sistema generalmente ____."
-
-respuesta: "Aumenta"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "intermedio"
-  tags: ["sublimacion"]
-
-tipo: vf
-enunciado: "La sublimación es el paso directo de un sólido a un gas sin pasar por el estado líquido."
+  tags: ["cargas_electricas", "vocabulario"]
 
 respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos cargas del mismo signo (las dos positivas, o las dos negativas) se repelen entre sí."
+
+explicacion: |
+  Es la regla básica de interacción entre cargas iguales.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "avanzado"
-  tags: ["comparacion"]
+  tema: "cargas_electricas"
+  nivel: "basico"
+  tags: ["cargas_electricas", "vocabulario"]
 
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una carga positiva y una carga negativa se atraen entre sí."
+
+explicacion: |
+  Es la regla básica de interacción entre cargas opuestas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cargas_electricas"
+  nivel: "basico"
+  tags: ["cargas_electricas", "vocabulario"]
+
+enunciado: "¿Qué ocurre entre dos objetos cargados positivamente?"
 tipo: mc
-opciones_explicitas: ["El calor de vaporización es mayor", "El calor de fusión es mayor", "Son iguales", "Dependen de la masa"]
+opciones_explicitas:
+  - "Se repelen"
+  - "Se atraen"
+  - "No interactúan de ninguna forma"
+respuesta: "Se repelen"
 
-enunciado: "Para la mayoría de las sustancias, el calor latente de vaporización es ____ que el de fusión."
-
-respuesta: "El calor de vaporización es mayor"
+explicacion: |
+  Son cargas del mismo signo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
+  tema: "cargas_electricas"
+  nivel: "basico"
+  tags: ["cargas_electricas", "vocabulario"]
+
+enunciado: "¿Qué ocurre entre un objeto cargado positivamente y otro cargado negativamente?"
+tipo: mc
+opciones_explicitas:
+  - "Se atraen"
+  - "Se repelen"
+  - "No interactúan de ninguna forma"
+respuesta: "Se atraen"
+
+explicacion: |
+  Son cargas de signo opuesto.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cargas_electricas"
   nivel: "intermedio"
-  tags: ["orden"]
+  tags: ["cargas_electricas", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un objeto neutro tiene la misma cantidad de protones que de electrones, así que su carga total es cero."
+
+explicacion: |
+  Las cargas positivas y negativas se cancelan exactamente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cargas_electricas"
+  nivel: "intermedio"
+  tags: ["cargas_electricas", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un objeto se carga positivamente cuando pierde electrones, quedando con más protones que electrones."
+
+explicacion: |
+  Los protones no se van: lo que cambia es la cantidad de electrones.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cargas_electricas"
+  nivel: "intermedio"
+  tags: ["cargas_electricas", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un objeto se carga negativamente cuando gana electrones, quedando con más electrones que protones."
+
+explicacion: |
+  Es el proceso inverso al de cargarse positivo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cargas_electricas"
+  nivel: "avanzado"
+  tags: ["cargas_electricas", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los protones no se transfieren fácilmente entre objetos, porque están fuertemente sujetos en el núcleo del átomo — son los electrones los que se mueven."
+
+explicacion: |
+  Es la razón de fondo por la que un objeto se carga ganando o perdiendo
+  electrones, no protones.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cargas_electricas"
+  nivel: "intermedio"
+  tags: ["cargas_electricas", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La carga total de un sistema aislado no se crea ni se destruye: sólo se transfiere de un objeto a otro."
+
+explicacion: |
+  Si un objeto pierde electrones, esos electrones no desaparecen: pasan
+  a otro objeto.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cargas_electricas"
+  nivel: "intermedio"
+  tags: ["cargas_electricas", "calculo"]
+
+variables:
+  protones: random(10, 30)
+  electrones: random(5, 30)
+
+respuesta: protones - electrones
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto tiene {protones} protones y {electrones} electrones. ¿Cuál es su carga neta, en unidades de carga elemental?"
+
+explicacion: |
+  Se resta la cantidad de electrones de la cantidad de protones.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cargas_electricas"
+  nivel: "avanzado"
+  tags: ["cargas_electricas", "calculo"]
+
+variables:
+  protones: random(10, 30)
+  carga_neta: random(-10, 10)
+
+respuesta: protones - carga_neta
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto tiene {protones} protones y una carga neta de {carga_neta}. ¿Cuántos electrones tiene?"
+
+explicacion: |
+  Se despeja la cantidad de electrones de la fórmula de carga neta.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cargas_electricas"
+  nivel: "intermedio"
+  tags: ["cargas_electricas", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Frotar un globo contra el pelo transfiere electrones de un objeto a otro, dejando a los dos cargados — es un ejemplo cotidiano de electricidad estática."
+
+explicacion: |
+  Por eso después el globo puede atraer el pelo: quedaron con cargas
+  opuestas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cargas_electricas"
+  nivel: "avanzado"
+  tags: ["cargas_electricas", "comparacion"]
+
+variables:
+  protones_a: random(10, 20)
+  electrones_a: random(15, 25)
+  protones_b: random(20, 30)
+  electrones_b: random(5, 15)
+
+respuesta: ((protones_b - electrones_b) > (protones_a - electrones_a))
+tipo: vf
+
+enunciado: "Objeto A: {protones_a} protones, {electrones_a} electrones. Objeto B: {protones_b} protones, {electrones_b} electrones. ¿La carga neta del objeto B es mayor que la del objeto A?"
+
+explicacion: |
+  Se calcula la carga neta de cada uno (protones menos electrones) y se
+  comparan.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cargas_electricas"
+  nivel: "basico"
+  tags: ["cargas_electricas", "orden"]
 
 tipo: ordenar
-opciones_explicitas: ["Sólido", "Líquido", "Gas"]
+enunciado: "Ordená estos objetos de menor a mayor carga neta."
+opciones_explicitas:
+  - "Carga neta +3"
+  - "Carga neta -5"
+  - "Carga neta 0 (neutro)"
+respuesta_orden: ["Carga neta -5", "Carga neta 0 (neutro)", "Carga neta +3"]
 
-enunciado: "Ordena los estados de la materia de menor a mayor energía cinética (en un proceso de calentamiento):"
-
-respuesta_orden: ["Sólido", "Líquido", "Gas"]
+explicacion: |
+  Se ordenan como cualquier número con signo: de más negativo a más
+  positivo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
+  tema: "cargas_electricas"
   nivel: "intermedio"
-  tags: ["aplicacion"]
+  tags: ["cargas_electricas", "verificacion"]
 
 variables:
-  idx: uno_de([0, 1])
-  escenario: [[334, 334], [167, 334]]
+  protones: random(10, 30)
+  electrones: random(5, 30)
+  correcto: protones - electrones
+  error: uno_de([0, 0, 0, 3, -3])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 1)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? {protones} protones, {electrones} electrones, carga neta informada: {mostrado}."
+
+explicacion: |
+  Se vuelve a restar electrones de protones y se compara con el valor
+  informado.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "cargas_electricas"
+  nivel: "intermedio"
+  tags: ["cargas_electricas"]
+
+variables:
+  electrones: random(10, 30)
+  carga_neta: random(-10, 10)
+  protones: electrones + carga_neta
 
 tipo: completar
-tolerancia_abs: 0.01
+enunciado: "Un objeto tiene {electrones} electrones y una carga neta de {carga_neta}. Completá: ___ (cantidad de protones) = {electrones} + {carga_neta}."
+respuestas_validas:
+  - protones
 
-enunciado: "Un sistema libera {escenario[idx][0]} kJ de calor al solidificarse cierta masa de agua (L_fusión = {escenario[idx][1]} kJ/kg). ¿Cuál es esa masa, en kg?"
-
-respuesta: escenario[idx][0] / escenario[idx][1]
+explicacion: |
+  Se despeja la cantidad de protones sumando la carga neta a la
+  cantidad de electrones.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "avanzado"
-  tags: ["factores"]
-
-tipo: mc
-opciones_explicitas: ["La presión", "La masa", "El volumen", "El color"]
-
-enunciado: "El valor del calor latente de una sustancia depende de la temperatura y de la ____."
-
-respuesta: "La presión"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "avanzado"
-  tags: ["energia"]
-
-tipo: vf
-enunciado: "Durante un cambio de fase, la energía interna del sistema aumenta aunque la temperatura sea constante."
+  tema: "cargas_electricas"
+  nivel: "basico"
+  tags: ["cargas_electricas", "vocabulario"]
 
 respuesta: verdadero
+tipo: vf
+
+enunciado: "Una pila o batería mantiene una diferencia de cargas entre sus dos extremos, lo que impulsa el movimiento de electrones por un circuito."
+
+explicacion: |
+  Es un ejemplo real y cotidiano de por qué importa entender cargas
+  positivas y negativas.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
-  nivel: "avanzado"
-  tags: ["calculo"]
+  tema: "cargas_electricas"
+  nivel: "basico"
+  tags: ["cargas_electricas", "vocabulario"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[334000, 334000], [167000, 334000]]
+respuesta: verdadero
+tipo: vf
 
-tipo: completar
-tolerancia_abs: 0.01
+enunciado: "Un objeto se carga positivo o negativo según pierda o gane electrones (no protones), las cargas iguales se repelen y las opuestas se atraen, y la carga total siempre se conserva."
 
-enunciado: "Se necesitan {escenario[idx][0]} J para fundir una muestra de hielo. ¿Cuál es la masa en kg? (L = {escenario[idx][1]} J/kg)"
+explicacion: |
+  Es la idea central de todo el tema.
+```
 
-respuesta: escenario[idx][0] / escenario[idx][1]
+## Sección: estatica/centro-de-gravedad (21 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "basico"
+  tags: ["estatica", "vocabulario"]
+
+enunciado: "¿Qué es el centro de gravedad de un cuerpo?"
+tipo: mc
+opciones_explicitas:
+  - "El punto en el que se puede considerar concentrado todo el peso del cuerpo, para calcular momentos y equilibrio"
+  - "El punto más pesado del cuerpo"
+  - "El punto donde se mide la temperatura del cuerpo"
+respuesta: "El punto en el que se puede considerar concentrado todo el peso del cuerpo, para calcular momentos y equilibrio"
+
+explicacion: |
+  Es una simplificación útil: en vez de sumar el peso de cada
+  partícula del cuerpo, se trabaja como si todo el peso actuara en un
+  solo punto.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cambios_de_estado_calor_latente"
+  tema: "centro_de_gravedad"
+  nivel: "basico"
+  tags: ["estatica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un cuerpo uniforme y simétrico (una esfera maciza, un cubo, una regla homogénea), el centro de gravedad coincide con el centro geométrico de la figura."
+
+explicacion: |
+  La simetría hace que el promedio ponderado por masa caiga
+  exactamente en el centro geométrico.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
   nivel: "intermedio"
-  tags: ["resumen"]
+  tags: ["estatica", "completar"]
 
 tipo: completar
+enunciado: "Completá: el centro de gravedad de un cuerpo compuesto de varias partes es un promedio de sus posiciones, ponderado por la ___ de cada parte."
 respuestas_validas:
-  - "calor latente"
-  - "temperatura"
   - "masa"
 
-enunciado: "El ____ es la energía necesaria para el cambio de estado, la cual no se refleja en un cambio de ____, sino en un cambio de la energía potencial de las partículas."
+explicacion: |
+  x_cg = (m₁×x₁ + m₂×x₂) / (m₁ + m₂) — cada posición pesa según su
+  masa en el promedio.
+```
 
-respuesta: "calor latente"
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "avanzado"
+  tags: ["estatica", "problema"]
+
+variables:
+  m1: random(2, 10)
+  x1: random(0, 3)
+  m2: random(2, 10)
+  x2: random(4, 8)
+
+respuesta: redondear((m1 * x1 + m2 * x2) / (m1 + m2), 2)
+tipo: input
+tolerancia_abs: 0.1
+unidad: "m"
+
+enunciado: "Dos masas puntuales están sobre una misma línea: {m1} kg en la posición x={x1} m, y {m2} kg en la posición x={x2} m. ¿En qué posición está el centro de gravedad del sistema?"
+
+pasos:
+  - "x_cg = (m₁×x₁ + m₂×x₂) / (m₁+m₂) = ({m1}×{x1} + {m2}×{x2}) / ({m1}+{m2}) = {redondear((m1 * x1 + m2 * x2) / (m1 + m2), 2)} m"
+
+explicacion: |
+  Queda entre las dos posiciones, más cerca de la masa mayor.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "intermedio"
+  tags: ["estatica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si dos masas puntuales son iguales, el centro de gravedad del sistema está exactamente en el punto medio entre ambas."
+
+explicacion: |
+  Con m₁=m₂, el promedio ponderado se reduce al promedio simple de las
+  posiciones.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "intermedio"
+  tags: ["estatica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una de las dos masas es mayor que la otra, el centro de gravedad del sistema queda más cerca de la masa mayor."
+
+explicacion: |
+  El promedio ponderado "atrae" el resultado hacia el valor con más
+  peso en el promedio.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "avanzado"
+  tags: ["estatica", "vocabulario"]
+
+enunciado: "En la superficie de la Tierra, para un objeto de tamaño cotidiano, ¿cómo se relacionan el centro de gravedad y el centro de masa?"
+tipo: mc
+opciones_explicitas:
+  - "Son prácticamente el mismo punto, porque el campo gravitatorio es uniforme a esa escala"
+  - "Siempre son puntos completamente distintos"
+  - "El centro de masa no existe, sólo el centro de gravedad"
+respuesta: "Son prácticamente el mismo punto, porque el campo gravitatorio es uniforme a esa escala"
+
+explicacion: |
+  Sólo se distinguen en campos gravitatorios no uniformes (masas y
+  distancias astronómicas), fuera del alcance de este módulo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "intermedio"
+  tags: ["estatica"]
+
+enunciado: "¿Qué determina si un cuerpo apoyado se vuelca o se mantiene en pie?"
+tipo: mc
+opciones_explicitas:
+  - "Si su centro de gravedad queda dentro o fuera de la base de apoyo"
+  - "Sólo el peso total del cuerpo"
+  - "Sólo la altura del cuerpo, sin importar nada más"
+respuesta: "Si su centro de gravedad queda dentro o fuera de la base de apoyo"
+
+explicacion: |
+  Si el centro de gravedad se corre fuera de la zona de apoyo, el
+  cuerpo pierde el equilibrio y se vuelca.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "intermedio"
+  tags: ["estatica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para un mismo centro de gravedad, un objeto con base de apoyo más ancha es más estable (más difícil de volcar)."
+
+explicacion: |
+  Una base más ancha da más margen antes de que el centro de gravedad
+  se salga de ella.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "intermedio"
+  tags: ["estatica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para una misma base de apoyo, un objeto con el centro de gravedad más bajo es más estable."
+
+explicacion: |
+  Con el centro de gravedad más bajo, hace falta inclinar mucho más el
+  objeto para que se salga de la base de apoyo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "basico"
+  tags: ["estatica", "aplicacion"]
+
+enunciado: "¿Por qué los autos de carrera se diseñan tan bajos, casi pegados al piso?"
+tipo: mc
+opciones_explicitas:
+  - "Para mantener el centro de gravedad bajo y reducir el riesgo de vuelco en curvas a alta velocidad"
+  - "Para que pesen menos"
+  - "Sólo por estética, no tiene relación con la física"
+respuesta: "Para mantener el centro de gravedad bajo y reducir el riesgo de vuelco en curvas a alta velocidad"
+
+explicacion: |
+  Combinado con la fuerza centrípeta de la curva
+  (`../../movimiento-circular-y-fuerza-centripeta/`), un centro de
+  gravedad bajo reduce mucho el riesgo de que el auto se vuelque.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "intermedio"
+  tags: ["estatica", "aplicacion"]
+
+enunciado: "¿Para qué sirven los contrapesos que tienen las grúas de construcción?"
+tipo: mc
+opciones_explicitas:
+  - "Para mantener el centro de gravedad del sistema (grúa + carga) dentro de la base de apoyo, evitando que se vuelque al levantar peso"
+  - "Para que la grúa sea más rápida"
+  - "Sólo decoran la estructura, no afectan el equilibrio"
+respuesta: "Para mantener el centro de gravedad del sistema (grúa + carga) dentro de la base de apoyo, evitando que se vuelque al levantar peso"
+
+explicacion: |
+  Al levantar una carga pesada de un lado, el contrapeso del otro lado
+  compensa para que el centro de gravedad conjunto siga dentro de la
+  base.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "avanzado"
+  tags: ["estatica", "ordenar"]
+
+enunciado: "Ordená los pasos para encontrar experimentalmente el centro de gravedad de un objeto irregular colgándolo."
+tipo: ordenar
+opciones_explicitas:
+  - "El centro de gravedad está donde se cruzan las dos verticales trazadas"
+  - "Suspender el objeto libremente desde un primer punto de su borde y trazar la vertical hacia abajo"
+  - "Suspender el objeto desde un segundo punto distinto y trazar otra vertical"
+respuesta_orden: ["Suspender el objeto libremente desde un primer punto de su borde y trazar la vertical hacia abajo", "Suspender el objeto desde un segundo punto distinto y trazar otra vertical", "El centro de gravedad está donde se cruzan las dos verticales trazadas"]
+explicacion: |
+  Cada vertical (la que marca una plomada) siempre pasa por el centro
+  de gravedad, sin importar desde qué punto se cuelgue el objeto.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "intermedio"
+  tags: ["estatica"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El centro de gravedad de un cuerpo siempre está ubicado sobre material sólido del propio cuerpo."
+
+explicacion: |
+  Es falso: en una rosquilla (forma de anillo), el centro de gravedad
+  cae en el agujero del medio, en el aire — es un punto matemático, no
+  necesita "tocar" material.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "avanzado"
+  tags: ["estatica"]
+
+enunciado: "¿Por qué el centro de gravedad de una rosquilla (forma de anillo) cae en el agujero central, sin tocar material?"
+tipo: mc
+opciones_explicitas:
+  - "Porque es el promedio geométrico de toda la masa distribuida alrededor del anillo, y ese promedio cae en el centro simétrico, que está vacío"
+  - "Porque las rosquillas no tienen centro de gravedad"
+  - "Porque el agujero central tiene masa negativa"
+respuesta: "Porque es el promedio geométrico de toda la masa distribuida alrededor del anillo, y ese promedio cae en el centro simétrico, que está vacío"
+
+explicacion: |
+  El centro de gravedad es un punto matemático de referencia, no
+  necesariamente un punto físico dentro del material.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "intermedio"
+  tags: ["estatica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El centro de gravedad de un objeto puede cambiar de posición si el objeto cambia de forma (dobla, se estira), aunque su masa total no cambie."
+
+explicacion: |
+  El centro de gravedad depende de cómo está distribuida la masa, no
+  sólo de cuánta masa hay en total — redistribuirla lo mueve.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "avanzado"
+  tags: ["estatica", "problema"]
+
+variables:
+  m1: random(1, 5)
+  x1: 0
+  m2: random(1, 5)
+  x2: random(2, 6)
+
+respuesta: redondear((m1 * x1 + m2 * x2) / (m1 + m2), 2)
+tipo: input
+tolerancia_abs: 0.1
+unidad: "m"
+
+enunciado: "En el extremo x=0 de una barra hay una masa de {m1} kg, y en x={x2} m hay otra de {m2} kg. ¿En qué posición está el centro de gravedad del sistema (se ignora el peso de la barra)?"
+
+pasos:
+  - "x_cg = (m₁×0 + m₂×{x2}) / (m₁+m₂) = ({m2}×{x2}) / ({m1}+{m2}) = {redondear((m1 * x1 + m2 * x2) / (m1 + m2), 2)} m"
+
+explicacion: |
+  Con una de las masas en el origen, la fórmula se simplifica bastante.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "basico"
+  tags: ["estatica"]
+
+enunciado: "¿Para qué se usa el centro de gravedad al analizar un cuerpo en equilibrio?"
+tipo: mc
+opciones_explicitas:
+  - "Como el punto donde se considera aplicado el peso total, al calcular el momento que ese peso genera"
+  - "Para calcular la velocidad del cuerpo"
+  - "Para calcular la temperatura del cuerpo"
+respuesta: "Como el punto donde se considera aplicado el peso total, al calcular el momento que ese peso genera"
+
+explicacion: |
+  Es exactamente lo que hace falta para
+  `../equilibrio-de-cuerpo-rigido/`: saber dónde "actúa" el peso para
+  calcular su momento respecto de cualquier eje.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "avanzado"
+  tags: ["estatica"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La posición FÍSICA del centro de gravedad de un cuerpo cambia según dónde se elija poner el origen del sistema de coordenadas."
+
+explicacion: |
+  El número que describe su posición cambia (depende del origen
+  elegido, como cualquier coordenada), pero el punto físico real en el
+  cuerpo es siempre el mismo — no se mueve por cambiar de referencia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "intermedio"
+  tags: ["estatica", "completar"]
+
+tipo: completar
+enunciado: "Completá: la zona delimitada por los puntos de contacto de un cuerpo con el suelo se llama base de ___."
+respuestas_validas:
+  - "apoyo"
+
+explicacion: |
+  Es la referencia que determina si el centro de gravedad "cae dentro"
+  (equilibrio) o "cae afuera" (vuelco).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "centro_de_gravedad"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender el centro de gravedad?"
+tipo: mc
+opciones_explicitas:
+  - "Para saber dónde 'actúa' el peso de un cuerpo, calcular su estabilidad, y usarlo como base para analizar el equilibrio de cuerpos rígidos"
+  - "Sólo sirve para cuerpos perfectamente esféricos"
+  - "Sólo aplica en el espacio, sin gravedad"
+respuesta: "Para saber dónde 'actúa' el peso de un cuerpo, calcular su estabilidad, y usarlo como base para analizar el equilibrio de cuerpos rígidos"
+
+explicacion: |
+  Junto con `../momento-de-una-fuerza/`, es la pieza que falta para
+  `../equilibrio-de-cuerpo-rigido/`.
 ```
 
 ## Sección: campo-electrico (25 preguntas)
@@ -1414,889 +1310,940 @@ explicacion: |
   Primero se conocen las fuentes (cargas), luego se calcula la magnitud y dirección del campo en un punto, y finalmente se usa ese campo para hallar la fuerza sobre otra carga.
 ```
 
-## Sección: campo-magnetico-imanes-corrientes (25 preguntas)
+## Sección: corriente-electrica (25 preguntas)
 
 ```
 metadata:
   materia: "fisica"
-  tema: "campo_magnetico_imanes_corrientes"
+  tema: "corriente_electrica"
   nivel: "basico"
-  tags: ["imanes", "magnetismo"]
+  tags: ["definicion", "carga"]
 
-respuesta: "polo"
-tipo: "completar"
+respuesta: "flujo de carga"
+tipo: completar
 respuestas_validas:
-  - "polo"
+  - "flujo de carga"
+  - "movimiento de cargas"
 
-enunciado: "Las regiones de un imán donde la fuerza magnética es más intensa se denominan ___ magnéticos."
+enunciado: "La corriente eléctrica se define físicamente como el ___ a través de un conductor."
 
 explicacion: |
-  Un imán posee dos regiones de máxima intensidad de campo denominadas polos (norte y sur).
+  La corriente eléctrica es el flujo de carga eléctrica (producido principalmente por electrones en metales) que atraviesa una sección de un conductor por unidad de tiempo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "campo_magnetico_imanes_corrientes"
+  tema: "corriente_electrica"
   nivel: "basico"
-  tags: ["corriente_electrica", "electromagnetismo"]
+  tags: ["unidades", "amperio"]
 
-respuesta: falso
-tipo: "vf"
+respuesta: "Amperio"
+tipo: mc
+opciones_explicitas: ["Amperio", "Voltio", "Ohmio", "Coulomb"]
 
-enunciado: "¿Es correcto afirmar que una carga eléctrica en reposo genera un campo magnético a su alrededor?"
+enunciado: "La unidad de medida de la intensidad de corriente eléctrica en el Sistema Internacional es el ___."
 
 explicacion: |
-  Falso. Según la ley de Biot-Savart, el campo magnético es generado por cargas en movimiento (corrientes eléctricas). Una carga estática solo genera un campo eléctrico.
+  El Amperio (A) es la unidad de intensidad de corriente. El Voltio (V) es potencial, el Ohmio (Ω) es resistencia y el Coulomb (C) es carga.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "campo_magnetico_imanes_corrientes"
+  tema: "corriente_electrica"
   nivel: "intermedio"
-  tags: ["electroimanes", "componentes"]
-
-tipo: "mc"
-opciones_explicitas: ["Núcleo ferromagnético", "Material aislante", "Resistencia eléctrica"]
-respuesta: "Núcleo ferromagnético"
-
-enunciado: "En un electroimán típico, para aumentar la intensidad del campo magnético se suele utilizar un núcleo de hierro que concentre las líneas de flujo."
-
-explicacion: |
-  El núcleo ferromagnético (como el hierro) aumenta significativamente la intensidad del campo magnético del electroimán al canalizar las líneas de campo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "campo_magnetico_imanes_corrientes"
-  nivel: "intermedio"
-  tags: ["regla_mano_derecha", "corriente"]
-
-respuesta: "el pulgar indica la dirección de la corriente y los dedos el campo"
-tipo: "completar"
-respuestas_validas:
-  - "el pulgar indica la dirección de la corriente y los dedos el campo"
-
-enunciado: "Al aplicar la regla de la mano derecha en un conductor recto, si el pulgar apunta en la dirección de la corriente, entonces los dedos curvos representan ___."
-
-explicacion: |
-  La regla de la mano derecha es una convención para determinar la dirección del campo magnético circular alrededor de un conductor con corriente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "campo_magnetico_imanes_corrientes"
-  nivel: "basico"
-  tags: ["ordenar", "componentes"]
-
-tipo: ordenar
-opciones_explicitas: ["Fuente de energía", "Conductor", "Bobina"]
-respuesta_orden: ["Fuente de energía", "Conductor", "Bobina"]
-
-enunciado: "Ordene los elementos necesarios para construir un electroimán simple, desde el suministro de energía hasta el elemento que genera el campo:"
-
-explicacion: |
-  Para un electroimán básico se requiere una fuente (pila), un conductor (cable) para transportar la corriente y una bobina (solenoide) para concentrar el campo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "campo_magnetico_corrientes"
-  nivel: "intermedio"
-  tags: ["fuerza_magnetica", "corriente"]
+  tags: ["calculo", "intensidad"]
 
 variables:
-  l: 0.5
-  I: 4.0
-  B: 0.2
-  angulo: 90
+  escenario: [[10, 2], [20, 4], [5, 5], [12, 3]]
+  idx: uno_de([0,1,2,3])
 
-respuesta: 0.4
+respuesta: escenario[idx][0] / escenario[idx][1]
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Un conductor recto de longitud {l} metros transporta una corriente de {I} Amperios perpendicular a un campo magnético uniforme de {B} Teslas. ¿Cuál es la magnitud de la fuerza magnética sobre el conductor?"
+enunciado: "Si una carga de {escenario[idx][0]} Coulombs atraviesa una sección de un conductor en un tiempo de {escenario[idx][1]} segundos, ¿cuál es la intensidad de corriente eléctrica?"
 
 pasos:
-  - "Utilizar la fórmula de la fuerza de Lorentz para un conductor: F = I * l * B * sin(angulo)."
-  - "Sustituir los valores: F = 4.0 * 0.5 * 0.2 * sin(90)."
-  - "Calcular: F = 2.0 * 0.2 * 1 = 0.4 N."
+  - "Calcular la intensidad usando la fórmula: I = Q / t"
+  - "Dividir la carga (C) por el tiempo (s)"
 
 explicacion: |
-  La fuerza magnética sobre un conductor con corriente se calcula con la fórmula F = I * l * B * sin(θ). En este caso, al ser perpendicular, sin(90°) = 1.
+  La intensidad de corriente I se calcula como la carga total Q dividida por el tiempo t: I = Q/t. En este caso: {escenario[idx][0]} / {escenario[idx][1]} = {escenario[idx][0] / escenario[idx][1]} A.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "imanes"
+  tema: "corriente_electrica"
   nivel: "basico"
-  tags: ["magnetismo", "polos"]
+  tags: ["verdadero_falso", "electrones"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Si acercamos el polo norte de un imán al polo norte de otro imán, la fuerza de interacción entre ellos es de atracción."
+enunciado: "En un cable de cobre, la corriente eléctrica es producida por el movimiento de protones a través del metal."
 
 explicacion: |
-  Polos iguales se repelen y polos opuestos se atraen. Por lo tanto, la afirmación es falsa.
+  Falso. En los metales conductores, la corriente es transportada por el movimiento de electrones libres, no de protones (los cuales están fijos en el núcleo atómico).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "campo_magnetico_corrientes"
+  tema: "corriente_electrica"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta_orden: ["Carga eléctrica", "Conductor", "Fuente de energía"]
+tipo: ordenar
+
+opciones_explicitas: ["Carga eléctrica", "Conductor", "Fuente de energía"]
+
+enunciado: "Para que exista una corriente eléctrica en un circuito simple, se requiere que los elementos estén presentes en un orden lógico de dependencia (desde el origen del movimiento hasta el medio):"
+
+explicacion: |
+  Para que haya corriente se necesita una fuente que impulse las cargas, las cargas que se mueven y un camino (conductor) para que lo hagan.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "basico"
+  tags: ["intensidad", "carga", "amperios"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  cargas: [0.005, 0.012, 0.025]
+  carga: cargas[idx]
+  resultados_texto: ["0.0025", "0.006", "0.0125"]
+
+respuesta: carga / 2.0
+tipo: completar
+tolerancia_abs: 0.001
+
+enunciado: "Una carga eléctrica de {carga} Coulombs atraviesa una sección transversal de un conductor en un intervalo de tiempo de 2 segundos. ¿Cuál es la intensidad de corriente eléctrica en Amperios?"
+
+pasos:
+  - "Identificar la carga (Q) = {carga} C"
+  - "Identificar el tiempo (t) = 2 s"
+  - "Aplicar la fórmula: I = Q / t"
+  - "Calcular: {carga} / 2"
+
+explicacion: |
+  La intensidad de corriente (I) se define como la cantidad de carga que pasa por un punto en un tiempo determinado. La fórmula es I = Q / t. En este caso, {carga} / 2 = {resultados_texto[idx]} A.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "basico"
+  tags: ["concepto", "flujo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿La corriente eléctrica se define como el flujo de carga eléctrica a través de un conductor por unidad de tiempo?"
+
+explicacion: |
+  Correcto. La corriente eléctrica es la rapidez con la que las cargas eléctricas atraviesan una sección de un conductor.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "basico"
+  tags: ["unidades", "amperio"]
+
+opciones_explicitas: ["Voltio", "Amperio", "Ohmio", "Coulomb"]
+respuesta: "Amperio"
+tipo: mc
+
+enunciado: "¿Cuál es la unidad de medida de la intensidad de corriente eléctrica en el Sistema Internacional (SI)?"
+
+explicacion: |
+  La unidad de la intensidad de corriente es el Amperio (A), mientras que el Voltio es para potencial, el Ohmio para resistencia y el Coulomb para carga.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "intermedio"
+  tags: ["calculo", "corriente"]
+
+variables:
+  escenario: [[10, 2], [20, 5], [5, 1]]
+  idx: uno_de([0,1,2])
+  q: escenario[idx][0]
+  t: escenario[idx][1]
+
+respuesta: q / t
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Si una carga de {q} C atraviesa un conductor en un tiempo de {t} segundos, ¿cuál es la intensidad de corriente (en Amperios)?"
+
+explicacion: |
+  Usando la fórmula I = Q / t: {q} / {t} = {q / t} A.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "basico"
+  tags: ["procedimiento", "pasos"]
+
+opciones_explicitas: ["Identificar valores de carga y tiempo", "Aplicar la fórmula I = Q / t", "Dividir la carga por el tiempo"]
+respuesta_orden: ["Identificar valores de carga y tiempo", "Aplicar la fórmula I = Q / t", "Dividir la carga por el tiempo"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para resolver un problema de cálculo de intensidad de corriente eléctrica:"
+
+explicacion: |
+  Para resolver correctamente, primero debemos extraer los datos del enunciado, luego seleccionar la fórmula matemática adecuada y finalmente realizar la operación aritmética.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "basico"
+  tags: ["carga", "sentido_convencional", "electrones"]
+
+respuesta: "convencional"
+tipo: mc
+opciones_explicitas: ["real", "convencional"]
+
+enunciado: "En un circuito físico, los electrones se desplazan del polo negativo al positivo. Sin embargo, por convención histórica, el sentido de la corriente eléctrica se define de forma ___."
+
+explicacion: |
+  El sentido convencional de la corriente es del polo positivo al negativo, siguiendo el movimiento de cargas positivas imaginarias, aunque en los metales sean los electrones (cargas negativas) los que se mueven en sentido opuesto.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "intermedio"
+  tags: ["intensidad", "carga", "tiempo"]
+
+variables:
+  escenario: uno_de([[1.2, 2.0], [3.5, 5.0], [0.8, 1.5]])
+
+respuesta: escenario[0] / escenario[1]
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Una carga eléctrica de {escenario[0]} Coulombs atraviesa una sección transversal de un conductor en un intervalo de tiempo de {escenario[1]} segundos. ¿Cuál es la intensidad de corriente eléctrica (en Amperios)?"
+
+pasos:
+  - "Identificar la fórmula de intensidad: I = ΔQ / Δt"
+  - "Dividir la carga total por el tiempo transcurrido"
+
+explicacion: |
+  La intensidad de corriente se define como la cantidad de carga que pasa por un punto en un tiempo determinado: I = Q/t. En este caso, {escenario[0]} / {escenario[1]} = {escenario[0] / escenario[1]}.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "basico"
+  tags: ["concepto", "flujo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La corriente eléctrica es, por definición, un flujo de materia (átomos) que se desplaza a través de un conductor."
+
+explicacion: |
+  Falso. La corriente eléctrica es el flujo de **cargas eléctricas** (como electrones o iones), no necesariamente de la materia completa (átomos). En los metales, los átomos permanecen en una red fija mientras los electrones se desplazan.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
   nivel: "avanzado"
-  tags: ["ley_ampere", "campo_magnetico"]
+  tags: ["electrones", "carga_elemental"]
 
 variables:
-  r: 0.1
-  I: 10.0
-  mu_0: 4 * pi * 1e-7
+  caso: uno_de([[2, 1.6e-19], [5, 1.6e-19], [10, 1.6e-19]])
+  n: caso[0]
+  e: caso[1]
+  q_total: n * e
 
-respuesta: "0.00002"
+respuesta: n
 tipo: completar
-respuestas_validas:
-  - "0.00002"
-  - "2.0e-5"
+tolerancia_abs: 0
 
-enunciado: "Un cable largo y recto transporta una corriente de {I} A. El campo magnético a una distancia de {r} metros del cable es de ___ Teslas."
-
-pasos:
-  - "Usar la fórmula para el campo magnético de un conductor infinito: B = (mu_0 * I) / (2 * pi * r)."
-  - "Sustituir: B = (4 * pi * 1e-7 * 10) / (2 * pi * 0.1)."
-  - "Simplificar: el pi se cancela: B = (4e-7 * 10) / (2 * 0.1) = 4e-6 / 0.2 = 2e-5 = 0.00002 T."
+enunciado: "Si por un conductor circula una corriente tal que en total pasan {q_total} Coulombs de carga, y la carga de cada electrón es {e} C, ¿cuántos electrones han atravesado la sección en ese tiempo?"
 
 explicacion: |
-  El campo magnético alrededor de un conductor recto se determina mediante la Ley de Ampère. La fórmula es B = (mu_0 * I) / (2 * pi * r).
+  Para hallar el número de electrones (n), usamos la relación Q = n * e, donde e es la carga elemental. Despejando: n = Q / e. En este caso: {q_total} / {e} = {n}.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "campo_magnetico_imanes"
+  tema: "corriente_electrica"
   nivel: "basico"
-  tags: ["imanes", "polos"]
+  tags: ["procedimiento", "calculo"]
 
-opciones_explicitas: ["Norte", "Sur"]
-respuesta: "Norte"
-tipo: mc
-
-enunciado: "En un imán de barra convencional, las líneas de campo magnético salen del polo ___ y entran al polo Sur."
-
-explicacion: |
-  Por convención, las líneas de campo magnético se representan saliendo del polo norte y entrando al polo sur en el exterior del imán.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "campo_magnetico_corrientes"
-  nivel: "intermedio"
-  tags: ["ordenar", "experimento"]
-
-opciones_explicitas: ["Colocar el imán", "Conectar la fuente", "Introducir el cable", "Observar el movimiento"]
-respuesta_orden: ["Colocar el imán", "Introducir el cable", "Conectar la fuente", "Observar el movimiento"]
+respuesta_orden: ["identificar_carga", "identificar_tiempo", "dividir_valores"]
 tipo: ordenar
+opciones_explicitas: ["identificar_carga", "identificar_tiempo", "dividir_valores"]
 
-enunciado: "Ordena los pasos lógicos para realizar un experimento de observación de la fuerza de Lorentz en un laboratorio:"
+enunciado: "Ordena los pasos lógicos para calcular la intensidad de corriente eléctrica si se conoce la carga total y el tiempo transcurrido."
 
 explicacion: |
-  Primero se prepara el entorno (imán), luego se posiciona el objeto de estudio (cable), se aplica la energía (corriente) y finalmente se mide el efecto físico.
+  Para aplicar la fórmula I = Q/t, primero debemos conocer los valores de la carga (Q) y el tiempo (t), y finalmente realizar la división correspondiente.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "campo_magnetico_imanes_corrientes"
+  tema: "corriente_electrica"
   nivel: "basico"
-  tags: ["magnetismo", "conceptos_fundamentales"]
+  tags: ["carga", "corriente", "conceptos"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un imán permanente genera un campo magnético debido al movimiento de las cargas eléctricas (electrones) dentro de sus átomos."
-
-explicacion: |
-  Correcto. El magnetismo en materiales ferromagnéticos surge del movimiento orbital y del espín de los electrones, que actúan como pequeñas corrientes eléctricas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "campo_magnetico_imanes_corrientes"
-  nivel: "intermedio"
-  tags: ["imanes", "electroimanes"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[10.0, "un imán de neodimio"], [15.0, "un electroimán de núcleo de hierro"]]
-  resultados_texto: ["Un campo magnético constante", "Un campo magnético que depende de la corriente"]
-
-respuesta: resultados_texto[escenario_idx]
-tipo: mc
-opciones_explicitas: ["Un campo magnético constante", "Un campo magnético que depende de la corriente", "Un campo magnético que no existe"]
-
-enunciado: "Si observamos {datos[escenario_idx][1]}, el campo magnético producido es ___."
-
-explicacion: |
-  En el caso del imán, el campo es permanente. En el caso del electroimán, la intensidad y dirección dependen directamente de la intensidad de la corriente eléctrica que circula por el conductor.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "campo_magnetico_imanes_corrientes"
-  nivel: "intermedio"
-  tags: ["regla_mano_derecha", "corriente"]
-
-respuesta: "hacia arriba"
-tipo: completar
-respuestas_validas:
-  - "hacia arriba"
-  - "hacia abajo"
-
-enunciado: "Si aplicamos la regla de la mano derecha para un cable conductor vertical, donde el pulgar apunta hacia arriba (dirección de la corriente), los dedos se curvan indicando que las líneas de campo magnético circulan en un plano horizontal en dirección ___."
-
-explicacion: |
-  La regla de la mano derecha establece que el pulgar indica la dirección de la corriente y la curvatura de los dedos indica la dirección de las líneas de campo magnético.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "campo_magnetico_imanes_corrientes"
-  nivel: "basico"
-  tags: ["electroimanes", "polaridad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia de un imán natural, los polos de un electroimán pueden invertirse simplemente cambiando la dirección de la corriente eléctrica."
-
-explicacion: |
-  Exacto. Al invertir la corriente, el sentido de las líneas de campo cambia, lo que resulta en una inversión de la polaridad de los polos norte y sur.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "campo_magnetico_imanes_corrientes"
-  nivel: "intermedio"
-  tags: ["electroimanes", "componentes"]
-
-respuesta_orden: ["Alambre conductor", "Núcleo ferromagnético", "Fuente de corriente"]
-tipo: ordenar
-opciones_explicitas: ["Alambre conductor", "Núcleo ferromagnético", "Fuente de corriente"]
-
-enunciado: "Para construir un electroimán funcional, se deben ensamblar sus componentes siguiendo este orden lógico de construcción (desde la base hasta el componente que genera el campo):"
-
-pasos:
-  - "Se enrolla el conductor sobre el material que concentra el flujo."
-  - "Se proporciona la energía necesaria para que el sistema funcione."
-  - "Se prepara el material que será magnetizado por la bobina."
-
-explicacion: |
-  Para un electroimán efectivo, primero se necesita el núcleo (material ferromagnético), luego se enrolla el alambre (bobina conductora) y finalmente se conecta a una fuente de corriente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "campo_magnetico_corrientes"
-  nivel: "basico"
-  tags: ["magnetismo", "corrientes"]
-
-respuesta: "imanes"
+respuesta: "corriente"
 tipo: "completar"
 respuestas_validas:
-  - "imanes"
-  - "imán"
+  - "corriente"
 
-enunciado: "A diferencia de las corrientes eléctricas que generan campos magnéticos mediante el movimiento de cargas, los campos magnéticos estáticos pueden ser generados por ___."
+enunciado: "Mientras que la carga eléctrica es una propiedad intrínseca de las partículas, la ___ es la medida del flujo de carga que atraviesa una sección transversal por unidad de tiempo."
 
 explicacion: |
-  Los imanes permanentes poseen un campo magnético debido al alineamiento del espín de los electrones en sus átomos, mientras que las corrientes eléctricas generan campos debido al movimiento macroscópico de cargas.
+  La carga eléctrica es una propiedad estática, mientras que la corriente eléctrica es una magnitud dinámica que describe el movimiento de dichas cargas.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "campo_magnetico_corrientes"
+  tema: "corriente_electrica"
   nivel: "intermedio"
-  tags: ["electroimanes", "magnetismo"]
+  tags: ["voltaje", "corriente", "diferencia"]
 
 variables:
-  idx: uno_de([0, 1])
-  escenario: [[10, "aumentar la corriente"], [5, "acercar el imán"]]
+  escenario: uno_de([[9, "0.9"], [12, "1.2"], [5, "0.5"]])
 
-respuesta: escenario[idx][1]
+respuesta: escenario[1]
 tipo: "mc"
-opciones_explicitas: ["aumentar la corriente", "acercar el imán", "cambiar el material del cable", "disminuir la tensión"]
+opciones_explicitas: ["0.9", "1.2", "0.5"]
 
-enunciado: "En un electroimán, ¿qué acción permite ___ para incrementar la intensidad del campo magnético generado?"
+enunciado: "Si mantenemos la resistencia constante en R = 10 Ω, ¿cuál es la intensidad de corriente que circula por el circuito dado un voltaje de {escenario[0]} V?"
+
+pasos:
+  - "Identificar el voltaje: {escenario[0]} V"
+  - "Usar la resistencia constante R = 10 Ω"
+  - "Calcular I = V / R"
 
 explicacion: |
-  La intensidad del campo magnético en un electroimán es directamente proporcional a la intensidad de la corriente que circula por el conductor.
+  La intensidad de corriente es directamente proporcional al voltaje según la Ley de Ohm (I = V/R). Con R = 10 Ω constante: I = {escenario[0]} / 10 = {escenario[1]} A.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "campo_magnetico_corrientes"
+  tema: "corriente_electrica"
   nivel: "basico"
-  tags: ["polos", "imanes"]
+  tags: ["cc", "ca", "tipo_corriente"]
 
 respuesta: falso
 tipo: "vf"
 
-enunciado: "A diferencia de las cargas eléctricas, donde las cargas iguales se repelen y las distintas se atraen, los polos de un imán pueden ser monopolos magnéticos aislados (es decir, un polo norte sin un polo sur)."
+enunciado: "¿Es cierto que en la corriente continua (CC) la dirección y magnitud del flujo de carga cambian periódicamente con el tiempo, a diferencia de la corriente alterna (CA)?"
 
 explicacion: |
-  Falso. Los polos magnéticos siempre vienen en pares (dipolos). No existen monopolos magnéticos aislados conocidos en la naturaleza; si cortas un imán, obtienes dos imanes más pequeños con sus propios polos.
+  Es falso. Es al revés: en la corriente alterna (CA) el flujo cambia de dirección periódicamente, mientras que en la corriente continua (CC) el flujo es constante en dirección y magnitud.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "campo_magnetico_corrientes"
-  nivel: "intermedio"
-  tags: ["ley_ampere", "distancia"]
-
-respuesta: "se reduce"
-tipo: "mc"
-opciones_explicitas: ["se reduce", "se mantiene", "se duplica", "se anula"]
-
-enunciado: "Si comparamos un imán con un cable conductor, en ambos casos, al aumentar la distancia desde el centro del conductor o del imán, la intensidad del campo magnético ___."
-
-explicacion: |
-  Tanto para un imán dipolar como para un conductor rectilíneo, la intensidad del campo magnético disminuye a medida que la distancia al origen del campo aumenta.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "campo_magnetico_corrientes"
-  nivel: "intermedio"
-  tags: ["electroimanes", "componentes"]
-
-respuesta_orden: ["Núcleo ferromagnético", "Bobina de conductor", "Fuente de corriente"]
-tipo: "ordenar"
-opciones_explicitas: ["Núcleo ferromagnético", "Bobina de conductor", "Fuente de corriente"]
-
-enunciado: "Para construir un electroimán funcional, ordene los componentes desde el que concentra el flujo magnético hacia el que proporciona la energía:"
-
-explicacion: |
-  El núcleo ferromagnético concentra las líneas de campo, la bobina (solenoide) es donde circula la corriente que crea el campo, y la fuente de corriente es la que permite el flujo de carga.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "campo_magnetico_corrientes"
-  nivel: "intermedio"
-  tags: ["electromagnetismo", "corrientes"]
-
-enunciado: "En una planta de reciclaje, una grúa utiliza un electroimán para levantar chatarra. Si se duplica la intensidad de la corriente eléctrica que circula por la bobina del electroimán, la fuerza del campo magnético generado ___."
-
-respuesta: "aumenta"
-tipo: completar
-respuestas_validas:
-  - "aumenta"
-
-explicacion: |
-  La intensidad del campo magnético ($B$) generado por una corriente eléctrica es directamente proporcional a la intensidad de dicha corriente ($I$). Al aumentar la corriente, aumenta la fuerza del campo magnético.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "campo_magnetico_corrientes"
+  tema: "corriente_electrica"
   nivel: "basico"
-  tags: ["magnetismo", "brujula"]
+  tags: ["unidades", "amperio"]
 
-enunciado: "Si acercas una brújula a un cable conductor por el cual circula una corriente eléctrica constante, la aguja de la brújula ___ de su posición de reposo."
+respuesta: "amperio"
+tipo: "mc"
+opciones_explicitas: ["voltio", "amperio", "ohmio", "culombio"]
 
-respuestas_validas:
-  - "se desvía"
-respuesta: "se desvía"
-tipo: completar
+enunciado: "La magnitud de la corriente eléctrica se mide en ___."
+
 explicacion: |
-  Una corriente eléctrica genera un campo magnético a su alrededor. Este campo interactúa con el imán de la brújula, provocando que la aguja se alinee con las líneas de campo magnético.
+  El amperio (A) es la unidad de intensidad de corriente en el SI, mientras que el voltio mide potencial y el ohmio la resistencia.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "campo_magnetico_corrientes"
+  tema: "corriente_electrica"
   nivel: "intermedio"
-  tags: ["electromagnetismo", "polaridad"]
+  tags: ["flujo", "carga", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["carga", "movimiento", "corriente"]
+respuesta_orden: ["carga", "movimiento", "corriente"]
+
+enunciado: "Ordena los conceptos para describir el proceso físico que da origen a la corriente eléctrica: primero la existencia de ___, luego el ___ de estas a través de un conductor, y finalmente el fenómeno resultante llamado ___."
+
+explicacion: |
+  El proceso lógico es: 1. Presencia de carga, 2. Movimiento de carga, 3. Corriente eléctrica.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "basico"
+  tags: ["electricidad", "intensidad"]
 
 variables:
-  datos: [[1, "Norte"], [2, "Sur"]]
-  idx: uno_de([0, 1])
-  polo: datos[idx][1]
+  datos: [["un cargador de celular de 5W conectado a 220V", "0.0227"], ["una bombilla de 60W conectada a 120V", "0.5"], ["un calefactor de 2200W conectado a 220V", "10.0"]]
+  idx: uno_de([0, 1, 2])
 
-enunciado: "Un estudiante construye un electroimán enrollando cable alrededor de un clavo de hierro. Si invierte el sentido de la corriente eléctrica en la bobina, el polo magnético que antes era ___ cambiará de polaridad."
+enunciado: "Si tenemos {datos[idx][0]}, la intensidad de corriente que circula es de aproximadamente ___ A."
 
-respuesta: polo
-tipo: mc
-opciones_explicitas: ["Norte", "Sur", "No cambia"]
+respuestas_validas:
+  - "0.0227"
+  - "0.5"
+  - "10.0"
+respuesta: datos[idx][1]
+tipo: completar
 
 explicacion: |
-  Según la regla de la mano derecha, el sentido de la corriente determina la dirección de las líneas de campo magnético. Si se invierte la corriente, se invierte la polaridad de los polos magnéticos.
+  La intensidad de corriente (I) se calcula mediante la fórmula I = P / V, donde P es la potencia en Watts y V es el voltaje en Voltios.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "campo_magnetico_corrientes"
+  tema: "corriente_electrica"
+  nivel: "intermedio"
+  tags: ["carga", "electrones"]
+
+variables:
+  datos: [["2.0", "1.25e19"], ["0.5", "3.13e18"], ["4.0", "2.50e19"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Si por un conductor circula una carga de {datos[idx][0]} Coulombs en un tiempo de 1 segundo, la cantidad de electrones que fluyen es aproximadamente ___."
+
+respuestas_validas:
+  - "1.25e19"
+  - "3.13e18"
+  - "2.50e19"
+respuesta: datos[idx][1]
+tipo: completar
+
+explicacion: |
+  La carga total es Q = n * e, donde n es el número de electrones y e es la carga del electrón (1.6e-19 C). Por lo tanto, n = Q / e.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
   nivel: "basico"
-  tags: ["motor", "componentes"]
+  tags: ["conceptos", "ca"]
 
-respuesta_orden: ["imán", "cable", "batería"]
+enunciado: "¿La corriente que suministran las baterías de un teléfono móvil es de tipo alterna (AC)?"
+
+respuesta: falso
+tipo: vf
+explicacion: |
+  Las baterías proporcionan corriente continua (DC), donde los electrones fluyen en un solo sentido. La corriente alterna (AC) es la que llega a los enchufes de las casas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "intermedio"
+  tags: ["calculo", "amperaje"]
+
+variables:
+  datos: [["una corriente de 0.5A", "500"], ["una corriente de 1.2A", "1200"], ["una corriente de 0.05A", "50"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Si un multímetro está configurado para medir miliamperios (mA), ¿qué valor mostrará para {datos[idx][0]}?"
+
+opciones_explicitas: ["500", "1200", "50"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  Para convertir Amperios (A) a miliamperios (mA), se multiplica el valor por 1000.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "basico"
+  tags: ["procedimiento", "seguridad"]
+
+enunciado: "Ordena los pasos correctos para medir la intensidad de corriente en un componente usando un multímetro en serie:"
+
+opciones_explicitas: ["Abrir el circuito", "Conectar el multímetro en serie", "Cerrar el circuito para medir"]
+respuesta_orden: ["Abrir el circuito", "Conectar el multímetro en serie", "Cerrar el circuito para medir"]
 tipo: ordenar
-opciones_explicitas: ["imán", "cable", "batería"]
 
-enunciado: "Para construir un modelo simple de motor eléctrico (motor de corriente continua), se requiere ensamblar los siguientes componentes en el orden correcto para completar el circuito y generar movimiento:"
+explicacion: |
+  Para medir corriente, el multímetro debe formar parte del camino de la electricidad, por lo que el circuito debe interrumpirse para insertarlo en serie.
+```
+
+## Sección: estatica/momento-de-una-fuerza (22 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_de_una_fuerza"
+  nivel: "basico"
+  tags: ["estatica", "vocabulario"]
+
+enunciado: "¿Qué mide el momento de una fuerza (torque)?"
+tipo: mc
+opciones_explicitas:
+  - "La tendencia de una fuerza a hacer girar un cuerpo alrededor de un punto o eje"
+  - "La tendencia de una fuerza a desplazar un cuerpo en línea recta"
+  - "La energía que transmite una fuerza"
+respuesta: "La tendencia de una fuerza a hacer girar un cuerpo alrededor de un punto o eje"
+
+explicacion: |
+  A diferencia de la fuerza neta (que mueve un cuerpo), el momento mide
+  el efecto de giro.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["estatica", "completar"]
+
+tipo: completar
+enunciado: "Completá: M = F × ___, donde esa distancia se mide perpendicular al eje de giro."
+respuestas_validas:
+  - "d"
+  - "brazo"
+  - "brazo de palanca"
+
+explicacion: |
+  El brazo de palanca es la distancia perpendicular desde el eje de
+  giro hasta la línea de acción de la fuerza.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["estatica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El brazo de palanca es la distancia PERPENDICULAR desde el eje de giro hasta la línea de acción de la fuerza."
+
+explicacion: |
+  Si la fuerza no es perpendicular al brazo, hay que usar la
+  componente perpendicular (M=F×d×sen(θ)).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_de_una_fuerza"
+  nivel: "basico"
+  tags: ["estatica", "vocabulario"]
+
+enunciado: "¿En qué unidad se mide el momento de una fuerza en el Sistema Internacional?"
+tipo: mc
+opciones_explicitas:
+  - "Newton-metro (N·m)"
+  - "Newton (N)"
+  - "Joule (J)"
+respuesta: "Newton-metro (N·m)"
+
+explicacion: |
+  Es fuerza (N) por distancia (m) — aunque tenga las mismas unidades
+  que el trabajo (Joule), son conceptos físicos distintos.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["estatica", "problema"]
+
+variables:
+  F: random(5, 50)
+  d: random_float(0.2, 2, 2)
+
+respuesta: redondear(F * d, 2)
+tipo: input
+tolerancia_abs: 0.1
+unidad: "N·m"
+
+enunciado: "Se aplica una fuerza de {F} N, perpendicular a una palanca, a {d} m del eje de giro. ¿Cuál es el momento generado?"
 
 pasos:
-  - "Colocar un imán permanente en la base."
-  - "Conectar un cable conductor enrollado (bobina) al eje."
-  - "Conectar la bobina a una batería para cerrar el circuito."
+  - "M = F × d = {F} × {d} = {redondear(F * d, 2)} N·m"
 
 explicacion: |
-  Un motor eléctrico requiere una fuente de energía (batería), un conductor (cable/bobina) y un campo magnético constante (imán) para producir la fuerza de Lorentz que genera el movimiento.
+  Fuerza perpendicular al brazo: M=F×d directo, sin necesidad de seno.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "campo_magnetico_corrientes"
+  tema: "momento_de_una_fuerza"
   nivel: "avanzado"
-  tags: ["calculo", "campo_magnetico"]
-
-enunciado: "Considerando un cable conductor muy largo, la intensidad del campo magnético $B$ es inversamente proporcional a la distancia $r$ del cable. Si la distancia se reduce a la mitad, el valor de $B$ será ___ veces el valor original."
-
-respuestas_validas:
-  - "2"
-respuesta: "2"
-tipo: completar
-tolerancia_abs: 0.001
-
-explicacion: |
-  La fórmula del campo magnético para un cable largo es $B = \mu_0 \cdot I / (2\pi \cdot r)$. Si la distancia $r$ se divide por 2, el campo $B$ se multiplica por 2.
-```
-
-## Sección: cargas-electricas (22 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "basico"
-  tags: ["cargas_electricas", "vocabulario"]
-
-enunciado: "¿Qué es la carga eléctrica?"
-tipo: mc
-opciones_explicitas:
-  - "Una propiedad fundamental de la materia, que puede ser positiva o negativa"
-  - "La cantidad de energía que gasta un aparato eléctrico"
-  - "La velocidad a la que se mueve la corriente eléctrica"
-respuesta: "Una propiedad fundamental de la materia, que puede ser positiva o negativa"
-
-explicacion: |
-  Es una propiedad, no una cantidad de energía ni una velocidad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "basico"
-  tags: ["cargas_electricas", "vocabulario"]
-
-enunciado: "¿Qué partícula del átomo tiene carga positiva?"
-tipo: mc
-opciones_explicitas:
-  - "El protón"
-  - "El electrón"
-  - "El neutrón"
-respuesta: "El protón"
-
-explicacion: |
-  Está en el núcleo del átomo, junto con el neutrón.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "basico"
-  tags: ["cargas_electricas", "vocabulario"]
-
-enunciado: "¿Qué partícula del átomo tiene carga negativa?"
-tipo: mc
-opciones_explicitas:
-  - "El electrón"
-  - "El protón"
-  - "El neutrón"
-respuesta: "El electrón"
-
-explicacion: |
-  Orbita alrededor del núcleo del átomo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "basico"
-  tags: ["cargas_electricas", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El neutrón no tiene carga eléctrica: es neutro."
-
-explicacion: |
-  Por eso se llama \"neutrón\" — ni positivo ni negativo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "basico"
-  tags: ["cargas_electricas", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos cargas del mismo signo (las dos positivas, o las dos negativas) se repelen entre sí."
-
-explicacion: |
-  Es la regla básica de interacción entre cargas iguales.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "basico"
-  tags: ["cargas_electricas", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una carga positiva y una carga negativa se atraen entre sí."
-
-explicacion: |
-  Es la regla básica de interacción entre cargas opuestas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "basico"
-  tags: ["cargas_electricas", "vocabulario"]
-
-enunciado: "¿Qué ocurre entre dos objetos cargados positivamente?"
-tipo: mc
-opciones_explicitas:
-  - "Se repelen"
-  - "Se atraen"
-  - "No interactúan de ninguna forma"
-respuesta: "Se repelen"
-
-explicacion: |
-  Son cargas del mismo signo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "basico"
-  tags: ["cargas_electricas", "vocabulario"]
-
-enunciado: "¿Qué ocurre entre un objeto cargado positivamente y otro cargado negativamente?"
-tipo: mc
-opciones_explicitas:
-  - "Se atraen"
-  - "Se repelen"
-  - "No interactúan de ninguna forma"
-respuesta: "Se atraen"
-
-explicacion: |
-  Son cargas de signo opuesto.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "intermedio"
-  tags: ["cargas_electricas", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un objeto neutro tiene la misma cantidad de protones que de electrones, así que su carga total es cero."
-
-explicacion: |
-  Las cargas positivas y negativas se cancelan exactamente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "intermedio"
-  tags: ["cargas_electricas", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un objeto se carga positivamente cuando pierde electrones, quedando con más protones que electrones."
-
-explicacion: |
-  Los protones no se van: lo que cambia es la cantidad de electrones.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "intermedio"
-  tags: ["cargas_electricas", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un objeto se carga negativamente cuando gana electrones, quedando con más electrones que protones."
-
-explicacion: |
-  Es el proceso inverso al de cargarse positivo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "avanzado"
-  tags: ["cargas_electricas", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los protones no se transfieren fácilmente entre objetos, porque están fuertemente sujetos en el núcleo del átomo — son los electrones los que se mueven."
-
-explicacion: |
-  Es la razón de fondo por la que un objeto se carga ganando o perdiendo
-  electrones, no protones.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "intermedio"
-  tags: ["cargas_electricas", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La carga total de un sistema aislado no se crea ni se destruye: sólo se transfiere de un objeto a otro."
-
-explicacion: |
-  Si un objeto pierde electrones, esos electrones no desaparecen: pasan
-  a otro objeto.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "intermedio"
-  tags: ["cargas_electricas", "calculo"]
+  tags: ["estatica", "problema"]
 
 variables:
-  protones: random(10, 30)
-  electrones: random(5, 30)
+  M: random(10, 100)
+  d: random_float(0.5, 2, 2)
 
-respuesta: protones - electrones
+respuesta: redondear(M / d, 2)
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.1
+unidad: "N"
 
-enunciado: "Un objeto tiene {protones} protones y {electrones} electrones. ¿Cuál es su carga neta, en unidades de carga elemental?"
+enunciado: "Para generar un momento de {M} N·m con una palanca de {d} m de brazo (fuerza perpendicular), ¿qué fuerza hace falta aplicar?"
+
+pasos:
+  - "F = M / d = {M} / {d} = {redondear(M / d, 2)} N"
 
 explicacion: |
-  Se resta la cantidad de electrones de la cantidad de protones.
+  Es el mismo despeje algebraico ya practicado con otras fórmulas de
+  Física.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cargas_electricas"
+  tema: "momento_de_una_fuerza"
   nivel: "avanzado"
-  tags: ["cargas_electricas", "calculo"]
+  tags: ["estatica", "problema"]
 
 variables:
-  protones: random(10, 30)
-  carga_neta: random(-10, 10)
+  M: random(10, 100)
+  F: random(5, 50)
 
-respuesta: protones - carga_neta
+respuesta: redondear(M / F, 2)
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.1
+unidad: "m"
 
-enunciado: "Un objeto tiene {protones} protones y una carga neta de {carga_neta}. ¿Cuántos electrones tiene?"
+enunciado: "Para generar un momento de {M} N·m aplicando una fuerza de {F} N (perpendicular), ¿a qué distancia del eje hay que aplicarla?"
+
+pasos:
+  - "d = M / F = {M} / {F} = {redondear(M / F, 2)} m"
 
 explicacion: |
-  Se despeja la cantidad de electrones de la fórmula de carga neta.
+  Con menos fuerza disponible, hace falta más brazo de palanca para el
+  mismo momento — y viceversa.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cargas_electricas"
+  tema: "momento_de_una_fuerza"
   nivel: "intermedio"
-  tags: ["cargas_electricas", "vocabulario"]
+  tags: ["estatica"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Frotar un globo contra el pelo transfiere electrones de un objeto a otro, dejando a los dos cargados — es un ejemplo cotidiano de electricidad estática."
+enunciado: "Con la misma fuerza, un brazo de palanca más largo produce un momento mayor."
 
 explicacion: |
-  Por eso después el globo puede atraer el pelo: quedaron con cargas
-  opuestas.
+  M=F×d: con F fijo, M crece con d.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "avanzado"
-  tags: ["cargas_electricas", "comparacion"]
+  tema: "momento_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["estatica"]
 
-variables:
-  protones_a: random(10, 20)
-  electrones_a: random(15, 25)
-  protones_b: random(20, 30)
-  electrones_b: random(5, 15)
-
-respuesta: ((protones_b - electrones_b) > (protones_a - electrones_a))
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Objeto A: {protones_a} protones, {electrones_a} electrones. Objeto B: {protones_b} protones, {electrones_b} electrones. ¿La carga neta del objeto B es mayor que la del objeto A?"
+enunciado: "Si una fuerza se aplica exactamente sobre el eje de giro (brazo de palanca = 0), no genera ningún momento, sin importar cuán grande sea esa fuerza."
 
 explicacion: |
-  Se calcula la carga neta de cada uno (protones menos electrones) y se
-  comparan.
+  M=F×0=0, siempre, sin importar F.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "basico"
-  tags: ["cargas_electricas", "orden"]
+  tema: "momento_de_una_fuerza"
+  nivel: "intermedio"
+  tags: ["estatica", "vocabulario"]
 
+enunciado: "Por convención habitual, ¿qué sentido de giro se toma como momento positivo?"
+tipo: mc
+opciones_explicitas:
+  - "Antihorario"
+  - "Horario"
+  - "Da igual, no hay convención"
+respuesta: "Antihorario"
+
+explicacion: |
+  Es la convención más usada (no universal, pero la habitual) — lo
+  importante es ser consistente dentro de un mismo problema.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["estatica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al calcular el momento neto sobre un cuerpo, dos momentos que giran en sentidos opuestos se restan (uno se toma positivo y el otro negativo)."
+
+explicacion: |
+  Igual que sumar fuerzas con signo en un eje, pero para giros.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_de_una_fuerza"
+  nivel: "basico"
+  tags: ["estatica", "aplicacion"]
+
+enunciado: "¿Por qué cuesta menos esfuerzo abrir una puerta empujando en el borde (lejos de la bisagra) que empujando cerca de la bisagra?"
+tipo: mc
+opciones_explicitas:
+  - "Porque lejos de la bisagra el brazo de palanca es mayor, así que se necesita menos fuerza para el mismo momento"
+  - "Porque cerca de la bisagra la puerta pesa más"
+  - "No hay ninguna diferencia real, es sólo una sensación"
+respuesta: "Porque lejos de la bisagra el brazo de palanca es mayor, así que se necesita menos fuerza para el mismo momento"
+
+explicacion: |
+  M=F×d: para un mismo M (el necesario para abrir la puerta), a mayor
+  d, menor F requerida.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["estatica", "problema"]
+
+variables:
+  F1: random(20, 60)
+  d1: random_float(0.3, 1, 2)
+  d2: random_float(1.5, 3, 2)
+
+respuesta: redondear(F1 * d1 / d2, 2)
+tipo: input
+tolerancia_abs: 0.1
+unidad: "N"
+
+enunciado: "Una fuerza de {F1} N aplicada a {d1} m del eje genera un cierto momento. ¿Qué fuerza hace falta aplicar a {d2} m del eje para generar exactamente el mismo momento?"
+
+pasos:
+  - "M = F₁ × d₁ = {F1} × {d1} = {redondear(F1 * d1, 2)} N·m"
+  - "F₂ = M / d₂ = {redondear(F1 * d1, 2)} / {d2} = {redondear(F1 * d1 / d2, 2)} N"
+
+explicacion: |
+  Con más brazo de palanca, alcanza con menos fuerza para el mismo
+  momento.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["estatica"]
+
+enunciado: "Si la fuerza aplicada NO es perpendicular al brazo de palanca, ¿qué pasa con el momento generado?"
+tipo: mc
+opciones_explicitas:
+  - "Es menor que F×d — sólo la componente perpendicular de la fuerza genera momento"
+  - "Es mayor que F×d"
+  - "No se puede calcular el momento en ese caso"
+respuesta: "Es menor que F×d — sólo la componente perpendicular de la fuerza genera momento"
+
+explicacion: |
+  M = F×d×sen(θ): con θ<90°, sen(θ)<1, así que M queda por debajo del
+  máximo posible (que se da con θ=90°, fuerza perpendicular).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["estatica", "problema"]
+
+variables:
+  F: random(10, 40)
+  d: random_float(0.5, 2, 2)
+  angulo: uno_de([30, 45, 60, 90])
+
+respuesta: redondear(F * d * sin_deg(angulo), 2)
+tipo: input
+tolerancia_abs: 0.2
+unidad: "N·m"
+
+enunciado: "Se aplica una fuerza de {F} N a {d} m del eje de giro, formando un ángulo de {angulo}° con la palanca. ¿Cuál es el momento generado?"
+
+pasos:
+  - "M = F × d × sen(θ) = {F} × {d} × sen({angulo}°) = {redondear(F * d * sin_deg(angulo), 2)} N·m"
+
+explicacion: |
+  Con θ=90° (perpendicular), sen(90°)=1 y se recupera la fórmula
+  simple M=F×d.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["estatica", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular el momento de una fuerza aplicada en cualquier ángulo."
 tipo: ordenar
-enunciado: "Ordená estos objetos de menor a mayor carga neta."
 opciones_explicitas:
-  - "Carga neta +3"
-  - "Carga neta -5"
-  - "Carga neta 0 (neutro)"
-respuesta_orden: ["Carga neta -5", "Carga neta 0 (neutro)", "Carga neta +3"]
-
+  - "Multiplicar la fuerza por ese brazo (y por sen(θ) si la fuerza no es perpendicular)"
+  - "Identificar el eje (o punto) de giro que se va a usar como referencia"
+  - "Medir el brazo de palanca: la distancia perpendicular desde el eje hasta la línea de acción de la fuerza"
+respuesta_orden: ["Identificar el eje (o punto) de giro que se va a usar como referencia", "Medir el brazo de palanca: la distancia perpendicular desde el eje hasta la línea de acción de la fuerza", "Multiplicar la fuerza por ese brazo (y por sen(θ) si la fuerza no es perpendicular)"]
 explicacion: |
-  Se ordenan como cualquier número con signo: de más negativo a más
-  positivo.
+  Sin fijar primero el eje de referencia, no hay brazo de palanca que
+  medir.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "intermedio"
-  tags: ["cargas_electricas", "verificacion"]
+  tema: "momento_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["estatica"]
 
-variables:
-  protones: random(10, 30)
-  electrones: random(5, 30)
-  correcto: protones - electrones
-  error: uno_de([0, 0, 0, 3, -3])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 1)
+respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Está bien calculado esto? {protones} protones, {electrones} electrones, carga neta informada: {mostrado}."
+enunciado: "El momento de una misma fuerza puede ser distinto según qué punto se elija como eje de giro de referencia."
 
 explicacion: |
-  Se vuelve a restar electrones de protones y se compara con el valor
-  informado.
+  El momento no es una propiedad de la fuerza sola — siempre se
+  calcula respecto de un punto específico.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "intermedio"
-  tags: ["cargas_electricas"]
+  tema: "momento_de_una_fuerza"
+  nivel: "basico"
+  tags: ["estatica", "aplicacion"]
 
-variables:
-  electrones: random(10, 30)
-  carga_neta: random(-10, 10)
-  protones: electrones + carga_neta
+enunciado: "¿Por qué una llave de tuercas con mango largo afloja un tornillo con menos esfuerzo que una con mango corto?"
+tipo: mc
+opciones_explicitas:
+  - "El mango largo da un brazo de palanca mayor, así que se necesita menos fuerza para el mismo momento"
+  - "El mango largo hace que la llave pese menos"
+  - "No hay ninguna diferencia física real"
+respuesta: "El mango largo da un brazo de palanca mayor, así que se necesita menos fuerza para el mismo momento"
+
+explicacion: |
+  Exactamente el mismo principio que la puerta y la bisagra.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_de_una_fuerza"
+  nivel: "basico"
+  tags: ["estatica", "completar"]
 
 tipo: completar
-enunciado: "Un objeto tiene {electrones} electrones y una carga neta de {carga_neta}. Completá: ___ (cantidad de protones) = {electrones} + {carga_neta}."
+enunciado: "Completá: el momento de una fuerza también se conoce, sobre todo en contextos de ingeniería, con el nombre en inglés ___."
 respuestas_validas:
-  - protones
+  - "torque"
 
 explicacion: |
-  Se despeja la cantidad de protones sumando la carga neta a la
-  cantidad de electrones.
+  "Momento de una fuerza" y "torque" son el mismo concepto físico.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "basico"
-  tags: ["cargas_electricas", "vocabulario"]
+  tema: "momento_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["estatica"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una pila o batería mantiene una diferencia de cargas entre sus dos extremos, lo que impulsa el movimiento de electrones por un circuito."
+enunciado: "El momento de una fuerza es, en general, una cantidad vectorial (no sólo un número), aunque en muchos problemas de un solo plano alcance con su magnitud y un signo (horario/antihorario)."
 
 explicacion: |
-  Es un ejemplo real y cotidiano de por qué importa entender cargas
-  positivas y negativas.
+  En 3D el momento tiene una dirección propia (perpendicular al plano
+  de giro); en problemas de un solo plano, esa dirección es siempre la
+  misma y sólo hace falta el signo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "cargas_electricas"
-  nivel: "basico"
-  tags: ["cargas_electricas", "vocabulario"]
+  tema: "momento_de_una_fuerza"
+  nivel: "avanzado"
+  tags: ["estatica"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "Un objeto se carga positivo o negativo según pierda o gane electrones (no protones), las cargas iguales se repelen y las opuestas se atraen, y la carga total siempre se conserva."
+enunciado: "Como el momento de una fuerza y el trabajo mecánico se miden en las mismas unidades (N·m), son la misma magnitud física."
 
 explicacion: |
-  Es la idea central de todo el tema.
+  Comparten unidades por cómo se combinan fuerza y distancia, pero son
+  conceptos distintos: el trabajo (`../../trabajo-de-una-fuerza/`) mide
+  energía transferida por un desplazamiento; el momento mide la
+  tendencia a girar.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_de_una_fuerza"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender el momento de una fuerza?"
+tipo: mc
+opciones_explicitas:
+  - "Para predecir y calcular el efecto de giro de una fuerza sobre un cuerpo, no sólo si lo desplaza"
+  - "Sólo sirve para calcular fuerzas en línea recta"
+  - "Sólo aplica a objetos sin masa"
+respuesta: "Para predecir y calcular el efecto de giro de una fuerza sobre un cuerpo, no sólo si lo desplaza"
+
+explicacion: |
+  Es la base necesaria para `../equilibrio-de-cuerpo-rigido/` y para
+  entender por qué funcionan las palancas
+  (`../../maquinas-simples/`).
 ```
 

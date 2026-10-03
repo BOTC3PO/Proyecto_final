@@ -4,24 +4,24 @@
   "cluster": 1,
   "temas": [
    "conciencia-fonologica",
-   "escritura-como-tecnologia",
-   "decodificacion-y-fluidez",
    "ortografia-y-tildacion",
+   "decodificacion-y-fluidez",
+   "signos-de-puntuacion",
    "circuito-de-la-comunicacion"
   ],
-  "preguntas": 109
+  "preguntas": 104
  },
  {
   "id": 652,
   "cluster": 2,
   "temas": [
    "comprension-idea-principal",
-   "signos-de-puntuacion",
+   "escritura-como-tecnologia",
    "tecnicas-de-estudio-resumen-y-organizadores-graficos",
    "tipos-textuales",
    "variedades-de-la-lengua"
   ],
-  "preguntas": 106
+  "preguntas": 111
  },
  {
   "id": 653,

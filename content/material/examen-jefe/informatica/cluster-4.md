@@ -1,2404 +1,2372 @@
 # Examen jefe — [PENDIENTE #819]
 
-> Logro #819. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
+> Logro #819. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: estructuras-de-datos-listas-pilas-colas (26 preguntas)
+## Sección: algoritmo-secuencia-de-pasos (25 preguntas)
 
 ```
 metadata:
   materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "basico"
-  tags: ["pilas", "lifo"]
+  tags: ["definicion", "conceptos_clave"]
 
-respuesta: "LIFO"
+respuesta: "secuencia finita de pasos"
 tipo: completar
 respuestas_validas:
-  - "LIFO"
-  - "lifo"
-  - "LIFO (Last In, First Out)"
+  - "secuencia finita de pasos"
+  - "pasos ordenados"
+  - "instrucciones"
 
-enunciado: "La estructura de datos conocida como 'Pila' se rige por el principio de acceso ___ (Last In, First Out)."
+enunciado: "Un algoritmo se define como una ___ para resolver un problema o realizar una tarea."
 
 explicacion: |
-  En una pila, el último elemento en entrar es el primero en salir. Esto se conoce como LIFO.
+  Un algoritmo es una serie de pasos ordenados y finitos que permiten alcanzar un objetivo o resolver un problema.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "basico"
-  tags: ["colas", "fifo", "pilas"]
-
-variables:
-  pares: [["Pila", "Último en entrar, primero en salir"], ["Cola", "Primero en entrar, primero en salir"]]
-  idx: uno_de([0, 1])
-
-respuesta: pares[idx][0]
-tipo: mc
-opciones_explicitas: ["Pila", "Cola"]
-
-enunciado: "Si una estructura de datos sigue el principio de '{pares[idx][1]}', estamos ante una ___."
-
-explicacion: |
-  El principio FIFO (First In, First Out) es característico de las colas, donde el primer elemento que llega es el primero en ser procesado.
-  El principio LIFO (Last In, First Out) es característico de las pilas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
-  nivel: "basico"
-  tags: ["listas", "acceso"]
+  tags: ["propiedades", "finitud"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "A diferencia de las pilas y las colas, una lista permite el acceso a cualquier elemento mediante un índice, sin seguir un orden restrictivo de entrada/salida."
+enunciado: "Para que un algoritmo sea considerado como tal, debe ser finito, es decir, debe tener un número determinado de pasos y terminar en algún momento."
 
 explicacion: |
-  Las listas son estructuras de acceso aleatorio, mientras que las pilas y colas son estructuras de acceso restringido.
+  Efectivamente, si un proceso no termina nunca, no es un algoritmo funcional para resolver un problema específico, sino un bucle infinito.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "basico"
-  tags: ["pilas", "operaciones"]
+  tags: ["orden", "secuencia"]
 
-respuesta_orden: ["push", "pop"]
 tipo: ordenar
+opciones_explicitas: ["Mojar platos", "Lavar platos", "Secar platos"]
+respuesta_orden: ["Mojar platos", "Lavar platos", "Secar platos"]
 
-opciones_explicitas: ["push", "pop"]
+enunciado: "Un algoritmo requiere que los pasos sigan un orden lógico. Para lavar los platos correctamente, ¿cuál es la secuencia correcta de estos pasos?"
 
-enunciado: "Ordena las operaciones típicas de una Pila (Stack) desde la que agrega un elemento hasta la que lo retira:"
+pasos:
+  - "Identificar los elementos necesarios."
+  - "Establecer el orden lógico de ejecución."
+  - "Verificar que la secuencia resuelva el problema."
 
 explicacion: |
-  En una pila, 'push' se usa para insertar un elemento en el tope y 'pop' para extraerlo.
+  El orden es fundamental. Si los pasos se ejecutan fuera de su secuencia lógica, el algoritmo fallará en alcanzar el objetivo.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
-  nivel: "intermedio"
-  tags: ["colas", "uso"]
-
-variables:
-  idx: uno_de([0, 1])
-  ejemplo: [["gestión de procesos en un CPU", "impresora"], ["fila de espera en un banco", "gestión de procesos en un CPU"]]
-
-respuesta: ejemplo[idx][0]
-tipo: mc
-opciones_explicitas: ["gestión de procesos en un CPU", "fila de espera en un banco", "historial de navegación", "deshacer (undo)"]
-
-enunciado: "Las colas (FIFO) son ideales para escenarios de espera. ¿Cuál de estos es un uso común de una cola?"
-
-explicacion: |
-  La gestión de procesos en un sistema operativo utiliza colas para decidir qué tarea procesar según su orden de llegada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_pilas"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "basico"
-  tags: ["pilas", "lifo"]
+  tags: ["entrada", "salida", "procesamiento"]
 
-respuesta: verdadero
+respuesta: "entrada, procesamiento y salida"
+tipo: mc
+opciones_explicitas: ["entrada, procesamiento y salida", "inicio, desarrollo y fin", "datos, código y error", "input, loop y output"]
+
+enunciado: "Todo algoritmo procesa información. ¿Cuáles son las tres etapas fundamentales de su estructura?"
+
+explicacion: |
+  Los algoritmos reciben datos de entrada, realizan procesos sobre ellos y devuelven un resultado o salida.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmo_secuencia_de_pasos"
+  nivel: "basico"
+  tags: ["precision", "ambiguedad"]
+
+respuesta: falso
 tipo: vf
 
-enunciado: "En una estructura de datos tipo Pila (Stack), el último elemento en ser insertado es el primero en ser eliminado, siguiendo el principio LIFO (Last In, First Out)."
+enunciado: "Un buen algoritmo debe ser ambiguo, permitiendo que los pasos se interpreten de diferentes maneras según el programador."
 
 explicacion: |
-  Exacto. Las pilas funcionan como una pila de platos: el último que pones arriba es el primero que sacas.
+  Falso. Un algoritmo debe ser preciso y no ambiguo; cada paso debe estar claramente definido para que siempre produzca el mismo resultado ante los mismos datos.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "estructuras_de_datos_pilas"
+  tema: "algoritmo_secuencia_de_pasos"
+  nivel: "basico"
+  tags: ["algoritmo", "secuencia", "logica"]
+
+enunciado: "Para preparar un té, un algoritmo debe seguir un orden lógico. Si el orden es: 1. Hervir agua, 2. Poner la bolsa en la taza, 3. Verter el agua en la taza. ¿Cuál es la secuencia correcta para que el proceso sea efectivo?"
+
+opciones_explicitas: ["1, 2, 3", "2, 1, 3", "2, 3, 1", "3, 2, 1"]
+respuesta: "2, 1, 3"
+tipo: "mc"
+
+explicacion: |
+  Un algoritmo requiere que los pasos sigan una secuencia lógica donde cada paso dependa del anterior o prepare el escenario para el siguiente. En este caso, no puedes verter el agua si no está hervida, y es más eficiente tener la bolsa ya en la taza.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmo_secuencia_de_pasos"
+  nivel: "basico"
+  tags: ["definicion", "finitud"]
+
+enunciado: "Un algoritmo debe ser una secuencia de pasos que tiene un principio y un fin, es decir, debe terminar después de realizar un número limitado de instrucciones. ¿Este concepto se conoce como finitud?"
+
+respuesta: verdadero
+tipo: "vf"
+
+explicacion: |
+  Correcto. La finitud es una de las características esenciales de un algoritmo: debe tener un número determinado de pasos y terminar en algún momento.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "intermedio"
-  tags: ["pilas", "push", "pop"]
+  tags: ["calculo", "pasos"]
 
 variables:
-  valores: [["10", "20", "30"], ["A", "B", "C"], ["5", "15", "25"]]
-  resultados: ["20", "B", "15"]
+  datos: [[15, 10, 25], [5, 8, 13], [100, 50, 150]]
   idx: uno_de([0, 1, 2])
 
-respuesta: resultados[idx]
-tipo: mc
-opciones_explicitas: ["20", "B", "15", "30"]
+enunciado: "Considera el siguiente algoritmo para sumar dos números: 1. Leer primer número, 2. Leer segundo número, 3. Sumar ambos valores, 4. Mostrar resultado. Si los números ingresados son {datos[idx][0]} y {datos[idx][1]}, ¿cuál es el valor final que mostrará el paso 4?"
 
-enunciado: "Dada una pila vacía, si realizamos las siguientes operaciones en orden: push({valores[idx][0]}), push({valores[idx][1]}), push({valores[idx][2]}) y finalmente pop, ¿cuál es el elemento que queda en el tope de la pila?"
-
-pasos:
-  - "Insertar el primer elemento (push)."
-  - "Insertar el segundo elemento (push)."
-  - "Insertar el tercer elemento (push)."
-  - "Eliminar el elemento superior (pop)."
-
-explicacion: |
-  Al hacer push de los tres elementos, el tope es el tercero. Al hacer pop, ese tercero se elimina, dejando el segundo como el nuevo tope.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_colas"
-  nivel: "basico"
-  tags: ["colas", "fifo"]
-
-respuesta: "cliente_1"
-tipo: mc
-opciones_explicitas: ["cliente_1", "cliente_2", "cliente_3", "cliente_4"]
-
-enunciado: "En una cola (Queue) de procesamiento de tareas, si entran los elementos cliente_1, cliente_2 y cliente_3 en ese orden, ¿cuál es el primer elemento en ser atendido y salir de la cola?"
-
-explicacion: |
-  Las colas siguen el principio FIFO (First In, First Out). El primero en entrar es el primero en salir.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_pilas"
-  nivel: "intermedio"
-  tags: ["pilas", "ordenar"]
-
-respuesta_orden: ["A", "B"]
-tipo: ordenar
-opciones_explicitas: ["A", "B"]
-
-enunciado: "Si realizamos las siguientes operaciones de forma consecutiva sobre una pila vacía: push(A), push(B), push(C), push(D), pop, pop — ordena los elementos que permanecen en la pila, desde la base hasta el tope."
-
-pasos:
-  - "La pila contiene [A, B, C, D] con D en el tope."
-  - "Se ejecuta pop: sale D, queda [A, B, C]."
-  - "Se ejecuta pop: sale C, queda [A, B]."
-
-explicacion: |
-  Al hacer pop dos veces, eliminamos los dos últimos elementos insertados (D y luego C). Los que quedan en la pila, de base a tope, son A y B.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_comparacion"
-  nivel: "basico"
-  tags: ["pilas", "colas"]
-
-respuesta: "FIFO"
-tipo: completar
-respuestas_validas:
-  - "FIFO"
-  - "fifo"
-
-enunciado: "Mientras que la Pila utiliza el principio LIFO (Last In, First Out), la Cola utiliza el principio ___ (First In, First Out)."
-
-explicacion: |
-  La Cola (Queue) garantiza que el primer elemento en entrar sea el primero en ser procesado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
-  nivel: "basico"
-  tags: ["pilas", "colas", "conceptos"]
-
-respuesta: "LIFO"
-tipo: completar
-respuestas_validas:
-  - "LIFO"
-  - "lifo"
-  - "Lifo"
-
-enunciado: "En una estructura de datos de tipo Pila (Stack), el último elemento en ser insertado es el primero en ser extraído, principio conocido como ___."
-
-explicacion: |
-  La Pila sigue el principio LIFO (Last In, First Out). El último elemento que entra es el primero en salir, como una pila de platos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
-  nivel: "basico"
-  tags: ["colas", "fifo"]
-
-opciones_explicitas: ["El primero en entrar es el primero en salir", "El último en entrar es el primero en salir", "El primero en entrar es el último en salir"]
-respuesta: "El primero en entrar es el primero en salir"
-tipo: mc
-
-enunciado: "Si tenemos una Cola (Queue) con los elementos [A, B, C] (donde A es el primero en entrar), ¿cuál es el orden de salida de los elementos al realizar tres operaciones de extracción?"
-
-explicacion: |
-  Una Cola sigue el principio FIFO (First In, First Out). El primer elemento que llega a la fila es el primero en ser atendido y salir.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
-  nivel: "intermedio"
-  tags: ["aplicaciones", "pilas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para implementar la funcionalidad 'Deshacer' (Undo) en un editor de texto, donde queremos revertir la última acción realizada, la estructura de datos más adecuada es una Pila."
-
-explicacion: |
-  Correcto. Como queremos revertir la acción más reciente, necesitamos acceder al último elemento agregado, lo cual es la definición de una Pila (LIFO).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
-  nivel: "basico"
-  tags: ["comparacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Tanto las Pilas como las Colas son estructuras de datos lineales que no permiten el acceso aleatorio a sus elementos (a diferencia de un Array o una Lista indexada)."
-
-explicacion: |
-  Verdadero. En sus implementaciones puras, las pilas y colas son estructuras de acceso restringido: solo puedes interactuar con los extremos (top en pilas, front/rear en colas).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
-  nivel: "intermedio"
-  tags: ["operaciones", "pila"]
-
-tipo: ordenar
-opciones_explicitas: ["push(1)", "push(2)", "pop()", "push(3)"]
-respuesta_orden: ["push(1)", "push(2)", "pop()", "push(3)"]
-
-enunciado: "Ordena las siguientes operaciones de una Pila para que el elemento que quede en el tope (top) al finalizar sea el número 3."
-
-explicacion: |
-  1. push(1) -> Pila: [1]
-  2. push(2) -> Pila: [1, 2]
-  3. pop()   -> Pila: [1] (sale el 2)
-  4. push(3) -> Pila: [1, 3]
-  El tope final queda en 3.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
-  nivel: "intermedio"
-  tags: ["operaciones", "pila"]
-
-tipo: ordenar
-opciones_explicitas: ["push(10)", "push(20)", "pop()", "push(30)"]
-respuesta_orden: ["push(10)", "push(20)", "pop()", "push(30)"]
-
-enunciado: "Ordena las operaciones para obtener una pila que contenga únicamente los elementos [10, 30] (donde 30 es el tope)."
-
-explicacion: |
-  1. push(10) -> [10]
-  2. push(20) -> [10, 20]
-  3. pop()    -> [10]
-  4. push(30) -> [10, 30]
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
-  nivel: "basico"
-  tags: ["pilas", "lifo"]
-
-respuesta: "LIFO"
-tipo: completar
-respuestas_validas:
-  - "LIFO"
-  - "lifo"
-
-enunciado: "La estructura de datos tipo Pila se caracteriza por seguir el principio de acceso ___ (Last In, First Out)."
-
-explicacion: |
-  En una pila, el último elemento en entrar es el primero en salir, similar a una pila de platos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
-  nivel: "basico"
-  tags: ["colas", "fifo"]
-
-respuesta: "FIFO"
-tipo: mc
-opciones_explicitas: ["LIFO", "FIFO", "Random Access", "LIFO-FIFO"]
-
-enunciado: "A diferencia de las Pilas, las Colas operan bajo el principio de:"
-
-explicacion: |
-  La cola (Queue) utiliza el principio FIFO (First In, First Out), donde el primer elemento en entrar es el primero en ser procesado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
-  nivel: "intermedio"
-  tags: ["listas", "acceso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia de una Pila, una Lista permite el acceso aleatorio a cualquier elemento mediante su índice sin necesidad de retirar los elementos superiores."
-
-explicacion: |
-  Las listas permiten acceso por índice, mientras que en las pilas el acceso está restringido al elemento en el tope.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
-  nivel: "basico"
-  tags: ["pilas", "operaciones"]
-
-tipo: ordenar
-opciones_explicitas: ["Push", "Push", "Pop", "Pop"]
-respuesta_orden: ["Push", "Push", "Pop", "Pop"]
-
-enunciado: "Si tenemos una pila vacía, ¿cuál es el orden de operaciones para insertar dos elementos (A y B) y luego extraer el primero que fue insertado?"
-
-explicacion: |
-  Para insertar A y B en la pila usamos Push, Push (quedando B en el tope). Como una pila es LIFO, para llegar hasta A (el primero insertado) primero hay que sacar B con un Pop, y luego sacar A con un segundo Pop. La secuencia completa es: Push, Push, Pop, Pop.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_listas_pilas_colas"
-  nivel: "intermedio"
-  tags: ["aplicaciones", "escenarios"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenarios: [["gestionar una impresora con varios documentos esperando", "Cola (FIFO)"], ["gestionar el botón 'deshacer' (undo) de un editor", "Pila (LIFO)"]]
-
-respuesta: escenarios[idx][1]
-tipo: mc
-opciones_explicitas: ["Cola (FIFO)", "Pila (LIFO)", "Lista Dinámica"]
-
-enunciado: "Si el escenario es {escenarios[idx][0]}, la estructura de datos más adecuada es una:"
-
-explicacion: |
-  En el caso de la impresora, se usa FIFO para respetar el orden de llegada. En el caso de 'deshacer', se usa LIFO para revertir la última acción realizada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_pilas"
-  nivel: "basico"
-  tags: ["pilas", "lifo"]
-
-variables:
-  datos: [["escribir 'Hola'", "pop"], ["borrar 'mundo'", "pop"], ["cambiar color", "pop"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["push", "pop", "enqueue", "dequeue"]
-
-enunciado: "En un editor de texto, la función 'Deshacer' (Undo) se implementa comúnmente usando una pila para almacenar las acciones. Si la última acción realizada fue {datos[idx][0]}, ¿qué operación de pila se debe ejecutar para revertirla?"
-
-explicacion: |
-  Una pila sigue el principio LIFO (Last In, First Out). Para deshacer la última acción, se debe extraer el elemento superior de la pila mediante la operación 'pop'.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_colas"
-  nivel: "basico"
-  tags: ["colas", "fifo"]
-
-variables:
-  datos: [["Doc_A", "imprimir"], ["Doc_B", "imprimir"], ["Doc_C", "imprimir"]]
-  idx: uno_de([0,1,2])
-
-respuesta: verdadero
-tipo: vf
-enunciado: "En una cola de impresión (Spooler), los documentos se procesan en el orden en que llegan. Si el documento {datos[idx][0]} es el primero en la cola, ¿se procesará siguiendo el principio FIFO (First In, First Out)?"
-
-explicacion: |
-  Correcto. Las colas utilizan FIFO, lo que garantiza que el primer elemento en entrar sea el primero en salir.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_pilas"
-  nivel: "intermedio"
-  tags: ["pilas", "lifo", "ordenamiento"]
-
-variables:
-  datos: [["A", "B", "C"], ["X", "Y", "Z"], ["1", "2", "3"]]
-  idx: uno_de([0,1,2])
-
-respuesta_orden: [datos[idx][2], datos[idx][1], datos[idx][0]]
-tipo: ordenar
-opciones_explicitas: datos[idx]
-
-enunciado: "Se insertan los elementos de la secuencia {datos[idx][0]}, {datos[idx][1]} y {datos[idx][2]} en una pila (Push) en ese orden exacto. ¿Cuál es el orden en que saldrán de la pila al realizar tres operaciones 'pop' consecutivas?"
-
-explicacion: |
-  Al ser una pila (LIFO), el último elemento en entrar ({datos[idx][2]}) es el primero en salir.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_listas"
-  nivel: "intermedio"
-  tags: ["listas", "acceso_aleatorio"]
-
-respuesta: "acceso_aleatorio"
-tipo: completar
-respuestas_validas:
-  - "acceso_aleatorio"
-
-enunciado: "A diferencia de una pila o una cola, una lista permite el ___ a cualquier elemento mediante su índice sin necesidad de pasar por los anteriores."
-
-explicacion: |
-  Las listas (especialmente los arrays) permiten el acceso aleatorio, mientras que las pilas y colas son estructuras de acceso restringido.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_datos_colas"
-  nivel: "basico"
-  tags: ["colas", "fifo"]
-
-variables:
-  datos: [["clientes en un banco", "true"], ["capas de pintura superpuestas", "false"], ["botones de retroceso", "false"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["true", "false"]
-
-enunciado: "Analiza el siguiente escenario: {datos[idx][0]}. ¿Se comporta este sistema como una cola (FIFO)?"
-
-explicacion: |
-  Los clientes en un banco forman una cola real (FIFO): el primero en llegar es el primero en ser atendido. En cambio, las capas de pintura superpuestas y los botones de retroceso se comportan como una pila (LIFO): la última capa aplicada es la primera que se ve o se quita, y el botón de retroceso vuelve primero a la página más reciente visitada.
-```
-
-## Sección: etica-de-la-ia-sesgo-privacidad (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo_privacidad"
-  nivel: "basico"
-  tags: ["etica", "ia", "sesgo"]
-
-tipo: mc
-opciones_explicitas: ["La reproducción de prejuicios humanos en los resultados de un modelo", "La capacidad de un modelo para procesar datos a gran velocidad", "El uso de algoritmos para optimizar la búsqueda de información", "La capacidad de un modelo para aprender sin supervisión humana"]
-
-enunciado: "El sesgo algorítmico ocurre cuando un sistema de inteligencia artificial presenta resultados sistemáticamente prejuiciosos. Esto sucede principalmente porque el modelo ___."
-
-respuesta: "La reproducción de prejuicios humanos en los resultados de un modelo"
-
-explicacion: |
-  El sesgo algorítmico surge cuando los datos de entrenamiento contienen prejuicios históricos o sociales, o cuando el diseño del algoritmo favorece ciertas categorías sobre otras, perpetuando la discriminación.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo_privacidad"
-  nivel: "basico"
-  tags: ["privacidad", "datos", "entrenamiento"]
-
-tipo: vf
-
-enunciado: "El uso de datos personales sensibles para entrenar modelos de IA sin el consentimiento explícito de los individuos constituye una violación de la privacidad de los datos."
-
-respuesta: verdadero
-
-explicacion: |
-  La privacidad es un pilar ético fundamental. Entrenar modelos con datos que contienen información identificable sin asegurar el anonimato o el consentimiento puede vulnerar derechos fundamentales.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo_privacidad"
-  nivel: "intermedio"
-  tags: ["datos", "sesgo", "entrenamiento"]
-
-tipo: completar
-respuestas_validas:
-  - "Falta de diversidad en los datos de entrenamiento"
-
-enunciado: "Si un modelo de reconocimiento facial falla sistemáticamente con personas de piel oscura porque el dataset era mayoritariamente de personas de piel clara, estamos ante un caso de: ___."
-
-respuesta: "Falta de diversidad en los datos de entrenamiento"
-
-explicacion: |
-  Cuando el problema reside en que los datos no cubren todas las categorías de la población, se denomina sesgo de representación o falta de diversidad en los datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo_privacidad"
-  nivel: "intermedio"
-  tags: ["proceso", "etica", "desarrollo"]
-
-tipo: ordenar
-opciones_explicitas: ["Recolección de datos", "Limpieza y auditoría de sesgos", "Entrenamiento del modelo", "Evaluación de impacto ético"]
-
-enunciado: "Para mitigar sesgos y proteger la privacidad, se debe seguir un orden lógico en el ciclo de vida del desarrollo de IA. Ordena las siguientes etapas de forma correcta:"
-
-respuesta_orden: ["Recolección de datos", "Limpieza y auditoría de sesgos", "Entrenamiento del modelo", "Evaluación de impacto ético"]
-
-explicacion: |
-  Un proceso ético comienza con la recolección responsable, sigue con la auditoría para detectar sesgos en los datos antes de entrenar, continúa con el entrenamiento y culmina con una evaluación del impacto que el modelo tendrá en la sociedad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo_privacidad"
-  nivel: "basico"
-  tags: ["privacidad", "anonimización", "datos"]
-
-tipo: mc
-opciones_explicitas: ["Verdadero", "Falso"]
-
-enunciado: "La técnica de anonimización de datos garantiza que sea imposible, bajo cualquier circunstancia, volver a identificar a un individuo a partir de los datos utilizados para entrenar una IA."
-
-respuesta: "Falso"
-
-explicacion: |
-  Aunque la anonimización es una medida de protección, existe el riesgo de 're-identificación' mediante ataques de vinculación de datos, por lo que no es una garantía absoluta de privacidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo"
-  nivel: "intermedio"
-  tags: ["sesgo", "ia", "etica"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[0, "preferencia por candidatos masculinos"], [1, "preferencia por candidatos de ciertas etnias"]]
-
-respuesta: datos[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["preferencia por candidatos masculinos", "preferencia por candidatos de ciertas etnias", "preferencia por candidatos con mayor edad", "preferencia por candidatos con títulos de universidades específicas"]
-
-enunciado: "Un algoritmo de IA para filtrar CVs fue entrenado con datos históricos de una empresa donde solo se contrataban hombres. El modelo comienza a descartar automáticamente a mujeres calificadas. Este fenómeno se conoce como: ___"
-
-explicacion: |
-  El modelo ha aprendido y replicado un sesgo histórico presente en los datos de entrenamiento. Esto se conoce como sesgo algorítmico por representación o histórico.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "privacidad_datos"
-  nivel: "basico"
-  tags: ["privacidad", "ia", "datos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si un modelo de IA ha sido entrenado con un conjunto de datos que contiene información médica privada, pero los datos fueron 'anonimizados' (se eliminó el nombre y DNI), ¿es imposible que el modelo pueda revelar la identidad de un paciente mediante ataques de inversión de modelo?"
-
-explicacion: |
-  Falso. Los ataques de inversión de modelo o ataques de membresía pueden permitir reconstruir o inferir datos sensibles incluso si los datos originales estaban anonimizados, ya que el modelo "memoriza" patrones específicos de los datos de entrenamiento.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mitigacion_sesgo"
-  nivel: "avanzado"
-  tags: ["mitigacion", "proceso", "ia"]
-
-opciones_explicitas: ["Auditar los datos de entrenamiento", "Definir métricas de equidad", "Implementar el modelo en producción", "Evaluar el impacto en usuarios reales"]
-respuesta_orden: ["Definir métricas de equidad", "Auditar los datos de entrenamiento", "Implementar el modelo en producción", "Evaluar el impacto en usuarios reales"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos para asegurar un despliegue ético de un sistema de IA que busca mitigar sesgos:"
-
-explicacion: |
-  Primero se deben definir qué es "justo" (métricas), luego revisar si los datos reflejan ese ideal (auditoría), luego lanzar el sistema y finalmente monitorear su impacto real.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "privacidad_datos"
-  nivel: "intermedio"
-  tags: ["explicabilidad", "privacidad"]
-
-respuesta: "un sistema de crédito que niega préstamos sin explicar por qué"
-tipo: completar
-respuestas_validas:
-  - "un sistema de crédito que niega préstamos sin explicar por qué"
-
-enunciado: "Un problema ético común es la falta de explicabilidad (caja negra). Un ejemplo de esto es: ___"
-
-explicacion: |
-  La falta de explicabilidad impide que los usuarios comprendan por qué se tomó una decisión que les afecta, lo cual es un riesgo tanto de sesgo como de falta de transparencia en el manejo de sus datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "privacidad_datos"
-  nivel: "avanzado"
-  tags: ["privacidad_diferencial", "teoria"]
-
-respuesta: "añadir ruido estadístico"
-tipo: completar
-respuestas_validas:
-  - "añadir ruido estadístico"
-  - "eliminar todos los datos"
-
-enunciado: "Para proteger la privacidad en el entrenamiento de modelos de IA, se utiliza una técnica llamada Privacidad Diferencial, que consiste en ___ a los datos para que no se pueda identificar a un individuo específico."
-
-explicacion: |
-  La privacidad diferencial añade ruido matemático a los datos o a los gradientes durante el entrenamiento, permitiendo extraer patrones generales sin comprometer la identidad de los individuos del dataset.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo"
-  nivel: "intermedio"
-  tags: ["sesgo", "datos", "entrenamiento"]
-
-respuesta: "sesgo de representatividad"
-tipo: completar
-respuestas_validas:
-  - "sesgo de representatividad"
-  - "sesgo de representatividad"
-
-enunciado: "Cuando un modelo de IA presenta un desempeño inferior para un grupo demográfico específico porque dicho grupo estaba subrepresentado en el conjunto de entrenamiento, estamos ante un ___."
-
-explicacion: |
-  El sesgo de representatividad ocurre cuando la distribución de los datos de entrenamiento no refleja la diversidad de la población real, provocando que el modelo sea menos preciso para las minorías.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_privacidad"
-  nivel: "avanzado"
-  tags: ["privacidad", "memorizacion", "seguridad"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "Si un modelo de IA ha memorizado datos sensibles de entrenamiento (como números de identificación) y los reproduce textualmente ante un prompt malintencionado, ¿se ha vulnerado la privacidad de los datos?"
-
-explicacion: |
-  La memorización de datos sensibles es un riesgo crítico de privacidad en modelos de lenguaje grandes (LLMs). Si el modelo puede reproducir textualmente datos identificables ante un prompt malintencionado, se ha vulnerado la privacidad de esos individuos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo"
-  nivel: "intermedio"
-  tags: ["mitigacion", "ciclo_de_vida", "auditoria"]
-
-opciones_explicitas: ["Recolección de datos", "Auditoría de modelos", "Limpieza de datos", "Implementación del modelo"]
-
-respuesta_orden: ["Recolección de datos", "Limpieza de datos", "Auditoría de modelos", "Implementación del modelo"]
-tipo: ordenar
-
-enunciado: "Ordena las fases del ciclo de vida de un proyecto de IA donde se deben aplicar medidas de mitigación de sesgos, desde la fase inicial hasta la puesta en producción:"
-
-explicacion: |
-  La mitigación debe ser transversal: se debe asegurar la representatividad en la recolección, la calidad en la limpieza, la equidad en la auditoría y la vigilancia en la implementación.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo"
-  nivel: "basico"
-  tags: ["neutralidad", "sesgo", "conceptos"]
-
-opciones_explicitas: ["Verdadero", "Falso"]
-
-respuesta: "Falso"
-tipo: mc
-
-enunciado: "Un algoritmo es intrínsecamente neutral y objetivo simplemente porque sus decisiones se basan en procesos matemáticos y no en opiniones humanas directas."
-
-explicacion: |
-  Falso. Los algoritmos heredan los sesgos presentes en los datos históricos, en la selección de variables por parte de los ingenieros y en los objetivos de optimización definidos por los humanos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_privacidad"
-  nivel: "avanzado"
-  tags: ["privacidad_diferencial", "ruido", "seguridad"]
-
-respuesta: "añadir ruido estadístico"
-tipo: completar
-respuestas_validas:
-  - "añadir ruido estadístico"
-  - "añadir ruido estadístico"
-
-enunciado: "Una técnica común para proteger la privacidad en el entrenamiento de modelos es la privacidad diferencial, que consiste en ___ a los datos para que no se pueda identificar a un individuo específico."
-
-explicacion: |
-  La privacidad diferencial añade ruido matemático controlado para que la presencia o ausencia de un individuo en el dataset no altere significativamente la salida del modelo, protegiendo la identidad de los sujetos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo_privacidad"
-  nivel: "intermedio"
-  tags: ["etica", "sesgo", "ia"]
-
-tipo: mc
-opciones_explicitas: ["El sesgo algorítmico es un error de programación en el código fuente.", "El sesgo algorítmico es la reproducción de prejuicios humanos presentes en los datos de entrenamiento.", "El sesgo algorítmico es la falta de capacidad de procesamiento del hardware.", "El sesgo algorítmico es un error de hardware que afecta la precisión."]
-
-respuesta: "El sesgo algorítmico es la reproducción de prejuicios humanos presentes en los datos de entrenamiento."
-
-enunciado: "¿Cuál es la diferencia fundamental entre un error de programación lógico y el sesgo algorítmico en un modelo de IA?"
-
-explicacion: |
-  El sesgo algorítmico no suele ser un error de sintaxis o lógica en el código, sino una consecuencia de que los datos utilizados para entrenar el modelo contienen prejuicios históricos o sociales que la IA aprende y replica.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo_privacidad"
-  nivel: "intermedio"
-  tags: ["privacidad", "datos", "ia"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Se eliminan los nombres de los usuarios pero se mantiene la combinación exacta de fecha de nacimiento, código postal y género.", "El proceso es insuficiente porque la re-identificación es posible mediante ataques de vinculación."], ["Se aplica ruido estadístico (privacidad diferencial) para que no se pueda identificar a un individuo específico en el dataset.", "Aunque la privacidad diferencial es una técnica robusta y mucho más efectiva, tampoco garantiza una privacidad matemáticamente 'total': sigue existiendo un riesgo residual controlado (el parámetro epsilon), por lo que la respuesta correcta sigue siendo falso."]]
-
-tipo: vf
-respuesta: falso
-
-enunciado: "En el escenario {escenarios[escenario_idx][0]}, ¿es la técnica aplicada suficiente para garantizar la privacidad total de los datos de entrenamiento? (Respuesta: falso/verdadero)"
-
-explicacion: |
-  {escenarios[escenario_idx][1]}
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo_privacidad"
-  nivel: "avanzado"
-  tags: ["sesgo", "mitigacion", "proceso"]
-
-tipo: ordenar
-opciones_explicitas: ["Auditoría de los datos de entrenamiento", "Selección de métricas de equidad", "Implementación del modelo", "Monitoreo de resultados en producción"]
-respuesta_orden: ["Auditoría de los datos de entrenamiento", "Selección de métricas de equidad", "Implementación del modelo", "Monitoreo de resultados en producción"]
-
-enunciado: "Ordene las etapas lógicas para mitigar el sesgo algorítmico en el ciclo de vida de un proyecto de IA, desde la preparación hasta el despliegue."
-
-explicacion: |
-  Para mitigar el sesgo, primero se deben auditar los datos para detectar desequilibrios, luego definir qué significa 'equidad' para ese caso (métricas), entrenar/implementar y finalmente monitorear para detectar sesgos emergentes.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo_privacidad"
-  nivel: "basico"
-  tags: ["privacidad", "gdpr", "etica"]
-
-tipo: completar
-respuestas_validas:
-  - "minimización"
-  - "reducción"
-
-enunciado: "El principio de ___ de datos establece que solo se deben recolectar los datos estrictamente necesarios para el fin específico del modelo de IA."
-
-explicacion: |
-  La minimización de datos es un pilar de la privacidad que busca evitar la recolección excesiva de información sensible que podría ser mal utilizada o filtrada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo_privacidad"
-  nivel: "avanzado"
-  tags: ["sesgo", "teoria"]
-
-tipo: mc
-opciones_explicitas: ["El sesgo de representación ocurre cuando ciertos grupos están subrepresentados en el dataset.", "El sesgo de medición ocurre cuando el software de recolección de datos falla.", "El sesgo de representación es un error de hardware.", "El sesgo de medición es la falta de diversidad en los datos."]
-
-respuesta: "El sesgo de representación ocurre cuando ciertos grupos están subrepresentados en el dataset."
-
-enunciado: "¿Qué distingue al sesgo de representación de otros tipos de sesgo en la IA?"
-
-explicacion: |
-  El sesgo de representación se da cuando la muestra de datos no refleja la diversidad de la población real (por ejemplo, un modelo de reconocimiento facial entrenado mayoritariamente con personas de piel clara), lo que impide que el modelo funcione equitativamente para todos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo_algoritmico"
-  nivel: "intermedio"
-  tags: ["sesgo", "ia", "etica"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["un algoritmo de selección de CV que favorece candidatos de un género por sesgo histórico en los datos de entrenamiento", "género"], ["un sistema de reconocimiento facial que falla más en personas de piel oscura debido a una muestra desequilibrada", "etnia"]]
-
-enunciado: "En el caso de {escenarios[escenario_idx][0]}, el modelo está reproduciendo un sesgo de {escenarios[escenario_idx][1]}."
-
-respuesta: escenarios[escenario_idx][1]
-tipo: completar
-respuestas_validas:
-  - "género"
-  - "etnia"
-
-explicacion: |
-  El sesgo algorítmico ocurre cuando los datos históricos utilizados para entrenar el modelo contienen prejuicios humanos o desequilibrios de representación, los cuales el modelo aprende y replica.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_privacidad"
-  nivel: "basico"
-  tags: ["privacidad", "datos", "ia"]
-
-enunciado: "Si un modelo de lenguaje ha sido entrenado con correos electrónicos privados sin consentimiento, ¿se ha vulnerado la privacidad de los datos?"
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  El uso de datos personales sensibles para el entrenamiento de modelos de IA sin el consentimiento explícito o una base legal adecuada constituye una violación de la privacidad y de las normativas de protección de datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo_algoritmico"
-  nivel: "avanzado"
-  tags: ["mitigacion", "sesgo", "datos"]
-
-enunciado: "Para mitigar el sesgo algorítmico, una técnica común es la 'equidad mediante la ceguera' (fairness through unawareness), que consiste en: ___"
-
-respuesta: "Eliminar variables sensibles como la raza de los ejemplos"
-tipo: completar
-respuestas_validas:
-  - "Eliminar variables sensibles como la raza de los ejemplos"
-
-explicacion: |
-  Aunque eliminar variables sensibles (como raza o género) es una técnica llamada 'ceguera', no siempre es efectiva porque otras variables (como el código postal) pueden actuar como 'proxies' de la variable sensible.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_privacidad"
-  nivel: "intermedio"
-  tags: ["riesgo", "privacidad", "ataque"]
-
-enunciado: "Un ataque de 'inferencia de membresía' busca determinar si un dato específico fue utilizado en el conjunto de entrenamiento de un modelo. Este ataque es un riesgo para la:"
-
-respuesta: "privacidad de los datos"
-tipo: mc
-opciones_explicitas: ["eficiencia del modelo", "privacidad de los datos", "velocidad de procesamiento", "precisión del cálculo"]
-
-explicacion: |
-  Los ataques de inferencia de membresía permiten saber si un individuo particular forma parte del set de entrenamiento, lo cual compromete la privacidad si los datos son sensibles.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "etica_de_la_ia_sesgo_algoritmico"
-  nivel: "intermedio"
-  tags: ["proceso", "etica", "desarrollo"]
-
-enunciado: "Ordena los pasos lógicos para asegurar la equidad en un sistema de IA desde la fase de datos hasta la implementación:"
-
-respuesta_orden: ["Auditar la calidad de los datos", "Entrenar el modelo", "Evaluar resultados en subgrupos", "Monitorear sesgos en producción"]
-tipo: ordenar
-opciones_explicitas: ["Auditar la calidad de los datos", "Entrenar el modelo", "Evaluar resultados en subgrupos", "Monitorear sesgos en producción"]
-
-explicacion: |
-  Un ciclo de vida ético requiere: 1. Asegurar datos representativos, 2. Entrenar, 3. Realizar pruebas de estrés en grupos minoritarios (fairness testing) y 4. Vigilancia continua para detectar derivas de sesgo.
-```
-
-## Sección: funciones-y-modularidad (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "basico"
-  tags: ["conceptos", "modularidad"]
-
-respuesta: "modularidad"
-tipo: completar
-respuestas_validas:
-  - "modularidad"
-
-enunciado: "La capacidad de dividir un programa complejo en partes más pequeñas, independientes y manejables se denomina ___."
-
-explicacion: |
-  La modularidad permite organizar el código en bloques lógicos, facilitando el mantenimiento y la reutilización.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "basico"
-  tags: ["sintaxis", "conceptos"]
-
-variables:
-  escenario: uno_de([["El valor que una función recibe para procesar", "Parámetro"], ["El valor que una función devuelve al finalizar su ejecución", "Retorno"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["Parámetro", "Retorno", "Llamada", "Variable local"]
-
-enunciado: "En el contexto de una función, {escenario[0]} es el elemento que permite pasar información hacia el interior de la función."
-
-explicacion: |
-  Los parámetros son las variables de entrada que recibe una función para realizar su tarea.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "basico"
-  tags: ["reutilizacion", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una de las principales ventajas de utilizar funciones es que permite evitar la duplicación de código, ya que una misma función puede ser invocada desde diferentes partes del programa."
-
-explicacion: |
-  Efectivamente, la reutilización es uno de los pilares de la programación modular.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "intermedio"
-  tags: ["flujo", "orden"]
-
-respuesta_orden: ["Definición", "Llamada", "Ejecución", "Retorno"]
-tipo: ordenar
-opciones_explicitas: ["Definición", "Llamada", "Ejecución", "Retorno"]
-
-enunciado: "Ordena los pasos lógicos que ocurren cuando se utiliza una función en un programa:"
-
-pasos:
-  - "Se declara la función y su lógica."
-  - "Se invoca la función desde el código principal."
-  - "Se procesan las instrucciones internas."
-  - "La función devuelve un valor o finaliza."
-
-explicacion: |
-  Primero se debe definir la función, luego llamarla, se ejecuta su cuerpo y finalmente retorna el control o un valor.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "intermedio"
-  tags: ["scope", "variables"]
-
-respuesta: "local"
-tipo: completar
-respuestas_validas:
-  - "local"
-
-enunciado: "Una variable declarada dentro del cuerpo de una función tiene un ámbito ___, lo que significa que no es accesible desde fuera de dicha función."
-
-explicacion: |
-  Las variables definidas dentro de una función son locales a su contexto de ejecución y no interfieren con el resto del programa.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "basico"
-  tags: ["conceptos", "modularidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dividir un programa en funciones pequeñas y reutilizables ayuda a reducir la duplicación de código y facilita el mantenimiento."
-
-explicacion: |
-  La modularidad permite que el código sea más legible y que las correcciones se realicen en un solo lugar, afectando a todas las partes que llaman a esa función.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "basico"
-  tags: ["sintaxis", "parametros"]
-
-variables:
-  escenario: uno_de([["calcular_area_rectangulo", "base", "altura"], ["saludar_usuario", "nombre", "saludo"], ["sumar_dos_numeros", "a", "b"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["base", "nombre", "a"]
-
-enunciado: "En la función {escenario[0]}({escenario[1]}, {escenario[2]}), ¿cuál es el nombre del primer parámetro?"
-
-explicacion: |
-  Los parámetros son las variables que una función recibe para procesar información. En el primer caso del escenario, el primer parámetro es {escenario[1]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "intermedio"
-  tags: ["flujo_control", "retorno"]
-
-variables:
-  datos: uno_de([[10, 2, 20], [5, 3, 15], [8, 4, 32]])
-
-respuesta: datos[2]
-tipo: completar
-
-enunciado: |
-  Dada la siguiente función:
-  def multiplicar(x, y):
-      return x * y
-
-  Si ejecutamos la llamada: resultado = multiplicar({datos[0]}, {datos[1]}), el valor de 'resultado' será ___.
-
-pasos:
-  - "Identificar los valores de entrada: x = {datos[0]} y y = {datos[1]}"
-  - "Realizar la operación matemática: {datos[0]} * {datos[1]}"
-
-explicacion: |
-  La función realiza la operación de multiplicación y el comando 'return' devuelve el resultado hacia el punto donde fue llamada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "intermedio"
-  tags: ["estructura", "orden"]
-
-respuesta_orden: ["definir_funcion", "llamar_funcion", "mostrar_resultado"]
-tipo: ordenar
-
-opciones_explicitas: ["definir_funcion", "llamar_funcion", "mostrar_resultado"]
-
-enunciado: "Para que un programa modular funcione correctamente, ¿cuál es el orden lógico de ejecución de sus componentes?"
-
-explicacion: |
-  Primero se debe definir la lógica (la función), luego se invoca la función con los datos necesarios y finalmente se procesa o muestra el resultado obtenido.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "avanzado"
-  tags: ["scope", "variables_globales"]
-
-respuesta: "5"
-tipo: mc
-opciones_explicitas: ["5", "10", "Error: variable no definida"]
-
-enunciado: |
-  Considera el siguiente código:
-  x = 10
-  def mi_funcion():
-      x = 5
-      return x
-
-  Si llamamos a mi_funcion(), el valor devuelto es ___.
-
-explicacion: |
-  Dentro de la función, se crea una variable local 'x' que tiene el mismo nombre que la global, pero la función trabaja con la local. Por lo tanto, el valor devuelto es el de la variable local definida dentro del bloque, es decir, 5.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "basico"
-  tags: ["scope", "variables", "modularidad"]
-
-variables:
-  escenario: uno_de([[1, "global"], [2, "local"]])
-
-enunciado: "En un programa, una variable definida dentro de una función tiene un alcance ___."
-
-opciones_explicitas:
-  - "global"
-  - "local"
-
-respuesta: escenario[1]
-tipo: mc
-
-explicacion: |
-  Las variables definidas dentro de una función tienen un ámbito local, lo que significa que no pueden ser accedidas directamente desde fuera de la función. Esto es fundamental para la modularidad y evita colisiones de nombres.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "intermedio"
-  tags: ["return", "side_effects", "output"]
-
-enunciado: "Si una función utiliza 'print' para mostrar un resultado en pantalla pero no tiene una instrucción de salida de datos hacia el flujo principal, la función devuelve un valor de tipo ___."
-
-respuestas_validas:
-  - "None"
-
-respuesta: "None"
-tipo: completar
-
-explicacion: |
-  Es un error común confundir 'imprimir' (mostrar en consola) con 'retornar' (devolver un valor para ser usado en otra parte). Si una función no tiene un 'return' explícito, devuelve por defecto un valor nulo o None.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "avanzado"
-  tags: ["side_effects", "pure_functions", "modularidad"]
-
-enunciado: "¿Es verdadero que una 'función pura' es aquella que, además de devolver siempre el mismo resultado para los mismos argumentos, no produce efectos secundarios (como modificar una variable global o escribir en un archivo)?"
-
-respuesta: verdadero
-tipo: vf
-explicacion: |
-  La pureza en las funciones es la base de la programación funcional y de la modularidad robusta. Si una función modifica algo fuera de su propio ámbito, se dice que tiene un 'efecto secundario', lo cual dificulta el testing y la reutilización.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "basico"
-  tags: ["refactoring", "modularidad", "algoritmo"]
-
-enunciado: "Ordena los pasos lógicos para refactorizar un código monolítico (un solo bloque largo) en un programa modular:"
-
-opciones_explicitas:
-  - "Identificar bloques de lógica con una responsabilidad única"
-  - "Extraer esos bloques en funciones independientes"
-  - "Definir los parámetros de entrada y los valores de retorno necesarios"
-  - "Llamar a las nuevas funciones desde el programa principal"
-
-respuesta_orden: ["Identificar bloques de lógica con una responsabilidad única", "Extraer esos bloques en funciones independientes", "Definir los parámetros de entrada y los valores de retorno necesarios", "Llamar a las nuevas funciones desde el programa principal"]
-tipo: ordenar
-
-explicacion: |
-  La modularización efectiva requiere primero identificar la cohesión (qué pertenece a qué), luego aislar la lógica, definir sus interfaces (parámetros/retornos) y finalmente integrarlas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "intermedio"
-  tags: ["parameters", "arguments", "terminologia"]
-
-enunciado: "En la definición de una función `def suma(a, b):`, los elementos `a` y `b` se denominan ___ , mientras que los valores reales que se pasan al llamar a la función `suma(5, 3)` se denominan ___ ."
-
-respuestas_validas:
-  - "parámetros"
-  - "argumentos"
-
-respuesta: "parámetros"
-tipo: completar
-
-explicacion: |
-  Aunque se usan como sinónimos en el habla cotidiana, técnicamente los 'parámetros' son las variables en la definición de la función, y los 'argumentos' son los valores reales que se le pasan durante la ejecución.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "basico"
-  tags: ["conceptos", "modularidad"]
-
-respuesta: "reutilizar"
-tipo: completar
-respuestas_validas:
-  - "reutilizar"
-  - "reutilización"
-
-enunciado: "Mientras que un bloque de código aislado realiza una tarea única, la modularidad busca dividir un programa en piezas que permitan ___ el código en diferentes partes del sistema."
-
-explicacion: |
-  La modularidad permite dividir un problema complejo en subproblemas más pequeños y manejables, permitiendo que el código sea reutilizado en otros contextos sin necesidad de reescribirlo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "intermedio"
-  tags: ["funciones", "terminologia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el contexto de la definición de funciones, el 'parámetro' es la variable declarada en la firma de la función, mientras que el 'argumento' es el valor real pasado al invocarla. ¿Es esta distinción correcta?"
-
-explicacion: |
-  Correcto. El parámetro actúa como un marcador de posición (variable local) y el argumento es el dato concreto que se envía durante la llamada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "basico"
-  tags: ["comparacion", "mantenimiento"]
-
-respuesta: "mantenimiento"
-tipo: mc
-opciones_explicitas: ["rendimiento", "mantenimiento", "estética", "velocidad"]
-
-enunciado: "Comparado con un programa monolítico (un solo bloque de código gigante), un programa modular facilita principalmente el ___ y la detección de errores."
-
-explicacion: |
-  Al tener el código separado en módulos o funciones, si ocurre un error, es más fácil localizar la pieza exacta que está fallando sin afectar al resto del sistema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "intermedio"
-  tags: ["flujo_control", "modularidad"]
-
-respuesta_orden: ["llamada", "ejecución", "retorno"]
-tipo: ordenar
-opciones_explicitas: ["llamada", "ejecución", "retorno"]
-
-enunciado: "Ordena cronológicamente los pasos que ocurren cuando el control de un programa pasa a una función:"
-
-pasos:
-  - "El programa salta a la definición de la función."
-  - "La función devuelve un valor y el control vuelve al punto de origen."
-  - "Se invoca la función con los valores necesarios."
-
-explicacion: |
-  El flujo lógico es: 1. Llamada (Call), 2. Ejecución del cuerpo de la función, 3. Retorno (Return) al flujo principal.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "avanzado"
-  tags: ["scope", "variables"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["local", "solo es visible dentro de la función"], ["global", "es accesible desde cualquier parte del programa"]]
-
-respuesta: datos[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["solo es visible dentro de la función", "es accesible desde cualquier parte del programa", "ninguna de las anteriores"]
-
-enunciado: "Si definimos una variable dentro de una función, su alcance es {datos[escenario_idx][0]}. ¿Cuál es la característica de este tipo de variable?"
-
-explicacion: |
-  Las variables locales existen únicamente durante la ejecución de la función y no pueden ser accedidas directamente desde fuera de ella, lo cual es clave para evitar colisiones de nombres en la modularidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "basico"
-  tags: ["conceptos", "modularidad"]
-
-variables:
-  escenarios: [["un programa de 1000 líneas en un solo bloque", "difícil de mantener y testear"], ["un programa dividido en funciones pequeñas", "fácil de mantener y reutilizar"]]
-  escenario: uno_de(escenarios)
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["difícil de mantener y testear", "fácil de mantener y reutilizar"]
-
-enunciado: "Si un programador decide que su código debe ser modular, el beneficio principal es que el software resultante será ___."
-
-explicacion: |
-  La modularidad permite dividir problemas complejos en partes más pequeñas y manejables, facilitando la lectura, el testeo y la reutilización de código.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "intermedio"
-  tags: ["funciones", "parametros"]
-
-variables:
-  caso_idx: uno_de([0,1,2])
-  casos: [["sumar(a, b)", "los valores que recibe la función"], ["print('Hola')", "lo que la función devuelve"], ["x = 5", "una variable global"]]
-  respuestas: ["los valores que recibe la función", "lo que la función devuelve", "una variable global"]
-
-respuesta: casos[caso_idx][1]
-tipo: completar
-respuestas_validas:
-  - "los valores que recibe la función"
-  - "lo que la función devuelve"
-  - "una variable global"
-
-enunciado: "En la estructura de una función, la sección que define qué datos externos puede procesar la función se denomina ___."
-
-explicacion: |
-  Los parámetros son variables locales en la definición de una función que actúan como marcadores de posición para los argumentos que se le pasan al llamarla.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "basico"
-  tags: ["booleano", "conceptos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es correcto afirmar que una función que no contiene una instrucción de retorno (return) siempre devuelve el valor `falso`?"
-
-explicacion: |
-  En la mayoría de los lenguajes de programación, si una función no tiene una instrucción de retorno explícita, devuelve un valor especial que representa la ausencia de valor (como `None` en Python o `undefined` en JS), no necesariamente el booleano `falso`.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "intermedio"
-  tags: ["orden", "ejecucion"]
-
-respuesta_orden: ["Definición de la función", "Llamada a la función", "Ejecución del cuerpo de la función", "Retorno al flujo principal"]
-tipo: ordenar
-opciones_explicitas: ["Definición de la función", "Llamada a la función", "Ejecución del cuerpo de la función", "Retorno al flujo principal"]
-
-enunciado: "Ordena los pasos lógicos que ocurren en la memoria de la computadora cuando se utiliza una función en un programa:"
-
-explicacion: |
-  Para que una función trabaje, primero debe estar definida en memoria, luego el programa debe invocarla (llamada), se procesa su lógica interna y finalmente el control vuelve a la línea siguiente a la llamada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "funciones_y_modularidad"
-  nivel: "avanzado"
-  tags: ["scope", "variables"]
-
-variables:
-  test_idx: uno_de([0,1])
-  tests: [["x = 10; def f(): print(x); f()", "10"], ["x = 5; def f(): x = 2; f(); print(x)", "5"]]
-  resultado_correcto: tests[test_idx][1]
-
-respuesta: resultado_correcto
+respuesta: datos[idx][2]
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Analiza el siguiente código: {tests[test_idx][0]}. ¿Cuál será el resultado de la salida en consola?"
-
 explicacion: |
-  En el primer caso, se accede a una variable global. En el segundo caso, la asignación `x = 2` dentro de la función crea una variable local, dejando la variable global `x` intacta para el `print` final.
-```
-
-## Sección: historia-y-evolucion-de-los-sistemas-operativos (23 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "basico"
-  tags: ["definicion", "concepto_basico"]
-
-variables:
-  rol: uno_de(["director_de_orquesta", "intermediario", "gestor"])
-
-respuesta: "intermediario"
-tipo: mc
-opciones_explicitas: ["intermediario", "hardware", "aplicacion", "usuario"]
-
-enunciado: "En la analogía del director de orquesta, el Sistema Operativo actúa principalmente como el {rol} entre el usuario y los componentes físicos de la computadora."
-
-explicacion: |
-  El SO no es el hardware ni el usuario, sino el software que gestiona la comunicación y los recursos, actuando como intermediario.
+  El algoritmo sigue una secuencia lógica de entrada, proceso y salida. En el caso sorteado, la suma de {datos[idx][0]} y {datos[idx][1]} es {datos[idx][2]}.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "intermedio"
-  tags: ["historia", "batch"]
+  tags: ["orden", "logica"]
 
-variables:
-  decada: random(1950, 1960)
-  caracteristica: uno_de(["secuencial", "paralelo", "interactivo"])
+enunciado: |
+  Para cambiar una bombilla (foco) quemada, se deben seguir estos pasos desordenados:
+  - Colocar la bombilla nueva en el casquillo.
+  - Retirar la bombilla quemada.
+  - Asegurarse de que el interruptor esté apagado.
+  - Encender el interruptor para probar.
 
-respuesta: "secuencial"
+opciones_explicitas: ["Apagar, Retirar, Colocar, Encender", "Retirar, Apagar, Colocar, Encender", "Apagar, Colocar, Retirar, Encender", "Encender, Retirar, Colocar, Apagar"]
+respuesta: "Apagar, Retirar, Colocar, Encender"
 tipo: mc
-opciones_explicitas: ["secuencial", "paralelo", "interactivo", "distribuido"]
-
-enunciado: "En la década de {decada}, los primeros sistemas operativos utilizaban el procesamiento por lotes, donde los trabajos se ejecutaban de manera {caracteristica} sin intervención del usuario."
 
 explicacion: |
-  El procesamiento por lotes (batch) ejecutaba tareas una tras otra sin pausa ni interacción humana directa, a diferencia de los sistemas modernos interactivos.
+  La seguridad es primordial en un algoritmo de la vida real. Primero se debe asegurar que no haya corriente (Apagar), luego proceder al cambio físico y finalmente verificar el resultado.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "intermedio"
-  tags: ["mainframe", "multiusuario"]
+  tags: ["completar", "logica"]
 
-variables:
-  tipo_terminal: uno_de(["tontas", "inteligentes", "graficas"])
+enunciado: "Un algoritmo de inicio de sesión sigue esta lógica: 1. Solicitar usuario y contraseña, 2. Comparar datos con la base de datos, 3. Si son correctos, permitir acceso; si no, mostrar error. En el paso 2, la acción principal es la ___."
 
-respuesta: "tontas"
-tipo: mc
-opciones_explicitas: ["tontas", "inteligentes", "graficas", "touch"]
-
-enunciado: "Con la llegada de los mainframes en los años 60, los sistemas multiusuario permitían el acceso mediante terminales {tipo_terminal}, que no procesaban datos por sí mismas."
-
-explicacion: |
-  Las terminales tontas solo enviaban y recibían datos, delegando todo el procesamiento al mainframe central.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "intermedio"
-  tags: ["microprocesador", "pc"]
-
-variables:
-  decada: uno_de([70, 80])
-  dispositivo: uno_de(["ordenadores_personales", "supercomputadoras", "mainframes"])
-
-respuesta: "ordenadores_personales"
-tipo: mc
-opciones_explicitas: ["ordenadores_personales", "supercomputadoras", "mainframes", "minicomputadoras"]
-
-enunciado: "La llegada de los microprocesadores en los años {decada} permitió la popularización de los {dispositivo} en los hogares."
-
-explicacion: |
-  El microprocesador abarató el costo de las computadoras, facilitando su entrada en el mercado doméstico.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "intermedio"
-  tags: ["windows", "macos", "competencia"]
-
-variables:
-  sistema_estandar: uno_de(["Windows", "Mac OS"])
-  caracteristica_windows: uno_de(["interfaz_grafica_accesible", "codigo_abierto", "robustez_servidor"])
-  caracteristica_mac: uno_de(["experiencia_integrada", "precio_bajo", "maximo_hardware"])
-
-respuesta: "interfaz_grafica_accesible"
-tipo: mc
-opciones_explicitas: ["interfaz_grafica_accesible", "codigo_abierto", "robustez_servidor", "experiencia_integrada"]
-
-enunciado: "Durante los años 90, Windows se consolidó como el estándar corporativo y doméstico gracias a su {caracteristica_windows}, mientras que Mac OS destacaba por su experiencia más integrada."
-
-explicacion: |
-  Windows ganó mercado por su accesibilidad y compatibilidad, mientras que Mac OS se enfocaba en la integración hardware-software.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "intermedio"
-  tags: ["linux", "codigo_abierto"]
-
-variables:
-  ambito: uno_de(["academico", "domestico", "gaming", "movil"])
-  ventaja_linux: uno_de(["codigo_abierto", "precio_alto", "interfaz_cerrada", "hardware_exclusivo"])
-
-respuesta: "codigo_abierto"
-tipo: mc
-opciones_explicitas: ["codigo_abierto", "precio_alto", "interfaz_cerrada", "hardware_exclusivo"]
-
-enunciado: "Paralelamente a Windows y Mac OS, Linux ganaba terreno en el ámbito {ambito} gracias a su {ventaja_linux} y robustez."
-
-explicacion: |
-  Linux se popularizó en servidores y entornos académicos por su modelo de código abierto y estabilidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "basico"
-  tags: ["impacto_social", "democratizacion"]
-
-variables:
-  antes: uno_de(["codigo_binario", "interfaces_graficas", "nube", "movilidad"])
-  despues: uno_de(["interfaces_graficas", "codigo_binario", "lotes", "maquinas_de_escribir"])
-
-respuesta: "interfaces_graficas"
-tipo: mc
-opciones_explicitas: ["interfaces_graficas", "codigo_binario", "lotes", "maquinas_de_escribir"]
-
-enunciado: "Gracias a los sistemas operativos, la interacción pasó de escribir {antes} a usar {despues} intuitivas, democratizando el acceso a la tecnología."
-
-explicacion: |
-  Los SO reemplazaron la necesidad de programar en binario o comandos complejos por interfaces gráficas amigables.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "avanzado"
-  tags: ["era_actual", "movilidad"]
-
-respuesta: "movilidad"
-tipo: completar
-enunciado: "En el siglo XXI, la evolución de los sistemas operativos se ha desplazado hacia la ___ y la integración en la nube."
 respuestas_validas:
-  - "movilidad"
-  - "Movilidad"
+  - "comparación"
+  - "validación"
+  - "verificación"
+respuesta: "validación"
+tipo: "completar"
 
 explicacion: |
-  La popularización de smartphones y la nube han redefinido los sistemas operativos modernos hacia la movilidad constante.
+  En el contexto de algoritmos de seguridad, el paso donde se contrastan los datos ingresados con los almacenados se denomina validación o comparación.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "basico"
-  tags: ["gestion", "memoria"]
-
-variables:
-  recurso: uno_de(["memoria", "disco_duro", "pantalla", "teclado"])
-  accion: uno_de(["asignar", "fabricar", "vender", "desmontar"])
-
-respuesta: "asignar"
-tipo: mc
-opciones_explicitas: ["asignar", "fabricar", "vender", "desmontar"]
-
-enunciado: "Una de las tareas críticas del SO es {accion} la memoria RAM para las aplicaciones en ejecución."
-
-explicacion: |
-  El SO gestiona la memoria física, asignando y liberando espacio para que las aplicaciones funcionen sin conflictos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "intermedio"
-  tags: ["terminologia", "mainframe"]
-
-variables:
-  nombre: uno_de(["terminales_tontas", "smartphones", "tablets", "laptops"])
-
-respuesta: "tontas"
-tipo: mc
-opciones_explicitas: ["tontas", "inteligentes", "graficas", "touch"]
-
-enunciado: "Las terminales que solo enviaban datos al mainframe sin procesarlos se denominaban {nombre}."
-
-explicacion: |
-  El término 'tonta' (dumb terminal) se usa para dispositivos sin capacidad de procesamiento independiente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "intermedio"
-  tags: ["conectividad", "historia"]
-
-variables:
-  evento: uno_de(["fin_del_aislamiento", "inicio_del_batch", "fin_del_grafico", "inicio_del_binario"])
-
-respuesta: "fin_del_aislamiento"
-tipo: mc
-opciones_explicitas: ["fin_del_aislamiento", "inicio_del_batch", "fin_del_grafico", "inicio_del_binario"]
-
-enunciado: "La era de los años 90 marcó el {evento} y el inicio de la conectividad masiva."
-
-explicacion: |
-  La integración de redes y la web transformaron las computadoras de herramientas aisladas en dispositivos conectados globalmente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "intermedio"
-  tags: ["linux", "servidores"]
-
-variables:
-  ventaja_linux: uno_de(["robustez", "precio_bajo", "interfaz_grafica", "juegos"])
-  ventaja_windows: uno_de(["estandar_corporativo", "codigo_abierto", "estabilidad_kernel", "gratuidad"])
-
-respuesta: "robustez"
-tipo: mc
-opciones_explicitas: ["robustez", "estandar_corporativo", "codigo_abierto", "gratuidad"]
-
-enunciado: "En el ámbito de servidores, Linux se destaca por su {ventaja_linux}, mientras que Windows es el {ventaja_windows} para entornos corporativos."
-
-explicacion: |
-  Linux es preferido en servidores por su estabilidad y eficiencia, mientras que Windows domina en entornos de oficina por su estandarización.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "basico"
-  tags: ["historia", "binario"]
-
-respuesta: "codigo_binario"
-tipo: completar
-enunciado: "Antes de los SO, los programadores debían escribir ___ directamente para controlar los transistores."
-respuestas_validas:
-  - "codigo_binario"
-  - "código binario"
-  - "Código binario"
-  - "Código Binario"
-
-explicacion: |
-  La programación directa en binario era extremadamente compleja y propensa a errores, sin abstracción de hardware.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "intermedio"
-  tags: ["mainframe", "historia"]
-
-variables:
-  decada: random(1960, 1969)
-  acceso: uno_de(["multiusuario", "monousuario", "local", "remoto"])
-
-respuesta: "multiusuario"
-tipo: mc
-opciones_explicitas: ["multiusuario", "monousuario", "local", "remoto"]
-
-enunciado: "En la década de {decada}, los mainframes introdujeron el acceso {acceso} mediante terminales."
-
-explicacion: |
-  Los mainframes permitían que múltiples usuarios accedieran a la misma máquina simultáneamente, un concepto revolucionario para la época.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "intermedio"
-  tags: ["windows", "corporativo"]
-
-variables:
-  sistema: uno_de(["Windows", "Mac OS", "Linux", "Unix"])
-  rol: uno_de(["estandar_corporativo", "sistema_movil", "sistema_embebido", "sistema_educativo"])
-
-respuesta: "Windows"
-tipo: mc
-opciones_explicitas: ["Windows", "Mac OS", "Linux", "Unix"]
-
-enunciado: "El sistema {sistema} se convirtió en el {rol} gracias a su interfaz gráfica accesible y compatibilidad."
-
-explicacion: |
-  Windows logró la hegemonía en oficinas y hogares por su facilidad de uso y amplia disponibilidad de software.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "basico"
-  tags: ["analogia", "gestion"]
-
-respuesta: "director_de_orquesta"
-tipo: completar
-enunciado: "El SO actúa como el ___ de la sinfonía de hardware, asegurando que todo funcione sin conflictos."
-respuestas_validas:
-  - "director_de_orquesta"
-  - "director de orquesta"
-  - "Director de orquesta"
-  - "Director_de_orquesta"
-
-explicacion: |
-  Esta analogía resalta la capacidad del SO para coordinar múltiples recursos simultáneamente de manera armoniosa.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "intermedio"
-  tags: ["batch", "interactivo"]
-
-variables:
-  modelo_antiguo: uno_de(["procesamiento_por_lotes", "computacion_en_nube", "interfaz_grafica", "multiusuario"])
-  modelo_nuevo: uno_de(["interactivo", "batch", "monousuario", "binario"])
-
-respuesta: "interactivo"
-tipo: mc
-opciones_explicitas: ["interactivo", "batch", "monousuario", "binario"]
-
-enunciado: "La evolución histórica pasó del {modelo_antiguo} al modelo {modelo_nuevo}, permitiendo la intervención del usuario."
-
-explicacion: |
-  El paso de lotes secuenciales a sistemas interactivos fue clave para la usabilidad moderna.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "basico"
-  tags: ["aplicaciones", "ejecucion"]
-
-variables:
-  tarea: uno_de(["ejecutar", "compilar", "ensamblar", "grabar"])
-  recurso: uno_de(["cpu", "disco", "red", "usb"])
-
-respuesta: "ejecutar"
-tipo: mc
-opciones_explicitas: ["ejecutar", "compilar", "ensamblar", "grabar"]
-
-enunciado: "El SO se encarga de {tarea} las aplicaciones y asignar el recurso {recurso} necesario."
-
-explicacion: |
-  El SO gestiona la ejecución de programas, asegurando que cada uno tenga el tiempo de CPU y memoria que necesita.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "intermedio"
-  tags: ["pc", "era"]
-
-respuesta: "entrada_de_pcs"
-tipo: completar
-enunciado: "Durante los años 70 y 80, los ordenadores personales comenzaron a tener su ___ en los hogares."
-respuestas_validas:
-  - "entrada_de_pcs"
-  - "entrada de pcs"
-  - "Entrada de PCs"
-  - "entrada_de_PCs"
-
-explicacion: |
-  Los años 70 y 80 marcaron el inicio de la computación personal, impulsada por microprocesadores más baratos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "intermedio"
-  tags: ["macos", "windows", "comparacion"]
-
-variables:
-  sistema: uno_de(["Mac OS", "Windows"])
-  caracteristica: uno_de(["experiencia_integrada", "interfaz_accesible", "codigo_abierto", "gratuidad"])
-
-respuesta: "experiencia_integrada"
-tipo: mc
-opciones_explicitas: ["experiencia_integrada", "interfaz_accesible", "codigo_abierto", "gratuidad"]
-
-enunciado: "Mac OS se diferenciaba de Windows por ofrecer una {caracteristica} más sólida y unificada."
-
-explicacion: |
-  Apple controlaba tanto hardware como software en Mac OS, lo que permitía una integración y estabilidad superior en esa época.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "basico"
-  tags: ["definicion", "intermediario"]
-
-respuesta: "intermediario"
-tipo: completar
-enunciado: "El SO actúa como el ___ entre el usuario y el hardware."
-respuestas_validas:
-  - "intermediario"
-  - "Intermediario"
-  - "puente"
-  - "Puente"
-
-explicacion: |
-  Sin este intermediario, el usuario tendría que interactuar directamente con la complejidad del hardware.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "avanzado"
-  tags: ["seguridad", "evolucion"]
-
-variables:
-  aspecto: uno_de(["movilidad", "seguridad", "lotes", "batch"])
-  importancia: uno_de(["alta", "baja", "nula", "media"])
-
-respuesta: "alta"
-tipo: mc
-opciones_explicitas: ["alta", "baja", "nula", "media"]
-
-enunciado: "En la era actual, la {aspecto} es un pilar fundamental de los sistemas operativos, con {importancia} prioridad."
-
-explicacion: |
-  Con la conectividad masiva, la seguridad (autenticación, cifrado, control de acceso) se volvió crítica en el diseño de SO.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "historia_y_evolucion_de_los_sistemas_operativos"
-  nivel: "avanzado"
-  tags: ["resumen", "cronologia"]
-
-variables:
-  orden: uno_de([1, 2, 3, 4])
-  evento: uno_de(["lotes", "mainframes", "microprocesadores", "nube"])
-  decada: uno_de([1950, 1960, 1970, 2000])
-
-respuesta: "lotes"
-tipo: mc
-opciones_explicitas: ["lotes", "mainframes", "microprocesadores", "nube"]
-
-enunciado: "En la década de {decada}, el modelo predominante era el procesamiento por {evento}."
-
-explicacion: |
-  El procesamiento por lotes fue el primer paso, seguido por mainframes, luego microcomputadoras y finalmente la nube.
-```
-
-## Sección: inteligencia-artificial-reglas-a-aprendizaje (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "inteligencia-artificial-reglas-a-aprendizaje"
-  nivel: "basico"
-  tags: ["conceptos", "historia"]
-
-respuesta: "aprendizaje automatico"
-tipo: completar
-respuestas_validas:
-  - "aprendizaje automatico"
-  - "machine learning"
-
-enunciado: "Mientras que los sistemas tradicionales se basan en reglas programadas manualmente, la disciplina que permite a las máquinas mejorar su rendimiento mediante la experiencia con datos se denomina ___."
-
-explicacion: |
-  El paso de la IA basada en reglas (sistemas expertos) al aprendizaje automático (Machine Learning) marca la transición de la programación explícita al entrenamiento mediante datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "inteligencia-artificial-reglas-a-aprendizaje"
-  nivel: "basico"
-  tags: ["sistemas-expertos", "logica"]
+  tags: ["definicion", "caracteristicas"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En un sistema basado en reglas (como un sistema experto), el conocimiento es extraído y codificado manualmente por un experto humano bajo la forma de estructuras 'SI [condición] ENTONCES [acción]'."
+enunciado: "Un algoritmo se define como una secuencia de pasos que debe ser finita para poder resolver un problema."
 
 explicacion: |
-  Efectivamente, los sistemas de IA clásica dependen de que un programador o experto defina todas las reglas lógicas que el sistema debe seguir para tomar decisiones.
+  Por definición, un algoritmo debe tener un fin. Si un proceso no termina nunca, se considera un bucle infinito, pero no un algoritmo válido para resolver un problema específico.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "inteligencia-artificial-reglas-a-aprendizaje"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "basico"
-  tags: ["datos", "entrenamiento"]
+  tags: ["orden", "logica"]
 
-variables:
-  escenario: uno_de([["un sistema de filtrado de spam basado en reglas", "palabra 'viagra'"], ["un modelo de reconocimiento de imágenes", "fotos de gatos"]])
-
-respuesta: "datos de entrenamiento"
-tipo: mc
-opciones_explicitas: ["datos de entrenamiento", "reglas explícitas", "Ninguna de las anteriores"]
-
-enunciado: "En el contexto de la IA moderna, ¿cuál de los siguientes elementos es el componente fundamental que sustituye a la regla explícita para permitir que el sistema aprenda? Ejemplo de insumo: {escenario[1]}."
-
-pasos:
-  - "Identificar qué elemento es el insumo para el entrenamiento."
-  - "Comparar con el concepto de 'regla manual' vs 'dato de entrenamiento'."
-
-explicacion: |
-  En el aprendizaje automático, el modelo no recibe la regla, sino los datos (como {escenario[1]}) para que él mismo infiera los patrones.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "inteligencia-artificial-reglas-a-aprendizaje"
-  nivel: "intermedio"
-  tags: ["terminologia", "machine-learning"]
-
-respuesta_orden: ["Datos", "Algoritmo", "Modelo"]
 tipo: ordenar
 
-opciones_explicitas: ["Datos", "Algoritmo", "Modelo"]
+opciones_explicitas:
+  - "Poner agua en la olla"
+  - "Poner la olla al fuego"
+  - "Echar la pasta"
 
-enunciado: "Ordene los componentes en el orden lógico de un proceso de aprendizaje automático: primero se requieren los ___, luego se aplica un ___ sobre ellos y finalmente se obtiene un ___ capaz de realizar predicciones."
+respuesta_orden: ["Poner agua en la olla", "Poner la olla al fuego", "Echar la pasta"]
+
+enunciado: "Para cocinar pasta, el orden lógico de los pasos es el siguiente:"
+
+pasos:
+  - "Primero preparamos el recipiente con el líquido."
+  - "Luego aplicamos calor."
+  - "Finalmente añadimos el ingrediente principal."
 
 explicacion: |
-  El flujo estándar es: Datos (input) $\rightarrow$ Algoritmo (proceso de entrenamiento) $\rightarrow$ Modelo (producto final entrenado).
+  La secuencia debe ser lógica y ordenada; si alteramos el orden de los pasos, el algoritmo fallará en alcanzar su objetivo (la pasta cocida).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "inteligencia-artificial-reglas-a-aprendizaje"
-  nivel: "intermedio"
-  tags: ["paradigma", "comparativa"]
-
-respuesta: "aprendizaje automatico"
-tipo: mc
-opciones_explicitas: ["sistemas expertos", "aprendizaje automatico", "programación lógica", "sistemas de reglas"]
-
-enunciado: "Si un programador debe escribir cada instrucción lógica para que la IA funcione, está usando un sistema de reglas. Si el sistema descubre la lógica por sí mismo analizando patrones, está usando:"
-
-explicacion: |
-  La diferencia clave es la fuente de la lógica: en los sistemas de reglas es el humano (codificación), en el aprendizaje automático es el patrón extraído de los datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "inteligencia_artificial_reglas"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "basico"
-  tags: ["ia", "logica", "reglas"]
+  tags: ["ambiguedad"]
 
-enunciado: "Un sistema experto de diagnóstico médico utiliza una regla lógica simple: 'Si el paciente tiene fiebre Y dolor de garganta, entonces el diagnóstico es Faringitis'. Si un paciente presenta fiebre pero NO presenta dolor de garganta, el sistema determinará que el diagnóstico NO es Faringitis según esta regla específica."
+respuesta: "ambos"
+tipo: mc
+
+opciones_explicitas:
+  - "solo un algoritmo"
+  - "solo una receta"
+  - "ambos"
+
+enunciado: "Si una receta de cocina sigue una secuencia finita, ordenada y clara de pasos para lograr un plato, ¿se puede considerar un algoritmo?"
+
+explicacion: |
+  Correcto. Un algoritmo es un concepto general. Una receta de cocina es un ejemplo de un algoritmo aplicado al mundo real.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmo_secuencia_de_pasos"
+  nivel: "intermedio"
+  tags: ["ambiguedad", "instrucciones"]
+
+respuesta: "ambiguo"
+tipo: completar
+
+respuestas_validas:
+  - "ambiguo"
+
+enunciado: "Si una instrucción en un algoritmo dice 'añadir un poco de sal' sin especificar la cantidad, el paso es considerado ___________."
+
+explicacion: |
+  Un algoritmo debe ser preciso. Las instrucciones ambiguas pueden llevar a resultados diferentes según quién o qué ejecute el algoritmo, rompiendo la determinística.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmo_secuencia_de_pasos"
+  nivel: "basico"
+  tags: ["orden", "logica"]
 
 respuesta: falso
 tipo: vf
 
+enunciado: "Un conjunto de pasos que no siguen un orden lógico pero que eventualmente llegan a un resultado se considera un algoritmo válido."
+
 explicacion: |
-  En los sistemas basados en reglas explícitas, el conocimiento es rígido. Si no se cumplen todas las condiciones de la premisa (antecedente), la regla no se dispara, independientemente de si hay otros síntomas presentes.
+  Falso. La secuencia debe ser estrictamente ordenada. Si el orden de los pasos es incorrecto, el algoritmo no es válido porque no garantiza la solución del problema.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "ia_aprendizaje_datos"
-  nivel: "intermedio"
-  tags: ["machine_learning", "paradigma"]
-
-enunciado: "En el paradigma de Machine Learning, a diferencia de la programación tradicional, el componente principal que determina la lógica del sistema es:"
-
-opciones_explicitas: ["El código fuente escrito por el humano", "Los datos y los ejemplos proporcionados", "La memoria RAM del computador"]
-respuesta: "Los datos y los ejemplos proporcionados"
-tipo: mc
-
-explicacion: |
-  En la IA clásica (Sistemas Expertos), el humano codifica las reglas. En el Machine Learning, el humano proporciona datos y el algoritmo "aprende" las reglas (parámetros) mediante optimización.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "entrenamiento_ia"
-  nivel: "intermedio"
-  tags: ["machine_learning", "pasos"]
-
-enunciado: "Para que un modelo de IA aprenda a reconocer imágenes de gatos, se debe seguir un orden lógico de trabajo. Ordena los siguientes pasos:"
-
-opciones_explicitas: ["Recolección de imágenes de gatos y perros", "Entrenamiento del modelo con los datos", "Evaluación del modelo con datos nuevos", "Implementación en una aplicación"]
-respuesta_orden: ["Recolección de imágenes de gatos y perros", "Entrenamiento del modelo con los datos", "Evaluación del modelo con datos nuevos", "Implementación en una aplicación"]
-tipo: ordenar
-
-explicacion: |
-  El flujo estándar de Ciencia de Datos implica: 1. Obtener datos (Data Collection), 2. Entrenar (Training), 3. Validar/Testear (Evaluation) y 4. Desplegar (Deployment).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "clasificacion_ia"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "basico"
-  tags: ["machine_learning", "conceptos"]
+  tags: ["definicion", "conceptos_base"]
 
-enunciado: "Un sistema de filtrado de SPAM analiza miles de correos electrónicos previos. Si el sistema detecta que la palabra 'Gratis' aparece en el 90% de los correos marcados como spam, aprenderá a asociar esa palabra con el spam. Este proceso de encontrar una función que asocie características con etiquetas se llama: ___"
-
-respuestas_validas:
-  - "Entrenamiento"
-respuesta: "Entrenamiento"
-tipo: completar
-
-explicacion: |
-  El entrenamiento es el proceso mediante el cual el algoritmo ajusta sus parámetros internos para minimizar el error entre sus predicciones y las etiquetas reales de los datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "generalizacion_ia"
-  nivel: "avanzado"
-  tags: ["machine_learning", "error"]
-
-enunciado: "Cuando un sistema de IA ha aprendido tan perfectamente los datos de entrenamiento que ha 'memorizado' el ruido y los detalles irrelevantes, perdiendo su capacidad de aplicarse a casos reales distintos, estamos ante un problema de:"
-
-opciones_explicitas: ["Overfitting", "Underfitting", "Bias", "Variance"]
-respuesta: "Overfitting"
-tipo: mc
-
-explicacion: |
-  El Overfitting (sobreajuste) ocurre cuando el modelo es demasiado complejo y se adapta excesivamente al ruido de los datos de entrenamiento, lo que resulta en un error muy alto cuando se le presentan datos nuevos (pérdida de generalización).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "ia_reglas_vs_aprendizaje"
-  nivel: "basico"
-  tags: ["ia", "conceptos_base"]
-
-respuesta: "aprendizaje automático"
+respuesta: "algoritmo"
 tipo: "completar"
 respuestas_validas:
-  - "aprendizaje automático"
-  - "machine learning"
+  - "algoritmo"
 
-enunciado: "Mientras que un sistema basado en reglas requiere que un programador defina manualmente cada condición lógica, el ___ es un paradigma donde el sistema identifica patrones directamente a partir de los datos."
+enunciado: "Mientras que un proceso puede ser una serie de acciones desordenadas o continuas, un ___ es una secuencia finita, definida y ordenada de pasos para resolver un problema específico."
 
 explicacion: |
-  En la IA clásica (sistemas expertos), el conocimiento es explícito y codificado por humanos. En el aprendizaje automático, el modelo "aprende" las reglas estadísticas a partir de la experiencia (datos).
+  Un algoritmo se distingue por ser una secuencia estructurada y con un fin determinado, a diferencia de un proceso que puede ser una ejecución continua sin una estructura de pasos estricta para un fin único.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "ia_reglas_vs_aprendizaje"
-  nivel: "intermedio"
-  tags: ["escalabilidad", "sistemas_expertos"]
-
-variables:
-  es_complejo: falso
+  tema: "algoritmo_secuencia_de_pasos"
+  nivel: "basico"
+  tags: ["propiedades", "finitud"]
 
 respuesta: falso
 tipo: "vf"
 
-enunciado: "Un sistema basado en reglas explícitas es intrínsecamente más eficiente y fácil de mantener que un modelo de aprendizaje automático cuando el problema involucra miles de variables interdependientes y dinámicas."
+enunciado: "¿Es correcto afirmar que un algoritmo puede ejecutarse infinitamente sin llegar nunca a un estado de finalización?"
 
 explicacion: |
-  Falso. A medida que la complejidad y el número de variables aumentan, las reglas manuales se vuelven imposibles de gestionar (explosión combinatoria), mientras que los modelos de aprendizaje están diseñados para manejar esa dimensionalidad.
+  Falso. Una de las propiedades fundamentales de un algoritmo es la finitud: debe terminar tras un número limitado de pasos. Un proceso que no termina se denomina bucle infinito o loop.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "ia_reglas_vs_aprendizaje"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "intermedio"
-  tags: ["naturaleza_aprendizaje"]
+  tags: ["algoritmo_vs_codigo", "abstraccion"]
 
-respuesta: "correlaciones estadísticas"
-tipo: "mc"
-opciones_explicitas: ["correlaciones estadísticas", "lógica formal pura", "causalidad absoluta", "sentido común humano"]
+respuesta: "La lógica abstracta del procedimiento"
+tipo: mc
+opciones_explicitas: ["La implementación en un lenguaje de programación", "La lógica abstracta del procedimiento"]
 
-enunciado: "Es un error común pensar que un modelo de aprendizaje profundo entiende la 'causa' de un fenómeno. En realidad, lo que el modelo optimiza es la detección de ___ en los datos de entrenamiento."
+enunciado: "Si comparamos un algoritmo con su implementación en un lenguaje de programación (código), el algoritmo se distingue por ser: ___"
 
 explicacion: |
-  Los modelos de IA actuales son excelentes encontrando patrones y correlaciones, pero no comprenden la causalidad ni el "porqué" de las cosas, a menos que se diseñen arquitecturas específicas para inferencia causal.
+  El algoritmo es el diseño lógico y abstracto (el "qué" hacer), mientras que el código es la implementación técnica en un lenguaje específico (el "cómo" hacerlo en una máquina).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "ia_reglas_vs_aprendizaje"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "basico"
-  tags: ["metodologia"]
+  tags: ["orden", "secuencia"]
 
-respuesta_orden: ["Definir reglas", "Escribir código de decisión", "Probar lógica"]
+respuesta_orden: ["Paso 1: Entrada", "Paso 2: Proceso", "Paso 3: Salida"]
 tipo: "ordenar"
-opciones_explicitas: ["Definir reglas", "Escribir código de decisión", "Probar lógica"]
+opciones_explicitas: ["Paso 1: Entrada", "Paso 2: Proceso", "Paso 3: Salida"]
 
-enunciado: "Ordena los pasos típicos en el desarrollo de un Sistema Experto (basado en reglas) de forma lógica:"
+enunciado: "Para que un algoritmo sea efectivo, debe seguir una secuencia lógica. Ordene los componentes fundamentales de un algoritmo de procesamiento de datos:"
 
 explicacion: |
-  En el enfoque basado en reglas, primero se extrae el conocimiento del experto (reglas), luego se traduce a código y finalmente se valida la lógica.
+  La estructura clásica de un algoritmo requiere primero recibir datos (entrada), transformarlos mediante instrucciones (proceso) y entregar un resultado (salida).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "ia_reglas_vs_aprendizaje"
-  nivel: "avanzado"
-  tags: ["sesgo", "datos"]
+  tema: "algoritmo_secuencia_de_pasos"
+  nivel: "intermedio"
+  tags: ["determinismo", "precisicion"]
+
+respuesta: "precisión"
+tipo: "completar"
+respuestas_validas:
+  - "precisión"
+
+enunciado: "A diferencia de una instrucción ambigua, un algoritmo debe poseer ___; esto significa que, ante los mismos datos de entrada, siempre debe producir el mismo resultado tras seguir los mismos pasos."
+
+explicacion: |
+  La precisión (o determinismo) garantiza que no haya ambigüedad en los pasos, asegurando que el camino hacia la solución sea único y predecible para la computadora.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmo_secuencia_de_pasos"
+  nivel: "basico"
+  tags: ["algoritmo", "secuencia"]
 
 variables:
+  textos: ["Para hacer un café: 1. Calentar agua, 2. Poner café en filtro, 3. Verter agua", "Para encender una PC: 1. Presionar botón, 2. Conectar cable, 3. Esperar inicio"]
+  valores: [verdadero, falso]
   idx: uno_de([0, 1])
-  escenario: [["Un sistema de reglas tiene un error porque el programador olvidó una condición.", "error_programador"], ["Un sistema de aprendizaje tiene un error porque los datos de entrenamiento son parciales.", "error_datos"]]
 
-respuesta: "error_datos"
-tipo: "mc"
-opciones_explicitas: ["error_programador", "error_datos"]
-
-enunciado: "En el escenario {escenario[idx][0]}, el problema principal es un: ___"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Analiza el siguiente escenario: {textos[idx]}. ¿Es una secuencia lógica y ordenada para resolver el problema planteado?"
 
 explicacion: |
-  Si el sistema es de reglas, el error es de diseño/lógica humana. Si el sistema es de aprendizaje, el error suele provenir de la calidad o representatividad de los datos (sesgo).
+  Un algoritmo debe ser una secuencia finita y ordenada de pasos. En el primer caso, los pasos siguen un orden lógico para obtener el resultado. En el segundo, el orden es incorrecto (primero se debe conectar el cable).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "ia_reglas_vs_aprendizaje"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "basico"
-  tags: ["ia", "logica", "aprendizaje_automatico"]
+  tags: ["algoritmo", "orden"]
 
-respuesta: "aprendizaje automático"
+tipo: ordenar
+
+opciones_explicitas: ["Leer primer número", "Leer segundo número", "Sumar ambos", "Mostrar resultado"]
+respuesta_orden: ["Leer primer número", "Leer segundo número", "Sumar ambos", "Mostrar resultado"]
+
+enunciado: "Ordena los pasos necesarios para realizar el algoritmo de suma de dos números:"
+
+explicacion: |
+  Un algoritmo requiere un orden lógico. Para sumar, primero debemos obtener los datos (entrada), luego procesarlos (suma) y finalmente entregar el resultado (salida).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmo_secuencia_de_pasos"
+  nivel: "basico"
+  tags: ["definicion", "caracteristicas"]
+
+variables:
+  textos: ["Un proceso que no termina nunca", "Un proceso con pasos finitos y definidos"]
+  valores: [falso, verdadero]
+  idx: uno_de([0, 1])
+
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Un algoritmo debe ser necesariamente finito, es decir, debe tener un número determinado de pasos que se completan en un tiempo razonable. ¿Es esto correcto para describir lo siguiente: {textos[idx]}?"
+
+explicacion: |
+  La finitud es una característica esencial de todo algoritmo. Si un proceso no termina, no puede ser considerado un algoritmo funcional para resolver un problema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmo_secuencia_de_pasos"
+  nivel: "basico"
+  tags: ["algoritmo", "completar"]
+
+respuesta: "encender"
 tipo: completar
 respuestas_validas:
-  - "aprendizaje automático"
+  - "encender"
 
-enunciado: "Mientras que un sistema basado en reglas requiere que un programador defina manualmente cada condición lógica, el ___ permite que el sistema descubra patrones directamente desde los datos."
+enunciado: "Para resolver el problema de iluminar una habitación oscura, el primer paso del algoritmo debe ser ___ la luz."
 
 explicacion: |
-  En la IA tradicional (sistemas expertos), la lógica es explícita y programada por humanos. En el Machine Learning, la lógica se infiere a partir de la observación de datos.
+  En un algoritmo de acción, el primer paso debe ser la instrucción que cambia el estado del entorno para resolver el problema. En este caso, encender la luz.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "aprendizaje_supervisado"
+  tema: "algoritmo_secuencia_de_pasos"
   nivel: "intermedio"
-  tags: ["ia", "supervisado", "datos"]
+  tags: ["logica", "errores"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["clasificar_imágenes", "etiquetadas"], ["predecir_precios", "numéricas"]]
+  escenario: uno_de([["1. Salir de casa, 2. Abrir la puerta, 3. Caminar hacia la calle", "Pasos desordenados"], ["1. Abrir la puerta, 2. Salir de casa, 3. Caminar hacia la calle", "Pasos correctos"]])
 
-respuesta: "etiquetadas"
+respuesta: escenario[1]
 tipo: mc
-opciones_explicitas: ["etiquetadas", "no estructuradas", "aleatorias", "puramente sintácticas"]
 
-enunciado: "En un escenario de {escenarios[escenario_idx][0]}, el modelo requiere que los datos de entrenamiento estén {escenarios[escenario_idx][1]} para aprender la relación entre la entrada y la salida."
+opciones_explicitas: ["Pasos desordenados", "Pasos correctos"]
+
+enunciado: "Analiza la secuencia: {escenario[0]}. ¿Cuál es la clasificación de este algoritmo?"
 
 explicacion: |
-  El aprendizaje supervisado se distingue de otros por el uso de un conjunto de datos donde la respuesta correcta (etiqueta) ya es conocida.
+  Si el orden de los pasos impide alcanzar el objetivo de forma lógica (como intentar salir de casa antes de abrir la puerta), el algoritmo es incorrecto o está desordenado.
+```
+
+## Sección: almacenamiento-volatil-vs-no-volatil (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["memoria", "hardware", "conceptos"]
+
+tipo: mc
+opciones_explicitas: ["energía eléctrica", "datos", "programas", "espacio en disco"]
+
+enunciado: "La característica que define a una memoria como 'volátil' es que su contenido se pierde cuando se corta el suministro de ___."
+
+respuesta: "energía eléctrica"
+
+explicacion: |
+  La memoria volátil (como la RAM) requiere energía eléctrica constante para mantener almacenada la información. Sin energía, los datos se borran.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "generalizacion_ia"
-  nivel: "avanzado"
-  tags: ["ia", "generalizacion", "overfitting"]
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["ram", "disco_duro"]
+
+variables:
+  nombres: ["RAM", "ROM", "Caché", "Disco SSD", "Pendrive"]
+  valores: [verdadero, falso, verdadero, falso, falso]
+  idx: uno_de([0, 1, 2, 3, 4])
+
+tipo: vf
+enunciado: "Si el componente es {nombres[idx]}, ¿se considera que es una memoria volátil?"
+
+respuesta: valores[idx]
+
+explicacion: |
+  La RAM y la memoria caché son volátiles: pierden su contenido sin energía. La ROM, el disco SSD y el pendrive son no volátiles: conservan los datos aunque se corte la energía.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["clasificacion", "hardware"]
+
+tipo: mc
+opciones_explicitas: ["Disco Duro (HDD)", "Memoria RAM", "Memoria Caché", "Registros del procesador"]
+
+enunciado: "¿Cuál de los siguientes dispositivos es un ejemplo de almacenamiento NO volátil?"
+
+respuesta: "Disco Duro (HDD)"
+
+explicacion: |
+  Los discos duros (HDD) o unidades de estado sólido (SSD) conservan la información incluso cuando la computadora se apaga, por lo tanto, son no volátiles.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "intermedio"
+  tags: ["terminologia", "conceptos"]
+
+tipo: completar
+opciones_explicitas: ["persistente", "temporal", "aleatoria", "secuencial"]
+respuestas_validas:
+  - "temporal"
+
+enunciado: "La función principal de la memoria RAM es servir como un espacio de almacenamiento ___ para que el procesador acceda rápidamente a los datos en ejecución."
+
+respuesta: "temporal"
+
+explicacion: |
+  La RAM es una memoria de acceso rápido pero de naturaleza temporal; su propósito es sostener los datos que se están usando en el momento exacto.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["flujo_datos", "hardware"]
+
+tipo: ordenar
+opciones_explicitas: ["Carga de datos de disco a RAM", "Ejecución de procesos en CPU", "Guardado de cambios en disco"]
+
+respuesta_orden: ["Carga de datos de disco a RAM", "Ejecución de procesos en CPU", "Guardado de cambios en disco"]
+
+enunciado: "Ordena el flujo lógico de la información cuando un usuario trabaja en un documento y decide guardarlo:"
+
+explicacion: |
+  Primero los datos pasan del almacenamiento no volátil (disco) a la memoria volátil (RAM) para ser procesados, y finalmente se escriben de nuevo en el disco para persistir.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["memoria", "hardware", "ram"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Un sistema basado en reglas es capaz de manejar situaciones que no fueron explícitamente programadas mediante una regla 'si-entonces', a diferencia de un modelo de aprendizaje que puede generalizar patrones nuevos."
+enunciado: "Si apagas una computadora que tiene 16 GB de memoria RAM, la información almacenada en ella se mantiene intacta gracias a que la RAM es un tipo de memoria no volátil."
 
 explicacion: |
-  Falso. Un sistema de reglas es rígido: si no existe una regla para un caso específico, el sistema no puede decidir. El aprendizaje busca la generalización para manejar datos no vistos.
+  La memoria RAM (Random Access Memory) es volátil. Esto significa que requiere una corriente eléctrica constante para mantener los datos; al cortar la energía, los datos se pierden.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "flujo_desarrollo_ia"
-  nivel: "intermedio"
-  tags: ["ia", "workflow", "datos"]
-
-respuesta_orden: ["Recolección de datos", "Preprocesamiento", "Entrenamiento del modelo", "Evaluación de precisión"]
-tipo: ordenar
-opciones_explicitas: ["Recolección de datos", "Preprocesamiento", "Entrenamiento del modelo", "Evaluación de precisión"]
-
-enunciado: "Ordene las etapas típicas del ciclo de vida de un proyecto de aprendizaje automático, desde la obtención de información hasta la validación del modelo."
-
-explicacion: |
-  A diferencia del desarrollo de software tradicional donde el centro es el código, en IA el flujo comienza con la gestión de datos y termina validando la capacidad de predicción.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "fuente_conocimiento"
+  tema: "almacenamiento_volatil_vs_no_volatil"
   nivel: "basico"
-  tags: ["ia", "conocimiento", "datos"]
-
-respuesta: "datos"
-tipo: mc
-opciones_explicitas: ["conocimiento experto", "datos", "reglas lógicas", "hardware"]
-
-enunciado: "En la IA clásica, el conocimiento proviene de la codificación de la experiencia humana; en la IA moderna basada en aprendizaje, el conocimiento se extrae de los ___."
-
-explicacion: |
-  La transición fundamental es pasar de la "codificación de reglas" (conocimiento manual) a la "extracción de patrones" (conocimiento derivado de datos).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "inteligencia_artificial_reglas_a_aprendizaje"
-  nivel: "basico"
-  tags: ["ia", "conceptos", "aprendizaje"]
+  tags: ["clasificacion", "hardware"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["Un sistema de diagnóstico médico basado en un árbol de decisión con reglas 'SI fiebre Y tos ENTONCES gripe'", "Basado en reglas explícitas"], ["Un sistema de reconocimiento de imágenes que identifica gatos tras ver 10.000 fotos de gatos", "Aprendizaje basado en datos"]]
+  dispositivos: [["Memoria RAM", "Memoria Caché"], ["Disco Duro HDD", "Memoria Flash USB"]]
+  tipo_memoria: [["volátil", "volátil"], ["no volátil", "no volátil"]]
 
-enunciado: "Identifica si el siguiente escenario representa un sistema basado en reglas explícitas o un sistema que aprende de datos: {datos[escenario_idx][0]}"
-
-opciones_explicitas: ["Basado en reglas explícitas", "Aprendizaje basado en datos"]
-respuesta: datos[escenario_idx][1]
+respuesta: tipo_memoria[escenario_idx][0]
 tipo: mc
+opciones_explicitas: ["volátil", "no volátil"]
+
+enunciado: "Considerando el dispositivo {dispositivos[escenario_idx][0]}, ¿cuál es su característica principal respecto a la persistencia de datos?"
 
 explicacion: |
-  Los sistemas basados en reglas dependen de la lógica programada manualmente por expertos (IF-THEN), mientras que el aprendizaje automático (Machine Learning) extrae patrones directamente de los datos.
+  El dispositivo seleccionado pertenece a la categoría de memoria {tipo_memoria[escenario_idx][0]}.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "inteligencia_artificial_reglas_a_aprendizaje"
+  tema: "almacenamiento_volatil_vs_no_volatil"
   nivel: "intermedio"
-  tags: ["machine_learning", "datos"]
+  tags: ["flujo_datos", "guardado"]
+
+respuesta: "disco"
+tipo: completar
+respuestas_validas:
+  - "disco"
+  - "memoria"
+
+enunciado: "Cuando estás escribiendo un documento en un procesador de texto, los cambios se mantienen temporalmente en la memoria RAM. Para que el archivo no se pierda al apagar la PC, debes realizar una acción de guardado que traslade la información desde la RAM hacia el ___."
+
+pasos:
+  - "1. El procesador carga el archivo desde el almacenamiento permanente a la RAM."
+  - "2. El usuario realiza cambios (estos viven en la RAM)."
+  - "3. El comando 'Guardar' copia los datos de la RAM al almacenamiento persistente."
+
+explicacion: |
+  El proceso de guardado consiste en transferir la información de la memoria volátil (RAM) al dispositivo de almacenamiento no volátil (como un disco duro o SSD).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "intermedio"
+  tags: ["jerarquia", "orden"]
+
+respuesta_orden: ["Caché L1", "Memoria RAM", "Disco SSD"]
+tipo: ordenar
+opciones_explicitas: ["Caché L1", "Memoria RAM", "Disco SSD"]
+
+enunciado: "Ordena los siguientes componentes de hardware de mayor a menor velocidad de acceso (desde el más rápido al más lento):"
+
+explicacion: |
+  En la jerarquía de memoria, la velocidad disminuye a medida que aumenta la capacidad y la persistencia. La caché es la más rápida, seguida de la RAM y finalmente el almacenamiento masivo (SSD/HDD).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["consecuencia", "energia"]
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [["Un modelo de detección de fraude que analiza millones de transacciones para encontrar anomalías."], ["Un chatbot que responde preguntas siguiendo un guion predefinido de 'si el usuario dice X, responde Y'."]]
-  respuestas: [["Aprendizaje basado en datos", "Basado en reglas explícitas"], ["Basado en reglas explícitas", "Aprendizaje basado en datos"]]
+  situacion: [["Estás editando una foto y se corta la luz sin haber guardado.", "perder"], ["Estás viendo una película descargada en un pendrive y se corta la luz.", "nada"]]
+  resultado: ["perder", "nada"]
 
-enunciado: "En el caso: {casos[caso_idx][0]}, el paradigma predominante es ___."
+respuesta: resultado[caso_idx]
+tipo: mc
+opciones_explicitas: ["perder", "nada"]
+
+enunciado: "Analiza el siguiente caso: {situacion[caso_idx]} ¿Qué sucede con la información que se estaba procesando en ese momento?"
+
+explicacion: |
+  En el caso de la edición (volátil), la información se pierde porque la RAM se vacía. En el caso del pendrive (no volátil), el archivo ya está grabado físicamente y no se ve afectado por la falta de energía inmediata.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["memoria", "ram", "hardware"]
+
+respuesta: "volátil"
+tipo: "completar"
+respuestas_validas:
+  - "volátil"
+  - "volatil"
+
+enunciado: "La memoria que requiere un suministro constante de energía para mantener la información almacenada se denomina memoria ___________."
+
+explicacion: |
+  La memoria volátil (como la RAM) pierde todos sus datos cuando se corta la energía. La memoria no volátil (como un SSD o HDD) conserva los datos sin electricidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["errores_comunes", "guardado"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "Si estoy escribiendo un documento en un procesador de texto y se corta la luz antes de que yo haga clic en 'Guardar', la información se mantiene intacta en el disco duro porque el procesador estaba encendido."
+
+explicacion: |
+  Falso. Mientras editas, el texto reside en la memoria RAM (volátil). Si no se ha escrito en el disco (no volátil), la información se pierde al cortarse la energía.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "intermedio"
+  tags: ["hardware", "clasificacion"]
+
+variables:
+  escenario: uno_de([["Memoria RAM", "volátil"], ["Disco Duro (HDD)", "no volátil"]])
+
+respuesta: escenario[1]
+tipo: "mc"
+opciones_explicitas: ["volátil", "no volátil"]
+
+enunciado: "Considerando el dispositivo {escenario[0]}, su característica principal de almacenamiento es: ___________."
+
+explicacion: |
+  La RAM es volátil (pierde datos sin energía) y el HDD es no volátil (mantiene datos sin energía).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "intermedio"
+  tags: ["flujo_datos", "ciclo_de_vida"]
+
+respuesta_orden: ["Cargar desde disco", "Procesar en RAM", "Guardar en disco"]
+tipo: "ordenar"
+opciones_explicitas: ["Cargar desde disco", "Procesar en RAM", "Guardar en disco"]
+
+enunciado: "Ordena el flujo lógico de datos cuando un usuario abre un archivo, edita un párrafo y luego decide conservar los cambios permanentemente:"
+
+explicacion: |
+  1. Los datos pasan de la memoria no volátil (disco) a la volátil (RAM) para ser usados.
+  2. La CPU trabaja sobre la RAM.
+  3. Al guardar, los datos vuelven a la memoria no volátil.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+enunciado: "¿Cuál de las siguientes afirmaciones describe correctamente la diferencia principal entre la memoria volátil y la no volátil?"
+tipo: "mc"
+respuesta: "Solo la memoria no volátil puede almacenar datos de forma permanente."
+opciones_explicitas: ["Solo la memoria no volátil puede almacenar datos de forma permanente.", "Tanto la RAM como el disco duro son memorias no volátiles.", "La memoria volátil es más lenta que la no volátil.", "El almacenamiento volátil es el que se usa para guardar archivos a largo plazo."]
+
+explicacion: |
+  La característica definitoria es la persistencia: la memoria volátil pierde los datos sin energía, independientemente de su velocidad o capacidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["memoria", "ram", "volatil"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La memoria RAM es un tipo de almacenamiento no volátil, lo que significa que la información se mantiene guardada aunque se apague el ordenador."
+
+explicacion: |
+  La memoria RAM es volátil; su contenido se pierde por completo cuando la corriente eléctrica deja de fluir.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["clasificacion", "disco_duro", "ssd"]
+
+variables:
+  escenario: uno_de([["Disco Duro (HDD)", "No volátil"], ["Memoria RAM", "Volátil"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["No volátil", "Volátil"]
+
+enunciado: "Considerando el dispositivo {escenario[0]}, su característica principal respecto a la persistencia de datos es que es ___."
+
+explicacion: |
+  El {escenario[0]} es un dispositivo de almacenamiento secundario y, por lo tanto, es {escenario[1]}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "intermedio"
+  tags: ["flujo_datos", "ram", "disco"]
+
+respuesta_orden: ["Disco Duro", "Memoria RAM", "Procesador"]
+tipo: ordenar
+
+opciones_explicitas: ["Disco Duro", "Memoria RAM", "Procesador"]
+
+enunciado: "Ordena el flujo lógico de datos cuando el usuario abre un archivo para trabajar con él:"
+
+pasos:
+  - "El archivo reside permanentemente en el..."
+  - "Para ser procesado, el archivo se carga en la..."
+  - "Finalmente, los datos pasan a la unidad de..."
+
+explicacion: |
+  Los datos se extraen del almacenamiento no volátil (Disco Duro) hacia la memoria de trabajo (RAM) para que el procesador pueda acceder a ellos rápidamente.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["terminologia", "persistente"]
+
+respuesta: "persistencia"
+tipo: completar
+respuestas_validas:
+  - "persistencia"
+  - "permanencia"
+
+enunciado: "La capacidad de un medio de almacenamiento para mantener la información sin necesidad de suministro eléctrico se denomina ___."
+
+explicacion: |
+  La persistencia es la característica que define a los medios no volátiles como los SSD o los discos duros.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "intermedio"
+  tags: ["rendimiento", "comparativa"]
+
+variables:
+  caso: uno_de([[0, "Memoria RAM", "Alta velocidad, poca capacidad"], [1, "Disco SSD", "Velocidad media, mayor capacidad"]])
+
+respuesta: caso[2]
+tipo: mc
+opciones_explicitas: ["Alta velocidad, poca capacidad", "Velocidad media, mayor capacidad"]
+
+enunciado: "Si comparamos el dispositivo {caso[1]} con un disco duro mecánico, su característica distintiva es que posee una {caso[2]}."
+
+explicacion: |
+  En este escenario, estamos comparando la velocidad y capacidad relativa de un SSD frente a un HDD.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["hardware", "memoria", "ram"]
+
+variables:
+  escenario: uno_de([["Estás editando un documento de texto en un procesador de palabras y aún no has guardado los cambios.", "RAM"], ["Has guardado una fotografía en tu carpeta de imágenes en el disco duro.", "Disco"], ["Estás jugando un videojuego y la acción se está procesando en tiempo real.", "RAM"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["RAM", "Disco", "ROM"]
+
+enunciado: "Considerando el escenario: '{escenario[0]}', ¿qué tipo de memoria es la principal responsable de mantener la información mientras el dispositivo tiene energía, pero que se borraría al apagar la computadora?"
+
+explicacion: |
+  La memoria RAM es volátil, lo que significa que requiere energía eléctrica para mantener los datos. Si el dispositivo se apaga sin guardar los cambios en un medio no volátil (como el disco), la información se pierde.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["volatilidad", "energia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si un dispositivo de almacenamiento es de tipo 'no volátil', la información almacenada en él se perderá inmediatamente al desconectar la fuente de alimentación eléctrica."
+
+explicacion: |
+  Falso. Precisamente la característica de la memoria no volátil (como un SSD o un HDD) es que la información persiste sin necesidad de energía eléctrica.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["clasificacion", "hardware"]
+
+variables:
+  item: uno_de([["Memoria RAM", "volátil"], ["Disco Duro (HDD)", "no volátil"], ["Memoria Flash (USB)", "no volátil"], ["Memoria Caché", "volátil"]])
+
+tipo: completar
+respuesta: item[1]
+enunciado: "El dispositivo '{item[0]}' se clasifica como memoria ___________."
+
+explicacion: |
+  La memoria volátil es aquella que requiere energía para mantener los datos, mientras que la no volátil permite el almacenamiento a largo plazo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "intermedio"
+  tags: ["jerarquia", "ordenar"]
+
+opciones_explicitas: ["Memoria RAM", "Disco Duro", "Memoria ROM"]
+respuesta_orden: ["Memoria RAM", "Disco Duro", "Memoria ROM"]
+tipo: ordenar
+
+enunciado: "Ordena los siguientes componentes de mayor a menor persistencia de datos (desde el que pierde la información más rápido al apagar el equipo hasta el que la mantiene de forma permanente):"
+
+pasos:
+  - "1. RAM (Volátil)"
+  - "2. Disco Duro (No volátil - almacenamiento masivo)"
+  - "3. ROM (No volátil - lectura permanente)"
+
+explicacion: |
+  La RAM es volátil (pierde datos al apagar), el Disco Duro es no volátil para archivos, y la ROM está diseñada para contener instrucciones permanentes que no se borran.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_volatil_vs_no_volatil"
+  nivel: "basico"
+  tags: ["flujo_datos"]
+
+variables:
+  accion: uno_de([["Guardar un archivo", "no volátil"], ["Abrir un programa", "volátil"]])
+
+respuesta: accion[1]
+tipo: mc
+opciones_explicitas: ["volátil", "no volátil"]
+
+enunciado: "Cuando realizas la acción de '{accion[0]}', el destino final donde quedan los datos es un medio ___________."
+
+explicacion: |
+  Al guardar un archivo, los datos pasan de la memoria volátil (RAM) al almacenamiento no volátil (disco), donde quedan grabados de forma permanente. Al abrir un programa, ocurre lo contrario: los datos se cargan desde el disco (no volátil) hacia la RAM (volátil) para que el procesador pueda trabajar con ellos.
+```
+
+## Sección: buses-y-entrada-salida (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "basico"
+  tags: ["hardware", "arquitectura"]
+
+tipo: mc
+opciones_explicitas: ["El medio físico que transporta información entre componentes", "El procesador que gestiona las interrupciones", "La memoria principal donde se guardan los datos", "Un dispositivo de salida de video"]
+
+respuesta: "El medio físico que transporta información entre componentes"
+
+enunciado: "En arquitectura de computadores, un bus se define como ___."
+
+explicacion: |
+  Un bus es un conjunto de líneas de comunicación que permiten la transferencia de datos, direcciones o señales de control entre los distintos componentes de un sistema informático.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "basico"
+  tags: ["buses", "direccion"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "El bus de direcciones es el encargado de indicar la ubicación de memoria o el dispositivo al que se quiere acceder."
+
+explicacion: |
+  Correcto. El bus de direcciones permite al procesador especificar la dirección de memoria o el puerto de E/S con el que desea comunicarse.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "intermedio"
+  tags: ["ciclo", "procesador"]
+
+tipo: completar
+respuestas_validas:
+  - "Enviar"
+respuesta: "Enviar"
+
+enunciado: "En una operación de salida (output), el procesador debe ___ datos al periférico."
+
+explicacion: |
+  En una operación de salida, la información fluye desde el procesador/memoria hacia el dispositivo externo, por lo tanto, el procesador debe enviar los datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "basico"
+  tags: ["control", "bus"]
+
+tipo: mc
+opciones_explicitas: ["Bus de Datos, Bus de Direcciones, Bus de Control", "Bus de Datos, Bus de Memoria, Bus de CPU", "Bus de Entrada, Bus de Salida, Bus de Procesamiento"]
+
+respuesta: "Bus de Datos, Bus de Direcciones, Bus de Control"
+
+enunciado: "¿Cuáles son los tres tipos principales de buses en un sistema de arquitectura clásica?"
+
+explicacion: |
+  Los buses se dividen funcionalmente en: Bus de Datos (transporte de información), Bus de Direcciones (selección de destino) y Bus de Control (sincronización y comandos).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "avanzado"
+  tags: ["dma", "secuencia"]
+
+tipo: ordenar
+opciones_explicitas: ["El controlador de DMA solicita el bus", "El procesador cede el control del bus", "Se realiza la transferencia de datos", "El controlador DMA libera el bus"]
+
+respuesta_orden: ["El controlador de DMA solicita el bus", "El procesador cede el control del bus", "Se realiza la transferencia de datos", "El controlador DMA libera el bus"]
+
+enunciado: "Ordene los pasos lógicos de una transferencia de datos mediante DMA (Direct Memory Access):"
+
+explicacion: |
+  En el DMA, el controlador solicita el control del bus al CPU, el CPU lo concede (cede el control), el controlador transfiere los datos directamente entre memoria y periférico, y finalmente libera el bus para que el CPU retome su labor.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "basico"
+  tags: ["arquitectura", "bus"]
+
+respuesta: "datos"
+tipo: "completar"
+respuestas_validas:
+  - "datos"
+
+enunciado: "En la arquitectura de Von Neumann, el bus encargado de transportar la información procesada o las instrucciones entre la CPU y la memoria se denomina bus de ___."
+
+explicacion: |
+  El bus de datos es bidireccional y transporta la información real (instrucciones o datos) entre los componentes.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "intermedio"
+  tags: ["memoria", "bus_direccion"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [[8, 256], [16, 65536]]
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: [256, 65536, 1024, 4096]
+
+enunciado: "Si una computadora utiliza un bus de direcciones de {escenario[idx][0]} bits, ¿cuántas direcciones de memoria únicas puede direccionar?"
+
+explicacion: |
+  La cantidad de direcciones posibles es igual a 2 elevado a la potencia del número de líneas del bus de direcciones (2^n).
+  En el caso de 8 bits: 2^8 = 256. En el caso de 16 bits: 2^16 = 65536.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "intermedio"
+  tags: ["ciclo_bus", "control"]
+
+respuesta: "control"
+tipo: "mc"
+opciones_explicitas: ["datos", "direccion", "control"]
+
+enunciado: "Durante una operación de lectura de un dispositivo de entrada, el controlador debe emitir una señal para indicar que la operación será de lectura. Esta señal viaja por el bus de ___."
+
+explicacion: |
+  El bus de control gestiona las señales de sincronización y el tipo de operación (lectura/escritura) para coordinar los componentes.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "avanzado"
+  tags: ["dma", "transferencia"]
+
+respuesta_orden: ["solicitud_dma", "concesion_bus", "transferencia_datos", "liberacion_bus"]
+tipo: "ordenar"
+opciones_explicitas: ["solicitud_dma", "concesion_bus", "transferencia_datos", "liberacion_bus"]
+
+enunciado: "Ordene los pasos lógicos de una transferencia de Direct Memory Access (DMA) cuando un periférico requiere mover un bloque de datos a la memoria sin intervención constante de la CPU:"
+
+explicacion: |
+  1. El periférico envía una solicitud (DREQ).
+  2. El controlador DMA solicita el control del bus a la CPU (HOLD).
+  3. La CPU cede el bus (HLDA).
+  4. Se realiza el movimiento de datos.
+  5. El controlador libera el bus para la CPU.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "intermedio"
+  tags: ["interrupcion", "polling"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "En el método de 'Polling' (consulta), el procesador debe esperar activamente en un bucle revisando el estado de un dispositivo de entrada/salida, lo cual es una forma eficiente de gestionar el tiempo de CPU en sistemas de alto rendimiento."
+
+explicacion: |
+  Falso. El Polling es ineficiente porque consume ciclos de CPU en espera de un dispositivo. Las interrupciones son más eficientes ya que permiten que la CPU realice otras tareas hasta que el dispositivo esté listo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "intermedio"
+  tags: ["arquitectura", "buses", "control"]
+
+respuesta: falso
+tipo: vf
+enunciado: "El bus de control es el encargado de transportar los datos reales (como un número o un carácter) entre el procesador y la memoria."
+
+explicacion: |
+  Falso. El bus de control transporta señales de sincronización y comandos (como lecturas o escrituras), mientras que el bus de datos es el que transporta la información propiamente dicha.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "intermedio"
+  tags: ["direccionamiento", "memoria", "buses"]
+
+variables:
+  escenario: uno_de([["Bus de direcciones de 16 bits", "65536"], ["Bus de direcciones de 32 bits", "4294967296"], ["Bus de direcciones de 64 bits", "18446744073709551616"]])
+
+respuesta: escenario[1]
+tipo: completar
+respuestas_validas:
+  - "65536"
+  - "4294967296"
+  - "18446744073709551616"
+
+enunciado: "Si un sistema tiene un bus de direcciones de {escenario[0]}, la cantidad máxima de ubicaciones de memoria que puede direccionar es de ___."
+
+explicacion: |
+  El número de direcciones direccionables está determinado por la cantidad de líneas del bus de direcciones ($2^n$, donde $n$ es el número de bits).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "basico"
+  tags: ["buses", "datos"]
+
+opciones_explicitas: ["Direcciones de memoria", "Señales de reloj", "Información/Datos", "Comandos de lectura/escritura"]
+respuesta: "Información/Datos"
+tipo: mc
+
+enunciado: "En una arquitectura de Von Neumann, ¿cuál es la función principal del bus de datos?"
+
+explicacion: |
+  El bus de datos es bidireccional y transporta la información (instrucciones o datos) entre los componentes. Los otros buses mencionados cumplen funciones de control o direccionamiento.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "avanzado"
+  tags: ["ciclo_instruccion", "ordenar"]
+
+opciones_explicitas: ["Colocar la dirección en el bus de direcciones", "Enviar señal de lectura por el bus de control", "Recibir el dato por el bus de datos", "Procesar el dato en la ALU"]
+respuesta_orden: ["Colocar la dirección en el bus de direcciones", "Enviar señal de lectura por el bus de control", "Recibir el dato por el bus de datos", "Procesar el dato en la ALU"]
+tipo: ordenar
+
+enunciado: "Ordene los pasos lógicos para que el procesador obtenga un dato de la memoria RAM:"
+
+explicacion: |
+  Primero se debe indicar 'dónde' buscar (dirección), luego 'qué hacer' (control/lectura), luego esperar a que el dato 'viaje' (datos) y finalmente usarlo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "intermedio"
+  tags: ["E/S", "interrupciones", "eficiencia"]
+
+respuesta: "el CPU pregunta constantemente si el dispositivo está listo"
+tipo: completar
+respuestas_validas:
+  - "el CPU pregunta constantemente si el dispositivo está listo"
+
+enunciado: "Si un sistema utiliza el método de Polling para gestionar un periférico, el procesador pierde eficiencia porque ___."
+
+explicacion: |
+  El Polling (o consulta) obliga al CPU a estar en un bucle de espera, desperdiciando ciclos de reloj. Las interrupciones permiten que el CPU realice otras tareas hasta que el hardware lo necesite.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "basico"
+  tags: ["arquitectura", "buses"]
+
+respuesta: "direcciones"
+tipo: completar
+respuestas_validas:
+  - "direcciones"
+
+enunciado: "Mientras que el bus de datos transporta la información procesada entre los componentes, el bus de ___ determina la ubicación de memoria o el dispositivo al que se quiere acceder."
+
+explicacion: |
+  El bus de direcciones es unidireccional (en la mayoría de los casos) y especifica la celda de memoria o el puerto de E/S, mientras que el bus de datos es bidireccional y transporta el contenido.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "intermedio"
+  tags: ["control", "sincronizacion"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "El bus de control es el encargado de transmitir señales de sincronización y de estado (como señales de lectura/escritura) para coordinar la comunicación entre la CPU y los periféricos."
+
+explicacion: |
+  Correcto. Sin el bus de control, los componentes no sabrían si el dato en el bus de datos es para ser leído o para ser escrito, ni cuándo debe iniciar la operación.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "avanzado"
+  tags: ["dma", "eficiencia"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["transferencia_cpu", "La CPU debe intervenir en cada byte transferido"], ["transferencia_dma", "El controlador de DMA gestiona la transferencia sin la CPU"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["La CPU debe intervenir en cada byte transferido", "El controlador de DMA gestiona la transferencia sin la CPU"]
+
+enunciado: "En un sistema con acceso directo a memoria (DMA), ¿cuál es la principal distinción con el método de E/S programada?"
+
+explicacion: |
+  El DMA libera a la CPU de la carga de gestionar cada byte de la transferencia, permitiéndole realizar otras tareas mientras el controlador de DMA mueve los datos entre la E/S y la memoria.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "basico"
+  tags: ["jerarquia", "velocidad"]
+
+respuesta_orden: ["Bus local", "Bus de sistema", "Bus de expansión"]
+tipo: ordenar
+
+opciones_explicitas: ["Bus local", "Bus de sistema", "Bus de expansión"]
+
+enunciado: "Ordena los buses de mayor a menor velocidad de comunicación (desde el núcleo de la CPU hacia los periféricos externos):"
+
+explicacion: |
+  El bus local es el más rápido (conexión directa con CPU/Caché), seguido por el bus de sistema (placa base) y finalmente los buses de expansión (como PCIe o USB) que conectan periféricos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "intermedio"
+  tags: ["interrupcion", "polling"]
+
+variables:
+  metodo_idx: uno_de([0, 1])
+  metodo_nombre: ["Polling", "Interrupción"]
+  caracteristica: ["La CPU debe consultar constantemente el estado del dispositivo", "El dispositivo avisa a la CPU cuando está listo"]
+
+respuesta: caracteristica[metodo_idx]
+tipo: mc
+opciones_explicitas: ["La CPU debe consultar constantemente el estado del dispositivo", "El dispositivo avisa a la CPU cuando está listo"]
+
+enunciado: "Si el sistema utiliza el método de {metodo_nombre[metodo_idx]}, ¿cuál es su característica distintiva respecto a la interrupción?"
+
+explicacion: |
+  El Polling (consulta activa) consume ciclos de CPU innecesarios si el dispositivo no está listo, mientras que las interrupciones permiten que la CPU trabaje en otra cosa hasta que el hardware requiera atención.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "basico"
+  tags: ["hardware", "buses"]
+
+variables:
+  datos: [["El procesador necesita leer una instrucción de la memoria RAM", "datos"], ["La unidad de control envía una dirección de memoria", "direcciones"], ["La tarjeta de video recibe un color para un píxel", "datos"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["datos", "direcciones", "control"]
+
+enunciado: "En el escenario donde {datos[idx][0]}, el componente encargado de transportar la información específica es el bus de ___."
+
+explicacion: |
+  El bus de datos es el camino bidireccional que transporta la información (instrucciones, datos, resultados) entre los componentes del sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "intermedio"
+  tags: ["ciclo_instruccion", "bus_control"]
+
+tipo: vf
+respuesta: verdadero
+enunciado: "Cuando un dispositivo de entrada (como un teclado) necesita informar al procesador que se ha presionado una tecla, utiliza el bus de control para enviar una señal de interrupción."
+
+explicacion: |
+  Correcto. El bus de control se utiliza para transmitir señales de sincronización, interrupciones y estados de dispositivos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "intermedio"
+  tags: ["protocolo", "comunicacion"]
+
+respuesta_orden: ["Seleccionar dirección", "Enviar comando", "Transferir datos"]
+tipo: ordenar
+opciones_explicitas: ["Seleccionar dirección", "Enviar comando", "Transferir datos"]
+
+enunciado: "Para que un controlador de periférico realice una operación de lectura de un registro de estado, debe seguir este orden lógico de señales en el bus:"
+
+explicacion: |
+  Primero se establece la dirección del dispositivo/registro, luego se indica la operación (lectura/escritura) y finalmente se mueven los datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "basico"
+  tags: ["componentes", "bus_direccion"]
+
+variables:
+  casos: [["un bus que solo se mueve en un sentido (unidireccional) para indicar dónde está un dato", "direcciones"], ["un bus que permite enviar y recibir datos (bidireccional)", "datos"]]
+  idx: uno_de([0, 1])
+
+respuesta: casos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "direcciones"
+  - "datos"
+
+enunciado: "Si nos referimos a un bus que solo se mueve en un sentido (unidireccional) para indicar dónde está un dato, estamos hablando del bus de ___."
+
+explicacion: |
+  El bus de direcciones es unidireccional (del CPU hacia la memoria/periféricos) para indicar la ubicación de la información.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buses_y_entrada_salida"
+  nivel: "avanzado"
+  tags: ["rendimiento", "ancho_de_bus"]
+
+variables:
+  config: [["64 bits", 8], ["32 bits", 4], ["16 bits", 2]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: config[idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si un sistema tiene un bus de datos de {config[idx][0]} bits, ¿cuántos bytes puede transferir en un solo ciclo de bus?"
+
+pasos:
+  - "Identificar el ancho del bus en bits: {config[idx][0]}"
+  - "Dividir el número de bits por 8 (ya que 1 byte = 8 bits)"
+
+explicacion: |
+  El ancho de bus determina la cantidad de datos que pueden viajar simultáneamente. Dividir los bits por 8 nos da el total de bytes.
+```
+
+## Sección: variables-y-tipos-de-dato (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "basico"
+  tags: ["conceptos", "fundamentos"]
+
+respuesta: "contenedor"
+tipo: completar
+respuestas_validas:
+  - "contenedor"
+
+enunciado: "En programación, una variable se puede definir conceptualmente como un ___ en memoria que permite almacenar un valor que puede cambiar durante la ejecución de un programa."
+
+explicacion: |
+  Una variable es un espacio reservado en la memoria de la computadora, identificado por un nombre, destinado a guardar un dato que puede ser modificado.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "basico"
+  tags: ["tipos_de_datos", "identificacion"]
+
+variables:
+  escenario_idx: uno_de([0, 1, 2])
+  datos: [["15", "entero"], ["3.14", "decimal"], ["'Hola'", "texto"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["entero", "decimal", "texto", "booleano"]
+
+enunciado: "Si tenemos el valor {datos[escenario_idx][0]}, ¿qué tipo de dato representa principalmente?"
+
+explicacion: |
+  El tipo de dato determina qué operaciones se pueden realizar con el valor. En este caso, {datos[escenario_idx][0]} es de tipo {datos[escenario_idx][1]}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "basico"
+  tags: ["booleanos", "logica"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿El tipo de dato booleano puede almacenar valores como 'si', 'no', 'tal vez' o '10'?"
+
+explicacion: |
+  Falso. El tipo booleano es estrictamente binario: solo puede representar dos estados, verdadero (true) o falso (false).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "basico"
+  tags: ["numeros", "decimales"]
+
+respuesta: "float"
+tipo: mc
+opciones_explicitas: ["int", "float", "string", "bool"]
+
+enunciado: "Cuando necesitamos representar un número que contiene una parte fraccionaria (como 0.5 o -1.25), el tipo de dato más adecuado es:"
+
+explicacion: |
+  Los números enteros (int) no permiten decimales. Para valores con precisión decimal utilizamos tipos de punto flotante (float o double).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "basico"
+  tags: ["flujo", "asignacion"]
+
+respuesta_orden: ["Declarar", "Asignar", "Usar"]
+tipo: ordenar
+opciones_explicitas: ["Declarar", "Asignar", "Usar"]
+
+enunciado: "Ordena los pasos lógicos para trabajar con una variable en un programa:"
+
+pasos:
+  - "Crear el nombre de la variable en memoria."
+  - "Darle un valor inicial."
+  - "Emplear la variable en una operación o instrucción."
+
+explicacion: |
+  Primero se debe declarar la variable (reservar espacio), luego asignar un valor (inicializar) y finalmente se puede usar en el código.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "tipos_de_datos"
+  nivel: "basico"
+  tags: ["fundamentos", "tipos_de_datos"]
+
+variables:
+  ejemplo_idx: uno_de([0, 1, 2])
+  datos: [["42", "int"], ["3.14", "float"], ["\"Hola\"", "string"]]
+
+enunciado: "Si asignamos el valor {datos[ejemplo_idx][0]} a una variable, el tipo de dato resultante es {datos[ejemplo_idx][1]}."
+
+respuesta: datos[ejemplo_idx][1]
+tipo: mc
+opciones_explicitas: ["int", "float", "string", "boolean"]
+
+explicacion: |
+  Cada valor tiene un tipo asociado: los números sin decimales son enteros (int), los que tienen punto decimal son de punto flotante (float) y las secuencias de caracteres entre comillas son cadenas (string).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "tipos_de_datos"
+  nivel: "basico"
+  tags: ["logica", "booleanos"]
+
+enunciado: "En programación, una comparación como 10 > 5 resulta en un valor de tipo ___."
 
 respuestas_validas:
-  - "Aprendizaje basado en datos"
-  - "Basado en reglas explícitas"
-respuesta: respuestas[caso_idx][0]
+  - "booleano"
+  - "bool"
+respuesta: "booleano"
 tipo: completar
 
 explicacion: |
-  En el primer caso, el sistema descubre la estructura de los datos (aprendizaje), mientras que en el segundo, la estructura ya está definida por el programador (reglas).
+  Las comparaciones lógicas devuelven valores booleanos: 'verdadero' (true) si la condición se cumple, o 'falso' (false) si no se cumple. Como 10 > 5 se cumple, el resultado concreto es 'verdadero', pero su tipo de dato es booleano.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "inteligencia_artificial_reglas_a_aprendizaje"
-  nivel: "avanzado"
-  tags: ["generalizacion", "ia"]
+  tema: "tipos_de_datos"
+  nivel: "intermedio"
+  tags: ["casting", "conversiones"]
 
 variables:
-  textos: ["Un sistema de reglas que no reconoce un nuevo tipo de spam porque la palabra clave no está en su lista.", "Un modelo de IA que, al ver un objeto nunca visto, estima su categoría basándose en su similitud con datos previos."]
-  valores: [falso, verdadero]
-  escenario_idx: uno_de([0, 1])
+  valor_original: "10.7"
+  escenario: [["int", "10"], ["float", "10.7"]]
+  idx: uno_de([0, 1])
 
-enunciado: "Analiza la situación: {textos[escenario_idx]}. ¿Es esta una característica típica de un sistema que aprende de datos?"
+enunciado: "Si convertimos el valor {valor_original} al tipo {escenario[idx][0]}, ¿cuál será el resultado?"
 
-respuesta: valores[escenario_idx]
-tipo: vf
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["10", "10.7", "11", "error"]
+
 explicacion: |
-  La generalización es la capacidad de un modelo de aprendizaje para aplicar lo aprendido a datos no vistos durante el entrenamiento, algo que los sistemas de reglas puras no pueden hacer sin intervención humana.
+  Al convertir un número decimal (float) a un entero (int), se realiza un truncamiento: se eliminan todos los dígitos después del punto decimal sin redondear.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "inteligencia_artificial_reglas_a_aprendizaje"
-  nivel: "intermedio"
-  tags: ["flujo_trabajo", "datos"]
+  tema: "tipos_de_datos"
+  nivel: "basico"
+  tags: ["almacenamiento", "memoria"]
 
-enunciado: "Ordena los pasos típicos para desarrollar un sistema de aprendizaje automático (Machine Learning):"
+enunciado: "Ordena los siguientes tipos de datos de menor a mayor consumo aproximado de memoria en un sistema estándar (asumiendo 8 bits para booleanos y 32/64 para otros):"
 
-opciones_explicitas: ["Recolección de datos", "Entrenamiento del modelo", "Evaluación de precisión", "Implementación en producción"]
-respuesta_orden: ["Recolección de datos", "Entrenamiento del modelo", "Evaluación de precisión", "Implementación en producción"]
+opciones_explicitas: ["boolean", "int", "float", "string"]
+respuesta_orden: ["boolean", "int", "float", "string"]
 tipo: ordenar
 
 explicacion: |
-  A diferencia de los sistemas basados en reglas donde el paso principal es el "diseño de la lógica", en ML el flujo gira en torno a la gestión de datos y la optimización del modelo.
+  Un booleano ocupa el espacio mínimo (1 bit/byte), seguido por enteros y flotantes de tamaño fijo, mientras que los strings son dinámicos y dependen de la longitud del texto.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "inteligencia_artificial_reglas_a_aprendizaje"
+  tema: "tipos_de_datos"
+  nivel: "intermedio"
+  tags: ["conceptos", "mutabilidad"]
+
+enunciado: "En muchos lenguajes de programación, una vez que una variable de tipo 'string' ha sido creada, su contenido no puede ser modificado directamente en la memoria, sino que se debe crear una nueva cadena. ¿Es esto verdadero o falso?"
+
+respuesta: verdadero
+tipo: vf
+opciones_explicitas: ["verdadero", "falso"]
+
+explicacion: |
+  Esto se conoce como inmutabilidad. En lenguajes como Python o Java, los strings son inmutables; cualquier "modificación" genera un nuevo objeto en memoria.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
   nivel: "basico"
-  tags: ["datos", "requisitos"]
+  tags: ["tipos_de_dato", "errores_comunes"]
 
 variables:
-  ejemplo_idx: uno_de([0, 1])
-  ejemplos: [["Un algoritmo de visión artificial sin acceso a imágenes previas."], ["Un algoritmo de recomendación de música sin historial de reproducciones del usuario."]]
-  resultado: ["No puede aprender", "No puede aprender"]
+  a: 10
+  b: "5"
 
-enunciado: "Si tenemos el siguiente escenario: {ejemplos[ejemplo_idx][0]}, el sistema ___."
+enunciado: "Si intentamos realizar la operación matemática de sumar {a} + {b} en un lenguaje de tipado fuerte, el resultado esperado suele ser un error de tipo (TypeError) porque no se puede sumar un entero con un ___."
+
+opciones_explicitas: ["entero", "decimal", "string", "booleano"]
+respuesta: "string"
+tipo: "mc"
+
+explicacion: |
+  En programación, no puedes sumar directamente un número (entero) con una cadena de texto (string). Para hacerlo, primero debes convertir el string a un número usando funciones como `int()` o `float()`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "basico"
+  tags: ["booleanos", "logica"]
+
+enunciado: "En la lógica de programación, el valor booleano que representa la falsedad se escribe como ___."
 
 respuestas_validas:
-  - "No puede aprender"
-  - "No puede aprender"
-respuesta: resultado[ejemplo_idx]
+  - "falso"
+  - "false"
+tipo: "completar"
+
+explicacion: |
+  Los tipos de datos booleanos solo pueden tener dos valores posibles: verdadero (true) o falso (false).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "basico"
+  tags: ["decimales", "float", "precision"]
+
+variables:
+  valor_a: 15
+  valor_b: 15.5
+
+enunciado: "Si declaramos una variable para almacenar el precio de un producto que puede tener centavos, como {valor_b}, ¿qué tipo de dato es el más adecuado para evitar la pérdida de precisión?"
+
+opciones_explicitas: ["int", "float", "string", "bool"]
+respuesta: "float"
+tipo: "mc"
+
+explicacion: |
+  Los tipos `int` (enteros) solo almacenan números sin parte decimal. Para valores con decimales, se utilizan tipos de punto flotante como `float` o `double`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "intermedio"
+  tags: ["almacenamiento", "memoria"]
+
+enunciado: "Ordena los siguientes pasos que ocurren cuando una computadora asigna una variable en memoria, desde la reserva del espacio hasta el uso del dato:"
+
+opciones_explicitas: ["Reserva de espacio en RAM", "Asignación de un nombre a la dirección", "Almacenamiento del valor", "Acceso al dato mediante el nombre"]
+respuesta_orden: ["Reserva de espacio en RAM", "Asignación de un nombre a la dirección", "Almacenamiento del valor", "Acceso al dato mediante el nombre"]
+tipo: "ordenar"
+
+explicacion: |
+  Para usar una variable, el sistema primero debe encontrar un lugar vacío en la memoria (RAM), asignar ese lugar a un nombre para que el programador lo reconozca, guardar el valor y finalmente permitir su lectura.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "basico"
+  tags: ["comparacion", "booleanos"]
+
+enunciado: "Si evaluamos la expresión lógica (5 == 5.0), el resultado es ___."
+
+opciones_explicitas: ["verdadero", "falso"]
+respuesta: "verdadero"
+tipo: "mc"
+
+explicacion: |
+  En la mayoría de los lenguajes modernos, al comparar un entero con un número decimal que tiene el mismo valor numérico, el resultado es verdadero porque el contenido matemático es el mismo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "tipos_de_dato_numericos"
+  nivel: "basico"
+  tags: ["tipos_de_dato", "numeros"]
+
+respuesta: "flotante"
+tipo: completar
+respuestas_validas:
+  - "flotante"
+  - "decimal"
+  - "real"
+
+enunciado: "Mientras que un tipo de dato entero representa números sin parte decimal, un tipo de dato ___ representa números que requieren precisión decimal."
+
+explicacion: |
+  En programación, los enteros (int) se usan para conteos exactos, mientras que los flotantes (float) se usan para mediciones con decimales.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "tipos_de_dato_logicos"
+  nivel: "basico"
+  tags: ["booleanos", "logica"]
+
+opciones_explicitas: ["falso", "verdadero", "texto", "entero"]
+respuesta: "verdadero"
+tipo: mc
+
+enunciado: "Un tipo de dato booleano se distingue de otros tipos porque su valor solo puede representar uno de dos estados lógicos: 'falso' es uno de ellos. ¿Cuál es el otro estado posible?"
+
+explicacion: |
+  Los booleanos son la base de la lógica computacional y solo pueden ser 'verdadero' o 'falso'.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "tipos_de_dato_texto"
+  nivel: "basico"
+  tags: ["strings", "texto"]
+
+respuestas_validas:
+  - "comillas"
+respuesta: "comillas"
+tipo: completar
+
+enunciado: "A diferencia de los tipos numéricos, el tipo de dato texto (string) se distingue de un número por estar delimitado por ___ en el código fuente."
+
+explicacion: |
+  El uso de comillas (simples o dobles) le indica al compilador que el contenido debe tratarse como una secuencia de caracteres y no como una variable o un número.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "almacenamiento_memoria"
+  nivel: "intermedio"
+  tags: ["memoria", "orden"]
+
+opciones_explicitas: ["Booleano", "Entero", "Flotante", "String"]
+respuesta_orden: ["Booleano", "Entero", "Flotante", "String"]
+tipo: ordenar
+
+enunciado: "Ordena los siguientes tipos de datos de menor a mayor complejidad de almacenamiento y procesamiento en la memoria de una computadora típica:"
+
+explicacion: |
+  Los booleanos ocupan menos espacio, seguidos por enteros, luego números decimales (que requieren más bits para la mantisa) y finalmente las cadenas de texto, cuyo tamaño depende de su longitud.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "tipos_de_dato_logicos"
+  nivel: "basico"
+  tags: ["booleanos", "logica"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que el tipo de dato booleano puede almacenar el valor numérico 5.5?"
+
+explicacion: |
+  Falso. El tipo booleano es estrictamente binario (verdadero/falso) y no puede contener valores decimales o enteros distintos a su lógica.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "basico"
+  tags: ["tipos_de_dato", "programacion"]
+
+variables:
+  datos: [["edad", "25", "entero"], ["nombre", "Ana", "texto"], ["precio", "19.99", "decimal"], ["es_valido", "true", "booleano"], ["puntos", "100", "entero"], ["usuario", "Dev_User", "texto"], ["promedio", "8.5", "decimal"], ["esta_activo", "false", "booleano"]]
+  idx: uno_de([0, 1, 2, 3, 4, 5, 6, 7])
+
+enunciado: "Si queremos almacenar el valor de la variable {datos[idx][0]} que contiene el dato {datos[idx][1]}, ¿qué tipo de dato es?"
+
+opciones_explicitas: ["entero", "decimal", "texto", "booleano"]
+respuesta: datos[idx][2]
+tipo: mc
+
+explicacion: |
+  El tipo de dato depende del contenido: si es un número sin decimales es entero, si tiene decimales es decimal, si es una secuencia de caracteres es texto y si es verdadero/falso es booleano.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "basico"
+  tags: ["completar", "tipos_de_dato"]
+
+variables:
+  datos: [["\"Hola Mundo\"", "texto"], ["42", "entero"], ["3.14", "decimal"], ["false", "booleano"]]
+  idx: uno_de([0, 1, 2, 3])
+
+enunciado: "La variable que contiene el valor {datos[idx][0]} es de tipo ___."
+
+respuestas_validas:
+  - "texto"
+  - "entero"
+  - "decimal"
+  - "booleano"
+respuesta: datos[idx][1]
 tipo: completar
 
 explicacion: |
-  El aprendizaje automático requiere obligatoriamente de datos para identificar patrones; sin datos, el sistema no tiene materia prima para "aprender".
+  Cada valor tiene una representación lógica en memoria: los textos van entre comillas, los enteros no tienen punto decimal, los decimales sí, y los booleanos representan estados lógicos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "intermedio"
+  tags: ["booleanos", "memoria"]
+
+enunciado: "¿Es correcto afirmar que una variable de tipo booleano puede almacenar el valor 15.5?"
+
+respuesta: falso
+tipo: vf
+
+explicacion: |
+  Falso. Las variables de tipo booleano solo pueden almacenar dos valores: verdadero o falso. El valor 15.5 es un número decimal.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "intermedio"
+  tags: ["ordenar", "memoria"]
+
+enunciado: "Ordena los siguientes tipos de datos de menor a mayor capacidad de representar valores numéricos (desde el más simple al más complejo en términos de precisión decimal):"
+
+opciones_explicitas: ["entero", "decimal", "texto"]
+respuesta_orden: ["entero", "decimal", "texto"]
+tipo: ordenar
+
+explicacion: |
+  El tipo entero solo maneja números sin decimales. El decimal permite precisión fraccionaria. El texto es una estructura compleja que puede contener cualquier carácter.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "variables_y_tipos_de_dato"
+  nivel: "basico"
+  tags: ["identificacion", "programacion"]
+
+variables:
+  datos: [["saldo", "500.50", "decimal"], ["nombre", "Juan", "texto"], ["es_mayor", "true", "booleano"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "En un sistema de gestión, la variable '{datos[idx][0]}' tiene el valor '{datos[idx][1]}'. Su tipo de dato es:"
+
+opciones_explicitas: ["decimal", "texto", "booleano"]
+respuesta: datos[idx][2]
+tipo: mc
+
+explicacion: |
+  Al analizar el valor '{datos[idx][1]}', podemos determinar su naturaleza: si tiene punto decimal es decimal, si es una cadena de letras es texto y si es un valor lógico es booleano.
+```
+
+## Sección: estructuras-de-control-condicionales (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["conceptos", "logica"]
+
+tipo: mc
+opciones_explicitas: ["Una estructura que repite un bloque de código", "Una estructura que permite ejecutar código según una condición", "Una función que realiza cálculos matemáticos", "Un tipo de dato que almacena números"]
+respuesta: "Una estructura que permite ejecutar código según una condición"
+enunciado: "En programación, una estructura condicional es..."
+explicacion: |
+  Las estructuras condicionales permiten que el flujo de un programa cambie de dirección dependiendo de si una condición es verdadera o falsa.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["booleanos", "logica"]
+
+tipo: vf
+
+enunciado: "Para que una sentencia 'if' ejecute su bloque de código, la expresión evaluada debe ser verdadera."
+
+respuesta: verdadero
+
+explicacion: |
+  El cuerpo de un 'if' solo se ejecuta si la condición evaluada resulta en un valor booleano verdadero.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["if_else", "flujo"]
+
+tipo: completar
+respuestas_validas:
+  - "else"
+
+enunciado: "Si la condición del 'if' es falsa, el programa puede ejecutar un bloque alternativo utilizando la palabra clave ___."
+
+explicacion: |
+  La cláusula 'else' define el camino que toma el programa cuando la condición principal no se cumple.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "intermedio"
+  tags: ["evaluacion", "booleano"]
+
+variables:
+  escenario: uno_de([["10 > 5", verdadero], ["5 > 10", falso], ["7 == 7", verdadero], ["3 != 3", falso]])
+
+enunciado: "Si evaluamos la expresión {escenario[0]}, el resultado es ___."
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: [verdadero, falso]
+
+explicacion: |
+  Cada expresión de comparación se evalúa como verdadera o falsa según los valores involucrados: {escenario[0]} da como resultado {escenario[1]}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "intermedio"
+  tags: ["flujo", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["1. Evaluar la condición", "2. Si es verdadera, ejecutar bloque A", "3. Si es falsa, ejecutar bloque B"]
+
+enunciado: "Ordena los pasos lógicos que sigue una estructura 'if-else' estándar:"
+
+respuesta_orden: ["1. Evaluar la condición", "2. Si es verdadera, ejecutar bloque A", "3. Si es falsa, ejecutar bloque B"]
+
+explicacion: |
+  El flujo lógico siempre comienza con la evaluación de la condición para luego decidir qué camino seguir.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["if", "booleanos", "logica"]
+
+variables:
+  x: 10
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un programa, si evaluamos la expresión x > 5 siendo x = {x}, el resultado de la condición es ___."
+
+explicacion: |
+  Dado que 10 es mayor que 5, la expresión es verdadera.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["if", "else", "flujo"]
+
+respuesta: "reprobado"
+tipo: mc
+opciones_explicitas: ["reprobado", "aprobado"]
+
+enunciado: "Si tenemos el siguiente código: \nif (edad >= 18) {{\n  print('aprobado');\n}} else {{\n  print('reprobado');\n}}\n\nSi la variable edad es 15, ¿qué se imprimirá en consola?"
+
+pasos:
+  - "Evaluar la condición: ¿15 >= 18? La respuesta es falso."
+  - "Como la condición es falsa, el programa salta el bloque 'if' y entra al bloque 'else'."
+  - "Se ejecuta la instrucción dentro del 'else'."
+
+explicacion: |
+  Al ser la condición falsa, se ejecuta la rama alternativa (else).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "intermedio"
+  tags: ["if", "else", "sintaxis"]
+
+tipo: completar
+respuesta: "else"
+respuestas_validas:
+  - "else"
+
+enunciado: "Completa la sintaxis correcta para este fragmento de código:\n\nif (puntuacion > 50) {{\n  print('Excelente');\n}} ___ {{\n  print('Inténtalo de nuevo');\n}}"
+
+explicacion: |
+  La estructura completa es 'if' para la condición inicial y 'else' para el caso contrario.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "intermedio"
+  tags: ["if", "else if", "logica"]
+
+respuesta: "calor"
+tipo: mc
+opciones_explicitas: ["calor", "frio", "templado"]
+
+enunciado: "Analiza el siguiente código:\n\nif (temp > 25) {{\n  print('calor');\n}} else if (temp > 0) {{\n  print('templado');\n}} else {{\n  print('frio');\n}}\n\nSi la variable temp es 30, ¿cuál es la salida?"
+
+pasos:
+  - "Se evalúa la primera condición: 30 > 25. Es verdadero."
+  - "Al cumplirse la primera condición, se ejecuta su bloque y se sale de la estructura."
+  - "Las condiciones 'else if' y 'else' se ignoran completamente."
+
+explicacion: |
+  En una estructura if/else if/else, solo se ejecuta el primer bloque cuya condición sea verdadera.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["flujo", "orden"]
+
+respuesta_orden: ["evaluar_condicion", "decidir_camino", "ejecutar_bloque"]
+tipo: ordenar
+opciones_explicitas: ["evaluar_condicion", "decidir_camino", "ejecutar_bloque"]
+
+enunciado: "Ordena los pasos lógicos que sigue el procesador al encontrar una estructura condicional if-else:"
+
+explicacion: |
+  Primero se determina si la condición es verdadera o falsa, luego se elige qué camino seguir y finalmente se procesa la instrucción correspondiente.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["error_comun", "if_else"]
+
+enunciado: "Observa el siguiente código: if (x > 0) \n  print('Positivo') \n print('Siempre sale'). Si el programador quería que el segundo 'print' SOLO se ejecute si x > 0, pero lo escribió fuera de la indentación, ¿qué tipo de error ha cometido?"
+
+opciones_explicitas: ["error_de_sintaxis", "error_de_logica", "error_de_tipo", "no hay error"]
+respuesta: "error_de_logica"
+tipo: mc
+
+explicacion: |
+  El código es sintácticamente correcto (no dará error al compilar), pero la lógica es errónea porque el segundo comando se ejecutará siempre, independientemente de la condición.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["confusión_operadores"]
+
+variables:
+  caso: uno_de([["if (edad = 18) { ... }", "error_sintaxis"], ["if (edad == 18) { ... }", "correcto"]])
+
+enunciado: "En muchos lenguajes de programación, intentar usar un solo signo de igual '{caso[0]}' dentro de una condición 'if' en lugar de un doble signo de igual suele provocar un error de tipo '{caso[1]}' o un comportamiento inesperado. ¿Cuál es el operador correcto para comparar igualdad?"
+
+opciones_explicitas: ["=", "==", "!=", "<=>"]
+respuesta: "=="
+tipo: mc
+
+explicacion: |
+  El signo '=' se usa para asignación (dar un valor a una variable), mientras que '==' se usa para comparación (verificar si dos valores son iguales).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "intermedio"
+  tags: ["truthy_falsy"]
+
+enunciado: "En lenguajes como Python o JavaScript, una lista vacía [] o el número 0 se evalúan como ___ en una estructura condicional 'if'. (Escribe 'falso' o 'verdadero')"
+
+respuestas_validas:
+  - "falso"
+respuesta: "falso"
+tipo: completar
+
+explicacion: |
+  En la evaluación de contextos booleanos (truthy/falsy), los valores vacíos, el cero y el valor null/none se consideran falsos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "intermedio"
+  tags: ["lógica_booleana"]
+
+enunciado: "Si tenemos la expresión: 'if (x > 5 && x < 15)'. Si x es 20, ¿cuál es el resultado booleano de la condición?"
+
+opciones_explicitas: ["verdadero", "falso"]
+respuesta: "falso"
+tipo: mc
+
+explicacion: |
+  Como el operador '&&' (AND) requiere que AMBAS condiciones sean verdaderas, y 20 no es menor que 15, el resultado es falso.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "avanzado"
+  tags: ["anidamiento"]
+
+enunciado: "Ordena los pasos lógicos que sigue el procesador al evaluar una estructura 'if-elif-else' para encontrar la primera coincidencia verdadera:"
+
+opciones_explicitas: ["Evaluar la condición del 'if' inicial", "Evaluar las condiciones de los 'elif' en orden", "Ejecutar el bloque 'else' si ninguna anterior fue verdadera"]
+respuesta_orden: ["Evaluar la condición del 'if' inicial", "Evaluar las condiciones de los 'elif' en orden", "Ejecutar el bloque 'else' si ninguna anterior fue verdadera"]
+tipo: ordenar
+
+explicacion: |
+  Las estructuras condicionales múltiples se evalúan de arriba hacia abajo. En cuanto se encuentra una condición verdadera, se ejecuta su bloque y se salta el resto de la estructura.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["condicionales", "lógica"]
+
+respuesta: "else"
+tipo: "completar"
+respuestas_validas:
+  - "else"
+
+enunciado: "Mientras que la estructura 'if' permite ejecutar un bloque de código si una condición es verdadera, la cláusula ___ se utiliza para definir qué código debe ejecutarse cuando dicha condición es falsa."
+
+explicacion: |
+  La estructura 'if' evalúa una condición. Si es verdadera, ejecuta su bloque. El 'else' es el bloque opcional que se ejecuta únicamente cuando la condición del 'if' resulta ser falsa.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["booleanos", "lógica"]
+
+variables:
+  escenario: uno_de([["8 > 5", "verdadero"], ["3 == 10", "falso"], ["5 < 2", "falso"]])
+
+respuesta: escenario[1]
+tipo: "mc"
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "Si evaluamos la expresión {escenario[0]}, el resultado booleano que la estructura de control procesará es ___."
+
+explicacion: |
+  En programación, las estructuras condicionales dependen de valores booleanos. Si la expresión matemática o lógica se cumple, el resultado es 'verdadero'; de lo contrario, es 'falso'.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "intermedio"
+  tags: ["flujo_de_control", "lógica"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "¿Es correcto afirmar que una estructura 'if' sin un bloque 'else' puede ser utilizada para ejecutar código de forma selectiva sin necesidad de manejar el caso contrario?"
+
+explicacion: |
+  Verdadero. Un 'if' independiente es perfectamente válido y se usa precisamente para ejecutar algo solo si se cumple una condición, ignorando el flujo si la condición es falsa.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "intermedio"
+  tags: ["anidamiento", "flujo"]
+
+respuesta_orden: ["if", "else if", "else"]
+tipo: "ordenar"
+opciones_explicitas: ["if", "else if", "else"]
+
+enunciado: "En una estructura condicional compuesta (múltiples opciones), ¿cuál es el orden lógico de evaluación que debe seguir el procesador para evaluar condiciones de forma jerárquica?"
+
+explicacion: |
+  El programa evalúa primero la condición principal (if). Si no se cumple, pasa a las condiciones intermedias (else if) una por una. Si ninguna se cumple, se ejecuta el bloque por defecto (else).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["operadores", "comparación"]
+
+variables:
+  caso: uno_de([["5 == 5", "igualdad"], ["5 != 5", "desigualdad"]])
+
+respuesta: caso[1]
+tipo: "mc"
+opciones_explicitas: ["igualdad", "desigualdad"]
+
+enunciado: "Si comparamos la expresión {caso[0]}, el operador utilizado busca determinar la ___ entre los dos valores."
+
+explicacion: |
+  El operador '==' comprueba si dos valores son iguales, mientras que '!=' (o distinto de) comprueba si son diferentes. Son la base de las decisiones en los condicionales.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["if", "else", "logica"]
+
+variables:
+  datos: [["rojo", "detenerse"], ["verde", "avanzar"], ["amarillo", "precaucion"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["detenerse", "avanzar", "precaucion"]
+
+enunciado: "Un sensor detecta que el semáforo está en color {datos[idx][0]}. Según la lógica de control, la acción a ejecutar es ___."
+
+explicacion: |
+  El programa utiliza una estructura condicional para evaluar el estado de la variable 'color'. Si el color es rojo, la acción es detenerse.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["booleanos", "comparacion"]
+
+variables:
+  edad: uno_de([15, 20, 12])
+  es_mayor: edad >= 18
+
+respuesta: es_mayor
+tipo: vf
+enunciado: "Si tenemos una variable `edad` con el valor {edad}, ¿es verdadera la expresión `edad >= 18`?"
+
+explicacion: |
+  La expresión evalúa si el valor de la variable es mayor o igual a 18. Como {edad} es {edad}, el resultado es {es_mayor}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "intermedio"
+  tags: ["if_else", "condicionales_anidadas"]
+
+variables:
+  datos: [["compra_alta", "aplicar_descuento"], ["compra_media", "sin_descuento"], ["compra_baja", "sin_descuento"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "aplicar_descuento"
+  - "sin_descuento"
+
+enunciado: "Un sistema de ventas evalúa el tipo de compra: {datos[idx][0]}. Si la condición es verdadera para una 'compra_alta', el sistema debe ___."
+
+pasos:
+  - "Evaluar el tipo de compra"
+  - "Asignar la acción correspondiente al bloque else o if"
+
+explicacion: |
+  En una estructura if/else, el flujo se desvía hacia el bloque que cumple la condición. Para 'compra_alta', se ejecuta el primer bloque.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "basico"
+  tags: ["comparacion"]
+
+variables:
+  temp: uno_de([35, 15, 25])
+  es_calor: temp > 30
+
+respuesta: es_calor
+tipo: vf
+enunciado: "Dada una variable `temp` con valor {temp}, ¿es verdadera la condición `temp > 30`?"
+
+explicacion: |
+  Al comparar {temp} con 30, obtenemos el valor booleano {es_calor}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_condicionales"
+  nivel: "intermedio"
+  tags: ["ordenar", "logica_flujo"]
+
+respuesta_orden: ["Verificar credenciales", "Validar permisos", "Acceder al sistema"]
+tipo: ordenar
+opciones_explicitas: ["Verificar credenciales", "Validar permisos", "Acceder al sistema"]
+
+enunciado: "Ordena los pasos lógicos de un programa que controla el acceso a un panel de administración mediante condicionales:"
+
+explicacion: |
+  Primero se debe verificar si la identidad es correcta (if password_ok), luego si el rol tiene permiso (if user_role == 'admin') y finalmente permitir el acceso.
 ```
 

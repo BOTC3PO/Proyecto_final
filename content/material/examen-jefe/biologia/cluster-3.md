@@ -1,1454 +1,742 @@
 # Examen jefe — [PENDIENTE #863]
 
-> Logro #863. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **131 preguntas totales** en 5/5 secciones.
+> Logro #863. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: cruce-dihibrido (31 preguntas)
+## Sección: fotosintesis-respiracion-celular (24 preguntas)
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cruce_dihibrido"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "basico"
-  tags: ["genetica", "mendel"]
+  tags: ["cloroplasto"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En un cruce monohíbrido se estudia la herencia de un solo gen a la vez."
+enunciado: "La fotosíntesis ocurre en el cloroplasto."
 
 explicacion: |
-  Correcto. "Mono" indica un solo par de alelos bajo estudio.
+  Correcto, gracias a la clorofila que contiene.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cruce_dihibrido"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "basico"
-  tags: ["genetica", "mendel"]
+  tags: ["energia", "glucosa"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un cruce dihíbrido es aquel en el que se estudian dos genes distintos simultáneamente."
+enunciado: "La fotosíntesis convierte energía luminosa en energía química almacenada en glucosa."
 
 explicacion: |
-  Correcto, el prefijo "di-" indica dos genes a la vez.
+  Correcto, captura la energía de la luz en moléculas orgánicas.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cruce_dihibrido"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "basico"
-  tags: ["genetica", "mendel"]
+  tags: ["autotrofos"]
 
-respuesta: "color y forma de la semilla"
+respuesta: "autótrofos"
 tipo: mc
-opciones_explicitas: ["color y forma de la semilla", "solo el color de la semilla", "solo la forma de la semilla", "ningún rasgo"]
+opciones_explicitas: ["autótrofos", "heterótrofos", "consumidores", "descomponedores"]
 
-enunciado: "Si se estudia la herencia del color Y la forma de la semilla al mismo tiempo, ¿qué tipo de cruce es?"
+enunciado: "Los organismos que fabrican su propio alimento se llaman..."
 
 explicacion: |
-  Dos características a la vez: cruce dihíbrido.
+  Autótrofos, como las plantas.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cruce_dihibrido"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "basico"
-  tags: ["genetica", "mendel"]
+  tags: ["seres_vivos"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El cruce dihíbrido es más simple que el cruce monohíbrido porque involucra menos genes."
+enunciado: "Todos los seres vivos, incluidos los animales, pueden hacer fotosíntesis."
 
 explicacion: |
-  Falso, es más complejo: involucra dos pares de genes en vez de uno.
+  Falso, sólo plantas, algas y algunas bacterias con clorofila.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cruce_dihibrido"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "basico"
-  tags: ["genetica", "mendel"]
+  tags: ["reaccion", "oxigeno"]
+
+respuesta: "oxigeno"
+tipo: completar
+respuestas_validas:
+  - "oxigeno"
+  - "oxígeno"
+
+enunciado: "La fotosíntesis usa CO2, agua y luz para producir glucosa y ___."
+
+explicacion: |
+  Se libera oxígeno como subproducto.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_respiracion_celular"
+  nivel: "basico"
+  tags: ["mitocondria"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si dos genes están en cromosomas distintos, se heredan de forma independiente uno del otro."
+enunciado: "La respiración celular ocurre principalmente en la mitocondria."
 
 explicacion: |
-  Correcto. Segundo principio de Mendel.
+  Correcto, es la central energética de la célula.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cruce_dihibrido"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "basico"
-  tags: ["genetica", "mendel"]
+  tags: ["energia", "glucosa"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La respiración celular libera la energía química guardada en la glucosa."
+
+explicacion: |
+  Correcto, extrae la energía y la convierte en ATP.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_respiracion_celular"
+  nivel: "basico"
+  tags: ["organismos"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Que un descendiente reciba el alelo dominante del gen 1 influye en el alelo que recibe del gen 2."
+enunciado: "La respiración celular ocurre sólo en los animales, no en las plantas."
 
 explicacion: |
-  Falso, si los genes son independientes no se influyen.
+  Falso, las plantas también respiran (y también fotosintetizan).
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cruce_dihibrido"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "basico"
-  tags: ["genetica", "mendel"]
+  tags: ["atp"]
 
-respuesta: "independiente"
+respuesta: "ATP"
 tipo: completar
 respuestas_validas:
-  - "independiente"
+  - "ATP"
+  - "energia"
 
-enunciado: "La ley que dice que los genes en cromosomas distintos se heredan sin influirse entre sí se llama ley de segregación ___."
+enunciado: "La respiración celular usa glucosa y oxígeno para producir CO2, agua y ___."
 
 explicacion: |
-  Ley de segregación independiente (2ª ley de Mendel).
+  El ATP es la molécula que transporta esa energía.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cruce_dihibrido"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "basico"
-  tags: ["genetica", "probabilidad"]
+  tags: ["bioquimica"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La segregación independiente permite tratar cada gen como un sorteo aparte y combinar sus probabilidades multiplicándolas."
+enunciado: "La ecuación de la respiración celular es la ecuación de la fotosíntesis pero en sentido inverso."
 
 explicacion: |
-  Correcto, es la regla del producto para eventos independientes.
+  Correcto, lo que una produce, la otra lo consume.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cruce_dihibrido"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "basico"
-  tags: ["genetica", "gametos"]
+  tags: ["sustancias"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un individuo con genotipo AaBb puede producir 4 tipos de gametos diferentes."
+enunciado: "Los productos de la fotosíntesis (glucosa y oxígeno) son los reactivos que se consumen en la respiración celular."
 
 explicacion: |
-  Combina A/a con B/b: AB, Ab, aB, ab.
+  Correcto, hay un ciclo entre ambos procesos.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "basico"
-  tags: ["genetica", "gametos"]
-
-respuesta: "AB, Ab, aB, ab"
-tipo: mc
-opciones_explicitas: ["AB, Ab, aB, ab", "Solo AB y ab", "Aa y Bb", "AABB y aabb"]
-
-enunciado: "Un individuo AaBb produce los siguientes tipos de gametos:"
-
-explicacion: |
-  Las 4 combinaciones posibles: AB, Ab, aB, ab.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "basico"
-  tags: ["genetica", "gametos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un individuo AABB (homocigota para ambos genes) produce un solo tipo de gameto (AB)."
-
-explicacion: |
-  Al ser homocigota, todos sus gametos llevan A y B.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "intermedio"
-  tags: ["genetica", "combinatoria"]
+  tags: ["organelas"]
 
 variables:
-  genes: uno_de([1, 2, 3])
-
-respuesta: 2 ^ genes
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Un individuo heterocigoto para {genes} genes produce 2 elevado a n tipos de gametos. ¿Cuántos tipos produce?"
-
-pasos:
-  - "2^n, con n = {genes}"
-
-explicacion: |
-  2^{genes}.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "basico"
-  tags: ["genetica", "punnett"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El cuadro de Punnett para un cruce dihíbrido tiene 16 casillas (matriz 4×4)."
-
-explicacion: |
-  Cada progenitor aporta 4 tipos de gametos: 4×4=16.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "basico"
-  tags: ["genetica", "punnett"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El cuadro de Punnett para un cruce monohíbrido tiene 16 casillas, igual que el dihíbrido."
-
-explicacion: |
-  Falso. El monohíbrido tiene 4 casillas (2×2); 16 es exclusivo del dihíbrido.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "intermedio"
-  tags: ["genetica", "punnett"]
-
-respuesta: "Cada progenitor produce 4 tipos de gametos diferentes"
-tipo: mc
-opciones_explicitas: ["Cada progenitor produce 4 tipos de gametos diferentes", "Hay 4 alelos en total en el sistema", "El cruce siempre produce 4 hijos en la descendencia", "No tiene una razón particular, es una convención"]
-
-enunciado: "¿Por qué el cuadro de Punnett de un cruce dihíbrido tiene 4 filas y 4 columnas?"
-
-explicacion: |
-  Porque cada progenitor produce 4 tipos de gametos posibles.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "basico"
-  tags: ["genetica", "mendel"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al cruzar AaBb × AaBb, la proporción fenotípica clásica es 9:3:3:1."
-
-explicacion: |
-  Correcto, es la proporción clásica del cruce dihíbrido.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "basico"
-  tags: ["genetica", "mendel"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la proporción 9:3:3:1, el 9/16 corresponde a dominante en ambos genes."
-
-explicacion: |
-  Correcto, es el grupo mayoritario.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "basico"
-  tags: ["genetica", "mendel"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En la proporción 9:3:3:1, el 1/16 corresponde a dominante en ambos genes."
-
-explicacion: |
-  Falso, el 1/16 es recesivo en ambos genes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "basico"
-  tags: ["genetica", "mendel"]
-
-respuesta: "1"
-tipo: completar
-respuestas_validas:
-  - "1"
-  - "un"
-
-enunciado: "En la proporción 9:3:3:1, la fracción recesiva en ambos genes es ___ dieciseisavos."
-
-explicacion: |
-  1/16 es la fracción doble recesiva.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "basico"
-  tags: ["genetica", "mendel"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La suma de las 4 fracciones de la proporción 9:3:3:1 (9+3+3+1) da 16."
-
-explicacion: |
-  Correcto, es el total de casillas del cuadro dihíbrido.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "intermedio"
-  tags: ["mendel", "probabilidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Como los genes son independientes, se puede resolver cada gen por separado (3:1) y multiplicar, en vez de armar las 16 casillas."
-
-explicacion: |
-  Correcto, es un atajo válido por la segregación independiente.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "intermedio"
-  tags: ["probabilidad", "genetica"]
-
-variables:
-  p1: uno_de([3, 1])
-  p2: uno_de([3, 1])
-
-respuesta: (p1 / 4) * (p2 / 4)
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "En AaBb × AaBb, P(dominante gen1) = {p1}/4 y P(dominante gen2) = {p2}/4. ¿Cuál es la probabilidad combinada?"
-
-pasos:
-  - "Multiplicar ambas probabilidades"
-
-explicacion: |
-  ({p1}/4) × ({p2}/4).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "basico"
-  tags: ["probabilidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Multiplicar probabilidades de eventos independientes es la misma lógica de la probabilidad compuesta."
-
-explicacion: |
-  Correcto — ver ../../matematica/probabilidad-compuesta/.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "basico"
-  tags: ["mendel", "monohibridismo"]
-
-respuesta: "3/4"
-tipo: mc
-opciones_explicitas: ["3/4", "1/4", "1/2", "1"]
-
-enunciado: "En Aa × Aa, ¿cuál es la probabilidad de fenotipo dominante en un descendiente?"
-
-explicacion: |
-  AA (1/4) + Aa (2/4) = 3/4 con fenotipo dominante.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "intermedio"
-  tags: ["genetica", "probabilidad"]
-
-variables:
-  total: uno_de([16, 32, 48, 64])
-
-respuesta: total * 9 / 16
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "En AaBb × AaBb con {total} descendientes totales, ¿cuántos se esperan con fenotipo dominante en ambos genes?"
-
-explicacion: |
-  {total} × 9/16.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "intermedio"
-  tags: ["genetica", "probabilidad"]
-
-variables:
-  total: uno_de([16, 32, 48, 64])
-
-respuesta: total * 1 / 16
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "En AaBb × AaBb con {total} descendientes totales, ¿cuántos se esperan con fenotipo recesivo en ambos genes?"
-
-explicacion: |
-  {total} × 1/16.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "intermedio"
-  tags: ["genetica", "probabilidad"]
-
-variables:
-  total: uno_de([16, 32, 48, 64])
-
-respuesta: total * 3 / 16
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "En AaBb × AaBb con {total} descendientes totales, ¿cuántos se esperan con fenotipo dominante en el gen 1 y recesivo en el gen 2?"
-
-explicacion: |
-  {total} × 3/16.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "basico"
-  tags: ["mendel"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Mendel usó guisantes con forma de semilla (lisa/rugosa) y color (amarillo/verde) como los 2 genes de su cruce dihíbrido clásico."
-
-explicacion: |
-  Correcto, es el experimento clásico de Mendel.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "intermedio"
-  tags: ["mendel", "proporciones"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La semilla lisa y amarilla (dominante en ambos) es el fenotipo más común, con 9/16 de la descendencia."
-
-explicacion: |
-  Correcto, es la proporción mayoritaria.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "intermedio"
-  tags: ["mendel", "proporciones"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La semilla rugosa y verde (recesiva en ambos) es la menos común, con 1/16 de la descendencia."
-
-explicacion: |
-  Correcto, es la proporción minoritaria.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "cruce_dihibrido"
-  nivel: "avanzado"
-  tags: ["mendel", "segregacion_independiente"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El cruce dihíbrido de Mendel confirmó que los genes de forma y color se heredan de manera dependiente entre sí."
-
-explicacion: |
-  Falso. Confirmó que se heredan de forma INDEPENDIENTE.
-```
-
-## Sección: deriva-genetica-flujo-genico (25 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "basico"
-  tags: ["genetica", "evolucion", "azar"]
-
-respuesta: "azar"
-tipo: completar
-respuestas_validas:
-  - "azar"
-
-enunciado: "La deriva genética se define como el cambio en las frecuencias alélicas de una población debido a eventos de ___."
-
-explicacion: |
-  A diferencia de la selección natural, donde los rasgos se heredan por su ventaja adaptativa, la deriva genética es un proceso estocástico (al azar) que afecta la composición genética de la población sin importar si el rasgo es beneficioso o perjudicial.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "basico"
-  tags: ["poblacion", "tamaño", "deriva"]
-
-variables:
-  escenario: uno_de([["una isla pequeña con pocos individuos", "pequeña"], ["un continente con millones de individuos", "grande"]])
-
-respuesta: escenario[1]
-tipo: completar
-respuestas_validas:
-  - "pequeña"
-  - "grande"
-
-enunciado: "La deriva genética tiene un impacto mucho más significativo y es más notoria en una población de tamaño ___."
-
-explicacion: |
-  En poblaciones grandes, el azar tiende a compensarse y las frecuencias se mantienen estables. En poblaciones pequeñas, un evento aleatorio (como la muerte accidental de un individuo) puede cambiar drásticamente el porcentaje de un alelo en la siguiente generación.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "intermedio"
-  tags: ["variabilidad", "polimorfismo", "extincion"]
-
-respuesta: "disminuye"
-tipo: completar
-respuestas_validas:
-  - "disminuye"
-
-enunciado: "Debido a que los alelos pueden desaparecer de la población por puro azar, la deriva genética generalmente hace que la variabilidad genética ___."
-
-explicacion: |
-  Al perderse alelos de forma aleatoria (especialmente en poblaciones pequeñas), la diversidad genética de la población se reduce, lo que puede limitar la capacidad de adaptación de la especie a cambios ambientales futuros.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "intermedio"
-  tags: ["efecto_fundador", "colonizacion"]
-
-respuesta: "fundador"
-tipo: completar
-respuestas_validas:
-  - "fundador"
-
-enunciado: "Cuando un grupo muy pequeño de individuos coloniza un nuevo hábitat, se produce un fenómeno de deriva genética conocido como efecto ___."
-
-explicacion: |
-  El efecto fundador ocurre cuando una nueva población se establece a partir de un número reducido de individuos. La composición genética de los nuevos colonizadores puede ser muy distinta a la de la población original debido al azar.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "intermedio"
-  tags: ["comparacion", "seleccion_natural"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un alelo aumenta su frecuencia en una población porque otorga una ventaja de supervivencia, ese cambio es producto de la selección natural, no de la deriva genética."
-
-explicacion: |
-  Correcto. La deriva genética es, por definición, un proceso que ocurre independientemente de la ventaja o desventaja del rasgo — si hay una ventaja de por medio, el mecanismo en juego es la selección natural.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "basico"
-  tags: ["genetica", "evolucion", "deriva_genetica"]
-
-tipo: mc
-opciones_explicitas: ["Un grupo pequeño coloniza una nueva zona, llevando sólo una parte de la variabilidad", "Un grupo grande se mezcla con una población residente", "La selección natural favorece a los individuos más fuertes", "Un evento catastrófico mata a la mayoría de los individuos de una población"]
-respuesta: "Un grupo pequeño coloniza una nueva zona, llevando sólo una parte de la variabilidad"
-
-enunciado: "El efecto fundador ocurre cuando ___."
-
-explicacion: |
-  El efecto fundador es un tipo de deriva genética que sucede cuando un pequeño número de individuos se separa de una población original para establecer una nueva colonia. La nueva población tendrá una composición genética muy distinta a la original porque el grupo fundador no representa la diversidad total de la población madre.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "intermedio"
-  tags: ["variabilidad", "polimorfismo"]
-
-variables:
-  escenario: [["un grupo de 5 mariposas", "Disminución de la variabilidad genética"], ["un grupo de 10 mariposas", "Disminución de la variabilidad genética"]]
+  datos: [["cloroplasto", "fotosintesis"], ["mitocondria", "respiracion celular"]]
   idx: uno_de([0, 1])
 
-tipo: mc
-opciones_explicitas: ["Aumento de la variabilidad genética", "Disminución de la variabilidad genética", "No hay cambios en la frecuencia alélica", "Aumento del tamaño poblacional"]
-respuesta: escenario[idx][1]
-
-enunciado: "Si {escenario[idx][0]} coloniza una isla desierta, ¿cuál es la consecuencia más probable para la variabilidad genética de la nueva población?"
-
-explicacion: |
-  Al ser un grupo tan reducido, muchos alelos presentes en la población original pueden no estar presentes en los fundadores, lo que reduce la riqueza genética de la nueva población.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "intermedio"
-  tags: ["frecuencia_alelica", "deriva_genetica"]
-
-tipo: completar
-respuesta: "alta"
-respuestas_validas:
-  - "alta"
-
-enunciado: "Si por azar uno de los pocos individuos fundadores porta un alelo que era raro en la población original, ese alelo puede terminar con una frecuencia ___ en la nueva población, muy distinta a su frecuencia original."
-
-explicacion: |
-  Debido al azar del muestreo con tan pocos individuos, un alelo raro puede volverse desproporcionadamente común (o directamente desaparecer) en la población fundadora.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "avanzado"
-  tags: ["analisis", "deriva_genetica"]
-
-variables:
-  datos: [["Un grupo de 10 escarabajos llega a una isla y se establece", "Efecto fundador"], ["Un incendio mata al 90% de los leones de una población ya establecida", "Cuello de botella"]]
-  idx: uno_de([0, 1])
-
-tipo: mc
-opciones_explicitas: ["Efecto fundador", "Cuello de botella", "Selección natural", "Mutación"]
 respuesta: datos[idx][1]
-
-enunciado: "{datos[idx][0]}. ¿Cómo se llama este fenómeno?"
-
-explicacion: |
-  La clave es distinguir colonización de un espacio nuevo por un grupo reducido (efecto fundador) de una mortalidad masiva sobre una población ya establecida (cuello de botella).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "intermedio"
-  tags: ["tamaño_poblacional", "deriva_genetica"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "El efecto fundador tiene un impacto mucho mayor en la composición genética de una población si el tamaño del grupo colonizador es muy pequeño."
-
-explicacion: |
-  Verdadero. Cuanto más pequeño sea el número de individuos fundadores, mayor es el error de muestreo y, por lo tanto, mayor es la deriva genética respecto a la población original.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "basico"
-  tags: ["evolucion", "deriva_genetica"]
-
 tipo: mc
-opciones_explicitas: ["Aumento de la variabilidad genética", "Reducción de la diversidad genética", "Aumento del tamaño de la población", "Selección natural dirigida"]
-respuesta: "Reducción de la diversidad genética"
+opciones_explicitas: ["fotosintesis", "respiracion celular"]
 
-enunciado: "Un incendio forestal destruye la mayor parte de una población de escarabajos, dejando vivos sólo a unos pocos individuos al azar. Este evento de 'cuello de botella' provoca principalmente una ___."
+enunciado: "¿Qué proceso ocurre principalmente en el {datos[idx][0]}?"
 
 explicacion: |
-  El cuello de botella reduce drásticamente el tamaño de la población. Como los sobrevivientes son una muestra aleatoria, la diversidad de alelos disminuye, lo que limita la capacidad de la población para adaptarse en el futuro.
+  En el {datos[idx][0]}: {datos[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "basico"
-  tags: ["deriva_genetica", "cuello_de_botella"]
-
-tipo: vf
-respuesta: falso
-
-enunciado: "En un evento de cuello de botella, los individuos que sobreviven lo hacen porque poseen características físicamente superiores que les permiten adaptarse mejor al desastre."
-
-explicacion: |
-  Falso. En la deriva genética (como el cuello de botella), la supervivencia es producto del azar y no de la adaptación. Los sobrevivientes no son necesariamente los "más aptos", sino los que tuvieron suerte.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "intermedio"
-  tags: ["genetica_de_poblaciones", "cuello_de_botella"]
-
-tipo: mc
-opciones_explicitas: ["Aumento de la endogamia", "Aumento de la tasa de mutación", "Eliminación de la selección natural", "Aumento de la frecuencia de alelos raros"]
-respuesta: "Aumento de la endogamia"
-
-enunciado: "Cuando una población pasa por un cuello de botella, la reducción drástica del número de individuos suele llevar a un aumento de la ___ debido a la reproducción entre parientes cercanos."
-
-explicacion: |
-  Al haber pocos individuos, la probabilidad de que se crucen parientes aumenta, lo que incrementa la endogamia y puede manifestar rasgos recesivos perjudiciales.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "basico"
-  tags: ["deriva_genetica"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "La deriva genética por cuello de botella es un mecanismo de la evolución que actúa de forma aleatoria, independientemente de si los rasgos son beneficiosos o no."
-
-explicacion: |
-  Verdadero. A diferencia de la selección natural, la deriva genética se basa en eventos aleatorios (catástrofes, desastres) que cambian las frecuencias alélicas sin considerar la adaptación.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "intermedio"
-  tags: ["biodiversidad", "cuello_de_botella"]
-
-tipo: mc
-opciones_explicitas: ["La población recupera su diversidad original inmediatamente", "La diversidad genética se mantiene igual", "La diversidad genética se reduce significativamente", "La población se vuelve inmune a cambios ambientales"]
-respuesta: "La diversidad genética se reduce significativamente"
-
-enunciado: "Si una población de 1000 individuos es reducida a sólo 10 sobrevivientes por un desastre natural, ¿qué ocurre con la diversidad genética de la nueva población?"
-
-explicacion: |
-  La diversidad se reduce significativamente porque los 10 sobrevivientes sólo llevan consigo una pequeña fracción de la información genética que existía en la población original.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "basico"
-  tags: ["genetica", "poblaciones"]
-
-respuesta: "migración"
-tipo: completar
-respuestas_validas:
-  - "migración"
-  - "migracion"
-
-enunciado: "El movimiento de genes entre poblaciones, causado por la ___ de individuos que se reproducen en un nuevo grupo, se conoce como flujo génico."
-
-explicacion: |
-  El flujo génico ocurre cuando individuos de una población se desplazan a otra y se reproducen, introduciendo nuevos alelos o cambiando las frecuencias existentes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "intermedio"
-  tags: ["homogeneizacion", "frecuencias"]
-
-respuesta: "homogeneizar"
-tipo: completar
-respuestas_validas:
-  - "homogeneizar"
-  - "homogeneizacion"
-  - "homogeneización"
-
-enunciado: "Uno de los efectos principales del flujo génico constante entre dos poblaciones es que tiende a ___ sus frecuencias alélicas, haciéndolas más similares entre sí."
-
-explicacion: |
-  Al intercambiar individuos, las diferencias genéticas entre las poblaciones disminuyen, lo que reduce la divergencia genética y las hace más parecidas (homogéneas).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "intermedio"
-  tags: ["comparacion", "deriva"]
-
-respuesta: "reducir"
-tipo: completar
-respuestas_validas:
-  - "reducir"
-  - "disminuir"
-
-enunciado: "Mientras que la deriva genética tiende a aumentar la diferenciación entre poblaciones, el flujo génico tiende a ___ esa diferenciación entre ellas."
-
-explicacion: |
-  La deriva genética es un proceso aleatorio que aumenta la diferencia entre poblaciones, mientras que el flujo génico actúa como una fuerza cohesiva que las iguala.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "basico"
-  tags: ["variabilidad", "alelos"]
-
-respuesta: "aumentar"
-tipo: completar
-respuestas_validas:
-  - "aumentar"
-  - "incrementar"
-
-enunciado: "Cuando un grupo de individuos llega a una población que es genéticamente muy similar, el flujo génico puede servir para ___ la variabilidad genética dentro de esa población receptora."
-
-explicacion: |
-  Al introducir nuevos alelos que no estaban presentes o que eran raros, la diversidad genética dentro de la población local aumenta.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "avanzado"
-  tags: ["aislamiento", "reproduccion"]
+  tags: ["clasificacion"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El flujo génico es posible si las poblaciones están completamente aisladas reproductivamente (por ejemplo, por una barrera geográfica infranqueable)."
+enunciado: "La fotosíntesis la realizan casi todos los seres vivos, mientras que la respiración celular es exclusiva de los autótrofos."
 
 explicacion: |
-  Falso. Para que exista flujo génico debe haber transferencia de genes, lo cual requiere que los individuos se desplacen y logren reproducirse exitosamente en la nueva población.
+  Falso, es al revés: respiración casi todos, fotosíntesis sólo autótrofos.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "basico"
-  tags: ["evolucion", "mecanismos"]
+  tags: ["plantas"]
 
-tipo: mc
-opciones_explicitas: ["Selección natural", "Deriva genética", "Flujo génico"]
-respuesta: "Deriva genética"
-
-enunciado: "Un incendio accidental elimina a la mayoría de los individuos de una pequeña población de escarabajos, cambiando la frecuencia de un alelo por puro azar. Este proceso se denomina:"
-
-explicacion: |
-  La deriva genética es un cambio aleatorio en las frecuencias alélicas de una población, generalmente más impactante en poblaciones pequeñas, donde el azar determina qué individuos sobreviven o se reproducen, independientemente de su adaptación.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "intermedio"
-  tags: ["flujo_genico", "especies"]
-
-tipo: completar
-respuesta: "homogeneización"
-respuestas_validas:
-  - "homogeneización"
-  - "homogeneizacion"
-
-enunciado: "El flujo génico (migración) actúa como un agente de ___, ya que introduce nuevos alelos en una población pero tiende a hacer que las poblaciones sean más similares entre sí."
-
-explicacion: |
-  El flujo génico es el movimiento de genes entre poblaciones. Al intercambiar individuos, las diferencias genéticas entre poblaciones disminuyen, lo que impide la especiación al mantener el acervo genético conectado.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "intermedio"
-  tags: ["comparacion", "seleccion"]
-
-tipo: mc
-opciones_explicitas: ["La selección natural es dirigida por el ambiente y la deriva es azarosa.", "La selección natural es azarosa y la deriva es dirigida por el ambiente.", "Ambas son procesos puramente azarosos.", "Ambas dependen de la migración de individuos."]
-respuesta: "La selección natural es dirigida por el ambiente y la deriva es azarosa."
-
-enunciado: "¿Cuál es la diferencia fundamental entre la selección natural y la deriva genética?"
-
-explicacion: |
-  La selección natural favorece rasgos que aumentan la supervivencia y reproducción en un ambiente específico (no es azarosa), mientras que la deriva genética cambia las frecuencias de alelos por eventos fortuitos (azar).
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "avanzado"
-  tags: ["especiacion", "flujo_genico"]
-
-tipo: completar
-respuesta: "baja"
-respuestas_validas:
-  - "baja"
-  - "menor"
-
-enunciado: "Si el flujo génico entre dos poblaciones de plantas es muy alto y constante, la probabilidad de que estas poblaciones se conviertan en especies distintas es ___, debido a que el intercambio de genes mantiene la similitud genética."
-
-explicacion: |
-  Para que ocurra la especiación, suele ser necesario el aislamiento (reproductivo o geográfico). El flujo génico constante actúa como un "pegamento" genético que contrarresta la divergencia que podrían causar la selección o la deriva.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "deriva_genetica_flujo_genico"
-  nivel: "intermedio"
-  tags: ["poblacion", "deriva"]
-
-tipo: mc
-opciones_explicitas: ["En poblaciones grandes", "En poblaciones pequeñas", "En poblaciones con mucho flujo génico", "En poblaciones con alta selección natural"]
-respuesta: "En poblaciones pequeñas"
-
-enunciado: "El efecto de la deriva genética sobre las frecuencias alélicas es significativamente mayor en:"
-
-explicacion: |
-  En poblaciones grandes, los cambios azarosos en un individuo tienen poco impacto en la frecuencia total. En poblaciones pequeñas, la pérdida o ganancia de un solo individuo puede alterar drásticamente la composición genética del grupo.
-```
-
-## Sección: dinamica-poblacional-capacidad-carga (25 preguntas)
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "basico"
-  tags: ["poblacion", "definicion"]
-
-respuesta: "grupo de individuos de la misma especie que habitan en un mismo lugar y tiempo"
-tipo: completar
-respuestas_validas:
-  - "grupo de individuos de la misma especie que habitan en un mismo lugar y tiempo"
-
-enunciado: "En biología, una población se define como un ___."
-
-explicacion: |
-  Una población es un conjunto de organismos de la misma especie que coexisten en un área determinada y en un momento específico, permitiendo la interacción entre sus miembros.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "intermedio"
-  tags: ["crecimiento_exponencial", "curva_j"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["bacteria", "duplica", "2"], ["levadura", "triplica", "3"]]
-
-respuesta: datos[escenario_idx][2]
-tipo: completar
-respuestas_validas:
-  - "2"
-  - "3"
-
-enunciado: "Si una población de {datos[escenario_idx][0]} se {datos[escenario_idx][1]} en cada intervalo de tiempo, y empezamos con una unidad, el crecimiento sigue un modelo exponencial donde el factor de multiplicación por intervalo es ___."
-
-explicacion: |
-  En el modelo de crecimiento exponencial, la tasa de crecimiento es proporcional al número de individuos presentes, lo que genera una curva en forma de 'J'.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "basico"
-  tags: ["factores_limitantes", "recursos"]
-
-respuesta: "recursos"
-tipo: completar
-respuestas_validas:
-  - "recursos"
-
-enunciado: "El crecimiento exponencial teórico asume que no existen limitaciones por ___ como alimento o espacio."
-
-explicacion: |
-  El modelo exponencial es un modelo idealizado donde los recursos son infinitos, lo que permite que la población crezca sin frenos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "intermedio"
-  tags: ["curva_j", "curva_s"]
-
-respuesta: "J"
-tipo: completar
-respuestas_validas:
-  - "J"
-
-enunciado: "Cuando una población crece de manera exponencial sin restricciones, la representación gráfica de su crecimiento tiene forma de letra ___."
-
-explicacion: |
-  La forma de 'J' representa la aceleración constante del crecimiento conforme la base de individuos aumenta.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "avanzado"
-  tags: ["tasa_crecimiento", "modelo_exponencial"]
-
-respuesta: "más rápido"
-tipo: mc
-opciones_explicitas: ["más rápido", "más lento", "igual", "no depende de r"]
-
-enunciado: "En un modelo de crecimiento exponencial, cuanto mayor es la tasa de crecimiento intrínseca (r) de una población, ___ crece esa población por unidad de tiempo."
-
-explicacion: |
-  En el modelo exponencial, la tasa de crecimiento per cápita (r) se mantiene constante; cuanto mayor es r, más rápido crece el número total de individuos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "basico"
-  tags: ["crecimiento_logistico", "curva_S"]
-
-tipo: mc
-opciones_explicitas: ["Curva exponencial", "Curva en forma de J", "Curva en forma de S", "Curva de decaimiento"]
-respuesta: "Curva en forma de S"
-
-enunciado: "El crecimiento logístico de una población se caracteriza por presentar una curva con forma de ___ debido a la limitación de recursos."
-
-explicacion: |
-  A diferencia del crecimiento exponencial (forma de J), el crecimiento logístico se estabiliza cuando la población alcanza la capacidad de carga, resultando en una curva sigmoidea o en forma de S.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "intermedio"
-  tags: ["factores_limitantes", "competencia"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "La competencia por recursos como alimento y espacio es uno de los factores que frena el crecimiento poblacional en un modelo logístico."
-
-explicacion: |
-  Verdadero. En el modelo logístico, a medida que la población aumenta, la disponibilidad de recursos por individuo disminuye, lo que reduce la tasa de crecimiento hasta que se estabiliza.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "intermedio"
-  tags: ["capacidad_carga", "K"]
-
-tipo: mc
-opciones_explicitas: ["La tasa máxima de natalidad", "El número máximo de individuos que un ambiente puede sostener", "La velocidad de extinción de una especie", "El número total de nacimientos en un año"]
-respuesta: "El número máximo de individuos que un ambiente puede sostener"
-
-enunciado: "En dinámica de poblaciones, el término 'Capacidad de Carga' (K) se refiere a:"
-
-explicacion: |
-  La capacidad de carga es el límite superior de población que un ecosistema determinado puede mantener de forma sostenible, considerando los recursos disponibles.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "avanzado"
-  tags: ["tasa_crecimiento", "logistica"]
-
-tipo: vf
 respuesta: falso
+tipo: vf
 
-enunciado: "En un modelo de crecimiento logístico, la tasa de crecimiento de la población es máxima cuando la población es igual a la capacidad de carga (K)."
+enunciado: "Las plantas sólo realizan fotosíntesis y nunca respiración celular."
 
 explicacion: |
-  Falso. La tasa de crecimiento es máxima cuando la población alcanza la mitad de la capacidad de carga (K/2). Cuando la población se acerca a K, la tasa de crecimiento tiende a cero.
+  Falso, hacen ambos procesos.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "basico"
-  tags: ["estabilizacion", "recursos"]
+  tags: ["dia"]
 
-tipo: mc
-opciones_explicitas: ["La población crece indefinidamente", "La población se estabiliza cerca de la capacidad de carga", "La población se divide en dos especies distintas", "La población entra en un ciclo de extinción inmediata"]
-respuesta: "La población se estabiliza cerca de la capacidad de carga"
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Cuando una población alcanza el equilibrio con su entorno en un modelo logístico, ¿qué sucede con el tamaño de la población?"
+enunciado: "Durante el día, con luz, las plantas hacen fotosíntesis y respiración celular al mismo tiempo."
 
 explicacion: |
-  La población tiende a estabilizarse alrededor de la capacidad de carga (K), donde la tasa de natalidad y la tasa de mortalidad se equilibran.
+  Correcto, la respiración es continua, ocurra o no la fotosíntesis.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "basico"
-  tags: ["ecologia", "poblaciones"]
+  tags: ["noche"]
 
-respuesta: "K"
-tipo: completar
-respuestas_validas:
-  - "K"
+respuesta: verdadero
+tipo: vf
 
-enunciado: "El valor máximo de individuos de una especie que un entorno puede sostener de forma indefinida se denomina capacidad de carga, y se representa con la letra ___."
+enunciado: "Durante la noche, sin luz, las plantas sólo respiran."
 
 explicacion: |
-  La capacidad de carga, representada frecuentemente con la letra K, es el límite de población que los recursos de un ecosistema pueden soportar.
+  Correcto, sin luz no hay fotosíntesis.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "intermedio"
-  tags: ["recursos", "factores_limitantes"]
+  tags: ["oxigeno"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Durante el día, las plantas normalmente producen más oxígeno del que consumen, liberando oxígeno neto."
+
+explicacion: |
+  Correcto, la tasa de fotosíntesis suele superar a la de respiración con luz.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_respiracion_celular"
+  nivel: "basico"
+  tags: ["ecosistemas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La fotosíntesis es el punto de entrada de la energía solar a casi todos los ecosistemas."
+
+explicacion: |
+  Correcto — ver ../flujo-materia-energia/.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_respiracion_celular"
+  nivel: "basico"
+  tags: ["autotrofos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin autótrofos capturando energía solar en forma de glucosa, no habría alimento para el resto de la cadena trófica."
+
+explicacion: |
+  Correcto, son la base de las cadenas alimenticias.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_respiracion_celular"
+  nivel: "intermedio"
+  tags: ["flujo_energia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La energía que fluye por un ecosistema no tiene relación con la fotosíntesis."
+
+explicacion: |
+  Falso, la fotosíntesis es la puerta de entrada de esa energía.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_respiracion_celular"
+  nivel: "intermedio"
+  tags: ["estequiometria"]
 
 variables:
-  recurso: uno_de(["comida", "agua", "espacio", "refugio"])
+  co2_consumido: uno_de([6, 12, 18])
 
-respuesta: recurso
+respuesta: co2_consumido
 tipo: completar
-respuestas_validas:
-  - "comida"
-  - "agua"
-  - "espacio"
-  - "refugio"
+tolerancia_abs: 0.01
 
-enunciado: "La capacidad de carga de un ecosistema está determinada por la disponibilidad de recursos esenciales. Si el recurso considerado en este caso es {recurso}, escribí ese mismo recurso como respuesta: ___."
+enunciado: "En la fotosíntesis, la proporción CO2 consumido : O2 producido es 1:1. Si se consumen {co2_consumido} moléculas de CO2, ¿cuántas de O2 se producen?"
 
 explicacion: |
-  Los recursos limitantes (comida, agua, espacio y refugio) son los que impiden que una población crezca infinitamente.
+  Con relación 1:1, se producen {co2_consumido} moléculas de O2.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
+  tema: "fotosintesis_respiracion_celular"
+  nivel: "basico"
+  tags: ["ecuacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ecuación balanceada de la fotosíntesis usa 6 CO2 y 6 H2O para producir 1 glucosa y 6 O2."
+
+explicacion: |
+  Correcto: 6CO2 + 6H2O + luz → C6H12O6 + 6O2.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_respiracion_celular"
+  nivel: "basico"
+  tags: ["glucosa"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La fórmula molecular de la glucosa es C6H12O6."
+
+explicacion: |
+  Correcto, es un monosacárido con esa fórmula.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "fotosintesis_respiracion_celular"
   nivel: "intermedio"
-  tags: ["variabilidad", "entorno"]
+  tags: ["gases", "ciclos"]
 
-respuesta: "fijo"
-tipo: completar
-respuestas_validas:
-  - "fijo"
+respuesta: "CO2"
+tipo: mc
+opciones_explicitas: ["CO2", "O2", "Ambos son reactivos en ambos procesos", "Ninguno"]
 
-enunciado: "La capacidad de carga no es un número ___, ya que puede cambiar si las condiciones ambientales o la disponibilidad de recursos varían."
+enunciado: "¿Qué gas es reactivo en la fotosíntesis y producto en la respiración celular?"
 
 explicacion: |
-  Si hay un incendio o una sequía, la capacidad de carga disminuye; si hay abundancia de lluvias, puede aumentar. Por eso no es un valor constante.
+  El CO2 se fija en la fotosíntesis y se libera en la respiración.
+```
+
+## Sección: habitats-adaptacion (20 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "basico"
+  tags: ["concepto", "habitat"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El hábitat es el lugar donde vive naturalmente una especie, con las condiciones que necesita para sobrevivir."
+
+explicacion: |
+  Correcto. Provee las condiciones ambientales que la especie necesita.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
+  tema: "habitats_adaptacion"
+  nivel: "basico"
+  tags: ["concepto", "ecosistema"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los términos 'hábitat' y 'ecosistema' son sinónimos y significan exactamente lo mismo."
+
+explicacion: |
+  Falso. El ecosistema incluye todos los seres vivos y el ambiente de una zona; el hábitat es la "dirección" de una especie puntual.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "basico"
+  tags: ["condiciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un hábitat incluye condiciones como temperatura, agua, alimento y refugio."
+
+explicacion: |
+  Correcto, son los recursos y condiciones esenciales para el ciclo vital.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "basico"
+  tags: ["adaptacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una adaptación es una característica que ayuda a un ser vivo a sobrevivir y reproducirse mejor en su hábitat."
+
+explicacion: |
+  Correcto, son rasgos que aumentan las chances de supervivencia y reproducción.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "basico"
+  tags: ["evolucion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Una adaptación aparece de un día para el otro en un solo individuo, a propósito."
+
+explicacion: |
+  Falso. Se desarrolla a lo largo de muchas generaciones, no es un cambio voluntario individual.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "basico"
+  tags: ["seleccion_natural"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las adaptaciones están directamente relacionadas con el proceso de selección natural."
+
+explicacion: |
+  Correcto — ver ../seleccion-natural/.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "intermedio"
+  tags: ["adaptacion"]
+
+variables:
+  tabla: [["estructural", "pico curvo de un aguila"], ["fisiologica", "hibernacion"], ["de comportamiento", "migracion de aves"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: tabla[idx][1]
+tipo: mc
+opciones_explicitas: ["pico curvo de un aguila", "hibernacion", "migracion de aves"]
+
+enunciado: "¿Cuál es un ejemplo de adaptación de tipo {tabla[idx][0]}?"
+
+explicacion: |
+  Un ejemplo de adaptación {tabla[idx][0]} es: {tabla[idx][1]}.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "basico"
+  tags: ["camuflaje", "estructural"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El pelaje blanco de un oso polar (camuflaje) es una adaptación estructural."
+
+explicacion: |
+  Correcto, es una característica física del cuerpo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "intermedio"
+  tags: ["fisiologia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La hibernación (bajar el metabolismo) es una adaptación de comportamiento, no fisiológica."
+
+explicacion: |
+  Falso. Es fisiológica, porque implica cambios en procesos internos del cuerpo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "basico"
+  tags: ["comportamiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Vivir en manada para protegerse de depredadores es una adaptación de comportamiento."
+
+explicacion: |
+  Correcto, es una conducta que aumenta las chances de supervivencia.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "basico"
+  tags: ["terminologia"]
+
+respuesta: "estructurales"
+tipo: completar
+respuestas_validas:
+  - "estructurales"
+
+enunciado: "Las adaptaciones físicas se llaman adaptaciones ___."
+
+explicacion: |
+  Las adaptaciones anatómicas se denominan estructurales.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "intermedio"
+  tags: ["adaptacion", "evolucion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una adaptación beneficiosa en un hábitat puede resultar inútil o perjudicial en un hábitat distinto."
+
+explicacion: |
+  Correcto, las adaptaciones son específicas del entorno donde surgieron.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "basico"
+  tags: ["evolucion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Existe 'la adaptación perfecta', un conjunto de rasgos que sirven para sobrevivir en cualquier hábitat por igual."
+
+explicacion: |
+  Falso, no existe la adaptación universal — siempre son específicas a un hábitat.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "basico"
+  tags: ["cactus", "desierto"]
+
+respuesta: "almacenar agua"
+tipo: mc
+opciones_explicitas: ["almacenar agua", "atraer polinizadores", "defenderse de depredadores", "realizar fotosíntesis extra"]
+
+enunciado: "En el cactus del desierto, ¿para qué sirve principalmente su tallo grueso?"
+
+explicacion: |
+  El tallo suculento almacena agua para las temporadas de sequía.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "intermedio"
+  tags: ["cactus", "desierto"]
+
+respuesta: "perder menos agua y defenderse"
+tipo: mc
+opciones_explicitas: ["perder menos agua y defenderse", "atraer más agua de lluvia", "producir más flores", "nada en particular"]
+
+enunciado: "En el cactus, las hojas transformadas en espinas sirven principalmente para..."
+
+explicacion: |
+  Menos superficie foliar reduce la pérdida de agua por transpiración, y además funciona como defensa contra herbívoros.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "intermedio"
+  tags: ["cactus", "desierto"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las raíces extendidas y poco profundas del cactus le permiten aprovechar rápido las lluvias esporádicas del desierto."
+
+explicacion: |
+  Correcto, al ser tan extendidas cerca de la superficie, absorben agua de lluvia antes de que se evapore o se filtre profundo.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
+  nivel: "intermedio"
+  tags: ["aplicacion", "ejemplos"]
+
+respuesta: "estructural"
+tipo: mc
+opciones_explicitas: ["estructural", "fisiologica", "de comportamiento"]
+
+enunciado: "Las aletas de un pez, que le permiten nadar eficientemente, son un ejemplo de adaptación de tipo..."
+
+explicacion: |
+  Es una característica física del cuerpo: adaptación estructural.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "habitats_adaptacion"
   nivel: "avanzado"
-  tags: ["ecologia", "factores_ambientales"]
+  tags: ["aplicacion", "ejemplos"]
 
-respuesta: "cambia"
-tipo: completar
-respuestas_validas:
-  - "cambia"
-  - "disminuye"
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Si un ecosistema sufre una degradación de su suelo que reduce la disponibilidad de plantas, la capacidad de carga de los herbívoros en ese lugar ___."
+enunciado: "La capacidad del camaleón de cambiar de color según el entorno es una adaptación que combina lo estructural (piel con células especiales) y lo conductual (elige cuándo activarlo)."
 
 explicacion: |
-  Al reducirse la base de recursos (comida), el entorno puede sostener a menos individuos, por lo tanto, la capacidad de carga disminuye.
+  Correcto, muchas adaptaciones no encajan en una sola categoría pura, sino que combinan varios tipos.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
+  tema: "habitats_adaptacion"
   nivel: "intermedio"
-  tags: ["dinamica", "equilibrio"]
+  tags: ["comportamiento", "migracion"]
 
-respuesta: "recursos"
-tipo: completar
-respuestas_validas:
-  - "recursos"
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Cuando una población alcanza su capacidad de carga, se establece un equilibrio dinámico determinado por la disponibilidad de ___."
+enunciado: "La migración de las aves es una adaptación de comportamiento que responde a cambios estacionales del hábitat (disponibilidad de comida, temperatura)."
 
 explicacion: |
-  El equilibrio se alcanza cuando la tasa de natalidad y mortalidad se estabilizan debido a la limitación de los recursos disponibles en el medio.
+  Correcto, viajan a zonas con mejores condiciones según la época del año.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "basico"
-  tags: ["ecologia", "capacidad_de_carga"]
-
-tipo: mc
-opciones_explicitas: ["El número máximo de individuos que un ambiente puede sostener indefinidamente", "El número total de individuos que nacen en un año", "El límite físico donde la población se extingue inmediatamente", "La cantidad de alimento disponible en un ecosistema"]
-respuesta: "El número máximo de individuos que un ambiente puede sostener indefinidamente"
-
-enunciado: "En ecología, ¿qué representa el concepto de capacidad de carga (K)?"
-
-explicacion: |
-  La capacidad de carga (K) es el número máximo de individuos de una especie que un entorno específico puede sostener de manera sostenible, considerando los recursos disponibles como alimento, agua y espacio.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "intermedio"
-  tags: ["mortalidad", "recursos"]
-
-tipo: completar
-respuesta: "ambas"
-respuestas_validas:
-  - "ambas"
-
-enunciado: "Cuando una población supera ampliamente su capacidad de carga, aumenta la mortalidad y disminuye la natalidad — es decir, ocurren ___ cosas a la vez."
-
-explicacion: |
-  Al exceder la capacidad de carga, la competencia por recursos se vuelve intensa. Esto provoca un aumento en la mortalidad por falta de alimento o refugio, y una disminución en la natalidad debido al estrés nutricional y ambiental.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "intermedio"
-  tags: ["equilibrio", "K"]
-
-tipo: mc
-opciones_explicitas: ["K es un techo absoluto que la población nunca puede tocar", "K es un punto de equilibrio dinámico donde la población oscila", "K es el número de individuos que mueren en cada ciclo", "K es la velocidad de reproducción de la especie"]
-
-respuesta: "K es un punto de equilibrio dinámico donde la población oscila"
-
-enunciado: "Sobre la relación entre la población real (N) y la capacidad de carga (K), es correcto afirmar que:"
-
-explicacion: |
-  La capacidad de carga no es un muro infranqueable, sino un punto de equilibrio. La población suele oscilar alrededor de K debido a las retroalimentaciones entre la disponibilidad de recursos y el tamaño poblacional.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "basico"
-  tags: ["factores_densidad"]
-
-tipo: completar
-respuesta: "factores dependientes de la densidad"
-respuestas_validas:
-  - "factores dependientes de la densidad"
-
-enunciado: "El aumento de la competencia por recursos cuando la población supera su capacidad de carga es un ejemplo de: ___"
-
-explicacion: |
-  Los factores dependientes de la densidad (como la competencia, la depredación o la enfermedad) son aquellos cuya intensidad aumenta a medida que la población crece, regulando así el tamaño poblacional cerca de K.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
+  tema: "habitats_adaptacion"
   nivel: "avanzado"
-  tags: ["caida_poblacional", "recursos"]
+  tags: ["conceptos", "conservacion"]
 
-tipo: mc
-opciones_explicitas: ["La población cae por debajo de K y luego se estabiliza", "La población crece exponencialmente sin detenerse", "La población se mantiene constante por encima de K", "La población se mantiene en un crecimiento lineal"]
+respuesta: verdadero
+tipo: vf
 
-respuesta: "La población cae por debajo de K y luego se estabiliza"
-
-enunciado: "Si una población experimenta un crecimiento explosivo que sobrepasa la capacidad de carga (overshoot), ¿cuál es la respuesta típica del sistema?"
+enunciado: "Si el hábitat de una especie cambia muy rápido (por ejemplo, por acción humana), sus adaptaciones (desarrolladas para el hábitat anterior) pueden dejar de ser útiles, poniendo en riesgo a la especie."
 
 explicacion: |
-  El exceso de individuos agota los recursos, provocando una caída en la población (a menudo por debajo de K debido al daño ambiental causado), para luego estabilizarse nuevamente en un ciclo de equilibrio.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "basico"
-  tags: ["crecimiento_exponencial", "especies_invasoras"]
-
-variables:
-  escenario: uno_de(["una especie de ratones en una isla sin depredadores", "una población de bacterias en un medio con nutrientes ilimitados"])
-
-respuesta: "exponencial"
-tipo: mc
-opciones_explicitas: ["exponencial", "logístico", "estacionario", "decreciente"]
-
-enunciado: "En el caso de {escenario}, durante las primeras etapas de colonización, el modelo de crecimiento que mejor describe la dinámica poblacional es el de tipo ___."
-
-explicacion: |
-  Cuando una especie llega a un nuevo hábitat sin depredadores ni competencia significativa, los recursos son abundantes y la población crece de forma exponencial (J) antes de que los factores limitantes actúen.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "intermedio"
-  tags: ["capacidad_de_carga", "modelo_logistico"]
-
-respuesta: "500"
-tipo: completar
-respuestas_validas:
-  - "500"
-
-enunciado: "En un modelo de crecimiento logístico, la variable K representa la capacidad de carga del ecosistema. Si un ambiente tiene recursos que sólo permiten sostener a un máximo de 500 individuos de una especie, ¿cuál es el valor de K?"
-
-explicacion: |
-  La capacidad de carga (K) es el número máximo de individuos de una especie que un entorno puede sustentar indefinidamente, considerando los recursos disponibles.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "basico"
-  tags: ["curva_logistica", "forma_de_S"]
-
-respuesta: "forma de S"
-tipo: mc
-opciones_explicitas: ["forma de J", "forma de S", "línea recta", "curva descendente"]
-
-enunciado: "A diferencia del crecimiento exponencial, el crecimiento logístico se caracteriza por presentar una curva con ___ debido a la presencia de factores limitantes."
-
-explicacion: |
-  El modelo logístico muestra un crecimiento rápido al principio que se desacelera a medida que la población se acerca a la capacidad de carga, formando una curva sigmoidea o en forma de S.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "intermedio"
-  tags: ["factores_limitantes", "densidad_dependiente"]
-
-variables:
-  factor: uno_de(["la disponibilidad de alimento", "la acumulación de desechos tóxicos", "la competencia por espacio"])
-
-respuesta: "dependiente de la densidad"
-tipo: completar
-respuestas_validas:
-  - "dependiente de la densidad"
-
-enunciado: "Factores como {factor} actúan sobre la población de manera ___ (más fuerte cuanto más densa está la población)."
-
-explicacion: |
-  Los factores que afectan la tasa de crecimiento a medida que la población aumenta (como la comida o el espacio) se denominan factores dependientes de la densidad.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "dinamica_poblacional_capacidad_carga"
-  nivel: "avanzado"
-  tags: ["comparacion_modelos", "recursos"]
-
-variables:
-  condicion: uno_de(["recursos limitados", "recursos limitados"])
-
-respuesta: "logístico"
-tipo: mc
-opciones_explicitas: ["exponencial", "logístico"]
-
-enunciado: "Si consideramos que en un ecosistema real los {condicion} son la norma, el modelo de crecimiento más realista para representar la población a largo plazo es el modelo ___."
-
-explicacion: |
-  Aunque el modelo exponencial es útil para entender fases iniciales, el modelo logístico es más preciso para la naturaleza porque reconoce que los recursos son finitos.
+  Correcto. Las adaptaciones evolucionan lentamente, a lo largo de generaciones — un cambio de hábitat muy rápido no les da tiempo de "ponerse al día".
 ```
 
 ## Sección: enzimas-proteina-sustrato-ph (25 preguntas)
@@ -1907,454 +1195,702 @@ explicacion: |
   Cada enzima tiene un rango de pH donde su actividad es máxima. Para las enzimas del intestino delgado, este valor suele ser cercano a la neutralidad o ligeramente básico.
 ```
 
-## Sección: especiacion (25 preguntas)
+## Sección: flujo-materia-energia (22 preguntas)
 
 ```
 metadata:
   materia: "biologia"
-  tema: "especiacion"
+  tema: "flujo_materia_energia"
   nivel: "basico"
-  tags: ["definicion", "reproduccion"]
+  tags: ["ecosistemas", "ciclos"]
 
-respuesta: "fértil"
-tipo: completar
-respuestas_validas:
-  - "fértil"
-  - "fertil"
-
-enunciado: "Según el concepto biológico de especie, los individuos de una misma especie pueden reproducirse entre sí y producir descendencia ___."
-
-explicacion: |
-  El criterio biológico de especie establece que una especie es un grupo de poblaciones cuyos individuos pueden reproducirse entre sí y dejar descendencia fértil.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "basico"
-  tags: ["definicion", "origen"]
-
-respuesta: "dos o más"
-tipo: completar
-respuestas_validas:
-  - "dos o más"
-  - "dos o mas"
-
-enunciado: "La especiación es el proceso mediante el cual una población original da origen a ___ especies distintas."
-
-explicacion: |
-  La especiación ocurre cuando la variabilidad genética y el aislamiento permiten que una población se divida en dos o más linajes separados.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "intermedio"
-  tags: ["aislamiento", "reproduccion"]
-
-respuesta: "barreras"
-tipo: completar
-
-enunciado: "Para que ocurra la especiación, deben existir ___ reproductivas que impidan el flujo de genes entre los grupos de individuos."
-
-respuestas_validas:
-  - "barreras"
-
-explicacion: |
-  Las barreras (ya sean geográficas, conductuales o mecánicas) son fundamentales para que los grupos dejen de intercambiar material genético y diverjan.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "basico"
-  tags: ["diversidad", "evolucion"]
-
-respuesta: "distintas"
-tipo: completar
-respuestas_validas:
-  - "distintas"
-
-enunciado: "Cuando un proceso de especiación se completa con éxito, los nuevos grupos de organismos se consideran especies ___."
-
-explicacion: |
-  Una vez que el aislamiento es total y no pueden producir descendencia fértil entre sí, se consideran especies distintas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "intermedio"
-  tags: ["reproduccion", "descendencia"]
-
-respuesta: "fértil"
-tipo: completar
-
-enunciado: "Si dos poblaciones se cruzan pero su descendencia es estéril, no se ha cumplido el criterio de reproducción para formar una nueva especie, ya que no se produce descendencia ___."
-
-respuestas_validas:
-  - "fértil"
-  - "fertil"
-
-explicacion: |
-  La clave del concepto biológico es que la descendencia sea capaz de seguir reproduciéndose (fértil) para mantener el linaje.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "basico"
-  tags: ["aislamiento", "flujo_genico"]
-
-tipo: mc
-opciones_explicitas: ["Barrera geográfica", "Mutación espontánea", "Selección natural", "Deriva genética"]
-respuesta: "Barrera geográfica"
-
-enunciado: "Para que ocurra la especiación alopátrica, es fundamental que exista una ___ que impida el flujo génico entre dos poblaciones."
-
-explicacion: |
-  El aislamiento geográfico (como una montaña o un río) impide que los individuos se crucen, permitiendo que las poblaciones acumulen diferencias genéticas por separado.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "intermedio"
-  tags: ["flujo_genico", "evolucion"]
-
+respuesta: verdadero
 tipo: vf
+
+enunciado: "En un ecosistema, la materia circula en un ciclo cerrado: se recicla y reutiliza continuamente."
+
+explicacion: |
+  Los descomponedores devuelven nutrientes al sistema, disponibles de nuevo para los productores.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
+  nivel: "basico"
+  tags: ["ecosistemas", "energia"]
+
 respuesta: falso
-
-enunciado: "¿El flujo génico constante entre dos poblaciones puede favorecer la especiación al impedir que se diferencien genéticamente?"
-
-explicacion: |
-  Falso. El flujo génico actúa como una "fuerza homogeneizadora". Para que haya especiación, el flujo génico debe ser interrumpido o reducido drásticamente.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "intermedio"
-  tags: ["aislamiento_reproductivo", "mecanismos"]
-
-tipo: mc
-opciones_explicitas: ["Aislamiento precigótico", "Aislamiento postcigótico", "Mutación puntual", "Selección sexual"]
-respuesta: "Aislamiento precigótico"
-
-enunciado: "Cuando los mecanismos que impiden la formación de un cigoto (como la diferencia en los periodos de celo o la incompatibilidad de órganos genitales) actúan, estamos ante un mecanismo de aislamiento ___."
-
-explicacion: |
-  Los mecanismos precigóticos impiden la fecundación, asegurando que no haya intercambio de material genético entre poblaciones que ya han comenzado a divergir.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "basico"
-  tags: ["divergencia", "genetica"]
-
 tipo: vf
-respuesta: verdadero
 
-enunciado: "Si dos poblaciones de una misma especie quedan aisladas reproductivamente de forma permanente, la acumulación de cambios genéticos puede dar lugar a la formación de nuevas especies."
+enunciado: "La energía en un ecosistema circula en un ciclo cerrado, recuperándose íntegramente tras cada nivel trófico."
 
 explicacion: |
-  Verdadero. La falta de intercambio genético permite que la selección natural y la deriva genética actúen de forma independiente en cada grupo.
+  Falso, fluye en una sola dirección y se disipa como calor.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "especiacion"
+  tema: "flujo_materia_energia"
   nivel: "intermedio"
-  tags: ["aislamiento_ecologico", "reproduccion"]
+  tags: ["comparativa"]
 
+respuesta: "La materia se recicla y la energía no"
 tipo: mc
-opciones_explicitas: ["Aislamiento temporal", "Aislamiento por hábitat", "Aislamiento mecánico", "Aislamiento gamético"]
-respuesta: "Aislamiento por hábitat"
+opciones_explicitas: ["La materia se recicla y la energía no", "La energía se recicla y la materia no", "Ambas se reciclan en ciclos cerrados", "Ninguna de las dos se recicla"]
 
-enunciado: "Dos poblaciones de insectos que viven en la misma zona pero una habita en el dosel de los árboles y la otra en el suelo, presentan un tipo de aislamiento llamado ___."
+enunciado: "¿Cuál de estas afirmaciones es correcta sobre materia y energía en un ecosistema?"
 
 explicacion: |
-  Aunque ocupen el mismo espacio geográfico, al no encontrarse debido a sus preferencias de hábitat, se produce un aislamiento ecológico que corta el flujo génico.
+  La materia se recicla por ciclos biogeoquímicos; la energía entra como luz solar y sale como calor.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "especiacion"
+  tema: "flujo_materia_energia"
   nivel: "basico"
-  tags: ["conceptos", "evolucion"]
+  tags: ["termodinamica"]
 
-tipo: mc
-opciones_explicitas: ["El surgimiento de nuevas especies", "La extinción de una especie", "La mutación de un solo gen", "El cambio de hábitat de un individuo"]
-respuesta: "El surgimiento de nuevas especies"
-
-enunciado: "El proceso mediante el cual una población existente da lugar a una o más especies nuevas se denomina:"
-
-explicacion: |
-  La especiación es el proceso evolutivo que da lugar a la formación de especies distintas a partir de un ancestro común.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "basico"
-  tags: ["especiacion_alopatrica", "aislamiento"]
-
+respuesta: falso
 tipo: vf
+
+enunciado: "Una vez que la energía se disipa como calor, se puede recapturar fácilmente para volver a usarla."
+
+explicacion: |
+  Falso. El calor disipado es de baja calidad y no puede reusarse para trabajo biológico.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
+  nivel: "basico"
+  tags: ["fotosintesis"]
+
 respuesta: verdadero
+tipo: vf
 
-enunciado: "En la especiación alopátrica, una barrera física (como un río o una montaña) impide el flujo de genes entre dos poblaciones de la misma especie."
+enunciado: "Casi toda la energía que fluye por un ecosistema entra por la fotosíntesis."
 
 explicacion: |
-  Exacto. La barrera física actúa como un mecanismo de aislamiento que impide que los individuos se reproduzcan entre sí, permitiendo que las poblaciones evolucionen de forma independiente.
+  Correcto, es la base de la mayoría de los ecosistemas.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "especiacion"
-  nivel: "intermedio"
-  tags: ["ejemplo", "gran_cañon"]
-
-tipo: mc
-opciones_explicitas: ["la formación de dos especies distintas", "la extinción inmediata de ambas", "la mezcla de las poblaciones", "ninguna de las anteriores"]
-respuesta: "la formación de dos especies distintas"
-
-enunciado: "En el Gran Cañón, la formación del cañón separó por millones de años a una población original de ardillas (Kaibab en un borde, Abert en el otro). ¿Cuál fue el resultado a largo plazo?"
-
-explicacion: |
-  Al quedar separadas por el cañón, las poblaciones de ardillas dejaron de reproducirse entre sí, acumulando diferencias genéticas hasta convertirse en especies diferentes.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "intermedio"
-  tags: ["mecanismos", "reproduccion"]
-
-tipo: completar
-respuesta: "geográfico"
-respuestas_validas:
-  - "geográfico"
-  - "geografico"
-
-enunciado: "Cuando una barrera física separa a dos poblaciones, hablamos de un aislamiento ___ — el primer paso de la especiación alopátrica."
-
-explicacion: |
-  El aislamiento geográfico es el primer paso en la especiación alopátrica, pero el aislamiento reproductivo (que las poblaciones ya no puedan cruzarse incluso si se reencuentran) es lo que define finalmente la existencia de una nueva especie.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "intermedio"
-  tags: ["flujo_genico", "genetica"]
-
-tipo: mc
-opciones_explicitas: ["Se detiene el flujo de genes", "Aumenta la variabilidad dentro de la población original", "Se produce la fusión de las dos poblaciones", "Las mutaciones dejan de ocurrir"]
-respuesta: "Se detiene el flujo de genes"
-
-enunciado: "Cuando ocurre una especiación alopátrica debido a una barrera física, ¿qué sucede con el flujo de genes entre las poblaciones separadas?"
-
-explicacion: |
-  El flujo de genes es el intercambio de material genético entre poblaciones. Al haber una barrera física, este intercambio se interrumpe, permitiendo la divergencia genética.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
+  tema: "flujo_materia_energia"
   nivel: "basico"
-  tags: ["conceptos", "evolucion"]
+  tags: ["autotrofos"]
 
-tipo: mc
-opciones_explicitas: ["Ocurre cuando las poblaciones están separadas por una barrera geográfica como una montaña.", "Ocurre cuando nuevas especies surgen dentro de una misma área geográfica sin barreras físicas.", "Ocurre sólo cuando una población se divide en dos por un río.", "Ocurre por la migración de individuos a un nuevo continente."]
-respuesta: "Ocurre cuando nuevas especies surgen dentro de una misma área geográfica sin barreras físicas."
+respuesta: verdadero
+tipo: vf
 
-enunciado: "La especiación simpátrica se define como el proceso en el cual..."
+enunciado: "Los productores (autótrofos) capturan energía solar y la transforman en energía química."
 
 explicacion: |
-  A diferencia de la especiación alopátrica (donde hay una barrera física), en la simpátrica el aislamiento reproductivo ocurre en el mismo territorio, por ejemplo, debido a cambios en el comportamiento o la dieta.
+  Correcto, convierten luz en enlaces químicos.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "especiacion"
+  tema: "flujo_materia_energia"
   nivel: "intermedio"
-  tags: ["mecanismos", "aislamiento"]
+  tags: ["fotosintesis"]
 
-tipo: completar
-respuesta: "temporal"
-respuestas_validas:
-  - "temporal"
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Si dos poblaciones de la misma especie habitan en el mismo lugar, pero una se reproduce en primavera y la otra en otoño, el mecanismo de aislamiento se llama aislamiento ___."
+enunciado: "La fotosíntesis es la principal puerta de entrada de energía nueva a un ecosistema."
 
 explicacion: |
-  Cuando las diferencias en los periodos de actividad o reproducción impiden que las poblaciones se crucen, estamos ante un mecanismo de aislamiento temporal, un tipo de aislamiento precigótico.
+  Correcto, sin ella el flujo de energía se agotaría.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "especiacion"
-  nivel: "intermedio"
-  tags: ["nicho", "recursos"]
-
-tipo: mc
-opciones_explicitas: ["La especialización en un nuevo recurso alimenticio dentro del mismo hábitat.", "El desplazamiento de la población hacia un clima más frío.", "La mutación de un cromosoma que impide la fecundación.", "La formación de una montaña que divide el bosque."]
-respuesta: "La especialización en un nuevo recurso alimenticio dentro del mismo hábitat."
-
-enunciado: "Un ejemplo clásico de especiación simpátrica es cuando un grupo de individuos comienza a utilizar un nuevo recurso (como un fruto distinto) que los separa del resto de la población. Esto se conoce como..."
-
-explicacion: |
-  La explotación de un nuevo nicho ecológico permite que los individuos se especialicen, reduciendo la competencia y favoreciendo el aislamiento reproductivo sin necesidad de barreras físicas.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "avanzado"
-  tags: ["comportamiento", "etologia"]
-
-tipo: completar
-respuesta: "etológico"
-respuestas_validas:
-  - "etológico"
-  - "etologico"
-
-enunciado: "Cuando las diferencias en los rituales de cortejo o en los cantos de apareamiento impiden que dos grupos se reproduzcan entre sí, estamos ante un aislamiento ___."
-
-explicacion: |
-  El aislamiento etológico (o de comportamiento) es un mecanismo precigótico donde las diferencias en el comportamiento impiden el reconocimiento entre parejas de diferentes grupos.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "intermedio"
-  tags: ["factores", "evolucion"]
-
-tipo: mc
-opciones_explicitas: ["Barreras físicas como glaciares o desiertos.", "Cambios en los patrones de apareamiento o preferencias de hábitat.", "La fragmentación de un bosque por la actividad humana.", "La deriva genética por aislamiento geográfico."]
-respuesta: "Cambios en los patrones de apareamiento o preferencias de hábitat."
-
-enunciado: "¿Cuál de los siguientes factores es un motor principal de la especiación simpátrica?"
-
-explicacion: |
-  Dado que no hay una barrera física (como un glaciar o un desierto), la especiación debe ocurrir mediante mecanismos biológicos como cambios en el comportamiento, la dieta o la selección sexual.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
+  tema: "flujo_materia_energia"
   nivel: "basico"
-  tags: ["concepto", "reproduccion"]
+  tags: ["consumidores"]
 
-respuesta: "reproductivo"
-tipo: completar
-respuestas_validas:
-  - "reproductivo"
+respuesta: falso
+tipo: vf
 
-enunciado: "El criterio biológico más utilizado para definir si dos individuos pertenecen a la misma especie es su capacidad de tener descendencia con éxito ___."
+enunciado: "Los consumidores representan la principal fuente de energía nueva para un ecosistema."
 
 explicacion: |
-  El concepto biológico de especie se basa en la capacidad de los individuos para cruzarse y producir descendencia fértil. Si no pueden hacerlo, se consideran especies distintas.
+  Falso, sólo transfieren energía ya existente; la fuente nueva son los productores.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "especiacion"
+  tema: "flujo_materia_energia"
+  nivel: "basico"
+  tags: ["calor", "metabolismo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada vez que un organismo usa energía, una parte se transforma en calor y se disipa al ambiente."
+
+explicacion: |
+  Correcto, se pierde parte en cada transformación.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
+  nivel: "basico"
+  tags: ["termodinamica", "entropia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El calor disipado por los organismos se puede recapturar para usarse de nuevo como energía útil."
+
+explicacion: |
+  Falso, por la segunda ley de la termodinámica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
   nivel: "intermedio"
-  tags: ["flujo_genico", "aislamiento"]
+  tags: ["cadenas_troficas"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Cuando la energía pasa de un nivel trófico a otro, el 100% pasa sin pérdidas."
+
+explicacion: |
+  Falso, sólo una fracción (típicamente ~10%) se transfiere.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
+  nivel: "intermedio"
+  tags: ["termodinamica"]
+
+respuesta: "termodinamica"
+tipo: completar
+respuestas_validas:
+  - "termodinamica"
+
+enunciado: "La ley que explica por qué el calor no se puede recapturar como energía útil es la segunda ley de la ___."
+
+explicacion: |
+  Segunda ley de la termodinámica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
+  nivel: "basico"
+  tags: ["sol"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Como la energía no se recicla, un ecosistema necesita una entrada constante de energía nueva (el sol) para seguir funcionando."
+
+explicacion: |
+  Correcto, es la fuente indispensable.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
+  nivel: "intermedio"
+  tags: ["materia", "sol"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si el sol dejara de brillar, la materia de un ecosistema desaparecería inmediatamente, aunque la energía siguiera disponible."
+
+explicacion: |
+  Falso, es al revés: la materia (átomos) seguiría estando, pero el ecosistema colapsaría por falta de energía.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
+  nivel: "basico"
+  tags: ["atomos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los átomos de un ecosistema no desaparecen, sólo cambian de forma y de ubicación."
+
+explicacion: |
+  Correcto, se reciclan a través de los ciclos biogeoquímicos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
+  nivel: "basico"
+  tags: ["analogia"]
+
+respuesta: "el agua de una pileta con filtro, que circula y se reutiliza"
+tipo: mc
+opciones_explicitas: ["el agua de una pileta con filtro, que circula y se reutiliza", "el agua de una ducha que se va por el desague", "el aire", "ninguna analogia"]
+
+enunciado: "En la analogía, la materia se compara con..."
+
+explicacion: |
+  La materia circula, se filtra y se reutiliza.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
+  nivel: "basico"
+  tags: ["analogia"]
+
+respuesta: "el agua de una ducha que entra, pasa una vez y se va"
+tipo: mc
+opciones_explicitas: ["el agua de una ducha que entra, pasa una vez y se va", "el agua de una pileta con filtro que se reutiliza", "el aire", "ninguna analogia"]
+
+enunciado: "En la analogía, la energía se compara con..."
+
+explicacion: |
+  Entra, se usa y se disipa, sin volver.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
+  nivel: "basico"
+  tags: ["conceptos_clave"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La analogía de la pileta y la ducha ayuda a recordar que la materia se recicla y la energía no."
+
+explicacion: |
+  Correcto, materia circula, energía fluye en un sentido.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
+  nivel: "intermedio"
+  tags: ["calculo"]
 
 variables:
-  escenario: uno_de([["una montaña que divide un bosque", "aislamiento geográfico"], ["un cambio en el comportamiento de apareamiento", "aislamiento etológico"], ["una diferencia en la época de celo", "aislamiento temporal"]])
+  energia_nivel1: uno_de([1000, 2000, 10000])
+  porcentaje_transferido: 10
 
-respuesta: escenario[1]
+respuesta: energia_nivel1 * porcentaje_transferido / 100
 tipo: completar
-respuestas_validas:
-  - "aislamiento geográfico"
-  - "aislamiento etológico"
-  - "aislamiento temporal"
+tolerancia_abs: 0.1
 
-enunciado: "Cuando una población queda dividida por {escenario[0]}, ocurre un tipo de barrera reproductiva llamada ___."
+enunciado: "Un productor tiene {energia_nivel1} kJ. Con la regla del 10%, ¿cuánta energía llega al consumidor de segundo nivel?"
+
+pasos:
+  - "{energia_nivel1} × 10 / 100"
 
 explicacion: |
-  La ausencia de flujo génico es fundamental para la especiación. Cualquiera sea el mecanismo (geográfico, etológico, temporal), lo que importa es que impida el cruce entre las poblaciones.
+  {energia_nivel1} × 0,1 kJ.
 ```
 
 ```
 metadata:
   materia: "biologia"
-  tema: "especiacion"
+  tema: "flujo_materia_energia"
+  nivel: "basico"
+  tags: ["ecologia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La regla del 10% dice que aproximadamente sólo el 10% de la energía de un nivel trófico pasa al siguiente."
+
+explicacion: |
+  Correcto, el resto se pierde en el camino.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
+  nivel: "basico"
+  tags: ["termodinamica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El 90% de la energía que no se transfiere se pierde principalmente como calor en la respiración y otros procesos metabólicos."
+
+explicacion: |
+  Correcto, consistente con la segunda ley de la termodinámica.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "flujo_materia_energia"
+  nivel: "basico"
+  tags: ["ecologia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La pérdida de energía en cada nivel trófico es la razón por la que las cadenas tróficas no pueden tener infinitos niveles."
+
+explicacion: |
+  Correcto, la energía disponible se agota rápido con cada nivel.
+```
+
+## Sección: microbiologia-virus-inmunitario (20 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["bacterias", "celulas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las bacterias son células procariotas."
+
+explicacion: |
+  Son organismos unicelulares sin núcleo definido: procariotas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["bacterias", "salud"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Todas las bacterias son patógenas y causan enfermedades."
+
+explicacion: |
+  Falso. La mayoría son inofensivas o beneficiosas, como la microbiota intestinal.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["hongos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los hongos son células eucariotas."
+
+explicacion: |
+  Correcto, tienen núcleo definido.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["hongos", "cloroplastos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los hongos tienen cloroplastos, igual que las plantas."
+
+explicacion: |
+  Falso. No hacen fotosíntesis: no tienen cloroplastos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["virus", "estructura"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un virus está compuesto únicamente por material genético envuelto en una cápsula de proteína (cápside)."
+
+explicacion: |
+  Correcto, esa es la estructura básica de un virus.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["virus", "metabolismo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un virus posee organelas y metabolismo propio, igual que una célula."
+
+explicacion: |
+  Falso. No tiene ninguna de las dos cosas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["virus", "reproduccion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un virus puede reproducirse por sí solo, sin necesitar una célula huésped."
+
+explicacion: |
+  Falso, es un parásito intracelular obligado.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["virus", "estructura"]
+
+respuesta: "capside"
+tipo: completar
+respuestas_validas:
+  - "capside"
+
+enunciado: "La cápsula de proteína que envuelve el material genético del virus se llama ___."
+
+explicacion: |
+  Se llama cápside.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "intermedio"
+  tags: ["virus", "ciclo_viral"]
+
+variables:
+  etapas: [["adhesion", "el virus se pega a la celula huesped"], ["inyeccion", "el virus inyecta el material genetico dentro de la celula"], ["secuestro", "el virus usa la maquinaria de la celula para fabricar copias"], ["lisis", "la celula se rompe liberando los virus nuevos"]]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: etapas[idx][1]
+tipo: mc
+opciones_explicitas: ["el virus se pega a la celula huesped", "el virus inyecta el material genetico dentro de la celula", "el virus usa la maquinaria de la celula para fabricar copias", "la celula se rompe liberando los virus nuevos"]
+
+enunciado: "¿Qué ocurre en la etapa de {etapas[idx][0]}?"
+
+explicacion: |
+  En {etapas[idx][0]}: {etapas[idx][1]}.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["lisis"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la etapa de lisis, la célula infectada se rompe y libera los virus nuevos."
+
+explicacion: |
+  Correcto, es la fase final de liberación de nuevos viriones.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "intermedio"
+  tags: ["ribosomas"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El virus fabrica copias de sí mismo utilizando sus propios ribosomas."
+
+explicacion: |
+  Falso. Usa los ribosomas de la célula huésped que secuestró.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["orden", "ciclo_viral"]
+
+respuesta: "adhesion, inyeccion, secuestro, lisis"
+tipo: mc
+opciones_explicitas: ["adhesion, inyeccion, secuestro, lisis", "inyeccion, adhesion, secuestro, lisis", "adhesion, secuestro, inyeccion, lisis"]
+
+enunciado: "¿Cuál es el orden cronológico correcto del ciclo de infección viral?"
+
+explicacion: |
+  Adhesión → inyección → secuestro (replicación) → lisis (liberación).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["sistema_inmunitario"]
+
+respuesta: "inespecifica/innata"
+tipo: mc
+opciones_explicitas: ["inespecifica/innata", "especifica/adaptativa", "ninguna", "ambas por igual"]
+
+enunciado: "La defensa que actúa contra cualquier invasor, sin importar cuál sea, se llama..."
+
+explicacion: |
+  Es la inmunidad innata: responde igual ante cualquier agente extraño.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["anticuerpos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La defensa específica produce anticuerpos hechos a medida para un invasor particular."
+
+explicacion: |
+  Correcto, la inmunidad adaptativa genera anticuerpos específicos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["barreras"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La piel y las mucosas son ejemplos de defensa inespecífica."
+
+explicacion: |
+  Correcto, son barreras físicas generales.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["memoria_inmunitaria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sistema inmunitario 'recuerda' a un invasor después de una infección, respondiendo más rápido la segunda vez."
+
+explicacion: |
+  Correcto, es la base de la inmunidad adaptativa.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "basico"
+  tags: ["vacunas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una vacuna expone al cuerpo a una versión debilitada o fragmento del patógeno, para que el sistema inmunitario aprenda a reconocerlo."
+
+explicacion: |
+  Correcto, sin causar la enfermedad real.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "intermedio"
+  tags: ["defensa_inespecifica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La fiebre es una respuesta de defensa inespecífica: el cuerpo sube su temperatura para dificultar la reproducción de muchos patógenos."
+
+explicacion: |
+  Correcto, es parte de la inmunidad innata.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
+  nivel: "intermedio"
+  tags: ["fagocitosis", "defensa_inespecifica"]
+
+respuesta: "engullen y destruyen invasores, sin importar cuáles sean"
+tipo: mc
+opciones_explicitas: ["engullen y destruyen invasores, sin importar cuáles sean", "sólo atacan a un invasor específico ya conocido", "producen anticuerpos a medida", "sólo actúan en la piel"]
+
+enunciado: "¿Qué hacen los glóbulos blancos que realizan fagocitosis, como parte de la defensa inespecífica?"
+
+explicacion: |
+  "Comen" (engullen) cualquier invasor que encuentren, sin distinguir cuál es específicamente.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "microbiologia_virus_inmunitario"
   nivel: "avanzado"
-  tags: ["seleccion_natural", "deriva_genetica"]
+  tags: ["vacunas", "aplicacion"]
 
-respuesta: "selección natural"
-tipo: completar
-respuestas_validas:
-  - "selección natural"
-  - "seleccion natural"
+respuesta: falso
+tipo: vf
 
-enunciado: "Si una población, aislada de otra, cambia sus rasgos debido a la presión por sobrevivir en un ambiente específico, el proceso responsable de ese cambio se llama ___."
+enunciado: "Las vacunas siempre usan el patógeno completo y activo, exactamente igual al que causa la enfermedad real."
 
 explicacion: |
-  La selección natural actúa sobre la variabilidad existente, favoreciendo ciertos rasgos que aumentan la supervivencia y reproducción, lo que con el tiempo, sumado al aislamiento, puede llevar a la especiación.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "intermedio"
-  tags: ["deriva_genetica", "azar"]
-
-respuesta: "azar"
-tipo: completar
-respuestas_validas:
-  - "azar"
-
-enunciado: "A diferencia de la selección natural, la deriva genética provoca cambios en las frecuencias alélicas de una población debido al ___."
-
-explicacion: |
-  La deriva genética es un proceso estocástico (aleatorio) que afecta principalmente a poblaciones pequeñas, cambiando la composición genética sin que necesariamente haya una ventaja adaptativa.
-```
-
-```
-metadata:
-  materia: "biologia"
-  tema: "especiacion"
-  nivel: "intermedio"
-  tags: ["flujo_genico", "especiacion"]
-
-respuesta: "interrumpido"
-tipo: completar
-respuestas_validas:
-  - "interrumpido"
-  - "cortado"
-
-enunciado: "Para que la especiación ocurra, el flujo génico entre dos poblaciones debe estar ___."
-
-explicacion: |
-  Si el flujo génico continúa, los genes se mezclan constantemente y las poblaciones se mantienen genéticamente similares. La especiación requiere que el intercambio de genes cese para que las diferencias se acumulen.
+  Falso. Usan una versión debilitada, inactivada, o sólo un fragmento (como una proteína de la superficie) — suficiente para que el sistema inmunitario aprenda, sin causar la enfermedad.
 ```
 

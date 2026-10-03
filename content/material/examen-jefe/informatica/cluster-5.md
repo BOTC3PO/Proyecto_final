@@ -1,2457 +1,2447 @@
 # Examen jefe — [PENDIENTE #820]
 
-> Logro #820. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
+> Logro #820. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: arranque-de-la-computadora-boot (26 preguntas)
+## Sección: estructuras-de-control-bucles (25 preguntas)
 
 ```
 metadata:
   materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
+  tema: "estructuras_de_control_bucles"
   nivel: "basico"
-  tags: ["boot", "sequencia", "hardware"]
+  tags: ["conceptos", "terminologia"]
 
-variables:
-  paso1: "POST"
-  paso2: "BIOS"
-  paso3: "SO"
-
-respuesta: "POST, BIOS, SO"
-tipo: completar
-
-enunciado: "Ordená las etapas principales del arranque: primero se ejecuta la {paso1}, luego interviene la {paso2} y finalmente carga el {paso3}."
-
-explicacion: |
-  El proceso sigue un orden estricto: primero la autoprueba (POST), luego el firmware (BIOS/UEFI) y finalmente el sistema operativo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "intermedio"
-  tags: ["post", "diagnostico", "prueba"]
-
-variables:
-  acrónimo: "POST"
-
-respuesta: "Power-On Self-Test"
-tipo: completar
-
-enunciado: "El acrónimo POST significa: {acrónimo}."
-
-explicacion: |
-  POST significa Power-On Self-Test (Autoprueba al encender). Verifica que el hardware responda.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "basico"
-  tags: ["hardware", "ubicacion", "chip"]
-
-variables:
-  componente: "placa madre"
-
-respuesta: "placa madre"
-tipo: completar
-
-enunciado: "La BIOS se encuentra grabada en un chip de la {componente}."
-
-explicacion: |
-  La BIOS es un firmware almacenado en un chip de memoria flash en la placa madre.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "intermedio"
-  tags: ["linux", "grub", "gestor"]
-
-variables:
-  gestor: "GRUB"
-
-respuesta: "GRUB"
-tipo: input
-
-enunciado: "¿Cuál es el nombre común del gestor de arranque utilizado en sistemas Linux?"
-
-explicacion: |
-  GRUB (GRand Unified Bootloader) es el estándar para cargar el kernel de Linux.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "intermedio"
-  tags: ["windows", "bootmgr", "gestor"]
-
-variables:
-  gestor: "Windows Boot Manager"
-
-respuesta: "Windows Boot Manager"
-tipo: input
-
-enunciado: "¿Qué gestor de arranque utiliza típicamente Windows moderno?"
-
-explicacion: |
-  Windows utiliza el Windows Boot Manager (bootmgr) para cargar el sistema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "basico"
-  tags: ["disco", "ssd", "almacenamiento"]
-
-variables:
-  dispositivo: "disco duro"
-
-respuesta: "disco duro"
-tipo: input
-
-enunciado: "¿Dónde reside el sector de arranque? En el {dispositivo} o SSD."
-
-explicacion: |
-  El código de arranque se guarda en el disco de almacenamiento (HDD o SSD).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "intermedio"
-  tags: ["sector", "boot", "carga"]
-
-variables:
-  entidad: "sector de arranque"
-
-respuesta: "sector de arranque"
-tipo: input
-
-enunciado: "La BIOS busca un {entidad} válido para iniciar la carga del SO."
-
-explicacion: |
-  El sector de arranque contiene el código inicial que permite cargar el gestor de arranque.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "intermedio"
-  tags: ["uefi", "modernizacion", "firmware"]
-
-variables:
-  sucesor: "UEFI"
-
-respuesta: "UEFI"
-tipo: input
-
-enunciado: "¿Cuál es el sucesor moderno de la BIOS?"
-
-explicacion: |
-  UEFI (Unified Extensible Firmware Interface) es la evolución de la BIOS.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "basico"
-  tags: ["diagnostico", "pitidos", "error"]
-
-variables:
-  senal: "pitidos"
-
-respuesta: "pitidos"
-tipo: input
-
-enunciado: "Si la POST falla, la placa madre suele emitir {senal} de error."
-
-explicacion: |
-  Los códigos de pitidos indican qué componente específico falló en la autoprueba.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "intermedio"
-  tags: ["drivers", "perifericos", "controladores"]
-
-variables:
-  elemento: "controladores"
-
-respuesta: "controladores"
-tipo: input
-
-enunciado: "El SO carga los {elemento} de los dispositivos periféricos durante el arranque."
-
-explicacion: |
-  Los drivers permiten que el sistema operativo comunique con el hardware.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "basico"
-  tags: ["GUI", "interfaz", "escritorio"]
-
-variables:
-  elemento: "interfaz gráfica"
-
-respuesta: "interfaz gráfica"
-tipo: input
-
-enunciado: "El arranque finaliza cuando se muestra la {elemento} al usuario."
-
-explicacion: |
-  La GUI es la señal visual de que el sistema está listo para usar.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "intermedio"
-  tags: ["ram", "memoria", "carga"]
-
-variables:
-  memoria: "RAM"
-
-respuesta: "RAM"
-tipo: input
-
-enunciado: "El kernel del SO se carga en la {memoria} para su ejecución rápida."
-
-explicacion: |
-  El núcleo debe residir en memoria principal (RAM) para ser procesado por la CPU.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "basico"
-  tags: ["POST", "verificacion", "hardware"]
-
-variables:
-  accion: "verificar"
-
-respuesta: "verificar"
-tipo: input
-
-enunciado: "La POST tiene como fin {accion} que el hardware funcione correctamente."
-
-explicacion: |
-  Sin esta verificación, cargar un SO en hardware defectuoso sería inútil.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "intermedio"
-  tags: ["kernel", "nucleo", "so"]
-
-variables:
-  componente: "nucleo"
-
-respuesta: "nucleo"
-tipo: input
-
-enunciado: "El gestor de arranque carga el {componente} del sistema operativo."
-
-explicacion: |
-  El kernel es el corazón del SO y debe cargarse antes que cualquier aplicación.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "basico"
-  tags: ["energia", "inicio", "hardware"]
-
-variables:
-  estado: "inerte"
-
-respuesta: "inerte"
-tipo: input
-
-enunciado: "Sin el proceso de arranque, el hardware sería un conjunto de componentes {estado}."
-
-explicacion: |
-  El hardware necesita el software de bajo nivel para cobrar vida funcional.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "avanzado"
-  tags: ["uefi", "particion", "efi"]
-
-variables:
-  particion: "ESP"
-
-respuesta: "ESP"
-tipo: input
-
-enunciado: "En sistemas UEFI, el gestor de arranque suele residir en la partición {particion}."
-
-explicacion: |
-  La EFI System Partition (ESP) contiene los archivos de arranque para UEFI.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "avanzado"
-  tags: ["bios", "mbr", "particion"]
-
-variables:
-  tabla: "MBR"
-
-respuesta: "MBR"
-tipo: input
-
-enunciado: "La BIOS tradicional utiliza la tabla de particiones {tabla} para encontrar el arranque."
-
-explicacion: |
-  MBR (Master Boot Record) es el estándar antiguo para el arranque con BIOS.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "intermedio"
-  tags: ["diagnostico", "pitidos", "solucion"]
-
-variables:
-  diagnostico: "diagnostico"
-
-respuesta: "diagnostico"
-tipo: input
-
-enunciado: "Los códigos de pitidos sirven para realizar un {diagnostico} rápido del fallo."
-
-explicacion: |
-  Cada patrón de pitidos corresponde a un error específico de hardware.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "intermedio"
-  tags: ["perifericos", "inicializacion", "so"]
-
-variables:
-  dispositivo: "periféricos"
-
-respuesta: "periféricos"
-tipo: input
-
-enunciado: "El SO inicializa los {dispositivo} como teclado y mouse tras cargar el kernel."
-
-explicacion: |
-  Sin los drivers de periféricos, el usuario no podría interactuar con la máquina.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "basico"
-  tags: ["concepto", "puente", "definicion"]
-
-variables:
-  rol: "puente"
-
-respuesta: "puente"
-tipo: input
-
-enunciado: "El proceso de boot es el {rol} entre la energía eléctrica y la funcionalidad digital."
-
-explicacion: |
-  Sin boot, no hay conexión entre la electricidad y el software.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "basico"
-  tags: ["secuencia", "orden", "protocolo"]
-
-variables:
-  requisito: "estricto"
-
-respuesta: "estricto"
-tipo: input
-
-enunciado: "El arranque sigue un protocolo {requisito} de inicialización."
-
-explicacion: |
-  El orden no puede alterarse: hardware -> firmware -> SO.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "intermedio"
-  tags: ["firmware", "comparacion", "bios"]
-
-variables:
-  nombre: "BIOS"
-
-respuesta: "BIOS"
-tipo: input
-
-enunciado: "¿Qué sistema firmware es el antecesor de UEFI?"
-
-explicacion: |
-  BIOS (Basic Input/Output System) fue el estándar por décadas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "intermedio"
-  tags: ["sector", "validez", "boot"]
-
-variables:
-  atributo: "válido"
-
-respuesta: "válido"
-tipo: input
-
-enunciado: "La BIOS busca un sector de arranque {atributo} en el disco."
-
-explicacion: |
-  Si el sector no es válido, el sistema no sabrá cómo iniciar.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "intermedio"
-  tags: ["gestor", "bootloader", "funcion"]
-
-variables:
-  responsable: "responsable"
-
-respuesta: "responsable"
-tipo: input
-
-enunciado: "El gestor de arranque es el {responsable} de cargar el kernel."
-
-explicacion: |
-  El bootloader es el intermediario entre el firmware y el sistema operativo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "basico"
-  tags: ["finalizacion", "escritorio", "listo"]
-
-variables:
-  estado: "listo"
-
-respuesta: "listo"
-tipo: input
-
-enunciado: "Cuando aparece el escritorio, la computadora está {estado} para uso cotidiano."
-
-explicacion: |
-  El arranque se considera completo cuando la interfaz de usuario es accesible.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "arranque_de_la_computadora_boot"
-  nivel: "basico"
-  tags: ["hardware", "inerte", "componentes"]
-
-variables:
-  descripcion: "inertes"
-
-respuesta: "inertes"
-tipo: input
-
-enunciado: "Sin boot, los componentes serían simplemente {descripcion}."
-
-explicacion: |
-  El hardware por sí solo no ejecuta lógica ni gestiona datos.
-```
-
-## Sección: mantenimiento-y-deuda-tecnica (26 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "basico"
-  tags: ["conceptos", "deuda_tecnica"]
-
-respuesta: "deuda_tecnica"
+respuesta: "iteración"
 tipo: completar
 respuestas_validas:
-  - "deuda_tecnica"
+  - "iteración"
+  - "iteracion"
 
-enunciado: "El concepto que describe el coste adicional de realizar cambios en el software debido a decisiones de diseño rápidas o deficientes se conoce como ___."
+enunciado: "En programación, cada una de las repeticiones de un bloque de instrucciones dentro de un bucle se denomina ___."
 
 explicacion: |
-  La deuda técnica es una metáfora que compara las decisiones de desarrollo apresuradas con la deuda financiera: si no se "paga" (refactorizando), los "intereses" (dificultad de mantenimiento) aumentan.
+  Un bucle permite ejecutar un conjunto de instrucciones varias veces. Cada vez que el ciclo se ejecuta, se dice que ha ocurrido una iteración.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
+  tema: "estructuras_de_control_bucles"
   nivel: "basico"
-  tags: ["mantenimiento", "tipos"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["corregir un error que causa un cierre inesperado", "correctivo"], ["añadir una nueva funcionalidad solicitada por el cliente", "evolutivo"]]
-
-respuesta: escenarios[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["correctivo", "adaptativo", "evolutivo", "preventivo"]
-
-enunciado: "Se debe realizar un mantenimiento tipo ___ cuando el objetivo es {escenarios[escenario_idx][0]}."
-
-explicacion: |
-  El mantenimiento correctivo busca arreglar fallos; el adaptativo ajusta el software a nuevos entornos; el evolutivo añade funciones y el preventivo busca evitar fallos futuros.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "intermedio"
-  tags: ["impacto", "calidad"]
+  tags: ["diferencias", "for", "while"]
 
 respuesta: falso
 tipo: vf
-
-enunciado: "La presencia de deuda técnica en un proyecto de software siempre implica que el código es de mala calidad y no tiene utilidad."
+enunciado: "El bucle 'while' se utiliza preferentemente cuando se conoce de antemano el número exacto de veces que se debe repetir el bloque de código."
 
 explicacion: |
-  Falso. A veces se toma deuda técnica de forma estratégica para cumplir con una fecha de lanzamiento crítica, con el plan de pagarla (refactorizar) más adelante.
+  Falso. El bucle 'while' se basa en una condición lógica y se usa cuando no sabemos cuántas veces se repetirá. El bucle 'for' es el ideal cuando conocemos el número de iteraciones (iteraciones controladas).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
+  tema: "estructuras_de_control_bucles"
   nivel: "intermedio"
-  tags: ["procesos", "orden"]
-
-respuesta_orden: ["Detección del problema", "Análisis de la causa", "Diseño de la solución", "Implementación del cambio", "Pruebas de regresión"]
-tipo: ordenar
-opciones_explicitas: ["Detección del problema", "Análisis de la causa", "Diseño de la solución", "Implementación del cambio", "Pruebas de regresión"]
-
-enunciado: "Ordena las etapas típicas de un proceso de mantenimiento correctivo:"
-
-explicacion: |
-  Un ciclo de mantenimiento debe seguir un orden lógico: primero se identifica el error, se entiende por qué ocurre, se planea el arreglo, se aplica y finalmente se verifica que no se haya roto nada más.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "avanzado"
-  tags: ["refactorizacion", "calidad"]
+  tags: ["for", "componentes"]
 
 variables:
-  valor_refactor: uno_de([0, 1])
-  datos: [["Cambiar la estructura interna del código sin alterar su comportamiento externo", "refactorizar"], ["Añadir un nuevo módulo de seguridad al sistema", "extender"]]
+  escenario_idx: uno_de([0, 1])
+  datos: [["i", "inicio", "paso"], ["cont", "valor_inicial", "incremento"]]
 
-respuesta: datos[valor_refactor][1]
+respuesta: datos[escenario_idx][0]
 tipo: mc
-opciones_explicitas: ["refactorizar", "extender", "optimizar", "reparar"]
+opciones_explicitas: ["i", "cont", "valor_inicial", "incremento"]
 
-enunciado: "La acción de {datos[valor_refactor][0]} se define como ___."
+enunciado: "En una estructura de control 'for' estándar, el primer parámetro suele representar la ___ que actúa como contador."
 
 explicacion: |
-  La refactorización es la técnica principal para reducir la deuda técnica, mejorando la legibilidad y la estructura sin cambiar lo que el código hace para el usuario.
+  La variable de control (comúnmente llamada 'i' o 'j') es la que toma los valores sucesivos durante el ciclo.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "intermedio"
-  tags: ["deuda_tecnica", "mantenimiento"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "Si un equipo de desarrollo decide no refactorizar un módulo complejo para cumplir con una fecha de entrega, está acumulando deuda técnica. Esta acción, si no se paga pronto, aumenta el costo de mantenimiento futuro. ¿Es el refactorizado una forma de mantenimiento preventivo?"
-
-explicacion: |
-  El refactorizado busca mejorar la estructura interna del código sin cambiar su comportamiento externo, lo cual es una actividad de mantenimiento preventivo para evitar la acumulación de deuda técnica.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
+  tema: "estructuras_de_control_bucles"
   nivel: "basico"
-  tags: ["deuda_tecnica", "conceptos"]
+  tags: ["flujo", "orden"]
 
-opciones_explicitas: ["Código mal documentado", "Cambio de requerimientos", "Nueva funcionalidad", "Actualización de dependencias"]
-
-respuesta: "Código mal documentado"
-tipo: mc
-
-enunciado: "Un desarrollador nota que el sistema funciona correctamente, pero la lógica de negocio está dispersa y no hay comentarios en las funciones críticas, lo que dificultará cambios futuros. ¿Cuál de estos es un ejemplo claro de deuda técnica?"
-
-explicacion: |
-  La falta de documentación y la mala estructura del código (código espagueti) son formas de deuda técnica que incrementan el esfuerzo necesario para realizar mantenimientos correctivos o evolutivos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "intermedio"
-  tags: ["mantenimiento", "tipos"]
-
+respuesta_orden: ["Inicializar variable", "Evaluar condición", "Ejecutar cuerpo", "Actualizar variable"]
 tipo: ordenar
-opciones_explicitas: ["Detectar error", "Corregir error", "Optimizar rendimiento", "Implementar nueva función", "Documentar sistema"]
-respuesta_orden: ["Detectar error", "Corregir error", "Optimizar rendimiento", "Implementar nueva función", "Documentar sistema"]
+opciones_explicitas: ["Inicializar variable", "Evaluar condición", "Ejecutar cuerpo", "Actualizar variable"]
 
-enunciado: "Ordena las siguientes etapas típicas del ciclo de mantenimiento de un sistema de software, desde la detección de un problema hasta la documentación final."
+enunciado: "Ordena los pasos lógicos que sigue un bucle 'while' en cada ciclo para asegurar un funcionamiento correcto y evitar bucles infinitos."
 
 explicacion: |
-  El mantenimiento correctivo (detectar y corregir errores) suele preceder a las mejoras de rendimiento y a las nuevas funcionalidades; documentar los cambios es siempre el último paso.
+  Primero se verifica si la condición es verdadera, luego se ejecuta el código y finalmente se actualiza la variable de control para que la condición pueda llegar a ser falsa eventualmente.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "intermedio"
-  tags: ["mantenimiento", "tipos"]
-
-respuesta: "perfectivo"
-tipo: completar
-
-enunciado: "Si el objetivo es mejorar la velocidad de una consulta SQL que tarda 10 segundos, estamos realizando un mantenimiento de tipo ___."
-
-pasos:
-  - "Identificar el cuello-de-bote en la base de datos."
-  - "Aplicar índices o reescribir la consulta."
-
-opciones_explicitas: ["correctivo", "evolutivo", "adaptativo", "perfectivo"]
-respuestas_validas:
-  - "perfectivo"
-
-explicacion: |
-  El mantenimiento perfectivo se encarga de mejorar el rendimiento o la eficiencia de un software que ya funciona correctamente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "avanzado"
-  tags: ["deuda_tecnica", "costos"]
-
-tipo: completar
-
-enunciado: "Un equipo decide ignorar las pruebas unitarias para lanzar una versión hoy. Esto genera una deuda técnica que se traduce en ___."
-
-respuestas_validas:
-  - "intereses"
-
-explicacion: |
-  La deuda técnica funciona como un préstamo financiero: el 'principal' es el tiempo ahorrado hoy, y los 'intereses' es el tiempo extra que se perderá mañana arreglando errores o lidiando con código complejo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
+  tema: "estructuras_de_control_bucles"
   nivel: "basico"
-  tags: ["mantenimiento", "adaptativo"]
-
-opciones_explicitas: ["Cambio de Sistema Operativo", "Arreglar un crash", "Añadir un botón", "Cambiar el color de la interfaz"]
-
-respuesta: "Cambio de Sistema Operativo"
-tipo: mc
-
-enunciado: "Una aplicación de escritorio debe actualizarse para ser compatible con la nueva versión de Windows que salió este mes. ¿Qué tipo de mantenimiento es este?"
-
-explicacion: |
-  El mantenimiento adaptativo ocurre cuando el software debe ajustarse a cambios en su entorno (sistema operativo, hardware, bases de datos o leyes externas) para seguir siendo funcional.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "intermedio"
-  tags: ["deuda_tecnica", "costo_software"]
-
-variables:
-  escenario: uno_de([["reparar_bug", "reparar un error crítico", "reparar un error crítico"], ["agregar_feature", "implementar una nueva funcionalidad", "implementar una nueva funcionalidad"], ["refactorizar", "refactorizar un módulo heredado", "refactorizar un módulo heredado"]])
-  tipo_accion: escenario[0]
-  descripcion_accion: escenario[1]
-  respuesta_correcta: escenario[2]
-
-tipo: mc
-opciones_explicitas: ["reparar un error crítico", "implementar una nueva funcionalidad", "refactorizar un módulo heredado"]
-respuesta: respuesta_correcta
-
-enunciado: "Cuando la deuda técnica es muy alta, el tiempo dedicado a {descripcion_accion} suele aumentar drásticamente debido a la complejidad del código existente."
-
-explicacion: |
-  La deuda técnica actúa como un interés compuesto: cuanta más deuda se acumula, más tiempo y esfuerzo requiere cada nueva tarea (ya sea corregir errores o añadir funciones) debido a la fragilidad del sistema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "basico"
-  tags: ["conceptos", "gestion_de_proyectos"]
+  tags: ["errores", "bucle_infinito"]
 
 respuesta: falso
 tipo: vf
-
-enunciado: "La deuda técnica es siempre un error de programación que debe evitarse a toda costa desde el primer día del proyecto."
+enunciado: "Un bucle infinito ocurre únicamente cuando la condición de parada es siempre verdadera debido a un error de lógica en el programa."
 
 explicacion: |
-  Falso. La deuda técnica puede ser una decisión estratégica (deuda consciente) para acelerar el lanzamiento al mercado (Time-to-Market), siempre que se planifique su posterior pago.
+  Falso. Aunque es la causa más común (error de lógica), un bucle infinito también puede ser intencional (por ejemplo, en el bucle principal de un sistema operativo o un videojuego que espera una señal de salida).
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "intermedio"
-  tags: ["mantenimiento_software"]
-
-respuesta: "correctivo"
-tipo: completar
-respuestas_validas:
-  - "correctivo"
-  - "adaptativo"
-  - "perfectivo"
-  - "preventivo"
-
-enunciado: "El tipo de mantenimiento que se realiza exclusivamente para corregir fallos detectados en el software ya en producción se denomina mantenimiento ___."
-
-explicacion: |
-  El mantenimiento correctivo se enfoca en solucionar errores (bugs) que impiden el funcionamiento correcto del sistema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "avanzado"
-  tags: ["ciclo_vida", "deuda_tecnica"]
-
-respuesta_orden: ["Implementación rápida", "Acumulación de deuda", "Aumento de complejidad", "Refactorización necesaria"]
-tipo: ordenar
-opciones_explicitas: ["Implementación rápida", "Acumulación de deuda", "Aumento de complejidad", "Refactorización necesaria"]
-
-enunciado: "Ordene cronológicamente los eventos que describen el proceso de degradación de la calidad de software por deuda técnica no gestionada:"
-
-explicacion: |
-  El proceso comienza con una decisión de velocidad, lo que genera deuda; esto aumenta la complejidad del código y finalmente obliga a realizar refactorizaciones costosas para recuperar la mantenibilidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "intermedio"
-  tags: ["mantenibilidad", "calidad_software"]
-
-respuesta: "alto"
-tipo: mc
-opciones_explicitas: ["bajo", "medio", "alto"]
-
-enunciado: "Si un módulo tiene una alta complejidad ciclomática y falta de documentación, el esfuerzo requerido para realizar mantenimiento sobre él será ___."
-
-explicacion: |
-  La falta de estándares y la complejidad excesiva aumentan la carga cognitiva de los desarrolladores, elevando el esfuerzo de mantenimiento.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
+  tema: "estructuras_de_control_bucles"
   nivel: "basico"
-  tags: ["conceptos", "ciclo_de_vida"]
-
-respuesta: "evolución"
-tipo: "completar"
-respuestas_validas:
-  - "evolución"
-  - "evolucion"
-
-enunciado: "Mientras que el mantenimiento correctivo se enfoca en reparar errores, el proceso de añadir nuevas funcionalidades o adaptar el software a nuevos entornos se denomina ___."
-
-explicacion: |
-  El mantenimiento correctivo busca solucionar fallos existentes, mientras que la evolución (o mantenimiento evolutivo) busca expandir las capacidades del sistema para satisfacer nuevas necesidades del usuario.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "intermedio"
-  tags: ["deuda_tecnica", "calidad"]
+  tags: ["for", "iteracion", "suma"]
 
 variables:
-  datos: [["decidir tomar un atajo en el diseño para cumplir con una fecha de entrega inmediata", "Aumento de la velocidad de entrega inicial"], ["ignorar las pruebas unitarias para acelerar el despliegue", "Aumento de la velocidad de entrega inicial"]]
-  escenario_idx: uno_de([0, 1])
+  escenario: uno_de([[10, 55], [5, 15], [20, 210]])
+  limite: escenario[0]
+  suma_final: escenario[1]
 
-respuesta: datos[escenario_idx][1]
-tipo: "mc"
-opciones_explicitas: ["Aumento de la velocidad de entrega inicial", "Reducción del costo de mantenimiento", "Mejora de la legibilidad del código", "Reducción de la complejidad ciclomática"]
-
-enunciado: "En el escenario de {datos[escenario_idx][0]}, la principal consecuencia a largo plazo es:"
-
-explicacion: |
-  La deuda técnica suele ser una decisión consciente (o no) para ganar velocidad de entrega a corto plazo, pero genera un "interés" en forma de mayor dificultad para realizar cambios en el futuro.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "basico"
-  tags: ["mantenimiento", "tipos"]
-
-respuesta: "preventivo"
-tipo: "mc"
-opciones_explicitas: ["correctivo", "evolutivo", "preventivo", "adaptativo"]
-
-enunciado: "Si un equipo de desarrollo realiza una refactorización para mejorar la estructura interna del código sin cambiar su comportamiento externo, está realizando mantenimiento ___."
-
-explicacion: |
-  El mantenimiento preventivo busca mejorar la estructura del software para evitar problemas futuros (como la degradación por deuda técnica), sin alterar la funcionalidad actual.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "intermedio"
-  tags: ["deuda_tecnica", "costo"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "¿Es correcto afirmar que la deuda técnica se diferencia de la mala calidad de software en que la deuda suele ser una decisión estratégica para acelerar el desarrollo?"
-
-explicacion: |
-  Exacto. La mala calidad es un error o descuido, mientras que la deuda técnica es a menudo una decisión deliberada de "pedir prestado" tiempo de diseño para ganar tiempo de mercado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "avanzado"
-  tags: ["refactorizacion", "deuda_tecnica"]
-
-tipo: ordenar
-
-opciones_explicitas: ["Identificar deuda técnica", "Escribir pruebas unitarias", "Ejecutar refactorización", "Verificar integridad"]
-
-respuesta_orden: ["Identificar deuda técnica", "Escribir pruebas unitarias", "Ejecutar refactorización", "Verificar integridad"]
-
-enunciado: "Ordena los pasos lógicos para abordar una deuda técnica mediante refactorización de forma segura:"
-
-explicacion: |
-  Para refactorizar sin introducir nuevos errores, primero se debe identificar el problema, asegurar la existencia de pruebas (test suite) para garantizar el comportamiento actual, realizar el cambio y finalmente verificar que todo siga funcionando.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "intermedio"
-  tags: ["refactorizacion", "deuda_tecnica"]
-
-variables:
-  escenario: uno_de([["El equipo decide ignorar la implementación de pruebas unitarias para cumplir con la fecha de entrega.", "deuda_tecnica"], ["El equipo decide reescribir un módulo complejo para mejorar su legibilidad sin cambiar su comportamiento.", "refactorizacion"], ["El equipo decide parchar un error crítico con un código temporal que no sigue los estándares.", "deuda_tecnica"]])
-
-enunciado: "En el escenario descrito: '{escenario[0]}', la acción realizada se clasifica como: ___"
-
-respuestas_validas:
-  - "deuda_tecnica"
-  - "refactorizacion"
-respuesta: escenario[1]
-tipo: completar
-
-explicacion: |
-  La deuda técnica surge cuando se toman caminos de desarrollo rápidos o de baja calidad que facilitan la entrega inmediata pero aumentan el costo de mantenimiento futuro. La refactorización, en cambio, es una práctica deliberada para mejorar la estructura interna sin alterar la funcionalidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "basico"
-  tags: ["mantenimiento_correctivo", "mantenimiento_evolutivo"]
-
-variables:
-  caso: uno_de([["Corregir un error que causa que la aplicación se cierre inesperadamente.", "correctivo"], ["Añadir una nueva funcionalidad de exportación a PDF que el cliente solicitó.", "evolutivo"], ["Optimizar el uso de memoria de una función existente para que sea más rápida.", "perfectivo"]])
-
-enunciado: "Si el objetivo es '{caso[0]}', estamos realizando un mantenimiento de tipo: ___"
-
-respuestas_validas:
-  - "correctivo"
-  - "evolutivo"
-  - "perfectivo"
-respuesta: caso[1]
-tipo: completar
-
-explicacion: |
-  El mantenimiento correctivo soluciona fallos; el evolutivo añade nuevas capacidades; y el perfectivo mejora aspectos no funcionales como el rendimiento o la eficiencia.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "intermedio"
-  tags: ["costo", "deuda_tecnica"]
-
-enunciado: "A medida que la deuda técnica en un proyecto de software aumenta, el costo de implementar nuevos cambios tiende a ___."
-
-opciones_explicitas: ["Aumentar", "Disminuir"]
-respuesta: "Aumentar"
-tipo: mc
-
-explicacion: |
-  La deuda técnica actúa como un interés compuesto: cuanto más se acumula, más difícil y costoso es trabajar sobre el código, ya que las dependencias y la complejidad no gestionada frenan el desarrollo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "basico"
-  tags: ["ciclo_de_vida"]
-
-variables:
-  orden: ["Detección del problema", "Análisis de la causa raíz", "Diseño de la solución", "Implementación del cambio", "Pruebas de regresión"]
-
-enunciado: "Ordene los pasos típicos de un proceso de mantenimiento correctivo, desde el inicio hasta la verificación final."
-
-opciones_explicitas: ["Detección del problema", "Análisis de la causa raíz", "Diseño de la solución", "Implementación del cambio", "Pruebas de regresión"]
-respuesta_orden: ["Detección del problema", "Análisis de la causa raíz", "Diseño de la solución", "Implementación del cambio", "Pruebas de regresión"]
-tipo: ordenar
-
-explicacion: |
-  Un proceso de mantenimiento estructurado requiere primero identificar el fallo, entender por qué sucede, planear la solución, aplicarla y, crucialmente, verificar que el cambio no haya roto otras partes del sistema (regresión).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "mantenimiento_y_deuda_tecnica"
-  nivel: "basico"
-  tags: ["calidad", "mantenimiento"]
-
-enunciado: "Si un software tiene un alto nivel de deuda técnica, es ___ que su código sea fácil de mantener a largo plazo."
-
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "falso"
-tipo: completar
-explicacion: |
-  La mantenibilidad es la facilidad con la que un sistema puede ser modificado. Una alta deuda técnica degrada la calidad del código, haciendo que la mantenibilidad sea baja.
-```
-
-## Sección: memoria-asignacion-memoria-virtual (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "basico"
-  tags: ["conceptos", "gestion_de_memoria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La memoria virtual es una técnica que permite a un proceso utilizar una cantidad de memoria que excede la capacidad de la memoria física (RAM) disponible, utilizando parte del almacenamiento secundario como extensión."
-
-explicacion: |
-  Correcto. La memoria virtual permite que el sistema operativo gestione la memoria de forma abstracta, permitiendo ejecutar programas más grandes que la RAM física mediante el uso de paginación o segmentación en el disco.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["hardware", "direccionamiento"]
-
-respuesta: "dirección lógica"
-tipo: mc
-
-opciones_explicitas: ["dirección lógica", "dirección física", "dirección de disco", "dirección de caché"]
-
-enunciado: "En un sistema con memoria virtual, la unidad de gestión de memoria (MMU) es el componente de hardware encargado de traducir la ___ en una dirección física."
-
-explicacion: |
-  La MMU (Memory Management Unit) es el componente encargado de la traducción de direcciones lógicas (generadas por la CPU) a direcciones físicas (ubicadas en la RAM).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "basico"
-  tags: ["terminologia", "paginacion"]
-
-respuesta_orden: ["Paginación", "Segmentación", "Direccionamiento"]
-tipo: ordenar
-
-opciones_explicitas: ["Paginación", "Segmentación", "Direccionamiento"]
-
-enunciado: "Ordena los conceptos de mayor a menor nivel de abstracción en la gestión de memoria (desde la división de memoria en bloques de tamaño fijo hasta la traducción de direcciones):"
-
-explicacion: |
-  La paginación divide la memoria en trozos fijos, la segmentación divide la memoria en unidades lógicas de tamaño variable, y el direccionamiento es el proceso final de localización.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["paginacion", "errores"]
-
-respuesta: "page fault"
-tipo: completar
-
-respuestas_validas:
-  - "page fault"
-  - "error de paginación"
-  - "fallo de página"
-
-enunciado: "Cuando un proceso intenta acceder a una página que no se encuentra actualmente en la memoria física, se produce un evento conocido como ___."
-
-explicacion: |
-  Un 'page fault' (fallo de página) es una interrupción generada por el hardware que indica que la página requerida debe ser cargada desde el disco a la RAM.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "basico"
-  tags: ["comparacion"]
-
-variables:
-  datos: uno_de([[16, 128], [32, 256], [64, 512]])
-
-respuesta: datos[1]
+respuesta: suma_final
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si un sistema tiene una memoria RAM física de {datos[0]} GB y se implementa memoria virtual, la capacidad de direccionamiento lógico total para un proceso puede llegar a ser de hasta {datos[1]} GB."
+enunciado: "Considera un bucle que recorre un rango desde 1 hasta {limite} (inclusive) sumando cada valor a una variable acumuladora que inicia en 0. ¿Cuál es el valor final de la suma?"
 
 pasos:
-  - "Identificar la capacidad de la RAM física."
-  - "Asociar la capacidad de direccionamiento virtual como un valor superior a la física."
+  - "Inicializar acumulador = 0"
+  - "Iterar desde i = 1 hasta {limite}"
+  - "En cada paso, sumar i al acumulador"
 
 explicacion: |
-  La memoria virtual permite que el espacio de direcciones lógicas sea significativamente mayor que la memoria física instalada.
+  El bucle recorre todos los enteros desde 1 hasta el límite definido. La suma de los primeros n números se calcula con la fórmula (n * (n + 1)) / 2. En este caso, para un límite de {limite}, la suma es {suma_final}.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "memoria_virtual"
+  tema: "estructuras_de_control_bucles"
   nivel: "basico"
-  tags: ["conceptos", "gestion_de_memoria"]
+  tags: ["while", "condicion"]
+
+variables:
+  valor_inicial: 10
+  divisor: 2
+  resultado_final: 1
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Se ejecuta el siguiente pseudocódigo: \n x = {valor_inicial} \n while (x > 1): \n   x = x / {divisor} \n \n ¿La variable x terminará siendo exactamente igual a 1 al finalizar el bucle? (Verdadero/Falso)"
+
+explicacion: |
+  En cada iteración, x se divide por 2. La secuencia es: 10, 5, 2.5, 1.25, 0.625... Como x siempre será mayor que 1 hasta que cruce el umbral, el bucle se detiene cuando x <= 1. En este caso, el valor final es 0.625, por lo tanto, no es exactamente 1.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "intermedio"
+  tags: ["for", "anidado", "iteraciones"]
+
+variables:
+  i_max: 3
+  j_max: 2
+
+respuesta: 6
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "En un bucle anidado donde el bucle externo corre desde i = 1 hasta {i_max} y el bucle interno corre desde j = 1 hasta {j_max}, ¿cuántas veces se ejecutará el cuerpo del bucle interno en total?"
+
+pasos:
+  - "El bucle externo se ejecuta {i_max} veces"
+  - "Por cada iteración del externo, el interno se ejecuta {j_max} veces"
+  - "Total = {i_max} * {j_max}"
+
+explicacion: |
+  Cuando tenemos bucles anidados, el número total de iteraciones es el producto del número de iteraciones de cada bucle. En este caso, 3 * 2 = 6.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "intermedio"
+  tags: ["ordenar", "flujo"]
+
+respuesta_orden: ["inicializar_contador", "evaluar_condicion", "ejecutar_cuerpo", "actualizar_contador"]
+tipo: ordenar
+
+opciones_explicitas: ["inicializar_contador", "evaluar_condicion", "ejecutar_cuerpo", "actualizar_contador"]
+
+enunciado: "Ordena los pasos lógicos que sigue un bucle 'while' en cada iteración para asegurar su funcionamiento correcto:"
+
+explicacion: |
+  Primero se debe evaluar si la condición es verdadera. Si lo es, se ejecuta el código interno. Luego, es crucial actualizar la variable de control (incrementar o decrementar) para evitar un bucle infinito.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "basico"
+  tags: ["while", "incremento"]
+
+variables:
+  puntos_iniciales: 5
+  incremento: 2
+  puntos_finales: 11
+
+respuesta: "11"
+tipo: completar
+
+opciones_explicitas: ["11"]
+respuestas_validas:
+  - "11"
+
+enunciado: "Un programa tiene un bucle 'while' que continúa mientras 'puntos' sea menor que 10. Si 'puntos' comienza en {puntos_iniciales} y en cada iteración se le suma {incremento}, ¿cuál será el valor final de 'puntos' cuando el bucle termine?"
+
+explicacion: |
+  1. Inicio: puntos = 5. ¿5 < 10? Sí. Sumamos 2 -> puntos = 7.
+  2. ¿7 < 10? Sí. Sumamos 2 -> puntos = 9.
+  3. ¿9 < 10? Sí. Sumamos 2 -> puntos = 11.
+  4. ¿11 < 10? No. El bucle termina. El valor final es 11.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "intermedio"
+  tags: ["error_comun", "while", "logica"]
+
+variables:
+  i: 0
+
+enunciado: "Analiza el siguiente fragmento de código en pseudocódigo: \n\n x = 10\n i = 0\n while (i < x):\n   print(i)\n   i = i - 1"
+
+opciones_explicitas: ["El bucle termina correctamente", "El bucle entra en un bucle infinito", "El bucle no se ejecuta nunca", "Se produce un error de sintaxis"]
+
+respuesta: "El bucle entra en un bucle infinito"
+tipo: mc
+
+explicacion: |
+  Al decrementar `i` en cada iteración (`i = i - 1`), la condición `i < 10` siempre será verdadera, ya que `i` se aleja cada vez más del valor 10 hacia los números negativos. Esto causa un bucle infinito.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "basico"
+  tags: ["for", "index_out_of_bounds"]
+
+variables:
+  lista: ["A", "B", "C"]
+  largo_lista: largo(lista)
+
+enunciado: "Si tenemos una lista con {largo_lista} elementos (índices 0, 1 y 2) y ejecutamos el siguiente bucle:\n\n for i from 0 to 3:\n   print(lista[i])\n\n ¿Qué sucede al llegar a la última iteración?"
+
+opciones_explicitas: ["Se imprime el último elemento", "Se imprime un error de índice fuera de rango", "Se imprime un valor nulo", "El bucle se detiene sin error"]
+
+respuesta: "Se imprime un error de índice fuera de rango"
+tipo: mc
+
+explicacion: |
+  En la mayoría de los lenguajes, si una lista tiene 3 elementos, los índices válidos son 0, 1 y 2. Intentar acceder al índice 3 provocará un error de desbordamiento de índice (IndexOutOfBounds).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "intermedio"
+  tags: ["while", "logica"]
+
+enunciado: "En un bucle `while`, la condición evaluada determina si el cuerpo del bucle se ejecuta o no. Si la condición es falsa desde el primer momento, el bucle se ejecuta ___ veces."
+
+respuestas_validas:
+  - "0"
+tipo: completar
+
+explicacion: |
+  A diferencia de un bucle `do-while` (que garantiza al menos una ejecución), el bucle `while` evalúa la condición *antes* de entrar al bloque. Si la condición es falsa inicialmente, el cuerpo nunca se ejecuta.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "intermedio"
+  tags: ["anidados", "orden"]
+
+variables:
+  resultado: "A, B, C, D"
+
+enunciado: "Ordena la secuencia de salida de los mensajes para el siguiente código:\n\n for i from 1 to 2:\n   for j from 1 to 2:\n     print(i, j)"
+
+opciones_explicitas: ["(1,1), (1,2), (2,1), (2,2)"]
+
+respuesta_orden: ["(1,1), (1,2), (2,1), (2,2)"]
+tipo: ordenar
+
+explicacion: |
+  En los bucles anidados, el bucle interno (j) debe completar todas sus iteraciones para cada una de las iteraciones del bucle externo (i). Por eso, primero se agota la secuencia de `j` para `i=1` y luego se pasa a `i=2`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "basico"
+  tags: ["boolean", "logica"]
+
+variables:
+  condicion_inicial: falso
+
+enunciado: "Supongamos que tenemos el siguiente código:\n\n x = 5\n while (x > 0):\n   x = x - 1\n   if (x == 2):\n     break\n\n ¿El valor final de `x` al salir del bucle es 2? (Responde verdadero o falso)"
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La memoria virtual permite que un proceso utilice una cantidad de memoria que excede la capacidad física de la memoria RAM disponible, utilizando el almacenamiento secundario como extensión."
-
 explicacion: |
-  La memoria virtual es una técnica de gestión de memoria que utiliza el espacio en el disco duro para simular memoria RAM adicional, permitiendo ejecutar procesos más grandes que la RAM física.
+  El bucle se ejecuta para x=5, 4, 3. Cuando x llega a 2 tras la resta, la instrucción `break` interrumpe inmediatamente el bucle, dejando el valor de `x` en 2.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "asignacion_de_memoria"
+  tema: "estructuras_de_control_bucles"
+  nivel: "basico"
+  tags: ["bucles", "for", "while"]
+
+tipo: mc
+opciones_explicitas: ["El bucle for se usa cuando se conoce de antemano el número de iteraciones, mientras que el while depende de una condición lógica.", "El bucle for es más rápido que el while en todos los lenguajes.", "El bucle while solo puede usarse con números enteros.", "No existe diferencia funcional entre ambos."]
+
+respuesta: "El bucle for se usa cuando se conoce de antemano el número de iteraciones, mientras que el while depende de una condición lógica."
+
+enunciado: "En programación, ¿cuál es la distinción principal entre un bucle 'for' y un bucle 'while'?"
+
+explicacion: |
+  El bucle 'for' está diseñado para iterar sobre una secuencia finita o un rango conocido, mientras que el 'while' es una estructura de control que se ejecuta mientras una condición booleana sea verdadera, sin importar cuántas veces ocurra.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "basico"
+  tags: ["while", "condicion"]
+
+tipo: completar
+respuestas_validas:
+  - "verdadero"
+
+respuesta: "verdadero"
+
+enunciado: "Si una condición en un bucle 'while' nunca cambia su valor y permanece siempre como ___, el programa entrará en un bucle infinito."
+
+explicacion: |
+  Un bucle 'while' evalúa la condición antes de cada iteración. Si la condición es siempre 'falso', el bucle no se ejecuta; si es siempre 'verdadero', el bucle nunca termina.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
   nivel: "intermedio"
-  tags: ["calculo", "paginacion"]
+  tags: ["while", "booleano"]
+
+tipo: vf
+
+respuesta: verdadero
+
+enunciado: "¿Es posible que un bucle 'while' no se ejecute ni una sola vez si la condición inicial es falsa?"
+
+explicacion: |
+  Correcto. A diferencia del bucle 'do-while' (que ejecuta el bloque al menos una vez), el bucle 'while' evalúa la condición al principio. Si es falsa desde el inicio, el cuerpo del bucle se salta por completo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "basico"
+  tags: ["iteracion", "pasos"]
+
+tipo: ordenar
+opciones_explicitas: ["Inicialización de la variable de control", "Evaluación de la condición", "Ejecución del cuerpo del bucle", "Actualización de la variable de control"]
+
+respuesta_orden: ["Inicialización de la variable de control", "Evaluación de la condición", "Ejecución del cuerpo del bucle", "Actualización de la variable de control"]
+
+enunciado: "Ordena los pasos lógicos que ocurren en una iteración estándar de un bucle controlado por una variable:"
+
+explicacion: |
+  Para que un bucle funcione correctamente, primero se establece el punto de partida (inicialización), luego se verifica si se debe entrar (condición), se realiza la tarea (cuerpo) y finalmente se modifica la variable para avanzar (actualización).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "intermedio"
+  tags: ["break", "control"]
+
+respuesta: "La instrucción 'break' termina el bucle inmediatamente, independientemente de si la condición del 'while' sigue siendo verdadera."
+
+tipo: mc
+opciones_explicitas: ["La instrucción 'break' termina el bucle inmediatamente, independientemente de si la condición del 'while' sigue siendo verdadera.", "La instrucción 'break' solo sirve para saltar una iteración y continuar con la siguiente."]
+
+enunciado: "Considerando un bucle 'while' que está en ejecución, ¿qué diferencia marca el uso de la instrucción 'break' respecto a la condición del bucle?"
+
+explicacion: |
+  El comando 'break' fuerza la salida inmediata del bucle, ignorando la evaluación de la condición lógica que normalmente controlaría la repetición.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "basico"
+  tags: ["for", "iteracion"]
 
 variables:
-  escenario: uno_de([["4096", "4096", "1024", "4"], ["8192", "8192", "4096", "2"], ["1024", "1024", "512", "2"]])
+  datos: [["i", "1", "3", "3"], ["j", "0", "1", "2"], ["k", "5", "8", "4"]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: escenario[3]
+enunciado: "Si ejecutamos un bucle 'for' con la variable {datos[idx][0]} que recorre desde el valor inicial {datos[idx][1]} hasta el valor final {datos[idx][2]} inclusive, ¿cuántas veces se ejecutará el cuerpo del bucle?"
+
+respuesta: datos[idx][3]
 tipo: mc
-opciones_explicitas: ["1", "2", "4", "8"]
+opciones_explicitas: ["1", "2", "3", "4"]
 
-enunciado: "Un proceso requiere un bloque de memoria de {escenario[0]} bytes. Si el sistema utiliza páginas de tamaño fijo de {escenario[2]} bytes, ¿cuántas páginas se deben asignar para cubrir el requerimiento total del proceso?"
+explicacion: |
+  El número de iteraciones en un bucle que va de 'a' hasta 'b' (inclusive) se calcula como: (b - a) + 1.
+  En este caso: ({datos[idx][2]} - {datos[idx][1]}) + 1 = {datos[idx][3]}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "intermedio"
+  tags: ["while", "condicion"]
+
+variables:
+  datos: [["x", 10, 2], ["y", 20, 5], ["z", 15, 3]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Considera el siguiente código: \n`valor = {datos[idx][1]} \nwhile (valor > 1): \n    valor = valor - {datos[idx][2]}` \n\n¿Cuál será el valor final de la variable después de que el bucle termine?"
+
+respuesta: "0"
+tipo: mc
+opciones_explicitas: ["0", "1", "2", "5"]
+
+explicacion: |
+  El bucle resta {datos[idx][2]} repetidamente mientras el valor sea mayor a 1. Como {datos[idx][1]} es múltiplo exacto de {datos[idx][2]}, la secuencia de restas llega exactamente a 0 (por ejemplo, para x: 10 → 8 → 6 → 4 → 2 → 0), momento en el que "0 > 1" es falso y el bucle se detiene.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "avanzado"
+  tags: ["anidados", "complejidad"]
+
+variables:
+  casos: [[3, 4], [2, 5], [4, 2]]
+  caso: uno_de(casos)
+  a: caso[0]
+  b: caso[1]
+  iteraciones: a * b
+
+enunciado: "Dado el siguiente fragmento de código:\n`for i from 1 to {a}:\n    for j from 1 to {b}:\n        print(i, j)`\n\n¿Cuántas veces se imprimirá el mensaje en total?"
+
+respuesta: iteraciones
+tipo: completar
+tolerancia_abs: 0
+
+explicacion: |
+  En un bucle anidado, el número total de iteraciones es el producto del número de iteraciones del bucle externo por el número de iteraciones del bucle interno.
+  {a} * {b} = {iteraciones}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "basico"
+  tags: ["while", "infinito"]
+
+enunciado: "Si tenemos un bucle `while (i < 10)` y dentro del bucle la variable `i` nunca aumenta su valor, el programa entrará en un bucle infinito."
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  Correcto. Si la condición de parada (`i < 10`) nunca deja de ser verdadera porque `i` no cambia, el programa nunca saldrá del bucle.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_control_bucles"
+  nivel: "intermedio"
+  tags: ["orden", "flujo"]
+
+enunciado: "Ordena los pasos de ejecución de un bucle 'for' que recorre una lista de elementos:"
+
+opciones_explicitas: ["Inicializar el contador", "Evaluar la condición de parada", "Ejecutar el cuerpo del bucle", "Incrementar el contador"]
+respuesta_orden: ["Inicializar el contador", "Evaluar la condición de parada", "Ejecutar el cuerpo del bucle", "Incrementar el contador"]
+tipo: ordenar
+
+explicacion: |
+  El flujo estándar es: 1. Inicialización, 2. Evaluación de condición, 3. Ejecución de instrucciones, 4. Actualización/Incremento.
+```
+
+## Sección: funciones-y-modularidad (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "basico"
+  tags: ["conceptos", "modularidad"]
+
+respuesta: "modularidad"
+tipo: completar
+respuestas_validas:
+  - "modularidad"
+
+enunciado: "La capacidad de dividir un programa complejo en partes más pequeñas, independientes y manejables se denomina ___."
+
+explicacion: |
+  La modularidad permite organizar el código en bloques lógicos, facilitando el mantenimiento y la reutilización.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "basico"
+  tags: ["sintaxis", "conceptos"]
+
+variables:
+  escenario: uno_de([["El valor que una función recibe para procesar", "Parámetro"], ["El valor que una función devuelve al finalizar su ejecución", "Retorno"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["Parámetro", "Retorno", "Llamada", "Variable local"]
+
+enunciado: "En el contexto de una función, {escenario[0]} es el elemento que permite pasar información hacia el interior de la función."
+
+explicacion: |
+  Los parámetros son las variables de entrada que recibe una función para realizar su tarea.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "basico"
+  tags: ["reutilizacion", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una de las principales ventajas de utilizar funciones es que permite evitar la duplicación de código, ya que una misma función puede ser invocada desde diferentes partes del programa."
+
+explicacion: |
+  Efectivamente, la reutilización es uno de los pilares de la programación modular.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "intermedio"
+  tags: ["flujo", "orden"]
+
+respuesta_orden: ["Definición", "Llamada", "Ejecución", "Retorno"]
+tipo: ordenar
+opciones_explicitas: ["Definición", "Llamada", "Ejecución", "Retorno"]
+
+enunciado: "Ordena los pasos lógicos que ocurren cuando se utiliza una función en un programa:"
 
 pasos:
-  - "Dividir el tamaño total del proceso por el tamaño de la página: {escenario[0]} / {escenario[2]}"
-  - "Si el resultado no es entero, redondear hacia arriba (ceil) para asegurar que el proceso quepa."
+  - "Se declara la función y su lógica."
+  - "Se invoca la función desde el código principal."
+  - "Se procesan las instrucciones internas."
+  - "La función devuelve un valor o finaliza."
 
 explicacion: |
-  Para calcular el número de páginas: 
-  {escenario[0]} / {escenario[2]} = {escenario[3]}. 
-  Se requiere asignar exactamente esa cantidad de páginas.
+  Primero se debe definir la función, luego llamarla, se ejecuta su cuerpo y finalmente retorna el control o un valor.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "fragmentacion"
+  tema: "funciones_y_modularidad"
   nivel: "intermedio"
-  tags: ["paginacion", "fragmentacion_interna"]
+  tags: ["scope", "variables"]
+
+respuesta: "local"
+tipo: completar
+respuestas_validas:
+  - "local"
+
+enunciado: "Una variable declarada dentro del cuerpo de una función tiene un ámbito ___, lo que significa que no es accesible desde fuera de dicha función."
+
+explicacion: |
+  Las variables definidas dentro de una función son locales a su contexto de ejecución y no interfieren con el resto del programa.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "basico"
+  tags: ["conceptos", "modularidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dividir un programa en funciones pequeñas y reutilizables ayuda a reducir la duplicación de código y facilita el mantenimiento."
+
+explicacion: |
+  La modularidad permite que el código sea más legible y que las correcciones se realicen en un solo lugar, afectando a todas las partes que llaman a esa función.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "basico"
+  tags: ["sintaxis", "parametros"]
 
 variables:
-  datos: uno_de([["15000", "4096", "1384"], ["18000", "4096", "2480"], ["10000", "4096", "2288"]])
+  escenario: uno_de([["calcular_area_rectangulo", "base", "altura"], ["saludar_usuario", "nombre", "saludo"], ["sumar_dos_numeros", "a", "b"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["base", "nombre", "a"]
+
+enunciado: "En la función {escenario[0]}({escenario[1]}, {escenario[2]}), ¿cuál es el nombre del primer parámetro?"
+
+explicacion: |
+  Los parámetros son las variables que una función recibe para procesar información. En el primer caso del escenario, el primer parámetro es {escenario[1]}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "intermedio"
+  tags: ["flujo_control", "retorno"]
+
+variables:
+  datos: uno_de([[10, 2, 20], [5, 3, 15], [8, 4, 32]])
 
 respuesta: datos[2]
 tipo: completar
-respuestas_validas:
-  - "1384"
-  - "2480"
-  - "2288"
-
-enunciado: "En un sistema con paginación de {datos[1]} bytes, se asigna un proceso de {datos[0]} bytes. La fragmentación interna (espacio desperdiciado en la última página) es de ___ bytes."
-
-explicacion: |
-  1. Calculamos cuántas páginas completas se necesitan: ceil({datos[0]} / {datos[1]}) páginas.
-  2. Espacio total asignado: número de páginas * {datos[1]}.
-  3. Fragmentación: espacio total asignado - {datos[0]} = {datos[2]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "avanzado"
-  tags: ["swapping", "gestion_procesos"]
-
-respuesta_orden: ["Petición de memoria", "Fallo de página (Page Fault)", "Intercambio (Swap-in/out)", "Actualización de tabla de páginas"]
-tipo: ordenar
-
-enunciado: "Ordene los pasos que ocurren cuando un proceso intenta acceder a una página que no se encuentra actualmente en la memoria RAM (Page Fault):"
-
-opciones_explicitas: ["Petición de memoria", "Fallo de página (Page Fault)", "Intercambio (Swap-in/out)", "Actualización de tabla de páginas"]
-
-explicacion: |
-  El flujo lógico es:
-  1. El proceso solicita una dirección de memoria.
-  2. La MMU detecta que la página no está en RAM (Page Fault).
-  3. El SO busca la página en el disco y la carga en RAM (Swap-in).
-  4. Se actualiza la tabla de páginas para marcar la página como presente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "direccionamiento_virtual"
-  nivel: "avanzado"
-  tags: ["direccionamiento", "paginacion"]
-
-variables:
-  direccion: uno_de([["0x0045", "0x0005"], ["0x01A2", "0x0002"], ["0x03FF", "0x000F"]])
-
-respuesta: direccion[1]
-tipo: mc
-opciones_explicitas: ["0x0000", "0x0005", "0x0002", "0x000F"]
-
-enunciado: "Si el tamaño de página es de 16 bytes (0x10 en hex) y una dirección virtual es {direccion[0]}, ¿cuál es el desplazamiento (offset) dentro de la página?"
-
-pasos:
-  - "El desplazamiento se obtiene calculando el residuo de la dirección dividido por el tamaño de la página."
-  - "En hexadecimal: {direccion[0]} MOD 0x10 = {direccion[1]}."
-
-explicacion: |
-  El desplazamiento (offset) identifica la posición exacta dentro de una página. Se calcula mediante la operación módulo: {direccion[0]} % 16 = {direccion[1]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "basico"
-  tags: ["memoria_virtual", "conceptos_base"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La memoria virtual permite que un proceso acceda a una cantidad de memoria que excede la capacidad de la memoria RAM física instalada en el sistema."
-
-explicacion: |
-  Verdadero. La memoria virtual utiliza espacio en el disco (archivo de paginación/swap) para simular memoria adicional, permitiendo que el sistema operativo gestione procesos que requieren más espacio del que la RAM física puede ofrecer de forma inmediata.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "asignacion_de_memoria"
-  nivel: "intermedio"
-  tags: ["fragmentacion", "gestion_memoria"]
-
-variables:
-  escenario: uno_de([["fragmentacion_externa", "la memoria tiene huecos libres pero no contiguos"], ["fragmentacion_interna", "la memoria tiene espacio sobrante dentro de un bloque asignado"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["la memoria tiene huecos libres pero no contiguos", "la memoria tiene espacio sobrante dentro de un bloque asignado", "el procesador no puede acceder a la RAM"]
-
-enunciado: "Un sistema operativo utiliza particiones fijas para la asignación de memoria. Si un proceso requiere 15KB y se le asigna un bloque de 20KB, el espacio sobrante de 5KB dentro de ese bloque se conoce como: {escenario[1]}"
-
-explicacion: |
-  La fragmentación interna ocurre cuando se asigna un bloque de memoria a un proceso que es mayor que el tamaño requerido por este, dejando un residuo inutilizable dentro de la partición asignada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["paginacion", "direccionamiento"]
-
-respuesta_orden: ["Dirección lógica", "MMU", "Dirección física"]
-tipo: ordenar
-
-opciones_explicitas: ["Dirección lógica", "MMU", "Dirección física"]
-
-enunciado: "Ordena el flujo de resolución de una dirección de memoria cuando un proceso intenta acceder a un dato en un sistema con paginación:"
-
-explicacion: |
-  El proceso comienza con la dirección lógica generada por la CPU, la cual es interceptada por la Unidad de Gestión de Memoria (MMU) para ser traducida mediante tablas de páginas, resultando finalmente en una dirección física en la RAM.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "avanzado"
-  tags: ["page_fault", "rendimiento"]
-
-respuesta: "page_fault"
-tipo: completar
-respuestas_validas:
-  - "page_fault"
-
-enunciado: "Cuando un proceso intenta acceder a una página de memoria que no se encuentra actualmente cargada en la memoria RAM, se produce una excepción llamada ___."
-
-explicacion: |
-  El 'page fault' (falta de página) no es un error fatal del programa, sino una interrupción que le indica al sistema operativo que debe buscar la página necesaria en el disco para cargarla en la RAM.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "direccionamiento"
-  nivel: "intermedio"
-  tags: ["bus_direcciones", "arquitectura"]
-
-variables:
-  pares: [[32, 4294967296], [64, 18446744073709551616]]
-  idx: uno_de([0, 1])
-  bits: pares[idx][0]
-  max_direccion: pares[idx][1]
-
-respuesta: max_direccion
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si un procesador tiene un bus de direcciones de {bits} bits, el número total de direcciones de memoria únicas que puede direccionar es:"
-
-explicacion: |
-  El número de direcciones posibles es igual a 2 elevado a la potencia del número de bits del bus de direcciones. Para 32 bits es 2^32, y para 64 bits es 2^64.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["memoria", "sistema_operativo", "abstraccion"]
-
-respuesta: "abstraccion"
-tipo: mc
-opciones_explicitas: ["abstraccion", "hardware", "almacenamiento", "registro"]
-
-enunciado: "A diferencia de la memoria RAM (memoria física), la memoria virtual actúa como una ___ que permite a los procesos manejar un espacio de direcciones mayor al tamaño de la memoria física disponible."
-
-explicacion: |
-  La memoria virtual es una técnica de gestión de memoria que proporciona una abstracción de la memoria física, permitiendo que cada proceso crea que tiene un espacio de direccionamiento continuo y extenso.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "gestion_de_memoria"
-  nivel: "avanzado"
-  tags: ["paginacion", "segmentacion", "fragmentacion"]
-
-respuesta: "externa"
-tipo: mc
-opciones_explicitas: ["interna", "externa"]
-
-enunciado: "La paginación divide la memoria en bloques de tamaño fijo, lo que puede causar fragmentación interna. Por el contrario, la segmentación, al usar tamaños variables, suele provocar fragmentación ___."
-
-explicacion: |
-  La paginación causa fragmentación interna (espacio sobrante dentro de una página), mientras que la segmentación causa fragmentación externa (huecos entre segmentos que no son lo suficientemente grandes para nuevos procesos).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "basico"
-  tags: ["conceptos_clave", "hardware"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La memoria virtual es una extensión física de la memoria RAM mediante la adición de módulos de memoria adicionales."
-
-explicacion: |
-  Falso. La memoria virtual es una técnica de gestión lógica/de software que utiliza espacio en el disco (almacenamiento secundario) para simular memoria adicional, no es un componente físico extra.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["paginacion", "swap", "paged_fault"]
-
-respuesta_orden: ["Page Fault", "Swap In", "Update Page Table", "Resume Execution"]
-tipo: ordenar
-
-opciones_explicitas: ["Page Fault", "Swap In", "Update Page Table", "Resume Execution"]
-
-enunciado: "Cuando un proceso intenta acceder a una página que no está en la RAM, ocurre un 'Page Fault'. Ordena los pasos lógicos que el Sistema Operativo debe seguir para resolver esta interrupción:"
-
-explicacion: |
-  1. Se detecta el Page Fault (interrupción).
-  2. Se busca la página en el disco y se carga en RAM (Swap In).
-  3. Se actualiza la tabla de páginas para marcarla como presente.
-  4. Se reanuda la ejecución de la instrucción original.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["direcciones", "logico", "fisico"]
-
-respuesta: "lógico"
-tipo: completar
-respuestas_validas:
-  - "lógico"
-  - "virtual"
-
-enunciado: "Mientras que la memoria física se refiere a las direcciones reales en los chips de RAM, el espacio de direcciones que ve un proceso es un espacio ___."
-
-explicacion: |
-  El espacio de direcciones lógico (o virtual) es la vista que el procesador y el software tienen de la memoria, la cual es mapeada a direcciones físicas mediante la MMU (Memory Management Unit).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "asignacion_memoria_procesos"
-  nivel: "intermedio"
-  tags: ["memoria", "segmentacion", "procesos"]
-
-variables:
-  datos: [["segmento_codigo", "0x0040"], ["segmento_datos", "0x0080"], ["segmento_stack", "0x0120"]]
-  resultados: ["1040", "1080", "1120"]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Un sistema operativo utiliza segmentación para gestionar la memoria de un proceso. Si el proceso requiere cargar el {datos[idx][0]} en una dirección base específica, la dirección física final será el resultado de sumar la base más el offset. Si la base es 0x1000 y el offset es {datos[idx][1]}, ¿cuál es la dirección física resultante en hexadecimal (sin el prefijo 0x)?"
-
-pasos:
-  - "Convertir el offset hexadecimal a decimal."
-  - "Sumar el valor de la base (4096) al offset."
-  - "Convertir el resultado de nuevo a hexadecimal."
-
-respuestas_validas:
-  - "1040"
-  - "1080"
-  - "1120"
-respuesta: resultados[idx]
-tipo: completar
-tolerancia_abs: 0
-
-explicacion: |
-  La dirección física se calcula sumando la dirección base del segmento al offset relativo.
-  Para el caso de {datos[idx][0]}, la suma es 0x1000 + {datos[idx][1]} = 0x{resultados[idx]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "basico"
-  tags: ["memoria_virtual", "conceptos"]
-
-enunciado: "La memoria virtual permite que un proceso utilice una cantidad de memoria que es mayor a la capacidad de la memoria RAM física disponible, utilizando el almacenamiento secundario (disco) como extensión. ¿Es esta afirmación verdadera o falsa?"
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  Correcto. La memoria virtual abstrae la memoria física, permitiendo que los programas se ejecuten incluso si la RAM es insuficiente, mediante el uso de paginación o segmentación y el intercambio (swapping) con el disco.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["mmu", "direccionamiento"]
-
-enunciado: "Cuando un proceso intenta acceder a una dirección de memoria virtual, un componente de hardware especializado debe traducir esa dirección a una dirección física real. ¿Cómo se llama este componente?"
-
-opciones_explicitas: ["MMU (Memory Management Unit)", "CPU (Central Processing Unit)", "ALU (Arithmetic Logic Unit)", "Controlador de Interrupciones"]
-respuesta: "MMU (Memory Management Unit)"
-tipo: mc
-
-explicacion: |
-  La MMU es la unidad de hardware encargada de la traducción de direcciones virtuales a físicas en tiempo real durante la ejecución de las instrucciones.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "avanzado"
-  tags: ["paginacion", "paginas", "frames"]
-
-variables:
-  datos: [["pagina_virtual_2", "frame_fisico_5"], ["pagina_virtual_3", "frame_fisico_8"], ["pagina_virtual_5", "frame_fisico_12"]]
-  resultados: [20480, 32768, 49152]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "En un sistema de paginación, la tabla de páginas mapea la {datos[idx][0]} hacia el {datos[idx][1]}. Si el tamaño de página es de 4KB, ¿en qué dirección física comienza el {datos[idx][1]}?"
-
-pasos:
-  - "Identificar el número de frame físico: {datos[idx][1]}."
-  - "Multiplicar el número de frame por el tamaño de página (4096)."
-  - "El resultado es la dirección base del frame."
-
-respuesta: resultados[idx]
-tipo: completar
-tolerancia_abs: 0
-
-explicacion: |
-  Si el frame físico es el {datos[idx][1]} (índice 5, 8 o 12), la dirección base se calcula como:
-  Frame * 4096. Por ejemplo, si es el frame 5: 5 * 4096 = 20480.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "asignacion_memoria_procesos"
-  nivel: "intermedio"
-  tags: ["gestion", "orden"]
-
-enunciado: "Ordena los pasos que sigue el Sistema Operativo desde que un proceso solicita memoria hasta que esta es liberada:"
-
-opciones_explicitas: ["El SO asigna un bloque de memoria (física o virtual)", "El proceso solicita memoria mediante una llamada al sistema", "El proceso finaliza y el SO libera la memoria", "El proceso utiliza la memoria para sus datos"]
-respuesta_orden: ["El proceso solicita memoria mediante una llamada al sistema", "El SO asigna un bloque de memoria (física o virtual)", "El proceso utiliza la memoria para sus datos", "El proceso finaliza y el SO libera la memoria"]
-tipo: ordenar
-
-explicacion: |
-  El flujo lógico es: 1. Solicitud (System Call), 2. Asignación (Gestión de memoria), 3. Uso (Ejecución), 4. Liberación (Cleanup).
-```
-
-## Sección: memoria-ram-cache-jerarquia (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "basico"
-  tags: ["arquitectura", "memoria"]
-
-tipo: mc
-opciones_explicitas: ["Mayor velocidad, menor capacidad", "Menor velocidad, mayor capacidad", "Igual velocidad, mayor costo", "Mayor velocidad, mayor costo"]
-
-enunciado: "En una jerarquía de memoria típica, a medida que nos movemos desde la CPU hacia el almacenamiento secundario (disco), la memoria se vuelve..."
-
-respuesta: "Menor velocidad, mayor capacidad"
-
-explicacion: |
-  La jerarquía busca equilibrar costo y rendimiento. Los niveles superiores (Caché) son muy rápidos pero caros y pequeños; los niveles inferiores (Disco) son lentos pero económicos y masivos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "ram_caracteristicas"
-  nivel: "basico"
-  tags: ["ram", "volatilidad"]
-
-tipo: vf
-
-enunciado: "La memoria RAM es considerada una memoria volátil porque pierde su contenido al interrumpirse el suministro eléctrico."
-
-respuesta: verdadero
-
-explicacion: |
-  La RAM es volátil por definición. Si no hay energía, los datos almacenados en sus capacitores se pierden.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "cache_funcionamiento"
-  nivel: "intermedio"
-  tags: ["cache", "latencia"]
-
-tipo: completar
-respuestas_validas:
-  - "L1"
-  - "L2"
-  - "L3"
-
-enunciado: "En una arquitectura con múltiples niveles de caché, la caché que se encuentra físicamente más cerca del núcleo del procesador es la caché ___."
-
-pasos:
-  - "Identificar la posición de la caché en la jerarquía respecto al procesador."
-  - "Determinar cuál tiene la menor latencia de acceso."
-
-respuesta: "L1"
-
-explicacion: |
-  La caché L1 (Level 1) es la más rápida y cercana al núcleo, seguida de la L2 y finalmente la L3.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "basico"
-  tags: ["orden", "jerarquia"]
-
-tipo: ordenar
-opciones_explicitas: ["Registros", "Caché", "Memoria RAM", "Disco Duro"]
-
-enunciado: "Ordena los siguientes elementos de memoria de mayor a menor velocidad de acceso (del más rápido al más lento):"
-
-respuesta_orden: ["Registros", "Caché", "Memoria RAM", "Disco Duro"]
-
-explicacion: |
-  Los registros están dentro de la CPU y son instantáneos. La caché es la siguiente, luego la RAM (memoria principal) y finalmente el almacenamiento masivo (disco).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "cache_principio_localidad"
-  nivel: "avanzado"
-  tags: ["localidad", "cache"]
-
-tipo: mc
-opciones_explicitas: ["Localidad Espacial", "Localidad Temporal", "Localidad de Datos", "Localidad de Instrucciones"]
-
-enunciado: "Cuando un sistema carga un bloque de memoria porque se ha accedido a una dirección específica, asumiendo que las direcciones contiguas serán accedidas pronto, está aprovechando la ___."
-
-respuesta: "Localidad Espacial"
-
-explicacion: |
-  La localidad espacial se refiere al uso de datos cercanos en direcciones de memoria. La localidad temporal se refiere al reuso de un mismo dato en un corto periodo de tiempo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "basico"
-  tags: ["hardware", "memoria", "cache"]
-
-enunciado: "En una jerarquía de memoria típica, si comparamos la memoria caché L1 con la memoria RAM, la caché L1 es más ___ que la RAM, pero tiene una capacidad menor."
-
-opciones_explicitas: ["rápida", "lenta", "pequeña", "grande"]
-
-respuesta: "rápida"
-
-tipo: mc
-
-explicacion: |
-  La jerarquía de memoria busca equilibrar costo, capacidad y velocidad. La caché (L1, L2, L3) es mucho más rápida que la RAM porque está más cerca del procesador y usa tecnología más costosa, lo que obliga a que su capacidad sea mucho menor.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "intermedio"
-  tags: ["cache", "localidad", "performance"]
-
-enunciado: "Un procesador accede a una lista de elementos en orden consecutivo (0, 1, 2, 3...). Este tipo de comportamiento favorece la eficiencia de la caché debido a la localidad de referencia, la cual es de tipo ___."
-
-opciones_explicitas: ["espacial", "temporal", "aleatoria"]
-
-respuesta: "espacial"
-
-tipo: mc
-
-explicacion: |
-  La localidad espacial ocurre cuando se accede a una posición de memoria y se accede rápidamente a posiciones cercanas. Esto permite que la caché cargue bloques enteros (cache lines) prediciendo que los datos contiguos serán necesarios pronto.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "intermedio"
-  tags: ["cache", "hit", "miss"]
-
-enunciado: "El procesador solicita el dato en la dirección 0x4F. La unidad de control busca en la caché L1 y el dato no se encuentra allí. A este evento se le denomina ___ y el sistema deberá buscar el dato en la siguiente capa de la jerarquía."
-
-respuestas_validas:
-  - "miss"
-
-respuesta: "miss"
-
-tipo: completar
-
-explicacion: |
-  Un 'Cache Miss' ocurre cuando el dato requerido no está en la caché, obligando al sistema a buscar en un nivel más lento (como la RAM), lo que aumenta la latencia de la operación.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "basico"
-  tags: ["jerarquia", "orden"]
-
-opciones_explicitas: ["Registros", "Caché L1", "Memoria RAM", "Disco Rígido"]
-
-respuesta_orden: ["Registros", "Caché L1", "Memoria RAM", "Disco Rígido"]
-
-tipo: ordenar
-
-enunciado: "Ordena los siguientes elementos de memoria de mayor a menor velocidad (del más rápido al más lento):"
-
-explicacion: |
-  La jerarquía se organiza por velocidad: los Registros son parte del CPU y son instantáneos; la Caché es muy rápida; la RAM es el almacenamiento principal de trabajo; y el Disco Rígido (almacenamiento masivo) es el más lento de la cadena.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "basico"
-  tags: ["costo", "capacidad"]
-
-enunciado: "La memoria RAM tiene un costo por gigabyte significativamente mayor que un disco duro (HDD/SSD)."
-
-respuesta: verdadero
-
-tipo: vf
-explicacion: |
-  Es verdadero. Debido a que la RAM utiliza tecnología semiconductoras mucho más rápida y compleja para mantener los datos, su costo por unidad de capacidad es mucho más elevado que el de los medios de almacenamiento masivo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "basico"
-  tags: ["memoria", "costo", "velocidad"]
-
-enunciado: "En una arquitectura de memoria jerárquica, si comparamos la memoria caché, la memoria RAM y el disco duro, ¿cuál de ellas tiene el mayor costo por byte?"
-
-opciones_explicitas: ["Disco duro", "Memoria RAM", "Memoria caché"]
-respuesta: "Memoria caché"
-tipo: mc
-
-explicacion: |
-  La jerarquía de memoria busca un equilibrio entre costo y rendimiento. Las memorias más rápidas (como la caché) utilizan tecnología más cara (SRAM) y tienen menos capacidad, mientras que las más lentas (como el disco duro) son mucho más económicas por cada GB almacenado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_ram"
-  nivel: "intermedio"
-  tags: ["latencia", "velocidad", "confucion"]
-
-enunciado: "Un error común es pensar que tener más capacidad de RAM (ej. 64GB vs 16GB) aumenta automáticamente la velocidad de procesamiento de una tarea que ya cabe en 16GB. ¿Es esto verdadero o falso?"
-
-respuesta: falso
-tipo: vf
-explicacion: |
-  La capacidad de la RAM determina cuánta información puede estar disponible para la CPU. Si el software ya cabe en la memoria disponible, aumentar la capacidad no acelera la ejecución; lo que acelera la ejecución es la velocidad de acceso (frecuencia) y la latencia, no el tamaño total.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "cache_procesador"
-  nivel: "intermedio"
-  tags: ["cache", "cpu", "acceso"]
-
-variables:
-  datos: [["L1", "muy rápida"], ["L2", "rápida"], ["L3", "moderada"]]
-  idx: uno_de([0,1,2])
-
-enunciado: "Considerando la jerarquía de la caché del procesador, la caché de nivel {datos[idx][0]} tiene una latencia de acceso descrita como {datos[idx][1]}."
-
-respuesta: datos[idx][0]
-tipo: completar
-respuestas_validas:
-  - "L1"
-  - "L2"
-  - "L3"
-
-explicacion: |
-  La caché L1 es la más cercana al núcleo del procesador, integrada directamente en él, lo que la hace extremadamente rápida pero de muy pequeña capacidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "principio_localidad"
-  nivel: "avanzado"
-  tags: ["localidad_temporal", "localidad_espacial"]
-
-enunciado: "La eficiencia de la memoria caché se basa en dos principios: la localidad temporal (reutilizar datos usados recientemente) y la localidad ___ (usar datos que están en direcciones de memoria cercanas)."
-
-pasos:
-  - "Identificar el tipo de localidad que complementa a la temporal."
-
-respuesta: "espacial"
-tipo: completar
-respuestas_validas:
-  - "espacial"
-  - "secuencial"
-  - "distante"
-
-explicacion: |
-  La localidad espacial implica que si se accede a una posición de memoria, es muy probable que pronto se acceda a las posiciones adyacentes. La caché aprovecha esto cargando bloques enteros (cache lines) en lugar de bytes individuales.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "basico"
-  tags: ["orden", "velocidad", "jerarquia"]
-
-enunciado: "Ordena los siguientes componentes de memoria de mayor a menor velocidad de acceso (el más rápido primero):"
-
-opciones_explicitas: ["Caché L1", "Memoria RAM", "Disco SSD", "Disco HDD"]
-respuesta_orden: ["Caché L1", "Memoria RAM", "Disco SSD", "Disco HDD"]
-tipo: ordenar
-
-explicacion: |
-  La jerarquía sigue un orden lógico: a medida que nos alejamos del núcleo de la CPU, la velocidad de acceso disminuye drásticamente, pero la capacidad y la economía mejoran.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "basico"
-  tags: ["memoria", "ram", "cache"]
-
-respuesta: "cache"
-tipo: completar
-respuestas_validas:
-  - "cache"
-  - "caché"
-
-enunciado: "En la jerarquía de memoria, la ___ es un tipo de memoria de acceso muy rápido situada entre el procesador y la memoria RAM para reducir el tiempo de espera."
-
-explicacion: |
-  La memoria caché es mucho más rápida que la RAM pero tiene mucha menos capacidad. Su función es almacenar copias de los datos que el procesador utiliza con más frecuencia para evitar tener que ir a la RAM (que es más lenta).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "intermedio"
-  tags: ["costo", "capacidad", "jerarquia"]
-
-respuesta: "Mayor capacidad y menor costo por bit"
-tipo: mc
-opciones_explicitas: ["Mayor capacidad y menor costo por bit", "Menor capacidad y mayor costo por bit"]
-
-enunciado: "Si comparamos la memoria RAM con la memoria Caché, la RAM se caracteriza por tener una ___."
-
-explicacion: |
-  En la jerarquía de memoria, cuanto más cerca está la memoria del núcleo del procesador (como la caché L1), más cara es y menos capacidad tiene. La RAM es más barata y permite almacenar mucha más información, pero es más lenta.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "propiedades_memoria"
-  nivel: "basico"
-  tags: ["volatilidad", "ram", "almacenamiento"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La memoria RAM es una memoria volátil, lo que significa que pierde toda la información almacenada cuando se corta el suministro eléctrico."
-
-explicacion: |
-  Correcto. A diferencia del disco duro (almacenamiento secundario), la RAM necesita energía para mantener los datos. Si apagas la computadora, los datos en la RAM se borran.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "intermedio"
-  tags: ["orden", "velocidad", "jerarquia"]
-
-respuesta_orden: ["Registros", "Caché L1", "RAM", "Disco Duro"]
-tipo: ordenar
-opciones_explicitas: ["Registros", "Caché L1", "RAM", "Disco Duro"]
-
-enunciado: "Ordena los siguientes elementos de mayor a menor velocidad de acceso (del más rápido al más lento):"
-
-explicacion: |
-  La jerarquía se organiza por velocidad: los Registros están dentro de la CPU (ultra rápidos), seguidos por la Caché (L1, L2, L3), luego la RAM y finalmente el almacenamiento masivo como el Disco Duro (HDD/SSD), que es mucho más lento pero permite guardar datos permanentemente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "avanzado"
-  tags: ["eficiencia", "costo", "arquitectura"]
-
-respuesta: "Maximizar la velocidad de acceso a los datos con un costo equilibrado"
-tipo: mc
-opciones_explicitas: ["Maximizar la velocidad de acceso a los datos con un costo equilibrado", "Aumentar la capacidad total de almacenamiento del sistema"]
-
-enunciado: "El objetivo principal de implementar una jerarquía de memoria con distintos niveles es ___."
-
-explicacion: |
-  No es posible tener toda la memoria del sistema a la velocidad de la CPU porque sería extremadamente cara. La jerarquía permite que el sistema se comporte como si tuviera una memoria muy grande y muy rápida, equilibrando rendimiento y costo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "basico"
-  tags: ["arquitectura", "hardware"]
-
-variables:
-  escenario_idx: uno_de([0,1,2])
-  datos: [["La memoria con mayor velocidad pero menor capacidad es la ___.", "Caché"], ["La memoria que es más lenta que la caché pero más rápida que el disco es la ___.", "RAM"], ["La memoria de mayor capacidad y menor costo por bit es el ___.", "Disco"]]
-
-respuesta: datos[escenario_idx][1]
-tipo: completar
-respuestas_validas:
-  - "Caché"
-  - "RAM"
-  - "Disco"
-
-enunciado: "Analizando la jerarquía de memoria, se observa que: {datos[escenario_idx][0]}"
-
-explicacion: |
-  En una jerarquía de memoria, cuanto más cerca está del procesador, más rápida y cara es (Caché), y cuanto más lejos, más lenta y económica es (Disco).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_ram"
-  nivel: "basico"
-  tags: ["volatilidad", "hardware"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La memoria RAM es una memoria de tipo no volátil, lo que significa que la información se mantiene grabada incluso si se apaga el ordenador."
-
-explicacion: |
-  Falso. La RAM es memoria volátil; requiere energía para mantener los datos almacenados. Al apagar el equipo, los datos se pierden.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "intermedio"
-  tags: ["latencia", "rendimiento"]
-
-variables:
-  opcion_idx: uno_de([0,1])
-  comparativa: [["La caché L1 tiene una latencia ___ que la memoria RAM.", "menor"], ["La memoria RAM tiene una latencia ___ que la memoria caché L1.", "mayor"]]
-
-respuesta: comparativa[opcion_idx][1]
-tipo: mc
-opciones_explicitas: ["menor", "mayor"]
-
-enunciado: "Considerando el acceso a datos en un sistema computacional: {comparativa[opcion_idx][0]}"
-
-explicacion: |
-  La latencia es el tiempo de espera. La caché, al estar integrada en el procesador, responde mucho más rápido (menor latencia) que la RAM.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "intermedio"
-  tags: ["orden", "arquitectura"]
-
-respuesta_orden: ["Registros", "Caché L1", "Memoria RAM", "Disco Duro"]
-tipo: ordenar
-opciones_explicitas: ["Registros", "Caché L1", "Memoria RAM", "Disco Duro"]
-
-enunciado: "Ordena los siguientes elementos de memoria de mayor a menor velocidad (del más rápido al más lento):"
-
-explicacion: |
-  La jerarquía correcta de velocidad es: Registros del CPU > Caché (L1, L2, L3) > Memoria RAM > Almacenamiento secundario (Disco).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "avanzado"
-  tags: ["costo", "capacidad"]
-
-variables:
-  item_idx: uno_de([0,1])
-  comparacion: [["Si comparamos la Caché con la RAM, la caché tiene un costo por GB ___ que la RAM.", "mayor"], ["Si comparamos la RAM con el Disco Duro, la RAM tiene un costo por GB ___ que el disco.", "mayor"]]
-
-respuesta: comparacion[item_idx][1]
-tipo: mc
-opciones_explicitas: ["mayor", "menor"]
-
-enunciado: "En términos de arquitectura de computadores: {comparacion[item_idx][0]}"
-
-explicacion: |
-  Existe una relación inversa: a mayor velocidad de acceso, mayor es el costo por unidad de capacidad (GB/TB). Por eso las memorias rápidas son pequeñas y las lentas son masivas.
-```
-
-## Sección: modelo-relacional-tabla-registro-clave-primaria (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_conceptos_basicos"
-  nivel: "basico"
-  tags: ["base_de_datos", "modelo_relacional"]
-
-tipo: mc
-opciones_explicitas: ["Registro", "Atributo", "Relación", "Tupla"]
-
-enunciado: "En el modelo relacional, una fila de una tabla que contiene un conjunto de datos relacionados se denomina:"
-
-respuesta: "Registro"
-
-explicacion: |
-  En el modelo relacional, una tabla se compone de filas (registros o tuplas) y columnas (atributos).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "clave_primaria"
-  nivel: "basico"
-  tags: ["clave_primaria", "identificador"]
-
-tipo: vf
-
-enunciado: "Una clave primaria (Primary Key) tiene la propiedad de permitir valores nulos (NULL) para asegurar la unicidad de los registros."
-
-respuesta: falso
-
-explicacion: |
-  Una clave primaria debe ser única y, por definición, no puede contener valores nulos, ya que su función es identificar de forma inequívoca cada registro.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructura_tabla"
-  nivel: "basico"
-  tags: ["tabla", "columna"]
-
-tipo: completar
-respuestas_validas:
-  - "columna"
-  - "atributo"
-
-enunciado: "En una base de datos relacional, el conjunto de datos que define la estructura de una tabla (como el nombre y el tipo de dato) se conoce como ___."
-
-respuesta: "columna"
-
-explicacion: |
-  Cada ___ representa una propiedad o característica de la entidad que estamos almacenando.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_relacional"
-  nivel: "basico"
-  tags: ["orden", "estructura"]
-
-tipo: ordenar
-opciones_explicitas: ["Base de datos", "Tabla", "Registro", "Campo"]
-
-respuesta_orden: ["Base de datos", "Tabla", "Registro", "Campo"]
-
-enunciado: "Ordene los siguientes elementos de mayor a menor nivel de jerarquía de datos:"
-
-explicacion: |
-  La jerarquía parte desde el contenedor global (Base de datos), contiene conjuntos de datos (Tablas), que contienen filas (Registros), las cuales se dividen en unidades mínimas de información (Campos).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "clave_primaria_propiedades"
-  nivel: "intermedio"
-  tags: ["clave_primaria", "unicidad"]
-
-variables:
-  escenario: uno_de([[1, "ID_Usuario"], [2, "DNI"], [3, "Codigo_Producto"]])
-  campo_id: escenario[1]
-
-tipo: mc
-opciones_explicitas: ["Puede repetirse en diferentes filas", "Debe ser única en toda la tabla", "Puede ser nula", "No tiene importancia para la integridad"]
-
-enunciado: "Si definimos {campo_id} como la clave primaria de una tabla, esta debe cumplir con la propiedad de ser:"
-
-respuesta: "Debe ser única en toda la tabla"
-
-explicacion: |
-  La función principal de la clave primaria es garantizar que no existan dos filas idénticas, permitiendo la identificación única de cada registro mediante el valor de {campo_id}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tablas"
-  nivel: "basico"
-  tags: ["base_de_datos", "conceptos"]
-
-respuesta: "registro"
-tipo: "completar"
-respuestas_validas:
-  - "registro"
-  - "fila"
-
-enunciado: "En el modelo relacional, una estructura que contiene una colección de datos organizados en columnas y filas se denomina tabla, mientras que cada una de las filas individuales que representan una entidad única se denomina ___."
-
-explicacion: |
-  Una tabla es la estructura completa, mientras que el registro (o fila) es la unidad mínima de información que representa un objeto o entidad específica dentro de esa tabla.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_clave_primaria"
-  nivel: "basico"
-  tags: ["base_de_datos", "clave_primaria"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["DNI", "Nombre", "Apellido"], ["ID_Producto", "Nombre_Prod", "Precio"]]
-  respuestas: ["DNI", "ID_Producto"]
-
-respuesta: datos[escenario_idx][0]
-tipo: "mc"
-opciones_explicitas: ["DNI", "Nombre", "Apellido", "ID_Producto", "Precio", "Nombre_Prod"]
-
-enunciado: "Considerando la tabla con el esquema {datos[escenario_idx]}, ¿cuál de los siguientes campos es el candidato ideal para actuar como clave primaria para asegurar que cada registro sea único?"
-
-explicacion: |
-  La clave primaria debe ser un atributo que no se repita entre los registros. En el escenario {datos[escenario_idx][0]}, ese campo es {datos[escenario_idx][0]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_clave_primaria"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "reglas"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "En un modelo relacional, una clave primaria puede contener valores nulos (NULL) para permitir que ciertos registros no tengan un identificador único asignado."
-
-explicacion: |
-  Falso. Una de las reglas de integridad de la clave primaria es la 'Integridad de Entidad', que prohíbe estrictamente que los campos que forman la clave primaria sean nulos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tablas"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "ordenar"]
-
-tipo: ordenar
-opciones_explicitas: ["Identificar la entidad", "Definir los atributos", "Asignar la clave primaria"]
-respuesta_orden: ["Identificar la entidad", "Definir los atributos", "Asignar la clave primaria"]
-
-enunciado: "Para diseñar correctamente una tabla en un modelo relacional, se debe seguir un orden lógico de diseño. Ordena los siguientes pasos:"
-
-explicacion: |
-  Primero se identifica la entidad (ej. Usuario), luego sus atributos (ej. Nombre, Email) y finalmente se establece la clave primaria (ej. ID_Usuario).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_clave_primaria"
-  nivel: "avanzado"
-  tags: ["base_de_datos", "logica"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  valores_max: [100, 50]
-
-respuesta: valores_max[escenario_idx]
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si una tabla de 'Clientes' tiene una clave primaria que solo permite valores numéricos del 1 al {valores_max[escenario_idx]}, ¿cuántos registros distintos se pueden almacenar como máximo sin violar la restricción de clave primaria?"
-
-explicacion: |
-  La clave primaria debe ser única. Si el rango de valores disponibles es de 1 a {valores_max[escenario_idx]}, el número máximo de registros es {valores_max[escenario_idx]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_conceptos_basicos"
-  nivel: "basico"
-  tags: ["base_de_datos", "modelo_relacional"]
-
-respuesta: "fila"
-tipo: completar
-respuestas_validas:
-  - "fila"
-  - "registro"
-
-enunciado: "En el modelo relacional, una estructura de datos bidimensional se compone de columnas (atributos) y ___ (tuplas)."
-
-explicacion: |
-  En el modelo relacional, una tabla se compone de filas (también llamadas tuplas o registros) y columnas (atributos).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "clave_primaria_caracteristicas"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "clave_primaria"]
-
-respuesta: falso
-tipo: vf
-enunciado: "Si una tabla tiene una columna llamada 'Edad', ¿puede esta ser designada como la clave primaria de la tabla si existen múltiples personas con la misma edad?"
-
-explicacion: |
-  La clave primaria debe ser única para cada registro. Si dos filas tienen el mismo valor en la columna clave, el sistema no podría distinguirlas, violando el principio de integridad de entidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructura_tabla"
-  nivel: "basico"
-  tags: ["base_de_datos", "modelo_relacional"]
-
-respuesta: "columnas"
-tipo: mc
-opciones_explicitas: ["filas", "columnas", "celdas", "bases"]
-
-enunciado: "Si un registro representa una entidad completa (como un usuario), las ___ representan las propiedades o características de esa entidad."
-
-explicacion: |
-  Las columnas definen la estructura y el tipo de datos de los atributos, mientras que las filas contienen los datos específicos de cada instancia.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "integridad_entidad"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "clave_primaria"]
-
-respuesta: "ID_Estudiante"
-tipo: completar
-respuestas_validas:
-  - "ID_Estudiante"
-  - "codigo_estudiante"
-  - "estudiante_id"
 
 enunciado: |
-  Dada la siguiente tabla de 'Estudiantes':
-  | Nombre | Apellido | DNI |
-  |--------|----------|-----|
-  | Juan   | Perez    | 123 |
-  | Ana    | Lopez    | 456 |
+  Dada la siguiente función:
+  def multiplicar(x, y):
+      return x * y
 
-  Si queremos garantizar que no haya duplicados, la mejor opción para una clave primaria sería ___.
-
-explicacion: |
-  Aunque el DNI suele ser único, en el diseño de bases de datos se prefiere usar una clave artificial (como un ID) que sea inmutable y garantice la unicidad técnica sin depender de datos externos que podrían cambiar o repetirse por error.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_relacional"
-  nivel: "basico"
-  tags: ["base_de_datos", "modelo_relacional"]
-
-respuesta_orden: ["Base de Datos", "Tabla", "Registro", "Atributo"]
-tipo: ordenar
-opciones_explicitas: ["Base de Datos", "Tabla", "Registro", "Atributo"]
-
-enunciado: "Ordena los elementos de mayor a menor jerarquía en un modelo relacional (desde el contenedor global hasta el dato mínimo):"
-
-explicacion: |
-  La jerarquía lógica es: La Base de Datos contiene múltiples Tablas; cada Tabla contiene múltiples Registros; y cada Registro está compuesto por Atributos (valores).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tabla_registro"
-  nivel: "basico"
-  tags: ["base_de_datos", "conceptos_basicos"]
-
-tipo: mc
-opciones_explicitas: ["La tabla es una unidad de datos y el registro es un conjunto de tablas", "La tabla es la estructura que contiene datos y el registro es una fila de dicha estructura", "La tabla es un dato individual y el registro es la base de datos completa", "No hay diferencia, son sinónimos"]
-
-respuesta: "La tabla es la estructura que contiene datos y el registro es una fila de dicha estructura"
-
-enunciado: "En el modelo relacional, ¿qué distingue fundamentalmente a una tabla de un registro?"
-
-explicacion: |
-  Una tabla (o relación) es la entidad completa que define la estructura y el conjunto de datos, mientras que un registro (o tupla) es una única entrada o fila que representa un elemento específico dentro de esa tabla.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_clave_primaria"
-  nivel: "basico"
-  tags: ["base_de_datos", "clave_primaria"]
-
-tipo: completar
-respuestas_validas:
-  - "identificar"
-  - "diferenciar"
-  - "única"
-
-respuesta: "única"
-
-enunciado: "A diferencia de un campo común, la clave primaria debe garantizar que cada registro sea ___."
-
-explicacion: |
-  La clave primaria (Primary Key) tiene la propiedad de unicidad, lo que significa que no puede haber dos filas con el mismo valor en ese campo, permitiendo identificar de forma inequívoca cada registro.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tabla_registro"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "atributos"]
-
-tipo: vf
-
-respuesta: falso
-
-enunciado: "¿Es correcto afirmar que un registro es la colección de todos los atributos (columnas) de una tabla?"
-
-explicacion: |
-  Falso. Un registro es una instancia de datos (una fila). La colección de todos los registros es la tabla. Los atributos son las columnas que definen la estructura de la tabla.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_estructura"
-  nivel: "basico"
-  tags: ["base_de_datos", "jerarquia"]
-
-tipo: ordenar
-opciones_explicitas: ["Base de datos", "Tabla", "Registro", "Campo"]
-
-respuesta_orden: ["Base de datos", "Tabla", "Registro", "Campo"]
-
-enunciado: "Ordena los siguientes elementos de mayor a menor jerarquía de abstracción en un modelo relacional:"
-
-explicacion: |
-  La jerarquía lógica va desde el contenedor global (Base de datos), que contiene estructuras (Tablas), que contienen instancias de datos (Registros), que a su vez se componen de unidades mínimas de información (Campos/Atributos).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_clave_primaria"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "integridad"]
-
-respuesta: "Debe ser única y no nula"
-
-tipo: mc
-opciones_explicitas: ["Puede contener valores nulos", "Debe ser única y no nula"]
-
-enunciado: "Considerando la integridad de entidad, ¿cuál es la distinción principal de una clave primaria respecto a un campo de texto normal?"
+  Si ejecutamos la llamada: resultado = multiplicar({datos[0]}, {datos[1]}), el valor de 'resultado' será ___.
 
 pasos:
-  - "Identificar la propiedad de unicidad"
-  - "Verificar la restricción de nulidad"
+  - "Identificar los valores de entrada: x = {datos[0]} y y = {datos[1]}"
+  - "Realizar la operación matemática: {datos[0]} * {datos[1]}"
 
 explicacion: |
-  La clave primaria tiene dos restricciones críticas que un campo normal no tiene: debe ser única en toda la tabla y no puede contener valores nulos (NOT NULL).
+  La función realiza la operación de multiplicación y el comando 'return' devuelve el resultado hacia el punto donde fue llamada.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "modelo_relacional_tablas"
+  tema: "funciones_y_modularidad"
+  nivel: "intermedio"
+  tags: ["estructura", "orden"]
+
+respuesta_orden: ["definir_funcion", "llamar_funcion", "mostrar_resultado"]
+tipo: ordenar
+
+opciones_explicitas: ["definir_funcion", "llamar_funcion", "mostrar_resultado"]
+
+enunciado: "Para que un programa modular funcione correctamente, ¿cuál es el orden lógico de ejecución de sus componentes?"
+
+explicacion: |
+  Primero se debe definir la lógica (la función), luego se invoca la función con los datos necesarios y finalmente se procesa o muestra el resultado obtenido.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "avanzado"
+  tags: ["scope", "variables_globales"]
+
+respuesta: "5"
+tipo: mc
+opciones_explicitas: ["5", "10", "Error: variable no definida"]
+
+enunciado: |
+  Considera el siguiente código:
+  x = 10
+  def mi_funcion():
+      x = 5
+      return x
+
+  Si llamamos a mi_funcion(), el valor devuelto es ___.
+
+explicacion: |
+  Dentro de la función, se crea una variable local 'x' que tiene el mismo nombre que la global, pero la función trabaja con la local. Por lo tanto, el valor devuelto es el de la variable local definida dentro del bloque, es decir, 5.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
   nivel: "basico"
-  tags: ["base_de_datos", "clave_primaria"]
+  tags: ["scope", "variables", "modularidad"]
 
 variables:
-  escenario: uno_de([["ID_Usuario, Nombre, Email", "ID_Usuario"], ["DNI, Apellido, Dirección", "DNI"], ["Codigo_Producto, Descripcion, Precio", "Codigo_Producto"], ["Matricula, Estudiante, Curso", "Matricula"]])
+  escenario: uno_de([[1, "global"], [2, "local"]])
 
-enunciado: "En una base de datos de una tienda, se tiene la siguiente estructura de tabla: {escenario[0]}. El campo que actúa como clave primaria es ___."
+enunciado: "En un programa, una variable definida dentro de una función tiene un alcance ___."
+
+opciones_explicitas:
+  - "global"
+  - "local"
+
+respuesta: escenario[1]
+tipo: mc
+
+explicacion: |
+  Las variables definidas dentro de una función tienen un ámbito local, lo que significa que no pueden ser accedidas directamente desde fuera de la función. Esto es fundamental para la modularidad y evita colisiones de nombres.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "intermedio"
+  tags: ["return", "side_effects", "output"]
+
+enunciado: "Si una función utiliza 'print' para mostrar un resultado en pantalla pero no tiene una instrucción de salida de datos hacia el flujo principal, la función devuelve un valor de tipo ___."
 
 respuestas_validas:
-  - escenario[1]
-respuesta: escenario[1]
+  - "None"
 
+respuesta: "None"
 tipo: completar
 
 explicacion: |
-  La clave primaria es el campo que identifica de forma única e irrepetible a cada registro en una tabla.
+  Es un error común confundir 'imprimir' (mostrar en consola) con 'retornar' (devolver un valor para ser usado en otra parte). Si una función no tiene un 'return' explícito, devuelve por defecto un valor nulo o None.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "modelo_relacional_tablas"
-  nivel: "basico"
-  tags: ["base_de_datos", "registro"]
+  tema: "funciones_y_modularidad"
+  nivel: "avanzado"
+  tags: ["side_effects", "pure_functions", "modularidad"]
 
-enunciado: "¿Un registro en una base de datos relacional es equivalente a una fila que contiene datos de un objeto o entidad específica?"
+enunciado: "¿Es verdadero que una 'función pura' es aquella que, además de devolver siempre el mismo resultado para los mismos argumentos, no produce efectos secundarios (como modificar una variable global o escribir en un archivo)?"
+
+respuesta: verdadero
+tipo: vf
+explicacion: |
+  La pureza en las funciones es la base de la programación funcional y de la modularidad robusta. Si una función modifica algo fuera de su propio ámbito, se dice que tiene un 'efecto secundario', lo cual dificulta el testing y la reutilización.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "basico"
+  tags: ["refactoring", "modularidad", "algoritmo"]
+
+enunciado: "Ordena los pasos lógicos para refactorizar un código monolítico (un solo bloque largo) en un programa modular:"
+
+opciones_explicitas:
+  - "Identificar bloques de lógica con una responsabilidad única"
+  - "Extraer esos bloques en funciones independientes"
+  - "Definir los parámetros de entrada y los valores de retorno necesarios"
+  - "Llamar a las nuevas funciones desde el programa principal"
+
+respuesta_orden: ["Identificar bloques de lógica con una responsabilidad única", "Extraer esos bloques en funciones independientes", "Definir los parámetros de entrada y los valores de retorno necesarios", "Llamar a las nuevas funciones desde el programa principal"]
+tipo: ordenar
+
+explicacion: |
+  La modularización efectiva requiere primero identificar la cohesión (qué pertenece a qué), luego aislar la lógica, definir sus interfaces (parámetros/retornos) y finalmente integrarlas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "intermedio"
+  tags: ["parameters", "arguments", "terminologia"]
+
+enunciado: "En la definición de una función `def suma(a, b):`, los elementos `a` y `b` se denominan ___ , mientras que los valores reales que se pasan al llamar a la función `suma(5, 3)` se denominan ___ ."
+
+respuestas_validas:
+  - "parámetros"
+  - "argumentos"
+
+respuesta: "parámetros"
+tipo: completar
+
+explicacion: |
+  Aunque se usan como sinónimos en el habla cotidiana, técnicamente los 'parámetros' son las variables en la definición de la función, y los 'argumentos' son los valores reales que se le pasan durante la ejecución.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "basico"
+  tags: ["conceptos", "modularidad"]
+
+respuesta: "reutilizar"
+tipo: completar
+respuestas_validas:
+  - "reutilizar"
+  - "reutilización"
+
+enunciado: "Mientras que un bloque de código aislado realiza una tarea única, la modularidad busca dividir un programa en piezas que permitan ___ el código en diferentes partes del sistema."
+
+explicacion: |
+  La modularidad permite dividir un problema complejo en subproblemas más pequeños y manejables, permitiendo que el código sea reutilizado en otros contextos sin necesidad de reescribirlo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "intermedio"
+  tags: ["funciones", "terminologia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el contexto de la definición de funciones, el 'parámetro' es la variable declarada en la firma de la función, mientras que el 'argumento' es el valor real pasado al invocarla. ¿Es esta distinción correcta?"
+
+explicacion: |
+  Correcto. El parámetro actúa como un marcador de posición (variable local) y el argumento es el dato concreto que se envía durante la llamada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "basico"
+  tags: ["comparacion", "mantenimiento"]
+
+respuesta: "mantenimiento"
+tipo: mc
+opciones_explicitas: ["rendimiento", "mantenimiento", "estética", "velocidad"]
+
+enunciado: "Comparado con un programa monolítico (un solo bloque de código gigante), un programa modular facilita principalmente el ___ y la detección de errores."
+
+explicacion: |
+  Al tener el código separado en módulos o funciones, si ocurre un error, es más fácil localizar la pieza exacta que está fallando sin afectar al resto del sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "intermedio"
+  tags: ["flujo_control", "modularidad"]
+
+respuesta_orden: ["llamada", "ejecución", "retorno"]
+tipo: ordenar
+opciones_explicitas: ["llamada", "ejecución", "retorno"]
+
+enunciado: "Ordena cronológicamente los pasos que ocurren cuando el control de un programa pasa a una función:"
+
+pasos:
+  - "El programa salta a la definición de la función."
+  - "La función devuelve un valor y el control vuelve al punto de origen."
+  - "Se invoca la función con los valores necesarios."
+
+explicacion: |
+  El flujo lógico es: 1. Llamada (Call), 2. Ejecución del cuerpo de la función, 3. Retorno (Return) al flujo principal.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "avanzado"
+  tags: ["scope", "variables"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["local", "solo es visible dentro de la función"], ["global", "es accesible desde cualquier parte del programa"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["solo es visible dentro de la función", "es accesible desde cualquier parte del programa", "ninguna de las anteriores"]
+
+enunciado: "Si definimos una variable dentro de una función, su alcance es {datos[escenario_idx][0]}. ¿Cuál es la característica de este tipo de variable?"
+
+explicacion: |
+  Las variables locales existen únicamente durante la ejecución de la función y no pueden ser accedidas directamente desde fuera de ella, lo cual es clave para evitar colisiones de nombres en la modularidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "basico"
+  tags: ["conceptos", "modularidad"]
+
+variables:
+  escenarios: [["un programa de 1000 líneas en un solo bloque", "difícil de mantener y testear"], ["un programa dividido en funciones pequeñas", "fácil de mantener y reutilizar"]]
+  escenario: uno_de(escenarios)
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["difícil de mantener y testear", "fácil de mantener y reutilizar"]
+
+enunciado: "Si un programador decide que su código debe ser modular, el beneficio principal es que el software resultante será ___."
+
+explicacion: |
+  La modularidad permite dividir problemas complejos en partes más pequeñas y manejables, facilitando la lectura, el testeo y la reutilización de código.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "intermedio"
+  tags: ["funciones", "parametros"]
+
+variables:
+  caso_idx: uno_de([0,1,2])
+  casos: [["sumar(a, b)", "los valores que recibe la función"], ["print('Hola')", "lo que la función devuelve"], ["x = 5", "una variable global"]]
+  respuestas: ["los valores que recibe la función", "lo que la función devuelve", "una variable global"]
+
+respuesta: casos[caso_idx][1]
+tipo: completar
+respuestas_validas:
+  - "los valores que recibe la función"
+  - "lo que la función devuelve"
+  - "una variable global"
+
+enunciado: "En la estructura de una función, la sección que define qué datos externos puede procesar la función se denomina ___."
+
+explicacion: |
+  Los parámetros son variables locales en la definición de una función que actúan como marcadores de posición para los argumentos que se le pasan al llamarla.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "basico"
+  tags: ["booleano", "conceptos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que una función que no contiene una instrucción de retorno (return) siempre devuelve el valor `falso`?"
+
+explicacion: |
+  En la mayoría de los lenguajes de programación, si una función no tiene una instrucción de retorno explícita, devuelve un valor especial que representa la ausencia de valor (como `None` en Python o `undefined` en JS), no necesariamente el booleano `falso`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "intermedio"
+  tags: ["orden", "ejecucion"]
+
+respuesta_orden: ["Definición de la función", "Llamada a la función", "Ejecución del cuerpo de la función", "Retorno al flujo principal"]
+tipo: ordenar
+opciones_explicitas: ["Definición de la función", "Llamada a la función", "Ejecución del cuerpo de la función", "Retorno al flujo principal"]
+
+enunciado: "Ordena los pasos lógicos que ocurren en la memoria de la computadora cuando se utiliza una función en un programa:"
+
+explicacion: |
+  Para que una función trabaje, primero debe estar definida en memoria, luego el programa debe invocarla (llamada), se procesa su lógica interna y finalmente el control vuelve a la línea siguiente a la llamada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "funciones_y_modularidad"
+  nivel: "avanzado"
+  tags: ["scope", "variables"]
+
+variables:
+  test_idx: uno_de([0,1])
+  tests: [["x = 10; def f(): print(x); f()", "10"], ["x = 5; def f(): x = 2; f(); print(x)", "5"]]
+  resultado_correcto: tests[test_idx][1]
+
+respuesta: resultado_correcto
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Analiza el siguiente código: {tests[test_idx][0]}. ¿Cuál será el resultado de la salida en consola?"
+
+explicacion: |
+  En el primer caso, se accede a una variable global. En el segundo caso, la asignación `x = 2` dentro de la función crea una variable local, dejando la variable global `x` intacta para el `print` final.
+```
+
+## Sección: estructuras-de-datos-listas-pilas-colas (26 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "basico"
+  tags: ["pilas", "lifo"]
+
+respuesta: "LIFO"
+tipo: completar
+respuestas_validas:
+  - "LIFO"
+  - "lifo"
+  - "LIFO (Last In, First Out)"
+
+enunciado: "La estructura de datos conocida como 'Pila' se rige por el principio de acceso ___ (Last In, First Out)."
+
+explicacion: |
+  En una pila, el último elemento en entrar es el primero en salir. Esto se conoce como LIFO.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "basico"
+  tags: ["colas", "fifo", "pilas"]
+
+variables:
+  pares: [["Pila", "Último en entrar, primero en salir"], ["Cola", "Primero en entrar, primero en salir"]]
+  idx: uno_de([0, 1])
+
+respuesta: pares[idx][0]
+tipo: mc
+opciones_explicitas: ["Pila", "Cola"]
+
+enunciado: "Si una estructura de datos sigue el principio de '{pares[idx][1]}', estamos ante una ___."
+
+explicacion: |
+  El principio FIFO (First In, First Out) es característico de las colas, donde el primer elemento que llega es el primero en ser procesado.
+  El principio LIFO (Last In, First Out) es característico de las pilas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "basico"
+  tags: ["listas", "acceso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de las pilas y las colas, una lista permite el acceso a cualquier elemento mediante un índice, sin seguir un orden restrictivo de entrada/salida."
+
+explicacion: |
+  Las listas son estructuras de acceso aleatorio, mientras que las pilas y colas son estructuras de acceso restringido.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "basico"
+  tags: ["pilas", "operaciones"]
+
+respuesta_orden: ["push", "pop"]
+tipo: ordenar
+
+opciones_explicitas: ["push", "pop"]
+
+enunciado: "Ordena las operaciones típicas de una Pila (Stack) desde la que agrega un elemento hasta la que lo retira:"
+
+explicacion: |
+  En una pila, 'push' se usa para insertar un elemento en el tope y 'pop' para extraerlo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "intermedio"
+  tags: ["colas", "uso"]
+
+variables:
+  idx: uno_de([0, 1])
+  ejemplo: [["gestión de procesos en un CPU", "impresora"], ["fila de espera en un banco", "gestión de procesos en un CPU"]]
+
+respuesta: ejemplo[idx][0]
+tipo: mc
+opciones_explicitas: ["gestión de procesos en un CPU", "fila de espera en un banco", "historial de navegación", "deshacer (undo)"]
+
+enunciado: "Las colas (FIFO) son ideales para escenarios de espera. ¿Cuál de estos es un uso común de una cola?"
+
+explicacion: |
+  La gestión de procesos en un sistema operativo utiliza colas para decidir qué tarea procesar según su orden de llegada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_pilas"
+  nivel: "basico"
+  tags: ["pilas", "lifo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una estructura de datos tipo Pila (Stack), el último elemento en ser insertado es el primero en ser eliminado, siguiendo el principio LIFO (Last In, First Out)."
+
+explicacion: |
+  Exacto. Las pilas funcionan como una pila de platos: el último que pones arriba es el primero que sacas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_pilas"
+  nivel: "intermedio"
+  tags: ["pilas", "push", "pop"]
+
+variables:
+  valores: [["10", "20", "30"], ["A", "B", "C"], ["5", "15", "25"]]
+  resultados: ["20", "B", "15"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: resultados[idx]
+tipo: mc
+opciones_explicitas: ["20", "B", "15", "30"]
+
+enunciado: "Dada una pila vacía, si realizamos las siguientes operaciones en orden: push({valores[idx][0]}), push({valores[idx][1]}), push({valores[idx][2]}) y finalmente pop, ¿cuál es el elemento que queda en el tope de la pila?"
+
+pasos:
+  - "Insertar el primer elemento (push)."
+  - "Insertar el segundo elemento (push)."
+  - "Insertar el tercer elemento (push)."
+  - "Eliminar el elemento superior (pop)."
+
+explicacion: |
+  Al hacer push de los tres elementos, el tope es el tercero. Al hacer pop, ese tercero se elimina, dejando el segundo como el nuevo tope.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_colas"
+  nivel: "basico"
+  tags: ["colas", "fifo"]
+
+respuesta: "cliente_1"
+tipo: mc
+opciones_explicitas: ["cliente_1", "cliente_2", "cliente_3", "cliente_4"]
+
+enunciado: "En una cola (Queue) de procesamiento de tareas, si entran los elementos cliente_1, cliente_2 y cliente_3 en ese orden, ¿cuál es el primer elemento en ser atendido y salir de la cola?"
+
+explicacion: |
+  Las colas siguen el principio FIFO (First In, First Out). El primero en entrar es el primero en salir.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_pilas"
+  nivel: "intermedio"
+  tags: ["pilas", "ordenar"]
+
+respuesta_orden: ["A", "B"]
+tipo: ordenar
+opciones_explicitas: ["A", "B"]
+
+enunciado: "Si realizamos las siguientes operaciones de forma consecutiva sobre una pila vacía: push(A), push(B), push(C), push(D), pop, pop — ordena los elementos que permanecen en la pila, desde la base hasta el tope."
+
+pasos:
+  - "La pila contiene [A, B, C, D] con D en el tope."
+  - "Se ejecuta pop: sale D, queda [A, B, C]."
+  - "Se ejecuta pop: sale C, queda [A, B]."
+
+explicacion: |
+  Al hacer pop dos veces, eliminamos los dos últimos elementos insertados (D y luego C). Los que quedan en la pila, de base a tope, son A y B.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_comparacion"
+  nivel: "basico"
+  tags: ["pilas", "colas"]
+
+respuesta: "FIFO"
+tipo: completar
+respuestas_validas:
+  - "FIFO"
+  - "fifo"
+
+enunciado: "Mientras que la Pila utiliza el principio LIFO (Last In, First Out), la Cola utiliza el principio ___ (First In, First Out)."
+
+explicacion: |
+  La Cola (Queue) garantiza que el primer elemento en entrar sea el primero en ser procesado.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "basico"
+  tags: ["pilas", "colas", "conceptos"]
+
+respuesta: "LIFO"
+tipo: completar
+respuestas_validas:
+  - "LIFO"
+  - "lifo"
+  - "Lifo"
+
+enunciado: "En una estructura de datos de tipo Pila (Stack), el último elemento en ser insertado es el primero en ser extraído, principio conocido como ___."
+
+explicacion: |
+  La Pila sigue el principio LIFO (Last In, First Out). El último elemento que entra es el primero en salir, como una pila de platos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "basico"
+  tags: ["colas", "fifo"]
+
+opciones_explicitas: ["El primero en entrar es el primero en salir", "El último en entrar es el primero en salir", "El primero en entrar es el último en salir"]
+respuesta: "El primero en entrar es el primero en salir"
+tipo: mc
+
+enunciado: "Si tenemos una Cola (Queue) con los elementos [A, B, C] (donde A es el primero en entrar), ¿cuál es el orden de salida de los elementos al realizar tres operaciones de extracción?"
+
+explicacion: |
+  Una Cola sigue el principio FIFO (First In, First Out). El primer elemento que llega a la fila es el primero en ser atendido y salir.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "intermedio"
+  tags: ["aplicaciones", "pilas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para implementar la funcionalidad 'Deshacer' (Undo) en un editor de texto, donde queremos revertir la última acción realizada, la estructura de datos más adecuada es una Pila."
+
+explicacion: |
+  Correcto. Como queremos revertir la acción más reciente, necesitamos acceder al último elemento agregado, lo cual es la definición de una Pila (LIFO).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "basico"
+  tags: ["comparacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Tanto las Pilas como las Colas son estructuras de datos lineales que no permiten el acceso aleatorio a sus elementos (a diferencia de un Array o una Lista indexada)."
+
+explicacion: |
+  Verdadero. En sus implementaciones puras, las pilas y colas son estructuras de acceso restringido: solo puedes interactuar con los extremos (top en pilas, front/rear en colas).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "intermedio"
+  tags: ["operaciones", "pila"]
+
+tipo: ordenar
+opciones_explicitas: ["push(1)", "push(2)", "pop()", "push(3)"]
+respuesta_orden: ["push(1)", "push(2)", "pop()", "push(3)"]
+
+enunciado: "Ordena las siguientes operaciones de una Pila para que el elemento que quede en el tope (top) al finalizar sea el número 3."
+
+explicacion: |
+  1. push(1) -> Pila: [1]
+  2. push(2) -> Pila: [1, 2]
+  3. pop()   -> Pila: [1] (sale el 2)
+  4. push(3) -> Pila: [1, 3]
+  El tope final queda en 3.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "intermedio"
+  tags: ["operaciones", "pila"]
+
+tipo: ordenar
+opciones_explicitas: ["push(10)", "push(20)", "pop()", "push(30)"]
+respuesta_orden: ["push(10)", "push(20)", "pop()", "push(30)"]
+
+enunciado: "Ordena las operaciones para obtener una pila que contenga únicamente los elementos [10, 30] (donde 30 es el tope)."
+
+explicacion: |
+  1. push(10) -> [10]
+  2. push(20) -> [10, 20]
+  3. pop()    -> [10]
+  4. push(30) -> [10, 30]
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "basico"
+  tags: ["pilas", "lifo"]
+
+respuesta: "LIFO"
+tipo: completar
+respuestas_validas:
+  - "LIFO"
+  - "lifo"
+
+enunciado: "La estructura de datos tipo Pila se caracteriza por seguir el principio de acceso ___ (Last In, First Out)."
+
+explicacion: |
+  En una pila, el último elemento en entrar es el primero en salir, similar a una pila de platos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "basico"
+  tags: ["colas", "fifo"]
+
+respuesta: "FIFO"
+tipo: mc
+opciones_explicitas: ["LIFO", "FIFO", "Random Access", "LIFO-FIFO"]
+
+enunciado: "A diferencia de las Pilas, las Colas operan bajo el principio de:"
+
+explicacion: |
+  La cola (Queue) utiliza el principio FIFO (First In, First Out), donde el primer elemento en entrar es el primero en ser procesado.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "intermedio"
+  tags: ["listas", "acceso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de una Pila, una Lista permite el acceso aleatorio a cualquier elemento mediante su índice sin necesidad de retirar los elementos superiores."
+
+explicacion: |
+  Las listas permiten acceso por índice, mientras que en las pilas el acceso está restringido al elemento en el tope.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "basico"
+  tags: ["pilas", "operaciones"]
+
+tipo: ordenar
+opciones_explicitas: ["Push", "Push", "Pop", "Pop"]
+respuesta_orden: ["Push", "Push", "Pop", "Pop"]
+
+enunciado: "Si tenemos una pila vacía, ¿cuál es el orden de operaciones para insertar dos elementos (A y B) y luego extraer el primero que fue insertado?"
+
+explicacion: |
+  Para insertar A y B en la pila usamos Push, Push (quedando B en el tope). Como una pila es LIFO, para llegar hasta A (el primero insertado) primero hay que sacar B con un Pop, y luego sacar A con un segundo Pop. La secuencia completa es: Push, Push, Pop, Pop.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas_pilas_colas"
+  nivel: "intermedio"
+  tags: ["aplicaciones", "escenarios"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenarios: [["gestionar una impresora con varios documentos esperando", "Cola (FIFO)"], ["gestionar el botón 'deshacer' (undo) de un editor", "Pila (LIFO)"]]
+
+respuesta: escenarios[idx][1]
+tipo: mc
+opciones_explicitas: ["Cola (FIFO)", "Pila (LIFO)", "Lista Dinámica"]
+
+enunciado: "Si el escenario es {escenarios[idx][0]}, la estructura de datos más adecuada es una:"
+
+explicacion: |
+  En el caso de la impresora, se usa FIFO para respetar el orden de llegada. En el caso de 'deshacer', se usa LIFO para revertir la última acción realizada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_pilas"
+  nivel: "basico"
+  tags: ["pilas", "lifo"]
+
+variables:
+  datos: [["escribir 'Hola'", "pop"], ["borrar 'mundo'", "pop"], ["cambiar color", "pop"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["push", "pop", "enqueue", "dequeue"]
+
+enunciado: "En un editor de texto, la función 'Deshacer' (Undo) se implementa comúnmente usando una pila para almacenar las acciones. Si la última acción realizada fue {datos[idx][0]}, ¿qué operación de pila se debe ejecutar para revertirla?"
+
+explicacion: |
+  Una pila sigue el principio LIFO (Last In, First Out). Para deshacer la última acción, se debe extraer el elemento superior de la pila mediante la operación 'pop'.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_colas"
+  nivel: "basico"
+  tags: ["colas", "fifo"]
+
+variables:
+  datos: [["Doc_A", "imprimir"], ["Doc_B", "imprimir"], ["Doc_C", "imprimir"]]
+  idx: uno_de([0,1,2])
+
+respuesta: verdadero
+tipo: vf
+enunciado: "En una cola de impresión (Spooler), los documentos se procesan en el orden en que llegan. Si el documento {datos[idx][0]} es el primero en la cola, ¿se procesará siguiendo el principio FIFO (First In, First Out)?"
+
+explicacion: |
+  Correcto. Las colas utilizan FIFO, lo que garantiza que el primer elemento en entrar sea el primero en salir.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_pilas"
+  nivel: "intermedio"
+  tags: ["pilas", "lifo", "ordenamiento"]
+
+variables:
+  datos: [["A", "B", "C"], ["X", "Y", "Z"], ["1", "2", "3"]]
+  idx: uno_de([0,1,2])
+
+respuesta_orden: [datos[idx][2], datos[idx][1], datos[idx][0]]
+tipo: ordenar
+opciones_explicitas: datos[idx]
+
+enunciado: "Se insertan los elementos de la secuencia {datos[idx][0]}, {datos[idx][1]} y {datos[idx][2]} en una pila (Push) en ese orden exacto. ¿Cuál es el orden en que saldrán de la pila al realizar tres operaciones 'pop' consecutivas?"
+
+explicacion: |
+  Al ser una pila (LIFO), el último elemento en entrar ({datos[idx][2]}) es el primero en salir.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_listas"
+  nivel: "intermedio"
+  tags: ["listas", "acceso_aleatorio"]
+
+respuesta: "acceso_aleatorio"
+tipo: completar
+respuestas_validas:
+  - "acceso_aleatorio"
+
+enunciado: "A diferencia de una pila o una cola, una lista permite el ___ a cualquier elemento mediante su índice sin necesidad de pasar por los anteriores."
+
+explicacion: |
+  Las listas (especialmente los arrays) permiten el acceso aleatorio, mientras que las pilas y colas son estructuras de acceso restringido.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructuras_de_datos_colas"
+  nivel: "basico"
+  tags: ["colas", "fifo"]
+
+variables:
+  datos: [["clientes en un banco", "true"], ["capas de pintura superpuestas", "false"], ["botones de retroceso", "false"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["true", "false"]
+
+enunciado: "Analiza el siguiente escenario: {datos[idx][0]}. ¿Se comporta este sistema como una cola (FIFO)?"
+
+explicacion: |
+  Los clientes en un banco forman una cola real (FIFO): el primero en llegar es el primero en ser atendido. En cambio, las capas de pintura superpuestas y los botones de retroceso se comportan como una pila (LIFO): la última capa aplicada es la primera que se ve o se quita, y el botón de retroceso vuelve primero a la página más reciente visitada.
+```
+
+## Sección: poo-clases-y-objetos (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "basico"
+  tags: ["poo", "clases", "conceptos"]
+
+respuesta: "molde"
+tipo: completar
+respuestas_validas:
+  - "molde"
+  - "plantilla"
+
+enunciado: "En la programación orientada a objetos, una clase se define como un ___ para crear objetos."
+
+explicacion: |
+  Una clase actúa como un plano o molde que define la estructura (atributos) y el comportamiento (métodos) que tendrán los objetos creados a partir de ella.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "basico"
+  tags: ["poo", "atributos", "metodos"]
+
+opciones_explicitas: ["Estado (datos)", "Acciones (comportamiento)", "Ambas anteriores"]
+respuesta: "Estado (datos)"
+tipo: mc
+
+enunciado: "Un objeto se compone de atributos que representan su estado y métodos que representan su comportamiento. ¿Qué representan los atributos?"
+
+explicacion: |
+  Los atributos son variables que almacenan el estado o las características de un objeto, mientras que los métodos son funciones que definen lo que el objeto puede hacer.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "basico"
+  tags: ["poo", "objetos", "instancia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El proceso de crear un objeto a partir de una clase se denomina instanciación."
+
+explicacion: |
+  Correcto. El objeto resultante de este proceso es una 'instancia' de la clase.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "intermedio"
+  tags: ["poo", "clases", "objetos"]
+
+respuesta: "Fido es una instancia concreta de la clase Perro"
+tipo: mc
+opciones_explicitas: ["Fido es una instancia concreta de la clase Perro", "Perro es una instancia de Fido", "Fido y Perro son la misma cosa", "Ninguna clase puede tener objetos"]
+
+enunciado: "Si tenemos la clase 'Perro' y un objeto llamado 'Fido' creado a partir de ella, ¿cuál de las siguientes afirmaciones es correcta?"
+
+explicacion: |
+  La clase es la definición abstracta (Perro), mientras que el objeto es la realización concreta con datos específicos (Fido).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "basico"
+  tags: ["poo", "ordenar", "proceso"]
+
+opciones_explicitas: ["Definir la clase", "Declarar la variable", "Instanciar el objeto"]
+respuesta_orden: ["Definir la clase", "Declarar la variable", "Instanciar el objeto"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para tener un objeto listo para usar en memoria:"
+
+explicacion: |
+  Primero se debe diseñar el plano (clase), luego reservar el nombre de la variable y finalmente ejecutar el constructor para crear la instancia en memoria.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "basico"
+  tags: ["conceptos", "clases", "objetos"]
+
+respuesta: "clase"
+tipo: "mc"
+opciones_explicitas: ["objeto", "clase", "atributo", "metodo"]
+
+enunciado: "En programación orientada a objetos, si imaginamos que un 'Plano de una Casa' es el diseño general, el plano en sí mismo es la ___."
+
+explicacion: |
+  La clase actúa como un molde o plano que define las características y comportamientos, mientras que el objeto es la instancia concreta creada a partir de ese molde.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_atributos"
+  nivel: "basico"
+  tags: ["atributos", "estado"]
+
+variables:
+  escenario: uno_de([["color", "marca", "modelo"], ["modelo", "color", "marca"], ["marca", "modelo", "color"]])
+
+respuesta: escenario[0]
+tipo: "completar"
+respuestas_validas:
+  - "color"
+  - "marca"
+  - "modelo"
+
+enunciado: "Si definimos una clase 'Auto' con las propiedades 'color', 'marca' y 'modelo', estas propiedades se conocen como ___."
+
+explicacion: |
+  Los atributos representan el estado o las características de un objeto (en este caso, las propiedades del auto).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_metodos"
+  nivel: "basico"
+  tags: ["metodos", "comportamiento"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "En una clase llamada 'Perro', una función llamada 'ladrar()' que define una acción que el objeto puede realizar es un método."
+
+explicacion: |
+  Los métodos son las funciones definidas dentro de una clase que representan las acciones o comportamientos de los objetos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_instanciacion"
+  nivel: "intermedio"
+  tags: ["instanciacion", "orden"]
+
+respuesta_orden: ["Definir la clase", "Instanciar el objeto", "Acceder a sus atributos"]
+tipo: "ordenar"
+opciones_explicitas: ["Acceder a sus atributos", "Instanciar el objeto", "Definir la clase"]
+
+enunciado: "Ordena los pasos lógicos para utilizar un objeto en un programa:"
+
+explicacion: |
+  Primero debes tener el molde (clase), luego creas la instancia (objeto) y finalmente puedes interactuar con su información o acciones.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_calculo_metodos"
+  nivel: "intermedio"
+  tags: ["metodos", "calculo"]
+
+variables:
+  datos: uno_de([[5.0, 10.0, 50.0], [3.0, 4.0, 12.0], [2.0, 6.0, 12.0]])
+
+respuesta: datos[2]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Tenemos una clase 'Rectangulo' con los atributos 'base' y 'altura'. Si un objeto de esta clase tiene base = {datos[0]} y altura = {datos[1]}, ¿cuál es el valor resultante del método 'calcular_area()'?"
+
+pasos:
+  - "Identificar los valores de base y altura."
+  - "Aplicar la fórmula: base * altura."
+
+explicacion: |
+  El método calcula el área multiplicando los atributos internos del objeto: 5.0 * 10.0 = 50.0.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "basico"
+  tags: ["conceptos_fundamentales", "confusiones_comunes"]
+
+respuesta: "molde"
+tipo: mc
+opciones_explicitas: ["instancia", "molde", "atributo", "metodo"]
+
+enunciado: "En el paradigma de Programación Orientada a Objetos, si comparamos la creación de un objeto con la construcción de una casa, la Clase actúa como el _________."
+
+explicacion: |
+  Una clase es un plano o molde que define la estructura y el comportamiento, mientras que el objeto es la instancia real construida a partir de ese molde.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_atributos"
+  nivel: "intermedio"
+  tags: ["memoria", "alcance"]
+
+respuesta: "Atributo de clase"
+tipo: mc
+opciones_explicitas: ["Atributo de instancia", "Atributo de clase"]
+
+enunciado: "Si definimos una variable dentro de una clase pero fuera de cualquier método, y dicha variable es compartida por todos los objetos de esa clase, estamos ante un: ___."
+
+explicacion: |
+  Los atributos de clase pertenecen a la clase misma y se comparten entre todas las instancias, mientras que los de instancia son únicos para cada objeto.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_constructores"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "inicializacion"]
+
+respuesta: "constructor"
+tipo: completar
+respuestas_validas:
+  - "constructor"
+  - "init"
+  - "inicializador"
+
+enunciado: "Un error común al programar POO es olvidar definir el método _________ (o constructor), lo que impide que los atributos de un objeto se inicialicen correctamente al momento de su creación."
+
+explicacion: |
+  El constructor es el método especial que se ejecuta automáticamente al instanciar un objeto, permitiendo establecer su estado inicial.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_metodos"
+  nivel: "basico"
+  tags: ["comportamiento"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que un método es una característica que define las propiedades (datos) de un objeto?"
+
+explicacion: |
+  Falso. Los atributos definen las propiedades (datos/estado), mientras que los métodos definen el comportamiento (acciones).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_instanciacion"
+  nivel: "intermedio"
+  tags: ["flujo_ejecucion"]
+
+respuesta_orden: ["Definir clase", "Instanciar objeto", "Acceder a atributos/métodos"]
+tipo: ordenar
+opciones_explicitas: ["Definir clase", "Instanciar objeto", "Acceder a atributos/métodos"]
+
+enunciado: "Ordena los pasos lógicos para poder utilizar una propiedad de un objeto en un programa:"
+
+explicacion: |
+  Primero se debe diseñar el plano (clase), luego crear el objeto en memoria (instanciar) y finalmente interactuar con él (acceder).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "basico"
+  tags: ["poo", "conceptos_fundamentales"]
+
+respuesta: "molde"
+tipo: completar
+respuestas_validas:
+  - "molde"
+  - "plantilla"
+  - "definicion"
+
+enunciado: "Si comparamos la relación entre un plano de construcción y una casa real, la clase actúa como el plano, mientras que el objeto es la ___."
+
+explicacion: |
+  La clase es la definición abstracta (el molde) que describe las propiedades y comportamientos, mientras que el objeto es la instancia concreta creada a partir de esa clase.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "basico"
+  tags: ["poo", "atributos", "metodos"]
+
+respuesta: "estado"
+tipo: mc
+opciones_explicitas: ["estado", "comportamiento"]
+
+enunciado: "En el paradigma de POO, la principal distinción es que los atributos representan el ___, mientras que los métodos representan el comportamiento."
+
+pasos:
+  - "Identificar qué elemento define las características (datos)."
+  - "Identificar qué elemento define las acciones (funciones)."
+
+explicacion: |
+  Los atributos almacenan el estado o las propiedades de un objeto (datos), mientras que los métodos definen las acciones que el objeto puede realizar (comportamiento).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "intermedio"
+  tags: ["poo", "instanciacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es posible que dos objetos distintos, creados a partir de la misma clase, tengan valores diferentes en sus atributos?"
+
+explicacion: |
+  Verdadero. Aunque comparten la misma estructura definida por la clase, cada instancia (objeto) posee su propio espacio en memoria para sus atributos, permitiendo que cada objeto tenga su propio estado.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "intermedio"
+  tags: ["poo", "ciclo_de_vida"]
+
+respuesta_orden: ["Definición de clase", "Instanciación de objeto", "Llamada a método"]
+tipo: ordenar
+opciones_explicitas: ["Definición de clase", "Instanciación de objeto", "Llamada a método"]
+
+enunciado: "Ordene los pasos lógicos para que un objeto pueda interactuar con su entorno:"
+
+explicacion: |
+  Primero se debe definir la estructura (Clase), luego se crea la instancia en memoria (Instanciación) y finalmente se ejecutan sus acciones (Métodos).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "avanzado"
+  tags: ["poo", "abstraccion"]
+
+variables:
+  caso: uno_de([0, 1])
+
+respuesta: "abstracción"
+tipo: mc
+opciones_explicitas: ["abstracción", "implementación", "encapsulamiento"]
+
+enunciado: "El proceso de ocultar los detalles complejos de cómo funciona un método y mostrar solo la interfaz necesaria para el usuario se conoce como ___."
+
+explicacion: |
+  La abstracción permite al programador centrarse en 'qué' hace un objeto en lugar de 'cómo' lo hace internamente, simplificando la interacción con sistemas complejos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "basico"
+  tags: ["poo", "clases", "atributos"]
+
+variables:
+  datos: [["Vehiculo", "color", "marca"], ["Persona", "nombre", "edad"], ["Libro", "titulo", "autor"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Si definimos una clase llamada {datos[idx][0]}, uno de sus atributos (propiedades) es {datos[idx][1]}."
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["color", "nombre", "titulo", "no_aplica"]
+
+explicacion: |
+  Un atributo representa una característica o propiedad de un objeto de la clase. En el caso de {datos[idx][0]}, {datos[idx][1]} es una de sus propiedades fundamentales.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "intermedio"
+  tags: ["poo", "metodos", "comportamiento"]
+
+variables:
+  accion: uno_de([["acelerar", "aumentar_velocidad"], ["saludar", "decir_hola"], ["abrir", "cambiar_estado"]])
+
+enunciado: "En la programación orientada a objetos, los métodos representan el comportamiento de un objeto. Si tenemos un método llamado '{accion[0]}', su propósito funcional es {accion[1]}."
+
+respuesta: accion[1]
+tipo: completar
+respuestas_validas:
+  - "aumentar_velocidad"
+  - "decir_hola"
+  - "cambiar_estado"
+
+explicacion: |
+  Los métodos son funciones definidas dentro de una clase que operan sobre los atributos del objeto o realizan acciones específicas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "basico"
+  tags: ["poo", "objetos", "instancia"]
+
+enunciado: "Si la clase es 'Perro', un objeto creado a partir de ella (una instancia) sería un perro real con nombre y edad específicos."
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  Un objeto es una instancia concreta de una clase. Mientras la clase es el molde, el objeto es la entidad con datos reales.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "intermedio"
+  tags: ["poo", "estructura", "clases"]
+
+enunciado: "Para implementar correctamente una clase con atributos y métodos, ¿cuál es el orden lógico de definición en la estructura de la clase?"
+
+respuesta_orden: ["Definir atributos", "Definir métodos", "Instanciar objeto"]
+tipo: ordenar
+opciones_explicitas: ["Definir atributos", "Definir métodos", "Instanciar objeto"]
+
+explicacion: |
+  Primero se definen las propiedades (atributos), luego las acciones que puede realizar (métodos) y finalmente se crean los objetos (instancias) que usarán esa estructura.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "poo_clases_y_objetos"
+  nivel: "avanzado"
+  tags: ["poo", "objetos", "identidad"]
+
+variables:
+  caso: uno_de([["perro1", "perro2"], ["auto1", "auto2"], ["usuario1", "usuario2"]])
+
+enunciado: "Si creamos dos objetos distintos, {caso[0]} y {caso[1]}, a partir de la misma clase, aunque tengan los mismos atributos, ¿son objetos idénticos en memoria?"
+
+respuesta: falso
+tipo: vf
+
+explicacion: |
+  Aunque dos objetos tengan los mismos valores en sus atributos, cada instancia ocupa un lugar distinto en la memoria y tiene una identidad única.
+```
+
+## Sección: algoritmos-busqueda-ordenamiento (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda_ordenamiento"
+  nivel: "basico"
+  tags: ["busqueda", "lineal"]
+
+tipo: mc
+opciones_explicitas: ["Compara elemento por elemento", "Divide la lista a la mitad", "Ordena de mayor a menor", "Busca solo en listas ordenadas"]
+respuesta: "Compara elemento por elemento"
+
+enunciado: "El algoritmo de búsqueda lineal funciona de la siguiente manera:"
+
+explicacion: |
+  La búsqueda lineal recorre cada elemento de la lista secuencialmente hasta encontrar el objetivo o terminar la lista.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda_ordenamiento"
+  nivel: "basico"
+  tags: ["busqueda", "binaria"]
+
+tipo: completar
+
+enunciado: "Para que un algoritmo de búsqueda binaria sea efectivo, la lista de datos debe estar previamente ___."
+
+respuesta: "ordenada"
+
+explicacion: |
+  La búsqueda binaria utiliza la propiedad de orden para descartar la mitad de los elementos en cada paso. Sin orden, no se puede determinar qué mitad descartar.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda_ordenamiento"
+  nivel: "intermedio"
+  tags: ["complejidad", "busqueda"]
+
+variables:
+  datos: [["10, 20, 30, 40, 50", "50"], ["5, 15, 25, 35", "5"]]
+  escenario_idx: uno_de([0, 1])
+
+tipo: mc
+respuesta: "O(n)"
+opciones_explicitas: ["O(1)", "O(n)", "O(log n)", "O(n^2)"]
+
+enunciado: "En el escenario {datos[escenario_idx][0]}, ¿cuál es la complejidad en el peor de los casos para una búsqueda lineal?"
+
+explicacion: |
+  En el peor de los casos, la búsqueda lineal debe revisar todos los elementos 'n', por lo tanto su complejidad es O(n).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda_ordenamiento"
+  nivel: "basico"
+  tags: ["ordenamiento", "burbuja"]
+
+tipo: ordenar
+opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si están desordenados", "Repetir hasta que no haya cambios"]
+
+enunciado: "Ordena los pasos lógicos para completar una pasada del algoritmo de ordenamiento de burbuja (Bubble Sort):"
+
+explicacion: |
+  El algoritmo compara pares de elementos contiguos e intercambia sus posiciones si están en el orden incorrecto, repitiendo el proceso hasta que la lista esté lista.
+respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si están desordenados", "Repetir hasta que no haya cambios"]
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda_ordenamiento"
+  nivel: "basico"
+  tags: ["ordenamiento", "burbuja"]
 
 tipo: vf
+
+enunciado: "El algoritmo de ordenamiento de burbuja tiene una complejidad temporal de O(n^2) en su peor caso."
+
 respuesta: verdadero
 
 explicacion: |
-  En el modelo relacional, un registro (o tupla) es la colección de atributos que describen una única instancia de la entidad.
+  Es correcto, ya que requiere dos bucles anidados (uno para las pasadas y otro para las comparaciones), resultando en n * n comparaciones en el peor escenario.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "modelo_relacional_tablas"
+  tema: "algoritmos_busqueda"
   nivel: "basico"
-  tags: ["base_de_datos", "columnas"]
+  tags: ["busqueda", "lineal"]
 
-variables:
-  caso: uno_de([["ID, Fecha, Monto", "ID"], ["Codigo_Cliente, Nombre, Telefono", "Codigo_Cliente"], ["Legajo, Empleado, Puesto", "Legajo"]])
+enunciado: "Se tiene el siguiente array de enteros: [12, 45, 7, 23, 56, 10]. Si aplicamos un algoritmo de búsqueda lineal para encontrar el elemento 23, ¿cuál es el índice (empezando desde 0) donde se encuentra el elemento?"
 
-enunciado: "Si tenemos la tabla con las columnas {caso[0]}, ¿cuál de ellas es la más adecuada para ser la clave primaria?"
+opciones_explicitas: ["2", "3", "4", "5"]
 
-opciones_explicitas: ["ID", "Codigo_Cliente", "Legajo", "Ninguna de las anteriores"]
-
+respuesta: "3"
 tipo: mc
 
-respuesta: caso[1]
-
 explicacion: |
-  La clave primaria debe ser un atributo que no se repita entre distintos registros.
+  La búsqueda lineal recorre el array elemento por elemento desde el inicio:
+  - Índice 0: 12 (no es 23)
+  - Índice 1: 45 (no es 23)
+  - Índice 2: 7 (no es 23)
+  - Índice 3: 23 (¡Encontrado!)
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "modelo_relacional_tablas"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "integridad"]
-
-variables:
-  propiedad: uno_de(["Un valor de clave primaria puede ser nulo (NULL)", "Dos registros pueden tener la misma clave primaria", "La clave primaria puede ser un número repetido"])
-
-enunciado: "Analizando las reglas de integridad de entidad: {propiedad}. ¿Es esto verdadero o falso?"
-
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  La integridad de entidad establece que ninguna parte de una clave primaria puede ser nula y que debe ser única.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tablas"
+  tema: "algoritmos_busqueda"
   nivel: "basico"
-  tags: ["base_de_datos", "estructura"]
+  tags: ["busqueda", "binaria"]
+
+enunciado: "Para que un algoritmo de búsqueda binaria funcione correctamente sobre un conjunto de datos, es indispensable que los datos estén previamente ___."
+
+respuestas_validas:
+  - "ordenados"
+
+respuesta: "ordenados"
+tipo: completar
+
+explicacion: |
+  La búsqueda binaria funciona dividiendo el espacio de búsqueda a la mitad en cada paso. Para decidir si el objetivo está a la izquierda o a la derecha del punto medio, el conjunto debe estar ordenado.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_ordenamiento"
+  nivel: "intermedio"
+  tags: ["burbuja", "pasos"]
 
 variables:
-  orden_estructural: ["Nombre de la tabla", "Definición de columnas (esquema)", "Inserción de registros (datos)"]
+  idx: uno_de([0, 1])
+  arrays_iniciales: ["[5, 2, 8]", "[3, 1, 4]"]
+  resultados: ["[2, 5, 8]", "[1, 3, 4]"]
 
-enunciado: "Ordena los pasos lógicos para la creación y uso de una tabla en una base de datos:"
+enunciado: "Considera el array {arrays_iniciales[idx]}. Tras completar la primera pasada completa del algoritmo de ordenamiento burbuja (comparando pares adyacentes de izquierda a derecha), ¿cuál es el estado del array?"
 
-opciones_explicitas: ["Nombre de la tabla", "Definición de columnas (esquema)", "Inserción de registros (datos)"]
+opciones_explicitas: [resultados[idx], "[8, 5, 2]", "[4, 3, 1]", "[2, 8, 5]"]
 
+respuesta: resultados[idx]
+tipo: mc
+
+explicacion: |
+  En la primera pasada del Bubble Sort, el elemento más grande 'flota' hacia la última posición mediante intercambios sucesivos de pares adyacentes.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda"
+  nivel: "intermedio"
+  tags: ["complejidad", "binaria"]
+
+enunciado: "Si buscamos un elemento en un array de 1024 elementos usando búsqueda binaria, ¿cuál es el número máximo de comparaciones que se realizarán en el peor de los casos?"
+
+respuesta: 10
+tipo: completar
+tolerancia_abs: 0
+
+explicacion: |
+  La búsqueda binaria tiene una complejidad de O(log2(n)). 
+  Como 2^10 = 1024, el número máximo de divisiones necesarias para reducir el espacio a un solo elemento es 10.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_ordenamiento"
+  nivel: "basico"
+  tags: ["ordenar", "burbuja"]
+
+enunciado: "Ordena los siguientes pasos que describe el funcionamiento del algoritmo de burbuja para ordenar un array de n elementos:"
+
+opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor que el segundo", "Repetir el proceso hasta que no haya más intercambios"]
+
+respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor que el segundo", "Repetir el proceso hasta que no haya más intercambios"]
 tipo: ordenar
 
-respuesta_orden: ["Nombre de la tabla", "Definición de columnas (esquema)", "Inserción de registros (datos)"]
+explicacion: |
+  El algoritmo burbuja funciona comparando pares de elementos contiguos y moviendo el mayor hacia la derecha, repitiendo este ciclo hasta que la lista esté totalmente ordenada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda"
+  nivel: "basico"
+  tags: ["busqueda", "binaria"]
+
+tipo: mc
+opciones_explicitas: ["El arreglo debe estar desordenado", "El arreglo debe estar ordenado", "El arreglo debe tener un tamaño impar", "No requiere ninguna condición"]
+
+enunciado: "Para que el algoritmo de búsqueda binaria funcione correctamente y garantice encontrar el elemento (si existe), el arreglo de entrada debe estar ___."
+
+respuesta: "El arreglo debe estar ordenado"
 
 explicacion: |
-  Primero se define la identidad (nombre), luego la estructura (columnas/esquema) y finalmente se puebla con información (registros).
+  La búsqueda binaria funciona dividiendo el espacio de búsqueda a la mitad en cada paso. Para decidir si el objetivo está a la izquierda o a la derecha del punto medio, es indispensable que los elementos sigan un orden establecido.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda"
+  nivel: "intermedio"
+  tags: ["complejidad", "lineal"]
+
+variables:
+  n: 1000
+
+tipo: completar
+respuestas_validas:
+  - "O(n)"
+
+enunciado: "En el peor de los casos, si tenemos un arreglo de tamaño {n}, la complejidad temporal de una búsqueda lineal es ___."
+
+respuesta: "O(n)"
+
+explicacion: |
+  En la búsqueda lineal, en el peor de los casos (cuando el elemento es el último o no está), debemos comparar el elemento buscado con cada uno de los {n} elementos del arreglo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda"
+  nivel: "intermedio"
+  tags: ["errores", "indices"]
+
+tipo: vf
+
+enunciado: "Si un algoritmo de búsqueda binaria utiliza un cálculo de punto medio como `medio = (inicio + fin) / 2` en un lenguaje con desbordamiento de enteros, puede fallar si la suma de `inicio` y `fin` supera el valor máximo permitido para un entero."
+
+respuesta: verdadero
+
+explicacion: |
+  Este es un error clásico. Para evitar el desbordamiento (overflow), se recomienda usar `medio = inicio + (fin - inicio) / 2`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_ordenamiento"
+  nivel: "basico"
+  tags: ["burbuja", "pasos"]
+
+tipo: ordenar
+opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor que el segundo", "Repetir el proceso para todos los elementos", "Terminar cuando no haya más intercambios"]
+
+enunciado: "Ordena los pasos lógicos de una implementación estándar del algoritmo de ordenamiento burbuja (Bubble Sort):"
+
+respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor que el segundo", "Repetir el proceso para todos los elementos", "Terminar cuando no haya más intercambios"]
+
+explicacion: |
+  El método de burbuja funciona comparando pares de elementos contiguos y moviendo el más grande hacia el final en cada iteración.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda"
+  nivel: "avanzado"
+  tags: ["eficiencia", "comparacion"]
+
+tipo: mc
+opciones_explicitas: ["log2(n)", "n"]
+
+enunciado: "Si comparamos la eficiencia teórica de una búsqueda binaria frente a una búsqueda lineal, la búsqueda binaria tiene una complejidad de ___ en el peor de los casos."
+
+respuesta: "log2(n)"
+
+explicacion: |
+  La búsqueda binaria reduce el espacio de búsqueda a la mitad en cada paso, lo que resulta en una complejidad logarítmica, mucho más eficiente que la lineal para conjuntos de datos grandes.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda"
+  nivel: "basico"
+  tags: ["busqueda", "eficiencia"]
+
+respuesta: "binaria"
+tipo: mc
+opciones_explicitas: ["lineal", "binaria", "exponencial"]
+
+enunciado: "Para que un algoritmo de búsqueda sea más eficiente que la búsqueda lineal, aprovechando la estructura de los datos, el arreglo debe estar previamente ordenado y el algoritmo utilizado sería la búsqueda ___."
+
+explicacion: |
+  La búsqueda binaria requiere que el conjunto de datos esté ordenado para poder dividir el espacio de búsqueda a la mitad en cada paso, logrando una complejidad de O(log n), mientras que la lineal siempre recorre uno por uno.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_ordenamiento"
+  nivel: "intermedio"
+  tags: ["burbuja", "complejidad"]
+
+variables:
+  n_elementos: 10
+
+respuesta: 100
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "En el peor de los casos, un algoritmo de ordenamiento de burbuja (Bubble Sort) realiza aproximadamente {n_elementos * n_elementos} comparaciones para un arreglo de tamaño {n_elementos}."
+
+pasos:
+  - "Identificar que el peor caso ocurre cuando el arreglo está en orden inverso."
+  - "Calcular el número de comparaciones como n^2."
+
+explicacion: |
+  El algoritmo de burbuja compara pares adyacentes. En el peor de los casos realiza exactamente n*(n-1)/2 comparaciones (45 para n=10), pero esa cifra crece asintóticamente como n^2, por lo que decimos que su complejidad es O(n^2). Usando n^2 como aproximación, para n=10 el valor es 100.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda"
+  nivel: "basico"
+  tags: ["busqueda_binaria", "requisitos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es necesario que un arreglo esté ordenado para aplicar el algoritmo de búsqueda binaria?"
+
+explicacion: |
+  La búsqueda binaria funciona dividiendo el rango de búsqueda basándose en la comparación del elemento medio con el objetivo. Si el arreglo no está ordenado, la decisión de ir a la izquierda o a la derecha no es válida.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_ordenamiento"
+  nivel: "basico"
+  tags: ["burbuja", "pasos"]
+
+opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor", "Repetir hasta que no haya intercambios"]
+
+respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor", "Repetir hasta que no haya intercambios"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos fundamentales para la ejecución de una iteración estándar de un algoritmo de burbuja:"
+
+explicacion: |
+  El algoritmo recorre la lista comparando parejas de elementos contiguos y los intercambia si están en el orden incorrecto, repitiendo este proceso hasta que el arreglo esté ordenado.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda"
+  nivel: "intermedio"
+  tags: ["eficiencia", "comparacion"]
+
+respuesta: "binaria"
+tipo: mc
+opciones_explicitas: ["lineal", "binaria"]
+
+enunciado: "Si comparamos la eficiencia de búsqueda en un arreglo de un millón de elementos, una de las dos es preferible sobre la otra porque su complejidad es menor. El nombre de la búsqueda más eficiente es ___."
+
+explicacion: |
+  La búsqueda binaria tiene una complejidad logarítmica O(log n), lo que significa que para un millón de elementos solo requiere unos 20 pasos, mientras que la lineal podría requerir un millón.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda"
+  nivel: "basico"
+  tags: ["busqueda", "lineal"]
+
+variables:
+  escenario: [[ [12, 45, 7, 23, 56], 23 ], [ [5, 18, 2, 9, 31], 9 ], [ [10, 40, 20, 50, 30], 40 ]]
+  idx: uno_de([0, 1, 2])
+  lista: escenario[idx][0]
+  objetivo: escenario[idx][1]
+
+respuesta: "lineal"
+tipo: mc
+opciones_explicitas: ["lineal", "binaria", "exponencial"]
+
+enunciado: "Si queremos encontrar el elemento {objetivo} en la lista {lista} sin saber si está ordenada, ¿qué tipo de búsqueda es la única garantizada para encontrarlo?"
+
+explicacion: |
+  En una lista desordenada, la búsqueda binaria no funciona porque requiere que los elementos sigan un orden. Por lo tanto, debemos recorrer la lista elemento por elemento, lo que se conoce como búsqueda lineal.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda"
+  nivel: "basico"
+  tags: ["busqueda_binaria", "condicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para aplicar el algoritmo de búsqueda binaria de manera eficiente, la lista de datos debe estar previamente ordenada."
+
+explicacion: |
+  La búsqueda binaria funciona dividiendo el rango de búsqueda a la mitad en cada paso. Para decidir si el objetivo está a la izquierda o a la derecha del punto medio, es indispensable que los elementos estén ordenados.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_ordenamiento"
+  nivel: "intermedio"
+  tags: ["burbuja", "pasos"]
+
+opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si el de la izquierda es mayor", "Repetir el proceso para todos los elementos"]
+
+respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si el de la izquierda es mayor", "Repetir el proceso para todos los elementos"]
+tipo: ordenar
+
+enunciado: "Indica el orden lógico de las operaciones básicas que realiza el algoritmo de ordenamiento de burbuja (Bubble Sort) para ordenar una lista de menor a mayor:"
+
+explicacion: |
+  El método de burbuja compara parejas de elementos contiguos y los intercambia si están en el orden incorrecto, repitiendo este ciclo hasta que no haya más intercambios necesarios.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_busqueda"
+  nivel: "avanzado"
+  tags: ["complejidad", "big_o"]
+
+respuesta: "logarítmica"
+tipo: completar
+respuestas_validas:
+  - "logarítmica"
+  - "logaritmica"
+
+enunciado: "La complejidad temporal de la búsqueda binaria en el peor de los casos se describe como ___."
+
+explicacion: |
+  La búsqueda binaria reduce el espacio de búsqueda a la mitad en cada paso, por lo que en el peor de los casos su complejidad es O(log n), es decir, logarítmica (nunca lineal, ni siquiera en escenarios favorables).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "algoritmos_ordenamiento"
+  nivel: "intermedio"
+  tags: ["burbuja", "eficiencia"]
+
+variables:
+  datos: [[ 10, 5, 8, 2 ], [ 3, 1, 4, 2 ], [ 7, 9, 6, 5 ]]
+  intercambios_primer_par: [1, 1, 0]
+  idx: uno_de([0, 1, 2])
+  lista: datos[idx]
+
+respuesta: intercambios_primer_par[idx]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si aplicamos el algoritmo de burbuja a la lista {lista}, ¿cuántos intercambios se realizan si comparamos solo el primer par de elementos (el primero con el segundo) en la primera pasada?"
+
+pasos:
+  - "Comparar el primer elemento con el segundo."
+  - "Si el primero es mayor que el segundo, intercambiarlos."
+  - "Contar los intercambios realizados."
+
+explicacion: |
+  En el algoritmo de burbuja, se comparan elementos adyacentes: si el de la izquierda es mayor que el de la derecha, se intercambian (1 intercambio); si no, no se realiza ninguno (0 intercambios). Para {lista}, comparando solo el primer par, el resultado depende de si ese par está o no en el orden correcto.
 ```
 

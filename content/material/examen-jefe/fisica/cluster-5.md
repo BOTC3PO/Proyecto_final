@@ -1,2351 +1,2564 @@
 # Examen jefe — [PENDIENTE #740]
 
-> Logro #740. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
+> Logro #740. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: escalas-de-temperatura-c-f-k (26 preguntas)
+## Sección: gravitacion-universal (25 preguntas)
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_de_temperatura"
+  tema: "gravitacion_universal"
   nivel: "basico"
-  tags: ["temperatura", "kelvin", "teoria"]
+  tags: ["gravitacion", "vocabulario"]
 
-respuesta: "cero absoluto"
-tipo: completar
-respuestas_validas:
-  - "cero absoluto"
-
-enunciado: "La escala Kelvin se caracteriza por tener su punto de partida en el ___."
+enunciado: "¿Qué establece la ley de gravitación universal de Newton?"
+tipo: mc
+opciones_explicitas:
+  - "Que dos masas cualesquiera se atraen con una fuerza proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia entre ellas"
+  - "Que sólo los planetas se atraen entre sí, no los objetos cotidianos"
+  - "Que la fuerza gravitatoria es siempre la misma sin importar la distancia"
+respuesta: "Que dos masas cualesquiera se atraen con una fuerza proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia entre ellas"
 
 explicacion: |
-  El cero absoluto (0 K) es la temperatura teórica más baja posible, donde el movimiento molecular es mínimo.
+  F = G × m₁ × m₂ / r², válida para cualquier par de masas, no sólo
+  para cuerpos astronómicos.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_de_temperatura"
+  tema: "gravitacion_universal"
+  nivel: "intermedio"
+  tags: ["gravitacion", "completar"]
+
+tipo: completar
+enunciado: "Completá: la fuerza gravitatoria es directamente proporcional al producto de las ___."
+respuestas_validas:
+  - "masas"
+
+explicacion: |
+  A mayor masa de cualquiera de los dos cuerpos, mayor la fuerza.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "intermedio"
+  tags: ["gravitacion", "completar"]
+
+tipo: completar
+enunciado: "Completá: la fuerza gravitatoria es inversamente proporcional al ___ de la distancia entre las masas."
+respuestas_validas:
+  - "cuadrado"
+
+explicacion: |
+  Es una ley de "cuadrado inverso" — al duplicar la distancia, la
+  fuerza no se reduce a la mitad sino a un cuarto.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "avanzado"
+  tags: ["gravitacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si la distancia entre dos masas se duplica, la fuerza gravitatoria entre ellas se reduce a la mitad."
+
+explicacion: |
+  Se reduce a 1/2² = 1/4, no a la mitad — es inversamente proporcional
+  al CUADRADO de la distancia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "avanzado"
+  tags: ["gravitacion", "problema"]
+
+respuesta: redondear(1 / (3 ^ 2), 4)
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "Si la distancia entre dos masas se triplica (y las masas no cambian), ¿a qué fracción de la fuerza original queda reducida la fuerza gravitatoria?"
+
+pasos:
+  - "F_nueva / F_original = 1 / (3²) = 1 / {3 ^ 2} = {redondear(1 / (3 ^ 2), 4)}"
+
+explicacion: |
+  Triplicar r divide la fuerza por 3² = 9.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "intermedio"
+  tags: ["gravitacion", "problema"]
+
+respuesta: 2
+tipo: input
+
+enunciado: "Si una de las dos masas se duplica (la otra masa y la distancia no cambian), ¿cuántas veces mayor queda la fuerza gravitatoria?"
+
+pasos:
+  - "F es directamente proporcional a esa masa: duplicarla duplica F."
+
+explicacion: |
+  A diferencia de la distancia (que va al cuadrado), cada masa entra
+  de forma lineal en la fórmula.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
   nivel: "basico"
-  tags: ["celsius", "fahrenheit", "kelvin"]
+  tags: ["gravitacion", "vocabulario"]
+
+enunciado: "¿Qué es G en la fórmula F = G × m₁ × m₂ / r²?"
+tipo: mc
+opciones_explicitas:
+  - "La constante de gravitación universal, un número fijo extremadamente pequeño"
+  - "La aceleración de la gravedad en la superficie terrestre (9,8 m/s²)"
+  - "El peso de uno de los dos cuerpos"
+respuesta: "La constante de gravitación universal, un número fijo extremadamente pequeño"
+
+explicacion: |
+  G ≈ 6,674×10⁻¹¹ N·m²/kg² — no depende del planeta ni de los cuerpos,
+  a diferencia de g.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "intermedio"
+  tags: ["gravitacion"]
 
 respuesta: verdadero
 tipo: vf
-enunciado: "La escala Celsius y la escala Kelvin tienen el mismo tamaño de grado; es decir, un aumento de 1 °C equivale a un aumento de 1 K."
+
+enunciado: "La constante G tiene el mismo valor en cualquier parte del universo, a diferencia de g (que sí depende del planeta)."
 
 explicacion: |
-  Es verdadero. Aunque sus puntos de origen son distintos (0 °C vs 273.15 K), el intervalo de una unidad es idéntico en ambas escalas.
+  Por eso se llama "universal": no depende de qué masas ni de dónde
+  estén, siempre es el mismo número.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_de_temperatura"
+  tema: "gravitacion_universal"
+  nivel: "intermedio"
+  tags: ["gravitacion"]
+
+enunciado: "¿Por qué dos personas paradas una cerca de la otra no notan ninguna atracción gravitatoria entre sí?"
+tipo: mc
+opciones_explicitas:
+  - "Porque G es un número tan pequeño que, con masas de unos pocos kilos, la fuerza resultante es prácticamente cero"
+  - "Porque los seres humanos no generan gravedad"
+  - "Porque la gravedad sólo existe entre planetas"
+respuesta: "Porque G es un número tan pequeño que, con masas de unos pocos kilos, la fuerza resultante es prácticamente cero"
+
+explicacion: |
+  La fuerza existe, pero es tan chica que ningún sentido humano puede
+  detectarla — hace falta una masa del tamaño de un planeta para que
+  se vuelva relevante.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "avanzado"
+  tags: ["gravitacion", "problema"]
+
+variables:
+  m1: random(500, 2000)
+  m2: random(500, 2000)
+  r: random(1, 10)
+
+respuesta: redondear(6.674e-11 * m1 * m2 / (r ^ 2) * 1e9, 2)
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Dos objetos de {m1} kg y {m2} kg están a {r} m de distancia (G=6,674×10⁻¹¹ N·m²/kg²). ¿Cuál es la fuerza gravitatoria entre ellos, expresada en unidades de 10⁻⁹ N (es decir, el valor de F×10⁹)?"
+
+pasos:
+  - "F = G × m₁ × m₂ / r² = 6,674×10⁻¹¹ × {m1} × {m2} / {r}²"
+  - "F × 10⁹ = {redondear(6.674e-11 * m1 * m2 / (r ^ 2) * 1e9, 2)}"
+
+explicacion: |
+  El resultado real (sin la escala ×10⁹) es un número con muchos ceros
+  después de la coma — por eso se expresa multiplicado por 10⁹, para
+  trabajar con un número más manejable.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "intermedio"
+  tags: ["kepler", "vocabulario"]
+
+enunciado: "¿Qué dice la primera ley de Kepler sobre la forma de las órbitas planetarias?"
+tipo: mc
+opciones_explicitas:
+  - "Son elípticas, con el Sol en uno de los dos focos de la elipse"
+  - "Son circulares perfectas, con el Sol en el centro"
+  - "Son líneas rectas que el Sol desvía"
+respuesta: "Son elípticas, con el Sol en uno de los dos focos de la elipse"
+
+explicacion: |
+  Antes de Kepler se asumía que eran círculos perfectos — fue una
+  corrección real a partir de datos de observación.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "intermedio"
+  tags: ["kepler"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Según Kepler, las órbitas de los planetas alrededor del Sol son círculos perfectos."
+
+explicacion: |
+  Son elipses (círculos "achatados"), aunque algunas sean casi
+  circulares en la práctica.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "intermedio"
+  tags: ["kepler", "vocabulario"]
+
+enunciado: "¿Qué dice la segunda ley de Kepler (ley de las áreas)?"
+tipo: mc
+opciones_explicitas:
+  - "El segmento que une al Sol con el planeta barre áreas iguales en tiempos iguales"
+  - "Todos los planetas tienen exactamente el mismo período orbital"
+  - "El planeta siempre se mueve a velocidad constante"
+respuesta: "El segmento que une al Sol con el planeta barre áreas iguales en tiempos iguales"
+
+explicacion: |
+  Consecuencia: el planeta acelera cerca del Sol y se frena lejos de
+  él, para que el área barrida en un mismo intervalo de tiempo sea
+  siempre igual.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "intermedio"
+  tags: ["kepler"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un planeta se mueve más rápido cuando está más cerca del Sol (perihelio) que cuando está más lejos (afelio)."
+
+explicacion: |
+  Es la consecuencia directa de la ley de las áreas: para barrer la
+  misma área en el mismo tiempo estando más cerca, tiene que moverse
+  más rápido.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "intermedio"
+  tags: ["kepler", "completar"]
+
+tipo: completar
+enunciado: "Completá: el punto de la órbita más cercano al Sol se llama perihelio; el punto más lejano se llama ___."
+respuestas_validas:
+  - "afelio"
+
+explicacion: |
+  Perihelio (peri="cerca") y afelio (apo="lejos") son los dos extremos
+  de la órbita elíptica.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "avanzado"
+  tags: ["kepler", "vocabulario"]
+
+enunciado: "¿Qué relación establece la tercera ley de Kepler (ley de los períodos)?"
+tipo: mc
+opciones_explicitas:
+  - "El cuadrado del período orbital es proporcional al cubo del semieje mayor de la órbita (T² ∝ a³)"
+  - "El período orbital es igual para todos los planetas"
+  - "El período orbital es directamente proporcional a la distancia al Sol (sin exponentes)"
+respuesta: "El cuadrado del período orbital es proporcional al cubo del semieje mayor de la órbita (T² ∝ a³)"
+
+explicacion: |
+  Con la misma constante de proporcionalidad para todos los planetas
+  que orbitan el mismo Sol.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "avanzado"
+  tags: ["kepler", "problema"]
+
+variables:
+  factor: uno_de([2, 3, 4])
+
+respuesta: redondear(factor ^ 1.5, 2)
+tipo: input
+tolerancia_abs: 0.05
+
+enunciado: "Un planeta tiene un semieje mayor {factor} veces más grande que el de otro planeta que orbita la misma estrella. Según T² ∝ a³, ¿cuántas veces más grande es su período orbital?"
+
+pasos:
+  - "T²_nuevo / T²_viejo = (a_nuevo/a_viejo)³ = {factor}³"
+  - "T_nuevo / T_viejo = raíz cuadrada de {factor ^ 3} = {factor}^1,5 = {redondear(factor ^ 1.5, 2)}"
+
+explicacion: |
+  Si el semieje mayor se multiplica por k, el período se multiplica
+  por k^1,5 (la raíz cuadrada de k³).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "avanzado"
+  tags: ["kepler", "newton"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las tres leyes de Kepler son observacionales (describen un patrón), pero por sí solas no explican POR QUÉ los planetas se mueven así."
+
+explicacion: |
+  La explicación causal (una fuerza de atracción entre masas) la dio
+  Newton después, con F = G×m₁×m₂/r².
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "avanzado"
+  tags: ["newton"]
+
+enunciado: "¿Qué aportó Newton a lo que ya había observado Kepler?"
+tipo: mc
+opciones_explicitas:
+  - "Una causa física (la fuerza de gravedad) de la que las tres leyes de Kepler se derivan matemáticamente"
+  - "Datos de observación más precisos de las órbitas"
+  - "La forma elíptica de las órbitas, que Kepler no había notado"
+respuesta: "Una causa física (la fuerza de gravedad) de la que las tres leyes de Kepler se derivan matemáticamente"
+
+explicacion: |
+  Newton no corrigió los datos de Kepler, les dio un mecanismo: por
+  qué tenían que ser así.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "avanzado"
+  tags: ["gravitacion", "completar"]
+
+tipo: completar
+enunciado: "Completá: el peso de un objeto en la superficie de un planeta es la fórmula de gravitación con m₁ = masa del planeta y r = el ___ del planeta."
+respuestas_validas:
+  - "radio"
+
+explicacion: |
+  peso = G × M_planeta × m / R_planeta², de ahí sale el valor de g de
+  cada planeta.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "intermedio"
+  tags: ["gravitacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La misma fórmula de gravitación explica tanto por qué la Luna orbita la Tierra como por qué los planetas orbitan el Sol."
+
+explicacion: |
+  Es "universal" precisamente porque aplica a cualquier par de masas,
+  sin excepción.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "avanzado"
+  tags: ["kepler", "newton", "ordenar"]
+
+enunciado: "Ordená cronológica y lógicamente estos hechos, de la observación a la explicación."
+tipo: ordenar
+opciones_explicitas:
+  - "Al combinar esa fuerza con la necesidad de una fuerza centrípeta para mantener una órbita, las tres leyes de Kepler quedan explicadas matemáticamente"
+  - "Kepler observa los datos astronómicos y describe tres patrones (órbitas, áreas, períodos)"
+  - "Newton propone que dos masas cualesquiera se atraen con F = G×m₁×m₂/r²"
+respuesta_orden: ["Kepler observa los datos astronómicos y describe tres patrones (órbitas, áreas, períodos)", "Newton propone que dos masas cualesquiera se atraen con F = G×m₁×m₂/r²", "Al combinar esa fuerza con la necesidad de una fuerza centrípeta para mantener una órbita, las tres leyes de Kepler quedan explicadas matemáticamente"]
+explicacion: |
+  Primero el patrón, después la causa — un ejemplo clásico de cómo
+  avanza la ciencia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
   nivel: "basico"
-  tags: ["agua", "puntos_criticos"]
+  tags: ["gravitacion", "aplicacion"]
+
+enunciado: "¿Qué mantiene a un satélite artificial en órbita alrededor de la Tierra?"
+tipo: mc
+opciones_explicitas:
+  - "La fuerza gravitatoria de la Tierra, que actúa como fuerza centrípeta de su órbita"
+  - "Los motores del satélite, que empujan constantemente hacia la Tierra"
+  - "La ausencia total de fuerzas sobre el satélite"
+respuesta: "La fuerza gravitatoria de la Tierra, que actúa como fuerza centrípeta de su órbita"
+
+explicacion: |
+  Es la misma gravedad que hace caer una manzana, sólo que el satélite
+  tiene la velocidad horizontal justa para que esa "caída" se convierta
+  en una órbita.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "intermedio"
+  tags: ["kepler"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuanto más lejos esté un planeta del Sol, mayor es su período orbital (tarda más en completar una vuelta)."
+
+explicacion: |
+  Es consecuencia directa de T² ∝ a³: a mayor semieje mayor `a`, mayor
+  período `T`. Por eso Neptuno tarda mucho más que Mercurio en dar una
+  vuelta al Sol.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "gravitacion_universal"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender la gravitación universal de Newton junto con las leyes de Kepler?"
+tipo: mc
+opciones_explicitas:
+  - "Para entender no sólo QUÉ patrón siguen las órbitas, sino POR QUÉ tienen que seguirlo"
+  - "Sólo sirve para calcular el peso en la Tierra"
+  - "Sólo aplica a objetos que no tienen masa"
+respuesta: "Para entender no sólo QUÉ patrón siguen las órbitas, sino POR QUÉ tienen que seguirlo"
+
+explicacion: |
+  Kepler dio el patrón; Newton, con una sola fórmula aplicable a
+  cualquier par de masas, dio la causa.
+```
+
+## Sección: frecuencia (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_basica"
+  nivel: "basico"
+  tags: ["oscilaciones", "definicion"]
+
+tipo: mc
+opciones_explicitas: ["El tiempo que tarda en completarse una oscilación", "La cantidad de oscilaciones por unidad de tiempo", "La distancia máxima desde el punto de equilibrio", "La velocidad de un objeto en movimiento"]
+
+respuesta: "La cantidad de oscilaciones por unidad de tiempo"
+
+enunciado: "La frecuencia se define como ___."
+
+explicacion: |
+  La frecuencia mide cuántos ciclos o vueltas ocurren en un intervalo de tiempo determinado.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "relacion_frecuencia_periodo"
+  nivel: "basico"
+  tags: ["periodo", "formula"]
 
 variables:
   idx: uno_de([0, 1])
-  datos: [["congelación", "0 °C", "32 °F"], ["ebullición", "100 °C", "212 °F"]]
+  datos: [["T = 2 s", "f = 0.5 Hz"], ["T = 0.5 s", "f = 2 Hz"]]
 
-respuesta: datos[idx][2]
 tipo: mc
-opciones_explicitas: ["32 °F", "212 °F", "0 °F", "100 °F"]
+opciones_explicitas: ["f = T", "f = 1 / T", "f = T * 2", "f = 1 / (2 * T)"]
 
-enunciado: "El punto de {datos[idx][0]} del agua a presión atmosférica normal es de {datos[idx][1]}. ¿Cuál es su valor equivalente en la escala Fahrenheit?"
+respuesta: "f = 1 / T"
+
+enunciado: "Si un fenómeno tiene un período de {datos[idx][0]}, su frecuencia es de {datos[idx][1]}."
 
 explicacion: |
-  El punto de congelación del agua es 0 °C = 32 °F, y el punto de ebullición es 100 °C = 212 °F.
+  La relación entre frecuencia (f) y período (T) es inversamente proporcional: f = 1/T.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "intermedio"
-  tags: ["ordenar", "escalas"]
-
-respuesta_orden: ["0 °C", "32 °F", "273.15 K"]
-tipo: ordenar
-opciones_explicitas: ["0 °C", "32 °F", "273.15 K"]
-
-enunciado: "Ordena las siguientes representaciones de la temperatura de congelación del agua (en °C, °F y K) de menor valor numérico a mayor valor numérico."
-
-explicacion: |
-  Aunque representan la misma temperatura física, los valores numéricos son 0, 32 y 273.15 respectivamente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "escalas_de_temperatura"
+  tema: "unidades_frecuencia"
   nivel: "basico"
-  tags: ["kelvin", "negativo"]
+  tags: ["unidades", "herتz"]
 
-respuesta: falso
-tipo: vf
-
-enunciado: "En la escala Kelvin, es posible obtener valores de temperatura negativos."
-
-explicacion: |
-  Falso. La escala Kelvin es una escala absoluta que comienza en el cero absoluto, por lo que no existen valores negativos.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "basico"
-  tags: ["temperatura", "kelvin", "celsius"]
-
-variables:
-  escenario: uno_de([[25.0, 298.15], [0.0, 273.15], [100.0, 373.15], [-273.15, 0.0]])
-  t_celsius: escenario[0]
-  t_kelvin: escenario[1]
-
-respuesta: t_kelvin
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Si una sustancia se encuentra a una temperatura de {t_celsius} °C, ¿cuál es su temperatura equivalente en la escala Kelvin (K)?"
-
-pasos:
-  - "Identificar la temperatura en Celsius: {t_celsius} °C"
-  - "Sumar 273.15 a la temperatura en Celsius: {t_celsius} + 273.15"
-  - "Resultado: {t_kelvin} K"
-
-explicacion: |
-  La escala Kelvin es una escala absoluta. La relación es: K = °C + 273.15.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "basico"
-  tags: ["booleano", "conceptos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es cierto que el cero absoluto (-273.15 °C) equivale a 0 K?"
-
-explicacion: |
-  Correcto. La escala Kelvin comienza en el cero absoluto, que es el punto de menor energía térmica posible.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "intermedio"
-  tags: ["fahrenheit", "conversion"]
-
-variables:
-  escenario: uno_de([[20.0, 68.0], [37.0, 98.6], [100.0, 212.0], [0.0, 32.0]])
-  t_c: escenario[0]
-  t_f: escenario[1]
-
-respuesta: t_f
-tipo: mc
-opciones_explicitas: [68.0, 98.6, 212.0, 32.0]
-
-enunciado: "Si la temperatura ambiente es de {t_c} °C, ¿cuál es su valor equivalente en grados Fahrenheit (°F)?"
-
-pasos:
-  - "Usar la fórmula: °F = (°C * 9/5) + 32"
-  - "Multiplicar {t_c} por 1.8: {t_c * 1.8}"
-  - "Sumar 32 al resultado: {t_c * 1.8 + 32}"
-
-explicacion: |
-  La fórmula de conversión es: °F = (1.8 * °C) + 32.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "basico"
-  tags: ["formula", "completar"]
-
-respuesta: "9/5"
 tipo: completar
 respuestas_validas:
-  - "9/5"
-  - "1.8"
+  - "Hz"
+  - "Hertz"
 
-enunciado: "Para convertir de grados Celsius a Fahrenheit, se utiliza la fórmula: °F = (°C * ___) + 32"
+respuesta: "Hz"
+
+enunciado: "La unidad de medida de la frecuencia en el Sistema Internacional es el ___."
 
 explicacion: |
-  El factor de escala entre Celsius y Fahrenheit es 9/5 o 1.8.
+  El Hertz (Hz) equivale a 1 ciclo por segundo (1/s).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "intermedio"
-  tags: ["ordenar", "comparacion"]
-
-variables:
-  escenario: uno_de([[0.0, 273.15, 32.0], [-10.0, 263.15, 14.0], [10.0, 283.15, 50.0]])
-  t_c: escenario[0]
-  t_k: escenario[1]
-  t_f: escenario[2]
-
-respuesta_orden: [t_c, t_f, t_k]
-tipo: ordenar
-opciones_explicitas: [t_c, t_f, t_k]
-
-enunciado: "Ordena las siguientes temperaturas de la escala más fría a la más caliente: {t_c} °C, {t_f} °F y {t_k} K."
-
-explicacion: |
-  Para comparar, es más fácil convertir todo a una sola escala (por ejemplo, Kelvin).
-  En este caso, el orden de menor a mayor es: {t_c} °C, {t_f} °F y {t_k} K.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "escalas_de_temperatura"
+  tema: "propiedades_frecuencia"
   nivel: "basico"
-  tags: ["kelvin", "cero_absoluto"]
+  tags: ["conceptual"]
 
-tipo: completar
-enunciado: "El cero absoluto es la temperatura más baja posible en la escala Kelvin. En esta escala, dicho valor es de ___ K."
-respuesta: "0"
+tipo: vf
+
+respuesta: falso
+
+enunciado: "Si el período de un péndulo aumenta, su frecuencia también aumenta."
+
 explicacion: |
-  La escala Kelvin es una escala absoluta. El cero absoluto (0 K) es el punto donde el movimiento molecular es mínimo y equivale a -273.15 °C.
+  Falso. Como la relación es inversa (f = 1/T), si el período aumenta, la frecuencia disminuye.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_de_temperatura"
+  tema: "calculo_frecuencia"
   nivel: "intermedio"
-  tags: ["conversion", "kelvin", "celsius"]
+  tags: ["calculo", "ejercicio"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[25, 298.15], [100, 373.15]]
+  idx: uno_de([0, 1])
+  datos: [[5, 0.2], [10, 0.1]]
 
-respuesta: datos[escenario_idx][1]
 tipo: completar
-tolerancia_abs: 0.1
+tolerancia_abs: 0.01
 
-enunciado: "Un error común es confundir la magnitud de los grados. Si tenemos una temperatura de {datos[escenario_idx][0]} °C, ¿cuál es su valor equivalente en Kelvin?"
+enunciado: "Un objeto realiza un ciclo completo cada {datos[idx][0]} segundos. ¿Cuál es su frecuencia en Hz?"
 
 pasos:
-  - "Identificar la temperatura en Celsius: {datos[escenario_idx][0]} °C"
-  - "Sumar la constante de conversión 273.15"
-  - "Resultado en Kelvin: {datos[escenario_idx][0] + 273.15}"
+  - "Identificar el período (T = {datos[idx][0]} s)"
+  - "Aplicar la fórmula f = 1 / T"
+  - "Calcular el resultado: 1 / {datos[idx][0]}"
+
+respuesta: datos[idx][1]
 
 explicacion: |
-  Para convertir de Celsius a Kelvin, la fórmula es: T(K) = T(°C) + 273.15. Nunca se debe multiplicar por un factor de escala como en Fahrenheit.
+  Usando la fórmula f = 1 / T:
+  f = 1 / {datos[idx][0]} = {datos[idx][1]} Hz.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "intermedio"
-  tags: ["comparacion", "fahrenheit", "celsius"]
+  tema: "frecuencia_periodo"
+  nivel: "basico"
+  tags: ["frecuencia", "periodo", "oscilaciones"]
 
 respuesta: falso
-
 tipo: vf
 
-enunciado: "Es un error conceptual afirmar que el valor numérico de la temperatura en la escala Fahrenheit siempre es mayor que en la escala Celsius para cualquier temperatura positiva."
+enunciado: "Si el período de una oscilación aumenta, la frecuencia de la misma también aumenta."
 
 explicacion: |
-  Falso. Aunque para temperaturas ambientales el valor en Fahrenheit suele ser mayor (ej: 20°C = 68°F), existen puntos donde la relación cambia. Por ejemplo, a 0°C, Fahrenheit es 32, pero si bajamos a temperaturas muy negativas, la escala Fahrenheit puede ser numéricamente menor.
+  La frecuencia ($f$) es inversamente proporcional al período ($T$), según la fórmula $f = 1/T$. Si el tiempo que tarda un ciclo (período) es mayor, ocurren menos ciclos por segundo (frecuencia menor).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_de_temperatura"
+  tema: "frecuencia_calculo"
   nivel: "basico"
-  tags: ["puntos_criticos"]
-
-respuesta_orden: ["0", "100", "32", "212"]
-tipo: ordenar
-
-opciones_explicitas: ["0", "100", "32", "212"]
-
-enunciado: "Ordena los siguientes valores numéricos según correspondan a: [Punto de congelación del agua en Celsius, Punto de ebullición del agua en Celsius, Punto de congelación del agua en Fahrenheit, Punto de ebullición del agua en Fahrenheit]."
-
-explicacion: |
-  La secuencia correcta es: 0 (°C), 100 (°C), 32 (°F) y 212 (°F).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "avanzado"
-  tags: ["conceptos", "termodinamica"]
+  tags: ["frecuencia", "calculo"]
 
 variables:
-  temp_c: 20
+  periodo: 0.5
 
-respuesta: "293.15"
+respuesta: 2.0
 tipo: completar
+tolerancia_abs: 0.01
 
-respuestas_validas:
-  - "293.15"
+enunciado: "Un péndulo completa un ciclo cada {periodo} segundos. ¿Cuál es su frecuencia en Hz?"
 
-enunciado: "Un estudiante afirma que si la temperatura sube 1 grado Celsius, también sube 1 grado Kelvin. Si la temperatura actual es de {temp_c} °C, ¿cuál es su valor en Kelvin?"
+pasos:
+  - "Identificar el período: $T = {periodo}$ s"
+  - "Aplicar la fórmula: $f = 1 / T$"
+  - "Calcular: $f = 1 / 0.5 = 2.0$ Hz"
 
 explicacion: |
-  Es correcto: el tamaño de un grado Celsius es igual al tamaño de un grado Kelvin. La diferencia es solo el punto de origen. {temp_c} + 273.15 = 293.15 K.
+  La frecuencia se calcula dividiendo 1 entre el período. En este caso, $1 / 0.5 = 2$ Hz.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_de_temperatura"
+  tema: "frecuencia_definicion"
   nivel: "basico"
-  tags: ["temperatura", "kelvin", "celsius"]
+  tags: ["definicion", "frecuencia"]
 
-respuesta: falso
-tipo: vf
+opciones_explicitas: ["Cantidad de ciclos por unidad de tiempo", "Tiempo que tarda un ciclo", "Distancia recorrida en un ciclo", "Velocidad de la oscilación"]
+respuesta: "Cantidad de ciclos por unidad de tiempo"
+tipo: mc
 
-enunciado: "La escala Kelvin se considera una escala absoluta porque su valor de cero absoluto coincide con el cero de la escala Celsius."
+enunciado: "¿Cuál es la definición física de frecuencia?"
 
 explicacion: |
-  El cero absoluto en la escala Kelvin es 0 K, lo que equivale a -273.15 °C. La escala Celsius tiene su punto de referencia en el punto de fusión del agua, no en el cero absoluto.
+  La frecuencia mide cuántas veces se repite un evento (u oscilación) en un intervalo de tiempo determinado (generalmente un segundo).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_de_temperatura"
+  tema: "frecuencia_unidades"
   nivel: "intermedio"
-  tags: ["conversión", "fahrenheit", "celsius"]
+  tags: ["unidades", "hercios"]
 
 variables:
-  idx: uno_de([0, 1, 2])
-  datos: [[32, "0"], [212, "100"], [122, "50"]]
+  f_valor: 50
+  f_unid: "Hz"
+
+respuesta: "50"
+tipo: completar
+respuestas_validas:
+  - "50"
+
+enunciado: "Si un objeto oscila con una frecuencia de {f_valor} {f_unid}, esto significa que realiza ___ oscilaciones por segundo."
+
+explicacion: |
+  El Hertz (Hz) es la unidad del Sistema Internacional para la frecuencia y equivale a $1/s$ (un ciclo por segundo).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_inversa"
+  nivel: "intermedio"
+  tags: ["frecuencia", "periodo"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[0.2, 5.0], [0.5, 2.0]]
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["0", "100", "50"]
+opciones_explicitas: [datos[idx][1]]
 
-enunciado: "Sabiendo que el agua se congela a 32 °F (0 °C) y hierve a 212 °F (100 °C), ¿cuál es el valor equivalente en grados Celsius para una temperatura de {datos[idx][0]} °F?"
+enunciado: "Si el período de un fenómeno es de {datos[idx][0]} segundos, ¿cuál es su frecuencia?"
 
 pasos:
-  - "Identificar la fórmula de conversión: C = (F - 32) * 5/9."
-  - "Sustituir el valor: C = ({datos[idx][0]} - 32) * 5/9 = {datos[idx][1]}."
+  - "Datos: $T = {datos[idx][0]}$ s"
+  - "Fórmula: $f = 1 / T$"
+  - "Resultado: $f = 1 / {datos[idx][0]} = {datos[idx][1]}$ Hz"
 
 explicacion: |
-  La fórmula para convertir de Fahrenheit a Celsius es C = (F - 32) * 5/9.
+  Usando la relación $f = 1/T$, para un período de {datos[idx][0]} s, la frecuencia es {datos[idx][1]} Hz.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_de_temperatura"
+  tema: "frecuencia_periodo"
   nivel: "basico"
-  tags: ["cero_absoluto", "kelvin"]
+  tags: ["oscilaciones", "periodo"]
 
-respuesta: "-273.15"
-tipo: completar
-respuestas_validas:
-  - "-273.15"
+variables:
+  idx: uno_de([0, 1])
+  datos: [[0.5, "2.0"], [2.0, "0.5"]]
 
-enunciado: "Mientras que la escala Celsius define el punto de congelación del agua a 0 °C, la escala Kelvin define el cero absoluto en los ___ °C."
+enunciado: "Si un objeto realiza una oscilación cada {datos[idx][0]} segundos (período), ¿cuál será su frecuencia en Hz?"
 
-explicacion: |
-  El cero absoluto es la temperatura teórica más baja posible, donde la agitación térmica es mínima. En la escala Celsius, esto ocurre a -273.15 °C.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "avanzado"
-  tags: ["intervalos", "escalas", "comparación"]
-
-respuesta: "un_intervalo_de_100_grados_celsius_es_igual_a_un_intervalo_de_180_grados_fahrenheit"
+respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["un_intervalo_de_100_grados_celsius_es_igual_a_un_intervalo_de_180_grados_fahrenheit", "un_intervalo_de_100_grados_celsius_es_igual_a_un_intervalo_de_100_grados_fahrenheit", "un_intervalo_de_100_grados_celsius_es_igual_a_un_intervalo_de_32_grados_fahrenheit"]
-
-enunciado: "¿Cuál de las siguientes afirmaciones describe correctamente la relación entre el tamaño de un grado en ambas escalas?"
+opciones_explicitas: ["0.5", "2.0", "1.0", "0.25"]
 
 explicacion: |
-  La escala Celsius divide el rango entre el hielo y el vapor en 100 partes, mientras que la Fahrenheit lo divide en 180 partes. Por lo tanto, un cambio de 100 °C equivale a un cambio de 180 °F.
+  La frecuencia (f) es el inverso del período (T): f = 1/T. 
+  Si T = {datos[idx][0]} s, entonces f = 1 / {datos[idx][0]} = {datos[idx][1]} Hz.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_de_temperatura"
+  tema: "unidades_frecuencia"
   nivel: "basico"
-  tags: ["orden", "escalas"]
+  tags: ["unidades", "hertz"]
 
-respuesta_orden: ["Celsius", "Fahrenheit", "Kelvin"]
-tipo: ordenar
-opciones_explicitas: ["Celsius", "Kelvin", "Fahrenheit"]
-
-enunciado: "Ordena las siguientes escalas de temperatura de menor a mayor valor numérico, considerando que el punto de congelación del agua es 0 en la primera, 273 en la segunda y 32 en la tercera."
-
-explicacion: |
-  Para el punto de congelación del agua: Celsius (0), Kelvin (273.15) y Fahrenheit (32). Ordenando por valor numérico ascendente: 0 < 32 < 273.15, es decir, Celsius, Fahrenheit, Kelvin.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "basico"
-  tags: ["orden", "escalas"]
-
-respuesta_orden: ["Celsius", "Fahrenheit", "Kelvin"]
-tipo: ordenar
-opciones_explicitas: ["Celsius", "Fahrenheit", "Kelvin"]
-
-enunciado: "Ordena las escalas de temperatura de menor a mayor según el valor numérico que representan en el punto de congelación del agua (0, 32 y 273.15 respectivamente)."
-
-explicacion: |
-  En el punto de congelación del agua: Celsius = 0, Fahrenheit = 32, Kelvin = 273.15. El orden ascendente es Celsius, Fahrenheit, Kelvin.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "basico"
-  tags: ["temperatura", "celsius", "fahrenheit"]
-
-variables:
-  escenario: uno_de([["40", "104"], ["100", "212"], ["0", "32"]])
-  temp_c: escenario[0]
-  temp_f: escenario[1]
-
-tipo: mc
-opciones_explicitas: ["104 °F", "212 °F", "32 °F", "100 °F"]
-respuesta: temp_f + " °F"
-
-enunciado: "Si una receta indica que el horno debe estar a {temp_c} °C, ¿cuál es la temperatura equivalente en la escala Fahrenheit?"
-
-explicacion: |
-  La fórmula de conversión es: °F = (°C * 9/5) + 32.
-  Para {temp_c} °C: ({temp_c} * 1.8) + 32 = {temp_f} °F.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "basico"
-  tags: ["kelvin", "celsius", "absoluto"]
-
-variables:
-  cero_c: 0
-
-tipo: completar
-respuestas_validas:
-  - "273.15"
-respuesta: "273.15"
-
-enunciado: "El cero absoluto es la temperatura más baja teórica. Si el agua se congela a 0 °C, la temperatura en la escala Kelvin es de ___ K."
-
-explicacion: |
-  La escala Kelvin se define como T(K) = T(°C) + 273.15.
-  Por lo tanto, 0 °C equivale a 273.15 K.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "intermedio"
-  tags: ["kelvin", "celsius"]
-
-variables:
-  datos: [["50", "323.15"], ["25", "298.15"], ["10", "283.15"]]
-  idx: uno_de([0,1,2])
-  temp_c: datos[idx][0]
-  temp_k: datos[idx][1]
-
+respuesta: falso
 tipo: vf
-respuesta: verdadero
 
-enunciado: "En un desierto la temperatura es de {temp_c} °C. ¿Es cierto que esto equivale a {temp_k} K?"
+enunciado: "La unidad de medida de la frecuencia, el Hertz (Hz), representa el tiempo que tarda en completarse un ciclo completo."
 
 explicacion: |
-  La relación es T(K) = T(°C) + 273.15.
-  Como {temp_c} + 273.15 = {temp_k}, la afirmación es verdadera.
+  Falso. El Hertz (Hz) mide la cantidad de ciclos por segundo (1/s). 
+  La unidad que mide el tiempo de un ciclo es el segundo (s), que corresponde al período.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "basico"
-  tags: ["orden", "escalas"]
-
-tipo: ordenar
-opciones_explicitas: ["Celsius", "Fahrenheit", "Kelvin"]
-respuesta_orden: ["Celsius", "Fahrenheit", "Kelvin"]
-
-enunciado: "Ordena estas escalas de temperatura de menor a mayor valor numérico considerando el punto de congelación del agua (0, 32, 273.15):"
-
-explicacion: |
-  Los valores son: 0 (Celsius), 32 (Fahrenheit) y 273.15 (Kelvin).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "escalas_de_temperatura"
-  nivel: "avanzado"
-  tags: ["kelvin", "celsius", "absoluto"]
+  tema: "frecuencia_oscilaciones"
+  nivel: "intermedio"
+  tags: ["calculo", "tiempo"]
 
 variables:
-  escenario: uno_de([[0, -273.15], [-10, -283.15], [-273.15, -273.15]])
-  temp_k: escenario[0]
-  temp_c: escenario[1]
+  idx: uno_de([0, 1])
+  escenario: [[10, 60], [5, 120]]
 
+enunciado: "Un péndulo oscila con una frecuencia de {escenario[idx][0]} Hz. ¿Cuántas oscilaciones completará en un intervalo de tiempo de {escenario[idx][1]} segundos?"
+
+respuesta: escenario[idx][0] * escenario[idx][1]
 tipo: completar
-respuesta: -273.15
+tolerancia_abs: 0
+
+pasos:
+  - "Identificar la frecuencia (f) y el tiempo (t)."
+  - "Multiplicar el número de ciclos por segundo por el tiempo total: N = f * t."
+
+explicacion: |
+  Para hallar el número total de oscilaciones, multiplicamos la frecuencia por el tiempo transcurrido.
+  N = {escenario[idx][0]} Hz * {escenario[idx][1]} s = {escenario[idx][0] * escenario[idx][1]} oscilaciones.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo"
+  nivel: "basico"
+  tags: ["relacion_inversa"]
+
+respuesta: "Si el período aumenta, la frecuencia disminuye"
+tipo: mc
+opciones_explicitas: ["Si el período aumenta, la frecuencia aumenta", "Si el período aumenta, la frecuencia disminuye", "Si el período aumenta, la frecuencia se mantiene igual"]
+
+enunciado: "Considerando la relación f = 1/T, ¿cuál de las siguientes afirmaciones es correcta sobre el comportamiento de la frecuencia cuando el período se hace más largo?"
+
+explicacion: |
+  Debido a que la frecuencia es inversamente proporcional al período, si el denominador (T) crece, el resultado (f) se reduce.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "metodologia_resolucion"
+  nivel: "intermedio"
+  tags: ["ordenar", "pasos"]
+
+respuesta_orden: ["Identificar el período (T)", "Calcular el inverso (1/T)", "Asignar la unidad Hertz (Hz)"]
+tipo: ordenar
+opciones_explicitas: ["Identificar el período (T)", "Calcular el inverso (1/T)", "Asignar la unidad Hertz (Hz)"]
+
+enunciado: "Ordena los pasos lógicos para convertir un período de 0.25 segundos a frecuencia en Hertz:"
+
+explicacion: |
+  1. Primero identificas el valor del período.
+  2. Aplicas la fórmula matemática de la inversa.
+  3. Expresas el resultado en la unidad de medida correcta.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo"
+  nivel: "basico"
+  tags: ["oscilaciones", "periodo"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["0.5", "2.0"], ["2.0", "0.5"]]
+
+enunciado: "Si el período de un oscilador es de {datos[idx][0]} segundos, ¿cuál será su frecuencia en Hz?"
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["0.5", "1.0", "2.0", "4.0"]
+
+explicacion: |
+  La frecuencia (f) es el inverso del período (T), es decir, f = 1/T. 
+  Si T = 0.5 s, entonces f = 1 / 0.5 = 2.0 Hz.
+  Si T = 2.0 s, entonces f = 1 / 2.0 = 0.5 Hz.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_definicion"
+  nivel: "basico"
+  tags: ["definicion", "conceptos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La frecuencia se define como la cantidad de ciclos o oscilaciones completas que ocurren en una unidad de tiempo."
+
+explicacion: |
+  Correcto. La frecuencia mide la rapidez con la que se repite un fenómeno periódico.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "unidades_frecuencia"
+  nivel: "basico"
+  tags: ["unidades", "si_no"]
+
+respuesta: "Hz"
+tipo: completar
+respuestas_validas:
+  - "Hz"
+  - "Hertz"
+
+enunciado: "La unidad de medida de la frecuencia en el Sistema Internacional es el ___."
+
+explicacion: |
+  La unidad es el Hertz (Hz), que equivale a 1/s (ciclos por segundo).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo_comparacion"
+  nivel: "intermedio"
+  tags: ["relacion_inversa"]
+
+respuesta: "inversamente"
+tipo: completar
+respuestas_validas:
+  - "inversamente"
+
+enunciado: "Mientras que el período mide el tiempo de un solo ciclo, la frecuencia y el período tienen una relación ___."
+
+explicacion: |
+  Es una relación inversa: a mayor período (más tiempo por ciclo), menor frecuencia (menos ciclos por segundo).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "magnitudes_periodicas"
+  nivel: "basico"
+  tags: ["identificacion"]
+
+respuesta_orden: ["Amplitud", "Período", "Frecuencia"]
+tipo: ordenar
+
+opciones_explicitas: ["Período", "Frecuencia", "Amplitud"]
+
+enunciado: "Un sistema oscilante tiene un período de 2 s, una frecuencia de 0.5 Hz y una amplitud de 5 m. Ordena estas tres magnitudes de mayor a menor según su valor numérico:"
+
+explicacion: |
+  Comparando los valores dados: Amplitud = 5, Período = 2, Frecuencia = 0.5.
+  De mayor a menor: Amplitud, Período, Frecuencia.
+  Nota: al ser magnitudes físicas distintas (metros, segundos y hertz) esta comparación es puramente numérica, no física.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo"
+  nivel: "basico"
+  tags: ["oscilaciones", "periodo"]
+
+variables:
+  periodo: uno_de([0.5, 2.0, 0.2])
+  frecuencia: 1 / periodo
+
+respuesta: frecuencia
+tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Si un experimento alcanza el cero absoluto, la temperatura en la escala Kelvin es 0 K. ¿Cuál es el valor de esa temperatura en la escala Celsius?"
-
-explicacion: |
-  Dado que T(K) = T(°C) + 273.15, si T(K) = 0, entonces:
-  0 = T(°C) + 273.15  =>  T(°C) = -273.15.
-```
-
-## Sección: estatica/centro-de-gravedad (21 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "basico"
-  tags: ["estatica", "vocabulario"]
-
-enunciado: "¿Qué es el centro de gravedad de un cuerpo?"
-tipo: mc
-opciones_explicitas:
-  - "El punto en el que se puede considerar concentrado todo el peso del cuerpo, para calcular momentos y equilibrio"
-  - "El punto más pesado del cuerpo"
-  - "El punto donde se mide la temperatura del cuerpo"
-respuesta: "El punto en el que se puede considerar concentrado todo el peso del cuerpo, para calcular momentos y equilibrio"
-
-explicacion: |
-  Es una simplificación útil: en vez de sumar el peso de cada
-  partícula del cuerpo, se trabaja como si todo el peso actuara en un
-  solo punto.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "basico"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un cuerpo uniforme y simétrico (una esfera maciza, un cubo, una regla homogénea), el centro de gravedad coincide con el centro geométrico de la figura."
-
-explicacion: |
-  La simetría hace que el promedio ponderado por masa caiga
-  exactamente en el centro geométrico.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "intermedio"
-  tags: ["estatica", "completar"]
-
-tipo: completar
-enunciado: "Completá: el centro de gravedad de un cuerpo compuesto de varias partes es un promedio de sus posiciones, ponderado por la ___ de cada parte."
-respuestas_validas:
-  - "masa"
-
-explicacion: |
-  x_cg = (m₁×x₁ + m₂×x₂) / (m₁ + m₂) — cada posición pesa según su
-  masa en el promedio.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "avanzado"
-  tags: ["estatica", "problema"]
-
-variables:
-  m1: random(2, 10)
-  x1: random(0, 3)
-  m2: random(2, 10)
-  x2: random(4, 8)
-
-respuesta: redondear((m1 * x1 + m2 * x2) / (m1 + m2), 2)
-tipo: input
-tolerancia_abs: 0.1
-unidad: "m"
-
-enunciado: "Dos masas puntuales están sobre una misma línea: {m1} kg en la posición x={x1} m, y {m2} kg en la posición x={x2} m. ¿En qué posición está el centro de gravedad del sistema?"
+enunciado: "Un péndulo de un reloj antiguo realiza un movimiento oscilatorio. Si el tiempo que tarda en completar una oscilación completa (período) es de {periodo} segundos, ¿cuál es la frecuencia de oscilación en Hz?"
 
 pasos:
-  - "x_cg = (m₁×x₁ + m₂×x₂) / (m₁+m₂) = ({m1}×{x1} + {m2}×{x2}) / ({m1}+{m2}) = {redondear((m1 * x1 + m2 * x2) / (m1 + m2), 2)} m"
+  - "Identificar el período T = {periodo} s"
+  - "Aplicar la fórmula de la frecuencia: f = 1 / T"
+  - "Calcular f = 1 / {periodo}"
 
 explicacion: |
-  Queda entre las dos posiciones, más cerca de la masa mayor.
+  La frecuencia (f) es el inverso del período (T). Si tarda {periodo} s en oscilar una vez, en un segundo realiza {frecuencia} oscilaciones.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "centro_de_gravedad"
+  tema: "frecuencia_periodo"
   nivel: "intermedio"
-  tags: ["estatica"]
+  tags: ["mecanica", "frecuencia"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  motor_rpm: uno_de([1200, 3000, 600])
+  f_valor: motor_rpm / 60
 
-enunciado: "Si dos masas puntuales son iguales, el centro de gravedad del sistema está exactamente en el punto medio entre ambas."
-
-explicacion: |
-  Con m₁=m₂, el promedio ponderado se reduce al promedio simple de las
-  posiciones.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "intermedio"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una de las dos masas es mayor que la otra, el centro de gravedad del sistema queda más cerca de la masa mayor."
-
-explicacion: |
-  El promedio ponderado "atrae" el resultado hacia el valor con más
-  peso en el promedio.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "avanzado"
-  tags: ["estatica", "vocabulario"]
-
-enunciado: "En la superficie de la Tierra, para un objeto de tamaño cotidiano, ¿cómo se relacionan el centro de gravedad y el centro de masa?"
+respuesta: f_valor
 tipo: mc
-opciones_explicitas:
-  - "Son prácticamente el mismo punto, porque el campo gravitatorio es uniforme a esa escala"
-  - "Siempre son puntos completamente distintos"
-  - "El centro de masa no existe, sólo el centro de gravedad"
-respuesta: "Son prácticamente el mismo punto, porque el campo gravitatorio es uniforme a esa escala"
+opciones_explicitas: [20, 50, 10, 500]
+
+enunciado: "Un motor de combustión interna realiza {motor_rpm} revoluciones por minuto (RPM). ¿Cuántas revoluciones (frecuencia) realiza por segundo (Hz)?"
 
 explicacion: |
-  Sólo se distinguen en campos gravitatorios no uniformes (masas y
-  distancias astronómicas), fuera del alcance de este módulo.
+  Para convertir de RPM a Hz, debemos dividir la cantidad de revoluciones por 60, ya que un minuto tiene 60 segundos. {motor_rpm} / 60 = {f_valor} Hz.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "intermedio"
-  tags: ["estatica"]
-
-enunciado: "¿Qué determina si un cuerpo apoyado se vuelca o se mantiene en pie?"
-tipo: mc
-opciones_explicitas:
-  - "Si su centro de gravedad queda dentro o fuera de la base de apoyo"
-  - "Sólo el peso total del cuerpo"
-  - "Sólo la altura del cuerpo, sin importar nada más"
-respuesta: "Si su centro de gravedad queda dentro o fuera de la base de apoyo"
-
-explicacion: |
-  Si el centro de gravedad se corre fuera de la zona de apoyo, el
-  cuerpo pierde el equilibrio y se vuelca.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "intermedio"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para un mismo centro de gravedad, un objeto con base de apoyo más ancha es más estable (más difícil de volcar)."
-
-explicacion: |
-  Una base más ancha da más margen antes de que el centro de gravedad
-  se salga de ella.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "intermedio"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para una misma base de apoyo, un objeto con el centro de gravedad más bajo es más estable."
-
-explicacion: |
-  Con el centro de gravedad más bajo, hace falta inclinar mucho más el
-  objeto para que se salga de la base de apoyo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
+  tema: "frecuencia_periodo"
   nivel: "basico"
-  tags: ["estatica", "aplicacion"]
+  tags: ["ondas", "radio"]
 
-enunciado: "¿Por qué los autos de carrera se diseñan tan bajos, casi pegados al piso?"
-tipo: mc
-opciones_explicitas:
-  - "Para mantener el centro de gravedad bajo y reducir el riesgo de vuelco en curvas a alta velocidad"
-  - "Para que pesen menos"
-  - "Sólo por estética, no tiene relación con la física"
-respuesta: "Para mantener el centro de gravedad bajo y reducir el riesgo de vuelco en curvas a alta velocidad"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una onda electromagnética tiene una frecuencia muy alta, su período de oscilación debe ser muy corto."
 
 explicacion: |
-  Combinado con la fuerza centrípeta de la curva
-  (`../../movimiento-circular-y-fuerza-centripeta/`), un centro de
-  gravedad bajo reduce mucho el riesgo de que el auto se vuelque.
+  Es verdadero. Como f = 1/T, la frecuencia y el período son inversamente proporcionales. A mayor frecuencia, menor período.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "centro_de_gravedad"
+  tema: "frecuencia_periodo"
+  nivel: "basico"
+  tags: ["biologia_fisica", "frecuencia"]
+
+variables:
+  datos_ritmo: uno_de([60, 80, 100])
+  periodo_calculado: 60 / datos_ritmo
+
+respuesta: periodo_calculado
+tipo: completar
+respuestas_validas:
+  - 1
+  - 0.75
+  - 0.6
+
+enunciado: "Una persona tiene una frecuencia cardíaca de {datos_ritmo} latidos por minuto. El tiempo transcurrido entre cada latido (período) es de ___ segundos."
+
+explicacion: |
+  Si hay {datos_ritmo} latidos en 60 segundos, el tiempo por latido es 60 / {datos_ritmo} = {periodo_calculado} segundos.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo"
   nivel: "intermedio"
-  tags: ["estatica", "aplicacion"]
+  tags: ["ritmo", "orden"]
 
-enunciado: "¿Para qué sirven los contrapesos que tienen las grúas de construcción?"
-tipo: mc
-opciones_explicitas:
-  - "Para mantener el centro de gravedad del sistema (grúa + carga) dentro de la base de apoyo, evitando que se vuelque al levantar peso"
-  - "Para que la grúa sea más rápida"
-  - "Sólo decoran la estructura, no afectan el equilibrio"
-respuesta: "Para mantener el centro de gravedad del sistema (grúa + carga) dentro de la base de apoyo, evitando que se vuelque al levantar peso"
+variables:
+  f_val: 2.0
+  t_val: 0.5
 
-explicacion: |
-  Al levantar una carga pesada de un lado, el contrapeso del otro lado
-  compensa para que el centro de gravedad conjunto siga dentro de la
-  base.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "avanzado"
-  tags: ["estatica", "ordenar"]
-
-enunciado: "Ordená los pasos para encontrar experimentalmente el centro de gravedad de un objeto irregular colgándolo."
+respuesta_orden: ["0.5", "1.0", "2.0"]
 tipo: ordenar
-opciones_explicitas:
-  - "El centro de gravedad está donde se cruzan las dos verticales trazadas"
-  - "Suspender el objeto libremente desde un primer punto de su borde y trazar la vertical hacia abajo"
-  - "Suspender el objeto desde un segundo punto distinto y trazar otra vertical"
-respuesta_orden: ["Suspender el objeto libremente desde un primer punto de su borde y trazar la vertical hacia abajo", "Suspender el objeto desde un segundo punto distinto y trazar otra vertical", "El centro de gravedad está donde se cruzan las dos verticales trazadas"]
+opciones_explicitas: ["0.5", "1.0", "2.0"]
+
+enunciado: "Un metrónomo marca una frecuencia de {f_val} Hz. Ordena los siguientes valores de período (en segundos) de menor a mayor:"
+
 explicacion: |
-  Cada vertical (la que marca una plomada) siempre pasa por el centro
-  de gravedad, sin importar desde qué punto se cuelgue el objeto.
+  Si f = 2 Hz, el período es T = 1/2 = 0.5 s. Los períodos correspondientes a frecuencias de 2Hz, 1Hz y 0.5Hz son 0.5s, 1s y 2s respectivamente.
+```
+
+## Sección: momento-lineal (26 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["definicion", "cantidad_de_movimiento"]
+
+respuesta: "p = m * v"
+tipo: completar
+respuestas_validas:
+  - "p = m * v"
+  - "p = m*v"
+  - "p = m·v"
+
+enunciado: "La expresión matemática que define la cantidad de movimiento (o momento lineal) de un objeto en función de su masa (m) y su velocidad (v) es ___."
+
+explicacion: |
+  El momento lineal es una magnitud vectorial que se define como el producto de la masa de un objeto por su velocidad.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "centro_de_gravedad"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["relacion", "proporcionalidad"]
+
+variables:
+  datos: [["se duplica", "aumenta"], ["se mantiene igual", "se mantiene igual"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["disminuye", "aumenta", "se mantiene igual"]
+
+enunciado: "Si un objeto mantiene su velocidad constante pero su masa se duplica, su momento lineal ___."
+
+explicacion: |
+  Dado que $p = m \cdot v$, si la velocidad es constante, el momento es directamente proporcional a la masa. Al duplicar la masa, el momento también se duplica.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["vectorial", "escalar"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿El momento lineal es una magnitud vectorial, ya que posee dirección y sentido?"
+
+explicacion: |
+  Correcto. Al ser el producto de un escalar (masa) por un vector (velocidad), el momento lineal resultante es un vector.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["unidades", "si"]
+
+respuesta: "kg·m/s"
+tipo: completar
+respuestas_validas:
+  - "kg·m/s"
+  - "kg m/s"
+  - "kg*m/s"
+
+enunciado: "En el Sistema Internacional de Unidades (SI), la unidad de medida del momento lineal es ___."
+
+explicacion: |
+  La unidad se deriva directamente de la fórmula: masa (kg) multiplicada por velocidad (m/s), resultando en kg·m/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["componentes"]
+
+respuesta: "10"
+tipo: completar
+respuestas_validas:
+  - "10"
+
+enunciado: "Si un objeto tiene una masa de 5 kg y una velocidad de 2 m/s, su momento lineal es ___ kg·m/s."
+
+explicacion: |
+  Calculamos el producto: 5 kg * 2 m/s = 10 kg·m/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["definicion", "formula"]
+
+respuesta: "m·v"
+tipo: completar
+respuestas_validas:
+  - "m·v"
+  - "m*v"
+  - "p=m*v"
+
+enunciado: "La cantidad de movimiento o momento lineal de un objeto se define matemáticamente como el producto de su masa por su ___."
+
+explicacion: |
+  El momento lineal ($p$) es una magnitud vectorial que se define como el producto de la masa ($m$) por la velocidad ($v$): $p = m \cdot v$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["calculo", "numerico"]
+
+variables:
+  escenario: uno_de([[10, 5], [20, 2], [5, 10]])
+
+respuesta: escenario[0] * escenario[1]
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un objeto tiene una masa de {escenario[0]} kg y se desplaza con una velocidad constante de {escenario[1]} m/s. ¿Cuál es su momento lineal en kg·m/s?"
+
+pasos:
+  - "Identificar la masa: m = {escenario[0]} kg"
+  - "Identificar la velocidad: v = {escenario[1]} m/s"
+  - "Aplicar la fórmula: p = m * v = {escenario[0]} * {escenario[1]}"
+
+explicacion: |
+  El cálculo es: {escenario[0]} kg * {escenario[1]} m/s = {escenario[0] * escenario[1]} kg·m/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
   nivel: "intermedio"
-  tags: ["estatica"]
+  tags: ["proporcionalidad"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "Si un objeto duplica su velocidad pero mantiene su masa constante, su momento lineal también se duplica."
+
+explicacion: |
+  Como $p = m \cdot v$, el momento es directamente proporcional a la velocidad. Si $v' = 2v$, entonces $p' = m \cdot (2v) = 2(m \cdot v) = 2p$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "intermedio"
+  tags: ["comparacion"]
+
+variables:
+  idx: uno_de([0, 1])
+  b_vel: [2, 8]
+  ganador: ["A", "B"]
+
+respuesta: ganador[idx]
+tipo: mc
+opciones_explicitas: ["A", "B"]
+
+enunciado: "Considera dos objetos: el Objeto A tiene 2 kg a 10 m/s. El Objeto B tiene 5 kg a {b_vel[idx]} m/s. ¿Cuál de ellos posee un mayor momento lineal?"
+
+explicacion: |
+  Calculamos ambos:
+  p_A = 2 kg * 10 m/s = 20 kg·m/s.
+  p_B = 5 kg * {b_vel[idx]} m/s = {5 * b_vel[idx]} kg·m/s.
+  Por lo tanto, el objeto con mayor momento lineal es el {ganador[idx]}.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "intermedio"
+  tags: ["comparacion"]
+
+respuesta: "A"
+tipo: mc
+opciones_explicitas: ["A", "B"]
+
+enunciado: "Si el Objeto A tiene 2 kg a 10 m/s y el Objeto B tiene 5 kg a 2 m/s, ¿cuál tiene mayor momento lineal?"
+
+explicacion: |
+  p_A = 2 * 10 = 20 kg·m/s.
+  p_B = 5 * 2 = 10 kg·m/s.
+  Por lo tanto, el objeto A tiene mayor momento.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["unidades"]
+
+respuesta: "kg·m/s"
+tipo: completar
+respuestas_validas:
+  - "kg*m/s"
+  - "kg m/s"
+  - "kg·m/s"
+
+enunciado: "En el Sistema Internacional (SI), la unidad de medida del momento lineal es ___."
+
+explicacion: |
+  Dado que el momento es masa (kg) multiplicado por velocidad (m/s), su unidad resultante es kg·m/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["conceptos_clave", "relacion_proporcional"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[2.0, 5.0], [10.0, 2.0]]
+
+enunciado: "Si un objeto tiene una masa de {datos[idx][0]} kg y una velocidad de {datos[idx][1]} m/s, su momento lineal es de ___ kg·m/s."
+
+respuesta: datos[idx][0] * datos[idx][1]
+tipo: completar
+tolerancia_abs: 0.01
+
+explicacion: |
+  El momento lineal (p) se define como el producto de la masa por la velocidad (p = m · v). En este caso, el cálculo es {datos[idx][0]} * {datos[idx][1]} = {datos[idx][0] * datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "conceptos"]
+
+enunciado: "Un camión de gran masa se desplaza a una velocidad muy baja, mientras que una pelota de tenis se desplaza a una velocidad muy alta. ¿Es posible que ambos tengan el mismo momento lineal?"
+
+opciones_explicitas:
+  - "Sí, el momento depende de ambos factores y pueden compensarse."
+  - "No, el camión siempre tendrá más momento por su gran masa."
+  - "No, la velocidad de la pelota es siempre mayor que la del camión."
+  - "Sí, siempre que la aceleración sea la misma."
+
+respuesta: "Sí, el momento depende de ambos factores y pueden compensarse."
+tipo: mc
+
+explicacion: |
+  Un error común es pensar que la masa es el único factor determinante. Sin embargo, como p = m · v, una masa muy grande con una velocidad muy pequeña puede resultar en el mismo momento que una masa muy pequeña con una velocidad muy grande.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["vectores", "direccion"]
+
+enunciado: "Si consideramos que la dirección hacia la derecha es positiva, un objeto que se mueve hacia la izquierda con una masa de 5 kg y una velocidad de 3 m/s tiene un momento lineal de ___ kg·m/s."
+
+respuestas_validas:
+  - "-15"
+
+tipo: completar
+
+explicacion: |
+  El momento lineal es una magnitud vectorial. Si el objeto se mueve hacia la izquierda (dirección negativa), el signo del momento debe ser negativo: p = 5 kg * (-3 m/s) = -15 kg·m/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "intermedio"
+  tags: ["dinamica", "fuerza"]
+
+enunciado: "Si la velocidad de un objeto aumenta mientras su masa permanece constante, ¿qué sucede con su momento lineal?"
+
+opciones_explicitas:
+  - "El momento lineal aumenta."
+  - "El momento lineal disminuye."
+  - "El momento lineal permanece constante."
+  - "El momento lineal se vuelve cero."
+
+respuesta: "El momento lineal aumenta."
+tipo: mc
+
+explicacion: |
+  Dado que p = m · v, si la masa (m) es constante y la velocidad (v) aumenta, el producto resultante (p) debe aumentar proporcionalmente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["unidades", "dimensiones"]
+
+enunciado: "La unidad resultante de multiplicar la unidad de masa (kg) por la unidad de velocidad (m/s) es:"
+
+opciones_explicitas:
+  - "kg·m/s"
+  - "kg·m/s²"
+  - "kg/m·s"
+  - "N·m"
+
+respuesta: "kg·m/s"
+tipo: mc
+
+explicacion: |
+  Por definición de la fórmula p = m · v, las unidades se combinan multiplicando kilogramos (kg) por metros por segundo (m/s), resultando en kg·m/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["conceptos", "definicion"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El centro de gravedad de un cuerpo siempre está ubicado sobre material sólido del propio cuerpo."
+enunciado: "El momento lineal de un objeto depende únicamente de su masa, independientemente de su velocidad."
 
 explicacion: |
-  Es falso: en una rosquilla (forma de anillo), el centro de gravedad
-  cae en el agujero del medio, en el aire — es un punto matemático, no
-  necesita "tocar" material.
+  El momento lineal se define como el producto de la masa por la velocidad ($p = m \cdot v$). Por lo tanto, la velocidad es un factor determinante.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-enunciado: "¿Por qué el centro de gravedad de una rosquilla (forma de anillo) cae en el agujero central, sin tocar material?"
-tipo: mc
-opciones_explicitas:
-  - "Porque es el promedio geométrico de toda la masa distribuida alrededor del anillo, y ese promedio cae en el centro simétrico, que está vacío"
-  - "Porque las rosquillas no tienen centro de gravedad"
-  - "Porque el agujero central tiene masa negativa"
-respuesta: "Porque es el promedio geométrico de toda la masa distribuida alrededor del anillo, y ese promedio cae en el centro simétrico, que está vacío"
-
-explicacion: |
-  El centro de gravedad es un punto matemático de referencia, no
-  necesariamente un punto físico dentro del material.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "intermedio"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El centro de gravedad de un objeto puede cambiar de posición si el objeto cambia de forma (dobla, se estira), aunque su masa total no cambie."
-
-explicacion: |
-  El centro de gravedad depende de cómo está distribuida la masa, no
-  sólo de cuánta masa hay en total — redistribuirla lo mueve.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "avanzado"
-  tags: ["estatica", "problema"]
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["comparacion"]
 
 variables:
-  m1: random(1, 5)
-  x1: 0
-  m2: random(1, 5)
-  x2: random(2, 6)
+  idx: uno_de([0, 1])
+  masas: [10, 5]
+  velocidades: [2, 4]
+  descripciones: ["un objeto A de 10 kg a 2 m/s", "un objeto B de 5 kg a 4 m/s"]
 
-respuesta: redondear((m1 * x1 + m2 * x2) / (m1 + m2), 2)
-tipo: input
-tolerancia_abs: 0.1
-unidad: "m"
-
-enunciado: "En el extremo x=0 de una barra hay una masa de {m1} kg, y en x={x2} m hay otra de {m2} kg. ¿En qué posición está el centro de gravedad del sistema (se ignora el peso de la barra)?"
-
-pasos:
-  - "x_cg = (m₁×0 + m₂×{x2}) / (m₁+m₂) = ({m2}×{x2}) / ({m1}+{m2}) = {redondear((m1 * x1 + m2 * x2) / (m1 + m2), 2)} m"
-
-explicacion: |
-  Con una de las masas en el origen, la fórmula se simplifica bastante.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "basico"
-  tags: ["estatica"]
-
-enunciado: "¿Para qué se usa el centro de gravedad al analizar un cuerpo en equilibrio?"
-tipo: mc
-opciones_explicitas:
-  - "Como el punto donde se considera aplicado el peso total, al calcular el momento que ese peso genera"
-  - "Para calcular la velocidad del cuerpo"
-  - "Para calcular la temperatura del cuerpo"
-respuesta: "Como el punto donde se considera aplicado el peso total, al calcular el momento que ese peso genera"
-
-explicacion: |
-  Es exactamente lo que hace falta para
-  `../equilibrio-de-cuerpo-rigido/`: saber dónde "actúa" el peso para
-  calcular su momento respecto de cualquier eje.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La posición FÍSICA del centro de gravedad de un cuerpo cambia según dónde se elija poner el origen del sistema de coordenadas."
-
-explicacion: |
-  El número que describe su posición cambia (depende del origen
-  elegido, como cualquier coordenada), pero el punto físico real en el
-  cuerpo es siempre el mismo — no se mueve por cambiar de referencia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "intermedio"
-  tags: ["estatica", "completar"]
-
+respuesta: masas[idx] * velocidades[idx]
 tipo: completar
-enunciado: "Completá: la zona delimitada por los puntos de contacto de un cuerpo con el suelo se llama base de ___."
-respuestas_validas:
-  - "apoyo"
+tolerancia_abs: 0.01
 
-explicacion: |
-  Es la referencia que determina si el centro de gravedad "cae dentro"
-  (equilibrio) o "cae afuera" (vuelco).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "centro_de_gravedad"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve entender el centro de gravedad?"
-tipo: mc
-opciones_explicitas:
-  - "Para saber dónde 'actúa' el peso de un cuerpo, calcular su estabilidad, y usarlo como base para analizar el equilibrio de cuerpos rígidos"
-  - "Sólo sirve para cuerpos perfectamente esféricos"
-  - "Sólo aplica en el espacio, sin gravedad"
-respuesta: "Para saber dónde 'actúa' el peso de un cuerpo, calcular su estabilidad, y usarlo como base para analizar el equilibrio de cuerpos rígidos"
-
-explicacion: |
-  Junto con `../momento-de-una-fuerza/`, es la pieza que falta para
-  `../equilibrio-de-cuerpo-rigido/`.
-```
-
-## Sección: estatica/equilibrio-de-cuerpo-rigido (24 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "intermedio"
-  tags: ["estatica", "vocabulario"]
-
-enunciado: "¿Qué dos condiciones tienen que cumplirse A LA VEZ para que un cuerpo rígido esté en equilibrio completo?"
-tipo: mc
-opciones_explicitas:
-  - "Fuerza neta cero (ΣF=0) Y momento neto cero (ΣM=0)"
-  - "Sólo fuerza neta cero"
-  - "Sólo momento neto cero"
-respuesta: "Fuerza neta cero (ΣF=0) Y momento neto cero (ΣM=0)"
-
-explicacion: |
-  Ninguna de las dos alcanza sola — un cuerpo puede no acelerar pero
-  seguir girando, o no girar pero seguir acelerando.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si la fuerza neta sobre un cuerpo es cero, ese cuerpo está necesariamente en equilibrio completo (sin ningún tipo de aceleración)."
-
-explicacion: |
-  Puede tener momento neto distinto de cero y estar girando cada vez
-  más rápido (aceleración angular), aunque no se desplace.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si el momento neto sobre un cuerpo (respecto de su centro de gravedad) es cero, ese cuerpo está necesariamente en equilibrio completo."
-
-explicacion: |
-  Puede tener fuerza neta distinta de cero y estar acelerando en línea
-  recta, aunque no esté girando.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "intermedio"
-  tags: ["estatica", "aplicacion"]
-
-enunciado: "En una balanza (sube y baja) en equilibrio, ¿qué condición es la que determina si está balanceada?"
-tipo: mc
-opciones_explicitas:
-  - "El momento neto respecto del punto de apoyo es cero"
-  - "El peso total de ambos lados es cero"
-  - "La velocidad de ambos lados es la misma"
-respuesta: "El momento neto respecto del punto de apoyo es cero"
-
-explicacion: |
-  Los momentos de los dos lados (peso × distancia al apoyo) se
-  cancelan.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica", "problema"]
-
-variables:
-  m1: random(10, 40)
-  d1: random_float(0.5, 2, 2)
-  m2: random(10, 40)
-
-respuesta: redondear(m1 * d1 / m2, 2)
-tipo: input
-tolerancia_abs: 0.1
-unidad: "m"
-
-enunciado: "En una balanza, una masa de {m1} kg está a {d1} m del punto de apoyo. ¿A qué distancia del apoyo hay que poner una masa de {m2} kg, del otro lado, para que quede en equilibrio?"
+enunciado: "Calcula el módulo del momento lineal para {descripciones[idx]}."
 
 pasos:
-  - "m₁×d₁ = m₂×d₂  →  d₂ = m₁×d₁ / m₂ = {m1}×{d1} / {m2} = {redondear(m1 * d1 / m2, 2)} m"
+  - "Identificar la masa (m) y la velocidad (v) del objeto."
+  - "Multiplicar la masa por la velocidad (p = m · v)."
 
 explicacion: |
-  El momento de un lado tiene que igualar al del otro lado.
+  El momento lineal es una magnitud vectorial que depende tanto de la masa como de la velocidad. En el caso seleccionado, el resultado es {masas[idx] * velocidades[idx]} kg·m/s.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica", "problema"]
-
-variables:
-  m1: random(10, 40)
-  d1: random_float(0.5, 2, 2)
-  d2: random_float(0.5, 2, 2)
-
-respuesta: redondear(m1 * d1 / d2, 2)
-tipo: input
-tolerancia_abs: 0.1
-unidad: "kg"
-
-enunciado: "En una balanza, una masa de {m1} kg está a {d1} m del punto de apoyo. ¿Qué masa hay que poner a {d2} m del apoyo, del otro lado, para que quede en equilibrio?"
-
-pasos:
-  - "m₁×d₁ = m₂×d₂  →  m₂ = m₁×d₁ / d₂ = {m1}×{d1} / {d2} = {redondear(m1 * d1 / d2, 2)} kg"
-
-explicacion: |
-  Es el mismo despeje que la pregunta anterior, ahora para la masa en
-  vez de la distancia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La condición ΣM=0 vale para el momento calculado respecto de CUALQUIER punto — no tiene que ser necesariamente el centro de gravedad."
-
-explicacion: |
-  Si un cuerpo está en equilibrio, el momento neto es cero respecto de
-  cualquier punto que se elija como referencia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-enunciado: "¿Por qué conviene elegir como punto de referencia, al plantear ΣM=0, un punto donde actúa una fuerza desconocida?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el brazo de palanca de esa fuerza respecto de ese punto es cero, así que desaparece de la ecuación y queda una sola incógnita"
-  - "Porque así la fuerza desconocida se hace más grande"
-  - "No hay ninguna ventaja real, es sólo costumbre"
-respuesta: "Porque el brazo de palanca de esa fuerza respecto de ese punto es cero, así que desaparece de la ecuación y queda una sola incógnita"
-
-explicacion: |
-  Es un truco algebraico válido porque ΣM=0 vale para cualquier punto —
-  conviene elegir el que simplifica más las cuentas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
+  tema: "momento_lineal"
   nivel: "basico"
-  tags: ["estatica", "completar"]
+  tags: ["terminologia"]
 
-tipo: completar
-enunciado: "Completá: la condición de equilibrio rotacional se escribe ΣM = ___."
-respuestas_validas:
-  - 0
-
-explicacion: |
-  La suma de todos los momentos (con su signo según el sentido de
-  giro) tiene que ser cero.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "basico"
-  tags: ["estatica", "completar"]
-
-tipo: completar
-enunciado: "Completá: la condición de equilibrio traslacional se escribe ΣF = ___."
-respuestas_validas:
-  - 0
-
-explicacion: |
-  La suma vectorial de todas las fuerzas tiene que ser cero.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica", "problema"]
-
-variables:
-  L: uno_de([4, 5, 6, 8, 10])
-  x_cg: random(1, L - 1)
-  W: random(50, 200)
-
-respuesta: redondear(W * x_cg / L, 2)
-tipo: input
-tolerancia_abs: 0.5
-unidad: "N"
-
-enunciado: "Una viga de {L} m de largo, apoyada en sus dos extremos, tiene un peso de {W} N actuando a {x_cg} m del extremo izquierdo. ¿Cuál es la reacción de apoyo en el extremo DERECHO?"
-
-pasos:
-  - "Tomando momentos respecto del extremo izquierdo: R_der × L = W × x_cg"
-  - "R_der = W × x_cg / L = {W} × {x_cg} / {L} = {redondear(W * x_cg / L, 2)} N"
-
-explicacion: |
-  Al tomar momentos respecto del extremo izquierdo, la reacción de ese
-  lado no aparece en la ecuación (brazo de palanca cero).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica", "problema"]
-
-variables:
-  L: uno_de([4, 5, 6, 8, 10])
-  x_cg: random(1, L - 1)
-  W: random(50, 200)
-  R_der: redondear(W * x_cg / L, 2)
-
-respuesta: redondear(W - R_der, 2)
-tipo: input
-tolerancia_abs: 0.5
-unidad: "N"
-
-enunciado: "La misma viga de {L} m, con peso {W} N a {x_cg} m del extremo izquierdo, tiene una reacción de {R_der} N en el extremo derecho. ¿Cuál es la reacción en el extremo IZQUIERDO?"
-
-pasos:
-  - "Por ΣF=0: R_izq + R_der = W"
-  - "R_izq = W − R_der = {W} − {R_der} = {redondear(W - R_der, 2)} N"
-
-explicacion: |
-  Entre las dos reacciones tienen que sostener todo el peso de la
-  viga.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "intermedio"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una viga apoyada en dos puntos, la suma de las dos reacciones de apoyo es siempre igual al peso total de la viga (y de lo que cargue encima)."
-
-explicacion: |
-  Es la condición ΣF=0 aplicada al eje vertical.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "intermedio"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el peso de la viga actúa exactamente en el punto medio entre los dos apoyos, las dos reacciones de apoyo son iguales entre sí."
-
-explicacion: |
-  Con x_cg = L/2, R_der = W×(L/2)/L = W/2, y por lo tanto R_izq también
-  es W/2.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica", "vocabulario"]
-
-enunciado: "¿Qué es un 'par de fuerzas' (el caso donde ΣF=0 pero ΣM≠0)?"
-tipo: mc
-opciones_explicitas:
-  - "Dos fuerzas de igual magnitud y sentido opuesto, aplicadas en puntos distintos de un cuerpo (se cancelan como fuerza, pero generan un momento neto)"
-  - "Dos fuerzas iguales aplicadas en el mismo punto"
-  - "Una sola fuerza muy grande"
-respuesta: "Dos fuerzas de igual magnitud y sentido opuesto, aplicadas en puntos distintos de un cuerpo (se cancelan como fuerza, pero generan un momento neto)"
-
-explicacion: |
-  Es el ejemplo clásico de por qué ΣF=0 no alcanza para el equilibrio
-  completo — el cuerpo no se desplaza, pero gira.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica", "ordenar"]
-
-enunciado: "Ordená los pasos típicos para resolver un problema de equilibrio de cuerpo rígido con reacciones desconocidas."
-tipo: ordenar
-opciones_explicitas:
-  - "Plantear ΣF=0 para despejar la incógnita que falte"
-  - "Identificar todas las fuerzas que actúan (pesos, reacciones de apoyo, tensiones) y sus puntos de aplicación"
-  - "Elegir un punto de referencia (conviene uno donde actúe una incógnita) y plantear ΣM=0 para despejar otra incógnita"
-respuesta_orden: ["Identificar todas las fuerzas que actúan (pesos, reacciones de apoyo, tensiones) y sus puntos de aplicación", "Elegir un punto de referencia (conviene uno donde actúe una incógnita) y plantear ΣM=0 para despejar otra incógnita", "Plantear ΣF=0 para despejar la incógnita que falte"]
-explicacion: |
-  Primero se agota lo que da la ecuación de momentos (eligiendo bien el
-  pivote), y con lo que quede sin resolver se usa la ecuación de
-  fuerzas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "intermedio"
-  tags: ["estatica", "aplicacion"]
-
-enunciado: "¿Qué tiene que cumplirse para que una escalera apoyada contra una pared no se caiga ni resbale?"
-tipo: mc
-opciones_explicitas:
-  - "Que la fuerza neta sobre ella sea cero (no resbale) Y el momento neto sea cero (no rote/vuelque)"
-  - "Sólo que sea muy pesada"
-  - "Sólo que esté apoyada en ángulo de 90°"
-respuesta: "Que la fuerza neta sobre ella sea cero (no resbale) Y el momento neto sea cero (no rote/vuelque)"
-
-explicacion: |
-  Es el mismo par de condiciones aplicado a un caso muy concreto y
-  cotidiano.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un cuerpo puede tener fuerza neta cero (no acelera en línea recta) y sin embargo estar girando cada vez más rápido, si el momento neto sobre él no es cero."
-
-explicacion: |
-  Es exactamente el caso del par de fuerzas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "basico"
-  tags: ["estatica", "aplicacion"]
-
-enunciado: "¿Qué principio físico garantiza que un puente sostenga su propio peso y el de los vehículos que pasan por él?"
-tipo: mc
-opciones_explicitas:
-  - "El equilibrio de cuerpo rígido: las reacciones de sus apoyos se ajustan para que se cumplan ΣF=0 y ΣM=0"
-  - "Que el puente no tiene peso propio"
-  - "Que los vehículos no ejercen ninguna fuerza sobre el puente"
-respuesta: "El equilibrio de cuerpo rígido: las reacciones de sus apoyos se ajustan para que se cumplan ΣF=0 y ΣM=0"
-
-explicacion: |
-  Es la misma idea de la viga apoyada en dos puntos, aplicada a una
-  estructura real.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "intermedio"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para resolver un problema de equilibrio de cuerpo rígido hace falta saber calcular momentos de una fuerza Y saber dónde está el centro de gravedad de los pesos involucrados."
-
-explicacion: |
-  Es la combinación directa de `../momento-de-una-fuerza/` y
-  `../centro-de-gravedad/`.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al plantear ΣM=0, hay que sumar los momentos con signo (positivo para un sentido de giro, negativo para el opuesto), no sólo sus magnitudes."
-
-explicacion: |
-  Si se ignorara el signo, momentos que en realidad se cancelan
-  parecerían sumarse.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica", "problema"]
-
-variables:
-  L: uno_de([4, 5, 6, 8])
-  x_cg: random(1, L - 1)
-  R_der: random(20, 80)
-
-respuesta: redondear(R_der * L / x_cg, 2)
-tipo: input
-tolerancia_abs: 0.5
-unidad: "N"
-
-enunciado: "Una viga de {L} m apoyada en sus dos extremos tiene su peso W actuando a {x_cg} m del extremo izquierdo. La reacción en el extremo derecho es de {R_der} N. ¿Cuál es el peso W de la viga?"
-
-pasos:
-  - "R_der = W × x_cg / L  →  W = R_der × L / x_cg = {R_der} × {L} / {x_cg} = {redondear(R_der * L / x_cg, 2)} N"
-
-explicacion: |
-  Es el mismo despeje de siempre, ahora resolviendo para el peso en vez
-  de para la reacción.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-enunciado: "¿Por qué el equilibrio de cuerpo rígido es una condición más exigente que sólo 'la fuerza neta es cero' (que ya se usaba en fuerzas concurrentes)?"
-tipo: mc
-opciones_explicitas:
-  - "Porque un cuerpo extendido (no un punto) también puede girar, y hace falta además que el momento neto sea cero"
-  - "No es más exigente, son exactamente la misma condición"
-  - "Porque los cuerpos rígidos no tienen masa"
-respuesta: "Porque un cuerpo extendido (no un punto) también puede girar, y hace falta además que el momento neto sea cero"
-
-explicacion: |
-  `../../dinamica-fuerzas-concurrentes/` trataba las fuerzas como
-  aplicadas en un punto (sin posibilidad de girar) — un cuerpo rígido
-  real tiene tamaño, y por eso aparece la condición extra.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "equilibrio_de_cuerpo_rigido"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve entender el equilibrio de cuerpo rígido?"
-tipo: mc
-opciones_explicitas:
-  - "Para calcular fuerzas de apoyo, tensiones y condiciones de balance en estructuras reales (vigas, escaleras, balanzas, palancas)"
-  - "Sólo sirve para objetos que no tienen peso"
-  - "Sólo aplica a objetos en movimiento circular"
-respuesta: "Para calcular fuerzas de apoyo, tensiones y condiciones de balance en estructuras reales (vigas, escaleras, balanzas, palancas)"
-
-explicacion: |
-  Es la combinación de todo lo visto en Estática, y la base directa
-  para entender por qué funcionan las máquinas simples
-  (`../../maquinas-simples/`).
-```
-
-## Sección: estatica/momento-de-una-fuerza (22 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "basico"
-  tags: ["estatica", "vocabulario"]
-
-enunciado: "¿Qué mide el momento de una fuerza (torque)?"
-tipo: mc
-opciones_explicitas:
-  - "La tendencia de una fuerza a hacer girar un cuerpo alrededor de un punto o eje"
-  - "La tendencia de una fuerza a desplazar un cuerpo en línea recta"
-  - "La energía que transmite una fuerza"
-respuesta: "La tendencia de una fuerza a hacer girar un cuerpo alrededor de un punto o eje"
-
-explicacion: |
-  A diferencia de la fuerza neta (que mueve un cuerpo), el momento mide
-  el efecto de giro.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["estatica", "completar"]
-
-tipo: completar
-enunciado: "Completá: M = F × ___, donde esa distancia se mide perpendicular al eje de giro."
-respuestas_validas:
-  - "d"
-  - "brazo"
-  - "brazo de palanca"
-
-explicacion: |
-  El brazo de palanca es la distancia perpendicular desde el eje de
-  giro hasta la línea de acción de la fuerza.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El brazo de palanca es la distancia PERPENDICULAR desde el eje de giro hasta la línea de acción de la fuerza."
-
-explicacion: |
-  Si la fuerza no es perpendicular al brazo, hay que usar la
-  componente perpendicular (M=F×d×sen(θ)).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "basico"
-  tags: ["estatica", "vocabulario"]
-
-enunciado: "¿En qué unidad se mide el momento de una fuerza en el Sistema Internacional?"
-tipo: mc
-opciones_explicitas:
-  - "Newton-metro (N·m)"
-  - "Newton (N)"
-  - "Joule (J)"
-respuesta: "Newton-metro (N·m)"
-
-explicacion: |
-  Es fuerza (N) por distancia (m) — aunque tenga las mismas unidades
-  que el trabajo (Joule), son conceptos físicos distintos.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["estatica", "problema"]
-
-variables:
-  F: random(5, 50)
-  d: random_float(0.2, 2, 2)
-
-respuesta: redondear(F * d, 2)
-tipo: input
-tolerancia_abs: 0.1
-unidad: "N·m"
-
-enunciado: "Se aplica una fuerza de {F} N, perpendicular a una palanca, a {d} m del eje de giro. ¿Cuál es el momento generado?"
-
-pasos:
-  - "M = F × d = {F} × {d} = {redondear(F * d, 2)} N·m"
-
-explicacion: |
-  Fuerza perpendicular al brazo: M=F×d directo, sin necesidad de seno.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["estatica", "problema"]
-
-variables:
-  M: random(10, 100)
-  d: random_float(0.5, 2, 2)
-
-respuesta: redondear(M / d, 2)
-tipo: input
-tolerancia_abs: 0.1
-unidad: "N"
-
-enunciado: "Para generar un momento de {M} N·m con una palanca de {d} m de brazo (fuerza perpendicular), ¿qué fuerza hace falta aplicar?"
-
-pasos:
-  - "F = M / d = {M} / {d} = {redondear(M / d, 2)} N"
-
-explicacion: |
-  Es el mismo despeje algebraico ya practicado con otras fórmulas de
-  Física.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["estatica", "problema"]
-
-variables:
-  M: random(10, 100)
-  F: random(5, 50)
-
-respuesta: redondear(M / F, 2)
-tipo: input
-tolerancia_abs: 0.1
-unidad: "m"
-
-enunciado: "Para generar un momento de {M} N·m aplicando una fuerza de {F} N (perpendicular), ¿a qué distancia del eje hay que aplicarla?"
-
-pasos:
-  - "d = M / F = {M} / {F} = {redondear(M / F, 2)} m"
-
-explicacion: |
-  Con menos fuerza disponible, hace falta más brazo de palanca para el
-  mismo momento — y viceversa.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Con la misma fuerza, un brazo de palanca más largo produce un momento mayor."
-
-explicacion: |
-  M=F×d: con F fijo, M crece con d.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una fuerza se aplica exactamente sobre el eje de giro (brazo de palanca = 0), no genera ningún momento, sin importar cuán grande sea esa fuerza."
-
-explicacion: |
-  M=F×0=0, siempre, sin importar F.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "intermedio"
-  tags: ["estatica", "vocabulario"]
-
-enunciado: "Por convención habitual, ¿qué sentido de giro se toma como momento positivo?"
-tipo: mc
-opciones_explicitas:
-  - "Antihorario"
-  - "Horario"
-  - "Da igual, no hay convención"
-respuesta: "Antihorario"
-
-explicacion: |
-  Es la convención más usada (no universal, pero la habitual) — lo
-  importante es ser consistente dentro de un mismo problema.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al calcular el momento neto sobre un cuerpo, dos momentos que giran en sentidos opuestos se restan (uno se toma positivo y el otro negativo)."
-
-explicacion: |
-  Igual que sumar fuerzas con signo en un eje, pero para giros.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "basico"
-  tags: ["estatica", "aplicacion"]
-
-enunciado: "¿Por qué cuesta menos esfuerzo abrir una puerta empujando en el borde (lejos de la bisagra) que empujando cerca de la bisagra?"
-tipo: mc
-opciones_explicitas:
-  - "Porque lejos de la bisagra el brazo de palanca es mayor, así que se necesita menos fuerza para el mismo momento"
-  - "Porque cerca de la bisagra la puerta pesa más"
-  - "No hay ninguna diferencia real, es sólo una sensación"
-respuesta: "Porque lejos de la bisagra el brazo de palanca es mayor, así que se necesita menos fuerza para el mismo momento"
-
-explicacion: |
-  M=F×d: para un mismo M (el necesario para abrir la puerta), a mayor
-  d, menor F requerida.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["estatica", "problema"]
-
-variables:
-  F1: random(20, 60)
-  d1: random_float(0.3, 1, 2)
-  d2: random_float(1.5, 3, 2)
-
-respuesta: redondear(F1 * d1 / d2, 2)
-tipo: input
-tolerancia_abs: 0.1
-unidad: "N"
-
-enunciado: "Una fuerza de {F1} N aplicada a {d1} m del eje genera un cierto momento. ¿Qué fuerza hace falta aplicar a {d2} m del eje para generar exactamente el mismo momento?"
-
-pasos:
-  - "M = F₁ × d₁ = {F1} × {d1} = {redondear(F1 * d1, 2)} N·m"
-  - "F₂ = M / d₂ = {redondear(F1 * d1, 2)} / {d2} = {redondear(F1 * d1 / d2, 2)} N"
-
-explicacion: |
-  Con más brazo de palanca, alcanza con menos fuerza para el mismo
-  momento.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-enunciado: "Si la fuerza aplicada NO es perpendicular al brazo de palanca, ¿qué pasa con el momento generado?"
-tipo: mc
-opciones_explicitas:
-  - "Es menor que F×d — sólo la componente perpendicular de la fuerza genera momento"
-  - "Es mayor que F×d"
-  - "No se puede calcular el momento en ese caso"
-respuesta: "Es menor que F×d — sólo la componente perpendicular de la fuerza genera momento"
-
-explicacion: |
-  M = F×d×sen(θ): con θ<90°, sen(θ)<1, así que M queda por debajo del
-  máximo posible (que se da con θ=90°, fuerza perpendicular).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["estatica", "problema"]
-
-variables:
-  F: random(10, 40)
-  d: random_float(0.5, 2, 2)
-  angulo: uno_de([30, 45, 60, 90])
-
-respuesta: redondear(F * d * sin_deg(angulo), 2)
-tipo: input
-tolerancia_abs: 0.2
-unidad: "N·m"
-
-enunciado: "Se aplica una fuerza de {F} N a {d} m del eje de giro, formando un ángulo de {angulo}° con la palanca. ¿Cuál es el momento generado?"
-
-pasos:
-  - "M = F × d × sen(θ) = {F} × {d} × sen({angulo}°) = {redondear(F * d * sin_deg(angulo), 2)} N·m"
-
-explicacion: |
-  Con θ=90° (perpendicular), sen(90°)=1 y se recupera la fórmula
-  simple M=F×d.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["estatica", "ordenar"]
-
-enunciado: "Ordená los pasos para calcular el momento de una fuerza aplicada en cualquier ángulo."
-tipo: ordenar
-opciones_explicitas:
-  - "Multiplicar la fuerza por ese brazo (y por sen(θ) si la fuerza no es perpendicular)"
-  - "Identificar el eje (o punto) de giro que se va a usar como referencia"
-  - "Medir el brazo de palanca: la distancia perpendicular desde el eje hasta la línea de acción de la fuerza"
-respuesta_orden: ["Identificar el eje (o punto) de giro que se va a usar como referencia", "Medir el brazo de palanca: la distancia perpendicular desde el eje hasta la línea de acción de la fuerza", "Multiplicar la fuerza por ese brazo (y por sen(θ) si la fuerza no es perpendicular)"]
-explicacion: |
-  Sin fijar primero el eje de referencia, no hay brazo de palanca que
-  medir.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El momento de una misma fuerza puede ser distinto según qué punto se elija como eje de giro de referencia."
-
-explicacion: |
-  El momento no es una propiedad de la fuerza sola — siempre se
-  calcula respecto de un punto específico.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "basico"
-  tags: ["estatica", "aplicacion"]
-
-enunciado: "¿Por qué una llave de tuercas con mango largo afloja un tornillo con menos esfuerzo que una con mango corto?"
-tipo: mc
-opciones_explicitas:
-  - "El mango largo da un brazo de palanca mayor, así que se necesita menos fuerza para el mismo momento"
-  - "El mango largo hace que la llave pese menos"
-  - "No hay ninguna diferencia física real"
-respuesta: "El mango largo da un brazo de palanca mayor, así que se necesita menos fuerza para el mismo momento"
-
-explicacion: |
-  Exactamente el mismo principio que la puerta y la bisagra.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "basico"
-  tags: ["estatica", "completar"]
-
-tipo: completar
-enunciado: "Completá: el momento de una fuerza también se conoce, sobre todo en contextos de ingeniería, con el nombre en inglés ___."
-respuestas_validas:
-  - "torque"
-
-explicacion: |
-  "Momento de una fuerza" y "torque" son el mismo concepto físico.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El momento de una fuerza es, en general, una cantidad vectorial (no sólo un número), aunque en muchos problemas de un solo plano alcance con su magnitud y un signo (horario/antihorario)."
-
-explicacion: |
-  En 3D el momento tiene una dirección propia (perpendicular al plano
-  de giro); en problemas de un solo plano, esa dirección es siempre la
-  misma y sólo hace falta el signo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "avanzado"
-  tags: ["estatica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Como el momento de una fuerza y el trabajo mecánico se miden en las mismas unidades (N·m), son la misma magnitud física."
-
-explicacion: |
-  Comparten unidades por cómo se combinan fuerza y distancia, pero son
-  conceptos distintos: el trabajo (`../../trabajo-de-una-fuerza/`) mide
-  energía transferida por un desplazamiento; el momento mide la
-  tendencia a girar.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "momento_de_una_fuerza"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve entender el momento de una fuerza?"
-tipo: mc
-opciones_explicitas:
-  - "Para predecir y calcular el efecto de giro de una fuerza sobre un cuerpo, no sólo si lo desplaza"
-  - "Sólo sirve para calcular fuerzas en línea recta"
-  - "Sólo aplica a objetos sin masa"
-respuesta: "Para predecir y calcular el efecto de giro de una fuerza sobre un cuerpo, no sólo si lo desplaza"
-
-explicacion: |
-  Es la base necesaria para `../equilibrio-de-cuerpo-rigido/` y para
-  entender por qué funcionan las palancas
-  (`../../maquinas-simples/`).
-```
-
-## Sección: estructura-del-nucleo-atomico (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "basico"
-  tags: ["nucleo", "protones", "neutrones"]
-
-respuesta: "protones"
-tipo: mc
-opciones_explicitas: ["protones", "electrones", "neutrones", "fotones"]
-
-enunciado: "Las partículas con carga eléctrica positiva que se encuentran en el núcleo de un átomo son los ___."
-
-explicacion: |
-  El núcleo atómico está compuesto por protones (carga positiva) y neutrones (carga neutra). Los electrones orbitan alrededor del núcleo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "basico"
-  tags: ["nucleones", "definicion"]
-
-respuesta: verdadero
-tipo: vf
-enunciado: "A las partículas que forman el núcleo (protones y neutrones) se las denomina colectivamente como nucleones."
-
-explicacion: |
-  Correcto. El término 'nucleón' se utiliza para referirse tanto a protones como a neutrones cuando se habla de su comportamiento en el núcleo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "intermedio"
-  tags: ["fuerza_fuerte", "interaccion"]
-
-respuesta: "fuerza_fuerte"
+respuesta: "cantidad de movimiento"
 tipo: completar
 respuestas_validas:
-  - "fuerza_fuerte"
+  - "cantidad de movimiento"
+  - "cantidad de movimiento"
 
-enunciado: "La interacción que mantiene unidos a los protones y neutrones en el núcleo, venciendo la repulsión electromagnética entre protones, es la ___."
+enunciado: "En muchos contextos académicos, el concepto de momento lineal es sinónimo de ___."
 
 explicacion: |
-  La fuerza nuclear fuerte es una interacción de corto alcance que actúa entre nucleones y es la responsable de la estabilidad del núcleo.
+  Tanto 'momento lineal' como 'cantidad de movimiento' se refieren a la misma magnitud física ($p = m \cdot v$).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "basico"
-  tags: ["carga", "electromagnetismo"]
+  tema: "momento_lineal"
+  nivel: "intermedio"
+  tags: ["comparacion", "dimensiones"]
 
-respuesta: falso
-tipo: vf
-enunciado: "Debido a que los protones tienen carga positiva, la fuerza electromagnética entre ellos es de atracción, lo que ayuda a mantener unido el núcleo."
-
-explicacion: |
-  Falso. La fuerza electromagnética entre protones es de repulsión. Es la fuerza nuclear fuerte la que contrarresta esta repulsión para mantener el núcleo unido.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "basico"
-  tags: ["particulas", "orden"]
-
-respuesta_orden: ["protones", "neutrones"]
-tipo: ordenar
-opciones_explicitas: ["protones", "neutrones"]
-
-enunciado: "Ordena las siguientes partículas según su presencia en el núcleo atómico, de mayor a menor relevancia en la determinación de la identidad del elemento (número atómico):"
-
-pasos:
-  - "El número atómico (Z) define el elemento y está determinado por los protones."
-  - "El número de neutrones (N) determina los isótopos pero no la identidad química."
-
-explicacion: |
-  El orden correcto para definir la identidad del átomo es primero los protones (número atómico) y luego los neutrones (que definen el isótopo).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "basico"
-  tags: ["nucleo", "protones", "neutrones"]
-
-respuesta: "protones"
+respuesta: "vectorial"
 tipo: mc
-opciones_explicitas: ["protones", "neutrones", "electrones", "fotones"]
+opciones_explicitas: ["escalar", "vectorial", "unidades de fuerza", "aceleración"]
 
-enunciado: "La carga eléctrica positiva que se encuentra en el núcleo de un átomo está compuesta por los ___."
+enunciado: "A diferencia de la masa, que es una magnitud escalar, el momento lineal es una magnitud ___."
 
 explicacion: |
-  El núcleo atómico está compuesto por nucleones: protones (carga positiva) y neutrones (carga neutra). Los electrones orbitan alrededor del núcleo.
+  El momento lineal posee dirección y sentido (definidos por el vector velocidad), por lo que es una magnitud vectorial.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
+  tema: "momento_lineal"
+  nivel: "intermedio"
+  tags: ["teorema", "impulso"]
+
+variables:
+  caso: uno_de([["un choque de alta velocidad", "un objeto con gran masa en reposo"], ["un objeto con gran masa en reposo", "un choque de alta velocidad"]])
+
+respuesta: "impulso"
+tipo: completar
+respuestas_validas:
+  - "impulso"
+
+enunciado: "El cambio en el momento lineal de un objeto es igual al ___ aplicado sobre dicho objeto."
+
+explicacion: |
+  Según el teorema del impulso, el cambio en la cantidad de movimiento ($\Delta p$) es igual al impulso ($J = F \cdot \Delta t$). En el caso de {caso[0]}, se observa este principio.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
   nivel: "basico"
-  tags: ["masa_atomica", "nucleones"]
+  tags: ["cantidad_de_movimiento", "cinematica"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["Litio-7", 3, 4], ["Carbono-14", 6, 8]]
+  datos: [[1500, 20, 30000], [1200, 10, 12000]]
 
-respuesta: datos[escenario_idx][0]
+enunciado: "Un vehículo de masa de {datos[escenario_idx][0]} kg se desplaza con una velocidad de {datos[escenario_idx][1]} m/s. ¿Cuál es su cantidad de movimiento (p, en kg·m/s)?"
+
+opciones_explicitas: [30000, 12000, 25000, 45000]
+respuesta: datos[escenario_idx][2]
 tipo: mc
-opciones_explicitas: ["Litio-7", "Carbono-14", "Helio-4", "Oxigeno-16"]
-
-enunciado: "Si un átomo de {datos[escenario_idx][0]} tiene {datos[escenario_idx][1]} protones y {datos[escenario_idx][2]} neutrones, su número de masa (A) es igual a la suma de ambos. ¿Cuál es el nombre del isótopo?"
-
-pasos:
-  - "Identificar el número de protones (Z)."
-  - "Identificar el número de neutrones (N)."
-  - "Sumar Z + N para obtener la masa A."
 
 explicacion: |
-  La masa atómica (A) se calcula sumando el número de protones (Z) y el número de neutrones (N). 
-  En este caso: {datos[escenario_idx][1]} + {datos[escenario_idx][2]} = {datos[escenario_idx][0]}.
+  El momento lineal se calcula con la fórmula p = m · v.
+  En este caso: {datos[escenario_idx][0]} kg * {datos[escenario_idx][1]} m/s = {datos[escenario_idx][2]} kg·m/s.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
+  tema: "momento_lineal"
   nivel: "intermedio"
-  tags: ["fuerza_nuclear", "interacciones"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es la fuerza nuclear fuerte la responsable de mantener unidos a los protones y neutrones en el núcleo, venciendo la repulsión electromagnética entre protones?"
-
-explicacion: |
-  Verdadero. La fuerza nuclear fuerte es una interacción de corto alcance que actúa entre nucleones, permitiendo que los protones (que se repelen por su carga) permanezcan unidos en el núcleo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "intermedio"
-  tags: ["neutrones", "calculo"]
+  tags: ["comparacion", "masa", "velocidad"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [[12, 6], [23, 11]]
+  escenario: [[10, 5, 50], [5, 10, 50]]
 
-respuesta: datos[escenario_idx][0] - datos[escenario_idx][1]
+enunciado: "Si un objeto A tiene masa {escenario[escenario_idx][0]} kg y velocidad {escenario[escenario_idx][1]} m/s, y un objeto B tiene la misma cantidad de movimiento que A, ¿cuál es su valor (en kg·m/s)?"
+
+opciones_explicitas: [50, 10, 100, 25]
+respuesta: escenario[escenario_idx][2]
+tipo: mc
+
+explicacion: |
+  El momento lineal es el producto de la masa por la velocidad. 
+  Para el escenario seleccionado: {escenario[escenario_idx][0]} * {escenario[escenario_idx][1]} = {escenario[escenario_idx][2]}.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["teoria", "concepto"]
+
+enunciado: "Si un objeto con masa constante aumenta su velocidad, su cantidad de movimiento ___."
+
+respuestas_validas:
+  - "aumenta"
+respuesta: "aumenta"
 tipo: completar
-tolerancia_abs: 0
 
-enunciado: "Un átomo tiene un número de masa (A) de {datos[escenario_idx][0]} y un número atómico (Z) de {datos[escenario_idx][1]}. El número de neutrones es ___."
+explicacion: |
+  Dado que p = m · v, si la masa (m) es constante y la velocidad (v) aumenta, el producto p debe aumentar proporcionalmente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "avanzado"
+  tags: ["calculo", "impacto"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [[0.05, 400], [0.02, 600]]
+
+enunciado: "Una bala de masa {datos[escenario_idx][0]} kg viaja a una velocidad de {datos[escenario_idx][1]} m/s. Al impactar un bloque, su velocidad se reduce a 5 m/s. ¿Cuál es la magnitud del cambio en su momento lineal (Δp)?"
 
 pasos:
-  - "Restar el número atómico (Z) del número de masa (A)."
-  - "N = A - Z."
+  - "Calcular el momento inicial: p_inicial = m * v_inicial"
+  - "Calcular el momento final: p_final = m * v_final"
+  - "Calcular la diferencia: Δp = p_inicial - p_final"
+
+respuesta: datos[escenario_idx][0] * (datos[escenario_idx][1] - 5)
+tipo: completar
+tolerancia_abs: 0.01
 
 explicacion: |
-  Para hallar los neutrones, restamos el número de protones (Z) de la masa total (A).
-  Cálculo: {datos[escenario_idx][0]} - {datos[escenario_idx][1]} = {datos[escenario_idx][0] - datos[escenario_idx][1]}.
+  Δp = m(v_i - v_f).
+  Para este caso: {datos[escenario_idx][0]} * ({datos[escenario_idx][1]} - 5) = {datos[escenario_idx][0] * (datos[escenario_idx][1] - 5)}.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "avanzado"
-  tags: ["ordenar", "nucleones"]
-
-respuesta_orden: ["Protones", "Neutrones", "Fuerza Nuclear Fuerte"]
-tipo: ordenar
-opciones_explicitas: ["Protones", "Neutrones", "Fuerza Nuclear Fuerte"]
-
-enunciado: "Ordene los elementos según el proceso lógico de formación y estabilidad de un núcleo atómico: primero los componentes de carga, luego los componentes neutros y finalmente la interacción que los mantiene unidos."
-
-explicacion: |
-  1. Los protones definen la identidad del elemento.
-  2. Los neutrones aportan estabilidad y masa.
-  3. La fuerza nuclear fuerte actúa para mantener a ambos unidos en el núcleo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
+  tema: "momento_lineal"
   nivel: "basico"
-  tags: ["nucleo", "protones", "identidad"]
+  tags: ["verdadero_falso", "propiedades"]
 
-respuesta: "protones"
+enunciado: "Si dos objetos tienen la misma masa pero el doble de velocidad, el segundo objeto tiene el doble de cantidad de movimiento que el primero. ¿Es esto verdadero?"
+
+opciones_explicitas: ["verdadero", "falso"]
+respuesta: "verdadero"
+tipo: mc
+
+explicacion: |
+  Como p es directamente proporcional a la velocidad (p ∝ v), si la masa es constante y la velocidad se duplica, el momento lineal también se duplica.
+```
+
+## Sección: longitud-onda-velocidad-propagacion (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad"
+  nivel: "basico"
+  tags: ["onda", "definicion"]
+
+tipo: mc
+opciones_explicitas: ["La distancia entre dos crestas consecutivas", "La velocidad de la perturbación", "El tiempo que tarda una onda en pasar", "La amplitud máxima de la onda"]
+
+respuesta: "La distancia entre dos crestas consecutivas"
+
+enunciado: "En una onda transversal, la longitud de onda (λ) se define como ___."
+
+explicacion: |
+  La longitud de onda es la distancia física entre dos puntos equivalentes consecutivos de una onda, como dos crestas o dos valles.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad"
+  nivel: "basico"
+  tags: ["proporcionalidad", "formula"]
+
+tipo: vf
+
+enunciado: "Si la frecuencia de una onda se duplica y la velocidad de propagación se mantiene constante, la longitud de onda debe reducirse a la mitad."
+
+respuesta: verdadero
+
+explicacion: |
+  De la fórmula v = λ · f, despejamos λ = v / f. Si la frecuencia aumenta, la longitud de onda disminuye inversamente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad"
+  nivel: "intermedio"
+  tags: ["calculo", "velocidad"]
+
+variables:
+  escenario: uno_de([[0.5, 10], [2.0, 20], [5.0, 50]])
+
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Una onda tiene una longitud de onda de {escenario[0]} metros y una frecuencia de {escenario[1]} Hz. ¿Cuál es su velocidad de propagación en m/s?"
+
+pasos:
+  - "Identificar la longitud de onda (λ): {escenario[0]} m"
+  - "Identificar la frecuencia (f): {escenario[1]} Hz"
+  - "Aplicar la fórmula v = λ * f"
+
+respuesta: escenario[0] * escenario[1]
+
+explicacion: |
+  Usando la fórmula v = λ * f:
+  v = {escenario[0]} m * {escenario[1]} Hz = {escenario[0] * escenario[1]} m/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad"
+  nivel: "basico"
+  tags: ["unidades", "dimensiones"]
+
 tipo: completar
 respuestas_validas:
-  - "protones"
+  - "m/s"
 
-enunciado: "Un átomo es identificado químicamente por su número atómico, el cual corresponde a la cantidad de ___ en su núcleo."
+respuesta: "m/s"
+
+enunciado: "En el Sistema Internacional, la unidad de la velocidad de propagación de una onda es ___."
 
 explicacion: |
-  El número atómico (Z) indica la cantidad de protones. Cambiar el número de protones cambia el elemento químico, mientras que cambiar el número de neutrones crea un isótopo.
+  La velocidad es la relación entre la distancia (metros, m) y el tiempo (segundos, s), por lo tanto, su unidad es m/s.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
+  tema: "longitud_onda_velocidad"
+  nivel: "basico"
+  tags: ["ordenar", "partes_onda"]
+
+tipo: ordenar
+opciones_explicitas: ["Cresta", "Punto de equilibrio", "Valle", "Cresta"]
+
+respuesta_orden: ["Cresta", "Punto de equilibrio", "Valle", "Cresta"]
+
+enunciado: "Ordena las partes de una onda de forma descendente, desde el punto más alto hasta el punto más bajo, y vuelve a subir:"
+
+explicacion: |
+  La secuencia lógica desde el máximo es: Cresta (máximo) -> Punto de equilibrio (centro) -> Valle (mínimo) -> Cresta (regreso al máximo).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad_propagacion"
+  nivel: "basico"
+  tags: ["formula", "conceptos"]
+
+respuesta: "v = lambda * f"
+tipo: completar
+respuestas_validas:
+  - "v = lambda * f"
+  - "v = λ * f"
+  - "v = lambda * f"
+
+enunciado: "La velocidad de propagación de una onda ($v$) se define como el producto de la longitud de onda ($\\lambda$) por la ___."
+
+explicacion: |
+  La relación fundamental para ondas es $v = \lambda \cdot f$, donde $v$ es la velocidad, $\lambda$ la longitud de onda y $f$ la frecuencia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad_propagacion"
+  nivel: "basico"
+  tags: ["calculo"]
+
+variables:
+  escenario: uno_de([[5, 20], [10, 25], [8, 50]])
+
+respuesta: escenario[0] * escenario[1]
+tipo: mc
+opciones_explicitas: [100, 250, 400, 500]
+
+enunciado: "Una onda tiene una longitud de onda de {escenario[0]} m y una frecuencia de {escenario[1]} Hz. ¿Cuál es su velocidad de propagación (en m/s)?"
+
+pasos:
+  - "Identificar los datos: λ = {escenario[0]} m y f = {escenario[1]} Hz."
+  - "Aplicar la fórmula: v = λ · f."
+  - "Calcular: v = {escenario[0]} · {escenario[1]} = {escenario[0] * escenario[1]} m/s."
+
+explicacion: |
+  Usando la fórmula $v = \lambda \cdot f$, multiplicamos la longitud de onda por la frecuencia para obtener la velocidad.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad_propagacion"
   nivel: "intermedio"
-  tags: ["fuerza_nuclear", "alcance", "interacciones"]
+  tags: ["despeje"]
+
+respuesta: 2.0
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Si una onda sonora viaja a una velocidad de $340$ m/s y su frecuencia es de $170$ Hz, ¿cuál es su longitud de onda en metros?"
+
+pasos:
+  - "Despejar la fórmula original: $\\lambda = v / f$."
+  - "Sustituir valores: $\\lambda = 340 / 170$."
+  - "Resultado: $\\lambda = 2$ m."
+
+explicacion: |
+  Al despejar la longitud de onda, la frecuencia pasa dividiendo al otro lado de la igualdad.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad_propagacion"
+  nivel: "intermedio"
+  tags: ["conceptos"]
 
 respuesta: falso
+
 tipo: vf
-enunciado: "¿Es la fuerza nuclear fuerte una interacción de largo alcance, similar a la fuerza electromagnética o la gravedad?"
+
+enunciado: "Si la velocidad de una onda se mantiene constante (como en el vacío para la luz) y la frecuencia aumenta, la longitud de onda debe aumentar también."
 
 explicacion: |
-  Falso. La fuerza nuclear fuerte es de muy corto alcance (actúa solo a distancias de aproximadamente 1-3 femtómetros). Si fuera de largo alcance, todo el universo colapsaría en un núcleo.
+  Falso. Si $v$ es constante, $\lambda$ y $f$ son inversamente proporcionales ($\lambda = v/f$). Si la frecuencia aumenta, la longitud de onda disminuye.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
+  tema: "longitud_onda_velocidad_propagacion"
   nivel: "basico"
-  tags: ["isótopos", "neutrones"]
+  tags: ["metodologia"]
 
-respuesta: "7"
-tipo: mc
-opciones_explicitas: ["6", "7", "8", "9"]
+respuesta_orden: ["identificar_datos", "seleccionar_formula", "sustituir_valores", "calcular_resultado"]
+tipo: ordenar
+opciones_explicitas: ["identificar_datos", "seleccionar_formula", "sustituir_valores", "calcular_resultado"]
 
-enunciado: "Si tenemos un átomo de Carbono-12 (6 protones y 6 neutrones) y queremos formar un isótopo con el mismo número atómico pero con 7 neutrones, ¿cuántos neutrones tendrá el nuevo isótopo?"
+enunciado: "Ordena los pasos lógicos para resolver un problema de cálculo de velocidad de onda."
 
 explicacion: |
-  Los isótopos tienen el mismo número de protones pero diferente número de neutrones. En este caso, el Carbono-13 tiene 7 neutrones.
+  Para resolver problemas físicos, primero debemos extraer los datos, elegir la ecuación correcta, realizar la sustitución y finalmente operar matemáticamente.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "avanzado"
-  tags: ["estabilidad", "fuerza_electromagnetica", "fuerza_nuclear"]
+  tema: "longitud_onda_velocidad"
+  nivel: "basico"
+  tags: ["unidades", "conceptos_basicos"]
 
-respuesta: "fuerza_nuclear_fuerte"
+respuesta: "m/s"
 tipo: completar
 respuestas_validas:
-  - "fuerza_nuclear_fuerte"
+  - "m/s"
 
-enunciado: "En un núcleo con muchos protones, existe una tensión constante entre la repulsión electromagnética de los protones y la ___ que mantiene unido al núcleo."
-
-explicacion: |
-  La fuerza nuclear fuerte es la que contrarresta la repulsión electrostática entre protones cargados positivamente, permitiendo la cohesión del núcleo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "basico"
-  tags: ["nucleones", "particulas"]
-
-respuesta: "electrones"
-tipo: mc
-
-opciones_explicitas: ["protones", "neutrones", "electrones"]
-
-enunciado: "¿Cuál de las siguientes partículas NO es un nucleón (no forma parte del núcleo atómico)?"
-
-explicacion: |
-  Los nucleones son las partículas que componen el núcleo (protones y neutrones). Los electrones orbitan alrededor del núcleo en la corteza atómica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "basico"
-  tags: ["nucleo", "protones", "neutrones"]
-
-respuesta: "positivo"
-tipo: mc
-opciones_explicitas: ["positivo", "negativo", "neutro", "variable"]
-
-enunciado: "A diferencia de los neutrones, que no poseen carga eléctrica, los protones dentro del núcleo tienen una carga de signo ___."
-
-explicacion: |
-  El núcleo atómico está compuesto por protones (carga positiva) y neutrones (carga neutra). La interacción entre protones es de repulsión electrostática, la cual es contrarrestada por la fuerza nuclear fuerte.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "intermedio"
-  tags: ["fuerza_nuclear_fuerte", "alcance"]
-
-respuesta: "corto"
-tipo: completar
-respuestas_validas:
-  - "corto"
-
-enunciado: "La fuerza nuclear fuerte es una interacción de ___ alcance, lo que la distingue de la fuerza electromagnética que actúa a distancias mayores."
-
-explicacion: |
-  La fuerza nuclear fuerte es extremadamente poderosa pero solo actúa a distancias muy cortas (aproximadamente $10^{-15}$ metros). Si los nucleones se separan más allá de ese rango, la fuerza cae drásticamente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "basico"
-  tags: ["isótopos", "nucleones"]
-
-variables:
-  escenario: uno_de([["6 protones", "6 neutrones", "12"], ["17 protones", "8 neutrones", "25"], ["8 protones", "8 neutrones", "16"]])
-
-tipo: completar
-respuesta: escenario[2]
-respuestas_validas:
-  - "12"
-  - "25"
-  - "16"
-
-enunciado: "Un átomo tiene {escenario[0]} y {escenario[1]}. El número de nucleones totales es ___."
+enunciado: "Para calcular la velocidad de una onda usando la fórmula $v = \\lambda \\cdot f$, si la longitud de onda $\\lambda$ está en metros (m) y la frecuencia $f$ está en Hertz (Hz), la unidad resultante para la velocidad será ___."
 
 pasos:
-  - "Identificar el número de protones."
-  - "Identificar el número de neutrones."
-  - "Sumar protones + neutrones para obtener el número de masa (A)."
+  - "Identificar las unidades de los componentes: $\\lambda$ [m] y $f$ [1/s]."
+  - "Multiplicar las unidades: $m \\cdot (1/s) = m/s$."
 
 explicacion: |
-  El número de nucleones (número de masa A) es la suma de protones (Z) y neutrones (N).
+  El error común es confundir la unidad de velocidad con la de frecuencia o longitud. La velocidad es la distancia recorrida por la fase de la onda por unidad de tiempo, por lo tanto, se mide en metros por segundo (m/s).
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "avanzado"
-  tags: ["estabilidad", "fuerza_nuclear"]
-
-respuesta: "fuerza_nuclear_fuerte"
-tipo: mc
-opciones_explicitas: ["fuerza_electromagnetica", "fuerza_nuclear_fuerte", "gravedad", "fuerza_debil"]
-
-enunciado: "Mientras que la fuerza electromagnética tiende a separar a los protones debido a su repulsión, ¿qué fuerza es la responsable de mantener unido el núcleo atómico?"
-
-explicacion: |
-  La fuerza nuclear fuerte actúa como el "pegamento" que mantiene unidos a los protones y neutrones, venciendo la repulsión eléctrica entre los protones.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "basico"
-  tags: ["nucleones", "orden"]
-
-respuesta_orden: ["protones", "neutrones"]
-tipo: ordenar
-opciones_explicitas: ["protones", "neutrones"]
-
-enunciado: "Ordena los siguientes componentes según su ubicación: primero los que definen la identidad del elemento y luego los que aportan masa pero no carga (en un núcleo de hidrógeno pesado o deuterio)."
-
-explicacion: |
-  En el orden solicitado, los protones definen el número atómico (Z) y los neutrones son los acompañantes que no tienen carga. Los electrones se encuentran fuera del núcleo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "basico"
-  tags: ["nucleo", "protones", "neutrones"]
-
-variables:
-  datos: [["Carbono-14", 6, 8], ["Oxigeno-18", 8, 10], ["Uranio-238", 92, 146]]
-  idx: uno_de([0, 1, 2])
-  dato: datos[idx]
-
-enunciado: "Un científico analiza una muestra de {dato[0]}. Sabiendo que este isótopo tiene {dato[1]} protones, ¿cuántos neutrones posee en su núcleo?"
-
-respuestas_validas:
-  - dato[2]
-respuesta: dato[2]
-tipo: completar
-tolerancia_abs: 0
-
-explicacion: |
-  El número de neutrones se calcula restando el número atómico (protones) de la masa atómica. 
-  En el caso de {dato[0]}, tenemos {dato[1]} protones y {dato[2]} neutrones.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "basico"
-  tags: ["carga", "electrones", "protones"]
-
-variables:
-  datos: [["un átomo neutro de Helio", 2, 2, "neutro"], ["un ion de Litio con 3 protones y 2 electrones", 3, 2, "positivo"], ["un ion de Magnesio con 12 protones y 10 electrones", 12, 10, "positivo"]]
-  idx: uno_de([0, 1, 2])
-  dato: datos[idx]
-
-respuesta: dato[3]
-tipo: mc
-opciones_explicitas: ["positivo", "negativo", "neutro"]
-
-enunciado: "Considerando {dato[0]}, si el núcleo tiene {dato[1]} protones y {dato[2]} electrones, la carga eléctrica neta del átomo es ___."
-
-explicacion: |
-  La carga total depende de la diferencia entre protones (positivos) y electrones (negativos). 
-  En el caso de {dato[0]}, la carga es {dato[3]} debido a la diferencia de cargas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
+  tema: "longitud_onda_velocidad"
   nivel: "intermedio"
-  tags: ["fuerza_nuclear_fuerte", "estabilidad", "protones"]
+  tags: ["relacion_inversa", "ondas"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "En un medio donde la velocidad de propagación es constante, si la frecuencia de una onda se duplica, su longitud de onda se reduce a la mitad. ¿Es esto correcto?"
+
+explicacion: |
+  Dado que $v = \lambda \cdot f$ y $v$ es constante, la relación entre $\lambda$ y $f$ es inversamente proporcional. Si $f$ aumenta, $\lambda$ debe disminuir para mantener el producto constante.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad"
+  nivel: "intermedio"
+  tags: ["velocidad_fase", "error_comun"]
+
+variables:
+  v_onda: 340.0
+  f_onda: 170.0
+
+respuesta: "340"
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un estudiante afirma que si una onda tiene una frecuencia de {f_onda} Hz y una longitud de onda de 2 metros, su velocidad es de 340 m/s. ¿Cuál es el valor real de la velocidad en m/s?"
+
+pasos:
+  - "Aplicar la fórmula $v = \\lambda \\cdot f$."
+  - "Calcular $2 \\cdot 170 = 340$."
+
+explicacion: |
+  En este caso, el estudiante tenía razón. El error común es olvidar que la velocidad depende de la frecuencia y la longitud de onda simultáneamente; si cambias una sin ajustar la otra, la velocidad cambia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad"
+  nivel: "basico"
+  tags: ["simbolos", "definiciones"]
+
+respuesta: "longitud de onda"
+tipo: mc
+
+opciones_explicitas: ["frecuencia", "longitud de onda", "amplitud", "periodo"]
+
+enunciado: "En la ecuación de la velocidad de propagación de una onda, el símbolo $\\lambda$ representa la ___."
+
+explicacion: |
+  Es fundamental distinguir entre $\lambda$ (longitud de onda, distancia entre crestas consecutivas) y $A$ (amplitud, que es la altura de la cresta).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad"
+  nivel: "basico"
+  tags: ["despeje", "algebra"]
+
+respuesta_orden: ["v = lambda * f", "f = v / lambda", "lambda = v / f"]
+tipo: ordenar
+
+opciones_explicitas: ["v = lambda * f", "f = v / lambda", "lambda = v / f"]
+
+enunciado: "Ordena las fórmulas para despejar cada variable de la ecuación fundamental de la onda, partiendo de la velocidad."
+
+pasos:
+  - "La fórmula original es $v = \\lambda \\cdot f$."
+  - "Para despejar $f$, pasamos $\\lambda$ dividiendo: $f = v / \\lambda$."
+  - "Para despejar $\\lambda$, pasamos $f$ dividiendo: $\\lambda = v / f$."
+
+explicacion: |
+  El error común es intentar despejar de forma incorrecta (por ejemplo, intentar pasar una frecuencia restando). Recuerda que en la fórmula original, la frecuencia y la longitud de onda se están multiplicando.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "relacion_longitud_frecuencia"
+  nivel: "basico"
+  tags: ["ondas", "conceptos"]
+
+respuesta: "inversamente"
+tipo: completar
+respuestas_validas:
+  - "inversamente"
+  - "inversa"
+
+enunciado: "En una onda de velocidad constante, si la frecuencia aumenta, la longitud de onda debe variar de forma ___ a la frecuencia."
+
+explicacion: |
+  Como la velocidad de propagación es $v = \lambda \cdot f$, si la velocidad es constante, la longitud de onda ($\lambda$) y la frecuencia ($f$) son inversamente proporcionales. Si una sube, la otra baja.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "velocidad_propagacion"
+  nivel: "intermedio"
+  tags: ["ondas", "velocidad"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [[300, 10, 3000], [340, 500, 170000]]
+
+respuesta: datos[escenario_idx][2]
+tipo: mc
+opciones_explicitas: [3000, 170000, 300, 340]
+
+enunciado: "Considera el siguiente caso: una onda tiene una longitud de onda de {datos[escenario_idx][0]} metros y una frecuencia de {datos[escenario_idx][1]} Hz. ¿Cuál es su velocidad de propagación?"
+
+pasos:
+  - "Identificar la longitud de onda (λ): {datos[escenario_idx][0]} m"
+  - "Identificar la frecuencia (f): {datos[escenario_idx][1]} Hz"
+  - "Aplicar la fórmula v = λ · f"
+
+explicacion: |
+  Utilizando la fórmula $v = \lambda \cdot f$:
+  Caso 1: $300 \cdot 10 = 3000$ m/s.
+  Caso 2: $340 \cdot 500 = 170000$ m/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "propiedades_ondas"
+  nivel: "basico"
+  tags: ["conceptos", "velocidad"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es la fuerza nuclear fuerte la responsable de mantener unidos a los protones dentro del núcleo, venciendo la repulsión electromagnética entre ellos?"
+enunciado: "¿Es la velocidad de propagación de una onda una propiedad que depende exclusivamente del medio por el cual se desplaza (y no de la frecuencia de la fuente) en un medio no dispersivo?"
 
 explicacion: |
-  Verdadero. La fuerza nuclear fuerte es una interacción de corto alcance que actúa entre nucleones (protones y neutrones) y es mucho más intensa que la repulsión eléctrica a distancias nucleares.
+  En un medio no dispersivo (como el vacío para la luz), la velocidad de propagación es constante para todas las frecuencias. En medios dispersivos, la velocidad sí puede depender de la frecuencia.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
+  tema: "componentes_ecuacion"
   nivel: "basico"
-  tags: ["particulas", "nucleones", "neutrones"]
+  tags: ["formula", "conceptos"]
 
-variables:
-  datos: [["un núcleo con 11 protones y 12 neutrones", "Sodio-23"], ["un núcleo con 1 proton y 0 neutrones", "Hidrógeno-1"], ["un núcleo con 1 proton y 1 neutrón", "Deuterio"]]
-  idx: uno_de([0, 1, 2])
-  dato: datos[idx]
-
-respuesta: dato[1]
+respuesta: "frecuencia"
 tipo: completar
 respuestas_validas:
-  - "Sodio-23"
-  - "Hidrógeno-1"
-  - "Deuterio"
+  - "frecuencia"
 
-enunciado: "Un detector de partículas identifica un núcleo con {dato[0]}. El nombre de este isótopo es ___."
+enunciado: "En la ecuación de la velocidad de propagación $v = \\lambda \\cdot f$, el término $f$ representa la ___."
 
 explicacion: |
-  El nombre se determina por el número de protones (número atómico) y la suma de protones más neutrones (masa atómica).
+  La letra $f$ representa la frecuencia, que es el número de ciclos por unidad de tiempo.
 ```
 
 ```
 metadata:
   materia: "fisica"
-  tema: "estructura_del_nucleo_atomico"
-  nivel: "basico"
-  tags: ["particulas", "masa", "ordenar"]
+  tema: "relacion_magnitudes"
+  nivel: "intermedio"
+  tags: ["orden", "conceptos"]
 
-opciones_explicitas: ["Protones", "Neutrones", "Electrones"]
-respuesta_orden: ["Protones", "Neutrones", "Electrones"]
+respuesta_orden: ["longitud_onda", "velocidad", "frecuencia"]
 tipo: ordenar
+opciones_explicitas: ["frecuencia", "velocidad", "longitud_onda"]
 
-enunciado: "Ordena las siguientes partículas según su masa aproximada, de mayor a menor (considerando que protones y neutrones tienen masas similares y el electrón es mucho más ligero):"
+enunciado: "Ordena las siguientes magnitudes de menor a mayor, considerando una onda de sonido en el aire con una frecuencia de 440 Hz (una nota musical):"
+
+pasos:
+  - "Estimar la frecuencia ($f$): 440 Hz"
+  - "Estimar la velocidad ($v$): ~340 m/s"
+  - "Estimar la longitud de onda ($\\lambda = v/f$): ~0.77 m"
 
 explicacion: |
-  Los protones y neutrones tienen masas de aproximadamente 1 u, mientras que los electrones tienen una masa de aproximadamente 1/1836 u.
+  Para una onda de sonido estándar:
+  1. La frecuencia es 440 (valor numérico).
+  2. La velocidad es ~340 m/s.
+  3. La longitud de onda es ~0.77 m.
+  *Nota: El orden se basa en la magnitud de los valores numéricos resultantes en unidades SI para este escenario específico.*
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad_propagacion"
+  nivel: "basico"
+  tags: ["sonido", "frecuencia", "longitud_onda"]
+
+variables:
+  escenario: uno_de([[130, 0.5, 260], [440, 1.0, 440], [256, 2.0, 128]])
+  v_sonido: 340
+
+respuesta: v_sonido / escenario[0]
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un músico toca una nota cuya frecuencia es de {escenario[0]} Hz. Si la velocidad del sonido en el aire es de {v_sonido} m/s, ¿cuál es la longitud de onda λ en metros?"
+
+pasos:
+  - "Identificar la fórmula de velocidad: v = λ · f"
+  - "Despejar la longitud de onda: λ = v / f"
+  - "Sustituir los valores: λ = {v_sonido} / {escenario[0]}"
+
+explicacion: |
+  La longitud de onda se calcula dividiendo la velocidad de propagación por la frecuencia: λ = v / f.
+  Para este caso: {v_sonido} / {escenario[0]} = {redondear(v_sonido / escenario[0], 2)} m.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad_propagacion"
+  nivel: "intermedio"
+  tags: ["radio", "electromagnetismo"]
+
+variables:
+  datos: [[100000000, 3.0e8, 3.0], [50000000, 3.0e8, 6.0], [1000000000, 3.0e8, 0.3]]
+  idx: uno_de([0, 1, 2])
+  frecuencia: datos[idx][0]
+  velocidad: datos[idx][1]
+  lambda_correcta: datos[idx][2]
+
+respuesta: lambda_correcta
+tipo: mc
+opciones_explicitas: [0.3, 3.0, 6.0, 300.0]
+
+enunciado: "Una antena de radio emite una señal con una frecuencia de {frecuencia} Hz. Si la señal viaja a la velocidad de la luz ({velocidad} m/s), ¿cuál es la longitud de onda de la radiación (en metros)?"
+
+explicacion: |
+  Usando λ = v / f:
+  λ = {velocidad} / {frecuencia} = {lambda_correcta} m.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad_propagacion"
+  nivel: "basico"
+  tags: ["ondas", "conceptos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si la frecuencia de una onda aumenta pero su velocidad de propagación se mantiene constante, la longitud de onda λ debe disminuir."
+
+explicacion: |
+  Dado que v = λ · f, la frecuencia y la longitud de onda son inversamente proporcionales para una velocidad constante. Si f aumenta, λ disminuye.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad_propagacion"
+  nivel: "intermedio"
+  tags: ["oceanografia", "calculo"]
+
+variables:
+  caso: uno_de([[0.5, 12, 24], [2.0, 10, 5], [0.2, 15, 75]])
+  f_onda: caso[0]
+  v_onda: caso[1]
+  l_onda: caso[2]
+
+respuesta: l_onda
+tipo: completar
+respuestas_validas:
+  - 24.0
+  - 5.0
+  - 75.0
+
+enunciado: "En un estudio oceanográfico se observa una onda con una frecuencia de {f_onda} Hz que se desplaza a una velocidad de {v_onda} m/s. La longitud de onda medida es de ___ m."
+
+explicacion: |
+  Aplicando la relación λ = v / f:
+  λ = {v_onda} / {f_onda} = {l_onda} m.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda_velocidad_propagacion"
+  nivel: "basico"
+  tags: ["procedimiento", "metodologia"]
+
+opciones_explicitas: ["Dividir la velocidad por la frecuencia", "Multiplicar la velocidad por la frecuencia", "Sumar la velocidad y la frecuencia", "Dividir la frecuencia por la velocidad"]
+
+respuesta: "Dividir la velocidad por la frecuencia"
+tipo: mc
+
+enunciado: "Para hallar la longitud de onda (λ) conociendo la velocidad (v) y la frecuencia (f), el procedimiento matemático correcto es:"
+
+explicacion: |
+  Partiendo de la fórmula v = λ · f, despejamos λ pasando la frecuencia a dividir al otro lado de la igualdad: λ = v / f.
+```
+
+## Sección: impulso-cambio-momento (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "basico"
+  tags: ["impulso", "fuerza", "tiempo"]
+
+respuesta: "J"
+tipo: "completar"
+respuestas_validas:
+  - "J"
+  - "impulso"
+
+enunciado: "El producto de la fuerza aplicada sobre un objeto por el intervalo de tiempo durante el cual actúa se denomina ___."
+
+explicacion: |
+  El impulso (J) se define como el producto de la fuerza constante por el tiempo de aplicación: J = F · Δt.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "basico"
+  tags: ["teorema_impulso_momento"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "Según el teorema del impulso y la cantidad de movimiento, el impulso aplicado a un objeto es igual al cambio en su momento lineal (Δp)."
+
+explicacion: |
+  El teorema establece que J = Δp, lo que significa que el impulso aplicado es igual a la variación de la cantidad de movimiento.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "basico"
+  tags: ["unidades", "SI"]
+
+variables:
+  opciones_correctas: ["N·s", "kg·m/s"]
+  opciones_incorrectas: ["N/s"]
+  opciones_validas: ["N·s", "kg·m/s", "N/s"]
+
+respuesta: "N·s"
+tipo: "mc"
+opciones_explicitas: ["N·s", "kg·m/s", "N/s"]
+
+enunciado: "En el Sistema Internacional, la unidad del impulso es ___ (nota: ambas son equivalentes, elige la que representa la definición directa de F·Δt)."
+
+explicacion: |
+  Tanto N·s como kg·m/s son unidades válidas para el impulso debido a la equivalencia dimensional.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "basico"
+  tags: ["momento_lineal", "definicion"]
+
+respuesta: "m * v"
+tipo: "completar"
+respuestas_validas:
+  - "m * v"
+  - "m*v"
+  - "p = m*v"
+
+enunciado: "La cantidad de movimiento o momento lineal de un objeto se define matemáticamente como el producto de su masa por su ___."
+
+explicacion: |
+  El momento lineal (p) es una magnitud vectorial definida como p = m · v.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "intermedio"
+  tags: ["relacion_variables"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si se mantiene constante la fuerza aplicada sobre un objeto, aumentar el tiempo de aplicación reducirá el cambio en el momento lineal."
+
+explicacion: |
+  Como J = Δp y J = F · Δt, si la fuerza es constante, el cambio en el momento es directamente proporcional al tiempo. A mayor tiempo, mayor cambio de momento.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "basico"
+  tags: ["impulso", "teoria"]
+
+tipo: mc
+opciones_explicitas: ["El cambio en el momento lineal", "La velocidad instantánea", "La masa del objeto", "La aceleración gravitatoria"]
+respuesta: "El cambio en el momento lineal"
+
+enunciado: "Según el teorema del impulso y la cantidad de movimiento, el impulso aplicado a un objeto es igual a ___."
+
+explicacion: |
+  El teorema del impulso establece que el impulso (J = F·Δt) es igual a la variación de la cantidad de movimiento (Δp).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "intermedio"
+  tags: ["calculo", "fuerza", "tiempo"]
+
+variables:
+  fuerza: 15.0
+  tiempo: 2.5
+
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Una fuerza constante de {fuerza} N se aplica sobre un cuerpo durante un intervalo de tiempo de {tiempo} s. ¿Cuál es el módulo del impulso aplicado?"
+
+pasos:
+  - "Identificar la fuerza aplicada: F = {fuerza} N"
+  - "Identificar el intervalo de tiempo: Δt = {tiempo} s"
+  - "Calcular el producto: J = F * Δt"
+
+explicacion: |
+  El impulso se calcula multiplicando la fuerza por el tiempo: J = 15.0 * 2.5 = 37.5 kg·m/s.
+
+respuesta: 37.5
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "intermedio"
+  tags: ["momento_lineal", "velocidad"]
+
+variables:
+  masa: 5.0
+  v_inicial: 2.0
+  v_final: 8.0
+
+tipo: completar
+respuestas_validas:
+  - "30.0"
+
+enunciado: "Un objeto de {masa} kg pasa de una velocidad de {v_inicial} m/s a una de {v_final} m/s. El cambio en su momento lineal (Δp) es de ___ kg·m/s."
+
+explicacion: |
+  El cambio de momento es Δp = m * (v_final - v_inicial).
+  Δp = 5.0 * (8.0 - 2.0) = 5.0 * 6.0 = 30.0 kg·m/s.
+
+respuesta: "30.0"
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "basico"
+  tags: ["teoria", "conceptos"]
+
+tipo: vf
+
+enunciado: "¿Si un objeto recibe el mismo impulso (J), pero su masa es el doble, su cambio en la velocidad será la mitad que si la masa fuera la original?"
+
+explicacion: |
+  Verdadero. Como J = Δp = m * Δv, entonces Δv = J / m. Si la masa (m) se duplica, la variación de velocidad (Δv) se reduce a la mitad.
+
+respuesta: verdadero
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "avanzado"
+  tags: ["ordenar", "metodologia"]
+
+tipo: ordenar
+opciones_explicitas: ["Calcular el cambio de momento lineal (Δp)", "Determinar la fuerza aplicada (F)", "Identificar los datos del problema"]
+
+enunciado: "Ordena los pasos lógicos para resolver un problema donde se pide hallar la fuerza aplicada durante un tiempo determinado, conociendo la masa y el cambio de velocidad."
+
+explicacion: |
+  Para resolver problemas de este tipo, primero se extraen los datos, luego se calcula la variación de la cantidad de movimiento y finalmente se despeja la fuerza de la fórmula J = Δp.
+
+respuesta_orden: ["Identificar los datos del problema", "Calcular el cambio de momento lineal (Δp)", "Determinar la fuerza aplicada (F)"]
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "basico"
+  tags: ["impulso", "momento_lineal"]
+
+respuesta: "mismo"
+tipo: mc
+opciones_explicitas: ["mismo", "mayor", "menor", "inverso"]
+
+enunciado: "Si una fuerza constante se aplica sobre un objeto durante un intervalo de tiempo determinado, el cambio en el momento lineal del objeto es ___ que el impulso aplicado."
+
+explicacion: |
+  Por el teorema del impulso y la cantidad de movimiento, el impulso aplicado a un objeto es exactamente igual al cambio en su momento lineal.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "intermedio"
+  tags: ["fuerza_media", "impulso"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [[10.0, 2.0, 20.0], [5.0, 4.0, 20.0]]
+
+respuesta: datos[escenario_idx][2]
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Se aplica una fuerza media de {datos[escenario_idx][0]} N sobre un objeto durante un intervalo de tiempo de {datos[escenario_idx][1]} s. ¿Cuál es el cambio en el momento lineal (___) del objeto?"
+
+pasos:
+  - "Identificar la fuerza aplicada."
+  - "Identificar el intervalo de tiempo."
+  - "Calcular el impulso usando J = F * Delta t."
+
+explicacion: |
+  El cambio en el momento lineal es igual al impulso. 
+  En el caso 1: 10 N * 2 s = 20 kg*m/s.
+  En el caso 2: 5 N * 4 s = 20 kg*m/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "intermedio"
+  tags: ["vector", "direccion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el cambio en el momento lineal de un objeto es un vector, ¿el impulso aplicado debe tener la misma dirección y sentido que el cambio de momento?"
+
+explicacion: |
+  Correcto. El impulso es una magnitud vectorial definida como J = Delta p, por lo tanto, ambos vectores son idénticos en magnitud, dirección y sentido.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "avanzado"
+  tags: ["fuerza_media", "integral"]
+
+respuesta: "fuerza"
+tipo: completar
+
+enunciado: "Cuando una fuerza no es constante en el tiempo, el impulso total se calcula como la integral de la ___ en el intervalo de tiempo dado."
+
+respuestas_validas:
+  - "fuerza"
+
+explicacion: |
+  Para fuerzas variables, el impulso es la integral temporal de la fuerza: J = integral de F(t) dt. El resultado de esa integral es el impulso (en N·s), no una fuerza; si se conoce el impulso J y la duración Δt, puede definirse una fuerza media equivalente como F_media = J / Δt.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "basico"
+  tags: ["masa", "velocidad", "momento"]
+
+respuesta: "Masa y velocidad"
+tipo: mc
+
+opciones_explicitas: ["Masa y velocidad", "Masa y temperatura", "Velocidad y color", "Temperatura y color"]
+
+enunciado: "Para determinar el momento lineal (p = m · v) de un objeto, ¿qué dos magnitudes físicas son necesarias para realizar el cálculo?"
+
+explicacion: |
+  El momento lineal depende directamente de la masa del objeto y de su velocidad instantánea. La temperatura y el color no afectan el momento lineal.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "basico"
+  tags: ["impulso", "fuerza", "teoria"]
+
+respuesta: "fuerza"
+tipo: "mc"
+opciones_explicitas: ["fuerza", "momento", "aceleracion", "velocidad"]
+
+enunciado: "El impulso se define como el producto de una ___ aplicada sobre un objeto por el intervalo de tiempo durante el cual actúa."
+
+explicacion: |
+  El impulso (J) es el producto de la fuerza por el tiempo (J = F * Δt). Mientras que la fuerza es la causa inmediata del cambio de movimiento, el impulso describe el efecto acumulado de esa fuerza en un intervalo de tiempo determinado.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "intermedio"
+  tags: ["teorema", "momento", "impulso"]
+
+variables:
+  escenario: uno_de([["un objeto gana velocidad", "aumenta"], ["un objeto frena", "disminuye"], ["un objeto mantiene velocidad", "es_cero"]])
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "Si el impulso aplicado a un objeto es positivo (J > 0), el cambio en el momento lineal del objeto es positivo."
+
+explicacion: |
+  Según el teorema del impulso y la cantidad de movimiento, el impulso es igual al cambio en el momento lineal (J = Δp). Si el impulso es positivo, el momento final es mayor que el inicial, por lo tanto, el cambio es positivo (aumenta).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "basico"
+  tags: ["unidades", "dimensiones"]
+
+respuesta: "kg·m/s"
+tipo: "completar"
+respuestas_validas:
+  - "kg·m/s"
+
+enunciado: "El impulso puede expresarse en unidades de Newton-segundo (N·s) o en unidades de momento lineal, que son ___."
+
+explicacion: |
+  Ambas unidades son dimensionalmente equivalentes. Como F = kg·m/s² y t = s, entonces F·t = (kg·m/s²)·s = kg·m/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "avanzado"
+  tags: ["vector", "direccion"]
+
+respuesta_orden: ["Fuerza", "Tiempo", "Cambio de momento"]
+tipo: "ordenar"
+opciones_explicitas: ["Fuerza", "Tiempo", "Cambio de momento"]
+
+enunciado: "Ordene los conceptos de izquierda a derecha según la relación causal: la ___ aplicada durante un ___ produce un ___."
+
+explicacion: |
+  La secuencia lógica es: la fuerza (causa) actúa durante un intervalo de tiempo (duración) y esto resulta en un cambio en el momento lineal (efecto).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "intermedio"
+  tags: ["grafico", "fuerza_tiempo"]
+
+respuesta: "aumenta"
+tipo: "mc"
+opciones_explicitas: ["aumenta", "disminuye", "se_mantiene"]
+
+enunciado: "Si una fuerza constante actúa sobre un objeto durante cierto tiempo, produciendo un impulso (cambio en el momento lineal), y el tiempo de aplicación se duplica manteniendo la fuerza constante, el cambio en el momento lineal..."
+
+explicacion: |
+  Dado que J = F * Δt, el impulso es directamente proporcional al tiempo. Si el tiempo se duplica manteniendo la fuerza constante, el cambio en el momento lineal también se duplica (aumenta).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "intermedio"
+  tags: ["impulso", "momento", "dinamica"]
+
+variables:
+  escenario: uno_de([[10.0, 5.0, 2.0], [20.0, 10.0, 4.0], [5.0, 2.5, 1.0]])
+  fuerza: escenario[0]
+  delta_t: escenario[1]
+  masa: escenario[2]
+
+respuesta: fuerza * delta_t
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un jugador de fútbol patea un balón de masa {masa} kg aplicando una fuerza constante de {fuerza} N durante un intervalo de tiempo de {delta_t} s. ¿Cuál es el módulo del impulso aplicado?"
+
+pasos:
+  - "Identificar la fuerza aplicada: F = {fuerza} N"
+  - "Identificar el intervalo de tiempo: Δt = {delta_t} s"
+  - "Calcular el impulso usando la fórmula J = F * Δt"
+
+explicacion: |
+  El impulso (J) se define como el producto de la fuerza aplicada por el tiempo durante el cual actúa. 
+  J = {fuerza} N * {delta_t} s = {fuerza * delta_t} kg·m/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "intermedio"
+  tags: ["momento_lineal", "velocidad"]
+
+variables:
+  caso: uno_de([[1, 10.0, 5.0], [2, 20.0, 10.0], [3, 5.0, 2.0]])
+  m: caso[1]
+  v_i: caso[2]
+  v_f: 0.0
+
+respuesta: m * (v_f - v_i)
+tipo: mc
+opciones_explicitas: [0.0, -50.0, -200.0, -10.0]
+
+enunciado: "Un objeto de masa {m} kg se desplaza con una velocidad inicial de {v_i} m/s y se detiene por completo tras un choque. ¿Cuál es el cambio en su momento lineal (Δp)?"
+
+explicacion: |
+  El cambio en el momento lineal es Δp = m * (v_f - v_i).
+  En este caso: {m} * (0.0 - {v_i}) = {m * (0.0 - v_i)}.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "basico"
+  tags: ["teoria", "impulso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el impulso aplicado a un objeto es nulo (J = 0), entonces el cambio en su momento lineal (Δp) también es nulo."
+
+explicacion: |
+  Según el teorema del impulso y la cantidad de movimiento, J = Δp. Si el impulso es cero, el cambio en el momento también lo es, lo que significa que el objeto mantiene su estado de movimiento original.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "avanzado"
+  tags: ["impulso", "tiempo", "fuerza"]
+
+variables:
+  datos: [[100.0, 2.0], [50.0, 5.0], [200.0, 1.0]]
+  idx: uno_de([0, 1, 2])
+  impulse: datos[idx][0]
+  tiempo: datos[idx][1]
+
+respuesta: impulse / tiempo
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un astronauta de masa constante recibe un impulso de {impulse} kg·m/s durante un tiempo de {tiempo} s. ¿Cuál es la fuerza media aplicada, en N?"
+
+pasos:
+  - "Recordar que J = F_media * Δt"
+  - "Despejar la fuerza: F_media = J / Δt"
+
+explicacion: |
+  Para hallar la fuerza media, dividimos el impulso por el tiempo: {impulse} / {tiempo} = {impulse / tiempo} N.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "impulso_cambio_momento"
+  nivel: "intermedio"
+  tags: ["metodologia"]
+
+opciones_explicitas: ["Calcular Δp = m(v_f - v_i)", "Identificar datos (m, v_i, v_f)", "Igualar J = Δp", "Calcular J = F * Δt"]
+respuesta_orden: ["Identificar datos (m, v_i, v_f)", "Calcular Δp = m(v_f - v_i)", "Igualar J = Δp", "Calcular J = F * Δt"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para resolver un problema donde se pide hallar la fuerza media aplicada durante un choque, conociendo la masa y las velocidades inicial y final."
+
+explicacion: |
+  Para resolver problemas de dinámica de colisiones, primero se extraen los datos, luego se calcula el cambio de movimiento (Δp), se aplica la equivalencia con el impulso y finalmente se despeja la incógnita (fuerza).
 ```
 

@@ -1,8 +1,1843 @@
 # Examen jefe — [PENDIENTE #685]
 
-> Logro #685. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #685. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
 
 ---
+
+## Sección: rocas-igneas-sedimentarias-metamorficas (23 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas"
+  nivel: "basico"
+  tags: ["geologia", "magma"]
+
+tipo: mc
+opciones_explicitas: ["Enfriamiento de magma o lava", "Acumulación de sedimentos", "Presión y temperatura extrema", "Evaporación de agua salada"]
+respuesta: "Enfriamiento de magma o lava"
+
+enunciado: "Las rocas ígneas se originan principalmente por el proceso de ___."
+
+explicacion: |
+  Las rocas ígneas se forman cuando el material fundido (magma si es intrusivo o lava si es extrusivo) se enfría y se solidifica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas"
+  nivel: "basico"
+  tags: ["granito", "basalto"]
+
+variables:
+  escenario: uno_de([["granito", "intrusiva"], ["basalto", "extrusiva"]])
+
+tipo: completar
+respuestas_validas:
+  - "intrusiva"
+  - "extrusiva"
+
+enunciado: "Si el magma se enfría lentamente bajo la superficie terrestre, forma una roca de tipo {escenario[0]} y su clasificación es ___."
+
+explicacion: |
+  El {escenario[0]} es una roca ígnea {escenario[1]} porque se formó en el interior de la corteza.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas"
+  nivel: "intermedio"
+  tags: ["clasificacion"]
+
+tipo: mc
+opciones_explicitas: ["Granito y Basalto", "Caliza y Arenisca", "Mármol y Pizarra", "Granito y Caliza"]
+respuesta: "Granito y Basalto"
+
+enunciado: "¿Cuál de los siguientes pares de rocas son ejemplos de rocas ígneas?"
+
+explicacion: |
+  El granito es una roca ígnea intrusiva y el basalto es una roca ígnea extrusiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas"
+  nivel: "basico"
+  tags: ["magma", "lava"]
+
+tipo: completar
+enunciado: "Cuando el material fundido sale a la superficie terrestre, se denomina ___."
+respuesta: "Lava"
+explicacion: |
+  El término magma se usa para el material fundido bajo la superficie, mientras que lava es el término para el material que ya ha emergido.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas"
+  nivel: "avanzado"
+  tags: ["textura", "enfriamiento"]
+
+variables:
+  caso: uno_de([["lento", "cristales grandes"], ["rápido", "cristales pequeños"]])
+
+tipo: completar
+respuestas_validas:
+  - "cristales grandes"
+  - "cristales pequeños"
+
+enunciado: "Un enfriamiento de tipo {caso[0]} en el interior de la corteza produce rocas con ___."
+
+explicacion: |
+  El enfriamiento {caso[0]} permite que los minerales tengan tiempo de crecer, resultando en {caso[1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "basico"
+  tags: ["sedimentarias", "procesos"]
+
+tipo: mc
+opciones_explicitas: ["Fragmentación de rocas ígneas", "Enfriamiento de magma", "Presión y calor extremo", "Sublimación de gases"]
+respuesta: "Fragmentación de rocas ígneas"
+
+enunciado: "Las rocas sedimentarias se forman principalmente a través del proceso de acumulación y compactación de ___."
+
+explicacion: |
+  Las rocas sedimentarias se originan por la acumulación de sedimentos (fragmentos de otras rocas, restos orgánicos o sales) que se depositan en capas y se compactan con el tiempo.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "basico"
+  tags: ["ejemplos", "sedimentarias"]
+
+tipo: mc
+opciones_explicitas: ["Arenisca y caliza", "Granito y basalto", "Mármol y pizarra", "Obsidiana y pumita"]
+respuesta: "Arenisca y caliza"
+
+enunciado: "Un ejemplo clásico de rocas que se forman por la acumulación de sedimentos es el par:"
+
+explicacion: |
+  La arenisca (formada por granos de arena) y la caliza (frecuentemente de origen orgánico o químico) son ejemplos fundamentales de rocas sedimentarias.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "intermedio"
+  tags: ["procesos", "compactacion"]
+
+tipo: ordenar
+opciones_explicitas: ["Meteorización y erosión", "Transporte de sedimentos", "Deposición en capas", "Litificación (compactación y cementación)"]
+
+enunciado: "Ordena cronológicamente los pasos necesarios para la formación de una roca sedimentaria:"
+
+explicacion: |
+  Primero la roca madre se rompe (meteorización), los restos viajan (transporte), se asientan (deposición) y finalmente se transforman en roca sólida (litificación).
+respuesta_orden: ["Meteorización y erosión", "Transporte de sedimentos", "Deposición en capas", "Litificación (compactación y cementación)"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "basico"
+  tags: ["sedimentos", "composición"]
+
+tipo: completar
+respuestas_validas:
+  - "restos orgánicos"
+
+enunciado: "Además de fragmentos de otras rocas, las rocas sedimentarias pueden formarse por la acumulación de ___."
+
+explicacion: |
+  Los restos orgánicos (como conchas de animales o materia vegetal) son componentes esenciales que, al acumularse, dan lugar a rocas como la caliza.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "intermedio"
+  tags: ["estratigrafia", "calculo"]
+
+variables:
+  espesor_capa: random_float(1.5, 5.5)
+  cantidad_capas: 12
+  espesor_total: espesor_capa * cantidad_capas
+
+tipo: completar
+tolerancia_abs: 0.1
+respuesta: espesor_total
+
+enunciado: "Si un afloramiento sedimentario presenta {cantidad_capas} capas, y cada capa tiene un espesor promedio de {espesor_capa} metros, ¿cuál es el espesor total del afloramiento en metros?"
+
+pasos:
+  - "Determinar el espesor de una capa: {espesor_capa}"
+  - "Multiplicar el espesor por el número de capas: {espesor_capa} * {cantidad_capas}"
+
+explicacion: |
+  El espesor total se obtiene multiplicando el espesor de una capa individual por la cantidad total de capas depositadas.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "rocas_metamorficas"
+  nivel: "basico"
+  tags: ["procesos", "calor", "presion"]
+
+tipo: mc
+opciones_explicitas: ["fundición completa de la roca", "transformación por calor y/o presión sin fundirse", "acumulación de sedimentos en el lecho marino", "enfriamiento de magma expuesto"]
+
+enunciado: "Las rocas metamórficas se forman cuando una roca preexistente es sometida a condiciones de ___ sin llegar a fundirse."
+
+respuesta: "transformación por calor y/o presión sin fundirse"
+
+explicacion: |
+  El metamorfismo es un proceso de transformación en estado sólido. Si la roca se fundiera, se convertiría en magma y daría lugar a una roca ígnea.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "rocas_metamorficas"
+  nivel: "basico"
+  tags: ["marmol", "caliza", "transformacion"]
+
+variables:
+  datos: [["caliza", "mármol"], ["granito", "gneis"], ["arenisca", "cuarcita"]]
+  idx: uno_de([0, 1, 2])
+
+tipo: completar
+respuestas_validas:
+  - "mármol"
+  - "gneis"
+  - "cuarcita"
+
+enunciado: "Cuando la roca ___ se somete a procesos metamórficos, se transforma en ___."
+
+pasos:
+  - "Identificar la roca sedimentaria original."
+  - "Asociar su producto metamórfico correspondiente."
+
+respuesta: datos[idx][1]
+
+explicacion: |
+  La caliza es una roca sedimentaria que, bajo presión y temperatura, se recristaliza para formar mármol.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "rocas_metamorficas"
+  nivel: "intermedio"
+  tags: ["clasificacion", "origen"]
+
+tipo: ordenar
+opciones_explicitas: ["Magma", "Roca Ígnea", "Roca Sedimentaria", "Roca Metamórfica"]
+
+enunciado: "Ordena el ciclo de formación de las rocas según su origen, desde el material fundido hasta la roca transformada por presión:"
+
+respuesta_orden: ["Magma", "Roca Ígnea", "Roca Sedimentaria", "Roca Metamórfica"]
+
+explicacion: |
+  El ciclo comienza con el magma que al enfriarse crea rocas ígneas; estas pueden erosionarse en sedimentos (sedimentarias) y finalmente transformarse por presión en metamórficas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "basico"
+  tags: ["fósiles", "sedimentarias"]
+
+tipo: completar
+enunciado: "Los fósiles se encuentran casi exclusivamente en un tipo de roca llamado ___."
+respuesta: "Rocas sedimentarias"
+explicacion: |
+  Los fósiles requieren la acumulación de sedimentos que entierren la materia orgánica rápidamente. Las rocas ígneas y metamórficas implican procesos de calor y presión que destruyen los restos orgánicos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "intermedio"
+  tags: ["procesos", "fósiles"]
+
+tipo: mc
+opciones_explicitas: ["Calor y presión", "Erosión y sedimentación", "Cristalización y enfriamiento"]
+respuesta: "Calor y presión"
+
+enunciado: "Las rocas ígneas y metamórficas suelen destruir la materia orgánica debido a la acción de:"
+
+explicacion: |
+  El calor extremo de la formación de rocas ígneas y la presión de las metamórficas descomponen o funden cualquier resto orgánico que pudiera existir.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "avanzado"
+  tags: ["geologia", "fósiles"]
+
+respuesta: "ígneas"
+tipo: completar
+respuestas_validas:
+  - "ígneas"
+
+enunciado: "Si un paleontólogo busca restos de un trilobita, lo hará en rocas de tipo sedimentarias. Si busca magma solidificado, lo hará en rocas ___."
+
+pasos:
+  - "Identificar el tipo de roca donde se preserva la vida."
+  - "Identificar el origen de las rocas ígneas."
+
+explicacion: |
+  Los fósiles son indicadores de ambientes sedimentarios. Las rocas ígneas resultan de magma y las metamórficas de transformación por calor/presión.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "basico"
+  tags: ["clasificacion"]
+
+tipo: ordenar
+opciones_explicitas: ["Sedimentación", "Litificación", "Fosilización"]
+
+enunciado: "Ordena los pasos típicos para la formación de un fósil en una roca sedimentaria:"
+
+explicacion: |
+  Primero los restos se cubren con sedimentos (sedimentación), luego esos sedimentos se compactan (litificación) y finalmente se preservan los restos (fosilización).
+respuesta_orden: ["Sedimentación", "Litificación", "Fosilización"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "¿Es posible encontrar fósiles de plantas en una corriente de lava fresca?"
+
+explicacion: |
+  No, el calor extremo de la lava (roca ígnea) incineraría instantáneamente la materia orgánica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "basico"
+  tags: ["clasificacion", "rocas"]
+
+variables:
+  datos: [["Magma enfriado lentamente bajo la superficie", "ignea"], ["Sedimentos compactados por presión", "sedimentaria"], ["Roca transformada por calor y presión", "metamorfica"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["ignea", "sedimentaria", "metamorfica"]
+
+enunciado: "Se observa una roca cuya formación se describe como: {datos[idx][0]}. ¿A qué tipo de roca pertenece?"
+
+explicacion: |
+  Las rocas se clasifican según su origen: las ígneas vienen de magma, las sedimentarias de sedimentos y las metamórficas de transformación.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "intermedio"
+  tags: ["procesos", "geologia"]
+
+variables:
+  datos: [["Litificación de sedimentos", "sedimentaria"], ["Cristalización de lava", "ignea"], ["Recristalización mineral", "metamorfica"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "sedimentaria"
+  - "ignea"
+  - "metamorfica"
+
+enunciado: "El proceso observado es la {datos[idx][0]}. Por lo tanto, la roca es de tipo ___."
+
+explicacion: |
+  Cada proceso geológico es característico de un grupo de rocas específico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "avanzado"
+  tags: ["textura", "clasificacion"]
+
+variables:
+  datos: [["presencia de fósiles", "sedimentaria"], ["textura afanítica", "ignea"], ["foliación marcada", "metamorfica"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["sedimentaria", "ignea", "metamorfica"]
+
+enunciado: "Una muestra presenta {datos[idx][0]}. Esto indica que es una roca ___."
+
+explicacion: |
+  La textura y la presencia de fósiles son indicadores clave del origen de la roca.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "intermedio"
+  tags: ["ciclo_rocoso", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["Roca Ígnea", "Sedimento", "Roca Sedimentaria"]
+respuesta_orden: ["Roca Ígnea", "Sedimento", "Roca Sedimentaria"]
+
+enunciado: "Ordena los elementos según el proceso de formación de una roca sedimentaria a partir de material ígneo erosionado:"
+
+explicacion: |
+  El ciclo de las rocas implica la transformación constante de un tipo en otro: una roca ígnea expuesta en la superficie se erosiona en sedimentos, que luego se compactan y cementan para formar una roca sedimentaria.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "rocas_igneas_sedimentarias_metamorficas"
+  nivel: "basico"
+  tags: ["calor", "presion"]
+
+variables:
+  datos: [["fusión parcial", "ignea"], ["compactación", "sedimentaria"], ["reordenamiento atómico", "metamorfica"]]
+  idx: uno_de([0, 1, 2])
+
+respuestas_validas:
+  - datos[idx][1]
+respuesta: datos[idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si una roca se forma por {datos[idx][0]}, su clasificación es ___."
+
+explicacion: |
+  La fusión produce magma (ígnea), la compactación produce sedimentaria y el reordenamiento por calor/presión produce metamórfica.
+```
+
+## Sección: procariotas (25 preguntas)
+
+```
+metadata:
+  materia: "biologia"
+  tema: "procariotas"
+  nivel: "basico"
+  tags: ["origen", "evolucion"]
+
+respuesta: 3800000000
+tipo: completar
+tolerancia_abs: 100000000
+
+enunciado: "Se estima que las primeras formas de vida procariota aparecieron hace aproximadamente ___ años."
+
+explicacion: |
+  Los registros fósiles y evidencia química sugieren que la vida procariota surgió hace unos 3800 millones de años.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "procariotas"
+  nivel: "basico"
+  tags: ["estructura", "celula"]
+
+opciones_explicitas: ["con núcleo definido y organelas", "sin núcleo definido ni organelas membranosas", "con núcleo definido pero sin organelas", "sin núcleo definido pero con organelas"]
+
+respuesta: "sin núcleo definido ni organelas membranosas"
+tipo: mc
+
+enunciado: "Una característica fundamental que define a las células procariotas es que carecen de:"
+
+explicacion: |
+  A diferencia de las eucariotas, los procariotas no poseen un núcleo delimitado por una membrana ni organelas complejas como mitocondrias o cloroplastos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "procariotas"
+  nivel: "intermedio"
+  tags: ["clasificacion", "eucariotas"]
+
+respuesta: "procariota"
+tipo: completar
+respuestas_validas:
+  - "procariota"
+
+enunciado: "Si observamos una célula que no posee un núcleo definido, estamos ante una célula de tipo ___."
+
+explicacion: |
+  La presencia o ausencia de un núcleo definido es el criterio principal para distinguir entre células procariotas y eucariotas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "procariotas"
+  nivel: "basico"
+  tags: ["evolucion", "orden"]
+
+opciones_explicitas: ["Procariotas", "Eucariotas", "Multicelulares"]
+
+respuesta_orden: ["Procariotas", "Eucariotas", "Multicelulares"]
+tipo: ordenar
+
+enunciado: "Ordena cronológicamente la aparición de las siguientes formas de vida, de la más antigua a la más reciente:"
+
+explicacion: |
+  La evolución biológica comenzó con organismos procariotas unicelulares, seguidos por células eucariotas más complejas y, finalmente, la vida multicelular.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "procariotas"
+  nivel: "basico"
+  tags: ["estructura", "membranas"]
+
+opciones_explicitas: ["Verdadero", "Falso"]
+
+respuesta: "Verdadero"
+tipo: mc
+
+enunciado: "¿Es correcto afirmar que las células procariotas poseen organelas membranosas como el retículo endoplasmático?"
+
+explicacion: |
+  Es falso. Las organelas membranosas son una característica exclusiva de las células eucariotas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "dominios_procariotas"
+  nivel: "basico"
+  tags: ["biologia", "taxonomia", "procariotas"]
+
+tipo: mc
+opciones_explicitas: ["Bacterias y Arqueas", "Bacterias y Eucariotas", "Arqueas y Eucariotas", "Procariotas y Eucariotas"]
+respuesta: "Bacterias y Arqueas"
+
+enunciado: "Aunque ambos son organismos procariotas, la vida se divide en tres dominios. Los dos dominios que agrupan a los procariotas son ___ y ___."
+
+explicacion: |
+  Los procariotas se dividen en dos dominios distintos: Bacteria y Archaea. Aunque comparten la ausencia de núcleo, sus composiciones químicas y genéticas son muy diferentes.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "bioquimica_celular"
+  nivel: "intermedio"
+  tags: ["membrana", "arqueas", "bacterias"]
+
+variables:
+  escenario: uno_de([["enlaces éter", "enlaces éster"], ["enlaces éster", "enlaces éter"]])
+
+tipo: completar
+respuestas_validas:
+  - "enlaces éter"
+  - "enlaces éster"
+
+enunciado: "Una diferencia fundamental en la composición de la membrana plasmática es que las Arqueas poseen lípidos unidos por ___ , mientras que las Bacterias utilizan ___ ."
+
+pasos:
+  - "Identificar el tipo de enlace en Arqueas"
+  - "Identificar el tipo de enlace en Bacterias"
+
+explicacion: |
+  Las Arqueas presentan enlaces éter en sus lípidos de membrana, lo que les otorga mayor estabilidad (especialmente en ambientes extremos), mientras que las Bacterias poseen enlaces éster.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "genetica_procariota"
+  nivel: "intermedio"
+  tags: ["adn", "transcripcion", "arqueas"]
+
+tipo: mc
+opciones_explicitas: ["Más similar a las Eucariotas", "Más similar a las Bacterias", "No tiene similitudes con ningún dominio"]
+respuesta: "Más similar a las Eucariotas"
+enunciado: "A pesar de su morfología procariota, el proceso de transcripción y replicación del ADN en las Arqueas es molecularmente ___ ."
+explicacion: |
+  Aunque son procariotas, las Arqueas comparten maquinaria de replicación y transcripción mucho más cercana a la de las Eucariotas que a la de las Bacterias.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "taxonomia_procariota"
+  nivel: "basico"
+  tags: ["clasificacion", "taxonomia"]
+
+tipo: ordenar
+opciones_explicitas: ["Dominio Bacteria", "Dominio Archaea", "Dominio Eukarya"]
+
+enunciado: "Ordena los tres dominios de la vida de menor a mayor complejidad estructural (considerando la presencia de núcleo y organelos):"
+
+explicacion: |
+  El orden correcto es Bacteria y Archaea (ambos procariotas, sin núcleo) seguidos por Eukarya (eucariotas, con núcleo complejo).
+respuesta_orden: ["Dominio Bacteria", "Dominio Archaea", "Dominio Eukarya"]
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "ecologia_microbiana"
+  nivel: "avanzado"
+  tags: ["arqueas", "extremofilos"]
+
+variables:
+  caso: uno_de([["un ambiente con pH extremo", "temperaturas de ebullición"], ["temperaturas de ebullición", "un ambiente con pH extremo"]])
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si un organismo procariota es capaz de sobrevivir en {caso[0]}, es muy probable que pertenezca al dominio ___ ."
+
+respuestas_validas:
+  - "Archaea"
+  - "Arqueas"
+
+explicacion: |
+  Las Arqueas son famosas por ser extremófilas, capaces de habitar en condiciones de salinidad, temperatura o pH que serían letales para la mayoría de las Bacterias.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "procariotas"
+  nivel: "basico"
+  tags: ["estromatolitos", "cianobacterias", "fósiles"]
+
+tipo: mc
+opciones_explicitas: ["Estructuras minerales formadas por la actividad de colonias de microorganismos", "Restos fósiles de animales marinos del periodo Cámbrico", "Células procariotas individuales preservadas en ámbar", "Depósitos de azufre volcánico de origen abiótico"]
+respuesta: "Estructuras minerales formadas por la actividad de colonias de microorganismos"
+
+enunciado: "Los estromatolitos se definen como ___."
+
+explicacion: |
+  Los estromatolitos son estructuras sedimentarias compuestas por capas de carbonato de calcio, formadas por la actividad de comunidades de microorganismos, principalmente cianobacterias, que atrapan sedimentos y precipitan minerales.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "procariotas"
+  nivel: "intermedio"
+  tags: ["evidencia", "fósiles", "precámbrico"]
+
+respuesta: "Estructuras laminares de carbonato"
+tipo: mc
+opciones_explicitas: ["Estructuras laminares de carbonato", "Huellas de trilobites", "Fósiles de plantas vasculares", "Células con núcleo definido"]
+
+enunciado: "En el registro fósil, ¿cuál es una de las principales evidencias de la existencia de vida procariota en la Tierra primitiva?"
+
+pasos:
+  - "Identificar el tipo de estructura fósil mencionada."
+  - "Relacionar la estructura con el tipo de organismo que la originó."
+
+explicacion: |
+  Las estructuras laminares de carbonato (estromatolitos) son la evidencia más antigua de actividad biológica, indicando la presencia de organismos fotosintéticos en el Precámbrico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "procariotas"
+  nivel: "intermedio"
+  tags: ["fotosíntesis", "oxígeno", "atmósfera"]
+
+tipo: completar
+respuestas_validas:
+  - "oxígeno"
+  - "CO2"
+  - "nitrógeno"
+
+enunciado: "La actividad fotosintética de las cianobacterias en los estromatolitos fue responsable de la acumulación de ___ en la atmósfera primitiva."
+
+explicacion: |
+  La fotosíntesis oxigénica realizada por las cianobacterias permitió la Gran Oxidación, cambiando la composición química de la atmósfera terrestre.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "procariotas"
+  nivel: "avanzado"
+  tags: ["cronología", "evolución", "estromatolitos"]
+
+tipo: ordenar
+opciones_explicitas: ["Aparición de vida procariota", "Formación de los primeros estromatolitos", "Gran Oxidación atmosférica", "Aparición de células eucariotas"]
+
+enunciado: "Ordene cronológicamente los siguientes eventos en la historia de la vida procariota y la atmósfera:"
+
+explicacion: |
+  La secuencia correcta comienza con la vida procariota simple, seguida de la formación de estromatolitos que permitieron la fotosíntesis masiva, lo que llevó a la Gran Oxidación, permitiendo finalmente la evolución de células más complejas.
+respuesta_orden: ["Aparición de vida procariota", "Formación de los primeros estromatolitos", "Gran Oxidación atmosférica", "Aparición de células eucariotas"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "procariotas"
+  nivel: "intermedio"
+  tags: ["composición", "biología", "geología"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si un estromatolito está compuesto por una matriz de carbonato de calcio y una capa de sedimentos, ¿cuántos componentes principales se mencionan en esta descripción simple? (Responda con el número entero)"
+
+explicacion: |
+  En la descripción se mencionan dos componentes: carbonato de calcio y sedimentos.
+
+respuesta: 2
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "organización_celular"
+  nivel: "basico"
+  tags: ["procariota", "eucariota", "nucleo"]
+
+respuesta: "sin núcleo"
+tipo: completar
+respuestas_validas:
+  - "sin núcleo"
+  - "sin nucleo"
+
+enunciado: "La principal diferencia estructural es que una célula procariota se caracteriza por no poseer ___."
+
+explicacion: |
+  Las células procariotas carecen de una envoltura nuclear, por lo que su material genético se encuentra libre en el citoplasma (en una región llamada nucleoide).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "organización_celular"
+  nivel: "basico"
+  tags: ["clasificacion", "eucariota", "procariota"]
+
+respuesta: "eucariota"
+tipo: mc
+opciones_explicitas: ["procariota", "eucariota"]
+
+enunciado: "Si observamos una célula con un núcleo definido y organelos membranosos, estamos ante una célula de tipo:"
+
+explicacion: |
+  Las células eucariotas (como las animales o vegetales) poseen un núcleo que contiene el ADN, a diferencia de las procariotas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "organización_celular"
+  nivel: "intermedio"
+  tags: ["organelos", "membranas", "procariota"]
+
+respuesta: "menor complejidad"
+tipo: mc
+opciones_explicitas: ["mayor complejidad", "menor complejidad", "igual complejidad"]
+
+enunciado: "En términos de organización interna y presencia de organelos membranosos, la célula procariota presenta una ___ en comparación con la eucariota."
+
+explicacion: |
+  Las procariotas son mucho más simples y no poseen organelos rodeados por membranas como mitocondrias o cloroplastos.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "organización_celular"
+  nivel: "intermedio"
+  tags: ["evolucion", "orden", "estructuras"]
+
+respuesta_orden: ["nucleoide", "citoplasma", "membrana"]
+tipo: ordenar
+opciones_explicitas: ["nucleoide", "citoplasma", "membrana"]
+
+enunciado: "Ordena las estructuras de una célula procariota desde el área donde se encuentra el material genético hacia el límite externo de la célula:"
+
+explicacion: |
+  En una procariota, el ADN está en el nucleoide, rodeado por el citoplasma, y todo está contenido por la membrana plasmática.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "organización_celular"
+  nivel: "avanzado"
+  tags: ["diagnostico", "nucleo", "organelos"]
+
+variables:
+  caso: uno_de([["tiene núcleo", "eucariota"], ["no tiene núcleo", "procariota"]])
+
+respuesta: caso[1]
+tipo: mc
+opciones_explicitas: ["eucariota", "procariota"]
+
+enunciado: "Si al analizar una muestra celular se determina que la célula {caso[0]}, su clasificación es:"
+
+explicacion: |
+  La presencia o ausencia de un núcleo definido es el criterio fundamental para distinguir entre procariotas y eucariotas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "clasificacion_celular"
+  nivel: "basico"
+  tags: ["procariotas", "eucariotas"]
+
+variables:
+  datos: [["Bacillus subtilis", "procariota"], ["Saccharomyces cerevisiae", "eucariota"], ["Escherichia coli", "procariota"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "El organismo {datos[idx][0]} presenta una organización celular caracterizada por ser {datos[idx][1]}."
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["procariota", "eucariota"]
+
+explicacion: |
+  Los organismos procariotas carecen de un núcleo definido, mientras que los eucariotas poseen un núcleo rodeado por una membrana.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "estructura_celular"
+  nivel: "intermedio"
+  tags: ["adn", "nucleo"]
+
+variables:
+  datos: [["ADN circular libre en el citoplasma", "procariota"], ["ADN lineal dentro de un núcleo", "eucariota"]]
+  idx: uno_de([0, 1])
+
+enunciado: "Si observamos un organismo cuyo material genético es {datos[idx][0]}, podemos clasificarlo como un organismo ___."
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "procariota"
+  - "eucariota"
+
+explicacion: |
+  La presencia de un núcleo con ADN lineal es la característica distintiva de las células eucariotas.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "organelos"
+  nivel: "basico"
+  tags: ["organelos", "mitocondria"]
+
+variables:
+  datos: [["presencia de mitocondrias", "eucariota"], ["ausencia de organelos membranosos", "procariota"]]
+  idx: uno_de([0, 1])
+
+enunciado: "La {datos[idx][0]} es un indicador de que la célula es de tipo ___."
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["eucariota", "procariota"]
+
+explicacion: |
+  Las células procariotas no poseen organelos rodeados por membranas como las mitocondrias o el retículo endoplasmático.
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "morfologia_celular"
+  nivel: "basico"
+  tags: ["tamaño", "complejidad"]
+
+variables:
+  datos: [["1.0 micrometros", "procariota"], ["100 micrometros", "eucariota"]]
+  idx: uno_de([0, 1])
+
+enunciado: "Un organismo con un diámetro de {datos[idx][0]} suele ser un organismo ___."
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "procariota"
+  - "eucariota"
+
+explicacion: |
+  Las células procariotas son generalmente mucho más pequeñas (1-5 µm) que las eucariotas (10-100 µm).
+```
+
+```
+metadata:
+  materia: "biologia"
+  tema: "evolucion_celular"
+  nivel: "avanzado"
+  tags: ["evolucion", "linajes"]
+
+enunciado: "Ordena los niveles de complejidad biológica desde el más simple al más complejo según la escala evolutiva:"
+
+respuesta_orden: ["Procariota", "Eucariota", "Multicelularidad"]
+tipo: ordenar
+opciones_explicitas: ["Procariota", "Eucariota", "Multicelularidad"]
+
+explicacion: |
+  La evolución biológica muestra una progresión desde células simples sin núcleo (procariotas) hacia células complejas (eucariotas) y finalmente organismos multicelulares.
+```
+
+## Sección: tiempo-geologico-eones-eras-periodos (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "basico"
+  tags: ["jerarquia", "escala_temporal"]
+
+tipo: mc
+opciones_explicitas: ["Eón > Era > Período > Época", "Época > Período > Era > Eón", "Eón > Período > Era > Época", "Era > Eón > Época > Período"]
+respuesta: "Eón > Era > Período > Época"
+
+enunciado: "La escala de tiempo geológico es una estructura jerárquica. ¿Cuál de las siguientes secuencias representa correctamente el orden de mayor a menor duración?"
+
+explicacion: |
+  La escala geológica se organiza de lo macro a lo micro: los Eones son los bloques más grandes, que se dividen en Eras, estas en Períodos y estos en Épocas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "basico"
+  tags: ["orden", "jerarquia"]
+
+tipo: ordenar
+opciones_explicitas: ["Eón", "Era", "Período", "Época"]
+respuesta_orden: ["Eón", "Era", "Período", "Época"]
+
+enunciado: "Ordena las siguientes unidades de tiempo geológico de la más extensa (mayor duración) a la más breve (menor duración)."
+
+explicacion: |
+  La jerarquía correcta es: Eón (la unidad más grande), seguido de la Era, el Período y finalmente la Época.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "intermedio"
+  tags: ["jerarquia", "terminologia"]
+
+tipo: mc
+opciones_explicitas: ["Período", "Época", "Eón", "Era"]
+respuesta: "Período"
+
+enunciado: "Si nos encontramos dentro de una Era geológica, la unidad de tiempo inmediatamente más pequeña que ella es un ___."
+
+explicacion: |
+  La estructura es: Eón $\rightarrow$ Era $\rightarrow$ Período $\rightarrow$ Época. Por lo tanto, después de una Era sigue un Período.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "intermedio"
+  tags: ["completar", "jerarquia"]
+
+tipo: completar
+respuestas_validas:
+  - "Período"
+  - "Época"
+respuesta: "Período"
+
+enunciado: "En la jerarquía temporal, un Eón se divide en Eras, y una Era se divide en ___."
+
+explicacion: |
+  La división directa de una Era es el Período.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "avanzado"
+  tags: ["logica", "jerarquia"]
+
+tipo: vf
+
+enunciado: "Considerando la jerarquía geológica, un Período es una subdivisión de una Época. ¿Es esto correcto?"
+
+respuesta: falso
+
+explicacion: |
+  Es falso. Es al revés: una Época es una subdivisión de un Período. El Período es la unidad mayor.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "basico"
+  tags: ["precambrico", "eones", "geologia"]
+
+respuesta: "88%"
+tipo: completar
+respuestas_validas:
+  - "88%"
+  - "ochenta y ocho por ciento"
+
+enunciado: "El Precámbrico, que abarca desde la formación de la Tierra hasta la aparición de organismos complejos, representa aproximadamente el ___ de la historia geológica del planeta."
+
+explicacion: |
+  El Precámbrico es un término que agrupa los eones Hadeico, Arcaico y Proterozoico. Aunque constituye la gran mayoría del tiempo terrestre, su registro es escaso debido a la falta de fósiles de partes duras (conchas, huesos) en esa época.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "intermedio"
+  tags: ["eones", "precambrico"]
+
+variables:
+  escenario: uno_de([["Hadeico", "formación de la Tierra y bombardeo intenso"], ["Arcaico", "aparición de las primeras células procariontes"], ["Proterozoico", "oxigenación de la atmósfera y células eucariotas"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["formación de la Tierra y bombardeo intenso", "aparición de las primeras células procariontes", "oxigenación de la atmósfera y células eucariotas"]
+
+enunciado: "Si nos situamos en el eón {escenario[0]}, ¿cuál fue el evento característico de ese periodo?"
+
+explicacion: |
+  El eón {escenario[0]} se caracteriza por {escenario[1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "intermedio"
+  tags: ["orden_cronologico", "eones"]
+
+respuesta_orden: ["Hadeico", "Arcaico", "Proterozoico"]
+tipo: ordenar
+opciones_explicitas: ["Hadeico", "Arcaico", "Proterozoico"]
+
+enunciado: "Ordena cronológicamente, desde el más antiguo al más reciente, los tres eones que conforman el Precámbrico:"
+
+explicacion: |
+  La secuencia correcta es Hadeico (formación), seguido del Arcaico (vida unicelular) y finalmente el Proterozoico (mayor complejidad y oxígeno).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "basico"
+  tags: ["paleontologia", "precambrico"]
+
+respuesta: "fósiles complejos"
+tipo: completar
+respuestas_validas:
+  - "fósiles complejos"
+  - "restos de organismos complejos"
+
+enunciado: "Una de las razones por las cuales el Precámbrico suele ser menos detallado en los libros de texto es la escasez de ___."
+
+explicacion: |
+  Durante la mayor parte del Precámbrico, la vida estaba compuesta por organismos microscópicos o blandos que no dejaban huellas fósiles fácilmente preservables, a diferencia de la era Paleozoica en adelante.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "avanzado"
+  tags: ["oxigeno", "proterozoico"]
+
+respuesta: "Oxigenación de la atmósfera"
+tipo: mc
+opciones_explicitas: ["Oxigenación de la atmósfera", "Aparición de la fotosíntesis oxigénica", "Condensación de la corteza terrestre"]
+
+enunciado: "¿Cuál es el evento que constituye el hito fundamental que define al eón Proterozoico?"
+
+explicacion: |
+  Aunque la fotosíntesis comenzó antes, la acumulación masiva de oxígeno (Gran Evento de Oxidación) es el rasgo distintivo del Proterozoico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "intermedio"
+  tags: ["extincion", "permo_trias"]
+
+respuesta: "extincion_masiva"
+tipo: "mc"
+opciones_explicitas: ["cambio_climatico", "extincion_masiva", "formacion_continentes", "tectonica_de_placas"]
+
+enunciado: "Los límites entre eras y periodos geológicos suelen estar marcados por eventos de ___ que provocan cambios drásticos en el registro fósil."
+
+explicacion: |
+  La mayoría de los límites geológicos importantes (como el del Pérmico-Triásico) se definen por la desaparición repentina de grandes grupos de organismos en el registro fósil.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "basico"
+  tags: ["cretacico_paleogeno", "asteroide"]
+
+variables:
+  escenario: uno_de([["Cretácico-Paleógeno", "impacto de asteroide"], ["Pérmico-Triásico", "erupciones masivas"]])
+
+respuesta: escenario[1]
+tipo: "completar"
+respuestas_validas:
+  - "impacto de asteroide"
+  - "erupciones masivas"
+
+enunciado: "El límite entre el periodo {escenario[0]} y el Paleógeno se asocia comúnmente con un ___."
+
+explicacion: |
+  El impacto del asteroide Chicxulub causó la extinción masiva que terminó con la era de los dinosaurios al final del Cretácico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "avanzado"
+  tags: ["ordenar", "era_mesozoica"]
+
+tipo: ordenar
+opciones_explicitas: ["Triásico", "Jurásico", "Cretácico"]
+respuesta_orden: ["Triásico", "Jurásico", "Cretácico"]
+
+enunciado: "Ordena cronológicamente los periodos que conforman la Era Mesozoica, desde el más antiguo al más reciente."
+
+explicacion: |
+  La Era Mesozoica se divide en los periodos Triásico, Jurásico y Cretácico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "intermedio"
+  tags: ["permo_trias", "extincion"]
+
+respuesta: "Triásico"
+tipo: "completar"
+respuestas_validas:
+  - "Triásico"
+  - "Jurásico"
+  - "Cretácico"
+
+enunciado: "La mayor extinción masiva de la historia de la Tierra ocurrió al final del periodo Pérmico, marcando el inicio del periodo ___."
+
+explicacion: |
+  La extinción del Pérmico-Triásico es conocida como 'La Gran Mortandad' y dio inicio a la era de los dinosaurios.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "basico"
+  tags: ["geologia", "fosil"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un cambio abrupto en la abundancia de fósiles en un estrato suele indicar que se está cruzando un límite de un periodo o era geológica. ¿Es esto correcto?"
+
+explicacion: |
+  Los límites de las unidades geológicas se definen precisamente por estos cambios abruptos en la fauna y flora fósil, muchas veces asociados a eventos de extinción masiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "basico"
+  tags: ["paleozoico", "fanerozoico"]
+
+tipo: mc
+opciones_explicitas: ["Paleozoico", "Mesozoico", "Cenozoico"]
+
+enunciado: "El eón Fanerozoico se divide en tres eras principales. ¿Cuál es la primera era de este eón, caracterizada por la 'explosión de vida' en los mares?"
+
+respuesta: "Paleozoico"
+
+explicacion: |
+  El Fanerozoico comenzó hace unos 541 millones de años con la era Paleozoica, donde la vida diversificó su complejidad de forma masiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "basico"
+  tags: ["mesozoico", "dinosaurios"]
+
+tipo: mc
+opciones_explicitas: ["Paleozoico", "Mesozoico", "Cenozoico"]
+
+enunciado: "La era conocida como la 'Edad de los Reptiles' o de los dinosaurios es el ________."
+
+respuesta: "Mesozoico"
+
+explicacion: |
+  El Mesozoico es la era intermedia del Fanerozoico, donde predominaron los dinosaurios y los primeros mamíferos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "intermedio"
+  tags: ["orden_cronologico", "fanerozoico"]
+
+tipo: ordenar
+opciones_explicitas: ["Paleozoico", "Mesozoico", "Cenozoico"]
+
+enunciado: "Ordena cronológicamente las tres eras del eón Fanerozoico, desde la más antigua a la más reciente:"
+
+respuesta_orden: ["Paleozoico", "Mesozoico", "Cenozoico"]
+
+explicacion: |
+  La secuencia correcta es Paleozoico (vida antigua), Mesozoico (vida media) y Cenozoico (vida reciente).
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "basico"
+  tags: ["cenozoico", "actualidad"]
+
+tipo: completar
+respuestas_validas:
+  - "Cenozoico"
+
+enunciado: "La era geológica en la que vivimos actualmente, marcada por la dominancia de los mamíferos, es el ________."
+
+respuesta: "Cenozoico"
+
+explicacion: |
+  El Cenozoico comenzó tras la extinción masiva al final del Mesozoico y es la era actual.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "intermedio"
+  tags: ["fanerozoico", "clasificacion"]
+
+tipo: mc
+opciones_explicitas: ["Mesozoico", "Paleozoico", "Cenozoico"]
+
+enunciado: "Si estamos hablando de la era que precede al Cenozoico, ¿a qué era nos referimos?"
+
+respuesta: "Mesozoico"
+
+explicacion: |
+  El Cenozoico es la era actual; la era inmediatamente anterior fue el Mesozoico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "intermedio"
+  tags: ["paleontologia", "cambrian"]
+
+variables:
+  datos: [["Explosión Cámbrica", "Paleozoico"], ["Extinción masiva del Permo-Triásico", "Mesozoico"], ["Aparición de los mamíferos", "Cenozoico"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Paleozoico", "Mesozoico", "Cenozoico"]
+
+enunciado: "El evento conocido como la {datos[idx][0]} marcó un hito evolutivo fundamental. ¿A qué era geológica pertenece este evento?"
+
+explicacion: |
+  El evento {datos[idx][0]} ocurrió durante la era {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "basico"
+  tags: ["dinosaurios", "mesozoico"]
+
+variables:
+  datos: [["dominio de los dinosaurios", "Mesozoico"], ["aparición de las plantas terrestres", "Paleozoico"], ["formación de la Luna", "Hadeano"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "Mesozoico"
+  - "Paleozoico"
+  - "Hadeano"
+
+enunciado: "El periodo caracterizado por el {datos[idx][0]} se sitúa en la era ___."
+
+explicacion: |
+  La era correspondiente al {datos[idx][0]} es la era {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "avanzado"
+  tags: ["cronologia", "geologia"]
+
+tipo: ordenar
+opciones_explicitas: ["Paleozoico", "Mesozoico", "Cenozoico"]
+respuesta_orden: ["Paleozoico", "Mesozoico", "Cenozoico"]
+
+enunciado: "Ordena las siguientes eras desde la más antigua a la más reciente según la cronología geológica estándar."
+
+explicacion: |
+  El orden correcto de las eras es: Paleozoico, Mesozoico y Cenozoico.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "intermedio"
+  tags: ["precambrico", "vida"]
+
+variables:
+  datos: [["aparición de las primeras células procariotas", "Precámbrico"], ["aparición de los primeros animales complejos", "Paleozoico"], ["extinción de los dinosaurios", "Mesozoico"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Precámbrico", "Paleozoico", "Mesozoico"]
+
+enunciado: "La {datos[idx][0]} tuvo lugar durante el eón ___."
+
+explicacion: |
+  La {datos[idx][0]} es un evento característico del eón {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "tiempo_geologico_eones_eras_periodos"
+  nivel: "basico"
+  tags: ["mamiferos", "cenozoico"]
+
+variables:
+  datos: [["dominio de los mamíferos", "Cenozoico"], ["dominio de los reptiles", "Mesozoico"], ["dominio de los peces", "Paleozoico"]]
+  idx: uno_de([0, 1, 2])
+
+respuestas_validas:
+  - datos[idx][1]
+respuesta: datos[idx][1]
+tipo: completar
+
+enunciado: "El {datos[idx][0]} es un evento que define la era ___."
+
+explicacion: |
+  La era correcta es la {datos[idx][1]}.
+```
+
+## Sección: gran-oxidacion (25 preguntas)
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "basico"
+  tags: ["biologia", "atmosfera"]
+
+tipo: mc
+opciones_explicitas: ["Cianobacterias", "Dinosaurios", "Volcanes", "Asteroides"]
+respuesta: "Cianobacterias"
+
+enunciado: "La Gran Oxidación fue causada por la actividad de un grupo de organismos fotosintéticos conocidos como ___."
+
+explicacion: |
+  Las cianobacterias fueron los primeros organismos capaces de realizar la fotosíntesis oxigénica, liberando oxígeno como subproducto.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "intermedio"
+  tags: ["geologia", "quimica"]
+
+tipo: mc
+opciones_explicitas: ["reaccionó con el hierro disuelto en los océanos", "se acumuló rápidamente en la atmósfera"]
+
+enunciado: "Durante el inicio de la Gran Oxidación, el oxígeno liberado no fue a la atmósfera inmediatamente. ¿Qué sucedió primero con él?"
+
+respuesta: "reaccionó con el hierro disuelto en los océanos"
+
+explicacion: |
+  Antes de que el oxígeno se acumulara en la atmósfera, reaccionó con el hierro disuelto en los océanos, depositándolo en el fondo marino como hierro bandeado.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "avanzado"
+  tags: ["clima", "extincion"]
+
+tipo: completar
+respuestas_validas:
+  - "Glaciación"
+  - "calentamiento"
+
+enunciado: "La acumulación de oxígeno en la atmósfera provocó la oxidación del metano (un potente gas de efecto invernadero), lo que derivó en una de las mayores ___ de la historia de la Tierra."
+
+explicacion: |
+  La reducción de gases de efecto invernadero como el metano provocó un enfriamiento global extremo, conocido como la Glaciación Huronesiana.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "intermedio"
+  tags: ["cronologia"]
+
+tipo: ordenar
+opciones_explicitas: ["Fotosíntesis oxigénica", "Oxidación de hierro disuelto", "Acumulación de O2 atmosférico", "Glaciación global"]
+
+enunciado: "Ordena cronológicamente los eventos que caracterizaron el periodo de la Gran Oxidación:"
+
+explicacion: |
+  Primero surge la fotosíntesis, luego el oxígeno reacciona con el hierro (BIF), luego el oxígeno llega a la atmósfera y finalmente causa el enfriamiento global.
+respuesta_orden: ["Fotosíntesis oxigénica", "Oxidación de hierro disuelto", "Acumulación de O2 atmosférico", "Glaciación global"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "basico"
+  tags: ["atmosfera"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Antes de la Gran Oxidación, la atmósfera terrestre era predominantemente ________ (escribe 'anóxica' o 'rica' según corresponda)."
+
+respuesta: "anóxica"
+
+explicacion: |
+  La atmósfera primordial era anóxica, es decir, carecía de niveles significativos de oxígeno libre.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "basico"
+  tags: ["extincion", "oxigeno", "anaerobico"]
+
+respuesta: "extinción masiva"
+tipo: completar
+respuestas_validas:
+  - "extinción masiva"
+
+enunciado: "El aumento repentino de oxígeno en la atmósfera terrestre durante la Gran Oxidación es considerado la primera ___ de la historia."
+
+explicacion: |
+  La acumulación de oxígeno, producto de la fotosíntesis oxigénica, fue letal para la mayoría de los organismos anaeróbicos que dominaban la Tierra primitiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "basico"
+  tags: ["anaerobico", "oxigeno"]
+
+tipo: mc
+opciones_explicitas: ["anaeróbicos", "aeróbicos", "fotosintéticos", "eucariotas"]
+respuesta: "anaeróbicos"
+
+enunciado: "Antes de la Gran Oxidación, la atmósfera era rica en gases reductores. ¿Qué tipo de organismos dominaba la vida en ese entonces?"
+
+explicacion: |
+  Los organismos anaeróbicos no poseen mecanismos para neutralizar el oxígeno, por lo que este actuó como un veneno oxidante para ellos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "intermedio"
+  tags: ["fotosintesis", "cianobacterias"]
+
+respuesta: "cianobacterias"
+tipo: mc
+opciones_explicitas: ["cianobacterias", "volcanes", "asteroides", "metano"]
+
+enunciado: "La principal causa biológica del aumento de oxígeno atmosférico fue la aparición de las:"
+
+explicacion: |
+  Las cianobacterias desarrollaron la fotosíntesis oxigénica, liberando oxígeno como subproducto, lo que alteró la química global del planeta.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "intermedio"
+  tags: ["secuencia", "oxigeno", "vida"]
+
+tipo: ordenar
+respuesta_orden: ["producción de oxígeno", "acumulación de oxígeno", "extinción de anaerobios", "aparición de la vida aeróbica"]
+opciones_explicitas: ["producción de oxígeno", "acumulación de oxígeno", "extinción de anaerobios", "aparición de la vida aeróbica"]
+
+enunciado: "Ordena cronológicamente los eventos que caracterizaron la Gran Oxidación:"
+
+explicacion: |
+  Primero se produjo el oxígeno, luego se acumuló en la atmósfera tras saturar los sumideros químicos, provocando la muerte masiva de anaerobios y permitiendo finalmente la evolución de la respiración aeróbica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "avanzado"
+  tags: ["quimica_atmosferica", "oxigeno"]
+
+respuesta: "tóxico"
+tipo: mc
+opciones_explicitas: ["tóxico", "vital", "neutro", "incoloro"]
+
+enunciado: "Para la vida predominante en el Arcaico, el oxígeno atmosférico no era un elemento vital, sino un agente ___."
+
+explicacion: |
+  Debido a la ausencia de enzimas antioxidantes en los organismos de la época, el oxígeno libre causaba daños oxidativos letales en sus estructuras celulares.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "basico"
+  tags: ["evolucion", "oxigeno"]
+
+respuesta: "aeróbicos"
+tipo: completar
+respuestas_validas:
+  - "aeróbicos"
+
+enunciado: "La acumulación de oxígeno en la atmósfera tras la Gran Oxidación permitió la evolución de organismos de tipo ___."
+
+explicacion: |
+  La presencia de oxígeno libre permitió que los organismos desarrollaran la respiración aeróbica, un proceso mucho más eficiente para obtener energía que la fermentación.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "intermedio"
+  tags: ["complejidad", "oxigeno"]
+
+opciones_explicitas: ["Organismos unicelulares simples", "Formas de vida más complejas y de mayor tamaño", "Vida basada exclusivamente en el metano", "Ausencia total de vida orgánica"]
+
+respuesta: "Formas de vida más complejas y de mayor tamaño"
+tipo: mc
+
+enunciado: "El oxígeno liberado durante la Gran Oxidación sentó las bases para el surgimiento de:"
+
+explicacion: |
+  Al ser la respiración aeróbica mucho más eficiente energéticamente, permitió que los organismos tuvieran el excedente de energía necesario para mantener estructuras corporales más grandes y complejas.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "avanzado"
+  tags: ["metabolismo", "oxigeno"]
+
+respuesta: "Aumento de la eficiencia energética"
+tipo: mc
+opciones_explicitas: ["Limitación energética", "Aumento de la eficiencia energética", "Reducción del tamaño celular", "Extinción de la vida multicelular"]
+
+enunciado: "Considerando el impacto metabólico de la Gran Oxidación, ¿qué efecto tuvo el oxígeno sobre el metabolismo de los organismos que pudieron utilizarlo?"
+
+pasos:
+  - "Analizar la diferencia entre metabolismo anaeróbico y aeróbico."
+  - "Relacionar la eficiencia energética con el tamaño del organismo."
+
+explicacion: |
+  La oxidación de la glucosa en presencia de oxígeno produce muchísima más energía (ATP) que los procesos anaeróbicos, permitiendo la multicelularidad.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "intermedio"
+  tags: ["proceso", "secuencia"]
+
+opciones_explicitas: ["Producción de oxígeno", "Acumulación de oxígeno en la atmósfera", "Evolución de organismos aeróbicos", "Aparición de vida compleja"]
+
+respuesta_orden: ["Producción de oxígeno", "Acumulación de oxígeno en la atmósfera", "Evolución de organismos aeróbicos", "Aparición de vida compleja"]
+tipo: ordenar
+
+enunciado: "Ordena cronológicamente los eventos derivados de la actividad de los cianobacterias:"
+
+explicacion: |
+  Primero se produce el oxígeno por fotosíntesis, luego este se acumula en la atmósfera al saturarse los sumideros químicos, lo que permite la respiración aeróbica y finalmente la complejidad biológica.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "basico"
+  tags: ["atmosfera", "oxigeno"]
+
+respuesta: "oxígeno"
+tipo: completar
+respuestas_validas:
+  - "oxígeno"
+
+enunciado: "El gas liberado masivamente que transformó la química de la Tierra fue el ___."
+
+explicacion: |
+  La liberación de oxígeno por parte de los organismos fotosintéticos cambió la composición química de la atmósfera primitiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "basico"
+  tags: ["geologia", "oxigeno"]
+
+tipo: mc
+opciones_explicitas: ["Formaciones de hierro bandeado (BIF)", "Capas de esquisto negro", "Depósitos de carbón", "Calizas de magnesio"]
+respuesta: "Formaciones de hierro bandeado (BIF)"
+
+enunciado: "¿En qué evidencias geológicas se manifiestan principalmente los efectos de la Gran Oxidación?"
+
+explicacion: |
+  Las Formaciones de Hierro Bandeado (BIF, por sus siglas en inglés) son capas de roca ricas en óxidos de hierro que se depositaron cuando el oxígeno liberado por la fotosíntesis reaccionó con el hierro disuelto en los océanos.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "intermedio"
+  tags: ["quimica_prebiotica", "oceanos"]
+
+tipo: completar
+respuestas_validas:
+  - "hierro disuelto"
+
+enunciado: "Durante la Gran Oxidación, el ___ en los océanos reaccionó con el oxígeno molecular, provocando su precipitación en el fondo marino."
+
+explicacion: |
+  El hierro estaba disuelto en los océanos en forma de Fe(II). Al aparecer el oxígeno (O2), este oxidó el hierro a Fe(III), el cual es insoluble y precipitó como óxido de hierro.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "gran_oxidacion"
+  nivel: "avanzado"
+  tags: ["secuencia", "geologia"]
+
+tipo: ordenar
+opciones_explicitas: ["Producción de O2 por cianobacterias", "Oxidación de hierro disuelto en el océano", "Precipitación de óxidos de hierro (BIF)", "Aumento de la oxigenación atmosférica"]
+
+enunciado: "Ordena cronológicamente los eventos que llevaron a la formación de los depósitos de hierro bandeado y la oxigenación atmosférica:"
+
+explicacion: |
+  Primero la vida fotosintética produce oxígeno; luego este oxida el hierro disponible en el agua; esto genera los depósitos BIF; finalmente, una vez saturado el sumidero de hierro, el oxígeno comienza a acumularse en la atmósfera.
+respuesta_orden: ["Producción de O2 por cianobacterias", "Oxidación de hierro disuelto en el océano", "Precipitación de óxidos de hierro (BIF)", "Aumento de la oxigenación atmosférica"]
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "intermedio"
+  tags: ["sumideros", "oxigeno"]
+
+tipo: vf
+
+enunciado: "La formación de las BIF actuó como un 'sumidero' que retrasó la acumulación masiva de oxígeno en la atmósfera durante millones de años."
+
+respuesta: verdadero
+
+explicacion: |
+  Verdadero. El oxígeno producido se consumía rápidamente oxidando el hierro y otros compuestos en el océano antes de poder escapar a la atmósfera.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "avanzado"
+  tags: ["geoquimica", "oxigeno"]
+
+tipo: completar
+tolerancia_abs: 0.001
+
+enunciado: "Si la concentración de oxígeno en el océano es de 0.02 moles/m³ y el umbral de saturación de los sumideros de hierro es de 0.05 moles/m³, ¿cuál es la diferencia respecto al umbral?"
+
+pasos:
+  - "Calcular la diferencia absoluta entre el umbral y la concentración actual."
+
+explicacion: |
+  La diferencia es el margen que faltaba para que el oxígeno comenzara a acumularse en la atmósfera tras saturar los sumideros químicos: 0.05 - 0.02 = 0.03 moles/m³.
+
+respuesta: 0.03
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "basico"
+  tags: ["biologia", "atmosfera"]
+
+enunciado: "El evento conocido como la Gran Oxidación fue impulsado por la aparición de organismos capaces de realizar la fotosíntesis."
+
+respuesta: "fotosíntesis"
+tipo: mc
+opciones_explicitas: ["fotosíntesis", "quimiosíntesis", "respiración", "fermentación"]
+
+explicacion: |
+  Las cianobacterias fueron los primeros organismos en desarrollar la fotosíntesis oxigénica, liberando oxígeno como subproducto.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "intermedio"
+  tags: ["quimica", "oxigeno"]
+
+enunciado: "La acumulación de oxígeno en la atmósfera provocó la ___ de gases reductores como el metano."
+
+respuesta: "oxidación de metano"
+tipo: completar
+respuestas_validas:
+  - "oxidación de metano"
+
+explicacion: |
+  El oxígeno atmosférico reaccionó con el metano (un gas de efecto invernadero), alterando la química global.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "intermedio"
+  tags: ["extincion", "biologia"]
+
+enunciado: "Para los organismos anaerobios de la época, el aumento de oxígeno en la atmósfera representó una ___."
+
+respuesta: "extinción masiva"
+tipo: mc
+opciones_explicitas: ["extinción masiva", "explosión de vida", "estabilidad climática", "mutación acelerada"]
+
+explicacion: |
+  El oxígeno era tóxico para la mayoría de las formas de vida predominantes en ese entonces, causando una extinción masiva.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "avanzado"
+  tags: ["secuencia", "procesos"]
+
+variables:
+  pasos_correctos: ["Fotosíntesis oxigénica", "Saturación de sumideros de hierro", "Liberación de O2 a la atmósfera"]
+
+enunciado: "Ordene los eventos que llevaron a la Gran Oxidación:"
+
+respuesta_orden: ["Fotosíntesis oxigénica", "Saturación de sumideros de hierro", "Liberación de O2 a la atmósfera"]
+tipo: ordenar
+opciones_explicitas: ["Fotosíntesis oxigénica", "Saturación de sumideros de hierro", "Liberación de O2 a la atmósfera"]
+
+explicacion: |
+  Primero se produjo el oxígeno, luego este fue absorbido por minerales (hierro) y finalmente se acumuló en la atmósfera.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "gran_oxidacion"
+  nivel: "avanzado"
+  tags: ["quimica", "atmosfera"]
+
+enunciado: "La transición de una atmósfera reductora a una oxidante fue causada por la liberación de oxígeno, que actuó como un potente ___."
+
+respuesta: "oxidante"
+tipo: completar
+respuestas_validas:
+  - "oxidante"
+
+explicacion: |
+  El oxígeno es un agente oxidante fuerte que cambió radicalmente el potencial redox de la atmósfera terrestre.
+```
 
 ## Sección: datacion-radiometrica (25 preguntas)
 
@@ -503,1856 +2338,5 @@ enunciado: "Ordene de mayor a menor la cantidad de isótopo remanente tras 0, 1,
 explicacion: |
   Cada vida media reduce la cantidad a la mitad de la anterior: 100% -> 50% -> 25% -> 12.5% -> 6.25%.
 respuesta_orden: ["100%", "50%", "25%", "12.5%", "6.25%"]
-```
-
-## Sección: descolonizacion-de-africa-y-asia (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["indochina", "francia", "vietnam", "1954"]
-enunciado: "El colapso del dominio colonial francés en Indochina se consolidó tras la derrota en la batalla de Dien Bien Phu y la firma de los acuerdos que dividieron temporalmente el territorio en dos zonas militares. ¿En qué año se firmaron estos acuerdos?"
-tipo: completar
-respuesta: "1954"
-respuestas_validas:
-  - "1954"
-  - "1954."
-explicacion: "Los Acuerdos de Ginebra se firmaron en julio de 1954, estableciendo el cese del fuego y la división de Vietnam a lo largo del paralelo 17."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["bandung", "no-alineados", "1955", "solidaridad"]
-enunciado: "En 1955, se reunió en Indonesia una histórica asamblea de estados asiáticos y africanos que buscaba promover la cooperación económica y cultural y oponerse al colonialismo. ¿Cómo se denominó esta conferencia fundacional del movimiento de Países No Alineados?"
-tipo: completar
-respuesta: "bandung"
-respuestas_validas:
-  - "bandung"
-  - "Bandung"
-  - "conferencia de bandung"
-  - "Conferencia de Bandung"
-explicacion: "La Conferencia de Bandung fue un hito en la historia de la descolonización, sentando las bases para la futura solidaridad del Sur global."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["ghana", "nkrumah", "independencia", "1957"]
-enunciado: "Ghana fue el primer país de África subsahariana en obtener la independencia de la metropoli británica en 1957, bajo el liderazgo carismático de un político que promovió el panaficanismo. ¿Quién fue este líder?"
-tipo: completar
-respuesta: "kwame nkrumah"
-respuestas_validas:
-  - "kwame nkrumah"
-  - "Kwame Nkrumah"
-  - "nkrumah"
-  - "Nkrumah"
-explicacion: "Kwame Nkrumah lideró la Gold Coast hacia la independencia como Ghana y se convirtió en su primer primer ministro y presidente."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["argelia", "francia", "colonialismo", "1945"]
-enunciado: "En mayo de 1945, mientras se celebraba la victoria aliada en la Segunda Guerra Mundial, estallaron violentos disturbios en Argelia que fueron reprimidos brutalmente por las fuerzas coloniales francesas, marcando el inicio del camino hacia la guerra de independencia. ¿En qué ciudad argelina ocurrió el brote inicial de esta masacre?"
-tipo: completar
-respuesta: "setif"
-respuestas_validas:
-  - "setif"
-  - "Sétif"
-  - "setif"
-  - "Sétif"
-explicacion: "La masacre de Sétif (y Guelma) de 1945 fue un punto de inflexión donde la contradicción entre los ideales democráticos aliados y el colonialismo francés se hizo evidente."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["india", "pakistan", "montbatten", "1947"]
-enunciado: "El plan que definió la partición del subcontinente indio en dos dominios independientes, India y Pakistán, fue anunciado en junio de 1947 por el último virrey británico. ¿Quién fue este virrey responsable de la transición?"
-tipo: completar
-respuesta: "louis mountbatten"
-respuestas_validas:
-  - "louis mountbatten"
-  - "Louis Mountbatten"
-  - "mountbatten"
-  - "Mountbatten"
-explicacion: "Lord Louis Mountbatten diseñó el calendario acelerado para la independencia y la partición, lo que resultó en una de las mayores migraciones forzadas de la historia."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["chipre", "britania", "grecia", "turquia"]
-enunciado: "La independencia de Chipre en 1960 fue el resultado de acuerdos entre el Reino Unido, Grecia y Turquía. Este proceso puso fin a la enosis (unión con Grecia) y la taksim (partición). ¿Qué isla mediterránea fue el objeto de este proceso descolonizador?"
-tipo: completar
-respuesta: "chipre"
-respuestas_validas:
-  - "chipre"
-  - "Chipre"
-explicacion: "Chipre logró su independencia bajo un tratado que garantizaba la protección de las comunidades turcochipriota y griegochipriota, aunque con bases soberanas británicas."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["india", "china", "tibet", "1954"]
-enunciado: "En 1954, India y China firmaron el Tratado de Amity y Coordinación, que incluía los Cinco Principios de la Coexistencia Pacífica. Este tratado fue significativo porque la primera parte lo negoció un líder de un país recién independiente que reclamaba la soberanía sobre un territorio del Himalaya que China disputaba. ¿Qué territorio fue el foco de esta disputa inicial en el tratado?"
-tipo: completar
-respuesta: "tibet"
-respuestas_validas:
-  - "tibet"
-  - "Tibet"
-explicacion: "India reconoció la soberanía china sobre Tibet en el tratado, pero luego la invasión china de 1950-51 y la posterior guerra de 1962 invalidaron la confianza en estos principios."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["canal de suez", "egipto", "israel", "1956"]
-enunciado: "La nacionalización del Canal de Suez por Gamal Abdel Nasser en 1956 provocó una invasión coordinada por Israel, Reino Unido y Francia. ¿En qué mes y año comenzó esta guerra que demostró el fin de la hegemonía colonial europea directa en la región?"
-tipo: completar
-respuesta: "octubre 1956"
-respuestas_validas:
-  - "octubre 1956"
-  - "octubre de 1956"
-  - "1956"
-  - "octubre"
-explicacion: "La crisis de Suez (1956) marcó el declive final de Gran Bretaña y Francia como potencias globiales independentes, obligadas a retirarse bajo presión de EE.UU. y la URSS."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["indonesia", "holanda", "sukarno", "independencia"]
-enunciado: "Indonesia proclamó su independencia en 1945, pero los Países Bajos no reconocieron formalmente la soberanía hasta 1949 tras una guerra de guerrillas y presión diplomática. ¿Quién fue el primer presidente de Indonesia y figura central del nacionalismo indonesio?"
-tipo: completar
-respuesta: "sukarno"
-respuestas_validas:
-  - "sukarno"
-  - "Sukarno"
-explicacion: "Sukarno fue el arquitecto de la independencia indonesia y un líder clave del Movimiento de Países No Alineados."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["malaya", "emergencia", "comunistas", "britania"]
-enunciado: "Antes de la independencia de Malaya en 1957, el Reino Unido enfrentó una insurgencia armada liderada principalmente por el Partido Comunista de Malaya. ¿Cómo se denominó oficialmente este conflicto de baja intensidad que duró desde 1948 hasta 1960?"
-tipo: completar
-respuesta: "emergencia de malaya"
-respuestas_validas:
-  - "emergencia de malaya"
-  - "Emergencia de Malaya"
-  - "la emergencia"
-explicacion: "La 'Emergencia' fue un ejemplo de guerra contrainsurgente donde las fuerzas britanas combinaron tácticas militares con la reubicación de la población rural china malaya."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["marruecos", "francia", "sultan", "1956"]
-enunciado: "Marruecos logró su independencia de Francia en 1956 mediante negociaciones políticas que restauraron el poder del monarca. ¿Quién fue el sultán que se convirtió en rey y símbolo de la unidad nacional marroquí?"
-tipo: completar
-respuesta: "mohammed v"
-respuestas_validas:
-  - "mohammed v"
-  - "Mohammed V"
-  - "muhammad v"
-  - "Muhammad V"
-explicacion: "Mohammed V (Sidi Mohammed ben Youssef) fue exiliado por los franceses en 1953 por su activismo nacionalista, pero su regreso precipitó la independencia."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["birmania", "britania", "u nu", "independencia"]
-enunciado: "Birmania fue el primer país de la Commonwealth en abandonar la unión al obtener la independencia en 1948, un año antes que la India. ¿Quién fue el primer ministro birmano que negoció la independencia con Clement Attlee y luego lideró el país?"
-tipo: completar
-respuesta: "u nu"
-respuestas_validas:
-  - "u nu"
-  - "U Nu"
-explicacion: "U Nu negoció la independencia bajo la condición de que Birmania no se uniera a la Commonwealth, manteniendo una política de no alineamiento."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["ceilan", "sri lanka", "britania", "1958"]
-enunciado: "Aunque Ceilán (actual Sri Lanka) obtuvo la independencia en 1948 de forma relativamente pacífica, las tensiones étnicas entre cingaleses y tamiles estallaron violentamente años después. ¿En qué año ocurrieron los primeros disturbios intercomunitarios masivos en la isla?"
-tipo: completar
-respuesta: "1958"
-respuestas_validas:
-  - "1958"
-  - "1958."
-explicacion: "Los disturbios de 1958 marcaron el inicio de la violencia política estructurada basada en la identidad étnica en Sri Lanka."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["turquia", "imperio otomano", "mustafa kemal", "1923"]
-enunciado: "Aunque anterior a la ola principal de descolonización del siglo XX, este tratado puso fin formalmente al Imperio Otomano y estableció la República de Turquía como un estado soberano moderno. ¿En qué ciudad suiza se firmó este tratado?"
-tipo: completar
-respuesta: "lausana"
-respuestas_validas:
-  - "lausana"
-  - "Lausana"
-  - "lausanne"
-  - "Lausanne"
-explicacion: "El Tratado de Lausana (1923) fue un precedente crucial de autodeterminación nacional que inspiró a movimientos nacionalistas en Asia y África."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["kenia", "mau mau", "jomo kenatta", "independencia"]
-enunciado: "Kenia luchó una guerra de liberación contra el dominio británico, conocida como la Rebelión Mau-Mau, antes de obtener la independencia en 1963. ¿Quién fue el líder nacionalista que se convirtió en el primer presidente de Kenia?"
-tipo: completar
-respuesta: "jomo kenatta"
-respuestas_validas:
-  - "jomo kenatta"
-  - "Jomo Kenyatta"
-  - "kenyatta"
-  - "Kenyatta"
-explicacion: "Jomo Kenyatta fue encarcelado por los británicos durante la rebelión Mau-Mau, pero luego se convirtió en la figura unificadora de la independencia."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["argelia", "francia", "evian", "1962"]
-enunciado: "Tras ocho años de guerra brutal, Francia y los nacionalistas argelinos (FLN) firmaron unos acuerdos que pusieron fin al conflicto y permitieron la independencia de Argelia. ¿En qué ciudad francesa se firmaron estos acuerdos en marzo de 1962?"
-tipo: completar
-respuesta: "evian"
-respuestas_validas:
-  - "evian"
-  - "Évian"
-  - "evian-les-bains"
-  - "Évian-les-Bains"
-explicacion: "Los Acuerdos de Évian-Les-Bains establecieron el cese al fuego y el referéndum de independencia que se celebró poco después."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["etiopia", "italia", "ocupacion", "1941"]
-enunciado: "A diferencia de la mayoría de los países africanos, Etiopía fue solo brevemente ocupada por Italia fascista. ¿En qué año las fuerzas aliadas y los patriotas etíopes liberaron Addis Abeba, restaurando la soberanía etíope?"
-tipo: completar
-respuesta: "1941"
-respuestas_validas:
-  - "1941"
-  - "1941."
-explicacion: "La liberación de 1941 reafirmó a Etiopía como un símbolo de resistencia anticolonial en África, aunque mantuvo su estatus de monarquía hasta 1974."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["francia", "africa", "colonialismo", "1944"]
-enunciado: "En 1944, el general de Gaulle convocó una conferencia en la capital de la África Ecuatorial Francesa para discutir el futuro de las colonias. ¿Qué ciudad fue sede de esta conferencia que prometía reformas pero rechazaba la independencia inmediata?"
-tipo: completar
-respuesta: "brazzaville"
-respuestas_validas:
-  - "brazzaville"
-  - "Brazzaville"
-explicacion: "La Conferencia de Brazzaville fue un intento de reformar el imperio colonial francés sin conceder la autodeterminación política total."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["tanganyika", "nyerere", "tanzania", "independencia"]
-enunciado: "Tanganyika obtuvo la independencia de Gran Bretaña en 1961. Su líder, conocido por su filosofía de 'Ujamaa' (familia), se convirtió en el primer presidente. ¿Quién fue este líder?"
-tipo: completar
-respuesta: "julius nyerere"
-respuestas_validas:
-  - "julius nyerere"
-  - "Julius Nyerere"
-  - "nyerere"
-  - "Nyerere"
-explicacion: "Julius Nyerere fue un intelectual y líder socialista que unió Tanganyika con Zanzíbar para formar Tanzania."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["senegal", "francia", "veteranos", "1944"]
-enunciado: "En diciembre de 1944, en las afueras de Dakar, las tropas coloniales francesas dispararon contra sus propios camaradas veteranos que reclamaban sus pagas y licencias. ¿En qué localidad senegalesa ocurrió esta masacre?"
-tipo: completar
-respuesta: "thiaroye"
-respuestas_validas:
-  - "thiaroye"
-  - "Thiaroye"
-  - "thiaroye sur mer"
-  - "Thiaroye-sur-Mer"
-explicacion: "La masacre de Thiaroye simbolizó la traición de las potencias coloniales hacia los soldados africanos que habían luchado por la libertad en Europa."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["argelia", "argel", "francia", "1961"]
-enunciado: "En abril de 1961, se intentó negociar un alto el fuego entre el gobierno francés y el FLN argelino en una villa en las afueras de Argel. ¿En qué localidad se celebraron estas conversaciones fallidas?"
-tipo: completar
-respuesta: "finkenstein"
-respuestas_validas:
-  - "finkenstein"
-  - "Finkenstein"
-  - "finkenstein-sur-mer"
-  - "Finkenstein-sur-Mer"
-explicacion: "Las conversaciones de Finkenstein-sur-Mer fracasaron debido a la intransigencia de la OAS (Organización del Ejército Secreto) y la desconfianza mutua."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["libia", "italia", "onu", "1951"]
-enunciado: "Libia fue el único país africano que obtuvo la independencia a través de una resolución de la ONU que estableció un reino constitucional. ¿Quién fue el primer rey de Libia y líder de la dinastía Idrisida?"
-tipo: completar
-respuesta: "idris"
-respuestas_validas:
-  - "idris"
-  - "Idris"
-  - "idris i"
-  - "Idris I"
-explicacion: "El Rey Idris I gobernó Libia hasta 1969, cuando fue derrocado por Muamar Gadafi en un golpe de estado."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["birmania", "britania", "independencia", "1947"]
-enunciado: "Justo antes de la independencia de Birmania, estallaron disturbios comunitarios en una ciudad importante. Aunque menos conocida que otras, la violencia en 1947 marcó las tensiones étnicas tempranas. Sin embargo, un evento más simbólico de la transición fue la ejecución de un líder nacionalista birmano por parte de los británicos en 1947. ¿Quién fue este líder ejecutado?"
-tipo: completar
-respuesta: "aung san"
-respuestas_validas:
-  - "aung san"
-  - "Aung San"
-explicacion: "Aung San fue negociado la independencia pero fue asesinado antes de su implementación, convirtiéndose en un héroe nacional."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["iran", "britania", "petroleo", "mosaddeq"]
-enunciado: "En 1951, Irán nacionalizó su industria petrolera, desafiando los intereses de la Anglo-Iranian Oil Company. El primer ministro iraní que lideró esta resistencia fue derrocado en un golpe de estado en 1953 apoyado por EE.UU. y el Reino Unido. ¿Quién fue este primer ministro?"
-tipo: completar
-respuesta: "mohammad mosaddeq"
-respuestas_validas:
-  - "mohammad mosaddeq"
-  - "Mohammad Mosaddeq"
-  - "mosaddeq"
-  - "Mosaddeq"
-explicacion: "La nacionalización petrolera irana fue un acto de soberanía económica que desafió el neocolonialismo occidental en Oriente Medio."
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "descolonizacion-de-africa-y-asia"
-  nivel: "avanzado"
-  tags: ["india", "segunda guerra mundial", "transporte", "1943"]
-enunciado: "Durante la Segunda Guerra Mundial, el transporte de tropas indias sufrió una tragedia marítima masiva. El buque SS Mendi fue hundido por un submarino alemán en 1943, causando cientos de muertes entre soldados del Cuerpo de Trabajo Indio. ¿Qué nacionalidad tenían las víctimas principales de este desastre?"
-tipo: mc
-opciones_explicitas:
-  - "Pacistaníes"
-  - "Indios"
-  - "Bangladesíes"
-  - "Sri Lankeses"
-respuesta: "Indios"
-explicacion: "Las víctimas eran soldados y trabajadores indios del Imperio Británico, recordados como héroes en la historia militar de la India."
-```
-
-## Sección: distribucion-biomas (25 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "basico"
-  tags: ["conceptos", "ecologia"]
-
-tipo: mc
-opciones_explicitas: ["Una agrupación de especies animales y vegetales en un área determinada.", "Una gran región con clima, vegetación y fauna característicos.", "Un conjunto de suelos con propiedades químicas similares.", "La suma de todos los ecosistemas de un continente."]
-
-enunciado: "Un bioma se define como ___."
-
-respuesta: "Una gran región con clima, vegetación y fauna característicos."
-
-explicacion: |
-  Un bioma es una unidad ecológica de gran escala que se caracteriza por tener un clima, un tipo de vegetación y una fauna específicos que se repiten en diferentes partes del planeta.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "basico"
-  tags: ["factores_climaticos"]
-
-tipo: mc
-opciones_explicitas: ["La altitud y la presión atmosférica.", "La latitud y el clima.", "La distancia a la costa y la humedad.", "La actividad volcánica y el relieve."]
-enunciado: "La distribución de los biomas en la superficie terrestre está determinada principalmente por:"
-respuesta: "La latitud y el clima."
-explicacion: |
-  La latitud determina la radiación solar recibida, lo cual, junto con la humedad y la temperatura (clima), define el tipo de vegetación y el bioma resultante.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "intermedio"
-  tags: ["ejemplos", "clasificacion"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Selva Tropical", "Desierto"], ["Altas precipitaciones y calor constante", "Escasez extrema de agua y temperaturas extremas"]]
-
-tipo: completar
-respuestas_validas:
-  - "Selva Tropical"
-  - "Desierto"
-
-enunciado: "El bioma caracterizado por {escenarios[escenario_idx][1]} es la {escenarios[escenario_idx][0]}."
-
-explicacion: |
-  El usuario debe identificar el bioma basado en la descripción climática proporcionada.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "intermedio"
-  tags: ["clima", "vegetacion"]
-
-tipo: completar
-respuestas_validas:
-  - "Tundra"
-
-enunciado: "El bioma de clima frío, con suelos congelados (permafrost) y vegetación de musgos y líquenes, se denomina ___."
-
-explicacion: |
-  La Tundra se caracteriza por condiciones climáticas extremas de frío y la presencia de permafrost, lo que impide el crecimiento de árboles grandes.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "avanzado"
-  tags: ["jerarquia", "ecologia"]
-
-tipo: ordenar
-opciones_explicitas: ["Individuo", "Población", "Comunidad", "Ecosistema", "Bioma"]
-
-enunciado: "Ordene de menor a mayor complejidad los niveles de organización ecológica que conforman la estructura de un bioma:"
-
-explicacion: |
-  La jerarquía parte desde el organismo individual, pasa por grupos de la misma especie (población), interacciones entre especies (comunidad), la relación con el medio físico (ecosistema) y finalmente la escala global (bioma).
-respuesta_orden: ["Individuo", "Población", "Comunidad", "Ecosistema", "Bioma"]
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "basico"
-  tags: ["latitud", "clima"]
-
-respuesta: "latitud"
-tipo: mc
-opciones_explicitas: ["latitud", "altitud", "densidad_poblacion", "geologia"]
-
-enunciado: "La distribución de los biomas en la superficie terrestre sigue patrones principales determinados por la ___, debido a la inclinación del eje terrestre y el ángulo de incidencia de la radiación solar."
-
-explicacion: |
-  La latitud determina la cantidad de radiación solar que recibe una superficie, creando franjas climáticas que definen los biomas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "intermedio"
-  tags: ["altitud", "gradiente_termico"]
-
-respuesta: "disminución de temperatura"
-tipo: completar
-respuestas_validas:
-  - "disminución de temperatura"
-
-enunciado: "Al aumentar la altitud en una montaña, se produce un gradiente térmico donde ocurre una ___."
-
-explicacion: |
-  A mayor altitud, la presión atmosférica disminuye y la temperatura desciende, lo que puede cambiar el bioma local (piso térmico).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "intermedio"
-  tags: ["latitud", "zonas_climaticas"]
-
-variables:
-  datos: uno_de([["Ecuador", "Selva Tropical"], ["Zonas Templadas", "Bosques Caducifolios"], ["Polos", "Tundra"]])
-
-respuesta: datos[1]
-tipo: mc
-opciones_explicitas: ["Selva Tropical", "Bosques Caducifolios", "Tundra", "Desierto"]
-
-enunciado: "En las zonas de {datos[0]}, el bioma predominante suele ser el de {datos[1]}."
-
-explicacion: |
-  La radiación solar constante en el ecuador permite el desarrollo de biomas con alta biodiversidad y precipitaciones abundantes.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "avanzado"
-  tags: ["altitud", "zonas_verticales"]
-
-respuesta_orden: ["Bosque de niebla", "Páramo", "Superpáramo", "Nieves perpetuas"]
-tipo: ordenar
-opciones_explicitas: ["Bosque de niebla", "Páramo", "Superpáramo", "Nieves perpetuas"]
-
-enunciado: "Ordene los siguientes biomas de montaña desde la menor hasta la mayor altitud (de la base a la cima):"
-
-explicacion: |
-  La altitud genera una zonificación vertical donde la vegetación cambia según la temperatura y la presión.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "basico"
-  tags: ["factores", "clima"]
-
-respuesta: 2
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si sumamos los dos factores principales que determinan la distribución de biomas: la latitud (1) y la altitud (1), el resultado es: ___"
-
-explicacion: |
-  Ambos factores modifican la temperatura y la humedad, elementos clave para la vida vegetal.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "basico"
-  tags: ["selva", "tropical", "ecuador"]
-
-tipo: mc
-opciones_explicitas: ["Ecuador", "Sahara", "Antártida", "Siberia"]
-
-enunciado: "La selva tropical es un bioma caracterizado por altas temperaturas y precipitaciones constantes. Un ejemplo de región donde este bioma es predominante es ___."
-
-respuesta: "Ecuador"
-
-explicacion: |
-  La selva tropical, como la de Ecuador, se encuentra en zonas ecuatoriales con alta humedad y calor todo el año.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "basico"
-  tags: ["desierto", "subtropical", "clima"]
-
-tipo: completar
-respuestas_validas:
-  - "seco"
-
-enunciado: "Los desiertos se localizan generalmente en zonas subtropicales y se caracterizan por tener un clima muy ___."
-
-respuesta: "seco"
-
-explicacion: |
-  El desierto se define por la escasez de precipitaciones, lo que resulta en un clima extremadamente seco.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "intermedio"
-  tags: ["tundra", "polar", "latitud"]
-
-variables:
-  datos: [["Tundra", "Zonas polares"], ["Bosque templado", "Zonas de latitudes medias"]]
-  escenario_idx: uno_de([0, 1])
-  bioma: datos[escenario_idx][0]
-  ubicacion: datos[escenario_idx][1]
-
-tipo: mc
-opciones_explicitas: ["Tundra", "Bosque templado", "Selva tropical", "Desierto"]
-
-enunciado: "Considerando el bioma de {bioma}, este se encuentra ubicado típicamente en {ubicacion}."
-
-respuesta: bioma
-
-explicacion: |
-  La tundra se caracteriza por condiciones climáticas extremas en las zonas polares.
-  El bosque templado se ubica en zonas de latitudes medias.
-  La selva tropical en zonas ecuatoriales.
-  El desierto en zonas áridas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "avanzado"
-  tags: ["orden", "latitud", "clima"]
-
-tipo: ordenar
-opciones_explicitas: ["Selva tropical", "Bosque templado", "Tundra"]
-
-respuesta_orden: ["Selva tropical", "Bosque templado", "Tundra"]
-
-enunciado: "Ordena los siguientes biomas de mayor a menor temperatura (del más cálido al más frío):"
-
-explicacion: |
-  La temperatura disminuye a medida que nos alejamos del ecuador hacia los polos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "basico"
-  tags: ["bosque", "templado", "estaciones"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "El bosque templado se distingue de la selva por presentar estaciones del año bien marcadas. Si la temperatura media anual es de 15 grados, el valor numérico es ___."
-
-respuesta: 15
-
-explicacion: |
-  El bosque templado presenta variaciones estacionales significativas en su temperatura.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "intermedio"
-  tags: ["biogeografia", "tectonica_de_placas"]
-
-variables:
-  escenario: uno_de([["Pangea", "Pangea"], ["Gondwana", "Gondwana"], ["Laurasia", "Laurasia"]])
-
-enunciado: "La distribución actual de biomas y especies está influenciada por la fragmentación de {escenario[0]}."
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["Pangea", "Gondwana", "Laurasia", "Panthalassa"]
-
-explicacion: |
-  La fragmentación de Pangea permitió que las especies evolucionaran de forma aislada en diferentes masas continentales, determinando la distribución actual de biomas y la biodiversidad regional.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "intermedio"
-  tags: ["biogeografia", "aislamiento"]
-
-enunciado: "La separación de Australia permitió que la fauna evolucionara de manera única (el aislamiento de los marsupiales), un proceso clave en la biogeografía histórica."
-
-respuesta: "Australia"
-tipo: mc
-opciones_explicitas: ["Australia", "América del Sur", "África", "Antártida"]
-
-explicacion: |
-  El aislamiento geográfico prolongado impide el flujo genético, permitiendo que especies específicas evolucionen en biomas exclusivos de esa región.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "basico"
-  tags: ["factores_climaticos", "biomas"]
-
-variables:
-  factor: uno_de([["latitud", "la distancia respecto al ecuador"], ["altitud", "la altura sobre el nivel del mar"]])
-
-enunciado: "La distribución de los biomas no solo depende de la tectónica, sino también de factores climáticos como la {factor[0]}."
-
-respuesta: factor[0]
-tipo: mc
-opciones_explicitas: ["latitud", "altitud", "presión", "salinidad"]
-
-explicacion: |
-  La latitud determina la radiación solar recibida, lo cual es un factor determinante para la clasificación de biomas (tropicales, templados, polares).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "intermedio"
-  tags: ["historia_geologica", "procesos"]
-
-enunciado: "Ordena cronológicamente los procesos que influyen en la distribución de la vida en la Tierra:"
-
-pasos:
-  - "Formación de supercontinentes (ej. Pangea)"
-  - "Fragmentación de las masas continentales"
-  - "Evolución y especiación por aislamiento"
-  - "Establecimiento de biomas actuales"
-
-respuesta_orden: ["Formación de supercontinentes (ej. Pangea)", "Fragmentación de las masas continentales", "Evolución y especiación por aislamiento", "Establecimiento de biomas actuales"]
-tipo: ordenar
-opciones_explicitas: ["Formación de supercontinentes (ej. Pangea)", "Fragmentación de las masas continentales", "Evolución y especiación por aislamiento", "Establecimiento de biomas actuales"]
-
-explicacion: |
-  La estructura geológica establece la base física, la fragmentación crea barreras, el aislamiento permite la especiación y el clima finaliza la configuración de los biomas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "avanzado"
-  tags: ["biogeografia", "tectonica"]
-
-enunciado: "La relación entre la tectónica de placas y la biogeografía es ___________."
-
-respuesta: "directa"
-tipo: completar
-opciones_explicitas: ["directa", "inversa"]
-respuestas_validas:
-  - "directa"
-
-pasos:
-  - "Analizar cómo el movimiento de placas crea o destruye barreras físicas."
-  - "Considerar cómo estas barreras afectan la migración de especies."
-
-explicacion: |
-  Es una relación directa: el movimiento de las placas tectónicas crea montañas, océanos y separa continentes, lo que dicta las rutas de migración y el aislamiento de las especies.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "basico"
-  tags: ["clima", "latitud", "selva"]
-
-enunciado: "Un ecosistema con temperaturas elevadas durante todo el año, precipitaciones constantes y una biodiversidad extrema se encuentra en la zona de latitud ecuatorial. ¿Qué bioma es?"
-
-respuesta: "Selva Tropical"
-tipo: mc
-opciones_explicitas: ["Selva Tropical", "Tundra", "Desierto"]
-
-explicacion: |
-  La selva tropical se caracteriza por su clima cálido y húmedo, situado cerca del ecuador.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "basico"
-  tags: ["clima", "precipitacion"]
-
-enunciado: "Si un área presenta precipitaciones prácticamente nulas y una evaporación muy superior a la precipitación, el bioma es un ___."
-
-respuesta: "Desierto"
-tipo: completar
-respuestas_validas:
-  - "Desierto"
-
-explicacion: |
-  Los desiertos se definen por la escasez extrema de agua y la alta tasa de evaporación.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "intermedio"
-  tags: ["latitud", "secuencia", "clima"]
-
-enunciado: "Ordene los siguientes biomas desde la zona ecuatorial hacia los polos (de mayor a menor temperatura):"
-
-respuesta_orden: ["Selva Tropical", "Bosque Templado", "Tundra"]
-tipo: ordenar
-opciones_explicitas: ["Selva Tropical", "Bosque Templado", "Tundra"]
-
-explicacion: |
-  La temperatura disminuye a medida que nos alejamos del ecuador hacia los polos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "intermedio"
-  tags: ["clima", "suelo", "tundra"]
-
-enunciado: "Un bioma caracterizado por el permafrost permanente y la presencia de musgos y líquenes es la ___."
-
-respuesta: "Tundra"
-tipo: completar
-respuestas_validas:
-  - "Tundra"
-
-explicacion: |
-  La tundra se define por el permafrost, un suelo que permanece congelado casi todo el año.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "distribucion_biomas"
-  nivel: "basico"
-  tags: ["clima", "estaciones"]
-
-enunciado: "Un ecosistema con estaciones bien definidas y árboles que pierden sus hojas en otoño es un ___."
-
-respuesta: "Bosque Templado"
-tipo: mc
-opciones_explicitas: ["Bosque Templado", "Desierto", "Selva"]
-
-explicacion: |
-  El bosque templado se distingue por la marcada estacionalidad de sus climas.
-```
-
-## Sección: division-del-trabajo (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "basico"
-  tags: ["conceptos_basicos", "economia"]
-
-respuesta: "especialización"
-tipo: completar
-respuestas_validas:
-  - "especialización"
-
-enunciado: "La división del trabajo consiste en la ___ de distintas personas o grupos en tareas específicas, en lugar de que todos realicen todas las actividades."
-
-explicacion: |
-  La división del trabajo permite que cada individuo se enfoque en una tarea concreta, aumentando la eficiencia y la destreza en la producción.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "basico"
-  tags: ["eficiencia", "produccion"]
-
-opciones_explicitas: ["Aumento de la producción", "Reducción de la calidad", "Aumento del tiempo de trabajo", "Desperdicio de materiales"]
-
-respuesta: "Aumento de la producción"
-tipo: mc
-
-enunciado: "De acuerdo con los principios de la división del trabajo, ¿cuál es uno de sus principales beneficios económicos?"
-
-explicacion: |
-  Al especializarse, el trabajador gana rapidez y precisión, lo que permite producir una mayor cantidad de bienes en el mismo tiempo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "intermedio"
-  tags: ["historia_economica", "procesos"]
-
-enunciado: "En un escenario de fábrica moderna, donde cada operario realiza una sola tarea repetitiva en una línea de montaje, el modelo de producción se caracteriza por ser: ___"
-
-pasos:
-  - "Identificar el escenario seleccionado."
-  - "Analizar si el trabajador realiza todo el proceso o solo una parte."
-
-respuestas_validas:
-  - "fragmentado"
-respuesta: "fragmentado"
-tipo: completar
-
-explicacion: |
-  En la industria moderna, el proceso se fragmenta en tareas mínimas para maximizar la velocidad, a diferencia del modelo artesanal integral.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "intermedio"
-  tags: ["logica_procesos"]
-
-opciones_explicitas: ["Extracción de materia prima", "Transformación especializada", "Distribución del producto final"]
-
-respuesta_orden: ["Extracción de materia prima", "Transformación especializada", "Distribución del producto final"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente las etapas de una cadena de producción altamente dividida:"
-
-explicacion: |
-  La división del trabajo permite que cada etapa de la cadena de suministro sea ejecutada por especialistas distintos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "avanzado"
-  tags: ["habilidades", "educacion"]
-
-opciones_explicitas: ["Mayor versatilidad del trabajador", "Mayor destreza en tareas específicas", "Menor necesidad de entrenamiento", "Aumento de la autonomía técnica"]
-
-respuesta: "Mayor destreza en tareas específicas"
-tipo: mc
-
-enunciado: "La especialización extrema derivada de la división del trabajo tiene como consecuencia directa en el trabajador:"
-
-explicacion: |
-  Si bien aumenta la destreza técnica en una tarea puntual, también puede llevar a la monotonía y a la pérdida de la visión global del proceso productivo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "basico"
-  tags: ["agricultura", "excedente", "especializacion"]
-
-respuesta: "excedente agrícola"
-tipo: completar
-respuestas_validas:
-  - "excedente agrícola"
-  - "excedente"
-
-enunciado: "La división del trabajo surgió históricamente como una consecuencia directa de la aparición del ___."
-
-explicacion: |
-  Cuando las sociedades lograron producir más alimento del que necesitaban para su subsistencia inmediata (excedente), no todos los individuos tuvieron que dedicarse a la agricultura. Esto permitió que otros se especializaran en otras tareas.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "basico"
-  tags: ["roles", "sociedad", "especializacion"]
-
-variables:
-  rol_idx: uno_de([0, 1, 2])
-  roles: [["artesanos", "comerciantes", "sacerdotes"], ["artesanos", "comerciantes", "sacerdotes"], ["artesanos", "comerciantes", "sacerdotes"]]
-
-opciones_explicitas: ["artesanos", "comerciantes", "sacerdotes", "agricultores"]
-respuesta: roles[rol_idx][2]
-tipo: mc
-
-enunciado: "Gracias al excedente de alimentos, algunas personas pudieron dedicarse a funciones no productoras de comida, como es el caso de los {roles[rol_idx][2]}."
-
-explicacion: |
-  La especialización permitió la aparición de roles como artesanos, comerciantes, sacerdotes o gobernantes, liberando a una parte de la población de la tarea de producir alimento.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "intermedio"
-  tags: ["causalidad", "economia_antigua"]
-
-respuesta: "verdadero"
-tipo: completar
-enunciado: "¿Es correcto afirmar que la división del trabajo es una consecuencia de la capacidad de producir excedentes agrícolas?"
-
-explicacion: |
-  Correcto. Sin un excedente que alimentar a quienes no cultivan, la especialización laboral sería imposible, ya que todos deberían dedicarse a la obtención de alimentos para sobrevivir.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "avanzado"
-  tags: ["jerarquia", "especializacion", "sociedad"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["artesanos, comerciantes y sacerdotes", "artesanos, comerciantes y sacerdotes"], ["artesanos, comerciantes y sacerdotes", "artesanos, comerciantes y sacerdotes"]]
-
-opciones_explicitas: ["agricultores y guerreros", "artesanos, comerciantes y sacerdotes", "cazadores y recolectores", "nómadas y pastores"]
-respuesta: escenarios[escenario_idx][0]
-tipo: mc
-
-enunciado: "Al producirse un excedente agrícola, la estructura social se vuelve más compleja, pasando de ser mayoritariamente agricultores a incluir roles como ___."
-
-explicacion: |
-  La complejidad social aumenta cuando la población se diversifica en funciones que no están ligadas directamente a la extracción de recursos primarios.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "intermedio"
-  tags: ["proceso", "causalidad"]
-
-opciones_explicitas: ["Agricultura de subsistencia", "Producción de excedentes", "División del trabajo"]
-respuesta_orden: ["Agricultura de subsistencia", "Producción de excedentes", "División del trabajo"]
-tipo: ordenar
-
-enunciado: "Ordena los siguientes procesos históricos que permitieron la aparición de la especialización laboral:"
-
-pasos:
-  - "Se desarrolla la agricultura para el autoconsumo."
-  - "Se produce más comida de la necesaria (excedente)."
-  - "Surgen artesanos, sacerdotes y gobernantes."
-
-explicacion: |
-  El proceso es causal: primero la agricultura permite el excedente, y el excedente permite que la sociedad se divida en diferentes profesiones.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "basico"
-  tags: ["economia", "productividad"]
-
-respuesta: "eficiencia"
-tipo: completar
-respuestas_validas:
-  - "eficiencia"
-  - "productividad"
-
-enunciado: "Cuando un proceso se divide en tareas simples y cada trabajador se especializa en una de ellas, se logra una mayor ___ en la producción total."
-
-explicacion: |
-  La especialización permite que el trabajador perfeccione su técnica en una tarea específica, reduciendo el tiempo de transición entre actividades y aumentando la eficiencia general.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "basico"
-  tags: ["productividad", "especializacion"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["taller de costura", "un sastre"], ["fábrica de clavos", "un operario"]]
-  resultado: [["mayor rapidez", "un sastre"], ["mayor volumen", "un operario"]]
-
-respuesta: resultado[escenario_idx][0]
-tipo: mc
-opciones_explicitas: ["mayor rapidez", "mayor volumen", "menor calidad", "más costos"]
-
-enunciado: "En un {datos[escenario_idx][0]}, la especialización de {datos[escenario_idx][1]} permite obtener un {resultado[escenario_idx][0]} en la producción."
-
-explicacion: |
-  La división del trabajo transforma la producción artesanal en procesos masivos, aumentando drásticamente el volumen de bienes disponibles.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "intermedio"
-  tags: ["productividad", "habilidad"]
-
-respuesta: "perfeccionamiento de la destreza"
-tipo: mc
-opciones_explicitas: ["perfeccionamiento de la destreza", "pérdida de autonomía", "aumento de la fatiga mental", "reducción de la velocidad"]
-
-enunciado: "Una de las principales ventajas teóricas de la división del trabajo es el ___ del trabajador en su tarea asignada."
-
-explicacion: |
-  Al repetir una acción específica, el trabajador adquiere una destreza mecánica y técnica que no podría lograr si realizara todo el proceso de principio a fin.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "intermedio"
-  tags: ["orden", "proceso"]
-
-respuesta_orden: ["materias primas", "tareas especializadas", "producto terminado"]
-tipo: ordenar
-opciones_explicitas: ["materias primas", "tareas especializadas", "producto terminado"]
-
-enunciado: "Ordena la secuencia lógica de un proceso basado en la división del trabajo industrial:"
-
-pasos:
-  - "Se recolectan los insumos básicos."
-  - "Cada trabajador realiza una parte específica del ensamblaje."
-  - "Se obtiene el bien final listo para el mercado."
-
-explicacion: |
-  La división del trabajo requiere un flujo ordenado: primero la entrada de materiales, luego la ejecución fragmentada y finalmente la salida del producto.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "avanzado"
-  tags: ["productividad", "economia"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  valores: [[10, 50], [5, 100]]
-  total: [500, 1000]
-
-respuesta: total[caso_idx]
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si en un escenario de división del trabajo, un trabajador produce {valores[caso_idx][0]} unidades en una hora sin especializar, pero con la especialización produce {valores[caso_idx][1]} unidades, ¿cuál es la producción total en 10 horas si solo contamos la producción especializada?"
-
-pasos:
-  - "Identificar la producción por hora con especialización: {valores[caso_idx][1]}"
-  - "Multiplicar por el número de horas: {valores[caso_idx][1]} * 10"
-
-explicacion: |
-  La especialización actúa como un multiplicador de la productividad, permitiendo que la producción total crezca exponencialmente respecto al trabajo no especializado.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "basico"
-  tags: ["sociologia", "desigualdad"]
-
-respuesta: "prestigio"
-tipo: mc
-opciones_explicitas: ["prestigio", "esfuerzo", "tiempo", "herramientas"]
-
-enunciado: "Con la especialización de tareas, no todas las labores adquirieron el mismo nivel de ______, lo que permitió la jerarquización social."
-
-explicacion: |
-  La especialización permitió que algunas tareas fueran valoradas socialmente por encima de otras, otorgando a quienes las realizaban mayor estatus y control sobre los recursos.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "intermedio"
-  tags: ["economia", "recursos"]
-
-respuesta: "excedente"
-tipo: completar
-respuestas_validas:
-  - "excedente"
-
-enunciado: "En los primeros asentamientos sedentarios, la división del trabajo permitió que ciertos grupos controlaran el excedente, consolidando la desigualdad."
-
-explicacion: |
-  El control sobre el excedente de producción (como el grano) o sobre procesos técnicos específicos permitió que ciertos individuos acumularan poder sobre el resto de la comunidad.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "avanzado"
-  tags: ["estructura_social", "clases"]
-
-respuesta_orden: ["Especialización técnica", "Producción de subsistencia", "Servicio doméstico"]
-tipo: ordenar
-
-opciones_explicitas: ["Especialización técnica", "Producción de subsistencia", "Servicio doméstico"]
-
-enunciado: "Ordene las actividades desde la que históricamente ha generado mayor acumulación de recursos y estatus hasta la de menor estatus en una sociedad estratificada:"
-
-explicacion: |
-  La jerarquización social se basa en la complejidad de la tarea y el control de los medios de producción; las tareas de especialización técnica suelen estar en la cima de la pirámide de prestigio.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "intermedio"
-  tags: ["poder", "sociedad"]
-
-respuesta: "desigualdad"
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "La asignación desigual de tareas y el acceso diferenciado a los bienes producidos sentaron las bases de la _______ social."
-
-explicacion: |
-  Al no ser todas las tareas equivalentes en términos de acceso a la riqueza, se crearon estratos sociales permanentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "avanzado"
-  tags: ["recursos", "propiedad"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["tierras", "dueños"], ["herramientas", "maestros"]]
-
-respuesta: casos[caso_idx][1]
-
-tipo: mc
-opciones_explicitas: ["dueños", "maestros", "trabajadores", "esclavos"]
-
-enunciado: "Cuando la división del trabajo se vinculó con la propiedad de los medios de producción (como {casos[caso_idx][0]}), surgieron grupos de ___ que controlaban a los demás."
-
-explicacion: |
-  La combinación de la especialización con la propiedad privada de los recursos (tierra o herramientas) es el motor fundamental de la estratificación de clases.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "basico"
-  tags: ["especializacion", "prehistoria"]
-
-respuesta: "alfarero"
-tipo: mc
-opciones_explicitas: ["cazador", "curtidor", "alfarero", "agricultor"]
-
-enunciado: "En las sociedades con división del trabajo incipiente, un individuo que se dedica exclusivamente a la fabricación de vasijas de arcilla es un: ___"
-
-explicacion: |
-  La especialización ocurre cuando un individuo se dedica a una tarea específica, permitiendo un aumento en la calidad y cantidad de la producción.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "intermedio"
-  tags: ["jerarquia", "especializacion"]
-
-respuesta: "registrador"
-tipo: completar
-respuestas_validas:
-  - "registrador"
-
-enunciado: "Si en una civilización antigua la función principal de un escriba es llevar el control de los granos, su rol especializado es el de ___."
-
-explicacion: |
-  El escriba es un ejemplo de especialización administrativa necesaria en sociedades complejas con excedentes.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "intermedio"
-  tags: ["procesos", "especializacion"]
-
-respuesta_orden: ["pastoreo", "hilado", "tejido", "confección"]
-tipo: ordenar
-opciones_explicitas: ["pastoreo", "hilado", "tejido", "confección"]
-
-enunciado: "Ordena los pasos de la cadena de producción textil en una sociedad con división del trabajo técnica:"
-
-explicacion: |
-  La división del trabajo permite que cada etapa de la producción sea realizada por un especialista distinto, optimizando el proceso.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "avanzado"
-  tags: ["excedente", "sociedad"]
-
-respuesta: "religioso"
-tipo: mc
-opciones_explicitas: ["religioso", "militar", "herrero", "comerciante"]
-
-enunciado: "Cuando la agricultura genera excedentes, surge la especialización no productiva. Si el excedente se usa para sostener a un grupo dedicado al ritual, el rol es: ___"
-
-explicacion: |
-  El excedente agrícola es la condición necesaria para que existan profesiones que no producen alimento directamente.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "division_del_trabajo"
-  nivel: "basico"
-  tags: ["oficios", "identificacion"]
-
-respuesta: "agrimensor"
-tipo: completar
-respuestas_validas:
-  - "agrimensor"
-
-enunciado: "Un individuo cuya tarea principal es medir los límites de las tierras para la distribución de impuestos es un ___."
-
-explicacion: |
-  La especialización técnica (como la agrimensura) es fundamental para la gestión de los recursos en estados organizados.
-```
-
-## Sección: eclipses-sol-luna (25 preguntas)
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "basico"
-  tags: ["astronomia", "eclipse_solar"]
-
-tipo: mc
-opciones_explicitas: ["La Luna se interpone entre la Tierra y el Sol", "La Tierra se interpone entre el Sol y la Luna", "El Sol se interpone entre la Tierra y la Luna"]
-respuesta: "La Luna se interpone entre la Tierra y el Sol"
-
-enunciado: "Un eclipse solar ocurre cuando ___."
-
-explicacion: |
-  Para que ocurra un eclipse solar, la Luna debe estar posicionada exactamente entre la Tierra y el Sol, proyectando su sombra sobre nuestra superficie.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "basico"
-  tags: ["fases_lunares", "eclipse_solar"]
-
-enunciado: "Para que sea posible observar un eclipse solar, la Luna debe encontrarse en fase de ___."
-
-pasos:
-  - "Identificar la fase lunar necesaria para que la Luna esté entre la Tierra y el Sol."
-
-opciones_explicitas: ["Luna Llena", "Luna Nueva"]
-respuesta: "Luna Nueva"
-tipo: mc
-
-explicacion: |
-  Solo cuando la Luna está en fase de Luna Nueva puede alinearse entre la Tierra y el Sol para producir un eclipse solar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "basico"
-  tags: ["eclipse_lunar", "fases_lunares"]
-
-tipo: completar
-enunciado: "Un eclipse lunar ocurre únicamente durante la fase de ___."
-respuesta: "Luna Llena"
-explicacion: |
-  Un eclipse lunar requiere que la Tierra esté entre el Sol y la Luna, lo cual solo sucede cuando la Luna está en su fase de Luna Llena.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "intermedio"
-  tags: ["secuencia", "eclipse_lunar"]
-
-tipo: ordenar
-opciones_explicitas: ["Sol", "Tierra", "Luna"]
-respuesta_orden: ["Sol", "Tierra", "Luna"]
-
-enunciado: "Ordena los cuerpos celestes desde el que emite la luz hasta el que recibe la sombra durante un eclipse lunar:"
-
-explicacion: |
-  En un eclipse lunar, la secuencia es: la luz del Sol viaja hacia la Tierra, la Tierra bloquea la luz y proyecta su sombra sobre la Luna.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "intermedio"
-  tags: ["conceptos", "eclipse"]
-
-variables:
-  escenario: uno_de([0, 1])
-  datos: [["Sol - Tierra - Luna", "lunar"], ["Sol - Luna - Tierra", "solar"]]
-
-enunciado: "Si la posición de los astros es {datos[escenario][0]}, entonces el eclipse es de tipo ___."
-
-opciones_explicitas: ["solar", "lunar"]
-respuestas_validas:
-  - "lunar"
-  - "solar"
-respuesta: datos[escenario][1]
-tipo: completar
-
-explicacion: |
-  La clave para identificar el eclipse es observar qué cuerpo está en el medio: si es la Luna, el eclipse es solar; si es la Tierra, es lunar.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "basico"
-  tags: ["astronomia", "geometria_celestial"]
-
-respuesta: 5
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Aunque la Luna orbita la Tierra cada mes, no siempre se produce un eclipse porque su órbita está inclinada aproximadamente ___ grados respecto a la eclíptica (el plano de la órbita terrestre)."
-
-explicacion: |
-  La órbita de la Luna tiene una inclinación de unos 5° respecto al plano de la Tierra alrededor del Sol. Esta inclinación hace que, la mayoría de las veces, la Luna pase por encima o por debajo del Sol desde nuestra perspectiva.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "basico"
-  tags: ["astronomia", "alineacion"]
-
-opciones_explicitas: ["Eclíptica", "Eje terrestre", "Órbita solar", "Cinturón de asteroides"]
-
-respuesta: "Eclíptica"
-tipo: mc
-
-enunciado: "Para que ocurra un eclipse, la Luna debe estar alineada con el Sol y la Tierra en el plano de la ___."
-
-explicacion: |
-  Un eclipse solo ocurre cuando la Luna, la Tierra y el Sol se encuentran en un punto llamado 'nodos lunares', donde la órbita lunar cruza el plano de la eclíptica.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "intermedio"
-  tags: ["fases_lunares", "eclipses"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["Luna Nueva", "Solar"], ["Luna Llena", "Lunar"]]
-
-respuesta: datos[escenario_idx][1]
-tipo: mc
-opciones_explicitas: ["Solar", "Lunar", "Ninguno"]
-
-enunciado: "Si la Luna se encuentra en fase de {datos[escenario_idx][0]}, se requiere una alineación perfecta para producir un eclipse de tipo {datos[escenario_idx][1]}."
-
-explicacion: |
-  La fase de Luna Nueva es necesaria para los eclipses solares, mientras que la Luna Llena es necesaria para los eclipses lunares.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "avanzado"
-  tags: ["geometria", "nodos"]
-
-opciones_explicitas: ["Nodos lunares", "Equinoccios", "Solsticios", "Perigeos"]
-
-respuesta: "Nodos lunares"
-tipo: mc
-
-enunciado: "La razón por la cual los eclipses no ocurren en cada fase de Luna Nueva o Luna Llena es que la Luna solo cruza el plano de la eclíptica en dos puntos específicos llamados ___."
-
-explicacion: |
-  Esos puntos de intersección se llaman nodos. Solo cuando la Luna está en uno de estos nodos durante la fase de luna nueva o llena, se produce el fenómeno.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "intermedio"
-  tags: ["orden", "alineacion"]
-
-opciones_explicitas: ["Luna Nueva -> Eclipse Solar", "Luna Llena -> Eclipse Lunar"]
-
-respuesta_orden: ["Luna Nueva -> Eclipse Solar", "Luna Llena -> Eclipse Lunar"]
-tipo: ordenar
-
-enunciado: "Ordena las condiciones necesarias para los dos tipos principales de eclipses:"
-
-pasos:
-  - "Condición para eclipse solar"
-  - "Condición para eclipse lunar"
-
-explicacion: |
-  Para un eclipse solar necesitamos Luna Nueva y alineación en el nodo. Para un eclipse lunar necesitamos Luna Llena y alineación en el nodo.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "basico"
-  tags: ["astronomia", "conceptos_basicos"]
-
-respuesta: "umbra"
-tipo: completar
-respuestas_validas:
-  - "umbra"
-
-enunciado: "La parte más oscura y central de la sombra proyectada por la Luna sobre la Tierra se denomina ___."
-
-explicacion: |
-  La umbra es la zona de sombra total donde la luz del Sol queda completamente bloqueada. La penumbra es la zona exterior donde solo se bloquea una parte de la luz.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "intermedio"
-  tags: ["eclipses", "solar"]
-
-variables:
-  escenario: uno_de([["la Luna cubre totalmente el Sol", "total"], ["la Luna cubre solo una parte del Sol", "parcial"], ["la Luna está entre la Tierra y el Sol pero es más pequeña y deja un anillo", "anular"]])
-
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["total", "parcial", "anular"]
-
-enunciado: "Si durante un eclipse solar la Luna no logra cubrir completamente el disco solar, dejando ver un borde luminoso alrededor, estamos ante un eclipse ___."
-
-explicacion: |
-  En un eclipse parcial, la Luna solo cubre una fracción del Sol. En el total, lo cubre todo; en el anular, el diámetro aparente de la Luna es menor que el del Sol.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "basico"
-  tags: ["astronomia"]
-
-respuesta: "penumbra"
-tipo: mc
-opciones_explicitas: ["umbra", "penumbra", "antumbra"]
-
-enunciado: "Cuando un observador se encuentra en la región donde el Sol es parcialmente ocultado por la Luna, se encuentra en la zona de:"
-
-explicacion: |
-  La penumbra es la región de sombra parcial que rodea a la umbra.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "intermedio"
-  tags: ["observacion"]
-
-respuesta_orden: ["crescendo", "totalidad", "decrescendo"]
-tipo: ordenar
-opciones_explicitas: ["crescendo", "totalidad", "decrescendo"]
-
-enunciado: "Ordena cronológicamente las fases de un eclipse solar total desde que comienza el oscurecimiento hasta que termina:"
-
-explicacion: |
-  Primero ocurre el aumento gradual de la sombra (crescendo), luego la fase de oscuridad máxima (totalidad) y finalmente el regreso de la luz (decrescendo).
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "avanzado"
-  tags: ["calculo", "geometria"]
-
-respuesta: 384400
-tipo: completar
-tolerancia_abs: 5000
-
-enunciado: "¿Cuál es la distancia promedio entre la Tierra y la Luna, en kilómetros?"
-
-explicacion: |
-  La distancia promedio es de unos 384.400 km, aunque varía entre unos 363.300 km (perigeo) y 405.500 km (apogeo) debido a la órbita elíptica de la Luna.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "basico"
-  tags: ["astronomia", "visibilidad"]
-
-respuesta: "Luna"
-tipo: "mc"
-opciones_explicitas: ["Sol", "Luna", "Estrellas", "Planetas"]
-
-enunciado: "Durante un eclipse lunar, el cuerpo celeste que se oscurece debido a la sombra de la Tierra es la ___."
-
-explicacion: |
-  En un eclipse lunar, la Tierra se interpone entre el Sol y la Luna, proyectando su sombra sobre el satélite. Como la Luna está visible para cualquier punto de la Tierra que esté en la zona de noche, el fenómeno es observable desde toda la mitad nocturna del planeta.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "intermedio"
-  tags: ["geometria", "sombra"]
-
-variables:
-  caso: uno_de([0, 1])
-
-respuesta: "umbra"
-tipo: "completar"
-respuestas_validas:
-  - "umbra"
-  - "penumbra"
-
-enunciado: "En un eclipse solar, la parte de la sombra donde la totalidad del Sol es bloqueada por la Luna se denomina ___."
-
-explicacion: |
-  La sombra de la Luna tiene dos partes: la umbra (sombra total) y la penumbra (sombra parcial). La umbra es un cono muy estrecho que toca la superficie terrestre solo en una franja muy pequeña, razón por la cual los eclipses totales de Sol son raros de ver en un lugar específico.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "intermedio"
-  tags: ["comparacion", "visibilidad"]
-
-respuesta: "mayor"
-tipo: "mc"
-opciones_explicitas: ["menor", "mayor", "igual", "nula"]
-
-enunciado: "Comparado con la franja angosta de un eclipse solar, el área de visibilidad de un eclipse lunar es ___."
-
-explicacion: |
-  Un eclipse lunar es visible para cualquier persona que esté en la parte de la Tierra donde la Luna está en el cielo (la mitad nocturna). Un eclipse solar requiere que la pequeña sombra de la Luna pase exactamente por tu ubicación.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "basico"
-  tags: ["alineacion", "orden"]
-
-tipo: "ordenar"
-opciones_explicitas: ["Sol", "Tierra", "Luna"]
-respuesta_orden: ["Sol", "Tierra", "Luna"]
-
-enunciado: "Para que ocurra un eclipse lunar, los astros deben alinearse en el siguiente orden desde el Sol hacia la Luna:"
-
-explicacion: |
-  En el eclipse lunar, el orden es Sol - Tierra - Luna. La Tierra queda en el medio, proyectando su sombra sobre la Luna.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "avanzado"
-  tags: ["probabilidad", "observacion"]
-
-variables:
-  escenario: uno_de([0, 1])
-
-respuesta: "frecuente"
-tipo: "mc"
-opciones_explicitas: ["frecuente", "infrecuente"]
-
-enunciado: "Debido a que la sombra de la Luna es muy pequeña y se desplaza rápidamente por la Tierra, ver un eclipse solar total en un mismo punto es un evento ___."
-
-explicacion: |
-  Como la umbra lunar es un cono estrecho, la probabilidad de que esa línea exacta pase por tu ciudad es muy baja, haciendo que los eclipses solares totales sean eventos muy poco frecuentes en una ubicación geográfica dada.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "basico"
-  tags: ["astronomia", "posiciones"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Luna entre la Tierra y el Sol", "Solar"], ["Tierra entre la Luna y el Sol", "Lunar"]]
-
-enunciado: "Si observamos que la posición de los cuerpos celestes es {datos[idx][0]}, estamos presenciando un eclipse de tipo ___."
-
-respuestas_validas:
-  - "Solar"
-  - "Lunar"
-
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  Un eclipse solar ocurre cuando la Luna se interpone entre la Tierra y el Sol, proyectando su sombra sobre nuestro planeta.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "basico"
-  tags: ["astronomia"]
-
-variables:
-  escenario_datos: [["Sol-Luna-Tierra", "Solar"], ["Sol-Tierra-Luna", "Lunar"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Dada la configuración {escenario_datos[idx][0]}, el tipo de eclipse es ___."
-
-respuestas_validas:
-  - "Solar"
-  - "Lunar"
-
-respuesta: escenario_datos[idx][1]
-tipo: completar
-
-explicacion: |
-  La posición relativa determina qué cuerpo proyecta la sombra sobre el otro.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "intermedio"
-  tags: ["astronomia"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["La Tierra bloquea la luz solar hacia la Luna", "Lunar"], ["La Luna bloquea la luz solar hacia la Tierra", "Solar"]]
-
-enunciado: "Si ocurre que {datos[idx][0]}, el eclipse es ___."
-
-respuestas_validas:
-  - "Lunar"
-  - "Solar"
-
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  El eclipse se nombra según el cuerpo que queda en la zona de sombra.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "eclipses_sol_luna"
-  nivel: "basico"
-  tags: ["astronomia"]
-
-variables:
-  datos: [["Sol - Luna - Tierra", "Solar"], ["Sol - Tierra - Luna", "Lunar"]]
-  idx: uno_de([0, 1])
-
-enunciado: "En la configuración {datos[idx][0]}, el eclipse es ___."
-
-opciones_explicitas:
-  - "Solar"
-  - "Lunar"
-
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  En el primer caso la Luna está en el medio (Solar), en el segundo la Tierra (Lunar).
-```
-
-```
-metadata:
-  materia: "historia_profucha"
-  tema: "eclipses_sol_luna"
-  nivel: "intermedio"
-  tags: ["astronomia"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["La Luna entra en la umbra terrestre", "Lunar"], ["La Tierra entra en la umbra lunar", "Solar"]]
-
-enunciado: "Si el evento es {datos[idx][0]}, el tipo de eclipse es ___."
-
-respuestas_validas:
-  - "Lunar"
-  - "Solar"
-
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  Cuando la Luna entra en la sombra de la Tierra, vemos un eclipse lunar.
 ```
 
