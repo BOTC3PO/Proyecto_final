@@ -1,0 +1,399 @@
+[
+  {
+    "id": 861,
+    "materia": "Biología",
+    "cluster": 1,
+    "temas": [
+      "crecimiento-poblacional",
+      "genetica-mendeliana-punnett",
+      "grupos-sanguineos",
+      "cruce-dihibrido",
+      "herencia-ligada-al-sexo"
+    ],
+    "nombre": "Maestro de la Herencia Genética",
+    "descripcion": "Completaste el parcial dominando los cuadrados de Punnett, el cruce dihíbrido, la herencia ligada al sexo y los grupos sanguíneos, además del crecimiento poblacional.",
+    "icono": "🧬"
+  },
+  {
+    "id": 862,
+    "materia": "Biología",
+    "cluster": 2,
+    "temas": [
+      "necesidades-basicas-seres-vivos",
+      "ser-vivo-caracteristicas",
+      "celula-organelas",
+      "ciclos-vida-metamorfosis",
+      "clasificacion-evolucion"
+    ],
+    "nombre": "Fundamentos de los Seres Vivos",
+    "descripcion": "Dominaste qué define a un ser vivo, sus necesidades básicas, la célula y sus organelas, los ciclos de vida con metamorfosis y la clasificación evolutiva, jefe.",
+    "icono": "🔬"
+  },
+  {
+    "id": 863,
+    "materia": "Biología",
+    "cluster": 3,
+    "temas": [
+      "fotosintesis-respiracion-celular",
+      "habitats-adaptacion",
+      "enzimas-proteina-sustrato-ph",
+      "flujo-materia-energia",
+      "microbiologia-virus-inmunitario"
+    ],
+    "nombre": "Experto en Metabolismo y Energía",
+    "descripcion": "Aprobaste el parcial sobre fotosíntesis y respiración celular, enzimas, flujo de materia y energía, adaptación al hábitat y microbiología con sistema inmunitario.",
+    "icono": "⚡"
+  },
+  {
+    "id": 864,
+    "materia": "Biología",
+    "cluster": 4,
+    "temas": [
+      "cadenas-redes-troficas",
+      "mal-de-chagas",
+      "ciclos-biogeoquimicos",
+      "dinamica-poblacional-capacidad-carga",
+      "mitosis-meiosis"
+    ],
+    "nombre": "Dominio de Ecosistemas y División Celular",
+    "descripcion": "Completaste el parcial combinando redes tróficas, ciclos biogeoquímicos y capacidad de carga con mitosis y meiosis, e incluso el mal de Chagas como caso de estudio.",
+    "icono": "🌿"
+  },
+  {
+    "id": 865,
+    "materia": "Biología",
+    "cluster": 5,
+    "temas": [
+      "biodiversidad-indices",
+      "adn-gen-proteina",
+      "conservacion-areas-protegidas",
+      "biotecnologia-pcr-crispr",
+      "nicho-ecologico"
+    ],
+    "nombre": "Experto en Biodiversidad y Biotecnología",
+    "descripcion": "Dominaste los índices de biodiversidad, el nicho ecológico y las áreas protegidas, junto con el camino de ADN a gen a proteína y herramientas como PCR y CRISPR.",
+    "icono": "🧪"
+  },
+  {
+    "id": 866,
+    "materia": "Biología",
+    "cluster": 6,
+    "temas": [
+      "partes-planta-germinacion",
+      "piramide-biomasas",
+      "quimiosintesis",
+      "seleccion-natural",
+      "sistemas-cuerpo-humano"
+    ],
+    "nombre": "Maestro de Evolución y Cuerpo Humano",
+    "descripcion": "Aprobaste el parcial sobre selección natural, quimiosíntesis y pirámides de biomasa, más las partes de la planta, la germinación y los sistemas del cuerpo humano.",
+    "icono": "🌱"
+  },
+  {
+    "id": 867,
+    "materia": "Biología",
+    "cluster": 7,
+    "temas": [
+      "deriva-genetica-flujo-genico",
+      "especiacion",
+      "presion-arterial",
+      "filogenia-arboles-evolutivos",
+      "sistema-endocrino-hormonas-glandulas",
+      "sistema-nervioso-neurona-sinapsis",
+      "transgenicos-bioetica"
+    ],
+    "nombre": "Experto en Evolución y Fisiología",
+    "descripcion": "Completaste el parcial dominando especiación, deriva génica, filogenia, sistema nervioso y endocrino, presión arterial y la bioética de los transgénicos, jefe.",
+    "icono": "🧠"
+  },
+  {
+    "id": 894,
+    "materia": "Derecho",
+    "cluster": 1,
+    "temas": [
+      "ramas-del-derecho",
+      "derecho-administrativo",
+      "derecho-civil",
+      "derecho-comercial",
+      "derecho-constitucional"
+    ],
+    "nombre": "Maestro de las Ramas del Derecho",
+    "descripcion": "Dominaste el mapa de las ramas del derecho y sus pilares: constitucional, civil, comercial y administrativo.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 895,
+    "materia": "Derecho",
+    "cluster": 2,
+    "temas": [
+      "derecho-internacional",
+      "derecho-laboral",
+      "derecho-penal",
+      "denuncia-y-etapa-de-instruccion",
+      "hecho-juridicamente-relevante"
+    ],
+    "nombre": "Experto en Derecho Penal y Laboral",
+    "descripcion": "Completaste el parcial sobre derecho penal, laboral e internacional, y sobre cómo un hecho jurídicamente relevante llega a denuncia e instrucción, jefe.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 896,
+    "materia": "Derecho",
+    "cluster": 3,
+    "temas": [
+      "investigacion-prueba-y-fiscalia",
+      "fuentes-del-derecho",
+      "norma-jerarquia-y-vigencia",
+      "corrientes-interpretacion-juridica",
+      "interpretacion-normativa"
+    ],
+    "nombre": "Dominio de Fuentes e Interpretación",
+    "descripcion": "Dominaste las fuentes del derecho, la jerarquía y vigencia de las normas, las corrientes de interpretación y la investigación con fiscalía y prueba.",
+    "icono": "📜"
+  },
+  {
+    "id": 897,
+    "materia": "Derecho",
+    "cluster": 4,
+    "temas": [
+      "politica-criminal-garantismo-mano-dura",
+      "argumentacion-juridica",
+      "resolucion-de-conflictos-y-sentencia",
+      "juicio-oral",
+      "apelacion-e-instancias",
+      "ejecucion-de-la-sentencia"
+    ],
+    "nombre": "Maestro del Proceso Penal y la Sentencia",
+    "descripcion": "Aprobaste el parcial recorriendo argumentación jurídica, juicio oral, resolución y sentencia, apelación e instancias, ejecución de la pena y el debate garantismo contra mano dura.",
+    "icono": "🔨"
+  },
+  {
+    "id": 904,
+    "materia": "Arte",
+    "cluster": 1,
+    "temas": [
+      "acustica-instrumento-musical",
+      "composicion-y-proporcion",
+      "origen-del-arte",
+      "elementos-del-arte",
+      "principios-de-diseno"
+    ],
+    "nombre": "Maestro de los Fundamentos del Arte",
+    "descripcion": "Completaste el parcial dominando el origen del arte, sus elementos y principios de diseño, la composición y proporción, y la acústica del instrumento musical.",
+    "icono": "🎨"
+  },
+  {
+    "id": 905,
+    "materia": "Arte",
+    "cluster": 2,
+    "temas": [
+      "ritmo-compas-pulso-figuras-musicales",
+      "narrativa-audiovisual/plano",
+      "danza-ritmo-tiempo-expresion-corporal",
+      "lenguaje-musical-pentagrama-escalas-intervalos",
+      "narrativa-audiovisual/encuadre"
+    ],
+    "nombre": "Experto en Ritmo, Música y Plano",
+    "descripcion": "Dominaste el pulso, compás y figuras musicales, el pentagrama con escalas e intervalos, la danza y la expresión corporal, y el plano y el encuadre audiovisual, jefe.",
+    "icono": "🎼"
+  },
+  {
+    "id": 906,
+    "materia": "Arte",
+    "cluster": 3,
+    "temas": [
+      "armonia-basica-acordes-tonalidad",
+      "narrativa-audiovisual/montaje",
+      "rosetones-y-simetria",
+      "produccion-multimedial",
+      "teatro-dramaturgia-y-actuacion"
+    ],
+    "nombre": "Dominio de Armonía, Montaje y Escena",
+    "descripcion": "Aprobaste el parcial sobre armonía y acordes, montaje audiovisual, producción multimedial, teatro y dramaturgia, y la simetría de los rosetones.",
+    "icono": "🎭"
+  },
+  {
+    "id": 912,
+    "materia": "Investigación",
+    "cluster": 1,
+    "temas": [
+      "observacion-y-pregunta-investigable",
+      "hipotesis-buena-o-mala",
+      "metodologia-cualitativa-vs-cuantitativa",
+      "construir-y-usar-un-modelo-cientifico",
+      "trabajo-de-campo-enfoque-socioantropologico"
+    ],
+    "nombre": "Iniciado en el Método Científico",
+    "descripcion": "Completaste el parcial dominando la observación y la pregunta investigable, la buena hipótesis, la metodología cualitativa y cuantitativa, los modelos científicos y el trabajo de campo.",
+    "icono": "🔎"
+  },
+  {
+    "id": 913,
+    "materia": "Investigación",
+    "cluster": 2,
+    "temas": [
+      "corrientes-filosofia-de-la-ciencia",
+      "diseno-experimental-variables-y-control",
+      "tecnicas-de-investigacion-social",
+      "recoleccion-de-datos",
+      "analisis-estadistico-de-resultados",
+      "conclusion-y-comunicacion-de-resultados",
+      "argumentar-desde-evidencia"
+    ],
+    "nombre": "Experto en Diseño y Análisis de Investigación",
+    "descripcion": "Dominaste el diseño experimental, la recolección de datos, el análisis estadístico, la argumentación desde la evidencia y la comunicación de conclusiones, con filosofía de la ciencia y técnicas sociales.",
+    "icono": "📊"
+  },
+  {
+    "id": 918,
+    "materia": "Ingeniería",
+    "cluster": 1,
+    "temas": [
+      "modelizacion-matematica",
+      "problema-y-restricciones",
+      "disciplinas-de-la-ingenieria",
+      "investigar-soluciones-existentes",
+      "diseno-conceptual"
+    ],
+    "nombre": "Maestro del Inicio del Diseño en Ingeniería",
+    "descripcion": "Completaste el parcial dominando el problema y sus restricciones, la investigación de soluciones, el diseño conceptual, la modelización matemática y las disciplinas de la ingeniería.",
+    "icono": "📐"
+  },
+  {
+    "id": 919,
+    "materia": "Ingeniería",
+    "cluster": 2,
+    "temas": [
+      "modelado-y-calculo",
+      "prototipo",
+      "resistencia-de-materiales",
+      "ensayo-y-medicion",
+      "optimizacion-e-iteracion",
+      "comunicar-la-solucion"
+    ],
+    "nombre": "Experto en Construir y Validar Soluciones",
+    "descripcion": "Aprobaste el parcial sobre modelado y cálculo, resistencia de materiales, prototipo, ensayo y medición, optimización iterativa y cómo comunicar la solución, jefe.",
+    "icono": "🛠️"
+  },
+  {
+    "id": 924,
+    "materia": "Psicología",
+    "cluster": 1,
+    "temas": [
+      "psicologia-modernidad-y-el-yo",
+      "autoconocimiento-como-busqueda-humana",
+      "dependencia-del-otro-cultura-como-herencia",
+      "memoria-y-olvido-represion-inconsciente",
+      "psicologia-cognitiva-percepcion-memoria-atencion"
+    ],
+    "nombre": "Experto en el Yo, la Memoria y la Cultura",
+    "descripcion": "Completaste el parcial dominando la psicología de la modernidad y el yo, el autoconocimiento, la cultura como herencia y la memoria, el olvido y la represión.",
+    "icono": "🧠"
+  },
+  {
+    "id": 925,
+    "materia": "Psicología",
+    "cluster": 2,
+    "temas": [
+      "lenguaje-pensamiento-y-creatividad",
+      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
+      "edades-del-ser-humano-ninez-pubertad-identidad",
+      "salud-mental-ansiedad-depresion-pedir-ayuda",
+      "sesgos-cognitivos-heuristicas-error-sistematico"
+    ],
+    "nombre": "Maestro de Corrientes y Mente Humana",
+    "descripcion": "Dominaste las corrientes psicológicas, los sesgos cognitivos, lenguaje, pensamiento y creatividad, las edades del ser humano y la salud mental, jefe.",
+    "icono": "💭"
+  },
+  {
+    "id": 930,
+    "materia": "Ciencia de Materiales",
+    "cluster": 1,
+    "temas": [
+      "corrosion",
+      "elasticidad-ley-de-hooke-modulo-de-young",
+      "propiedades-mecanicas-dureza-tenacidad-ductilidad",
+      "plasticidad-y-punto-de-fluencia",
+      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
+      "fatiga-y-fractura"
+    ],
+    "nombre": "Experto en Comportamiento de Materiales",
+    "descripcion": "Aprobaste el parcial sobre elasticidad y ley de Hooke, plasticidad y punto de fluencia, dureza y tenacidad, fatiga y fractura, corrosión y las familias de materiales.",
+    "icono": "🔩"
+  },
+  {
+    "id": 934,
+    "materia": "Dibujo Técnico",
+    "cluster": 1,
+    "temas": [
+      "sistemas-de-proyeccion",
+      "vistas-frontal-superior-lateral",
+      "perspectivas-isometrica-y-caballera",
+      "escalas-numericas-y-graficas",
+      "acotacion-normalizada"
+    ],
+    "nombre": "Maestro del Dibujo Técnico",
+    "descripcion": "Completaste el parcial dominando sistemas de proyección, vistas, perspectivas isométrica y caballera, escalas y acotación normalizada, jefe.",
+    "icono": "📏"
+  },
+  {
+    "id": 938,
+    "materia": "Comunicación",
+    "cluster": 1,
+    "temas": [
+      "generos-periodisticos",
+      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido",
+      "etica-y-responsabilidad-de-los-medios",
+      "corrientes-de-la-comunicacion",
+      "publicidad-y-persuasion"
+    ],
+    "nombre": "Experto en Comunicación y Medios",
+    "descripcion": "Dominaste la teoría de la comunicación, sus corrientes, los géneros periodísticos, la ética de los medios y la publicidad y la persuasión.",
+    "icono": "📰"
+  },
+  {
+    "id": 942,
+    "materia": "Electrónica",
+    "cluster": 1,
+    "temas": [
+      "componentes-resistencia-capacitor-diodo-transistor",
+      "circuitos-y-leyes-de-kirchhoff",
+      "logica-digital-puertas-and-or-not",
+      "microcontroladores-y-microprocesadores",
+      "sensores-y-actuadores"
+    ],
+    "nombre": "Maestro de Circuitos y Control Digital",
+    "descripcion": "Completaste el parcial sobre resistencias, capacitores, diodos y transistores, leyes de Kirchhoff, lógica digital, microcontroladores, sensores y actuadores.",
+    "icono": "🔌"
+  },
+  {
+    "id": 946,
+    "materia": "Automatización",
+    "cluster": 1,
+    "temas": [
+      "lazo-abierto-vs-lazo-cerrado",
+      "plc-logica-de-control-industrial",
+      "realimentacion-feedback",
+      "control-pid-proporcional-integral-derivativo",
+      "servomecanismos"
+    ],
+    "nombre": "Experto en Sistemas de Control",
+    "descripcion": "Dominaste el lazo abierto y cerrado, la realimentación, el control PID, los servomecanismos y la lógica de control con PLC, jefe.",
+    "icono": "🤖"
+  },
+  {
+    "id": 950,
+    "materia": "UX/Diseño",
+    "cluster": 1,
+    "temas": [
+      "usabilidad-heuristicas-de-nielsen",
+      "accesibilidad-wcag-contraste-lectores-de-pantalla",
+      "jerarquia-visual-e-informacion",
+      "prototipado-wireframe-mockup-prototipo-interactivo",
+      "pruebas-de-usuario"
+    ],
+    "nombre": "Maestro de la Experiencia de Usuario",
+    "descripcion": "Aprobaste el parcial dominando usabilidad y heurísticas de Nielsen, accesibilidad WCAG, jerarquía visual, prototipado y pruebas de usuario.",
+    "icono": "🖥️"
+  }
+]
