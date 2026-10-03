@@ -127,6 +127,11 @@ Una receta entra a E solo si cumple una de estas tres:
 El último lugar de E (y de toda la ruta) es el medallón en pan brioche relleno.
 Todo lo demás de la ruta tiene que poder hacerse antes sin haber visto las especiales.
 
+**Recetas del equipo ya cargadas** (en `../recetas-del-equipo/`): el medallón en pan brioche
+relleno (E, dificultad 3,5) y la pizza con salsa de tomate y zanahoria (E, dificultad 2,5). Ambas
+ocupan lugares de Panificación (que tiene 3 de E). La pizza muestra por qué nivel y dificultad
+van separados: es especial por venir del equipo, pero se hace con una dificultad baja.
+
 **Receta final actualizada (2026-10-03):** el equipo cambió el medallón de hamburguesa para reducir el gusto interno a cebolla: la cebolla se cocina en sartén con aceite hasta que se dore y se deja enfriar antes de mezclarla con la carne. Ya está aplicado en `../05-receta-final/` y en `oficios-orientacion-vocacional-PLANIFICACION.md`. La cantidad de aceite no se especificó (figura "lo necesario").
 
 ## 6. Ficha de cada receta
