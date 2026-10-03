@@ -1,0 +1,398 @@
+[
+  {
+    "id": 736,
+    "materia": "Física",
+    "cluster": 1,
+    "temas": [
+      "cargas-electricas",
+      "estatica/centro-de-gravedad",
+      "campo-electrico",
+      "corriente-electrica",
+      "estatica/momento-de-una-fuerza"
+    ],
+    "nombre": "Cargas, Campo Eléctrico y Estática",
+    "descripcion": "Completaste el parcial dominando cargas eléctricas, campo eléctrico y corriente, y también el momento de una fuerza y el centro de gravedad en estática.",
+    "icono": "⚡"
+  },
+  {
+    "id": 737,
+    "materia": "Física",
+    "cluster": 2,
+    "temas": [
+      "estructura-del-nucleo-atomico",
+      "estatica/equilibrio-de-cuerpo-rigido",
+      "decaimiento-radiactivo-alfa-beta-gamma",
+      "formulas-con-literales",
+      "fision-y-fusion-nuclear"
+    ],
+    "nombre": "Núcleo Atómico y Equilibrio Rígido",
+    "descripcion": "Dominaste el decaimiento alfa, beta y gamma, la fisión y fusión nuclear y la estructura del núcleo, además del equilibrio del cuerpo rígido y las fórmulas con literales.",
+    "icono": "☢️"
+  },
+  {
+    "id": 738,
+    "materia": "Física",
+    "cluster": 3,
+    "temas": [
+      "iman-polos-atraccion-repulsion",
+      "ley-de-coulomb",
+      "leyes-de-newton/primera-inercia",
+      "maquinas-simples",
+      "leyes-de-newton/segunda-fma"
+    ],
+    "nombre": "Maestro de Coulomb y Newton",
+    "descripcion": "Aprobaste el parcial con la ley de Coulomb y el magnetismo de los imanes, junto con la primera y segunda ley de Newton y las máquinas simples, jefe.",
+    "icono": "🧲"
+  },
+  {
+    "id": 739,
+    "materia": "Física",
+    "cluster": 4,
+    "temas": [
+      "mru",
+      "leyes-de-newton/tercera-accion-reaccion",
+      "mruv",
+      "dinamica-fuerzas-concurrentes",
+      "oscilacion-periodo"
+    ],
+    "nombre": "Dominio de Cinemática y Dinámica",
+    "descripcion": "Completaste el parcial con MRU, MRUV, la tercera ley de Newton, las fuerzas concurrentes y el período de oscilación.",
+    "icono": "🚀"
+  },
+  {
+    "id": 740,
+    "materia": "Física",
+    "cluster": 5,
+    "temas": [
+      "gravitacion-universal",
+      "frecuencia",
+      "momento-lineal",
+      "longitud-onda-velocidad-propagacion",
+      "impulso-cambio-momento"
+    ],
+    "nombre": "Experto en Momento y Ondas",
+    "descripcion": "Dominaste el momento lineal, el impulso y la gravitación universal, además de la frecuencia y la relación entre longitud de onda y velocidad de propagación.",
+    "icono": "🌊"
+  },
+  {
+    "id": 741,
+    "materia": "Física",
+    "cluster": 6,
+    "temas": [
+      "luz-onda-espectro-electromagnetico",
+      "movimiento-circular-y-fuerza-centripeta",
+      "dualidad-onda-particula",
+      "plano-inclinado-y-rozamiento",
+      "fisica-medica"
+    ],
+    "nombre": "Luz Cuántica y Movimiento Circular",
+    "descripcion": "Completaste el parcial dominando el espectro electromagnético, la dualidad onda-partícula y la física médica, además del movimiento circular y el plano inclinado con rozamiento, jefe.",
+    "icono": "💡"
+  },
+  {
+    "id": 742,
+    "materia": "Física",
+    "cluster": 7,
+    "temas": [
+      "presion-f-sobre-a",
+      "reflexion-espejos-planos-curvos",
+      "caudal-q-a-v",
+      "presion-atmosferica",
+      "presion-hidrostatica"
+    ],
+    "nombre": "Experto en Presión y Fluidos",
+    "descripcion": "Dominaste la presión, la presión hidrostática y atmosférica y el caudal, y sumaste la reflexión en espejos planos y curvos.",
+    "icono": "💧"
+  },
+  {
+    "id": 743,
+    "materia": "Física",
+    "cluster": 8,
+    "temas": [
+      "masas-de-aire-y-frentes",
+      "principio-de-arquimedes-empuje-flotacion",
+      "formacion-de-nubes",
+      "principio-de-pascal-prensa-hidraulica",
+      "precipitacion"
+    ],
+    "nombre": "Fluidos y Meteorología",
+    "descripcion": "Aprobaste el parcial con el principio de Arquímedes y el de Pascal, y con masas de aire y frentes, formación de nubes y precipitación.",
+    "icono": "☁️"
+  },
+  {
+    "id": 744,
+    "materia": "Física",
+    "cluster": 9,
+    "temas": [
+      "refraccion-indice-ley-snell",
+      "relatividad-especial-conceptual",
+      "lentes-convergentes-divergentes",
+      "resonancia-frecuencia-natural",
+      "formacion-de-imagenes-optica"
+    ],
+    "nombre": "Maestro de la Óptica Geométrica",
+    "descripcion": "Completaste el parcial dominando refracción y ley de Snell, lentes convergentes y divergentes y formación de imágenes, junto con resonancia y relatividad especial.",
+    "icono": "🔭"
+  },
+  {
+    "id": 745,
+    "materia": "Física",
+    "cluster": 10,
+    "temas": [
+      "semivida-desintegracion-exponencial",
+      "ojo-humano-instrumento-optico",
+      "sonido-timbre-altura-intensidad",
+      "temperatura-equilibrio-termico",
+      "decibeles-richter"
+    ],
+    "nombre": "Sonido, Visión y Semivida",
+    "descripcion": "Dominaste el sonido (timbre, altura e intensidad), los decibeles y la escala de Richter, el ojo humano como instrumento óptico, la semivida y el equilibrio térmico, jefe.",
+    "icono": "🔊"
+  },
+  {
+    "id": 746,
+    "materia": "Física",
+    "cluster": 11,
+    "temas": [
+      "calor-q-m-c-deltat",
+      "dilatacion-termica-lineal",
+      "cambios-de-estado-calor-latente",
+      "escalas-de-temperatura-c-f-k",
+      "maquina-termica-termodinamica-nivel2"
+    ],
+    "nombre": "Dominio de Calor y Termometría",
+    "descripcion": "Completaste el parcial con calor Q=m·c·ΔT, dilatación térmica, calor latente, escalas de temperatura y máquinas térmicas.",
+    "icono": "🌡️"
+  },
+  {
+    "id": 747,
+    "materia": "Física",
+    "cluster": 12,
+    "temas": [
+      "tension-diferencia-potencial",
+      "entropia-segunda-ley-termodinamica",
+      "resistencia-electrica",
+      "tiro-oblicuo",
+      "ley-de-ohm"
+    ],
+    "nombre": "Ley de Ohm y Tiro Oblicuo",
+    "descripcion": "Aprobaste el parcial con tensión, resistencia y ley de Ohm, y también con el tiro oblicuo y la entropía en la segunda ley de la termodinámica.",
+    "icono": "🔌"
+  },
+  {
+    "id": 748,
+    "materia": "Física",
+    "cluster": 13,
+    "temas": [
+      "tiro-vertical",
+      "circuitos-en-paralelo",
+      "circuitos-en-serie",
+      "potencia-electrica",
+      "circuitos-mixtos"
+    ],
+    "nombre": "Experto en Circuitos Eléctricos",
+    "descripcion": "Dominaste los circuitos en serie, en paralelo y mixtos junto con la potencia eléctrica, y sumaste el tiro vertical, jefe.",
+    "icono": "🔋"
+  },
+  {
+    "id": 749,
+    "materia": "Física",
+    "cluster": 14,
+    "temas": [
+      "tormentas-y-fenomenos-severos",
+      "campo-magnetico-imanes-corrientes",
+      "trabajo-de-una-fuerza",
+      "induccion-electromagnetica-faraday-lenz",
+      "energia-cinetica"
+    ],
+    "nombre": "Electromagnetismo, Trabajo y Energía",
+    "descripcion": "Completaste el parcial dominando campo magnético, inducción de Faraday-Lenz, trabajo de una fuerza y energía cinética, además de tormentas y fenómenos severos.",
+    "icono": "🧭"
+  },
+  {
+    "id": 750,
+    "materia": "Física",
+    "cluster": 15,
+    "temas": [
+      "generador-motor-transformador",
+      "choques-elasticos-inelasticos",
+      "energia-potencial-gravitatoria",
+      "transmision-calor-conduccion-conveccion-radiacion",
+      "conservacion-energia-mecanica",
+      "velocidad-aceleracion-instantaneas",
+      "potencia-mecanica"
+    ],
+    "nombre": "Maestro de la Energía y sus Máquinas",
+    "descripcion": "Dominaste la conservación de la energía mecánica, la energía potencial gravitatoria, la potencia, los choques elásticos e inelásticos, la transmisión del calor y generadores, motores y transformadores.",
+    "icono": "⚙️"
+  },
+  {
+    "id": 816,
+    "materia": "Informática",
+    "cluster": 1,
+    "temas": [
+      "algebra-booleana",
+      "complejidad-asintotica",
+      "ofimatica-planilla-de-calculo",
+      "que-es-la-tecnica-y-la-tecnologia",
+      "revolucion-informatica"
+    ],
+    "nombre": "Lógica, Complejidad y Revolución Digital",
+    "descripcion": "Completaste el parcial con álgebra booleana, complejidad asintótica y planillas de cálculo, junto con el concepto de técnica y tecnología y la revolución informática.",
+    "icono": "💻"
+  },
+  {
+    "id": 817,
+    "materia": "Informática",
+    "cluster": 2,
+    "temas": [
+      "medios-tecnicos-extension-capacidades-humanas",
+      "historia-y-evolucion-de-los-sistemas-operativos",
+      "procesos-tecnicos-artesanales-e-industriales",
+      "arranque-de-la-computadora-boot",
+      "sistemas-numeracion"
+    ],
+    "nombre": "Técnica, Numeración y Arranque",
+    "descripcion": "Dominaste los medios técnicos, los procesos artesanales e industriales, la historia de los sistemas operativos, el arranque de la computadora y los sistemas de numeración, jefe.",
+    "icono": "🛠️"
+  },
+  {
+    "id": 818,
+    "materia": "Informática",
+    "cluster": 3,
+    "temas": [
+      "tipos-de-so-por-dispositivo",
+      "cpu-unidad-de-control-y-alu",
+      "unidades-almacenamiento",
+      "ciclo-de-instruccion-fetch-decode-execute",
+      "memoria-ram-cache-jerarquia"
+    ],
+    "nombre": "Experto en Arquitectura de Computadoras",
+    "descripcion": "Aprobaste el parcial con la CPU, el ciclo fetch-decode-execute, la jerarquía de memoria RAM y caché, las unidades de almacenamiento y los tipos de SO por dispositivo.",
+    "icono": "🖥️"
+  },
+  {
+    "id": 819,
+    "materia": "Informática",
+    "cluster": 4,
+    "temas": [
+      "algoritmo-secuencia-de-pasos",
+      "almacenamiento-volatil-vs-no-volatil",
+      "buses-y-entrada-salida",
+      "variables-y-tipos-de-dato",
+      "estructuras-de-control-condicionales"
+    ],
+    "nombre": "Fundamentos de Algoritmos y Hardware",
+    "descripcion": "Completaste el parcial dominando algoritmos, variables y condicionales, además de buses de entrada/salida y almacenamiento volátil frente a no volátil.",
+    "icono": "🧮"
+  },
+  {
+    "id": 820,
+    "materia": "Informática",
+    "cluster": 5,
+    "temas": [
+      "estructuras-de-control-bucles",
+      "funciones-y-modularidad",
+      "estructuras-de-datos-listas-pilas-colas",
+      "poo-clases-y-objetos",
+      "algoritmos-busqueda-ordenamiento"
+    ],
+    "nombre": "Maestro de la Programación",
+    "descripcion": "Dominaste bucles, funciones, estructuras de datos (listas, pilas y colas), programación orientada a objetos y algoritmos de búsqueda y ordenamiento.",
+    "icono": "👨‍💻"
+  },
+  {
+    "id": 821,
+    "materia": "Informática",
+    "cluster": 6,
+    "temas": [
+      "archivos-y-persistencia",
+      "inteligencia-artificial-reglas-a-aprendizaje",
+      "modelo-relacional-tabla-registro-clave-primaria",
+      "etica-de-la-ia-sesgo-privacidad",
+      "criptografia-clave-simetrica-asimetrica-hash"
+    ],
+    "nombre": "Datos, IA y Criptografía",
+    "descripcion": "Completaste el parcial con archivos y persistencia, el modelo relacional, la inteligencia artificial y su ética, y la criptografía simétrica, asimétrica y hash, jefe.",
+    "icono": "🔐"
+  },
+  {
+    "id": 822,
+    "materia": "Informática",
+    "cluster": 7,
+    "temas": [
+      "direccionamiento-ip-dns",
+      "proceso-programa-en-ejecucion",
+      "protocolo-http-peticion-respuesta",
+      "comunicacion-entre-procesos",
+      "memoria-asignacion-memoria-virtual"
+    ],
+    "nombre": "Redes, Procesos y Memoria Virtual",
+    "descripcion": "Aprobaste el parcial con direccionamiento IP, DNS y HTTP, y con procesos, comunicación entre procesos y memoria virtual.",
+    "icono": "🌐"
+  },
+  {
+    "id": 823,
+    "materia": "Informática",
+    "cluster": 8,
+    "temas": [
+      "planificacion-de-procesos",
+      "paginacion",
+      "interrupciones",
+      "recursividad",
+      "relaciones-y-claves-foraneas"
+    ],
+    "nombre": "Dominio del Núcleo del Sistema Operativo",
+    "descripcion": "Dominaste la planificación de procesos, la paginación y las interrupciones, además de la recursividad y las claves foráneas.",
+    "icono": "⚡"
+  },
+  {
+    "id": 824,
+    "materia": "Informática",
+    "cluster": 9,
+    "temas": [
+      "requisitos-funcionales-no-funcionales",
+      "normalizacion-bases-datos",
+      "diseno-y-arquitectura-de-software",
+      "segmentacion",
+      "control-de-versiones"
+    ],
+    "nombre": "Ingeniería de Software y Bases de Datos",
+    "descripcion": "Completaste el parcial con requisitos funcionales y no funcionales, diseño y arquitectura, control de versiones, normalización de bases de datos y segmentación, jefe.",
+    "icono": "📐"
+  },
+  {
+    "id": 825,
+    "materia": "Informática",
+    "cluster": 10,
+    "temas": [
+      "patrones-y-buenas-practicas",
+      "pruebas-unitarias-integracion",
+      "sistema-de-archivos",
+      "mantenimiento-y-deuda-tecnica",
+      "permisos-y-usuarios"
+    ],
+    "nombre": "Calidad de Software y Archivos",
+    "descripcion": "Dominaste patrones y buenas prácticas, pruebas unitarias y de integración, mantenimiento y deuda técnica, junto con el sistema de archivos y los permisos de usuarios.",
+    "icono": "🧪"
+  },
+  {
+    "id": 826,
+    "materia": "Informática",
+    "cluster": 11,
+    "temas": [
+      "sistema-de-archivos-por-bitacora",
+      "sql-consultas-joins-agregaciones",
+      "subsistema-de-entrada-y-salida",
+      "tcp-ip-capas-enrutamiento",
+      "tipos-de-licencias-de-software",
+      "seguridad-de-red-firewall-vpn-cifrado",
+      "transacciones-acid",
+      "seguridad-informatica",
+      "virtualizacion-maquina-virtual-contenedor"
+    ],
+    "nombre": "Experto en Sistemas, Redes y Seguridad",
+    "descripcion": "Completaste el parcial con SQL y transacciones ACID, TCP/IP, seguridad de red y seguridad informática, virtualización, entrada/salida, sistemas de archivos por bitácora y licencias de software, jefe.",
+    "icono": "🛡️"
+  }
+]
