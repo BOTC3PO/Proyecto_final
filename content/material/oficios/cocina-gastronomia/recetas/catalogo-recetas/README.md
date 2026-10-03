@@ -91,3 +91,5 @@ sus 15 recetas, no debería ser sólo asado repetido, sino usar el
 margen para meter platos regionales menos conocidos (más allá de lo
 obvio), con el mismo criterio de trasfondo histórico que ya usa el
 resto del mapa (Historia profunda, corrientes de pensamiento).
+
+> Orden de producción, niveles (básicas a especiales) y reparto por nivel: ver [`PLAN-progresion.md`](PLAN-progresion.md).
