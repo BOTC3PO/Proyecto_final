@@ -42,7 +42,7 @@ aclara está marcado en "Todavía sin aclarar" más abajo, sin completarlo.*
 - Provenzal: 1 o 2 cucharadas
 - Condimento para pizza: 1 cucharada
 - Ajo: opcional
-- Queso fresco o mozzarella: para terminar
+- Queso fresco o mozzarella: entre 150 g y 300 g, según cuánto queso se quiera usar (para terminar)
 
 Se recomienda tener un cornet (espátula de mano para panadería) y "un poco de odio" (texto
 original del equipo).
@@ -105,7 +105,8 @@ original del equipo).
 
 ### Todavía sin aclarar
 
-- **Cantidad de queso** (fresco o mozzarella) para terminar: figura sin dato.
+- **Queso: ¿150 a 300 g en total o por bollo?** Se cargó tal cual la cifra, sin aclarar a qué se
+  refiere. Con 5 o 6 bollos, en total serían 25 a 60 g por pizza; por bollo, 150 a 300 g cada una.
 
 Datos que calculé yo, no del equipo: las dos aguas suman 600 g sobre 1 kg de harina (hidratación
 cercana al 60 %), la sal de la masa es el 2 % de la harina y la levadura de 50 g es el 5 %.
