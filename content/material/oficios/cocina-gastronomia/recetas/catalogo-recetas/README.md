@@ -93,3 +93,5 @@ obvio), con el mismo criterio de trasfondo histórico que ya usa el
 resto del mapa (Historia profunda, corrientes de pensamiento).
 
 > Orden de producción, niveles (básicas a especiales) y reparto por nivel: ver [`PLAN-progresion.md`](PLAN-progresion.md).
+
+> **Avance (2026-10-03): piloto de la Ruta B hecho.** Nivel 0 (`../nivel-0-tecnica/`), ficha de Fondos y salsas (`../fondos-y-salsas/ficha-de-bloque.md`), 6 básicas de Fondos y salsas (`../fondos-y-salsas/basicas/`) y 4 básicas de Panificación (`../panificacion/basicas/`), más 2 especiales del equipo (`../recetas-del-equipo/`). Son 12 de las 150 recetas; todas "no probadas". Cada receta lista en su campo "Verificación" lo que no se pudo confirmar con dos fuentes.
