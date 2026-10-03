@@ -1,157 +1,5 @@
 [
   {
-    "id": 183,
-    "materia": "Ingeniería",
-    "cluster": 1,
-    "temas": [
-      "comunicar-la-solucion",
-      "disciplinas-de-la-ingenieria",
-      "diseno-conceptual",
-      "ensayo-y-medicion",
-      "investigar-soluciones-existentes"
-    ],
-    "nombre": "Maître du Design et de la Communication",
-    "descripcion": "Vous avez intégré la conception conceptuelle, la recherche et la communication des solutions.",
-    "icono": "📐"
-  },
-  {
-    "id": 184,
-    "materia": "Ingeniería",
-    "cluster": 2,
-    "temas": [
-      "modelado-y-calculo",
-      "modelizacion-matematica",
-      "optimizacion-e-iteracion",
-      "problema-y-restricciones",
-      "prototipo",
-      "resistencia-de-materiales"
-    ],
-    "nombre": "Modélisation et Optimisation",
-    "descripcion": "Vous avez résolu le partiel en intégrant la modélisation mathématique, l'optimisation et la résistance des matériaux avec une approche ingénierie.",
-    "icono": "📐"
-  },
-  {
-    "id": 206,
-    "materia": "Dibujo Técnico",
-    "cluster": 1,
-    "temas": [
-      "acotacion-normalizada",
-      "escalas-numericas-y-graficas",
-      "perspectivas-isometrica-y-caballera",
-      "sistemas-de-proyeccion",
-      "vistas-frontal-superior-lateral"
-    ],
-    "nombre": "Maîtrise des Vues et de la Cotation",
-    "descripcion": "Tu as complété l'examen sur les systèmes de projection, les échelles et les perspectives.",
-    "icono": "📐"
-  },
-  {
-    "id": 207,
-    "materia": "Psicología",
-    "cluster": 1,
-    "temas": [
-      "autoconocimiento-como-busqueda-humana",
-      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
-      "dependencia-del-otro-cultura-como-herencia",
-      "edades-del-ser-humano-ninez-pubertad-identidad",
-      "lenguaje-pensamiento-y-creatividad"
-    ],
-    "nombre": "Explorateur de l'Esprit",
-    "descripcion": "Tu as complété l'examen sur les courants psychologiques, le développement humain et la construction de la connaissance de soi.",
-    "icono": "🧠"
-  },
-  {
-    "id": 208,
-    "materia": "Psicología",
-    "cluster": 2,
-    "temas": [
-      "memoria-y-olvido-represion-inconsciente",
-      "psicologia-cognitiva-percepcion-memoria-atencion",
-      "psicologia-modernidad-y-el-yo",
-      "salud-mental-ansiedad-depresion-pedir-ayuda",
-      "sesgos-cognitivos-heuristicas-error-sistematico"
-    ],
-    "nombre": "Maître de l'Esprit",
-    "descripcion": "Tu as complété l'examen intégrateur sur la mémoire, les biais et la santé mentale, patron.",
-    "icono": "🧠"
-  },
-  {
-    "id": 209,
-    "materia": "Comunicación",
-    "cluster": 1,
-    "temas": [
-      "corrientes-de-la-comunicacion",
-      "etica-y-responsabilidad-de-los-medios",
-      "generos-periodisticos",
-      "publicidad-y-persuasion",
-      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido"
-    ],
-    "nombre": "Maîtrise des Courants et Genres",
-    "descripcion": "Tu as complété l'examen sur les courants, l'éthique, la publicité et la théorie de la communication.",
-    "icono": "📰"
-  },
-  {
-    "id": 210,
-    "materia": "Electrónica",
-    "cluster": 1,
-    "temas": [
-      "circuitos-y-leyes-de-kirchhoff",
-      "componentes-resistencia-capacitor-diodo-transistor",
-      "logica-digital-puertas-and-or-not",
-      "microcontroladores-y-microprocesadores",
-      "sensores-y-actuadores"
-    ],
-    "nombre": "Maître du Circuit et de la Logique",
-    "descripcion": "Tu as réussi l'examen en maîtrisant les lois de Kirchhoff jusqu'à la programmation des microcontrôleurs.",
-    "icono": "🔧"
-  },
-  {
-    "id": 211,
-    "materia": "Ciencia de Materiales",
-    "cluster": 1,
-    "temas": [
-      "corrosion",
-      "elasticidad-ley-de-hooke-modulo-de-young",
-      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
-      "fatiga-y-fractura",
-      "plasticidad-y-punto-de-fluencia",
-      "propiedades-mecanicas-dureza-tenacidad-ductilidad"
-    ],
-    "nombre": "Maître des Propriétés Mécaniques",
-    "descripcion": "Tu as réussi l'examen sur la corrosion, l'élasticité, la fatigue et les propriétés des matériaux, patron.",
-    "icono": "🛡️"
-  },
-  {
-    "id": 212,
-    "materia": "Automatización",
-    "cluster": 1,
-    "temas": [
-      "control-pid-proporcional-integral-derivativo",
-      "lazo-abierto-vs-lazo-cerrado",
-      "plc-logica-de-control-industrial",
-      "realimentacion-feedback",
-      "servomecanismos"
-    ],
-    "nombre": "Maître du Contrôle PID et PLC",
-    "descripcion": "Vous avez maîtrisé les fondamentaux des servomécanismes, de la logique industrielle et des boucles de contrôle principales.",
-    "icono": "🤖"
-  },
-  {
-    "id": 213,
-    "materia": "UX/Diseño",
-    "cluster": 1,
-    "temas": [
-      "accesibilidad-wcag-contraste-lectores-de-pantalla",
-      "jerarquia-visual-e-informacion",
-      "prototipado-wireframe-mockup-prototipo-interactivo",
-      "pruebas-de-usuario",
-      "usabilidad-heuristicas-de-nielsen"
-    ],
-    "nombre": "Maître de l'Utilisabilité et de l'Accessibilité",
-    "descripcion": "Vous avez réussi l'examen principal en maîtrisant les normes WCAG, les heuristiques de Nielsen et le prototypage.",
-    "icono": "👁️"
-  },
-  {
     "id": 601,
     "materia": "Matemática",
     "cluster": 1,
@@ -638,14 +486,14 @@
     "cluster": 1,
     "temas": [
       "conciencia-fonologica",
-      "escritura-como-tecnologia",
-      "decodificacion-y-fluidez",
       "ortografia-y-tildacion",
+      "decodificacion-y-fluidez",
+      "signos-de-puntuacion",
       "circuito-de-la-comunicacion"
     ],
-    "nombre": "Maître des Fondements de la Lecture-Écriture",
-    "descripcion": "Tu as maîtrisé la conscience phonologique, le décodage et la fluidité, l'orthographe et l'accentuation, et le circuit de la communication.",
-    "icono": "🔤📖"
+    "nombre": "Maîtrise de l'Orthographe et de la Lecture Initiale",
+    "descripcion": "Tu as terminé l'examen en maîtrisant la conscience phonologique, le décodage et la fluidité, l'orthographe et l'accentuation, la ponctuation et le circuit de la communication.",
+    "icono": "✍️"
   },
   {
     "id": 652,
@@ -653,14 +501,14 @@
     "cluster": 2,
     "temas": [
       "comprension-idea-principal",
-      "signos-de-puntuacion",
+      "escritura-como-tecnologia",
       "tecnicas-de-estudio-resumen-y-organizadores-graficos",
       "tipos-textuales",
       "variedades-de-la-lengua"
     ],
-    "nombre": "Maîtrise de la Compréhension Textuelle",
-    "descripcion": "Tu as terminé l'examen en maîtrisant l'idée principale, les signes de ponctuation, les types textuels et les variétés de langue, chef.",
-    "icono": "🧩📚"
+    "nombre": "Expert en Compréhension et Typologie",
+    "descripcion": "Tu as maîtrisé l'idée principale, les types de textes, les variétés de la langue, l'écriture comme technologie et les techniques d'étude comme le résumé et les organisateurs graphiques, chef.",
+    "icono": "📖"
   },
   {
     "id": 653,
@@ -862,180 +710,180 @@
     "materia": "Historia profunda",
     "cluster": 1,
     "temas": [
-      "absolutismo-europeo",
-      "agujeros-negros",
-      "ampliacion-democratica-ley-saenz-pena",
-      "antigua-grecia",
-      "antigua-roma"
+      "escalas-de-tiempo-profundo",
+      "origen-del-universo",
+      "formacion-de-estrellas",
+      "galaxias-tipos-escala",
+      "nucleosintesis"
     ],
-    "nombre": "De la Grèce et Rome à l'Absolutisme",
-    "descripcion": "Tu as maîtrisé l'examen sur la Grèce antique, la Rome antique et l'absolutisme européen, avec un détour par les trous noirs.",
-    "icono": "🏛️"
+    "nombre": "Maître de l'Origine de l'Univers",
+    "descripcion": "Tu as terminé l'examen en maîtrisant les échelles du temps profond, l'origine de l'univers, la nucléosynthèse, la formation des étoiles et les types de galaxies.",
+    "icono": "🌌"
   },
   {
     "id": 682,
     "materia": "Historia profunda",
     "cluster": 2,
     "temas": [
-      "antiguo-egipto",
-      "atmosfera-primitiva",
-      "baja-edad-media-y-crisis",
-      "caida-de-roma-y-alta-edad-media",
-      "cambio-climatico-linea-base-historica"
+      "corrimiento-al-rojo-expansion-universo",
+      "agujeros-negros",
+      "formacion-del-sistema-solar",
+      "ley-de-hubble",
+      "movimiento-rotacion-traslacion"
     ],
-    "nombre": "L'Égypte et la Crise Médiévale",
-    "descripcion": "Tu as terminé l'examen sur l'Égypte antique, la chute de Rome, le Haut Moyen Âge et la crise du bas Moyen Âge, chef.",
-    "icono": "🏺"
+    "nombre": "Maîtrise de l'Expansion Cosmique",
+    "descripcion": "Tu as réussi l'examen sur la loi de Hubble, le décalage vers le rouge, les trous noirs, la formation du système solaire et les mouvements de rotation et de translation, chef.",
+    "icono": "🔭"
   },
   {
     "id": 683,
     "materia": "Historia profunda",
     "cluster": 3,
     "temas": [
-      "china-antigua",
-      "ciclo-de-las-rocas",
-      "ciencia-revolucion-cientifica",
-      "cinco-extinciones-masivas",
-      "civilizaciones-antiguas"
+      "materia-energia-oscura",
+      "estaciones-del-ano",
+      "fases-lunares",
+      "movimiento-aparente-constelaciones",
+      "eclipses-sol-luna"
     ],
-    "nombre": "Science et Civilisations Antiques",
-    "descripcion": "Tu as maîtrisé la Chine antique, les civilisations antiques, les cinq extinctions massives et la révolution scientifique dans le même examen.",
-    "icono": "🔬🏺"
+    "nombre": "Expert en Ciel et Univers Sombre",
+    "descripcion": "Tu as maîtrisé la matière noire et l'énergie noire ainsi que le ciel observable : les saisons, les phases de la Lune, les éclipses et le mouvement apparent des constellations.",
+    "icono": "🌙"
   },
   {
     "id": 684,
     "materia": "Historia profunda",
     "cluster": 4,
     "temas": [
-      "civilizaciones-de-america-precolombinas",
-      "conquista-colonizacion-america",
-      "conquista-tierra-firme",
-      "conquista-y-colonia-argentina",
-      "corrimiento-al-rojo-expansion-universo"
+      "tabla-periodica-nivel2-cosmologico",
+      "tierra-primitiva-diferenciacion",
+      "atmosfera-primitiva",
+      "minerales-estructura-cristalina",
+      "origen-de-la-vida"
     ],
-    "nombre": "De l'Amérique Précolombienne au Cosmos",
-    "descripcion": "Tu as terminé l'examen couvrant les civilisations précolombiennes et la conquête de l'Amérique jusqu'au décalage vers le rouge et l'expansion de l'univers.",
-    "icono": "🌎"
+    "nombre": "Maître de la Terre Primitive",
+    "descripcion": "Tu as terminé l'examen en maîtrisant la Terre primitive et sa différenciation, l'atmosphère primitive, les minéraux, le tableau périodique cosmologique et l'origine de la vie.",
+    "icono": "🌋"
   },
   {
     "id": 685,
     "materia": "Historia profunda",
     "cluster": 5,
     "temas": [
-      "datacion-radiometrica",
-      "descolonizacion-de-africa-y-asia",
-      "distribucion-biomas",
-      "division-del-trabajo",
-      "eclipses-sol-luna"
+      "rocas-igneas-sedimentarias-metamorficas",
+      "procariotas",
+      "tiempo-geologico-eones-eras-periodos",
+      "gran-oxidacion",
+      "datacion-radiometrica"
     ],
-    "nombre": "Datation, Biomes et Décolonisation",
-    "descripcion": "Tu as réussi l'examen en intégrant la datation radiométrique, la décolonisation de l'Afrique et de l'Asie, la répartition des biomes et les éclipses de soleil et de lune.",
-    "icono": "⏳🌍"
+    "nombre": "Expert en Temps Géologique",
+    "descripcion": "Tu as maîtrisé les éons, les ères et les périodes, la datation radiométrique, les types de roches, les procaryotes et la Grande Oxydation, chef.",
+    "icono": "🪨"
   },
   {
     "id": 686,
     "materia": "Historia profunda",
     "cluster": 6,
     "temas": [
-      "edad-media-feudalismo",
-      "edad-media-plena",
-      "electrificacion-fabrica-hogar",
-      "entreguerras-y-crisis-de-1929",
-      "escalas-de-tiempo-profundo"
+      "eucariotas",
+      "fotosintesis-cambio-atmosfera-nivel2",
+      "multicelularidad",
+      "tectonica-placas-deriva-continental",
+      "explosion-cambrica"
     ],
-    "nombre": "Du Féodalisme à la Crise de 29",
-    "descripcion": "Tu as traversé le féodalisme médiéval, l'électrification de l'usine et du foyer, et la crise de 1929, en maîtrisant les grandes transformations, chef.",
-    "icono": "🏰"
+    "nombre": "Maîtrise de la Vie Complexe",
+    "descripcion": "Tu as réussi l'examen sur les eucaryotes, la photosynthèse et le changement atmosphérique, la multicellularité, l'explosion cambrienne et la tectonique des plaques.",
+    "icono": "🦠"
   },
   {
     "id": 687,
     "materia": "Historia profunda",
     "cluster": 7,
     "temas": [
-      "escritura-primeras-ciudades",
-      "estaciones-del-ano",
-      "estados-nacionales",
-      "eucariotas",
-      "expansion-del-imperio-romano"
+      "ciclo-de-las-rocas",
+      "conquista-tierra-firme",
+      "distribucion-biomas",
+      "cinco-extinciones-masivas",
+      "paleoclima-glaciaciones"
     ],
-    "nombre": "De l'Écriture à l'Empire Romain",
-    "descripcion": "Tu as terminé l'examen final sur l'écriture et les premières villes, les États-nations et l'expansion de l'Empire romain.",
-    "icono": "📜🏛️"
+    "nombre": "Maître des Extinctions et des Climats Anciens",
+    "descripcion": "Tu as terminé l'examen en maîtrisant la conquête des terres émergées, les cinq extinctions de masse, le paléoclimat et les glaciations, le cycle des roches et la répartition des biomes.",
+    "icono": "🦖"
   },
   {
     "id": 688,
     "materia": "Historia profunda",
     "cluster": 8,
     "temas": [
-      "explosion-cambrica",
-      "fases-lunares",
-      "formacion-de-estrellas",
-      "formacion-del-sistema-solar",
-      "fotosintesis-cambio-atmosfera-nivel2"
+      "radiacion-mamiferos",
+      "cambio-climatico-linea-base-historica",
+      "hominizacion",
+      "relieve-sismos-volcanes",
+      "paleolitico"
     ],
-    "nombre": "Étoiles, Photosynthèse et Cambrien",
-    "descripcion": "Tu as maîtrisé la formation des étoiles et du système solaire, les phases lunaires, la photosynthèse et l'explosion cambrienne.",
-    "icono": "⭐🧬"
+    "nombre": "Expert en Mammifères et Origine Humaine",
+    "descripcion": "Tu as maîtrisé la radiation des mammifères, l'hominisation et le paléolithique, ainsi que le relief avec ses séismes et ses volcans et la ligne de base du changement climatique, chef.",
+    "icono": "🦴"
   },
   {
     "id": 689,
     "materia": "Historia profunda",
     "cluster": 9,
     "temas": [
-      "galaxias-tipos-escala",
-      "globalizacion-era-digital",
-      "golpes-de-estado-interrupciones",
-      "gran-oxidacion",
-      "guerra-de-malvinas"
+      "seleccion-natural-evidencias-nivel2",
+      "herramientas-arte-rupestre",
+      "poblamiento-planeta-america",
+      "revolucion-neolitica",
+      "sedentarizacion-excedente"
     ],
-    "nombre": "Galaxies, Coups d'État et Malouines",
-    "descripcion": "Tu as terminé l'examen sur les galaxies, la Grande Oxydation, les coups d'État et la guerre des Malouines, chef.",
-    "icono": "🌌🎖️"
+    "nombre": "Maîtrise de la Révolution Néolithique",
+    "descripcion": "Tu as terminé l'examen en maîtrisant la sélection naturelle, les outils et l'art rupestre, le peuplement de l'Amérique, la révolution néolithique et la sédentarisation avec excédent.",
+    "icono": "🌾"
   },
   {
     "id": 690,
     "materia": "Historia profunda",
     "cluster": 10,
     "temas": [
-      "guerra-fria-descolonizacion",
-      "guerras-civiles-unitarios-federales",
-      "guerras-de-independencia-argentina",
-      "guerras-mundiales",
-      "herramientas-arte-rupestre"
+      "division-del-trabajo",
+      "metalurgia-cobre-hierro",
+      "propiedad-jerarquia-estado",
+      "escritura-primeras-ciudades",
+      "antigua-grecia"
     ],
-    "nombre": "De l'Indépendance à la Guerre Froide",
-    "descripcion": "Tu as terminé l'examen sur les guerres d'indépendance argentines, les guerres civiles entre unitaires et fédéraux, les guerres mondiales et la Guerre froide.",
-    "icono": "⚔️"
+    "nombre": "Maître des Premiers États",
+    "descripcion": "Tu as réussi l'examen sur la division du travail, la métallurgie, la propriété et la hiérarchie jusqu'à l'État, l'écriture avec les premières villes et la Grèce antique.",
+    "icono": "🏺"
   },
   {
     "id": 691,
     "materia": "Historia profunda",
     "cluster": 11,
     "temas": [
-      "historia-contemporanea-de-africa",
-      "historia-contemporanea-de-asia-y-pacifico",
-      "historia-contemporanea-de-medio-oriente",
-      "historia-reciente-argentina",
-      "hominizacion"
+      "antigua-roma",
+      "antiguo-egipto",
+      "china-antigua",
+      "civilizaciones-de-america-precolombinas",
+      "india-antigua"
     ],
-    "nombre": "Histoire Contemporaine du Monde",
-    "descripcion": "Tu as réussi l'examen en intégrant l'histoire contemporaine de l'Afrique, de l'Asie et du Pacifique, du Moyen-Orient et de l'Argentine récente.",
-    "icono": "🌍"
+    "nombre": "Expert en Grandes Civilisations Antiques",
+    "descripcion": "Tu as maîtrisé Rome, l'Égypte, la Chine, l'Inde et les civilisations précolombiennes d'Amérique, chef.",
+    "icono": "🏛️"
   },
   {
     "id": 692,
     "materia": "Historia profunda",
     "cluster": 12,
     "temas": [
-      "huella-humana-en-el-clima-inicio",
-      "ilustracion",
-      "imperialismo",
-      "imperio-bizantino",
+      "mesopotamia",
+      "pueblos-originarios-territorio-argentino",
+      "civilizaciones-antiguas",
+      "expansion-del-imperio-romano",
       "imperio-de-alejandro-magno-helenistico"
     ],
-    "nombre": "De l'Hellénisme à l'Impérialisme",
-    "descripcion": "Tu as terminé l'examen sur l'empire hellénistique d'Alexandre le Grand, l'Empire byzantin, les Lumières et l'impérialisme.",
-    "icono": "🏺🌐"
+    "nombre": "Maîtrise des Empires du Monde Antique",
+    "descripcion": "Tu as terminé l'examen sur la Mésopotamie, Alexandre le Grand et l'hellénisme, l'expansion de l'Empire romain et les peuples originaires du territoire de l'actuelle Argentine.",
+    "icono": "⚔️"
   },
   {
     "id": 693,
@@ -1045,165 +893,165 @@
       "imperio-han-china",
       "imperio-persa",
       "imperios-expansion",
-      "imprenta",
-      "india-antigua"
+      "caida-de-roma-y-alta-edad-media",
+      "edad-media-feudalismo"
     ],
-    "nombre": "Empires Antiques et l'Imprimerie",
-    "descripcion": "Tu as maîtrisé l'Empire perse, l'Empire Han de Chine, l'Inde antique et l'arrivée de l'imprimerie, chef.",
-    "icono": "👑📖"
+    "nombre": "Maître des Empires et de la Féodalité",
+    "descripcion": "Tu as maîtrisé les empires Han et perse, l'expansion impériale, la chute de Rome avec le haut Moyen Âge et la féodalité, chef.",
+    "icono": "🏰"
   },
   {
     "id": 694,
     "materia": "Historia profunda",
     "cluster": 14,
     "temas": [
-      "internet-redes-globalizacion-digital",
+      "imperio-bizantino",
       "islam-y-expansion-arabe",
-      "ley-de-hubble",
-      "materia-energia-oscura",
-      "mesopotamia"
+      "edad-media-plena",
+      "baja-edad-media-y-crisis",
+      "renacimiento-y-reforma"
     ],
-    "nombre": "De la Mésopotamie à Internet",
-    "descripcion": "Tu as terminé la révision couvrant la Mésopotamie et l'islam jusqu'à Internet et la mondialisation numérique, avec un détour par la loi de Hubble.",
-    "icono": "🕌💻"
+    "nombre": "Expert en Moyen Âge et Renaissance",
+    "descripcion": "Tu as réussi l'examen sur l'Empire byzantin, l'islam et son expansion arabe, le Moyen Âge classique, la crise du bas Moyen Âge et la Renaissance avec la Réforme.",
+    "icono": "📜"
   },
   {
     "id": 695,
     "materia": "Historia profunda",
     "cluster": 15,
     "temas": [
-      "metalurgia-cobre-hierro",
-      "minerales-estructura-cristalina",
-      "modelo-agroexportador-inmigracion",
-      "modernidad-imprenta-navegacion-ciencia",
-      "movimiento-aparente-constelaciones"
+      "ciencia-revolucion-cientifica",
+      "imprenta",
+      "navegacion",
+      "conquista-colonizacion-america",
+      "modernidad-imprenta-navegacion-ciencia"
     ],
-    "nombre": "Métallurgie, Minéraux et Modernité",
-    "descripcion": "Tu as terminé l'examen final sur la métallurgie du cuivre et du fer, les minéraux, le modèle agro-exportateur et la modernité de l'imprimerie et de la navigation.",
-    "icono": "⚒️🔭"
+    "nombre": "Maîtrise de la Modernité et de la Conquête",
+    "descripcion": "Tu as terminé l'examen en maîtrisant la révolution scientifique, l'imprimerie, la navigation et la conquête et la colonisation de l'Amérique.",
+    "icono": "⛵"
   },
   {
     "id": 696,
     "materia": "Historia profunda",
     "cluster": 16,
     "temas": [
-      "movimiento-rotacion-traslacion",
-      "multicelularidad",
-      "navegacion",
-      "nucleosintesis",
-      "organizacion-nacional-constitucion-1853"
+      "absolutismo-europeo",
+      "conquista-y-colonia-argentina",
+      "ilustracion",
+      "virreinato-y-comercio",
+      "revolucion-industrial"
     ],
-    "nombre": "Cosmos et la Constitution de 1853",
-    "descripcion": "Tu as démontré ta maîtrise, de la rotation et de la translation terrestres et la nucléosynthèse jusqu'à l'organisation nationale de 1853, chef.",
-    "icono": "🌐📜"
+    "nombre": "Maître de l'Absolutisme et des Lumières",
+    "descripcion": "Tu as maîtrisé l'absolutisme européen, les Lumières, la révolution industrielle, la conquête et la colonie en Argentine, ainsi que la vice-royauté et son commerce, chef.",
+    "icono": "👑"
   },
   {
     "id": 697,
     "materia": "Historia profunda",
     "cluster": 17,
     "temas": [
-      "origen-de-la-vida",
-      "origen-del-universo",
-      "paleoclima-glaciaciones",
-      "paleolitico",
-      "peronismo-derechos-sociales"
+      "revolucion-de-mayo",
+      "electrificacion-fabrica-hogar",
+      "guerras-de-independencia-argentina",
+      "huella-humana-en-el-clima-inicio",
+      "guerras-civiles-unitarios-federales"
     ],
-    "nombre": "Du Big Bang au Péronisme",
-    "descripcion": "Tu as terminé cet examen final couvrant l'origine de l'univers et de la vie jusqu'au Paléolithique et au péronisme.",
-    "icono": "💥🗳️"
+    "nombre": "Expert en Indépendance Argentine",
+    "descripcion": "Tu as réussi l'examen sur la Révolution de Mai, les guerres d'indépendance et les guerres civiles entre unitaires et fédéraux, ainsi que sur l'électrification et le début de l'empreinte humaine sur le climat.",
+    "icono": "🇦🇷"
   },
   {
     "id": 698,
     "materia": "Historia profunda",
     "cluster": 18,
     "temas": [
-      "poblamiento-planeta-america",
-      "primera-guerra-mundial-y-revolucion-rusa",
-      "procariotas",
-      "propiedad-jerarquia-estado",
-      "pueblos-originarios-territorio-argentino"
+      "revoluciones-burguesas-liberalismo",
+      "organizacion-nacional-constitucion-1853",
+      "estados-nacionales",
+      "modelo-agroexportador-inmigracion",
+      "imperialismo"
     ],
-    "nombre": "Des Procaryotes à la Révolution Russe",
-    "descripcion": "Tu as terminé l'examen sur les procaryotes, le peuplement de l'Amérique, les peuples autochtones et la Première Guerre mondiale et la Révolution russe.",
-    "icono": "🧫🚩"
+    "nombre": "Maîtrise de l'Ordre Libéral et National",
+    "descripcion": "Tu as terminé l'examen en maîtrisant les révolutions bourgeoises et le libéralisme, les États nationaux, l'impérialisme, la Constitution de 1853 et le modèle agro-exportateur avec immigration.",
+    "icono": "📈"
   },
   {
     "id": 699,
     "materia": "Historia profunda",
     "cluster": 19,
     "temas": [
-      "radiacion-mamiferos",
-      "recuperacion-democratica-memoria",
-      "relieve-sismos-volcanes",
-      "renacimiento-y-reforma",
-      "revolucion-de-mayo"
+      "ampliacion-democratica-ley-saenz-pena",
+      "sociedad-de-masas-y-democracia-liberal",
+      "primera-guerra-mundial-y-revolucion-rusa",
+      "entreguerras-y-crisis-de-1929",
+      "golpes-de-estado-interrupciones"
     ],
-    "nombre": "De la Renaissance à la Démocratie Retrouvée",
-    "descripcion": "Tu as maîtrisé l'examen sur la Renaissance et la Réforme, la Révolution de Mai et le retour de la démocratie et de la mémoire, chef.",
-    "icono": "🎨🕊️"
+    "nombre": "Maître du Début du XXe Siècle",
+    "descripcion": "Tu as maîtrisé la société de masse et la démocratie libérale, la Première Guerre mondiale et la révolution russe, l'entre-deux-guerres et la crise de 1929, la loi Sáenz Peña et les coups d'État, chef.",
+    "icono": "📰"
   },
   {
     "id": 700,
     "materia": "Historia profunda",
     "cluster": 20,
     "temas": [
-      "revolucion-industrial",
-      "revolucion-neolitica",
-      "revoluciones-burguesas-liberalismo",
-      "rocas-igneas-sedimentarias-metamorficas",
-      "sedentarizacion-excedente"
+      "segunda-guerra-mundial",
+      "peronismo-derechos-sociales",
+      "descolonizacion-de-africa-y-asia",
+      "guerras-mundiales",
+      "guerra-fria-descolonizacion"
     ],
-    "nombre": "De la Révolution Néolithique à l'Industrielle",
-    "descripcion": "Tu as traversé la révolution néolithique, la sédentarisation et l'excédent jusqu'à la révolution industrielle et les révolutions bourgeoises.",
-    "icono": "🌾🏭"
+    "nombre": "Expert en Guerres et Guerre Froide",
+    "descripcion": "Tu as réussi l'examen sur les guerres mondiales, la Seconde Guerre mondiale, la guerre froide, la décolonisation de l'Afrique et de l'Asie et le péronisme avec ses droits sociaux.",
+    "icono": "🕊️"
   },
   {
     "id": 701,
     "materia": "Historia profunda",
     "cluster": 21,
     "temas": [
-      "segunda-guerra-mundial",
-      "seleccion-natural-evidencias-nivel2",
-      "sociedad-de-masas-y-democracia-liberal",
-      "tabla-periodica-nivel2-cosmologico",
-      "tectonica-placas-deriva-continental",
       "terrorismo-de-estado-argentina",
-      "tiempo-geologico-eones-eras-periodos",
-      "tierra-primitiva-diferenciacion",
-      "virreinato-y-comercio"
+      "historia-contemporanea-de-africa",
+      "guerra-de-malvinas",
+      "historia-contemporanea-de-asia-y-pacifico",
+      "historia-contemporanea-de-medio-oriente",
+      "recuperacion-democratica-memoria",
+      "globalizacion-era-digital",
+      "historia-reciente-argentina",
+      "internet-redes-globalizacion-digital"
     ],
-    "nombre": "Maître de l'Histoire Profonde",
-    "descripcion": "Tu as réussi l'examen en maîtrisant tout, de la Terre primitive et la tectonique des plaques jusqu'à la Seconde Guerre mondiale, le terrorisme d'État et la vice-royauté, chef.",
-    "icono": "🌋🎖️"
+    "nombre": "Maîtrise de l'Histoire Récente",
+    "descripcion": "Tu as terminé l'examen en maîtrisant le terrorisme d'État, les Malouines et le retour à la démocratie en Argentine, l'histoire contemporaine de l'Afrique, de l'Asie et du Moyen-Orient, ainsi que la mondialisation à l'ère numérique.",
+    "icono": "🌍"
   },
   {
     "id": 721,
     "materia": "Historia",
     "cluster": 1,
     "temas": [
-      "conquista-del-desierto-y-campana-al-chaco",
       "crisis-de-2001",
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "interpretar-una-fuente-historica"
+      "interpretar-una-fuente-historica",
+      "linea-de-tiempo-y-antes-despues",
+      "reforma-universitaria-1918",
+      "decada-siglo-milenio"
     ],
-    "nombre": "Maître des Guerres et des Crises",
-    "descripcion": "Tu as réussi l'examen sur la Conquête du Désert, la guerre du Paraguay, la guerre civile espagnole et la crise de 2001, en interprétant des sources historiques.",
-    "icono": "⚔️"
+    "nombre": "Expert en Sources et Chronologie",
+    "descripcion": "Tu as maîtrisé l'interprétation des sources historiques, les frises chronologiques, la décennie, le siècle et le millénaire, ainsi que des cas argentins comme la Réforme universitaire de 1918 et la crise de 2001, chef.",
+    "icono": "🗂️"
   },
   {
     "id": 722,
     "materia": "Historia",
     "cluster": 2,
     "temas": [
-      "linea-de-tiempo-y-antes-despues",
-      "reforma-universitaria-1918",
-      "decada-siglo-milenio",
-      "revolucion-mexicana-1910-1920",
-      "antes-y-despues-de-cristo"
+      "semana-tragica-1919",
+      "antes-y-despues-de-cristo",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "periodizacion-historica",
+      "causa-y-consecuencia"
     ],
-    "nombre": "Maître du Temps et des Révolutions",
-    "descripcion": "Tu as terminé l'examen final sur les frises chronologiques, la Réforme universitaire de 1918 et la Révolution mexicaine.",
+    "nombre": "Maîtrise de la Périodisation et de la Causalité",
+    "descripcion": "Tu as terminé l'examen en maîtrisant la périodisation, l'avant et l'après Jésus-Christ, la cause et la conséquence, la Semaine tragique de 1919 et l'industrialisation par substitution des importations.",
     "icono": "⏳"
   },
   {
@@ -1211,515 +1059,515 @@
     "materia": "Historia",
     "cluster": 3,
     "temas": [
-      "rosas-y-la-confederacion",
-      "periodizacion-historica",
-      "economias-regionales-tempranas",
-      "causa-y-consecuencia",
-      "semana-tragica-1919"
+      "significancia-historica",
+      "cambio-y-continuidad",
+      "evidencia",
+      "dimension-etica",
+      "multicausalidad"
     ],
-    "nombre": "Maître de Rosas et de la Semaine Tragique",
-    "descripcion": "Tu as réussi l'examen sur Rosas et la Confédération, les premières économies régionales et la Semaine Tragique de 1919, chef.",
-    "icono": "📜"
+    "nombre": "Maître de la Pensée Historique",
+    "descripcion": "Tu as maîtrisé la portée historique, le changement et la continuité, les preuves, la multicausalité et la dimension éthique, chef.",
+    "icono": "🧠"
   },
   {
     "id": 724,
     "materia": "Historia",
     "cluster": 4,
     "temas": [
-      "cambio-y-continuidad",
-      "evidencia",
-      "dimension-etica",
-      "industrializacion-por-sustitucion-de-importaciones-isi",
-      "multicausalidad"
+      "escuela-de-los-annales",
+      "historia-cultural",
+      "materialismo-historico",
+      "positivismo",
+      "revoluciones"
     ],
-    "nombre": "Maître de la Pensée Historique et de l'ISI",
-    "descripcion": "Tu as maîtrisé l'examen final en intégrant le changement et la continuité, la multicausalité, la preuve historique et l'industrialisation par substitution d'importations.",
-    "icono": "🏭"
+    "nombre": "Expert en Courants Historiographiques",
+    "descripcion": "Tu as réussi l'examen sur l'École des Annales, l'histoire culturelle, le matérialisme historique, le positivisme et l'étude des révolutions.",
+    "icono": "📚"
   },
   {
     "id": 725,
     "materia": "Historia",
     "cluster": 5,
     "temas": [
-      "significancia-historica",
-      "escuela-de-los-annales",
-      "historia-cultural",
-      "materialismo-historico",
-      "positivismo",
-      "revoluciones",
       "independencias",
-      "guerras"
+      "revolucion-mexicana-1910-1920",
+      "guerras",
+      "guerra-civil-espanola-1936-1939",
+      "guerra-del-paraguay-y-triple-alianza",
+      "rosas-y-la-confederacion",
+      "conquista-del-desierto-y-campana-al-chaco",
+      "economias-regionales-tempranas"
     ],
-    "nombre": "Maître des Écoles Historiographiques",
-    "descripcion": "Tu as réussi l'examen en intégrant l'École des Annales, le matérialisme historique et le positivisme avec les grandes révolutions, indépendances et guerres.",
-    "icono": "📚"
+    "nombre": "Maîtrise des Guerres et Processus Américains",
+    "descripcion": "Tu as terminé l'examen sur les indépendances, la révolution mexicaine, la guerre civile espagnole, la guerre du Paraguay, Rosas et la Confédération, la Conquête du désert et les premières économies régionales.",
+    "icono": "🗺️"
   },
   {
     "id": 736,
     "materia": "Física",
     "cluster": 1,
     "temas": [
-      "calor-q-m-c-deltat",
-      "cambios-de-estado-calor-latente",
+      "cargas-electricas",
+      "estatica/centro-de-gravedad",
       "campo-electrico",
-      "campo-magnetico-imanes-corrientes",
-      "cargas-electricas"
+      "corriente-electrica",
+      "estatica/momento-de-una-fuerza"
     ],
-    "nombre": "Maître de la Chaleur et des Charges Électriques",
-    "descripcion": "Tu as terminé l'examen en maîtrisant la chaleur spécifique, les changements d'état et les champs électrique et magnétique, chef.",
-    "icono": "🔥⚡"
+    "nombre": "Charges, Champ Électrique et Statique",
+    "descripcion": "Tu as terminé l'examen en maîtrisant les charges électriques, le champ électrique et le courant, ainsi que le moment d'une force et le centre de gravité en statique.",
+    "icono": "⚡"
   },
   {
     "id": 737,
     "materia": "Física",
     "cluster": 2,
     "temas": [
-      "caudal-q-a-v",
-      "choques-elasticos-inelasticos",
-      "circuitos-en-paralelo",
-      "circuitos-en-serie",
-      "circuitos-mixtos"
+      "estructura-del-nucleo-atomico",
+      "estatica/equilibrio-de-cuerpo-rigido",
+      "decaimiento-radiactivo-alfa-beta-gamma",
+      "formulas-con-literales",
+      "fision-y-fusion-nuclear"
     ],
-    "nombre": "Expert en Circuits et Chocs",
-    "descripcion": "Tu as maîtrisé les circuits en série, en parallèle et mixtes, ainsi que le débit et les chocs élastiques et inélastiques.",
-    "icono": "🔌💥"
+    "nombre": "Noyau Atomique et Équilibre du Solide",
+    "descripcion": "Tu as maîtrisé la désintégration alpha, bêta et gamma, la fission et la fusion nucléaires et la structure du noyau, ainsi que l'équilibre du solide rigide et les formules littérales.",
+    "icono": "☢️"
   },
   {
     "id": 738,
     "materia": "Física",
     "cluster": 3,
     "temas": [
-      "conservacion-energia-mecanica",
-      "corriente-electrica",
-      "decaimiento-radiactivo-alfa-beta-gamma",
-      "decibeles-richter",
-      "dilatacion-termica-lineal"
+      "iman-polos-atraccion-repulsion",
+      "ley-de-coulomb",
+      "leyes-de-newton/primera-inercia",
+      "maquinas-simples",
+      "leyes-de-newton/segunda-fma"
     ],
-    "nombre": "Maîtrise de l'Énergie et de la Radioactivité",
-    "descripcion": "Tu as terminé l'examen en maîtrisant la conservation de l'énergie mécanique, le courant électrique, la désintégration radioactive et la dilatation thermique, chef.",
-    "icono": "☢️⚡"
+    "nombre": "Maître de Coulomb et de Newton",
+    "descripcion": "Tu as réussi l'examen avec la loi de Coulomb et le magnétisme des aimants, ainsi que les première et deuxième lois de Newton et les machines simples, chef.",
+    "icono": "🧲"
   },
   {
     "id": 739,
     "materia": "Física",
     "cluster": 4,
     "temas": [
+      "mru",
+      "leyes-de-newton/tercera-accion-reaccion",
+      "mruv",
       "dinamica-fuerzas-concurrentes",
-      "dualidad-onda-particula",
-      "energia-cinetica",
-      "energia-potencial-gravitatoria",
-      "entropia-segunda-ley-termodinamica"
+      "oscilacion-periodo"
     ],
-    "nombre": "Maître de la Dynamique et de l'Entropie",
-    "descripcion": "Tu as maîtrisé les forces concourantes, l'énergie cinétique et potentielle, et conclu avec l'entropie et la dualité onde-particule.",
-    "icono": "⚛️⚖️"
+    "nombre": "Maîtrise de la Cinématique et de la Dynamique",
+    "descripcion": "Tu as terminé l'examen avec le MRU, le MRUV, la troisième loi de Newton, les forces concourantes et la période d'oscillation.",
+    "icono": "🚀"
   },
   {
     "id": 740,
     "materia": "Física",
     "cluster": 5,
     "temas": [
-      "escalas-de-temperatura-c-f-k",
-      "estatica/centro-de-gravedad",
-      "estatica/equilibrio-de-cuerpo-rigido",
-      "estatica/momento-de-una-fuerza",
-      "estructura-del-nucleo-atomico"
+      "gravitacion-universal",
+      "frecuencia",
+      "momento-lineal",
+      "longitud-onda-velocidad-propagacion",
+      "impulso-cambio-momento"
     ],
-    "nombre": "Maîtrise de l'Équilibre et des Échelles Thermiques",
-    "descripcion": "Tu as terminé l'examen en maîtrisant le centre de gravité, l'équilibre du corps rigide, les échelles de température et la structure du noyau atomique, chef.",
-    "icono": "⚖️🌡️"
+    "nombre": "Expert en Quantité de Mouvement et Ondes",
+    "descripcion": "Tu as maîtrisé la quantité de mouvement, l'impulsion et la gravitation universelle, ainsi que la fréquence et la relation entre longueur d'onde et vitesse de propagation.",
+    "icono": "🌊"
   },
   {
     "id": 741,
     "materia": "Física",
     "cluster": 6,
     "temas": [
-      "fisica-medica",
-      "fision-y-fusion-nuclear",
-      "formacion-de-imagenes-optica",
-      "formulas-con-literales",
-      "frecuencia"
+      "luz-onda-espectro-electromagnetico",
+      "movimiento-circular-y-fuerza-centripeta",
+      "dualidad-onda-particula",
+      "plano-inclinado-y-rozamiento",
+      "fisica-medica"
     ],
-    "nombre": "Expert en Physique Médicale et Nucléaire",
-    "descripcion": "Tu as maîtrisé la fission et la fusion nucléaires, la formation d'images en optique et la physique médicale, sans te tromper sur une seule formule littérale.",
-    "icono": "🏥☢️"
+    "nombre": "Lumière Quantique et Mouvement Circulaire",
+    "descripcion": "Tu as terminé l'examen en maîtrisant le spectre électromagnétique, la dualité onde-particule et la physique médicale, ainsi que le mouvement circulaire et le plan incliné avec frottement, chef.",
+    "icono": "💡"
   },
   {
     "id": 742,
     "materia": "Física",
     "cluster": 7,
     "temas": [
-      "generador-motor-transformador",
-      "gravitacion-universal",
-      "iman-polos-atraccion-repulsion",
-      "impulso-cambio-momento",
-      "induccion-electromagnetica-faraday-lenz"
+      "presion-f-sobre-a",
+      "reflexion-espejos-planos-curvos",
+      "caudal-q-a-v",
+      "presion-atmosferica",
+      "presion-hidrostatica"
     ],
-    "nombre": "Maître de l'Électromagnétisme et de la Gravitation",
-    "descripcion": "Tu as terminé l'examen en maîtrisant générateurs, moteurs et transformateurs, l'induction électromagnétique de Faraday et Lenz, et la gravitation universelle, chef.",
-    "icono": "🧲🌍"
+    "nombre": "Expert en Pression et Fluides",
+    "descripcion": "Tu as maîtrisé la pression, la pression hydrostatique et atmosphérique et le débit, et tu y as ajouté la réflexion sur les miroirs plans et courbes.",
+    "icono": "💧"
   },
   {
     "id": 743,
     "materia": "Física",
     "cluster": 8,
     "temas": [
-      "lentes-convergentes-divergentes",
-      "ley-de-coulomb",
-      "ley-de-ohm",
-      "leyes-de-newton/primera-inercia",
-      "leyes-de-newton/segunda-fma"
+      "masas-de-aire-y-frentes",
+      "principio-de-arquimedes-empuje-flotacion",
+      "formacion-de-nubes",
+      "principio-de-pascal-prensa-hidraulica",
+      "precipitacion"
     ],
-    "nombre": "Maîtrise des Lois Fondamentales",
-    "descripcion": "Tu as maîtrisé la loi de Coulomb, la loi d'Ohm et les deux premières lois de Newton, ainsi que les lentilles convergentes et divergentes.",
-    "icono": "🔍⚡"
+    "nombre": "Fluides et Météorologie",
+    "descripcion": "Tu as réussi l'examen avec le principe d'Archimède et le principe de Pascal, ainsi qu'avec les masses d'air et les fronts, la formation des nuages et les précipitations.",
+    "icono": "☁️"
   },
   {
     "id": 744,
     "materia": "Física",
     "cluster": 9,
     "temas": [
-      "leyes-de-newton/tercera-accion-reaccion",
-      "longitud-onda-velocidad-propagacion",
-      "luz-onda-espectro-electromagnetico",
-      "maquina-termica-termodinamica-nivel2",
-      "maquinas-simples"
+      "refraccion-indice-ley-snell",
+      "relatividad-especial-conceptual",
+      "lentes-convergentes-divergentes",
+      "resonancia-frecuencia-natural",
+      "formacion-de-imagenes-optica"
     ],
-    "nombre": "Maître des Ondes et des Machines",
-    "descripcion": "Tu as terminé l'examen en maîtrisant la troisième loi de Newton, la propagation des ondes, le spectre électromagnétique et les machines simples, chef.",
-    "icono": "🌊⚙️"
+    "nombre": "Maître de l'Optique Géométrique",
+    "descripcion": "Tu as terminé l'examen en maîtrisant la réfraction et la loi de Snell, les lentilles convergentes et divergentes et la formation des images, ainsi que la résonance et la relativité restreinte.",
+    "icono": "🔭"
   },
   {
     "id": 745,
     "materia": "Física",
     "cluster": 10,
     "temas": [
-      "momento-lineal",
-      "movimiento-circular-y-fuerza-centripeta",
-      "mru",
+      "semivida-desintegracion-exponencial",
       "ojo-humano-instrumento-optico",
-      "mruv"
+      "sonido-timbre-altura-intensidad",
+      "temperatura-equilibrio-termico",
+      "decibeles-richter"
     ],
-    "nombre": "Maîtrise du Mouvement et de la Vision",
-    "descripcion": "Tu as maîtrisé le MRU, le MRUV, la quantité de mouvement et le mouvement circulaire, et compris l'œil humain comme instrument optique.",
-    "icono": "🏃‍♂️👁️"
+    "nombre": "Son, Vision et Demi-vie",
+    "descripcion": "Tu as maîtrisé le son (timbre, hauteur et intensité), les décibels et l'échelle de Richter, l'œil humain comme instrument optique, la demi-vie et l'équilibre thermique, chef.",
+    "icono": "🔊"
   },
   {
     "id": 746,
     "materia": "Física",
     "cluster": 11,
     "temas": [
-      "oscilacion-periodo",
-      "plano-inclinado-y-rozamiento",
-      "potencia-electrica",
-      "potencia-mecanica",
-      "presion-atmosferica"
+      "calor-q-m-c-deltat",
+      "dilatacion-termica-lineal",
+      "cambios-de-estado-calor-latente",
+      "escalas-de-temperatura-c-f-k",
+      "maquina-termica-termodinamica-nivel2"
     ],
-    "nombre": "Maître de la Puissance et des Oscillations",
-    "descripcion": "Tu as terminé l'examen en maîtrisant la puissance électrique et mécanique, le plan incliné avec frottement, l'oscillation et la pression atmosphérique, chef.",
-    "icono": "🔄⚡"
+    "nombre": "Maîtrise de la Chaleur et de la Thermométrie",
+    "descripcion": "Tu as terminé l'examen avec la chaleur Q=m·c·ΔT, la dilatation thermique, la chaleur latente, les échelles de température et les machines thermiques.",
+    "icono": "🌡️"
   },
   {
     "id": 747,
     "materia": "Física",
     "cluster": 12,
     "temas": [
-      "presion-f-sobre-a",
-      "masas-de-aire-y-frentes",
-      "presion-hidrostatica",
-      "formacion-de-nubes",
-      "principio-de-arquimedes-empuje-flotacion"
+      "tension-diferencia-potencial",
+      "entropia-segunda-ley-termodinamica",
+      "resistencia-electrica",
+      "tiro-oblicuo",
+      "ley-de-ohm"
     ],
-    "nombre": "Maîtrise de la Pression et du Climat",
-    "descripcion": "Tu as maîtrisé la pression hydrostatique, le principe d'Archimède, les masses d'air et les fronts, et la formation des nuages.",
-    "icono": "🌬️☁️"
+    "nombre": "Loi d'Ohm et Tir Oblique",
+    "descripcion": "Tu as réussi l'examen avec la tension, la résistance et la loi d'Ohm, ainsi qu'avec le tir oblique et l'entropie dans le deuxième principe de la thermodynamique.",
+    "icono": "🔌"
   },
   {
     "id": 748,
     "materia": "Física",
     "cluster": 13,
     "temas": [
-      "precipitacion",
-      "principio-de-pascal-prensa-hidraulica",
-      "reflexion-espejos-planos-curvos",
-      "refraccion-indice-ley-snell",
-      "relatividad-especial-conceptual"
+      "tiro-vertical",
+      "circuitos-en-paralelo",
+      "circuitos-en-serie",
+      "potencia-electrica",
+      "circuitos-mixtos"
     ],
-    "nombre": "Maître de l'Optique et de la Relativité",
-    "descripcion": "Tu as terminé l'examen en maîtrisant la réflexion, la réfraction avec la loi de Snell, le principe de Pascal et la relativité restreinte, chef.",
-    "icono": "🔭🌀"
+    "nombre": "Expert en Circuits Électriques",
+    "descripcion": "Tu as maîtrisé les circuits en série, en parallèle et mixtes ainsi que la puissance électrique, et tu y as ajouté le tir vertical, chef.",
+    "icono": "🔋"
   },
   {
     "id": 749,
     "materia": "Física",
     "cluster": 14,
     "temas": [
-      "resistencia-electrica",
-      "resonancia-frecuencia-natural",
-      "semivida-desintegracion-exponencial",
-      "sonido-timbre-altura-intensidad",
-      "temperatura-equilibrio-termico"
+      "tormentas-y-fenomenos-severos",
+      "campo-magnetico-imanes-corrientes",
+      "trabajo-de-una-fuerza",
+      "induccion-electromagnetica-faraday-lenz",
+      "energia-cinetica"
     ],
-    "nombre": "Maîtrise du Son et de la Résistance",
-    "descripcion": "Tu as maîtrisé la résistance électrique, la résonance, le timbre et l'intensité du son, et la décroissance exponentielle de la demi-vie.",
-    "icono": "🔊🔋"
+    "nombre": "Électromagnétisme, Travail et Énergie",
+    "descripcion": "Tu as terminé l'examen en maîtrisant le champ magnétique, l'induction de Faraday-Lenz, le travail d'une force et l'énergie cinétique, ainsi que les orages et les phénomènes météorologiques violents.",
+    "icono": "🧭"
   },
   {
     "id": 750,
     "materia": "Física",
     "cluster": 15,
     "temas": [
-      "tension-diferencia-potencial",
-      "tiro-oblicuo",
-      "tiro-vertical",
-      "tormentas-y-fenomenos-severos",
-      "trabajo-de-una-fuerza",
+      "generador-motor-transformador",
+      "choques-elasticos-inelasticos",
+      "energia-potencial-gravitatoria",
       "transmision-calor-conduccion-conveccion-radiacion",
-      "velocidad-aceleracion-instantaneas"
+      "conservacion-energia-mecanica",
+      "velocidad-aceleracion-instantaneas",
+      "potencia-mecanica"
     ],
-    "nombre": "Maître du Tir et des Tempêtes",
-    "descripcion": "Tu as terminé l'examen en maîtrisant le tir oblique et vertical, le travail d'une force, la transmission de la chaleur et les tempêtes violentes, chef.",
-    "icono": "🎯🌪️"
+    "nombre": "Maître de l'Énergie et de ses Machines",
+    "descripcion": "Tu as maîtrisé la conservation de l'énergie mécanique, l'énergie potentielle gravitationnelle, la puissance, les chocs élastiques et inélastiques, la transmission de la chaleur, ainsi que les générateurs, moteurs et transformateurs.",
+    "icono": "⚙️"
   },
   {
     "id": 766,
     "materia": "Economía",
     "cluster": 1,
     "temas": [
-      "balanza-comercial",
       "blockchain-claves-wallet",
-      "business-model-canvas",
       "capitalismo-industrial-trabajo-asalariado",
-      "comercio-internacional-ventaja-comparativa"
+      "contratos-inteligentes",
+      "costo-marginal",
+      "debe-haber-balance"
     ],
-    "nombre": "Maître du Commerce Mondial et de la Blockchain",
-    "descripcion": "Tu as compris la balance commerciale et l'avantage comparatif, et fait tes premiers pas dans la blockchain et les modèles économiques.",
-    "icono": "🌐"
+    "nombre": "Blockchain, Coût Marginal et Bilan",
+    "descripcion": "Tu as terminé l'examen en passant par les clés et portefeuilles de la blockchain, les contrats intelligents, le coût marginal et le débit-crédit du bilan, chef.",
+    "icono": "⛓️"
   },
   {
     "id": 767,
     "materia": "Economía",
     "cluster": 2,
     "temas": [
-      "contratos-inteligentes",
-      "control-de-gestion-e-indicadores",
-      "cooperativismo-y-mutualismo",
-      "coordinar-personas-y-recursos",
-      "costo-de-oportunidad"
+      "detectar-una-oportunidad-de-negocio",
+      "elasticidad",
+      "estructura-del-patrimonio",
+      "estructura-productiva-dependencia",
+      "ecuacion-contable-fundamental"
     ],
-    "nombre": "Maître de la Gestion et du Coût d'Opportunité",
-    "descripcion": "Tu as maîtrisé le contrôle de gestion, coordonné des personnes et des ressources, et compris le coût d'opportunité et le coopérativisme.",
-    "icono": "🤝"
+    "nombre": "Maîtrise du Patrimoine et de l'Élasticité",
+    "descripcion": "Tu as maîtrisé l'équation comptable fondamentale et la structure du patrimoine, ainsi que l'élasticité, la dépendance productive et la façon de repérer une opportunité d'affaires.",
+    "icono": "📊"
   },
   {
     "id": 768,
     "materia": "Economía",
     "cluster": 3,
     "temas": [
-      "costo-marginal",
-      "debe-haber-balance",
-      "detectar-una-oportunidad-de-negocio",
-      "dex-swap",
-      "division-formal-microeconomia-macroeconomia"
+      "interes-simple",
+      "iva",
+      "interes-compuesto",
+      "origen-excedente-moneda-mercado",
+      "cft-vs-tasa-nominal"
     ],
-    "nombre": "Maîtrise du Coût Marginal et des Bases Comptables",
-    "descripcion": "Tu as appris le débit et le crédit, calculé le coût marginal et distingué la microéconomie de la macroéconomie, chef.",
-    "icono": "⚖️"
+    "nombre": "Maître de l'Intérêt et du Taux",
+    "descripcion": "Tu as terminé l'examen en calculant l'intérêt simple et composé, la TVA et la différence entre le CFT et le taux nominal, sans perdre de vue l'origine de l'excédent et de la monnaie.",
+    "icono": "💹"
   },
   {
     "id": 769,
     "materia": "Economía",
     "cluster": 4,
     "temas": [
-      "elasticidad",
-      "economia-positiva-y-normativa",
-      "estado-de-resultados",
-      "estructura-del-patrimonio",
-      "estructura-productiva-dependencia"
+      "cuota-credito-frances",
+      "dex-swap",
+      "interes-compuesto-funcion",
+      "partida-doble",
+      "plazo-fijo-vs-inflacion"
     ],
-    "nombre": "Maître de l'Élasticité et des États Comptables",
-    "descripcion": "Tu as terminé l'examen en analysant l'élasticité, le compte de résultat et la structure productive du pays.",
-    "icono": "📉"
+    "nombre": "Expert en Crédits et Finance Numérique",
+    "descripcion": "Tu as maîtrisé la mensualité du crédit à la française, le dépôt à terme face à l'inflation, la partie double et les swaps sur les échanges décentralisés, chef.",
+    "icono": "🏦"
   },
   {
     "id": 770,
     "materia": "Economía",
     "cluster": 5,
     "temas": [
-      "ecuacion-contable-fundamental",
-      "interes-simple",
-      "iva",
-      "interes-compuesto",
-      "margenes-bruto-y-neto"
+      "libro-diario-mayor",
+      "pools-liquidez-amm",
+      "estados-contables",
+      "precio-final",
+      "contabilidad-ambiental"
     ],
-    "nombre": "Maître de l'Équation Comptable et des Intérêts",
-    "descripcion": "Tu as calculé l'intérêt simple et composé, appliqué la TVA et maîtrisé les marges brute et nette.",
-    "icono": "🧮"
+    "nombre": "Maîtrise des Écritures Comptables et des Pools",
+    "descripcion": "Tu as terminé l'examen avec le livre-journal et le grand livre, les états comptables, la comptabilité environnementale, le prix final et les pools de liquidité AMM.",
+    "icono": "📒"
   },
   {
     "id": 771,
     "materia": "Economía",
     "cluster": 6,
     "temas": [
-      "cft-vs-tasa-nominal",
-      "cuota-credito-frances",
-      "interes-compuesto-funcion",
-      "mejora-continua",
-      "mvp-producto-minimo-viable"
+      "contabilidad-como-sistema-de-informacion",
+      "costo-de-oportunidad",
+      "indices-financieros",
+      "division-formal-microeconomia-macroeconomia",
+      "oferta-y-demanda"
     ],
-    "nombre": "Maîtrise du Crédit et de l'Amélioration Continue",
-    "descripcion": "Tu as distingué le coût total du crédit du taux nominal, calculé des mensualités selon le système français et appliqué l'amélioration continue à un MVP.",
-    "icono": "💳"
+    "nombre": "Maître de la Micro et de la Comptabilité",
+    "descripcion": "Tu as maîtrisé la division entre micro et macroéconomie, l'offre et la demande, le coût d'opportunité, les indices financiers et la comptabilité comme système d'information.",
+    "icono": "⚖️"
   },
   {
     "id": 772,
     "materia": "Economía",
     "cluster": 7,
     "temas": [
-      "objetivos-y-metas",
-      "origen-excedente-moneda-mercado",
-      "partida-doble",
-      "pitch-a-inversores",
-      "libro-diario-mayor"
+      "economia-positiva-y-normativa",
+      "fisiocracia",
+      "mercantilismo",
+      "pbi-e-inflacion",
+      "liberalismo-clasico-y-escuela-austriaca"
     ],
-    "nombre": "Maître de la Partie Double et du Pitch",
-    "descripcion": "Tu as enregistré la partie double dans le journal, compris l'origine de l'excédent monétaire et préparé ton pitch pour investisseurs.",
-    "icono": "📒"
+    "nombre": "Expert des Écoles Économiques Classiques",
+    "descripcion": "Tu as terminé l'examen en parcourant la physiocratie, le mercantilisme, le libéralisme classique et l'école autrichienne, ainsi que le PIB et l'inflation et l'économie positive et normative, chef.",
+    "icono": "📜"
   },
   {
     "id": 773,
     "materia": "Economía",
     "cluster": 8,
     "temas": [
-      "planificacion-administrativa",
-      "estados-contables",
-      "plazo-fijo-vs-inflacion",
-      "contabilidad-ambiental",
-      "contabilidad-como-sistema-de-informacion"
+      "balanza-comercial",
+      "recibo-de-sueldo/general",
+      "comercio-internacional-ventaja-comparativa",
+      "recibo-de-sueldo/argentina",
+      "sectores-economicos"
     ],
-    "nombre": "Maîtrise de la Planification et des États Comptables",
-    "descripcion": "Tu as planifié comme un gestionnaire, lu des états comptables et comparé le dépôt à terme face à l'inflation, chef.",
-    "icono": "📑"
+    "nombre": "Maîtrise du Commerce et du Salaire",
+    "descripcion": "Tu as maîtrisé la balance commerciale, l'avantage comparatif et les secteurs économiques, et tu as aussi appris à lire une fiche de paie générale et argentine.",
+    "icono": "🌍"
   },
   {
     "id": 774,
     "materia": "Economía",
     "cluster": 9,
     "temas": [
-      "indices-financieros",
-      "pools-liquidez-amm",
-      "precio-final",
-      "presupuesto-administrativo",
-      "oferta-y-demanda"
+      "descuentos-obligatorios/jubilacion",
+      "descuentos-obligatorios/obra-social",
+      "jubilacion-sistema-previsional",
+      "monotributo",
+      "socialismo-utopico"
     ],
-    "nombre": "Maître des Indices Financiers et de la Liquidité",
-    "descripcion": "Tu as analysé des indices financiers, des pools de liquidité, le prix final et la loi de l'offre et de la demande.",
-    "icono": "💧"
+    "nombre": "Expert en Prévoyance et Travail",
+    "descripcion": "Tu as terminé l'examen avec la retraite, la mutuelle de santé, le système de retraite et le monotributo, et conclu par un regard sur le socialisme utopique, chef.",
+    "icono": "🧾"
   },
   {
     "id": 775,
     "materia": "Economía",
     "cluster": 10,
     "temas": [
-      "productividad-produccion-insumos",
-      "fisiocracia",
-      "mercantilismo",
-      "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "sueldo-promedio-pais",
+      "marxismo",
+      "tipo-cambio-fijo",
+      "economia-feminista-y-del-cuidado",
+      "keynesianismo"
     ],
-    "nombre": "Maître des Courants Économiques Classiques",
-    "descripcion": "Tu as parcouru le mercantilisme, la physiocratie et le libéralisme classique, et compris le PIB et l'inflation.",
-    "icono": "🏛️"
+    "nombre": "Marx, Keynes et Taux de Change",
+    "descripcion": "Tu as maîtrisé le marxisme, le keynésianisme et l'économie féministe et du soin, ainsi que le taux de change fixe et le salaire moyen du pays.",
+    "icono": "🧠"
   },
   {
     "id": 776,
     "materia": "Economía",
     "cluster": 11,
     "temas": [
-      "punto-de-equilibrio",
-      "recibo-de-sueldo/general",
-      "sectores-economicos",
-      "recibo-de-sueldo/argentina",
-      "socialismo-utopico"
+      "tipo-cambio-flotante",
+      "neoliberalismo",
+      "devaluacion",
+      "ordoliberalismo",
+      "reservas-banco-central"
     ],
-    "nombre": "Maîtrise du Seuil de Rentabilité et de la Fiche de Paie",
-    "descripcion": "Tu as calculé le seuil de rentabilité, lu ta fiche de paie argentine et découvert le socialisme utopique.",
-    "icono": "💵"
+    "nombre": "Maître du Change et du Néolibéralisme",
+    "descripcion": "Tu as terminé l'examen en maîtrisant le taux de change flottant, la dévaluation et les réserves de la Banque centrale, ainsi que le néolibéralisme et l'ordolibéralisme, chef.",
+    "icono": "💱"
   },
   {
     "id": 777,
     "materia": "Economía",
     "cluster": 12,
     "temas": [
-      "descuentos-obligatorios/jubilacion",
-      "descuentos-obligatorios/obra-social",
-      "jubilacion-sistema-previsional",
-      "marxismo",
-      "monotributo"
+      "tipos-de-organizaciones",
+      "deuda-publica-externa",
+      "deuda-publica-interna",
+      "elementos-de-las-organizaciones",
+      "default-deuda"
     ],
-    "nombre": "Maître de la Retraite et des Retenues Obligatoires",
-    "descripcion": "Tu as compris les retenues pour la retraite et l'assurance maladie, le système de retraite, le monotributo et les idées de Marx.",
-    "icono": "🏦"
+    "nombre": "Organisations et Dette Publique",
+    "descripcion": "Tu as maîtrisé les types et les éléments des organisations, ainsi que la dette publique interne et externe et le défaut de paiement.",
+    "icono": "🏛️"
   },
   {
     "id": 778,
     "materia": "Economía",
     "cluster": 13,
     "temas": [
-      "economia-feminista-y-del-cuidado",
-      "keynesianismo",
-      "sueldo-promedio-pais",
-      "neoliberalismo",
-      "ordoliberalismo"
+      "ambiente-interno-y-externo-organizacion",
+      "cultura-organizacional",
+      "estructura-organizacional",
+      "objetivos-y-metas",
+      "tipos-de-proyecto"
     ],
-    "nombre": "Maître des Courants Économiques Modernes",
-    "descripcion": "Tu as comparé le keynésianisme, le néolibéralisme et l'ordolibéralisme, et découvert l'économie féministe et du soin.",
-    "icono": "📚"
+    "nombre": "Expert en Gestion Organisationnelle",
+    "descripcion": "Tu as terminé l'examen avec la culture et la structure organisationnelles, l'environnement interne et externe, les objectifs et les buts et les types de projet.",
+    "icono": "🏢"
   },
   {
     "id": 779,
     "materia": "Economía",
     "cluster": 14,
     "temas": [
-      "tipo-cambio-fijo",
-      "tipo-cambio-flotante",
-      "tipos-de-organizaciones",
-      "devaluacion",
-      "elementos-de-las-organizaciones"
+      "cooperativismo-y-mutualismo",
+      "planificacion-administrativa",
+      "tipos-de-sociedades",
+      "coordinar-personas-y-recursos",
+      "presupuesto-administrativo"
     ],
-    "nombre": "Maîtrise du Taux de Change et des Organisations",
-    "descripcion": "Tu as distingué le taux de change fixe du flottant, compris la dévaluation et les éléments d'une organisation.",
-    "icono": "💱"
+    "nombre": "Maître de l'Administration",
+    "descripcion": "Tu as maîtrisé la planification et le budget administratifs, les types de sociétés, le coopérativisme et le mutualisme, ainsi que la façon de coordonner les personnes et les ressources, chef.",
+    "icono": "🤝"
   },
   {
     "id": 780,
     "materia": "Economía",
     "cluster": 15,
     "temas": [
-      "reservas-banco-central",
-      "ambiente-interno-y-externo-organizacion",
-      "cultura-organizacional",
-      "deuda-publica-externa",
-      "deuda-publica-interna"
+      "validar-con-clientes-construir-medir-aprender",
+      "control-de-gestion-e-indicadores",
+      "estado-de-resultados",
+      "mejora-continua",
+      "margenes-bruto-y-neto"
     ],
-    "nombre": "Maître des Réserves et de la Dette Publique",
-    "descripcion": "Tu as analysé les réserves de la banque centrale, la dette publique interne et externe, et la culture organisationnelle, chef.",
-    "icono": "🏦"
+    "nombre": "Maîtrise de la Gestion et des Résultats",
+    "descripcion": "Tu as terminé l'examen avec le compte de résultat, les marges brute et nette, le contrôle de gestion et les indicateurs, l'amélioration continue et le cycle valider-construire-mesurer-apprendre.",
+    "icono": "📈"
   },
   {
     "id": 781,
     "materia": "Economía",
     "cluster": 16,
     "temas": [
-      "estructura-organizacional",
-      "default-deuda",
-      "tipos-de-proyecto",
-      "tipos-de-sociedades",
-      "validar-con-clientes-construir-medir-aprender"
+      "mvp-producto-minimo-viable",
+      "productividad-produccion-insumos",
+      "business-model-canvas",
+      "punto-de-equilibrio",
+      "pitch-a-inversores"
     ],
-    "nombre": "Maîtrise de la Structure Organisationnelle et du Défaut",
-    "descripcion": "Tu as compris la structure organisationnelle, les types de sociétés et de projets, et ce qui se passe lors d'un défaut de paiement.",
-    "icono": "🏢"
+    "nombre": "Expert en Entrepreneuriat et Équilibre",
+    "descripcion": "Tu as maîtrisé le MVP, le business model canvas, le pitch aux investisseurs, le point d'équilibre et la productivité, chef.",
+    "icono": "🚀"
   },
   {
     "id": 782,
@@ -1741,44 +1589,44 @@
     "materia": "Geografía",
     "cluster": 1,
     "temas": [
-      "america-anglosajona",
       "coordenadas-y-husos-horarios",
       "densidad-poblacion",
       "escala-de-mapa",
-      "huella-de-carbono-agua-virtual"
+      "huella-de-carbono-agua-virtual",
+      "orientacion-puntos-cardinales"
     ],
-    "nombre": "Maître des Coordonnées et de l'Empreinte Écologique",
-    "descripcion": "Tu as terminé l'examen en maîtrisant les fuseaux horaires, l'échelle des cartes, la densité de population et l'empreinte carbone.",
-    "icono": "🌍"
+    "nombre": "Maître des Cartes et des Coordonnées",
+    "descripcion": "Tu as terminé l'examen avec l'échelle des cartes, l'orientation, les coordonnées et les fuseaux horaires, et tu y as ajouté la densité de population ainsi que l'empreinte carbone et l'eau virtuelle.",
+    "icono": "🧭"
   },
   {
     "id": 797,
     "materia": "Geografía",
     "cluster": 2,
     "temas": [
-      "orientacion-puntos-cardinales",
-      "urbanizacion-migracion-ciudad",
       "mapa-plano-escala",
       "coordenadas-geograficas",
-      "division-politica"
+      "division-politica",
+      "sig-mapas-digitales",
+      "estados-y-globalizacion"
     ],
-    "nombre": "Maître de l'Orientation et de l'Urbanisation",
-    "descripcion": "Tu as maîtrisé les points cardinaux, les coordonnées géographiques, l'urbanisation et la division politique, chef.",
-    "icono": "🧭"
+    "nombre": "Expert en Cartographie et SIG",
+    "descripcion": "Tu as maîtrisé les cartes à l'échelle, les coordonnées géographiques et les systèmes d'information géographique, ainsi que la division politique, les États et la mondialisation, chef.",
+    "icono": "🗺️"
   },
   {
     "id": 798,
     "materia": "Geografía",
     "cluster": 3,
     "temas": [
-      "sig-mapas-digitales",
-      "estados-y-globalizacion",
       "region",
       "sig-gps",
-      "relieve-clima-biomas"
+      "relieve-clima-biomas",
+      "sig-imagenes-satelitales",
+      "recursos-actividades-economicas"
     ],
-    "nombre": "Maître des SIG et du Relief",
-    "descripcion": "Tu as terminé l'examen en intégrant les cartes numériques, le GPS, le relief, le climat et les biomes, ainsi que les États et la mondialisation.",
+    "nombre": "Maîtrise du Territoire et de la Télédétection",
+    "descripcion": "Tu as terminé l'examen avec la région, le relief, le climat et les biomes, les ressources et les activités économiques, ainsi que les outils SIG que sont le GPS et les images satellitaires.",
     "icono": "🛰️"
   },
   {
@@ -1786,30 +1634,30 @@
     "materia": "Geografía",
     "cluster": 4,
     "temas": [
-      "sig-imagenes-satelitales",
-      "recursos-actividades-economicas",
       "regiones-naturales-de-argentina",
       "geografia-economica-agricola-argentina",
-      "geografia-industrial-mundial"
+      "geografia-industrial-mundial",
+      "mineria-e-hidrocarburos-en-argentina",
+      "america-latina-industria-y-energia"
     ],
-    "nombre": "Maître de la Géographie Économique Argentine",
-    "descripcion": "Tu as maîtrisé les images satellites, les régions naturelles et la géographie agricole et industrielle de l'Argentine.",
-    "icono": "🌾"
+    "nombre": "Expert en Géographie Productive",
+    "descripcion": "Tu as maîtrisé les régions naturelles de l'Argentine, les mines et les hydrocarbures, la géographie agricole et industrielle, ainsi que l'industrie et l'énergie en Amérique latine, chef.",
+    "icono": "⛏️"
   },
   {
     "id": 800,
     "materia": "Geografía",
     "cluster": 5,
     "temas": [
-      "mineria-e-hidrocarburos-en-argentina",
-      "america-latina-industria-y-energia",
       "poblacion-piramides-migraciones",
       "produccion-agraria-mundial-y-biotecnologia",
-      "ambiente-y-recursos"
+      "ambiente-y-recursos",
+      "america-anglosajona",
+      "ambientalismo-liberal"
     ],
-    "nombre": "Maître de l'Énergie et de la Population",
-    "descripcion": "Tu as terminé l'examen sur l'exploitation minière et les hydrocarbures, l'industrie et l'énergie latino-américaines, et les pyramides des âges.",
-    "icono": "⛏️"
+    "nombre": "Population, Environnement et Agriculture Mondiale",
+    "descripcion": "Tu as terminé l'examen avec les pyramides des âges et les migrations, la production agricole et la biotechnologie, l'environnement et les ressources, l'Amérique anglo-saxonne et l'environnementalisme libéral.",
+    "icono": "🌾"
   },
   {
     "id": 801,
@@ -1817,13 +1665,13 @@
     "cluster": 6,
     "temas": [
       "america-latina-formacion-poblacion",
-      "ambientalismo-liberal",
       "conservacionismo",
       "decrecimiento",
-      "ecologismo-politico"
+      "ecologismo-politico",
+      "indicadores-sociales-de-argentina"
     ],
-    "nombre": "Maître de l'Environnementalisme Latino-Américain",
-    "descripcion": "Tu as intégré la formation de la population de l'Amérique latine avec le conservatisme, la décroissance et l'écologie politique.",
+    "nombre": "Maître de l'Environnementalisme et de la Société",
+    "descripcion": "Tu as maîtrisé le conservationnisme, la décroissance et l'écologie politique, ainsi que la formation de la population latino-américaine et les indicateurs sociaux de l'Argentine, chef.",
     "icono": "🌱"
   },
   {
@@ -1831,30 +1679,30 @@
     "materia": "Geografía",
     "cluster": 7,
     "temas": [
-      "indicadores-sociales-de-argentina",
       "migraciones-internacionales",
       "indice-de-desarrollo-humano",
       "migraciones-internas-en-argentina",
-      "paises-de-america-latina"
+      "paises-de-america-latina",
+      "recursos-hidricos-y-gestion"
     ],
-    "nombre": "Maître des Indicateurs Sociaux et des Migrations",
-    "descripcion": "Tu as terminé l'examen final sur l'IDH, les migrations internes et internationales et les pays d'Amérique latine.",
-    "icono": "📊"
+    "nombre": "Expert en Migrations et Développement",
+    "descripcion": "Tu as terminé l'examen avec les migrations internationales et internes, l'indice de développement humain, les pays d'Amérique latine et la gestion des ressources en eau.",
+    "icono": "👥"
   },
   {
     "id": 803,
     "materia": "Geografía",
     "cluster": 8,
     "temas": [
-      "recursos-hidricos-y-gestion",
       "riesgos-naturales-argentinos",
       "trabajo-y-desempleo-mundial",
       "riesgos-ambientales-mundiales",
-      "turismo-mundial"
+      "turismo-mundial",
+      "urbanizacion-migracion-ciudad"
     ],
-    "nombre": "Maître des Risques et des Ressources Mondiales",
-    "descripcion": "Tu as maîtrisé la gestion des ressources hydriques, les risques naturels et environnementaux, le chômage mondial et le tourisme, chef.",
-    "icono": "🌊"
+    "nombre": "Maîtrise des Risques et de l'Urbanisation",
+    "descripcion": "Tu as maîtrisé les risques naturels de l'Argentine et les risques environnementaux mondiaux, ainsi que le tourisme, le travail et le chômage, et l'urbanisation, chef.",
+    "icono": "🌋"
   },
   {
     "id": 816,
@@ -1862,197 +1710,197 @@
     "cluster": 1,
     "temas": [
       "algebra-booleana",
-      "algoritmo-secuencia-de-pasos",
-      "algoritmos-busqueda-ordenamiento",
-      "almacenamiento-volatil-vs-no-volatil",
-      "archivos-y-persistencia"
+      "complejidad-asintotica",
+      "ofimatica-planilla-de-calculo",
+      "que-es-la-tecnica-y-la-tecnologia",
+      "revolucion-informatica"
     ],
-    "nombre": "Maître des Algorithmes et de la Persistance",
-    "descripcion": "Tu as terminé l'examen en maîtrisant l'algèbre booléenne, les algorithmes de recherche et de tri, et la persistance des fichiers.",
-    "icono": "🧠"
+    "nombre": "Logique, Complexité et Révolution Numérique",
+    "descripcion": "Tu as terminé l'examen avec l'algèbre booléenne, la complexité asymptotique et les tableurs, ainsi que le concept de technique et de technologie et la révolution informatique.",
+    "icono": "💻"
   },
   {
     "id": 817,
     "materia": "Informática",
     "cluster": 2,
     "temas": [
-      "buses-y-entrada-salida",
-      "ciclo-de-instruccion-fetch-decode-execute",
-      "complejidad-asintotica",
-      "control-de-versiones",
-      "cpu-unidad-de-control-y-alu"
+      "medios-tecnicos-extension-capacidades-humanas",
+      "historia-y-evolucion-de-los-sistemas-operativos",
+      "procesos-tecnicos-artesanales-e-industriales",
+      "arranque-de-la-computadora-boot",
+      "sistemas-numeracion"
     ],
-    "nombre": "Maître du Cycle d'Instruction",
-    "descripcion": "Tu as parcouru les bus, le cycle fetch-decode-execute, la complexité asymptotique et le contrôle de versions sans erreur.",
-    "icono": "🖥️"
+    "nombre": "Technique, Numération et Démarrage",
+    "descripcion": "Tu as maîtrisé les moyens techniques, les procédés artisanaux et industriels, l'histoire des systèmes d'exploitation, le démarrage de l'ordinateur et les systèmes de numération, chef.",
+    "icono": "🛠️"
   },
   {
     "id": 818,
     "materia": "Informática",
     "cluster": 3,
     "temas": [
-      "criptografia-clave-simetrica-asimetrica-hash",
-      "direccionamiento-ip-dns",
-      "diseno-y-arquitectura-de-software",
-      "estructuras-de-control-bucles",
-      "estructuras-de-control-condicionales"
+      "tipos-de-so-por-dispositivo",
+      "cpu-unidad-de-control-y-alu",
+      "unidades-almacenamiento",
+      "ciclo-de-instruccion-fetch-decode-execute",
+      "memoria-ram-cache-jerarquia"
     ],
-    "nombre": "Maître des Réseaux et du Contrôle de Flux",
-    "descripcion": "Tu as terminé l'examen en intégrant la cryptographie, l'adressage IP/DNS, l'architecture logicielle et les structures de contrôle.",
-    "icono": "🔐"
+    "nombre": "Expert en Architecture des Ordinateurs",
+    "descripcion": "Tu as réussi l'examen avec le CPU, le cycle fetch-decode-execute, la hiérarchie mémoire RAM et cache, les unités de stockage et les types de SE par appareil.",
+    "icono": "🖥️"
   },
   {
     "id": 819,
     "materia": "Informática",
     "cluster": 4,
     "temas": [
-      "estructuras-de-datos-listas-pilas-colas",
-      "etica-de-la-ia-sesgo-privacidad",
-      "funciones-y-modularidad",
-      "historia-y-evolucion-de-los-sistemas-operativos",
-      "inteligencia-artificial-reglas-a-aprendizaje"
+      "algoritmo-secuencia-de-pasos",
+      "almacenamiento-volatil-vs-no-volatil",
+      "buses-y-entrada-salida",
+      "variables-y-tipos-de-dato",
+      "estructuras-de-control-condicionales"
     ],
-    "nombre": "Maître des Structures de Données et de l'IA",
-    "descripcion": "Tu as maîtrisé les listes, les piles et les files, la modularité des fonctions, l'histoire des systèmes d'exploitation et l'éthique de l'IA, chef.",
-    "icono": "🤖"
+    "nombre": "Fondamentaux des Algorithmes et du Matériel",
+    "descripcion": "Tu as terminé l'examen en maîtrisant les algorithmes, les variables et les conditionnelles, ainsi que les bus d'entrée/sortie et le stockage volatil face au non volatil.",
+    "icono": "🧮"
   },
   {
     "id": 820,
     "materia": "Informática",
     "cluster": 5,
     "temas": [
-      "arranque-de-la-computadora-boot",
-      "mantenimiento-y-deuda-tecnica",
-      "memoria-asignacion-memoria-virtual",
-      "memoria-ram-cache-jerarquia",
-      "modelo-relacional-tabla-registro-clave-primaria"
+      "estructuras-de-control-bucles",
+      "funciones-y-modularidad",
+      "estructuras-de-datos-listas-pilas-colas",
+      "poo-clases-y-objetos",
+      "algoritmos-busqueda-ordenamiento"
     ],
-    "nombre": "Maître du Démarrage et de la Mémoire",
-    "descripcion": "Tu as terminé l'examen en maîtrisant le démarrage du système, la hiérarchie de mémoire RAM/cache, la mémoire virtuelle et le modèle relationnel.",
-    "icono": "💾"
+    "nombre": "Maître de la Programmation",
+    "descripcion": "Tu as maîtrisé les boucles, les fonctions, les structures de données (listes, piles et files), la programmation orientée objet et les algorithmes de recherche et de tri.",
+    "icono": "👨‍💻"
   },
   {
     "id": 821,
     "materia": "Informática",
     "cluster": 6,
     "temas": [
-      "normalizacion-bases-datos",
-      "ofimatica-planilla-de-calculo",
-      "paginacion",
-      "patrones-y-buenas-practicas",
-      "permisos-y-usuarios"
+      "archivos-y-persistencia",
+      "inteligencia-artificial-reglas-a-aprendizaje",
+      "modelo-relacional-tabla-registro-clave-primaria",
+      "etica-de-la-ia-sesgo-privacidad",
+      "criptografia-clave-simetrica-asimetrica-hash"
     ],
-    "nombre": "Maître des Bases de Données et des Permissions",
-    "descripcion": "Tu as réussi l'examen en intégrant la normalisation, la pagination, les permissions utilisateur et les bonnes pratiques de conception.",
-    "icono": "🗄️"
+    "nombre": "Données, IA et Cryptographie",
+    "descripcion": "Tu as terminé l'examen avec les fichiers et la persistance, le modèle relationnel, l'intelligence artificielle et son éthique, ainsi que la cryptographie symétrique, asymétrique et de hachage, chef.",
+    "icono": "🔐"
   },
   {
     "id": 822,
     "materia": "Informática",
     "cluster": 7,
     "temas": [
-      "planificacion-de-procesos",
-      "poo-clases-y-objetos",
-      "interrupciones",
+      "direccionamiento-ip-dns",
       "proceso-programa-en-ejecucion",
-      "protocolo-http-peticion-respuesta"
+      "protocolo-http-peticion-respuesta",
+      "comunicacion-entre-procesos",
+      "memoria-asignacion-memoria-virtual"
     ],
-    "nombre": "Maître des Processus et des Objets",
-    "descripcion": "Tu as terminé l'examen en maîtrisant l'ordonnancement des processus, la POO, les interruptions et le protocole HTTP.",
-    "icono": "⚙️"
+    "nombre": "Réseaux, Processus et Mémoire Virtuelle",
+    "descripcion": "Tu as réussi l'examen avec l'adressage IP, le DNS et le HTTP, ainsi qu'avec les processus, la communication entre processus et la mémoire virtuelle.",
+    "icono": "🌐"
   },
   {
     "id": 823,
     "materia": "Informática",
     "cluster": 8,
     "temas": [
-      "comunicacion-entre-procesos",
-      "pruebas-unitarias-integracion",
-      "que-es-la-tecnica-y-la-tecnologia",
+      "planificacion-de-procesos",
+      "paginacion",
+      "interrupciones",
       "recursividad",
-      "medios-tecnicos-extension-capacidades-humanas"
+      "relaciones-y-claves-foraneas"
     ],
-    "nombre": "Maître de la Technique et de la Récursivité",
-    "descripcion": "Tu as intégré la communication entre processus, les tests unitaires, la récursivité et le concept de technique et de technologie, chef.",
-    "icono": "🔁"
+    "nombre": "Maîtrise du Noyau du Système d'Exploitation",
+    "descripcion": "Tu as maîtrisé l'ordonnancement des processus, la pagination et les interruptions, ainsi que la récursivité et les clés étrangères.",
+    "icono": "⚡"
   },
   {
     "id": 824,
     "materia": "Informática",
     "cluster": 9,
     "temas": [
-      "relaciones-y-claves-foraneas",
-      "procesos-tecnicos-artesanales-e-industriales",
       "requisitos-funcionales-no-funcionales",
-      "revolucion-informatica",
-      "segmentacion"
+      "normalizacion-bases-datos",
+      "diseno-y-arquitectura-de-software",
+      "segmentacion",
+      "control-de-versiones"
     ],
-    "nombre": "Maître des Relations et des Exigences",
-    "descripcion": "Tu as réussi l'examen sur les clés étrangères, les processus techniques, les exigences fonctionnelles et la révolution informatique.",
-    "icono": "🔗"
+    "nombre": "Génie Logiciel et Bases de Données",
+    "descripcion": "Tu as terminé l'examen avec les exigences fonctionnelles et non fonctionnelles, la conception et l'architecture, le contrôle de version, la normalisation des bases de données et la segmentation, chef.",
+    "icono": "📐"
   },
   {
     "id": 825,
     "materia": "Informática",
     "cluster": 10,
     "temas": [
-      "seguridad-de-red-firewall-vpn-cifrado",
-      "seguridad-informatica",
+      "patrones-y-buenas-practicas",
+      "pruebas-unitarias-integracion",
       "sistema-de-archivos",
-      "sistemas-numeracion",
-      "sistema-de-archivos-por-bitacora"
+      "mantenimiento-y-deuda-tecnica",
+      "permisos-y-usuarios"
     ],
-    "nombre": "Gardien de la Sécurité et des Fichiers",
-    "descripcion": "Tu as protégé des systèmes avec pare-feu, VPN et chiffrement, et maîtrisé les systèmes de numération et les systèmes de fichiers journalisés.",
-    "icono": "🛡️"
+    "nombre": "Qualité Logicielle et Fichiers",
+    "descripcion": "Tu as maîtrisé les patrons et les bonnes pratiques, les tests unitaires et d'intégration, la maintenance et la dette technique, ainsi que le système de fichiers et les permissions des utilisateurs.",
+    "icono": "🧪"
   },
   {
     "id": 826,
     "materia": "Informática",
     "cluster": 11,
     "temas": [
+      "sistema-de-archivos-por-bitacora",
       "sql-consultas-joins-agregaciones",
       "subsistema-de-entrada-y-salida",
       "tcp-ip-capas-enrutamiento",
       "tipos-de-licencias-de-software",
-      "tipos-de-so-por-dispositivo",
+      "seguridad-de-red-firewall-vpn-cifrado",
       "transacciones-acid",
-      "unidades-almacenamiento",
-      "variables-y-tipos-de-dato",
+      "seguridad-informatica",
       "virtualizacion-maquina-virtual-contenedor"
     ],
-    "nombre": "Maître de SQL, des Réseaux et de la Virtualisation",
-    "descripcion": "Tu as terminé l'examen final en maîtrisant les jointures SQL, les couches TCP/IP, les transactions ACID et la virtualisation.",
-    "icono": "☁️"
+    "nombre": "Expert en Systèmes, Réseaux et Sécurité",
+    "descripcion": "Tu as terminé l'examen avec le SQL et les transactions ACID, le TCP/IP, la sécurité réseau et la sécurité informatique, la virtualisation, l'entrée/sortie, les systèmes de fichiers journalisés et les licences logicielles, chef.",
+    "icono": "🛡️"
   },
   {
     "id": 841,
     "materia": "Química",
     "cluster": 1,
     "temas": [
-      "atomo-particulas-subatomicas",
       "balanceo-ecuaciones",
-      "biomoleculas-glucidos-lipidos-proteinas",
-      "carbono-tetravalencia-cadenas",
-      "cinetica-reaccion"
+      "concentracion-de-una-solucion",
+      "densidad",
+      "dilucion-soluciones",
+      "equilibrio-quimico-kc"
     ],
-    "nombre": "Maître de l'Atome et des Biomolécules",
-    "descripcion": "Tu as maîtrisé les particules subatomiques, l'équilibrage des équations, les biomolécules et la cinétique de réaction.",
-    "icono": "⚛️"
+    "nombre": "Maître des Solutions et de l'Équilibre",
+    "descripcion": "Tu as terminé l'examen avec la concentration et la dilution des solutions, l'équilibrage des équations, la densité et l'équilibre chimique Kc, chef.",
+    "icono": "⚗️"
   },
   {
     "id": 842,
     "materia": "Química",
     "cluster": 2,
     "temas": [
-      "concentracion-de-una-solucion",
-      "configuracion-electronica",
-      "densidad",
-      "dilucion-soluciones",
-      "electrolisis"
+      "estados-y-cambios",
+      "cinetica-reaccion",
+      "equilibrio-solubilidad-ksp",
+      "estequiometria",
+      "medicion-de-laboratorio"
     ],
-    "nombre": "Maître des Solutions et de l'Électrolyse",
-    "descripcion": "Tu as terminé l'examen en maîtrisant la concentration et la dilution des solutions, la configuration électronique et l'électrolyse.",
+    "nombre": "Expert en Réactions et Stœchiométrie",
+    "descripcion": "Tu as maîtrisé la stœchiométrie, la cinétique des réactions, l'équilibre de solubilité Ksp, les états et changements d'état et les mesures de laboratoire.",
     "icono": "🧪"
   },
   {
@@ -2060,74 +1908,74 @@
     "materia": "Química",
     "cluster": 3,
     "temas": [
-      "energia-libre-gibbs",
-      "enlace-quimico-polaridad",
-      "equilibrio-quimico-kc",
-      "equilibrio-solubilidad-ksp",
-      "estados-y-cambios"
+      "mezclas-metodos-separacion",
+      "ph-poh",
+      "modelos-atomicos",
+      "propiedades-coligativas",
+      "atomo-particulas-subatomicas"
     ],
-    "nombre": "Maître de l'Équilibre et de l'Énergie Libre",
-    "descripcion": "Tu as intégré l'énergie libre de Gibbs, la polarité des liaisons et les équilibres Kc et Ksp, chef.",
-    "icono": "⚖️"
+    "nombre": "Maîtrise des Atomes, des Mélanges et du pH",
+    "descripcion": "Tu as terminé l'examen avec les modèles atomiques et les particules subatomiques, les méthodes de séparation des mélanges, le pH et le pOH et les propriétés colligatives, chef.",
+    "icono": "⚛️"
   },
   {
     "id": 844,
     "materia": "Química",
     "cluster": 4,
     "temas": [
-      "estequiometria",
-      "gases-ideales",
-      "geometria-molecular-vsepr",
-      "grupos-funcionales",
-      "hidrocarburos-alcanos-alquenos-alquinos"
+      "quimica-analitica",
+      "numero-atomico-masico",
+      "quimica-de-la-atmosfera",
+      "configuracion-electronica",
+      "reactivo-limitante-rendimiento"
     ],
-    "nombre": "Maître de la Stœchiométrie et des Hydrocarbures",
-    "descripcion": "Tu as réussi l'examen sur la stœchiométrie, les gaz parfaits, la géométrie moléculaire VSEPR et les hydrocarbures.",
-    "icono": "⛽"
+    "nombre": "Expert en Structure Atomique et Analytique",
+    "descripcion": "Tu as maîtrisé le numéro atomique et le nombre de masse, la configuration électronique, le réactif limitant et le rendement, la chimie analytique et la chimie de l'atmosphère.",
+    "icono": "🔬"
   },
   {
     "id": 845,
     "materia": "Química",
     "cluster": 5,
     "temas": [
-      "medicion-de-laboratorio",
-      "mezclas-metodos-separacion",
-      "modelos-atomicos",
-      "mol-masa-molar",
-      "nanotecnologia"
+      "seguridad-laboratorio",
+      "tabla-periodica-tendencias",
+      "tipos-reacciones-quimicas",
+      "enlace-quimico-polaridad",
+      "carbono-tetravalencia-cadenas"
     ],
-    "nombre": "Maître de la Mesure et des Modèles Atomiques",
-    "descripcion": "Tu as maîtrisé la mesure en laboratoire, les méthodes de séparation des mélanges, les modèles atomiques et la mole.",
-    "icono": "🔬"
+    "nombre": "Maître des Liaisons et du Tableau Périodique",
+    "descripcion": "Tu as terminé l'examen avec les tendances périodiques, la liaison chimique et la polarité, les types de réactions et la tétravalence du carbone, sans oublier la sécurité au laboratoire, chef.",
+    "icono": "🔗"
   },
   {
     "id": 846,
     "materia": "Química",
     "cluster": 6,
     "temas": [
-      "nomenclatura-compuestos",
-      "numero-atomico-masico",
-      "oxidacion-reduccion",
-      "petroleo-como-recurso-energetico",
-      "ph-poh"
+      "geometria-molecular-vsepr",
+      "hidrocarburos-alcanos-alquenos-alquinos",
+      "nanotecnologia",
+      "grupos-funcionales",
+      "nomenclatura-compuestos"
     ],
-    "nombre": "Maître de la Nomenclature et du Redox",
-    "descripcion": "Tu as terminé l'examen en intégrant la nomenclature chimique, le numéro atomique et massique, l'oxydoréduction et le pH/pOH.",
-    "icono": "🧫"
+    "nombre": "Maîtrise de la Chimie Organique",
+    "descripcion": "Tu as maîtrisé la géométrie moléculaire VSEPR, les hydrocarbures, les groupes fonctionnels et la nomenclature des composés, et tu as aussi vu la nanotechnologie.",
+    "icono": "🧬"
   },
   {
     "id": 847,
     "materia": "Química",
     "cluster": 7,
     "temas": [
-      "pilas-celdas-galvanicas",
-      "polimeros-naturales-sinteticos",
-      "presiones-parciales",
-      "propiedades-coligativas",
-      "quimica-analitica"
+      "biomoleculas-glucidos-lipidos-proteinas",
+      "mol-masa-molar",
+      "oxidacion-reduccion",
+      "gases-ideales",
+      "electrolisis"
     ],
-    "nombre": "Maître des Piles Galvaniques et des Polymères",
-    "descripcion": "Tu as maîtrisé les piles galvaniques, les polymères naturels et synthétiques, les pressions partielles et les propriétés colligatives, chef.",
+    "nombre": "Expert en Mole, Gaz et Redox",
+    "descripcion": "Tu as terminé l'examen avec la mole et la masse molaire, les gaz parfaits, l'oxydoréduction et l'électrolyse, et tu y as ajouté les biomolécules comme les glucides, les lipides et les protéines, chef.",
     "icono": "🔋"
   },
   {
@@ -2135,31 +1983,31 @@
     "materia": "Química",
     "cluster": 8,
     "temas": [
-      "quimica-de-la-atmosfera",
-      "reactivo-limitante-rendimiento",
-      "seguridad-laboratorio",
+      "petroleo-como-recurso-energetico",
+      "pilas-celdas-galvanicas",
+      "polimeros-naturales-sinteticos",
+      "presiones-parciales",
       "superconductividad",
-      "tabla-periodica-tendencias",
       "termoquimica",
-      "tipos-reacciones-quimicas"
+      "energia-libre-gibbs"
     ],
-    "nombre": "Maître du Tableau Périodique et de la Thermochimie",
-    "descripcion": "Tu as réussi l'examen final sur les tendances périodiques, la thermochimie, les types de réactions et le réactif limitant.",
-    "icono": "🧯"
+    "nombre": "Maître de l'Énergie et des Matériaux",
+    "descripcion": "Tu as maîtrisé la thermochimie et l'énergie libre de Gibbs, les piles galvaniques et le pétrole comme ressource énergétique, ainsi que les polymères, les pressions partielles et la supraconductivité.",
+    "icono": "⚡"
   },
   {
     "id": 861,
     "materia": "Biología",
     "cluster": 1,
     "temas": [
-      "adn-gen-proteina",
-      "biodiversidad-indices",
-      "biotecnologia-pcr-crispr",
-      "cadenas-redes-troficas",
-      "celula-organelas"
+      "crecimiento-poblacional",
+      "genetica-mendeliana-punnett",
+      "grupos-sanguineos",
+      "cruce-dihibrido",
+      "herencia-ligada-al-sexo"
     ],
-    "nombre": "Maître de l'ADN et de la Cellule",
-    "descripcion": "Tu as maîtrisé le dogme central de l'ADN, l'édition génique avec CRISPR, les réseaux trophiques et l'organisation interne de la cellule.",
+    "nombre": "Maître de l'Hérédité Génétique",
+    "descripcion": "Tu as terminé l'examen en maîtrisant les carrés de Punnett, le croisement dihybride, l'hérédité liée au sexe et les groupes sanguins, ainsi que la croissance des populations.",
     "icono": "🧬"
   },
   {
@@ -2167,74 +2015,74 @@
     "materia": "Biología",
     "cluster": 2,
     "temas": [
-      "ciclos-biogeoquimicos",
+      "necesidades-basicas-seres-vivos",
+      "ser-vivo-caracteristicas",
+      "celula-organelas",
       "ciclos-vida-metamorfosis",
-      "clasificacion-evolucion",
-      "conservacion-areas-protegidas",
-      "crecimiento-poblacional"
+      "clasificacion-evolucion"
     ],
-    "nombre": "Maître des Cycles et de la Conservation",
-    "descripcion": "Tu as réussi l'examen sur les cycles biogéochimiques, la métamorphose, la classification évolutive et la conservation des zones protégées, chef.",
-    "icono": "🌎"
+    "nombre": "Fondements des Êtres Vivants",
+    "descripcion": "Tu as maîtrisé ce qui définit un être vivant, ses besoins fondamentaux, la cellule et ses organites, les cycles de vie avec métamorphose et la classification évolutive, chef.",
+    "icono": "🔬"
   },
   {
     "id": 863,
     "materia": "Biología",
     "cluster": 3,
     "temas": [
-      "cruce-dihibrido",
-      "deriva-genetica-flujo-genico",
-      "dinamica-poblacional-capacidad-carga",
+      "fotosintesis-respiracion-celular",
+      "habitats-adaptacion",
       "enzimas-proteina-sustrato-ph",
-      "especiacion"
+      "flujo-materia-energia",
+      "microbiologia-virus-inmunitario"
     ],
-    "nombre": "Maître de la Génétique des Populations",
-    "descripcion": "Tu as réussi l'examen final sur les croisements dihybrides, la dérive génétique, la capacité de charge et la spéciation.",
-    "icono": "🧬"
+    "nombre": "Expert en Métabolisme et Énergie",
+    "descripcion": "Tu as réussi l'examen sur la photosynthèse et la respiration cellulaire, les enzymes, le flux de matière et d'énergie, l'adaptation à l'habitat et la microbiologie avec le système immunitaire.",
+    "icono": "⚡"
   },
   {
     "id": 864,
     "materia": "Biología",
     "cluster": 4,
     "temas": [
-      "filogenia-arboles-evolutivos",
-      "flujo-materia-energia",
-      "fotosintesis-respiracion-celular",
-      "genetica-mendeliana-punnett",
-      "grupos-sanguineos"
+      "cadenas-redes-troficas",
+      "mal-de-chagas",
+      "ciclos-biogeoquimicos",
+      "dinamica-poblacional-capacidad-carga",
+      "mitosis-meiosis"
     ],
-    "nombre": "Expert en Phylogénie et en Hérédité Mendélienne",
-    "descripcion": "Tu as terminé l'examen en intégrant les arbres phylogénétiques, la photosynthèse, la respiration cellulaire et les échiquiers de Punnett.",
-    "icono": "🧬"
+    "nombre": "Maîtrise des Écosystèmes et de la Division Cellulaire",
+    "descripcion": "Tu as terminé l'examen en combinant les réseaux trophiques, les cycles biogéochimiques et la capacité de charge avec la mitose et la méiose, et même la maladie de Chagas comme étude de cas.",
+    "icono": "🌿"
   },
   {
     "id": 865,
     "materia": "Biología",
     "cluster": 5,
     "temas": [
-      "habitats-adaptacion",
-      "herencia-ligada-al-sexo",
-      "mal-de-chagas",
-      "microbiologia-virus-inmunitario",
-      "mitosis-meiosis"
+      "biodiversidad-indices",
+      "adn-gen-proteina",
+      "conservacion-areas-protegidas",
+      "biotecnologia-pcr-crispr",
+      "nicho-ecologico"
     ],
-    "nombre": "Maître de l'Hérédité et des Défenses du Corps",
-    "descripcion": "Tu as réussi l'examen sur l'adaptation aux habitats, l'hérédité liée au sexe, la maladie de Chagas et la réponse immunitaire face aux virus.",
-    "icono": "🦠"
+    "nombre": "Expert en Biodiversité et Biotechnologie",
+    "descripcion": "Tu as maîtrisé les indices de biodiversité, la niche écologique et les aires protégées, ainsi que le chemin de l'ADN au gène à la protéine et des outils comme la PCR et CRISPR.",
+    "icono": "🧪"
   },
   {
     "id": 866,
     "materia": "Biología",
     "cluster": 6,
     "temas": [
-      "necesidades-basicas-seres-vivos",
-      "nicho-ecologico",
       "partes-planta-germinacion",
       "piramide-biomasas",
-      "presion-arterial"
+      "quimiosintesis",
+      "seleccion-natural",
+      "sistemas-cuerpo-humano"
     ],
-    "nombre": "Maître des Êtres Vivants et de leurs Besoins",
-    "descripcion": "Tu as réussi l'examen sur les besoins fondamentaux des êtres vivants, la niche écologique, la germination des plantes et la pyramide des biomasses.",
+    "nombre": "Maître de l'Évolution et du Corps Humain",
+    "descripcion": "Tu as réussi l'examen sur la sélection naturelle, la chimiosynthèse et les pyramides de biomasse, ainsi que les parties de la plante, la germination et les systèmes du corps humain.",
     "icono": "🌱"
   },
   {
@@ -2242,16 +2090,16 @@
     "materia": "Biología",
     "cluster": 7,
     "temas": [
-      "quimiosintesis",
-      "seleccion-natural",
-      "ser-vivo-caracteristicas",
+      "deriva-genetica-flujo-genico",
+      "especiacion",
+      "presion-arterial",
+      "filogenia-arboles-evolutivos",
       "sistema-endocrino-hormonas-glandulas",
       "sistema-nervioso-neurona-sinapsis",
-      "sistemas-cuerpo-humano",
       "transgenicos-bioetica"
     ],
-    "nombre": "Maître des Systèmes du Corps et de la Bioéthique",
-    "descripcion": "Tu as terminé l'examen final en maîtrisant le système nerveux, le système endocrinien, la sélection naturelle et le débat bioéthique sur les OGM.",
+    "nombre": "Expert en Évolution et Physiologie",
+    "descripcion": "Tu as terminé l'examen en maîtrisant la spéciation, la dérive génétique, la phylogénie, le système nerveux et endocrinien, la pression artérielle et la bioéthique des transgéniques, chef.",
     "icono": "🧠"
   },
   {
@@ -2259,45 +2107,45 @@
     "materia": "Cívica",
     "cluster": 1,
     "temas": [
-      "constitucion-nacional-jerarquia-normativa",
       "derechos-nino",
-      "discriminacion-y-organismos-de-proteccion",
+      "encuesta-electoral",
       "derechos-indigenas",
-      "encuesta-electoral"
+      "discriminacion-y-organismos-de-proteccion",
+      "derechos-genero"
     ],
-    "nombre": "Défenseur des Droits et de la Constitution",
-    "descripcion": "Tu as réussi l'examen sur la hiérarchie constitutionnelle, les droits de l'enfant, les peuples autochtones et les organismes contre la discrimination.",
-    "icono": "⚖️"
+    "nombre": "Expert en Droits et Non-discrimination",
+    "descripcion": "Tu as maîtrisé les droits de l'enfant, les droits de genre et les droits des peuples autochtones, les organismes de protection contre la discrimination et la lecture d'un sondage électoral, chef.",
+    "icono": "✊"
   },
   {
     "id": 880,
     "materia": "Cívica",
     "cluster": 2,
     "temas": [
-      "derechos-genero",
       "estado-de-derecho-por-que-importa",
       "marchas-patrioticas",
       "organizacion-del-estado",
-      "origen-estado-derecho"
+      "origen-estado-derecho",
+      "constitucion-preambulo"
     ],
     "nombre": "Maître de l'État de Droit",
-    "descripcion": "Tu as réussi l'examen final sur l'origine et l'importance de l'État de droit, l'organisation étatique et les droits de genre.",
-    "icono": "🏛️"
+    "descripcion": "Tu as terminé l'examen en maîtrisant l'origine et l'importance de l'État de droit, l'organisation de l'État, le préambule de la Constitution et les marches patriotiques.",
+    "icono": "⚖️"
   },
   {
     "id": 881,
     "materia": "Cívica",
     "cluster": 3,
     "temas": [
-      "constitucion-preambulo",
       "division-de-poderes",
-      "derechos-y-garantias",
+      "constitucion-nacional-jerarquia-normativa",
       "como-se-hace-una-ley",
+      "derechos-y-garantias",
       "documentos-y-tramites"
     ],
-    "nombre": "Maître de la Constitution et des Lois",
-    "descripcion": "Tu as réussi l'examen sur le préambule de la Constitution, la séparation des pouvoirs, les garanties et le processus législatif.",
-    "icono": "📜"
+    "nombre": "Maîtrise de la Constitution et des Lois",
+    "descripcion": "Tu as maîtrisé la séparation des pouvoirs, la hiérarchie des normes de la Constitution nationale, la façon dont une loi est élaborée, les droits et garanties, ainsi que les démarches et documents, chef.",
+    "icono": "📕"
   },
   {
     "id": 882,
@@ -2350,14 +2198,14 @@
     "materia": "Derecho",
     "cluster": 1,
     "temas": [
-      "apelacion-e-instancias",
-      "argumentacion-juridica",
-      "corrientes-interpretacion-juridica",
-      "denuncia-y-etapa-de-instruccion",
-      "derecho-administrativo"
+      "ramas-del-derecho",
+      "derecho-administrativo",
+      "derecho-civil",
+      "derecho-comercial",
+      "derecho-constitucional"
     ],
-    "nombre": "Maître de l'Appel et de l'Argumentation",
-    "descripcion": "Tu as réussi l'examen final sur les instances d'appel, l'argumentation juridique et la phase d'instruction.",
+    "nombre": "Maître des Branches du Droit",
+    "descripcion": "Tu as maîtrisé la carte des branches du droit et de leurs piliers : constitutionnel, civil, commercial et administratif.",
     "icono": "⚖️"
   },
   {
@@ -2365,46 +2213,46 @@
     "materia": "Derecho",
     "cluster": 2,
     "temas": [
-      "derecho-civil",
-      "derecho-comercial",
-      "derecho-constitucional",
       "derecho-internacional",
-      "derecho-laboral"
+      "derecho-laboral",
+      "derecho-penal",
+      "denuncia-y-etapa-de-instruccion",
+      "hecho-juridicamente-relevante"
     ],
-    "nombre": "Juriste Multidisciplinaire",
-    "descripcion": "Tu as réussi l'examen en intégrant le droit civil, commercial, constitutionnel, international et du travail, chef.",
-    "icono": "⚖️"
+    "nombre": "Expert en Droit Pénal et du Travail",
+    "descripcion": "Tu as terminé l'examen sur le droit pénal, du travail et international, et sur la façon dont un fait juridiquement pertinent aboutit à une plainte et à une instruction, chef.",
+    "icono": "🏛️"
   },
   {
     "id": 896,
     "materia": "Derecho",
     "cluster": 3,
     "temas": [
-      "derecho-penal",
-      "ejecucion-de-la-sentencia",
+      "investigacion-prueba-y-fiscalia",
       "fuentes-del-derecho",
-      "hecho-juridicamente-relevante",
+      "norma-jerarquia-y-vigencia",
+      "corrientes-interpretacion-juridica",
       "interpretacion-normativa"
     ],
-    "nombre": "Maître du Droit Pénal et de ses Sources",
-    "descripcion": "Tu as réussi l'examen final sur le droit pénal, les sources du droit et l'exécution de la peine.",
-    "icono": "⚖️"
+    "nombre": "Maîtrise des Sources et de l'Interprétation",
+    "descripcion": "Tu as maîtrisé les sources du droit, la hiérarchie et la vigueur des normes, les courants d'interprétation et l'enquête avec le parquet et les preuves.",
+    "icono": "📜"
   },
   {
     "id": 897,
     "materia": "Derecho",
     "cluster": 4,
     "temas": [
-      "investigacion-prueba-y-fiscalia",
-      "juicio-oral",
-      "norma-jerarquia-y-vigencia",
       "politica-criminal-garantismo-mano-dura",
-      "ramas-del-derecho",
-      "resolucion-de-conflictos-y-sentencia"
+      "argumentacion-juridica",
+      "resolucion-de-conflictos-y-sentencia",
+      "juicio-oral",
+      "apelacion-e-instancias",
+      "ejecucion-de-la-sentencia"
     ],
     "nombre": "Maître de la Procédure Pénale et du Jugement",
-    "descripcion": "Tu as réussi l'examen sur l'enquête du parquet, le procès oral, la politique criminelle et la résolution des conflits jusqu'au jugement.",
-    "icono": "👨‍⚖️"
+    "descripcion": "Tu as réussi l'examen en parcourant l'argumentation juridique, le procès oral, la décision et le jugement, l'appel et les instances, l'exécution de la peine et le débat entre garantisme et main dure.",
+    "icono": "🔨"
   },
   {
     "id": 904,
@@ -2412,13 +2260,13 @@
     "cluster": 1,
     "temas": [
       "acustica-instrumento-musical",
-      "armonia-basica-acordes-tonalidad",
       "composicion-y-proporcion",
-      "danza-ritmo-tiempo-expresion-corporal",
-      "elementos-del-arte"
+      "origen-del-arte",
+      "elementos-del-arte",
+      "principios-de-diseno"
     ],
-    "nombre": "Maître des Éléments de l'Art",
-    "descripcion": "Tu as maîtrisé l'examen final en intégrant l'acoustique, l'harmonie musicale, la composition et l'expression corporelle dans la danse.",
+    "nombre": "Maître des Fondements de l'Art",
+    "descripcion": "Tu as terminé l'examen en maîtrisant l'origine de l'art, ses éléments et principes de conception, la composition et la proportion, et l'acoustique de l'instrument de musique.",
     "icono": "🎨"
   },
   {
@@ -2426,14 +2274,14 @@
     "materia": "Arte",
     "cluster": 2,
     "temas": [
-      "lenguaje-musical-pentagrama-escalas-intervalos",
-      "origen-del-arte",
-      "principios-de-diseno",
       "ritmo-compas-pulso-figuras-musicales",
-      "narrativa-audiovisual/plano"
+      "narrativa-audiovisual/plano",
+      "danza-ritmo-tiempo-expresion-corporal",
+      "lenguaje-musical-pentagrama-escalas-intervalos",
+      "narrativa-audiovisual/encuadre"
     ],
-    "nombre": "Maître du Langage Musical et du Design",
-    "descripcion": "Tu as réussi l'examen sur la portée, les gammes, les principes de design et les plans dans le récit audiovisuel, chef.",
+    "nombre": "Expert en Rythme, Musique et Plan",
+    "descripcion": "Tu as maîtrisé le pouls, la mesure et les figures musicales, la portée avec les gammes et les intervalles, la danse et l'expression corporelle, ainsi que le plan et le cadrage audiovisuels, chef.",
     "icono": "🎼"
   },
   {
@@ -2441,46 +2289,198 @@
     "materia": "Arte",
     "cluster": 3,
     "temas": [
-      "rosetones-y-simetria",
-      "narrativa-audiovisual/encuadre",
-      "teatro-dramaturgia-y-actuacion",
+      "armonia-basica-acordes-tonalidad",
       "narrativa-audiovisual/montaje",
-      "produccion-multimedial"
+      "rosetones-y-simetria",
+      "produccion-multimedial",
+      "teatro-dramaturgia-y-actuacion"
     ],
-    "nombre": "Maître de la Scène et de l'Audiovisuel",
-    "descripcion": "Tu as réussi l'examen final sur le théâtre et le jeu d'acteur, le cadrage et le montage audiovisuels, la production multimédia et la symétrie des rosaces.",
-    "icono": "🎬"
+    "nombre": "Maîtrise de l'Harmonie, du Montage et de la Scène",
+    "descripcion": "Tu as réussi l'examen sur l'harmonie et les accords, le montage audiovisuel, la production multimédia, le théâtre et la dramaturgie, et la symétrie des rosaces.",
+    "icono": "🎭"
   },
   {
     "id": 912,
     "materia": "Investigación",
     "cluster": 1,
     "temas": [
-      "analisis-estadistico-de-resultados",
-      "argumentar-desde-evidencia",
-      "conclusion-y-comunicacion-de-resultados",
+      "observacion-y-pregunta-investigable",
+      "hipotesis-buena-o-mala",
+      "metodologia-cualitativa-vs-cuantitativa",
       "construir-y-usar-un-modelo-cientifico",
-      "corrientes-filosofia-de-la-ciencia"
+      "trabajo-de-campo-enfoque-socioantropologico"
     ],
-    "nombre": "Maîtrise de la Méthode Scientifique",
-    "descripcion": "Tu as maîtrisé l'examen final en intégrant l'analyse statistique, l'argumentation à partir de preuves et les courants de la philosophie des sciences.",
-    "icono": "🔬"
+    "nombre": "Initié à la Méthode Scientifique",
+    "descripcion": "Tu as terminé l'examen en maîtrisant l'observation et la question de recherche, la bonne hypothèse, la méthodologie qualitative et quantitative, les modèles scientifiques et le travail de terrain.",
+    "icono": "🔎"
   },
   {
     "id": 913,
     "materia": "Investigación",
     "cluster": 2,
     "temas": [
+      "corrientes-filosofia-de-la-ciencia",
       "diseno-experimental-variables-y-control",
-      "hipotesis-buena-o-mala",
-      "observacion-y-pregunta-investigable",
+      "tecnicas-de-investigacion-social",
       "recoleccion-de-datos",
-      "metodologia-cualitativa-vs-cuantitativa",
-      "trabajo-de-campo-enfoque-socioantropologico",
-      "tecnicas-de-investigacion-social"
+      "analisis-estadistico-de-resultados",
+      "conclusion-y-comunicacion-de-resultados",
+      "argumentar-desde-evidencia"
     ],
-    "nombre": "Maître du Design Expérimental et de Terrain",
-    "descripcion": "Tu as réussi l'examen sur le design expérimental, la formulation d'hypothèses, la méthodologie qualitative et quantitative, et le travail de terrain socio-anthropologique.",
-    "icono": "🧪"
+    "nombre": "Expert en Conception et Analyse de la Recherche",
+    "descripcion": "Tu as maîtrisé la conception expérimentale, la collecte de données, l'analyse statistique, l'argumentation fondée sur les preuves et la communication des conclusions, ainsi que la philosophie des sciences et les techniques sociales.",
+    "icono": "📊"
+  },
+  {
+    "id": 918,
+    "materia": "Ingeniería",
+    "cluster": 1,
+    "temas": [
+      "modelizacion-matematica",
+      "problema-y-restricciones",
+      "disciplinas-de-la-ingenieria",
+      "investigar-soluciones-existentes",
+      "diseno-conceptual"
+    ],
+    "nombre": "Maître du Début de la Conception en Ingénierie",
+    "descripcion": "Tu as terminé l'examen en maîtrisant le problème et ses contraintes, la recherche de solutions, la conception conceptuelle, la modélisation mathématique et les disciplines de l'ingénierie.",
+    "icono": "📐"
+  },
+  {
+    "id": 919,
+    "materia": "Ingeniería",
+    "cluster": 2,
+    "temas": [
+      "modelado-y-calculo",
+      "prototipo",
+      "resistencia-de-materiales",
+      "ensayo-y-medicion",
+      "optimizacion-e-iteracion",
+      "comunicar-la-solucion"
+    ],
+    "nombre": "Expert en Construction et Validation de Solutions",
+    "descripcion": "Tu as réussi l'examen sur la modélisation et le calcul, la résistance des matériaux, le prototype, l'essai et la mesure, l'optimisation itérative et la façon de communiquer la solution, chef.",
+    "icono": "🛠️"
+  },
+  {
+    "id": 924,
+    "materia": "Psicología",
+    "cluster": 1,
+    "temas": [
+      "psicologia-modernidad-y-el-yo",
+      "autoconocimiento-como-busqueda-humana",
+      "dependencia-del-otro-cultura-como-herencia",
+      "memoria-y-olvido-represion-inconsciente",
+      "psicologia-cognitiva-percepcion-memoria-atencion"
+    ],
+    "nombre": "Expert du Moi, de la Mémoire et de la Culture",
+    "descripcion": "Tu as terminé l'examen en maîtrisant la psychologie de la modernité et du moi, la connaissance de soi, la culture comme héritage, ainsi que la mémoire, l'oubli et le refoulement.",
+    "icono": "🧠"
+  },
+  {
+    "id": 925,
+    "materia": "Psicología",
+    "cluster": 2,
+    "temas": [
+      "lenguaje-pensamiento-y-creatividad",
+      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
+      "edades-del-ser-humano-ninez-pubertad-identidad",
+      "salud-mental-ansiedad-depresion-pedir-ayuda",
+      "sesgos-cognitivos-heuristicas-error-sistematico"
+    ],
+    "nombre": "Maître des Courants et de l'Esprit Humain",
+    "descripcion": "Tu as maîtrisé les courants psychologiques, les biais cognitifs, le langage, la pensée et la créativité, les âges de l'être humain et la santé mentale, chef.",
+    "icono": "💭"
+  },
+  {
+    "id": 930,
+    "materia": "Ciencia de Materiales",
+    "cluster": 1,
+    "temas": [
+      "corrosion",
+      "elasticidad-ley-de-hooke-modulo-de-young",
+      "propiedades-mecanicas-dureza-tenacidad-ductilidad",
+      "plasticidad-y-punto-de-fluencia",
+      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
+      "fatiga-y-fractura"
+    ],
+    "nombre": "Expert en Comportement des Matériaux",
+    "descripcion": "Tu as réussi l'examen sur l'élasticité et la loi de Hooke, la plasticité et la limite d'élasticité, la dureté et la ténacité, la fatigue et la rupture, la corrosion et les familles de matériaux.",
+    "icono": "🔩"
+  },
+  {
+    "id": 934,
+    "materia": "Dibujo Técnico",
+    "cluster": 1,
+    "temas": [
+      "sistemas-de-proyeccion",
+      "vistas-frontal-superior-lateral",
+      "perspectivas-isometrica-y-caballera",
+      "escalas-numericas-y-graficas",
+      "acotacion-normalizada"
+    ],
+    "nombre": "Maître du Dessin Technique",
+    "descripcion": "Tu as terminé l'examen en maîtrisant les systèmes de projection, les vues, les perspectives isométrique et cavalière, les échelles et la cotation normalisée, chef.",
+    "icono": "📏"
+  },
+  {
+    "id": 938,
+    "materia": "Comunicación",
+    "cluster": 1,
+    "temas": [
+      "generos-periodisticos",
+      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido",
+      "etica-y-responsabilidad-de-los-medios",
+      "corrientes-de-la-comunicacion",
+      "publicidad-y-persuasion"
+    ],
+    "nombre": "Expert en Communication et Médias",
+    "descripcion": "Tu as maîtrisé la théorie de la communication et ses courants, les genres journalistiques, l'éthique des médias, ainsi que la publicité et la persuasion.",
+    "icono": "📰"
+  },
+  {
+    "id": 942,
+    "materia": "Electrónica",
+    "cluster": 1,
+    "temas": [
+      "componentes-resistencia-capacitor-diodo-transistor",
+      "circuitos-y-leyes-de-kirchhoff",
+      "logica-digital-puertas-and-or-not",
+      "microcontroladores-y-microprocesadores",
+      "sensores-y-actuadores"
+    ],
+    "nombre": "Maître des Circuits et de la Commande Numérique",
+    "descripcion": "Tu as terminé l'examen sur les résistances, les condensateurs, les diodes et les transistors, les lois de Kirchhoff, la logique numérique, les microcontrôleurs, les capteurs et les actionneurs.",
+    "icono": "🔌"
+  },
+  {
+    "id": 946,
+    "materia": "Automatización",
+    "cluster": 1,
+    "temas": [
+      "lazo-abierto-vs-lazo-cerrado",
+      "plc-logica-de-control-industrial",
+      "realimentacion-feedback",
+      "control-pid-proporcional-integral-derivativo",
+      "servomecanismos"
+    ],
+    "nombre": "Expert en Systèmes de Commande",
+    "descripcion": "Tu as maîtrisé la boucle ouverte et fermée, la rétroaction, la commande PID, les servomécanismes et la logique de commande avec automate programmable, chef.",
+    "icono": "🤖"
+  },
+  {
+    "id": 950,
+    "materia": "UX/Diseño",
+    "cluster": 1,
+    "temas": [
+      "usabilidad-heuristicas-de-nielsen",
+      "accesibilidad-wcag-contraste-lectores-de-pantalla",
+      "jerarquia-visual-e-informacion",
+      "prototipado-wireframe-mockup-prototipo-interactivo",
+      "pruebas-de-usuario"
+    ],
+    "nombre": "Maître de l'Expérience Utilisateur",
+    "descripcion": "Tu as réussi l'examen en maîtrisant l'utilisabilité et les heuristiques de Nielsen, l'accessibilité WCAG, la hiérarchie visuelle, le prototypage et les tests utilisateurs.",
+    "icono": "🖥️"
   }
 ]
