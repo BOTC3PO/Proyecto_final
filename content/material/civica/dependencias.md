@@ -54,4 +54,8 @@ ciudadanía*, `pdp_feyc_voces_alumnos_1` GCBA). `teoria.md` con qwen,
 | `teoria-del-poder/` | `organizacion-del-estado/` | Nodo `C20` (`C5 --> C20`). Distinto de `C6` (división de poderes = estructura); esto es teoría del poder en sí (Aristóteles, Locke, Habermas, pluralismo). |
 | `tipos-de-estado/` | `teoria-del-poder/` | Nodo `C21` (`C20 --> C21`), con 2 padres más cruzados (`E28cP`, `E28fP` — liberalismo/keynesianismo, ya cubiertos en Economía, no se repiten acá). |
 | `proyecto-ciudadano-participativo/` | `../economia/gestion-de-proyectos/` (si existe, si no referenciar `troncos.md GP1`) | Nodo `C22` (`GP1P --> C22`). Instancia cívica específica del meta-tronco genérico de gestión de proyectos. |
-| `discriminacion-y-organismos-de-proteccion/` | `derechos-del-nino/` | Nodo `C23` (`C9a --> C23`). INADI, Ley 26.370 — 0 resultados en grep antes de esta ronda. |
+| `discriminacion-y-organismos-de-proteccion/` | `derechos-nino/` | Nodo `C23` (`C9a --> C23`; carpeta corregida 2026-10-03: decía `derechos-del-nino/`, que no existe). INADI, Ley 26.370 — 0 resultados en grep antes de esta ronda. |
+| `origen-estado-derecho/` | `../historia-profunda/propiedad-jerarquia-estado/` | Nodo `C10` de `troncos.md` (`H17 --> C10`). Backfill 2026-10-03. |
+| `sufragio-restringido-universal/` | `../historia-profunda/ampliacion-democratica-ley-saenz-pena/` | Nodo `C12` (`AH9 --> C12`). Backfill 2026-10-03. |
+| `estado-de-derecho-por-que-importa/` | `../historia-profunda/terrorismo-de-estado-argentina/` | Nodo `C13` (`AH12 --> C13`). Backfill 2026-10-03. |
+| `constitucion-nacional-jerarquia-normativa/` | `constitucion-preambulo/`, `organizacion-del-estado/` | *Deducido acá, no está en el MAPA* (no hay nodo propio en `troncos.md`): su `teoria.md` declara depender de `constitucion-preambulo/` y `organizacion-del-estado/`. Es el prerrequisito citado por `../derecho/norma-jerarquia-y-vigencia/`. Backfill 2026-10-03. |
