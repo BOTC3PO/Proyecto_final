@@ -1,157 +1,5 @@
 [
   {
-    "id": 183,
-    "materia": "Ingeniería",
-    "cluster": 1,
-    "temas": [
-      "comunicar-la-solucion",
-      "disciplinas-de-la-ingenieria",
-      "diseno-conceptual",
-      "ensayo-y-medicion",
-      "investigar-soluciones-existentes"
-    ],
-    "nombre": "Maestro del Diseño y la Comunicación",
-    "descripcion": "Te laburaste el parcial integrando diseño conceptual, investigación y comunicación de soluciones.",
-    "icono": "📐"
-  },
-  {
-    "id": 184,
-    "materia": "Ingeniería",
-    "cluster": 2,
-    "temas": [
-      "modelado-y-calculo",
-      "modelizacion-matematica",
-      "optimizacion-e-iteracion",
-      "problema-y-restricciones",
-      "prototipo",
-      "resistencia-de-materiales"
-    ],
-    "nombre": "Modelado y Optimización",
-    "descripcion": "Te laburaste el parcial integrando modelado matemático, optimización y resistencia de materiales con criterio ingenieril.",
-    "icono": "📐"
-  },
-  {
-    "id": 206,
-    "materia": "Dibujo Técnico",
-    "cluster": 1,
-    "temas": [
-      "acotacion-normalizada",
-      "escalas-numericas-y-graficas",
-      "perspectivas-isometrica-y-caballera",
-      "sistemas-de-proyeccion",
-      "vistas-frontal-superior-lateral"
-    ],
-    "nombre": "Dominio de vistas y acotación",
-    "descripcion": "Te laburaste el examen sobre sistemas de proyección, escalas y perspectivas.",
-    "icono": "📐"
-  },
-  {
-    "id": 207,
-    "materia": "Psicología",
-    "cluster": 1,
-    "temas": [
-      "autoconocimiento-como-busqueda-humana",
-      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
-      "dependencia-del-otro-cultura-como-herencia",
-      "edades-del-ser-humano-ninez-pubertad-identidad",
-      "lenguaje-pensamiento-y-creatividad"
-    ],
-    "nombre": "Explorador de la Mente",
-    "descripcion": "Te laburaste el examen sobre las corrientes psicológicas, el desarrollo humano y la construcción del autoconocimiento.",
-    "icono": "🧠"
-  },
-  {
-    "id": 208,
-    "materia": "Psicología",
-    "cluster": 2,
-    "temas": [
-      "memoria-y-olvido-represion-inconsciente",
-      "psicologia-cognitiva-percepcion-memoria-atencion",
-      "psicologia-modernidad-y-el-yo",
-      "salud-mental-ansiedad-depresion-pedir-ayuda",
-      "sesgos-cognitivos-heuristicas-error-sistematico"
-    ],
-    "nombre": "Maestro de la Mente",
-    "descripcion": "Te laburaste el examen integrador sobre memoria, sesgos y salud mental, pibe.",
-    "icono": "🧠"
-  },
-  {
-    "id": 209,
-    "materia": "Comunicación",
-    "cluster": 1,
-    "temas": [
-      "corrientes-de-la-comunicacion",
-      "etica-y-responsabilidad-de-los-medios",
-      "generos-periodisticos",
-      "publicidad-y-persuasion",
-      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido"
-    ],
-    "nombre": "Dominio de las corrientes y géneros",
-    "descripcion": "Te laburaste el examen sobre corrientes, ética, publicidad y teoría de la comunicación.",
-    "icono": "📰"
-  },
-  {
-    "id": 210,
-    "materia": "Electrónica",
-    "cluster": 1,
-    "temas": [
-      "circuitos-y-leyes-de-kirchhoff",
-      "componentes-resistencia-capacitor-diodo-transistor",
-      "logica-digital-puertas-and-or-not",
-      "microcontroladores-y-microprocesadores",
-      "sensores-y-actuadores"
-    ],
-    "nombre": "Maestro del Circuito y Lógica",
-    "descripcion": "Te laburaste el examen dominando desde las leyes de Kirchhoff hasta la programación de microcontroladores.",
-    "icono": "🔧"
-  },
-  {
-    "id": 211,
-    "materia": "Ciencia de Materiales",
-    "cluster": 1,
-    "temas": [
-      "corrosion",
-      "elasticidad-ley-de-hooke-modulo-de-young",
-      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
-      "fatiga-y-fractura",
-      "plasticidad-y-punto-de-fluencia",
-      "propiedades-mecanicas-dureza-tenacidad-ductilidad"
-    ],
-    "nombre": "Maestro de Propiedades Mecánicas",
-    "descripcion": "Te laburaste el parcial sobre corrosión, elasticidad, fatiga y propiedades de materiales, pibe.",
-    "icono": "🛡️"
-  },
-  {
-    "id": 212,
-    "materia": "Automatización",
-    "cluster": 1,
-    "temas": [
-      "control-pid-proporcional-integral-derivativo",
-      "lazo-abierto-vs-lazo-cerrado",
-      "plc-logica-de-control-industrial",
-      "realimentacion-feedback",
-      "servomecanismos"
-    ],
-    "nombre": "Maestro del Control PID y PLC",
-    "descripcion": "Te laburaste los fundamentos de los servomecanismos, la lógica industrial y los lazos de control jefe.",
-    "icono": "🤖"
-  },
-  {
-    "id": 213,
-    "materia": "UX/Diseño",
-    "cluster": 1,
-    "temas": [
-      "accesibilidad-wcag-contraste-lectores-de-pantalla",
-      "jerarquia-visual-e-informacion",
-      "prototipado-wireframe-mockup-prototipo-interactivo",
-      "pruebas-de-usuario",
-      "usabilidad-heuristicas-de-nielsen"
-    ],
-    "nombre": "Maestro de Usabilidad y Accesibilidad",
-    "descripcion": "Pasaste el examen jefe dominando WCAG, heurísticas de Nielsen y prototipado.",
-    "icono": "👁️"
-  },
-  {
     "id": 601,
     "materia": "Matemática",
     "cluster": 1,
@@ -638,14 +486,14 @@
     "cluster": 1,
     "temas": [
       "conciencia-fonologica",
-      "escritura-como-tecnologia",
-      "decodificacion-y-fluidez",
       "ortografia-y-tildacion",
+      "decodificacion-y-fluidez",
+      "signos-de-puntuacion",
       "circuito-de-la-comunicacion"
     ],
-    "nombre": "Maestro de los Cimientos de la Lectoescritura",
-    "descripcion": "Cerraste el examen dominando la conciencia fonológica, la decodificación y fluidez, la ortografía y tildación, y el circuito de la comunicación.",
-    "icono": "🔤📖"
+    "nombre": "Dominá Ortografía y Lectura Inicial",
+    "descripcion": "Te laburaste el parcial con conciencia fonológica, decodificación y fluidez, ortografía y tildación, signos de puntuación y el circuito de la comunicación.",
+    "icono": "✍️"
   },
   {
     "id": 652,
@@ -653,14 +501,14 @@
     "cluster": 2,
     "temas": [
       "comprension-idea-principal",
-      "signos-de-puntuacion",
+      "escritura-como-tecnologia",
       "tecnicas-de-estudio-resumen-y-organizadores-graficos",
       "tipos-textuales",
       "variedades-de-la-lengua"
     ],
-    "nombre": "Dominá la Comprensión Textual",
-    "descripcion": "Cerraste el parcial dominando la idea principal, los signos de puntuación, los tipos textuales y las variedades de la lengua, jefe.",
-    "icono": "🧩📚"
+    "nombre": "Crack de Comprensión y Tipología",
+    "descripcion": "Te comiste la idea principal, los tipos textuales, las variedades de la lengua, la escritura como tecnología y las técnicas de estudio como el resumen y los organizadores gráficos, jefe.",
+    "icono": "📖"
   },
   {
     "id": 653,
@@ -862,180 +710,180 @@
     "materia": "Historia profunda",
     "cluster": 1,
     "temas": [
-      "absolutismo-europeo",
-      "agujeros-negros",
-      "ampliacion-democratica-ley-saenz-pena",
-      "antigua-grecia",
-      "antigua-roma"
+      "escalas-de-tiempo-profundo",
+      "origen-del-universo",
+      "formacion-de-estrellas",
+      "galaxias-tipos-escala",
+      "nucleosintesis"
     ],
-    "nombre": "De Grecia y Roma al Absolutismo",
-    "descripcion": "Te hiciste cargo del parcial dominando la Antigua Grecia, la Antigua Roma y el absolutismo europeo, con una parada en los agujeros negros.",
-    "icono": "🏛️"
+    "nombre": "Maestro del Origen del Universo",
+    "descripcion": "Te la rebuscaste en el parcial con las escalas de tiempo profundo, el origen del universo, la nucleosíntesis, la formación de estrellas y los tipos de galaxias.",
+    "icono": "🌌"
   },
   {
     "id": 682,
     "materia": "Historia profunda",
     "cluster": 2,
     "temas": [
-      "antiguo-egipto",
-      "atmosfera-primitiva",
-      "baja-edad-media-y-crisis",
-      "caida-de-roma-y-alta-edad-media",
-      "cambio-climatico-linea-base-historica"
+      "corrimiento-al-rojo-expansion-universo",
+      "agujeros-negros",
+      "formacion-del-sistema-solar",
+      "ley-de-hubble",
+      "movimiento-rotacion-traslacion"
     ],
-    "nombre": "Egipto y la Crisis Medieval",
-    "descripcion": "Te laburaste el examen sobre el Antiguo Egipto, la caída de Roma, la Alta Edad Media y la crisis bajomedieval, capo.",
-    "icono": "🏺"
+    "nombre": "Dominá la Expansión Cósmica",
+    "descripcion": "Aprobaste el parcial de la ley de Hubble, el corrimiento al rojo, los agujeros negros, la formación del sistema solar y los movimientos de rotación y traslación, jefe.",
+    "icono": "🔭"
   },
   {
     "id": 683,
     "materia": "Historia profunda",
     "cluster": 3,
     "temas": [
-      "china-antigua",
-      "ciclo-de-las-rocas",
-      "ciencia-revolucion-cientifica",
-      "cinco-extinciones-masivas",
-      "civilizaciones-antiguas"
+      "materia-energia-oscura",
+      "estaciones-del-ano",
+      "fases-lunares",
+      "movimiento-aparente-constelaciones",
+      "eclipses-sol-luna"
     ],
-    "nombre": "Ciencia y Civilizaciones Antiguas",
-    "descripcion": "Te laburaste el examen dominando la China antigua, las civilizaciones antiguas, las cinco extinciones masivas y la revolución científica en un mismo parcial.",
-    "icono": "🔬🏺"
+    "nombre": "Crack del Cielo y el Universo Oscuro",
+    "descripcion": "Te mandaste con la materia y la energía oscura y también con el cielo observable: estaciones, fases lunares, eclipses y el movimiento aparente de las constelaciones.",
+    "icono": "🌙"
   },
   {
     "id": 684,
     "materia": "Historia profunda",
     "cluster": 4,
     "temas": [
-      "civilizaciones-de-america-precolombinas",
-      "conquista-colonizacion-america",
-      "conquista-tierra-firme",
-      "conquista-y-colonia-argentina",
-      "corrimiento-al-rojo-expansion-universo"
+      "tabla-periodica-nivel2-cosmologico",
+      "tierra-primitiva-diferenciacion",
+      "atmosfera-primitiva",
+      "minerales-estructura-cristalina",
+      "origen-de-la-vida"
     ],
-    "nombre": "De América Precolombina al Cosmos",
-    "descripcion": "Pasaste el examen que abarca desde las civilizaciones precolombinas y la conquista de América hasta el corrimiento al rojo y la expansión del universo.",
-    "icono": "🌎"
+    "nombre": "Maestro de la Tierra Primitiva",
+    "descripcion": "Te laburaste la tierra primitiva y su diferenciación, la atmósfera primitiva, los minerales, la tabla periódica cosmológica y el origen de la vida.",
+    "icono": "🌋"
   },
   {
     "id": 685,
     "materia": "Historia profunda",
     "cluster": 5,
     "temas": [
-      "datacion-radiometrica",
-      "descolonizacion-de-africa-y-asia",
-      "distribucion-biomas",
-      "division-del-trabajo",
-      "eclipses-sol-luna"
+      "rocas-igneas-sedimentarias-metamorficas",
+      "procariotas",
+      "tiempo-geologico-eones-eras-periodos",
+      "gran-oxidacion",
+      "datacion-radiometrica"
     ],
-    "nombre": "Datación, Biomas y Descolonización",
-    "descripcion": "Te hiciste cargo del parcial integrando la datación radiométrica, la descolonización de África y Asia, la distribución de biomas y los eclipses de sol y luna.",
-    "icono": "⏳🌍"
+    "nombre": "Crack del Tiempo Geológico",
+    "descripcion": "Te la sabés toda: eones, eras y períodos, datación radiométrica, tipos de rocas, procariotas y la Gran Oxidación, jefe.",
+    "icono": "🪨"
   },
   {
     "id": 686,
     "materia": "Historia profunda",
     "cluster": 6,
     "temas": [
-      "edad-media-feudalismo",
-      "edad-media-plena",
-      "electrificacion-fabrica-hogar",
-      "entreguerras-y-crisis-de-1929",
-      "escalas-de-tiempo-profundo"
+      "eucariotas",
+      "fotosintesis-cambio-atmosfera-nivel2",
+      "multicelularidad",
+      "tectonica-placas-deriva-continental",
+      "explosion-cambrica"
     ],
-    "nombre": "Del Feudalismo a la Crisis del '29",
-    "descripcion": "Pasaste el examen atravesando el feudalismo medieval, la electrificación de fábrica y hogar y la crisis de 1929 dominando las grandes transformaciones, jefe.",
-    "icono": "🏰"
+    "nombre": "Dominá la Vida Compleja",
+    "descripcion": "Aprobaste el parcial de eucariotas, fotosíntesis y cambio atmosférico, multicelularidad, explosión cámbrica y tectónica de placas.",
+    "icono": "🦠"
   },
   {
     "id": 687,
     "materia": "Historia profunda",
     "cluster": 7,
     "temas": [
-      "escritura-primeras-ciudades",
-      "estaciones-del-ano",
-      "estados-nacionales",
-      "eucariotas",
-      "expansion-del-imperio-romano"
+      "ciclo-de-las-rocas",
+      "conquista-tierra-firme",
+      "distribucion-biomas",
+      "cinco-extinciones-masivas",
+      "paleoclima-glaciaciones"
     ],
-    "nombre": "De la Escritura al Imperio Romano",
-    "descripcion": "Cerraste el examen jefe sobre la escritura y las primeras ciudades, los estados nacionales y la expansión del Imperio Romano.",
-    "icono": "📜🏛️"
+    "nombre": "Maestro de Extinciones y Climas Antiguos",
+    "descripcion": "Te bancaste el parcial con la conquista de la tierra firme, las cinco extinciones masivas, el paleoclima y las glaciaciones, el ciclo de las rocas y la distribución de biomas.",
+    "icono": "🦖"
   },
   {
     "id": 688,
     "materia": "Historia profunda",
     "cluster": 8,
     "temas": [
-      "explosion-cambrica",
-      "fases-lunares",
-      "formacion-de-estrellas",
-      "formacion-del-sistema-solar",
-      "fotosintesis-cambio-atmosfera-nivel2"
+      "radiacion-mamiferos",
+      "cambio-climatico-linea-base-historica",
+      "hominizacion",
+      "relieve-sismos-volcanes",
+      "paleolitico"
     ],
-    "nombre": "Estrellas, Fotosíntesis y Cámbrico",
-    "descripcion": "Te laburaste el parcial dominando la formación de estrellas y del sistema solar, las fases lunares, la fotosíntesis y la explosión cámbrica.",
-    "icono": "⭐🧬"
+    "nombre": "Crack de Mamíferos y Origen Humano",
+    "descripcion": "Te mandaste con la radiación de los mamíferos, la hominización y el paleolítico, y además con el relieve, sus sismos y volcanes, y la línea base del cambio climático, jefe.",
+    "icono": "🦴"
   },
   {
     "id": 689,
     "materia": "Historia profunda",
     "cluster": 9,
     "temas": [
-      "galaxias-tipos-escala",
-      "globalizacion-era-digital",
-      "golpes-de-estado-interrupciones",
-      "gran-oxidacion",
-      "guerra-de-malvinas"
+      "seleccion-natural-evidencias-nivel2",
+      "herramientas-arte-rupestre",
+      "poblamiento-planeta-america",
+      "revolucion-neolitica",
+      "sedentarizacion-excedente"
     ],
-    "nombre": "Galaxias, Golpes de Estado y Malvinas",
-    "descripcion": "Te hiciste cargo del parcial sobre las galaxias, la Gran Oxidación, los golpes de estado y la Guerra de Malvinas, pibe.",
-    "icono": "🌌🎖️"
+    "nombre": "Dominá la Revolución Neolítica",
+    "descripcion": "Te laburaste la selección natural, las herramientas y el arte rupestre, el poblamiento de América, la revolución neolítica y la sedentarización con excedente.",
+    "icono": "🌾"
   },
   {
     "id": 690,
     "materia": "Historia profunda",
     "cluster": 10,
     "temas": [
-      "guerra-fria-descolonizacion",
-      "guerras-civiles-unitarios-federales",
-      "guerras-de-independencia-argentina",
-      "guerras-mundiales",
-      "herramientas-arte-rupestre"
+      "division-del-trabajo",
+      "metalurgia-cobre-hierro",
+      "propiedad-jerarquia-estado",
+      "escritura-primeras-ciudades",
+      "antigua-grecia"
     ],
-    "nombre": "De la Independencia a la Guerra Fría",
-    "descripcion": "Te laburaste el examen sobre las guerras de independencia argentina, las guerras civiles entre unitarios y federales, las guerras mundiales y la Guerra Fría.",
-    "icono": "⚔️"
+    "nombre": "Maestro de los Primeros Estados",
+    "descripcion": "Aprobaste el parcial de la división del trabajo, la metalurgia, la propiedad y la jerarquía hasta el Estado, la escritura con las primeras ciudades y la antigua Grecia.",
+    "icono": "🏺"
   },
   {
     "id": 691,
     "materia": "Historia profunda",
     "cluster": 11,
     "temas": [
-      "historia-contemporanea-de-africa",
-      "historia-contemporanea-de-asia-y-pacifico",
-      "historia-contemporanea-de-medio-oriente",
-      "historia-reciente-argentina",
-      "hominizacion"
+      "antigua-roma",
+      "antiguo-egipto",
+      "china-antigua",
+      "civilizaciones-de-america-precolombinas",
+      "india-antigua"
     ],
-    "nombre": "Historia Contemporánea del Mundo",
-    "descripcion": "Cerraste el parcial integrando la historia contemporánea de África, Asia y el Pacífico, Medio Oriente y la Argentina reciente.",
-    "icono": "🌍"
+    "nombre": "Crack de las Grandes Civilizaciones Antiguas",
+    "descripcion": "Te recorriste Roma, Egipto, China, India y las civilizaciones precolombinas de América sin despeinarte, jefe.",
+    "icono": "🏛️"
   },
   {
     "id": 692,
     "materia": "Historia profunda",
     "cluster": 12,
     "temas": [
-      "huella-humana-en-el-clima-inicio",
-      "ilustracion",
-      "imperialismo",
-      "imperio-bizantino",
+      "mesopotamia",
+      "pueblos-originarios-territorio-argentino",
+      "civilizaciones-antiguas",
+      "expansion-del-imperio-romano",
       "imperio-de-alejandro-magno-helenistico"
     ],
-    "nombre": "Del Helenismo al Imperialismo",
-    "descripcion": "Pasaste el examen sobre el imperio helenístico de Alejandro Magno, el Imperio Bizantino, la Ilustración y el imperialismo.",
-    "icono": "🏺🌐"
+    "nombre": "Dominá los Imperios del Mundo Antiguo",
+    "descripcion": "Te la rebuscaste con Mesopotamia, Alejandro Magno y el helenismo, la expansión del Imperio romano y los pueblos originarios del actual territorio argentino.",
+    "icono": "⚔️"
   },
   {
     "id": 693,
@@ -1045,165 +893,165 @@
       "imperio-han-china",
       "imperio-persa",
       "imperios-expansion",
-      "imprenta",
-      "india-antigua"
+      "caida-de-roma-y-alta-edad-media",
+      "edad-media-feudalismo"
     ],
-    "nombre": "Imperios Antiguos y la Imprenta",
-    "descripcion": "La pasaste dominando el Imperio Persa, el Imperio Han de China, la India antigua y la llegada de la imprenta, crack.",
-    "icono": "👑📖"
+    "nombre": "Maestro de Imperios y Feudalismo",
+    "descripcion": "Te comiste los imperios Han y persa, la expansión imperial, la caída de Roma con la Alta Edad Media y el feudalismo, jefe.",
+    "icono": "🏰"
   },
   {
     "id": 694,
     "materia": "Historia profunda",
     "cluster": 14,
     "temas": [
-      "internet-redes-globalizacion-digital",
+      "imperio-bizantino",
       "islam-y-expansion-arabe",
-      "ley-de-hubble",
-      "materia-energia-oscura",
-      "mesopotamia"
+      "edad-media-plena",
+      "baja-edad-media-y-crisis",
+      "renacimiento-y-reforma"
     ],
-    "nombre": "De Mesopotamia a Internet",
-    "descripcion": "Te laburaste el repaso que abarca desde Mesopotamia y el Islam hasta internet y la globalización digital, con una parada en la Ley de Hubble.",
-    "icono": "🕌💻"
+    "nombre": "Crack del Medioevo y el Renacimiento",
+    "descripcion": "Aprobaste el parcial del Imperio bizantino, el islam y su expansión árabe, la Edad Media plena, la crisis de la Baja Edad Media y el Renacimiento con la Reforma.",
+    "icono": "📜"
   },
   {
     "id": 695,
     "materia": "Historia profunda",
     "cluster": 15,
     "temas": [
-      "metalurgia-cobre-hierro",
-      "minerales-estructura-cristalina",
-      "modelo-agroexportador-inmigracion",
-      "modernidad-imprenta-navegacion-ciencia",
-      "movimiento-aparente-constelaciones"
+      "ciencia-revolucion-cientifica",
+      "imprenta",
+      "navegacion",
+      "conquista-colonizacion-america",
+      "modernidad-imprenta-navegacion-ciencia"
     ],
-    "nombre": "Metalurgia, Minerales y Modernidad",
-    "descripcion": "Cerraste el examen jefe sobre la metalurgia del cobre y el hierro, los minerales, el modelo agroexportador y la modernidad de la imprenta y la navegación.",
-    "icono": "⚒️🔭"
+    "nombre": "Dominá la Modernidad y la Conquista",
+    "descripcion": "Te laburaste la revolución científica, la imprenta, la navegación y la conquista y colonización de América.",
+    "icono": "⛵"
   },
   {
     "id": 696,
     "materia": "Historia profunda",
     "cluster": 16,
     "temas": [
-      "movimiento-rotacion-traslacion",
-      "multicelularidad",
-      "navegacion",
-      "nucleosintesis",
-      "organizacion-nacional-constitucion-1853"
+      "absolutismo-europeo",
+      "conquista-y-colonia-argentina",
+      "ilustracion",
+      "virreinato-y-comercio",
+      "revolucion-industrial"
     ],
-    "nombre": "Cosmos y la Constitución de 1853",
-    "descripcion": "Cerraste el examen demostrando dominio desde la rotación y traslación terrestres y la nucleosíntesis hasta la organización nacional de 1853, jefe.",
-    "icono": "🌐📜"
+    "nombre": "Maestro del Absolutismo y la Ilustración",
+    "descripcion": "Te mandaste con el absolutismo europeo, la Ilustración, la Revolución Industrial, la conquista y colonia en Argentina y el virreinato con su comercio, jefe.",
+    "icono": "👑"
   },
   {
     "id": 697,
     "materia": "Historia profunda",
     "cluster": 17,
     "temas": [
-      "origen-de-la-vida",
-      "origen-del-universo",
-      "paleoclima-glaciaciones",
-      "paleolitico",
-      "peronismo-derechos-sociales"
+      "revolucion-de-mayo",
+      "electrificacion-fabrica-hogar",
+      "guerras-de-independencia-argentina",
+      "huella-humana-en-el-clima-inicio",
+      "guerras-civiles-unitarios-federales"
     ],
-    "nombre": "Del Big Bang al Peronismo",
-    "descripcion": "Te hiciste cargo del examen jefe abarcando desde el origen del universo y de la vida hasta el paleolítico y el peronismo.",
-    "icono": "💥🗳️"
+    "nombre": "Crack de la Independencia Argentina",
+    "descripcion": "Aprobaste el parcial de la Revolución de Mayo, las guerras de independencia y las guerras civiles entre unitarios y federales, y encima la electrificación y el inicio de la huella humana en el clima.",
+    "icono": "🇦🇷"
   },
   {
     "id": 698,
     "materia": "Historia profunda",
     "cluster": 18,
     "temas": [
-      "poblamiento-planeta-america",
-      "primera-guerra-mundial-y-revolucion-rusa",
-      "procariotas",
-      "propiedad-jerarquia-estado",
-      "pueblos-originarios-territorio-argentino"
+      "revoluciones-burguesas-liberalismo",
+      "organizacion-nacional-constitucion-1853",
+      "estados-nacionales",
+      "modelo-agroexportador-inmigracion",
+      "imperialismo"
     ],
-    "nombre": "De los Procariotas a la Revolución Rusa",
-    "descripcion": "Te laburaste el examen sobre los procariotas, el poblamiento americano, los pueblos originarios y la Primera Guerra Mundial y la Revolución Rusa.",
-    "icono": "🧫🚩"
+    "nombre": "Dominá el Orden Liberal y Nacional",
+    "descripcion": "Te laburaste las revoluciones burguesas y el liberalismo, los estados nacionales, el imperialismo, la Constitución de 1853 y el modelo agroexportador con inmigración.",
+    "icono": "📈"
   },
   {
     "id": 699,
     "materia": "Historia profunda",
     "cluster": 19,
     "temas": [
-      "radiacion-mamiferos",
-      "recuperacion-democratica-memoria",
-      "relieve-sismos-volcanes",
-      "renacimiento-y-reforma",
-      "revolucion-de-mayo"
+      "ampliacion-democratica-ley-saenz-pena",
+      "sociedad-de-masas-y-democracia-liberal",
+      "primera-guerra-mundial-y-revolucion-rusa",
+      "entreguerras-y-crisis-de-1929",
+      "golpes-de-estado-interrupciones"
     ],
-    "nombre": "Del Renacimiento a la Democracia Recuperada",
-    "descripcion": "Cerraste el parcial dominando el Renacimiento y la Reforma, la Revolución de Mayo y la recuperación democrática y la memoria, pibe.",
-    "icono": "🎨🕊️"
+    "nombre": "Maestro del Siglo XX Temprano",
+    "descripcion": "Te bancaste la sociedad de masas y la democracia liberal, la Primera Guerra Mundial y la Revolución Rusa, el período de entreguerras y la crisis de 1929, la Ley Sáenz Peña y los golpes de Estado, jefe.",
+    "icono": "📰"
   },
   {
     "id": 700,
     "materia": "Historia profunda",
     "cluster": 20,
     "temas": [
-      "revolucion-industrial",
-      "revolucion-neolitica",
-      "revoluciones-burguesas-liberalismo",
-      "rocas-igneas-sedimentarias-metamorficas",
-      "sedentarizacion-excedente"
+      "segunda-guerra-mundial",
+      "peronismo-derechos-sociales",
+      "descolonizacion-de-africa-y-asia",
+      "guerras-mundiales",
+      "guerra-fria-descolonizacion"
     ],
-    "nombre": "De la Revolución Neolítica a la Industrial",
-    "descripcion": "Te laburaste el parcial atravesando la Revolución Neolítica, la sedentarización y el excedente hasta la Revolución Industrial y las revoluciones burguesas, pibe.",
-    "icono": "🌾🏭"
+    "nombre": "Crack de Guerras y Guerra Fría",
+    "descripcion": "Aprobaste el parcial de las guerras mundiales, la Segunda Guerra Mundial, la Guerra Fría, la descolonización de África y Asia y el peronismo con sus derechos sociales.",
+    "icono": "🕊️"
   },
   {
     "id": 701,
     "materia": "Historia profunda",
     "cluster": 21,
     "temas": [
-      "segunda-guerra-mundial",
-      "seleccion-natural-evidencias-nivel2",
-      "sociedad-de-masas-y-democracia-liberal",
-      "tabla-periodica-nivel2-cosmologico",
-      "tectonica-placas-deriva-continental",
       "terrorismo-de-estado-argentina",
-      "tiempo-geologico-eones-eras-periodos",
-      "tierra-primitiva-diferenciacion",
-      "virreinato-y-comercio"
+      "historia-contemporanea-de-africa",
+      "guerra-de-malvinas",
+      "historia-contemporanea-de-asia-y-pacifico",
+      "historia-contemporanea-de-medio-oriente",
+      "recuperacion-democratica-memoria",
+      "globalizacion-era-digital",
+      "historia-reciente-argentina",
+      "internet-redes-globalizacion-digital"
     ],
-    "nombre": "Maestro de la Historia Profunda",
-    "descripcion": "Te mandaste el parcial dominando desde la Tierra primitiva y la tectónica de placas hasta la Segunda Guerra Mundial, el terrorismo de Estado y el virreinato, capo.",
-    "icono": "🌋🎖️"
+    "nombre": "Dominá la Historia Reciente",
+    "descripcion": "Te laburaste el terrorismo de Estado, Malvinas y la recuperación democrática en Argentina, la historia contemporánea de África, Asia y Medio Oriente, y la globalización de la era digital.",
+    "icono": "🌍"
   },
   {
     "id": 721,
     "materia": "Historia",
     "cluster": 1,
     "temas": [
-      "conquista-del-desierto-y-campana-al-chaco",
       "crisis-de-2001",
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "interpretar-una-fuente-historica"
+      "interpretar-una-fuente-historica",
+      "linea-de-tiempo-y-antes-despues",
+      "reforma-universitaria-1918",
+      "decada-siglo-milenio"
     ],
-    "nombre": "Maestro de las Guerras y Crisis",
-    "descripcion": "Te laburaste el parcial sobre la Conquista del Desierto, la Guerra del Paraguay, la Guerra Civil Española y la crisis de 2001, interpretando fuentes históricas.",
-    "icono": "⚔️"
+    "nombre": "Crack de Fuentes y Cronología",
+    "descripcion": "Te mandaste con la interpretación de fuentes históricas, las líneas de tiempo, la década, el siglo y el milenio, y casos argentinos como la Reforma Universitaria de 1918 y la crisis de 2001, jefe.",
+    "icono": "🗂️"
   },
   {
     "id": 722,
     "materia": "Historia",
     "cluster": 2,
     "temas": [
-      "linea-de-tiempo-y-antes-despues",
-      "reforma-universitaria-1918",
-      "decada-siglo-milenio",
-      "revolucion-mexicana-1910-1920",
-      "antes-y-despues-de-cristo"
+      "semana-tragica-1919",
+      "antes-y-despues-de-cristo",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "periodizacion-historica",
+      "causa-y-consecuencia"
     ],
-    "nombre": "Maestro del Tiempo y las Revoluciones",
-    "descripcion": "Cerraste el examen jefe sobre líneas de tiempo, la Reforma Universitaria de 1918 y la Revolución Mexicana.",
+    "nombre": "Dominá Periodización y Causalidad",
+    "descripcion": "Te laburaste la periodización, el antes y después de Cristo, causa y consecuencia, la Semana Trágica de 1919 y la industrialización por sustitución de importaciones.",
     "icono": "⏳"
   },
   {
@@ -1211,515 +1059,515 @@
     "materia": "Historia",
     "cluster": 3,
     "temas": [
-      "rosas-y-la-confederacion",
-      "periodizacion-historica",
-      "economias-regionales-tempranas",
-      "causa-y-consecuencia",
-      "semana-tragica-1919"
+      "significancia-historica",
+      "cambio-y-continuidad",
+      "evidencia",
+      "dimension-etica",
+      "multicausalidad"
     ],
-    "nombre": "Maestro de Rosas y la Semana Trágica",
-    "descripcion": "Pasaste el parcial sobre Rosas y la Confederación, las economías regionales tempranas y la Semana Trágica de 1919, jefe.",
-    "icono": "📜"
+    "nombre": "Maestro del Pensamiento Histórico",
+    "descripcion": "Te comiste la significancia histórica, el cambio y la continuidad, la evidencia, la multicausalidad y la dimensión ética, jefe.",
+    "icono": "🧠"
   },
   {
     "id": 724,
     "materia": "Historia",
     "cluster": 4,
     "temas": [
-      "cambio-y-continuidad",
-      "evidencia",
-      "dimension-etica",
-      "industrializacion-por-sustitucion-de-importaciones-isi",
-      "multicausalidad"
+      "escuela-de-los-annales",
+      "historia-cultural",
+      "materialismo-historico",
+      "positivismo",
+      "revoluciones"
     ],
-    "nombre": "Maestro del Pensamiento Histórico y la ISI",
-    "descripcion": "Te hiciste cargo del examen jefe dominando el cambio y la continuidad, la multicausalidad, la evidencia histórica y la industrialización por sustitución de importaciones.",
-    "icono": "🏭"
+    "nombre": "Crack de las Corrientes Historiográficas",
+    "descripcion": "Aprobaste el parcial de la Escuela de los Annales, la historia cultural, el materialismo histórico, el positivismo y el estudio de las revoluciones.",
+    "icono": "📚"
   },
   {
     "id": 725,
     "materia": "Historia",
     "cluster": 5,
     "temas": [
-      "significancia-historica",
-      "escuela-de-los-annales",
-      "historia-cultural",
-      "materialismo-historico",
-      "positivismo",
-      "revoluciones",
       "independencias",
-      "guerras"
+      "revolucion-mexicana-1910-1920",
+      "guerras",
+      "guerra-civil-espanola-1936-1939",
+      "guerra-del-paraguay-y-triple-alianza",
+      "rosas-y-la-confederacion",
+      "conquista-del-desierto-y-campana-al-chaco",
+      "economias-regionales-tempranas"
     ],
-    "nombre": "Maestro de las Escuelas Historiográficas",
-    "descripcion": "Te laburaste el parcial integrando la Escuela de los Annales, el materialismo histórico y el positivismo con las grandes revoluciones, independencias y guerras.",
-    "icono": "📚"
+    "nombre": "Dominá Guerras y Procesos Americanos",
+    "descripcion": "Te la rebuscaste con las independencias, la revolución mexicana, la guerra civil española, la guerra del Paraguay, Rosas y la Confederación, la Conquista del Desierto y las economías regionales tempranas.",
+    "icono": "🗺️"
   },
   {
     "id": 736,
     "materia": "Física",
     "cluster": 1,
     "temas": [
-      "calor-q-m-c-deltat",
-      "cambios-de-estado-calor-latente",
+      "cargas-electricas",
+      "estatica/centro-de-gravedad",
       "campo-electrico",
-      "campo-magnetico-imanes-corrientes",
-      "cargas-electricas"
+      "corriente-electrica",
+      "estatica/momento-de-una-fuerza"
     ],
-    "nombre": "Maestro del Calor y las Cargas Eléctricas",
-    "descripcion": "Cerraste el parcial dominando el calor específico, los cambios de estado y los campos eléctrico y magnético, pibe.",
-    "icono": "🔥⚡"
+    "nombre": "Cargas, Campo Eléctrico y Estática",
+    "descripcion": "Te laburaste el parcial con cargas eléctricas, campo eléctrico y corriente, y también el momento de una fuerza y el centro de gravedad en estática.",
+    "icono": "⚡"
   },
   {
     "id": 737,
     "materia": "Física",
     "cluster": 2,
     "temas": [
-      "caudal-q-a-v",
-      "choques-elasticos-inelasticos",
-      "circuitos-en-paralelo",
-      "circuitos-en-serie",
-      "circuitos-mixtos"
+      "estructura-del-nucleo-atomico",
+      "estatica/equilibrio-de-cuerpo-rigido",
+      "decaimiento-radiactivo-alfa-beta-gamma",
+      "formulas-con-literales",
+      "fision-y-fusion-nuclear"
     ],
-    "nombre": "Experto en Circuitos y Choques",
-    "descripcion": "Cerraste el examen dominando los circuitos en serie, en paralelo y mixtos, además del caudal y los choques elásticos e inelásticos.",
-    "icono": "🔌💥"
+    "nombre": "Núcleo Atómico y Equilibrio Rígido",
+    "descripcion": "Te mandaste con el decaimiento alfa, beta y gamma, la fisión y fusión nuclear y la estructura del núcleo, más el equilibrio del cuerpo rígido y las fórmulas con literales.",
+    "icono": "☢️"
   },
   {
     "id": 738,
     "materia": "Física",
     "cluster": 3,
     "temas": [
-      "conservacion-energia-mecanica",
-      "corriente-electrica",
-      "decaimiento-radiactivo-alfa-beta-gamma",
-      "decibeles-richter",
-      "dilatacion-termica-lineal"
+      "iman-polos-atraccion-repulsion",
+      "ley-de-coulomb",
+      "leyes-de-newton/primera-inercia",
+      "maquinas-simples",
+      "leyes-de-newton/segunda-fma"
     ],
-    "nombre": "Dominá la Energía y la Radiactividad",
-    "descripcion": "Te hiciste cargo del examen dominando la conservación de la energía mecánica, la corriente eléctrica, el decaimiento radiactivo y la dilatación térmica, capo.",
-    "icono": "☢️⚡"
+    "nombre": "Maestro de Coulomb y Newton",
+    "descripcion": "Aprobaste el parcial con la ley de Coulomb y el magnetismo de los imanes, más la primera y segunda ley de Newton y las máquinas simples, jefe.",
+    "icono": "🧲"
   },
   {
     "id": 739,
     "materia": "Física",
     "cluster": 4,
     "temas": [
+      "mru",
+      "leyes-de-newton/tercera-accion-reaccion",
+      "mruv",
       "dinamica-fuerzas-concurrentes",
-      "dualidad-onda-particula",
-      "energia-cinetica",
-      "energia-potencial-gravitatoria",
-      "entropia-segunda-ley-termodinamica"
+      "oscilacion-periodo"
     ],
-    "nombre": "Maestro de la Dinámica y la Entropía",
-    "descripcion": "Pasaste el examen dominando las fuerzas concurrentes, la energía cinética y potencial, y cerraste con la entropía y la dualidad onda-partícula.",
-    "icono": "⚛️⚖️"
+    "nombre": "Dominá Cinemática y Dinámica",
+    "descripcion": "Te bancaste el parcial con MRU, MRUV, la tercera ley de Newton, las fuerzas concurrentes y el período de oscilación.",
+    "icono": "🚀"
   },
   {
     "id": 740,
     "materia": "Física",
     "cluster": 5,
     "temas": [
-      "escalas-de-temperatura-c-f-k",
-      "estatica/centro-de-gravedad",
-      "estatica/equilibrio-de-cuerpo-rigido",
-      "estatica/momento-de-una-fuerza",
-      "estructura-del-nucleo-atomico"
+      "gravitacion-universal",
+      "frecuencia",
+      "momento-lineal",
+      "longitud-onda-velocidad-propagacion",
+      "impulso-cambio-momento"
     ],
-    "nombre": "Dominio del Equilibrio y las Escalas Térmicas",
-    "descripcion": "Cerraste el parcial dominando el centro de gravedad, el equilibrio del cuerpo rígido, las escalas de temperatura y la estructura del núcleo atómico, crack.",
-    "icono": "⚖️🌡️"
+    "nombre": "Crack de Momento y Ondas",
+    "descripcion": "Te comiste el momento lineal, el impulso y la gravitación universal, y además la frecuencia y la relación entre longitud de onda y velocidad de propagación.",
+    "icono": "🌊"
   },
   {
     "id": 741,
     "materia": "Física",
     "cluster": 6,
     "temas": [
-      "fisica-medica",
-      "fision-y-fusion-nuclear",
-      "formacion-de-imagenes-optica",
-      "formulas-con-literales",
-      "frecuencia"
+      "luz-onda-espectro-electromagnetico",
+      "movimiento-circular-y-fuerza-centripeta",
+      "dualidad-onda-particula",
+      "plano-inclinado-y-rozamiento",
+      "fisica-medica"
     ],
-    "nombre": "Experto en Física Médica y Nuclear",
-    "descripcion": "Te laburaste el parcial dominando la fisión y fusión nuclear, la formación de imágenes ópticas y la física médica, sin fallar una fórmula literal, jefe.",
-    "icono": "🏥☢️"
+    "nombre": "Luz Cuántica y Movimiento Circular",
+    "descripcion": "Te laburaste el espectro electromagnético, la dualidad onda-partícula y la física médica, además del movimiento circular y el plano inclinado con rozamiento, jefe.",
+    "icono": "💡"
   },
   {
     "id": 742,
     "materia": "Física",
     "cluster": 7,
     "temas": [
-      "generador-motor-transformador",
-      "gravitacion-universal",
-      "iman-polos-atraccion-repulsion",
-      "impulso-cambio-momento",
-      "induccion-electromagnetica-faraday-lenz"
+      "presion-f-sobre-a",
+      "reflexion-espejos-planos-curvos",
+      "caudal-q-a-v",
+      "presion-atmosferica",
+      "presion-hidrostatica"
     ],
-    "nombre": "Maestro del Electromagnetismo y la Gravitación",
-    "descripcion": "Te hiciste cargo del examen dominando generadores, motores y transformadores, la inducción electromagnética de Faraday y Lenz, y la gravitación universal, jefe.",
-    "icono": "🧲🌍"
+    "nombre": "Crack de Presión y Fluidos",
+    "descripcion": "Te mandaste con la presión, la presión hidrostática y atmosférica y el caudal, y le sumaste la reflexión en espejos planos y curvos.",
+    "icono": "💧"
   },
   {
     "id": 743,
     "materia": "Física",
     "cluster": 8,
     "temas": [
-      "lentes-convergentes-divergentes",
-      "ley-de-coulomb",
-      "ley-de-ohm",
-      "leyes-de-newton/primera-inercia",
-      "leyes-de-newton/segunda-fma"
+      "masas-de-aire-y-frentes",
+      "principio-de-arquimedes-empuje-flotacion",
+      "formacion-de-nubes",
+      "principio-de-pascal-prensa-hidraulica",
+      "precipitacion"
     ],
-    "nombre": "Dominio de las Leyes Fundamentales",
-    "descripcion": "Cerraste el examen dominando la ley de Coulomb, la ley de Ohm y las dos primeras leyes de Newton, además de las lentes convergentes y divergentes.",
-    "icono": "🔍⚡"
+    "nombre": "Fluidos y Meteorología",
+    "descripcion": "Aprobaste el parcial con el principio de Arquímedes y el de Pascal, y con masas de aire y frentes, formación de nubes y precipitación.",
+    "icono": "☁️"
   },
   {
     "id": 744,
     "materia": "Física",
     "cluster": 9,
     "temas": [
-      "leyes-de-newton/tercera-accion-reaccion",
-      "longitud-onda-velocidad-propagacion",
-      "luz-onda-espectro-electromagnetico",
-      "maquina-termica-termodinamica-nivel2",
-      "maquinas-simples"
+      "refraccion-indice-ley-snell",
+      "relatividad-especial-conceptual",
+      "lentes-convergentes-divergentes",
+      "resonancia-frecuencia-natural",
+      "formacion-de-imagenes-optica"
     ],
-    "nombre": "Maestro de las Ondas y las Máquinas",
-    "descripcion": "Cerraste el parcial dominando la tercera ley de Newton, la propagación de ondas, el espectro electromagnético y las máquinas simples, pibe.",
-    "icono": "🌊⚙️"
+    "nombre": "Maestro de la Óptica Geométrica",
+    "descripcion": "Te laburaste la refracción y la ley de Snell, las lentes convergentes y divergentes y la formación de imágenes, más resonancia y relatividad especial.",
+    "icono": "🔭"
   },
   {
     "id": 745,
     "materia": "Física",
     "cluster": 10,
     "temas": [
-      "momento-lineal",
-      "movimiento-circular-y-fuerza-centripeta",
-      "mru",
+      "semivida-desintegracion-exponencial",
       "ojo-humano-instrumento-optico",
-      "mruv"
+      "sonido-timbre-altura-intensidad",
+      "temperatura-equilibrio-termico",
+      "decibeles-richter"
     ],
-    "nombre": "Dominá el Movimiento y la Visión",
-    "descripcion": "Pasaste el examen dominando el MRU, el MRUV, el momento lineal y el movimiento circular, y entendiste el ojo humano como instrumento óptico.",
-    "icono": "🏃‍♂️👁️"
+    "nombre": "Sonido, Visión y Semivida",
+    "descripcion": "Te la sabés toda: sonido (timbre, altura e intensidad), decibeles y escala de Richter, el ojo humano como instrumento óptico, la semivida y el equilibrio térmico, jefe.",
+    "icono": "🔊"
   },
   {
     "id": 746,
     "materia": "Física",
     "cluster": 11,
     "temas": [
-      "oscilacion-periodo",
-      "plano-inclinado-y-rozamiento",
-      "potencia-electrica",
-      "potencia-mecanica",
-      "presion-atmosferica"
+      "calor-q-m-c-deltat",
+      "dilatacion-termica-lineal",
+      "cambios-de-estado-calor-latente",
+      "escalas-de-temperatura-c-f-k",
+      "maquina-termica-termodinamica-nivel2"
     ],
-    "nombre": "Maestro de la Potencia y las Oscilaciones",
-    "descripcion": "Te hiciste cargo del examen dominando la potencia eléctrica y mecánica, el plano inclinado con rozamiento, la oscilación y la presión atmosférica, pibe.",
-    "icono": "🔄⚡"
+    "nombre": "Dominá Calor y Termometría",
+    "descripcion": "Te bancaste el parcial con calor Q=m·c·ΔT, dilatación térmica, calor latente, escalas de temperatura y máquinas térmicas.",
+    "icono": "🌡️"
   },
   {
     "id": 747,
     "materia": "Física",
     "cluster": 12,
     "temas": [
-      "presion-f-sobre-a",
-      "masas-de-aire-y-frentes",
-      "presion-hidrostatica",
-      "formacion-de-nubes",
-      "principio-de-arquimedes-empuje-flotacion"
+      "tension-diferencia-potencial",
+      "entropia-segunda-ley-termodinamica",
+      "resistencia-electrica",
+      "tiro-oblicuo",
+      "ley-de-ohm"
     ],
-    "nombre": "Dominá la Presión y el Clima",
-    "descripcion": "Te laburaste el parcial dominando la presión hidrostática, el principio de Arquímedes, las masas de aire y frentes, y la formación de nubes.",
-    "icono": "🌬️☁️"
+    "nombre": "Ley de Ohm y Tiro Oblicuo",
+    "descripcion": "Aprobaste el parcial con tensión, resistencia y ley de Ohm, y también con el tiro oblicuo y la entropía en la segunda ley de la termodinámica.",
+    "icono": "🔌"
   },
   {
     "id": 748,
     "materia": "Física",
     "cluster": 13,
     "temas": [
-      "precipitacion",
-      "principio-de-pascal-prensa-hidraulica",
-      "reflexion-espejos-planos-curvos",
-      "refraccion-indice-ley-snell",
-      "relatividad-especial-conceptual"
+      "tiro-vertical",
+      "circuitos-en-paralelo",
+      "circuitos-en-serie",
+      "potencia-electrica",
+      "circuitos-mixtos"
     ],
-    "nombre": "Maestro de la Óptica y la Relatividad",
-    "descripcion": "Cerraste el parcial dominando la reflexión, la refracción con la ley de Snell, el principio de Pascal y la relatividad especial, capo.",
-    "icono": "🔭🌀"
+    "nombre": "Crack de Circuitos Eléctricos",
+    "descripcion": "Te comiste los circuitos en serie, en paralelo y mixtos junto con la potencia eléctrica, y encima sumaste el tiro vertical, jefe.",
+    "icono": "🔋"
   },
   {
     "id": 749,
     "materia": "Física",
     "cluster": 14,
     "temas": [
-      "resistencia-electrica",
-      "resonancia-frecuencia-natural",
-      "semivida-desintegracion-exponencial",
-      "sonido-timbre-altura-intensidad",
-      "temperatura-equilibrio-termico"
+      "tormentas-y-fenomenos-severos",
+      "campo-magnetico-imanes-corrientes",
+      "trabajo-de-una-fuerza",
+      "induccion-electromagnetica-faraday-lenz",
+      "energia-cinetica"
     ],
-    "nombre": "Dominá el Sonido y la Resistencia",
-    "descripcion": "Cerraste el examen dominando la resistencia eléctrica, la resonancia, el timbre y la intensidad del sonido, y la desintegración exponencial de la semivida.",
-    "icono": "🔊🔋"
+    "nombre": "Electromagnetismo, Trabajo y Energía",
+    "descripcion": "Te laburaste el campo magnético, la inducción de Faraday-Lenz, el trabajo de una fuerza y la energía cinética, además de tormentas y fenómenos severos.",
+    "icono": "🧭"
   },
   {
     "id": 750,
     "materia": "Física",
     "cluster": 15,
     "temas": [
-      "tension-diferencia-potencial",
-      "tiro-oblicuo",
-      "tiro-vertical",
-      "tormentas-y-fenomenos-severos",
-      "trabajo-de-una-fuerza",
+      "generador-motor-transformador",
+      "choques-elasticos-inelasticos",
+      "energia-potencial-gravitatoria",
       "transmision-calor-conduccion-conveccion-radiacion",
-      "velocidad-aceleracion-instantaneas"
+      "conservacion-energia-mecanica",
+      "velocidad-aceleracion-instantaneas",
+      "potencia-mecanica"
     ],
-    "nombre": "Maestro del Tiro y las Tormentas",
-    "descripcion": "Te hiciste cargo del examen dominando el tiro oblicuo y vertical, el trabajo de una fuerza, la transmisión del calor y las tormentas severas, jefe.",
-    "icono": "🎯🌪️"
+    "nombre": "Maestro de la Energía y sus Máquinas",
+    "descripcion": "Te mandaste con la conservación de la energía mecánica, la energía potencial gravitatoria, la potencia, los choques elásticos e inelásticos, la transmisión del calor y generadores, motores y transformadores.",
+    "icono": "⚙️"
   },
   {
     "id": 766,
     "materia": "Economía",
     "cluster": 1,
     "temas": [
-      "balanza-comercial",
       "blockchain-claves-wallet",
-      "business-model-canvas",
       "capitalismo-industrial-trabajo-asalariado",
-      "comercio-internacional-ventaja-comparativa"
+      "contratos-inteligentes",
+      "costo-marginal",
+      "debe-haber-balance"
     ],
-    "nombre": "Maestro del Comercio Global y Blockchain",
-    "descripcion": "Pasaste el examen comprendiendo la balanza comercial, la ventaja comparativa y diste tus primeros pasos en blockchain y modelos de negocio, pibe.",
-    "icono": "🌐"
+    "nombre": "Blockchain, Costo Marginal y Balance",
+    "descripcion": "Te la rebuscaste en el parcial con claves y wallets de blockchain, contratos inteligentes, costo marginal y el debe-haber del balance, jefe.",
+    "icono": "⛓️"
   },
   {
     "id": 767,
     "materia": "Economía",
     "cluster": 2,
     "temas": [
-      "contratos-inteligentes",
-      "control-de-gestion-e-indicadores",
-      "cooperativismo-y-mutualismo",
-      "coordinar-personas-y-recursos",
-      "costo-de-oportunidad"
+      "detectar-una-oportunidad-de-negocio",
+      "elasticidad",
+      "estructura-del-patrimonio",
+      "estructura-productiva-dependencia",
+      "ecuacion-contable-fundamental"
     ],
-    "nombre": "Maestro de la Gestión y el Costo de Oportunidad",
-    "descripcion": "La pasaste dominando el control de gestión, coordinaste personas y recursos, y entendiste el costo de oportunidad y el cooperativismo.",
-    "icono": "🤝"
+    "nombre": "Dominá Patrimonio y Elasticidad",
+    "descripcion": "Te laburaste la ecuación contable fundamental y la estructura del patrimonio, además de elasticidad, dependencia productiva y cómo olfatear una oportunidad de negocio.",
+    "icono": "📊"
   },
   {
     "id": 768,
     "materia": "Economía",
     "cluster": 3,
     "temas": [
-      "costo-marginal",
-      "debe-haber-balance",
-      "detectar-una-oportunidad-de-negocio",
-      "dex-swap",
-      "division-formal-microeconomia-macroeconomia"
+      "interes-simple",
+      "iva",
+      "interes-compuesto",
+      "origen-excedente-moneda-mercado",
+      "cft-vs-tasa-nominal"
     ],
-    "nombre": "Dominá el Costo Marginal y las Bases Contables",
-    "descripcion": "Te laburaste el parcial aprendiendo el debe y el haber, calculaste el costo marginal y distinguiste microeconomía de macroeconomía, pibe.",
-    "icono": "⚖️"
+    "nombre": "Maestro del Interés y la Tasa",
+    "descripcion": "Te bancaste el interés simple y compuesto, el IVA y la diferencia entre CFT y tasa nominal, sin perder de vista el origen del excedente y la moneda.",
+    "icono": "💹"
   },
   {
     "id": 769,
     "materia": "Economía",
     "cluster": 4,
     "temas": [
-      "elasticidad",
-      "economia-positiva-y-normativa",
-      "estado-de-resultados",
-      "estructura-del-patrimonio",
-      "estructura-productiva-dependencia"
+      "cuota-credito-frances",
+      "dex-swap",
+      "interes-compuesto-funcion",
+      "partida-doble",
+      "plazo-fijo-vs-inflacion"
     ],
-    "nombre": "Maestro de la Elasticidad y los Estados Contables",
-    "descripcion": "Te hiciste cargo del parcial analizando elasticidad, estado de resultados y la estructura productiva del país, jefe.",
-    "icono": "📉"
+    "nombre": "Crack de Créditos y Finanzas Digitales",
+    "descripcion": "Te comiste la cuota del crédito francés, el plazo fijo frente a la inflación, la partida doble y los swaps en exchanges descentralizados, jefe.",
+    "icono": "🏦"
   },
   {
     "id": 770,
     "materia": "Economía",
     "cluster": 5,
     "temas": [
-      "ecuacion-contable-fundamental",
-      "interes-simple",
-      "iva",
-      "interes-compuesto",
-      "margenes-bruto-y-neto"
+      "libro-diario-mayor",
+      "pools-liquidez-amm",
+      "estados-contables",
+      "precio-final",
+      "contabilidad-ambiental"
     ],
-    "nombre": "Maestro de la Ecuación Contable y los Intereses",
-    "descripcion": "Cerraste el examen calculando interés simple y compuesto, aplicaste el IVA y dominaste los márgenes bruto y neto.",
-    "icono": "🧮"
+    "nombre": "Dominá Registros Contables y Pools",
+    "descripcion": "Te mandaste con libro diario y mayor, estados contables, contabilidad ambiental, precio final y los pools de liquidez AMM.",
+    "icono": "📒"
   },
   {
     "id": 771,
     "materia": "Economía",
     "cluster": 6,
     "temas": [
-      "cft-vs-tasa-nominal",
-      "cuota-credito-frances",
-      "interes-compuesto-funcion",
-      "mejora-continua",
-      "mvp-producto-minimo-viable"
+      "contabilidad-como-sistema-de-informacion",
+      "costo-de-oportunidad",
+      "indices-financieros",
+      "division-formal-microeconomia-macroeconomia",
+      "oferta-y-demanda"
     ],
-    "nombre": "Dominá el Crédito y la Mejora Continua",
-    "descripcion": "Te hiciste cargo del parcial distinguiendo el CFT de la tasa nominal, calculaste cuotas del sistema francés y aplicaste mejora continua a un MVP.",
-    "icono": "💳"
+    "nombre": "Maestro de Micro y Contabilidad",
+    "descripcion": "Te laburaste la división entre micro y macroeconomía, oferta y demanda, costo de oportunidad, índices financieros y la contabilidad como sistema de información.",
+    "icono": "⚖️"
   },
   {
     "id": 772,
     "materia": "Economía",
     "cluster": 7,
     "temas": [
-      "objetivos-y-metas",
-      "origen-excedente-moneda-mercado",
-      "partida-doble",
-      "pitch-a-inversores",
-      "libro-diario-mayor"
+      "economia-positiva-y-normativa",
+      "fisiocracia",
+      "mercantilismo",
+      "pbi-e-inflacion",
+      "liberalismo-clasico-y-escuela-austriaca"
     ],
-    "nombre": "Maestro de la Partida Doble y el Pitch",
-    "descripcion": "Pasaste el examen registrando partida doble en el libro diario, entendiste el origen del excedente monetario y armaste tu pitch a inversores.",
-    "icono": "📒"
+    "nombre": "Crack de las Escuelas Económicas Clásicas",
+    "descripcion": "Te recorriste fisiocracia, mercantilismo, liberalismo clásico y escuela austriaca, además de PBI e inflación y la economía positiva y normativa, jefe.",
+    "icono": "📜"
   },
   {
     "id": 773,
     "materia": "Economía",
     "cluster": 8,
     "temas": [
-      "planificacion-administrativa",
-      "estados-contables",
-      "plazo-fijo-vs-inflacion",
-      "contabilidad-ambiental",
-      "contabilidad-como-sistema-de-informacion"
+      "balanza-comercial",
+      "recibo-de-sueldo/general",
+      "comercio-internacional-ventaja-comparativa",
+      "recibo-de-sueldo/argentina",
+      "sectores-economicos"
     ],
-    "nombre": "Dominio de la Planificación y los Estados Contables",
-    "descripcion": "La pasaste planificando como administrador, leíste estados contables y comparaste el plazo fijo contra la inflación, crack.",
-    "icono": "📑"
+    "nombre": "Dominá el Comercio y el Sueldo",
+    "descripcion": "Te bancaste la balanza comercial, la ventaja comparativa y los sectores económicos, y también aprendiste a leer un recibo de sueldo general y argentino.",
+    "icono": "🌍"
   },
   {
     "id": 774,
     "materia": "Economía",
     "cluster": 9,
     "temas": [
-      "indices-financieros",
-      "pools-liquidez-amm",
-      "precio-final",
-      "presupuesto-administrativo",
-      "oferta-y-demanda"
+      "descuentos-obligatorios/jubilacion",
+      "descuentos-obligatorios/obra-social",
+      "jubilacion-sistema-previsional",
+      "monotributo",
+      "socialismo-utopico"
     ],
-    "nombre": "Maestro de Índices Financieros y Liquidez",
-    "descripcion": "Te laburaste el parcial analizando índices financieros, pools de liquidez, precio final y la ley de oferta y demanda.",
-    "icono": "💧"
+    "nombre": "Crack de Previsión y Trabajo",
+    "descripcion": "Te mandaste con jubilación, obra social, sistema previsional y monotributo, y cerraste echando un vistazo al socialismo utópico, jefe.",
+    "icono": "🧾"
   },
   {
     "id": 775,
     "materia": "Economía",
     "cluster": 10,
     "temas": [
-      "productividad-produccion-insumos",
-      "fisiocracia",
-      "mercantilismo",
-      "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "sueldo-promedio-pais",
+      "marxismo",
+      "tipo-cambio-fijo",
+      "economia-feminista-y-del-cuidado",
+      "keynesianismo"
     ],
-    "nombre": "Maestro de las Corrientes Económicas Clásicas",
-    "descripcion": "Te laburaste el examen recorriendo el mercantilismo, la fisiocracia y el liberalismo clásico, y entendiste el PBI y la inflación.",
-    "icono": "🏛️"
+    "nombre": "Marx, Keynes y Tipo de Cambio",
+    "descripcion": "Te laburaste el marxismo, el keynesianismo y la economía feminista y del cuidado, junto con el tipo de cambio fijo y el sueldo promedio del país.",
+    "icono": "🧠"
   },
   {
     "id": 776,
     "materia": "Economía",
     "cluster": 11,
     "temas": [
-      "punto-de-equilibrio",
-      "recibo-de-sueldo/general",
-      "sectores-economicos",
-      "recibo-de-sueldo/argentina",
-      "socialismo-utopico"
+      "tipo-cambio-flotante",
+      "neoliberalismo",
+      "devaluacion",
+      "ordoliberalismo",
+      "reservas-banco-central"
     ],
-    "nombre": "Dominá el Punto de Equilibrio y el Recibo de Sueldo",
-    "descripcion": "Cerraste el examen calculando el punto de equilibrio, leíste tu recibo de sueldo argentino y conociste el socialismo utópico.",
-    "icono": "💵"
+    "nombre": "Maestro de Cambio y Neoliberalismo",
+    "descripcion": "Te comiste el tipo de cambio flotante, la devaluación y las reservas del Banco Central, además del neoliberalismo y el ordoliberalismo, jefe.",
+    "icono": "💱"
   },
   {
     "id": 777,
     "materia": "Economía",
     "cluster": 12,
     "temas": [
-      "descuentos-obligatorios/jubilacion",
-      "descuentos-obligatorios/obra-social",
-      "jubilacion-sistema-previsional",
-      "marxismo",
-      "monotributo"
+      "tipos-de-organizaciones",
+      "deuda-publica-externa",
+      "deuda-publica-interna",
+      "elementos-de-las-organizaciones",
+      "default-deuda"
     ],
-    "nombre": "Maestro de Jubilación y Descuentos Obligatorios",
-    "descripcion": "Te hiciste cargo del parcial entendiendo los descuentos de jubilación y obra social, el sistema previsional, el monotributo y las ideas de Marx, pibe.",
-    "icono": "🏦"
+    "nombre": "Organizaciones y Deuda Pública",
+    "descripcion": "Te bancaste los tipos y elementos de las organizaciones, y también la deuda pública interna y externa y el default.",
+    "icono": "🏛️"
   },
   {
     "id": 778,
     "materia": "Economía",
     "cluster": 13,
     "temas": [
-      "economia-feminista-y-del-cuidado",
-      "keynesianismo",
-      "sueldo-promedio-pais",
-      "neoliberalismo",
-      "ordoliberalismo"
+      "ambiente-interno-y-externo-organizacion",
+      "cultura-organizacional",
+      "estructura-organizacional",
+      "objetivos-y-metas",
+      "tipos-de-proyecto"
     ],
-    "nombre": "Maestro de las Corrientes Económicas Modernas",
-    "descripcion": "Pasaste el examen comparando keynesianismo, neoliberalismo y ordoliberalismo, y descubriste la economía feminista y del cuidado.",
-    "icono": "📚"
+    "nombre": "Crack de la Gestión Organizacional",
+    "descripcion": "Te mandaste con cultura y estructura organizacional, ambiente interno y externo, objetivos y metas y tipos de proyecto.",
+    "icono": "🏢"
   },
   {
     "id": 779,
     "materia": "Economía",
     "cluster": 14,
     "temas": [
-      "tipo-cambio-fijo",
-      "tipo-cambio-flotante",
-      "tipos-de-organizaciones",
-      "devaluacion",
-      "elementos-de-las-organizaciones"
+      "cooperativismo-y-mutualismo",
+      "planificacion-administrativa",
+      "tipos-de-sociedades",
+      "coordinar-personas-y-recursos",
+      "presupuesto-administrativo"
     ],
-    "nombre": "Dominá el Tipo de Cambio y las Organizaciones",
-    "descripcion": "La pasaste distinguiendo el tipo de cambio fijo del flotante, entendiste la devaluación y los elementos de una organización.",
-    "icono": "💱"
+    "nombre": "Maestro de la Administración",
+    "descripcion": "Te laburaste la planificación y el presupuesto administrativo, los tipos de sociedades, el cooperativismo y el mutualismo, y cómo coordinar gente y recursos, jefe.",
+    "icono": "🤝"
   },
   {
     "id": 780,
     "materia": "Economía",
     "cluster": 15,
     "temas": [
-      "reservas-banco-central",
-      "ambiente-interno-y-externo-organizacion",
-      "cultura-organizacional",
-      "deuda-publica-externa",
-      "deuda-publica-interna"
+      "validar-con-clientes-construir-medir-aprender",
+      "control-de-gestion-e-indicadores",
+      "estado-de-resultados",
+      "mejora-continua",
+      "margenes-bruto-y-neto"
     ],
-    "nombre": "Maestro de las Reservas y la Deuda Pública",
-    "descripcion": "Te laburaste el parcial analizando las reservas del banco central, la deuda pública interna y externa, y la cultura organizacional, capo.",
-    "icono": "🏦"
+    "nombre": "Dominá Gestión y Resultados",
+    "descripcion": "Te la rebuscaste con el estado de resultados, los márgenes bruto y neto, el control de gestión e indicadores, la mejora continua y el ciclo validar-construir-medir-aprender.",
+    "icono": "📈"
   },
   {
     "id": 781,
     "materia": "Economía",
     "cluster": 16,
     "temas": [
-      "estructura-organizacional",
-      "default-deuda",
-      "tipos-de-proyecto",
-      "tipos-de-sociedades",
-      "validar-con-clientes-construir-medir-aprender"
+      "mvp-producto-minimo-viable",
+      "productividad-produccion-insumos",
+      "business-model-canvas",
+      "punto-de-equilibrio",
+      "pitch-a-inversores"
     ],
-    "nombre": "Dominá la Estructura Organizacional y el Default",
-    "descripcion": "Te laburaste el examen entendiendo la estructura organizacional, los tipos de sociedades y de proyecto, y qué pasa en un default de deuda.",
-    "icono": "🏢"
+    "nombre": "Crack del Emprendimiento y el Equilibrio",
+    "descripcion": "Te comiste el MVP, el business model canvas, el pitch a inversores, el punto de equilibrio y la productividad, jefe.",
+    "icono": "🚀"
   },
   {
     "id": 782,
@@ -1741,44 +1589,44 @@
     "materia": "Geografía",
     "cluster": 1,
     "temas": [
-      "america-anglosajona",
       "coordenadas-y-husos-horarios",
       "densidad-poblacion",
       "escala-de-mapa",
-      "huella-de-carbono-agua-virtual"
+      "huella-de-carbono-agua-virtual",
+      "orientacion-puntos-cardinales"
     ],
-    "nombre": "Maestro de Coordenadas y Huella Ecológica",
-    "descripcion": "Cerraste el parcial dominando husos horarios, escala de mapa, densidad de población y huella de carbono.",
-    "icono": "🌍"
+    "nombre": "Maestro de Mapas y Coordenadas",
+    "descripcion": "Te laburaste la escala de mapa, la orientación, las coordenadas y los husos horarios, y sumaste densidad de población, huella de carbono y agua virtual.",
+    "icono": "🧭"
   },
   {
     "id": 797,
     "materia": "Geografía",
     "cluster": 2,
     "temas": [
-      "orientacion-puntos-cardinales",
-      "urbanizacion-migracion-ciudad",
       "mapa-plano-escala",
       "coordenadas-geograficas",
-      "division-politica"
+      "division-politica",
+      "sig-mapas-digitales",
+      "estados-y-globalizacion"
     ],
-    "nombre": "Maestro de la Orientación y la Urbanización",
-    "descripcion": "Pasaste el examen dominando los puntos cardinales, las coordenadas geográficas, la urbanización y la división política, jefe.",
-    "icono": "🧭"
+    "nombre": "Crack de Cartografía y SIG",
+    "descripcion": "Te mandaste con mapas a escala, coordenadas geográficas y sistemas de información geográfica, junto con la división política, los estados y la globalización, jefe.",
+    "icono": "🗺️"
   },
   {
     "id": 798,
     "materia": "Geografía",
     "cluster": 3,
     "temas": [
-      "sig-mapas-digitales",
-      "estados-y-globalizacion",
       "region",
       "sig-gps",
-      "relieve-clima-biomas"
+      "relieve-clima-biomas",
+      "sig-imagenes-satelitales",
+      "recursos-actividades-economicas"
     ],
-    "nombre": "Maestro de los SIG y el Relieve",
-    "descripcion": "Te hiciste cargo del examen integrando mapas digitales, GPS, relieve, clima y biomas, además de estados y globalización.",
+    "nombre": "Dominá Territorio y Teledetección",
+    "descripcion": "Te bancaste región, relieve, clima y biomas, recursos y actividades económicas, y las herramientas SIG como GPS e imágenes satelitales.",
     "icono": "🛰️"
   },
   {
@@ -1786,30 +1634,30 @@
     "materia": "Geografía",
     "cluster": 4,
     "temas": [
-      "sig-imagenes-satelitales",
-      "recursos-actividades-economicas",
       "regiones-naturales-de-argentina",
       "geografia-economica-agricola-argentina",
-      "geografia-industrial-mundial"
+      "geografia-industrial-mundial",
+      "mineria-e-hidrocarburos-en-argentina",
+      "america-latina-industria-y-energia"
     ],
-    "nombre": "Maestro de la Geografía Económica Argentina",
-    "descripcion": "Te laburaste el parcial dominando las imágenes satelitales, las regiones naturales y la geografía agrícola e industrial de Argentina.",
-    "icono": "🌾"
+    "nombre": "Crack de la Geografía Productiva",
+    "descripcion": "Te comiste las regiones naturales de Argentina, la minería y los hidrocarburos, la geografía agrícola e industrial y la industria y energía en América Latina, jefe.",
+    "icono": "⛏️"
   },
   {
     "id": 800,
     "materia": "Geografía",
     "cluster": 5,
     "temas": [
-      "mineria-e-hidrocarburos-en-argentina",
-      "america-latina-industria-y-energia",
       "poblacion-piramides-migraciones",
       "produccion-agraria-mundial-y-biotecnologia",
-      "ambiente-y-recursos"
+      "ambiente-y-recursos",
+      "america-anglosajona",
+      "ambientalismo-liberal"
     ],
-    "nombre": "Maestro de la Energía y la Población",
-    "descripcion": "Cerraste el parcial sobre minería e hidrocarburos, industria y energía latinoamericana, y pirámides de población.",
-    "icono": "⛏️"
+    "nombre": "Población, Ambiente y Agro Mundial",
+    "descripcion": "Te laburaste las pirámides de población y las migraciones, la producción agraria y la biotecnología, ambiente y recursos, América anglosajona y el ambientalismo liberal.",
+    "icono": "🌾"
   },
   {
     "id": 801,
@@ -1817,13 +1665,13 @@
     "cluster": 6,
     "temas": [
       "america-latina-formacion-poblacion",
-      "ambientalismo-liberal",
       "conservacionismo",
       "decrecimiento",
-      "ecologismo-politico"
+      "ecologismo-politico",
+      "indicadores-sociales-de-argentina"
     ],
-    "nombre": "Maestro del Ambientalismo Latinoamericano",
-    "descripcion": "Cerraste el examen integrando la formación de la población de América Latina con el conservacionismo, el decrecimiento y el ecologismo político, pibe.",
+    "nombre": "Maestro de Ambientalismo y Sociedad",
+    "descripcion": "Te mandaste con conservacionismo, decrecimiento y ecologismo político, junto con la formación de la población latinoamericana y los indicadores sociales de Argentina, jefe.",
     "icono": "🌱"
   },
   {
@@ -1831,30 +1679,30 @@
     "materia": "Geografía",
     "cluster": 7,
     "temas": [
-      "indicadores-sociales-de-argentina",
       "migraciones-internacionales",
       "indice-de-desarrollo-humano",
       "migraciones-internas-en-argentina",
-      "paises-de-america-latina"
+      "paises-de-america-latina",
+      "recursos-hidricos-y-gestion"
     ],
-    "nombre": "Maestro de Indicadores Sociales y Migraciones",
-    "descripcion": "Te hiciste cargo del examen jefe sobre el IDH, las migraciones internas e internacionales y los países de América Latina.",
-    "icono": "📊"
+    "nombre": "Crack de Migraciones y Desarrollo",
+    "descripcion": "Te bancaste las migraciones internacionales e internas, el índice de desarrollo humano, los países de América Latina y la gestión de recursos hídricos.",
+    "icono": "👥"
   },
   {
     "id": 803,
     "materia": "Geografía",
     "cluster": 8,
     "temas": [
-      "recursos-hidricos-y-gestion",
       "riesgos-naturales-argentinos",
       "trabajo-y-desempleo-mundial",
       "riesgos-ambientales-mundiales",
-      "turismo-mundial"
+      "turismo-mundial",
+      "urbanizacion-migracion-ciudad"
     ],
-    "nombre": "Maestro de Riesgos y Recursos Globales",
-    "descripcion": "Pasaste el examen dominando la gestión de recursos hídricos, los riesgos naturales y ambientales, el desempleo mundial y el turismo, capo.",
-    "icono": "🌊"
+    "nombre": "Dominá Riesgos y Urbanización",
+    "descripcion": "Te la rebuscaste con los riesgos naturales argentinos y los riesgos ambientales mundiales, además de turismo, trabajo y desempleo, y urbanización, jefe.",
+    "icono": "🌋"
   },
   {
     "id": 816,
@@ -1862,197 +1710,197 @@
     "cluster": 1,
     "temas": [
       "algebra-booleana",
-      "algoritmo-secuencia-de-pasos",
-      "algoritmos-busqueda-ordenamiento",
-      "almacenamiento-volatil-vs-no-volatil",
-      "archivos-y-persistencia"
+      "complejidad-asintotica",
+      "ofimatica-planilla-de-calculo",
+      "que-es-la-tecnica-y-la-tecnologia",
+      "revolucion-informatica"
     ],
-    "nombre": "Maestro de Algoritmos y Persistencia",
-    "descripcion": "Cerraste el parcial dominando álgebra booleana, algoritmos de búsqueda y ordenamiento, y la persistencia de archivos.",
-    "icono": "🧠"
+    "nombre": "Lógica, Complejidad y Revolución Digital",
+    "descripcion": "Te laburaste el álgebra booleana, la complejidad asintótica y las planillas de cálculo, junto con el concepto de técnica y tecnología y la revolución informática.",
+    "icono": "💻"
   },
   {
     "id": 817,
     "materia": "Informática",
     "cluster": 2,
     "temas": [
-      "buses-y-entrada-salida",
-      "ciclo-de-instruccion-fetch-decode-execute",
-      "complejidad-asintotica",
-      "control-de-versiones",
-      "cpu-unidad-de-control-y-alu"
+      "medios-tecnicos-extension-capacidades-humanas",
+      "historia-y-evolucion-de-los-sistemas-operativos",
+      "procesos-tecnicos-artesanales-e-industriales",
+      "arranque-de-la-computadora-boot",
+      "sistemas-numeracion"
     ],
-    "nombre": "Maestro del Ciclo de Instrucción",
-    "descripcion": "Te laburaste el parcial recorriendo los buses, el ciclo fetch-decode-execute, la complejidad asintótica y el control de versiones sin fallar.",
-    "icono": "🖥️"
+    "nombre": "Técnica, Numeración y Arranque",
+    "descripcion": "Te mandaste con los medios técnicos, los procesos artesanales e industriales, la historia de los sistemas operativos, el arranque de la compu y los sistemas de numeración, jefe.",
+    "icono": "🛠️"
   },
   {
     "id": 818,
     "materia": "Informática",
     "cluster": 3,
     "temas": [
-      "criptografia-clave-simetrica-asimetrica-hash",
-      "direccionamiento-ip-dns",
-      "diseno-y-arquitectura-de-software",
-      "estructuras-de-control-bucles",
-      "estructuras-de-control-condicionales"
+      "tipos-de-so-por-dispositivo",
+      "cpu-unidad-de-control-y-alu",
+      "unidades-almacenamiento",
+      "ciclo-de-instruccion-fetch-decode-execute",
+      "memoria-ram-cache-jerarquia"
     ],
-    "nombre": "Maestro de Redes y Control de Flujo",
-    "descripcion": "Te hiciste cargo del parcial integrando criptografía, direccionamiento IP/DNS, diseño de software y estructuras de control.",
-    "icono": "🔐"
+    "nombre": "Crack de Arquitectura de Computadoras",
+    "descripcion": "Aprobaste el parcial con la CPU, el ciclo fetch-decode-execute, la jerarquía de memoria RAM y caché, las unidades de almacenamiento y los tipos de SO por dispositivo.",
+    "icono": "🖥️"
   },
   {
     "id": 819,
     "materia": "Informática",
     "cluster": 4,
     "temas": [
-      "estructuras-de-datos-listas-pilas-colas",
-      "etica-de-la-ia-sesgo-privacidad",
-      "funciones-y-modularidad",
-      "historia-y-evolucion-de-los-sistemas-operativos",
-      "inteligencia-artificial-reglas-a-aprendizaje"
+      "algoritmo-secuencia-de-pasos",
+      "almacenamiento-volatil-vs-no-volatil",
+      "buses-y-entrada-salida",
+      "variables-y-tipos-de-dato",
+      "estructuras-de-control-condicionales"
     ],
-    "nombre": "Maestro de Estructuras de Datos e IA",
-    "descripcion": "Cerraste el examen dominando listas, pilas y colas, la modularidad de funciones, la historia de los sistemas operativos y la ética de la IA, jefe.",
-    "icono": "🤖"
+    "nombre": "Fundamentos de Algoritmos y Hardware",
+    "descripcion": "Te bancaste algoritmos, variables y condicionales, además de buses de entrada/salida y almacenamiento volátil frente a no volátil.",
+    "icono": "🧮"
   },
   {
     "id": 820,
     "materia": "Informática",
     "cluster": 5,
     "temas": [
-      "arranque-de-la-computadora-boot",
-      "mantenimiento-y-deuda-tecnica",
-      "memoria-asignacion-memoria-virtual",
-      "memoria-ram-cache-jerarquia",
-      "modelo-relacional-tabla-registro-clave-primaria"
+      "estructuras-de-control-bucles",
+      "funciones-y-modularidad",
+      "estructuras-de-datos-listas-pilas-colas",
+      "poo-clases-y-objetos",
+      "algoritmos-busqueda-ordenamiento"
     ],
-    "nombre": "Maestro del Arranque y la Memoria",
-    "descripcion": "Cerraste el parcial dominando el boot del sistema, la jerarquía de memoria RAM/caché, la memoria virtual y el modelo relacional, jefe.",
-    "icono": "💾"
+    "nombre": "Maestro de la Programación",
+    "descripcion": "Te comiste los bucles, las funciones, las estructuras de datos (listas, pilas y colas), la programación orientada a objetos y los algoritmos de búsqueda y ordenamiento.",
+    "icono": "👨‍💻"
   },
   {
     "id": 821,
     "materia": "Informática",
     "cluster": 6,
     "temas": [
-      "normalizacion-bases-datos",
-      "ofimatica-planilla-de-calculo",
-      "paginacion",
-      "patrones-y-buenas-practicas",
-      "permisos-y-usuarios"
+      "archivos-y-persistencia",
+      "inteligencia-artificial-reglas-a-aprendizaje",
+      "modelo-relacional-tabla-registro-clave-primaria",
+      "etica-de-la-ia-sesgo-privacidad",
+      "criptografia-clave-simetrica-asimetrica-hash"
     ],
-    "nombre": "Maestro de Bases de Datos y Permisos",
-    "descripcion": "Pasaste el examen integrando normalización, paginación, permisos de usuario y buenas prácticas de diseño.",
-    "icono": "🗄️"
+    "nombre": "Datos, IA y Criptografía",
+    "descripcion": "Te laburaste archivos y persistencia, el modelo relacional, la inteligencia artificial y su ética, y la criptografía simétrica, asimétrica y hash, jefe.",
+    "icono": "🔐"
   },
   {
     "id": 822,
     "materia": "Informática",
     "cluster": 7,
     "temas": [
-      "planificacion-de-procesos",
-      "poo-clases-y-objetos",
-      "interrupciones",
+      "direccionamiento-ip-dns",
       "proceso-programa-en-ejecucion",
-      "protocolo-http-peticion-respuesta"
+      "protocolo-http-peticion-respuesta",
+      "comunicacion-entre-procesos",
+      "memoria-asignacion-memoria-virtual"
     ],
-    "nombre": "Maestro de Procesos y Objetos",
-    "descripcion": "Te hiciste cargo del parcial dominando la planificación de procesos, la POO, las interrupciones y el protocolo HTTP.",
-    "icono": "⚙️"
+    "nombre": "Redes, Procesos y Memoria Virtual",
+    "descripcion": "Aprobaste el parcial con direccionamiento IP, DNS y HTTP, y con procesos, comunicación entre procesos y memoria virtual.",
+    "icono": "🌐"
   },
   {
     "id": 823,
     "materia": "Informática",
     "cluster": 8,
     "temas": [
-      "comunicacion-entre-procesos",
-      "pruebas-unitarias-integracion",
-      "que-es-la-tecnica-y-la-tecnologia",
+      "planificacion-de-procesos",
+      "paginacion",
+      "interrupciones",
       "recursividad",
-      "medios-tecnicos-extension-capacidades-humanas"
+      "relaciones-y-claves-foraneas"
     ],
-    "nombre": "Maestro de la Técnica y la Recursividad",
-    "descripcion": "Te laburaste el parcial integrando la comunicación entre procesos, las pruebas unitarias, la recursividad y el concepto de técnica y tecnología, capo.",
-    "icono": "🔁"
+    "nombre": "Dominá el Núcleo del Sistema Operativo",
+    "descripcion": "Te mandaste con la planificación de procesos, la paginación y las interrupciones, además de la recursividad y las claves foráneas.",
+    "icono": "⚡"
   },
   {
     "id": 824,
     "materia": "Informática",
     "cluster": 9,
     "temas": [
-      "relaciones-y-claves-foraneas",
-      "procesos-tecnicos-artesanales-e-industriales",
       "requisitos-funcionales-no-funcionales",
-      "revolucion-informatica",
-      "segmentacion"
+      "normalizacion-bases-datos",
+      "diseno-y-arquitectura-de-software",
+      "segmentacion",
+      "control-de-versiones"
     ],
-    "nombre": "Maestro de Relaciones y Requisitos",
-    "descripcion": "Cerraste el examen sobre claves foráneas, procesos técnicos, requisitos funcionales y la revolución informática, pibe.",
-    "icono": "🔗"
+    "nombre": "Ingeniería de Software y Bases de Datos",
+    "descripcion": "Te la rebuscaste con requisitos funcionales y no funcionales, diseño y arquitectura, control de versiones, normalización de bases de datos y segmentación, jefe.",
+    "icono": "📐"
   },
   {
     "id": 825,
     "materia": "Informática",
     "cluster": 10,
     "temas": [
-      "seguridad-de-red-firewall-vpn-cifrado",
-      "seguridad-informatica",
+      "patrones-y-buenas-practicas",
+      "pruebas-unitarias-integracion",
       "sistema-de-archivos",
-      "sistemas-numeracion",
-      "sistema-de-archivos-por-bitacora"
+      "mantenimiento-y-deuda-tecnica",
+      "permisos-y-usuarios"
     ],
-    "nombre": "Guardián de la Seguridad y los Archivos",
-    "descripcion": "Cerraste el examen protegiendo sistemas con firewall, VPN y cifrado, y dominaste los sistemas de numeración y de archivos por bitácora.",
-    "icono": "🛡️"
+    "nombre": "Calidad de Software y Archivos",
+    "descripcion": "Te bancaste patrones y buenas prácticas, pruebas unitarias y de integración, mantenimiento y deuda técnica, junto con el sistema de archivos y los permisos de usuarios.",
+    "icono": "🧪"
   },
   {
     "id": 826,
     "materia": "Informática",
     "cluster": 11,
     "temas": [
+      "sistema-de-archivos-por-bitacora",
       "sql-consultas-joins-agregaciones",
       "subsistema-de-entrada-y-salida",
       "tcp-ip-capas-enrutamiento",
       "tipos-de-licencias-de-software",
-      "tipos-de-so-por-dispositivo",
+      "seguridad-de-red-firewall-vpn-cifrado",
       "transacciones-acid",
-      "unidades-almacenamiento",
-      "variables-y-tipos-de-dato",
+      "seguridad-informatica",
       "virtualizacion-maquina-virtual-contenedor"
     ],
-    "nombre": "Maestro de SQL, Redes y Virtualización",
-    "descripcion": "Te hiciste cargo del examen jefe dominando joins de SQL, las capas TCP/IP, las transacciones ACID y la virtualización.",
-    "icono": "☁️"
+    "nombre": "Crack de Sistemas, Redes y Seguridad",
+    "descripcion": "Te laburaste SQL y transacciones ACID, TCP/IP, seguridad de red e informática, virtualización, entrada/salida, sistemas de archivos por bitácora y licencias de software, jefe.",
+    "icono": "🛡️"
   },
   {
     "id": 841,
     "materia": "Química",
     "cluster": 1,
     "temas": [
-      "atomo-particulas-subatomicas",
       "balanceo-ecuaciones",
-      "biomoleculas-glucidos-lipidos-proteinas",
-      "carbono-tetravalencia-cadenas",
-      "cinetica-reaccion"
+      "concentracion-de-una-solucion",
+      "densidad",
+      "dilucion-soluciones",
+      "equilibrio-quimico-kc"
     ],
-    "nombre": "Maestro del Átomo y las Biomoléculas",
-    "descripcion": "Pasaste el examen dominando las partículas subatómicas, el balanceo de ecuaciones, las biomoléculas y la cinética de reacción.",
-    "icono": "⚛️"
+    "nombre": "Maestro de Soluciones y Equilibrio",
+    "descripcion": "Te mandaste con concentración y dilución de soluciones, balanceo de ecuaciones, densidad y equilibrio químico Kc, jefe.",
+    "icono": "⚗️"
   },
   {
     "id": 842,
     "materia": "Química",
     "cluster": 2,
     "temas": [
-      "concentracion-de-una-solucion",
-      "configuracion-electronica",
-      "densidad",
-      "dilucion-soluciones",
-      "electrolisis"
+      "estados-y-cambios",
+      "cinetica-reaccion",
+      "equilibrio-solubilidad-ksp",
+      "estequiometria",
+      "medicion-de-laboratorio"
     ],
-    "nombre": "Maestro de Soluciones y Electrólisis",
-    "descripcion": "Cerraste el parcial dominando la concentración y dilución de soluciones, la configuración electrónica y la electrólisis.",
+    "nombre": "Crack de Reacciones y Estequiometría",
+    "descripcion": "Te comiste la estequiometría, la cinética de reacción, el equilibrio de solubilidad Ksp, los estados y cambios y las mediciones de laboratorio.",
     "icono": "🧪"
   },
   {
@@ -2060,74 +1908,74 @@
     "materia": "Química",
     "cluster": 3,
     "temas": [
-      "energia-libre-gibbs",
-      "enlace-quimico-polaridad",
-      "equilibrio-quimico-kc",
-      "equilibrio-solubilidad-ksp",
-      "estados-y-cambios"
+      "mezclas-metodos-separacion",
+      "ph-poh",
+      "modelos-atomicos",
+      "propiedades-coligativas",
+      "atomo-particulas-subatomicas"
     ],
-    "nombre": "Maestro del Equilibrio y la Energía Libre",
-    "descripcion": "Te laburaste el parcial integrando la energía libre de Gibbs, la polaridad de enlaces y los equilibrios Kc y Ksp, pibe.",
-    "icono": "⚖️"
+    "nombre": "Dominá Átomos, Mezclas y pH",
+    "descripcion": "Te laburaste los modelos atómicos y partículas subatómicas, los métodos de separación de mezclas, pH y pOH y propiedades coligativas, jefe.",
+    "icono": "⚛️"
   },
   {
     "id": 844,
     "materia": "Química",
     "cluster": 4,
     "temas": [
-      "estequiometria",
-      "gases-ideales",
-      "geometria-molecular-vsepr",
-      "grupos-funcionales",
-      "hidrocarburos-alcanos-alquenos-alquinos"
+      "quimica-analitica",
+      "numero-atomico-masico",
+      "quimica-de-la-atmosfera",
+      "configuracion-electronica",
+      "reactivo-limitante-rendimiento"
     ],
-    "nombre": "Maestro de la Estequiometría y los Hidrocarburos",
-    "descripcion": "Te hiciste cargo del examen sobre estequiometría, gases ideales, geometría molecular VSEPR e hidrocarburos.",
-    "icono": "⛽"
+    "nombre": "Crack de Estructura Atómica y Analítica",
+    "descripcion": "Te bancaste número atómico y másico, configuración electrónica, reactivo limitante y rendimiento, química analítica y química de la atmósfera.",
+    "icono": "🔬"
   },
   {
     "id": 845,
     "materia": "Química",
     "cluster": 5,
     "temas": [
-      "medicion-de-laboratorio",
-      "mezclas-metodos-separacion",
-      "modelos-atomicos",
-      "mol-masa-molar",
-      "nanotecnologia"
+      "seguridad-laboratorio",
+      "tabla-periodica-tendencias",
+      "tipos-reacciones-quimicas",
+      "enlace-quimico-polaridad",
+      "carbono-tetravalencia-cadenas"
     ],
-    "nombre": "Maestro de la Medición y los Modelos Atómicos",
-    "descripcion": "Cerraste el examen dominando la medición de laboratorio, los métodos de separación de mezclas, los modelos atómicos y el mol.",
-    "icono": "🔬"
+    "nombre": "Maestro de Enlaces y Tabla Periódica",
+    "descripcion": "Te mandaste con las tendencias periódicas, el enlace químico y la polaridad, los tipos de reacciones y la tetravalencia del carbono, sin olvidarte de la seguridad en el laboratorio, jefe.",
+    "icono": "🔗"
   },
   {
     "id": 846,
     "materia": "Química",
     "cluster": 6,
     "temas": [
-      "nomenclatura-compuestos",
-      "numero-atomico-masico",
-      "oxidacion-reduccion",
-      "petroleo-como-recurso-energetico",
-      "ph-poh"
+      "geometria-molecular-vsepr",
+      "hidrocarburos-alcanos-alquenos-alquinos",
+      "nanotecnologia",
+      "grupos-funcionales",
+      "nomenclatura-compuestos"
     ],
-    "nombre": "Maestro de la Nomenclatura y el Redox",
-    "descripcion": "Cerraste el parcial integrando nomenclatura química, número atómico y másico, oxidación-reducción y pH/pOH.",
-    "icono": "🧫"
+    "nombre": "Dominá la Química Orgánica",
+    "descripcion": "Te laburaste la geometría molecular VSEPR, los hidrocarburos, los grupos funcionales y la nomenclatura de compuestos, y de yapa te metiste con la nanotecnología.",
+    "icono": "🧬"
   },
   {
     "id": 847,
     "materia": "Química",
     "cluster": 7,
     "temas": [
-      "pilas-celdas-galvanicas",
-      "polimeros-naturales-sinteticos",
-      "presiones-parciales",
-      "propiedades-coligativas",
-      "quimica-analitica"
+      "biomoleculas-glucidos-lipidos-proteinas",
+      "mol-masa-molar",
+      "oxidacion-reduccion",
+      "gases-ideales",
+      "electrolisis"
     ],
-    "nombre": "Maestro de las Celdas Galvánicas y los Polímeros",
-    "descripcion": "Pasaste el examen dominando las pilas galvánicas, los polímeros naturales y sintéticos, las presiones parciales y las propiedades coligativas, capo.",
+    "nombre": "Crack de Mol, Gases y Redox",
+    "descripcion": "Te comiste el mol y la masa molar, los gases ideales, la oxidación-reducción y la electrólisis, y le sumaste biomoléculas como glúcidos, lípidos y proteínas, jefe.",
     "icono": "🔋"
   },
   {
@@ -2135,31 +1983,31 @@
     "materia": "Química",
     "cluster": 8,
     "temas": [
-      "quimica-de-la-atmosfera",
-      "reactivo-limitante-rendimiento",
-      "seguridad-laboratorio",
+      "petroleo-como-recurso-energetico",
+      "pilas-celdas-galvanicas",
+      "polimeros-naturales-sinteticos",
+      "presiones-parciales",
       "superconductividad",
-      "tabla-periodica-tendencias",
       "termoquimica",
-      "tipos-reacciones-quimicas"
+      "energia-libre-gibbs"
     ],
-    "nombre": "Maestro de la Tabla Periódica y la Termoquímica",
-    "descripcion": "Te hiciste cargo del examen jefe sobre tendencias periódicas, termoquímica, tipos de reacciones y reactivo limitante.",
-    "icono": "🧯"
+    "nombre": "Maestro de Energía y Materiales",
+    "descripcion": "Te bancaste la termoquímica y la energía libre de Gibbs, las pilas galvánicas y el petróleo como recurso energético, además de polímeros, presiones parciales y superconductividad.",
+    "icono": "⚡"
   },
   {
     "id": 861,
     "materia": "Biología",
     "cluster": 1,
     "temas": [
-      "adn-gen-proteina",
-      "biodiversidad-indices",
-      "biotecnologia-pcr-crispr",
-      "cadenas-redes-troficas",
-      "celula-organelas"
+      "crecimiento-poblacional",
+      "genetica-mendeliana-punnett",
+      "grupos-sanguineos",
+      "cruce-dihibrido",
+      "herencia-ligada-al-sexo"
     ],
-    "nombre": "Maestro del ADN y la Célula",
-    "descripcion": "Te laburaste el parcial dominando el dogma central del ADN, la edición génica con CRISPR, las redes tróficas y la organización interna de la célula, pibe.",
+    "nombre": "Maestro de la Herencia Genética",
+    "descripcion": "Te laburaste los cuadrados de Punnett, el cruce dihíbrido, la herencia ligada al sexo y los grupos sanguíneos, además del crecimiento poblacional.",
     "icono": "🧬"
   },
   {
@@ -2167,74 +2015,74 @@
     "materia": "Biología",
     "cluster": 2,
     "temas": [
-      "ciclos-biogeoquimicos",
+      "necesidades-basicas-seres-vivos",
+      "ser-vivo-caracteristicas",
+      "celula-organelas",
       "ciclos-vida-metamorfosis",
-      "clasificacion-evolucion",
-      "conservacion-areas-protegidas",
-      "crecimiento-poblacional"
+      "clasificacion-evolucion"
     ],
-    "nombre": "Maestro de los Ciclos y la Conservación",
-    "descripcion": "Cerraste el parcial sobre ciclos biogeoquímicos, metamorfosis, clasificación evolutiva y conservación de áreas protegidas, jefe.",
-    "icono": "🌎"
+    "nombre": "Fundamentos de los Seres Vivos",
+    "descripcion": "Te mandaste con qué define a un ser vivo, sus necesidades básicas, la célula y sus organelas, los ciclos de vida con metamorfosis y la clasificación evolutiva, jefe.",
+    "icono": "🔬"
   },
   {
     "id": 863,
     "materia": "Biología",
     "cluster": 3,
     "temas": [
-      "cruce-dihibrido",
-      "deriva-genetica-flujo-genico",
-      "dinamica-poblacional-capacidad-carga",
+      "fotosintesis-respiracion-celular",
+      "habitats-adaptacion",
       "enzimas-proteina-sustrato-ph",
-      "especiacion"
+      "flujo-materia-energia",
+      "microbiologia-virus-inmunitario"
     ],
-    "nombre": "Maestro de la Genética de Poblaciones",
-    "descripcion": "Pasaste el examen jefe sobre cruces dihíbridos, deriva génica, capacidad de carga poblacional y especiación.",
-    "icono": "🧬"
+    "nombre": "Crack de Metabolismo y Energía",
+    "descripcion": "Aprobaste el parcial de fotosíntesis y respiración celular, enzimas, flujo de materia y energía, adaptación al hábitat y microbiología con sistema inmunitario.",
+    "icono": "⚡"
   },
   {
     "id": 864,
     "materia": "Biología",
     "cluster": 4,
     "temas": [
-      "filogenia-arboles-evolutivos",
-      "flujo-materia-energia",
-      "fotosintesis-respiracion-celular",
-      "genetica-mendeliana-punnett",
-      "grupos-sanguineos"
+      "cadenas-redes-troficas",
+      "mal-de-chagas",
+      "ciclos-biogeoquimicos",
+      "dinamica-poblacional-capacidad-carga",
+      "mitosis-meiosis"
     ],
-    "nombre": "Experto en Filogenia y Herencia Mendeliana",
-    "descripcion": "Te hiciste cargo del parcial integrando árboles filogenéticos, fotosíntesis, respiración celular y los cuadros de Punnett.",
-    "icono": "🧬"
+    "nombre": "Dominá Ecosistemas y División Celular",
+    "descripcion": "Te la rebuscaste combinando redes tróficas, ciclos biogeoquímicos y capacidad de carga con mitosis y meiosis, e incluso el mal de Chagas como caso de estudio.",
+    "icono": "🌿"
   },
   {
     "id": 865,
     "materia": "Biología",
     "cluster": 5,
     "temas": [
-      "habitats-adaptacion",
-      "herencia-ligada-al-sexo",
-      "mal-de-chagas",
-      "microbiologia-virus-inmunitario",
-      "mitosis-meiosis"
+      "biodiversidad-indices",
+      "adn-gen-proteina",
+      "conservacion-areas-protegidas",
+      "biotecnologia-pcr-crispr",
+      "nicho-ecologico"
     ],
-    "nombre": "Maestro de la Herencia y las Defensas del Cuerpo",
-    "descripcion": "Te laburaste el examen sobre adaptación a hábitats, herencia ligada al sexo, el mal de Chagas y la respuesta inmunitaria frente a virus.",
-    "icono": "🦠"
+    "nombre": "Crack de Biodiversidad y Biotecnología",
+    "descripcion": "Te comiste los índices de biodiversidad, el nicho ecológico y las áreas protegidas, junto con el camino de ADN a gen a proteína y herramientas como PCR y CRISPR.",
+    "icono": "🧪"
   },
   {
     "id": 866,
     "materia": "Biología",
     "cluster": 6,
     "temas": [
-      "necesidades-basicas-seres-vivos",
-      "nicho-ecologico",
       "partes-planta-germinacion",
       "piramide-biomasas",
-      "presion-arterial"
+      "quimiosintesis",
+      "seleccion-natural",
+      "sistemas-cuerpo-humano"
     ],
-    "nombre": "Maestro de los Seres Vivos y sus Necesidades",
-    "descripcion": "Cerraste el parcial sobre las necesidades básicas de los seres vivos, el nicho ecológico, la germinación de las plantas y la pirámide de biomasas.",
+    "nombre": "Maestro de Evolución y Cuerpo Humano",
+    "descripcion": "Aprobaste el parcial de selección natural, quimiosíntesis y pirámides de biomasa, más las partes de la planta, la germinación y los sistemas del cuerpo humano.",
     "icono": "🌱"
   },
   {
@@ -2242,16 +2090,16 @@
     "materia": "Biología",
     "cluster": 7,
     "temas": [
-      "quimiosintesis",
-      "seleccion-natural",
-      "ser-vivo-caracteristicas",
+      "deriva-genetica-flujo-genico",
+      "especiacion",
+      "presion-arterial",
+      "filogenia-arboles-evolutivos",
       "sistema-endocrino-hormonas-glandulas",
       "sistema-nervioso-neurona-sinapsis",
-      "sistemas-cuerpo-humano",
       "transgenicos-bioetica"
     ],
-    "nombre": "Maestro de los Sistemas del Cuerpo y la Bioética",
-    "descripcion": "Pasaste el examen jefe dominando el sistema nervioso, el sistema endocrino, la selección natural y el debate bioético sobre los transgénicos.",
+    "nombre": "Crack de Evolución y Fisiología",
+    "descripcion": "Te laburaste la especiación, la deriva génica, la filogenia, el sistema nervioso y endocrino, la presión arterial y la bioética de los transgénicos, jefe.",
     "icono": "🧠"
   },
   {
@@ -2259,45 +2107,45 @@
     "materia": "Cívica",
     "cluster": 1,
     "temas": [
-      "constitucion-nacional-jerarquia-normativa",
       "derechos-nino",
-      "discriminacion-y-organismos-de-proteccion",
+      "encuesta-electoral",
       "derechos-indigenas",
-      "encuesta-electoral"
+      "discriminacion-y-organismos-de-proteccion",
+      "derechos-genero"
     ],
-    "nombre": "Defensor de los Derechos y la Constitución",
-    "descripcion": "Te hiciste cargo del parcial sobre la jerarquía constitucional, los derechos del niño, los pueblos indígenas y los organismos contra la discriminación.",
-    "icono": "⚖️"
+    "nombre": "Crack de Derechos y No Discriminación",
+    "descripcion": "Te mandaste con los derechos del niño, de género e indígenas, los organismos de protección contra la discriminación y la lectura de una encuesta electoral, jefe.",
+    "icono": "✊"
   },
   {
     "id": 880,
     "materia": "Cívica",
     "cluster": 2,
     "temas": [
-      "derechos-genero",
       "estado-de-derecho-por-que-importa",
       "marchas-patrioticas",
       "organizacion-del-estado",
-      "origen-estado-derecho"
+      "origen-estado-derecho",
+      "constitucion-preambulo"
     ],
     "nombre": "Maestro del Estado de Derecho",
-    "descripcion": "Te laburaste el examen jefe sobre el origen y la importancia del Estado de Derecho, la organización estatal y los derechos de género.",
-    "icono": "🏛️"
+    "descripcion": "Te bancaste el origen y la importancia del Estado de derecho, la organización del Estado, el preámbulo de la Constitución y las marchas patrióticas.",
+    "icono": "⚖️"
   },
   {
     "id": 881,
     "materia": "Cívica",
     "cluster": 3,
     "temas": [
-      "constitucion-preambulo",
       "division-de-poderes",
-      "derechos-y-garantias",
+      "constitucion-nacional-jerarquia-normativa",
       "como-se-hace-una-ley",
+      "derechos-y-garantias",
       "documentos-y-tramites"
     ],
-    "nombre": "Maestro de la Constitución y las Leyes",
-    "descripcion": "Cerraste el parcial sobre el preámbulo constitucional, la división de poderes, las garantías y cómo se sanciona una ley.",
-    "icono": "📜"
+    "nombre": "Dominá Constitución y Leyes",
+    "descripcion": "Te comiste la división de poderes, la jerarquía normativa de la Constitución Nacional, cómo se hace una ley, los derechos y garantías y los trámites y documentos, jefe.",
+    "icono": "📕"
   },
   {
     "id": 882,
@@ -2350,14 +2198,14 @@
     "materia": "Derecho",
     "cluster": 1,
     "temas": [
-      "apelacion-e-instancias",
-      "argumentacion-juridica",
-      "corrientes-interpretacion-juridica",
-      "denuncia-y-etapa-de-instruccion",
-      "derecho-administrativo"
+      "ramas-del-derecho",
+      "derecho-administrativo",
+      "derecho-civil",
+      "derecho-comercial",
+      "derecho-constitucional"
     ],
-    "nombre": "Maestro de la Apelación y la Argumentación",
-    "descripcion": "Cerraste el examen jefe sobre las instancias de apelación, la argumentación jurídica y la etapa de instrucción.",
+    "nombre": "Maestro de las Ramas del Derecho",
+    "descripcion": "Te manejaste con el mapa de las ramas del derecho y sus pilares: constitucional, civil, comercial y administrativo.",
     "icono": "⚖️"
   },
   {
@@ -2365,46 +2213,46 @@
     "materia": "Derecho",
     "cluster": 2,
     "temas": [
-      "derecho-civil",
-      "derecho-comercial",
-      "derecho-constitucional",
       "derecho-internacional",
-      "derecho-laboral"
+      "derecho-laboral",
+      "derecho-penal",
+      "denuncia-y-etapa-de-instruccion",
+      "hecho-juridicamente-relevante"
     ],
-    "nombre": "Jurista Multidisciplinario",
-    "descripcion": "Pasaste el parcial integrando el derecho civil, comercial, constitucional, internacional y laboral, pibe.",
-    "icono": "⚖️"
+    "nombre": "Crack de Derecho Penal y Laboral",
+    "descripcion": "Te laburaste el derecho penal, laboral e internacional, y cómo un hecho jurídicamente relevante llega a denuncia e instrucción, jefe.",
+    "icono": "🏛️"
   },
   {
     "id": 896,
     "materia": "Derecho",
     "cluster": 3,
     "temas": [
-      "derecho-penal",
-      "ejecucion-de-la-sentencia",
+      "investigacion-prueba-y-fiscalia",
       "fuentes-del-derecho",
-      "hecho-juridicamente-relevante",
+      "norma-jerarquia-y-vigencia",
+      "corrientes-interpretacion-juridica",
       "interpretacion-normativa"
     ],
-    "nombre": "Maestro del Derecho Penal y sus Fuentes",
-    "descripcion": "Te hiciste cargo del examen jefe sobre el derecho penal, las fuentes del derecho y la ejecución de la sentencia.",
-    "icono": "⚖️"
+    "nombre": "Dominá Fuentes e Interpretación",
+    "descripcion": "Te mandaste con las fuentes del derecho, la jerarquía y vigencia de las normas, las corrientes de interpretación y la investigación con fiscalía y prueba.",
+    "icono": "📜"
   },
   {
     "id": 897,
     "materia": "Derecho",
     "cluster": 4,
     "temas": [
-      "investigacion-prueba-y-fiscalia",
-      "juicio-oral",
-      "norma-jerarquia-y-vigencia",
       "politica-criminal-garantismo-mano-dura",
-      "ramas-del-derecho",
-      "resolucion-de-conflictos-y-sentencia"
+      "argumentacion-juridica",
+      "resolucion-de-conflictos-y-sentencia",
+      "juicio-oral",
+      "apelacion-e-instancias",
+      "ejecucion-de-la-sentencia"
     ],
     "nombre": "Maestro del Proceso Penal y la Sentencia",
-    "descripcion": "Te laburaste el parcial sobre la investigación fiscal, el juicio oral, la política criminal y la resolución de conflictos hasta la sentencia.",
-    "icono": "👨‍⚖️"
+    "descripcion": "Aprobaste el parcial recorriendo argumentación jurídica, juicio oral, resolución y sentencia, apelación e instancias, ejecución de la pena y el debate garantismo contra mano dura.",
+    "icono": "🔨"
   },
   {
     "id": 904,
@@ -2412,13 +2260,13 @@
     "cluster": 1,
     "temas": [
       "acustica-instrumento-musical",
-      "armonia-basica-acordes-tonalidad",
       "composicion-y-proporcion",
-      "danza-ritmo-tiempo-expresion-corporal",
-      "elementos-del-arte"
+      "origen-del-arte",
+      "elementos-del-arte",
+      "principios-de-diseno"
     ],
-    "nombre": "Maestro de los Elementos del Arte",
-    "descripcion": "Cerraste el examen jefe integrando la acústica, la armonía musical, la composición y la expresión corporal en la danza.",
+    "nombre": "Maestro de los Fundamentos del Arte",
+    "descripcion": "Te laburaste el origen del arte, sus elementos y principios de diseño, la composición y proporción, y la acústica del instrumento musical.",
     "icono": "🎨"
   },
   {
@@ -2426,14 +2274,14 @@
     "materia": "Arte",
     "cluster": 2,
     "temas": [
-      "lenguaje-musical-pentagrama-escalas-intervalos",
-      "origen-del-arte",
-      "principios-de-diseno",
       "ritmo-compas-pulso-figuras-musicales",
-      "narrativa-audiovisual/plano"
+      "narrativa-audiovisual/plano",
+      "danza-ritmo-tiempo-expresion-corporal",
+      "lenguaje-musical-pentagrama-escalas-intervalos",
+      "narrativa-audiovisual/encuadre"
     ],
-    "nombre": "Maestro del Lenguaje Musical y el Diseño",
-    "descripcion": "Pasaste el parcial sobre el pentagrama, las escalas, los principios de diseño y los planos en la narrativa audiovisual, jefe.",
+    "nombre": "Crack de Ritmo, Música y Plano",
+    "descripcion": "Te bancaste el pulso, el compás y las figuras musicales, el pentagrama con escalas e intervalos, la danza y la expresión corporal, y el plano y el encuadre audiovisual, jefe.",
     "icono": "🎼"
   },
   {
@@ -2441,46 +2289,198 @@
     "materia": "Arte",
     "cluster": 3,
     "temas": [
-      "rosetones-y-simetria",
-      "narrativa-audiovisual/encuadre",
-      "teatro-dramaturgia-y-actuacion",
+      "armonia-basica-acordes-tonalidad",
       "narrativa-audiovisual/montaje",
-      "produccion-multimedial"
+      "rosetones-y-simetria",
+      "produccion-multimedial",
+      "teatro-dramaturgia-y-actuacion"
     ],
-    "nombre": "Maestro de la Escena y lo Audiovisual",
-    "descripcion": "Te hiciste cargo del examen jefe sobre teatro y actuación, el encuadre y montaje audiovisual, la producción multimedial y la simetría de los rosetones.",
-    "icono": "🎬"
+    "nombre": "Dominá Armonía, Montaje y Escena",
+    "descripcion": "Aprobaste el parcial de armonía y acordes, montaje audiovisual, producción multimedial, teatro y dramaturgia, y la simetría de los rosetones.",
+    "icono": "🎭"
   },
   {
     "id": 912,
     "materia": "Investigación",
     "cluster": 1,
     "temas": [
-      "analisis-estadistico-de-resultados",
-      "argumentar-desde-evidencia",
-      "conclusion-y-comunicacion-de-resultados",
+      "observacion-y-pregunta-investigable",
+      "hipotesis-buena-o-mala",
+      "metodologia-cualitativa-vs-cuantitativa",
       "construir-y-usar-un-modelo-cientifico",
-      "corrientes-filosofia-de-la-ciencia"
+      "trabajo-de-campo-enfoque-socioantropologico"
     ],
-    "nombre": "Dominio del Método Científico",
-    "descripcion": "Te laburaste el examen jefe integrando el análisis estadístico, la argumentación desde evidencia y las corrientes de la filosofía de la ciencia.",
-    "icono": "🔬"
+    "nombre": "Iniciado en el Método Científico",
+    "descripcion": "Te mandaste con la observación y la pregunta investigable, la buena hipótesis, la metodología cualitativa y cuantitativa, los modelos científicos y el trabajo de campo.",
+    "icono": "🔎"
   },
   {
     "id": 913,
     "materia": "Investigación",
     "cluster": 2,
     "temas": [
+      "corrientes-filosofia-de-la-ciencia",
       "diseno-experimental-variables-y-control",
-      "hipotesis-buena-o-mala",
-      "observacion-y-pregunta-investigable",
+      "tecnicas-de-investigacion-social",
       "recoleccion-de-datos",
-      "metodologia-cualitativa-vs-cuantitativa",
-      "trabajo-de-campo-enfoque-socioantropologico",
-      "tecnicas-de-investigacion-social"
+      "analisis-estadistico-de-resultados",
+      "conclusion-y-comunicacion-de-resultados",
+      "argumentar-desde-evidencia"
     ],
-    "nombre": "Maestro del Diseño Experimental y de Campo",
-    "descripcion": "Cerraste el parcial sobre el diseño experimental, la formulación de hipótesis, la metodología cualitativa y cuantitativa, y el trabajo de campo socioantropológico.",
-    "icono": "🧪"
+    "nombre": "Crack del Diseño y Análisis de Investigación",
+    "descripcion": "Te comiste el diseño experimental, la recolección de datos, el análisis estadístico, la argumentación desde la evidencia y la comunicación de conclusiones, con filosofía de la ciencia y técnicas sociales.",
+    "icono": "📊"
+  },
+  {
+    "id": 918,
+    "materia": "Ingeniería",
+    "cluster": 1,
+    "temas": [
+      "modelizacion-matematica",
+      "problema-y-restricciones",
+      "disciplinas-de-la-ingenieria",
+      "investigar-soluciones-existentes",
+      "diseno-conceptual"
+    ],
+    "nombre": "Maestro del Inicio del Diseño en Ingeniería",
+    "descripcion": "Te laburaste el problema y sus restricciones, la investigación de soluciones, el diseño conceptual, la modelización matemática y las disciplinas de la ingeniería.",
+    "icono": "📐"
+  },
+  {
+    "id": 919,
+    "materia": "Ingeniería",
+    "cluster": 2,
+    "temas": [
+      "modelado-y-calculo",
+      "prototipo",
+      "resistencia-de-materiales",
+      "ensayo-y-medicion",
+      "optimizacion-e-iteracion",
+      "comunicar-la-solucion"
+    ],
+    "nombre": "Crack de Construir y Validar Soluciones",
+    "descripcion": "Aprobaste el parcial de modelado y cálculo, resistencia de materiales, prototipo, ensayo y medición, optimización iterativa y cómo comunicar la solución, jefe.",
+    "icono": "🛠️"
+  },
+  {
+    "id": 924,
+    "materia": "Psicología",
+    "cluster": 1,
+    "temas": [
+      "psicologia-modernidad-y-el-yo",
+      "autoconocimiento-como-busqueda-humana",
+      "dependencia-del-otro-cultura-como-herencia",
+      "memoria-y-olvido-represion-inconsciente",
+      "psicologia-cognitiva-percepcion-memoria-atencion"
+    ],
+    "nombre": "Crack del Yo, la Memoria y la Cultura",
+    "descripcion": "Te mandaste con la psicología de la modernidad y el yo, el autoconocimiento, la cultura como herencia y la memoria, el olvido y la represión.",
+    "icono": "🧠"
+  },
+  {
+    "id": 925,
+    "materia": "Psicología",
+    "cluster": 2,
+    "temas": [
+      "lenguaje-pensamiento-y-creatividad",
+      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
+      "edades-del-ser-humano-ninez-pubertad-identidad",
+      "salud-mental-ansiedad-depresion-pedir-ayuda",
+      "sesgos-cognitivos-heuristicas-error-sistematico"
+    ],
+    "nombre": "Maestro de Corrientes y Mente Humana",
+    "descripcion": "Te bancaste las corrientes psicológicas, los sesgos cognitivos, lenguaje, pensamiento y creatividad, las edades del ser humano y la salud mental, jefe.",
+    "icono": "💭"
+  },
+  {
+    "id": 930,
+    "materia": "Ciencia de Materiales",
+    "cluster": 1,
+    "temas": [
+      "corrosion",
+      "elasticidad-ley-de-hooke-modulo-de-young",
+      "propiedades-mecanicas-dureza-tenacidad-ductilidad",
+      "plasticidad-y-punto-de-fluencia",
+      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
+      "fatiga-y-fractura"
+    ],
+    "nombre": "Crack del Comportamiento de Materiales",
+    "descripcion": "Aprobaste el parcial de elasticidad y ley de Hooke, plasticidad y punto de fluencia, dureza y tenacidad, fatiga y fractura, corrosión y las familias de materiales.",
+    "icono": "🔩"
+  },
+  {
+    "id": 934,
+    "materia": "Dibujo Técnico",
+    "cluster": 1,
+    "temas": [
+      "sistemas-de-proyeccion",
+      "vistas-frontal-superior-lateral",
+      "perspectivas-isometrica-y-caballera",
+      "escalas-numericas-y-graficas",
+      "acotacion-normalizada"
+    ],
+    "nombre": "Maestro del Dibujo Técnico",
+    "descripcion": "Te laburaste los sistemas de proyección, las vistas, las perspectivas isométrica y caballera, las escalas y la acotación normalizada, jefe.",
+    "icono": "📏"
+  },
+  {
+    "id": 938,
+    "materia": "Comunicación",
+    "cluster": 1,
+    "temas": [
+      "generos-periodisticos",
+      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido",
+      "etica-y-responsabilidad-de-los-medios",
+      "corrientes-de-la-comunicacion",
+      "publicidad-y-persuasion"
+    ],
+    "nombre": "Crack de Comunicación y Medios",
+    "descripcion": "Te comiste la teoría de la comunicación, sus corrientes, los géneros periodísticos, la ética de los medios y la publicidad y la persuasión.",
+    "icono": "📰"
+  },
+  {
+    "id": 942,
+    "materia": "Electrónica",
+    "cluster": 1,
+    "temas": [
+      "componentes-resistencia-capacitor-diodo-transistor",
+      "circuitos-y-leyes-de-kirchhoff",
+      "logica-digital-puertas-and-or-not",
+      "microcontroladores-y-microprocesadores",
+      "sensores-y-actuadores"
+    ],
+    "nombre": "Maestro de Circuitos y Control Digital",
+    "descripcion": "Te mandaste con resistencias, capacitores, diodos y transistores, leyes de Kirchhoff, lógica digital, microcontroladores, sensores y actuadores.",
+    "icono": "🔌"
+  },
+  {
+    "id": 946,
+    "materia": "Automatización",
+    "cluster": 1,
+    "temas": [
+      "lazo-abierto-vs-lazo-cerrado",
+      "plc-logica-de-control-industrial",
+      "realimentacion-feedback",
+      "control-pid-proporcional-integral-derivativo",
+      "servomecanismos"
+    ],
+    "nombre": "Crack de Sistemas de Control",
+    "descripcion": "Te bancaste el lazo abierto y cerrado, la realimentación, el control PID, los servomecanismos y la lógica de control con PLC, jefe.",
+    "icono": "🤖"
+  },
+  {
+    "id": 950,
+    "materia": "UX/Diseño",
+    "cluster": 1,
+    "temas": [
+      "usabilidad-heuristicas-de-nielsen",
+      "accesibilidad-wcag-contraste-lectores-de-pantalla",
+      "jerarquia-visual-e-informacion",
+      "prototipado-wireframe-mockup-prototipo-interactivo",
+      "pruebas-de-usuario"
+    ],
+    "nombre": "Maestro de la Experiencia de Usuario",
+    "descripcion": "Aprobaste el parcial con usabilidad y heurísticas de Nielsen, accesibilidad WCAG, jerarquía visual, prototipado y pruebas de usuario.",
+    "icono": "🖥️"
   }
 ]

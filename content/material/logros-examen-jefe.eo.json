@@ -1,157 +1,5 @@
 [
   {
-    "id": 183,
-    "materia": "Ingeniería",
-    "cluster": 1,
-    "temas": [
-      "comunicar-la-solucion",
-      "disciplinas-de-la-ingenieria",
-      "diseno-conceptual",
-      "ensayo-y-medicion",
-      "investigar-soluciones-existentes"
-    ],
-    "nombre": "Majstro de Dizajno kaj Komunikado",
-    "descripcion": "Vi kompletis la partan ekzamenon integrante konceptan dezajnon, esploron kaj komunikadon de solvoj.",
-    "icono": "📐"
-  },
-  {
-    "id": 184,
-    "materia": "Ingeniería",
-    "cluster": 2,
-    "temas": [
-      "modelado-y-calculo",
-      "modelizacion-matematica",
-      "optimizacion-e-iteracion",
-      "problema-y-restricciones",
-      "prototipo",
-      "resistencia-de-materiales"
-    ],
-    "nombre": "Modelado kaj Optimumigo",
-    "descripcion": "Vi solvis la partan ekzamenon integrante matematikan modeladon, optimumigon kaj materialreziston kun inĝeniera kriterio.",
-    "icono": "📐"
-  },
-  {
-    "id": 206,
-    "materia": "Dibujo Técnico",
-    "cluster": 1,
-    "temas": [
-      "acotacion-normalizada",
-      "escalas-numericas-y-graficas",
-      "perspectivas-isometrica-y-caballera",
-      "sistemas-de-proyeccion",
-      "vistas-frontal-superior-lateral"
-    ],
-    "nombre": "Dominado de Vidoj kaj Skaloj",
-    "descripcion": "Vi finis la ekzamenon pri projekciaj sistemoj, skaloj kaj perspektivoj.",
-    "icono": "📐"
-  },
-  {
-    "id": 207,
-    "materia": "Psicología",
-    "cluster": 1,
-    "temas": [
-      "autoconocimiento-como-busqueda-humana",
-      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
-      "dependencia-del-otro-cultura-como-herencia",
-      "edades-del-ser-humano-ninez-pubertad-identidad",
-      "lenguaje-pensamiento-y-creatividad"
-    ],
-    "nombre": "Esploranto de la Menso",
-    "descripcion": "Vi finis la ekzamenon pri psikologiaj fluoj, homa disvolviĝo kaj konstruado de memkonado.",
-    "icono": "🧠"
-  },
-  {
-    "id": 208,
-    "materia": "Psicología",
-    "cluster": 2,
-    "temas": [
-      "memoria-y-olvido-represion-inconsciente",
-      "psicologia-cognitiva-percepcion-memoria-atencion",
-      "psicologia-modernidad-y-el-yo",
-      "salud-mental-ansiedad-depresion-pedir-ayuda",
-      "sesgos-cognitivos-heuristicas-error-sistematico"
-    ],
-    "nombre": "Majstro de la Menso",
-    "descripcion": "Vi finis la integrigan ekzamenon pri memoro, antaŭjuĝoj kaj mensa sano, ĉefo.",
-    "icono": "🧠"
-  },
-  {
-    "id": 209,
-    "materia": "Comunicación",
-    "cluster": 1,
-    "temas": [
-      "corrientes-de-la-comunicacion",
-      "etica-y-responsabilidad-de-los-medios",
-      "generos-periodisticos",
-      "publicidad-y-persuasion",
-      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido"
-    ],
-    "nombre": "Dominado de la Fluoj kaj Ĝenroj",
-    "descripcion": "Vi finis la ekzamenon pri fluoj, etiko, reklamo kaj komunikada teorio.",
-    "icono": "📰"
-  },
-  {
-    "id": 210,
-    "materia": "Electrónica",
-    "cluster": 1,
-    "temas": [
-      "circuitos-y-leyes-de-kirchhoff",
-      "componentes-resistencia-capacitor-diodo-transistor",
-      "logica-digital-puertas-and-or-not",
-      "microcontroladores-y-microprocesadores",
-      "sensores-y-actuadores"
-    ],
-    "nombre": "Majstro de la Cirkvito kaj Logiko",
-    "descripcion": "Vi finis la ekzamenon dominante de la leĝoj de Kirchhoff ĝis la programado de mikrokontroliloj.",
-    "icono": "🔧"
-  },
-  {
-    "id": 211,
-    "materia": "Ciencia de Materiales",
-    "cluster": 1,
-    "temas": [
-      "corrosion",
-      "elasticidad-ley-de-hooke-modulo-de-young",
-      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
-      "fatiga-y-fractura",
-      "plasticidad-y-punto-de-fluencia",
-      "propiedades-mecanicas-dureza-tenacidad-ductilidad"
-    ],
-    "nombre": "Majstro de la Mecaniaj Proprietoj",
-    "descripcion": "Vi finis la partan ekzamenon pri korodo, elasteco, laciĝo kaj materialaj proprecoj, ĉefo.",
-    "icono": "🛡️"
-  },
-  {
-    "id": 212,
-    "materia": "Automatización",
-    "cluster": 1,
-    "temas": [
-      "control-pid-proporcional-integral-derivativo",
-      "lazo-abierto-vs-lazo-cerrado",
-      "plc-logica-de-control-industrial",
-      "realimentacion-feedback",
-      "servomecanismos"
-    ],
-    "nombre": "Majstro de PID-kontrolo kaj PLC",
-    "descripcion": "Vi dominis la fundamentojn de servomekanismoj, industria logiko kaj ĉefaj regaj cirkvitoj.",
-    "icono": "🤖"
-  },
-  {
-    "id": 213,
-    "materia": "UX/Diseño",
-    "cluster": 1,
-    "temas": [
-      "accesibilidad-wcag-contraste-lectores-de-pantalla",
-      "jerarquia-visual-e-informacion",
-      "prototipado-wireframe-mockup-prototipo-interactivo",
-      "pruebas-de-usuario",
-      "usabilidad-heuristicas-de-nielsen"
-    ],
-    "nombre": "Majstro de Uzebleco kaj Alirebleco",
-    "descripcion": "Vi sukcese trapasis la ĉefan ekzamenon pri WCAG, Nielsen-aj heŭristikoj kaj prototipado.",
-    "icono": "👁️"
-  },
-  {
     "id": 601,
     "materia": "Matemática",
     "cluster": 1,
@@ -638,14 +486,14 @@
     "cluster": 1,
     "temas": [
       "conciencia-fonologica",
-      "escritura-como-tecnologia",
-      "decodificacion-y-fluidez",
       "ortografia-y-tildacion",
+      "decodificacion-y-fluidez",
+      "signos-de-puntuacion",
       "circuito-de-la-comunicacion"
     ],
-    "nombre": "Majstro de la Bazoj de Legoskribo",
-    "descripcion": "Vi regis la fonologian konscion, la dekodigon kaj fluecon, la ortografion kaj akcentadon, kaj la komunikan cirkviton.",
-    "icono": "🔤📖"
+    "nombre": "Regu Ortografion kaj Komencan Legadon",
+    "descripcion": "Vi plenumis la ekzamenon regante fonologian konscion, malkodadon kaj fluecon, ortografion kaj akcentojn, interpunkciajn signojn kaj la komunikan ciklon.",
+    "icono": "✍️"
   },
   {
     "id": 652,
@@ -653,14 +501,14 @@
     "cluster": 2,
     "temas": [
       "comprension-idea-principal",
-      "signos-de-puntuacion",
+      "escritura-como-tecnologia",
       "tecnicas-de-estudio-resumen-y-organizadores-graficos",
       "tipos-textuales",
       "variedades-de-la-lengua"
     ],
-    "nombre": "Regu la Teksto-Komprenon",
-    "descripcion": "Vi kompletigis la partan ekzamenon regante la ĉefideon, la interpunkciajn signojn, la tekstospecojn kaj la lingvajn variantojn, ĉefo.",
-    "icono": "🧩📚"
+    "nombre": "Fakulo pri Kompreno kaj Tipologio",
+    "descripcion": "Vi regis la ĉefan ideon, la tekstotipojn, la lingvajn variaĵojn, la skribon kiel teknologion kaj studteknikojn kiel resumon kaj grafikajn organizilojn, ĉefo.",
+    "icono": "📖"
   },
   {
     "id": 653,
@@ -862,180 +710,180 @@
     "materia": "Historia profunda",
     "cluster": 1,
     "temas": [
-      "absolutismo-europeo",
-      "agujeros-negros",
-      "ampliacion-democratica-ley-saenz-pena",
-      "antigua-grecia",
-      "antigua-roma"
+      "escalas-de-tiempo-profundo",
+      "origen-del-universo",
+      "formacion-de-estrellas",
+      "galaxias-tipos-escala",
+      "nucleosintesis"
     ],
-    "nombre": "De Grekio kaj Romo al la Absolutismo",
-    "descripcion": "Vi kompletigis la partan ekzamenon regante la Antikvan Grekion, la Antikvan Romon kaj la eŭropan absolutismon, kun halto ĉe la nigraj truoj.",
-    "icono": "🏛️"
+    "nombre": "Majstro de la Origino de la Universo",
+    "descripcion": "Vi plenumis la ekzamenon regante la skalojn de profunda tempo, la originon de la universo, la nukleosintezon, la formiĝon de steloj kaj la specojn de galaksioj.",
+    "icono": "🌌"
   },
   {
     "id": 682,
     "materia": "Historia profunda",
     "cluster": 2,
     "temas": [
-      "antiguo-egipto",
-      "atmosfera-primitiva",
-      "baja-edad-media-y-crisis",
-      "caida-de-roma-y-alta-edad-media",
-      "cambio-climatico-linea-base-historica"
+      "corrimiento-al-rojo-expansion-universo",
+      "agujeros-negros",
+      "formacion-del-sistema-solar",
+      "ley-de-hubble",
+      "movimiento-rotacion-traslacion"
     ],
-    "nombre": "Egiptio kaj la Mezepoka Krizo",
-    "descripcion": "Vi finis la ekzamenon pri la Antikva Egiptio, la falo de Romo, la frua mezepoko kaj la malfrumezepoka krizo, ĉefo.",
-    "icono": "🏺"
+    "nombre": "Regu la Kosman Ekspansion",
+    "descripcion": "Vi trapasis la ekzamenon pri la leĝo de Hubble, la ruĝan ŝoviĝon, nigrajn truojn, la formiĝon de la sunsistemo kaj la rotacian kaj translacian movojn, ĉefo.",
+    "icono": "🔭"
   },
   {
     "id": 683,
     "materia": "Historia profunda",
     "cluster": 3,
     "temas": [
-      "china-antigua",
-      "ciclo-de-las-rocas",
-      "ciencia-revolucion-cientifica",
-      "cinco-extinciones-masivas",
-      "civilizaciones-antiguas"
+      "materia-energia-oscura",
+      "estaciones-del-ano",
+      "fases-lunares",
+      "movimiento-aparente-constelaciones",
+      "eclipses-sol-luna"
     ],
-    "nombre": "Scienco kaj Antikvaj Civilizoj",
-    "descripcion": "Vi regis la antikvan Ĉinion, la antikvajn civilizojn, la kvin amasformortojn kaj la sciencan revolucion en la sama parta ekzameno.",
-    "icono": "🔬🏺"
+    "nombre": "Fakulo pri Ĉielo kaj Malluma Universo",
+    "descripcion": "Vi regis la malluman materion kaj energion kune kun la videbla ĉielo: sezonojn, lunfazojn, eklipsojn kaj la ŝajnan moviĝon de konstelacioj.",
+    "icono": "🌙"
   },
   {
     "id": 684,
     "materia": "Historia profunda",
     "cluster": 4,
     "temas": [
-      "civilizaciones-de-america-precolombinas",
-      "conquista-colonizacion-america",
-      "conquista-tierra-firme",
-      "conquista-y-colonia-argentina",
-      "corrimiento-al-rojo-expansion-universo"
+      "tabla-periodica-nivel2-cosmologico",
+      "tierra-primitiva-diferenciacion",
+      "atmosfera-primitiva",
+      "minerales-estructura-cristalina",
+      "origen-de-la-vida"
     ],
-    "nombre": "De Antaŭkolumba Ameriko al la Kosmo",
-    "descripcion": "Vi finis la ekzamenon kiu atingas de la antaŭkolumbaj civilizoj kaj la konkero de Ameriko ĝis la ruĝenŝoviĝo kaj la vastiĝo de la universo.",
-    "icono": "🌎"
+    "nombre": "Majstro de la Praa Tero",
+    "descripcion": "Vi plenumis la ekzamenon regante la praan Teron kaj ĝian diferencigon, la praan atmosferon, la mineralojn, la kosmologian perioda tabelon kaj la originon de vivo.",
+    "icono": "🌋"
   },
   {
     "id": 685,
     "materia": "Historia profunda",
     "cluster": 5,
     "temas": [
-      "datacion-radiometrica",
-      "descolonizacion-de-africa-y-asia",
-      "distribucion-biomas",
-      "division-del-trabajo",
-      "eclipses-sol-luna"
+      "rocas-igneas-sedimentarias-metamorficas",
+      "procariotas",
+      "tiempo-geologico-eones-eras-periodos",
+      "gran-oxidacion",
+      "datacion-radiometrica"
     ],
-    "nombre": "Datigo, Biomoj kaj Malkoloniigo",
-    "descripcion": "Vi sukcese trapasis la partan ekzamenon integrante la radiometrian datigon, la malkoloniigon de Afriko kaj Azio, la distribuon de biomoj kaj la eklipsojn de la suno kaj la luno.",
-    "icono": "⏳🌍"
+    "nombre": "Fakulo pri Geologia Tempo",
+    "descripcion": "Vi regis eonojn, erojn kaj periodojn, radiometrian datadon, rokspecojn, prokariotojn kaj la Grandan Oksidiĝon, ĉefo.",
+    "icono": "🪨"
   },
   {
     "id": 686,
     "materia": "Historia profunda",
     "cluster": 6,
     "temas": [
-      "edad-media-feudalismo",
-      "edad-media-plena",
-      "electrificacion-fabrica-hogar",
-      "entreguerras-y-crisis-de-1929",
-      "escalas-de-tiempo-profundo"
+      "eucariotas",
+      "fotosintesis-cambio-atmosfera-nivel2",
+      "multicelularidad",
+      "tectonica-placas-deriva-continental",
+      "explosion-cambrica"
     ],
-    "nombre": "De la Feŭdismo al la Krizo de '29",
-    "descripcion": "Vi trapasis la mezepokan feŭdismon, la elektrifadon de fabriko kaj hejmo kaj la krizon de 1929, regante la grandajn transformojn, ĉefo.",
-    "icono": "🏰"
+    "nombre": "Regu la Kompleksan Vivon",
+    "descripcion": "Vi trapasis la ekzamenon pri eŭkariotoj, fotosintezo kaj atmosfera ŝanĝo, multĉeleco, la Kambria eksplodo kaj tavoltektoniko.",
+    "icono": "🦠"
   },
   {
     "id": 687,
     "materia": "Historia profunda",
     "cluster": 7,
     "temas": [
-      "escritura-primeras-ciudades",
-      "estaciones-del-ano",
-      "estados-nacionales",
-      "eucariotas",
-      "expansion-del-imperio-romano"
+      "ciclo-de-las-rocas",
+      "conquista-tierra-firme",
+      "distribucion-biomas",
+      "cinco-extinciones-masivas",
+      "paleoclima-glaciaciones"
     ],
-    "nombre": "De la Skribo al la Romia Imperio",
-    "descripcion": "Vi finis la ĉefan ekzamenon pri la skribo kaj la unuaj urboj, la naciaj ŝtatoj kaj la vastiĝo de la Romia Imperio.",
-    "icono": "📜🏛️"
+    "nombre": "Majstro de Formortoj kaj Antikvaj Klimatoj",
+    "descripcion": "Vi plenumis la ekzamenon regante la konkeron de la seka tero, la kvin masajn formortojn, paleoklimaton kaj glaciiĝojn, la rokan ciklon kaj la distribuon de biomoj.",
+    "icono": "🦖"
   },
   {
     "id": 688,
     "materia": "Historia profunda",
     "cluster": 8,
     "temas": [
-      "explosion-cambrica",
-      "fases-lunares",
-      "formacion-de-estrellas",
-      "formacion-del-sistema-solar",
-      "fotosintesis-cambio-atmosfera-nivel2"
+      "radiacion-mamiferos",
+      "cambio-climatico-linea-base-historica",
+      "hominizacion",
+      "relieve-sismos-volcanes",
+      "paleolitico"
     ],
-    "nombre": "Steloj, Fotosintezo kaj la Kambria Epoko",
-    "descripcion": "Vi regis la formiĝon de steloj kaj de la sunsistemo, la lunajn fazojn, la fotosintezon kaj la kambrian eksplodon.",
-    "icono": "⭐🧬"
+    "nombre": "Fakulo pri Mamuloj kaj Homa Origino",
+    "descripcion": "Vi regis la radiadon de mamuloj, la hominiĝon kaj paleolition, krome la reliefon kun ĝiaj sismoj kaj vulkanoj kaj la bazlinion de klimata ŝanĝo, ĉefo.",
+    "icono": "🦴"
   },
   {
     "id": 689,
     "materia": "Historia profunda",
     "cluster": 9,
     "temas": [
-      "galaxias-tipos-escala",
-      "globalizacion-era-digital",
-      "golpes-de-estado-interrupciones",
-      "gran-oxidacion",
-      "guerra-de-malvinas"
+      "seleccion-natural-evidencias-nivel2",
+      "herramientas-arte-rupestre",
+      "poblamiento-planeta-america",
+      "revolucion-neolitica",
+      "sedentarizacion-excedente"
     ],
-    "nombre": "Galaksioj, Ŝtatpuĉoj kaj la Malvinoj-Milito",
-    "descripcion": "Vi kompletigis la partan ekzamenon pri la galaksioj, la Granda Oksidiĝo, la ŝtatpuĉoj kaj la Malvinoj-Milito, ĉefo.",
-    "icono": "🌌🎖️"
+    "nombre": "Regu la Neolitan Revolucion",
+    "descripcion": "Vi plenumis la ekzamenon regante naturan selektadon, ilojn kaj rokan arton, la loĝigon de Ameriko, la neolitan revolucion kaj la ekloĝiĝon kun troaĵo.",
+    "icono": "🌾"
   },
   {
     "id": 690,
     "materia": "Historia profunda",
     "cluster": 10,
     "temas": [
-      "guerra-fria-descolonizacion",
-      "guerras-civiles-unitarios-federales",
-      "guerras-de-independencia-argentina",
-      "guerras-mundiales",
-      "herramientas-arte-rupestre"
+      "division-del-trabajo",
+      "metalurgia-cobre-hierro",
+      "propiedad-jerarquia-estado",
+      "escritura-primeras-ciudades",
+      "antigua-grecia"
     ],
-    "nombre": "De la Sendependeco al la Malvarma Milito",
-    "descripcion": "Vi finis la ekzamenon pri la sendependecaj militoj de Argentino, la civilaj militoj inter unitaristoj kaj federalistoj, la mondmilitoj kaj la Malvarma Milito.",
-    "icono": "⚔️"
+    "nombre": "Majstro de la Unuaj Ŝtatoj",
+    "descripcion": "Vi trapasis la ekzamenon pri laborodivido, metalurgio, proprieto kaj hierarkio ĝis la Ŝtato, skribo kun la unuaj urboj kaj la antikva Grekio.",
+    "icono": "🏺"
   },
   {
     "id": 691,
     "materia": "Historia profunda",
     "cluster": 11,
     "temas": [
-      "historia-contemporanea-de-africa",
-      "historia-contemporanea-de-asia-y-pacifico",
-      "historia-contemporanea-de-medio-oriente",
-      "historia-reciente-argentina",
-      "hominizacion"
+      "antigua-roma",
+      "antiguo-egipto",
+      "china-antigua",
+      "civilizaciones-de-america-precolombinas",
+      "india-antigua"
     ],
-    "nombre": "Nuntempa Historio de la Mondo",
-    "descripcion": "Vi sukcese trapasis la partan ekzamenon integrante la nuntempan historion de Afriko, de Azio kaj Pacifiko, de Mezoriento kaj de la lastatempa Argentino.",
-    "icono": "🌍"
+    "nombre": "Fakulo pri Grandaj Antikvaj Civilizoj",
+    "descripcion": "Vi regis Romon, Egiptujon, Ĉinion, Hindion kaj la antaŭkolumbajn civilizojn de Ameriko, ĉefo.",
+    "icono": "🏛️"
   },
   {
     "id": 692,
     "materia": "Historia profunda",
     "cluster": 12,
     "temas": [
-      "huella-humana-en-el-clima-inicio",
-      "ilustracion",
-      "imperialismo",
-      "imperio-bizantino",
+      "mesopotamia",
+      "pueblos-originarios-territorio-argentino",
+      "civilizaciones-antiguas",
+      "expansion-del-imperio-romano",
       "imperio-de-alejandro-magno-helenistico"
     ],
-    "nombre": "De la Helenismo al la Imperiismo",
-    "descripcion": "Vi finis la ekzamenon pri la helenisma imperio de Aleksandro la Granda, la Bizanca Imperio, la Klerismo kaj la imperiismo.",
-    "icono": "🏺🌐"
+    "nombre": "Regu la Imperiojn de la Antikva Mondo",
+    "descripcion": "Vi plenumis la ekzamenon pri Mezopotamio, Aleksandro la Granda kaj helenismo, la vastiĝo de la Romia Imperio kaj la indiĝenaj popoloj de la nuna argentina teritorio.",
+    "icono": "⚔️"
   },
   {
     "id": 693,
@@ -1045,165 +893,165 @@
       "imperio-han-china",
       "imperio-persa",
       "imperios-expansion",
-      "imprenta",
-      "india-antigua"
+      "caida-de-roma-y-alta-edad-media",
+      "edad-media-feudalismo"
     ],
-    "nombre": "Antikvaj Imperioj kaj la Presarto",
-    "descripcion": "Vi regis la Persan Imperion, la Han-imperion de Ĉinio, la antikvan Hindion kaj la alvenon de la presarto, ĉefo.",
-    "icono": "👑📖"
+    "nombre": "Majstro de Imperioj kaj Feŭdismo",
+    "descripcion": "Vi regis la imperiojn Han kaj persan, la imperian vastiĝon, la falon de Romo kun la Frua Mezepoko kaj la feŭdismon, ĉefo.",
+    "icono": "🏰"
   },
   {
     "id": 694,
     "materia": "Historia profunda",
     "cluster": 14,
     "temas": [
-      "internet-redes-globalizacion-digital",
+      "imperio-bizantino",
       "islam-y-expansion-arabe",
-      "ley-de-hubble",
-      "materia-energia-oscura",
-      "mesopotamia"
+      "edad-media-plena",
+      "baja-edad-media-y-crisis",
+      "renacimiento-y-reforma"
     ],
-    "nombre": "De Mezopotamio ĝis la Interreto",
-    "descripcion": "Vi finis la revizion kiu atingas de Mezopotamio kaj Islamo ĝis la interreto kaj la cifereca tutmondiĝo, kun halto ĉe la leĝo de Hubble.",
-    "icono": "🕌💻"
+    "nombre": "Fakulo pri Mezepoko kaj Renesanco",
+    "descripcion": "Vi trapasis la ekzamenon pri la Bizanca Imperio, islamo kaj ĝia araba vastiĝo, la Plena Mezepoko, la krizo de la Malfrua Mezepoko kaj la Renesanco kun la Reformacio.",
+    "icono": "📜"
   },
   {
     "id": 695,
     "materia": "Historia profunda",
     "cluster": 15,
     "temas": [
-      "metalurgia-cobre-hierro",
-      "minerales-estructura-cristalina",
-      "modelo-agroexportador-inmigracion",
-      "modernidad-imprenta-navegacion-ciencia",
-      "movimiento-aparente-constelaciones"
+      "ciencia-revolucion-cientifica",
+      "imprenta",
+      "navegacion",
+      "conquista-colonizacion-america",
+      "modernidad-imprenta-navegacion-ciencia"
     ],
-    "nombre": "Metalurgio, Mineraloj kaj Moderneco",
-    "descripcion": "Vi finis la ĉefan ekzamenon pri la metalurgio de kupro kaj fero, la mineraloj, la agroeksporta modelo kaj la moderneco de presarto kaj navigado.",
-    "icono": "⚒️🔭"
+    "nombre": "Regu la Modernecon kaj la Konkeron",
+    "descripcion": "Vi plenumis la ekzamenon regante la sciencan revolucion, presadon, navigadon kaj la konkeron kaj koloniigon de Ameriko.",
+    "icono": "⛵"
   },
   {
     "id": 696,
     "materia": "Historia profunda",
     "cluster": 16,
     "temas": [
-      "movimiento-rotacion-traslacion",
-      "multicelularidad",
-      "navegacion",
-      "nucleosintesis",
-      "organizacion-nacional-constitucion-1853"
+      "absolutismo-europeo",
+      "conquista-y-colonia-argentina",
+      "ilustracion",
+      "virreinato-y-comercio",
+      "revolucion-industrial"
     ],
-    "nombre": "Kosmo kaj la Konstitucio de 1853",
-    "descripcion": "Vi montris regadon de la tera rotacio kaj revolucio kaj la nukleosintezo ĝis la nacia organizado de 1853, ĉefo.",
-    "icono": "🌐📜"
+    "nombre": "Majstro de Absolutismo kaj Lumepoko",
+    "descripcion": "Vi regis eŭropan absolutismon, la Lumepokon, la Industrian Revolucion, konkeron kaj kolonion en Argentino kaj la vicreĝecon kun ĝia komerco, ĉefo.",
+    "icono": "👑"
   },
   {
     "id": 697,
     "materia": "Historia profunda",
     "cluster": 17,
     "temas": [
-      "origen-de-la-vida",
-      "origen-del-universo",
-      "paleoclima-glaciaciones",
-      "paleolitico",
-      "peronismo-derechos-sociales"
+      "revolucion-de-mayo",
+      "electrificacion-fabrica-hogar",
+      "guerras-de-independencia-argentina",
+      "huella-humana-en-el-clima-inicio",
+      "guerras-civiles-unitarios-federales"
     ],
-    "nombre": "De la Praeksplodo al la Peronismo",
-    "descripcion": "Vi finis ĉi tiun ĉefan ekzamenon atingante de la origino de la universo kaj de la vivo ĝis la paleolitiko kaj la peronismo.",
-    "icono": "💥🗳️"
+    "nombre": "Fakulo pri la Argentina Sendependiĝo",
+    "descripcion": "Vi trapasis la ekzamenon pri la Revolucio de Majo, la sendependiĝajn militojn kaj la civilajn militojn inter unitaristoj kaj federaciistoj, kune kun elektrizado kaj la komenco de la homa spuro en la klimato.",
+    "icono": "🇦🇷"
   },
   {
     "id": 698,
     "materia": "Historia profunda",
     "cluster": 18,
     "temas": [
-      "poblamiento-planeta-america",
-      "primera-guerra-mundial-y-revolucion-rusa",
-      "procariotas",
-      "propiedad-jerarquia-estado",
-      "pueblos-originarios-territorio-argentino"
+      "revoluciones-burguesas-liberalismo",
+      "organizacion-nacional-constitucion-1853",
+      "estados-nacionales",
+      "modelo-agroexportador-inmigracion",
+      "imperialismo"
     ],
-    "nombre": "De la Prokariotoj al la Rusia Revolucio",
-    "descripcion": "Vi finis la ekzamenon pri la prokariotoj, la loĝigado de Ameriko, la indiĝenaj popoloj kaj la Unua Mondmilito kaj la Rusia Revolucio.",
-    "icono": "🧫🚩"
+    "nombre": "Regu la Liberalan kaj Nacian Ordon",
+    "descripcion": "Vi plenumis la ekzamenon regante la burĝajn revoluciojn kaj liberalismon, naciajn ŝtatojn, imperiismon, la Konstitucion de 1853 kaj la agroeksportan modelon kun enmigrado.",
+    "icono": "📈"
   },
   {
     "id": 699,
     "materia": "Historia profunda",
     "cluster": 19,
     "temas": [
-      "radiacion-mamiferos",
-      "recuperacion-democratica-memoria",
-      "relieve-sismos-volcanes",
-      "renacimiento-y-reforma",
-      "revolucion-de-mayo"
+      "ampliacion-democratica-ley-saenz-pena",
+      "sociedad-de-masas-y-democracia-liberal",
+      "primera-guerra-mundial-y-revolucion-rusa",
+      "entreguerras-y-crisis-de-1929",
+      "golpes-de-estado-interrupciones"
     ],
-    "nombre": "De la Renesanco al la Reakirita Demokratio",
-    "descripcion": "Vi kompletigis la partan ekzamenon regante la Renesancon kaj la Reformacion, la Majan Revolucion kaj la demokratian revenon kaj la memoron, ĉefo.",
-    "icono": "🎨🕊️"
+    "nombre": "Majstro de la Frua 20-a Jarcento",
+    "descripcion": "Vi regis amasan socion kaj liberalan demokration, la Unuan Mondmiliton kaj la Rusan Revolucion, la interbataladan periodon kaj la krizon de 1929, la Leĝon Sáenz Peña kaj la puĉojn, ĉefo.",
+    "icono": "📰"
   },
   {
     "id": 700,
     "materia": "Historia profunda",
     "cluster": 20,
     "temas": [
-      "revolucion-industrial",
-      "revolucion-neolitica",
-      "revoluciones-burguesas-liberalismo",
-      "rocas-igneas-sedimentarias-metamorficas",
-      "sedentarizacion-excedente"
+      "segunda-guerra-mundial",
+      "peronismo-derechos-sociales",
+      "descolonizacion-de-africa-y-asia",
+      "guerras-mundiales",
+      "guerra-fria-descolonizacion"
     ],
-    "nombre": "De la Neolitika al la Industria Revolucio",
-    "descripcion": "Vi trapasis la Neolitikan Revolucion, la sidiĝon kaj la troprodukton ĝis la Industria Revolucio kaj la burĝaj revolucioj.",
-    "icono": "🌾🏭"
+    "nombre": "Fakulo pri Militoj kaj Malvarma Milito",
+    "descripcion": "Vi trapasis la ekzamenon pri la mondmilitoj, la Dua Mondmilito, la Malvarma Milito, la malkoloniigon de Afriko kaj Azio kaj la peronismon kun siaj sociaj rajtoj.",
+    "icono": "🕊️"
   },
   {
     "id": 701,
     "materia": "Historia profunda",
     "cluster": 21,
     "temas": [
-      "segunda-guerra-mundial",
-      "seleccion-natural-evidencias-nivel2",
-      "sociedad-de-masas-y-democracia-liberal",
-      "tabla-periodica-nivel2-cosmologico",
-      "tectonica-placas-deriva-continental",
       "terrorismo-de-estado-argentina",
-      "tiempo-geologico-eones-eras-periodos",
-      "tierra-primitiva-diferenciacion",
-      "virreinato-y-comercio"
+      "historia-contemporanea-de-africa",
+      "guerra-de-malvinas",
+      "historia-contemporanea-de-asia-y-pacifico",
+      "historia-contemporanea-de-medio-oriente",
+      "recuperacion-democratica-memoria",
+      "globalizacion-era-digital",
+      "historia-reciente-argentina",
+      "internet-redes-globalizacion-digital"
     ],
-    "nombre": "Majstro de la Profunda Historio",
-    "descripcion": "Vi brile trapasis la partan ekzamenon, regante de la praa Tero kaj la tektoniko de la platoj ĝis la Dua Mondmilito, la ŝtata terorismo kaj la vicreĝlando, ĉefo.",
-    "icono": "🌋🎖️"
+    "nombre": "Regu la Lastatempan Historion",
+    "descripcion": "Vi plenumis la ekzamenon regante ŝtatan terorismon, Malvinojn kaj la demokratian restarigon en Argentino, la nuntempan historion de Afriko, Azio kaj Meza Oriento, kaj la tutmondiĝon de la cifereca epoko.",
+    "icono": "🌍"
   },
   {
     "id": 721,
     "materia": "Historia",
     "cluster": 1,
     "temas": [
-      "conquista-del-desierto-y-campana-al-chaco",
       "crisis-de-2001",
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "interpretar-una-fuente-historica"
+      "interpretar-una-fuente-historica",
+      "linea-de-tiempo-y-antes-despues",
+      "reforma-universitaria-1918",
+      "decada-siglo-milenio"
     ],
-    "nombre": "Majstro de la Militoj kaj Krizoj",
-    "descripcion": "Vi sukcese trapasis la partan ekzamenon pri la Konkero de la Dezerto, la Paragvaja Milito, la Hispana Civila Milito kaj la krizo de 2001, interpretante historiajn fontojn.",
-    "icono": "⚔️"
+    "nombre": "Fakulo pri Fontoj kaj Kronologio",
+    "descripcion": "Vi regis la interpreton de historiaj fontoj, templinioj, jardeko, jarcento kaj jarmilo, kaj argentinajn kazojn kiel la Universitatan Reformon de 1918 kaj la krizon de 2001, ĉefo.",
+    "icono": "🗂️"
   },
   {
     "id": 722,
     "materia": "Historia",
     "cluster": 2,
     "temas": [
-      "linea-de-tiempo-y-antes-despues",
-      "reforma-universitaria-1918",
-      "decada-siglo-milenio",
-      "revolucion-mexicana-1910-1920",
-      "antes-y-despues-de-cristo"
+      "semana-tragica-1919",
+      "antes-y-despues-de-cristo",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "periodizacion-historica",
+      "causa-y-consecuencia"
     ],
-    "nombre": "Majstro de la Tempo kaj la Revolucioj",
-    "descripcion": "Vi finis la ĉefan ekzamenon pri templinioj, la Universitata Reformo de 1918 kaj la Meksika Revolucio.",
+    "nombre": "Regu Periodigon kaj Kaŭzecon",
+    "descripcion": "Vi plenumis la ekzamenon regante periodigon, antaŭ kaj post Kristo, kaŭzon kaj sekvon, la Tragikan Semajnon de 1919 kaj la industriigon per anstataŭigo de importoj.",
     "icono": "⏳"
   },
   {
@@ -1211,515 +1059,515 @@
     "materia": "Historia",
     "cluster": 3,
     "temas": [
-      "rosas-y-la-confederacion",
-      "periodizacion-historica",
-      "economias-regionales-tempranas",
-      "causa-y-consecuencia",
-      "semana-tragica-1919"
+      "significancia-historica",
+      "cambio-y-continuidad",
+      "evidencia",
+      "dimension-etica",
+      "multicausalidad"
     ],
-    "nombre": "Majstro de Rosas kaj la Tragika Semajno",
-    "descripcion": "Vi sukcese trapasis la partan ekzamenon pri Rosas kaj la Konfederacio, la fruaj regionaj ekonomioj kaj la Tragika Semajno de 1919, ĉefo.",
-    "icono": "📜"
+    "nombre": "Majstro de la Historia Pensado",
+    "descripcion": "Vi regis historian signifon, ŝanĝon kaj daŭrecon, evidentaĵon, multkaŭzecon kaj la etikan dimension, ĉefo.",
+    "icono": "🧠"
   },
   {
     "id": 724,
     "materia": "Historia",
     "cluster": 4,
     "temas": [
-      "cambio-y-continuidad",
-      "evidencia",
-      "dimension-etica",
-      "industrializacion-por-sustitucion-de-importaciones-isi",
-      "multicausalidad"
+      "escuela-de-los-annales",
+      "historia-cultural",
+      "materialismo-historico",
+      "positivismo",
+      "revoluciones"
     ],
-    "nombre": "Majstro de la Historia Pensado kaj la Importsubstituo",
-    "descripcion": "Vi finis la ĉefan ekzamenon regante la ŝanĝon kaj la kontinuecon, la multkaŭzecon, la historian pruvaron kaj la industriiĝon per importsubstituo.",
-    "icono": "🏭"
+    "nombre": "Fakulo pri Historiografiaj Kurentoj",
+    "descripcion": "Vi trapasis la ekzamenon pri la Skolo de Annales, kultura historio, historia materialismo, pozitivismo kaj la studo de revolucioj.",
+    "icono": "📚"
   },
   {
     "id": 725,
     "materia": "Historia",
     "cluster": 5,
     "temas": [
-      "significancia-historica",
-      "escuela-de-los-annales",
-      "historia-cultural",
-      "materialismo-historico",
-      "positivismo",
-      "revoluciones",
       "independencias",
-      "guerras"
+      "revolucion-mexicana-1910-1920",
+      "guerras",
+      "guerra-civil-espanola-1936-1939",
+      "guerra-del-paraguay-y-triple-alianza",
+      "rosas-y-la-confederacion",
+      "conquista-del-desierto-y-campana-al-chaco",
+      "economias-regionales-tempranas"
     ],
-    "nombre": "Majstro de la Historiografiaj Lernejoj",
-    "descripcion": "Vi sukcese trapasis la partan ekzamenon integrante la Lernejon de Annales, la historian materialismon kaj la pozitivismon kun la grandaj revolucioj, sendependecoj kaj militoj.",
-    "icono": "📚"
+    "nombre": "Regu Militojn kaj Amerikajn Procezojn",
+    "descripcion": "Vi plenumis la ekzamenon pri sendependiĝoj, la meksika revolucio, la hispana enlanda milito, la milito de Paragvajo, Rosas kaj la Konfederacio, la Konkero de la Dezerto kaj fruaj regionaj ekonomioj.",
+    "icono": "🗺️"
   },
   {
     "id": 736,
     "materia": "Física",
     "cluster": 1,
     "temas": [
-      "calor-q-m-c-deltat",
-      "cambios-de-estado-calor-latente",
+      "cargas-electricas",
+      "estatica/centro-de-gravedad",
       "campo-electrico",
-      "campo-magnetico-imanes-corrientes",
-      "cargas-electricas"
+      "corriente-electrica",
+      "estatica/momento-de-una-fuerza"
     ],
-    "nombre": "Majstro de la Varmo kaj la Elektraj Ŝargoj",
-    "descripcion": "Vi kompletigis la partan ekzamenon regante la specifan varmon, la ŝtatŝanĝojn kaj la elektran kaj magnetan kampojn, ĉefo.",
-    "icono": "🔥⚡"
+    "nombre": "Ŝargoj, Elektra Kampo kaj Statiko",
+    "descripcion": "Vi plenumis la ekzamenon regante elektrajn ŝargojn, elektran kampon kaj kurenton, kaj ankaŭ la momanton de forto kaj la pezocentron en statiko.",
+    "icono": "⚡"
   },
   {
     "id": 737,
     "materia": "Física",
     "cluster": 2,
     "temas": [
-      "caudal-q-a-v",
-      "choques-elasticos-inelasticos",
-      "circuitos-en-paralelo",
-      "circuitos-en-serie",
-      "circuitos-mixtos"
+      "estructura-del-nucleo-atomico",
+      "estatica/equilibrio-de-cuerpo-rigido",
+      "decaimiento-radiactivo-alfa-beta-gamma",
+      "formulas-con-literales",
+      "fision-y-fusion-nuclear"
     ],
-    "nombre": "Fakulo pri Cirkvitoj kaj Kolizioj",
-    "descripcion": "Vi regis la seriajn, paralelajn kaj miksitajn cirkvitojn, krome la akvofluon kaj la elastajn kaj neelastajn koliziojn.",
-    "icono": "🔌💥"
+    "nombre": "Atoma Nukleo kaj Rigida Ekvilibro",
+    "descripcion": "Vi regis alfa-, beta- kaj gama-disfalon, nukleran fision kaj fuzion kaj la strukturon de la nukleo, krome la ekvilibron de rigida korpo kaj formulojn kun literoj.",
+    "icono": "☢️"
   },
   {
     "id": 738,
     "materia": "Física",
     "cluster": 3,
     "temas": [
-      "conservacion-energia-mecanica",
-      "corriente-electrica",
-      "decaimiento-radiactivo-alfa-beta-gamma",
-      "decibeles-richter",
-      "dilatacion-termica-lineal"
+      "iman-polos-atraccion-repulsion",
+      "ley-de-coulomb",
+      "leyes-de-newton/primera-inercia",
+      "maquinas-simples",
+      "leyes-de-newton/segunda-fma"
     ],
-    "nombre": "Regu la Energion kaj la Radioaktivecon",
-    "descripcion": "Vi finis la ekzamenon regante la konservadon de mekanika energio, la elektran kurenton, la radioaktivan disfalon kaj la varman dilatiĝon, ĉefo.",
-    "icono": "☢️⚡"
+    "nombre": "Majstro de Coulomb kaj Newton",
+    "descripcion": "Vi trapasis la ekzamenon kun la leĝo de Coulomb kaj la magnetismo de magnetoj, kune kun la unua kaj dua leĝoj de Newton kaj simplaj maŝinoj, ĉefo.",
+    "icono": "🧲"
   },
   {
     "id": 739,
     "materia": "Física",
     "cluster": 4,
     "temas": [
+      "mru",
+      "leyes-de-newton/tercera-accion-reaccion",
+      "mruv",
       "dinamica-fuerzas-concurrentes",
-      "dualidad-onda-particula",
-      "energia-cinetica",
-      "energia-potencial-gravitatoria",
-      "entropia-segunda-ley-termodinamica"
+      "oscilacion-periodo"
     ],
-    "nombre": "Majstro de la Dinamiko kaj la Entropio",
-    "descripcion": "Vi regis la konverĝajn fortojn, la kinetan kaj potencialan energion, kaj finis per la entropio kaj la ondo-partikla dueco.",
-    "icono": "⚛️⚖️"
+    "nombre": "Regu Kinematikon kaj Dinamikon",
+    "descripcion": "Vi plenumis la ekzamenon kun MRU, MRUV, la tria leĝo de Newton, konkurantaj fortoj kaj la periodo de oscilado.",
+    "icono": "🚀"
   },
   {
     "id": 740,
     "materia": "Física",
     "cluster": 5,
     "temas": [
-      "escalas-de-temperatura-c-f-k",
-      "estatica/centro-de-gravedad",
-      "estatica/equilibrio-de-cuerpo-rigido",
-      "estatica/momento-de-una-fuerza",
-      "estructura-del-nucleo-atomico"
+      "gravitacion-universal",
+      "frecuencia",
+      "momento-lineal",
+      "longitud-onda-velocidad-propagacion",
+      "impulso-cambio-momento"
     ],
-    "nombre": "Regado de la Ekvilibro kaj la Varmaj Skaloj",
-    "descripcion": "Vi kompletigis la partan ekzamenon regante la gravitocentron, la ekvilibron de rigida korpo, la temperaturajn skalojn kaj la strukturon de la atomkerno, ĉefo.",
-    "icono": "⚖️🌡️"
+    "nombre": "Fakulo pri Movokvanto kaj Ondoj",
+    "descripcion": "Vi regis linearan movokvanton, impulson kaj universalan gravitadon, krome frekvencon kaj la rilaton inter ondolongo kaj disvastiga rapideco.",
+    "icono": "🌊"
   },
   {
     "id": 741,
     "materia": "Física",
     "cluster": 6,
     "temas": [
-      "fisica-medica",
-      "fision-y-fusion-nuclear",
-      "formacion-de-imagenes-optica",
-      "formulas-con-literales",
-      "frecuencia"
+      "luz-onda-espectro-electromagnetico",
+      "movimiento-circular-y-fuerza-centripeta",
+      "dualidad-onda-particula",
+      "plano-inclinado-y-rozamiento",
+      "fisica-medica"
     ],
-    "nombre": "Fakulo pri Medicina kaj Nuklea Fiziko",
-    "descripcion": "Vi regis la nuklean fision kaj fuzion, la bildo-formadon en optiko kaj la medicinan fizikon, sen erari eĉ unu literan formulon.",
-    "icono": "🏥☢️"
+    "nombre": "Kvanta Lumo kaj Cirkla Movado",
+    "descripcion": "Vi plenumis la ekzamenon regante la elektromagnetan spektron, la dualecon ondo-partiklo kaj medicinan fizikon, krome cirklan movadon kaj oblikvan ebenon kun frotado, ĉefo.",
+    "icono": "💡"
   },
   {
     "id": 742,
     "materia": "Física",
     "cluster": 7,
     "temas": [
-      "generador-motor-transformador",
-      "gravitacion-universal",
-      "iman-polos-atraccion-repulsion",
-      "impulso-cambio-momento",
-      "induccion-electromagnetica-faraday-lenz"
+      "presion-f-sobre-a",
+      "reflexion-espejos-planos-curvos",
+      "caudal-q-a-v",
+      "presion-atmosferica",
+      "presion-hidrostatica"
     ],
-    "nombre": "Majstro de la Elektromagnetismo kaj la Gravitado",
-    "descripcion": "Vi finis la ekzamenon regante generatorojn, motorojn kaj transformatorojn, la elektromagnetan indukton de Faraday kaj Lenz, kaj la universalan gravitadon, ĉefo.",
-    "icono": "🧲🌍"
+    "nombre": "Fakulo pri Premo kaj Fluidoj",
+    "descripcion": "Vi regis premon, hidrostatikan kaj atmosferan premon kaj debiton, kaj aldonis la reflekton en ebenaj kaj kurbaj speguloj.",
+    "icono": "💧"
   },
   {
     "id": 743,
     "materia": "Física",
     "cluster": 8,
     "temas": [
-      "lentes-convergentes-divergentes",
-      "ley-de-coulomb",
-      "ley-de-ohm",
-      "leyes-de-newton/primera-inercia",
-      "leyes-de-newton/segunda-fma"
+      "masas-de-aire-y-frentes",
+      "principio-de-arquimedes-empuje-flotacion",
+      "formacion-de-nubes",
+      "principio-de-pascal-prensa-hidraulica",
+      "precipitacion"
     ],
-    "nombre": "Regado de la Bazaj Leĝoj",
-    "descripcion": "Vi regis la leĝon de Coulomb, la leĝon de Ohm kaj la du unuajn leĝojn de Newton, krome la konverĝajn kaj diverĝajn lensojn.",
-    "icono": "🔍⚡"
+    "nombre": "Fluidoj kaj Meteologio",
+    "descripcion": "Vi trapasis la ekzamenon kun la principo de Arkimedo kaj tiu de Pascal, kaj kun aermasoj kaj frontoj, nubformiĝo kaj precipitaĵo.",
+    "icono": "☁️"
   },
   {
     "id": 744,
     "materia": "Física",
     "cluster": 9,
     "temas": [
-      "leyes-de-newton/tercera-accion-reaccion",
-      "longitud-onda-velocidad-propagacion",
-      "luz-onda-espectro-electromagnetico",
-      "maquina-termica-termodinamica-nivel2",
-      "maquinas-simples"
+      "refraccion-indice-ley-snell",
+      "relatividad-especial-conceptual",
+      "lentes-convergentes-divergentes",
+      "resonancia-frecuencia-natural",
+      "formacion-de-imagenes-optica"
     ],
-    "nombre": "Majstro de la Ondoj kaj la Maŝinoj",
-    "descripcion": "Vi kompletigis la partan ekzamenon regante la trian leĝon de Newton, la disvastiĝon de ondoj, la elektromagnetan spektron kaj la simplajn maŝinojn, ĉefo.",
-    "icono": "🌊⚙️"
+    "nombre": "Majstro de la Geometria Optiko",
+    "descripcion": "Vi plenumis la ekzamenon regante refrakton kaj la leĝon de Snell, konverĝajn kaj diverĝajn lensojn kaj bildformiĝon, kune kun resonanco kaj speciala relativeco.",
+    "icono": "🔭"
   },
   {
     "id": 745,
     "materia": "Física",
     "cluster": 10,
     "temas": [
-      "momento-lineal",
-      "movimiento-circular-y-fuerza-centripeta",
-      "mru",
+      "semivida-desintegracion-exponencial",
       "ojo-humano-instrumento-optico",
-      "mruv"
+      "sonido-timbre-altura-intensidad",
+      "temperatura-equilibrio-termico",
+      "decibeles-richter"
     ],
-    "nombre": "Regu la Movon kaj la Vidon",
-    "descripcion": "Vi regis la unuforman movon, la unuforme akcelatan movon, la linearan movokvanton kaj la cirklan movon, kaj komprenis la homan okulon kiel optikan instrumenton.",
-    "icono": "🏃‍♂️👁️"
+    "nombre": "Sono, Vido kaj Duoniĝotempo",
+    "descripcion": "Vi regis sonon (tembro, tonalto kaj intenseco), decibelojn kaj la skalon de Richter, la homan okulon kiel optikan instrumenton, duoniĝotempon kaj termikan ekvilibron, ĉefo.",
+    "icono": "🔊"
   },
   {
     "id": 746,
     "materia": "Física",
     "cluster": 11,
     "temas": [
-      "oscilacion-periodo",
-      "plano-inclinado-y-rozamiento",
-      "potencia-electrica",
-      "potencia-mecanica",
-      "presion-atmosferica"
+      "calor-q-m-c-deltat",
+      "dilatacion-termica-lineal",
+      "cambios-de-estado-calor-latente",
+      "escalas-de-temperatura-c-f-k",
+      "maquina-termica-termodinamica-nivel2"
     ],
-    "nombre": "Majstro de la Povumo kaj la Osciladoj",
-    "descripcion": "Vi finis la ekzamenon regante la elektran kaj mekanikan povumon, la klinan ebenon kun frotado, la osiladon kaj la atmosferan premon, ĉefo.",
-    "icono": "🔄⚡"
+    "nombre": "Regu Varmon kaj Termometrion",
+    "descripcion": "Vi plenumis la ekzamenon kun varmo Q=m·c·ΔT, termika dilatiĝo, latenta varmo, temperaturaj skaloj kaj varmaj maŝinoj.",
+    "icono": "🌡️"
   },
   {
     "id": 747,
     "materia": "Física",
     "cluster": 12,
     "temas": [
-      "presion-f-sobre-a",
-      "masas-de-aire-y-frentes",
-      "presion-hidrostatica",
-      "formacion-de-nubes",
-      "principio-de-arquimedes-empuje-flotacion"
+      "tension-diferencia-potencial",
+      "entropia-segunda-ley-termodinamica",
+      "resistencia-electrica",
+      "tiro-oblicuo",
+      "ley-de-ohm"
     ],
-    "nombre": "Regu la Premon kaj la Klimaton",
-    "descripcion": "Vi regis la hidrostatikan premon, la principon de Arkimedo, la aermasojn kaj frontojn, kaj la nuban formiĝon.",
-    "icono": "🌬️☁️"
+    "nombre": "Leĝo de Ohm kaj Oblikva Ĵeto",
+    "descripcion": "Vi trapasis la ekzamenon kun tensio, rezistanco kaj la leĝo de Ohm, kaj ankaŭ kun la oblikva ĵeto kaj la entropio en la dua leĝo de termodinamiko.",
+    "icono": "🔌"
   },
   {
     "id": 748,
     "materia": "Física",
     "cluster": 13,
     "temas": [
-      "precipitacion",
-      "principio-de-pascal-prensa-hidraulica",
-      "reflexion-espejos-planos-curvos",
-      "refraccion-indice-ley-snell",
-      "relatividad-especial-conceptual"
+      "tiro-vertical",
+      "circuitos-en-paralelo",
+      "circuitos-en-serie",
+      "potencia-electrica",
+      "circuitos-mixtos"
     ],
-    "nombre": "Majstro de la Optiko kaj la Relativeco",
-    "descripcion": "Vi kompletigis la partan ekzamenon regante la reflektadon, la refrakton laŭ la leĝo de Snell, la principon de Pascal kaj la specialan relativecon, ĉefo.",
-    "icono": "🔭🌀"
+    "nombre": "Fakulo pri Elektraj Cirkvitoj",
+    "descripcion": "Vi regis seriajn, paralelajn kaj miksitajn cirkvitojn kune kun elektra potenco, kaj aldonis la vertikalan ĵeton, ĉefo.",
+    "icono": "🔋"
   },
   {
     "id": 749,
     "materia": "Física",
     "cluster": 14,
     "temas": [
-      "resistencia-electrica",
-      "resonancia-frecuencia-natural",
-      "semivida-desintegracion-exponencial",
-      "sonido-timbre-altura-intensidad",
-      "temperatura-equilibrio-termico"
+      "tormentas-y-fenomenos-severos",
+      "campo-magnetico-imanes-corrientes",
+      "trabajo-de-una-fuerza",
+      "induccion-electromagnetica-faraday-lenz",
+      "energia-cinetica"
     ],
-    "nombre": "Regu la Sonon kaj la Reziston",
-    "descripcion": "Vi regis la elektran reziston, la resonancon, la tembron kaj la intensecon de sono, kaj la eksponentan disfalon de la duoniĝa tempo.",
-    "icono": "🔊🔋"
+    "nombre": "Elektromagnetismo, Laboro kaj Energio",
+    "descripcion": "Vi plenumis la ekzamenon regante magnetan kampon, induktadon de Faraday-Lenz, laboron de forto kaj kinetan energion, krome ŝtormojn kaj severajn fenomenojn.",
+    "icono": "🧭"
   },
   {
     "id": 750,
     "materia": "Física",
     "cluster": 15,
     "temas": [
-      "tension-diferencia-potencial",
-      "tiro-oblicuo",
-      "tiro-vertical",
-      "tormentas-y-fenomenos-severos",
-      "trabajo-de-una-fuerza",
+      "generador-motor-transformador",
+      "choques-elasticos-inelasticos",
+      "energia-potencial-gravitatoria",
       "transmision-calor-conduccion-conveccion-radiacion",
-      "velocidad-aceleracion-instantaneas"
+      "conservacion-energia-mecanica",
+      "velocidad-aceleracion-instantaneas",
+      "potencia-mecanica"
     ],
-    "nombre": "Majstro de la Ĵetoj kaj la Ventegoj",
-    "descripcion": "Vi finis la ekzamenon regante la oblikvan kaj vertikalan ĵeton, la laboron de forto, la varmotransigon kaj la severajn ventegojn, ĉefo.",
-    "icono": "🎯🌪️"
+    "nombre": "Majstro de Energio kaj ĝiaj Maŝinoj",
+    "descripcion": "Vi regis la konservadon de mekanika energio, gravitan potencialan energion, potencon, elastajn kaj nelastajn kolizojn, transdonon de varmo kaj generatorojn, motorojn kaj transformilojn.",
+    "icono": "⚙️"
   },
   {
     "id": 766,
     "materia": "Economía",
     "cluster": 1,
     "temas": [
-      "balanza-comercial",
       "blockchain-claves-wallet",
-      "business-model-canvas",
       "capitalismo-industrial-trabajo-asalariado",
-      "comercio-internacional-ventaja-comparativa"
+      "contratos-inteligentes",
+      "costo-marginal",
+      "debe-haber-balance"
     ],
-    "nombre": "Majstro de la Tutmonda Komerco kaj Blokĉeno",
-    "descripcion": "Vi komprenis la komercan bilancon, la komparatan avantaĝon kaj faris viajn unuajn paŝojn en blokĉeno kaj negocaj modeloj.",
-    "icono": "🌐"
+    "nombre": "Blokĉeno, Marĝena Kosto kaj Bilanco",
+    "descripcion": "Vi plenumis la ekzamenon trapasante ŝlosilojn kaj monujojn de blokĉeno, saĝajn kontraktojn, marĝenan koston kaj la debeto-kredito de la bilanco, ĉefo.",
+    "icono": "⛓️"
   },
   {
     "id": 767,
     "materia": "Economía",
     "cluster": 2,
     "temas": [
-      "contratos-inteligentes",
-      "control-de-gestion-e-indicadores",
-      "cooperativismo-y-mutualismo",
-      "coordinar-personas-y-recursos",
-      "costo-de-oportunidad"
+      "detectar-una-oportunidad-de-negocio",
+      "elasticidad",
+      "estructura-del-patrimonio",
+      "estructura-productiva-dependencia",
+      "ecuacion-contable-fundamental"
     ],
-    "nombre": "Majstro de la Administrado kaj la Ŝanckosto",
-    "descripcion": "Vi regis la administran kontrolon, kunordigis homojn kaj rimedojn, kaj komprenis la ŝanckoston kaj la kooperativismon.",
-    "icono": "🤝"
+    "nombre": "Regu Havaĵon kaj Elastecon",
+    "descripcion": "Vi regis la fundamentan kontadan ekvacion kaj la strukturon de havaĵo, krome elastecon, produktan dependecon kaj kiel detekti komercan okazon.",
+    "icono": "📊"
   },
   {
     "id": 768,
     "materia": "Economía",
     "cluster": 3,
     "temas": [
-      "costo-marginal",
-      "debe-haber-balance",
-      "detectar-una-oportunidad-de-negocio",
-      "dex-swap",
-      "division-formal-microeconomia-macroeconomia"
+      "interes-simple",
+      "iva",
+      "interes-compuesto",
+      "origen-excedente-moneda-mercado",
+      "cft-vs-tasa-nominal"
     ],
-    "nombre": "Regu la Marĝenan Koston kaj la Kontadajn Bazojn",
-    "descripcion": "Vi lernis la debeton kaj la krediton, kalkulis la marĝenan koston kaj distingis mikroekonomion de makroekonomio, ĉefo.",
-    "icono": "⚖️"
+    "nombre": "Majstro de Interezo kaj Kurzo",
+    "descripcion": "Vi plenumis la ekzamenon kalkulante simplan kaj kunmetitan interezon, IVA kaj la diferencon inter CFT kaj nominala kurzo, ne forgesante la originon de la troaĵo kaj la monon.",
+    "icono": "💹"
   },
   {
     "id": 769,
     "materia": "Economía",
     "cluster": 4,
     "temas": [
-      "elasticidad",
-      "economia-positiva-y-normativa",
-      "estado-de-resultados",
-      "estructura-del-patrimonio",
-      "estructura-productiva-dependencia"
+      "cuota-credito-frances",
+      "dex-swap",
+      "interes-compuesto-funcion",
+      "partida-doble",
+      "plazo-fijo-vs-inflacion"
     ],
-    "nombre": "Majstro de la Elasteco kaj la Kontadaj Raportoj",
-    "descripcion": "Vi kompletigis la partan ekzamenon analizante elastecon, profit-perdan raporton kaj la produktadan strukturon de la lando.",
-    "icono": "📉"
+    "nombre": "Fakulo pri Kreditoj kaj Ciferecaj Financoj",
+    "descripcion": "Vi regis la kvoton de franca kredito, la fiksan deponon kontraŭ inflacio, duoblan enskribon kaj interŝanĝojn ĉe malcentraligitaj interŝanĝejoj, ĉefo.",
+    "icono": "🏦"
   },
   {
     "id": 770,
     "materia": "Economía",
     "cluster": 5,
     "temas": [
-      "ecuacion-contable-fundamental",
-      "interes-simple",
-      "iva",
-      "interes-compuesto",
-      "margenes-bruto-y-neto"
+      "libro-diario-mayor",
+      "pools-liquidez-amm",
+      "estados-contables",
+      "precio-final",
+      "contabilidad-ambiental"
     ],
-    "nombre": "Majstro de la Kontada Ekvacio kaj la Interezoj",
-    "descripcion": "Vi kalkulis simplan kaj kunmetitan interezon, aplikis la TVA-on kaj regis la brutan kaj netan marĝenon.",
-    "icono": "🧮"
+    "nombre": "Regu Kontajn Registrojn kaj Naĝejojn",
+    "descripcion": "Vi plenumis la ekzamenon kun taglibro kaj ĉeflibro, kontaj ŝtatoj, media kontado, fina prezo kaj la likvidecaj naĝejoj de AMM.",
+    "icono": "📒"
   },
   {
     "id": 771,
     "materia": "Economía",
     "cluster": 6,
     "temas": [
-      "cft-vs-tasa-nominal",
-      "cuota-credito-frances",
-      "interes-compuesto-funcion",
-      "mejora-continua",
-      "mvp-producto-minimo-viable"
+      "contabilidad-como-sistema-de-informacion",
+      "costo-de-oportunidad",
+      "indices-financieros",
+      "division-formal-microeconomia-macroeconomia",
+      "oferta-y-demanda"
     ],
-    "nombre": "Regu la Krediton kaj la Daŭran Plibonigon",
-    "descripcion": "Vi distingis la totalan financan koston de la nominala procento, kalkulis pagojn laŭ la franca kredita sistemo kaj aplikis daŭran plibonigon al MVP.",
-    "icono": "💳"
+    "nombre": "Majstro de Mikroekonomio kaj Kontado",
+    "descripcion": "Vi regis la dividon inter mikro- kaj makroekonomio, ofertadon kaj postulon, oportunan koston, financajn indicojn kaj kontadon kiel informsistemon.",
+    "icono": "⚖️"
   },
   {
     "id": 772,
     "materia": "Economía",
     "cluster": 7,
     "temas": [
-      "objetivos-y-metas",
-      "origen-excedente-moneda-mercado",
-      "partida-doble",
-      "pitch-a-inversores",
-      "libro-diario-mayor"
+      "economia-positiva-y-normativa",
+      "fisiocracia",
+      "mercantilismo",
+      "pbi-e-inflacion",
+      "liberalismo-clasico-y-escuela-austriaca"
     ],
-    "nombre": "Majstro de la Duobla Kontado kaj la Pitch",
-    "descripcion": "Vi registris duoblan kontadon en la ĵurnala libro, komprenis la originon de la mona troprodukto kaj preparis vian pitch-on al investantoj.",
-    "icono": "📒"
+    "nombre": "Fakulo pri Klasikaj Ekonomiaj Skoloj",
+    "descripcion": "Vi trairis fiziokratismon, merkantilismon, klasikan liberalismon kaj aŭstran skolon, krome MEP kaj inflacio kaj pozitivan kaj normativan ekonomion, ĉefo.",
+    "icono": "📜"
   },
   {
     "id": 773,
     "materia": "Economía",
     "cluster": 8,
     "temas": [
-      "planificacion-administrativa",
-      "estados-contables",
-      "plazo-fijo-vs-inflacion",
-      "contabilidad-ambiental",
-      "contabilidad-como-sistema-de-informacion"
+      "balanza-comercial",
+      "recibo-de-sueldo/general",
+      "comercio-internacional-ventaja-comparativa",
+      "recibo-de-sueldo/argentina",
+      "sectores-economicos"
     ],
-    "nombre": "Regado de la Planado kaj la Kontadaj Raportoj",
-    "descripcion": "Vi planis kiel administranto, legis kontadajn raportojn kaj komparis la fiksdeponaĵon kontraŭ la inflacio, ĉefo.",
-    "icono": "📑"
+    "nombre": "Regu la Komercon kaj la Salajron",
+    "descripcion": "Vi regis la komercan bilancon, la komparan avantaĝon kaj la ekonomiajn sektorojn, kaj ankaŭ lernis legi salajran kvitancon ĝeneralan kaj argentinan.",
+    "icono": "🌍"
   },
   {
     "id": 774,
     "materia": "Economía",
     "cluster": 9,
     "temas": [
-      "indices-financieros",
-      "pools-liquidez-amm",
-      "precio-final",
-      "presupuesto-administrativo",
-      "oferta-y-demanda"
+      "descuentos-obligatorios/jubilacion",
+      "descuentos-obligatorios/obra-social",
+      "jubilacion-sistema-previsional",
+      "monotributo",
+      "socialismo-utopico"
     ],
-    "nombre": "Majstro de Financaj Indeksoj kaj Likvideco",
-    "descripcion": "Vi analizis financajn indeksojn, likvidecajn poolojn, finan prezon kaj la leĝon de oferto kaj postulo.",
-    "icono": "💧"
+    "nombre": "Fakulo pri Antaŭzorgo kaj Laboro",
+    "descripcion": "Vi plenumis la ekzamenon kun emeritiĝo, sanasekuro, antaŭzorga sistemo kaj monotributo, kaj finis per rigardo al utopia socialismo, ĉefo.",
+    "icono": "🧾"
   },
   {
     "id": 775,
     "materia": "Economía",
     "cluster": 10,
     "temas": [
-      "productividad-produccion-insumos",
-      "fisiocracia",
-      "mercantilismo",
-      "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "sueldo-promedio-pais",
+      "marxismo",
+      "tipo-cambio-fijo",
+      "economia-feminista-y-del-cuidado",
+      "keynesianismo"
     ],
-    "nombre": "Majstro de la Klasikaj Ekonomiaj Fluoj",
-    "descripcion": "Vi trapasis la merkantilismon, la fiziokratismon kaj la klasikan liberalismon, kaj komprenis la MEP-on kaj la inflacion.",
-    "icono": "🏛️"
+    "nombre": "Marx, Keynes kaj Kurzo",
+    "descripcion": "Vi regis marksismon, keynesismon kaj feminisman ekonomion de prizorgo, kune kun la fiksa kurzo kaj la meza salajro de la lando.",
+    "icono": "🧠"
   },
   {
     "id": 776,
     "materia": "Economía",
     "cluster": 11,
     "temas": [
-      "punto-de-equilibrio",
-      "recibo-de-sueldo/general",
-      "sectores-economicos",
-      "recibo-de-sueldo/argentina",
-      "socialismo-utopico"
+      "tipo-cambio-flotante",
+      "neoliberalismo",
+      "devaluacion",
+      "ordoliberalismo",
+      "reservas-banco-central"
     ],
-    "nombre": "Regu la Ekvilibropunkton kaj la Salajran Kvitancon",
-    "descripcion": "Vi kalkulis la ekvilibropunkton, legis vian argentinan salajran kvitancon kaj ekkonis la utopian socialismon.",
-    "icono": "💵"
+    "nombre": "Majstro de Kurzo kaj Novliberalismo",
+    "descripcion": "Vi plenumis la ekzamenon regante flosantan kurzon, devaluacion kaj rezervojn de la Centra Banko, krome novliberalismon kaj ordoliberalismon, ĉefo.",
+    "icono": "💱"
   },
   {
     "id": 777,
     "materia": "Economía",
     "cluster": 12,
     "temas": [
-      "descuentos-obligatorios/jubilacion",
-      "descuentos-obligatorios/obra-social",
-      "jubilacion-sistema-previsional",
-      "marxismo",
-      "monotributo"
+      "tipos-de-organizaciones",
+      "deuda-publica-externa",
+      "deuda-publica-interna",
+      "elementos-de-las-organizaciones",
+      "default-deuda"
     ],
-    "nombre": "Majstro de la Pensio kaj la Devigaj Deprenoj",
-    "descripcion": "Vi komprenis la deprenojn por pensio kaj sanasekuro, la antaŭzorgan sistemon, la monotributon kaj la ideojn de Markso.",
-    "icono": "🏦"
+    "nombre": "Organizoj kaj Publika Ŝuldo",
+    "descripcion": "Vi regis la tipojn kaj elementojn de organizoj, kaj ankaŭ la internan kaj eksteran publikan ŝuldon kaj la nepagon.",
+    "icono": "🏛️"
   },
   {
     "id": 778,
     "materia": "Economía",
     "cluster": 13,
     "temas": [
-      "economia-feminista-y-del-cuidado",
-      "keynesianismo",
-      "sueldo-promedio-pais",
-      "neoliberalismo",
-      "ordoliberalismo"
+      "ambiente-interno-y-externo-organizacion",
+      "cultura-organizacional",
+      "estructura-organizacional",
+      "objetivos-y-metas",
+      "tipos-de-proyecto"
     ],
-    "nombre": "Majstro de la Modernaj Ekonomiaj Fluoj",
-    "descripcion": "Vi komparis kejnzismon, neoliberalismon kaj ordoliberalismon, kaj malkovris la feminisman kaj zorgan ekonomikon.",
-    "icono": "📚"
+    "nombre": "Fakulo pri Organiza Administrado",
+    "descripcion": "Vi plenumis la ekzamenon kun organiza kulturo kaj strukturo, interna kaj ekstera medio, celoj kaj metoj kaj specoj de projektoj.",
+    "icono": "🏢"
   },
   {
     "id": 779,
     "materia": "Economía",
     "cluster": 14,
     "temas": [
-      "tipo-cambio-fijo",
-      "tipo-cambio-flotante",
-      "tipos-de-organizaciones",
-      "devaluacion",
-      "elementos-de-las-organizaciones"
+      "cooperativismo-y-mutualismo",
+      "planificacion-administrativa",
+      "tipos-de-sociedades",
+      "coordinar-personas-y-recursos",
+      "presupuesto-administrativo"
     ],
-    "nombre": "Regu la Ŝanĝokurzon kaj la Organizojn",
-    "descripcion": "Vi distingis la fiksan ŝanĝokurzon de la glita, komprenis la devalorigon kaj la elementojn de organizo.",
-    "icono": "💱"
+    "nombre": "Majstro de la Administrado",
+    "descripcion": "Vi regis planadon kaj administran buĝeton, specojn de societoj, kooperativismon kaj mutualismon, kaj kiel kunordigi homojn kaj rimedojn, ĉefo.",
+    "icono": "🤝"
   },
   {
     "id": 780,
     "materia": "Economía",
     "cluster": 15,
     "temas": [
-      "reservas-banco-central",
-      "ambiente-interno-y-externo-organizacion",
-      "cultura-organizacional",
-      "deuda-publica-externa",
-      "deuda-publica-interna"
+      "validar-con-clientes-construir-medir-aprender",
+      "control-de-gestion-e-indicadores",
+      "estado-de-resultados",
+      "mejora-continua",
+      "margenes-bruto-y-neto"
     ],
-    "nombre": "Majstro de la Rezervoj kaj la Ŝtata Ŝuldo",
-    "descripcion": "Vi analizis la rezervojn de la centra banko, la internan kaj eksteran ŝtatan ŝuldon, kaj la organizan kulturon, ĉefo.",
-    "icono": "🏦"
+    "nombre": "Regu Administradon kaj Rezultojn",
+    "descripcion": "Vi plenumis la ekzamenon kun rezulta ŝtato, malneta kaj neta marĝenoj, administra kontrolo kaj indikiloj, daŭra plibonigo kaj la ciklo validigi-konstrui-mezuri-lerni.",
+    "icono": "📈"
   },
   {
     "id": 781,
     "materia": "Economía",
     "cluster": 16,
     "temas": [
-      "estructura-organizacional",
-      "default-deuda",
-      "tipos-de-proyecto",
-      "tipos-de-sociedades",
-      "validar-con-clientes-construir-medir-aprender"
+      "mvp-producto-minimo-viable",
+      "productividad-produccion-insumos",
+      "business-model-canvas",
+      "punto-de-equilibrio",
+      "pitch-a-inversores"
     ],
-    "nombre": "Regu la Organizan Strukturon kaj la Defaŭlton",
-    "descripcion": "Vi komprenis la organizan strukturon, la specojn de societoj kaj de projekto, kaj kio okazas dum ŝulda defaŭlto.",
-    "icono": "🏢"
+    "nombre": "Fakulo pri Entreprenado kaj Ekvilibro",
+    "descripcion": "Vi regis la MVP, la business model canvas, la prezenton al investantoj, la ekvilibran punkton kaj la produktivecon, ĉefo.",
+    "icono": "🚀"
   },
   {
     "id": 782,
@@ -1741,44 +1589,44 @@
     "materia": "Geografía",
     "cluster": 1,
     "temas": [
-      "america-anglosajona",
       "coordenadas-y-husos-horarios",
       "densidad-poblacion",
       "escala-de-mapa",
-      "huella-de-carbono-agua-virtual"
+      "huella-de-carbono-agua-virtual",
+      "orientacion-puntos-cardinales"
     ],
-    "nombre": "Majstro de Koordinatoj kaj Ekologia Spuro",
-    "descripcion": "Vi kompletigis la partan ekzamenon regante tempozonojn, mapan skalon, loĝdenson kaj karbonan spuron.",
-    "icono": "🌍"
+    "nombre": "Majstro de Mapoj kaj Koordinatoj",
+    "descripcion": "Vi plenumis la ekzamenon kun mapa skalo, orientiĝo, koordinatoj kaj horzonoj, kaj aldonis loĝdensecon kaj karbonan spuron kaj virtualan akvon.",
+    "icono": "🧭"
   },
   {
     "id": 797,
     "materia": "Geografía",
     "cluster": 2,
     "temas": [
-      "orientacion-puntos-cardinales",
-      "urbanizacion-migracion-ciudad",
       "mapa-plano-escala",
       "coordenadas-geograficas",
-      "division-politica"
+      "division-politica",
+      "sig-mapas-digitales",
+      "estados-y-globalizacion"
     ],
-    "nombre": "Majstro de la Orientiĝo kaj la Urbaniĝo",
-    "descripcion": "Vi regis la ĉefdirektojn, la geografiajn koordinatojn, la urbaniĝon kaj la politikan dividon, ĉefo.",
-    "icono": "🧭"
+    "nombre": "Fakulo pri Kartografio kaj GIS",
+    "descripcion": "Vi regis skalajn mapojn, geografiajn koordinatojn kaj geografiajn informsistemojn, kune kun politika divido, ŝtatoj kaj tutmondiĝo, ĉefo.",
+    "icono": "🗺️"
   },
   {
     "id": 798,
     "materia": "Geografía",
     "cluster": 3,
     "temas": [
-      "sig-mapas-digitales",
-      "estados-y-globalizacion",
       "region",
       "sig-gps",
-      "relieve-clima-biomas"
+      "relieve-clima-biomas",
+      "sig-imagenes-satelitales",
+      "recursos-actividades-economicas"
     ],
-    "nombre": "Majstro de GIS kaj la Reliefo",
-    "descripcion": "Vi finis la ekzamenon integrante ciferecajn mapojn, GPS-on, reliefon, klimaton kaj biomojn, krome ŝtatojn kaj tutmondiĝon.",
+    "nombre": "Regu Teritorion kaj Teleobservadon",
+    "descripcion": "Vi plenumis la ekzamenon kun regiono, reliefo, klimato kaj biomoj, rimedoj kaj ekonomiaj agadoj, kaj la GIS-ilojn de GPS kaj satelitaj bildoj.",
     "icono": "🛰️"
   },
   {
@@ -1786,30 +1634,30 @@
     "materia": "Geografía",
     "cluster": 4,
     "temas": [
-      "sig-imagenes-satelitales",
-      "recursos-actividades-economicas",
       "regiones-naturales-de-argentina",
       "geografia-economica-agricola-argentina",
-      "geografia-industrial-mundial"
+      "geografia-industrial-mundial",
+      "mineria-e-hidrocarburos-en-argentina",
+      "america-latina-industria-y-energia"
     ],
-    "nombre": "Majstro de la Ekonomia Geografio de Argentino",
-    "descripcion": "Vi regis la satelitajn bildojn, la naturajn regionojn kaj la agrikulturan kaj industrian geografion de Argentino.",
-    "icono": "🌾"
+    "nombre": "Fakulo pri Produkta Geografio",
+    "descripcion": "Vi regis la naturajn regionojn de Argentino, minadon kaj hidrokarbidojn, agrikulturan kaj industrian geografion kaj industrion kaj energion en Latin-Ameriko, ĉefo.",
+    "icono": "⛏️"
   },
   {
     "id": 800,
     "materia": "Geografía",
     "cluster": 5,
     "temas": [
-      "mineria-e-hidrocarburos-en-argentina",
-      "america-latina-industria-y-energia",
       "poblacion-piramides-migraciones",
       "produccion-agraria-mundial-y-biotecnologia",
-      "ambiente-y-recursos"
+      "ambiente-y-recursos",
+      "america-anglosajona",
+      "ambientalismo-liberal"
     ],
-    "nombre": "Majstro de la Energio kaj la Loĝantaro",
-    "descripcion": "Vi kompletigis la partan ekzamenon pri minado kaj hidrokarbidoj, latinamerika industrio kaj energio, kaj loĝantaraj piramidoj.",
-    "icono": "⛏️"
+    "nombre": "Loĝantaro, Medio kaj Monda Agrikulturo",
+    "descripcion": "Vi plenumis la ekzamenon kun loĝantaraj piramidoj kaj migradoj, agrara produktado kaj bioteknologio, medio kaj rimedoj, anglosaksa Ameriko kaj liberala ekologiismo.",
+    "icono": "🌾"
   },
   {
     "id": 801,
@@ -1817,13 +1665,13 @@
     "cluster": 6,
     "temas": [
       "america-latina-formacion-poblacion",
-      "ambientalismo-liberal",
       "conservacionismo",
       "decrecimiento",
-      "ecologismo-politico"
+      "ecologismo-politico",
+      "indicadores-sociales-de-argentina"
     ],
-    "nombre": "Majstro de la Latinamerika Medioismo",
-    "descripcion": "Vi integris la formiĝon de la loĝantaro de Latinameriko kun la konservismo, la malkreskismo kaj la politika ekologiismo.",
+    "nombre": "Majstro de Ekologiismo kaj Socio",
+    "descripcion": "Vi regis konservadon, malkreskon kaj politikan ekologiismon, kune kun la formiĝo de la latinamerika loĝantaro kaj la sociaj indikiloj de Argentino, ĉefo.",
     "icono": "🌱"
   },
   {
@@ -1831,30 +1679,30 @@
     "materia": "Geografía",
     "cluster": 7,
     "temas": [
-      "indicadores-sociales-de-argentina",
       "migraciones-internacionales",
       "indice-de-desarrollo-humano",
       "migraciones-internas-en-argentina",
-      "paises-de-america-latina"
+      "paises-de-america-latina",
+      "recursos-hidricos-y-gestion"
     ],
-    "nombre": "Majstro de Sociaj Indikiloj kaj Migradoj",
-    "descripcion": "Vi finis la ĉefan ekzamenon pri la homa disvolviĝa indekso, la internaj kaj internaciaj migradoj kaj la landoj de Latinameriko.",
-    "icono": "📊"
+    "nombre": "Fakulo pri Migradoj kaj Evoluo",
+    "descripcion": "Vi plenumis la ekzamenon kun internaciaj kaj internaj migradoj, indico de homa evoluo, landoj de Latin-Ameriko kaj administrado de akvorimedoj.",
+    "icono": "👥"
   },
   {
     "id": 803,
     "materia": "Geografía",
     "cluster": 8,
     "temas": [
-      "recursos-hidricos-y-gestion",
       "riesgos-naturales-argentinos",
       "trabajo-y-desempleo-mundial",
       "riesgos-ambientales-mundiales",
-      "turismo-mundial"
+      "turismo-mundial",
+      "urbanizacion-migracion-ciudad"
     ],
-    "nombre": "Majstro de Riskoj kaj Tutmondaj Rimedoj",
-    "descripcion": "Vi regis la administradon de akvorimedoj, la naturajn kaj mediajn riskojn, la tutmondan senlaborecon kaj la turismon, ĉefo.",
-    "icono": "🌊"
+    "nombre": "Regu Riskojn kaj Urbiĝon",
+    "descripcion": "Vi regis argentinajn naturajn riskojn kaj mondajn mediajn riskojn, krome turismon, laboron kaj senlaborecon, kaj urbiĝon, ĉefo.",
+    "icono": "🌋"
   },
   {
     "id": 816,
@@ -1862,197 +1710,197 @@
     "cluster": 1,
     "temas": [
       "algebra-booleana",
-      "algoritmo-secuencia-de-pasos",
-      "algoritmos-busqueda-ordenamiento",
-      "almacenamiento-volatil-vs-no-volatil",
-      "archivos-y-persistencia"
+      "complejidad-asintotica",
+      "ofimatica-planilla-de-calculo",
+      "que-es-la-tecnica-y-la-tecnologia",
+      "revolucion-informatica"
     ],
-    "nombre": "Majstro de Algoritmoj kaj Persistado",
-    "descripcion": "Vi kompletigis la partan ekzamenon regante la bulean algebron, serĉajn kaj ordigajn algoritmojn, kaj la persistadon de dosieroj.",
-    "icono": "🧠"
+    "nombre": "Logiko, Komplekseco kaj Cifereca Revolucio",
+    "descripcion": "Vi plenumis la ekzamenon kun bulea algebro, asimptota komplekseco kaj kalkultabeloj, kune kun la koncepto de tekniko kaj teknologio kaj la informatika revolucio.",
+    "icono": "💻"
   },
   {
     "id": 817,
     "materia": "Informática",
     "cluster": 2,
     "temas": [
-      "buses-y-entrada-salida",
-      "ciclo-de-instruccion-fetch-decode-execute",
-      "complejidad-asintotica",
-      "control-de-versiones",
-      "cpu-unidad-de-control-y-alu"
+      "medios-tecnicos-extension-capacidades-humanas",
+      "historia-y-evolucion-de-los-sistemas-operativos",
+      "procesos-tecnicos-artesanales-e-industriales",
+      "arranque-de-la-computadora-boot",
+      "sistemas-numeracion"
     ],
-    "nombre": "Majstro de la Instrukcia Ciklo",
-    "descripcion": "Vi trapasis la busojn, la instrukcian ciklon (preno-dekodo-plenumo), la asimptotan kompleksecon kaj la versikontrolon sen eraro.",
-    "icono": "🖥️"
+    "nombre": "Tekniko, Numeracio kaj Ekfunkciigo",
+    "descripcion": "Vi regis teknikajn rimedojn, metiajn kaj industriajn procezojn, la historion de operaciumoj, la ekfunkciigon de komputilo kaj numeraciajn sistemojn, ĉefo.",
+    "icono": "🛠️"
   },
   {
     "id": 818,
     "materia": "Informática",
     "cluster": 3,
     "temas": [
-      "criptografia-clave-simetrica-asimetrica-hash",
-      "direccionamiento-ip-dns",
-      "diseno-y-arquitectura-de-software",
-      "estructuras-de-control-bucles",
-      "estructuras-de-control-condicionales"
+      "tipos-de-so-por-dispositivo",
+      "cpu-unidad-de-control-y-alu",
+      "unidades-almacenamiento",
+      "ciclo-de-instruccion-fetch-decode-execute",
+      "memoria-ram-cache-jerarquia"
     ],
-    "nombre": "Majstro de Retoj kaj Flukontrolo",
-    "descripcion": "Vi kompletigis la partan ekzamenon integrante kriptografion, IP/DNS-adresadon, programaran dezajnon kaj kontrolstrukturojn.",
-    "icono": "🔐"
+    "nombre": "Fakulo pri Komputila Arkitekturo",
+    "descripcion": "Vi trapasis la ekzamenon kun la CPU, la ciklo fetch-decode-execute, la memorhierarkio RAM kaj kaŝmemoro, stokunuoj kaj la specoj de operaciumoj laŭ aparato.",
+    "icono": "🖥️"
   },
   {
     "id": 819,
     "materia": "Informática",
     "cluster": 4,
     "temas": [
-      "estructuras-de-datos-listas-pilas-colas",
-      "etica-de-la-ia-sesgo-privacidad",
-      "funciones-y-modularidad",
-      "historia-y-evolucion-de-los-sistemas-operativos",
-      "inteligencia-artificial-reglas-a-aprendizaje"
+      "algoritmo-secuencia-de-pasos",
+      "almacenamiento-volatil-vs-no-volatil",
+      "buses-y-entrada-salida",
+      "variables-y-tipos-de-dato",
+      "estructuras-de-control-condicionales"
     ],
-    "nombre": "Majstro de Datumstrukturoj kaj AI",
-    "descripcion": "Vi regis listojn, stakojn kaj atendovicojn, la modulecon de funkcioj, la historion de mastrumsistemoj kaj la etikon de AI, ĉefo.",
-    "icono": "🤖"
+    "nombre": "Bazoj de Algoritmoj kaj Aparataro",
+    "descripcion": "Vi plenumis la ekzamenon regante algoritmojn, variablojn kaj kondiĉojn, krome enirajn/eligajn busojn kaj volatilan kontraŭ nevolatila stokado.",
+    "icono": "🧮"
   },
   {
     "id": 820,
     "materia": "Informática",
     "cluster": 5,
     "temas": [
-      "arranque-de-la-computadora-boot",
-      "mantenimiento-y-deuda-tecnica",
-      "memoria-asignacion-memoria-virtual",
-      "memoria-ram-cache-jerarquia",
-      "modelo-relacional-tabla-registro-clave-primaria"
+      "estructuras-de-control-bucles",
+      "funciones-y-modularidad",
+      "estructuras-de-datos-listas-pilas-colas",
+      "poo-clases-y-objetos",
+      "algoritmos-busqueda-ordenamiento"
     ],
-    "nombre": "Majstro de la Startigo kaj la Memoro",
-    "descripcion": "Vi kompletigis la partan ekzamenon regante la startigon de la sistemo, la memorhierarkion (RAM/kaŝmemoro), la virtualan memoron kaj la rilatan modelon.",
-    "icono": "💾"
+    "nombre": "Majstro de la Programado",
+    "descripcion": "Vi regis buklojn, funkciojn, datumstrukturojn (listoj, stakoj kaj vicoj), objektorientitan programadon kaj serĉajn kaj ordigajn algoritmojn.",
+    "icono": "👨‍💻"
   },
   {
     "id": 821,
     "materia": "Informática",
     "cluster": 6,
     "temas": [
-      "normalizacion-bases-datos",
-      "ofimatica-planilla-de-calculo",
-      "paginacion",
-      "patrones-y-buenas-practicas",
-      "permisos-y-usuarios"
+      "archivos-y-persistencia",
+      "inteligencia-artificial-reglas-a-aprendizaje",
+      "modelo-relacional-tabla-registro-clave-primaria",
+      "etica-de-la-ia-sesgo-privacidad",
+      "criptografia-clave-simetrica-asimetrica-hash"
     ],
-    "nombre": "Majstro de Datumbazoj kaj Permesoj",
-    "descripcion": "Vi sukcese trapasis la ekzamenon integrante normaligon, paĝigon, uzantajn permesojn kaj bonajn dezajnajn praktikojn.",
-    "icono": "🗄️"
+    "nombre": "Datumoj, AI kaj Kriptografio",
+    "descripcion": "Vi plenumis la ekzamenon kun dosieroj kaj persisto, la relacia modelo, artefarita inteligento kaj ĝia etiko, kaj simetria, nesimetria kaj haŝa kriptografio, ĉefo.",
+    "icono": "🔐"
   },
   {
     "id": 822,
     "materia": "Informática",
     "cluster": 7,
     "temas": [
-      "planificacion-de-procesos",
-      "poo-clases-y-objetos",
-      "interrupciones",
+      "direccionamiento-ip-dns",
       "proceso-programa-en-ejecucion",
-      "protocolo-http-peticion-respuesta"
+      "protocolo-http-peticion-respuesta",
+      "comunicacion-entre-procesos",
+      "memoria-asignacion-memoria-virtual"
     ],
-    "nombre": "Majstro de Procezoj kaj Objektoj",
-    "descripcion": "Vi kompletigis la partan ekzamenon regante la procezan planadon, la objekt-orientitan programadon, la interrompojn kaj la protokolon HTTP.",
-    "icono": "⚙️"
+    "nombre": "Retoj, Procezoj kaj Virtuala Memoro",
+    "descripcion": "Vi trapasis la ekzamenon kun IP-adresado, DNS kaj HTTP, kaj kun procezoj, interproceza komunikado kaj virtuala memoro.",
+    "icono": "🌐"
   },
   {
     "id": 823,
     "materia": "Informática",
     "cluster": 8,
     "temas": [
-      "comunicacion-entre-procesos",
-      "pruebas-unitarias-integracion",
-      "que-es-la-tecnica-y-la-tecnologia",
+      "planificacion-de-procesos",
+      "paginacion",
+      "interrupciones",
       "recursividad",
-      "medios-tecnicos-extension-capacidades-humanas"
+      "relaciones-y-claves-foraneas"
     ],
-    "nombre": "Majstro de la Tekniko kaj la Rekursio",
-    "descripcion": "Vi integris la interprocezan komunikadon, la unuajn testojn, la rekursion kaj la koncepton de tekniko kaj teknologio, ĉefo.",
-    "icono": "🔁"
+    "nombre": "Regu la Kernon de la Operaciumo",
+    "descripcion": "Vi regis procezan planadon, paĝigon kaj interrompojn, krome rekursion kaj eksterajn ŝlosilojn.",
+    "icono": "⚡"
   },
   {
     "id": 824,
     "materia": "Informática",
     "cluster": 9,
     "temas": [
-      "relaciones-y-claves-foraneas",
-      "procesos-tecnicos-artesanales-e-industriales",
       "requisitos-funcionales-no-funcionales",
-      "revolucion-informatica",
-      "segmentacion"
+      "normalizacion-bases-datos",
+      "diseno-y-arquitectura-de-software",
+      "segmentacion",
+      "control-de-versiones"
     ],
-    "nombre": "Majstro de Rilatoj kaj Postuloj",
-    "descripcion": "Vi finis la ekzamenon pri fremdaj ŝlosiloj, teknikaj procezoj, funkciaj postuloj kaj la komputila revolucio.",
-    "icono": "🔗"
+    "nombre": "Programara Inĝenierado kaj Datumbazoj",
+    "descripcion": "Vi plenumis la ekzamenon kun funkciaj kaj nefunkciaj postuloj, dezajno kaj arkitekturo, versia kontrolo, normaligo de datumbazoj kaj segmentado, ĉefo.",
+    "icono": "📐"
   },
   {
     "id": 825,
     "materia": "Informática",
     "cluster": 10,
     "temas": [
-      "seguridad-de-red-firewall-vpn-cifrado",
-      "seguridad-informatica",
+      "patrones-y-buenas-practicas",
+      "pruebas-unitarias-integracion",
       "sistema-de-archivos",
-      "sistemas-numeracion",
-      "sistema-de-archivos-por-bitacora"
+      "mantenimiento-y-deuda-tecnica",
+      "permisos-y-usuarios"
     ],
-    "nombre": "Gardanto de la Sekureco kaj la Dosieroj",
-    "descripcion": "Vi protektis sistemojn per fajromuro, VPN kaj ĉifrado, kaj regis la numeraciajn sistemojn kaj la protokolan dosiersistemon.",
-    "icono": "🛡️"
+    "nombre": "Programara Kvalito kaj Dosieroj",
+    "descripcion": "Vi regis ŝablonojn kaj bonajn praktikojn, unuajn kaj integrajn testojn, prizorgadon kaj teknikan ŝuldon, kune kun la dosiersistemo kaj uzantaj permesoj.",
+    "icono": "🧪"
   },
   {
     "id": 826,
     "materia": "Informática",
     "cluster": 11,
     "temas": [
+      "sistema-de-archivos-por-bitacora",
       "sql-consultas-joins-agregaciones",
       "subsistema-de-entrada-y-salida",
       "tcp-ip-capas-enrutamiento",
       "tipos-de-licencias-de-software",
-      "tipos-de-so-por-dispositivo",
+      "seguridad-de-red-firewall-vpn-cifrado",
       "transacciones-acid",
-      "unidades-almacenamiento",
-      "variables-y-tipos-de-dato",
+      "seguridad-informatica",
       "virtualizacion-maquina-virtual-contenedor"
     ],
-    "nombre": "Majstro de SQL, Retoj kaj Virtualigo",
-    "descripcion": "Vi finis la ĉefan ekzamenon regante SQL-kunigojn (joins), la tavolojn de TCP/IP, la ACID-transakciojn kaj la virtualigon.",
-    "icono": "☁️"
+    "nombre": "Fakulo pri Sistemoj, Retoj kaj Sekureco",
+    "descripcion": "Vi plenumis la ekzamenon kun SQL kaj ACID-transakcioj, TCP/IP, reta sekureco kaj komputila sekureco, virtualigo, enigo/eligo, taglibraj dosiersistemoj kaj programaraj licencoj, ĉefo.",
+    "icono": "🛡️"
   },
   {
     "id": 841,
     "materia": "Química",
     "cluster": 1,
     "temas": [
-      "atomo-particulas-subatomicas",
       "balanceo-ecuaciones",
-      "biomoleculas-glucidos-lipidos-proteinas",
-      "carbono-tetravalencia-cadenas",
-      "cinetica-reaccion"
+      "concentracion-de-una-solucion",
+      "densidad",
+      "dilucion-soluciones",
+      "equilibrio-quimico-kc"
     ],
-    "nombre": "Majstro de la Atomo kaj la Biomolekuloj",
-    "descripcion": "Vi regis la subatomajn partiklojn, la ekvilibrigon de ekvacioj, la biomolekulojn kaj la reakcian kinetikon.",
-    "icono": "⚛️"
+    "nombre": "Majstro de Solvaĵoj kaj Ekvilibro",
+    "descripcion": "Vi plenumis la ekzamenon kun koncentriĝo kaj diluo de solvaĵoj, ekvaciobalanco, denseco kaj kemia ekvilibro Kc, ĉefo.",
+    "icono": "⚗️"
   },
   {
     "id": 842,
     "materia": "Química",
     "cluster": 2,
     "temas": [
-      "concentracion-de-una-solucion",
-      "configuracion-electronica",
-      "densidad",
-      "dilucion-soluciones",
-      "electrolisis"
+      "estados-y-cambios",
+      "cinetica-reaccion",
+      "equilibrio-solubilidad-ksp",
+      "estequiometria",
+      "medicion-de-laboratorio"
     ],
-    "nombre": "Majstro de Solvaĵoj kaj Elektrolizo",
-    "descripcion": "Vi kompletigis la partan ekzamenon regante la koncentriĝon kaj diluon de solvaĵoj, la elektronan konfiguracion kaj la elektrolizon.",
+    "nombre": "Fakulo pri Reakcioj kaj Stoiĥiometrio",
+    "descripcion": "Vi regis stoiĥiometrion, reakcian kinetikon, solveblan ekvilibron Ksp, statojn kaj ŝanĝojn kaj laboratoriajn mezurojn.",
     "icono": "🧪"
   },
   {
@@ -2060,74 +1908,74 @@
     "materia": "Química",
     "cluster": 3,
     "temas": [
-      "energia-libre-gibbs",
-      "enlace-quimico-polaridad",
-      "equilibrio-quimico-kc",
-      "equilibrio-solubilidad-ksp",
-      "estados-y-cambios"
+      "mezclas-metodos-separacion",
+      "ph-poh",
+      "modelos-atomicos",
+      "propiedades-coligativas",
+      "atomo-particulas-subatomicas"
     ],
-    "nombre": "Majstro de la Ekvilibro kaj la Libera Energio",
-    "descripcion": "Vi integris la liberan energion de Gibbs, la polusecon de ligoj kaj la ekvilibrojn Kc kaj Ksp, ĉefo.",
-    "icono": "⚖️"
+    "nombre": "Regu Atomojn, Miksaĵojn kaj pH",
+    "descripcion": "Vi plenumis la ekzamenon kun atomaj modeloj kaj subatomaj partikloj, metodoj de apartigo de miksaĵoj, pH kaj pOH kaj koligativaj ecoj, ĉefo.",
+    "icono": "⚛️"
   },
   {
     "id": 844,
     "materia": "Química",
     "cluster": 4,
     "temas": [
-      "estequiometria",
-      "gases-ideales",
-      "geometria-molecular-vsepr",
-      "grupos-funcionales",
-      "hidrocarburos-alcanos-alquenos-alquinos"
+      "quimica-analitica",
+      "numero-atomico-masico",
+      "quimica-de-la-atmosfera",
+      "configuracion-electronica",
+      "reactivo-limitante-rendimiento"
     ],
-    "nombre": "Majstro de la Stoiĥiometrio kaj la Hidrokarbidoj",
-    "descripcion": "Vi finis la ekzamenon pri stoiĥiometrio, idealaj gasoj, molekula geometrio (VSEPR) kaj hidrokarbidoj.",
-    "icono": "⛽"
+    "nombre": "Fakulo pri Atoma Strukturo kaj Analiza Kemio",
+    "descripcion": "Vi regis atomnumeron kaj masnumeron, elektronan konfiguracion, limigan reakciilon kaj rendimenton, analizan kemion kaj kemion de la atmosfero.",
+    "icono": "🔬"
   },
   {
     "id": 845,
     "materia": "Química",
     "cluster": 5,
     "temas": [
-      "medicion-de-laboratorio",
-      "mezclas-metodos-separacion",
-      "modelos-atomicos",
-      "mol-masa-molar",
-      "nanotecnologia"
+      "seguridad-laboratorio",
+      "tabla-periodica-tendencias",
+      "tipos-reacciones-quimicas",
+      "enlace-quimico-polaridad",
+      "carbono-tetravalencia-cadenas"
     ],
-    "nombre": "Majstro de la Mezurado kaj la Atommodeloj",
-    "descripcion": "Vi regis la laboratorian mezuradon, la apartigajn metodojn de miksaĵoj, la atommodelojn kaj la molon.",
-    "icono": "🔬"
+    "nombre": "Majstro de Ligoj kaj Perioda Tabelo",
+    "descripcion": "Vi plenumis la ekzamenon kun periodaj tendencoj, kemia ligo kaj poleco, specoj de reakcioj kaj kvarvalenteco de karbono, ne forgesante la sekurecon en la laboratorio, ĉefo.",
+    "icono": "🔗"
   },
   {
     "id": 846,
     "materia": "Química",
     "cluster": 6,
     "temas": [
-      "nomenclatura-compuestos",
-      "numero-atomico-masico",
-      "oxidacion-reduccion",
-      "petroleo-como-recurso-energetico",
-      "ph-poh"
+      "geometria-molecular-vsepr",
+      "hidrocarburos-alcanos-alquenos-alquinos",
+      "nanotecnologia",
+      "grupos-funcionales",
+      "nomenclatura-compuestos"
     ],
-    "nombre": "Majstro de la Nomenklaturo kaj la Redokso",
-    "descripcion": "Vi kompletigis la partan ekzamenon integrante kemian nomenklaturon, atomnumeron kaj masnumeron, oksidiĝon-reduktiĝon kaj pH/pOH.",
-    "icono": "🧫"
+    "nombre": "Regu la Organikan Kemion",
+    "descripcion": "Vi regis molekulan geometrion VSEPR, hidrokarbidojn, funkciajn grupojn kaj nomenklaturon de kombinaĵoj, kaj ankaŭ rigardis nanoteknologion.",
+    "icono": "🧬"
   },
   {
     "id": 847,
     "materia": "Química",
     "cluster": 7,
     "temas": [
-      "pilas-celdas-galvanicas",
-      "polimeros-naturales-sinteticos",
-      "presiones-parciales",
-      "propiedades-coligativas",
-      "quimica-analitica"
+      "biomoleculas-glucidos-lipidos-proteinas",
+      "mol-masa-molar",
+      "oxidacion-reduccion",
+      "gases-ideales",
+      "electrolisis"
     ],
-    "nombre": "Majstro de la Galvanaj Ĉeloj kaj la Polimeroj",
-    "descripcion": "Vi regis la galvanajn ĉelojn, la naturajn kaj sintezajn polimerojn, la partajn premojn kaj la koligativajn ecojn, ĉefo.",
+    "nombre": "Fakulo pri Molo, Gasoj kaj Redoks",
+    "descripcion": "Vi plenumis la ekzamenon kun molo kaj mola maso, idealaj gasoj, oksid-redukto kaj elektrolizo, kaj aldonis biomolekulojn kiel glucidojn, lipidojn kaj proteinojn, ĉefo.",
     "icono": "🔋"
   },
   {
@@ -2135,31 +1983,31 @@
     "materia": "Química",
     "cluster": 8,
     "temas": [
-      "quimica-de-la-atmosfera",
-      "reactivo-limitante-rendimiento",
-      "seguridad-laboratorio",
+      "petroleo-como-recurso-energetico",
+      "pilas-celdas-galvanicas",
+      "polimeros-naturales-sinteticos",
+      "presiones-parciales",
       "superconductividad",
-      "tabla-periodica-tendencias",
       "termoquimica",
-      "tipos-reacciones-quimicas"
+      "energia-libre-gibbs"
     ],
-    "nombre": "Majstro de la Perioda Tabelo kaj la Termokemio",
-    "descripcion": "Vi finis la ĉefan ekzamenon pri periodaj tendencoj, termokemio, specoj de reakcioj kaj limiga reagilo.",
-    "icono": "🧯"
+    "nombre": "Majstro de Energio kaj Materialoj",
+    "descripcion": "Vi regis termokemion kaj liberan energion de Gibbs, galvanajn pilojn kaj nafton kiel energian rimedon, krome polimerojn, partajn premojn kaj superkonduktecon.",
+    "icono": "⚡"
   },
   {
     "id": 861,
     "materia": "Biología",
     "cluster": 1,
     "temas": [
-      "adn-gen-proteina",
-      "biodiversidad-indices",
-      "biotecnologia-pcr-crispr",
-      "cadenas-redes-troficas",
-      "celula-organelas"
+      "crecimiento-poblacional",
+      "genetica-mendeliana-punnett",
+      "grupos-sanguineos",
+      "cruce-dihibrido",
+      "herencia-ligada-al-sexo"
     ],
-    "nombre": "Majstro de la DNA kaj la Ĉelo",
-    "descripcion": "Vi regis la centran dogmon de la DNA, la genan redaktadon per CRISPR, la nutrajn retojn kaj la internan organizadon de la ĉelo.",
+    "nombre": "Majstro de la Genetika Heredo",
+    "descripcion": "Vi plenumis la ekzamenon regante la kvadratojn de Punnett, la dihibridan krucigon, seksligitan heredon kaj sangogrupojn, krome loĝantaran kreskon.",
     "icono": "🧬"
   },
   {
@@ -2167,74 +2015,74 @@
     "materia": "Biología",
     "cluster": 2,
     "temas": [
-      "ciclos-biogeoquimicos",
+      "necesidades-basicas-seres-vivos",
+      "ser-vivo-caracteristicas",
+      "celula-organelas",
       "ciclos-vida-metamorfosis",
-      "clasificacion-evolucion",
-      "conservacion-areas-protegidas",
-      "crecimiento-poblacional"
+      "clasificacion-evolucion"
     ],
-    "nombre": "Majstro de la Cikloj kaj la Konservado",
-    "descripcion": "Vi sukcese trapasis la partan ekzamenon pri biogeokemiaj cikloj, metamorfozo, evolua klasifiko kaj konservado de protektataj areoj, ĉefo.",
-    "icono": "🌎"
+    "nombre": "Bazoj de la Vivantaj Estaĵoj",
+    "descripcion": "Vi regis kio difinas vivantan estaĵon, ĝiajn bazajn bezonojn, la ĉelon kaj ĝiajn organetojn, vivociklojn kun metamorfozo kaj la evoluan klasifikon, ĉefo.",
+    "icono": "🔬"
   },
   {
     "id": 863,
     "materia": "Biología",
     "cluster": 3,
     "temas": [
-      "cruce-dihibrido",
-      "deriva-genetica-flujo-genico",
-      "dinamica-poblacional-capacidad-carga",
+      "fotosintesis-respiracion-celular",
+      "habitats-adaptacion",
       "enzimas-proteina-sustrato-ph",
-      "especiacion"
+      "flujo-materia-energia",
+      "microbiologia-virus-inmunitario"
     ],
-    "nombre": "Majstro de la Loĝantara Genetiko",
-    "descripcion": "Vi finis la ĉefan ekzamenon pri dihibridaj krucigoj, genetika drivo, porta kapacito de loĝantaro kaj speciiĝo.",
-    "icono": "🧬"
+    "nombre": "Fakulo pri Metabolismo kaj Energio",
+    "descripcion": "Vi trapasis la ekzamenon pri fotosintezo kaj ĉela spirado, enzimoj, fluo de materio kaj energio, adaptiĝo al la habitato kaj mikrobiologio kun imunsistemo.",
+    "icono": "⚡"
   },
   {
     "id": 864,
     "materia": "Biología",
     "cluster": 4,
     "temas": [
-      "filogenia-arboles-evolutivos",
-      "flujo-materia-energia",
-      "fotosintesis-respiracion-celular",
-      "genetica-mendeliana-punnett",
-      "grupos-sanguineos"
+      "cadenas-redes-troficas",
+      "mal-de-chagas",
+      "ciclos-biogeoquimicos",
+      "dinamica-poblacional-capacidad-carga",
+      "mitosis-meiosis"
     ],
-    "nombre": "Fakulo pri Filogenio kaj Mendela Heredo",
-    "descripcion": "Vi kompletigis la partan ekzamenon integrante filogeniajn arbojn, fotosintezon, ĉelan spiradon kaj la kvadratojn de Punnett.",
-    "icono": "🧬"
+    "nombre": "Regu Ekosistemojn kaj Ĉeldividiĝon",
+    "descripcion": "Vi plenumis la ekzamenon kombinante nutroretojn, biogeokemiajn ciklojn kaj portokapablon kun mitozo kaj mejozo, kaj eĉ la malsanon de Chagas kiel studkazon.",
+    "icono": "🌿"
   },
   {
     "id": 865,
     "materia": "Biología",
     "cluster": 5,
     "temas": [
-      "habitats-adaptacion",
-      "herencia-ligada-al-sexo",
-      "mal-de-chagas",
-      "microbiologia-virus-inmunitario",
-      "mitosis-meiosis"
+      "biodiversidad-indices",
+      "adn-gen-proteina",
+      "conservacion-areas-protegidas",
+      "biotecnologia-pcr-crispr",
+      "nicho-ecologico"
     ],
-    "nombre": "Majstro de la Heredo kaj la Korpaj Defendoj",
-    "descripcion": "Vi sukcese trapasis la ekzamenon pri adaptiĝo al habitatoj, seks-ligita heredo, la ĉagasa malsano kaj la imuna respondo kontraŭ virusoj.",
-    "icono": "🦠"
+    "nombre": "Fakulo pri Biodiverseco kaj Bioteknologio",
+    "descripcion": "Vi regis indicojn de biodiverseco, la ekologian niĉon kaj protektitajn areojn, kune kun la vojo de DNA al geno al proteino kaj iloj kiel PCR kaj CRISPR.",
+    "icono": "🧪"
   },
   {
     "id": 866,
     "materia": "Biología",
     "cluster": 6,
     "temas": [
-      "necesidades-basicas-seres-vivos",
-      "nicho-ecologico",
       "partes-planta-germinacion",
       "piramide-biomasas",
-      "presion-arterial"
+      "quimiosintesis",
+      "seleccion-natural",
+      "sistemas-cuerpo-humano"
     ],
-    "nombre": "Majstro de la Vivuloj kaj Iliaj Bezonoj",
-    "descripcion": "Vi kompletigis la partan ekzamenon pri la bazaj bezonoj de vivuloj, la ekologia niĉo, la ĝermado de plantoj kaj la biomasa piramido.",
+    "nombre": "Majstro de Evoluo kaj Homa Korpo",
+    "descripcion": "Vi trapasis la ekzamenon pri natura selektado, kemiosintezo kaj piramidoj de biomaso, plus la partojn de planto, ĝermado kaj la sistemojn de la homa korpo.",
     "icono": "🌱"
   },
   {
@@ -2242,16 +2090,16 @@
     "materia": "Biología",
     "cluster": 7,
     "temas": [
-      "quimiosintesis",
-      "seleccion-natural",
-      "ser-vivo-caracteristicas",
+      "deriva-genetica-flujo-genico",
+      "especiacion",
+      "presion-arterial",
+      "filogenia-arboles-evolutivos",
       "sistema-endocrino-hormonas-glandulas",
       "sistema-nervioso-neurona-sinapsis",
-      "sistemas-cuerpo-humano",
       "transgenicos-bioetica"
     ],
-    "nombre": "Majstro de la Korpaj Sistemoj kaj la Bioetiko",
-    "descripcion": "Vi finis la ĉefan ekzamenon regante la nervan sistemon, la endokrinan sistemon, la naturan selektadon kaj la bioetikan debaton pri transgenaĵoj.",
+    "nombre": "Fakulo pri Evoluo kaj Fiziologio",
+    "descripcion": "Vi plenumis la ekzamenon regante speciiĝon, genan drivon, filogenion, nervan kaj endokrinan sistemon, sangopremon kaj la bioetikon de transgenaj organismoj, ĉefo.",
     "icono": "🧠"
   },
   {
@@ -2259,45 +2107,45 @@
     "materia": "Cívica",
     "cluster": 1,
     "temas": [
-      "constitucion-nacional-jerarquia-normativa",
       "derechos-nino",
-      "discriminacion-y-organismos-de-proteccion",
+      "encuesta-electoral",
       "derechos-indigenas",
-      "encuesta-electoral"
+      "discriminacion-y-organismos-de-proteccion",
+      "derechos-genero"
     ],
-    "nombre": "Defendanto de la Rajtoj kaj la Konstitucio",
-    "descripcion": "Vi sukcese trapasis la partan ekzamenon pri la konstitucia hierarkio, la infanaj rajtoj, la indiĝenaj popoloj kaj la organizoj kontraŭ diskriminacio.",
-    "icono": "⚖️"
+    "nombre": "Fakulo pri Rajtoj kaj Neapartigo",
+    "descripcion": "Vi regis la rajtojn de la infano, de genro kaj de indiĝenoj, la organizojn kontraŭ diskriminacio kaj la legadon de balotenketo, ĉefo.",
+    "icono": "✊"
   },
   {
     "id": 880,
     "materia": "Cívica",
     "cluster": 2,
     "temas": [
-      "derechos-genero",
       "estado-de-derecho-por-que-importa",
       "marchas-patrioticas",
       "organizacion-del-estado",
-      "origen-estado-derecho"
+      "origen-estado-derecho",
+      "constitucion-preambulo"
     ],
-    "nombre": "Majstro de la Konstitucia Ŝtato",
-    "descripcion": "Vi finis la ĉefan ekzamenon pri la origino kaj la graveco de la konstitucia ŝtato, la ŝtata organizado kaj la genraj rajtoj.",
-    "icono": "🏛️"
+    "nombre": "Majstro de la Jura Ŝtato",
+    "descripcion": "Vi plenumis la ekzamenon regante la originon kaj gravecon de la jura ŝtato, la organizon de la Ŝtato, la preamblon de la Konstitucio kaj la patriotajn marŝojn.",
+    "icono": "⚖️"
   },
   {
     "id": 881,
     "materia": "Cívica",
     "cluster": 3,
     "temas": [
-      "constitucion-preambulo",
       "division-de-poderes",
-      "derechos-y-garantias",
+      "constitucion-nacional-jerarquia-normativa",
       "como-se-hace-una-ley",
+      "derechos-y-garantias",
       "documentos-y-tramites"
     ],
-    "nombre": "Majstro de la Konstitucio kaj la Leĝoj",
-    "descripcion": "Vi sukcese trapasis la partan ekzamenon pri la konstitucia preambulo, la potencodivido, la garantioj kaj kiel oni aprobas leĝon.",
-    "icono": "📜"
+    "nombre": "Regu Konstitucion kaj Leĝojn",
+    "descripcion": "Vi regis la dividon de povoj, la normigan hierarkion de la Nacia Konstitucio, kiel leĝo estas farita, rajtojn kaj garantiojn kaj proceduroj kaj dokumentoj, ĉefo.",
+    "icono": "📕"
   },
   {
     "id": 882,
@@ -2350,14 +2198,14 @@
     "materia": "Derecho",
     "cluster": 1,
     "temas": [
-      "apelacion-e-instancias",
-      "argumentacion-juridica",
-      "corrientes-interpretacion-juridica",
-      "denuncia-y-etapa-de-instruccion",
-      "derecho-administrativo"
+      "ramas-del-derecho",
+      "derecho-administrativo",
+      "derecho-civil",
+      "derecho-comercial",
+      "derecho-constitucional"
     ],
-    "nombre": "Majstro de la Apelacio kaj la Argumentado",
-    "descripcion": "Vi finis la ĉefan ekzamenon pri la apelaciaj instancoj, la jura argumentado kaj la instrukcia etapo.",
+    "nombre": "Majstro de la Branĉoj de la Juro",
+    "descripcion": "Vi regis la mapon de la branĉoj de la juro kaj ĝiajn kolonojn: konstitucia, civila, komerca kaj administracia.",
     "icono": "⚖️"
   },
   {
@@ -2365,46 +2213,46 @@
     "materia": "Derecho",
     "cluster": 2,
     "temas": [
-      "derecho-civil",
-      "derecho-comercial",
-      "derecho-constitucional",
       "derecho-internacional",
-      "derecho-laboral"
+      "derecho-laboral",
+      "derecho-penal",
+      "denuncia-y-etapa-de-instruccion",
+      "hecho-juridicamente-relevante"
     ],
-    "nombre": "Multfaka Juristo",
-    "descripcion": "Vi sukcese trapasis la partan ekzamenon integrante la civilan, komercan, konstitucian, internacian kaj laboran juron, ĉefo.",
-    "icono": "⚖️"
+    "nombre": "Fakulo pri Puna kaj Labora Juro",
+    "descripcion": "Vi plenumis la ekzamenon pri puna, labora kaj internacia juro, kaj pri kiel juridike grava fakto atingas denuncon kaj enketon, ĉefo.",
+    "icono": "🏛️"
   },
   {
     "id": 896,
     "materia": "Derecho",
     "cluster": 3,
     "temas": [
-      "derecho-penal",
-      "ejecucion-de-la-sentencia",
+      "investigacion-prueba-y-fiscalia",
       "fuentes-del-derecho",
-      "hecho-juridicamente-relevante",
+      "norma-jerarquia-y-vigencia",
+      "corrientes-interpretacion-juridica",
       "interpretacion-normativa"
     ],
-    "nombre": "Majstro de la Punjuro kaj Ĝiaj Fontoj",
-    "descripcion": "Vi finis la ĉefan ekzamenon pri la punjuro, la fontoj de la juro kaj la plenumo de la verdikto.",
-    "icono": "⚖️"
+    "nombre": "Regu Fontojn kaj Interpreton",
+    "descripcion": "Vi regis la fontojn de la juro, la hierarkion kaj validecon de normoj, la interpretajn kurentojn kaj la esploron kun prokuroro kaj pruvoj.",
+    "icono": "📜"
   },
   {
     "id": 897,
     "materia": "Derecho",
     "cluster": 4,
     "temas": [
-      "investigacion-prueba-y-fiscalia",
-      "juicio-oral",
-      "norma-jerarquia-y-vigencia",
       "politica-criminal-garantismo-mano-dura",
-      "ramas-del-derecho",
-      "resolucion-de-conflictos-y-sentencia"
+      "argumentacion-juridica",
+      "resolucion-de-conflictos-y-sentencia",
+      "juicio-oral",
+      "apelacion-e-instancias",
+      "ejecucion-de-la-sentencia"
     ],
-    "nombre": "Majstro de la Punproceso kaj la Verdikto",
-    "descripcion": "Vi sukcese trapasis la partan ekzamenon pri la prokurora esploro, la parola juĝproceso, la krimpolitiko kaj la konfliktosolvo ĝis la verdikto.",
-    "icono": "👨‍⚖️"
+    "nombre": "Majstro de la Puna Proceso kaj la Verdikto",
+    "descripcion": "Vi trapasis la ekzamenon pri jura argumentado, buŝa juĝo, decido kaj verdikto, apelacio kaj instancoj, plenumo de la puno kaj la debato inter garantiismo kaj severa mano.",
+    "icono": "🔨"
   },
   {
     "id": 904,
@@ -2412,13 +2260,13 @@
     "cluster": 1,
     "temas": [
       "acustica-instrumento-musical",
-      "armonia-basica-acordes-tonalidad",
       "composicion-y-proporcion",
-      "danza-ritmo-tiempo-expresion-corporal",
-      "elementos-del-arte"
+      "origen-del-arte",
+      "elementos-del-arte",
+      "principios-de-diseno"
     ],
-    "nombre": "Majstro de la Elementoj de la Arto",
-    "descripcion": "Vi finis la ĉefan ekzamenon integrante la akustikon, la muzikan harmonion, la komponon kaj la korpan esprimon en la danco.",
+    "nombre": "Majstro de la Fundamentoj de Arto",
+    "descripcion": "Vi plenumis la ekzamenon regante la originon de arto, ĝiajn elementojn kaj dezajnprincipojn, komponadon kaj proporcion, kaj la akustikon de muzikinstrumento.",
     "icono": "🎨"
   },
   {
@@ -2426,14 +2274,14 @@
     "materia": "Arte",
     "cluster": 2,
     "temas": [
-      "lenguaje-musical-pentagrama-escalas-intervalos",
-      "origen-del-arte",
-      "principios-de-diseno",
       "ritmo-compas-pulso-figuras-musicales",
-      "narrativa-audiovisual/plano"
+      "narrativa-audiovisual/plano",
+      "danza-ritmo-tiempo-expresion-corporal",
+      "lenguaje-musical-pentagrama-escalas-intervalos",
+      "narrativa-audiovisual/encuadre"
     ],
-    "nombre": "Majstro de la Muzika Lingvo kaj la Dezajno",
-    "descripcion": "Vi sukcese trapasis la partan ekzamenon pri la pentagramo, la gamoj, la dezajnaj principoj kaj la filmokadroj en la aŭdvidebla rakontado, ĉefo.",
+    "nombre": "Fakulo pri Ritmo, Muziko kaj Ebeno",
+    "descripcion": "Vi regis pulson, taktojn kaj muzikajn figurojn, la linisistemon kun gamoj kaj intervaloj, dancon kaj korpan esprimon, kaj la ebenon kaj la kadron de aŭdvidaĵo, ĉefo.",
     "icono": "🎼"
   },
   {
@@ -2441,46 +2289,198 @@
     "materia": "Arte",
     "cluster": 3,
     "temas": [
-      "rosetones-y-simetria",
-      "narrativa-audiovisual/encuadre",
-      "teatro-dramaturgia-y-actuacion",
+      "armonia-basica-acordes-tonalidad",
       "narrativa-audiovisual/montaje",
-      "produccion-multimedial"
+      "rosetones-y-simetria",
+      "produccion-multimedial",
+      "teatro-dramaturgia-y-actuacion"
     ],
-    "nombre": "Majstro de la Scenejo kaj la Aŭdvideblo",
-    "descripcion": "Vi finis la ĉefan ekzamenon pri teatro kaj aktorado, la enkadrigo kaj muntado en aŭdvidebla rakontado, la multrimeda produktado kaj la simetrio de rozofenestroj.",
-    "icono": "🎬"
+    "nombre": "Regu Harmonion, Muntadon kaj Scenon",
+    "descripcion": "Vi trapasis la ekzamenon pri harmonio kaj akordoj, aŭdvida muntado, plurmedia produktado, teatro kaj dramaturgio, kaj la simetrio de rozfenestroj.",
+    "icono": "🎭"
   },
   {
     "id": 912,
     "materia": "Investigación",
     "cluster": 1,
     "temas": [
-      "analisis-estadistico-de-resultados",
-      "argumentar-desde-evidencia",
-      "conclusion-y-comunicacion-de-resultados",
+      "observacion-y-pregunta-investigable",
+      "hipotesis-buena-o-mala",
+      "metodologia-cualitativa-vs-cuantitativa",
       "construir-y-usar-un-modelo-cientifico",
-      "corrientes-filosofia-de-la-ciencia"
+      "trabajo-de-campo-enfoque-socioantropologico"
     ],
-    "nombre": "Regado de la Scienca Metodo",
-    "descripcion": "Vi finis la ĉefan ekzamenon integrante la statistikan analizon, la argumentadon surbaze de pruvoj kaj la fluojn de la filozofio de scienco.",
-    "icono": "🔬"
+    "nombre": "Komencanto en la Scienca Metodo",
+    "descripcion": "Vi plenumis la ekzamenon regante observadon kaj esploreblan demandon, bonan hipotezon, kvalitan kaj kvantan metodologion, sciencajn modelojn kaj kampan laboron.",
+    "icono": "🔎"
   },
   {
     "id": 913,
     "materia": "Investigación",
     "cluster": 2,
     "temas": [
+      "corrientes-filosofia-de-la-ciencia",
       "diseno-experimental-variables-y-control",
-      "hipotesis-buena-o-mala",
-      "observacion-y-pregunta-investigable",
+      "tecnicas-de-investigacion-social",
       "recoleccion-de-datos",
-      "metodologia-cualitativa-vs-cuantitativa",
-      "trabajo-de-campo-enfoque-socioantropologico",
-      "tecnicas-de-investigacion-social"
+      "analisis-estadistico-de-resultados",
+      "conclusion-y-comunicacion-de-resultados",
+      "argumentar-desde-evidencia"
     ],
-    "nombre": "Majstro de la Eksperimenta kaj Kampa Dezajno",
-    "descripcion": "Vi sukcese trapasis la partan ekzamenon pri la eksperimenta dezajno, la formulado de hipotezoj, la kvalita kaj kvanta metodologio, kaj la socioantropologia kampolaboro.",
-    "icono": "🧪"
+    "nombre": "Fakulo pri Esplora Dezajno kaj Analizo",
+    "descripcion": "Vi regis eksperimentan dezajnon, datumkolekton, statistikan analizon, argumentadon surbaze de evidentaĵo kaj komunikadon de konkludoj, kun scienca filozofio kaj sociaj teknikoj.",
+    "icono": "📊"
+  },
+  {
+    "id": 918,
+    "materia": "Ingeniería",
+    "cluster": 1,
+    "temas": [
+      "modelizacion-matematica",
+      "problema-y-restricciones",
+      "disciplinas-de-la-ingenieria",
+      "investigar-soluciones-existentes",
+      "diseno-conceptual"
+    ],
+    "nombre": "Majstro de la Komenco de Inĝeniera Dezajno",
+    "descripcion": "Vi plenumis la ekzamenon regante la problemon kaj ĝiajn limigojn, esploron de solvoj, koncepta dezajno, matematika modelado kaj la disciplinoj de inĝenierado.",
+    "icono": "📐"
+  },
+  {
+    "id": 919,
+    "materia": "Ingeniería",
+    "cluster": 2,
+    "temas": [
+      "modelado-y-calculo",
+      "prototipo",
+      "resistencia-de-materiales",
+      "ensayo-y-medicion",
+      "optimizacion-e-iteracion",
+      "comunicar-la-solucion"
+    ],
+    "nombre": "Fakulo pri Konstruo kaj Validigo de Solvoj",
+    "descripcion": "Vi trapasis la ekzamenon pri modelado kaj kalkulo, rezisto de materialoj, prototipo, provo kaj mezurado, ripeta optimumigo kaj kiel komuniki la solvon, ĉefo.",
+    "icono": "🛠️"
+  },
+  {
+    "id": 924,
+    "materia": "Psicología",
+    "cluster": 1,
+    "temas": [
+      "psicologia-modernidad-y-el-yo",
+      "autoconocimiento-como-busqueda-humana",
+      "dependencia-del-otro-cultura-como-herencia",
+      "memoria-y-olvido-represion-inconsciente",
+      "psicologia-cognitiva-percepcion-memoria-atencion"
+    ],
+    "nombre": "Fakulo pri la Mio, Memoro kaj Kulturo",
+    "descripcion": "Vi plenumis la ekzamenon regante psikologion de moderneco kaj de la mio, memkonon, kulturon kiel heredaĵon kaj memoron, forgeson kaj subpremon.",
+    "icono": "🧠"
+  },
+  {
+    "id": 925,
+    "materia": "Psicología",
+    "cluster": 2,
+    "temas": [
+      "lenguaje-pensamiento-y-creatividad",
+      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
+      "edades-del-ser-humano-ninez-pubertad-identidad",
+      "salud-mental-ansiedad-depresion-pedir-ayuda",
+      "sesgos-cognitivos-heuristicas-error-sistematico"
+    ],
+    "nombre": "Majstro de Kurentoj kaj Homa Menso",
+    "descripcion": "Vi regis psikologiajn kurentojn, kognajn biasojn, lingvon, pensadon kaj kreemon, la aĝojn de la homo kaj mensan sanon, ĉefo.",
+    "icono": "💭"
+  },
+  {
+    "id": 930,
+    "materia": "Ciencia de Materiales",
+    "cluster": 1,
+    "temas": [
+      "corrosion",
+      "elasticidad-ley-de-hooke-modulo-de-young",
+      "propiedades-mecanicas-dureza-tenacidad-ductilidad",
+      "plasticidad-y-punto-de-fluencia",
+      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
+      "fatiga-y-fractura"
+    ],
+    "nombre": "Fakulo pri la Konduto de Materialoj",
+    "descripcion": "Vi trapasis la ekzamenon pri elasteco kaj leĝo de Hooke, plasteco kaj fluopunkto, malmoleco kaj tenaceco, lacigo kaj frakturo, korodo kaj la familioj de materialoj.",
+    "icono": "🔩"
+  },
+  {
+    "id": 934,
+    "materia": "Dibujo Técnico",
+    "cluster": 1,
+    "temas": [
+      "sistemas-de-proyeccion",
+      "vistas-frontal-superior-lateral",
+      "perspectivas-isometrica-y-caballera",
+      "escalas-numericas-y-graficas",
+      "acotacion-normalizada"
+    ],
+    "nombre": "Majstro de Teknika Desegnado",
+    "descripcion": "Vi plenumis la ekzamenon regante projekciajn sistemojn, vidojn, izometrian kaj kavaliran perspektivojn, skalojn kaj normigitan kotadon, ĉefo.",
+    "icono": "📏"
+  },
+  {
+    "id": 938,
+    "materia": "Comunicación",
+    "cluster": 1,
+    "temas": [
+      "generos-periodisticos",
+      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido",
+      "etica-y-responsabilidad-de-los-medios",
+      "corrientes-de-la-comunicacion",
+      "publicidad-y-persuasion"
+    ],
+    "nombre": "Fakulo pri Komunikado kaj Gazetaro",
+    "descripcion": "Vi regis la teorion de komunikado, ĝiajn kurentojn, ĵurnalismajn ĝenrojn, la etikon de la gazetaro kaj reklamon kaj persuadon.",
+    "icono": "📰"
+  },
+  {
+    "id": 942,
+    "materia": "Electrónica",
+    "cluster": 1,
+    "temas": [
+      "componentes-resistencia-capacitor-diodo-transistor",
+      "circuitos-y-leyes-de-kirchhoff",
+      "logica-digital-puertas-and-or-not",
+      "microcontroladores-y-microprocesadores",
+      "sensores-y-actuadores"
+    ],
+    "nombre": "Majstro de Cirkvitoj kaj Cifereca Kontrolo",
+    "descripcion": "Vi plenumis la ekzamenon pri rezistiloj, kondensiloj, diodoj kaj transistoroj, leĝoj de Kirchhoff, cifereca logiko, mikroregiloj, sensiloj kaj aktuiloj.",
+    "icono": "🔌"
+  },
+  {
+    "id": 946,
+    "materia": "Automatización",
+    "cluster": 1,
+    "temas": [
+      "lazo-abierto-vs-lazo-cerrado",
+      "plc-logica-de-control-industrial",
+      "realimentacion-feedback",
+      "control-pid-proporcional-integral-derivativo",
+      "servomecanismos"
+    ],
+    "nombre": "Fakulo pri Kontrolaj Sistemoj",
+    "descripcion": "Vi regis malferman kaj ferman bukon, religon, PID-kontrolon, servomekanismojn kaj kontrolan logikon per PLC, ĉefo.",
+    "icono": "🤖"
+  },
+  {
+    "id": 950,
+    "materia": "UX/Diseño",
+    "cluster": 1,
+    "temas": [
+      "usabilidad-heuristicas-de-nielsen",
+      "accesibilidad-wcag-contraste-lectores-de-pantalla",
+      "jerarquia-visual-e-informacion",
+      "prototipado-wireframe-mockup-prototipo-interactivo",
+      "pruebas-de-usuario"
+    ],
+    "nombre": "Majstro de la Uzanta Sperto",
+    "descripcion": "Vi trapasis la ekzamenon regante uzeblon kaj heŭristikojn de Nielsen, alirebleco WCAG, vida hierarkio, prototipado kaj uzantaj testoj.",
+    "icono": "🖥️"
   }
 ]
