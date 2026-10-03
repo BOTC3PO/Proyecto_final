@@ -21,7 +21,7 @@ Estado de ambas: **no probada** por quien edita el contenido (ver el plan).
 
 *Receta del equipo de desarrollo, recibida el 2026-10-03 y aclarada el mismo día. Ortografía corregida (amasar, piezas,
 cocidas, provenzal, etc.); contenido y cantidades tal cual el original. Lo que el original no
-aclara está marcado en "Todavía sin aclarar" más abajo, sin completarlo.*
+aclara se consultó al equipo y quedó en "Aclarado por el equipo" más abajo.*
 
 **Nivel:** E (aporta el equipo) · **Dificultad:** 2,5 de 5 · **Categoría:** Panificación ·
 **Tiempo:** de 1 hora a 48 horas de reposo de la masa, más la salsa y el horneado · **Rinde:**
@@ -42,7 +42,7 @@ aclara está marcado en "Todavía sin aclarar" más abajo, sin completarlo.*
 - Provenzal: 1 o 2 cucharadas
 - Condimento para pizza: 1 cucharada
 - Ajo: opcional
-- Queso fresco o mozzarella: entre 150 g y 300 g, según cuánto queso se quiera usar (para terminar)
+- Queso fresco o mozzarella: entre 150 g y 300 g **por pizza**, según cuánto queso se quiera usar (para terminar; la medida es para moldes de 30 o 32 cm)
 
 Se recomienda tener un cornet (espátula de mano para panadería) y "un poco de odio" (texto
 original del equipo).
@@ -96,17 +96,15 @@ original del equipo).
 - **Cebolla**: 1, pero pueden ser 2 según el contexto (por eso el paso dice "las cebollas").
 - **Horno**: cualquier temperatura dentro de 180 a 250 grados; a 250 tarda menos, a 180 tarda
   más y permite calcular mejor el tostado y sacarlo antes (solo importa si es para vender).
-
 - **Condimentos**: paprika media cucharada, provenzal 1 o 2 cucharadas, condimento para pizza
   1 cucharada; sal de la salsa a gusto, entre 5 y 7 g.
 - **Reposo**: a temperatura ambiente, y el tiempo depende del clima. Con mucho calor, 24 horas ya
   alcanzan; a 40 grados, unas 3 horas (la masa triplica su volumen y se puede cocinar); con mucho
   frío, más tiempo.
+- **Queso**: 150 a 300 g por pizza, según cuánto se quiera usar; la medida es para moldes de
+  30 o 32 cm.
 
-### Todavía sin aclarar
-
-- **Queso: ¿150 a 300 g en total o por bollo?** Se cargó tal cual la cifra, sin aclarar a qué se
-  refiere. Con 5 o 6 bollos, en total serían 25 a 60 g por pizza; por bollo, 150 a 300 g cada una.
+No queda nada sin aclarar en esta receta.
 
 Datos que calculé yo, no del equipo: las dos aguas suman 600 g sobre 1 kg de harina (hidratación
 cercana al 60 %), la sal de la masa es el 2 % de la harina y la levadura de 50 g es el 5 %.
