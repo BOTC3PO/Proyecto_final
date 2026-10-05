@@ -22,6 +22,23 @@ De la Ruta A conviene haber visto `fundamentos-cocina` y `seguridad-e-higiene-co
 | 3 | [Focaccia de cebolla y aceitunas](basicas/03-focaccia.md) | 2 | Masa magra con aceite, esponja, estirado en bandeja y cobertura | Mise en place de una receta con varias partes | FIRA; Panadería Artesanal (Schiacciata); contraste con Turismo Rocha |
 | 4 | [Pan de molde simple](basicas/04-pan-de-molde.md) | 2,5 | Masa con azúcar, leche y aceite; cocción en molde; rendimiento y pérdida | Rendimiento y merma | Flecha; Guía IFCP; UNIPAZ; FIRA; Manual de panadería |
 
+## Intermedias (nivel I) y avanzadas (nivel A)
+
+Mismas reglas que las básicas (práctica fuera del programa, sin alcohol, estado **no probada**). Cada una remite a las básicas en vez de repetirlas.
+
+| Nivel | # | Receta | Dificultad |
+|---|---:|---|---:|
+| I | 1 | [Pan francés de dos mitades (marraqueta)](intermedias/01-pan-frances.md) | 2,5 |
+| I | 2 | [Pan de hamburguesa (panes blandos con esponja)](intermedias/02-pan-de-hamburguesa.md) | 2,5 |
+| I | 3 | [Pan integral con salvado en molde](intermedias/03-pan-integral-con-salvado.md) | 2,5 |
+| I | 4 | [Pan con semillas tostadas y remojadas](intermedias/04-pan-con-semillas.md) | 3 |
+| I | 5 | [Bollos de leche enriquecidos (brioche del pobre)](intermedias/05-bollos-de-leche.md) | 3 |
+| A | 1 | [Baguette con poolish](avanzadas/01-baguette-con-poolish.md) | 3 |
+| A | 2 | [Brioche del rico (brioche à tête)](avanzadas/02-brioche-del-rico.md) | 3,5 |
+| A | 3 | [Medialunas de manteca (masa laminada fermentada)](avanzadas/03-medialunas-de-manteca.md) | 4 |
+
+La prepizza (FIRA, hoja 22.2) quedó afuera de las intermedias: la pizza del equipo ya ocupa ese lugar en el nivel E y no encontré una segunda fuente institucional con cantidades para contrastarla.
+
 ### Por qué estas cuatro y no otras
 
 - **Pan pita:** es el ciclo más corto con levadura (50 minutos de reposo y 3 de horno) y el que menos se puede arruinar; sirve de primer contacto. Reemplaza a las tortillas porque la única receta de tortilla institucional que encontré (Recetario de harina de trigo del Ministerio de Educación de Nicaragua) no da cantidades de agua y no permite chequear proporciones.
