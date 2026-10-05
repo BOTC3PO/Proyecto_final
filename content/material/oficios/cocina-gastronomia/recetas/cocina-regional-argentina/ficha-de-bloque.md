@@ -163,6 +163,24 @@ Están en `basicas/` (esta carpeta). Dificultad de 1 a 2,5, de menor a mayor.
 
 ---
 
+## Intermedias y avanzadas de este bloque
+
+Intermedias (nivel I, en `intermedias/`):
+
+1. **Torta frita** (dificultad 2): `intermedias/01-torta-frita.md`.
+2. **Chipá** (2,5): `intermedias/02-chipa.md`.
+3. **Carbonada criolla** (2,5): `intermedias/03-carbonada-criolla.md`.
+4. **Empanadas de carne cortada a cuchillo** (3): `intermedias/04-empanadas-de-carne-cortada-a-cuchillo.md`.
+
+Avanzadas (nivel A, en `avanzadas/`):
+
+1. **Humitas en chala** (3): `avanzadas/01-humitas-en-chala.md`.
+2. **Carne a la masa** (3,5): `avanzadas/02-carne-a-la-masa.md`.
+3. **Guiso de cordero con polenta grillada** (4): `avanzadas/03-guiso-de-cordero-con-polenta-grillada.md`.
+4. **Sopa paraguaya (Noreste), escalada a 30 comensales** (3): `avanzadas/04-sopa-paraguaya.md`.
+
+---
+
 ## Fuentes (todas reescritas con palabras propias)
 
 - **Contexto histórico y productos:** Gobierno de Mendoza, programa 365 Tentaciones (Ministerio

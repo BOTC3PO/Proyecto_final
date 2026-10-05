@@ -181,6 +181,25 @@ memoria.
 
 ---
 
+## Intermedias y avanzadas de este bloque
+
+Intermedias (nivel I, en `intermedias/`):
+
+1. **Choripán con chimichurri** (dificultad 2): `intermedias/01-choripan-con-chimichurri.md`.
+2. **Asado de tira fino (banderita) a la parrilla** (2): `intermedias/02-asado-de-tira-banderita-a-la-parrilla.md`.
+3. **Matambrito de cerdo a la parrilla con limón** (2,5): `intermedias/03-matambrito-de-cerdo-a-la-parrilla.md`.
+4. **Vacío a la parrilla a calor moderado** (3): `intermedias/04-vacio-a-la-parrilla.md`.
+5. **Pollo a la parrilla en mitades, a calor suave** (3): `intermedias/05-pollo-a-la-parrilla-en-mitades.md` (técnica de dos extensiones universitarias de Estados Unidos y fuentes argentinas de seguridad; los tiempos de las dos fuentes no coinciden y manda el termómetro, ver su "Verificación").
+
+Avanzadas (nivel A, en `avanzadas/`):
+
+1. **Matambre arrollado hervido, con enfriado controlado** (3,5): `avanzadas/01-matambre-arrollado-con-enfriado-controlado.md`.
+2. **Gigot de cordero a la parrilla con salmuera de romero, papas y hongos** (4): `avanzadas/02-gigot-de-cordero-a-la-parrilla-con-salmuera-de-romero.md`.
+3. **Costillar a la cruz (o a la parrilla) con chimichurri, para 12 a 15** (4): `avanzadas/03-costillar-a-la-cruz-con-chimichurri.md`.
+4. **Parrillada de cerdo para 12: bondiola, pechito, matambrito y chorizos** (4,5): `avanzadas/04-parrillada-de-cerdo-para-12.md`.
+
+---
+
 ## Fuentes (todas reescritas con palabras propias)
 
 - **Fuego, brasas, prueba de la mano, reglas de cocción:** Gobierno de la Ciudad de
