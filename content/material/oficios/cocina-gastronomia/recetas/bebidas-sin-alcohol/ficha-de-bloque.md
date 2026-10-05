@@ -231,6 +231,23 @@ jugo licuado y la técnica del mate.
 3. **Agua fresca de frutas licuada** (`basicas/03-agua-fresca-de-frutas.md`, dificultad 1,5): licuado de fruta con limón; variante de limón y menta.
 4. **Mate cebado** (`basicas/04-mate-cebado.md`, dificultad 2): temperatura del agua, armado de la yerba, cebado y ronda.
 
+
+---
+
+## Las recetas intermedias y avanzadas
+
+Están en `intermedias/` y `avanzadas/` (esta carpeta). Todas sin alcohol. Dos bebidas que se
+pidieron **no tienen receta** por falta de fuente institucional con cantidades: la limonada con
+jengibre (la única fuente con cantidades, la de Mendoza, ya es la variante de limón y menta de la
+receta básica `03`) y el té frío en frasco (solo se encontraron recetarios de marcas comerciales).
+
+**Intermedias** (dificultad 2):
+1. **Licuado de pera y banana con leche** (`intermedias/01-licuado-de-pera-y-banana-con-leche.md`, dificultad 2): fruta y un lácteo, con la inocuidad de la leche.
+2. **Licuado verde de manzana, lechuga y banana** (`intermedias/02-licuado-verde-de-manzana-lechuga-y-banana.md`, dificultad 2): verdura de hoja cruda, con su lavado.
+
+**Avanzada** (con escalado y costeo):
+1. **Servicio de bebidas sin alcohol para 30 personas** (`avanzadas/01-servicio-de-bebidas-sin-alcohol-para-30-personas.md`, dificultad 3): agua saborizada, mate cocido frío y agua fresca de frutas a la vez.
+
 ---
 
 ## Fuentes (todas reescritas con palabras propias)

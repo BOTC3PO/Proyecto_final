@@ -167,6 +167,26 @@ Están en `basicas/` (esta carpeta). Dificultad: 1,5 a 2. Por qué elegimos cada
 Los cortes con otra técnica (asados al horno, cocciones largas de piezas enteras, carne
 picada) son de nivel intermedio y no entran en este bloque básico.
 
+
+---
+
+## Las recetas intermedias y avanzadas
+
+Están en `intermedias/` y `avanzadas/` (esta carpeta). Desde este nivel entran el **pollo** y el
+**cerdo** además de la vaca (las recetas básicas usan solo carne vacuna), la **carne picada** y las
+**piezas enteras**; la temperatura interna sigue siendo **70 °C** en todas, y ninguna lleva vino
+(donde las fuentes lo traen, está reemplazado por fondo y anotado en "Verificación").
+
+**Intermedias** (dificultad 2,5 a 3):
+1. **Pechuga de pollo a la plancha con salsa napolitana** (`intermedias/01-pechuga-de-pollo-a-la-plancha-con-salsa-napolitana.md`, dificultad 2,5)
+2. **Albóndigas de carne vacuna al horno, terminadas en salsa de tomate** (`intermedias/02-albondigas-de-carne-vacuna-con-salsa-de-tomate.md`, dificultad 2,5)
+3. **Pollo asado al horno con jugo ligado** (`intermedias/03-pollo-asado-al-horno-con-jugo-ligado.md`, dificultad 3)
+4. **Carne vacuna braseada en pieza con jugo ligado** (`intermedias/04-carne-vacuna-braseada-en-pieza-con-jugo-ligado.md`, dificultad 3)
+
+**Avanzadas** (con escalado y costeo):
+1. **Carré de cerdo asado al horno con termómetro, para 20** (`avanzadas/01-carre-de-cerdo-asado-al-horno-con-termometro-para-20.md`, dificultad 3,5)
+2. **Estofado de carne vacuna con papas para 20 comensales** (`avanzadas/02-estofado-de-carne-vacuna-con-papas-para-20.md`, dificultad 4)
+
 ---
 
 ## Fuentes (todas reescritas con palabras propias)
