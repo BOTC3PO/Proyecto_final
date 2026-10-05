@@ -169,6 +169,25 @@ pasos son de nivel intermedio y no entran en este bloque básico.
 
 ---
 
+## Intermedias y avanzadas de este bloque
+
+Intermedias (nivel I, en `intermedias/`):
+
+1. **Pici (pasta casera sin huevo, solo harina y agua)** (dificultad 2): `intermedias/01-pici-pasta-sin-huevo.md`.
+2. **Canelones de panqueque con relleno de verduras** (2,5): `intermedias/02-canelones-de-panqueque-de-verduras.md`.
+3. **Lasaña de carne y espinaca (florentina)** (3): `intermedias/03-lasana-de-carne-y-espinaca.md`.
+4. **Ravioles de ricota y espinaca** (3): `intermedias/04-ravioles-de-ricota-y-espinaca.md`.
+
+Avanzadas (nivel A, en `avanzadas/`):
+
+1. **Canelones de carne con bechamel y gratinado, escalados a 20 comensales** (3,5): `avanzadas/01-canelones-de-carne-con-bechamel-para-20.md`.
+2. **Lasaña verde a la boloñesa (masa casera de espinaca, salsa de carne y bechamel), escalada a 24 comensales** (4): `avanzadas/02-lasana-verde-a-la-bolonesa-para-24.md`.
+3. **Ravioles de ricota y espinaca con dos salsas, escalados a 20 comensales** (3,5): `avanzadas/03-ravioles-de-ricota-y-espinaca-con-dos-salsas-para-20.md`.
+
+Las salsas de estas recetas salen del bloque `../fondos-y-salsas/` (bechamel, salsa de tomate básica y napolitana con carne). Sorrentinos y otras pastas rellenas con jamón y queso no se escribieron: no se encontró una fuente institucional con cantidades.
+
+---
+
 ## Fuentes (todas reescritas con palabras propias)
 
 - **Masa de pasta fresca al huevo:** Escuela de Hostelería de Leioa (País Vasco), ficha
