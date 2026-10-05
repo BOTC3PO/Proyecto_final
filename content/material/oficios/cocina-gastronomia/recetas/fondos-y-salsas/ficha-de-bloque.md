@@ -178,6 +178,22 @@ Otros agentes las escriben en `basicas/` (esta carpeta). Dificultad esperada: 1 
 6. **Mayonesa** (2): emulsión con huevo crudo. Hay que decidir cómo se resuelve la
    inocuidad antes de escribirla (huevo pasteurizado o versión sin huevo crudo).
 
+## Intermedias y avanzadas de este bloque
+
+Intermedias (nivel I, en `intermedias/`):
+
+1. **Salsa velouté de ave** (dificultad 2): `intermedias/01-salsa-veloute-de-ave.md`.
+2. **Fondo oscuro de ave** (2,5): `intermedias/02-fondo-oscuro-de-ave.md`.
+3. **Salsa napolitana con carne picada** (2,5): `intermedias/03-salsa-napolitana-con-carne.md`.
+4. **Salsa mornay (liaison de yema)** (3): `intermedias/04-salsa-mornay.md`.
+5. **Salsa holandesa** (3): `intermedias/05-salsa-holandesa.md`.
+
+Avanzadas (nivel A, en `avanzadas/`):
+
+1. **Fumet de pescado y salsa velouté de pescado** (3): `avanzadas/01-fumet-y-veloute-de-pescado.md`.
+2. **Fondo oscuro de ternera y demi-glacé** (4): `avanzadas/02-fondo-oscuro-de-ternera-y-demi-glace.md`.
+3. **Menú de pastas con dos salsas (napolitana y mornay) escalado a 24 comensales** (4): `avanzadas/03-menu-de-pastas-con-dos-salsas-para-24.md`.
+
 ---
 
 ## Fuentes (todas reescritas con palabras propias)
