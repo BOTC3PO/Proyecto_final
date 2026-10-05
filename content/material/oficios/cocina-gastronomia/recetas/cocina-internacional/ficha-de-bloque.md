@@ -120,18 +120,21 @@ traía vino, no se incluyó.
 
 Están en `basicas/` (esta carpeta). Dificultad de 1 a 2, de menor a mayor, en tres regiones distintas.
 
-1. **Guacamole** (dificultad 1; Mesoamérica, México): una sola técnica, sin fuego, casi no se puede arruinar.
-2. **Arroz pilaf** (dificultad 1,5; Asia central, vía el oshi palav de Tayikistán): una técnica con un punto a cuidar
+1. **Guacamole** (`basicas/01-guacamole.md`; dificultad 1; Mesoamérica, México): una sola técnica, sin fuego, casi no se puede arruinar.
+2. **Arroz pilaf** (`basicas/02-arroz-pilaf.md`; dificultad 1,5; Asia central, vía el oshi palav de Tayikistán): una técnica con un punto a cuidar
    (la proporción de caldo y el tiempo de cocción).
-3. **Lentejas guisadas** (dificultad 2; Europa mediterránea, cocina española/vasca): cocción larga con dos
+3. **Lentejas guisadas** (`basicas/03-lentejas-guisadas.md`; dificultad 2; Europa mediterránea, cocina española/vasca): cocción larga con dos
    preparaciones que se juntan (el guiso y el refrito).
 
 ### Por qué estas tres
 
 - Son platos **muy conocidos** y de técnica simple, y cada uno enseña algo que se reusa: cortes y sazonado
   (guacamole), cocción de cereal en caldo (pilaf), cocción de legumbre con refrito (lentejas).
-- Las tres tienen **al menos dos fuentes con cantidades**: el guacamole en MAGyP y en Leioa; el pilaf en MAGyP
-  y en Leioa; las lentejas en Leioa (con el guiso a la bretona del MAGyP como control de proporciones).
+- Las tres tienen **al menos dos fuentes con cantidades**: el guacamole en MAGyP y en Leioa; el pilaf en MAGyP, Leioa y CSIF
+  (artículo n.º 40 de 2011); las lentejas en Leioa y en el recetario de Mendoza (con el guiso a la bretona del MAGyP
+  como control de proporciones). Al escribir las recetas (2026-10-05) se comprobó que **la proporción de caldo del pilaf difiere**
+  (2 partes por 1 en MAGyP y CSIF; 3 por 1 en Leioa) y que **las cantidades de lenteja por porción también** (62,5 a 125 g);
+  cada receta lo anota en "Verificación".
 - Son de **tres regiones distintas** y de cocinas con respaldo institucional de la UNESCO.
 - **Quedan afuera a propósito:** platos con masa o laminados, frituras, carnes crudas, pescados crudos y todo lo que lleve alcohol.
   El cuscús, el hummus y el minestrone existen en la misma escuela, pero me faltaba una segunda fuente con cantidades;
@@ -161,3 +164,10 @@ Están en `basicas/` (esta carpeta). Dificultad de 1 a 2, de menor a mayor, en t
   (consultadas el 2026-10-03).
 - **Inocuidad:** ANMAT, *Manual de manipulación higiénica de alimentos*, versión 2024: lavado y desinfección de verduras (págs. 55-56),
   clave 3 (págs. 44-45), *Bacillus cereus* (págs. 65-66), sobras no más de 3 días y hervir 1 minuto (pág. 49).
+- **Fuentes sumadas al escribir las recetas (consultadas el 2026-10-05):** Díaz Ramiro, F., "El arroz y sus recetas en la cocina
+  española", *Revista CSIF Andalucía*, n.º 40, 2011 (pilaw: dos partes de líquido por una de arroz, horno a 180 °C, unos 20 minutos):
+  <https://archivos.csif.es/archivos/andalucia/ensenanza/revistas/csicsif/revista/pdf/Numero_40/FRANCISCO%20DIAZ%20RAMIRO_2.pdf>;
+  Universidad Autónoma del Estado de Hidalgo (ICEA), "Introducción a la gastronomía: Arroz pilaf y arroz risotto" (técnica, sin
+  cantidades); Consulado General de México en Shanghái (SRE), *Sabores de México 2020* (guacamole básico); Gobierno de Mendoza,
+  *Mendoza cocina* (2019), "Guiso de lentejas"; MAGyP, *Hoy comemos... ¡Legumbres!* (cocción y conservación de legumbres);
+  Ministerio de Sanidad de España, "Legumbres" (remojo). Las URL completas están en la sección "Fuentes" de cada receta.
