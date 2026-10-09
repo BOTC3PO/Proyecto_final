@@ -19,21 +19,21 @@ BASE = Path(__file__).resolve().parents[1] / "oficios/cocina-gastronomia/recetas
 SECC = ["## Ingredientes", "## Antes de empezar", "## Pasos", "## Lista de cotejo",
         "## Error común", "## Conservación", "## Verificación", "## Fuentes"]
 SECC_A = SECC[:3] + ["## Escalado y costeo"] + SECC[3:]
-RANGO = {"basicas": (1, 2.5), "intermedias": (2, 3), "avanzadas": (3, 5)}
+RANGO = {"basicas": (1, 2.5), "intermedias": (2, 3), "avanzadas": (3, 5), "especiales": (1, 5)}
 ALC = re.compile(r"(?i)\b(vino|cerveza|whisky|ron|vodka|licor|co[ñn]ac|fernet|aguardiente|grappa|brandy|champ[aá]n|mirin|sake)\b")
 OKALC = re.compile(r"(?i)vinagre de vino|sin vino|sin licor|omit|en lugar del|reemplaza|opcional")
 
 
 def revisar(path, nivel):
     t = path.read_text(encoding="utf-8")
-    sec = SECC_A if nivel == "avanzadas" else SECC
+    sec = SECC_A if nivel == "avanzadas" or (nivel == "especiales" and "## Escalado y costeo" in t) else SECC
     pos = [t.find(s) for s in sec]
     p = []
     if -1 in pos:
         p.append("faltan: " + ", ".join(s[3:] for s, q in zip(sec, pos) if q == -1))
     elif pos != sorted(pos):
         p.append("secciones fuera de orden")
-    if nivel != "avanzadas" and "## Escalado y costeo" in t:
+    if nivel in ("basicas", "intermedias") and "## Escalado y costeo" in t:
         p.append("trae Escalado y costeo (solo van en avanzadas)")
     if "Estado: no probada" not in t:
         p.append("sin 'Estado: no probada'")

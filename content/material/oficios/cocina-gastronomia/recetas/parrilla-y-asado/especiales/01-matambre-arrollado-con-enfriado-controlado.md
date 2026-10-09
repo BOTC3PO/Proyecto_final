@@ -1,5 +1,7 @@
 # Matambre arrollado hervido, con enfriado controlado
-> Ruta B · Parrilla y asado · Nivel A · Dificultad 3,5 de 5 · Estado: no probada
+> Ruta B · Parrilla y asado · Nivel E (especial, experta) · Dificultad 3,5 de 5 · Estado: no probada
+>
+> **Por qué es nivel E y no A:** ANMAT cita el matambre entre los alimentos con riesgo de botulismo si se arrolla o se enfría mal. La dificultad técnica es de 3,5, pero el margen de error sanitario es mínimo y el enfriado no se pudo comprobar en una heladera hogareña. Solo para quien ya domina las avanzadas de este bloque y puede medir la temperatura del centro.
 
 **Tiempo:** unos 60 min de mise en place (desgrasar, armar el relleno, enrollar y atar; estimación mía) + **2 h de hervor** (IPCVA: "dos horas como mínimo"; Menú bonaerense: de 1 h 30 min a 2 h) + **hasta 4 h para llevarlo a 5 °C o menos** (ANMAT) + prensado en la heladera (las fuentes no dan las horas) · **Rinde:** 10 a 12 porciones (Menú bonaerense, con un matambre de peso no informado; el IPCVA usa un matambre de 1,5 a 2 kg y no dice cuántas porciones) · **Practica (Ruta A):** escalado, rendimiento, merma y costeo (`../../../calculo-cocina/teoria.md`) y enfriamiento rápido y cadena de frío (`../../../seguridad-e-higiene-cocina/teoria.md`)
 

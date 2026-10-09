@@ -167,14 +167,14 @@ teoría) y una ficha fija:
 
 ## 9. Estado y cómo continuar (2026-10-09)
 
-**Escritas: 117 de 150** (43 básicas, 45 intermedias, 27 avanzadas y 2 especiales del equipo), todas
+**Escritas: 117 de 150** (43 básicas, 45 intermedias, 26 avanzadas, 1 especial de parrilla y 2 especiales del equipo), todas
 `no probada`. Conteo por categoría (B / I / A escritas de B / I / A previstas):
 
 | Categoría | Básicas | Intermedias | Avanzadas |
 |---|---:|---:|---:|
 | Fondos, salsas y guarniciones | 6/6 | 5/5 | 3/3 |
 | Cortes y técnicas de carnes | 3/3 | 4/4 | 2/2 |
-| Parrilla y asado | 3/3 | 5/5 | 4/4 |
+| Parrilla y asado | 3/3 | 5/5 | 3/3 (+ 1 especial: matambre) |
 | Pastas caseras | 4/4 | 4/4 | 3/3 |
 | Panificación | 4/4 | 5/5 | 3/3 |
 | Repostería y pastelería | 3/3 | 5/5 | 5/5 |
@@ -195,10 +195,11 @@ chequeo de estructura en `content/material/_qa_tools/check_recetas_ruta_b.py` (n
 alguien cocine la receta).
 
 **Pendientes de decisión o revisión**
-- **Matambre arrollado** (`../parrilla-y-asado/avanzadas/01-...`): ANMAT lo cita entre los alimentos
-  con riesgo de botulismo si se arrolla o enfría mal. La receta trae enfriado controlado y el riesgo
-  nombrado, pero no se pudo comprobar que un rollo de 2 kg llegue a 5 °C en 4 h en una heladera
-  hogareña. Es la única receta con riesgo real de salud: dejarla marcada como experta o retirarla.
+- **Matambre arrollado** (movido a nivel E, `../parrilla-y-asado/especiales/01-...`, por pedido de
+  Javier): ANMAT lo cita entre los alimentos con riesgo de botulismo si se arrolla o enfría mal. La
+  receta trae enfriado controlado y el riesgo nombrado, pero no se pudo comprobar que un rollo de 2 kg
+  llegue a 5 °C en 4 h en una heladera hogareña. Sigue siendo la única receta con riesgo real de salud:
+  dejarla como experta o retirarla.
 - **Conservas caseras del nivel básico** (pickles de heladera y mermelada): ANMAT recomienda a los
   adultos evitar las conservas caseras. Conservar o sacar.
 - **"Fuego y brasas"** (`../parrilla-y-asado/basicas/01-...`) es un ejercicio sin comida y cuenta

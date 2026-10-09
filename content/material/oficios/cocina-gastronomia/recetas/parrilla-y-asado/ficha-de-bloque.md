@@ -193,10 +193,13 @@ Intermedias (nivel I, en `intermedias/`):
 
 Avanzadas (nivel A, en `avanzadas/`):
 
-1. **Matambre arrollado hervido, con enfriado controlado** (3,5): `avanzadas/01-matambre-arrollado-con-enfriado-controlado.md`.
-2. **Gigot de cordero a la parrilla con salmuera de romero, papas y hongos** (4): `avanzadas/02-gigot-de-cordero-a-la-parrilla-con-salmuera-de-romero.md`.
-3. **Costillar a la cruz (o a la parrilla) con chimichurri, para 12 a 15** (4): `avanzadas/03-costillar-a-la-cruz-con-chimichurri.md`.
-4. **Parrillada de cerdo para 12: bondiola, pechito, matambrito y chorizos** (4,5): `avanzadas/04-parrillada-de-cerdo-para-12.md`.
+1. **Gigot de cordero a la parrilla con salmuera de romero, papas y hongos** (4): `avanzadas/01-gigot-de-cordero-a-la-parrilla-con-salmuera-de-romero.md`.
+2. **Costillar a la cruz (o a la parrilla) con chimichurri, para 12 a 15** (4): `avanzadas/02-costillar-a-la-cruz-con-chimichurri.md`.
+3. **Parrillada de cerdo para 12: bondiola, pechito, matambrito y chorizos** (4,5): `avanzadas/03-parrillada-de-cerdo-para-12.md`.
+
+Especiales (nivel E, en `especiales/`):
+
+1. **Matambre arrollado hervido, con enfriado controlado** (3,5): `especiales/01-matambre-arrollado-con-enfriado-controlado.md`. Va como especial (experta) por el riesgo sanitario de enfriar mal un rollo grande, no por su dificultad técnica.
 
 ---
 
