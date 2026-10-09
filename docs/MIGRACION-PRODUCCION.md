@@ -185,3 +185,30 @@ solo para el usuario); no se escribe en ningún documento ni en git. El firewall
 
 **C. Después:** decidir cómo se sale a internet (túnel, DNS dinámico o redirección de puertos, ver
 sección 6), elegir qué de `tareas_de_reparación` llega a `main`, y respaldos de la base.
+
+## 10. Estado del despliegue de prueba (2026-10-09)
+
+Servidor `192.168.0.28`, todo por HTTP en la red local. **Funciona:** web en `http://192.168.0.28`
+(Nginx, con SPA fallback), API en `http://192.168.0.28:5050/health`, CORS con el origen de la web,
+Postgres local (solo 127.0.0.1) con las 104 tablas migradas y la base vacía, servicio de usuario
+`monolitico-api` con `Linger=yes`.
+
+**Disposición en el servidor** (`~/proyectos/monolitico/`, compartida a futuro con otros proyectos):
+`app/` (código por `git archive`, marcador `DEPLOYED_COMMIT`), `datos/media/` (enlazado a
+`app/api/dist/media`), `logs/`, `config/nginx-monolitico.conf`. Node 22 + pnpm en `~/.local/node`;
+la URL de la base en `~/.config/virtualbook/db.env` y los secretos de la API en `app/api/.env`
+(ambos modo 600, generados en el servidor, nunca en el repositorio).
+
+**Hallazgos a resolver en el repositorio:**
+- `@vb/vblang` solo expone TypeScript (`main: src/index.ts`): la API compilada (`node dist/src/index.js`)
+  no arranca; hoy corre con `tsx src/index.ts`. Arreglo limpio: compilar vblang y apuntar `main`/`exports` a `dist`.
+- `pnpm --filter web build` falla en `tsc -b` por 3 specs (`casos-limite-menores.spec.tsx`,
+  `tiza-spans.spec.tsx`, `variables-factories-builtins.spec.ts`); se compiló con `vite build` directo.
+- El script `start` apuntaba a `dist/index.js`; corregido a `dist/src/index.js` (commit 39ab3d00).
+- Sin el `Diccionario.sqlite` la API arranca igual, pero el endpoint del diccionario devuelve error (esperado).
+- La web lleva `VITE_API_BASE_URL` fijada en el build: al cambiar la URL pública hay que recompilarla.
+- Un proceso de prueba en primer plano junto al servicio dejó al servicio sin puerto abierto; reiniciarlo lo resolvió.
+
+**Pendiente:** crear el primer administrador (`POST /api/auth/bootstrap-admin` con `x-bootstrap-key`,
+contraseña elegida por Javier; no usar `db:init`), HTTPS/dominio/salida a internet (`trust proxy` al
+poner proxy), respaldos de la base, diccionario, e importador de `content/material`.
