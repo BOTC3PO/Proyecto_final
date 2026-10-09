@@ -212,3 +212,18 @@ la URL de la base en `~/.config/virtualbook/db.env` y los secretos de la API en 
 **Pendiente:** crear el primer administrador (`POST /api/auth/bootstrap-admin` con `x-bootstrap-key`,
 contraseña elegida por Javier; no usar `db:init`), HTTPS/dominio/salida a internet (`trust proxy` al
 poner proxy), respaldos de la base, diccionario, e importador de `content/material`.
+
+### 10.1 HTTPS en la red local (2026-10-09)
+
+- Entrada única: `https://192.168.0.28` (Nginx 1.24, 443 con http2; el 80 redirige). `/api/` y `/health`
+  van por proxy a la API, que escucha **solo en 127.0.0.1:5050** (`HOST=127.0.0.1`, `TRUST_PROXY=loopback`
+  en `api/.env`). La web se compila con `VITE_API_BASE_URL=https://192.168.0.28` (mismo origen).
+- Certificado: autoridad propia "Monolitico CA local" (10 años) y certificado de servidor (800 días, vence
+  2028-12-17) con SAN `192.168.0.28`, `127.0.0.1`, `javier-AI-Series(.local)`, `localhost`. Archivos en
+  `~/proyectos/monolitico/config/tls/` (llaves modo 600, `ca.key` no sale del servidor). Cada dispositivo de
+  prueba debe instalar `ca.crt` como autoridad de confianza. Con dominio real se reemplaza por Let's Encrypt.
+- Nginx 1.24 no admite la directiva `http2 on;` (es de 1.25.1+): usar `listen 443 ssl http2`.
+- ufw no tenía regla para el 5050 y aun así estaba accesible: no confiar en ufw para cerrar puertos de la API,
+  cerrar en la aplicación (HOST) como se hizo.
+- Reinicios: nginx, postgresql y la API (linger) arrancan solos; verificar tras el primer reinicio con
+  `https://192.168.0.28/health`, `systemctl --user status monolitico-api` y `systemctl status nginx`.
