@@ -314,16 +314,17 @@ const httpsCreds =
     ? { key: readFileSync(CERT_KEY), cert: readFileSync(CERT_FILE) }
     : null;
 
+// HOST=127.0.0.1 detrás de Nginx; sin definir "::" = todas las interfaces IPv4+IPv6 (igual que el default de Node).
 const bootstrap = async () => {
   // Antes de aceptar un solo request: si hay pasarelas configuradas,
   // los secretos que las hacen seguras no pueden faltar.
   assertSecretosDePago();
   if (httpsCreds) {
-    createHttpsServer(httpsCreds, app).listen(ENV.PORT, () => {
+    createHttpsServer(httpsCreds, app).listen(ENV.PORT, process.env.HOST || "::", () => {
       console.log(`API on https://localhost:${ENV.PORT}`);
     });
   } else {
-    app.listen(ENV.PORT, () => {
+    app.listen(ENV.PORT, process.env.HOST || "::", () => {
       console.log(`API on http://localhost:${ENV.PORT}`);
     });
   }
