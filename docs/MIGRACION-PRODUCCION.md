@@ -106,7 +106,43 @@ Código del API y de la web, PostgreSQL vacío con las 44 migraciones, SQLite de
 y diccionario, media en disco local, primer admin y secretos propios. Sin pagos, sin contenido
 educativo, sin móvil.
 
-## 8. Lo que falta antes de empezar
+## 8. Fase de pruebas internas por HTTP (decisión de Javier, 2026-10-09)
+
+Primero se prueba por la dirección local del servidor (`http://192.168.0.28:...`) y después se abre
+a internet. Revisado en el código (sin tocar el servidor):
+
+**Funciona en HTTP plano**
+- **No hay cookies:** la autenticación es por tokens JWT en cabecera, guardados en `localStorage`
+  (`apps/web/src/lib/api.ts`). Ninguna cookie `Secure` puede romper el login.
+- **El API no sirve la web:** no hay `express.static`. La web compilada necesita su propio servidor
+  de archivos estáticos (Nginx, Caddy o similar).
+- **Sin pagos no se pide nada de MercadoPago:** `assertSecretosDePago` solo exige claves si hay una
+  pasarela configurada.
+
+**Hay que configurar bien (si no, falla)**
+- **`JWT_SECRET` es obligatorio:** el API **se niega a arrancar** si falta o es `dev-secret`.
+  Conviene definir también `JWT_REFRESH_SECRET` aparte (si no, reutiliza el anterior).
+- **La web compilada apunta a `http://localhost:5050` por defecto** si al compilar no se define
+  `VITE_API_BASE_URL`: desde otra computadora, el navegador llamaría a *su propio* localhost. Hay que
+  compilar con `VITE_API_BASE_URL=http://192.168.0.28:5050` (o la URL que se use).
+- **`CORS_ORIGIN` tiene que listar el origen exacto de la web**, por ejemplo `http://192.168.0.28`
+  (con el puerto si no es el 80). Si cambia la dirección, hay que cambiarlo también.
+- **`API_URL` y `APP_URL`** con las mismas direcciones locales.
+
+**Para tener en cuenta**
+- **`helmet()` con valores por defecto** (`api/src/index.ts`): suma cabeceras de seguridad que
+  presuponen HTTPS (HSTS, `upgrade-insecure-requests`). En respuestas JSON no molesta; si algún día
+  el API sirve HTML por HTTP, conviene revisarlo. A verificar en la prueba, no comprobado.
+- **Sin `trust proxy`:** si más adelante se pone un proxy inverso (Nginx) delante del API, el límite de
+  intentos (`lib/rate-limit.ts`) vería a todos los usuarios con la IP del proxy. Habría que configurar
+  `trust proxy` en ese momento. Conectando directo al puerto del API no pasa.
+- **Funciones del navegador que exigen HTTPS** (micrófono, portapapeles, service workers, `crypto.subtle`)
+  **no van a andar** en `http://192.168.0.28`; sí en `localhost`. Si la plataforma usa alguna, se prueba
+  recién con HTTPS.
+- **El tráfico va sin cifrar:** aceptable en una red local de prueba, **sin usuarios reales ni
+  contraseñas que importen**. Al abrir a internet, HTTPS es obligatorio.
+
+## 9. Lo que falta antes de empezar
 
 1. **Autorizar la clave SSH** en el servidor (un paso, una vez; lo hace quien tenga la contraseña):
    `ssh-copy-id -i ~/.ssh/id_ed25519.pub javier@192.168.0.28`.
