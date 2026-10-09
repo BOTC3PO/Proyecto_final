@@ -227,3 +227,17 @@ poner proxy), respaldos de la base, diccionario, e importador de `content/materi
   cerrar en la aplicación (HOST) como se hizo.
 - Reinicios: nginx, postgresql y la API (linger) arrancan solos; verificar tras el primer reinicio con
   `https://192.168.0.28/health`, `systemctl --user status monolitico-api` y `systemctl status nginx`.
+
+### 10.2 Respaldos de la base (2026-10-09)
+
+- Timer de usuario `monolitico-respaldo.timer`: todos los días 03:30 (+hasta 5 min al azar, `Persistent=true`
+  recupera uno perdido si el servidor estaba apagado). Corre `~/proyectos/monolitico/config/respaldo-db.sh`:
+  `pg_dump --format=custom`, verifica con `pg_restore --list`, deja 14 copias en
+  `~/proyectos/monolitico/datos/backups/` (modo 600) y escribe en `logs/respaldo.log`.
+- Verificado el primer respaldo: 104 tablas, 43 migraciones y la fila del admin. **No se hizo una restauración
+  completa**: el usuario de la base no tiene `CREATEDB`. Para probarla hace falta `sudo -u postgres createdb`.
+- **Límite:** el respaldo está en el mismo disco que la base. No protege de una falla de disco ni del servidor.
+  Pendiente: copia fuera del servidor (otro equipo o almacenamiento externo).
+- No incluye `api/.env`, `db.env` ni `config/tls/` (secretos y la CA): perderlos obliga a regenerar secretos
+  (invalida las sesiones) y a reinstalar la CA en cada dispositivo.
+- Restaurar: `pg_restore --clean --if-exists --no-owner -d "$DATABASE_URL" <archivo.dump>` con la API detenida.
