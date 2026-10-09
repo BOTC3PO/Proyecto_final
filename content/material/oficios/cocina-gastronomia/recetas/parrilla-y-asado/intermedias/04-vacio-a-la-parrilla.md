@@ -3,7 +3,7 @@
 
 **Tiempo:** unos 60 min en la parrilla "según la pieza" (IPCVA), más 3 min de reposo; con el fuego ya listo, unas 1 h 15 min en total (la suma es mía) · **Rinde:** 4 porciones (una pieza chica de unos 1000 g; el rinde es criterio mío) · **Practica (Ruta A):** control del fuego y del punto de cocción (`../../../tecnicas-de-coccion/teoria.md`), cortes de carne (`../../../materia-prima-cocina/teoria.md`) y temperatura interna (`../../../seguridad-e-higiene-cocina/teoria.md`)
 
-**Antes de esta receta:** hacé `../basicas/01-fuego-y-brasas.md`, `../basicas/03-chorizos-frescos-a-la-parrilla.md` (el termómetro) y `02-asado-de-tira-banderita-a-la-parrilla.md` (el manejo de dos zonas de calor y la pinza). Leé la **nota de seguridad** de `../ficha-de-bloque.md`. Necesitás un **termómetro de cocina**.
+**Antes de esta receta:** hacé `../../nivel-0-tecnica/06-fuego-y-brasas.md`, `../basicas/03-chorizos-frescos-a-la-parrilla.md` (el termómetro) y `02-asado-de-tira-banderita-a-la-parrilla.md` (el manejo de dos zonas de calor y la pinza). Leé la **nota de seguridad** de `../ficha-de-bloque.md`. Necesitás un **termómetro de cocina**.
 
 **Dificultad 3, en una línea:** dos técnicas (mantener un calor moderado y parejo durante una hora y reponer brasas, y controlar el punto con termómetro en una pieza entera), dos procesos en paralelo (el fuego y la pieza, que hay que ir regulando), margen de error medio-estrecho (más de una hora "se arruina", dicen parrilleros consultados por el GCBA, y con poca cocción queda crudo adentro) y riesgo medio (fuego sostenido, carne entera de res).
 
@@ -23,7 +23,7 @@
 - Sacalo de la heladera **recién cuando el fuego esté casi listo**: no más de 2 horas fuera (ANMAT) ni 1 hora con calor fuerte (WVU).
 - Lavate las manos antes y después de tocarlo. Separá la pinza y el plato "de crudo" de los "de cocido".
 - Calibrá el termómetro en agua con hielo (0 °C).
-- Fuego según `../basicas/01-fuego-y-brasas.md`. Dejá que las brasas rojas, ya repartidas bajo la parrilla, tomen **color blanco ceniza** (unos 10 minutos, IPCVA) y seguí **haciendo brasas en un costado** para reponer. Armá **calor moderado a medio** (3 a 4 segundos con la mano, 120 a 170 °C, GCBA); regulá sumando o quitando brasas bajo la parrilla (IPCVA). Si podés, inclinala unos 4 cm hacia atrás para tener una zona más cerca y otra más lejos del fuego (IPCVA).
+- Fuego según `../../nivel-0-tecnica/06-fuego-y-brasas.md`. Dejá que las brasas rojas, ya repartidas bajo la parrilla, tomen **color blanco ceniza** (unos 10 minutos, IPCVA) y seguí **haciendo brasas en un costado** para reponer. Armá **calor moderado a medio** (3 a 4 segundos con la mano, 120 a 170 °C, GCBA); regulá sumando o quitando brasas bajo la parrilla (IPCVA). Si podés, inclinala unos 4 cm hacia atrás para tener una zona más cerca y otra más lejos del fuego (IPCVA).
 
 ## Pasos
 1. **Poné el vacío** en la zona de calor medio, con la pinza "de crudo", y **salalo al ponerlo** (IPCVA). No lo pinches.

@@ -3,7 +3,7 @@
 
 **Tiempo:** unos 40 min de parrilla con el fuego ya listo (unos 20 min por lado según el IPCVA, más el reposo en limón y sal, **cuyo tiempo la fuente no da**) · **Rinde:** 4 porciones (una pieza de unos 1000 g; el rinde es criterio mío) · **Practica (Ruta A):** temperatura interna del cerdo y marinadas seguras (`../../../seguridad-e-higiene-cocina/teoria.md`), calor seco y puntos de cocción (`../../../tecnicas-de-coccion/teoria.md`)
 
-**Antes de esta receta:** hacé `../basicas/01-fuego-y-brasas.md` y `../basicas/03-chorizos-frescos-a-la-parrilla.md` (el termómetro y el centro de la pieza). Leé la **nota de seguridad** de `../ficha-de-bloque.md`. Necesitás un **termómetro de cocina**.
+**Antes de esta receta:** hacé `../../nivel-0-tecnica/06-fuego-y-brasas.md` y `../basicas/03-chorizos-frescos-a-la-parrilla.md` (el termómetro y el centro de la pieza). Leé la **nota de seguridad** de `../ficha-de-bloque.md`. Necesitás un **termómetro de cocina**.
 
 **Dificultad 2,5, en una línea:** dos técnicas combinadas (marinar con limón y sal y cocinar una pieza entera a calor moderado), dos procesos (la carne reposa mientras se arma el fuego), margen de error medio (se pasa a seco o queda crudo si no se mide) y riesgo medio-alto (carne de cerdo: triquinosis, que solo se evita cocinando bien, y fuego sostenido durante unos 40 minutos).
 
@@ -23,7 +23,7 @@
 - Con un **cuchillo**, hacele **cortes suaves en la superficie, sin atravesarlo** (IPCVA). Ponelo en una fuente con el jugo de limón y la sal gruesa y dejalo reposar **en la heladera**, no sobre la mesada (University of Maine Extension). El IPCVA no da el tiempo de reposo; elegí una ventana corta y anotala (ver Verificación).
 - Lavate las manos antes y después de tocar la carne cruda. Separá la fuente y la pinza "de crudo" de los "de cocido".
 - Calibrá el termómetro en agua con hielo (0 °C).
-- Fuego según `../basicas/01-fuego-y-brasas.md`, con parrilla limpia y caliente. Armá **calor moderado a medio** (3 a 4 segundos con la mano, 120 a 170 °C, GCBA) y una zona de calor bajo (5 a 8 segundos) por si se dora muy rápido. Reserva de brasas a un costado.
+- Fuego según `../../nivel-0-tecnica/06-fuego-y-brasas.md`, con parrilla limpia y caliente. Armá **calor moderado a medio** (3 a 4 segundos con la mano, 120 a 170 °C, GCBA) y una zona de calor bajo (5 a 8 segundos) por si se dora muy rápido. Reserva de brasas a un costado.
 
 ## Pasos
 1. **Sacá la carne de la fuente** y ponela en la parrilla caliente y limpia, en la zona de calor medio. **Tirá el líquido de la marinada**: no lo uses para pincelar ni de salsa (University of Maine Extension, que solo lo permite si se hierve 5 minutos).

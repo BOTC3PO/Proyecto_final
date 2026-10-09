@@ -40,17 +40,45 @@
 - Sacá el gigot de la heladera **recién cuando el fuego esté casi listo**: no más de 2 horas fuera (ANMAT) ni 1 hora con calor fuerte (WVU).
 - Lavate las manos. Pinza, tabla y fuente "de crudo" aparte de las "de cocido" (ANMAT págs. 42-44).
 - Calibrá el termómetro en agua con hielo (0 °C).
-- **Fuego** según `../basicas/01-fuego-y-brasas.md`. Dejá que las brasas tomen color blanco ceniza (unos 10 minutos, IPCVA, ver `../intermedias/04-vacio-a-la-parrilla.md`) y armá **calor moderado** (3 a 4 segundos con la mano, 120 a 170 °C, GCBA; el Recetario dice "fuego moderado"), con una **zona de calor bajo** y una reserva de brasas en un costado para reponer.
+- **Fuego** según `../../nivel-0-tecnica/06-fuego-y-brasas.md`. Dejá que las brasas tomen color blanco ceniza (unos 10 minutos, IPCVA, ver `../intermedias/04-vacio-a-la-parrilla.md`) y armá **calor moderado** (3 a 4 segundos con la mano, 120 a 170 °C, GCBA; el Recetario dice "fuego moderado"), con una **zona de calor bajo** y una reserva de brasas en un costado para reponer.
 
 ## Pasos
 1. **Salá el gigot** y llevalo a la parrilla caliente y limpia, a fuego moderado (Recetario). No lo pinches.
 2. **Cocinalo girándolo** (Recetario: "ir girando el gigot") para que dore parejo; si dora más rápido de lo que cocina, pasalo a la zona de calor bajo (criterio mío). Repone brasas desde el costado cuando el calor baje.
 3. **Pincelalo con la salmuera durante la cocción**, usando como pincel las 3 ramitas de romero restantes (Recetario). **Cuidado con la contaminación cruzada** (criterio mío, aplicado de University of Maine Extension): pincelá **solo con la porción que apartaste**; el pincel que toca carne cruda no vuelve a entrar al recipiente grande; dejá de pincelar cuando falten unos 10 minutos para el final, para que la salmuera cruda no quede sobre la carne sin cocción; la salmuera que tocó carne cruda se tira.
 4. **Si cae grasa y sube una llama**, rociá apenas con agua o corré la pieza; no apagues el fuego (Penn State Extension, como en `../intermedias/02-asado-de-tira-banderita-a-la-parrilla.md`).
-5. **A la hora (Recetario: "cocinar durante 1 hora"), empezá a medir.** Clavá la punta del termómetro en la parte más gruesa, hasta el centro, **sin tocar el hueso** ni la parrilla (ANMAT). Meta: **70 °C o más**. **Una pata de 2,5 kg con hueso es probable que no llegue en 1 hora a fuego moderado**: la fuente no mide el centro y yo no pude comprobarlo (ver Verificación). Si falta, seguí cocinando en la zona de calor bajo, girando, y medí cada 10 a 15 minutos.
+5. **A la hora (Recetario: "cocinar durante 1 hora"), empezá a medir.** Clavá la punta del termómetro en la parte más gruesa, hasta el centro, **sin tocar el hueso** ni la parrilla (ANMAT). Meta: **70 °C o más**. **Una pata de 2,5 kg con hueso es probable que no llegue en 1 hora a fuego moderado**: la fuente no mide el centro; el boletín de la Universidad de Puerto Rico da entre 2 h 15 y 2 h 45 para una pieza así en horno a 163 °C (ver más abajo, "Cómo saber que el cordero está cocido"). Si falta, seguí cocinando en la zona de calor bajo, girando, y medí cada 10 a 15 minutos.
 6. **Mientras tanto, las papas y los hongos** (Recetario): hervir las papas enteras en agua con sal hasta que estén tiernas y colarlas; en el disco o sartén caliente con aceite de oliva, dorar las cebollas enteras y salpimentar; sumar los hongos y cocinarlos a fuego fuerte; salpimentar de nuevo; agregar el jugo de limón, las papas enteras y mezclar; condimentar con tomillo; retirar del fuego y poner los cubos de manteca fría para dar brillo.
 7. **Sacá el gigot** con la pinza "de cocido" a una fuente limpia y **dejalo reposar unos minutos** (el piso de 63 °C de ANMAT/USDA pide 3 minutos) antes de cortarlo.
 8. **Servilo** con las papas y los hongos (Recetario). Cortá en lonjas siguiendo el hueso.
+
+### Cómo saber que el cordero está cocido
+
+El color y el tiempo no alcanzan como única señal. **Lo que decide es la temperatura del centro**
+(ANMAT pide medirla con termómetro). Medila en la parte más gruesa, sin tocar el hueso.
+
+| Punto | Sacalo del fuego a | Queda al final (tras reposar) |
+|---|---|---|
+| Medio crudo | 57 °C | 63 °C |
+| Término medio | 66 °C | 71 °C |
+| Bien cocido | 71 °C | 77 °C |
+
+- **Por qué se saca antes:** la temperatura sigue subiendo mientras la carne reposa; el boletín dice
+  que se retire cuando falten unos 10 °F (5 a 6 °C) para el punto buscado.
+- **Piso de seguridad:** 63 °C en el centro con 3 minutos de reposo para una pieza entera de cordero
+  (MAGyP Ficha 30 y la agencia de inocuidad de Estados Unidos). La carne picada es otra cosa: 71 °C.
+- **Qué usa esta receta:** **70 a 71 °C**, que es el término medio de la tabla y coincide con la
+  cocción completa de ANMAT. Si preferís el medio crudo, es válido solo si el centro llegó a 63 °C y
+  esperaste los 3 minutos.
+- **Cuánto tarda (orientativo, horno a 163 °C, no parrilla):** para una pierna con hueso de 2,3 a
+  3,2 kg el boletín da 44 a 55 min/kg para medio crudo, 55 a 66 min/kg para término medio y 66 a
+  77 min/kg para bien cocido. Para esta pata de 2,5 kg, término medio: **entre 2 h 15 min y 2 h 45
+  min**, bastante más que la hora del Recetario. En la parrilla el tiempo cambia con el fuego, así
+  que **manda el termómetro, no el reloj**.
+- **Antes de cortar:** dejala reposar y cortá **a contrapelo**.
+- **Señales (no reemplazan al termómetro):** el MAGyP dice que el punto justo es cuando el interior
+  está rosado; eso solo no prueba que se llegó a 63 °C, así que medí igual. Si todavía hay zonas
+  oscuras o rojizas cerca del hueso, seguí cocinando y volvé a medir (criterio mío).
 
 ## Escalado y costeo
 Remitido a `../../../calculo-cocina/teoria.md` (escalado por comensales, rendimiento y merma, costeo de plato).
@@ -119,11 +147,11 @@ El cordero está comprado **con hueso**, así que su merma ya está en el rendim
 ## Verificación
 - **Coinciden dos o más fuentes en:** el cordero se cocina a la parrilla (MAGyP: "la forma de cocción de cordero está muy asociada a la parrilla"; Recetario: gigot a la parrilla a fuego moderado); la pata es una pieza **seca** que conviene untar con grasa (MAGyP: manteca o aceite) o pincelar (Recetario: salmuera); 63 °C para la pata (MAGyP) y 63 °C con 3 min como combinación equivalente a 70 °C (ANMAT); no pinchar y usar pinza (GCBA, IPCVA); calor moderado para pieza ancha (GCBA); desgrasar (Recetario; MAGyP: "elegir partes magras o desgrasar").
 - **Una sola fuente:** la receta del gigot, **1 hora a fuego moderado** para una pata de 2,5 kg, salmuera de 1 L de agua y 1 taza de sal gruesa, girar y pincelar con romero: Recetario Cordero Argentino 2023, p. 24-25. El resto de las cantidades del gigot y toda la guarnición también son de ahí.
-- **Discrepancia:** el **tiempo**: 1 hora para una pata de 2,5 kg es poco para llegar al centro de una pieza con hueso a fuego moderado, **pero es lo que dice la fuente**. No pude comprobarlo ni encontré una segunda fuente con tiempos para pata a la parrilla; el MAGyP solo da el tiempo para el cordero **entero** en cruz (unas 6 horas a 80 cm del fuego, vuelta cada 2 horas). Por eso la receta **no usa el reloj como regla**: manda el termómetro a 70 °C. También difieren el **punto**: el MAGyP dice que lo ideal es el interior rosado, y esta plataforma toma 70 °C (ver la ficha del bloque).
+- **Discrepancia resuelta en parte (2026-10-09):** la fuente del gigot dice 1 hora para una pata de 2,5 kg con hueso. El Boletín *El Cordero* (Universidad de Puerto Rico, adaptado de la American Lamb Board) da, para pierna con hueso de 5 a 7 libras en horno a 325 °F (163 °C), 20 a 25 / 25 a 30 / 30 a 35 minutos por libra para medio crudo / término medio / bien cocido, es decir 2 h 15 a 2 h 45 para término medio en esta pieza: la hora del Recetario es corta **para horno**. No hay fuente institucional con minutos para pata a la **parrilla**, donde el tiempo depende del fuego; por eso la receta manda el termómetro. El boletín es una sola fuente, de otra región y para horno.
 - **Una pata de 2,5 kg para 4 personas:** da 625 g de pieza con hueso por persona; la fuente lo dice y yo no lo modifiqué.
 - **Sin cantidad en las fuentes:** cuánta sal para el gigot; aceite, sal y pimienta de la guarnición; peso de la taza de sal (**la salmuera de la fuente es 1 taza de sal gruesa por litro: una taza llena pesa del orden de 200 a 300 g según el grano, criterio mío; eso es una salmuera casi saturada**, y como solo se usa para pincelar, no para sumergir, no cambié nada, pero probá y ajustá); tamaño de las cebollas y de los limones.
 - **Criterio mío:** apartar una porción de salmuera para el pincel y tirarla; dejar de pincelar 10 minutos antes del final; pasar a calor bajo si dora de más; reemplazar el disco por una sartén de hierro; el reposo de unos minutos; los porcentajes de merma (30 %, 10 %, 5 %) del ejemplo (rotulados); hacer 3 piezas en lugar de 1 para 12; tomar 70 °C (ficha del bloque).
-- **Sin confirmar:** si el centro del gigot llega a 70 °C en 1 hora (ver arriba); si "fuego moderado" del Recetario equivale a los 3 a 4 segundos de la guía de la Ciudad (probablemente, pero ninguna fuente lo dice).
+- **Sin confirmar:** cuánto tarda exactamente esta pata en la parrilla (el boletín es para horno); si "fuego moderado" del Recetario equivale a los 3 a 4 segundos de la guía de la Ciudad (probablemente, pero ninguna fuente lo dice). **Puntos de cocción**: la tabla (57/63, 66/71, 71/77 °C) sale del boletín, conversión de 135/145, 150/160 y 160/170 °F que hice yo; el piso de 63 °C con 3 minutos está en el boletín y en el MAGyP Ficha 30 (dos fuentes). La página de la agencia de inocuidad de Estados Unidos no se pudo abrir desde la máquina de trabajo (403): su dato de 145 °F con 3 minutos de reposo lo vi en un resumen de buscador, no en la página.
 - **Nota sobre el origen:** la receta del gigot es de un cocinero con restaurante propio y programa de televisión, publicada en un recetario del Ministerio de Economía y el de Turismo de la Nación. Se usa como **receta publicada por un organismo oficial**, no como receta de autor.
 
 ## Fuentes
@@ -136,3 +164,4 @@ El cordero está comprado **con hueso**, así que su merma ya está en el rendim
 - **Gobierno de la Ciudad de Buenos Aires, Turismo.** "Cómo ser un buen asador" (prueba de la mano; pieza ancha, fuego más suave; no pinchar): https://turismo.buenosaires.gob.ar/es/article/c%C3%B3mo-ser-un-buen-asador
 - **West Virginia University Extension.** "Barbecue safety", mayo de 2022 (1 hora fuera de la heladera con calor fuerte): https://extension.wvu.edu/food-health/food-safety-readiness/barbecue-safety
 - **Penn State Extension.** "BBQ Cooking Basics" (rociar con poca agua los focos de llama): https://extension.psu.edu/programs/4-h/opportunities/programs/animal-science/chicken-and-turkey-bbq-and-presentation-contests/chicken-barbecue-presentation/resources/cooking-basics
+- **Universidad de Puerto Rico (Recinto de Mayagüez), Servicio de Extensión Agrícola.** Boletín *El Cordero*, vol. 2, n.º 3 (2024), "Carne de cordero: tiempo de cocción y temperatura", adaptado de la American Lamb Board (grados de cocción, temperatura de extracción, tiempos por libra para pierna con hueso, reposo de 3 minutos): https://www.uprm.edu/sea/wp-content/uploads/sites/351/2025/03/Cordero-Vol-2-No-3-2024.pdf

@@ -1,9 +1,9 @@
 # Zapallitos a la parrilla con verdeo y limón
 > Ruta B · Parrilla y asado · Nivel B · Dificultad 1,5 de 5 · Estado: no probada
 
-**Tiempo:** unos 25 min con el fuego ya listo (10 de preparación + 8 a 10 en la parrilla + 5 de aliño; la suma es una estimación mía, la fuente solo da los 8 a 10 minutos de parrilla) · **Rinde:** 4 porciones como guarnición · **Practica (Ruta A):** control del calor medio con la prueba de la mano (`01-fuego-y-brasas.md`) y cortes parejos (ejercicio 2 de `../../nivel-0-tecnica/teoria.md`)
+**Tiempo:** unos 25 min con el fuego ya listo (10 de preparación + 8 a 10 en la parrilla + 5 de aliño; la suma es una estimación mía, la fuente solo da los 8 a 10 minutos de parrilla) · **Rinde:** 4 porciones como guarnición · **Practica (Ruta A):** control del calor medio con la prueba de la mano (`../../nivel-0-tecnica/06-fuego-y-brasas.md`) y cortes parejos (ejercicio 2 de `../../nivel-0-tecnica/teoria.md`)
 
-**Antes de esta receta:** hacé `01-fuego-y-brasas.md` (el fuego, la brasa y la prueba de la mano) y leé la **nota de seguridad** de la ficha del bloque (`../ficha-de-bloque.md`). Repasá el ejercicio 2 del Nivel 0 (cortes parejos).
+**Antes de esta receta:** hacé `../../nivel-0-tecnica/06-fuego-y-brasas.md` (el fuego, la brasa y la prueba de la mano) y leé la **nota de seguridad** de la ficha del bloque (`../ficha-de-bloque.md`). Repasá el ejercicio 2 del Nivel 0 (cortes parejos).
 
 **Dificultad 1,5, en una línea:** una técnica (grillar a calor medio) con un punto a cuidar (dar vuelta una sola vez y no dejar que se queme), un solo proceso, margen de error amplio (la verdura perdona, y si queda de más se nota enseguida) y riesgo bajo (fuego y quemaduras; no hay carne cruda).
 
@@ -15,7 +15,7 @@
 - Sal fina: 2,5 g (½ cucharadita), dividida en 1,25 g para antes de la parrilla y 1,25 g para el aliño (la división es criterio mío, ver Verificación)
 - Ají molido o en escamas: 0,5 g (1/8 de cucharadita), opcional
 
-**Proporción clave:** mitades de zapallito a lo largo, **calor medio** (3 a 4 segundos con la mano, ver `01-fuego-y-brasas.md`), **8 a 10 minutos** y **una sola vuelta**. En total, 20 ml de aceite para 6 zapallitos (la mitad para pintar, la mitad para el aliño).
+**Proporción clave:** mitades de zapallito a lo largo, **calor medio** (3 a 4 segundos con la mano, ver `../../nivel-0-tecnica/06-fuego-y-brasas.md`), **8 a 10 minutos** y **una sola vuelta**. En total, 20 ml de aceite para 6 zapallitos (la mitad para pintar, la mitad para el aliño).
 
 ## Antes de empezar (mise en place)
 - Lavate las manos. Lavá los zapallitos y la cebolla de verdeo con agua potable.

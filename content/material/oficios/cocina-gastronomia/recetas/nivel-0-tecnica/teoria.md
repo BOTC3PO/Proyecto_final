@@ -10,7 +10,7 @@
 > ejercicio ("Qué mirar"), para que la persona o su tutor revisen el resultado
 > por su cuenta.
 >
-> **Estos 5 ejercicios NO cuentan entre las 150 recetas del catálogo.** No se
+> **Estos 5 ejercicios (y el 6, `06-fuego-y-brasas.md`, el fuego de la parrilla) NO cuentan entre las 150 recetas del catálogo.** No se
 > cocina ningún plato completo: cada uno practica una sola habilidad.
 > Requisito de Ruta A: `../../fundamentos-cocina/` y
 > `../../seguridad-e-higiene-cocina/` (acá se apoya en ellos y no los repite).

@@ -33,7 +33,7 @@ aclara se consultó al equipo y quedó en "Aclarado por el equipo" más abajo.*
 - Tomates perita en lata: 1 lata (400 g)
 - Zanahoria: 1
 - Cebolla: 1 (pueden ser 2, según el contexto)
-- Levadura: 1 cubo (de 50 g; puede pesar menos)
+- Levadura: 1 cubo (de 50 g; puede pesar menos) **o, alternativamente, 1 sobre de 10 g de levadura seca** (el equipo confirmó que la pizza también sale así)
 - Sal: 20 g en la masa, y en la salsa a gusto, entre 5 y 7 g
 - Aceite: 40 g para la masa, más el necesario para freír las cebollas y untar el molde
 - Miel: media cucharada
@@ -92,6 +92,7 @@ original del equipo).
 
 - **Cornet**: espátula de mano para panadería.
 - **Cubo de levadura**: 50 g, aunque puede pesar menos.
+- **Levadura seca**: también sale con un sobre de 10 g de levadura seca, en lugar del cubo.
 - **Lata de tomate**: 400 g.
 - **Cebolla**: 1, pero pueden ser 2 según el contexto (por eso el paso dice "las cebollas").
 - **Horno**: cualquier temperatura dentro de 180 a 250 grados; a 250 tarda menos, a 180 tarda
@@ -107,4 +108,4 @@ original del equipo).
 No queda nada sin aclarar en esta receta.
 
 Datos que calculé yo, no del equipo: las dos aguas suman 600 g sobre 1 kg de harina (hidratación
-cercana al 60 %), la sal de la masa es el 2 % de la harina y la levadura de 50 g es el 5 %.
+cercana al 60 %), la sal de la masa es el 2 % de la harina y la levadura de 50 g es el 5 % y el sobre de 10 g de levadura seca es el 1 %. Las fuentes dan entre 2 y 4 % de levadura fresca para masas de este tipo; las dos opciones del equipo quedan fuera de ese rango, una por arriba y otra por abajo, y las dos funcionan con el reposo largo según el equipo.

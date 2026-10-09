@@ -1,9 +1,9 @@
 # Chorizos frescos a la parrilla (con termómetro)
 > Ruta B · Parrilla y asado · Nivel B · Dificultad 2 de 5 · Estado: no probada
 
-**Tiempo:** el que haga falta para que el centro llegue a 71 °C; **las fuentes institucionales no dan minutos** (con el fuego ya listo y chorizos de tamaño común, es razonable esperar un rato largo, pero se decide con el termómetro, no con el reloj) · **Rinde:** 2 porciones (4 chorizos) · **Practica (Ruta A):** temperatura interna segura, termómetro y contaminación cruzada (`../../../seguridad-e-higiene-cocina/teoria.md`) y control del calor (`01-fuego-y-brasas.md`)
+**Tiempo:** el que haga falta para que el centro llegue a 71 °C; **las fuentes institucionales no dan minutos** (con el fuego ya listo y chorizos de tamaño común, es razonable esperar un rato largo, pero se decide con el termómetro, no con el reloj) · **Rinde:** 2 porciones (4 chorizos) · **Practica (Ruta A):** temperatura interna segura, termómetro y contaminación cruzada (`../../../seguridad-e-higiene-cocina/teoria.md`) y control del calor (`../../nivel-0-tecnica/06-fuego-y-brasas.md`)
 
-**Antes de esta receta:** hacé `01-fuego-y-brasas.md` y `02-zapallitos-a-la-parrilla.md`. Leé la **nota de seguridad** de la ficha del bloque (`../ficha-de-bloque.md`), sobre todo la tabla de temperatura interna, y repasá en Ruta A la zona de peligro y la cadena de frío. Necesitás un **termómetro de cocina** para esta receta.
+**Antes de esta receta:** hacé `../../nivel-0-tecnica/06-fuego-y-brasas.md` y `02-zapallitos-a-la-parrilla.md`. Leé la **nota de seguridad** de la ficha del bloque (`../ficha-de-bloque.md`), sobre todo la tabla de temperatura interna, y repasá en Ruta A la zona de peligro y la cadena de frío. Necesitás un **termómetro de cocina** para esta receta.
 
 **Dificultad 2, en una línea:** una técnica con un punto a cuidar (cocinar el centro sin quemar el exterior), dos procesos en paralelo (cuidar el fuego y medir), poco margen de error (si falla el calor, queda crudo por dentro o quemado por fuera) y riesgo medio-alto de inocuidad si no se mide (carne de cerdo picada cruda: triquinosis, Salmonella, *E. coli*). El termómetro es lo que baja el riesgo; sin él no se debería hacer.
 
@@ -21,7 +21,7 @@
 - Si los vas a cocinar un rato después de sacarlos, tené en cuenta que el máximo a temperatura ambiente es de 2 horas (ANMAT), y de 1 hora si hace mucho calor (WVU Extension).
 - Lavate las manos antes y después de tocar los chorizos crudos. Poné aparte la pinza y el plato "de crudo" y la pinza y el plato "de cocido".
 - Calibrá el termómetro: sumergilo en agua con mucho hielo; tiene que marcar 0 °C (ANMAT lo pide a diario).
-- Tené el fuego listo según `01-fuego-y-brasas.md`, con la parrilla limpia y caliente. Armá dos zonas: calor medio (3 a 4 segundos con la mano) y calor bajo (5 a 8 segundos).
+- Tené el fuego listo según `../../nivel-0-tecnica/06-fuego-y-brasas.md`, con la parrilla limpia y caliente. Armá dos zonas: calor medio (3 a 4 segundos con la mano) y calor bajo (5 a 8 segundos).
 
 ## Pasos
 1. **Poné los chorizos en la zona de calor medio** de la parrilla limpia, con la pinza "de crudo". **No los pinches.**

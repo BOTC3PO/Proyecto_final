@@ -59,7 +59,7 @@ centro con un fósforo. Cuando hay buena cantidad de brasa, se reparte bajo la p
 y se deja un poco de fuego a un costado para reponer leña. No se usan líquidos
 inflamables para encender: las autoridades de incendios (New Jersey, 2023) aconsejan
 encendedores para chimenea con papel de diario y no agregar nunca líquido al fuego
-ya prendido. La receta 01 de este bloque (`basicas/01-fuego-y-brasas.md`) es este
+ya prendido. El ejercicio de Nivel 0 `../nivel-0-tecnica/06-fuego-y-brasas.md` es este
 armado paso a paso.
 
 **Medir el calor con la mano.** Sin termómetro de parrilla, la guía de la Ciudad de
@@ -164,8 +164,8 @@ ambiente más de 2 horas (ANMAT). Con mucho calor, el plazo baja a 1 hora (WVU E
 
 Otros agentes las escriben en `basicas/` (esta carpeta). Dificultad esperada: 1 a 2.
 
-1. **Fuego y brasas** (`basicas/01-fuego-y-brasas.md`, dificultad 1,5): encender con el método volcán, formar la brasa y
-   medir el calor con la mano. Sin comida: es la base de las otras dos.
+> *Fuego y brasas* (encender con el método volcán, formar la brasa y medir el calor con la mano) pasó al **Nivel 0** (`../nivel-0-tecnica/06-fuego-y-brasas.md`) por decisión de Javier: es un ejercicio sin comida y es la base de las básicas de este bloque.
+
 2. **Zapallitos a la parrilla** (`basicas/02-zapallitos-a-la-parrilla.md`, 1,5): la receta más simple para practicar calor medio y no
    se rompe fácil. No tiene carne cruda, así que el único riesgo es el fuego.
 3. **Chorizos frescos a la parrilla** (`basicas/03-chorizos-frescos-a-la-parrilla.md`, 2): el primer embutido; hay que cocinar a calor

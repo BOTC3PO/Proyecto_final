@@ -1,9 +1,11 @@
 # Fuego y brasas: encender, formar la brasa y medir el calor
-> Ruta B · Parrilla y asado · Nivel B · Dificultad 1,5 de 5 · Estado: no probada
+> Ruta B · Nivel 0 (técnica sin receta; ejercicio de Parrilla y asado) · Dificultad 1,5 de 5 · Estado: no probada
+>
+> **No cuenta entre las 150 recetas.** Es el ejercicio 6 del Nivel 0 (`teoria.md` tiene los 5 primeros): practica una sola habilidad —encender y manejar el fuego— sin cocinar un plato. Se movió acá desde las básicas de Parrilla por decisión de Javier.
 
-**Tiempo:** lo que tarde la leña en hacerse brasa; **las fuentes no dan minutos** y depende de la leña, del viento y del tamaño del fuego. Se sabe que terminó por cómo se ve la brasa, no por el reloj. · **Rinde:** una cama de brasas lista para una parrilla (esta receta no cocina comida) · **Practica (Ruta A):** control del fuego (ejercicio 4 de `../../nivel-0-tecnica/teoria.md`) y seguridad en la manipulación de equipos (`../../../seguridad-e-higiene-cocina/teoria.md`)
+**Tiempo:** lo que tarde la leña en hacerse brasa; **las fuentes no dan minutos** y depende de la leña, del viento y del tamaño del fuego. Se sabe que terminó por cómo se ve la brasa, no por el reloj. · **Rinde:** una cama de brasas lista para una parrilla (esta receta no cocina comida) · **Practica (Ruta A):** control del fuego (ejercicio 4 de `teoria.md`) y seguridad en la manipulación de equipos (`../../seguridad-e-higiene-cocina/teoria.md`)
 
-**Antes de esta receta:** leé la ficha del bloque (`../ficha-de-bloque.md`), en especial la **nota de seguridad** (fuego y monóxido de carbono) y la tabla de la prueba de la mano. Hacé el ejercicio 4 del Nivel 0 (fuego bajo, medio y alto en la cocina). Hacela **al aire libre** y, la primera vez, con una persona adulta cerca.
+**Antes de esta receta:** leé la ficha del bloque (`../parrilla-y-asado/ficha-de-bloque.md`), en especial la **nota de seguridad** (fuego y monóxido de carbono) y la tabla de la prueba de la mano. Hacé el ejercicio 4 del Nivel 0 (fuego bajo, medio y alto en la cocina). Hacela **al aire libre** y, la primera vez, con una persona adulta cerca.
 
 **Dificultad 1,5, en una línea:** una técnica (armar el fuego) con un punto a cuidar (esperar la brasa y no apurarse), un solo proceso, margen de error amplio (si no prende, se vuelve a armar) y riesgo medio (quemaduras, fuego fuera de control y monóxido de carbono si se hace en un lugar cerrado). Es el primer paso de todo lo demás y por eso va primero, aunque no tenga comida.
 
@@ -50,7 +52,7 @@
 **Cocinar antes de que haya brasa, o sobre llamas altas:** la llama sube y baja, y el calor no es parejo. Esperá a la brasa (paso 5) y medí con la mano (paso 8). Según la guía oficial, el calor se regula con la cantidad de brasa que repartís bajo la parrilla y con el fuego de reserva que dejás aparte; la guía no explica nada más sobre cómo subirlo o bajarlo.
 **No prende o se apaga:** ramas húmedas o armado muy apretado. Desarmá, ordená papel y ramas más sueltos y volvé a empezar. No agregues líquidos.
 **Quemadura en la mano al medir:** retirala apenas sientas calor, no mantengas la cuenta hasta el límite. Si hay quemadura, agua fría y, si es grande o con ampollas, consulta médica (criterio mío de primeros auxilios; ninguna de las fuentes lo trata).
-**Carne dura o seca más adelante:** casi siempre es el calor mal elegido para el corte (Caso 3 de `../../../diagnostico-cocina-por-casos/teoria.md`). Por eso esta receta es la primera: sin calor controlado, el resto no sale.
+**Carne dura o seca más adelante:** casi siempre es el calor mal elegido para el corte (Caso 3 de `../../diagnostico-cocina-por-casos/teoria.md`). Por eso esta receta es la primera: sin calor controlado, el resto no sale.
 
 ## Conservación e inocuidad
 - No hay comida acá. Lo que importa es la **seguridad**: fuego solo al aire libre, a más de 1 m de lo que se quema, con atención todo el tiempo y sin líquidos inflamables.

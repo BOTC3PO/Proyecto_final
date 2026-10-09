@@ -200,11 +200,21 @@ alguien cocine la receta).
   receta trae enfriado controlado y el riesgo nombrado, pero no se pudo comprobar que un rollo de 2 kg
   llegue a 5 °C en 4 h en una heladera hogareña. Sigue siendo la única receta con riesgo real de salud:
   dejarla como experta o retirarla.
-- **Conservas caseras del nivel básico** (pickles de heladera y mermelada): ANMAT recomienda a los
-  adultos evitar las conservas caseras. Conservar o sacar.
-- **"Fuego y brasas"** (`../parrilla-y-asado/basicas/01-...`) es un ejercicio sin comida y cuenta
-  como una de las 3 básicas de parrilla; podría pasar al Nivel 0.
-- **Lentejas** aparecen dos veces (cocidas en vegetales, guisadas en internacional).
+- **Decididas por Javier (2026-10-09):**
+  - **Conservas caseras** (pickles de heladera y mermelada): **se quedan en el nivel básico**. Las dos
+    recetas conservan la advertencia de ANMAT, que recomienda a los adultos evitar las conservas caseras.
+  - **"Fuego y brasas":** **pasó al Nivel 0** (`../nivel-0-tecnica/06-fuego-y-brasas.md`, ejercicio 6,
+    no cuenta entre las 150). Parrilla y asado necesita una tercera básica nueva (en `../parrilla-y-asado/basicas/01-...`).
+  - **Lentejas:** **son recetas distintas y se quedan las dos**: las *cocidas* (Vegetales, básica 06) son la
+    técnica de hervir una legumbre sola; las *guisadas* (Cocina internacional, básica 03) son un guiso
+    español con costilla, panceta, chorizo y refrito. La segunda remite a la primera.
+  - **Pizza del equipo:** además del cubo de 50 g sale con **un sobre de 10 g de levadura seca**
+    (agregado a la receta); las dos opciones quedan fuera del 2 a 4 % de las fuentes y el equipo
+    confirmó que funcionan con el reposo largo.
+  - **Gigot de cordero:** se estudió cuándo está cocido. Agregada la sección "Cómo saber que el cordero
+    está cocido" con la tabla de puntos (63, 71 y 77 °C finales), el piso de seguridad de 63 °C con 3
+    minutos de reposo y tiempos orientativos de horno: 2 h 15 a 2 h 45 para 2,5 kg, bastante más que
+    la hora de la fuente. Los minutos en parrilla siguen sin fuente institucional: manda el termómetro.
 - **Campo "Verificación" de cada receta:** lista los datos que no se confirmaron con dos fuentes
   (tiempos de horno, proporciones de roux, conservación). Conviene revisarlos antes de publicar.
 - **La pizza del equipo** usa 5 % de levadura; las fuentes dan 2 a 4 %.

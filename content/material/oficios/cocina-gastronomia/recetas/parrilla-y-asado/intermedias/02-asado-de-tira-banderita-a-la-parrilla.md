@@ -3,7 +3,7 @@
 
 **Tiempo:** unos 15 a 20 min con el fuego ya listo (5 a 7 min por lado según el IPCVA, más 3 min de reposo; la suma es mía) · **Rinde:** 2 porciones (unos 600 g de tira con hueso; la cantidad es criterio mío) · **Practica (Ruta A):** calor seco y punto de cocción (`../../../tecnicas-de-coccion/teoria.md`), cortes de carne (`../../../materia-prima-cocina/teoria.md`) y temperatura interna con termómetro (`../../../seguridad-e-higiene-cocina/teoria.md`)
 
-**Antes de esta receta:** hacé `../basicas/01-fuego-y-brasas.md` (fuego, brasa y prueba de la mano) y `../basicas/03-chorizos-frescos-a-la-parrilla.md` (el termómetro). Leé la **nota de seguridad** de `../ficha-de-bloque.md`, sobre todo la tabla de temperatura interna. Necesitás un **termómetro de cocina**.
+**Antes de esta receta:** hacé `../../nivel-0-tecnica/06-fuego-y-brasas.md` (fuego, brasa y prueba de la mano) y `../basicas/03-chorizos-frescos-a-la-parrilla.md` (el termómetro). Leé la **nota de seguridad** de `../ficha-de-bloque.md`, sobre todo la tabla de temperatura interna. Necesitás un **termómetro de cocina**.
 
 **Dificultad 2, en una línea:** dos técnicas (fuego fuerte y corto, y medición del centro con termómetro), un solo proceso, margen de error estrecho (la tira fina pasa de "jugosa" a "seca" en minutos) y riesgo medio (calor intenso, grasa que puede encender llamas y carne cruda con hueso).
 
@@ -22,7 +22,7 @@
 - Sacá la carne de la heladera **recién cuando el fuego esté casi listo**: no más de 2 horas a temperatura ambiente (ANMAT) y 1 hora si hace mucho calor (WVU Extension).
 - Lavate las manos antes y después de tocar la carne cruda. Separá la pinza y el plato "de crudo" de los "de cocido".
 - Calibrá el termómetro en agua con hielo (0 °C).
-- Fuego según `../basicas/01-fuego-y-brasas.md`. Esperá a que las brasas rojas, ya repartidas bajo la parrilla, tomen **color blanco ceniza**, unos 10 minutos después de repartirlas (IPCVA); mantené una reserva de brasas a un costado. Parrilla **limpia y bien caliente**, con los hierros a unos 15 cm de las brasas (IPCVA). Armá una zona de **calor intenso** (1 a 2 segundos con la mano) y otra de **calor medio o bajo** para rescatar lo que se dore rápido.
+- Fuego según `../../nivel-0-tecnica/06-fuego-y-brasas.md`. Esperá a que las brasas rojas, ya repartidas bajo la parrilla, tomen **color blanco ceniza**, unos 10 minutos después de repartirlas (IPCVA); mantené una reserva de brasas a un costado. Parrilla **limpia y bien caliente**, con los hierros a unos 15 cm de las brasas (IPCVA). Armá una zona de **calor intenso** (1 a 2 segundos con la mano) y otra de **calor medio o bajo** para rescatar lo que se dore rápido.
 
 ## Pasos
 1. **Poné las tiras en la zona de calor intenso**, con la pinza "de crudo". Salá con sal gruesa **al ponerlas** (IPCVA). No las pinches.

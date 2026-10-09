@@ -3,7 +3,7 @@
 
 **Tiempo:** el chimichurri se arma el día anterior (unos 15 min de trabajo, mi estimación, y **24 h de reposo en la heladera**, GCBA); los chorizos tardan lo que haga falta para que el centro llegue a 71 °C: **ninguna fuente da minutos** (ver `../basicas/03-chorizos-frescos-a-la-parrilla.md`) · **Rinde:** 4 choripanes (4 chorizos, 4 panes) y un frasco de chimichurri que alcanza para más · **Practica (Ruta A):** contaminación cruzada y temperatura interna (`../../../seguridad-e-higiene-cocina/teoria.md`) y calor seco de la parrilla (`../../../tecnicas-de-coccion/teoria.md`)
 
-**Antes de esta receta:** hacé `../basicas/01-fuego-y-brasas.md` y `../basicas/03-chorizos-frescos-a-la-parrilla.md` (el chorizo se cocina **igual**; acá no se repiten todos sus detalles). Leé la **nota de seguridad** de `../ficha-de-bloque.md`. Necesitás un **termómetro de cocina**. Este plato suma una salsa fría que se prepara con un día de anticipación.
+**Antes de esta receta:** hacé `../../nivel-0-tecnica/06-fuego-y-brasas.md` y `../basicas/03-chorizos-frescos-a-la-parrilla.md` (el chorizo se cocina **igual**; acá no se repiten todos sus detalles). Leé la **nota de seguridad** de `../ficha-de-bloque.md`. Necesitás un **termómetro de cocina**. Este plato suma una salsa fría que se prepara con un día de anticipación.
 
 **Dificultad 2, en una línea:** dos técnicas (cocinar un embutido de carne picada de cerdo hasta el centro y armar una salsa de vinagre y aceite), dos procesos separados en el tiempo (salsa el día anterior y fuego el día del asado), margen de error medio-bajo (el chorizo se mide con termómetro y la salsa se ajusta a gusto) y riesgo medio (carne picada cruda y fuego; la salsa lleva ajo en aceite y se guarda en heladera).
 
@@ -30,7 +30,7 @@
 - **El día anterior:** hacé el chimichurri (pasos 1 a 4). Los chorizos, en la parte más fría de la heladera, en un recipiente aparte (ANMAT; ver la receta 03 de las básicas).
 - Calibrá el termómetro en agua con hielo: tiene que marcar 0 °C (ANMAT).
 - Lavate las manos antes y después de tocar los chorizos crudos. Separá la pinza y el plato "de crudo" de los "de cocido".
-- Fuego listo según `../basicas/01-fuego-y-brasas.md`, parrilla limpia, y dos zonas: calor medio (3 a 4 segundos con la mano) y calor bajo (5 a 8 segundos).
+- Fuego listo según `../../nivel-0-tecnica/06-fuego-y-brasas.md`, parrilla limpia, y dos zonas: calor medio (3 a 4 segundos con la mano) y calor bajo (5 a 8 segundos).
 - Una cuchara **limpia** para la salsa, que no haya tocado nada crudo.
 
 ## Pasos
