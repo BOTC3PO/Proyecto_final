@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Genera un PDF de revisión externa de UN idioma de idiomas-extranjeros/:
 portada, dependencias (orden documentado en idiomas-extranjeros-PLANIFICACION.md),
-módulos teóricos (teoria.md) y ejercicios (cuestionario.md, con clave de respuestas).
+módulos teóricos (teoria.md), ejercicios (cuestionario.md, con clave de respuestas) y,
+si existe examen-jefe-idiomas/<idioma>.md, el examen de certificación C1.
 
 Requiere WeasyPrint (+ markdown, pyyaml) y una fuente con escritura árabe
 (Noto Naskh Arabic). Instalación sugerida, fuera del repo:
@@ -96,6 +97,22 @@ def tema_info(carpeta, slug):
     return titulo, nivel, teoria, preguntas
 
 
+def leer_examen(carpeta):
+    """Pool de certificación (examen-jefe-idiomas/<carpeta>.md): [(titulo de sección, [preguntas])] o None."""
+    f = MAT / "examen-jefe-idiomas" / f"{carpeta}.md"
+    if not f.exists():
+        return None
+    secciones = []
+    partes = re.split(r"^## Sección: ", f.read_text(encoding="utf-8"), flags=re.M)[1:]
+    for parte in partes:
+        cab = parte.splitlines()[0]
+        titulo = re.sub(r"^\w+ — ", "", cab).strip()
+        titulo = re.sub(r"\s*\(\d+ preguntas\)\s*$", "", titulo)
+        preguntas = [yaml.safe_load(b) for b in extract_blocks(parte)]
+        secciones.append((titulo, preguntas))
+    return secciones
+
+
 def render_pregunta(n, q):
     out = [f'<div class="q"><p class="enun"><b>{n}.</b> {esc(q["enunciado"])}</p>']
     if q.get("tipo") == "mc":
@@ -155,15 +172,20 @@ def main():
     nmc = sum(1 for v in datos.values() for q in v[3] if q.get("tipo") == "mc")
 
     p = []
+    examen = leer_examen(carpeta)
+    nex = sum(len(qs) for _, qs in examen) if examen else 0
+    extra = (f" Además, el <b>examen de certificación C1</b>: {nex} preguntas en {len(examen)} secciones, también con clave." if examen else "")
+    no_contiene = ("El audio (los textos de comprensión auditiva figuran transcriptos en cada pregunta)." if examen
+                   else "El examen de certificación C1 ni el audio.")
     p.append(f"""<section class="portada"><h1>{html.escape(titulo_plan)}</h1>
-<p style="font-size:14pt">Material para revisión externa: dependencias, módulos teóricos y ejercicios</p>
+<p style="font-size:14pt">Material para revisión externa: dependencias, módulos teóricos, ejercicios y examen de certificación</p>
 <div class="caja"><b>Qué contiene.</b> {len(datos)} temas de la plataforma (carpeta <code>idiomas-extranjeros/{carpeta}</code>),
-{nq} ejercicios ({nmc} de opción múltiple y {nq - nmc} de completar) con clave de respuestas.<br><br>
+{nq} ejercicios ({nmc} de opción múltiple y {nq - nmc} de completar) con clave de respuestas.{extra}<br><br>
 <b>Estado del contenido.</b> Generado con asistencia de IA a partir del currículo del plan; <b>no pasó por revisión de un hablante nativo</b>.
 Lo más útil de esta lectura: errores de gramática o vocalización, ejemplos incorrectos o poco naturales, transliteración,
 respuestas marcadas como correctas que no lo sean, y opciones ambiguas.<br><br>
-<b>Qué NO contiene.</b> El examen de certificación C1 (pool de 500 preguntas) ni el audio.<br><br>
-<b>Cómo leerlo.</b> 1) Dependencias · 2) Módulos teóricos · 3) Ejercicios. La respuesta correcta está resaltada con ✓.</div></section>""")
+<b>Qué NO contiene.</b> {no_contiene}<br><br>
+<b>Cómo leerlo.</b> 1) Dependencias · 2) Módulos teóricos · 3) Ejercicios{" · 4) Examen de certificación C1" if examen else ""}. La respuesta correcta está resaltada con ✓.</div></section>""")
 
     # índice
     toc = ['<section class="seccion"><h2>Índice</h2><ul class="toc"><li class="blq"><a href="#dep">Dependencias</a></li>']
@@ -172,6 +194,8 @@ respuestas marcadas como correctas que no lo sean, y opciones ambiguas.<br><br>
         for s in ss:
             if s in datos:
                 toc.append(f'<li>{esc(datos[s][0])}</li><li style="list-style:none;margin-left:10pt;font-size:8.5pt"><a href="#t-{s}">Teoría</a></li><li style="list-style:none;margin-left:10pt;font-size:8.5pt"><a href="#e-{s}">Ejercicios</a></li>')
+    if examen:
+        toc.append('<li class="blq"><a href="#examen">4. Examen de certificación C1</a></li>')
     toc.append("</ul></section>")
     p.append("".join(toc))
 
@@ -211,6 +235,20 @@ la lectura de ese orden, no aristas verificadas una por una.</p>""")
                 continue
             titulo, nivel, _, qs = datos[s]
             p.append(f'<section class="tema" id="e-{s}"><h3>{esc(titulo)} <span class="nivel">{len(qs)} ejercicios</span></h3>')
+            p.extend(render_pregunta(n, q) for n, q in enumerate(qs, 1))
+            p.append("</section>")
+
+    if examen:
+        p.append(f'<section class="seccion" id="examen"><h2>4. Examen de certificación C1</h2>'
+                 f"<p>Pool de {nex} preguntas de opción múltiple en {len(examen)} secciones. En la plataforma, cada intento sortea 100 "
+                 "respetando la proporción 30 gramática / 25 lectura / 20 audición / 15 escritura / 10 oral. Escrito directamente "
+                 "para el examen (no reutiliza los ejercicios por tema). Las secciones de lectura y audición traen el texto o la "
+                 "transcripción dentro de la pregunta (por eso un mismo texto se repite en varias preguntas).</p>"
+                 "<p><b>Límites conocidos del examen, para tener en cuenta al revisar:</b> en cerca de la mitad de las preguntas la opción correcta es la más larga; en escritura y expresión oral varios distractores son agramaticales y se descartan fácil; y ninguna pregunta fue revisada por un hablante nativo.</p>"
+                 "<table><tr><th>Sección</th><th>Preguntas</th></tr>"
+                 + "".join(f"<tr><td>{esc(tt)}</td><td>{len(qs)}</td></tr>" for tt, qs in examen) + "</table></section>")
+        for tt, qs in examen:
+            p.append(f'<section class="tema"><h3>{esc(tt)} <span class="nivel">{len(qs)} preguntas</span></h3>')
             p.extend(render_pregunta(n, q) for n, q in enumerate(qs, 1))
             p.append("</section>")
 
