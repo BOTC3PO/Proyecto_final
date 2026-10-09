@@ -99,6 +99,9 @@ const runStartupDataChecks = async () => {
 };
 
 const app = express();
+// Detrás de Nginx (mismo host): TRUST_PROXY=loopback para que req.ip sea el cliente real
+// (rate limit por IP) y no 127.0.0.1. Vacío = sin proxy (default).
+if (process.env.TRUST_PROXY) app.set("trust proxy", process.env.TRUST_PROXY);
 app.use(compression());
 app.use((req, res, next) => {
   // API responses — no cachear
