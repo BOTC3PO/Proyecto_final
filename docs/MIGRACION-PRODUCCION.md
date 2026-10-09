@@ -21,18 +21,25 @@ Node local: v22; el README dice que la versión oficial está "por confirmar".
 No hay Dockerfile, docker-compose, `render.yaml`, `vercel.json`, `fly.toml`, Procfile ni nginx en el
 repo: **no existe ninguna definición de despliegue**.
 
-**Destino (datos que dio Javier, 2026-10-09):** servidor físico en `192.168.0.28`, Zorin OS 18.1,
-32 GB de RAM, 1 TB de disco y un procesador Ryzen (lo anotó como "Ryzen 9 IA 470"; confirmar el
-modelo exacto con `lscpu`). Tiene salida a internet, se accede por SSH con el mismo usuario
-administrador y el router lo administra Javier. Es capacidad de sobra para una sola instancia del
-API, PostgreSQL y los estáticos de la web.
+**Destino: servidor físico `192.168.0.28` (equipo `javier-AI-Series`). Verificado por SSH (solo lectura) el
+2026-10-09:**
 
-Comprobado desde la máquina de trabajo: **responde a ping** (4/4, 0 % de pérdida, ~1,2 ms), pero el
-**SSH rechaza la clave de esta máquina** (`Permission denied (publickey,password)`): la clave pública
-`~/.ssh/id_ed25519.pub` (sin passphrase) todavía no está en el `authorized_keys` del servidor. Hasta
-que se autorice, **no se pudo ver qué tiene instalado**. Es una **IP privada**: para que se llegue
-desde internet faltan una salida pública (redirección de puertos en el router, proxy inverso o un
-túnel) y HTTPS.
+| Dato | Valor |
+|---|---|
+| Sistema | Zorin OS 18.1 (basado en Ubuntu/Debian), kernel 7.0 |
+| Procesador | AMD Ryzen AI 9 HX 470, 24 hilos |
+| Memoria | 29 GiB visibles (3,8 en uso) |
+| Disco | NVMe de 931 GB, 848 GB libres (3 % usado) |
+| Red | `enp195s0`, `192.168.0.28/24`; salida a internet correcta (npm, nodejs.org, github, apt) |
+| IP pública vista desde el servidor | `181.44.116.102` (comparar con la WAN del router: si no coincide, hay CGNAT y no sirve abrir puertos) |
+| Zona horaria | America/Argentina/Buenos_Aires |
+| Puertos en uso | 22 (SSH), 631 (impresión), 27036 y puertos locales; **80, 443, 5050, 5173 y 5432 están libres** |
+| Firewall | `ufw` **activo** (no se pueden leer las reglas sin `sudo`) |
+| Instalado | solo `python3` 3.12 y `curl`. **No hay** Node, pnpm, npm, git, PostgreSQL, Nginx, Caddy, Docker ni pm2 |
+| Acceso | SSH con clave desde la máquina de trabajo, usuario `javier`; **`sudo` pide contraseña** |
+
+Es capacidad de sobra. Es una **IP privada**: para llegar desde internet faltan una salida
+pública (redirección de puertos en el router, proxy inverso o túnel) y HTTPS.
 
 ## 2. Lo que hay que mover o decidir, por pieza
 
@@ -142,13 +149,39 @@ a internet. Revisado en el código (sin tocar el servidor):
 - **El tráfico va sin cifrar:** aceptable en una red local de prueba, **sin usuarios reales ni
   contraseñas que importen**. Al abrir a internet, HTTPS es obligatorio.
 
-## 9. Lo que falta antes de empezar
+## 9. Plan inmediato en el servidor
 
-1. **Autorizar la clave SSH** en el servidor (un paso, una vez; lo hace quien tenga la contraseña):
-   `ssh-copy-id -i ~/.ssh/id_ed25519.pub javier@192.168.0.28`.
-2. **Reconocimiento del servidor** (solo lectura): versión de Node, pnpm, PostgreSQL, Nginx o
-   Docker si están instalados, puertos ocupados, firewall (`ufw`), zona horaria, espacio.
-3. **Decidir cómo se sale a internet** (túnel, DNS dinámico o redirección de puertos) y si se quiere
-   que sea solo para uso interno al principio.
-4. **Decidir qué entra de `tareas_de_reparación` a `main`** (ver sección 2, Código).
-5. **Definir el despliegue** (servicio `systemd` o contenedores, y servidor web para los estáticos).
+Como `sudo` pide contraseña, se divide en lo que **solo puede hacer Javier** (instalar paquetes del
+sistema, crear la base y abrir el firewall) y lo que se hace **sin `sudo`**, en el directorio del
+usuario.
+
+**A. Una sola vez, con `sudo` (lo corre Javier en el servidor):**
+
+```bash
+sudo apt update && sudo apt install -y git nginx postgresql postgresql-contrib rsync
+PGPASS=$(openssl rand -hex 24)
+sudo -u postgres psql -c "CREATE USER virtualbook WITH PASSWORD '$PGPASS';"
+sudo -u postgres psql -c "CREATE DATABASE virtualbook OWNER virtualbook;"
+mkdir -p ~/.config/virtualbook
+( umask 077; printf 'DATABASE_URL=postgresql://virtualbook:%s@localhost:5432/virtualbook\n' "$PGPASS" > ~/.config/virtualbook/db.env )
+sudo ufw allow from 192.168.0.0/24 to any port 80 proto tcp
+sudo ufw allow from 192.168.0.0/24 to any port 5050 proto tcp
+```
+
+La contraseña de la base se genera al azar y queda en `~/.config/virtualbook/db.env` (permisos
+solo para el usuario); no se escribe en ningún documento ni en git. El firewall abre 80 y 5050
+**solo para la red local**.
+
+**B. Sin `sudo` (lo hace Claude por SSH, en `~/`):**
+1. Node 22 desde el tarball oficial en `~/.local` y pnpm con corepack.
+2. Copiar el código desde la máquina de trabajo con `rsync` o `git archive` (sin pasar credenciales de
+   GitHub al servidor).
+3. `pnpm install --frozen-lockfile`, compilar API y web (con `VITE_API_BASE_URL` y `CORS_ORIGIN` de la
+   sección 8), `pnpm --filter api db:migrate`.
+4. Crear `api/.env` con secretos nuevos (permisos 600) y el primer admin según `docs/bootstrap-admin.md`.
+5. Dejar el API como servicio de usuario `systemd` y la web servida por Nginx (la configuración de
+   Nginx necesita `sudo`: se deja el archivo listo y lo activa Javier).
+6. Verificar con la ruta `health` y `api/scripts/auth_health_check.ts`.
+
+**C. Después:** decidir cómo se sale a internet (túnel, DNS dinámico o redirección de puertos, ver
+sección 6), elegir qué de `tareas_de_reparación` llega a `main`, y respaldos de la base.
