@@ -166,6 +166,8 @@ Otros agentes las escriben en `basicas/` (esta carpeta). Dificultad esperada: 1 
 
 > *Fuego y brasas* (encender con el método volcán, formar la brasa y medir el calor con la mano) pasó al **Nivel 0** (`../nivel-0-tecnica/06-fuego-y-brasas.md`) por decisión de Javier: es un ejercicio sin comida y es la base de las básicas de este bloque.
 
+1. **Batatas a la parrilla con limón y albahaca** (`basicas/01-batatas-a-la-parrilla-con-limon-y-albahaca.md`, 1,5): la misma técnica
+   que los zapallitos con una verdura más densa; enseña que el grosor manda el tiempo y que se juzga con el tenedor.
 2. **Zapallitos a la parrilla** (`basicas/02-zapallitos-a-la-parrilla.md`, 1,5): la receta más simple para practicar calor medio y no
    se rompe fácil. No tiene carne cruda, así que el único riesgo es el fuego.
 3. **Chorizos frescos a la parrilla** (`basicas/03-chorizos-frescos-a-la-parrilla.md`, 2): el primer embutido; hay que cocinar a calor
