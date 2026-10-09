@@ -21,12 +21,18 @@ Node local: v22; el README dice que la versión oficial está "por confirmar".
 No hay Dockerfile, docker-compose, `render.yaml`, `vercel.json`, `fly.toml`, Procfile ni nginx en el
 repo: **no existe ninguna definición de despliegue**.
 
-**Destino indicado por Javier (2026-10-09):** un servidor físico en `192.168.0.28`. Comprobado solo
-que **responde a ping** (4/4 paquetes, 0 % de pérdida, ~1,2 ms desde la máquina de trabajo). No
-se entró al servidor: no sé su sistema operativo, recursos, qué tiene instalado ni cómo se accede.
-Es una **IP privada** (red local): para que los usuarios lleguen desde internet faltan un dominio, una
-salida pública (redirección de puertos en el router, un proxy inverso o un túnel) y HTTPS, y
-MercadoPago exige URL públicas con `https`.
+**Destino (datos que dio Javier, 2026-10-09):** servidor físico en `192.168.0.28`, Zorin OS 18.1,
+32 GB de RAM, 1 TB de disco y un procesador Ryzen (lo anotó como "Ryzen 9 IA 470"; confirmar el
+modelo exacto con `lscpu`). Tiene salida a internet, se accede por SSH con el mismo usuario
+administrador y el router lo administra Javier. Es capacidad de sobra para una sola instancia del
+API, PostgreSQL y los estáticos de la web.
+
+Comprobado desde la máquina de trabajo: **responde a ping** (4/4, 0 % de pérdida, ~1,2 ms), pero el
+**SSH rechaza la clave de esta máquina** (`Permission denied (publickey,password)`): la clave pública
+`~/.ssh/id_ed25519.pub` (sin passphrase) todavía no está en el `authorized_keys` del servidor. Hasta
+que se autorice, **no se pudo ver qué tiene instalado**. Es una **IP privada**: para que se llegue
+desde internet faltan una salida pública (redirección de puertos en el router, proxy inverso o un
+túnel) y HTTPS.
 
 ## 2. Lo que hay que mover o decidir, por pieza
 
@@ -81,12 +87,32 @@ forma). Puntos ya sabidos:
 8. **Respaldos y monitoreo** (copias de la base y de la media, logs, alertas): no hay nada definido.
 9. **Contenido:** lo que se decida cargar, con su importador.
 
-## 6. Preguntas abiertas (necesito respuesta para avanzar)
+## 6. Decisiones tomadas (2026-10-09)
 
-1. Servidor `192.168.0.28`: ¿qué sistema operativo tiene, cuánta RAM, CPU y disco, y cómo se accede
-   (SSH, usuario)? ¿Tiene IP pública o salida a internet, y quién administra el router?
-2. ¿Hay **datos reales** en la base local (usuarios, escuelas, clases) que haya que conservar?
-3. ¿Qué dominio y quién administra el DNS?
-4. ¿Cuántos usuarios se esperan y si habrá más de una instancia del API?
-5. ¿MercadoPago se activa en la primera salida o más adelante?
-6. ¿Qué parte del contenido de `content/material/` tiene que estar en la primera versión?
+- **Servidor:** el de arriba. Se accede por SSH (pendiente autorizar la clave).
+- **Datos reales:** no hay todavía; lo único real es la teoría de `content/material/`. La base de
+  producción arranca **vacía** (migraciones + primer admin), sin seed demo.
+- **Dominio:** no hay de momento. Mientras tanto la web y la API se pueden servir **dentro de la red
+  local** por IP; para salir a internet sin dominio hay opciones sin costo (túnel de Cloudflare,
+  Tailscale o un DNS dinámico), pero conviene elegir una antes de configurar HTTPS.
+- **MercadoPago:** todavía no se activa: no hace falta HTTPS público ni webhook en la primera salida.
+- **Contenido (`content/material/`):** **todavía no se despliega.** Se deja fuera de esta migración;
+  el importador es una etapa posterior.
+- **Una sola instancia:** alcanza `MEDIA_STORAGE=local` y no hace falta Redis.
+
+## 7. Alcance de la primera salida
+
+Código del API y de la web, PostgreSQL vacío con las 44 migraciones, SQLite de mapas (viaja en git)
+y diccionario, media en disco local, primer admin y secretos propios. Sin pagos, sin contenido
+educativo, sin móvil.
+
+## 8. Lo que falta antes de empezar
+
+1. **Autorizar la clave SSH** en el servidor (un paso, una vez; lo hace quien tenga la contraseña):
+   `ssh-copy-id -i ~/.ssh/id_ed25519.pub javier@192.168.0.28`.
+2. **Reconocimiento del servidor** (solo lectura): versión de Node, pnpm, PostgreSQL, Nginx o
+   Docker si están instalados, puertos ocupados, firewall (`ufw`), zona horaria, espacio.
+3. **Decidir cómo se sale a internet** (túnel, DNS dinámico o redirección de puertos) y si se quiere
+   que sea solo para uso interno al principio.
+4. **Decidir qué entra de `tareas_de_reparación` a `main`** (ver sección 2, Código).
+5. **Definir el despliegue** (servicio `systemd` o contenedores, y servidor web para los estáticos).
