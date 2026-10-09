@@ -164,3 +164,50 @@ teoría) y una ficha fija:
 - Si el reparto 43 / 49 / 35 / 23 queda así.
 - Quién carga las demás especiales del equipo y cuándo.
 - Si se baja el Recetario Federal para extraer las 40 regionales (necesita descarga manual).
+
+## 9. Estado y cómo continuar (2026-10-09)
+
+**Escritas: 117 de 150** (43 básicas, 45 intermedias, 27 avanzadas y 2 especiales del equipo), todas
+`no probada`. Conteo por categoría (B / I / A escritas de B / I / A previstas):
+
+| Categoría | Básicas | Intermedias | Avanzadas |
+|---|---:|---:|---:|
+| Fondos, salsas y guarniciones | 6/6 | 5/5 | 3/3 |
+| Cortes y técnicas de carnes | 3/3 | 4/4 | 2/2 |
+| Parrilla y asado | 3/3 | 5/5 | 4/4 |
+| Pastas caseras | 4/4 | 4/4 | 3/3 |
+| Panificación | 4/4 | 5/5 | 3/3 |
+| Repostería y pastelería | 3/3 | 5/5 | 5/5 |
+| Cocina regional argentina | 3/3 | 4/4 | 4/4 |
+| Cocina internacional | 3/3 | **5/6** | **0/6** |
+| Vegetales y guarniciones | 6/6 | 3/3 | 1/1 |
+| Fiambres, embutidos y conservas | 2/2 | **0/3** | **0/2** |
+| Bebidas sin alcohol | 4/4 | 2/2 | 1/1 |
+| Postres helados y fríos | 2/2 | 3/3 | 1/1 |
+
+**Falta escribir (12 recetas):** 1 intermedia y 6 avanzadas de Cocina internacional; 3 intermedias y
+2 avanzadas de Fiambres, embutidos y conservas. Y las **21 especiales** (23 menos las 2 cargadas),
+que dependen del equipo (`../recetas-del-equipo/`) o de recetas regionales poco conocidas con
+respaldo institucional.
+
+**Cómo seguir:** el método está en [`BRIEF-escribir-recetas.md`](BRIEF-escribir-recetas.md) y el
+chequeo de estructura en `content/material/_qa_tools/check_recetas_ruta_b.py` (no reemplaza que
+alguien cocine la receta).
+
+**Pendientes de decisión o revisión**
+- **Matambre arrollado** (`../parrilla-y-asado/avanzadas/01-...`): ANMAT lo cita entre los alimentos
+  con riesgo de botulismo si se arrolla o enfría mal. La receta trae enfriado controlado y el riesgo
+  nombrado, pero no se pudo comprobar que un rollo de 2 kg llegue a 5 °C en 4 h en una heladera
+  hogareña. Es la única receta con riesgo real de salud: dejarla marcada como experta o retirarla.
+- **Conservas caseras del nivel básico** (pickles de heladera y mermelada): ANMAT recomienda a los
+  adultos evitar las conservas caseras. Conservar o sacar.
+- **"Fuego y brasas"** (`../parrilla-y-asado/basicas/01-...`) es un ejercicio sin comida y cuenta
+  como una de las 3 básicas de parrilla; podría pasar al Nivel 0.
+- **Lentejas** aparecen dos veces (cocidas en vegetales, guisadas en internacional).
+- **Campo "Verificación" de cada receta:** lista los datos que no se confirmaron con dos fuentes
+  (tiempos de horno, proporciones de roux, conservación). Conviene revisarlos antes de publicar.
+- **La pizza del equipo** usa 5 % de levadura; las fuentes dan 2 a 4 %.
+- **Antes de integrar a la app:** que alguien cocine una muestra (5 a 10 recetas). Hoy ninguna fue
+  probada y las cantidades no están confirmadas en cocina.
+- **Recetario Federal sin TACC** (https://bancos.salud.gob.ar/recurso/recetario-federal-sin-tacc): no
+  abre desde la máquina de trabajo; falta bajar el PDF a mano para leer su licencia y sus 40 recetas.
