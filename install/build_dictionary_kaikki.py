@@ -12,10 +12,11 @@ Cada idioma sale de SU PROPIA edición de Wiktionary (definiciones en
 el idioma nativo), igual que el pipeline viejo:
 
   es, pt, fr, it, de, ja, ko, zh ← kaikki.org/dictionary/downloads/<lang>/
-  en, eo, la                     ← raw-wiktextract-data.jsonl.gz
-                                   (edición inglesa; eo y la no tienen
-                                   edición propia en kaikki — glosas en
-                                   inglés. Upgrade futuro: ReVo XML
+  ru                             ← edición rusa de kaikki (definiciones en ruso)
+  en, eo, la, ar, hi             ← raw-wiktextract-data.jsonl.gz
+                                   (edición inglesa; eo, la, ar y hi no
+                                   tienen edición propia en kaikki — glosas
+                                   en inglés. Upgrade futuro: ReVo XML
                                    para eo.)
 
 Espacio requerido: ~4GB de descargas + ~2-3GB de sqlite (staging incluido).
@@ -62,14 +63,15 @@ SOURCES: list[tuple[str, str, set[str]]] = [
     ("ja", BASE + "downloads/ja/ja-extract.jsonl.gz", {"ja"}),
     ("ko", BASE + "downloads/ko/ko-extract.jsonl.gz", {"ko"}),
     ("zh", BASE + "downloads/zh/zh-extract.jsonl.gz", {"zh"}),
+    ("ru", BASE + "downloads/ru/ru-extract.jsonl.gz", {"ru"}),
     # La edición inglesa es una sola bola gigante con todos los idiomas;
     # de ahí salen en (nativo) + eo y la (sin edición kaikki propia;
     # el latín es la 2ª lengua más grande de la edición inglesa, ~1M
     # sentidos — el diccionario viejo de la API también lo tenía).
-    ("en", BASE + "raw-wiktextract-data.jsonl.gz", {"en", "eo", "la"}),
+    ("en", BASE + "raw-wiktextract-data.jsonl.gz", {"en", "eo", "la", "ar", "hi"}),
 ]
 
-ALL_LANGS = {"es", "en", "pt", "fr", "it", "de", "ja", "ko", "zh", "eo", "la"}
+ALL_LANGS = {"es", "en", "pt", "fr", "it", "de", "ja", "ko", "zh", "ru", "eo", "la", "ar", "hi"}
 
 MAX_DEFS = 10
 MAX_SYNS = 20
