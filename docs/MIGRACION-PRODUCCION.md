@@ -256,3 +256,10 @@ poner proxy), respaldos de la base, diccionario, e importador de `content/materi
   1,3 GB; `SQLITE_PATH` en `api/.env`). Límites: ar (26.698), hi (35.873), eo y la con definiciones en inglés; el
   Wiktionary árabe propio tiene ~300.000 entradas con definiciones en árabe (volcado de dumps.wikimedia.org) y falta un
   lector para esas plantillas; jа/pt con defectos de primer sentido. La API exige login para consultar.
+
+### 10.4 Tareas pendientes (2026-10-10)
+
+La lista completa (prioridad, evidencia en el código, vulnerabilidades y fallas de lógica halladas) está en
+`tareas_pendientes/PRODUCCION.md`, y el análisis de si conviene separar el storage del API en
+`tareas_pendientes/PLAN-escalabilidad-api.md`. Esa carpeta está en el `.gitignore` (plan local, no se
+versiona): los archivos existen solo en la máquina de desarrollo.
