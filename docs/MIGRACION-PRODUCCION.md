@@ -241,3 +241,18 @@ poner proxy), respaldos de la base, diccionario, e importador de `content/materi
 - No incluye `api/.env`, `db.env` ni `config/tls/` (secretos y la CA): perderlos obliga a regenerar secretos
   (invalida las sesiones) y a reinstalar la CA en cada dispositivo.
 - Restaurar: `pg_restore --clean --if-exists --no-owner -d "$DATABASE_URL" <archivo.dump>` con la API detenida.
+
+### 10.3 Servidor sin monitor y diccionario (2026-10-09)
+
+- **RustDesk sin monitor:** sin pantalla conectada, RustDesk loguea `Failed to get display 0, displays len: 0`
+  (X11 arranca pero las salidas figuran desconectadas). Arreglo: `/etc/default/grub.d/90-sin-monitor.cfg` con
+  `video=HDMI-A-1:1920x1080@60e` (fuerza la salida HDMI como conectada) + `update-grub` + reinicio. Verificado:
+  `xrandr` ve `HDMI-A-0 connected 1920x1080` y el log nuevo no tiene el error. Deshacer: borrar el archivo y
+  `update-grub`. Alternativa por hardware: enchufe HDMI "dummy".
+- **Tras reinicio** (probado): nginx, postgresql, API (linger), timer de respaldos y `/health` por HTTPS vuelven solos;
+  el 5050 sigue cerrado a la LAN.
+- **Diccionario:** `install/build_dictionary_kaikki.py` ahora incluye ru (edición propia) y ar/hi (edición inglesa).
+  Construido en el servidor (`herramientas/`, salida `datos/diccionario/Diccionario.sqlite`, 14 idiomas, 7,9 M palabras,
+  1,3 GB; `SQLITE_PATH` en `api/.env`). Límites: ar (26.698), hi (35.873), eo y la con definiciones en inglés; el
+  Wiktionary árabe propio tiene ~300.000 entradas con definiciones en árabe (volcado de dumps.wikimedia.org) y falta un
+  lector para esas plantillas; jа/pt con defectos de primer sentido. La API exige login para consultar.
