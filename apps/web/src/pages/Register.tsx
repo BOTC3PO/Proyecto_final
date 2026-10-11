@@ -6,6 +6,8 @@ import { fetchRegistroOpciones } from "../services/registro";
 import { useI18n } from "../i18n/I18nContext";
 import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 
+const PASSWORD_MIN_LENGTH = 10;
+
 /* ===========================
    DateInput (sin lucide-react)
    =========================== */
@@ -368,6 +370,11 @@ export default function RegistrationForm() {
       setStatus({ loading: false, error: t("register.errorCamposObligatorios") });
       return;
     }
+    // Misma regla que el servidor (lib/password-policy.ts): las contraseñas nuevas tienen 10 o más caracteres.
+    if (formData.password.length < PASSWORD_MIN_LENGTH) {
+      setStatus({ loading: false, error: `La contraseña debe tener al menos ${PASSWORD_MIN_LENGTH} caracteres.` });
+      return;
+    }
     setStatus({ loading: true, error: null });
     try {
       const birthdate = formData.birthdateISO
@@ -527,9 +534,14 @@ export default function RegistrationForm() {
                 type="password"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                minLength={PASSWORD_MIN_LENGTH}
+                autoComplete="new-password"
                 className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg
                            focus:outline-none focus:border-blue-500 transition-colors"
               />
+              <p className="mt-1 text-sm text-gray-500">
+                Al menos {PASSWORD_MIN_LENGTH} caracteres. Evitá claves comunes o que incluyan tu usuario.
+              </p>
             </div>
 
             <div>

@@ -1,5 +1,18 @@
 import { z } from "zod";
 import { getCanonicalMembershipRole } from "../lib/membership-roles";
+import { motivoPasswordDebil, PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH } from "../lib/password-policy";
+
+// Contraseña NUEVA: largo mínimo en el esquema; lo demás (comunes, nombre de usuario) en `.superRefine`.
+const passwordNueva = z.string().min(PASSWORD_MIN_LENGTH).max(PASSWORD_MAX_LENGTH);
+
+/** Agrega al esquema la regla de contraseñas débiles, que depende de usuario y correo. */
+const rechazarPasswordDebil = <T extends { password: string; username?: string; email?: string }>(
+  data: T,
+  ctx: z.RefinementCtx
+) => {
+  const motivo = motivoPasswordDebil(data.password, { username: data.username, email: data.email });
+  if (motivo) ctx.addIssue({ code: "custom", message: motivo, path: ["password"] });
+};
 
 const objectIdString = z.string().regex(/^[a-fA-F0-9]{24}$/);
 
@@ -8,7 +21,7 @@ export const RegisterSchema = z
     username: z.string().min(3).max(64),
     email: z.string().email(),
     fullName: z.string().min(3).max(120),
-    password: z.string().min(6).max(256),
+    password: passwordNueva,
       // El registro público solo admite USER/PARENT/GUEST. Los roles de
       // staff (TEACHER, DIRECTIVO, ADMIN_ESCUELA, ADMIN) deben asignarse
       // únicamente vía invitación por un ADMIN/DIRECTIVO de la escuela
@@ -29,6 +42,7 @@ export const RegisterSchema = z
       })
       .optional()
   })
+  .superRefine(rechazarPasswordDebil)
   .refine((data) => !(data.schoolId && data.escuelaId), {
     message: "Provide either schoolId or escuelaId, not both",
     path: ["schoolId"]
@@ -76,19 +90,23 @@ export const LoginSchema = z.object({
   password: z.string().min(6).max(256)
 });
 
-export const BootstrapAdminRequestSchema = z.object({
-  username: z.string().min(3).max(64),
-  email: z.string().email(),
-  fullName: z.string().min(3).max(120),
-  password: z.string().min(8).max(256)
-});
+export const BootstrapAdminRequestSchema = z
+  .object({
+    username: z.string().min(3).max(64),
+    email: z.string().email(),
+    fullName: z.string().min(3).max(120),
+    password: passwordNueva
+  })
+  .superRefine(rechazarPasswordDebil);
 
-export const CreateAdminSchema = z.object({
-  username: z.string().min(3).max(64),
-  email: z.string().email(),
-  fullName: z.string().min(3).max(120),
-  password: z.string().min(8).max(256)
-});
+export const CreateAdminSchema = z
+  .object({
+    username: z.string().min(3).max(64),
+    email: z.string().email(),
+    fullName: z.string().min(3).max(120),
+    password: passwordNueva
+  })
+  .superRefine(rechazarPasswordDebil);
 
 export const GuestSessionSchema = z.object({
   fullName: z.string().min(2).max(120).optional()

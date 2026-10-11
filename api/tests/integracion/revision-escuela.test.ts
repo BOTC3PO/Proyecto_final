@@ -35,8 +35,9 @@ beforeEach(() => {
   seedUser({ id: ADMIN_ESC, role: "ADMIN_ESCUELA", schoolId: ESC_A });
   seedUser({ id: PROFE_A, role: "TEACHER", schoolId: ESC_A });
   seedUser({ id: PROFE_B, role: "TEACHER", schoolId: ESC_B });
-  for (const [u, e] of [[ADMIN_ESC, ESC_A], [PROFE_A, ESC_A], [PROFE_B, ESC_B]] as const) {
-    prisma.membresia.rows.push({ usuarioId: u, escuelaId: e, rol: "TEACHER", estado: "activa", fechaAlta: nowIso() } as never);
+  // El rol ADMIN_ESCUELA nace de una membresía de ese rol (los roles de cada pedido salen de la base, B3).
+  for (const [u, e, rol] of [[ADMIN_ESC, ESC_A, "ADMIN_ESCUELA"], [PROFE_A, ESC_A, "TEACHER"], [PROFE_B, ESC_B, "TEACHER"]] as const) {
+    prisma.membresia.rows.push({ usuarioId: u, escuelaId: e, rol, estado: "activa", fechaAlta: nowIso() } as never);
   }
   prisma.quiz.rows.push({ id: "quiz-a", ownerUserId: PROFE_A, title: "De la escuela A", isActive: true, updatedAt: nowIso(), createdAt: nowIso() } as never);
   prisma.quiz.rows.push({ id: "quiz-b", ownerUserId: PROFE_B, title: "De la escuela B", isActive: true, updatedAt: nowIso(), createdAt: nowIso() } as never);

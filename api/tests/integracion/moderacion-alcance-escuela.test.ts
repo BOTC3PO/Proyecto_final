@@ -17,6 +17,7 @@ const ESC_A = "esc-mod-a";
 const ESC_B = "esc-mod-b";
 const ADMIN = "admin-plataforma";
 const DIRECTIVO_A = "directivo-a";
+const ADMIN_ESC_A = "admin-escuela-a";
 const ALUMNO_A = "alumno-a";
 const ALUMNO_B = "alumno-b";
 
@@ -39,6 +40,7 @@ beforeEach(() => {
   }
   seedUser({ id: ADMIN, role: "ADMIN", schoolId: null });
   seedUser({ id: DIRECTIVO_A, role: "DIRECTIVO", schoolId: ESC_A });
+  seedUser({ id: ADMIN_ESC_A, role: "ADMIN_ESCUELA", schoolId: ESC_A });
   seedUser({ id: ALUMNO_A, role: "USER", schoolId: ESC_A });
   seedUser({ id: ALUMNO_B, role: "USER", schoolId: ESC_B });
   for (const [u, e] of [[ALUMNO_A, ESC_A], [ALUMNO_B, ESC_B]] as const) {
@@ -71,7 +73,7 @@ test("el admin de plataforma puede sancionar en cualquier escuela", async () => 
 // confinamiento se ejercita de punta a punta, no sólo en los helpers.
 
 const tokenAdminEscuela = (escuelaId: string) =>
-  tokenFor({ id: DIRECTIVO_A, role: "ADMIN_ESCUELA", roles: ["ADMIN_ESCUELA"], schoolId: escuelaId } as never);
+  tokenFor({ id: ADMIN_ESC_A, role: "ADMIN_ESCUELA", roles: ["ADMIN_ESCUELA"], schoolId: escuelaId } as never);
 
 test("el admin de escuela sólo ve las clases de SU escuela", async () => {
   const res = await jsonRequest(baseUrl, "GET", "/api/moderacion/clases-publicas", {

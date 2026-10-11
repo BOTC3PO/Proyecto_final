@@ -57,7 +57,7 @@ const withStaffSchoolRequired = <T extends z.ZodTypeAny>(schema: T) =>
 export const UsuarioWriteSchema = withStaffSchoolRequired(
   withSchoolAliasValidation(
     UsuarioBaseObjectSchema.extend({
-      password: z.string().min(8).max(128)
+      password: z.string().min(10).max(128)
     }).strict()
   )
 );

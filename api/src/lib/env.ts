@@ -37,6 +37,8 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   SQLITE_CACHE_KB: Number(process.env.SQLITE_CACHE_KB ?? 65536),
   CORS_ORIGIN: (process.env.CORS_ORIGIN ?? "http://localhost:5173").split(","),
   MAX_PAGE_MB: Number(process.env.MAX_PAGE_MB ?? 30),
+  // Límite del cuerpo JSON en las rutas que no guardan contenido (ver lib/json-limits.ts).
+  MAX_JSON_BODY_MB: Number(process.env.MAX_JSON_BODY_MB ?? 1),
   // Tasa anual del plazo fijo: la fija el servidor, no el cliente (E6).
   PLAZO_FIJO_TASA_ANUAL: Number(process.env.PLAZO_FIJO_TASA_ANUAL ?? 75),
   // Tope por operación de plazo fijo / FCI.

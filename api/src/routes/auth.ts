@@ -10,7 +10,13 @@ import { createAccessToken, createRefreshToken, verifyToken } from "../lib/auth-
 import { getCanonicalMembershipRole } from "../lib/membership-roles";
 import { sincronizarMembresia } from "../lib/memberships";
 import { escuelasDisponiblesPara, resolverSesionEscuela } from "../lib/sesion-escuela";
-import { hashPassword, isPasswordHashUsable, verifyPassword } from "../lib/passwords";
+import {
+  hashPassword,
+  isPasswordHashUsable,
+  passwordNeedsRehash,
+  verificarContraFalso,
+  verifyPassword
+} from "../lib/passwords";
 import { markUsersWithoutUsablePasswordForReset } from "../lib/password-health";
 import { recordAuditLog } from "../lib/audit-log";
 import { createRateLimiter } from "../lib/rate-limit";
@@ -19,6 +25,7 @@ import { resolveRoles, isStaffInRoles, resolvePrimaryRole } from "../lib/roles";
 import { acreditarSaldoInicial } from "../lib/economia-alta";
 import { requireUser } from "../lib/user-auth";
 import { estaBaneado, respuestaBaneado } from "../lib/ban";
+import { PASSWORD_MIN_LENGTH } from "../lib/password-policy";
 import {
   BootstrapAdminRequestSchema,
   CreateAdminSchema,
@@ -93,6 +100,8 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
     const now = new Date().toISOString();
     const MAX_BOOTSTRAP_RETRIES = 3;
     let result: { id: string } | null = null;
+    // El hash se calcula afuera de la transacción: tarda y no hay por qué tenerla abierta.
+    const bootstrapPasswordHash = await hashPassword(parsed.password);
     for (let attempt = 0; attempt < MAX_BOOTSTRAP_RETRIES; attempt++) {
       try {
         result = await prisma.$transaction(
@@ -115,7 +124,7 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
                 // (ver el 409 de arriba): quien lo usa ES el admin principal.
                 roles: ["ADMIN"],
                 esAdminPrincipal: true,
-                passwordHash: hashPassword(parsed.password),
+                passwordHash: bootstrapPasswordHash,
                 isDeleted: false,
                 createdAt: now,
                 updatedAt: now
@@ -167,7 +176,7 @@ auth.post("/api/admins", requireAdmin, async (req, res) => {
         email: parsed.email,
         fullName: parsed.fullName,
         roles: ["ADMIN"],
-        passwordHash: hashPassword(parsed.password),
+        passwordHash: await hashPassword(parsed.password),
         isDeleted: false,
         createdAt: now,
         updatedAt: now
@@ -262,7 +271,7 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
         roles: [role],
         escuelaId,
         birthdate: parsed.birthdate ? new Date(parsed.birthdate).toISOString() : null,
-        passwordHash: hashPassword(parsed.password),
+        passwordHash: await hashPassword(parsed.password),
         isDeleted: false,
         createdAt: now,
         updatedAt: now,
@@ -298,7 +307,15 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
     res.status(201).json({ id: result.id });
   } catch (e: any) {
     if (e instanceof ZodError) {
-      res.status(400).json({ error: e.message || "invalid payload" });
+      // Un problema con la contraseña se informa con su texto (el formulario lo muestra tal cual);
+      // el resto de los errores de validación mantiene el formato de siempre.
+      const problemaPassword = e.issues.find((i) => i.path[0] === "password");
+      const mensaje = problemaPassword
+        ? problemaPassword.code === "too_small"
+          ? `La contraseña debe tener al menos ${PASSWORD_MIN_LENGTH} caracteres.`
+          : problemaPassword.message
+        : e.message;
+      res.status(400).json({ error: mensaje || "invalid payload" });
       return;
     }
     if (e && typeof e === "object" && "code" in e && e.code === 11000) {
@@ -662,10 +679,12 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
           identifier
         });
       }
+      // Misma demora que con un usuario real, para que el tiempo de respuesta no delate si el correo existe.
+      await verificarContraFalso(parsed.password);
       res.status(401).json({ error: "Invalid credentials" });
       return;
     }
-    const isValid = verifyPassword(parsed.password, user.passwordHash);
+    const isValid = await verifyPassword(parsed.password, user.passwordHash);
     if (!isValid) {
       if (ENV.NODE_ENV !== "production") {
         console.warn("[auth/login] Invalid credentials: password mismatch", {
@@ -679,6 +698,18 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
     if (estaBaneado(user as { isBanned?: boolean; bannedUntil?: string | null })) {
       res.status(403).json(respuestaBaneado(user as { bannedUntil?: string | null }));
       return;
+    }
+    // Hash viejo (menos iteraciones): se re-hashea con el costo actual ahora que se conoce la
+    // contraseña. Si falla, el login sigue igual.
+    if (passwordNeedsRehash(user.passwordHash)) {
+      try {
+        await prisma.usuario.updateMany({
+          where: { id: user.id },
+          data: { passwordHash: await hashPassword(parsed.password), updatedAt: new Date().toISOString() }
+        });
+      } catch (error) {
+        console.error("[auth/login] no se pudo actualizar el hash de la contraseña", error);
+      }
     }
     // PLAN-multirol Fase 2 — la sesión arranca en la escuela activa y con
     // los roles DE ESA ESCUELA (no la unión de todas). Ver sesion-escuela.ts.

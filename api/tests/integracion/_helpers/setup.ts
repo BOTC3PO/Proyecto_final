@@ -7,6 +7,8 @@
  */
 
 process.env.NODE_ENV = "test";
+// Hash de contraseñas barato en pruebas (en producción son 600.000 iteraciones).
+process.env.PASSWORD_HASH_ITERATIONS = process.env.PASSWORD_HASH_ITERATIONS ?? "1000";
 process.env.JWT_SECRET = process.env.JWT_SECRET ?? "test-secret-vblang";
 process.env.DATABASE_URL =
   process.env.DATABASE_URL ?? "postgresql://test:test@localhost:5432/test";

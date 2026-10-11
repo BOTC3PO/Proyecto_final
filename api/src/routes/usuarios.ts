@@ -15,6 +15,7 @@ import { vincularHijoCore } from "../lib/vinculo-padre-hijo";
 import { requireUser } from "../lib/user-auth";
 import { serializeUsuario } from "../lib/user-serializer";
 import { UsuarioWriteSchema } from "../schema/usuario";
+import { motivoPasswordDebil } from "../lib/password-policy";
 
 const VincularHijoDirectivoSchema = z
   .object({
@@ -46,6 +47,11 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
       createdAt: nowIso,
       updatedAt: nowIso
     });
+    const motivoDebil = motivoPasswordDebil(parsed.password, { username: parsed.username, email: parsed.email });
+    if (motivoDebil) {
+      res.status(400).json({ error: motivoDebil });
+      return;
+    }
     const requester =
       (res.locals as {
         user?: { _id?: { toString?: () => string }; role?: string; schoolId?: string | null };
@@ -95,7 +101,7 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
         roles: [parsed.role],
         escuelaId: parsed.escuelaId ?? null,
         birthdate: parsed.birthdate ? new Date(parsed.birthdate).toISOString() : null,
-        passwordHash: hashPassword(parsed.password),
+        passwordHash: await hashPassword(parsed.password),
         isDeleted: false,
         createdAt: now,
         updatedAt: now,
