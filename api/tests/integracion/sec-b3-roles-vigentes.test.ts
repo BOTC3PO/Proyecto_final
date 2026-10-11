@@ -94,6 +94,18 @@ describe("roles vigentes", () => {
     assert.deepEqual([r.role, r.roles], ["USER", ["USER"]]);
   });
 
+  test("la persona de respaldo (docente o directivo con ADMIN_ESCUELA en la misma escuela) conserva ambos roles", async () => {
+    seedUser({ id: U, role: "TEACHER", roles: ["TEACHER", "ADMIN_ESCUELA"], schoolId: ESC_A });
+    membresia(ESC_A, "TEACHER");
+    membresia(ESC_A, "ADMIN_ESCUELA");
+    const r = (await quien(tokenFor({ id: U, role: "TEACHER", roles: ["TEACHER", "ADMIN_ESCUELA"], schoolId: ESC_A }))).body as { roles: string[] };
+    assert.deepEqual([...r.roles].sort(), ["ADMIN_ESCUELA", "TEACHER"]);
+    // Si deja de ser el respaldo, solo se le quita ese rol: sigue siendo docente.
+    prisma.membresia.rows.find((m) => (m as { rol: string }).rol === "ADMIN_ESCUELA")!.estado = "baja";
+    const despues = (await quien(tokenFor({ id: U, role: "TEACHER", roles: ["TEACHER", "ADMIN_ESCUELA"], schoolId: ESC_A }))).body as { roles: string[] };
+    assert.deepEqual(despues.roles, ["TEACHER"]);
+  });
+
   test("el rol de plataforma (ADMIN) no depende de membresías y se conserva", async () => {
     seedUser({ id: U, role: "ADMIN", schoolId: null });
     const r = (await quien(tokenFor({ id: U, role: "ADMIN", roles: ["ADMIN"], schoolId: null }))).body as { roles: string[] };
