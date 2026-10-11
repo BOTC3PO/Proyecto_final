@@ -194,3 +194,52 @@ test("Un usuario sin relación con el aula no puede agregar titulares (403)", as
   );
   assert.equal(status, 403);
 });
+
+// ── Quién gestiona los permisos entre docentes y directivos del aula ────────
+// Solo los que son miembros de ESA aula (más el dueño y el admin). Ser personal de la misma escuela
+// no alcanza: un docente o directivo de otra aula no toca los titulares de esta.
+
+const tokenDe = (id: string, role: "TEACHER" | "DIRECTIVO") => tokenFor({ id, role, schoolId: SCHOOL });
+const miembro = (id: string, rol: "TEACHER" | "DIRECTIVO") =>
+  prisma.claseMiembro.rows.push({ claseId: AULA, usuarioId: id, rolEnClase: rol });
+
+test("un docente de la misma escuela que NO es miembro del aula no gestiona titulares", async () => {
+  const token = tokenDe(CANDIDATE_TEACHER, "TEACHER");
+  const base = `/api/aulas/${AULA}`;
+  assert.equal((await jsonRequest(baseUrl, "GET", `${base}/titulares`, { token })).status, 403);
+  assert.equal((await jsonRequest(baseUrl, "GET", `${base}/titulares-candidatos`, { token })).status, 403);
+  assert.equal((await jsonRequest(baseUrl, "POST", `${base}/titulares`, { token, body: { userId: CANDIDATE_TEACHER } })).status, 403);
+  assert.equal((await jsonRequest(baseUrl, "DELETE", `${base}/titulares/${OWNER}`, { token })).status, 403);
+  assert.equal(prisma.claseMiembro.rows.length, 0);
+});
+
+test("un directivo de la misma escuela que NO es miembro del aula tampoco", async () => {
+  const token = tokenDe(CANDIDATE_DIRECTIVO, "DIRECTIVO");
+  const r = await jsonRequest(baseUrl, "POST", `/api/aulas/${AULA}/titulares`, { token, body: { userId: CANDIDATE_DIRECTIVO } });
+  assert.equal(r.status, 403);
+});
+
+test("un directivo que SÍ es miembro del aula (co-titular) puede ver y gestionar los titulares", async () => {
+  miembro(CANDIDATE_DIRECTIVO, "DIRECTIVO");
+  const token = tokenDe(CANDIDATE_DIRECTIVO, "DIRECTIVO");
+  const lista = await jsonRequest(baseUrl, "GET", `/api/aulas/${AULA}/titulares`, { token });
+  assert.equal(lista.status, 200);
+  // Ya hay un co-titular (él): no se puede sumar un tercero, pero el control llega a la regla de negocio.
+  const sumar = await jsonRequest(baseUrl, "POST", `/api/aulas/${AULA}/titulares`, { token, body: { userId: CANDIDATE_TEACHER } });
+  assert.equal(sumar.status, 400);
+  assert.equal((sumar.body as { error: string }).error, "classroom already has 2 titulares");
+});
+
+test("un docente co-titular puede reemplazar al otro co-titular, pero nunca quitar al dueño", async () => {
+  miembro(CANDIDATE_TEACHER, "TEACHER");
+  const token = tokenDe(CANDIDATE_TEACHER, "TEACHER");
+  const alDueno = await jsonRequest(baseUrl, "DELETE", `/api/aulas/${AULA}/titulares/${OWNER}`, { token });
+  assert.equal(alDueno.status, 400);
+  const aSiMismo = await jsonRequest(baseUrl, "DELETE", `/api/aulas/${AULA}/titulares/${CANDIDATE_TEACHER}`, { token });
+  assert.equal(aSiMismo.status, 204);
+});
+
+test("el dueño sigue gestionando sin ser miembro en clase_miembros", async () => {
+  const r = await jsonRequest(baseUrl, "POST", `/api/aulas/${AULA}/titulares`, { token: ownerToken(), body: { userId: CANDIDATE_DIRECTIVO } });
+  assert.equal(r.status, 201);
+});

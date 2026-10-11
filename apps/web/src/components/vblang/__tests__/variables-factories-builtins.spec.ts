@@ -65,7 +65,7 @@ describe("factories de variables · sólo funciones que el runtime conoce", () =
       kind: "fun_call",
       name: "rango",
       args: [],
-      loc: { line: 1, col: 1 },
+      loc: { line: 1, col: 1, endLine: 1, endCol: 1 },
     })).toBe("expr");
   });
 });

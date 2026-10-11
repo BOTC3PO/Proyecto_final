@@ -38,7 +38,7 @@ const dsl = () => screen.getByTestId("dsl").textContent ?? "";
 /** ¿La plantilla serializada genera sin errores? */
 function genera(texto: string): string | null {
   try {
-    return generate(compile(parse(texto)), { seed: 1 }).enunciado;
+    return generate(compile(parse(texto)), { seed: "1" }).enunciado;
   } catch (e) {
     return `ERROR: ${(e as Error).message}`;
   }

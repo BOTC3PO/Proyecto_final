@@ -824,6 +824,16 @@ aulas.delete(
 // en total (dueño + 1 co-titular); nunca 0 (el dueño no es removible acá).
 const TITULAR_ROLES = ["TEACHER", "DIRECTIVO"] as const;
 
+// Quién gestiona los titulares (los permisos entre docentes y directivos del aula): el admin de
+// plataforma, el dueño y los docentes o directivos que SON miembros de esa aula. No alcanza con
+// ser personal de la misma escuela (`allowSchoolMatch`): un docente o directivo de otra aula no
+// puede agregar ni quitar titulares de esta.
+const GESTION_DE_TITULARES = {
+  allowMemberRoles: ["ADMIN", "TEACHER", "DIRECTIVO"],
+  allowSchoolMatch: false,
+  notFoundMessage: "not found"
+};
+
 const isOriginalOwner = (
   classroom: { createdBy?: string | null; teacherId?: string | null; teacherOfRecord?: string | null },
   userId: string
@@ -836,11 +846,7 @@ aulas.get(
   "/api/aulas/:id/titulares",
   requireUser,
   requirePolicy("aulas/manage"),
-  requireClassroomScope({
-    allowMemberRoles: ["ADMIN", "TEACHER"],
-    allowSchoolMatch: true,
-    notFoundMessage: "not found"
-  }),
+  requireClassroomScope(GESTION_DE_TITULARES),
   async (req, res) => {
     const classroom = res.locals.classroom as {
       createdBy?: string | null;
@@ -868,11 +874,7 @@ aulas.get(
   "/api/aulas/:id/titulares-candidatos",
   requireUser,
   requirePolicy("aulas/manage"),
-  requireClassroomScope({
-    allowMemberRoles: ["ADMIN", "TEACHER"],
-    allowSchoolMatch: true,
-    notFoundMessage: "not found"
-  }),
+  requireClassroomScope(GESTION_DE_TITULARES),
   async (req, res) => {
     const classroom = res.locals.classroom as {
       schoolId?: string;
@@ -909,11 +911,7 @@ aulas.post(
   "/api/aulas/:id/titulares",
   requireUser,
   requirePolicy("aulas/manage"),
-  requireClassroomScope({
-    allowMemberRoles: ["ADMIN", "TEACHER"],
-    allowSchoolMatch: true,
-    notFoundMessage: "not found"
-  }),
+  requireClassroomScope(GESTION_DE_TITULARES),
   express.json(),
   async (req, res) => {
     const id = req.params.id as string;
@@ -968,11 +966,7 @@ aulas.delete(
   "/api/aulas/:id/titulares/:userId",
   requireUser,
   requirePolicy("aulas/manage"),
-  requireClassroomScope({
-    allowMemberRoles: ["ADMIN", "TEACHER"],
-    allowSchoolMatch: true,
-    notFoundMessage: "not found"
-  }),
+  requireClassroomScope(GESTION_DE_TITULARES),
   async (req, res) => {
     const id = req.params.id as string;
     const targetUserId = req.params.userId as string;

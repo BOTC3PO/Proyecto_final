@@ -46,7 +46,7 @@ const dsl = () => screen.getByTestId("dsl").textContent ?? "";
 /** ¿La plantilla serializada sigue generando? */
 function genera(texto: string): string | null {
   try {
-    generate(compile(parse(texto)), { seed: 1 });
+    generate(compile(parse(texto)), { seed: "1" });
     return null;
   } catch (e) {
     return (e as Error).message;
