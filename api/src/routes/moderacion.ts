@@ -102,11 +102,14 @@ moderacion.post("/api/moderacion/usuarios/:id/ban", async (req, res) => {
       code: "FUERA_DE_ALCANCE"
     });
   }
+  if (userId === (req.user as ReqUser | undefined)?.id) {
+    return res.status(400).json({ error: "no podés banearte a vos mismo" });
+  }
   const now = new Date();
   const motivo = typeof req.body?.motivo === "string" ? req.body.motivo.trim() : "";
   const duracionDias = Number(req.body?.duracionDias ?? 0);
   const bannedUntil = Number.isFinite(duracionDias) && duracionDias > 0
-    ? new Date(now.getTime() + duracionDias * 24 * 60 * 60 * 1000)
+    ? new Date(now.getTime() + duracionDias * 24 * 60 * 60 * 1000).toISOString()
     : null;
   await prisma.moderacionEvento.create({
     data: {
@@ -120,12 +123,11 @@ moderacion.post("/api/moderacion/usuarios/:id/ban", async (req, res) => {
   });
   await prisma.usuario.updateMany({
     where: { id: userId },
-    data: {
-      isBanned: true,
-      bannedAt: now,
-      bannedUntil
-    } as any
+    data: { isBanned: true, bannedAt: now.toISOString(), bannedUntil, updatedAt: now.toISOString() }
   });
+  // El access token vigente deja de servir en el próximo pedido (requireUser mira la base);
+  // además se cortan los refresh para que no pueda renovar la sesión.
+  await prisma.refreshToken.updateMany({ where: { userId, revoked: false }, data: { revoked: true } });
   await recordAuditLog({
     actorId: (req.user as ReqUser | undefined)?.id ?? "desconocido",
     action: "moderacion.ban",
@@ -134,6 +136,42 @@ moderacion.post("/api/moderacion/usuarios/:id/ban", async (req, res) => {
     metadata: { motivo: motivo || null, duracionDias, bannedUntil, alcance: escuelaId }
   });
   res.status(201).json({ ok: true, bannedUntil });
+});
+
+moderacion.post("/api/moderacion/usuarios/:id/desbanear", async (req, res) => {
+  const userId = req.params.id;
+  if (!userId) return res.status(400).json({ error: "invalid user id" });
+  const escuelaId = alcanceModeracion(req.user as ReqUser | undefined);
+  if (!(await puedeSancionar(escuelaId, userId))) {
+    return res.status(403).json({
+      error: "ese usuario no pertenece a tu escuela",
+      code: "FUERA_DE_ALCANCE"
+    });
+  }
+  const now = new Date().toISOString();
+  const motivo = typeof req.body?.motivo === "string" ? req.body.motivo.trim() : "";
+  await prisma.usuario.updateMany({
+    where: { id: userId },
+    data: { isBanned: false, bannedAt: null, bannedUntil: null, updatedAt: now }
+  });
+  await prisma.moderacionEvento.create({
+    data: {
+      id: generateId(),
+      usuarioId: userId,
+      tipo: "desban",
+      motivo: motivo || null,
+      severidad: null,
+      createdAt: now,
+    },
+  });
+  await recordAuditLog({
+    actorId: (req.user as ReqUser | undefined)?.id ?? "desconocido",
+    action: "moderacion.desban",
+    targetType: "Usuario",
+    targetId: userId,
+    metadata: { motivo: motivo || null, alcance: escuelaId }
+  });
+  res.json({ ok: true });
 });
 
 moderacion.post("/api/moderacion/usuarios/:id/advertencias", async (req, res) => {
@@ -159,13 +197,11 @@ moderacion.post("/api/moderacion/usuarios/:id/advertencias", async (req, res) =>
       createdAt: now.toISOString(),
     },
   });
+  // El motivo y la severidad quedan en el evento de moderación; en el usuario solo se
+  // lleva la cuenta (columna `warning_count`, la que muestran el perfil y el panel).
   await prisma.usuario.updateMany({
     where: { id: userId },
-    data: {
-      lastWarningAt: now,
-      lastWarningReason: motivo,
-      lastWarningSeverity: severidad
-    } as any
+    data: { warningCount: { increment: 1 }, updatedAt: now.toISOString() }
   });
   await recordAuditLog({
     actorId: (req.user as ReqUser | undefined)?.id ?? "desconocido",

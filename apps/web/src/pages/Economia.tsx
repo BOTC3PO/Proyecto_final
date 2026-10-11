@@ -297,7 +297,7 @@ export default function Economia() {
     try {
       const result = await apiPost<{
         id: string; interes: number; total: number;
-        venceAt: string; saldoRestante: number;
+        venceAt: string; saldoRestante: number; tasaAnual: number;
       }>("/api/instrumentos/plazo-fijo", {
         monto: fixedTermAmount,
         tasaAnual: fixedTermRate,
@@ -310,7 +310,7 @@ export default function Economia() {
       setPlazos((prev) => [...prev, {
         id: result.id,
         monto: fixedTermAmount,
-        tasa_anual: fixedTermRate,
+        tasa_anual: result.tasaAnual ?? fixedTermRate, // la tasa la fija el servidor
         dias: fixedTermDays,
         interes: result.interes,
         total: result.total,

@@ -6,6 +6,7 @@ import { toObjectId } from "./ids";
 import { prisma } from "./prisma";
 import { resolveRoles } from "./roles";
 import { normalizeSchoolId } from "./school-ids";
+import { estaBaneado, respuestaBaneado } from "./ban";
 
 type AuthenticatedUser = Record<string, unknown> & {
   _id?: string;
@@ -58,6 +59,10 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
     const user = await prisma.usuario.findFirst({ where: { id: objectId, isDeleted: { not: true } } }) as AuthenticatedUser | null;
     if (!user) {
       res.status(403).json({ error: "User not found" });
+      return;
+    }
+    if (estaBaneado(user as { isBanned?: boolean; bannedUntil?: string | null })) {
+      res.status(403).json(respuestaBaneado(user as { bannedUntil?: string | null }));
       return;
     }
     // Cache the full user document so route handlers can use it without a second DB query

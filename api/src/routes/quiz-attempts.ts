@@ -38,6 +38,7 @@ import {
   summarizeAttemptEvents
 } from "../lib/attemptEvents";
 import { computeGradeRange } from "../lib/gradeRange";
+import { bonusPorTickets } from "../lib/examen-tickets";
 import {
   gradeFromConfig,
   getScoringSystem,
@@ -225,6 +226,9 @@ type AttemptGrading = {
   // respuesta. El docente ve el flag en la pantalla de corrección para
   // distinguir intentos legítimos de accesos indebidos al payload.
   canaryTriggered?: boolean;
+  // Tickets de examen canjeados sobre este intento (ver routes/examen-tickets.ts): suman a la
+  // nota, y `baseScore` es el puntaje sin ellos (la corrección manual vuelve a sumarlos).
+  bonusExamen?: { examenId: string; tickets: number; baseScore: number };
   // Ids de las preguntas cuyas respuestas eran canarios.
   canaryQuestions?: string[];
   // I-2 — true si la corrección se hizo contra la materialización del SERVIDOR
@@ -2657,7 +2661,16 @@ quizAttempts.post(
       item.gradedAt = new Date().toISOString();
       item.gradedBy = graderId;
 
-      const { score, allGraded } = recomputeFromGrading(grading);
+      const recomputado = recomputeFromGrading(grading);
+      const { allGraded } = recomputado;
+      let score = recomputado.score;
+      // Los tickets de examen ya canjeados siguen sumando tras corregir: se recalcula el puntaje
+      // sin ellos (`baseScore`) y se les vuelve a aplicar el bono.
+      if (grading.bonusExamen) {
+        const maxDelIntento = typeof attempt.maxScore === "number" ? attempt.maxScore : 0;
+        grading.bonusExamen.baseScore = score;
+        score = Math.min(maxDelIntento, score + bonusPorTickets(grading.bonusExamen.tickets, maxDelIntento));
+      }
       const status = allGraded ? "graded" : "pending_review";
 
       // Reflejar la corrección en el feedback que ve el alumno.

@@ -37,6 +37,11 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   SQLITE_CACHE_KB: Number(process.env.SQLITE_CACHE_KB ?? 65536),
   CORS_ORIGIN: (process.env.CORS_ORIGIN ?? "http://localhost:5173").split(","),
   MAX_PAGE_MB: Number(process.env.MAX_PAGE_MB ?? 30),
+  // Tasa anual del plazo fijo: la fija el servidor, no el cliente (E6).
+  PLAZO_FIJO_TASA_ANUAL: Number(process.env.PLAZO_FIJO_TASA_ANUAL ?? 75),
+  // Tope por operación de plazo fijo / FCI.
+  INSTRUMENTOS_MONTO_MAX: Number(process.env.INSTRUMENTOS_MONTO_MAX ?? 1_000_000),
+  MAX_PAGES_POST_MB: Number(process.env.MAX_PAGES_POST_MB ?? 5),
   MONGO_TLS: parseBool(process.env.MONGO_TLS, false),
   MONGO_REQUIRE_TLS: parseBool(process.env.MONGO_REQUIRE_TLS, true),
   MONGO_CA_FILE: process.env.MONGO_CA_FILE ?? "",

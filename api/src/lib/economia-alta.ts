@@ -23,6 +23,7 @@
  */
 import { randomUUID } from "node:crypto";
 import { prisma } from "./prisma";
+import { acreditarSaldo, bloquearClave } from "./economia-saldo";
 
 const DEFAULT_SALDO_INICIAL = 50;
 const DEFAULT_MONEDA = "PF";
@@ -43,13 +44,6 @@ export async function acreditarSaldoInicial(params: {
   schoolId?: string | null;
 }): Promise<{ monto: number; moneda: string } | null> {
   try {
-    // Idempotencia: si el alta se reintenta (ej. el hook corre dos veces),
-    // no duplicar el crédito.
-    const yaAcreditado = await prisma.economiaTransaccion.findFirst({
-      where: { usuarioId: params.usuarioId, tipo: "saldo_inicial" }
-    });
-    if (yaAcreditado) return null;
-
     const escuela = params.schoolId
       ? await prisma.escuela.findFirst({ where: { id: params.schoolId } })
       : null;
@@ -57,38 +51,28 @@ export async function acreditarSaldoInicial(params: {
     if (!monto || monto <= 0) return null;
 
     const moneda = await resolveMonedaConfig();
-    const now = new Date().toISOString();
 
-    await prisma.economiaTransaccion.create({
-      data: {
+    // Idempotencia: la comprobación y el crédito van bajo un mismo bloqueo, así dos altas
+    // simultáneas (ej. el hook corre dos veces) no duplican el crédito.
+    return await prisma.$transaction(async (tx) => {
+      await bloquearClave(tx, `saldo_inicial:${params.usuarioId}`);
+      const yaAcreditado = await tx.economiaTransaccion.findFirst({
+        where: { usuarioId: params.usuarioId, tipo: "saldo_inicial" }
+      });
+      if (yaAcreditado) return null;
+      await acreditarSaldo(tx, {
         id: randomUUID(),
         usuarioId: params.usuarioId,
         // Movimiento de sistema, no ligado a un aula puntual.
         aulaId: "sistema",
         schoolId: params.schoolId ?? "sistema",
-        tipo: "saldo_inicial",
+        tipoTransaccion: "saldo_inicial",
         monto,
         moneda,
         motivo: "Saldo inicial de bienvenida",
-        createdAt: now
-      }
-    });
-
-    const existingSaldo = await prisma.economiaSaldo.findFirst({
-      where: { usuarioId: params.usuarioId }
-    });
-    if (existingSaldo) {
-      await prisma.economiaSaldo.updateMany({
-        where: { usuarioId: params.usuarioId },
-        data: { saldo: (existingSaldo.saldo as number) + monto, moneda, updatedAt: now }
       });
-    } else {
-      await prisma.economiaSaldo.create({
-        data: { id: randomUUID(), usuarioId: params.usuarioId, saldo: monto, moneda, updatedAt: now }
-      });
-    }
-
-    return { monto, moneda };
+      return { monto, moneda };
+    });
   } catch {
     // Best-effort: un fallo acá no debe romper el alta del usuario (mismo
     // criterio que tryProvisionarEspejoParaNuevoStaff).
@@ -117,45 +101,28 @@ export async function acreditarPorPrimerCuestionario(params: {
   schoolId?: string | null;
 }): Promise<{ monto: number; moneda: string } | null> {
   try {
-    const yaAcreditado = await prisma.economiaTransaccion.findFirst({
-      where: { usuarioId: params.usuarioId, tipo: "quiz_primera_vez", referenciaId: params.quizId }
-    });
-    if (yaAcreditado) return null;
-
     const monto = DEFAULT_MONTO_PRIMER_CUESTIONARIO;
     const moneda = await resolveMonedaConfig();
-    const now = new Date().toISOString();
 
-    await prisma.economiaTransaccion.create({
-      data: {
+    return await prisma.$transaction(async (tx) => {
+      await bloquearClave(tx, `quiz_primera_vez:${params.usuarioId}:${params.quizId}`);
+      const yaAcreditado = await tx.economiaTransaccion.findFirst({
+        where: { usuarioId: params.usuarioId, tipo: "quiz_primera_vez", referenciaId: params.quizId }
+      });
+      if (yaAcreditado) return null;
+      await acreditarSaldo(tx, {
         id: randomUUID(),
         usuarioId: params.usuarioId,
         aulaId: "sistema",
         schoolId: params.schoolId ?? "sistema",
-        tipo: "quiz_primera_vez",
+        tipoTransaccion: "quiz_primera_vez",
         monto,
         moneda,
         motivo: "Primer cuestionario completado",
         referenciaId: params.quizId,
-        createdAt: now
-      }
-    });
-
-    const existingSaldo = await prisma.economiaSaldo.findFirst({
-      where: { usuarioId: params.usuarioId }
-    });
-    if (existingSaldo) {
-      await prisma.economiaSaldo.updateMany({
-        where: { usuarioId: params.usuarioId },
-        data: { saldo: (existingSaldo.saldo as number) + monto, moneda, updatedAt: now }
       });
-    } else {
-      await prisma.economiaSaldo.create({
-        data: { id: randomUUID(), usuarioId: params.usuarioId, saldo: monto, moneda, updatedAt: now }
-      });
-    }
-
-    return { monto, moneda };
+      return { monto, moneda };
+    });
   } catch {
     // Best-effort: un fallo acá no debe romper el submit del cuestionario.
     return null;

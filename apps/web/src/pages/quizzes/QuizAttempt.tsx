@@ -26,6 +26,7 @@ import VisualizerRenderer from "../../components/modulos/VisualizerRenderer";
 import type { VisualSpec } from "../../generadoresV2/core/types";
 import type { GeneratorDescriptor, Ejercicio } from "../../generadoresV2/core/types";
 import PostSubmitResult from "../../components/quizzes/PostSubmitResult";
+import CanjearTickets from "../../components/quizzes/CanjearTickets";
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import { ejercicioToQuestion } from "../../domain/quiz/ejercicioToQuestion";
 import {
@@ -1658,6 +1659,7 @@ export default function QuizAttempt() {
                   result={submitMessage && result ? { ...result, message: undefined } : result}
                   {...(attempt?.ocultarPuntos ? { ocultarPuntos: true } : {})}
                 />
+                {result && attemptId && <CanjearTickets attemptId={attemptId} />}
               </div>
             </div>
           </Card>

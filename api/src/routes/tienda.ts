@@ -3,6 +3,7 @@ import { requireUser } from "../lib/user-auth";
 import { checkModoAula } from "../lib/modo-aula-middleware";
 import { requireAdmin } from "../lib/admin-auth";
 import { prisma } from "../lib/prisma";
+import { debitarSaldo, SaldoInsuficienteError } from "../lib/economia-saldo";
 
 export const tienda = Router();
 
@@ -94,45 +95,39 @@ tienda.post("/api/tienda/comprar", requireUser, checkModoAula("tienda"), async (
   }
 
   try {
-    const saldoDoc = await prisma.economiaSaldo.findFirst({ where: { usuarioId: userId } });
-    const saldoActual = saldoDoc?.saldo ?? 0;
-
-    if (saldoActual < item.precio) {
-      return res.status(400).json({
-        error: "saldo_insuficiente",
-        saldo: saldoActual,
-        precio: item.precio,
-        mensaje: `Necesitás ${item.precio} PF pero tenés ${saldoActual}.`,
-      });
-    }
-
-    await prisma.economiaSaldo.upsert({
-      where: { usuarioId: userId },
-      update: { saldo: saldoActual - item.precio, updatedAt: now },
-      create: { usuarioId: userId, saldo: saldoActual - item.precio, moneda: item.moneda, updatedAt: now },
-    });
-
-    await prisma.economiaTransaccion.create({
-      data: {
+    // E7: débito condicional + alta del ítem en una sola transacción, así dos compras
+    // simultáneas no gastan el mismo saldo y un fallo no deja cobro sin ítem.
+    await prisma.$transaction(async (tx) => {
+      await debitarSaldo(tx, {
         usuarioId: userId,
-        aulaId: "",
-        schoolId: "",
-        tipo: "debito",
         monto: item.precio,
         moneda: item.moneda,
         motivo: `tienda:${item.tipo}:${item.nombre}`,
         referenciaId: itemId,
-        createdAt: now,
-      },
+        now,
+      });
+      await tx.usuarioItem.create({
+        data: { id: uid, usuarioId: userId, itemId, compradoAt: now, origen: "compra" },
+      });
     });
 
-    await prisma.usuarioItem.create({
-      data: { id: uid, usuarioId: userId, itemId, compradoAt: now, origen: "compra" },
-    });
-
-    return res.status(201).json({ ok: true, saldoRestante: saldoActual - item.precio });
+    const saldoRestante = (await prisma.economiaSaldo.findFirst({ where: { usuarioId: userId } }))?.saldo ?? 0;
+    return res.status(201).json({ ok: true, saldoRestante });
   } catch (err) {
-    return res.status(500).json({ error: err instanceof Error ? err.message : "error al procesar compra" });
+    // P2002: otro pedido simultáneo ya entregó este ítem; la transacción deshizo el débito.
+    if ((err as { code?: string })?.code === "P2002") {
+      return res.status(409).json({ error: "ya tenés este item" });
+    }
+    if (err instanceof SaldoInsuficienteError) {
+      return res.status(400).json({
+        error: "saldo_insuficiente",
+        saldo: err.saldo,
+        precio: item.precio,
+        mensaje: `Necesitás ${item.precio} PF pero tenés ${err.saldo}.`,
+      });
+    }
+    console.error("[tienda] compra", err);
+    return res.status(500).json({ error: "error al procesar compra" });
   }
 });
 

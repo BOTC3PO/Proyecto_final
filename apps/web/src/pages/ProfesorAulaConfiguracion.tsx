@@ -18,6 +18,7 @@ import {
 import { createActivity, deleteActivity, fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
 import { fetchClaseModulos, assignModulo, unassignModulo, type ClaseModuloItem } from "../services/clase-modulos";
 import { apiGet } from "../lib/api";
+import SubastasTicketDocente from "../components/aula/SubastasTicketDocente";
 import type { Module } from "../domain/module/module.types";
 import { useI18n } from "../i18n/I18nContext";
 import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
@@ -701,6 +702,24 @@ export default function ProfesorAulaConfiguracion() {
                 <p className="text-sm text-[var(--c-muted)]">{t("profesorAulaConfiguracion.noHayDocentesODirectivos")}</p>
               )}
               {titularError && <p className="text-xs text-[var(--c-danger)]">{titularError}</p>}
+            </div>
+          </section>
+
+          {/* Subastas de tickets de examen: una por ticket, hasta el límite del aula. */}
+          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+            <div className="px-4 py-3 border-b border-[var(--c-border)]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Subastas de tickets de examen</p>
+            </div>
+            <div className="p-4">
+              {id && (
+                <SubastasTicketDocente
+                  aulaId={id}
+                  modulos={asignados.map((a) => ({
+                    id: a.moduloId,
+                    title: todosModulos.find((m) => m.id === a.moduloId)?.title ?? a.moduloId,
+                  }))}
+                />
+              )}
             </div>
           </section>
 

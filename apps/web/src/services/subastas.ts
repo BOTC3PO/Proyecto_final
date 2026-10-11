@@ -3,6 +3,10 @@ import { apiGet, apiPost } from "../lib/api";
 export type ExamenSubasta = {
   id: string;
   aulaId?: string;
+  moduloId?: string;
+  /** "ticket": la subasta vende un único ticket (se puja solo el precio). */
+  modo?: "ticket";
+  nombre?: string;
   estado: "anunciado" | "cerrado";
   subastaActiva: boolean;
   maxCompra: number;
@@ -10,6 +14,8 @@ export type ExamenSubasta = {
   fechaExamen?: string;
   precioPromedio?: number | null;
   precioPromedioAjustado?: number;
+  /** Mínimo por ticket, fijado al abrir la subasta según las monedas del aula. */
+  precioInicial?: number;
 };
 
 export type PujaItem = {

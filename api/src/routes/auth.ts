@@ -18,6 +18,7 @@ import { normalizeSchoolId } from "../lib/school-ids";
 import { resolveRoles, isStaffInRoles, resolvePrimaryRole } from "../lib/roles";
 import { acreditarSaldoInicial } from "../lib/economia-alta";
 import { requireUser } from "../lib/user-auth";
+import { estaBaneado, respuestaBaneado } from "../lib/ban";
 import {
   BootstrapAdminRequestSchema,
   CreateAdminSchema,
@@ -470,6 +471,10 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
       res.status(403).json({ error: "User not found" });
       return;
     }
+    if (estaBaneado(user as { isBanned?: boolean; bannedUntil?: string | null })) {
+      res.status(403).json(respuestaBaneado(user as { bannedUntil?: string | null }));
+      return;
+    }
 
     // F8 — refresh token rotation. El JWT debe traer `jti` y
     // `familyId`; sin ellos el token es de la era pre-rotación y se
@@ -669,6 +674,10 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
         });
       }
       res.status(401).json({ error: "Invalid credentials" });
+      return;
+    }
+    if (estaBaneado(user as { isBanned?: boolean; bannedUntil?: string | null })) {
+      res.status(403).json(respuestaBaneado(user as { bannedUntil?: string | null }));
       return;
     }
     // PLAN-multirol Fase 2 — la sesión arranca en la escuela activa y con

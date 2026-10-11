@@ -497,10 +497,17 @@ export default function Aula() {
     }
   };
 
+  // Valores de partida del formulario de puja: el precio inicial (mínimo) de la subasta y, si es por
+  // ticket, siempre 1 ticket.
+  const formularioInicial = (examen: ExamenSubasta) => ({
+    puntos: 1,
+    montoPorPunto: Math.max(examen.precioInicial ?? 0, examen.precioPromedioAjustado ?? 100),
+  });
+
   const handlePujar = async (examen: ExamenSubasta) => {
     if (!user?.id || !classroomId) return;
-    const form = pujaForm[examen.id];
-    if (!form?.puntos || !form?.montoPorPunto) return;
+    const form = pujaForm[examen.id] ?? formularioInicial(examen);
+    if (!form.puntos || !form.montoPorPunto) return;
     setPujaStatus((prev) => ({ ...prev, [examen.id]: "loading" }));
     try {
       await crearPuja(examen.id, {
@@ -1034,14 +1041,18 @@ export default function Aula() {
                 {subastas.map((examen) => {
                   const misPujasExamen = misPujas[examen.id] ?? [];
                   const totalPujado = misPujasExamen.filter((p) => p.estado !== "rechazada").reduce((acc, p) => acc + p.puntos, 0);
-                  const restante = examen.maxCompra - totalPujado;
-                  const form = pujaForm[examen.id] ?? { puntos: 1, montoPorPunto: examen.precioPromedioAjustado ?? 100 };
+                  const porTicket = examen.modo === "ticket";
+                  const yaPujo = misPujasExamen.some((p) => p.estado !== "rechazada");
+                  const restante = porTicket ? (yaPujo ? 0 : 1) : examen.maxCompra - totalPujado;
+                  const precioMinimo = examen.precioInicial ?? 0;
+                  const form = pujaForm[examen.id] ?? formularioInicial(examen);
+                  const bajoElMinimo = form.montoPorPunto < precioMinimo;
                   const status = pujaStatus[examen.id] ?? "idle";
 
                   return (
                     <div key={examen.id} className="rounded-xl border border-[var(--c-border)] p-3 space-y-2">
                       <div className="flex items-center justify-between gap-2">
-                        <span className="text-xs font-semibold text-[var(--c-text)]">{t("aula.parcial")}</span>
+                        <span className="text-xs font-semibold text-[var(--c-text)]">{porTicket ? (examen.nombre ?? "Ticket de examen") : t("aula.parcial")}</span>
                         {examen.fechaExamen && (
                           <span className="text-xs text-[var(--c-muted)]">
                             {new Date(examen.fechaExamen).toLocaleDateString(lang, { day: "numeric", month: "short" })}
@@ -1049,19 +1060,26 @@ export default function Aula() {
                         )}
                       </div>
                       <div className="text-xs text-[var(--c-muted)] space-y-1">
+                        {precioMinimo > 0 && (
+                          <p>Precio inicial (mínimo):{" "}
+                            <span className="font-medium text-[var(--c-text)]">{precioMinimo} 🪙/ticket</span>
+                          </p>
+                        )}
                         <p>Precio promedio:{" "}
                           <span className="font-medium text-[var(--c-text)]">{examen.precioPromedioAjustado ?? "—"} 🪙/punto</span>
                         </p>
                         <p>Podés pujar:{" "}
                           <span className={`font-medium ${restante <= 0 ? "text-[var(--c-danger)]" : "text-[var(--c-success)]"}`}>
-                            {restante <= 0 ? "Límite alcanzado" : `${restante} punto(s) más`}
+                            {porTicket
+                              ? (yaPujo ? "Ya pujaste por este ticket" : "1 ticket")
+                              : (restante <= 0 ? "Límite alcanzado" : `${restante} punto(s) más`)}
                           </span>
                         </p>
                       </div>
                       {restante > 0 && (
                         <div className="space-y-2">
                           <div className="grid grid-cols-2 gap-2">
-                            <label className="text-xs text-[var(--c-muted)]">
+                            {!porTicket && (<label className="text-xs text-[var(--c-muted)]">
                               Puntos (máx {restante})
                               <input
                                 type="number" min={1} max={restante} value={form.puntos}
@@ -1070,9 +1088,9 @@ export default function Aula() {
                                 }))}
                                 className={`mt-1 w-full ${inputCls}`}
                               />
-                            </label>
-                            <label className="text-xs text-[var(--c-muted)]">{t("aula.monedasPunto")}<input
-                                type="number" min={1} value={form.montoPorPunto}
+                            </label>)}
+                            <label className="text-xs text-[var(--c-muted)]">{porTicket ? "Tu oferta por el ticket" : t("aula.monedasPunto")}<input
+                                type="number" min={Math.max(1, precioMinimo)} value={form.montoPorPunto}
                                 onChange={(e) => setPujaForm((prev) => ({
                                   ...prev, [examen.id]: { ...form, montoPorPunto: Number(e.target.value) }
                                 }))}
@@ -1084,9 +1102,14 @@ export default function Aula() {
                             Total a gastar:{" "}
                             <span className="font-medium text-[var(--c-text)]">{form.puntos * form.montoPorPunto} 🪙</span>
                           </p>
+                          {bajoElMinimo && (
+                            <p className="text-xs text-[var(--c-danger)]">
+                              El precio mínimo por ticket es {precioMinimo} 🪙.
+                            </p>
+                          )}
                           <button
                             type="button"
-                            disabled={status === "loading"}
+                            disabled={status === "loading" || bajoElMinimo}
                             onClick={() => handlePujar(examen)}
                             className="w-full rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
                           >

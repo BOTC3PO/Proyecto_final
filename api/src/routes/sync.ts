@@ -66,7 +66,8 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
   const now = new Date().toISOString();
 
   const TIPOS_PERMITIDOS = new Set([
-    "progreso", "quiz_attempt", "economia", "competencia", "mensajes_leidos",
+    "progreso", "quiz_attempt", "competencia", "mensajes_leidos",
+    // "economia" no se acepta (E6): los saldos los mueve solo el servidor.
   ]);
 
   const itemsValidos = items.filter((item) => {
@@ -110,53 +111,6 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
             where: { usuarioId: userId, moduloId },
             data: { status, aulaId, updatedAt: now } as any,
           });
-          results.push({ id: item.id, ok: true });
-          break;
-        }
-
-        case "economia": {
-          const { delta, motivo, moneda } = item.payload as Record<string, unknown>;
-          if (typeof delta !== "number") throw new Error("delta requerido");
-
-          const MAX_DELTA = 10000;
-          if (Math.abs(delta) > MAX_DELTA) {
-            results.push({ id: item.id, ok: false, error: "delta fuera de rango permitido" });
-            break;
-          }
-          if (delta < 0) {
-            results.push({ id: item.id, ok: false, error: "débitos no permitidos via sync" });
-            break;
-          }
-
-          await (prisma as any).economiaSaldo?.upsert({
-            where: { usuarioId: userId },
-            update: { saldo: { increment: delta }, updatedAt: now },
-            create: { usuarioId: userId, saldo: delta, updatedAt: now },
-          });
-
-          const MAX_SALDO = 1000000;
-          const saldoRow = await (prisma as any).economiaSaldo?.findFirst({ where: { usuarioId: userId } });
-          if (saldoRow && saldoRow.saldo > MAX_SALDO) {
-            await (prisma as any).economiaSaldo?.updateMany({
-              where: { usuarioId: userId },
-              data: { saldo: MAX_SALDO, updatedAt: now },
-            });
-          }
-
-          await (prisma as any).economiaTransaccion?.create({
-            data: {
-              id: genId("tx"),
-              usuarioId: userId,
-              tipo: "credito",
-              monto: delta,
-              moneda: moneda ?? "PF",
-              motivo: motivo ?? "sync:offline",
-              referenciaId: item.id,
-              createdAt: item.createdAt ?? now,
-              sincronizado: true,
-            },
-          });
-
           results.push({ id: item.id, ok: true });
           break;
         }

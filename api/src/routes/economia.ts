@@ -4,6 +4,9 @@ import { z } from "zod";
 import { prisma } from "../lib/prisma";
 import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
+import { cupoTickets, ordenarPujas, topePorAlumno } from "../lib/examen-tickets";
+import { economiaDelAula } from "../lib/subasta-precio";
+import { acreditarSaldo, debitarSaldo, SaldoInsuficienteError } from "../lib/economia-saldo";
 import { requirePolicy } from "../lib/authorization";
 import { assertClassroomWritable } from "../lib/classroom";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
@@ -95,7 +98,10 @@ type ExamenDoc = {
   impuestoTasa?: number;
   fechaExamen?: string;
   aulaId?: string;
+  moduloId?: string;
+  modo?: string;
   precioPromedio?: number | null;
+  precioInicial?: number;
 };
 
 type PujaDoc = {
@@ -106,6 +112,7 @@ type PujaDoc = {
   puntos?: number;
   montoPorPunto?: number;
   examenId?: string;
+  createdAt?: string;
 };
 
 type SaldoDoc = {
@@ -130,6 +137,24 @@ const clampLimit = (value: string | undefined) => {
 };
 
 const normalizeUsuarioId = (value: unknown) => (typeof value === "string" ? value.trim() : "");
+
+class IntercambioNoDisponibleError extends Error {}
+
+/**
+ * Carga el aula con la forma que esperan estos endpoints (`schoolId` + `members`).
+ * Antes se leía `prisma.clase` tal cual y se lo forzaba a `AulaDoc`: el modelo no tiene
+ * `schoolId` ni `members` (son `escuelaId` y la relación `miembros`), así que toda
+ * comprobación de pertenencia al aula respondía 400 con la base real.
+ */
+export const cargarAula = async (aulaId: string): Promise<AulaDoc | null> => {
+  const clase = await prisma.clase.findFirst({ where: { id: aulaId }, include: { miembros: true } });
+  if (!clase) return null;
+  return {
+    status: clase.status,
+    schoolId: clase.escuelaId ?? undefined,
+    members: clase.miembros.map((m: { usuarioId: string }) => ({ userId: m.usuarioId }))
+  };
+};
 
 const buildUsuarioObjectId = (usuarioId: string): string | null => usuarioId || null;
 
@@ -409,7 +434,15 @@ const SaldoManualUpdateSchema = z.object({
 });
 const ModuloEconomiaUpdateSchema = ModuloEconomiaSchema.omit({ moduloId: true, updatedAt: true }).partial();
 const EventoEconomicoUpdateSchema = EventoEconomicoSchema.omit({ id: true, updatedAt: true }).partial();
-const ExamenEconomiaUpdateSchema = ExamenEconomiaSchema.omit({ id: true, updatedAt: true }).partial();
+// Lo que calcula el servidor al abrir la subasta no se puede editar a mano.
+const ExamenEconomiaUpdateSchema = ExamenEconomiaSchema.omit({
+  id: true,
+  updatedAt: true,
+  precioInicial: true,
+  monedasAula: true,
+  alumnosAula: true,
+  modo: true
+}).partial();
 const PujaExamenCreateSchema = PujaExamenSchema.omit({
   id: true,
   createdAt: true,
@@ -660,7 +693,7 @@ economia.patch(
       });
       return res.status(400).json({ error: "motivo debe indicar modulo, quiz o tarea" });
     }
-    const aula = await prisma.clase.findFirst({ where: { id: parsed.aulaId } }) as unknown as AulaDoc | null;
+    const aula = await cargarAula(String(parsed.aulaId));
     if (!assertClassroomWritable(res, aula)) {
       return;
     }
@@ -785,7 +818,7 @@ economia.post(
       if (!usuarioObjectId) {
         return res.status(400).json({ error: "usuarioId is required" });
       }
-      const aula = await prisma.clase.findFirst({ where: { id: parsed.aulaId } }) as unknown as AulaDoc | null;
+      const aula = await cargarAula(String(parsed.aulaId));
       if (!assertClassroomWritable(res, aula)) {
         return;
       }
@@ -845,27 +878,31 @@ economia.post(
           }
         }
       }
-      const saldoDoc = await prisma.economiaSaldo.findFirst({
-        where: { usuarioId: usuarioObjectId }
-      });
-      const saldoActual = (saldoDoc?.saldo as number) ?? 0;
-      const nuevoSaldo =
-        parsed.tipo === "credito" ? saldoActual + parsed.monto : saldoActual - parsed.monto;
-      if (nuevoSaldo < 0) {
-        return res.status(400).json({ error: "saldo insuficiente" });
-      }
-      await prisma.economiaTransaccion.create({ data: parsed });
-      const now = new Date().toISOString();
-      const existingSaldo = await prisma.economiaSaldo.findFirst({ where: { usuarioId: usuarioObjectId } });
-      if (existingSaldo) {
-        await prisma.economiaSaldo.updateMany({
-          where: { usuarioId: usuarioObjectId },
-          data: { usuarioId: usuarioObjectId, saldo: nuevoSaldo, moneda: parsed.moneda, updatedAt: now }
+      // E7: el movimiento y el cambio de saldo son una sola transacción; el débito es condicional
+      // (`saldo >= monto`), así que dos pedidos simultáneos no pueden gastar el mismo saldo.
+      let nuevoSaldo: number;
+      try {
+        nuevoSaldo = await prisma.$transaction(async (tx) => {
+          const mov = {
+            id: parsed.id,
+            usuarioId: usuarioObjectId,
+            aulaId: parsed.aulaId,
+            schoolId: parsed.schoolId,
+            monto: parsed.monto,
+            moneda: parsed.moneda,
+            motivo: parsed.motivo,
+            referenciaId: parsed.referenciaId ?? null,
+            now: parsed.createdAt
+          };
+          if (parsed.tipo === "credito") await acreditarSaldo(tx, mov);
+          else await debitarSaldo(tx, mov);
+          return (await tx.economiaSaldo.findFirst({ where: { usuarioId: usuarioObjectId } }))?.saldo ?? 0;
         });
-      } else {
-        await prisma.economiaSaldo.create({
-          data: { id: generateId(), usuarioId: usuarioObjectId, saldo: nuevoSaldo, moneda: parsed.moneda, updatedAt: now }
-        });
+      } catch (err) {
+        if (err instanceof SaldoInsuficienteError) {
+          return res.status(400).json({ error: "saldo insuficiente" });
+        }
+        throw err;
       }
       if (parsed.tipo === "credito") {
         const verificacion = {
@@ -900,7 +937,7 @@ economia.post("/api/economia/intercambios", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
       return res.status(400).json({ error: "receptorId debe ser distinto al creador" });
     }
     const config = await getEconomiaConfig();
-    const aula = await prisma.clase.findFirst({ where: { id: payload.aulaId } }) as unknown as AulaDoc | null;
+    const aula = await cargarAula(String(payload.aulaId));
     if (!assertClassroomWritable(res, aula)) {
       return;
     }
@@ -1006,6 +1043,9 @@ economia.post("/api/economia/intercambios/:id/aceptar", requirePolicy("economia/
     const intercambioRow = await prisma.economiaIntercambio.findFirst({ where: { id: req.params.id as string } });
     if (!intercambioRow) return res.status(404).json({ error: "intercambio not found" });
     const intercambio: IntercambioDoc = JSON.parse(intercambioRow.json);
+    if (intercambio.tipo === "ticket") {
+      return res.status(400).json({ error: "las reventas de tickets se aceptan en /api/economia/tickets/reventa/:id/aceptar" });
+    }
     if (intercambio.estado !== "pendiente") {
       return res.status(400).json({ error: "intercambio no disponible" });
     }
@@ -1016,7 +1056,7 @@ economia.post("/api/economia/intercambios/:id/aceptar", requirePolicy("economia/
     if (!requesterId || requesterId !== intercambio.receptorId) {
       return res.status(403).json({ error: "solo el receptor puede aceptar" });
     }
-    const aula = await prisma.clase.findFirst({ where: { id: intercambio.aulaId } }) as unknown as AulaDoc | null;
+    const aula = await cargarAula(String(intercambio.aulaId));
     if (!assertClassroomWritable(res, aula)) {
       return;
     }
@@ -1033,70 +1073,51 @@ economia.post("/api/economia/intercambios/:id/aceptar", requirePolicy("economia/
     if (!creadorObjectId || !receptorObjectId) {
       return res.status(400).json({ error: "usuarioId is required" });
     }
-    const saldoCreador = await prisma.economiaSaldo.findFirst({
-      where: { usuarioId: creadorObjectId }
-    });
-    const saldoActual = saldoCreador?.saldo ?? 0;
     const intercambioMonto = intercambio.monto ?? 0;
-    if (saldoActual < intercambioMonto) {
-      return res.status(400).json({ error: "saldo insuficiente en creador" });
-    }
     const config = await getEconomiaConfig();
     const now = new Date().toISOString();
-    const transaccionDebito = TransaccionSchema.parse({
-      id: generateId(),
-      usuarioId: intercambio.creadorId,
-      aulaId: intercambio.aulaId,
-      schoolId: intercambio.schoolId,
-      tipo: "debito",
-      monto: intercambioMonto,
-      moneda: intercambio.moneda ?? config.moneda.codigo,
-      motivo: `intercambio:${intercambio.id}:debito`,
-      referenciaId: intercambio.id,
-      createdAt: now
-    });
-    const transaccionCredito = TransaccionSchema.parse({
-      id: generateId(),
-      usuarioId: intercambio.receptorId,
-      aulaId: intercambio.aulaId,
-      schoolId: intercambio.schoolId,
-      tipo: "credito",
-      monto: intercambioMonto,
-      moneda: intercambio.moneda ?? config.moneda.codigo,
-      motivo: `intercambio:${intercambio.id}:credito`,
-      referenciaId: intercambio.id,
-      createdAt: now
-    });
-    await prisma.economiaTransaccion.create({ data: transaccionDebito });
-    await prisma.economiaTransaccion.create({ data: transaccionCredito });
-    const existingCreador = await prisma.economiaSaldo.findFirst({ where: { usuarioId: creadorObjectId } });
-    if (existingCreador) {
-      await prisma.economiaSaldo.updateMany({
-        where: { usuarioId: creadorObjectId },
-        data: { usuarioId: creadorObjectId, saldo: saldoActual - intercambioMonto, moneda: transaccionDebito.moneda, updatedAt: now }
-      });
-    } else {
-      await prisma.economiaSaldo.create({
-        data: { id: generateId(), usuarioId: creadorObjectId, saldo: saldoActual - intercambioMonto, moneda: transaccionDebito.moneda, updatedAt: now }
-      });
-    }
-    const saldoReceptorDoc = await prisma.economiaSaldo.findFirst({ where: { usuarioId: receptorObjectId } });
-    const existingReceptor = await prisma.economiaSaldo.findFirst({ where: { usuarioId: receptorObjectId } });
-    if (existingReceptor) {
-      await prisma.economiaSaldo.updateMany({
-        where: { usuarioId: receptorObjectId },
-        data: { usuarioId: receptorObjectId, saldo: (saldoReceptorDoc?.saldo ?? 0) + intercambioMonto, moneda: transaccionCredito.moneda, updatedAt: now }
-      });
-    } else {
-      await prisma.economiaSaldo.create({
-        data: { id: generateId(), usuarioId: receptorObjectId, saldo: (saldoReceptorDoc?.saldo ?? 0) + intercambioMonto, moneda: transaccionCredito.moneda, updatedAt: now }
-      });
-    }
+    const moneda = intercambio.moneda ?? config.moneda.codigo;
+    // E7: aceptar es una sola transacción. El intercambio se "reclama" comparando su JSON
+    // tal como se leyó (si otro pedido lo cambió antes, no coincide y no se transfiere dos
+    // veces); el débito del creador es condicional.
     const updatedIntercambio = { ...intercambio, estado: "aceptado", updatedAt: now, resolvedAt: now };
-    await prisma.economiaIntercambio.updateMany({
-      where: { id: intercambio.id },
-      data: { json: JSON.stringify(updatedIntercambio) }
-    });
+    try {
+      await prisma.$transaction(async (tx) => {
+        const reclamo = await tx.economiaIntercambio.updateMany({
+          where: { id: intercambio.id, json: intercambioRow.json },
+          data: { json: JSON.stringify(updatedIntercambio) }
+        });
+        if (reclamo.count !== 1) throw new IntercambioNoDisponibleError();
+        const base = {
+          aulaId: intercambio.aulaId as string,
+          schoolId: intercambio.schoolId as string,
+          monto: intercambioMonto,
+          moneda,
+          referenciaId: intercambio.id,
+          now
+        };
+        await debitarSaldo(tx, {
+          ...base,
+          id: generateId(),
+          usuarioId: creadorObjectId,
+          motivo: `intercambio:${intercambio.id}:debito`
+        });
+        await acreditarSaldo(tx, {
+          ...base,
+          id: generateId(),
+          usuarioId: receptorObjectId,
+          motivo: `intercambio:${intercambio.id}:credito`
+        });
+      });
+    } catch (err) {
+      if (err instanceof SaldoInsuficienteError) {
+        return res.status(400).json({ error: "saldo insuficiente en creador" });
+      }
+      if (err instanceof IntercambioNoDisponibleError) {
+        return res.status(409).json({ error: "intercambio no disponible" });
+      }
+      throw err;
+    }
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -1115,7 +1136,7 @@ economia.post("/api/economia/intercambios/:id/cancelar", async (req, res) => {
     if (!requesterId || (requesterId !== intercambio.creadorId && requesterId !== intercambio.receptorId)) {
       return res.status(403).json({ error: "no autorizado a cancelar" });
     }
-    const aula = await prisma.clase.findFirst({ where: { id: intercambio.aulaId } }) as unknown as AulaDoc | null;
+    const aula = await cargarAula(String(intercambio.aulaId));
     if (aula && !assertClassroomWritable(res, aula)) {
       return;
     }
@@ -1146,7 +1167,7 @@ economia.post(
       const intercambioRow = await prisma.economiaIntercambio.findFirst({ where: { id: req.params.id as string } });
       if (!intercambioRow) return res.status(404).json({ error: "intercambio not found" });
       const intercambio: IntercambioDoc = JSON.parse(intercambioRow.json);
-      const aula = await prisma.clase.findFirst({ where: { id: intercambio.aulaId } }) as unknown as AulaDoc | null;
+      const aula = await cargarAula(String(intercambio.aulaId));
       if (aula && !assertClassroomWritable(res, aula)) {
         return;
       }
@@ -1193,7 +1214,7 @@ economia.post(
     try {
       const payload = CompraCreateSchema.parse(req.body ?? {});
       const config = await getEconomiaConfig();
-      const aula = await prisma.clase.findFirst({ where: { id: payload.aulaId } }) as unknown as AulaDoc | null;
+      const aula = await cargarAula(String(payload.aulaId));
       if (!assertClassroomWritable(res, aula)) {
         return;
       }
@@ -1204,13 +1225,6 @@ economia.post(
       const usuarioObjectId = buildUsuarioObjectId(payload.usuarioId);
       if (!usuarioObjectId) {
         return res.status(400).json({ error: "usuarioId is required" });
-      }
-      const saldoDoc = await prisma.economiaSaldo.findFirst({
-        where: { usuarioId: usuarioObjectId }
-      });
-      const saldoActual = saldoDoc?.saldo ?? 0;
-      if (saldoActual < payload.monto) {
-        return res.status(400).json({ error: "saldo insuficiente" });
       }
       const now = new Date().toISOString();
       const compra = CompraSchema.parse({
@@ -1225,34 +1239,33 @@ economia.post(
         createdAt: now,
         updatedAt: now
       });
-      const transaccion = TransaccionSchema.parse({
-        id: generateId(),
-        usuarioId: payload.usuarioId,
-        aulaId: payload.aulaId,
-        schoolId: payload.schoolId,
-        tipo: "debito",
-        monto: payload.monto,
-        moneda: compra.moneda,
-        motivo: `compra:${compra.concepto}`,
-        referenciaId: compra.id,
-        createdAt: now
-      });
-      await prisma.economiaCompra.create({
-        data: { id: compra.id, json: JSON.stringify(compra), createdAt: now }
-      });
-      await prisma.economiaTransaccion.create({ data: transaccion });
-      const existingSaldo = await prisma.economiaSaldo.findFirst({ where: { usuarioId: usuarioObjectId } });
-      if (existingSaldo) {
-        await prisma.economiaSaldo.updateMany({
-          where: { usuarioId: usuarioObjectId },
-          data: { usuarioId: usuarioObjectId, saldo: saldoActual - payload.monto, moneda: compra.moneda, updatedAt: now }
+      // E7: compra + débito en una transacción, con débito condicional (sin saldo negativo).
+      let saldoNuevo: number;
+      try {
+        saldoNuevo = await prisma.$transaction(async (tx) => {
+          await debitarSaldo(tx, {
+            id: generateId(),
+            usuarioId: usuarioObjectId,
+            aulaId: payload.aulaId,
+            schoolId: payload.schoolId,
+            monto: payload.monto,
+            moneda: compra.moneda,
+            motivo: `compra:${compra.concepto}`,
+            referenciaId: compra.id,
+            now
+          });
+          await tx.economiaCompra.create({
+            data: { id: compra.id, json: JSON.stringify(compra), createdAt: now }
+          });
+          return (await tx.economiaSaldo.findFirst({ where: { usuarioId: usuarioObjectId } }))?.saldo ?? 0;
         });
-      } else {
-        await prisma.economiaSaldo.create({
-          data: { id: generateId(), usuarioId: usuarioObjectId, saldo: saldoActual - payload.monto, moneda: compra.moneda, updatedAt: now }
-        });
+      } catch (err) {
+        if (err instanceof SaldoInsuficienteError) {
+          return res.status(400).json({ error: "saldo insuficiente" });
+        }
+        throw err;
       }
-      res.status(201).json({ id: compra.id, saldo: saldoActual - payload.monto });
+      res.status(201).json({ id: compra.id, saldo: saldoNuevo });
     } catch (e: any) {
       res.status(400).json({ error: e?.message ?? "invalid payload" });
     }
@@ -1323,19 +1336,32 @@ economia.post("/api/economia/examenes", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (
       subastaActiva: true,
       maxCompra: req.body?.maxCompra ?? 2,
       impuestoTasa: req.body?.impuestoTasa ?? 0.1,
+      // El piso de la subasta lo calcula el servidor (más abajo); se descarta lo que mande el cliente.
+      precioInicial: undefined,
+      monedasAula: undefined,
+      alumnosAula: undefined,
       updatedAt: new Date().toISOString()
     };
     const parsed = ExamenEconomiaSchema.parse(payload);
     if (parsed.aulaId) {
-      const aula = await prisma.clase.findFirst({ where: { id: parsed.aulaId } }) as unknown as AulaDoc | null;
+      const aula = await cargarAula(String(parsed.aulaId));
       if (aula && !assertClassroomWritable(res, aula)) {
         return;
       }
     }
+    if (parsed.moduloId) {
+      const modulo = await prisma.modulo.findFirst({ where: { id: parsed.moduloId, isDeleted: { not: true } } });
+      if (!modulo) return res.status(400).json({ error: "moduloId no existe" });
+    }
+    // Precio inicial al abrir la subasta: depende de las monedas que hay en el aula en este momento.
+    let examenFinal = parsed;
+    if (parsed.aulaId) {
+      examenFinal = { ...parsed, ...(await economiaDelAula(prisma, parsed.aulaId)) };
+    }
     await prisma.economiaExamen.create({
-      data: { id: parsed.id, json: JSON.stringify(parsed), createdAt: new Date().toISOString() }
+      data: { id: examenFinal.id, json: JSON.stringify(examenFinal), createdAt: new Date().toISOString() }
     });
-    res.status(201).json({ id: parsed.id });
+    res.status(201).json({ id: examenFinal.id, precioInicial: examenFinal.precioInicial ?? null });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
@@ -1348,7 +1374,7 @@ economia.patch("/api/economia/examenes/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), as
     if (!existingRow) return res.status(404).json({ error: "not found" });
     const existing: ExamenDoc = JSON.parse(existingRow.json);
     if (existing.aulaId) {
-      const aula = await prisma.clase.findFirst({ where: { id: existing.aulaId } }) as unknown as AulaDoc | null;
+      const aula = await cargarAula(String(existing.aulaId));
       if (aula && !assertClassroomWritable(res, aula)) {
         return;
       }
@@ -1387,9 +1413,13 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
     const examen: ExamenDoc = JSON.parse(examenRow.json);
     const aulaId = parsed.aulaId ?? examen.aulaId;
     if (aulaId) {
-      const aula = await prisma.clase.findFirst({ where: { id: aulaId } }) as unknown as AulaDoc | null;
+      const aula = await cargarAula(String(aulaId));
       if (aula && !assertClassroomWritable(res, aula)) {
         return;
+      }
+      // Solo pujan los que cursan el aula: el cupo de tickets se calcula sobre sus alumnos.
+      if (!aula?.members?.some((m) => m.userId === callerId)) {
+        return res.status(403).json({ error: "usuario no pertenece al aula" });
       }
     }
     if (!examen.subastaActiva || examen.estado !== "anunciado") {
@@ -1403,7 +1433,36 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
     const totalActual = allPujaDocs
       .filter((doc) => doc.examenId === req.params.id && doc.usuarioId === parsed.usuarioId && (doc.estado === "pendiente" || doc.estado === "aceptada"))
       .reduce((acc, doc) => acc + (doc.puntos ?? 0), 0);
-    if (totalActual + parsed.puntos > (examen.maxCompra ?? Infinity)) {
+    if (examen.precioInicial != null && parsed.montoPorPunto < examen.precioInicial) {
+      return res.status(400).json({
+        error: "precio_menor_al_inicial",
+        precioInicial: examen.precioInicial,
+        mensaje: `El precio mínimo por ticket es ${examen.precioInicial}.`
+      });
+    }
+    if (examen.modo === "ticket") {
+      // Una subasta por ticket: se puja una sola vez, por 1 ticket, y entre todas las subastas del
+      // mismo módulo un alumno no puede pedir más que el tope por alumno.
+      if (parsed.puntos !== 1) {
+        return res.status(400).json({ error: "la subasta es por 1 ticket" });
+      }
+      const vivas = (d: PujaDoc) => d.estado === "pendiente" || d.estado === "aceptada";
+      if (allPujaDocs.some((d) => d.examenId === examen.id && d.usuarioId === parsed.usuarioId && vivas(d))) {
+        return res.status(409).json({ error: "ya pujaste en esta subasta" });
+      }
+      const hermanas = new Set(
+        (await prisma.economiaExamen.findMany({ where: {} }))
+          .map((r) => { try { return JSON.parse(r.json) as ExamenDoc; } catch { return null; } })
+          .filter((e): e is ExamenDoc => !!e && e.modo === "ticket" && e.aulaId === examen.aulaId && e.moduloId === examen.moduloId)
+          .map((e) => e.id)
+      );
+      const enElModulo = allPujaDocs.filter(
+        (d) => d.usuarioId === parsed.usuarioId && hermanas.has(d.examenId) && vivas(d)
+      ).length;
+      if (enElModulo >= topePorAlumno(examen.maxCompra)) {
+        return res.status(400).json({ error: "limite de compra excedido" });
+      }
+    } else if (totalActual + parsed.puntos > topePorAlumno(examen.maxCompra)) {
       return res.status(400).json({ error: "limite de compra excedido" });
     }
     const usuarioObjectId = buildUsuarioObjectId(parsed.usuarioId);
@@ -1454,6 +1513,8 @@ economia.get("/api/economia/examenes/puntos", async (req, res) => {
 });
 
 economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"), async (req, res) => {
+  // JSON original del examen si este pedido lo "reclamó" para cerrarlo (ver más abajo).
+  let jsonOriginal: string | null = null;
   try {
     const examenRow = await prisma.economiaExamen.findFirst({ where: { id: req.params.id as string } });
     if (!examenRow) return res.status(404).json({ error: "examen not found" });
@@ -1462,8 +1523,23 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
     if (examen.estado === "cerrado") {
       return res.status(200).json({ ok: true, message: "examen ya cerrado" });
     }
+    // E7: solo un cierre a la vez. El examen se reclama comparando su JSON tal como se leyó;
+    // un cierre simultáneo no coincide y recibe 409 en vez de cobrar las pujas dos veces. Un
+    // cierre que quedó a medias por un corte se puede reintentar pasados 5 minutos.
+    const cierreIniciado = (examen as { cierreIniciadoAt?: string }).cierreIniciadoAt;
+    if (cierreIniciado && Date.now() - new Date(cierreIniciado).getTime() < 5 * 60_000) {
+      return res.status(409).json({ error: "el examen se está cerrando" });
+    }
+    const reclamo = await prisma.economiaExamen.updateMany({
+      where: { id: req.params.id as string, json: examenRow.json },
+      data: { json: JSON.stringify({ ...examen, cierreIniciadoAt: new Date().toISOString() }) }
+    });
+    if (reclamo.count !== 1) {
+      return res.status(409).json({ error: "el examen se está cerrando" });
+    }
+    jsonOriginal = examenRow.json;
     const config = await getEconomiaConfig();
-    const aula = await prisma.clase.findFirst({ where: { id: examen.aulaId } }) as unknown as AulaDoc | null;
+    const aula = await cargarAula(String(examen.aulaId));
     if (aula && !assertClassroomWritable(res, aula)) {
       return;
     }
@@ -1483,40 +1559,46 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
     let precioCount = 0;
 
     // ── batch-fetch to avoid N+1 per puja ────────────────────────────────────
-    const batchUsuarioIds = pujas
-      .map(p => buildUsuarioObjectId(p.usuarioId ?? ""))
-      .filter((id): id is string => Boolean(id));
-    const [batchSaldoRows, batchPuntosRows] = await Promise.all([
-      prisma.economiaSaldo.findMany({ where: { usuarioId: { in: batchUsuarioIds } } }),
-      prisma.economiaExamenPunto.findMany({ where: {} }),
-    ]);
-    // saldo map: usuarioId → { saldo, exists } — kept fresh inside the loop
-    const saldoByUser = new Map(
-      batchSaldoRows.map(s => [s.usuarioId, { saldo: s.saldo as number, exists: true as boolean }])
-    );
+    const batchPuntosRows = await prisma.economiaExamenPunto.findMany({ where: {} });
     // puntos map: usuarioId → DB row (json blob updated in-memory as we go)
     const puntosRowByUser = new Map<string, (typeof batchPuntosRows)[0]>();
     for (const row of batchPuntosRows) {
+      // La billetera de tickets es por examen: solo las filas de este.
+      if (row.examenId !== examen.id) continue;
       try { const doc = JSON.parse(row.json) as { usuarioId?: string }; if (doc.usuarioId) puntosRowByUser.set(doc.usuarioId, row); } catch { /* skip */ }
     }
+    // Oferta de tickets: 50% de los alumnos del aula, mínimo 2. Se reparte entre las pujas que
+    // más pagan por ticket; lo que no entra en el cupo se rechaza.
+    const alumnosAula = await prisma.claseMiembro.count({
+      where: { claseId: examen.aulaId, rolEnClase: "STUDENT", esPrueba: { not: true } }
+    });
+    // En modo "ticket" la subasta vende un único ticket: gana la puja que más paga.
+    const cupo = examen.modo === "ticket" ? 1 : cupoTickets(alumnosAula);
+    let cupoRestante = cupo;
+    const pujasOrdenadas = ordenarPujas(
+      pujas.map((p) => ({
+        ...p,
+        id: p.id ?? "",
+        usuarioId: p.usuarioId ?? "",
+        puntos: p.puntos ?? 0,
+        montoPorPunto: p.montoPorPunto ?? 0
+      }))
+    );
     // ─────────────────────────────────────────────────────────────────────────
 
-    for (const puja of pujas) {
+    for (const puja of pujasOrdenadas) {
       const usuarioObjectId = buildUsuarioObjectId(puja.usuarioId ?? "");
       if (!usuarioObjectId) {
         return res.status(400).json({ error: "usuarioId is required" });
       }
-      const userSaldo = saldoByUser.get(usuarioObjectId) ?? { saldo: 0, exists: false };
-      const saldoActual = userSaldo.saldo;
-      const costoTotal = (puja.puntos ?? 0) * (puja.montoPorPunto ?? 0);
-      if (saldoActual < costoTotal) {
+      if ((puja.puntos ?? 0) > cupoRestante) {
         await prisma.economiaExamenPuja.updateMany({
           where: { id: puja.id },
-          data: { json: JSON.stringify({ ...puja, estado: "rechazada", resolvedAt: now }) }
+          data: { json: JSON.stringify({ ...puja, estado: "rechazada", motivoRechazo: "sin_cupo", resolvedAt: now }) }
         });
         continue;
       }
-      const nuevoSaldo = saldoActual - costoTotal;
+      const costoTotal = (puja.puntos ?? 0) * (puja.montoPorPunto ?? 0);
       const transaccion = TransaccionSchema.parse({
         id: generateId(),
         usuarioId: puja.usuarioId,
@@ -1529,20 +1611,28 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
         referenciaId: examen.id,
         createdAt: now
       });
-      await prisma.economiaTransaccion.create({ data: transaccion });
-      // Upsert saldo — existence already known from batch fetch, no re-query needed
-      if (userSaldo.exists) {
-        await prisma.economiaSaldo.updateMany({
-          where: { usuarioId: usuarioObjectId },
-          data: { usuarioId: usuarioObjectId, saldo: nuevoSaldo, moneda: transaccion.moneda, updatedAt: now }
+      // Débito condicional y atómico por puja: sin saldo, la puja se rechaza.
+      try {
+        await prisma.$transaction((tx) => debitarSaldo(tx, {
+          id: transaccion.id,
+          usuarioId: usuarioObjectId,
+          aulaId: transaccion.aulaId,
+          schoolId: transaccion.schoolId,
+          monto: transaccion.monto,
+          moneda: transaccion.moneda,
+          motivo: transaccion.motivo,
+          referenciaId: examen.id,
+          now
+        }));
+      } catch (err) {
+        if (!(err instanceof SaldoInsuficienteError)) throw err;
+        await prisma.economiaExamenPuja.updateMany({
+          where: { id: puja.id },
+          data: { json: JSON.stringify({ ...puja, estado: "rechazada", motivoRechazo: "saldo_insuficiente", resolvedAt: now }) }
         });
-      } else {
-        await prisma.economiaSaldo.create({
-          data: { id: generateId(), usuarioId: usuarioObjectId, saldo: nuevoSaldo, moneda: transaccion.moneda, updatedAt: now }
-        });
+        continue;
       }
-      // Keep in-memory balance fresh for any subsequent puja from the same user
-      saldoByUser.set(usuarioObjectId, { saldo: nuevoSaldo, exists: true });
+      cupoRestante -= puja.puntos ?? 0;
       const puntosNetos = Math.max(0, (puja.puntos ?? 0) * (1 - (examen.impuestoTasa ?? 0)));
       PuntosExamenSchema.parse({
         usuarioId: puja.usuarioId,
@@ -1553,14 +1643,27 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
       const puntosRow = puntosRowByUser.get(puja.usuarioId ?? "");
       if (puntosRow) {
         const puntosDoc = JSON.parse(puntosRow.json);
-        const updatedPuntos = { ...puntosDoc, puntos: (puntosDoc.puntos ?? 0) + puntosNetos, updatedAt: now };
+        const updatedPuntos = {
+          ...puntosDoc,
+          puntos: (puntosDoc.puntos ?? 0) + puntosNetos,
+          // `tickets` = comprados (enteros, sin impuesto): es lo que se canjea tras rendir el examen.
+          tickets: (puntosDoc.tickets ?? 0) + (puja.puntos ?? 0),
+          updatedAt: now
+        };
         await prisma.economiaExamenPunto.updateMany({
           where: { id: puntosRow.id },
           data: { json: JSON.stringify(updatedPuntos) }
         });
         puntosRowByUser.set(puja.usuarioId ?? "", { ...puntosRow, json: JSON.stringify(updatedPuntos) });
       } else {
-        const newJson = JSON.stringify({ usuarioId: puja.usuarioId, puntos: puntosNetos, updatedAt: now });
+        const newJson = JSON.stringify({
+          usuarioId: puja.usuarioId,
+          examenId: examen.id,
+          puntos: puntosNetos,
+          tickets: puja.puntos ?? 0,
+          canjeados: 0,
+          updatedAt: now
+        });
         const newRow = { id: generateId(), examenId: examen.id as string, json: newJson, updatedAt: now as string };
         await prisma.economiaExamenPunto.create({ data: newRow });
         puntosRowByUser.set(puja.usuarioId ?? "", newRow);
@@ -1584,7 +1687,9 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
       precioPromedioActual,
       ...preciosPrevios.map((item) => Number(item.precioPromedio ?? 0))
     ]);
-    const ranking = Array.from(rankingPuntos.entries())
+    // Con un solo ticket por subasta el "ranking" tendría un único ganador que siempre recuperaría su
+    // pago (primer puesto): no se paga premio, para que la subasta realmente quite monedas del aula.
+    const ranking = (examen.modo === "ticket" ? [] : Array.from(rankingPuntos.entries()))
       .map(([usuarioId, puntos]) => ({ usuarioId, puntos }))
       .sort((a, b) => b.puntos - a.puntos)
       .slice(0, 10);
@@ -1605,25 +1710,21 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
         referenciaId: examen.id,
         createdAt: now
       });
-      await prisma.economiaTransaccion.create({ data: transaccion });
       const usuarioObjectId = buildUsuarioObjectId(ganador.usuarioId);
       if (!usuarioObjectId) {
         return res.status(400).json({ error: "usuarioId is required" });
       }
-      // Reuse saldoByUser populated above — ranking winners were already processed in the pujas loop
-      const rankingSaldo = saldoByUser.get(usuarioObjectId) ?? { saldo: 0, exists: false };
-      const saldoActual = rankingSaldo.saldo;
-      if (rankingSaldo.exists) {
-        await prisma.economiaSaldo.updateMany({
-          where: { usuarioId: usuarioObjectId },
-          data: { usuarioId: usuarioObjectId, saldo: saldoActual + premio, moneda: transaccion.moneda, updatedAt: now }
-        });
-      } else {
-        await prisma.economiaSaldo.create({
-          data: { id: generateId(), usuarioId: usuarioObjectId, saldo: saldoActual + premio, moneda: transaccion.moneda, updatedAt: now }
-        });
-      }
-      saldoByUser.set(usuarioObjectId, { saldo: saldoActual + premio, exists: true });
+      await prisma.$transaction((tx) => acreditarSaldo(tx, {
+        id: transaccion.id,
+        usuarioId: usuarioObjectId,
+        aulaId: transaccion.aulaId,
+        schoolId: transaccion.schoolId,
+        monto: transaccion.monto,
+        moneda: transaccion.moneda,
+        motivo: transaccion.motivo,
+        referenciaId: examen.id,
+        now
+      }));
       await registerEconomiaAuditoria({
         actor: actorId,
         motivo: transaccion.motivo,
@@ -1637,13 +1738,29 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
         }
       });
     }
-    const updatedExamen = { ...examen, estado: "cerrado", subastaActiva: false, precioPromedio: precioPromedioActual, updatedAt: now };
+    const updatedExamen = {
+      ...examen,
+      estado: "cerrado",
+      subastaActiva: false,
+      precioPromedio: precioPromedioActual,
+      cupo,
+      ticketsEmitidos: cupo - cupoRestante,
+      updatedAt: now
+    };
     await prisma.economiaExamen.updateMany({
       where: { id: req.params.id as string },
       data: { json: JSON.stringify(updatedExamen) }
     });
     res.json({ ok: true });
   } catch (e: any) {
+    // Si el cierre falló a medias se libera el reclamo para poder reintentarlo de inmediato
+    // (las pujas ya resueltas no se vuelven a procesar: solo se toman las "pendiente").
+    if (jsonOriginal !== null) {
+      await prisma.economiaExamen.updateMany({
+        where: { id: req.params.id as string },
+        data: { json: jsonOriginal }
+      }).catch(() => undefined);
+    }
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
 });
@@ -1938,7 +2055,7 @@ economia.put("/api/economia/riesgo/:aulaId", ...bodyLimitMB(ENV.MAX_PAGE_MB), as
       updatedAt: new Date().toISOString()
     };
     const validated = EconomiaRiesgoCursoSchema.parse(update);
-    const aula = await prisma.clase.findFirst({ where: { id: req.params.aulaId } }) as unknown as AulaDoc | null;
+    const aula = await cargarAula(String(req.params.aulaId));
     if (aula && !assertClassroomWritable(res, aula)) {
       return;
     }
@@ -1963,7 +2080,7 @@ economia.patch(
         ...parsed,
         updatedAt: new Date().toISOString()
       };
-      const aula = await prisma.clase.findFirst({ where: { id: req.params.aulaId } }) as unknown as AulaDoc | null;
+      const aula = await cargarAula(String(req.params.aulaId));
       if (aula && !assertClassroomWritable(res, aula)) {
         return;
       }

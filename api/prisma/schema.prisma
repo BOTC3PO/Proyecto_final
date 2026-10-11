@@ -233,6 +233,8 @@ model Usuario {
   isDeleted             Boolean  @default(false) @map("is_deleted")
   passwordResetRequired Boolean  @default(false) @map("password_reset_required")
   isBanned              Boolean  @default(false) @map("is_banned")
+  bannedAt              String?  @map("banned_at")
+  bannedUntil           String?  @map("banned_until")
   warningCount          Int      @default(0) @map("warning_count")
   createdAt             String   @map("created_at")
   updatedAt             String   @map("updated_at")
@@ -1336,6 +1338,7 @@ model UsuarioItem {
   compradoAt String     @map("comprado_at")
   origen     String     @default("compra")
   item       TiendaItem @relation(fields: [itemId], references: [id])
+  @@unique([usuarioId, itemId])
   @@map("usuario_items")
 }
 

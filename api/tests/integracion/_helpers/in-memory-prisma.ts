@@ -15,10 +15,29 @@
  */
 
 import { randomUUID } from "node:crypto";
+import { AsyncLocalStorage } from "node:async_hooks";
 
 type Row = Record<string, unknown>;
 
 type WhereClause = Record<string, unknown> | undefined;
+
+/**
+ * Aplica `data` de Prisma a una fila, con soporte de `{ increment }` y
+ * `{ decrement }` (las operaciones atómicas sobre saldos).
+ */
+function applyData<T extends Row>(row: T, data: Record<string, unknown>): T {
+  const out: Row = { ...row };
+  for (const [k, v] of Object.entries(data)) {
+    if (v && typeof v === "object" && !Array.isArray(v) && ("increment" in v || "decrement" in v)) {
+      const base = Number(out[k] ?? 0);
+      const o = v as { increment?: number; decrement?: number };
+      out[k] = base + (o.increment ?? 0) - (o.decrement ?? 0);
+    } else {
+      out[k] = v;
+    }
+  }
+  return out as T;
+}
 
 function matchScalar(value: unknown, condition: unknown): boolean {
   if (condition === null || condition === undefined) {
@@ -33,6 +52,14 @@ function matchScalar(value: unknown, condition: unknown): boolean {
   }
   if ("not" in cond) {
     if (cond.not === value) return false;
+  }
+  // Comparadores numéricos (saldo >= monto, etc.). Solo se aplican a números: con fechas
+  // en texto o nulas el stub los ignoraba y hay pruebas que dependen de eso.
+  if (typeof value === "number") {
+    if ("gte" in cond && !(value >= (cond.gte as number))) return false;
+    if ("gt" in cond && !(value > (cond.gt as number))) return false;
+    if ("lte" in cond && !(value <= (cond.lte as number))) return false;
+    if ("lt" in cond && !(value < (cond.lt as number))) return false;
   }
   if ("in" in cond) {
     const arr = cond.in as readonly unknown[];
@@ -162,6 +189,15 @@ function compareRows(a: Row, b: Row, orderBy: OrderBy): number {
 
 type CountSelect = { select?: Record<string, true> } | undefined;
 
+/**
+ * Contexto de una `$transaction` del stub. Cada escritura registra cómo deshacerse y los
+ * advisory locks tomados se liberan al terminar. Da rollback y exclusión por clave; NO da
+ * aislamiento de lectura (ver H17: para eso hace falta Postgres real).
+ */
+type TxContext = { undo: Array<() => void>; unlock: Array<() => void> };
+const txContext = new AsyncLocalStorage<TxContext>();
+const recordUndo = (undo: () => void) => txContext.getStore()?.undo.push(undo);
+
 class Table<TRow extends Row> {
   rows: TRow[] = [];
   // model name (for child relation counts)
@@ -201,11 +237,14 @@ class Table<TRow extends Row> {
   async create(args: { data: TRow }): Promise<TRow> {
     const copy = { ...args.data } as TRow;
     this.rows.push(copy);
+    recordUndo(() => { this.rows = this.rows.filter((r) => r !== copy); });
     return { ...copy };
   }
 
   async createMany(args: { data: TRow[] }): Promise<{ count: number }> {
-    for (const d of args.data) this.rows.push({ ...d });
+    const added = args.data.map((d) => ({ ...d }) as TRow);
+    for (const d of added) this.rows.push(d);
+    recordUndo(() => { this.rows = this.rows.filter((r) => !added.includes(r)); });
     return { count: args.data.length };
   }
 
@@ -215,8 +254,13 @@ class Table<TRow extends Row> {
   }): Promise<TRow> {
     const idx = this.rows.findIndex((r) => rowMatches(r, args.where));
     if (idx === -1) throw new Error(`Record not found in ${this.name}`);
-    const merged = { ...this.rows[idx], ...args.data } as TRow;
+    const anterior = this.rows[idx];
+    const merged = applyData(anterior, args.data as Row) as TRow;
     this.rows[idx] = merged;
+    recordUndo(() => {
+      const i = this.rows.indexOf(merged);
+      if (i >= 0) this.rows[i] = anterior;
+    });
     return { ...merged };
   }
 
@@ -227,7 +271,13 @@ class Table<TRow extends Row> {
     let count = 0;
     for (let i = 0; i < this.rows.length; i++) {
       if (rowMatches(this.rows[i], args.where)) {
-        this.rows[i] = { ...this.rows[i], ...args.data } as TRow;
+        const anterior = this.rows[i];
+        const nuevo = applyData(anterior, args.data as Row) as TRow;
+        this.rows[i] = nuevo;
+        recordUndo(() => {
+          const j = this.rows.indexOf(nuevo);
+          if (j >= 0) this.rows[j] = anterior;
+        });
         count++;
       }
     }
@@ -238,12 +288,15 @@ class Table<TRow extends Row> {
     const idx = this.rows.findIndex((r) => rowMatches(r, args.where));
     if (idx === -1) throw new Error(`Record not found in ${this.name}`);
     const [removed] = this.rows.splice(idx, 1);
+    recordUndo(() => { this.rows.push(removed); });
     return { ...removed };
   }
 
   async deleteMany(args: { where: Record<string, unknown> }): Promise<{ count: number }> {
     const before = this.rows.length;
+    const removidas = this.rows.filter((r) => rowMatches(r, args.where));
     this.rows = this.rows.filter((r) => !rowMatches(r, args.where)) as TRow[];
+    recordUndo(() => { this.rows.push(...removidas); });
     return { count: before - this.rows.length };
   }
 
@@ -256,10 +309,16 @@ class Table<TRow extends Row> {
     if (idx === -1) {
       const copy = { ...args.create } as TRow;
       this.rows.push(copy);
+      recordUndo(() => { this.rows = this.rows.filter((r) => r !== copy); });
       return { ...copy };
     }
-    const merged = { ...this.rows[idx], ...args.update } as TRow;
+    const anterior = this.rows[idx];
+    const merged = applyData(anterior, args.update as Row) as TRow;
     this.rows[idx] = merged;
+    recordUndo(() => {
+      const i = this.rows.indexOf(merged);
+      if (i >= 0) this.rows[i] = anterior;
+    });
     return { ...merged };
   }
 
@@ -613,6 +672,14 @@ export type EncuestaRespuestaRow = {
   createdAt: string;
 };
 
+export type PageRow = {
+  id: string;
+  title: string | null;
+  content: string | null;
+  createdAt: string;
+  updatedAt: string | null;
+};
+
 export type BloqueJsonRow = {
   id: string;
   schemaVersion: number;
@@ -772,6 +839,53 @@ export class InMemoryPrisma {
   encuesta = new Table<EncuestaRow>("encuesta");
   encuestaRespuesta = new Table<EncuestaRespuestaRow>("encuestaRespuesta");
   bloqueJson = new Table<BloqueJsonRow>("bloqueJson");
+  page = new Table<PageRow>("page");
+  tiendaItem = new Table<Row>("tiendaItem");
+  usuarioItem = new Table<Row>("usuarioItem");
+  plazoFijo = new Table<Row>("plazoFijo");
+  fciPosicion = new Table<Row>("fciPosicion");
+
+  /**
+   * Stub de `$transaction`: ejecuta el callback contra el mismo store.
+   * NO da aislamiento ni rollback; sirve para recorrer el código, no para
+   * probar atomicidad real (ver H17).
+   */
+  private locks = new Map<string, Promise<void>>();
+
+  /**
+   * Stub de `$executeRaw`: solo entiende `pg_advisory_xact_lock(hashtext(clave))`, que serializa
+   * las transacciones que comparten clave hasta que la transacción termina.
+   */
+  async $executeRaw(strings: TemplateStringsArray | string, ...values: unknown[]): Promise<number> {
+    const sql = typeof strings === "string" ? strings : strings.join("?");
+    if (!sql.includes("pg_advisory_xact_lock")) return 0;
+    const ctx = txContext.getStore();
+    if (!ctx) throw new Error("pg_advisory_xact_lock fuera de una transacción");
+    const clave = String(values[0]);
+    while (this.locks.has(clave)) await this.locks.get(clave);
+    let liberar!: () => void;
+    this.locks.set(clave, new Promise<void>((resolve) => { liberar = resolve; }));
+    ctx.unlock.push(() => { this.locks.delete(clave); liberar(); });
+    return 0;
+  }
+
+  /**
+   * Stub de `$transaction`: ejecuta el callback contra el mismo store. Si falla, deshace las
+   * escrituras que hizo (rollback) y libera sus locks. Sin aislamiento de lectura (ver H17).
+   */
+  async $transaction<R>(fn: ((tx: InMemoryPrisma) => Promise<R>) | Promise<unknown>[]): Promise<R | unknown[]> {
+    if (Array.isArray(fn)) return Promise.all(fn);
+    const ctx: TxContext = { undo: [], unlock: [] };
+    try {
+      return await txContext.run(ctx, () => fn(this));
+    } catch (err) {
+      for (const deshacer of ctx.undo.reverse()) deshacer();
+      throw err;
+    } finally {
+      for (const liberar of ctx.unlock) liberar();
+    }
+  }
+
   material = new Table<MaterialRow>("material");
   materialVersion = new Table<MaterialVersionRow>("materialVersion");
   configModulo = new Table<ConfigModuloRow>("configModulo");
@@ -846,6 +960,13 @@ export class InMemoryPrisma {
   economiaTransaccion = new Table<Row>("economiaTransaccion");
   economiaSaldo = new Table<Row>("economiaSaldo");
   economiaConfig = new Table<Row>("economiaConfig");
+  economiaModulo = new Table<Row>("economiaModulo");
+  economiaExamen = new Table<Row>("economiaExamen");
+  economiaExamenPuja = new Table<Row>("economiaExamenPuja");
+  economiaExamenPunto = new Table<Row>("economiaExamenPunto");
+  economiaIntercambio = new Table<Row>("economiaIntercambio");
+  economiaCompra = new Table<Row>("economiaCompra");
+  economiaAuditoria = new Table<Row>("economiaAuditoria");
   // FIX-MENSAJERIA-ESCUELA-EFECTIVA — mensajeria.ts (hilos 1:1 y avisos)
   // no tenía ninguna tabla stubeada; la ruta nunca había tenido tests
   // de integración.
@@ -915,10 +1036,5 @@ export class InMemoryPrisma {
       }
       return rows;
     };
-  }
-
-  async $transaction<T>(fn: (tx: this) => Promise<T>): Promise<T> {
-    // Sequential, no rollback (sufficient for happy/sad path tests).
-    return fn(this);
   }
 }
