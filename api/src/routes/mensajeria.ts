@@ -64,6 +64,12 @@ const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => 
 const genId = (prefix: string) =>
   `${prefix}-${randomUUID()}`;
 
+/**
+ * Soporte: el administrador de la plataforma puede hablar con cualquier persona aunque no compartan
+ * escuela (es el canal de ayuda). Esos hilos viven en un espacio propio, "soporte", que ven las dos puntas.
+ */
+export const ESCUELA_SOPORTE = "soporte";
+
 async function mismaEscuela(
   userAId: string,
   userBId: string
@@ -71,14 +77,15 @@ async function mismaEscuela(
   const [userA, userB] = await Promise.all([
     prisma.usuario.findFirst({
       where: { OR: [{ id: userAId }], isDeleted: { not: true } },
-      select: { escuelaId: true },
+      select: { escuelaId: true, roles: true },
     }),
     prisma.usuario.findFirst({
       where: { OR: [{ id: userBId }], isDeleted: { not: true } },
-      select: { escuelaId: true },
+      select: { escuelaId: true, roles: true },
     }),
   ]);
   if (!userA || !userB) return { ok: false };
+  if (hasRole(userA, "ADMIN") || hasRole(userB, "ADMIN")) return { ok: true, escuelaId: ESCUELA_SOPORTE };
   const [escA, escB] = await Promise.all([
     userA.escuelaId || resolveEffectiveSchoolId(userAId),
     userB.escuelaId || resolveEffectiveSchoolId(userBId),
@@ -95,7 +102,7 @@ mensajeria.get("/api/mensajeria/hilos", requireUser, async (req, res) => {
 
   const hilos = await prisma.hilo.findMany({
     where: {
-      escuelaId: schoolId ?? "",
+      escuelaId: { in: [schoolId ?? "", ESCUELA_SOPORTE] },
       OR: [{ usuarioA: userId }, { usuarioB: userId }],
     },
     orderBy: { ultimoAt: "desc" },
@@ -265,11 +272,11 @@ mensajeria.get("/api/mensajeria/no-leidos", requireUser, async (req, res) => {
 
   const [aggA, aggB] = await Promise.all([
     prisma.hilo.aggregate({
-      where: { usuarioA: userId, escuelaId: schoolId ?? "" },
+      where: { usuarioA: userId, escuelaId: { in: [schoolId ?? "", ESCUELA_SOPORTE] } },
       _sum: { noLeidosA: true },
     }),
     prisma.hilo.aggregate({
-      where: { usuarioB: userId, escuelaId: schoolId ?? "" },
+      where: { usuarioB: userId, escuelaId: { in: [schoolId ?? "", ESCUELA_SOPORTE] } },
       _sum: { noLeidosB: true },
     }),
   ]);
@@ -475,40 +482,58 @@ mensajeria.get("/api/mensajeria/usuarios", requireUser, async (req, res) => {
   const userId = getId(req as never);
   if (!userId) return res.json({ items: [] });
   const schoolId = await getEffectiveSchoolId(req as never);
-  if (!schoolId) return res.json({ items: [] });
 
   const q = typeof req.query.q === "string" ? req.query.q.trim() : "";
 
   try {
-    const whereFilter: Record<string, unknown> = {
-      escuelaId: schoolId,
-      isDeleted: { not: true },
-      id: { not: userId },
-    };
+    const delaEscuela = schoolId
+      ? await (async () => {
+          const whereFilter: Record<string, unknown> = {
+            escuelaId: schoolId,
+            isDeleted: { not: true },
+            id: { not: userId },
+          };
+          if (q) {
+            (whereFilter as Record<string, unknown>).OR = [
+              { fullName: { contains: q, mode: "insensitive" } },
+              { username: { contains: q, mode: "insensitive" } },
+            ];
+            delete whereFilter.id;
+            (whereFilter as Record<string, unknown>).AND = [{ id: { not: userId } }];
+          }
+          return prisma.usuario.findMany({
+            where: whereFilter as Prisma.UsuarioWhereInput,
+            select: { id: true, fullName: true, username: true, roles: true },
+            take: 10,
+          });
+        })()
+      : [];
 
-    if (q) {
-      (whereFilter as Record<string, unknown>).OR = [
-        { fullName: { contains: q, mode: "insensitive" } },
-        { username: { contains: q, mode: "insensitive" } },
-      ];
-      delete whereFilter.id;
-      (whereFilter as Record<string, unknown>).AND = [{ id: { not: userId } }];
-    }
+    // Soporte: el administrador de la plataforma, para cualquier usuario que no sea él mismo.
+    const soporte = hasRole(getUserFromReq(req as never), "ADMIN")
+      ? []
+      : await prisma.usuario.findMany({
+          where: { roles: { has: "ADMIN" }, isDeleted: { not: true }, id: { not: userId } },
+          select: { id: true, fullName: true, username: true, roles: true },
+          take: 3,
+        });
 
-    const usuarios = await prisma.usuario.findMany({
-      where: whereFilter as Prisma.UsuarioWhereInput,
-      select: { id: true, fullName: true, username: true, roles: true },
-      take: 10,
-    });
-
-    const items = usuarios
-      .filter((u) => u.id !== userId)
-      .map((u) => ({
+    const items = [
+      ...soporte.map((u) => ({
         id: u.id,
-        nombre: String(u.fullName ?? u.username ?? ""),
+        nombre: `Soporte · ${String(u.fullName ?? u.username ?? "Administración")}`,
         username: String(u.username ?? ""),
-        role: String(resolvePrimaryRole(u) ?? ""),
-      }));
+        role: "ADMIN",
+      })),
+      ...delaEscuela
+        .filter((u) => u.id !== userId && !soporte.some((a) => a.id === u.id))
+        .map((u) => ({
+          id: u.id,
+          nombre: String(u.fullName ?? u.username ?? ""),
+          username: String(u.username ?? ""),
+          role: String(resolvePrimaryRole(u) ?? ""),
+        })),
+    ];
 
     return res.json({ items });
   } catch {

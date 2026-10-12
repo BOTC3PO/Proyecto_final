@@ -337,8 +337,16 @@ class Table<TRow extends Row> {
   async aggregate(args: {
     where?: WhereClause;
     _max?: Record<string, true>;
-  }): Promise<{ _max: Record<string, number | null> }> {
+    _sum?: Record<string, true>;
+  }): Promise<{ _max: Record<string, number | null>; _sum: Record<string, number | null> }> {
     const subset = this.rows.filter((r) => rowMatches(r, args?.where));
+    const sum: Record<string, number | null> = {};
+    if (args._sum) {
+      for (const key of Object.keys(args._sum)) {
+        const valores = subset.map((r) => r[key]).filter((v): v is number => typeof v === "number");
+        sum[key] = valores.length ? valores.reduce((a, b) => a + b, 0) : null;
+      }
+    }
     const max: Record<string, number | null> = {};
     if (args._max) {
       for (const key of Object.keys(args._max)) {
@@ -352,7 +360,7 @@ class Table<TRow extends Row> {
         max[key] = m;
       }
     }
-    return { _max: max };
+    return { _max: max, _sum: sum };
   }
 
   // FIX-PANEL-EVALUACIONES — soporte mínimo de `groupBy` para el
