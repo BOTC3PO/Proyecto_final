@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { z } from "zod";
 import { prisma } from "../lib/prisma";
 import { isStaffRole, requirePolicy } from "../lib/authorization";
 import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlements";
@@ -10,16 +9,6 @@ import { requireUser } from "../lib/user-auth";
 import { soloAlumnosReales } from "../lib/inscripcion-prueba";
 
 export const reportes = Router();
-
-const objectIdString = z.string().regex(/^[a-fA-F0-9]{24}$/);
-
-const SolicitudVinculoSchema = z.object({
-  childId: objectIdString
-});
-
-const AprobacionVinculoSchema = z.object({
-  parentId: objectIdString
-});
 
 const getAuthenticatedUserId = (req: any) => {
   const userId = req.user?._id;
@@ -38,37 +27,6 @@ const isMinor = (birthdate?: Date | null) => {
 // NOTE: vinculos_padre_hijo, parent_invites, eventos_reportes_padres and
 // economia_transacciones are not yet in the Prisma schema. Their operations
 // are stubbed as no-ops until those models are added.
-
-const findParentInvite = async (
-  parentId: string,
-  childId: string
-) => {
-  // TODO: migrate to prisma.parentInvite once model is defined
-  return null as null | {
-    _id?: string | null;
-    overrideParentLimit?: boolean;
-    overrideApprovedBy?: string;
-    createdBy?: string;
-    expiresAt?: Date;
-  };
-};
-
-const resolveOverrideApprovedBy = (invite: Awaited<ReturnType<typeof findParentInvite>>): string | null => {
-  if (!invite) return null;
-  const candidate = invite.overrideApprovedBy ?? invite.createdBy ?? null;
-  if (!candidate) return null;
-  return String(candidate);
-};
-
-const logOverrideParentLimit = async (params: {
-  parentId: string;
-  childId: string;
-  inviteId: unknown;
-  overrideApprovedBy: string;
-  requestedBy: string;
-}) => {
-  // TODO: migrate to prisma.eventoReportePadre once model is defined
-};
 
 const logReportePadre = async (params: {
   parentId: string;
@@ -106,42 +64,6 @@ const validarAccesoPadre = async (
   // TODO: migrate vinculos_padre_hijo to Prisma — returning 403 until model exists
   return { ok: false, status: 403, error: "no link" as const };
 };
-
-reportes.post("/api/vinculos/solicitar", requireUser, async (req, res) => {
-  const parentId = getAuthenticatedUserId(req);
-  try {
-    const parsed = SolicitudVinculoSchema.parse(req.body);
-    const childId = parsed.childId;
-    if (!parentId || !childId) return res.status(400).json({ error: "invalid parent or child id" });
-
-    const invite = await findParentInvite(parentId, childId);
-    if (!invite) {
-      return res.status(403).json({ error: "institutional invite required" });
-    }
-    // TODO: full vinculos_padre_hijo logic requires that model in Prisma
-    return res.status(501).json({ error: "vinculos not yet migrated to Prisma" });
-  } catch (e: any) {
-    return res.status(400).json({ error: e?.message ?? "invalid payload" });
-  }
-});
-
-reportes.post("/api/vinculos/aprobar", requireUser, async (req, res) => {
-  const childId = getAuthenticatedUserId(req);
-  try {
-    const parsed = AprobacionVinculoSchema.parse(req.body);
-    const parentId = parsed.parentId;
-    if (!parentId || !childId) return res.status(400).json({ error: "invalid parent or child id" });
-
-    const invite = await findParentInvite(parentId, childId);
-    if (!invite) {
-      return res.status(403).json({ error: "institutional invite required" });
-    }
-    // TODO: full vinculos_padre_hijo logic requires that model in Prisma
-    return res.status(501).json({ error: "vinculos not yet migrated to Prisma" });
-  } catch (e: any) {
-    return res.status(400).json({ error: e?.message ?? "invalid payload" });
-  }
-});
 
 reportes.get("/api/vinculos/validar", requireUser, async (req, res) => {
   const parentId = getAuthenticatedUserId(req);
