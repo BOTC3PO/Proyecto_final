@@ -5,6 +5,7 @@ import {
   fetchMensajesReportados,
   banUsuario,
   advertenciaUsuario,
+  resolverMensajeReportado,
   type ClasePublica,
   type MensajeReportado,
 } from "../services/admin";
@@ -43,6 +44,20 @@ export default function AdminModeracion() {
   };
 
   useEffect(() => { loadData(); }, []);
+
+  const handleResolver = async (id: string, estado: "revisado" | "descartado") => {
+    setSubmitting(true);
+    setActionMsg(null);
+    try {
+      await resolverMensajeReportado(id, estado);
+      setMensajes((prev) => prev.filter((m) => m.id !== id));
+      setActionMsg(estado === "revisado" ? "Reporte marcado como revisado." : "Reporte descartado.");
+    } catch (e: unknown) {
+      setActionMsg(`Error: ${(e as Error).message}`);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   const handleBan = async () => {
     if (!banModal || !banMotivo.trim()) { setActionMsg("El motivo es requerido."); return; }
@@ -139,15 +154,36 @@ export default function AdminModeracion() {
           ) : (
             <div className="divide-y divide-[var(--c-border)]">
               {mensajes.map((m) => (
-                <div key={m._id} className="flex flex-wrap items-start justify-between gap-2 px-6 py-3">
+                <div key={m.id} className="flex flex-wrap items-start justify-between gap-2 px-6 py-3">
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm text-[var(--c-text)] line-clamp-2">{m.cuerpo ?? m.body ?? "(sin contenido)"}</p>
-                    {m.tipo && <p className="mt-0.5 text-xs text-[var(--c-muted)]">Tipo: {m.tipo}</p>}
-                    {m.createdAt && (
-                      <p className="text-xs text-[var(--c-muted)]">{new Date(m.createdAt).toLocaleDateString(lang)}</p>
-                    )}
+                    <p className="text-sm text-[var(--c-text)] whitespace-pre-wrap break-words">{m.cuerpo || "(sin contenido)"}</p>
+                    {m.motivo && <p className="mt-0.5 text-xs text-[var(--c-muted)]">Motivo: {m.motivo}</p>}
+                    <p className="text-xs text-[var(--c-muted)]">
+                      Autor: <span className="font-mono">{m.autorId}</span> · Reportó: <span className="font-mono">{m.reportadoPor}</span>
+                      {m.createdAt && <> · {new Date(m.createdAt).toLocaleDateString(lang)}</>}
+                    </p>
                   </div>
-                  <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-600">{t("adminModeracion.reportado")}</span>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-600">{t("adminModeracion.reportado")}</span>
+                    <button
+                      onClick={() => setWarnModal({ userId: m.autorId, nombre: m.autorId })}
+                      className="rounded-lg border border-amber-200 px-2 py-1 text-xs font-semibold text-amber-700 hover:bg-amber-50"
+                    >Advertir</button>
+                    <button
+                      onClick={() => setBanModal({ userId: m.autorId, nombre: m.autorId })}
+                      className="rounded-lg border border-red-200 px-2 py-1 text-xs font-semibold text-red-700 hover:bg-red-50"
+                    >Banear</button>
+                    <button
+                      disabled={submitting}
+                      onClick={() => void handleResolver(m.id, "revisado")}
+                      className="rounded-lg border border-emerald-200 px-2 py-1 text-xs font-semibold text-emerald-700 hover:bg-emerald-50 disabled:opacity-50"
+                    >Revisado</button>
+                    <button
+                      disabled={submitting}
+                      onClick={() => void handleResolver(m.id, "descartado")}
+                      className="rounded-lg border border-[var(--c-border)] px-2 py-1 text-xs font-semibold text-[var(--c-muted)] hover:bg-[var(--c-bg)] disabled:opacity-50"
+                    >Descartar</button>
+                  </div>
                 </div>
               ))}
             </div>

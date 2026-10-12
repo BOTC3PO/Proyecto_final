@@ -3,6 +3,13 @@ import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
 import { hasRole, resolvePrimaryRole } from "../lib/roles";
+import { randomUUID } from "node:crypto";
+
+// H8 — topes de largo (antes solo valía el límite global del cuerpo JSON).
+export const MAX_LARGO_MENSAJE = 2000;
+export const MAX_LARGO_AVISO_TITULO = 200;
+export const MAX_LARGO_AVISO_CUERPO = 5000;
+const MAX_LARGO_MOTIVO_REPORTE = 500;
 
 export const mensajeria = Router();
 
@@ -187,6 +194,9 @@ mensajeria.post("/api/mensajeria/hilos", requireUser, async (req, res) => {
   if (!destinatarioId || !body || typeof body !== "string" || !body.trim()) {
     return res.status(400).json({ error: "destinatarioId y body requeridos" });
   }
+  if (body.trim().length > MAX_LARGO_MENSAJE) {
+    return res.status(413).json({ error: `El mensaje no puede superar los ${MAX_LARGO_MENSAJE} caracteres.` });
+  }
 
   const check = await mismaEscuela(userId, String(destinatarioId));
   if (!check.ok) {
@@ -355,6 +365,11 @@ mensajeria.post("/api/mensajeria/avisos", requireUser, async (req, res) => {
   if (!titulo || !cuerpo || typeof titulo !== "string" || typeof cuerpo !== "string") {
     return res.status(400).json({ error: "titulo y cuerpo requeridos" });
   }
+  if (titulo.trim().length > MAX_LARGO_AVISO_TITULO || cuerpo.trim().length > MAX_LARGO_AVISO_CUERPO) {
+    return res.status(413).json({
+      error: `El título admite hasta ${MAX_LARGO_AVISO_TITULO} caracteres y el cuerpo hasta ${MAX_LARGO_AVISO_CUERPO}.`
+    });
+  }
 
   const destinosValidos = ["todos", "padres", "alumnos", "profesores"];
   const destinoFinal = typeof destino === "string" && destinosValidos.includes(destino)
@@ -423,6 +438,11 @@ mensajeria.put("/api/mensajeria/avisos/:id", requireUser, async (req, res) => {
 
   if (Object.keys(data).length === 0) {
     return res.status(400).json({ error: "nada que actualizar" });
+  }
+  if (String(data.titulo ?? "").length > MAX_LARGO_AVISO_TITULO || String(data.cuerpo ?? "").length > MAX_LARGO_AVISO_CUERPO) {
+    return res.status(413).json({
+      error: `El título admite hasta ${MAX_LARGO_AVISO_TITULO} caracteres y el cuerpo hasta ${MAX_LARGO_AVISO_CUERPO}.`
+    });
   }
 
   await prisma.aviso.update({
@@ -494,4 +514,58 @@ mensajeria.get("/api/mensajeria/usuarios", requireUser, async (req, res) => {
   } catch {
     return res.json({ items: [] });
   }
+});
+
+// ── POST /api/mensajeria/mensajes/:mensajeId/reportar ────────
+// H3 — quien recibió un mensaje puede reportarlo. Queda una copia del texto como evidencia y el
+// reporte aparece en el panel de moderación de la escuela del hilo. Solo se reportan mensajes de
+// la otra persona del hilo, y una persona reporta un mismo mensaje una sola vez.
+mensajeria.post("/api/mensajeria/mensajes/:mensajeId/reportar", requireUser, async (req, res) => {
+  const userId = getId(req as never);
+  if (!userId) return res.status(401).json({ error: "no autenticado" });
+
+  const mensaje = await prisma.mensajeDirecto.findFirst({ where: { id: String(req.params.mensajeId) } });
+  if (!mensaje) return res.status(404).json({ error: "mensaje no encontrado" });
+  const hilo = await prisma.hilo.findFirst({ where: { id: mensaje.hiloId } });
+  if (!hilo || (hilo.usuarioA !== userId && hilo.usuarioB !== userId)) {
+    // Mismo mensaje que si no existiera: no se revela que el mensaje existe.
+    return res.status(404).json({ error: "mensaje no encontrado" });
+  }
+  if (mensaje.senderId === userId) {
+    return res.status(400).json({ error: "no podés reportar tus propios mensajes" });
+  }
+
+  const motivoCrudo = (req.body as Record<string, unknown> | undefined)?.motivo;
+  const motivo = typeof motivoCrudo === "string" && motivoCrudo.trim() ? motivoCrudo.trim() : null;
+  if (motivo && motivo.length > MAX_LARGO_MOTIVO_REPORTE) {
+    return res.status(413).json({ error: `El motivo admite hasta ${MAX_LARGO_MOTIVO_REPORTE} caracteres.` });
+  }
+
+  const yaReportado = await prisma.mensajeReportado.findFirst({
+    where: { mensajeId: mensaje.id, reportadoPor: userId }
+  });
+  if (yaReportado) return res.status(409).json({ error: "ya reportaste este mensaje" });
+
+  const id = `rep-${randomUUID()}`;
+  try {
+    await prisma.mensajeReportado.create({
+      data: {
+        id,
+        mensajeId: mensaje.id,
+        hiloId: hilo.id,
+        escuelaId: hilo.escuelaId,
+        reportadoPor: userId,
+        autorId: mensaje.senderId,
+        motivo,
+        cuerpo: mensaje.body,
+        estado: "pendiente",
+        createdAt: new Date().toISOString()
+      }
+    });
+  } catch (err) {
+    // Dos reportes simultáneos del mismo mensaje: el índice único deja pasar uno solo.
+    if ((err as { code?: string })?.code === "P2002") return res.status(409).json({ error: "ya reportaste este mensaje" });
+    throw err;
+  }
+  return res.status(201).json({ id, ok: true });
 });

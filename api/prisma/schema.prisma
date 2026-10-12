@@ -1393,6 +1393,27 @@ model Hilo {
   @@map("hilos")
 }
 
+/// H3 — un mensaje directo reportado por quien lo recibió. Guarda una copia del texto como evidencia
+/// (el original puede borrarse) y se resuelve desde moderación.
+model MensajeReportado {
+  id           String  @id
+  mensajeId    String  @map("mensaje_id")
+  hiloId       String  @map("hilo_id")
+  escuelaId    String  @map("escuela_id")
+  reportadoPor String  @map("reportado_por")
+  autorId      String  @map("autor_id")
+  motivo       String?
+  cuerpo       String
+  estado       String  @default("pendiente")
+  resueltoPor  String? @map("resuelto_por")
+  resolucion   String?
+  resueltoAt   String? @map("resuelto_at")
+  createdAt    String  @map("created_at")
+  @@unique([mensajeId, reportadoPor])
+  @@index([escuelaId, estado])
+  @@map("mensajes_reportados")
+}
+
 model MensajeDirecto {
   id        String @id
   hiloId    String @map("hilo_id")

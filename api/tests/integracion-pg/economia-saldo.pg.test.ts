@@ -43,6 +43,7 @@ after(async () => {
   await prisma.economiaSaldo.deleteMany({ where: { usuarioId: { startsWith: prefijo } } });
   await prisma.usuarioItem.deleteMany({ where: { usuarioId: { startsWith: prefijo } } });
   await prisma.tiendaItem.deleteMany({ where: { id: { startsWith: prefijo } } });
+  await prisma.mensajeReportado.deleteMany({ where: { reportadoPor: { startsWith: prefijo } } });
   await prisma.$disconnect();
 });
 
@@ -100,6 +101,26 @@ test("PG: el índice único impide dos veces el mismo ítem para un usuario (I2)
   const resultados = await Promise.allSettled(
     Array.from({ length: 5 }, () =>
       prisma.usuarioItem.create({ data: { id: randomUUID(), usuarioId, itemId, compradoAt: ahora } })
+    )
+  );
+  assert.equal(resultados.filter((r) => r.status === "fulfilled").length, 1);
+  assert.ok(
+    resultados
+      .filter((r): r is PromiseRejectedResult => r.status === "rejected")
+      .every((r) => (r.reason as { code?: string }).code === "P2002")
+  );
+});
+
+test("PG: un mismo mensaje se reporta una sola vez por persona aunque lleguen pedidos a la vez (H3)", opts, async () => {
+  const ahora = new Date().toISOString();
+  const resultados = await Promise.allSettled(
+    Array.from({ length: 5 }, () =>
+      prisma.mensajeReportado.create({
+        data: {
+          id: randomUUID(), mensajeId: `${prefijo}-msg`, hiloId: `${prefijo}-hilo`, escuelaId: `${prefijo}-esc`,
+          reportadoPor: `${prefijo}-alumna`, autorId: `${prefijo}-autor`, cuerpo: "texto", createdAt: ahora
+        }
+      })
     )
   );
   assert.equal(resultados.filter((r) => r.status === "fulfilled").length, 1);

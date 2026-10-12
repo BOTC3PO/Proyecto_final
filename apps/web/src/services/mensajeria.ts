@@ -64,6 +64,11 @@ export async function enviarMensaje(
   return apiPost("/api/mensajeria/hilos", { destinatarioId, body });
 }
 
+/** H3 — reportar un mensaje recibido; queda en el panel de moderación de la escuela. */
+export async function reportarMensaje(mensajeId: string, motivo?: string): Promise<{ id: string; ok: boolean }> {
+  return apiPost(`/api/mensajeria/mensajes/${encodeURIComponent(mensajeId)}/reportar`, { motivo });
+}
+
 export async function fetchAvisos(): Promise<Aviso[]> {
   const data = await apiGet<{ items: Aviso[] }>("/api/mensajeria/avisos");
   return data.items ?? [];

@@ -290,12 +290,12 @@ enterprise.get(
     if (!schoolId) return;
     const limit = clampLimit(req.query.limit as string | undefined);
     const offset = Number(req.query.offset ?? 0);
-    const items = await (prisma as any).mensajeReportado?.findMany({
-      where: { schoolId },
+    const items = await prisma.mensajeReportado.findMany({
+      where: { escuelaId: schoolId },
       skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
       take: limit,
       orderBy: { createdAt: "desc" }
-    }) ?? [];
+    });
     res.json({ items, limit, offset });
   }
 );

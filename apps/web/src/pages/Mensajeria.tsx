@@ -9,7 +9,7 @@ import {
   fetchHilos, fetchHilo, enviarMensaje,
   fetchAvisos, crearAviso, marcarAvisoLeido,
   editarAviso, eliminarAviso,
-  buscarUsuarios,
+  buscarUsuarios, reportarMensaje,
   type Hilo, type MensajeDirecto, type Aviso,
   type UsuarioBusqueda,
 } from "../services/mensajeria";
@@ -107,6 +107,8 @@ export default function Mensajeria() {
   const [mensajesLoading, setMensajesLoading] = useState(false);
   const [body, setBody] = useState("");
   const [enviando, setEnviando] = useState(false);
+  // H3 — mensajes que esta persona ya reportó en la sesión (el servidor rechaza el duplicado igual).
+  const [reportados, setReportados] = useState<Set<string>>(new Set());
 
   // Nuevo mensaje
   const [busqueda, setBusqueda] = useState("");
@@ -224,6 +226,20 @@ export default function Mensajeria() {
       setBody("");
     } catch { /* ignorar */ }
     finally { setEnviando(false); }
+  };
+
+  const handleReportar = async (mensajeId: string) => {
+    const motivo = window.prompt("¿Por qué reportás este mensaje? (opcional)");
+    if (motivo === null) return; // canceló
+    try {
+      await reportarMensaje(mensajeId, motivo.trim().slice(0, 500) || undefined);
+      setReportados((prev) => new Set(prev).add(mensajeId));
+      window.alert("Gracias. El reporte llegó a moderación de tu escuela.");
+    } catch (e: unknown) {
+      const msg = (e as Error)?.message ?? "";
+      if (msg.includes("ya reportaste")) setReportados((prev) => new Set(prev).add(mensajeId));
+      else window.alert("No se pudo enviar el reporte. Probá de nuevo.");
+    }
   };
 
   const handleNuevoMensaje = async () => {
@@ -400,6 +416,7 @@ export default function Mensajeria() {
                     <>
                       <p className="text-xs text-[var(--c-success)] font-medium">{t("mensajeria.para")} {destinatario.nombre}</p>
                       <textarea
+                        maxLength={2000}
                         placeholder={t("mensajeria.escribiTuMensaje")}
                         rows={2}
                         className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)] resize-none"
@@ -484,6 +501,17 @@ export default function Mensajeria() {
                             <p>{m.body}</p>
                             <p className={`text-[10px] mt-1 ${esMio ? "text-white/60" : "text-[var(--c-muted)]"}`}>
                               {formatMensajeTime(m.created_at, lang)}
+                              {!esMio && !m.id.startsWith("tmp-") && (
+                                reportados.has(m.id) ? (
+                                  <span className="ml-2">· Reportado</span>
+                                ) : (
+                                  <button
+                                    type="button"
+                                    onClick={() => void handleReportar(m.id)}
+                                    className="ml-2 underline hover:text-[var(--c-danger)]"
+                                  >Reportar</button>
+                                )
+                              )}
                             </p>
                           </div>
                         </div>
@@ -495,6 +523,7 @@ export default function Mensajeria() {
                   {/* Input de respuesta */}
                   <div className="border-t border-[var(--c-border)] p-3 flex gap-2">
                     <input
+                      maxLength={2000}
                       type="text"
                       placeholder={t("mensajeria.escribiUnMensaje")}
                       className="flex-1 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
@@ -531,6 +560,7 @@ export default function Mensajeria() {
               <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 space-y-3">
                 <p className="text-sm font-medium text-[var(--c-text)]">{t("mensajeria.publicarAviso")}</p>
                 <input
+                  maxLength={200}
                   type="text"
                   placeholder={t("comun.titulo")}
                   className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
@@ -538,6 +568,7 @@ export default function Mensajeria() {
                   onChange={(e) => setAvisoTitulo(e.target.value)}
                 />
                 <textarea
+                  maxLength={5000}
                   placeholder={t("mensajeria.mensaje")}
                   rows={3}
                   className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)] resize-none"
@@ -662,6 +693,7 @@ export default function Mensajeria() {
               <form onSubmit={handleEditarAviso} className="mt-3 space-y-3">
                 <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.titulo")}<input
                     type="text"
+                    maxLength={200}
                     required
                     onInvalid={onInvalid}
                     onInput={onInput}
@@ -671,6 +703,7 @@ export default function Mensajeria() {
                   />
                 </label>
                 <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.cuerpo")}<textarea
+                    maxLength={5000}
                     required
                     onInvalid={onInvalid}
                     onInput={onInput}

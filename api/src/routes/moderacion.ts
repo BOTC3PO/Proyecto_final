@@ -83,13 +83,49 @@ moderacion.get("/api/moderacion/mensajes-reportados", async (req, res) => {
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const escuelaId = alcanceModeracion(req.user as ReqUser | undefined);
-  const items = await (prisma as any).mensajeReportado?.findMany({
-    where: { ...whereEscuela(escuelaId) },
+  const estado = typeof req.query.estado === "string" && req.query.estado ? req.query.estado : undefined;
+  const items = await prisma.mensajeReportado.findMany({
+    where: { ...whereEscuela(escuelaId), ...(estado ? { estado } : {}) },
     skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
     take: limit,
     orderBy: { createdAt: "desc" }
-  }) ?? [];
+  });
   res.json({ items, limit, offset });
+});
+
+// Resolver un reporte: "revisado" (se tomó una medida o se dejó constancia) o "descartado".
+// La sanción al autor, si corresponde, se aplica con los endpoints de advertencia y ban.
+moderacion.post("/api/moderacion/mensajes-reportados/:id/resolver", async (req, res) => {
+  const escuelaId = alcanceModeracion(req.user as ReqUser | undefined);
+  const reporte = await prisma.mensajeReportado.findFirst({ where: { id: String(req.params.id) } });
+  // Un reporte de otra escuela se trata como inexistente.
+  if (!reporte || (escuelaId && reporte.escuelaId !== escuelaId)) {
+    return res.status(404).json({ error: "reporte no encontrado" });
+  }
+  const estado = req.body?.estado;
+  if (estado !== "revisado" && estado !== "descartado") {
+    return res.status(400).json({ error: "estado debe ser revisado o descartado" });
+  }
+  const resolucion = typeof req.body?.resolucion === "string" ? req.body.resolucion.trim().slice(0, 500) : "";
+  const ahora = new Date().toISOString();
+  const r = await prisma.mensajeReportado.updateMany({
+    where: { id: reporte.id, estado: "pendiente" },
+    data: {
+      estado,
+      resolucion: resolucion || null,
+      resueltoPor: (req.user as ReqUser | undefined)?.id ?? "desconocido",
+      resueltoAt: ahora
+    }
+  });
+  if (r.count !== 1) return res.status(409).json({ error: "el reporte ya fue resuelto" });
+  await recordAuditLog({
+    actorId: (req.user as ReqUser | undefined)?.id ?? "desconocido",
+    action: "moderacion.mensaje_reportado.resolver",
+    targetType: "MensajeReportado",
+    targetId: reporte.id,
+    metadata: { estado, alcance: escuelaId }
+  });
+  res.json({ ok: true });
 });
 
 moderacion.post("/api/moderacion/usuarios/:id/ban", async (req, res) => {

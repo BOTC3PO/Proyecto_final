@@ -63,11 +63,16 @@ export type ClasePublica = {
 };
 
 export type MensajeReportado = {
-  _id: string;
-  cuerpo?: string;
-  body?: string;
-  tipo?: string;
-  createdAt?: string;
+  id: string;
+  mensajeId: string;
+  escuelaId: string;
+  reportadoPor: string;
+  autorId: string;
+  motivo: string | null;
+  cuerpo: string;
+  estado: "pendiente" | "revisado" | "descartado";
+  resolucion: string | null;
+  createdAt: string;
 };
 
 export type PromoteResult =
@@ -134,9 +139,13 @@ export async function fetchClasesPublicas(limit = 20): Promise<ClasePublica[]> {
   return data.items;
 }
 
-export async function fetchMensajesReportados(limit = 20): Promise<MensajeReportado[]> {
-  const data = await apiGet<{ items: MensajeReportado[] }>(`/api/moderacion/mensajes-reportados?limit=${limit}`);
+export async function fetchMensajesReportados(limit = 20, estado = "pendiente"): Promise<MensajeReportado[]> {
+  const data = await apiGet<{ items: MensajeReportado[] }>(`/api/moderacion/mensajes-reportados?limit=${limit}&estado=${estado}`);
   return data.items;
+}
+
+export async function resolverMensajeReportado(id: string, estado: "revisado" | "descartado", resolucion?: string): Promise<{ ok: boolean }> {
+  return apiPost<{ ok: boolean }>(`/api/moderacion/mensajes-reportados/${encodeURIComponent(id)}/resolver`, { estado, resolucion });
 }
 
 export async function banUsuario(userId: string, motivo: string, duracionDias: number): Promise<{ ok: boolean }> {
