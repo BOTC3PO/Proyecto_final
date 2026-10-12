@@ -909,12 +909,30 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
   }
 
   try {
+    // C3 — solo el personal crea módulos, y el servidor no se fía del cliente para el autor, la escuela ni
+    // el aula: antes un alumno podía publicar en el catálogo de otra escuela con el nombre de un docente.
+    // El ADMIN de plataforma puede crear en nombre de cualquiera.
+    const actor = req.user as QuizRequesterRaw & { schoolId?: string | null };
+    if (!isStaffRole(actor as never)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+    const aulaDelModulo = parsed.aulaId
+      ? await prisma.clase.findFirst({ where: { id: parsed.aulaId }, select: { status: true, escuelaId: true } })
+      : null;
+    if (!hasRole(actor as never, "ADMIN")) {
+      const escuelaActor = actor.schoolId ?? null;
+      if (parsed.createdBy !== resolveRequesterId(actor)) {
+        return res.status(403).json({ error: "forbidden: el autor debe ser quien crea el módulo" });
+      }
+      if (parsed.schoolId && parsed.schoolId !== escuelaActor) {
+        return res.status(403).json({ error: "forbidden: la escuela del módulo debe ser la tuya" });
+      }
+      if (aulaDelModulo && aulaDelModulo.escuelaId !== escuelaActor) {
+        return res.status(403).json({ error: "forbidden: el aula es de otra escuela" });
+      }
+    }
     if (parsed.aulaId) {
-      const classroom = await prisma.clase.findFirst({
-        where: { id: parsed.aulaId },
-        select: { status: true },
-      });
-      if (classroom && !assertClassroomWritable(res, classroom)) {
+      if (aulaDelModulo && !assertClassroomWritable(res, aulaDelModulo)) {
         return;
       }
     }
@@ -1347,6 +1365,35 @@ async function applyModuleUpdate(
   });
 }
 
+/**
+ * C3 — límites de una edición (PUT/PATCH). Devuelve `true` si ya respondió el rechazo.
+ *  - Un alumno o un padre no editan módulos, ni siquiera por copy-on-write (que crea un módulo a su nombre).
+ *  - El autor no se cambia editando (solo el ADMIN): se descarta `createdBy` del pedido.
+ *  - La escuela no se cambia a una que no es la del que edita: antes se podía "regalar" un módulo al
+ *    catálogo de otra escuela.
+ */
+function rechazarEdicionIndebida(
+  req: express.Request,
+  res: express.Response,
+  parsed: Record<string, any>,
+  existing: { ownerUserId: string | null; visibility: string; schoolId: string | null },
+): boolean {
+  const actor = req.user as { _id?: string; id?: string; role?: string | null; schoolId?: string | null } | undefined;
+  if (hasRole(actor as never, "ADMIN")) return false;
+  const actorId = (typeof actor?.id === "string" && actor.id) || (typeof actor?._id === "string" && actor._id) || null;
+  const comoEditor = { _id: actorId ?? undefined, role: actor?.role, schoolId: actor?.schoolId ?? null };
+  if (!isStaffRole(actor as never) && !canEditModuloDirect(existing, comoEditor)) {
+    res.status(403).json({ error: "forbidden" });
+    return true;
+  }
+  delete parsed.createdBy;
+  if (parsed.schoolId != null && parsed.schoolId !== (actor?.schoolId ?? null)) {
+    res.status(403).json({ error: "forbidden: la escuela del módulo debe ser la tuya" });
+    return true;
+  }
+  return false;
+}
+
 modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ModuleUpdateSchema.parse(req.body);
@@ -1367,6 +1414,7 @@ modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), as
         return res.status(400).json({ error: "El nivel es obligatorio." });
       }
     }
+    if (rechazarEdicionIndebida(req, res, parsed as Record<string, any>, existing as any)) return;
 
     if ((existing as any).aulaId) {
       const classroom = await prisma.clase.findFirst({
@@ -1470,6 +1518,7 @@ modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), 
         return res.status(400).json({ error: "El nivel es obligatorio." });
       }
     }
+    if (rechazarEdicionIndebida(req, res, parsed as Record<string, any>, existing as any)) return;
 
     if ((existing as any).aulaId) {
       const classroom = await prisma.clase.findFirst({
