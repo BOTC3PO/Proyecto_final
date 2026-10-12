@@ -1,4 +1,4 @@
-import { resolvePrimaryRole } from "../lib/roles";
+import { hasRole, resolvePrimaryRole } from "../lib/roles";
 import express, { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { generateId } from "../lib/ids";
@@ -16,6 +16,19 @@ import {
 import { ensureUniqueClassCode } from "./aulas";
 
 export const enterprise = Router();
+
+/**
+ * Toda la gestión institucional (miembros, aulas, módulos, mensajes reportados, contratos, facturación,
+ * reportes) es solo para quien administra la escuela. Antes estas rutas pedían solo sesión y plan: un
+ * alumno o una madre podían listar a todos los miembros de la escuela, leer los mensajes reportados o crear
+ * aulas. Ver `tests/integracion/sec-c3-enterprise-roles.test.ts`.
+ */
+const ROLES_GESTION_ESCOLAR = ["ADMIN", "DIRECTIVO", "ADMIN_ESCUELA"];
+enterprise.use("/api/enterprise", requireUser, (req, res, next) => {
+  const user = req.user as Parameters<typeof hasRole>[0];
+  if (ROLES_GESTION_ESCOLAR.some((rol) => hasRole(user, rol))) return next();
+  return res.status(403).json({ error: "sin permiso de gestión de la escuela" });
+});
 
 const clampLimit = (value: string | undefined) => {
   const parsed = Number(value ?? 20);

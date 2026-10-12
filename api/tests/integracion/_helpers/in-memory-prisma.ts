@@ -849,6 +849,8 @@ export class InMemoryPrisma {
   bloqueJson = new Table<BloqueJsonRow>("bloqueJson");
   page = new Table<PageRow>("page");
   mensajeReportado = new Table<Row>("mensajeReportado");
+  economiaRiesgoCurso = new Table<Row>("economiaRiesgoCurso");
+  economiaEvento = new Table<Row>("economiaEvento");
   tiendaItem = new Table<Row>("tiendaItem");
   usuarioItem = new Table<Row>("usuarioItem");
   plazoFijo = new Table<Row>("plazoFijo");

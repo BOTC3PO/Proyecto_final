@@ -7,7 +7,8 @@ import { ENV } from "../lib/env";
 import { cupoTickets, ordenarPujas, topePorAlumno } from "../lib/examen-tickets";
 import { economiaDelAula } from "../lib/subasta-precio";
 import { acreditarSaldo, debitarSaldo, SaldoInsuficienteError } from "../lib/economia-saldo";
-import { requirePolicy } from "../lib/authorization";
+import { isStaffRole, requirePolicy } from "../lib/authorization";
+import { hasRole } from "../lib/roles";
 import { assertClassroomWritable } from "../lib/classroom";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import { createRateLimiter } from "../lib/rate-limit";
@@ -321,6 +322,34 @@ const getRequesterSchoolId = (req: express.Request) => {
   const user = (req as { user?: { schoolId?: string | null } }).user;
   if (typeof user?.schoolId === "string" && user.schoolId.trim()) return user.schoolId;
   return null;
+};
+
+type ActorEconomia = Parameters<typeof isStaffRole>[0];
+const actorDe = (req: express.Request) => (req as { user?: ActorEconomia }).user as ActorEconomia;
+
+/**
+ * Quién administra la economía de un aula: el ADMIN de plataforma o el personal de la escuela del aula.
+ * Estas rutas pedían solo sesión: un alumno, o un docente de otra escuela, podía abrir subastas, cambiar
+ * el riesgo o cerrar el examen de un aula ajena. Un aula inexistente solo la toca el ADMIN.
+ */
+const puedeAdministrarAula = (req: express.Request, aula: AulaDoc | null): boolean => {
+  if (hasRole(actorDe(req) as never, "ADMIN")) return true;
+  if (!aula || !isStaffRole(actorDe(req))) return false;
+  const escuelaDelAula = resolveAulaSchoolId(aula);
+  const escuelaDelActor = getRequesterSchoolId(req);
+  return !!escuelaDelAula && escuelaDelAula === escuelaDelActor;
+};
+
+/** Responde 403 y devuelve false si quien pide no administra el aula (o, sin aula, no es ADMIN). */
+const exigirAdministrarAula = async (
+  req: express.Request,
+  res: express.Response,
+  aulaId: string | null | undefined
+): Promise<boolean> => {
+  const aula = aulaId ? await cargarAula(String(aulaId)) : null;
+  if (puedeAdministrarAula(req, aula)) return true;
+  res.status(403).json({ error: "forbidden" });
+  return false;
 };
 
 const buildIntercambioScore = (params: {
@@ -1281,6 +1310,15 @@ economia.get("/api/economia/modulos", async (req, res) => {
 
 economia.put("/api/economia/modulos/:moduloId", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
+    // Solo el ADMIN, o el personal de la escuela dueña del módulo / su autor.
+    if (!hasRole(actorDe(req) as never, "ADMIN")) {
+      const modulo = isStaffRole(actorDe(req))
+        ? await prisma.modulo.findFirst({ where: { id: String(req.params.moduloId), isDeleted: { not: true } } })
+        : null;
+      const escuelaActor = getRequesterSchoolId(req);
+      const esDueno = !!modulo && ((!!modulo.schoolId && modulo.schoolId === escuelaActor) || modulo.ownerUserId === getRequesterId(req));
+      if (!esDueno) return res.status(403).json({ error: "forbidden" });
+    }
     const parsed = ModuloEconomiaUpdateSchema.parse(req.body ?? {});
     const update = {
       ...parsed,
@@ -1343,6 +1381,7 @@ economia.post("/api/economia/examenes", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (
       updatedAt: new Date().toISOString()
     };
     const parsed = ExamenEconomiaSchema.parse(payload);
+    if (!(await exigirAdministrarAula(req, res, parsed.aulaId))) return;
     if (parsed.aulaId) {
       const aula = await cargarAula(String(parsed.aulaId));
       if (aula && !assertClassroomWritable(res, aula)) {
@@ -1373,13 +1412,16 @@ economia.patch("/api/economia/examenes/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), as
     const existingRow = await prisma.economiaExamen.findFirst({ where: { id: req.params.id as string } });
     if (!existingRow) return res.status(404).json({ error: "not found" });
     const existing: ExamenDoc = JSON.parse(existingRow.json);
+    if (!(await exigirAdministrarAula(req, res, existing.aulaId))) return;
     if (existing.aulaId) {
       const aula = await cargarAula(String(existing.aulaId));
       if (aula && !assertClassroomWritable(res, aula)) {
         return;
       }
     }
-    const updatedDoc = { ...existing, ...parsed, updatedAt: new Date().toISOString() };
+    // El aula del examen no se cambia desde acá: moverlo a otra aula saltaría el control de arriba.
+    const { aulaId: _aulaDelPedido, ...cambios } = parsed as Record<string, unknown>;
+    const updatedDoc = { ...existing, ...cambios, updatedAt: new Date().toISOString() };
     await prisma.economiaExamen.updateMany({
       where: { id: req.params.id as string },
       data: { json: JSON.stringify(updatedDoc) }
@@ -1391,7 +1433,18 @@ economia.patch("/api/economia/examenes/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), as
 });
 
 economia.get("/api/economia/examenes/:id/pujas", async (req, res) => {
-  const usuarioId = req.query.usuarioId;
+  // Quien administra el aula del examen ve todas las pujas; los demás, solo las suyas (lo que pidan por
+  // `usuarioId` no cambia eso: antes cualquiera leía las pujas de todos).
+  const examenRow = await prisma.economiaExamen.findFirst({ where: { id: req.params.id as string } });
+  let usuarioId: unknown = req.query.usuarioId;
+  if (examenRow) {
+    let aulaDelExamen: string | undefined;
+    try { aulaDelExamen = JSON.parse(examenRow.json)?.aulaId; } catch { /* examen ilegible */ }
+    const veTodas = puedeAdministrarAula(req, aulaDelExamen ? await cargarAula(String(aulaDelExamen)) : null);
+    if (!veTodas) usuarioId = getRequesterId(req) ?? "";
+  } else if (!hasRole(actorDe(req) as never, "ADMIN")) {
+    usuarioId = getRequesterId(req) ?? "";
+  }
   const allRows = await prisma.economiaExamenPuja.findMany({ orderBy: { createdAt: "desc" } });
   const allDocs = allRows.map((row) => { try { return JSON.parse(row.json); } catch { return null; } }).filter(Boolean) as PujaDoc[];
   const items = allDocs.filter((doc) => {
@@ -1520,6 +1573,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
     if (!examenRow) return res.status(404).json({ error: "examen not found" });
     const examen: ExamenDoc = JSON.parse(examenRow.json);
     if (!examen.aulaId) return res.status(400).json({ error: "aulaId is required" });
+    if (!(await exigirAdministrarAula(req, res, examen.aulaId))) return;
     if (examen.estado === "cerrado") {
       return res.status(200).json({ ok: true, message: "examen ya cerrado" });
     }
@@ -1773,7 +1827,7 @@ economia.get("/api/economia/eventos", requireUser, async (_req, res) => {
   res.json({ items });
 });
 
-economia.post("/api/economia/eventos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+economia.post("/api/economia/eventos", requireAdminAuth, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const payload = {
       ...req.body,
@@ -1795,7 +1849,7 @@ economia.post("/api/economia/eventos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (r
   }
 });
 
-economia.patch("/api/economia/eventos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+economia.patch("/api/economia/eventos/:id", requireAdminAuth, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = EventoEconomicoUpdateSchema.parse(req.body ?? {});
     const result = await prisma.economiaEvento.updateMany({
@@ -2055,6 +2109,7 @@ economia.put("/api/economia/riesgo/:aulaId", ...bodyLimitMB(ENV.MAX_PAGE_MB), as
       updatedAt: new Date().toISOString()
     };
     const validated = EconomiaRiesgoCursoSchema.parse(update);
+    if (!(await exigirAdministrarAula(req, res, String(req.params.aulaId)))) return;
     const aula = await cargarAula(String(req.params.aulaId));
     if (aula && !assertClassroomWritable(res, aula)) {
       return;
@@ -2080,6 +2135,7 @@ economia.patch(
         ...parsed,
         updatedAt: new Date().toISOString()
       };
+      if (!(await exigirAdministrarAula(req, res, String(req.params.aulaId)))) return;
       const aula = await cargarAula(String(req.params.aulaId));
       if (aula && !assertClassroomWritable(res, aula)) {
         return;
