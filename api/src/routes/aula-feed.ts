@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { requirePolicy } from "../lib/authorization";
 import { requireClassroomScope } from "../lib/classroom-scope";
@@ -153,7 +154,7 @@ aulaFeed.post("/api/aula/actividades", requireUser, requirePolicy("aula-feed/wri
     return res.status(400).json({ error: "tipo inválido" });
   }
 
-  const id = `act-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  const id = `act-${randomUUID()}`;
   const createdBy = getRequesterId(req as never) ?? "unknown";
   const now = new Date().toISOString();
 

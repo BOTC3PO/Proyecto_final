@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
@@ -13,7 +14,7 @@ const getId = (req: { user?: { id?: string; _id?: { toString?: () => string } } 
 const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
 
 const genId = (prefix: string) =>
-  `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  `${prefix}-${randomUUID()}`;
 
 // ── GET /api/pedagogico/umbral/:quizId ──────────────────────
 pedagogico.get("/api/pedagogico/umbral/:quizId", requireUser, async (req, res) => {

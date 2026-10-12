@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import {
   cancelarPreapproval,
@@ -32,8 +33,8 @@ const getRole = (req: { user?: { role?: string } }) =>
 
 const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
 
-const genId = () => `sub-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-const genPayId = () => `pay-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+const genId = () => `sub-${randomUUID()}`;
+const genPayId = () => `pay-${randomUUID()}`;
 
 // ── GET /api/suscripciones/limites ──────────────────────────
 suscripciones.get("/api/suscripciones/limites", requireUser, async (req, res) => {

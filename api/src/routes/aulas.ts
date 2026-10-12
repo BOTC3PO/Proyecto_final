@@ -1,3 +1,4 @@
+import { randomInt } from "node:crypto";
 import express, { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
@@ -36,12 +37,13 @@ export const aulas = Router();
 // FIX-TEST4-CLASSCODE — antes `code` quedaba `null` cuando el front
 // no mandaba `classCode`, y el alumno no podía unirse. Generamos un
 // código alfanumérico de 6 chars (sin 0/O/1/l/I para evitar
-// confusión al tipear) y verificamos unicidad contra `clase.code`.
+// confusión al tipear; sorteado con `crypto.randomInt`, no `Math.random`, porque el código da acceso al
+// aula) y verificamos unicidad contra `clase.code`.
 const CLASSCODE_ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
 const generateClassCode = (): string => {
   let out = "";
   for (let i = 0; i < 6; i++) {
-    out += CLASSCODE_ALPHABET[Math.floor(Math.random() * CLASSCODE_ALPHABET.length)];
+    out += CLASSCODE_ALPHABET[randomInt(CLASSCODE_ALPHABET.length)];
   }
   return out;
 };

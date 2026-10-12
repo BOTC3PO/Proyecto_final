@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import type { Prisma } from "@prisma/client";
 import { requireUser } from "../lib/user-auth";
@@ -29,7 +30,7 @@ const hasAnyRole = (user: unknown, allowed: string[]) => {
 const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
 
 const genId = (prefix: string) =>
-  `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  `${prefix}-${randomUUID()}`;
 
 // ── GET /api/calendario/unificado ───────────────────────────
 calendario.get("/api/calendario/unificado", requireUser,

@@ -6,6 +6,7 @@
  * (`lib/pasarelas-crypto.ts`) antes de persistir. Nunca se devuelven
  * credenciales en claro ni cifradas al cliente — sólo si "configurada".
  */
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { bloquearSiNoVerificada, esDirectivoPrincipal } from "../lib/escuela-verificacion";
@@ -32,7 +33,7 @@ const puedeGestionarEscuela = (user: ReqUser | undefined, escuelaId: string): bo
 };
 
 const now = () => new Date().toISOString();
-const genId = () => `escpas-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+const genId = () => `escpas-${randomUUID()}`;
 
 const getActorId = (user: ReqUser | undefined) => user?.id ?? "desconocido";
 

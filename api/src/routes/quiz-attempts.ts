@@ -1,5 +1,5 @@
 import express, { Router } from "express";
-import { randomUUID } from "crypto";
+import { randomInt, randomUUID } from "crypto";
 import { prisma } from "../lib/prisma";
 import { Prisma } from "@prisma/client";
 import { requireUser } from "../lib/user-auth";
@@ -309,7 +309,7 @@ const buildSeed = (quiz: ModuleQuiz | null) => {
   if (!quiz) return null;
   if (quiz.fixedSeed !== undefined) return quiz.fixedSeed;
   if (quiz.generatorId) {
-    return Math.floor(Math.random() * 1_000_000);
+    return randomInt(1_000_000);
   }
   return null;
 };
@@ -2822,7 +2822,7 @@ quizAttempts.post(
       return res.status(400).json({ error: "score y tiempoSeg requeridos" });
     }
 
-    const id = `qc-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    const id = `qc-${randomUUID()}`;
     const now = new Date().toISOString();
 
     await prisma.quizCompetencia.create({

@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "../lib/prisma";
@@ -143,7 +144,7 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
     });
     await prisma.moderacionEvento.create({
       data: {
-        id: `me-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+        id: `me-${randomUUID()}`,
         tipo: "role_change",
         usuarioId: targetId,
         motivo: `Rol cambiado a ${role}`,
@@ -198,7 +199,7 @@ adminRouter.patch("/api/admin/usuarios/:id/escuela", requireAdmin, async (req, r
     await sincronizarMembresia({ usuarioId: targetId, escuelaId, rolUsuario: resolvePrimaryRole(target) });
     await prisma.moderacionEvento.create({
       data: {
-        id: `me-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+        id: `me-${randomUUID()}`,
         tipo: "escuela_reasignada",
         usuarioId: targetId,
         motivo: escuelaId ? `Escuela asignada: ${escuelaId}` : "Escuela removida (admin de plataforma)",

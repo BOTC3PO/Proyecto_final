@@ -62,7 +62,7 @@ const getRole = (req: { user?: { role?: string } }) =>
 const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
 
 const genId = (prefix: string) =>
-  `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  `${prefix}-${randomUUID()}`;
 
 async function mismaEscuela(
   userAId: string,

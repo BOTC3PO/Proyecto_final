@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
@@ -8,7 +9,7 @@ const getId = (req: { user?: { id?: string; _id?: { toString?: () => string } } 
   req.user?.id ?? req.user?._id?.toString?.() ?? null;
 
 const genId = (prefix: string) =>
-  `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  `${prefix}-${randomUUID()}`;
 
 // ── GET /api/sync/estado ────────────────────────────────────
 sync.get("/api/sync/estado", requireUser, async (req, res) => {

@@ -1298,7 +1298,7 @@ async function applyModuleUpdate(
         });
       } else {
         const newQuizId =
-          q.id ?? `qz-${moduleId}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+          q.id ?? `qz-${moduleId}-${randomUUID()}`;
         const newVersionId = `qv-${newQuizId}-1`;
 
         // PLAN-Y — quiz NUEVO: acá sí se aplican los defaults que el builder

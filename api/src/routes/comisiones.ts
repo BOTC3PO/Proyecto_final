@@ -7,6 +7,7 @@
  * suscripciones al acreditar un cobro de escuela. Sistema siempre
  * autogestionado: no hay modo "centralizado" (VB nunca cobra directo).
  */
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { requireAdmin } from "../lib/admin-auth";
 import { prisma } from "../lib/prisma";
@@ -31,7 +32,7 @@ const getActorId = (req: { user?: { id?: string; _id?: { toString?: () => string
 const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
 
 const periodoActual = () => new Date().toISOString().slice(0, 7); // "YYYY-MM"
-const genId = (p: string) => `${p}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+const genId = (p: string) => `${p}-${randomUUID()}`;
 
 const sum = (rows: Array<Record<string, unknown>>, key: string) =>
   rows.reduce((acc, r) => acc + (typeof r[key] === "number" ? (r[key] as number) : 0), 0);

@@ -8,6 +8,7 @@
  * mano. El split real con OAuth de MP (`marketplace_fee`) y liquidaciones
  * automáticas queda como roadmap v2 (ver docs/pagos/comision-roadmap-v2.md).
  */
+import { randomUUID } from "node:crypto";
 import { prisma } from "./prisma";
 
 /** Rango real de comisión: pagos domésticos (MercadoPago/Argentina) vs internacionales (Cryptomus). */
@@ -39,7 +40,7 @@ export function calcularComision(
   return { comisionPct: pct, comisionVB, montoNeto: round2(montoTotal - comisionVB) };
 }
 
-const genTxId = () => `txe-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+const genTxId = () => `txe-${randomUUID()}`;
 
 /**
  * Registra una transacción contable para una escuela (siempre — no existe

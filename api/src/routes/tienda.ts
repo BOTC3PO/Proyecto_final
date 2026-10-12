@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { checkModoAula } from "../lib/modo-aula-middleware";
@@ -84,7 +85,7 @@ tienda.post("/api/tienda/comprar", requireUser, checkModoAula("tienda"), async (
   if (yaComprado) return res.status(409).json({ error: "ya tenés este item" });
 
   const now = new Date().toISOString();
-  const uid = `ui-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  const uid = `ui-${randomUUID()}`;
 
   // Si precio es 0, dar gratis sin verificar saldo
   if (item.precio === 0) {
