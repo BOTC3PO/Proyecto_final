@@ -22,8 +22,6 @@ import { prisma } from "../src/lib/prisma";
 import { hashPassword } from "../src/lib/passwords";
 import { createHash } from "crypto";
 import { SYSTEM_OWNER_ID } from "../src/lib/vblang-types";
-import { provisionarEspejosParaStaffExistente } from "../src/lib/provisionar-espejo";
-import { resolveCuentaVinculada } from "../src/lib/cuenta-vinculada";
 import { seedTienda } from "./seed_tienda";
 import {
   TABLA_PERIODICA_COLUMNAS,
@@ -40,8 +38,9 @@ import {
 // `hashPassword`). Antes usaba `bcrypt.hashSync` y producía un hash
 // que `isPasswordHashUsable` rechaza, dejando el login roto en DBs
 // pobladas solo por este script. `init_db.ts` ya usaba `hashPassword`
-// — este cambio deja una sola fuente de verdad.
-const hash = (pw: string) => hashPassword(pw);
+// — este cambio deja una sola fuente de verdad. `hashPassword` es asíncrona
+// desde B4: el hash se calcula una vez al empezar `main`.
+let demoHash = "";
 const sha256 = (s: string) => createHash("sha256").update(s).digest("hex");
 const now = new Date().toISOString();
 
@@ -54,6 +53,7 @@ const d = (offsetDays: number) => {
 
 async function main() {
   console.log("🌱 Iniciando seed de demostración...\n");
+  demoHash = await hashPassword("Password123!");
 
   // ── 1. Usuarios ──────────────────────────────────────────────────────────────
   console.log("👤 Creando usuarios...");
@@ -65,8 +65,8 @@ async function main() {
         username: "admin.plataforma",
         email: "admin@plataforma.com",
         fullName: "Administrador Demo",
-        role: "ADMIN",
-        passwordHash: hash("Password123!"),
+        roles: ["ADMIN"],
+        passwordHash: demoHash,
         isDeleted: false,
         createdAt: now,
         updatedAt: now,
@@ -76,8 +76,8 @@ async function main() {
         username: "directivo.norte",
         email: "directivo@epnorte.edu.ar",
         fullName: "María González",
-        role: "DIRECTIVO",
-        passwordHash: hash("Password123!"),
+        roles: ["DIRECTIVO"],
+        passwordHash: demoHash,
         isDeleted: false,
         createdAt: now,
         updatedAt: now,
@@ -87,8 +87,8 @@ async function main() {
         username: "prof.garcia",
         email: "garcia@epnorte.edu.ar",
         fullName: "Prof. Carlos García",
-        role: "TEACHER",
-        passwordHash: hash("Password123!"),
+        roles: ["TEACHER"],
+        passwordHash: demoHash,
         isDeleted: false,
         createdAt: now,
         updatedAt: now,
@@ -98,8 +98,8 @@ async function main() {
         username: "alumno.perez",
         email: "perez.alumno@epnorte.edu.ar",
         fullName: "Juan Pérez",
-        role: "USER",
-        passwordHash: hash("Password123!"),
+        roles: ["USER"],
+        passwordHash: demoHash,
         isDeleted: false,
         createdAt: now,
         updatedAt: now,
@@ -109,8 +109,8 @@ async function main() {
         username: "alumno.lopez",
         email: "lopez.alumno@epnorte.edu.ar",
         fullName: "Ana López",
-        role: "USER",
-        passwordHash: hash("Password123!"),
+        roles: ["USER"],
+        passwordHash: demoHash,
         isDeleted: false,
         createdAt: now,
         updatedAt: now,
@@ -120,8 +120,8 @@ async function main() {
         username: "padre.perez",
         email: "perez.padre@gmail.com",
         fullName: "Roberto Pérez",
-        role: "PARENT",
-        passwordHash: hash("Password123!"),
+        roles: ["PARENT"],
+        passwordHash: demoHash,
         isDeleted: false,
         createdAt: now,
         updatedAt: now,
@@ -152,25 +152,13 @@ async function main() {
   await prisma.membresia.createMany({
     skipDuplicates: true,
     data: [
-      { usuarioId: "usr-direc-001", escuelaId: "esc-0001", rol: "directivo", estado: "activa", fechaAlta: now },
-      { usuarioId: "usr-teach-001", escuelaId: "esc-0001", rol: "docente",   estado: "activa", fechaAlta: now },
-      { usuarioId: "usr-stude-001", escuelaId: "esc-0001", rol: "alumno",    estado: "activa", fechaAlta: now },
-      { usuarioId: "usr-stude-002", escuelaId: "esc-0001", rol: "alumno",    estado: "activa", fechaAlta: now },
+      { usuarioId: "usr-direc-001", escuelaId: "esc-0001", rol: "DIRECTIVO", estado: "activa", fechaAlta: now },
+      { usuarioId: "usr-teach-001", escuelaId: "esc-0001", rol: "TEACHER",   estado: "activa", fechaAlta: now },
+      { usuarioId: "usr-stude-001", escuelaId: "esc-0001", rol: "STUDENT",   estado: "activa", fechaAlta: now },
+      { usuarioId: "usr-stude-002", escuelaId: "esc-0001", rol: "STUDENT",   estado: "activa", fechaAlta: now },
     ],
   });
   console.log("  ✓ Escuela + membresías");
-
-  // FASE 1 — backfill idempotente de espejos alumno para el staff.
-  // Se ejecuta DESPUÉS de crear las membresías para que el provision
-  // pueda resolver la escuela del principal a partir de la membresia
-  // activa (caso típico: `seed_demo` no setea `usuarios.escuelaId`
-  // porque la membresia es la fuente de verdad canónica de la
-  // escuela). El backfill es no-op si el espejo ya existía.
-  const espejosBackfill = await provisionarEspejosParaStaffExistente();
-  console.log(
-    `  ✓ espejos-alumno: revisados=${espejosBackfill.revisados} ` +
-      `creados=${espejosBackfill.creados} omitidos=${espejosBackfill.omitidos}`
-  );
 
   // ── 3. Aulas ─────────────────────────────────────────────────────────────────
   console.log("🏛️  Creando aulas...");
@@ -644,13 +632,6 @@ async function main() {
   console.log("🛒 Sembrando catálogo de tienda...");
   await seedTienda();
 
-  // ── 13. Enriquecer el espejo-alumno del TEACHER demo ────────────────────────
-  // Sin esto el espejo queda con membresía STUDENT a nivel escuela pero sin
-  // inscripción en aulas → dashboard de alumno vacío. Acá lo inscribimos en
-  // las aulas del docente y le damos saldo, para que "Ver como alumno"
-  // muestre una experiencia realista.
-  console.log("🪞 Enriqueciendo el espejo-alumno del docente demo...");
-  await seedEspejoTeacherDemo();
 }
 
 const DSL_DEMO_SUMA = `metadata:
@@ -917,36 +898,6 @@ async function seedIntentosDemo() {
   });
 
   console.log(`  ✓ ${intentos.length} intentos de ejemplo`);
-}
-
-/**
- * Inscribe el espejo-alumno de `usr-teach-001` como STUDENT en sus aulas y
- * le asigna un saldo demo. Idempotente. No-op si el espejo aún no existe
- * (el backfill de espejos corre antes en main(), así que normalmente sí).
- */
-async function seedEspejoTeacherDemo() {
-  const vinc = await resolveCuentaVinculada("usr-teach-001");
-  if (!vinc || vinc.tipoDestino !== "ALUMNO") {
-    console.log("  ⚠ espejo del docente no encontrado; salteo enriquecimiento");
-    return;
-  }
-  const espejoId = vinc.destinoUsuarioId;
-
-  await prisma.claseMiembro.createMany({
-    skipDuplicates: true,
-    data: [
-      { claseId: "cls-demo-mat-3a", usuarioId: espejoId, rolEnClase: "STUDENT" },
-      { claseId: "cls-demo-eco-4b", usuarioId: espejoId, rolEnClase: "STUDENT" },
-    ],
-  });
-
-  await prisma.economiaSaldo.upsert({
-    where: { usuarioId: espejoId },
-    update: {},
-    create: { usuarioId: espejoId, saldo: 200, moneda: "PF", updatedAt: now },
-  });
-
-  console.log("  ✓ espejo inscripto en 2 aulas + saldo 200 PF");
 }
 
 /**

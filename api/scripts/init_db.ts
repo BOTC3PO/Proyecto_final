@@ -29,7 +29,7 @@ async function main() {
     }]
   });
 
-  const seedHash = hashPassword("Password123!");
+  const seedHash = await hashPassword("Password123!");
 
   await prisma.usuario.createMany({
     skipDuplicates: true,
