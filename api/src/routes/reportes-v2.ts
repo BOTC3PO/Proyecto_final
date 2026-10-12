@@ -4,6 +4,7 @@ import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
 import { hasRole } from "../lib/roles";
 import { whereSoloAlumnosReales } from "../lib/inscripcion-prueba";
+import { aulaGestionable } from "../lib/aula-gestion";
 import { getResumenAsistenciaAula } from "./asistencia";
 
 export const reportesV2 = Router();
@@ -24,6 +25,10 @@ reportesV2.get(
   async (req, res) => {
     const aulaId = req.params.aulaId as string;
     if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
+
+    // C3 — el boletín (nombres y notas de menores) es de quien gestiona el aula. Antes no había ningún
+    // control: cualquier usuario con sesión lo leía, de cualquier aula y de cualquier escuela.
+    if (!(await aulaGestionable(req as never, res, aulaId))) return;
 
     try {
       // Obtener alumnos del aula
@@ -158,6 +163,7 @@ reportesV2.get(
   async (req, res) => {
     const aulaId = req.params.aulaId as string;
     if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
+    if (!(await aulaGestionable(req as never, res, aulaId))) return;
 
     const actividades = await prisma.actividadAula.findMany({
       where: { aulaId, isDeleted: false },
@@ -200,6 +206,7 @@ reportesV2.get(
   async (req, res) => {
     const aulaId = req.params.aulaId as string;
     if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
+    if (!(await aulaGestionable(req as never, res, aulaId))) return;
 
     try {
       const claseModulos = await prisma.claseModulo.findMany({
@@ -218,8 +225,10 @@ reportesV2.get(
       });
 
       // Progreso de todos los alumnos
+      // Solo el progreso de ESTA aula: antes se sumaba el de todos los alumnos de la plataforma que
+      // cursaban esos módulos en cualquier aula.
       const progreso = await prisma.progresoModulo.findMany({
-        where: { moduloId: { in: moduloIds } }
+        where: { moduloId: { in: moduloIds }, aulaId }
       });
 
       const moduloMap = new Map(modulos.map((m) => [m.id, m]));
@@ -268,6 +277,10 @@ reportesV2.get(
   async (req, res) => {
     const schoolId = getSchoolId(req as never);
     const user = getUserFromReq(req as never);
+    // Indicadores de toda la escuela: solo quien la administra.
+    if (!hasRole(user, "ADMIN") && !hasRole(user, "DIRECTIVO") && !hasRole(user, "ADMIN_ESCUELA")) {
+      return res.status(403).json({ error: "sin permiso de gestión de la escuela" });
+    }
     if (!schoolId && !hasRole(user, "ADMIN")) {
       return res.status(400).json({ error: "schoolId requerido" });
     }

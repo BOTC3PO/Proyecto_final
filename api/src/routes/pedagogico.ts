@@ -4,7 +4,7 @@ import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
 import { hasRole } from "../lib/roles";
 import { whereSoloAlumnosReales } from "../lib/inscripcion-prueba";
-import { isClassroomTeacher } from "../lib/classroom-scope";
+import { aulaGestionable } from "../lib/aula-gestion";
 
 export const pedagogico = Router();
 
@@ -15,43 +15,6 @@ const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => 
 
 const genId = (prefix: string) =>
   `${prefix}-${randomUUID()}`;
-
-type AulaGestionada = { id: string; escuelaId: string | null };
-
-/**
- * C3 — ¿quién gestiona el aula? El ADMIN; el DIRECTIVO de la escuela del aula; o el docente titular o
- * co-titular del aula. Responde 404 (aula inexistente) o 403 y devuelve `null` si no corresponde. Es el
- * criterio que ya usaba `desbloquear`; el panel de riesgo y el modo aula solo pedían ser docente de
- * cualquier escuela.
- */
-async function aulaGestionable(
-  req: { user?: { id?: string; _id?: { toString?: () => string }; schoolId?: string | null; role?: string; roles?: string[] } },
-  res: import("express").Response,
-  aulaId: string
-): Promise<AulaGestionada | null> {
-  const user = getUserFromReq(req as never);
-  const aula = await prisma.clase.findFirst({
-    where: { id: aulaId, isDeleted: { not: true } },
-    include: { miembros: true },
-  });
-  if (!aula) {
-    res.status(404).json({ error: "aula no encontrada" });
-    return null;
-  }
-  const publico: AulaGestionada = { id: aula.id, escuelaId: aula.escuelaId ?? null };
-  if (hasRole(user, "ADMIN")) return publico;
-  if (hasRole(user, "DIRECTIVO")) {
-    const escuelaUsuario = req.user?.schoolId ?? null;
-    if (aula.escuelaId && aula.escuelaId === escuelaUsuario) return publico;
-    res.status(403).json({ error: "sin permiso sobre esta aula" });
-    return null;
-  }
-  // PLAN-U §6 — criterio canónico: reconoce co-titulares TEACHER/DIRECTIVO en clase_miembros.
-  const members = (aula.miembros ?? []).map((m) => ({ userId: m.usuarioId, roleInClass: m.rolEnClase }));
-  if (isClassroomTeacher({ ...aula, members }, getId(req as never))) return publico;
-  res.status(403).json({ error: "sin permiso sobre esta aula" });
-  return null;
-}
 
 // ── GET /api/pedagogico/umbral/:quizId ──────────────────────
 pedagogico.get("/api/pedagogico/umbral/:quizId", requireUser, async (req, res) => {
