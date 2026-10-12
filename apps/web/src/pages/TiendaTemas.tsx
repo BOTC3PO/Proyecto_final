@@ -336,8 +336,9 @@ export default function TiendaTemas() {
         ) : catalogoVacio ? (
           // FIX-TEST4-X-01 — antes no había empty state y el
           // usuario pensaba que la tienda estaba rota. Ahora
-          // mostramos un mensaje claro: el seed nunca se corrió
-          // o la DB está vacía. Los temas gratuitos siguen
+          // mostramos un mensaje claro (H12: sin instrucciones de
+          // desarrollador, que el alumno no puede ni debe seguir).
+          // Los temas gratuitos siguen
           // funcionando desde `availableThemes` (vb2, clasico,
           // nocturno, etc.) — los mostramos abajo.
           <div
@@ -345,9 +346,7 @@ export default function TiendaTemas() {
             className="rounded-xl border border-dashed border-amber-300 bg-amber-50 p-6 text-sm text-amber-800"
           >
             <p className="font-semibold">{t("tiendaTemas.laTiendaTodaviaNoTiene")}</p>
-            <p className="mt-1 text-amber-700">{t("tiendaTemas.esProbableQueElSeed")}<code className="rounded bg-amber-100 px-1.5 py-0.5 text-xs">seed_tienda</code>{t("tiendaTemas.noSeHayaCorridoEn")}<code className="rounded bg-amber-100 px-1.5 py-0.5 text-xs">{t("tiendaTemas.npmRunSeedTienda")}</code> en <code className="rounded bg-amber-100 px-1.5 py-0.5 text-xs">/api</code>.
-            </p>
-            <p className="mt-3 text-amber-700">{t("tiendaTemas.mientrasTantoPodesUsarLos")}</p>
+            <p className="mt-1 text-amber-700">{t("tiendaTemas.mientrasTantoPodesUsarLos")}</p>
           </div>
         ) : (
           <>

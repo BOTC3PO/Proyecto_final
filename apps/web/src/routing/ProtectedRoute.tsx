@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import type { Role } from '../auth/roles';
 import { hasAnyRole } from '../auth/roleHelpers';
 import { useAuth } from '../auth/use-auth';
+import { homePathForRole } from './homePath';
 
 export function ProtectedRoute({
   children,
@@ -14,6 +15,7 @@ export function ProtectedRoute({
   redirectTo?: string;
 }) {
   const { user, isSwitching } = useAuth();
+  const location = useLocation();
 
   // FASE 5a — durante un cambio de cuenta (espejo ↔ principal) la sesión
   // está en transición: el user viejo ya se limpió y el nuevo todavía no
@@ -23,11 +25,22 @@ export function ProtectedRoute({
     return null;
   }
 
+  // Sin sesión: al login, guardando a dónde iba (el login ya sigue `returnTo` solo si es una ruta
+  // del mismo sitio, así que no abre redirecciones a otros dominios).
+  if (!user) {
+    const destino = `${location.pathname}${location.search}`;
+    const to = redirectTo === '/login' && destino !== '/' ? `/login?returnTo=${encodeURIComponent(destino)}` : redirectTo;
+    return <Navigate to={to} replace />;
+  }
+
   // MULTIROL-02: multi-rol friendly. Un user pasa si AL MENOS UNO de
   // sus `roles[]` está en `allow`. Mantiene compat: si `roles` está
   // vacío, `hasAnyRole` cae a `[role]` (ver `resolveRoles`).
-  if (!user || !hasAnyRole(user, allow)) {
-    return <Navigate to={redirectTo} replace />;
+  if (!hasAnyRole(user, allow)) {
+    // Con sesión pero sin permiso: no es un problema de login. Se lo lleva a su propia página de
+    // inicio (antes caía en el login como si no hubiera iniciado sesión).
+    const inicio = homePathForRole(user.role);
+    return <Navigate to={inicio === location.pathname ? '/' : inicio} replace />;
   }
 
   return <>{children}</>;

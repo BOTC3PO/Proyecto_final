@@ -4,6 +4,7 @@ import { useAuth } from "../auth/use-auth";
 import { apiPost } from "../lib/api";
 import { useI18n } from "../i18n/I18nContext";
 import BrandMark from "../components/Brand";
+import { homePathForRole } from "../routing/homePath";
 
 type LoginForm = {
   user: string;
@@ -89,15 +90,7 @@ export default function Login() {
         payload.refreshToken ?? null,
         { remember: form.remember },
       );
-      const redirectByRole: Record<typeof payload.role, string> = {
-        ADMIN: "/admin",
-        TEACHER: "/profesor",
-        DIRECTIVO: "/enterprise",
-        USER: "/menualumno",
-        PARENT: "/menualumno",
-        GUEST: "/",
-      };
-      navigate(returnTo ?? redirectByRole[payload.role] ?? "/");
+      navigate(returnTo ?? homePathForRole(payload.role));
     } catch (error) {
       const message = error instanceof Error ? error.message : t("login.errorGenerico");
       setStatus({ loading: false, error: message });
