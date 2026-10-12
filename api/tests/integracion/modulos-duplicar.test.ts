@@ -122,7 +122,8 @@ test("dueno del modulo duplica -> 201 con id nuevo y titulo '(copia)'", async ()
 });
 
 test("staff (DIRECTIVO) puede duplicar modulo ajeno -> 201", async () => {
-  seedModuloSource({ ownerUserId: DOCENTE_ID });
+  // C3 — el directivo supervisa los módulos de SU escuela (también los privados de sus docentes).
+  seedModuloSource({ ownerUserId: DOCENTE_ID, schoolId: ESCUELA_ID });
   const token = tokenFor({ id: DIRECTIVO_ID, role: "DIRECTIVO", schoolId: ESCUELA_ID });
   const res = await jsonRequest(baseUrl, "POST", `/api/modulos/${MOD_ID}/duplicar`, { token });
   assert.equal(res.status, 201);

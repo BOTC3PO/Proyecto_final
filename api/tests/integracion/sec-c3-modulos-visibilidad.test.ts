@@ -18,6 +18,7 @@ const ALU_AULA = "vis-alu-aula";
 const ALU_A = "vis-alu-a";
 const ALU_B = "vis-alu-b";
 const PADRE = "vis-padre";
+const DIR_A = "vis-dir-a";
 const ADMIN = "vis-admin";
 const AULA = "aula-vis";
 
@@ -47,6 +48,7 @@ beforeEach(() => {
   seedUser({ id: ALU_A, role: "STUDENT", schoolId: ESC_A });
   seedUser({ id: ALU_B, role: "STUDENT", schoolId: ESC_B });
   seedUser({ id: PADRE, role: "PARENT", schoolId: ESC_A });
+  seedUser({ id: DIR_A, role: "DIRECTIVO", schoolId: ESC_A });
   seedUser({ id: ADMIN, role: "ADMIN", schoolId: null });
   prisma.clase.rows.push({ id: AULA, escuelaId: ESC_A, name: "Aula", isDeleted: false, status: "ACTIVE", createdAt: nowIso(), updatedAt: nowIso() } as never);
   prisma.claseMiembro.rows.push({ claseId: AULA, usuarioId: DUENO, rolEnClase: "TEACHER" }, { claseId: AULA, usuarioId: ALU_AULA, rolEnClase: "STUDENT" });
@@ -84,6 +86,13 @@ describe("catálogo", () => {
 
   test("el padre de un alumno del aula ve también lo asignado a su hijo", async () => {
     assert.deepEqual(ids((await get("/api/modulos", tok(PADRE, "PARENT", ESC_A))).body), ["m-escuela", "m-privado-asignado", "m-publico"]);
+  });
+
+  test("el directivo de la escuela supervisa también lo privado de su escuela, y nada de otra", async () => {
+    assert.deepEqual(ids((await get("/api/modulos", tok(DIR_A, "DIRECTIVO", ESC_A))).body), ["m-escuela", "m-privado", "m-privado-asignado", "m-publico"]);
+    assert.equal((await get("/api/modulos/m-privado", tok(DIR_A, "DIRECTIVO", ESC_A))).status, 200);
+    seedUser({ id: "vis-dir-b", role: "DIRECTIVO", schoolId: ESC_B });
+    assert.deepEqual(ids((await get("/api/modulos", tok("vis-dir-b", "DIRECTIVO", ESC_B))).body), ["m-publico"]);
   });
 
   test("el admin ve todo", async () => {

@@ -88,6 +88,8 @@ function toModuleListItem(item: AnyDoc): AnyDoc {
  */
 type ContextoVisibilidad = {
   admin: boolean;
+  /** DIRECTIVO o ADMIN_ESCUELA: supervisa todo lo de su escuela, también lo privado de sus docentes. */
+  gestorEscolar: boolean;
   requesterId: string | null;
   escuelaId: string | null;
   idsConVinculo: Set<string>;
@@ -114,7 +116,8 @@ async function cargarContextoVisibilidad(user: QuizRequesterRaw | undefined): Pr
     const invitaciones = await prisma.moduloInvitacion.findMany({ where: { usuarioId: requesterId }, select: { moduloId: true } });
     for (const i of invitaciones) idsConVinculo.add(i.moduloId);
   }
-  return { admin: hasRole(u as never, "ADMIN"), requesterId, escuelaId, idsConVinculo };
+  const gestorEscolar = hasRole(u as never, "DIRECTIVO") || hasRole(u as never, "ADMIN_ESCUELA");
+  return { admin: hasRole(u as never, "ADMIN"), gestorEscolar, requesterId, escuelaId, idsConVinculo };
 }
 
 /** `where` de Prisma con lo que el contexto puede ver; `null` si no hay restricción (ADMIN). */
@@ -125,6 +128,7 @@ function whereVisibilidadModulos(ctx: ContextoVisibilidad): Record<string, unkno
       { visibility: "publico" },
       ...(ctx.requesterId ? [{ ownerUserId: ctx.requesterId }] : []),
       ...(ctx.escuelaId ? [{ visibility: "escuela", schoolId: ctx.escuelaId }] : []),
+      ...(ctx.escuelaId && ctx.gestorEscolar ? [{ schoolId: ctx.escuelaId }] : []),
       ...(ctx.idsConVinculo.size ? [{ id: { in: [...ctx.idsConVinculo] } }] : []),
     ],
   };
@@ -138,6 +142,7 @@ function moduloVisible(
   if (m.visibility === "publico") return true;
   if (ctx.requesterId && m.ownerUserId === ctx.requesterId) return true;
   if (m.visibility === "escuela" && !!m.schoolId && m.schoolId === ctx.escuelaId) return true;
+  if (ctx.gestorEscolar && !!m.schoolId && m.schoolId === ctx.escuelaId) return true;
   return ctx.idsConVinculo.has(m.id);
 }
 
@@ -921,6 +926,11 @@ modulos.post(
       if (source.ownerUserId !== requesterId && !isStaffRole(requesterRole)) {
         return res.status(403).json({ error: "forbidden" });
       }
+      // C3 — y solo uno que se pueda ver: antes un docente de otra escuela duplicaba el módulo privado
+      // ajeno (con su teoría y sus cuestionarios). Responde como si no existiera.
+      if (!moduloVisible(await cargarContextoVisibilidad(req.user as QuizRequesterRaw), source as never)) {
+        return res.status(404).json({ error: "modulo no encontrado" });
+      }
 
       const { newId, createdAt } = await cloneModuloDeep(sourceId, requesterId, {
         appendCopiaSuffix: true,
@@ -1446,17 +1456,25 @@ async function applyModuleUpdate(
  *  - La escuela no se cambia a una que no es la del que edita: antes se podía "regalar" un módulo al
  *    catálogo de otra escuela.
  */
-function rechazarEdicionIndebida(
+async function rechazarEdicionIndebida(
   req: express.Request,
   res: express.Response,
   parsed: Record<string, any>,
-  existing: { ownerUserId: string | null; visibility: string; schoolId: string | null },
-): boolean {
+  existing: { id: string; ownerUserId: string | null; visibility: string; schoolId: string | null },
+): Promise<boolean> {
   const actor = req.user as { _id?: string; id?: string; role?: string | null; schoolId?: string | null } | undefined;
   if (hasRole(actor as never, "ADMIN")) return false;
   const actorId = (typeof actor?.id === "string" && actor.id) || (typeof actor?._id === "string" && actor._id) || null;
   const comoEditor = { _id: actorId ?? undefined, role: actor?.role, schoolId: actor?.schoolId ?? null };
-  if (!isStaffRole(actor as never) && !canEditModuloDirect(existing, comoEditor)) {
+  const edicionDirecta = canEditModuloDirect(existing, comoEditor);
+  if (!isStaffRole(actor as never) && !edicionDirecta) {
+    res.status(403).json({ error: "forbidden" });
+    return true;
+  }
+  // Si no es editable en el original, solo se puede editar una COPIA de lo que se ve (copy-on-write). Un
+  // módulo privado ajeno, o "solo escuela" de otra escuela, ni se ve ni se toca: antes caía de largo y se
+  // pisaba el original.
+  if (!edicionDirecta && !moduloVisible(await cargarContextoVisibilidad(req.user as QuizRequesterRaw), existing)) {
     res.status(403).json({ error: "forbidden" });
     return true;
   }
@@ -1488,7 +1506,7 @@ modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), as
         return res.status(400).json({ error: "El nivel es obligatorio." });
       }
     }
-    if (rechazarEdicionIndebida(req, res, parsed as Record<string, any>, existing as any)) return;
+    if (await rechazarEdicionIndebida(req, res, parsed as Record<string, any>, existing as any)) return;
 
     if ((existing as any).aulaId) {
       const classroom = await prisma.clase.findFirst({
@@ -1592,7 +1610,7 @@ modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), 
         return res.status(400).json({ error: "El nivel es obligatorio." });
       }
     }
-    if (rechazarEdicionIndebida(req, res, parsed as Record<string, any>, existing as any)) return;
+    if (await rechazarEdicionIndebida(req, res, parsed as Record<string, any>, existing as any)) return;
 
     if ((existing as any).aulaId) {
       const classroom = await prisma.clase.findFirst({
@@ -1670,6 +1688,20 @@ modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), 
 modulos.delete("/api/modulos/:id", requireUser, async (req, res) => {
   const existing = await prisma.modulo.findFirst({ where: { id: req.params.id as string } });
   if (!existing) return res.status(404).json({ error: "not found" });
+  // C3 — antes cualquier usuario con sesión borraba cualquier módulo. Borra el ADMIN, su dueño o el
+  // directivo (o administrador) de la escuela dueña.
+  {
+    const actor = req.user as (QuizRequesterRaw & { schoolId?: string | null }) | undefined;
+    const actorId = resolveRequesterId(actor as QuizRequesterRaw);
+    const esDueno = !!actorId && existing.ownerUserId === actorId;
+    const esDirectivoDeLaEscuela =
+      !!existing.schoolId &&
+      existing.schoolId === (actor?.schoolId ?? null) &&
+      (hasRole(actor as never, "DIRECTIVO") || hasRole(actor as never, "ADMIN_ESCUELA"));
+    if (!hasRole(actor as never, "ADMIN") && !esDueno && !esDirectivoDeLaEscuela) {
+      return res.status(moduloVisible(await cargarContextoVisibilidad(actor as QuizRequesterRaw), existing as never) ? 403 : 404).json({ error: "forbidden" });
+    }
+  }
   if ((existing as any).aulaId) {
     const classroom = await prisma.clase.findFirst({
       where: { id: (existing as any).aulaId },

@@ -122,7 +122,9 @@ function seedSharedModulo(opts: {
 
 // ─── PUT copy-on-write ───────────────────────────────────────────
 
-test("WO-13: PUT cross-school sobre modulo 'escuela' dispara copy-on-write", async () => {
+test("WO-13 / C3: PUT cross-school sobre modulo 'escuela' NO se puede (no se ve) y no se clona", async () => {
+  // Antes un docente de OTRA escuela editaba (sobre una copia) el módulo "solo escuela" de la escuela A,
+  // lo que además lo copiaba entero. "escuela" significa que lo ve esa escuela: ver sec-c3-modulos-ajenos.
   seedSharedModulo({ id: MOD_ESCUELA, visibility: "escuela", schoolId: SCHOOL_A });
   const token = tokenFor({
     id: OTHER_SCHOOL_TEACHER_ID,
@@ -133,32 +135,10 @@ test("WO-13: PUT cross-school sobre modulo 'escuela' dispara copy-on-write", asy
     token,
     body: { title: "Modulo editado por otro docente" },
   });
-  assert.equal(r.status, 200);
-  const body = r.body as {
-    ok: boolean;
-    id: string;
-    copied: boolean;
-    clonedFrom: { id: string; title: string | null; ownerUserId: string | null };
-  };
-  assert.equal(body.copied, true);
-  assert.notEqual(body.id, MOD_ESCUELA);
-  // El original queda intacto: el titulo NO cambia.
-  const original = prisma.modulo.rows.find((m) => m.id === MOD_ESCUELA);
-  assert.ok(original);
-  assert.equal(original.titulo, "Modulo mod-escuela-1");
-  // La copia tiene provenance apuntando al original.
-  const copia = prisma.modulo.rows.find((m) => m.id === body.id);
-  assert.ok(copia);
-  assert.equal(copia.clonedFromId, MOD_ESCUELA);
-  assert.equal(copia.clonedFromTitle, "Modulo mod-escuela-1");
-  assert.equal(copia.clonedFromOwnerUserId, OWNER_ID);
-  // El owner de la copia es el solicitante (no el owner original).
-  assert.equal(copia.ownerUserId, OTHER_SCHOOL_TEACHER_ID);
-  // Y el titulo fue aplicado SOBRE la copia (no sobre el original).
-  assert.equal(copia.titulo, "Modulo editado por otro docente");
-  // La respuesta trae la provenance.
-  assert.equal(body.clonedFrom.id, MOD_ESCUELA);
-  assert.equal(body.clonedFrom.ownerUserId, OWNER_ID);
+  assert.equal(r.status, 403);
+  // Sin copia y con el original intacto.
+  assert.equal(prisma.modulo.rows.filter((m) => m.id !== MOD_ESCUELA).length, 0);
+  assert.equal(prisma.modulo.rows.find((m) => m.id === MOD_ESCUELA)?.titulo, "Modulo mod-escuela-1");
 });
 
 test("WO-13: PUT sobre modulo 'publico' ajeno tambien dispara copy-on-write", async () => {
