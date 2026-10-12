@@ -71,13 +71,13 @@ beforeEach(() => {
   seedUser({ id: TEACHER_B, role: "TEACHER", schoolId: null });
 
   const now = new Date().toISOString();
-  const seedModulo = (id: string, owner: string, opts: { aulaId?: string } = {}) => {
+  const seedModulo = (id: string, owner: string, opts: { aulaId?: string; visibility?: string } = {}) => {
     prisma.modulo.rows.push({
       id,
       slug: null,
       titulo: `Módulo ${id}`,
       descripcion: null,
-      visibility: "privado",
+      visibility: opts.visibility ?? "privado",
       schoolId: null,
       ownerUserId: owner,
       dependencies: null,
@@ -91,7 +91,7 @@ beforeEach(() => {
   seedModulo(MOD_A2, TEACHER_A);
   seedModulo(MOD_B1, TEACHER_B);
   seedModulo(MOD_B2, TEACHER_B);
-  seedModulo(MOD_PUB, "system");
+  seedModulo(MOD_PUB, "system", { visibility: "publico" });
 
   // AULA_X tiene asignado MOD_A1 (del TEACHER_A) y MOD_B1 (del TEACHER_B).
   prisma.claseModulo.rows.push({ claseId: AULA_X, moduloId: MOD_A1, required: false });
@@ -150,26 +150,20 @@ test("QA-FIX-07: ?mine=true&aulaId=X devuelve la intersección (míos ∩ aula)"
   assert.deepEqual(ids, [MOD_A1], `expected [MOD_A1], got ${JSON.stringify(ids)}`);
 });
 
-test("QA-FIX-07 (regresión): ?aulaId=X sin mine sigue devolviendo TODOS los del aula", async () => {
-  // AULA_X tiene MOD_A1 y MOD_B1. Sin auth, sin mine.
-  const res = await jsonRequest(
-    baseUrl,
-    "GET",
-    `/api/modulos?aulaId=${encodeURIComponent(AULA_X)}`
-  );
-
-  assert.equal(res.status, 200);
-  const body = res.body as { items: Array<{ id: string }> };
-  const ids = body.items.map((m) => m.id).sort();
-  assert.deepEqual(ids, [MOD_A1, MOD_B1].sort());
+test("QA-FIX-07 (regresión): ?aulaId=X sin sesión no destapa los módulos privados del aula", async () => {
+  // AULA_X tiene MOD_A1 y MOD_B1 (ambos privados). C3: la visibilidad la decide el servidor; lo que ve un
+  // miembro del aula está en sec-c3-modulos-visibilidad (acá el servidor de pruebas no monta requireUser).
+  const anonimo = await jsonRequest(baseUrl, "GET", `/api/modulos?aulaId=${encodeURIComponent(AULA_X)}`);
+  assert.equal(anonimo.status, 200);
+  assert.deepEqual((anonimo.body as { items: unknown[] }).items, []);
 });
 
-test("QA-FIX-07 (regresión): sin query params sigue siendo público y devuelve todos", async () => {
-  // Modo lectura: GET /api/modulos sin auth ni filtros → todos los
-  // módulos del sistema. Verifica que el fix no rompe este caso de uso.
-  const res = await jsonRequest(baseUrl, "GET", "/api/modulos");
-  assert.equal(res.status, 200);
-  const body = res.body as { items: Array<{ id: string }> };
-  const ids = body.items.map((m) => m.id).sort();
-  assert.deepEqual(ids, [MOD_A1, MOD_A2, MOD_B1, MOD_B2, MOD_PUB].sort());
+test("QA-FIX-07 (regresión): sin query params, un anónimo ve solo lo público y un docente además lo suyo", async () => {
+  // C3 — antes devolvía TODOS los módulos del sistema, privados incluidos, a cualquiera.
+  const anonimo = await jsonRequest(baseUrl, "GET", "/api/modulos");
+  assert.equal(anonimo.status, 200);
+  assert.deepEqual((anonimo.body as { items: Array<{ id: string }> }).items.map((m) => m.id), [MOD_PUB]);
+
+  // (sin requireUser en este servidor de pruebas el usuario no se resuelve; ver sec-c3-modulos-visibilidad
+  // para la visibilidad con sesión)
 });

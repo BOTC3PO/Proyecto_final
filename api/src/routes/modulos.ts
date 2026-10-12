@@ -77,6 +77,70 @@ function toModuleListItem(item: AnyDoc): AnyDoc {
   };
 }
 
+/**
+ * C3 — visibilidad de los módulos, decidida SIEMPRE en el servidor. El catálogo y el detalle no filtraban
+ * por `visibility`, y la búsqueda se fiaba de `createdBy`/`schoolId` del pedido: el módulo privado de un
+ * docente, o el "solo mi escuela" de otra escuela, aparecía para cualquier usuario.
+ *
+ * Un módulo lo ve: el ADMIN; su dueño; cualquiera si es `publico`; los de su escuela si es `escuela`; y
+ * quien tiene un vínculo explícito: miembro de un aula a la que está asignado (o padre de un alumno de
+ * esa aula) o invitado (`ModuloInvitacion`). El resto, privado.
+ */
+type ContextoVisibilidad = {
+  admin: boolean;
+  requesterId: string | null;
+  escuelaId: string | null;
+  idsConVinculo: Set<string>;
+};
+
+async function cargarContextoVisibilidad(user: QuizRequesterRaw | undefined): Promise<ContextoVisibilidad> {
+  const u = user as (QuizRequesterRaw & { schoolId?: string | null; escuelaId?: string | null }) | undefined;
+  const requesterId = resolveRequesterId(u as QuizRequesterRaw);
+  const escuelaId = (typeof u?.schoolId === "string" && u.schoolId) || (typeof u?.escuelaId === "string" && u.escuelaId) || null;
+  const idsConVinculo = new Set<string>();
+  if (requesterId) {
+    // El usuario y los hijos con vínculo aprobado: sus aulas dan acceso a lo que se asignó.
+    const hijos = await prisma.progresoModuloVinculo.findMany({
+      where: { parentId: requesterId, estado: "aprobado" },
+      select: { childId: true },
+    });
+    const personas = [requesterId, ...hijos.map((h) => h.childId)];
+    const aulas = await prisma.claseMiembro.findMany({ where: { usuarioId: { in: personas } }, select: { claseId: true } });
+    const claseIds = [...new Set(aulas.map((a) => a.claseId))];
+    if (claseIds.length) {
+      const asignados = await prisma.claseModulo.findMany({ where: { claseId: { in: claseIds } }, select: { moduloId: true } });
+      for (const a of asignados) idsConVinculo.add(a.moduloId);
+    }
+    const invitaciones = await prisma.moduloInvitacion.findMany({ where: { usuarioId: requesterId }, select: { moduloId: true } });
+    for (const i of invitaciones) idsConVinculo.add(i.moduloId);
+  }
+  return { admin: hasRole(u as never, "ADMIN"), requesterId, escuelaId, idsConVinculo };
+}
+
+/** `where` de Prisma con lo que el contexto puede ver; `null` si no hay restricción (ADMIN). */
+function whereVisibilidadModulos(ctx: ContextoVisibilidad): Record<string, unknown> | null {
+  if (ctx.admin) return null;
+  return {
+    OR: [
+      { visibility: "publico" },
+      ...(ctx.requesterId ? [{ ownerUserId: ctx.requesterId }] : []),
+      ...(ctx.escuelaId ? [{ visibility: "escuela", schoolId: ctx.escuelaId }] : []),
+      ...(ctx.idsConVinculo.size ? [{ id: { in: [...ctx.idsConVinculo] } }] : []),
+    ],
+  };
+}
+
+function moduloVisible(
+  ctx: ContextoVisibilidad,
+  m: { id: string; ownerUserId: string | null; visibility: string | null; schoolId: string | null },
+): boolean {
+  if (ctx.admin) return true;
+  if (m.visibility === "publico") return true;
+  if (ctx.requesterId && m.ownerUserId === ctx.requesterId) return true;
+  if (m.visibility === "escuela" && !!m.schoolId && m.schoolId === ctx.escuelaId) return true;
+  return ctx.idsConVinculo.has(m.id);
+}
+
 // PLAN-X §7 — where-clause de visibilidad para los listados generales
 // (`GET /api/modulos` sin `aulaId`, `GET /api/modulos/buscar`): un módulo
 // descatalogado se excluye salvo que el solicitante sea su dueño o tenga
@@ -287,6 +351,9 @@ modulos.get("/api/modulos/buscar", async (req, res) => {
   if (accessFilters.length > 0) {
     andFilters.push({ OR: accessFilters });
   }
+  // Lo que se puede ver lo decide el servidor; `createdBy`/`schoolId`/`visibility` del pedido solo estrechan.
+  const visibilidadBusqueda = whereVisibilidadModulos(await cargarContextoVisibilidad(req.user as QuizRequesterRaw));
+  if (visibilidadBusqueda) andFilters.push(visibilidadBusqueda);
   if (query) {
     andFilters.push({ OR: [{ titulo: { contains: query, mode: "insensitive" } }] });
   }
@@ -351,6 +418,9 @@ modulos.get("/api/modulos", async (req, res) => {
   // no descatalogado", igual que un visitante anónimo.
   const requesterId = requesterIdForMine ?? resolveRequesterId(req.user as QuizRequesterRaw);
   const descatalogadoFilter = await buildDescatalogadoVisibilityFilter(requesterId);
+  const visibilidadServidor = whereVisibilidadModulos(await cargarContextoVisibilidad(req.user as QuizRequesterRaw));
+  const conVisibilidad = (filtro: Record<string, unknown>): Record<string, unknown> =>
+    visibilidadServidor ? { AND: [filtro, visibilidadServidor] } : filtro;
 
   let items;
   if (aulaId) {
@@ -370,10 +440,10 @@ modulos.get("/api/modulos", async (req, res) => {
 
     items = (
       await prisma.modulo.findMany({
-        where: {
+        where: conVisibilidad({
           id: { in: moduloIds },
           ...(mine && requesterIdForMine ? { ownerUserId: requesterIdForMine } : {}),
-        },
+        }),
         skip: safeOffset,
         take: limit,
         orderBy: { updatedAt: "desc" },
@@ -384,7 +454,7 @@ modulos.get("/api/modulos", async (req, res) => {
       await prisma.modulo.findMany({
         where: mine && requesterIdForMine
           ? { ownerUserId: requesterIdForMine }
-          : descatalogadoFilter,
+          : conVisibilidad(descatalogadoFilter),
         skip: safeOffset,
         take: limit,
         orderBy: { updatedAt: "desc" },
@@ -401,6 +471,10 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
     const item = await prisma.modulo.findFirst({ where: { id } });
 
     if (!item) return res.status(404).json({ error: "not found" });
+    // Un módulo que no se puede ver responde igual que uno que no existe.
+    if (!moduloVisible(await cargarContextoVisibilidad(req.user as QuizRequesterRaw), item as never)) {
+      return res.status(404).json({ error: "not found" });
+    }
 
     // V2-04 — si el solicitante NO es staff ni dueño del módulo, las
     // preguntas de cada quiz se sanitizan: el `answerKey` se reemplaza por
