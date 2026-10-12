@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { solicitarCambioRol } from "../services/roles";
-import { crearCuentaAlumnoPadre, crearCuentaPadreAlumno } from "../services/padres";
+import { crearCuentaAlumnoPadre } from "../services/padres";
 import { crearCuentaAlumnoStaff } from "../services/cuenta-alumno-staff";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
@@ -319,15 +319,7 @@ export default function Perfil() {
                   />
                 )}
 
-                {/* FASE 6 — Mi cuenta de padre (autoservicio, solo USER).
-                    Distinta del RoleSolicitudBanner de arriba: este
-                    botón CREA la cuenta de padre (no la pide al admin
-                    ni reemplaza el rol USER). */}
-                {perfil.role === "USER" && (
-                  <MiCuentaPadreCard
-                    tienePadre={perfil.cuentaVinculada?.tipoDestino === "PADRE"}
-                  />
-                )}
+                {/* K8 — el rol de padre/madre ya no se autoasigna: lo da la escuela (alta o código de invitación). */}
 
                 {/* Hijos vinculados (solo PARENT) */}
                 {perfil.role === "PARENT" && (
@@ -683,95 +675,6 @@ function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
           </button>
         </div>
       )}
-      {msg && (
-        <p className={`text-xs ${msg.kind === "ok" ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"}`}>
-          {msg.text}
-        </p>
-      )}
-    </div>
-  );
-}
-
-// FASE 6 — autoservicio alumno → cuenta de padre. El alumno
-// adulto (USER, 18+) puede crear su cuenta de padre acá sin
-// pasar por `solicitar-rol` ni esperar aprobación de admin.
-// Esto es ADITIVO: el alumno conserva su rol USER y la nueva
-// cuenta queda apuntada por un `CuentaVinculada` simétrico.
-// Una vez creada, "Entrar como padre" dispara el switch
-// (mismo mecanismo que Fases 2/3) y aterriza en /padre.
-function MiCuentaPadreCard({ tienePadre }: { tienePadre: boolean }) {
-  const { t } = useI18n();
-  const { user, cambiarEscuela } = useAuth();
-  const navigate = useNavigate();
-  // Estado local: refleja si el padre ya existe (al cargar o tras crearlo).
-  const [existe, setExiste] = useState(tienePadre);
-  const [creando, setCreando] = useState(false);
-  const [entrando, setEntrando] = useState(false);
-  const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
-
-  const handleCrear = async () => {
-    setCreando(true);
-    setMsg(null);
-    try {
-      const res = await crearCuentaPadreAlumno();
-      setExiste(true);
-      setMsg({
-        kind: "ok",
-        text: res.created
-          ? t("perfil.tuCuentaDePadreEsta")
-          : t("perfil.yaTeniasUnaCuentaDe2"),
-      });
-    } catch (err) {
-      setMsg({
-        kind: "err",
-        text: err instanceof Error ? err.message : t("perfil.noSePudoCrearLa2"),
-      });
-    } finally {
-      setCreando(false);
-    }
-  };
-
-  const handleEntrar = async () => {
-    setEntrando(true);
-    setMsg(null);
-    try {
-      await cambiarEscuela(user?.schoolId ?? '', 'USER');
-      const landing = '/alumno';
-      navigate(landing);
-    } catch (err) {
-      setEntrando(false);
-      setMsg({
-        kind: "err",
-        text: err instanceof Error ? err.message : t("perfil.noSePudoEntrarComo2"),
-      });
-    }
-  };
-
-  return (
-    <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-2">
-      <p className="text-sm font-medium text-[var(--c-text)]">{t("perfil.miCuentaDePadre")}</p>
-      <p className="text-xs text-[var(--c-muted)]">{t("perfil.ademasDeEstudiarPodesTener")}</p>
-      <div className="pt-1">
-        {existe ? (
-          <button
-            onClick={handleEntrar}
-            disabled={entrando}
-            data-testid="alumno-entrar-como-padre"
-            className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
-          >
-            {entrando ? t("perfil.entrando") : t("perfil.entrarComoPadre")}
-          </button>
-        ) : (
-          <button
-            onClick={handleCrear}
-            disabled={creando}
-            data-testid="alumno-crear-cuenta-padre"
-            className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
-          >
-            {creando ? t("comun.creando") : t("perfil.crearMiCuentaDePadre")}
-          </button>
-        )}
-      </div>
       {msg && (
         <p className={`text-xs ${msg.kind === "ok" ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"}`}>
           {msg.text}

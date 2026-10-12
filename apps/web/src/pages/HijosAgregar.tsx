@@ -1,252 +1,81 @@
-import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
-import DateInput from "../components/DateInput";
+import { useState, type FormEvent } from "react";
 import { ApiError, apiPost } from "../lib/api";
-import { fetchRegistroOpciones } from "../services/registro";
 import { useI18n } from "../i18n/I18nContext";
 
-type HijoForm = {
-  nombre: string;
-  usuario: string;
-  cumple: string; // DD/MM/AAAA
-  grado: string;
-  escuela?: string;
-  notas?: string;
-  permisosTareas: boolean;
-  permisosMensajes: boolean;
-};
-
-type FieldErrors = Partial<Record<keyof HijoForm, string>>;
-
+/**
+ * K8 — la familia vincula a su hijo con el CÓDIGO DE INVITACIÓN que le da la escuela (uno por alumno, de un
+ * solo uso). Ya no se puede vincular a un menor por su nombre de usuario.
+ */
 export default function HijosAgregar() {
   const { t } = useI18n();
-  const [grados, setGrados] = useState<string[]>([]);
-  const [loadingGrados, setLoadingGrados] = useState(true);
-  const [gradosError, setGradosError] = useState<string | null>(null);
-  const [form, setForm] = useState<HijoForm>({
-    nombre: "",
-    usuario: "",
-    cumple: "",
-    grado: "",
-    escuela: "",
-    notas: "",
-    permisosTareas: true,
-    permisosMensajes: true,
-  });
-  const [errors, setErrors] = useState<FieldErrors>({});
+  const [codigo, setCodigo] = useState("");
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [ok, setOk] = useState(false);
 
-  useEffect(() => {
-    let active = true;
-    fetchRegistroOpciones()
-      .then((data) => {
-        if (!active) return;
-        setGrados(data.grados);
-        setGradosError(null);
-      })
-      .catch((err: Error) => {
-        if (!active) return;
-        setGradosError(err.message);
-      })
-      .finally(() => {
-        if (!active) return;
-        setLoadingGrados(false);
-      });
-    return () => {
-      active = false;
-    };
-  }, []);
-
-  const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, type } = e.target as HTMLInputElement;
-    const value = type === "checkbox" ? (e.target as HTMLInputElement).checked : e.target.value;
-    setForm((p) => ({ ...p, [name]: value as any }));
-  };
-
-  const validate = () => {
-    const err: FieldErrors = {};
-    if (!form.nombre.trim()) err.nombre = "Ingresá el nombre completo.";
-    if (!form.usuario.trim()) err.usuario = "Ingresá un usuario público.";
-    if (!form.cumple) err.cumple = "Seleccioná el cumpleaños.";
-    if (!form.grado) err.grado = "Seleccioná el grado/curso.";
-    setErrors(err);
-    return Object.keys(err).length === 0;
+  const mensajeDe = (err: unknown): string => {
+    if (err instanceof ApiError) {
+      try {
+        return JSON.parse(err.message)?.error ?? err.message;
+      } catch {
+        return err.message;
+      }
+    }
+    return err instanceof Error ? err.message : "No se pudo canjear el código";
   };
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!validate()) return;
+    setOk(false);
+    if (codigo.replace(/[^a-zA-Z0-9]/g, "").length < 10) {
+      setError("El código tiene 10 letras y números (por ejemplo ABCDE-FGHJK).");
+      return;
+    }
     setSaving(true);
+    setError(null);
     try {
-      await apiPost<{ ok: boolean }>("/api/hijos", form);
-      setForm({
-        nombre: "",
-        usuario: "",
-        cumple: "",
-        grado: "",
-        escuela: "",
-        notas: "",
-        permisosTareas: true,
-        permisosMensajes: true,
-      });
-      setErrors({});
-    } catch (err: any) {
-      let message = t("hijosAgregar.noSePudoGuardar");
-      let status = 0;
-      if (err instanceof ApiError) {
-        status = err.status;
-        try {
-          const parsed = JSON.parse(err.message);
-          message = parsed?.error ?? err.message;
-        } catch {
-          message = err.message;
-        }
-      } else if (err instanceof Error) {
-        message = err.message;
-      }
-      if (status === 404) {
-        setErrors((p) => ({ ...p, usuario: "No encontramos el usuario indicado." }));
-      } else if (status === 409) {
-        setErrors((p) => ({ ...p, usuario: "Ese usuario ya está vinculado." }));
-      } else if (status === 400) {
-        setErrors((p) => ({ ...p, usuario: message || "Validación inválida." }));
-      } else {
-        setErrors((p) => ({ ...p, usuario: message || "No se pudo guardar" }));
-      }
+      await apiPost<{ ok: boolean }>("/api/hijos/canjear", { codigo });
+      setOk(true);
+      setCodigo("");
+    } catch (err) {
+      setError(mensajeDe(err));
     } finally {
       setSaving(false);
     }
   };
 
-  const inputCls = "w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]";
-  const inputErrCls = "w-full rounded-lg border border-[var(--c-danger)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]";
-
   return (
     <main className="flex-1 bg-[var(--c-bg)]">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
           <div className="px-6 py-4 border-b border-[var(--c-border)]">
             <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("nav.agregarHijo")}</h1>
           </div>
-          <div className="p-6 sm:p-8">
-            <form className="space-y-6" onSubmit={onSubmit} noValidate>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Nombre */}
-                <div>
-                  <label htmlFor="nombre" className="block text-sm font-medium text-[var(--c-text)] mb-1">{t("register.labelNombreCompleto")}</label>
-                  <input
-                    id="nombre" name="nombre" type="text" value={form.nombre} onChange={onChange}
-                    className={errors.nombre ? inputErrCls : inputCls}
-                  />
-                  {errors.nombre && <p className="text-xs text-[var(--c-danger)] mt-1">{errors.nombre}</p>}
-                </div>
-
-                {/* Usuario */}
-                <div>
-                  <label htmlFor="usuario" className="block text-sm font-medium text-[var(--c-text)] mb-1">{t("hijosAgregar.usuarioPublico")}</label>
-                  <input
-                    id="usuario" name="usuario" type="text" value={form.usuario} onChange={onChange}
-                    placeholder={t("hijosAgregar.usuario")}
-                    className={errors.usuario ? inputErrCls : inputCls}
-                  />
-                  {errors.usuario && <p className="text-xs text-[var(--c-danger)] mt-1">{errors.usuario}</p>}
-                </div>
-
-                {/* Cumpleaños */}
-                <div className="md:col-span-1">
-                  <DateInput
-                    id="cumple"
-                    name="cumple"
-                    label={t("register.labelCumpleanos")}
-                    placeholder="DD/MM/AAAA"
-                    value={form.cumple}
-                    onChange={(v) => setForm((p) => ({ ...p, cumple: v }))}
-                    required
-                  />
-                  {errors.cumple && <p className="text-xs text-[var(--c-danger)] mt-1">{errors.cumple}</p>}
-                </div>
-
-                {/* Grado */}
-                <div className="md:col-span-1">
-                  <label htmlFor="grado" className="block text-sm font-medium text-[var(--c-text)] mb-1">{t("hijosAgregar.gradoCurso")}</label>
-                  <select
-                    id="grado" name="grado" value={form.grado} onChange={onChange}
-                    className={errors.grado ? inputErrCls : inputCls}
-                  >
-                    <option value="">{t("hijosAgregar.selecciona")}</option>
-                    {loadingGrados && <option value="">{t("hijosAgregar.cargandoGrados")}</option>}
-                    {!loadingGrados && gradosError && <option value="">{t("hijosAgregar.sinGradosDisponibles")}</option>}
-                    {!loadingGrados &&
-                      !gradosError &&
-                      grados.map((g) => (
-                        <option key={g} value={g}>{g}</option>
-                      ))}
-                  </select>
-                  {errors.grado && <p className="text-xs text-[var(--c-danger)] mt-1">{errors.grado}</p>}
-                  {gradosError && <p className="text-xs text-[var(--c-danger)] mt-1">{gradosError}</p>}
-                </div>
-
-                {/* Escuela */}
-                <div className="md:col-span-2">
-                  <label htmlFor="escuela" className="block text-sm font-medium text-[var(--c-text)] mb-1">{t("hijosAgregar.escuelaOpcional")}</label>
-                  <input
-                    id="escuela" name="escuela" type="text" value={form.escuela} onChange={onChange}
-                    className={inputCls}
-                  />
-                </div>
-
-                {/* Notas */}
-                <div className="md:col-span-2">
-                  <label htmlFor="notas" className="block text-sm font-medium text-[var(--c-text)] mb-1">{t("hijosAgregar.notasOpcional")}</label>
-                  <textarea
-                    id="notas" name="notas" rows={3} value={form.notas} onChange={onChange}
-                    className={`${inputCls} resize-none`}
-                    placeholder={t("hijosAgregar.observacionesPreferenciasApoyosNecesarios")}
-                  />
-                </div>
-              </div>
-
-              {/* Permisos */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-[var(--c-bg)] rounded-xl p-4 border border-[var(--c-border)]">
-                <label className="inline-flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox" name="permisosTareas" checked={form.permisosTareas} onChange={onChange}
-                    className="h-4 w-4 rounded border-[var(--c-border)] text-[var(--c-primary)]"
-                  />
-                  <span className="text-sm text-[var(--c-text)]">{t("hijosAgregar.permitirVerTareasYEntregas")}</span>
-                </label>
-
-                <label className="inline-flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox" name="permisosMensajes" checked={form.permisosMensajes} onChange={onChange}
-                    className="h-4 w-4 rounded border-[var(--c-border)] text-[var(--c-primary)]"
-                  />
-                  <span className="text-sm text-[var(--c-text)]">{t("hijosAgregar.permitirVerMensajesDelAula")}</span>
-                </label>
-              </div>
-
-              {/* Acciones */}
-              <div className="flex items-center justify-end gap-3 pt-2">
-                <button
-                  type="reset"
-                  onClick={() => {
-                    setForm({
-                      nombre: "", usuario: "", cumple: "", grado: "", escuela: "", notas: "",
-                      permisosTareas: true, permisosMensajes: true,
-                    });
-                    setErrors({});
-                  }}
-                  className="rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                >{t("common.limpiar")}</button>
-                <button
-                  type="submit"
-                  disabled={saving}
-                  className="rounded-xl bg-[var(--c-primary)] px-5 py-2 text-white text-sm font-semibold hover:opacity-90 disabled:opacity-60 transition-opacity"
-                >
-                  {saving ? "Guardando…" : "Agregar hijo"}
-                </button>
-              </div>
-            </form>
-          </div>
+          <form className="p-6 sm:p-8 space-y-5" onSubmit={onSubmit} noValidate>
+            <p className="text-sm text-[var(--c-muted)]">
+              Pedile a la escuela el <strong>código de invitación</strong> de tu hijo o hija. Cada código sirve para un
+              solo alumno, se usa una vez y vence a los 7 días.
+            </p>
+            <div>
+              <label htmlFor="codigo" className="block text-sm font-medium text-[var(--c-text)] mb-1">Código de invitación</label>
+              <input
+                id="codigo" name="codigo" type="text" value={codigo} autoComplete="off" autoCapitalize="characters"
+                placeholder="ABCDE-FGHJK" maxLength={16}
+                onChange={(e) => { setCodigo(e.target.value.toUpperCase()); setError(null); setOk(false); }}
+                className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm font-mono tracking-widest focus:outline-none focus:border-[var(--c-primary)]"
+              />
+            </div>
+            {error && <p role="alert" className="text-sm text-[var(--c-danger)]">{error}</p>}
+            {ok && <p role="status" className="text-sm text-[var(--c-success)]">Listo: ya podés ver el avance de tu hijo o hija.</p>}
+            <div className="flex justify-end">
+              <button
+                type="submit" disabled={saving}
+                className="rounded-xl bg-[var(--c-primary)] px-5 py-2 text-white text-sm font-semibold hover:opacity-90 disabled:opacity-60 transition-opacity"
+              >
+                {saving ? "Verificando…" : "Vincular a mi hijo"}
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </main>

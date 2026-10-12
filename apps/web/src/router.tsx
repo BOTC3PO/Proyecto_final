@@ -86,6 +86,7 @@ const EnterpriseReportes        = lazyWithRetry(() => import("./pages/Enterprise
 const EnterpriseAulas           = lazyWithRetry(() => import("./pages/EnterpriseAulas"));
 
 const EnterpriseMiembros        = lazyWithRetry(() => import("./pages/EnterpriseMiembros"));
+const EnterpriseFamilias        = lazyWithRetry(() => import("./pages/EnterpriseFamilias"));
 const EnterpriseModulos         = lazyWithRetry(() => import("./pages/EnterpriseModulos"));
 const EnterpriseComisiones      = lazyWithRetry(() => import("./pages/EnterpriseComisiones"));
 const EnterprisePersonalizacion = lazyWithRetry(() => import("./pages/EnterprisePersonalizacion"));
@@ -503,6 +504,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['DIRECTIVO']}>
                 {withSuspense(<EnterpriseMiembros />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'enterprise/familias',
+            element: (
+              <ProtectedRoute allow={['DIRECTIVO', 'ADMIN_ESCUELA']}>
+                {withSuspense(<EnterpriseFamilias />)}
               </ProtectedRoute>
             ),
           },

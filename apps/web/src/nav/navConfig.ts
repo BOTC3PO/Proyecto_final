@@ -68,6 +68,7 @@ export const NAV_BY_ROLE: NavMap = {
     { id: 'panelEscuela',     label: 'panelEscuela',     to: '/enterprise',           exact: true },
     { id: 'aulas',            label: 'aulas',            to: '/enterprise/aulas',     exact: true },
     { id: 'miembros',         label: 'miembros',         to: '/enterprise/miembros',  exact: true },
+    { id: 'familias',         label: 'familias',         to: '/enterprise/familias',  exact: true },
     { id: 'moderacion',       label: 'moderacion',       to: '/admin/moderacion',     exact: true },
     // Distinto de `moderacion`, que es sancionar USUARIOS. Acá se revisa el
     // contenido publicado por la escuela.
@@ -79,6 +80,7 @@ export const NAV_BY_ROLE: NavMap = {
     { id: 'panelEscuela',     label: 'panelEscuela',     to: '/enterprise',           exact: true },
     { id: 'aulas',            label: 'aulas',            to: '/enterprise/aulas',     exact: true },
     { id: 'miembros',         label: 'miembros',         to: '/enterprise/miembros',  exact: true },
+    { id: 'familias',         label: 'familias',         to: '/enterprise/familias',  exact: true },
     { id: 'modulos',          label: 'modulos',          to: '/modulos',              exact: true },
     { id: 'cuestionarios',    label: 'cuestionarios',    to: '/cuestionarios',        exact: true },
     { id: 'plantillas',       label: 'plantillas',       to: '/plantillas',           exact: true },

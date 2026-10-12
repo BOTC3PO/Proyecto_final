@@ -298,6 +298,7 @@ export default function RegistrationForm() {
     role: "",
     teacherType: "",
     schoolCode: "",
+    inviteCode: "",
     password: "",
     confirmPassword: "",
     privacyConsent: false,
@@ -358,6 +359,10 @@ export default function RegistrationForm() {
       setStatus({ loading: false, error: t("register.errorTipoProfesor") });
       return;
     }
+    if (formData.role === "PARENT" && formData.inviteCode.replace(/[^a-zA-Z0-9]/g, "").length < 10) {
+      setStatus({ loading: false, error: "Para registrarte como padre o madre necesitás el código de invitación que te da la escuela (10 letras y números)." });
+      return;
+    }
     if (formData.role === "TEACHER" && !formData.schoolCode.trim()) {
       setStatus({ loading: false, error: t("register.errorCodigoEscuela") });
       return;
@@ -388,7 +393,8 @@ export default function RegistrationForm() {
         birthdate,
         role: formData.role,
         teacherType: formData.role === "TEACHER" ? formData.teacherType : undefined,
-        schoolCode: formData.schoolCode || undefined,
+        schoolCode: formData.role === "PARENT" ? undefined : formData.schoolCode || undefined,
+        inviteCode: formData.role === "PARENT" ? formData.inviteCode.trim() : undefined,
         consents: {
           privacyConsent: formData.privacyConsent,
           termsAccepted: formData.termsAccepted,
@@ -507,6 +513,27 @@ export default function RegistrationForm() {
               </div>
             )}
 
+            {formData.role === "PARENT" ? (
+              <div>
+                <label className="block text-gray-800 text-lg mb-2 font-normal">Código de invitación de la escuela</label>
+                <input
+                  type="text"
+                  value={formData.inviteCode}
+                  onChange={(e) => setFormData({ ...formData, inviteCode: e.target.value.toUpperCase() })}
+                  required
+                  autoComplete="off"
+                  placeholder="ABCDE-FGHJK"
+                  maxLength={16}
+                  onInvalid={onInvalid}
+                  onInput={onInput}
+                  className="w-full px-4 py-3 text-base font-mono tracking-widest border-2 border-gray-300 rounded-lg
+                             focus:outline-none focus:border-blue-500 transition-colors"
+                />
+                <p className="text-sm text-gray-500 mt-1">
+                  La escuela te lo entrega para tu hijo o hija: sin él no se puede crear una cuenta de padre o madre.
+                </p>
+              </div>
+            ) : (
             <div>
               <label className="block text-gray-800 text-lg mb-2 font-normal">
                 {t("register.labelCodigoEscuela")}{formData.role !== "TEACHER" ? t("register.opcional") : ""}
@@ -527,6 +554,7 @@ export default function RegistrationForm() {
                 </p>
               )}
             </div>
+            )}
 
             <div>
               <label className="block text-gray-800 text-lg mb-2 font-normal">{t("auth.contrasena")}</label>

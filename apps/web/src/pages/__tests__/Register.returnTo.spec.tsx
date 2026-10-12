@@ -50,6 +50,10 @@ function fillCommonFields(role: string) {
   fireEvent.change(textboxes[2], { target: { value: "ana@test.com" } });
 
   fireEvent.change(screen.getByLabelText("Rol"), { target: { value: role } });
+  // K8 — el rol PARENT exige el código de invitación de la escuela.
+  if (role === "PARENT") {
+    fireEvent.change(screen.getByPlaceholderText("ABCDE-FGHJK"), { target: { value: "ABCDEFGHJK" } });
+  }
 
   const passwords = document.querySelectorAll('input[type="password"]');
   fireEvent.change(passwords[0], { target: { value: "secreto123" } });
