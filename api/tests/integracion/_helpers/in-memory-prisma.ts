@@ -859,6 +859,7 @@ export class InMemoryPrisma {
   mensajeReportado = new Table<Row>("mensajeReportado");
   codigoInvitacionPadre = new Table<Row>("codigoInvitacionPadre");
   economiaRiesgoCurso = new Table<Row>("economiaRiesgoCurso");
+  economiaRecompensa = new Table<Row>("economiaRecompensa");
   economiaEvento = new Table<Row>("economiaEvento");
   tiendaItem = new Table<Row>("tiendaItem");
   usuarioItem = new Table<Row>("usuarioItem");

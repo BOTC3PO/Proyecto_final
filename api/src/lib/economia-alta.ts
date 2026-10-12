@@ -21,6 +21,7 @@
  * padre no está dando de alta un hijo nuevo, está creando su propio doble
  * para explorar la app. Se excluye a propósito.
  */
+import { dificultadDeQuiz, resolverRecompensa } from "./recompensa-modulo";
 import { randomUUID } from "node:crypto";
 import { prisma } from "./prisma";
 import { acreditarSaldo, bloquearClave } from "./economia-saldo";
@@ -80,8 +81,6 @@ export async function acreditarSaldoInicial(params: {
   }
 }
 
-const DEFAULT_MONTO_PRIMER_CUESTIONARIO = 10;
-
 /**
  * Recompensa por completar un cuestionario POR PRIMERA VEZ (mismo alumno +
  * mismo quiz). El caller (quiz-attempts.ts, submit) es responsable de
@@ -101,8 +100,10 @@ export async function acreditarPorPrimerCuestionario(params: {
   schoolId?: string | null;
 }): Promise<{ monto: number; moneda: string } | null> {
   try {
-    const monto = DEFAULT_MONTO_PRIMER_CUESTIONARIO;
-    const moneda = await resolveMonedaConfig();
+    // K9 — el monto lo fija el ADMIN: el de su módulo, o la tabla fija por dificultad del cuestionario.
+    const { dificultad, moduloId } = await dificultadDeQuiz(params.quizId);
+    const { monto, moneda } = await resolverRecompensa({ moduloId, dificultad });
+    if (!(monto > 0)) return null;
 
     return await prisma.$transaction(async (tx) => {
       await bloquearClave(tx, `quiz_primera_vez:${params.usuarioId}:${params.quizId}`);

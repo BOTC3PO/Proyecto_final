@@ -8,6 +8,7 @@ import { cupoTickets, ordenarPujas, topePorAlumno } from "../lib/examen-tickets"
 import { economiaDelAula } from "../lib/subasta-precio";
 import { acreditarSaldo, debitarSaldo, SaldoInsuficienteError } from "../lib/economia-saldo";
 import { isStaffRole, requirePolicy } from "../lib/authorization";
+import { dificultadDeQuiz, RECOMPENSA_POR_DIFICULTAD_DEFECTO, resolverRecompensa } from "../lib/recompensa-modulo";
 import { hasRole } from "../lib/roles";
 import { assertClassroomWritable } from "../lib/classroom";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
@@ -439,6 +440,8 @@ const defaultConfig = () => ({
     activa: false
   },
   rankingFactors: [1, 0.9, 0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55, 0.5],
+  // K9 — monedas por completar un cuestionario por primera vez, según su dificultad (fijo; solo el ADMIN lo cambia).
+  recompensasPorDificultad: { ...RECOMPENSA_POR_DIFICULTAD_DEFECTO },
   updatedAt: new Date().toISOString()
 });
 
@@ -558,7 +561,7 @@ economia.get("/api/economia/recompensas", async (req, res) => {
 
 economia.post(
   "/api/economia/recompensas",
-  requirePolicy("economia/mint"),
+  requireAdminAuth,
   ...bodyLimitMB(ENV.MAX_PAGE_MB),
   async (req, res) => {
     try {
@@ -585,7 +588,7 @@ economia.post(
 
 economia.put(
   "/api/economia/recompensas/:id",
-  requirePolicy("economia/mint"),
+  requireAdminAuth,
   ...bodyLimitMB(ENV.MAX_PAGE_MB),
   async (req, res) => {
     try {
@@ -604,7 +607,7 @@ economia.put(
 
 economia.patch(
   "/api/economia/recompensas/:id",
-  requirePolicy("economia/mint"),
+  requireAdminAuth,
   ...bodyLimitMB(ENV.MAX_PAGE_MB),
   async (req, res) => {
     try {
@@ -623,8 +626,7 @@ economia.patch(
 
 economia.delete(
   "/api/economia/recompensas/:id",
-  requireUser,
-  requirePolicy("economia/mint"),
+  requireAdminAuth,
   async (req, res) => {
     const now = new Date().toISOString();
     const deletedBy = getRequesterId(req) ?? "desconocido";
@@ -847,6 +849,9 @@ economia.post(
       if (!usuarioObjectId) {
         return res.status(400).json({ error: "usuarioId is required" });
       }
+      // K9 — quien mueve monedas de un aula tiene que administrarla (ADMIN o personal de su escuela). Antes
+      // alcanzaba con ser personal de CUALQUIER escuela para acreditar a alumnos de otra.
+      if (!(await exigirAdministrarAula(req, res, String(parsed.aulaId)))) return;
       const aula = await cargarAula(String(parsed.aulaId));
       if (!assertClassroomWritable(res, aula)) {
         return;
@@ -876,6 +881,17 @@ economia.post(
             .status(400)
             .json({ error: "referencia educativa invalida para el aula/escuela" });
         }
+        // K9 — el monto de un crédito educativo NO lo pone quien lo pide: lo fija el ADMIN (monto de ese
+        // módulo, o la tabla fija por dificultad). Lo que mande el cliente se descarta.
+        const { dificultad, moduloId } =
+          tipoEvento === "quiz"
+            ? await dificultadDeQuiz(parsed.referenciaId)
+            : { dificultad: "basico" as const, moduloId: tipoEvento === "modulo" ? parsed.referenciaId : null };
+        const fijo = await resolverRecompensa({ moduloId, dificultad });
+        if (!(fijo.monto > 0)) {
+          return res.status(400).json({ error: "esta recompensa no tiene un monto definido por el administrador" });
+        }
+        parsed.monto = fijo.monto;
         if (limites.recompensaMaxima > 0 && parsed.monto > limites.recompensaMaxima) {
           return res.status(400).json({ error: "limite de recompensa excedido" });
         }
@@ -948,7 +964,7 @@ economia.post(
           verificacion
         });
       }
-      res.status(201).json({ id: parsed.id, saldo: nuevoSaldo });
+      res.status(201).json({ id: parsed.id, saldo: nuevoSaldo, monto: parsed.monto });
     } catch (e: any) {
       res.status(400).json({ error: e?.message ?? "invalid payload" });
     }

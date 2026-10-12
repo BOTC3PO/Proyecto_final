@@ -32,6 +32,18 @@ export const EconomiaConfigSchema = z.object({
     activa: z.boolean()
   }),
   rankingFactors: z.array(z.number().nonnegative()).length(10),
+  /**
+   * K9 — monedas que da completar por primera vez un cuestionario según su dificultad. Es una tabla FIJA que
+   * define solo el ADMIN: ningún docente cambia cuánto vale un módulo. El ADMIN además puede fijar un monto
+   * propio para un módulo concreto (catálogo de recompensas, tipo "modulo"), que gana sobre esta tabla.
+   */
+  recompensasPorDificultad: z
+    .object({
+      basico: z.number().nonnegative(),
+      intermedio: z.number().nonnegative(),
+      avanzado: z.number().nonnegative()
+    })
+    .optional(),
   updatedAt: z.string().datetime()
 });
 
