@@ -51,6 +51,8 @@ export type EconomiaConfig = {
   inflacion: { tasa: number; activa: boolean };
   hiperinflacion: { tasa: number; activa: boolean; aceleracion: number };
   deflacion: { tasa: number; activa: boolean };
+  /** K9 — monedas por completar un cuestionario por primera vez, según su dificultad (fijo; solo el admin). */
+  recompensasPorDificultad?: { basico: number; intermedio: number; avanzado: number };
   updatedAt: string;
 };
 

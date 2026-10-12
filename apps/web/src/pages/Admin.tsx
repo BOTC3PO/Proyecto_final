@@ -51,6 +51,9 @@ export default function Admin() {
   const [emisionDiaria, setEmisionDiaria] = useState("");
   const [recompensaMaxima, setRecompensaMaxima] = useState("");
   const [recompensaDiaria, setRecompensaDiaria] = useState("");
+  const [premioBasico, setPremioBasico] = useState("10");
+  const [premioIntermedio, setPremioIntermedio] = useState("20");
+  const [premioAvanzado, setPremioAvanzado] = useState("30");
   const [inflacionTasa, setInflacionTasa] = useState("");
   const [inflacionActiva, setInflacionActiva] = useState(false);
   const [deflacionTasa, setDeflacionTasa] = useState("");
@@ -69,6 +72,11 @@ export default function Admin() {
         setEmisionDiaria(String(data.limites.emisionDiaria));
         setRecompensaMaxima(String(data.limites.recompensaMaxima));
         setRecompensaDiaria(String(data.limites.recompensaDiaria));
+        if (data.recompensasPorDificultad) {
+          setPremioBasico(String(data.recompensasPorDificultad.basico));
+          setPremioIntermedio(String(data.recompensasPorDificultad.intermedio));
+          setPremioAvanzado(String(data.recompensasPorDificultad.avanzado));
+        }
         setInflacionTasa(String(data.inflacion.tasa));
         setInflacionActiva(data.inflacion.activa);
         setDeflacionTasa(String(data.deflacion.tasa));
@@ -90,6 +98,11 @@ export default function Admin() {
           emisionDiaria: Number(emisionDiaria),
           recompensaMaxima: Number(recompensaMaxima),
           recompensaDiaria: Number(recompensaDiaria),
+        },
+        recompensasPorDificultad: {
+          basico: Math.max(0, Number(premioBasico) || 0),
+          intermedio: Math.max(0, Number(premioIntermedio) || 0),
+          avanzado: Math.max(0, Number(premioAvanzado) || 0),
         },
         inflacion: { tasa: inflacionLimitada, activa: inflacionActiva },
         deflacion: { tasa: deflacionLimitada, activa: deflacionActiva },
@@ -182,6 +195,22 @@ export default function Admin() {
                   { label: t("admin.emisionDiariaMaxima"),           value: emisionDiaria,    set: setEmisionDiaria },
                   { label: t("admin.recompensaMaximaPorAccion"),    value: recompensaMaxima, set: setRecompensaMaxima },
                   { label: t("admin.recompensaDiariaMaxPorUser"), value: recompensaDiaria, set: setRecompensaDiaria },
+                ].map(({ label, value, set }) => (
+                  <label key={label} className="flex flex-col gap-1">
+                    <span className="text-[10px] text-[var(--c-muted)]">{label}</span>
+                    <input
+                      type="number" min={0} value={value}
+                      onChange={(e) => set(e.target.value)}
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    />
+                  </label>
+                ))}
+                <p className="text-xs font-semibold text-[var(--c-text)] pt-2">Monedas por completar un cuestionario (según dificultad)</p>
+                <p className="text-[10px] text-[var(--c-muted)]">Valores fijos para toda la plataforma: los docentes eligen la dificultad, no cuánto paga.</p>
+                {[
+                  { label: "Dificultad básica",     value: premioBasico,     set: setPremioBasico },
+                  { label: "Dificultad intermedia", value: premioIntermedio, set: setPremioIntermedio },
+                  { label: "Dificultad avanzada",   value: premioAvanzado,   set: setPremioAvanzado },
                 ].map(({ label, value, set }) => (
                   <label key={label} className="flex flex-col gap-1">
                     <span className="text-[10px] text-[var(--c-muted)]">{label}</span>
