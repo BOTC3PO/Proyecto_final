@@ -1393,6 +1393,20 @@ aulas.post("/api/aulas/:id/modulos", requireUser, async (req, res) => {
     if (!modulo) {
       return res.status(404).json({ error: "modulo no encontrado" });
     }
+    // Solo se asigna un módulo que quien asigna puede ver: el propio, uno público, uno de su escuela
+    // (o cualquiera si es ADMIN). Antes se podía colgar a un aula el módulo privado de otra escuela y
+    // sus alumnos lo leían. Se responde igual que si no existiera.
+    {
+      const actor = req.user as { id?: string; _id?: { toString?: () => string } | string; role?: string; roles?: string[]; schoolId?: string | null } | undefined;
+      const actorId = (typeof actor?.id === "string" && actor.id) || (actor?._id ? String(actor._id) : null);
+      const esAdmin = hasRole(actor as never, "ADMIN");
+      const visible =
+        esAdmin ||
+        (!!actorId && modulo.ownerUserId === actorId) ||
+        modulo.visibility === "publico" ||
+        (modulo.visibility === "escuela" && !!modulo.schoolId && modulo.schoolId === (actor?.schoolId ?? null));
+      if (!visible) return res.status(404).json({ error: "modulo no encontrado" });
+    }
 
     // No asignar a aula read-only.
     const classroomStatus = normalizeClassroomStatus((await prisma.clase.findFirst({
