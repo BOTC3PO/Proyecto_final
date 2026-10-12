@@ -15,7 +15,8 @@ import {
   type QuizAttemptSubmit
 } from "../schema/quiz-attempt";
 import { isStaffRole, canManageClassroom } from "../lib/authorization";
-import { resolvePrimaryRole, resolveRoles } from "../lib/roles";
+import { hasRole, resolvePrimaryRole, resolveRoles } from "../lib/roles";
+import { perteneceAEscuela } from "../lib/pertenece-escuela";
 import {
   isCanaryAnswer,
   sanitizeQuestionsForStudent
@@ -1851,6 +1852,32 @@ quizAttempts.get(
   }
 );
 
+/**
+ * C3 — ¿este personal puede ver o corregir el intento de OTRO alumno? El ADMIN siempre; el docente si es
+ * autor del cuestionario o del módulo, si el módulo es de su escuela, o si el alumno pertenece a su escuela.
+ * Antes solo se pedía ser personal (de cualquier escuela) y `GET .../staff` comparaba contra
+ * `attempt.schoolId`, una columna que no existe: un docente de otra escuela veía y cambiaba la nota de
+ * cualquier alumno.
+ */
+async function staffPuedeGestionarIntento(
+  req: express.Request,
+  attempt: { quizId: string; userId: string }
+): Promise<boolean> {
+  const user = req.user as { _id?: { toString?: () => string } | string; id?: string; schoolId?: string | null } | undefined;
+  if (hasRole(user as never, "ADMIN")) return true;
+  const requesterId =
+    (typeof user?.id === "string" && user.id) ||
+    (typeof user?._id === "string" && user._id) ||
+    (user?._id && typeof user._id === "object" ? user._id.toString?.() : null) ||
+    null;
+  const requesterSchool = typeof user?.schoolId === "string" ? user.schoolId : null;
+  const quiz = await prisma.quiz.findFirst({ where: { id: attempt.quizId } });
+  const modulo = quiz?.moduleId ? await prisma.modulo.findFirst({ where: { id: quiz.moduleId } }) : null;
+  if (requesterId && (quiz?.ownerUserId === requesterId || modulo?.ownerUserId === requesterId)) return true;
+  if (requesterSchool && modulo?.schoolId === requesterSchool) return true;
+  return !!requesterSchool && (await perteneceAEscuela(requesterSchool, attempt.userId));
+}
+
 // F5-03 — Vista docente de un intento: devuelve el attempt + el JSON
 // `grading` COMPLETO (incluyendo `events` con el counter de salidas y
 // cualquier flag que V2-04 / I-2 haya seteado). Sólo accesible para
@@ -1872,15 +1899,13 @@ quizAttempts.get(
     if (!isStaffRole(requesterRole)) {
       return res.status(403).json({ error: "forbidden" });
     }
-    const requesterSchool =
-      (req.user as { schoolId?: string | null } | undefined)?.schoolId ?? null;
     const attempt = (await prisma.quizAttempt.findFirst({
       where: { id: idParam }
     })) as QuizAttemptRecord | null;
     if (!attempt) return res.status(404).json({ error: "attempt not found" });
 
-    // Mismo escuela: el docente sólo ve intentos de su escuela.
-    if (requesterSchool && attempt.schoolId && requesterSchool !== attempt.schoolId) {
+    // El docente sólo ve intentos de su escuela (o de módulos propios).
+    if (!(await staffPuedeGestionarIntento(req, attempt))) {
       return res.status(403).json({ error: "forbidden" });
     }
 
@@ -2644,6 +2669,9 @@ quizAttempts.post(
         where: { id: idParam }
       })) as QuizAttemptRecord | null;
       if (!attempt) return res.status(404).json({ error: "attempt not found" });
+      if (!(await staffPuedeGestionarIntento(req, attempt))) {
+        return res.status(403).json({ error: "forbidden" });
+      }
 
       const grading = safeJsonParse<AttemptGrading>(
         attempt.grading as unknown as string,
@@ -2856,11 +2884,37 @@ quizAttempts.get(
     const aulaId = typeof req.query.aulaId === "string"
       ? req.query.aulaId : null;
 
+    // C3 — el ranking muestra nombres y puntajes de alumnos: solo los de la escuela de quien lo pide (y, si
+    // pide un aula, tiene que ser de esa escuela y ser miembro o personal). Antes devolvía el top de TODA la
+    // plataforma, con nombres de menores de otras escuelas. El ADMIN ve todo.
+    let soloDeLaEscuela: string[] | null = null;
+    if (!hasRole(req.user as never, "ADMIN")) {
+      const escuela = typeof req.user?.schoolId === "string" ? req.user.schoolId : null;
+      if (!escuela) return res.status(403).json({ error: "forbidden" });
+      if (aulaId) {
+        const clase = await prisma.clase.findFirst({
+          where: { id: aulaId, isDeleted: { not: true } },
+          include: { miembros: true }
+        });
+        const yo = typeof req.user?._id?.toString === "function" ? req.user._id.toString() : (req.user?.id ?? "");
+        const esMiembro = !!clase?.miembros.some((m) => m.usuarioId === yo);
+        if (!clase || clase.escuelaId !== escuela || (!esMiembro && !isStaffRole(req.user?.role ?? null))) {
+          return res.status(404).json({ error: "classroom not found" });
+        }
+      }
+      const miembros = await prisma.membresia.findMany({
+        where: { escuelaId: escuela, estado: "activa" },
+        select: { usuarioId: true }
+      });
+      soloDeLaEscuela = miembros.map((m) => m.usuarioId);
+    }
+
     const grouped = await prisma.quizCompetencia.groupBy({
       by: ["usuarioId"],
       where: {
         quizId,
         ...(aulaId ? { aulaId } : {}),
+        ...(soloDeLaEscuela ? { usuarioId: { in: soloDeLaEscuela } } : {}),
       },
       _min: { tiempoSeg: true, completadoAt: true },
       _max: { score: true, maxScore: true },
