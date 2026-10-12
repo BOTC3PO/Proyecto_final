@@ -62,6 +62,13 @@ function matchScalar(value: unknown, condition: unknown): boolean {
     if ("lte" in cond && !(value <= (cond.lte as number))) return false;
     if ("lt" in cond && !(value < (cond.lt as number))) return false;
   }
+  // Fechas ISO guardadas como texto (H17): solo cuando ambos lados son texto.
+  if (typeof value === "string") {
+    if ("gte" in cond && typeof cond.gte === "string" && !(value >= cond.gte)) return false;
+    if ("gt" in cond && typeof cond.gt === "string" && !(value > cond.gt)) return false;
+    if ("lte" in cond && typeof cond.lte === "string" && !(value <= cond.lte)) return false;
+    if ("lt" in cond && typeof cond.lt === "string" && !(value < cond.lt)) return false;
+  }
   if ("in" in cond) {
     const arr = cond.in as readonly unknown[];
     if (!arr.includes(value)) return false;

@@ -196,7 +196,7 @@ async function seedEvent(opts: {
 
 async function getFeed(userId: string, role: string) {
   const token = tokenFor({ id: userId, role, schoolId: SCHOOL_A });
-  return jsonRequest(baseUrl, "GET", "/api/calendario/unificado", { token });
+  return jsonRequest(baseUrl, "GET", "/api/calendario/unificado?desde=2026-01-01&hasta=2026-12-31", { token });
 }
 
 test("FIX-CALENDARIO-B: feed unificado — evento global visible para todos los de la escuela", async () => {

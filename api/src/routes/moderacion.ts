@@ -4,6 +4,7 @@ import { generateId } from "../lib/ids";
 import { requireUser } from "../lib/user-auth";
 import { hasRole } from "../lib/roles";
 import { recordAuditLog } from "../lib/audit-log";
+import { perteneceAEscuela } from "../lib/pertenece-escuela";
 
 export const moderacion = Router();
 
@@ -36,13 +37,7 @@ const whereEscuela = (escuelaId: string | null) => (escuelaId ? { escuelaId } : 
  */
 export const puedeSancionar = async (escuelaId: string | null, usuarioId: string): Promise<boolean> => {
   if (!escuelaId) return true; // admin de plataforma
-  const membresia = await prisma.membresia.findFirst({
-    where: { usuarioId, escuelaId, estado: "activa" }
-  });
-  if (membresia) return true;
-  // Compat con filas anteriores al backfill de membresías.
-  const usuario = await prisma.usuario.findFirst({ where: { id: usuarioId } });
-  return usuario?.escuelaId === escuelaId;
+  return perteneceAEscuela(escuelaId, usuarioId);
 };
 
 const clampLimit = (value: string | undefined) => {
