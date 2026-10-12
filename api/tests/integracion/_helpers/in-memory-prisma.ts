@@ -41,7 +41,8 @@ function applyData<T extends Row>(row: T, data: Record<string, unknown>): T {
 
 function matchScalar(value: unknown, condition: unknown): boolean {
   if (condition === null || condition === undefined) {
-    return value === condition || (value === null && condition === undefined);
+    // En Postgres una columna sin valor es NULL: una fila sembrada sin la clave equivale a `null`.
+    return value === condition || (value === null && condition === undefined) || (condition === null && value === undefined);
   }
   if (typeof condition !== "object" || Array.isArray(condition)) {
     return value === condition;

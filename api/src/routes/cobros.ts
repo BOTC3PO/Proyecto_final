@@ -182,29 +182,33 @@ cobros.post("/api/cobros/:id/publicar", requireUser, async (req, res) => {
 
   const nowIso = now();
   const montosPersonalizados = parsed.data.montosPersonalizados ?? {};
-  const cuotas = await Promise.all(
-    [...alumnoIds].map((alumnoId) =>
-      prisma.cuotaAlumno.create({
-        data: {
-          id: randomUUID(),
-          cobroId: cobro.id,
-          alumnoId,
-          pagadorId: pagadorPorAlumno.get(alumnoId) ?? null,
-          estado: "pendiente",
-          montoFinal: montosPersonalizados[alumnoId] ?? cobro.montoUnitario,
-          createdAt: nowIso,
-          updatedAt: nowIso
-        }
-      })
-    )
-  );
-
-  await prisma.cobroEscuela.update({
-    where: { id: cobro.id },
-    data: { estado: "publicado", updatedAt: nowIso }
+  // Dos "publicar" simultáneos pasaban los dos el chequeo de "borrador" y chocaban contra el índice único
+  // de (cobro, alumno) a mitad de camino. Ahora el cambio de estado es el reclamo (compare-and-swap) y
+  // las cuotas se crean en la misma transacción: gana uno solo y, si algo falla, no queda nada a medias.
+  const cuotasCreadas = await prisma.$transaction(async (tx) => {
+    const reclamo = await tx.cobroEscuela.updateMany({
+      where: { id: cobro.id, estado: "borrador" },
+      data: { estado: "publicado", updatedAt: nowIso }
+    });
+    if (reclamo.count !== 1) return null;
+    const filas = [...alumnoIds].map((alumnoId) => ({
+      id: randomUUID(),
+      cobroId: cobro.id,
+      alumnoId,
+      pagadorId: pagadorPorAlumno.get(alumnoId) ?? null,
+      estado: "pendiente",
+      montoFinal: montosPersonalizados[alumnoId] ?? cobro.montoUnitario,
+      createdAt: nowIso,
+      updatedAt: nowIso
+    }));
+    await tx.cuotaAlumno.createMany({ data: filas });
+    return filas.length;
   });
+  if (cuotasCreadas === null) {
+    return res.status(409).json({ error: "el cobro ya fue publicado" });
+  }
 
-  res.json({ ok: true, cobroId: cobro.id, cuotasCreadas: cuotas.length });
+  res.json({ ok: true, cobroId: cobro.id, cuotasCreadas });
 });
 
 // GET /api/cuotas/mias — la familia ve sus cuotas: propias (alumno) o de
@@ -364,10 +368,22 @@ cobros.post("/api/cuotas/:id/checkout", requireUser, async (req, res) => {
       updatedAt: nowIso
     }
   });
-  await prisma.cuotaAlumno.update({
-    where: { id: cuota.id },
+  // Dos checkouts simultáneos de la misma cuota creaban dos pagos y el segundo pisaba al primero. El
+  // vínculo se reclama con una condición (la cuota sigue con el pago que leímos, o sin pago); si perdimos, el pago que acabamos de
+  // crear sobra y se devuelve el que ganó.
+  const reclamo = await prisma.cuotaAlumno.updateMany({
+    where: { id: cuota.id, pagoId: cuota.pagoId ?? null, estado: { notIn: ["pagada", "anulada"] } },
     data: { pagoId: pago.id, estado: "en_proceso", updatedAt: nowIso }
   });
+  if (reclamo.count !== 1) {
+    await prisma.pago.deleteMany({ where: { id: pago.id, estado: "pendiente" } });
+    const actual = await prisma.cuotaAlumno.findFirst({ where: { id: cuota.id } });
+    const ganador = actual?.pagoId ? await prisma.pago.findFirst({ where: { id: actual.pagoId } }) : null;
+    if (!ganador || ganador.estado === "pagada") {
+      return res.status(409).json({ error: "la cuota cambió mientras se iniciaba el pago; reintentá" });
+    }
+    return res.json({ pago: ganador, url: ganador.provider === "manual" ? null : url });
+  }
 
   res.status(201).json({ pago, url });
 });

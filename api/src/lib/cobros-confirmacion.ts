@@ -98,11 +98,20 @@ export const confirmarPago = async (
   // confirmaciones entran a la vez (webhook + reconciliación), sólo una
   // ve count === 1 y sólo esa asienta la comisión.
   const nowIso = now();
-  const { count } = await prisma.pago.updateMany({
-    where: { id: pago.id, estado: { not: "pagada" } },
-    data: { estado: "pagada", updatedAt: nowIso }
+  // El pago y la cuota cambian juntos: si el proceso se corta entre los dos, la cuota quedaba impaga con
+  // el pago ya cobrado y el reintento veía "ya confirmado". Ahora o pasan los dos o ninguno.
+  const cuotaActualizada = await prisma.$transaction(async (tx) => {
+    const { count } = await tx.pago.updateMany({
+      where: { id: pago.id, estado: { not: "pagada" } },
+      data: { estado: "pagada", updatedAt: nowIso }
+    });
+    if (count === 0) return null;
+    return tx.cuotaAlumno.update({
+      where: { id: cuota.id },
+      data: { estado: "pagada", updatedAt: nowIso }
+    });
   });
-  if (count === 0) {
+  if (!cuotaActualizada) {
     return { alreadyConfirmed: true, pago: { ...pago, estado: "pagada" }, cuota, transaccion: null };
   }
 
@@ -112,6 +121,17 @@ export const confirmarPago = async (
     mpPaymentId: pago.providerRef,
     provider: pago.provider
   });
+  // `registrarTransaccionEscuela` traga sus errores para no frenar la acreditación; si no hubo asiento
+  // con un monto positivo, queda constancia para conciliarlo a mano en vez de perderse en silencio.
+  if (!asiento && cuota.montoFinal > 0) {
+    await recordAuditLog({
+      actorId,
+      action: "pago.asiento_fallido",
+      targetType: "Pago",
+      targetId: pago.id,
+      metadata: { cuotaId: cuota.id, escuelaId: cobro.escuelaId, provider: pago.provider, monto: cuota.montoFinal }
+    });
+  }
   const pagoActualizado = await prisma.pago.update({
     where: { id: pago.id },
     data: {
@@ -119,10 +139,6 @@ export const confirmarPago = async (
       montoNetoEscuela: asiento?.montoNeto ?? null,
       updatedAt: nowIso
     }
-  });
-  const cuotaActualizada = await prisma.cuotaAlumno.update({
-    where: { id: cuota.id },
-    data: { estado: "pagada", updatedAt: nowIso }
   });
 
   // ── 3. Rastro ───────────────────────────────────────────────────
