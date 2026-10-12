@@ -1,3 +1,5 @@
+import { perteneceAEscuela } from "../lib/pertenece-escuela";
+import { hasRole } from "../lib/roles";
 import express, { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
@@ -100,6 +102,18 @@ const resolveAuthenticatedUserId = (req: any) => {
   return null;
 };
 
+/**
+ * C3 — ¿quién pide puede ver/escribir el progreso de `usuarioId`? Uno mismo, el ADMIN, o personal de una
+ * escuela a la que pertenece el alumno. Antes bastaba ser personal de CUALQUIER escuela.
+ */
+const puedeTocarProgresoDe = async (req: express.Request, usuarioId: string, propioId: string): Promise<boolean> => {
+  if (usuarioId === propioId) return true;
+  if (hasRole(req.user as never, "ADMIN")) return true;
+  if (!isStaffRole(req.user?.role ?? null)) return false;
+  const escuela = typeof req.user?.schoolId === "string" ? req.user.schoolId : null;
+  return !!escuela && (await perteneceAEscuela(escuela, usuarioId));
+};
+
 progreso.post(
   "/api/progreso",
   requireUser,
@@ -116,7 +130,7 @@ progreso.post(
         updatedAt: req.body?.updatedAt ?? new Date().toISOString()
       };
       const parsed = ProgressSchema.parse(payload);
-      if (parsed.usuarioId !== authenticatedUserId && !isStaffRole(req.user?.role ?? null)) {
+      if (!(await puedeTocarProgresoDe(req, parsed.usuarioId, authenticatedUserId))) {
         return res.status(403).json({ error: "forbidden" });
       }
       if (parsed.aulaId) {
@@ -161,7 +175,7 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
   if (!authenticatedUserId) {
     return res.status(401).json({ error: "user not authenticated" });
   }
-  if (usuarioId !== authenticatedUserId && !isStaffRole(req.user?.role ?? null)) {
+  if (!(await puedeTocarProgresoDe(req, usuarioId, authenticatedUserId))) {
     return res.status(403).json({ error: "forbidden" });
   }
   const aulaId = getQueryString(req.query.aulaId);
