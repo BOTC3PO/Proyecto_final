@@ -23,7 +23,8 @@ import express, { Router } from "express";
 import path from "path";
 import crypto from "crypto";
 import { requireUser } from "../lib/user-auth";
-import { putMedia, getMedia, mediaPublicUrl } from "../lib/media-storage";
+import { ENV } from "../lib/env";
+import { putMedia, getMedia, mediaPublicUrl, localMediaPath } from "../lib/media-storage";
 
 export const mediaRouter = Router();
 
@@ -50,6 +51,7 @@ const MIME: Record<string, string> = {
   ".pdf": "application/pdf",
 };
 
+/** Extensión por defecto si el formato no se pudo determinar (no debería pasar tras validar la firma). */
 const EXTENSION_BY_KIND: Record<MediaKind, string> = {
   image: "png",
   audio: "mp3",
@@ -163,11 +165,41 @@ const SIGNATURES: Array<{
   },
 ];
 
+/**
+ * Formato real del archivo según su firma (B7). Antes la extensión salía solo del `kind`, así que un
+ * JPEG o WebP se guardaba y se servía como `.png`, un audio OGG/WAV como `.mp3` y un WebM como
+ * `.mp4`, y los navegadores estrictos podían no reproducirlos. La firma ya se validó: acá solo se
+ * distingue cuál es.
+ */
+export function detectarExtension(kind: MediaKind, buf: Buffer): string {
+  const ascii = (a: number, b: number) => buf.subarray(a, b).toString("latin1");
+  switch (kind) {
+    case "image":
+      if (buf[0] === 0xff && buf[1] === 0xd8) return "jpg";
+      if (ascii(0, 3) === "GIF") return "gif";
+      if (ascii(0, 4) === "RIFF" && ascii(8, 12) === "WEBP") return "webp";
+      return "png";
+    case "pdf":
+      return "pdf";
+    case "audio":
+      if (ascii(0, 4) === "RIFF") return "wav";
+      if (ascii(0, 4) === "OggS") return "ogg";
+      if (ascii(4, 8) === "ftyp") return "m4a";
+      if (buf[0] === 0xff && ((buf[1] ?? 0) & 0xf6) === 0xf0) return "aac";
+      return "mp3";
+    case "video":
+      if (buf[0] === 0x1a && buf[1] === 0x45 && buf[2] === 0xdf && buf[3] === 0xa3) return "webm";
+      if (ascii(0, 4) === "OggS") return "ogv";
+      if (ascii(4, 8) === "ftyp" && ascii(8, 12) === "qt  ") return "mov";
+      return "mp4";
+  }
+}
+
 /** Patrón de nombre de archivo: 32 hex + .<ext> (ext según kind). */
 const FILE_NAME_RE = /^[a-f0-9]{32}\.[a-z0-9]{2,5}$/;
 
 export type MediaInspection =
-  | { ok: true; kind: MediaKind; mimeType: string }
+  | { ok: true; kind: MediaKind; mimeType: string; extension: string }
   | { ok: false; status: number; error: string };
 
 /** Valida que `buf` sea un archivo aceptable para subir. Pura. */
@@ -220,7 +252,9 @@ export function inspectMediaUpload(
       };
     }
   }
-  return { ok: true, kind, mimeType: declaredMime || MIME[`.${EXTENSION_BY_KIND[kind]}`] };
+  const extension = detectarExtension(kind, buf);
+  // El tipo que se informa es el del formato real, no el que declaró el cliente.
+  return { ok: true, kind, extension, mimeType: MIME[`.${extension}`] ?? declaredMime };
 }
 
 function parseKind(raw: string | undefined): MediaKind | null {
@@ -250,12 +284,7 @@ mediaRouter.get("/:archivo", async (req, res) => {
   if (publicUrl) {
     return res.redirect(302, publicUrl);
   }
-  const content = await getMedia(archivo);
-  if (!content) {
-    return res.status(404).json({ error: "not found" });
-  }
   const mime = mimeForFile(archivo) ?? "application/octet-stream";
-  res.setHeader("Content-Type", mime);
   // Defensa contra MIME-sniffing: bloquea que el browser "adivine" un
   // content-type distinto al servido (riesgo XSS vía polyglot). Ver F-02.
   // NO forzamos `Content-Disposition: attachment` acá — SVG ya está
@@ -265,22 +294,92 @@ mediaRouter.get("/:archivo", async (req, res) => {
   // `/api/media/:archivo` directo como `src` de un <audio>, lo mismo
   // para <img>/<video>/PDFs embebidos. Forzar descarga rompería eso sin
   // sumar defensa real ya que el vector estaba cerrado en el upload.
-  res.setHeader("X-Content-Type-Options", "nosniff");
-  res.setHeader("Cache-Control", "public, max-age=86400");
+  const cabeceras = {
+    "Content-Type": mime,
+    "X-Content-Type-Options": "nosniff",
+    "Cache-Control": "public, max-age=86400",
+  };
+
+  // Disco local: se entrega como flujo, con soporte de rangos (Safari no reproduce ni adelanta
+  // video/audio sin ellos) y sin cargar el archivo entero a memoria (D1).
+  const enDisco = await localMediaPath(archivo);
+  if (enDisco) {
+    return res.sendFile(enDisco, { headers: cabeceras, acceptRanges: true, dotfiles: "deny" }, (err) => {
+      if (!err || res.headersSent) return;
+      // 416 si el rango pedido no cabe en el archivo; 404 para todo lo demás (ya no está, etc.).
+      const status = (err as { status?: number }).status === 416 ? 416 : 404;
+      res.status(status).json({ error: status === 416 ? "range not satisfiable" : "not found" });
+    });
+  }
+
+  const content = await getMedia(archivo);
+  if (!content) {
+    return res.status(404).json({ error: "not found" });
+  }
+  for (const [k, v] of Object.entries(cabeceras)) res.setHeader(k, v);
   res.setHeader("Content-Length", String(content.length));
   res.send(content);
 });
 
 /**
- * Tamaño máximo a aceptar por `express.raw` — el mayor de los kinds
- * (video 100 MB) más un margen para overhead HTTP.
+ * Una subida por vez no puede ocupar más memoria que el máximo de su tipo: se mira el tipo y el
+ * `Content-Length` ANTES de leer el cuerpo, y el parser tiene el tope de ese tipo (antes eran 110 MB
+ * para cualquier subida, incluso una imagen de 5 MB).
  */
-const RAW_LIMIT = "110mb";
+const parsersPorTipo: Record<MediaKind, express.RequestHandler> = {
+  image: express.raw({ type: () => true, limit: MAX_BYTES_BY_KIND.image }),
+  audio: express.raw({ type: () => true, limit: MAX_BYTES_BY_KIND.audio }),
+  video: express.raw({ type: () => true, limit: MAX_BYTES_BY_KIND.video }),
+  pdf: express.raw({ type: () => true, limit: MAX_BYTES_BY_KIND.pdf }),
+};
+
+const leerCuerpoSegunTipo: express.RequestHandler = (req, res, next) => {
+  const kind = parseKind((req.headers["x-media-kind"] as string | undefined) ?? undefined);
+  if (!kind) {
+    return res.status(400).json({ error: "falta la cabecera X-Media-Kind (image | audio | video | pdf)" });
+  }
+  const largo = Number(req.headers["content-length"]);
+  if (Number.isFinite(largo) && largo > MAX_BYTES_BY_KIND[kind]) {
+    const mb = Math.round(MAX_BYTES_BY_KIND[kind] / 1024 / 1024);
+    return res.status(413).json({ error: `el archivo supera el máximo de ${mb} MB para ${kind}` });
+  }
+  return parsersPorTipo[kind](req, res, next);
+};
+
+/** Tope de subidas por usuario y por hora (en memoria: alcanza para un solo proceso; ver D5). */
+const subidasPorUsuario = new Map<string, number[]>();
+const VENTANA_MS = 60 * 60 * 1000;
+
+export function registrarSubida(usuarioId: string, ahora = Date.now(), limite = ENV.MEDIA_UPLOADS_POR_HORA): boolean {
+  const recientes = (subidasPorUsuario.get(usuarioId) ?? []).filter((t) => ahora - t < VENTANA_MS);
+  if (recientes.length >= limite) {
+    subidasPorUsuario.set(usuarioId, recientes);
+    return false;
+  }
+  recientes.push(ahora);
+  subidasPorUsuario.set(usuarioId, recientes);
+  return true;
+}
+
+/** Solo para pruebas. */
+export function reiniciarContadorDeSubidas() {
+  subidasPorUsuario.clear();
+}
+
+const limitarSubidasPorUsuario: express.RequestHandler = (req, res, next) => {
+  const u = (req as { user?: { id?: string; _id?: { toString?: () => string } } }).user;
+  const id = u?._id?.toString?.() ?? u?.id;
+  if (id && !registrarSubida(id)) {
+    return res.status(429).json({ error: "superaste el máximo de subidas por hora; probá más tarde" });
+  }
+  return next();
+};
 
 mediaRouter.post(
   "/upload",
   requireUser,
-  express.raw({ type: () => true, limit: RAW_LIMIT }),
+  limitarSubidasPorUsuario,
+  leerCuerpoSegunTipo,
   async (req, res) => {
     const buf = req.body;
     const declaredMime = (req.headers["content-type"] ?? "").split(";")[0].trim();
@@ -289,8 +388,7 @@ mediaRouter.post(
     if (!check.ok) {
       return res.status(check.status).json({ error: check.error });
     }
-    const ext = EXTENSION_BY_KIND[check.kind];
-    const name = `${crypto.randomBytes(16).toString("hex")}.${ext}`;
+    const name = `${crypto.randomBytes(16).toString("hex")}.${check.extension}`;
     try {
       await putMedia(name, buf);
     } catch {

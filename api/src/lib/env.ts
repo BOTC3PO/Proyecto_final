@@ -43,6 +43,8 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   PLAZO_FIJO_TASA_ANUAL: Number(process.env.PLAZO_FIJO_TASA_ANUAL ?? 75),
   // Tope por operación de plazo fijo / FCI.
   INSTRUMENTOS_MONTO_MAX: Number(process.env.INSTRUMENTOS_MONTO_MAX ?? 1_000_000),
+  // Subidas de media por usuario y por hora (cada una puede pesar hasta 100 MB).
+  MEDIA_UPLOADS_POR_HORA: Number(process.env.MEDIA_UPLOADS_POR_HORA ?? 60),
   MAX_PAGES_POST_MB: Number(process.env.MAX_PAGES_POST_MB ?? 5),
   MONGO_TLS: parseBool(process.env.MONGO_TLS, false),
   MONGO_REQUIRE_TLS: parseBool(process.env.MONGO_REQUIRE_TLS, true),

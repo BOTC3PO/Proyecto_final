@@ -13,6 +13,8 @@ import {
   inspectMediaUpload,
   isValidMediaName,
   mimeForFile,
+  registrarSubida,
+  reiniciarContadorDeSubidas,
 } from "../../src/routes/media";
 
 let baseUrl: string;
@@ -79,6 +81,7 @@ after(async () => {
 });
 
 beforeEach(() => {
+  reiniciarContadorDeSubidas();
   resetPrisma();
   seedUser({ id: "profe-1", role: "TEACHER", schoolId: "esc-1" });
 });
@@ -86,11 +89,11 @@ beforeEach(() => {
 test("inspectMediaUpload acepta cada kind con magic bytes correctos", () => {
   assert.deepEqual(
     inspectMediaUpload(fakePng(), "image/png", "image"),
-    { ok: true, kind: "image", mimeType: "image/png" },
+    { ok: true, kind: "image", mimeType: "image/png", extension: "png" },
   );
   assert.deepEqual(
     inspectMediaUpload(fakePdf(), "application/pdf", "pdf"),
-    { ok: true, kind: "pdf", mimeType: "application/pdf" },
+    { ok: true, kind: "pdf", mimeType: "application/pdf", extension: "pdf" },
   );
   const mp3 = inspectMediaUpload(fakeMp3(), "audio/mpeg", "audio");
   assert.equal(mp3.ok, true);
@@ -238,4 +241,88 @@ test("GET /api/media con nombre inválido → 400; inexistente → 404", async (
     `${baseUrl}/api/media/0123456789abcdef0123456789abcdef.png`,
   );
   assert.equal(inexistente.status, 404);
+});
+
+// ── Formato real (B7) ──────────────────────────────────────────────────────
+
+const docente = () => tokenFor({ id: "profe-1", role: "TEACHER", schoolId: "esc-1" });
+
+const FORMATOS: Array<{ nombre: string; kind: string; mime: string; bytes: Buffer; ext: string; servido: string }> = [
+  { nombre: "JPEG", kind: "image", mime: "image/jpeg", bytes: Buffer.from([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3]), ext: "jpg", servido: "image/jpeg" },
+  { nombre: "GIF", kind: "image", mime: "image/gif", bytes: Buffer.from("GIF89a-cuerpo"), ext: "gif", servido: "image/gif" },
+  { nombre: "WebP", kind: "image", mime: "image/webp", bytes: Buffer.concat([Buffer.from("RIFF"), Buffer.from([1, 0, 0, 0]), Buffer.from("WEBPVP8 ")]), ext: "webp", servido: "image/webp" },
+  { nombre: "WAV", kind: "audio", mime: "audio/wav", bytes: Buffer.concat([Buffer.from("RIFF"), Buffer.from([1, 0, 0, 0]), Buffer.from("WAVEfmt ")]), ext: "wav", servido: "audio/wav" },
+  { nombre: "OGG", kind: "audio", mime: "audio/ogg", bytes: Buffer.from("OggS-cuerpo"), ext: "ogg", servido: "audio/ogg" },
+  { nombre: "M4A", kind: "audio", mime: "audio/mp4", bytes: Buffer.concat([Buffer.from([0, 0, 0, 0x20]), Buffer.from("ftypM4A ")]), ext: "m4a", servido: "audio/mp4" },
+  { nombre: "WebM", kind: "video", mime: "video/webm", bytes: Buffer.from([0x1a, 0x45, 0xdf, 0xa3, 1, 2, 3]), ext: "webm", servido: "video/webm" },
+  { nombre: "MOV", kind: "video", mime: "video/quicktime", bytes: Buffer.concat([Buffer.from([0, 0, 0, 0x14]), Buffer.from("ftypqt  ")]), ext: "mov", servido: "video/quicktime" },
+];
+
+for (const f of FORMATOS) {
+  test(`B7: un ${f.nombre} se guarda y se sirve como .${f.ext} con ${f.servido}`, async () => {
+    const r = await uploadRaw(docente(), f.bytes, f.mime, f.kind);
+    assert.equal(r.status, 201, JSON.stringify(r.body));
+    const { url, mimeType } = r.body as { url: string; mimeType: string };
+    assert.match(url, new RegExp(`\\.${f.ext}$`));
+    assert.equal(mimeType, f.servido);
+    const get = await fetch(`${baseUrl}${url}`);
+    assert.equal(get.headers.get("content-type"), f.servido);
+  });
+}
+
+// ── Servicio por flujo con rangos (D1) ─────────────────────────────────────
+
+test("D1: el archivo se sirve con soporte de rangos (206) y anuncia Accept-Ranges", async () => {
+  const bytes = fakeMp4("x".repeat(5000));
+  const r = await uploadRaw(docente(), bytes, "video/mp4", "video");
+  const url = (r.body as { url: string }).url;
+
+  const completo = await fetch(`${baseUrl}${url}`);
+  assert.equal(completo.status, 200);
+  assert.equal(completo.headers.get("accept-ranges"), "bytes");
+  assert.equal(completo.headers.get("x-content-type-options"), "nosniff");
+  assert.equal(completo.headers.get("content-length"), String(bytes.length));
+
+  const parcial = await fetch(`${baseUrl}${url}`, { headers: { range: "bytes=10-109" } });
+  assert.equal(parcial.status, 206);
+  assert.equal(parcial.headers.get("content-range"), `bytes 10-109/${bytes.length}`);
+  const trozo = Buffer.from(await parcial.arrayBuffer());
+  assert.equal(trozo.length, 100);
+  assert.ok(trozo.equals(bytes.subarray(10, 110)));
+
+  const fuera = await fetch(`${baseUrl}${url}`, { headers: { range: `bytes=${bytes.length + 10}-` } });
+  assert.equal(fuera.status, 416);
+});
+
+test("D1: un archivo inexistente con nombre válido → 404 (sin romper el servidor)", async () => {
+  const r = await fetch(`${baseUrl}/api/media/${"a".repeat(32)}.mp4`);
+  assert.equal(r.status, 404);
+});
+
+// ── Límite de memoria y de subidas (D2 / B7) ───────────────────────────────
+
+test("D2: una imagen que supera su máximo se rechaza con 413 antes de leerla", async () => {
+  const grande = Buffer.concat([PNG_MAGIC, Buffer.alloc(6 * 1024 * 1024)]); // > 5 MB
+  const r = await uploadRaw(docente(), grande, "image/png", "image");
+  assert.equal(r.status, 413);
+});
+
+test("D2: un audio de 6 MB (dentro de su máximo) sí entra aunque supere el de imagen", async () => {
+  const audio = Buffer.concat([Buffer.from([0xff, 0xfb, 0x90, 0x00]), Buffer.alloc(6 * 1024 * 1024)]);
+  const r = await uploadRaw(docente(), audio, "audio/mpeg", "audio");
+  assert.equal(r.status, 201, JSON.stringify(r.body));
+});
+
+test("B7: tope de subidas por usuario y hora", () => {
+  const t0 = 1_000_000;
+  for (let i = 0; i < 3; i++) assert.equal(registrarSubida("u1", t0 + i, 3), true);
+  assert.equal(registrarSubida("u1", t0 + 10, 3), false, "la cuarta en la misma hora se rechaza");
+  assert.equal(registrarSubida("u2", t0 + 10, 3), true, "otro usuario no se ve afectado");
+  assert.equal(registrarSubida("u1", t0 + 60 * 60 * 1000 + 5, 3), true, "pasada la hora vuelve a poder");
+});
+
+test("B7: por HTTP, superado el tope la subida responde 429", async () => {
+  for (let i = 0; i < 60; i++) registrarSubida("profe-1");
+  const r = await uploadRaw(docente(), fakePng(), "image/png", "image");
+  assert.equal(r.status, 429);
 });

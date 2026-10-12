@@ -65,6 +65,22 @@ export const getMedia = async (name: string): Promise<Buffer | null> => {
   }
 };
 
+/**
+ * Ruta absoluta del archivo en disco (solo backend "local"), o `null` si no existe / el backend es S3.
+ * Sirve para entregarlo como flujo (con rangos) en vez de leerlo entero a memoria.
+ */
+export const localMediaPath = async (name: string): Promise<string | null> => {
+  if (ENV.MEDIA_STORAGE === "s3") return null;
+  const abs = path.resolve(LOCAL_ROOT, name);
+  if (path.dirname(abs) !== LOCAL_ROOT) return null; // defensa extra contra path traversal
+  try {
+    const st = await fs.stat(abs);
+    return st.isFile() ? abs : null;
+  } catch {
+    return null;
+  }
+};
+
 /** URL pública directa al archivo (evita proxyear por el API), o `null` si no aplica. */
 export const mediaPublicUrl = (name: string): string | null => {
   if (ENV.MEDIA_STORAGE === "s3" && ENV.MEDIA_S3_PUBLIC_URL) {
