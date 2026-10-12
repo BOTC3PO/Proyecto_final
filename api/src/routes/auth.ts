@@ -9,6 +9,7 @@ import { toObjectId } from "../lib/ids";
 import { createAccessToken, createRefreshToken, verifyToken } from "../lib/auth-token";
 import { getCanonicalMembershipRole } from "../lib/membership-roles";
 import { sincronizarMembresia } from "../lib/memberships";
+import { canjearCodigoPadre, validarCodigoPadre } from "../lib/codigos-padre";
 import { escuelasDisponiblesPara, resolverSesionEscuela } from "../lib/sesion-escuela";
 import {
   hashPassword,
@@ -241,6 +242,27 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
       }
       escuelaExists = true;
     }
+    // K8 — el rol de padre/madre solo se obtiene con un código de invitación que emite la escuela para UN
+    // alumno: el código fija la escuela y el vínculo. Antes cualquiera se registraba como padre y vinculaba
+    // al menor que quisiera por su nombre de usuario.
+    let codigoPadre: string | null = null;
+    if (role === "PARENT") {
+      if (!parsed.inviteCode) {
+        res.status(400).json({
+          error: "Para registrarte como padre/madre necesitás el código de invitación que te da la escuela.",
+          code: "REQUIERE_CODIGO"
+        });
+        return;
+      }
+      const valido = await validarCodigoPadre(parsed.inviteCode);
+      if (!valido.ok) {
+        res.status(valido.status).json({ error: valido.error });
+        return;
+      }
+      escuelaId = valido.escuelaId;
+      escuelaExists = true;
+      codigoPadre = parsed.inviteCode;
+    }
     const membershipRole = getCanonicalMembershipRole(role);
     if (escuelaId && !membershipRole) {
       res.status(400).json({ error: "Role requires no school membership" });
@@ -303,6 +325,16 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
         rolUsuario: role,
         fechaAlta: now
       });
+    }
+    if (codigoPadre) {
+      const canje = await canjearCodigoPadre(codigoPadre, result.id);
+      if (!canje.ok) {
+        // El código se gastó en otro registro justo antes, o el alumno ya tiene 2 familiares: no queda cuenta.
+        await prisma.membresia.deleteMany({ where: { usuarioId: result.id } });
+        await prisma.usuario.deleteMany({ where: { id: result.id } });
+        res.status(canje.status).json({ error: canje.error });
+        return;
+      }
     }
     res.status(201).json({ id: result.id });
   } catch (e: any) {

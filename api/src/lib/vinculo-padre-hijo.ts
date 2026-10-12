@@ -23,6 +23,7 @@
  * escuela, etc.) lo hace cada ruta antes de llamar acá.
  */
 
+import { bloquearClave } from "./economia-saldo";
 import { Prisma } from "@prisma/client";
 import { prisma } from "./prisma";
 import { resolveRoles, resolvePrimaryRole } from "./roles";
@@ -98,81 +99,94 @@ export const vincularHijoCore = async (
     };
   }
 
-  const existing = await prisma.progresoModuloVinculo.findFirst({
-    where: { parentId, childId }
-  });
-  if (existing && existing.estado !== "revocado") {
-    return { ok: false, status: 409, error: "child already linked" };
-  }
-
-  // Máximo 2 padres activos por hijo (excluyendo el vínculo que vamos
-  // a revivir, si existe).
-  const activeCount = await prisma.progresoModuloVinculo.count({
-    where: {
-      childId,
-      estado: { not: "revocado" },
-      ...(existing ? { id: { not: existing.id } } : {})
-    }
-  });
-  if (activeCount >= 2) {
-    return { ok: false, status: 409, error: "child already has max parents" };
-  }
-
-  const now = new Date();
-  const permisos = JSON.stringify({
-    tareas: datos.permisosTareas,
-    mensajes: datos.permisosMensajes
-  });
-
-  if (existing) {
-    const estado = forzarAprobado
-      ? "aprobado"
-      : existing.estado === "aprobado"
-        ? "aprobado"
-        : "pendiente";
-    await prisma.progresoModuloVinculo.updateMany({
-      where: { id: existing.id },
-      data: {
-        estado,
-        solicitadoAt: existing.solicitadoAt ?? now.toISOString(),
-        updatedAt: now.toISOString(),
-        nombre: datos.nombre,
-        usuario: datos.usuario,
-        grado: datos.grado,
-        escuela: datos.escuela ?? null,
-        notas: datos.notas ?? null,
-        permisos
-      }
-    });
-    return { ok: true, status: 200, created: false, estado };
-  }
-
-  const estado = forzarAprobado ? "aprobado" : estadoSiNuevo;
+  // El tope de 2 familiares se cuenta y se escribe bajo un bloqueo por alumno: sin él, varios vínculos
+  // simultáneos pasaban el conteo a la vez y el alumno terminaba con más de 2 (probado en Postgres real).
   try {
-    await prisma.progresoModuloVinculo.create({
-      data: {
-        parentId,
-        childId,
-        estado,
-        solicitadoAt: now.toISOString(),
-        createdAt: now.toISOString(),
-        updatedAt: now.toISOString(),
-        nombre: datos.nombre,
-        usuario: datos.usuario,
-        grado: datos.grado,
-        escuela: datos.escuela ?? null,
-        notas: datos.notas ?? null,
-        permisos
+    return await prisma.$transaction(async (tx) => {
+      await bloquearClave(tx, `vinculo:${childId}`);
+      const existing = await tx.progresoModuloVinculo.findFirst({
+        where: { parentId, childId }
+      });
+      if (existing && existing.estado !== "revocado") {
+        return { ok: false, status: 409, error: "child already linked" };
       }
+
+      // Máximo 2 padres activos por hijo (excluyendo el vínculo que vamos
+      // a revivir, si existe).
+      const activeCount = await tx.progresoModuloVinculo.count({
+        where: {
+          childId,
+          estado: { not: "revocado" },
+          ...(existing ? { id: { not: existing.id } } : {})
+        }
+      });
+      if (activeCount >= 2) {
+        return { ok: false, status: 409, error: "child already has max parents" };
+      }
+
+      const now = new Date();
+      const permisos = JSON.stringify({
+        tareas: datos.permisosTareas,
+        mensajes: datos.permisosMensajes
+      });
+
+      if (existing) {
+        const estado = forzarAprobado
+          ? "aprobado"
+          : existing.estado === "aprobado"
+            ? "aprobado"
+            : "pendiente";
+        await tx.progresoModuloVinculo.updateMany({
+          where: { id: existing.id },
+          data: {
+            estado,
+            solicitadoAt: existing.solicitadoAt ?? now.toISOString(),
+            updatedAt: now.toISOString(),
+            nombre: datos.nombre,
+            usuario: datos.usuario,
+            grado: datos.grado,
+            escuela: datos.escuela ?? null,
+            notas: datos.notas ?? null,
+            permisos
+          }
+        });
+        return { ok: true, status: 200, created: false, estado };
+      }
+
+      const estado = forzarAprobado ? "aprobado" : estadoSiNuevo;
+      try {
+        await tx.progresoModuloVinculo.create({
+          data: {
+            parentId,
+            childId,
+            estado,
+            solicitadoAt: now.toISOString(),
+            createdAt: now.toISOString(),
+            updatedAt: now.toISOString(),
+            nombre: datos.nombre,
+            usuario: datos.usuario,
+            grado: datos.grado,
+            escuela: datos.escuela ?? null,
+            notas: datos.notas ?? null,
+            permisos
+          }
+        });
+      } catch (e) {
+        // Dos requests concurrentes pasaron el chequeo de "existing" antes de
+        // que cualquiera hiciera el insert; la unique constraint (parentId,
+        // childId) corta la segunda fila en vez de duplicarla.
+        if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === "P2002") {
+          return { ok: false, status: 409, error: "child already linked" };
+        }
+        throw e;
+      }
+      return { ok: true, status: 201, created: true, estado };
+
     });
   } catch (e) {
-    // Dos requests concurrentes pasaron el chequeo de "existing" antes de
-    // que cualquiera hiciera el insert; la unique constraint (parentId,
-    // childId) corta la segunda fila en vez de duplicarla.
     if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === "P2002") {
       return { ok: false, status: 409, error: "child already linked" };
     }
     throw e;
   }
-  return { ok: true, status: 201, created: true, estado };
 };

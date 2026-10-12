@@ -1,3 +1,4 @@
+import { hasRole } from "../lib/roles";
 import crypto from "node:crypto";
 import { Router } from "express";
 import { z } from "zod";
@@ -420,6 +421,15 @@ usuarios.get("/api/perfil", requireUser, async (req, res) => {
 // hijo cambia de rol, no de cuenta — y el vínculo con el hijo sigue siendo
 // `ProgresoModuloVinculo`, que une personas DISTINTAS y no se toca.
 usuarios.post("/api/alumnos/crear-cuenta-padre", requireUser, async (req, res) => {
+  // K8 — el rol de padre/madre ya no se autoasigna: lo da la escuela (alta del padre por el directivo) o se
+  // obtiene registrándose con un código de invitación. Quien se agregaba el rol podía luego vincular a
+  // cualquier menor. Queda solo para el ADMIN (soporte).
+  if (!hasRole(req.user as never, "ADMIN")) {
+    return res.status(403).json({
+      error: "El rol de padre/madre lo da la escuela: pedile un código de invitación.",
+      code: "REQUIERE_ESCUELA"
+    });
+  }
   const userReq = (req as { user?: { _id?: unknown; id?: unknown } }).user;
   const rawId = userReq?._id ?? userReq?.id;
   const alumnoId = rawId ? (typeof rawId === "string" ? rawId : String(rawId)) : null;

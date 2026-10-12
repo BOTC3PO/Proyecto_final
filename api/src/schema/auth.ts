@@ -33,6 +33,8 @@ export const RegisterSchema = z
     // Backward compatibility alias (legacy payloads).
     escuelaId: objectIdString.nullish(),
     schoolCode: z.string().min(2).max(32).optional(),
+    /** K8 — código que la escuela entrega a la familia de un alumno; obligatorio para registrarse como PARENT. */
+    inviteCode: z.string().min(6).max(32).optional(),
     birthdate: z.string().datetime().nullish(),
     consents: z
       .object({

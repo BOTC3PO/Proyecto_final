@@ -1,3 +1,4 @@
+import { hasRole } from "../lib/roles";
 import express, { Router } from "express";
 import { z } from "zod";
 import { prisma } from "../lib/prisma";
@@ -83,6 +84,16 @@ const ensureParentAccess = async (params: {
 padres.post("/api/hijos", requireUser, ...bodyLimitMB(2), async (req, res) => {
   const parentId = resolveParentId(req);
   if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
+  // K8 — vincular a un menor por su nombre de usuario lo dejaba aprobado al instante y sin que nadie de la
+  // escuela lo supiera: cualquiera que se registrara como padre veía los datos de cualquier alumno. Ahora
+  // el vínculo lo crea la escuela (alta del padre por el directivo) o se canjea un código que ella emite
+  // (`POST /api/hijos/canjear`). Queda solo para el ADMIN (soporte).
+  if (!hasRole(req.user as never, "ADMIN")) {
+    return res.status(403).json({
+      error: "Para vincular a tu hijo pedí un código de invitación a la escuela y canjealo.",
+      code: "REQUIERE_CODIGO"
+    });
+  }
   try {
     const parsed = VinculoHijoSchema.parse(req.body);
     const username = normalizeUsername(parsed.usuario);

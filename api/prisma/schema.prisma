@@ -1414,6 +1414,25 @@ model MensajeReportado {
   @@map("mensajes_reportados")
 }
 
+/// K8 — código de invitación que la escuela entrega a la familia de UN alumno. Se guarda solo el hash: el
+/// código en claro se muestra una vez, al crearlo. De un solo uso y con vencimiento. Canjearlo vincula
+/// (aprobado) a la persona que lo usa con ese alumno.
+model CodigoInvitacionPadre {
+  id         String  @id
+  escuelaId  String  @map("escuela_id")
+  hijoId     String  @map("hijo_id")
+  codigoHash String  @unique @map("codigo_hash")
+  creadoPor  String  @map("creado_por")
+  createdAt  String  @map("created_at")
+  expiresAt  String  @map("expires_at")
+  /// activo | usado | revocado
+  estado     String  @default("activo")
+  usadoPor   String? @map("usado_por")
+  usadoAt    String? @map("usado_at")
+  @@index([escuelaId, hijoId])
+  @@map("codigos_invitacion_padre")
+}
+
 model MensajeDirecto {
   id        String @id
   hiloId    String @map("hilo_id")

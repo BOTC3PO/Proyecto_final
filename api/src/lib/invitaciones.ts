@@ -34,7 +34,8 @@ export type Contexto = {
  * aprobación aparte. El control está un nivel más abajo y ya funciona.
  */
 export const aprobadorPara = ({ rol, esPedidoPropio }: Contexto): Aprobador | null => {
-  if (rol === "PARENT") return esPedidoPropio ? "automatico" : "destinatario";
+  // K8 — pedir el rol de padre/madre para uno mismo ya no se aprueba solo: lo resuelve el directivo.
+  if (rol === "PARENT") return esPedidoPropio ? "directivo" : "destinatario";
 
   // Invitación: la inició alguien con autoridad, falta que el otro acepte.
   if (!esPedidoPropio) return "destinatario";

@@ -44,8 +44,9 @@ const membresiasDe = (u: string) => prisma.membresia.rows.filter((m) => m.usuari
 
 // ── La matriz, como módulo puro ──────────────────────────────────
 
-test("padre pedido por uno mismo es automático; profesor y alumno los aprueba el directivo", () => {
-  assert.equal(aprobadorPara({ rol: "PARENT", esPedidoPropio: true }), "automatico");
+test("nadie se da un rol de la escuela solo: padre, profesor y alumno los aprueba el directivo", () => {
+  // K8: el rol de padre/madre dejó de ser automático (antes habilitaba a vincular a cualquier menor).
+  assert.equal(aprobadorPara({ rol: "PARENT", esPedidoPropio: true }), "directivo");
   assert.equal(aprobadorPara({ rol: "TEACHER", esPedidoPropio: true }), "directivo");
   assert.equal(aprobadorPara({ rol: "STUDENT", esPedidoPropio: true }), "directivo");
   assert.equal(aprobadorPara({ rol: "ADMIN_ESCUELA", esPedidoPropio: true }), "directivo");
@@ -103,13 +104,13 @@ test("otro alumno NO puede aprobar la solicitud", async () => {
   assert.equal(membresiasDe(ALUMNO).length, 0);
 });
 
-test("pedir el rol de padre se concede solo (el control es el vínculo con el hijo)", async () => {
+test("pedir el rol de padre queda pendiente: no se concede solo (K8)", async () => {
   const res = await jsonRequest(baseUrl, "POST", "/api/invitaciones", {
     token: tk(ALUMNO, "USER"),
     body: { rol: "PARENT", escuelaId: ESC }
   });
-  assert.equal((res.body as { estado: string }).estado, "aceptada");
-  assert.equal(membresiasDe(ALUMNO).find((m) => m.rol === "PARENT")?.estado, "activa");
+  assert.equal((res.body as { estado: string }).estado, "pendiente");
+  assert.equal(membresiasDe(ALUMNO).find((m) => m.rol === "PARENT"), undefined);
 });
 
 test("el directivo invita como admin de escuela y el invitado acepta", async () => {
