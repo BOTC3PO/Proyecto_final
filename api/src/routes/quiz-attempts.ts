@@ -2824,6 +2824,13 @@ quizAttempts.post(
   }
 );
 
+// El aula con la que se etiqueta un resultado debe ser una a la que el usuario pertenece.
+async function aulaPropia(userId: string, aulaId: unknown): Promise<string | null> {
+  if (typeof aulaId !== "string" || !aulaId) return null;
+  const m = await prisma.claseMiembro.findFirst({ where: { claseId: aulaId, usuarioId: userId } });
+  return m ? aulaId : null;
+}
+
 // POST /api/quiz-attempts/:id/competencia
 // Registrar resultado de modo competencia con tiempo
 quizAttempts.post(
@@ -2843,12 +2850,25 @@ quizAttempts.post(
           ? req.user.id : "";
     if (!userId) return res.status(401).json({ error: "not authenticated" });
 
-    const { score, maxScore, tiempoSeg, quizId, moduloId, aulaId } =
-      req.body as Record<string, unknown>;
+    const { tiempoSeg, aulaId, moduloId } = req.body as Record<string, unknown>;
 
-    if (typeof score !== "number" || typeof tiempoSeg !== "number") {
-      return res.status(400).json({ error: "score y tiempoSeg requeridos" });
+    if (typeof tiempoSeg !== "number" || !Number.isFinite(tiempoSeg) || tiempoSeg < 0) {
+      return res.status(400).json({ error: "tiempoSeg requerido" });
     }
+
+    // El puntaje sale del intento corregido por el servidor, nunca del cuerpo del pedido: antes cualquiera
+    // podía publicar un puntaje inventado en el ranking.
+    const intento = await prisma.quizAttempt.findFirst({
+      where: { id: String(req.params.id), userId, status: { in: ["submitted", "completed"] } },
+    });
+    if (!intento || typeof intento.score !== "number") {
+      return res.status(404).json({ error: "intento no encontrado o sin corregir" });
+    }
+
+    const yaRegistrado = await prisma.quizCompetencia.findFirst({
+      where: { attemptId: String(req.params.id), usuarioId: userId },
+    });
+    if (yaRegistrado) return res.status(200).json({ id: yaRegistrado.id, ok: true });
 
     const id = `qc-${randomUUID()}`;
     const now = new Date().toISOString();
@@ -2856,13 +2876,13 @@ quizAttempts.post(
     await prisma.quizCompetencia.create({
       data: {
         id,
-        quizId: typeof quizId === "string" ? quizId : "",
+        quizId: intento.quizId ?? "",
         moduloId: typeof moduloId === "string" ? moduloId : null,
-        aulaId: typeof aulaId === "string" ? aulaId : null,
+        aulaId: await aulaPropia(userId, aulaId),
         usuarioId: userId,
         attemptId: String(req.params.id),
-        score,
-        maxScore: typeof maxScore === "number" ? maxScore : score,
+        score: intento.score,
+        maxScore: typeof intento.maxScore === "number" ? intento.maxScore : intento.score,
         tiempoSeg,
         completadoAt: now,
       },

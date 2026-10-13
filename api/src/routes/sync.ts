@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
+import { hasRole } from "../lib/roles";
 
 export const sync = Router();
 
@@ -10,6 +11,14 @@ const getId = (req: { user?: { id?: string; _id?: { toString?: () => string } } 
 
 const genId = (prefix: string) =>
   `${prefix}-${randomUUID()}`;
+
+const ESTADOS_PROGRESO = new Set(["iniciado", "en_progreso", "completado"]);
+
+const aulaDelUsuario = async (userId: string, aulaId: unknown): Promise<string | null> => {
+  if (typeof aulaId !== "string" || !aulaId) return null;
+  const m = await prisma.claseMiembro.findFirst({ where: { claseId: aulaId, usuarioId: userId } });
+  return m ? aulaId : null;
+};
 
 // ── GET /api/sync/estado ────────────────────────────────────
 sync.get("/api/sync/estado", requireUser, async (req, res) => {
@@ -86,6 +95,8 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
         case "progreso": {
           const { moduloId, status, aulaId } = item.payload as Record<string, string>;
           if (!moduloId || !status) throw new Error("payload inválido");
+          if (!ESTADOS_PROGRESO.has(status)) throw new Error("estado de progreso inválido");
+          const aulaValida = await aulaDelUsuario(userId, aulaId);
 
           const existing = await prisma.progresoModulo.findFirst({
             where: { usuarioId: userId, moduloId },
@@ -110,7 +121,7 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
 
           await prisma.progresoModulo.updateMany({
             where: { usuarioId: userId, moduloId },
-            data: { status, aulaId, updatedAt: now } as any,
+            data: { status, ...(aulaValida ? { aulaId: aulaValida } : {}), updatedAt: now } as any,
           });
           results.push({ id: item.id, ok: true });
           break;
@@ -145,20 +156,25 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
         }
 
         case "competencia": {
-          const { quizId, score, maxScore, tiempoSeg, aulaId } =
-            item.payload as Record<string, unknown>;
+          // El puntaje sale del intento corregido por el servidor, no del cliente.
+          const { attemptId, tiempoSeg, aulaId } = item.payload as Record<string, unknown>;
+          if (!attemptId) throw new Error("attemptId requerido");
+          const intento = await prisma.quizAttempt.findFirst({
+            where: { id: String(attemptId), userId, status: { in: ["submitted", "completed"] } },
+          });
+          if (!intento || typeof intento.score !== "number") throw new Error("intento no corregido");
 
           await prisma.quizCompetencia.createMany({
             data: [{
-              id: item.id,
-              quizId: String(quizId ?? ""),
+              id: `qc-${randomUUID()}`,
+              quizId: intento.quizId ?? "",
               usuarioId: userId,
-              attemptId: item.id,
-              score: typeof score === "number" ? score : 0,
-              maxScore: typeof maxScore === "number" ? maxScore : 0,
-              tiempoSeg: typeof tiempoSeg === "number" ? tiempoSeg : 0,
-              aulaId: aulaId ? String(aulaId) : null,
-              completadoAt: item.createdAt ?? now,
+              attemptId: String(attemptId),
+              score: intento.score,
+              maxScore: typeof intento.maxScore === "number" ? intento.maxScore : intento.score,
+              tiempoSeg: typeof tiempoSeg === "number" && tiempoSeg >= 0 ? tiempoSeg : 0,
+              aulaId: await aulaDelUsuario(userId, aulaId),
+              completadoAt: now,
             }],
             skipDuplicates: true,
           });
@@ -200,6 +216,13 @@ sync.get("/api/sync/pull/:aulaId", requireUser, async (req, res) => {
   const sinceVersion = parseInt(String(req.query.since ?? "0"), 10);
 
   try {
+    // Solo quien pertenece al aula (o el ADMIN) puede bajarla: antes cualquier usuario obtenía los módulos y
+    // avisos de cualquier aula con solo conocer su id.
+    const esAdmin = hasRole((req as never as { user?: never }).user, "ADMIN");
+    if (!esAdmin && !(await aulaDelUsuario(userId, aulaId))) {
+      return res.status(404).json({ error: "aula no encontrada" });
+    }
+
     // Módulos del aula via ClaseModulo
     const claseModulos = await prisma.claseModulo.findMany({
       where: { claseId: aulaId },
