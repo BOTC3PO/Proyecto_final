@@ -895,8 +895,10 @@ aulas.get(
       if ((TITULAR_ROLES as readonly string[]).includes(m.roleInClass)) excluded.add(m.userId);
     }
     const candidates = await prisma.usuario.findMany({
-      where: { escuelaId: classroom.schoolId, isDeleted: { not: true } },
-      select: { id: true, fullName: true, username: true, roles: true }
+      where: { escuelaId: classroom.schoolId, isDeleted: { not: true }, roles: { hasSome: ["TEACHER", "DIRECTIVO"] } },
+      select: { id: true, fullName: true, username: true, roles: true },
+      orderBy: { fullName: "asc" },
+      take: 500
     });
     const items = candidates
       .filter((u) => !excluded.has(u.id) && (hasRole(u, "TEACHER") || hasRole(u, "DIRECTIVO")))

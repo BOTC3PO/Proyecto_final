@@ -64,7 +64,7 @@ materiales.get('/api/materiales', requireUser, async (req, res) => {
 
   // H11 — se unen tres tablas, así que cada una aporta como máximo `skip + limit + 1` filas (las más recientes) y
   // después se ordena el conjunto y se corta la página.
-  const pagina = leerPagina(req.query);
+  const pagina = leerPagina(req.query, { porDefecto: 500 });
   const porFuente = pagina.skip + pagina.take;
 
   const modulos = await prisma.modulo.findMany({

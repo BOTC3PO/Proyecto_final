@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import { randomUUID } from "crypto";
 import { prisma } from "../lib/prisma";
+import { leerPagina } from "../lib/paginacion";
 import { hasRole } from "../lib/roles";
 import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
@@ -2089,8 +2090,13 @@ modulos.get("/api/quizzes", requireUser, async (req, res) => {
     // de /cuestionarios). Default: sólo los activos, como siempre.
     const wantArchived = req.query.archivados === "true";
 
+    // H11 — página sobre dos fuentes: cada una aporta como mucho `skip + limit + 1` filas (las más recientes).
+    const pagina = leerPagina(req.query, { porDefecto: 500 });
+    const porFuente = pagina.skip + pagina.take;
     const sueltos = await prisma.quiz.findMany({
       where: { ownerUserId: requesterId, moduleId: null, isActive: !wantArchived },
+      orderBy: { updatedAt: "desc" },
+      take: porFuente,
     });
     let deModulos: typeof sueltos = [];
     const moduloTitulos = new Map<string, string>();
@@ -2099,15 +2105,23 @@ modulos.get("/api/quizzes", requireUser, async (req, res) => {
       // por relación: el stub in-memory de los tests no soporta relaciones.
       const modulosPropios = await prisma.modulo.findMany({
         where: { ownerUserId: requesterId, isDeleted: false },
+        select: { id: true, titulo: true },
+        take: 2000,
       });
       for (const m of modulosPropios) moduloTitulos.set(m.id, m.titulo);
       if (modulosPropios.length > 0) {
         deModulos = await prisma.quiz.findMany({
           where: { moduleId: { in: modulosPropios.map((m) => m.id) }, isActive: !wantArchived },
+          orderBy: { updatedAt: "desc" },
+          take: porFuente,
         });
       }
     }
-    const quizzes = [...sueltos, ...deModulos];
+    const todosLosQuizzes = [...sueltos, ...deModulos].sort((a, b) =>
+      String(b.updatedAt ?? "").localeCompare(String(a.updatedAt ?? ""))
+    );
+    const hayMas = todosLosQuizzes.length > pagina.skip + pagina.limit;
+    const quizzes = todosLosQuizzes.slice(pagina.skip, pagina.skip + pagina.limit);
 
     // Enriquecido con la versión vigente: tipo/materia/#preguntas. El
     // picker viejo ignora los campos extra, así que es aditivo.
@@ -2145,7 +2159,7 @@ modulos.get("/api/quizzes", requireUser, async (req, res) => {
           moduleTitle: q.moduleId ? (moduloTitulos.get(q.moduleId) ?? null) : null,
         };
       });
-    res.json({ items });
+    res.json({ items, hasMore: hayMas, limit: pagina.limit, offset: pagina.offset });
   } catch (e: any) {
     console.error("[GET /api/quizzes]", e);
     res.status(500).json({ error: "internal server error" });

@@ -232,34 +232,33 @@ adminRouter.get("/api/admin/reportes-global", requireAdmin, async (req, res) => 
     const dias = Number(req.query.dias ?? 30);
     const desde = new Date(Date.now() - dias * 24 * 60 * 60 * 1000).toISOString();
 
-    const [usuariosRecientes, usuariosTotalesArr, eventosRecientes, topModulos] = await Promise.all([
+    const [usuariosRecientes, usuariosTotales, eventosRecientes, completadosPorModulo] = await Promise.all([
       prisma.usuario.findMany({
         where: { isDeleted: false, createdAt: { gte: desde } },
-        select: { createdAt: true, roles: true }
+        select: { createdAt: true, roles: true },
+        take: 20000
       }),
-      prisma.usuario.findMany({
-        where: { isDeleted: false },
-        select: { id: true }
-      }),
+      prisma.usuario.count({ where: { isDeleted: false } }),
       prisma.moderacionEvento.findMany({
         where: { createdAt: { gte: desde } },
         orderBy: { createdAt: "desc" },
         take: 20,
         select: { tipo: true, motivo: true, createdAt: true }
       }),
-      prisma.progresoModulo.findMany({
+      // Se cuenta en la base, módulo por módulo (antes se traía una fila por cada módulo completado de cada alumno).
+      prisma.progresoModulo.groupBy({
+        by: ["moduloId"],
         where: { status: "completado" },
-        select: { moduloId: true }
+        _count: { _all: true }
       })
     ]);
 
-    const usuariosTotales = usuariosTotalesArr.length;
     const totalActivos = usuariosTotales; // no isActive field in Prisma schema
 
     const countByModulo = new Map<string, number>();
-    for (const p of topModulos) {
+    for (const p of completadosPorModulo) {
       const key = p.moduloId;
-      if (key) countByModulo.set(key, (countByModulo.get(key) ?? 0) + 1);
+      if (key) countByModulo.set(key, p._count?._all ?? 0);
     }
     const topModuloIds = [...countByModulo.entries()]
       .sort((a, b) => b[1] - a[1])

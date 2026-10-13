@@ -18,6 +18,7 @@ tienda.get("/api/tienda", requireUser, async (req, res) => {
   const items = await prisma.tiendaItem.findMany({
     where: { activo: 1, ...(tipo ? { tipo } : {}) },
     orderBy: [{ tipo: "asc" }, { orden: "asc" }],
+    take: 500,
   });
   return res.json({
     items: items.map((item) => ({

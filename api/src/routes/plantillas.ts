@@ -733,6 +733,7 @@ plantillas.get("/api/plantillas/:id/versions", requireUser, async (req, res) => 
     const versions = await prisma.plantillaEjercicioVersion.findMany({
       where: { plantillaId: id },
       orderBy: { version: "desc" },
+      take: 200,
     });
     res.json(
       versions.map((v) => ({
