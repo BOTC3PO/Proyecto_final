@@ -4,6 +4,7 @@ import { app } from "./app";
 import { ENV, assertSecretosDePago } from "./lib/env";
 import { scheduleDelinquencyJob } from "./lib/billing/delinquency";
 import { scheduleReconciliacionJob } from "./lib/pasarelas/reconciliacion";
+import { scheduleRetencionMensajesJob } from "./lib/retencion-mensajes";
 import { markUsersWithoutUsablePasswordForReset } from "./lib/password-health";
 import { prisma } from "./lib/prisma";
 
@@ -53,6 +54,7 @@ const bootstrap = async () => {
   }
   scheduleDelinquencyJob();
   scheduleReconciliacionJob();
+  scheduleRetencionMensajesJob();
   void runStartupDataChecks();
   await markUsersWithoutUsablePasswordForReset({
     actorId: "system",
