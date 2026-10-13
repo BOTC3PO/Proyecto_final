@@ -2138,7 +2138,7 @@ economia.get("/api/admin/economia/validacion", requireAdminAuth, async (req, res
       billeteras: billeteras.length,
       movimientos: movimientos.length,
       economiaSaldos: economiaSaldosRows.length,
-      economiaTransacciones: transaccionesRows.length
+      economiaTransacciones: await prisma.economiaTransaccion.count()
     },
     defaultsApplied,
     totalInconsistencias: inconsistencias.length,
