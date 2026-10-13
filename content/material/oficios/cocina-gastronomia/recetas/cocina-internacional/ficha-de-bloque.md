@@ -116,6 +116,20 @@ traía vino, no se incluyó.
 
 ---
 
+## La intermedia y las 6 avanzadas agregadas (2026-10-13)
+
+Se sumaron cierres de bloque con fuentes **más variadas** (el pedido fue elegir varias fuentes, sin necesidad de usar platos
+puntuales): la **sopa de miso** (`intermedias/06-sopa-de-miso.md`, MAFF Japón, tres páginas), y seis avanzadas **escaladas a 20 o
+24 raciones, con escalado y costeo** (`avanzadas/01` a `06`): **pisto de verduras** (Escuela de Hostelería de Leioa y MITECO de España),
+**minestrone** (Leioa y el recetario de legumbres del MAGyP), **moussaka vegetariana** (Leioa; versión **sin vino**, con una variante
+libanesa del MITECO solo como contraste), **rellenos de papa con carne y arroz** (recetario de la FAO Guatemala), **cocimiento mapuche de
+verduras con costilla de cerdo** (FAO, Fundación de Comunicaciones del Agro y CONADI de Chile, con el "puchero" del MAGyP como
+referencia de proporciones) y **yakisoba de verduras** (MAFF Japón). **Aviso honesto:** varias de estas recetas tienen **una sola fuente
+con cantidades** (cuentan como una, aunque sean varias páginas de la misma institución) y **cada una lo dice en su sección "Verificación"**,
+junto con las **contradicciones de las fuentes** (la sal y el wakame de la sopa de miso, el aceite del yakisoba, la salsa de tomate y el
+vino de la moussaka, los "porotos verdes" repetidos del cocimiento, y que **ninguna** fuente da la cantidad de personas del cocimiento
+ni de los rellenos). Todas siguen en `no probada`.
+
 ## Las 3 recetas básicas que vienen después
 
 Están en `basicas/` (esta carpeta). Dificultad de 1 a 2, de menor a mayor, en tres regiones distintas.
