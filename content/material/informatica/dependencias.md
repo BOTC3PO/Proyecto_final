@@ -88,3 +88,14 @@ Las filas que faltaban para que el orden por conocimientos previos (clusters de 
 | `buses-y-entrada-salida/` | `memoria-ram-cache-jerarquia/` | Nodo `ARQ3` (`ARQ2c --> ARQ3`). |
 | `ciclo-de-instruccion-fetch-decode-execute/` | `cpu-unidad-de-control-y-alu/` | Nodos `ARQ4a-c` (`ARQ1 --> ARQ4a --> ARQ4b --> ARQ4c`, una sola carpeta). |
 | `almacenamiento-volatil-vs-no-volatil/` | `memoria-ram-cache-jerarquia/` | Nodo `ARQ5` (`ARQ2c --> ARQ5`). |
+
+### Operadores (agregados 2026-10-13, revisión de los "finales de ruta")
+
+Gap real detectado: `variables-y-tipos-de-dato/` y `estructuras-de-control-condicionales/` no nombran los operadores aparte, y en la enseñanza real (PSeInt, escuela técnica argentina) son una unidad propia. Se agregan **sin modificar** las filas de arriba; si se quiere, `estructuras-de-control-condicionales/` pasaría a depender también de estos tres. *Decisión de Claude, no pedida:* el cuestionario mezcla lenguajes (C, Python, JavaScript, SQL, Bash, Excel) porque los símbolos cambian de uno a otro.
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `operadores-relacionales/` | `variables-y-tipos-de-dato/` | Comparar dos valores y obtener un booleano necesita saber qué es una variable y qué tipos hay. Nodo propuesto en `oficios-orientacion-vocacional-PLANIFICACION.md` ("Operadores"). |
+| `operadores-aritmeticos/` | `variables-y-tipos-de-dato/` | Las cuentas con variables numéricas (suma, resto, potencia, asignaciones compuestas) necesitan saber qué tipos hay (entero y decimal cambian el resultado de `/`). |
+| `operadores-logicos/` | `operadores-relacionales/`, `algebra-booleana/` | Se combinan comparaciones (que devuelven booleanos) con Y, O y NO: aplicación directa del álgebra booleana. |
+
