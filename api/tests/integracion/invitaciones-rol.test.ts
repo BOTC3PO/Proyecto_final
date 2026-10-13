@@ -152,3 +152,39 @@ test("no se duplican solicitudes pendientes del mismo rol", async () => {
   const segunda = await jsonRequest(baseUrl, "POST", "/api/invitaciones", { token: tk(ALUMNO, "USER"), body });
   assert.equal(segunda.status, 409);
 });
+
+// ── K13: alcance de las invitaciones ─────────────────────────────
+
+test("K13: un directivo de otra escuela no puede invitar a la mía → 403", async () => {
+  seedUser({ id: "dir-ajeno", role: "DIRECTIVO", schoolId: "esc-otra" });
+  const res = await jsonRequest(baseUrl, "POST", "/api/invitaciones", {
+    token: tokenFor({ id: "dir-ajeno", role: "DIRECTIVO" as never, schoolId: "esc-otra" }),
+    body: { rol: "TEACHER", escuelaId: ESC, destinatario: OTRO }
+  });
+  assert.equal(res.status, 403);
+});
+
+test("K13: invitar a un destinatario inexistente → 404", async () => {
+  const res = await jsonRequest(baseUrl, "POST", "/api/invitaciones", {
+    token: tk(DIRECTIVO, "DIRECTIVO"),
+    body: { rol: "TEACHER", escuelaId: ESC, destinatario: "no-existe" }
+  });
+  assert.equal(res.status, 404);
+});
+
+test("K13: un directivo que no es el principal no suma directivos → 403", async () => {
+  seedUser({ id: "dir-2", role: "DIRECTIVO", schoolId: ESC });
+  const res = await jsonRequest(baseUrl, "POST", "/api/invitaciones", {
+    token: tk("dir-2", "DIRECTIVO"),
+    body: { rol: "DIRECTIVO", escuelaId: ESC, destinatario: OTRO }
+  });
+  assert.equal(res.status, 403);
+});
+
+test("K13: pedir un rol en una escuela inexistente → 404", async () => {
+  const res = await jsonRequest(baseUrl, "POST", "/api/invitaciones", {
+    token: tk(ALUMNO, "USER"),
+    body: { rol: "TEACHER", escuelaId: "fantasma" }
+  });
+  assert.equal(res.status, 404);
+});

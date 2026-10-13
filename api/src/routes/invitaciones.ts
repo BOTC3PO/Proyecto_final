@@ -77,6 +77,28 @@ invitaciones.post("/api/invitaciones", requireUser, async (req, res) => {
     return res.status(403).json({ error: "no podés invitar a ese rol", code: "SIN_PERMISO_INVITAR" });
   }
 
+  const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId } });
+  if (!escuela) return res.status(404).json({ error: "escuela no encontrada" });
+
+  if (!esPedidoPropio) {
+    const destino = await prisma.usuario.findFirst({ where: { id: destinatario, isDeleted: { not: true } } });
+    if (!destino) return res.status(404).json({ error: "destinatario no encontrado" });
+    // Invitar es una facultad de la escuela propia: antes un directivo (o docente) de cualquier escuela podía
+    // invitar a cualquiera a cualquier otra escuela. Solo el ADMIN invita a escuelas ajenas.
+    if (!hasRole(actor, "ADMIN") && actor?.schoolId !== escuelaId) {
+      return res.status(403).json({ error: "solo podés invitar a tu propia escuela", code: "SIN_PERMISO_INVITAR" });
+    }
+    // Sumar directivos lo hace el principal (o el ADMIN); las escuelas sin principal conservan el criterio previo.
+    if (
+      rol === "DIRECTIVO" &&
+      !hasRole(actor, "ADMIN") &&
+      escuela.directivoPrincipalId &&
+      escuela.directivoPrincipalId !== actorId
+    ) {
+      return res.status(403).json({ error: "solo el directivo principal suma directivos", code: "SIN_PERMISO_INVITAR" });
+    }
+  }
+
   const yaLaTiene = await prisma.membresia.findFirst({
     where: { usuarioId: destinatario, escuelaId, rol, estado: "activa" }
   });
@@ -162,15 +184,17 @@ invitaciones.post("/api/invitaciones/:id/responder", requireUser, async (req, re
   }
 
   const nowIso = now();
-  await prisma.invitacionRol.update({
-    where: { id: fila.id },
+  // Compare-and-swap: dos respuestas simultáneas no deben resolverla dos veces (ni auditar/sincronizar dos veces).
+  const tomada = await prisma.invitacionRol.updateMany({
+    where: { id: fila.id, estado: "pendiente" },
     data: {
       estado: aceptar ? "aceptada" : "rechazada",
       resueltoPor: actorId,
-      motivo: typeof req.body?.motivo === "string" ? req.body.motivo : null,
+      motivo: typeof req.body?.motivo === "string" ? req.body.motivo.slice(0, 500) : null,
       updatedAt: nowIso
     }
   });
+  if (tomada.count === 0) return res.status(409).json({ error: "ya fue resuelta" });
   if (aceptar) {
     await sincronizarMembresia({
       usuarioId: fila.destinatario,
