@@ -1421,17 +1421,21 @@ quizAttempts.get(
       // filtro de quiz" (modo aulaId solo); en ese caso NO pasamos el
       // `quizId.in` para que el findMany traiga todos los intentos de
       // los usuarios del aula.
-      const attempts = await prisma.quizAttempt.findMany({
-        where: {
-          userId: { in: targetUserIds },
-          ...(targetQuizIds ? { quizId: { in: targetQuizIds } } : {})
-        }
-      });
-      // Ordenar por startedAt desc estable (createdAt no existe en el modelo).
-      const sorted = [...attempts].sort((a, b) =>
-        String(b.startedAt ?? "").localeCompare(String(a.startedAt ?? ""))
-      );
-      const page = sorted.slice(0, query.limit);
+      const whereIntentos = {
+        userId: { in: targetUserIds },
+        ...(targetQuizIds ? { quizId: { in: targetQuizIds } } : {})
+      };
+      // H11 — la página se pide a la base (más recientes primero); antes se traían todos los intentos y se recortaban acá.
+      const offset = Number((req.query as Record<string, unknown>).offset ?? 0);
+      const [page, totalIntentos] = await Promise.all([
+        prisma.quizAttempt.findMany({
+          where: whereIntentos,
+          orderBy: { startedAt: "desc" },
+          take: query.limit,
+          skip: Number.isInteger(offset) && offset > 0 ? offset : 0
+        }),
+        prisma.quizAttempt.count({ where: whereIntentos })
+      ]);
 
       // ITEM-5 — el front (`ProfesorCalificaciones.tsx`) arma el filtro por
       // módulo y el título del quiz a partir de `moduleId`/`moduleTitle`/
@@ -1483,7 +1487,7 @@ quizAttempts.get(
           seed: a.seed ?? null
         };
       });
-      res.json({ items, total: attempts.length });
+      res.json({ items, total: totalIntentos });
     } catch (error: any) {
       if (error?.name === "ZodError") {
         return res.status(400).json({ error: error.message });

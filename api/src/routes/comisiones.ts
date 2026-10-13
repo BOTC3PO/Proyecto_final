@@ -11,6 +11,7 @@ import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { requireAdmin } from "../lib/admin-auth";
 import { prisma } from "../lib/prisma";
+import { leerPagina, recortar } from "../lib/paginacion";
 import {
   COMISION_PCT_RANGO_AR,
   COMISION_PCT_RANGO_INTL,
@@ -45,28 +46,43 @@ comisiones.get(
   async (req, res) => {
     const { escuelaId } = req.params;
     const user = getUserFromReq(req as never);
-    if (!hasRole(user, "ADMIN") && getSchoolId(req as never) !== escuelaId) {
+    // Son finanzas de la escuela: las ve su dirección (directivo o administrador de escuela), no el resto
+    // del personal ni los alumnos (antes valía cualquier persona con esa escuela).
+    const esDireccion = hasRole(user, "DIRECTIVO") || hasRole(user, "ADMIN_ESCUELA");
+    if (!hasRole(user, "ADMIN") && !(esDireccion && getSchoolId(req as never) === escuelaId)) {
       return res.status(403).json({ error: "Sin acceso a esta escuela" });
     }
     const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId } });
     if (!escuela) return res.status(404).json({ error: "Escuela no encontrada" });
 
-    const [transacciones, liquidaciones] = await Promise.all([
+    // Los totales se suman en la base; las listas van paginadas (más recientes primero).
+    const periodo = periodoActual();
+    const pagina = leerPagina(req.query);
+    const [txPagina, liqPagina, delMes, pendientes] = await Promise.all([
       prisma.transaccionEscuela.findMany({
         where: { escuelaId },
         orderBy: { createdAt: "desc" },
+        take: pagina.take,
+        skip: pagina.skip,
       }),
       prisma.liquidacionEscuela.findMany({
         where: { escuelaId },
         orderBy: { createdAt: "desc" },
+        take: pagina.take,
+        skip: pagina.skip,
+      }),
+      prisma.transaccionEscuela.aggregate({
+        where: { escuelaId, createdAt: { gte: periodo, lt: `${periodo}\uffff` } },
+        _sum: { montoTotal: true, comisionVB: true },
+      }),
+      prisma.transaccionEscuela.aggregate({
+        where: { escuelaId, estado: "registrada" },
+        _sum: { montoNeto: true },
       }),
     ]);
-
-    const periodo = periodoActual();
-    const delMes = transacciones.filter((t) =>
-      String(t.createdAt).startsWith(periodo),
-    );
-    const pendientes = transacciones.filter((t) => t.estado === "registrada");
+    const cantPendientes = await prisma.transaccionEscuela.count({ where: { escuelaId, estado: "registrada" } });
+    const { items: transacciones, ...paginacion } = recortar(txPagina, pagina);
+    const { items: liquidaciones, hasMore: liquidacionesHasMore } = recortar(liqPagina, pagina);
 
     return res.json({
       escuela: {
@@ -77,13 +93,15 @@ comisiones.get(
       },
       resumen: {
         periodo,
-        cobrosMes: sum(delMes, "montoTotal"),
-        comisionRetenidaMes: sum(delMes, "comisionVB"),
-        saldoALiquidar: sum(pendientes, "montoNeto"),
-        cantTransaccPendientes: pendientes.length,
+        cobrosMes: delMes._sum.montoTotal ?? 0,
+        comisionRetenidaMes: delMes._sum.comisionVB ?? 0,
+        saldoALiquidar: pendientes._sum.montoNeto ?? 0,
+        cantTransaccPendientes: cantPendientes,
       },
       transacciones,
       liquidaciones,
+      ...paginacion,
+      liquidacionesHasMore,
     });
   },
 );
@@ -146,31 +164,60 @@ comisiones.post(
 
 // ── GET /api/comisiones/admin ───────────────────────────────────
 // Panel admin: comisiones agregadas por escuela.
-comisiones.get("/api/comisiones/admin", requireAdmin, async (_req, res) => {
-  const escuelas = await prisma.escuela.findMany({
-    where: { isDeleted: { not: true } },
-  });
-  const transacciones = await prisma.transaccionEscuela.findMany({});
-  const liquidaciones = await prisma.liquidacionEscuela.findMany({});
+comisiones.get("/api/comisiones/admin", requireAdmin, async (req, res) => {
+  const pagina = leerPagina(req.query);
+  const { items: escuelas, ...paginacion } = recortar(
+    await prisma.escuela.findMany({
+      where: { isDeleted: { not: true } },
+      orderBy: { id: "asc" },
+      take: pagina.take,
+      skip: pagina.skip,
+    }),
+    pagina,
+  );
+  const ids = escuelas.map((e) => e.id);
+  // Totales por escuela sumados en la base, solo de las escuelas de esta página.
+  const [totales, pendientesPorEscuela, liquidacionesPorEscuela] = ids.length
+    ? await Promise.all([
+        prisma.transaccionEscuela.groupBy({
+          by: ["escuelaId"],
+          where: { escuelaId: { in: ids } },
+          _count: { _all: true },
+          _sum: { montoTotal: true, comisionVB: true },
+        }),
+        prisma.transaccionEscuela.groupBy({
+          by: ["escuelaId"],
+          where: { escuelaId: { in: ids }, estado: "registrada" },
+          _count: { _all: true },
+          _sum: { montoNeto: true },
+        }),
+        prisma.liquidacionEscuela.groupBy({
+          by: ["escuelaId"],
+          where: { escuelaId: { in: ids } },
+          _count: { _all: true },
+        }),
+      ])
+    : [[], [], []];
+  const totalDe = new Map(totales.map((t) => [t.escuelaId as string, t]));
+  const pendienteDe = new Map(pendientesPorEscuela.map((t) => [t.escuelaId as string, t]));
+  const liqDe = new Map(liquidacionesPorEscuela.map((t) => [t.escuelaId as string, t]));
 
   const items = escuelas.map((e) => {
-    const txs = transacciones.filter((t) => t.escuelaId === e.id);
-    const liqs = liquidaciones.filter((l) => l.escuelaId === e.id);
-    const pendientes = txs.filter((t) => t.estado === "registrada");
+    const t = totalDe.get(e.id);
     return {
       escuelaId: e.id,
       name: e.name,
       comisionPct: e.comisionPct ?? DEFAULT_COMISION_PCT_AR,
       comisionPctIntl: e.comisionPctIntl ?? DEFAULT_COMISION_PCT_INTL,
-      cobrosTotal: sum(txs, "montoTotal"),
-      comisionTotal: sum(txs, "comisionVB"),
-      saldoALiquidar: sum(pendientes, "montoNeto"),
-      cantTransacc: txs.length,
-      cantLiquidaciones: liqs.length,
+      cobrosTotal: t?._sum?.montoTotal ?? 0,
+      comisionTotal: t?._sum?.comisionVB ?? 0,
+      saldoALiquidar: pendienteDe.get(e.id)?._sum?.montoNeto ?? 0,
+      cantTransacc: t?._count?._all ?? 0,
+      cantLiquidaciones: liqDe.get(e.id)?._count?._all ?? 0,
     };
   });
 
-  return res.json({ items });
+  return res.json({ items, ...paginacion });
 });
 
 // ── POST /api/comisiones/admin/liquidar ─────────────────────────
@@ -232,10 +279,7 @@ comisiones.post("/api/comisiones/admin/liquidar", requireAdmin, async (req, res)
 // ── GET /api/comisiones/admin/export.csv ────────────────────────
 // Export contable de todas las transacciones (CSV).
 comisiones.get("/api/comisiones/admin/export.csv", requireAdmin, async (_req, res) => {
-  const txs = await prisma.transaccionEscuela.findMany({
-    orderBy: { createdAt: "desc" },
-  });
-  const escuelas = await prisma.escuela.findMany({});
+  const escuelas = await prisma.escuela.findMany({ select: { id: true, name: true } });
   const nameById = new Map(escuelas.map((e) => [e.id, e.name]));
 
   const header = [
@@ -261,24 +305,34 @@ comisiones.get("/api/comisiones/admin/export.csv", requireAdmin, async (_req, re
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
   const lines = [header.join(",")];
-  for (const t of txs) {
-    lines.push(
-      [
-        t.id,
-        t.escuelaId,
-        nameById.get(t.escuelaId as string) ?? "",
-        t.createdAt,
-        t.montoTotal,
-        t.comisionVB,
-        t.montoNeto,
-        t.estado,
-        t.provider ?? "mercadopago",
-        t.mpPaymentId ?? "",
-        t.mpPaymentId ?? "",
-      ]
-        .map(esc)
-        .join(","),
-    );
+  // Se lee de a 1000 filas para no cargar toda la tabla de una vez.
+  const LOTE = 1000;
+  for (let skip = 0; ; skip += LOTE) {
+    const lote = await prisma.transaccionEscuela.findMany({
+      orderBy: [{ createdAt: "desc" }, { id: "asc" }],
+      take: LOTE,
+      skip,
+    });
+    for (const t of lote) {
+      lines.push(
+        [
+          t.id,
+          t.escuelaId,
+          nameById.get(t.escuelaId as string) ?? "",
+          t.createdAt,
+          t.montoTotal,
+          t.comisionVB,
+          t.montoNeto,
+          t.estado,
+          t.provider ?? "mercadopago",
+          t.mpPaymentId ?? "",
+          t.mpPaymentId ?? "",
+        ]
+          .map(esc)
+          .join(","),
+      );
+    }
+    if (lote.length < LOTE) break;
   }
   res.setHeader("Content-Type", "text/csv; charset=utf-8");
   res.setHeader("Content-Disposition", 'attachment; filename="comisiones.csv"');

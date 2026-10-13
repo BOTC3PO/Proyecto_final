@@ -375,6 +375,7 @@ class Table<TRow extends Row> {
     by: string | string[];
     where?: WhereClause;
     _count?: { _all?: true } | Record<string, true>;
+    _sum?: Record<string, true>;
   }): Promise<Array<Record<string, unknown>>> {
     const by = Array.isArray(args.by) ? args.by : [args.by];
     const subset = this.rows.filter((r) => rowMatches(r, args?.where));
@@ -403,6 +404,13 @@ class Table<TRow extends Row> {
         for (const field of Object.keys(args._count)) {
           if (field === "_all") continue;
           cnt[field] = (cnt[field] ?? 0) + 1;
+        }
+      }
+      if (args._sum) {
+        const acumulado = ((entry._sum as Record<string, number | null> | undefined) ??= {});
+        for (const field of Object.keys(args._sum)) {
+          const v = (row as Record<string, unknown>)[field];
+          acumulado[field] = (acumulado[field] ?? 0) + (typeof v === "number" ? v : 0);
         }
       }
     }
