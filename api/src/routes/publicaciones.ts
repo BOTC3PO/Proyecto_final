@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { recordAuditLog } from "../lib/audit-log";
 import { prisma } from "../lib/prisma";
@@ -35,6 +36,10 @@ type CreateCommentPayload = {
   contenido: string;
 };
 
+const MAX_CONTENIDO = 10_000;
+const MAX_TITULO = 200;
+const MAX_ARCHIVOS = 20;
+
 const getRequester = (req: {
   user?: { _id?: { toString?: () => string }; role?: string; fullName?: string; schoolId?: string | null };
 }) => req.user;
@@ -45,6 +50,7 @@ const getRequesterId = (requester: { _id?: { toString?: () => string } } | undef
 const sanitizeAttachments = (archivos: unknown): PublicationAttachment[] => {
   if (!Array.isArray(archivos)) return [];
   return archivos
+    .slice(0, MAX_ARCHIVOS)
     .filter((item) => item && typeof item === "object")
     .map((item) => {
       const record = item as Record<string, unknown>;
@@ -106,6 +112,9 @@ publicaciones.post(
     if (!payload || typeof payload.contenido !== "string" || payload.contenido.trim() === "") {
       return res.status(400).json({ error: "contenido requerido" });
     }
+    if (payload.contenido.length > MAX_CONTENIDO || (payload.title ?? "").length > MAX_TITULO) {
+      return res.status(400).json({ error: "contenido o título demasiado largo" });
+    }
     const requester = getRequester(req as { user?: { _id?: { toString?: () => string }; role?: string } });
     const requesterId = getRequesterId(requester);
     if (!requesterId) return res.status(403).json({ error: "forbidden" });
@@ -128,7 +137,7 @@ publicaciones.post(
     const attachmentList = sanitizeAttachments(payload.archivos);
     const publication = await prisma.publicacion.create({
       data: {
-        id: `pub-${Date.now()}`,
+        id: `pub-${randomUUID()}`,
         aulaId: req.params.id as string as string,
         authorId: requesterId,
         title: payload.title?.trim() || "Nueva publicación",
@@ -179,6 +188,7 @@ publicaciones.patch(
     if (!payload || typeof payload.contenido !== "string" || payload.contenido.trim() === "") {
       return res.status(400).json({ error: "contenido requerido" });
     }
+    if (payload.contenido.length > MAX_CONTENIDO) return res.status(400).json({ error: "contenido demasiado largo" });
     const publication = await prisma.publicacion.findFirst({
       where: { id: req.params.pubId as string, aulaId: req.params.id as string, isDeleted: { not: true } }
     });
@@ -296,6 +306,7 @@ publicaciones.post(
     if (!payload || typeof payload.contenido !== "string" || payload.contenido.trim() === "") {
       return res.status(400).json({ error: "contenido requerido" });
     }
+    if (payload.contenido.length > MAX_CONTENIDO) return res.status(400).json({ error: "contenido demasiado largo" });
     const requester = getRequester(req as {
       user?: { _id?: { toString?: () => string }; role?: string; fullName?: string };
     });
@@ -328,7 +339,7 @@ publicaciones.post(
     const now = new Date();
     const nowIso = now.toISOString();
     const comment = {
-      id: `com-${Date.now()}`,
+      id: `com-${randomUUID()}`,
       aulaId: req.params.id as string as string,
       publicacionId: req.params.pubId as string as string,
       body: payload.contenido.trim(),

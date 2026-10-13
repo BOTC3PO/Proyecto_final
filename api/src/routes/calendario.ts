@@ -3,6 +3,7 @@ import { Router } from "express";
 import type { Prisma } from "@prisma/client";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
+import { aulaGestionable } from "../lib/aula-gestion";
 import { hasRole, resolveRoles } from "../lib/roles";
 // `hasRole` se usa en los guards específicos (chequeo de un rol
 // puntual: ADMIN). `resolveRoles` y `hasAnyRole` cubren el resto.
@@ -384,7 +385,8 @@ calendario.patch("/api/calendario/escuela/:id", requireUser, async (req, res) =>
   const user = getUserFromReq(req as never);
   const isAdmin = hasRole(user, "ADMIN");
   const schoolId = getSchoolId(req as never);
-  const isDirectivoOfSchool = hasRole(user, "DIRECTIVO") && evento.escuelaId === schoolId;
+  const isDirectivoOfSchool =
+    (hasRole(user, "DIRECTIVO") || hasRole(user, "ADMIN_ESCUELA")) && evento.escuelaId === schoolId;
   const isAuthor = evento.createdBy === userId;
   if (!isAdmin && !isDirectivoOfSchool && !isAuthor) {
     return res.status(403).json({ error: "sin permiso sobre este evento" });
@@ -491,6 +493,9 @@ calendario.post("/api/calendario/aula", requireUser, async (req, res) => {
   if (!aulaId || !tipo || !titulo || !fechaInicio) {
     return res.status(400).json({ error: "aulaId, tipo, titulo y fechaInicio requeridos" });
   }
+  // Solo quien gestiona el aula puede agendarle actividades: antes valía cualquier docente sobre cualquier aula.
+  if (!(await aulaGestionable(req as never, res, String(aulaId)))) return;
+  if (String(titulo).length > 200) return res.status(400).json({ error: "título demasiado largo" });
 
   const id = genId("act");
   const now = new Date().toISOString();
