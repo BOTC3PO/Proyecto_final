@@ -167,7 +167,7 @@ teoría) y una ficha fija:
 
 ## 9. Estado y cómo continuar (2026-10-09)
 
-**Escritas: 117 de 150** (43 básicas, 45 intermedias, 26 avanzadas, 1 especial de parrilla y 2 especiales del equipo), todas
+**Escritas: 122 de 150** (43 básicas, 48 intermedias, 28 avanzadas, 1 especial de parrilla y 2 especiales del equipo; **actualizado 2026-10-13**: se sumaron 3 intermedias y 2 avanzadas de Fiambres, embutidos y conservas), todas
 `no probada`. Conteo por categoría (B / I / A escritas de B / I / A previstas):
 
 | Categoría | Básicas | Intermedias | Avanzadas |
@@ -181,14 +181,18 @@ teoría) y una ficha fija:
 | Cocina regional argentina | 3/3 | 4/4 | 4/4 |
 | Cocina internacional | 3/3 | **5/6** | **0/6** |
 | Vegetales y guarniciones | 6/6 | 3/3 | 1/1 |
-| Fiambres, embutidos y conservas | 2/2 | **0/3** | **0/2** |
+| Fiambres, embutidos y conservas | 2/2 | 3/3 | 2/2 (todas son conservas dulces: ver la ficha del bloque) |
 | Bebidas sin alcohol | 4/4 | 2/2 | 1/1 |
 | Postres helados y fríos | 2/2 | 3/3 | 1/1 |
 
-**Falta escribir (12 recetas):** 1 intermedia y 6 avanzadas de Cocina internacional; 3 intermedias y
-2 avanzadas de Fiambres, embutidos y conservas. Y las **21 especiales** (23 menos las 2 cargadas),
-que dependen del equipo (`../recetas-del-equipo/`) o de recetas regionales poco conocidas con
-respaldo institucional.
+**Falta escribir (7 recetas):** 1 intermedia y 6 avanzadas de Cocina internacional. Y las **21 especiales** (23 menos las 2
+cargadas), que dependen del equipo (`../recetas-del-equipo/`) o de recetas regionales poco conocidas con respaldo institucional.
+**Por qué siguen pendientes las 7 de Cocina internacional (2026-10-13):** para cada plato extranjero hace falta, según el
+`BRIEF`, una segunda fuente institucional con cantidades. Las que aparecieron (Escuela de Hostelería de Leioa, MAGyP) cubren
+pocos platos y casi ningún plato extranjero tiene una segunda fuente (se buscó el minestrone y no apareció). **Falta decidir** si
+se acepta una sola fuente institucional marcada como tal, o se busca otra fuente (FAO, ministerios de otros países).
+**Fiambres:** las 5 recetas nuevas son **conservas dulces** (mermeladas y dulce de membrillo, con fuentes INTA, UNCUYO y MAGyP);
+**sigue sin haber ningún fiambre ni embutido** por falta de una fuente institucional con proceso y temperaturas completos.
 
 **Cómo seguir:** el método está en [`BRIEF-escribir-recetas.md`](BRIEF-escribir-recetas.md) y el
 chequeo de estructura en `content/material/_qa_tools/check_recetas_ruta_b.py` (no reemplaza que
