@@ -62,7 +62,7 @@ type Reventa = {
 };
 
 async function subastasDelModulo(aulaId: string, moduloId: string): Promise<ExamenJson[]> {
-  return (await prisma.economiaExamen.findMany({ where: {} }))
+  return (await prisma.economiaExamen.findMany({ where: { json: { contains: `"moduloId":${JSON.stringify(moduloId)}` } } }))
     .map((r) => parseJson<ExamenJson | null>(r.json, null))
     .filter((e): e is ExamenJson => !!e && e.modo === "ticket" && e.aulaId === aulaId && e.moduloId === moduloId);
 }
@@ -124,7 +124,7 @@ subastasTicket.post("/api/economia/subastas-ticket", requireUser, requirePolicy(
 
       const eco = await economiaDelAula(tx, aulaId);
       const limite = cupoTickets(eco.alumnosAula);
-      const existentes = (await tx.economiaExamen.findMany({ where: {} }))
+      const existentes = (await tx.economiaExamen.findMany({ where: { json: { contains: `"moduloId":${JSON.stringify(moduloId)}` } } }))
         .map((r) => parseJson<ExamenJson | null>(r.json, null))
         .filter((e): e is ExamenJson => !!e && e.modo === "ticket" && e.aulaId === aulaId && e.moduloId === moduloId);
       if (existentes.length >= limite) {
@@ -194,7 +194,7 @@ subastasTicket.post("/api/economia/tickets/reventa", requireUser, async (req, re
   }
 
   const libres = (await billeterasDelModulo(prisma, moduloId, vendedorId)).reduce((a, b) => a + libresDe(b.billetera), 0);
-  const pendientes = (await prisma.economiaIntercambio.findMany({ where: {} }))
+  const pendientes = (await prisma.economiaIntercambio.findMany({ where: { json: { contains: `"creadorId":${JSON.stringify(vendedorId)}` } } }))
     .map((r) => parseJson<Reventa | null>(r.json, null))
     .filter((d): d is Reventa => !!d && d.tipo === "ticket" && d.creadorId === vendedorId && d.moduloId === moduloId && d.estado === "pendiente");
   if (libres - pendientes.length < 1) {
@@ -226,7 +226,16 @@ subastasTicket.post("/api/economia/tickets/reventa", requireUser, async (req, re
 // GET /api/economia/tickets/reventa — mis ofertas pendientes (como vendedor o como comprador).
 subastasTicket.get("/api/economia/tickets/reventa", requireUser, async (req, res) => {
   const userId = userIdOf(req as never);
-  const items = (await prisma.economiaIntercambio.findMany({ where: {} }))
+  const items = (await prisma.economiaIntercambio.findMany({
+    where: {
+      OR: [
+        { json: { contains: `"creadorId":${JSON.stringify(userId)}` } },
+        { json: { contains: `"receptorId":${JSON.stringify(userId)}` } }
+      ]
+    },
+    orderBy: { createdAt: "desc" },
+    take: 500
+  }))
     .map((r) => parseJson<Reventa | null>(r.json, null))
     .filter((d): d is Reventa => !!d && d.tipo === "ticket" && d.estado === "pendiente" && (d.creadorId === userId || d.receptorId === userId))
     .map((d) => ({ ...d, ...repartoReventa(d.monto) }));

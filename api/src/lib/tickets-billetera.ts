@@ -41,14 +41,25 @@ export const parseJson = <T,>(json: string | null | undefined, fallback: T): T =
 
 /** Todas las billeteras del alumno en subastas cerradas del módulo, de la más vieja a la más nueva. */
 export async function billeterasDelModulo(db: Db, moduloId: string, usuarioId: string): Promise<FilaBilletera[]> {
-  const examenes = (await db.economiaExamen.findMany({ where: {} }))
+  // K11 — solo los exámenes de este módulo (antes se leían todos los de la plataforma) y, en una sola consulta, las
+  // billeteras de este alumno en ellos (antes una consulta por examen).
+  const examenes = (
+    await db.economiaExamen.findMany({ where: { json: { contains: `"moduloId":${JSON.stringify(moduloId)}` } } })
+  )
     .map((r) => parseJson<ExamenJson | null>(r.json, null))
     .filter((e): e is ExamenJson => !!e && e.moduloId === moduloId && e.estado === "cerrado")
     .sort((a, b) => String(a.updatedAt ?? "").localeCompare(String(b.updatedAt ?? "")));
   const salida: FilaBilletera[] = [];
+  if (!examenes.length) return salida;
+  const filas = await db.economiaExamenPunto.findMany({
+    where: {
+      examenId: { in: examenes.map((e) => e.id) },
+      json: { contains: `"usuarioId":${JSON.stringify(usuarioId)}` }
+    }
+  });
   for (const examen of examenes) {
-    const filas = await db.economiaExamenPunto.findMany({ where: { examenId: examen.id } });
     for (const fila of filas) {
+      if (fila.examenId !== examen.id) continue;
       const billetera = parseJson<BilleteraJson>(fila.json, {});
       if (billetera.usuarioId === usuarioId) salida.push({ examen, fila, billetera });
     }
