@@ -10,7 +10,7 @@ import { getQueryString } from "../lib/query";
 import { requireUser } from "../lib/user-auth";
 import { whereSoloAlumnosReales } from "../lib/inscripcion-prueba";
 import { parseModuleDependencies, computeModuleLock, type DependenciesById } from "../lib/module-dependencies";
-import { hasActiveModuleOverride } from "../lib/module-unlock-overrides";
+import { hasActiveModuleOverride, modulosConOverrideActivo } from "../lib/module-unlock-overrides";
 import { ProgressSchema } from "../schema/progreso";
 
 export const progreso = Router();
@@ -180,17 +180,25 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
   }
   const aulaId = getQueryString(req.query.aulaId);
   const progressFilter = { usuarioId, ...(aulaId ? { aulaId } : {}) };
-  const items = await prisma.progresoModulo.findMany({ where: progressFilter });
-  let moduloIdFilter: string[] | undefined;
+  const items = await prisma.progresoModulo.findMany({ where: progressFilter, take: 2000 });
+  let moduloIdFilter: string[];
   if (aulaId) {
     const claseModulos = await prisma.claseModulo.findMany({
       where: { claseId: aulaId },
       select: { moduloId: true }
     });
     moduloIdFilter = claseModulos.map(cm => cm.moduloId);
+  } else {
+    // Sin aula: los módulos de las aulas de la persona y los que ya tiene en su progreso (antes, TODOS los de la
+    // plataforma, con una consulta de desbloqueo por cada uno).
+    const aulasDe = await prisma.claseMiembro.findMany({ where: { usuarioId }, select: { claseId: true }, take: 200 });
+    const deAulas = aulasDe.length
+      ? await prisma.claseModulo.findMany({ where: { claseId: { in: aulasDe.map((a) => a.claseId) } }, select: { moduloId: true }, take: 2000 })
+      : [];
+    moduloIdFilter = [...new Set([...items.map((i) => i.moduloId), ...deAulas.map((d) => d.moduloId)])];
   }
   const modules = await prisma.modulo.findMany({
-    where: moduloIdFilter ? { id: { in: moduloIdFilter } } : {},
+    where: { id: { in: moduloIdFilter } },
     select: { id: true, dependencies: true, titulo: true }
   });
   const completedIds = new Set(
@@ -208,6 +216,7 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
       })
     ).map((m) => [m.id, parseModuleDependencies(m.dependencies)])
   );
+  const conOverride = await modulosConOverrideActivo(modules.map((m) => m.id), usuarioId);
   const unlocks = await Promise.all(
     modules.map(async (module) => {
       const { isLocked: locked, missingDependencyIds } = computeModuleLock(
@@ -218,7 +227,7 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
       );
       // "Niveles por aula con mapa de flujo" — desbloqueo manual: gana
       // sobre el candado por dependencias.
-      const isLocked = locked && !(await hasActiveModuleOverride(module.id, usuarioId));
+      const isLocked = locked && !conOverride.has(module.id);
       return {
         moduloId: module.id,
         isLocked,

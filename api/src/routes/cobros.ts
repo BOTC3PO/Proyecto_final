@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
+import { leerPagina, recortar } from "../lib/paginacion";
 import { bloquearSiNoVerificada, puedeEmitirCobros, esDirectivoPrincipal } from "../lib/escuela-verificacion";
 import { recordAuditLog } from "../lib/audit-log";
 import { requireUser } from "../lib/user-auth";
@@ -102,11 +103,18 @@ cobros.get("/api/cobros", requireUser, async (req, res) => {
   if (!puedeGestionarEscuela(user, escuelaId)) {
     return res.status(403).json({ error: "forbidden" });
   }
-  const items = await prisma.cobroEscuela.findMany({
-    where: { escuelaId },
-    orderBy: { createdAt: "desc" }
-  });
-  res.json({ items });
+  const pagina = leerPagina(req.query);
+  res.json(
+    recortar(
+      await prisma.cobroEscuela.findMany({
+        where: { escuelaId },
+        orderBy: { createdAt: "desc" },
+        take: pagina.take,
+        skip: pagina.skip
+      }),
+      pagina
+    )
+  );
 });
 
 // GET /api/cobros/:id/cuotas — roster de cuotas de un cobro (seguimiento
@@ -118,7 +126,23 @@ cobros.get("/api/cobros/:id/cuotas", requireUser, async (req, res) => {
   if (!puedeGestionarEscuela(user, cobro.escuelaId)) {
     return res.status(403).json({ error: "forbidden" });
   }
-  const cuotas = await prisma.cuotaAlumno.findMany({ where: { cobroId: cobro.id } });
+  const pagina = leerPagina(req.query);
+  const { items: cuotas, ...paginacion } = recortar(
+    await prisma.cuotaAlumno.findMany({
+      where: { cobroId: cobro.id },
+      orderBy: [{ createdAt: "asc" }, { id: "asc" }],
+      take: pagina.take,
+      skip: pagina.skip
+    }),
+    pagina
+  );
+  // Cuántas hay de cada estado y cuánto suman, sobre TODO el cobro (la lista de arriba es una página).
+  const porEstado = await prisma.cuotaAlumno.groupBy({
+    by: ["estado"],
+    where: { cobroId: cobro.id },
+    _count: { _all: true },
+    _sum: { montoFinal: true }
+  });
   const alumnoIds = cuotas.map((c) => c.alumnoId);
   const usuarios = alumnoIds.length
     ? await prisma.usuario.findMany({
@@ -129,7 +153,9 @@ cobros.get("/api/cobros/:id/cuotas", requireUser, async (req, res) => {
   const nombrePorId = new Map(usuarios.map((u) => [u.id, u.fullName || u.username || u.id]));
   res.json({
     cobro,
-    cuotas: cuotas.map((c) => ({ ...c, alumnoNombre: nombrePorId.get(c.alumnoId) ?? c.alumnoId }))
+    cuotas: cuotas.map((c) => ({ ...c, alumnoNombre: nombrePorId.get(c.alumnoId) ?? c.alumnoId })),
+    ...paginacion,
+    resumen: porEstado.map((g) => ({ estado: g.estado, cantidad: g._count?._all ?? 0, monto: g._sum?.montoFinal ?? 0 }))
   });
 });
 
@@ -233,7 +259,8 @@ cobros.get("/api/cuotas/mias", requireUser, async (req, res) => {
         ...(childIds.length > 0 ? [{ alumnoId: { in: childIds } }] : [])
       ]
     },
-    orderBy: { createdAt: "desc" }
+    orderBy: { createdAt: "desc" },
+    take: 500
   });
   const cobroIds = [...new Set(cuotas.map((c) => c.cobroId))];
   const cobrosDocs = cobroIds.length

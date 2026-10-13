@@ -1,5 +1,6 @@
 import { createHash, randomUUID } from 'crypto';
 import { Router } from 'express';
+import { leerPagina } from '../lib/paginacion';
 import { prisma } from '../lib/prisma';
 import { requireUser } from '../lib/user-auth';
 import { hasRole } from '../lib/roles';
@@ -61,7 +62,13 @@ materiales.get('/api/materiales', requireUser, async (req, res) => {
     (filters as object[]).push({ visibility: 'publico', schoolId });
   }
 
+  // H11 — se unen tres tablas, así que cada una aporta como máximo `skip + limit + 1` filas (las más recientes) y
+  // después se ordena el conjunto y se corta la página.
+  const pagina = leerPagina(req.query);
+  const porFuente = pagina.skip + pagina.take;
+
   const modulos = await prisma.modulo.findMany({
+    take: porFuente,
     where: { OR: filters, isDeleted: false },
     select: {
       id: true,
@@ -100,6 +107,7 @@ materiales.get('/api/materiales', requireUser, async (req, res) => {
   const materialesGuardados = await prisma.material.findMany({
     where: { OR: filters, isDeleted: false },
     orderBy: { createdAt: 'desc' },
+    take: porFuente,
   });
   const materialOwnerIds = Array.from(
     new Set(materialesGuardados.map((m) => m.ownerUserId).filter((v): v is string => !!v))
@@ -121,6 +129,8 @@ materiales.get('/api/materiales', requireUser, async (req, res) => {
   const librosRows = await prisma.libro.findMany({
     where: { OR: filters },
     select: { id: true, json: true, ownerUserId: true, schoolId: true, visibility: true, updatedAt: true },
+    orderBy: { updatedAt: 'desc' },
+    take: porFuente,
   });
   const libroOwnerIds = librosRows
     .map((l) => l.ownerUserId)
@@ -133,7 +143,7 @@ materiales.get('/api/materiales', requireUser, async (req, res) => {
     for (const u of extraOwners) ownerMap.set(u.id, u.fullName || u.username || u.id);
   }
 
-  const items = [
+  const todos = [
     ...modulos.map((m) => ({
       id: m.id,
       titulo: m.titulo,
@@ -177,8 +187,10 @@ materiales.get('/api/materiales', requireUser, async (req, res) => {
       };
     }),
   ];
+  todos.sort((a, b) => String(b.createdAt ?? '').localeCompare(String(a.createdAt ?? '')));
+  const items = todos.slice(pagina.skip, pagina.skip + pagina.limit);
 
-  return res.json({ items });
+  return res.json({ items, hasMore: todos.length > pagina.skip + pagina.limit, limit: pagina.limit, offset: pagina.offset });
 });
 
 // POST /api/materiales/:id/compartir — cambia visibility según el

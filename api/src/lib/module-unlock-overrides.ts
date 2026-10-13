@@ -28,3 +28,21 @@ export async function hasActiveModuleOverride(
   });
   return !!membership;
 }
+
+/**
+ * Versión por lotes de `hasActiveModuleOverride`: de esos módulos, en cuáles tiene el usuario un desbloqueo
+ * manual vigente (propio o de un aula a la que pertenece). Dos consultas en total, no una por módulo.
+ */
+export async function modulosConOverrideActivo(moduloIds: string[], usuarioId: string): Promise<Set<string>> {
+  if (moduloIds.length === 0) return new Set();
+  const aulas = await prisma.claseMiembro.findMany({ where: { usuarioId }, select: { claseId: true } });
+  const aulaIds = aulas.map((a) => a.claseId);
+  const overrides = await prisma.moduloDesbloqueo.findMany({
+    where: {
+      moduloId: { in: moduloIds },
+      OR: [{ usuarioId }, ...(aulaIds.length ? [{ aulaId: { in: aulaIds } }] : [])],
+    },
+    select: { moduloId: true },
+  });
+  return new Set(overrides.map((o) => o.moduloId));
+}
