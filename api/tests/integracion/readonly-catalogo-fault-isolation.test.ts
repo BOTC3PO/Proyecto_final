@@ -71,3 +71,14 @@ test("GET /api/readonly/catalogo devuelve 200 aunque `generadores` falle (fault 
   // sólo nos importa que sea un array, no su contenido puntual.
   assert.ok(Array.isArray(body.mapasYDiccionarios.idiomasDiccionario));
 });
+
+test("H11: el catálogo no incluye los módulos privados o de otra escuela de quien consulta", async () => {
+  const now = new Date().toISOString();
+  prisma.modulo.rows.push(
+    { id: "mod-privado", slug: "mod-privado", titulo: "Privado", visibility: "privado", schoolId: "esc-x", ownerUserId: "otro", isDeleted: false, createdAt: now, updatedAt: now } as never,
+    { id: "mod-escuela-ajena", slug: "mod-escuela-ajena", titulo: "Escuela ajena", visibility: "escuela", schoolId: "esc-x", ownerUserId: "otro", isDeleted: false, createdAt: now, updatedAt: now } as never
+  );
+  const r = await jsonRequest(baseUrl, "GET", "/api/readonly/catalogo");
+  const ids = (r.body as { modulosActivos: Array<{ id: string }> }).modulosActivos.map((m) => m.id);
+  assert.deepEqual(ids, ["mod-catalogo-1"]);
+});

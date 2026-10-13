@@ -3,6 +3,7 @@ import { promises as fsPromises } from "fs";
 import path from "path";
 import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
+import { cargarContextoVisibilidad, whereVisibilidadModulos } from "./modulos";
 import { SUBJECTS, listTopicsFromFilesystem, type Subject } from "./consignas";
 
 export const readonlyRouter = Router();
@@ -104,15 +105,18 @@ async function safeFetch<T>(promise: Promise<T>, fallback: T, label: string): Pr
   }
 }
 
-readonlyRouter.get("/api/readonly/catalogo", async (_req, res) => {
+readonlyRouter.get("/api/readonly/catalogo", async (req, res) => {
   try {
+    // Solo los módulos que quien consulta puede ver (antes: todos los de la plataforma, privados incluidos, con su
+    // contenido completo), en una lista ligera y acotada.
+    const visibilidad = whereVisibilidadModulos(await cargarContextoVisibilidad(req.user as never));
     const [modulosActivos, generadores, visualizadores, idiomasDiccionario] = await Promise.all([
       safeFetch(
         prisma.modulo.findMany({
-          where: {
-            OR: [{ isDeleted: false }, { isDeleted: false }]
-          },
-          orderBy: { updatedAt: "desc" }
+          where: { isDeleted: false, ...(visibilidad ? { AND: [visibilidad] } : {}) },
+          select: { id: true, titulo: true, descripcion: true, subject: true, visibility: true, schoolId: true, updatedAt: true },
+          orderBy: { updatedAt: "desc" },
+          take: 500
         }),
         [],
         "modulosActivos"

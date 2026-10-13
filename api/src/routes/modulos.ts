@@ -95,7 +95,7 @@ type ContextoVisibilidad = {
   idsConVinculo: Set<string>;
 };
 
-async function cargarContextoVisibilidad(user: QuizRequesterRaw | undefined): Promise<ContextoVisibilidad> {
+export async function cargarContextoVisibilidad(user: QuizRequesterRaw | undefined): Promise<ContextoVisibilidad> {
   const u = user as (QuizRequesterRaw & { schoolId?: string | null; escuelaId?: string | null }) | undefined;
   const requesterId = resolveRequesterId(u as QuizRequesterRaw);
   const escuelaId = (typeof u?.schoolId === "string" && u.schoolId) || (typeof u?.escuelaId === "string" && u.escuelaId) || null;
@@ -121,7 +121,7 @@ async function cargarContextoVisibilidad(user: QuizRequesterRaw | undefined): Pr
 }
 
 /** `where` de Prisma con lo que el contexto puede ver; `null` si no hay restricción (ADMIN). */
-function whereVisibilidadModulos(ctx: ContextoVisibilidad): Record<string, unknown> | null {
+export function whereVisibilidadModulos(ctx: ContextoVisibilidad): Record<string, unknown> | null {
   if (ctx.admin) return null;
   return {
     OR: [
