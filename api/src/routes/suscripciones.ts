@@ -17,6 +17,8 @@ import {
   EXPANSION_UNIDADES,
 } from "../lib/suscripciones";
 import { prisma } from "../lib/prisma";
+import { SuscripcionIdSchema, WebhookMPSchema } from "../schema/escrituras";
+import { validarCuerpo } from "../lib/validar";
 import { leerPagina, recortar } from "../lib/paginacion";
 import { hasRole } from "../lib/roles";
 import { registrarTransaccionEscuela } from "../lib/comisiones";
@@ -105,9 +107,10 @@ suscripciones.get("/api/suscripciones/historial", requireUser, async (req, res) 
 suscripciones.post("/api/suscripciones/cancelar", requireUser, async (req, res) => {
   const userId = getId(req as never);
   const user = getUserFromReq(req as never);
-  const { suscripcionId } = req.body as { suscripcionId?: string };
   if (!userId) return res.status(401).json({ error: "no autenticado" });
-  if (!suscripcionId) return res.status(400).json({ error: "suscripcionId requerido" });
+  const pedido = validarCuerpo(SuscripcionIdSchema, req, res);
+  if (!pedido) return;
+  const { suscripcionId } = pedido;
 
   const sub = await prisma.suscripcion.findUnique({ where: { id: suscripcionId } });
   if (!sub) return res.status(404).json({ error: "suscripción no encontrada" });
@@ -146,9 +149,10 @@ suscripciones.post("/api/suscripciones/cancelar", requireUser, async (req, res) 
 // cancelarPreapproval) queda como roadmap, no implementada acá.
 suscripciones.post("/api/suscripciones/reembolso", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const { suscripcionId } = req.body as { suscripcionId?: string };
   if (!userId) return res.status(401).json({ error: "no autenticado" });
-  if (!suscripcionId) return res.status(400).json({ error: "suscripcionId requerido" });
+  const pedido = validarCuerpo(SuscripcionIdSchema, req, res);
+  if (!pedido) return;
+  const { suscripcionId } = pedido;
 
   const sub = await prisma.suscripcion.findUnique({ where: { id: suscripcionId } });
   if (!sub) return res.status(404).json({ error: "no encontrada" });
@@ -261,9 +265,10 @@ suscripciones.post("/api/suscripciones/webhook", async (req, res) => {
     return res.status(401).json({ error: "firma inválida" });
   }
 
-  const { type, action, data } = req.body as {
-    type?: string; action?: string; data?: { id?: string };
-  };
+  // Un aviso con otra forma no es un error para Mercado Pago (reintentaría sin fin): se responde 200 y se ignora.
+  const aviso = WebhookMPSchema.safeParse(req.body ?? {});
+  if (!aviso.success) return res.status(200).json({ ok: true });
+  const { type, action, data } = aviso.data;
 
   if (type !== "subscription_preapproval" || !data?.id) return res.status(200).json({ ok: true });
 

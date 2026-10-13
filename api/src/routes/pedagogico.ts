@@ -2,6 +2,8 @@ import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
+import { DesbloquearSchema, ModoAulaSchema, UmbralSchema } from "../schema/escrituras";
+import { validarCuerpo } from "../lib/validar";
 import { hasRole } from "../lib/roles";
 import { whereSoloAlumnosReales } from "../lib/inscripcion-prueba";
 import { aulaGestionable } from "../lib/aula-gestion";
@@ -33,13 +35,9 @@ pedagogico.post("/api/pedagogico/umbral", requireUser, async (req, res) => {
     return res.status(403).json({ error: "solo profesores" });
   }
 
-  const { quizId, moduloId, umbral } = req.body as Record<string, unknown>;
-  if (!quizId || !moduloId || typeof umbral !== "number") {
-    return res.status(400).json({ error: "quizId, moduloId y umbral requeridos" });
-  }
-  if (umbral < 0 || umbral > 100) {
-    return res.status(400).json({ error: "umbral debe ser entre 0 y 100" });
-  }
+  const pedido = validarCuerpo(UmbralSchema, req, res);
+  if (!pedido) return;
+  const { quizId, moduloId, umbral } = pedido;
 
   // El umbral de un cuestionario lo fija quien gestiona su módulo: el ADMIN, su dueño o el personal de la
   // escuela dueña (visibilidad "escuela"). Antes valía cualquier docente sobre cualquier cuestionario.
@@ -153,11 +151,9 @@ pedagogico.post("/api/pedagogico/desbloquear", requireUser, async (req, res) => 
     return res.status(403).json({ error: "solo profesores" });
   }
 
-  const { moduloId, alumnoId, aulaId, motivo } = req.body as Record<string, unknown>;
-
-  if (!moduloId || !alumnoId || !aulaId) {
-    return res.status(400).json({ error: "moduloId, alumnoId y aulaId requeridos" });
-  }
+  const pedido = validarCuerpo(DesbloquearSchema, req, res);
+  if (!pedido) return;
+  const { moduloId, alumnoId, aulaId, motivo } = pedido;
 
   try {
     const aula = await aulaGestionable(req as never, res, String(aulaId));
@@ -195,12 +191,12 @@ pedagogico.post("/api/pedagogico/desbloquear", requireUser, async (req, res) => 
       usuarioId: String(alumnoId),
       aulaId: String(aulaId),
       desbloqueadoBy: userId ?? "unknown",
-      motivo: typeof motivo === "string" ? motivo : null,
+      motivo: motivo ?? null,
       createdAt: now,
     },
     update: {
       desbloqueadoBy: userId ?? "unknown",
-      motivo: typeof motivo === "string" ? motivo : null,
+      motivo: motivo ?? null,
       createdAt: now,
     },
   });
@@ -241,16 +237,12 @@ pedagogico.post("/api/pedagogico/modo-aula", requireUser, async (req, res) => {
     return res.status(403).json({ error: "solo profesores" });
   }
 
-  const { aulaId, activo, restricciones } = req.body as Record<string, unknown>;
-
-  if (!aulaId) {
-    return res.status(400).json({ error: "aulaId requerido" });
-  }
+  const pedido = validarCuerpo(ModoAulaSchema, req, res);
+  if (!pedido) return;
+  const { aulaId, activo, restricciones } = pedido;
   if (!(await aulaGestionable(req as never, res, String(aulaId)))) return;
 
-  const restriccionesStr = Array.isArray(restricciones)
-    ? restricciones.join(",")
-    : "tienda,economia";
+  const restriccionesStr = restricciones ? restricciones.join(",") : "tienda,economia";
 
   const now = new Date().toISOString();
 

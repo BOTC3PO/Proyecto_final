@@ -4,6 +4,8 @@ import { requireUser } from "../lib/user-auth";
 import { checkModoAula } from "../lib/modo-aula-middleware";
 import { requireAdmin } from "../lib/admin-auth";
 import { prisma } from "../lib/prisma";
+import { TiendaComprarSchema, TiendaItemCrearSchema, TiendaItemEditarSchema } from "../schema/escrituras";
+import { validarCuerpo } from "../lib/validar";
 import { debitarSaldo, SaldoInsuficienteError } from "../lib/economia-saldo";
 
 export const tienda = Router();
@@ -72,8 +74,9 @@ tienda.post("/api/tienda/comprar", requireUser, checkModoAula("tienda"), async (
   const userId = getId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
 
-  const { itemId } = req.body as { itemId?: string };
-  if (!itemId) return res.status(400).json({ error: "itemId requerido" });
+  const pedido = validarCuerpo(TiendaComprarSchema, req, res);
+  if (!pedido) return;
+  const { itemId } = pedido;
 
   const item = await prisma.tiendaItem.findFirst({
     where: { id: itemId, activo: 1 },
@@ -135,27 +138,24 @@ tienda.post("/api/tienda/comprar", requireUser, checkModoAula("tienda"), async (
 
 // ── POST /api/tienda/items (admin) ──────────────────────────
 tienda.post("/api/tienda/items", requireAdmin, async (req, res) => {
-  const { tipo, nombre, descripcion, precio, assetId, previewCss, orden } =
-    req.body as Record<string, unknown>;
+  const item = validarCuerpo(TiendaItemCrearSchema, req, res);
+  if (!item) return;
+  const { tipo, nombre, descripcion, precio, assetId, previewCss, orden } = item;
 
-  if (!tipo || !nombre) {
-    return res.status(400).json({ error: "tipo y nombre requeridos" });
-  }
-
-  const id = `item-${String(tipo)}-${Date.now()}`;
+  const id = `item-${tipo}-${randomUUID()}`;
   const now = new Date().toISOString();
 
   await prisma.tiendaItem.create({
     data: {
       id,
-      tipo: String(tipo),
-      nombre: String(nombre),
-      descripcion: typeof descripcion === "string" ? descripcion : "",
-      precio: typeof precio === "number" ? precio : 0,
-      assetId: typeof assetId === "string" ? assetId : null,
-      previewCss: typeof previewCss === "string" ? previewCss : null,
+      tipo,
+      nombre,
+      descripcion: descripcion ?? "",
+      precio: precio ?? 0,
+      assetId: assetId ?? null,
+      previewCss: previewCss ?? null,
       activo: 1,
-      orden: typeof orden === "number" ? orden : 99,
+      orden: orden ?? 99,
       createdAt: now,
     },
   });
@@ -165,14 +165,16 @@ tienda.post("/api/tienda/items", requireAdmin, async (req, res) => {
 
 // ── PATCH /api/tienda/items/:id (admin) ─────────────────────
 tienda.patch("/api/tienda/items/:id", requireAdmin, async (req, res) => {
-  const { nombre, descripcion, precio, activo, orden } = req.body as Record<string, unknown>;
+  const cambios = validarCuerpo(TiendaItemEditarSchema, req, res);
+  if (!cambios) return;
+  const { nombre, descripcion, precio, activo, orden } = cambios;
 
   const data: Record<string, unknown> = {};
-  if (typeof nombre === "string") data.nombre = nombre;
-  if (typeof descripcion === "string") data.descripcion = descripcion;
-  if (typeof precio === "number") data.precio = precio;
-  if (typeof activo === "number") data.activo = activo;
-  if (typeof orden === "number") data.orden = orden;
+  if (nombre !== undefined) data.nombre = nombre;
+  if (descripcion !== undefined) data.descripcion = descripcion;
+  if (precio !== undefined) data.precio = precio;
+  if (activo !== undefined) data.activo = activo;
+  if (orden !== undefined) data.orden = orden;
 
   if (!Object.keys(data).length) return res.status(400).json({ error: "nada que actualizar" });
 

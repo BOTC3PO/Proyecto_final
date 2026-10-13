@@ -1,6 +1,9 @@
 import { randomInt } from "node:crypto";
 import express, { Router } from "express";
 import { prisma } from "../lib/prisma";
+import { validarCuerpo } from "../lib/validar";
+import { AulaAsignarModuloSchema, AulaUnirseSchema } from "../schema/escrituras";
+import { createRateLimiter } from "../lib/rate-limit";
 import { ENV } from "../lib/env";
 import { toObjectId, generateId } from "../lib/ids";
 import { canManageClassroom, requirePolicy } from "../lib/authorization";
@@ -33,6 +36,9 @@ import {
 } from "../schema/aula";
 
 export const aulas = Router();
+
+// Unirse con un código: se limita para que no se puedan probar códigos de aula uno tras otro.
+const unirseLimiter = createRateLimiter({ windowMs: 15 * 60 * 1000, limit: 30 });
 
 // FIX-TEST4-CLASSCODE — antes `code` quedaba `null` cuando el front
 // no mandaba `classCode`, y el alumno no podía unirse. Generamos un
@@ -423,6 +429,19 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
       (typeof req.body?.schoolId === "string" && req.body.schoolId.trim()) ||
       (typeof req.body?.institutionId === "string" && req.body.institutionId.trim()) ||
       "";
+    // Un aula se crea en la propia escuela: solo el ADMIN puede crearla en otra (antes cualquiera con permiso de
+    // crear aulas podía elegir la escuela de otro con `schoolId` en el cuerpo).
+    if (bodySchoolId && !hasRole(req.user as never, "ADMIN") && bodySchoolId !== getRequesterSchoolId(req)) {
+      const actorId = getRequesterId(req);
+      const pertenece = actorId
+        ? (await prisma.membresia.findFirst({
+            where: { usuarioId: actorId, escuelaId: bodySchoolId, estado: "activa" },
+            select: { usuarioId: true }
+          })) ??
+          (await prisma.usuario.findFirst({ where: { id: actorId, escuelaId: bodySchoolId }, select: { id: true } }))
+        : null;
+      if (!pertenece) return res.status(403).json({ error: "solo podés crear aulas en tu propia escuela" });
+    }
     const derivedSchoolId = bodySchoolId || getRequesterSchoolId(req) || "";
     if (!derivedSchoolId) {
       return res.status(422).json({
@@ -1381,10 +1400,9 @@ async function authorizeDocenteOAula(
 
 // POST /api/aulas/:id/modulos — asignar módulo al aula (idempotente)
 aulas.post("/api/aulas/:id/modulos", requireUser, async (req, res) => {
-  const { moduloId, required } = req.body as Record<string, unknown>;
-  if (!moduloId || typeof moduloId !== "string") {
-    return res.status(400).json({ error: "moduloId requerido" });
-  }
+  const asignacion = validarCuerpo(AulaAsignarModuloSchema, req, res);
+  if (!asignacion) return;
+  const { moduloId, required } = asignacion;
   const claseId = req.params.id as string;
   try {
     const auth = await authorizeDocenteOAula(req, res, claseId);
@@ -1442,14 +1460,15 @@ aulas.post("/api/aulas/:id/modulos", requireUser, async (req, res) => {
 });
 
 // POST /api/aulas/unirse — alumno se une por código de aula
-aulas.post("/api/aulas/unirse", requireUser, async (req, res) => {
+aulas.post("/api/aulas/unirse", requireUser, unirseLimiter, async (req, res) => {
   const userId =
     (req as { user?: { id?: string; _id?: { toString?: () => string } | string } }).user?.id ??
     ((req as { user?: { _id?: { toString?: () => string } | string } }).user?._id as { toString?: () => string })?.toString?.() ??
     null;
-  const { codigo } = req.body as { codigo?: string };
-  if (!codigo?.trim()) return res.status(400).json({ error: "código requerido" });
   if (!userId) return res.status(401).json({ error: "no autenticado" });
+  const unirse = validarCuerpo(AulaUnirseSchema, req, res);
+  if (!unirse) return;
+  const { codigo } = unirse;
 
   const aula = await prisma.clase.findFirst({
     where: {

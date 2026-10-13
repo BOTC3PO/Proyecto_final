@@ -4,6 +4,8 @@ import type { Prisma } from "@prisma/client";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
 import { aulaGestionable } from "../lib/aula-gestion";
+import { validarCuerpo } from "../lib/validar";
+import { ActividadAulaCrearSchema, ActividadAulaEditarSchema, EventoEscuelaCrearSchema, EventoEscuelaEditarSchema } from "../schema/calendario";
 import { hasRole, resolveRoles } from "../lib/roles";
 // `hasRole` se usa en los guards específicos (chequeo de un rol
 // puntual: ADMIN). `resolveRoles` y `hasAnyRole` cubren el resto.
@@ -286,11 +288,11 @@ calendario.post("/api/calendario/escuela", requireUser, async (req, res) => {
   }
   if (!schoolId) return res.status(400).json({ error: "escuela requerida" });
 
-  const { tipo, titulo, descripcion, fechaInicio, fechaFin, aulaId } =
-    req.body as Record<string, unknown>;
-
-  if (!tipo || !titulo || !fechaInicio) {
-    return res.status(400).json({ error: "tipo, titulo y fechaInicio requeridos" });
+  const evento = validarCuerpo(EventoEscuelaCrearSchema, req, res);
+  if (!evento) return;
+  const { tipo, titulo, descripcion, fechaInicio, fechaFin, aulaId } = evento;
+  if (fechaFin && fechaFin < fechaInicio) {
+    return res.status(400).json({ error: "fechaFin: no puede ser anterior a fechaInicio" });
   }
 
   // FIX-CALENDARIO-B: `aulaId` opcional. Si viene, validar que el
@@ -392,19 +394,16 @@ calendario.patch("/api/calendario/escuela/:id", requireUser, async (req, res) =>
     return res.status(403).json({ error: "sin permiso sobre este evento" });
   }
 
-  const { tipo, titulo, descripcion, fechaInicio, fechaFin, aulaId } =
-    req.body as Record<string, unknown>;
+  const cambios = validarCuerpo(EventoEscuelaEditarSchema, req, res);
+  if (!cambios) return;
+  const { tipo, titulo, descripcion, fechaInicio, fechaFin, aulaId } = cambios;
 
   const data: Record<string, unknown> = {};
-  if (typeof tipo === "string" && tipo.trim()) data.tipo = tipo.trim();
-  if (typeof titulo === "string" && titulo.trim()) data.titulo = titulo.trim();
+  if (tipo) data.tipo = tipo;
+  if (titulo) data.titulo = titulo;
   if (typeof descripcion === "string") data.descripcion = descripcion;
-  if (typeof fechaInicio === "string" && fechaInicio.trim()) {
-    data.fechaInicio = fechaInicio;
-  }
-  if (typeof fechaFin === "string" && fechaFin.trim()) {
-    data.fechaFin = fechaFin;
-  }
+  if (fechaInicio) data.fechaInicio = fechaInicio;
+  if (fechaFin) data.fechaFin = fechaFin;
   if (typeof aulaId === "string") {
     // Validar que el aula pertenezca a la escuela si viene un aulaId
     if (aulaId.length > 0) {
@@ -453,19 +452,16 @@ calendario.patch("/api/calendario/aula/:id", requireUser, async (req, res) => {
     return res.status(403).json({ error: "sin permiso sobre esta actividad" });
   }
 
-  const { tipo, titulo, descripcion, fechaInicio, fechaFin } =
-    req.body as Record<string, unknown>;
+  const cambios = validarCuerpo(ActividadAulaEditarSchema, req, res);
+  if (!cambios) return;
+  const { tipo, titulo, descripcion, fechaInicio, fechaFin } = cambios;
 
   const data: Record<string, unknown> = {};
-  if (typeof tipo === "string" && tipo.trim()) data.tipo = tipo.trim();
-  if (typeof titulo === "string" && titulo.trim()) data.titulo = titulo.trim();
+  if (tipo) data.tipo = tipo;
+  if (titulo) data.titulo = titulo;
   if (typeof descripcion === "string") data.descripcion = descripcion;
-  if (typeof fechaInicio === "string" && fechaInicio.trim()) {
-    data.fecha = fechaInicio;
-  }
-  if (typeof fechaFin === "string" && fechaFin.trim()) {
-    data.fechaFin = fechaFin;
-  }
+  if (fechaInicio) data.fecha = fechaInicio;
+  if (fechaFin) data.fechaFin = fechaFin;
 
   if (Object.keys(data).length === 0) {
     return res.status(400).json({ error: "nada que actualizar" });
@@ -487,15 +483,14 @@ calendario.post("/api/calendario/aula", requireUser, async (req, res) => {
     return res.status(403).json({ error: "sin permiso" });
   }
 
-  const { aulaId, tipo, titulo, descripcion, fechaInicio, fechaFin } =
-    req.body as Record<string, unknown>;
-
-  if (!aulaId || !tipo || !titulo || !fechaInicio) {
-    return res.status(400).json({ error: "aulaId, tipo, titulo y fechaInicio requeridos" });
+  const actividad = validarCuerpo(ActividadAulaCrearSchema, req, res);
+  if (!actividad) return;
+  const { aulaId, tipo, titulo, descripcion, fechaInicio, fechaFin } = actividad;
+  if (fechaFin && fechaFin < fechaInicio) {
+    return res.status(400).json({ error: "fechaFin: no puede ser anterior a fechaInicio" });
   }
   // Solo quien gestiona el aula puede agendarle actividades: antes valía cualquier docente sobre cualquier aula.
   if (!(await aulaGestionable(req as never, res, String(aulaId)))) return;
-  if (String(titulo).length > 200) return res.status(400).json({ error: "título demasiado largo" });
 
   const id = genId("act");
   const now = new Date().toISOString();

@@ -15,7 +15,7 @@
  */
 import assert from "node:assert/strict";
 import { after, before, beforeEach, test } from "node:test";
-import { resetPrisma, seedUser, tokenFor, startServer, jsonRequest } from "./_helpers/setup";
+import { prisma, resetPrisma, seedUser, tokenFor, startServer, jsonRequest } from "./_helpers/setup";
 
 let baseUrl: string;
 let close: () => Promise<void>;
@@ -57,7 +57,17 @@ const buildPayload = (overrides: Record<string, unknown> = {}) => ({
   ...overrides
 });
 
+test("POST /api/aulas — elegir la escuela de otro (sin ser miembro) → 403", async () => {
+  const token = tokenFor({ id: TEACHER_SIN_ESCUELA, role: "TEACHER", schoolId: null });
+  const res = await jsonRequest(baseUrl, "POST", "/api/aulas", {
+    token,
+    body: buildPayload({ institutionId: ESCUELA_ID })
+  });
+  assert.equal(res.status, 403, JSON.stringify(res.body));
+});
+
 test("POST /api/aulas — profesor sin schoolId propio pero con institutionId elegido → 201 (deriva del aula)", async () => {
+  prisma.membresia.rows.push({ usuarioId: TEACHER_SIN_ESCUELA, escuelaId: ESCUELA_ID, rol: "TEACHER", estado: "activa", fechaAlta: new Date().toISOString() } as never);
   const token = tokenFor({ id: TEACHER_SIN_ESCUELA, role: "TEACHER", schoolId: null });
   const res = await jsonRequest(baseUrl, "POST", "/api/aulas", {
     token,

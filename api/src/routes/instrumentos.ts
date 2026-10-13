@@ -2,6 +2,8 @@ import { Router } from "express";
 import { randomUUID } from "node:crypto";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
+import { InstrumentoAbrirSchema } from "../schema/escrituras";
+import { validarCuerpo } from "../lib/validar";
 import { ENV } from "../lib/env";
 import { getAjusteEconomico } from "../lib/calendario-economico";
 import { acreditarSaldo, debitarSaldo, SaldoInsuficienteError } from "../lib/economia-saldo";
@@ -74,7 +76,9 @@ instrumentos.post("/api/instrumentos/plazo-fijo", requireUser, async (req, res) 
   const userId = getId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
 
-  const { monto, dias, aulaId } = (req.body ?? {}) as Record<string, unknown>;
+  const abrir = validarCuerpo(InstrumentoAbrirSchema, req, res);
+  if (!abrir) return;
+  const { monto, dias, aulaId } = abrir;
 
   if (!montoValido(monto)) return res.status(400).json({ error: "monto inválido" });
   if (typeof dias !== "number" || !Number.isInteger(dias) || dias < 1 || dias > 365)
@@ -200,7 +204,9 @@ instrumentos.post("/api/instrumentos/fci", requireUser, async (req, res) => {
   const userId = getId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
 
-  const { monto, dias, aulaId } = (req.body ?? {}) as Record<string, unknown>;
+  const abrir = validarCuerpo(InstrumentoAbrirSchema, req, res);
+  if (!abrir) return;
+  const { monto, dias, aulaId } = abrir;
 
   if (!montoValido(monto)) return res.status(400).json({ error: "monto inválido" });
   if (typeof dias !== "number" || !Number.isInteger(dias) || dias < 1 || dias > 90)

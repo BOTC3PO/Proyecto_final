@@ -4,6 +4,8 @@ import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
 import { hasRole, resolvePrimaryRole } from "../lib/roles";
 import { randomUUID } from "node:crypto";
+import { validarCuerpo } from "../lib/validar";
+import { NuevoMensajeSchema, NuevoAvisoSchema, EditarAvisoSchema, ReporteMensajeSchema } from "../schema/mensajeria";
 import {
   DESTINO_SOPORTE, esIdHiloSoporte, esParticipanteSoporte, hilosSoporteDe, hiloSoporteDe,
   agregarMensajeSoporte, marcarLeidoSoporte, noLeidosSoporte, participantesSoporte,
@@ -295,11 +297,10 @@ mensajeria.post("/api/mensajeria/hilos", requireUser, async (req, res) => {
   const userId = getId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
 
-  const { destinatarioId, body } = req.body as Record<string, unknown>;
-  if (!destinatarioId || !body || typeof body !== "string" || !body.trim()) {
-    return res.status(400).json({ error: "destinatarioId y body requeridos" });
-  }
-  if (body.trim().length > MAX_LARGO_MENSAJE) {
+  const cuerpoValido = validarCuerpo(NuevoMensajeSchema, req, res);
+  if (!cuerpoValido) return;
+  const { destinatarioId, body } = cuerpoValido;
+  if (body.length > MAX_LARGO_MENSAJE) {
     return res.status(413).json({ error: `El mensaje no puede superar los ${MAX_LARGO_MENSAJE} caracteres.` });
   }
 
@@ -479,19 +480,20 @@ mensajeria.post("/api/mensajeria/avisos", requireUser, async (req, res) => {
     return res.status(403).json({ error: "Solo directivos y profesores pueden crear avisos." });
   }
 
-  const { titulo, cuerpo, destino, aulaId } = req.body as Record<string, unknown>;
-  if (!titulo || !cuerpo || typeof titulo !== "string" || typeof cuerpo !== "string") {
-    return res.status(400).json({ error: "titulo y cuerpo requeridos" });
-  }
-  if (titulo.trim().length > MAX_LARGO_AVISO_TITULO || cuerpo.trim().length > MAX_LARGO_AVISO_CUERPO) {
+  const avisoValido = validarCuerpo(NuevoAvisoSchema, req, res);
+  if (!avisoValido) return;
+  const { titulo, cuerpo, destino, aulaId } = avisoValido;
+  if (titulo.length > MAX_LARGO_AVISO_TITULO || cuerpo.length > MAX_LARGO_AVISO_CUERPO) {
     return res.status(413).json({
       error: `El título admite hasta ${MAX_LARGO_AVISO_TITULO} caracteres y el cuerpo hasta ${MAX_LARGO_AVISO_CUERPO}.`
     });
   }
 
-  const destinosValidos = ["todos", "padres", "alumnos", "profesores"];
-  const destinoFinal = typeof destino === "string" && destinosValidos.includes(destino)
-    ? destino : "todos";
+  const destinoFinal = destino;
+  if (aulaId) {
+    const aula = await prisma.clase.findFirst({ where: { id: aulaId, isDeleted: { not: true } }, select: { escuelaId: true } });
+    if (!aula || aula.escuelaId !== schoolId) return res.status(400).json({ error: "aulaId no pertenece a tu escuela" });
+  }
 
   const id = genId("aviso");
   const now = new Date().toISOString();
@@ -502,8 +504,8 @@ mensajeria.post("/api/mensajeria/avisos", requireUser, async (req, res) => {
       escuelaId: schoolId,
       autorId: userId,
       autorRol: role ?? "",
-      titulo: titulo.trim(),
-      cuerpo: cuerpo.trim(),
+      titulo,
+      cuerpo,
       destino: destinoFinal,
       aulaId: typeof aulaId === "string" ? aulaId : null,
       createdAt: now,
@@ -517,6 +519,14 @@ mensajeria.post("/api/mensajeria/avisos", requireUser, async (req, res) => {
 mensajeria.post("/api/mensajeria/avisos/:id/leer", requireUser, async (req, res) => {
   const userId = getId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
+
+  // Solo avisos que existen y son de la escuela de quien los lee: antes se aceptaba cualquier id y la tabla
+  // podía llenarse de filas sueltas.
+  const aviso = await prisma.aviso.findFirst({ where: { id: String(req.params.id) }, select: { escuelaId: true } });
+  const escuela = await getEffectiveSchoolId(req as never);
+  if (!aviso || (!hasRole(getUserFromReq(req as never), "ADMIN") && aviso.escuelaId !== escuela)) {
+    return res.status(404).json({ error: "aviso no encontrado" });
+  }
 
   await prisma.avisoLeido.createMany({
     data: [{ avisoId: String(req.params.id), usuarioId: userId, leidoAt: new Date().toISOString() }],
@@ -543,19 +553,23 @@ mensajeria.put("/api/mensajeria/avisos/:id", requireUser, async (req, res) => {
     return res.status(403).json({ error: "sin permiso sobre este aviso" });
   }
 
-  const { titulo, cuerpo, destino, aulaId } = req.body as Record<string, unknown>;
+  const edicion = validarCuerpo(EditarAvisoSchema, req, res);
+  if (!edicion) return;
+  const { titulo, cuerpo, destino, aulaId } = edicion;
   const data: Record<string, unknown> = {};
-  if (typeof titulo === "string" && titulo.trim()) data.titulo = titulo.trim();
-  if (typeof cuerpo === "string" && cuerpo.trim()) data.cuerpo = cuerpo.trim();
-  if (typeof destino === "string" && ["todos", "padres", "alumnos", "profesores"].includes(destino)) {
-    data.destino = destino;
-  }
+  if (titulo) data.titulo = titulo;
+  if (cuerpo) data.cuerpo = cuerpo;
+  if (destino) data.destino = destino;
   if (typeof aulaId === "string") {
     data.aulaId = aulaId.length > 0 ? aulaId : null;
   }
 
   if (Object.keys(data).length === 0) {
     return res.status(400).json({ error: "nada que actualizar" });
+  }
+  if (typeof data.aulaId === "string") {
+    const aula = await prisma.clase.findFirst({ where: { id: data.aulaId, isDeleted: { not: true } }, select: { escuelaId: true } });
+    if (!aula || aula.escuelaId !== aviso.escuelaId) return res.status(400).json({ error: "aulaId no pertenece a la escuela del aviso" });
   }
   if (String(data.titulo ?? "").length > MAX_LARGO_AVISO_TITULO || String(data.cuerpo ?? "").length > MAX_LARGO_AVISO_CUERPO) {
     return res.status(413).json({
@@ -665,8 +679,9 @@ mensajeria.post("/api/mensajeria/mensajes/:mensajeId/reportar", requireUser, asy
     return res.status(400).json({ error: "no podés reportar tus propios mensajes" });
   }
 
-  const motivoCrudo = (req.body as Record<string, unknown> | undefined)?.motivo;
-  const motivo = typeof motivoCrudo === "string" && motivoCrudo.trim() ? motivoCrudo.trim() : null;
+  const reporte = validarCuerpo(ReporteMensajeSchema, req, res);
+  if (!reporte) return;
+  const motivo = typeof reporte.motivo === "string" && reporte.motivo.trim() ? reporte.motivo.trim() : null;
   if (motivo && motivo.length > MAX_LARGO_MOTIVO_REPORTE) {
     return res.status(413).json({ error: `El motivo admite hasta ${MAX_LARGO_MOTIVO_REPORTE} caracteres.` });
   }
