@@ -1,6 +1,8 @@
 import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
+import { validarCuerpo } from "../lib/validar";
+import { CuotaCheckoutSchema, DelegacionCobrosSchema, CryptomusHabilitarSchema } from "../schema/escrituras";
 import { leerPagina, recortar } from "../lib/paginacion";
 import { bloquearSiNoVerificada, puedeEmitirCobros, esDirectivoPrincipal } from "../lib/escuela-verificacion";
 import { recordAuditLog } from "../lib/audit-log";
@@ -309,7 +311,9 @@ cobros.post("/api/cuotas/:id/checkout", requireUser, async (req, res) => {
   const cobro = await prisma.cobroEscuela.findFirst({ where: { id: cuota.cobroId } });
   if (!cobro) return res.status(404).json({ error: "cobro no encontrado" });
 
-  const preferido = typeof req.body?.provider === "string" ? req.body.provider : null;
+  const checkout = validarCuerpo(CuotaCheckoutSchema, req, res);
+  if (!checkout) return;
+  const preferido = checkout.provider || null;
   const pasarelaCruda = await prisma.escuelaPasarela.findFirst({
     where: { escuelaId: cobro.escuelaId, activa: true, ...(preferido ? { provider: preferido } : {}) }
   });
@@ -497,9 +501,9 @@ cobros.post("/api/pasarelas/webhook/:provider", async (req, res) => {
 cobros.patch("/api/escuelas/:escuelaId/delegacion-cobros", requireUser, async (req, res) => {
   const user = req.user as ReqUser | undefined;
   const escuelaId = req.params.escuelaId as string;
-  const usuarioId = typeof req.body?.usuarioId === "string" ? req.body.usuarioId : "";
-  const puedeCobrar = req.body?.puedeCobrar === true;
-  if (!usuarioId) return res.status(400).json({ error: "usuarioId requerido" });
+  const delegacion = validarCuerpo(DelegacionCobrosSchema, req, res);
+  if (!delegacion) return;
+  const { usuarioId, puedeCobrar } = delegacion;
 
   if (!(await esDirectivoPrincipal(user, escuelaId))) {
     return res.status(403).json({
@@ -537,7 +541,9 @@ cobros.patch("/api/escuelas/:escuelaId/cryptomus", requireUser, async (req, res)
     return res.status(403).json({ error: "sólo el admin de plataforma", code: "SOLO_ADMIN" });
   }
   const escuelaId = req.params.escuelaId as string;
-  const habilitado = req.body?.habilitado === true;
+  const cripto = validarCuerpo(CryptomusHabilitarSchema, req, res);
+  if (!cripto) return;
+  const { habilitado } = cripto;
 
   const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId } });
   if (!escuela) return res.status(404).json({ error: "escuela no encontrada" });

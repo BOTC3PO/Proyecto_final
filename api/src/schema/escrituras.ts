@@ -73,3 +73,17 @@ export const AulaAsignarModuloSchema = z.object({
 export const AulaUnirseSchema = z.object({
   codigo: z.string().trim().min(1, "código requerido").max(20),
 });
+
+// ── Cobros ──
+export const CuotaCheckoutSchema = z.object({
+  provider: z.string().trim().max(40).nullish(),
+});
+
+export const DelegacionCobrosSchema = z.object({
+  usuarioId: id,
+  puedeCobrar: z.boolean(),
+});
+
+export const CryptomusHabilitarSchema = z.object({
+  habilitado: z.boolean(),
+});
