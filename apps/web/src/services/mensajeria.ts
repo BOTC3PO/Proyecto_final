@@ -9,12 +9,16 @@ export type Hilo = {
   ultimoMsg: string | null;
   ultimoAt: string | null;
   noLeidos: number;
+  /** "soporte" = chat grupal de soporte (administración, dirección y familia). */
+  tipo?: "soporte";
 };
 
 export type MensajeDirecto = {
   id: string;
   hilo_id: string;
   sender_id: string;
+  /** Solo en los hilos de soporte (grupales): quién escribió. */
+  sender_nombre?: string | null;
   body: string;
   leido: number;
   created_at: string;

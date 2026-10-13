@@ -136,5 +136,6 @@ test("candado: USER sin membresía y sin vínculo sigue sin encontrar a nadie", 
   const res = await jsonRequest(baseUrl, "GET", "/api/mensajeria/usuarios?q=Garcia", { token });
 
   assert.equal(res.status, 200);
-  assert.deepEqual(res.body, { items: [] });
+  // Solo queda el destino grupal de soporte; ninguna persona de otra escuela.
+  assert.deepEqual((res.body as { items: Array<{ id: string }> }).items.map((i) => i.id), ["soporte"]);
 });

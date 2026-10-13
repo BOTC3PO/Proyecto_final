@@ -1648,3 +1648,37 @@ model RefreshToken {
   @@index([familyId])
   @@index([expiresAt])
 }
+
+/// K10b — chat de soporte grupal. Un hilo por persona que pide ayuda. Participan: todos los ADMIN, el
+/// directivo principal de su escuela, quien lo abrió y los padres con vínculo aprobado con esa persona (así un
+/// menor nunca queda a solas con alguien ajeno a la escuela). Los participantes se calculan al leer.
+model HiloSoporte {
+  id            String           @id
+  solicitanteId String           @unique @map("solicitante_id")
+  escuelaId     String?          @map("escuela_id")
+  ultimoMsg     String?          @map("ultimo_msg")
+  ultimoAt      String?          @map("ultimo_at")
+  createdAt     String           @map("created_at")
+  mensajes      MensajeSoporte[]
+  @@index([escuelaId])
+  @@map("hilos_soporte")
+}
+
+model MensajeSoporte {
+  id        String      @id
+  hiloId    String      @map("hilo_id")
+  senderId  String      @map("sender_id")
+  body      String
+  createdAt String      @map("created_at")
+  hilo      HiloSoporte @relation(fields: [hiloId], references: [id])
+  @@index([hiloId, createdAt])
+  @@map("mensajes_soporte")
+}
+
+model SoporteLectura {
+  hiloId   String @map("hilo_id")
+  usuarioId String @map("usuario_id")
+  leidoAt  String @map("leido_at")
+  @@id([hiloId, usuarioId])
+  @@map("soporte_lecturas")
+}

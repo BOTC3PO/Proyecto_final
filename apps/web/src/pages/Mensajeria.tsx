@@ -498,10 +498,13 @@ export default function Mensajeria() {
                               ? "bg-[var(--c-primary)] text-white rounded-br-sm"
                               : "bg-[var(--c-bg)] text-[var(--c-text)] border border-[var(--c-border)] rounded-bl-sm"
                           }`}>
+                            {!esMio && m.sender_nombre && (
+                              <p className="text-[10px] font-semibold mb-0.5 text-[var(--c-muted)]">{m.sender_nombre}</p>
+                            )}
                             <p>{m.body}</p>
                             <p className={`text-[10px] mt-1 ${esMio ? "text-white/60" : "text-[var(--c-muted)]"}`}>
                               {formatMensajeTime(m.created_at, lang)}
-                              {!esMio && !m.id.startsWith("tmp-") && (
+                              {!esMio && !m.id.startsWith("tmp-") && hilos.find((h) => h.id === hiloActivo)?.tipo !== "soporte" && (
                                 reportados.has(m.id) ? (
                                   <span className="ml-2">· Reportado</span>
                                 ) : (

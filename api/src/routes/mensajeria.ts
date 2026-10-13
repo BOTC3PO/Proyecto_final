@@ -4,6 +4,10 @@ import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
 import { hasRole, resolvePrimaryRole } from "../lib/roles";
 import { randomUUID } from "node:crypto";
+import {
+  DESTINO_SOPORTE, esIdHiloSoporte, esParticipanteSoporte, hilosSoporteDe, hiloSoporteDe,
+  agregarMensajeSoporte, marcarLeidoSoporte, noLeidosSoporte, participantesSoporte,
+} from "../lib/soporte-grupal";
 
 // H8 — topes de largo (antes solo valía el límite global del cuerpo JSON).
 export const MAX_LARGO_MENSAJE = 2000;
@@ -64,12 +68,6 @@ const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => 
 const genId = (prefix: string) =>
   `${prefix}-${randomUUID()}`;
 
-/**
- * Soporte: el administrador de la plataforma puede hablar con cualquier persona aunque no compartan
- * escuela (es el canal de ayuda). Esos hilos viven en un espacio propio, "soporte", que ven las dos puntas.
- */
-export const ESCUELA_SOPORTE = "soporte";
-
 async function mismaEscuela(
   userAId: string,
   userBId: string
@@ -85,7 +83,6 @@ async function mismaEscuela(
     }),
   ]);
   if (!userA || !userB) return { ok: false };
-  if (hasRole(userA, "ADMIN") || hasRole(userB, "ADMIN")) return { ok: true, escuelaId: ESCUELA_SOPORTE };
   const [escA, escB] = await Promise.all([
     userA.escuelaId || resolveEffectiveSchoolId(userAId),
     userB.escuelaId || resolveEffectiveSchoolId(userBId),
@@ -102,7 +99,7 @@ mensajeria.get("/api/mensajeria/hilos", requireUser, async (req, res) => {
 
   const hilos = await prisma.hilo.findMany({
     where: {
-      escuelaId: { in: [schoolId ?? "", ESCUELA_SOPORTE] },
+      escuelaId: schoolId ?? "",
       OR: [{ usuarioA: userId }, { usuarioB: userId }],
     },
     orderBy: { ultimoAt: "desc" },
@@ -146,16 +143,78 @@ mensajeria.get("/api/mensajeria/hilos", requireUser, async (req, res) => {
       };
     });
 
-    return res.json({ items });
+    const soporte = await itemsSoporte(req as never, userId);
+    return res.json({ items: [...soporte, ...items] });
   } catch {
     return res.json({ items: [] });
   }
 });
 
+// Los hilos de soporte (grupales) viajan en la misma lista que los directos, con `tipo: "soporte"`.
+async function itemsSoporte(req: { user?: { id?: string; role?: string; roles?: string[] } }, userId: string) {
+  const actor = { id: userId, roles: req.user?.roles, role: req.user?.role };
+  const hilos = await hilosSoporteDe(actor);
+  if (!hilos.length) return [];
+  const sinLeer = await noLeidosSoporte(hilos, userId);
+  const solicitantes = await prisma.usuario.findMany({
+    where: { id: { in: hilos.map((h) => h.solicitanteId) } },
+    select: { id: true, fullName: true, username: true },
+  });
+  const nombre = new Map(solicitantes.map((u) => [u.id, String(u.fullName ?? u.username ?? "Usuario")]));
+  return hilos.map((h) => {
+    const propio = h.solicitanteId === userId;
+    return {
+      id: h.id,
+      tipo: "soporte",
+      // Quien abrió el hilo responde con "soporte"; el resto, indicando de quién es el hilo.
+      otroId: propio ? DESTINO_SOPORTE : `${DESTINO_SOPORTE}:${h.id}`,
+      otroNombre: propio ? "Soporte (administración y dirección)" : `Soporte · ${nombre.get(h.solicitanteId) ?? "Usuario"}`,
+      otroUsername: "",
+      otroRol: "SOPORTE",
+      ultimoMsg: h.ultimoMsg,
+      ultimoAt: h.ultimoAt,
+      noLeidos: sinLeer.get(h.id) ?? 0,
+    };
+  });
+}
+
+async function leerHiloSoporte(
+  req: { params: Record<string, string>; user?: { id?: string; role?: string; roles?: string[] } },
+  res: import("express").Response,
+  userId: string
+) {
+  const hilo = await prisma.hiloSoporte.findUnique({ where: { id: String(req.params.hiloId) } });
+  const actor = { id: userId, roles: req.user?.roles, role: req.user?.role };
+  // Mismo 404 si no existe o no participa: no se revela que el hilo existe.
+  if (!hilo || !(await esParticipanteSoporte(hilo, actor))) return res.status(404).json({ error: "hilo no encontrado" });
+  const mensajes = await prisma.mensajeSoporte.findMany({ where: { hiloId: hilo.id }, orderBy: { createdAt: "asc" }, take: 100 });
+  const autores = await prisma.usuario.findMany({
+    where: { id: { in: [...new Set(mensajes.map((m) => m.senderId))] } },
+    select: { id: true, fullName: true, username: true },
+  });
+  const nombre = new Map(autores.map((u) => [u.id, String(u.fullName ?? u.username ?? "Usuario")]));
+  await marcarLeidoSoporte(hilo.id, userId);
+  const participantes = await participantesSoporte(hilo);
+  return res.json({
+    hilo: { ...hilo, tipo: "soporte", participantes: participantes.length },
+    mensajes: mensajes.map((m) => ({
+      id: m.id,
+      hilo_id: m.hiloId,
+      sender_id: m.senderId,
+      sender_nombre: nombre.get(m.senderId) ?? null,
+      body: m.body,
+      leido: 1,
+      created_at: m.createdAt,
+    })),
+  });
+}
+
 // ── GET /api/mensajeria/hilos/:hiloId ────────────────────────
 mensajeria.get("/api/mensajeria/hilos/:hiloId", requireUser, async (req, res) => {
   const userId = getId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
+
+  if (esIdHiloSoporte(String(req.params.hiloId))) return leerHiloSoporte(req as never, res, userId);
 
   const hilo = await prisma.hilo.findUnique({ where: { id: String(req.params.hiloId) } });
   if (!hilo) return res.status(404).json({ error: "hilo no encontrado" });
@@ -192,6 +251,45 @@ mensajeria.get("/api/mensajeria/hilos/:hiloId", requireUser, async (req, res) =>
   return res.json({ hilo, mensajes: mensajesNormalizados });
 });
 
+// Un alumno no le escribe a padres ajenos: solo a los suyos (vínculo aprobado).
+async function alumnoPuedeEscribirle(
+  req: { user?: { roles?: string[]; role?: string } },
+  senderId: string,
+  destId: string
+): Promise<boolean> {
+  const u = req.user;
+  const soloAlumno = !["ADMIN", "TEACHER", "DIRECTIVO", "ADMIN_ESCUELA", "PARENT"].some((r) => hasRole(u as never, r));
+  if (!soloAlumno) return true;
+  const dest = await prisma.usuario.findFirst({ where: { id: destId, isDeleted: { not: true } }, select: { roles: true } });
+  const esPadre = !!dest && hasRole(dest, "PARENT") &&
+    !["ADMIN", "TEACHER", "DIRECTIVO", "ADMIN_ESCUELA"].some((r) => hasRole(dest, r));
+  if (!esPadre) return true;
+  const v = await prisma.progresoModuloVinculo.findFirst({ where: { parentId: destId, childId: senderId, estado: "aprobado" } });
+  return !!v;
+}
+
+// Escribir al soporte grupal: "soporte" abre (o reutiliza) el hilo propio; "soporte:<id>" responde en uno ajeno.
+async function escribirSoporte(
+  req: { user?: { id?: string; role?: string; roles?: string[] } },
+  res: import("express").Response,
+  userId: string,
+  destino: string,
+  texto: string
+) {
+  const actor = { id: userId, roles: req.user?.roles, role: req.user?.role };
+  let hilo;
+  if (destino === DESTINO_SOPORTE) {
+    // Los ADMIN no abren hilos propios: responden en los de otros.
+    if (hasRole(actor, "ADMIN")) return res.status(400).json({ error: "indicá el hilo de soporte al que respondés" });
+    hilo = await hiloSoporteDe(userId, await getEffectiveSchoolId(req as never));
+  } else {
+    hilo = await prisma.hiloSoporte.findUnique({ where: { id: destino.slice(DESTINO_SOPORTE.length + 1) } });
+    if (!hilo || !(await esParticipanteSoporte(hilo, actor))) return res.status(404).json({ error: "hilo no encontrado" });
+  }
+  const msgId = await agregarMensajeSoporte(hilo.id, userId, texto);
+  return res.status(201).json({ hiloId: hilo.id, msgId, ok: true });
+}
+
 // ── POST /api/mensajeria/hilos ───────────────────────────────
 mensajeria.post("/api/mensajeria/hilos", requireUser, async (req, res) => {
   const userId = getId(req as never);
@@ -205,7 +303,14 @@ mensajeria.post("/api/mensajeria/hilos", requireUser, async (req, res) => {
     return res.status(413).json({ error: `El mensaje no puede superar los ${MAX_LARGO_MENSAJE} caracteres.` });
   }
 
+  if (String(destinatarioId) === DESTINO_SOPORTE || String(destinatarioId).startsWith(`${DESTINO_SOPORTE}:`)) {
+    return escribirSoporte(req as never, res, userId, String(destinatarioId), body.trim());
+  }
+
   const check = await mismaEscuela(userId, String(destinatarioId));
+  if (check.ok && !(await alumnoPuedeEscribirle(req as never, userId, String(destinatarioId)))) {
+    return res.status(403).json({ error: "Los alumnos no pueden escribirle a familias de otros alumnos." });
+  }
   if (!check.ok) {
     return res.status(403).json({ error: "Solo podés enviar mensajes a miembros de tu escuela." });
   }
@@ -272,16 +377,22 @@ mensajeria.get("/api/mensajeria/no-leidos", requireUser, async (req, res) => {
 
   const [aggA, aggB] = await Promise.all([
     prisma.hilo.aggregate({
-      where: { usuarioA: userId, escuelaId: { in: [schoolId ?? "", ESCUELA_SOPORTE] } },
+      where: { usuarioA: userId, escuelaId: schoolId ?? "" },
       _sum: { noLeidosA: true },
     }),
     prisma.hilo.aggregate({
-      where: { usuarioB: userId, escuelaId: { in: [schoolId ?? "", ESCUELA_SOPORTE] } },
+      where: { usuarioB: userId, escuelaId: schoolId ?? "" },
       _sum: { noLeidosB: true },
     }),
   ]);
 
-  const mensajes = (aggA._sum.noLeidosA ?? 0) + (aggB._sum.noLeidosB ?? 0);
+  const hilosSop = await hilosSoporteDe({
+    id: userId,
+    roles: (req as never as { user?: { roles?: string[] } }).user?.roles,
+    role: getRole(req as never) ?? undefined,
+  });
+  const sinLeerSop = [...(await noLeidosSoporte(hilosSop, userId)).values()].reduce((a, b) => a + b, 0);
+  const mensajes = (aggA._sum.noLeidosA ?? 0) + (aggB._sum.noLeidosB ?? 0) + sinLeerSop;
 
   // Contar avisos no leídos
   let avisos = 0;
@@ -509,24 +620,18 @@ mensajeria.get("/api/mensajeria/usuarios", requireUser, async (req, res) => {
         })()
       : [];
 
-    // Soporte: el administrador de la plataforma, para cualquier usuario que no sea él mismo.
-    const soporte = hasRole(getUserFromReq(req as never), "ADMIN")
-      ? []
-      : await prisma.usuario.findMany({
-          where: { roles: { has: "ADMIN" }, isDeleted: { not: true }, id: { not: userId } },
-          select: { id: true, fullName: true, username: true, roles: true },
-          take: 3,
-        });
+    // Soporte: un único destino grupal (administración, dirección y familia), no un admin en particular.
+    const soporte = hasRole(getUserFromReq(req as never), "ADMIN") ? [] : [{ id: DESTINO_SOPORTE }];
 
     const items = [
       ...soporte.map((u) => ({
         id: u.id,
-        nombre: `Soporte · ${String(u.fullName ?? u.username ?? "Administración")}`,
-        username: String(u.username ?? ""),
-        role: "ADMIN",
+        nombre: "Soporte (administración y dirección)",
+        username: "",
+        role: "SOPORTE",
       })),
       ...delaEscuela
-        .filter((u) => u.id !== userId && !soporte.some((a) => a.id === u.id))
+        .filter((u) => u.id !== userId)
         .map((u) => ({
           id: u.id,
           nombre: String(u.fullName ?? u.username ?? ""),
