@@ -12,6 +12,7 @@
  */
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
+import { leerPagina, recortar } from "../lib/paginacion";
 import { requireUser } from "../lib/user-auth";
 import { requireAdmin } from "../lib/admin-auth";
 import { recordAuditLog } from "../lib/audit-log";
@@ -84,7 +85,11 @@ verificacionPublica.get("/api/verificacion-publica/mi-estado", requireUser, asyn
 // GET /api/verificacion-publica/solicitudes — bandeja del admin.
 verificacionPublica.get("/api/verificacion-publica/solicitudes", requireAdmin, async (req, res) => {
   const estado = typeof req.query.estado === "string" ? req.query.estado : "pendiente";
-  const rows = await prisma.usuario.findMany({
+  const pagina = leerPagina(req.query);
+  const { items: rows, ...paginacion } = recortar(await prisma.usuario.findMany({
+    orderBy: [{ updatedAt: "desc" }, { id: "asc" }],
+    take: pagina.take,
+    skip: pagina.skip,
     where: { verificacionPublica: estado, isDeleted: { not: true } },
     select: {
       id: true,
@@ -94,7 +99,7 @@ verificacionPublica.get("/api/verificacion-publica/solicitudes", requireAdmin, a
       datosVerificacion: true,
       updatedAt: true
     }
-  });
+  }), pagina);
   return res.json({
     items: rows.map((u) => ({
       id: u.id,
@@ -102,7 +107,8 @@ verificacionPublica.get("/api/verificacion-publica/solicitudes", requireAdmin, a
       email: u.email,
       datos: parseDatos(u.datosVerificacion),
       updatedAt: u.updatedAt
-    }))
+    })),
+    ...paginacion
   });
 });
 

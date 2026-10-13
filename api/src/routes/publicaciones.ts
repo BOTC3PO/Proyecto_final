@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { recordAuditLog } from "../lib/audit-log";
 import { prisma } from "../lib/prisma";
+import { leerPagina, recortar } from "../lib/paginacion";
 import { isClassroomActiveStatus, normalizeClassroomStatus } from "../schema/aula";
 import { requirePolicy } from "../lib/authorization";
 import { requireClassroomScope, isClassroomTeacher } from "../lib/classroom-scope";
@@ -78,10 +79,16 @@ publicaciones.get(
     if (accessLevel !== "admin" && accessLevel !== "staff" && accessLevel !== "learner") {
       return res.status(403).json({ error: "forbidden" });
     }
-    const rows = await prisma.publicacion.findMany({
-      where: { aulaId: req.params.id as string as string, isDeleted: { not: true } },
-      orderBy: { publishedAt: "desc" }
-    });
+    const pagina = leerPagina(req.query, { porDefecto: 100 });
+    const { items: rows, ...paginacion } = recortar(
+      await prisma.publicacion.findMany({
+        where: { aulaId: req.params.id as string as string, isDeleted: { not: true } },
+        orderBy: { publishedAt: "desc" },
+        take: pagina.take,
+        skip: pagina.skip
+      }),
+      pagina
+    );
     // FIX-PUBLICACIONES-AUTOR — antes el front mandaba `authorInitials`
     // al crear, pero `Publicacion` no tiene esa columna (se descartaba
     // en silencio) y el GET nunca resolvía `authorId` a un nombre: el
@@ -97,7 +104,7 @@ publicaciones.get(
         isOwn: r.authorId === requesterId
       };
     });
-    res.json({ items });
+    res.json({ items, ...paginacion });
   }
 );
 
@@ -278,10 +285,16 @@ publicaciones.get(
       where: { id: req.params.pubId as string as string, aulaId: req.params.id as string as string, isDeleted: { not: true } }
     });
     if (!publication) return res.status(404).json({ error: "publicacion not found" });
-    const rows = await prisma.comentario.findMany({
-      where: { publicacionId: req.params.pubId as string },
-      orderBy: { createdAt: "asc" }
-    });
+    const pagina = leerPagina(req.query);
+    const { items: rows, ...paginacion } = recortar(
+      await prisma.comentario.findMany({
+        where: { publicacionId: req.params.pubId as string },
+        orderBy: { createdAt: "asc" },
+        take: pagina.take,
+        skip: pagina.skip
+      }),
+      pagina
+    );
     const items = rows
       .map((row) => {
         try {
@@ -291,7 +304,7 @@ publicaciones.get(
         }
       })
       .filter(Boolean);
-    res.json({ items });
+    res.json({ items, ...paginacion });
   }
 );
 

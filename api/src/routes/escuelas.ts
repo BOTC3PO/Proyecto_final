@@ -2,6 +2,7 @@ import express, { Router } from "express";
 import { randomUUID } from "crypto";
 import { requireAdmin } from "../lib/admin-auth";
 import { prisma } from "../lib/prisma";
+import { leerPagina, recortar } from "../lib/paginacion";
 import { createRateLimiter } from "../lib/rate-limit";
 import { toObjectId } from "../lib/ids";
 import { getQueryString } from "../lib/query";
@@ -147,10 +148,16 @@ escuelas.post("/api/escuelas/solicitar", requireUser, escuelasMutationLimiter, a
 // GET /api/escuelas/solicitudes — bandeja del admin.
 escuelas.get("/api/escuelas/solicitudes", requireAdmin, async (req, res) => {
   const estado = typeof req.query.estado === "string" ? req.query.estado : "pendiente";
-  const rows = await prisma.escuela.findMany({
-    where: { estadoVerificacion: estado, isDeleted: { not: true } },
-    orderBy: { createdAt: "desc" }
-  });
+  const pagina = leerPagina(req.query);
+  const { items: rows, ...paginacion } = recortar(
+    await prisma.escuela.findMany({
+      where: { estadoVerificacion: estado, isDeleted: { not: true } },
+      orderBy: { createdAt: "desc" },
+      take: pagina.take,
+      skip: pagina.skip
+    }),
+    pagina
+  );
   const ids = rows.map((r) => r.directivoPrincipalId).filter(Boolean) as string[];
   const principales = ids.length
     ? await prisma.usuario.findMany({
@@ -167,7 +174,8 @@ escuelas.get("/api/escuelas/solicitudes", requireAdmin, async (req, res) => {
       createdAt: r.createdAt,
       datos: parseBranding(r.datosVerificacion),
       directivoPrincipal: r.directivoPrincipalId ? (porId.get(r.directivoPrincipalId) ?? null) : null
-    }))
+    })),
+    ...paginacion
   });
 });
 

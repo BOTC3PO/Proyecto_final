@@ -1,6 +1,7 @@
 import { hasRole, resolvePrimaryRole } from "../lib/roles";
 import express, { Router } from "express";
 import { prisma } from "../lib/prisma";
+import { leerPagina, recortar } from "../lib/paginacion";
 import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
 import { fetchActiveStudentSummary } from "../lib/enterprise-billing";
@@ -66,13 +67,20 @@ enterprise.get(
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
     const { escuelaFilter } = buildSchoolFilters(schoolId);
-    const items = await prisma.usuario.findMany({
-      where: {
-        ...escuelaFilter,
-        isDeleted: { not: true }
-      },
-      select: { id: true, fullName: true, roles: true, escuelaId: true, username: true }
-    });
+    const pagina = leerPagina(req.query);
+    const { items, ...paginacion } = recortar(
+      await prisma.usuario.findMany({
+        where: {
+          ...escuelaFilter,
+          isDeleted: { not: true }
+        },
+        select: { id: true, fullName: true, roles: true, escuelaId: true, username: true },
+        orderBy: [{ fullName: "asc" }, { id: "asc" }],
+        take: pagina.take,
+        skip: pagina.skip
+      }),
+      pagina
+    );
     // PLAN-multirol Fase 3 — ya no hay cuentas espejo que sacar del roster.
     const staff = items
       .map((item) => ({
@@ -81,7 +89,7 @@ enterprise.get(
       role: resolvePrimaryRole(item) ?? "USER",
       schoolId: normalizeSchoolId(item.escuelaId) ?? schoolId
     }));
-    res.json({ staff });
+    res.json({ staff, ...paginacion });
   }
 );
 
@@ -320,7 +328,7 @@ enterprise.get(
   async (req, res) => {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
-    const rows = await prisma.enterpriseContrato.findMany({ where: { schoolId } });
+    const rows = await prisma.enterpriseContrato.findMany({ where: { schoolId }, take: 500 });
     const items = rows.map((r) => ({ ...JSON.parse(r.json), id: r.id }));
     res.json(items);
   }
@@ -383,7 +391,7 @@ enterprise.get(
   async (req, res) => {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
-    const rows = await prisma.enterpriseReporte.findMany({ where: { schoolId } as any });
+    const rows = await prisma.enterpriseReporte.findMany({ where: { schoolId } as any, take: 500 });
     const items = rows.map((r) => ({ ...JSON.parse(r.json), id: r.id }));
     res.json(items);
   }

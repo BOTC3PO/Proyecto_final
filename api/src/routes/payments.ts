@@ -161,7 +161,7 @@ payments.get(
     const limit = Math.min(Number(req.query.limit ?? 20) || 20, 100);
     const offset = Number(req.query.offset ?? 0) || 0;
     const status = parsePaymentStatus(req.query.status);
-    const allRows = await prisma.enterpriseContrato.findMany({ where: { schoolId } });
+    const allRows = await prisma.enterpriseContrato.findMany({ where: { schoolId }, take: 1000 });
     let invoices = allRows.map((r) => {
       try { return { ...JSON.parse(r.json), id: r.id, invoiceId: r.id } as Invoice; } catch { return null; }
     }).filter((inv): inv is Invoice => inv !== null);
@@ -173,7 +173,11 @@ payments.get(
     const invoiceIds = pagedInvoices.map((inv) => inv.invoiceId);
     // Receipts are stored in enterprise_reportes (closest available json blob)
     const receiptRows = invoiceIds.length
-      ? await prisma.enterpriseReporte.findMany()
+      ? await prisma.enterpriseReporte.findMany({
+          // Solo los recibos de las facturas de esta página (antes se leían los de todas las escuelas).
+          where: { OR: invoiceIds.map((id) => ({ json: { contains: `"invoiceId":${JSON.stringify(id)}` } })) },
+          take: 500
+        })
       : [];
     const receipts = receiptRows
       .map((r) => { try { return JSON.parse(r.json) as Receipt; } catch { return null; } })

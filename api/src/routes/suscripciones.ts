@@ -17,6 +17,7 @@ import {
   EXPANSION_UNIDADES,
 } from "../lib/suscripciones";
 import { prisma } from "../lib/prisma";
+import { leerPagina, recortar } from "../lib/paginacion";
 import { hasRole } from "../lib/roles";
 import { registrarTransaccionEscuela } from "../lib/comisiones";
 
@@ -215,12 +216,19 @@ suscripciones.post("/api/admin/suscripciones/activar", requireAdmin, async (_req
 });
 
 // ── GET /api/admin/suscripciones/reembolsos ─────────────────
-suscripciones.get("/api/admin/suscripciones/reembolsos", requireAdmin, async (_req, res) => {
-  const items = await prisma.suscripcion.findMany({
-    where: { reembolsoSolicitado: 1 },
-    orderBy: { reembolsoAt: "asc" },
-  });
-  return res.json({ items });
+suscripciones.get("/api/admin/suscripciones/reembolsos", requireAdmin, async (req, res) => {
+  const pagina = leerPagina(req.query);
+  return res.json(
+    recortar(
+      await prisma.suscripcion.findMany({
+        where: { reembolsoSolicitado: 1 },
+        orderBy: { reembolsoAt: "asc" },
+        take: pagina.take,
+        skip: pagina.skip,
+      }),
+      pagina,
+    ),
+  );
 });
 
 // ── POST /api/suscripciones/iniciar ─────────────────────────

@@ -3,6 +3,7 @@ import { Router } from "express";
 import { requirePolicy } from "../lib/authorization";
 import { requireClassroomScope } from "../lib/classroom-scope";
 import { prisma } from "../lib/prisma";
+import { leerPagina, recortar } from "../lib/paginacion";
 import { requireUser } from "../lib/user-auth";
 import { isClassroomReadOnlyStatus } from "../schema/aula";
 
@@ -68,11 +69,18 @@ aulaFeed.get(
     if (!context.success) {
       return res.status(context.error.status).json({ error: context.error.message });
     }
-    const items = await prisma.publicacion.findMany({
-      where: { aulaId: context.classroomId, isDeleted: { not: true } },
-      orderBy: { publishedAt: "desc" }
-    });
-    res.json({ items });
+    const pagina = leerPagina(req.query, { porDefecto: 100 });
+    res.json(
+      recortar(
+        await prisma.publicacion.findMany({
+          where: { aulaId: context.classroomId, isDeleted: { not: true } },
+          orderBy: { publishedAt: "desc" },
+          take: pagina.take,
+          skip: pagina.skip
+        }),
+        pagina
+      )
+    );
   }
 );
 
