@@ -338,3 +338,26 @@ de esta tabla.
 | `relojero/herramientas-relojeria/` | `materiales-relojeria/` | Sección 4. |
 | `relojero/tecnicas-relojeria/` | `herramientas-relojeria/` | Sección 5. |
 | `relojero/diagnostico-relojeria-por-casos/` | `tecnicas-relojeria/` | Sección 6, cierre. |
+
+---
+
+## Finales de ruta técnicos/informáticos — Bash (agregado 2026-10-13)
+
+Ruta "Bash / Shell scripting" de `oficios-orientacion-vocacional-PLANIFICACION.md` (sección "Finales de ruta técnicos/informáticos"): cuelga de `../informatica/` (Tronco 10), sin certificación profesional (el sistema no certifica). *Decisión de Claude, no pedida:* la ruta vive en `material/oficios/bash/` y no en una materia nueva, porque la planificación la lista como "final de ruta" del mismo tipo que los oficios; el nombre de materia de los cuestionarios es `bash`. Los 14 temas se escribieron a mano a partir de los borradores crudos de `_borradores-gemma/materias-nuevas/bash/` (que se borraron: tenían errores de contenido y de sintaxis). Orden de la ruta: el de la tabla. **Nota:** `awk` y `sed` dependen de `grep/` solo por las expresiones regulares (ver su teoría).
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `bash/sintaxis-de-shell/` | `../informatica/sistema-de-archivos/`, `../informatica/permisos-y-usuarios/` | Raíz de la ruta. Qué es la shell, cómo se arma un comando, códigos de salida y encadenado (`;`, `&&`, `||`). |
+| `bash/variables-en-bash/` | `sintaxis-de-shell/`, `../informatica/variables-y-tipos-de-dato/` | Asignación sin espacios, `$`, llaves, `$(...)`, aritmética entera, variables especiales (`$?`, `$1`, `$#`). |
+| `bash/comillas-en-bash/` | `variables-en-bash/` | Simples, dobles y escapes: controlan cómo se corta y se expande lo que se escribe. |
+| `bash/expansion-de-shell/` | `comillas-en-bash/` | Llaves, tilde, comodines y sustituciones: qué reemplaza la shell antes de ejecutar. |
+| `bash/pipes-y-redirecciones/` | `expansion-de-shell/` | stdin, stdout y stderr, `>`, `>>`, `2>&1`, `|`, `tee`, `xargs`. |
+| `bash/grep/` | `pipes-y-redirecciones/` | Búsqueda de líneas con expresiones regulares básicas y extendidas. |
+| `bash/sed/` | `grep/` | Edición de flujos: `s///`, `d`, `p`, direcciones y `-i`. Usa las expresiones regulares de `grep/`. |
+| `bash/awk/` | `sed/` | Procesamiento por columnas y condiciones; `BEGIN`/`END`, arreglos asociativos. |
+| `bash/condicionales-en-bash/` | `variables-en-bash/`, `../informatica/estructuras-de-control-condicionales/` | `if`, `[ ]`, `[[ ]]`, `(( ))`, `case`; la condición es un código de salida. |
+| `bash/bucles-en-bash/` | `condicionales-en-bash/`, `../informatica/estructuras-de-control-bucles/` | `for`, `while`, `until`, `break`, `continue` y lectura de archivos línea por línea. |
+| `bash/funciones-en-bash/` | `bucles-en-bash/`, `../informatica/funciones-y-modularidad/` | Definir, argumentos, `local`, `return` (código) y captura con `$( )`. |
+| `bash/scripts-ejecutables-y-permisos/` | `funciones-en-bash/`, `../informatica/permisos-y-usuarios/` | Shebang, `chmod`, `source`, `set -euo pipefail`, `bash -n`/`-x`. |
+| `bash/cron-y-tareas-programadas/` | `scripts-ejecutables-y-permisos/` | `crontab`, los cinco campos, entorno mínimo de cron y registros. |
+| `bash/diagnostico-por-casos/` | `cron-y-tareas-programadas/` y todos los temas anteriores de Bash | Cierre de la ruta (patrón de diagnóstico por casos del resto de los oficios): síntomas, hipótesis y herramientas. |
