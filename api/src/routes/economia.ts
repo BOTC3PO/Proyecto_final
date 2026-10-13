@@ -2,6 +2,7 @@ import express, { Router } from "express";
 import { checkModoAula } from "../lib/modo-aula-middleware";
 import { z } from "zod";
 import { prisma } from "../lib/prisma";
+import { leerPagina, recortar } from "../lib/paginacion";
 import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
 import { cupoTickets, ordenarPujas, topePorAlumno } from "../lib/examen-tickets";
@@ -191,19 +192,13 @@ const verifyEventoEducativo = async (
     return true;
   }
   if (tipo === "quiz") {
-    // quizzes are nested inside modulo JSON; search by raw SQL or skip deep field search
-    const modulos = await prisma.modulo.findMany({ where: {} });
-    const found = modulos.find((m: unknown) => {
-      const modulo = m as Record<string, unknown>;
-      const quizzes = Array.isArray(modulo.quizzes) ? modulo.quizzes as Array<{ id: string }> : [];
-      const levels = Array.isArray(modulo.levels) ? modulo.levels as Array<{ quizzes?: Array<{ id: string }> }> : [];
-      if (quizzes.some((q) => q.id === referenciaId)) return true;
-      return levels.some((level) => Array.isArray(level.quizzes) && level.quizzes.some((q) => q.id === referenciaId));
-    });
-    if (!found) return false;
-    const foundData = found as unknown as Record<string, unknown>;
-    if (foundData.aulaId && foundData.aulaId !== aulaId) return false;
-    if (foundData.schoolId && foundData.schoolId !== schoolId) return false;
+    // El cuestionario vive en su propia tabla; su aula y escuela son las de su módulo (antes se recorrían todos los módulos).
+    const quiz = await prisma.quiz.findFirst({ where: { id: referenciaId }, select: { moduleId: true } });
+    if (!quiz) return false;
+    const duenio = quiz.moduleId ? await prisma.modulo.findFirst({ where: { id: quiz.moduleId } }) : null;
+    const duenioData = (duenio ?? {}) as unknown as Record<string, unknown>;
+    if (duenioData.aulaId && duenioData.aulaId !== aulaId) return false;
+    if (duenioData.schoolId && duenioData.schoolId !== schoolId) return false;
     return true;
   }
   const tarea = await prisma.modulo.findFirst({ where: buildReferenciaMatch(referenciaId) });
@@ -539,16 +534,23 @@ economia.get("/api/economia/recompensas", async (req, res) => {
       ? { tipo, isDeleted: { not: true } }
       : { isDeleted: { not: true } };
   const ajuste = await getMacroAjuste();
-  const items = await prisma.economiaRecompensa.findMany({
-    where: filtro as any,
-    orderBy: { updatedAt: "desc" }
-  });
+  const pagina = leerPagina(req.query);
+  const { items, ...paginacion } = recortar(
+    await prisma.economiaRecompensa.findMany({
+      where: filtro as any,
+      orderBy: { updatedAt: "desc" },
+      take: pagina.take,
+      skip: pagina.skip
+    }),
+    pagina
+  );
   const adjustedItems = items.map((item) => ({
     ...item,
     montoAjustado: roundMoney((item.monto as number) * (ajuste.recompensaFactor as number))
   }));
   res.json({
     items: adjustedItems,
+    ...paginacion,
     ajuste: {
       modo: ajuste.modo,
       recompensaFactor: ajuste.recompensaFactor,
@@ -903,21 +905,15 @@ economia.post(
           ...aulaFiltro
         };
         if (limites.emisionDiaria > 0) {
-          const totalEmisionRows = await prisma.economiaTransaccion.findMany({
-            where: baseWhere as any,
-            select: { monto: true }
-          });
-          const emisionActual = totalEmisionRows.reduce((acc, row) => acc + (row.monto as number), 0);
+          const emisionActual =
+            (await prisma.economiaTransaccion.aggregate({ where: baseWhere as any, _sum: { monto: true } }))._sum.monto ?? 0;
           if (emisionActual + parsed.monto > limites.emisionDiaria) {
             return res.status(400).json({ error: "limite de emision diaria excedido" });
           }
         }
         if (limites.recompensaDiaria > 0) {
-          const totalUsuarioRows = await prisma.economiaTransaccion.findMany({
-            where: { ...baseWhere, usuarioId: parsed.usuarioId } as any,
-            select: { monto: true }
-          });
-          const recompensaActual = totalUsuarioRows.reduce((acc, row) => acc + (row.monto as number), 0);
+          const recompensaActual =
+            (await prisma.economiaTransaccion.aggregate({ where: { ...baseWhere, usuarioId: parsed.usuarioId } as any, _sum: { monto: true } }))._sum.monto ?? 0;
           if (recompensaActual + parsed.monto > limites.recompensaDiaria) {
             return res.status(400).json({ error: "limite de recompensa diaria excedido" });
           }
@@ -1013,43 +1009,38 @@ economia.post("/api/economia/intercambios", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
       }
     });
     // For JSON blob models, count by parsing; re-implemented below using findMany
-    const todayIntercambiosRaw = await prisma.economiaIntercambio.findMany({
-      where: {}
-    });
-    const todayIntercambios = todayIntercambiosRaw
-      .map((row) => {
-        try { return JSON.parse(row.json); } catch { return null; }
+    // Solo los intercambios de este creador dentro de la ventana de cancelaciones (7 días): alcanza para el límite
+    // diario, el cooldown y la proporción de cancelados (antes se leían todos los intercambios de la plataforma).
+    const inicioCancelaciones = new Date();
+    inicioCancelaciones.setDate(inicioCancelaciones.getDate() - INTERCAMBIO_LIMITS.ventanaCancelacionesDias);
+    const ventanaStr = inicioCancelaciones.toISOString();
+    const delCreador = (
+      await prisma.economiaIntercambio.findMany({
+        where: {
+          createdAt: { gte: ventanaStr },
+          json: { contains: `"creadorId":${JSON.stringify(payload.creadorId)}` }
+        },
+        orderBy: { createdAt: "desc" },
+        take: 500
       })
-      .filter((doc): doc is IntercambioDoc => doc !== null);
-    const totalHoyCount = todayIntercambios.filter(
-      (doc) => doc.creadorId === payload.creadorId &&
-        doc.createdAt && doc.createdAt >= rangoDia.desde && doc.createdAt <= rangoDia.hasta
+    )
+      .map((row) => { try { return JSON.parse(row.json); } catch { return null; } })
+      .filter((doc): doc is IntercambioDoc => doc !== null && doc.creadorId === payload.creadorId);
+    const totalHoyCount = delCreador.filter(
+      (doc) => doc.createdAt && doc.createdAt >= rangoDia.desde && doc.createdAt <= rangoDia.hasta
     ).length;
     if (totalHoyCount >= INTERCAMBIO_LIMITS.maxDiario) {
       return res.status(429).json({ error: "limite diario de intercambios excedido" });
     }
-    const creadorIntercambios = todayIntercambios
-      .filter((doc) => doc.creadorId === payload.creadorId)
-      .sort((a, b) => (b.createdAt ?? "").localeCompare(a.createdAt ?? ""));
-    const ultimo = creadorIntercambios[0] ?? null;
+    const ultimo = [...delCreador].sort((a, b) => (b.createdAt ?? "").localeCompare(a.createdAt ?? ""))[0] ?? null;
     if (ultimo?.createdAt) {
       const diffMs = Date.now() - new Date(ultimo.createdAt).getTime();
       if (diffMs < INTERCAMBIO_LIMITS.cooldownMinutos * 60 * 1000) {
         return res.status(429).json({ error: "cooldown activo para crear intercambios" });
       }
     }
-    const inicioCancelaciones = new Date();
-    inicioCancelaciones.setDate(inicioCancelaciones.getDate() - INTERCAMBIO_LIMITS.ventanaCancelacionesDias);
-    const ventanaStr = inicioCancelaciones.toISOString();
-    const allIntercambiosRaw = await prisma.economiaIntercambio.findMany({ where: {} });
-    const allIntercambios = allIntercambiosRaw
-      .map((row) => { try { return JSON.parse(row.json); } catch { return null; } })
-      .filter((doc): doc is IntercambioDoc => doc !== null);
-    const ventanaIntercambios = allIntercambios.filter(
-      (doc) => doc.creadorId === payload.creadorId && doc.createdAt && doc.createdAt >= ventanaStr
-    );
-    const totalVentana = ventanaIntercambios.length;
-    const canceladosVentana = ventanaIntercambios.filter((doc) => doc.estado === "cancelado").length;
+    const totalVentana = delCreador.length;
+    const canceladosVentana = delCreador.filter((doc) => doc.estado === "cancelado").length;
     const score = buildIntercambioScore({
       diarios: totalHoyCount,
       cancelRatio: totalVentana ? canceladosVentana / totalVentana : 0,
@@ -1320,8 +1311,8 @@ economia.post(
 economia.get("/api/economia/modulos", async (req, res) => {
   const moduloId = req.query.moduloId;
   const filtro = typeof moduloId === "string" && moduloId.trim() ? { moduloId } : {};
-  const items = await prisma.economiaModulo.findMany({ where: filtro });
-  res.json({ items });
+  const pagina = leerPagina(req.query);
+  res.json(recortar(await prisma.economiaModulo.findMany({ where: filtro, take: pagina.take, skip: pagina.skip }), pagina));
 });
 
 economia.put("/api/economia/modulos/:moduloId", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
@@ -1356,7 +1347,17 @@ economia.put("/api/economia/modulos/:moduloId", ...bodyLimitMB(ENV.MAX_PAGE_MB),
 economia.get("/api/economia/examenes", async (req, res) => {
   const estado = req.query.estado;
   const ajuste = await getMacroAjuste();
-  const allRows = await prisma.economiaExamen.findMany({ orderBy: { createdAt: "desc" } });
+  const pagina = leerPagina(req.query);
+  const { items: allRows, ...paginacion } = recortar(
+    await prisma.economiaExamen.findMany({
+      // El estado vive dentro del JSON: se filtra en la base por el texto y de nuevo, exacto, abajo.
+      where: typeof estado === "string" && estado.trim() ? { json: { contains: `"estado":${JSON.stringify(estado)}` } } : {},
+      orderBy: { createdAt: "desc" },
+      take: pagina.take,
+      skip: pagina.skip
+    }),
+    pagina
+  );
   const allDocs = allRows.map((row) => { try { return JSON.parse(row.json); } catch { return null; } }).filter(Boolean) as ExamenDoc[];
   const items = typeof estado === "string" && estado.trim()
     ? allDocs.filter((doc) => doc.estado === estado)
@@ -1370,6 +1371,7 @@ economia.get("/api/economia/examenes", async (req, res) => {
   }));
   res.json({
     items: adjustedItems,
+    ...paginacion,
     ajuste: {
       modo: ajuste.modo,
       recompensaFactor: ajuste.recompensaFactor,
@@ -1461,14 +1463,28 @@ economia.get("/api/economia/examenes/:id/pujas", async (req, res) => {
   } else if (!hasRole(actorDe(req) as never, "ADMIN")) {
     usuarioId = getRequesterId(req) ?? "";
   }
-  const allRows = await prisma.economiaExamenPuja.findMany({ orderBy: { createdAt: "desc" } });
+  const pagina = leerPagina(req.query);
+  const { items: allRows, ...paginacion } = recortar(
+    await prisma.economiaExamenPuja.findMany({
+      where: {
+        examenId: req.params.id as string,
+        ...(typeof usuarioId === "string" && usuarioId.trim()
+          ? { json: { contains: `"usuarioId":${JSON.stringify(usuarioId)}` } }
+          : {})
+      },
+      orderBy: { createdAt: "desc" },
+      take: pagina.take,
+      skip: pagina.skip
+    }),
+    pagina
+  );
   const allDocs = allRows.map((row) => { try { return JSON.parse(row.json); } catch { return null; } }).filter(Boolean) as PujaDoc[];
   const items = allDocs.filter((doc) => {
     if (doc.examenId !== req.params.id) return false;
     if (typeof usuarioId === "string" && usuarioId.trim() && doc.usuarioId !== usuarioId) return false;
     return true;
   });
-  res.json({ items });
+  res.json({ items, ...paginacion });
 });
 
 economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
@@ -1497,7 +1513,26 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
     if (new Date(examen.fechaExamen ?? "") <= new Date()) {
       return res.status(400).json({ error: "examen vencido" });
     }
-    const allPujaRows = await prisma.economiaExamenPuja.findMany({ where: {} });
+    // Subasta por ticket: el tope por alumno cuenta las pujas de todas las subastas del mismo módulo y aula.
+    // Se buscan solo esas (antes se leían todas las pujas y todos los exámenes de la plataforma).
+    const hermanas = new Set<string>();
+    if (examen.modo === "ticket") {
+      const candidatas = await prisma.economiaExamen.findMany({
+        where: { json: { contains: `"moduloId":${JSON.stringify(examen.moduloId)}` } }
+      });
+      for (const r of candidatas) {
+        try {
+          const e = JSON.parse(r.json) as ExamenDoc;
+          if (e.modo === "ticket" && e.aulaId === examen.aulaId && e.moduloId === examen.moduloId) { if (e.id) hermanas.add(e.id); };
+        } catch { /* ilegible */ }
+      }
+    }
+    const allPujaRows = await prisma.economiaExamenPuja.findMany({
+      where: {
+        examenId: { in: [req.params.id as string, ...hermanas] },
+        json: { contains: `"usuarioId":${JSON.stringify(parsed.usuarioId)}` }
+      }
+    });
     const allPujaDocs = allPujaRows.map((row) => { try { return JSON.parse(row.json); } catch { return null; } }).filter(Boolean) as PujaDoc[];
     const totalActual = allPujaDocs
       .filter((doc) => doc.examenId === req.params.id && doc.usuarioId === parsed.usuarioId && (doc.estado === "pendiente" || doc.estado === "aceptada"))
@@ -1519,14 +1554,8 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
       if (allPujaDocs.some((d) => d.examenId === examen.id && d.usuarioId === parsed.usuarioId && vivas(d))) {
         return res.status(409).json({ error: "ya pujaste en esta subasta" });
       }
-      const hermanas = new Set(
-        (await prisma.economiaExamen.findMany({ where: {} }))
-          .map((r) => { try { return JSON.parse(r.json) as ExamenDoc; } catch { return null; } })
-          .filter((e): e is ExamenDoc => !!e && e.modo === "ticket" && e.aulaId === examen.aulaId && e.moduloId === examen.moduloId)
-          .map((e) => e.id)
-      );
       const enElModulo = allPujaDocs.filter(
-        (d) => d.usuarioId === parsed.usuarioId && hermanas.has(d.examenId) && vivas(d)
+        (d) => d.usuarioId === parsed.usuarioId && hermanas.has(d.examenId as string) && vivas(d)
       ).length;
       if (enElModulo >= topePorAlumno(examen.maxCompra)) {
         return res.status(400).json({ error: "limite de compra excedido" });
@@ -1568,7 +1597,10 @@ economia.get("/api/economia/examenes/puntos", async (req, res) => {
   if (typeof usuarioId !== "string" || !usuarioId.trim()) {
     return res.status(400).json({ error: "usuarioId is required" });
   }
-  const allRows = await prisma.economiaExamenPunto.findMany({ where: {} });
+  const allRows = await prisma.economiaExamenPunto.findMany({
+    where: { json: { contains: `"usuarioId":${JSON.stringify(usuarioId)}` } },
+    take: 50
+  });
   const puntos = allRows
     .map((row) => { try { return JSON.parse(row.json); } catch { return null; } })
     .filter(Boolean)
@@ -1620,7 +1652,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
       (req as { user?: { _id?: { toString?: () => string }; id?: string } }).user?.id ??
       "desconocido";
     const now = new Date().toISOString();
-    const allPujaRows = await prisma.economiaExamenPuja.findMany({ where: {} });
+    const allPujaRows = await prisma.economiaExamenPuja.findMany({ where: { examenId: req.params.id as string } });
     const pujas = allPujaRows
       .map((row) => { try { return JSON.parse(row.json); } catch { return null; } })
       .filter((doc): doc is PujaDoc => doc !== null && doc.examenId === req.params.id && doc.estado === "pendiente");
@@ -1629,7 +1661,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
     let precioCount = 0;
 
     // ── batch-fetch to avoid N+1 per puja ────────────────────────────────────
-    const batchPuntosRows = await prisma.economiaExamenPunto.findMany({ where: {} });
+    const batchPuntosRows = await prisma.economiaExamenPunto.findMany({ where: { examenId: examen.id } });
     // puntos map: usuarioId → DB row (json blob updated in-memory as we go)
     const puntosRowByUser = new Map<string, (typeof batchPuntosRows)[0]>();
     for (const row of batchPuntosRows) {
@@ -1835,12 +1867,19 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
   }
 });
 
-economia.get("/api/economia/eventos", requireUser, async (_req, res) => {
-  const items = await prisma.economiaEvento.findMany({
-    where: { isDeleted: { not: true } },
-    orderBy: { updatedAt: "desc" }
-  });
-  res.json({ items });
+economia.get("/api/economia/eventos", requireUser, async (req, res) => {
+  const pagina = leerPagina(req.query);
+  res.json(
+    recortar(
+      await prisma.economiaEvento.findMany({
+        where: { isDeleted: { not: true } },
+        orderBy: { updatedAt: "desc" },
+        take: pagina.take,
+        skip: pagina.skip
+      }),
+      pagina
+    )
+  );
 });
 
 economia.post("/api/economia/eventos", requireAdminAuth, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
@@ -1908,11 +1947,13 @@ economia.get("/api/admin/economia/recompensas", requireAdminAuth, async (req, re
   } else if (!includeDeleted) {
     filtro.isDeleted = { not: true };
   }
-  const items = await prisma.economiaRecompensa.findMany({
-    where: filtro as any,
-    orderBy: { updatedAt: "desc" }
-  });
-  res.json({ items });
+  const pagina = leerPagina(req.query);
+  res.json(
+    recortar(
+      await prisma.economiaRecompensa.findMany({ where: filtro as any, orderBy: { updatedAt: "desc" }, take: pagina.take, skip: pagina.skip }),
+      pagina
+    )
+  );
 });
 
 economia.delete("/api/admin/economia/recompensas/:id", requireAdminAuth, async (req, res) => {
@@ -1931,20 +1972,22 @@ economia.delete("/api/admin/economia/recompensas/:id", requireAdminAuth, async (
   res.status(204).send();
 });
 
-economia.get("/api/admin/economia/eventos", requireAdminAuth, async (_req, res) => {
-  const includeDeleted = _req.query.includeDeleted === "true";
-  const onlyDeleted = _req.query.onlyDeleted === "true";
+economia.get("/api/admin/economia/eventos", requireAdminAuth, async (req, res) => {
+  const includeDeleted = req.query.includeDeleted === "true";
+  const onlyDeleted = req.query.onlyDeleted === "true";
   const filtro: Record<string, unknown> = {};
   if (onlyDeleted) {
     filtro.isDeleted = true;
   } else if (!includeDeleted) {
     filtro.isDeleted = { not: true };
   }
-  const items = await prisma.economiaEvento.findMany({
-    where: filtro as any,
-    orderBy: { updatedAt: "desc" }
-  });
-  res.json({ items });
+  const pagina = leerPagina(req.query);
+  res.json(
+    recortar(
+      await prisma.economiaEvento.findMany({ where: filtro as any, orderBy: { updatedAt: "desc" }, take: pagina.take, skip: pagina.skip }),
+      pagina
+    )
+  );
 });
 
 economia.delete("/api/admin/economia/eventos/:id", requireAdminAuth, async (req, res) => {
@@ -2051,19 +2094,21 @@ economia.get("/api/admin/economia/validacion", requireAdminAuth, async (req, res
     }
   }
 
-  const transaccionesRows = await prisma.economiaTransaccion.findMany({ where: {} });
+  // Se suma en la base, agrupado por persona, moneda y tipo (antes se leía cada transacción de la plataforma).
+  const totalesTx = await prisma.economiaTransaccion.groupBy({
+    by: ["usuarioId", "moneda", "tipo"],
+    _sum: { monto: true }
+  });
   const totalPorSaldo = new Map<string, number>();
 
-  for (const transaccion of transaccionesRows) {
-    const usuarioId = normalizeUsuarioKey(transaccion.usuarioId);
+  for (const grupo of totalesTx) {
+    const usuarioId = normalizeUsuarioKey(grupo.usuarioId);
     if (!usuarioId) continue;
     const moneda =
-      typeof transaccion.moneda === "string" && transaccion.moneda.trim()
-        ? transaccion.moneda
-        : "desconocida";
+      typeof grupo.moneda === "string" && grupo.moneda.trim() ? grupo.moneda : "desconocida";
     const key = buildSaldoKey(usuarioId, moneda);
-    const monto = typeof transaccion.monto === "number" ? transaccion.monto : 0;
-    const factor = transaccion.tipo === "debito" ? -1 : 1;
+    const monto = grupo._sum.monto ?? 0;
+    const factor = grupo.tipo === "debito" ? -1 : 1;
     totalPorSaldo.set(key, (totalPorSaldo.get(key) ?? 0) + factor * monto);
   }
 
@@ -2190,7 +2235,12 @@ economia.get("/api/economia/metricas", async (req, res) => {
   );
   const ajuste = await getMacroAjuste();
   // Calculate volumen subastas from examen pujas (JSON blobs)
-  const allPujaRows = await prisma.economiaExamenPuja.findMany({ where: {} });
+  const allPujaRows = await prisma.economiaExamenPuja.findMany({
+    where: {
+      createdAt: { gte: desde, lte: hasta },
+      ...(aulaId ? { json: { contains: `"aulaId":${JSON.stringify(aulaId)}` } } : {})
+    }
+  });
   const allPujaDocs = allPujaRows
     .map((row) => { try { return JSON.parse(row.json); } catch { return null; } })
     .filter((doc): doc is PujaDoc & { createdAt?: string; aulaId?: string } => doc !== null);
@@ -2202,16 +2252,18 @@ economia.get("/api/economia/metricas", async (req, res) => {
   const volumenSubastas = filteredPujas.reduce((acc, doc) => acc + (doc.puntos ?? 0) * (doc.montoPorPunto ?? 0), 0);
 
   // Calculate dinero quemado from transacciones
-  const transaccionesRows = await prisma.economiaTransaccion.findMany({
-    where: {
-      tipo: "debito",
-      createdAt: { gte: desde, lte: hasta },
-      ...(aulaId ? { aulaId } : {})
-    }
-  });
-  const dineroQuemado = transaccionesRows
-    .filter((t) => /subasta_examen|penalizacion|quemado|burn/.test(t.motivo ?? ""))
-    .reduce((acc, t) => acc + (t.monto as number), 0);
+  const dineroQuemado =
+    (
+      await prisma.economiaTransaccion.aggregate({
+        where: {
+          tipo: "debito",
+          createdAt: { gte: desde, lte: hasta },
+          ...(aulaId ? { aulaId } : {}),
+          OR: ["subasta_examen", "penalizacion", "quemado", "burn"].map((m) => ({ motivo: { contains: m } }))
+        },
+        _sum: { monto: true }
+      })
+    )._sum.monto ?? 0;
 
   res.json({
     periodo: { desde, hasta },

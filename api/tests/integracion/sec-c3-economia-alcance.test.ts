@@ -98,7 +98,7 @@ describe("exámenes / subastas", () => {
   test("las pujas: el alumno ve solo las suyas aunque pida las de otro; el docente de la escuela ve todas; el de otra escuela, ninguna", async () => {
     sembrarExamen();
     const puja = (id: string, usuarioId: string) =>
-      prisma.economiaExamenPuja.rows.push({ id, json: JSON.stringify({ id, examenId: "ex-1", usuarioId, puntos: 1, montoPorPunto: 5 }), createdAt: nowIso() } as never);
+      prisma.economiaExamenPuja.rows.push({ id, examenId: "ex-1", json: JSON.stringify({ id, examenId: "ex-1", usuarioId, puntos: 1, montoPorPunto: 5 }), createdAt: nowIso() } as never);
     puja("p1", ALU_A);
     puja("p2", "otro-alumno");
     const ver = async (token: string, q = "") =>
