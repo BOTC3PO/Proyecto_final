@@ -164,8 +164,28 @@ y eso se decide en las recetas intermedias o avanzadas, no ahora.
 
 ---
 
+## Las 3 recetas intermedias y las 2 avanzadas (agregadas 2026-10-13)
+
+Siguen la misma regla de seguridad: **solo fruta ácida con mucho azúcar** (pH bajo y 65 °Brix o más), nada de
+verduras, salsas ni conservas "al natural". **Sigue sin haber ningún fiambre ni embutido** en el bloque: no encontré
+una fuente institucional con el proceso completo y los controles de temperatura (ver "Por qué estas dos"), así que
+las tres intermedias previstas quedaron como conservas dulces.
+
+- **Intermedias** (`intermedias/`, dificultad 2,5 a 3): **mermelada de duraznos** (`01`, precocción de la fruta,
+  azúcar en dos tiempos y baño maría), **mermelada de naranjas** (`02`, escaldado de la cáscara y tiritas finas) y
+  **dulce de membrillo** (`03`, pasta concentrada hasta poder moldearla). Las tres se apoyan en las mismas fuentes
+  del INTA (EEA Mendoza, EEA Rama Caída y Manual de Conservas 2018); el dulce de membrillo suma el apunte de la
+  UNCUYO y la Indicación Geográfica del Dulce de Membrillo Rubio de San Juan (MAGyP).
+- **Avanzadas** (`avanzadas/`, dificultad 4): **lote de mermelada de duraznos para 10 frascos** (`01`, escalado,
+  baño maría en dos tandas y costeo) y **dulce de membrillo "rubio" y "rojo" en dos tandas** (`02`, 4 kg de fruta,
+  dos variantes del mismo dulce y costeo). **La variante "roja" tiene una sola fuente** (UNCUYO) y la receta lo dice.
+- **Lo que sigue sin escribirse en este bloque:** el plan prevé 8 recetas (2 básicas, 3 intermedias, 2 avanzadas y
+  1 especial); con estas cinco hay **7**. Falta **1 especial**. Los fiambres cocidos y los embutidos **solo entran si
+  aparece una fuente institucional** con proceso completo, temperaturas y plazos.
+
 ## Fuentes (todas reescritas con palabras propias)
 
+- **Mermeladas y dulces de las recetas intermedias y avanzadas (agregadas 2026-10-13):** INTA, EEA Mendoza (Contardi, *Preparación de mermeladas*), INTA, EEA Rama Caída (Urfalino y Worlock, *Mermeladas artesanales*, 2021), INTA, *Manual de Conservas* (2018), UNCUYO (*Elaboración de dulce de membrillo*) y MAGyP, *Dulce de Membrillo Rubio de San Juan* (Res. 14/2018). Las URL están en la sección "Fuentes" de cada receta.
 - **Factores de conservación, esporas, oxígeno, hongos, botulismo, conservas caseras,
   triquinosis, SUH, hogar:** ANMAT, *Manual de manipulación higiénica de alimentos*,
   versión 2024: factores que favorecen y desfavorecen el crecimiento (págs. 24-26), alimento
