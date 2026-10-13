@@ -336,6 +336,29 @@ const puedeAdministrarAula = (req: express.Request, aula: AulaDoc | null): boole
   return !!escuelaDelAula && escuelaDelAula === escuelaDelActor;
 };
 
+/**
+ * Aulas cuyos exámenes puede ver quien pide: todas si es ADMIN (`null`); si no, aquellas de las que es miembro
+ * y, si es personal de escuela, las de su escuela. Antes el listado de exámenes devolvía los de todas las escuelas.
+ */
+const aulasVisibles = async (req: express.Request): Promise<string[] | null> => {
+  if (hasRole(actorDe(req) as never, "ADMIN")) return null;
+  const userId = getRequesterId(req);
+  const ids = new Set<string>();
+  if (userId) {
+    for (const m of await prisma.claseMiembro.findMany({ where: { usuarioId: userId }, select: { claseId: true }, take: 500 })) ids.add(m.claseId);
+    // Un padre ve las aulas de sus hijos vinculados.
+    const hijos = await prisma.progresoModuloVinculo.findMany({ where: { parentId: userId, estado: "aprobado" }, select: { childId: true }, take: 50 });
+    if (hijos.length) {
+      for (const m of await prisma.claseMiembro.findMany({ where: { usuarioId: { in: hijos.map((h) => h.childId) } }, select: { claseId: true }, take: 500 })) ids.add(m.claseId);
+    }
+  }
+  const escuela = getRequesterSchoolId(req);
+  if (escuela && isStaffRole(actorDe(req))) {
+    for (const c of await prisma.clase.findMany({ where: { escuelaId: escuela, isDeleted: { not: true } }, select: { id: true }, take: 500 })) ids.add(c.id);
+  }
+  return [...ids];
+};
+
 /** Responde 403 y devuelve false si quien pide no administra el aula (o, sin aula, no es ADMIN). */
 const exigirAdministrarAula = async (
   req: express.Request,
@@ -1348,10 +1371,15 @@ economia.get("/api/economia/examenes", async (req, res) => {
   const estado = req.query.estado;
   const ajuste = await getMacroAjuste();
   const pagina = leerPagina(req.query);
+  const aulas = await aulasVisibles(req);
+  const filtroAula = aulas === null ? {} : { OR: aulas.length ? aulas.map((a) => ({ json: { contains: `"aulaId":${JSON.stringify(a)}` } })) : [{ id: "__ninguno__" }] };
   const { items: allRows, ...paginacion } = recortar(
     await prisma.economiaExamen.findMany({
       // El estado vive dentro del JSON: se filtra en la base por el texto y de nuevo, exacto, abajo.
-      where: typeof estado === "string" && estado.trim() ? { json: { contains: `"estado":${JSON.stringify(estado)}` } } : {},
+      where: {
+        ...(typeof estado === "string" && estado.trim() ? { json: { contains: `"estado":${JSON.stringify(estado)}` } } : {}),
+        ...filtroAula
+      },
       orderBy: { createdAt: "desc" },
       take: pagina.take,
       skip: pagina.skip
@@ -1359,9 +1387,11 @@ economia.get("/api/economia/examenes", async (req, res) => {
     pagina
   );
   const allDocs = allRows.map((row) => { try { return JSON.parse(row.json); } catch { return null; } }).filter(Boolean) as ExamenDoc[];
-  const items = typeof estado === "string" && estado.trim()
-    ? allDocs.filter((doc) => doc.estado === estado)
-    : allDocs;
+  const items = allDocs.filter(
+    (doc) =>
+      (!(typeof estado === "string" && estado.trim()) || doc.estado === estado) &&
+      (aulas === null || (!!doc.aulaId && aulas.includes(String(doc.aulaId))))
+  );
   const adjustedItems = items.map((item) => ({
     ...item,
     precioPromedioAjustado:

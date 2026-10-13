@@ -88,6 +88,21 @@ describe("exámenes / subastas", () => {
     assert.equal((await jsonRequest(baseUrl, "PATCH", "/api/economia/examenes/ex-1", { token: tDocA(), body: cambio })).status, 200);
   });
 
+  test("listado: cada quien ve solo los exámenes de sus aulas; el admin ve todos; el listado pagina", async () => {
+    sembrarExamen("ex-a");
+    prisma.economiaExamen.rows.push({ id: "ex-b", json: JSON.stringify({ id: "ex-b", aulaId: "otra-aula", estado: "anunciado", nombre: "Ajeno" }), createdAt: nowIso() } as never);
+    const ver = async (token: string, q = "") =>
+      (await jsonRequest(baseUrl, "GET", `/api/economia/examenes${q}`, { token })).body as { items: Array<{ id: string }>; hasMore: boolean };
+    assert.deepEqual((await ver(tAluA())).items.map((e) => e.id), ["ex-a"]);
+    assert.deepEqual((await ver(tDocA())).items.map((e) => e.id), ["ex-a"]);
+    assert.deepEqual((await ver(tDocB())).items, []);
+    assert.equal((await ver(tAdmin())).items.length, 2);
+    const p1 = await ver(tAdmin(), "?limit=1");
+    assert.equal(p1.items.length, 1);
+    assert.equal(p1.hasMore, true);
+    assert.equal((await ver(tAdmin(), "?limit=1&offset=1")).hasMore, false);
+  });
+
   test("cerrar: un docente de otra escuela no puede cerrar el examen ajeno", async () => {
     sembrarExamen();
     const r = await jsonRequest(baseUrl, "POST", "/api/economia/examenes/ex-1/cerrar", { token: tDocB(), body: {} });
