@@ -439,3 +439,17 @@ Ruta "Ofimática" de la sección "Finales de ruta técnicos/informáticos" de `o
 | `ofimatica/macros-basicas/` | `formulas-y-referencias/`, `../informatica/estructuras-de-control-bucles/` | Grabar y leer macros; seguridad. |
 | `ofimatica/cronogramas-y-diagrama-de-gantt/` | `formulas-y-referencias/` | Planificación en el tiempo y camino crítico. |
 | `ofimatica/dependencias-y-asignacion-de-recursos/` | `cronogramas-y-diagrama-de-gantt/` | Dependencias, recursos, sobreasignación y costos. |
+
+## Finales de ruta técnicos/informáticos — PSeInt (agregado 2026-10-14)
+
+Ruta "PSeInt / pseudocódigo" de la sección "Finales de ruta técnicos/informáticos" de `oficios-orientacion-vocacional-PLANIFICACION.md`. Vive en `material/oficios/pseint/`, cuelga de `../informatica/` y no certifica. Los 7 temas se escribieron a mano a partir de los borradores crudos de `_borradores-gemma/materias-nuevas/pseint/` (borrados; el de `funciones` tenía 12 bloques). Nombre de materia de los cuestionarios: `pseint`. Los ejemplos usan la sintaxis de PSeInt con el perfil por defecto (índices desde 1).
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `pseint/sintaxis-y-pseudocodigo/` | `../informatica/algoritmo-secuencia-de-pasos/` | Raíz: estructura de un algoritmo, `Leer`/`Escribir`, operadores, funciones incorporadas. |
+| `pseint/variables-y-tipos/` | `sintaxis-y-pseudocodigo/`, `../informatica/variables-y-tipos-de-dato/` | `Definir`, tipos, contadores, acumuladores. |
+| `pseint/estructuras-de-control/` | `variables-y-tipos/`, `../informatica/estructuras-de-control-condicionales/` | `Si`, `Segun`, `Para`, `Mientras`, `Repetir`. |
+| `pseint/tablas-arreglos/` | `estructuras-de-control/`, `../informatica/estructuras-de-datos-listas-pilas-colas/` | Vectores, matrices, búsqueda y burbuja. |
+| `pseint/funciones/` | `tablas-arreglos/`, `../informatica/funciones-y-modularidad/` | `Funcion` y `SubProceso`, parámetros, alcance. |
+| `pseint/diagramas-de-flujo/` | `sintaxis-y-pseudocodigo/`, `estructuras-de-control/` | Símbolos y traducción a pseudocódigo. |
+| `pseint/diagnostico-por-casos/` | `diagramas-de-flujo/` y los temas anteriores | Cierre de la ruta: prueba de escritorio y diagnóstico. |
