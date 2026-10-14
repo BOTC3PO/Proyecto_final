@@ -497,3 +497,14 @@ Primera de las 6 ramas de "Informática ramificada" (sección homónima de `ofic
 | `backend/apis-rest/` | `../informatica/protocolo-http-peticion-respuesta/` | Raíz: recursos, métodos, códigos de estado, buenas prácticas. |
 | `backend/arquitectura-de-servidores/` | `apis-rest/`, `../informatica/diseno-y-arquitectura-de-software/` | Capas, caché, colas, escalado, disponibilidad. |
 | `backend/autenticacion-y-autorizacion/` | `arquitectura-de-servidores/`, `../informatica/permisos-y-usuarios/` | Contraseñas, sesiones y tokens, MFA, roles. Enfoque defensivo. |
+
+## Informática ramificada — Frontend (agregado 2026-10-14)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `frontend/html-semantico/` | `../informatica/protocolo-http-peticion-respuesta/` | Raíz: estructura, elementos semánticos, formularios, accesibilidad. |
+| `frontend/css-y-maquetacion/` | `html-semantico/` | Selectores, cascada, caja, Flexbox, Grid, diseño adaptable. |
+| `frontend/javascript-fundamentos/` | `css-y-maquetacion/`, `../informatica/estructuras-de-control-condicionales/` | Variables, funciones, arreglos, DOM, eventos, `fetch`. |
+| `frontend/javascript-orientado-a-objetos/` | `javascript-fundamentos/`, `../informatica/poo-clases-y-objetos/` | Objetos, clases, herencia, encapsulamiento, `this`. |
+| `frontend/typescript-fundamentos/` | `javascript-orientado-a-objetos/` | Tipos, interfaces, uniones, genéricos, `strict`. |
+| `frontend/experiencia-de-usuario-basica/` | `css-y-maquetacion/`, `html-semantico/` | Principios de UX/UI, accesibilidad, pruebas con usuarios, ética. Conecta con `diseno-grafico/prototipado/`. |
