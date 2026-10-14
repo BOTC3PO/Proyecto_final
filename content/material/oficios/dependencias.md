@@ -361,3 +361,22 @@ Ruta "Bash / Shell scripting" de `oficios-orientacion-vocacional-PLANIFICACION.m
 | `bash/scripts-ejecutables-y-permisos/` | `funciones-en-bash/`, `../informatica/permisos-y-usuarios/` | Shebang, `chmod`, `source`, `set -euo pipefail`, `bash -n`/`-x`. |
 | `bash/cron-y-tareas-programadas/` | `scripts-ejecutables-y-permisos/` | `crontab`, los cinco campos, entorno mínimo de cron y registros. |
 | `bash/diagnostico-por-casos/` | `cron-y-tareas-programadas/` y todos los temas anteriores de Bash | Cierre de la ruta (patrón de diagnóstico por casos del resto de los oficios): síntomas, hipótesis y herramientas. |
+
+## Finales de ruta técnicos/informáticos — PowerShell (agregado 2026-10-14)
+
+Ruta "PowerShell" de la sección "Finales de ruta técnicos/informáticos" de `oficios-orientacion-vocacional-PLANIFICACION.md`. Igual que Bash: vive en `material/oficios/powershell/`, cuelga de `../informatica/` y no certifica. Los 12 temas se escribieron a mano a partir de los borradores crudos de `_borradores-gemma/materias-nuevas/powershell/` (borrados). Nombre de materia de los cuestionarios: `powershell`.
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `powershell/sintaxis-verbo-sustantivo/` | `../informatica/variables-y-tipos-de-dato/`, `../informatica/sistema-de-archivos/` | Raíz: cmdlets, parámetros, alias, variables y tipos. |
+| `powershell/get-help-y-descubribilidad/` | `sintaxis-verbo-sustantivo/` | `Get-Help`, `Get-Command`, `Get-Member`. |
+| `powershell/pipeline-de-objetos/` | `get-help-y-descubribilidad/` | Tubería de objetos, `Where-Object`, `Select-Object`, `Sort-Object`. |
+| `powershell/sistema-de-archivos-powershell/` | `pipeline-de-objetos/`, `../informatica/sistema-de-archivos/` | Listar, copiar, mover, borrar, leer y escribir. |
+| `powershell/gestion-de-procesos-powershell/` | `sistema-de-archivos-powershell/` | `Get-Process`, `Start-Process`, `Stop-Process`. |
+| `powershell/gestion-de-servicios-powershell/` | `gestion-de-procesos-powershell/` | `Get-Service` y compañía; estados e inicio. |
+| `powershell/condicionales-powershell/` | `pipeline-de-objetos/`, `../informatica/estructuras-de-control-condicionales/` | `if`, operadores `-eq`/`-gt`, `switch`. |
+| `powershell/bucles-powershell/` | `condicionales-powershell/`, `../informatica/estructuras-de-control-bucles/` | `foreach`, `for`, `while`, `ForEach-Object`. |
+| `powershell/funciones-powershell/` | `bucles-powershell/`, `../informatica/funciones-y-modularidad/` | `function`, `param`, valores devueltos. |
+| `powershell/politicas-de-ejecucion/` | `funciones-powershell/` | Qué scripts se pueden ejecutar y por qué. |
+| `powershell/automatizacion-ps1/` | `politicas-de-ejecucion/`, `funciones-powershell/` | Scripts `.ps1`, errores con `try/catch`, tareas programadas. |
+| `powershell/diagnostico-por-casos/` | `automatizacion-ps1/` y los temas anteriores | Cierre de la ruta: diagnóstico por síntomas. |
