@@ -526,3 +526,14 @@ Primera de las 6 ramas de "Informática ramificada" (sección homónima de `ofic
 | `ciencia-de-datos/probabilidad-aplicada/` | `estadistica-descriptiva/` | Reglas, condicional, Bayes, esperanza, sesgos. |
 | `ciencia-de-datos/limpieza-de-datos/` | `estadistica-descriptiva/`, `../informatica/archivos-y-persistencia/` | Faltantes, duplicados, tipos, validación, privacidad. |
 | `ciencia-de-datos/visualizacion-de-datos/` | `limpieza-de-datos/`, `estadistica-descriptiva/` | Elegir y diseñar gráficos con honestidad. Conecta con `ofimatica/tablas-dinamicas-y-graficos/`. |
+
+## Informática ramificada — Ciberseguridad (agregado 2026-10-14)
+
+Enfoque **defensivo y educativo** (como pide la planificación): cada tema avisa que probar sistemas ajenos sin autorización es ilegal, y no incluye herramientas ni cargas ofensivas.
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `ciberseguridad/vulnerabilidades-comunes/` | `../informatica/seguridad-informatica/` | Raíz: CIA, OWASP, ingeniería social, malware, respuesta a incidentes. |
+| `ciberseguridad/criptografia-basica/` | `vulnerabilidades-comunes/`, `../informatica/criptografia-clave-simetrica-asimetrica-hash/` | Simétrico, asimétrico, hash, firmas, certificados, claves. |
+| `ciberseguridad/gestion-de-contrasenas/` | `criptografia-basica/` | Ataques a claves, frases de paso, gestores, MFA, passkeys. |
+| `ciberseguridad/hardening-basico/` | `gestion-de-contrasenas/`, `../informatica/seguridad-de-red-firewall-vpn-cifrado/` | Reducir superficie de ataque: actualizaciones, cuentas, red, datos, registros. |
