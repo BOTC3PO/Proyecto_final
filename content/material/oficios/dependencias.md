@@ -508,3 +508,12 @@ Primera de las 6 ramas de "Informática ramificada" (sección homónima de `ofic
 | `frontend/javascript-orientado-a-objetos/` | `javascript-fundamentos/`, `../informatica/poo-clases-y-objetos/` | Objetos, clases, herencia, encapsulamiento, `this`. |
 | `frontend/typescript-fundamentos/` | `javascript-orientado-a-objetos/` | Tipos, interfaces, uniones, genéricos, `strict`. |
 | `frontend/experiencia-de-usuario-basica/` | `css-y-maquetacion/`, `html-semantico/` | Principios de UX/UI, accesibilidad, pruebas con usuarios, ética. Conecta con `diseno-grafico/prototipado/`. |
+
+## Informática ramificada — DevOps (agregado 2026-10-14)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `devops/control-de-versiones-git/` | `../informatica/control-de-versiones/`, `bash/sintaxis-de-shell/` | Raíz: commits, ramas, conflictos, remotos, deshacer, secretos. |
+| `devops/contenedores-docker/` | `control-de-versiones-git/`, `../informatica/virtualizacion-maquina-virtual-contenedor/` | Imágenes, contenedores, Dockerfile, volúmenes, Compose, seguridad. |
+| `devops/ci-cd-fundamentos/` | `control-de-versiones-git/`, `contenedores-docker/` | Pipelines, pruebas automáticas, estrategias de despliegue, secretos. |
+| `devops/infraestructura-como-codigo/` | `ci-cd-fundamentos/`, `bash/scripts-ejecutables-y-permisos/` | Declarativo vs imperativo, idempotencia, Terraform y Ansible. |
