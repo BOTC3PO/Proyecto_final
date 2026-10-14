@@ -380,3 +380,19 @@ Ruta "PowerShell" de la sección "Finales de ruta técnicos/informáticos" de `o
 | `powershell/politicas-de-ejecucion/` | `funciones-powershell/` | Qué scripts se pueden ejecutar y por qué. |
 | `powershell/automatizacion-ps1/` | `politicas-de-ejecucion/`, `funciones-powershell/` | Scripts `.ps1`, errores con `try/catch`, tareas programadas. |
 | `powershell/diagnostico-por-casos/` | `automatizacion-ps1/` y los temas anteriores | Cierre de la ruta: diagnóstico por síntomas. |
+
+## Finales de ruta técnicos/informáticos — SQL (agregado 2026-10-14)
+
+Ruta "SQL" de la sección "Finales de ruta técnicos/informáticos" de `oficios-orientacion-vocacional-PLANIFICACION.md`. Vive en `material/oficios/sql/`, cuelga de `../informatica/` y no certifica. Los 9 temas se escribieron a mano a partir de los borradores crudos de `_borradores-gemma/materias-nuevas/sql/` (borrados). Nombre de materia de los cuestionarios: `sql`. Los ejemplos usan SQL estándar y señalan las diferencias entre motores (`LIMIT`/`TOP`, `FULL JOIN`).
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `sql/select-y-where/` | `../informatica/modelo-relacional-tabla-registro-clave-primaria/` | Raíz: `SELECT`, filtros, `NULL`, orden. |
+| `sql/insert-update-delete/` | `select-y-where/` | Modificar datos y restricciones que los protegen. |
+| `sql/join/` | `select-y-where/`, `../informatica/relaciones-y-claves-foraneas/` | Combinar tablas por clave. |
+| `sql/agregaciones-group-by/` | `select-y-where/` | `COUNT`, `SUM`, `GROUP BY`, `HAVING`. |
+| `sql/subconsultas/` | `agregaciones-group-by/`, `join/` | `IN`, `EXISTS`, CTE; subconsulta vs `JOIN`. |
+| `sql/indices-basicos/` | `select-y-where/`, `../informatica/modelo-relacional-tabla-registro-clave-primaria/` | Qué acelera un índice y qué cuesta; `EXPLAIN`. |
+| `sql/normalizacion-de-esquema/` | `join/`, `../informatica/normalizacion-bases-datos/` | Formas normales y diseño de tablas. |
+| `sql/transacciones-sql/` | `insert-update-delete/`, `../informatica/transacciones-acid/` | `BEGIN`/`COMMIT`/`ROLLBACK`, ACID, bloqueos. |
+| `sql/diagnostico-por-casos/` | `transacciones-sql/` y los temas anteriores | Cierre de la ruta: diagnóstico por síntomas. |
