@@ -1131,6 +1131,17 @@ sumar como `OF20` en troncos.md si se formaliza.**
 
 ## Finales de ruta técnicos/informáticos — diseñado (2026-08-10)
 
+> **Estado (2026-10-14): escritos.** Los 105 temas de estos finales de ruta (Bash 14, PowerShell 12, SQL 9, QA/Testing 7, Redes 7,
+> Ofimática 8, PSeInt 7, Scratch 5, Mecanografía 3, Diseño gráfico 3, Audiovisual 2 y las 6 ramas de Informática: Backend 3, Frontend 6,
+> DevOps 4, Ciencia de datos 4, Ciberseguridad 4, DBA 4, más los 3 operadores de `informatica/`) están en `material/oficios/<ruta>/<tema>/`
+> con `teoria.md` y `cuestionario.md` (20 o más preguntas, todas validadas con `_qa_tools/validar_lote.ts`) y sus filas en `oficios/dependencias.md`.
+> Se escribieron a mano porque los borradores de Gemma tenían sintaxis VBLang inválida y errores de contenido (por ejemplo, un cuestionario de
+> `awk` con una respuesta sin sentido y `==` presentado como el estándar de Bash); los borradores se borraron. *Decisiones de Claude, no pedidas:*
+> las carpetas de las ramas de Informática van como rutas propias (`backend/`, `frontend/`, `devops/`, `ciencia-de-datos/`, `ciberseguridad/`, `dba/`)
+> y no bajo un nombre común; Ciberseguridad es solo defensiva (cada tema avisa que probar sistemas ajenos sin permiso es ilegal);
+> los ejemplos de SQL/DBA usan SQL estándar o PostgreSQL y lo aclaran. *Sin hacer:* revisión por una persona del área (sobre todo Redes,
+> DevOps, Ciberseguridad y DBA), examen jefe y libros de estas materias, y traducciones.
+
 Los "finales de ruta" no tienen que ser oficios tradicionales — un
 lenguaje de programación específico o una habilidad técnica puntual son
 destinos tan legítimos como Electricista o Plomero (mismo patrón: nodo
