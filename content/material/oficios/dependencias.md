@@ -465,3 +465,13 @@ Ruta "Scratch" de la sección "Finales de ruta técnicos/informáticos" de `ofic
 | `scratch/condicionales/` | `secuencias-y-bucles/`, `../informatica/estructuras-de-control-condicionales/` | `si`, `si no`, operadores lógicos, sensores. |
 | `scratch/variables-scratch/` | `condicionales/`, `../informatica/variables-y-tipos-de-dato/` | Variables, operadores y listas. |
 | `scratch/proyecto-simple/` | `variables-scratch/` y los temas anteriores | Cierre de la ruta: un juego completo paso a paso. |
+
+## Finales de ruta técnicos/informáticos — Mecanografía (agregado 2026-10-14)
+
+Ruta "Mecanografía" de la sección "Finales de ruta técnicos/informáticos" de `oficios-orientacion-vocacional-PLANIFICACION.md`. Vive en `material/oficios/mecanografia/`, cuelga de `../informatica/` y no certifica. Los 3 temas se escribieron a mano a partir de los borradores crudos de `_borradores-gemma/materias-nuevas/mecanografia/` (borrados). Nombre de materia de los cuestionarios: `mecanografia`. Aviso: la ubicación de algunos signos varía según la distribución (España, Latinoamérica, US); los temas lo advierten y no dan posiciones que no sean comunes a las tres.
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `mecanografia/qwerty-espanol/` | `../informatica/ofimatica-planilla-de-calculo/` | Raíz: postura, fila base, dedos, ñ y tildes. |
+| `mecanografia/qwerty-ingles/` | `qwerty-espanol/` | Diferencias con el teclado US, símbolos y atajos universales. |
+| `mecanografia/velocidad-y-precision/` | `qwerty-espanol/`, `qwerty-ingles/` | PPM bruta/neta, precisión, técnicas, ergonomía. |
