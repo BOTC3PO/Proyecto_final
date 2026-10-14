@@ -396,3 +396,17 @@ Ruta "SQL" de la sección "Finales de ruta técnicos/informáticos" de `oficios-
 | `sql/normalizacion-de-esquema/` | `join/`, `../informatica/normalizacion-bases-datos/` | Formas normales y diseño de tablas. |
 | `sql/transacciones-sql/` | `insert-update-delete/`, `../informatica/transacciones-acid/` | `BEGIN`/`COMMIT`/`ROLLBACK`, ACID, bloqueos. |
 | `sql/diagnostico-por-casos/` | `transacciones-sql/` y los temas anteriores | Cierre de la ruta: diagnóstico por síntomas. |
+
+## Finales de ruta técnicos/informáticos — QA y Testing (agregado 2026-10-14)
+
+Ruta "QA / Testing" de la sección "Finales de ruta técnicos/informáticos" de `oficios-orientacion-vocacional-PLANIFICACION.md`. Vive en `material/oficios/qa-testing/`, cuelga de `../informatica/` y no certifica. Los 7 temas se escribieron a mano a partir de los borradores crudos de `_borradores-gemma/materias-nuevas/qa-testing/` (borrados). Nombre de materia de los cuestionarios: `qa-testing`.
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `qa-testing/que-es-testear/` | `../informatica/requisitos-funcionales-no-funcionales/` | Raíz: vocabulario (error, defecto, falla), QA vs testing, principios. |
+| `qa-testing/tipos-de-testing/` | `que-es-testear/`, `../informatica/pruebas-unitarias-integracion/` | Niveles, objetivos, caja negra/blanca, manual vs automático. |
+| `qa-testing/caso-feliz-y-casos-borde/` | `tipos-de-testing/` | Valores límite y clases de equivalencia. |
+| `qa-testing/casos-negativos/` | `caso-feliz-y-casos-borde/` | Entradas inválidas, permisos, fallas del entorno, manejo de errores. |
+| `qa-testing/testing-exploratorio/` | `casos-negativos/` | Sesiones con carta, heurísticas, registro. |
+| `qa-testing/reporte-de-bugs/` | `testing-exploratorio/` | Qué incluye un reporte; severidad vs prioridad; ciclo de vida. |
+| `qa-testing/diagnostico-por-casos/` | `reporte-de-bugs/` y los temas anteriores | Cierre de la ruta: aislar, clasificar, priorizar. |
