@@ -475,3 +475,15 @@ Ruta "Mecanografía" de la sección "Finales de ruta técnicos/informáticos" de
 | `mecanografia/qwerty-espanol/` | `../informatica/ofimatica-planilla-de-calculo/` | Raíz: postura, fila base, dedos, ñ y tildes. |
 | `mecanografia/qwerty-ingles/` | `qwerty-espanol/` | Diferencias con el teclado US, símbolos y atajos universales. |
 | `mecanografia/velocidad-y-precision/` | `qwerty-espanol/`, `qwerty-ingles/` | PPM bruta/neta, precisión, técnicas, ergonomía. |
+
+## Finales de ruta técnicos/informáticos — Diseño gráfico y Audiovisual (agregado 2026-10-14)
+
+Rutas "Diseño gráfico" y "Audiovisual" de la sección "Finales de ruta técnicos/informáticos" de `oficios-orientacion-vocacional-PLANIFICACION.md`. Viven en `material/oficios/diseno-grafico/` y `material/oficios/audiovisual/`, cuelgan de `../informatica/` y no certifican. Los 5 temas se escribieron a mano a partir de los borradores crudos de `_borradores-gemma/materias-nuevas/{diseno-grafico,audiovisual}/` (borrados; el de `edicion-de-imagen` tenía una teoría mínima). Nombres de materia de los cuestionarios: `diseno-grafico` y `audiovisual`. Los temas son neutrales respecto del programa (se mencionan alternativas libres: GIMP, Inkscape, Penpot, Audacity, Kdenlive).
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `diseno-grafico/edicion-de-imagen/` | `../informatica/unidades-almacenamiento/` | Raíz: píxeles, color, formatos, capas y edición no destructiva. |
+| `diseno-grafico/vectorial/` | `edicion-de-imagen/` | Trazados, Bézier, booleanas, logotipos. |
+| `diseno-grafico/prototipado/` | `vectorial/` | Wireframes, prototipos interactivos, principios de interfaz y pruebas con usuarios. |
+| `audiovisual/edicion-de-audio/` | `../informatica/unidades-almacenamiento/` | Muestreo, niveles, ruido, EQ, compresión, voz. |
+| `audiovisual/edicion-de-video/` | `edicion-de-audio/` | Cuadros, códec, organización, montaje, exportación y derechos. |
