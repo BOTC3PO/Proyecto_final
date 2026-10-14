@@ -453,3 +453,15 @@ Ruta "PSeInt / pseudocódigo" de la sección "Finales de ruta técnicos/informá
 | `pseint/funciones/` | `tablas-arreglos/`, `../informatica/funciones-y-modularidad/` | `Funcion` y `SubProceso`, parámetros, alcance. |
 | `pseint/diagramas-de-flujo/` | `sintaxis-y-pseudocodigo/`, `estructuras-de-control/` | Símbolos y traducción a pseudocódigo. |
 | `pseint/diagnostico-por-casos/` | `diagramas-de-flujo/` y los temas anteriores | Cierre de la ruta: prueba de escritorio y diagnóstico. |
+
+## Finales de ruta técnicos/informáticos — Scratch (agregado 2026-10-14)
+
+Ruta "Scratch" de la sección "Finales de ruta técnicos/informáticos" de `oficios-orientacion-vocacional-PLANIFICACION.md`. Vive en `material/oficios/scratch/`, cuelga de `../informatica/` y no certifica. Los 5 temas se escribieron a mano a partir de los borradores crudos de `_borradores-gemma/materias-nuevas/scratch/` (borrados). Nombre de materia de los cuestionarios: `scratch`. Los nombres de bloques siguen la traducción al español de Scratch 3.
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `scratch/bloques-y-eventos/` | `../informatica/algoritmo-secuencia-de-pasos/` | Raíz: pantalla, objetos, coordenadas, eventos. |
+| `scratch/secuencias-y-bucles/` | `bloques-y-eventos/`, `../informatica/estructuras-de-control-bucles/` | Orden de ejecución y repetición. |
+| `scratch/condicionales/` | `secuencias-y-bucles/`, `../informatica/estructuras-de-control-condicionales/` | `si`, `si no`, operadores lógicos, sensores. |
+| `scratch/variables-scratch/` | `condicionales/`, `../informatica/variables-y-tipos-de-dato/` | Variables, operadores y listas. |
+| `scratch/proyecto-simple/` | `variables-scratch/` y los temas anteriores | Cierre de la ruta: un juego completo paso a paso. |
