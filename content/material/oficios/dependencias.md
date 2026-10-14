@@ -487,3 +487,13 @@ Rutas "Diseño gráfico" y "Audiovisual" de la sección "Finales de ruta técnic
 | `diseno-grafico/prototipado/` | `vectorial/` | Wireframes, prototipos interactivos, principios de interfaz y pruebas con usuarios. |
 | `audiovisual/edicion-de-audio/` | `../informatica/unidades-almacenamiento/` | Muestreo, niveles, ruido, EQ, compresión, voz. |
 | `audiovisual/edicion-de-video/` | `edicion-de-audio/` | Cuadros, códec, organización, montaje, exportación y derechos. |
+
+## Informática ramificada — Backend (agregado 2026-10-14)
+
+Primera de las 6 ramas de "Informática ramificada" (sección homónima de `oficios-orientacion-vocacional-PLANIFICACION.md`): Backend, Frontend, DevOps, Ciencia de datos, Ciberseguridad y DBA. Cada rama vive en `material/oficios/<rama>/`, cuelga de `../informatica/` y no certifica. Los temas se escribieron a mano a partir de los borradores crudos de `_borradores-gemma/materias-nuevas/informatica-ramas/<rama>-<tema>/` (borrados). Nombre de materia de los cuestionarios: el de la rama (`backend`, `frontend`, `devops`, `ciencia-de-datos`, `ciberseguridad`, `dba`).
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `backend/apis-rest/` | `../informatica/protocolo-http-peticion-respuesta/` | Raíz: recursos, métodos, códigos de estado, buenas prácticas. |
+| `backend/arquitectura-de-servidores/` | `apis-rest/`, `../informatica/diseno-y-arquitectura-de-software/` | Capas, caché, colas, escalado, disponibilidad. |
+| `backend/autenticacion-y-autorizacion/` | `arquitectura-de-servidores/`, `../informatica/permisos-y-usuarios/` | Contraseñas, sesiones y tokens, MFA, roles. Enfoque defensivo. |
