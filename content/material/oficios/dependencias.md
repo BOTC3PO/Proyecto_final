@@ -517,3 +517,12 @@ Primera de las 6 ramas de "Informática ramificada" (sección homónima de `ofic
 | `devops/contenedores-docker/` | `control-de-versiones-git/`, `../informatica/virtualizacion-maquina-virtual-contenedor/` | Imágenes, contenedores, Dockerfile, volúmenes, Compose, seguridad. |
 | `devops/ci-cd-fundamentos/` | `control-de-versiones-git/`, `contenedores-docker/` | Pipelines, pruebas automáticas, estrategias de despliegue, secretos. |
 | `devops/infraestructura-como-codigo/` | `ci-cd-fundamentos/`, `bash/scripts-ejecutables-y-permisos/` | Declarativo vs imperativo, idempotencia, Terraform y Ansible. |
+
+## Informática ramificada — Ciencia de datos (agregado 2026-10-14)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `ciencia-de-datos/estadistica-descriptiva/` | `../informatica/variables-y-tipos-de-dato/` | Raíz: tipos de variables, media/mediana/moda, dispersión, atípicos. |
+| `ciencia-de-datos/probabilidad-aplicada/` | `estadistica-descriptiva/` | Reglas, condicional, Bayes, esperanza, sesgos. |
+| `ciencia-de-datos/limpieza-de-datos/` | `estadistica-descriptiva/`, `../informatica/archivos-y-persistencia/` | Faltantes, duplicados, tipos, validación, privacidad. |
+| `ciencia-de-datos/visualizacion-de-datos/` | `limpieza-de-datos/`, `estadistica-descriptiva/` | Elegir y diseñar gráficos con honestidad. Conecta con `ofimatica/tablas-dinamicas-y-graficos/`. |
