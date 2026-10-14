@@ -1,6 +1,6 @@
 # SQL — Normalización de esquema (teoria)
 
-> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../join/`, `../../informatica/normalizacion-bases-datos/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/sql/normalizacion-de-esquema/` (reescrito y corregido a mano).
+> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../join/`, `../../../informatica/normalizacion-bases-datos/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/sql/normalizacion-de-esquema/` (reescrito y corregido a mano).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

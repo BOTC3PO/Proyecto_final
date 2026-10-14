@@ -1,6 +1,6 @@
 # PSeInt — Tablas y arreglos (teoria)
 
-> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../estructuras-de-control/`, `../../informatica/estructuras-de-datos-listas-pilas-colas/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/pseint/tablas-arreglos/` (reescrito y corregido a mano).
+> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../estructuras-de-control/`, `../../../informatica/estructuras-de-datos-listas-pilas-colas/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/pseint/tablas-arreglos/` (reescrito y corregido a mano).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

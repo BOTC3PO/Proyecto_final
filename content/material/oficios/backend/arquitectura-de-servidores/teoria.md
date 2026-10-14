@@ -1,6 +1,6 @@
 # Backend — Arquitectura de servidores (teoria)
 
-> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../apis-rest/`, `../../informatica/diseno-y-arquitectura-de-software/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/backend/arquitectura-de-servidores/` (reescrito y corregido a mano).
+> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../apis-rest/`, `../../../informatica/diseno-y-arquitectura-de-software/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/backend/arquitectura-de-servidores/` (reescrito y corregido a mano).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

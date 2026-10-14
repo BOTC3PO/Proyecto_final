@@ -1,6 +1,6 @@
 # Redes — Switches (teoria)
 
-> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../subredes/`, `../../informatica/tcp-ip-capas-enrutamiento/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/redes/switches/` (reescrito y corregido a mano).
+> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../subredes/`, `../../../informatica/tcp-ip-capas-enrutamiento/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/redes/switches/` (reescrito y corregido a mano).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

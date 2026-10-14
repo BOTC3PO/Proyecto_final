@@ -1,6 +1,6 @@
 # Ciencia de datos — Limpieza de datos (teoria)
 
-> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../estadistica-descriptiva/`, `../../informatica/archivos-y-persistencia/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/ciencia-de-datos/limpieza-de-datos/` (reescrito y corregido a mano).
+> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../estadistica-descriptiva/`, `../../../informatica/archivos-y-persistencia/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/ciencia-de-datos/limpieza-de-datos/` (reescrito y corregido a mano).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

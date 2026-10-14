@@ -1,6 +1,6 @@
 # Redes — Firewalls de red (teoria)
 
-> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../nat/`, `../../informatica/seguridad-de-red-firewall-vpn-cifrado/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/redes/firewalls-de-red/` (reescrito y corregido a mano).
+> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../nat/`, `../../../informatica/seguridad-de-red-firewall-vpn-cifrado/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/redes/firewalls-de-red/` (reescrito y corregido a mano).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

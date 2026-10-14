@@ -1,6 +1,6 @@
 # SQL — Transacciones (teoria)
 
-> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../insert-update-delete/`, `../../informatica/transacciones-acid/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/sql/transacciones-sql/` (reescrito y corregido a mano).
+> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../insert-update-delete/`, `../../../informatica/transacciones-acid/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/sql/transacciones-sql/` (reescrito y corregido a mano).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

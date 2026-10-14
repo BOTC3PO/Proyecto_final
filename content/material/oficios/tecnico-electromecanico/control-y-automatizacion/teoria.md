@@ -5,7 +5,7 @@
 > `../dependencias.md`). Comparte base con la rama de Sistemas de
 > Control ya construida (`control-pid-proporcional-integral-
 > derivativo/`, `lazo-abierto-vs-lazo-cerrado/`) y con
-> `../../informatica/`. Lección informativa — la evaluación del
+> `../../../informatica/`. Lección informativa — la evaluación del
 > oficio se concentra en `diagnostico-electromecanico-por-casos/`, al
 > final.
 

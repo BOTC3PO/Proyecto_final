@@ -1,6 +1,6 @@
 # Scratch — Bloques y eventos (teoria)
 
-> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../../informatica/algoritmo-secuencia-de-pasos/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/scratch/bloques-y-eventos/` (reescrito y corregido a mano).
+> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../../../informatica/algoritmo-secuencia-de-pasos/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/scratch/bloques-y-eventos/` (reescrito y corregido a mano).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

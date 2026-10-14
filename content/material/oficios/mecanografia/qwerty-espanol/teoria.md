@@ -1,6 +1,6 @@
 # Mecanografía — Teclado QWERTY en español (teoria)
 
-> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../../informatica/ofimatica-planilla-de-calculo/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/mecanografia/qwerty-espanol/` (reescrito y corregido a mano).
+> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../../../informatica/ofimatica-planilla-de-calculo/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/mecanografia/qwerty-espanol/` (reescrito y corregido a mano).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

@@ -1,6 +1,6 @@
 # DevOps — Control de versiones con Git (teoria)
 
-> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../../informatica/control-de-versiones/`, `../../bash/sintaxis-de-shell/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/devops/control-de-versiones-git/` (reescrito y corregido a mano).
+> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../../../informatica/control-de-versiones/`, `../../bash/sintaxis-de-shell/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/devops/control-de-versiones-git/` (reescrito y corregido a mano).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

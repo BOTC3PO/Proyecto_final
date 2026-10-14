@@ -1,6 +1,6 @@
 # Scratch — Secuencias y bucles (teoria)
 
-> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../bloques-y-eventos/`, `../../informatica/estructuras-de-control-bucles/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/scratch/secuencias-y-bucles/` (reescrito y corregido a mano).
+> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../bloques-y-eventos/`, `../../../informatica/estructuras-de-control-bucles/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/scratch/secuencias-y-bucles/` (reescrito y corregido a mano).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

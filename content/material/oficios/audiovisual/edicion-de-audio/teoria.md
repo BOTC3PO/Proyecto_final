@@ -1,6 +1,6 @@
 # Audiovisual — Edición de audio (teoria)
 
-> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../../informatica/unidades-almacenamiento/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/audiovisual/edicion-de-audio/` (reescrito y corregido a mano).
+> Tema de los "finales de ruta técnicos/informáticos" (`oficios-orientacion-vocacional-PLANIFICACION.md`). Depende de `../../../informatica/unidades-almacenamiento/` (ver `../dependencias.md`). Borrador de partida: `_borradores-gemma/materias-nuevas/audiovisual/edicion-de-audio/` (reescrito y corregido a mano).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

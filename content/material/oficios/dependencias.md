@@ -537,3 +537,12 @@ Enfoque **defensivo y educativo** (como pide la planificación): cada tema avisa
 | `ciberseguridad/criptografia-basica/` | `vulnerabilidades-comunes/`, `../informatica/criptografia-clave-simetrica-asimetrica-hash/` | Simétrico, asimétrico, hash, firmas, certificados, claves. |
 | `ciberseguridad/gestion-de-contrasenas/` | `criptografia-basica/` | Ataques a claves, frases de paso, gestores, MFA, passkeys. |
 | `ciberseguridad/hardening-basico/` | `gestion-de-contrasenas/`, `../informatica/seguridad-de-red-firewall-vpn-cifrado/` | Reducir superficie de ataque: actualizaciones, cuentas, red, datos, registros. |
+
+## Informática ramificada — DBA (agregado 2026-10-14)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `dba/administracion-de-usuarios-y-permisos/` | `sql/insert-update-delete/`, `../informatica/permisos-y-usuarios/` | Raíz: roles, `GRANT`/`REVOKE`, mínimo privilegio, auditoría (ejemplos en PostgreSQL). |
+| `dba/backups-y-recuperacion/` | `administracion-de-usuarios-y-permisos/`, `../informatica/transacciones-acid/` | RPO/RTO, tipos de copia, PITR, regla 3-2-1, simulacros. |
+| `dba/bases-de-datos-nosql/` | `backups-y-recuperacion/`, `sql/normalizacion-de-esquema/` | Tipos, documentos, ACID vs BASE, CAP, cuándo conviene. |
+| `dba/optimizacion-de-performance/` | `bases-de-datos-nosql/`, `sql/indices-basicos/` | Medir, `EXPLAIN`, índices, N+1, mantenimiento y arquitectura. |
