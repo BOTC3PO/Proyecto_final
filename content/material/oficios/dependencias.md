@@ -424,3 +424,18 @@ Ruta "Redes" de la sección "Finales de ruta técnicos/informáticos" de `oficio
 | `redes/nat/` | `routers/`, `subredes/` | Traducción de direcciones, PAT, redirección de puertos. |
 | `redes/firewalls-de-red/` | `nat/`, `../informatica/seguridad-de-red-firewall-vpn-cifrado/` | Reglas, estado, DMZ. |
 | `redes/diagnostico-por-casos/` | `firewalls-de-red/` y los temas anteriores | Cierre de la ruta: diagnóstico por capas. |
+
+## Finales de ruta técnicos/informáticos — Ofimática (agregado 2026-10-14)
+
+Ruta "Ofimática" de la sección "Finales de ruta técnicos/informáticos" de `oficios-orientacion-vocacional-PLANIFICACION.md`. Vive en `material/oficios/ofimatica/`, cuelga de `../informatica/ofimatica-planilla-de-calculo/` y no certifica. Los 8 temas se escribieron a mano a partir de los borradores crudos de `_borradores-gemma/materias-nuevas/ofimatica/` (borrados). Nombre de materia de los cuestionarios: `ofimatica`. Los temas son neutrales respecto del programa (Microsoft Office, LibreOffice, Google); las fórmulas se muestran en español con aviso de las diferencias de idioma y separadores.
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `ofimatica/formato-y-estilos/` | `../informatica/ofimatica-planilla-de-calculo/` | Raíz: estilos vs formato directo, página, formato en planillas, accesibilidad. |
+| `ofimatica/formulas-y-referencias/` | `formato-y-estilos/` | Fórmulas, referencias relativas/absolutas, funciones, errores. |
+| `ofimatica/tablas-dinamicas-y-graficos/` | `formulas-y-referencias/` | Resumir datos y elegir gráficos. |
+| `ofimatica/presentaciones/` | `formato-y-estilos/` | Diseño de diapositivas y exposición. |
+| `ofimatica/plantillas-y-combinacion-de-correspondencia/` | `formato-y-estilos/` | Plantillas y documentos personalizados; datos personales. |
+| `ofimatica/macros-basicas/` | `formulas-y-referencias/`, `../informatica/estructuras-de-control-bucles/` | Grabar y leer macros; seguridad. |
+| `ofimatica/cronogramas-y-diagrama-de-gantt/` | `formulas-y-referencias/` | Planificación en el tiempo y camino crítico. |
+| `ofimatica/dependencias-y-asignacion-de-recursos/` | `cronogramas-y-diagrama-de-gantt/` | Dependencias, recursos, sobreasignación y costos. |
