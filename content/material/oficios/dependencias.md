@@ -410,3 +410,17 @@ Ruta "QA / Testing" de la sección "Finales de ruta técnicos/informáticos" de 
 | `qa-testing/testing-exploratorio/` | `casos-negativos/` | Sesiones con carta, heurísticas, registro. |
 | `qa-testing/reporte-de-bugs/` | `testing-exploratorio/` | Qué incluye un reporte; severidad vs prioridad; ciclo de vida. |
 | `qa-testing/diagnostico-por-casos/` | `reporte-de-bugs/` y los temas anteriores | Cierre de la ruta: aislar, clasificar, priorizar. |
+
+## Finales de ruta técnicos/informáticos — Redes (agregado 2026-10-14)
+
+Ruta "Redes" de la sección "Finales de ruta técnicos/informáticos" de `oficios-orientacion-vocacional-PLANIFICACION.md`. Vive en `material/oficios/redes/`, cuelga de `../informatica/` y no certifica. Los 7 temas se escribieron a mano a partir de los borradores crudos de `_borradores-gemma/materias-nuevas/redes/` (borrados). Nombre de materia de los cuestionarios: `redes`.
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `redes/subredes/` | `../informatica/direccionamiento-ip-dns/` | Raíz: máscara, CIDR, equipos por subred, direcciones privadas. |
+| `redes/switches/` | `subredes/`, `../informatica/tcp-ip-capas-enrutamiento/` | Capa 2: MAC, tabla de direcciones, STP, cableado. |
+| `redes/routers/` | `switches/`, `../informatica/tcp-ip-capas-enrutamiento/` | Capa 3: tabla de rutas, gateway, TTL, seguridad básica. |
+| `redes/vlans/` | `switches/`, `subredes/` | Redes lógicas, puertos de acceso y troncales. |
+| `redes/nat/` | `routers/`, `subredes/` | Traducción de direcciones, PAT, redirección de puertos. |
+| `redes/firewalls-de-red/` | `nat/`, `../informatica/seguridad-de-red-firewall-vpn-cifrado/` | Reglas, estado, DMZ. |
+| `redes/diagnostico-por-casos/` | `firewalls-de-red/` y los temas anteriores | Cierre de la ruta: diagnóstico por capas. |
