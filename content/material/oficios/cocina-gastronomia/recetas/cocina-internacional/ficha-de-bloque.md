@@ -185,3 +185,9 @@ Están en `basicas/` (esta carpeta). Dificultad de 1 a 2, de menor a mayor, en t
   cantidades); Consulado General de México en Shanghái (SRE), *Sabores de México 2020* (guacamole básico); Gobierno de Mendoza,
   *Mendoza cocina* (2019), "Guiso de lentejas"; MAGyP, *Hoy comemos... ¡Legumbres!* (cocción y conservación de legumbres);
   Ministerio de Sanidad de España, "Legumbres" (remojo). Las URL completas están en la sección "Fuentes" de cada receta.
+
+---
+
+## Especiales (nivel E)
+
+1. **Bibimbap** (3): `especiales/01-bibimbap.md` (Corea). Respaldo débil: una sola fuente leída entera, no institucional (*Ateliers et Saveurs*); se sacó el mirin (alcohol) y se cocina la yema firme. Sumada el 2026-10-16 por pedido de Javier de ampliar a recetas no argentinas.
