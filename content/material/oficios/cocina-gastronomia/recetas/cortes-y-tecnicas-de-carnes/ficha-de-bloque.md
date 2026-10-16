@@ -217,3 +217,7 @@ Están en `intermedias/` y `avanzadas/` (esta carpeta). Desde este nivel entran 
   (<https://www.vdh.virginia.gov/content/uploads/sites/6/2023/07/Cook_to_a_Safe_Minimum_Internal_Temperature.pdf>).
   No pudimos abrir las páginas del USDA FSIS (acceso denegado desde esta máquina); la tabla
   del USDA se verificó contra esa copia de la tabla y contra una búsqueda en foodsafety.gov.
+
+## Especiales (nivel E)
+
+1. **Pierna de cordero al horno con agua** (3): `especiales/01-pierna-de-cordero-al-horno-con-agua.md`. Fuente comercial (*Recetas de Rechupete*), autorizada por Javier el 2026-10-16; el tiempo es de esa fuente y la temperatura interna es de la ruta (ANMAT).

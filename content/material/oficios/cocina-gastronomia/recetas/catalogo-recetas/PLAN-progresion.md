@@ -167,7 +167,7 @@ teoría) y una ficha fija:
 
 ## 9. Estado y cómo continuar (2026-10-09)
 
-**Escritas: 133 de 150** (43 básicas, 49 intermedias, 34 avanzadas, 1 especial de parrilla, 1 regional, 2 internacionales, 1 de panificación y 2 especiales del equipo; **actualizado 2026-10-13**: se sumaron 3 intermedias y 2 avanzadas de Fiambres, embutidos y conservas y 1 intermedia y 6 avanzadas de Cocina internacional), todas
+**Escritas: 134 de 150** (43 básicas, 49 intermedias, 34 avanzadas, 1 especial de parrilla, 1 regional, 2 internacionales, 1 de panificación, 1 de carnes y 2 especiales del equipo; **actualizado 2026-10-13**: se sumaron 3 intermedias y 2 avanzadas de Fiambres, embutidos y conservas y 1 intermedia y 6 avanzadas de Cocina internacional), todas
 `no probada`. Conteo por categoría (B / I / A escritas de B / I / A previstas):
 
 | Categoría | Básicas | Intermedias | Avanzadas |
@@ -185,7 +185,7 @@ teoría) y una ficha fija:
 | Bebidas sin alcohol | 4/4 | 2/2 | 1/1 |
 | Postres helados y fríos | 2/2 | 3/3 | 1/1 |
 
-**Falta escribir:** las **17 especiales** (23 menos las 6 cargadas), que dependen del equipo (`../recetas-del-equipo/`) o de
+**Falta escribir:** las **16 especiales** (23 menos las 7 cargadas), que dependen del equipo (`../recetas-del-equipo/`) o de
 recetas regionales poco conocidas con respaldo institucional. **Cocina internacional (cerrada el 2026-10-13):** se pidió elegir
 varias fuentes sin atarse a platos puntuales; las 7 recetas nuevas usan Leioa, MAGyP, MITECO, FAO, CONADI y MAFF, **varias con una sola
 fuente con cantidades**, y cada una marca lo que no se pudo confirmar. **Lo que más conviene revisar antes de publicar:** las raciones
@@ -198,7 +198,7 @@ tomate de la moussaka.
 
 **Ampliación a recetas no argentinas (2026-10-16):** Javier dijo que las especiales no tienen que ser obligatoriamente argentinas. La búsqueda web no devuelve fuentes institucionales con cantidades (ají de gallina, bibimbap, chawanmushi): se escribió el **bibimbap** con una sola fuente leída entera. Para seguir con calidad hace falta una lista de platos o de PDF oficiales (MAFF, FAO, recetarios de gobiernos, escuelas de hostelería) en vez de buscar a ciegas.
 
-**Fuente nueva autorizada (2026-10-16):** Javier autorizó usar los PDF de *Recetas de Rechupete* (`cdn.recetasderechupete.com`: Navidad, Halloween, económicas, bizcochos, cocina italiana, empanadas gallegas). Es un **sitio comercial con © y no institucional**: se reescribe con palabras propias, se cita con página y se marca como respaldo débil. Con ella se escribieron la empanada gallega de bonito y el risotto de calabaza. Los libros de Navidad, Halloween, económicas y bizcochos están sin explotar; en el de bizcochos el tronco de Navidad se descartó porque mezcla cantidades y temperaturas contradictorias.
+**Fuente nueva autorizada (2026-10-16):** Javier autorizó usar los PDF de *Recetas de Rechupete* (`cdn.recetasderechupete.com`: Navidad, Halloween, económicas, bizcochos, cocina italiana, empanadas gallegas). Es un **sitio comercial con © y no institucional**: se reescribe con palabras propias, se cita con página y se marca como respaldo débil. Con ella se escribieron la empanada gallega de bonito y el risotto de calabaza. Se revisaron también los libros de Navidad, Halloween, económicas y bizcochos y se escribió la pierna de cordero al horno (Navidad). **Se dejó el resto** por decisión de Javier (2026-10-16: "ya hay una gran cantidad de recetas"): el tronco de Navidad se descartó porque mezcla cantidades y temperaturas contradictorias, y lo de Halloween (galletas y brownies decorados, momias de salchicha) no encaja como receta especial de la ruta.
 
 **Cómo seguir:** el método está en [`BRIEF-escribir-recetas.md`](BRIEF-escribir-recetas.md) y el
 chequeo de estructura en `content/material/_qa_tools/check_recetas_ruta_b.py` (no reemplaza que
