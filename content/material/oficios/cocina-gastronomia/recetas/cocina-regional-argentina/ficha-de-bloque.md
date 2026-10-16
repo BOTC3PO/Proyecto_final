@@ -179,6 +179,10 @@ Avanzadas (nivel A, en `avanzadas/`):
 3. **Guiso de cordero con polenta grillada** (4): `avanzadas/03-guiso-de-cordero-con-polenta-grillada.md`.
 4. **Sopa paraguaya (Noreste), escalada a 30 comensales** (3): `avanzadas/04-sopa-paraguaya.md`.
 
+**Especiales (nivel E):**
+
+1. **Chupín de pescado, versión sin vino** (2,5): `especiales/01-chupin-de-pescado-sin-vino.md`. Respaldo débil: solo fuentes periodísticas que coinciden en cantidades (ver su "Verificación").
+
 ---
 
 ## Fuentes (todas reescritas con palabras propias)

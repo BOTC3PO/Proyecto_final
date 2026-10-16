@@ -167,7 +167,7 @@ teoría) y una ficha fija:
 
 ## 9. Estado y cómo continuar (2026-10-09)
 
-**Escritas: 129 de 150** (43 básicas, 49 intermedias, 34 avanzadas, 1 especial de parrilla y 2 especiales del equipo; **actualizado 2026-10-13**: se sumaron 3 intermedias y 2 avanzadas de Fiambres, embutidos y conservas y 1 intermedia y 6 avanzadas de Cocina internacional), todas
+**Escritas: 130 de 150** (43 básicas, 49 intermedias, 34 avanzadas, 1 especial de parrilla, 1 regional y 2 especiales del equipo; **actualizado 2026-10-13**: se sumaron 3 intermedias y 2 avanzadas de Fiambres, embutidos y conservas y 1 intermedia y 6 avanzadas de Cocina internacional), todas
 `no probada`. Conteo por categoría (B / I / A escritas de B / I / A previstas):
 
 | Categoría | Básicas | Intermedias | Avanzadas |
@@ -185,7 +185,7 @@ teoría) y una ficha fija:
 | Bebidas sin alcohol | 4/4 | 2/2 | 1/1 |
 | Postres helados y fríos | 2/2 | 3/3 | 1/1 |
 
-**Falta escribir:** las **21 especiales** (23 menos las 2 cargadas), que dependen del equipo (`../recetas-del-equipo/`) o de
+**Falta escribir:** las **20 especiales** (23 menos las 3 cargadas), que dependen del equipo (`../recetas-del-equipo/`) o de
 recetas regionales poco conocidas con respaldo institucional. **Cocina internacional (cerrada el 2026-10-13):** se pidió elegir
 varias fuentes sin atarse a platos puntuales; las 7 recetas nuevas usan Leioa, MAGyP, MITECO, FAO, CONADI y MAFF, **varias con una sola
 fuente con cantidades**, y cada una marca lo que no se pudo confirmar. **Lo que más conviene revisar antes de publicar:** las raciones
@@ -193,6 +193,8 @@ supuestas del cocimiento mapuche y de los rellenos de papa, la sal y el wakame d
 tomate de la moussaka.
 **Fiambres:** las 5 recetas nuevas son **conservas dulces** (mermeladas y dulce de membrillo, con fuentes INTA, UNCUYO y MAGyP);
 **sigue sin haber ningún fiambre ni embutido** por falta de una fuente institucional con proceso y temperaturas completos.
+
+**Especiales regionales (2026-10-16):** Javier autorizó compensar entre fuentes cuando las cantidades son parecidas. Se buscaron empanadas mendocinas, chupín, gaznates, capias y dulce de calafate: solo el **chupín** tuvo varias fuentes con cantidades parecidas (periodísticas, sin vino) y se escribió. Las empanadas mendocinas ya están cubiertas por las de carne cortada a cuchillo (que comparan Mendoza); gaznates, capias y calafate no tienen fuente con cantidades argentinas (la única de calafate es un sitio de turismo). El **Recetario Federal** sigue siendo la vía para las regionales con respaldo oficial.
 
 **Cómo seguir:** el método está en [`BRIEF-escribir-recetas.md`](BRIEF-escribir-recetas.md) y el
 chequeo de estructura en `content/material/_qa_tools/check_recetas_ruta_b.py` (no reemplaza que
