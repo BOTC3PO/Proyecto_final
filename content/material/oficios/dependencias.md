@@ -546,3 +546,20 @@ Enfoque **defensivo y educativo** (como pide la planificación): cada tema avisa
 | `dba/backups-y-recuperacion/` | `administracion-de-usuarios-y-permisos/`, `../informatica/transacciones-acid/` | RPO/RTO, tipos de copia, PITR, regla 3-2-1, simulacros. |
 | `dba/bases-de-datos-nosql/` | `backups-y-recuperacion/`, `sql/normalizacion-de-esquema/` | Tipos, documentos, ACID vs BASE, CAP, cuándo conviene. |
 | `dba/optimizacion-de-performance/` | `bases-de-datos-nosql/`, `sql/indices-basicos/` | Medir, `EXPLAIN`, índices, N+1, mantenimiento y arquitectura. |
+
+## Guía Turístico — secciones 2 a 5 (agregado 2026-10-16)
+
+Oficio #18 de `oficios-orientacion-vocacional-PLANIFICACION.md`. La **sección 1 (Fundamentos)** son los 4 temas que ya estaban en `../turismo/` (circuitos e itinerarios, planificación de destino, patrimonio turístico natural y cultural, estrategias de comunicación para la promoción turística). Las secciones 2 a 5 viven en `material/oficios/guia-turistico/`, se escribieron desde cero (no había borradores) y **citan fuentes oficiales leídas en bruto**: Ministerio de Salud (primeros auxilios, argentina.gob.ar, CC BY 4.0), Ministerio de Seguridad (turismo aventura), Ley 1264 de CABA, Ley 25.997, Código Civil y Comercial, Ley 24.240 y el manual de accesibilidad turística de Uruguay (2019). **Lo que no tiene fuente oficial leída está rotulado "criterio general"** (oratoria, manejo de grupo, multilingüismo y los casos del diagnóstico). Nombre de materia de los cuestionarios: `guia-turistico`. Faltan: examen jefe, traducciones y la revisión por una guía habilitada y un abogado (los temas de normativa y responsabilidad son educativos, no asesoramiento legal).
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `guia-turistico/primeros-auxilios-basicos-en-grupo/` | `../turismo/circuitos-e-itinerarios-turisticos/` | Sección 2: RCP, DEA, Heimlich, calor, botiquín. |
+| `guia-turistico/manejo-de-emergencias-en-excursion/` | `primeros-auxilios-basicos-en-grupo/` | Sección 2: prevención, números de emergencia, fuego, qué hacer y comunicar. |
+| `guia-turistico/protocolo-con-grupos-turisticos/` | `manejo-de-emergencias-en-excursion/` | Sección 2: recepción, conteo, obligaciones de la Ley 1264, cierre. |
+| `guia-turistico/oratoria-para-guias/` | `../turismo/estrategias-de-comunicacion-para-la-promocion-turistica/` | Sección 3: interpretación del patrimonio, voz, cuerpo, preguntas. |
+| `guia-turistico/manejo-de-grupo-turistico/` | `oratoria-para-guias/`, `protocolo-con-grupos-turisticos/` | Sección 3: liderazgo, tipos de grupo, conflictos. |
+| `guia-turistico/atencion-a-necesidades-especiales/` | `protocolo-con-grupos-turisticos/` | Sección 3: trato a personas con discapacidad (manual de Uruguay) y accesibilidad (Ley 25.997). |
+| `guia-turistico/multilinguismo-para-guias/` | `oratoria-para-guias/` | Sección 3: guiar en otro idioma, MCER, interculturalidad. |
+| `guia-turistico/diagnostico-turistico-por-casos/` | todos los anteriores de la ruta | Sección 4: 11 casos con método. |
+| `guia-turistico/habilitacion-de-guia-de-turismo/` | `protocolo-con-grupos-turisticos/` | Sección 5: Ley 1264 de CABA, otras jurisdicciones, formación. |
+| `guia-turistico/responsabilidad-civil-del-guia/` | `habilitacion-de-guia-de-turismo/`, `manejo-de-emergencias-en-excursion/` | Sección 5: artículos del CCyC y la Ley 24.240 aplicados al guía. |

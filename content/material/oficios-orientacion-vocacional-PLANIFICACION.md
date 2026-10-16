@@ -1100,6 +1100,16 @@ cocina/` y afines.
 
 ## Guía Turístico (oficio #18, agregado por Javier — NO está en troncos.md)
 
+> **Estado (2026-10-16):** la sección 1 (Fundamentos) ya estaba en `material/turismo/`. Se escribieron las **secciones 2 a 5** en
+> `material/oficios/guia-turistico/` (10 temas con `teoria.md` y `cuestionario.md` de 24 a 31 preguntas, todos validados): primeros
+> auxilios básicos, manejo de emergencias, protocolo con grupos, oratoria, manejo de grupo, atención a necesidades especiales,
+> multilingüismo, diagnóstico por casos, habilitación de guía y responsabilidad civil. Los de primeros auxilios y normativa se apoyan
+> en fuentes oficiales leídas en bruto (Ministerio de Salud, Ley 1264 de CABA, Ley 25.997, Código Civil y Comercial, Ley 24.240, manual
+> de accesibilidad de Uruguay); lo demás está rotulado "criterio general". *Decisiones de Claude, no pedidas:* se unificaron "diagnóstico
+> turístico por casos" en un solo tema con 11 casos (la lista pedía "cada uno su propio tema"); la habilitación se explica con CABA
+> (leída) y Tierra del Fuego (solo resumen de búsqueda) porque no hay matrícula nacional; el logro "Guía Turístico Habilitado" sigue sin
+> definir. *Sin hacer:* revisión por una guía habilitada y por un abogado, examen jefe y traducciones.
+
 Movido acá desde `examen-jefe-gamificacion-PLANIFICACION.md`: los 4
 temas ya generados en `material/turismo/` (circuitos e itinerarios,
 planificación de destino, estrategias de comunicación para promoción
