@@ -167,7 +167,7 @@ teoría) y una ficha fija:
 
 ## 9. Estado y cómo continuar (2026-10-09)
 
-**Escritas: 131 de 150** (43 básicas, 49 intermedias, 34 avanzadas, 1 especial de parrilla, 1 regional, 1 internacional y 2 especiales del equipo; **actualizado 2026-10-13**: se sumaron 3 intermedias y 2 avanzadas de Fiambres, embutidos y conservas y 1 intermedia y 6 avanzadas de Cocina internacional), todas
+**Escritas: 133 de 150** (43 básicas, 49 intermedias, 34 avanzadas, 1 especial de parrilla, 1 regional, 2 internacionales, 1 de panificación y 2 especiales del equipo; **actualizado 2026-10-13**: se sumaron 3 intermedias y 2 avanzadas de Fiambres, embutidos y conservas y 1 intermedia y 6 avanzadas de Cocina internacional), todas
 `no probada`. Conteo por categoría (B / I / A escritas de B / I / A previstas):
 
 | Categoría | Básicas | Intermedias | Avanzadas |
@@ -185,7 +185,7 @@ teoría) y una ficha fija:
 | Bebidas sin alcohol | 4/4 | 2/2 | 1/1 |
 | Postres helados y fríos | 2/2 | 3/3 | 1/1 |
 
-**Falta escribir:** las **19 especiales** (23 menos las 4 cargadas), que dependen del equipo (`../recetas-del-equipo/`) o de
+**Falta escribir:** las **17 especiales** (23 menos las 6 cargadas), que dependen del equipo (`../recetas-del-equipo/`) o de
 recetas regionales poco conocidas con respaldo institucional. **Cocina internacional (cerrada el 2026-10-13):** se pidió elegir
 varias fuentes sin atarse a platos puntuales; las 7 recetas nuevas usan Leioa, MAGyP, MITECO, FAO, CONADI y MAFF, **varias con una sola
 fuente con cantidades**, y cada una marca lo que no se pudo confirmar. **Lo que más conviene revisar antes de publicar:** las raciones
@@ -197,6 +197,8 @@ tomate de la moussaka.
 **Especiales regionales (2026-10-16):** Javier autorizó compensar entre fuentes cuando las cantidades son parecidas. Se buscaron empanadas mendocinas, chupín, gaznates, capias y dulce de calafate: solo el **chupín** tuvo varias fuentes con cantidades parecidas (periodísticas, sin vino) y se escribió. Las empanadas mendocinas ya están cubiertas por las de carne cortada a cuchillo (que comparan Mendoza); gaznates, capias y calafate no tienen fuente con cantidades argentinas (la única de calafate es un sitio de turismo). El **Recetario Federal** sigue siendo la vía para las regionales con respaldo oficial.
 
 **Ampliación a recetas no argentinas (2026-10-16):** Javier dijo que las especiales no tienen que ser obligatoriamente argentinas. La búsqueda web no devuelve fuentes institucionales con cantidades (ají de gallina, bibimbap, chawanmushi): se escribió el **bibimbap** con una sola fuente leída entera. Para seguir con calidad hace falta una lista de platos o de PDF oficiales (MAFF, FAO, recetarios de gobiernos, escuelas de hostelería) en vez de buscar a ciegas.
+
+**Fuente nueva autorizada (2026-10-16):** Javier autorizó usar los PDF de *Recetas de Rechupete* (`cdn.recetasderechupete.com`: Navidad, Halloween, económicas, bizcochos, cocina italiana, empanadas gallegas). Es un **sitio comercial con © y no institucional**: se reescribe con palabras propias, se cita con página y se marca como respaldo débil. Con ella se escribieron la empanada gallega de bonito y el risotto de calabaza. Los libros de Navidad, Halloween, económicas y bizcochos están sin explotar; en el de bizcochos el tronco de Navidad se descartó porque mezcla cantidades y temperaturas contradictorias.
 
 **Cómo seguir:** el método está en [`BRIEF-escribir-recetas.md`](BRIEF-escribir-recetas.md) y el
 chequeo de estructura en `content/material/_qa_tools/check_recetas_ruta_b.py` (no reemplaza que

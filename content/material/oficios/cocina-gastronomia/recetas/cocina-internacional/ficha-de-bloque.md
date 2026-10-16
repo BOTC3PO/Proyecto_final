@@ -191,3 +191,4 @@ Están en `basicas/` (esta carpeta). Dificultad de 1 a 2, de menor a mayor, en t
 ## Especiales (nivel E)
 
 1. **Bibimbap** (3): `especiales/01-bibimbap.md` (Corea). Respaldo débil: una sola fuente leída entera, no institucional (*Ateliers et Saveurs*); se sacó el mirin (alcohol) y se cocina la yema firme. Sumada el 2026-10-16 por pedido de Javier de ampliar a recetas no argentinas.
+2. **Risotto de calabaza, sin vino** (3): `especiales/02-risotto-de-calabaza.md` (Italia). Fuente comercial (*Recetas de Rechupete*), autorizada por Javier el 2026-10-16; se sacó el vino.

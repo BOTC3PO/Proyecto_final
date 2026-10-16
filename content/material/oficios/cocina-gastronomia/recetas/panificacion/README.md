@@ -59,3 +59,7 @@ Las cuatro preparan para las dos recetas del equipo de Panificación (nivel E, y
 - Cada receta sale de **fuentes institucionales** (programas oficiales, manuales de institutos y universidades), reescrita con palabras propias y citada con entidad y página o URL. No se usaron recetarios de marcas comerciales ni de chefs de autor.
 - Las proporciones se expresan como **porcentaje de panadero** (sobre el peso de la harina) y se contrastaron con al menos dos fuentes; lo que no se pudo confirmar así queda dicho en el campo "Verificación" de cada receta.
 - La dificultad (1 a 5) sigue la escala del plan (técnicas, procesos, margen de error, riesgo) y está justificada en una línea en cada ficha.
+
+## Especial agregada (2026-10-16)
+
+- **Empanada gallega de bonito y tomate** (E, 3): `especiales/01-empanada-gallega-de-bonito-y-tomate.md`. No es argentina (pedido de Javier de ampliar) y sale de un libro comercial (*Recetas de Rechupete*, autorizado por Javier); la masa seca con levadura y aceite del sofrito se estira fina y el relleno va frío.
