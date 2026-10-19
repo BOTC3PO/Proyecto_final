@@ -1,5 +1,26 @@
 # Lo que hay que confirmar (lista única)
 
+## Actualización tras la pasada de verificación con fuentes
+
+Se verificó con búsquedas web (detalle y URLs en `verificado-salud-ciudadania.md`, `verificado-academicas.md`, `verificado-oficios.md`, `verificado-tecnicas.md`). **Límite general: argentina.gob.ar, Infoleg, Boletín Oficial, OMS, IRAM y asistenciaalsuicida.org.ar no se pueden abrir desde este entorno; todo se contrastó con resultados de búsqueda que citan esas fuentes, no con el texto oficial.**
+
+**Corregido en el contenido**
+- Salud: se quitó el `0800 345 1435` (sin confirmar) y el «24 horas» de la 135 (una fuente da 18 h/día); se agregó el (011) 5275-1135; vapeadores (ya no rige la prohibición de ANMAT de 2011, hay un régimen nuevo de abril de 2026 que no se leyó en el Boletín Oficial); Ley 27.491 publicada en enero de 2019; líneas 102 y 107 aclaradas.
+- Académicas: Asch (dos cifras distintas), SQ3R (década de 1940), regiones turísticas (La Rioja y La Pampa).
+- Oficios: Res. SRT 62/2023 era de salud mental → altura es la 61/2023 (y la 231/96 para obras); registro unificado de matriculados de gas (Res. ENARGAS 219/2022); RENAPA desde 5 colmenas; 10 teorías ampliadas.
+- Técnicas: convención de lado de flecha de ISO 2553 (sistemas A y B), ISO 1302 reemplazada por ISO 21920-1, Modbus 1.200 m solo a baja velocidad, ONTI 6/2019 (WCAG 2.0, sin afirmar AA), «dark patterns» sin año preciso; 3 preguntas de cálculo con datos incoherentes rehechas.
+
+**Confirmado con fuente (sin cambios):** las 20 leyes de Salud listadas, línea 141, RCP (100–120/min, 5–6 cm); leyes 13.010, 26.160, 23.302, 25.997, 22.351, 27.499, 27.412; radio 1920 y TV 1951; Milgram, Mehrabian, Hattie y Timperley, Butterfield y Metcalfe; Niépce, Cándido López, Pettoruti, Manifiesto Blanco; fechas de Marx, Sartre, Wittgenstein; fechas UNESCO; carnet de manipulador (RC 12/2019) y alérgenos (art. 235 séptimo, RC 11-E/2017); Ley 24.040 y Kigali; Ley 26.331; roscas M6–M20, WCAG 2.2, SUS 68, E12, 555, GRAFCET, PL a–e, Curie del hierro 770 °C.
+
+**Sigue SIN verificar (antes de publicar)**
+- Salud: Ley 26.657; cronograma y sellos de la 27.642; si la 25.326 tuvo reforma; plazo de la 11.723; una fuente propia de Cruz Roja para RCP; recomendaciones de la OMS (sueño, actividad) y GAPA.
+- Académicas: leyes 24.071, 26.150, 26.485, 26.743, 27.275, 23.592; Doran, Cirillo, Dweck; zigurat de Ur; atribución a Maquiavelo; Mauss, Barth, van Gennep, Service, Malinowski.
+- Oficios: IRAM de aberturas (11523, 11591, 11590; solo de un pliego municipal); categorías y horas de matrícula de gas; si la 27.642 alcanza a panificados (hay proyecto para derogarla); vigencia de la declaración jurada textil; matrícula del carpintero.
+- Técnicas: textos de normas y catálogo IRAM no abiertos; SIL 1–4 de IEC 61508; valores de manual que difieren entre fuentes (eutectoide, austenita, conductividades).
+- Idiomas: todo de memoria salvo contados datos; ningún hablante nativo revisó árabe, hindi, ruso, coreano ni chino. **71 teorías siguen por debajo de 2.000 caracteres** (chino 28, hindi 18, ruso 14, árabe 9, coreano 2).
+
+---
+
 Consolida los `confirmar-*.md` de cada tanda más lo pendiente de los lotes anteriores. Detalle fino en cada archivo. Todo lo que dice «de memoria» se escribió sin fuente oficial.
 
 ## A. Decisiones de producto (necesitan tu respuesta)
