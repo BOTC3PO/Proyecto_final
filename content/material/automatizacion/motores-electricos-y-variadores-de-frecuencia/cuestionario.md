@@ -497,7 +497,7 @@ explicacion: |
   El rotor gira un poco más lento que el campo.
 ```
 
-### 24 — Cálculo
+### 24 — Ángulo por paso
 
 ```
 metadata:
@@ -507,13 +507,13 @@ metadata:
   tags: ["motores", "variadores"]
 
 variables:
-  pasos: uno_de([200, 400, 48, 96])
+  np: uno_de([200, 400, 48, 96])
 
-respuesta: 360 / pasos
+respuesta: 360 / np
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Un motor paso a paso da {pasos} pasos por vuelta. ¿Cuántos grados avanza en cada paso? (si no es exacto, redondeá a dos decimales)"
+enunciado: "Un motor paso a paso da {np} pasos por vuelta. ¿Cuántos grados avanza en cada paso? (si no es exacto, redondeá a dos decimales)"
 
 pasos:
   - "Ángulo por paso = 360° / pasos por vuelta"

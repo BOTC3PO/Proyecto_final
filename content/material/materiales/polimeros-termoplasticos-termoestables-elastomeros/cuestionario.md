@@ -494,7 +494,7 @@ explicacion: |
   Los plásticos son livianos.
 ```
 
-### 24 — Cálculo
+### 24 — Temperatura de uso y Tg
 
 ```
 metadata:
@@ -507,15 +507,11 @@ variables:
   tg: random(-120, 100)
   t: random(-20, 40)
 
-respuesta: if(t > tg, 1, 0)
-tipo: input
-tolerancia_abs: 0
+respuesta: t > tg
+tipo: vf
 
-enunciado: "Un polímero tiene una Tg de {tg} °C y se usa a {t} °C. ¿Está por encima de su Tg (1 = sí, 0 = no)?"
-
-pasos:
-  - "Comparar la temperatura de uso con Tg"
+enunciado: "Un polímero tiene una Tg de {tg} °C y se usa a {t} °C. En esas condiciones el polímero está por encima de su Tg, es decir, blando o gomoso."
 
 explicacion: |
-  Por encima de Tg el polímero está blando o gomoso.
+  Por encima de la Tg el polímero se comporta como un material blando o gomoso; por debajo, como un vidrio duro y rígido.
 ```

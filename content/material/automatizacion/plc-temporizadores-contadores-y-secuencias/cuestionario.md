@@ -476,7 +476,7 @@ explicacion: |
   Los retardos se encadenan.
 ```
 
-### 23 — Cálculo
+### 23 — TON con una entrada corta
 
 ```
 metadata:
@@ -489,15 +489,11 @@ variables:
   pt: random(3, 15)
   dur: random(1, 20)
 
-respuesta: if(dur >= pt, 1, 0)
-tipo: input
-tolerancia_abs: 0
+respuesta: dur >= pt
+tipo: vf
 
-enunciado: "Un TON tiene PT = {pt} s. La entrada IN permanece en 1 durante {dur} s y luego cae. ¿Q llegó a activarse (1 = sí, 0 = no)?"
-
-pasos:
-  - "Q se activa si IN dura al menos PT"
+enunciado: "Un TON tiene PT = {pt} s. La entrada IN permanece en 1 durante {dur} s y luego cae. Entonces la salida Q llegó a activarse."
 
 explicacion: |
-  Si IN duró menos de PT, el conteo se reinició.
+  Q se activa solo si IN permanece en 1 al menos el tiempo PT. Si IN duró menos, el conteo se reinició.
 ```
