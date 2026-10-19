@@ -278,7 +278,7 @@ metadata:
   tags: ["web", "html_css_js"]
 
 tipo: mc
-enunciado: "En la regla p {{{{ color: blue; }}}}, ¿qué es \"color\"?"
+enunciado: "En la regla p {{ color: blue; }}, ¿qué es \"color\"?"
 opciones_explicitas:
   - "La propiedad"
   - "El selector"
