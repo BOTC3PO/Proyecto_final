@@ -312,7 +312,7 @@ explicacion: |
   Evita interferencias.
 ```
 
-### 15 — Un transmisor calibrado de 0 a 200 °C entrega 12 mA cuando m
+### 15 — Pregunta
 
 ```
 metadata:
@@ -330,7 +330,7 @@ explicacion: |
   100 °C es la mitad del rango y la mitad de 4-20 mA es 12.
 ```
 
-### 16 — Una corriente de 0 mA en un lazo de 4-20 mA indica que la va
+### 16 — Pregunta
 
 ```
 metadata:
@@ -348,7 +348,7 @@ explicacion: |
   Indica falla de cable o de alimentación.
 ```
 
-### 17 — La señal 4-20 mA es proporcional (lineal) a la variable medi
+### 17 — Pregunta
 
 ```
 metadata:
@@ -366,7 +366,7 @@ explicacion: |
   Es la relación habitual.
 ```
 
-### 18 — Un instrumento puede desviarse con el tiempo y seguir pareci
+### 18 — Pregunta
 
 ```
 metadata:
@@ -384,7 +384,7 @@ explicacion: |
   Por eso se recalibra periódicamente.
 ```
 
-### 19 — En un lazo de 4-20 mA, el 100 % del rango corresponde a ___
+### 19 — Pregunta
 
 ```
 metadata:
@@ -402,7 +402,7 @@ explicacion: |
   Y el 0 % corresponde a 4 mA.
 ```
 
-### 20 — El plano que muestra el proceso con sus instrumentos se llam
+### 20 — Pregunta
 
 ```
 metadata:
@@ -420,7 +420,7 @@ explicacion: |
   Diagrama de tuberías e instrumentación.
 ```
 
-### 21 — Un transmisor está calibrado de {mn} a {mx} y la variable es
+### 21 — Cálculo
 
 ```
 metadata:
@@ -447,7 +447,7 @@ explicacion: |
   El 50 % del rango equivale a 12 mA.
 ```
 
-### 22 — Un transmisor calibrado de 0 a {mx} entrega {ma} mA. ¿Qué va
+### 22 — Cálculo
 
 ```
 metadata:
@@ -473,7 +473,7 @@ explicacion: |
   Se invierte la relación lineal.
 ```
 
-### 23 — Un lazo de {ma} mA circula por una resistencia de 250 ohm.
+### 23 — Cálculo
 
 ```
 metadata:

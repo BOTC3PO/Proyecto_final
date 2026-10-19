@@ -202,7 +202,7 @@ explicacion: |
   El cero vivo permite detectar esta condición.
 ```
 
-### 10 — Muchos transmisores señalan una falla propia con una corrien
+### 10 — Pregunta
 
 ```
 metadata:
@@ -224,7 +224,7 @@ explicacion: |
   Son valores fuera del rango normal de medición.
 ```
 
-### 11 — Si el sensor está activo pero la entrada del PLC no lo refle
+### 11 — Pregunta
 
 ```
 metadata:
@@ -246,7 +246,7 @@ explicacion: |
   Se sigue la cadena desde el sensor.
 ```
 
-### 12 — Si la entrada del PLC es correcta y la salida no responde, h
+### 12 — Pregunta
 
 ```
 metadata:
@@ -268,7 +268,7 @@ explicacion: |
   Se avanza en la cadena causa-efecto.
 ```
 
-### 13 — ¿Por qué conviene guardar respaldos de los programas y parám
+### 13 — Pregunta
 
 ```
 metadata:
@@ -312,7 +312,7 @@ explicacion: |
   Es la regla de seguridad básica.
 ```
 
-### 15 — Muchos problemas atribuidos al control son en realidad del i
+### 15 — Pregunta
 
 ```
 metadata:
@@ -330,7 +330,7 @@ explicacion: |
   Por eso se revisa primero la medición y el actuador.
 ```
 
-### 16 — Un equipo muy confiable siempre tiene mejor disponibilidad q
+### 16 — Pregunta
 
 ```
 metadata:
@@ -348,7 +348,7 @@ explicacion: |
   Depende de ambos tiempos.
 ```
 
-### 17 — Un buen historial de fallas ayuda a ajustar los intervalos d
+### 17 — Pregunta
 
 ```
 metadata:
@@ -366,7 +366,7 @@ explicacion: |
   Se detectan fallas repetidas.
 ```
 
-### 18 — Cambiar parámetros del controlador al azar es una buena form
+### 18 — Pregunta
 
 ```
 metadata:
@@ -384,7 +384,7 @@ explicacion: |
   Conviene revisar primero señal, actuador y modo.
 ```
 
-### 19 — El mantenimiento que usa mediciones de vibración y temperatu
+### 19 — Pregunta
 
 ```
 metadata:
@@ -402,7 +402,7 @@ explicacion: |
   Interviene cuando los datos lo indican.
 ```
 
-### 20 — La disponibilidad aumenta si el MTTR ___ (aumenta / disminuy
+### 20 — Pregunta
 
 ```
 metadata:
@@ -420,7 +420,7 @@ explicacion: |
   Se repara más rápido.
 ```
 
-### 21 — Un equipo tiene un MTBF de {mtbf} horas y un MTTR de {mttr}
+### 21 — Cálculo
 
 ```
 metadata:
@@ -446,7 +446,7 @@ explicacion: |
   Se expresa en porcentaje.
 ```
 
-### 22 — Un equipo funcionó {horas} horas y tuvo {fallas} fallas. ¿Cu
+### 22 — Cálculo
 
 ```
 metadata:
@@ -472,7 +472,7 @@ explicacion: |
   Promedio entre fallas.
 ```
 
-### 23 — Un lazo registró {total} lecturas de las cuales {fuera} caye
+### 23 — Cálculo
 
 ```
 metadata:

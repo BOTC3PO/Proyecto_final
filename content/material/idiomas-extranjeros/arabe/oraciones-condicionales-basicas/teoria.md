@@ -14,6 +14,14 @@ El árabe distingue la condición **real o probable** (إذا) de la **irreal o 
 - **Orden**: primero la condición, luego el resultado.
 - **Tiempo real**: la forma verbal en pasado no indica pasado; el contexto lo determina.
 
+## Ampliación: tipos de condicionales
+- **إِذا** (si, cuando; condición probable): **إِذا دَرَسْتَ نَجَحْتَ** (si estudiás, vas a aprobar). Con **إذا** se usa el pasado con sentido de futuro.
+- **إِنْ** (si, condición posible o más literaria): **إِنْ تَدْرُسْ تَنْجَحْ** (con verbos en yusivo).
+- **لَوْ** (si, condición irreal o contraria a los hechos): **لَوْ دَرَسْتَ لَنَجَحْتَ** (si hubieras estudiado, habrías aprobado). La **لَ** marca la consecuencia.
+- **لَوْلا** (si no fuera por): **لَوْلا المَطَرُ لَخَرَجْنا** (si no fuera por la lluvia, habríamos salido).
+- **مَنْ** (quien): **مَنْ يَجْتَهِدْ يَنْجَحْ** (quien se esfuerza, triunfa). Es una condicional general.
+- **Estructura**: la condición se llama *šarṭ* y la consecuencia *jawāb ash-šarṭ*. Si la consecuencia es una oración nominal o una orden, suele introducirse con **فَ**: **إِذا جاءَ فَأَكْرِمْهُ** (si viene, atiéndelo).
+
 ## Errores comunes de hispanohablantes
 1. **Usar el futuro con س** tras إذا: basta el pasado.
 2. **Olvidar el ل** en el resultado de لو.

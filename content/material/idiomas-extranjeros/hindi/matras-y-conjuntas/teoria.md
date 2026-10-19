@@ -16,6 +16,14 @@ En devanagari, cada consonante lleva una **a inherente**. Para cambiar la vocal 
 - **Ejemplos**: किताब *kitāb* (libro), दोस्त *dost* (amigo), प्रेम *prem* (amor), पत्र *patra* (carta), भारत *bhārat* (India), हिन्दी *hindī*, ज्ञान *gyān* (conocimiento), क्षमा *kṣamā* (perdón).
 - **Lectura**: sigue el orden de escritura, salvo con ि (se lee después de la consonante).
 
+## Ampliación: lista completa y reglas de escritura
+- **Matras de vocales**: **ा** (ā), **ि** (i), **ी** (ī), **ु** (u), **ू** (ū), **े** (e), **ै** (ai), **ो** (o), **ौ** (au); las vocales independientes aparecen al comienzo de palabra: अ, आ, इ, ई, उ, ऊ, ए, ऐ, ओ, औ.
+- **Signos adicionales**: **ं** (anusvāra, nasalización: हिंदी), **ँ** (candrabindu, nasalización suave: आँख), **ः** (visarga, poco frecuente), **़** (nukta, para sonidos como ज़, फ़, ड़).
+- **Conjuntas de uso frecuente**: **क्ष** (kṣa), **त्र** (tra), **ज्ञ** (gya), **श्र** (śra), **द्य** (dya), **स्त** (sta), **प्र** (pra), **क्र** (kra), **ट्र** (ṭra).
+- **Medias consonantes**: muchas consonantes pierden su barra vertical al unirse: **स्कूल** (*skūl*, escuela), **प्यार** (*pyār*, amor), **विद्यालय** (*vidyālay*, escuela).
+- **Aspirado y nasal**: **ङ** y **ञ** aparecen en conjuntas como **अंग** o **संघ**.
+- **Regla del schwa**: la **a inherente** al final de palabra no se pronuncia: **कमल** se lee *kamal*, no *kamala*.
+
 ## Errores comunes de hispanohablantes
 1. **Leer ि antes de la consonante**.
 2. **Olvidar el halant** (*कमल* ≠ *कम्ल*).

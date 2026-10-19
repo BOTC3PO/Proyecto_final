@@ -20,6 +20,14 @@ El ruso tiene **seis casos**. El **nominativo** es el caso del sujeto y de la fo
 - **Plurales irregulares**: дом → дома, город → города, друг → друзья, человек → люди, ребёнок → дети.
 - **Concordancia**: этот стол → эти столы.
 
+## Ampliación: plural y casos especiales
+- **Plural regular**: m. -ы/-и (**столы**, **студенты**); f. -ы/-и (**книги**, **недели**); n. -а/-я (**окна**, **моря**).
+- **Plurales irregulares frecuentes**: дом → **дома**, город → **города**, глаз → **глаза**, учитель → **учителя**, брат → **братья**, друг → **друзья**, человек → **люди**, ребёнок → **дети**.
+- **Regla ortográfica**: tras **г, к, х, ж, ч, ш, щ** se escribe **и**, no **ы**: книги, ручки, дочки.
+- **Género**: la mayoría de los sustantivos en -а/-я son femeninos, pero **папа, дедушка, дядя** son masculinos. Los nombres en -ь pueden ser m. o f.: **день** (m.), **дверь** (f.). Los préstamos en vocal son invariables: **метро** (n.), **кофе** (m.), **такси** (n.).
+- **Uso**: sujeto y atributo en presente (el verbo «ser» se omite): Это **дом**. Она **врач**.
+- **Con números**: 2-4 llevan **genitivo singular** (два **стола**), 5 en adelante genitivo plural (пять **столов**).
+
 ## Errores comunes de hispanohablantes
 1. **Escribir -ы tras г, к, х** (*книгы*).
 2. **Formar plurales regulares** de дом, город, друг, человек, ребёнок.

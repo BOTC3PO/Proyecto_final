@@ -14,6 +14,15 @@ El coreano tiene varias formas de negación según lo que se niega: acción, cap
 - **-지 마세요** (prohibición): *여기서 담배를 피우지 마세요*.
 - **Otras**: 아무도/아무것도 + negación (nadie/nada), 전혀/별로 + negación, -지 않아도 되다 ('no hace falta'), -(으)ㄴ 적이 없다 ('nunca he…'), 안 되다 ('no está permitido').
 
+## Ampliación: tipos de negación
+- **안 + verbo/adjetivo** (negación simple, «no»): **안 가요** (no voy), **안 예뻐요** (no es bonito). Equivalente: **-지 않다**: **가지 않아요**.
+- **못 + verbo** (incapacidad, «no puedo»): **못 가요** (no puedo ir), **한국어를 못 해요** (no sé hablar coreano). Equivalente: **-지 못하다**.
+- **Verbos con 하다**: la negación va **antes de 하다**: **공부 안 해요**, **운동 못 해요**; no se dice 안 공부해요. Los verbos compuestos como **좋아하다** (gustar) se niegan enteros: **안 좋아해요**.
+- **Con sustantivos**: **이/가 아니다**: **학생이 아니에요** (no soy estudiante).
+- **Existencia**: la negación de **있다** (existir) es **없다**: **시간이 없어요**.
+- **Prohibición**: **-지 마세요** (por favor, no...): **가지 마세요**.
+- **Sustantivo + 이/가 아니다 vs 안 + verbo**: no se mezclan. Usá 안 con verbos y adjetivos; 아니다 con sustantivos.
+
 ## Errores comunes de hispanohablantes
 1. **Confundir 안 y 못**: 안 = no quiero/no lo hago; 못 = no puedo.
 2. **Usar 안 con 이다**: ❌ *안 학생이에요* ✅ *학생이 아니에요*.

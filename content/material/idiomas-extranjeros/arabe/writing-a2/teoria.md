@@ -16,6 +16,15 @@ En A2, escribir en árabe es redactar frases y mensajes cortos: presentarse, sal
 - **Puntuación**: la coma árabe es «،» y el signo de interrogación «؟».
 - **Consejo**: escribe frases cortas y revisa la concordancia y la unión de las letras.
 
+## Ampliación: modelo de texto y lista de control
+Texto modelo (mensaje a una amiga):
+**عَزِيزَتِي فاطِمَة،** / **كَيْفَ حالُكِ؟ أَنا بِخَيْرٍ. أَدْرُسُ الآنَ في الجامِعَةِ وَأَسْكُنُ مَعَ أُخْتِي. فِي نِهايَةِ الأُسْبُوعِ سَأَزُورُ جَدَّتِي. هَلْ تُرِيدِينَ أَنْ تَأْتِي مَعِي؟** / **مَعَ تَحِيَّاتِي، سارَة**
+
+- **Notá**: el pronombre sufijo **ـِي** (mi) en **أُخْتِي، جَدَّتِي**; la forma femenina **تُرِيدِينَ** (querés, a una mujer); el futuro con **سـ**.
+- **Lista de control**: ¿las letras están unidas? ¿el adjetivo concuerda en género? ¿usé **إلى** para el destino? ¿terminé con una fórmula de despedida?
+- **Conexión de letras**: seis letras no se unen a la siguiente: **ا د ذ ر ز و**.
+- **Frases útiles**: **أُحِبُّ أَنْ…** (me gusta…), **لا أُحِبُّ…** (no me gusta…), **عِنْدِي** (tengo), **لَدَيَّ** (poseo).
+
 ## Errores comunes de hispanohablantes
 1. **Escribir de izquierda a derecha**.
 2. **Separar letras que deben unirse**.

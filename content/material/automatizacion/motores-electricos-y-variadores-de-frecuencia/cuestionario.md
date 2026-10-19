@@ -114,7 +114,7 @@ explicacion: |
   Es una de sus ventajas históricas.
 ```
 
-### 6 — La velocidad sincrónica de un motor asíncrono depende de...
+### 6 — Pregunta
 
 ```
 metadata:
@@ -136,7 +136,7 @@ explicacion: |
   ns = 120 · f / p.
 ```
 
-### 7 — En una red de 50 Hz, un motor de 4 polos tiene velocidad sin
+### 7 — Pregunta
 
 ```
 metadata:
@@ -224,7 +224,7 @@ explicacion: |
   Al cambiar la frecuencia cambia la velocidad.
 ```
 
-### 11 — ¿Por qué el variador ajusta la tensión junto con la frecuenc
+### 11 — Pregunta
 
 ```
 metadata:
@@ -330,7 +330,7 @@ explicacion: |
   Se usa para calcular la velocidad sincrónica.
 ```
 
-### 16 — El motor asíncrono gira exactamente a la velocidad sincrónic
+### 16 — Pregunta
 
 ```
 metadata:
@@ -348,7 +348,7 @@ explicacion: |
   Gira algo más lento: esa diferencia es el deslizamiento.
 ```
 
-### 17 — Un variador permite arrancar y parar un motor con suavidad.
+### 17 — Pregunta
 
 ```
 metadata:
@@ -366,7 +366,7 @@ explicacion: |
   Alarga la vida útil de los equipos.
 ```
 
-### 18 — El arranque directo es el más indicado para motores muy gran
+### 18 — Pregunta
 
 ```
 metadata:
@@ -384,7 +384,7 @@ explicacion: |
   La corriente de arranque es muy alta.
 ```
 
-### 19 — La velocidad sincrónica se calcula como ns = 120 · f / ___ (
+### 19 — Pregunta
 
 ```
 metadata:
@@ -402,7 +402,7 @@ explicacion: |
   f es la frecuencia en hertz.
 ```
 
-### 20 — Un motor que gira un ángulo fijo por pulso es un motor ___ (
+### 20 — Pregunta
 
 ```
 metadata:
@@ -420,7 +420,7 @@ explicacion: |
   Tiene pasos discretos.
 ```
 
-### 21 — ¿Cuál es la velocidad sincrónica (en rpm) de un motor de {p}
+### 21 — Cálculo
 
 ```
 metadata:
@@ -445,7 +445,7 @@ explicacion: |
   Se aplica la fórmula con f = 50 Hz.
 ```
 
-### 22 — Un variador alimenta un motor de {p} polos a {f} Hz. ¿Cuál e
+### 22 — Cálculo
 
 ```
 metadata:
@@ -471,7 +471,7 @@ explicacion: |
   Al cambiar la frecuencia cambia la velocidad.
 ```
 
-### 23 — Un motor tiene velocidad sincrónica de {ns} rpm y un desliza
+### 23 — Cálculo
 
 ```
 metadata:
@@ -497,7 +497,7 @@ explicacion: |
   El rotor gira un poco más lento que el campo.
 ```
 
-### 24 — Un motor paso a paso da {pasos} pasos por vuelta. ¿Cuántos g
+### 24 — Cálculo
 
 ```
 metadata:

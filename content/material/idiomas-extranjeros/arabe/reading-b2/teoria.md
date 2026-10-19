@@ -14,6 +14,18 @@ En B2, leer significa comprender textos extensos y complejos (artículos, estudi
 - **Vocabulario abstracto**: استقلالية، هوية ثقافية، سياحة مستدامة، إهمال، إقبال.
 - **Estrategia**: 1) tema y tesis; 2) conectores; 3) fuentes o datos; 4) conclusión o recomendación; luego responder.
 
+## Ampliación: análisis de un texto argumentativo
+Párrafo modelo: **تُعَدُّ السِّياحَةُ مَصْدَرًا مُهِمًّا لِلدَّخْلِ، غَيْرَ أَنَّ الإِفْراطَ فِيها قَدْ يُهَدِّدُ البِيئَةَ. وَلِذٰلِكَ يَدْعُو الخُبَراءُ إِلَى وَضْعِ حُدُودٍ لِعَدَدِ الزُّوَّارِ.**
+
+1. **Tesis**: el turismo es una fuente de ingresos importante.
+2. **Contraargumento**: **غَيْرَ أَنَّ** introduce el problema (daño ambiental por exceso).
+3. **Consecuencia**: **وَلِذٰلِكَ** conduce a la recomendación.
+4. **Recomendación**: **يَدْعُو… إِلَى** (invitan a…).
+
+- **Masdar (sustantivo verbal)**: **الإِفْراط** (el exceso, de أَفْرَطَ), **وَضْع** (poner), **الحَدّ مِنْ** (limitar). Reconocerlos ayuda a entender el estilo nominal.
+- **Voz pasiva** (sin vocalizar): **تُعَدُّ** (se considera), **يُقالُ** (se dice).
+- **Palabras de marco**: **مِنْ جِهَةٍ… وَمِنْ جِهَةٍ أُخْرَى** (por un lado… por otro).
+
 ## Errores comunes de hispanohablantes
 1. **Confundir إذ con إذا**.
 2. **Ignorar el estilo nominal** (masdar).

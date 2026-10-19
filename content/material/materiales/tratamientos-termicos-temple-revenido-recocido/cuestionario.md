@@ -26,7 +26,7 @@ explicacion: |
   Cambia las propiedades sin cambiar la composición.
 ```
 
-### 2 — Para endurecer un acero se lo calienta primero hasta que su
+### 2 — Pregunta
 
 ```
 metadata:
@@ -334,7 +334,7 @@ explicacion: |
   Resiste desgaste e impactos.
 ```
 
-### 16 — Un mismo acero puede tener propiedades muy distintas según e
+### 16 — Pregunta
 
 ```
 metadata:
@@ -370,7 +370,7 @@ explicacion: |
   El temple endurece pero deja fragilidad.
 ```
 
-### 18 — Un sobrecalentamiento puede agrandar el grano y empeorar las
+### 18 — Pregunta
 
 ```
 metadata:
@@ -388,7 +388,7 @@ explicacion: |
   Hay que controlar temperatura y tiempos.
 ```
 
-### 19 — Los baños de aceite de temple presentan riesgo de incendio.
+### 19 — Pregunta
 
 ```
 metadata:
@@ -406,7 +406,7 @@ explicacion: |
   Hay que tomar precauciones.
 ```
 
-### 20 — La estructura muy dura que se forma por enfriamiento rápido
+### 20 — Pregunta
 
 ```
 metadata:
@@ -424,7 +424,7 @@ explicacion: |
   Forma de agujas.
 ```
 
-### 21 — El tratamiento que alivia fragilidad de una pieza templada e
+### 21 — Pregunta
 
 ```
 metadata:
@@ -442,7 +442,7 @@ explicacion: |
   Se hace a baja temperatura.
 ```
 
-### 22 — Una pieza se reviene a {t} °C. Si luego se reviene otra 100
+### 22 — Cálculo
 
 ```
 metadata:
@@ -458,7 +458,7 @@ respuesta: t - 100
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Una pieza se reviene a {t} °C. Si luego se reviene otra 100 °C más baja, ¿a qué temperatura queda? (ejercicio simple)"
+enunciado: "Una pieza de acero templado se reviene a {t} °C y otra, del mismo acero, se reviene 100 °C más baja. ¿A qué temperatura se reviene la segunda? (la segunda queda más dura y menos tenaz)"
 
 pasos:
   - "T2 = T1 − 100"
@@ -467,7 +467,7 @@ explicacion: |
   A menor temperatura de revenido, más dureza y menos tenacidad.
 ```
 
-### 23 — Calentar una pieza de acero de {masa} kg exige aproximadamen
+### 23 — Cálculo
 
 ```
 metadata:
@@ -494,7 +494,7 @@ explicacion: |
   Valor ilustrativo del calor específico.
 ```
 
-### 24 — Un recocido dura {t1} minutos por cada pieza y se hace en ta
+### 24 — Cálculo
 
 ```
 metadata:

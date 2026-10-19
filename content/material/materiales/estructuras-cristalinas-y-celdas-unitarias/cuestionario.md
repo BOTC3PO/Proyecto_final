@@ -202,7 +202,7 @@ explicacion: |
   BCC vale cerca de 0,68.
 ```
 
-### 10 — Los metales HCP suelen ser menos dúctiles que los FCC porque
+### 10 — Pregunta
 
 ```
 metadata:
@@ -224,7 +224,7 @@ explicacion: |
   El deslizamiento es el mecanismo de deformación.
 ```
 
-### 11 — La arista de la celda BCC en función del radio atómico R val
+### 11 — Pregunta
 
 ```
 metadata:
@@ -312,7 +312,7 @@ explicacion: |
   Ambos son carbono.
 ```
 
-### 15 — Aun en la mejor disposición de esferas iguales, queda espaci
+### 15 — Pregunta
 
 ```
 metadata:
@@ -348,7 +348,7 @@ explicacion: |
   Siguen un patrón que se repite.
 ```
 
-### 17 — Las propiedades de un cristal pueden depender de la direcció
+### 17 — Pregunta
 
 ```
 metadata:
@@ -366,7 +366,7 @@ explicacion: |
   Es la anisotropía.
 ```
 
-### 18 — La densidad teórica se puede calcular con n, A, Vc y el núme
+### 18 — Pregunta
 
 ```
 metadata:
@@ -420,7 +420,7 @@ explicacion: |
   Cuatro.
 ```
 
-### 21 — En una estructura BCC el radio atómico es R = {R} pm. ¿Cuánt
+### 21 — Cálculo
 
 ```
 metadata:
@@ -445,7 +445,7 @@ explicacion: |
   Los átomos se tocan a lo largo de la diagonal del cubo.
 ```
 
-### 22 — En una estructura FCC el radio atómico es R = {R} pm. ¿Cuánt
+### 22 — Cálculo
 
 ```
 metadata:
@@ -470,7 +470,7 @@ explicacion: |
   Los átomos se tocan en la diagonal de una cara.
 ```
 
-### 23 — Una celda cúbica tiene n = {n} átomos, masa atómica A = {A}
+### 23 — Cálculo
 
 ```
 metadata:

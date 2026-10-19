@@ -15,6 +15,14 @@ El árabe tiene tres números gramaticales: **singular, dual y plural**. El dual
 - **Iḍāfa**: el dual pierde la ن: **كتابا** الولد (los dos libros del niño).
 - **Uso**: para «dos» no se usa اثنان + plural; se usa el dual: كتابان.
 
+## Ampliación: más usos del dual
+- **«Ambos»**: se expresa con **كِلا** (m.) y **كِلْتا** (f.) + sustantivo en genitivo: **كِلا الوَلَدَيْنِ** (ambos niños), **كِلْتا البِنْتَيْنِ** (ambas niñas).
+- **Con sufijos pronominales**: **كِتابُهُما** (el libro de ellos dos), **لَكُما** (para ustedes dos), **مَعَهُما** (con ellos dos).
+- **Concordancia del verbo**: si el sujeto dual va **después** del verbo, el verbo queda en singular y concuerda solo en género: **كَتَبَ الطّالِبانِ** (los dos estudiantes escribieron); si el sujeto va **antes**, el verbo va en dual: **الطّالِبانِ كَتَبا**.
+- **Imperativo**: **اُكْتُبا** (¡escriban, ustedes dos!); **اِجْلِسا** (siéntense, ustedes dos).
+- **Dialectos**: en los dialectos hablados el dual se conserva en sustantivos (por ejemplo, «dos libros» como *kitābēn*), pero casi desaparece en verbos y pronombres, donde se usa el plural. En el árabe estándar (fuṣḥà) se usa completo.
+- **Escritura**: el dual nominativo se escribe con **ـانِ** y el acusativo/genitivo con **ـَيْنِ**; en un texto sin vocalizar lo único que cambia es **ا** frente a **ي**: **مدرستان / مدرستين**.
+
 ## Errores comunes de hispanohablantes
 1. **Usar el plural para dos**.
 2. **Olvidar la ت** en el dual femenino.

@@ -19,6 +19,16 @@ Los pronombres personales árabes distinguen **persona, género y número** (sin
 - **Sin cópula**: أنا طالب (soy estudiante), هي معلمة (ella es profesora), نحن طلاب (somos estudiantes).
 - Sin vocalizar, أنتَ y أنتِ se escriben igual (أنت); el contexto y la vocal final los distinguen.
 
+## Ampliación: pronombres sufijos
+Además de los pronombres independientes (**أَنا، أَنْتَ، هُوَ...**) el árabe usa **sufijos** que se unen a sustantivos (posesivo), verbos (objeto) y preposiciones:
+
+- **Con sustantivos**: **كِتابِي** (mi libro), **كِتابُكَ** (tu libro, m.), **كِتابُكِ** (tu libro, f.), **كِتابُهُ** (su libro, de él), **كِتابُها** (su libro, de ella), **كِتابُنا** (nuestro libro), **كِتابُكُمْ**, **كِتابُهُمْ**.
+- **Con verbos** (objeto directo): **رَأَيْتُهُ** (lo vi), **رَأَيْتُها** (la vi), **رَآنِي** (me vio; la **ن** que precede a **ي** se llama *nūn al-wiqāya*).
+- **Con preposiciones**: **لِي** (para mí), **لَكَ** (para ti), **لَهُ**, **مَعِي** (conmigo), **مِنِّي** (de mí), **فِيهِ** (en él), **بِها** (con ella). Tras una vocal **i** el sufijo **-hu / -hum** cambia a **-hi / -him**: **بِهِ، لَهُمْ → بِهِمْ**.
+- **Con إنّ**: **إِنَّهُ طالِبٌ** (él es un estudiante).
+
+El pronombre independiente se usa para dar énfasis o cuando la oración es nominal: **أَنا طالِبٌ**. En el árabe no hay verbo «ser» en presente, así que el pronombre sustituye la presencia del verbo.
+
 ## Errores comunes de hispanohablantes
 1. **Añadir un verbo «ser»** en presente: ❌ *أنا يكون طالب*.
 2. **Usar أنتم para un grupo solo de mujeres**: se usa أنتنّ.

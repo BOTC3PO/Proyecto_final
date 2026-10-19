@@ -16,6 +16,13 @@ En hindi los adjetivos se sitúan **antes del sustantivo** y, si terminan en **-
 - **Con posposiciones**: el adjetivo -ā pasa a **-e** ante el sustantivo oblicuo: **बड़े** घर में.
 - **Ejemplos**: नई किताब (libro nuevo, f.), नया फ़ोन (teléfono nuevo, m.), पुराना घर, छोटा कमरा, अच्छी लड़की.
 
+## Ampliación: adjetivos variables e invariables
+- **Variables (terminan en -ā)**: **अच्छा** (bueno), **बड़ा** (grande), **छोटा** (pequeño), **काला** (negro). Cambian: **-ā** (m. sg.), **-e** (m. pl. y caso oblicuo), **-ī** (f.). Ejemplo: **बड़ा घर / बड़े घर में / बड़ी कुर्सी**.
+- **Invariables**: **सुंदर** (hermoso), **लाल** (rojo), **गरम** (caliente). Los que no terminan en -ā no cambian: **सुंदर लड़की / सुंदर लड़के**. Ojo: **नया** (nuevo) sí es variable (नया / नई / नए).
+- **Caso oblicuo**: si el sustantivo va seguido de una posposición (में, से, पर, को), el adjetivo variable cambia a **-e**: **अच्छे लड़के से** (con el buen chico).
+- **Comparativo y superlativo**: **से ज़्यादा** (más que): **वह मुझसे बड़ा है**; **सबसे** (el más): **वह सबसे बड़ा है**. No hay formas especiales.
+- **Posición**: el adjetivo va antes del sustantivo, salvo en poesía.
+
 ## Errores comunes de hispanohablantes
 1. **Poner el adjetivo después** del sustantivo.
 2. **No concordar** género (*बड़ा मेज़*).

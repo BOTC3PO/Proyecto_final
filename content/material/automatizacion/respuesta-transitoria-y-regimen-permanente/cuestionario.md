@@ -180,7 +180,7 @@ explicacion: |
   Se evita oscilar a costa de tardar más.
 ```
 
-### 9 — Al aumentar la ganancia de un controlador, lo más probable e
+### 9 — Pregunta
 
 ```
 metadata:
@@ -224,7 +224,7 @@ explicacion: |
   Mide cuánto falta para llegar a lo pedido.
 ```
 
-### 11 — ¿Qué acción de control elimina el error en régimen ante un e
+### 11 — Pregunta
 
 ```
 metadata:
@@ -246,7 +246,7 @@ explicacion: |
   El integrador sigue acumulando mientras haya error.
 ```
 
-### 12 — Un horno cerámico donde pasarse de temperatura arruina la pi
+### 12 — Pregunta
 
 ```
 metadata:
@@ -268,7 +268,7 @@ explicacion: |
   Las especificaciones dependen de la aplicación.
 ```
 
-### 13 — Un control solo proporcional suele dejar un error residual p
+### 13 — Pregunta
 
 ```
 metadata:
@@ -290,7 +290,7 @@ explicacion: |
   Sin integral, el error no puede llegar a cero en muchos procesos.
 ```
 
-### 14 — El tiempo de pico es el instante en que la salida alcanza su
+### 14 — Pregunta
 
 ```
 metadata:
@@ -308,7 +308,7 @@ explicacion: |
   Aparece cuando hay sobrepaso.
 ```
 
-### 15 — Un buen diseño suele lograr a la vez el menor tiempo de subi
+### 15 — Pregunta
 
 ```
 metadata:
@@ -326,7 +326,7 @@ explicacion: |
   Casi siempre hay que negociar entre rapidez y sobrepaso.
 ```
 
-### 16 — La banda de ±2 % o ±5 % se usa para definir el tiempo de est
+### 16 — Pregunta
 
 ```
 metadata:
@@ -344,7 +344,7 @@ explicacion: |
   Son valores habituales.
 ```
 
-### 17 — Una perturbación constante puede dejar un error en régimen s
+### 17 — Pregunta
 
 ```
 metadata:
@@ -362,7 +362,7 @@ explicacion: |
   Sin integral, el error puede persistir.
 ```
 
-### 18 — El error en régimen permanente es la diferencia entre la ref
+### 18 — Pregunta
 
 ```
 metadata:
@@ -380,7 +380,7 @@ explicacion: |
   error = referencia − salida final.
 ```
 
-### 19 — Para eliminar el error en régimen ante un escalón se agrega
+### 19 — Pregunta
 
 ```
 metadata:
@@ -398,7 +398,7 @@ explicacion: |
   El integrador acumula el error hasta anularlo.
 ```
 
-### 20 — La salida se estabiliza en {yf} y alcanzó un máximo de {yf +
+### 20 — Cálculo
 
 ```
 metadata:
@@ -424,7 +424,7 @@ explicacion: |
   Se calcula sobre el valor final.
 ```
 
-### 21 — Se pide {ref} y la salida se estabiliza en {ref - err}. ¿Cuá
+### 21 — Cálculo
 
 ```
 metadata:
@@ -450,7 +450,7 @@ explicacion: |
   Es la diferencia entre lo pedido y lo logrado.
 ```
 
-### 22 — Con referencia {ref} y error en régimen de {err}, ¿cuál es e
+### 22 — Cálculo
 
 ```
 metadata:
@@ -476,7 +476,7 @@ explicacion: |
   Se suele expresar relativo a la referencia.
 ```
 
-### 23 — La salida alcanza el 10 % del valor final a los {t10} s y el
+### 23 — Cálculo
 
 ```
 metadata:

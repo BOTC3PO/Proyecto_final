@@ -15,6 +15,14 @@ El hindi tiene **dos géneros**, masculino y femenino (no hay neutro). El géner
   - adjetivos invariables (सुंदर, लाल…): no cambian.
 - **Verbo**: concuerda con el sujeto: वह जाता है (él va) / वह जाती है (ella va).
 
+## Ampliación: patrones, excepciones y concordancia
+- **Masculinos regulares**: terminan en **-ā**: **लड़का** (chico), **कमरा** (habitación), **बच्चा** (niño). Plural: **-e**: लड़के.
+- **Femeninos regulares**: terminan en **-ī**: **लड़की** (chica), **नदी** (río), **रोटी** (pan). Plural: **-iyāṁ**: लड़कियाँ.
+- **Femeninos sin -ī**: **किताब** (libro), **बात** (conversación), **रात** (noche), **आँख** (ojo), **चीज़** (cosa).
+- **Excepciones masculinas en -ī**: **पानी** (agua), **आदमी** (hombre), **हाथी** (elefante), **दही** (yogur).
+- **Verbos y adjetivos**: concuerdan con el género y el número del sujeto: **वह जाता है** (él va), **वह जाती है** (ella va). Con el adjetivo **अच्छा**: अच्छा लड़का / अच्छी लड़की / अच्छे लड़के.
+- **Truco práctico**: el género se aprende junto con el sustantivo, y el verbo en pasado o presente avisa si se eligió bien.
+
 ## Errores comunes de hispanohablantes
 1. **Trasladar el género español** (*la mesa* → मेज़ f., pero *el agua* → पानी m.).
 2. **No concordar el adjetivo**.

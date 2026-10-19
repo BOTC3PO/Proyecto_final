@@ -15,6 +15,14 @@ El **acusativo** marca el **complemento directo** (кого? что? — *a qui�
 - **Preposiciones de dirección**: **в** (a, hacia dentro) y **на** (a, hacia una superficie o actividad) + acusativo: Я иду **в школу**; Он едет **на работу**; Мы идём **в магазин**.
 - **Contraste con lugar**: в + prepositivo (в школе = en la escuela).
 
+## Ampliación: más usos del acusativo
+- **Pronombres**: я → **меня**, ты → **тебя**, он → **его**, она → **её**, мы → **нас**, вы → **вас**, они → **их**. Ejemplo: Я люблю **тебя**.
+- **Adjetivos**: concuerdan con el sustantivo: **новую** книгу (f.), **новый** стол (m. inanimado), **нового** друга (m. animado), **новое** окно (n.).
+- **Expresiones de tiempo**: en + días de la semana: **в понедельник**, **в субботу**; con acusativo también: **через неделю** (en una semana), **на неделю** (por una semana), **за год** (en un año, durante).
+- **Otras preposiciones con acusativo**: **про** (sobre: Я читаю про **войну**), **через** (a través de: через **парк**), **за** (por, tras: платить за **билет**), **под** (debajo, con movimiento).
+- **Verbos que rigen acusativo**: читать, писать, любить, знать, видеть, слушать, покупать. Ejemplo: Она **читает** **газету**.
+- **Plural animado**: Я вижу **друзей**, **студентов**, **собак**.
+
 ## Errores comunes de hispanohablantes
 1. **Dejar el nominativo** en los femeninos en -а.
 2. **Olvidar la regla de animados**: *Я вижу брат*.

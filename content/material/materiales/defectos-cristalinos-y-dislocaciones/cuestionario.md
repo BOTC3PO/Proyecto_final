@@ -114,7 +114,7 @@ explicacion: |
   Puede ser de borde, de tornillo o mixta.
 ```
 
-### 6 — ¿Por qué los metales se deforman con tensiones menores a las
+### 6 — Pregunta
 
 ```
 metadata:
@@ -202,7 +202,7 @@ explicacion: |
   Es el principio de todos los mecanismos.
 ```
 
-### 10 — Según Hall-Petch, al reducir el tamaño de grano el límite el
+### 10 — Pregunta
 
 ```
 metadata:
@@ -246,7 +246,7 @@ explicacion: |
   Las aleaciones suelen ser más resistentes que los metales puros.
 ```
 
-### 12 — El endurecimiento por deformación en frío se llama también..
+### 12 — Pregunta
 
 ```
 metadata:
@@ -312,7 +312,7 @@ explicacion: |
   Los poros y las inclusiones concentran tensiones.
 ```
 
-### 15 — Un cristal perfecto sería más resistente que uno real, pero
+### 15 — Pregunta
 
 ```
 metadata:
@@ -330,7 +330,7 @@ explicacion: |
   Los defectos explican la deformación y el endurecimiento.
 ```
 
-### 16 — Las impurezas y los elementos de aleación introducen defecto
+### 16 — Pregunta
 
 ```
 metadata:
@@ -348,7 +348,7 @@ explicacion: |
   Distorsionan la red.
 ```
 
-### 17 — Los poros e inclusiones pueden ser puntos de inicio de griet
+### 17 — Pregunta
 
 ```
 metadata:
@@ -366,7 +366,7 @@ explicacion: |
   Concentran tensiones.
 ```
 
-### 18 — En un metal real el deslizamiento exige romper todos los enl
+### 18 — Pregunta
 
 ```
 metadata:
@@ -384,7 +384,7 @@ explicacion: |
   Ocurre por movimiento de dislocaciones.
 ```
 
-### 19 — La relación que vincula el límite elástico con el tamaño de
+### 19 — Pregunta
 
 ```
 metadata:
@@ -402,7 +402,7 @@ explicacion: |
   Cuanto menor el grano, mayor la resistencia.
 ```
 
-### 20 — La deformación en frío endurece el metal porque aumenta la c
+### 20 — Pregunta
 
 ```
 metadata:
@@ -420,7 +420,7 @@ explicacion: |
   Se estorban entre sí.
 ```
 
-### 21 — Un acero tiene σ0 = {s0} MPa y k = {k} MPa·√m. Si el tamaño
+### 21 — Cálculo
 
 ```
 metadata:
@@ -447,7 +447,7 @@ explicacion: |
   Con granos más chicos el límite elástico sube.
 ```
 
-### 22 — Calculá 1/√d para d = {d1} µm (con d en metros). Es el facto
+### 22 — Cálculo
 
 ```
 metadata:
@@ -473,7 +473,7 @@ explicacion: |
   A menor d, mayor factor y mayor resistencia.
 ```
 
-### 23 — En una pieza se detectaron {v} vacancias y {s} átomos sustit
+### 23 — Cálculo
 
 ```
 metadata:

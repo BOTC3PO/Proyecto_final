@@ -114,7 +114,7 @@ explicacion: |
   Cumplen las reglas de Hume-Rothery.
 ```
 
-### 6 — Una de las reglas de Hume-Rothery es que los radios atómicos
+### 6 — Pregunta
 
 ```
 metadata:
@@ -246,7 +246,7 @@ explicacion: |
   El apoyo está en la composición de la aleación.
 ```
 
-### 12 — En la regla de la palanca, la fase cuya composición está más
+### 12 — Pregunta
 
 ```
 metadata:
@@ -290,7 +290,7 @@ explicacion: |
   El líquido se transforma en dos fases sólidas.
 ```
 
-### 14 — ¿Por qué conviene una aleación eutéctica para soldaduras bla
+### 14 — Pregunta
 
 ```
 metadata:
@@ -352,7 +352,7 @@ explicacion: |
   Y el latón, de cobre con zinc.
 ```
 
-### 17 — Un diagrama de fases describe lo que ocurre en cualquier vel
+### 17 — Pregunta
 
 ```
 metadata:
@@ -406,7 +406,7 @@ explicacion: |
   Lo hace en un rango, salvo composiciones especiales como el eutéctico.
 ```
 
-### 20 — La línea que limita por arriba la región bifásica se llama _
+### 20 — Pregunta
 
 ```
 metadata:
@@ -424,7 +424,7 @@ explicacion: |
   Por encima, todo es líquido.
 ```
 
-### 21 — Una composición que solidifica a una temperatura única y baj
+### 21 — Pregunta
 
 ```
 metadata:
@@ -442,7 +442,7 @@ explicacion: |
   Por ejemplo, la soldadura plomo-estaño clásica.
 ```
 
-### 22 — Una aleación de composición C0 = {c0} % está en una región d
+### 22 — Cálculo
 
 ```
 metadata:
@@ -469,7 +469,7 @@ explicacion: |
   Se multiplica por 100 para obtener el porcentaje.
 ```
 
-### 23 — Con los mismos datos de la aleación (C0 = {c0} %, C1 = {c1}
+### 23 — Cálculo
 
 ```
 metadata:
@@ -496,7 +496,7 @@ explicacion: |
   Las dos fracciones suman 100 %.
 ```
 
-### 24 — En una aleación de {masa} kg, la fase sólida representa el {
+### 24 — Cálculo
 
 ```
 metadata:

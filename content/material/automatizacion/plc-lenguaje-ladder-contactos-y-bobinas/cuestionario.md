@@ -48,7 +48,7 @@ explicacion: |
   El PLC los evalúa en orden en cada ciclo.
 ```
 
-### 3 — Un contacto normalmente abierto deja pasar cuando el bit aso
+### 3 — Pregunta
 
 ```
 metadata:
@@ -70,7 +70,7 @@ explicacion: |
   Está abierto en reposo y cierra cuando el bit es 1.
 ```
 
-### 4 — Un contacto normalmente cerrado deja pasar cuando el bit val
+### 4 — Pregunta
 
 ```
 metadata:
@@ -202,7 +202,7 @@ explicacion: |
   Un contacto de la propia bobina mantiene la señal.
 ```
 
-### 10 — En el circuito de arranque-parada, el contacto de autorreten
+### 10 — Pregunta
 
 ```
 metadata:
@@ -224,7 +224,7 @@ explicacion: |
   Así mantiene la señal al soltar el pulsador.
 ```
 
-### 11 — El pulsador de parada se cablea normalmente cerrado porque..
+### 11 — Pregunta
 
 ```
 metadata:
@@ -290,7 +290,7 @@ explicacion: |
   Sirve para contar pulsos o evitar disparos repetidos.
 ```
 
-### 14 — ¿Por qué conviene no usar la misma bobina de salida en vario
+### 14 — Pregunta
 
 ```
 metadata:
@@ -312,7 +312,7 @@ explicacion: |
   Pueden pisarse entre sí.
 ```
 
-### 15 — Un contacto en ladder es un componente físico que se instala
+### 15 — Pregunta
 
 ```
 metadata:
@@ -330,7 +330,7 @@ explicacion: |
   Es la consulta del estado de una entrada, salida o variable interna.
 ```
 
-### 16 — El ladder nació para que quienes leían esquemas de relés pud
+### 16 — Pregunta
 
 ```
 metadata:
@@ -366,7 +366,7 @@ explicacion: |
   En serie es AND; en paralelo es OR.
 ```
 
-### 18 — Conviene probar el programa en simulación antes de conectarl
+### 18 — Pregunta
 
 ```
 metadata:
@@ -384,7 +384,7 @@ explicacion: |
   Reduce riesgos.
 ```
 
-### 19 — La norma que define los lenguajes de programación de PLC es
+### 19 — Pregunta
 
 ```
 metadata:
@@ -402,7 +402,7 @@ explicacion: |
   Incluye ladder, bloques, texto estructurado y SFC.
 ```
 
-### 20 — En un peldaño típico de arranque-parada, la parada se conect
+### 20 — Pregunta
 
 ```
 metadata:
@@ -420,7 +420,7 @@ explicacion: |
   Normalmente cerrado.
 ```
 
-### 21 — Dos contactos NA están en serie: el primero tiene el bit en
+### 21 — Cálculo
 
 ```
 metadata:
@@ -446,7 +446,7 @@ explicacion: |
   Se activa solo si ambos valen 1.
 ```
 
-### 22 — Dos contactos NA están en paralelo: bits {a} y {b}. ¿Cuánto
+### 22 — Cálculo
 
 ```
 metadata:
@@ -472,7 +472,7 @@ explicacion: |
   Se activa si al menos uno vale 1.
 ```
 
-### 23 — Un contacto NA de marcha tiene el bit en {m} y un contacto N
+### 23 — Cálculo
 
 ```
 metadata:

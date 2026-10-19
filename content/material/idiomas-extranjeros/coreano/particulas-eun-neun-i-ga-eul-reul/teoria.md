@@ -17,6 +17,14 @@ Las partículas se pegan al sustantivo para marcar su función. Tienen dos forma
 - **을/를 (objeto)**: lo que recibe la acción: *커피를 마셔요.* Con adjetivos como 좋다, 싫다, se usa 이/가: *커피가 좋아요.*
 - La respuesta a 누가…? lleva 이/가.
 
+## Ampliación: elección entre 은/는 y 이/가
+- **Según la última sílaba**: tras consonante final (받침): **은**, **이**, **을**; tras vocal: **는**, **가**, **를**. Ejemplos: **학생은 / 의사는**, **학생이 / 의사가**, **책을 / 사과를**.
+- **이/가 marca el sujeto nuevo o enfocado**: **누가 왔어요?** (¿quién vino?) → **민수가 왔어요.** Las palabras interrogativas (누가, 뭐가) llevan 이/가.
+- **은/는 marca el tema o contraste**: **저는 학생이에요.** (en cuanto a mí, soy estudiante); **커피는 좋아하지만 차는 안 좋아해요.** (el café me gusta, pero el té no).
+- **을/를 marca el objeto directo**: **밥을 먹어요**. En la lengua hablada a veces se omite.
+- **Combinación**: no se juntan 은/는 con 이/가 sobre el mismo sustantivo. Si el tema ya está marcado, el sujeto del verbo secundario va con 이/가: **저는 동생이 있어요** (yo tengo hermano menor).
+- **Contracciones habladas**: **저는 → 전**, **나는 → 난**.
+
 ## Errores comunes de hispanohablantes
 1. **Traducir 은/는 siempre como "sujeto"**: es tema, no sujeto.
 2. **Usar 를 tras consonante o 을 tras vocal.**

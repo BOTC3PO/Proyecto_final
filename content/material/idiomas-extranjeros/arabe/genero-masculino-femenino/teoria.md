@@ -14,6 +14,14 @@ Todos los sustantivos árabes son **masculinos o femeninos**. El adjetivo concue
 - **Concordancia**: كتاب كبير (m.) / مدرسة كبيرة (f.); طالب مجتهد / طالبة مجتهدة; سيارة جديدة / بيت جديد.
 - **Pronunciación de ة**: -a en pausa (مدرسة *madrasa*) y -at- si sigue una terminación gramatical (مدرسةٌ *madrasatun*).
 
+## Ampliación: femeninos sin ة y excepciones
+- **Femeninos sin ة**: algunos sustantivos son femeninos aunque no lleven ة: **شَمْس** (sol), **أَرْض** (tierra), **يَد** (mano), **عَيْن** (ojo), **أُذُن** (oreja), **نَفْس** (alma), **دار** (casa), **نار** (fuego). Los nombres de países y ciudades también se tratan como femeninos: **مِصْر جَمِيلَة**.
+- **Masculinos con ة**: unos pocos nombres masculinos terminan en ة: **خَلِيفَة** (califa), **حَمْزَة**, **طَلْحَة**.
+- **Adjetivos**: concuerdan en género: **كِتابٌ جَدِيدٌ / سَيّارَةٌ جَدِيدَةٌ**. Con plurales no humanos, el adjetivo va en **femenino singular**: **كُتُبٌ جَدِيدَةٌ**.
+- **Formación del femenino**: **مُعَلِّم → مُعَلِّمَة** (maestra), **طالِب → طالِبَة**, **كَبِير → كَبِيرَة**. Algunos adjetivos de color y defecto usan patrón **أَفْعَل / فَعْلاء**: **أَحْمَر / حَمْراء** (rojo/roja).
+- **Números**: el género de los números del 3 al 10 es «inverso» al del objeto contado (se verá en el tema de numerales).
+- **Verbos**: en el pasado el femenino lleva **ـت**: **كَتَبَ / كَتَبَتْ**; en presente, **يَكْتُبُ / تَكْتُبُ**.
+
 ## Errores comunes de hispanohablantes
 1. **Copiar el género español**: *sol* es masculino en español pero **شمس** es femenino; *luna* es femenina pero **قمر** es masculino.
 2. **Olvidar concordar el adjetivo**: ❌ *مدرسة كبير*.

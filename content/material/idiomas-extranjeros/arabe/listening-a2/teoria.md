@@ -15,6 +15,14 @@ En A2, escuchar significa comprender frases breves y claras sobre presentación,
 - **Familia y profesiones**: أخ، أخت، طبيب، معلمة.
 - **Estrategia de escucha**: centrarse en números, nombres y verbos; volver a escuchar para los detalles.
 
+## Ampliación: cómo entrenar el oído en A2
+- **Sonidos que conviene distinguir**: **ح** (h faríngea) frente a **ه** (h suave): **حَلِيب** (leche) / **هَدِيَّة** (regalo); **ع** (ʿayn) frente a **ا**: **عَمَل** (trabajo) / **أَمَل** (esperanza); **ق** (q, profunda) frente a **ك**: **قَلْب** (corazón) / **كَلْب** (perro).
+- **Vocales largas**: la duración cambia el significado: **كَتَبَ** (escribió) / **كاتِب** (escritor); **دَرَسَ** (estudió) / **دارِس**.
+- **Precios y cantidades**: **بِكَمْ هٰذا؟** (¿cuánto cuesta esto?), **خَمْسَةُ دَنانِيرَ** (cinco dinares), **نِصْف** (mitad), **رُبْع** (cuarto).
+- **Direcciones**: **اِذْهَبْ مُباشَرَةً** (andá derecho), **عِنْدَ الإِشارَةِ** (en el semáforo), **عَلَى اليَسارِ** (a la izquierda), **أَمامَ** (delante de), **بِجانِبِ** (al lado de).
+- **Mini-diálogo de práctica**: — **مَتَى يَبْدَأُ الدَّرْسُ؟** — **يَبْدَأُ فِي الساعَةِ التاسِعَةِ صَباحًا.** (— ¿Cuándo empieza la clase? — Empieza a las nueve de la mañana.)
+- **Estrategia**: anotá números y nombres propios mientras escuchás; después completá el sentido con los verbos.
+
 ## Errores comunes de hispanohablantes
 1. **Confundir números parecidos**: خمسة/خمسين.
 2. **No distinguir sonidos** como ح/ه o ع/ا.

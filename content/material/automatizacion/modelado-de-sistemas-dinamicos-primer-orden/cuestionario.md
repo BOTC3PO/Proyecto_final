@@ -26,7 +26,7 @@ explicacion: |
   Permite predecir y simular antes de actuar sobre la planta.
 ```
 
-### 2 — ¿Qué rasgo distingue la respuesta de un sistema de primer or
+### 2 — Pregunta
 
 ```
 metadata:
@@ -114,7 +114,7 @@ explicacion: |
   A menor constante de tiempo, más veloz la respuesta.
 ```
 
-### 6 — ¿Qué porcentaje del valor final alcanza la salida en t = tau
+### 6 — Pregunta
 
 ```
 metadata:
@@ -180,7 +180,7 @@ explicacion: |
   A los 4 tau la salida está cerca del 98 % del valor final.
 ```
 
-### 9 — Se aplica un escalón y la salida termina variando 80 unidade
+### 9 — Pregunta
 
 ```
 metadata:
@@ -224,7 +224,7 @@ explicacion: |
   K es salida final dividida entrada final, ambas medidas como variación.
 ```
 
-### 11 — ¿Cuál de estos procesos se aproxima a un sistema de primer o
+### 11 — Pregunta
 
 ```
 metadata:
@@ -290,7 +290,7 @@ explicacion: |
   Los procesos con inercia, oscilación o retardo largo necesitan modelos de mayor orden.
 ```
 
-### 14 — En un sistema de primer orden la salida llega exactamente al
+### 14 — Pregunta
 
 ```
 metadata:
@@ -308,7 +308,7 @@ explicacion: |
   Solo se acerca de manera asintótica; en la práctica se habla de 4 a 5 tau.
 ```
 
-### 15 — Un escalón consiste en cambiar la entrada de golpe de un val
+### 15 — Pregunta
 
 ```
 metadata:
@@ -326,7 +326,7 @@ explicacion: |
   Es la prueba más usada para identificar un sistema.
 ```
 
-### 16 — Un sistema con constante de tiempo de 10 minutos responde má
+### 16 — Pregunta
 
 ```
 metadata:
@@ -344,7 +344,7 @@ explicacion: |
   Mayor constante de tiempo significa respuesta más lenta.
 ```
 
-### 17 — Modelar un proceso permite probar el controlador en simulaci
+### 17 — Pregunta
 
 ```
 metadata:
@@ -362,7 +362,7 @@ explicacion: |
   Es una de las ventajas principales del modelo.
 ```
 
-### 18 — La respuesta de un sistema de primer orden a un escalón se a
+### 18 — Pregunta
 
 ```
 metadata:
@@ -380,7 +380,7 @@ explicacion: |
   La curva es y = K·U·(1 − e^(−t/τ)).
 ```
 
-### 19 — La constante de tiempo se mide en unidades de ___ (tiempo /
+### 19 — Pregunta
 
 ```
 metadata:
@@ -398,7 +398,7 @@ explicacion: |
   Se expresa en segundos, minutos u horas según el proceso.
 ```
 
-### 20 — Un proceso tiene ganancia K = {K} y recibe un escalón de {U}
+### 20 — Cálculo
 
 ```
 metadata:
@@ -424,7 +424,7 @@ explicacion: |
   En régimen permanente la salida vale K por el tamaño del escalón.
 ```
 
-### 21 — Un sistema de primer orden con K = {K} recibe un escalón de
+### 21 — Cálculo
 
 ```
 metadata:
@@ -451,7 +451,7 @@ explicacion: |
   Se reemplaza el valor de t/tau en la fórmula de la respuesta al escalón.
 ```
 
-### 22 — Al aumentar la entrada en {du} unidades, la salida terminó s
+### 22 — Cálculo
 
 ```
 metadata:
@@ -477,7 +477,7 @@ explicacion: |
   K es el cociente entre los cambios finales.
 ```
 
-### 23 — La salida de un sistema de primer orden cambia finalmente {y
+### 23 — Cálculo
 
 ```
 metadata:

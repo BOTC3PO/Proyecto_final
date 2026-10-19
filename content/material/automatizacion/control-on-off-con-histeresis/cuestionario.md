@@ -92,7 +92,7 @@ explicacion: |
   Es un compromiso.
 ```
 
-### 5 — Con control on-off, ¿la variable queda quieta en el valor de
+### 5 — Pregunta
 
 ```
 metadata:
@@ -224,7 +224,7 @@ explicacion: |
   El sensor debe representar lo que se quiere controlar.
 ```
 
-### 11 — Un calefactor on-off sin histéresis y con ruido de medición
+### 11 — Pregunta
 
 ```
 metadata:
@@ -286,7 +286,7 @@ explicacion: |
   Por eso se usa en muchos aparatos domésticos.
 ```
 
-### 14 — Un termostato con histéresis enciende y apaga en el mismo va
+### 14 — Pregunta
 
 ```
 metadata:
@@ -304,7 +304,7 @@ explicacion: |
   Usa dos umbrales distintos.
 ```
 
-### 15 — En una heladera, una banda de unos pocos grados es aceptable
+### 15 — Pregunta
 
 ```
 metadata:
@@ -322,7 +322,7 @@ explicacion: |
   La tolerancia es amplia.
 ```
 
-### 16 — El PID es una alternativa al on-off cuando se necesita menor
+### 16 — Pregunta
 
 ```
 metadata:
@@ -340,7 +340,7 @@ explicacion: |
   Modula el actuador de forma continua.
 ```
 
-### 17 — Un presostato que arranca y para una bomba es un ejemplo de
+### 17 — Pregunta
 
 ```
 metadata:
@@ -358,7 +358,7 @@ explicacion: |
   Tiene solo dos estados.
 ```
 
-### 18 — La banda de ___ (histéresis / ganancia) separa los umbrales
+### 18 — Pregunta
 
 ```
 metadata:
@@ -376,7 +376,7 @@ explicacion: |
   Evita conmutaciones rápidas.
 ```
 
-### 19 — Un calefactor tiene valor deseado de {sp} °C y banda de hist
+### 19 — Cálculo
 
 ```
 metadata:
@@ -402,7 +402,7 @@ explicacion: |
   El umbral inferior es el valor deseado menos la mitad de la banda.
 ```
 
-### 20 — Con el mismo calefactor (valor deseado {sp} °C, banda {banda
+### 20 — Cálculo
 
 ```
 metadata:
@@ -428,7 +428,7 @@ explicacion: |
   El umbral superior es el valor deseado más la mitad de la banda.
 ```
 
-### 21 — Un compresor está encendido {on} min y apagado {off} min en
+### 21 — Cálculo
 
 ```
 metadata:
@@ -454,7 +454,7 @@ explicacion: |
   El ciclo dura on + off.
 ```
 
-### 22 — Un compresor tiene un ciclo con {on} min encendido y {off} m
+### 22 — Cálculo
 
 ```
 metadata:

@@ -70,7 +70,7 @@ explicacion: |
   Pierde el control.
 ```
 
-### 4 — El chillido de un micrófono cerca del parlante es un ejemplo
+### 4 — Pregunta
 
 ```
 metadata:
@@ -92,7 +92,7 @@ explicacion: |
   El ruido se amplifica y vuelve al micrófono una y otra vez.
 ```
 
-### 5 — Si todos los polos tienen parte real negativa, el sistema es
+### 5 — Pregunta
 
 ```
 metadata:
@@ -158,7 +158,7 @@ explicacion: |
   Es el caso marginal.
 ```
 
-### 8 — Al aumentar la ganancia del controlador en un lazo cerrado,
+### 8 — Pregunta
 
 ```
 metadata:
@@ -224,7 +224,7 @@ explicacion: |
   Usa solo los coeficientes del polinomio característico.
 ```
 
-### 11 — Para un polinomio a·s² + b·s + c, ¿cuál es la condición de e
+### 11 — Pregunta
 
 ```
 metadata:
@@ -246,7 +246,7 @@ explicacion: |
   Para segundo orden alcanza con coeficientes del mismo signo.
 ```
 
-### 12 — Si en el polinomio característico falta un coeficiente, el s
+### 12 — Pregunta
 
 ```
 metadata:
@@ -268,7 +268,7 @@ explicacion: |
   Es una condición necesaria que se verifica de entrada.
 ```
 
-### 13 — ¿Por qué se deja un margen de seguridad respecto del límite
+### 13 — Pregunta
 
 ```
 metadata:
@@ -308,7 +308,7 @@ explicacion: |
   Puede disparar el proceso o dañar los equipos.
 ```
 
-### 15 — La estabilidad es una condición secundaria que se revisa des
+### 15 — Pregunta
 
 ```
 metadata:
@@ -326,7 +326,7 @@ explicacion: |
   Es la primera condición de cualquier diseño.
 ```
 
-### 16 — Polos más alejados del eje vertical hacia la izquierda hacen
+### 16 — Pregunta
 
 ```
 metadata:
@@ -344,7 +344,7 @@ explicacion: |
   Son términos que decaen más velozmente.
 ```
 
-### 17 — El criterio de Routh exige calcular todas las raíces del pol
+### 17 — Pregunta
 
 ```
 metadata:
@@ -362,7 +362,7 @@ explicacion: |
   Justamente permite evitarlo.
 ```
 
-### 18 — Si algún polo tiene parte real ___ (positiva / negativa), el
+### 18 — Pregunta
 
 ```
 metadata:
@@ -380,7 +380,7 @@ explicacion: |
   El término correspondiente de la respuesta crece.
 ```
 
-### 19 — A partir de cierto valor de ganancia, llamado valor ___ (crí
+### 19 — Pregunta
 
 ```
 metadata:
@@ -398,7 +398,7 @@ explicacion: |
   Es el límite de estabilidad.
 ```
 
-### 20 — Un sistema tiene polinomio característico {a}·s² + {b}·s + {
+### 20 — Cálculo
 
 ```
 metadata:
@@ -425,7 +425,7 @@ explicacion: |
   Con los tres coeficientes positivos el sistema de segundo orden es estable.
 ```
 
-### 21 — Un lazo es estable hasta una ganancia crítica de {kc}. Si ho
+### 21 — Cálculo
 
 ```
 metadata:
@@ -451,7 +451,7 @@ explicacion: |
   Es la distancia al límite de estabilidad.
 ```
 
-### 22 — La ganancia crítica de un lazo es {kc} y el controlador trab
+### 22 — Cálculo
 
 ```
 metadata:

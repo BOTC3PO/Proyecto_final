@@ -70,7 +70,7 @@ explicacion: |
   Por eso F = P · A.
 ```
 
-### 4 — ¿Qué sistema es más rígido y preciso para mantener una carga
+### 4 — Pregunta
 
 ```
 metadata:
@@ -158,7 +158,7 @@ explicacion: |
   Es la habitual para cilindros de doble efecto.
 ```
 
-### 8 — En un cilindro de simple efecto, el retorno se produce por..
+### 8 — Pregunta
 
 ```
 metadata:
@@ -180,7 +180,7 @@ explicacion: |
   El aire solo avanza.
 ```
 
-### 9 — ¿Qué componente protege un circuito hidráulico de la sobrepr
+### 9 — Pregunta
 
 ```
 metadata:
@@ -246,7 +246,7 @@ explicacion: |
   Presión por área del émbolo.
 ```
 
-### 12 — ¿Por qué la fuerza de retroceso de un cilindro de doble efec
+### 12 — Pregunta
 
 ```
 metadata:
@@ -290,7 +290,7 @@ explicacion: |
   d es el diámetro.
 ```
 
-### 14 — Los símbolos de circuitos neumáticos e hidráulicos se normal
+### 14 — Pregunta
 
 ```
 metadata:
@@ -312,7 +312,7 @@ explicacion: |
   Representan la función, no la forma física.
 ```
 
-### 15 — Un sistema presurizado puede almacenar energía aunque esté p
+### 15 — Pregunta
 
 ```
 metadata:
@@ -330,7 +330,7 @@ explicacion: |
   Hay que despresurizarlo y bloquearlo antes de intervenir.
 ```
 
-### 16 — Una fuga de aceite hidráulico a alta presión es inofensiva a
+### 16 — Pregunta
 
 ```
 metadata:
@@ -348,7 +348,7 @@ explicacion: |
   Puede inyectar aceite bajo la piel y es una emergencia médica.
 ```
 
-### 17 — El aire comprimido para uso industrial suele tratarse (filtr
+### 17 — Pregunta
 
 ```
 metadata:
@@ -366,7 +366,7 @@ explicacion: |
   Para proteger los componentes.
 ```
 
-### 18 — La fuerza útil de un cilindro suele ser algo menor a la teór
+### 18 — Pregunta
 
 ```
 metadata:
@@ -384,7 +384,7 @@ explicacion: |
   Hay que descontarlo.
 ```
 
-### 19 — La presión de un sistema neumático de planta suele ser de un
+### 19 — Pregunta
 
 ```
 metadata:
@@ -402,7 +402,7 @@ explicacion: |
   Valor habitual de trabajo.
 ```
 
-### 20 — Un cilindro que recibe aire para avanzar y para retroceder e
+### 20 — Pregunta
 
 ```
 metadata:
@@ -420,7 +420,7 @@ explicacion: |
   Tiene dos cámaras.
 ```
 
-### 21 — Un cilindro neumático de {d} mm de diámetro trabaja a {p} ba
+### 21 — Cálculo
 
 ```
 metadata:
@@ -447,7 +447,7 @@ explicacion: |
   Se convierte bar a pascal y milímetros a metros.
 ```
 
-### 22 — Un cilindro tiene émbolo de {a} cm² y trabaja a {p} bar. ¿Cu
+### 22 — Cálculo
 
 ```
 metadata:
@@ -473,7 +473,7 @@ explicacion: |
   1 bar = 100 000 Pa.
 ```
 
-### 23 — Un cilindro hidráulico de {a} cm² trabaja a {p} bar. ¿Cuál e
+### 23 — Cálculo
 
 ```
 metadata:
@@ -499,7 +499,7 @@ explicacion: |
   La hidráulica logra fuerzas enormes con cilindros chicos.
 ```
 
-### 24 — Para vencer una carga de {f} N con un cilindro de {a} cm²,
+### 24 — Cálculo
 
 ```
 metadata:

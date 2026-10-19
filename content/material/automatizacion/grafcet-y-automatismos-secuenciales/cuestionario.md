@@ -180,7 +180,7 @@ explicacion: |
   Es la regla de evolución.
 ```
 
-### 9 — ¿Qué pasa si una etapa debe activarse y desactivarse a la ve
+### 9 — Pregunta
 
 ```
 metadata:
@@ -330,7 +330,7 @@ explicacion: |
   Su nombre es el acrónimo francés.
 ```
 
-### 16 — Dibujar el esquema permite verificar con el cliente el compo
+### 16 — Pregunta
 
 ```
 metadata:
@@ -384,7 +384,7 @@ explicacion: |
   Solo mientras la etapa está activa.
 ```
 
-### 19 — En el GRAFCET, la condición asociada a una transición se lla
+### 19 — Pregunta
 
 ```
 metadata:
@@ -420,7 +420,7 @@ explicacion: |
   Es la norma del lenguaje de especificación.
 ```
 
-### 21 — Una secuencia única tiene {n} etapas (incluida la inicial) s
+### 21 — Cálculo
 
 ```
 metadata:
@@ -445,7 +445,7 @@ explicacion: |
   Entre cada par consecutivo de etapas hay una transición.
 ```
 
-### 22 — En una secuencia, la etapa 1 dura {t1} s, la 2 dura {t2} s y
+### 22 — Cálculo
 
 ```
 metadata:
@@ -472,7 +472,7 @@ explicacion: |
   Cada etapa se activa a continuación de la anterior.
 ```
 
-### 23 — Un ciclo de una estampadora dura {seg} s. ¿Cuántos segundos
+### 23 — Cálculo
 
 ```
 metadata:

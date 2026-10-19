@@ -136,7 +136,7 @@ explicacion: |
   Un Ti grande es una integral suave.
 ```
 
-### 7 — ¿Qué es la ganancia crítica Ku en Ziegler-Nichols de lazo ce
+### 7 — Pregunta
 
 ```
 metadata:
@@ -180,7 +180,7 @@ explicacion: |
   Se mide sobre la gráfica de la salida.
 ```
 
-### 9 — Para un PID, la tabla de Z-N de lazo cerrado da Kp igual a..
+### 9 — Pregunta
 
 ```
 metadata:
@@ -224,7 +224,7 @@ explicacion: |
   Es la mitad de la ganancia crítica.
 ```
 
-### 11 — ¿Qué desventaja tiene Z-N de lazo cerrado en una planta real
+### 11 — Pregunta
 
 ```
 metadata:
@@ -246,7 +246,7 @@ explicacion: |
   Puede ser peligroso o inaceptable.
 ```
 
-### 12 — El método de la curva de reacción (lazo abierto) obtiene sus
+### 12 — Pregunta
 
 ```
 metadata:
@@ -312,7 +312,7 @@ explicacion: |
   La mayoría de los controladores industriales la incluye.
 ```
 
-### 15 — ¿Cuánto es aproximadamente el sobreimpulso que producen las
+### 15 — Pregunta
 
 ```
 metadata:
@@ -334,7 +334,7 @@ explicacion: |
   Son un punto de partida, no un resultado final.
 ```
 
-### 16 — Un mismo conjunto de parámetros PID sirve para cualquier pro
+### 16 — Pregunta
 
 ```
 metadata:
@@ -352,7 +352,7 @@ explicacion: |
   Dependen de la dinámica de cada proceso.
 ```
 
-### 17 — La sintonía por prueba y error puede llevar horas en proceso
+### 17 — Pregunta
 
 ```
 metadata:
@@ -370,7 +370,7 @@ explicacion: |
   Cada prueba exige esperar la respuesta.
 ```
 
-### 18 — Con la saturación del actuador la integral deja de acumular
+### 18 — Pregunta
 
 ```
 metadata:
@@ -388,7 +388,7 @@ explicacion: |
   Sin protección, sigue acumulando.
 ```
 
-### 19 — Una sintonía algo conservadora suele ser preferible cuando h
+### 19 — Pregunta
 
 ```
 metadata:
@@ -406,7 +406,7 @@ explicacion: |
   Evita oscilaciones y riesgos.
 ```
 
-### 20 — La sigla Kp designa la ganancia ___ (proporcional / integral
+### 20 — Pregunta
 
 ```
 metadata:
@@ -442,7 +442,7 @@ explicacion: |
   Es una receta empírica clásica.
 ```
 
-### 22 — En un ensayo de Z-N, la ganancia crítica es Ku = {ku}. ¿Cuán
+### 22 — Cálculo
 
 ```
 metadata:
@@ -467,7 +467,7 @@ explicacion: |
   Tabla de Ziegler-Nichols de lazo cerrado.
 ```
 
-### 23 — En un ensayo de Z-N, el período crítico es Pu = {pu} s. ¿Cuá
+### 23 — Cálculo
 
 ```
 metadata:
@@ -492,7 +492,7 @@ explicacion: |
   Tabla de Ziegler-Nichols de lazo cerrado.
 ```
 
-### 24 — Con Pu = {pu} s, ¿cuánto vale Td para un PID de Z-N, en segu
+### 24 — Cálculo
 
 ```
 metadata:

@@ -4,7 +4,7 @@
 
 ---
 
-### 1 — ¿Con qué contenido de carbono llega el diagrama hierro-carbo
+### 1 — Pregunta
 
 ```
 metadata:
@@ -370,7 +370,7 @@ explicacion: |
   2,14 % contra 0,022 %.
 ```
 
-### 18 — El diagrama hierro-carbono describe el equilibrio y no las m
+### 18 — Pregunta
 
 ```
 metadata:
@@ -406,7 +406,7 @@ explicacion: |
   La austenita no.
 ```
 
-### 20 — A 0,76 % de carbono ocurre la reacción ___ (eutectoide / eut
+### 20 — Pregunta
 
 ```
 metadata:
@@ -424,7 +424,7 @@ explicacion: |
   Es un cambio en estado sólido.
 ```
 
-### 21 — El eutéctico del diagrama hierro-carbono está en ___ % de ca
+### 21 — Pregunta
 
 ```
 metadata:
@@ -442,7 +442,7 @@ explicacion: |
   A 1147 °C.
 ```
 
-### 22 — Un acero hipoeutectoide tiene {c0} % de carbono. ¿Qué porcen
+### 22 — Cálculo
 
 ```
 metadata:
@@ -467,7 +467,7 @@ explicacion: |
   El resto es ferrita.
 ```
 
-### 23 — Un acero con {c0} % de carbono, ¿qué porcentaje de ferrita p
+### 23 — Cálculo
 
 ```
 metadata:
@@ -492,7 +492,7 @@ explicacion: |
   Es el complemento de la perlita.
 ```
 
-### 24 — Una pieza de acero de {masa} kg tiene {c} % de carbono en pe
+### 24 — Cálculo
 
 ```
 metadata:

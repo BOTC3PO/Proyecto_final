@@ -70,7 +70,7 @@ explicacion: |
   Retrasa la desconexión.
 ```
 
-### 4 — Un ventilador que sigue funcionando un minuto después de apa
+### 4 — Pregunta
 
 ```
 metadata:
@@ -180,7 +180,7 @@ explicacion: |
   Si no se reinicia, conserva el valor.
 ```
 
-### 9 — ¿Qué bloque sirve para controlar los autos que hay en un est
+### 9 — Pregunta
 
 ```
 metadata:
@@ -246,7 +246,7 @@ explicacion: |
   Después se formaliza como GRAFCET.
 ```
 
-### 12 — Usar el mismo temporizador en dos peldaños distintos puede..
+### 12 — Pregunta
 
 ```
 metadata:
@@ -344,7 +344,7 @@ explicacion: |
   Y la desactiva con retardo.
 ```
 
-### 17 — Hay que probar casos límite, como una entrada que dura menos
+### 17 — Pregunta
 
 ```
 metadata:
@@ -362,7 +362,7 @@ explicacion: |
   Son fuente común de errores.
 ```
 
-### 18 — El bloque que retrasa la activación de una salida se llama _
+### 18 — Pregunta
 
 ```
 metadata:
@@ -380,7 +380,7 @@ explicacion: |
   On-delay.
 ```
 
-### 19 — Un contador que suma 1 en cada flanco ascendente es un ___ (
+### 19 — Pregunta
 
 ```
 metadata:
@@ -398,7 +398,7 @@ explicacion: |
   Count up.
 ```
 
-### 20 — Un contador CTU tiene PV = {pv} y ya contó CV = {cv} piezas.
+### 20 — Cálculo
 
 ```
 metadata:
@@ -424,7 +424,7 @@ explicacion: |
   Q se activa cuando CV alcanza PV.
 ```
 
-### 21 — En un estacionamiento con un CTUD entraron {ent} autos y sal
+### 21 — Cálculo
 
 ```
 metadata:
@@ -450,7 +450,7 @@ explicacion: |
   Suma al entrar y resta al salir.
 ```
 
-### 22 — Una cinta B arranca con un TON de {t1} s después de A, y una
+### 22 — Cálculo
 
 ```
 metadata:
@@ -476,7 +476,7 @@ explicacion: |
   Los retardos se encadenan.
 ```
 
-### 23 — Un TON tiene PT = {pt} s. La entrada IN permanece en 1 duran
+### 23 — Cálculo
 
 ```
 metadata:

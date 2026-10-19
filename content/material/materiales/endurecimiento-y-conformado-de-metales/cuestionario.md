@@ -92,7 +92,7 @@ explicacion: |
   %TF = (A0 − Af) / A0 × 100.
 ```
 
-### 5 — ¿Qué proceso ablanda un metal endurecido por trabajo en frío
+### 5 — Pregunta
 
 ```
 metadata:
@@ -290,7 +290,7 @@ explicacion: |
   Se vierte metal líquido en un molde.
 ```
 
-### 14 — Una chapa laminada en frío se comporta distinto a lo largo y
+### 14 — Pregunta
 
 ```
 metadata:
@@ -312,7 +312,7 @@ explicacion: |
   Las propiedades dependen de la dirección.
 ```
 
-### 15 — Doblar y desdoblar un alambre varias veces lo endurece hasta
+### 15 — Pregunta
 
 ```
 metadata:
@@ -330,7 +330,7 @@ explicacion: |
   Es acritud: se endurece y pierde ductilidad.
 ```
 
-### 16 — El trabajo en caliente endurece el metal más que el trabajo
+### 16 — Pregunta
 
 ```
 metadata:
@@ -348,7 +348,7 @@ explicacion: |
   En caliente el material se recristaliza y no se endurece.
 ```
 
-### 17 — La deformación deja tensiones residuales que pueden causar a
+### 17 — Pregunta
 
 ```
 metadata:
@@ -366,7 +366,7 @@ explicacion: |
   Se manifiestan al mecanizar.
 ```
 
-### 18 — Un recocido prolongado puede producir crecimiento de grano y
+### 18 — Pregunta
 
 ```
 metadata:
@@ -384,7 +384,7 @@ explicacion: |
   Es la tercera etapa.
 ```
 
-### 19 — El endurecimiento por deformación en frío se llama también _
+### 19 — Pregunta
 
 ```
 metadata:
@@ -402,7 +402,7 @@ explicacion: |
   Aumenta la dureza.
 ```
 
-### 20 — La forma de dar forma a perfiles de aluminio empujando por u
+### 20 — Pregunta
 
 ```
 metadata:
@@ -420,7 +420,7 @@ explicacion: |
   Es una de las más usadas.
 ```
 
-### 21 — Una barra de {a0} mm² de sección se reduce con un trabajo en
+### 21 — Cálculo
 
 ```
 metadata:
@@ -446,7 +446,7 @@ explicacion: |
   Se despeja el área final.
 ```
 
-### 22 — Una barra de {a0} mm² se trefila hasta {af} mm². ¿Qué porcen
+### 22 — Cálculo
 
 ```
 metadata:
@@ -472,7 +472,7 @@ explicacion: |
   Es la reducción relativa de sección.
 ```
 
-### 23 — Un metal funde a {tm} K. Estimá su temperatura de recristali
+### 23 — Cálculo
 
 ```
 metadata:

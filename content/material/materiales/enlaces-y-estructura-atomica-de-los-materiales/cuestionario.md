@@ -180,7 +180,7 @@ explicacion: |
   También que el hielo flote.
 ```
 
-### 9 — En un polímero, ¿qué enlace une los átomos dentro de una cad
+### 9 — Pregunta
 
 ```
 metadata:
@@ -202,7 +202,7 @@ explicacion: |
   Entre cadenas hay enlaces secundarios.
 ```
 
-### 10 — ¿Por qué un plástico se ablanda con relativamente poco calor
+### 10 — Pregunta
 
 ```
 metadata:
@@ -290,7 +290,7 @@ explicacion: |
   Por eso son duros y frágiles.
 ```
 
-### 14 — El grafito es covalente pero conduce la electricidad. ¿Por q
+### 14 — Pregunta
 
 ```
 metadata:
@@ -312,7 +312,7 @@ explicacion: |
   Es una excepción a la regla general.
 ```
 
-### 15 — Los metales se deforman antes de romperse gracias al enlace
+### 15 — Pregunta
 
 ```
 metadata:
@@ -330,7 +330,7 @@ explicacion: |
   Los átomos deslizan sin romper el enlace.
 ```
 
-### 16 — Los enlaces secundarios son los que mantienen unidos a los á
+### 16 — Pregunta
 
 ```
 metadata:
@@ -366,7 +366,7 @@ explicacion: |
   Cloruro de sodio.
 ```
 
-### 18 — Un material con enlaces muy fuertes suele tener alto módulo
+### 18 — Pregunta
 
 ```
 metadata:
@@ -384,7 +384,7 @@ explicacion: |
   Resiste más el estiramiento.
 ```
 
-### 19 — El enlace en el que los átomos comparten electrones es el __
+### 19 — Pregunta
 
 ```
 metadata:
@@ -402,7 +402,7 @@ explicacion: |
   Es direccional.
 ```
 
-### 20 — La nube de electrones compartida por todo el metal explica e
+### 20 — Pregunta
 
 ```
 metadata:
@@ -420,7 +420,7 @@ explicacion: |
   Y la ductilidad.
 ```
 
-### 21 — Una pieza tiene {n} enlaces de un tipo, y cada uno requiere
+### 21 — Cálculo
 
 ```
 metadata:
@@ -446,7 +446,7 @@ explicacion: |
   A mayor energía de enlace, más energía total.
 ```
 
-### 22 — El punto de fusión de un metal es {tm} °C. ¿Cuánto es en kel
+### 22 — Cálculo
 
 ```
 metadata:

@@ -4,7 +4,7 @@
 
 ---
 
-### 1 — La seguridad funcional busca que, ante una falla, la máquina
+### 1 — Pregunta
 
 ```
 metadata:
@@ -70,7 +70,7 @@ explicacion: |
   Hace falta un rearme y una orden de marcha.
 ```
 
-### 4 — ¿Por qué la parada de emergencia se cablea con contactos nor
+### 4 — Pregunta
 
 ```
 metadata:
@@ -158,7 +158,7 @@ explicacion: |
   Por ejemplo, para quedar en posición.
 ```
 
-### 8 — ¿Qué hace un interruptor de seguridad en una puerta de prote
+### 8 — Pregunta
 
 ```
 metadata:
@@ -202,7 +202,7 @@ explicacion: |
   Si se interrumpe, la máquina se detiene.
 ```
 
-### 10 — ¿Por qué no alcanza un PLC común para funciones críticas de
+### 10 — Pregunta
 
 ```
 metadata:
@@ -246,7 +246,7 @@ explicacion: |
   Si uno falla, el otro lo detecta.
 ```
 
-### 12 — La norma ISO 13849-1 clasifica la confiabilidad de las funci
+### 12 — Pregunta
 
 ```
 metadata:
@@ -290,7 +290,7 @@ explicacion: |
   Considera gravedad, exposición y posibilidad de evitar el daño.
 ```
 
-### 14 — En el bloqueo y etiquetado (LOTO), ¿quién retira el candado
+### 14 — Pregunta
 
 ```
 metadata:
@@ -312,7 +312,7 @@ explicacion: |
   Cada persona coloca su propio candado.
 ```
 
-### 15 — La parada de emergencia reemplaza a las protecciones de la m
+### 15 — Pregunta
 
 ```
 metadata:
@@ -330,7 +330,7 @@ explicacion: |
   Es una medida complementaria.
 ```
 
-### 16 — Una parada categoría 1 mantiene la energía hasta que la máqu
+### 16 — Pregunta
 
 ```
 metadata:
@@ -348,7 +348,7 @@ explicacion: |
   Y la corta recién al detenerse.
 ```
 
-### 17 — En trabajos de mantenimiento hay que verificar la ausencia d
+### 17 — Pregunta
 
 ```
 metadata:
@@ -366,7 +366,7 @@ explicacion: |
   Después de bloquear y etiquetar.
 ```
 
-### 18 — Un cable cortado en un circuito de parada de emergencia debe
+### 18 — Pregunta
 
 ```
 metadata:
@@ -384,7 +384,7 @@ explicacion: |
   Es el criterio de falla segura.
 ```
 
-### 19 — La sigla LOTO se refiere al procedimiento de bloqueo y ___ (
+### 19 — Pregunta
 
 ```
 metadata:
@@ -402,7 +402,7 @@ explicacion: |
   Lockout/Tagout.
 ```
 
-### 20 — Las máquinas se evalúan con una evaluación de ___ (riesgos /
+### 20 — Pregunta
 
 ```
 metadata:
@@ -420,7 +420,7 @@ explicacion: |
   Es el punto de partida del diseño.
 ```
 
-### 21 — Los niveles de desempeño PL van de 'a' a 'e'. Si el nivel re
+### 21 — Cálculo
 
 ```
 metadata:
@@ -445,7 +445,7 @@ explicacion: |
   Solo es un ejercicio de correspondencia.
 ```
 
-### 22 — Una persona se acerca a una zona peligrosa a {v} m/s y la má
+### 22 — Cálculo
 
 ```
 metadata:
@@ -471,7 +471,7 @@ explicacion: |
   Por eso hay distancias mínimas de seguridad.
 ```
 
-### 23 — Una cortina de luz se ubica a una distancia mínima que se ca
+### 23 — Cálculo
 
 ```
 metadata:

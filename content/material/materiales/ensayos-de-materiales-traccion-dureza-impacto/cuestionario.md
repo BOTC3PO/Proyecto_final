@@ -26,7 +26,7 @@ explicacion: |
   Permite comparar resultados entre laboratorios.
 ```
 
-### 2 — ¿Qué ensayo es el más importante para caracterizar mecánicam
+### 2 — Pregunta
 
 ```
 metadata:
@@ -370,7 +370,7 @@ explicacion: |
   Dejan solo una pequeña huella.
 ```
 
-### 18 — Con una sola probeta alcanza para caracterizar un lote de ma
+### 18 — Pregunta
 
 ```
 metadata:
@@ -406,7 +406,7 @@ explicacion: |
   Hay que usar protecciones.
 ```
 
-### 20 — La energía absorbida en el ensayo Charpy se mide en ___ (jul
+### 20 — Pregunta
 
 ```
 metadata:
@@ -424,7 +424,7 @@ explicacion: |
   Es una medida de tenacidad.
 ```
 
-### 21 — El ensayo que clava un indentador y mide la huella o la prof
+### 21 — Pregunta
 
 ```
 metadata:
@@ -442,7 +442,7 @@ explicacion: |
   Hay varias escalas.
 ```
 
-### 22 — Una probeta de {d} mm de diámetro soporta una fuerza de {f}
+### 22 — Cálculo
 
 ```
 metadata:
@@ -469,7 +469,7 @@ explicacion: |
   Se pasa kN a N multiplicando por 1000.
 ```
 
-### 23 — Una probeta de longitud inicial {l0} mm se rompe con una lon
+### 23 — Cálculo
 
 ```
 metadata:
@@ -495,7 +495,7 @@ explicacion: |
   Mide la ductilidad.
 ```
 
-### 24 — Un material (E = {e} MPa) soporta una tensión de {sig} MPa e
+### 24 — Cálculo
 
 ```
 metadata:
@@ -522,7 +522,7 @@ explicacion: |
   Ley de Hooke en la zona elástica.
 ```
 
-### 25 — Dos probetas en un Charpy absorbieron {e1} J y {e2} J. ¿Cuál
+### 25 — Cálculo
 
 ```
 metadata:

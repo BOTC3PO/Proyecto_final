@@ -246,7 +246,7 @@ explicacion: |
   Es un estándar de interoperabilidad.
 ```
 
-### 12 — En los niveles de automatización, los sensores y actuadores
+### 12 — Pregunta
 
 ```
 metadata:
@@ -312,7 +312,7 @@ explicacion: |
   Por eso la seguridad informática en planta es crítica.
 ```
 
-### 15 — Una red industrial debe soportar ruido eléctrico, vibracione
+### 15 — Pregunta
 
 ```
 metadata:
@@ -366,7 +366,7 @@ explicacion: |
   Por eso sigue muy difundido.
 ```
 
-### 18 — Una planta aislada de toda red no tiene ningún riesgo inform
+### 18 — Pregunta
 
 ```
 metadata:
@@ -384,7 +384,7 @@ explicacion: |
   Conectarla abre la puerta a ataques.
 ```
 
-### 19 — La línea serie más usada para Modbus RTU es la ___ (RS-485 /
+### 19 — Pregunta
 
 ```
 metadata:
@@ -402,7 +402,7 @@ explicacion: |
   Permite largas distancias.
 ```
 
-### 20 — La pantalla local de una máquina para el operador es la ___
+### 20 — Pregunta
 
 ```
 metadata:
@@ -420,7 +420,7 @@ explicacion: |
   El SCADA abarca toda la planta.
 ```
 
-### 21 — Una planta tiene {n} esclavos Modbus y se leen {p} registros
+### 21 — Cálculo
 
 ```
 metadata:
@@ -446,7 +446,7 @@ explicacion: |
   Producto de ambos valores.
 ```
 
-### 22 — Cada consulta Modbus a un esclavo tarda {t} ms. Si el maestr
+### 22 — Cálculo
 
 ```
 metadata:
@@ -472,7 +472,7 @@ explicacion: |
   El maestro pregunta de a uno.
 ```
 
-### 23 — Con {n} esclavos y {t} ms por consulta, ¿cuántos segundos ta
+### 23 — Cálculo
 
 ```
 metadata:
