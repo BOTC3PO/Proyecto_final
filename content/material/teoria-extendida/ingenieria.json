@@ -1,0 +1,265 @@
+{
+  "schema": "book.pages@1.1",
+  "metadata": {
+    "id": "teoria-extendida-ingenieria",
+    "title": "Ingeniería — Teoría extendida",
+    "language": "es"
+  },
+  "structure": {
+    "index": [
+      {
+        "id": "cap-1",
+        "title": "De un problema a una idea de solución",
+        "pageStart": 1,
+        "anchor": "cap-1:inicio"
+      },
+      {
+        "id": "cap-2",
+        "title": "De la idea a la solución verificada",
+        "pageStart": 2,
+        "anchor": "cap-2:inicio"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "cap-1",
+      "number": 1,
+      "title": "De un problema a una idea de solución",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-1-h1",
+          "level": 2,
+          "text": "De un problema a una idea de solución"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p2",
+          "text": "La ingeniería suele imaginarse como cálculo y máquinas, pero casi todo lo que hace comienza con una pregunta más modesta: qué hay que resolver, para quién y bajo qué condiciones. Un puente, una batería para un auto eléctrico, una aplicación de turnos médicos o una planta potabilizadora nacen de una situación que alguien necesita cambiar. Este capítulo sigue el primer tramo del proceso de diseño: entender bien el problema, saber qué rama del oficio lo trata, mirar qué se hizo antes y plantear una primera idea de solución sin comprometerse todavía con los detalles."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h3",
+          "level": 3,
+          "text": "El problema, los requisitos y las restricciones"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p4",
+          "text": "Un problema de ingeniería no es lo mismo que un problema de un libro de ejercicios. No viene con los datos ordenados ni con una única respuesta correcta. Viene como una necesidad, a veces confusa, y la primera tarea consiste en transformarla en algo preciso. Si un puente colapsó, el problema no es simplemente construir otro: es garantizar que las personas crucen con seguridad, que el tránsito fluya, que la obra se pueda pagar y que dure décadas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p5",
+          "text": "Esa precisión se logra separando dos cosas. Los requisitos dicen qué debe hacer la solución: el puente debe soportar cincuenta toneladas, la batería debe dar una autonomía mínima, la aplicación debe responder en pocos segundos. Son los objetivos que orientan el diseño, y si no se cumplen, la solución no sirve. Las restricciones, en cambio, dicen qué límites hay que respetar: el presupuesto, el plazo, los materiales disponibles, las normas de seguridad, el espacio, el impacto ambiental. Una solución brillante que cuesta el triple de lo disponible no es una solución."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p6",
+          "text": "Los requisitos y las restricciones suelen tirar en direcciones opuestas. Mayor autonomía implica más peso, más peso implica más consumo, y todo eso cuesta dinero. Diseñar es, en buena medida, buscar el mejor equilibrio entre exigencias que compiten, y reconocer ese conflicto desde el principio evita sorpresas cuando ya se invirtió tiempo y recursos. Una solución técnica es entonces el producto, sistema o método que cumple los requisitos dentro de las restricciones, y esa frase conviene leerla con cuidado: cumplir los requisitos no alcanza si se violan las restricciones."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h7",
+          "level": 3,
+          "text": "Las disciplinas de la ingeniería"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p8",
+          "text": "Ningún ingeniero sabe todo, y por eso el oficio se divide en ramas según el tipo de problema. La ingeniería civil se ocupa de las obras que sostienen la vida colectiva: puentes, edificios, caminos, redes de agua. La ingeniería química transforma materias primas en productos mediante procesos que se pueden repetir a gran escala, desde combustibles hasta medicamentos. La ingeniería mecánica trabaja con máquinas, movimiento y energía. La ingeniería eléctrica y la electrónica estudian la generación, el transporte y el control de la electricidad. La ingeniería de software diseña sistemas informáticos que sean confiables y fáciles de mantener. La ingeniería ambiental busca reducir el daño que las actividades humanas causan al entorno y remediar el que ya existe."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p9",
+          "text": "Esas fronteras son más porosas de lo que parecen. Un automóvil eléctrico reúne a todas: la carrocería es mecánica, la batería es química y eléctrica, el control del motor es software, la fábrica debe cumplir normas ambientales. Por eso los proyectos reales los hacen equipos mixtos, y cada integrante necesita entender lo suficiente del lenguaje de los demás como para discutir con ellos. Saber a qué rama pertenece un problema ayuda a encontrar a quién preguntarle, y saber qué ramas intervienen ayuda a prever dónde estarán los conflictos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h10",
+          "level": 3,
+          "text": "Investigar antes de inventar"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p11",
+          "text": "Una tentación frecuente es empezar a diseñar desde cero, como si nadie hubiera enfrentado algo parecido. Casi siempre es un error. Antes de proponer nada conviene averiguar qué soluciones ya existen, cómo funcionan, cuánto cuestan y por qué fallaron las que fallaron. Esa investigación ahorra tiempo, evita repetir errores conocidos y muestra qué rasgos ya demostraron funcionar."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p12",
+          "text": "Una técnica habitual es el benchmarking, que consiste en comparar de manera ordenada productos o soluciones parecidas a partir de criterios definidos de antemano: costo, durabilidad, consumo, facilidad de uso, mantenimiento. El resultado suele ser una tabla que deja ver qué ofrece cada alternativa y qué hueco queda sin cubrir. Ese hueco es, muchas veces, la oportunidad del nuevo diseño."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p13",
+          "text": "Investigar no se opone a ser creativo. Al contrario: conocer lo que ya existe permite apartarse de lo habitual con fundamento. Quien conoce los puentes colgantes, los de arco y los atirantados puede elegir uno de ellos, o combinar rasgos, sabiendo por qué. Quien los ignora corre el riesgo de reinventar mal algo que ya estaba resuelto. En la práctica, el trabajo se reparte: se estudia lo existente, se toma lo que sirve y la novedad se reserva para donde realmente hace falta."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h14",
+          "level": 3,
+          "text": "El diseño conceptual"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p15",
+          "text": "Con el problema entendido y el panorama explorado llega la etapa del diseño conceptual. Aquí se define el marco lógico de la solución, sin precisar todavía medidas, materiales ni proveedores. La pregunta ya no es de qué está hecho, sino qué funciones tiene que cumplir y cómo se relacionan entre sí. Un purificador de agua doméstico, por ejemplo, tiene que cumplir las funciones de retener partículas, eliminar microorganismos y entregar agua a presión de red; en esta etapa se discuten esas funciones y sus combinaciones posibles, no la marca del filtro."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p16",
+          "text": "La virtud del diseño conceptual es la abstracción: al trabajar con funciones y no con piezas, permite generar y comparar varias alternativas a bajo costo. Es el momento de la lluvia de ideas, de los esquemas simples y de los diagramas de bloques, y de la elección fundamentada entre variantes. Conviene proponer más de una, porque quedarse con la primera idea limita sin que nadie lo advierta."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p17",
+          "text": "Se distingue de las etapas siguientes por el nivel de detalle. El diseño conceptual dice qué y cómo en términos generales; el diseño de detalle fija dimensiones, materiales y tolerancias; la construcción y las pruebas verifican que lo diseñado funcione. Pasar demasiado pronto al detalle es costoso, porque cualquier cambio de concepto obliga a rehacer todo lo posterior. Pasar demasiado tarde también lo es, porque la idea queda en el aire. Por eso el diseño conceptual cierra esta primera mitad del proceso: deja una idea elegida, justificada con los requisitos y las restricciones, lista para ser modelada, calculada y puesta a prueba."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-1"
+      }
+    },
+    {
+      "id": "cap-2",
+      "number": 2,
+      "title": "De la idea a la solución verificada",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-2-h1",
+          "level": 2,
+          "text": "De la idea a la solución verificada"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p2",
+          "text": "Una idea elegida todavía no es una solución. Falta comprobar que funcionará, que resistirá lo que se le pida y que otras personas podrán construirla y mantenerla. Esta segunda mitad del proceso de ingeniería recorre ese camino: se representa el problema con modelos matemáticos, se estudia cómo se comportan los materiales bajo fuerzas, se construyen prototipos, se mide y se ensaya, se mejora de forma repetida y, por último, se comunica el resultado con claridad."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h3",
+          "level": 3,
+          "text": "Modelos matemáticos y cálculo"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p4",
+          "text": "Un modelo matemático es una representación simplificada de un sistema real mediante ecuaciones, tablas o relaciones. Permite predecir qué pasará sin tener que construir el sistema cada vez. Con un modelo del consumo de una vivienda se estima cuántos paneles solares hacen falta; con un modelo del tránsito se prueba cómo cambiaría la fluidez si se agrega un carril."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p5",
+          "text": "Todo modelo contiene variables, que son las magnitudes que cambian, como la temperatura, la carga o el tiempo, y parámetros, que son los valores que se mantienen fijos y definen el caso, como la longitud de una viga o la capacidad de un tanque. Distinguirlos es el primer paso para plantear el problema: se elige qué se deja variar para estudiarlo y qué se fija."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p6",
+          "text": "Los modelos son simplificaciones, no copias. Se deja afuera lo que se juzga poco influyente para que el cálculo sea posible, y eso los vuelve útiles y a la vez limitados. El peligro está en olvidar que son aproximaciones. El puente de Tacoma Narrows, en Estados Unidos, se derrumbó en 1940 por oscilaciones provocadas por el viento que el diseño no había considerado. Ese caso, estudiado en las carreras de ingeniería, muestra que un modelo vale lo que valen sus supuestos. El proceso sensato consiste en plantear el modelo, resolverlo, comparar el resultado con la realidad y ajustarlo si no coincide."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h7",
+          "level": 3,
+          "text": "Resistencia de materiales"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p8",
+          "text": "Cuando se diseña una estructura o una pieza hay que saber si aguantará. La resistencia de materiales estudia cómo responden los cuerpos sólidos a las fuerzas. Su idea central es la tensión, que mide cuánta fuerza actúa sobre cada unidad de superficie: se obtiene dividiendo la fuerza por el área sobre la que se reparte. Por eso una misma carga resulta más peligrosa sobre una varilla delgada que sobre una barra gruesa, y por eso los cimientos de un edificio se ensanchan: para repartir el peso sobre más superficie. La tensión se mide en pascales, es decir, newtons por metro cuadrado."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p9",
+          "text": "Las cargas pueden ser de tracción, que estiran; de compresión, que aplastan; de flexión, que curvan, como el peso de una persona sobre una tabla apoyada en sus extremos; o de torsión, que retuercen, como la que sufre un eje que transmite giro. Cada material responde distinto. El acero soporta bien la tracción, el hormigón resiste muy bien la compresión pero poco la tracción, y por eso se lo arma con barras de acero en el interior, lo que se conoce como hormigón armado."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p10",
+          "text": "También importa la rigidez, que es la resistencia de una pieza a deformarse. Un puente puede no romperse y aun así ser inaceptable si se flexiona tanto que se siente inseguro al cruzarlo. Las propiedades de los materiales se determinan con ensayos y se tabulan, y sobre esos valores los ingenieros aplican un factor de seguridad: dimensionan la pieza para que resista bastante más que la carga prevista, porque las cargas reales, la calidad de fabricación y el desgaste nunca son exactos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h11",
+          "level": 3,
+          "text": "Prototipos"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p12",
+          "text": "Un prototipo es una versión preliminar de la solución construida para probar ideas antes de producir el producto final. Puede ser una maqueta de cartón, una pieza impresa en plástico, un circuito armado sobre una placa de pruebas o una versión mínima de un programa. Sirve para descubrir problemas cuando corregirlos todavía es barato."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p13",
+          "text": "Los prototipos tienen distintos niveles de fidelidad. Los de baja fidelidad son rápidos y baratos y alcanzan para comprobar la forma, el tamaño o la idea general. Los de alta fidelidad se acercan al producto final en materiales y funcionamiento, y se usan cuando hay que verificar detalles finos o mostrarlo a quienes van a decidir. No existe uno mejor que otro en abstracto: se elige el nivel que responde la pregunta que se tiene. Probar si una manija cabe en la mano no exige un prototipo metálico."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h14",
+          "level": 3,
+          "text": "Ensayo y medición"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p15",
+          "text": "Probar un prototipo no es mirarlo funcionar y opinar. Un ensayo es una prueba planificada en condiciones controladas para obtener datos sobre el comportamiento de la solución. Antes de empezar se decide qué se quiere averiguar, qué magnitudes se medirán y cuáles se mantendrán constantes para que los resultados sean comparables. Si se cambian varias cosas a la vez, no se sabe cuál produjo el efecto."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p16",
+          "text": "En la medición conviene separar dos ideas que se confunden con facilidad. La exactitud indica cuán cerca está la medida del valor verdadero; la precisión indica cuán parecidas son entre sí medidas repetidas. Una balanza puede dar siempre casi el mismo número, pero equivocado, porque está mal calibrada: es precisa y no exacta. Por eso se calibran los instrumentos, se repiten las mediciones y se registra la incertidumbre. Los datos mal tomados llevan a conclusiones falsas que parecen sólidas."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h17",
+          "level": 3,
+          "text": "Optimización e iteración"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p18",
+          "text": "Rara vez la primera versión es la mejor. La iteración es el ciclo de proponer, probar, analizar y corregir, repetido varias veces. Cada vuelta aprovecha lo aprendido en la anterior. La optimización es la búsqueda de la mejor solución según algún criterio: la menor masa que cumpla la resistencia necesaria, el menor costo que mantenga la calidad, el mayor rendimiento con el menor consumo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p19",
+          "text": "El ciclo no puede continuar indefinidamente. Se detiene cuando la solución deja de mejorar de manera significativa, lo que se llama convergencia, o cuando se agotan el tiempo o el presupuesto. Llegado ese punto, mejorar un poco más ya no compensa el costo. En la práctica, una vez entregado el producto, el ciclo continúa como mejora continua con los datos del uso real."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h20",
+          "level": 3,
+          "text": "Comunicar la solución"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p21",
+          "text": "El trabajo de ingeniería no termina cuando algo funciona, sino cuando otros pueden entenderlo, construirlo y mantenerlo. La documentación técnica transmite con precisión lo que se hizo y por qué: memorias de cálculo, especificaciones, manuales y registros de las pruebas. Los planos son su lenguaje más característico. Un plano bien hecho incluye vistas, medidas con sus unidades, tolerancias, materiales y una leyenda que identifique la pieza y la versión, y sigue convenciones reconocidas para que cualquier profesional lo lea igual."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p22",
+          "text": "Es distinto presentar el proyecto a un cliente que no es técnico. Ahí importa explicar qué problema se resuelve, qué beneficios aporta y cuánto cuesta, con gráficos y ejemplos en vez de ecuaciones. En ambos casos las normas y estándares cumplen un papel central, porque permiten que el trabajo de una persona encaje con el de otra y que un producto fabricado en un lugar pueda repararse en otro. Una solución excelente que nadie logra interpretar sirve de poco; comunicar bien es, en definitiva, parte del diseño."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-2"
+      }
+    }
+  ]
+}
