@@ -1,0 +1,641 @@
+{
+  "schema": "book.pages@1.1",
+  "metadata": {
+    "id": "teoria-extendida-filosofia",
+    "title": "Filosofía — Teoría extendida",
+    "language": "es"
+  },
+  "structure": {
+    "index": [
+      {
+        "id": "cap-1",
+        "title": "La lógica: cómo se arma un buen argumento y cómo se descubre uno malo",
+        "pageStart": 1,
+        "anchor": "cap-1:inicio"
+      },
+      {
+        "id": "cap-2",
+        "title": "Conocer: de la opinión al saber, y de dónde viene lo que sabemos",
+        "pageStart": 2,
+        "anchor": "cap-2:inicio"
+      },
+      {
+        "id": "cap-3",
+        "title": "Qué es, qué existe y qué es real: las preguntas de la metafísica",
+        "pageStart": 3,
+        "anchor": "cap-3:inicio"
+      },
+      {
+        "id": "cap-4",
+        "title": "Obrar bien: las grandes teorías morales y sus dilemas",
+        "pageStart": 4,
+        "anchor": "cap-4:inicio"
+      },
+      {
+        "id": "cap-5",
+        "title": "Arte, gusto y belleza: pensar lo que nos conmueve",
+        "pageStart": 5,
+        "anchor": "cap-5:inicio"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "cap-1",
+      "number": 1,
+      "title": "La lógica: cómo se arma un buen argumento y cómo se descubre uno malo",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-1-h1",
+          "level": 2,
+          "text": "La lógica: cómo se arma un buen argumento y cómo se descubre uno malo"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p2",
+          "text": "Todos los días escuchamos razonamientos. Alguien nos dice que no hay que preocuparse por el examen porque siempre se aprueba, un anuncio promete que si usamos tal producto vamos a ser felices, un conocido sostiene que todos los políticos son iguales. Casi nunca nos detenemos a preguntar qué tipo de paso se está dando entre lo que se afirma al principio y lo que se concluye al final. La lógica es la rama de la filosofía que se dedica a esa pregunta. No se ocupa de si las cosas que decimos son ciertas en el mundo, sino de si, aceptadas ciertas afirmaciones, otra se sigue de ellas con necesidad. Es, en ese sentido, la herramienta de control de calidad de todo lo que pensamos y decimos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p3",
+          "text": "Para estudiarla hace falta primero ponerse de acuerdo en qué clase de cosas se pueden razonar. En el lenguaje cotidiano mezclamos preguntas, órdenes, deseos, exclamaciones y descripciones. Solo algunas de esas frases pueden ser verdaderas o falsas, y esas son las únicas que importan al razonar. Un enunciado como llueve puede ser verdadero o falso. En cambio, la pregunta de si llueve no es ni una cosa ni la otra, y una orden como cerrá la ventana tampoco. A los enunciados que sí admiten un valor de verdad la lógica los llama proposiciones, y para trabajar con ellos sin que el lenguaje cotidiano se interponga los reemplaza por letras: p, q, r."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h4",
+          "level": 3,
+          "text": "Los conectores: pegamento entre proposiciones"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p5",
+          "text": "Una proposición suelta dice poco. Lo interesante aparece cuando se combinan, y para eso la lógica usa un puñado de conectores que se comportan siempre igual. La negación toma una proposición y le da vuelta el valor: si llueve es verdadera, no llueve es falsa. La conjunción une dos proposiciones con una y, y solo resulta verdadera cuando las dos lo son: decir que estudié y aprobé solamente es cierto si ambas cosas ocurrieron. La disyunción las une con una o, y en el sentido que usa la lógica alcanza con que una de las dos sea verdadera, o que lo sean las dos. Cuando alguien dice que quiere café o té no está prohibiendo pedir los dos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p6",
+          "text": "Los dos conectores que más confunden son el condicional y el bicondicional. El condicional es el si entonces: si estudio, apruebo. La lógica le asigna una regla que al principio sorprende. Un condicional es falso en un único caso, aquel en que el antecedente se cumple y el consecuente no, es decir, estudié y no aprobé. En todos los demás casos se considera verdadero, incluso cuando el antecedente es falso. Si no estudié, la afirmación de que si estudio, apruebo no queda desmentida, porque nunca se puso a prueba. Esto no significa que la lógica piense que cualquier cosa se sigue de una falsedad, sino que un condicional solo se refuta con un contraejemplo, y sin antecedente verdadero no hay contraejemplo posible. El bicondicional, por su parte, dice que dos proposiciones valen lo mismo: es verdadero cuando ambas son verdaderas o ambas son falsas, y falso cuando una sí y la otra no."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p7",
+          "text": "Para no depender de la intuición, la lógica inventó un método mecánico, la tabla de verdad. Se enumeran todas las combinaciones posibles de verdadero y falso para las proposiciones involucradas y se calcula, fila por fila, qué vale el conector. Con dos proposiciones hay cuatro combinaciones, con tres hay ocho, y en general con n proposiciones hay dos elevado a la n. Ese crecimiento explosivo es el motivo por el cual conviene aprender a razonar con reglas y no solo con tablas, pero la tabla tiene una gran virtud: no deja nada librado a la interpretación. Lo que sale de ella es lo que es."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h8",
+          "level": 3,
+          "text": "Qué hace válido a un razonamiento"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p9",
+          "text": "Con las proposiciones y los conectores en la mano se puede ahora definir lo central. Un razonamiento está formado por premisas, que son los puntos de partida que se asumen, y una conclusión, que es lo que se pretende sostener a partir de ellas. Se dice que el razonamiento es válido cuando la conclusión se sigue necesariamente de las premisas: si las premisas fueran verdaderas, la conclusión tendría que serlo también. La validez es una propiedad de la forma, de la estructura, y no del contenido. Por eso, y esto es lo que más cuesta incorporar al principio, un razonamiento puede ser válido aunque sus premisas sean falsas. Si todos los gatos vuelan y Firulais es un gato, entonces Firulais vuela. La primera premisa es un disparate, pero el paso lógico es impecable. La lógica no se pronuncia sobre los gatos: se pronuncia sobre el paso."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p10",
+          "text": "El caso inverso también ocurre. Un razonamiento inválido puede terminar en una conclusión verdadera, por pura suerte. Quien razona mal y acierta no ha descubierto nada, simplemente tuvo la fortuna de que la realidad coincidiera con su error. Por eso, cuando se evalúa un argumento, la lógica separa dos preguntas distintas. La primera es si es válido, es decir, si la conclusión se sigue de las premisas. La segunda es si sus premisas son verdaderas. Un argumento que cumple ambas condiciones se llama sólido, y es el único que realmente nos obliga a aceptar su conclusión."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p11",
+          "text": "Hay formas válidas tan básicas que se usaron durante siglos con nombres en latín. El modus ponens afirma el antecedente: si estudio, apruebo; estudié; por lo tanto, aprobé. El modus tollens niega el consecuente: si estudio, apruebo; no aprobé; por lo tanto, no estudié. La segunda cuesta un poco más porque va, en cierto modo, hacia atrás, pero es igualmente válida: si el resultado que el condicional promete no ocurrió, la condición no pudo haberse cumplido."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h12",
+          "level": 3,
+          "text": "Los dos errores que más se repiten"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p13",
+          "text": "Junto a las formas válidas existen imitaciones tentadoras que no lo son. La más frecuente se llama afirmación del consecuente y consiste en razonar así: si llueve, la calle está mojada; la calle está mojada; por lo tanto, llueve. Parece lógico, pero no lo es, porque la calle puede estar mojada por muchas otras razones, un camión regador o una cañería rota. El condicional dice que la lluvia alcanza para mojar la calle, no que sea la única manera de mojarla. El segundo error es la negación del antecedente: si llueve, la calle está mojada; no llueve; por lo tanto, la calle no está mojada. La falla es la misma, dado que la ausencia de la causa que se menciona no descarta otras causas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p14",
+          "text": "Hay una manera de comprobar la validez sin fiarse del olfato: construir la tabla de verdad del razonamiento completo y buscar una fila en la que todas las premisas sean verdaderas y la conclusión falsa. Si existe esa fila, el razonamiento es inválido, porque se encontró un caso donde las premisas se cumplen y la conclusión no. Si no existe, es válido. Es un método lento para argumentos largos, pero sirve para entender por qué las reglas funcionan, y es exactamente la misma idea que se usa en electrónica y programación, donde verdadero y falso se reemplazan por uno y cero y los conectores se convierten en compuertas."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h15",
+          "level": 3,
+          "text": "Cuando las frases tienen estructura: la lógica de predicados"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p16",
+          "text": "La lógica proposicional tiene un límite. Trata cada proposición como un bloque cerrado: la frase todo humano es mortal sería simplemente la letra p, sin ninguna estructura interna. Eso impide formalizar uno de los razonamientos más antiguos y famosos de la historia: todos los humanos son mortales, Sócrates es humano, por lo tanto Sócrates es mortal. Para capturarlo hace falta mirar por dentro de la frase, y eso es lo que hace la lógica de predicados."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p17",
+          "text": "La idea es separar dos cosas. Por un lado, un predicado, que es una propiedad, como ser mortal o ser humano. Por otro, un sujeto variable, que se escribe con una letra como x y puede reemplazarse por cualquier individuo del conjunto que se esté considerando. La expresión P de x se lee x tiene la propiedad P. A esto se suman dos cuantificadores. El cuantificador universal, que se escribe con una A invertida, dice para todo x: la propiedad vale para todos los elementos. El cuantificador existencial, que se escribe con una E invertida, dice existe un x: alcanza con que valga para al menos uno. Con ellos, todo humano es mortal se expresa como para todo x, si x es humano entonces x es mortal, y existe un humano que es filósofo se expresa como existe un x tal que x es humano y x es filósofo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p18",
+          "text": "Una regla muy útil conecta los dos cuantificadores. Negar que todos cumplen una propiedad equivale a afirmar que existe alguno que no la cumple, y negar que exista alguno que la cumpla equivale a afirmar que ninguno la cumple. Dicho en la vida diaria, para desmentir la frase todos los alumnos aprobaron no hace falta mostrar que todos desaprobaron: alcanza con encontrar a uno solo que no aprobó. Esa asimetría entre afirmar y refutar una generalización es una de las ideas más útiles que da la lógica, y aparece en las discusiones cotidianas más de lo que parece, por ejemplo cuando alguien dice que nunca falla y uno solo necesita mostrar una vez que falló."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p19",
+          "text": "Con estas herramientas, el viejo razonamiento de Sócrates se escribe como un modus ponens aplicado a un caso particular: de la regla general para todo x, si x es humano entonces x es mortal, y del hecho de que Sócrates es humano, se concluye que Sócrates es mortal. Es el mismo paso que ya conocíamos, pero ahora funciona sobre cualquier individuo, lo que permite expresar teorías enteras, desde la geometría hasta ciertas bases de datos y lenguajes de programación lógica."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h20",
+          "level": 3,
+          "text": "Para qué sirve todo esto"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p21",
+          "text": "Podría parecer un ejercicio abstracto, pero cada vez que alguien detecta que un argumento da por cierto lo que debería demostrar, o que pasa de si p entonces q a si q entonces p, está usando lo que se aprendió en este capítulo. Las falacias del lenguaje cotidiano, como la pendiente resbaladiza, que afirma una cadena de consecuencias sin justificar cada eslabón, son en el fondo condicionales tratados como si fueran verdaderos sin evidencia. La lógica da el marco para exigir esa evidencia. Y es también el puente hacia otras materias: la matemática la usa para demostrar, la informática para diseñar circuitos y programas, y la filosofía, como vamos a ver en los capítulos siguientes, para examinar qué es conocer, qué es existir, qué es obrar bien y qué es lo bello."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-1"
+      }
+    },
+    {
+      "id": "cap-2",
+      "number": 2,
+      "title": "Conocer: de la opinión al saber, y de dónde viene lo que sabemos",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-2-h1",
+          "level": 2,
+          "text": "Conocer: de la opinión al saber, y de dónde viene lo que sabemos"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p2",
+          "text": "Decimos que sabemos muchas cosas: que la Tierra gira alrededor del Sol, que mañana es feriado, que el equipo va a ganar el domingo. Pero basta un poco de atención para notar que usamos la palabra saber con una enorme laxitud. A veces queremos decir que estamos seguros, otras que tenemos buenas razones, otras simplemente que lo creemos con fuerza. La epistemología, o teoría del conocimiento, es la rama de la filosofía que se toma en serio esa diferencia. Se pregunta qué hace falta para que una creencia merezca llamarse conocimiento, cómo se justifica lo que creemos y de dónde proviene aquello que sabemos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h3",
+          "level": 3,
+          "text": "Creer, tener razón y tener razones"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p4",
+          "text": "La respuesta clásica viene desde Platón y sostiene que el conocimiento es una creencia verdadera y justificada. Cada una de las tres palabras cumple un papel. Hace falta una creencia, porque nadie puede saber algo en lo que no cree, aunque ese algo sea cierto. Hace falta que sea verdadera, porque nadie sabe algo falso: podemos haber creído durante siglos que el Sol giraba alrededor de la Tierra, pero lo que teníamos era una creencia equivocada y no un conocimiento. Y hace falta que esté justificada, es decir, que quien cree tenga buenas razones para hacerlo. Esta tercera condición es la que separa el saber del golpe de suerte. Si alguien acierta el resultado de un partido tirando una moneda, su creencia fue verdadera, pero no sabía nada, porque no tenía razón alguna que respaldara su apuesta."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p5",
+          "text": "Esa distinción permite entender por qué una opinión, sin más, no equivale a conocimiento. Una opinión puede ser verdadera o falsa y seguir siendo opinión; lo que la hace insuficiente es la falta de respaldo. Decir creo que va a llover es opinar. Decir sé que va a llover porque lo anuncia el servicio meteorológico y porque el cielo está cubierto de nubes bajas es estar más cerca del conocimiento, porque hay razones que se pueden examinar y discutir. La utilidad cotidiana de esto es enorme: nos da una vara para medir qué tan confiable es una afirmación, y por eso es el fundamento de la verificación de noticias y de la lectura crítica de fuentes."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p6",
+          "text": "La definición clásica, sin embargo, no cerró el asunto. A mediados del siglo veinte, el filósofo Edmund Gettier presentó casos muy breves en los que alguien tiene una creencia verdadera y justificada y, aun así, parece raro decir que sabe. Un caso parecido, anterior a Gettier y atribuido a Bertrand Russell, ayuda a entender la idea: una persona mira un reloj que marca las tres, cree que son las tres y efectivamente lo son, pero el reloj está detenido desde hace un día y acertó de pura casualidad. Tiene una creencia verdadera, tiene una justificación razonable, porque normalmente los relojes funcionan, y sin embargo nadie diría que sabía la hora. Estos casos mostraron que las tres condiciones no alcanzan y dieron origen a décadas de debate que siguen abiertas. Es un buen ejemplo de cómo funciona la filosofía: una definición muy útil se pone a prueba con casos límite hasta que revela sus grietas, y esas grietas enseñan más que la definición misma."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h7",
+          "level": 3,
+          "text": "Dos grandes respuestas sobre el origen del saber"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p8",
+          "text": "Si saber es tener creencias justificadas, queda en pie una pregunta anterior: de dónde sacamos el material con el que justificamos. La tradición filosófica moderna se dividió en dos grandes respuestas que todavía hoy ordenan los debates."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p9",
+          "text": "El racionalismo sostiene que la fuente principal del conocimiento es la razón y no los sentidos. Los racionalistas desconfían de lo que percibimos, que muchas veces engaña, y confían en que la mente puede descubrir por sí sola principios universales y necesarios, como los de la matemática. Su figura más influyente es René Descartes, un filósofo francés del siglo diecisiete que propuso un método radical: aplicar una duda metódica a todo lo que creía saber, para quedarse únicamente con lo que resistiera. Dudó de los sentidos, porque a veces nos engañan. Dudó de que estuviera despierto, porque en los sueños todo parece real. Dudó incluso de las verdades matemáticas, imaginando que un genio maligno podía estar manipulando su pensamiento. Y descubrió que había algo que no podía dudar: el mismo hecho de dudar demostraba que estaba pensando, y si pensaba, existía. Es la célebre fórmula pienso, luego existo. A partir de esa primera certeza intentó reconstruir todo el edificio del conocimiento mediante razonamientos deductivos, que van de principios generales evidentes a conclusiones particulares, con la garantía de que, si las premisas son verdaderas y el razonamiento válido, la conclusión no puede ser falsa."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p10",
+          "text": "El empirismo, en cambio, afirma que todo nuestro conocimiento proviene en última instancia de la experiencia. John Locke sostenía que la mente al nacer es como una hoja en blanco y que las ideas se escriben en ella a través de los sentidos. David Hume llevó la idea a un punto incómodo para todos: si el conocimiento del mundo viene de la experiencia, entonces no tenemos una justificación lógica para estar seguros de que el futuro se parecerá al pasado. Hemos visto salir el Sol todos los días, pero ninguna cantidad de amaneceres pasados demuestra, con necesidad lógica, que mañana va a salir. Ese problema de la inducción, el paso de casos observados a leyes generales, sigue siendo una de las preguntas más profundas de la filosofía de la ciencia."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p11",
+          "text": "No hay una respuesta ganadora acordada entre estas dos tradiciones. Immanuel Kant, hacia fines del siglo dieciocho, propuso una síntesis: sin experiencia, la razón no tiene contenido, y sin conceptos de la razón, la experiencia es un caos sin orden. Esa idea, que el conocimiento necesita las dos cosas, influyó en gran parte del pensamiento posterior. Lo importante para quien estudia el tema no es elegir bando, sino entender qué sostiene cada postura y reconocer sus argumentos cuando aparecen en un texto o en una discusión."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h12",
+          "level": 3,
+          "text": "Qué tiene que ver todo esto con la ciencia"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p13",
+          "text": "Cuando se habla del método científico suele imaginarse una receta única, pero en realidad la ciencia combina aspectos de las dos tradiciones. De los racionalistas hereda la importancia de las demostraciones matemáticas y de la deducción, que permiten derivar consecuencias precisas de una teoría. De los empiristas, la exigencia de que las teorías se contrasten con la observación y el experimento. Los críticos del racionalismo puro le reprochan que, si se apoya solo en la razón, corre el riesgo de construir sistemas lógicamente impecables pero desconectados del mundo. Los críticos del empirismo puro le reprochan que, si solo mira lo que observa, no puede justificar las leyes generales. La ciencia moderna nació, en buena medida, de articular ambas exigencias: teorías con estructura lógica rigurosa que se someten a prueba contra los hechos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h14",
+          "level": 3,
+          "text": "Un mapa de las grandes etapas"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p15",
+          "text": "Para ubicar estas discusiones en el tiempo conviene tener a mano una línea general de la historia de la filosofía occidental. Los presocráticos, entre los siglos sexto y quinto antes de Cristo, fueron los primeros en buscar el principio o arché que explica el origen de todo sin recurrir solo a los mitos: Tales pensó en el agua, Heráclito en el fuego, Pitágoras en el número. Con Sócrates el foco se desplazó de la naturaleza a la vida humana y a la pregunta por cómo vivir. Platón propuso un mundo de ideas perfectas detrás de las apariencias, y Aristóteles sistematizó la lógica, la ética y la metafísica en obras que serían la base del pensamiento durante siglos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p16",
+          "text": "En la Edad Media, la filosofía se entrelazó con la teología cristiana, y figuras como Tomás de Aquino buscaron conciliar fe y razón. La época moderna, entre los siglos diecisiete y dieciocho, vio nacer la ciencia moderna y el debate entre racionalistas y empiristas que acabamos de recorrer, con Kant como gran síntesis. En la época contemporánea aparecen pensadores como Marx, que interpretó la historia como lucha de clases, y Nietzsche, que sometió a crítica la moral tradicional. En el siglo veinte, el existencialismo de Sartre y Camus puso el acento en la libertad y la responsabilidad del individuo, bajo la idea de que la existencia precede a la esencia: no nacemos con un destino fijado, sino que nos hacemos con lo que elegimos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p17",
+          "text": "A este recorrido se suman las grandes corrientes político-económicas modernas. El liberalismo prioriza la libertad individual y la propiedad privada, con una intervención mínima del Estado. El socialismo pone el acento en la igualdad económica y en la propiedad colectiva o estatal de los medios de producción. El marxismo analiza la historia como lucha de clases y sostiene que las contradicciones del capitalismo llevarían a su superación. El conservadurismo valora la continuidad de las instituciones y de las tradiciones y prefiere el cambio gradual. El anarquismo rechaza toda autoridad jerárquica impuesta, incluido el Estado, a favor de formas de organización voluntaria. Un principio rige la manera de presentarlas: describir qué sostiene cada una para poder reconocerlas, sin decirle a nadie cuál debería elegir. Ese es el verdadero sentido de estudiar corrientes: poder identificarlas en un discurso, un debate o un texto, y evaluar con criterio propio lo que se está diciendo."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-2"
+      }
+    },
+    {
+      "id": "cap-3",
+      "number": 3,
+      "title": "Qué es, qué existe y qué es real: las preguntas de la metafísica",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-3-h1",
+          "level": 2,
+          "text": "Qué es, qué existe y qué es real: las preguntas de la metafísica"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p2",
+          "text": "Hay preguntas tan básicas que casi nunca nos las hacemos. ¿Qué significa que una cosa exista? ¿Es lo mismo ser que parecer? ¿Cómo sé que el mundo que veo no es una ilusión? La metafísica es la rama de la filosofía que se ocupa de las preguntas más generales sobre la realidad, aquellas que están por debajo de cualquier otra disciplina. La física estudia cómo se comportan los cuerpos, la biología cómo funcionan los seres vivos, la historia qué hicieron los pueblos; la metafísica pregunta qué quiere decir, en general, que algo sea. Dentro de ella se distinguen tres preguntas hermanas, que conviene no confundir: qué es el ser, qué es existir y qué es lo real."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h3",
+          "level": 3,
+          "text": "La pregunta por el ser"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p4",
+          "text": "La ontología, que toma su nombre de las palabras griegas para ser y estudio, es la parte de la metafísica que se pregunta por el ser. No lo hace con una cosa en particular. No pregunta qué es una silla ni qué es un árbol, sino algo previo y mucho más abstracto: qué tienen en común todas las cosas que decimos que son. Es una pregunta extraña, porque la respuesta no puede ser una cosa más entre las cosas, y por eso fue una de las que más desvelaron a los filósofos antiguos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p5",
+          "text": "Aristóteles propuso una manera de ordenar el asunto. Distinguió entre las sustancias y los accidentes. Una sustancia es lo que existe por sí mismo, como una persona, un caballo o un árbol. Los accidentes son las propiedades que dependen de una sustancia para existir, como el color, el tamaño o la edad. El color rojo no anda por el mundo solo: siempre es el color de algo. Y una misma sustancia puede cambiar de accidentes sin dejar de ser lo que es. Una persona crece, envejece, se corta el pelo, cambia de humor, y sigue siendo la misma. Esa estabilidad bajo el cambio fue una de las intuiciones más fecundas de la metafísica clásica."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p6",
+          "text": "Una distinción emparentada, y también antigua, es la que separa el ser del parecer. Un espejismo parece agua pero no lo es. Una moneda dentro de un vaso de agua parece quebrada y no lo está. La ontología se pregunta por el ser real de las cosas y no por su apariencia, y esa pregunta se vuelve urgente en cuanto se advierte que a veces nos equivocamos al juzgar por las apariencias. Por eso conviene tenerla clara antes de ocuparse de las otras dos preguntas."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h7",
+          "level": 3,
+          "text": "La pregunta por la existencia"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p8",
+          "text": "La pregunta por el ser es general. La pregunta por la existencia es más específica: qué significa que algo particular exista. Parece trivial hasta que se lo piensa. Consideremos una paradoja clásica. Si digo que los unicornios no existen, parece que tengo que pensar en los unicornios para poder negar su existencia. Pero si pienso en ellos, ¿no están de algún modo disponibles para mi pensamiento? ¿Cómo puedo hablar con sentido de algo que, según mi propia frase, no es nada? Los filósofos del lenguaje dedicaron mucho esfuerzo a resolver este problema, y su resolución terminó cambiando la manera de entender cómo funcionan las expresiones que nombran cosas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p9",
+          "text": "Más influyente aún fue una tesis de Kant. Según él, existir no es una propiedad más de las cosas, como ser rojo o pesar cinco kilos. Cuando digo que el perro es marrón, agrego una característica al concepto de perro. En cambio, cuando digo que el perro existe, no agrego ninguna característica nueva al concepto, sino que afirmo que ese concepto se aplica a algo real en el mundo. La diferencia puede parecer sutil, pero tuvo consecuencias grandes. Se usó, por ejemplo, para criticar el llamado argumento ontológico sobre la existencia de Dios, que pretendía deducirla a partir de la sola definición de un ser perfecto, como si existir fuera una perfección más que podía incluirse en la definición. Kant respondió que no se puede hacer existir una cosa por definirla de cierta manera."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p10",
+          "text": "Una distinción relacionada separa lo posible de lo real. Un unicornio es un concepto coherente: no hay contradicción interna en imaginar un caballo con un cuerno, aunque en el mundo no existan. En cambio, un cuadrado redondo es un concepto que se contradice a sí mismo y no podría existir de ningún modo. De manera que no toda idea que podamos formular corresponde a algo real, y algunas ni siquiera podrían corresponder, y distinguir esos casos es parte del trabajo de la metafísica."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p11",
+          "text": "La pregunta tiene además una dimensión temporal. ¿Existe lo que existió, como un dinosaurio, o lo que existirá mañana, como la lluvia de la semana próxima, de la misma manera en que existe lo que tengo delante ahora? Hay quienes sostienen que solo existe el presente, una posición llamada presentismo, y quienes afirman que pasado, presente y futuro existen por igual, una posición llamada eternalismo. La discusión sigue abierta y se cruza con la física del tiempo."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h12",
+          "level": 3,
+          "text": "La pregunta por la realidad"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p13",
+          "text": "La tercera pregunta parte de otra distinción. Entre las cosas que de algún modo existen, como lo que percibo, lo que imagino o lo que sueño, ¿cuáles son realmente como parecen y cuáles son apariencia o construcción de la mente? Se trata del problema del mundo externo: cómo puedo saber que el mundo que me muestran los sentidos es real y no una ilusión completa."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p14",
+          "text": "Descartes formuló la duda del modo más extremo posible, con su experimento mental del genio maligno: ¿y si existiera un ser poderoso que se dedica a engañarme en todo lo que percibo? Platón lo había planteado antes, con el mito de la caverna, en el que personas encadenadas desde siempre ven solo sombras proyectadas en una pared y creen que eso es la realidad. La versión contemporánea es la hipótesis del cerebro en una cubeta, que imagina un cerebro conectado a una máquina que le fabrica todas sus experiencias. Tampoco el sueño es una variación menor: si en los sueños todo parece real, ¿cómo sé que ahora no estoy soñando? Todas son variaciones de la misma inquietud, distinguir lo real de lo que solo parece real."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p15",
+          "text": "Frente a ella hay dos grandes posturas. El realismo sostiene que el mundo existe con independencia de que alguien lo perciba o piense en él: las cosas son reales aunque nadie las mire. El idealismo sostiene, en cambio, que la realidad depende de algún modo de la mente que la percibe o la construye, y que no hay un mundo separado de la experiencia consciente que lo capta. Ambas posturas tienen argumentos serios, y no existe una ganadora reconocida por todos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p16",
+          "text": "Un matiz que ayuda en la vida cotidiana es la diferencia entre lo objetivo y lo subjetivo. Es objetivo lo que es así con independencia de lo que cada uno opine o sienta: la temperatura de una habitación medida con un termómetro es la misma para todos. Es subjetivo lo que depende de la experiencia de cada persona: esa misma temperatura puede sentirse fría para uno y agradable para otro. Reconocer qué parte de una afirmación es objetiva y qué parte subjetiva evita muchas discusiones inútiles."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h17",
+          "level": 3,
+          "text": "Tres preguntas que se apoyan entre sí"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p18",
+          "text": "Las tres preguntas forman un conjunto. La del ser es la más abstracta y funciona como punto de partida. La de la existencia desciende a los casos particulares y se pregunta cuándo corresponde afirmar que algo existe. La de la realidad se interesa por distinguir lo genuino de lo aparente, lo posible de lo efectivo, lo objetivo de lo subjetivo. Antes de discutir si existe Dios, si existen los números o si hay libre albedrío, que son los temas clásicos de la metafísica, conviene haber pensado qué se quiere decir al afirmar que algo existe. Y es que muchas controversias, en filosofía y fuera de ella, se disuelven o se aclaran cuando se advierte que las partes estaban usando la palabra existir en sentidos distintos."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-3"
+      }
+    },
+    {
+      "id": "cap-4",
+      "number": 4,
+      "title": "Obrar bien: las grandes teorías morales y sus dilemas",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-4-h1",
+          "level": 2,
+          "text": "Obrar bien: las grandes teorías morales y sus dilemas"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p2",
+          "text": "Cada vez que decimos que algo estuvo bien o estuvo mal estamos haciendo un juicio moral. Lo hacemos con tanta naturalidad que casi nunca nos preguntamos en qué se apoya. ¿Una acción es buena por sus consecuencias, por respetar un deber, por salir de una persona de buen carácter, o por ser algo que todos podríamos aceptar? La ética es la rama de la filosofía que estudia esas preguntas: qué hace correcta o incorrecta una acción, qué es una vida buena y cómo se justifican los juicios morales. En este capítulo recorremos las principales respuestas y su aplicación a dilemas reales, desde el clásico del tranvía hasta los debates de la bioética."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h3",
+          "level": 3,
+          "text": "Describir y prescribir"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p4",
+          "text": "Antes de entrar en las teorías conviene separar dos tipos de estudio que se confunden con facilidad. La ética descriptiva se limita a registrar qué creen y cómo actúan las personas en distintas culturas o épocas. Es un trabajo empírico, propio de la sociología, la antropología o la historia, y afirma cosas como en tal comunidad se considera aceptable tal práctica. La ética normativa, en cambio, pregunta cómo se debería actuar, con independencia de lo que la gente haga o crea. Dice que algo es correcto o incorrecto, y da razones para sostenerlo. Existe además la metaética, que va un paso más atrás y pregunta qué significa, en general, que algo sea moralmente correcto y si los juicios morales pueden ser verdaderos o falsos o solo expresan actitudes."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p5",
+          "text": "Dentro de la ética normativa, tres preguntas organizan las grandes corrientes. La primera se centra en la acción: qué hace correcta a una acción. La segunda en la persona: qué hace buena a una persona. La tercera en la convivencia: cómo se llega a reglas morales compartidas. De esas tres preguntas nacen cuatro grandes respuestas, que ahora recorremos una por una."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h6",
+          "level": 3,
+          "text": "El utilitarismo: mirar las consecuencias"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p7",
+          "text": "La primera respuesta es el utilitarismo. Su criterio es que una acción es correcta si produce el mayor bienestar posible para el mayor número de personas. No importa tanto la intención de quien actúa como el resultado neto que su acción deja en el mundo. Jeremy Bentham, su fundador, propuso medir el placer y el dolor para calcular qué acción produce más bienestar total. John Stuart Mill lo refinó con una observación importante: no todos los placeres valen lo mismo, y los intelectuales y morales son superiores a los puramente corporales. El cálculo utilitarista consiste en comparar el bienestar que generaría cada opción disponible y elegir la que mejor suma."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p8",
+          "text": "Se lo suele probar con el dilema del tranvía. Un tranvía descontrolado va a atropellar a cinco personas, pero se puede accionar una palanca que lo desvíe a otra vía, donde solo atropellaría a una. Un utilitarista puro tiende a accionar la palanca: una muerte es menos que cinco. La crítica más frecuente al utilitarismo es que, llevado al extremo, podría justificar sacrificar a una minoría siempre que eso aumente el bienestar de la mayoría, y que reduce las personas a números en un cálculo. Se trata de una crítica seria, y no la presentamos como veredicto sino como parte de lo que hay que saber de la corriente."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h9",
+          "level": 3,
+          "text": "La deontología: el deber ante todo"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p10",
+          "text": "La segunda respuesta es la deontología, cuyo nombre viene de la palabra griega para deber. Su criterio es opuesto: una acción es correcta si cumple con un deber moral, sin importar cuáles sean sus consecuencias. Su gran referente es Immanuel Kant, que formuló el imperativo categórico. Una de sus versiones dice que hay que actuar solo según una máxima que uno pueda querer que se convierta en ley universal. En términos simples, antes de actuar conviene preguntarse qué pasaría si todos actuaran así. Si la respuesta es un resultado inaceptable o contradictorio, la acción no es correcta."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p11",
+          "text": "Kant lo ilustra con la mentira. Si todos mintieran cada vez que les conviniera, nadie confiaría en lo que dicen los demás y la mentira dejaría de funcionar, porque necesita que se crea en la palabra del otro. La máxima miento cuando me conviene no puede universalizarse sin destruirse a sí misma, y por eso, para Kant, mentir es incorrecto siempre, incluso cuando de una mentira concreta pudieran resultar buenas consecuencias. Otra formulación del imperativo exige tratar a las personas siempre como fines en sí mismas y nunca solamente como medios. Usar a alguien como simple instrumento, sin considerar su dignidad y su voluntad, es incorrecto aunque el objetivo sea bueno."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p12",
+          "text": "Aplicada al tranvía, la deontología puede objetar que accionar la palanca implica decidir activamente que una persona muera para salvar a otras cinco, es decir, usarla como medio. Nótese que en ese caso las dos teorías llegan a conclusiones distintas a partir de la misma situación, y que ambas tienen respuestas a las críticas de la otra. Los filósofos contemporáneos suelen trabajar con variantes del dilema precisamente para ver dónde cambian nuestras intuiciones y qué teoría las explica mejor."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h13",
+          "level": 3,
+          "text": "La ética de la virtud: ser antes que hacer"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p14",
+          "text": "La tercera respuesta cambia el foco. En lugar de preguntar qué acción es correcta, pregunta qué clase de persona queremos ser. La ética de la virtud, cuyo gran referente es Aristóteles, sostiene que la vida buena consiste en desarrollar virtudes, que son hábitos estables del carácter, como el coraje, la honestidad, la generosidad o la prudencia. No se tienen de nacimiento ni se adquieren leyendo: se forman con la práctica repetida, igual que se aprende un oficio, y la persona virtuosa es la que ha desarrollado el buen juicio para actuar bien en cada situación concreta."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p15",
+          "text": "Aristóteles definió cada virtud como un término medio entre dos vicios, uno por exceso y otro por defecto. El coraje queda entre la cobardía, que es la falta de coraje, y la temeridad, que es el exceso, la falta de prudencia. La generosidad queda entre la tacañería y el derroche. No es un punto matemático ni un promedio, sino un equilibrio que depende del contexto, y encontrarlo exige experiencia y criterio. Para esta corriente, la pregunta útil ante un dilema no es qué regla debo aplicar ni qué resultado maximizo, sino qué haría en esta situación una persona justa, prudente y valiente."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h16",
+          "level": 3,
+          "text": "El contractualismo: reglas que todos podríamos aceptar"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p17",
+          "text": "La cuarta respuesta aborda la tercera pregunta, la de las reglas compartidas. Para el contractualismo, una norma es justa si es la clase de norma que personas racionales aceptarían como base de la convivencia, en un acuerdo imaginario entre iguales. La idea tiene una larga historia en la filosofía política: Hobbes, Locke y Rousseau imaginaron un estado de naturaleza anterior a toda sociedad y mostraron cómo las personas podrían acordar un contrato social que les permitiera convivir."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p18",
+          "text": "En el siglo veinte, John Rawls le dio una forma muy poderosa con el experimento mental del velo de ignorancia. Imaginemos que tenemos que diseñar las reglas de una sociedad sin saber qué lugar vamos a ocupar en ella: no sabemos si nacemos ricos o pobres, sanos o con una discapacidad, parte de la mayoría o de una minoría discriminada. En esas condiciones, argumenta Rawls, elegiríamos reglas que resulten tolerables desde cualquier posición, porque cualquiera podría ser la nuestra. El velo obliga a la imparcialidad, y por eso el contractualismo es muy usado para pensar la justicia de las instituciones, de las leyes y del reparto de recursos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p19",
+          "text": "Comparado con los otros enfoques, el contractualismo no mira solo la suma de resultados, como el utilitarismo; no parte de un deber fijo que la razón individual descubre, como la deontología; y no se concentra en el carácter de quien actúa, como la ética de la virtud. Pregunta qué reglas podrían aceptar todos los involucrados si negociaran en condiciones justas, sin ventajas previas de poder o de información."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h20",
+          "level": 3,
+          "text": "De la teoría a los casos: la bioética"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p21",
+          "text": "Las teorías morales dejan de ser un ejercicio abstracto cuando la ciencia y la medicina plantean problemas inéditos. La bioética es la rama de la ética que examina las implicancias morales de los avances de las ciencias de la vida y la salud. Existe porque la tecnología nos da el poder de hacer cosas que antes eran imposibles, pero no nos dice si debemos hacerlas. Ante esa brecha, la bioética funciona como una brújula crítica que ayuda a argumentar y a decidir."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p22",
+          "text": "Tomemos tres frentes clásicos. El primero es la eutanasia. Aquí se enfrentan el principio de autonomía, que reconoce el derecho de una persona a decidir sobre su propio cuerpo y su final, y el principio de que la medicina existe para preservar la vida. Es útil distinguir la eutanasia activa, en la que se administra una sustancia para provocar la muerte, de la suspensión o el rechazo de tratamientos, en la que se deja que la enfermedad siga su curso. En la Argentina, la Ley 26.529 de derechos del paciente y su modificación por la Ley 26.742, conocida como ley de muerte digna, reconocen el derecho de los pacientes a aceptar o rechazar ciertos tratamientos, y marcan una frontera entre eso y la eutanasia, que no está permitida. Es un buen ejemplo de cómo una sociedad negocia en sus leyes los límites de lo aceptable."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p23",
+          "text": "El segundo frente es la experimentación con animales. El conflicto aparece porque se usan seres capaces de sufrir como medios para obtener conocimiento o beneficios para las personas, y las distintas teorías responden diferente: el utilitarismo pregunta por el balance de sufrimiento y beneficio, la deontología por si es admisible usar a un ser sintiente como mero instrumento, la ética de la virtud por qué dice de nuestro carácter la forma de tratar a los más vulnerables. El tercer frente es la ingeniería genética humana. Editar el genoma abre la posibilidad de curar enfermedades hereditarias, pero también la de selecciones con fines eugenésicos y la de nuevas desigualdades entre quienes puedan o no pagar esas terapias."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p24",
+          "text": "Nada de esto tiene una respuesta única que se deduzca de una fórmula. Lo que ofrece la ética es un conjunto de herramientas para pensar mejor: ver qué valores están en juego, distinguir los hechos de las valoraciones, reconocer los argumentos de cada postura y detectar las falacias. Como ciudadanos, esas herramientas nos permiten participar con fundamentos en los debates públicos que atraviesan nuestras vidas."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-4"
+      }
+    },
+    {
+      "id": "cap-5",
+      "number": 5,
+      "title": "Arte, gusto y belleza: pensar lo que nos conmueve",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-5-h1",
+          "level": 2,
+          "text": "Arte, gusto y belleza: pensar lo que nos conmueve"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p2",
+          "text": "Nadie necesita una definición para reconocer una sinfonía, una novela o un cuadro. Sin embargo, cuando alguien pregunta qué es exactamente el arte, la tarea se complica. La estética es la rama de la filosofía que estudia el arte, la belleza y el gusto, y trabaja sobre tres preguntas que se encadenan. La primera es qué hace que algo cuente como arte. La segunda, una vez que algo lo es, cómo se juzga si es bueno o malo, atractivo o no. La tercera es qué hace que algo sea específicamente bello, que no es lo mismo que valioso. En este capítulo recorremos las tres, con una regla de método que ya hemos usado en otros lugares: exponer las posturas con sus argumentos y sus problemas, sin declarar una ganadora."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h3",
+          "level": 3,
+          "text": "El problema de definir el arte"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p4",
+          "text": "Reconocer un ejemplo de arte es fácil. Dar una definición general que incluya todo lo que consideramos arte y deje afuera lo que no lo es resulta sorprendentemente difícil. Un cuadro, una sinfonía, una escultura, una novela y una obra de teatro son arte, pero ¿qué tienen en común? A lo largo de la historia se propusieron varias respuestas, y cada una funciona bien para algunos casos y mal para otros."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p5",
+          "text": "La más antigua es la que entiende el arte como imitación, o mímesis. Platón y Aristóteles, con matices muy distintos, pensaban que el arte representa la realidad. La idea explica bien una pintura figurativa, pero tiene un problema obvio con el arte abstracto o con la música, que no representan nada reconocible. Otra respuesta sostiene que el arte es expresión: comunica las emociones o los estados internos del artista. Es una buena descripción de muchas obras, pero no toda expresión emocional es arte. Un grito de dolor expresa algo y a nadie se le ocurre llamarlo una obra."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p6",
+          "text": "Una tercera propuesta pone el acento en la forma. Lo que define al arte sería una organización particular de sus elementos, como el color, la línea, el ritmo o el sonido, que provoca una experiencia estética especial. La dificultad es explicar qué vuelve significativa a una forma sin caer en un razonamiento circular, que consiste en decir que una forma es significativa porque produce la experiencia que define al arte, y que esa experiencia es la del arte porque la producen las formas significativas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p7",
+          "text": "La cuarta respuesta, muy influyente en el siglo veinte, cambia la pregunta. En lugar de buscar qué propiedades tiene una obra, pregunta quién la reconoce como tal. Algo es arte, según esta teoría institucional, porque el mundo del arte, es decir, los artistas, los críticos, los museos y las galerías, lo acepta como arte. Surgió en parte a raíz de obras de vanguardia como el urinario que Marcel Duchamp presentó como escultura, que desafiaba todas las definiciones anteriores. Tiene la ventaja de explicar los casos más difíciles, pero se le objeta que parece trasladar el problema, porque ahora hay que explicar qué es el mundo del arte y por qué sus decisiones valen."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p8",
+          "text": "Ninguna definición consigue cerrar el debate. Los filósofos llaman a esto un concepto en disputa, y el enfoque más honesto es presentar las distintas propuestas con sus aciertos y sus límites, de modo que cada persona pueda formar su criterio."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h9",
+          "level": 3,
+          "text": "Cómo se juzga: el gusto"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p10",
+          "text": "Supongamos que ya sabemos reconocer una obra de arte. La pregunta siguiente es otra: cómo decidimos si es buena. Un refrán popular dice que sobre gustos no hay nada escrito, lo que sugiere que todo juicio estético es puramente personal. La filosofía del gusto lo matiza. Es verdad que hay un margen amplio de preferencia individual, pero también existe una experiencia que cuesta explicar si el gusto fuera solo un asunto privado: ciertas obras son consideradas grandes por generaciones enteras, en culturas muy distintas, y discutimos sobre arte con razones y no solo con gritos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p11",
+          "text": "Kant propuso una idea que sigue siendo central. El juicio de gusto, esto es bello, tiene una estructura peculiar. Por un lado nace de la reacción subjetiva de cada persona ante lo que percibe, y por eso no se puede demostrar como se demuestra un teorema. Por otro, se formula con una pretensión de validez universal: cuando decimos que algo es bello, esperamos que los demás coincidan, y no lo decimos en el mismo sentido en que decimos que a nosotros nos gusta el chocolate. Es subjetivo, pero reclama acuerdo. Esa tensión, para Kant, es justamente lo que caracteriza a la experiencia estética."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p12",
+          "text": "Conviene además distinguir dos cosas que se mezclan seguido. Una es el gusto personal: no me gusta este cuadro. No requiere justificación y nadie puede refutarlo. La otra es el juicio de valor artístico: este cuadro está técnicamente mal resuelto, su composición es desordenada y repite fórmulas de otros. Ese segundo tipo de juicio admite argumentación, porque se puede discutir sobre técnica, composición, originalidad e influencia. Una persona madura puede reconocer el valor de una obra que, a título personal, no le gusta, y también disfrutar de algo que sabe que no es una gran obra."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p13",
+          "text": "Por último, el gusto tiene historia. Lo que una época considera de buen gusto cambia, y estilos que fueron rechazados con dureza en su momento terminaron consagrados, o al revés. Esto es un argumento a favor de la idea de que el gusto tiene un componente cultural y social, y no solo individual ni solo universal."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h14",
+          "level": 3,
+          "text": "Qué es lo bello"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p15",
+          "text": "La tercera pregunta se afina todavía más. Una obra puede ser valiosa, compleja, innovadora, técnicamente admirable, sin ser bella en el sentido tradicional. Un cuadro que muestra el horror de una guerra puede ser una obra maestra sin que nadie lo llame bello. Lo bello es una categoría más específica dentro de lo que se valora en el arte, y no sinónimo de buen arte."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p16",
+          "text": "Las teorías clásicas más influyentes ven la belleza en la proporción y la armonía entre las partes de un todo. Es una idea que viene de la Antigüedad griega y se refleja en la simetría de un rostro, en las proporciones de un templo clásico o en la armonía de una melodía. Otra cuestión es si la belleza natural y la artística son el mismo fenómeno. Un atardecer o una montaña no fueron hechos por nadie con intención de ser bellos, mientras que una escultura sí. ¿Es la misma clase de belleza o dos fenómenos que comparten nombre? Los filósofos no están de acuerdo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p17",
+          "text": "Otra distinción clásica, que desarrollaron Kant y Edmund Burke, separa lo bello de lo sublime. Lo bello produce un placer tranquilo y armonioso. Lo sublime provoca una mezcla de asombro y hasta de temor ante algo inmenso o poderoso, como una tormenta, el océano o una cordillera enorme. No es bello en el sentido de armonioso, pero provoca una experiencia estética intensísima, y por eso la estética tiene que ocuparse de las dos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p18",
+          "text": "El caso de los objetos con función práctica, como una silla, un edificio o una herramienta, abre una pregunta más: ¿la belleza es independiente de qué tan bien cumple su función, o un diseño bello es justamente el que cumple mejor su función con elegancia? Aquí tampoco hay consenso. Lo que sí enseña la estética es que preguntarse por qué algo nos conmueve, y qué estamos diciendo cuando lo llamamos bello, es una manera de conocernos mejor y de mirar con más atención el mundo que habitamos."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-5"
+      }
+    }
+  ]
+}
