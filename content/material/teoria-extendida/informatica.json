@@ -288,8 +288,18 @@
         },
         {
           "type": "paragraph",
-          "id": "cap-2-p10",
-          "text": "1.  El bus de datos: Es la calle por donde viaja la información real. Si el procesador quiere leer el número \"5\" de la memoria, ese dato cruza por este bus. Su capacidad, medida en bits, determina cuánta información puede viajar al mismo tiempo. 2.  El bus de direcciones: Es el sistema de coordenadas. Este bus no lleva datos útiles en sí mismo, sino direcciones. Le dice al sistema: \"El dato que viene por el bus de datos va para la dirección 1024 de la memoria\". Sin este bus, la información llegaría sin destino, como una carta sin dirección. 3.  El bus de control: Es la señal de tránsito. Envía las instrucciones de coordinación: \"Ojo, estoy leyendo\", \"Listo para escribir\", \"Espera un momento\". Sin estas señales, los componentes no sabrían cuándo hablar y cuándo escuchar, generando colisiones de datos."
+          "id": "cap-2-p10-1",
+          "text": "1. El bus de datos: Es la calle por donde viaja la información real. Si el procesador quiere leer el número \"5\" de la memoria, ese dato cruza por este bus. Su capacidad, medida en bits, determina cuánta información puede viajar al mismo tiempo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p10-2",
+          "text": "2. El bus de direcciones: Es el sistema de coordenadas. Este bus no lleva datos útiles en sí mismo, sino direcciones. Le dice al sistema: \"El dato que viene por el bus de datos va para la dirección 1024 de la memoria\". Sin este bus, la información llegaría sin destino, como una carta sin dirección."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p10-3",
+          "text": "3. El bus de control: Es la señal de tránsito. Envía las instrucciones de coordinación: \"Ojo, estoy leyendo\", \"Listo para escribir\", \"Espera un momento\". Sin estas señales, los componentes no sabrían cuándo hablar y cuándo escuchar, generando colisiones de datos."
         },
         {
           "type": "paragraph",
@@ -319,8 +329,18 @@
         },
         {
           "type": "paragraph",
-          "id": "cap-2-p16",
-          "text": "1.  Fetch (Búsqueda): El procesador necesita saber qué hacer a continuación. Para eso, consulta un registro especial llamado Contador de Programa (PC). Este registro guarda la dirección de memoria de la siguiente instrucción que debe ejecutarse. El procesador envía esa dirección por el bus de direcciones a la memoria principal. La memoria responde enviando la instrucción (que es simplemente un código binario) de vuelta al procesador a través del bus de datos. Esta instrucción se guarda temporalmente en un registro llamado Registro de Instrucción (IR). Al mismo tiempo, el Contador de Programa se actualiza automáticamente para apuntar a la instrucción siguiente, preparando el terreno para el próximo ciclo. 2.  Decode (Decodificación): Ahora que la instrucción está en el Registro de Instrucción, el procesador debe entenderla. La Unidad de Control analiza el código binario para determinar qué operación se debe realizar. ¿Es una suma? ¿Es un movimiento de datos? ¿Es un salto a otra parte del programa? La unidad de control traduce ese código binario en señales eléctricas específicas que activarán los circuitos correctos dentro del procesador. Es como si alguien te dijera \"abre la puerta\" en un idioma que solo tú entiendes y tradujeras eso a la acción física de girar la manija. 3.  Execute (Ejecución): Finalmente, con las señales eléctricas generadas, la Unidad Aritmético-Lógica (ALU) o los registros internos realizan la acción. Si la instrucción era \"sumar 2 y 2\", la ALU realiza la operación. Si la instrucción era \"guardar este dato en la memoria\", se activa el mecanismo de escritura. Una vez terminada la acción, el ciclo vuelve a empezar con el siguiente fetch."
+          "id": "cap-2-p16-1",
+          "text": "1. Fetch (Búsqueda): El procesador necesita saber qué hacer a continuación. Para eso, consulta un registro especial llamado Contador de Programa (PC). Este registro guarda la dirección de memoria de la siguiente instrucción que debe ejecutarse. El procesador envía esa dirección por el bus de direcciones a la memoria principal. La memoria responde enviando la instrucción (que es simplemente un código binario) de vuelta al procesador a través del bus de datos. Esta instrucción se guarda temporalmente en un registro llamado Registro de Instrucción (IR). Al mismo tiempo, el Contador de Programa se actualiza automáticamente para apuntar a la instrucción siguiente, preparando el terreno para el próximo ciclo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p16-2",
+          "text": "2. Decode (Decodificación): Ahora que la instrucción está en el Registro de Instrucción, el procesador debe entenderla. La Unidad de Control analiza el código binario para determinar qué operación se debe realizar. ¿Es una suma? ¿Es un movimiento de datos? ¿Es un salto a otra parte del programa? La unidad de control traduce ese código binario en señales eléctricas específicas que activarán los circuitos correctos dentro del procesador. Es como si alguien te dijera \"abre la puerta\" en un idioma que solo vos entendés y tradujeras eso a la acción física de girar la manija."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p16-3",
+          "text": "3. Execute (Ejecución): Finalmente, con las señales eléctricas generadas, la Unidad Aritmético-Lógica (ALU) o los registros internos realizan la acción. Si la instrucción era \"sumar 2 y 2\", la ALU realiza la operación. Si la instrucción era \"guardar este dato en la memoria\", se activa el mecanismo de escritura. Una vez terminada la acción, el ciclo vuelve a empezar con el siguiente fetch."
         },
         {
           "type": "paragraph",
@@ -350,8 +370,13 @@
         },
         {
           "type": "paragraph",
-          "id": "cap-2-p22",
-          "text": "1.  Intercambio de mensajes: Es como enviar cartas. Un proceso envía un paquete de datos (el mensaje) a otro a través de un canal definido por el sistema operativo. Este método es muy seguro porque los procesos no necesitan conocer los detalles internos del otro; solo necesitan saber cómo enviar el mensaje. Es ideal para comunicaciones complejas o para procesos que no se confían entre sí. 2.  Memoria compartida: Es como dejar una nota en la mesa del medio. El sistema operativo le asigna una porción de la memoria RAM que ambos procesos pueden leer y escribir. Es mucho más rápido que enviar mensajes, porque no hay la sobrecarga de copiar datos de un lugar a otro constantemente. Sin embargo, es más riesgoso: si un proceso escribe datos incorrectos en esa zona, el otro proceso podría leer basura o incluso colapsar."
+          "id": "cap-2-p22-1",
+          "text": "1. Intercambio de mensajes: Es como enviar cartas. Un proceso envía un paquete de datos (el mensaje) a otro a través de un canal definido por el sistema operativo. Este método es muy seguro porque los procesos no necesitan conocer los detalles internos del otro; solo necesitan saber cómo enviar el mensaje. Es ideal para comunicaciones complejas o para procesos que no se confían entre sí."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p22-2",
+          "text": "2. Memoria compartida: Es como dejar una nota en la mesa del medio. El sistema operativo le asigna una porción de la memoria RAM que ambos procesos pueden leer y escribir. Es mucho más rápido que enviar mensajes, porque no hay la sobrecarga de copiar datos de un lugar a otro constantemente. Sin embargo, es más riesgoso: si un proceso escribe datos incorrectos en esa zona, el otro proceso podría leer basura o incluso colapsar."
         },
         {
           "type": "paragraph",
@@ -493,7 +518,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p20",
-          "text": "Para resolver este dilema de la confianza inicial, inventamos la criptografía asimétrica, que utiliza un par de claves matemáticamente relacionadas pero distintas: una clave pública y una clave privada. La clave pública se puede compartir con todo el mundo, mientras que la privada se guarda en secreto. Si yo quiero enviarte un mensaje seguro, lo cifro con tu clave pública. Nadie más puede descifrarlo excepto tú, porque solo tu clave privada puede abrir el candado que tu clave pública cerró. Este mecanismo es la base de las transacciones bancarias online y de los certificados de seguridad web. Algoritmos como RSA o ECC (Elliptic Curve Cryptography) son los guardianes de esta tecnología."
+          "text": "Para resolver este dilema de la confianza inicial, inventamos la criptografía asimétrica, que utiliza un par de claves matemáticamente relacionadas pero distintas: una clave pública y una clave privada. La clave pública se puede compartir con todo el mundo, mientras que la privada se guarda en secreto. Si yo quiero enviarte un mensaje seguro, lo cifro con tu clave pública. Nadie más puede descifrarlo excepto vos, porque solo tu clave privada puede abrir el candado que tu clave pública cerró. Este mecanismo es la base de las transacciones bancarias online y de los certificados de seguridad web. Algoritmos como RSA o ECC (Elliptic Curve Cryptography) son los guardianes de esta tecnología."
         },
         {
           "type": "paragraph",
@@ -598,12 +623,12 @@
         {
           "type": "paragraph",
           "id": "cap-4-p11",
-          "text": "Pero, ¿qué significa realmente \"anonimizar\" un dato en la era del Big Data? La respuesta corta es: cada vez más difícil. Los investigadores han demostrado que es posible re-identificar a individuos a partir de conjuntos de datos supuestamente anónimos cruzando información. Por ejemplo, si sabes que una persona vive en un código postal específico, tiene una edad determinada y una condición de salud rara, puedes identificarla casi con certeza incluso si su nombre ha sido borrado de la base de datos. Por eso, la pseudonimización (reemplazar nombres con identificadores artificiales) es solo el primer paso, no la solución definitiva."
+          "text": "Pero, ¿qué significa realmente \"anonimizar\" un dato en la era del Big Data? La respuesta corta es: cada vez más difícil. Los investigadores han demostrado que es posible re-identificar a individuos a partir de conjuntos de datos supuestamente anónimos cruzando información. Por ejemplo, si sabés que una persona vive en un código postal específico, tiene una edad determinada y una condición de salud rara, podés identificarla casi con certeza incluso si su nombre ha sido borrado de la base de datos. Por eso, la pseudonimización (reemplazar nombres con identificadores artificiales) es solo el primer paso, no la solución definitiva."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p12",
-          "text": "El riesgo no está solo en que una empresa sepa que tú compraste pañales, sino en que un algoritmo pueda inferir cosas íntimas que tú nunca revelaste. Un sistema de IA puede analizar tu historial de navegación y tus compras para deducir tu orientación sexual, tu estado de embarazo, tus creencias religiosas o tu倾向encia política. Esta inferencia, conocida como \"dataveillance\" o vigilancia de datos, plantea un desafío profundo a la autonomía individual. Si las máquinas pueden predecir quién serás o qué harás basándose en tus datos pasados, ¿sigues teniendo libertad de elección? La privacidad, entonces, deja de ser solo el derecho a mantener algo secreto, para convertirse en el derecho a controlar cómo se construye tu perfil digital y cómo ese perfil te define ante el mundo."
+          "text": "El riesgo no está solo en que una empresa sepa que vos compraste pañales, sino en que un algoritmo pueda inferir cosas íntimas que vos nunca revelaste. Un sistema de IA puede analizar tu historial de navegación y tus compras para deducir tu orientación sexual, tu estado de embarazo, tus creencias religiosas o tu倾向encia política. Esta inferencia, conocida como \"dataveillance\" o vigilancia de datos, plantea un desafío profundo a la autonomía individual. Si las máquinas pueden predecir quién serás o qué harás basándose en tus datos pasados, ¿seguís teniendo libertad de elección? La privacidad, entonces, deja de ser solo el derecho a mantener algo secreto, para convertirse en el derecho a controlar cómo se construye tu perfil digital y cómo ese perfil te define ante el mundo."
         },
         {
           "type": "heading",
@@ -650,7 +675,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p21",
-          "text": "La inteligencia artificial tiene un potencial inmenso para resolver problemas complejos, desde la medicina personalizada hasta la optimización energética. Pero ese potencial solo se materializará si logramos desatarla de las cadenas de los prejuicios humanos y proteger la dignidad de las personas detrás de los datos. La próxima vez que interactúes con una IA, recuerda que no estás hablando con una máquina fría, sino con un reflejo de la sociedad que la creó. Y esa imagen, como todo espejo, puede pulirse, puede limpiarse y, con esfuerzo consciente, puede volverse más clara y justa."
+          "text": "La inteligencia artificial tiene un potencial inmenso para resolver problemas complejos, desde la medicina personalizada hasta la optimización energética. Pero ese potencial solo se materializará si logramos desatarla de las cadenas de los prejuicios humanos y proteger la dignidad de las personas detrás de los datos. La próxima vez que interactúes con una IA, recordá que no estás hablando con una máquina fría, sino con un reflejo de la sociedad que la creó. Y esa imagen, como todo espejo, puede pulirse, puede limpiarse y, con esfuerzo consciente, puede volverse más clara y justa."
         }
       ],
       "meta": {
@@ -677,7 +702,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p2",
-          "text": "Imaginate que sos un director de orquesta. Tu trabajo no es tocar cada instrumento tú mismo, sino asegurar que el violín, la trompeta, los tambores y la flauta suenen al mismo tiempo, en el ritmo correcto y sin que nadie se pise con el otro. Si olvidás entrar en un momento clave, la sinfonía se desmorona. Esa es, en esencia, la función de un sistema operativo (SO). Pero para entender por qué este \"director\" invisible es tan vital, no podemos limitarnos a verlo como un programa más que instalamos en la computadora. Debemos mirar hacia atrás, a través de la historia de la computación, para comprender cómo pasamos de controlar máquinas brutales a dialogar con entidades inteligentes que, a su vez, han transformado nuestra propia capacidad de pensar y actuar. Este capítulo no trata solo de código o de fechas; trata de cómo la tecnología se ha convertido en una prótesis de nuestra mente y de los costos que pagamos por esa dependencia."
+          "text": "Imaginate que sos un director de orquesta. Tu trabajo no es tocar cada instrumento vos mismo, sino asegurar que el violín, la trompeta, los tambores y la flauta suenen al mismo tiempo, en el ritmo correcto y sin que nadie se pise con el otro. Si olvidás entrar en un momento clave, la sinfonía se desmorona. Esa es, en esencia, la función de un sistema operativo (SO). Pero para entender por qué este \"director\" invisible es tan vital, no podemos limitarnos a verlo como un programa más que instalamos en la computadora. Debemos mirar hacia atrás, a través de la historia de la computación, para comprender cómo pasamos de controlar máquinas brutales a dialogar con entidades inteligentes que, a su vez, han transformado nuestra propia capacidad de pensar y actuar. Este capítulo no trata solo de código o de fechas; trata de cómo la tecnología se ha convertido en una prótesis de nuestra mente y de los costos que pagamos por esa dependencia."
         },
         {
           "type": "heading",
@@ -1150,12 +1175,12 @@
         {
           "type": "paragraph",
           "id": "cap-8-p12",
-          "text": "Imagina que tienes un libro cerrado sobre tu mesa. El libro contiene una historia completa, instrucciones, datos y estructura. Pero mientras esté cerrado y sobre la mesa, nada está \"ocurriendo\". El libro es estático, pasivo. Eso es un programa. Un programa es simplemente un conjunto de instrucciones almacenadas en el disco duro de tu computadora, como un archivo `.exe`, `.py` o `.html`. Vive en el almacenamiento masivo, ocupa espacio en disco, pero no consume recursos del sistema ni realiza ninguna acción por sí mismo. Es el potencial de hacer algo, no la acción en sí."
+          "text": "Imaginá que tenés un libro cerrado sobre tu mesa. El libro contiene una historia completa, instrucciones, datos y estructura. Pero mientras esté cerrado y sobre la mesa, nada está \"ocurriendo\". El libro es estático, pasivo. Eso es un programa. Un programa es simplemente un conjunto de instrucciones almacenadas en el disco duro de tu computadora, como un archivo `.exe`, `.py` o `.html`. Vive en el almacenamiento masivo, ocupa espacio en disco, pero no consume recursos del sistema ni realiza ninguna acción por sí mismo. Es el potencial de hacer algo, no la acción en sí."
         },
         {
           "type": "paragraph",
           "id": "cap-8-p13",
-          "text": "Sin embargo, cuando abres ese libro y comienzas a leerlo, algo cambia. Tus ojos recorren las páginas, tu cerebro procesa la información, marcas páginas con post-its, subes el tono de voz si lees en voz alta. Esa acción dinámica, ese acto de leer que requiere energía, atención y recursos mentales, es el equivalente a un proceso."
+          "text": "Sin embargo, cuando abrís ese libro y comienzas a leerlo, algo cambia. Tus ojos recorren las páginas, tu cerebro procesa la información, marcas páginas con post-its, subes el tono de voz si leés en voz alta. Esa acción dinámica, ese acto de leer que requiere energía, atención y recursos mentales, es el equivalente a un proceso."
         },
         {
           "type": "paragraph",
@@ -1165,7 +1190,7 @@
         {
           "type": "paragraph",
           "id": "cap-8-p15",
-          "text": "Piensa en la diferencia entre tener instalada la aplicación de un navegador web en tu computadora (el programa, guardado en el disco) y tener la ventana del navegador abierta con varias pestañas cargando sitios web (el proceso). El proceso es la vida del programa en el presente; el programa es su historia guardada para el futuro."
+          "text": "Pensá en la diferencia entre tener instalada la aplicación de un navegador web en tu computadora (el programa, guardado en el disco) y tener la ventana del navegador abierta con varias pestañas cargando sitios web (el proceso). El proceso es la vida del programa en el presente; el programa es su historia guardada para el futuro."
         },
         {
           "type": "heading",
@@ -1186,12 +1211,22 @@
         {
           "type": "paragraph",
           "id": "cap-8-p19",
-          "text": "Cuando haces clic en un enlace o escribes una dirección en la barra de navegación, tu navegador (el cliente) inicia un proceso de solicitud. Este no es un grito al vacío; es una estructura formal y estandarizada conocida como petición HTTP. Cada petición sigue un formato rígido que incluye tres partes fundamentales:"
+          "text": "Cuando hacés clic en un enlace o escribes una dirección en la barra de navegación, tu navegador (el cliente) inicia un proceso de solicitud. Este no es un grito al vacío; es una estructura formal y estandarizada conocida como petición HTTP. Cada petición sigue un formato rígido que incluye tres partes fundamentales:"
         },
         {
           "type": "paragraph",
-          "id": "cap-8-p20",
-          "text": "1.  El método HTTP: Indica qué acción quieres realizar. El más común es `GET`, que simplemente dice \"dame esa información\". Otros métodos, como `POST`, indican que estás enviando datos (como llenar un formulario de registro), y `PUT` sugiere que quieres actualizar un recurso existente. 2.  La URL: La dirección exacta del recurso solicitado. Es como la coordenada en el mapa de internet. 3.  Las cabeceras y el cuerpo: Información adicional que acompaña a la solicitud. Las cabeceras pueden contener datos sobre qué tipo de navegador usas, qué idioma prefieres o tus credenciales de autenticación. El cuerpo, en el caso de los métodos `POST` o `PUT`, contiene los datos que estás enviando."
+          "id": "cap-8-p20-1",
+          "text": "1. El método HTTP: Indica qué acción querés realizar. El más común es `GET`, que simplemente dice \"dame esa información\". Otros métodos, como `POST`, indican que estás enviando datos (como llenar un formulario de registro), y `PUT` sugiere que querés actualizar un recurso existente."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-8-p20-2",
+          "text": "2. La URL: La dirección exacta del recurso solicitado. Es como la coordenada en el mapa de internet."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-8-p20-3",
+          "text": "3. Las cabeceras y el cuerpo: Información adicional que acompaña a la solicitud. Las cabeceras pueden contener datos sobre qué tipo de navegador usás, qué idioma preferís o tus credenciales de autenticación. El cuerpo, en el caso de los métodos `POST` o `PUT`, contiene los datos que estás enviando."
         },
         {
           "type": "paragraph",
@@ -1222,7 +1257,7 @@
         {
           "type": "paragraph",
           "id": "cap-8-p26",
-          "text": "En definitiva, la informática no es solo sobre escribir código. Es sobre entender cómo las técnicas humanas se cristalizan en tecnologías que, a su vez, generan procesos activos que se comunican a través de estándares universales. Cuando cierras este libro y vuelves a tu pantalla, recuerda que cada clic que das activa una cadena de eventos: desde la técnica de quien diseñó la interfaz, pasando por el proceso que se despierta en tu RAM, hasta la petición HTTP que viaja por fibra óptica hasta un servidor en otro lado del mundo, y regresa con la respuesta que finalmente ves. Eres el punto final de una cadena técnica y tecnológica enormemente compleja, pero perfectamente orquestada."
+          "text": "En definitiva, la informática no es solo sobre escribir código. Es sobre entender cómo las técnicas humanas se cristalizan en tecnologías que, a su vez, generan procesos activos que se comunican a través de estándares universales. Cuando cerrás este libro y volvés a tu pantalla, recordá que cada clic que das activa una cadena de eventos: desde la técnica de quien diseñó la interfaz, pasando por el proceso que se despierta en tu RAM, hasta la petición HTTP que viaja por fibra óptica hasta un servidor en otro lado del mundo, y regresa con la respuesta que finalmente ves. Eres el punto final de una cadena técnica y tecnológica enormemente compleja, pero perfectamente orquestada."
         }
       ],
       "meta": {
@@ -1265,7 +1300,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p5",
-          "text": "Para entender la magnitud de lo que vivimos hoy, hay que recordar de dónde salimos. Hace apenas unas décadas, la \"computación\" no era algo que se llevaba en el bolsillo. En la década de 1940, cuando nació la computación electrónica moderna, las máquinas eran colosos físicos. La ENIAC, inaugurada en 1945, pesaba casi treinta toneladas. Ocupaba una sala entera y consumía tanta energía como una pequeña ciudad. No tenía pantalla, ni teclado, ni mouse. Se programaba conectando y desconectando cientos de cables físicos y configurando interruptores."
+          "text": "Para entender la magnitud de lo que vivimos hoy, hay que recordar de dónde salimos. Hace apenas unas décadas, la \"computación\" no era algo que se llevaba en el bolsillo. En la década de 1940, cuando nació la computación electrónica moderna, las máquinas eran colosos físicos. La ENIAC, presentada en público en 1946, pesaba casi treinta toneladas. Ocupaba una sala entera y consumía una enorme cantidad de energía eléctrica. No tenía pantalla, ni teclado, ni mouse. Se programaba conectando y desconectando cientos de cables físicos y configurando interruptores."
         },
         {
           "type": "paragraph",
@@ -1275,7 +1310,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p7",
-          "text": "La solución llegó con la invención del transistor en la década de 1950. Este pequeño componente de silicio podía hacer lo mismo que un tubo de vacío, pero era diminuto, no se calentaba tanto, no se fundía tan rápido y costaba una fracción del precio. La llegada del transistor fue el detonante de la miniaturización. Si antes necesitabas una sala para hacer un cálculo balístico durante la Segunda Guerra Mundial, ahora podías poner una computadora en un escritorio."
+          "text": "La solución llegó con el transistor, inventado en 1947 y de uso masivo desde la década de 1950. Este pequeño componente de silicio podía hacer lo mismo que un tubo de vacío, pero era diminuto, no se calentaba tanto, no se fundía tan rápido y costaba una fracción del precio. La llegada del transistor fue el detonante de la miniaturización. Si antes necesitabas una sala para hacer un cálculo balístico durante la Segunda Guerra Mundial, ahora podías poner una computadora en un escritorio."
         },
         {
           "type": "paragraph",
@@ -1436,7 +1471,7 @@
         {
           "type": "paragraph",
           "id": "cap-10-p2",
-          "text": "Vivimos en una era donde la información es, probablemente, el activo más valioso que poseemos. Ya sea un estudiante guardando su trabajo final, un empresario gestionando sus finanzas o simplemente alguien que envía una foto a un familiar, cada acción digital genera un rastro de datos que debe ser protegido, organizado y accesible. Pero, ¿alguna vez te detuviste a pensar en lo que sucede realmente cuando haces clic en \"Guardar\"? O peor aún, ¿qué ocurre cuando intentas acceder a tus archivos desde una cafetería con Wi-Fi pública? La respuesta no es simple: implica una coreografía compleja de sistemas operativos, estructuras lógicas y protocolos de seguridad que trabajan silenciosamente en segundo plano. En este capítulo, vamos a desglosar esa coreografía. No hablaremos de magia negra, sino de cómo la informática organiza el caos digital para que tú puedas vivir en orden y, al mismo tiempo, cómo blindamos esa información contra los peligros del mundo exterior."
+          "text": "Vivimos en una era donde la información es, probablemente, el activo más valioso que poseemos. Ya sea un estudiante guardando su trabajo final, un empresario gestionando sus finanzas o simplemente alguien que envía una foto a un familiar, cada acción digital genera un rastro de datos que debe ser protegido, organizado y accesible. Pero, ¿alguna vez te detuviste a pensar en lo que sucede realmente cuando hacés clic en \"Guardar\"? O peor aún, ¿qué ocurre cuando intentas acceder a tus archivos desde una cafetería con Wi-Fi pública? La respuesta no es simple: implica una coreografía compleja de sistemas operativos, estructuras lógicas y protocolos de seguridad que trabajan silenciosamente en segundo plano. En este capítulo, vamos a desglosar esa coreografía. No hablaremos de magia negra, sino de cómo la informática organiza el caos digital para que vos puedas vivir en orden y, al mismo tiempo, cómo blindamos esa información contra los peligros del mundo exterior."
         },
         {
           "type": "heading",
@@ -1452,7 +1487,7 @@
         {
           "type": "paragraph",
           "id": "cap-10-p5",
-          "text": "La herramienta más poderosa que tiene un sistema de archivos moderno es la estructura jerárquica. Imaginá un árbol invertido. En la punta, o raíz, encontrás el dispositivo completo (como `C:\\` en Windows o `/` en Linux). De esa raíz brotan los directorios, que son como las ramas principales, y dentro de ellas, otras ramas más pequeñas (subdirectorios o carpetas), hasta llegar a las hojas: los archivos individuales. Esta organización no es arbitraria; permite que el sistema localice la información de manera eficiente. Cuando abres un documento, el sistema no escanea todo el disco duro buscando el archivo; utiliza lo que llamamos una ruta. Una ruta absoluta te dice exactamente dónde está el archivo desde la raíz absoluta (por ejemplo, `/home/usuario/documentos/tarea.pdf`), mientras que una ruta relativa te da instrucciones desde tu ubicación actual. Es como decirle a alguien: \"Sube dos calles y gira a la derecha\", en lugar de darle las coordenadas GPS exactas desde el polo norte."
+          "text": "La herramienta más poderosa que tiene un sistema de archivos moderno es la estructura jerárquica. Imaginá un árbol invertido. En la punta, o raíz, encontrás el dispositivo completo (como `C:\\` en Windows o `/` en Linux). De esa raíz brotan los directorios, que son como las ramas principales, y dentro de ellas, otras ramas más pequeñas (subdirectorios o carpetas), hasta llegar a las hojas: los archivos individuales. Esta organización no es arbitraria; permite que el sistema localice la información de manera eficiente. Cuando abrís un documento, el sistema no escanea todo el disco duro buscando el archivo; utiliza lo que llamamos una ruta. Una ruta absoluta te dice exactamente dónde está el archivo desde la raíz absoluta (por ejemplo, `/home/usuario/documentos/tarea.pdf`), mientras que una ruta relativa te da instrucciones desde tu ubicación actual. Es como decirle a alguien: \"Sube dos calles y gira a la derecha\", en lugar de darle las coordenadas GPS exactas desde el polo norte."
         },
         {
           "type": "paragraph",
@@ -1673,7 +1708,7 @@
         {
           "type": "paragraph",
           "id": "cap-11-p19",
-          "text": "El software propietario es el modelo tradicional. Cuando comprás Windows o Photoshop, estás adquiriendo una licencia de uso, pero no la propiedad del código. El código fuente (las instrucciones que hacen que el programa funcione) está cerrado y es secreto comercial. Puedes usarlo, pero no puedes estudiar cómo está hecho, modificarlo ni compartirlo libremente. Esto protege la inversión de las empresas desarrolladoras, pero limita la capacidad del usuario de entender y adaptar la herramienta a sus necesidades."
+          "text": "El software propietario es el modelo tradicional. Cuando comprás Windows o Photoshop, estás adquiriendo una licencia de uso, pero no la propiedad del código. El código fuente (las instrucciones que hacen que el programa funcione) está cerrado y es secreto comercial. Podés usarlo, pero no podés estudiar cómo está hecho, modificarlo ni compartirlo libremente. Esto protege la inversión de las empresas desarrolladoras, pero limita la capacidad del usuario de entender y adaptar la herramienta a sus necesidades."
         },
         {
           "type": "paragraph",
@@ -1773,7 +1808,7 @@
         {
           "type": "paragraph",
           "id": "cap-12-p12",
-          "text": "Este aislamiento total es una ventaja enorme para la seguridad y la estabilidad. Puedes ejecutar aplicaciones antiguas que solo funcionan en Windows 95 dentro de una VM sin miedo a que rompan la estabilidad de tu computadora moderna. También es ideal para pruebas de software: un desarrollador puede crear una VM limpia, instalar una aplicación nueva, probarla y, si algo sale mal, simplemente borrar la VM y empezar de cero, sin dejar rastros en el equipo real."
+          "text": "Este aislamiento total es una ventaja enorme para la seguridad y la estabilidad. Podés ejecutar aplicaciones antiguas que solo funcionan en Windows 95 dentro de una VM sin miedo a que rompan la estabilidad de tu computadora moderna. También es ideal para pruebas de software: un desarrollador puede crear una VM limpia, instalar una aplicación nueva, probarla y, si algo sale mal, simplemente borrar la VM y empezar de cero, sin dejar rastros en el equipo real."
         },
         {
           "type": "paragraph",
@@ -1804,7 +1839,22 @@
         {
           "type": "paragraph",
           "id": "cap-12-p18",
-          "text": "Esta arquitectura hace que los contenedores sean extremadamente ligeros. No hay un sistema operativo guest que arrancar. Un contenedor es básicamente el código de la aplicación más las bibliotecas y dependencias específicas que esa aplicación necesita para funcionar. Esto se traduce en ventajas enormes: 1.  Velocidad: Un contenedor puede arrancarse en milisegundos, casi al instante, porque no hay que inicializar un kernel ni cargar un sistema operativo completo. 2.  Eficiencia de recursos: Como comparten el kernel, la huella de memoria es mínima. Podés correr cientos de contenedores en el mismo espacio donde antes solo podías correr unas pocas VMs. 3.  Portabilidad: Un contenedor contiene todo lo que la aplicación necesita. Si funciona en tu computadora portátil, funcionará exactamente igual en el servidor de producción, porque el \"entorno\" viaja con la aplicación."
+          "text": "Esta arquitectura hace que los contenedores sean extremadamente ligeros. No hay un sistema operativo guest que arrancar. Un contenedor es básicamente el código de la aplicación más las bibliotecas y dependencias específicas que esa aplicación necesita para funcionar. Esto se traduce en ventajas enormes:"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-12-p18-1",
+          "text": "1. Velocidad: Un contenedor puede arrancarse en milisegundos, casi al instante, porque no hay que inicializar un kernel ni cargar un sistema operativo completo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-12-p18-2",
+          "text": "2. Eficiencia de recursos: Como comparten el kernel, la huella de memoria es mínima. Podés correr cientos de contenedores en el mismo espacio donde antes solo podías correr unas pocas VMs."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-12-p18-3",
+          "text": "3. Portabilidad: Un contenedor contiene todo lo que la aplicación necesita. Si funciona en tu computadora portátil, funcionará exactamente igual en el servidor de producción, porque el \"entorno\" viaja con la aplicación."
         },
         {
           "type": "heading",

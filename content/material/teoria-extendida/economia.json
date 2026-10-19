@@ -125,7 +125,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p4",
-          "text": "Todo punto de partida para entender la economía moderna es la organización, ya sea una gran multinacional, una pequeña cooperativa local o una startup de tecnología. Para que entiendas bien cómo funciona, ten que dejar de verla como una caja negra y empezar a verla como un sistema abierto. Esto significa que la organización no existe en el vacío; está permanentemente interactuando con su entorno."
+          "text": "Todo punto de partida para entender la economía moderna es la organización, ya sea una gran multinacional, una pequeña cooperativa local o una startup de tecnología. Para que entiendas bien cómo funciona, tenés que dejar de verla como una caja negra y empezar a verla como un sistema abierto. Esto significa que la organización no existe en el vacío; está permanentemente interactuando con su entorno."
         },
         {
           "type": "paragraph",
@@ -161,7 +161,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p11",
-          "text": "Pero todo esto tiene un costo. Por eso, en la parte inferior del lienzo, analizás la Estructura de Costos (qué gastos fijos y variables tenés) y los Recursos Clave (qué necesitas tener: dinero, patentes, talento humano) y las Actividades Clave (qué tenés que hacer día a día: producción, resolución de problemas, plataformas). Finalmente, miramos hacia el resultado: el Flujo de Ingresos (cómo y cuánto ganás) y las Partes Interesadas (quién más se ve afectado por tu negocio, como proveedores o la comunidad). El Canvas te ayuda a ver si tu modelo es coherente: ¿tus ingresos cubren tus costos? ¿tus canales llegan realmente a tus clientes?"
+          "text": "Pero todo esto tiene un costo. Por eso, en la parte inferior del lienzo, analizás la Estructura de Costos (qué gastos fijos y variables tenés) y los Recursos Clave (qué necesitás tener: dinero, patentes, talento humano) y las Actividades Clave (qué tenés que hacer día a día: producción, resolución de problemas, plataformas). Finalmente, miramos hacia el resultado: el Flujo de Ingresos (cómo y cuánto ganás) y las Partes Interesadas (quién más se ve afectado por tu negocio, como proveedores o la comunidad). El Canvas te ayuda a ver si tu modelo es coherente: ¿tus ingresos cubren tus costos? ¿tus canales llegan realmente a tus clientes?"
         },
         {
           "type": "heading",
@@ -192,7 +192,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p17",
-          "text": "Ahora, ten cuidado con una idea común: ni el superávit ni el déficit son automáticamente buenos o malos. Es un error pensar que un superávit siempre es señal de salud económica. A veces, un país tiene superávit porque está en recesión y sus ciudadanos están comprando menos del exterior. Por otro lado, un déficit no siempre es catastrófico. Si un país tiene déficit porque está importando maquinaria moderna para invertir en su industria futura, ese déficit puede ser una señal de crecimiento y desarrollo. El número solo no dice la historia; hace falta contexto."
+          "text": "Ahora, tené cuidado con una idea común: ni el superávit ni el déficit son automáticamente buenos o malos. Es un error pensar que un superávit siempre es señal de salud económica. A veces, un país tiene superávit porque está en recesión y sus ciudadanos están comprando menos del exterior. Por otro lado, un déficit no siempre es catastrófico. Si un país tiene déficit porque está importando maquinaria moderna para invertir en su industria futura, ese déficit puede ser una señal de crecimiento y desarrollo. El número solo no dice la historia; hace falta contexto."
         },
         {
           "type": "paragraph",
@@ -349,7 +349,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p10",
-          "text": "Dentro de este sistema, hay una distinción fundamental que tenés que tener en cuenta: la diferencia entre el ciclo comercial y el ciclo industrial. Aunque ambas buscan ganar dinero, su proceso es distinto. En el ciclo comercial, la empresa compra bienes ya terminados y los vende sin modificarlos. Piensa en un supermercado o una tienda de ropa en Argentina: compran mercadería a un proveedor y la revenden. El costo principal es el precio de compra. En cambio, en el ciclo industrial, la empresa transforma materias primas en productos terminados. Acá el costo no es solo la materia prima, sino también la mano de obra directa y los gastos indirectos de fabricación. Entender esta diferencia es crucial porque determina qué datos son relevantes para cada tipo de negocio. La contabilidad, entonces, no es solo sumar y restar; es traducir la actividad real de la empresa en un lenguaje universal que cualquiera pueda entender."
+          "text": "Dentro de este sistema, hay una distinción fundamental que tenés que tener en cuenta: la diferencia entre el ciclo comercial y el ciclo industrial. Aunque ambas buscan ganar dinero, su proceso es distinto. En el ciclo comercial, la empresa compra bienes ya terminados y los vende sin modificarlos. Pensá en un supermercado o una tienda de ropa en Argentina: compran mercadería a un proveedor y la revenden. El costo principal es el precio de compra. En cambio, en el ciclo industrial, la empresa transforma materias primas en productos terminados. Acá el costo no es solo la materia prima, sino también la mano de obra directa y los gastos indirectos de fabricación. Entender esta diferencia es crucial porque determina qué datos son relevantes para cada tipo de negocio. La contabilidad, entonces, no es solo sumar y restar; es traducir la actividad real de la empresa en un lenguaje universal que cualquiera pueda entender."
         },
         {
           "type": "heading",
@@ -553,7 +553,27 @@
         {
           "type": "paragraph",
           "id": "cap-3-p23",
-          "text": "Para visualizar esto de manera integral, muchas organizaciones utilizan el Cuadro de Mando Integral (Balanced Scorecard). Este marco no se limita a los números financieros, sino que observa el desempeño desde cuatro perspectivas interconectadas: 1.  Financiera: ¿Logramos nuestros objetivos económicos? 2.  Cliente: ¿Estamos satisfaciendo las necesidades de nuestros usuarios? 3.  Procesos internos: ¿Operamos con eficiencia y calidad? 4.  Aprendizaje y crecimiento: ¿Estamos invirtiendo en nuestro equipo y tecnología para el futuro?"
+          "text": "Para visualizar esto de manera integral, muchas organizaciones utilizan el Cuadro de Mando Integral (Balanced Scorecard). Este marco no se limita a los números financieros, sino que observa el desempeño desde cuatro perspectivas interconectadas:"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p23-1",
+          "text": "1. Financiera: ¿Logramos nuestros objetivos económicos?"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p23-2",
+          "text": "2. Cliente: ¿Estamos satisfaciendo las necesidades de nuestros usuarios?"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p23-3",
+          "text": "3. Procesos internos: ¿Operamos con eficiencia y calidad?"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p23-4",
+          "text": "4. Aprendizaje y crecimiento: ¿Estamos invirtiendo en nuestro equipo y tecnología para el futuro?"
         },
         {
           "type": "paragraph",
@@ -1146,7 +1166,42 @@
         {
           "type": "paragraph",
           "id": "cap-7-p19",
-          "text": "Para llegar a estos estados, la empresa recorre el ciclo contable completo. Imaginá este recorrido paso a paso: 1. Ocurre un hecho económico (una venta, un pago). 2. Se registra en el Libro Diario mediante la partida doble (cada débito tiene un crédito equivalente). 3. Esa información se pasa al Libro Mayor, donde se agrupan por tipo de cuenta. 4. Se hace un Balance de Comprobación para verificar que la suma de débitos sea igual a la de créditos. Si no coinciden, hay un error de carga. 5. Se aplican ajustes de cierre, como reconocer la depreciación de una máquina que se usó durante el mes. 6. Finalmente, se arman los Estados Contables con los saldos ajustados. 7. Se cierra el ejercicio: las cuentas de ingresos y gastos se vacían y su resultado neto (la ganancia o pérdida del Estado de Resultados) se traslada al Patrimonio."
+          "text": "Para llegar a estos estados, la empresa recorre el ciclo contable completo. Imaginá este recorrido paso a paso:"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-7-p19-1",
+          "text": "1. Ocurre un hecho económico (una venta, un pago)."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-7-p19-2",
+          "text": "2. Se registra en el Libro Diario mediante la partida doble (cada débito tiene un crédito equivalente)."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-7-p19-3",
+          "text": "3. Esa información se pasa al Libro Mayor, donde se agrupan por tipo de cuenta."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-7-p19-4",
+          "text": "4. Se hace un Balance de Comprobación para verificar que la suma de débitos sea igual a la de créditos. Si no coinciden, hay un error de carga."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-7-p19-5",
+          "text": "5. Se aplican ajustes de cierre, como reconocer la depreciación de una máquina que se usó durante el mes."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-7-p19-6",
+          "text": "6. Finalmente, se arman los Estados Contables con los saldos ajustados."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-7-p19-7",
+          "text": "7. Se cierra el ejercicio: las cuentas de ingresos y gastos se vacían y su resultado neto (la ganancia o pérdida del Estado de Resultados) se traslada al Patrimonio."
         },
         {
           "type": "paragraph",
@@ -1398,7 +1453,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p6",
-          "text": "Volviendo al ejemplo anterior, con los mismos $100.000 y una tasa del 5% anual, la primera año es igual: ganás $5.000. Pero en el segundo año, no calculás el 5% sobre los $100.000 originales, sino sobre los $105.000 que tenés ahora (los $100.000 iniciales más los $5.000 ganados). Por lo tanto, el interés del segundo año es de $5.250. En el tercer año, calculás sobre $110.250, y así sucesivamente. El crecimiento no es una línea recta, sino una curva que se empina cada vez más rápido. Matemáticamente, esto se describe mediante una función exponencial, donde la variable tiempo (`t`) está en el exponente. La fórmula general es $M = C \\times (1 + r)^t$, donde `M` es el monto final, `C` el capital inicial, `r` la tasa decimal y `t` el tiempo."
+          "text": "Volviendo al ejemplo anterior, con los mismos $100.000 y una tasa del 5% anual, el primer año es igual: ganás $5.000. Pero en el segundo año, no calculás el 5% sobre los $100.000 originales, sino sobre los $105.000 que tenés ahora (los $100.000 iniciales más los $5.000 ganados). Por lo tanto, el interés del segundo año es de $5.250. En el tercer año, calculás sobre $110.250, y así sucesivamente. El crecimiento no es una línea recta, sino una curva que se empina cada vez más rápido. Matemáticamente, esto se describe mediante una función exponencial, donde la variable tiempo (`t`) está en el exponente. La fórmula general es $M = C \\times (1 + r)^t$, donde `M` es el monto final, `C` el capital inicial, `r` la tasa decimal y `t` el tiempo."
         },
         {
           "type": "paragraph",
@@ -1638,7 +1693,7 @@
         {
           "type": "paragraph",
           "id": "cap-11-p5",
-          "text": "Pero, ¿cómo se intercambiaba ese excedente? Al principio, surgió el trueque. Era un sistema directo: tú me das cerámica, yo te doy trigo. Funcionaba bien en aldeas pequeñas donde todos se conocían. Pero a medida que las sociedades crecían y la variedad de productos se multiplicaba, el trueque se volvió una pesadilla logística. El problema principal era la doble coincidencia de necesidades. Para que el trueque funcione, no solo tenés que tener lo que el otro quiere, sino que el otro también tiene que querer exactamente lo que vos tenés. Si vos tenés trigo y necesitás zapatos, pero el zapatero no tiene hambre y prefiere lana, el intercambio se traba."
+          "text": "Pero, ¿cómo se intercambiaba ese excedente? Al principio, surgió el trueque. Era un sistema directo: vos me das cerámica, yo te doy trigo. Funcionaba bien en aldeas pequeñas donde todos se conocían. Pero a medida que las sociedades crecían y la variedad de productos se multiplicaba, el trueque se volvió una pesadilla logística. El problema principal era la doble coincidencia de necesidades. Para que el trueque funcione, no solo tenés que tener lo que el otro quiere, sino que el otro también tiene que querer exactamente lo que vos tenés. Si vos tenés trigo y necesitás zapatos, pero el zapatero no tiene hambre y prefiere lana, el intercambio se traba."
         },
         {
           "type": "paragraph",
@@ -1822,7 +1877,7 @@
         {
           "type": "paragraph",
           "id": "cap-12-p8",
-          "text": "Imaginemos que ya conseguiste el financiamiento gracias a tu pitch. Ahora debes establecer tres pilares inamovibles: los objetivos (qué querés lograr, medible y claro), las estrategias (cómo lo vas a lograr) y los recursos (con qué contás). Si uno de estos tres falla, la planificación se derrumba. Pero hay un cuarto elemento invisible que sostiene todo: el tiempo. Un cronograma realista es vital. Si no definís cuándo inicia la producción o cuándo se lanza el marketing, la mejor estrategia del mundo puede llegar tarde, cuando la oportunidad ya pasó. La planificación es, en esencia, la gestión del riesgo a través de la estructura temporal."
+          "text": "Imaginemos que ya conseguiste el financiamiento gracias a tu pitch. Ahora tenés que establecer tres pilares inamovibles: los objetivos (qué querés lograr, medible y claro), las estrategias (cómo lo vas a lograr) y los recursos (con qué contás). Si uno de estos tres falla, la planificación se derrumba. Pero hay un cuarto elemento invisible que sostiene todo: el tiempo. Un cronograma realista es vital. Si no definís cuándo inicia la producción o cuándo se lanza el marketing, la mejor estrategia del mundo puede llegar tarde, cuando la oportunidad ya pasó. La planificación es, en esencia, la gestión del riesgo a través de la estructura temporal."
         },
         {
           "type": "heading",
@@ -2281,7 +2336,7 @@
         {
           "type": "paragraph",
           "id": "cap-14-p33",
-          "text": "Para entender realmente cómo está distribuida la riqueza, no basta con un promedio. Hay que usar percentiles o deciles. El decil 1 es el 10% más pobre; el decil 10 es el 10% más rico. Comparar el ingreso del decil 5 (la mitad de la población) con el del decil 9 (el 10% más rico) nos da una imagen mucho más honesta de la desigualdad y del nivel de vida real de la mayoría."
+          "text": "Para entender realmente cómo está distribuida la riqueza, no basta con un promedio. Hay que usar percentiles o deciles. El decil 1 es el 10% más pobre; el decil 10 es el 10% más rico. Comparar el ingreso del decil 5 (el centro de la distribución) con el del decil 10 (el 10% más rico) nos da una imagen mucho más honesta de la desigualdad y del nivel de vida real de la mayoría."
         },
         {
           "type": "heading",
@@ -2387,12 +2442,12 @@
         {
           "type": "paragraph",
           "id": "cap-15-p13",
-          "text": "Ahora bien, supongamos que tienes una idea para un proyecto productivo. ¿Cómo sabes si funcionará? En el mundo de la economía, la incertidumbre es una variable constante. No podemos predecir el futuro con certeza absoluta, por lo que las decisiones deben tomarse bajo condiciones de riesgo. Aquí entra en juego una metodología moderna que ha revolucionado la forma de entender el emprendimiento: el ciclo de Construir-Medir-Aprender, núcleo de la filosofía Lean Startup."
+          "text": "Ahora bien, supongamos que tenés una idea para un proyecto productivo. ¿Cómo sabés si funcionará? En el mundo de la economía, la incertidumbre es una variable constante. No podemos predecir el futuro con certeza absoluta, por lo que las decisiones deben tomarse bajo condiciones de riesgo. Aquí entra en juego una metodología moderna que ha revolucionado la forma de entender el emprendimiento: el ciclo de Construir-Medir-Aprender, núcleo de la filosofía Lean Startup."
         },
         {
           "type": "paragraph",
           "id": "cap-15-p14",
-          "text": "Este proceso comienza al construir un Producto Mínimo Viable (MVP). Un MVP no es un producto incompleto ni de mala calidad; es una versión funcional y reducida de la idea original, diseñada para probar hipótesis específicas con el menor esfuerzo posible. Si quieres validar que los usuarios pagarían por un servicio digital, el MVP podría ser una prueba en línea con precios limitados o características simplificadas. El objetivo no es perfeccionar el producto desde el inicio, sino obtener respuestas claras sobre lo que los clientes valoran."
+          "text": "Este proceso comienza al construir un Producto Mínimo Viable (MVP). Un MVP no es un producto incompleto ni de mala calidad; es una versión funcional y reducida de la idea original, diseñada para probar hipótesis específicas con el menor esfuerzo posible. Si querés validar que los usuarios pagarían por un servicio digital, el MVP podría ser una prueba en línea con precios limitados o características simplificadas. El objetivo no es perfeccionar el producto desde el inicio, sino obtener respuestas claras sobre lo que los clientes valoran."
         },
         {
           "type": "paragraph",

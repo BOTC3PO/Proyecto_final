@@ -137,8 +137,13 @@
         },
         {
           "type": "paragraph",
-          "id": "cap-1-p17",
-          "text": "1.  Causas inmediatas: Son los hechos puntuales que \"disparan\" directamente un acontecimiento. Por ejemplo, el asesinato del archiduque Francisco Fernando fue la causa inmediata de la Primera Guerra Mundial. Fue el detonante. 2.  Causas profundas (o estructurales): Son las condiciones de fondo que venían gestándose desde antes. Sin las tensiones entre potencias europeas, las alianzas militares y el nacionalismo exacerbado, el asesinato no habría desatado una guerra mundial. Esas causas estructurales explican por qué el detonante tuvo un efecto tan catastrófico."
+          "id": "cap-1-p17-1",
+          "text": "1. Causas inmediatas: Son los hechos puntuales que \"disparan\" directamente un acontecimiento. Por ejemplo, el asesinato del archiduque Francisco Fernando fue la causa inmediata de la Primera Guerra Mundial. Fue el detonante."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p17-2",
+          "text": "2. Causas profundas (o estructurales): Son las condiciones de fondo que venían gestándose desde antes. Sin las tensiones entre potencias europeas, las alianzas militares y el nacionalismo exacerbado, el asesinato no habría desatado una guerra mundial. Esas causas estructurales explican por qué el detonante tuvo un efecto tan catastrófico."
         },
         {
           "type": "paragraph",
@@ -226,7 +231,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p34",
-          "text": "La historia no es una sucesión de datos muertos. Es un proceso dinámico donde el tiempo, el cambio, la continuidad y la causalidad se entrelazan. Al dominar estas herramientas, no solo recordás mejor los hechos, sino que podés pensar críticamente sobre el presente, entendiendo que lo que vivimos hoy es el resultado de procesos largos, complejos y profundamente humanos. La próxima vez que leas sobre un acontecimiento histórico, pregúntate: ¿qué está cambiando y qué se mantiene? ¿Cuáles son las causas profundas? ¿Cómo se mide el tiempo entre ese entonces y este ahora? Esas preguntas son el comienzo de una verdadera comprensión histórica."
+          "text": "La historia no es una sucesión de datos muertos. Es un proceso dinámico donde el tiempo, el cambio, la continuidad y la causalidad se entrelazan. Al dominar estas herramientas, no solo recordás mejor los hechos, sino que podés pensar críticamente sobre el presente, entendiendo que lo que vivimos hoy es el resultado de procesos largos, complejos y profundamente humanos. La próxima vez que leas sobre un acontecimiento histórico, preguntate: ¿qué está cambiando y qué se mantiene? ¿Cuáles son las causas profundas? ¿Cómo se mide el tiempo entre ese entonces y este ahora? Esas preguntas son el comienzo de una verdadera comprensión histórica."
         }
       ],
       "meta": {
@@ -274,7 +279,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p6",
-          "text": "Del mismo modo, cuando hablamos de \"los años 80\", nos referimos a la década de 1980 a 1989. Aunque técnicamente una década estricta empezaría en 1980 y terminaría en 1889, en el uso cotidiano aceptamos esa convención más simple. ¿Por qué importa esto? Porque nos permite pensar en escalas adecuadas. La Revolución Industrial no fue un hecho de un año, sino un proceso que abarcó décadas y siglos. Agrupar el tiempo nos permite ver esos procesos largos, esas estructuras profundas que cambian lentamente, en lugar de perdernos en la inmediatez de los años sueltos."
+          "text": "Del mismo modo, cuando hablamos de \"los años 80\", nos referimos a la década de 1980 a 1989. Aunque, igual que con los siglos, una década estricta iría de 1981 a 1990, en el uso cotidiano aceptamos esa convención más simple. ¿Por qué importa esto? Porque nos permite pensar en escalas adecuadas. La Revolución Industrial no fue un hecho de un año, sino un proceso que abarcó décadas y siglos. Agrupar el tiempo nos permite ver esos procesos largos, esas estructuras profundas que cambian lentamente, en lugar de perdernos en la inmediatez de los años sueltos."
         },
         {
           "type": "heading",
@@ -295,7 +300,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p10",
-          "text": "Si aplicamos esto al contexto argentino de mediados del siglo XIX, por ejemplo, no alcanza con mirar la caída de Rosas o la batalla de Caseros. Hay que mirar las estructuras. ¿Cómo era la economía de la Confederación Argentina en la década de 1850? Aquí entra en juego la Ley de Aduanas de 1854, promulgada por Justo José de Urquiza. Esta ley no fue solo un documento administrativo; fue una estructura económica profunda. Buscaba proteger la producción local de la competencia británica mediante aranceles altos. Sin embargo, chocó frontalmente con las provincias del Litoral, como Entre Ríos y Corrientes."
+          "text": "Si aplicamos esto al contexto argentino de mediados del siglo XIX, por ejemplo, no alcanza con mirar la caída de Rosas o la batalla de Caseros. Hay que mirar las estructuras. ¿Cómo era la economía de la Confederación Argentina en la década de 1850? Aquí entra en juego la política aduanera de la Confederación, presidida por Justo José de Urquiza. Con Buenos Aires separada desde 1852 y dueña de la principal aduana del país, el gobierno de Paraná dependía de los derechos que cobraba en sus propios puertos y llegó a sancionar derechos diferenciales (1856) para desviar el comercio hacia ellos. Esa política no fue solo un documento administrativo; fue una estructura económica profunda. Sin embargo, no logró quebrar la ventaja de Buenos Aires, que concentraba el comercio exterior y los ingresos aduaneros."
         },
         {
           "type": "paragraph",
@@ -326,7 +331,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p16",
-          "text": "Al analizar la Ley de Aduanas de 1854, por ejemplo, no nos conformamos con leer un resumen moderno. Vamos a la fuente primaria: el texto de la ley, las discusiones en el congreso, las cartas de los comerciantes que se quejaban de los impuestos. Al contrastar estas fuentes independientes, podemos reconstruir con mayor precisión cómo se vivió esa tensión entre el gobierno nacional y las provincias del Litoral. La evidencia nos permite pasar de la anécdota a la comprensión estructural."
+          "text": "Al analizar la política aduanera de la Confederación, por ejemplo, no nos conformamos con leer un resumen moderno. Vamos a la fuente primaria: el texto de la ley, las discusiones en el congreso, las cartas de los comerciantes que se quejaban de los impuestos. Al contrastar estas fuentes independientes, podemos reconstruir con mayor precisión cómo se vivió esa tensión entre el gobierno nacional y las provincias del Litoral. La evidencia nos permite pasar de la anécdota a la comprensión estructural."
         },
         {
           "type": "heading",
@@ -368,7 +373,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p24",
-          "text": "Al analizar, por ejemplo, la crisis de la Confederación Argentina, no vemos solo fechas y nombres. Vemos un proceso de larga duración donde las estructuras económicas regionales (la Ley de Aduanas) chocaron con la autonomía provincial, evidenciado por fuentes primarias que nos muestran la tensión, y cuya memoria debemos manejar con ética para entender las raíces de nuestra organización nacional actual. La historia, en definitiva, no es el pasado muerto; es el pasado vivo que dialoga con nosotros, exigiendo que seamos mejores ciudadanos gracias a lo que hemos aprendido."
+          "text": "Al analizar, por ejemplo, la crisis de la Confederación Argentina, no vemos solo fechas y nombres. Vemos un proceso de larga duración donde las estructuras económicas regionales (la política aduanera) chocaron con la autonomía provincial, evidenciado por fuentes primarias que nos muestran la tensión, y cuya memoria debemos manejar con ética para entender las raíces de nuestra organización nacional actual. La historia, en definitiva, no es el pasado muerto; es el pasado vivo que dialoga con nosotros, exigiendo que seamos mejores ciudadanos gracias a lo que hemos aprendido."
         }
       ],
       "meta": {
@@ -651,8 +656,23 @@
         },
         {
           "type": "paragraph",
-          "id": "cap-4-p24",
-          "text": "1.  ¿Quién la produjo? ¿Era un periodista cercano al gobierno, un opositor, o un experto económico? Su posición determina su mirada. 2.  ¿Cuándo y dónde se produjo? ¿Fue escrito durante el auge industrial o después de la crisis? El momento influye en la urgencia y el tono del mensaje. 3.  ¿Para quién y con qué propósito? ¿Quería convencer a los obreros de apoyar al gobierno? ¿Quería asustar a los inversores extranjeros? El propósito define el contenido. 4.  ¿Qué dice explícitamente y qué se puede inferir? A veces, lo que una fuente no dice es tan importante como lo que dice. Si un informe oficial sobre la industrialización no menciona los problemas de inflación o la escasez de bienes, eso también es información: sugiere que el gobierno estaba intentando ocultar o minimizar esos problemas."
+          "id": "cap-4-p24-1",
+          "text": "1. ¿Quién la produjo? ¿Era un periodista cercano al gobierno, un opositor, o un experto económico? Su posición determina su mirada."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p24-2",
+          "text": "2. ¿Cuándo y dónde se produjo? ¿Fue escrito durante el auge industrial o después de la crisis? El momento influye en la urgencia y el tono del mensaje."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p24-3",
+          "text": "3. ¿Para quién y con qué propósito? ¿Quería convencer a los obreros de apoyar al gobierno? ¿Quería asustar a los inversores extranjeros? El propósito define el contenido."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p24-4",
+          "text": "4. ¿Qué dice explícitamente y qué se puede inferir? A veces, lo que una fuente no dice es tan importante como lo que dice. Si un informe oficial sobre la industrialización no menciona los problemas de inflación o la escasez de bienes, eso también es información: sugiere que el gobierno estaba intentando ocultar o minimizar esos problemas."
         },
         {
           "type": "paragraph",
@@ -775,7 +795,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p16",
-          "text": "Al estudiar estos temas, no busques solo memorizar fechas. Intenta ver los hilos que conectan la teoría con la práctica. La periodización es nuestra brújula para no perdernos en el tiempo. El positivismo fue un intento (imperfecto) de ser rigurosos. Las revoluciones, como la mexicana, y las reformas, como la universitaria, son la prueba de que la historia la hacen las personas, las organizaciones y las ideas que se atreven a desafiar el orden establecido."
+          "text": "Al estudiar estos temas, no busques solo memorizar fechas. Intentá ver los hilos que conectan la teoría con la práctica. La periodización es nuestra brújula para no perdernos en el tiempo. El positivismo fue un intento (imperfecto) de ser rigurosos. Las revoluciones, como la mexicana, y las reformas, como la universitaria, son la prueba de que la historia la hacen las personas, las organizaciones y las ideas que se atreven a desafiar el orden establecido."
         },
         {
           "type": "paragraph",
@@ -839,7 +859,7 @@
         {
           "type": "paragraph",
           "id": "cap-6-p8",
-          "text": "La caída de Rosas en 1852 no trajo la unidad nacional que muchos esperaban, sino que abrió la puerta a una guerra civil entre los unitarios, liderados por Justo José de Urquiza, y los rosistas. Pero antes de esa derrota definitiva, ya se había gestado un símbolo potente de la resistencia nacional. La batalla de la Vuelta de Obligado, librada el 20 de noviembre de 1842, es crucial para comprender la mentalidad política de la época. En ese episodio, las fuerzas rosistas intentaron impedir el paso de una flota anglo-francesa por el río Paraná. A pesar de la superioridad técnica y numérica de los invasores, los defensores argentinos opusieron una resistencia feroz, utilizando cadenas y cadenas de fuego para dificultar el avance de los barcos."
+          "text": "La caída de Rosas en la batalla de Caseros (1852), a manos de un ejército liderado por el federal entrerriano Justo José de Urquiza, no trajo la unidad nacional que muchos esperaban: Buenos Aires se separó de la Confederación y la tensión entre ambos Estados terminó en enfrentamientos armados. Pero antes de esa derrota definitiva, ya se había gestado un símbolo potente de la resistencia nacional. La batalla de la Vuelta de Obligado, librada el 20 de noviembre de 1845, es crucial para comprender la mentalidad política de la época. En ese episodio, las fuerzas rosistas intentaron impedir el paso de una flota anglo-francesa por el río Paraná. A pesar de la superioridad técnica y numérica de los invasores, los defensores argentinos opusieron una resistencia feroz, tendiendo gruesas cadenas de orilla a orilla y usando brulotes (barcos incendiarios) para dificultar el avance de los barcos. Al mando del general Lucio N. Mansilla, resistieron hasta agotar la munición, aunque la flota terminó forzando el paso."
         },
         {
           "type": "paragraph",

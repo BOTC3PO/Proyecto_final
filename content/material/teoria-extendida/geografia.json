@@ -408,7 +408,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p21",
-          "text": "Dentro del ecologismo político, la vertiente más desarrollada es el ecosocialismo. Esta corriente, que tiene sus bases teóricas en el Manifiesto Ecosocialista Internacional (lanzada por autores como Joel Kovel y Michael Löwy en 2001), combina el análisis marxista de clases con la crítica ecológica. Sostiene que la explotación del trabajo humano y la explotación de la naturaleza tienen la misma raíz: la lógica capitalista de extracción de plusvalía. Para los ecosocialistas, no se puede resolver la injusticia social sin resolver la injusticia ecológica, y viceversa. Ambas son dos caras de la misma moneda."
+          "text": "Dentro del ecologismo político, la vertiente más desarrollada es el ecosocialismo. Esta corriente, que tiene sus bases teóricas en el Manifiesto Ecosocialista Internacional (lanzado por autores como Joel Kovel y Michael Löwy en 2001), combina el análisis marxista de clases con la crítica ecológica. Sostiene que la explotación del trabajo humano y la explotación de la naturaleza tienen la misma raíz: la lógica capitalista de extracción de plusvalía. Para los ecosocialistas, no se puede resolver la injusticia social sin resolver la injusticia ecológica, y viceversa. Ambas son dos caras de la misma moneda."
         },
         {
           "type": "paragraph",
@@ -595,7 +595,22 @@
         {
           "type": "paragraph",
           "id": "cap-4-p25",
-          "text": "Este índice se basa en tres dimensiones principales: 1.  Salud: medida a través de la esperanza de vida al nacer. Cuanto mayor es este número, mejor es el acceso a servicios médicos y condiciones de higiene. 2.  Educación: que combina dos indicadores: el promedio de años de escolaridad para los adultos y los años esperados de escolarización para los niños. 3.  Estándar de vida digno: evaluado mediante el ingreso nacional bruto (INB) per cápita, ajustado por el poder adquisitivo de cada moneda."
+          "text": "Este índice se basa en tres dimensiones principales:"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p25-1",
+          "text": "1. Salud: medida a través de la esperanza de vida al nacer. Cuanto mayor es este número, mejor es el acceso a servicios médicos y condiciones de higiene."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p25-2",
+          "text": "2. Educación: que combina dos indicadores: el promedio de años de escolaridad para los adultos y los años esperados de escolarización para los niños."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p25-3",
+          "text": "3. Estándar de vida digno: evaluado mediante el ingreso nacional bruto (INB) per cápita, ajustado por el poder adquisitivo de cada moneda."
         },
         {
           "type": "paragraph",
