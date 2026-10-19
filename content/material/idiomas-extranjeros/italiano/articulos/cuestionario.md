@@ -106,8 +106,8 @@ pasos:
   - "Aplicar la regla del artículo determinativo neutro singular."  
 tipo: completar  
 respuestas_validas:  
-  - "lo"  
-  - "Lo"  
+  - "la"  
+  - "La"  
 enunciado: "___ pasta è buona."  
 explicacion: "El sustantivo 'pasta' es neutro. El artículo determinativo singular neutro es 'lo'."  
 ```
@@ -268,8 +268,8 @@ pasos:
   - "Aplicar la regla del artículo determinativo plural neutro."  
 tipo: completar  
 respuestas_validas:  
-  - "i"  
-  - "I"  
+  - "gli"  
+  - "Gli"  
 enunciado: "___ spaghetti sono buoni."  
 explicacion: "El sustantivo 'spaghetti' es neutro plural. El artículo determinativo plural neutro es 'i'."  
 ```
@@ -340,8 +340,8 @@ pasos:
   - "Aplicar la regla del artículo partitivo plural masculino."  
 tipo: completar  
 respuestas_validas:  
-  - "dei"  
-  - "Dei"  
+  - "degli"  
+  - "Degli"  
 enunciado: "Ho ___ uomini da incontrare."  
 explicacion: "El sustantivo 'uomo' es masculino plural. El artículo partitivo plural masculino es 'dei'."  
 ```
@@ -436,35 +436,17 @@ enunciado: "Prendo ___ latte per il caffè."
 explicacion: "El sustantivo 'latte' es neutro. El artículo indeterminativo singular neutro es 'un'."  
 ```
 
-### 25 — Articolo partitivo con sostantivo maschile singolare  
+### 25 — Articolo determinativo femminile singolare
 ```
 metadata:
-  materia: "italiano"
-  tema: "articoli determinativi e indeterminativi"
-  nivel: "A2"
-  tags: ["usare", "abitudine", "libro"]
-pasos:
-  - "Identifica el articolo determinativo que completa correctamente la oración."
-  - "Revisa el uso del artículo 'il' o 'lo' según el género y número del sustantivo."
-respuestas_validas:
-  - "il"
-  - "Il"
-tipo: completar
-enunciado: "Leggo ___ libro ogni sera."
-```
-
-```
-metadata:
-  materia: "italiano"
-  tema: "articoli determinativi e indeterminativi"
+  materia: "idiomas-extranjeros/italiano"
+  tema: "articulos"
   nivel: "A1"
-  tags: ["mangiare", "pasta"]
-pasos:
-  - "Elige la opción correcta para completar la oración con el artículo adecuado."
-  - "Recuerda que 'la pasta' es femenino singular y requiere el artículo determinativo."
-opciones_explicitas:
+  tags: ["determinativo", "femminile"]
+tipo: completar
+respuestas_validas:
   - "la"
-  - "il"
-  - "un"
-  - "una"
-respuesta: "
+  - "La"
+enunciado: "___ studentessa è molto brava."
+explicacion: "\"Studentessa\" è femminile singolare e comincia per consonante: si usa \"la\"."
+```

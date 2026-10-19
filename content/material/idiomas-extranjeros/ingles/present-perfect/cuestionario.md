@@ -153,7 +153,7 @@ opciones_explicitas:
 respuesta: "They have already eaten dinner."
 tipo: mc
 
-enunciado: "Which sentence uses 'already' with the present perfect correctly?"
+enunciado: "Which sentence uses 'already' with the present perfect correctly? (Present Perfect with 'already' (2))"
 
 explicacion: "'Already' con presente perfecto requiere el verbo en particípio (eaten), no en pasado simple."
 ```
@@ -178,7 +178,7 @@ opciones_explicitas:
 respuesta: "I have never met a celebrity."
 tipo: mc
 
-enunciado: "Which sentence uses 'never' with the present perfect correctly?"
+enunciado: "Which sentence uses 'never' with the present perfect correctly? (Present Perfect with 'never' (2))"
 
 explicacion: "'Never' en presente perfecto se usa con 'have/has + particípio', no en pasado simple."
 ```
@@ -203,7 +203,7 @@ opciones_explicitas:
 respuesta: "He has just called me."
 tipo: mc
 
-enunciado: "Which sentence uses 'just' with the present perfect correctly?"
+enunciado: "Which sentence uses 'just' with the present perfect correctly? (Present Perfect with 'just' (2))"
 
 explicacion: "'Just' en presente perfecto se usa con 'has/have + particípio', no como adverbio separado."
 ```
@@ -228,7 +228,7 @@ opciones_explicitas:
 respuesta: "They have not yet left the house."
 tipo: mc
 
-enunciado: "Which sentence uses 'yet' with the present perfect correctly?"
+enunciado: "Which sentence uses 'yet' with the present perfect correctly? (Present Perfect with 'yet' (2))"
 
 explicacion: "'Yet' con presente perfecto requiere 'have/has + not + particípio', no 'did not'."
 ```
@@ -253,7 +253,7 @@ opciones_explicitas:
 respuesta: "Have you ever seen a rainbow?"
 tipo: mc
 
-enunciado: "Which question uses 'ever' with the present perfect correctly?"
+enunciado: "Which question uses 'ever' with the present perfect correctly? (Present Perfect with 'ever' (2))"
 
 explicacion: "'Ever' en preguntas con presente perfecto se coloca después de 'have/has'."
 ```
@@ -278,7 +278,7 @@ opciones_explicitas:
 respuesta: "We have already finished the task."
 tipo: mc
 
-enunciado: "Which sentence uses 'already' with the present perfect correctly?"
+enunciado: "Which sentence uses 'already' with the present perfect correctly? (Present Perfect with 'already' (3))"
 
 explicacion: "'Already' con presente perfecto requiere el verbo en particípio (finished), no en pasado simple."
 ```
@@ -303,7 +303,7 @@ opciones_explicitas:
 respuesta: "I have never eaten sushi."
 tipo: mc
 
-enunciado: "Which sentence uses 'never' with the present perfect correctly?"
+enunciado: "Which sentence uses 'never' with the present perfect correctly? (Present Perfect with 'never' (3))"
 
 explicacion: "'Never' en presente perfecto se usa con 'have/has + particípio', no en pasado simple."
 ```
@@ -328,7 +328,7 @@ opciones_explicitas:
 respuesta: "He has just arrived at the airport."
 tipo: mc
 
-enunciado: "Which sentence uses 'just' with the present perfect correctly?"
+enunciado: "Which sentence uses 'just' with the present perfect correctly? (Present Perfect with 'just' (3))"
 
 explicacion: "'Just' en presente perfecto se usa con 'has/have + particípio', no como adverbio separado."
 ```

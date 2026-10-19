@@ -513,6 +513,10 @@ variables:
   c: random(1, b - a - 1)
   correcto: a + c
 
+restricciones:
+  - a * c != a + c
+  - a * c != a + c + 1
+
 respuesta: correcto
 tipo: mc
 opciones_explicitas:
@@ -541,6 +545,9 @@ variables:
   c: random(1, 8)
   d: random(2, 8)
   correcto: a * c
+
+restricciones:
+  - a * c != a + c
 
 respuesta: correcto
 tipo: mc

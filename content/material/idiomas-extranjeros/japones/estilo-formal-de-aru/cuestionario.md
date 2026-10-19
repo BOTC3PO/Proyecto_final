@@ -30,164 +30,140 @@ opciones_explicitas:
 respuesta: "本があります。"
 ```
 
-### 2 — 電話の場面
-```yaml
+### 2 — Negar la existencia de un objeto
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
   tags: ["comunicación", "negativa"]
-pasos:
-  - "Analizar el contexto de la comunicación."
-  - "Elegir la forma correcta para negar existencia formalmente."
-explicacion: "'ありません' se usa en la forma negativa cuando se habla de objetos inanimados. Aquí, se niega la presencia del teléfono."
+enunciado: "Querés decir, de manera formal, que NO hay un teléfono. ¿Qué oración usás?"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
   - "電話があります。"
   - "電話がありません。"
   - "電話がいます。"
 respuesta: "電話がありません。"
+explicacion: "'ありません' es la forma negativa formal de あります; 電話 es un objeto inanimado."
 ```
 
-### 3 — ビル内の状況
-```yaml
+### 3 — Existencia de un objeto en un lugar
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
   tags: ["ubicación", "possession"]
-pasos:
-  - "Identificar la ubicación mencionada en el enunciado."
-  - "Seleccionar la forma correcta de 'aru' para indicar posesión formal."
-explicacion: "'あります' se usa cuando se habla de un objeto presente en un lugar específico, como una oficina en un edificio."
+enunciado: "Querés decir que en la oficina hay un libro (objeto inanimado). ¿Qué oración usás?"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
   - "オフィスに本があります。"
   - "オフィスに本がいます。"
   - "オフィスに本がありません。"
 respuesta: "オフィスに本があります。"
+explicacion: "Los objetos inanimados usan あります; います es para seres animados."
 ```
 
-### 4 — 組み合わせの確認
-```yaml
+### 4 — Existencia de un mueble
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
   tags: ["combinación", "sujeto"]
-pasos:
-  - "Verificar la combinación del verbo y el sujeto."
-  - "Escoger la opción que usa 'aru' correctamente."
-explicacion: "'あります' se combina con objetos inanimados, mientras que 'います' se usa para seres vivos. Aquí, '椅子' es un objeto no vivo."
+enunciado: "Querés decir que hay una silla. ¿Qué oración usás?"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
   - "椅子があります。"
   - "椅子がいます。"
   - "椅子がありません。"
 respuesta: "椅子があります。"
+explicacion: "椅子 es un objeto: se usa あります, no います."
 ```
 
-### 5 — 時間の表現
-```yaml
+### 5 — Existencia de algo inanimado en un lugar
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
   tags: ["tiempo", "existencia"]
-pasos:
-  - "Interpretar la relación entre el tiempo y la existencia."
-  - "Seleccionar la forma correcta para indicar un estado temporal formalmente."
-explicacion: "'あります' se usa cuando se describe un estado que persiste en el tiempo, como una fecha escrita en un calendario."
+enunciado: "Querés decir que en el calendario hay un día marcado (algo inanimado). ¿Qué oración usás?"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
   - "カレンダーに日があります。"
   - "カレンダーに日がいます。"
   - "カレンダーに日がありません。"
 respuesta: "カレンダーに日があります。"
+explicacion: "Para cosas inanimadas la existencia se expresa con あります."
 ```
 
-### 6 — 状態の説明
-```yaml
+### 6 — Negar la existencia de una puerta
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
   tags: ["condición", "negativa"]
-pasos:
-  - "Analizar el estado descrito en la oración."
-  - "Elegir la forma correcta de 'aru' para negar el estado formalmente."
-explicacion: "'ありません' se usa para negar la existencia de un objeto inanimado (no su estado): la oración afirma que no hay ninguna puerta en ese lugar, a diferencia de 'ドアが閉まっています' (la puerta está cerrada), que describe un estado distinto."
+enunciado: "Querés decir que NO hay puerta. ¿Qué oración usás?"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
   - "ドアが閉まっています。"
   - "ドアがあります。"
   - "ドアがありません。"
 respuesta: "ドアがありません。"
+explicacion: "La negación formal de la existencia es ありません."
 ```
 
-### 7 — 異なる場面
-```yaml
+### 7 — Existencia de un mueble en un lugar
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
   tags: ["contexto", "uso"]
-pasos:
-  - "Identificar el contexto del enunciado."
-  - "Seleccionar la forma correcta de 'aru' según el contexto."
-explicacion: "'あります' se usa para describir algo presente en un lugar específico, como una mesa en una sala de espera."
+enunciado: "Querés decir que en la sala de espera hay una mesa. ¿Qué oración usás?"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
   - "待合室にテーブルがあります。"
   - "待合室にテーブルがいます。"
   - "待合室にテーブルがありません。"
 respuesta: "待合室にテーブルがあります。"
+explicacion: "テーブル es un objeto inanimado: あります."
 ```
 
-### 8 — 組み合わせの確認
-```yaml
+### 8 — Existencia sobre una superficie
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
   tags: ["combinación", "sujeto"]
-pasos:
-  - "Verificar la combinación del verbo y el sujeto."
-  - "Escoger la opción que usa 'aru' correctamente."
-explicacion: "'あります' se combina con objetos inanimados, mientras que 'います' se usa para seres vivos. Aquí, '椅子' es un objeto no vivo."
+enunciado: "Querés decir que sobre el escritorio hay un lápiz. ¿Qué oración usás?"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
-  - "椅子があります。"
-  - "椅子がいます。"
-  - "椅子がありません。"
-respuesta: "椅子があります。"
+  - "机の上に鉛筆があります。"
+  - "机の上に鉛筆がいます。"
+  - "机の上に鉛筆がありません。"
+respuesta: "机の上に鉛筆があります。"
+explicacion: "鉛筆 es un objeto: se usa あります."
 ```
 
-### 9 — 状態の説明
-```yaml
+### 9 — Negar la existencia de una ventana
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
   tags: ["condición", "negativa"]
-pasos:
-  - "Analizar el estado descrito en la oración."
-  - "Elegir la forma correcta de 'aru' para negar el estado formalmente."
-explicacion: "'ありません' se usa para negar la existencia de un objeto inanimado (no su estado): la oración afirma que no hay ninguna puerta en ese lugar, a diferencia de 'ドアが閉まっています' (la puerta está cerrada), que describe un estado distinto."
+enunciado: "Querés decir que NO hay ventana. ¿Qué oración usás?"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
-  - "ドアが閉まっています。"
-  - "ドアがあります。"
-  - "ドアがありません。"
-respuesta: "ドアがありません。"
+  - "窓がありません。"
+  - "窓がいます。"
+  - "窓があります。"
+respuesta: "窓がありません。"
+explicacion: "La forma negativa formal de あります es ありません."
 ```
 
 ### 10 — 異なる場面

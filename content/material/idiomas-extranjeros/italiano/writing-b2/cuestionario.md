@@ -49,7 +49,7 @@ pasos:
   - "Identificar el uso correcto del gerundio en la oración."
   - "Verificar que se use para conectar acciones simultáneas."
 respuesta: "Mentre camminavo, ho visto un uccello raro."
-enunciado: "¿Cuál es la oración correcta?"
+enunciado: "¿Cuál es la oración correcta? (Uso dell'imperfetto per azioni simultanee)"
 opciones_explicitas:
   - "Mentre camminavo, ho visto un uccello raro."
   - "Mentre camminavo, vidi un uccello raro."
@@ -69,7 +69,7 @@ pasos:
   - "Identificar el sujeto y el verbo en la oración."
   - "Verificar que el participio concuerde en género y número con el sujeto."
 respuesta: "Le foto sono state scattate ieri."
-enunciado: "¿Cuál es la oración correcta?"
+enunciado: "¿Cuál es la oración correcta? (Concordancia de participios)"
 opciones_explicitas:
   - "Le foto sono state scattate ieri."
   - "La foto sono state scattate ieri."
@@ -89,7 +89,7 @@ pasos:
   - "Identificar el uso del condizionale en la oración."
   - "Verificar que se use para expresar una hipótesis o deseos irrealizados."
 respuesta: "Se avessi più tempo, andrei in vacanza."
-enunciado: "¿Cuál es la oración correcta?"
+enunciado: "¿Cuál es la oración correcta? (Uso del condizionale)"
 opciones_explicitas:
   - "Se avrò più tempo, andrò in vacanza."
   - "Se avessi più tempo, andrò in vacanza."
@@ -109,7 +109,7 @@ pasos:
   - "Identificar el uso correcto de 'piuttosto che' en la oración."
   - "Verificar que se use para expresar una preferencia o alternativa."
 respuesta: "Preferisco andare in bicicletta piuttosto che prendere l'autobus."
-enunciado: "¿Cuál es la oración correcta?"
+enunciado: "¿Cuál es la oración correcta? (Uso de "piuttosto che")"
 opciones_explicitas:
   - "Preferisco andare in bicicletta piuttosto che prendo l'autobus."
   - "Preferisco andare in bicicletta piuttosto che prenderei l'autobus."
@@ -129,7 +129,7 @@ pasos:
   - "Identificar el uso correcto del passato prossimo."
   - "Verificar que se use con el auxiliar adecuado (avere o essere)."
 respuesta: "La ragazza è andata al cinema ieri."
-enunciado: "¿Cuál es la oración correcta?"
+enunciado: "¿Cuál es la oración correcta? (Uso del passato prossimo)"
 opciones_explicitas:
   - "La ragazza ha andato al cinema ieri."
   - "La ragazza andò al cinema ieri."
@@ -149,7 +149,7 @@ pasos:
   - "Identificar el adjetivo y su sustantivo en la oración."
   - "Verificar que concuerden en género y número."
 respuesta: "Le ragazze sono molto brave."
-enunciado: "¿Cuál es la oración correcta?"
+enunciado: "¿Cuál es la oración correcta? (Concordancia de adjectivos)"
 opciones_explicitas:
   - "Le ragazze sono molto brava."
   - "La ragazza è molto bravi."
@@ -169,7 +169,7 @@ pasos:
   - "Identificar el uso del presente de verbo impersonale."
   - "Verificar que se use para expresar una acción general o universal."
 respuesta: "In Italia si mangia molto bene."
-enunciado: "¿Cuál es la oración correcta?"
+enunciado: "¿Cuál es la oración correcta? (Uso del presente di verbo impersonale)"
 opciones_explicitas:
   - "In Italia si mangiava molto bene."
   - "In Italia si mangierà molto bene."
@@ -189,7 +189,7 @@ pasos:
   - "Identificar el uso correcto del futuro semplice."
   - "Verificar que se use para expresar una acción futura o hipotética."
 respuesta: "Domani andrò al parco con gli amici."
-enunciado: "¿Cuál es la oración correcta?"
+enunciado: "¿Cuál es la oración correcta? (Uso del futuro semplice)"
 opciones_explicitas:
   - "Domani andrò al parco con gli amici."
   - "Domani andavo al parco con gli amici."

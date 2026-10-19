@@ -494,16 +494,17 @@ metadata:
   nivel: "B1"
   tags: ["indirekter rede", "präteritum"]
 pasos:
-  - "Identificar que el Konjunktiv II se usa en informes indirectos para transmitir dudas o opiniones."
-  - "Seleccionar la forma präteritum correcta del verbo 'lernen' en este contexto."
-explicacion: "El Konjunktiv II de 'lernen' es 'lerne', que debe usarse aquí para reflejar una opinión indirecta, no un hecho real."
-tipo: mc
+  - "Reconocé la condición irreal introducida por 'wenn'."
+  - "Elegí la forma de Konjunktiv II de 'haben'."
+enunciado: "Wenn ich mehr Zeit ___, würde ich öfter reisen."
 opciones_explicitas:
-  - "er lernen Deutsch"
-  - "er lernte Deutsch"
-  - "er lernte Deutsch"
-respuesta: "er lernte Deutsch"
-enunciado: "Er sagte, dass er ___ Deutsch."
+  - "hätte"
+  - "hatte"
+  - "habe"
+  - "hat"
+respuesta: "hätte"
+tipo: mc
+explicacion: "En una condición irreal el verbo 'haben' va en Konjunktiv II: hätte."
 ```
 
 

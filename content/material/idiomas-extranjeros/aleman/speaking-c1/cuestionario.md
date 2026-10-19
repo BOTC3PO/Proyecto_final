@@ -45,6 +45,7 @@ opciones_explicitas:
   - "ging"
   - "geht"
 respuesta: "gegangen"
+tipo: mc
 enunciado: "¿Cuál es la forma correcta del Partizip II del verbo 'gehen'?"
 ```
 
@@ -82,6 +83,7 @@ opciones_explicitas:
   - "ginge"
   - "gehst"
 respuesta: "gehen"
+tipo: mc
 enunciado: "¿Cuál es el complemento correcto para el verbo modal 'dürfen'?"
 ```
 
@@ -119,6 +121,7 @@ opciones_explicitas:
   - "frage"
   - "fragte"
 respuesta: "gefragt"
+tipo: mc
 enunciado: "¿Cuál es la forma correcta del Partizip II del verbo 'fragen'?"
 ```
 
@@ -156,6 +159,7 @@ opciones_explicitas:
   - "an"
   - "auf"
 respuesta: "zu"
+tipo: mc
 enunciado: "¿Cuál es la preposición correcta para indicar dirección con el verbo 'gehen'?"
 ```
 
@@ -193,6 +197,7 @@ opciones_explicitas:
   - "fahre"
   - "fuhr"
 respuesta: "gefahren"
+tipo: mc
 enunciado: "¿Cuál es la forma correcta del Partizip II del verbo 'fahren'?"
 ```
 
@@ -230,6 +235,7 @@ opciones_explicitas:
   - "ginge"
   - "gehst"
 respuesta: "gehen"
+tipo: mc
 enunciado: "¿Cuál es el complemento correcto para el verbo modal 'müssen'?"
 ```
 
@@ -251,26 +257,7 @@ respuestas_validas:
 enunciado: "Sie erzählt, dass sie keine Zeit ___."
 ```
 
-### 14 — Partizip II en oraciones de causa  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "speaking-c1"
-  nivel: "C1"
-  tags: ["partizip", "weil"]
-pasos:
-  - "Reconocer la necesidad de usar el Partizip II para conectar acciones causales."
-  - "Elegir entre las opciones el participio correcto."
-explicacion: "El Partizip II se usa para enlazar dos acciones relacionadas. 'Gefragt' es la forma correcta del verbo 'fragen'."
-opciones_explicitas:
-  - "gefragt"
-  - "frage"
-  - "fragte"
-respuesta: "gefragt"
-enunciado: "¿Cuál es la forma correcta del Partizip II del verbo 'fragen'?"
-```
-
-### 15 — Uso de "wenn" en oraciones condicionales  
+### 14 — Uso de "wenn" en oraciones condicionales  
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/aleman"
@@ -288,7 +275,7 @@ respuestas_validas:
 enunciado: "Sag mir Bescheid, wenn du morgen ___."
 ```
 
-### 16 — Verbos de movimiento y su preposición  
+### 15 — Verbos de movimiento y su preposición  
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/aleman"
@@ -304,10 +291,11 @@ opciones_explicitas:
   - "an"
   - "auf"
 respuesta: "zu"
+tipo: mc
 enunciado: "¿Cuál es la preposición correcta para indicar dirección con el verbo 'fahren'?"
 ```
 
-### 17 — Uso de "dass" en oraciones de opinión  
+### 16 — Uso de "dass" en oraciones de opinión  
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/aleman"
@@ -325,26 +313,7 @@ respuestas_validas:
 enunciado: "Man sagt, dass sie sehr klug ___."
 ```
 
-### 18 — Partizip II en oraciones consecutivas  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "speaking-c1"
-  nivel: "C1"
-  tags: ["partizip", "deshalb"]
-pasos:
-  - "Reconocer la necesidad de usar el Partizip II para conectar acciones consecutivas."
-  - "Elegir entre las opciones el participio correcto."
-explicacion: "El Partizip II se usa para enlazar dos acciones relacionadas. 'Gefahren' es la forma correcta del verbo 'fahren'."
-opciones_explicitas:
-  - "gefahren"
-  - "fahre"
-  - "fuhr"
-respuesta: "gefahren"
-enunciado: "¿Cuál es la forma correcta del Partizip II del verbo 'fahren'?"
-```
-
-### 19 — Uso de "als" en oraciones temporales  
+### 17 — Uso de "als" en oraciones temporales  
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/aleman"
@@ -362,26 +331,7 @@ respuestas_validas:
 enunciado: "Als sie noch auf dem Land ___, war das Leben ruhiger."
 ```
 
-### 20 — Verbos modales y su complemento  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "speaking-c1"
-  nivel: "C1"
-  tags: ["modalkonjugation", "dürfen"]
-pasos:
-  - "Reconocer la conjugación del verbo modal 'dürfen'."
-  - "Elegir entre las opciones el infinitivo correcto."
-explicacion: "Los verbos modales como 'dürfen' requieren que su complemento esté en infinitivo. 'Gehen' es la forma correcta aquí."
-opciones_explicitas:
-  - "gehen"
-  - "ginge"
-  - "gehst"
-respuesta: "gehen"
-enunciado: "¿Cuál es el complemento correcto para el verbo modal 'dürfen'?"
-```
-
-### 21 — Uso de "dass" en oraciones de información  
+### 18 — Uso de "dass" en oraciones de información  
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/aleman"
@@ -399,26 +349,7 @@ respuestas_validas:
 enunciado: "Wir vermuten, dass er recht ___."
 ```
 
-### 22 — Partizip II en oraciones de causa  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "speaking-c1"
-  nivel: "C1"
-  tags: ["partizip", "weil"]
-pasos:
-  - "Reconocer la necesidad de usar el Partizip II para conectar acciones causales."
-  - "Elegir entre las opciones el participio correcto."
-explicacion: "El Partizip II se usa para enlazar dos acciones relacionadas. 'Gefragt' es la forma correcta del verbo 'fragen'."
-opciones_explicitas:
-  - "gefragt"
-  - "frage"
-  - "fragte"
-respuesta: "gefragt"
-enunciado: "¿Cuál es la forma correcta del Partizip II del verbo 'fragen'?"
-```
-
-### 23 — Uso de "wenn" en oraciones condicionales  
+### 19 — Uso de "wenn" en oraciones condicionales  
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/aleman"
@@ -436,26 +367,7 @@ respuestas_validas:
 enunciado: "Wir warten, wenn du etwas später ___."
 ```
 
-### 24 — Verbos de movimiento y su preposición  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "speaking-c1"
-  nivel: "C1"
-  tags: ["verben", "präpositionen"]
-pasos:
-  - "Reconocer la preposición correcta para el verbo 'gehen'."
-  - "Elegir entre las opciones la preposición adecuada."
-explicacion: "El verbo 'gehen' se usa con 'zu' cuando indica dirección a un lugar. 'Zu' es la forma correcta aquí."
-opciones_explicitas:
-  - "zu"
-  - "an"
-  - "auf"
-respuesta: "zu"
-enunciado: "¿Cuál es la preposición correcta para indicar dirección con el verbo 'gehen'?"
-```
-
-### 25 — Uso de "dass" en oraciones de opinión  
+### 20 — Uso de "dass" en oraciones de opinión  
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/aleman"

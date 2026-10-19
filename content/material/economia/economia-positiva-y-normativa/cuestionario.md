@@ -71,27 +71,24 @@ explicacion: |
   La economía positiva se distingue por ser objetiva y verificable mediante la observación empírica (datos, hechos). La economía normativa se distingue por incluir juicios de valor y opiniones sobre lo que "debería ser".
 ```
 
-### 4 — pregunta 4
+### 4 — Clasificar una afirmación
 
 ```
 metadata:
   materia: "economía"
   tema: "economia_positiva_y_normativa"
-  nivel: "intermedio"
-  tags: ["politica", "juicio"]
+  nivel: "basico"
+  tags: ["normativa", "positiva"]
 
-variables:
-  politica: uno_de(["subsidios a la educación", "reducciones impositivas", "control de precios"])
-  enunciado_texto: "El gobierno debería implementar {politica} para mejorar el bienestar social."
-  es_normativa: verdadero
-
-respuesta: "normativa"
-tipo: input
-
-enunciado: "Clasifica la afirmación: \"{enunciado_texto}\""
+enunciado: "Clasificá la afirmación: «El gobierno debería subsidiar la educación para mejorar el bienestar social»."
+tipo: mc
+opciones_explicitas:
+  - "Normativa"
+  - "Positiva"
+respuesta: "Normativa"
 
 explicacion: |
-  La frase contiene "debería" y un objetivo de valor ("mejorar el bienestar social"). Esto implica una preferencia ética sobre lo que se considera deseable, lo cual es propio de la economía normativa.
+  Contiene «debería» y un juicio de valor sobre lo deseable: es propia de la economía normativa. La positiva describe hechos y relaciones verificables.
 ```
 
 ### 5 — pregunta 5

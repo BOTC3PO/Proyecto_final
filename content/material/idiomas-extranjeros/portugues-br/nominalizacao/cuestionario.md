@@ -197,27 +197,7 @@ enunciado: "O _______ da sociedade para direitos iguais é uma luta contínua."
 
 ```
 
-### 11 — Nominalização de adjetivos com –za e –dade  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["adjetivo", "-agem", "-dade"]  
-pasos:  
-  - "Aplicar o sufixo adequado ao adjetivo."
-  - "Excluir opções com sufixos incorretos."
-enunciado: "¿Cuál es la nominalización correcta del adjetivo 'corajoso'?"  
-respuesta: "coragem"  
-opciones_explicitas:  
-  - "coragem"  
-  - "courage"  
-  - "corajoso"  
-tipo: mc  
-
-```
-
-### 12 — Nominalização com –ura e –ência  
+### 11 — Nominalização com –ura e –ência  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -235,27 +215,7 @@ enunciado: "A _______ com os recursos naturais é essencial para o meio ambiente
 
 ```
 
-### 13 — Nominalização de adjetivos com –eza e –dade  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["adjetivo", "-idade", "-dade"]  
-pasos:  
-  - "Escolher entre os sufixos –eza e –dade conforme o adjetivo."
-  - "Excluir alternativas com formas incorretas."
-enunciado: "¿Cuál es la nominalización correcta del adjetivo 'maduro'?"  
-respuesta: "maturidade"  
-opciones_explicitas:  
-  - "maturidade"  
-  - "madurez"  
-  - "maturar"  
-tipo: mc  
-
-```
-
-### 14 — Nominalização de verbos com –agem e –ção  
+### 12 — Nominalização de verbos com –agem e –ção  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -273,27 +233,7 @@ enunciado: "A _______ de novos produtos está sob análise."
 
 ```
 
-### 15 — Nominalização com –ência e –mento  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-ência", "-mento"]  
-pasos:  
-  - "Escolher o sufixo que melhor se adapta ao contexto."
-  - "Verificar a forma nominal correta."
-enunciado: "¿Cuál es la nominalización correcta del verbo 'conscientizar'?"  
-respuesta: "consciência"  
-opciones_explicitas:  
-  - "consciência"  
-  - "consciente"  
-  - "conscientizar"  
-tipo: mc  
-
-```
-
-### 16 — Nominalização de adjetivos com –za e –eza  
+### 13 — Nominalização de adjetivos com –za e –eza  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -311,7 +251,7 @@ enunciado: "A _______ em ações é uma qualidade admirável."
 
 ```
 
-### 17 — Nominalização com –ura e –ção  
+### 14 — Nominalização com –ura e –ção  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -331,7 +271,7 @@ tipo: mc
 
 ```
 
-### 18 — Nominalização de adjetivos com –dade e –eza  
+### 15 — Nominalização de adjetivos com –dade e –eza  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -349,7 +289,7 @@ enunciado: "A _______ dos líderes influencia diretamente os resultados."
 
 ```
 
-### 19 — Nominalização com –agem e –mento  
+### 16 — Nominalização com –agem e –mento  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -369,7 +309,7 @@ tipo: mc
 
 ```
 
-### 20 — Nominalização de verbos com –ência e –ura  
+### 17 — Nominalização de verbos com –ência e –ura  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -387,7 +327,7 @@ enunciado: "A _______ de mudanças climáticas é urgente."
 
 ```
 
-### 21 — Nominalização com –ção e –dade  
+### 18 — Nominalização com –ção e –dade  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -407,7 +347,7 @@ tipo: mc
 
 ```
 
-### 22 — Nominalização de adjetivos com –za e –dade  
+### 19 — Nominalização de adjetivos com –za e –dade  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -425,7 +365,7 @@ enunciado: "A _______ de agir sem hesitação é valorizada na liderança."
 
 ```
 
-### 23 — Nominalização com –mento e –eza  
+### 20 — Nominalização com –mento e –eza  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -445,7 +385,7 @@ tipo: mc
 
 ```
 
-### 24 — Nominalização de verbos com –ura e –ência  
+### 21 — Nominalização de verbos com –ura e –ência  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -461,23 +401,4 @@ respuestas_validas:
 tipo: completar  
 enunciado: "O _______ no uso de recursos é uma prática sustentável."  
 
-```
-
-### 25 — Nominalização com –ção e –za  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-ção", "-za"]  
-pasos:  
-  - "Escolher o sufixo que melhor se encaixa no contexto."
-  - "Verificar a forma nominal correta."
-enunciado: "¿Cuál es la nominalización correcta del verbo 'produzir'?"  
-respuesta: "produção"  
-opciones_explicitas:  
-  - "produção"  
-  - "produtividade"  
-  - "produtivo"  
-tipo: mc
 ```

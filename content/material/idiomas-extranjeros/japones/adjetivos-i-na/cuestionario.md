@@ -220,23 +220,18 @@ explicacion: "'古い' (viejo) es un i-adjetivo (termina en い). Los i-adjetivo
 
 
 
-### 11 — 天気の表現
+### 11 — Adjetivo-na antes de un sustantivo
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "adjetivos-i-na"  
-  nivel: "N5"  
-  tags: ["adjetivo-い", "sujeito-pessoal"]  
-pasos:  
-  - "Identificar que el sujeto es una persona."  
-  - "Elegir el adjetivo i correcto para describirlo."  
-tipo: completar  
-enunciado: "彼は______です。"  
-respuestas_validas:  
-  - "せっかち"  
-
-explicacion: "'せっかち' (impaciente) es en realidad un na-adjetivo, no un adjetivo i. En posición de predicado (antes de です) los na-adjetivos van en su forma base sin な; la partícula な sólo se usa cuando el adjetivo precede directamente a un sustantivo (p. ej. 'せっかちな人')."  
-
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "adjetivos-i-na"
+  nivel: "N5"
+  tags: ["i-adjetivo", "です"]
+enunciado: "静か___公園で本を読みます。"
+tipo: completar
+respuestas_validas:
+  - "な"
+explicacion: "静か es un adjetivo-na: antes de un sustantivo se une con な (静かな公園)."
 ```
 
 ### 12 — 状態の説明
@@ -258,45 +253,35 @@ explicacion: "'にぎやか' (concurrido) es en realidad un na-adjetivo, no un a
 
 ```
 
-### 13 — 食べ物の評価
+### 13 — Negativo del adjetivo-i
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "adjetivos-i-na"  
-  nivel: "N5"  
-  tags: ["adjetivo-い", "objeto-inanimado"]  
-pasos:  
-  - "Reconocer que '本' (libro) es un objeto inanimado."  
-  - "Usar el adjetivo i correcto."  
-tipo: completar  
-enunciado: "この本は______です。"  
-respuestas_validas:  
-  - "おもしろい"  
-
-explicacion: "'おもしろい' (interesante) es un adjetivo i que describe correctamente el libro, sin necesidad de la partícula な."  
-
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "adjetivos-i-na"
+  nivel: "N5"
+  tags: ["i-adjetivo", "です"]
+enunciado: "この靴は高___ありません。(高い, negativo)"
+tipo: completar
+respuestas_validas:
+  - "く"
+explicacion: "El negativo del adjetivo-i cambia い por く: 高くありません / 高くないです."
 ```
 
-### 14 — 物の状態
+### 14 — Adjetivo-na antes de un sustantivo
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "adjetivos-i-na"  
-  nivel: "N5"  
-  tags: ["adjetivo-い", "sujeito-pessoal"]  
-pasos:  
-  - "Identificar que el sujeto es una persona."  
-  - "Elegir entre adjetivos i y na."  
-opciones_explicitas:  
-  - "げんき"  
-  - "げんきな"  
-  - "おもしろい"  
-enunciado: "彼女は______です。"  
-respuesta: "げんき"  
-tipo: mc  
-
-explicacion: "'げんき' (sano/con energía) es en realidad un na-adjetivo. En posición de predicado (antes de です) va en su forma base sin な; な sólo se usa antes de un sustantivo (p. ej. 'げんきな人'). 'げんきな' aquí sería agramatical porque な no puede preceder directamente a です."  
-
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "adjetivos-i-na"
+  nivel: "N5"
+  tags: ["i-adjetivo", "です"]
+enunciado: "彼は有名___作家です。"
+tipo: mc
+opciones_explicitas:
+  - "な"
+  - "の"
+  - "い"
+respuesta: "な"
+explicacion: "有名 es adjetivo-na: se conecta al sustantivo con な."
 ```
 
 ### 15 — 天気の表現
@@ -321,48 +306,38 @@ explicacion: "'花' es inanimado, por lo que requiere un adjetivo i directamente
 
 ```
 
-### 16 — 状態の説明
+### 16 — Negativo del adjetivo-na
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "adjetivos-i-na"  
-  nivel: "N5"  
-  tags: ["adjetivo-い", "sujeito-pessoal"]  
-pasos:  
-  - "Identificar que el sujeto es una persona."  
-  - "Elegir entre adjetivos i y na."  
-opciones_explicitas:  
-  - "せっかち"  
-  - "せっかちな"  
-  - "おもしろい"  
-enunciado: "彼は______です。"  
-respuesta: "せっかち"  
-tipo: mc  
-
-explicacion: "'せっかち' (impaciente) es en realidad un na-adjetivo. En posición de predicado (antes de です) va en su forma base sin な; な sólo se usa antes de un sustantivo (p. ej. 'せっかちな人')."  
-
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "adjetivos-i-na"
+  nivel: "N5"
+  tags: ["i-adjetivo", "です"]
+enunciado: "この部屋は静か___ありません。"
+tipo: mc
+opciones_explicitas:
+  - "では"
+  - "く"
+  - "に"
+respuesta: "では"
+explicacion: "Con adjetivos-na el negativo formal es ではありません (静かではありません)."
 ```
 
-### 17 — 食べ物の評価
+### 17 — Conectar adjetivos-i con て
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "adjetivos-i-na"  
-  nivel: "N5"  
-  tags: ["adjetivo-い", "objeto-inanimado"]  
-pasos:  
-  - "Reconocer que '料理' (comida) es un objeto inanimado."  
-  - "Seleccionar el adjetivo i correcto."  
-opciones_explicitas:  
-  - "おいし"  
-  - "おいしき"  
-  - "おいしい"  
-enunciado: "この料理は______です。"  
-respuesta: "おいしい"  
-tipo: mc  
-
-explicacion: "'おいしい' (delicioso) es un adjetivo i que se usa directamente para describir comida. 'おいしき' no existe, y 'おいし' está incompleto."  
-
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "adjetivos-i-na"
+  nivel: "N5"
+  tags: ["i-adjetivo", "です"]
+enunciado: "あの店は安___て、おいしいです。"
+tipo: mc
+opciones_explicitas:
+  - "く"
+  - "で"
+  - "に"
+respuesta: "く"
+explicacion: "Para unir dos adjetivos-i se cambia い por くて: 安くて、おいしい."
 ```
 
 ### 18 — 物の状態
@@ -409,26 +384,21 @@ explicacion: "'はやい' (rápido) es un adjetivo i que describe directamente a
 
 ```
 
-### 20 — 状態の説明
+### 20 — Pasado de いい
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "adjetivos-i-na"  
-  nivel: "N5"  
-  tags: ["adjetivo-い", "sujeito-pessoal"]  
-pasos:  
-  - "Identificar que el sujeto es una persona."  
-  - "Elegir entre adjetivos i y na."  
-opciones_explicitas:  
-  - "げんき"  
-  - "げんきな"  
-  - "おもしろい"  
-enunciado: "彼女は______です。"  
-respuesta: "げんき"  
-tipo: mc  
-
-explicacion: "'げんき' (sano/con energía) es en realidad un na-adjetivo. En posición de predicado (antes de です) va en su forma base sin な; な sólo se usa antes de un sustantivo (p. ej. 'げんきな人')."  
-
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "adjetivos-i-na"
+  nivel: "N5"
+  tags: ["i-adjetivo", "です"]
+enunciado: "昨日は天気が___。(いい, pasado)"
+tipo: mc
+opciones_explicitas:
+  - "よかったです"
+  - "いかったです"
+  - "よいでした"
+respuesta: "よかったです"
+explicacion: "El pasado de いい es irregular: よかった (よかったです en estilo cortés)."
 ```
 
 ### 21 — 食べ物の評価
@@ -453,48 +423,36 @@ explicacion: "'にぎやか' (concurrido) es en realidad un na-adjetivo. En posi
 
 ```
 
-### 22 — 物の状態
+### 22 — Adjetivo-na antes de un sustantivo
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "adjetivos-i-na"  
-  nivel: "N5"  
-  tags: ["adjetivo-い", "sujeito-pessoal"]  
-pasos:  
-  - "Identificar que el sujeto es una persona."  
-  - "Elegir entre adjetivos i y na."  
-opciones_explicitas:  
-  - "かわいい"  
-  - "かわいな"  
-  - "せっかち"  
-enunciado: "彼女は______です。"  
-respuesta: "かわいい"  
-tipo: mc  
-
-explicacion: "'かわいい' (bonita) es un adjetivo i que describe directamente a una persona. 'かわいな' usaría incorrectamente la partícula な."  
-
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "adjetivos-i-na"
+  nivel: "N5"
+  tags: ["i-adjetivo", "です"]
+enunciado: "田中さんは親切___人です。"
+tipo: mc
+opciones_explicitas:
+  - "な"
+  - "の"
+  - "い"
+respuesta: "な"
+explicacion: "親切 es adjetivo-na: 親切な人."
 ```
 
-### 23 — 天気の表現
+### 23 — Negativo del adjetivo-na
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "adjetivos-i-na"  
-  nivel: "N5"  
-  tags: ["adjetivo-い", "objeto-inanimado"]  
-pasos:  
-  - "Reconocer que '本' (libro) es un objeto inanimado."  
-  - "Elegir el adjetivo i correcto."  
-opciones_explicitas:  
-  - "おもしろい"  
-  - "おもしろな"  
-  - "かわいい"  
-enunciado: "この本は______です。"  
-respuesta: "おもしろい"  
-tipo: mc  
-
-explicacion: "'おもしろい' (interesante) es un adjetivo i que describe directamente a objetos inanimados como libros. 'おもしろな' usaría incorrectamente la partícula な."  
-
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "adjetivos-i-na"
+  nivel: "N5"
+  tags: ["i-adjetivo", "です"]
+enunciado: "この問題は簡単___ありません。"
+tipo: completar
+respuestas_validas:
+  - "では"
+  - "じゃ"
+explicacion: "簡単 es adjetivo-na: negativo 簡単ではありません (en habla informal 簡単じゃありません)."
 ```
 
 ### 24 — 状態の説明

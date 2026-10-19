@@ -463,23 +463,22 @@ explicacion: |
   Al contrario, invertir demasiado pronto sin validación aumenta el riesgo de "construir algo que nadie quiere". El objetivo es fallar rápido y barato.
 ```
 
-### 24 — Secuencia del Ciclo de Feedback
+### 24 — Aprender antes de escalar
 
 ```
 metadata:
   materia: "economia"
   tema: "validar_con_clientes_construir_medir_aprender"
   nivel: "basico"
-  tags: ["metodologia", "pasos"]
+  tags: ["lean", "validacion"]
 
-enunciado: "Ordene las etapas del ciclo de aprendizaje de Lean Startup en el orden correcto:"
+respuesta: falso
+tipo: vf
 
-opciones_explicitas: ["Construir", "Medir", "Aprender"]
-respuesta_orden: ["Construir", "Medir", "Aprender"]
-tipo: ordenar
+enunciado: "En el ciclo Construir-Medir-Aprender, conviene escalar el producto antes de haber validado con clientes reales."
 
 explicacion: |
-  El flujo es iterativo: se construye un experimento, se miden los resultados y se aprende de ellos para reiniciar el ciclo.
+  La idea del método Lean Startup es validar con experimentos pequeños y recién escalar cuando se aprendió que hay demanda.
 ```
 
 ### 25 — Escenario de Pivotaje

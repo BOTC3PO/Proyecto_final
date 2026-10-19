@@ -541,7 +541,7 @@ metadata:
 variables:
   b: random(1, 6)
   c: random(1, 6)
-  signo: uno_de([1, -1])
+  signo: uno_de([2, 4, -2, -4])
   d: b * c + signo
   a: 1
 
@@ -571,7 +571,7 @@ metadata:
 variables:
   b: random(1, 6)
   c: random(1, 6)
-  signo: uno_de([1, -1])
+  signo: uno_de([2, 4, -2, -4])
   d: b * c + signo
   a: 1
 

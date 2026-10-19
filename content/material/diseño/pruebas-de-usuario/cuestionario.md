@@ -479,24 +479,22 @@ explicacion: |
   Cada error observado permite categorizar el problema (navegación, semántica/significado o affordance) para priorizar las mejoras en el diseño.
 ```
 
-### 24 — Pasos de una prueba de usuario
+### 24 — Del hallazgo a la mejora
 
 ```
 metadata:
   materia: "diseño"
   tema: "pruebas_de_usuario"
-  nivel: "avanzado"
-  tags: ["metodologia", "proceso"]
+  nivel: "intermedio"
+  tags: ["pruebas", "iteracion"]
 
-respuesta_orden: ["Definir objetivos", "Reclutar participantes", "Ejecutar la sesión", "Analizar resultados"]
+enunciado: "Ordená las acciones que siguen a una ronda de pruebas de usuario:"
 tipo: ordenar
-
-opciones_explicitas: ["Definir objetivos", "Reclutar participantes", "Ejecutar la sesión", "Analizar resultados"]
-
-enunciado: "Ordena cronológicamente las etapas de un proceso de pruebas de usuario:"
+opciones_explicitas: ["Reunir las observaciones de todas las sesiones", "Agrupar los problemas y priorizarlos por gravedad", "Rediseñar lo que corresponde", "Volver a probar con nuevos participantes"]
+respuesta_orden: ["Reunir las observaciones de todas las sesiones", "Agrupar los problemas y priorizarlos por gravedad", "Rediseñar lo que corresponde", "Volver a probar con nuevos participantes"]
 
 explicacion: |
-  Primero se define qué se quiere medir, luego se busca al usuario ideal, se realiza la prueba y finalmente se extraen conclusiones de lo observado.
+  Primero se junta lo observado, se prioriza, se corrige y se vuelve a probar para comprobar que la mejora funcionó.
 ```
 
 ### 25 — El rol del observador

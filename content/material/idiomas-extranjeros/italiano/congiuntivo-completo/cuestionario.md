@@ -27,27 +27,23 @@ tipo: completar
 
 
 
-### 2 — Congiuntivo dopo "temo che"  
+### 2 — Congiuntivo dopo "temo che"
 ```
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "congiuntivo-completo"  
-  nivel: "B2"  
-  tags: ["soggetto diverso", "verbo irregolare"]  
-pasos:  
-  - "Reconocer la expresión que impone el subjuntivo."
-  - "Ajustar el verbo al sujeto del subordinado y al modo subjuntivo."
-opciones_explicitas:  
-  - "sia andato"  
-  - "sia andata"  
-  - "sia andato"  
-respuesta: "sia andato"  
-enunciado: "Temo che Luca ___ a Roma ieri."  
-tipo: mc  
-
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "congiuntivo-completo"
+  nivel: "B2"
+  tags: ["congiuntivo", "verbo di timore"]
+tipo: mc
+opciones_explicitas:
+  - "sia andato"
+  - "sia andata"
+  - "fosse andati"
+  - "andasse"
+respuesta: "sia andato"
+enunciado: "Temo che Luca ___ a Roma ieri."
+explicacion: "Dopo \"temo che\" si usa il congiuntivo; per un'azione passata, il congiuntivo passato: sia andato (Luca è maschile)."
 ```
-
-
 
 ### 3 — Congiuntivo con verbo impersonale  
 ```
@@ -133,25 +129,20 @@ tipo: mc
 
 
 
-### 7 — Congiuntivo en oración condicional  
+### 7 — Congiuntivo in periodo ipotetico
 ```
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "congiuntivo-completo"  
-  nivel: "B2"  
-  tags: ["condizionale", "sujeto diverso"]  
-pasos:  
-  - "Reconocer la estructura condicional que requiere subjuntivo."
-  - "Usar el subjuntivo en tercera persona según el sujeto del subordinado."
-respuestas_validas:  
-  - "fosse"  
-  - "Fosse"  
-enunciado: "Se fosse ricco, ___ viaggiare."  
-tipo: completar  
-
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "congiuntivo-completo"
+  nivel: "B2"
+  tags: ["congiuntivo", "periodo ipotetico"]
+tipo: completar
+respuestas_validas:
+  - "fosse"
+  - "Fosse"
+enunciado: "Se Luca ___ ricco, viaggerebbe di più. (essere, congiuntivo imperfetto)"
+explicacion: "Il periodo ipotetico di secondo tipo usa il congiuntivo imperfetto nella condizione: se fosse ricco, viaggerebbe."
 ```
-
-
 
 ### 8 — Congiuntivo en oración con "dubitare che" y verbo irregolare  
 ```
@@ -270,8 +261,8 @@ pasos:
   - "Verificar que el verbo principal es *è probabile*."
   - "Usar el subjuntivo del verbo irregular *studiare* según el sujeto."
 respuestas_validas:  
-  - "studii"  
-  - "Studii"  
+  - "studi"  
+  - "Studi"  
 enunciado: "È probabile che lui ___."  
 tipo: completar  
 

@@ -323,29 +323,25 @@ explicacion: |
   El sujeto es '{contenido}'. En oraciones impersonales con 'es/parece', la subordinada es el sujeto real.
 ```
 
-### 15 — pregunta 15
+### 15 — Subordinada sustantiva como CD
 
 ```
 metadata:
   materia: "lengua"
   tema: "subordinada_sustantiva_de_complemento_directo"
-  nivel: "basico"
-  tags: ["identificacion", "mc"]
+  nivel: "intermedio"
+  tags: ["subordinadas", "complemento-directo"]
 
-variables:
-  oracion1: uno_de(["Juan dice que viene", "Juan viene mañana", "Juan está feliz", "Juan corre rápido"])
-  oracion2: uno_de(["Juan viene mañana", "Juan está feliz", "Juan corre rápido", "Juan es alto"])
-  oracion3: uno_de(["Juan está feliz", "Juan corre rápido", "Juan es alto", "Juan duerme"])
-  oracion4: uno_de(["Juan corre rápido", "Juan es alto", "Juan duerme", "Juan lee"])
-
-respuesta: oracion1
+enunciado: "¿En cuál de estas oraciones hay una subordinada sustantiva que funciona como complemento directo?"
 tipo: mc
-opciones_explicitas: [oracion1, oracion2, oracion3, oracion4]
-
-enunciado: "¿Cuál de estas oraciones contiene una subordinada sustantiva de complemento directo?"
+opciones_explicitas:
+  - "Juan dice que viene"
+  - "Juan viene mañana"
+  - "Juan está feliz"
+respuesta: "Juan dice que viene"
 
 explicacion: |
-  '{oracion1}' contiene 'que viene', que es CD de 'dice'. Las otras son oraciones simples o con otros complementos.
+  «Que viene» responde a «¿qué dice Juan?»: es el complemento directo del verbo «dice».
 ```
 
 ### 16 — pregunta 16

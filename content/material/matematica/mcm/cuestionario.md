@@ -212,6 +212,10 @@ variables:
   b: random(3, 15)
   correcto: mcm(a, b)
 
+restricciones:
+  - mcm(a, b) != a * b
+  - correcto + a != a * b
+
 respuesta: correcto
 tipo: mc
 opciones_explicitas:
@@ -463,6 +467,9 @@ variables:
   comun: a * b
   no_comun: comun + 1
 
+restricciones:
+  - mcd(a, b) > 1
+
 respuesta: no_comun
 tipo: mc
 opciones_explicitas:
@@ -544,6 +551,7 @@ variables:
 
 restricciones:
   - a != b
+  - mcd(a, b) > 1
 
 respuesta: correcto
 tipo: mc

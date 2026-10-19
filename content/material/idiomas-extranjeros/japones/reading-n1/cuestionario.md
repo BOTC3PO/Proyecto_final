@@ -132,23 +132,21 @@ explicacion: "El te-form ～た se usa para describir acciones pasadas. La forma
 
 
 
-### 7 — 無理（させられる）
+### 7 — Patrón 〜ざるを得ない
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "reading-n1"
   nivel: "N1"
   tags: ["causativo-pasivo", "negación"]
-pasos:
-  - "Identificar la estructura causativa-pasiva."
-  - "Elegir la opción que expresa negación con させられる。"
-enunciado: "¿Cuál es la oración correcta que expresa que algo fue hecho contra la voluntad de alguien (causativo-pasivo)?"
+enunciado: "¿Cuál oración usa correctamente el patrón 〜ざるを得ない (no queda más remedio que)?"
+tipo: mc
 opciones_explicitas:
-  - "彼は無理に働かされた"
-  - "彼は働ける"
-  - "彼は仕事をした"
-respuesta: "彼は無理に働かされた"
-explicacion: "La forma causativo-pasivo ～させられる se usa para mostrar que algo fue hecho contra la voluntad. La opción correcta incluye el adverbio 無理に (contra la voluntad)."
+  - "彼は計画を変更せざるを得なかった"
+  - "彼は計画を変更せざるを得る"
+  - "彼は計画を変更せざるなかった"
+respuesta: "彼は計画を変更せざるを得なかった"
+explicacion: "〜ざるを得ない significa «no tener más remedio que»; en pasado 〜ざるを得なかった. Con する se dice せざるを得ない."
 ```
 
 

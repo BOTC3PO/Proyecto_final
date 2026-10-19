@@ -302,26 +302,25 @@ explicacion: |
   Las subordinadas adverbiales de lugar pueden aparecer tanto al inicio como al final de la oración principal, aunque es más común al final.
 ```
 
-### 15 — pregunta 15
+### 15 — Nexo de origen
 
 ```
 metadata:
   materia: "Lengua"
   tema: "subordinada_adverbial_de_lugar"
   nivel: "intermedio"
-  tags: ["origen", "nexos"]
+  tags: ["subordinadas", "lugar"]
 
-variables:
-  origen: uno_de(["desde donde", "a donde", "donde"])
-  contexto: "Te llamaré {origen} estoy."
-
+enunciado: "Completá la oración «Te llamaré ___ estoy» con el nexo que indica origen o punto de partida."
+tipo: mc
+opciones_explicitas:
+  - "desde donde"
+  - "a donde"
+  - "donde"
 respuesta: "desde donde"
-tipo: completar
-
-enunciado: "Completa la oración '{contexto}' con el nexo que indica origen o punto de partida."
 
 explicacion: |
-  'Desde donde' indica el punto de origen de la acción. 'A donde' indica destino, 'donde' ubicación estática.
+  «Desde donde» marca el punto de partida; «a donde» indica destino y «donde» una ubicación sin movimiento.
 ```
 
 ### 16 — pregunta 16

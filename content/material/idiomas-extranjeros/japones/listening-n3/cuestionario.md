@@ -322,25 +322,22 @@ explicacion: "'していません' es la forma polite de negar una acción compl
 
 ---
 
-### 19 — 状況の確認  
-```  
-metadata:  
-  materia: "japones"  
-  tema: "listening-n3"  
-  nivel: "N3"  
-  tags: ["negación", "expresiones-comunes"]  
-pasos:  
-  - "Escuchar una conversación sobre trámites en la oficina de correos."  
-  - "Seleccionar la opción que expresa el rechazo a un servicio."  
-tipo: mc  
-enunciado: "—— 郵便の受け取りはできますか？—— いいえ、_____。"  
+### 19 — Responder que no se puede
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "listening-n3"
+  nivel: "N3"
+  tags: ["方向", "問いかける"]
+enunciado: "—— 郵便の受け取りはできますか？—— いいえ、_____。"
+tipo: mc
 opciones_explicitas:
   - "できません"
-  - "できません"
-  - "できないです"
-respuesta: "できません"  
-explicacion: "'できません' es la forma correcta para negar una posibilidad en contexto formal. 'できないです' es incorrecto gramaticalmente."  
-```  
+  - "できます"
+  - "できましょう"
+respuesta: "できません"
+explicacion: "La respuesta negativa cortés a 〜できますか es できません."
+```
 
 ---
 
@@ -364,25 +361,22 @@ explicacion: "'予定を変更するかもしれません' expresa incertidumbre
 
 ---
 
-### 21 — 遅延の理由  
-```  
-metadata:  
-  materia: "japones"  
-  tema: "listening-n3"  
-  nivel: "N3"  
-  tags: ["formas-formales", "negación"]  
-pasos:  
-  - "Escuchar una conversación sobre la confirmación de un evento."  
-  - "Elegir la opción que rechaza la propuesta con cortesía."  
-tipo: mc  
-enunciado: "—— 明日、会議に出席できますか？—— いいえ、_____。"  
+### 21 — Responder con una razón
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "listening-n3"
+  nivel: "N3"
+  tags: ["方向", "問いかける"]
+enunciado: "—— 明日、会議に出席できますか？—— いいえ、_____。"
+tipo: mc
 opciones_explicitas:
   - "時間がありません"
-  - "時間がないです"
-  - "時間がありません"
-respuesta: "時間がありません"  
-explicacion: "'時間がありません' es la forma correcta para negar en contexto formal. '時間がないです' es incorrecto gramaticalmente."  
-```  
+  - "時間があります"
+  - "時間でありません"
+respuesta: "時間がありません"
+explicacion: "Se rechaza con una razón: 時間がありません (no tengo tiempo)."
+```
 
 ---
 
@@ -406,25 +400,22 @@ explicacion: "'まだです' es la forma más natural y directa de negar una acc
 
 ---
 
-### 23 — 説明の要請  
-```  
-metadata:  
-  materia: "japones"  
-  tema: "listening-n3"  
-  nivel: "N3"  
-  tags: ["negación", "expresiones-comunes"]  
-pasos:  
-  - "Escuchar una conversación sobre el uso de un servicio público."  
-  - "Seleccionar la opción que expresa el rechazo a una solicitud."  
-tipo: mc  
-enunciado: "—— キャンセルできますか？—— いいえ、_____。"  
+### 23 — Responder con potencial negativo
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "listening-n3"
+  nivel: "N3"
+  tags: ["方向", "問いかける"]
+enunciado: "—— 今、電話に出られますか？—— いいえ、_____。"
+tipo: mc
 opciones_explicitas:
-  - "できません"
-  - "できないです"
-  - "できません"
-respuesta: "できません"  
-explicacion: "'できません' es la forma correcta para negar una posibilidad en contexto formal. 'できないです' es incorrecto gramaticalmente."  
-```  
+  - "出られません"
+  - "出られます"
+  - "出ません"
+respuesta: "出られません"
+explicacion: "Potencial negativo cortés de 出る: 出られません."
+```
 
 ---
 

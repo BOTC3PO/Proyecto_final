@@ -209,21 +209,21 @@ respuestas_validas:
 
 ### 11 — Uso de *sich* en verbos reflexivos  
 ```  
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "writing-c1"  
-  nivel: "C1"  
-  tags: ["reflexivos", "contexto"]  
-pasos:  
-  - "Identificar el uso correcto del pronombre reflexivo."  
-explicacion: "El verbo *sich freuen* requiere *sich* antes de la preposición (*über*) en oraciones negativas o interrogativas."  
-tipo: mc  
-enunciado: "¿Cuál oración usa correctamente 'sich' en una construcción negativa con 'sich freuen'?"  
-opciones_explicitas:  
-  - "Er freut sich nicht über das Geschenk."  
-  - "Er freut sich über das Geschenk."  
-  - "Er freut sich über das Geschenk."  
-respuesta: "Er freut sich nicht über das Geschenk."  
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-c1"
+  nivel: "C1"
+  tags: ["reflexivos", "contexto"]
+pasos:
+  - "Identificar el uso correcto del pronombre reflexivo."
+enunciado: "¿Cuál oración usa correctamente 'sich' en una construcción negativa con 'sich freuen'?"
+opciones_explicitas:
+  - "Er freut sich nicht über das Geschenk."
+  - "Er freut nicht sich über das Geschenk."
+  - "Er sich freut nicht über das Geschenk."
+respuesta: "Er freut sich nicht über das Geschenk."
+tipo: mc
+explicacion: "'sich freuen' es reflexivo: el verbo conjugado ocupa la segunda posición, 'sich' lo sigue y 'nicht' va después del pronombre."
 ```  
 
 
@@ -325,21 +325,21 @@ respuestas_validas:
 
 ### 17 — Uso de *sich* en verbos impersonales  
 ```  
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "writing-c1"  
-  nivel: "C1"  
-  tags: ["reflexivos", "impersonales"]  
-pasos:  
-  - "Identificar el uso correcto del pronombre reflexivo."  
-explicacion: "En verbos impersonales como *sich freuen*, no se usa *sich* si la acción es general, pero sí en oraciones específicas."  
-tipo: mc  
-enunciado: "¿Cuál oración usa correctamente 'sich' con el verbo 'sich freuen'?"  
-opciones_explicitas:  
-  - "Sich freut die Bevölkerung über das Ergebnis."  
-  - "Die Bevölkerung freut sich über das Ergebnis."  
-  - "Die Bevölkerung freut sich über das Ergebnis."  
-respuesta: "Die Bevölkerung freut sich über das Ergebnis."  
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-c1"
+  nivel: "C1"
+  tags: ["reflexivos", "impersonales"]
+pasos:
+  - "Identificar el uso correcto del pronombre reflexivo."
+enunciado: "¿Cuál oración usa correctamente 'sich' con el verbo 'sich freuen'?"
+opciones_explicitas:
+  - "Sich freut die Bevölkerung über das Ergebnis."
+  - "Die Bevölkerung freut sich über das Ergebnis."
+  - "Die Bevölkerung sich freut über das Ergebnis."
+respuesta: "Die Bevölkerung freut sich über das Ergebnis."
+tipo: mc
+explicacion: "En la oración principal el verbo conjugado ocupa la segunda posición y el pronombre reflexivo lo sigue: Die Bevölkerung freut sich über das Ergebnis."
 ```  
 
 

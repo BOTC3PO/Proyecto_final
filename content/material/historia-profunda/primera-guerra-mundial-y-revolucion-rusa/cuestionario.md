@@ -1,21 +1,23 @@
 ### 1 — Causa inmediata del estallido
-```yaml
+
+```
 metadata:
   materia: "historia_profunda"
   tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["casus-belli", "sarajevo"]
-enunciado: "El asesinato de {{ uno_de([personaje_1, personaje_2 ]) }} en Sarajevo el 28 de junio de 1914 fue el detonante directo que activó el sistema de alianzas y llevó al estallido de la Primera Guerra Mundial."
-variables:
-  personaje_1: "Archiduque Francisco Fernando"
-  personaje_2: "Francisco Fernando de Austria"
+  nivel: "basico"
+  tags: ["pgm", "sarajevo"]
+
 tipo: completar
-respuesta: "Archiduque Francisco Fernando"
+respuesta: "Francisco Fernando"
 respuestas_validas:
-  - "Archiduque Francisco Fernando"
-  - "Archiduque Francisco Fernando de Austria"
   - "Francisco Fernando"
+  - "Francisco Fernando de Austria"
   - "Archiduque Francisco Fernando"
+
+enunciado: "El asesinato del archiduque ___ en Sarajevo, el 28 de junio de 1914, fue el detonante que activó el sistema de alianzas."
+
+explicacion: |
+  El heredero al trono austrohúngaro fue asesinado por un nacionalista serbio de Bosnia; Austria-Hungría declaró la guerra a Serbia y las alianzas hicieron el resto.
 ```
 
 ### 2 — Tratado de Versalles
@@ -50,40 +52,47 @@ opciones_explicitas:
 respuesta: "Nicolás II"
 ```
 
-### 4 — Bloqueo Naval
-```yaml
+### 4 — Bloqueo naval
+
+```
 metadata:
   materia: "historia_profunda"
   tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["mar", "bloqueo"]
-enunciado: "La estrategia naval británica consistió en un {{ uno_de([bloqueo_1, bloqueo_2 ]) }} de las costas alemanas para impedir la entrada de suministros y materias primas, debilitando gravemente la economía del Imperio Alemán."
-variables:
-  bloqueo_1: "bloqueo"
-  bloqueo_2: "cerco"
+  nivel: "intermedio"
+  tags: ["pgm", "guerra-naval"]
+
 tipo: completar
 respuesta: "bloqueo"
 respuestas_validas:
   - "bloqueo"
-  - "cerco"
+  - "bloqueo naval"
+
+enunciado: "Gran Bretaña aplicó un ___ naval a las costas alemanas para cortar sus suministros y debilitar su economía."
+
+explicacion: |
+  El bloqueo británico limitó la llegada de alimentos y materias primas a Alemania y agravó la escasez en la población civil.
 ```
 
-### 5 — Tratado de Brest-Litovsk
-```yaml
+### 5 — Salida de Rusia de la guerra
+
+```
 metadata:
   materia: "historia_profunda"
   tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["rusia", "paz", "bolchevique"]
-enunciado: "La nueva gobierno bolchevique firmó el {{ uno_de([tratado_1, tratado_2 ]) }} con las Potencias Centrales en marzo de 1918, saliendo oficialmente de la guerra a costa de enormes pérdidas territoriales."
-variables:
-  tratado_1: "Tratado de Brest-Litovsk"
-  tratado_2: "Paz de Brest-Litovsk"
+  nivel: "intermedio"
+  tags: ["pgm", "revolucion-rusa"]
+
 tipo: completar
-respuesta: "Tratado de Brest-Litovsk"
+respuesta: "Brest-Litovsk"
 respuestas_validas:
-  - "Tratado de Brest-Litovsk"
-  - "Paz de Brest-Litovsk"
+  - "Brest-Litovsk"
+  - "brest litovsk"
+  - "Brest Litovsk"
+
+enunciado: "El gobierno bolchevique firmó en marzo de 1918 el Tratado de ___ con las Potencias Centrales, saliendo de la guerra a costa de grandes pérdidas territoriales."
+
+explicacion: |
+  El tratado de Brest-Litovsk sacó a Rusia de la guerra y cedió amplios territorios occidentales.
 ```
 
 ### 6 — Armisticio de 1918
@@ -118,22 +127,25 @@ opciones_explicitas:
 respuesta: "Vladimir Lenin"
 ```
 
-### 8 — Frente Oriental
-```yaml
+### 8 — Frente oriental
+
+```
 metadata:
   materia: "historia_profunda"
   tema: "primera-guerra-mundial-y-revolucion-rusa"
-  nivel: "avanzado"
-  tags: ["frente", "rusia"]
-enunciado: "A diferencia del frente occidental, caracterizado por la guerra de trincheras estática, el {{ uno_de([frente_1, frente_2 ]) }} fue más móvil y amplio, lo que facilitó la posterior ruptura del ejército ruso."
-variables:
-  frente_1: "frente oriental"
-  frente_2: "frente ruso"
-tipo: completar
-respuesta: "frente oriental"
-respuestas_validas:
-  - "frente oriental"
-  - "frente ruso"
+  nivel: "intermedio"
+  tags: ["pgm", "frentes"]
+
+enunciado: "A diferencia del frente occidental, dominado por la guerra de trincheras, el frente oriental fue:"
+tipo: mc
+opciones_explicitas:
+  - "Más móvil y extenso"
+  - "Idéntico en su estilo de combate"
+  - "Exclusivamente naval"
+respuesta: "Más móvil y extenso"
+
+explicacion: |
+  En el este las distancias eran enormes y las líneas se movieron mucho más; el desgaste del ejército ruso contribuyó a la revolución de 1917.
 ```
 
 ### 9 — Submarinos U-Boat

@@ -457,7 +457,7 @@ opciones_explicitas:
   - "è"  
   - "sia"  
   - "fosse"  
-enunciado: "La frase 'Se ___ ricco, non avrei mai comprato questa macchina' requiere el congiuntivo imperfetto correcto."  
+enunciado: "La frase 'Se ___ ricco, non avrei mai comprato questa macchina' requiere el congiuntivo imperfetto correcto. (Congiuntivo imperfetto con verbo impersonale)"
 explicacion: "El congiuntivo imperfetto se usa en oraciones condicionales hipotéticas. Para 'io', la forma es 'fosse' (essere)."  
 ```  
 

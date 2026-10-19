@@ -298,7 +298,7 @@ metadata:
   tags: ["devanagari", "alfabeto", "escritura"]
 pasos:
   - "Elegir la opción correcta."
-enunciado: "La consonante क se lee:"
+enunciado: "La consonante क se lee: (क)"
 opciones_explicitas:
   - "ka"
   - "kha"
@@ -473,4 +473,3 @@ respuestas_validas:
   - "kamal"
 explicacion: "कमल = kamal."
 ```
-

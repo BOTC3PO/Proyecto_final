@@ -269,27 +269,7 @@ tipo: mc
 explicacion: "En documentos oficiales, se usan títulos completos y respetuosos como 'excelentíssimo senhor ministro.'"
 ```
 
-### 14 — Verbos en textos académicos  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "registro-formal-vs-informal"  
-  nivel: "C1"  
-  tags: ["académico", "verbos"]  
-pasos:  
-  - "Identificar el verbo en tercera persona formal."
-  - "Reemplazar formas coloquiales por su versión académica."
-respuesta: "afirma-se"
-enunciado: "En un texto académico, ¿cuál es la forma verbal impersonal correcta para expresar una afirmación?"
-opciones_explicitas:  
-  - "você afirma"  
-  - "afirma-se"  
-  - "diga que se afirma"  
-tipo: mc  
-explicacion: "En textos académicos, se usa la forma impersonal ('afirma-se') para mantener un registro neutral."
-```
-
-### 15 — Uso de "por gentileza" en solicitudes formales  
+### 14 — Uso de "por gentileza" en solicitudes formales  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -309,27 +289,7 @@ tipo: mc
 explicacion: "En solicitudes formales, se usa 'por gentileza, solicito' para mantener un tono respetuoso."
 ```
 
-### 16 — Frases en correos electrónicos formales  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "registro-formal-vs-informal"  
-  nivel: "C1"  
-  tags: ["correo", "expresiones"]  
-pasos:  
-  - "Reconocer el registro formal en correos electrónicos."
-  - "Seleccionar la frase más adecuada para un destinatario desconocido."
-respuesta: "com o prazer de"
-enunciado: "En un correo electrónico formal dirigido a un destinatario desconocido, ¿qué expresión es la más adecuada?"
-opciones_explicitas:  
-  - "você pode fazer isso?"  
-  - "com o prazer de"  
-  - "por favor, faça isso"  
-tipo: mc  
-explicacion: "En correos formales, se usa 'com o prazer de' para expresar cortesía."
-```
-
-### 17 — Uso de títulos en reuniones oficiales  
+### 15 — Uso de títulos en reuniones oficiales  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -349,7 +309,7 @@ tipo: mc
 explicacion: "En reuniones oficiales, se usan títulos completos y respetuosos como 'excelentíssima senhora governadora.'"
 ```
 
-### 18 — Verbos en textos legales formales  
+### 16 — Verbos en textos legales formales  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -369,27 +329,7 @@ tipo: mc
 explicacion: "En textos legales, se usa la forma impersonal ('determina-se') para mantener un registro neutral."
 ```
 
-### 19 — Uso de "por favor" en cartas formales  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "registro-formal-vs-informal"  
-  nivel: "C1"  
-  tags: ["expresiones", "cartas"]  
-pasos:  
-  - "Identificar la forma formal de 'por favor'."
-  - "Reemplazar expresiones coloquiales por su versión adecuada."
-respuesta: "com a gentileza de"
-enunciado: "¿Cuál es la expresión formal equivalente a 'por favor' en una carta formal?"
-opciones_explicitas:  
-  - "vai ser legal"  
-  - "com a gentileza de"  
-  - "por favor, faça isso"  
-tipo: mc  
-explicacion: "En cartas formales, se usa 'com a gentileza de' en lugar de expresiones informales como 'por favor.'"
-```
-
-### 20 — Frases en reuniones empresariales formales  
+### 17 — Frases en reuniones empresariales formales  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -409,7 +349,7 @@ tipo: mc
 explicacion: "En reuniones empresariales, se prefiere el uso de frases impersonales y respetuosas."
 ```
 
-### 21 — Uso de "senhor" vs "você" en saludos formales  
+### 18 — Uso de "senhor" vs "você" en saludos formales  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -429,7 +369,7 @@ tipo: mc
 explicacion: "En contextos formales, se usa 'senhor' para dirigirse respetuosamente a un hombre."
 ```
 
-### 22 — Expresiones en correos electrónicos formales  
+### 19 — Expresiones en correos electrónicos formales  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -449,27 +389,7 @@ tipo: mc
 explicacion: "En correos formales, se usa 'com o prazer de' para expresar cortesía."
 ```
 
-### 23 — Uso de títulos en documentos oficiales  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "registro-formal-vs-informal"  
-  nivel: "C1"  
-  tags: ["documentos", "títulos"]  
-pasos:  
-  - "Identificar el título formal para un cargo público."
-  - "Reemplazar títulos informales por su versión adecuada."
-respuesta: "excelentíssimo senhor ministro"
-enunciado: "¿Cuál es el título formal correcto para dirigirse a un ministro en un documento oficial?"
-opciones_explicitas:  
-  - "você"  
-  - "excelentíssimo senhor ministro"  
-  - "caro amigo"  
-tipo: mc  
-explicacion: "En documentos oficiales, se usan títulos completos y respetuosos como 'excelentíssimo senhor ministro.'"
-```
-
-### 24 — Verbos en textos académicos formales  
+### 20 — Verbos en textos académicos formales  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -487,24 +407,4 @@ opciones_explicitas:
   - "diga que se afirma"  
 tipo: mc  
 explicacion: "En textos académicos, se usa la forma impersonal ('afirma-se') para mantener un registro neutral."
-```
-
-### 25 — Uso de "por gentileza" en solicitudes formales  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "registro-formal-vs-informal"  
-  nivel: "C1"  
-  tags: ["expresiones", "solicitudes"]  
-pasos:  
-  - "Identificar la expresión formal para pedir algo."
-  - "Reemplazar frases coloquiales por su versión adecuada."
-respuesta: "por gentileza, solicito"
-enunciado: "¿Cuál es la expresión formal adecuada para hacer una solicitud formal por escrito?"
-opciones_explicitas:  
-  - "você pode fazer isso?"  
-  - "por gentileza, solicito"  
-  - "por favor, faça isso"  
-tipo: mc  
-explicacion: "En solicitudes formales, se usa 'por gentileza, solicito' para mantener un tono respetuoso."
 ```

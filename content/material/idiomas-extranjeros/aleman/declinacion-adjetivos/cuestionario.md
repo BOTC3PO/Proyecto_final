@@ -244,19 +244,19 @@ metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["ohne-artikel", "femininum", "nominativ"]
+  tags: ["mit-bestimmtem-artikel", "femininum", "nominativ"]
 pasos:
-  - "Reconoce la ausencia de artículo y el caso del sustantivo."
-  - "Aplica la regla para adjetivos sin artículo en nominativo femenino."
-respuesta: "schöne"
+  - "Reconocé el artículo definido y el caso (nominativo, femenino singular)."
+  - "Aplicá la terminación -e del adjetivo tras artículo definido."
+enunciado: "Die ___ Frau ist sehr nett."
 opciones_explicitas:
   - "schön"
   - "schöne"
+  - "schönen"
   - "schöner"
-  - "schöne"
+respuesta: "schöne"
 tipo: mc
-explicacion: "El adjetivo 'schöne' no lleva sufijo en nominativo femenino sin artículo definido."
-enunciado: "___ Frau ist sehr nett."
+explicacion: "Tras el artículo definido 'die', el adjetivo femenino en nominativo singular lleva -e: die schöne Frau."
 ```
 
 
@@ -316,19 +316,19 @@ metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["ohne-artikel", "femininum", "akkusativ"]
+  tags: ["mit-unbestimmtem-artikel", "femininum", "akkusativ"]
 pasos:
-  - "Reconoce la ausencia de artículo y el caso del sustantivo."
-  - "Aplica la regla para adjetivos sin artículo en acusativo femenino."
-respuesta: "schöne"
+  - "Reconocé el artículo indefinido y el caso (acusativo, femenino singular)."
+  - "Aplicá la terminación -e."
+enunciado: "Ich sehe eine ___ Frau."
 opciones_explicitas:
   - "schön"
   - "schöne"
+  - "schönen"
   - "schöner"
-  - "schöne"
+respuesta: "schöne"
 tipo: mc
-explicacion: "El adjetivo 'schöne' no lleva sufijo en acusativo femenino sin artículo definido."
-enunciado: "Ich sehe eine ___ Frau."
+explicacion: "Con el artículo indefinido 'eine' (acusativo femenino singular) el adjetivo lleva -e: eine schöne Frau."
 ```
 
 
@@ -412,19 +412,19 @@ metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["bestimmter-artikel", "femininum", "dativ"]
+  tags: ["mit-bestimmtem-artikel", "femininum", "dativ"]
 pasos:
-  - "Identifica el artículo definido y el caso del sustantivo."
-  - "Aplica la regla de declinación para adjetivos en dativo femenino."
-respuesta: "schöne"
+  - "Reconocé el artículo definido 'der' en dativo femenino singular."
+  - "Aplicá la terminación -en."
+enunciado: "Ich helfe der ___ Frau."
 opciones_explicitas:
   - "schön"
   - "schöne"
+  - "schönen"
   - "schöner"
-  - "schöne"
+respuesta: "schönen"
 tipo: mc
-explicacion: "El adjetivo 'schöne' no lleva sufijo en dativo femenino con artículo definido."
-enunciado: "Ich helfe der ___ Frau."
+explicacion: "Después de un artículo definido en dativo (der Frau), el adjetivo lleva siempre -en: der schönen Frau."
 ```
 
 
@@ -479,19 +479,19 @@ metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["präposition", "femininum", "nominativ"]
+  tags: ["mit-unbestimmtem-artikel", "neutrum", "akkusativ"]
 pasos:
-  - "Identifica la preposición y el caso requerido."
-  - "Aplica la regla de declinación para nominativo femenino sin artículo."
-respuesta: "schöne"
+  - "Reconocé el género del sustantivo (das Auto, neutro) y el caso (acusativo)."
+  - "Aplicá la terminación -es tras el artículo indefinido 'ein'."
+enunciado: "Er kauft ein ___ Auto."
 opciones_explicitas:
   - "schön"
   - "schöne"
-  - "schöner"
-  - "schöne"
+  - "schönen"
+  - "schönes"
+respuesta: "schönes"
 tipo: mc
-explicacion: "El adjetivo 'schöne' no lleva sufijo en nominativo femenino sin artículo definido."
-enunciado: "Das ist eine ___ Frau."
+explicacion: "Con 'ein' en acusativo neutro el adjetivo muestra el género con -es: ein schönes Auto."
 ```
 
 

@@ -428,28 +428,25 @@ explicacion: |
   La sentencia es el acto procesal mediante el cual el juez resuelve la cuestión sometida a su decisión, poniendo fin al proceso.
 ```
 
-### 22 — La estructura de la sentencia
+### 22 — Función de los considerandos
 
 ```
 metadata:
   materia: "derecho"
   tema: "resolucion_de_conflictos_y_sentencia"
   nivel: "intermedio"
-  tags: ["estructura", "sentencia", "vistos", "fallo"]
+  tags: ["sentencia", "estructura"]
 
-respuesta_orden: ["Vistos", "Considerandos", "Fallo"]
-tipo: ordenar
-opciones_explicitas: ["Vistos", "Considerandos", "Fallo"]
-
-enunciado: "Ordene cronológicamente las partes de una sentencia judicial estándar:"
-
-pasos:
-  - "Identificación de los antecedentes y partes (Vistos)."
-  - "Análisis de los hechos y aplicación de la norma (Considerandos)."
-  - "La decisión final y resolución del conflicto (Fallo)."
+enunciado: "En una sentencia, ¿cuál es la función de los considerandos?"
+tipo: mc
+opciones_explicitas:
+  - "Explicar los fundamentos de hecho y de derecho de la decisión"
+  - "Fijar la fecha de la próxima audiencia"
+  - "Enumerar los gastos del proceso"
+respuesta: "Explicar los fundamentos de hecho y de derecho de la decisión"
 
 explicacion: |
-  Una sentencia bien estructurada comienza con los 'Vistos' (antecedentes), sigue con los 'Considerandos' (razonamiento jurídico) y culmina con el 'Fallo' (la decisión).
+  Los considerandos son la parte donde el juez razona y justifica por qué decide como decide; el fallo o parte resolutiva viene después.
 ```
 
 ### 23 — El principio de congruencia

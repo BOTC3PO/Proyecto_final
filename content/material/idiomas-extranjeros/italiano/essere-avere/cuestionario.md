@@ -197,8 +197,8 @@ explicacion: "'Sono' es primera persona plural del presente de 'essere'."
 tipo: completar  
 enunciado: "Noi ___ una famiglia grande."  
 respuestas_validas:  
-  - "siamo"  
-  - "Siamo"  
+  - "abbiamo"  
+  - "Abbiamo"  
 ```
 
 ### 12 — Avere un problema  
@@ -412,11 +412,11 @@ pasos:
   - "Determinar si el verbo necesario expresa posesión."  
   - "Seleccionar la conjugación correcta de 'avere' según el sujeto y el contexto."  
 opciones_explicitas:  
-  - "ha"  
+  - "hanno"  
   - "è"  
   - "hai"  
   - "abbiamo"  
-respuesta: "ha"  
+respuesta: "hanno"  
 tipo: mc  
 enunciado: "Loro ___ una macchina?"  
 explicacion: "'Avere' se usa para indicar posesión. La tercera persona del plural en presente es 'hanno', pero en esta pregunta se pide la conjugación que concuerda con el sujeto 'loro' y el verbo 'avere'. En este contexto, la forma correcta es 'ha' (ej.: Loro hanno una macchina?)."  
@@ -444,23 +444,17 @@ explicacion: "'Essere' se usa para indicar ubicación. La tercera persona del si
 
 ---
 
-### 25 — Essere con lugar de vacaciones  
-```  
-metadata:  
-  materia: "italiano"  
-  tema: "essere-avere"  
-  nivel: "A1"  
-  tags: ["avere", "problemas"]  
-pasos:  
-  - "Identificar si el verbo debe expresar un problema o dificultad."  
-  - "Seleccionar la conjugación correcta de 'avere' según el sujeto y el contexto."  
-opciones_explicitas:  
-  - "ha"  
-  - "è"  
-  - "hai"  
-  - "abbiamo"  
-respuesta: "hai"  
-tipo: mc  
-enunciado: "Tu ___ un problema?"  
-explicacion: "'Avere' se usa para indicar problemas. La segunda persona del singular en presente es 'hai' (ej.: Tu hai un problema?)."  
+### 25 — Avere con fame
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "essere-avere"
+  nivel: "A1"
+  tags: ["avere", "espressioni"]
+tipo: completar
+respuestas_validas:
+  - "avete"
+  - "Avete"
+enunciado: "Voi ___ fame?"
+explicacion: "In italiano si dice \"avere fame\": voi avete."
 ```

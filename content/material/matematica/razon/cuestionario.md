@@ -242,6 +242,9 @@ variables:
   b: random(2, 9)
   k: random(2, 6)
 
+restricciones:
+  - a != 1
+
 respuesta: a * k
 tipo: mc
 opciones_explicitas:

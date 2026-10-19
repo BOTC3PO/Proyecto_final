@@ -248,6 +248,9 @@ variables:
   n: random(1, 6)
   x: 10 ^ n
 
+restricciones:
+  - n > 1
+
 respuesta: n
 tipo: mc
 opciones_explicitas:

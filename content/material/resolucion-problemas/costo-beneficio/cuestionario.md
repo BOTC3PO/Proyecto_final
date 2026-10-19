@@ -404,24 +404,25 @@ explicacion: |
   Falso. La rentabilidad es una medida de beneficio sobre inversión, mientras que el flujo de caja (liquidez) mide la disponibilidad de dinero real en momentos específicos. Se puede ser rentable pero quebrar por falta de caja.
 ```
 
-### 19 — Componentes del Análisis Costo-Beneficio
+### 19 — Cuándo conviene un proyecto
 
 ```
 metadata:
   materia: "resolucion-problemas"
   tema: "costo_beneficio"
-  nivel: "intermedio"
-  tags: ["metodologia", "pasos"]
+  nivel: "basico"
+  tags: ["costo-beneficio", "decision"]
 
-respuesta_orden: ["Identificar costos", "Identificar beneficios", "Comparar resultados"]
-tipo: ordenar
-
-opciones_explicitas: ["Identificar costos", "Identificar beneficios", "Comparar resultados"]
-
-enunciado: "Ordena los pasos lógicos para realizar un análisis de costo-beneficio efectivo:"
+enunciado: "En un análisis costo-beneficio, un proyecto resulta conveniente cuando:"
+tipo: mc
+opciones_explicitas:
+  - "Los beneficios esperados superan a los costos"
+  - "Los costos son los más bajos posibles, sin importar el beneficio"
+  - "Se gasta todo el presupuesto disponible"
+respuesta: "Los beneficios esperados superan a los costos"
 
 explicacion: |
-  Primero se deben cuantificar las salidas (costos), luego las entradas (beneficios) y finalmente evaluar si la relación beneficio/costo es favorable.
+  La relación beneficio/costo mayor que 1 (o un beneficio neto positivo) indica que el proyecto aporta más de lo que cuesta.
 ```
 
 ### 20 — Punto de Equilibrio

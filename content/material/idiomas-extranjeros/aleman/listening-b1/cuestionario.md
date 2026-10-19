@@ -402,26 +402,7 @@ explicacion: "'Wegen' se usa para indicar una razón, como en 'wegen der Erkält
 ```
 
 
-### 20 — Uso de *schon* con tiempos compuestos  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b1"
-  nivel: "B1"
-  tags: ["tiempo", "adverbios"]
-pasos:
-  - "Escucha la oración: 'Er ___ gegessen.'"
-  - "Completa el hueco con el adverbio correcto."
-respuestas_validas:
-  - "Schon"
-  - "SCHON"
-tipo: completar
-enunciado: "Er ___ gegessen."
-explicacion: "'Schon' indica que algo ha sucedido antes del momento mencionado en el pasado."
-```
-
-
-### 21 — Uso de *zusammen* con adjetivos  
+### 20 — Uso de *zusammen* con adjetivos  
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/aleman"
@@ -440,86 +421,4 @@ respuesta: "zusammen"
 tipo: mc
 enunciado: "Wir sind ___ glücklich."
 explicacion: "'Zusammen' indica que algo ocurre en conjunto con alguien más, como 'juntos'."
-```
-
-
-### 22 — Uso de *weshalb* vs. *warum*  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b1"
-  nivel: "B1"
-  tags: ["preguntas", "razón"]
-pasos:
-  - "Escucha la oración: '___ bist du nicht gekommen?'"
-  - "Elige la pregunta correcta."
-opciones_explicitas:
-  - "Weshalb"
-  - "Warum"
-  - "Wann"
-  - "Wie"
-respuesta: "Warum"
-tipo: mc
-enunciado: "___ bist du nicht gekommen?"
-explicacion: "'Warum' es más común para preguntar razones, mientras que 'weshalb' es menos frecuente en uso cotidiano."
-```
-
-
-### 23 — Forma del verbo *geben*  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b1"
-  nivel: "B1"
-  tags: ["verbo-giben", "presente"]
-pasos:
-  - "Escucha la oración: 'Sie ___ mir ein Geschenk.'"
-  - "Completa el hueco con la forma correcta del verbo."
-respuestas_validas:
-  - "Gibt"
-  - "GIBT"
-tipo: completar
-enunciado: "Sie ___ mir ein Geschenk."
-explicacion: "El verbo *geben* en presente para tercera persona singular es 'gibt'."
-```
-
-
-### 24 — Uso de *durch*  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b1"
-  nivel: "B1"
-  tags: ["preposiciones", "movimiento"]
-pasos:
-  - "Escucha la oración: 'Er läuft ___ die Straße.'"
-  - "Elige la preposición correcta."
-opciones_explicitas:
-  - "durch"
-  - "über"
-  - "auf"
-  - "unter"
-respuesta: "durch"
-tipo: mc
-enunciado: "Er läuft ___ die Straße."
-explicacion: "'Durch' indica movimiento a través de algo, mientras que 'über' es sobre."
-```
-
-
-### 25 — Uso de *jemanden* vs. *etwas*  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b1"
-  nivel: "B1"
-  tags: ["pronombres", "objeto"]
-pasos:
-  - "Escucha la oración: 'Ich sehe ___.'"
-  - "Completa el hueco con el objeto correcto."
-respuestas_validas:
-  - "Jemanden"
-  - "JEMANDEN"
-tipo: completar
-enunciado: "Ich sehe ___."
-explicacion: "'Jemanden' es el objeto directo de un verbo que requiere acento, como 'sehen'."
 ```

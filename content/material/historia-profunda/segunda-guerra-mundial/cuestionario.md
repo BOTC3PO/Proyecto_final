@@ -1,39 +1,43 @@
-### 1 — Inicio de la Segunda Guerra Mundial
+### 1 — Inicio de la guerra en Europa
+
 ```
 metadata:
   materia: "historia_profunda"
   tema: "segunda-guerra-mundial"
-  nivel: "avanzado"
-  tags: ["inicio", "1939", "invasion"]
+  nivel: "basico"
+  tags: ["sgm", "1939"]
+
 tipo: completar
-enunciado: "La Segunda Guerra Mundial en Europa comenzó oficialmente el 1 de septiembre de 1939 cuando Alemania invadió {{pais_objetivo}}."
-variables:
-  pais_objetivo: uno_de(["Polonia", "Polonia"])
-respuesta: "polonia"
+respuesta: "Polonia"
 respuestas_validas:
-  - "polonia"
-  - "polonia"
   - "Polonia"
-explicacion: "La invasión de Polonia por parte de la Alemania nazi el 1 de septiembre de 1939 es considerada universalmente el evento detonante del conflicto en Europa, provocando la declaración de guerra de Francia y el Reino Unido dos días después."
+  - "polonia"
+
+enunciado: "La Segunda Guerra Mundial comenzó en Europa el 1 de septiembre de 1939, cuando Alemania invadió ___."
+
+explicacion: |
+  Francia y el Reino Unido le declararon la guerra a Alemania dos días después.
 ```
 
-### 2 — Doctrina de Contención
+### 2 — Doctrina Truman
+
 ```
 metadata:
   materia: "historia_profunda"
   tema: "segunda-guerra-mundial"
-  nivel: "avanzado"
-  tags: ["guerra-fria", "truman", "doctrina"]
+  nivel: "intermedio"
+  tags: ["guerra-fria", "truman"]
+
 tipo: completar
-enunciado: "En 1947, el presidente estadounidense Harry S. Truman anunció la doctrina que establecía que Estados Unidos apoyaría a cualquier nación resistente a la presión de minorías armadas o {{ideologia_opuesta}}, marcando el inicio de la Guerra Fría."
-variables:
-  ideologia_opuesta: uno_de(["del comunismo", "del comunismo"])
-respuesta: "del comunismo"
+respuesta: "comunismo"
 respuestas_validas:
+  - "comunismo"
   - "del comunismo"
-  - "del comunismo"
-  - "del comunismo"
-explicacion: "La Doctrina Truman se formuló para contener la expansión del comunismo soviético, especialmente en Grecia y Turquía, estableciendo el principio de intervención estadounidense en conflictos globales para prevenir la proliferación comunista."
+
+enunciado: "En 1947 el presidente Harry Truman anunció una doctrina para apoyar a los países amenazados por la expansión del ___."
+
+explicacion: |
+  La Doctrina Truman, aplicada primero a Grecia y Turquía, marcó el inicio de la política de contención en la Guerra Fría.
 ```
 
 ### 3 — Operación Barbarroja
@@ -68,42 +72,47 @@ explicacion: "La derrota del 6º Ejército alemán en Stalingrado (noviembre de 
 ```
 
 ### 5 — Conferencia de Yalta
+
 ```
 metadata:
   materia: "historia_profunda"
   tema: "segunda-guerra-mundial"
-  nivel: "avanzado"
-  tags: ["diplomacia", "alianzas", "1945"]
+  nivel: "intermedio"
+  tags: ["sgm", "conferencias"]
+
 tipo: completar
-enunciado: "En febrero de 1945, Roosevelt, Churchill y Stalin se reunieron en {{ciudad}} para discutir la reorganización de Europa después de la guerra, acordando la división de Alemania y los futuros límites de Polonia."
-variables:
-  ciudad: uno_de(["Yalta", "Yalta"])
-respuesta: "yalta"
+respuesta: "Yalta"
 respuestas_validas:
-  - "yalta"
   - "Yalta"
   - "yalta"
-explicacion: "La Conferencia de Yalta estableció las esferas de influencia en Europa del Este y acordó la entrada de la URSS en la guerra contra Japón, sentando las bases para la posterior división del continente y la Guerra Fría."
+
+enunciado: "En febrero de 1945, Roosevelt, Churchill y Stalin se reunieron en ___ para acordar la reorganización de Europa de posguerra."
+
+explicacion: |
+  En Yalta, en Crimea, se acordaron la división de Alemania en zonas de ocupación y la entrada de la URSS en la guerra contra Japón.
 ```
 
-### 6 — Masacre de Nanking
+### 6 — Masacre de Nankín
+
 ```
 metadata:
   materia: "historia_profunda"
   tema: "segunda-guerra-mundial"
-  nivel: "avanzado"
-  tags: ["pacifico", "atrocidades", "japon"]
+  nivel: "intermedio"
+  tags: ["sgm", "asia"]
+
 tipo: completar
-enunciado: "Tras la captura de la capital china en diciembre de 1937, las tropas japonesas cometieron una masacre masiva conocida como el Asedio o Masacre de {{ciudad_china}}, donde cientos de miles de civiles y prisioneros fueron ejecutados."
-variables:
-  ciudad_china: uno_de(["Nankín", "Nankín"])
-respuesta: "nankin"
+respuesta: "Nankín"
 respuestas_validas:
-  - "nankin"
-  - "nankín"
   - "Nankín"
+  - "Nankin"
   - "Nanjing"
-explicacion: "La Masacre de Nankín fue una serie de crímenes de guerra cometidos por el Ejército Imperial Japonés contra la población civil y los prisioneros de guerra chinos durante los primeros meses de ocupación de la ciudad."
+  - "Nanking"
+
+enunciado: "Tras la toma de la capital china en diciembre de 1937, las tropas japonesas cometieron la masacre de ___, con cientos de miles de víctimas civiles y prisioneros."
+
+explicacion: |
+  La masacre de Nankín es uno de los crímenes de guerra más graves de la guerra chino-japonesa.
 ```
 
 ### 7 — Plan Schlieffen (Contexto IGM vs II GM - Distinción)

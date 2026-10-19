@@ -31,42 +31,46 @@ explicacion: |
   Las elecciones de octubre de 1983 pusieron fin a la última dictadura cívico-militar, devolviendo el poder a los representantes elegidos por el pueblo.
 ```
 
-### 2 — El primer presidente electo
+### 2 — Primer presidente de la recuperación democrática
 
 ```
 metadata:
   materia: "historia_profunda"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
-  tags: ["alfonsin", "presidencia", "1983"]
+  tags: ["democracia", "1983"]
 
-opciones_explicitas: ["Raúl Alfonsín", "Carlos Menem", "Alfonsín", "Raúl Alfonsín"]
-respuesta: "Raúl Alfonsín"
+enunciado: "El primer presidente elegido por voto popular tras la última dictadura militar, que asumió el 10 de diciembre de 1983, fue:"
 tipo: mc
-
-enunciado: "El primer presidente elegido mediante el sufragio universal tras el fin de la dictadura fue:"
+opciones_explicitas:
+  - "Raúl Alfonsín"
+  - "Carlos Menem"
+  - "Fernando de la Rúa"
+respuesta: "Raúl Alfonsín"
 
 explicacion: |
-  Raúl Alfonsín, de la Unión Cívica Radical, asumió la presidencia el 10 de diciembre de 1983.
+  Alfonsín, de la Unión Cívica Radical, ganó las elecciones de octubre de 1983.
 ```
 
-### 3 — El juicio histórico
+### 3 — Juicio a las Juntas
 
 ```
 metadata:
   materia: "historia_profunda"
   tema: "recuperacion_democratica_memoria"
-  nivel: "intermedio"
-  tags: ["justicia", "derechos_humanos", "juicio_a_las_juntas"]
+  nivel: "basico"
+  tags: ["derechos-humanos", "1985"]
 
-opciones_explicitas: ["Juicio a las Juntas", "Juicio a los Militares", "Juicio a las Dictaduras", "Juicio a las Juntas"]
-respuesta: "Juicio a las Juntas"
+enunciado: "El proceso judicial de 1985 contra las cúpulas militares de la última dictadura se conoce como:"
 tipo: mc
-
-enunciado: "El proceso judicial de 1985 para juzgar a las cúpulas militares se conoce como el:"
+opciones_explicitas:
+  - "Juicio a las Juntas"
+  - "Juicio de Núremberg"
+  - "Juicio a los Comandantes de Malvinas"
+respuesta: "Juicio a las Juntas"
 
 explicacion: |
-  El Juicio a las Juntas fue un hito histórico en la justicia argentina y un precedente mundial en el juzgamiento de crímenes de lesa humanidad.
+  El Juicio a las Juntas condenó a los máximos responsables y fue un hito mundial en el juzgamiento de crímenes de lesa humanidad por tribunales propios.
 ```
 
 ### 4 — Secuencia de la transición
@@ -384,26 +388,25 @@ explicacion: |
   La reconstrucción de la identidad democrática es un pilar fundamental para consolidar el Estado de Derecho tras la dictadura.
 ```
 
-### 19 — El retorno a la democracia
+### 19 — Informe de la CONADEP
 
 ```
 metadata:
   materia: "historia_profunda"
   tema: "recuperacion_democratica_memoria"
-  nivel: "basico"
-  tags: ["argentina", "democracia", "historia"]
+  nivel: "intermedio"
+  tags: ["memoria", "conadep"]
 
-variables:
-  escenario: uno_de([["¿Qué presidente asumió en 1983 tras el fin de la dictadura?", "Raúl Alfonsín"], ["¿Qué presidente asumió en 1983 tras el fin de la dictadura?", "Raúl Alfonsín"], ["¿Qué presidente asumió en 1983 tras el fin de la dictadura?", "Raúl Alfonsín"]])
-
-respuesta: escenario[1]
+enunciado: "La comisión creada en 1983 que investigó las desapariciones forzadas y produjo el informe «Nunca Más» fue la:"
 tipo: mc
-opciones_explicitas: ["Raúl Alfonsín", "Carlos Menem", "Alfonsín", "Raúl Alfonsín"]
-
-enunciado: "En el contexto de la recuperación democrática argentina, {escenario[0]}"
+opciones_explicitas:
+  - "CONADEP"
+  - "CIDH"
+  - "Comisión Bicameral de Inteligencia"
+respuesta: "CONADEP"
 
 explicacion: |
-  Raúl Alfonsín asumió la presidencia en 1983, marcando el inicio del periodo democrático tras la última dictadura militar.
+  La Comisión Nacional sobre la Desaparición de Personas, presidida por Ernesto Sabato, entregó su informe en septiembre de 1984.
 ```
 
 ### 20 — El Juicio a las Juntas

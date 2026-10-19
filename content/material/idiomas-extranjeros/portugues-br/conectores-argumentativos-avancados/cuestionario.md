@@ -449,49 +449,7 @@ tipo: mc
 explicacion: "'Assim que' conecta ações condicionais com o momento em que ocorrem."
 ```
 
-### 22 — Conector de causa e consequência inversa  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "conectores-argumentativos-avancados"
-  nivel: "C1"
-  tags: ["causa", "por isso"]
-pasos:
-  - "Identificar a relação inversa entre causa e efeito."
-  - "Selecionar o conector que expressa essa ligação."
-respuesta: "Por isso"
-enunciado: "¿Cuál es el conector correcto para expresar causa?"
-opciones_explicitas:
-  - "Apesar disso"
-  - "Embora"
-  - "Por isso"
-  - "Contudo"
-tipo: mc
-explicacion: "'Por isso' é usado para conectar uma causa a um efeito, mesmo quando o contexto é inverso."
-```
-
-### 23 — Conector de hipótese com consequência  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "conectores-argumentativos-avancados"
-  nivel: "C1"
-  tags: ["hipótese", "se"]
-pasos:
-  - "Reconhecer a relação de hipótese e consequência."
-  - "Escolher o conector que expressa essa ligação condicional."
-respuesta: "Se"
-enunciado: "¿Cuál es el conector correcto para expresar una hipótesis?"
-opciones_explicitas:
-  - "A menos que"
-  - "Apesar disso"
-  - "Se"
-  - "Dado que"
-tipo: mc
-explicacion: "'Se' introduz uma hipótese e sua consequência, mesmo quando a condição não é certa."
-```
-
-### 24 — Conector de comparação com intensificação  
+### 22 — Conector de comparação com intensificação  
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
@@ -510,25 +468,4 @@ opciones_explicitas:
   - "Não só...mas também"
 tipo: mc
 explicacion: "'Tão...quanto' é usado para comparar dois elementos com intensidade ou grau igual."
-```
-
-### 25 — Conector de conclusão com reforço  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "conectores-argumentativos-avancados"
-  nivel: "C1"
-  tags: ["conclusão", "em resumo"]
-pasos:
-  - "Reconhecer a necessidade de sintetizar ideias complexas."
-  - "Selecionar o conector que reforça a conclusão."
-respuesta: "Em resumo"
-enunciado: "¿Cuál es el conector correcto para expresar conclusión?"
-opciones_explicitas:
-  - "Dado isso"
-  - "Além disso"
-  - "Em resumo"
-  - "Por exemplo"
-tipo: mc
-explicacion: "'Em resumo' é utilizado para concluir ou sintetizar um argumento complexo de forma clara."
 ```

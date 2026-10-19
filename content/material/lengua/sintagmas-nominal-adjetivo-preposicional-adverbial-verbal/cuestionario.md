@@ -423,25 +423,23 @@ explicacion: |
   El núcleo es la forma verbal completa '{auxiliar} {participio}'.
 ```
 
-### 21 — pregunta 21
+### 21 — Sintagma con adverbio modificado
 
 ```
 metadata:
   materia: "Lengua"
   tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
   nivel: "intermedio"
-  tags: ["sintagma_adverbial", "sintagma_preposicional", "diferenciacion"]
+  tags: ["sintagmas", "adverbio"]
 
-variables:
-  adverbio: uno_de(["ayer", "hoy", "mañana", "nunca"])
-  preposicion: uno_de(["en", "sobre", "bajo", "con"])
-  sustantivo: uno_de(["la casa", "el libro", "su amigo", "mi madre"])
-
-respuesta: "sintagma_adverbial"
-tipo: input
-
-enunciado: "Clasifica el sintagma: '{adverbio}'."
+enunciado: "En «muy lejos», ¿qué tipo de sintagma es?"
+tipo: mc
+opciones_explicitas:
+  - "Sintagma adverbial"
+  - "Sintagma nominal"
+  - "Sintagma preposicional"
+respuesta: "Sintagma adverbial"
 
 explicacion: |
-  Es un sintagma adverbial porque su núcleo es un adverbio.
+  Su núcleo es el adverbio «lejos» y «muy» lo modifica: es un sintagma adverbial.
 ```

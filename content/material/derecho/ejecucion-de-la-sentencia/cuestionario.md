@@ -399,23 +399,25 @@ explicacion: |
   No necesariamente. Si la sentencia es ilíquida, primero debe pasar por una etapa de liquidación para determinar el monto exacto antes de la ejecución forzada del pago.
 ```
 
-### 20 — Etapas del proceso de ejecución
+### 20 — Qué es el embargo
 
 ```
 metadata:
   materia: "derecho"
   tema: "ejecucion_de_la_sentencia"
   nivel: "intermedio"
-  tags: ["procedimiento", "etapas"]
+  tags: ["embargo", "ejecucion"]
 
-respuesta_orden: ["Sentencia firme", "Mandamiento de ejecución", "Embargo", "Remate"]
-tipo: ordenar
-opciones_explicitas: ["Sentencia firme", "Mandamiento de ejecución", "Embargo", "Remate"]
-
-enunciado: "Ordene cronológicamente las etapas típicas de un proceso de ejecución de sentencia de cumplimiento dinerario:"
+enunciado: "En la ejecución de una sentencia, ¿qué es el embargo?"
+tipo: mc
+opciones_explicitas:
+  - "Una medida que afecta bienes del deudor para asegurar el cobro de lo adeudado"
+  - "La declaración de culpabilidad del demandado"
+  - "La apelación de la sentencia ante un tribunal superior"
+respuesta: "Una medida que afecta bienes del deudor para asegurar el cobro de lo adeudado"
 
 explicacion: |
-  Primero se requiere la firmeza (cosa juzgada), luego se emite el mandamiento (orden judicial), se procede al embargo de bienes y finalmente el remate para convertir los bienes en dinero.
+  El embargo individualiza bienes del deudor sobre los que luego puede ejecutarse la deuda reconocida en la sentencia.
 ```
 
 ### 21 — La vía de ejecución

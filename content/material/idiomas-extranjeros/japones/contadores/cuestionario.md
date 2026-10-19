@@ -176,23 +176,21 @@ enunciado: "ノートにシールが5______あります。"
 explicacion: "Objetos planos como pegatinas se cuentan con 「枚」. Ejemplo: この紙（1枚）, この写真（2枚）。"
 ```
 
-### 9 — カウンターの選択  
-```yaml
+### 9 — Contador de personas
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "contadores"
   nivel: "N5"
   tags: ["opciones", "contar"]
-pasos:
-  - "Elegir la opción correcta para completar el enunciado."
-respuesta: "7冊"
+enunciado: "教室に学生が10______います。"
 tipo: mc
-enunciado: "本棚に本が______あります。"
 opciones_explicitas:
-  - "7冊"
-  - "7本"
-  - "7人"
-explicacion: "'冊' se usa para contar libros. '本' es para objetos largos, y '人' para personas."
+  - "人"
+  - "本"
+  - "枚"
+respuesta: "人"
+explicacion: "Las personas se cuentan con 人 (にん); para 10 personas se dice 十人 (じゅうにん)."
 ```
 
 

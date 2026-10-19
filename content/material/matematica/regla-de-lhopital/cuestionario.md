@@ -155,36 +155,7 @@ explicacion: |
   Como n > 0, el denominador crece infinitamente, por lo que el límite es 0.
 ```
 
-### 7 — pregunta 7
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "raices", "derivadas"]
-
-variables:
-  k: random(1, 4)
-
-respuesta: "{1/(2*k)}"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (sqrt(1 + k*x) - 1) / x"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: (1/2)*(1+k*x)^{-1/2} * k
-  Derivada den: 1
-  Evaluar en x=0: (1/2)*(1)^{-1/2} * k = k/2.
-  El límite es k/2.
-  Espera, la derivada de sqrt(1+kx) es k / (2*sqrt(1+kx)).
-  En x=0: k / 2.
-  La respuesta correcta es "{k/2}".
-  Corrijo la respuesta:
-```
-
-### 8 — pregunta 8
+### 7 — pregunta 8
 
 ```
 metadata:
@@ -208,7 +179,7 @@ explicacion: |
   En x=0: k / 2.
 ```
 
-### 9 — pregunta 9
+### 8 — pregunta 9
 
 ```
 metadata:
@@ -229,7 +200,7 @@ explicacion: |
   Límite: lim(x→∞) 1/x = 0.
 ```
 
-### 10 — pregunta 10
+### 9 — pregunta 10
 
 ```
 metadata:
@@ -250,7 +221,7 @@ explicacion: |
   Lim(x→0) sin(x)/1 = 0.
 ```
 
-### 11 — pregunta 11
+### 10 — pregunta 11
 
 ```
 metadata:
@@ -271,7 +242,7 @@ explicacion: |
   Lim(x→∞) e^x/1 = ∞.
 ```
 
-### 12 — pregunta 12
+### 11 — pregunta 12
 
 ```
 metadata:
@@ -292,7 +263,7 @@ explicacion: |
   En x=0: sec^2(0) = 1/cos^2(0) = 1/1 = 1.
 ```
 
-### 13 — pregunta 13
+### 12 — pregunta 13
 
 ```
 metadata:
@@ -313,7 +284,7 @@ explicacion: |
   En x=0: 1/(1+0) = 1.
 ```
 
-### 14 — pregunta 14
+### 13 — pregunta 14
 
 ```
 metadata:
@@ -337,7 +308,7 @@ explicacion: |
   En x=0: (1/3)*1 * k = k/3.
 ```
 
-### 15 — pregunta 15
+### 14 — pregunta 15
 
 ```
 metadata:
@@ -358,36 +329,7 @@ explicacion: |
   Lim(x→∞) 1/e^x = 0.
 ```
 
-### 16 — pregunta 16
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "trigonometria", "coseno"]
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (cos(x) - 1) / x^2"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: -sin(x)
-  Derivada den: 2x
-  Resultado: -sin(x)/2x. En x=0 es 0/0.
-  Aplicamos L'Hôpital de nuevo:
-  Derivada num: -cos(x)
-  Derivada den: 2
-  En x=0: -cos(0)/2 = -1/2.
-  Espera, la respuesta es -0.5.
-  Cambiemos a (1-cos(x))/x^2 -> 1/2.
-  O dejemos -1/2.
-  Respuesta: "-0.5"
-```
-
-### 17 — pregunta 17
+### 15 — pregunta 17
 
 ```
 metadata:
@@ -407,31 +349,7 @@ explicacion: |
   En x=0: -1/2 = -0.5.
 ```
 
-### 18 — pregunta 18
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "avanzado"
-  tags: ["limites", "logaritmo", "raices"]
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (sqrt(1+x) - 1) / log(1+x)"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: 1/(2*sqrt(1+x))
-  Derivada den: 1/(1+x)
-  Fracción: (1/(2*sqrt(1+x))) / (1/(1+x)) = (1+x) / (2*sqrt(1+x))
-  Simplificamos: sqrt(1+x) / 2.
-  En x=0: sqrt(1)/2 = 1/2 = 0.5.
-  Respuesta: "0.5"
-```
-
-### 19 — pregunta 19
+### 16 — pregunta 19
 
 ```
 metadata:
@@ -452,7 +370,7 @@ explicacion: |
   En x=0: 1/2 = 0.5.
 ```
 
-### 20 — pregunta 20
+### 17 — pregunta 20
 
 ```
 metadata:
@@ -475,7 +393,7 @@ explicacion: |
   Por lo tanto, la forma resultante es 0/0, que es una indeterminación válida para aplicar L'Hôpital.
 ```
 
-### 21 — pregunta 21
+### 18 — pregunta 21
 
 ```
 metadata:
@@ -500,7 +418,7 @@ explicacion: |
   Cuando x -> ∞, el denominador crece sin límite, por lo que el resultado es 0.
 ```
 
-### 22 — pregunta 22
+### 19 — pregunta 22
 
 ```
 metadata:
@@ -523,7 +441,7 @@ explicacion: |
   Por lo tanto, L'Hôpital no es aplicable directamente.
 ```
 
-### 23 — pregunta 23
+### 20 — pregunta 23
 
 ```
 metadata:
@@ -542,7 +460,7 @@ explicacion: |
   No se deriva el cociente f/g, sino que se derivan el numerador y el denominador por separado.
 ```
 
-### 24 — pregunta 24
+### 21 — pregunta 24
 
 ```
 metadata:
@@ -571,7 +489,7 @@ explicacion: |
   Reescribiendo bloque:
 ```
 
-### 25 — pregunta 25
+### 22 — pregunta 25
 
 ```
 metadata:
@@ -591,7 +509,7 @@ explicacion: |
   El nuevo límite es lim (1/x) / 1 = 0.
 ```
 
-### 26 — pregunta 26
+### 23 — pregunta 26
 
 ```
 metadata:
@@ -610,7 +528,7 @@ explicacion: |
   Si el límite de las derivadas no existe, la regla es inconclusa (el límite original podría existir o no).
 ```
 
-### 27 — pregunta 27
+### 24 — pregunta 27
 
 ```
 metadata:
@@ -654,7 +572,7 @@ explicacion: |
   Reescribiendo para evitar confusión de iteración innecesaria:
 ```
 
-### 28 — pregunta 28
+### 25 — pregunta 28
 
 ```
 metadata:
@@ -673,7 +591,7 @@ explicacion: |
   El resultado será c veces el límite original de f/g.
 ```
 
-### 29 — pregunta 29
+### 26 — pregunta 29
 
 ```
 metadata:
@@ -691,34 +609,7 @@ explicacion: |
   Verdadero. La regla se basa en la derivabilidad en un entorno, y los límites laterales son casos particulares de ese comportamiento local.
 ```
 
-### 30 — pregunta 30
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["trigonometria", "limite"]
-
-respuesta: 1
-tipo: input
-
-enunciado: "Calcula el límite de sen(3x) / x cuando x tiende a 0."
-
-explicacion: |
-  Forma 0/0.
-  Derivada num: 3cos(3x). Derivada den: 1.
-  En x=0: 3cos(0)/1 = 3.
-  Espera, la respuesta es 3.
-  Reescribiendo para que sea 1: sen(x)/x.
-  Pero quiero variar.
-  Si pongo sen(3x)/x, la respuesta es 3.
-  Si pongo sen(x)/3x, la respuesta es 1/3.
-  Vamos a usar sen(3x)/x para probar que el alumno deriva correctamente el argumento.
-  Respuesta: 3.
-```
-
-### 31 — pregunta 31
+### 27 — pregunta 31
 
 ```
 metadata:

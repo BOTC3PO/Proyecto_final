@@ -463,4 +463,3 @@ respuesta: "Un cambio o situación nueva"
 tipo: mc
 explicacion: "怎么了 = '¿qué ha pasado?'."
 ```
-

@@ -244,43 +244,39 @@ respuesta: "電車に乗ると"
 ```
 
 
-### 13 — 条件文の選択  
-```yaml
+### 13 — たら con un pedido
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "formas-condicionales"
   nivel: "N4"
   tags: ["condicional", "if"]
-pasos:
-  - "Seleccionar la forma que expresa una posibilidad futura."
-enunciado: "＿＿、感想を聞かせてください。"
+enunciado: "＿＿、すぐ連絡してください。(着く)"
 tipo: mc
-explicacion: "La forma 〜たら se usa para condiciones hipotéticas. '映画を観たら' es correcto porque describe un escenario posible si se ve una película."
 opciones_explicitas:
-  - "映画を観たら"
-  - "映画を観ると"
-  - "映画を観れば"
-respuesta: "映画を観たら"
+  - "着いたら"
+  - "着くと"
+  - "着けば"
+respuesta: "着いたら"
+explicacion: "Con un pedido en la oración principal se usa 〜たら; 〜と no admite pedidos."
 ```
 
 
-### 14 — 条件文の選択  
-```yaml
+### 14 — Concesivo ても
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "formas-condicionales"
   nivel: "N4"
   tags: ["condicional", "even if"]
-pasos:
-  - "Elegir la opción que expresa una acción a pesar de algo."
-enunciado: "＿＿、彼は会社を休みませんでした。"
+enunciado: "＿＿、試合は行われます。(雨が降る)"
 tipo: mc
-explicacion: "La forma 〜ても se usa para acciones realizadas incluso con obstáculos. '病気になると' es incorrecto; la correcta es '病気になっても'."
 opciones_explicitas:
-  - "病気になっても"
-  - "病気になると"
-  - "病気になったら"
-respuesta: "病気になっても"
+  - "雨が降っても"
+  - "雨が降ると"
+  - "雨が降ったら"
+respuesta: "雨が降っても"
+explicacion: "〜ても significa «aunque/incluso si»: el partido se hace aunque llueva."
 ```
 
 
@@ -344,23 +340,21 @@ respuesta: "友達に会うと"
 ```
 
 
-### 18 — 条件文の選択  
-```yaml
+### 18 — たら con una invitación
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "formas-condicionales"
   nivel: "N4"
   tags: ["condicional", "if"]
-pasos:
-  - "Seleccionar la forma que expresa una posibilidad futura."
-enunciado: "＿＿、感想を聞かせてください。"
+enunciado: "春に＿＿、花見に行きましょう。(なる)"
 tipo: mc
-explicacion: "La forma 〜たら se usa para condiciones hipotéticas. '本を読むと' es incorrecto; la correcta es '本を読んだら'."
 opciones_explicitas:
-  - "本を読んだら"
-  - "本を読むと"
-  - "本を読めば"
-respuesta: "本を読んだら"
+  - "なったら"
+  - "なると"
+  - "なれば"
+respuesta: "なったら"
+explicacion: "Con una invitación (〜ましょう) se usa 〜たら; 〜と no sirve para invitar."
 ```
 
 

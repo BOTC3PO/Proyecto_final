@@ -407,25 +407,7 @@ respuestas_validas:
     - "Werde"
 ```
 
-### 23 — Futur II: Errores de conjugación
-```
-metadata:
-    materia: "idiomas-extranjeros/aleman"
-    tema: "futur-ii"
-    nivel: "B2"
-    tags: ["conjugación", "errores"]
-tipo: mc
-enunciado: "¿Cuál de las siguientes oraciones usa correctamente el Futur II?"
-pasos:
-    - "Elige la forma correcta del futuro II."
-opciones_explicitas:
-    - "Wir werden gegangen sein."
-    - "Wir sind gegangen worden."
-    - "Wir werden gegangener sein."
-respuesta: "Wir werden gegangen sein."
-```
-
-### 24 — Futur II: Participio irregular
+### 23 — Futur II: Participio irregular
 ```
 metadata:
     materia: "idiomas-extranjeros/aleman"
@@ -443,7 +425,7 @@ respuestas_validas:
     - "Geschrien"
 ```
 
-### 25 — Futur II: Contexto de certeza futura
+### 24 — Futur II: Contexto de certeza futura
 ```
 metadata:
     materia: "idiomas-extranjeros/aleman"

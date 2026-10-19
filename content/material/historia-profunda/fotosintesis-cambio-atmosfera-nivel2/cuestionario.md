@@ -252,28 +252,25 @@ explicacion: |
   {escenarios[escenario_idx][0]}
 ```
 
-### 13 — Secuencia de la Gran Oxidación
+### 13 — Cuándo ocurrió la Gran Oxidación
 
 ```
 metadata:
   materia: "biologia"
   tema: "fotosintesis_cambio_atmosfera_nivel2"
   nivel: "intermedio"
-  tags: ["secuencia", "evolucion", "oxigeno"]
+  tags: ["gran-oxidacion", "tiempo-geologico"]
 
-opciones_explicitas: ["Aparición de fotosíntesis oxigénica", "Acumulación de O2 atmosférico", "Extinción de anaerobios dominantes"]
-respuesta_orden: ["Aparición de fotosíntesis oxigénica", "Acumulación de O2 atmosférico", "Extinción de anaerobios dominantes"]
-tipo: ordenar
-
-enunciado: "Ordena cronológicamente los eventos que llevaron a la Gran Oxidación:"
-
-pasos:
-  - "Primer paso: la producción de oxígeno por cianobacterias."
-  - "Segundo paso: el oxígeno se acumula en la atmósfera."
-  - "Tercer paso: la toxicidad del oxígeno causa la extinción de anaerobios."
+enunciado: "¿Hace cuánto tiempo, aproximadamente, ocurrió la Gran Oxidación, cuando el oxígeno comenzó a acumularse en la atmósfera?"
+tipo: mc
+opciones_explicitas:
+  - "Unos 2.400 millones de años"
+  - "Unos 540 millones de años"
+  - "Unos 65 millones de años"
+respuesta: "Unos 2.400 millones de años"
 
 explicacion: |
-  La fotosíntesis oxigénica produjo el oxígeno, que luego se acumuló en la atmósfera, provocando finalmente la extinción de los organismos anaeróbicos dominantes.
+  El oxígeno producido por las cianobacterias empezó a acumularse en la atmósfera hace unos 2.400 millones de años, mucho antes de la explosión cámbrica.
 ```
 
 ### 14 — Metabolismo y Oxígeno

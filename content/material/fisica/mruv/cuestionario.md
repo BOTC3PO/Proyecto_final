@@ -279,6 +279,9 @@ variables:
   a: random(2, 10)
   t: random(1, 8)
 
+restricciones:
+  - t > 1
+
 respuesta: (a * t ^ 2) / 2
 tipo: mc
 opciones_explicitas:

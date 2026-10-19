@@ -49,23 +49,25 @@ respuesta: verdadero
 explicacion: "A diferencia del teocentrismo medieval, el humanismo puso al ser humano en el centro, valorando la razón, la libertad y el potencial individual sin negar necesariamente la religión, sino reinterpretándola."
 ```
 
-### 4 — Técnica pictórica
-```yaml
+### 4 — Técnica pictórica de Leonardo
+
+```
 metadata:
   materia: "historia_profunda"
   tema: "renacimiento-y-reforma"
   nivel: "intermedio"
-  tags: ["arte", "pintura", "tecnicas"]
+  tags: ["renacimiento", "arte"]
+
 tipo: completar
-enunciado: "Leonardo da Vinci perfeccionó la técnica de aplicar capas finas de pintura sobre una base para lograr transiciones suaves de color y luz, conocida como {{técnica}}."
-variables:
-  tecnica: uno_de(["sfumato", "Sfumato"])
 respuesta: "sfumato"
 respuestas_validas:
   - "sfumato"
   - "Sfumato"
-  - "SFUMATO"
-explicacion: "El sfumato (del italiano 'sfumare', difuminar) elimina los contornos duros, creando una atmósfera neblinosa y realista, visible en obras como la Mona Lisa."
+
+enunciado: "Leonardo da Vinci perfeccionó el ___, una técnica de capas muy finas y transiciones suaves de luz y color que difumina los contornos."
+
+explicacion: |
+  El sfumato (de «sfumare», difuminar) se aprecia en la Mona Lisa.
 ```
 
 ### 5 — Concilio de Trento
@@ -167,23 +169,24 @@ explicacion: "A diferencia de versiones anteriores que mostraban a David ya vict
 ```
 
 ### 11 — Paz de Augsburgo
-```yaml
+
+```
 metadata:
   materia: "historia_profunda"
   tema: "renacimiento-y-reforma"
   nivel: "intermedio"
-  tags: ["guerras", "paz", "religion"]
+  tags: ["reforma", "augsburgo"]
+
 tipo: completar
-enunciado: "La Paz de Augsburgo de 1555 estableció el principio de {{cuius regio, eius religio}}, permitiendo a los príncipes alemanes elegir entre catolicismo y luteranismo."
-variables:
-  principio: uno_de(["cuius regio, eius religio", "cuiusregio", "eius religio"])
 respuesta: "cuius regio, eius religio"
 respuestas_validas:
   - "cuius regio, eius religio"
-  - "cuiusregio"
-  - "eius religio"
-  - "Cuius regio, eius religio"
-explicacion: "Este principio latino significa \"cuyo es el reino, de él es la religión\", legalizando la división religiosa en el Sacro Imperio Romano Germánico y reconociendo solo a católicos y luteranos."
+  - "cuius regio eius religio"
+
+enunciado: "La Paz de Augsburgo (1555) estableció el principio «___», según el cual cada príncipe elegía la religión de su territorio entre catolicismo y luteranismo."
+
+explicacion: |
+  La fórmula latina significa «de quien es el reino, su religión» y reconoció solo a católicos y luteranos en el Sacro Imperio.
 ```
 
 ### 12 — Literatura humanista
@@ -204,26 +207,25 @@ respuesta: "Los Discursos sobre la primera década de Tito Livio"
 explicacion: "Mientras \"El Príncipe\" se centra en la monarquía y la adquisición del poder, los \"Discursos\" defienden la república y la libertad política basándose en el ejemplo de la Roma antigua."
 ```
 
-### 13 — Reforma en Suiza
-```yaml
+### 13 — Reforma en Zúrich
+
+```
 metadata:
   materia: "historia_profunda"
   tema: "renacimiento-y-reforma"
   nivel: "intermedio"
-  tags: ["reforma", "zwinglio", "suiza"]
-tipo: completar
-enunciado: "Ulrico Zwinglio lideró la Reforma en Zürich, eliminando las imágenes religiosas y la música de la liturgia, influido por el humanismo y la lectura directa de {{autor}}."
-variables:
-  autor: uno_de(["pablo", "San Pablo", "paulo", "San Paulo"])
-respuesta: "pablo"
-respuestas_validas:
-  - "pablo"
-  - "San Pablo"
-  - "paulo"
-  - "San Paulo"
-  - "Pablo"
-  - "San Pablo"
-explicacion: "Zwinglio, al igual que Lutero, se basó en la autoridad de las Escrituras, pero fue aún más radical en la iconoclastia y la interpretación literal de los textos del apóstol Pablo sobre la justificación."
+  tags: ["reforma", "zwinglio"]
+
+enunciado: "¿Qué ciudad suiza fue el centro de la Reforma liderada por Ulrico Zwinglio?"
+tipo: mc
+opciones_explicitas:
+  - "Zúrich"
+  - "Ginebra"
+  - "Basilea"
+respuesta: "Zúrich"
+
+explicacion: |
+  Zwinglio impulsó desde Zúrich una reforma radical que eliminó imágenes religiosas y música de la liturgia; Ginebra se asocia a Calvino.
 ```
 
 ### 14 — Arquitectura renacentista
@@ -257,26 +259,25 @@ respuesta: verdadero
 explicacion: "Aunque el detonante fue la Defenestración de Praga (conflicto religioso), potencias católicas como Francia se aliaron con protestantes contra los Habsburgo, priorizando el interés estatal sobre la fe."
 ```
 
-### 16 — Retrato de El Cortesano
-```yaml
+### 16 — El Cortesano
+
+```
 metadata:
   materia: "historia_profunda"
   tema: "renacimiento-y-reforma"
   nivel: "intermedio"
-  tags: ["literatura", "castiglione", "ideal"]
-tipo: completar
-enunciado: "Baldassare Castiglione escribió \"El Cortesano\", definiendo el ideal del hombre renacentista que debe poseer la {{grazia}} o gracia natural en todas sus acciones."
-variables:
-  grazia: uno_de(["grazia", "grace", "gracia", "Grazia"])
-respuesta: "grazia"
-respuestas_validas:
-  - "grazia"
-  - "grace"
-  - "gracia"
-  - "Grazia"
-  - "Grace"
-  - "Gracia"
-explicacion: "La 'sprezzatura' o gracia natural era esencial: hacer cosas difíciles parecer fáciles y naturales, demostrando nobleza sin esfuerzo aparente, combinando armas y letras."
+  tags: ["renacimiento", "humanismo"]
+
+enunciado: "Baldassare Castiglione, en «El Cortesano», propone como ideal del hombre renacentista actuar con:"
+tipo: mc
+opciones_explicitas:
+  - "Sprezzatura, una gracia natural que oculta el esfuerzo"
+  - "Fuerza militar por encima de las letras"
+  - "Estricta austeridad religiosa"
+respuesta: "Sprezzatura, una gracia natural que oculta el esfuerzo"
+
+explicacion: |
+  El cortesano ideal combina armas y letras y hace parecer fáciles las cosas difíciles.
 ```
 
 ### 17 — Iconoclastia

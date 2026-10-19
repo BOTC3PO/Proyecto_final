@@ -474,24 +474,25 @@ explicacion: |
   Un itinerario debe contemplar no solo los traslados y visitas, sino también los tiempos de descanso y alojamiento.
 ```
 
-### 23 — Secuencia de planificación
+### 23 — Criterio al ordenar atractivos
 
 ```
 metadata:
   materia: "turismo"
   tema: "circuitos_e_itinerarios_turisticos"
   nivel: "intermedio"
-  tags: ["metodologia", "pasos"]
+  tags: ["itinerarios", "planificacion"]
 
-opciones_explicitas: ["Selección de atractivos", "Diseño de rutas de transporte", "Cálculo de costos y tiempos", "Armado del itinerario final"]
-
-respuesta_orden: ["Selección de atractivos", "Diseño de rutas de transporte", "Cálculo de costos y tiempos", "Armado del itinerario final"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente las etapas lógicas para el diseño de un nuevo circuito turístico:"
+enunciado: "Al ordenar los atractivos de un itinerario, ¿qué criterio conviene considerar?"
+tipo: mc
+opciones_explicitas:
+  - "La cercanía y el tiempo de traslado entre ellos"
+  - "El orden alfabético de los nombres"
+  - "La cantidad de letras del nombre de cada atractivo"
+respuesta: "La cercanía y el tiempo de traslado entre ellos"
 
 explicacion: |
-  Primero se define qué se va a visitar, luego cómo se llega, después cuánto cuesta y finalmente se presenta el producto.
+  Un buen itinerario minimiza traslados innecesarios y respeta los horarios de visita de cada atractivo.
 ```
 
 ### 24 — El factor de la modularidad

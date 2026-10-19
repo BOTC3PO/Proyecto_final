@@ -384,24 +384,21 @@ enunciado: "今、友達と______。"
 explicacion: "El 'te-form' de '話す' (hablar) es '話して', que se combina con 'います' para indicar una acción continua. Ambas formas son aceptables."
 ```
 
-### 22 — 買物の話題（2）
+### 22 — Cortesía con clientes
 ```
-metadata:  
-  materia: "japones"  
-  tema: "speaking-n3"  
-  nivel: "N3"  
-  tags: ["挨拶", "すみません"]  
-pasos:  
-  - "Reconocer el uso de 'すみません' para pedir ayuda."  
-  - "Seleccionar la opción que expresa confusión claramente."  
-opciones_explicitas:  
-  - "すみません、ここに来ましたか？"  
-  - "すみません、教えてください。"  
-  - "すみません、どこへ行くんですか？"  
-respuesta: "すみません、教えてください。"  
-tipo: mc  
-enunciado: "昨日、______。"  
-explicacion: "La opción 2 es la más general y natural para pedir información. Las otras opciones son específicas de contextos distintos (llegar, ir)."
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "speaking-n3"
+  nivel: "N3"
+  tags: ["自己紹介", "動詞"]
+enunciado: "Al presentar un producto a un cliente, ¿cuál es la frase más cortés?"
+tipo: mc
+opciones_explicitas:
+  - "こちらが新しい商品でございます。"
+  - "これ、新しいやつだよ。"
+  - "これは新しいぞ。"
+respuesta: "こちらが新しい商品でございます。"
+explicacion: "でございます es el registro más cortés (keigo) para atender clientes."
 ```
 
 ### 23 — 電話の会話（2）

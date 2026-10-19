@@ -49,6 +49,6 @@ for (const f of process.argv.slice(2)) {
     } catch (e: any) { probs.push(`#${k + 1} [${b.titulo.slice(0, 40)}] no se pudo generar: ${e?.message ?? e}`); }
   });
   const uniq = [...new Set(probs)];
-  if (uniq.length) { archivosConProblemas++; console.log(`${f}: ${uniq.length} problema(s)`); uniq.slice(0, 8).forEach((p) => console.log("   " + p)); }
+  if (uniq.length) { archivosConProblemas++; console.log(`${f}: ${uniq.length} problema(s)`); uniq.forEach((p) => console.log("   " + p)); }
 }
 console.log(`ARCHIVOS CON PROBLEMAS: ${archivosConProblemas}`);

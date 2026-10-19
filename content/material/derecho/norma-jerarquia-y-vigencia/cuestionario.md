@@ -437,24 +437,25 @@ explicacion: |
   La vigencia requiere que la norma sea conocida públicamente a través de la publicación oficial para que el principio de ignorancia de la ley no sea excusa.
 ```
 
-### 22 — Orden jerárquico de normas
+### 22 — Tope de la jerarquía normativa
 
 ```
 metadata:
   materia: "derecho"
   tema: "jerarquia_normativa"
-  nivel: "intermedio"
-  tags: ["orden", "jerarquia"]
+  nivel: "basico"
+  tags: ["jerarquia", "constitucion"]
 
-tipo: ordenar
-opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales con jerarquía constitucional", "Leyes Nacionales", "Decretos Reglamentarios"]
-
-respuesta_orden: ["Constitución Nacional", "Tratados Internacionales con jerarquía constitucional", "Leyes Nacionales", "Decretos Reglamentarios"]
-
-enunciado: "Ordene de mayor a menor jerarquía el siguiente bloque normativo:"
+enunciado: "¿Cuál de estas normas ocupa el lugar más alto en la jerarquía normativa argentina?"
+tipo: mc
+opciones_explicitas:
+  - "La Constitución Nacional"
+  - "Una ordenanza municipal"
+  - "Un decreto reglamentario"
+respuesta: "La Constitución Nacional"
 
 explicacion: |
-  La jerarquía establece que la Constitución y los Tratados con jerarquía constitucional están en la cima, seguidos por las leyes y, finalmente, los reglamentos o decretos.
+  La Constitución Nacional es la norma suprema: las leyes, los decretos y las ordenanzas deben ajustarse a ella.
 ```
 
 ### 23 — El rol del reglamento

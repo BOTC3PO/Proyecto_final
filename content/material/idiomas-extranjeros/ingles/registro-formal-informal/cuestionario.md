@@ -603,7 +603,7 @@ opciones_explicitas:
   - "You should check the system because it's not working properly."
 tipo: mc
 
-enunciado: "Which phrase is suitable for formally reporting an issue in a professional setting?"
+enunciado: "Which phrase is suitable for formally reporting an issue in a professional setting? (Use of prepositions in formal reports)"
 
 explicacion: "'I would like to bring to your attention that...' es una estructura respetuosa y clara, típica en informes oficiales, a diferencia de 'There is an issue with...' que puede sonar más brusco."
 ```

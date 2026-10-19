@@ -196,23 +196,21 @@ respuestas_validas:
 explicacion: "'コカ・コーラ' es la escritura habitual en katakana de 'Coca-Cola'."
 ```
 
-### 12 — カタカナの選択（pan）
+### 12 — Escribir una palabra prestada
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "katakana"
   nivel: "A1"
   tags: ["escritura","gairaigo"]
-pasos:
-  - "Elegir la escritura estándar de 'pan'."
-enunciado: "「pan」の正しい書き方はどれですか。"
-opciones_explicitas:
-  - "パン"
-  - "ぱん"
-  - "パん"
-respuesta: "パン"
+enunciado: "「taxi」の正しい書き方はどれですか。"
 tipo: mc
-explicacion: "'パン' (katakana) es la escritura estándar de una palabra prestada; 'ぱん' en hiragana o mezclando escrituras no es la ortografía normal para este préstamo."
+opciones_explicitas:
+  - "タクシー"
+  - "たくしー"
+  - "タクシ"
+respuesta: "タクシー"
+explicacion: "Las palabras prestadas se escriben en katakana, y la vocal larga se marca con ー."
 ```
 
 ### 13 — カタカナの完成（Italia）
@@ -440,4 +438,3 @@ respuestas_validas:
   - "タクシー"
 explicacion: "'タクシー' es una palabra de origen extranjero; las palabras prestadas se escriben en katakana."
 ```
-

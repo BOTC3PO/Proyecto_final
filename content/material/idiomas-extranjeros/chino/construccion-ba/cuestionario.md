@@ -454,4 +454,3 @@ respuestas_validas:
   - "洗"
 explicacion: "把 + O + V + 得 + complemento de estado."
 ```
-

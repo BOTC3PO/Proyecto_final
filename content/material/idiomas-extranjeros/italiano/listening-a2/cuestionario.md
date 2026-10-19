@@ -371,22 +371,19 @@ enunciado: "La foto è ___ il muro."
 explicacion: "'Sul' es la forma contracta de 'su + il', usada ante sustantivos masculinos singulares que empiezan por consonante normal (como 'muro'), no por vocal (con vocal se usaría 'sull'', con apóstrofo). La foto está sobre el muro."  
 ```
 
-### 20 — I verbi riflessivi  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["verbi", "riflessivi"]  
-pasos:  
-  - "Escuchar la oración: 'Io ___ il vestito.'"  
-  - "Escribir el verbo correcto en forma reflexiva."  
-tipo: completar  
-respuestas_validas:  
-  - "mordo"  
-  - "Mordo"  
-enunciado: "Io ___ il vestito."  
-explicacion: "El verbo 'mettersi' (ponerse) en primera persona reflexiva se conjuga como 'io mi metto'. Sin embargo, 'mordo' (muerdo) es un verbo no reflexivo. Esta pregunta evalúa el uso de verbos reflexivos vs. no reflexivos."  
+### 20 — I verbi riflessivi
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["riflessivi"]
+tipo: completar
+respuestas_validas:
+  - "sveglio"
+  - "Sveglio"
+enunciado: "Io mi ___ alle sette ogni mattina. (svegliare)"
+explicacion: "Verbo riflessivo: io mi sveglio."
 ```
 
 ### 21 — Le preposizioni di luogo  
@@ -465,22 +462,17 @@ enunciado: "Noi ___ il lavoro."
 explicacion: "El verbo 'fare' (hacer) en primera persona plural del presente se conjuga como 'noi facciamo'. La raíz es 'f-' con el sufijo '-ac- o'."  
 ```
 
-### 25 — Le preposizioni articolate  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["preposizioni", "articolate"]  
-pasos:  
-  - "Escuchar la frase: 'Il libro è ___ lo scaffale.'"  
-  - "Seleccionar la preposición articolata correcta."  
-opciones_explicitas:  
-  - "sullo"  
-  - "nello"  
-  - "dallo"  
-respuesta: "sullo"  
-tipo: mc  
-enunciado: "Il libro è ___ lo scaffale."  
-explicacion: "'Sullo' es la forma contracta de 'su + lo'. Se usa 'lo' (y sus contracciones 'sullo/nello/dello') ante sustantivos masculinos que empiezan por 's' + consonante ('scaffale'), 'z', 'gn', 'ps', 'pn', 'x' o 'y' — no por empezar con vocal (un sustantivo que empieza con vocal usaría la forma elidida con apóstrofo, como 'sull'amico'). El libro está sobre el estante."  
+### 25 — Le preposizioni articolate
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["preposizioni", "articolate"]
+tipo: completar
+respuestas_validas:
+  - "al"
+  - "Al"
+enunciado: "Domani andiamo ___ cinema."
+explicacion: "a + il = al."
 ```

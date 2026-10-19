@@ -448,24 +448,18 @@ explicacion: "La preposición 'より' se usa para comparar directamente dos ele
 
 ```
 
-### 22 — 比較の否定形（複数）  
+### 22 — Comparar con より
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "comparacion"
   nivel: "N4"
   tags: ["comparacion", "mas", "menos"]
-pasos:
-  - "Identificar el sujeto y el complemento en la oración."
-  - "Determinar si se requiere 'mas' o 'menos' según el contexto."
+enunciado: "このカメラはあのカメラ___安いです。"
+tipo: completar
 respuestas_validas:
   - "より"
-  - "より"
-tipo: completar
-enunciado: "この本はあの本___高いです。"
-
-explicacion: "La comparación de superioridad entre dos elementos se realiza con 'より'. En este caso, el libro actual es más caro que el otro, por lo tanto, la forma correcta es 'より'."
-
+explicacion: "En A は B より + adjetivo, より marca el término de comparación: A es más ... que B."
 ```
 
 ### 23 — 比較の対象指定（複数）  

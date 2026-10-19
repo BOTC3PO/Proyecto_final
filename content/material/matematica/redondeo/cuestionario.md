@@ -315,6 +315,9 @@ variables:
   n: entero + h / 10 + m / 100
   correcto: redondear(n, 1)
 
+restricciones:
+  - m >= 5
+
 respuesta: correcto
 tipo: mc
 opciones_explicitas:

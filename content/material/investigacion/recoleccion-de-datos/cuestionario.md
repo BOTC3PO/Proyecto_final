@@ -232,24 +232,25 @@ explicacion: |
   El error radica en que la muestra no refleja la diversidad de la población objetivo, lo que introduce un sesgo de selección que invalida la generalización de los resultados.
 ```
 
-### 12 — Validez vs. Confiabilidad
+### 12 — Validez y confiabilidad
 
 ```
 metadata:
   materia: "investigacion"
   tema: "recoleccion_de_datos"
-  nivel: "avanzado"
-  tags: ["metodologia", "conceptos"]
+  nivel: "intermedio"
+  tags: ["validez", "confiabilidad"]
 
-enunciado: "Un instrumento de recolección de datos que produce resultados consistentes y estables en aplicaciones repetidas, pero que no mide lo que pretende medir, posee alta ___ pero baja ___."
-
-opciones_explicitas: ["validez", "confiabilidad", "confiabilidad", "validez", "precisión", "exactitud"]
-
-respuesta: "confiabilidad"
+enunciado: "Un instrumento que da resultados consistentes en aplicaciones repetidas, pero no mide lo que pretende medir, es:"
 tipo: mc
+opciones_explicitas:
+  - "Confiable pero poco válido"
+  - "Válido pero poco confiable"
+  - "Válido y confiable"
+respuesta: "Confiable pero poco válido"
 
 explicacion: |
-  La confiabilidad se refiere a la consistencia de la medida (si se repite, da lo mismo), mientras que la validez se refiere a si el instrumento realmente mide la variable de interés.
+  La confiabilidad es la consistencia de la medida; la validez es medir realmente la variable de interés. Un instrumento puede ser lo primero sin ser lo segundo.
 ```
 
 ### 13 — El error del observador

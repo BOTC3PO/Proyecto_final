@@ -470,4 +470,3 @@ respuestas_validas:
   - "знаешь"
 explicacion: "ты → -ешь."
 ```
-

@@ -453,18 +453,18 @@ metadata:
   tags: ["flotacion", "empuje", "densidad"]
 
 variables:
-  escenario: uno_de([[1.2, "se hunde"], [0.8, "flota"], [1.0, "flota"]])
+  escenario: uno_de([[1.2, "se hunde"], [0.8, "flota"], [1.0, "queda suspendido entre dos aguas"]])
   densidad_objeto: escenario[0]
   densidad_fluido: 1.0
 
 respuesta: escenario[1]
 tipo: mc
-opciones_explicitas: ["flota", "se hunde", "flota"]
+opciones_explicitas: ["flota", "se hunde", "queda suspendido entre dos aguas"]
 
 enunciado: "Un objeto con una densidad de {densidad_objeto} g/cm³ se sumerge en un fluido cuya densidad es de {densidad_fluido} g/cm³. El objeto ___."
 
 explicacion: |
-  Un objeto flota si su densidad es menor que la del fluido. Si es mayor, se hunde.
+  Un objeto flota si su densidad es menor que la del fluido. Si es mayor, se hunde; si es igual, queda suspendido entre dos aguas.
 ```
 
 ### 22 — Cálculo del empuje hidrostático

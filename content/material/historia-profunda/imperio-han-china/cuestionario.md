@@ -1,22 +1,25 @@
-### 1 — Capital del Imperio Han
-```yaml
+### 1 — Capital del Han Occidental
+
+```
 metadata:
   materia: "historia_profunda"
   tema: "imperio-han-china"
   nivel: "intermedio"
-  tags: ["dinastia-han", "geografia-politica", "chang-an"]
+  tags: ["han", "chang-an"]
+
 tipo: completar
-enunciado: "Durante el período del Han Occidental, la capital imperial se estableció en {{ciudad_han_occidental}}, una metrópolis que se convirtió en el centro político y cultural de la dinastía hasta su caída."
-respuesta: "chang-an"
+respuesta: "Chang'an"
 respuestas_validas:
-  - "chang-an"
+  - "Chang'an"
   - "chang'an"
-  - "chang an"
-  - "xian"
-  - "xi'an"
-  - "xi an"
   - "changan"
-explicacion: "Chang'an (actual Xi'an) fue la capital del Han Occidental, establecida por Liu Bang (Emperador Gaozu)."
+  - "chang an"
+  - "chang-an"
+
+enunciado: "Durante el Han Occidental, la capital imperial fue ___, la actual Xi'an."
+
+explicacion: |
+  Chang'an (la actual Xi'an) fue la capital del Han Occidental, establecida tras el ascenso de Liu Bang (Gaozu).
 ```
 
 ### 2 — Fundador de la dinastía Han
@@ -37,22 +40,26 @@ respuesta: "Liu Bang"
 explicacion: "Liu Bang, conocido como Emperador Gaozu de Han, unificó China tras la caída de la dinastía Qin."
 ```
 
-### 3 — El papel de Sima Qian
-```yaml
+### 3 — Sima Qian
+
+```
 metadata:
   materia: "historia_profunda"
   tema: "imperio-han-china"
   nivel: "intermedio"
-  tags: ["historiografia", "simas-qian", "han-occidental"]
+  tags: ["han", "historiografia"]
+
 tipo: completar
-enunciado: "{{historiador_han}} es considerado el \"Padre de la Historiografía China\" por escribir los *Registros del Gran Historiador* (*Shiji*), la primera historia general de China."
-respuesta: "sima qian"
+respuesta: "Sima Qian"
 respuestas_validas:
+  - "Sima Qian"
   - "sima qian"
-  - "Sima Qian"
-  - "Sima Qian"
   - "si ma qian"
-explicacion: "Sima Qian vivió bajo el reinado del Emperador Wu y su obra cubre desde el legendario Emperador Amarillo hasta su propia época."
+
+enunciado: "El autor de los *Registros del Gran Historiador* (Shiji), considerado el «Padre de la Historiografía China», es ___."
+
+explicacion: |
+  Sima Qian vivió bajo el emperador Wu y su Shiji abarca desde los tiempos legendarios hasta su propia época.
 ```
 
 ### 4 — Expansión territorial bajo Wu
@@ -86,22 +93,26 @@ respuesta: "Zhang Qian"
 explicacion: "Las misiones de Zhang Qian al oeste abrieron las rutas comerciales que conectaron China con Asia Central y más allá."
 ```
 
-### 6 — Revolución agrícola: el arado de hierro
-```yaml
+### 6 — Arado de hierro
+
+```
 metadata:
   materia: "historia_profunda"
   tema: "imperio-han-china"
   nivel: "intermedio"
-  tags: ["tecnologia", "agricultura", "han-occidental"]
+  tags: ["han", "agricultura"]
+
 tipo: completar
-enunciado: "La adopción generalizada del {{arado_han}} tirado por bueyes o caballos permitió un aumento masivo en la productividad agrícola durante el Imperio Han."
 respuesta: "arado de hierro"
 respuestas_validas:
   - "arado de hierro"
-  - "arado-de-hierro"
-  - "arado de hierro"
-  - "plow iron"
-explicacion: "El arado de hierro, junto con la arada de disco, revolucionó la agricultura china al permitir el cultivo en tierras más duras y extensas."
+  - "arado de hierro con vertedera"
+  - "arado"
+
+enunciado: "La adopción generalizada del ___ tirado por bueyes permitió aumentar la productividad agrícola durante el Imperio Han."
+
+explicacion: |
+  El hierro permitió arados más resistentes y el cultivo de suelos más duros, lo que aumentó la producción de alimentos.
 ```
 
 ### 7 — La Rebelión de los Turantes Amarillos
@@ -117,23 +128,27 @@ respuesta: verdadero
 explicacion: "Liderada por figuras como Zhang Jiao, esta rebelión taoísta fue uno de los principales factores del colapso final de la dinastía Han."
 ```
 
-### 8 — Sistema de selección de funcionarios
-```yaml
+### 8 — Selección de funcionarios
+
+```
 metadata:
   materia: "historia_profunda"
   tema: "imperio-han-china"
   nivel: "intermedio"
-  tags: ["administracion", "confucianismo", "xuanju"]
+  tags: ["han", "confucianismo"]
+
 tipo: completar
-enunciado: "El sistema {{sistema_seleccion_han}} recomendaba a individuos para cargos públicos basándose en su virtud moral y conocimiento de los clásicos confucianos, aunque inicialmente dependía mucho de la recomendación local."
 respuesta: "xuanju"
 respuestas_validas:
   - "xuanju"
   - "xuan ju"
+  - "sistema de recomendación"
   - "sistema de recomendacion"
-  - "sistema de recomendacion"
-  - "recommendation system"
-explicacion: "El sistema *xuanju* (recomendación y selección) fue precursor de los exámenes imperiales posteriores, enfatizando el confucianismo."
+
+enunciado: "El sistema ___ recomendaba a personas para cargos públicos por su virtud y su conocimiento de los clásicos confucianos; fue antecedente de los exámenes imperiales."
+
+explicacion: |
+  El xuanju (recomendación y selección) combinaba el mérito moral y el estudio de los clásicos, y preparó el camino a los exámenes imperiales.
 ```
 
 ### 9 — Invasión de Wang Mang

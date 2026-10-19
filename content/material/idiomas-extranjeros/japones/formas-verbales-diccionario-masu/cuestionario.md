@@ -21,24 +21,21 @@ respuestas_validas:
 explicacion: "'食べる' es la forma de diccionario (辞書形, llana). Su forma cortés ます形 es '食べます': se usan en contextos distintos (辞書形 con amigos/familia, ます形 en situaciones formales), nunca se mezclan en la misma oración."
 ```
 
-### 2 — 食べるのます形選択
+### 2 — Forma masu de 勉強する
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "formas-verbales-diccionario-masu"
   nivel: "N5"
   tags: ["verbo", "masu-form"]
-pasos:
-  - "Identificar el verbo en su forma de diccionario (辞書形)."
-  - "Elegir su forma cortés ます形 correcta."
-enunciado: "私は朝ご飯を＿＿。"
-opciones_explicitas:
-  - "食べます"
-  - "食べる"
-  - "食べ"
-respuesta: "食べます"
+enunciado: "私は毎日日本語を＿＿。"
 tipo: mc
-explicacion: "La forma cortés de '食べる' es '食べます'. '食べる' es la forma llana (辞書形), correcta en registro informal pero no en una oración cortés."
+opciones_explicitas:
+  - "勉強します"
+  - "勉強する"
+  - "勉強し"
+respuesta: "勉強します"
+explicacion: "En estilo cortés el verbo termina en ます."
 ```
 
 ### 3 — 飲むの辞書形とます形
@@ -58,24 +55,21 @@ respuestas_validas:
 explicacion: "'飲む' es la forma de diccionario (辞書形, llana). Su forma cortés ます形 es '飲みます': se usan en contextos distintos (辞書形 con amigos/familia, ます形 en situaciones formales), nunca se mezclan en la misma oración."
 ```
 
-### 4 — 飲むのます形選択
+### 4 — Forma masu de 書く
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "formas-verbales-diccionario-masu"
   nivel: "N5"
   tags: ["verbo", "masu-form"]
-pasos:
-  - "Identificar el verbo en su forma de diccionario (辞書形)."
-  - "Elegir su forma cortés ます形 correcta."
-enunciado: "私は毎朝コーヒーを＿＿。"
-opciones_explicitas:
-  - "飲みます"
-  - "飲む"
-  - "飲み"
-respuesta: "飲みます"
+enunciado: "友達に手紙を＿＿。"
 tipo: mc
-explicacion: "La forma cortés de '飲む' es '飲みます'. '飲む' es la forma llana (辞書形), correcta en registro informal pero no en una oración cortés."
+opciones_explicitas:
+  - "書きます"
+  - "書く"
+  - "書き"
+respuesta: "書きます"
+explicacion: "書く→書きます."
 ```
 
 ### 5 — 行くの辞書形とます形
@@ -95,24 +89,21 @@ respuestas_validas:
 explicacion: "'行く' es la forma de diccionario (辞書形, llana). Su forma cortés ます形 es '行きます': se usan en contextos distintos (辞書形 con amigos/familia, ます形 en situaciones formales), nunca se mezclan en la misma oración."
 ```
 
-### 6 — 行くのます形選択
+### 6 — Forma masu de 寝る
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "formas-verbales-diccionario-masu"
   nivel: "N5"
   tags: ["verbo", "masu-form"]
-pasos:
-  - "Identificar el verbo en su forma de diccionario (辞書形)."
-  - "Elegir su forma cortés ます形 correcta."
-enunciado: "私は明日、学校へ＿＿。"
-opciones_explicitas:
-  - "行きます"
-  - "行く"
-  - "行き"
-respuesta: "行きます"
+enunciado: "私は夜十一時に＿＿。(寝る)"
 tipo: mc
-explicacion: "La forma cortés de '行く' es '行きます'. '行く' es la forma llana (辞書形), correcta en registro informal pero no en una oración cortés."
+opciones_explicitas:
+  - "寝ます"
+  - "寝る"
+  - "寝"
+respuesta: "寝ます"
+explicacion: "Grupo 2: 寝る→寝ます."
 ```
 
 ### 7 — 読むの辞書形とます形
@@ -132,24 +123,21 @@ respuestas_validas:
 explicacion: "'読む' es la forma de diccionario (辞書形, llana). Su forma cortés ます形 es '読みます': se usan en contextos distintos (辞書形 con amigos/familia, ます形 en situaciones formales), nunca se mezclan en la misma oración."
 ```
 
-### 8 — 読むのます形選択
+### 8 — Forma masu de 散歩する
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "formas-verbales-diccionario-masu"
   nivel: "N5"
   tags: ["verbo", "masu-form"]
-pasos:
-  - "Identificar el verbo en su forma de diccionario (辞書形)."
-  - "Elegir su forma cortés ます形 correcta."
-enunciado: "私は毎晩、本を＿＿。"
-opciones_explicitas:
-  - "読みます"
-  - "読む"
-  - "読み"
-respuesta: "読みます"
+enunciado: "毎週日曜日に公園を＿＿。(散歩する)"
 tipo: mc
-explicacion: "La forma cortés de '読む' es '読みます'. '読む' es la forma llana (辞書形), correcta en registro informal pero no en una oración cortés."
+opciones_explicitas:
+  - "散歩します"
+  - "散歩する"
+  - "散歩し"
+respuesta: "散歩します"
+explicacion: "Verbo con する: 散歩する→散歩します."
 ```
 
 ### 9 — 見るの辞書形とます形
@@ -464,4 +452,3 @@ respuestas_validas:
   - "食べました"
 explicacion: "'食べた' es la forma pasada llana (た形) de '食べる'; su equivalente cortés es '食べました'. No deben mezclarse: '食べた' se usa en registro informal, '食べました' en registro cortés — son la versión pasada del mismo par 辞書形/ます形 visto en los bloques anteriores."
 ```
-

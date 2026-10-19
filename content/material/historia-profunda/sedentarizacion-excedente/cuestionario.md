@@ -467,23 +467,22 @@ explicacion: |
   Al no tener que dedicar todo el tiempo a la búsqueda de alimento, algunos individuos pudieron dedicarse a otras tareas como la artesanía, la metalurgia o la administración.
 ```
 
-### 23 — Secuencia de la revolución neolítica
+### 23 — Cadena de la sedentarización
 
 ```
 metadata:
   materia: "historia_profunda"
   tema: "sedentarizacion_excedente"
   nivel: "intermedio"
-  tags: ["secuencia", "neolitico"]
+  tags: ["neolitico", "secuencia"]
 
-respuesta_orden: ["Domesticación de plantas", "Producción de excedentes", "Sedentarización", "Estratificación social"]
+enunciado: "Ordená esta cadena de causas, de la primera a la última:"
 tipo: ordenar
-opciones_explicitas: ["Domesticación de plantas", "Producción de excedentes", "Sedentarización", "Estratificación social"]
-
-enunciado: "Ordena cronológicamente los procesos que permitieron el surgimiento de las primeras civilizaciones:"
+opciones_explicitas: ["Domesticación de plantas y animales", "Producción de excedentes", "Sedentarización y aldeas permanentes", "Especialización del trabajo y desigualdad social"]
+respuesta_orden: ["Domesticación de plantas y animales", "Producción de excedentes", "Sedentarización y aldeas permanentes", "Especialización del trabajo y desigualdad social"]
 
 explicacion: |
-  La secuencia lógica comienza con la transformación de la dieta (domesticación), que genera sobras de comida (excedente), lo que permite vivir en un sitio fijo (sedentarización) y finalmente la división de clases (estratificación).
+  La agricultura generó excedentes, que permitieron vivir en un lugar fijo y, más tarde, que algunos se especializaran en oficios distintos de la producción de alimentos.
 ```
 
 ### 24 — Consecuencias de la vida sedentaria

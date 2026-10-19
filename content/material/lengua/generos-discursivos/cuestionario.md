@@ -431,52 +431,46 @@ explicacion: |
   Falso. Los géneros discursivos son modelos que se construyen y comparten dentro de una comunidad a lo largo del tiempo, adaptándose a las necesidades comunicativas de cada contexto.
 ```
 
-### 22 — pregunta 22
+### 22 — Géneros primarios y secundarios
 
 ```
 metadata:
   materia: "lengua"
   tema: "generos_discursivos"
   nivel: "intermedio"
-  tags: ["primarios", "secundarios", "comparacion"]
+  tags: ["bajtin", "generos"]
 
-variables:
-  correcta: uno_de(["interaccion_cotidiana", "sistematizacion_institucional"])
-  distractor1: "rigidez_formal"
-  distractor2: "ausencia_de_estructura"
-
-respuesta: correcta
+enunciado: "Según Bajtín, la diferencia fundamental entre géneros discursivos primarios y secundarios es que los primarios:"
 tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
-
-enunciado: "La diferencia fundamental entre géneros primarios y secundarios radica en:"
+opciones_explicitas:
+  - "Surgen de la interacción cotidiana y espontánea"
+  - "Son siempre escritos y formales"
+  - "Solo existen en instituciones como la ciencia"
+respuesta: "Surgen de la interacción cotidiana y espontánea"
 
 explicacion: |
-  Los primarios se basan en la interacción cotidiana y espontánea, mientras que los secundarios están sistematizados por instituciones complejas como la escuela, la ciencia o la administración.
+  Los secundarios (novela, informe, ensayo) son más complejos y aparecen en ámbitos culturales organizados; los primarios, como el diálogo cotidiano, son más inmediatos.
 ```
 
-### 23 — pregunta 23
+### 23 — Ejemplo de género secundario
 
 ```
 metadata:
   materia: "lengua"
   tema: "generos_discursivos"
   nivel: "intermedio"
-  tags: ["secundarios", "ejemplos"]
+  tags: ["bajtin", "generos"]
 
-variables:
-  correcta: uno_de(["noticia", "ensayo_cientifico", "informe_legal"])
-  distractor1: "conversacion_telefonica"
-  distractor2: "chiste"
-
-respuesta: correcta
+enunciado: "¿Cuál de los siguientes es un ejemplo de género discursivo secundario?"
 tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor2]
-
-enunciado: "¿Cuál de los siguientes es un ejemplo de género discursivo SECUNDARIO?"
+opciones_explicitas:
+  - "Un ensayo científico"
+  - "Una conversación telefónica"
+  - "Un chiste entre amigos"
+respuesta: "Un ensayo científico"
 
 explicacion: |
-  La noticia, el ensayo científico y el informe legal son géneros secundarios porque se desarrollan en ámbitos organizados y requieren normas estrictas. La conversación y el chiste son primarios.
+  El ensayo científico se produce en un ámbito organizado y con normas estrictas; la conversación y el chiste son géneros primarios.
 ```
 
 ### 24 — pregunta 24

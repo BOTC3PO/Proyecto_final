@@ -325,6 +325,9 @@ variables:
   k: random(2, 20)
   n: k ^ 2
 
+restricciones:
+  - k != 2
+
 respuesta: k
 tipo: mc
 opciones_explicitas:

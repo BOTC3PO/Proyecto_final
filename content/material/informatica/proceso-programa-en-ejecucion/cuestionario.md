@@ -114,23 +114,22 @@ explicacion: |
   Cada vez que se inicia una instancia de un programa, el sistema operativo crea un proceso nuevo con su propio espacio de memoria y estado, aunque el código base (el programa) sea el mismo. Por lo tanto, con tres instancias hay 3 procesos.
 ```
 
-### 6 — Relación de cardinalidad
+### 6 — Programa y proceso
 
 ```
 metadata:
   materia: "informatica"
   tema: "proceso_programa_en_ejecucion"
   nivel: "basico"
-  tags: ["sistemas_operativos"]
+  tags: ["proceso", "programa"]
 
-respuesta: 3
-tipo: completar
-tolerancia_abs: 0
+respuesta: falso
+tipo: vf
 
-enunciado: "Si un usuario abre tres instancias diferentes de un mismo editor de texto (por ejemplo, tres notas distintas), ¿cuántos procesos habrá corriendo en el sistema operativo?"
+enunciado: "Un programa y un proceso son exactamente lo mismo."
 
 explicacion: |
-  Cada vez que se inicia una instancia de un programa, el sistema operativo crea un proceso nuevo con su propio espacio de memoria y estado. Por lo tanto, hay 3 procesos.
+  El programa es el código almacenado; el proceso es una instancia de ese programa en ejecución, con su memoria y su estado propios.
 ```
 
 ### 7 — ¿Qué es un proceso?

@@ -470,4 +470,3 @@ respuestas_validas:
   - "шел"
 explicacion: "он → шёл."
 ```
-

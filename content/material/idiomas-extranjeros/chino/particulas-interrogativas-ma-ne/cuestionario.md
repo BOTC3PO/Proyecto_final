@@ -463,4 +463,3 @@ respuestas_validas:
   - "了"
 explicacion: "你几岁了？ = ¿cuántos años tienes ya?"
 ```
-

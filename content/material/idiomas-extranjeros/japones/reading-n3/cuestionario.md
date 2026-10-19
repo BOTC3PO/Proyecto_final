@@ -346,25 +346,22 @@ explicacion: "「で」は手段を示す粒子です。交通手段の文脈に
 
 
 
-### 16 — 選択問題（条件形）  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "reading-n3"  
-  nivel: "N3"  
-  tags: ["構文", "原因"]  
-pasos:  
-  - "Identificar el uso del sufijo que expresa causa."  
-  - "Seleccionar la opción gramaticalmente correcta en el contexto de una oración causal."  
-tipo: mc  
-enunciado: "雨が降った___、試験は中止になりました。"
-opciones_explicitas:  
-  - "ため"  
-  - "から"  
-  - "ので"  
-  - "のに"  
-respuesta: "ため"  
-explicacion: "La partícula 'ため' se usa para expresar una causa directa en oraciones formales. En este contexto, '雨が降ったため、試験は中止になりました' es correcto."  
+### 16 — Conector concesivo
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "reading-n3"
+  nivel: "N3"
+  tags: ["粒子", "場所"]
+enunciado: "この薬は高い___、よく効きます。"
+tipo: mc
+opciones_explicitas:
+  - "けれど"
+  - "から"
+  - "ので"
+  - "ために"
+respuesta: "けれど"
+explicacion: "けれど expresa contraste: es cara, pero funciona bien."
 ```
 
 ### 17 — 空欄補充（対象の表現）  

@@ -259,22 +259,18 @@ explicacion: "La opción 'ご飯' (arroz) es correcta, ya que indica el alimento
 
 
 
-### 13 — 時間  
+### 13 — Partícula de existencia
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "reading-n5"  
-  nivel: "N5"  
-  tags: ["días de la semana", "completar"]  
-pasos:  
-  - "Identificar el día correcto según el contexto."  
-explicacion: "El nombre del día debe coincidir con el uso común en japonés, como 水曜日 (miércoles)."  
-enunciado: "明日は______。"  
-tipo: completar  
-respuestas_validas:  
-  - "木曜日"  
-  - "もくようび"  
-
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "reading-n5"
+  nivel: "N5"
+  tags: ["vocabulario", "nouns"]
+enunciado: "あそこに駅____あります。"
+tipo: completar
+respuestas_validas:
+  - "が"
+explicacion: "La existencia de cosas se marca con が: 駅があります."
 ```
 
 ### 14 — 色  
@@ -397,62 +393,52 @@ explicacion: "La opción '夜' (noche) es correcta, ya que indica el momento del
 
 
 
-### 20 — 飲み物  
+### 20 — Partícula de dirección
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "reading-n5"  
-  nivel: "N5"  
-  tags: ["partículas", "mc"]  
-pasos:  
-  - "Elegir la opción que usa 「に」 para indicar lugar de residencia."  
-explicacion: "La partícula 「に」 se usa con lugares donde vive alguien, como 東京に (en Tokio)."  
-enunciado: "彼は______に住んでいます。"  
-tipo: mc  
-opciones_explicitas:  
-  - "大阪"  
-  - "駅前"  
-  - "日本"  
-respuesta: "大阪"  
-
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "reading-n5"
+  nivel: "N5"
+  tags: ["vocabulario", "nouns"]
+enunciado: "私は大学______行きます。"
+tipo: mc
+opciones_explicitas:
+  - "へ"
+  - "を"
+  - "が"
+respuesta: "へ"
+explicacion: "へ (e) marca la dirección del movimiento."
 ```
 
-### 21 — 学校  
+### 21 — Partícula de posesión
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "reading-n5"  
-  nivel: "N5"  
-  tags: ["sustantivos", "completar"]  
-pasos:  
-  - "Completar el nombre de una bebida según el contexto."  
-explicacion: "El sustantivo debe ser un líquido consumible, como ミルク (leche) o コーヒー (café)."  
-enunciado: "彼は朝ご飯に______を飲みます。"  
-tipo: completar  
-respuestas_validas:  
-  - "ミルク"  
-  - "みるく"  
-
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "reading-n5"
+  nivel: "N5"
+  tags: ["vocabulario", "nouns"]
+enunciado: "これは私___本です。"
+tipo: completar
+respuestas_validas:
+  - "の"
+explicacion: "の une poseedor y poseído: 私の本."
 ```
 
-### 22 — 天気  
+### 22 — Partícula も
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "reading-n5"  
-  nivel: "N5"  
-  tags: ["habitual", "mc"]  
-pasos:  
-  - "Seleccionar la acción que se repite todos los días."  
-explicacion: "El verbo debe estar en forma habitual, como 毎日勉強します (estudia cada día)."  
-enunciado: "彼は毎日______。"  
-tipo: mc  
-opciones_explicitas:  
-  - "テレビを見ます"  
-  - "公園に遊びに行きます"  
-  - "お風呂に入ります"  
-respuesta: "お風呂に入ります"  
-
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "reading-n5"
+  nivel: "N5"
+  tags: ["vocabulario", "nouns"]
+enunciado: "田中さんは先生です。山田さん______先生です。"
+tipo: mc
+opciones_explicitas:
+  - "も"
+  - "を"
+  - "に"
+respuesta: "も"
+explicacion: "も significa «también»."
 ```
 
 ### 23 — 食べ物  
@@ -493,19 +479,16 @@ respuesta: "電話"
 
 ```
 
-### 25 — 色  
+### 25 — Forma-te para unir acciones
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "reading-n5"  
-  nivel: "N5"  
-  tags: ["partículas", "completar"]  
-pasos:  
-  - "Completar el nombre del alimento según el contexto."  
-explicacion: "El sustantivo debe ser un alimento y usar la partícula 「を」 para indicar objeto directo, como パン (pan)."  
-enunciado: "彼は朝ご飯に______を食べます。"  
-tipo: completar  
-respuestas_validas:  
-  - "パン"  
-  - "ぱん"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "reading-n5"
+  nivel: "N5"
+  tags: ["vocabulario", "nouns"]
+enunciado: "私は毎朝ご飯を___、学校に行きます。(食べる)"
+tipo: completar
+respuestas_validas:
+  - "食べて"
+explicacion: "Para encadenar acciones se usa la forma-te: 食べて."
 ```

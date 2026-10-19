@@ -400,58 +400,58 @@ explicacion: |
   Sí. 'Guardamos la esperanza de algo' es gramatical. Esto confirma que la subordinada original es un complemento del nombre 'esperanza'.
 ```
 
-### 23 — pregunta 23
+### 23 — Subordinada que no complementa al nombre
 
 ```
 metadata:
   materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_del_nombre"
-  nivel: "basico"
-  tags: ["identificacion", "certeza"]
+  nivel: "intermedio"
+  tags: ["subordinadas", "complemento-del-nombre"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "En 'Hay certeza de que ganará', la subordinada 'de que ganará' es el complemento del nombre 'certeza'."
+enunciado: "En «Me dijo que vendría», la subordinada «que vendría» es complemento del nombre."
 
 explicacion: |
-  Correcto. El sustantivo 'certeza' necesita especificar sobre qué hay certeza. La subordinada 'de que ganará' cumple esa función de complemento nominal.
+  No hay un sustantivo al que complemente: «que vendría» es el complemento directo del verbo «dijo».
 ```
 
-### 24 — pregunta 24
+### 24 — Complemento del nombre «hecho»
 
 ```
 metadata:
   materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_del_nombre"
-  nivel: "basico"
-  tags: ["identificacion", "posibilidad"]
+  nivel: "intermedio"
+  tags: ["subordinadas", "complemento-del-nombre"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En 'Existe la posibilidad de que llueva mañana', la parte 'de que llueva mañana' es el complemento del nombre 'posibilidad'."
+enunciado: "En «El hecho de que llegara tarde molestó a todos», la subordinada «de que llegara tarde» complementa al sustantivo «hecho»."
 
 explicacion: |
-  Sí. El sustantivo 'posibilidad' requiere un complemento para especificar en qué consiste esa posibilidad. La subordinada 'de que llueva mañana' cumple esa función sintáctica.
+  La subordinada precisa el contenido del nombre «hecho», por lo que es complemento del nombre.
 ```
 
-### 25 — pregunta 25
+### 25 — Complemento del nombre «noticia»
 
 ```
 metadata:
   materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_del_nombre"
-  nivel: "basico"
-  tags: ["identificacion", "idea"]
+  nivel: "intermedio"
+  tags: ["subordinadas", "complemento-del-nombre"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En 'Tengo la idea de que nos vamos a mudar', la subordinada 'de que nos vamos a mudar' es el complemento del nombre 'idea'."
+enunciado: "En «La noticia de que renunció sorprendió a todos», la subordinada «de que renunció» complementa al sustantivo «noticia»."
 
 explicacion: |
-  Correcto. La 'idea' se define por su contenido, que es la oración subordinada. Se puede sustituir por 'Tengo la idea de eso', manteniendo la gramaticalidad.
+  La subordinada especifica en qué consiste la noticia: es complemento del nombre.
 ```
 
 ### 26 — pregunta 26
@@ -472,20 +472,20 @@ explicacion: |
   Sí. El sustantivo 'razón' necesita especificar la causa. La subordinada 'de que haya retraso' cumple esa función. Se puede sustituir por 'La razón de eso es clara'.
 ```
 
-### 27 — pregunta 27
+### 27 — Subordinada sin sustantivo
 
 ```
 metadata:
   materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_del_nombre"
-  nivel: "basico"
-  tags: ["identificacion", "temor"]
+  nivel: "intermedio"
+  tags: ["subordinadas", "complemento-del-nombre"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "En 'Siente temor a que lo descubran', la parte 'a que lo descubran' es el complemento del nombre 'temor'."
+enunciado: "En «Quiero que vengas», la subordinada «que vengas» es complemento del nombre."
 
 explicacion: |
-  Sí. El sustantivo 'temor' se complementa con la preposición 'a' (o 'de') seguida de una subordinada. La oración 'a que lo descubran' completa el significado del nombre.
+  Aquí «que vengas» es el complemento directo del verbo «quiero»; no hay un sustantivo al que complemente.
 ```

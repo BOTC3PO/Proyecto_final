@@ -187,27 +187,25 @@ explicacion: |
   La subordinada consecutiva funciona como un Complemento Circunstancial de Consecuencia (o Atributo en casos específicos con 'ser', pero generalmente CC). Si la opción es CD, Atributo o Sujeto, es falso.
 ```
 
-### 9 — pregunta 9
+### 9 — Intensivo en la consecutiva
 
 ```
 metadata:
   materia: "Lengua"
   tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["subordinada", "consecutiva", "vocabulario"]
+  nivel: "intermedio"
+  tags: ["subordinadas", "consecutiva"]
 
-variables:
-  adj: uno_de(["difícil", "fácil", "largo", "corto"])
-  sust: uno_de(["alumnos", "libros", "tiempo", "paciencia"])
-
-respuesta: "tan"
+enunciado: "Completá: «El examen fue ___ difícil que muchos abandonaron»."
 tipo: mc
-opciones_explicitas: ["tan", "tanto", "tal", "mucho"]
-
-enunciado: "El examen fue ___ {adj} que {sust} abandonaron. ¿Qué palabra falta?"
+opciones_explicitas:
+  - "tan"
+  - "tanto"
+  - "tal"
+respuesta: "tan"
 
 explicacion: |
-  "Tan" se usa con adjetivos o adverbios. Como "{adj}" es un adjetivo, la forma correcta es "tan".
+  «Tan» acompaña a adjetivos y adverbios en las construcciones consecutivas: tan difícil que…; «tanto» se usa con sustantivos o verbos.
 ```
 
 ### 10 — pregunta 10
@@ -321,27 +319,25 @@ explicacion: |
   Ejercicio que vincula la lógica matemática con la estructura "tanto... que" para verificar la comprensión de la relación de proporcionalidad en la consecuencia.
 ```
 
-### 15 — pregunta 15
+### 15 — Reconocer la consecutiva
 
 ```
 metadata:
   materia: "Lengua"
   tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["subordinada", "consecutiva", "vocabulario"]
+  nivel: "intermedio"
+  tags: ["subordinadas", "consecutiva"]
 
-variables:
-  adj: uno_de(["difícil", "fácil", "largo", "corto"])
-  sust: uno_de(["alumnos", "libros", "tiempo", "paciencia"])
-
-respuesta: "tan"
+enunciado: "En «Llovió tanto que se suspendió el partido», la oración «que se suspendió el partido» expresa:"
 tipo: mc
-opciones_explicitas: ["tan", "tanto", "tal", "mucho"]
-
-enunciado: "El examen fue ___ {adj} que {sust} abandonaron. ¿Qué palabra falta?"
+opciones_explicitas:
+  - "La consecuencia de lo dicho en la principal"
+  - "La causa de lo dicho en la principal"
+  - "Una condición para la principal"
+respuesta: "La consecuencia de lo dicho en la principal"
 
 explicacion: |
-  "Tan" se usa con adjetivos o adverbios. Como "{adj}" es un adjetivo, la forma correcta es "tan".
+  Las consecutivas expresan el resultado de la intensidad señalada en la oración principal (tanto… que).
 ```
 
 ### 16 — pregunta 16

@@ -489,23 +489,25 @@ explicacion: |
   La latencia es el tiempo de espera. La caché, al estar integrada en el procesador, responde mucho más rápido (menor latencia) que la RAM.
 ```
 
-### 24 — Orden de la jerarquía de memoria
+### 24 — Memoria volátil
 
 ```
 metadata:
   materia: "informatica"
   tema: "jerarquia_memoria"
-  nivel: "intermedio"
-  tags: ["orden", "arquitectura"]
+  nivel: "basico"
+  tags: ["ram", "volatil"]
 
-respuesta_orden: ["Registros", "Caché L1", "Memoria RAM", "Disco Duro"]
-tipo: ordenar
-opciones_explicitas: ["Registros", "Caché L1", "Memoria RAM", "Disco Duro"]
-
-enunciado: "Ordena los siguientes elementos de memoria de mayor a menor velocidad (del más rápido al más lento):"
+enunciado: "¿Qué ocurre con el contenido de la memoria RAM cuando se apaga la computadora?"
+tipo: mc
+opciones_explicitas:
+  - "Se pierde"
+  - "Se conserva indefinidamente"
+  - "Se copia automáticamente al disco"
+respuesta: "Se pierde"
 
 explicacion: |
-  La jerarquía correcta de velocidad es: Registros del CPU > Caché (L1, L2, L3) > Memoria RAM > Almacenamiento secundario (Disco).
+  La RAM es volátil: necesita energía para mantener sus datos, a diferencia del almacenamiento secundario.
 ```
 
 ### 25 — Relación Capacidad vs Costo

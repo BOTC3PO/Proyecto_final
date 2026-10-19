@@ -4,30 +4,25 @@
 
 ---
 
-### 1 — pregunta 1
+### 1 — Sector de la minería
 
 ```
 metadata:
   materia: "economia"
   tema: "sectores_economicos"
   nivel: "basico"
-  tags: ["sector_primario", "clasificacion"]
+  tags: ["sectores", "primario"]
 
-variables:
-  actividad: uno_de(["agricultura", "ganadería", "pesca", "minería"])
-  descripcion: |
-    Si {actividad} == "agricultura" entonces "cultivo de plantas"
-    elif {actividad} == "ganadería" entonces "cría de animales"
-    elif {actividad} == "pesca" entonces "captura de peces"
-    else "extracción de minerales"
-
-respuesta: "sector_primario"
-tipo: input
-
-enunciado: "La actividad de {actividad}, que implica {descripcion}, se clasifica dentro del sector económico:"
+enunciado: "La minería, que consiste en extraer minerales del suelo, ¿a qué sector económico pertenece?"
+tipo: mc
+opciones_explicitas:
+  - "Primario"
+  - "Secundario"
+  - "Terciario"
+respuesta: "Primario"
 
 explicacion: |
-  El sector primario comprende las actividades que extraen recursos naturales directamente del medio ambiente sin transformarlos significativamente.
+  El sector primario reúne las actividades que obtienen recursos directamente de la naturaleza, como la agricultura, la ganadería, la pesca y la minería.
 ```
 
 ### 2 — pregunta 2

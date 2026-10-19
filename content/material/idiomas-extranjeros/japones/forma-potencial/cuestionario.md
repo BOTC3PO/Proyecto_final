@@ -266,22 +266,18 @@ tipo: mc
 explicacion: "'選ぶ' es un verbo godan: su potencial se forma cambiando 'ぶ' por 'べる' → '選べる'. '選びられますか' es un error muy común (aplicar por error el patrón ichidan 'られる' a un verbo godan); '選びます' es la forma llana, sin matiz de capacidad."
 ```
 
-### 15 — 来るの潜在形（疑問形）
+### 15 — Potencial de 読む
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-potencial"
   nivel: "N4"
   tags: ["irregular", "movimiento"]
-pasos:
-  - "Identificar el verbo base (「来る」)."
-  - "Usar su forma potencial irregular (「こられる」)."
-enunciado: "彼は____？"
+enunciado: "日本語の新聞が___か。(読む, potencial cortés)"
 tipo: completar
 respuestas_validas:
-  - "来られる？"
-  - "来られますか"
-explicacion: "El verbo 「来る」tiene forma potencial irregular: 「来られる」(こられる). En preguntas, se usa como '¿Puede venir?'"
+  - "読めます"
+explicacion: "Los verbos del grupo 1 cambian la última sílaba a la fila え: 読む→読める→読めます."
 ```
 
 ### 16 — 解くの潜在形
@@ -356,113 +352,93 @@ respuestas_validas:
 explicacion: "El verbo regular 「飲む」tiene forma potencial 「飲める」. En preguntas formales, se usa con 「ます」."
 ```
 
-### 20 — するの潜在形（複数形）
+### 20 — Potencial de 撮る
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-potencial"
   nivel: "N4"
   tags: ["irregular", "habilidad"]
-pasos:
-  - "Identificar el verbo base (「する」)."
-  - "Usar su forma potencial irregular (「できる」)."
-enunciado: "彼はこれを____？"
+enunciado: "ここで写真を___か。(撮る, potencial cortés)"
 tipo: completar
 respuestas_validas:
-  - "できますか"
-  - "できる？"
-explicacion: "El verbo 「する」tiene forma potencial irregular: 「できる」. En preguntas, se usa como '¿Puedes hacerlo?'"
+  - "撮れます"
+explicacion: "撮る→撮れる→撮れます."
 ```
 
-### 21 — 選ぶの潜在形（複数形）
+### 21 — Potencial de 泳ぐ
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-potencial"
   nivel: "N4"
   tags: ["hipótesis", "objeto"]
-pasos:
-  - "Reconocer el verbo base (「選ぶ」)."
-  - "Formar su potencial siguiendo el patrón godan (no ichidan)."
-enunciado: "プレゼントを選ぶことができる？"
-opciones_explicitas:
-  - "選べますか"
-  - "選びられますか"
-  - "選びます"
-respuesta: "選べますか"
+enunciado: "Forma potencial cortés de 泳ぐ:"
 tipo: mc
-explicacion: "Como en el bloque 14: '選ぶ' es godan y su potencial real es '選べる'; '選びられますか' aplica por error el patrón ichidan a un verbo godan."
+opciones_explicitas:
+  - "泳げます"
+  - "泳ぎられます"
+  - "泳ぎます"
+respuesta: "泳げます"
+explicacion: "泳ぐ (grupo 1) → 泳げる → 泳げます."
 ```
 
-### 22 — 来るの潜在形（複数形）
+### 22 — Potencial negativo de 書く
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-potencial"
   nivel: "N4"
   tags: ["irregular", "movimiento"]
-pasos:
-  - "Identificar el verbo base (「来る」)."
-  - "Usar su forma potencial irregular (「こられる」)."
-enunciado: "彼は____？"
+enunciado: "漢字が___ません。(書く, potencial)"
 tipo: completar
 respuestas_validas:
-  - "来られる？"
-  - "来られますか"
-explicacion: "Como en el bloque 15, 「来る」tiene forma potencial irregular 「来られる」(こられる)."
+  - "書け"
+explicacion: "書く→書ける; el negativo cortés es 書けません."
 ```
 
-### 23 — 解くの潜在形（複数形）
+### 23 — Potencial de 来る
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-potencial"
   nivel: "N4"
   tags: ["mental", "habilidad"]
-pasos:
-  - "Reconocer el verbo base (「解く」)."
-  - "Formar su potencial con el patrón godan en 'く'."
-enunciado: "この問題を____？"
+enunciado: "明日の会議に___か。(来る, potencial cortés)"
 tipo: completar
 respuestas_validas:
-  - "解けますか"
-  - "解ける？"
-explicacion: "Como en el bloque 16, el verbo godan 「解く」tiene forma potencial 「解ける」."
+  - "来られます"
+  - "こられます"
+explicacion: "来る→来られる→来られます (también se lee こられます)."
 ```
 
-### 24 — 備えるの潜在形（複数形）
+### 24 — Potencial de 食べる
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-potencial"
   nivel: "N4"
   tags: ["preparación", "posibilidad"]
-pasos:
-  - "Identificar el verbo base (「備える」)."
-  - "Usar su forma potencial regular (verbo ichidan)."
-enunciado: "突然の雨に____？"
+enunciado: "納豆が___ます。(食べる, puedo comer)"
 tipo: completar
 respuestas_validas:
-  - "備えられますか"
-  - "備えられる？"
-explicacion: "Como en el bloque 18, el verbo ichidan 「備える」tiene forma potencial 「備えられる」."
+  - "食べられ"
+explicacion: "Grupo 2: 食べる→食べられる; en cortés 食べられます."
 ```
 
-### 25 — 飲むの潜在形（複数形）
+### 25 — Potencial de 行く
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-potencial"
   nivel: "N4"
   tags: ["consumo", "habilidad"]
-pasos:
-  - "Reconocer el verbo base (「飲む」)."
-  - "Formar su potencial cambiando 'む' por 'める'."
-enunciado: "この薬を____？"
-tipo: completar
-respuestas_validas:
-  - "飲めますか"
-  - "飲める？"
-explicacion: "Como en el bloque 19, el verbo regular 「飲む」tiene forma potencial 「飲める」."
+enunciado: "駅まで歩いて___ますか。(行く, potencial)"
+tipo: mc
+opciones_explicitas:
+  - "行け"
+  - "行き"
+  - "行か"
+respuesta: "行け"
+explicacion: "行く→行ける; 行けますか = ¿se puede ir?"
 ```
-

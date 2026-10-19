@@ -461,6 +461,9 @@ variables:
   p: uno_de([10, 20, 25, 50])
   correcto: v * p / 100
 
+restricciones:
+  - p != 10
+
 respuesta: correcto
 tipo: mc
 opciones_explicitas:

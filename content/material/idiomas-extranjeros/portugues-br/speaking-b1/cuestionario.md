@@ -27,22 +27,23 @@ explicacion: "El pronombre 'me' reemplaza al complemento directo 'um livro', man
 
 ### 2 — Verbos modais  
 ```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["modal", "poder"]  
-pasos:  
-  - "Seleccionar el verbo modal que completa la oración correctamente."  
-opciones_explicitas:  
-  - "Pode"  
-  - "Pode-se"  
-  - "Pode-se"  
-  - "Pode"  
-respuesta: "Pode-se"  
-tipo: mc  
-enunciado: "___ viajar sozinho? Eu acho que sim."  
-explicacion: "'Pode-se' es la forma impersonal del verbo 'poder', usada para expresar posibilidad general sin sujeto explícito."  
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "speaking-b1"
+  nivel: "B1"
+  tags: ["modal", "poder"]
+pasos:
+  - "Identificá quién pide permiso (yo)."
+  - "Elegí la forma de 'poder' para la 1.ª persona del singular."
+enunciado: "___ viajar com vocês? Gostaria muito de ir."
+opciones_explicitas:
+  - "Posso"
+  - "Pode"
+  - "Podemos"
+  - "Podem"
+respuesta: "Posso"
+tipo: mc
+explicacion: "Para pedir permiso en primera persona se usa 'posso' (yo puedo): Posso viajar com vocês?"
 ```
 
 
@@ -254,22 +255,22 @@ explicacion: "'Já' indica completitud en el pasado, mientras que 'ainda' sugier
 
 ### 13 — Formas del pretérito perfeito  
 ```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["pretérito", "construção"]  
-pasos:  
-  - "Elegir la forma correcta del pretérito perfeito."  
-opciones_explicitas:  
-  - "Fui"  
-  - "Vou"  
-  - "Fui"  
-  - "Fazer"  
-respuesta: "Fui"  
-tipo: mc  
-enunciado: "___ ao mercado ontem à noite, mas não encontrei o que precisava."  
-explicacion: "'Fui' es la forma del verbo 'ir' en pretérito perfeito para el sujeto singular."  
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "speaking-b1"
+  nivel: "B1"
+  tags: ["pretérito", "construção"]
+pasos:
+  - "Elegir la forma correcta del pretérito perfeito."
+enunciado: "___ ao mercado ontem à noite, mas não encontrei o que precisava."
+opciones_explicitas:
+  - "Fui"
+  - "Vou"
+  - "Irei"
+  - "Fazer"
+respuesta: "Fui"
+tipo: mc
+explicacion: "'Fui' es el pretérito perfeito de 'ir' para el sujeto 'eu'; el marcador 'ontem' pide un pasado."
 ```
 
 

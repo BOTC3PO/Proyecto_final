@@ -459,4 +459,3 @@ respuesta: "选为"
 tipo: mc
 explicacion: "被选为 + cargo."
 ```
-

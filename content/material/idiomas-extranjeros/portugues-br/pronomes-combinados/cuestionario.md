@@ -432,30 +432,7 @@ respuestas_validas:
 ```  
 
 
-### 21 — Pronome "para nós" con verbo reflexivo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "pronomes-combinados"  
-  nivel: "B2"  
-  tags: ["para", "nos"]  
-pasos:  
-  - "Elige la opción correcta para completar el enunciado."  
-enunciado: "¿Cuál es la forma correcta de combinar 'para' con 'nós'?"  
-opciones_explicitas:  
-  - "para nós"  
-  - "para mim"  
-  - "para ti"  
-  - "para vocês"  
-respuesta: "para nós"  
-tipo: mc  
-explicacion: "'Para' + 'nós' se combina en 'para nós'. Esta forma es correcta cuando el destinatario incluye al hablante y a otros."  
-```  
-
-
-
-
-### 22 — Uso de "sem vocês" con verbo plural  
+### 21 — Uso de "sem vocês" con verbo plural  
 ```  
 metadata:  
   materia: "portugues-br"  
@@ -477,7 +454,7 @@ respuesta: "para eles"
 ```  
 
 
-### 23 — Pronome "comigo" con verbo impersonal  
+### 22 — Pronome "comigo" con verbo impersonal  
 ```  
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -500,7 +477,7 @@ explicacion: "'Com' + 'me' se combina en 'comigo'. Esta forma es correcta cuando
 
 
 
-### 24 — Uso de "para mim" con oración negativa  
+### 23 — Uso de "para mim" con oración negativa  
 ```  
 metadata:  
   materia: "portugues-br"  
@@ -516,24 +493,4 @@ enunciado: "Não conseguimos terminar o projeto ______, mas talvez possam ajudar
 respuestas_validas:  
   - "sem eles"  
   - "Sem eles"  
-```
-
-### 25 — Pronome "conosco" con verbo plural  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "pronomes-combinados"  
-  nivel: "B2"  
-  tags: ["com", "nos"]  
-pasos:  
-  - "Elige la opción correcta para completar el enunciado."  
-enunciado: "¿Cuál es la forma correcta de combinar 'com' con 'nós'?"  
-opciones_explicitas:  
-  - "conosco"  
-  - "com nós"  
-  - "contigo"  
-  - "sem mim"  
-respuesta: "conosco"  
-tipo: mc  
-explicacion: "'Com' + 'nós' se combina en 'conosco'. La forma 'com nós' es incorrecta, ya que los pronombres combinados requieren fusión."  
 ```

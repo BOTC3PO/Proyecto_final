@@ -111,24 +111,25 @@ explicacion: |
   Una desviación es favorable cuando el resultado real mejora la posición financiera respecto al plan, y desfavorable cuando la empeora.
 ```
 
-### 6 — El concepto de presupuesto
+### 6 — Para qué sirve un presupuesto
 
 ```
 metadata:
   materia: "economia"
   tema: "presupuesto_administrativo"
   nivel: "basico"
-  tags: ["conceptos", "definiciones"]
+  tags: ["presupuesto", "planificacion"]
 
-respuesta: "estimación anticipada de ingresos y gastos"
-tipo: completar
-respuestas_validas:
-  - "estimación anticipada de ingresos y gastos"
-
-enunciado: "El presupuesto se define como una ___ para un período determinado."
+enunciado: "¿Para qué sirve principalmente un presupuesto en una organización?"
+tipo: mc
+opciones_explicitas:
+  - "Para planificar y controlar ingresos y gastos futuros"
+  - "Para registrar las ventas ya realizadas"
+  - "Para calcular los impuestos del año anterior"
+respuesta: "Para planificar y controlar ingresos y gastos futuros"
 
 explicacion: |
-  El presupuesto es la herramienta de planificación que permite proyectar la situación financiera de una organización mediante la cuantificación de sus ingresos y gastos esperados.
+  El presupuesto anticipa ingresos y gastos y permite comparar luego lo previsto con lo real.
 ```
 
 ### 7 — Análisis de saldo presupuestario

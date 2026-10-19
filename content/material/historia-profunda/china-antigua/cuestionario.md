@@ -1,18 +1,22 @@
-### 1 — Ubicación geográfica de la dinastía Shang
-```yaml
+### 1 — Núcleo de la dinastía Shang
+
+```
 metadata:
   materia: "historia_profunda"
   tema: "china-antigua"
   nivel: "intermedio"
-  tags: ["shang", "geografia", "dinastia"]
-enunciado: "La dinastía Shang, considerada la primera dinastía china históricamente confirmada, tuvo su núcleo de poder en el valle del {{río}}."
-variables:
-  río: uno_de(["Río Amarillo", "Río Yangtsé", "Río Mekong", "Río He"])
-respuesta: verdadero
-pasos:
-  - "Identificar la región geográfica central del poder Shang."
-  - "Confirmar que el valle del Río Amarillo (Huang He) fue el cimiento de la civilización Shang."
-explicacion: "La dinastía Shang se desarrolló principalmente en el norte de China, a lo largo del valle del Río Amarillo, donde la agricultura de mijo y la defensa contra invasiones nómadas definieron su cultura."
+  tags: ["shang", "geografia"]
+
+enunciado: "La dinastía Shang, la primera de China confirmada históricamente, tuvo su núcleo de poder en el valle de un río. ¿De cuál?"
+tipo: mc
+opciones_explicitas:
+  - "Río Amarillo (Huang He)"
+  - "Río Yangtsé"
+  - "Río Mekong"
+respuesta: "Río Amarillo (Huang He)"
+
+explicacion: |
+  Los Shang se desarrollaron en el norte de China, en la cuenca del Río Amarillo, donde prosperó el cultivo de mijo.
 ```
 
 ### 2 — Característica de la escritura Shang

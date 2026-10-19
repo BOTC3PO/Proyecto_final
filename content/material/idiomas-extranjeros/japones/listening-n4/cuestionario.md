@@ -184,23 +184,21 @@ opciones_explicitas:
 respuesta: "午後2時"
 ```
 
-### 10 — 買い物の確認  
-```yaml
+### 10 — Responder una pregunta de precio
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "listening-n4"
   nivel: "N4"
   tags: ["compra", "mc"]
-pasos:
-  - "Escucha el diálogo y elige la opción correcta."
-explicacion: "La persona pregunta si tienen un artículo en stock, y la respuesta confirma que sí lo tienen. La opción 'あります' es la única que indica disponibilidad."
+enunciado: "店員に「これは安いですか」と聞いたら、店員は何と答えますか？"
 tipo: mc
-enunciado: "店員に「これはありますか」と聞いたら、店員は何と答えますか？"
 opciones_explicitas:
-  - "ありません"
-  - "あります"
-  - "わかりません"
-respuesta: "あります"
+  - "はい、安いです"
+  - "いいえ、読みました"
+  - "はい、ありがとうございました"
+respuesta: "はい、安いです"
+explicacion: "La respuesta coherente con la pregunta es はい、安いです."
 ```
 
 
@@ -223,23 +221,21 @@ opciones_explicitas:
 respuesta: "スープをお願いします"
 ```
 
-### 12 — 電車の運行  
-```yaml
+### 12 — Anuncio de tren
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "listening-n4"
   nivel: "N4"
   tags: ["transporte", "mc"]
-pasos:
-  - "Escucha el anuncio y elige la opción correcta."
-explicacion: "El anuncio indica que los trenes están retrasados debido a una falla en la vía. La opción '遅延' describe correctamente la situación."
+enunciado: "駅のアナウンスで「この電車は五分遅れて到着します」と言っていました。何が起きていますか？"
 tipo: mc
-enunciado: "電車の遅延についてのアナウンスを聞きました。何が起きていますか？"
 opciones_explicitas:
+  - "遅れ"
   - "運行停止"
-  - "遅延"
   - "終点変更"
-respuesta: "遅延"
+respuesta: "遅れ"
+explicacion: "遅れて到着します = llegará con retraso."
 ```
 
 
@@ -262,23 +258,21 @@ opciones_explicitas:
 respuesta: "薬局へ歩いてください"
 ```
 
-### 14 — 学校の行事  
-```yaml
+### 14 — Aviso escolar
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "listening-n4"
   nivel: "N4"
   tags: ["evento", "mc"]
-pasos:
-  - "Escucha el anuncio y elige la opción correcta."
-explicacion: "El anuncio menciona que el evento es una reunión de padres. La opción '保護者会' corresponde al término usado en el mensaje."
+enunciado: "学校から「来週の月曜日は休みです」というお知らせがありました。月曜日はどうなりますか？"
 tipo: mc
-enunciado: "学校からのお知らせを聞きました。どんなイベントについてですか？"
 opciones_explicitas:
-  - "文化祭"
-  - "保護者会"
-  - "運動会"
-respuesta: "保護者会"
+  - "休み"
+  - "試験"
+  - "遠足"
+respuesta: "休み"
+explicacion: "休みです significa que no hay clases."
 ```
 
 
@@ -301,23 +295,21 @@ opciones_explicitas:
 respuesta: "30分間"
 ```
 
-### 16 — レストランのメニュー  
-```yaml
+### 16 — Responder una pregunta de precio
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "listening-n4"
   nivel: "N4"
   tags: ["comida", "mc"]
-pasos:
-  - "Escucha el diálogo y elige la opción correcta."
-explicacion: "La persona pregunta si tienen un plato específico, y la respuesta confirma que sí lo tienen. La opción 'あります' es la única que indica disponibilidad."
+enunciado: "店員に「この傘は千円ですか」と聞いたら、店員は何と答えますか？"
 tipo: mc
-enunciado: "店員に「この料理はありますか」と聞いたら、店員は何と答えますか？"
 opciones_explicitas:
-  - "ありません"
-  - "あります"
-  - "わかりません"
-respuesta: "あります"
+  - "はい、千円です"
+  - "いいえ、食べません"
+  - "はい、行きます"
+respuesta: "はい、千円です"
+explicacion: "Una respuesta afirmativa coherente repite el precio."
 ```
 
 

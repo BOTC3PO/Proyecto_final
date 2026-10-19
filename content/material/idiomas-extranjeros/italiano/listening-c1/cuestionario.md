@@ -340,7 +340,7 @@ opciones_explicitas:
   - "dove"
   - "come"
 tipo: mc
-enunciado: "Non so ___ abbia deciso di andare all'estero."
+enunciado: "Non so ___ abbia deciso di andare all'estero. (Uso di "dopo")"
 explicacion: "Después de 'non so', se usa el subjuntivo en oraciones indirectas que introducen un verbo de conocimiento. La preposición 'che' introduce la cláusula subordinada."
 ```
 
@@ -507,7 +507,7 @@ opciones_explicitas:
   - "da"
   - "dei"
 tipo: mc
-enunciado: "Mi ha ___ aiuto, ma non l'ho accettato."
+enunciado: "Mi ha ___ aiuto, ma non l'ho accettato. (Frase impersonale)"
 explicacion: "'Aiutare di' es la construcción correcta para indicar el acto de ayudar. 'Di' introduce el objeto indirecto."
 ```
 

@@ -232,25 +232,7 @@ enunciado: "Wenn ich ___ mehr Zeit hätte, würde ich reisen."
 explicacion: "En oraciones hipotéticas irreales en el presente (con 'würde' o infinitivo), se usa el Konjunktiv II (hätte) para expresar una situación no realista. Aquí, la estructura es 'Wenn + Subjuntivo II + würde + Infinitivo'."  
 ```
 
-### 12 — Subjuntivo en oraciones con "als ob" + pasado  
-```  
-metadata:  
-  materia: "aleman"  
-  tema: "subjuntivo-en-escritura-formal"  
-  nivel: "C1"  
-  tags: ["wünschen", "konjunktiv-ii"]  
-pasos:  
-  - "Reconocer el verbo 'wünschen' como indicador de deseo."  
-  - "Aplicar la forma correcta del Konjunktiv II para el verbo 'kommen'."  
-respuestas_validas:  
-  - "käme"  
-  - "Käme"  
-tipo: completar  
-enunciado: "Ich wünschte, er ___ nicht so spät käme."  
-explicacion: "Cuando se expresa un deseo irreal o deseos hipotéticos, se usa el Konjunktiv II (käme) tras 'wünschen' o expresiones similares. La estructura es 'wünschten + Subjuntivo II'."  
-```
-
-### 13 — Subjuntivo en oraciones con "wenn" + futuro  
+### 12 — Subjuntivo en oraciones con "wenn" + futuro  
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
@@ -270,7 +252,7 @@ explicacion: "'Wenn' en oraciones hipotéticas del futuro requiere el subjuntivo
 
 ---
 
-### 14 — Subjuntivo en oraciones con "ob" + duda  
+### 13 — Subjuntivo en oraciones con "ob" + duda  
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
@@ -292,7 +274,7 @@ explicacion: "'Ob' introduce una duda que requiere el subjuntivo. La forma corre
 
 ---
 
-### 15 — Subjuntivo en oraciones con "so" + condición  
+### 14 — Subjuntivo en oraciones con "so" + condición  
 ```  
 metadata:  
   materia: "aleman"  
@@ -313,7 +295,7 @@ enunciado: "Wenn er ___ die Prüfung nicht bestanden, wären wir unsicher."
 explicacion: "En oraciones condicionales irreales en el presente (aunque la condición sea posible), se usa el Konjunktiv II (machte) tras 'wenn' seguido de 'wäre/wären'. La forma correcta es 'machte' para tercera persona singular."  
 ```
 
-### 16 — Subjuntivo en oraciones con "wenn" + presente  
+### 15 — Subjuntivo en oraciones con "wenn" + presente  
 ```  
 metadata:  
   materia: "aleman"  
@@ -331,46 +313,28 @@ enunciado: "Wie ___ er das gemacht hätte, wissen wir nicht."
 explicacion: "Cuando se expresa duda sobre un hecho pasado irreal, el Konjunktiv II (machte) se usa tras 'wie' en combinación con 'hätte'. La estructura es 'wie + Subjuntivo II + hätten/hätte'."  
 ```
 
-### 17 — Subjuntivo en oraciones con "als ob" + presente  
+### 16 — Subjuntivo en oraciones con "als ob" + presente  
 ```  
-metadata:  
-  materia: "aleman"  
-  tema: "subjuntivo-en-escritura-formal"  
-  nivel: "C1"  
-  tags: ["ratschlag", "konjunktiv-ii"]  
-pasos:  
-  - "Identificar el uso de 'es wäre besser, wenn' como estructura formal."  
-  - "Aplicar el Konjunktiv II para el verbo 'haben'."  
-opciones_explicitas:  
-  - "hätte"  
-  - "hat"  
-  - "hatte"  
-  - "hatte"  
-respuesta: "hätte"  
-tipo: mc  
-enunciado: "Es wäre besser, wenn er ___ mehr Geld hätte."  
-explicacion: "La estructura 'es wäre besser, wenn' requiere el Konjunktiv II (hätte) para expresar una recomendación irreal. La forma correcta es 'hätte' para tercera persona singular."  
+metadata:
+  materia: "aleman"
+  tema: "subjuntivo-en-escritura-formal"
+  nivel: "C1"
+  tags: ["ratschlag", "konjunktiv-ii"]
+pasos:
+  - "Identificar el uso de 'es wäre besser, wenn' como estructura formal."
+  - "Aplicar el Konjunktiv II para el verbo 'haben'."
+enunciado: "Es wäre besser, wenn er mehr Geld ___."
+opciones_explicitas:
+  - "hätte"
+  - "hat"
+  - "hatte"
+  - "habe"
+respuesta: "hätte"
+tipo: mc
+explicacion: "La estructura 'es wäre besser, wenn' va con Konjunktiv II: 'hätte' (3.ª persona del singular)."
 ```
 
-### 18 — Subjuntivo en oraciones con "wenn" + pasado  
-```  
-metadata:  
-  materia: "aleman"  
-  tema: "subjuntivo-en-escritura-formal"  
-  nivel: "C1"  
-  tags: ["hypothese", "konjunktiv-ii"]  
-pasos:  
-  - "Identificar la suposición en el presente que no se cumple."  
-  - "Usar el Konjunktiv II para el verbo 'kommen'."  
-respuestas_validas:  
-  - "käme"  
-  - "Käme"  
-tipo: completar  
-enunciado: "Wenn er ___ morgen kommt, können wir uns treffen."  
-explicacion: "En suposiciones irreales en el presente (aunque la condición sea posible), se usa el Konjunktiv II (käme) tras 'wenn' seguido de 'wäre/wären'. La forma correcta es 'käme' para tercera persona singular."  
-```
-
-### 19 — Subjuntivo en oraciones con "wie" + duda  
+### 17 — Subjuntivo en oraciones con "wie" + duda  
 ```  
 metadata:  
   materia: "aleman"  
@@ -391,7 +355,7 @@ enunciado: "Vielleicht ___ er die Prüfung nicht bestanden, aber wir wissen es n
 explicacion: "Cuando se expresa una posibilidad dudosa en el pasado, el Konjunktiv II (hätte) se usa tras 'vielleicht' seguido de 'hätten/hatte'. La forma correcta es 'hätte' para tercera persona singular."  
 ```
 
-### 20 — Subjuntivo en oraciones con "so" + condición  
+### 18 — Subjuntivo en oraciones con "so" + condición  
 ```  
 metadata:  
   materia: "aleman"  
@@ -409,7 +373,7 @@ enunciado: "Wenn ich ___ mehr Geld gehabt hätte, wäre ich gereist."
 explicacion: "En oraciones condicionales pasadas irreales (aunque la condición fuera posible), se usa el Konjunktiv II (hätte) tras 'wenn' seguido de 'wäre/wären'. La estructura es 'hätte + Infinitivo'."  
 ```
 
-### 21 — Subjuntivo en oraciones con "wenn" + futuro  
+### 19 — Subjuntivo en oraciones con "wenn" + futuro  
 ```  
 metadata:  
   materia: "aleman"  
@@ -430,7 +394,7 @@ enunciado: "Er sagte, als ob er ___ der Chef wäre."
 explicacion: "Cuando se expresa duda sobre un hecho en el presente (con 'als ob'), se usa el Konjunktiv II (machte) para el verbo principal. La forma correcta es 'machte' para tercera persona singular."  
 ```
 
-### 22 — Subjuntivo en oraciones con "ob" + duda  
+### 20 — Subjuntivo en oraciones con "ob" + duda  
 ```  
 metadata:  
   materia: "aleman"  
@@ -448,7 +412,7 @@ enunciado: "Obwohl er ___ oft spät kommt, ist er immer pünktlich für die Vers
 explicacion: "El 'obwohl' introduce una condición que contrasta con la realidad. Para expresiones formales, se usa el Konjunktiv II (käme) en lugar del indicativo, aunque la acción sea realista."  
 ```
 
-### 23 — Subjuntivo en oraciones con "so" + condición  
+### 21 — Subjuntivo en oraciones con "so" + condición  
 ```  
 metadata:  
   materia: "aleman"  
@@ -469,7 +433,7 @@ enunciado: "So ___ er morgen kommt, können wir uns treffen."
 explicacion: "En suposiciones irreales en el futuro (aunque la condición sea posible), se usa el Konjunktiv II (käme) tras 'so' seguido de 'wäre/wären'. La forma correcta es 'käme' para tercera persona singular."  
 ```
 
-### 24 — Subjuntivo en oraciones con "wenn" + presente  
+### 22 — Subjuntivo en oraciones con "wenn" + presente  
 ```  
 metadata:  
   materia: "aleman"  
@@ -487,7 +451,7 @@ enunciado: "Er sagte, als ob er ___ der Chef wäre."
 explicacion: "Cuando se expresa duda sobre un hecho en el presente (con 'als ob'), se usa el Konjunktiv II (machte) para el verbo principal. La forma correcta es 'machte' para tercera persona singular."  
 ```
 
-### 25 — Subjuntivo en oraciones con "als ob" + presente  
+### 23 — Subjuntivo en oraciones con "als ob" + presente  
 ```  
 metadata:  
   materia: "aleman"  

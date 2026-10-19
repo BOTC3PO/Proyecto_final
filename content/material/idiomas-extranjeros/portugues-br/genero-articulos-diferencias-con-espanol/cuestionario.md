@@ -29,6 +29,7 @@ opciones_explicitas:
   - "a cidade"
   - "la cidade"
 respuesta: "a cidade"
+tipo: mc
 ```
 
 ### 2 — Substantivo masculino con artículo indefinido  
@@ -48,6 +49,7 @@ opciones_explicitas:
   - "um livro"
   - "un livro"
 respuesta: "um livro"
+tipo: mc
 ```
 
 ### 3 — Substantivo femenino con artículo definido  
@@ -67,6 +69,7 @@ opciones_explicitas:
   - "a flor"
   - "la flor"
 respuesta: "a flor"
+tipo: mc
 ```
 
 ### 4 — Substantivo masculino con artículo indefinido  
@@ -86,6 +89,7 @@ opciones_explicitas:
   - "um cachorro"
   - "un cachorro"
 respuesta: "um cachorro"
+tipo: mc
 ```
 
 ### 5 — Substantivo femenino con artículo definido  
@@ -105,6 +109,7 @@ opciones_explicitas:
   - "a mesa"
   - "la mesa"
 respuesta: "a mesa"
+tipo: mc
 ```
 
 ### 6 — Substantivo masculino con artículo indefinido  
@@ -124,6 +129,7 @@ opciones_explicitas:
   - "um jornal"
   - "un jornal"
 respuesta: "um jornal"
+tipo: mc
 ```
 
 ### 7 — Substantivo femenino con artículo definido  
@@ -143,6 +149,7 @@ opciones_explicitas:
   - "a luz"
   - "la luz"
 respuesta: "a luz"
+tipo: mc
 ```
 
 ### 8 — Substantivo masculino con artículo indefinido  
@@ -162,6 +169,7 @@ opciones_explicitas:
   - "um rapaz"
   - "un rapaz"
 respuesta: "um rapaz"
+tipo: mc
 ```
 
 ### 9 — Substantivo femenino con artículo definido  
@@ -181,6 +189,7 @@ opciones_explicitas:
   - "a pessoa"
   - "la persona"
 respuesta: "a pessoa"
+tipo: mc
 ```
 
 ### 10 — Substantivo masculino con artículo indefinido  
@@ -200,6 +209,7 @@ opciones_explicitas:
   - "um cavalo"
   - "un cavalo"
 respuesta: "um cavalo"
+tipo: mc
 ```
 
 ### 11 — Substantivo femenino con artículo definido  
@@ -219,6 +229,7 @@ opciones_explicitas:
   - "a noite"
   - "la noite"
 respuesta: "a noite"
+tipo: mc
 ```
 
 ### 12 — Substantivo masculino con artículo indefinido  
@@ -238,6 +249,7 @@ opciones_explicitas:
   - "um café"
   - "un café"
 respuesta: "um café"
+tipo: mc
 ```
 
 ### 13 — Substantivo femenino con artículo definido  
@@ -257,6 +269,7 @@ opciones_explicitas:
   - "a música"
   - "la música"
 respuesta: "a música"
+tipo: mc
 ```
 
 ### 14 — Substantivo masculino con artículo indefinido  
@@ -276,6 +289,7 @@ opciones_explicitas:
   - "um carro"
   - "un carro"
 respuesta: "um carro"
+tipo: mc
 ```
 
 ### 15 — Substantivo femenino con artículo definido  
@@ -295,6 +309,7 @@ opciones_explicitas:
   - "a criança"
   - "la niña"
 respuesta: "a criança"
+tipo: mc
 ```
 
 ### 16 — Substantivo masculino con artículo indefinido  
@@ -314,6 +329,7 @@ opciones_explicitas:
   - "um vinho"
   - "un vino"
 respuesta: "um vinho"
+tipo: mc
 ```
 
 ### 17 — Substantivo femenino con artículo definido  
@@ -333,6 +349,7 @@ opciones_explicitas:
   - "a cidade"
   - "la ciudad"
 respuesta: "a cidade"
+tipo: mc
 ```
 
 ### 18 — Substantivo masculino con artículo indefinido  
@@ -352,6 +369,7 @@ opciones_explicitas:
   - "um homem"
   - "un hombre"
 respuesta: "um homem"
+tipo: mc
 ```
 
 ### 19 — Substantivo femenino con artículo definido  
@@ -371,6 +389,7 @@ opciones_explicitas:
   - "a mulher"
   - "la mujer"
 respuesta: "a mulher"
+tipo: mc
 ```
 
 ### 20 — Substantivo masculino con artículo indefinido  
@@ -390,6 +409,7 @@ opciones_explicitas:
   - "um menino"
   - "un niño"
 respuesta: "um menino"
+tipo: mc
 ```
 
 ### 21 — Substantivo femenino con artículo definido  
@@ -409,6 +429,7 @@ opciones_explicitas:
   - "a menina"
   - "la niña"
 respuesta: "a menina"
+tipo: mc
 ```
 
 ### 22 — Substantivo masculino con artículo indefinido  
@@ -428,28 +449,10 @@ opciones_explicitas:
   - "um cachorro"
   - "un perro"
 respuesta: "um cachorro"
+tipo: mc
 ```
 
-### 23 — Substantivo femenino con artículo definido  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "feminino"]  
-pasos:  
-  - "Identificar el género del sustantivo."
-  - "Usar el artículo definido correspondiente (a)."
-explicacion: "'Criança' es femenino, por lo que se usa 'a criança'. En español, 'la niña' también es femenino. El error común es usar 'el criança', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "el criança"
-  - "a criança"
-  - "la niña"
-respuesta: "a criança"
-```
-
-### 24 — Substantivo masculino con artículo indefinido  
+### 23 — Substantivo masculino con artículo indefinido  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -466,9 +469,10 @@ opciones_explicitas:
   - "um cavalo"
   - "un caballo"
 respuesta: "um cavalo"
+tipo: mc
 ```
 
-### 25 — Substantivo femenino con artículo definido  
+### 24 — Substantivo femenino con artículo definido  
 ```
 metadata:  
   materia: "idiomas-extranjeros/portugues-br"  
@@ -485,4 +489,5 @@ opciones_explicitas:
   - "a noite"
   - "la noche"
 respuesta: "a noite"
+tipo: mc
 ```

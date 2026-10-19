@@ -202,21 +202,18 @@ explicacion: "「～た」は完了形で、文脈に最も適切。「しまし
 
 
 
-### 10 — 選択（推量の強さ）  
+### 10 — Partícula de lugar de acción
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "writing-n2"  
-  nivel: "N2"  
-  tags: ["inference", "adverbs"]  
-pasos:  
-  - "存在を示す助詞「に」を選びなさい。"  
-  - "「で」（動作場所）や「へ」（方向）との違いを確認する。"  
-enunciado: "彼は今、学校____いる。"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "writing-n2"
+  nivel: "N2"
+  tags: ["verbs", "potential"]
+enunciado: "彼女は今、図書館___勉強している。"
 tipo: completar
 respuestas_validas:
-  - "に"
-explicacion: "「～に」は場所の存在を示す。「で」は動作場所、「へ」は方向なので不適切。"
+  - "で"
+explicacion: "で marca el lugar donde se realiza una acción."
 ```
 
 
@@ -239,23 +236,21 @@ respuestas_validas:
 ```
 
 
-### 12 — 選択（原因・理由）  
+### 12 — Concesión: にもかかわらず
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "writing-n2"  
-  nivel: "N2"  
-  tags: ["causative", "reason"]  
-pasos:  
-  - "文の意味に合った原因表現を選びなさい。"  
-  - "「～ために」や「～から」の使い分けを確認する。"  
-enunciado: "¿Cuál es la expresión más formal para indicar la razón de un retraso?"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "writing-n2"
+  nivel: "N2"
+  tags: ["verbs", "potential"]
+enunciado: "¿Cuál oración expresa «a pesar de la lluvia, se hizo el partido»?"
+tipo: mc
 opciones_explicitas:
-  - "彼が遅れたために"
-  - "彼が遅れたから"
-  - "彼が遅れたので"
-respuesta: "彼が遅れたために"  
-explicacion: "「～ために」は原因・理由を強調し、文脈に最も適切な表現である。他の選択肢も可能だが、「ため」が正式で文法的に最適。"
+  - "雨にもかかわらず、試合は行われた。"
+  - "雨のために、試合は行われた。"
+  - "雨ながら試合は行われた。"
+respuesta: "雨にもかかわらず、試合は行われた。"
+explicacion: "〜にもかかわらず significa «a pesar de»."
 ```
 
 
@@ -278,21 +273,18 @@ respuestas_validas:
 ```
 
 
-### 14 — 選択（推量）  
+### 14 — Partícula には
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "writing-n2"  
-  nivel: "N2"  
-  tags: ["inference", "conjunction"]  
-pasos:  
-  - "存在を示す助詞「に」を選びなさい。"  
-  - "「で」（動作場所）や「へ」（方向）との違いを確認する。"  
-enunciado: "彼は今、学校____いる。"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "writing-n2"
+  nivel: "N2"
+  tags: ["verbs", "potential"]
+enunciado: "この問題は私____難しい。(para mí)"
 tipo: completar
 respuestas_validas:
-  - "に"
-explicacion: "「～に」は場所の存在を示す。「で」は動作場所、「へ」は方向なので不適切。"
+  - "には"
+explicacion: "に marca el punto de vista; con は de contraste queda には."
 ```
 
 
@@ -314,23 +306,21 @@ respuestas_validas:
 ```
 
 
-### 16 — 選択（否定）  
+### 16 — Keigo en una carta
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "writing-n2"  
-  nivel: "N2"  
-  tags: ["negation", "verbs"]  
-pasos:  
-  - "文の否定形を正しく選ぶ。"  
-  - "「～ない」や「～ぬ」の使い分けを確認する。"  
-enunciado: "¿Cuál es la forma negativa correcta y natural en japonés contemporáneo?"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "writing-n2"
+  nivel: "N2"
+  tags: ["verbs", "potential"]
+enunciado: "En una carta formal, para «hacer» se dice:"
+tipo: mc
 opciones_explicitas:
-  - "彼は来ます。"
-  - "彼は来ません。"
-  - "彼は来ぬ。"
-respuesta: "彼は来ません。"  
-explicacion: "「～ません」は丁寧な否定形で、文脈に最も適切。「～ぬ」は古語で不自然。"
+  - "いたします"
+  - "やります"
+  - "しろ"
+respuesta: "いたします"
+explicacion: "いたします es la forma humilde de します en cartas y correos formales."
 ```
 
 
@@ -352,21 +342,18 @@ respuestas_validas:
 ```
 
 
-### 18 — 選択（比較）  
+### 18 — Partícula に con なる
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "writing-n2"  
-  nivel: "N2"  
-  tags: ["comparison", "adjectives"]  
-pasos:  
-  - "比較の対象を示す助詞「より」を選びなさい。"  
-  - "「ほど」（同等・否定形と共起）との違いを確認する。"  
-enunciado: "この車はそれ____速い。"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "writing-n2"
+  nivel: "N2"
+  tags: ["verbs", "potential"]
+enunciado: "彼は医者___なりたいと言っている。"
 tipo: completar
 respuestas_validas:
-  - "より"
-explicacion: "「より」は比較の対象を示し、文脈に最も適切。「ほど」は主に否定形と共に使われ、この文脈には合わない。"
+  - "に"
+explicacion: "〜になる = convertirse en; 医者になりたい = quiere ser médico."
 ```
 
 
@@ -391,21 +378,19 @@ respuesta: "に"
 ```
 
 
-### 20 — 選択（推量の強さ）  
+### 20 — Secuencia temporal
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "writing-n2"  
-  nivel: "N2"  
-  tags: ["inference", "adverbs"]  
-pasos:  
-  - "存在を示す助詞「に」を選びなさい。"  
-  - "「で」（動作場所）や「へ」（方向）との違いを確認する。"  
-enunciado: "彼は今、学校____いる。"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "writing-n2"
+  nivel: "N2"
+  tags: ["verbs", "potential"]
+enunciado: "試験が終わった___、旅行に行く予定です。"
 tipo: completar
 respuestas_validas:
-  - "に"
-explicacion: "「～に」は場所の存在を示す。「で」は動作場所、「へ」は方向なので不適切。"
+  - "あとで"
+  - "後で"
+explicacion: "〜たあとで indica que una acción ocurre después de otra."
 ```
 
 
@@ -426,21 +411,19 @@ respuestas_validas:
   - "閉じて"
 ```
 
-### 22 — 選択（原因・理由）  
+### 22 — Frase formal de confirmación
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "writing-n2"  
-  nivel: "N2"  
-  tags: ["causative", "reason"]  
-pasos:  
-  - "文の意味に合った原因表現を選びなさい。"  
-  - "「～ために」や「～から」の使い分けを確認する。"  
-enunciado: "¿Cuál es la expresión más formal para indicar la razón de un retraso?"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "writing-n2"
+  nivel: "N2"
+  tags: ["verbs", "potential"]
+enunciado: "Para pedir formalmente que alguien confirme algo:"
+tipo: mc
 opciones_explicitas:
-  - "彼が遅れたために"
-  - "彼が遅れたから"
-  - "彼が遅れたので"
-respuesta: "彼が遅れたために"  
-explicacion: "「～ために」は原因・理由を強調し、文脈に最も適切な表現である。他の選択肢も可能だが、「ため」が正式で文法的に最適。"
+  - "ご確認ください"
+  - "確認しろ"
+  - "確認だよ"
+respuesta: "ご確認ください"
+explicacion: "ご確認ください es el pedido formal estándar en el trabajo."
 ```

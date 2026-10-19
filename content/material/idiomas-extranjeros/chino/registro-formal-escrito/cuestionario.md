@@ -478,4 +478,3 @@ respuesta: "以上情况属实。"
 tipo: mc
 explicacion: "属实 = 'es veraz'."
 ```
-

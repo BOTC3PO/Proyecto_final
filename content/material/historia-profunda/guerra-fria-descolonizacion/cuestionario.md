@@ -404,23 +404,25 @@ explicacion: |
   Con la desaparición de la URSS como superpotencia, el equilibrio de poder se desplazó hacia un modelo donde una sola nación (EE.UU.) dominaba la escena internacional, conocido como unipolaridad.
 ```
 
-### 21 — El nuevo orden mundial
+### 21 — Liderazgo de los bloques
 
 ```
 metadata:
   materia: "historia"
   tema: "guerra_fria_descolonizacion"
   nivel: "basico"
-  tags: ["geopolitica", "superpotencias"]
+  tags: ["guerra-fria", "bloques"]
 
+enunciado: "Durante la Guerra Fría, ¿qué países lideraron los dos bloques enfrentados?"
 tipo: mc
-opciones_explicitas: ["unipolar", "bipolar", "tripolar", "multipolar"]
-respuesta: "unipolar"
-
-enunciado: "Tras la caída de la URSS, el mundo dejó de ser bipolar para convertirse en un sistema ___."
+opciones_explicitas:
+  - "Estados Unidos y la Unión Soviética"
+  - "Reino Unido y Francia"
+  - "China y Japón"
+respuesta: "Estados Unidos y la Unión Soviética"
 
 explicacion: |
-  Con la desaparición de la URSS como superpotencia, el equilibrio de poder se desplazó hacia un modelo donde una sola nación (EE.UU.) dominaba la escena internacional, conocido como unipolaridad.
+  El bloque occidental, capitalista, giró en torno a Estados Unidos y el bloque oriental, comunista, en torno a la URSS.
 ```
 
 ### 22 — Identificación de Bloque

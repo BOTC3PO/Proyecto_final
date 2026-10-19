@@ -205,7 +205,7 @@ tipo: mc
 opciones_explicitas: ["Jerga, refranes, modismos y juegos de palabras", "Gestos", "Mapas", "Fotos"]
 respuesta: "Jerga, refranes, modismos y juegos de palabras"
 
-enunciado: "¿Qué se evita?"
+enunciado: "Al hablar con un grupo de otra lengua, ¿qué recursos del idioma conviene evitar?"
 
 explicacion: |
   Se pierden o se malinterpretan.
@@ -414,7 +414,7 @@ tipo: mc
 opciones_explicitas: ["Generalizar y usar estereotipos", "Preguntar", "Explicar", "Respetar"]
 respuesta: "Generalizar y usar estereotipos"
 
-enunciado: "¿Qué se evita?"
+enunciado: "En el trato intercultural con los turistas, ¿qué actitud se evita?"
 
 explicacion: |
   Cada persona es distinta.

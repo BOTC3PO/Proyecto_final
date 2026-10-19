@@ -286,23 +286,25 @@ explicacion: |
   Correcto. En la subdivisión binaria estándar, la corchea es la mitad de la negra.
 ```
 
-### 14 — Orden de duración (de mayor a menor)
+### 14 — Equivalencia entre blanca y corcheas
 
 ```
 metadata:
   materia: "arte"
   tema: "ritmo_y_compas"
   nivel: "basico"
-  tags: ["figuras_musicales", "orden"]
+  tags: ["figuras", "equivalencias"]
 
-enunciado: "Ordena las siguientes figuras musicales de mayor a menor duración:"
-
-opciones_explicitas: ["redonda", "blanca", "negra", "corchea"]
-respuesta_orden: ["redonda", "blanca", "negra", "corchea"]
-tipo: ordenar
+enunciado: "¿Cuántas corcheas equivalen, en duración, a una blanca?"
+tipo: mc
+opciones_explicitas:
+  - "2"
+  - "4"
+  - "8"
+respuesta: "4"
 
 explicacion: |
-  La jerarquía de duración es: Redonda (4) > Blanca (2) > Negra (1) > Corchea (0.5).
+  Una blanca dura dos negras y cada negra equivale a dos corcheas: en total son cuatro corcheas.
 ```
 
 ### 15 — Completar la igualdad
@@ -385,23 +387,22 @@ explicacion: |
   La redonda es la figura más larga; equivale a dos blancas o cuatro negras.
 ```
 
-### 19 — Jerarquía de duraciones
+### 19 — Negras en un compás de 4/4
 
 ```
 metadata:
   materia: "arte"
   tema: "figuras_musicales"
   nivel: "basico"
-  tags: ["ordenar", "figuras_musicales"]
+  tags: ["compas", "pulso"]
 
-respuesta_orden: ["redonda", "blanca", "negra", "corchea"]
-tipo: ordenar
-opciones_explicitas: ["redonda", "blanca", "negra", "corchea"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Ordena las siguientes figuras musicales de mayor a menor duración (de la más larga a la más corta):"
+enunciado: "En un compás de 4/4 caben exactamente cuatro negras."
 
 explicacion: |
-  La jerarquía de duración es: Redonda (4) > Blanca (2) > Negra (1) > Corchea (0.5).
+  El numerador indica cuántos pulsos hay por compás y el denominador, qué figura vale un pulso: en 4/4 son cuatro pulsos de negra.
 ```
 
 ### 20 — Compás y pulsos

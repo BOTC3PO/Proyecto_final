@@ -409,6 +409,9 @@ metadata:
 variables:
   x: random(1, 30)
 
+restricciones:
+  - x != 2
+
 respuesta: 3 * x + 6
 tipo: mc
 opciones_explicitas:
@@ -433,6 +436,9 @@ metadata:
 
 variables:
   x: random(2, 30)
+
+restricciones:
+  - x != 3
 
 respuesta: 2 * x
 tipo: mc
@@ -484,6 +490,9 @@ metadata:
 
 variables:
   x: random(2, 20)
+
+restricciones:
+  - x != 2
 
 respuesta: 4 * x
 tipo: mc
@@ -613,6 +622,9 @@ metadata:
 
 variables:
   x: random(1, 10)
+
+restricciones:
+  - x != 10
 
 respuesta: 14 - x
 tipo: mc

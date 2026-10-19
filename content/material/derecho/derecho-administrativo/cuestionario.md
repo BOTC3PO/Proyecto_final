@@ -207,24 +207,25 @@ explicacion: |
   La impugnación es el derecho de los ciudadanos de cuestionar la legalidad de los actos del Estado para que sean revisados.
 ```
 
-### 11 — El objeto del Derecho Administrativo
+### 11 — Quién actúa bajo normas administrativas
 
 ```
 metadata:
   materia: "derecho"
   tema: "derecho_administrativo"
   nivel: "basico"
-  tags: ["definicion", "estado"]
+  tags: ["administracion", "estado"]
 
-respuesta: "regula la organización y actividad del Estado y su relación con los ciudadanos"
-tipo: completar
-respuestas_validas:
-  - "regula la organización y actividad del Estado y su relación con los ciudadanos"
-
-enunciado: "El Derecho Administrativo es la rama del derecho público que ___."
+enunciado: "¿Cuál de estos organismos actúa, en general, bajo normas del derecho administrativo?"
+tipo: mc
+opciones_explicitas:
+  - "Un ministerio del Poder Ejecutivo"
+  - "Un club deportivo de barrio"
+  - "Una empresa familiar"
+respuesta: "Un ministerio del Poder Ejecutivo"
 
 explicacion: |
-  A diferencia del derecho privado, el administrativo se centra en la estructura, funciones y facultades de la administración pública para asegurar el bien común.
+  El derecho administrativo regula la organización y la actividad de la Administración Pública y su relación con los ciudadanos.
 ```
 
 ### 12 — ¿Derecho Público o Privado?
