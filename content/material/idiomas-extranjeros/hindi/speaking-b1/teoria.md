@@ -18,6 +18,16 @@ En B1, hablar es contar experiencias, dar opiniones con razones, planear, compar
 - **Resumen**: संक्षेप में, …
 - **Frecuencia**: हफ़्ते में दो बार.
 
+## Ampliación: contar una experiencia y pedir una opinión
+
+**Contar un viaje**: — पिछली छुट्टियों में तुम कहाँ गए थे? — मैं गोवा गया था। वहाँ मैंने समुद्र तट देखा, और मैं बहुत तैरा. — मज़ा आया? — हाँ, खूब, लेकिन बहुत भीड़ थी. («¿Adónde fuiste en las últimas vacaciones? — A Goa. Vi la playa y nadé mucho. — ¿Te divertiste? — Sí, mucho, pero había demasiada gente»).
+
+**Pedir una opinión y responder**: — इस बारे में आपकी क्या राय है? — मुझे लगता है कि यह अच्छा विचार है, पर इसमें समय लगेगा. Para suavizar un desacuerdo: **शायद आप सही हैं, लेकिन मेरा मानना है कि…** («quizá tengas razón, pero yo creo que…»).
+
+**Hipótesis**: **अगर मेरे पास समय होता तो मैं ज़रूर आता** («si tuviera tiempo, vendría sin duda»). La forma irreal repite el participio habitual (**होता, आता**) en las dos partes.
+
+No olvides marcar el agente con **ने** en el pasado de los verbos transitivos (**मैंने देखा**), pero no con los verbos de movimiento (**मैं गया**).
+
 ## Errores comunes de hispanohablantes
 1. **Olvidar ने** en transitivos en pasado.
 2. **Confundir posposiciones**.

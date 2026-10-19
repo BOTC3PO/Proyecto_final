@@ -16,6 +16,16 @@ En A2, hablar es saludar, presentarse, pedir cosas con cortesía, preguntar prec
 - **Invitar y responder**: هل تريد أن تذهب إلى السينما؟ — نعم، بكل سرور / آسف، لا أستطيع.
 - **Consejo**: usa frases cortas y pronuncia con claridad las consonantes especiales.
 
+## Ampliación: tres situaciones prácticas
+
+**En un restaurante**: — ماذا تريد؟ — أريد دجاجًا وأرزًا من فضلك. — هل تريد شيئًا للشرب؟ — نعم، عصير برتقال. … — الحساب من فضلك. («¿Qué desea? — Quiero pollo con arroz, por favor. — ¿Desea algo para beber? — Sí, jugo de naranja. … — La cuenta, por favor»).
+
+**En un taxi**: — إلى المطار من فضلك. — حاضر. — كم يستغرق الطريق؟ — نحو ثلاثين دقيقة. («Al aeropuerto, por favor. — Enseguida. — ¿Cuánto tarda el camino? — Unos treinta minutos»).
+
+**La hora**: الساعة الثالثة (las tres), الثالثة والنصف (tres y media), الثالثة والربع (tres y cuarto), الثالثة إلا ربعًا (tres menos cuarto). Para preguntar se dice **كم الساعة؟**
+
+Practicá cambiando los platos, los destinos y las horas. Si no entendés algo, usá las frases de rescate ya vistas: **أعد من فضلك** (repetí, por favor) y **تكلم ببطء** (hablá despacio). Las expresiones **الحمد لله** (gracias a Dios) y **إن شاء الله** (si Dios quiere) aparecen constantemente en la conversación real y suenan naturales al despedirse o al hablar de planes.
+
 ## Errores comunes de hispanohablantes
 1. **Pronunciar ح y ع como h y a**.
 2. **Olvidar من فضلك** al pedir.

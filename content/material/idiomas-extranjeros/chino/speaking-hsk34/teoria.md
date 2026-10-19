@@ -37,6 +37,19 @@ A：放在那边，谢谢你。
 3. Hacé un pedido cortés para pedir ayuda.
 4. Describí un problema con 被 o 把.
 
+## Ampliación: dar una opinión y matizarla
+
+Para dar una opinión: **我觉得…**, **在我看来…**. Para acordar: **你说得对**, **我同意**. Para discrepar con suavidad: **我不太同意**, **不过…**, **其实…**. Para dar un ejemplo: **比如…**. Para cambiar de tema: **对了…** («a propósito»).
+
+**Diálogo**
+A：我觉得住在大城市比住在小城市方便。
+B：你说得对，不过大城市的生活压力也很大。
+A：是啊，比如房租特别贵。
+B：所以我更喜欢住在小城市。
+*A: Creo que vivir en una gran ciudad es más cómodo que en una chica. / B: Tenés razón, pero en la gran ciudad también hay mucho estrés. / A: Sí, por ejemplo el alquiler es carísimo. / B: Por eso prefiero vivir en una ciudad chica.*
+
+Notá **你说得对** (complemento de grado con **得**) y **比** para comparar. Un hablante de este nivel debe poder justificar su opinión con al menos una razón y un ejemplo.
+
 ## Errores comunes de hispanohablantes
 1. **Olvidar los conectores** y hablar con frases sueltas.
 2. **Usar 把 sin complemento**.

@@ -41,6 +41,17 @@ En HSK 2 se leen textos de varias frases con causa, comparación, aspecto y peti
 3. Texto 3: ¿Cuántas veces fue a Pekín? (Dos.)
 4. Texto 4: ¿Dónde está el banco? (Junto al hospital.)
 
+## Ampliación: leer sin conocer todos los caracteres
+
+Muchos caracteres tienen un **radical** que da una pista del significado: **氵** (agua: 河, 海), **讠** (lenguaje: 说, 请), **木** (madera o árbol: 树, 桌), **饣** (comida: 饭, 饿), **口** (boca: 吃, 喝, 吗). Si no conocés un carácter, el radical sugiere el campo semántico.
+
+**Texto 4 (aviso)**
+图书馆周一到周五早上八点开门，晚上九点关门；周末下午一点才开门。
+*Túshūguǎn zhōuyī dào zhōuwǔ zǎoshang bā diǎn kāimén, wǎnshang jiǔ diǎn guānmén; zhōumò xiàwǔ yī diǎn cái kāimén.*
+«La biblioteca abre de lunes a viernes a las 8 de la mañana y cierra a las 9 de la noche; los fines de semana recién abre a la 1 de la tarde.»
+
+Fijate en **才**: indica que algo ocurre más tarde de lo esperado (*recién*). Preguntas de comprensión: ¿a qué hora abre el sábado? (a la 1 de la tarde) ¿cuándo cierra entre semana? (a las 9 de la noche).
+
 ## Errores comunes de hispanohablantes
 1. **Confundir 了 y 过**: 了 marca acción completada; 过 marca experiencia.
 2. **Perder el conector causal**.

@@ -16,6 +16,16 @@ En A2, leer significa entender textos breves y sencillos sobre temas cotidianos:
 - **Casos frecuentes**: prepositivo (в Москве), instrumental (с мамой), genitivo (из Петербурга), acusativo (хлеб, фрукты).
 - **Estrategia**: lee el texto entero, identifica el tema, subraya palabras conocidas y luego responde.
 
+## Ampliación: carteles, mensajes y números
+
+Los primeros textos que se leen en ruso son carteles y mensajes. Reconocé de inmediato: **Вход** (entrada), **Выход** (salida), **Открыто** (abierto), **Закрыто** (cerrado), **Не курить** (no fumar), **Осторожно** (cuidado), **Аптека** (farmacia), **Остановка** (parada), **Касса** (caja).
+
+Mensaje breve: «Привет, Саша! Завтра я приеду в семь часов вечера. Ты можешь встретить меня на вокзале? Спасибо!» («¡Hola, Sasha! Mañana llegaré a las siete de la tarde. ¿Podés recibirme en la estación? ¡Gracias!»). Aquí **в семь часов** indica la hora, **меня** es el acusativo de «yo» y **на вокзале** es un prepositivo de lugar.
+
+Después de los números el sustantivo cambia: **1 час, 2–4 часа, 5–20 часов**; del mismo modo **один рубль, два рубля, пять рублей**. Si en un texto leés «в пять часов» y no entendés por qué la palabra termina así, es esa regla.
+
+Para localizar datos buscá las palabras interrogativas: **кто** (quién), **когда** (cuándo), **где** (dónde), **что** (qué), **сколько** (cuánto), **почему** (por qué). Cada pregunta del ejercicio te dice qué tipo de dato buscar: una persona, una fecha, un lugar o una cantidad.
+
 ## Errores comunes de hispanohablantes
 1. **Confundir letras parecidas** (В/Б, Н/Р, С/С).
 2. **Ignorar los casos** y perder el sentido.

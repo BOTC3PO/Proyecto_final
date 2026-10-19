@@ -32,6 +32,18 @@ En HSK 5-6 se leen artículos de periódico, ensayos, textos académicos y fragm
 3. Texto 3: ¿Qué recurso retórico aparece? (Símil.)
 4. Identificá la tesis de un párrafo de tu elección.
 
+## Ampliación: 成语 de uso frecuente
+
+Los textos de nivel alto incluyen **成语** (expresiones de cuatro caracteres) que no se entienden palabra por palabra. Algunos muy comunes:
+
+- **画蛇添足** (*huà shé tiān zú*): agregar algo innecesario y estropearlo («dibujar una serpiente con patas»).
+- **事半功倍** (*shì bàn gōng bèi*): obtener doble resultado con la mitad de esfuerzo.
+- **一举两得** (*yì jǔ liǎng dé*): lograr dos cosas de una sola vez.
+- **守株待兔** (*shǒu zhū dài tù*): esperar un golpe de suerte sin esforzarse («esperar al conejo junto al tronco»).
+- **亡羊补牢** (*wáng yáng bǔ láo*): reparar después de la pérdida; mejor tarde que nunca.
+
+Ejemplo: **学习外语时，每天坚持练习比突击背单词事半功倍。** («Al estudiar un idioma, practicar un poco todos los días rinde mucho más que memorizar palabras a último momento»). Conviene aprenderlos como bloques con su sentido global y su situación de uso.
+
 ## Errores comunes de hispanohablantes
 1. **Quedarse en el vocabulario aislado**.
 2. **No identificar el registro**.

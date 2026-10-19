@@ -28,6 +28,14 @@ En HSK 2 se escriben párrafos breves de cinco a ocho frases sobre rutinas, expe
 3. Escribí un correo de invitación con 好吗.
 4. Reordená: 我 / 先 / 吃饭 / 看电视 / 然后 → 我先吃饭，然后看电视。
 
+## Ampliación: el diario breve
+
+Una forma natural de practicar es un diario. Se escribe la fecha en orden **año–mes–día**, luego el día de la semana y el clima: **2025年10月3日 星期五 晴** («3 de octubre de 2025, viernes, soleado»).
+
+Modelo: «今天我和朋友去公园玩儿。我们坐了四十分钟的地铁。公园里人很多，可是风景很漂亮。我们拍了很多照片，下午五点才回家。» («Hoy fui con un amigo al parque. Viajamos cuarenta minutos en subte. Había mucha gente, pero el paisaje era hermoso. Sacamos muchas fotos y recién volvimos a casa a las cinco de la tarde»).
+
+Fijate en tres estructuras: **了** para la acción completada (坐了, 拍了), **可是** para el contraste y **才** para algo que ocurre más tarde de lo esperado. Un buen diario de este nivel tiene cinco o seis frases, un conector y, al menos, una frase con **了**.
+
 ## Errores comunes de hispanohablantes
 1. **Poner 了 al final de todas las frases**.
 2. **Olvidar el complemento de grado con 得**: 他说汉语很好 ✗ → 他说汉语说得很好.

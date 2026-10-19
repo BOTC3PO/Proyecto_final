@@ -16,6 +16,14 @@ En C1 se presenta, se argumenta, se negocia y se responde a objeciones con preci
 - **Agradecimiento y responsabilidad**: -(으)ㄴ 덕분에, 제 불찰이었습니다.
 - **Cesión con contrapartida**: 대신.
 
+## Ampliación: responder preguntas difíciles en una presentación
+
+Después de exponer llega el momento más exigente: las preguntas. Con fórmulas fijas se gana tiempo y se mantiene la cortesía. Para agradecer y valorar: **질문 감사합니다**, **좋은 지적입니다** ('buen señalamiento'). Para retomar lo que dijo el otro: **말씀하신 부분은 …**. Para ampliar: **부연 설명을 드리자면** ('si me permite agregar'). Para reconocer un límite: **그 점은 제가 미처 생각하지 못했습니다** ('ese punto no lo había considerado') y **추후 확인해서 말씀드리겠습니다** ('lo verificaré y le informaré más adelante'). Para cerrar: **결론적으로** ('en conclusión').
+
+Fijate en el humilde: **말씀드리다** y **드리다** rebajan al hablante, mientras que **말씀하시다** eleva al interlocutor. Mezclarlos al revés suena como una falta de respeto.
+
+Ejemplo: «좋은 질문 감사합니다. 말씀하신 부분은 이번 조사의 한계라고 생각합니다. 다만 표본이 작았다는 점을 감안하더라도 경향 자체는 분명하다고 봅니다. 추가 자료는 추후 확인해서 말씀드리겠습니다.» («Gracias por la buena pregunta. Lo que usted señala me parece un límite de esta investigación. Sin embargo, aun teniendo en cuenta que la muestra fue pequeña, considero que la tendencia es clara. Los datos adicionales los verificaré y se los informaré más adelante»).
+
 ## Errores comunes de hispanohablantes
 1. **Usar 나 en lugar de 저** en registro formal.
 2. **Ser demasiado directo** en críticas: mejor -아/어 보입니다 o 다소 …

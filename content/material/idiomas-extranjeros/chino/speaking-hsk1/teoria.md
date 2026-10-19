@@ -41,6 +41,19 @@ A：好的，请等一下。
 3. Pedí una bebida y un plato.
 4. Preguntá la hora y respondé.
 
+## Ampliación: en un restaurante y la hora
+
+**Diálogo 3: pedir en un restaurante**
+A：你要喝什么？
+B：我要一杯茶。
+A：还要别的吗？
+B：不要了，谢谢。
+*A: ¿Qué quiere tomar? / B: Un té. / A: ¿Algo más? / B: No, gracias.*
+
+**Preguntar la hora**: 现在几点？ — 现在三点半。 («¿Qué hora es? — Son las tres y media»). Para la hora exacta se dice **点** (*diǎn*) y para la media hora, **半** (*bàn*): 八点半 = 8:30.
+
+Practicá la oración final **吧**, que suaviza una propuesta: 我们走吧！ («¡Vamos!»). Y no olvides los tonos: 买 (*mǎi*, comprar) y 卖 (*mài*, vender) se distinguen solo por el tono.
+
 ## Errores comunes de hispanohablantes
 1. **Olvidar los tonos**: mā (mamá) / mǎ (caballo).
 2. **Poner el verbo después del objeto**.

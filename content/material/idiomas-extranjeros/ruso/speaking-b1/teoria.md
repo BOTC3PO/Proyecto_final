@@ -18,6 +18,16 @@ En B1, hablar es contar experiencias, dar opiniones con razones, planear, compar
 - **Resumen**: Итак, …
 - **Frecuencia**: два раза в неделю.
 
+## Ampliación: tres situaciones de conversación
+
+**Hacer planes**: — Что ты делаешь в субботу? — Пока не знаю. А что? — Давай сходим в кино. — С удовольствием! Во сколько? — В семь часов у входа. («¿Qué hacés el sábado? — Todavía no sé. ¿Por qué? — Vayamos al cine. — ¡Con gusto! ¿A qué hora? — A las siete, en la entrada»). Fijate en **давай** + primera persona del plural perfectiva (**сходим**) para proponer algo.
+
+**Pedir un favor**: — Можно попросить тебя о помощи? — Конечно. Что нужно сделать? — Не мог бы ты забрать меня с вокзала? Para ser cortés se dice **Не мог бы ты…** (tuteo) o **Не могли бы вы…** (formal).
+
+**Reclamo cortés**: — Извините, мы заказывали суп полчаса назад. — Приношу извинения, сейчас принесу. **Мы заказывали** (imperfectivo) subraya la espera, y **принесу** (perfectivo) promete un resultado.
+
+Recursos para ganar tiempo mientras pensás: **ну**, **значит**, **в общем**, **как бы сказать**, **честно говоря** («para ser sincero»). Usados con moderación, hacen que el habla suene natural.
+
 ## Errores comunes de hispanohablantes
 1. **Elegir mal el aspecto** (ходил / пошёл).
 2. **Olvidar el caso** tras в/на y tras предпочитать.

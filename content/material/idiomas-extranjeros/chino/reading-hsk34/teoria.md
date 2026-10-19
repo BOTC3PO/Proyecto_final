@@ -32,6 +32,14 @@ En HSK 3-4 se leen textos de uno a tres párrafos: noticias breves, correos, avi
 3. Texto 3: ¿Cuándo es el partido? (Mañana a las 9.)
 4. Texto 3: ¿Qué pasa con las entradas? (Siguen siendo válidas.)
 
+## Ampliación: instrucciones y condiciones
+
+Los textos instructivos usan imperativos con **把** y condiciones. Ejemplo: **请把手机关掉，不要在教室里大声说话。** («Por favor, apague el celular y no hable en voz alta en el aula»). **把手机关掉** pone el objeto antes del verbo y destaca lo que se hace con él.
+
+Pares condicionales para reconocer: **只要…就…** (basta con… para que…) y **只有…才…** (solo si… recién entonces…). **Texto 4**: 只要每天坚持锻炼，身体就会越来越好。只有养成好习惯，才能保持健康。 («Con tal de que hagas ejercicio todos los días, tu cuerpo estará cada vez mejor. Solo formando buenos hábitos se puede mantener la salud»). La diferencia es la fuerza de la condición: 只要 es suficiente, 只有 es indispensable.
+
+Estrategia: al leer un texto de tres o cuatro frases, buscá primero los conectores (虽然…但是, 只要…就), que muestran la estructura lógica, y después los datos concretos.
+
 ## Errores comunes de hispanohablantes
 1. **Leer palabra por palabra** sin buscar la idea principal.
 2. **Ignorar conectores**.

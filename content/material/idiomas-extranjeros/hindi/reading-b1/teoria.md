@@ -16,6 +16,14 @@ En B1, leer significa entender textos de temas familiares (viajes, opiniones, an
 - **Conectores**: लेकिन, क्योंकि, फिर, के बाद, से पहले.
 - **Estrategia**: lee entero, marca verbos y conectores, localiza datos (fechas, cifras) y contesta.
 
+## Ampliación: el pasado en la narración y los tiempos compuestos
+
+Una narración en hindi suele alternar el pasado simple (**गया, देखा, खाया**), el pasado habitual (**जाता था**, «solía ir») y el pasado continuo (**जा रहा था**, «estaba yendo»). Distinguirlos cambia el sentido: **वह रोज़ बाज़ार जाता था** («iba todos los días al mercado») frente a **वह बाज़ार गया** («fue al mercado»).
+
+Texto: «पिछली गर्मियों में हम परिवार के साथ जयपुर गए थे। वहाँ हमने किला देखा और बाज़ार में खरीदारी की। मौसम बहुत गरम था, लेकिन खाना बहुत स्वादिष्ट था।» («El verano pasado fuimos con la familia a Jaipur. Allí vimos el fuerte y compramos en el bazar. Hacía mucho calor, pero la comida estaba muy rica»). **गए थे** es un pasado compuesto, que sitúa el viaje como un hecho ya lejano. **देखा** y **की** son pasados simples de verbos transitivos: el agente lleva **ने** (**हमने**) y el verbo concuerda con el objeto (**किला देखा**, **खरीदारी की**).
+
+Para seguir el hilo buscá los conectores **जब** (cuando), **तब** (entonces), **इसलिए** (por eso), **हालाँकि** (aunque) y **जबकि** (mientras que), y mirá siempre el verbo del final de la oración, donde está la información de tiempo y de género.
+
 ## Errores comunes de hispanohablantes
 1. **Ignorar el verbo final** y perder el sentido.
 2. **Confundir posposiciones** (से, में, पर).

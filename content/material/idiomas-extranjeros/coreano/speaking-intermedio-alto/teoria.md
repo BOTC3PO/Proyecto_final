@@ -14,6 +14,16 @@ En B2 se discute, se discrepa con tacto, se negocia, se resume y se justifica co
 - **Cita**: -(으)라고 하셨습니다.
 - **Fórmulas**: 마음만 받겠습니다, 죄송하지만 … 부탁드립니다, 이상으로 … 마치겠습니다.
 
+## Ampliación: negociar y discrepar en una reunión
+
+Diálogo: — 회의를 금요일로 옮기면 어떨까요? — 글쎄요, 금요일은 일정이 있어서 어려울 것 같은데요. 목요일 오후는 어떠세요? — 목요일 오후라면 괜찮습니다. 그럼 목요일 세 시에 하겠습니다. («¿Y si pasamos la reunión al viernes? — Bueno, el viernes tengo compromisos y me parece difícil. ¿Qué tal el jueves por la tarde? — El jueves por la tarde está bien. Entonces la hacemos el jueves a las tres»).
+
+Fijate en tres recursos: **글쎄요** abre la discrepancia sin chocar; **-ㄹ 것 같은데요** suaviza la negativa con una terminación abierta (**-는데요**); y **어떠세요?** devuelve la iniciativa con una propuesta alternativa.
+
+Más fórmulas para negociar con tacto: **괜찮으시다면** ('si le parece bien'), **혹시 가능하시다면** ('si por casualidad fuera posible'), **제 생각에는** ('en mi opinión'), **한편으로는 … 다른 한편으로는 …** ('por un lado… por otro…'). Para cerrar el acuerdo: **그렇게 하겠습니다** y **그럼 그렇게 진행하겠습니다** ('entonces lo hacemos así').
+
+Cuidá el nivel de cortesía: con superiores y en reuniones, **합쇼체** (-ㅂ니다/습니다) o **해요체** respetuoso; evitá la forma informal.
+
 ## Errores comunes de hispanohablantes
 1. **Discrepar de forma directa** (*그건 틀렸어요*) en lugar de suavizar.
 2. **Usar 반말 o 해요체** en contextos muy formales.

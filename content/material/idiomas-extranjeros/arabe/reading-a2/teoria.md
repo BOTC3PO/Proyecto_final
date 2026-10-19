@@ -15,6 +15,16 @@ En A2, leer significa entender textos breves y sencillos sobre temas cotidianos:
 - **Lugares**: قريب من (cerca de); في (en); إلى (a).
 - **Estrategia**: lee el texto entero, identifica el tema, subraya palabras conocidas y luego responde a cada pregunta.
 
+## Ampliación: señales, números y mensajes breves
+
+Lo primero que se lee en árabe en la vida diaria no es una novela sino un cartel o un mensaje. Conviene reconocer de golpe palabras como **مدخل** (entrada), **مخرج** (salida), **مفتوح** (abierto), **مغلق** (cerrado), **ممنوع** (prohibido) y **أسعار** (precios).
+
+Los números merecen atención especial. En muchos países árabes del Oriente se usan las cifras indo-arábigas orientales (١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩ ٠), mientras que en el Magreb se usan las mismas cifras que en español (1 2 3…). Aunque el texto se lee de derecha a izquierda, **los números se leen de izquierda a derecha**: ٢٥ se lee «veinticinco» empezando por el 2.
+
+Mensaje breve de ejemplo: «مرحبًا سارة، سأصل غدًا الساعة السابعة مساءً. هل يمكنك أن تنتظريني أمام المحطة؟ شكرًا!» («Hola, Sara, llegaré mañana a las siete de la tarde. ¿Podés esperarme frente a la estación? ¡Gracias!»).
+
+Para comprender, buscá primero las **palabras interrogativas**: **من** (quién), **متى** (cuándo), **أين** (dónde), **ماذا** (qué), **كم** (cuánto o cuántos), **لماذا** (por qué). Cada pregunta del ejercicio suele empezar con una de ellas y te dice qué dato debés ubicar: una persona, una hora o un lugar.
+
 ## Errores comunes de hispanohablantes
 1. **Leer de izquierda a derecha**.
 2. **No distinguir ة y ه** ni ت y ث.

@@ -27,6 +27,14 @@ En HSK 5-6 se redactan ensayos argumentativos, informes y resúmenes de 300 a 60
 3. Resumí en una frase un artículo que hayas leído.
 4. Subrayá los conectores en el ensayo modelo.
 
+## Ampliación: estructura de un ensayo
+
+Un ensayo de nivel avanzado tiene cuatro partes: **introducción** (presenta el tema), **tesis** (la postura), **argumentos con ejemplos** y **conclusión**. Cada párrafo avanza una sola idea.
+
+Modelo de esqueleto: «随着科技的发展，网络购物已经成为人们生活中不可缺少的一部分。一方面，它节省了时间；另一方面，它也带来了信息安全等问题。因此，我们既要享受便利，又要增强防范意识。» («Con el desarrollo de la tecnología, las compras en línea se volvieron una parte indispensable de la vida. Por un lado ahorran tiempo; por otro, traen problemas como la seguridad de los datos. Por eso debemos disfrutar la comodidad y a la vez reforzar la prudencia»).
+
+Estructuras útiles: **随着…** (con el avance de…), **一方面…另一方面…**, **既…又…** (tanto… como…), **因此** (por eso). Un **成语** bien elegido o una comparación (**比喻**) enriquecen el texto, pero no conviene abusar: un par por ensayo basta.
+
 ## Errores comunes de hispanohablantes
 1. **Saltar de idea sin conectores**.
 2. **Registro mezclado**.

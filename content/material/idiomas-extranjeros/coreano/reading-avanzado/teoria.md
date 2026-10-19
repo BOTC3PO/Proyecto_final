@@ -13,6 +13,16 @@ En el nivel avanzado se leen artículos de opinión, noticias, textos científic
 - **Matiz**: doble negación suave (*나쁘지 않다*), preguntas retóricas (*-겠어?*), citas (*-겠다고 약속했다*).
 - **Cifras**: 나머지 (el resto), 60% + 40%.
 
+## Ampliación: lenguaje periodístico y titulares
+
+Los titulares coreanos omiten verbos y terminan en sustantivos, y usan puntos suspensivos para separar ideas. Ejemplo (ilustrativo): «청년 실업률 3개월 연속 하락…경기 회복 신호» («Tasa de desempleo juvenil baja tres meses seguidos… señal de recuperación económica»). Es un titular nominal: no tiene verbo conjugado, y la relación entre las dos partes se deduce del contexto.
+
+En el cuerpo de la noticia aparecen fórmulas para tomar distancia de la información: **-(으)ㄴ/는 것으로 알려졌다** ('se sabe que…'), **-(으)ㄹ 전망이다** ('se prevé que…'), **-(으)ㄹ 것으로 보인다** ('parece que…'), **-라고 밝혔다** ('declaró que…') y **-에 따르면** ('según…'). Todas indican que el periodista no afirma el hecho por sí mismo, sino que lo atribuye o lo estima.
+
+El vocabulario abstracto es mayormente de origen chino (**한자어**): **증가** (aumento), **감소** (disminución), **개선** (mejora), **우려** (preocupación), **추진** (impulso). Muchas veces se pueden deducir por su estructura: *증* 'aumentar' y *감* 'disminuir' aparecen en varios compuestos.
+
+Estrategia: leé primero el titular y el primer párrafo, buscá el sujeto que declara y subrayá las fórmulas de atribución.
+
 ## Errores comunes de hispanohablantes
 1. **Leer palabra por palabra** sin buscar el verbo final que da el sentido.
 2. **No reconocer el sujeto omitido**: en coreano se omite cuando el contexto lo aclara.

@@ -16,6 +16,16 @@ En A2, hablar es saludar, presentarse, pedir cosas con cortesía, preguntar prec
 - **Invitar y responder**: क्या तुम सिनेमा चलोगे? — हाँ, ज़रूर. / माफ़ कीजिए, मैं नहीं आ सकता.
 - **Consejo**: pronuncia con claridad las aspiradas y retroflejas.
 
+## Ampliación: hora, direcciones y compras
+
+**La hora**: कितने बजे हैं? — तीन बजे हैं. Variantes: **सवा तीन** (3:15), **साढ़े तीन** (3:30), **पौने चार** (3:45). Con una hora exacta se dice **पाँच बजे**.
+
+**Direcciones**: — माफ़ कीजिए, स्टेशन कहाँ है? — सीधे जाइए, फिर बाएँ मुड़िए। स्टेशन सामने है. (**सीधे** es «derecho», **बाएँ** «a la izquierda» y **दाएँ** «a la derecha»).
+
+**Compras**: — यह कितने का है? — सौ रुपये का. — थोड़ा कम कीजिए। — अच्छा, नब्बे रुपये दे दीजिए. («¿Cuánto cuesta? — Cien rupias. — Bájelo un poco. — Bien, deme noventa»).
+
+Practicá cambiando los números y los lugares, y mantené el registro de respeto con **आप** y con los imperativos corteses en **-इए** (**जाइए, मुड़िए, कीजिए**).
+
 ## Errores comunes de hispanohablantes
 1. **Usar तू con desconocidos**.
 2. **Olvidar कृपया** al pedir.

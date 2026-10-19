@@ -14,7 +14,7 @@ Cada decisión de diseño orienta a las personas hacia ciertas acciones: dónde 
 
 ## 2. Patrones oscuros
 
-Los **patrones oscuros** (en inglés *dark patterns*, término acuñado por Harry Brignull en 2010; hoy también se los llama *deceptive patterns*) son trucos de diseño que llevan a las personas a hacer algo que no habrían elegido, generalmente en beneficio de la empresa. Algunos tipos frecuentes:
+Los **patrones oscuros** (en inglés *dark patterns*, término popularizado por Harry Brignull desde alrededor de 2010; hoy también se los llama *deceptive patterns*) son trucos de diseño que llevan a las personas a hacer algo que no habrían elegido, generalmente en beneficio de la empresa. Algunos tipos frecuentes:
 
 - **Cancelación difícil** (*roach motel*): suscribirse lleva un clic y darse de baja exige llamar por teléfono o recorrer diez pantallas.
 - **Opciones preseleccionadas**: casillas ya tildadas para recibir publicidad o agregar un seguro.

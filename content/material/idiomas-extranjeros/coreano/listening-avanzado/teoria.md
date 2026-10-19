@@ -12,6 +12,14 @@ En el nivel avanzado (B2-C1) se espera entender noticias, reuniones de trabajo, 
 - **Conectores y matices**: -지만 (contraste), -음에도 불구하고, -더라도, -(으)ㄹ 것 같다, -(으)ㄴ 것으로 보이다.
 - **Contracciones habladas**: 그것은 → 그건, 하였다 → 했다, 이렇게 → 이렇게; velocidad rápida en conversación.
 
+## Ampliación: reuniones de trabajo
+
+En una reunión coreana el sentido se construye con marcadores de organización. Para introducir un punto: **다음 안건은 …입니다** ('el próximo tema de la agenda es…'). Para reformular: **즉**, **다시 말해** ('es decir'), **요컨대** ('en síntesis'). Para expresar reserva: **아직 확정된 것은 아닙니다** ('todavía no está confirmado') y **검토해 보겠습니다** ('lo vamos a revisar'), que muchas veces equivale a una respuesta no comprometida.
+
+Para fechas y plazos hay que distinguir las dos series de numerales: **다음 주 수요일까지** ('hasta el miércoles de la semana próxima'), **마감은 이십오 일입니다** (sino-coreano para el día del mes) y **세 시에 시작합니다** (nativo para la hora). Los porcentajes y el dinero usan sino-coreanos: **삼십 퍼센트**, **오백만 원**.
+
+Estrategia de escucha: anotá primero los datos duros (quién, qué, cuándo) y después prestá atención al final de cada frase para ver si es una decisión (**-기로 했습니다** 'se decidió que…'), una propuesta (**-면 어떨까요?**) o una duda (**-ㄹ 수도 있습니다** 'podría ser que…').
+
 ## Errores comunes de hispanohablantes
 1. **Confundir numerales nativos y sino-coreanos**: *세 시* (3 horas, nativo) frente a *삼 분* (3 minutos, sino-coreano).
 2. **Perder el verbo final**: el sentido (afirmación, negación, pregunta) llega al final de la frase.

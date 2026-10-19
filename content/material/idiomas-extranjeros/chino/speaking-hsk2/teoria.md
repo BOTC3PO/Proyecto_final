@@ -40,6 +40,17 @@ B：不远，走五分钟就到。
 3. Preguntá y respondé una indicación para llegar a una farmacia.
 4. Contá una experiencia con 过 y un plan con 打算.
 
+## Ampliación: pedir y dar direcciones
+
+**Diálogo 3**
+A：请问，地铁站在哪儿？
+B：往前走，在第二个路口往右拐，就在银行旁边。
+A：远吗？
+B：不远，走五分钟就到了。
+*A: Disculpe, ¿dónde está la estación de subte? / B: Siga derecho, en la segunda esquina doble a la derecha; está justo al lado del banco. / A: ¿Queda lejos? / B: No, caminando son cinco minutos.*
+
+Fijate en el vocabulario: **往** (hacia), **拐** (doblar), **路口** (esquina o cruce), **旁边** (al lado). El adverbio **就** enfatiza que algo está cerca o es fácil. Para pedir que repitan: **请再说一遍** y **请说慢一点儿**.
+
 ## Errores comunes de hispanohablantes
 1. **Confundir 了 y 过**.
 2. **Poner 很 con 比**: 他比我很高 ✗; correcto: 他比我高.

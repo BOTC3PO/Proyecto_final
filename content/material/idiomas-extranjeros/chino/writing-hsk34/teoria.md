@@ -27,6 +27,14 @@ En HSK 3-4 se escriben párrafos de ocho a doce frases: cartas, correos, descrip
 3. Reordená con 把: 我 / 作业 / 写完 / 了 / 把 → 我把作业写完了。
 4. Corregí: 我听不懂得老师说话。 → 我听不懂老师说的话。
 
+## Ampliación: descripción de una persona
+
+Modelo: «我的朋友小林今年二十五岁，在一家公司工作。他很爱运动，一有空儿就去打篮球。虽然工作很忙，但是他每天都帮助同事。大家都觉得他是一个热情、可靠的人。» («Mi amigo Xiao Lin tiene 25 años y trabaja en una empresa. Le encanta el deporte y apenas tiene tiempo libre va a jugar al básquet. Aunque trabaja mucho, todos los días ayuda a sus compañeros. Todos lo consideran una persona cálida y confiable»).
+
+Estructuras para reconocer: **一…就…** (apenas… ya…), **虽然…但是…**, **觉得** (opinar). Para describir cualidades: **热情** (cálido), **可靠** (confiable), **耐心** (paciente), **聪明** (inteligente).
+
+Revisá que cada frase tenga sujeto claro, que los conectores no se repitan y que uses **的** entre el adjetivo y el sustantivo cuando corresponde (**热情的人**).
+
 ## Errores comunes de hispanohablantes
 1. **Párrafos sin conectores**.
 2. **Mezclar tuteo y fórmulas formales**: usar 您 en cartas formales.

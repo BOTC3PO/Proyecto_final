@@ -14,6 +14,16 @@ En este nivel se comprenden conversaciones cotidianas con varios turnos, experie
 - **Obligación decidida**: -아/어야겠다.
 - **Numerales**: nativos para horas y contadores (*열 개, 세 번, 아홉 시 반*); sino-coreanos para dinero y minutos (*삼만 원, 삼십 분*).
 
+## Ampliación: anuncios y habla rápida
+
+Los anuncios del subte siguen fórmulas fijas que conviene reconocer al oído: **이번 역은 서울역입니다. 내리실 문은 왼쪽입니다.** («Esta estación es Seúl. Las puertas para bajar están a la izquierda»), y **다음 역은 …입니다** («La próxima estación es…»). Con ellas se captan lugar, dirección y orden.
+
+En la conversación rápida el hablante contrae y suaviza. Contracciones habituales: **저는 → 전**, **나는 → 난**, **그것은 → 그건**, **이것이 → 이게**, **무엇을 → 뭘**. También aparecen terminaciones con matiz: **-거든요** (explica un motivo: *늦었어요. 길이 막혔거든요* 'Llegué tarde; es que había tránsito'), **-잖아요** ('¿no ves que…?, ya sabés que…') y **-는데요** (introduce un tema o suaviza una negativa).
+
+Para saber qué quiere el hablante, escuchá la terminación final: **-(으)려고 해요** indica la intención ('pienso hacer'), **-(으)ㄹ까 해요** una duda sobre qué hacer ('estoy pensando en…') y **-아/어야겠어요** una decisión tomada en el momento.
+
+Estrategia: primero captá cantidades y lugares; luego esperá el final de la frase para saber si es afirmación, pregunta, propuesta o negativa.
+
 ## Errores comunes de hispanohablantes
 1. **Confundir numerales nativos y sino-coreanos**.
 2. **No captar la partícula de comparación** (*보다*).

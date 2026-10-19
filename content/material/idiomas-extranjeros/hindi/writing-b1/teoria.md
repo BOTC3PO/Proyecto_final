@@ -18,6 +18,14 @@ En B1, escribir es redactar textos coherentes: cartas formales e informales, rel
 - **Secuencia**: **पहले** … **फिर** … **शाम को** …
 - **Estructura**: asunto, saludo, cuerpo con párrafos, despedida.
 
+## Ampliación: un párrafo argumentativo
+
+Un párrafo de nivel B1 sigue el esquema opinión, razón, ejemplo y cierre. Modelo: «मेरे विचार में स्कूल में खेल अनिवार्य होने चाहिए, क्योंकि खेलने से बच्चे स्वस्थ रहते हैं। उदाहरण के लिए, रोज़ आधा घंटा दौड़ने से शरीर मज़बूत बनता है। इसलिए मैं मानता हूँ कि हर स्कूल में खेल का समय होना चाहिए। अंत में, खेल पढ़ाई को भी आसान बनाते हैं।» («En mi opinión, el deporte debe ser obligatorio en la escuela, porque jugando los chicos se mantienen sanos. Por ejemplo, correr media hora por día fortalece el cuerpo. Por eso creo que toda escuela debería tener un horario de deporte. Por último, el deporte también hace más fácil el estudio»).
+
+Conectores útiles: **इसके अलावा** (además), **दूसरी ओर** (por otro lado), **हालाँकि** (aunque), **फिर भी** (aun así), **नतीजतन** (en consecuencia). Para cerrar: **निष्कर्ष में** o **अंत में**.
+
+Señales de calidad: cada oración termina con su verbo, las posposiciones (**में, से, को, पर**) se combinan bien con los pronombres (**मुझे, तुम्हें**) y el verbo concuerda con el género y el número del sujeto.
+
 ## Errores comunes de hispanohablantes
 1. **Registro informal** en cartas formales.
 2. **Confundir क्योंकि e इसलिए**.

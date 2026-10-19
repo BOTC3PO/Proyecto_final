@@ -15,6 +15,16 @@ En C1, leer significa comprender textos largos y densos (editoriales, ensayos, p
 - **Registro formal**: मैं आपको यह पत्र… व्यक्त करने के लिए लिख रहा हूँ; अनुरोध है कि…
 - **Estrategia**: tesis → conectores → evidencia → conclusión.
 
+## Ampliación: voz pasiva formal y vocabulario tatsama
+
+En los editoriales y los documentos oficiales aparece la voz pasiva con **जाना**: **निर्णय लिया गया** («se tomó la decisión»), **रिपोर्ट प्रस्तुत की गई** («se presentó el informe»). El participio concuerda con el sustantivo: **की गई** (femenino) frente a **किया गया** (masculino). El agente se marca con **द्वारा** («por»): **सरकार द्वारा घोषित योजना** («el plan anunciado por el gobierno»).
+
+Vocabulario tatsama frecuente en la prensa: **अनिवार्य** (obligatorio), **उल्लेखनीय** (notable), **प्रभावित** (afectado), **संभावना** (posibilidad), **उत्तरदायित्व** (responsabilidad), **परिणामस्वरूप** (como resultado), **तथापि** (sin embargo). Muchas de estas palabras tienen un equivalente cotidiano (**ज़रूरी** en lugar de **अनिवार्य**); reconocer ambas permite pasar de un registro al otro.
+
+Ejemplo: «सरकार द्वारा घोषित नई नीति का उद्देश्य शिक्षा तक पहुँच बढ़ाना है, तथापि विशेषज्ञ इसके क्रियान्वयन को लेकर आशंकित हैं।» («La nueva política anunciada por el gobierno busca ampliar el acceso a la educación; sin embargo, los especialistas dudan de su aplicación»).
+
+En una frase larga, ubicá el verbo final (**हैं**) y reconstruí hacia atrás qué elementos dependen de cada posposición.
+
 ## Errores comunes de hispanohablantes
 1. **No detectar la postura** del autor tras los conectores de concesión.
 2. **Ignorar los pronombres** y sus antecedentes.

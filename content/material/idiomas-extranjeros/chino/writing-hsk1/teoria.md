@@ -26,6 +26,12 @@ En HSK 1 se escriben frases cortas correctas, con el orden de palabras y los car
 4. Escribí tres frases sobre tu familia.
 5. Corregí: 我去学校昨天。 → 我昨天去学校。
 
+## Ampliación: orden de los trazos
+
+Escribir bien un carácter exige respetar el orden de los trazos, que sigue reglas generales: **de arriba abajo**, **de izquierda a derecha**, **primero lo horizontal y luego lo vertical** (十), **primero el trazo hacia la izquierda y luego el de la derecha** (人), **primero el centro y luego los lados** (小), **primero lo exterior y luego lo interior** (月, 同) y, en los cuadros cerrados, **se cierra al final** (国, 日).
+
+Cada carácter ocupa un cuadro de tamaño uniforme: 我 y 一 tienen el mismo espacio, aunque uno sea más complejo. Los trazos básicos son 横 (horizontal), 竖 (vertical), 撇 (hacia la izquierda), 点 (punto) y 捺 (hacia la derecha). Practicá escribiendo lentamente los 20 caracteres más frecuentes (我, 你, 他, 的, 是, 不, 有, 人, 大, 小, 中, 国, 一, 二, 三, 好, 学, 生, 家, 天) antes de pasar a frases completas. Un modelo: **我家有三口人。**
+
 ## Errores comunes de hispanohablantes
 1. **Escribir el verbo al final de toda la frase** (como en japonés).
 2. **Confundir caracteres parecidos** (国/团, 大/太).

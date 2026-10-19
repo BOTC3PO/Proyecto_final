@@ -34,6 +34,14 @@ B：毕竟他最近生病了，难免会受影响。倒是他的态度很值得�
 3. Usá tres 成语 en una conversación (por ejemplo 事半功倍, 学以致用, 各有千秋).
 4. Practicá cinco marcadores de discurso.
 
+## Ampliación: organizar una intervención argumentada
+
+Una exposición de nivel avanzado se ordena con marcadores: **首先, 其次, 最后** (en primer lugar, en segundo lugar, por último), **一方面…另一方面…** (por un lado… por otro…), **就…而言** (en cuanto a…), **不可否认** (es innegable), **换句话说** (en otras palabras), **总而言之** (en definitiva).
+
+Ejemplo: **不可否认，网络给我们的生活带来了很多便利。但是，就青少年而言，过度使用手机也会影响学习。总而言之，关键在于合理安排时间。** («Es innegable que internet nos ha traído muchas comodidades. Pero, en el caso de los adolescentes, el uso excesivo del celular también perjudica el estudio. En definitiva, la clave está en organizar bien el tiempo»).
+
+Para responder a una objeción: **您说的有一定道理，但是我认为…** («lo que dice tiene cierta razón, pero yo considero que…»). La cortesía y la precisión importan tanto como la fluidez.
+
 ## Errores comunes de hispanohablantes
 1. **Traducir las muletillas** del español.
 2. **Entonación plana** en intervenciones largas.

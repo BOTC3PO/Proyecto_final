@@ -16,6 +16,16 @@ En B1, leer significa entender textos de temas familiares (viajes, opiniones, an
 - **Conectores**: но, потому что, а, потом, через две недели.
 - **Estrategia**: lee entero, marca verbos y conectores, localiza datos (fechas, cifras) y contesta.
 
+## Ampliación: aspecto verbal y conectores para seguir el hilo
+
+Al leer un relato, el **aspecto** orienta. El imperfectivo (**писал, читали**) describe procesos, repeticiones o el fondo de la escena; el perfectivo (**написал, прочитали**) marca un hecho cumplido. En «Вчера я читал книгу» se leyó, quizá sin terminar; en «Вчера я прочитал книгу» se terminó.
+
+Texto: «Когда мы приехали в город, шёл дождь. Мы быстро нашли гостиницу, оставили вещи и пошли гулять. Вечером мы поужинали в маленьком кафе.» («Cuando llegamos a la ciudad, llovía. Encontramos rápido el hotel, dejamos las cosas y salimos a caminar. A la noche cenamos en un café pequeño»). **Шёл дождь** (imperfectivo) es el fondo; **приехали, нашли, оставили, пошли, поужинали** (perfectivos) son la cadena de hechos.
+
+Conectores para seguir el texto: **когда** (cuando), **пока** (mientras), **после того как** (después de que), **перед тем как** (antes de que), **поэтому** (por eso), **хотя** (aunque), **зато** (en compensación).
+
+Las ofertas de empleo usan fórmulas fijas: **Требуется** (se necesita), **опыт работы** (experiencia laboral), **график** (horario), **зарплата** (salario). Reconocerlas ahorra tiempo de lectura.
+
 ## Errores comunes de hispanohablantes
 1. **Ignorar el aspecto verbal** al interpretar el sentido.
 2. **Confundir casos**: в воскресенье (acus.), по воскресеньям (dat.).
