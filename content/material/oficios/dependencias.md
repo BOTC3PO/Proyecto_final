@@ -45,6 +45,11 @@ pendiente" en el header de cada uno.
 | `electricista/lectura-de-planos-electricos/` | `calculo-electrico/` | Sección 6. |
 | `electricista/tecnicas-electricista/` | `lectura-de-planos-electricos/` | Sección 7. |
 | `electricista/diagnostico-electricidad-por-casos/` | `tecnicas-electricista/` | Sección 8, cierre — única sección con `cuestionario.md` (evaluación concentrada al final, decisión de Javier 2026-09-15; el resto son lecciones informativas, sólo `teoria.md`). |
+| `electricista/normativa-electrica-aea-iram/` | `seguridad-electricista/`, `tecnicas-electricista/` | `OF1 §14`: AEA 90364 e IRAM, categorías de habilitación según jurisdicción, saber vs. estar habilitado. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `electricista/instalaciones-especiales-motores-y-bombas/` | `tecnicas-electricista/` | `OF1 §12`: motores monofásicos, contactores, relés térmicos, bombas y variadores. Tema compartido con `../tecnico-electromecanico/`. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `electricista/electricidad-trifasica-y-baja-tension-industrial/` | `fundamentos-electricidad/` | `OF1 §13`: sistema trifásico, estrella-triángulo, potencia trifásica. **Tema compartido**: `../tecnico-electromecanico/` lo toma como referencia en vez de reescribirlo. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `electricista/tableros-electricos/` | `tecnicas-electricista/` | `OF1 §9` (hoy un apartado de `lectura-de-planos-electricos/`): componentes, fallas típicas, revisión. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `electricista/instalacion-de-iluminacion-y-tomas/` | `tecnicas-electricista/` | `OF1 §5`: circuitos IUG/TUG/TUE, llaves, tomas, locales húmedos. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
 
 ## Plomero (`OF2`)
 
@@ -57,6 +62,9 @@ pendiente" en el header de cada uno.
 | `plomero/instalaciones-plomeria/` | `materiales-plomeria/` | Sección 5. Agua fría/caliente, desagües, ventilación, pendientes, artefactos + normativa y frontera con gasista (categoría 8 del diseño original, plegada acá). |
 | `plomero/calculo-plomeria/` | `instalaciones-plomeria/` | Sección 6. |
 | `plomero/diagnostico-plomeria-por-casos/` | `calculo-plomeria/` | Sección 7, cierre — única sección con `cuestionario.md`. |
+| `plomero/agua-caliente-sanitaria/` | `instalaciones-plomeria/` | `OF2 §5`: equipos, materiales, dilatación, válvulas de seguridad, riesgo de quemaduras y de Legionella. Frontera con gasista y electricista. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `plomero/sellos-juntas-y-uniones/` | `materiales-plomeria/` | `OF2 §4`: sellos de roscas, juntas, uniones por material y prueba hidráulica. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `plomero/normativa-plomeria-y-matricula/` | `instalaciones-plomeria/` | `OF2 §8`: reglamentos de prestadoras, matrícula según jurisdicción, frontera con gasista. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
 
 ## Albañil / Constructor (`OF3`)
 
@@ -70,6 +78,11 @@ pendiente" en el header de cada uno.
 | `albanil-constructor/calculo-albanileria/` | `tecnicas-albanileria/` | Sección 6. |
 | `albanil-constructor/lectura-de-planos-albanileria/` | `calculo-albanileria/` | Sección 7. |
 | `albanil-constructor/diagnostico-albanileria-por-casos/` | `lectura-de-planos-albanileria/` | Sección 8, cierre — única sección con `cuestionario.md`. |
+| `albanil-constructor/terminaciones-de-obra/` | `tecnicas-albanileria/` | Candidato de `OF3 §5` nunca generado: orden de ejecución, contrapisos y carpetas, pisos, aberturas y pintura. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `albanil-constructor/aislacion-termica-e-hidrofuga/` | `materiales-albanileria/` | Candidato de `OF3 §5`: tipos de humedad, capa aisladora, membranas y aislación térmica. No cita valores de transmitancia (dependen de norma y jurisdicción). Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `albanil-constructor/mamposteria-de-bloques-de-hormigon/` | `tecnicas-albanileria/` | Candidato de `OF3 §5`: mampostería encadenada vs. armada, patologías propias. No cita números de norma IRAM (sin verificar). Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `albanil-constructor/fraguado-y-curado-del-hormigon/` | `materiales-albanileria/` | Sub-ítem de `OF3 §3` sin lección propia: hidratación, fraguado, relación agua/cemento, curado y desencofrado. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `albanil-constructor/normativa-y-habilitaciones-de-obra/` | `diagnostico-albanileria-por-casos/` | `OF3 §9`: código de edificación, permiso de obra, profesionales matriculados, Ley 19.587 y Decreto 911/96, Res. SRT 62/23. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
 
 ## Carpintero (`OF4`)
 
@@ -82,6 +95,9 @@ pendiente" en el header de cada uno.
 | `carpintero/tecnicas-carpinteria/` | `materiales-carpinteria/` | Sección 5. Cola de milano, espiga, ensamble, lijado, barnizado + normativa (categoría 8 del diseño original, plegada acá — a diferencia de Gasista/Electricista, sin habilitación matriculada obligatoria). |
 | `carpintero/lectura-de-planos-carpinteria/` | `tecnicas-carpinteria/` | Sección 6. |
 | `carpintero/diagnostico-carpinteria-por-casos/` | `lectura-de-planos-carpinteria/` | Sección 7, cierre — única sección con `cuestionario.md`. |
+| `carpintero/estandares-de-calidad-y-normativa-carpinteria/` | `tecnicas-carpinteria/` | `OF4 §8`: controles de calidad, ausencia de matrícula obligatoria (a confirmar), Ley 24.240, Ley 19.587, Ley 26.331. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `carpintero/instalacion-de-carpinteria/` | `materiales-carpinteria/`, `lectura-de-planos-carpinteria/` | Colocación de puertas, ventanas y muebles a medida; ajuste a obra. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `carpintero/secado-y-estabilizacion-de-la-madera/` | `materiales-carpinteria/` | Humedad de equilibrio, contracción anisotrópica, secado natural vs. cámara. Valores de humedad orientativos. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
 
 ## Gasista (`OF6`)
 
@@ -94,6 +110,9 @@ pendiente" en el header de cada uno.
 | `gasista/instalaciones-gasista/` | `materiales-gasista/` | Sección 5. Trazado, ventilación, categorías A/B/C + normativa (categoría 8 del diseño original, plegada acá — la habilitación más restrictiva de los 16 oficios, disclaimer explícito de que el material no habilita a ejercer). |
 | `gasista/calculo-gasista/` | `instalaciones-gasista/` | Sección 6. |
 | `gasista/diagnostico-gasista-por-casos/` | `calculo-gasista/` | Sección 7, cierre — única sección con `cuestionario.md`. |
+| `gasista/normativa-gasista-categorias-y-habilitacion/` | `instalaciones-gasista/` | `OF6 §8` (la más crítica): ENARGAS, NAG-200, matrícula por categoría, circuito del trabajo habilitado. No enumera categorías ni horas (fuentes contradictorias). Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `gasista/prueba-de-hermeticidad-paso-a-paso/` | `herramientas-gasista/` | Lógica de la prueba de hermeticidad; **sin valores de presión ni tiempo** (los fija la norma vigente). Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
+| `gasista/artefactos-a-gas-instalacion-y-puesta-en-marcha/` | `materiales-gasista/`, `seguridad-gasista/` | `OF6 §4-5`: conexión, ventilación, evacuación y verificación de artefactos. Propuesto en `../_plan-faltantes/oficios-b.md`; sin ID propio en `troncos.md`. Decisión de Claude, no pedida: dependencia deducida. Solo `teoria.md` (la evaluación sigue concentrada en el `diagnostico-*`). |
 
 ## Técnico en Refrigeración y Climatización (`OF7`)
 
@@ -539,6 +558,14 @@ Rutas "Diseño gráfico" y "Audiovisual" de la sección "Finales de ruta técnic
 | `diseno-grafico/prototipado/` | `vectorial/` | Wireframes, prototipos interactivos, principios de interfaz y pruebas con usuarios. |
 | `audiovisual/edicion-de-audio/` | `../informatica/unidades-almacenamiento/` | Muestreo, niveles, ruido, EQ, compresión, voz. |
 | `audiovisual/edicion-de-video/` | `edicion-de-audio/` | Cuadros, códec, organización, montaje, exportación y derechos. |
+| `audiovisual/correccion-de-color-en-video/` | `edicion-de-video/` | Exposición, balance de blancos, curvas y LUT; coherencia entre planos. La planificación lo listaba (línea 1282) sin tema propio. |
+| `audiovisual/transiciones-y-efectos/` | `edicion-de-video/` | Cuándo usar corte, fundido o efecto; velocidad, títulos y rotulación (planificación, línea 1282). |
+| `audiovisual/ecualizacion-y-reduccion-de-ruido/` | `edicion-de-audio/` | EQ, filtros, compresión y limpieza de ruido y eco (planificación, línea 1285). |
+| `audiovisual/mezcla-y-masterizacion-basica/` | `ecualizacion-y-reduccion-de-ruido/` | Balance de pistas, panorama, niveles finales y normalización. Los valores de loudness se tratan como referencias a verificar con la plataforma de destino. |
+| `audiovisual/captura-de-audio-y-microfonos/` | `../informatica/unidades-almacenamiento/` | Tipos de micrófono, distancia, entorno y grabar limpio desde el origen. Decisión de Claude, no pedida (laguna detectada en el plan de oficios). |
+| `audiovisual/captura-de-video-luz-y-encuadre/` | `../arte/narrativa-audiovisual/` | Cámara, luz natural y artificial, y encuadre aplicado al rodaje; reutiliza lo ya escrito en Arte. Decisión de Claude, no pedida. |
+| `audiovisual/exportacion-por-plataforma-y-subtitulos/` | `edicion-de-video/` | Formatos y relaciones de aspecto por plataforma, y subtitulado y accesibilidad (planificación: exportación por plataforma; subtítulos como aporte nuevo). |
+| `audiovisual/diagnostico-audiovisual-por-casos/` | `correccion-de-color-en-video/`, `ecualizacion-y-reduccion-de-ruido/`, `mezcla-y-masterizacion-basica/`, `captura-de-audio-y-microfonos/`, `captura-de-video-luz-y-encuadre/`, `exportacion-por-plataforma-y-subtitulos/` | Cierre de la ruta con el patrón de «diagnóstico por casos»: síntoma, hipótesis, verificación. Decisión de Claude, no pedida. |
 
 ## Informática ramificada — Backend (agregado 2026-10-14)
 
