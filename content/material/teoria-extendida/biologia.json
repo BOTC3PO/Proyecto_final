@@ -113,7 +113,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p11",
-          "text": "Luego viene la traducción. El ARN mensajero viaja hasta los ribosomas flotando en el citoplasma o adheridos al retículo endoplasmático. El ribosoma lee la secuencia del ARN y, basándose en ella, va uniendo aminoácidos en un orden específico. Cuando la cadena de aminoácidos está completa, se pliega sobre sí misma y se convierte en una proteína funcional. Esta proteína puede ser un enzima que catalice una reacción química, una estructura que dé forma a la célula, o una hormona que regule procesos en todo el cuerpo. En resumen, el gen (ADN) determina la proteína, y la proteína determina, en gran medida, el rasgo observable del organismo. Sin este flujo preciso de información, la célula sería solo una bolsa de químicos sin dirección."
+          "text": "Luego viene la traducción. El ARN mensajero viaja hasta los ribosomas flotando en el citoplasma o adheridos al retículo endoplasmático. El ribosoma lee la secuencia del ARN y, basándose en ella, va uniendo aminoácidos en un orden específico. Cuando la cadena de aminoácidos está completa, se pliega sobre sí misma y se convierte en una proteína funcional. Esta proteína puede ser una enzima que catalice una reacción química, una estructura que dé forma a la célula, o una hormona que regule procesos en todo el cuerpo. En resumen, el gen (ADN) determina la proteína, y la proteína determina, en gran medida, el rasgo observable del organismo. Sin este flujo preciso de información, la célula sería solo una bolsa de químicos sin dirección."
         },
         {
           "type": "heading",
@@ -134,7 +134,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p15",
-          "text": "Pero el salto más reciente y potente es la tecnología CRISPR. Mientras que el ADN recombinante solía consistir en agregar un gen extra, CRISPR permite editar el genoma existente con precisión de cirujano. Funciona como un par de tijeras moleculares guiadas por una secuencia de ARN que busca la ubicación exacta en el ADN donde queremos hacer el cambio. Podemos cortar el ADN en ese punto preciso para desactivar un gen defectuoso, corregir una mutación que causa una enfermedad, o incluso insertar una nueva secuencia en ese lugar específico. Es como usar Word para buscar una palabra específica en un libro gigante y corregirla o borrarla sin alterar ni una sola letra del resto. Esta herramienta abre posibilidades éticas y médicas enormes, desde curar enfermedades genéticas hasta mejorar cultivos, pero también plantea grandes debates sobre los límites de la intervención humana en la vida."
+          "text": "Pero el salto más reciente y potente es la tecnología CRISPR. Mientras que el ADN recombinante solía consistir en agregar un gen extra, CRISPR permite editar el genoma existente con precisión de cirujano. Funciona como un par de tijeras moleculares guiadas por una secuencia de ARN que busca la ubicación exacta en el ADN donde queremos hacer el cambio. Podemos cortar el ADN en ese punto preciso para desactivar un gen defectuoso, corregir una mutación que causa una enfermedad, o incluso insertar una nueva secuencia en ese lugar específico. Es como usar Word para buscar una palabra específica en un libro gigante y corregirla o borrarla con muy pocas alteraciones del resto (aunque a veces se producen cortes no deseados en otros lugares del genoma). Esta herramienta abre posibilidades éticas y médicas enormes, desde curar enfermedades genéticas hasta mejorar cultivos, pero también plantea grandes debates sobre los límites de la intervención humana en la vida."
         },
         {
           "type": "heading",
@@ -155,7 +155,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p19",
-          "text": "Es común pensar en esto como una cadena lineal, como pasto -> conejo -> zorro -> águila. Pero en la realidad, la naturaleza no funciona con líneas rectas, sino con redes complejas. Una red trófica es la interconexión de múltiples cadenas. El zorro no solo come conejos; también puede comer ratones o frutas. El águila puede comer serpientes o peces. Esta complejidad es lo que da estabilidad al ecosistema. Si una especie desaparece, la red tiene rutas alternativas para que la energía siga circulando. En cambio, si dependiéramos de una sola cadena simple, la desaparición de un eslabón colapsaría todo el sistema."
+          "text": "Es común pensar en esto como una cadena lineal, como pasto -> conejo -> zorro -> águila. Pero en la realidad, la naturaleza no funciona con líneas rectas, sino con redes complejas. Una red trófica es la interconexión de múltiples cadenas. El zorro no solo come conejos; también puede comer ratones o frutas. El águila puede comer serpientes o peces. Esta complejidad es lo que da estabilidad al ecosistema. Si una especie desaparece, la red puede tener rutas alternativas para que la energía siga circulando. En cambio, si dependiéramos de una sola cadena simple, la desaparición de un eslabón colapsaría todo el sistema."
         },
         {
           "type": "paragraph",
@@ -203,7 +203,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p2",
-          "text": "A veces, al mirar un bosque, un río o incluso una ciudad, es fácil imaginar que la naturaleza es un escenario estático, algo que simplemente \"está ahí\". Pero si te detienes a observar con atención, vas a notar que la vida es, en el fondo, un movimiento perpetuo. Todo lo que ves alrededor está en constante transformación: los elementos químicos viajan entre el aire, la tierra y tus propias células; los organismos nacen, crecen, se transforman y se reproducen para dar paso a una nueva generación; y las poblaciones enteras expanden o contraen sus fronteras según los recursos disponibles. En este capítulo, vamos a tejer juntos estos hilos aparentemente desconectados para entender cómo funciona la maquinaria biológica a gran escala. No se trata solo de memorizar nombres, sino de comprender que todo está vinculado: lo que hacemos hoy con el carbono, con el agua o con las especies determina el ritmo y la dirección de estos ciclos vitales."
+          "text": "A veces, al mirar un bosque, un río o incluso una ciudad, es fácil imaginar que la naturaleza es un escenario estático, algo que simplemente \"está ahí\". Pero si te detenés a observar con atención, vas a notar que la vida es, en el fondo, un movimiento perpetuo. Todo lo que ves alrededor está en constante transformación: los elementos químicos viajan entre el aire, la tierra y tus propias células; los organismos nacen, crecen, se transforman y se reproducen para dar paso a una nueva generación; y las poblaciones enteras expanden o contraen sus fronteras según los recursos disponibles. En este capítulo, vamos a tejer juntos estos hilos aparentemente desconectados para entender cómo funciona la maquinaria biológica a gran escala. No se trata solo de memorizar nombres, sino de comprender que todo está vinculado: lo que hacemos hoy con el carbono, con el agua o con las especies determina el ritmo y la dirección de estos ciclos vitales."
         },
         {
           "type": "heading",
@@ -219,7 +219,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p5",
-          "text": "Tomemos el ciclo del agua, quizás el más visible. El agua evapora de los océanos y ríos, se condensa en las nubes y vuelve a la tierra como lluvia. Pero no olvides que las plantas también participan activamente: a través de la transpiración, liberan vapor de agua desde sus hojas, contribuyendo a la humedad atmosférica. Este agua luego se infiltra en el suelo o corre hacia los ríos, cerrando el círculo. Sin este movimiento constante, la vida tal como la conocemos se secaría literalmente."
+          "text": "Tomemos el ciclo del agua, quizás el más visible. El agua se evapora de los océanos y ríos, se condensa en las nubes y vuelve a la tierra como lluvia. Pero no olvides que las plantas también participan activamente: a través de la transpiración, liberan vapor de agua desde sus hojas, contribuyendo a la humedad atmosférica. Este agua luego se infiltra en el suelo o corre hacia los ríos, cerrando el círculo. Sin este movimiento constante, la vida tal como la conocemos se secaría literalmente."
         },
         {
           "type": "paragraph",
@@ -282,7 +282,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p17",
-          "text": "Cuando miramos a las poblaciones, ya sea de bacterias en un plato de Petri o de humanos en una ciudad, observamos dinámicas de crecimiento. En condiciones ideales, con recursos ilimitados, el crecimiento sigue un modelo exponencial: la población se duplica a un ritmo constante. Matemáticamente, esto se expresa como P(t) = P₀ · r^t, donde P₀ es la población inicial y r es el factor de crecimiento."
+          "text": "Cuando miramos a las poblaciones, ya sea de bacterias en un plato de Petri o de humanos en una ciudad, observamos dinámicas de crecimiento. En condiciones ideales, con recursos ilimitados, el crecimiento sigue un modelo exponencial: la población crece por un factor constante en cada intervalo de tiempo (por ejemplo, se duplica cada cierto número de horas). Matemáticamente, esto se expresa como P(t) = P₀ · r^t, donde P₀ es la población inicial y r es el factor de crecimiento."
         },
         {
           "type": "paragraph",
@@ -314,7 +314,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p23",
-          "text": "Al cerrar este capítulo, notás cómo todo está conectado. El carbono que exhalás hoy fue parte de una hoja hace millones de años. La mariposa que ves en el jardín pasa por una metamorfosis que refleja la historia evolutiva de los insectos. La población de una especie en peligro depende de la capacidad de carga de su hábitat, que a su vez está siendo alterada por la actividad global."
+          "text": "Al cerrar este capítulo, notás cómo todo está conectado. El carbono que exhalás hoy fue parte de los alimentos que comiste, y antes estuvo en el aire, en una planta o en un animal. La mariposa que ves en el jardín pasa por una metamorfosis que refleja la historia evolutiva de los insectos. La población de una especie en peligro depende de la capacidad de carga de su hábitat, que a su vez está siendo alterada por la actividad global."
         },
         {
           "type": "paragraph",
@@ -367,17 +367,17 @@
         {
           "type": "paragraph",
           "id": "cap-3-p6",
-          "text": "Hay dos situaciones clásicas donde esto ocurre. La primera es el efecto fundador. Pensemos en un grupo pequeño de aves que es arrastrado por una tormenta a una isla desierta. Esas pocas aves, por pura casualidad, no representan la diversidad genética completa de la población original. Quizás ninguna de ellas tenía el gen para el plumaje verde, aunque ese gen fuera común en la isla de origen. Al establecerse allí, toda la descendiente futura tendrá esa misma composición genética inicial, limitada y sesgada. La nueva población no es una muestra representativa, es una \"muestra de fortuna\"."
+          "text": "Hay dos situaciones clásicas donde esto ocurre. La primera es el efecto fundador. Pensemos en un grupo pequeño de aves que es arrastrado por una tormenta a una isla desierta. Esas pocas aves, por pura casualidad, no representan la diversidad genética completa de la población original. Quizás ninguna de ellas tenía el gen para el plumaje verde, aunque ese gen fuera común en la isla de origen. Al establecerse allí, toda la descendencia futura tendrá esa misma composición genética inicial, limitada y sesgada. La nueva población no es una muestra representativa, es una \"muestra de fortuna\"."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p7",
-          "text": "El otro caso es el cuello de botella. Imaginá una epidemia que mata al 90% de una población de mamíferos. Los sobrevivientes no son necesariamente los más fuertes o los más rápidos; son los que estaban en el lugar correcto en el momento equivocado, o los que tuvieron suerte de no estar expuestos al patógeno. La población que se recupera después tendrá una diversidad genética mucho menor que la original, porque todo el pool génico futuro dependerá únicamente de los genes de esos pocos supervivientes aletorios. Esto es crucial entenderlo: en la deriva, un individuo puede morir o reproducirse sin que su rasgo tenga nada que ver con su ventaja evolutiva."
+          "text": "El otro caso es el cuello de botella. Imaginá una epidemia que mata al 90% de una población de mamíferos. Los sobrevivientes no son necesariamente los más fuertes o los más rápidos; son, en buena medida, los que tuvieron la suerte de no estar expuestos al patógeno. La población que se recupera después tendrá una diversidad genética mucho menor que la original, porque todo el pool génico futuro dependerá únicamente de los genes de esos pocos supervivientes elegidos por azar. Esto es crucial entenderlo: en la deriva, un individuo puede morir o reproducirse sin que su rasgo tenga nada que ver con su ventaja evolutiva."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p8",
-          "text": "Sin embargo, las poblaciones rara vez están completamente aisladas. Aquí entra en juego el flujo génico, que es el movimiento de materiales genéticos entre poblaciones. Cuando individuos migran de un grupo a otro y se reproducen, están mezclando los acervos génicos. El flujo génico actúa como una fuerza unificadora: si dos poblaciones tienen frecuencias alélicas diferentes, el intercambio constante de genes tiende a homogeneizarlas, manteniéndolas como parte de una misma entidad biológica. Es como agitar dos recipientes con tintes distintos hasta que el color se uniformice. Por eso, la ausencia de flujo génico es tan crítica para la evolución; sin esa mezcla, las poblaciones pueden empezar a divergir."
+          "text": "Sin embargo, las poblaciones rara vez están completamente aisladas. Aquí entra en juego el flujo génico, que es el movimiento de materiales genéticos entre poblaciones. Cuando individuos migran de un grupo a otro y se reproducen, están mezclando los acervos génicos. El flujo génico actúa como una fuerza unificadora: si dos poblaciones tienen frecuencias alélicas diferentes, el intercambio constante de genes tiende a homogeneizarlas, manteniéndolas como parte de una misma entidad biológica. Es como agitar dos recipientes con tintes distintos hasta que el color se uniformice. Por eso, la ausencia de flujo génico es tan importante para que las poblaciones se diferencien; sin esa mezcla, las poblaciones pueden empezar a divergir."
         },
         {
           "type": "heading",
@@ -434,7 +434,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p19",
-          "text": "La más común es la especiación alopátrica. La palabra viene del griego alo (otro) y patra (patria). Ocurre cuando una barrera geográfica divide físicamente a una población en dos o más grupos que no pueden encontrarse. Piense en una cordillera que se levanta lentamente, separando un valle en dos; o un río que cambia su cauce; o una masa de tierra que se fragmenta en islas. Las ardillas del Gran Cañón en Arizona son un ejemplo clásico: una población ancestral fue dividida por el cañón mismo. Al norte y al sur del cañón, las ardillas evolucionaron por separado, adaptándose a diferentes condiciones y sufriendo diferentes efectos de deriva, hasta convertirse en dos especies distintas que no se cruzan aunque pudieran. La barrera física impide el flujo génico, permitiendo que la evolución las diverja."
+          "text": "La más común es la especiación alopátrica. La palabra viene del griego alo (otro) y patra (patria). Ocurre cuando una barrera geográfica divide físicamente a una población en dos o más grupos que no pueden encontrarse. Pensá en una cordillera que se levanta lentamente, separando un valle en dos; o un río que cambia su cauce; o una masa de tierra que se fragmenta en islas. Las ardillas del Gran Cañón en Arizona son un ejemplo clásico: una población ancestral fue dividida por el cañón mismo. Al norte y al sur del cañón, las ardillas evolucionaron por separado, adaptándose a diferentes condiciones y sufriendo diferentes efectos de deriva, hasta convertirse en dos especies distintas que no se cruzan aunque pudieran. La barrera física impide el flujo génico, permitiendo que la evolución las diverja."
         },
         {
           "type": "paragraph",
@@ -498,12 +498,12 @@
         {
           "type": "paragraph",
           "id": "cap-4-p5",
-          "text": "Todo comienza con la luz. En las células de las plantas, las algas y algunas bacterias, existe una estructura especializada llamada cloroplasto. Ahí ocurre uno de los procesos más asombrosos de la naturaleza: la fotosíntesis. Si mirás la ecuación química simplificada, verás que lo que parece magia es en realidad un intercambio preciso de átomos: dióxido de carbono ($CO_2$) y agua ($H_2O$), utilizando la energía del sol, se transforman en glucosa ($C_6H_{12}O_6$) y oxígeno ($O_2$)."
+          "text": "Todo comienza con la luz. En las células de las plantas y las algas, existe una estructura especializada llamada cloroplasto (algunas bacterias, como las cianobacterias, también hacen fotosíntesis, aunque sin cloroplastos). Ahí ocurre uno de los procesos más asombrosos de la naturaleza: la fotosíntesis. Si mirás la ecuación química simplificada, verás que lo que parece magia es en realidad un intercambio preciso de átomos: dióxido de carbono (CO₂) y agua (H₂O), utilizando la energía del sol, se transforman en glucosa (C₆H₁₂O₆) y oxígeno (O₂)."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p6",
-          "text": "Pero acá hay un detalle que muchos pasan por alto y que es crucial para tu comprensión: las plantas no son fábricas que solo producen. Ellas también son consumidores de esa energía. Para usar la glucosa que fabricaron, necesitan \"quemarla\", y para eso recurren a la respiración celular. Este proceso ocurre en otra organela, la mitocondria, y es, básicamente, el inverso de la fotosíntesis. La mitocondria toma la glucosa y el oxígeno, y los desarma para liberar la energía almacenada en sus enlaces químicos, produciendo ATP (la moneda energética de la célula), además de devolver al ambiente $CO_2$ y agua."
+          "text": "Pero acá hay un detalle que muchos pasan por alto y que es crucial para tu comprensión: las plantas no son fábricas que solo producen. Ellas también son consumidores de esa energía. Para usar la glucosa que fabricaron, necesitan \"quemarla\", y para eso recurren a la respiración celular. Este proceso ocurre en otra organela, la mitocondria, y es, básicamente, el inverso de la fotosíntesis. La mitocondria toma la glucosa y el oxígeno, y los desarma para liberar la energía almacenada en sus enlaces químicos, produciendo ATP (la moneda energética de la célula), además de devolver al ambiente CO₂ y agua."
         },
         {
           "type": "paragraph",
@@ -555,7 +555,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p16",
-          "text": "Por ejemplo, si mirás un árbol que incluye humanos, chimpancés y gorilas, verás que humanos y chimpancés comparten un nodo más cercano a las puntas del árbol que el nodo que los conecta con los gorilas. Eso significa que, evolutivamente, somos \"primos\" más cercanos entre nosotros que con los gorilas, aunque a simple vista un gorila pueda parecerse más a un humano en su estructura física general. La similitud superficial no es el criterio; el criterio es el parentesco real, reconstruido hoy en día gracias a la comparación de secuencias de ADN."
+          "text": "Por ejemplo, si mirás un árbol que incluye humanos, chimpancés y gorilas, verás que humanos y chimpancés comparten un nodo más cercano a las puntas del árbol que el nodo que los conecta con los gorilas. Eso significa que humanos y chimpancés somos parientes más cercanos entre sí que cualquiera de los dos con los gorilas, aunque a simple vista las semejanzas físicas puedan confundirnos. La similitud superficial no es el criterio; el criterio es el parentesco real, reconstruido hoy en día gracias a la comparación de secuencias de ADN."
         },
         {
           "type": "heading",
@@ -582,12 +582,12 @@
         {
           "type": "paragraph",
           "id": "cap-4-p21",
-          "text": "Al unir estos dos mundos —el flujo de energía y la historia evolutiva—, obtenemos una visión poderosa de la biología. La fotosíntesis y la respiración celular no son solo procesos químicos aislados; son las herramientas que permitieron la diversificación de la vida. Gracias a la capacidad de algunos ancestros comunes de capturar energía solar, se abrió la puerta para que otros organismos aprovecharan ese excedente, dando origen a la respiración aeróbica y, eventualmente, a la complejidad multicelular."
+          "text": "Al unir estos dos mundos —el flujo de energía y la historia evolutiva—, obtenemos una visión poderosa de la biología. La fotosíntesis y la respiración celular no son solo procesos químicos aislados; son las herramientas que permitieron la diversificación de la vida. Gracias a que algunos organismos aprendieron a capturar energía solar, hubo alimento para otros, y el oxígeno liberado por la fotosíntesis hizo posible la respiración aeróbica y, eventualmente, la complejidad multicelular."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p22",
-          "text": "Los árboles filogenéticos nos muestran cómo, a partir de esos ancestros comunes, se ramificó la vida. Cada nodo representa una decisión evolutiva, una especiación que separó linajes. Algunos linajes mantuvieron la capacidad de fotosíntesis (como las plantas actuales), mientras que otros perdieron esa habilidad y se volvieron heterótrofos, dependiendo de la energía capturada por otros."
+          "text": "Los árboles filogenéticos nos muestran cómo, a partir de esos ancestros comunes, se ramificó la vida. Cada nodo representa un evento de divergencia, una especiación que separó linajes. Algunos linajes adquirieron la capacidad de fotosíntesis (las plantas, que incorporaron antiguas cianobacterias que dieron origen a los cloroplastos), mientras que otros, como los animales, siguieron siendo heterótrofos, dependiendo de la energía capturada por otros."
         },
         {
           "type": "paragraph",
@@ -656,7 +656,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p6",
-          "text": "Sin embargo, la vida no se trata solo de mantenerse igual; también necesita renovarse y combinar información para crear diversidad. Ahí entra en juego la meiosis, un proceso mucho más complejo y dramático. La meiosis ocurre exclusivamente en los órganos reproductivos y tiene un objetivo diferente: producir gametos, es decir, células sexuales como espermatozoides y óvulos."
+          "text": "Sin embargo, la vida no se trata solo de mantenerse igual; también necesita renovarse y combinar información para crear diversidad. Ahí entra en juego la meiosis, un proceso mucho más complejo y dramático. La meiosis ocurre solo en células especializadas (en los animales, en las gónadas) y tiene un objetivo diferente: producir gametos, es decir, células sexuales como espermatozoides y óvulos."
         },
         {
           "type": "paragraph",
@@ -682,7 +682,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p11",
-          "text": "El ciclo de infección viral es una danza de engaño y fuerza. Primero, el virus se adhiere a la superficie de una célula compatible, como una llave que encaja en una cerradura específica. Luego, inyecta su material genético dentro de la célula. A partir de ese momento, la célula deja de ser ella misma; su maquinaria se pone a trabajar para copiar el genoma viral, fabricar las proteínas de la cápside y ensamblar nuevos virus. Finalmente, la célula se llena de estas nuevas partículas y termina rompiéndose (lisis), liberando a los virus para infectar a sus vecinas. Este proceso es lo que causa los síntomas de muchas enfermedades virales: la muerte de tus propias células y la inflamación resultante."
+          "text": "El ciclo de infección viral es una danza de engaño y fuerza. Primero, el virus se adhiere a la superficie de una célula compatible, como una llave que encaja en una cerradura específica. Luego, su material genético ingresa a la célula (algunos virus lo inyectan; otros entran completos). A partir de ese momento, la célula deja de ser ella misma; su maquinaria se pone a trabajar para copiar el genoma viral, fabricar las proteínas de la cápside y ensamblar nuevos virus. Finalmente, muchas veces la célula se llena de estas nuevas partículas y termina rompiéndose (lisis), liberando a los virus para infectar a sus vecinas; otros virus salen de a poco, sin matar de inmediato a la célula. Este proceso es lo que causa los síntomas de muchas enfermedades virales: la muerte de tus propias células y la inflamación resultante."
         },
         {
           "type": "paragraph",
@@ -692,12 +692,12 @@
         {
           "type": "paragraph",
           "id": "cap-5-p13",
-          "text": "Sin embargo, cuando la amenaza es persistente o específica, el sistema inmunitario activa su segundo frente: la defensa específica o adaptativa. Aquí, el cuerpo \"aprende\" a reconocer al invasor concreto. Las células del sistema inmune producen anticuerpos, que son proteínas diseñadas a medida, como llaves maestras que se pegan exclusivamente a ese virus o bacteria específica, neutralizándolos o marcándolos para que otros glóbulos blancos los destruyan."
+          "text": "Sin embargo, cuando la amenaza es persistente o específica, el sistema inmunitario activa su segundo frente: la defensa específica o adaptativa. Aquí, el cuerpo \"aprende\" a reconocer al invasor concreto. Las células del sistema inmune producen anticuerpos, que son proteínas diseñadas a medida, como llaves hechas a medida que se pegan exclusivamente a ese virus o bacteria específica, neutralizándolos o marcándolos para que otros glóbulos blancos los destruyan."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p14",
-          "text": "Lo más impresionante de este sistema es su memoria. Una vez que has superado una infección, el cuerpo guarda registros de ese patógeno. Si el virus vuelve a aparecer, la respuesta es rapidísima y mucho más potente, a menudo eliminándolo antes de que notes síntomas. Las vacunas aprovechan exactamente este mecanismo. Al exponerte a una versión debilitada o inactiva del virus, entrenas a tu sistema inmune sin enfermarte gravemente. Le das tiempo para crear los anticuerpos y las células de memoria necesarias, preparándote para una batalla real futura. Esta capacidad de recordar es uno de los logros más brillantes de la biología evolutiva en nuestro propio cuerpo."
+          "text": "Lo más impresionante de este sistema es su memoria. Una vez que has superado una infección, el cuerpo guarda registros de ese patógeno. Si el virus vuelve a aparecer, la respuesta es rapidísima y mucho más potente, a menudo eliminándolo antes de que notes síntomas. Las vacunas aprovechan exactamente este mecanismo. Al exponerte a una versión debilitada o inactiva del virus, o solo a un fragmento de él, entrenas a tu sistema inmune sin enfermarte gravemente. Le das tiempo para crear los anticuerpos y las células de memoria necesarias, preparándote para una batalla real futura. Esta capacidad de recordar es uno de los logros más brillantes de la biología evolutiva en nuestro propio cuerpo."
         },
         {
           "type": "heading",
@@ -723,12 +723,12 @@
         {
           "type": "paragraph",
           "id": "cap-5-p19",
-          "text": "Veamos un ejemplo integrador que conecta estos conceptos con la salud pública en Argentina: la transmisión del mal de Chagas. Esta enfermedad, causada por el parásito Trypanosoma cruzi, no es un accidente aleatorio; es el resultado de la interacción entre un parásito, un vector y un hábitat humano modificado. El vector principal es la vinchuca (o chinche del sur), un insecto hemíptero que ha desarrollado adaptaciones estructurales y de comportamiento para vivir en estrecha asociación con las construcciones humanas en zonas rurales."
+          "text": "Veamos un ejemplo integrador que conecta estos conceptos con la salud pública en Argentina: la transmisión del mal de Chagas. Esta enfermedad, causada por el parásito Trypanosoma cruzi, no es un accidente aleatorio; es el resultado de la interacción entre un parásito, un vector y un hábitat humano modificado. El vector principal es la vinchuca, un insecto hemíptero que ha desarrollado adaptaciones estructurales y de comportamiento para vivir en estrecha asociación con las construcciones humanas en zonas rurales."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p20",
-          "text": "La vinchuca tiene un cuerpo aplanado que le permite esconderse en las grietas de paredes de adobe, techos de paja o montones de leña. Estas estructuras, típicas del norte argentino, ofrecen el hábitat ideal para la vinchuca: oscuridad, refugio y proximidad a fuentes de sangre (los humanos o animales que duermen allí). La vinchuca es nocturna y se alimenta de sangre, pero aquí reside el mecanismo de transmisión de la enfermedad: no inyecta el parásito al picar, sino que defeca sobre la piel mientras se alimenta. Las heces del insecto contienen los parásitos Trypanosoma cruzi. Cuando la persona se rasca la picadura por picazón, fricciona las heces en la herida o cerca de los ojos y boca, permitiendo que el parásito entre al torrente sanguíneo."
+          "text": "La vinchuca tiene un cuerpo aplanado que le permite esconderse en las grietas de paredes de adobe, techos de paja o montones de leña. Estas estructuras, típicas del norte argentino, ofrecen el hábitat ideal para la vinchuca: oscuridad, refugio y proximidad a fuentes de sangre (los humanos o animales que duermen allí). La vinchuca es nocturna y se alimenta de sangre, pero aquí reside el mecanismo de transmisión de la enfermedad: no inyecta el parásito al picar, sino que defeca sobre la piel mientras se alimenta. Las heces del insecto contienen los parásitos Trypanosoma cruzi. Cuando la persona se rasca la picadura por picazón, fricciona las heces en la herida o cerca de los ojos y boca, permitiendo que el parásito entre al organismo. (También puede transmitirse de madre a hijo durante el embarazo y por transfusiones o trasplantes, por eso en Argentina se controla a las embarazadas y a los donantes de sangre.)"
         },
         {
           "type": "paragraph",
@@ -797,7 +797,7 @@
         {
           "type": "paragraph",
           "id": "cap-6-p4",
-          "text": "Todo comienza con la semilla. Aunque la veamos como un objeto seco y duro, la semilla es, en realidad, una cápsula de potencial biológico. Contiene al embrión de una nueva planta y, lo más importante, una reserva de alimento inicial diseñada para sostenerlo durante sus primeros días de vida. Pero ese potencial solo se activa cuando se dan las condiciones precisas. Muchos creen que la luz es indispensable para que una semilla germine, pero la realidad es que la luz no es un requisito directo para la germinación en sí misma; de hecho, muchas semillas germinan perfectamente bajo tierra, en la oscuridad total."
+          "text": "Todo comienza con la semilla. Aunque la veamos como un objeto seco y duro, la semilla es, en realidad, una cápsula de potencial biológico. Contiene al embrión de una nueva planta y, lo más importante, una reserva de alimento inicial diseñada para sostenerlo durante sus primeros días de vida. Pero ese potencial solo se activa cuando se dan las condiciones precisas. Muchos creen que la luz es indispensable para que una semilla germine, pero para la mayoría de las semillas no lo es; de hecho, muchas germinan perfectamente bajo tierra, en la oscuridad total."
         },
         {
           "type": "paragraph",
@@ -855,7 +855,7 @@
         {
           "type": "paragraph",
           "id": "cap-6-p15",
-          "text": "Al dibujar estas masas apiladas, obtenemos una figura que siempre tiene forma de pirámide: ancha en la base y angosta en la punta. Esto no es una coincidencia estética, sino una consecuencia física directa de la termodinámica y la ecología. Se estima que, en promedio, solo alrededor del 10% de la energía y la biomasa de un nivel trófico se transfiere al siguiente. El 90% restante se pierde en el metabolismo de los organismos (movimiento, mantenimiento del cuerpo, respiración), en el calor o en los desechos que no son consumidos."
+          "text": "Al dibujar estas masas apiladas, obtenemos una figura que casi siempre tiene forma de pirámide: ancha en la base y angosta en la punta (en los océanos la pirámide de biomasa puede aparecer invertida, porque el fitoplancton se reproduce muy rápido, pero la pirámide de energía nunca se invierte). Esto no es una coincidencia estética, sino una consecuencia física directa de la termodinámica y la ecología. Se estima que, en promedio, solo alrededor del 10% de la energía y la biomasa de un nivel trófico se transfiere al siguiente. El 90% restante se pierde en el metabolismo de los organismos (movimiento, mantenimiento del cuerpo, respiración), en el calor o en los desechos que no son consumidos."
         },
         {
           "type": "paragraph",
@@ -913,7 +913,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p3",
-          "text": "Para empezar, necesitamos entender la base de todo sistema biológico: la célula y sus características definitorias. Un ser vivo no es una masa inerte; es una unidad organizada que mantiene su propia identidad frente al caos del entorno. Para ser considerado \"vivo\", un organismo debe cumplir con un conjunto de rasgos fundamentales: debe estar compuesto por una o más células, obtener y procesar energía (nutrición), responder a estímulos del medio (irritabilidad), crecer, reproducirse y, quizás lo más crucial, mantener la homeostasis. La homeostasis es ese equilibrio dinámico que permite que tu temperatura corporal o el nivel de azúcar en tu sangre se mantengan estables, aunque afuera haga frío o hayas comido un banquete. Sin embargo, esta lista de características tiene matices importantes. Por ejemplo, una mula es un ser vivo, pero no puede reproducirse; sigue siendo parte del patrón de vida porque su especie sí lo hace. Y luego están los casos límite, como los virus, que desafían nuestras definiciones porque carecen de metabolismo propio y necesitan secuestrar la maquinaria de otra célula para existir. Esta ambigüedad nos lleva a una pregunta fundamental: ¿de dónde viene esa capacidad de organizar la materia y procesar energía?"
+          "text": "Para empezar, necesitamos entender la base de todo sistema biológico: la célula y sus características definitorias. Un ser vivo no es una masa inerte; es una unidad organizada que mantiene su propia identidad frente al caos del entorno. Para ser considerado \"vivo\", un organismo debe cumplir con un conjunto de rasgos fundamentales: debe estar compuesto por una o más células, obtener y procesar energía (nutrición), responder a estímulos del medio (irritabilidad), crecer, reproducirse y, quizás lo más crucial, mantener la homeostasis. La homeostasis es ese equilibrio dinámico que permite que tu temperatura corporal o el nivel de azúcar en tu sangre se mantengan estables, aunque afuera haga frío o hayas comido un banquete. Sin embargo, esta lista de características tiene matices importantes. Por ejemplo, una mula es un ser vivo aunque sea estéril: la reproducción es una característica de la vida en general, no una condición que deba cumplir cada individuo. Y luego están los casos límite, como los virus, que desafían nuestras definiciones porque carecen de metabolismo propio y necesitan secuestrar la maquinaria de otra célula para existir. Esta ambigüedad nos lleva a una pregunta fundamental: ¿de dónde viene esa capacidad de organizar la materia y procesar energía?"
         },
         {
           "type": "paragraph",
@@ -923,7 +923,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p5",
-          "text": "Pero la vida no es solo química estática; es dinámica y cambiante. ¿Cómo llegó la materia inorgánica a convertirse en la diversidad de seres vivos que vemos hoy? La respuesta está en la selección natural, el motor de la evolución. Charles Darwin y Alfred Russel Wallace nos dejaron una idea poderosa: la evolución no es un acto de voluntad ni un esfuerzo consciente de los organismos. Es un mecanismo implacable que opera sobre tres ingredientes básicos en cualquier población. Primero, existe la variación: los individuos no son idénticos; hay diferencias heredables en tamaño, color, resistencia o velocidad. Segundo, existe la presión ambiental: el entorno (depredadores, clima, escasez de alimento) hace que no todos tengan la misma probabilidad de sobrevivir. Y tercero, la reproducción diferencial: los individuos con variantes más favorables para ese ambiente específico dejan más descendencia. Al repetirse este ciclo generación tras generación, las frecuencias de las características en la población cambian. Es importante aclarar que la selección natural no crea la variación; la varianza surge por azar (mutaciones, recombinación) y la selección simplemente \"filtra\" lo que funciona en ese momento. \"El más apto\" no significa el más fuerte físicamente, sino el que mejor deja descendencia en ese contexto particular. Un ejemplo clásico es la polilla del abedul en la Inglaterra industrial: cuando la contaminación oscureció los troncos, la variante oscura dejó más descendencia porque era menos visible para los depredadores, invirtiendo la situación anterior. Esta adaptación, a largo plazo, es lo que nos permite entender por qué los organismos están tan bien diseñados para su entorno."
+          "text": "Pero la vida no es solo química estática; es dinámica y cambiante. ¿Cómo llegó la materia inorgánica a convertirse en la diversidad de seres vivos que vemos hoy? La respuesta está en la selección natural, el motor de la evolución. Charles Darwin y Alfred Russel Wallace nos dejaron una idea poderosa: la evolución no es un acto de voluntad ni un esfuerzo consciente de los organismos. Es un mecanismo implacable que opera sobre tres ingredientes básicos en cualquier población. Primero, existe la variación: los individuos no son idénticos; hay diferencias heredables en tamaño, color, resistencia o velocidad. Segundo, existe la presión ambiental: el entorno (depredadores, clima, escasez de alimento) hace que no todos tengan la misma probabilidad de sobrevivir. Y tercero, la reproducción diferencial: los individuos con variantes más favorables para ese ambiente específico dejan más descendencia. Al repetirse este ciclo generación tras generación, las frecuencias de las características en la población cambian. Es importante aclarar que la selección natural no crea la variación; la varianza surge por azar (mutaciones, recombinación) y la selección simplemente \"filtra\" lo que funciona en ese momento. \"El más apto\" no significa el más fuerte físicamente, sino el que mejor deja descendencia en ese contexto particular. Un ejemplo clásico es la polilla del abedul en la Inglaterra industrial: cuando la contaminación oscureció los troncos, la variante oscura dejó más descendencia porque era menos visible para los depredadores, invirtiendo la situación anterior. Esta adaptación, a largo plazo, es lo que nos permite entender por qué los organismos están tan bien ajustados a su entorno."
         },
         {
           "type": "paragraph",
@@ -933,7 +933,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p7",
-          "text": "El sistema nervioso es la red de comunicación de alta velocidad. Su unidad básica es la neurona, una célula especializada en transmitir impulsos eléctricos. La neurona tiene una estructura precisa: las dendritas reciben la información, el cuerpo celular la procesa y el axón, a menudo recubierto por una vaina de mielina para acelerar la conducción, envía el impulso hacia las terminales. Allí, en la sinapsis, la señal eléctrica se convierte en química mediante neurotransmisores que saltan al espacio entre neuronas para activar la siguiente. Este sistema es casi instantáneo: si tocas algo caliente, tu mano se retira antes de que siquiera sientas el dolor consciente. Es rápido, localizado y preciso."
+          "text": "El sistema nervioso es la red de comunicación de alta velocidad. Su unidad básica es la neurona, una célula especializada en transmitir impulsos eléctricos. La neurona tiene una estructura precisa: las dendritas reciben la información, el cuerpo celular la procesa y el axón, a menudo recubierto por una vaina de mielina para acelerar la conducción, envía el impulso hacia las terminales. Allí, en la sinapsis, la señal eléctrica se convierte en química mediante neurotransmisores que saltan al espacio entre neuronas para activar la siguiente. Este sistema es casi instantáneo: si tocás algo caliente, tu mano se retira antes de que siquiera sientas el dolor consciente. Es rápido, localizado y preciso."
         },
         {
           "type": "paragraph",
@@ -948,12 +948,12 @@
         {
           "type": "paragraph",
           "id": "cap-7-p10",
-          "text": "Y aquí es donde la biología se encuentra con la ética humana. En las últimas décadas, hemos desarrollado la capacidad de intervenir directamente en el código de la vida: los organismos transgénicos. Un organismo transgénico es aquel que tiene en su ADN un gen insertado artificialmente de otra especie, algo que casi nunca ocurriría naturalmente. Hemos creado soja resistente a herbicidas introduciendo genes bacterianos, o maíz Bt que produce su propia proteína insecticida. Estos desarrollos tienen argumentos sólidos a favor: mayor rendimiento, menos uso de pesticidas químicos y la posibilidad de fortificar alimentos para combatir deficiencias nutricionales, como el Arroz Dorado con betacaroteno."
+          "text": "Y aquí es donde la biología se encuentra con la ética humana. En las últimas décadas, hemos desarrollado la capacidad de intervenir directamente en el código de la vida: los organismos transgénicos. Un organismo transgénico es aquel que tiene en su ADN un gen insertado artificialmente de otra especie, algo que casi nunca ocurriría naturalmente. Hemos creado soja resistente a herbicidas introduciendo genes bacterianos, o maíz Bt que produce su propia proteína insecticida. Estos desarrollos tienen argumentos a favor: mayor rendimiento, menor uso de insecticidas en el caso del maíz Bt y la posibilidad de fortificar alimentos para combatir deficiencias nutricionales, como el Arroz Dorado con betacaroteno."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p11",
-          "text": "Pero la pregunta ya no es técnica (\"¿se puede hacer?\"), sino ética (\"¿se debería hacer?\"). Los argumentos en contra apuntan a riesgos ecológicos, como el cruzamiento con especies silvestres que podría alterar la biodiversidad, o preocupaciones socioeconómicas, como la concentración del mercado de semillas en pocas empresas multinacionales, lo que genera dependencia en los productores. La bioética nos obliga a mirar más allá del beneficio inmediato y considerar las consecuencias a largo plazo, el respeto a la integridad de los ecosistemas y la justicia social."
+          "text": "Pero la pregunta ya no es técnica (\"¿se puede hacer?\"), sino ética (\"¿se debería hacer?\"). Los argumentos en contra apuntan a riesgos ecológicos, como el cruzamiento con especies silvestres que podría alterar la biodiversidad, o preocupaciones socioeconómicas, como la concentración del mercado de semillas en pocas empresas multinacionales, lo que genera dependencia en los productores, y el aumento del uso de herbicidas como el glifosato con los cultivos resistentes. Es un debate cercano para la Argentina, uno de los grandes productores mundiales de soja transgénica. La bioética nos obliga a mirar más allá del beneficio inmediato y considerar las consecuencias a largo plazo, el respeto a la integridad de los ecosistemas y la justicia social."
         },
         {
           "type": "paragraph",
