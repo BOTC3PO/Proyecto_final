@@ -42,3 +42,7 @@ Un productor ordenado lleva registros de nacimientos, tratamientos, movimientos,
 ## Ambiente y rentabilidad
 
 La ganadería puede mejorar o degradar el suelo según el manejo. La rentabilidad depende de la eficiencia: kilos producidos por hectárea, conversión alimenticia, mortandad y costos. El productor evalúa estos indicadores campaña tras campaña.
+
+## Bienestar animal en el traslado y la faena
+
+El bienestar animal no termina en el establecimiento. En el **traslado** conviene evitar el hacinamiento, los golpes, el ayuno excesivo y la exposición a calor o frío extremos; el manejo tranquilo, sin gritos ni elementos que lastimen, reduce el estrés y también las pérdidas de calidad de la carne. La faena de los animales destinados al consumo se realiza en establecimientos habilitados por la autoridad sanitaria y bajo control veterinario. Cuando un productor vende animales en pie, tiene que contar con la documentación sanitaria y de traslado que corresponda.

@@ -35,3 +35,11 @@ Ruidos nuevos, vibraciones que antes no estaban, piezas con conicidad que antes 
 ## Seguridad en el mantenimiento
 
 Todo trabajo de mantenimiento se hace con la máquina detenida y desconectada, y con el procedimiento de bloqueo y etiquetado de la energía que corresponda en el taller. No se retiran las protecciones para limpiar con la máquina en marcha. Después del mantenimiento, antes de volver a arrancar, se verifica que no queden herramientas, llaves ni trapos sobre la máquina.
+
+## Mantenimiento preventivo y correctivo
+
+El mantenimiento **preventivo** se hace de manera programada, antes de que aparezca la falla: lubricar, limpiar, revisar ajustes y reemplazar lo que se desgasta con un plan por horas de uso o por calendario. El **correctivo** actúa cuando algo ya falló. Un taller que solo repara cuando se rompe termina con paradas inesperadas y piezas descartadas; llevar una planilla donde se anota cada tarea, la fecha y el estado de la máquina permite anticipar los problemas y decidir cuándo conviene llamar a un técnico.
+
+## Refrigerante y viruta
+
+Si el torno usa líquido refrigerante, hay que vigilar su nivel y su estado: un líquido contaminado con aceite de las guías, con viruta fina o con bacterias huele mal, pierde capacidad de refrigerar y puede irritar la piel. Se filtra, se repone y se cambia según indique el fabricante. La viruta se retira con ganchos o cepillos, nunca con la mano, y se acumula en recipientes destinados a ese fin.

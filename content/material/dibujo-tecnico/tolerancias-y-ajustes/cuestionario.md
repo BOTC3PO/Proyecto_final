@@ -285,8 +285,11 @@ metadata:
   tags: ["dibujo"]
 
 variables:
-  Amax: uno_de([25.021, 30.021, 40.025])
-  emin: uno_de([24.980, 29.980, 39.975])
+  idx: uno_de([0, 1, 2])
+  amaxs: [25.021, 30.021, 40.025]
+  emins: [24.980, 29.980, 39.975]
+  Amax: amaxs[idx]
+  emin: emins[idx]
 
 respuesta: redondear(Amax - emin, 3)
 tipo: input
@@ -311,8 +314,11 @@ metadata:
   tags: ["dibujo"]
 
 variables:
-  Amin: uno_de([25.000, 30.000, 40.000])
-  emax: uno_de([24.993, 29.993, 39.991])
+  idx: uno_de([0, 1, 2])
+  amins: [25.000, 30.000, 40.000]
+  emaxs: [24.993, 29.993, 39.991]
+  Amin: amins[idx]
+  emax: emaxs[idx]
 
 respuesta: redondear(Amin - emax, 3)
 tipo: input

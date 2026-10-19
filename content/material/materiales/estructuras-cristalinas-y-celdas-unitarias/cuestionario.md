@@ -480,9 +480,13 @@ metadata:
   tags: ["cristales", "celdas"]
 
 variables:
-  n: uno_de([2, 4])
-  A: uno_de([26.98, 63.55, 55.85, 52.0])
-  a: uno_de([0.286, 0.289, 0.361, 0.405])
+  idx: uno_de([0, 1, 2, 3])
+  ns: [4, 4, 2, 2]
+  masas: [26.98, 63.55, 55.85, 52.0]
+  aristas: [0.405, 0.361, 0.287, 0.289]
+  n: ns[idx]
+  A: masas[idx]
+  a: aristas[idx]
 
 respuesta: redondear(n * A / ((a * 0.0000001)^3 * 6.022 * 10^23), 1)
 tipo: input

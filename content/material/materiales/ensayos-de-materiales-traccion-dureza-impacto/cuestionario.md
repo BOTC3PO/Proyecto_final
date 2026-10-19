@@ -480,7 +480,8 @@ metadata:
 
 variables:
   l0: uno_de([50, 80, 100])
-  lf: uno_de([60, 100, 120, 130])
+  k: uno_de([10, 20, 25, 30])
+  lf: l0 + l0 * k / 100
 
 respuesta: redondear((lf - l0) / l0 * 100, 1)
 tipo: input
@@ -505,7 +506,7 @@ metadata:
   tags: ["ensayos", "traccion"]
 
 variables:
-  sig: random(200, 400)
+  sig: random(100, 250)
   e: uno_de([200000, 70000])
 
 respuesta: redondear(sig / e * 100, 3)

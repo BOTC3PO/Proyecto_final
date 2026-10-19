@@ -39,3 +39,11 @@ Todo herraje se elige para la línea de perfiles con la que se trabaja. Cada sis
 ## Mantenimiento
 
 Los rodamientos se limpian y se lubrican con productos adecuados, sin aceites que atraigan polvo. Los canales de drenaje se mantienen libres. Los tornillos de los herrajes se revisan periódicamente porque se aflojan con el uso.
+
+## Seguridad y uso
+
+El herraje también cumple una función de seguridad. En puertas y ventanas accesibles desde la calle se eligen cierres de varios puntos de anclaje y cerraduras de calidad, que dificultan forzar la abertura. En pisos altos o donde viven niños, las ventanas abatibles y oscilobatientes pueden llevar **limitadores de apertura** o trabas que impiden una apertura total sin una llave o un mecanismo específico, para prevenir caídas.
+
+## Peso de la hoja y duración
+
+Cada herraje soporta un peso máximo de hoja que informa el fabricante. Colocar un herraje por debajo de la capacidad que exige una hoja grande o con vidrio doble provoca que la hoja baje, roce el marco y se deforme con el tiempo. También se tiene en cuenta la frecuencia de uso: una puerta de acceso a un local abre y cierra miles de veces más que una ventana de dormitorio y necesita herrajes más robustos.

@@ -43,3 +43,11 @@ La seguridad en un torno depende de hábitos. Un protocolo de trabajo convierte 
 ## Marco legal
 
 En Argentina la seguridad en el trabajo se rige por la Ley 19.587 de Higiene y Seguridad en el Trabajo y su Decreto reglamentario 351/79, que incluyen condiciones sobre protección de máquinas, elementos de protección personal y orden y limpieza. El empleador tiene responsabilidades de capacitación y provisión de elementos de protección, y el trabajador tiene la obligación de usarlos y respetar los procedimientos. En el plan de este oficio se mencionan además normas de organismos de seguridad como la ACHS de Chile, que sirven de referencia técnica y no son normativa argentina.
+
+## Orden del puesto y postura
+
+El puesto de trabajo se mantiene despejado: las herramientas y los instrumentos de medición tienen un lugar fijo, fuera de las guías y del carro, y el piso alrededor del torno se mantiene limpio y seco para no resbalar. La postura de trabajo es estable, con los pies firmes y sin inclinarse sobre las partes giratorias. La iluminación debe permitir ver la pieza y el filo de la herramienta sin acercar la cara.
+
+## Qué hacer ante un incidente
+
+Si algo sale mal, lo primero es **detener la máquina** con el botón de parada, sin intentar frenar la pieza con las manos. Después se avisa al responsable, se asiste a la persona lesionada según los primeros auxilios que correspondan y se pide ayuda médica si hace falta. Ninguna pieza o herramienta se retira con la máquina en movimiento. Los incidentes sin lesión, los llamados casi accidentes, también se registran y se comentan en el taller: son la mejor fuente para corregir un hábito antes de que cause un daño.

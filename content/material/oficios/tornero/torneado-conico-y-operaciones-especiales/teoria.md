@@ -33,3 +33,11 @@ El moleteado no saca viruta: marca en la superficie un dibujo en relieve, rectil
 ## Control
 
 El cono se verifica con calibre de conos o con un trazado de azul de Prusia sobre el elemento con el que va a acoplarse, que muestra el contacto. Una pieza cónica, para que acople, tiene que tener el mismo ángulo, no solo el mismo diámetro.
+
+## Un ejemplo de cálculo
+
+Un cono de 40 mm de diámetro mayor, 30 mm de diámetro menor y 100 mm de longitud tiene una conicidad de (40 − 30) ÷ 100 = 0,1, es decir 1:10. El semiángulo se obtiene como el arco cuya tangente es (40 − 30) ÷ (2 × 100) = 0,05, que da aproximadamente 2,86 grados: ése es el ángulo que se inclina el carro superior. Si la pieza se tornea entre puntas y el cono ocupa toda su longitud, el corrimiento del contrapunto vale la mitad de la diferencia de diámetros, 5 mm; si el cono es más corto que la pieza, el corrimiento aumenta en proporción a la longitud total de la pieza dividida por la longitud del cono.
+
+## Conos normalizados
+
+Muchas piezas de uso común tienen conos normalizados para que sean intercambiables, como los conos Morse de los portabrocas y los puntos de los contrapuntos, cuya conicidad ronda 1:20 con pequeñas variaciones según el tamaño. Antes de tornear un cono para acoplar con otro elemento, conviene medir ese elemento o consultar la norma correspondiente.

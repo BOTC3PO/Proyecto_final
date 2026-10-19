@@ -42,3 +42,11 @@ Un reloj puede ser un recuerdo familiar o una inversión. El relojero cuida los 
 ## Mantenerse actualizado
 
 La relojería combina tradición y tecnología: aparecen nuevos calibres, relojes inteligentes y piezas antiguas que exigen técnicas casi artesanales. Un buen profesional sigue formándose, comparte experiencia con colegas y cuida sus herramientas.
+
+## Tipos de relojes, tipos de trabajo
+
+El mercado de la relojería es muy variado. Los relojes **a cuarzo** se atienden con trabajos frecuentes y rápidos, como el cambio de pila o de correa, el sellado y el reemplazo del módulo. Los relojes **mecánicos** requieren una revisión periódica completa, con desarme, limpieza, lubricación y ajuste, y el trabajo es más largo y de mayor valor. Los relojes antiguos y de colección exigen conocimientos históricos y mucho cuidado al conservar las piezas originales. Cada nicho tiene clientes, tiempos y precios distintos, y el relojero decide en qué se especializa.
+
+## Reputación y clientes
+
+En un oficio donde el cliente deja un objeto personal y valioso, la confianza se construye con el trato: explicar con claridad lo que se hizo, cumplir los plazos informados y devolver las piezas reemplazadas cuando el cliente lo pide. La recomendación de boca en boca sigue siendo la principal fuente de clientes, y hoy se suma la visibilidad en redes y en mapas, donde las opiniones de los clientes pesan mucho.

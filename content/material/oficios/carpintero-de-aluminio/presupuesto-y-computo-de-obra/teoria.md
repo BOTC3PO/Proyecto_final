@@ -45,3 +45,11 @@ Los precios de los perfiles y vidrios cambian con frecuencia. En este material n
 ## Seguimiento
 
 Al terminar la obra se compara lo presupuestado con lo gastado real. Esa comparación es la mejor herramienta para ajustar futuros presupuestos y mejorar el aprovechamiento de los materiales.
+
+## Aprovechar las barras: un ejemplo
+
+Los perfiles suelen venderse en barras de largo fijo, por ejemplo de 6 metros. Si una pieza mide 1,45 m, de cada barra salen 4 piezas (5,80 m) y sobran 20 cm: se aprovecha el 96,7 % del material. Si la misma pieza midiera 1,60 m, saldrían 3 por barra y quedaría un sobrante de 1,20 m, con un aprovechamiento del 80 %. Antes de comprar, el taller agrupa las piezas de distintas aberturas para completar barras y reducir el desperdicio, y descuenta del largo útil el espesor del disco de corte en cada tajo. Ese ahorro es parte de la ganancia del presupuesto.
+
+## Imprevistos
+
+Siempre hay diferencias entre lo medido en el plano y la obra real: un vano fuera de escuadra, una mocheta que no coincide con el plano, un vidrio que se rompe. Una parte del presupuesto se reserva para esos imprevistos, y las condiciones para cobrar cambios de medida o trabajos adicionales se acuerdan por escrito con el cliente antes de empezar.
