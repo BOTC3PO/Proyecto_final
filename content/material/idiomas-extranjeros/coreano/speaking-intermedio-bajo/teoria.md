@@ -16,6 +16,15 @@ En B1 se expresan opiniones, planes, motivos, peticiones y experiencias con estr
 - **Comparación**: N보다; **condición**: -(으)면; **incapacidad**: 못 + verbo.
 - **Rechazo cortés**: 괜찮아요, 미안해요 + motivo.
 
+## Ampliación: situaciones y diálogos
+- **Pedir y dar permiso**: — **여기에서 사진을 찍어도 돼요?** — **네, 찍어도 돼요. 하지만 플래시는 안 돼요.** (— ¿Puedo sacar fotos acá? — Sí, pero no con flash.)
+- **Proponer un plan**: — **주말에 같이 영화 볼까요?** — **좋아요. 몇 시에 만날까요?** (— ¿Vemos una película juntos el fin de semana? — Dale. ¿A qué hora nos encontramos?)
+- **Explicar un motivo**: **늦어서 죄송해요. 길이 많이 막혔어요.** (Perdón por llegar tarde; había mucho tráfico.)
+- **Contar una experiencia**: **저는 제주도에 가 본 적이 있어요.** (Estuve una vez en Jeju.)
+- **Dar consejo**: **감기에 걸렸으면 푹 쉬는 게 좋겠어요.** (Si estás resfriado, conviene que descanses bien.)
+- **Rechazo cortés**: **죄송하지만 그날은 약속이 있어서 못 가요.** (Lo siento, pero ese día tengo un compromiso y no puedo ir.)
+- **Entonación**: en el habla natural se acorta y se une el sonido final con el inicial de la palabra siguiente (liaison); practicá leyendo en voz alta frases completas.
+
 ## Errores comunes de hispanohablantes
 1. **Usar -지만 para causa** (*지하철이 고장 나지만 늦었어요*): es contraste; para causa, -아서/어서.
 2. **Contestar 아니요 directamente**: suele suavizarse (*괜찮아요*, *좀 어려울 것 같아요*).

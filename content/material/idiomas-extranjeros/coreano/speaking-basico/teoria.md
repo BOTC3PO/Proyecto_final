@@ -13,6 +13,14 @@ En A1 se aprende a saludar, presentarse, pedir, preguntar precios y direcciones,
 - **Deseo**: -고 싶어요.
 - **Propuesta**: -아/어요 (*같이 밥 먹어요*).
 
+## Ampliación: diálogos modelo y pronunciación
+- **Presentación**: — **안녕하세요? 저는 마리아예요. 스페인 사람이에요.** — **만나서 반갑습니다.** (— Hola, soy María, soy española. — Mucho gusto.)
+- **En un café**: — **아메리카노 한 잔 주세요.** — **따뜻한 거요, 차가운 거요?** — **따뜻한 거 주세요.** (— Un americano, por favor. — ¿Caliente o frío? — Caliente.)
+- **Para preguntar el camino**: **실례합니다. 지하철역이 어디예요?** (Disculpe, ¿dónde está la estación de metro?)
+- **Pronunciación**: distinguí las tres series de consonantes: suave (**ㄱ**), aspirada (**ㅋ**) y tensa (**ㄲ**); por ejemplo **달** (luna), **탈** (máscara), **딸** (hija). Las consonantes finales (받침) se pronuncian sin soltar el aire: **밥** *bap*, **꽃** *kkot*.
+- **Respuestas cortas**: **네** (sí), **아니요** (no), **잠깐만요** (un momento), **괜찮아요** (está bien).
+- **Cortesía**: terminá las frases con **-요** o **-ㅂ니다**; evitá **반말** con desconocidos y mayores.
+
 ## Errores comunes de hispanohablantes
 1. **Mezclar 계세요 y 가세요**: 안녕히 가세요 se dice a quien se va; 안녕히 계세요, a quien se queda.
 2. **Usar 반말 (안녕?)** con desconocidos o mayores.

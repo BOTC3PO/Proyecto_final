@@ -12,6 +12,14 @@ En el nivel básico se entienden saludos, números, horas, lugares y preguntas s
 - **Posiciones**: 앞 (delante), 뒤 (detrás), 옆 (al lado), 왼쪽 (izquierda), 오른쪽 (derecha).
 - **Entonación**: en las preguntas la terminación (-요) sube ligeramente; el coreano no es una lengua tonal.
 
+## Ampliación: ejercicios de escucha
+- **Mini-dialogo 1**: — **지금 몇 시예요?** — **세 시 이십 분이에요.** (— ¿Qué hora es? — Son las tres y veinte.) Fijate: la **hora** usa numeral nativo (**세 시**) y los **minutos**, sino-coreano (**이십 분**).
+- **Mini-dialogo 2**: — **이 사과 얼마예요?** — **한 개에 팔백 원이에요.** (— ¿Cuánto cuesta esta manzana? — Ochocientos wones cada una.)
+- **Lugares**: **학교** (escuela), **병원** (hospital), **식당** (restaurante), **은행** (banco), **지하철역** (estación de metro).
+- **Pistas**: la palabra **어디** (dónde), **언제** (cuándo), **누구** (quién), **무엇/뭐** (qué) anuncia el tipo de dato que se espera.
+- **Asimilación**: **감사합니다** se oye *kamsahamnida* (la ㅂ final se vuelve ㅁ ante ㄴ).
+- **Estrategia**: anotá el número y el sustantivo contado; luego identificá si es hora, precio, fecha o cantidad.
+
 ## Errores comunes de hispanohablantes
 1. **Confundir numerales nativos y sino-coreanos**: *세 시* (3 en punto) frente a *삼 월* (marzo).
 2. **No distinguir consonantes suaves, aspiradas y tensas** (ㄱ/ㅋ/ㄲ), que cambian el significado.

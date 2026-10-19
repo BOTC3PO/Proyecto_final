@@ -13,6 +13,13 @@ En A1 se escriben frases cortas correctas: identificación, gustos, acciones y l
 - **Espaciado (띄어쓰기)**: las palabras se separan con espacio; las partículas se pegan al sustantivo (*학교에*).
 - **Números**: nativos con contadores (*세 명, 일곱 시*), sino-coreanos para fechas (*오월 오일*).
 
+## Ampliación: modelo de texto y lista de control
+Texto modelo: **저는 마리아입니다. 스페인에서 왔습니다. 저는 학생입니다. 한국어를 공부합니다. 주말에는 친구와 영화를 봅니다.**
+- **Notá**: cada oración termina en **-ㅂ니다/입니다**; **에서** indica el origen (**스페인에서 왔습니다**); **와** une a **친구** con la acción (**친구와**).
+- **Lista de control**: ¿puse el verbo al final? ¿elegí **은/는** para el tema y **을/를** para el objeto? ¿escribí las partículas pegadas al sustantivo? ¿escribí los números con la serie correcta (**세 명**, **오월**)?
+- **Frases para ampliar**: **저는 …을/를 좋아합니다** (me gusta…), **저는 …에 갑니다** (voy a…), **저는 …을/를 먹습니다** (como…).
+- **Puntuación**: el coreano usa punto (**.**), coma (**,**), signo de pregunta (**?**), y comillas como en español.
+
 ## Errores comunes de hispanohablantes
 1. **Elegir mal 을/를** o 은/는 según el final.
 2. **Poner el verbo en medio de la frase.**
